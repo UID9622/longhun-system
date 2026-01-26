@@ -27,7 +27,11 @@
     "伪代码识别",
     "代码安全",
     "龙魂系统",
-    "智能避坑"
+    "智能避坑",
+    "版权水印",
+    "数据主权",
+    "DNA追溯",
+    "Notion水印"
   ],
   "activationEvents": [
     "onLanguage:python",
@@ -36,7 +40,9 @@
     "onLanguage:java",
     "onLanguage:cpp",
     "onLanguage:bash",
-    "onLanguage:shellscript"
+    "onLanguage:shellscript",
+    "onLanguage:markdown",
+    "onLanguage:html"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -63,6 +69,38 @@
       {
         "command": "cnsh.aiTypeAnnotation",
         "title": "🏷️ AI输出类型标注"
+      },
+      {
+        "command": "cnsh.insertWatermark",
+        "title": "📜 插入版权水印块"
+      },
+      {
+        "command": "cnsh.insertWatermarkStandard",
+        "title": "📜 插入水印块 - 标准版"
+      },
+      {
+        "command": "cnsh.insertWatermarkCompact",
+        "title": "📜 插入水印块 - 精简版"
+      },
+      {
+        "command": "cnsh.insertWatermarkMinimal",
+        "title": "📜 插入水印块 - 极简版"
+      },
+      {
+        "command": "cnsh.insertWatermarkBeautified",
+        "title": "📜 插入水印块 - 美化版"
+      },
+      {
+        "command": "cnsh.insertWatermarkCode",
+        "title": "📜 插入水印块 - 代码仓库版"
+      },
+      {
+        "command": "cnsh.insertWatermarkMarkdown",
+        "title": "📜 插入水印块 - Markdown版"
+      },
+      {
+        "command": "cnsh.validateWatermark",
+        "title": "🔍 验证水印块完整性"
       }
     ],
     "keybindings": [
@@ -79,6 +117,16 @@
       {
         "command": "cnsh.addDnaHeader",
         "key": "ctrl+alt+d",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cnsh.insertWatermark",
+        "key": "ctrl+alt+w",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cnsh.validateWatermark",
+        "key": "ctrl+alt+shift+w",
         "when": "editorTextFocus"
       }
     ],
@@ -120,6 +168,52 @@
           ],
           "default": "manual",
           "description": "修正方式"
+        },
+        "cnsh.watermark.defaultType": {
+          "type": "string",
+          "enum": [
+            "standard",
+            "compact",
+            "minimal",
+            "beautified",
+            "code_repo",
+            "article",
+            "collaboration",
+            "csdn",
+            "markdown"
+          ],
+          "default": "compact",
+          "description": "默认水印块类型"
+        },
+        "cnsh.watermark.creatorName": {
+          "type": "string",
+          "default": "诸葛鑫",
+          "description": "创作者姓名"
+        },
+        "cnsh.watermark.creatorEnglishName": {
+          "type": "string",
+          "default": "Lucky",
+          "description": "创作者英文名"
+        },
+        "cnsh.watermark.uid": {
+          "type": "string",
+          "default": "9622",
+          "description": "创作者UID"
+        },
+        "cnsh.watermark.dnaPrefix": {
+          "type": "string",
+          "default": "#ZHUGEXIN⚡️2026",
+          "description": "DNA追溯码前缀"
+        },
+        "cnsh.watermark.whitepaperVersion": {
+          "type": "string",
+          "default": "WP-v1.0.0",
+          "description": "白皮书版本"
+        },
+        "cnsh.watermark.licenseType": {
+          "type": "string",
+          "default": "木兰宽松许可证 v2",
+          "description": "许可证类型（代码仓库用）"
         }
       }
     },
@@ -137,6 +231,16 @@
         },
         {
           "command": "cnsh.aiTypeAnnotation",
+          "group": "1_modification",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "cnsh.insertWatermark",
+          "group": "1_modification",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "cnsh.validateWatermark",
           "group": "1_modification",
           "when": "editorTextFocus"
         }
