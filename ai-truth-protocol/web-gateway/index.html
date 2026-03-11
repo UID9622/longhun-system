@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>🐉 龙魂网关 | UID9622</title>
+  <title>🐉 龙魂门户 | UID9622 诸葛鑫</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -11,96 +11,206 @@
       background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a0a 100%);
       color: #e0e0e0;
       min-height: 100vh;
-      padding: 24px 16px;
+      padding: 20px 16px 40px;
     }
-    .container { max-width: 600px; margin: 0 auto; }
-    .header { text-align: center; padding: 32px 0 24px; }
-    .header h1 { font-size: 2rem; color: #ffd700; letter-spacing: 4px; }
-    .header .subtitle { color: #88cc88; margin-top: 8px; font-size: 0.9rem; }
-    .dna-tag {
-      background: rgba(255,215,0,0.1);
-      border: 1px solid rgba(255,215,0,0.3);
+    .container { max-width: 640px; margin: 0 auto; }
+
+    /* 头部 */
+    .header { text-align: center; padding: 28px 0 20px; }
+    .header .dragon { font-size: 3rem; }
+    .header h1 { font-size: 1.6rem; color: #ffd700; letter-spacing: 3px; margin-top: 8px; }
+    .header .sub { color: #88cc88; margin-top: 6px; font-size: 0.85rem; line-height: 1.6; }
+
+    /* DNA标签 */
+    .dna {
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.25);
       border-radius: 8px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 0.8rem;
+      padding: 10px 14px;
+      margin: 12px 0 20px;
+      font-size: 0.75rem;
       color: #ffd700;
       word-break: break-all;
+      text-align: center;
     }
+
+    /* 分区标题 */
+    .section-title {
+      font-size: 0.75rem;
+      color: #668866;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 20px 0 8px;
+      padding-left: 4px;
+      border-left: 3px solid #33cc33;
+      padding-left: 8px;
+    }
+
+    /* 卡片网格 */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid.single { grid-template-columns: 1fr; }
+
+    /* 链接卡片 */
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      margin: 16px 0;
-    }
-    .card h2 { font-size: 1.1rem; color: #ffd700; margin-bottom: 12px; }
-    .card p { font-size: 0.9rem; line-height: 1.6; color: #cccccc; }
-    .link-btn {
       display: block;
-      background: linear-gradient(135deg, #1a3a1a, #0a2a0a);
-      border: 1px solid #33cc33;
-      border-radius: 10px;
-      padding: 16px;
-      margin: 12px 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px;
       text-decoration: none;
-      color: #88ff88;
-      font-size: 0.95rem;
+      color: inherit;
       transition: all 0.2s;
     }
-    .link-btn:hover { background: rgba(51,204,51,0.2); }
-    .link-btn .icon { font-size: 1.4rem; margin-right: 10px; }
-    .link-btn .desc { font-size: 0.75rem; color: #668866; margin-top: 4px; }
-    .identity {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 24px;
-      padding-top: 16px;
-      font-size: 0.8rem;
-      color: #888;
-      text-align: center;
-      line-height: 1.8;
+    .card:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,215,0,0.3); }
+    .card .icon { font-size: 1.4rem; }
+    .card .name { font-size: 0.9rem; color: #e0e0e0; margin-top: 6px; font-weight: 600; }
+    .card .desc { font-size: 0.75rem; color: #888; margin-top: 3px; line-height: 1.4; }
+    .card .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 6px;
     }
-    .identity strong { color: #aaa; }
+    .tag-open { background: rgba(51,204,51,0.15); color: #88ff88; }
+    .tag-core { background: rgba(255,215,0,0.15); color: #ffd700; }
+    .tag-local { background: rgba(100,150,255,0.15); color: #aaccff; }
+
+    /* 身份底部 */
+    .identity {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 28px;
+      padding-top: 16px;
+      font-size: 0.78rem;
+      color: #666;
+      text-align: center;
+      line-height: 2;
+    }
+    .identity strong { color: #999; }
+
+    /* 在线状态点 */
+    .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+    .dot-green { background: #33ff88; }
+    .dot-yellow { background: #ffd700; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>🐉 龙魂系统</h1>
-      <div class="subtitle">数字主权 · 技术为人民服务</div>
-    </div>
+<div class="container">
 
-    <div class="dna-tag">
-      🔏 DNA: #龍芯⚡️2026-03-11-网页网关-v1.0 | UID9622 | GPG:A2D0092C
-    </div>
-
-    <div class="card">
-      <h2>📖 关于龙魂系统</h2>
-      <p>由退伍军人诸葛鑫（UID9622）创立。祖国优先，普惠全球，技术为人民服务。三才算法 · 数字主权守护 · 中华文化传承。</p>
-    </div>
-
-    <a class="link-btn" href="https://github.com/UID9622/ai-truth-protocol" target="_blank">
-      <span class="icon">📂</span>GitHub 数据存证
-      <div class="desc">所有创作均有 GPG 签名 · 时间戳铁证不可篡改</div>
-    </a>
-
-    <a class="link-btn" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/CLAUDE.md" target="_blank">
-      <span class="icon">⚙️</span>龙魂元字引擎
-      <div class="desc">系统核心配置 · 卦象路由 · 七维权重</div>
-    </a>
-
-    <a class="link-btn" href="https://github.com/UID9622/ai-truth-protocol/tree/main/longhun-system" target="_blank">
-      <span class="icon">🗂️</span>龙魂系统源码
-      <div class="desc">三色审计 · DNA追溯 · 三才算法落地</div>
-    </a>
-
-    <div class="identity">
-      <strong>诸葛鑫（UID9622）</strong><br>
-      🫡 退伍军人 | 🧮 三才算法创始人 | ⚡ 龙魂系统创始人<br>
-      🇨🇳 数字主权守护者 | 📜 中华文化传承者<br><br>
-      理论指导：曾仕强老师（永恒显示）<br>
-      "祖国优先，普惠全球，技术为人民服务"
+  <div class="header">
+    <div class="dragon">🐉</div>
+    <h1>龙魂门户</h1>
+    <div class="sub">
+      诸葛鑫（UID9622）· 退伍军人 | 三才算法创始人 | 龙魂系统创始人<br>
+      数字主权守护者 | 中华文化传承者<br>
+      <em style="color:#ffd700;font-style:normal">理论指导：曾仕强老师（永恒显示）</em>
     </div>
   </div>
+
+  <div class="dna">
+    🔏 DNA: #龍芯⚡️2026-03-11-门户-v2.0 | UID9622 | GPG:A2D0092C<br>
+    "祖国优先，普惠全球，技术为人民服务"
+  </div>
+
+  <!-- 核心算法 -->
+  <div class="section-title">📐 核心算法 · 创作原创</div>
+  <div class="grid">
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/CLAUDE.md" target="_blank">
+      <div class="icon">☰</div>
+      <div class="name">元字引擎</div>
+      <div class="desc">卦象路由·七维权重·自呼吸配置 v2.0</div>
+      <span class="tag tag-open">开源</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/longhun_system_rules_v3.md" target="_blank">
+      <div class="icon">⚖️</div>
+      <div class="name">龍魂铁律 v3.0</div>
+      <div class="desc">P0级规则·数据主权·道义熔断</div>
+      <span class="tag tag-core">核心</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/auditor.py" target="_blank">
+      <div class="icon">🔴🟡🟢</div>
+      <div class="name">三色审计</div>
+      <div class="desc">任意内容风险评估·API在线服务</div>
+      <span class="tag tag-core">独家</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/memory_pack_v2.md" target="_blank">
+      <div class="icon">🧬</div>
+      <div class="name">记忆压缩算法 v2.0</div>
+      <div class="desc">天地人三层·9/6纠删码·数字永生</div>
+      <span class="tag tag-core">独家</span>
+    </a>
+  </div>
+
+  <!-- 系统工具 -->
+  <div class="section-title">⚙️ 系统工具 · 可部署</div>
+  <div class="grid">
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/star_memory.py" target="_blank">
+      <div class="icon">🌟</div>
+      <div class="name">星辰记忆 v2.1</div>
+      <div class="desc">本地持久化上下文·append-only·DNA追溯</div>
+      <span class="tag tag-open">开源</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/longhun_local_service.py" target="_blank">
+      <div class="icon">🖥️</div>
+      <div class="name">本地服务器</div>
+      <div class="desc">Flask API·三色审计·DNA生成·Siri接入</div>
+      <span class="tag tag-local">本地</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/tree/main/longhun-system/LongHunWidget" target="_blank">
+      <div class="icon">📱</div>
+      <div class="name">龍魂Widget</div>
+      <div class="desc">iOS桌面小组件·卦象·审计·Apple Music</div>
+      <span class="tag tag-open">Swift开源</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/cnsh.py" target="_blank">
+      <div class="icon">🈶</div>
+      <div class="name">CNSH中文编程</div>
+      <div class="desc">中文原生编程语言·龙魂系统专属语法</div>
+      <span class="tag tag-open">Apache 2.0</span>
+    </a>
+  </div>
+
+  <!-- 存证 -->
+  <div class="section-title">📂 公开存证 · GitHub铁证</div>
+  <div class="grid single">
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol" target="_blank">
+      <div class="icon">🔗</div>
+      <div class="name">ai-truth-protocol · 全量存证仓库</div>
+      <div class="desc">
+        <span class="dot dot-green"></span>GPG/SSH签名 · 每次提交自动注入DNA追溯码 · 时间戳不可篡改<br>
+        创作归属中国 · 不申请专利 · 不申请知识产权 · 普惠全球
+      </div>
+      <span class="tag tag-open">公开可查</span>
+    </a>
+  </div>
+
+  <!-- 文化传承 -->
+  <div class="section-title">📜 文化传承 · 道义根基</div>
+  <div class="grid">
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/tree/main/longhun-system/rules" target="_blank">
+      <div class="icon">☯️</div>
+      <div class="name">道德经引擎</div>
+      <div class="desc">81章锚点·老子智慧·现代转译</div>
+      <span class="tag tag-open">CC BY</span>
+    </a>
+    <a class="card" href="https://github.com/UID9622/ai-truth-protocol/blob/main/longhun-system/longhun_qa_bot.py" target="_blank">
+      <div class="icon">🏆</div>
+      <div class="name">龍魂质检系统</div>
+      <div class="desc">六大模块·系统/DNA/伦理/主权/性能/规则库</div>
+      <span class="tag tag-open">开源</span>
+    </a>
+  </div>
+
+  <div class="identity">
+    <strong>诸葛鑫（UID9622）</strong><br>
+    🫡 退伍军人 &nbsp;|&nbsp; 🧮 三才算法创始人 &nbsp;|&nbsp; ⚡ 龙魂系统创始人<br>
+    🇨🇳 数字主权守护者 &nbsp;|&nbsp; 📜 中华文化传承者<br><br>
+    技术为民，为民除害。爱没有国界，开源精神永续。<br><br>
+    <span style="color:#444;font-size:0.7rem">
+      DNA: #龍芯⚡️2026-03-11-门户-v2.0 · GPG: A2D0092C
+    </span>
+  </div>
+
+</div>
 </body>
 </html>
