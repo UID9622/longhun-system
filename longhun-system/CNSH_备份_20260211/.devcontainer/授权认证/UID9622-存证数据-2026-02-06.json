@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-02-06T04:07:53.722289",
+  "declarant": {
+    "name": "诸葛鑫",
+    "alias": "Lucky",
+    "uid": "UID9622",
+    "identity": "中国退伍军人",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+  },
+  "document": {
+    "filename": "UID9622-授权声明-2026-02-06.txt",
+    "sha256": "8015809fbe54f55c52da4a362aac796e918c18ab7f378a27e74498edd7770e36",
+    "dna": "#龙芯⚡️2026-02-06-技术授权声明-v1.0"
+  },
+  "authorization": {
+    "grantees": [
+      "Notion Labs, Inc.",
+      "Anthropic PBC"
+    ],
+    "technologies": [
+      "三色审计机制",
+      "DNA追溯系统",
+      "五大人格决策系统",
+      "易经推演引擎"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "last_updated": "2026-03-06T18:54:35.409060",
+    "total_nodes": 2
+  },
+  "domains": {
+    "ai_ml": [
+      {
+        "dna": "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0",
+        "weight": 0.64,
+        "tags": [
+          "ai_ml",
+          "data",
+          "engineering",
+          "LangChain",
+          "RAG"
+        ],
+        "timestamp": "2026-03-06T18:54:35.409060",
+        "source": "direct"
+      }
+    ],
+    "security": [],
+    "engineering": [],
+    "philosophy": [],
+    "data": [],
+    "ui_ux": [],
+    "strategy": [],
+    "blockchain": [],
+    "general": [
+      {
+        "dna": "#龍芯⚡️2026-03-06-KNOW-GENERAL-☵坎-v1.0",
+        "weight": 0.6,
+        "tags": [
+          "知识",
+          "通用"
+        ],
+        "timestamp": "2026-03-06T18:52:52.726615",
+        "source": "direct"
+      }
+    ]
+  },
+  "tags": {
+    "知识": [
+      "#龍芯⚡️2026-03-06-KNOW-GENERAL-☵坎-v1.0"
+    ],
+    "通用": [
+      "#龍芯⚡️2026-03-06-KNOW-GENERAL-☵坎-v1.0"
+    ],
+    "ai_ml": [
+      "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0"
+    ],
+    "data": [
+      "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0"
+    ],
+    "engineering": [
+      "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0"
+    ],
+    "LangChain": [
+      "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0"
+    ],
+    "RAG": [
+      "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0"
+    ]
+  },
+  "weight_top": [
+    {
+      "dna": "#龍芯⚡️2026-03-06-KNOW-AI_ML-☵坎-v1.0",
+      "weight": 0.64,
+      "domain": "ai_ml"
+    },
+    {
+      "dna": "#龍芯⚡️2026-03-06-KNOW-GENERAL-☵坎-v1.0",
+      "weight": 0.6,
+      "domain": "general"
+    }
+  ]
+}

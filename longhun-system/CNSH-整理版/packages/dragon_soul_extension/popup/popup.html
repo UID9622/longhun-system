@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐉 龙魂·守护者</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🐉 龙魂·思维主权守护者</h1>
+      <div class="version">v1.0-ETERNAL</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">今日拦截</div>
+        <div class="stat-value" id="blockedCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">今日隔离</div>
+        <div class="stat-value" id="quarantineCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">今日修正</div>
+        <div class="stat-value" id="normalizedCount">0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>⚡ 快速操作</h3>
+      <button id="clearQuarantine" class="btn">清空隔离区</button>
+      <button id="exportLogs" class="btn">导出日志</button>
+      <button id="viewDashboard" class="btn btn-primary">查看仪表盘</button>
+    </div>
+
+    <div class="section">
+      <h3>🔐 系统信息</h3>
+      <div class="info-row">
+        <span>GPG指纹:</span>
+        <code>A2D0...26D5F</code>
+      </div>
+      <div class="info-row">
+        <span>UID:</span>
+        <code>9622</code>
+      </div>
+      <div class="info-row">
+        <span>DNA前缀:</span>
+        <code>#龍芯⚡️</code>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

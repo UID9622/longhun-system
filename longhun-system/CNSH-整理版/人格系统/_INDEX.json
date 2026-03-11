@@ -1,0 +1,147 @@
+{
+  "category": "人格系统",
+  "count": 10,
+  "generated_at": "2026-03-06T07:47:21.398694",
+  "pages": [
+    {
+      "id": "4f40d5b9-b416-4f94-8b40-bc070ee4af8f",
+      "title": "71人格协作推演机制 | 集体智慧引擎",
+      "icon": "👥",
+      "tags": [
+        "71人格",
+        "龙魂价值观",
+        "v2.0升级"
+      ],
+      "url": "https://www.notion.so/71-4f40d5b9b4164f948b40bc070ee4af8f",
+      "created": "2025-11-17",
+      "modified": "2026-02-14",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "7e7d22b1-eefb-4275-b261-a97545441928",
+      "title": "👤 关于我 | 创始人与联系方式",
+      "icon": "👤",
+      "tags": [],
+      "url": "https://www.notion.so/7e7d22b1eefb4275b261a97545441928",
+      "created": "2026-02-01",
+      "modified": "2026-02-01",
+      "parent_type": "database_id",
+      "category_reason": "👤"
+    },
+    {
+      "id": "394f5acb-6d3f-4ad6-bdfa-c9dec0cc006f",
+      "title": "完整系统整合方案 | All-in-One",
+      "icon": "",
+      "tags": [
+        "易经算法",
+        "道德经算法",
+        "71人格",
+        "H武器",
+        "龙魂监控",
+        "DNA存储",
+        "AI集成"
+      ],
+      "url": "https://www.notion.so/All-in-One-394f5acb6d3f4ad6bdfac9dec0cc006f",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "5311bb47-3d86-4861-8e0b-78e30e1a067a",
+      "title": "Claude API协作方案 | MCP多人格调度",
+      "icon": "",
+      "tags": [
+        "71人格",
+        "AI集成"
+      ],
+      "url": "https://www.notion.so/Claude-API-MCP-5311bb473d8648618e0b78e30e1a067a",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "f9e9a820-74c1-4016-bd2a-52c258dc2bb8",
+      "title": "人机边界探讨·取代焦虑 | 共存演化引擎",
+      "icon": "",
+      "tags": [
+        "71人格"
+      ],
+      "url": "https://www.notion.so/f9e9a82074c14016bd2a52c258dc2bb8",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "865a6dac-6c31-4ba0-b4c3-fa8e227251f8",
+      "title": "共生智能论·人机融合 | 协同进化引擎",
+      "icon": "",
+      "tags": [
+        "71人格",
+        "龙魂价值观"
+      ],
+      "url": "https://www.notion.so/865a6dac6c314ba0b4c3fa8e227251f8",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "989428bd-a5fd-4912-b4ba-e8bebeed7a1c",
+      "title": "妈宝银行系统·情绪货币发行 | 关系资本引擎",
+      "icon": "",
+      "tags": [
+        "71人格"
+      ],
+      "url": "https://www.notion.so/989428bda5fd4912b4bae8bebeed7a1c",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "f9d5761b-abd9-49db-90c7-8d19af089690",
+      "title": "AI依赖哲学·寂寞伴侣系统 | 情感算法引擎",
+      "icon": "",
+      "tags": [
+        "71人格",
+        "龙魂价值观"
+      ],
+      "url": "https://www.notion.so/AI-f9d5761babd949db90c78d19af089690",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "8e458636-c4b4-499e-848c-3c356ec05ef2",
+      "title": "量子纠缠协作·非局域智能 | 超距协同引擎",
+      "icon": "",
+      "tags": [
+        "71人格"
+      ],
+      "url": "https://www.notion.so/8e458636c4b4499e848c3c356ec05ef2",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    },
+    {
+      "id": "a32b18ed-6934-44f6-ac60-4946274ec8ed",
+      "title": "涌现智能论·整体大于部分 | 协同涌现引擎",
+      "icon": "",
+      "tags": [
+        "71人格",
+        "v2.0升级"
+      ],
+      "url": "https://www.notion.so/a32b18ed693444f6ac604946274ec8ed",
+      "created": "2025-11-17",
+      "modified": "2025-11-17",
+      "parent_type": "database_id",
+      "category_reason": "71人格"
+    }
+  ]
+}
