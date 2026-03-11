@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "graph": {
+    "name": "CNSH 语言系统知识图谱",
+    "version": "2.0",
+    "dnaCode": "#ZHUGEXIN⚡️2025-CNSH-GRAPH-v2.0",
+    "description": "CNSH中文编程语言系统的知识关联图谱，展示语言规范、编译器、加密体系等模块之间的关系。"
+  },
+  "nodes": [
+    {
+      "id": "cnsh-core",
+      "label": "CNSH 核心系统",
+      "type": "root",
+      "description": "CNSH 中文编程语言核心系统"
+    },
+    {
+      "id": "language-foundation",
+      "label": "语言基础",
+      "type": "concept",
+      "description": "CNSH 语言基础规范"
+    },
+    {
+      "id": "syntax-structure",
+      "label": "语法结构",
+      "type": "concept",
+      "description": "CNSH 语法结构和规范"
+    },
+    {
+      "id": "compiler-architecture",
+      "label": "编译器架构",
+      "type": "component",
+      "description": "CNSH 多语言编译系统"
+    },
+    {
+      "id": "encryption-system",
+      "label": "加密体系",
+      "type": "component",
+      "description": "CNSH 三层安全架构"
+    },
+    {
+      "id": "audit-mechanism",
+      "label": "审计机制",
+      "type": "component",
+      "description": "CNSH 三色审计系统"
+    },
+    {
+      "id": "integration-guide",
+      "label": "集成指南",
+      "type": "guide",
+      "description": "LU-Taiji Bundle 集成指南"
+    },
+    {
+      "id": "dna-tracing",
+      "label": "DNA追溯",
+      "type": "security",
+      "description": "DNA代码追溯机制"
+    },
+    {
+      "id": "tcm-compression",
+      "label": "中医记忆压缩",
+      "type": "security",
+      "description": "中医理论数据压缩"
+    },
+    {
+      "id": "yijing-encryption",
+      "label": "易经加密",
+      "type": "security",
+      "description": "易经64卦加密算法"
+    },
+    {
+      "id": "lu-taiji-bundle",
+      "label": "LU-Taiji Bundle",
+      "type": "bundle",
+      "description": "龙魂太极知识包"
+    },
+    {
+      "id": "device-adapters",
+      "label": "设备适配器",
+      "type": "adapter",
+      "description": "华为/华硕设备适配"
+    }
+  ],
+  "edges": [
+    {
+      "from": "cnsh-core",
+      "to": "language-foundation",
+      "label": "包含",
+      "type": "containment"
+    },
+    {
+      "from": "cnsh-core",
+      "to": "syntax-structure",
+      "label": "定义",
+      "type": "definition"
+    },
+    {
+      "from": "language-foundation",
+      "to": "compiler-architecture",
+      "label": "编译",
+      "type": "process"
+    },
+    {
+      "from": "cnsh-core",
+      "to": "encryption-system",
+      "label": "保护",
+      "type": "security"
+    },
+    {
+      "from": "encryption-system",
+      "to": "dna-tracing",
+      "label": "第一层",
+      "type": "layer"
+    },
+    {
+      "from": "encryption-system",
+      "to": "tcm-compression",
+      "label": "第二层",
+      "type": "layer"
+    },
+    {
+      "from": "encryption-system",
+      "to": "yijing-encryption",
+      "label": "第三层",
+      "type": "layer"
+    },
+    {
+      "from": "cnsh-core",
+      "to": "audit-mechanism",
+      "label": "审计",
+      "type": "audit"
+    },
+    {
+      "from": "compiler-architecture",
+      "to": "lu-taiji-bundle",
+      "label": "集成",
+      "type": "integration"
+    },
+    {
+      "from": "lu-taiji-bundle",
+      "to": "device-adapters",
+      "label": "适配",
+      "type": "adaptation"
+    },
+    {
+      "from": "integration-guide",
+      "to": "lu-taiji-bundle",
+      "label": "指南",
+      "type": "documentation"
+    },
+    {
+      "from": "syntax-structure",
+      "to": "dna-tracing",
+      "label": "包含",
+      "type": "containment"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "cnsh-deployment",
+  "version": "1.0.0",
+  "description": "CNSH 本地部署系统 - 集成 Obsidian 和 Ollama 的知识管理和智能助手",
+  "main": "src/server-fixed.js",
+  "scripts": {
+    "start": "node src/server-fixed.js",
+    "start-debug": "./start-debug.sh",
+    "monitor-notion": "node notion-monitor.js",
+    "start-monitor": "./start-notion-monitor.sh",
+    "monitor": "./notion-monitor-daemon.sh",
+    "monitor-start": "./notion-monitor-daemon.sh start",
+    "monitor-stop": "./notion-monitor-daemon.sh stop",
+    "monitor-restart": "./notion-monitor-daemon.sh restart",
+    "monitor-status": "./notion-monitor-daemon.sh status",
+    "monitor-logs": "./notion-monitor-daemon.sh logs",
+    "install-deps": "npm install",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "cnsh",
+    "obsidian",
+    "ollama",
+    "knowledge-management",
+    "ai-assistant",
+    "local-llm"
+  ],
+  "author": "CNSH Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "axios": "^1.5.0",
+    "socket.io": "^4.7.2",
+    "fs-extra": "^11.1.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

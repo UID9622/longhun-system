@@ -1,0 +1,338 @@
+{
+  "category": "安全防护",
+  "count": 19,
+  "generated_at": "2026-03-06T07:47:21.393303",
+  "pages": [
+    {
+      "id": "7fa45c77-5f61-4d8e-8115-89cf0f80d27b",
+      "title": "CNSH多语言编辑器终端 v4.0",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "配置文件",
+        "雯雯",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/CNSH-v4-0-7fa45c775f614d8e811589cf0f80d27b",
+      "created": "2025-09-04",
+      "modified": "2026-01-23",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "30e50f67-3fc5-41ad-bcbf-204e744e8847",
+      "title": "龙魂中枢系统完整安装包",
+      "icon": "🐉",
+      "tags": [
+        "系统保护",
+        "数据管理",
+        "宝宝",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/30e50f673fc541adbcbf204e744e8847",
+      "created": "2025-10-28",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "a8ac42af-96d3-42a8-a061-6eb5bcb8018c",
+      "title": "系统状态实时监控脚本",
+      "icon": "",
+      "tags": [
+        "监控告警",
+        "系统保护",
+        "配置文件",
+        "雯雯",
+        "数据大师"
+      ],
+      "url": "https://www.notion.so/a8ac42af96d342a8a0616eb5bcb8018c",
+      "created": "2025-09-30",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "40430fba-19ff-471a-a516-041ea204c2dc",
+      "title": "网络连接诊断工具",
+      "icon": "",
+      "tags": [
+        "监控告警",
+        "系统保护",
+        "配置文件",
+        "数据大师",
+        "雯雯"
+      ],
+      "url": "https://www.notion.so/40430fba19ff471aa516041ea204c2dc",
+      "created": "2025-09-30",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "e21b38c7-dfb1-4735-8e73-3e7ef40bef34",
+      "title": "核心数据加密与隐藏算法",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "数据管理",
+        "Python环境",
+        "依赖库更新",
+        "中枢",
+        "守护者"
+      ],
+      "url": "https://www.notion.so/e21b38c7dfb147358e733e7ef40bef34",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "bce7f3cb-cb0b-47f3-8bd1-68352f34cd37",
+      "title": "UID9622人格分工体系设计",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "中枢",
+        "数据大师",
+        "雯雯"
+      ],
+      "url": "https://www.notion.so/UID9622-bce7f3cbcb0b47f38bd168352f34cd37",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "9a8ecb53-f530-4912-9337-7e54946279f2",
+      "title": "UID9622人格职责分配蓝图",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "中枢",
+        "宝宝",
+        "雯雯"
+      ],
+      "url": "https://www.notion.so/UID9622-9a8ecb53f530491293377e54946279f2",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "8657c0de-1051-4ace-be6a-69bf7b53b2a0",
+      "title": "🏠 UID9622本地保密数据处理环境 v2.1",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "数据管理",
+        "权限控制",
+        "备份恢复",
+        "Python环境",
+        "依赖库更新",
+        "数据备份",
+        "权限设置",
+        "宝宝",
+        "中枢",
+        "织网者",
+        "数据大师"
+      ],
+      "url": "https://www.notion.so/UID9622-v2-1-8657c0de10514acebe6a69bf7b53b2a0",
+      "created": "2025-09-13",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "2d9fae12-dd70-4792-9be9-0ef424d9f28f",
+      "title": "🏠 UID9622本地保密数据处理环境",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "数据管理",
+        "权限控制",
+        "Python环境",
+        "依赖库更新",
+        "中枢",
+        "雯雯",
+        "织网者"
+      ],
+      "url": "https://www.notion.so/UID9622-2d9fae12dd7047929be90ef424d9f28f",
+      "created": "2025-09-05",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "2f9931b8-fe6a-4b25-84dc-681e84be18f9",
+      "title": "修正版开发环境搭建 - 逐步执行版",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "雯雯",
+        "宝宝"
+      ],
+      "url": "https://www.notion.so/2f9931b8fe6a4b2584dc681e84be18f9",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "60bd5ebb-45ff-4893-bb5e-fdb818228e78",
+      "title": "zsh环境下开发环境完整搭建",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "配置文件",
+        "雯雯",
+        "中枢",
+        "数据大师"
+      ],
+      "url": "https://www.notion.so/zsh-60bd5ebb45ff4893bb5efdb818228e78",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "0d013ac2-b114-435c-b252-6eda6e744f13",
+      "title": "中枢人格驱动的系统构建理论",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "中枢",
+        "宝宝"
+      ],
+      "url": "https://www.notion.so/0d013ac2b114435cb2526eda6e744f13",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "009992df-1ed4-416b-b57f-6165caa537b6",
+      "title": "macOS zsh终端环境切换指南",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "宝宝"
+      ],
+      "url": "https://www.notion.so/macOS-zsh-009992df1ed4416bb57f6165caa537b6",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "847fa475-76e2-4a67-829f-9f242f36419d",
+      "title": "开发环境完整搭建脚本 - 一键复制版",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "宝宝"
+      ],
+      "url": "https://www.notion.so/847fa47576e24a67829f9f242f36419d",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "28da48e4-3073-44d7-b392-47a2531f6574",
+      "title": "本地API接口服务器 - 完全自主",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "雯雯",
+        "织网者"
+      ],
+      "url": "https://www.notion.so/API-28da48e4307344d7b39247a2531f6574",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "4d6129a0-e1ab-4561-8143-38b12604640d",
+      "title": "网络流量分析与封锁脚本",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "监控告警",
+        "守护者",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/4d6129a0e1ab4561814338b12604640d",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "99e872bc-d49d-40cf-883c-2c43a0d92182",
+      "title": "安全防护监控脚本 - IP追踪与防护",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "监控告警",
+        "守护者",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/IP-99e872bcd49d40cf883c2c43a0d92182",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "d88de934-5e42-4ebe-9746-9463805e030f",
+      "title": "设备反监视防护脚本 - 完全本地检测",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "监控告警",
+        "守护者",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/d88de9345e424ebe97469463805e030f",
+      "created": "2025-09-04",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    },
+    {
+      "id": "decef96b-f210-495d-83b0-b5d4d85b55e6",
+      "title": "🐉 UID9622核心系统启动器 | CNSH标准版",
+      "icon": "",
+      "tags": [
+        "系统保护",
+        "用户服务",
+        "Python环境",
+        "中枢",
+        "雯雯"
+      ],
+      "url": "https://www.notion.so/UID9622-CNSH-decef96bf210495d83b0b5d4d85b55e6",
+      "created": "2025-11-22",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "系统保护"
+    }
+  ]
+}

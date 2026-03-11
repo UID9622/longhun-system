@@ -1,0 +1,46 @@
+# 龍魂系統 · .gitignore
+# DNA: #龍芯⚡️2026-03-06-SECURITY-LOCAL-v1.0
+
+# === 敏感凭证 · 绝对禁止提交 ===
+.env
+*.enc
+*_checksum.txt
+重要的密码/
+*.key
+*.pem
+*.p12
+
+# === 龍魂运行日志 ===
+memory.jsonl
+dna_log.jsonl
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+persona_env/
+
+# === Node ===
+node_modules/
+
+# === macOS ===
+.DS_Store
+
+# === 超大文件 ===
+*.zip
+*.app
+*.framework
+
+# === 超大二进制数据（超过GitHub 100MB限制）===
+数据归集/gz解压/
+数据归集/*.tar.gz
+数据归集/*.gz
+CNSH_备份_20260211/blobs/
+CNSH_备份_20260211/UID9622/FireShot/
+CNSH_备份_20260211/CNSH字体/Noto_Sans_SC/
+sha256-加密签名/sha256-*
+*.tar.gz
+*.tar
+*.ttf
+blobs/sha256-*

@@ -1,0 +1,97 @@
+龍魂·iOS Widget Xcode 配置说明
+DNA: #龍芯⚡️2026-03-07-IOS-XCODE-v1.0
+════════════════════════════════════════════════
+
+【第一步】创建 Widget Extension Target
+
+1. Xcode → File → New → Target
+2. 选择 "Widget Extension"
+3. Product Name: LongHunWidget
+4. Bundle Identifier: com.uid9622.longhun.widget
+5. 取消勾选 "Include Configuration Intent"（静态 Widget，不需要）
+6. Activate scheme → YES
+
+【第二步】把 Swift 文件拷入 Xcode
+
+把 LongHunWidget/ 目录下的 4 个文件拖入 Xcode 的 LongHunWidget 文件夹：
+  · YuanziParser.swift        — 数据模型 + iCloud 读取
+  · LunarCalendar.swift       — 农历转换
+  · LongHunTimeline.swift     — Widget 时间线提供者
+  · LongHunWidget.swift       — UI 视图 + @main 入口
+
+注意: 删除 Xcode 自动生成的 LongHunWidget.swift（原模板），用本目录的文件替换。
+
+【第三步】添加 iCloud Documents 能力
+
+1. 点击项目 → Signing & Capabilities
+2. 选中 LongHunWidget target（Widget Extension）
+3. 点击 "+ Capability" → 搜索 "iCloud"
+4. 勾选 "iCloud Documents"
+5. 在 Containers 区域填入: iCloud.com.uid9622.longhun
+   （点击"+"添加，不要勾选 CloudKit）
+
+【第四步】添加 URL Scheme
+
+主 App Target（com.uid9622.longhun）:
+1. 选中主 App target → Info 标签
+2. 找到 "URL Types" → 点击 "+"
+3. URL Schemes 填入: cnsh
+4. Identifier 填入: com.uid9622.longhun
+
+这样 Widget 的 widgetURL("cnsh://open") 点击后会打开主 App。
+
+【第五步】设置 Deployment Target
+
+Widget Extension target:
+  iOS Deployment Target: 17.0（支持 .contentMarginsDisabled()）
+
+如果要兼容 iOS 16：把 LongHunWidget.swift 中的
+  .contentMarginsDisabled()
+改为:
+  // .contentMarginsDisabled()  // iOS 17+
+
+【第六步】Mac 端运行桥接引擎
+
+# 生成 cnsh_status.json 并写入 iCloud
+龍 iOS桥接
+
+# 查看写入状态
+龍 桥接状态
+
+# 每5分钟自动桥接（可选）
+# 在 crontab -e 中加入:
+# */5 * * * * python3 ~/longhun-system/ios_bridge.py >> ~/longhun-system/logs/ios_bridge.log 2>&1
+
+【文件路径说明】
+
+Mac 写入:
+  ~/Library/Mobile Documents/iCloud~com~uid9622~longhun/Documents/cnsh_status.json
+
+iOS 读取 (iCloud ubiquity container):
+  FileManager.default.url(forUbiquityContainerIdentifier: "iCloud.com.uid9622.longhun")
+  + /Documents/cnsh_status.json
+
+iCloud 自动在 Mac 和 iPhone 之间同步此文件，无需网络 API。
+
+【Widget 预览】
+
+在 Xcode Canvas 中按 Command+Return 可实时预览：
+  Small  (169×169 pt): 中国红背景 · 金色卦象符号 · 三色审计分 · 农历
+  Medium (360×169 pt): 左=卦象区 / 右=系统数据+审计进度条
+
+【故障排查】
+
+问题: Widget 显示占位符（默认☰乾·北辰）
+原因: iCloud 容器未授权 或 cnsh_status.json 未生成
+解决:
+  1. 确认 Signing & Capabilities 中 iCloud Documents 已开启
+  2. 运行 龍 iOS桥接，检查输出路径是否包含 iCloud~com~uid9622~longhun
+  3. 在 iPhone 的"文件" App → iCloud Drive 确认文件同步
+
+问题: widgetURL 点击无反应
+原因: 主 App 未注册 cnsh:// URL Scheme
+解决: 按第四步重新配置 URL Types
+
+════════════════════════════════════════════════
+三色: 🟢 配置完成
+GPG:  A2D0092CEE2E5BA87035600924C3704A8CC26D5F

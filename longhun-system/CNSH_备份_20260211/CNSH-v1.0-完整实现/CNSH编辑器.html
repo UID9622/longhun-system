@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇨🇳 CNSH中文编程编辑器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .editor-section {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .code-editor {
+            width: 100%;
+            min-height: 400px;
+            padding: 15px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            resize: vertical;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .code-editor:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .output-section {
+            margin-top: 20px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .output-title {
+            color: #4ec9b0;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .output-content {
+            color: #d4d4d4;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .template-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .template-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .template-item:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .template-item .template-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .template-item .template-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .status-bar {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .quick-insert {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .quick-insert-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .quick-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .quick-btn {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🇨🇳 CNSH中文编程编辑器</h1>
+            <p>DNA追溯码：#ZHUGEXIN⚡️2026-01-28-CNSH-EDITOR-v1.0 | 创建者：诸葛鑫（UID9622）</p>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 左侧：编辑器 -->
+            <div class="editor-section">
+                <div class="section-title">📝 CNSH代码编辑区</div>
+                
+                <!-- 快速插入按钮 -->
+                <div class="quick-insert">
+                    <div class="quick-insert-title">⚡ 快速插入（点击插入）</div>
+                    <div class="quick-buttons">
+                        <button class="quick-btn" onclick="insertText('打印「')">打印「」</button>
+                        <button class="quick-btn" onclick="insertText('如果【')">如果【】</button>
+                        <button class="quick-btn" onclick="insertText('循环【')">循环【】</button>
+                        <button class="quick-btn" onclick="insertText('函数 主函数() 返回类型 整数 {')">主函数</button>
+                        <button class="quick-btn" onclick="insertText('拼接(「A」, 「B」)')">拼接()</button>
+                        <button class="quick-btn" onclick="insertText('转文本(')">转文本()</button>
+                        <button class="quick-btn" onclick="insertText('整数 ')">整数</button>
+                        <button class="quick-btn" onclick="insertText('文本 ')">文本</button>
+                    </div>
+                </div>
+                
+                <textarea 
+                    id="codeEditor" 
+                    class="code-editor" 
+                    placeholder="在这里输入CNSH代码...
+
+例如：
+函数 主函数() 返回类型 整数 {
+    打印「你好，CNSH！」
+    返回 0
+}"
+                ></textarea>
+                
+                <!-- 操作按钮 -->
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="compileCode()">🔄 编译C代码</button>
+                    <button class="btn btn-secondary" onclick="copyCode()">📋 复制代码</button>
+                    <button class="btn btn-success" onclick="saveCode()">💾 保存文件</button>
+                    <button class="btn btn-secondary" onclick="clearCode()">🗑️ 清空</button>
+                </div>
+                
+                <!-- 输出区 -->
+                <div id="outputSection" class="output-section" style="display: none;">
+                    <div class="output-title">📤 编译输出</div>
+                    <div id="outputContent" class="output-content"></div>
+                </div>
+                
+                <!-- 状态提示 -->
+                <div id="statusBar" class="status-bar" style="display: none;"></div>
+            </div>
+            
+            <!-- 右侧：模板区 -->
+            <div class="editor-section">
+                <div class="section-title">📚 代码模板（点击使用）</div>
+                <div class="template-list">
+                    <div class="template-item" onclick="loadTemplate('hello')">
+                        <div class="template-title">👋 Hello World</div>
+                        <div class="template-desc">最简单的CNSH程序示例</div>
+                    </div>
+                    <div class="template-item" onclick="loadTemplate('profit')">
+                        <div class="template-title">💰 利润计算</div>
+                        <div class="template-desc">计算收入、成本、利润</div>
+                    </div>
+                    <div class="template-item" onclick="loadTemplate('loop')">
+                        <div class="template-title">🔄 循环示例</div>
+                        <div class="template-desc">演示循环和条件语句</div>
+                    </div>
+                    <div class="template-item" onclick="loadTemplate('function')">
+                        <div class="template-title">⚙️ 函数定义</div>
+                        <div class="template-desc">自定义函数和返回值</div>
+                    </div>
+                    <div class="template-item" onclick="loadTemplate('string')">
+                        <div class="template-title">📝 字符串操作</div>
+                        <div class="template-desc">拼接和转文本示例</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CNSH编译器（简化版）
+        class CNSHCompiler {
+            constructor() {
+                this.output = [];
+                this.indentLevel = 0;
+            }
+            
+            // 编译CNSH代码为C代码
+            compile(code) {
+                this.output = [];
+                this.indentLevel = 0;
+                
+                // 添加头部
+                this.addLine('// Generated by CNSH Web Editor');
+                this.addLine('// DNA追溯码：#ZHUGEXIN-⚡️' + new Date().toISOString().split('T')[0]);
+                this.addLine('');
+                this.addLine('#include <stdio.h>');
+                this.addLine('#include <stdlib.h>');
+                this.addLine('#include <string.h>');
+                this.addLine('');
+                
+                // 添加标准库函数
+                this.addStandardLibrary();
+                
+                // 编译主代码
+                this.compileCode(code);
+                
+                return this.output.join('\n');
+            }
+            
+            addStandardLibrary() {
+                this.addLine('// CNSH标准库函数');
+                this.addLine('void 打印(const char* content) {');
+                this.addLine('    printf("%s\\n", content);');
+                this.addLine('}');
+                this.addLine('');
+                this.addLine('char* 拼接(const char* a, const char* b) {');
+                this.addLine('    size_t len_a = strlen(a);');
+                this.addLine('    size_t len_b = strlen(b);');
+                this.addLine('    char* result = malloc(len_a + len_b + 1);');
+                this.addLine('    strcpy(result, a);');
+                this.addLine('    strcat(result, b);');
+                this.addLine('    return result;');
+                this.addLine('}');
+                this.addLine('');
+                this.addLine('char* 转文本(int number) {');
+                this.addLine('    char* str = malloc(32);');
+                this.addLine('    sprintf(str, "%d", number);');
+                this.addLine('    return str;');
+                this.addLine('}');
+                this.addLine('');
+            }
+            
+            compileCode(code) {
+                // 简单编译：处理打印、变量、函数等
+                let lines = code.split('\n');
+                let inFunction = false;
+                let indentLevel = 0;
+                
+                for (let line of lines) {
+                    line = line.trim();
+                    if (!line || line.startsWith('#')) continue;
+                    
+                    // 处理函数定义
+                    if (line.startsWith('函数')) {
+                        inFunction = true;
+                        indentLevel = 1;
+                        let funcName = this.extractFunctionName(line);
+                        this.addLine('int ' + funcName + '() {');
+                        continue;
+                    }
+                    
+                    // 处理返回
+                    if (line.startsWith('返回')) {
+                        let returnValue = line.substring(3).trim();
+                        this.addLine('    return ' + returnValue + ';');
+                        continue;
+                    }
+                    
+                    // 处理如果
+                    if (line.startsWith('如果【')) {
+                        let condition = this.extractCondition(line);
+                        this.addLine('    if (' + condition + ') {');
+                        indentLevel = 2;
+                        continue;
+                    }
+                    
+                    // 处理否则
+                    if (line.startsWith('} 否则 {') || line.startsWith('否则 {')) {
+                        this.addLine('    } else {');
+                        continue;
+                    }
+                    
+                    // 处理循环
+                    if (line.startsWith('循环【')) {
+                        let times = this.extractLoopTimes(line);
+                        this.addLine('    for (int __i = 0; __i < ' + times + '; __i++) {');
+                        indentLevel = 2;
+                        continue;
+                    }
+                    
+                    // 处理闭合大括号
+                    if (line === '}') {
+                        this.addLine('    }');
+                        indentLevel = Math.max(0, indentLevel - 1);
+                        continue;
+                    }
+                    
+                    // 处理打印「...」语法糖
+                    let printMatch = line.match(/打印「(.*)」/);
+                    if (printMatch) {
+                        let content = printMatch[1];
+                        this.addLine('    打印("' + content + '");');
+                        continue;
+                    }
+                    
+                    // 处理打印(...)
+                    if (line.startsWith('打印(') && line.endsWith(');')) {
+                        this.addLine('    ' + line);
+                        continue;
+                    }
+                    
+                    // 处理变量声明
+                    let varMatch = line.match(/(整数|文本) (.+?)\s*=\s*(.+)/);
+                    if (varMatch) {
+                        let type = varMatch[1] === '整数' ? 'int' : 'char*';
+                        let name = varMatch[2];
+                        let value = varMatch[3];
+                        
+                        if (value.startsWith('「') && value.endsWith('」')) {
+                            value = '"' + value.substring(1, value.length - 1) + '"';
+                        }
+                        
+                        this.addLine('    ' + type + ' ' + name + ' = ' + value + ';');
+                        continue;
+                    }
+                }
+                
+                // 添加main函数
+                if (!inFunction) {
+                    this.addLine('int main() {');
+                    this.addLine('    主函数();');
+                    this.addLine('    return 0;');
+                    this.addLine('}');
+                }
+            }
+            
+            extractFunctionName(line) {
+                // 函数 主函数() 返回类型 整数 {
+                let match = line.match(/函数\s+(.+?)\(\)/);
+                return match ? match[1] : 'main';
+            }
+            
+            extractCondition(line) {
+                // 如果【利润 > 0】{
+                let match = line.match(/如果【(.+)】/);
+                return match ? match[1] : 'true';
+            }
+            
+            extractLoopTimes(line) {
+                // 循环【3】{
+                let match = line.match(/循环【(\d+)】/);
+                return match ? match[1] : '1';
+            }
+            
+            addLine(line) {
+                this.output.push(line);
+            }
+        }
+        
+        // 代码模板
+        const templates = {
+            hello: `# CNSH标准示例程序
+# DNA追溯码：#ZHUGEXIN-2026-01-28-HELLO-v1.0
+
+函数 主函数() 返回类型 整数 {
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「🇨🇳 你好，CNSH语言！」
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「」
+    
+    打印「✅ CNSH程序执行完成！」
+    打印「🧬 DNA追溯已生效」
+    
+    返回 0
+}`,
+            
+            profit: `# 利润计算示例
+
+函数 主函数() 返回类型 整数 {
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「💰 利润计算器」
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「」
+    
+    整数 成本 = 80
+    整数 售价 = 120
+    整数 利润 = 售价 - 成本
+    
+    打印「成本：80元」
+    打印「售价：120元」
+    打印「利润：40元」
+    打印「」
+    
+    如果【利润 > 0】{
+        打印「✅ 有利润，盈利！」
+    } 否则 {
+        打印「❌ 亏损，需要调整定价！」
+    }
+    
+    打印「」
+    打印「━━━━━━━━━━━━━━━━━━」
+    
+    返回 0
+}`,
+            
+            loop: `# 循环和条件语句示例
+
+函数 主函数() 返回类型 整数 {
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「🔄 循环测试」
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「」
+    
+    整数 数字 = 1
+    
+    循环【5】{
+        打印(拼接(「第」, 拼接(转文本(数字), 「次循环」)))
+        数字 = 数字 + 1
+    }
+    
+    打印「」
+    
+    如果【数字 > 5】{
+        打印「✅ 循环完成！数字大于5」
+    } 否则 {
+        打印「❌ 循环未完成」
+    }
+    
+    打印「」
+    打印「━━━━━━━━━━━━━━━━━━」
+    
+    返回 0
+}`,
+            
+            function: `# 自定义函数示例
+
+函数 主函数() 返回类型 整数 {
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「⚙️ 函数调用示例」
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「」
+    
+    # 这里演示如何调用函数（实际需要在完整版中定义）
+    整数 结果 = 100 + 200
+    
+    打印(拼接(「计算结果：」, 转文本(结果)))
+    
+    打印「」
+    打印「━━━━━━━━━━━━━━━━━━」
+    
+    返回 0
+}`,
+            
+            string: `# 字符串操作示例
+
+函数 主函数() 返回类型 整数 {
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「📝 字符串操作」
+    打印「━━━━━━━━━━━━━━━━━━」
+    打印「」
+    
+    整数 收入 = 500
+    文本 信息 = 拼接(「收入：」, 拼接(转文本(收入), 「元」))
+    
+    打印(信息)
+    
+    打印「」
+    打印「━━━━━━━━━━━━━━━━━━」
+    
+    返回 0
+}`
+        };
+        
+        // 初始化编译器
+        const compiler = new CNSHCompiler();
+        
+        // 编译代码
+        function compileCode() {
+            const code = document.getElementById('codeEditor').value;
+            
+            if (!code.trim()) {
+                showStatus('⚠️ 请先输入CNSH代码', 'error');
+                return;
+            }
+            
+            try {
+                // 编译为C代码
+                const cCode = compiler.compile(code);
+                
+                // 显示输出
+                document.getElementById('outputSection').style.display = 'block';
+                document.getElementById('outputContent').textContent = cCode;
+                
+                showStatus('✅ 编译成功！C代码已生成', 'success');
+                
+                // 滚动到输出区
+                document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                showStatus('❌ 编译失败：' + error.message, 'error');
+            }
+        }
+        
+        // 复制代码
+        function copyCode() {
+            const code = document.getElementById('codeEditor').value;
+            
+            if (!code.trim()) {
+                showStatus('⚠️ 没有代码可以复制', 'error');
+                return;
+            }
+            
+            navigator.clipboard.writeText(code).then(() => {
+                showStatus('✅ 代码已复制到剪贴板', 'success');
+            }).catch(() => {
+                showStatus('❌ 复制失败，请手动复制', 'error');
+            });
+        }
+        
+        // 保存文件
+        function saveCode() {
+            const code = document.getElementById('codeEditor').value;
+            
+            if (!code.trim()) {
+                showStatus('⚠️ 没有代码可以保存', 'error');
+                return;
+            }
+            
+            const blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '程序.cnsh';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showStatus('✅ 文件已保存：程序.cnsh', 'success');
+        }
+        
+        // 清空代码
+        function clearCode() {
+            if (confirm('确定要清空所有代码吗？')) {
+                document.getElementById('codeEditor').value = '';
+                document.getElementById('outputSection').style.display = 'none';
+                showStatus('✅ 代码已清空', 'info');
+            }
+        }
+        
+        // 插入文本
+        function insertText(text) {
+            const editor = document.getElementById('codeEditor');
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const value = editor.value;
+            
+            editor.value = value.substring(0, start) + text + value.substring(end);
+            editor.selectionStart = editor.selectionEnd = start + text.length;
+            editor.focus();
+        }
+        
+        // 加载模板
+        function loadTemplate(templateName) {
+            const template = templates[templateName];
+            if (template) {
+                document.getElementById('codeEditor').value = template;
+                showStatus('✅ 已加载模板：' + templateName, 'success');
+            }
+        }
+        
+        // 显示状态
+        function showStatus(message, type) {
+            const statusBar = document.getElementById('statusBar');
+            statusBar.className = 'status-bar status-' + type;
+            statusBar.textContent = message;
+            statusBar.style.display = 'block';
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                statusBar.style.display = 'none';
+            }, 3000);
+        }
+        
+        // 页面加载时显示欢迎信息
+        window.onload = function() {
+            console.log('🇨🇳 CNSH中文编程编辑器已加载');
+            console.log('DNA追溯码：#ZHUGEXIN⚡️2026-01-28-CNSH-EDITOR-v1.0');
+        };
+    </script>
+</body>
+</html>

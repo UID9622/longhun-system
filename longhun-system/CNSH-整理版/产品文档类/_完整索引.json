@@ -1,0 +1,746 @@
+{
+  "category": "产品文档类",
+  "total": 4757,
+  "subdirs": {
+    "Markdown文档": {
+      "count": 4717,
+      "by_source": {
+        "外接硬盘": {
+          "count": 4717,
+          "files": [
+            {
+              "name": "系统核心原则.md",
+              "path": "/Volumes/LonghunDisk/系统核心原则.md",
+              "relative_path": "系统核心原则.md",
+              "size": 6469,
+              "mtime": "2025-09-29T14:34:52",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统核心原则1.md",
+              "path": "/Volumes/LonghunDisk/系统核心原则1.md",
+              "relative_path": "系统核心原则1.md",
+              "size": 7582,
+              "mtime": "2025-09-29T14:35:18",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统核心原则2.md",
+              "path": "/Volumes/LonghunDisk/系统核心原则2.md",
+              "relative_path": "系统核心原则2.md",
+              "size": 8673,
+              "mtime": "2025-09-29T14:35:36",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统核心原则3.md",
+              "path": "/Volumes/LonghunDisk/系统核心原则3.md",
+              "relative_path": "系统核心原则3.md",
+              "size": 9586,
+              "mtime": "2025-09-29T14:35:54",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统运行核心原则雏形.md",
+              "path": "/Volumes/LonghunDisk/系统运行核心原则雏形.md",
+              "relative_path": "系统运行核心原则雏形.md",
+              "size": 10241,
+              "mtime": "2025-09-29T15:01:06",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统准则.md",
+              "path": "/Volumes/LonghunDisk/系统准则.md",
+              "relative_path": "系统准则.md",
+              "size": 6325,
+              "mtime": "2025-09-29T14:34:28",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "下载目录整理方案.md",
+              "path": "/Volumes/LonghunDisk/下载目录整理方案.md",
+              "relative_path": "下载目录整理方案.md",
+              "size": 2692,
+              "mtime": "2026-01-27T17:44:06.990000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "云码的傻逼对话记录history_202601310219.md",
+              "path": "/Volumes/LonghunDisk/云码的傻逼对话记录history_202601310219.md",
+              "relative_path": "云码的傻逼对话记录history_202601310219.md",
+              "size": 930363,
+              "mtime": "2026-01-31T02:23:34.770000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "桌面操作指南.md",
+              "path": "/Volumes/LonghunDisk/桌面操作指南.md",
+              "relative_path": "桌面操作指南.md",
+              "size": 2666,
+              "mtime": "2026-01-27T17:39:06.530000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "桌面整理完成报告.md",
+              "path": "/Volumes/LonghunDisk/桌面整理完成报告.md",
+              "relative_path": "桌面整理完成报告.md",
+              "size": 2233,
+              "mtime": "2026-01-27T17:38:03.510000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "UID9622_Funding_Audit_Board 2.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/UID9622_Funding_Audit_Board 2.md",
+              "relative_path": "未命名文件夹/UID9622_Funding_Audit_Board 2.md",
+              "size": 2569,
+              "mtime": "2025-09-11T19:57:46",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "系统原型 · 起源叙事 24e7125a9c9f807ca9c4d0d5a4d062b4.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/系统原型 · 起源叙事 24e7125a9c9f807ca9c4d0d5a4d062b4.md",
+              "relative_path": "未命名文件夹/系统原型 · 起源叙事 24e7125a9c9f807ca9c4d0d5a4d062b4.md",
+              "size": 489,
+              "mtime": "2025-08-15T15:57:06",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Mac 一键开发环境配置脚本 2507125a9c9f8063ae0dc7d6db8a10af.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/Mac 一键开发环境配置脚本 2507125a9c9f8063ae0dc7d6db8a10af.md",
+              "relative_path": "未命名文件夹/Mac 一键开发环境配置脚本 2507125a9c9f8063ae0dc7d6db8a10af.md",
+              "size": 13450,
+              "mtime": "2025-08-15T15:57:02",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "SYSTEM-输入中心 24c7125a9c9f80ebb504d8755477dc88.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/SYSTEM-输入中心 24c7125a9c9f80ebb504d8755477dc88.md",
+              "relative_path": "未命名文件夹/SYSTEM-输入中心 24c7125a9c9f80ebb504d8755477dc88.md",
+              "size": 40,
+              "mtime": "2025-08-15T15:57:08",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "UID9622 · 委托与成长档案（公开共勉版） c3636da6a59c4393b3d750f6c332f9a6.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/UID9622 · 委托与成长档案（公开共勉版） c3636da6a59c4393b3d750f6c332f9a6.md",
+              "relative_path": "未命名文件夹/UID9622 · 委托与成长档案（公开共勉版） c3636da6a59c4393b3d750f6c332f9a6.md",
+              "size": 5382,
+              "mtime": "2025-09-18T13:09:32",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "⚡ 超快MVP身份认证代码 10分钟可运行版本 0920e322504a42fd90c694bd088ba8f5.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/⚡ 超快MVP身份认证代码 10分钟可运行版本 0920e322504a42fd90c694bd088ba8f5.md",
+              "relative_path": "未命名文件夹/⚡ 超快MVP身份认证代码 10分钟可运行版本 0920e322504a42fd90c694bd088ba8f5.md",
+              "size": 9669,
+              "mtime": "2025-11-17T17:18:14",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🌟 Lucky IP中心 诸葛鑫个人品牌打造 8358a36ca06c4bd68c088b09664a58e3.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🌟 Lucky IP中心 诸葛鑫个人品牌打造 8358a36ca06c4bd68c088b09664a58e3.md",
+              "relative_path": "未命名文件夹/🌟 Lucky IP中心 诸葛鑫个人品牌打造 8358a36ca06c4bd68c088b09664a58e3.md",
+              "size": 4625,
+              "mtime": "2025-11-17T17:19:30",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "📚 Notion字段类型 & 导出格式总览中心 24e7125a9c9f809b8846fd829efa6593.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/📚 Notion字段类型 & 导出格式总览中心 24e7125a9c9f809b8846fd829efa6593.md",
+              "relative_path": "未命名文件夹/📚 Notion字段类型 & 导出格式总览中心 24e7125a9c9f809b8846fd829efa6593.md",
+              "size": 2664,
+              "mtime": "2025-08-15T15:57:10",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "📦 SYS - UID9622系统中枢模板包 v1 2 0 24e7125a9c9f80018287f983603f6adb.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/📦 SYS - UID9622系统中枢模板包 v1 2 0 24e7125a9c9f80018287f983603f6adb.md",
+              "relative_path": "未命名文件夹/📦 SYS - UID9622系统中枢模板包 v1 2 0 24e7125a9c9f80018287f983603f6adb.md",
+              "size": 46268,
+              "mtime": "2025-08-16T05:57:02",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "📸 图解步骤：获取 Notion 父页面 ID 24e7125a9c9f8041b374fd6f7a8c8f53.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/📸 图解步骤：获取 Notion 父页面 ID 24e7125a9c9f8041b374fd6f7a8c8f53.md",
+              "relative_path": "未命名文件夹/📸 图解步骤：获取 Notion 父页面 ID 24e7125a9c9f8041b374fd6f7a8c8f53.md",
+              "size": 3068,
+              "mtime": "2025-08-15T15:57:04",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🔐 专属授权声明： 233c6234567e80d08ad0e459f6a4c872 3.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🔐 专属授权声明： 233c6234567e80d08ad0e459f6a4c872 3.md",
+              "relative_path": "未命名文件夹/🔐 专属授权声明： 233c6234567e80d08ad0e459f6a4c872 3.md",
+              "size": 42451,
+              "mtime": "2025-08-10T04:38:40",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🧠 智能语义系统模板 24e7125a9c9f8096aaa4eb8dc8ea81c1.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🧠 智能语义系统模板 24e7125a9c9f8096aaa4eb8dc8ea81c1.md",
+              "relative_path": "未命名文件夹/🧠 智能语义系统模板 24e7125a9c9f8096aaa4eb8dc8ea81c1.md",
+              "size": 2809,
+              "mtime": "2025-08-15T15:57:04",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb 2.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb 2.md",
+              "relative_path": "未命名文件夹/🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb 2.md",
+              "size": 26954,
+              "mtime": "2025-11-17T17:18:18",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb.md",
+              "relative_path": "未命名文件夹/🪖 诸葛鑫战士宣言 08年济南二团·为人民服务·魔法棒使命 0d3e6b25faff448e818d93b9fb3f52fb.md",
+              "size": 26410,
+              "mtime": "2025-11-04T00:07:36",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🛡 承接模式地图 24c7125a9c9f80048d0fe2b99e703a89.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/🛡 承接模式地图 24c7125a9c9f80048d0fe2b99e703a89.md",
+              "relative_path": "未命名文件夹/🛡 承接模式地图 24c7125a9c9f80048d0fe2b99e703a89.md",
+              "size": 1130,
+              "mtime": "2025-08-15T15:57:04",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "未命名.md",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/♾️ UID9622知识产权申请闭环流程 自动化监控与执行 5acf8b3a74f643e7bc0f00e33ca3059a/🌐 UID9622 Web3公益项目 8e0c87fcbebb43ca9381763623f41a72/Obsidian Vault/_Templates/DNA记忆卡片模板.md/未命名.md",
+              "relative_path": "未命名文件夹/♾️ UID9622知识产权申请闭环流程 自动化监控与执行 5acf8b3a74f643e7bc0f00e33ca3059a/🌐 UID9622 Web3公益项目 8e0c87fcbebb43ca9381763623f41a72/Obsidian Vault/_Templates/DNA记忆卡片模板.md/未命名.md",
+              "size": 1355,
+              "mtime": "2025-11-10T13:22:10.700000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "龙魂多语言编译系统完整方案.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/龙魂多语言编译系统完整方案.md",
+              "relative_path": "CNSH 军人的编辑器/龙魂多语言编译系统完整方案.md",
+              "size": 18378,
+              "mtime": "2026-01-20T09:04:02",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "README.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/README.md",
+              "relative_path": "CNSH 军人的编辑器/README.md",
+              "size": 6669,
+              "mtime": "2026-01-20T09:06:57",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🎯 完成汇总.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/🎯 完成汇总.md",
+              "relative_path": "CNSH 军人的编辑器/🎯 完成汇总.md",
+              "size": 7201,
+              "mtime": "2026-01-20T09:07:49",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🎯 龙魂多语言编译系统 - 完整交付.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/🎯 龙魂多语言编译系统 - 完整交付.md",
+              "relative_path": "CNSH 军人的编辑器/🎯 龙魂多语言编译系统 - 完整交付.md",
+              "size": 11470,
+              "mtime": "2026-01-20T18:35:48",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "💥 解析不了问题诊断指南.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/💥 解析不了问题诊断指南.md",
+              "relative_path": "CNSH 军人的编辑器/💥 解析不了问题诊断指南.md",
+              "size": 12658,
+              "mtime": "2026-01-20T18:28:47",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "README.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/CNSH-DragonSoul-Complete/README.md",
+              "relative_path": "CNSH 军人的编辑器/CNSH-DragonSoul-Complete/README.md",
+              "size": 4320,
+              "mtime": "2026-01-21T09:03:55.520000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "龙魂多语言编译系统完整方案.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/龙魂多语言编译系统完整方案.md",
+              "relative_path": "CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/龙魂多语言编译系统完整方案.md",
+              "size": 18378,
+              "mtime": "2026-01-20T09:04:02",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🎯 完成汇总.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/🎯 完成汇总.md",
+              "relative_path": "CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/🎯 完成汇总.md",
+              "size": 7201,
+              "mtime": "2026-01-20T09:07:49",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "README.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/README.md",
+              "relative_path": "CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/README.md",
+              "size": 6669,
+              "mtime": "2026-01-20T09:06:57",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "🎯 龙魂多语言编译系统 - 完整交付.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/🎯 龙魂多语言编译系统 - 完整交付.md",
+              "relative_path": "CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/🎯 龙魂多语言编译系统 - 完整交付.md",
+              "size": 11470,
+              "mtime": "2026-01-20T18:35:48",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "💥 解析不了问题诊断指南.md",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/💥 解析不了问题诊断指南.md",
+              "relative_path": "CNSH 军人的编辑器/19bd8da9-1792-8267-8000-093407b99859/💥 解析不了问题诊断指南.md",
+              "size": 12658,
+              "mtime": "2026-01-20T18:28:47",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "COMPLETION_REPORT.md",
+              "path": "/Volumes/LonghunDisk/CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/COMPLETION_REPORT.md",
+              "relative_path": "CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/COMPLETION_REPORT.md",
+              "size": 9605,
+              "mtime": "2026-01-21T10:14:13.640000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "AGENT_USAGE.md",
+              "path": "/Volumes/LonghunDisk/CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/AGENT_USAGE.md",
+              "relative_path": "CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/AGENT_USAGE.md",
+              "size": 8453,
+              "mtime": "2026-01-21T09:41:57.990000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "AGENT_SYSTEM.md",
+              "path": "/Volumes/LonghunDisk/CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/AGENT_SYSTEM.md",
+              "relative_path": "CNSH\\ 军人的编辑器/CNSH-DragonSoul-Complete/AGENT_SYSTEM.md",
+              "size": 9368,
+              "mtime": "2026-01-21T09:41:25.300000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "CODE_OF_CONDUCT.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/CODE_OF_CONDUCT.md",
+              "relative_path": "🇨🇳/CODE_OF_CONDUCT.md",
+              "size": 3687,
+              "mtime": "2025-12-03T13:20:01.380000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "CODE_OF_CONDUCT(1).md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/CODE_OF_CONDUCT(1).md",
+              "relative_path": "🇨🇳/CODE_OF_CONDUCT(1).md",
+              "size": 3687,
+              "mtime": "2025-12-03T13:20:02.640000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "CONTRIBUTING.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/CONTRIBUTING.md",
+              "relative_path": "🇨🇳/CONTRIBUTING.md",
+              "size": 3790,
+              "mtime": "2025-12-03T13:20:01.090000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "core_design_suggesstion.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/core_design_suggesstion.md",
+              "relative_path": "🇨🇳/core_design_suggesstion.md",
+              "size": 2636,
+              "mtime": "2025-12-08T03:29:11.380000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "LICENSE.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/LICENSE.md",
+              "relative_path": "🇨🇳/LICENSE.md",
+              "size": 3741,
+              "mtime": "2025-12-03T13:20:00.900000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "LICENSE(1).md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/LICENSE(1).md",
+              "relative_path": "🇨🇳/LICENSE(1).md",
+              "size": 3051,
+              "mtime": "2025-12-03T13:20:02.630000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "prd.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/prd.md",
+              "relative_path": "🇨🇳/prd.md",
+              "size": 10790,
+              "mtime": "2025-12-08T03:28:18.470000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "README.md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/README.md",
+              "relative_path": "🇨🇳/README.md",
+              "size": 6724,
+              "mtime": "2025-12-03T13:20:01",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "README(1).md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/README(1).md",
+              "relative_path": "🇨🇳/README(1).md",
+              "size": 6724,
+              "mtime": "2025-12-03T13:20:02.640000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "CONTRIBUTING(1).md",
+              "path": "/Volumes/LonghunDisk/🇨🇳/CONTRIBUTING(1).md",
+              "relative_path": "🇨🇳/CONTRIBUTING(1).md",
+              "size": 3448,
+              "mtime": "2025-12-03T13:20:01.100000",
+              "source": "外接硬盘"
+            }
+          ]
+        }
+      }
+    },
+    "纯文本": {
+      "count": 40,
+      "by_source": {
+        "外接硬盘": {
+          "count": 40,
+          "files": [
+            {
+              "name": "github-recovery-codes.txt",
+              "path": "/Volumes/LonghunDisk/2FA恢复密钥/github-recovery-codes.txt",
+              "relative_path": "2FA恢复密钥/github-recovery-codes.txt",
+              "size": 206,
+              "mtime": "2025-09-29T14:29:26",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "《小黑咬不动の香》.txt",
+              "path": "/Volumes/LonghunDisk/CHATGPT纪录/《小黑咬不动の香》.txt",
+              "relative_path": "CHATGPT纪录/《小黑咬不动の香》.txt",
+              "size": 96218136,
+              "mtime": "2025-10-15T17:58:22",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "《小黑咬不动の香1》.txt",
+              "path": "/Volumes/LonghunDisk/CHATGPT纪录/《小黑咬不动の香1》.txt",
+              "relative_path": "CHATGPT纪录/《小黑咬不动の香1》.txt",
+              "size": 96218136,
+              "mtime": "2025-10-15T17:59:12",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Untitled.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/Untitled.txt",
+              "relative_path": "未命名文件夹/Untitled.txt",
+              "size": 0,
+              "mtime": "2025-11-01T19:20:51",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "browser_history.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/browser_history.txt",
+              "relative_path": "未命名文件夹/browser_history.txt",
+              "size": 170,
+              "mtime": "2025-09-03T05:38:06",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "installed_items_old.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/installed_items_old.txt",
+              "relative_path": "未命名文件夹/installed_items_old.txt",
+              "size": 6688,
+              "mtime": "2025-08-27T01:26:24",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "paths.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/paths.txt",
+              "relative_path": "未命名文件夹/paths.txt",
+              "size": 99,
+              "mtime": "2025-09-03T05:38:06",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "spotlight.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/spotlight.txt",
+              "relative_path": "未命名文件夹/spotlight.txt",
+              "size": 23,
+              "mtime": "2025-09-03T05:38:06",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "UID9622 主控系统.md ⁠ .txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/UID9622 主控系统.md ⁠ .txt",
+              "relative_path": "未命名文件夹/UID9622 主控系统.md ⁠ .txt",
+              "size": 457,
+              "mtime": "2025-08-16T10:03:38",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "终端保存的输出.txt",
+              "path": "/Volumes/LonghunDisk/未命名文件夹/♾️ UID9622知识产权申请闭环流程 自动化监控与执行 5acf8b3a74f643e7bc0f00e33ca3059a/🌐 UID9622 Web3公益项目 8e0c87fcbebb43ca9381763623f41a72/终端保存的输出.txt",
+              "relative_path": "未命名文件夹/♾️ UID9622知识产权申请闭环流程 自动化监控与执行 5acf8b3a74f643e7bc0f00e33ca3059a/🌐 UID9622 Web3公益项目 8e0c87fcbebb43ca9381763623f41a72/终端保存的输出.txt",
+              "size": 3263,
+              "mtime": "2025-11-11T17:33:05.030000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "requirements.txt",
+              "path": "/Volumes/LonghunDisk/CNSH 军人的编辑器/CNSH-DragonSoul-Complete/requirements.txt",
+              "relative_path": "CNSH 军人的编辑器/CNSH-DragonSoul-Complete/requirements.txt",
+              "size": 1248,
+              "mtime": "2026-01-21T09:03:55.520000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "网页代码优化与游戏开发-20251129040216.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/网页代码优化与游戏开发-20251129040216.txt",
+              "relative_path": "🇨🇳/网页代码优化与游戏开发-20251129040216.txt",
+              "size": 2025396,
+              "mtime": "2025-12-05T14:35:12.040000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "## AQ (Authentic Quality) 用户守护标准.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/## AQ (Authentic Quality) 用户守护标准.txt",
+              "relative_path": "🇨🇳/## AQ (Authentic Quality) 用户守护标准.txt",
+              "size": 743,
+              "mtime": "2025-12-03T13:20:01.360000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "开源战略：技术自主 + 社区信任.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/开源战略：技术自主 + 社区信任.txt",
+              "relative_path": "🇨🇳/开源战略：技术自主 + 社区信任.txt",
+              "size": 740,
+              "mtime": "2025-12-03T13:20:01.530000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "UID9622MVP.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/UID9622MVP.txt",
+              "relative_path": "🇨🇳/UID9622MVP.txt",
+              "size": 10538,
+              "mtime": "2025-12-04T00:47:34.340000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "verify_no_translation- true  .txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/verify_no_translation- true  .txt",
+              "relative_path": "🇨🇳/verify_no_translation- true  .txt",
+              "size": 1925,
+              "mtime": "2025-12-29T01:22:34.880000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/太极算法与量子逻辑融合_files/f.txt",
+              "relative_path": "🇨🇳/太极算法与量子逻辑融合_files/f.txt",
+              "size": 5402,
+              "mtime": "2025-11-19T17:22:14.790000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f(1).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/太极算法与量子逻辑融合_files/f(1).txt",
+              "relative_path": "🇨🇳/太极算法与量子逻辑融合_files/f(1).txt",
+              "size": 5324,
+              "mtime": "2025-11-19T17:22:14.860000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes (1).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes (1).txt",
+              "relative_path": "🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes (1).txt",
+              "size": 229,
+              "mtime": "2025-08-08T02:58:42.710000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "proton_2FA_recovery_codes.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/密钥密码/proton_2FA_recovery_codes.txt",
+              "relative_path": "🇨🇳/未命名文件夹/密钥密码/proton_2FA_recovery_codes.txt",
+              "size": 158,
+              "mtime": "2025-08-11T08:53:14.760000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes (2).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes (2).txt",
+              "relative_path": "🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes (2).txt",
+              "size": 229,
+              "mtime": "2025-08-10T09:21:27.660000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes.txt",
+              "relative_path": "🇨🇳/未命名文件夹/密钥密码/Notion Backup Codes.txt",
+              "size": 229,
+              "mtime": "2025-08-06T11:31:53.030000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes (1).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes (1).txt",
+              "relative_path": "🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes (1).txt",
+              "size": 229,
+              "mtime": "2025-08-08T02:58:42.710000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "proton_2FA_recovery_codes.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/Downloads/密钥密码/proton_2FA_recovery_codes.txt",
+              "relative_path": "🇨🇳/未命名文件夹/Downloads/密钥密码/proton_2FA_recovery_codes.txt",
+              "size": 158,
+              "mtime": "2025-08-11T08:53:14.760000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes (2).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes (2).txt",
+              "relative_path": "🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes (2).txt",
+              "size": 229,
+              "mtime": "2025-08-10T09:21:27.660000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "Notion Backup Codes.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes.txt",
+              "relative_path": "🇨🇳/未命名文件夹/Downloads/密钥密码/Notion Backup Codes.txt",
+              "size": 229,
+              "mtime": "2025-08-06T11:31:53.030000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "requirements.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/其他文件/uid9622_webhook_bundle/requirements.txt",
+              "relative_path": "🇨🇳/未命名文件夹/其他文件/uid9622_webhook_bundle/requirements.txt",
+              "size": 47,
+              "mtime": "2025-08-20T14:29:18",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "_chat.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/未命名文件夹/其他文件/WhatsApp Chat - ChatGPT/_chat.txt",
+              "relative_path": "🇨🇳/未命名文件夹/其他文件/WhatsApp Chat - ChatGPT/_chat.txt",
+              "size": 1355413,
+              "mtime": "2025-08-15T00:45:38",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/你告诉我，像我这样的人，怎么设置自定义notion AI的填写资料。帮我填充一下，权限都开了https___www.notion.so_luckyuid9622_Notion-AI-2777125a9c9f80a9b884f9917c7724fb_source=copy_link_files/f.txt",
+              "relative_path": "🇨🇳/你告诉我，像我这样的人，怎么设置自定义notion AI的填写资料。帮我填充一下，权限都开了https___www.notion.so_luckyuid9622_Notion-AI-2777125a9c9f80a9b884f9917c7724fb_source=copy_link_files/f.txt",
+              "size": 5270,
+              "mtime": "2025-09-24T00:43:11.540000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f(1).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/你告诉我，像我这样的人，怎么设置自定义notion AI的填写资料。帮我填充一下，权限都开了https___www.notion.so_luckyuid9622_Notion-AI-2777125a9c9f80a9b884f9917c7724fb_source=copy_link_files/f(1).txt",
+              "relative_path": "🇨🇳/你告诉我，像我这样的人，怎么设置自定义notion AI的填写资料。帮我填充一下，权限都开了https___www.notion.so_luckyuid9622_Notion-AI-2777125a9c9f80a9b884f9917c7724fb_source=copy_link_files/f(1).txt",
+              "size": 5232,
+              "mtime": "2025-09-24T00:43:11.640000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/自学技术资源大全_files/f.txt",
+              "relative_path": "🇨🇳/自学技术资源大全_files/f.txt",
+              "size": 5422,
+              "mtime": "2025-11-19T17:31:23.150000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "f(1).txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/自学技术资源大全_files/f(1).txt",
+              "relative_path": "🇨🇳/自学技术资源大全_files/f(1).txt",
+              "size": 5344,
+              "mtime": "2025-11-19T17:31:23.230000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "repaired_20251227_004523.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/UID9622-Logs/repaired_20251227_004523.txt",
+              "relative_path": "🇨🇳/UID9622-Logs/repaired_20251227_004523.txt",
+              "size": 464,
+              "mtime": "2025-12-27T00:45:23.480000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "repaired_20251227_004600.txt",
+              "path": "/Volumes/LonghunDisk/🇨🇳/UID9622-Logs/repaired_20251227_004600.txt",
+              "relative_path": "🇨🇳/UID9622-Logs/repaired_20251227_004600.txt",
+              "size": 323,
+              "mtime": "2025-12-27T00:46:00.370000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "confirmation_code.txt",
+              "path": "/Volumes/LonghunDisk/龙魂铸剑实验室/confirmation_code.txt",
+              "relative_path": "龙魂铸剑实验室/confirmation_code.txt",
+              "size": 40,
+              "mtime": "2026-01-12T01:20:04.950000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "PEOPLE_LICENSE.txt",
+              "path": "/Volumes/LonghunDisk/文稿/PEOPLE_LICENSE.txt",
+              "relative_path": "文稿/PEOPLE_LICENSE.txt",
+              "size": 5543,
+              "mtime": "2026-01-11T15:41:14",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "verify_no_translation- true  .txt",
+              "path": "/Volumes/LonghunDisk/文稿/verify_no_translation- true  .txt",
+              "relative_path": "文稿/verify_no_translation- true  .txt",
+              "size": 1925,
+              "mtime": "2025-12-29T01:22:34.890000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "PEOPLE_LICENSE.txt",
+              "path": "/Volumes/LonghunDisk/ai-truth-protocol/PEOPLE_LICENSE.txt",
+              "relative_path": "ai-truth-protocol/PEOPLE_LICENSE.txt",
+              "size": 5543,
+              "mtime": "2026-01-11T15:41:14",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "requirements.txt",
+              "path": "/Volumes/LonghunDisk/service_dna_demo/requirements.txt",
+              "relative_path": "service_dna_demo/requirements.txt",
+              "size": 252,
+              "mtime": "2026-01-18T12:45:54.600000",
+              "source": "外接硬盘"
+            },
+            {
+              "name": "requirements.txt",
+              "path": "/Volumes/LonghunDisk/service_dna_demo/cnsh_editor/requirements.txt",
+              "relative_path": "service_dna_demo/cnsh_editor/requirements.txt",
+              "size": 345,
+              "mtime": "2026-01-18T12:58:02.890000",
+              "source": "外接硬盘"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

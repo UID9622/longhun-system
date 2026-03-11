@@ -1,0 +1,23 @@
+{
+  "项目名称": "CNSH Editor",
+  "项目类型": "中国数字甲骨文字元编辑器",
+  "版本": "v0.1.0",
+  "发布时间": "2026-02-01",
+  "创作者": "UID9622（诸葛鑫/Lucky）",
+  "仓库地址": {
+    "GitHub": "https://github.com/UID9622/CNSH-Editor",
+    "GitHub_SSH": "git@github.com:UID9622/CNSH-Editor.git",
+    "Gitee": "待同步",
+    "推送方式": "SSH"
+  },
+  "核心文件": {
+    "编辑器": "编辑器/index.html",
+    "协议中文": "GENTLEMAN_AGREEMENT_CN.md",
+    "协议英文": "GENTLEMAN_AGREEMENT_EN.md",
+    "开源协议": "LICENSE (MIT + 君子协议)",
+    "使用说明": "编辑器/使用说明.md",
+    "快速开始": "快速开始.md"
+  },
+  "DNA追溯码": "#ZHUGEXIN⚡️-CNSH-EDITOR-v0.1.0",
+  "确认码": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}

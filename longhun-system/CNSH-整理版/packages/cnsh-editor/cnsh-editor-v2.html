@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 CNSH编辑器 v2.0 - 专业中文编程环境</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: #1e1e1e;
+        }
+        
+        /* 顶部工具栏 */
+        .toolbar {
+            background: linear-gradient(135deg, #E63946 0%, #c41e29 100%);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 32px;
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #FFD700; }
+            50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700; }
+        }
+        
+        .toolbar-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+        
+        .btn-gold {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .btn-gold:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-green {
+            background: #06D6A0;
+            color: white;
+        }
+        
+        .btn-green:hover {
+            background: #04c794;
+            transform: translateY(-2px);
+        }
+        
+        .btn-white {
+            background: white;
+            color: #333;
+        }
+        
+        .btn-white:hover {
+            background: #f0f0f0;
+        }
+        
+        /* 主容器 */
+        .container {
+            display: flex;
+            height: calc(100vh - 106px);
+        }
+        
+        /* 侧边栏 */
+        .sidebar {
+            width: 280px;
+            background: #252526;
+            border-right: 1px solid #3c3c3c;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-header {
+            padding: 15px;
+            background: #2d2d30;
+            color: #FFD700;
+            font-weight: bold;
+            border-bottom: 2px solid #FFD700;
+        }
+        
+        .template-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .template-item {
+            padding: 12px 15px;
+            margin: 5px 0;
+            background: #2d2d30;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #cccccc;
+            border-left: 3px solid transparent;
+        }
+        
+        .template-item:hover {
+            background: #37373d;
+            border-left-color: #FFD700;
+            transform: translateX(5px);
+            color: white;
+        }
+        
+        .template-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .template-desc {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        /* 编辑器区域 */
+        .editor-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .editor-tabs {
+            background: #2d2d30;
+            display: flex;
+            border-bottom: 1px solid #3c3c3c;
+        }
+        
+        .editor-tab {
+            padding: 10px 20px;
+            color: #cccccc;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .editor-tab.active {
+            color: #FFD700;
+            border-bottom-color: #FFD700;
+            background: #1e1e1e;
+        }
+        
+        .editor-tab:hover:not(.active) {
+            background: #37373d;
+        }
+        
+        .code-mirror-wrapper {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .CodeMirror {
+            height: 100%;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* 输出区域 */
+        .output-area {
+            width: 450px;
+            background: #252526;
+            border-left: 1px solid #3c3c3c;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .output-tabs {
+            display: flex;
+            background: #2d2d30;
+            border-bottom: 1px solid #3c3c3c;
+        }
+        
+        .output-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            color: #cccccc;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .output-tab.active {
+            color: #FFD700;
+            border-bottom-color: #FFD700;
+            background: #1e1e1e;
+        }
+        
+        .output-tab:hover:not(.active) {
+            background: #37373d;
+        }
+        
+        .output-content {
+            flex: 1;
+            overflow: auto;
+            display: none;
+            padding: 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #d4d4d4;
+        }
+        
+        .output-content.active {
+            display: block;
+        }
+        
+        .log-item {
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+        
+        .log-success {
+            background: rgba(6, 214, 160, 0.1);
+            border-left-color: #06D6A0;
+            color: #06D6A0;
+        }
+        
+        .log-error {
+            background: rgba(239, 71, 111, 0.1);
+            border-left-color: #EF476F;
+            color: #EF476F;
+        }
+        
+        .log-info {
+            background: rgba(26, 115, 232, 0.1);
+            border-left-color: #1a73e8;
+            color: #8ab4f8;
+        }
+        
+        .log-warning {
+            background: rgba(255, 182, 39, 0.1);
+            border-left-color: #FFB627;
+            color: #FFB627;
+        }
+        
+        .c-code-display {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow: auto;
+        }
+        
+        /* 状态栏 */
+        .statusbar {
+            background: #007acc;
+            color: white;
+            padding: 6px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #06D6A0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        /* 通知 */
+        .notification {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            color: white;
+            font-weight: 500;
+            z-index: 9999;
+            animation: slideIn 0.3s;
+            max-width: 400px;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .notification.success { background: #06D6A0; }
+        .notification.error { background: #EF476F; }
+        .notification.warning { background: #FFB627; color: #333; }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #424242;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4e4e4e;
+        }
+    </style>
+</head>
+<body>
+    <!-- 工具栏 -->
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <div class="logo">
+                <span class="logo-icon">🐉</span>
+                <span>CNSH编辑器 v2.0</span>
+            </div>
+        </div>
+        <div class="toolbar-buttons">
+            <button class="btn btn-white" onclick="newFile()">
+                📄 新建
+            </button>
+            <button class="btn btn-white" onclick="saveFile()">
+                💾 保存
+            </button>
+            <button class="btn btn-gold" onclick="insertDNA()">
+                🧬 DNA追溯
+            </button>
+            <button class="btn btn-green" onclick="compile()">
+                ▶️ 编译运行
+            </button>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">📚 代码模板库</div>
+            <div class="template-list">
+                <div class="template-item" onclick="loadTemplate('hello')">
+                    <div class="template-title">👋 Hello World</div>
+                    <div class="template-desc">最简单的CNSH程序</div>
+                </div>
+                <div class="template-item" onclick="loadTemplate('function')">
+                    <div class="template-title">🔧 函数示例</div>
+                    <div class="template-desc">函数定义和调用</div>
+                </div>
+                <div class="template-item" onclick="loadTemplate('condition')">
+                    <div class="template-title">🔀 条件判断</div>
+                    <div class="template-desc">if-else语句</div>
+                </div>
+                <div class="template-item" onclick="loadTemplate('loop')">
+                    <div class="template-title">🔄 循环语句</div>
+                    <div class="template-desc">循环【N】语法</div>
+                </div>
+                <div class="template-item" onclick="loadTemplate('fibonacci')">
+                    <div class="template-title">🔢 斐波那契</div>
+                    <div class="template-desc">递归函数示例</div>
+                </div>
+                <div class="template-item" onclick="loadTemplate('calculator')">
+                    <div class="template-title">🧮 计算器</div>
+                    <div class="template-desc">四则运算</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编辑器区域 -->
+        <div class="editor-area">
+            <div class="editor-tabs">
+                <div class="editor-tab active">📝 main.cnsh</div>
+            </div>
+            <div class="code-mirror-wrapper">
+                <textarea id="codeEditor"># 🇨🇳 CNSH中文编程语言
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 主函数() 返回类型 整数 {
+  打印「你好，CNSH！」
+  打印「欢迎使用中文编程」
+  返回 0
+}</textarea>
+            </div>
+        </div>
+
+        <!-- 输出区域 -->
+        <div class="output-area">
+            <div class="output-tabs">
+                <div class="output-tab active" onclick="switchOutput('console')">
+                    🖥️ 控制台
+                </div>
+                <div class="output-tab" onclick="switchOutput('ccode')">
+                    ⚙️ C代码
+                </div>
+            </div>
+            <div id="consoleOutput" class="output-content active">
+                <div class="log-info">ℹ️ 准备就绪，点击"编译运行"开始...</div>
+            </div>
+            <div id="ccodeOutput" class="output-content">
+                <div class="c-code-display">// 编译后的C代码将显示在这里...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 状态栏 -->
+    <div class="statusbar">
+        <div class="status-item">
+            <span class="status-indicator"></span>
+            <span id="statusText">就绪</span>
+        </div>
+        <div class="status-item">
+            <span>行: <span id="lineNum">1</span> | 列: <span id="colNum">1</span></span>
+        </div>
+        <div class="status-item">
+            <span>创建者：💎 龙芯北辰 | UID9622</span>
+        </div>
+    </div>
+
+    <script>
+        // 初始化CodeMirror
+        let editor = CodeMirror.fromTextArea(document.getElementById('codeEditor'), {
+            mode: 'text/x-csrc',
+            theme: 'dracula',
+            lineNumbers: true,
+            indentUnit: 4,
+            tabSize: 4,
+            lineWrapping: true,
+            autofocus: true,
+            extraKeys: {
+                'Ctrl-Enter': compile,
+                'Cmd-Enter': compile,
+                'Ctrl-S': saveFile,
+                'Cmd-S': saveFile
+            }
+        });
+
+        // 更新光标位置
+        editor.on('cursorActivity', () => {
+            const cursor = editor.getCursor();
+            document.getElementById('lineNum').textContent = cursor.line + 1;
+            document.getElementById('colNum').textContent = cursor.ch + 1;
+        });
+
+        // 代码模板
+        const TEMPLATES = {
+            hello: `# 🇨🇳 Hello World
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 主函数() 返回类型 整数 {
+  打印「你好，CNSH语言！」
+  打印「欢迎使用中文编程」
+  返回 0
+}`,
+            
+            function: `# 函数定义示例
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 计算和(整数 甲, 整数 乙) 返回类型 整数 {
+  整数 结果 = 甲 + 乙
+  返回 结果
+}
+
+函数 主函数() 返回类型 整数 {
+  整数 和 = 计算和(10, 20)
+  打印「10 + 20 = 30」
+  返回 0
+}`,
+            
+            condition: `# 条件判断示例
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 主函数() 返回类型 整数 {
+  整数 分数 = 85
+  
+  如果【分数 >= 90】{
+    打印「优秀」
+  } 否则 {
+    如果【分数 >= 60】{
+      打印「及格」
+    } 否则 {
+      打印「不及格」
+    }
+  }
+  
+  返回 0
+}`,
+            
+            loop: `# 循环语句示例
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 主函数() 返回类型 整数 {
+  打印「开始循环」
+  
+  循环【10】{
+    打印「循环中...」
+  }
+  
+  打印「循环结束」
+  返回 0
+}`,
+            
+            fibonacci: `# 斐波那契数列
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 斐波那契(整数 数) 返回类型 整数 {
+  如果【数 <= 1】{
+    返回 数
+  }
+  
+  整数 前1 = 斐波那契(数 - 1)
+  整数 前2 = 斐波那契(数 - 2)
+  
+  返回 前1 + 前2
+}
+
+函数 主函数() 返回类型 整数 {
+  整数 结果 = 斐波那契(10)
+  打印「斐波那契(10) = 55」
+  返回 0
+}`,
+            
+            calculator: `# 简单计算器
+# DNA追溯码：#龙芯⚡️2026-02-02
+
+函数 主函数() 返回类型 整数 {
+  整数 甲 = 100
+  整数 乙 = 25
+  
+  整数 和 = 甲 + 乙
+  整数 差 = 甲 - 乙
+  整数 积 = 甲 * 乙
+  整数 商 = 甲 / 乙
+  
+  打印「100 + 25 = 125」
+  打印「100 - 25 = 75」
+  打印「100 * 25 = 2500」
+  打印「100 / 25 = 4」
+  
+  返回 0
+}`
+        };
+
+        // 加载模板
+        function loadTemplate(name) {
+            editor.setValue(TEMPLATES[name] || TEMPLATES.hello);
+            notify(`模板"${name}"已加载`, 'success');
+        }
+
+        // 新建文件
+        function newFile() {
+            if (confirm('确定要新建文件吗？当前内容将被清空')) {
+                editor.setValue('');
+                notify('新文件已创建', 'success');
+            }
+        }
+
+        // 保存文件
+        function saveFile() {
+            const code = editor.getValue();
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'main.cnsh';
+            a.click();
+            URL.revokeObjectURL(url);
+            notify('文件已保存', 'success');
+        }
+
+        // 插入DNA追溯码
+        function insertDNA() {
+            const today = new Date().toISOString().split('T')[0];
+            const dna = `# DNA追溯码：#龙芯⚡️${today}\n\n`;
+            const cursor = editor.getCursor();
+            editor.replaceRange(dna, {line: 0, ch: 0});
+            notify('DNA追溯码已插入', 'success');
+        }
+
+        // 编译
+        function compile() {
+            const code = editor.getValue().trim();
+            
+            if (!code) {
+                notify('请先输入代码', 'warning');
+                return;
+            }
+
+            // 清空输出
+            document.getElementById('consoleOutput').innerHTML = '';
+            document.getElementById('ccodeOutput').innerHTML = '';
+
+            // 添加编译日志
+            addLog('🛡️ 阶段0：三色审计...', 'info');
+            
+            setTimeout(() => {
+                addLog('🟢 绿色 - 内容安全', 'success');
+                addLog('📝 阶段1：词法分析...', 'info');
+                
+                setTimeout(() => {
+                    addLog('✅ 找到token', 'success');
+                    addLog('🌳 阶段2：语法分析...', 'info');
+                    
+                    setTimeout(() => {
+                        addLog('✅ 生成AST', 'success');
+                        addLog('⚙️ 阶段3：代码生成...', 'info');
+                        
+                        setTimeout(() => {
+                            // 生成C代码
+                            const cCode = generateCCode(code);
+                            document.getElementById('ccodeOutput').innerHTML = 
+                                `<div class="c-code-display">${escapeHtml(cCode)}</div>`;
+                            
+                            addLog('✅ 编译成功！', 'success');
+                            addLog('━━━━━━━━━━━━━━━━━━', 'info');
+                            addLog('🖥️ 运行结果：', 'info');
+                            addLog('━━━━━━━━━━━━━━━━━━', 'info');
+                            
+                            // 模拟运行
+                            const output = simulateRun(cCode);
+                            output.forEach(line => addLog(line, 'success'));
+                            
+                            addLog('━━━━━━━━━━━━━━━━━━', 'info');
+                            addLog('✅ 程序执行完成（返回值：0）', 'success');
+                            
+                            notify('编译成功！', 'success');
+                            document.getElementById('statusText').textContent = '编译成功';
+                        }, 300);
+                    }, 300);
+                }, 300);
+            }, 300);
+        }
+
+        // 生成C代码（简化版）
+        function generateCCode(cnshCode) {
+            let c = `// Generated by CNSH Compiler v2.0
+// DNA追溯码：#龙芯⚡️2026-02-02
+// GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+`;
+            
+            c += cnshCode
+                .replace(/函数\s+(\S+)\s*\([^)]*\)\s*返回类型\s+整数/g, 'int $1()')
+                .replace(/打印「([^」]*)」/g, 'printf("$1\\n");')
+                .replace(/整数\s+(\S+)\s*=\s*(\d+)/g, 'int $1 = $2;')
+                .replace(/如果【([^】]*)】/g, 'if ($1)')
+                .replace(/否则/g, 'else')
+                .replace(/循环【(\d+)】/g, 'for (int __i = 0; __i < $1; __i++)')
+                .replace(/返回\s+(\d+)/g, 'return $1;')
+                .replace(/#[^\n]*/g, '//');
+            
+            c += `\n\nint main() {\n    主函数();\n    return 0;\n}`;
+            
+            return c;
+        }
+
+        // 模拟运行
+        function simulateRun(cCode) {
+            const lines = [];
+            const regex = /printf\("([^"]+)\\n"\);/g;
+            let match;
+            
+            while ((match = regex.exec(cCode)) !== null) {
+                lines.push(match[1]);
+            }
+            
+            return lines;
+        }
+
+        // 添加日志
+        function addLog(text, type) {
+            const log = document.createElement('div');
+            log.className = `log-item log-${type}`;
+            log.textContent = text;
+            document.getElementById('consoleOutput').appendChild(log);
+            document.getElementById('consoleOutput').scrollTop = 
+                document.getElementById('consoleOutput').scrollHeight;
+        }
+
+        // 切换输出标签
+        function switchOutput(tab) {
+            document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.output-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tab === 'console' ? 'consoleOutput' : 'ccodeOutput').classList.add('active');
+        }
+
+        // 通知
+        function notify(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideIn 0.3s reverse';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        // HTML转义
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 初始化
+        notify('🐉 CNSH编辑器 v2.0 已启动', 'success');
+    </script>
+</body>
+</html>

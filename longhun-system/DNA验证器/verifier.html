@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙魂DNA验证器 | 数字存证系统</title>
+    
+    <!-- DNA追溯码 -->
+    <meta name="dna-code" content="#ZHUGEXIN⚡️2026-01-06-LONGHUN-DNA-VERIFIER-001">
+    <meta name="creator" content="诸葛鑫 (Lucky) | UID9622">
+    <meta name="confirm-code" content="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 2px solid #00E5FF;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #00E5FF;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #B0B0B0;
+        }
+        
+        .creator-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #757575;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00E5FF;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #00E5FF;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00E5FF 0%, #00C853 100%);
+            color: #000000;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 229, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid #00E5FF;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 229, 255, 0.2);
+        }
+        
+        .result-box {
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+        
+        .result-box.success {
+            background: rgba(0, 200, 83, 0.1);
+            border: 2px solid #00C853;
+        }
+        
+        .result-box.failure {
+            background: rgba(211, 47, 47, 0.1);
+            border: 2px solid #D32F2F;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: #00E5FF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            word-break: break-all;
+        }
+        
+        .status-icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .status-icon.success {
+            color: #00C853;
+        }
+        
+        .status-icon.failure {
+            color: #D32F2F;
+        }
+        
+        .note {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #FFC107;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #757575;
+            font-size: 14px;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin: 0 15px;
+            color: #00E5FF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #00C853;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: #00E5FF;
+        }
+        
+        .tab:hover {
+            background: rgba(0, 229, 255, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 龙魂DNA验证器</h1>
+            <div class="subtitle">数字存证系统 | 验证内容真伪</div>
+            <div class="creator-info">
+                创作者: 诸葛鑫 (Lucky) | UID9622<br>
+                DNA追溯码: #ZHUGEXIN⚡️2026-01-06-LONGHUN-DNA-VERIFIER-001
+            </div>
+        </header>
+        
+        <div class="card">
+            <h2>验证DNA存证</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('code')">通过DNA码验证</div>
+                <div class="tab" onclick="switchTab('file')">通过文件验证</div>
+            </div>
+            
+            <div id="tab-code" class="tab-content active">
+                <div class="form-group">
+                    <label for="dnaCode">DNA追溯码 *</label>
+                    <input type="text" id="dnaCode" placeholder="例如: #ZHUGEXIN⚡️2026-01-06-TEST-001">
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" onclick="verifyByCode()">🔐 验证DNA码</button>
+                    <button class="btn-secondary" onclick="clearForm()">🗑️ 清空</button>
+                </div>
+            </div>
+            
+            <div id="tab-file" class="tab-content">
+                <div class="form-group">
+                    <label for="evidenceFile">选择存证文件 (JSON) *</label>
+                    <input type="file" id="evidenceFile" accept=".json">
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" onclick="verifyByFile()">🔐 验证文件</button>
+                    <button class="btn-secondary" onclick="clearForm()">🗑️ 清空</button>
+                </div>
+            </div>
+            
+            <div class="result-box" id="resultBox">
+                <div class="status-icon" id="statusIcon"></div>
+                <h3 style="text-align: center; margin-bottom: 20px;" id="statusTitle"></h3>
+                
+                <div id="resultContent"></div>
+            </div>
+            
+            <div class="note">
+                <strong>💡 提示：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>通过DNA码验证：输入DNA追溯码，系统将从本地存储查询</li>
+                    <li>通过文件验证：上传之前下载的存证JSON文件</li>
+                    <li>验证通过表示内容未被篡改</li>
+                    <li>验证失败表示内容可能被篡改或DNA码不存在</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <div>
+                <a href="generator.html" class="nav-link">🔐 DNA生成器</a>
+                <a href="list.html" class="nav-link">📋 存证列表</a>
+            </div>
+            <p style="margin-top: 20px;">
+                技术主权 · 数据主权 · 中文原生<br>
+                龙魂DNA存证系统 v1.0 | 完全开源 · 完全免费
+            </p>
+        </footer>
+    </div>
+    
+    <script src="longhun_dna.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // 切换tab样式
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 切换内容
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabName).classList.add('active');
+            
+            // 清空结果
+            clearResult();
+        }
+        
+        async function verifyByCode() {
+            const dnaCode = document.getElementById('dnaCode').value.trim();
+            
+            if (!dnaCode) {
+                alert('请输入DNA追溯码！');
+                return;
+            }
+            
+            try {
+                const result = await LonghunDNA.verifyEvidence(dnaCode);
+                
+                displayResult(result);
+            } catch (error) {
+                alert('验证过程发生错误：' + error.message);
+            }
+        }
+        
+        async function verifyByFile() {
+            const fileInput = document.getElementById('evidenceFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('请选择一个存证文件！');
+                return;
+            }
+            
+            try {
+                const result = await LonghunDNA.importEvidence(file);
+                
+                if (result.success) {
+                    // 导入成功，立即验证
+                    const verifyResult = await LonghunDNA.verifyEvidence(result.dnaCode);
+                    displayResult(verifyResult);
+                } else {
+                    displayResult({
+                        success: true,
+                        verified: false,
+                        reason: result.reason || result.error
+                    });
+                }
+            } catch (error) {
+                alert('验证过程发生错误：' + error.message);
+            }
+        }
+        
+        function displayResult(result) {
+            const resultBox = document.getElementById('resultBox');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const resultContent = document.getElementById('resultContent');
+            
+            if (!result.success) {
+                // 查询失败
+                resultBox.className = 'result-box show failure';
+                statusIcon.className = 'status-icon failure';
+                statusIcon.textContent = '❌';
+                statusTitle.textContent = '查询失败';
+                
+                resultContent.innerHTML = `
+                    <div class="result-item">
+                        <div class="result-label">失败原因</div>
+                        <div class="result-value">${result.reason || result.error}</div>
+                    </div>
+                `;
+            } else if (result.verified) {
+                // 验证通过
+                resultBox.className = 'result-box show success';
+                statusIcon.className = 'status-icon success';
+                statusIcon.textContent = '✅';
+                statusTitle.textContent = '验证通过 - 内容真实可信';
+                
+                resultContent.innerHTML = `
+                    <div class="result-item">
+                        <div class="result-label">DNA追溯码</div>
+                        <div class="result-value">${result.dnaCode}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">创建时间</div>
+                        <div class="result-value">${result.timestamp}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">创作者</div>
+                        <div class="result-value">${result.creator}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">项目名称</div>
+                        <div class="result-value">${result.project}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">内容摘要</div>
+                        <div class="result-value">${result.contentPreview}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">数字指纹</div>
+                        <div class="result-value">${result.digitalFingerprint}</div>
+                    </div>
+                `;
+            } else {
+                // 验证失败
+                resultBox.className = 'result-box show failure';
+                statusIcon.className = 'status-icon failure';
+                statusIcon.textContent = '⚠️';
+                statusTitle.textContent = '验证失败 - 内容可能被篡改';
+                
+                resultContent.innerHTML = `
+                    <div class="result-item">
+                        <div class="result-label">失败原因</div>
+                        <div class="result-value">${result.reason}</div>
+                    </div>
+                    ${result.originalFingerprint ? `
+                    <div class="result-item">
+                        <div class="result-label">原始指纹</div>
+                        <div class="result-value">${result.originalFingerprint}</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">计算指纹</div>
+                        <div class="result-value">${result.calculatedFingerprint}</div>
+                    </div>
+                    ` : ''}
+                `;
+            }
+            
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function clearForm() {
+            document.getElementById('dnaCode').value = '';
+            document.getElementById('evidenceFile').value = '';
+            clearResult();
+        }
+        
+        function clearResult() {
+            document.getElementById('resultBox').classList.remove('show');
+        }
+    </script>
+</body>
+</html>

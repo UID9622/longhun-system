@@ -1,0 +1,734 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>策略即代码规则集（算法模块模板）</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="193750f3-0521-4742-a1db-3276c8dd108c" class="page sans"><header><h1 class="page-title" dir="auto">策略即代码规则集（算法模块模板）</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><td>2025-09-22：创建初版模板并加入首页固定导航。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><td><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><td><span class="selected-value select-value-color-pink">配置文件</span></td></tr><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><td><time>@2025年9月22日 04:38</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><td>把治理规则下沉为代码样式的声明式策略，统一执行与回放。</td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><td><a href="https://www.notion.so/193750f305214742a1db3276c8dd108c" class="url-value">https://www.notion.so/193750f305214742a1db3276c8dd108c</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><td><time>@2025年9月22日</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><td><span class="selected-value select-value-color-gray">⚡ 智能工作流</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>负责人格</th><td><span class="user"><img src="../../../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><td><span class="selected-value select-value-color-red">🔴 极高</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="071d1132-7f87-48ff-b7df-509333b776fa" class="">策略即代码规则集（算法模块模板）</h2></div><div style="display:contents" dir="auto"><ul id="6e1b63c4-ee2a-4d46-87a1-fd41dda4b5ca" class="bulleted-list"><li style="list-style-type:disc">目的：以声明式策略统一安全、可控、可靠、合规、成本的执行。</li></ul></div><div style="display:contents" dir="auto"><h3 id="0775b988-3253-404d-9e94-9293bdd10497" class="">规则分组</h3></div><div style="display:contents" dir="auto"><ul id="2e1bf524-0a79-4961-b64d-7498a030a495" class="bulleted-list"><li style="list-style-type:disc">security.policy：域隔离、注入防护、最小权限白名单</li></ul></div><div style="display:contents" dir="auto"><ul id="e365b515-ab56-477b-9c90-304cda36aa75" class="bulleted-list"><li style="list-style-type:disc">control.human_in_the_loop：双确认、监控模式白名单</li></ul></div><div style="display:contents" dir="auto"><ul id="7cf74aa1-ffd2-4dc6-a587-a1221cf2ca9f" class="bulleted-list"><li style="list-style-type:disc">reliability.workflow：状态机、断点、幂等、重试</li></ul></div><div style="display:contents" dir="auto"><ul id="cc4f37c6-07e8-4ab7-970f-c8b16758c8fb" class="bulleted-list"><li style="list-style-type:disc"><a href="http://compliance.data">compliance.data</a>：标签、目的绑定、保存期</li></ul></div><div style="display:contents" dir="auto"><ul id="7ec822a6-5593-4a28-bb6c-82d2902fc0ad" class="bulleted-list"><li style="list-style-type:disc">cost.guardrail：并发、预算、降级策略</li></ul></div><div style="display:contents" dir="auto"><h3 id="27ba60d9-1f5b-4424-8005-a3765e095b73" class="">示例（伪代码）</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d6782b91-26c5-4d47-bd3b-d2865dc3f8d7" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">version: v1
+security:
+  prompt_injection: strip_hidden, sanitize_meta
+  identity_pool: isolated_by_connector: true
+  allowlist:
+    tools: [browser_text, api_calendar]
+    data: [project_docs_ro]
+control:
+  confirmation:
+    impact_levels: [purchase, prod_write]
+    mfa: required
+reliability:
+  workflow: idempotency: hash(step+inputs)
+  checkpoint: every_step: true
+compliance:
+  tags: {region: APAC, sensitivity: HIGH, retention_days: 30}
+  audit: append_only: true
+cost:
+  limits: {concurrency: 3, monthly_budget_usd: 100}
+  degrade: [lower_model, queue_offline]</code></pre></div><div style="display:contents" dir="auto"><h3 id="c3a2e731-de00-4c38-83c1-04554f9c3232" class="">集成点</h3></div><div style="display:contents" dir="auto"><ul id="aa9d06c2-214b-4881-8127-ac414f44ec87" class="bulleted-list"><li style="list-style-type:disc">路由与协议网关、工作流引擎、数据治理核心</li></ul></div><div style="display:contents" dir="auto"><p id="28b7125a-9c9f-803c-a9ea-eb8978b5a916" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8099-89c9-f9cb7aba0687" class="bulleted-list"><li style="list-style-type:disc">路由与协议网关：在请求入口处验证策略合规性，拦截违规调用</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8072-b989-f8213c3aa7da" class="bulleted-list"><li style="list-style-type:disc">工作流引擎：执行前加载规则集，运行时注入检查点与重试逻辑</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8001-922a-e1fe1c370396" class="bulleted-list"><li style="list-style-type:disc">数据治理核心：根据标签与目的绑定策略，自动应用加密、脱敏与保留期规则</li></ul></div><div style="display:contents" dir="auto"><h3 id="28b7125a-9c9f-8086-8d27-c7c9c7fed769" class="">版本管理与演进</h3></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-800a-8aac-e454a8e0e62f" class="bulleted-list"><li style="list-style-type:disc">版本号：采用语义化版本 v{major}.{minor}.{patch}</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8086-8a2f-c7cd477ce99a" class="bulleted-list"><li style="list-style-type:disc">变更追踪：每次修改需记录在修改记录字段，包含日期、修改人、变更内容</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-800a-97bc-f4de01ad7364" class="bulleted-list"><li style="list-style-type:disc">向后兼容：新版本发布时需提供迁移指南，旧版本归档至&quot;归档索引&quot;</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-806d-9e0e-d83bd321e4d9" class="bulleted-list"><li style="list-style-type:disc">审查流程：策略变更需经主控批准，重大变更需双确认</li></ul></div><div style="display:contents" dir="auto"><h3 id="28b7125a-9c9f-80f2-a22b-f745830901b9" class="">执行与监控</h3></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8052-a8d3-ff12c53906d9" class="bulleted-list"><li style="list-style-type:disc">加载时机：在工作流启动前、请求路由时、数据操作前自动加载对应规则集</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8093-af2e-f67120ea0dd6" class="bulleted-list"><li style="list-style-type:disc">验证机制：运行时实时校验策略合规性，违规操作自动阻断并记录</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-807d-b9e2-fa6cc3d8c583" class="bulleted-list"><li style="list-style-type:disc">监控指标：策略命中率、拦截次数、性能影响、异常告警</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-80de-bf35-cea93a374c94" class="bulleted-list"><li style="list-style-type:disc">审计日志：所有策略执行结果写入不可篡改日志，支持回溯与审查</li></ul></div><div style="display:contents" dir="auto"><h3 id="28b7125a-9c9f-80a4-8ee2-d8e75138560d" class="">扩展与定制</h3></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-80d1-87c1-f33bd1e626f9" class="bulleted-list"><li style="list-style-type:disc">自定义规则：支持基于场景添加新规则组，遵循 YAML 声明式语法</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8045-8c54-e05cee41d07f" class="bulleted-list"><li style="list-style-type:disc">插件机制：预留扩展点，允许注入自定义验证器与处理器</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-80a6-80c2-f1e1ae03e52a" class="bulleted-list"><li style="list-style-type:disc">多环境配置：支持 dev/staging/prod 环境差异化策略，通过环境变量切换</li></ul></div><div style="display:contents" dir="auto"><h3 id="28b7125a-9c9f-80ce-8edc-ea141645d182" class="">最佳实践</h3></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8016-bf16-cd960217fba6" class="bulleted-list"><li style="list-style-type:disc">最小权限原则：allowlist 仅包含必需工具与数据，定期审查权限范围</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8083-a465-d986bb10f081" class="bulleted-list"><li style="list-style-type:disc">分层防护：结合网关、引擎、数据层多层策略，避免单点失效</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8065-bde3-f9fc7d48cd0d" class="bulleted-list"><li style="list-style-type:disc">渐进式部署：新策略先在监控模式运行，验证无误后再切换为强制模式</li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8091-a18d-d62fc0976c99" class="bulleted-list"><li style="list-style-type:disc">文档同步：策略变更同步更新相关 SOP 与操作手册</li></ul></div><div style="display:contents" dir="auto"><h3 id="28b7125a-9c9f-8009-a1b6-d2db5fd4cd40" class="">快捷入口</h3></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8047-8894-ef359730c68f" class="bulleted-list"><li style="list-style-type:disc">🏠 首页导航：<a href="https://www.notion.so#">固定导航</a></li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-80c7-baa6-cde0996ff22d" class="bulleted-list"><li style="list-style-type:disc">📜 安全策略 SOP：<a href="%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E6%89%A7%E8%A1%8C%20SOP%EF%BC%88%E6%A8%A1%E6%9D%BF%EF%BC%89%20220386560a464c02ba7f6b39772a381e.html">安全策略执行 SOP（模板）</a></li></ul></div><div style="display:contents" dir="auto"><ul id="28b7125a-9c9f-8071-9e24-f58146b31bed" class="bulleted-list"><li style="list-style-type:disc">🗃️ 历史版本归档：<a href="%E5%BD%92%E6%A1%A3%E7%B4%A2%E5%BC%95%EF%BC%88%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E4%B8%8E%E5%BA%9F%E5%BC%83%E7%AD%96%E7%95%A5%EF%BC%89%20f328e68b555645e3a5014fa5bfff9535.html">归档索引（历史版本与废弃策略）</a></li></ul></div><div style="display:contents" dir="auto"><p id="2cf7125a-9c9f-80a1-acfa-c7ed1cc464fc" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

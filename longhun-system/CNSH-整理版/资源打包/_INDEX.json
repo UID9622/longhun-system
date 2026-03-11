@@ -1,0 +1,183 @@
+{
+  "category": "资源打包",
+  "count": 16,
+  "generated_at": "2026-03-06T07:47:21.395032",
+  "pages": [
+    {
+      "id": "8187dffe-6b77-4e97-a163-01ba12e4197a",
+      "title": "📦 蒙卦启智·压缩精华补丁 | v2-v4精华合并（复制进蒙卦启智用）",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/v2-v4-8187dffe6b774e97a16301ba12e4197a",
+      "created": "2026-02-11",
+      "modified": "2026-02-11",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "1a59dad9-3a83-40ad-b046-804f51bd6132",
+      "title": "📦 README极简模板｜仓库说明·一眼看懂",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/README-1a59dad93a8340adb046804f51bd6132",
+      "created": "2026-02-02",
+      "modified": "2026-02-02",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "fd68df76-b6f7-4bb6-ace1-c59e2b04e750",
+      "title": "📦 元宇宙预设填空标准·UID9622统一规范",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/UID9622-fd68df76b6f74bb6ace1c59e2b04e750",
+      "created": "2026-01-03",
+      "modified": "2026-02-01",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "ebab97bb-4926-4d10-8538-f6ae77aced9e",
+      "title": "📦 龙魂公益版·一键部署包 | 本地AI零门槛安装",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/AI-ebab97bb49264d108538f6ae77aced9e",
+      "created": "2025-12-14",
+      "modified": "2026-01-31",
+      "parent_type": "page_id",
+      "category_reason": "📦"
+    },
+    {
+      "id": "8388d572-319a-4194-94fc-138976fe01fb",
+      "title": "📦 白皮书文件包使用说明｜Claude操作指南",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/Claude-8388d572319a419494fc138976fe01fb",
+      "created": "2026-01-22",
+      "modified": "2026-01-22",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "213da4a4-4674-4d2a-b160-0379a4386fcf",
+      "title": "📦 UID9622完整代码包 | Codebuddy专用交付文档",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/UID9622-Codebuddy-213da4a446744d2ab1600379a4386fcf",
+      "created": "2025-12-08",
+      "modified": "2026-01-20",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "34f35ded-bcc0-482a-b1a1-fa3ab2ad123f",
+      "title": "📦 中文代码模板包 | 下载即用",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/34f35dedbcc0482ab1a1fa3ab2ad123f",
+      "created": "2025-12-16",
+      "modified": "2026-01-08",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "8be4cc02-4c97-4b22-89f4-9fdc5efed12a",
+      "title": "📦 2026-01-08对话压缩 | 龙魂人格矩阵创建记录",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/2026-01-08-8be4cc024c974b2289f49fdc5efed12a",
+      "created": "2026-01-08",
+      "modified": "2026-01-08",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "c194d865-cc45-45d4-810d-d96b208341d9",
+      "title": "📦 对话记忆压缩 | 2026-01-04 视频优化+发文策略",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/2026-01-04-c194d865cc4545d4810dd96b208341d9",
+      "created": "2026-01-05",
+      "modified": "2026-01-05",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "67184430-e7ad-4fd5-8128-e257afd57373",
+      "title": "📦 CNSH完整项目包 | 一键运行指南",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/CNSH-67184430e7ad4fd58128e257afd57373",
+      "created": "2026-01-04",
+      "modified": "2026-01-04",
+      "parent_type": "page_id",
+      "category_reason": "📦"
+    },
+    {
+      "id": "f56058bf-3506-468c-b43d-636d234aca06",
+      "title": "📦 诸葛鑫数字资产与记忆打包清单 | Digital Assets & Memory Archive | 一家人的永恒档案",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/Digital-Assets-Memory-Archive-f56058bf3506468cb43d636d234aca06",
+      "created": "2025-10-26",
+      "modified": "2025-12-20",
+      "parent_type": "page_id",
+      "category_reason": "📦"
+    },
+    {
+      "id": "a3253755-6721-4dfb-ba36-b8fd25eb6f0f",
+      "title": "📦 Ollama指令管家完整代码包 | 一键下载部署",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/Ollama-a325375567214dfbba36b8fd25eb6f0f",
+      "created": "2025-12-12",
+      "modified": "2025-12-12",
+      "parent_type": "page_id",
+      "category_reason": "📦"
+    },
+    {
+      "id": "11890a8b-6678-4055-9817-c56d45c81513",
+      "title": "📦 Mac文件1：一键安装.command",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/Mac-1-command-11890a8b667840559817c56d45c81513",
+      "created": "2025-10-16",
+      "modified": "2025-11-18",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "3362bc33-74e3-4a96-8978-6f7fe90fa2d8",
+      "title": "📦 Notion数据自动备份系统 | 每日守护您的数据",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/Notion-3362bc3374e34a9689786f7fe90fa2d8",
+      "created": "2025-10-28",
+      "modified": "2025-11-18",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "f549f820-d99e-469b-80a7-b812f62ec090",
+      "title": "📦 2025-10-27对话封存 | 主权宣言+阴阳结界+3-2-1防御 | 龙魂初心对齐",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/2025-10-27-3-2-1-f549f820d99e469b80a7b812f62ec090",
+      "created": "2025-10-28",
+      "modified": "2025-11-18",
+      "parent_type": "workspace",
+      "category_reason": "📦"
+    },
+    {
+      "id": "b1da2c9e-7ee2-4157-bdfc-79ff3f6b7338",
+      "title": "📦 UID9622完整备份清单 | 所有页面索引",
+      "icon": "📦",
+      "tags": [],
+      "url": "https://www.notion.so/UID9622-b1da2c9e7ee24157bdfc79ff3f6b7338",
+      "created": "2025-10-11",
+      "modified": "2025-10-17",
+      "parent_type": "block_id",
+      "category_reason": "📦"
+    }
+  ]
+}

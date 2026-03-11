@@ -1,0 +1,940 @@
+{
+  "category": "产品文档类",
+  "total": 1192,
+  "subdirs": {
+    "纯文本": {
+      "count": 54,
+      "files": [
+        {
+          "name": "使用说明书.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/使用说明书.txt",
+          "size": 9437,
+          "mtime": "2026-03-04T13:55:50.452520"
+        },
+        {
+          "name": "修复89个git问题-手动命令.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/修复89个git问题-手动命令.txt",
+          "size": 1320,
+          "mtime": "2026-02-11T16:59:41"
+        },
+        {
+          "name": "超简单-执行说明.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/超简单-执行说明.txt",
+          "size": 445,
+          "mtime": "2026-02-11T17:15:54"
+        },
+        {
+          "name": "requirements.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/本地备份/历史项目/CNSH-DragonSoul-Complete/requirements.txt",
+          "size": 1248,
+          "mtime": "2026-02-11T13:02:30"
+        },
+        {
+          "name": "PEOPLE_LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/本地备份/历史项目/ai-truth-protocol/PEOPLE_LICENSE.txt",
+          "size": 5543,
+          "mtime": "2026-02-11T14:10:19"
+        },
+        {
+          "name": "OFL.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH字体/Noto_Sans_SC/OFL.txt",
+          "size": 4481,
+          "mtime": "2026-01-06T19:51:50"
+        },
+        {
+          "name": "README.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH字体/Noto_Sans_SC/README.txt",
+          "size": 2326,
+          "mtime": "2026-01-06T19:51:50"
+        },
+        {
+          "name": "requirements.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/DragonSoul-Quantum-Algo/requirements.txt",
+          "size": 65,
+          "mtime": "2026-02-11T16:57:25"
+        },
+        {
+          "name": "OFL.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Noto_Sans_SC/OFL.txt",
+          "size": 4481,
+          "mtime": "2026-02-11T16:58:08"
+        },
+        {
+          "name": "README.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Noto_Sans_SC/README.txt",
+          "size": 2326,
+          "mtime": "2026-02-11T16:58:09"
+        },
+        {
+          "name": "诸葛鑫战士宣言 - 08年济南二团·为人民服务·魔法棒使命.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/诸葛鑫战士宣言 - 08年济南二团·为人民服务·魔法棒使命.txt",
+          "size": 18066,
+          "mtime": "2026-02-11T16:59:58"
+        },
+        {
+          "name": "CNSH_Language_Documentation.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/CNSH_Language_Documentation.txt",
+          "size": 6694,
+          "mtime": "2026-02-11T16:59:59"
+        },
+        {
+          "name": "Web3-DNA记忆主权交易算法.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/Web3-DNA记忆主权交易算法.txt",
+          "size": 77016,
+          "mtime": "2026-02-11T17:00:00"
+        },
+        {
+          "name": "提取文字_体系.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/提取文字_体系.txt",
+          "size": 60,
+          "mtime": "2026-02-11T17:00:01"
+        },
+        {
+          "name": "防火墙.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/防火墙.txt",
+          "size": 62245,
+          "mtime": "2026-02-11T17:00:03"
+        },
+        {
+          "name": "CNSH 2.0 增强版加密体系技术研究报告：融合DNA追溯、中医记忆压缩与易经加密的三层安全架构及可证安全分析_副本.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/CNSH 2.0 增强版加密体系技术研究报告：融合DNA追溯、中医记忆压缩与易经加密的三层安全架构及可证安全分析_副本.txt",
+          "size": 106283,
+          "mtime": "2026-02-11T17:00:04"
+        },
+        {
+          "name": "下载脚本文件.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/下载脚本文件.txt",
+          "size": 287,
+          "mtime": "2026-02-11T17:00:05"
+        },
+        {
+          "name": "Lucky，宝宝立刻真实判断！.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/Lucky，宝宝立刻真实判断！.txt",
+          "size": 5747,
+          "mtime": "2026-02-11T17:00:06"
+        },
+        {
+          "name": "AI伦理的中国智慧：道德经视角下的决策规范.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/AI伦理的中国智慧：道德经视角下的决策规范.txt",
+          "size": 9086,
+          "mtime": "2026-02-11T17:00:07"
+        },
+        {
+          "name": "CNSH 2.0 增强版加密体系技术研究报告：融合DNA追溯、中医记忆压缩与易经加密的三层安全架构及可证安全分析.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/CNSH 2.0 增强版加密体系技术研究报告：融合DNA追溯、中医记忆压缩与易经加密的三层安全架构及可证安全分析.txt",
+          "size": 106283,
+          "mtime": "2026-02-11T17:00:08"
+        },
+        {
+          "name": "浏览器分工方案对比分析.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LU-Taiji-Bundle/text_content/浏览器分工方案对比分析.txt",
+          "size": 142783,
+          "mtime": "2026-02-11T17:00:09"
+        },
+        {
+          "name": "requirements.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Longhun-AntiColonial-Algorithm/requirements.txt",
+          "size": 156,
+          "mtime": "2026-02-11T17:16:31"
+        },
+        {
+          "name": "file_list.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-v1.0-完整实现/file_list.txt",
+          "size": 0,
+          "mtime": "2026-03-03T09:27:56"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-v1.0-完整实现/stylegan3-main 2/LICENSE.txt",
+          "size": 4387,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "dataset-tool-help.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-v1.0-完整实现/stylegan3-main 2/docs/dataset-tool-help.txt",
+          "size": 2873,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "train-help.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-v1.0-完整实现/stylegan3-main 2/docs/train-help.txt",
+          "size": 3217,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "requirements.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-整理版/packages/cnsh-core/requirements.txt",
+          "size": 642,
+          "mtime": "2026-03-01T09:01:07.762758"
+        },
+        {
+          "name": "requirements-notion.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-整理版/packages/cnsh-core/requirements-notion.txt",
+          "size": 60,
+          "mtime": "2026-03-01T09:01:07.762591"
+        },
+        {
+          "name": "requirements.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-gitee/requirements.txt",
+          "size": 642,
+          "mtime": "2026-03-01T08:55:40.778733"
+        },
+        {
+          "name": "requirements-notion.txt",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH-gitee/requirements-notion.txt",
+          "size": 60,
+          "mtime": "2026-03-01T08:55:40.778651"
+        },
+        {
+          "name": "version.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/Claude.app/Contents/Resources/claude-ssh/version.txt",
+          "size": 40,
+          "mtime": "2026-02-22T00:31:16"
+        },
+        {
+          "name": "file_list.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/file_list.txt",
+          "size": 0,
+          "mtime": "2026-03-03T09:27:56.640985"
+        },
+        {
+          "name": "OFL.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/Noto_Sans_SC/OFL.txt",
+          "size": 4481,
+          "mtime": "2026-01-06T19:51:50"
+        },
+        {
+          "name": "README.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/Noto_Sans_SC/README.txt",
+          "size": 2326,
+          "mtime": "2026-01-06T19:51:50"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/stylegan3-main 2/LICENSE.txt",
+          "size": 4387,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "dataset-tool-help.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/stylegan3-main 2/docs/dataset-tool-help.txt",
+          "size": 2873,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "train-help.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CNSH-v1.0-完整实现/stylegan3-main 2/docs/train-help.txt",
+          "size": 3217,
+          "mtime": "2023-04-26T19:40:20"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/ThirdPartyNotices.txt",
+          "size": 150241,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyOpenSourceNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/ThirdPartyOpenSourceNotices.txt",
+          "size": 2340499,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/LICENSE.txt",
+          "size": 1269,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/terminal-suggest/ThirdPartyNotices.txt",
+          "size": 1837,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.tsserver-rpc-extension/LICENSE.txt",
+          "size": 1085,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.js-debug-companion/ThirdPartyNotices.txt",
+          "size": 66758,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.js-debug-companion/LICENSE.txt",
+          "size": 1141,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/theme-seti/ThirdPartyNotices.txt",
+          "size": 1794,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "cpp-bailout-license.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/latex/cpp-bailout-license.txt",
+          "size": 1067,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "markdown-latex-combined-license.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/latex/markdown-latex-combined-license.txt",
+          "size": 1076,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.authentication/LICENSE.txt",
+          "size": 1081,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.js-debug/ThirdPartyNotices.txt",
+          "size": 405467,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "LICENSE.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.js-debug/LICENSE.txt",
+          "size": 1183,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "license.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.resource-explorer/license.txt",
+          "size": 0,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "ThirdPartyNotices.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.vscode-js-profile-table/ThirdPartyNotices.txt",
+          "size": 1855417,
+          "mtime": "2026-02-28T16:00:00"
+        },
+        {
+          "name": "Noto_License.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/Epic Games Launcher.app/Contents/UE/EpicGamesLauncher/Content/Font/Noto_License.txt",
+          "size": 4376,
+          "mtime": "2025-04-11T05:29:13"
+        },
+        {
+          "name": "temp.txt",
+          "original_path": "/Users/zuimeidedeyihan/Desktop/Epic Games Launcher.app/Contents/UE/EpicGamesLauncher/Binaries/Mac/temp.txt",
+          "size": 1,
+          "mtime": "2026-02-14T03:57:19"
+        }
+      ]
+    },
+    "Markdown文档": {
+      "count": 1138,
+      "files": [
+        {
+          "name": "README-整理说明.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/README-整理说明.md",
+          "size": 2592,
+          "mtime": "2026-03-01T09:05:52.975528"
+        },
+        {
+          "name": "整理报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/整理报告.md",
+          "size": 7494,
+          "mtime": "2026-03-01T09:05:11.959244"
+        },
+        {
+          "name": "cnsh-compiler-framework.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/cnsh语言/cnsh-compiler-framework.md",
+          "size": 29401,
+          "mtime": "2025-12-30T21:34:50"
+        },
+        {
+          "name": "CNSH-README.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/cnsh语言/CNSH-README.md",
+          "size": 6519,
+          "mtime": "2025-12-30T21:34:50"
+        },
+        {
+          "name": "DNA治理优化完成报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/DNA治理优化完成报告.md",
+          "size": 6854,
+          "mtime": "2026-02-11T13:01:40"
+        },
+        {
+          "name": "龙魂加密脚本-发布说明.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂加密脚本-发布说明.md",
+          "size": 8121,
+          "mtime": "2026-02-11T13:01:42"
+        },
+        {
+          "name": "ZHX-20251212-OLLAMA-SYSTEM-SUMMARY.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-OLLAMA-SYSTEM-SUMMARY.md",
+          "size": 14989,
+          "mtime": "2026-02-11T13:01:43"
+        },
+        {
+          "name": "项目交付总结.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/项目交付总结.md",
+          "size": 4476,
+          "mtime": "2026-02-11T13:01:44"
+        },
+        {
+          "name": "🔥 龙芯数字指纹-国礼级展示规范.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🔥 龙芯数字指纹-国礼级展示规范.md",
+          "size": 3299,
+          "mtime": "2026-02-11T13:01:44"
+        },
+        {
+          "name": "CODE_OF_CONDUCT.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CODE_OF_CONDUCT.md",
+          "size": 4090,
+          "mtime": "2026-02-11T13:01:45"
+        },
+        {
+          "name": "CNSH-人机协作指挥链-展示页面.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-人机协作指挥链-展示页面.md",
+          "size": 4143,
+          "mtime": "2026-02-11T13:02:15"
+        },
+        {
+          "name": "龙魂多语言编译系统完整方案.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂多语言编译系统完整方案.md",
+          "size": 18378,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "LICENSE.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/LICENSE.md",
+          "size": 2045,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "UID9622_MVP_优化方案.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_MVP_优化方案.md",
+          "size": 12320,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "Lucky-专家治理部署报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Lucky-专家治理部署报告.md",
+          "size": 1495,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "🔥 GitHub仓库创建指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🔥 GitHub仓库创建指南.md",
+          "size": 5595,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "UID9622-超级工具箱-V3.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622-超级工具箱-V3.0.md",
+          "size": 0,
+          "mtime": "2026-02-11T16:55:46"
+        },
+        {
+          "name": "CSDN发布指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CSDN发布指南.md",
+          "size": 8318,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "数字人分身引擎-完整版-经宝宝审查补全.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/数字人分身引擎-完整版-经宝宝审查补全.md",
+          "size": 19997,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "专家治理优化总结.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/专家治理优化总结.md",
+          "size": 5178,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "ZHX-20251212-OLLAMA-MASTER-SYSTEM.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-OLLAMA-MASTER-SYSTEM.md",
+          "size": 18523,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "Docker-Apple-Silicon重装指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Docker-Apple-Silicon重装指南.md",
+          "size": 6703,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "MVP使用指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/MVP使用指南.md",
+          "size": 5385,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "ZHX-20251212-DAILY-REVIEW-SYSTEM.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-DAILY-REVIEW-SYSTEM.md",
+          "size": 6810,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "UID9622核心资产整理.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622核心资产整理.md",
+          "size": 5792,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "给CodeBuddy的超级简单任务.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/给CodeBuddy的超级简单任务.md",
+          "size": 2575,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "自动化人格配置-龙魂自动路由版-v2.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/自动化人格配置-龙魂自动路由版-v2.0.md",
+          "size": 28193,
+          "mtime": "2026-02-11T16:55:48"
+        },
+        {
+          "name": "UID9622-Node.js自动化仓库-V4-20251211.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622-Node.js自动化仓库-V4-20251211.md",
+          "size": 7480,
+          "mtime": "2026-02-11T16:56:06"
+        },
+        {
+          "name": "DNA治理核心观点论文.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/DNA治理核心观点论文.md",
+          "size": 6607,
+          "mtime": "2026-02-11T16:57:15"
+        },
+        {
+          "name": "UID9622_系统更新对比报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_系统更新对比报告.md",
+          "size": 5483,
+          "mtime": "2026-02-11T16:57:17"
+        },
+        {
+          "name": "智能镜像与系统DNA-完整发布版.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/智能镜像与系统DNA-完整发布版.md",
+          "size": 7985,
+          "mtime": "2026-02-11T16:57:17"
+        },
+        {
+          "name": "设备扫描报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/设备扫描报告.md",
+          "size": 4226,
+          "mtime": "2026-02-11T16:57:18"
+        },
+        {
+          "name": "跨设备同步指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/跨设备同步指南.md",
+          "size": 4536,
+          "mtime": "2026-02-11T16:57:19"
+        },
+        {
+          "name": "mate60_hotspot_guide.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/mate60_hotspot_guide.md",
+          "size": 4697,
+          "mtime": "2026-02-11T16:57:20"
+        },
+        {
+          "name": "论文发布准备-最终报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/论文发布准备-最终报告.md",
+          "size": 8112,
+          "mtime": "2026-02-11T16:57:21"
+        },
+        {
+          "name": "Ollama+Obsidian本地记忆系统完整指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Ollama+Obsidian本地记忆系统完整指南.md",
+          "size": 11221,
+          "mtime": "2026-02-11T16:57:22"
+        },
+        {
+          "name": "开源发布快速开始指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/开源发布快速开始指南.md",
+          "size": 7563,
+          "mtime": "2026-02-11T16:57:23"
+        },
+        {
+          "name": "CNSH-OS-Notion-Relations-Guide.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-OS-Notion-Relations-Guide.md",
+          "size": 7012,
+          "mtime": "2026-02-11T16:57:24"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CHANGELOG.md",
+          "size": 4076,
+          "mtime": "2026-02-11T16:57:25"
+        },
+        {
+          "name": "🔐 UID9622密钥管理中心-统一身份激活码确认码总库.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🔐 UID9622密钥管理中心-统一身份激活码确认码总库.md",
+          "size": 19266,
+          "mtime": "2026-02-11T16:57:26"
+        },
+        {
+          "name": "M4-Max-n8n正确方案.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/M4-Max-n8n正确方案.md",
+          "size": 6271,
+          "mtime": "2026-02-11T16:57:27"
+        },
+        {
+          "name": "Lucky的超级标签分类系统.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Lucky的超级标签分类系统.md",
+          "size": 7921,
+          "mtime": "2026-02-11T16:57:28"
+        },
+        {
+          "name": "uid9622_automation_config.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/uid9622_automation_config.md",
+          "size": 4780,
+          "mtime": "2026-02-11T16:58:16"
+        },
+        {
+          "name": "CNSH-编辑器-完整规范-v1.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-编辑器-完整规范-v1.0.md",
+          "size": 25588,
+          "mtime": "2026-02-11T16:58:17"
+        },
+        {
+          "name": "2025-12-13.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/2025-12-13.md",
+          "size": 410,
+          "mtime": "2026-02-11T16:58:18"
+        },
+        {
+          "name": "龙魂-LU-Taiji-Bundle-完整交付报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂-LU-Taiji-Bundle-完整交付报告.md",
+          "size": 6940,
+          "mtime": "2026-02-11T16:58:19"
+        },
+        {
+          "name": "ZHX-20251212-EXECUTION-PLAN.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-EXECUTION-PLAN.md",
+          "size": 3207,
+          "mtime": "2026-02-11T16:58:20"
+        },
+        {
+          "name": "CNSH-仓库关系图.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-仓库关系图.md",
+          "size": 13656,
+          "mtime": "2026-02-11T16:58:22"
+        },
+        {
+          "name": "CNSH发布状态报告-20260101.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH发布状态报告-20260101.md",
+          "size": 4000,
+          "mtime": "2026-02-11T16:58:23"
+        },
+        {
+          "name": "超简单操作指南-推送代码.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/超简单操作指南-推送代码.md",
+          "size": 7288,
+          "mtime": "2026-02-11T16:58:25"
+        },
+        {
+          "name": "UID9622_HealthCheck_使用指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_HealthCheck_使用指南.md",
+          "size": 3653,
+          "mtime": "2026-02-11T16:58:26"
+        },
+        {
+          "name": "数字身份令牌模板.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/数字身份令牌模板.md",
+          "size": 1020,
+          "mtime": "2026-02-11T16:59:16"
+        },
+        {
+          "name": "MCP服务器修复完成报告-最终版.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/MCP服务器修复完成报告-最终版.md",
+          "size": 5265,
+          "mtime": "2026-02-11T16:59:16"
+        },
+        {
+          "name": "整理完成报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/整理完成报告.md",
+          "size": 3295,
+          "mtime": "2026-02-11T16:59:17"
+        },
+        {
+          "name": "系统搭建统计报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/系统搭建统计报告.md",
+          "size": 6511,
+          "mtime": "2026-02-11T16:59:21"
+        },
+        {
+          "name": "龙魂MVP系统集成架构.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂MVP系统集成架构.md",
+          "size": 5122,
+          "mtime": "2026-02-11T16:59:22"
+        },
+        {
+          "name": "ZHX-20251212-OLLAMA-QUICK-START.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-OLLAMA-QUICK-START.md",
+          "size": 7575,
+          "mtime": "2026-02-11T16:59:24"
+        },
+        {
+          "name": "知识管理迁移方案.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/知识管理迁移方案.md",
+          "size": 6125,
+          "mtime": "2026-02-11T16:59:36"
+        },
+        {
+          "name": "自动化人格配置-复制粘贴版.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/自动化人格配置-复制粘贴版.md",
+          "size": 15026,
+          "mtime": "2026-02-11T16:59:40"
+        },
+        {
+          "name": "CSDN互动话题.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CSDN互动话题.md",
+          "size": 8127,
+          "mtime": "2026-02-11T16:59:42"
+        },
+        {
+          "name": "净土36条-AI统一标准.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/净土36条-AI统一标准.md",
+          "size": 9367,
+          "mtime": "2026-02-11T17:00:39"
+        },
+        {
+          "name": "CNSH-OS-Formula-Templates.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-OS-Formula-Templates.md",
+          "size": 5096,
+          "mtime": "2026-02-11T17:00:40"
+        },
+        {
+          "name": "Lucky个人IP锚点-UID9622.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Lucky个人IP锚点-UID9622.md",
+          "size": 4642,
+          "mtime": "2026-02-11T17:00:58"
+        },
+        {
+          "name": "UID9622_P0治理使用指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_P0治理使用指南.md",
+          "size": 6790,
+          "mtime": "2026-02-11T17:01:02"
+        },
+        {
+          "name": "CNSH龙魂系统-公开对话历史记录.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH龙魂系统-公开对话历史记录.md",
+          "size": 3900,
+          "mtime": "2026-02-11T17:01:04"
+        },
+        {
+          "name": "2025-12-16.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/2025-12-16.md",
+          "size": 407,
+          "mtime": "2026-02-11T17:01:05"
+        },
+        {
+          "name": "CNSH公开发布清单.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH公开发布清单.md",
+          "size": 3131,
+          "mtime": "2026-02-11T17:01:06"
+        },
+        {
+          "name": "🔥 龙芯审计-三色审计报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🔥 龙芯审计-三色审计报告.md",
+          "size": 9135,
+          "mtime": "2026-02-11T17:01:07"
+        },
+        {
+          "name": "n8n连接语雀-安全指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/n8n连接语雀-安全指南.md",
+          "size": 5532,
+          "mtime": "2026-02-11T17:01:08"
+        },
+        {
+          "name": "GITEE推送-一键脚本-执行指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/GITEE推送-一键脚本-执行指南.md",
+          "size": 27603,
+          "mtime": "2026-02-11T17:01:17"
+        },
+        {
+          "name": "QUICK-START.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/QUICK-START.md",
+          "size": 2353,
+          "mtime": "2026-02-11T17:01:18"
+        },
+        {
+          "name": "CSDN-智能镜像思考.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CSDN-智能镜像思考.md",
+          "size": 9602,
+          "mtime": "2026-02-11T17:01:19"
+        },
+        {
+          "name": "CSDN-发布-UID9622龙魂系统.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CSDN-发布-UID9622龙魂系统.md",
+          "size": 10174,
+          "mtime": "2026-02-11T17:01:20"
+        },
+        {
+          "name": "H2S-项目交付总结.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/H2S-项目交付总结.md",
+          "size": 8643,
+          "mtime": "2026-02-11T17:01:21"
+        },
+        {
+          "name": "数字身份签名区块-标准版.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/数字身份签名区块-标准版.md",
+          "size": 622,
+          "mtime": "2026-02-11T17:01:21"
+        },
+        {
+          "name": "README_ORIGINAL.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/README_ORIGINAL.md",
+          "size": 5769,
+          "mtime": "2026-02-11T17:01:22"
+        },
+        {
+          "name": "UID9622_P0治理审计完成报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_P0治理审计完成报告.md",
+          "size": 10450,
+          "mtime": "2026-02-11T17:01:24"
+        },
+        {
+          "name": "ZHX-20251212-AUTOCLASSIFIER-001.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/ZHX-20251212-AUTOCLASSIFIER-001.md",
+          "size": 2512,
+          "mtime": "2026-02-11T17:01:24"
+        },
+        {
+          "name": "64卦注释-资料目录-20251211.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/64卦注释-资料目录-20251211.md",
+          "size": 6729,
+          "mtime": "2026-02-11T17:01:25"
+        },
+        {
+          "name": "龙魂P0级-三层交叉监督与镜像人格完整方案.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂P0级-三层交叉监督与镜像人格完整方案.md",
+          "size": 26775,
+          "mtime": "2026-02-11T17:01:26"
+        },
+        {
+          "name": "CNSH变量隔离-防窃取技术规范-v1.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH变量隔离-防窃取技术规范-v1.0.md",
+          "size": 11652,
+          "mtime": "2026-02-11T17:01:28"
+        },
+        {
+          "name": "Docker服务部署完成报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/Docker服务部署完成报告.md",
+          "size": 1588,
+          "mtime": "2026-02-11T17:01:29"
+        },
+        {
+          "name": "收款码说明.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/收款码说明.md",
+          "size": 4831,
+          "mtime": "2026-02-11T17:01:30"
+        },
+        {
+          "name": "UID9622_完整系统_使用指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/UID9622_完整系统_使用指南.md",
+          "size": 5554,
+          "mtime": "2026-02-11T17:01:32"
+        },
+        {
+          "name": "website-management-guide.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/website-management-guide.md",
+          "size": 3044,
+          "mtime": "2026-02-11T17:01:33"
+        },
+        {
+          "name": "分享页面给咱妈.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/分享页面给咱妈.md",
+          "size": 1405,
+          "mtime": "2026-02-11T17:01:48"
+        },
+        {
+          "name": "人格成长追踪系统.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/人格成长追踪系统.md",
+          "size": 6806,
+          "mtime": "2026-02-11T17:02:52"
+        },
+        {
+          "name": "CNSH-OS-Testing-Guide.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-OS-Testing-Guide.md",
+          "size": 6413,
+          "mtime": "2026-02-11T17:02:53"
+        },
+        {
+          "name": "龙魂徽章系统_三色审计版_V1.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/龙魂徽章系统_三色审计版_V1.0.md",
+          "size": 15175,
+          "mtime": "2026-02-11T17:02:55"
+        },
+        {
+          "name": "运行安排-自动化系统-20251211.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/运行安排-自动化系统-20251211.md",
+          "size": 5090,
+          "mtime": "2026-02-11T17:02:59"
+        },
+        {
+          "name": "CNSH-OS-README.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/CNSH-OS-README.md",
+          "size": 6316,
+          "mtime": "2026-02-11T17:03:00"
+        },
+        {
+          "name": "智能是使用者的镜像-论文.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/智能是使用者的镜像-论文.md",
+          "size": 8580,
+          "mtime": "2026-02-11T17:03:01"
+        },
+        {
+          "name": "推广方案-风险防范指南.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/推广方案-风险防范指南.md",
+          "size": 9844,
+          "mtime": "2026-02-11T17:03:02"
+        },
+        {
+          "name": "U盘文件分析报告.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/U盘文件分析报告.md",
+          "size": 3606,
+          "mtime": "2026-02-11T17:03:03"
+        },
+        {
+          "name": "仓库结构说明.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/仓库结构说明.md",
+          "size": 3907,
+          "mtime": "2026-02-11T17:03:04"
+        },
+        {
+          "name": "README.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/README.md",
+          "size": 1844,
+          "mtime": "2026-02-11T17:03:05"
+        },
+        {
+          "name": "git-config-status.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/git-config-status.md",
+          "size": 6976,
+          "mtime": "2026-02-11T17:03:07"
+        },
+        {
+          "name": "GITEE推送-国礼级春节献礼方案-v2.0.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/GITEE推送-国礼级春节献礼方案-v2.0.md",
+          "size": 30818,
+          "mtime": "2026-02-11T17:03:08"
+        },
+        {
+          "name": "🎯 完成汇总.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🎯 完成汇总.md",
+          "size": 7201,
+          "mtime": "2026-02-11T17:03:09"
+        },
+        {
+          "name": "🔥 龙芯数字指纹-特性优化版.md",
+          "original_path": "/Users/zuimeidedeyihan/longhun-system/CNSH_备份_20260211/🔥 龙芯数字指纹-特性优化版.md",
+          "size": 11986,
+          "mtime": "2026-02-11T17:03:09"
+        }
+      ]
+    }
+  }
+}

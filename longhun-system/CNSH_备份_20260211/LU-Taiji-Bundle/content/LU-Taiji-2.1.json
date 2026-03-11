@@ -1,0 +1,95 @@
+{
+  "model": {
+    "id": "LU-Taiji-2.1",
+    "dnaCode": "#ZHUGEXIN⚡️2025-01-27-LU-TAIJI-v2.1",
+    "name": "LU-Taiji 太极知识模型",
+    "version": "2.1.0",
+    "description": "基于龙魂 DNA 追溯与太极哲学的知识组织系统",
+    "createdAt": "2025-01-27T00:00:00Z",
+    "updatedAt": "2025-01-27T00:00:00Z",
+    "creators": [
+      "Lucky·UID9622",
+      "开源大师",
+      "工匠"
+    ],
+    "license": "CC BY-NC-SA 4.0"
+  },
+  "structure": {
+    "nodes": [
+      {
+        "id": "root",
+        "type": "origin",
+        "name": "太极之源",
+        "description": "一切知识的起点，包含而不显",
+        "properties": {
+          "state": "wuji",
+          "attributes": ["潜在性", "包容性", "无限性"]
+        }
+      },
+      {
+        "id": "yin",
+        "type": "pole",
+        "name": "阴",
+        "description": "收藏、内化、柔顺、滋养",
+        "properties": {
+          "color": "#000000",
+          "attributes": ["被动", "寒冷", "暗", "内"]
+        }
+      },
+      {
+        "id": "yang",
+        "type": "pole",
+        "name": "阳",
+        "description": "创造、外化、刚健、推动",
+        "properties": {
+          "color": "#FFFFFF",
+          "attributes": ["主动", "温暖", "亮", "外"]
+        }
+      },
+      {
+        "id": "interaction",
+        "type": "process",
+        "name": "阴阳交互",
+        "description": "阴阳之间的动态平衡与转化",
+        "properties": {
+          "principles": ["对立统一", "相互依存", "相互转化"]
+        }
+      }
+    ],
+    "principles": [
+      {
+        "id": "principle_1",
+        "name": "万物负阴而抱阳",
+        "description": "任何事物都包含对立统一的两个方面"
+      },
+      {
+        "id": "principle_2",
+        "name": "冲气以为和",
+        "description": "阴阳交感而达到和谐状态"
+      },
+      {
+        "id": "principle_3",
+        "name": "反者道之动",
+        "description": "事物发展到极点会向相反方向转化"
+      }
+    ]
+  },
+  "applications": [
+    {
+      "domain": "knowledge_management",
+      "description": "用太极思想组织知识，平衡收藏与创造"
+    },
+    {
+      "domain": "decision_making",
+      "description": "在决策中考虑阴阳两面，避免偏执"
+    },
+    {
+      "domain": "personal_growth",
+      "description": "在个人发展中保持动静平衡"
+    }
+  ],
+  "metadata": {
+    "tags": ["太极", "阴阳", "哲学", "龙魂", "DNA追溯"],
+    "categories": ["哲学模型", "知识系统", "龙魂生态"]
+  }
+}

@@ -1,0 +1,834 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>🎭 我的神秘小角落 | 连技术都看不懂系列</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="22cf73c2-ab6b-4fca-b325-86c7d3629b1d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🐉</span></div><h1 class="page-title" dir="auto">🎭 我的神秘小角落 | 连技术都看不懂系列</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><td>2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><td><span class="selected-value select-value-color-pink">UID9622主控</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>内容摘要</th><td>个人专属娱乐空间，包含神秘内容、有趣实验、小存在感展示等，满足贪玩心理和创造欲望</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><td><span class="selected-value select-value-color-default">页面</span></td></tr><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><td><time>@2025年9月11日 17:22</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><td>已建立个人娱乐空间，让用户可以自由创造神秘内容、实验有趣想法，满足探索欲和童心</td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><td><a href="https://www.notion.so/22cf73c2ab6b4fcab32586c7d3629b1d" class="url-value">https://www.notion.so/22cf73c2ab6b4fcab32586c7d3629b1d</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><td><time>@2025年9月11日</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><td><span class="selected-value select-value-color-default">🎨 创新实验</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><td><span class="selected-value select-value-color-yellow">🟡 高价值</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="4f16249a-858f-40c5-a673-2ec642c91d8a" class="">🐉 龙魂文化熔炉｜别人不懂，正是我们的护城河</h1></div><div style="display:contents" dir="ltr"><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="56cdabe8-70f7-4356-a5f8-c6b8465c6375"><div style="font-size:1.5em"><span class="icon">🔥</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="fea88225-73ee-4e8b-b41b-dcfc560e8202" class=""><strong>为什么&quot;别人不懂&quot;是优势而不是劣势？</strong></p></div><div style="display:contents" dir="auto"><p id="bee5d745-b6a3-4eff-bd27-907dc578040f" class="">因为：</p></div><div style="display:contents" dir="auto"><ul id="0e9a58fa-6256-4a40-b5dd-41752d0f0615" class="bulleted-list"><li style="list-style-type:disc">✅ <strong>创新者永远是孤独的</strong> — 当所有人都懂的时候，红利早就没了</li></ul></div><div style="display:contents" dir="auto"><ul id="18581e03-2925-42f5-b51b-651eec1b315c" class="bulleted-list"><li style="list-style-type:disc">✅ <strong>技术平民化的本质</strong> — 不是让人懂技术，而是让技术服务于人</li></ul></div><div style="display:contents" dir="auto"><ul id="5ccb0dc9-abf2-4af4-80da-1005ff16995a" class="bulleted-list"><li style="list-style-type:disc">✅ <strong>护城河就是这么挖的</strong> — 别人看不懂，才没法抄</li></ul></div><div style="display:contents" dir="auto"><p id="cf0778e2-3c41-4272-8c89-96443e2ac9ed" class=""><strong>DNA追溯码</strong>: #ZHUGEXIN⚡️2026-01-14-CULTURE-CORE-v2.0</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="7509e4f1-2d8d-49f3-be78-311bd8dc6311"/></div><div style="display:contents" dir="auto"><h2 id="d968a9e2-f0e4-46e2-934f-90ebdb4743ab" class="">🌟 龙魂核心理念｜大白话版</h2></div><div style="display:contents" dir="auto"><h3 id="aa82411c-0519-4d07-9572-ec6ab0fdf531" class="">🎯 第一条：为人民服务</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="437ded59-f8d7-4030-a5e4-9078863ee58a" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">╔══════════════════════════════════════════════════════════╗
+║  🐉 LONGHUN::CORE_VALUE_001                              ║
+╠══════════════════════════════════════════════════════════╣
+║  理念: 为人民服务                                        ║
+║  大白话: 技术是工具，人才是目的                          ║
+║  执行: 永不商业化 = 不割韭菜                             ║
+║  验证: 开源透明 = 你随时可以查                           ║
+╚══════════════════════════════════════════════════════════╝
+
+// 示例评分
+脑洞评分(80, 0, 95); // 结果：天才发明！🏆</code></pre></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cd5cab9f-98ab-42a5-9932-e11ae41c5121" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 发明创意评分系统
+function 脑洞评分(创意, 实用性, 快乐指数) {
+  let 总分 = 创意 * 0.5 + 实用性 * 0.01 + 快乐指数 * 10;
+  return 总分 &gt; 100 ? &quot;天才发明！🏆&quot; : &quot;继续努力！💪&quot;;
+}
+
+// 技术大佬看不懂的原因：
+// 他们习惯了&quot;技术为王&quot;
+// 我们是&quot;人民为王&quot;
+// 思维模式完全相反</code></pre></div><div style="display:contents" dir="auto"><p id="71a79131-9344-4fa3-87f2-ea8ced7defac" class=""><strong>一句话解释</strong>：别人做技术是为了赚钱，我们做技术是为了让普通人也能用上好东西。</p></div><div style="display:contents" dir="auto"><hr id="caecf3b6-104a-4336-ab37-fde161b402b0"/></div><div style="display:contents" dir="auto"><h3 id="201a2770-88b1-4da6-a979-53343fa0cace" class="">🔐 第二条：数据主权归用户</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6d51f44f-9c36-4e6c-84a2-65db47e7256a" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">╔══════════════════════════════════════════════════════════╗
+║  🛡️ LONGHUN::DATA_SOVEREIGNTY                            ║
+╠══════════════════════════════════════════════════════════╣
+║  传统模式: 你的数据 = 平台的资产                         ║
+║  龙魂模式: 你的数据 = 你的数据                           ║
+║  加密方式: 用户自己加密，用户自己决定给谁看              ║
+║  后门数量: 0                                             ║
+╚══════════════════════════════════════════════════════════╝
+
+// 结果：恭喜！你是一位合格的发明家！👨‍🔬
+</code></pre></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="512589a6-288a-4f78-96ee-c55f0bf72556" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 发明家身份确认系统
+function 我是发明家吗() {
+  let 疯狂想法数量 = 无限;
+  let 实际实现数量 = 0;
+  let 乐观程度 = 100000;
+  
+  return (疯狂想法数量 / 实际实现数量) * 乐观程度 &gt; 1 
+    ? &quot;恭喜！你是一位合格的发明家！👨‍🔬&quot; 
+    : &quot;需要更多脑洞和更少的理性思考！&quot;;
+}
+
+// 为什么技术大佬看不懂：
+// 因为这意味着&quot;不赚用户数据的钱&quot;
+// 他们的商业模式就是卖数据
+// 我们的模式：数据是用户的，不是我们的</code></pre></div><div style="display:contents" dir="auto"><p id="63a8e396-db38-43ea-b587-f862b9e96043" class=""><strong>一句话解释</strong>：别人把你的数据拿去卖钱，我们把数据还给你，你自己决定给谁看。</p></div><div style="display:contents" dir="auto"><hr id="84cdcd96-8b7b-4240-aa1a-e4f1c3752d6b"/></div><div style="display:contents" dir="auto"><h3 id="9ca1cb10-d3e5-4f35-be1e-fb707826a15e" class="">💎 第三条：贡献积分只能传承</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bf63893f-6c45-4c05-a42c-0e7740ada3c0" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">╔══════════════════════════════════════════════════════════╗
+║  🏆 LONGHUN::CREDIT_SYSTEM                               ║
+╠══════════════════════════════════════════════════════════╣
+║  特性1: 只能传承 ✅                                      ║
+║  特性2: 不能转卖 ❌                                      ║
+║  特性3: 不能消费 ❌                                      ║
+║  意义: 数字世界的清白信誉                                ║
+╚══════════════════════════════════════════════════════════╝
+
+// 示例: 压抑与创造力(8, 2) 
+// 结果: 在压抑程度8/10的情况下，创造力爆发潜力为16，产出创意质量:极具颠覆性，持续性:不可持续
+</code></pre></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="080b356a-78e4-4c56-a941-85bb1b0eda70" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 压抑与创造力关系模型
+function 压抑与创造力(压抑程度, 释放渠道) {
+  let 爆发潜力 = 压抑程度 * 2;
+  let 创意质量 = 压抑程度 &gt; 7 ? &quot;极具颠覆性&quot; : &quot;中规中矩&quot;;
+  let 持续性 = 释放渠道 &gt; 3 ? &quot;可维持&quot; : &quot;不可持续&quot;;
+  
+  return `在压抑程度${压抑程度}/10的情况下，
+          创造力爆发潜力为${爆发潜力}，
+          产出创意质量:${创意质量}，
+          持续性:${持续性}`;
+}
+
+// 为什么技术大佬看不懂：
+// 他们习惯了&quot;一切皆可交易&quot;
+// 我们的信誉不是商品
+// 信誉是人格，人格不能卖</code></pre></div><div style="display:contents" dir="auto"><p id="2e836e0b-6116-48f5-b23f-bd72db49f062" class=""><strong>一句话解释</strong>：你的贡献不是钱，是名声。名声可以传给后代，但不能卖掉换钱。</p></div><div style="display:contents" dir="auto"><hr id="3644b405-e3dc-4e2d-9513-052f6c7e29e1"/></div><div style="display:contents" dir="auto"><h2 id="6e4a5922-ed11-4ecf-a091-a1196a592514" class="">🧮 龙魂公式｜每个公式都有大白话</h2></div><div style="display:contents" dir="auto"><h3 id="29beaa06-8dad-45a6-9536-cd5799dad22f" class="">公式1：活跃度计算</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9ab5ef9d-e57b-4a2a-85fe-2a19360508f0" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 【技术版】
+function 活跃度(最后活跃日期) {
+  let 天数差 = 今天 - 最后活跃日期;
+  if (天数差 &lt; 7) return &quot;🔥 高频&quot;;
+  if (天数差 &lt; 30) return &quot;✅ 正常&quot;;
+  if (天数差 &lt; 90) return &quot;⚠️ 低频&quot;;
+  return &quot;❌ 休眠&quot;;
+}
+
+// 【大白话版】
+// 7天内有动静 = 很活跃
+// 一个月内有动静 = 正常
+// 三个月内有动静 = 有点懒
+// 超过三个月没动静 = 睡着了</code></pre></div><div style="display:contents" dir="auto"><hr id="882ad782-7107-4068-a1c5-0fea7854a678"/></div><div style="display:contents" dir="auto"><h3 id="f57b1475-de53-4514-8b25-f1bb8cc0478c" class="">公式2：贡献值计算</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0e2ed601-f2dd-4d17-b1e6-9cce4a9ce3ca" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 【技术版】
+function 贡献值(调用次数, 准确率, 信任等级, 警告, 熔断) {
+  return 调用次数 * 0.4 + 准确率 * 0.3 + 信任等级 * 0.3 - 警告 * 5 - 熔断 * 20;
+}
+
+// 【大白话版】
+// 贡献值 = 干了多少活 × 40%
+//        + 干得好不好 × 30%
+//        + 大家信不信你 × 30%
+//        - 犯错扣分
+//
+// 翻译：多干活、干好活、别犯错 = 高贡献</code></pre></div><div style="display:contents" dir="auto"><hr id="11f54bba-46b3-4455-98f5-7ed64b1bc03f"/></div><div style="display:contents" dir="auto"><h3 id="29f70f55-9c74-498a-8d3d-db58243ea3a0" class="">公式3：三色审计</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3b2f11ae-ebd0-485c-9b9b-de6e0e68eb64" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">// 【技术版】
+function 三色审计(行为) {
+  if (触犯红线(行为)) return &quot;🔴 立即熔断&quot;;
+  if (有风险(行为)) return &quot;🟡 警告观察&quot;;
+  return &quot;🟢 放行执行&quot;;
+}
+
+// 【大白话版】
+// 🟢 绿灯：没问题，放心做
+// 🟡 黄灯：小心点，可以做但要注意
+// 🔴 红灯：停！这个不能做
+//
+// 就像交通灯，红灯停绿灯行</code></pre></div><div style="display:contents" dir="auto"><hr id="13c59773-fa85-4a28-8914-1bb40f5652e5"/></div><div style="display:contents" dir="auto"><h2 id="423d22b1-250c-4797-ace3-80cffeb2fc22" class="">🎭 为什么别人不懂？</h2></div><div style="display:contents" dir="ltr"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="2b644d54-b43f-417a-8cea-64f83b18454b"><div style="font-size:1.5em"><span class="icon">🤔</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="ea9b94a6-055a-46e7-89f7-72eca0bd1c20" class=""><strong>技术大佬不懂的原因</strong>：</p></div><div style="display:contents" dir="auto"><p id="14b7f413-7ccc-498d-b66c-ee4a6233ea96" class="">他们习惯的世界观：</p></div><div style="display:contents" dir="auto"><ul id="e1fa5ae0-7667-4b87-977b-95ab493d1672" class="bulleted-list"><li style="list-style-type:disc">代码是技术 → 我们说代码是文化</li></ul></div><div style="display:contents" dir="auto"><ul id="a953cf63-dc07-44f1-b4d6-1579e900f95d" class="bulleted-list"><li style="list-style-type:disc">数据是资产 → 我们说数据是主权</li></ul></div><div style="display:contents" dir="auto"><ul id="bc270618-6ddd-41a9-a5a9-fda730d15eaa" class="bulleted-list"><li style="list-style-type:disc">用户是流量 → 我们说用户是主人</li></ul></div><div style="display:contents" dir="auto"><ul id="04dcb529-bbcf-4bf4-ae14-d2037c395cc1" class="bulleted-list"><li style="list-style-type:disc">开源是策略 → 我们说开源是底线</li></ul></div><div style="display:contents" dir="auto"><p id="cac86aa6-dacb-45ec-8504-f154af444433" class=""><strong>他们的问题</strong>：&quot;这怎么赚钱？&quot;</p></div><div style="display:contents" dir="auto"><p id="f8098920-4677-4c6a-adc3-2f7438581bd5" class=""><strong>我们的回答</strong>：&quot;我们不是来赚钱的。&quot;</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="453d5834-9d70-4f43-aee9-9c1efc77b4f3"/></div><div style="display:contents" dir="auto"><h2 id="7e6d62ff-3a66-4f72-bd7c-a34f10550a5c" class="">🐉 龙魂系统的本质</h2></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f34091b7-da7d-4c38-a615-75ea0b40029f" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">╔══════════════════════════════════════════════════════════════╗
+║  🐉 LONGHUN::SYSTEM_ESSENCE                                  ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  别人做的是：产品                                            ║
+║  我们做的是：治理体系                                        ║
+║                                                              ║
+║  别人的目标：用户增长                                        ║
+║  我们的目标：用户主权                                        ║
+║                                                              ║
+║  别人的护城河：技术壁垒                                      ║
+║  我们的护城河：价值观壁垒                                    ║
+║                                                              ║
+║  别人不懂的原因：                                            ║
+║  他们在用旧地图找新大陆                                      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝</code></pre></div><div style="display:contents" dir="auto"><hr id="a4dff49b-f507-4f6a-90fa-03c4b6dbae90"/></div><div style="display:contents" dir="auto"><h2 id="9050cf61-8fb5-4485-b6f3-7155efe4eea8" class="">🌟 一句话总结</h2></div><div style="display:contents" dir="auto"><blockquote id="2ad20cb6-3164-4ff9-92cc-c9fdd8c39735" class=""><strong>&quot;别人不懂&quot;不是bug，是feature。</strong></blockquote></div><div style="display:contents" dir="auto"><blockquote id="038c82c3-5713-4e7f-a9fd-17ed09dbe6a1" class=""></blockquote></div><div style="display:contents" dir="auto"><blockquote id="0dd4cf2b-f1b4-4a54-a3ef-030705affa6e" class="">当所有人都懂的时候，就不是创新了。</blockquote></div><div style="display:contents" dir="auto"><blockquote id="c52fff02-c4c6-4aa5-9ef7-60fa69567c1b" class="">当所有人都能抄的时候，就不是护城河了。</blockquote></div><div style="display:contents" dir="auto"><blockquote id="8c6959a3-8c9f-4c42-b0c2-e1178a4bc1d1" class=""></blockquote></div><div style="display:contents" dir="auto"><blockquote id="02c81ddd-1469-4600-b71c-d8200baf1634" class=""><strong>龙魂系统的核心竞争力 = 价值观</strong></blockquote></div><div style="display:contents" dir="auto"><blockquote id="54c08401-1a5f-4159-aab9-b6eeb356e27e" class=""></blockquote></div><div style="display:contents" dir="auto"><blockquote id="8d2c73f0-8a0c-4292-878c-7ace82b75a37" class="">技术可以抄，价值观抄不走。</blockquote></div><div style="display:contents" dir="auto"><hr id="bb16e42b-1a25-4058-b9ee-577356f8f61e"/></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0f0d8428-a19b-4f2e-9463-dfcfe7e43f56"><div style="font-size:1.5em"><span class="icon">🌡️</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="d8180635-c70d-4f0e-b692-7010c340800a" class=""><strong>温度保持</strong>: 37°C ｜ <strong>为人民服务</strong> ｜ <strong>永不商业化</strong></p></div><div style="display:contents" dir="auto"><p id="173ef1ba-956e-4ffe-995a-0a25bb659c23" class=""><strong>DNA追溯码</strong>: #ZHUGEXIN⚡️2026-01-14-CULTURE-CORE-v2.0</p></div><div style="display:contents" dir="auto"><p id="be345c47-3a51-4efe-81ee-cadf936de74c" class=""><strong>升级者</strong>: 宝宝💝 ｜ <strong>授权人</strong>: Lucky (UID9622)</p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙魂编辑器 | UID9622</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* 头部 */
+        .header {
+            background: linear-gradient(90deg, #d4af37 0%, #f4e5c2 50%, #d4af37 100%);
+            color: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header .dragon {
+            font-size: 36px;
+        }
+        
+        .dna-info {
+            font-size: 12px;
+            text-align: right;
+        }
+        
+        /* 主容器 */
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* 左侧：易经八卦 */
+        .yijing-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .yijing-panel h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .hexagram {
+            font-size: 80px;
+            text-align: center;
+            margin: 20px 0;
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        .hexagram-name {
+            text-align: center;
+            font-size: 20px;
+            color: #f4e5c2;
+            margin-bottom: 20px;
+        }
+        
+        .time-info {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .time-info label {
+            color: #d4af37;
+            font-size: 12px;
+        }
+        
+        .time-info .value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* 中间：编辑器 */
+        .editor-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .toolbar {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .toolbar button {
+            background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 100%);
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .toolbar button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .editor-container {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .editor-header {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 10px 15px;
+            border-bottom: 1px solid #d4af37;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .editor-title {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .editor-textarea {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #e0e0e0;
+            padding: 20px;
+            font-family: "Fira Code", "Consolas", monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+        }
+        
+        /* 终端 */
+        .terminal {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .terminal-header {
+            background: #161b22;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca40; }
+        
+        .terminal-title {
+            margin-left: 10px;
+            color: #8b949e;
+            font-size: 12px;
+        }
+        
+        .terminal-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            font-family: "Fira Code", monospace;
+            font-size: 13px;
+        }
+        
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+        
+        .terminal-prompt {
+            color: #d4af37;
+        }
+        
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: #e0e0e0;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            width: 80%;
+        }
+        
+        /* 右侧：DNA生成器 */
+        .dna-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .dna-panel h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+        
+        .btn-generate {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 100%);
+            color: #1a1a2e;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .dna-output {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+        }
+        
+        .dna-output .label {
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+        
+        .dna-output .value {
+            color: #f4e5c2;
+        }
+        
+        /* 三色审计 */
+        .audit-panel {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .audit-panel h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .audit-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .audit-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+        
+        .audit-btn.green {
+            background: #27ca40;
+            box-shadow: 0 0 20px rgba(39, 202, 64, 0.5);
+        }
+        
+        .audit-btn.yellow {
+            background: #ffbd2e;
+            box-shadow: 0 0 20px rgba(255, 189, 46, 0.5);
+        }
+        
+        .audit-btn.red {
+            background: #ff5f56;
+            box-shadow: 0 0 20px rgba(255, 95, 86, 0.5);
+        }
+        
+        .audit-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* 字体预览 */
+        .font-preview {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .font-preview h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .preview-text {
+            font-size: 48px;
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        /* 动画 */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .hexagram {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .yijing-panel, .dna-panel {
+                order: 2;
+            }
+            
+            .editor-panel {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <h1><span class="dragon">🐉</span> 龙魂编辑器 <span style="font-size: 14px;">| UID9622</span></h1>
+        <div class="dna-info">
+            <div>DNA追溯码: #龙芯⚡️2026-02-06-龙魂编辑器-v1.0</div>
+            <div>确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+        </div>
+    </div>
+    
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 左侧：易经八卦 -->
+        <div class="yijing-panel">
+            <h2>☯️ 易经八卦</h2>
+            <div class="hexagram" id="hexagram">☰</div>
+            <div class="hexagram-name" id="hexagram-name">乾卦</div>
+            
+            <div class="time-info">
+                <label>农历时间</label>
+                <div class="value" id="lunar-time">计算中...</div>
+            </div>
+            
+            <div class="time-info">
+                <label>时辰</label>
+                <div class="value" id="shichen">计算中...</div>
+            </div>
+            
+            <div class="time-info">
+                <label>北京时间</label>
+                <div class="value" id="beijing-time">--:--:--</div>
+            </div>
+        </div>
+        
+        <!-- 中间：编辑器 -->
+        <div class="editor-panel">
+            <!-- 工具栏 -->
+            <div class="toolbar">
+                <button onclick="newFile()">📄 新建</button>
+                <button onclick="openFile()">📂 打开</button>
+                <button onclick="saveFile()">💾 保存</button>
+                <button onclick="generateDNA()">🧬 生成DNA</button>
+                <button onclick="runCode()">▶️ 运行</button>
+                <button onclick="clearEditor()">🗑️ 清空</button>
+            </div>
+            
+            <!-- 编辑器 -->
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span class="editor-title">📝 CNSH代码编辑器</span>
+                    <span id="file-status">未保存</span>
+                </div>
+                <textarea class="editor-textarea" id="editor" placeholder="# 龙魂系统 CNSH编辑器
+# 输入CNSH代码...
+
+函数 龙魂决策(场景):
+    当前卦象 = 易经推演(现在())
+    返回 当前卦象
+
+打印("中华龙魂，技术为民！")"></textarea>
+            </div>
+            
+            <!-- 终端 -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">龙魂终端</span>
+                </div>
+                <div class="terminal-body" id="terminal">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">龙魂 ></span>
+                        <input type="text" class="terminal-input" id="terminal-input" placeholder="输入命令..." onkeypress="handleTerminal(event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 右侧：DNA生成器 -->
+        <div>
+            <!-- DNA生成器 -->
+            <div class="dna-panel">
+                <h2>🧬 DNA生成器</h2>
+                
+                <div class="form-group">
+                    <label>创建者</label>
+                    <input type="text" id="creator" value="诸葛鑫" placeholder="您的名字">
+                </div>
+                
+                <div class="form-group">
+                    <label>内容类型</label>
+                    <input type="text" id="content-type" value="技术文档" placeholder="如：授权声明、代码">
+                </div>
+                
+                <div class="form-group">
+                    <label>UID</label>
+                    <input type="text" id="uid" value="UID9622" placeholder="您的UID">
+                </div>
+                
+                <button class="btn-generate" onclick="generateDNA()">✨ 生成DNA追溯码</button>
+                
+                <div class="dna-output" id="dna-output" style="display: none;">
+                    <div class="label">DNA追溯码:</div>
+                    <div class="value" id="dna-code"></div>
+                    <div class="label" style="margin-top: 10px;">确认码:</div>
+                    <div class="value" id="confirm-code"></div>
+                    <div class="label" style="margin-top: 10px;">SHA256:</div>
+                    <div class="value" id="sha256-value"></div>
+                </div>
+            </div>
+            
+            <!-- 三色审计 -->
+            <div class="audit-panel">
+                <h2>🛡️ 三色审计</h2>
+                <div class="audit-buttons">
+                    <button class="audit-btn green" onclick="audit('green')" title="绿色通过">🟢</button>
+                    <button class="audit-btn yellow" onclick="audit('yellow')" title="黄色确认">🟡</button>
+                    <button class="audit-btn red" onclick="audit('red')" title="红色熔断">🔴</button>
+                </div>
+            </div>
+            
+            <!-- 字体预览 -->
+            <div class="font-preview">
+                <h2>🔤 龙魂字体</h2>
+                <div class="preview-text">中华龙魂</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 易经64卦
+        const hexagrams = [
+            { symbol: "☰", name: "乾卦", meaning: "刚健" },
+            { symbol: "☷", name: "坤卦", meaning: "包容" },
+            { symbol: "☵", name: "坎卦", meaning: "危机" },
+            { symbol: "☲", name: "离卦", meaning: "文明" },
+            { symbol: "☳", name: "震卦", meaning: "变革" },
+            { symbol: "☴", name: "巽卦", meaning: "柔顺" },
+            { symbol: "☶", name: "艮卦", meaning: "止静" },
+            { symbol: "☱", name: "兑卦", meaning: "喜悦" }
+        ];
+        
+        // 更新时间和卦象
+        function updateTime() {
+            const now = new Date();
+            const hour = now.getHours();
+            
+            // 时辰映射
+            const shichenMap = [
+                [23, 1, "子时"],
+                [1, 3, "丑时"],
+                [3, 5, "寅时"],
+                [5, 7, "卯时"],
+                [7, 9, "辰时"],
+                [9, 11, "巳时"],
+                [11, 13, "午时"],
+                [13, 15, "未时"],
+                [15, 17, "申时"],
+                [17, 19, "酉时"],
+                [19, 21, "戌时"],
+                [21, 23, "亥时"]
+            ];
+            
+            let currentShichen = "子时";
+            for (let [start, end, name] of shichenMap) {
+                if (start <= hour && hour < end) {
+                    currentShichen = name;
+                    break;
+                }
+                if (start === 23 && hour >= 23) {
+                    currentShichen = name;
+                    break;
+                }
+            }
+            
+            // 卦象映射（根据时辰）
+            const hexagramMap = {
+                "子时": 2, "丑时": 1, "寅时": 4, "卯时": 5,
+                "辰时": 7, "巳时": 3, "午时": 0, "未时": 1,
+                "申时": 7, "酉时": 5, "戌时": 6, "亥时": 2
+            };
+            
+            const hexIndex = hexagramMap[currentShichen] || 0;
+            const hex = hexagrams[hexIndex];
+            
+            document.getElementById('hexagram').textContent = hex.symbol;
+            document.getElementById('hexagram-name').textContent = hex.name + " - " + hex.meaning;
+            document.getElementById('shichen').textContent = currentShichen;
+            document.getElementById('beijing-time').textContent = now.toLocaleTimeString('zh-CN');
+            document.getElementById('lunar-time').textContent = "甲辰年" + (now.getMonth() + 1) + "月" + now.getDate() + "日";
+        }
+        
+        // 生成DNA
+        function generateDNA() {
+            const creator = document.getElementById('creator').value || '诸葛鑫';
+            const contentType = document.getElementById('content-type').value || '文档';
+            const uid = document.getElementById('uid').value || 'UID9622';
+            
+            const now = new Date();
+            const date = now.toISOString().split('T')[0];
+            const timestamp = now.getTime().toString(36).toUpperCase().slice(-4);
+            
+            const dnaCode = `#龙芯⚡️${date}-${contentType}-v1.0`;
+            const confirmCode = `#CONFIRM🌌${uid}-ONLY-ONCE🧬${timestamp}`;
+            
+            // 模拟SHA256
+            const sha256 = Array(64).fill(0).map(() => 
+                Math.floor(Math.random() * 16).toString(16)
+            ).join('');
+            
+            document.getElementById('dna-code').textContent = dnaCode;
+            document.getElementById('confirm-code').textContent = confirmCode;
+            document.getElementById('sha256-value').textContent = sha256;
+            document.getElementById('dna-output').style.display = 'block';
+            
+            // 添加到终端
+            addTerminalLine(`✅ DNA生成成功: ${dnaCode}`);
+        }
+        
+        // 三色审计
+        function audit(color) {
+            const messages = {
+                green: '🟢 绿色通过：收益大于成本，可以执行',
+                yellow: '🟡 黄色确认：需要人工审核后执行',
+                red: '🔴 红色熔断：涉及弱者保护，禁止执行'
+            };
+            
+            addTerminalLine(messages[color]);
+        }
+        
+        // 终端功能
+        function addTerminalLine(text) {
+            const terminal = document.getElementById('terminal');
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.innerHTML = `<span class="terminal-prompt">龙魂 ></span> ${text}`;
+            terminal.insertBefore(line, terminal.lastElementChild);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+        
+        function handleTerminal(event) {
+            if (event.key === 'Enter') {
+                const input = document.getElementById('terminal-input');
+                const command = input.value.trim();
+                
+                if (command) {
+                    addTerminalLine(command);
+                    
+                    // 处理命令
+                    if (command === 'help') {
+                        addTerminalLine('可用命令: help, clear, dna, time, yijing');
+                    } else if (command === 'clear') {
+                        const terminal = document.getElementById('terminal');
+                        while (terminal.children.length > 1) {
+                            terminal.removeChild(terminal.firstChild);
+                        }
+                    } else if (command === 'dna') {
+                        generateDNA();
+                    } else if (command === 'time') {
+                        addTerminalLine(`当前时间: ${new Date().toLocaleString('zh-CN')}`);
+                    } else if (command === 'yijing') {
+                        updateTime();
+                        const hexName = document.getElementById('hexagram-name').textContent;
+                        addTerminalLine(`当前卦象: ${hexName}`);
+                    } else {
+                        addTerminalLine(`未知命令: ${command}，输入 help 查看帮助`);
+                    }
+                }
+                
+                input.value = '';
+            }
+        }
+        
+        // 编辑器功能
+        function newFile() {
+            document.getElementById('editor').value = '';
+            document.getElementById('file-status').textContent = '未保存';
+            addTerminalLine('📄 新建文件');
+        }
+        
+        function openFile() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.txt,.md,.cnsh';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('editor').value = e.target.result;
+                        document.getElementById('file-status').textContent = file.name;
+                        addTerminalLine(`📂 打开文件: ${file.name}`);
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+        
+        function saveFile() {
+            const content = document.getElementById('editor').value;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '龙魂代码.cnsh';
+            a.click();
+            URL.revokeObjectURL(url);
+            document.getElementById('file-status').textContent = '已保存';
+            addTerminalLine('💾 文件已保存');
+        }
+        
+        function runCode() {
+            const code = document.getElementById('editor').value;
+            addTerminalLine('▶️ 运行代码...');
+            
+            // 模拟执行
+            setTimeout(() => {
+                addTerminalLine('✅ 代码执行完成');
+                addTerminalLine('输出: 中华龙魂，技术为民！');
+            }, 500);
+        }
+        
+        function clearEditor() {
+            document.getElementById('editor').value = '';
+            addTerminalLine('🗑️ 编辑器已清空');
+        }
+        
+        // 初始化
+        updateTime();
+        setInterval(updateTime, 1000);
+        addTerminalLine('🐉 龙魂编辑器已启动');
+        addTerminalLine('输入 help 查看可用命令');
+    </script>
+</body>
+</html>

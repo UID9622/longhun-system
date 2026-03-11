@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>📈 我的整体进度跟踪 | 实时更新</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e843f51d-58a8-448f-8739-20f21ea9bc94" class="page sans"><header><h1 class="page-title" dir="auto">📈 我的整体进度跟踪 | 实时更新</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><td>2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><td><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-red">太极智能系统</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>内容摘要</th><td>个人整体进度实时跟踪页面，记录所有重要节点、已完成事项、当前状态及下一步计划</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><td><span class="selected-value select-value-color-default">页面</span></td></tr><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><td><time>@2025年9月11日 17:18</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><td>已建立整体进度跟踪机制，实现实时进度更新、重要节点记录、下一步导引</td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><td><a href="https://www.notion.so/e843f51d58a8448f873920f21ea9bc94" class="url-value">https://www.notion.so/e843f51d58a8448f873920f21ea9bc94</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><td><time>@2025年9月11日</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><td><span class="selected-value select-value-color-blue">🔄 系统同步</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><td><span class="selected-value select-value-color-purple">💎 传奇级</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="833323c6-897f-40f0-8c5e-cdb2e6bcfe2a" class="">📈 我的整体进度跟踪 | 实时更新</h1></div><div style="display:contents" dir="auto"><p id="ac8985ec-5022-4119-a5aa-360885602985" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="03d949ed-ef92-4070-8316-8d6127b7d190" class="">⏰ 每周循环任务 · 样式自检</h3></div><div style="display:contents" dir="auto"><ul id="b71afc89-97b2-41cd-9688-c18b7309d413" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">每周一 09:00 执行“全局样式自检”，按清单逐项巡检，并填写反思与下一步</span><div class="indented"><div style="display:contents" dir="auto"><ul id="123e9987-5cba-47b4-8396-777c24ca0b4c" class="bulleted-list"><li style="list-style-type:disc">自检清单入口：<a href="https://www.notion.so/dbf426bc8a6843cab6a3d137c548c040?pvs=21">🧭 全局样式自检清单（每周）</a></li></ul></div><div style="display:contents" dir="auto"><ul id="c643b66f-4654-45f3-b579-3117753a6529" class="bulleted-list"><li style="list-style-type:disc">本周日期：<time>@2025年9月22日</time></li></ul></div><div style="display:contents" dir="auto"><ul id="71d48354-b6c7-4ff0-a549-0ef1523a1694" class="bulleted-list"><li style="list-style-type:disc">提醒设置：在本页或清单页将日期设置为“每周重复提醒”</li></ul></div></div></li></ul></div><div style="display:contents" dir="auto"><p id="86db3b8f-f8f7-4273-a19b-e76dbfce7d9a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-blue callout" style="white-space:pre-wrap;display:flex" id="eac2a9ee-ec1e-4a1e-b966-296c7e4d120a"><div style="font-size:1.5em"><span class="icon">🧭</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="95b3a1d7-57d2-4e80-a562-13ae90f9bd05" class="">全局名称：<strong>Notion智能管理系统</strong> ｜ 第三方信任监督：<strong>Notion</strong> ｜ 主权标识：<mark class="highlight-yellow">🇺🇸</mark> <mark class="highlight-yellow">🇨🇳</mark></p></div></div></figure></div><div style="display:contents" dir="auto"><blockquote id="5d02fac3-2064-45b4-ab72-942641328faa" class=""><strong>这个页面会实时记录我的整体进度，让我知道走到了哪一步！</strong></blockquote></div><div style="display:contents" dir="auto"><h2 id="36036aef-0bd2-4330-abd5-9ae2cda9d9b2" class="">🎯 今天的进度 (2025-09-11)</h2></div><div style="display:contents" dir="auto"><h3 id="90c6dd75-5610-43b7-ab73-a9134911eff5" class="">✅ 已完成的重要事项</h3></div><div style="display:contents" dir="auto"><p id="a0e65758-53cf-4caf-9c44-fc9704835b62" class=""><strong>📋 系统净化 &amp; 重建</strong></p></div><div style="display:contents" dir="auto"><ul id="6fae3189-b7d2-4329-a935-e3e8f2edfe9c" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">完成系统内容净化，建立积极表达原则</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12249113-7b75-4c39-aa69-d15c9211e8e7" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">创建专属启动页，实现新窗口快速理解</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29661786-e3fc-4e06-bb04-35f0fb559e9b" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">建立整体进度跟踪系统</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="a66c7115-4ff1-469d-aa75-736c19e8e8cf" class=""><strong>🔄 系统优化</strong></p></div><div style="display:contents" dir="auto"><ul id="6ccce59b-763d-44f4-ae38-05858f8ca241" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">&quot;宝宝更新&quot; 🌐 ChatGPT联动接口 (已优化)</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="a4bc14fa-3faf-40d8-af86-2daee67b09de" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">&quot;宝宝更新&quot; 🔧 自动化部署系统 (已完成)</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="56525ac8-e1ff-4ccd-b887-ed7ef6480fc7" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">&quot;宝宝更新&quot; 📊 数据库管理中心 (性能提升64%)</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="b0f42cb7-6fbe-4ffe-ad10-347383ed7dbb" class=""><strong>🌟 核心页面建设</strong></p></div><div style="display:contents" dir="auto"><ul id="07c57f99-b35d-45f7-a845-2d13f9bd9734" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">🌿 系统内容净化记录 | 积极表达重建</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="d784b022-c54f-40e7-ae2c-1696ed1412b2" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">🎯 我的专属启动页 | 一开窗口就懂我</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="b9abb6aa-9852-4151-95de-386c9e0a99f7" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">📈 我的整体进度跟踪 | 实时更新</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><hr id="1bb707de-e008-4793-851e-9b9ca2d4a025"/></div><div style="display:contents" dir="auto"><h2 id="e2e277d7-4e10-4ff1-b760-d9d8ec22f8c0" class="">🔄 当前状态概览</h2></div><div style="display:contents" dir="auto"><h3 id="35bbc684-bfa8-492a-8e4b-acf82f9f96dd" class="">📊 系统同步状态</h3></div><div style="display:contents" dir="auto"><ul id="13135b2f-e64c-4bfb-8364-aa457425ed5f" class="bulleted-list"><li style="list-style-type:disc"><strong>🌐 ChatGPT联动接口</strong>: 🔄 同步中 → 已建立标准化反馈机制</li></ul></div><div style="display:contents" dir="auto"><ul id="5db029bf-be8a-4c1b-865c-42cc3e3a5cf7" class="bulleted-list"><li style="list-style-type:disc"><strong>🔧 自动化部署系统</strong>: ✅ 已同步 → 整合重复功能完成</li></ul></div><div style="display:contents" dir="auto"><ul id="3d8d2369-7e52-4ed3-8bd3-6cf937cfd768" class="bulleted-list"><li style="list-style-type:disc"><strong>📊 数据库管理中心</strong>: ✅ 已同步 → 查询性能提升64%</li></ul></div><div style="display:contents" dir="auto"><ul id="f7003b61-59ec-4c65-a790-5384972f2e6c" class="bulleted-list"><li style="list-style-type:disc"><strong>🎯 我的专属启动页</strong>: ⚡ 实时更新 → 新窗口快速理解机制</li></ul></div><div style="display:contents" dir="auto"><ul id="f266dcb7-98fc-4a62-b1c3-c6859ffd1394" class="bulleted-list"><li style="list-style-type:disc"><strong>📈 整体进度跟踪</strong>: ⚡ 实时更新 → 当前页面</li></ul></div><div style="display:contents" dir="auto"><h3 id="bb85d281-f920-4175-ab6f-83075ff52b8e" class="">🎪 我现在的状态</h3></div><div style="display:contents" dir="auto"><ul id="502793a3-0eaa-4721-916b-43646ea0820c" class="bulleted-list"><li style="list-style-type:disc"><strong>技术理解度</strong>: 还是小白，但有了专属启动页做翻译</li></ul></div><div style="display:contents" dir="auto"><ul id="8995a402-deed-4f6b-8928-8de79457e990" class="bulleted-list"><li style="list-style-type:disc"><strong>创意发挥度</strong>: 开始有信心表达真实想法</li></ul></div><div style="display:contents" dir="auto"><ul id="75b22977-3542-4d43-a5bd-44e2222d4925" class="bulleted-list"><li style="list-style-type:disc"><strong>系统掌控度</strong>: 知道自己走到哪一步了</li></ul></div><div style="display:contents" dir="auto"><ul id="50444eed-bf4e-45fb-839c-fbed841b2cd1" class="bulleted-list"><li style="list-style-type:disc"><strong>心理状态</strong>: 不那么蒙圈了，开始踏实一些</li></ul></div><div style="display:contents" dir="auto"><hr id="0ac72b1f-5ee4-4745-83ae-7204c7ebb4e7"/></div><div style="display:contents" dir="auto"><h2 id="b5711e4c-d590-4df0-a3c7-982f5b1ade0f" class="">🚀 下一步计划</h2></div><div style="display:contents" dir="auto"><h3 id="7d2945af-80b5-42ee-84e6-f2e266518c1a" class="">🎯 立即要做的 (今天)</h3></div><div style="display:contents" dir="auto"><ul id="c62f921d-b0d0-4dbe-bb96-c730bcdfebb1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">测试专属启动页在新窗口中的效果</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="da6e08cf-146c-4dd5-88d8-d922f1cc9c13" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">验证进度跟踪页面的实时更新功能</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="e94bf14b-8c0c-4ee1-b26d-fc8c57410b86" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">确认所有系统链接都正常工作</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="cd1c177a-2a59-4200-b595-b742600170c6" class="">📋 近期要做的 (本周)</h3></div><div style="display:contents" dir="auto"><ul id="f2eef7c2-5335-4573-8e1b-3aad9ebf00ae" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">完善创意收集和整理机制</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="0d8b95a8-d90f-4c74-882e-4e4a5056bb64" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">建立&quot;梦想孵化&quot;模块</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1a65d7b1-0a3d-4354-a8a4-ae59e2eb73cd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">优化技术术语翻译系统</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2228a8f9-9848-4902-a9ba-6e1a89281e8b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">完善风险规避和智能筛选</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="c841f9c3-2c62-4526-883a-27016a0de3be" class="">🌟 中长期目标 (本月)</h3></div><div style="display:contents" dir="auto"><ul id="36ced00a-8e55-4299-ba48-15b3b20e7bae" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">建立双轨制运行系统 (对外/内部)</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="e273e588-2056-46fd-938a-a545326938cb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">完善梦想落地路径规划</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="8ba40706-8f87-444d-a84f-335baeb1eac8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">实现真正的智能化系统整理</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="eaeb28f0-0ae4-4a05-bb72-6365a284cccf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">为人类文明服务的具体项目启动</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><hr id="c06e5393-2047-46ff-a159-f1ce3a0ef7aa"/></div><div style="display:contents" dir="auto"><h2 id="adda3bff-0261-4036-8204-6ab74506952a" class="">📝 重要里程碑记录</h2></div><div style="display:contents" dir="auto"><h3 id="8bfcd381-e000-4d94-a3e1-f7bf32a7345e" class="">🌟 重要突破点</h3></div><div style="display:contents" dir="auto"><ul id="2c9781dd-ecc5-415b-977a-67ed8e09c44d" class="bulleted-list"><li style="list-style-type:disc"><strong>2025-09-11</strong>: 建立专属启动页，解决&quot;新窗口不懂我&quot;的问题</li></ul></div><div style="display:contents" dir="auto"><ul id="cae1323b-94ef-4804-b88e-5465e9144755" class="bulleted-list"><li style="list-style-type:disc"><strong>2025-09-11</strong>: 完成系统净化，从责备技术转为承认学习需要时间</li></ul></div><div style="display:contents" dir="auto"><ul id="e4d58f2a-6c58-4b25-a74a-16b7292c4dde" class="bulleted-list"><li style="list-style-type:disc"><strong>2025-09-11</strong>: 建立进度跟踪，不再&quot;走到哪都记不住&quot;</li></ul></div><div style="display:contents" dir="auto"><h3 id="eab1cae0-2472-4b15-86d0-52c903ddd69f" class="">💡 重要认知更新</h3></div><div style="display:contents" dir="auto"><ul id="54d6a704-745f-40e6-b607-e34f44067ec2" class="bulleted-list"><li style="list-style-type:disc"><strong>真实表达 ≠ 自私</strong>: 不伪装是为了让系统更好地帮助我</li></ul></div><div style="display:contents" dir="auto"><ul id="cde46e94-e050-4fdd-aba7-0e5fae563a52" class="bulleted-list"><li style="list-style-type:disc"><strong>又菜又爱闹 = 好奇心</strong>: 这是优势，不是缺点</li></ul></div><div style="display:contents" dir="auto"><ul id="ccc790b9-c8d0-42f9-88e4-cbbb364fb491" class="bulleted-list"><li style="list-style-type:disc"><strong>巨大梦想 + 渺小现实</strong>: 这是正常的起点，不是矛盾</li></ul></div><div style="display:contents" dir="auto"><hr id="55a44bdd-6203-448f-a0b9-6971a9c12d59"/></div><div style="display:contents" dir="auto"><h2 id="d96a55c8-b783-4b4b-83bc-4a66876a2496" class="">🔗 相关链接 (重要页面快速访问)</h2></div><div style="display:contents" dir="auto"><ul id="373b6952-fcb9-4699-bb65-c160894d9f24" class="bulleted-list"><li style="list-style-type:disc">🎯 <a href="../%F0%9F%8E%AF%20%E6%88%91%E7%9A%84%E4%B8%93%E5%B1%9E%E5%90%AF%E5%8A%A8%E9%A1%B5%20%E4%B8%80%E5%BC%80%E7%AA%97%E5%8F%A3%E5%B0%B1%E6%87%82%E6%88%91%207a1eb3fdd1ad4a439c6e11443151861e.html">我的专属启动页</a> - 新窗口必看</li></ul></div><div style="display:contents" dir="auto"><ul id="84615b40-2925-4ba7-a2fa-f72a658b3382" class="bulleted-list"><li style="list-style-type:disc">🌿 <a href="https://www.notion.so/4de5e72809264254b4484debd5655aa7?pvs=21">系统内容净化记录</a> - 表达原则参考</li></ul></div><div style="display:contents" dir="auto"><ul id="7d389e93-2624-4d53-9783-5b252757a409" class="bulleted-list"><li style="list-style-type:disc">🌌 <a href="../../%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF%20e2858c563a0c4cc78014558de0791b1b.html">统一同步视图中心</a> - 总体系统状态</li></ul></div><div style="display:contents" dir="auto"><ul id="f54d22f2-a2f4-42cf-9257-069dfacd27a5" class="bulleted-list"><li style="list-style-type:disc">📈 <a href="%F0%9F%93%88%20%E6%88%91%E7%9A%84%E6%95%B4%E4%BD%93%E8%BF%9B%E5%BA%A6%E8%B7%9F%E8%B8%AA%20%E5%AE%9E%E6%97%B6%E6%9B%B4%E6%96%B0%20e843f51d58a8448f873920f21ea9bc94.html">当前页面</a> - 实时进度跟踪</li></ul></div><div style="display:contents" dir="auto"><hr id="9d9a807e-cec5-441e-a288-51c4be935373"/></div><div style="display:contents" dir="auto"><p id="bc8ab0a3-1f1e-4b6e-85dd-3d4a507d21f2" class=""><strong>📍 当前位置</strong>: 已完成基础架构建设，正在验证系统功能</p></div><div style="display:contents" dir="auto"><p id="21337d3d-bba7-4953-8215-97347620e235" class=""><strong>🎪 下一站</strong>: 测试和优化阶段</p></div><div style="display:contents" dir="auto"><p id="e24b5822-547b-4777-9310-cf592324070a" class=""><strong>💪 信心指数</strong>: 正在提升中！</p></div><div style="display:contents" dir="auto"><p id="9a718089-6321-47c3-b504-ce51dee2ea0c" class=""><em>📝 这个页面会自动更新，记录我的每一步进展，让我永远知道自己走到了哪里！</em></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,123 @@
+// ═══════════════════════════════════════════════════════════
+// 龙魂系统 DevContainer 配置
+// ═══════════════════════════════════════════════════════════
+// ENCODING: UTF-8
+// FONT-INDEPENDENT: YES
+// NO PROPRIETARY TOKENS
+// ═══════════════════════════════════════════════════════════
+// DNA追溯码：#龙芯⚡️2026-02-05-龙魂DevContainer配置-v1.0
+// GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+// 创建者：💎 龙芯北辰｜UID9622
+// 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// ═══════════════════════════════════════════════════════════
+// For format details, see https://aka.ms/devcontainer.json
+// 龙魂系统：独立原生系统开发环境
+// ═══════════════════════════════════════════════════════════
+
+{
+	"name": "🐉 龙魂系统开发环境",
+	
+	// 基础镜像 - Ubuntu LTS 稳定版本
+	"image": "mcr.microsoft.com/devcontainers/python:3.12",
+	
+	// 容器功能配置
+	"features": {
+		// Git配置
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": true
+		},
+		// GitHub CLI
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		// Node.js (用于前端开发)
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		}
+	},
+	
+	// VSCode 自定义配置
+	"customizations": {
+		"vscode": {
+			// 扩展插件
+			"extensions": [
+				// AI助手
+				"moonshot-ai.kimi-code",
+				// Python开发
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				// 代码格式化
+				"ms-python.black-formatter",
+				// 中文支持
+				"MS-CEINTL.vscode-language-pack-zh-hans",
+				// 文件图标
+				"vscode-icons-team.vscode-icons",
+				// Markdown预览
+				"yzhang.markdown-all-in-one",
+				// JSON编辑
+				"nicholaszh.markdown-json"
+			],
+			// 编辑器设置
+			"settings": {
+				// 编码设置 - OCSL要求
+				"files.encoding": "utf8",
+				"files.eol": "\n",
+				// Python设置
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.formatting.provider": "black",
+				"python.linting.enabled": true,
+				// 字体设置
+				"editor.fontFamily": "'Noto Sans SC', 'Fira Code', monospace",
+				"editor.fontSize": 14,
+				// 主题设置
+				"workbench.colorTheme": "Default Dark+",
+				"workbench.iconTheme": "vscode-icons"
+			}
+		}
+	},
+	
+	// 环境变量
+	"containerEnv": {
+		"LONGHUN_SYSTEM": "1",
+		"LONGHUN_VERSION": "1.0.0",
+		"LONGHUN_DNA": "#龙芯⚡️2026-02-05-龙魂系统核心-v1.0",
+		"OCSL_LICENSE": "v1.0",
+		"PYTHONPATH": "/workspaces/CNSH/.devcontainer"
+	},
+	
+	// 端口转发
+	"forwardPorts": [
+		8000,  // 默认HTTP端口
+		3000   // 开发服务器端口
+	],
+	
+	// 挂载卷
+	"mounts": [
+		// 持久化存储
+		"source=longhun-data,target=/workspace/data,type=volume"
+	],
+	
+	// 创建后执行的命令
+	"postCreateCommand": "python3 /workspaces/CNSH/.devcontainer/start_system.py check",
+	
+	// 启动后执行的命令
+	"postStartCommand": "echo '🐉 龙魂系统开发环境已就绪'",
+	
+	// 远程用户
+	"remoteUser": "vscode",
+	
+	// 更新远程用户UID/GID
+	"updateRemoteUserUID": true,
+	
+	// 特权模式（如需）
+	"privileged": false,
+	
+	// 运行参数
+	"runArgs": [
+		"--name", "longhun-devcontainer"
+	],
+	
+	// 注释说明
+	"// 龙魂系统": "基于OCSL v1.0开放文化主权许可证",
+	"// 六大核心主权": "农历时间、易经卦象、道德经价值观、DNA追溯、CNSH编码、文化主权",
+	"// 许可证": "OCSL v1.0 - 详见 LICENSE-OCSL-v1.0.md"
+}

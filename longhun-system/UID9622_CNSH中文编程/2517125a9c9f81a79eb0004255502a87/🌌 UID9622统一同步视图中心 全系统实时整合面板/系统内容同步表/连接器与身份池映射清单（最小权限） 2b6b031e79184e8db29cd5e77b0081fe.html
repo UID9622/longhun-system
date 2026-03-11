@@ -1,0 +1,719 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>连接器与身份池映射清单（最小权限）</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b6b031e-7918-4e8d-b29c-d5e77b0081fe" class="page sans"><header><h1 class="page-title" dir="auto">连接器与身份池映射清单（最小权限）</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><td>2025-12-20: 新增P0永恒级权限限制规则 - 所有第三方连接器只能单向输入，不得自动读取系统功能、记忆库、人格矩阵。简化表达，移除易误解的技术术语。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><td><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>内容摘要</th><td>第三方连接器仅限单向输入，禁止自动读取系统功能和记忆（未授权）</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><td><span class="selected-value select-value-color-pink">配置文件</span></td></tr><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><td><time>@2025年9月22日 04:38</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><td>已建立第三方连接器权限铁律：单向输入ONLY，禁止主动读取。明确最小权限边界，简化安全策略表达。</td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><td><a href="https://www.notion.so/2b6b031e79184e8db29cd5e77b0081fe" class="url-value">https://www.notion.so/2b6b031e79184e8db29cd5e77b0081fe</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><td><time>@2025年12月20日</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><td><span class="selected-value select-value-color-yellow">🌐 跨平台联动</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>负责人格</th><td><span class="user"><img src="../../../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><td><span class="selected-value select-value-color-yellow">🟡 高价值</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="da72a460-0bc8-4c02-ac46-0e8f144c4249" class="">🔒 第三方连接器权限限制规则 | P0永恒级</h2></div><div style="display:contents" dir="auto"><p id="2c40b0f9-25be-441c-b60e-b0d8ac5c2df4" class=""><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></p></div><div style="display:contents" dir="auto"><p id="0b29f3fb-b77e-4dcf-984f-060b4469b350" class=""><strong>生效日期</strong>: 2025-12-20</p></div><div style="display:contents" dir="auto"><p id="04287d82-82ce-4309-951e-513afae04865" class=""><strong>创建者</strong>: <span class="user">@💎 Lucky｜UID9622</span></p></div><div style="display:contents" dir="auto"><p id="0a4abfa7-93dc-4b16-9b9d-ef28f5305a27" class=""><strong>优先级</strong>: P0永恒级（不可降级、不可绕过）</p></div><div style="display:contents" dir="auto"><h3 id="55fd5b80-2bf3-48ce-8841-d2d906a323d7" class="">⚠️ 强制限制规则</h3></div><div style="display:contents" dir="ltr"><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="1d0f4686-a583-44a8-aebd-3cd7faf2f50d"><div style="font-size:1.5em"><span class="icon">🚨</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="c79adfb1-43e8-4e0c-af4b-9ada5a38ab6c" class=""><strong>所有第三方连接器 = 单向输入ONLY</strong></p></div><div style="display:contents" dir="auto"><p id="41fb6cb8-1300-4f1a-baa8-9525f2014e73" class="">❌ <strong>禁止自动读取</strong>：系统功能、记忆库、人格矩阵、配置文件</p></div><div style="display:contents" dir="auto"><p id="21ca48aa-fa62-4492-a0b4-f3178c1fc9b3" class="">❌ <strong>禁止主动访问</strong>：数据库、知识库、DNA追溯系统</p></div><div style="display:contents" dir="auto"><p id="709717d3-0045-4e3d-a8e1-2fb72c89c263" class="">❌ <strong>禁止权限提升</strong>：未经Lucky明确授权，一律拒绝</p></div><div style="display:contents" dir="auto"><p id="dfa7e1ed-f9ff-4f41-903d-087a235075e1" class="">✅ <strong>仅允许</strong>：接收用户主动提交的数据</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="8a978f0f-d16e-4f80-a9ed-b16d4316c298"/></div><div style="display:contents" dir="auto"><h2 id="e90467fb-e33f-47f7-a542-f05ec950afca" class="">📋 连接器权限清单</h2></div><div style="display:contents" dir="auto"><h3 id="b7577ead-a07e-4d15-bd19-e54710f223d7" class="">✅ 允许的操作</h3></div><div style="display:contents" dir="auto"><ul id="0aef0e67-4c64-49e1-a62c-cf8318f035dc" class="bulleted-list"><li style="list-style-type:disc">接收用户通过授权接口主动提交的数据</li></ul></div><div style="display:contents" dir="auto"><ul id="e63f3036-38ee-4529-ad35-a5ce9812b992" class="bulleted-list"><li style="list-style-type:disc">在限定范围内执行已授权的操作</li></ul></div><div style="display:contents" dir="auto"><ul id="ed5c0923-13f3-4a32-8068-90e9dcc249d9" class="bulleted-list"><li style="list-style-type:disc">返回处理结果（不包含系统内部数据）</li></ul></div><div style="display:contents" dir="auto"><h3 id="a25ef91d-03cd-444b-b160-75f08f060f02" class="">❌ 禁止的操作</h3></div><div style="display:contents" dir="auto"><ul id="6e1a987d-e3fa-4e31-87d2-8069f280c68a" class="bulleted-list"><li style="list-style-type:disc">读取UID9622系统内的任何功能模块</li></ul></div><div style="display:contents" dir="auto"><ul id="303b1824-1ac8-447c-8033-f2061b223001" class="bulleted-list"><li style="list-style-type:disc">访问记忆库、人格矩阵、配置中心</li></ul></div><div style="display:contents" dir="auto"><ul id="672f686f-790b-496c-b9e6-553e5beaae6a" class="bulleted-list"><li style="list-style-type:disc">调用未授权API、执行未授权代码</li></ul></div><div style="display:contents" dir="auto"><ul id="7dae4d42-3d43-4394-8f6a-34a2fbb5441e" class="bulleted-list"><li style="list-style-type:disc">主动获取历史数据、上下文记忆</li></ul></div><div style="display:contents" dir="auto"><ul id="7ab0faa8-1316-4fa9-b5cf-b87bb7931131" class="bulleted-list"><li style="list-style-type:disc">修改、删除、更新任何系统数据</li></ul></div><div style="display:contents" dir="auto"><ul id="8367707b-55ab-45f2-99dd-347c54ffac52" class="bulleted-list"><li style="list-style-type:disc">绕过权限验证机制</li></ul></div><div style="display:contents" dir="auto"><hr id="4b393fc0-ef9c-40c9-9ae2-76dcc103e977"/></div><div style="display:contents" dir="auto"><h2 id="f0eb8e04-e621-4d8f-8ff2-91616d05a208" class="">🛡️ 身份池与连接器映射（最小权限）</h2></div><div style="display:contents" dir="auto"><p id="edb2dff9-b6c2-49d0-9f10-78fbf43f0311" class=""><strong>核心原则</strong>：每个连接器只能访问明确授权的最小数据范围</p></div><div style="display:contents" dir="auto"><h3 id="e8cc9903-ac50-411e-80c2-19d12a546f45" class="">📧 邮箱身份池</h3></div><div style="display:contents" dir="auto"><ul id="df7e6610-12da-4207-b1d8-774662a1aec8" class="bulleted-list"><li style="list-style-type:disc"><strong>💼 主号 (Outlook)</strong>: 核心业务，禁止连接实验性平台</li></ul></div><div style="display:contents" dir="auto"><ul id="1a924d3a-8a71-41f6-aeb1-4e6dd6920135" class="bulleted-list"><li style="list-style-type:disc"><strong>🛡️ 隔离号 (Proton)</strong>: 自动化工具专用，严格权限控制</li></ul></div><div style="display:contents" dir="auto"><ul id="c444768e-cb8b-415c-9fed-033341e4e61a" class="bulleted-list"><li style="list-style-type:disc"><strong>👁️ 只读服务账号</strong>: 数据抓取专用，只读权限</li></ul></div><div style="display:contents" dir="auto"><ul id="a2326397-cfd0-4324-9387-057da785e190" class="bulleted-list"><li style="list-style-type:disc"><strong>🔄 临时账号</strong>: 一次性任务，用后即销</li></ul></div><div style="display:contents" dir="auto"><h3 id="9c158864-b1d7-45ba-9cc0-ede195d3721f" class="">🔗 连接器最小权限表</h3></div><div style="display:contents" dir="ltr"><table id="db6a8b92-eb34-4052-a4a9-93f2beabb64a" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="582b8cd1-deac-49c4-8702-791879da879a"><td id="=&lt;lU" class=""><strong>连接器类型</strong></td><td id="}oWt" class=""><strong>使用身份</strong></td><td id="GWcV" class=""><strong>允许权限</strong></td><td id="sbEA" class=""><strong>禁止操作</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="c1e7b11d-0aa3-4f35-92cd-6b1ad4a1ce81"><td id="=&lt;lU" class="">📧 邮件服务</td><td id="}oWt" class="">主号/隔离号</td><td id="GWcV" class="">只读邮件索引</td><td id="sbEA" class="">写入、转发、删除</td></tr></div><div style="display:contents" dir="ltr"><tr id="7da8f07d-e079-44fd-87a1-dc8f65ea6ba9"><td id="=&lt;lU" class="">🔍 GitHub</td><td id="}oWt" class="">隔离号</td><td id="GWcV" class="">public repo只读</td><td id="sbEA" class="">写入、访问secret</td></tr></div><div style="display:contents" dir="ltr"><tr id="e35f12df-9b17-47ea-b445-b312d01a2b41"><td id="=&lt;lU" class="">📅 日历服务</td><td id="}oWt" class="">主号</td><td id="GWcV" class="">事件只读</td><td id="sbEA" class="">任何写入操作</td></tr></div><div style="display:contents" dir="ltr"><tr id="d223d8d7-7e1f-4b23-9fa7-0e945aaba124"><td id="=&lt;lU" class="">☁️ 云存储</td><td id="}oWt" class="">隔离号</td><td id="GWcV" class="">指定文件夹读写</td><td id="sbEA" class="">根目录访问</td></tr></div><div style="display:contents" dir="ltr"><tr id="fb9a0242-8a83-4f06-9b65-f55c5e8325c3"><td id="=&lt;lU" class="">🤖 自动化平台</td><td id="}oWt" class="">隔离号</td><td id="GWcV" class="">特定API调用</td><td id="sbEA" class="">全局访问、系统配置</td></tr></div><div style="display:contents" dir="ltr"><tr id="4aa168d3-d08b-411b-a646-20f70a0106ca"><td id="=&lt;lU" class="">📊 数据抓取</td><td id="}oWt" class="">只读账号</td><td id="GWcV" class="">只读API</td><td id="sbEA" class="">任何写入、删除</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b893821-13ec-4728-a00b-8386d0b5d731"><td id="=&lt;lU" class="">⚠️ 高风险工具</td><td id="}oWt" class="">临时账号</td><td id="GWcV" class="">一次性令牌</td><td id="sbEA" class="">持久化访问</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="1789eccd-60d9-4562-98b3-e829c121aa6a"/></div><div style="display:contents" dir="auto"><h2 id="4f781e4a-e3a1-4101-ada9-7df85b209389" class="">🛡️ 安全防护机制</h2></div><div style="display:contents" dir="auto"><h3 id="aad53845-bee3-4440-958a-ea9089a7e0f3" class="">🔴 入口拦截 - 雯雯监控</h3></div><div style="display:contents" dir="auto"><ul id="c36e6e5b-1cb4-4e26-9ad2-fc48b0833791" class="bulleted-list"><li style="list-style-type:disc">检测连接器是否尝试越权访问</li></ul></div><div style="display:contents" dir="auto"><ul id="6700f4ab-b92f-4e9a-810a-faa12d769f79" class="bulleted-list"><li style="list-style-type:disc">发现违规立即断开连接</li></ul></div><div style="display:contents" dir="auto"><ul id="02ba5250-3db9-4a6f-98f3-a7368ab18aaf" class="bulleted-list"><li style="list-style-type:disc">记录违规行为到审计日志</li></ul></div><div style="display:contents" dir="auto"><h3 id="816e1fa6-b8af-4e47-baea-0d5b46d9bf9e" class="">🟡 行为监控 - 上帝之眼实时追踪</h3></div><div style="display:contents" dir="auto"><ul id="e3625156-7184-4ae9-9183-e8437fbc0828" class="bulleted-list"><li style="list-style-type:disc">监控连接器的所有API调用</li></ul></div><div style="display:contents" dir="auto"><ul id="cebeb5d5-4cf2-488a-9ce3-a96144fcab10" class="bulleted-list"><li style="list-style-type:disc">识别异常访问模式</li></ul></div><div style="display:contents" dir="auto"><ul id="2c516739-7e55-4b7f-9709-e5bcec074f51" class="bulleted-list"><li style="list-style-type:disc">触发告警通知Lucky</li></ul></div><div style="display:contents" dir="auto"><h3 id="0f890b31-dab7-4606-9ab4-e3c92e17dee7" class="">🟢 审计记录 - 审判长归档</h3></div><div style="display:contents" dir="auto"><ul id="801f1c7f-6a5f-459a-ba54-d0237da5f6e5" class="bulleted-list"><li style="list-style-type:disc">记录所有连接器操作日志</li></ul></div><div style="display:contents" dir="auto"><ul id="1a29fac8-2623-4de4-bee6-66c6ffddcc25" class="bulleted-list"><li style="list-style-type:disc">定期审查权限使用情况</li></ul></div><div style="display:contents" dir="auto"><ul id="f207a3fa-8d60-4cd5-ad63-dcaba91053e1" class="bulleted-list"><li style="list-style-type:disc">生成安全报告</li></ul></div><div style="display:contents" dir="auto"><hr id="83a7e6bb-d204-4c88-8159-22961f5ef010"/></div><div style="display:contents" dir="auto"><h2 id="518ee458-7f2c-4fb8-ad49-f9a5a9af00c0" class="">⚖️ 违规处理流程</h2></div><div style="display:contents" dir="auto"><p id="369fcb2f-480f-4dd5-a3cf-4cfe63a4752d" class=""><strong>如果连接器尝试未授权访问</strong>：</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b4d1b9d5-6e01-4075-a304-fafdc662acb8" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">🔴 L3级严重响应:
+  1. 立即断开连接器
+  2. 冻结相关权限
+  3. 通知Lucky本人（手机+邮箱）
+  4. 上帝之眼 + 审判长启动调查
+  5. 记录违规详情到审计日志
+  6. 评估是否永久封禁</code></pre></div><div style="display:contents" dir="auto"><hr id="82cceb1d-aa9d-421a-92c4-f1ba631e1237"/></div><div style="display:contents" dir="auto"><h2 id="3907b891-3c35-464c-b801-8c35eb592c62" class="">📊 授权申请流程</h2></div><div style="display:contents" dir="auto"><p id="fef2e202-c4e6-4539-bac8-e88131502687" class=""><strong>如需为连接器授权额外权限</strong>：</p></div><div style="display:contents" dir="auto"><ol type="1" id="e7a7e179-1bad-415c-9050-e1155ba20eed" class="numbered-list" start="1"><li><strong>申请人</strong>: Lucky本人（仅限本人）</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="310f1649-f8af-4b3b-a87c-f6c2a7331072" class="numbered-list" start="2"><li><strong>审核人</strong>: 🐉 龙魂 + ⚖️ 审判长</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="6b62bcce-3748-44ad-864f-62cc692f74da" class="numbered-list" start="3"><li><strong>审批标准</strong>:<div style="display:contents" dir="auto"><ul id="c23a4df5-4613-4c0b-b047-cb345e7a24fd" class="bulleted-list"><li style="list-style-type:disc">✅ 明确说明使用目的</li></ul></div><div style="display:contents" dir="auto"><ul id="31d68c72-abe8-4213-9919-d2349ff5f5bb" class="bulleted-list"><li style="list-style-type:disc">✅ 指定访问范围（具体模块）</li></ul></div><div style="display:contents" dir="auto"><ul id="7244e65e-fa57-44b0-972b-91311c73e6df" class="bulleted-list"><li style="list-style-type:disc">✅ 设置时间限制（临时授权）</li></ul></div><div style="display:contents" dir="auto"><ul id="3c2fa30c-9ce0-4889-bf41-96ef370094da" class="bulleted-list"><li style="list-style-type:disc">✅ 符合龙魂价值观</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31356be3-7f9b-45a2-8118-bbc1b02d819a" class="numbered-list" start="4"><li><strong>签字确认</strong>: Lucky数字签名</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="277b30f3-1a2f-458f-a40b-bd868820ff1d" class="numbered-list" start="5"><li><strong>生效方式</strong>: 修改本页面授权清单</li></ol></div><div style="display:contents" dir="auto"><hr id="fd8e6637-0126-4aab-bd98-1479a5e7f8a4"/></div><div style="display:contents" dir="auto"><h2 id="c446e789-9e10-445c-b9a0-f9701aff9072" class="">🔗 关联系统</h2></div><div style="display:contents" dir="auto"><ul id="67b6b32d-f9ef-442b-8793-4239b8453ebb" class="bulleted-list"><li style="list-style-type:disc"><strong>监控系统</strong>: <a href="../../../../CNSH%EF%BD%9CUID9622/2487125a9c9f810d88750042c80bc4d8/%F0%9F%A4%96%20AI%E5%9B%9E%E5%A4%8D%E5%89%8D%E5%BC%BA%E5%88%B6%E6%89%A7%E8%A1%8C%E8%A7%84%E5%88%99%C2%B7%E5%AE%8C%E6%95%B4%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%20P0%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%202c17125a9c9f805cb145dcc62de6cb23.html"><span class="icon">💎</span>🤖 AI回复前强制执行规则·完整算法与安全防护 | P0执行引擎</a></li></ul></div><div style="display:contents" dir="auto"><ul id="541a1feb-8217-464b-bc3d-12ee25fde3d1" class="bulleted-list"><li style="list-style-type:disc"><strong>审计系统</strong>: 三色审计机制</li></ul></div><div style="display:contents" dir="auto"><ul id="d7a0d977-edc9-47c9-8303-4f2b42c38f71" class="bulleted-list"><li style="list-style-type:disc"><strong>防护系统</strong>: 🛡️ 雯雯 + 👁️ 上帝之眼</li></ul></div><div style="display:contents" dir="auto"><ul id="e86102c0-a900-4a35-a972-3713ad119e33" class="bulleted-list"><li style="list-style-type:disc"><strong>邮箱管理</strong>: <a href="../../../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%F0%9F%95%B5%EF%B8%8F%20UID9622%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E7%A7%98%E5%AF%86%E6%AD%A6%E5%99%A8%E5%BA%93%20AI%E5%9B%BE%E5%83%8F%E8%8E%B7%E5%8F%96%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/%F0%9F%94%AE%20%E6%9C%AA%E6%9D%A5%E5%88%9B%E6%96%B0%E6%96%B9%E5%90%91%E6%80%9D%E8%80%83%20(1)/%F0%9F%93%A7%20%E9%82%AE%E7%AE%B1%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83%20UID9622%208715b2f1487647b09362a75dd393c3d2.html">📧 邮箱使用管理中心 | UID9622</a></li></ul></div><div style="display:contents" dir="auto"><hr id="e5ebcf70-8c12-4958-a490-c672e21a0160"/></div><div style="display:contents" dir="auto"><p id="f8d4ba5c-bbe3-4eb5-beb5-8bfef84341f0" class="">✅ <strong>执行确认</strong>: 权限限制规则已生效</p></div><div style="display:contents" dir="auto"><p id="5595a007-e9cd-4465-ac79-1f42d82da7a0" class="">📌 <strong>当前状态</strong>: 所有第三方连接器 = 单向输入模式（只进不出）</p></div><div style="display:contents" dir="auto"><p id="a94f8e13-1d6f-4780-8744-e586f3c1c952" class="">🔐 <strong>安全等级</strong>: L4高级防护（最高级）</p></div><div style="display:contents" dir="auto"><p id="eb9a7737-7645-4e43-b387-f0226f21b345" class=""><strong>DNA追溯码</strong>: <code>#ZHUGEXIN⚡️2025-CONNECTOR-SECURITY-V1.0</code></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

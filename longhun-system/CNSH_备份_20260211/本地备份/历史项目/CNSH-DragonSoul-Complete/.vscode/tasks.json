@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 启动龙魂终端",
+      "type": "shell",
+      "command": "python",
+      "args": ["dragonsoul-terminal/backend/main.py"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🧹 清理Mac缓存 (预览)",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-c",
+        "from dragonsoul-terminal.backend.mac_manager import clean_cache; print(clean_cache(dry_run=True))"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "🧹 清理Mac缓存 (执行)",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-c",
+        "from dragonsoul-terminal.backend.mac_manager import clean_cache; print(clean_cache(dry_run=False))"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "🛡️ 测试三色审计",
+      "type": "shell",
+      "command": "python",
+      "args": ["security-core/audit_engine.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "🧬 测试DNA追溯",
+      "type": "shell",
+      "command": "python",
+      "args": ["security-core/dna_tracer.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "🔐 测试七维加密",
+      "type": "shell",
+      "command": "python",
+      "args": ["security-core/encryption.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "🍎 测试Mac管理器",
+      "type": "shell",
+      "command": "python",
+      "args": ["dragonsoul-terminal/backend/mac_manager.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "📝 测试Notion管理器",
+      "type": "shell",
+      "command": "python",
+      "args": ["dragonsoul-terminal/backend/notion_manager.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "🤖 测试五大后台",
+      "type": "shell",
+      "command": "python",
+      "args": ["dragonsoul-terminal/backend/five_backends.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "📦 安装依赖",
+      "type": "shell",
+      "command": "pip",
+      "args": ["install", "-r", "requirements.txt"],
+      "problemMatcher": []
+    },
+    {
+      "label": "🧪 运行所有测试",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pytest", "tests/", "-v"],
+      "problemMatcher": []
+    }
+  ]
+}

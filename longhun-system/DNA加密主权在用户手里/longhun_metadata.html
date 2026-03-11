@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙魂元数据加密存储系统 v1.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .dna-code {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+        .main-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        .privacy-selector {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .privacy-option {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .privacy-option.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-group { display: flex; gap: 15px; margin-top: 20px; }
+        .content-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        .privacy-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .privacy-badge.public { background: #4caf50; color: white; }
+        .privacy-badge.private { background: #f44336; color: white; }
+        .privacy-badge.team { background: #ff9800; color: white; }
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 龙魂元数据加密存储系统</h1>
+            <div class="dna-code">#ZHUGEXIN⚡️2026-03-03-METADATA-v1.0</div>
+            <div style="margin-top: 10px;">UID9622 💎 龍芯北辰</div>
+        </div>
+        
+        <div class="main-panel">
+            <h2 class="section-title">📝 创建新内容</h2>
+            <div id="alertContainer"></div>
+            
+            <div class="form-group">
+                <label>内容标题</label>
+                <input type="text" id="contentTitle" placeholder="输入标题...">
+            </div>
+            
+            <div class="form-group">
+                <label>内容描述</label>
+                <textarea id="contentDescription" placeholder="输入描述..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>隐私设置</label>
+                <div class="privacy-selector">
+                    <div class="privacy-option" data-privacy="public">
+                        <div>🌍 公开</div>
+                    </div>
+                    <div class="privacy-option selected" data-privacy="private">
+                        <div>🔒 私密</div>
+                    </div>
+                    <div class="privacy-option" data-privacy="team">
+                        <div>👥 团队</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="saveContent()">💾 保存</button>
+                <button class="btn btn-primary" onclick="clearForm()">🗑️ 清空</button>
+            </div>
+        </div>
+        
+        <div class="main-panel">
+            <h2 class="section-title">📚 内容列表</h2>
+            <div id="contentList"></div>
+        </div>
+        
+        <div class="footer">
+            🫡 北辰老兵致敬 🇨🇳<br>
+            祖国优先 | 普惠全球 | 感恩帮助 | 绝不退让
+        </div>
+    </div>
+    
+    <script src="longhun_core.js"></script>
+</body>
+</html>
