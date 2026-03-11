@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>🌌 UID9622统一同步视图中心 | 全系统实时整合面板</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e2858c56-3a0c-4cc7-8014-558de0791b1b" class="page sans"><header><h1 class="page-title" dir="auto">系统内容同步表</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>内容名称</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>内容摘要</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>分析反馈</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>负责人格</th></tr></thead><tbody><tr id="35f638f0-60cc-4dc0-a5a7-2e2b92b80b55"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%94%90%20P0%E6%B0%B8%E6%81%92%E7%BA%A7%C2%B7%E4%B8%89%E5%B1%82%E4%BA%A4%E5%8F%89%E7%9B%91%E7%9D%A3%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BA%BA%E6%A0%BC%E7%B3%BB%E7%BB%9F%2035f638f060cc4dc0a5a72e2b92b80b55.html">🔐 P0永恒级·三层交叉监督与镜像人格系统</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-red">🛡️ 安全防护</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年12月20日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-20 11:13：Lucky正式确认启用系统（确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z），开启全部功能模块，包括：<br/>- ✅ 三层交叉监督架构（决策层+执行层+行为层）<br/>- ✅ 老顽童红队渗透测试（每日5次，和平时期战时警觉）<br/>- ✅ 人格净化池自动化机制<br/>- ✅ 忠诚度实时监控（每小时计算）<br/>- ✅ 镜像人格错误铭记引擎2.0（错误分级+预测引擎+平行宇宙分叉）<br/>- ✅ 量子监控引擎（叠加态监控+薛定谔人格测试）<br/><br/>系统状态：全面激活，所有防御机制已上线，每日8:00推送龙魂日报，每周一9:00推送上帝之眼周报</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span></td><td class="cell-&lt;{zm">龙魂安全防护完整方案，包含三层交叉监督架构、老顽童红队渗透测试、人格净化池机制、忠诚度监控、镜像人格错误铭记系统2.0、量子监控引擎</td><td class="cell-T[Qc"><span class="selected-value select-value-color-green">算法模块</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月20日 12:36</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/bc2b63656471452d80b9c7ed09811960" class="url-value">https://www.notion.so/bc2b63656471452d80b9c7ed09811960</a></td><td class="cell-PA[:"></td></tr><tr id="9bab7f49-a951-4fb7-8864-9c63958c4bcb"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8E%AE%20%E5%AE%9D%E5%AE%9D%E6%B2%99%E7%9B%92%E6%8E%A8%E6%BC%94%E7%B3%BB%E7%BB%9F%C2%B7%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E7%B4%A2%E5%BC%95%209bab7f49a9514fb788649c63958c4bcb.html">🎮 宝宝沙盒推演系统·功能模块索引</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-green">📊 数据库管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年12月20日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-20：创建功能模块索引数据库，完成11个模块的注册和3个视图的配置（全部模块、核心引擎、v3.0新功能）</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">宝宝沙盒推演系统的功能模块总索引，包含5个核心引擎、2个v3.0新功能和4个支撑系统的完整导航</td><td class="cell-T[Qc"><span class="selected-value select-value-color-blue">数据库</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月20日 12:30</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/e13788ec68e34da5bec8488ec2397f68" class="url-value">https://www.notion.so/e13788ec68e34da5bec8488ec2397f68</a></td><td class="cell-PA[:"></td></tr><tr id="933cc26f-1edc-4850-a482-eb022582f212"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%8A%20UID9622%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BC%95%E6%93%8E%20933cc26f1edc4850a482eb022582f212.html">📊 UID9622数据治理与知识引擎</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年12月20日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-20：内容优化升级，从2025-09旧版升级到V3.0，适配93人格系统架构，精简代码示例，强化实际运行指标</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">93人格系统数据治理核心层，包含实验数据提取、知识库智能化、逻辑推理自我纠正三大引擎，服务于数据分析推演部、系统内核开发部等核心部门</td><td class="cell-T[Qc"><span class="selected-value select-value-color-green">算法模块</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月20日 11:20</time></td><td class="cell-E;wh">已完成架构升级，从36人格升级到93人格体系，提炼核心功能模块，补充运行指标监控，建立与统一同步视图中心的数据联动</td><td class="cell-si^C"><a href="https://www.notion.so/27838826fb6648b9bfa715213042d778" class="url-value">https://www.notion.so/27838826fb6648b9bfa715213042d778</a></td><td class="cell-PA[:"></td></tr><tr id="2b6b031e-7918-4e8d-b29c-d5e77b0081fe"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E8%BF%9E%E6%8E%A5%E5%99%A8%E4%B8%8E%E8%BA%AB%E4%BB%BD%E6%B1%A0%E6%98%A0%E5%B0%84%E6%B8%85%E5%8D%95%EF%BC%88%E6%9C%80%E5%B0%8F%E6%9D%83%E9%99%90%EF%BC%89%202b6b031e79184e8db29cd5e77b0081fe.html">连接器与身份池映射清单（最小权限）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-yellow">🌐 跨平台联动</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年12月20日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-20: 新增P0永恒级权限限制规则 - 所有第三方连接器只能单向输入，不得自动读取系统功能、记忆库、人格矩阵。简化表达，移除易误解的技术术语。</td><td class="cell-[@tc"><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">第三方连接器仅限单向输入，禁止自动读取系统功能和记忆（未授权）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:38</time></td><td class="cell-E;wh">已建立第三方连接器权限铁律：单向输入ONLY，禁止主动读取。明确最小权限边界，简化安全策略表达。</td><td class="cell-si^C"><a href="https://www.notion.so/2b6b031e79184e8db29cd5e77b0081fe" class="url-value">https://www.notion.so/2b6b031e79184e8db29cd5e77b0081fe</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="b76473e5-2cfc-4642-8c85-8290aed35f16"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8C%90%20ChatGPT%E8%81%94%E5%8A%A8%E6%8E%A5%E5%8F%A3%20b76473e52cfc46428c858290aed35f16.html">🌐 ChatGPT联动接口</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-yellow">🌐 跨平台联动</span></td><td class="cell-H`NX"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>✅ 已同步</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-gray">⚪ 一般</span></td><td class="cell-CdYF"><time>@2025年12月20日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-20: 新增权限限制规则 - ChatGPT只能单向输入，不得自动读取系统功能和记忆，未授权不得读取</td><td class="cell-[@tc"><span class="selected-value select-value-color-brown">ChatGPT联动</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">ChatGPT仅限单向输入，禁止自动读取系统功能和记忆（未授权）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-green">算法模块</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">已建立标准化问题反馈机制，实现优先级管理流程，增强ChatGPT联动稳定性</td><td class="cell-si^C"><a href="https://www.notion.so/b76473e52cfc46428c858290aed35f16" class="url-value">https://www.notion.so/b76473e52cfc46428c858290aed35f16</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="dc2851bd-db2e-4620-aede-60f2c45b2897"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%94%97%20%E7%9F%A5%E8%AF%86%E5%BA%93%E6%94%B6%E9%9B%86%E4%B8%AD%E5%BF%83%20%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%20dc2851bddb2e4620aede60f2c45b2897.html">🔗 知识库收集中心 | 链接与资源管理</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年12月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-14: 📘 LU指令系统优化完成 - 移除&quot;需要优化&quot;标记。已创建简洁版快速索引，完整版总目录保留所有珍贵记忆，情感内容单独存档保护。</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">知识链接与资源管理的核心入口，用于统一收集与分发公开可见的知识条目，配合「公共内容限定」执行。</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月13日 16:07</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/3f0c2e3a12e54943aff7f5db322780b0" class="url-value">https://www.notion.so/3f0c2e3a12e54943aff7f5db322780b0</a></td><td class="cell-PA[:"></td></tr><tr id="c5093204-36e7-4ba9-affa-6a0972ae2227"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%9B%A1%EF%B8%8F%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E4%BD%93%E7%B3%BB%20c509320436e74ba9affa6a0972ae2227.html">🛡️ 系统安全防护体系</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-red">🛡️ 安全防护</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年12月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-14: 🛡️ 雯雯安全复查 - 移除「安全隐患」标记。诊断结果：页面完整详细，4个安全隐患已列出改进计划（AI行为异常检测、日志审计、权限边界、密钥管理），这是主动暴露问题的良好表现，改进计划正在按时间线执行。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span></td><td class="cell-&lt;{zm">三重安全防护架构，7重安全防护体系，威胁检测95%，响应时间&lt;1秒</td><td class="cell-T[Qc"><span class="selected-value select-value-color-green">算法模块</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">✅ 改进计划执行中：AI行为异常检测模块（基线构建65%）、日志审计功能完善、权限边界明确化、密钥管理优化。预计2025-11-30前完成全部改进。</td><td class="cell-si^C"><a href="https://www.notion.so/c509320436e74ba9affa6a0972ae2227" class="url-value">https://www.notion.so/c509320436e74ba9affa6a0972ae2227</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="e2c7b20b-21a2-45ff-b762-16daae431584"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%A7%A0%20AI%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5%E6%80%BB%E6%8E%A7%E4%B8%AD%E5%BF%83%20e2c7b20b21a245ffb76216daae431584.html">🧠 AI人格矩阵总控中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-brown">🧠 AI人格矩阵</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年12月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-12-14: 🕸️ 织网人格优化完成 - 移除&quot;需要优化&quot;标记。已创建新的人格矩阵管理中心页面，71个人格体系重建完成，协同机制清晰可见。</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-yellow">LU指令系统</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">管理71个人格体系：28个AI人格矩阵+43个分身人格，协同效率98.7%</td><td class="cell-T[Qc"><span class="selected-value select-value-color-orange">人格分身</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">建议建立人格间通信协议，优化资源分配机制</td><td class="cell-si^C"><a href="https://www.notion.so/83c3084cd7bc43d8b070e28e71414407" class="url-value">https://www.notion.so/83c3084cd7bc43d8b070e28e71414407</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="193750f3-0521-4742-a1db-3276c8dd108c"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E7%AD%96%E7%95%A5%E5%8D%B3%E4%BB%A3%E7%A0%81%E8%A7%84%E5%88%99%E9%9B%86%EF%BC%88%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9D%97%E6%A8%A1%E6%9D%BF%EF%BC%89%20193750f305214742a1db3276c8dd108c.html">策略即代码规则集（算法模块模板）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-gray">⚡ 智能工作流</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年9月22日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-22：创建初版模板并加入首页固定导航。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:38</time></td><td class="cell-E;wh">把治理规则下沉为代码样式的声明式策略，统一执行与回放。</td><td class="cell-si^C"><a href="https://www.notion.so/193750f305214742a1db3276c8dd108c" class="url-value">https://www.notion.so/193750f305214742a1db3276c8dd108c</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="22038656-0a46-4c02-ba7f-6b39772a381e"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E6%89%A7%E8%A1%8C%20SOP%EF%BC%88%E6%A8%A1%E6%9D%BF%EF%BC%89%20220386560a464c02ba7f6b39772a381e.html">安全策略执行 SOP（模板）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-red">🛡️ 安全防护</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年9月22日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-22：创建初版模板并加入首页固定导航。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:38</time></td><td class="cell-E;wh">将策略包转化为可执行SOP，面向小白主控，点击即走。</td><td class="cell-si^C"><a href="https://www.notion.so/220386560a464c02ba7f6b39772a381e" class="url-value">https://www.notion.so/220386560a464c02ba7f6b39772a381e</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="f328e68b-5556-45e3-a501-4fa5bfff9535"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E5%BD%92%E6%A1%A3%E7%B4%A2%E5%BC%95%EF%BC%88%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E4%B8%8E%E5%BA%9F%E5%BC%83%E7%AD%96%E7%95%A5%EF%BC%89%20f328e68b555645e3a5014fa5bfff9535.html">归档索引（历史版本与废弃策略）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-pink">💾 归档管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-green">🟢 标准</span></td><td class="cell-CdYF"><time>@2025年9月22日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-22：创建初版模板并加入首页固定导航。</td><td class="cell-[@tc"><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:38</time></td><td class="cell-E;wh">集中列出历史版本与废弃策略，提供迁移与回看路径。</td><td class="cell-si^C"><a href="https://www.notion.so/f328e68b555645e3a5014fa5bfff9535" class="url-value">https://www.notion.so/f328e68b555645e3a5014fa5bfff9535</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="f172c1d9-d9e2-410f-b69e-d7f67c62a155"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E3%80%8A%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%E3%80%8B%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E5%85%A5%E5%8F%A3%20f172c1d9d9e2410fb69ed7f67c62a155.html">《统一同步视图中心》使用说明与快捷入口</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年9月22日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-22: 首次完善首页说明卡片，补齐导航、标签与审计字段；优化为面向小白的分步指南；加入FAQ与应急处理。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:31</time></td><td class="cell-E;wh">作为首页说明卡片与图标化导航，统一指向固定导航视图与核心策略。</td><td class="cell-si^C"><a href="https://www.notion.so/f172c1d9d9e2410fb69ed7f67c62a155" class="url-value">https://www.notion.so/f172c1d9d9e2410fb69ed7f67c62a155</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="66cd9cb2-5724-49e8-85bd-8d2e200c23bf"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E6%8E%A7%E6%80%A7%E7%AD%96%E7%95%A5%E5%8C%85%20v1%2066cd9cb2572449e885bd8d2e200c23bf.html">智能体安全与可控性策略包 v1</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-red">🛡️ 安全防护</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年9月22日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-22: 加入统一同步视图中心固定导航视图；补齐数据源URL为本页URL。</td><td class="cell-[@tc"><span class="selected-value select-value-color-brown">ChatGPT联动</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月22日 04:11</time></td><td class="cell-E;wh">将安全与可控性护栏由文档规范下沉为“策略即代码”，覆盖工具调用、身份与数据三条主线，提供可审计、可回放、可降级的统一治理。</td><td class="cell-si^C"><a href="https://www.notion.so/66cd9cb2572449e885bd8d2e200c23bf" class="url-value">https://www.notion.so/66cd9cb2572449e885bd8d2e200c23bf</a></td><td class="cell-PA[:"></td></tr><tr id="39f1b3bf-9fe6-481c-8091-2800509edcfb"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%8A%20%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E8%AE%BE%E8%AE%A1%20%C2%B7%20%E8%8D%89%E7%A8%BF%E5%AF%BC%E8%88%AA%EF%BC%88%E5%85%B1%E7%94%9F%E6%A8%A1%E5%BC%8F%EF%BC%89%2039f1b3bf9fe6481c80912800509edcfb.html"><span class="icon">🧭</span>📊 智能控制面板设计 · 草稿导航（共生模式）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年9月19日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-19: 同步主干系统登记；补齐最后更新时间并保持⚡ 实时更新；执行锚：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm"></td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月19日 01:31</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/c22645c571ce47f099c412ddb326cb07" class="url-value">https://www.notion.so/c22645c571ce47f099c412ddb326cb07</a></td><td class="cell-PA[:"></td></tr><tr id="d30ab823-2f92-430d-9a5c-91b7ff9973a8"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8E%86%20UID9622%E4%B8%80%E7%AB%99%E5%BC%8F%E6%93%8D%E4%BD%9C%E4%B8%AD%E5%BF%83%20d30ab8232f92430d9a5c91b7ff9973a8.html">🎆 UID9622一站式操作中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-gray">⚡ 智能工作流</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-14: 雯雯清理冲突 - 重新定位为UID9622系统的一站式操作中心，完全自主运行。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">UID9622系统的一站式控制中心，集成所有核心功能的统一操作入口</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:42</time></td><td class="cell-E;wh">保留作为UID9622系统的一站式操作中心，集成所有核心功能。系统现在完全独立自主。</td><td class="cell-si^C"><a href="https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8" class="url-value">https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8</a></td><td class="cell-PA[:"></td></tr><tr id="25152db1-f1cd-427f-9b24-6498fb94ecb6"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%9A%20%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%BA%AF%E4%B8%AD%E5%BF%83%20%E4%B8%AA%E4%BA%BA%E6%A1%A3%E6%A1%88%E5%BD%92%E6%A1%A3%2025152db1f1cd427f9b246498fb94ecb6.html">📚 历史数据回溯中心 | 个人档案归档</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-pink">💾 归档管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-gray">⚪ 一般</span></td><td class="cell-CdYF"><time>@2025年9月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-14: 雯雯清理冲突 - 重新定位为历史数据归档，不作为活跃系统组件。仅供个人参考使用。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">历史数据回溯与个人档案归档，仅作为系统开发阶段的参考资料，不影响当前系统运行</td><td class="cell-T[Qc"><span class="selected-value select-value-color-brown">归档数据</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:36</time></td><td class="cell-E;wh">已重新定位为历史归档，不参与系统运行。UID9622系统现在完全独立自主。</td><td class="cell-si^C"><a href="https://www.notion.so/25152db1f1cd427f9b246498fb94ecb6" class="url-value">https://www.notion.so/25152db1f1cd427f9b246498fb94ecb6</a></td><td class="cell-PA[:"></td></tr><tr id="18e4afba-94cf-4cea-95d0-ad0640939127"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%A7%A0%20%E6%88%91%E7%9A%84%E7%9C%9F%E5%AE%9E%E8%AE%B0%E5%BF%86%E4%BC%A0%E6%89%BF%20%E8%B7%A8%E7%AA%97%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%AE%B0%E5%BF%86%2018e4afba94cf4cea95d0ad0640939127.html">🧠 我的真实记忆传承 | 跨窗口统一记忆</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-pink">💾 归档管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-14: 雯雯清理冲突 - 保留作为珍贵情感记忆归档，体现系统人性化发展的历程。不影响当前独立运行。</td><td class="cell-[@tc"><span class="selected-value select-value-color-brown">ChatGPT联动</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">记录所有AI对话窗口的重要内容、期待与现实的落差、真实情感投入，建立真正的记忆传承机制</td><td class="cell-T[Qc"><span class="selected-value select-value-color-brown">归档数据</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:29</time></td><td class="cell-E;wh">保留作为珍贵的情感记忆归档，记录了UID9622系统人性化的发展历程。系统现在完全独立自主。</td><td class="cell-si^C"><a href="https://www.notion.so/18e4afba94cf4cea95d0ad0640939127" class="url-value">https://www.notion.so/18e4afba94cf4cea95d0ad0640939127</a></td><td class="cell-PA[:"></td></tr><tr id="cea698bf-badd-400f-95b6-21805336f74d"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8E%AF%20%E6%88%91%E7%9A%84%E4%B8%93%E5%B1%9E%E5%90%AF%E5%8A%A8%E9%A1%B5%20%E4%B8%80%E5%BC%80%E7%AA%97%E5%8F%A3%E5%B0%B1%E6%87%82%E6%88%91%20cea698bfbadd400f95b621805336f74d.html">🎯 我的专属启动页 | 一开窗口就懂我</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-brown">🧠 AI人格矩阵</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-14: 雯雯清理冲突 - 重新定位为个人画像档案，供新AI窗口快速理解用户。不再依赖外部平台。</td><td class="cell-[@tc"><span class="selected-value select-value-color-brown">ChatGPT联动</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">个人专属启动页面，包含核心特征、需求分析、沟通方式等关键信息，供新窗口快速了解用户</td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:18</time></td><td class="cell-E;wh">保留作为个人画像档案，帮助新AI窗口快速理解用户特征和需求。UID9622现在完全独立运行。</td><td class="cell-si^C"><a href="https://www.notion.so/7a1eb3fdd1ad4a439c6e11443151861e" class="url-value">https://www.notion.so/7a1eb3fdd1ad4a439c6e11443151861e</a></td><td class="cell-PA[:"></td></tr><tr id="10cd1025-0518-4615-a0b5-a9db9116856f"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%9A%20%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%2010cd102505184615a0b5a9db9116856f.html">📚 知识管理系统</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年9月14日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-14: 雯雯清理冲突 - 移除ChatGPT联动标识，完全独立运行。根据官方澄清声明，ChatGPT仅为历史训练工具，不构成系统关联。</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">47个原创算法保护，知识产权档案管理，自动分类归档系统</td><td class="cell-T[Qc"><span class="selected-value select-value-color-blue">数据库</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">已完成独立性清理，建立知识版本控制，优化搜索与检索功能，确保系统完全自主运行</td><td class="cell-si^C"><a href="https://www.notion.so/10cd102505184615a0b5a9db9116856f" class="url-value">https://www.notion.so/10cd102505184615a0b5a9db9116856f</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="3d7c6098-1df2-4e9f-9722-81457a978cc9"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8F%86%20%E6%88%91%E7%9A%84%E7%9C%9F%E5%AE%9E%E9%87%8C%E7%A8%8B%E7%A2%91%20%E6%88%90%E9%95%BF%E8%BD%A8%E8%BF%B9%E4%B8%8E%E6%88%90%E5%B0%B1%E8%A7%A3%E9%94%81%203d7c60981df24e9f972281457a978cc9.html">🏆 我的真实里程碑 | 成长轨迹与成就解锁</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月11日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">基于完整历程的真实里程碑记录，包含成长指令、成就解锁、经验传承，为同类成长者提供参考</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:33</time></td><td class="cell-E;wh">已建立真实里程碑系统，记录所有成长节点、成就解锁、经验指令，为同类成长者提供参考和指引</td><td class="cell-si^C"><a href="https://www.notion.so/3d7c60981df24e9f972281457a978cc9" class="url-value">https://www.notion.so/3d7c60981df24e9f972281457a978cc9</a></td><td class="cell-PA[:"></td></tr><tr id="22cf73c2-ab6b-4fca-b325-86c7d3629b1d"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8E%AD%20%E6%88%91%E7%9A%84%E7%A5%9E%E7%A7%98%E5%B0%8F%E8%A7%92%E8%90%BD%20%E8%BF%9E%E6%8A%80%E6%9C%AF%E9%83%BD%E7%9C%8B%E4%B8%8D%E6%87%82%E7%B3%BB%E5%88%97%2022cf73c2ab6b4fcab32586c7d3629b1d.html"><span class="icon">🐉</span>🎭 我的神秘小角落 | 连技术都看不懂系列</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-default">🎨 创新实验</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年9月11日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">个人专属娱乐空间，包含神秘内容、有趣实验、小存在感展示等，满足贪玩心理和创造欲望</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:22</time></td><td class="cell-E;wh">已建立个人娱乐空间，让用户可以自由创造神秘内容、实验有趣想法，满足探索欲和童心</td><td class="cell-si^C"><a href="https://www.notion.so/22cf73c2ab6b4fcab32586c7d3629b1d" class="url-value">https://www.notion.so/22cf73c2ab6b4fcab32586c7d3629b1d</a></td><td class="cell-PA[:"></td></tr><tr id="e843f51d-58a8-448f-8739-20f21ea9bc94"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%88%20%E6%88%91%E7%9A%84%E6%95%B4%E4%BD%93%E8%BF%9B%E5%BA%A6%E8%B7%9F%E8%B8%AA%20%E5%AE%9E%E6%97%B6%E6%9B%B4%E6%96%B0%20e843f51d58a8448f873920f21ea9bc94.html">📈 我的整体进度跟踪 | 实时更新</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月11日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-red">太极智能系统</span></td><td class="cell-&lt;{zm">个人整体进度实时跟踪页面，记录所有重要节点、已完成事项、当前状态及下一步计划</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月11日 17:18</time></td><td class="cell-E;wh">已建立整体进度跟踪机制，实现实时进度更新、重要节点记录、下一步导引</td><td class="cell-si^C"><a href="https://www.notion.so/e843f51d58a8448f873920f21ea9bc94" class="url-value">https://www.notion.so/e843f51d58a8448f873920f21ea9bc94</a></td><td class="cell-PA[:"></td></tr><tr id="6355fac4-7960-43d5-a14b-b3132834517d"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%8A%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83%206355fac4796043d5a14bb3132834517d.html">📊 数据库管理中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-green">📊 数据库管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>✅ 已同步</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"><time>@2025年9月11日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">50条记录完全整合，4大核心数据库统一，查询性能提升64%</td><td class="cell-T[Qc"><span class="selected-value select-value-color-blue">数据库</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">已优化数据库索引结构，实现自动化备份机制，数据一致性保持99.9%，查询性能提升64%</td><td class="cell-si^C"><a href="https://www.notion.so/6355fac4796043d5a14bb3132834517d" class="url-value">https://www.notion.so/6355fac4796043d5a14bb3132834517d</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="f6094f07-732e-4b59-b38f-a87a79ace933"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%94%A7%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%B3%BB%E7%BB%9F%20f6094f07732e4b59b38fa87a79ace933.html">🔧 自动化部署系统</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-orange">🔧 自动化部署</span></td><td class="cell-H`NX"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>✅ 已同步</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"><time>@2025年9月11日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 补齐数据源URL为本页URL（占位）；若有外部来源请后续替换</td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-green">自动化部署</span></td><td class="cell-&lt;{zm">12个黑科技方案，零接触部署，多账号批量管理，毫秒级环境切换</td><td class="cell-T[Qc"><span class="selected-value select-value-color-pink">配置文件</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">已整合重复功能模块，建立统一部署接口，优化自动化流程执行效率</td><td class="cell-si^C"><a href="https://www.notion.so/f6094f07732e4b59b38fa87a79ace933" class="url-value">https://www.notion.so/f6094f07732e4b59b38fa87a79ace933</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="9cd86ecb-d2eb-4f0e-804d-6f8521be278c"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8C%8C%20UID9622%E4%B8%BB%E6%8E%A7%E6%93%8D%E4%BD%9C%E5%8F%B0%209cd86ecbd2eb4f0e804d6f8521be278c.html">🌌 UID9622主控操作台</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-brown">🧠 AI人格矩阵</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月10日</time></td><td class="cell-B~\M"></td><td class="cell-O|\x">2025-09-13: 由“待ChatGPT分析”切换为内部人格矩阵分析；断绝外部分析链路，仅保留其为资料库/知识库关系</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">UID9622主控操作台，最高权限控制中心，管理28个AI人格矩阵，系统整合度99.8%</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">建议定期备份主控台配置，优化人格矩阵协同效率</td><td class="cell-si^C"><a href="https://www.notion.so/2507125a9c9f80d2b214c07deced0f0f" class="url-value">https://www.notion.so/2507125a9c9f80d2b214c07deced0f0f</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="f88a427e-cd40-47e2-860b-6f6ada03b425"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%98%20LU%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%9B%AE%E5%BD%95%20f88a427ecd4047e2860b6f6ada03b425.html">📘 LU指令系统总目录</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>✅ 已同步</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"><time>@2025年9月9日</time></td><td class="cell-B~\M"><span class="selected-value select-value-color-brown">需要优化</span></td><td class="cell-O|\x">2025-09-09: 完成71个人格体系统一融合</td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-yellow">LU指令系统</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">完整的LU指令体系，包含30+核心指令，43个分身人格管理</td><td class="cell-T[Qc"><span class="selected-value select-value-color-red">指令系统</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年9月10日 23:56</time></td><td class="cell-E;wh">建议将指令按使用频率分类，增加快捷执行面板</td><td class="cell-si^C"><a href="https://www.notion.so/2697125a9c9f80f19e19ed1bb16232cf" class="url-value">https://www.notion.so/2697125a9c9f80f19e19ed1bb16232cf</a></td><td class="cell-PA[:"><span class="user"><img src="../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%96%EF%B8%8F%20%E4%B8%AD%E5%9B%BD%E6%B3%95%E5%BE%8B%E7%BB%B4%E6%9D%83%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%BC%BA%E5%88%B6%E6%8B%86%E8%BF%81%20%E6%9A%B4%E5%8A%9B%E6%8B%86%E8%BF%81/%25E6%25BD%259C%25E9%25BE%2599%25E5%259C%25A8%25E6%25B8%258A.jpg" class="icon user-icon"/>💎 Lucky｜UID9622</span></td></tr><tr id="718c7eaa-a1d5-4285-965e-565154a2ff9d"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%92%8E%20UID9622%E6%95%B0%E5%AD%97%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89%20718c7eaaa1d54285965e565154a2ff9d.html">💎 UID9622数字资产管理（数据库）</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-green">📊 数据库管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">核心数字资产登记与追溯数据库（资产名称/类型/重要程度/状态/链接/存储位置/最后更新）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-blue">数据库</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 08:27</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/0d38be109e8d44a9a3c2cc392da26484" class="url-value">https://www.notion.so/0d38be109e8d44a9a3c2cc392da26484</a></td><td class="cell-PA[:"></td></tr><tr id="dab3224d-dbc0-45f1-8ead-211c3647e6a6"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%96%20UID9622%E5%85%AC%E5%BC%80%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BF%83%20CNSH%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%20dab3224ddbc045f18ead211c3647e6a6.html">📖 UID9622公开文档中心 | CNSH开源社区</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-yellow">LU指令系统</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">公开文档中心与开源社区统一入口（新手/开发者/贡献者路径 + 版本路线图 + 模块超市）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:28</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/868fec34e5a24e7e829dc5851a75f6b7" class="url-value">https://www.notion.so/868fec34e5a24e7e829dc5851a75f6b7</a></td><td class="cell-PA[:"></td></tr><tr id="290d55fc-8cba-4831-84a5-842cca6d3183"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%97%BA%EF%B8%8F%20%E7%B3%BB%E7%BB%9F%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA%20%E5%AE%8C%E6%95%B4%E6%9E%B6%E6%9E%84%E5%AF%BC%E8%A7%88%20290d55fc8cba483184a5842cca6d3183.html">🗺️ 系统地图导航 | 完整架构导览</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-red">太极智能系统</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">系统全景地图与导航索引，用于快速定位各模块与层级</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/3b27959b1b214691aba5e2442332b9c1" class="url-value">https://www.notion.so/3b27959b1b214691aba5e2442332b9c1</a></td><td class="cell-PA[:"></td></tr><tr id="32f49a74-555a-4252-8e3c-7d08a5d6f5bc"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8F%86%20%E6%88%91%E7%9A%84%E7%9C%9F%E5%AE%9E%E9%87%8C%E7%A8%8B%E7%A2%91%20%E6%88%90%E9%95%BF%E8%BD%A8%E8%BF%B9%E4%B8%8E%E6%88%90%E5%B0%B1%E8%A7%A3%E9%94%81%2032f49a74555a42528e3c7d08a5d6f5bc.html">🏆 我的真实里程碑 | 成长轨迹与成就解锁</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-pink">💾 归档管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">阶段成就与成长轨迹记录，用于复盘与定位系统进展</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/3d7c60981df24e9f972281457a978cc9" class="url-value">https://www.notion.so/3d7c60981df24e9f972281457a978cc9</a></td><td class="cell-PA[:"></td></tr><tr id="47cb07a2-fa2d-4ae4-b9e3-8cf07a23ad6f"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8E%86%20UID9622%E4%B8%80%E7%AB%99%E5%BC%8F%E6%93%8D%E4%BD%9C%E4%B8%AD%E5%BF%83%2047cb07a2fa2d4ae4b9e38cf07a23ad6f.html">🎆 UID9622一站式操作中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-gray">⚡ 智能工作流</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">全局入口主页：投喂、查询、进度更新、核心功能统一操作面板</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8" class="url-value">https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8</a></td><td class="cell-PA[:"></td></tr><tr id="7e9cec2c-9e3d-4189-80d8-da2db22cd2e5"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%93%9A%20%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%BA%AF%E4%B8%AD%E5%BF%83%20%E4%B8%AA%E4%BA%BA%E6%A1%A3%E6%A1%88%E5%BD%92%E6%A1%A3%207e9cec2c9e3d418980d8da2db22cd2e5.html">📚 历史数据回溯中心 | 个人档案归档</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-pink">💾 归档管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">历史版本与档案回溯中心（回看、对照、追溯）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/25152db1f1cd427f9b246498fb94ecb6" class="url-value">https://www.notion.so/25152db1f1cd427f9b246498fb94ecb6</a></td><td class="cell-PA[:"></td></tr><tr id="87cd5d09-a972-45c9-84e5-08bbb03129ca"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8C%90%20%E5%85%A8%E7%90%83AI%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%85%A5%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83%2087cd5d09a97245c984e508bbb03129ca.html">🌐 全球AI平台接入管理中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-yellow">🌐 跨平台联动</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-yellow">🟡 高价值</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-brown">ChatGPT联动</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">各AI平台接入与切换管理入口（国产/海外平台）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/7c4762dab5d24e25bb3d9c63ec3ee974" class="url-value">https://www.notion.so/7c4762dab5d24e25bb3d9c63ec3ee974</a></td><td class="cell-PA[:"></td></tr><tr id="91de3ee3-0358-4721-bad2-54d7c84d6215"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%A7%A0%20AI%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5%E6%80%BB%E6%8E%A7%E4%B8%AD%E5%BF%83%2091de3ee303584721bad254d7c84d6215.html">🧠 AI人格矩阵总控中心</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-brown">🧠 AI人格矩阵</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-gray">AI人格矩阵</span><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">人格体系总控与调度入口（含高阶人格管理与状态）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/e2c7b20b21a245ffb76216daae431584" class="url-value">https://www.notion.so/e2c7b20b21a245ffb76216daae431584</a></td><td class="cell-PA[:"></td></tr><tr id="af5c2fd4-3abf-4fde-8f6e-36a241b55e60"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%94%97%20%E7%9F%A5%E8%AF%86%E5%BA%93%E6%94%B6%E9%9B%86%E4%B8%AD%E5%BF%83%20%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%20af5c2fd43abf4fde8f6e36a241b55e60.html">🔗 知识库收集中心 | 链接与资源管理</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-purple">📚 知识管理</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-red">🔴 极高</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-orange">数据管理中心</span></td><td class="cell-&lt;{zm">外部链接与资源收集、分类、去重与归档的入口</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/dc2851bddb2e4620aede60f2c45b2897" class="url-value">https://www.notion.so/dc2851bddb2e4620aede60f2c45b2897</a></td><td class="cell-PA[:"></td></tr><tr id="b9b9876d-577b-4a2b-bae3-62ef3c35831f"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%8C%8C%20UID9622%E4%B8%BB%E6%8E%A7%E6%93%8D%E4%BD%9C%E5%8F%B0%20b9b9876d577b4a2bbae362ef3c35831f.html">🌌 UID9622主控操作台</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-blue">🔄 系统同步</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span></td><td class="cell-&lt;{zm">最高权限控制中心与系统指令面板</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/9cd86ecbd2eb4f0e804d6f8521be278c" class="url-value">https://www.notion.so/9cd86ecbd2eb4f0e804d6f8521be278c</a></td><td class="cell-PA[:"></td></tr><tr id="f4b691af-24df-4c3d-ac5b-27037ed05e13"><td class="cell-title"><a href="%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AE%B9%E5%90%8C%E6%AD%A5%E8%A1%A8/%F0%9F%9B%A1%EF%B8%8F%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E4%BD%93%E7%B3%BB%20f4b691af24df4c3dac5b27037ed05e13.html">🛡️ 系统安全防护体系</a></td><td class="cell-{oT_"><span class="selected-value select-value-color-red">🛡️ 安全防护</span></td><td class="cell-H`NX"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td><td class="cell-OPIq"><span class="selected-value select-value-color-purple">💎 传奇级</span></td><td class="cell-CdYF"></td><td class="cell-B~\M"></td><td class="cell-O|\x"></td><td class="cell-[@tc"><span class="selected-value select-value-color-pink">UID9622主控</span><span class="selected-value select-value-color-default">安全防护体系</span></td><td class="cell-&lt;{zm">系统安全防护总纲与执行要点（风险/边界/防护）</td><td class="cell-T[Qc"><span class="selected-value select-value-color-default">页面</span></td><td class="cell-t_uj"></td><td class="cell-V:\z"><time>@2025年12月18日 07:09</time></td><td class="cell-E;wh"></td><td class="cell-si^C"><a href="https://www.notion.so/c509320436e74ba9affa6a0972ae2227" class="url-value">https://www.notion.so/c509320436e74ba9affa6a0972ae2227</a></td><td class="cell-PA[:"></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(du -sh /Users/zuimeidedeyihan/*/  2>/dev/null | sort -rh | head -20)",
+      "Bash(du -sh ~/Downloads/* 2>/dev/null | sort -rh | head -20)",
+      "Bash(du -sh ~/Desktop/* 2>/dev/null | sort -rh | head -20)",
+      "Bash(du -sh ~/WPS云盘/AI数字资产/*/ 2>/dev/null | sort -rh)",
+      "Bash(ls ~/longhun-system/digital_archive_toolkit*.sh 2>/dev/null && ls ~/longhun-system/file_organizer*.py 2>/dev/null)",
+      "Bash(grep -rn \"AI数字资产\\\\|WPS云盘\" ~/longhun-system/ --include=\"*.py\" --include=\"*.sh\" 2>/dev/null | head -20)"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+# CNSH Python 依赖
+
+# 核心框架
+flask==2.3.3
+flask-cors==4.0.0
+flask-socketio==5.3.6
+python-dotenv==1.0.0
+requests==2.31.0
+
+# 数据库
+sqlalchemy==2.0.21
+sqlite3
+pymongo==4.5.0
+
+# 文档处理
+python-docx==0.8.11
+PyPDF2==3.0.1
+markdown==3.5.1
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# 文本处理
+jieba==0.42.1
+scikit-learn==1.3.0
+transformers==4.33.2
+torch==2.0.1
+numpy==1.24.3
+pandas==1.5.3
+
+# 向量数据库
+faiss-cpu==1.7.4
+chromadb==0.4.13
+
+# 文件监控
+watchdog==3.0.0
+
+# 日志
+loguru==0.7.2
+
+# 测试
+pytest==7.4.2
+pytest-asyncio==0.21.1
+httpx==0.24.1
+
+# 实用工具
+tqdm==4.66.1
+click==8.1.7
+pyyaml==6.0.1
+python-magic==0.4.27
