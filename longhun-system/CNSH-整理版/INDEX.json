@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "source": "/Users/zuimeidedeyihan/longhun-system/logs/notion_all_pages.json",
+    "total_pages": 2404,
+    "total_categories": 51,
+    "generated_at": "2026-03-06T07:47:21.401877",
+    "generator": "Notion页面整理工具 v1.0",
+    "dna": "#龍芯⚡️2026-03-06-NotionOrganizer-v1.0"
+  },
+  "categories": [
+    {
+      "name": "数据库页面",
+      "count": 833,
+      "path": "数据库页面"
+    },
+    {
+      "name": "子页面",
+      "count": 318,
+      "path": "子页面"
+    },
+    {
+      "name": "无标题页面",
+      "count": 315,
+      "path": "无标题页面"
+    },
+    {
+      "name": "工作区页面",
+      "count": 293,
+      "path": "工作区页面"
+    },
+    {
+      "name": "任务清单",
+      "count": 38,
+      "path": "任务清单"
+    },
+    {
+      "name": "龙魂系统",
+      "count": 38,
+      "path": "龙魂系统"
+    },
+    {
+      "name": "核心控制",
+      "count": 35,
+      "path": "核心控制"
+    },
+    {
+      "name": "块级页面",
+      "count": 35,
+      "path": "块级页面"
+    },
+    {
+      "name": "安全加密",
+      "count": 27,
+      "path": "安全加密"
+    },
+    {
+      "name": "DNA追溯",
+      "count": 24,
+      "path": "DNA追溯"
+    },
+    {
+      "name": "法律合规",
+      "count": 24,
+      "path": "法律合规"
+    },
+    {
+      "name": "价值体系",
+      "count": 22,
+      "path": "价值体系"
+    },
+    {
+      "name": "目标规划",
+      "count": 20,
+      "path": "目标规划"
+    },
+    {
+      "name": "数据分析",
+      "count": 20,
+      "path": "数据分析"
+    },
+    {
+      "name": "项目发布",
+      "count": 19,
+      "path": "项目发布"
+    },
+    {
+      "name": "安全防护",
+      "count": 19,
+      "path": "安全防护"
+    },
+    {
+      "name": "人格-Lucky",
+      "count": 18,
+      "path": "人格-Lucky"
+    },
+    {
+      "name": "网络服务",
+      "count": 18,
+      "path": "网络服务"
+    },
+    {
+      "name": "系统保护",
+      "count": 18,
+      "path": "系统保护"
+    },
+    {
+      "name": "AI智能",
+      "count": 18,
+      "path": "AI智能"
+    },
+    {
+      "name": "文档笔记",
+      "count": 17,
+      "path": "文档笔记"
+    },
+    {
+      "name": "资源打包",
+      "count": 16,
+      "path": "资源打包"
+    },
+    {
+      "name": "全球化",
+      "count": 15,
+      "path": "全球化"
+    },
+    {
+      "name": "快速执行",
+      "count": 15,
+      "path": "快速执行"
+    },
+    {
+      "name": "翻译系统",
+      "count": 13,
+      "path": "翻译系统"
+    },
+    {
+      "name": "工具配置",
+      "count": 12,
+      "path": "工具配置"
+    },
+    {
+      "name": "阅读学习",
+      "count": 12,
+      "path": "阅读学习"
+    },
+    {
+      "name": "监控系统",
+      "count": 12,
+      "path": "监控系统"
+    },
+    {
+      "name": "道德经",
+      "count": 11,
+      "path": "道德经"
+    },
+    {
+      "name": "同步备份",
+      "count": 11,
+      "path": "同步备份"
+    },
+    {
+      "name": "核心价值",
+      "count": 11,
+      "path": "核心价值"
+    },
+    {
+      "name": "知识库",
+      "count": 11,
+      "path": "知识库"
+    },
+    {
+      "name": "设计创作",
+      "count": 10,
+      "path": "设计创作"
+    },
+    {
+      "name": "人格系统",
+      "count": 10,
+      "path": "人格系统"
+    },
+    {
+      "name": "日常对话",
+      "count": 8,
+      "path": "日常对话"
+    },
+    {
+      "name": "角色扮演",
+      "count": 7,
+      "path": "角色扮演"
+    },
+    {
+      "name": "数据管理",
+      "count": 7,
+      "path": "数据管理"
+    },
+    {
+      "name": "人格-雯雯",
+      "count": 7,
+      "path": "人格-雯雯"
+    },
+    {
+      "name": "严肃沟通",
+      "count": 7,
+      "path": "严肃沟通"
+    },
+    {
+      "name": "架构设计",
+      "count": 6,
+      "path": "架构设计"
+    },
+    {
+      "name": "情感支持",
+      "count": 6,
+      "path": "情感支持"
+    },
+    {
+      "name": "对话交流",
+      "count": 5,
+      "path": "对话交流"
+    },
+    {
+      "name": "想法讨论",
+      "count": 5,
+      "path": "想法讨论"
+    },
+    {
+      "name": "系统设置",
+      "count": 4,
+      "path": "系统设置"
+    },
+    {
+      "name": "用户服务",
+      "count": 4,
+      "path": "用户服务"
+    },
+    {
+      "name": "创意想法",
+      "count": 3,
+      "path": "创意想法"
+    },
+    {
+      "name": "问题解决",
+      "count": 3,
+      "path": "问题解决"
+    },
+    {
+      "name": "技术研究",
+      "count": 1,
+      "path": "技术研究"
+    },
+    {
+      "name": "人格-宝宝",
+      "count": 1,
+      "path": "人格-宝宝"
+    },
+    {
+      "name": "增长分析",
+      "count": 1,
+      "path": "增长分析"
+    },
+    {
+      "name": "开发环境",
+      "count": 1,
+      "path": "开发环境"
+    }
+  ]
+}
