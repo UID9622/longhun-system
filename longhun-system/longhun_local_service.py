@@ -788,7 +788,89 @@ def 审计统计接口():
     })
 
 # ============================================================
-# 第五部分：启动服务
+# 第五部分：Git 操作接口（本地仓库，无需任何付费工具）
+# DNA: #龍芯⚡️2026-03-16-GIT-API-v1.0
+# ============================================================
+
+import subprocess
+
+GIT_REPO = str(Path(__file__).parent)   # ~/longhun-system
+
+def _git(args: list, cwd=GIT_REPO) -> dict:
+    """执行 git 命令，返回 {ok, stdout, stderr}"""
+    try:
+        r = subprocess.run(
+            ["git"] + args, cwd=cwd,
+            capture_output=True, text=True, timeout=30
+        )
+        return {"ok": r.returncode == 0, "stdout": r.stdout.strip(), "stderr": r.stderr.strip()}
+    except Exception as e:
+        return {"ok": False, "stdout": "", "stderr": str(e)}
+
+@app.route('/git/状态', methods=['GET'])
+def git状态():
+    """git status --short + branch"""
+    branch = _git(["rev-parse", "--abbrev-ref", "HEAD"])
+    status = _git(["status", "--short"])
+    log    = _git(["log", "--oneline", "-8"])
+    return jsonify({
+        "branch":  branch["stdout"],
+        "changes": status["stdout"],
+        "log":     log["stdout"],
+        "clean":   status["stdout"] == ""
+    })
+
+@app.route('/git/暂存', methods=['POST'])
+def git暂存():
+    """暂存指定文件，默认全部"""
+    data  = request.get_json(silent=True) or {}
+    files = data.get("files", ["."])
+    results = []
+    for f in files:
+        r = _git(["add", f])
+        results.append({"file": f, "ok": r["ok"], "msg": r["stderr"] or "已暂存"})
+    return jsonify({"ok": all(x["ok"] for x in results), "results": results})
+
+@app.route('/git/提交', methods=['POST'])
+def git提交():
+    """git commit -m <message>"""
+    data = request.get_json(silent=True) or {}
+    msg  = data.get("message", "").strip()
+    if not msg:
+        return jsonify({"ok": False, "msg": "提交信息不能为空"}), 400
+    # 自动追加 DNA
+    from datetime import datetime
+    dna = f"\nDNA: #龍芯⚡️{datetime.now().strftime('%Y-%m-%d-%H%M%S')}-COMMIT"
+    full_msg = msg + dna + "\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    r = _git(["commit", "-m", full_msg])
+    return jsonify({"ok": r["ok"], "msg": r["stdout"] or r["stderr"]})
+
+@app.route('/git/推送', methods=['POST'])
+def git推送():
+    """推送到 github 和 gitee"""
+    data    = request.get_json(silent=True) or {}
+    remotes = data.get("remotes", ["github", "gitee"])
+    results = {}
+    for remote in remotes:
+        r = _git(["push", remote, "main"])
+        results[remote] = {"ok": r["ok"], "msg": r["stdout"] or r["stderr"]}
+    return jsonify({"ok": all(v["ok"] for v in results.values()), "results": results})
+
+@app.route('/git/日志', methods=['GET'])
+def git日志():
+    """最近20条提交"""
+    n = request.args.get("n", "20")
+    r = _git(["log", "--oneline", f"-{n}"])
+    return jsonify({"ok": r["ok"], "log": r["stdout"]})
+
+@app.route('/git/差异', methods=['GET'])
+def git差异():
+    """git diff --stat"""
+    r = _git(["diff", "--stat"])
+    return jsonify({"ok": r["ok"], "diff": r["stdout"]})
+
+# ============================================================
+# 第六部分：启动服务
 # ============================================================
 
 def 启动服务(端口=8765, 调试模式=False):
