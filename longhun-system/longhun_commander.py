@@ -206,10 +206,10 @@ def print_banner(model: str, star_memory: dict):
     print("╚══════════════════════════════════════════════════════╝")
     print()
     print("命令：")
-    print("  [直接输入]  → AI-DNA八步思考（初心之翼回答）")
-    print("  /memory     → 查看星辰记忆摘要")
-    print("  /model      → 切换模型（初心之翼↔低算力）")
-    print("  /exit       → 退出")
+    print("  [直接说话]  → 思考回答")
+    print("  0           → 退出")
+    print("  9           → 查看星辰记忆")
+    print("  选模型时输入编号即可")
     print()
 
 
@@ -218,23 +218,45 @@ def main():
     load_env()
 
     # 检测 Ollama
-    online, model = check_ollama()
+    online, _ = check_ollama()
     if not online:
         print("⚠️  Ollama未启动，请先运行：ollama serve")
         print("   然后双击 🐉启动指挥塔.command 重试")
         sys.exit(1)
 
+    # 获取所有可用模型
+    try:
+        r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=5)
+        all_models = [m["name"] for m in r.json().get("models", [])]
+    except:
+        all_models = []
+
+    # ── 启动时选模型 ──────────────────────────────────
+    print("\n可用模型：")
+    for i, m in enumerate(all_models, 1):
+        tag = "  ← 初心之翼（深度，慢）" if CHUXIN_MODEL in m else \
+              "  ← 推荐（快）" if "qwen2.5:7b" in m else ""
+        print(f"  {i}. {m}{tag}")
+    print()
+    model_choice = input("选模型编号（直接回车用默认）: ").strip()
+    if model_choice.isdigit() and 1 <= int(model_choice) <= len(all_models):
+        current_model = all_models[int(model_choice) - 1]
+    elif all_models:
+        # 默认优先 qwen2.5:7b，没有就用第一个
+        current_model = next((m for m in all_models if "qwen2.5:7b" in m), all_models[0])
+    else:
+        current_model = FALLBACK_MODEL
+
     # 加载星辰记忆
     star_memory = load_star_memory()
 
     # 打印横幅
-    print_banner(model, star_memory)
+    print_banner(current_model, star_memory)
 
     session_dna = make_dna_signature(f"session-{datetime.now()}")
-    write_notion_log("指挥塔启动", f"模型: {model} | 星辰记忆: {star_memory.get('total', 0)}条 | {session_dna}")
-
-    current_model = model
-    use_chuxin = CHUXIN_MODEL in model
+    write_notion_log("指挥塔启动", f"模型: {current_model} | 星辰记忆: {star_memory.get('total', 0)}条 | {session_dna}")
+    # 提示切换方式
+    print(f"  💡 切换模型：输入编号 1-{len(all_models)}  |  退出：0  |  星辰记忆：9\n")
 
     while True:
         try:
@@ -245,10 +267,10 @@ def main():
         if not user:
             continue
 
-        if user == "/exit":
+        if user == "0" or user == "/exit":
             break
 
-        elif user == "/memory":
+        elif user == "9" or user == "/memory":
             if star_memory["loaded"]:
                 print(f"\n🌟 星辰记忆 · 共{star_memory['total']}条")
                 for e in star_memory["entries"]:
@@ -257,22 +279,9 @@ def main():
                 print("  ⚠️  星辰记忆目录未就绪")
             print()
 
-        elif user == "/model":
-            if use_chuxin:
-                _, fallback = check_ollama()
-                if fallback != CHUXIN_MODEL:
-                    current_model = fallback
-                    use_chuxin = False
-                    print(f"  ✅ 已切换到低算力模式: {current_model}")
-            else:
-                _, chuxin = check_ollama()
-                if CHUXIN_MODEL in chuxin:
-                    current_model = CHUXIN_MODEL
-                    use_chuxin = True
-                    print(f"  ✅ 已切换到初心之翼: {current_model}")
-                else:
-                    print(f"  ⚠️  初心之翼未加载，当前: {current_model}")
-            print()
+        elif user.isdigit() and 1 <= int(user) <= len(all_models):
+            current_model = all_models[int(user) - 1]
+            print(f"\n  ✅ 已切换 → {current_model}\n")
 
         else:
             print(f"\n⚡ 思考中（{current_model}）...")
