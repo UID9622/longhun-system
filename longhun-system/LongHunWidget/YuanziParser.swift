@@ -104,6 +104,8 @@ struct LongHunEntry: TimelineEntry {
     let date: Date
     let status: CnshStatus
     let lunarDate: String
+    var music: MusicNowPlaying = .placeholder
+    var xcode: XcodeStatus    = .placeholder
 }
 
 // MARK: - Parser
