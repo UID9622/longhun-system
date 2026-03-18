@@ -44,3 +44,14 @@ sha256-加密签名/sha256-*
 *.tar
 *.ttf
 blobs/sha256-*
+logs/action_secure.jsonl
+logs/action_secure.enc
+
+# === 私密区 · 永不提交 ===
+私密区/
+私密区/**
+
+# === 嵌套git仓库 / 权限问题文件 ===
+.claude/plugins/
+.config/360chromePro/
+.config/
