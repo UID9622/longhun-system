@@ -241,6 +241,8 @@ struct LongHunWidgetEntryView: View {
             switch family {
             case .systemMedium:
                 MediumView(entry: entry)
+            case .systemLarge:
+                LargeView(entry: entry)
             default:
                 SmallView(entry: entry)
             }
@@ -261,7 +263,7 @@ struct LongHunWidget: Widget {
         }
         .configurationDisplayName("龍魂")
         .description("龍魂元字引擎 · 北辰守护")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
         .contentMarginsDisabled()      // iOS 17+: 去除系统默认内边距，让背景满铺
     }
 }

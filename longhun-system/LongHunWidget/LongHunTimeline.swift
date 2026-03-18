@@ -21,20 +21,28 @@ struct Provider: TimelineProvider {
         let entry = LongHunEntry(
             date: Date(),
             status: context.isPreview ? YuanziParser.placeholder() : YuanziParser.load(),
-            lunarDate: LunarCalendar.todayShort()
+            lunarDate: LunarCalendar.todayShort(),
+            music: context.isPreview ? .placeholder : .current,
+            xcode: context.isPreview ? .placeholder : .current
         )
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<LongHunEntry>) -> Void) {
-        let status    = YuanziParser.load()
-        let lunar     = LunarCalendar.todayShort()
-        let now       = Date()
+        let status = YuanziParser.load()
+        let lunar  = LunarCalendar.todayShort()
+        let now    = Date()
 
         // 每 15 分钟刷新一次
         let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: now)!
 
-        let entry    = LongHunEntry(date: now, status: status, lunarDate: lunar)
+        let entry = LongHunEntry(
+            date: now,
+            status: status,
+            lunarDate: lunar,
+            music: .current,
+            xcode: .current
+        )
         let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
         completion(timeline)
     }
