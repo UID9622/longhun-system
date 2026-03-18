@@ -1,8 +1,8 @@
 {
   "_meta": {
     "version": "1.0",
-    "last_updated": "2026-03-06T18:54:35.409060",
-    "total_nodes": 2
+    "last_updated": "2026-03-18T16:23:39.799662",
+    "total_nodes": 12
   },
   "domains": {
     "ai_ml": [
@@ -21,10 +21,113 @@
       }
     ],
     "security": [],
-    "engineering": [],
-    "philosophy": [],
+    "engineering": [
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-CNSH-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "CNSH",
+          "engineering"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-换脸roop-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "换脸roop",
+          "engineering"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-本地API服务-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "本地API服务",
+          "engineering"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-star_memory-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "star_memory",
+          "engineering"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-agent_daemon-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "agent_daemon",
+          "engineering"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      }
+    ],
+    "philosophy": [
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-三才算法-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "三才算法",
+          "philosophy"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-三色审计-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "三色审计",
+          "philosophy"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-DNA追溯体系-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "DNA追溯体系",
+          "philosophy"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      }
+    ],
     "data": [],
-    "ui_ux": [],
+    "ui_ux": [
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-LongHunWidget-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "LongHunWidget",
+          "ui_ux"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      },
+      {
+        "dna": "#龍芯⚡️2026-03-18-SKILL-宝宝精灵-v1.0",
+        "weight": 0.8,
+        "tags": [
+          "宝宝精灵",
+          "ui_ux"
+        ],
+        "timestamp": "2026-03-18T16:23:39.799662",
+        "source": "system_scan"
+      }
+    ],
     "strategy": [],
     "blockchain": [],
     "general": [
