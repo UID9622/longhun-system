@@ -44,7 +44,15 @@ def _读env(键):
         for line in env_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if line.startswith(键 + "="):
-                val = line.split("=", 1)[1].strip().strip("'\"")
+                val = line.split("=", 1)[1].strip()
+                # 处理单引号包裹的值（含内联注释）
+                if val.startswith("'") and "'" in val[1:]:
+                    val = val[1:val.index("'", 1)]
+                elif val.startswith('"') and '"' in val[1:]:
+                    val = val[1:val.index('"', 1)]
+                else:
+                    # 裸值：去掉 # 注释
+                    val = val.split(" #")[0].split("\t#")[0].strip()
                 return val
     return os.getenv(键, "")
 
@@ -318,7 +326,7 @@ def _收集系统状态() -> dict:
     状态["知识节点数"] = 知识数
 
     # star-memory
-    星辰数 = len(list(STAR_VAULT.glob("*.json"))) if STAR_VAULT.exists() else 0
+    星辰数 = len(list(STAR_VAULT.rglob("*.json"))) if STAR_VAULT.exists() else 0
     状态["星辰记忆数"] = 星辰数
 
     # skill-index
@@ -369,7 +377,7 @@ def 同步星辰记忆(账号="团队", 条数=5):
         print("🔴 目标页面ID未配置")
         return
 
-    记忆文件列表 = sorted(STAR_VAULT.glob("*.json"), reverse=True)[:条数] if STAR_VAULT.exists() else []
+    记忆文件列表 = sorted(STAR_VAULT.rglob("*.json"), reverse=True)[:条数] if STAR_VAULT.exists() else []
     if not 记忆文件列表:
         print("🟡 星辰记忆库为空")
         return
