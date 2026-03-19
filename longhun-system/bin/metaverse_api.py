@@ -23,6 +23,7 @@ import hashlib
 import datetime
 import sqlite3
 import asyncio
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import List
 
@@ -169,7 +170,14 @@ def read_jsonl(path: Path, limit: int = 200) -> list:
 #  FastAPI 实现
 # ══════════════════════════════════════════════════════════
 if USE_FASTAPI:
-    app = FastAPI(title="龍魂元宇宙 API", version="1.0.0")
+    @asynccontextmanager
+    async def lifespan(app):
+        init_db()
+        print(f"🐉 龍魂元宇宙API 端口{PORT} 已启动")
+        print(f"   DNA: #龍芯⚡️2026-03-19-METAVERSE-API-v1.0")
+        yield
+
+    app = FastAPI(title="龍魂元宇宙 API", version="1.0.0", lifespan=lifespan)
     app.add_middleware(CORSMiddleware, allow_origins=["*"],
                        allow_methods=["*"], allow_headers=["*"])
 
@@ -214,12 +222,6 @@ if USE_FASTAPI:
                     self.conns.remove(c)
 
     mgr = WSManager()
-
-    @app.on_event("startup")
-    async def startup():
-        init_db()
-        print(f"🐉 龍魂元宇宙API 端口{PORT} 已启动")
-        print(f"   DNA: #龍芯⚡️2026-03-19-METAVERSE-API-v1.0")
 
     @app.get("/")
     async def root():
