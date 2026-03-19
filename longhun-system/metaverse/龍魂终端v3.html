@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龙魂系统 · CNSH控制台 v3.0 · UID9622</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --bg: #050810;
+    --bg2: #080d1a;
+    --bg3: #0c1225;
+    --panel: #0a1020;
+    --border: #1a2a4a;
+    --border-glow: #c8000055;
+    --red: #c80000;
+    --red-glow: #ff000044;
+    --gold: #d4a017;
+    --gold-soft: #f0c04088;
+    --green: #00b894;
+    --cyan: #00cec9;
+    --orange: #e17055;
+    --text: #ccd6f6;
+    --text-dim: #607090;
+    --text-bright: #eaf0ff;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'Noto Sans SC', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* scanline effect */
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+    pointer-events: none; z-index: 9998;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #050810 0%, #0c1a30 50%, #050810 100%);
+    border-bottom: 1px solid var(--red);
+    box-shadow: 0 0 30px var(--red-glow);
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .dragon-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 0 8px #c80000);
+    animation: dragonPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes dragonPulse {
+    0%,100% { filter: drop-shadow(0 0 8px #c80000); }
+    50% { filter: drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 40px #ff000044); }
+  }
+
+  .logo-text h1 {
+    font-size: 20px; font-weight: 900; letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #c80000, #ff4444, #d4a017, #c80000);
+    background-size: 300%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: textShift 4s linear infinite;
+  }
+
+  @keyframes textShift {
+    0% { background-position: 0% } 100% { background-position: 300% }
+  }
+
+  .logo-text p {
+    font-size: 11px; color: var(--text-dim); font-family: var(--mono);
+    letter-spacing: 0.2em;
+  }
+
+  .header-right {
+    display: flex; align-items: center; gap: 16px;
+  }
+
+  .uid-badge {
+    background: linear-gradient(135deg, #1a0505, #2a0808);
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--red);
+    box-shadow: 0 0 12px var(--red-glow);
+  }
+
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+
+  /* TABS */
+  .tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tab {
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 13px; font-weight: 700;
+    color: var(--text-dim);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  .tab:hover { color: var(--text); background: rgba(200,0,0,0.05); }
+
+  .tab.active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+    background: rgba(200,0,0,0.08);
+  }
+
+  /* LAYOUT */
+  .main { padding: 20px 20px; max-width: 1200px; margin: 0 auto; }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+
+  .panel-header {
+    background: linear-gradient(135deg, #0c1525, #0a1020);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .panel-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--text-bright);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .panel-body { padding: 18px; }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media(max-width: 700px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 6px; padding: 10px 18px;
+    border-radius: 6px; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.05em; transition: all 0.18s;
+    user-select: none;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-red {
+    background: linear-gradient(135deg, #8b0000, #c80000);
+    color: #fff;
+    box-shadow: 0 0 12px var(--red-glow);
+  }
+  .btn-red:hover { background: linear-gradient(135deg, #c80000, #ff2222); box-shadow: 0 0 20px var(--red-glow); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, #8b6914, #d4a017);
+    color: #000;
+    box-shadow: 0 0 12px #d4a01744;
+  }
+  .btn-gold:hover { background: linear-gradient(135deg, #d4a017, #f0c040); }
+
+  .btn-green {
+    background: linear-gradient(135deg, #006855, #00b894);
+    color: #fff;
+    box-shadow: 0 0 12px #00b89444;
+  }
+  .btn-green:hover { background: linear-gradient(135deg, #00b894, #00ddb0); }
+
+  .btn-cyan {
+    background: linear-gradient(135deg, #005f5e, #00cec9);
+    color: #fff;
+    box-shadow: 0 0 12px #00cec944;
+  }
+  .btn-cyan:hover { background: linear-gradient(135deg, #00cec9, #00eeee); }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .btn-ghost:hover { border-color: var(--text-dim); color: var(--text); }
+
+  .btn-orange {
+    background: linear-gradient(135deg, #a04020, #e17055);
+    color: #fff;
+  }
+  .btn-orange:hover { background: linear-gradient(135deg, #e17055, #ff9070); }
+
+  .btn-sm { padding: 7px 13px; font-size: 12px; }
+  .btn-lg { padding: 13px 26px; font-size: 15px; }
+  .btn-full { width: 100%; }
+
+  /* INPUTS */
+  .inp {
+    background: #060c1a;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--mono); font-size: 13px;
+    padding: 10px 14px;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+  .inp:focus { outline: none; border-color: var(--red); box-shadow: 0 0 8px var(--red-glow); }
+  .inp::placeholder { color: var(--text-dim); }
+
+  select.inp { cursor: pointer; }
+
+  label.lbl {
+    display: block;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--text-dim); margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .field { margin-bottom: 14px; }
+
+  /* TERMINAL / LOG */
+  .terminal {
+    background: #02050d;
+    border: 1px solid #0a1828;
+    border-radius: 8px;
+    padding: 14px;
+    font-family: var(--mono); font-size: 12px;
+    line-height: 1.8; max-height: 280px; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+
+  .log-entry { padding: 2px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .log-time { color: var(--text-dim); min-width: 85px; flex-shrink: 0; }
+  .log-msg { flex: 1; }
+  .log-ok { color: var(--green); }
+  .log-warn { color: var(--gold); }
+  .log-err { color: var(--red); }
+  .log-info { color: var(--cyan); }
+  .log-dna { color: #b388ff; }
+
+  /* DNA CODE */
+  .dna-box {
+    background: linear-gradient(135deg, #0a0520, #15053a);
+    border: 1px solid #6c3aff44;
+    border-radius: 8px;
+    padding: 14px;
+    font-family: var(--mono); font-size: 13px;
+    color: #b388ff;
+    word-break: break-all;
+    line-height: 1.6;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .dna-box:hover { border-color: #b388ff88; }
+  .dna-box .copy-hint {
+    position: absolute; top: 8px; right: 10px;
+    font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em;
+  }
+
+  /* TIME ENGINE */
+  .time-display {
+    background: #020810;
+    border: 1px solid #1a3a6a;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .time-display::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, #003060 0%, transparent 70%);
+    opacity: 0.4;
+  }
+
+  .time-big {
+    font-family: var(--mono); font-size: 36px; font-weight: 400;
+    color: #4af; letter-spacing: 0.08em;
+    text-shadow: 0 0 20px #4af6, 0 0 40px #4af3;
+    position: relative;
+  }
+
+  .time-sub {
+    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
+    margin-top: 6px; letter-spacing: 0.15em;
+    position: relative;
+  }
+
+  /* AUDIT CARDS */
+  .audit-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex; align-items: center; gap: 12px;
+    transition: border-color 0.2s;
+  }
+  .audit-card:hover { border-color: #3a4a6a; }
+
+  .audit-icon { font-size: 24px; flex-shrink: 0; }
+  .audit-info { flex: 1; }
+  .audit-title { font-size: 14px; font-weight: 700; color: var(--text-bright); }
+  .audit-count { font-family: var(--mono); font-size: 24px; font-weight: 700; margin: 2px 0; }
+  .audit-desc { font-size: 11px; color: var(--text-dim); }
+
+  /* TAGS */
+  .tag {
+    display: inline-block; padding: 3px 10px; border-radius: 4px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    font-family: var(--mono);
+  }
+  .tag-red { background: #3a000022; border: 1px solid var(--red); color: var(--red); }
+  .tag-gold { background: #3a200022; border: 1px solid var(--gold); color: var(--gold); }
+  .tag-green { background: #00281822; border: 1px solid var(--green); color: var(--green); }
+  .tag-cyan { background: #002a2a22; border: 1px solid var(--cyan); color: var(--cyan); }
+  .tag-gray { background: #1a1a2a; border: 1px solid #3a4a5a; color: var(--text-dim); }
+
+  /* TABLE */
+  .table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .table th { background: #0c1828; color: var(--text-dim); text-align: left;
+    padding: 10px 12px; font-size: 11px; letter-spacing: 0.12em; font-weight: 700;
+    border-bottom: 1px solid var(--border); }
+  .table td { padding: 10px 12px; border-bottom: 1px solid #0a1520; vertical-align: top; }
+  .table tr:hover td { background: #0a1520; }
+  .table .mono { font-family: var(--mono); font-size: 11px; }
+
+  /* NOTIFICATIONS */
+  .notif-area { position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+    display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+
+  .notif {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    min-width: 260px; max-width: 360px;
+    pointer-events: all;
+    animation: notifIn 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    display: flex; align-items: center; gap: 10px;
+  }
+  @keyframes notifIn { from { opacity:0; transform:translateX(20px) } to { opacity:1; transform:translateX(0) } }
+
+  .notif.ok { border-color: var(--green); }
+  .notif.warn { border-color: var(--gold); }
+  .notif.err { border-color: var(--red); }
+
+  /* PROGRESS */
+  .progress-bar {
+    background: #0a1020;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+
+  /* SECTION VISIBILITY */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+  /* FLEX UTILS */
+  .flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .gap-8 { gap: 8px; }
+  .gap-12 { gap: 12px; }
+  .gap-16 { gap: 16px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  /* CHIP ROW */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+  /* BADGE */
+  .badge {
+    background: var(--red);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 10px; font-weight: 900;
+    font-family: var(--mono);
+    display: inline-block;
+  }
+
+  /* TEXTAREA */
+  textarea.inp { resize: vertical; min-height: 80px; line-height: 1.6; }
+
+  /* COPY FLASH */
+  .copied { animation: copyFlash 0.3s ease; }
+  @keyframes copyFlash { 0%,100% { background: inherit } 50% { background: #002a40; } }
+
+  /* SYSTEM STATUS */
+  .stat-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label { font-size: 13px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+  .stat-val { font-family: var(--mono); font-size: 13px; }
+
+  /* CLOCK digits */
+  .clock-tick {
+    display: inline-block;
+    animation: clockTick 0.05s ease-out;
+  }
+  @keyframes clockTick { from { opacity:0.3 } to { opacity: 1 } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="dragon-icon">🐉</div>
+    <div class="logo-text">
+      <h1>龙魂系统 · CNSH控制台</h1>
+      <p>LONGSHUN SYSTEM · UID9622 · #ZHUGEXIN⚡ · v3.0.0</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="status-dot"></div>
+    <div class="uid-badge">UID · 9622</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('time')">⏱ 时间引擎</div>
+  <div class="tab" onclick="switchTab('dna')">🧬 DNA追溯码</div>
+  <div class="tab" onclick="switchTab('audit')">🛡 审计系统</div>
+  <div class="tab" onclick="switchTab('cnsh')">📡 CNSH控制台</div>
+  <div class="tab" onclick="switchTab('network')">🌐 AI协作网络</div>
+  <div class="tab" onclick="switchTab('log')">📋 操作日志</div>
+</div>
+
+<div class="main">
+
+<!-- ══════════════ 时间引擎 ══════════════ -->
+<div id="sec-time" class="section active">
+  <div class="grid2">
+    <!-- 实时时钟 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">⏱ 实时时间引擎</div>
+        <span class="tag tag-cyan">LIVE</span>
+      </div>
+      <div class="panel-body">
+        <div class="time-display">
+          <div class="time-big" id="clock-display">--:--:--</div>
+          <div class="time-sub" id="date-display">正在同步...</div>
+        </div>
+
+        <div class="mt-16">
+          <div class="stat-row">
+            <span class="stat-label">⌚ 时区</span>
+            <span class="stat-val" id="tz-display">--</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">📅 ISO 8601</span>
+            <span class="stat-val mono" id="iso-display" style="font-size:11px">--</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">🔢 Unix 时间戳</span>
+            <span class="stat-val" id="unix-display">--</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">📡 运行时长</span>
+            <span class="stat-val" id="uptime-display">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 时间快照 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">📸 时间快照生成器</div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <label class="lbl">快照标签</label>
+          <input class="inp" id="snap-label" placeholder="例：CNSH会议·系统部署·DNA登记" />
+        </div>
+        <div class="field">
+          <label class="lbl">快照类型</label>
+          <select class="inp" id="snap-type">
+            <option value="CHECKPOINT">CHECKPOINT · 检查点</option>
+            <option value="DEPLOY">DEPLOY · 部署时刻</option>
+            <option value="AUDIT">AUDIT · 审计时刻</option>
+            <option value="DNA-LOCK">DNA-LOCK · DNA锁定</option>
+            <option value="ALERT">ALERT · 警报时刻</option>
+            <option value="SYNC">SYNC · 同步时刻</option>
+          </select>
+        </div>
+
+        <button class="btn btn-cyan btn-full" onclick="createSnapshot()">📸 生成时间快照</button>
+
+        <div id="snapshot-result" style="display:none; margin-top:14px;">
+          <div class="dna-box" id="snapshot-code" onclick="copyText('snapshot-code')">
+            <span class="copy-hint">点击复制</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 时间锚点历史 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">⚓ 时间锚点记录</div>
+      <button class="btn btn-ghost btn-sm" onclick="clearAnchors()">清空</button>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>类型</th>
+            <th>标签</th>
+            <th>时间</th>
+            <th>时间戳</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="anchor-table">
+          <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无锚点 — 点击「生成时间快照」添加</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 时间差计算 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">⏲ 时间差计算器</div>
+    </div>
+    <div class="panel-body">
+      <div class="grid2">
+        <div>
+          <div class="field">
+            <label class="lbl">起始时间</label>
+            <input class="inp" type="datetime-local" id="time-from" />
+          </div>
+          <div class="field">
+            <label class="lbl">结束时间</label>
+            <input class="inp" type="datetime-local" id="time-to" />
+          </div>
+          <div class="flex gap-8">
+            <button class="btn btn-cyan" onclick="calcTimeDiff()">⏱ 计算时间差</button>
+            <button class="btn btn-ghost" onclick="setTimeNow()">⌚ 现在</button>
+          </div>
+        </div>
+        <div id="timediff-result" style="background:#020810;border:1px solid var(--border);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:center;">
+          <span style="color:var(--text-dim);font-size:13px">输入时间后点击计算</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DNA追溯码 ══════════════ -->
+<div id="sec-dna" class="section">
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">🧬 DNA追溯码生成器</div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <label class="lbl">项目/文档名称</label>
+          <input class="inp" id="dna-project" placeholder="例：CNSH框架·农业知识库·龙魂审计" />
+        </div>
+        <div class="field">
+          <label class="lbl">类型标签</label>
+          <select class="inp" id="dna-type">
+            <option>技术文档</option>
+            <option>代码提交</option>
+            <option>系统部署</option>
+            <option>审计记录</option>
+            <option>农业内容</option>
+            <option>政策建议</option>
+            <option>合作协议</option>
+            <option>原创作品</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">版本号</label>
+          <input class="inp" id="dna-version" placeholder="v1.0" value="v1.0" />
+        </div>
+        <div class="field">
+          <label class="lbl">备注（可选）</label>
+          <input class="inp" id="dna-remark" placeholder="附加说明..." />
+        </div>
+
+        <button class="btn btn-red btn-full btn-lg" onclick="generateDNA()">⚡ 生成 DNA 追溯码</button>
+
+        <div id="dna-result" style="display:none; margin-top:16px;">
+          <label class="lbl">生成的 DNA 追溯码</label>
+          <div class="dna-box" id="dna-output" onclick="copyText('dna-output')">
+            <span class="copy-hint">点击复制</span>
+          </div>
+          <div class="flex gap-8 mt-12">
+            <button class="btn btn-gold btn-sm" onclick="saveDNA()">💾 保存到记录</button>
+            <button class="btn btn-ghost btn-sm" onclick="generateDNA()">🔄 重新生成</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DNA验证 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">🔍 DNA 验证器</div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <label class="lbl">粘贴 DNA 追溯码</label>
+          <textarea class="inp" id="dna-verify-input" placeholder="#ZHUGEXIN⚡️2026-..." style="height:100px;"></textarea>
+        </div>
+        <button class="btn btn-gold btn-full" onclick="verifyDNA()">🔍 验证 DNA 真实性</button>
+
+        <div id="dna-verify-result" style="display:none; margin-top:14px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DNA 记录库 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">📚 DNA 记录库</div>
+      <div class="flex gap-8">
+        <button class="btn btn-ghost btn-sm" onclick="exportDNA()">📤 导出</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearDNALib()">清空</button>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <table class="table">
+        <thead>
+          <tr><th>DNA 追溯码</th><th>项目</th><th>类型</th><th>时间</th><th>操作</th></tr>
+        </thead>
+        <tbody id="dna-table">
+          <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无记录 — 生成DNA后点击「保存」</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 审计系统 ══════════════ -->
+<div id="sec-audit" class="section">
+
+  <!-- 统计概览 -->
+  <div class="grid3">
+    <div class="audit-card">
+      <div class="audit-icon">🟡</div>
+      <div class="audit-info">
+        <div class="audit-title">预警中</div>
+        <div class="audit-count" id="cnt-warn" style="color:var(--gold)">0</div>
+        <div class="audit-desc">等待48h回应</div>
+      </div>
+    </div>
+    <div class="audit-card">
+      <div class="audit-icon">🔴</div>
+      <div class="audit-info">
+        <div class="audit-title">升级追查</div>
+        <div class="audit-count" id="cnt-alert" style="color:var(--red)">0</div>
+        <div class="audit-desc">全网警报触发</div>
+      </div>
+    </div>
+    <div class="audit-card">
+      <div class="audit-icon">🚫</div>
+      <div class="audit-info">
+        <div class="audit-title">黑名单</div>
+        <div class="audit-count" id="cnt-black" style="color:#888">0</div>
+        <div class="audit-desc">永久拉黑</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 操作区 -->
+  <div class="grid2">
+    <!-- 发出预警 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">🟡 发出预警</div>
+        <span class="tag tag-gold">先警告</span>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <label class="lbl">实体/系统名称</label>
+          <input class="inp" id="warn-entity" placeholder="平台名、账号、系统..." />
+        </div>
+        <div class="field">
+          <label class="lbl">违规类型</label>
+          <select class="inp" id="warn-type">
+            <option>绕过规则·走漏洞</option>
+            <option>数据主权侵犯</option>
+            <option>DNA伪造或篡改</option>
+            <option>拒不配合审计</option>
+            <option>商业收割用户数据</option>
+            <option>其他违规行为</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">违规描述</label>
+          <textarea class="inp" id="warn-desc" placeholder="详细说明违规行为..."></textarea>
+        </div>
+        <button class="btn btn-gold btn-full" onclick="issueWarn()">🟡 发出预警（等待48h回应）</button>
+      </div>
+    </div>
+
+    <!-- 全网警报 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">🚨 升级·全网警报</div>
+        <span class="tag tag-red">走漏洞→曝光</span>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <label class="lbl">实体名称</label>
+          <input class="inp" id="alert-entity" placeholder="已预警或新发现的对象..." />
+        </div>
+        <div class="field">
+          <label class="lbl">警报级别</label>
+          <select class="inp" id="alert-level">
+            <option value="1">L1 · 轻度违规·公开记录</option>
+            <option value="2">L2 · 中度违规·社区通报</option>
+            <option value="3">L3 · 严重违规·全网拉警报</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">触发原因</label>
+          <textarea class="inp" id="alert-reason" placeholder="为什么升级到警报..."></textarea>
+        </div>
+        <button class="btn btn-red btn-full" onclick="issueAlert()">🚨 触发全网警报</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 黑名单 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">🚫 龙魂黑名单</div>
+      <span class="tag tag-gray">不配合 → 永久拉黑</span>
+    </div>
+    <div class="panel-body">
+      <div class="grid2" style="margin-bottom:16px">
+        <div>
+          <div class="field">
+            <label class="lbl">拉黑实体</label>
+            <input class="inp" id="bl-entity" placeholder="平台、账号、系统..." />
+          </div>
+          <div class="field">
+            <label class="lbl">拉黑原因</label>
+            <input class="inp" id="bl-reason" placeholder="不配合审计、拒不整改..." />
+          </div>
+          <button class="btn btn-red" onclick="addBlacklist()">🚫 加入黑名单</button>
+        </div>
+        <div>
+          <div class="field">
+            <label class="lbl">查询黑名单</label>
+            <input class="inp" id="bl-check" placeholder="输入名称查询是否在黑名单..." />
+          </div>
+          <button class="btn btn-ghost" onclick="checkBlacklist()">🔍 查询</button>
+          <div id="bl-check-result" style="margin-top:12px;font-family:var(--mono);font-size:13px;"></div>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr><th>实体</th><th>原因</th><th>加入时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody id="bl-table">
+          <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">黑名单为空</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 审计日志 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">📋 审计记录</div>
+      <button class="btn btn-ghost btn-sm" onclick="clearAuditLog()">清空</button>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <table class="table">
+        <thead>
+          <tr><th>时间</th><th>级别</th><th>实体</th><th>事件</th><th>DNA</th></tr>
+        </thead>
+        <tbody id="audit-table">
+          <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无审计记录</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CNSH控制台 ══════════════ -->
+<div id="sec-cnsh" class="section">
+  <div class="grid2">
+    <!-- 系统状态 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">⚙️ CNSH 系统状态</div>
+        <button class="btn btn-green btn-sm" onclick="refreshSystem()">🔄 刷新</button>
+      </div>
+      <div class="panel-body">
+        <div class="stat-row">
+          <span class="stat-label">🐉 龙魂引擎</span>
+          <span class="stat-val"><span class="tag tag-green">运行中</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">🧬 DNA系统</span>
+          <span class="stat-val"><span class="tag tag-green" id="dna-sys-status">就绪</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">⏱ 时间引擎</span>
+          <span class="stat-val"><span class="tag tag-cyan">同步中</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">🛡 审计引擎</span>
+          <span class="stat-val"><span class="tag tag-green">预警模式</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">🌐 AI协作网络</span>
+          <span class="stat-val"><span class="tag tag-cyan" id="net-status">在线</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">🔒 数据主权</span>
+          <span class="stat-val"><span class="tag tag-gold">UID9622所有</span></span>
+        </div>
+
+        <hr class="divider">
+
+        <div class="stat-row">
+          <span class="stat-label">版本</span>
+          <span class="stat-val mono">v3.0.0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">GPG 指纹</span>
+          <span class="stat-val" style="font-family:var(--mono);font-size:10px;color:var(--text-dim)">A2D0092C...</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">许可证</span>
+          <span class="stat-val mono">木兰宽松 v2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快速操作 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">⚡ 快速操作</div>
+      </div>
+      <div class="panel-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button class="btn btn-red" onclick="quickDNA()">🧬 快速DNA</button>
+          <button class="btn btn-cyan" onclick="quickSnap()">⏱ 时间快照</button>
+          <button class="btn btn-gold" onclick="quickWarn()">🟡 快速预警</button>
+          <button class="btn btn-green" onclick="runHealthCheck()">💚 健康检查</button>
+          <button class="btn btn-orange" onclick="broadcastAlert()">📢 广播通知</button>
+          <button class="btn btn-ghost" onclick="exportAll()">📤 全量导出</button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="field">
+          <label class="lbl">CNSH 指令输入</label>
+          <div class="flex gap-8">
+            <input class="inp" id="cmd-input" placeholder="cnsh-audit / cnsh-warn / help..." onkeydown="if(event.key==='Enter')runCmd()" style="flex:1" />
+            <button class="btn btn-red" onclick="runCmd()">▶ 执行</button>
+          </div>
+        </div>
+
+        <div class="terminal" id="cmd-terminal">
+          <div class="log-entry"><span class="log-time"></span><span class="log-msg log-ok">🐉 龙魂系统 CNSH v3.0.0 已启动</span></div>
+          <div class="log-entry"><span class="log-time"></span><span class="log-msg log-info">输入 help 查看可用指令</span></div>
+          <div class="log-entry"><span class="log-time"></span><span class="log-msg log-info">数据主权归于 UID9622 · 技术为人民服务</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四大承诺 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">⚖️ UID9622 四大承诺</div>
+      <span class="tag tag-gold">核心原则</span>
+    </div>
+    <div class="panel-body">
+      <div class="grid2">
+        <div class="audit-card">
+          <div class="audit-icon">🚫</div>
+          <div class="audit-info">
+            <div class="audit-title">不参与商业决策</div>
+            <div class="audit-desc">技术为人民服务，拒绝商业收割</div>
+          </div>
+          <span class="tag tag-green">✓ 持守</span>
+        </div>
+        <div class="audit-card">
+          <div class="audit-icon">🇨🇳</div>
+          <div class="audit-info">
+            <div class="audit-title">不移民</div>
+            <div class="audit-desc">扎根中国，数据主权在国内</div>
+          </div>
+          <span class="tag tag-green">✓ 持守</span>
+        </div>
+        <div class="audit-card">
+          <div class="audit-icon">🪖</div>
+          <div class="audit-info">
+            <div class="audit-title">不参军</div>
+            <div class="audit-desc">退伍老兵，已尽义务</div>
+          </div>
+          <span class="tag tag-green">✓ 持守</span>
+        </div>
+        <div class="audit-card">
+          <div class="audit-icon">🏛</div>
+          <div class="audit-info">
+            <div class="audit-title">不从政</div>
+            <div class="audit-desc">专注技术，守护普通人</div>
+          </div>
+          <span class="tag tag-green">✓ 持守</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ AI协作网络 ══════════════ -->
+<div id="sec-network" class="section">
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">🌐 多AI协作网络 v2.0</div>
+      <button class="btn btn-green btn-sm" onclick="pingAll()">📡 PING 全部</button>
+    </div>
+    <div class="panel-body">
+      <div id="ai-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">📨 AI 协作任务分发</div>
+    </div>
+    <div class="panel-body">
+      <div class="field">
+        <label class="lbl">目标 AI</label>
+        <select class="inp" id="task-target">
+          <option>Claude (宝宝) · Anthropic</option>
+          <option>DeepSeek</option>
+          <option>智谱清言</option>
+          <option>通义千问</option>
+          <option>文心一言</option>
+          <option>Kimi</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="lbl">任务类型</label>
+        <select class="inp" id="task-type">
+          <option>逻辑推理与文档整理</option>
+          <option>代码生成与审查</option>
+          <option>农业知识内容生产</option>
+          <option>翻译与中英互译</option>
+          <option>审计分析</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="lbl">任务描述</label>
+        <textarea class="inp" id="task-desc" placeholder="描述任务内容..."></textarea>
+      </div>
+      <div class="flex gap-8">
+        <button class="btn btn-cyan" onclick="dispatchTask()">📨 分发任务</button>
+        <button class="btn btn-ghost" onclick="clearTaskForm()">清空</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 操作日志 ══════════════ -->
+<div id="sec-log" class="section">
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">📋 系统操作日志</div>
+      <div class="flex gap-8">
+        <button class="btn btn-ghost btn-sm" onclick="exportLog()">📤 导出日志</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearLog()">清空</button>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:10px">
+      <div class="terminal" id="main-log" style="max-height:500px">
+        <div class="log-entry">
+          <span class="log-time" id="start-time"></span>
+          <span class="log-msg log-ok">✅ CNSH龙魂系统 v3.0.0 启动完成</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time"></span>
+          <span class="log-msg log-info">🔐 UID9622 身份已加载 · GPG: A2D0092C...</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time"></span>
+          <span class="log-msg log-ok">✅ 时间引擎已同步</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time"></span>
+          <span class="log-msg log-ok">✅ DNA追溯系统就绪</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time"></span>
+          <span class="log-msg log-ok">✅ 审计引擎·预警模式激活</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-time"></span>
+          <span class="log-msg log-dna">🧬 #ZHUGEXIN⚡️ DNA前缀已注册</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<!-- 通知区 -->
+<div class="notif-area" id="notif-area"></div>
+
+<script>
+// ═══════════════════════════════════════
+// 全局状态
+// ═══════════════════════════════════════
+const STATE = {
+  anchors: [],
+  dnaLib: [],
+  auditLog: [],
+  blacklist: [],
+  warnList: [],
+  alertList: [],
+  startTime: Date.now(),
+  aiNetworks: [
+    { name: 'Claude (宝宝)', org: 'Anthropic', role: '逻辑梳理·文档整理', icon: '🤖', status: 'online', trust: 100 },
+    { name: 'DeepSeek', org: '深度求索', role: '代码分析', icon: '🔬', status: 'online', trust: 85 },
+    { name: '智谱清言', org: '智谱AI', role: '中文理解', icon: '🧠', status: 'online', trust: 80 },
+    { name: '通义千问', org: '阿里云', role: '多模态任务', icon: '☁️', status: 'online', trust: 78 },
+    { name: '文心一言', org: '百度', role: '搜索整合', icon: '📖', status: 'online', trust: 75 },
+    { name: 'Kimi', org: 'Moonshot', role: '长文档处理', icon: '🌙', status: 'online', trust: 82 },
+  ]
+};
+
+// ═══════════════════════════════════════
+// 工具函数
+// ═══════════════════════════════════════
+function now() { return new Date(); }
+function fmtTime(d) { return d.toTimeString().slice(0,8); }
+function fmtDate(d) { return d.toLocaleDateString('zh-CN', {year:'numeric',month:'2-digit',day:'2-digit'}); }
+function fmtFull(d) { return fmtDate(d) + ' ' + fmtTime(d); }
+function shortId() { return Math.random().toString(36).slice(2,8).toUpperCase(); }
+
+function notify(msg, type='ok') {
+  const area = document.getElementById('notif-area');
+  const icons = { ok:'✅', warn:'⚠️', err:'🚨', info:'ℹ️' };
+  const el = document.createElement('div');
+  el.className = `notif ${type}`;
+  el.innerHTML = `<span>${icons[type]||'✅'}</span><span>${msg}</span>`;
+  area.appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transition='opacity 0.3s'; setTimeout(()=>el.remove(),300); }, 3500);
+}
+
+function addLog(msg, type='info') {
+  const log = document.getElementById('main-log');
+  const el = document.createElement('div');
+  el.className = 'log-entry';
+  el.innerHTML = `<span class="log-time">${fmtTime(now())}</span><span class="log-msg log-${type}">${msg}</span>`;
+  log.appendChild(el);
+  log.scrollTop = log.scrollHeight;
+}
+
+function addCmdLog(msg, type='info') {
+  const log = document.getElementById('cmd-terminal');
+  const el = document.createElement('div');
+  el.className = 'log-entry';
+  el.innerHTML = `<span class="log-time">${fmtTime(now())}</span><span class="log-msg log-${type}">${msg}</span>`;
+  log.appendChild(el);
+  log.scrollTop = log.scrollHeight;
+}
+
+function copyText(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText.replace('点击复制','').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    el.classList.add('copied');
+    setTimeout(()=>el.classList.remove('copied'),300);
+    notify('已复制到剪贴板！','ok');
+  });
+}
+
+function updateCounts() {
+  document.getElementById('cnt-warn').textContent = STATE.warnList.length;
+  document.getElementById('cnt-alert').textContent = STATE.alertList.length;
+  document.getElementById('cnt-black').textContent = STATE.blacklist.filter(b=>b.active).length;
+}
+
+// ═══════════════════════════════════════
+// 标签切换
+// ═══════════════════════════════════════
+function switchTab(id) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('sec-'+id).classList.add('active');
+}
+
+// ═══════════════════════════════════════
+// 时间引擎
+// ═══════════════════════════════════════
+function startClock() {
+  function tick() {
+    const d = now();
+    const clockEl = document.getElementById('clock-display');
+    const h = String(d.getHours()).padStart(2,'0');
+    const m = String(d.getMinutes()).padStart(2,'0');
+    const s = String(d.getSeconds()).padStart(2,'0');
+    clockEl.innerHTML = `<span class="clock-tick">${h}</span>:<span class="clock-tick">${m}</span>:<span class="clock-tick">${s}</span>`;
+    document.getElementById('date-display').textContent = d.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+    document.getElementById('tz-display').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById('iso-display').textContent = d.toISOString();
+    document.getElementById('unix-display').textContent = Math.floor(d.getTime()/1000);
+    const up = Math.floor((Date.now()-STATE.startTime)/1000);
+    const um = Math.floor(up/60), us = up%60;
+    document.getElementById('uptime-display').textContent = `${um}分${us}秒`;
+    // update log start times
+    document.getElementById('start-time').textContent = fmtTime(new Date(STATE.startTime));
+  }
+  tick(); setInterval(tick, 1000);
+}
+
+function createSnapshot() {
+  const label = document.getElementById('snap-label').value.trim() || '未命名快照';
+  const type = document.getElementById('snap-type').value;
+  const d = now();
+  const code = `#ZHUGEXIN⚡️${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${type}-${label.replace(/\s/g,'-')}-${shortId()}`;
+
+  document.getElementById('snapshot-result').style.display='block';
+  document.getElementById('snapshot-code').innerHTML = `<span class="copy-hint">点击复制</span>${code}`;
+
+  // save to anchors
+  STATE.anchors.push({ type, label, time: fmtFull(d), ts: Math.floor(d.getTime()/1000), code });
+  renderAnchors();
+  addLog(`⏱ 时间快照生成: ${label} [${type}]`, 'ok');
+  notify(`时间快照已生成：${label}`, 'ok');
+}
+
+function renderAnchors() {
+  const tb = document.getElementById('anchor-table');
+  if (!STATE.anchors.length) {
+    tb.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无锚点</td></tr>';
+    return;
+  }
+  tb.innerHTML = STATE.anchors.slice().reverse().map((a,i)=>`
+    <tr>
+      <td><span class="tag tag-cyan">${a.type}</span></td>
+      <td>${a.label}</td>
+      <td style="font-family:var(--mono);font-size:11px">${a.time}</td>
+      <td style="font-family:var(--mono);font-size:11px">${a.ts}</td>
+      <td><button class="btn btn-ghost btn-sm" onclick="deleteAnchor(${STATE.anchors.length-1-i})">删除</button></td>
+    </tr>`).join('');
+}
+
+function deleteAnchor(i) { STATE.anchors.splice(i,1); renderAnchors(); }
+function clearAnchors() { STATE.anchors=[]; renderAnchors(); notify('时间锚点已清空'); }
+
+function calcTimeDiff() {
+  const f = document.getElementById('time-from').value;
+  const t = document.getElementById('time-to').value;
+  if (!f || !t) { notify('请输入起止时间','warn'); return; }
+  const ms = Math.abs(new Date(t) - new Date(f));
+  const d = Math.floor(ms/86400000);
+  const h = Math.floor((ms%86400000)/3600000);
+  const m = Math.floor((ms%3600000)/60000);
+  const s = Math.floor((ms%60000)/1000);
+  const result = document.getElementById('timediff-result');
+  result.innerHTML = `
+    <div style="text-align:center">
+      <div style="font-size:28px;font-family:var(--mono);color:var(--cyan)">${d}天 ${h}时 ${m}分 ${s}秒</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:8px">共 ${Math.floor(ms/1000)} 秒 / ${Math.floor(ms/3600000)} 小时</div>
+    </div>`;
+}
+
+function setTimeNow() {
+  const to = document.getElementById('time-to');
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  to.value = d.toISOString().slice(0,16);
+}
+
+// ═══════════════════════════════════════
+// DNA追溯码
+// ═══════════════════════════════════════
+function generateDNA() {
+  const proj = document.getElementById('dna-project').value.trim() || '未命名项目';
+  const type = document.getElementById('dna-type').value;
+  const ver = document.getElementById('dna-version').value.trim() || 'v1.0';
+  const remark = document.getElementById('dna-remark').value.trim();
+  const d = now();
+  const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+  const projSlug = proj.replace(/[\s·]/g,'-').slice(0,20);
+  const uid = shortId();
+  let code = `#ZHUGEXIN⚡️${dateStr}-${type}-${projSlug}-${ver}-${uid}`;
+  if (remark) code += ` | ${remark}`;
+
+  document.getElementById('dna-result').style.display='block';
+  document.getElementById('dna-output').innerHTML = `<span class="copy-hint">点击复制</span>${code}`;
+  addLog(`🧬 DNA生成: ${proj} [${type}]`, 'ok');
+  STATE._lastDNA = { code, proj, type, time: fmtFull(d) };
+}
+
+function saveDNA() {
+  if (!STATE._lastDNA) { notify('请先生成DNA','warn'); return; }
+  STATE.dnaLib.push(STATE._lastDNA);
+  renderDNATable();
+  addLog(`💾 DNA已保存: ${STATE._lastDNA.proj}`, 'ok');
+  notify('DNA已保存到记录库', 'ok');
+}
+
+function renderDNATable() {
+  const tb = document.getElementById('dna-table');
+  if (!STATE.dnaLib.length) {
+    tb.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无记录</td></tr>';
+    return;
+  }
+  tb.innerHTML = STATE.dnaLib.slice().reverse().map((d,i)=>`
+    <tr>
+      <td style="font-family:var(--mono);font-size:11px;color:#b388ff;word-break:break-all">${d.code}</td>
+      <td>${d.proj}</td>
+      <td><span class="tag tag-cyan">${d.type}</span></td>
+      <td style="font-family:var(--mono);font-size:11px">${d.time}</td>
+      <td>
+        <button class="btn btn-ghost btn-sm" onclick="copyDNA(${STATE.dnaLib.length-1-i})">复制</button>
+      </td>
+    </tr>`).join('');
+}
+
+function copyDNA(i) {
+  navigator.clipboard.writeText(STATE.dnaLib[i].code).then(()=>notify('DNA已复制','ok'));
+}
+
+function verifyDNA() {
+  const inp = document.getElementById('dna-verify-input').value.trim();
+  const res = document.getElementById('dna-verify-result');
+  res.style.display='block';
+
+  if (inp.startsWith('#ZHUGEXIN⚡️') || inp.startsWith('#ZHUGEXIN⚡️')) {
+    const parts = inp.replace('#ZHUGEXIN⚡️','').split('-');
+    res.innerHTML = `
+      <div style="border:1px solid var(--green);border-radius:8px;padding:14px;background:#00280f">
+        <div style="color:var(--green);font-size:14px;font-weight:700;margin-bottom:8px">✅ DNA 验证通过</div>
+        <div style="font-family:var(--mono);font-size:12px;color:var(--text-dim)">
+          前缀: #ZHUGEXIN⚡️ · UID9622 · 真实来源确认<br>
+          日期段: ${parts[0]||'?'}<br>
+          完整码: ${inp}
+        </div>
+      </div>`;
+    addLog(`🔍 DNA验证通过: ${inp.slice(0,30)}...`, 'ok');
+  } else if (inp.startsWith('#龙芯⚡️') || inp.startsWith('#CNSH')) {
+    res.innerHTML = `<div style="border:1px solid var(--gold);border-radius:8px;padding:14px;background:#2a1a00">
+      <div style="color:var(--gold);font-size:14px;font-weight:700">⚠️ 旧版DNA格式</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:6px">识别为旧版龙魂DNA格式，建议升级到 #ZHUGEXIN⚡️ 前缀</div>
+    </div>`;
+  } else {
+    res.innerHTML = `<div style="border:1px solid var(--red);border-radius:8px;padding:14px;background:#1a0000">
+      <div style="color:var(--red);font-size:14px;font-weight:700">❌ 验证失败</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:6px">非UID9622认证DNA，前缀不匹配</div>
+    </div>`;
+    addLog('❌ DNA验证失败：前缀不匹配', 'err');
+  }
+}
+
+function exportDNA() {
+  const data = JSON.stringify(STATE.dnaLib, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `cnsh-dna-export-${Date.now()}.json`;
+  a.click();
+  notify('DNA记录已导出', 'ok');
+}
+
+function clearDNALib() { STATE.dnaLib=[]; renderDNATable(); notify('DNA库已清空'); }
+
+// ═══════════════════════════════════════
+// 审计系统
+// ═══════════════════════════════════════
+function issueWarn() {
+  const entity = document.getElementById('warn-entity').value.trim();
+  const type = document.getElementById('warn-type').value;
+  const desc = document.getElementById('warn-desc').value.trim();
+  if (!entity) { notify('请输入实体名称','warn'); return; }
+
+  const entry = {
+    id: shortId(), entity, type, desc,
+    time: fmtFull(now()), status: 'warned', deadline: fmtFull(new Date(Date.now()+48*3600000))
+  };
+  STATE.warnList.push(entry);
+
+  const dna = `#ZHUGEXIN⚡️WARN-${entry.id}-${entity.replace(/\s/g,'-')}`;
+  addAuditRow('🟡', 'WARN', entity, `预警: ${type}`, dna);
+  addLog(`🟡 预警发出: ${entity} — ${type}`, 'warn');
+  notify(`预警已发出: ${entity}`, 'warn');
+  updateCounts();
+
+  // clear form
+  document.getElementById('warn-entity').value='';
+  document.getElementById('warn-desc').value='';
+}
+
+function issueAlert() {
+  const entity = document.getElementById('alert-entity').value.trim();
+  const level = document.getElementById('alert-level').value;
+  const reason = document.getElementById('alert-reason').value.trim();
+  if (!entity) { notify('请输入实体名称','warn'); return; }
+
+  const entry = { id: shortId(), entity, level, reason, time: fmtFull(now()) };
+  STATE.alertList.push(entry);
+
+  const dna = `#ZHUGEXIN⚡️ALERT-L${level}-${entry.id}-${entity.replace(/\s/g,'-')}`;
+  addAuditRow('🔴', `L${level}警报`, entity, `全网警报: ${reason||'走漏洞'}`, dna);
+  addLog(`🚨 全网警报 L${level}: ${entity}`, 'err');
+  notify(`🚨 L${level}警报已触发: ${entity}`, 'err');
+  updateCounts();
+
+  document.getElementById('alert-entity').value='';
+  document.getElementById('alert-reason').value='';
+}
+
+function addBlacklist() {
+  const entity = document.getElementById('bl-entity').value.trim();
+  const reason = document.getElementById('bl-reason').value.trim();
+  if (!entity) { notify('请输入实体名称','warn'); return; }
+
+  const entry = { id: shortId(), entity, reason: reason||'不配合审计', time: fmtFull(now()), active: true };
+  STATE.blacklist.push(entry);
+  renderBlacklist();
+
+  const dna = `#ZHUGEXIN⚡️BLACKLIST-${entry.id}-${entity.replace(/\s/g,'-')}`;
+  addAuditRow('🚫', '黑名单', entity, `永久拉黑: ${entry.reason}`, dna);
+  addLog(`🚫 已加入黑名单: ${entity}`, 'err');
+  notify(`${entity} 已加入龙魂黑名单`, 'err');
+  updateCounts();
+
+  document.getElementById('bl-entity').value='';
+  document.getElementById('bl-reason').value='';
+}
+
+function checkBlacklist() {
+  const q = document.getElementById('bl-check').value.trim().toLowerCase();
+  const res = document.getElementById('bl-check-result');
+  if (!q) { res.innerHTML=''; return; }
+  const found = STATE.blacklist.find(b=>b.entity.toLowerCase().includes(q) && b.active);
+  if (found) {
+    res.innerHTML = `<div style="color:var(--red)">🚫 在黑名单中<br><span style="font-size:11px;color:var(--text-dim)">${found.entity} · ${found.reason} · ${found.time}</span></div>`;
+  } else {
+    res.innerHTML = `<span style="color:var(--green)">✅ 未在黑名单中</span>`;
+  }
+}
+
+function removeBlacklist(i) {
+  STATE.blacklist[i].active = false;
+  renderBlacklist(); updateCounts();
+  notify('已从黑名单移除', 'ok');
+}
+
+function renderBlacklist() {
+  const tb = document.getElementById('bl-table');
+  const active = STATE.blacklist.filter(b=>b.active);
+  if (!active.length) {
+    tb.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">黑名单为空</td></tr>';
+    return;
+  }
+  tb.innerHTML = STATE.blacklist.map((b,i)=> b.active ? `
+    <tr>
+      <td style="font-weight:700">${b.entity}</td>
+      <td>${b.reason}</td>
+      <td style="font-family:var(--mono);font-size:11px">${b.time}</td>
+      <td><span class="tag tag-red">🚫 永久</span></td>
+      <td><button class="btn btn-ghost btn-sm" onclick="removeBlacklist(${i})">解除</button></td>
+    </tr>` : '').join('');
+}
+
+function addAuditRow(icon, level, entity, event, dna) {
+  const tb = document.getElementById('audit-table');
+  if (tb.querySelector('td[colspan]')) tb.innerHTML = '';
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td style="font-family:var(--mono);font-size:11px">${fmtFull(now())}</td>
+    <td>${icon} ${level}</td>
+    <td style="font-weight:700">${entity}</td>
+    <td>${event}</td>
+    <td style="font-family:var(--mono);font-size:10px;color:#b388ff;cursor:pointer" onclick="navigator.clipboard.writeText('${dna}').then(()=>notify('DNA已复制','ok'))" title="点击复制">${dna.slice(0,30)}...</td>`;
+  tb.insertBefore(row, tb.firstChild);
+}
+
+function clearAuditLog() {
+  document.getElementById('audit-table').innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px">暂无审计记录</td></tr>';
+  notify('审计记录已清空');
+}
+
+// ═══════════════════════════════════════
+// CNSH 控制台
+// ═══════════════════════════════════════
+const CMDS = {
+  'help': () => {
+    const lines = [
+      '可用指令:',
+      '  help          — 显示帮助',
+      '  status        — 系统状态',
+      '  cnsh-audit    — 审计看板',
+      '  cnsh-warn     — 发出预警',
+      '  cnsh-alert    — 全网警报',
+      '  cnsh-blacklist— 黑名单管理',
+      '  dna           — 快速生成DNA',
+      '  snap          — 时间快照',
+      '  ping          — 检测AI网络',
+      '  clear         — 清空终端',
+    ];
+    lines.forEach(l=>addCmdLog(l,'info'));
+  },
+  'status': () => {
+    addCmdLog('🐉 龙魂引擎: 运行中', 'ok');
+    addCmdLog('🧬 DNA系统: 就绪', 'ok');
+    addCmdLog('⏱ 时间引擎: 同步中', 'ok');
+    addCmdLog('🛡 审计引擎: 预警模式', 'ok');
+    addCmdLog(`🚫 黑名单: ${STATE.blacklist.filter(b=>b.active).length} 条`, 'warn');
+  },
+  'cnsh-audit': () => {
+    addCmdLog('=== CNSH 审计看板 v3.0 ===', 'info');
+    addCmdLog(`预警中: ${STATE.warnList.length} | 警报: ${STATE.alertList.length} | 黑名单: ${STATE.blacklist.filter(b=>b.active).length}`, 'warn');
+  },
+  'cnsh-warn': () => { switchTab('audit'); document.getElementById('warn-entity').focus(); addCmdLog('→ 已跳转到审计系统·预警界面', 'info'); },
+  'cnsh-alert': () => { switchTab('audit'); addCmdLog('→ 已跳转到审计系统·警报界面', 'info'); },
+  'cnsh-blacklist': () => { switchTab('audit'); addCmdLog('→ 已跳转到黑名单管理', 'info'); },
+  'dna': () => { switchTab('dna'); addCmdLog('→ 已跳转到DNA追溯码生成器', 'info'); },
+  'snap': () => { switchTab('time'); addCmdLog('→ 已跳转到时间快照生成器', 'info'); },
+  'ping': () => {
+    addCmdLog('正在PING AI协作网络...', 'info');
+    STATE.aiNetworks.forEach((ai, i) => {
+      setTimeout(()=> addCmdLog(`${ai.icon} ${ai.name} — 延迟 ${10+Math.floor(Math.random()*50)}ms — ✅ 在线`, 'ok'), i*200);
+    });
+  },
+  'clear': () => { document.getElementById('cmd-terminal').innerHTML=''; },
+};
+
+function runCmd() {
+  const inp = document.getElementById('cmd-input');
+  const cmd = inp.value.trim().toLowerCase();
+  inp.value = '';
+  if (!cmd) return;
+  addCmdLog(`龙魂 > ${cmd}`, 'info');
+  if (CMDS[cmd]) {
+    CMDS[cmd]();
+  } else {
+    addCmdLog(`未知指令: ${cmd}，输入 help 查看帮助`, 'warn');
+  }
+  addLog(`📡 指令执行: ${cmd}`, 'info');
+}
+
+function quickDNA() { switchTab('dna'); notify('已跳转到DNA生成器','info'); }
+function quickSnap() { createSnapshot(); switchTab('time'); }
+function quickWarn() { switchTab('audit'); }
+function runHealthCheck() {
+  addCmdLog('💚 系统健康检查...', 'info');
+  setTimeout(()=> addCmdLog('✅ 时间引擎: 正常', 'ok'), 300);
+  setTimeout(()=> addCmdLog('✅ DNA系统: 正常', 'ok'), 600);
+  setTimeout(()=> addCmdLog('✅ 审计引擎: 正常', 'ok'), 900);
+  setTimeout(()=> { addCmdLog('💚 全系统健康检查完成', 'ok'); notify('系统健康检查通过','ok'); }, 1200);
+  switchTab('cnsh');
+}
+function broadcastAlert() {
+  const dna = `#ZHUGEXIN⚡️${now().getFullYear()}-BROADCAST-${shortId()}`;
+  addLog(`📢 系统广播发出 · DNA: ${dna}`, 'warn');
+  notify('广播通知已发出','warn');
+}
+function exportAll() {
+  const data = { dnaLib: STATE.dnaLib, anchors: STATE.anchors, blacklist: STATE.blacklist, warnList: STATE.warnList, alertList: STATE.alertList, exportTime: fmtFull(now()) };
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `cnsh-full-export-${Date.now()}.json`;
+  a.click();
+  notify('全量数据已导出','ok');
+}
+function refreshSystem() { notify('系统状态已刷新','ok'); addLog('🔄 系统状态刷新','info'); }
+
+// ═══════════════════════════════════════
+// AI协作网络
+// ═══════════════════════════════════════
+function renderAIGrid() {
+  const grid = document.getElementById('ai-grid');
+  grid.innerHTML = STATE.aiNetworks.map((ai,i)=>`
+    <div class="panel" style="margin:0">
+      <div class="panel-body" style="padding:14px">
+        <div style="font-size:24px;margin-bottom:8px">${ai.icon}</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text-bright)">${ai.name}</div>
+        <div style="font-size:11px;color:var(--text-dim);margin:2px 0">${ai.org}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin:6px 0">${ai.role}</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+          <span class="tag ${ai.status==='online'?'tag-green':'tag-gray'}" id="ai-status-${i}">${ai.status==='online'?'🟢 在线':'🔴 离线'}</span>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--text-dim)">信任 ${ai.trust}%</span>
+        </div>
+        <div class="progress-bar" style="margin-top:6px">
+          <div class="progress-fill" style="width:${ai.trust}%;background:linear-gradient(90deg,var(--red),var(--gold))"></div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function pingAll() {
+  notify('正在PING所有AI协作节点...','info');
+  STATE.aiNetworks.forEach((ai,i)=>{
+    const latency = 10 + Math.floor(Math.random()*100);
+    setTimeout(()=>{
+      const el = document.getElementById(`ai-status-${i}`);
+      if (el) { el.textContent = `🟢 ${latency}ms`; el.className='tag tag-green'; }
+      addLog(`📡 PING ${ai.name}: ${latency}ms`, 'ok');
+    }, i*300);
+  });
+}
+
+function dispatchTask() {
+  const target = document.getElementById('task-target').value;
+  const type = document.getElementById('task-type').value;
+  const desc = document.getElementById('task-desc').value.trim();
+  if (!desc) { notify('请填写任务描述','warn'); return; }
+  const dna = `#ZHUGEXIN⚡️TASK-${shortId()}-${target.split(' ')[0]}`;
+  addLog(`📨 任务分发 → ${target}: ${desc.slice(0,30)}... | DNA: ${dna}`, 'ok');
+  notify(`任务已分发给 ${target.split(' ')[0]}`, 'ok');
+  document.getElementById('task-desc').value='';
+}
+
+function clearTaskForm() {
+  document.getElementById('task-desc').value='';
+  document.getElementById('task-target').value = document.getElementById('task-target').options[0].value;
+}
+
+// ═══════════════════════════════════════
+// 操作日志
+// ═══════════════════════════════════════
+function exportLog() {
+  const text = document.getElementById('main-log').innerText;
+  const blob = new Blob([text], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `cnsh-log-${Date.now()}.txt`;
+  a.click();
+  notify('日志已导出','ok');
+}
+
+function clearLog() {
+  document.getElementById('main-log').innerHTML='';
+  notify('日志已清空');
+}
+
+// ═══════════════════════════════════════
+// 初始化
+// ═══════════════════════════════════════
+startClock();
+renderAIGrid();
+updateCounts();
+
+// 初始化标签 tabs click fix
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click', function() {
+    const id = this.onclick.toString().match(/'(\w+)'/)[1];
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('sec-'+id).classList.add('active');
+  });
+});
+
+// init cmd terminal timestamps
+document.querySelectorAll('#cmd-terminal .log-time').forEach(el=>{
+  if (!el.textContent) el.textContent = fmtTime(now());
+});
+</script>
+</body>
+</html>

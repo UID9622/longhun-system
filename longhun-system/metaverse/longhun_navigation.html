@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龙魂系统导航中心 | Dragon Soul Navigation Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header .dna-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+    
+    .header .tagline {
+      font-size: 1.2em;
+      margin-top: 15px;
+      opacity: 0.95;
+    }
+    
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    
+    .nav-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+      padding: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: left 0.5s;
+    }
+    
+    .nav-card:hover::before {
+      left: 100%;
+    }
+    
+    .nav-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border-color: #667eea;
+    }
+    
+    .nav-card .icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+    
+    .nav-card h3 {
+      color: #1e3c72;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    
+    .nav-card .subtitle {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+    
+    .nav-card .description {
+      color: #444;
+      font-size: 0.95em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .nav-card .status {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    .status.complete {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .status.priority {
+      background: #ff5722;
+      color: white;
+    }
+    
+    .status.public {
+      background: #2196f3;
+      color: white;
+    }
+    
+    .footer {
+      background: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+    
+    .footer .confirm-code {
+      font-family: 'Courier New', monospace;
+      color: #1e3c72;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    .responsibility-note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 40px;
+      border-radius: 5px;
+    }
+    
+    .responsibility-note strong {
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 头部 -->
+    <div class="header">
+      <h1>🐉 龙魂系统导航中心</h1>
+      <div class="tagline">Dragon Soul System Navigation Hub</div>
+      <div class="dna-code">#龍芯⚡️2026-03-09-NAVIGATION-CENTER</div>
+      <div class="dna-code">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+    </div>
+    
+    <!-- 责任说明 -->
+    <div class="responsibility-note">
+      <strong>⚠️ 重要说明：</strong> 
+      本系统所有提到的公司名称（如：Anthropic、OpenAI等）仅作为示例和占位符。
+      任何组织都可以自由选择是否接入龙魂系统，我们不强迫任何人使用。
+      龙魂系统是开源的、可验证的、可定制的。每个国家、每个组织、每个个人都有权利选择。
+    </div>
+    
+    <!-- 导航卡片网格 -->
+    <div class="nav-grid">
+      <!-- 卡片1: P0++全球规则 -->
+      <div class="nav-card" onclick="navigateTo('p0-rules')">
+        <div class="icon">🛡️</div>
+        <h3>P0++全球规则</h3>
+        <div class="subtitle">Global Rules (16条铁律)</div>
+        <div class="description">
+          人民利益优先、数据主权、文化根代码等16条不可修改的核心规则。
+          适用于所有接入龙魂系统的AI。
+        </div>
+        <div class="status complete">✅ 完全公开</div>
+        <div class="status priority">P0++锁定</div>
+      </div>
+      
+      <!-- 卡片2: DNA分层安全 -->
+      <div class="nav-card" onclick="navigateTo('dna-security')">
+        <div class="icon">🔐</div>
+        <h3>DNA分层安全设计</h3>
+        <div class="subtitle">TIER 0-3 Security Architecture</div>
+        <div class="description">
+          生物特征、行为模式、知识密层、公开互动四层安全设计。
+          DNA即私钥，刹车系统，宇宙唯一哈希。
+        </div>
+        <div class="status priority">🔥 技术心脏</div>
+        <div class="status complete">✅ 知行合一</div>
+      </div>
+      
+      <!-- 卡片3: 隐私接入规则 -->
+      <div class="nav-card" onclick="navigateTo('privacy-access')">
+        <div class="icon">🚨</div>
+        <h3>隐私接入规则</h3>
+        <div class="subtitle">Privacy & Access Control</div>
+        <div class="description">
+          三大天条、三层审查、永久黑名单。
+          规范AI接入资格，保护用户隐私，数据不出境。
+        </div>
+        <div class="status priority">P0++级别</div>
+        <div class="status complete">✅ 完成</div>
+      </div>
+      
+      <!-- 卡片4: 道德经锚点库 -->
+      <div class="nav-card" onclick="navigateTo('daodejing')">
+        <div class="icon">📜</div>
+        <h3>道德经81章锚点</h3>
+        <div class="subtitle">Daodejing Ethical Anchors</div>
+        <div class="description">
+          AI伦理判断的"操作系统"。每个场景匹配对应章节，
+          提供伦理指引。上善若水，不争之争。
+        </div>
+        <div class="status public">🌍 文化传播</div>
+        <div class="status complete">✅ 81章完整</div>
+      </div>
+      
+      <!-- 卡片5: 易经64卦算法 -->
+      <div class="nav-card" onclick="navigateTo('yijing')">
+        <div class="icon">☯️</div>
+        <h3>易经64卦算法</h3>
+        <div class="subtitle">I-Ching Hexagram Algorithm</div>
+        <div class="description">
+          动态场景建模、伦理决策推演、风险预判。
+          乾坤定位，刚柔相济，天行健君子以自强不息。
+        </div>
+        <div class="status public">🌍 文化传播</div>
+        <div class="status complete">✅ 64卦完整</div>
+      </div>
+      
+      <!-- 卡片6: 权重矩阵配置 -->
+      <div class="nav-card" onclick="navigateTo('weights')">
+        <div class="icon">⚖️</div>
+        <h3>七维权重配置</h3>
+        <div class="subtitle">7-Dimension Weight Matrix</div>
+        <div class="description">
+          哲学35%、技术20%、架构15%等七维推演系统。
+          不同场景自动调整权重，场景化配置。
+        </div>
+        <div class="status public">🌍 算法透明</div>
+        <div class="status complete">✅ 完成</div>
+      </div>
+      
+      <!-- 卡片7: 国家规则适配 -->
+      <div class="nav-card" onclick="navigateTo('country-rules')">
+        <div class="icon">🌏</div>
+        <h3>各国规则适配</h3>
+        <div class="subtitle">Country-Specific Rules</div>
+        <div class="description">
+          中国、美国、欧盟等各国法律和文化适配。
+          数据主权、加密标准、文化层定制。让中外都安心。
+        </div>
+        <div class="status public">🌍 完全公开</div>
+        <div class="status complete">✅ 多国支持</div>
+      </div>
+      
+      <!-- 卡片8: API接口文档 -->
+      <div class="nav-card" onclick="navigateTo('api-docs')">
+        <div class="icon">🔌</div>
+        <h3>规则钩子API</h3>
+        <div class="subtitle">Rule Hooks API Reference</div>
+        <div class="description">
+          6个核心API端点：规则查询、DNA生成/验证、权重配置等。
+          让AI自动获取规则，无需训练伦理模块。
+        </div>
+        <div class="status public">🌍 完全开源</div>
+        <div class="status priority">🔥 核心接口</div>
+      </div>
+      
+      <!-- 卡片9: 学术论文 -->
+      <div class="nav-card" onclick="navigateTo('papers')">
+        <div class="icon">📚</div>
+        <h3>学术论文</h3>
+        <div class="subtitle">Research Papers</div>
+        <div class="description">
+          IW-ECB儿童保护论文、AI范式革命、技术白皮书等。
+          学术参考、技术推广。
+        </div>
+        <div class="status public">🌍 学术发表</div>
+        <div class="status complete">✅ 已发表</div>
+      </div>
+      
+      <!-- 卡片10: 前端工具 -->
+      <div class="nav-card" onclick="navigateTo('tools')">
+        <div class="icon">🛠️</div>
+        <h3>前端工具套件</h3>
+        <div class="subtitle">Frontend Tools Suite</div>
+        <div class="description">
+          DNA生成器、验证器、规则查询器、AI接入SDK等。
+          本地运行，不占服务器，完全开源。
+        </div>
+        <div class="status public">🌍 完全开源</div>
+        <div class="status complete">✅ 可直接使用</div>
+      </div>
+      
+      <!-- 卡片11: 数据库设计 -->
+      <div class="nav-card" onclick="navigateTo('database')">
+        <div class="icon">💾</div>
+        <h3>数据库设计</h3>
+        <div class="subtitle">Database Schema</div>
+        <div class="description">
+          7张核心表：P0规则、道德经、易经、国家规则、权重配置等。
+          完整SQL脚本，初始化数据。
+        </div>
+        <div class="status public">🌍 完全公开</div>
+        <div class="status complete">✅ 完整Schema</div>
+      </div>
+      
+      <!-- 卡片12: 责任矩阵 -->
+      <div class="nav-card" onclick="navigateTo('responsibility')">
+        <div class="icon">📋</div>
+        <h3>责任矩阵</h3>
+        <div class="subtitle">Responsibility Matrix</div>
+        <div class="description">
+          明确每个规则、每个模块的责任归属。
+          谁负责维护、谁负责审计、谁负责执行。
+        </div>
+        <div class="status priority">⚠️ 责任落地</div>
+        <div class="status complete">✅ 已明确</div>
+      </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <div class="footer">
+      <p><strong>龙魂系统</strong> - 为老百姓服务的AI规则引擎</p>
+      <p>开源 · 透明 · 可验证 · 不强迫使用</p>
+      <p class="confirm-code">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+      <p style="margin-top: 15px; font-size: 0.9em;">
+        创建者: 诸葛鑫 (UID9622) | 协作: Claude宝宝<br>
+        时间: 2026-03-09 | 版本: v1.0
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    function navigateTo(section) {
+      // 跳转到详细页面
+      // 实际使用时可以改为：window.location.href = `${section}.html`;
+      alert(`正在跳转到: ${section}\n\n实际部署时，这里会跳转到对应的详细页面。\n\n示例: ${section}.html`);
+      
+      // 或者使用路由（如果是单页应用）
+      // window.location.hash = section;
+      
+      // 临时演示：显示详情
+      showDetails(section);
+    }
+    
+    function showDetails(section) {
+      const details = {
+        'p0-rules': 'P0++全球规则详情：16条铁律，不可修改...',
+        'dna-security': 'DNA分层安全设计详情：TIER 0-3架构...',
+        'privacy-access': '隐私接入规则详情：三大天条...',
+        'daodejing': '道德经81章锚点详情：上善若水...',
+        'yijing': '易经64卦算法详情：乾坤定位...',
+        'weights': '七维权重配置详情：哲学35%...',
+        'country-rules': '各国规则适配详情：中美欧...',
+        'api-docs': 'API接口文档详情：6个核心端点...',
+        'papers': '学术论文详情：IW-ECB论文...',
+        'tools': '前端工具套件详情：DNA生成器...',
+        'database': '数据库设计详情：7张核心表...',
+        'responsibility': '责任矩阵详情：责任归属明确...'
+      };
+      
+      console.log(`跳转到: ${section}`);
+      console.log(details[section]);
+    }
+    
+    // 页面加载完成后的初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('龙魂系统导航中心已加载');
+      console.log('DNA追溯码: #龍芯⚡️2026-03-09-NAVIGATION-CENTER');
+      console.log('确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z');
+    });
+  </script>
+</body>
+</html>
