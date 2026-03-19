@@ -125,7 +125,7 @@ def _请求(方法, 路径, 数据=None, token=None, 重试=3):
 
 # ─── 检查双脑连通性 ───────────────────────────────────────
 def 检查双脑() -> tuple:
-    print("【双脑连通检测】")
+    print("【双脑连通检测 | Dual-Brain Connectivity Check】")
     展示OK = 内核OK = False
     for 名, token in [("展示脑", 展示脑TOKEN), ("内核脑", 内核脑TOKEN)]:
         if not token or len(token) < 20:
@@ -143,7 +143,7 @@ def 检查双脑() -> tuple:
 
 # ─── 读取展示脑所有页面（分页完整拉取）───────────────────
 def 读取所有页面(增量=False) -> list:
-    print("【读取展示脑页面】")
+    print("【读取展示脑页面 | Reading Display-Brain Pages】")
 
     # 增量同步：读取上次同步时间
     上次同步 = ""
@@ -151,7 +151,7 @@ def 读取所有页面(增量=False) -> list:
         try:
             state = json.loads(STATE_FILE.read_text())
             上次同步 = state.get("last_sync", "")
-            print(f"  增量模式·上次同步: {上次同步[:16]}")
+            print(f"  增量模式 | Incremental Mode·上次同步 | Last Sync: {上次同步[:16]}")
         except:
             pass
 
@@ -190,7 +190,7 @@ def 读取所有页面(增量=False) -> list:
             break
         cursor = r.get("next_cursor")
 
-    print(f"  读到 {len(所有页面)} 个页面")
+    print(f"  读到 | Read {len(所有页面)} 个页面 | pages")
     return 所有页面
 
 def _提取标题(item: dict) -> str:
@@ -402,7 +402,7 @@ def 本地备份(页面列表: list, DNA: str):
     }
     with open(BACKUP, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
-    print(f"  💾 本地备份 → {BACKUP.name} ({len(页面列表)} 条)")
+    print(f"  💾 本地备份 | Local Backup → {BACKUP.name} ({len(页面列表)} 条 | records)")
 
 # ─── 保存同步状态 ─────────────────────────────────────────
 def 保存状态(总数: int, DNA: str):
@@ -432,7 +432,7 @@ def 写记忆(事件: str, DNA: str, 详情: dict = None):
 def 执行同步(增量=False, 只检查=False):
     sep = "═" * 54
     print(f"\n{sep}")
-    print("  龍魂·双脑同步引擎 v1.1")
+    print("  龍魂·双脑同步引擎 v1.1 | Dual-Brain Sync Engine v1.1")
     print(f"  {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(sep)
 
@@ -444,10 +444,10 @@ def 执行同步(增量=False, 只检查=False):
         return
 
     if not 展示OK:
-        print("🔴 展示脑未连通，中止同步")
+        print("🔴 展示脑未连通 | Display-Brain not connected，中止同步 | Sync aborted")
         return
     if not 内核OK:
-        print("🔴 内核脑未连通，请检查 .env → NOTION_TOKEN_TEAM")
+        print("🔴 内核脑未连通 | Core-Brain not connected，请检查 .env → NOTION_TOKEN_TEAM")
         return
 
     print()
@@ -455,21 +455,21 @@ def 执行同步(增量=False, 只检查=False):
     # 2. 读取展示脑
     页面列表 = 读取所有页面(增量=增量)
     if not 页面列表:
-        print("🟡 无页面需要同步")
+        print("🟡 无页面需要同步 | No pages to sync")
         return
 
     # 3. 本地备份（数据主权保障）
-    print("\n【本地备份】")
+    print("\n【本地备份 | Local Backup】")
     本地备份(页面列表, DNA)
 
     # 4. 分类压缩
-    print("\n【分类压缩】")
+    print("\n【分类压缩 | Categorizing】")
     聚合 = 压缩分类(页面列表)
     for 分类 in sorted(聚合.keys()):
         print(f"  {分类}: {len(聚合[分类])} 个")
 
     # 5. 写入内核脑
-    print("\n【写入内核脑】")
+    print("\n【写入内核脑 | Writing to Core-Brain】")
     链接 = 创建索引页(聚合, DNA)
 
     # 6. 保存状态 + memory追加
@@ -478,11 +478,11 @@ def 执行同步(增量=False, 只检查=False):
            DNA, {"total": len(页面列表), "categories": len(聚合)})
 
     print(f"\n{sep}")
-    print("  同步完成")
-    print(f"  总页面: {len(页面列表)}  分类数: {len(聚合)}")
-    print(f"  内核脑: {链接[:60] if 链接 else '写入失败'}")
+    print("  同步完成 | Sync Done")
+    print(f"  总页面 | Total Pages: {len(页面列表)}  分类数 | Categories: {len(聚合)}")
+    print(f"  内核脑 | Core-Brain: {链接[:60] if 链接 else '写入失败 | Write Failed'}")
     print(f"  DNA: {DNA}")
-    print(f"  三色: {'🟢 通过' if 链接 else '🟡 部分完成'}")
+    print(f"  三色 | Audit: {'🟢 通过 | Pass' if 链接 else '🟡 部分完成 | Partial'}")
     print(sep + "\n")
 
 
@@ -514,7 +514,7 @@ CNSH对应指令:
 
     if args.classify:
         结果 = 自动分类(args.classify)
-        print(f"「{args.classify}」→ {结果}")
+        print(f"「{args.classify}」→ 分类 | Category: {结果}")
         return
 
     执行同步(增量=args.delta, 只检查=args.check)

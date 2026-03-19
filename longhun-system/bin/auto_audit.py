@@ -127,13 +127,13 @@ def 主程序():   # main
     弹窗("🐉 龍魂系统审计", 通知内容, 声音)
 
     # 终端输出
-    print(f"\n🐉 龍魂自动审计 [{时间}]")
+    print(f"\n🐉 龍魂自动审计 | Auto Audit [{时间}]")
     print("=" * 44)
-    print(f"状态: {状态}")
-    print(f"举报: 待处理 {举报['待处理']} | 高危 {举报['高危']}")
-    print(f"用户: {用户['总数']} 人 | 开发者 {用户['开发者']}")
-    print(f"加密盾: 投喂事件 {盾['投喂事件']} | 国家信息 {盾['国家信息']}")
-    print(f"今日操作: {今日审计} 条")
+    print(f"状态 | Status: {状态}")
+    print(f"举报 | Reports: 待处理 Pending {举报['待处理']} | 高危 High-Risk {举报['高危']}")
+    print(f"用户 | Users: {用户['总数']} 人 | 开发者 Developers {用户['开发者']}")
+    print(f"加密盾 | Shield: 投喂事件 Feed-Events {盾['投喂事件']} | 国家信息 National-Info {盾['国家信息']}")
+    print(f"今日操作 | Today's Audit: {今日审计} 条 records")
     print("=" * 44)
     print(f"DNA: #龍芯⚡️{datetime.datetime.now().strftime('%Y-%m-%d')}-AUTO-AUDIT-v1.0")
 

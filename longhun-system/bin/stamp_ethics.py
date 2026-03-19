@@ -124,7 +124,7 @@ def process_file(filepath):
         elif ext == '.md':
             return stamp_md(filepath)
     except Exception as e:
-        print(f'  ⚠️  跳过 {filepath}: {e}')
+        print(f'  ⚠️  跳过 | Skip {filepath}: {e}')
     return False
 
 def scan_dir(dirpath):
@@ -141,31 +141,31 @@ def scan_dir(dirpath):
 def main():
     all_stamped = []
 
-    print('🐉 龙魂伦理标记注入开始...')
+    print('🐉 龙魂伦理标记注入开始 | Ethics Stamp Injection Starting...')
     print(f'确认码: {MARKER}')
     print('─' * 60)
 
     # 扫描目标目录
     for d in TARGET_DIRS:
         if os.path.isdir(d):
-            print(f'\n📁 扫描: {d}')
+            print(f'\n📁 扫描 | Scanning: {d}')
             stamped = scan_dir(d)
             for f in stamped:
                 print(f'  ✅ {os.path.basename(f)}')
             all_stamped.extend(stamped)
 
     # 处理指定文件
-    print('\n📄 核心文件:')
+    print('\n📄 核心文件 | Core Files:')
     for fpath in TARGET_FILES:
         if os.path.isfile(fpath):
             if process_file(fpath):
                 print(f'  ✅ {os.path.basename(fpath)}')
                 all_stamped.append(fpath)
             else:
-                print(f'  ⏭️  已标记: {os.path.basename(fpath)}')
+                print(f'  ⏭️  已标记 | Already Stamped: {os.path.basename(fpath)}')
 
     print('\n─' * 60)
-    print(f'✅ 完成！共标记 {len(all_stamped)} 个文件')
+    print(f'✅ 完成 | Done！共标记 | Stamped {len(all_stamped)} 个文件 | files')
     print(f'DNA: #龍芯⚡️2026-03-16-ETHICS-STAMP-v1.0')
     return all_stamped
 
