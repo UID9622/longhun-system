@@ -55,7 +55,7 @@ try:
     _沙盒已加载 = True
 except Exception as _e:
     _沙盒已加载 = False
-    print(f"⚠️ 沙盒引擎未加载: {_e}")
+    print(f"⚠️ 沙盒引擎未加载 | Sandbox engine not loaded: {_e}")
 
 # ============================================================
 # 第一部分：文化关键词库（L2审计用）
@@ -747,9 +747,9 @@ def 定时自测线程():
             测试报告历史.append(报告)
             if len(测试报告历史) > 10:
                 测试报告历史.pop(0)
-            print(f"\n🔄 [定时自测] {报告['测试时间']} | {报告['结论']}")
+            print(f"\n🔄 [定时自测 | Auto-Test] {报告['测试时间']} | {报告['结论']}")
         except Exception as e:
-            print(f"\n❌ [定时自测] 异常: {e}")
+            print(f"\n❌ [定时自测 | Auto-Test] 异常 | Error: {e}")
         time.sleep(30 * 60)  # 每30分钟
 
 @app.route('/测试报告', methods=['GET'])
@@ -876,18 +876,18 @@ def git差异():
 def 启动服务(端口=8765, 调试模式=False):
     """启动龙魂本地服务"""
     print("\n" + "=" * 80)
-    print("龙魂本地服务 v1.0")
+    print("龙魂本地服务 v1.0 | LongHun Local Service v1.0")
     print("=" * 80)
     print(f"DNA追溯码: #龍芯⚡️2026-03-11-本地服务-v1.0")
     print(f"GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
-    print(f"创建者: UID9622 诸葛鑫（龍芯北辰）")
+    print(f"创建者 | Creator: UID9622 诸葛鑫（龍芯北辰）")
     print(f"理论指导: 曾仕强老师（永恒显示）")
     print("=" * 80)
-    print(f"\n✅ 服务启动成功！")
-    print(f"📡 监听地址: http://localhost:{端口}")
-    print(f"🔒 数据主权: 100% 本地运行")
-    print(f"💾 记忆数据库: {记忆数据库路径}")
-    print(f"\n可用端点:")
+    print(f"\n✅ 服务启动成功 | Service Running!")
+    print(f"📡 监听地址 | Listening: http://localhost:{端口}")
+    print(f"🔒 数据主权 | Data Sovereignty: 100% 本地运行 Local")
+    print(f"💾 记忆数据库 | Memory DB: {记忆数据库路径}")
+    print(f"\n可用端点 | Available Endpoints:")
     print(f"  GET  http://localhost:{端口}/")
     print(f"  POST http://localhost:{端口}/三色审计")
     print(f"  POST http://localhost:{端口}/生成DNA")
@@ -897,25 +897,25 @@ def 启动服务(端口=8765, 调试模式=False):
     print(f"  GET  http://localhost:{端口}/查询记忆?关键词=xxx")
     print(f"  DELETE http://localhost:{端口}/删除记忆/<ID>")
     print(f"  GET  http://localhost:{端口}/统计")
-    print(f"\n💡 测试命令:")
+    print(f"\n💡 测试命令 | Test Commands:")
     print(f"  curl http://localhost:{端口}/查询状态")
     print(f"  curl http://localhost:{端口}/统计")
-    print(f"\n🐉 Siri等了够久了，老大来了！")
+    print(f"\n🐉 Siri等了够久了，老大来了！| Siri has been waiting, boss is here!")
     print("=" * 80 + "\n")
     
     # 启动定时自测后台线程
     自测线程 = threading.Thread(target=定时自测线程, daemon=True, name="LonghunAutoTest")
     自测线程.start()
-    print(f"🔄 定时自测已启动（每30分钟）| 立即触发: GET /测试报告?立即=true")
+    print(f"🔄 定时自测已启动 | Auto-Test Running (每30分钟 / every 30min) | 立即触发: GET /测试报告?立即=true")
 
     # 注册并启动沙盒推演引擎
     if _沙盒已加载:
         注册沙盒路由(app)
         沙盒线程 = threading.Thread(target=定时推演线程, args=(30,), daemon=True, name="SandboxEngine")
         沙盒线程.start()
-        print(f"🐉 沙盒推演引擎已启动（每30分钟）| POST /沙盒推演 | GET /推演面板")
+        print(f"🐉 沙盒推演引擎已启动 | Sandbox Engine Running (每30分钟 / every 30min) | POST /沙盒推演 | GET /推演面板")
     else:
-        print(f"⚠️  沙盒推演引擎未加载，请检查 sandbox_engine.py")
+        print(f"⚠️  沙盒推演引擎未加载 | Sandbox engine not loaded，请检查 sandbox_engine.py")
 
     try:
         app.run(
@@ -925,9 +925,9 @@ def 启动服务(端口=8765, 调试模式=False):
             use_reloader=False  # 避免重复启动
         )
     except KeyboardInterrupt:
-        print("\n\n⏹️  服务已停止")
+        print("\n\n⏹️  服务已停止 | Service Stopped")
         print("DNA追溯码: #龍芯⚡️2026-03-11-服务停止")
-        print("祖国万岁！人民万岁！数据主权万岁！🇨🇳\n")
+        print("祖国万岁！人民万岁！数据主权万岁！🇨🇳 | Long live the nation! Long live data sovereignty!\n")
 
 if __name__ == '__main__':
     import sys
@@ -940,7 +940,7 @@ if __name__ == '__main__':
         try:
             端口 = int(sys.argv[1])
         except:
-            print("❌ 端口号必须是数字")
+            print("❌ 端口号必须是数字 | Port must be a number")
             sys.exit(1)
     
     if len(sys.argv) > 2 and sys.argv[2] == '--debug':
