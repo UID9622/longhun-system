@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙魂DNA生成器 | 数字存证系统</title>
+    
+    <!-- DNA追溯码 -->
+    <meta name="dna-code" content="#ZHUGEXIN⚡️2026-01-06-LONGHUN-DNA-GENERATOR-001">
+    <meta name="creator" content="诸葛鑫 (Lucky) | UID9622">
+    <meta name="confirm-code" content="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 2px solid #00C853;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #00C853;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #B0B0B0;
+        }
+        
+        .creator-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #757575;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 200, 83, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00E5FF;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #00C853;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00C853 0%, #00E5FF 100%);
+            color: #000000;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid #00E5FF;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 229, 255, 0.2);
+        }
+        
+        .result-box {
+            background: rgba(0, 200, 83, 0.1);
+            border: 2px solid #00C853;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: #00E5FF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            word-break: break-all;
+        }
+        
+        .success-icon {
+            color: #00C853;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .note {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #FFC107;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #757575;
+            font-size: 14px;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin: 0 15px;
+            color: #00E5FF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #00C853;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐲 龙魂DNA生成器</h1>
+            <div class="subtitle">数字存证系统 | 不可篡改的身份证明</div>
+            <div class="creator-info">
+                创作者: 诸葛鑫 (Lucky) | UID9622<br>
+                DNA追溯码: #ZHUGEXIN⚡️2026-01-06-LONGHUN-DNA-GENERATOR-001
+            </div>
+        </header>
+        
+        <div class="card">
+            <h2>创建DNA存证</h2>
+            
+            <div class="form-group">
+                <label for="creatorId">创作者ID *</label>
+                <input type="text" id="creatorId" placeholder="例如: ZHUGEXIN" value="ZHUGEXIN">
+            </div>
+            
+            <div class="form-group">
+                <label for="projectName">项目名称 *</label>
+                <input type="text" id="projectName" placeholder="例如: TEST, ARTICLE, CODE...">
+            </div>
+            
+            <div class="form-group">
+                <label for="content">文本内容 *</label>
+                <textarea id="content" placeholder="在这里输入需要存证的文本内容..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-primary" onclick="generateDNA()">🔐 生成DNA存证</button>
+                <button class="btn-secondary" onclick="clearForm()">🗑️ 清空表单</button>
+            </div>
+            
+            <div class="result-box" id="resultBox">
+                <div class="success-icon">✅</div>
+                <h3 style="text-align: center; margin-bottom: 20px;">DNA存证生成成功！</h3>
+                
+                <div class="result-item">
+                    <div class="result-label">DNA追溯码</div>
+                    <div class="result-value" id="resultDnaCode"></div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-label">数字指纹 (SHA-256)</div>
+                    <div class="result-value" id="resultFingerprint"></div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-label">创建时间</div>
+                    <div class="result-value" id="resultTimestamp"></div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" onclick="downloadEvidence()">📥 下载存证文件</button>
+                    <button class="btn-secondary" onclick="copyDNACode()">📋 复制DNA码</button>
+                </div>
+            </div>
+            
+            <div class="note">
+                <strong>💡 提示：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>所有存证保存在浏览器本地，不上传任何服务器</li>
+                    <li>DNA追溯码和数字指纹唯一对应，任何修改都会导致验证失败</li>
+                    <li>请妥善保管生成的DNA追溯码，用于后续验证</li>
+                    <li>建议下载存证文件作为备份</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <div>
+                <a href="verifier.html" class="nav-link">🔍 DNA验证器</a>
+                <a href="list.html" class="nav-link">📋 存证列表</a>
+            </div>
+            <p style="margin-top: 20px;">
+                技术主权 · 数据主权 · 中文原生<br>
+                龙魂DNA存证系统 v1.0 | 完全开源 · 完全免费
+            </p>
+        </footer>
+    </div>
+    
+    <script src="longhun_dna.js"></script>
+    <script>
+        let currentEvidence = null;
+        
+        async function generateDNA() {
+            const creatorId = document.getElementById('creatorId').value.trim();
+            const projectName = document.getElementById('projectName').value.trim();
+            const content = document.getElementById('content').value.trim();
+            
+            if (!creatorId || !projectName || !content) {
+                alert('请填写所有必填项！');
+                return;
+            }
+            
+            try {
+                const result = await LonghunDNA.createEvidence(content, creatorId, projectName);
+                
+                if (result.success) {
+                    currentEvidence = result.evidence;
+                    
+                    document.getElementById('resultDnaCode').textContent = result.evidence.dnaCode;
+                    document.getElementById('resultFingerprint').textContent = result.evidence.digitalFingerprint;
+                    document.getElementById('resultTimestamp').textContent = result.evidence.timestamp;
+                    
+                    document.getElementById('resultBox').classList.add('show');
+                    
+                    // 滚动到结果区域
+                    document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    alert('生成DNA存证失败：' + result.error);
+                }
+            } catch (error) {
+                alert('发生错误：' + error.message);
+            }
+        }
+        
+        function clearForm() {
+            document.getElementById('content').value = '';
+            document.getElementById('resultBox').classList.remove('show');
+        }
+        
+        function downloadEvidence() {
+            if (!currentEvidence) {
+                alert('没有可下载的存证！');
+                return;
+            }
+            
+            const result = LonghunDNA.exportEvidence(currentEvidence.dnaCode);
+            
+            if (result.success) {
+                alert('存证文件已下载：' + result.filename);
+            } else {
+                alert('下载失败：' + (result.reason || result.error));
+            }
+        }
+        
+        function copyDNACode() {
+            if (!currentEvidence) {
+                alert('没有可复制的DNA码！');
+                return;
+            }
+            
+            navigator.clipboard.writeText(currentEvidence.dnaCode).then(() => {
+                alert('DNA追溯码已复制到剪贴板！');
+            }).catch(err => {
+                alert('复制失败：' + err.message);
+            });
+        }
+    </script>
+</body>
+</html>
