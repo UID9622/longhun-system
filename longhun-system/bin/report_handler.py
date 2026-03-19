@@ -163,15 +163,15 @@ def 写入报告(报告: dict) -> dict:
     with open(REPORTS_LOG, "a", encoding="utf-8") as f:
         f.write(json.dumps(完整记录, ensure_ascii=False) + "\n")
 
-    print(f"✅ 受理成功 · {受理号} · {dna}")
+    print(f"✅ 受理成功 | Accepted · {受理号} · {dna}")
 
     # 推送国家接口（预留）
     国家 = 报告.get("country", "OTHER")
     if 国家 in 国家接口 and 国家接口[国家]["api"]:
-        print(f"🌐 推送至 {国家接口[国家]['name']} 接口...")
+        print(f"🌐 推送至 | Pushing to {国家接口[国家]['name']} 接口 | API...")
         # TODO: 实装各国接口
     else:
-        print(f"📌 国家接口预留中 [{国家}]：{国家接口.get(国家, {}).get('note', '待接入')}")
+        print(f"📌 国家接口预留中 | Country API Reserved [{国家}]：{国家接口.get(国家, {}).get('note', '待接入 | Pending')}")
 
     return {
         "受理号": 受理号,
@@ -242,7 +242,7 @@ def 注册用户(数据: dict) -> dict:
     with open(USERS_LOG, "a", encoding="utf-8") as f:
         f.write(json.dumps(公开档案, ensure_ascii=False) + "\n")
 
-    print(f"✅ 注册成功 [{等级}] · {dna码}")
+    print(f"✅ 注册成功 | Registered [{等级}] · {dna码}")
 
     return {
         "状态": "注册成功",
@@ -419,7 +419,7 @@ UID9622 · 诸葛鑫 · 天下无欺
     try:
         服务器.serve_forever()
     except KeyboardInterrupt:
-        print("\n⏹ 服务已停止")
+        print("\n⏹ 服务已停止 | Service Stopped")
 
 
 if __name__ == "__main__":
