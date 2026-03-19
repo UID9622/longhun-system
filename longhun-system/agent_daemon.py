@@ -162,7 +162,10 @@ def notion双检():
 # 操作日记
 # ══════════════════════════════════════════════════════════
 
-def 写操作日记(内容: str, 账号="团队"):
+def 写操作日记(内容: str, 账号=None):
+    # 自动选账号：有团队Token用团队，否则用主账号
+    if 账号 is None:
+        账号 = "团队" if (TOKEN团队 and "填入" not in TOKEN团队) else "主"
     """向团队Notion的操作日记页面追加一条记录"""
     if not 日记页ID or "填入" in 日记页ID:
         print("🔴 操作日记页面ID未配置，请在 .env 设置 NOTION_DIARY_PAGE_ID")
@@ -507,7 +510,7 @@ CNSH对应指令:
     parser.add_argument("--sync-star",  action="store_true", help="同步星辰记忆到Notion")
     parser.add_argument("--engines",    action="store_true", help="展示引擎状态（本地）")
     parser.add_argument("--check",      action="store_true", help="检测双账号连接")
-    parser.add_argument("--account",    default="团队",   help="目标账号(主/团队)")
+    parser.add_argument("--account",    default=None,     help="目标账号(主/团队，默认自动选)")
     parser.add_argument("--top",        type=int, default=5, help="记忆同步条数")
 
     args = parser.parse_args()
