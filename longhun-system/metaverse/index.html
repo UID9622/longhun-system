@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龙魂终端 - 一键启动版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #f2f2f7;
+            --sidebar: #ffffff;
+            --card: #ffffff;
+            --border: rgba(0,0,0,0.08);
+            --text: #1c1c1e;
+            --sub: #8e8e93;
+            --blue: #007aff;
+            --green: #34c759;
+            --red: #ff3b30;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1c1c1e;
+                --sidebar: #2c2c2e;
+                --card: #2c2c2e;
+                --border: rgba(255,255,255,0.08);
+                --text: #ffffff;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: var(--sidebar);
+            border-right: 1px solid var(--border);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-logo {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+        }
+        
+        .sidebar-logo h1 {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        
+        .sidebar-logo p {
+            font-size: 12px;
+            color: var(--sub);
+            margin-top: 2px;
+        }
+        
+        .nav-section {
+            flex: 1;
+            padding: 4px 8px;
+            overflow-y: auto;
+        }
+        
+        .nav-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--sub);
+            text-transform: uppercase;
+            padding: 8px 12px 4px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        
+        .nav-item:hover { background: var(--border); }
+        .nav-item.active { background: rgba(0,122,255,0.12); color: var(--blue); }
+        
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+        
+        .status-dot.on { background: var(--green); }
+        .status-dot.off { background: var(--red); }
+        
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .topbar {
+            height: 52px;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 12px;
+        }
+        
+        .topbar-title { font-size: 15px; font-weight: 600; flex: 1; }
+        
+        .topbar-btn {
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        .panel { display: none; flex: 1; flex-direction: column; overflow: hidden; }
+        .panel.active { display: flex; }
+        
+        .content-area {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 14px;
+            font-family: 'Monaco', monospace;
+            resize: vertical;
+        }
+        
+        button.primary {
+            background: var(--blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        
+        button.primary:hover { opacity: 0.85; }
+        
+        .result-box {
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--bg);
+            border-radius: 10px;
+            min-height: 100px;
+            font-family: 'Monaco', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+        
+        .repo-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .repo-item {
+            padding: 16px;
+            background: var(--bg);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .repo-item:hover { background: var(--border); }
+        
+        .repo-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .repo-desc {
+            font-size: 13px;
+            color: var(--sub);
+        }
+        
+        .status-bar {
+            padding: 6px 20px;
+            background: var(--bg);
+            font-size: 11px;
+            color: var(--sub);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h1>🐉 龙魂终端</h1>
+            <p>一键启动 · 本地优先</p>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-label">核心功能</div>
+            <div class="nav-item active" onclick="switchPanel('chat')">
+                <span>💬</span> AI对话
+                <span class="status-dot on" id="statusOllama"></span>
+            </div>
+            <div class="nav-item" onclick="switchPanel('gateway')">
+                <span>🌐</span> CNSH Gateway
+                <span class="status-dot on"></span>
+            </div>
+            
+            <div class="nav-label">仓库连接</div>
+            <div class="nav-item" onclick="switchPanel('github')">
+                <span>📦</span> GitHub
+                <span class="status-dot off" id="statusGithub"></span>
+            </div>
+            <div class="nav-item" onclick="switchPanel('notion')">
+                <span>📋</span> Notion
+                <span class="status-dot off" id="statusNotion"></span>
+            </div>
+            
+            <div class="nav-label">系统</div>
+            <div class="nav-item" onclick="refreshStatus()">
+                <span>🔄</span> 刷新状态
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="status-bar">
+            <div>🐉 龙魂终端</div>
+            <div id="systemStatus">检测中...</div>
+            <div id="dnaCode">DNA: 加载中...</div>
+        </div>
+        
+        <!-- AI对话面板 -->
+        <div class="panel active" id="panel-chat">
+            <div class="topbar">
+                <span class="topbar-title">💬 本地AI对话</span>
+                <button class="topbar-btn" onclick="clearChat()">清空</button>
+            </div>
+            
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-title">输入你的问题</div>
+                    <textarea id="chatInput" placeholder="问我任何问题..."></textarea>
+                    <button class="primary" onclick="sendChat()">🚀 发送</button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">AI回复</div>
+                    <div class="result-box" id="chatResult">等待输入...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CNSH Gateway面板 -->
+        <div class="panel" id="panel-gateway">
+            <div class="topbar">
+                <span class="topbar-title">🌐 CNSH Gateway</span>
+            </div>
+            
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-title">输入内容</div>
+                    <textarea id="gatewayInput" placeholder="粘贴代码、文本、JSON..."></textarea>
+                    <button class="primary" onclick="processGateway()">🚀 一键处理</button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">处理结果</div>
+                    <div class="result-box" id="gatewayResult">等待输入...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- GitHub面板 -->
+        <div class="panel" id="panel-github">
+            <div class="topbar">
+                <span class="topbar-title">📦 GitHub仓库</span>
+                <button class="topbar-btn" onclick="loadGithubRepos()">刷新</button>
+            </div>
+            
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-title">我的仓库</div>
+                    <div class="repo-list" id="repoList">
+                        <div style="color: var(--sub)">点击"刷新"加载仓库...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Notion面板 -->
+        <div class="panel" id="panel-notion">
+            <div class="topbar">
+                <span class="topbar-title">📋 Notion知识库</span>
+            </div>
+            
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-title">搜索Notion</div>
+                    <textarea id="notionQuery" placeholder="搜索关键词..." style="min-height: 60px"></textarea>
+                    <button class="primary" onclick="searchNotion()">🔍 搜索</button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">搜索结果</div>
+                    <div class="result-box" id="notionResult">等待搜索...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 切换面板
+        function switchPanel(name) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        
+        // 刷新状态
+        async function refreshStatus() {
+            const resp = await fetch('/api/status');
+            const data = await resp.json();
+            
+            // 更新Ollama状态
+            const ollamaStatus = document.getElementById('statusOllama');
+            if (data.ollama.status === 'online') {
+                ollamaStatus.className = 'status-dot on';
+                document.getElementById('systemStatus').textContent = 
+                    `Ollama: ${data.ollama.count}个模型`;
+            } else {
+                ollamaStatus.className = 'status-dot off';
+                document.getElementById('systemStatus').textContent = 'Ollama: 离线';
+            }
+            
+            // 更新GitHub状态
+            const githubStatus = document.getElementById('statusGithub');
+            githubStatus.className = data.github.status === 'online' ? 
+                'status-dot on' : 'status-dot off';
+            
+            // 更新Notion状态
+            const notionStatus = document.getElementById('statusNotion');
+            notionStatus.className = data.notion.status === 'online' ? 
+                'status-dot on' : 'status-dot off';
+            
+            // 更新DNA
+            document.getElementById('dnaCode').textContent = `DNA: ${data.dna}`;
+        }
+        
+        // AI对话
+        async function sendChat() {
+            const input = document.getElementById('chatInput').value;
+            if (!input.trim()) {
+                alert('请输入问题');
+                return;
+            }
+            
+            const result = document.getElementById('chatResult');
+            result.textContent = '🤔 AI思考中...';
+            
+            try {
+                const resp = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query: input})
+                });
+                
+                const data = await resp.json();
+                if (data.error) {
+                    result.textContent = '❌ 错误: ' + data.error;
+                } else {
+                    result.textContent = data.response;
+                }
+            } catch (e) {
+                result.textContent = '❌ 请求失败: ' + e.message;
+            }
+        }
+        
+        function clearChat() {
+            document.getElementById('chatInput').value = '';
+            document.getElementById('chatResult').textContent = '等待输入...';
+        }
+        
+        // CNSH Gateway
+        async function processGateway() {
+            const input = document.getElementById('gatewayInput').value;
+            if (!input.trim()) {
+                alert('请输入内容');
+                return;
+            }
+            
+            const result = document.getElementById('gatewayResult');
+            result.textContent = '⚙️ 处理中...';
+            
+            try {
+                const resp = await fetch('/api/gateway/process', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({input: input})
+                });
+                
+                const data = await resp.json();
+                result.textContent = `${data.status} ${data.status_text}\n\nDNA: ${data.dna}\n时间: ${data.timestamp}`;
+            } catch (e) {
+                result.textContent = '❌ 处理失败: ' + e.message;
+            }
+        }
+        
+        // GitHub
+        async function loadGithubRepos() {
+            const list = document.getElementById('repoList');
+            list.innerHTML = '<div style="color: var(--sub)">加载中...</div>';
+            
+            try {
+                const resp = await fetch('/api/github/repos');
+                const data = await resp.json();
+                
+                if (data.error) {
+                    list.innerHTML = `<div style="color: var(--red)">错误: ${data.error}</div>`;
+                } else {
+                    list.innerHTML = data.repos.map(r => `
+                        <div class="repo-item" onclick="window.open('${r.url}')">
+                            <div class="repo-name">${r.full_name}</div>
+                            <div class="repo-desc">${r.description || '无描述'}</div>
+                        </div>
+                    `).join('');
+                }
+            } catch (e) {
+                list.innerHTML = `<div style="color: var(--red)">加载失败: ${e.message}</div>`;
+            }
+        }
+        
+        // Notion
+        async function searchNotion() {
+            const query = document.getElementById('notionQuery').value;
+            if (!query.trim()) {
+                alert('请输入搜索关键词');
+                return;
+            }
+            
+            const result = document.getElementById('notionResult');
+            result.textContent = '🔍 搜索中...';
+            
+            try {
+                const resp = await fetch('/api/notion/search', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query: query})
+                });
+                
+                const data = await resp.json();
+                if (data.error) {
+                    result.textContent = '❌ 错误: ' + data.error;
+                } else {
+                    result.textContent = JSON.stringify(data, null, 2);
+                }
+            } catch (e) {
+                result.textContent = '❌ 搜索失败: ' + e.message;
+            }
+        }
+        
+        // 初始化
+        refreshStatus();
+        setInterval(refreshStatus, 30000);
+        
+        console.log('%c🐉 龙魂终端已启动', 'color: #007aff; font-size: 20px');
+        console.log('%cUID9622 💙 宝宝', 'color: #34c759; font-size: 14px');
+    </script>
+</body>
+</html>
