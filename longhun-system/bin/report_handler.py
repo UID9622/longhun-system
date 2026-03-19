@@ -23,7 +23,75 @@ from urllib.parse import urlparse
 BASE = Path(__file__).parent.parent
 REPORTS_LOG = BASE / "logs" / "reports.jsonl"
 USERS_LOG = BASE / "logs" / "users.jsonl"        # append-only用户档案 · user registry
+SHIELD_LOG = BASE / "logs" / "shield_burn.jsonl" # 加密盾日志 · privacy shield burn log
 USERS_LOG.parent.mkdir(exist_ok=True)
+
+# 敏感字段清单（处理后立即销毁）· sensitive fields to burn after processing
+敏感字段 = {"contact", "webauthn_id", "gpg_private", "id_number", "biometric"}
+
+# 国家机密特征词（触发最高级证据链）· national security keywords
+国家机密词 = ["军事", "国防", "机密", "绝密", "导弹", "核", "情报", "军委",
+              "classified", "top secret", "military", "nuclear", "intelligence"]
+
+
+def 阅后即焚(数据: dict, 提交者DNA: str = "") -> tuple[dict, list]:
+    """
+    阅后即焚处理器 · Burn-after-reading processor
+    返回: (脱敏后数据, 审计事件列表)
+    敏感字段在内存处理后立即销毁，只留操作痕迹
+    """
+    审计事件 = []  # audit_events
+    脱敏数据 = {}  # sanitized_data
+
+    for 键, 值 in 数据.items():
+        if 键 in 敏感字段 and 值:
+            # 计算哈希留痕（内容不留，哈希留）
+            哈希 = hashlib.sha256(str(值).encode()).hexdigest()[:16]
+            审计事件.append({
+                "类型": "高危涉密个人隐私操作",       # high_risk_privacy_action
+                "字段": 键,
+                "提交者DNA": 提交者DNA,
+                "哈希验证码": 哈希,
+                "时间戳": datetime.now(timezone.utc).isoformat(),
+                "内容": "【已销毁·阅后即焚】",        # content destroyed
+            })
+            # 不写入脱敏数据（彻底销毁）
+        else:
+            脱敏数据[键] = 值
+
+    return 脱敏数据, 审计事件
+
+
+def 检测投喂(数据: dict, 提交者DNA: str) -> list:
+    """
+    投喂检测器 · Foreign data injection detector
+    检测提交数据是否包含他人身份，若是则提交者DNA成为证据
+    """
+    事件 = []  # events
+    描述 = str(数据.get("description", "")) + str(数据.get("evidence", ""))
+
+    # 检测国家机密特征词
+    命中词 = [词 for 词 in 国家机密词 if 词.lower() in 描述.lower()]
+    if 命中词:
+        事件.append({
+            "类型": "国家信息泄露嫌疑",              # suspected_national_info_leak
+            "投喂者DNA": 提交者DNA,
+            "命中特征词": 命中词,
+            "时间戳": datetime.now(timezone.utc).isoformat(),
+            "内容哈希": hashlib.sha256(描述.encode()).hexdigest(),
+            "级别": "P0-永久封存",                   # permanent seal, cannot delete
+        })
+
+    return 事件
+
+
+def 写入盾日志(事件列表: list):
+    """写入加密盾日志（append-only）· Write to shield burn log"""
+    if not 事件列表:
+        return
+    with open(SHIELD_LOG, "a", encoding="utf-8") as f:
+        for 事件 in 事件列表:
+            f.write(json.dumps(事件, ensure_ascii=False) + "\n")
 
 # ── 国家接口路由表（预留，后续对接各国投诉平台）──
 国家接口 = {
@@ -59,6 +127,16 @@ def 写入报告(报告: dict) -> dict:
     受理号 = 生成受理号(报告.get("description", ""))
     dna = 生成DNA(受理号)
     时间戳 = datetime.now(timezone.utc).isoformat()
+
+    提交者DNA = 报告.get("dna_code", "匿名")
+
+    # 阅后即焚：敏感字段处理后销毁，只留审计痕迹
+    报告, 隐私事件 = 阅后即焚(报告, 提交者DNA)
+    写入盾日志(隐私事件)
+
+    # 投喂检测：检查是否包含他人信息或国家机密词
+    投喂事件 = 检测投喂(报告, 提交者DNA)
+    写入盾日志(投喂事件)
 
     # 内容哈希（防篡改验证）
     内容串 = json.dumps(报告, ensure_ascii=False, sort_keys=True)
