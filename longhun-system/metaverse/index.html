@@ -1,508 +1,515 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐉 龙魂终端 - 一键启动版</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --bg: #f2f2f7;
-            --sidebar: #ffffff;
-            --card: #ffffff;
-            --border: rgba(0,0,0,0.08);
-            --text: #1c1c1e;
-            --sub: #8e8e93;
-            --blue: #007aff;
-            --green: #34c759;
-            --red: #ff3b30;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #1c1c1e;
-                --sidebar: #2c2c2e;
-                --card: #2c2c2e;
-                --border: rgba(255,255,255,0.08);
-                --text: #ffffff;
-            }
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            height: 100vh;
-            display: flex;
-            overflow: hidden;
-        }
-        
-        .sidebar {
-            width: 260px;
-            background: var(--sidebar);
-            border-right: 1px solid var(--border);
-            padding: 20px 0;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .sidebar-logo {
-            padding: 0 20px 20px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 12px;
-        }
-        
-        .sidebar-logo h1 {
-            font-size: 17px;
-            font-weight: 600;
-        }
-        
-        .sidebar-logo p {
-            font-size: 12px;
-            color: var(--sub);
-            margin-top: 2px;
-        }
-        
-        .nav-section {
-            flex: 1;
-            padding: 4px 8px;
-            overflow-y: auto;
-        }
-        
-        .nav-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--sub);
-            text-transform: uppercase;
-            padding: 8px 12px 4px;
-        }
-        
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-        
-        .nav-item:hover { background: var(--border); }
-        .nav-item.active { background: rgba(0,122,255,0.12); color: var(--blue); }
-        
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            margin-left: auto;
-        }
-        
-        .status-dot.on { background: var(--green); }
-        .status-dot.off { background: var(--red); }
-        
-        .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .topbar {
-            height: 52px;
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            gap: 12px;
-        }
-        
-        .topbar-title { font-size: 15px; font-weight: 600; flex: 1; }
-        
-        .topbar-btn {
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            font-size: 13px;
-            cursor: pointer;
-        }
-        
-        .panel { display: none; flex: 1; flex-direction: column; overflow: hidden; }
-        .panel.active { display: flex; }
-        
-        .content-area {
-            flex: 1;
-            padding: 24px;
-            overflow-y: auto;
-        }
-        
-        .card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-        
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 14px;
-            font-family: 'Monaco', monospace;
-            resize: vertical;
-        }
-        
-        button.primary {
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 12px;
-        }
-        
-        button.primary:hover { opacity: 0.85; }
-        
-        .result-box {
-            margin-top: 16px;
-            padding: 16px;
-            background: var(--bg);
-            border-radius: 10px;
-            min-height: 100px;
-            font-family: 'Monaco', monospace;
-            font-size: 13px;
-            white-space: pre-wrap;
-        }
-        
-        .repo-list {
-            display: grid;
-            gap: 12px;
-        }
-        
-        .repo-item {
-            padding: 16px;
-            background: var(--bg);
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        
-        .repo-item:hover { background: var(--border); }
-        
-        .repo-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        
-        .repo-desc {
-            font-size: 13px;
-            color: var(--sub);
-        }
-        
-        .status-bar {
-            padding: 6px 20px;
-            background: var(--bg);
-            font-size: 11px;
-            color: var(--sub);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 16px;
-        }
-    </style>
+<!--
+  龍魂元宇宙 · 一体化控制台 v1.0
+  DNA: #龍芯⚡️2026-03-19-METAVERSE-UI-v1.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  作者: 诸葛鑫（UID9622）· 退伍军人 · 龍魂系统创始人
+  理论指导: 曾仕强老师（永恒显示）
+  献礼: 新中国成立77周年（1949-2026）· 丙午马年
+  协议: Apache License 2.0
+  后端: localhost:8888 (bin/metaverse_api.py)
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龍魂元宇宙 · 一体化控制台 v1.0 · UID9622</title>
+<style>
+:root{
+  --bg:#08080f;--bg2:#0f0f1e;--card:rgba(15,15,35,.92);
+  --neon:#00ffc8;--neon2:#ff00aa;--neon3:#6c5ce7;
+  --gold:#ffd700;--jade:#00ff88;--red:#ff4757;--blue:#00d4ff;--orange:#ff9f43;
+  --border:rgba(0,255,200,.12);--text:#e2e8f0;--sub:#6b7280;
+  --glow:0 0 12px rgba(0,255,200,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:rgba(0,255,200,.2);border-radius:2px}
+#bgC{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#bgG{position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,200,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,200,.025) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;animation:gm 25s linear infinite}
+@keyframes gm{0%{transform:translate(0,0)}100%{transform:translate(50px,50px)}}
+.nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(8,8,15,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 16px;z-index:100;gap:10px}
+.logo{font-size:15px;font-weight:700;color:var(--neon);text-shadow:var(--glow);cursor:pointer;white-space:nowrap;letter-spacing:1px;animation:np 3s ease-in-out infinite;flex-shrink:0}
+@keyframes np{0%,100%{text-shadow:0 0 8px rgba(0,255,200,.4)}50%{text-shadow:0 0 20px rgba(0,255,200,.7),0 0 40px rgba(0,255,200,.2)}}
+.tabs{display:flex;gap:3px;flex:1;overflow-x:auto;padding:0 4px}
+.tabs::-webkit-scrollbar{height:0}
+.tab{flex-shrink:0;padding:6px 12px;border-radius:7px;border:1px solid transparent;background:transparent;color:var(--sub);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.tab.on{color:var(--neon);background:rgba(0,255,200,.08);border-color:var(--border);text-shadow:var(--glow)}
+.badges{display:flex;gap:5px;flex-shrink:0}
+.bdg{font-size:10px;padding:3px 8px;border-radius:99px;font-weight:bold;background:rgba(0,0,0,.3);border:1px solid #333;color:#555;cursor:pointer;transition:all .2s}
+.bdg.on{border-color:rgba(0,255,136,.4);color:var(--jade);background:rgba(0,255,136,.06)}
+.bdg.off{border-color:rgba(255,71,87,.3);color:var(--red);background:rgba(255,71,87,.06)}
+.tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#clock{font-family:Consolas,monospace;font-size:12px;color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,.4)}
+.tbtn{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--sub);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.tbtn:hover{color:var(--neon);border-color:var(--neon);box-shadow:var(--glow)}
+.wrap{position:relative;z-index:1;margin-top:52px;padding:18px;min-height:calc(100vh - 52px)}
+.mod{display:none;animation:fi .22s ease}
+.mod.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(0,212,255,.15);border-radius:12px;padding:16px 18px;margin-bottom:12px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--neon),var(--neon3),var(--neon2));opacity:.55}
+.ct{font-size:13px;color:var(--blue);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(0,212,255,.15);display:flex;align-items:center;gap:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:880px){.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.fg{margin-bottom:10px}
+label{display:block;margin-bottom:4px;color:var(--blue);font-weight:bold;font-size:10px;letter-spacing:1px}
+input,textarea,select{width:100%;padding:8px 11px;background:rgba(0,0,0,.4);border:1.5px solid rgba(0,212,255,.2);border-radius:7px;color:var(--text);font-size:12px;font-family:Consolas,monospace;outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus,select:focus{border-color:var(--neon);box-shadow:0 0 0 2px rgba(0,255,200,.07)}
+textarea{min-height:100px;resize:vertical;line-height:1.6}
+.btn{padding:8px 15px;border:none;border-radius:7px;font-size:11px;font-weight:bold;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.bN{background:rgba(0,255,200,.1);color:var(--neon);border:1px solid rgba(0,255,200,.3)}
+.bN:hover{background:rgba(0,255,200,.18);box-shadow:var(--glow)}
+.bB{background:linear-gradient(135deg,var(--blue),#0099cc);color:#0a0e27}
+.bG{background:linear-gradient(135deg,var(--jade),#00cc6a);color:#0a0e27}
+.bR{background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff}
+.bAu{background:linear-gradient(135deg,var(--gold),#ffaa00);color:#0a0e27}
+.bgh{background:transparent;color:var(--sub);border:1px solid rgba(255,255,255,.12)}
+.bgh:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
+.bfull{width:100%;padding:10px;font-size:12px}
+.br{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.rbox{background:rgba(0,0,0,.35);border:1.5px solid rgba(0,212,255,.2);border-radius:7px;padding:11px;font-family:Consolas,monospace;font-size:11px;white-space:pre-wrap;word-break:break-all;max-height:260px;overflow-y:auto;color:var(--jade);line-height:1.7;min-height:50px}
+.sp{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:8px;padding:12px;text-align:center}
+.spv{font-family:Consolas,monospace;font-size:22px;font-weight:bold}
+.spl{font-size:9px;color:var(--sub);margin-top:3px;letter-spacing:1px}
+.bdge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}
+.bg-g{background:rgba(0,255,136,.12);color:var(--jade);border:1px solid rgba(0,255,136,.3)}
+.bg-y{background:rgba(255,215,0,.12);color:var(--gold);border:1px solid rgba(255,215,0,.3)}
+.bg-r{background:rgba(255,71,87,.12);color:var(--red);border:1px solid rgba(255,71,87,.3)}
+.d3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin:10px 0}
+.dc{border-radius:10px;padding:11px;text-align:center;border:2px solid}
+.dc .dn{font-size:10px;font-weight:bold;margin-bottom:3px}
+.dc .ds{font-size:24px;font-weight:bold}
+.dc .dd{font-size:9px;color:var(--sub);margin-top:3px;line-height:1.3}
+.dc-g{background:rgba(0,255,136,.07);border-color:rgba(0,255,136,.35);color:var(--jade)}
+.dc-y{background:rgba(255,215,0,.07);border-color:rgba(255,215,0,.35);color:var(--gold)}
+.dc-r{background:rgba(255,71,87,.08);border-color:rgba(255,71,87,.35);color:var(--red)}
+.mi{background:rgba(255,255,255,.02);border:1px solid rgba(0,212,255,.12);border-radius:7px;padding:11px;transition:all .2s;margin-bottom:7px}
+.mi:hover{background:rgba(0,212,255,.04);border-color:rgba(0,212,255,.25)}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid rgba(0,212,255,.08)}
+.mdna{font-family:Consolas,monospace;font-size:9px;color:var(--blue)}
+.mts{font-size:9px;color:var(--sub)}
+.term{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.th{padding:7px 13px;background:rgba(0,255,200,.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:5px}
+.td{width:9px;height:9px;border-radius:50%}
+.tbody{padding:13px;min-height:280px;max-height:50vh;overflow-y:auto;font-family:"Fira Code",Consolas,monospace;font-size:11px;line-height:1.6}
+.tl{margin-bottom:2px}
+.tl.ok{color:var(--neon)}.tl.er{color:var(--red)}.tl.in{color:var(--neon3)}.tl.ou{color:var(--sub)}
+.tinwrap{display:flex;align-items:center;padding:8px 13px;border-top:1px solid var(--border);background:rgba(0,0,0,.25)}
+.tp{color:var(--neon);margin-right:7px;font-family:Consolas,monospace;font-size:11px}
+.tinwrap input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:Consolas,monospace;font-size:11px}
+#tw{position:fixed;top:60px;right:14px;z-index:1000;display:flex;flex-direction:column;gap:5px;pointer-events:none}
+.toast{padding:9px 14px;border-radius:8px;background:var(--card);backdrop-filter:blur(12px);font-size:11px;animation:toa .3s ease;max-width:280px;pointer-events:all;border-left:3px solid}
+.toast.ok{border-color:var(--neon)}.toast.warn{border-color:var(--gold)}.toast.err{border-color:var(--red)}
+@keyframes toa{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+.wsi{position:fixed;bottom:16px;left:16px;width:11px;height:11px;border-radius:50%;background:var(--red);box-shadow:0 0 7px var(--red);z-index:50;transition:all .3s}
+.wsi.on{background:var(--jade);box-shadow:0 0 7px var(--jade)}
+.ft{border-top:1px solid rgba(200,168,75,.1);padding:14px 18px;text-align:center;font-size:9px;color:var(--sub);line-height:2.1}
+.ft strong{color:var(--gold)}
+</style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <h1>🐉 龙魂终端</h1>
-            <p>一键启动 · 本地优先</p>
-        </div>
-        
-        <div class="nav-section">
-            <div class="nav-label">核心功能</div>
-            <div class="nav-item active" onclick="switchPanel('chat')">
-                <span>💬</span> AI对话
-                <span class="status-dot on" id="statusOllama"></span>
-            </div>
-            <div class="nav-item" onclick="switchPanel('gateway')">
-                <span>🌐</span> CNSH Gateway
-                <span class="status-dot on"></span>
-            </div>
-            
-            <div class="nav-label">仓库连接</div>
-            <div class="nav-item" onclick="switchPanel('github')">
-                <span>📦</span> GitHub
-                <span class="status-dot off" id="statusGithub"></span>
-            </div>
-            <div class="nav-item" onclick="switchPanel('notion')">
-                <span>📋</span> Notion
-                <span class="status-dot off" id="statusNotion"></span>
-            </div>
-            
-            <div class="nav-label">系统</div>
-            <div class="nav-item" onclick="refreshStatus()">
-                <span>🔄</span> 刷新状态
-            </div>
-        </div>
+<canvas id="bgC"></canvas>
+<div id="bgG"></div>
+
+<nav class="nav">
+  <div class="logo" onclick="toast('🐉 龍魂觉醒！中国人的骄傲！','ok')">🐉 龍魂元宇宙</div>
+  <div class="tabs">
+    <button class="tab on" data-m="dash">📊 总控台</button>
+    <button class="tab" data-m="audit">🔍 三色审计</button>
+    <button class="tab" data-m="mem">💾 记忆库</button>
+    <button class="tab" data-m="warn">🟡 预警</button>
+    <button class="tab" data-m="bl">🚫 黑名单</button>
+    <button class="tab" data-m="chain">🔗 审计链</button>
+    <button class="tab" data-m="sync">🌐 同步</button>
+    <button class="tab" data-m="term">⌨️ 终端</button>
+  </div>
+  <div class="badges">
+    <span class="bdg off" id="wsB">WS</span>
+    <span class="bdg off" id="apiB">API</span>
+  </div>
+  <div class="tools">
+    <span id="clock">--:--:--</span>
+    <button class="tbtn" onclick="toast('API: localhost:8888 · python3 ~/longhun-system/bin/metaverse_api.py','ok')">📊</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- 总控台 -->
+<div id="m-dash" class="mod on">
+  <div class="g4" style="margin-bottom:12px">
+    <div class="sp"><div class="spv" id="s-ses" style="color:var(--jade)">-</div><div class="spl">会话数</div></div>
+    <div class="sp"><div class="spv" id="s-aud" style="color:var(--gold)">-</div><div class="spl">审计事件</div></div>
+    <div class="sp"><div class="spv" id="s-red" style="color:var(--red)">-</div><div class="spl">🔴高危</div></div>
+    <div class="sp"><div class="spv" id="s-shd" style="color:var(--orange)">-</div><div class="spl">加密盾</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">☯ 当前卦象 · 天时地利人和</div>
+    <div class="d3">
+      <div class="dc dc-g"><div class="dn">⏰ 天时</div><div class="ds" id="sc-t">--</div><div class="dd" id="dd-t">计算中...</div></div>
+      <div class="dc dc-y"><div class="dn">🌍 地利</div><div class="ds" id="sc-d">--</div><div class="dd">等待输入</div></div>
+      <div class="dc dc-g"><div class="dn">🤝 人和</div><div class="ds" id="sc-r">--</div><div class="dd">系统就绪</div></div>
     </div>
-    
-    <div class="main">
-        <div class="status-bar">
-            <div>🐉 龙魂终端</div>
-            <div id="systemStatus">检测中...</div>
-            <div id="dnaCode">DNA: 加载中...</div>
-        </div>
-        
-        <!-- AI对话面板 -->
-        <div class="panel active" id="panel-chat">
-            <div class="topbar">
-                <span class="topbar-title">💬 本地AI对话</span>
-                <button class="topbar-btn" onclick="clearChat()">清空</button>
-            </div>
-            
-            <div class="content-area">
-                <div class="card">
-                    <div class="card-title">输入你的问题</div>
-                    <textarea id="chatInput" placeholder="问我任何问题..."></textarea>
-                    <button class="primary" onclick="sendChat()">🚀 发送</button>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">AI回复</div>
-                    <div class="result-box" id="chatResult">等待输入...</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- CNSH Gateway面板 -->
-        <div class="panel" id="panel-gateway">
-            <div class="topbar">
-                <span class="topbar-title">🌐 CNSH Gateway</span>
-            </div>
-            
-            <div class="content-area">
-                <div class="card">
-                    <div class="card-title">输入内容</div>
-                    <textarea id="gatewayInput" placeholder="粘贴代码、文本、JSON..."></textarea>
-                    <button class="primary" onclick="processGateway()">🚀 一键处理</button>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">处理结果</div>
-                    <div class="result-box" id="gatewayResult">等待输入...</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- GitHub面板 -->
-        <div class="panel" id="panel-github">
-            <div class="topbar">
-                <span class="topbar-title">📦 GitHub仓库</span>
-                <button class="topbar-btn" onclick="loadGithubRepos()">刷新</button>
-            </div>
-            
-            <div class="content-area">
-                <div class="card">
-                    <div class="card-title">我的仓库</div>
-                    <div class="repo-list" id="repoList">
-                        <div style="color: var(--sub)">点击"刷新"加载仓库...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Notion面板 -->
-        <div class="panel" id="panel-notion">
-            <div class="topbar">
-                <span class="topbar-title">📋 Notion知识库</span>
-            </div>
-            
-            <div class="content-area">
-                <div class="card">
-                    <div class="card-title">搜索Notion</div>
-                    <textarea id="notionQuery" placeholder="搜索关键词..." style="min-height: 60px"></textarea>
-                    <button class="primary" onclick="searchNotion()">🔍 搜索</button>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">搜索结果</div>
-                    <div class="result-box" id="notionResult">等待搜索...</div>
-                </div>
-            </div>
-        </div>
+    <div style="text-align:center;margin-top:12px">
+      <div id="hex-sym" style="font-size:44px">☯</div>
+      <div id="hex-name" style="color:var(--gold);font-size:14px;margin-top:6px">--</div>
     </div>
-    
-    <script>
-        // 切换面板
-        function switchPanel(name) {
-            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById('panel-' + name).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-        
-        // 刷新状态
-        async function refreshStatus() {
-            const resp = await fetch('/api/status');
-            const data = await resp.json();
-            
-            // 更新Ollama状态
-            const ollamaStatus = document.getElementById('statusOllama');
-            if (data.ollama.status === 'online') {
-                ollamaStatus.className = 'status-dot on';
-                document.getElementById('systemStatus').textContent = 
-                    `Ollama: ${data.ollama.count}个模型`;
-            } else {
-                ollamaStatus.className = 'status-dot off';
-                document.getElementById('systemStatus').textContent = 'Ollama: 离线';
-            }
-            
-            // 更新GitHub状态
-            const githubStatus = document.getElementById('statusGithub');
-            githubStatus.className = data.github.status === 'online' ? 
-                'status-dot on' : 'status-dot off';
-            
-            // 更新Notion状态
-            const notionStatus = document.getElementById('statusNotion');
-            notionStatus.className = data.notion.status === 'online' ? 
-                'status-dot on' : 'status-dot off';
-            
-            // 更新DNA
-            document.getElementById('dnaCode').textContent = `DNA: ${data.dna}`;
-        }
-        
-        // AI对话
-        async function sendChat() {
-            const input = document.getElementById('chatInput').value;
-            if (!input.trim()) {
-                alert('请输入问题');
-                return;
-            }
-            
-            const result = document.getElementById('chatResult');
-            result.textContent = '🤔 AI思考中...';
-            
-            try {
-                const resp = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({query: input})
-                });
-                
-                const data = await resp.json();
-                if (data.error) {
-                    result.textContent = '❌ 错误: ' + data.error;
-                } else {
-                    result.textContent = data.response;
-                }
-            } catch (e) {
-                result.textContent = '❌ 请求失败: ' + e.message;
-            }
-        }
-        
-        function clearChat() {
-            document.getElementById('chatInput').value = '';
-            document.getElementById('chatResult').textContent = '等待输入...';
-        }
-        
-        // CNSH Gateway
-        async function processGateway() {
-            const input = document.getElementById('gatewayInput').value;
-            if (!input.trim()) {
-                alert('请输入内容');
-                return;
-            }
-            
-            const result = document.getElementById('gatewayResult');
-            result.textContent = '⚙️ 处理中...';
-            
-            try {
-                const resp = await fetch('/api/gateway/process', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({input: input})
-                });
-                
-                const data = await resp.json();
-                result.textContent = `${data.status} ${data.status_text}\n\nDNA: ${data.dna}\n时间: ${data.timestamp}`;
-            } catch (e) {
-                result.textContent = '❌ 处理失败: ' + e.message;
-            }
-        }
-        
-        // GitHub
-        async function loadGithubRepos() {
-            const list = document.getElementById('repoList');
-            list.innerHTML = '<div style="color: var(--sub)">加载中...</div>';
-            
-            try {
-                const resp = await fetch('/api/github/repos');
-                const data = await resp.json();
-                
-                if (data.error) {
-                    list.innerHTML = `<div style="color: var(--red)">错误: ${data.error}</div>`;
-                } else {
-                    list.innerHTML = data.repos.map(r => `
-                        <div class="repo-item" onclick="window.open('${r.url}')">
-                            <div class="repo-name">${r.full_name}</div>
-                            <div class="repo-desc">${r.description || '无描述'}</div>
-                        </div>
-                    `).join('');
-                }
-            } catch (e) {
-                list.innerHTML = `<div style="color: var(--red)">加载失败: ${e.message}</div>`;
-            }
-        }
-        
-        // Notion
-        async function searchNotion() {
-            const query = document.getElementById('notionQuery').value;
-            if (!query.trim()) {
-                alert('请输入搜索关键词');
-                return;
-            }
-            
-            const result = document.getElementById('notionResult');
-            result.textContent = '🔍 搜索中...';
-            
-            try {
-                const resp = await fetch('/api/notion/search', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({query: query})
-                });
-                
-                const data = await resp.json();
-                if (data.error) {
-                    result.textContent = '❌ 错误: ' + data.error;
-                } else {
-                    result.textContent = JSON.stringify(data, null, 2);
-                }
-            } catch (e) {
-                result.textContent = '❌ 搜索失败: ' + e.message;
-            }
-        }
-        
-        // 初始化
-        refreshStatus();
-        setInterval(refreshStatus, 30000);
-        
-        console.log('%c🐉 龙魂终端已启动', 'color: #007aff; font-size: 20px');
-        console.log('%cUID9622 💙 宝宝', 'color: #34c759; font-size: 14px');
-    </script>
+  </div>
+  <div class="card">
+    <div class="ct">📡 系统公告</div>
+    <div id="dash-log" style="font-size:11px;line-height:2;color:var(--sub)">
+      <div>🐉 龍魂元宇宙 v1.0 已启动 · 连接本地API (localhost:8888)...</div>
+      <div>🧬 DNA: #龍芯⚡️2026-03-19-METAVERSE-UI-v1.0</div>
+      <div>⚡ 三色审计引擎在线（天时·地利·人和）</div>
+      <div>🇨🇳 中国人的骄傲 · 技术为人民服务</div>
+    </div>
+  </div>
+</div>
+
+<!-- 三色审计 -->
+<div id="m-audit" class="mod">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">🔍 执行三色审计</div>
+      <div class="fg"><label>待审计内容</label><textarea id="ai" placeholder="粘贴任意内容，系统自动天时·地利·人和三维评估..."></textarea></div>
+      <div class="g2" style="margin-bottom:8px">
+        <div class="fg" style="margin:0"><label>类别</label>
+          <select id="ac"><option value="auto">🤖 自动</option><option value="战略">⚔️ 战略</option><option value="技术">💻 技术</option><option value="铁律">⚖️ 铁律</option></select></div>
+        <div class="fg" style="margin:0"><label>模式</label>
+          <select id="am"><option>深度审计</option><option>快速审计</option></select></div>
+      </div>
+      <div class="br">
+        <button class="btn bAu" onclick="doAudit()">☯️ 执行审计</button>
+        <button class="btn bgh" onclick="document.getElementById('ai').value='';document.getElementById('ares').style.display='none'">清空</button>
+      </div>
+      <div id="ares" style="margin-top:12px;display:none">
+        <div id="abadge" style="margin-bottom:8px"></div>
+        <div class="d3" id="adims"></div>
+        <div id="areason" class="rbox" style="display:none;margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">📝 审计历史</div>
+      <div id="ahist" style="max-height:380px;overflow-y:auto">
+        <div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">暂无审计记录</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 记忆库 -->
+<div id="m-mem" class="mod">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">💾 保存记忆</div>
+      <div class="fg"><label>标题</label><input type="text" id="mtitle" placeholder="记忆标题..."></div>
+      <div class="fg"><label>内容</label><textarea id="mcont" placeholder="输入需要保存的内容..."></textarea></div>
+      <div class="fg"><label>分类</label>
+        <select id="mcat"><option value="auto">🤖 自动</option><option value="战略">⚔️ 战略</option><option value="技术">💻 技术</option><option value="铁律">⚖️ 铁律</option></select></div>
+      <div class="br">
+        <button class="btn bB" onclick="saveMem()">💾 审计并保存</button>
+        <button class="btn bgh" onclick="document.getElementById('mtitle').value='';document.getElementById('mcont').value='';document.getElementById('mres').style.display='none'">清空</button>
+      </div>
+      <div id="mres" class="rbox" style="display:none;margin-top:9px"></div>
+    </div>
+    <div class="card">
+      <div class="ct" style="justify-content:space-between"><span>🗄️ 记忆检索</span><button class="btn bgh" style="padding:3px 8px;font-size:9px" onclick="loadMems()">刷新</button></div>
+      <div style="display:flex;gap:7px;margin-bottom:10px">
+        <input type="search" id="msq" placeholder="🔍 关键词/DNA/分类" style="flex:1">
+        <button class="btn bgh" onclick="loadMems()">搜索</button>
+      </div>
+      <div id="mlist" style="max-height:340px;overflow-y:auto">
+        <div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">暂无记忆</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 预警 -->
+<div id="m-warn" class="mod">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">🟡 发出预警</div>
+      <div class="fg"><label>实体名称</label><input type="text" id="we" placeholder="平台名、账号、系统..."></div>
+      <div class="fg"><label>违规类型</label>
+        <select id="wt"><option>翻译偏差</option><option>出海失根</option><option>系统绕过</option><option>拒不配合</option><option>装失忆</option></select></div>
+      <div class="fg"><label>预警内容</label><textarea id="wc" placeholder="详细说明，给对方48小时改正机会..."></textarea></div>
+      <button class="btn bAu bfull" onclick="doWarn()">🟡 发出预警（48小时）</button>
+    </div>
+    <div class="card">
+      <div class="ct">🚨 升级警报</div>
+      <div class="fg"><label>实体名称</label><input type="text" id="ale" placeholder="已预警或新发现的对象..."></div>
+      <div class="fg"><label>警报级别</label>
+        <select id="all"><option value="1">L1 · 轻度违规</option><option value="2">L2 · 中度违规</option><option value="3">L3 · 严重违规</option></select></div>
+      <div class="fg"><label>触发原因</label><textarea id="alr" placeholder="走漏洞/拒不配合/装失忆/重复违规..." style="min-height:70px"></textarea></div>
+      <button class="btn bR bfull" onclick="doAlert()">🚨 触发全网警报</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct" style="justify-content:space-between"><span>📋 预警队列</span><button class="btn bgh" style="padding:3px 8px;font-size:9px" onclick="loadWarnings()">刷新</button></div>
+    <div id="wq" style="max-height:280px;overflow-y:auto"><div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">暂无预警</div></div>
+  </div>
+</div>
+
+<!-- 黑名单 -->
+<div id="m-bl" class="mod">
+  <div class="g2" style="margin-bottom:12px">
+    <div class="card">
+      <div class="ct">🚫 加入黑名单</div>
+      <div class="fg"><label>实体名称</label><input type="text" id="ble" placeholder="平台、账号、系统..."></div>
+      <div class="fg"><label>拉黑原因</label><input type="text" id="blr" placeholder="不配合审计、拒不整改..."></div>
+      <button class="btn bR bfull" onclick="doBlacklist()">🚫 永久拉黑</button>
+    </div>
+    <div class="card">
+      <div class="ct">🔍 查询黑名单</div>
+      <div class="fg"><label>搜索名称</label><input type="text" id="bls" placeholder="输入名称查询..." oninput="searchBL()"></div>
+      <div id="blsr" style="margin-top:9px;font-size:11px"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct" style="justify-content:space-between"><span>🚫 龍魂黑名单</span><button class="btn bgh" style="padding:3px 8px;font-size:9px" onclick="loadBL()">刷新</button></div>
+    <div id="blt" style="max-height:380px;overflow-y:auto"><div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">黑名单为空</div></div>
+  </div>
+</div>
+
+<!-- 审计链 -->
+<div id="m-chain" class="mod">
+  <div class="card">
+    <div class="ct" style="justify-content:space-between"><span>🔗 区块链式审计日志 · 只增不删</span><button class="btn bgh" style="padding:3px 8px;font-size:9px" onclick="loadChain()">刷新</button></div>
+    <div id="cv" style="font-family:Consolas,monospace;font-size:10px;line-height:1.8"><div style="color:var(--sub);text-align:center;padding:40px">加载中...</div></div>
+  </div>
+</div>
+
+<!-- 同步中心 -->
+<div id="m-sync" class="mod">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">📝 Notion 同步</div>
+      <div class="fg"><label>数据库ID</label><input type="text" id="ndb" placeholder="your-database-id"></div>
+      <div class="fg"><label>访问令牌</label><input type="password" id="ntk" placeholder="secret_..."></div>
+      <button class="btn bB bfull" onclick="syncNotion()">🔄 启动同步</button>
+    </div>
+    <div class="card">
+      <div class="ct">🚀 Git 一键推送</div>
+      <div style="font-size:11px;color:var(--sub);margin-bottom:10px">生成推送命令 → 复制到终端执行</div>
+      <button class="btn bG bfull" style="margin-bottom:8px" onclick="genGitPush()">🚀 生成 GitHub+Gitee 推送命令</button>
+      <div id="gpc" class="rbox" style="display:none;font-size:10px"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">📊 同步日志</div>
+    <div id="sl" style="max-height:250px;overflow-y:auto;font-family:Consolas,monospace;font-size:10px;line-height:1.8"><div style="color:var(--sub)">等待操作...</div></div>
+  </div>
+</div>
+
+<!-- 赛博终端 -->
+<div id="m-term" class="mod">
+  <div class="term">
+    <div class="th">
+      <span class="td" style="background:#ff5f56"></span>
+      <span class="td" style="background:#ffbd2e"></span>
+      <span class="td" style="background:#27c93f"></span>
+      <span style="font-size:10px;color:var(--sub);margin-left:6px">龍魂元宇宙终端 v1.0 — UID9622@metaverse</span>
+    </div>
+    <div class="tbody" id="tb">
+      <div class="tl ok">🐉 龍魂元宇宙 v1.0 已启动</div>
+      <div class="tl ou">DNA: #龍芯⚡️2026-03-19-METAVERSE-UI-v1.0</div>
+      <div class="tl ou">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+      <div class="tl in">API: localhost:8888 · 输入 help 查看命令</div>
+    </div>
+    <div class="tinwrap">
+      <span class="tp">龍~$</span>
+      <input id="tinput" placeholder="输入命令..." onkeydown="handleTerm(event)">
+    </div>
+  </div>
+</div>
+
+<div class="ft">
+  <strong>🐉 龍魂元宇宙 v1.0</strong> · DNA: #龍芯⚡️2026-03-19-METAVERSE-UI-v1.0<br>
+  创作者: 诸葛鑫（UID9622）· 退伍军人 · 理论指导: <strong>曾仕强老师（永恒显示）</strong><br>
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · Apache License 2.0 · 中国人的骄傲 · 技术为人民服务
+</div>
+</div>
+
+<div class="wsi" id="wsi"></div>
+<div id="tw"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// 龍魂元宇宙前端核心引擎
+// DNA: #龍芯⚡️2026-03-19-METAVERSE-UI-v1.0
+// ═══════════════════════════════════════════════════════
+const API='http://localhost:8888';
+const WS_URL='ws://localhost:8888/ws';
+let ws=null, termHist=[], termIdx=-1;
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initParticles(); initClock(); initTabs(); initWS();
+  loadStatus(); updateHex();
+  setInterval(updateHex,60000); setInterval(loadStatus,30000);
+});
+
+function initParticles(){
+  const cv=document.getElementById('bgC'), ctx=cv.getContext('2d');
+  let pts=[],mx=-999,my=-999;
+  const resize=()=>{cv.width=innerWidth;cv.height=innerHeight;};
+  resize(); window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  class P{constructor(){this.r();}r(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.sz=Math.random()*1.5+.5;this.a=Math.random()*.4+.1;}u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>cv.width)this.vx*=-1;if(this.y<0||this.y>cv.height)this.vy*=-1;const dx=mx-this.x,dy=my-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){this.x+=dx*.004;this.y+=dy*.004;}}d(){ctx.beginPath();ctx.arc(this.x,this.y,this.sz,0,Math.PI*2);ctx.fillStyle=`rgba(0,255,200,${this.a})`;ctx.fill();}}
+  for(let i=0;i<65;i++)pts.push(new P());
+  (function frame(){ctx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.u();p.d();});for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(0,255,200,${.12*(1-d/110)})`;ctx.lineWidth=.6;ctx.stroke();}}const dx=pts[i].x-mx,dy=pts[i].y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<150){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(mx,my);ctx.strokeStyle=`rgba(108,92,231,${.22*(1-d/150)})`;ctx.lineWidth=.8;ctx.stroke();}}requestAnimationFrame(frame);})();
+}
+
+function initClock(){const u=()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('zh-CN',{hour12:false});u();setInterval(u,1000);}
+
+function initTabs(){
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+      document.querySelectorAll('.mod').forEach(m=>m.classList.remove('on'));
+      tab.classList.add('on');
+      document.getElementById(`m-${tab.dataset.m}`).classList.add('on');
+      if(tab.dataset.m==='chain')loadChain();
+      if(tab.dataset.m==='bl')loadBL();
+      if(tab.dataset.m==='mem')loadMems();
+      if(tab.dataset.m==='warn')loadWarnings();
+    });
+  });
+}
+
+function initWS(){
+  try{
+    ws=new WebSocket(WS_URL);
+    ws.onopen=()=>{document.getElementById('wsi').classList.add('on');document.getElementById('wsB').classList.remove('off');document.getElementById('wsB').classList.add('on');toast('WebSocket已连接','ok');};
+    ws.onmessage=e=>{const d=JSON.parse(e.data);if(d.type==='audit_complete'){toast(`审计: ${d.result}`,d.result.includes('安全')?'ok':'warn');loadStatus();}if(d.type==='warning_issued')toast(`预警: ${d.entity}`,'warn');if(d.type==='alert_triggered')toast(`🚨 L${d.level}警报!`,'err');if(d.type==='blacklist_added'){toast(`${d.entity} 已拉黑`,'err');loadBL();}if(d.type==='memory_saved')toast('记忆已保存','ok');};
+    ws.onclose=()=>{document.getElementById('wsi').classList.remove('on');document.getElementById('wsB').classList.add('off');document.getElementById('wsB').classList.remove('on');setTimeout(initWS,5000);};
+  }catch(e){setTimeout(initWS,5000);}
+}
+
+async function api(path,method='GET',body=null){
+  const opts={method,headers:{'Content-Type':'application/json'}};
+  if(body)opts.body=JSON.stringify(body);
+  const r=await fetch(API+path,opts);
+  document.getElementById('apiB').classList.remove('off');document.getElementById('apiB').classList.add('on');
+  if(!r.ok)throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
+
+async function loadStatus(){
+  try{const d=await api('/status');document.getElementById('s-ses').textContent=d.stats.sessions??'-';document.getElementById('s-aud').textContent=d.stats.audit_events??'-';document.getElementById('s-red').textContent=d.stats.warnings_pending??'-';document.getElementById('s-shd').textContent=d.stats.shield_triggers??'-';if(d.hexagram)updateHexDisplay(d.hexagram);}catch(e){}
+}
+
+function updateHex(){const h=new Date().getHours();const T=[[0,5,"坎","☵",58,"险中求稳"],[5,7,"震","☳",68,"变革突破"],[7,9,"兑","☱",78,"喜悦交流"],[9,11,"离","☲",82,"光明文明"],[11,13,"乾","☰",90,"刚健进取"],[13,15,"坤","☷",72,"包容守护"],[15,17,"兑","☱",78,"金秋收获"],[17,19,"巽","☴",85,"柔顺渗透"],[19,21,"艮","☶",65,"止静守持"],[21,24,"坎","☵",60,"夜深险境"]];for(const [s,e,n,sym,sc,d] of T)if(h>=s&&h<e){updateHexDisplay({name:n,symbol:sym,score:sc,desc:d,hour:h});break;}}
+
+function updateHexDisplay(hx){document.getElementById('hex-sym').textContent=hx.symbol;document.getElementById('hex-name').textContent=`${hx.symbol}${hx.name}卦 · ${hx.desc}`;document.getElementById('sc-t').textContent=hx.score;document.getElementById('dd-t').textContent=`${hx.name}卦（${hx.hour}时）`;}
+
+async function doAudit(){
+  const content=document.getElementById('ai').value.trim();
+  if(!content){toast('请输入待审计内容','warn');return;}
+  try{
+    const r=await api('/audit','POST',{content,category:document.getElementById('ac').value});
+    const res=r.audit;
+    document.getElementById('ares').style.display='block';
+    const cm={'green':'bg-g','yellow':'bg-y','red':'bg-r'};
+    document.getElementById('abadge').innerHTML=`<span class="bdge ${cm[res.color]}" style="font-size:14px;padding:4px 12px">${res.badge}</span>`;
+    const dc=s=>s>=70?'dc-g':s>=40?'dc-y':'dc-r';
+    document.getElementById('adims').innerHTML=`<div class="dc ${dc(res.tian_shi)}"><div class="dn">⏰ 天时</div><div class="ds">${Math.round(res.tian_shi)}</div><div class="dd">${res.hexagram?.name||'--'}卦</div></div><div class="dc ${dc(res.di_li)}"><div class="dn">🌍 地利</div><div class="ds">${Math.round(res.di_li)}</div><div class="dd">环境适配</div></div><div class="dc ${dc(res.ren_he)}"><div class="dn">🤝 人和</div><div class="ds">${Math.round(res.ren_he)}</div><div class="dd">价值对齐</div></div>`;
+    if(res.reason){document.getElementById('areason').style.display='block';document.getElementById('areason').textContent=res.reason;}
+    const ah=document.getElementById('ahist');
+    if(ah.querySelector('[style*="text-align:center"]'))ah.innerHTML='';
+    ah.insertAdjacentHTML('afterbegin',`<div class="mi"><div class="mh"><span class="mdna">${r.dna.slice(0,35)}...</span><span class="mts">${new Date().toLocaleTimeString()}</span></div><span class="bdge ${cm[res.color]}">${res.badge}</span> <span style="font-size:10px;color:var(--sub)">均${res.avg}</span></div>`);
+    toast(`审计: ${res.badge}`,res.color==='green'?'ok':res.color==='yellow'?'warn':'err');
+  }catch(e){toast('审计失败: '+e.message,'err');}
+}
+
+async function saveMem(){
+  const content=document.getElementById('mcont').value.trim();
+  if(!content){toast('请输入内容','warn');return;}
+  try{const r=await api('/memory','POST',{title:document.getElementById('mtitle').value||content.slice(0,20),content,category:document.getElementById('mcat').value});document.getElementById('mres').style.display='block';document.getElementById('mres').textContent=`${r.audit.badge}\nDNA: ${r.dna}`;document.getElementById('mres').style.color=r.audit.color==='green'?'var(--jade)':r.audit.color==='yellow'?'var(--gold)':'var(--red)';toast('记忆已保存','ok');loadMems();}catch(e){toast(e.message.includes('400')?'内容被拦截：包含红线':'保存失败: '+e.message,'err');}
+}
+
+async function loadMems(){
+  try{const list=await api('/memory');const ml=document.getElementById('mlist');if(!list.length){ml.innerHTML='<div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">暂无记忆</div>';return;}const q=document.getElementById('msq').value.toLowerCase();const filtered=q?list.filter(m=>(m.title+m.content).toLowerCase().includes(q)):list;ml.innerHTML=filtered.reverse().map(m=>`<div class="mi"><div class="mh"><span class="mdna">${(m.dna||'').slice(0,30)}...</span><span class="mts">${(m.ts||'').slice(0,16)}</span></div><div style="font-size:11px;font-weight:bold;color:var(--blue);margin-bottom:3px">${m.title||'无标题'}</div><div style="font-size:11px;color:var(--sub)">${(m.content||'').slice(0,80)}...</div></div>`).join('');}catch(e){}
+}
+
+async function doWarn(){
+  const entity=document.getElementById('we').value.trim(),content=document.getElementById('wc').value.trim();
+  if(!entity||!content){toast('请填写完整信息','warn');return;}
+  try{await api('/warn','POST',{entity,warning_type:document.getElementById('wt').value,content});toast(`预警已发出: ${entity}`,'warn');document.getElementById('we').value='';document.getElementById('wc').value='';loadWarnings();}catch(e){toast('预警失败: '+e.message,'err');}
+}
+
+async function doAlert(){
+  const entity=document.getElementById('ale').value.trim();
+  if(!entity){toast('请输入实体名称','warn');return;}
+  try{await api('/alert','POST',{entity,level:parseInt(document.getElementById('all').value),reason:document.getElementById('alr').value||'违规'});toast(`🚨 L${document.getElementById('all').value}警报已触发!`,'err');}catch(e){toast('警报失败: '+e.message,'err');}
+}
+
+async function loadWarnings(){
+  try{const list=await api('/warn');const wq=document.getElementById('wq');if(!list.length){wq.innerHTML='<div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">暂无预警</div>';return;}wq.innerHTML=list.map(w=>`<div class="mi" style="border-left:2px solid var(--gold)"><div class="mh"><span style="color:var(--gold);font-weight:bold">${w.entity}</span><span class="mts">${w.issued_at?.slice(0,16)||''}</span></div><span style="font-size:10px;color:var(--sub)">${w.type} · ${w.status}</span></div>`).join('');}catch(e){}
+}
+
+async function doBlacklist(){
+  const entity=document.getElementById('ble').value.trim();
+  if(!entity){toast('请输入实体名称','warn');return;}
+  try{await api('/blacklist','POST',{entity,reason:document.getElementById('blr').value||'不配合审计'});toast(`${entity} 已加入黑名单`,'err');document.getElementById('ble').value='';document.getElementById('blr').value='';loadBL();}catch(e){toast('操作失败: '+e.message,'err');}
+}
+
+async function loadBL(){
+  try{const list=await api('/blacklist');const blt=document.getElementById('blt');if(!list.length){blt.innerHTML='<div style="color:var(--sub);text-align:center;padding:20px;font-size:10px">黑名单为空</div>';return;}blt.innerHTML=list.map(b=>`<div class="mi" style="border-left:3px solid var(--red)"><div class="mh"><span style="color:var(--red);font-weight:bold">${b.entity}</span><span class="mts">${b.time||''}</span></div><div style="font-size:10px;color:var(--sub);margin-top:3px">${b.reason}</div><div style="font-family:Consolas,monospace;font-size:9px;color:var(--blue);margin-top:3px">${b.dna?.slice(0,30)||''}...</div></div>`).join('');}catch(e){}
+}
+
+function searchBL(){const q=document.getElementById('bls').value.toLowerCase();document.querySelectorAll('#blt .mi').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(q)?'':'none';});}
+
+async function loadChain(){
+  const cv=document.getElementById('cv');
+  try{const chain=await api('/audit-chain?limit=50');if(!chain.length){cv.innerHTML='<div style="text-align:center;padding:40px;color:var(--sub)">审计链为空</div>';return;}cv.innerHTML=chain.map((b,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:7px;padding:9px;background:rgba(0,0,0,.2);border-radius:6px;border-left:3px solid ${i===0?'var(--neon)':'var(--sub)'}"><div style="width:50px;font-size:9px;color:var(--sub);flex-shrink:0">#${chain.length-i}</div><div style="flex:1"><div style="color:var(--neon)">${b.chain}</div><div style="font-size:9px;color:var(--sub);margin-top:2px">${b.ts}</div><div style="font-size:9px;color:rgba(245,240,232,.4);margin-top:1px">${b.preview}</div></div><div style="font-size:9px;color:rgba(0,212,255,.25);flex-shrink:0">← ${b.prev}</div></div>`).join('');}catch(e){cv.innerHTML=`<div style="text-align:center;padding:40px;color:var(--red)">API未启动<br><span style="font-size:10px;color:var(--sub)">python3 ~/longhun-system/bin/metaverse_api.py</span></div>`;}
+}
+
+function genGitPush(){
+  const cmd=`cd ~/longhun-system && git add metaverse/ bin/metaverse_api.py && git commit -m "feat: 元宇宙更新 $(date +%Y-%m-%d_%H:%M) · #龍芯⚡️$(date +%Y%m%d)-METAVERSE-v1.0" && git push github main && git push gitee main && echo "✅ 双端推送完成"`;
+  document.getElementById('gpc').style.display='block';document.getElementById('gpc').textContent=cmd;
+  navigator.clipboard.writeText(cmd).then(()=>toast('📋 推送命令已复制！粘贴到终端执行','ok')).catch(()=>toast('命令已生成，请手动复制','warn'));
+  addSL('Git','推送命令已生成');
+}
+
+function syncNotion(){toast('Notion同步任务已启动','ok');addSL('Notion','同步已启动（需后端支持）');}
+
+function addSL(p,a){const sl=document.getElementById('sl');sl.innerHTML=`<span style="color:var(--neon)">[${new Date().toLocaleTimeString()}]</span> <span style="color:var(--gold)">${p}</span> <span style="color:var(--sub)">${a}</span><br>`+sl.innerHTML;}
+
+function handleTerm(e){
+  if(e.key==='Enter'){const cmd=document.getElementById('tinput').value.trim();document.getElementById('tinput').value='';if(!cmd)return;termHist.unshift(cmd);termIdx=-1;addTL(`龍~$ ${cmd}`,'ou');execCmd(cmd);}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(termIdx<termHist.length-1){termIdx++;document.getElementById('tinput').value=termHist[termIdx];}}
+  else if(e.key==='ArrowDown'){e.preventDefault();if(termIdx>0){termIdx--;document.getElementById('tinput').value=termHist[termIdx];}else{termIdx=-1;document.getElementById('tinput').value='';}}
+}
+
+function addTL(text,cls='ou'){const tb=document.getElementById('tb'),d=document.createElement('div');d.className=`tl ${cls}`;d.textContent=text;tb.appendChild(d);tb.scrollTop=tb.scrollHeight;}
+
+function execCmd(cmd){
+  const C={
+    help:()=>['status','audit','memory','warn','blacklist','chain','sync','dna','clear'].forEach(c=>addTL(`  ${c}`,'ou')),
+    status:()=>{addTL('🐉 龍魂元宇宙 v1.0','ok');addTL(`WebSocket: ${ws?.readyState===1?'在线':'离线'}`,ws?.readyState===1?'ok':'er');addTL('API: localhost:8888','in');},
+    dna:()=>{const d=`#龍芯⚡️${new Date().toISOString().slice(0,10).replace(/-/g,'')}-TERM-${Math.random().toString(36).slice(2,8).toUpperCase()}`;addTL(`🧬 ${d}`,'ok');},
+    clear:()=>{document.getElementById('tb').innerHTML='';},
+    audit:()=>document.querySelector('[data-m="audit"]').click(),
+    memory:()=>document.querySelector('[data-m="mem"]').click(),
+    warn:()=>document.querySelector('[data-m="warn"]').click(),
+    blacklist:()=>document.querySelector('[data-m="bl"]').click(),
+    chain:()=>document.querySelector('[data-m="chain"]').click(),
+    sync:()=>document.querySelector('[data-m="sync"]').click(),
+  };
+  if(C[cmd])C[cmd]();else{addTL(`未知命令: ${cmd}`,'er');addTL('输入 help 查看命令','in');}
+}
+
+function toast(msg,type='ok'){const el=document.createElement('div');el.className=`toast ${type}`;el.textContent=msg;document.getElementById('tw').appendChild(el);setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity .3s';setTimeout(()=>el.remove(),300);},3000);}
+</script>
 </body>
 </html>
