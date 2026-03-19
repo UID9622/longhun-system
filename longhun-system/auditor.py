@@ -568,7 +568,7 @@ def serve(port: int = 9622) -> None:
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\n  审计引擎已停止。再见！")
+        print("\n  审计引擎已停止 | Audit Engine Stopped。再见 | Goodbye！")
 
 
 # ─── CLI 入口 ─────────────────────────────────────────────────────────────────
@@ -646,13 +646,13 @@ def main() -> None:
     elif args.cmd == "log":
         records = read_audit_log(tail=args.tail, color_filter=args.color)
         if not records:
-            print("（无审计记录）")
+            print("（无审计记录 | No audit records）")
         for r in records:
             print(f"{r['color']} [{r['ts']}] {r['action']} · {r['detail']}")
 
     elif args.cmd == "classify":
         cat = auto_classify(args.text)
-        print(f"分类: {cat}")
+        print(f"分类 | Category: {cat}")
 
     elif args.cmd == "serve":
         serve(args.port)

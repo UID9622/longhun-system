@@ -45,7 +45,7 @@ def notion_搜索(关键词):
         json={"query":关键词,"page_size":8})
     结果 = r.json().get("results",[])
     if not 结果:
-        print("  没找到")
+        print("  没找到 | Not Found")
         return
     for i,项 in enumerate(结果):
         类型 = 项.get("object","")
@@ -70,10 +70,10 @@ def notion_新建页面(标题, 内容=""):
     r = requests.post(f"{BASE}/pages", headers=HEADERS, json=payload)
     if r.status_code == 200:
         链接 = r.json().get("url","")
-        print(f"  🟢 页面已创建")
+        print(f"  🟢 页面已创建 | Page Created")
         print(f"     {链接}")
     else:
-        print(f"  🔴 失败: {r.status_code}")
+        print(f"  🔴 失败 | Failed: {r.status_code}")
         print(f"     {r.text[:200]}")
 
 def notion_读取页面(页面ID):
@@ -93,9 +93,9 @@ def notion_追加(页面ID, 文字):
         "paragraph":{"rich_text":[{"text":{"content":文字}}]}}]}
     r = requests.patch(f"{BASE}/blocks/{页面ID}/children", headers=HEADERS, json=payload)
     if r.status_code == 200:
-        print("  🟢 已追加")
+        print("  🟢 已追加 | Appended")
     else:
-        print(f"  🔴 失败: {r.status_code} {r.text[:100]}")
+        print(f"  🔴 失败 | Failed: {r.status_code} {r.text[:100]}")
 
 def notion_查数据库(db_id):
     r = requests.post(f"{BASE}/databases/{db_id}/query", headers=HEADERS, json={})
@@ -112,15 +112,15 @@ def 系统状态():
     r = requests.get(f"{BASE}/users/me", headers=HEADERS)
     if r.status_code == 200:
         名字 = r.json().get("name","未知")
-        print(f"  🟢 Notion API → 已连接 | 用户: {名字}")
+        print(f"  🟢 Notion API → 已连接 | Connected | 用户 | User: {名字}")
     else:
-        print(f"  🔴 Notion API → 未连接 ({r.status_code})")
+        print(f"  🔴 Notion API → 未连接 | Disconnected ({r.status_code})")
     ollama = subprocess.run(["curl","-s","http://localhost:11434/api/tags"],
         capture_output=True, text=True, timeout=3)
     if ollama.returncode == 0 and ollama.stdout:
-        print(f"  🟢 Ollama 本地模型 → 在线")
+        print(f"  🟢 Ollama 本地模型 → 在线 | Online")
     else:
-        print(f"  🟡 Ollama → 未启动（运行: ollama serve）")
+        print(f"  🟡 Ollama → 未启动 | Not Running（运行 | Run: ollama serve）")
 
 def 列出文件():
     路径 = os.path.expanduser("~/longhun-system")
@@ -130,15 +130,15 @@ def 列出文件():
 
 # ============ 主循环 ============
 def 主程序():
-    print("🐉 CNSH·中文编程引擎 v1.0 已启动")
-    print("  输入「帮助」查看所有指令\n")
+    print("🐉 CNSH·中文编程引擎 v1.0 已启动 | CNSH Engine v1.0 Running")
+    print("  输入「帮助」查看所有指令 | Type 「帮助」for commands\n")
 
     # 启动时检查连接
     r = requests.get(f"{BASE}/users/me", headers=HEADERS)
     if r.status_code == 200:
-        print(f"  🟢 Notion API 已接入 | 用户: {r.json().get('name','')}\n")
+        print(f"  🟢 Notion API 已接入 | Connected | 用户 | User: {r.json().get('name','')}\n")
     else:
-        print(f"  🔴 Notion API 未接入，检查Token\n")
+        print(f"  🔴 Notion API 未接入 | Not Connected，检查 | Check Token\n")
 
     while True:
         try:
@@ -179,7 +179,7 @@ def 主程序():
         elif 命令 == "运行" and len(部分) >= 2:
             os.system(f"python3 ~/longhun-system/{部分[1]}")
         else:
-            print("  不认识这个指令，输入「帮助」看看有什么能用的")
+            print("  不认识这个指令 | Unknown command，输入「帮助」看看有什么能用的 | Type 「帮助」for help")
 
 if __name__ == "__main__":
     主程序()

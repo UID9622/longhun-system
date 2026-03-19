@@ -514,10 +514,10 @@ def show_status():
             t.add_row(k, v)
         console.print(t)
     else:
-        print(f"\n🌟 星辰记忆 v{VERSION} · UID{UID}")
-        print(f"  记忆总数: {len(index)} | 仓库: {vault_size/1024:.1f}KB")
-        print(f"  自动写入: {'ON' if config.get('auto_write') else 'OFF (安全)'}")
-        print(f"  仓库路径: {VAULT_ROOT}\n")
+        print(f"\n🌟 星辰记忆 | Star Memory v{VERSION} · UID{UID}")
+        print(f"  记忆总数 | Total Memories: {len(index)} | 仓库 | Vault: {vault_size/1024:.1f}KB")
+        print(f"  自动写入 | Auto-Write: {'ON' if config.get('auto_write') else 'OFF (安全 | Safe)'}")
+        print(f"  仓库路径 | Vault Path: {VAULT_ROOT}\n")
 
 
 def show_search_results(results: List[dict]):
@@ -633,9 +633,9 @@ def cmd_init():
             title="初始化完成", border_style="green"
         ))
     else:
-        print(f"\n🌟 星辰记忆 v{VERSION} 初始化完成")
+        print(f"\n🌟 星辰记忆 | Star Memory v{VERSION} 初始化完成 | Initialized")
         print(f"  DNA: {dna}")
-        print(f"  仓库: {VAULT_ROOT}\n")
+        print(f"  仓库 | Vault: {VAULT_ROOT}\n")
 
     # 迁移旧格式（无版本号的 .json）
     migrated = 0

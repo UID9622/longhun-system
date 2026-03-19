@@ -173,7 +173,8 @@ if USE_FASTAPI:
     @asynccontextmanager
     async def lifespan(app):
         init_db()
-        print(f"🐉 龍魂元宇宙API 端口{PORT} 已启动")
+        print(f"🐉 龍魂元宇宙API | LongHun Metaverse API")
+        print(f"   端口 Port: {PORT} | 状态 Status: 已启动 Running")
         print(f"   DNA: #龍芯⚡️2026-03-19-METAVERSE-API-v1.0")
         yield
 
@@ -375,6 +376,7 @@ if USE_FASTAPI:
             mgr.disconnect(websocket)
 
     if __name__ == "__main__":
+        print(f"🚀 启动中 Starting... | http://localhost:{PORT}")
         uvicorn.run(app, host="0.0.0.0", port=PORT)
 
 # ══════════════════════════════════════════════════════════
@@ -450,5 +452,6 @@ else:
         return jsonify([{"dna": r[0], "entity": r[1], "type": r[2], "content": r[3], "issued_at": r[4], "status": r[5]} for r in rows])
 
     if __name__ == "__main__":
-        print(f"🐉 龍魂元宇宙API (Flask) 端口{PORT}")
+        print(f"🐉 龍魂元宇宙API (Flask fallback) | 端口 Port: {PORT}")
+        print(f"   访问 Open: http://localhost:{PORT}")
         app.run(host="0.0.0.0", port=PORT, debug=False)
