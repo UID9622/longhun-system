@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 天下无欺 · 真相受理处理器 · Truth Report Handler
-DNA: #龍芯⚡️2026-03-19-TRUTH-HANDLER-v1.0
+DNA: #龍芯⚡️2026-03-19-TRUTH-HANDLER-v1.1
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 作者: 诸葛鑫（UID9622）· 退伍军人 · 龍魂系统创始人
 理论指导: 曾仕强老师（永恒显示）
@@ -22,7 +22,8 @@ from urllib.parse import urlparse
 
 BASE = Path(__file__).parent.parent
 REPORTS_LOG = BASE / "logs" / "reports.jsonl"
-REPORTS_LOG.parent.mkdir(exist_ok=True)
+USERS_LOG = BASE / "logs" / "users.jsonl"        # append-only用户档案 · user registry
+USERS_LOG.parent.mkdir(exist_ok=True)
 
 # ── 国家接口路由表（预留，后续对接各国投诉平台）──
 国家接口 = {
@@ -121,6 +122,75 @@ def 查询进度(受理号: str) -> dict:
     return {"错误": f"未找到受理号 {受理号}"}
 
 
+def 注册用户(数据: dict) -> dict:
+    """
+    用户DNA注册 · Register user DNA identity
+    两级：普通用户(U-) / 开发者(DEV-)
+    个人资料本地加密存储，系统只保存公开标识符
+    """
+    dna码 = 数据.get("dna_code", "")
+    if not dna码:
+        return {"错误": "DNA码不能为空"}
+
+    # 检查是否已注册
+    if USERS_LOG.exists():
+        with open(USERS_LOG, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    u = json.loads(line)
+                    if u.get("dna_code") == dna码:
+                        return {"状态": "已存在", "dna_code": dna码, "说明": "此DNA码已注册"}
+                except:
+                    continue
+
+    时间戳 = datetime.now(timezone.utc).isoformat()
+    等级 = 数据.get("tier", "user")
+
+    # 公开存档（不含生物认证ID和私人联系方式）
+    公开档案 = {
+        "dna_code": dna码,
+        "tier": 等级,                          # user / dev
+        "display_name": 数据.get("display_name", "匿名用户"),
+        "country": 数据.get("country", "OTHER"),
+        "gpg_fingerprint": 数据.get("gpg_fingerprint") if 等级 == "dev" else None,
+        "tech_focus": 数据.get("tech_focus") if 等级 == "dev" else None,
+        "registered_at": 时间戳,
+        "contribution_score": 0,
+        "report_count": 0,
+        "status": "active",
+    }
+
+    # append-only写入
+    with open(USERS_LOG, "a", encoding="utf-8") as f:
+        f.write(json.dumps(公开档案, ensure_ascii=False) + "\n")
+
+    print(f"✅ 注册成功 [{等级}] · {dna码}")
+
+    return {
+        "状态": "注册成功",
+        "dna_code": dna码,
+        "tier": 等级,
+        "registered_at": 时间戳,
+        "说明": "身份已锁定。DNA码是你在龍魂系统的唯一凭证，请妥善保管。",
+        "说明_en": "Identity locked. Your DNA code is your only credential. Keep it safe.",
+    }
+
+
+def 查询用户(dna码: str) -> dict:
+    """按DNA码查询用户公开信息 · Query public user profile by DNA code"""
+    if not USERS_LOG.exists():
+        return {"错误": "暂无注册用户"}
+    with open(USERS_LOG, "r", encoding="utf-8") as f:
+        for line in f:
+            try:
+                u = json.loads(line)
+                if u.get("dna_code") == dna码:
+                    return u
+            except:
+                continue
+    return {"错误": f"未找到 {dna码}"}
+
+
 def 统计汇总() -> dict:
     """统计报告汇总 · Statistics summary"""  # get_stats
     if not REPORTS_LOG.exists():
@@ -188,6 +258,25 @@ class 受理处理器(BaseHTTPRequestHandler):  # ReportHTTPHandler
             self._json响应(统计汇总())
             return
 
+        # 用户查询 /api/user?dna=U-xxx
+        if 路径 == "/api/user":
+            from urllib.parse import parse_qs
+            参数 = parse_qs(urlparse(self.path).query)
+            dna = 参数.get("dna", [""])[0]
+            self._json响应(查询用户(dna))
+            return
+
+        # 注册页
+        if 路径 == "/register":
+            注册页 = BASE / "register.html"
+            if 注册页.exists():
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self._cors()
+                self.end_headers()
+                self.wfile.write(注册页.read_bytes())
+            return
+
         self.send_response(404)
         self.end_headers()
 
@@ -200,6 +289,17 @@ class 受理处理器(BaseHTTPRequestHandler):  # ReportHTTPHandler
             try:
                 报告 = json.loads(原始.decode("utf-8"))
                 结果 = 写入报告(报告)
+                self._json响应(结果, 201)
+            except Exception as e:
+                self._json响应({"错误": str(e)}, 400)
+            return
+
+        if 路径 == "/api/register":
+            长度 = int(self.headers.get("Content-Length", 0))
+            原始 = self.rfile.read(长度)
+            try:
+                数据 = json.loads(原始.decode("utf-8"))
+                结果 = 注册用户(数据)
                 self._json响应(结果, 201)
             except Exception as e:
                 self._json响应({"错误": str(e)}, 400)
@@ -225,11 +325,15 @@ def 启动服务(端口: int = 8766):  # start_server
     print(f"""
 🐉 天下无欺 · 真相受理台 已启动
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📍 本地访问:  http://localhost:{端口}
-📋 提交接口:  POST http://localhost:{端口}/api/report
-🔍 进度查询:  GET  http://localhost:{端口}/api/progress?id=RPT-xxx
-📊 统计汇总:  GET  http://localhost:{端口}/api/stats
-📂 记录存档:  {REPORTS_LOG}
+📍 真相受理台:  http://localhost:{端口}
+🧬 身份注册:   http://localhost:{端口}/register
+📋 提交举报:   POST http://localhost:{端口}/api/report
+🔑 用户注册:   POST http://localhost:{端口}/api/register
+🔍 进度查询:   GET  http://localhost:{端口}/api/progress?id=RPT-xxx
+👤 用户查询:   GET  http://localhost:{端口}/api/user?dna=U-xxx
+📊 统计汇总:   GET  http://localhost:{端口}/api/stats
+📂 举报存档:   {REPORTS_LOG}
+👥 用户档案:   {USERS_LOG}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DNA: #龍芯⚡️2026-03-19-TRUTH-HANDLER-v1.0
 UID9622 · 诸葛鑫 · 天下无欺
