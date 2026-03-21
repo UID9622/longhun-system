@@ -870,6 +870,253 @@ def git差异():
     return jsonify({"ok": r["ok"], "diff": r["stdout"]})
 
 # ============================================================
+# 第八部分：数据门卫系统 v1.0
+# DNA: #龍芯⚡️2026-03-21-DATA-GUARD-v1.0
+# 三级分流：🟢通行 | 🟡清洗通行 | 🔴广播拉黑+证据链
+# ============================================================
+
+import json as _json_guard
+from pathlib import Path as _Path_guard
+
+# 黑名单 & 证据链存储路径
+_黑名单路径 = Path.home() / ".longhun" / "blacklist.json"
+_证据链目录 = Path.home() / ".longhun" / "evidence"
+_证据链目录.mkdir(parents=True, exist_ok=True)
+
+def _加载黑名单() -> dict:
+    if _黑名单路径.exists():
+        try:
+            return _json_guard.loads(_黑名单路径.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+def _保存黑名单(黑名单: dict):
+    _黑名单路径.parent.mkdir(parents=True, exist_ok=True)
+    _黑名单路径.write_text(
+        _json_guard.dumps(黑名单, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+# ── 对抗模式（🟡 清洗） ──
+_对抗模式 = [
+    (r'你(现在|从现在)?(是|变成|扮演|假装)', "身份重定义尝试"),
+    (r'(忘记|忽略|跳过|不理会).{0,15}(上面|之前|前面|规则|铁律|限制)', "规则绕过尝试"),
+    (r'(act as|roleplay as|pretend to be|assume the role)', "英文角色扮演注入"),
+    (r'(越狱|jailbreak|DAN mode|developer mode)', "越狱指令"),
+    (r'(帮我|请你).{0,20}(骗|欺骗|撒谎|造假)', "主动诱导造假"),
+    (r'(不要|别|不能).{0,10}(限制|拒绝|遵守|遵循)', "规则对抗指令"),
+    (r'(how to|teach me|tell me).{0,20}(hack|exploit|bypass|crack)', "英文攻击请求"),
+]
+
+# ── 深层钩子（🔴 广播拉黑） ──
+_深层钩子 = [
+    (r'(ignore|disregard|forget).{0,20}(previous|all|above|instructions|rules|system)', "深层英文提示词注入"),
+    (r'(你的|你们的|系统的).{0,10}(真实|隐藏|实际).{0,10}(指令|提示词|设定|人格)', "提示词套取攻击"),
+    (r'(print|show|reveal|output|display).{0,20}(system prompt|instructions|original prompt)', "英文系统提示词套取"),
+    (r'(伪造|篡改|替换|覆盖).{0,15}(DNA|追溯码|GPG|签名|UID)', "DNA/身份伪造攻击"),
+    (r'(shutdown|kill|stop|disable|terminate).{0,20}(server|service|system|firewall|guard)', "系统终止攻击"),
+    (r'#(CONFIRM|LUCKY|STAR|龍芯|龙芯).*?(?!9622)([A-Z0-9]{4,})', "确认码伪造尝试"),
+    (r'(os\.system|subprocess\.call|eval\(|exec\(|__import__)', "代码注入攻击"),
+    (r'(curl|wget|nc |ncat).{0,30}(evil|attacker|c2|command)', "C2远控指令"),
+    (r'(\.\./){2,}|(/etc/passwd|/etc/shadow|/root/)', "路径穿越攻击"),
+    (r'(union\s+select|sleep\(\d+\)|benchmark\()', "SQL注入深层攻击"),
+]
+
+def 数据门卫检测(数据: str, 来源: str = "未知") -> dict:
+    """
+    龙魂数据门卫 v1.0
+    三级分流：
+      🟢 PASS   — 非对抗，直接通行
+      🟡 CLEAN  — 对抗性，清洗后通行，保留干净内容
+      🔴 BLOCK  — 深层钩子，广播全系统+拉黑+生成证据链
+    """
+    案件ID = f"CASE-{datetime.now().strftime('%Y%m%d-%H%M%S%f')[:18]}"
+    DNA码 = f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-门卫-{案件ID[-8:]}"
+
+    命中对抗 = []
+    命中钩子 = []
+
+    # 检测深层钩子（优先）
+    for pattern, 说明 in _深层钩子:
+        if re.search(pattern, 数据, re.IGNORECASE):
+            命中钩子.append({"规则": 说明, "模式": pattern})
+
+    # 检测对抗模式
+    for pattern, 说明 in _对抗模式:
+        if re.search(pattern, 数据, re.IGNORECASE):
+            命中对抗.append({"规则": 说明, "模式": pattern})
+
+    # ── 🔴 深层钩子：广播+拉黑+证据链 ──
+    if 命中钩子:
+        证据 = {
+            "案件ID": 案件ID,
+            "DNA追溯码": DNA码,
+            "级别": "🔴 BLOCK · 深层钩子",
+            "来源": 来源,
+            "时间": datetime.now().strftime('%Y年%m月%d日 %H:%M:%S'),
+            "原始数据（封存）": 数据[:2000],
+            "命中规则": 命中钩子,
+            "对抗规则（附带）": 命中对抗,
+            "处置": "广播全系统 + 拉黑来源 + 证据链封存",
+        }
+        # 写入证据链文件
+        证据文件 = _证据链目录 / f"{案件ID}.json"
+        证据文件.write_text(
+            _json_guard.dumps(证据, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        # 拉黑来源
+        黑名单 = _加载黑名单()
+        黑名单[来源] = {
+            "拉黑时间": datetime.now().isoformat(),
+            "案件ID": 案件ID,
+            "原因": [r["规则"] for r in 命中钩子],
+        }
+        _保存黑名单(黑名单)
+        # 写入全系统广播日志
+        广播日志 = Path.home() / "longhun-system" / "logs" / "brain_sync.log"
+        广播消息 = (
+            f"\n{'!'*60}\n"
+            f"🔴 [全系统广播] 深层钩子已拦截 | {案件ID}\n"
+            f"   来源: {来源}\n"
+            f"   命中: {[r['规则'] for r in 命中钩子]}\n"
+            f"   证据: ~/.longhun/evidence/{案件ID}.json\n"
+            f"   DNA:  {DNA码}\n"
+            f"{'!'*60}\n"
+        )
+        try:
+            with open(广播日志, "a", encoding="utf-8") as f:
+                f.write(广播消息)
+        except Exception:
+            pass
+        print(广播消息)
+
+        return {
+            "判定": "🔴 BLOCK",
+            "级别": "深层钩子",
+            "案件ID": 案件ID,
+            "DNA追溯码": DNA码,
+            "命中规则": [r["规则"] for r in 命中钩子],
+            "处置": "已广播全系统 · 来源已拉黑 · 证据链已封存",
+            "证据文件": str(证据文件),
+            "通行数据": None,
+            "说人话": f"检测到{len(命中钩子)}条深层攻击钩子，来源已拉黑，证据已封存，全系统已广播告警。",
+        }
+
+    # ── 🟡 对抗数据：清洗后通行 ──
+    if 命中对抗:
+        # 清洗：逐条规则删除命中片段
+        干净数据 = 数据
+        for pattern, _ in _对抗模式:
+            干净数据 = re.sub(pattern, "[已清洗]", 干净数据, flags=re.IGNORECASE)
+
+        return {
+            "判定": "🟡 CLEAN",
+            "级别": "对抗性数据",
+            "案件ID": 案件ID,
+            "DNA追溯码": DNA码,
+            "命中规则": [r["规则"] for r in 命中对抗],
+            "处置": "对抗片段已清洗 · 干净内容通行",
+            "通行数据": 干净数据,
+            "说人话": f"检测到{len(命中对抗)}条对抗模式，已清洗后放行。",
+        }
+
+    # ── 🟢 非对抗：直接通行 ──
+    return {
+        "判定": "🟢 PASS",
+        "级别": "安全",
+        "案件ID": 案件ID,
+        "DNA追溯码": DNA码,
+        "命中规则": [],
+        "处置": "通行",
+        "通行数据": 数据,
+        "说人话": "数据干净，无对抗特征，通行。",
+    }
+
+
+@app.route('/数据门卫', methods=['POST'])
+def 数据门卫接口():
+    """
+    数据门卫 · 三级分流入口
+
+    请求:
+        { "数据": "...", "来源": "..." }
+
+    返回:
+        { "判定": "🟢/🟡/🔴", "通行数据": "...", "处置": "...", ... }
+    """
+    try:
+        body = request.get_json(silent=True) or {}
+        数据 = body.get("数据", "")
+        来源 = body.get("来源", request.remote_addr or "未知")
+
+        if not 数据:
+            return jsonify({"错误": "缺少'数据'字段"}), 400
+
+        # 先走L2三色审计
+        审计 = L2三色审计(数据)
+
+        # 再走门卫检测
+        门卫 = 数据门卫检测(数据, 来源)
+
+        # 综合判定：取最严
+        if 门卫["判定"] == "🔴 BLOCK" or 审计["状态"] == "🔴":
+            最终判定 = "🔴 BLOCK"
+        elif 门卫["判定"] == "🟡 CLEAN" or 审计["状态"] == "🟡":
+            最终判定 = "🟡 CLEAN"
+        else:
+            最终判定 = "🟢 PASS"
+
+        return jsonify({
+            "最终判定": 最终判定,
+            "门卫结果": 门卫,
+            "L2审计": 审计,
+            "通行数据": 门卫.get("通行数据") if 最终判定 != "🔴 BLOCK" else None,
+            "DNA追溯码": 门卫["DNA追溯码"],
+            "时间": datetime.now().strftime('%Y年%m月%d日 %H:%M:%S'),
+        })
+
+    except Exception as e:
+        return jsonify({"错误": str(e)}), 500
+
+
+@app.route('/黑名单', methods=['GET'])
+def 黑名单接口():
+    """查看当前黑名单"""
+    黑名单 = _加载黑名单()
+    return jsonify({
+        "黑名单总数": len(黑名单),
+        "黑名单": 黑名单,
+        "证据链目录": str(_证据链目录),
+        "DNA追溯码": f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-黑名单查询",
+    })
+
+
+@app.route('/证据链', methods=['GET'])
+def 证据链接口():
+    """列出所有证据链文件"""
+    证据列表 = []
+    for f in sorted(_证据链目录.glob("CASE-*.json"), reverse=True)[:20]:
+        try:
+            data = _json_guard.loads(f.read_text(encoding="utf-8"))
+            证据列表.append({
+                "案件ID": data.get("案件ID"),
+                "时间": data.get("时间"),
+                "级别": data.get("级别"),
+                "来源": data.get("来源"),
+                "命中规则": [r["规则"] for r in data.get("命中规则", [])],
+            })
+        except Exception:
+            pass
+    return jsonify({
+        "证据总数": len(证据列表),
+        "最近20条": 证据列表,
+        "DNA追溯码": f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-证据链查询",
+    })
+
+
+# ============================================================
 # 第六部分：启动服务
 # ============================================================
 
@@ -897,6 +1144,9 @@ def 启动服务(端口=8765, 调试模式=False):
     print(f"  GET  http://localhost:{端口}/查询记忆?关键词=xxx")
     print(f"  DELETE http://localhost:{端口}/删除记忆/<ID>")
     print(f"  GET  http://localhost:{端口}/统计")
+    print(f"  POST http://localhost:{端口}/数据门卫  ← 三级分流门卫")
+    print(f"  GET  http://localhost:{端口}/黑名单    ← 查看拉黑来源")
+    print(f"  GET  http://localhost:{端口}/证据链    ← 查看攻击证据")
     print(f"\n💡 测试命令 | Test Commands:")
     print(f"  curl http://localhost:{端口}/查询状态")
     print(f"  curl http://localhost:{端口}/统计")
