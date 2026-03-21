@@ -917,12 +917,21 @@ def 启动服务(端口=8765, 调试模式=False):
     else:
         print(f"⚠️  沙盒推演引擎未加载 | Sandbox engine not loaded，请检查 sandbox_engine.py")
 
+    # 自签名TLS证书
+    from pathlib import Path as _P
+    _cert = _P.home() / ".longhorn" / "certs" / "longhun_server.crt"
+    _key  = _P.home() / ".longhorn" / "certs" / "longhun_server.key"
+    _ssl  = (_cert.exists() and _key.exists())
+    _scheme = "https" if _ssl else "http"
+    print(f"   TLS: {'✅ 自签名证书' if _ssl else '❌ 回退HTTP'}")
+    print(f"   地址: {_scheme}://0.0.0.0:{端口}")
     try:
         app.run(
-            host='0.0.0.0',  # 监听所有接口
+            host='0.0.0.0',
             port=端口,
             debug=调试模式,
-            use_reloader=False  # 避免重复启动
+            use_reloader=False,
+            **( {"ssl_context": (str(_cert), str(_key))} if _ssl else {} )
         )
     except KeyboardInterrupt:
         print("\n\n⏹️  服务已停止 | Service Stopped")
