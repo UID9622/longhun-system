@@ -525,3 +525,14 @@ UID9622声明意图的方式：
 **GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
+
+## 每日数据收集任务（本地Claude执行）
+每次会话开始时，如果今日未执行，自动运行：
+1. `python3 ~/longhun-system/bin/session_end.sh` 检查昨日session_log
+2. 读取 `~/longhun-system/memory.jsonl` 最新5条确认完整性
+3. 通过MCP读取 Claude観察层（`32c7125a-9c9f-819a-a8c3-f5eb189f83b0`）最新内容
+4. 如有未备份的重要对话摘要，追加到memory.jsonl
+
+## ChatGPT对话找回建议
+ChatGPT有"导出数据"功能（设置→数据控制→导出），导出后是JSON文件。
+可以一次性导出，放入 `~/CreativeArchive/文字创作/龍魂文档/chatgpt-export/`
