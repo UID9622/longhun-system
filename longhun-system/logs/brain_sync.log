@@ -243,3 +243,12 @@
   🔴 展示脑: 'latin-1' codec can't encode characters in position 70-75: ordinal not in range(256)
   🔴 内核脑: Token未配置
 🔴 展示脑未连通 | Display-Brain not connected，中止同步 | Sync aborted
+
+══════════════════════════════════════════════════════
+  龍魂·双脑同步引擎 v1.1 | Dual-Brain Sync Engine v1.1
+  2026-03-25 03:00:00
+══════════════════════════════════════════════════════
+【双脑连通检测 | Dual-Brain Connectivity Check】
+  🔴 展示脑: 'latin-1' codec can't encode characters in position 70-75: ordinal not in range(256)
+  🔴 内核脑: Token未配置
+🔴 展示脑未连通 | Display-Brain not connected，中止同步 | Sync aborted
