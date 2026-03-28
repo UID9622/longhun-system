@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#DAA520"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="200" rx="15" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+  <text x="300" y="60" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="url(#goldGrad)" font-style="italic">「知其白，守其黑，為天下式」</text>
+  <text x="300" y="100" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#888">——《道德經》第二十八章</text>
+  <line x1="150" y1="125" x2="450" y2="125" stroke="#444" stroke-width="1"/>
+  <text x="300" y="160" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="18" fill="#aaa">敞亮與私密，各守其位，這就是天下的規矩</text>
+</svg>

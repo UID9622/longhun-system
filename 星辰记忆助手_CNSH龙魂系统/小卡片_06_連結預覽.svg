@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#DAA520"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="600" fill="#0a0a1a"/>
+  
+  <!-- 卡片1：标题 -->
+  <rect x="50" y="50" width="200" height="150" rx="10" fill="#1a1a2e" stroke="url(#goldGrad)" stroke-width="2"/>
+  <text x="150" y="100" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#FFD700">卡片1：標題</text>
+  <text x="150" y="140" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">小卡片_01_標題卡.svg</text>
+  <text x="150" y="170" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">600×300</text>
+  
+  <!-- 箭头1 -->
+  <line x1="260" y1="125" x2="290" y2="125" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 卡片2：公開層 -->
+  <rect x="300" y="50" width="200" height="200" rx="10" fill="#0a1a0a" stroke="#228B22" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#32CD32">卡片2：公開層</text>
+  <text x="400" y="140" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">小卡片_02_公開層.svg</text>
+  <text x="400" y="170" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">600×400</text>
+  <text x="400" y="210" text-anchor="middle" font-family="monospace" font-size="10" fill="#228B22">綠色主題</text>
+  
+  <!-- 箭头2 -->
+  <path d="M400 260 L400 290" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 卡片3：DNA層 -->
+  <rect x="300" y="300" width="200" height="200" rx="10" fill="#1a0a1a" stroke="#9370DB" stroke-width="2"/>
+  <text x="400" y="350" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#9370DB">卡片3：DNA層</text>
+  <text x="400" y="390" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">小卡片_03_DNA層.svg</text>
+  <text x="400" y="420" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">600×400</text>
+  <text x="400" y="460" text-anchor="middle" font-family="monospace" font-size="10" fill="#9370DB">紫色主題</text>
+  
+  <!-- 箭头3 -->
+  <line x1="510" y1="400" x2="540" y2="400" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 卡片4：熔斷 -->
+  <rect x="550" y="330" width="200" height="140" rx="10" fill="#2a0a0a" stroke="#DC143C" stroke-width="3"/>
+  <text x="650" y="380" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#fff">卡片4：熔斷</text>
+  <text x="650" y="420" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">小卡片_04_熔斷機制.svg</text>
+  <text x="650" y="450" text-anchor="middle" font-family="monospace" font-size="10" fill="#DC143C">紅色警示</text>
+  
+  <!-- 箭头4 -->
+  <line x1="760" y1="400" x2="790" y2="400" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 卡片5：道德經 -->
+  <rect x="800" y="350" width="200" height="100" rx="10" fill="#1a1a2e" stroke="#DAA520" stroke-width="2"/>
+  <text x="900" y="390" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#DAA520">卡片5：道德經</text>
+  <text x="900" y="430" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">小卡片_05_道德經.svg</text>
+  
+  <!-- 说明文字 -->
+  <text x="600" y="550" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#aaa">五張卡片 · 可單獨使用 · 可自由組合</text>
+  <text x="600" y="580" text-anchor="middle" font-family="monospace" font-size="14" fill="#666">像積木一樣拼接，適配不同場景</text>
+</svg>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SVG转PNG工具</title>
+    <style>
+        body {
+            background: #0a0a1a;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { color: #FFD700; }
+        .container { margin: 20px 0; }
+        canvas {
+            border: 2px solid #333;
+            max-width: 100%;
+            background: #000;
+        }
+        .btn {
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .btn:hover { opacity: 0.9; }
+        .info {
+            color: #888;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐉 龍魂安全贴 · SVG转PNG工具</h1>
+    
+    <div class="container">
+        <input type="file" id="svgInput" accept=".svg" style="display:none">
+        <button class="btn" onclick="document.getElementById('svgInput').click()">📁 选择SVG文件</button>
+        <button class="btn" onclick="convertCurrent()">🔄 转换为PNG</button>
+        <button class="btn" onclick="downloadPNG()">💾 下载PNG</button>
+    </div>
+    
+    <div class="info">
+        <p>默认转换: <strong>龍魂安全贴_桌面版_1920x1080.svg</strong></p>
+        <p>输出尺寸: 1920 × 1080 像素</p>
+    </div>
+    
+    <canvas id="canvas" width="1920" height="1080" style="display:none;"></canvas>
+    
+    <div id="preview" style="margin-top:20px;">
+        <p style="color:#666;">转换后的图片将显示在这里</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let currentSVG = null;
+
+        // 加载默认SVG
+        window.onload = function() {
+            loadSVG('龍魂安全贴_桌面版_1920x1080.svg');
+        };
+
+        document.getElementById('svgInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                loadSVG(url);
+            }
+        });
+
+        function loadSVG(url) {
+            currentSVG = url;
+            convertCurrent();
+        }
+
+        function convertCurrent() {
+            if (!currentSVG) {
+                alert('请先选择SVG文件');
+                return;
+            }
+
+            const img = new Image();
+            img.onload = function() {
+                // 清空画布
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // 绘制SVG
+                ctx.drawImage(img, 0, 0, 1920, 1080);
+                
+                // 显示预览
+                const dataURL = canvas.toDataURL('image/png');
+                const preview = document.getElementById('preview');
+                preview.innerHTML = `<img src="${dataURL}" style="max-width:100%;border:2px solid #333;">`;
+            };
+            img.src = currentSVG;
+        }
+
+        function downloadPNG() {
+            const link = document.createElement('a');
+            link.download = '龍魂安全贴_桌面壁纸.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // 自动转换默认SVG
+        setTimeout(() => {
+            fetch('龍魂安全贴_桌面版_1920x1080.svg')
+                .then(r => r.blob())
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    loadSVG(url);
+                })
+                .catch(() => {
+                    document.querySelector('.info').innerHTML += '<p style="color:#DC143C;">⚠️ 自动加载失败，请手动选择文件</p>';
+                });
+        }, 500);
+    </script>
+</body>
+</html>
