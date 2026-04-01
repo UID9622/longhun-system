@@ -449,6 +449,9 @@ def main():
         if not 找到:
             print("🔴 未找到 cnsh_status.json，请先运行: 龍 iOS桥接")
 
+    elif 指令 in ("启动", "起来", "开机", "服务"):
+        运行(["bash", str(BASE / "bin" / "启动所有服务.sh")])
+
     elif 指令 in ("帮助", "help", "--help", "-h"):
         print(帮助文本)
 
