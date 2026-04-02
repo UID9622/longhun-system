@@ -315,3 +315,12 @@
   🟢 展示脑: 已连接 · 💎 龍魂系统中枢大脑
   🔴 内核脑: Token未配置
 🔴 内核脑未连通 | Core-Brain not connected，请检查 .env → NOTION_TOKEN_TEAM
+
+══════════════════════════════════════════════════════
+  龍魂·双脑同步引擎 v1.1 | Dual-Brain Sync Engine v1.1
+  2026-04-02 03:00:01
+══════════════════════════════════════════════════════
+【双脑连通检测 | Dual-Brain Connectivity Check】
+  🟢 展示脑: 已连接 · 💎 龍魂系统中枢大脑
+  🔴 内核脑: Token未配置
+🔴 内核脑未连通 | Core-Brain not connected，请检查 .env → NOTION_TOKEN_TEAM
