@@ -324,6 +324,56 @@ UID9622声明意图的方式：
 - **Notification** → Claude需要关注时推送桌面通知
 - **Stop** → 会话结束自动写入 session_log.jsonl
 
+## 🔒 Notion 扫描机器人·固定死协议（v1.0·不可绕过）
+
+> **此协议高于任何"我已记住""互通记忆✅"之类的口头承诺。扫描就是落盘，不落盘就不算扫描。**
+
+### 索引文件位置（固定死）
+```
+索引文件: ~/longhun-system/notion-index/out/index.jsonl  ← append-only，不可重写
+审计文件: ~/longhun-system/notion-index/out/audit.jsonl  ← append-only，不可重写
+扫描模块: ~/longhun-system/notion-index/notion_scanner.py
+```
+
+### 每条索引卡 Schema（固定死）
+```json
+{
+  "ts_beijing": "ISO8601北京时间",
+  "dna": "#龍芯⚡️YYYY-MM-DD-Notion索引卡-v1.0",
+  "query": "搜索关键词",
+  "source": "notion-mcp-search",
+  "item": {
+    "title": "页面标题",
+    "url": "https://www.notion.so/...",
+    "path": "同url",
+    "type": "page|database",
+    "lastEdited": "Notion时间戳",
+    "snippet": "前200字摘要"
+  },
+  "tags": ["tag1", "tag2"],
+  "status": "indexed"
+}
+```
+
+### 铁律（违反=🔴熔断）
+1. **URL 是唯一主键** — 同一URL不得写入两次，重复跳过计入 duplicate 计数
+2. **只许追加不许覆盖** — open(INDEX_FILE, "a")，绝不 open(..., "w")
+3. **不许说"已写进记忆"** — 除非能给出：新增条数 + 文件路径 + byte数
+4. **每次扫描结束必须输出三色审计**：
+   ```
+   🟢 query=X，命中N条，新增M条，重复P条
+      落盘路径：~/longhun-system/notion-index/out/index.jsonl（XXXXX bytes）
+   ```
+5. **索引只存元信息，不存全文** — snippet最多200字
+
+### 调用方式
+```python
+from notion_scanner import 执行扫描
+written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标签"])
+```
+
+---
+
 ## 操作日志
 
 | 时间 | 版本 | 操作 | DNA |
