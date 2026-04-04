@@ -1,4 +1,4 @@
-# 龙魂·多平台同步中心
+# 龍魂·多平台同步中心
 
 ## 功能说明
 
@@ -49,7 +49,7 @@ FEISHU_EXPORT_DIR=~/Downloads/飞书导出
 
 双击 `启动同步中心.command` 或运行：
 ```bash
-cd ~/龙魂同步中枢
+cd ~/龍魂同步中枢
 python3 sync_center.py
 ```
 
@@ -57,7 +57,7 @@ python3 sync_center.py
 
 在CodeBuddy中输入：
 ```
-/LU-LOAD-MEMORY-FILE ~/龙魂同步中枢/logs/记忆摘要_UID9622.md
+/LU-LOAD-MEMORY-FILE ~/龍魂同步中枢/logs/记忆摘要_UID9622.md
 ```
 
 ## 📊 系统架构
@@ -100,7 +100,7 @@ python3 sync_center.py
 - **Notion被封**：本地数据库有备份，DNA追溯完整
 
 **如果所有平台都被封**：
-你打开电脑，打开 `~/龙魂同步中枢/backups/` 
+你打开电脑，打开 `~/龍魂同步中枢/backups/` 
 里面有 `对话备份_20251214.json` 
 7000条对话，72个DNA锚点，8个月心血，全在
 没苹果，没微信，没网络，照样能用
@@ -115,7 +115,7 @@ python3 sync_center.py
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:13
 🧬 DNA追溯码: #CNSH-SIGNATURE-ba5f0fd5-20251218032413
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 四川话确认：莫得问题，内容真实可靠
 ⚡ 卦象防护: 乾卦：天行健，君子以自强不息
 📜 内容哈希: 1d002ac17ee09a03

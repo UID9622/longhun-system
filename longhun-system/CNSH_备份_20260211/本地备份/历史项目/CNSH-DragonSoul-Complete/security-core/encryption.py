@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🔐 七维加密系统 | Seven-Dimension Encryption
-DNA追溯码: #龙芯⚡️2026-01-21-七维加密-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-七维加密-v2.0
 
 七维加密层：
 1. 设备指纹层 - 绑定特定设备
@@ -197,7 +197,7 @@ class SevenDimensionEncryption:
         """生成DNA追溯码"""
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         random_part = os.urandom(4).hex().upper()
-        return f"#龙芯⚡️{timestamp}-ENC-{random_part}"
+        return f"#龍芯⚡️{timestamp}-ENC-{random_part}"
     
     def _derive_composite_key(self, context: EncryptionContext) -> bytes:
         """从上下文派生复合密钥"""
@@ -309,7 +309,7 @@ if __name__ == "__main__":
     
     # 测试数据
     sensitive_data = {
-        "user": "龙芯北辰",
+        "user": "龍芯北辰",
         "api_keys": {
             "claude": "sk-xxx-hidden",
             "deepseek": "sk-xxx-hidden"

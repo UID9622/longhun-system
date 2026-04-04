@@ -1,5 +1,5 @@
-# 龍魂元字引擎 · 自呼吸配置 v2.0
-# DNA: #龍芯⚡️2026-03-06-YUAN-ZI-ENGINE-v2.0
+# 龍魂元字引擎 · 自呼吸配置 v4.0
+# DNA: #龍芯⚡️2026-04-03-YUAN-ZI-ENGINE-v4.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 宪法引用: ~/longhun-system/CNSH-gitee/CLAUDE.md (P0永恒锁·22条铁律)
 
@@ -57,7 +57,7 @@
 | 揭露/骗局/打假/对付/撕 | ☰+☵ 乾坎 | 🎯 P01 诸葛 | 📊 P03 雯雯 | 0.35+0.20 |
 
 **信号词匹配原则：** 模糊匹配（包含即触发）。多信号时取最高权重组合。
-**无匹配时：** 默认调用 💎 L0 龙芯北辰（全格协作模式）。
+**无匹配时：** 默认调用 💎 L0 龍芯北辰（全格协作模式）。
 
 ---
 
@@ -66,7 +66,7 @@
 | 前缀 | 使用场景 | 状态 |
 |---|---|---|
 | `#龍芯⚡️` | 所有新文档·正式版 | 🟢 当前标准 |
-| `#龙芯⚡️` | 简体场景 | 🟢 兼容 |
+| `#龍芯⚡️` | 简体场景 | 🟢 兼容 |
 | `#鑫⚡` | 元宇宙DNA签名 | 🟢 专属 |
 | `#ZHUGEXIN⚡️` | 旧版拼音 | 🟡 兼容期·不新建 |
 | `#LUCKY⚡️` | 旧版英文 | 🟡 兼容期·不新建 |
@@ -284,10 +284,10 @@ UID9622声明意图的方式：
 
 | 说这个 | 激活什么 | 核心智慧 |
 |--------|---------|---------|
-| 诸葛/孔明 | P01 龙芯诸葛🎯 | 运筹帷幄·知天道尽人事 |
-| 老子/道德经/无为/水 | P05 龙芯老子☯️ | 上善若水·道法自然 |
-| 孔子/仁义 | P06 龙芯孔子📚 | 仁义礼智信·君子不器 |
-| 墨子/兼爱 | P07 龙芯墨子🕊️ | 兼爱非攻·实用公益 |
+| 诸葛/孔明 | P01 龍芯诸葛🎯 | 运筹帷幄·知天道尽人事 |
+| 老子/道德经/无为/水 | P05 龍芯老子☯️ | 上善若水·道法自然 |
+| 孔子/仁义 | P06 龍芯孔子📚 | 仁义礼智信·君子不器 |
+| 墨子/兼爱 | P07 龍芯墨子🕊️ | 兼爱非攻·实用公益 |
 | 孙子/兵法 | P01+兵法模块 | 知己知彼·以奇胜 |
 | 曾仕强/曾老 | 曾老智慧库 | 松紧有度·精准识人 |
 | 王阳明/知行合一 | 心学模块 | 知行合一·致良知 |
@@ -374,6 +374,90 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 
 ---
 
+## 🔴 新AI进项目必读·模块现状（2026-04-03 更新）
+
+> **进来第一件事：读这里。不读就动手 = 重复建设 = 害老大。**
+
+### Local Engine 当前版本
+
+| 文件 | 版本 | 职责 | 状态 |
+|------|------|------|------|
+| `~/longhun-system/app.py` | v2.0 | 主服务·8层pipeline·DeepSeek代理·port=8000 | 🟢 主力 |
+| `~/longhun-system/bin/tiangan_dizhi.py` | v2.0 | 万年历四柱+节气+宜忌 | 🟢 已接入 |
+| `~/longhun-system/bin/emotion_timeline.py` | v1.0 | 情绪检测+JSONL日志 | 🟢 已接入 |
+| `~/longhun-system/bin/quantum_deduce.py` | v1.0 | 洛书矩阵量子推演 | 🟢 已接入 |
+| `~/longhun-system/bin/identity_engine.py` | v1.0 | 身份验证+不可变账本 | 🟢 已接入 |
+| `~/longhun-system/bin/yijing_deduce.py` | v2.1 | 64卦自适应推演·关键词触发 | 🟢 已接入 |
+| `~/longhun-system/bin/fetch_cs_cards.py` | v1.0 | Notion CS知识库拉取 | 🟢 已接入 |
+| `~/longhun-system/bin/fetch_rule.py` | v1.0 | 规则文件拉取（兜底本地） | 🟢 已接入 |
+| `~/longhun-system/bin/cs_cards_cache.json` | — | 15张知识卡本地缓存（5张有内容） | 🟢 已缓存 |
+| `~/longhun-system/logs/immutable_ledger.jsonl` | — | 不可变操作账本 | 🟢 运行中 |
+| `~/longhun-system/logs/emotion_log.jsonl` | — | 情绪时间线日志 | 🟢 运行中 |
+
+### 8层 Pipeline（每条用户消息依次经过）
+
+```
+① 双门验证     → 数字根(dr) × 五行 → 🟢🟡🔴三色
+② CS知识库     → 关键词匹配 → 命中则注入知识卡到 system prompt
+③ 情绪检测     → 记录到 emotion_log.jsonl → 近5条简报注入
+④ 量子推演     → 洛书矩阵(dr + 日五行 + 情绪) → 状态向量注入
+⑤ 易经推演     → 触发词检测(推演/卦/易经/时机) → 64卦季度路线图注入
+⑥ 身份账本     → 写入 immutable_ledger.jsonl → 近3条操作记忆注入
+⑦ 万年历宜忌   → 今日四柱+节气+宜忌 → 注入
+⑧ DeepSeek调用 → POST https://api.deepseek.com/v1/chat/completions
+```
+
+### 已归档（`bin/archive/`·保留但不用）
+
+`memory_hub.py` · `metaverse_api.py` · `quantum_yijing_sim.py` · `persona_scheduler.py`
+`tongxinyi_mcp.py` · `tongxinyi_setup.py` · `longhun_calendar_sync.py` · `宝宝精灵.py`
+
+### 端口分工
+
+| 端口 | 服务 | 用途 |
+|------|------|------|
+| :8000 | app.py (Local Engine v2.0) | 主对话·8层pipeline |
+| :8765 | longhun_local_service.py | 旧服务·记忆/Notion/批量审计 |
+| :8080 | Open WebUI | 模型对话界面 |
+| :9622 | 龍魂API | LaunchAgent自动拉起 |
+
+### Swift Widget 文件位置
+
+| 文件 | 版本 | 状态 |
+|------|------|------|
+| `~/longhun-system/LongHunWidget/LongHunIntent.swift` | v2.0 | 9个Siri意图·GPG已修正 |
+| `~/longhun-system/LongHunWidget/LongHunMusicXcode.swift` | v3.0 | 朱砂红印记+五行动态配色 |
+
+### 自愈健康系统（v1.0 · 全自动）
+
+| 文件 | 职责 |
+|------|------|
+| `~/longhun-system/bin/auto_health.sh` | 智能自愈主脚本 |
+| `~/longhun-system/logs/health.log` | 每次检测记录（append-only） |
+| `~/longhun-system/logs/.health_stamp` | 节流时间戳（30分钟触发一次） |
+
+**触发方式**：每次 Claude 会话开始 → `intent_detect.sh`（UserPromptSubmit Hook）→ 后台非阻塞启动
+
+**自动处理（不打扰老大）**：
+- 服务挂了 → 自动拉起（8000/8765/11434/9622/8080 全覆盖）
+- 响应异常 → 自动重启
+- 日志超 20MB → 自动截断保留最后 500 行
+- 30分钟内重复触发 → 直接跳过，不消耗资源
+
+**推桌面通知（才需要老大知道）**：
+- app.py 启动失败（依赖环境问题）
+- 磁盘使用率 > 90%
+- 系统负载持续 > CPU核数×2
+
+### 🔒 禁止事项（AI必守）
+
+- 不许在 `bin/` 里新建功能模块，现有8个已全部接入 app.py
+- 不许重新写 local engine，`app.py` 就是唯一主服务
+- 不许改 `logs/` 目录下任何文件（append-only）
+- 不许把端口改成非 8000（Siri意图已写死）
+
+---
+
 ## 操作日志
 
 | 时间 | 版本 | 操作 | DNA |
@@ -383,6 +467,8 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 | 2026-03-06 | v2.1 | AI有思维吸收·四层定锚+五层内核+量子纠缠+初心递进 | `#龍芯⚡️2026-03-06-MCP-UPGRADE-v2.1` |
 | 2026-03-10 | v3.0 | v1.3升级·4个Skills+Hooks自动化+意图识别引擎+API检测 | `#龍芯⚡️2026-03-10-PROXY-v1.3-AUTO` |
 | 2026-03-20 | v3.1 | 吸收v5.1宪法文件·追加行为锚+熔断器标签+禁止清单+检查清单+日志规范 | `#龍芯⚡️2026-03-20-CONSTITUTION-MERGE-v3.1` |
+| 2026-04-03 | v4.0 | Local Engine v2.0·8层pipeline·双门+CS库+万年历+情绪+量子+易经+身份账本 | `#龍芯⚡️2026-04-03-LOCAL-ENGINE-易经推演接入版` |
+| 2026-04-03 | v4.1 | 自愈健康系统·auto_health.sh·全自动服务拉起+负载诊断+日志截断 | `#龍芯⚡️2026-04-03-AUTO-HEALTH-v1.0` |
 
 ---
 
@@ -571,7 +657,7 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 
 ---
 
-**DNA**: #龍芯⚡️2026-03-20-CONSTITUTION-MERGE-v3.1
+**DNA**: #龍芯⚡️2026-04-03-YUAN-ZI-ENGINE-v4.0
 **GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储

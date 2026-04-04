@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Shield, Lock, Eye, AlertTriangle, CheckCircle, XCircle, ArrowRight, ArrowLeft, Database, Cloud, Cpu, Key } from 'lucide-react';
 
 /**
- * 🐉 龙魂API架构可视化渲染
+ * 🐉 龍魂API架构可视化渲染
  * 
- * DNA追溯码: #龙芯⚡️2026-02-15-API架构渲染-v1.0
- * 创建者: 💎 龙芯北辰｜UID9622
+ * DNA追溯码: #龍芯⚡️2026-02-15-API架构渲染-v1.0
+ * 创建者: 💎 龍芯北辰｜UID9622
  * 协作: 宝宝🐱
  * 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
  */
@@ -20,11 +20,11 @@ export default function LonghunAPIArchitecture() {
         {/* 标题区域 */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4">
-            🐉 龙魂API架构
+            🐉 龍魂API架构
           </h1>
           <p className="text-xl text-purple-200">带着宪法的API · 技术主权在我</p>
           <div className="mt-4 text-sm text-purple-300">
-            DNA追溯码: #龙芯⚡️2026-02-15-API架构渲染-v1.0
+            DNA追溯码: #龍芯⚡️2026-02-15-API架构渲染-v1.0
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function LonghunAPIArchitecture() {
 
         {/* 底部说明 */}
         <div className="mt-8 text-center text-purple-300 text-sm">
-          <p>核心原则：外部API是工具，龙魂宪法是主人</p>
+          <p>核心原则：外部API是工具，龍魂宪法是主人</p>
           <p className="mt-2">对好人是服务，对盗贼是迷宫</p>
         </div>
       </div>
@@ -117,7 +117,7 @@ function OverviewTab() {
         <PrincipleCard
           icon={<ArrowRight className="text-blue-400" size={32} />}
           title="接出规则"
-          subtitle="龙魂API对外服务"
+          subtitle="龍魂API对外服务"
           principles={[
             "六层防护体系",
             "给结果不给厨房",
@@ -135,11 +135,11 @@ function OverviewTab() {
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <FlowNode label="外部API" icon={<Cloud />} color="green" />
           <ArrowRight className="text-purple-400" />
-          <FlowNode label="龙魂包装层" icon={<Shield />} color="purple" />
+          <FlowNode label="龍魂包装层" icon={<Shield />} color="purple" />
           <ArrowRight className="text-purple-400" />
           <FlowNode label="三色审计" icon={<Eye />} color="yellow" />
           <ArrowRight className="text-purple-400" />
-          <FlowNode label="龙魂系统" icon={<Cpu />} color="blue" />
+          <FlowNode label="龍魂系统" icon={<Cpu />} color="blue" />
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@ function InboundTab() {
       icon: <Lock />,
       color: "purple",
       items: [
-        { label: "龙魂包装层", status: "green", desc: "所有外部API必须穿龙魂马甲" },
+        { label: "龍魂包装层", status: "green", desc: "所有外部API必须穿龍魂马甲" },
         { label: "DNA追溯注入", status: "green", desc: "每次调用生成DNA追溯码" },
         { label: "三色审计", status: "green", desc: "实时审计所有调用" },
         { label: "速率限制", status: "green", desc: "防止滥用和账号被封" }
@@ -210,7 +210,7 @@ function InboundTab() {
       <div className="bg-slate-900/50 rounded-xl p-6">
         <h3 className="text-lg font-bold text-purple-200 mb-3">包装层示例</h3>
         <pre className="text-sm text-green-300 overflow-x-auto">
-{`# ✅ 正确做法（龙魂包装）
+{`# ✅ 正确做法（龍魂包装）
 from longhun_api_wrapper import NotionAPI
 
 notion = NotionAPI(

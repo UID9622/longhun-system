@@ -1,6 +1,6 @@
-# 🛡️ 龙魂反盗用哨兵系统 - 使用指南
+# 🛡️ 龍魂反盗用哨兵系统 - 使用指南
 
-**DNA追溯码：** #龙芯⚡️2026-02-02-使用指南-v1.0
+**DNA追溯码：** #龍芯⚡️2026-02-02-使用指南-v1.0
 
 ---
 
@@ -36,7 +36,7 @@ cp -r anti-fraud-sentinel/.github .
 
 # 提交到GitHub
 git add .github
-git commit -m "Add: 龙魂反盗用哨兵系统"
+git commit -m "Add: 龍魂反盗用哨兵系统"
 git push
 ```
 
@@ -49,9 +49,9 @@ git push
 ### 1. DNA追溯码（不可伪造的时间戳）
 
 ```
-格式：#龙芯⚡️YYYY-MM-DD-主题-vX.X
+格式：#龍芯⚡️YYYY-MM-DD-主题-vX.X
 
-示例：#龙芯⚡️2026-02-02-我的创新-v1.0
+示例：#龍芯⚡️2026-02-02-我的创新-v1.0
 ```
 
 **作用：**
@@ -166,14 +166,14 @@ cp templates/combat-ready/innovation_template.md ideas/my_innovation.md
 
 尊敬的 XX：
 
-我是 [项目名] 的原创者（DNA追溯码：#龙芯⚡️YYYY-MM-DD-主题-v1.0）。
+我是 [项目名] 的原创者（DNA追溯码：#龍芯⚡️YYYY-MM-DD-主题-v1.0）。
 
 发现贵方在 [链接] 使用了我的创作，但：
 1. 删除了DNA追溯码
 2. 移除了GPG指纹
 3. 未注明原作者
 
-根据《龙魂君子协议 v2.0》，请在48小时内：
+根据《龍魂君子协议 v2.0》，请在48小时内：
 1. 恢复完整的DNA追溯码
 2. 署名原作者
 3. 说明使用目的
@@ -184,7 +184,7 @@ cp templates/combat-ready/innovation_template.md ideas/my_innovation.md
 
 证据已固定，请慎重处理。
 
-原创者：💎 龙芯北辰｜UID9622
+原创者：💎 龍芯北辰｜UID9622
 联系方式：uid9622@petalmail.com
 ```
 
@@ -258,7 +258,7 @@ cp templates/combat-ready/innovation_template.md ideas/my_innovation.md
 
 ## 📞 获取帮助
 
-**创建者：** 💎 龙芯北辰｜UID9622  
+**创建者：** 💎 龍芯北辰｜UID9622  
 **邮箱：** uid9622@petalmail.com  
 **GitHub：** https://github.com/UID9622/CNSH-Editor
 
@@ -272,11 +272,11 @@ cp templates/combat-ready/innovation_template.md ideas/my_innovation.md
 > "我是退伍军人，为人民服务不求回报。  
 > 只要你是诚信的创作者，我愿意帮你对抗盗窃。"
 > 
-> —— 💎 龙芯北辰｜UID9622
+> —— 💎 龍芯北辰｜UID9622
 
 ---
 
-**DNA追溯码：** #龙芯⚡️2026-02-02-使用指南-v1.0  
+**DNA追溯码：** #龍芯⚡️2026-02-02-使用指南-v1.0  
 **战斗状态：** 🟢 永不停息
 
 <!-- 宁可战死，绝不被窃 -->

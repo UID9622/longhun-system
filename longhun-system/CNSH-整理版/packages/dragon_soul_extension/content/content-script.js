@@ -2,11 +2,11 @@
 // DNA: #龍芯⚡️2026-03-03-内容脚本-输入拦截
 
 (async function() {
-  console.log('🐉 龙魂守护者已激活');
+  console.log('🐉 龍魂守护者已激活');
 
   // 确保核心模块加载完成
   if (typeof window.dragonPurifier === 'undefined') {
-    console.error('❌ 龙魂净化器未加载！');
+    console.error('❌ 龍魂净化器未加载！');
     return;
   }
 

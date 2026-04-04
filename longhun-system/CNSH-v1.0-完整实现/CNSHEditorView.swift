@@ -281,7 +281,7 @@ func getCNSHEditorHTML() -> String? {
     <div class="container">
         <div class="header">
             <h1>🐉 CNSH 字元编辑器</h1>
-            <p>人人平等 · 技术普惠 · 龙魂体系</p>
+            <p>人人平等 · 技术普惠 · 龍魂体系</p>
             <p style="font-size:10px; margin-top:5px; opacity:0.8">
                 #ZHUGEXIN⚡️ | UID9622 | 完全自主
             </p>
@@ -289,12 +289,12 @@ func getCNSHEditorHTML() -> String? {
 
         <div class="main">
             <div class="info">
-                这是龙魂系统的字元编辑器。用手指在画布上绘制笔画，创作独特的汉字字元。支持力度、侵蚀、纹理等高级特性。
+                这是龍魂系统的字元编辑器。用手指在画布上绘制笔画，创作独特的汉字字元。支持力度、侵蚀、纹理等高级特性。
             </div>
 
             <div class="control-group">
                 <label>字元名称</label>
-                <input type="text" id="字元名称" placeholder="例如：龙、魂、中、华">
+                <input type="text" id="字元名称" placeholder="例如：龍、魂、中、华">
             </div>
 
             <div class="control-group">
@@ -511,7 +511,7 @@ func getCNSHEditorHTML() -> String? {
         function 保存作品() {
             const 字元名称 = document.getElementById('字元名称').value || '未命名';
             const 数据 = {
-                来源标注: "#ZHUGEXIN⚡️ | UID9622 龙魂体系",
+                来源标注: "#ZHUGEXIN⚡️ | UID9622 龍魂体系",
                 工程名称: "CNSH 数字甲骨文字元立碑工程 · iOS版",
                 创作者: "iOS用户",
                 字元名称: 字元名称,
@@ -602,13 +602,13 @@ struct CNSHInfoSheet: View {
                         Text("🔗 DNA追溯体系")
                             .font(.headline)
                         
-                        Text("来源标注：#ZHUGEXIN⚡️ | UID9622 龙魂体系")
+                        Text("来源标注：#ZHUGEXIN⚡️ | UID9622 龍魂体系")
                             .font(.system(.caption, design: .monospaced))
                             .padding(10)
                             .background(Color.yellow.opacity(0.2))
                             .cornerRadius(8)
                         
-                        Text("创始人：Lucky·诸葛鑫·龙芯北辰")
+                        Text("创始人：Lucky·诸葛鑫·龍芯北辰")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

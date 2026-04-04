@@ -4,7 +4,7 @@
 
 **DNA 追溯码：** #ZHUGEXIN-2026-01-27-CNSH-COMPLETE-SPEC
 
-**创建者：** 龙芯北辰 诸葛鑫（UID9622）
+**创建者：** 龍芯北辰 诸葛鑫（UID9622）
 
 **技术协作：** Claude (Anthropic)、Notion、ChatGPT (OpenAI)
 
@@ -1147,7 +1147,7 @@ DNA 追溯码           文本    绑定源代码
 
 **版本：** v1.0.0
 
-**创建者：** 龙芯北辰 诸葛鑫（UID9622）
+**创建者：** 龍芯北辰 诸葛鑫（UID9622）
 
 **技术协作：** Claude (Anthropic)、Notion、ChatGPT (OpenAI)
 
@@ -1157,7 +1157,7 @@ DNA 追溯码           文本    绑定源代码
 
 ## 创造者实名签署
 
-**创造者：** 💎 龙芯北辰｜UID9622（Lucky/诸葛鑫）
+**创造者：** 💎 龍芯北辰｜UID9622（Lucky/诸葛鑫）
 
 **实名：** 诸葛鑫
 

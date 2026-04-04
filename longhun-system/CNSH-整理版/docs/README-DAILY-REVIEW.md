@@ -1,10 +1,10 @@
-# 每日复盘系统 - 龙魂价值内核与场景化人格调用地图
+# 每日复盘系统 - 龍魂价值内核与场景化人格调用地图
 
 ## 🎯 概述
 
 此系统专为每日自动复盘以下核心内容而设计：
 
-- 🐉 **UID9622龙魂价值内核**
+- 🐉 **UID9622龍魂价值内核**
 - 🗺️ **场景化人格调用地图**
 - 📋 **快速协作指南**
 - 🌐 **全局监控中枢**
@@ -61,7 +61,7 @@ cd /Users/zuimeidedeyihan/LuckyCommandCenter/cnsh-deployment
 └── .cache/daily-reviews/  # 复盘报告存储
 ```
 
-## 🐉 龙魂价值内核复盘
+## 🐉 龍魂价值内核复盘
 
 系统会深度分析：
 
@@ -106,7 +106,7 @@ cd /Users/zuimeidedeyihan/LuckyCommandCenter/cnsh-deployment
 ### 同步内容
 - 场景化人格调用地图更新
 - 快速协作指南变更
-- UID9622龙魂价值内核调整
+- UID9622龍魂价值内核调整
 - 全局监控中枢状态
 
 ### 同步机制
@@ -123,7 +123,7 @@ cd /Users/zuimeidedeyihan/LuckyCommandCenter/cnsh-deployment
 
 ### 报告内容
 - 📊 复盘概览
-- 🐉 龙魂价值内核状态
+- 🐉 龍魂价值内核状态
 - 🗺️ 场景化人格调用地图状态
 - 🔄 系统协调性评分
 - 📋 可执行建议
@@ -254,4 +254,4 @@ node -e "require('./src/services/dailyReview').new().performDailyReview()"
 
 ---
 
-*系统专为UID9622龙魂系统设计，确保每日对核心内容进行深度复盘和分析。*
+*系统专为UID9622龍魂系统设计，确保每日对核心内容进行深度复盘和分析。*

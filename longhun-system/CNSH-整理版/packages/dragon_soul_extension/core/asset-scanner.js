@@ -22,7 +22,7 @@ class AssetScanner {
 
       // 技术关键词
       "LU_", "LU指令", "主控指令", "熔断", "净化器",
-      "DNA追溯", "三色审计", "CNSH", "龍魂", "龙魂",
+      "DNA追溯", "三色审计", "CNSH", "龍魂", "龍魂",
       "星辰记忆", "压缩卡", "语义压缩", "记忆编辑器",
       "人格路由", "ROUTE_", "persona", "fuse_manager",
       "snapshot_core", "dragon_soul",

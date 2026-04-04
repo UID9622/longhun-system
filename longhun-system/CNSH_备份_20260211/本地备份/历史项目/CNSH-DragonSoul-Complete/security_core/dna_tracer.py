@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🧬 DNA追溯系统 | DNA Tracing System
-DNA追溯码: #龙芯⚡️2026-01-21-DNA追溯系统-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-DNA追溯系统-v2.0
 
 每个操作都有唯一的DNA追溯码，可追溯：
 - 谁执行的
@@ -51,7 +51,7 @@ class DNATracer:
     """DNA追溯系统"""
     
     def __init__(self, db_path: str = None):
-        self.prefix = "#龙芯⚡️"
+        self.prefix = "#龍芯⚡️"
         self.owner = "UID9622"
         self.version = "v2.0"
         
@@ -106,7 +106,7 @@ class DNATracer:
         """
         生成DNA追溯码
         
-        格式: #龙芯⚡️YYYYMMDDHHMMSS-TYPE-HASH
+        格式: #龍芯⚡️YYYYMMDDHHMMSS-TYPE-HASH
         """
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S%f")[:17]
         content = f"{timestamp}-{operation_type.value}-{detail}-{self.owner}"
@@ -396,8 +396,8 @@ if __name__ == "__main__":
     # 示例2：使用装饰器
     @tracer.trace("Claude", OperationType.AI_CALL, "分析文本")
     def analyze_text(text: str) -> Dict:
-        return {"sentiment": "positive", "keywords": ["龙魂", "CNSH"]}
+        return {"sentiment": "positive", "keywords": ["龍魂", "CNSH"]}
     
-    result = analyze_text("龙魂终端太棒了！")
+    result = analyze_text("龍魂终端太棒了！")
     print(f"\n装饰器追溯测试完成")
     print(f"分析结果: {result}")

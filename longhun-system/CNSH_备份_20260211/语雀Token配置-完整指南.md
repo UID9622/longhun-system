@@ -317,7 +317,7 @@ Directory: /Users/zuimeidedeyihan/UID9622-Memory
 ### .env文件完整示例
 
 ```bash
-# 龙魂系统环境配置
+# 龍魂系统环境配置
 
 # 语雀配置
 YUQUE_TOKEN=你的语雀API令牌（从网站复制）

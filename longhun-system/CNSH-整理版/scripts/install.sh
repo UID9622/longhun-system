@@ -39,7 +39,7 @@ print_banner() {
     echo -e "${BLUE}"
     echo "╔════════════════════════════════════════════════════════════╗"
     echo "║                                                            ║"
-    echo "║   🐉 CNSH 龙魂体系 - 安装脚本                              ║"
+    echo "║   🐉 CNSH 龍魂体系 - 安装脚本                              ║"
     echo "║   Chinese-native Scripting & Heritage                      ║"
     echo "║                                                            ║"
     echo "╚════════════════════════════════════════════════════════════╝"

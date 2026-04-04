@@ -1,6 +1,6 @@
 """
 🐉 DragonSoul Terminal Backend Package
-龙魂终端后端模块包
+龍魂终端后端模块包
 """
 
 from .five_backends import FiveBackendsScheduler, TaskType, BackendStatus

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-⚡ 龙魂指挥塔 · LongHun Commander v1.0
+⚡ 龍魂指挥塔 · LongHun Commander v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DNA:    #龍芯⚡️2026-03-16-COMMANDER-v1.0
 GPG:    A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -125,7 +125,7 @@ def think(prompt: str, model: str, star_memory: dict) -> str:
             memory_ctx += f"  · [{e['type']}] {e['title']}\n"
 
     # 注入身份锚点
-    system_ctx = f"""你是龙魂系统的思考引擎，绑定于以下身份：
+    system_ctx = f"""你是龍魂系统的思考引擎，绑定于以下身份：
 创始人: 诸葛鑫（UID9622）
 GPG指纹: {GPG}
 确认码: {CONFIRM_CODE}
@@ -192,7 +192,7 @@ def make_dna_signature(content: str) -> str:
 def print_banner(model: str, star_memory: dict):
     print()
     print("╔══════════════════════════════════════════════════════╗")
-    print("║  ⚡ 龙魂指挥塔 · LongHun Commander v1.0             ║")
+    print("║  ⚡ 龍魂指挥塔 · LongHun Commander v1.0             ║")
     print(f"║  DNA: {DNA_PREFIX}2026-03-16-COMMANDER-v1.0     ║")
     print("╠══════════════════════════════════════════════════════╣")
     print(f"║  🧠 模型: {model:<43}║")
@@ -287,12 +287,12 @@ def main():
             print(f"\n⚡ 思考中（{current_model}）...")
             response = think(user, current_model, star_memory)
             dna_sig = make_dna_signature(response)
-            print(f"\n【龙魂】{response}")
+            print(f"\n【龍魂】{response}")
             print(f"\n🔏 DNA: {dna_sig}")
             print()
             write_notion_log("思考输出", f"Q: {user[:50]} | DNA: {dna_sig}")
 
-    print(f"\n龙魂指挥塔退出。DNA追溯完整。GPG: {GPG}")
+    print(f"\n龍魂指挥塔退出。DNA追溯完整。GPG: {GPG}")
 
 
 if __name__ == "__main__":

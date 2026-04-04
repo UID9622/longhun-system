@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
-# 龙魂系统启动器
+# 龍魂系统启动器
 # ═══════════════════════════════════════════════════════════
 # ENCODING: UTF-8
 # FONT-INDEPENDENT: YES
 # NO PROPRIETARY TOKENS
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码：#龙芯⚡️2026-02-05-龙魂系统启动器-v1.0
+# DNA追溯码：#龍芯⚡️2026-02-05-龍魂系统启动器-v1.0
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-# 创建者：💎 龙芯北辰｜UID9622
+# 创建者：💎 龍芯北辰｜UID9622
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════════
 
 """
-龙魂系统启动器
+龍魂系统启动器
 
 使用方法:
     python start_system.py [命令] [选项]
 
 命令:
-    start       启动龙魂系统
+    start       启动龍魂系统
     check       执行系统自检
     info        显示系统信息
     dna         生成DNA追溯码
@@ -42,15 +42,15 @@ import argparse
 def 显示横幅():
     """显示系统启动横幅"""
     print("=" * 70)
-    print("🐉 龙魂系统 (Longhun System)")
+    print("🐉 龍魂系统 (Longhun System)")
     print("=" * 70)
     print("  独立原生系统 | OCSL v1.0 开放文化主权许可证")
-    print("  DNA: #龙芯⚡️2026-02-05-龙魂系统核心-v1.0")
+    print("  DNA: #龍芯⚡️2026-02-05-龍魂系统核心-v1.0")
     print("=" * 70)
 
 
 def 命令_启动(参数):
-    """启动龙魂系统"""
+    """启动龍魂系统"""
     from native_core.longhun_system import 主函数
     主函数()
 
@@ -167,7 +167,7 @@ def 命令_帮助(参数):
 📖 使用说明:
 
   python start_system.py start
-    启动龙魂系统完整初始化
+    启动龍魂系统完整初始化
 
   python start_system.py check
     执行系统自检
@@ -185,7 +185,7 @@ def 命令_帮助(参数):
 
   python start_system.py font --text <文本> [--style <风格>] [--output <文件>]
     测试字体系统
-    示例: python start_system.py font --text "中华龙魂" --output output.svg
+    示例: python start_system.py font --text "中华龍魂" --output output.svg
 
   python start_system.py plugin --list
     列出所有插件
@@ -194,21 +194,21 @@ def 命令_帮助(参数):
     显示此帮助信息
 
 📜 许可证: OCSL v1.0 (开放文化主权许可证)
-🧬 DNA: #龙芯⚡️2026-02-05-龙魂系统启动器-v1.0
+🧬 DNA: #龍芯⚡️2026-02-05-龍魂系统启动器-v1.0
 """)
 
 
 def 主函数():
     """主入口函数"""
     解析器 = argparse.ArgumentParser(
-        description="龙魂系统启动器",
+        description="龍魂系统启动器",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
     子解析器 = 解析器.add_subparsers(dest="command", help="可用命令")
     
     # start 命令
-    子解析器.add_parser("start", help="启动龙魂系统")
+    子解析器.add_parser("start", help="启动龍魂系统")
     
     # check 命令
     子解析器.add_parser("check", help="执行系统自检")

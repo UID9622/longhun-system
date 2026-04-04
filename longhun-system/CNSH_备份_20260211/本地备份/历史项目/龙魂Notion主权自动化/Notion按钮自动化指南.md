@@ -8,7 +8,7 @@
 /button "更新客户记录"
   action: 
     - 触发: "点击"
-    - 调用: "龙魂API中间件"
+    - 调用: "龍魂API中间件"
     - 参数: 
         - 客户DNA: "从当前页面提取"
         - 更新内容: "弹窗输入（必填）"
@@ -24,7 +24,7 @@
 /button "生成昨日工作日报"
   action:
     - 查询: "任务数据库（状态=完成 + 日期=昨天）"
-    - 摘要: "龙魂自动提取（三色审计过滤）"
+    - 摘要: "龍魂自动提取（三色审计过滤）"
     - 写入: "日报数据库（主权状态=境内）"
     - 通知: "飞书/钉钉（本地Webhook）"
 ```
@@ -69,7 +69,7 @@ const notionButtonConfig = {
 ### 方案2：浏览器扩展集成
 
 ```javascript
-// 龙魂浏览器扩展
+// 龍魂浏览器扩展
 class LonghunNotionExtension {
   constructor() {
     this.apiBase = 'http://localhost:9527';
@@ -120,7 +120,7 @@ class LonghunNotionExtension {
         alert(`❌ 更新失败: ${result.message}`);
       }
     } catch (error) {
-      alert('❌ 网络错误，请检查龙魂服务是否运行');
+      alert('❌ 网络错误，请检查龍魂服务是否运行');
     }
   }
   
@@ -149,7 +149,7 @@ new LonghunNotionExtension();
 
 ## 快捷操作
 /button "🐉 更新客户记录"
-  -> 调用龙魂API中间件
+  -> 调用龍魂API中间件
   -> 自动填写客户DNA
   -> 弹窗输入更新内容
   -> 主权状态自动设为"境内"
@@ -172,7 +172,7 @@ new LonghunNotionExtension();
 ## 日报生成
 /button "📊 生成昨日工作日报"
   -> 自动查询昨日完成任务
-  -> 龙魂AI自动摘要
+  -> 龍魂AI自动摘要
   -> 三色审计过滤敏感内容
   -> 写入日报数据库
   -> 本地Webhook通知
@@ -213,7 +213,7 @@ new LonghunNotionExtension();
 sequenceDiagram
     participant U as 用户
     participant N as Notion按钮
-    participant L as 龙魂API
+    participant L as 龍魂API
     participant A as 审计库
     
     U->>N: 点击"更新客户记录"
@@ -236,7 +236,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant T as 定时触发器
-    participant L as 龙魂API
+    participant L as 龍魂API
     participant N as Notion数据库
     participant W as Webhook通知
     
@@ -303,18 +303,18 @@ class SovereigntyMonitor {
 ### PWA移动应用
 
 ```html
-<!-- 龙魂Notion移动控制台 -->
+<!-- 龍魂Notion移动控制台 -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>龙魂Notion控制台</title>
+    <title>龍魂Notion控制台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="./manifest.json">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🐉 龙魂控制台</h1>
+            <h1>🐉 龍魂控制台</h1>
         </header>
         
         <div class="quick-actions">
@@ -345,7 +345,7 @@ pip3 --version     # >= 20.0
 node --version     # >= 16.0 (可选，用于浏览器扩展)
 
 # 服务端口
-龙魂API中间件: 9527
+龍魂API中间件: 9527
 本地Webhook: 3000 (可选)
 ```
 
@@ -355,7 +355,7 @@ node --version     # >= 16.0 (可选，用于浏览器扩展)
 #!/bin/bash
 # deploy-longhun-notion.sh
 
-echo "🐉 部署龙魂Notion自动化系统..."
+echo "🐉 部署龍魂Notion自动化系统..."
 
 # 检查Python环境
 if ! command -v python3 &> /dev/null; then
@@ -368,14 +368,14 @@ echo "📦 安装Python依赖..."
 pip3 install flask flask-cors requests
 
 # 启动服务
-echo "🚀 启动龙魂API中间件..."
-cd /Users/zuimeidedeyihan/LuckyCommandCenter/龙魂Notion主权自动化
+echo "🚀 启动龍魂API中间件..."
+cd /Users/zuimeidedeyihan/LuckyCommandCenter/龍魂Notion主权自动化
 python3 longhun_notion_proxy.py &
 
 # 检查服务状态
 sleep 3
 if curl -s http://localhost:9527/api/status | grep -q "running"; then
-    echo "✅ 龙魂服务启动成功"
+    echo "✅ 龍魂服务启动成功"
     echo "🔗 服务地址: http://localhost:9527"
     echo "📋 可用API:"
     echo "  - POST /api/sovereignty/check"

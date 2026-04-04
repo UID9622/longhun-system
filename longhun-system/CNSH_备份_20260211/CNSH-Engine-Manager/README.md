@@ -1,6 +1,6 @@
 # CNSH字体引擎·统一管理系统
 
-**DNA追溯码：** `#龙芯⚡️2026-02-09-CNSH-ENGINE-MANAGER-v1.0`  
+**DNA追溯码：** `#龍芯⚡️2026-02-09-CNSH-ENGINE-MANAGER-v1.0`  
 **创建者：** 诸葛鑫（Lucky）｜UID9622  
 **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -16,8 +16,8 @@ python cnsh_engine_manager.py
 from cnsh_engine_manager import CNSH引擎管理器_UID9622
 
 管理器 = CNSH引擎管理器_UID9622()
-管理器.列出所有引擎_cnsh龙魂_v1()
-管理器.执行渲染_cnsh龙魂_v1("demo_long.cnsh")
+管理器.列出所有引擎_cnsh龍魂_v1()
+管理器.执行渲染_cnsh龍魂_v1("demo_long.cnsh")
 ```
 
 ---
@@ -43,13 +43,13 @@ from cnsh_engine_manager import CNSH引擎管理器_UID9622
 from cnsh_engine_manager import CNSH引擎管理器_UID9622
 
 管理器 = CNSH引擎管理器_UID9622()
-管理器.列出所有引擎_cnsh龙魂_v1()
+管理器.列出所有引擎_cnsh龍魂_v1()
 ```
 
 ### 示例2：使用默认引擎渲染
 
 ```python
-管理器.执行渲染_cnsh龙魂_v1(
+管理器.执行渲染_cnsh龍魂_v1(
     cnsh文件路径_cnsh9622="demo_long.cnsh"
 )
 ```
@@ -57,7 +57,7 @@ from cnsh_engine_manager import CNSH引擎管理器_UID9622
 ### 示例3：指定引擎渲染
 
 ```python
-管理器.执行渲染_cnsh龙魂_v1(
+管理器.执行渲染_cnsh龍魂_v1(
     cnsh文件路径_cnsh9622="demo_long.cnsh",
     引擎名称_cnsh9622="V0005_力度"
 )
@@ -77,15 +77,15 @@ class CNSH新引擎_V000X_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.X"
         self.引擎名称_cnsh9622 = "新引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         # 实现数据载入
         pass
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         # 实现审计
         pass
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         # 实现渲染
         pass
 ```

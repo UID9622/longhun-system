@@ -15,9 +15,9 @@ class NotionSyncService {
         this.corePages = [
             '场景化人格调用地图',
             '快速协作指南',
-            'UID9622龙魂价值内核',
+            'UID9622龍魂价值内核',
             '全局监控中枢',
-            '龙魂系统执行机制'
+            '龍魂系统执行机制'
         ];
     }
 
@@ -51,7 +51,7 @@ class NotionSyncService {
             // 2. 提取核心页面更新
             const updates = await this.extractCorePagesUpdates(lastSync);
             
-            // 3. 分析龙魂价值内核变化
+            // 3. 分析龍魂价值内核变化
             const dragonSoulAnalysis = await this.analyzeDragonSoulChanges();
             
             // 4. 检查场景化人格调用地图更新
@@ -138,13 +138,13 @@ class NotionSyncService {
     }
 
     /**
-     * 分析龙魂价值内核变化
+     * 分析龍魂价值内核变化
      */
     async analyzeDragonSoulChanges() {
-        console.log('🐉 分析龙魂价值内核变化...');
+        console.log('🐉 分析龍魂价值内核变化...');
         
         try {
-            const dragonSoulPath = '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622_龙魂系统_执行机制与核心价值观.md';
+            const dragonSoulPath = '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622_龍魂系统_执行机制与核心价值观.md';
             const content = await fs.readFile(dragonSoulPath, 'utf8');
             
             // 分析核心价值观变化
@@ -160,7 +160,7 @@ class NotionSyncService {
             };
             
         } catch (error) {
-            console.error('❌ 龙魂价值内核分析失败:', error);
+            console.error('❌ 龍魂价值内核分析失败:', error);
             return { error: error.message };
         }
     }
@@ -339,7 +339,7 @@ class NotionSyncService {
         }
         
         if (data.dragonSoulAnalysis.coreValues) {
-            recommendations.push('龙魂价值内核已更新，建议同步到系统配置');
+            recommendations.push('龍魂价值内核已更新，建议同步到系统配置');
         }
         
         if (data.personaMapUpdate.personaScenarios) {

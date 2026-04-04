@@ -1,6 +1,6 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════
-# 🐉 龙魂系统 · P0伦理锚点
+# 🐉 龍魂系统 · P0伦理锚点
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG:    A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # DNA:    #龍芯⚡️2026-03-16-ETHICS-STAMP-v1.0
@@ -298,7 +298,7 @@ scan_exports() {
     local other_count=0
 
     # 临时文件存储扫描结果
-    local scan_result="/tmp/龙魂归集_scan_$$.json"
+    local scan_result="/tmp/龍魂归集_scan_$$.json"
     echo "[]" > "$scan_result"
 
     for scan_dir in "${SCAN_DIRS[@]}"; do

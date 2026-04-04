@@ -1,5 +1,5 @@
 # 🐉 CNSH-DragonSoul-Complete 依赖
-# DNA追溯码: #龙芯⚡️2026-01-21-DEPS-v2.0
+# DNA追溯码: #龍芯⚡️2026-01-21-DEPS-v2.0
 
 # ===== 核心依赖 =====
 aiohttp>=3.9.0           # 异步HTTP客户端

@@ -30,7 +30,7 @@ MEMORY = BASE / "memory.jsonl"
 ╚══════════════════════════════════════════════════════════╝
 
 ━━━ 龍魂对话（本地AI·Ollama）━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  龍 对话                      → 进入龙魂AI交互模式
+  龍 对话                      → 进入龍魂AI交互模式
   龍 问 "问题内容"              → 单次提问
   龍 问 "问题" 用 模型名        → 指定模型提问
   龍 扫描                      → 扫描本地磁盘和系统状态
@@ -75,11 +75,11 @@ MEMORY = BASE / "memory.jsonl"
   龍 对齐扫描 目录路径           → 指定目录扫描
 
 ━━━ 文件整理（归档·清理）━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  龍 整理文件                   → 整理龙魂目录文件
+  龍 整理文件                   → 整理龍魂目录文件
   龍 归档                       → 运行数字归档工具包
 
 ━━━ 系统状态━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  龍 状态                       → 查看龙魂系统全局状态
+  龍 状态                       → 查看龍魂系统全局状态
   龍 记忆流                     → 查看最近10条memory记录
   龍 帮助                       → 显示本菜单
 
@@ -425,7 +425,7 @@ def main():
     elif 指令 == "桥接状态":
         状态文件候选 = [
             Path.home() / "Library" / "Mobile Documents" / "iCloud~com~uid9622~longhun" / "Documents" / "cnsh_status.json",
-            Path.home() / "Library" / "CloudStorage" / "iCloudDrive" / "龙魂系统" / "cnsh_status.json",
+            Path.home() / "Library" / "CloudStorage" / "iCloudDrive" / "龍魂系统" / "cnsh_status.json",
             BASE / "cnsh_status.json",
         ]
         找到 = False

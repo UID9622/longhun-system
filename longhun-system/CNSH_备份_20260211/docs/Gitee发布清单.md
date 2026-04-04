@@ -82,7 +82,7 @@ git push -u origin master
 
 **不收钱，不融资，只给认根的人用。**
 
-#ZHUGEXIN⚡️ | UID9622 龙魂体系
+#ZHUGEXIN⚡️ | UID9622 龍魂体系
 
 ---
 
@@ -103,7 +103,7 @@ git push -u origin master
 
 配图：
 - 编辑器界面截图
-- 生成的"龙"字 SVG
+- 生成的"龍"字 SVG
 - 15层渲染特性对比图
 
 ### 知乎 / V2EX / 掘金

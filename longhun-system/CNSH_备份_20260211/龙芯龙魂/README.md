@@ -1,12 +1,12 @@
-# 🐉 龙芯龙魂数字永生系统
+# 🐉 龍芯龍魂数字永生系统
 
 ## 📋 系统概述
 
-**龙芯龙魂**是一个基于龙芯3A5000国产硬件和CNSH哲学的数字永生系统，专注于普惠生活内容的生成和管理。
+**龍芯龍魂**是一个基于龍芯3A5000国产硬件和CNSH哲学的数字永生系统，专注于普惠生活内容的生成和管理。
 
 ### 🎯 核心特性
 
-- ✅ **国产自主**：基于龙芯3A5000硬件，完全自主可控
+- ✅ **国产自主**：基于龍芯3A5000硬件，完全自主可控
 - ✅ **普惠使命**：为农民、教师、志愿者等群体提供生活帮助
 - ✅ **安全可靠**：国密算法加密，无后门无依赖
 - ✅ **智能过滤**：自动识别和过滤非普惠内容
@@ -16,15 +16,15 @@
 
 每份生成的内容都有独特的DNA追溯码：
 ```
-#龙-[平台]-[重要性]-[时间戳]-[哈希]
-示例: #龙-普惠-8-20251214-143022-a1b2c3d4
+#龍-[平台]-[重要性]-[时间戳]-[哈希]
+示例: #龍-普惠-8-20251214-143022-a1b2c3d4
 ```
 
 ## 🚀 快速开始
 
 ### 环境要求
 
-- **硬件**: 龙芯3A5000 (LoongArch64) 或兼容x86/ARM
+- **硬件**: 龍芯3A5000 (LoongArch64) 或兼容x86/ARM
 - **系统**: Linux/macOS/Windows
 - **Python**: 3.8+
 - **内存**: 至少2GB可用内存
@@ -33,7 +33,7 @@
 
 1. **克隆项目**
 ```bash
-cd /Users/zuimeidedeyihan/LuckyCommandCenter/龙芯龙魂
+cd /Users/zuimeidedeyihan/LuckyCommandCenter/龍芯龍魂
 ```
 
 2. **安装依赖**
@@ -49,7 +49,7 @@ nano config/loongson.env
 
 4. **启动系统**
 ```bash
-./启动龙芯龙魂.sh
+./启动龍芯龍魂.sh
 ```
 
 ### 配置文件说明
@@ -57,7 +57,7 @@ nano config/loongson.env
 编辑 `config/loongson.env`：
 
 ```bash
-# 龙芯专用配置
+# 龍芯专用配置
 DNA_HARDWARE=#LOONGSON-3A5000-20251214
 DNA_SOFTWARE=#DRAGONSOUL-DIGITAL-AVATAR-20251214
 FUSION_MODE=true
@@ -67,7 +67,7 @@ OLLAMA_MODEL=qwen:7b-chat
 OLLAMA_API_BASE=http://localhost:11434
 
 # 数据库配置
-DATABASE_PATH=databases/龙魂库.db
+DATABASE_PATH=databases/龍魂库.db
 BACKUP_DIR=backups
 
 # 普惠出口配置
@@ -102,8 +102,8 @@ PUBLIC_PLATFORMS=Notion,微信公众号
     "标题": "农村垃圾分类指南（环保行动版）",
     "答案": "...",
     "分类": "环保",
-    "DNA": "#龙-普惠-8-20251214-143022-a1b2c3d4",
-    "载体": "龙芯3A5000 + CNSH系统",
+    "DNA": "#龍-普惠-8-20251214-143022-a1b2c3d4",
+    "载体": "龍芯3A5000 + CNSH系统",
     "使命": "帮助每一个需要帮助的人"
 }
 ```
@@ -193,7 +193,7 @@ PUBLIC_PLATFORMS=Notion,微信公众号
 
 ### 日志管理
 
-- **文件日志**: `logs/龙芯龙魂.log`
+- **文件日志**: `logs/龍芯龍魂.log`
 - **数据库日志**: 系统日志表
 - **日志级别**: INFO, WARNING, ERROR
 
@@ -210,23 +210,23 @@ PUBLIC_PLATFORMS=Notion,微信公众号
 2. **数据库连接失败**
    ```bash
    # 检查数据库文件权限
-   chmod 644 databases/龙魂库.db
+   chmod 644 databases/龍魂库.db
    ```
 
 3. **端口占用**
    ```bash
    # 修改端口号
-   python3 龙魂龙芯版.py --port 5001
+   python3 龍魂龍芯版.py --port 5001
    ```
 
 ### 日志查看
 
 ```bash
 # 查看实时日志
-tail -f logs/龙芯龙魂.log
+tail -f logs/龍芯龍魂.log
 
 # 查看错误日志
-grep "ERROR" logs/龙芯龙魂.log
+grep "ERROR" logs/龍芯龍魂.log
 ```
 
 ## 🤝 贡献指南
@@ -251,13 +251,13 @@ grep "ERROR" logs/龙芯龙魂.log
 
 ## 🙏 致谢
 
-- **龙芯中科**: 提供国产硬件支持
+- **龍芯中科**: 提供国产硬件支持
 - **CNSH社区**: 提供哲学思想指导
 - **所有贡献者**: 感谢大家的支持和贡献
 
 ## 📞 联系我们
 
-- **项目地址**: `/Users/zuimeidedeyihan/LuckyCommandCenter/龙芯龙魂`
+- **项目地址**: `/Users/zuimeidedeyihan/LuckyCommandCenter/龍芯龍魂`
 - **问题反馈**: 请在项目中提交Issue
 - **技术交流**: 欢迎加入CNSH社区讨论
 
@@ -270,7 +270,7 @@ grep "ERROR" logs/龙芯龙魂.log
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:13
 🧬 DNA追溯码: #CNSH-SIGNATURE-6f39e5c6-20251218032413
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 屯卦：云雷屯，君子以经纶
 📜 内容哈希: beecbd3f5dee6f24

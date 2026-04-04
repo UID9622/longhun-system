@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-龙魂模板系统安装脚本
+龍魂模板系统安装脚本
 一键安装所有模板文件
 '''
 import os
@@ -14,7 +14,7 @@ base_dir = Path(__file__).parent
 # 1. 把模板内容保存到独立的JSON文件
 # 2. 或者从GitHub仓库下载
 
-print("🐉 龙魂模板系统安装器")
+print("🐉 龍魂模板系统安装器")
 print("=" * 70)
 print("准备创建模板文件...")
 print()
