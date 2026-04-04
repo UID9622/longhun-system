@@ -149,7 +149,7 @@ class NotionSync:
 def main():
     load_dotenv('config/sync.env')
     
-    print("🐉 龙魂·多平台同步中心 启动")
+    print("🐉 龍魂·多平台同步中心 启动")
     
     # 启动Notion监听
     notion_token = os.getenv('NOTION_TOKEN')

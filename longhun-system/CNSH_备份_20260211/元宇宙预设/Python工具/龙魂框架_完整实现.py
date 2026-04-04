@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Longhun Framework - 完整实现
-龙魂框架：基于易经哲学与密码学DNA追溯的身份认证系统
+龍魂框架：基于易经哲学与密码学DNA追溯的身份认证系统
 
-DNA追溯码: #龙芯⚡️2026-02-02-龙魂框架-完整实现-v1.0
+DNA追溯码: #龍芯⚡️2026-02-02-龍魂框架-完整实现-v1.0
 作者: 诸葛鑫 (UID9622)
 """
 
@@ -56,7 +56,7 @@ class UIDLayer:
     """
     def __init__(self, uid="9622"):
         self.uid = uid
-        self.display_name = "💎 龙芯北辰｜UID9622"
+        self.display_name = "💎 龍芯北辰｜UID9622"
         self.aliases = ["Lucky", "诸葛鑫", "Zhuge Xin"]
         self.identity_proofs = [
             "Chinese Veteran",
@@ -94,7 +94,7 @@ class DNALayer:
     语义内容指纹追溯层
     """
     def __init__(self):
-        self.prefix = "#龙芯⚡️"
+        self.prefix = "#龍芯⚡️"
         self.confirm_prefix = "#CONFIRM🌌9622-ONLY-ONCE🧬"
     
     def generate_dna(self, context, version="v1.0", date=None):
@@ -226,7 +226,7 @@ class IChingLayer:
 
 class LonghunFramework:
     """
-    Longhun Framework - 龙魂框架主类
+    Longhun Framework - 龍魂框架主类
     整合四层认证机制
     """
     def __init__(self):
@@ -308,7 +308,7 @@ class LonghunFramework:
     def print_framework_info(self):
         """打印框架信息"""
         print("=" * 70)
-        print("🐉 Longhun Framework - 龙魂框架")
+        print("🐉 Longhun Framework - 龍魂框架")
         print("=" * 70)
         print()
         print("【四层认证架构】")
@@ -319,7 +319,7 @@ class LonghunFramework:
         print(f"  总熵值:                {self.calculate_total_entropy():.1f} bits")
         print()
         print("【安全强度对比】")
-        print(f"  龙魂框架:   {self.calculate_total_entropy():.1f} bits")
+        print(f"  龍魂框架:   {self.calculate_total_entropy():.1f} bits")
         print(f"  AES-256:    256.0 bits")
         print(f"  比特币密钥: 256.0 bits")
         print(f"  RSA-2048:   112.0 bits")
@@ -331,7 +331,7 @@ class LonghunFramework:
 # ==================== 使用示例 ====================
 
 if __name__ == "__main__":
-    # 创建龙魂框架实例
+    # 创建龍魂框架实例
     longhun = LonghunFramework()
     
     # 打印框架信息
@@ -359,5 +359,5 @@ if __name__ == "__main__":
         print(f"  {status_mark} {item}: {'通过' if status else '失败'}")
     
     print("\n" + "=" * 70)
-    print("DNA: #龙芯⚡️2026-02-02-龙魂框架验证完成")
+    print("DNA: #龍芯⚡️2026-02-02-龍魂框架验证完成")
     print("=" * 70)

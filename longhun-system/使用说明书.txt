@@ -1,4 +1,4 @@
-龙魂归集工具包 v2.1 - 使用说明书
+龍魂归集工具包 v2.1 - 使用说明书
 
 ================================================================
 
@@ -98,7 +98,7 @@ cat ~/CreativeArchive/_reports/disk_report_*.txt
 创建配置文件：
 mkdir -p ~/.longhun
 cat > ~/.longhun/config.yml << EOF
-dna_prefix: #龙芯⚡️
+dna_prefix: #龍芯⚡️
 uid_code: 9622
 archive_root: ~/CreativeArchive
 github_user: uid9622
@@ -120,7 +120,7 @@ EOF
 八、如何使用环境变量配置？
 
 自定义DNA前缀：
-export LONGHUN_DNA_PREFIX="#我的龙芯"
+export LONGHUN_DNA_PREFIX="#我的龍芯"
 
 自定义归档目录：
 export ARCHIVE_ROOT=~/MyArchive

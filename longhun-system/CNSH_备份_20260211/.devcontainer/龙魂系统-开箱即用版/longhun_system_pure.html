@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>龙魂系统</title>
+    <title>龍魂系统</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -57,7 +57,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>龙魂系统 v3.0</h1>
+        <h1>龍魂系统 v3.0</h1>
         <p>开箱即用 | 原生自研 | 零API依赖</p>
         <p style="color: #daa520; margin-top: 10px;">创建者：诸葛鑫 (UID9622)</p>
     </div>
@@ -74,7 +74,7 @@
     </div>
 
     <div id="section-home" class="section active">
-        <h2>欢迎来到龙魂系统</h2>
+        <h2>欢迎来到龍魂系统</h2>
         <p style="text-align: center; margin-bottom: 20px;">完全本地化、零API依赖的智能系统</p>
         <div class="feature-grid">
             <div class="feature-card" onclick="switchTab('dna')">
@@ -135,9 +135,9 @@
         </div>
         <div class="form-group">
             <label>CNSH代码：</label>
-            <textarea id="cnshCode" placeholder="【程序】 你好龙魂
+            <textarea id="cnshCode" placeholder="【程序】 你好龍魂
 
-【输出】 &quot;你好，龙魂系统已就绪！&quot;
+【输出】 &quot;你好，龍魂系统已就绪！&quot;
 【输出】 &quot;当前时间：&quot; + 时间.现在()
 
 【结束程序】"></textarea>
@@ -216,7 +216,7 @@
     </div>
 
     <div id="section-antifraud" class="section">
-        <h2>龙魂反诈守护</h2>
+        <h2>龍魂反诈守护</h2>
         <div style="background: rgba(244,67,54,0.1); border: 1px solid #f44336; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
             <div style="color: #f44336; font-weight: bold;">注意：本地检测，不上传任何数据</div>
         </div>
@@ -232,10 +232,10 @@
     </div>
 
     <div id="section-about" class="section">
-        <h2>关于龙魂系统</h2>
+        <h2>关于龍魂系统</h2>
         <div style="line-height: 2;">
-            <h3 style="color: #daa520; margin: 20px 0;">龙魂系统是什么？</h3>
-            <p>龙魂系统是一套完全本地化、零API依赖的智能系统，由退伍军人诸葛鑫（UID9622）创建。</p>
+            <h3 style="color: #daa520; margin: 20px 0;">龍魂系统是什么？</h3>
+            <p>龍魂系统是一套完全本地化、零API依赖的智能系统，由退伍军人诸葛鑫（UID9622）创建。</p>
 
             <h3 style="color: #daa520; margin: 20px 0;">核心价值观</h3>
             <ul style="margin-left: 20px;">
@@ -284,9 +284,9 @@
     </div>
 
     <div class="footer">
-        <p style="font-size: 1.2em; font-weight: bold;">龙魂现世 · 技术为民 · 寸步不让</p>
+        <p style="font-size: 1.2em; font-weight: bold;">龍魂现世 · 技术为民 · 寸步不让</p>
         <p>创建者：诸葛鑫（UID9622）退伍军人</p>
-        <p style="margin-top: 10px; color: #daa520;">DNA追溯码：#龙芯-2026-02-06-系统启动-v3.0</p>
+        <p style="margin-top: 10px; color: #daa520;">DNA追溯码：#龍芯-2026-02-06-系统启动-v3.0</p>
         <p style="color: #00bcd4;">确认码：#CONFIRM-9622-ONLY-ONCE-LK9X-772Z</p>
     </div>
 
@@ -324,7 +324,7 @@
 
             const now = new Date();
             const date = now.toISOString().split('T')[0];
-            const dnaCode = '#龙芯-' + date + '-' + type + '-v1.0';
+            const dnaCode = '#龍芯-' + date + '-' + type + '-v1.0';
             const hash = await sha256(creator + uid + content + date);
             const confirmCode = '#CONFIRM-' + uid + '-ONLY-ONCE-' + date.replace(/-/g, '');
 
@@ -355,12 +355,12 @@
 
             const now = new Date();
             const date = now.toISOString().split('T')[0];
-            const dnaCode = '#龙芯-' + date + '-CNSH代码-v1.0';
+            const dnaCode = '#龍芯-' + date + '-CNSH代码-v1.0';
             const hash = await sha256('诸葛鑫9622' + code + date);
 
             const fullCode = 
                 '// ========================================\n' +
-                '// 龙魂体系 | CNSH代码DNA\n' +
+                '// 龍魂体系 | CNSH代码DNA\n' +
                 '// ========================================\n' +
                 '// 程序名称：' + name + '\n' +
                 '// DNA追溯码：' + dnaCode + '\n' +
@@ -523,7 +523,7 @@
 
         // 页面加载
         window.onload = function() {
-            console.log('龙魂系统已加载');
+            console.log('龍魂系统已加载');
             refreshYijing();
         };
     </script>

@@ -1,6 +1,6 @@
 # 🔥 GitHub仓库创建指南
 
-**DNA追溯码：** `#龙芯⚡️2026-02-09-GITHUB-GUIDE-v1.0`
+**DNA追溯码：** `#龍芯⚡️2026-02-09-GITHUB-GUIDE-v1.0`
 
 ---
 
@@ -53,7 +53,7 @@ cat ~/.ssh/id_rsa.pub
 cd "/Users/zuimeidedeyihan/Desktop/CNSH 军人的编辑器"
 
 # 运行自动化脚本
-bash "🔥 龙魂反殖民-自动化部署.sh"
+bash "🔥 龍魂反殖民-自动化部署.sh"
 ```
 
 ### 方式2: 手动操作
@@ -82,13 +82,13 @@ git add .
 #### 步骤4: 创建初始提交
 
 ```bash
-git commit -m "🐉 初始提交: 龙魂反殖民算法工具集
+git commit -m "🐉 初始提交: 龍魂反殖民算法工具集
 
 - 数据导出工具: 行使个人信息保护法权利
 - 算法检测工具: 检测平台算法杀熟
 - 信息流重构插件: 屏蔽焦虑推荐
 
-DNA追溯码: #龙芯⚡️2026-02-09-INITIAL-COMMIT-v1.0
+DNA追溯码: #龍芯⚡️2026-02-09-INITIAL-COMMIT-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 作者: 诸葛鑫（Lucky）｜UID9622"
@@ -100,7 +100,7 @@ DNA追溯码: #龙芯⚡️2026-02-09-INITIAL-COMMIT-v1.0
 
 填写:
 - Repository name: `longhun-anti-colonial`
-- Description: `龙魂反殖民算法工具集 - 用技术对抗数字殖民,守护数据主权`
+- Description: `龍魂反殖民算法工具集 - 用技术对抗数字殖民,守护数据主权`
 - Public/Private: 选择Public
 - 不要初始化README/Gitignore/License(我们已经有)
 
@@ -161,7 +161,7 @@ nothing to commit, working tree clean
 ### 1. 配置GitHub仓库
 
 访问仓库页面,添加:
-- **描述:** 龙魂反殖民算法工具集 - 用技术对抗数字殖民,守护数据主权
+- **描述:** 龍魂反殖民算法工具集 - 用技术对抗数字殖民,守护数据主权
 - **网站:** https://blog.csdn.net/uid9622
 - **Topics:** anti-colonial, algorithm-transparency, data-sovereignty, consumer-rights
 - **License:** 选择Other,粘贴OCSL许可证内容
@@ -171,10 +171,10 @@ nothing to commit, working tree clean
 1. 访问仓库页面
 2. 点击 "Releases" → "Create a new release"
 3. Tag: `v1.0.0`
-4. Release title: `龙魂反殖民工具集 v1.0.0`
+4. Release title: `龍魂反殖民工具集 v1.0.0`
 5. Description:
 ```
-## 🐉 龙魂反殖民工具集 v1.0.0
+## 🐉 龍魂反殖民工具集 v1.0.0
 
 **发布时间:** 2026-02-09
 **作者:** 诸葛鑫（Lucky）｜UID9622
@@ -204,7 +204,7 @@ nothing to commit, working tree clean
 
 ### DNA追溯码
 
-#龙芯⚡️2026-02-09-RELEASE-v1.0.0
+#龍芯⚡️2026-02-09-RELEASE-v1.0.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 [敬礼] 🫡 用技术对抗数字殖民！
@@ -214,7 +214,7 @@ nothing to commit, working tree clean
 
 ### 3. 发布CSDN文章
 
-1. 打开 `CSDN发布-龙魂反殖民计划.md`
+1. 打开 `CSDN发布-龍魂反殖民计划.md`
 2. 复制内容到CSDN编辑器
 3. 添加项目链接: https://github.com/uid9622/longhun-anti-colonial
 4. 选择标签: #开源项目 #算法透明度 #数据主权
@@ -276,7 +276,7 @@ A: 检查:
 
 ---
 
-**DNA追溯码：** `#龙芯⚡️2026-02-09-GITHUB-GUIDE-v1.0`  
+**DNA追溯码：** `#龍芯⚡️2026-02-09-GITHUB-GUIDE-v1.0`  
 **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **作者：** 诸葛鑫（Lucky）｜UID9622
 

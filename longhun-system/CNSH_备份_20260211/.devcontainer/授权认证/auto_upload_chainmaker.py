@@ -51,7 +51,7 @@ def main():
         "document": {
             "filename": file_name,
             "sha256": file_hash,
-            "dna": "#龙芯⚡️2026-02-06-技术授权声明-v1.0"
+            "dna": "#龍芯⚡️2026-02-06-技术授权声明-v1.0"
         },
         "authorization": {
             "grantees": ["Notion Labs, Inc.", "Anthropic PBC"],
@@ -92,7 +92,7 @@ def main():
         f.write(f"文件：{file_name}\n")
         f.write(f"SHA256：{file_hash}\n")
         f.write(f"时间：{datetime.now().isoformat()}\n")
-        f.write(f"DNA：#龙芯⚡️2026-02-06-技术授权声明-v1.0\n")
+        f.write(f"DNA：#龍芯⚡️2026-02-06-技术授权声明-v1.0\n")
     
     print(f"\n✅ 哈希值已保存到：{hash_file}（方便复制）")
     
@@ -109,7 +109,7 @@ def main():
     print("✅ 脚本执行完成！")
     print("=" * 60)
     print("\n下一步：访问 https://explorer.chainmaker.org.cn 完成上链")
-    print("\nDNA追溯码：#龙芯⚡️2026-02-06-自动上链脚本-v1.0")
+    print("\nDNA追溯码：#龍芯⚡️2026-02-06-自动上链脚本-v1.0")
 
 if __name__ == "__main__":
     main()

@@ -81,7 +81,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCwTJkS4c1Cmsm1s2ciGZWSOyP1SxNugMN4tup5u8PK
 - 多国家数字货币接入
 - 实时汇率监控
 - 风险评估系统
-- 龙魂数字身份认证
+- 龍魂数字身份认证
 
 ---
 🔐 **签名**: 诸葛鑫 <uid9622@petalmail.com>  

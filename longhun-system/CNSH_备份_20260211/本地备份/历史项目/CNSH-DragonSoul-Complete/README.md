@@ -1,8 +1,8 @@
 # 🐉 CNSH-DragonSoul-Complete
 
-**龙魂终端 + CNSH编辑器 + Notion扩展 = 完整体**
+**龍魂终端 + CNSH编辑器 + Notion扩展 = 完整体**
 
-DNA追溯码: `#龙芯⚡️2026-01-21-CNSH-DragonSoul-v2.0`
+DNA追溯码: `#龍芯⚡️2026-01-21-CNSH-DragonSoul-v2.0`
 
 ---
 
@@ -45,7 +45,7 @@ CNSH-DragonSoul-Complete/
 │   ├── dna_tracer.py        # DNA追溯系统
 │   └── encryption.py        # 七维加密
 │
-├── dragonsoul-terminal/     # 🐉 龙魂终端
+├── dragonsoul-terminal/     # 🐉 龍魂终端
 │   └── backend/
 │       ├── five_backends.py # 五大后台调度
 │       ├── mac_manager.py   # Mac管理器
@@ -177,7 +177,7 @@ asyncio.run(main())
 
 | 任务 | 描述 |
 |------|------|
-| 🚀 启动龙魂终端 | 启动主程序 |
+| 🚀 启动龍魂终端 | 启动主程序 |
 | 🧹 清理Mac缓存 | 清理系统缓存 |
 | 🛡️ 测试三色审计 | 测试审计引擎 |
 | 🧬 测试DNA追溯 | 测试追溯系统 |
@@ -202,6 +202,6 @@ MIT License
 
 ## 👨‍💻 作者
 
-龙芯北辰 (UID9622)
+龍芯北辰 (UID9622)
 
-**DNA追溯码**: `#龙芯⚡️2026-01-21-README`
+**DNA追溯码**: `#龍芯⚡️2026-01-21-README`

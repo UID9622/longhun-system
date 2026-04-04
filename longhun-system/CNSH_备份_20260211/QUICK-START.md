@@ -23,7 +23,7 @@ cd cnsh-deployment
 ./start-cnhsh-local.sh
 ```
 
-#### 3. 龙魂作战指挥中枢
+#### 3. 龍魂作战指挥中枢
 ```bash
 ./run_command_center.sh
 ```
@@ -41,7 +41,7 @@ cd cnsh-deployment
 2. 推荐选择"1. 启动 CNSH 主服务"
 3. 服务启动后访问: http://localhost:3000
 
-### 龙魂作战指挥中枢使用方法
+### 龍魂作战指挥中枢使用方法
 1. 运行脚本生成发布指令
 2. 复制指令到AI对话框
 3. 将to_publish.md内容发送给AI处理
@@ -85,7 +85,7 @@ chmod +x cnsh-deployment/start-cnhsh-local.sh
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:10
 🧬 DNA追溯码: #CNSH-SIGNATURE-47b4d4ad-20251218032410
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 蒙卦：山下出泉，君子以果行育德
 📜 内容哈希: b73e09756803c309

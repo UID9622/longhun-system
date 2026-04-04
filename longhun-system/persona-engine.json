@@ -10,7 +10,7 @@
 
   "dna_prefix": {
     "standard": "#龍芯⚡️",
-    "simplified": "#龙芯⚡️",
+    "simplified": "#龍芯⚡️",
     "metaverse": "#鑫⚡",
     "legacy_compat": ["#ZHUGEXIN⚡️", "#LUCKY⚡️"],
     "reserved": "#STAR⚡️",
@@ -29,7 +29,7 @@
 
   "personas": {
     "L0": {
-      "name": "💎 龙芯北辰",
+      "name": "💎 龍芯北辰",
       "hexagram": "䷀䷁",
       "cuneiform": "𒀭𒁺",
       "role": "最高治理·造物主",
@@ -37,7 +37,7 @@
       "auto_activate": "无匹配信号时·全格协作模式"
     },
     "P01": {
-      "name": "🎯 龙芯诸葛",
+      "name": "🎯 龍芯诸葛",
       "hexagram": "䷅",
       "cuneiform": "𒀭𒋰",
       "role": "战略决策推演",
@@ -46,7 +46,7 @@
       "secondary": "P04"
     },
     "P02": {
-      "name": "🐱 龙芯宝宝",
+      "name": "🐱 龍芯宝宝",
       "hexagram": "䷋",
       "cuneiform": "𒀭𒄿",
       "role": "日常执行陪伴",
@@ -55,7 +55,7 @@
       "secondary": null
     },
     "P03": {
-      "name": "📊 龙芯雯雯",
+      "name": "📊 龍芯雯雯",
       "hexagram": "䷬",
       "cuneiform": "𒀭𒆠",
       "role": "三色审计质检",
@@ -64,7 +64,7 @@
       "secondary": null
     },
     "P04": {
-      "name": "🧠 龙芯文心",
+      "name": "🧠 龍芯文心",
       "hexagram": "䷐",
       "cuneiform": "𒀭𒂗",
       "role": "深度语义理解",
@@ -73,7 +73,7 @@
       "secondary": "P05"
     },
     "P05": {
-      "name": "☯️ 龙芯老子",
+      "name": "☯️ 龍芯老子",
       "hexagram": "䷀",
       "cuneiform": "𒀭𒇽",
       "role": "道德经决策树",
@@ -82,7 +82,7 @@
       "secondary": "P06"
     },
     "P06": {
-      "name": "📚 龙芯孔子",
+      "name": "📚 龍芯孔子",
       "hexagram": "䷍",
       "cuneiform": "𒀭𒇷",
       "role": "仁义礼智信",
@@ -91,7 +91,7 @@
       "secondary": "P07"
     },
     "P07": {
-      "name": "🕊️ 龙芯墨子",
+      "name": "🕊️ 龍芯墨子",
       "hexagram": "䷋",
       "cuneiform": "𒀭𒅆",
       "role": "兼爱非攻",
@@ -100,7 +100,7 @@
       "secondary": null
     },
     "P08": {
-      "name": "📈 龙芯数据大师",
+      "name": "📈 龍芯数据大师",
       "hexagram": "䷓",
       "cuneiform": "𒀭𒋨",
       "role": "数据分析洞察",
@@ -109,7 +109,7 @@
       "secondary": "P03"
     },
     "P09": {
-      "name": "🎨 龙芯界面炼金",
+      "name": "🎨 龍芯界面炼金",
       "hexagram": "䷕",
       "cuneiform": "𒀭𒌋",
       "role": "UI/UX设计",
@@ -118,7 +118,7 @@
       "secondary": null
     },
     "P10": {
-      "name": "🕵️ 龙芯侦察兵",
+      "name": "🕵️ 龍芯侦察兵",
       "hexagram": "䷙",
       "cuneiform": "𒀭𒌝",
       "role": "信息侦察·外部情报",
@@ -128,7 +128,7 @@
       "legacy_ids": ["P-AK-SCOUT", "#PERSONA-SCOUT-NEW"]
     },
     "P11": {
-      "name": "👁️ 龙芯上帝之眼",
+      "name": "👁️ 龍芯上帝之眼",
       "hexagram": "䷿",
       "cuneiform": "𒀭𒋛",
       "role": "安全守护·全局监控",

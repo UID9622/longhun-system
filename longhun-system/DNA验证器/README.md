@@ -1,4 +1,4 @@
-# 龙魂DNA存证系统 | 完整使用说明
+# 龍魂DNA存证系统 | 完整使用说明
 
 ## 🔐 创作者数字身份认证
 
@@ -547,7 +547,7 @@ result.evidences.forEach((evidence, index) => {
   "dnaCode": "#龍芯⚡️2026-01-06-TEST-001",
   "digitalFingerprint": "a1b2c3d4...",
   "metadata": {
-    "toolVersion": "龙魂DNA存证系统 v1.0",
+    "toolVersion": "龍魂DNA存证系统 v1.0",
     "systemNote": "本存证基于SHA-256算法生成，任何修改都会导致指纹失效",
     "creatorStatement": "技术主权·数据主权·中文原生"
   }
@@ -633,7 +633,7 @@ SOFTWARE.
 
 **技术主权 · 数据主权 · 中文原生**
 
-**龙魂DNA存证系统 v1.0**
+**龍魂DNA存证系统 v1.0**
 
 **完全开源 · 完全免费 · 完全可控**
 

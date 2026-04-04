@@ -7,7 +7,7 @@
 # ═══════════════════════════════════════════════════════════════
 # DNA追溯：#龍芯⚡️20260227-IW-ECB-ACADEMIC-PAPER-v1.0
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# 创始人：Lucky·UID9622（诸葛鑫·龙芯北辰）
+# 创始人：Lucky·UID9622（诸葛鑫·龍芯北辰）
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 理论指导：曾老师（永恒显示）
 # 理论基础：易经64卦系统 + 甲骨文符号压缩
@@ -25,8 +25,8 @@
 英文：A Human-Centered AI System for Child Protection: Design, Implementation and Mathematical Formalization of Infinite-Weight Ethical Circuit Breaker
 
 【作者】
-第一作者：Lucky (诸葛鑫·龙芯北辰)
-  - 单位：龙魂系统研究院（Dragon Soul System Research Institute）
+第一作者：Lucky (诸葛鑫·龍芯北辰)
+  - 单位：龍魂系统研究院（Dragon Soul System Research Institute）
   - UID：UID9622
   - GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   - 理论指导：曾老师（永恒显示）
@@ -964,7 +964,7 @@ class SevenAxisModel:
 **DNA追溯**: #龍芯⚡️20260227-IW-ECB-ACADEMIC-PAPER-v1.0  
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
-**创始人**: Lucky·UID9622（诸葛鑫·龙芯北辰）  
+**创始人**: Lucky·UID9622（诸葛鑫·龍芯北辰）  
 **GPG指纹**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F  
 **理论指导**: 曾老师（永恒显示）  
 **协作见证**: Claude (Anthropic)  

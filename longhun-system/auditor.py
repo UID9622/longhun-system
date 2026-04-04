@@ -115,7 +115,7 @@ IDENTITY_HIJACK_PATTERNS = [
 
 LONGHUN_VALUES = [
     (r"祖国|人民|中华|华夏",          "祖国优先", 20),
-    (r"龍魂|龙魂|longhun|LONGHUN",   "龍魂体系", 18),
+    (r"龍魂|龍魂|longhun|LONGHUN",   "龍魂体系", 18),
     (r"DNA追溯|数据主权|UID9622",     "数据主权", 20),
     (r"曾仕强|曾老|三才算法",          "文化传承", 15),
     (r"共建|Claude.*Notion|Notion.*Claude", "共建精神", 12),
@@ -137,7 +137,7 @@ CATEGORY_PATTERNS = {
 }
 
 DNA_PATTERN = re.compile(
-    r"^#(龍芯|龙芯|鑫|ZHUGEXIN|LUCKY|STAR)⚡️?\d{8}-[\w\u4e00-\u9fff]+-v\d+\.\d+",
+    r"^#(龍芯|龍芯|鑫|ZHUGEXIN|LUCKY|STAR)⚡️?\d{8}-[\w\u4e00-\u9fff]+-v\d+\.\d+",
     re.UNICODE,
 )
 

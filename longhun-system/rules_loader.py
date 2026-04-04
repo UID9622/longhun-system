@@ -52,7 +52,7 @@ RULE_PRIORITY = {
     "L0-伦理":   0,   # P∞ 最高
     "L1-架构":   1,   # P0
     "L2-行为规则": 2,  # P0
-    "龙魂铁律":  3,   # P1
+    "龍魂铁律":  3,   # P1
     "多AI协作":  4,   # P1
     "DNA标准":   5,   # P2
     "质检报告":  6,   # P3
@@ -188,7 +188,7 @@ def get_rules_summary() -> dict:
 
 def check_rule_alignment(text: str) -> dict:
     """
-    对输入文本检查是否违反 L0-伦理 和 龙魂铁律 中的关键条款。
+    对输入文本检查是否违反 L0-伦理 和 龍魂铁律 中的关键条款。
     返回 {aligned: bool, violations: list, matched_rules: list}
     轻量级检查（关键词匹配），不替代 auditor.py 的完整三维审计。
     """
@@ -217,8 +217,8 @@ def check_rule_alignment(text: str) -> dict:
         if not violations:
             matched.append("L0-伦理 · 无违规")
 
-    # 龙魂铁律 检查
-    iron = load_rule("龙魂铁律")
+    # 龍魂铁律 检查
+    iron = load_rule("龍魂铁律")
     if iron:
         # 检查 P0 级条款
         p0_lines = [ln.strip() for ln in iron.splitlines()
@@ -228,13 +228,13 @@ def check_rule_alignment(text: str) -> dict:
             for kw in keywords:
                 if kw in text and kw not in ("系统", "用户", "内容", "操作"):
                     violations.append({
-                        "rule":    "龙魂铁律",
+                        "rule":    "龍魂铁律",
                         "clause":  rule_line[:60],
                         "trigger": kw,
                     })
                     break
-        if iron and "龙魂铁律" not in [v["rule"] for v in violations]:
-            matched.append("龙魂铁律 · 无违规")
+        if iron and "龍魂铁律" not in [v["rule"] for v in violations]:
+            matched.append("龍魂铁律 · 无违规")
 
     return {
         "aligned":       len(violations) == 0,

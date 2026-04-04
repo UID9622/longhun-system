@@ -1,4 +1,4 @@
-// 龙魂元数据加密存储系统 - 核心库
+// 龍魂元数据加密存储系统 - 核心库
 // DNA: #ZHUGEXIN⚡️2026-03-03-METADATA-CORE-v1.0
 // 作者: UID9622 × Claude (Anthropic)
 

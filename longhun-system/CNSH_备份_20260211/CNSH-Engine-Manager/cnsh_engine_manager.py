@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 CNSH字体引擎·统一管理系统
-DNA追溯码: #龙芯⚡️2026-02-09-CNSH-ENGINE-MANAGER-v1.0
+DNA追溯码: #龍芯⚡️2026-02-09-CNSH-ENGINE-MANAGER-v1.0
 创建者: 诸葛鑫（Lucky）｜UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
@@ -28,17 +28,17 @@ class CNSH引擎基类_UID9622(ABC):
         self.引擎名称_cnsh9622 = "基础引擎"
     
     @abstractmethod
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         """载入CNSH数据文件（必须实现）"""
         pass
     
     @abstractmethod
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         """执行三色审计（必须实现）"""
         pass
     
     @abstractmethod
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         """执行渲染（必须实现）"""
         pass
     
@@ -67,17 +67,17 @@ class CNSH基础引擎_V0001_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.1"
         self.引擎名称_cnsh9622 = "基础引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
         print(f"✅ [{self.引擎名称_cnsh9622}] 加载字元集: {list(self.字元集_cnsh9622.keys())}")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         """基础引擎没有审计功能"""
         print(f"⚠️ [{self.引擎名称_cnsh9622}] 基础版无审计功能")
     
-    def 输出SVG_cnsh龙魂_v1(self, 字符: str, 输出路径_cnsh9622: str):
+    def 输出SVG_cnsh龍魂_v1(self, 字符: str, 输出路径_cnsh9622: str):
         if 字符 not in self.字元集_cnsh9622:
             print(f"❌ 字符不存在: {字符}")
             return
@@ -112,11 +112,11 @@ class CNSH基础引擎_V0001_UID9622(CNSH引擎基类_UID9622):
             f.write(svg)
         print(f"✅ [{self.引擎名称_cnsh9622}] {字符} → {输出路径_cnsh9622}")
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         for 字符 in self.字元集_cnsh9622:
             输出路径 = os.path.join(输出目录_cnsh9622, f"CNSH_{字符}_v0001.svg")
-            self.输出SVG_cnsh龙魂_v1(字符, 输出路径)
+            self.输出SVG_cnsh龍魂_v1(字符, 输出路径)
 
 
 # =====================================================
@@ -131,16 +131,16 @@ class CNSH批量引擎_V0002_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.2"
         self.引擎名称_cnsh9622 = "批量引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
         print(f"✅ [{self.引擎名称_cnsh9622}] 已加载 {len(self.字元集_cnsh9622)} 个字元")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         print(f"⚠️ [{self.引擎名称_cnsh9622}] 批量版无审计功能")
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始批量渲染...")
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         
@@ -192,7 +192,7 @@ class CNSH审计引擎_V0003_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.3"
         self.引擎名称_cnsh9622 = "审计引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
@@ -205,7 +205,7 @@ class CNSH审计引擎_V0003_UID9622(CNSH引擎基类_UID9622):
         print(f"✅ [{self.引擎名称_cnsh9622}] 已加载工程: {self.工程信息_cnsh9622['工程名称']}")
         print(f"   DNA: {self.工程信息_cnsh9622['DNA追溯码']}")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始执行三色审计...")
         审计通过 = True
         
@@ -223,7 +223,7 @@ class CNSH审计引擎_V0003_UID9622(CNSH引擎基类_UID9622):
         
         print(f"\n🟢 [{self.引擎名称_cnsh9622}] 三色审计全部通过，准许渲染")
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始渲染 {len(self.字元集_cnsh9622)} 个字元...")
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         
@@ -276,7 +276,7 @@ class CNSH组合引擎_V0004_UID9622(CNSH引擎基类_UID9622):
         self.引擎名称_cnsh9622 = "组合引擎"
         self.组合规则_cnsh9622 = {}
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
@@ -290,7 +290,7 @@ class CNSH组合引擎_V0004_UID9622(CNSH引擎基类_UID9622):
         print(f"✅ [{self.引擎名称_cnsh9622}] 已加载工程: {self.工程信息_cnsh9622['工程名称']}")
         print(f"   组合数量: {len(self.组合规则_cnsh9622)}")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         if not self.审计结果_cnsh9622:
             print(f"⚠️ [{self.引擎名称_cnsh9622}] 无审计数据")
             return
@@ -312,7 +312,7 @@ class CNSH组合引擎_V0004_UID9622(CNSH引擎基类_UID9622):
         
         print(f"\n🟢 [{self.引擎名称_cnsh9622}] 三色审计全部通过，准许渲染")
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始渲染 {len(self.组合规则_cnsh9622)} 个组合...")
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         
@@ -390,7 +390,7 @@ class CNSH力度引擎_V0005_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.5"
         self.引擎名称_cnsh9622 = "力度引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
@@ -402,7 +402,7 @@ class CNSH力度引擎_V0005_UID9622(CNSH引擎基类_UID9622):
         }
         print(f"✅ [{self.引擎名称_cnsh9622}] 已加载工程: {self.工程信息_cnsh9622['工程名称']}")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         if not self.审计结果_cnsh9622:
             print(f"⚠️ [{self.引擎名称_cnsh9622}] 无审计数据")
             return
@@ -424,7 +424,7 @@ class CNSH力度引擎_V0005_UID9622(CNSH引擎基类_UID9622):
         
         print(f"\n🟢 [{self.引擎名称_cnsh9622}] 三色审计全部通过，准许笔画力度渲染")
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始笔画力度渲染...")
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         
@@ -486,7 +486,7 @@ class CNSH层级引擎_V0008_UID9622(CNSH引擎基类_UID9622):
         self.版本号_cnsh9622 = "0.0.8"
         self.引擎名称_cnsh9622 = "层级引擎"
     
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622: str):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622: str):
         with open(路径_cnsh9622, "r", encoding="utf-8") as f:
             数据 = json.load(f)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
@@ -498,7 +498,7 @@ class CNSH层级引擎_V0008_UID9622(CNSH引擎基类_UID9622):
         }
         print(f"✅ [{self.引擎名称_cnsh9622}] 已加载工程: {self.工程信息_cnsh9622['工程名称']}")
     
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         if not self.审计结果_cnsh9622:
             print(f"⚠️ [{self.引擎名称_cnsh9622}] 无审计数据")
             return
@@ -529,7 +529,7 @@ class CNSH层级引擎_V0008_UID9622(CNSH引擎基类_UID9622):
         else:  # 平锋
             return "round", "bevel"
     
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622: str):
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622: str):
         print(f"\n🎯 [{self.引擎名称_cnsh9622}] 开始笔画层级渲染...")
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         
@@ -630,12 +630,12 @@ class CNSH引擎管理器_UID9622:
         for 名称, 引擎 in 引擎列表:
             self.已注册引擎_cnsh9622[名称] = 引擎
     
-    def 注册引擎_cnsh龙魂_v1(self, 引擎名称_cnsh9622: str, 引擎实例_cnsh9622: CNSH引擎基类_UID9622):
+    def 注册引擎_cnsh龍魂_v1(self, 引擎名称_cnsh9622: str, 引擎实例_cnsh9622: CNSH引擎基类_UID9622):
         """手动注册一个引擎"""
         self.已注册引擎_cnsh9622[引擎名称_cnsh9622] = 引擎实例_cnsh9622
         print(f"✅ 已注册引擎: {引擎名称_cnsh9622} (v{引擎实例_cnsh9622.获取版本_cnsh9622()})")
     
-    def 切换引擎_cnsh龙魂_v1(self, 引擎名称_cnsh9622: str):
+    def 切换引擎_cnsh龍魂_v1(self, 引擎名称_cnsh9622: str):
         """切换当前使用的引擎"""
         if 引擎名称_cnsh9622 not in self.已注册引擎_cnsh9622:
             raise ValueError(f"引擎不存在: {引擎名称_cnsh9622}")
@@ -643,7 +643,7 @@ class CNSH引擎管理器_UID9622:
         self.当前引擎_cnsh9622 = self.已注册引擎_cnsh9622[引擎名称_cnsh9622]
         print(f"✅ 已切换到引擎: {引擎名称_cnsh9622} (v{self.当前引擎_cnsh9622.获取版本_cnsh9622()})")
     
-    def 列出所有引擎_cnsh龙魂_v1(self):
+    def 列出所有引擎_cnsh龍魂_v1(self):
         """列出所有已注册的引擎"""
         print("\n" + "="*60)
         print("📦 CNSH字体引擎管理器 - 已注册引擎")
@@ -657,7 +657,7 @@ class CNSH引擎管理器_UID9622:
         
         print("="*60 + "\n")
     
-    def 执行渲染_cnsh龙魂_v1(
+    def 执行渲染_cnsh龍魂_v1(
         self,
         cnsh文件路径_cnsh9622: str,
         引擎名称_cnsh9622: Optional[str] = None,
@@ -666,11 +666,11 @@ class CNSH引擎管理器_UID9622:
         """执行渲染任务"""
         # 选择引擎
         if 引擎名称_cnsh9622:
-            self.切换引擎_cnsh龙魂_v1(引擎名称_cnsh9622)
+            self.切换引擎_cnsh龍魂_v1(引擎名称_cnsh9622)
         
         if not self.当前引擎_cnsh9622:
             # 如果没有当前引擎，切换到默认引擎
-            self.切换引擎_cnsh龙魂_v1("V0003_审计")
+            self.切换引擎_cnsh龍魂_v1("V0003_审计")
         
         # 设置输出目录
         if not 输出目录_cnsh9622:
@@ -688,17 +688,17 @@ class CNSH引擎管理器_UID9622:
         print("="*60)
         
         # 1. 载入数据
-        self.当前引擎_cnsh9622.载入_cnsh数据_cnsh龙魂_v1(cnsh文件路径_cnsh9622)
+        self.当前引擎_cnsh9622.载入_cnsh数据_cnsh龍魂_v1(cnsh文件路径_cnsh9622)
         
         # 2. 执行审计（如果配置了自动审计）
         if self.配置_cnsh9622["自动审计"]:
             try:
-                self.当前引擎_cnsh9622.执行三色审计_cnsh龙魂_v1()
+                self.当前引擎_cnsh9622.执行三色审计_cnsh龍魂_v1()
             except Exception as e:
                 print(f"⚠️ 审计执行失败: {e}")
         
         # 3. 执行渲染
-        self.当前引擎_cnsh9622.执行渲染_cnsh龙魂_v1(输出目录_cnsh9622)
+        self.当前引擎_cnsh9622.执行渲染_cnsh龍魂_v1(输出目录_cnsh9622)
         
         print("\n" + "="*60)
         print("🎉 CNSH渲染任务完成！")
@@ -714,26 +714,26 @@ if __name__ == "__main__":
     管理器 = CNSH引擎管理器_UID9622()
     
     # 查看所有引擎
-    管理器.列出所有引擎_cnsh龙魂_v1()
+    管理器.列出所有引擎_cnsh龍魂_v1()
     
     print("💡 使用提示:")
     print("   1. 取消下面的注释来执行渲染")
-    print("   2. 或者在代码中调用 管理器.执行渲染_cnsh龙魂_v1()")
+    print("   2. 或者在代码中调用 管理器.执行渲染_cnsh龍魂_v1()")
     print("   3. 老大可以继续上传更多引擎，宝宝会统一整理！\n")
     
     # 使用示例1：使用默认引擎（审计引擎）
-    # 管理器.执行渲染_cnsh龙魂_v1(
+    # 管理器.执行渲染_cnsh龍魂_v1(
     #     cnsh文件路径_cnsh9622="demo_long.cnsh"
     # )
     
     # 使用示例2：指定引擎
-    # 管理器.执行渲染_cnsh龙魂_v1(
+    # 管理器.执行渲染_cnsh龍魂_v1(
     #     cnsh文件路径_cnsh9622="demo_long.cnsh",
     #     引擎名称_cnsh9622="V0005_力度"
     # )
     
     # 使用示例3：指定输出目录
-    # 管理器.执行渲染_cnsh龙魂_v1(
+    # 管理器.执行渲染_cnsh龍魂_v1(
     #     cnsh文件路径_cnsh9622="demo_long.cnsh",
     #     引擎名称_cnsh9622="V0008_层级",
     #     输出目录_cnsh9622="我的输出"

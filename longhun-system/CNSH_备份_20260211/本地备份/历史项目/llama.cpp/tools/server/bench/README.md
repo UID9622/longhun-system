@@ -122,7 +122,7 @@ LLAMA_SERVER_BIN_PATH=../../../cmake-build-release/bin/llama-server python bench
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:10
 🧬 DNA追溯码: #CNSH-SIGNATURE-2103d162-20251218032410
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 四川话确认：莫得问题，内容真实可靠
 ⚡ 卦象防护: 屯卦：云雷屯，君子以经纶
 📜 内容哈希: 9edf7b94887f3c50

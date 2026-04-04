@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "🐉 龙魂终端",
+      "name": "🐉 龍魂终端",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/dragonsoul-terminal/backend/main.py",
