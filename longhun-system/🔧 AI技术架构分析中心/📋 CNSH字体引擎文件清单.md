@@ -336,13 +336,13 @@ from cnsh_font_engine_uid9622 import CNSH字元基础引擎_UID9622
 引擎 = CNSH字元基础引擎_UID9622()
 
 # 载入CNSH数据
-引擎.载入_cnsh数据_cnsh龙魂_v1("CNSH字元库.json")
+引擎.载入_cnsh数据_cnsh龍魂_v1("CNSH字元库.json")
 
 # 执行三色审计
-引擎.执行三色审计_cnsh龙魂_v1()
+引擎.执行三色审计_cnsh龍魂_v1()
 
 # 输出SVG
-引擎.输出SVG_cnsh龙魂_v1("龙", "output.svg")
+引擎.输出SVG_cnsh龍魂_v1("龍", "output.svg")
 ```
 
 ### 批量使用
@@ -354,7 +354,7 @@ from CNSH字元引擎_UID9622_批量版 import CNSH字元批量引擎_UID9622
 批量引擎 = CNSH字元批量引擎_UID9622()
 
 # 批量渲染
-批量引擎.批量渲染(["龙", "魂", "中", "华"], "output_dir/")
+批量引擎.批量渲染(["龍", "魂", "中", "华"], "output_dir/")
 ```
 
 ---

@@ -1,10 +1,10 @@
-# 🐉 龙魂·思维主权守护者
+# 🐉 龍魂·思维主权守护者
 
-龙魂浏览器扩展 - 自动净化输入，熔断风险内容，保障思维主权完整性。支持智能记忆压缩与快速还原。
+龍魂浏览器扩展 - 自动净化输入，熔断风险内容，保障思维主权完整性。支持智能记忆压缩与快速还原。
 
 ## ✨ 功能特性
 
-### 🌟 龙魂系统主控台（联动按键版）
+### 🌟 龍魂系统主控台（联动按键版）
 - 🎛️ **统一界面** - 所有功能集成在一个页面，联动按键切换
 - 🇨🇳 **数据主权** - 完全本地化，数据不上传，技术主权
 - 🧠 **记忆压缩** - 智能压缩记忆，压缩率达 99%+
@@ -72,7 +72,7 @@ dragon_soul_extension/
 ├── wasm/                      # WASM 模块（预留）
 ├── assets/
 │   └── icons/                 # 图标文件
-├── main-console.html          # 🆕 龙魂系统主控台（联动按键版）
+├── main-console.html          # 🆕 龍魂系统主控台（联动按键版）
 ├── memory-editor.html         # 🆕 记忆编辑器页面
 ├── asset-scanner.html         # 🆕 资产扫描器页面
 ├── manifest.json              # 扩展配置
@@ -111,7 +111,7 @@ dragon_soul_extension/
 
 ## 📖 使用说明
 
-### 🌟 龙魂系统主控台（推荐使用）
+### 🌟 龍魂系统主控台（推荐使用）
 
 **打开方式：**
 
@@ -249,7 +249,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 ### 查看日志
 
 1. 打开 `chrome://extensions/`
-2. 找到龙魂扩展
+2. 找到龍魂扩展
 3. 点击"Service Worker"查看后台日志
 4. 在任意网页按 F12 打开开发者工具查看内容脚本日志
 
@@ -262,7 +262,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 ### 查看存储数据
 
 1. 打开 `chrome://extensions/`
-2. 找到龙魂扩展
+2. 找到龍魂扩展
 3. 点击"详细信息"
 4. 点击"扩展程序选项"或使用开发者工具查看 Storage
 
@@ -352,7 +352,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 ### v3.0.0 (2026-03-03)
 
-- 🌟 新增龙魂系统主控台（联动按键版）
+- 🌟 新增龍魂系统主控台（联动按键版）
 - 🌟 集成所有功能到统一界面
 - 🌟 新增数据主权主题设计
 - 🌟 新增 DNA 存证系统（基于 SHA-256）

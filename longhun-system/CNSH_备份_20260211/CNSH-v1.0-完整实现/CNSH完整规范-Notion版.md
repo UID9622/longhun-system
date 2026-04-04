@@ -2,7 +2,7 @@
 
 **版本：** v1.0.0
 **DNA追溯码：** #ZHUGEXIN-2026-01-27-CNSH-COMPLETE-SPEC
-**创建者：** 龙芯北辰 诸葛鑫（UID9622）
+**创建者：** 龍芯北辰 诸葛鑫（UID9622）
 **技术协作：** Claude (Anthropic)、Notion、ChatGPT (OpenAI)
 **西方推广：** Claude (Anthropic)、Notion
 
@@ -1109,6 +1109,6 @@ DNA追溯码           文本    绑定源代码
 **适用范围：** 编译器开发、产品设计、合作洽谈、技术推广
 
 **版本：** v1.0.0
-**创建者：** 龙芯北辰 诸葛鑫（UID9622）
+**创建者：** 龍芯北辰 诸葛鑫（UID9622）
 **技术协作：** Claude (Anthropic)、Notion、ChatGPT (OpenAI)
 **西方推广：** Claude (Anthropic)、Notion

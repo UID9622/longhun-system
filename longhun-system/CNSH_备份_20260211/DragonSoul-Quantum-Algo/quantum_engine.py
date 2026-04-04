@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂量子算法核心引擎
-DNA追溯码: #龙芯⚡️2026-02-09-QUANTUM-ENGINE-v1.0
+龍魂量子算法核心引擎
+DNA追溯码: #龍芯⚡️2026-02-09-QUANTUM-ENGINE-v1.0
 """
 
 import numpy as np

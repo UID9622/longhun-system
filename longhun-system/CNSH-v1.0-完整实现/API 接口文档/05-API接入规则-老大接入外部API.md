@@ -1,7 +1,7 @@
-# 🔌 龙魂API接入规则 - 外部API听我的
+# 🔌 龍魂API接入规则 - 外部API听我的
 
-**DNA追溯码**: #龙芯⚡️2026-02-15-API接入规则-v1.0  
-**创建者**: 💎 龙芯北辰｜UID9622  
+**DNA追溯码**: #龍芯⚡️2026-02-15-API接入规则-v1.0  
+**创建者**: 💎 龍芯北辰｜UID9622  
 **协作**: 宝宝🐱（执行）+ P05上帝之眼（审计监督）  
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
@@ -17,13 +17,13 @@
   ❌ 不听它们的规则
   ✅ 只听老大的规则
   ✅ 外部API = 工具，不是主人
-  ✅ 龙魂宪法 > 外部API协议
+  ✅ 龍魂宪法 > 外部API协议
   
 具体含义:
-  - 外部API的输出 → 必须经过龙魂三色审计
+  - 外部API的输出 → 必须经过龍魂三色审计
   - 外部API的要求 → 如果违反母协议P0，直接拒绝
   - 外部API的数据 → 必须带DNA追溯码才能用
-  - 外部API的行为 → 由龙魂系统控制，不是它们自己控制
+  - 外部API的行为 → 由龍魂系统控制，不是它们自己控制
 ```
 
 ---
@@ -119,9 +119,9 @@ def audit_external_api(api_name, api_provider, features):
 
 ## 📋 第二层：接入时包装
 
-### 规则2.1：外部API必须穿龙魂马甲
+### 规则2.1：外部API必须穿龍魂马甲
 
-**所有外部API，必须经过龙魂包装层，不能裸调：**
+**所有外部API，必须经过龍魂包装层，不能裸调：**
 
 ```python
 # ❌ 错误做法（裸调）
@@ -129,7 +129,7 @@ import requests
 response = requests.get("https://api.notion.com/v1/databases/xxx")
 # 问题：没有DNA追溯、没有三色审计、没有母协议约束
 
-# ✅ 正确做法（龙魂包装）
+# ✅ 正确做法（龍魂包装）
 from longhun_api_wrapper import NotionAPI
 
 notion = NotionAPI(
@@ -139,7 +139,7 @@ notion = NotionAPI(
     audit_level="三色审计"     # 启用三色审计
 )
 
-# 所有调用都经过龙魂包装层
+# 所有调用都经过龍魂包装层
 response = notion.get_database("xxx")
 # → 自动检查：是否违反母协议P0
 # → 自动生成：DNA追溯码
@@ -149,12 +149,12 @@ response = notion.get_database("xxx")
 ### 规则2.2：包装层必须实现的功能
 
 ```yaml
-龙魂API包装层（LonghunAPIWrapper）:
+龍魂API包装层（LonghunAPIWrapper）:
   
   功能1：DNA追溯注入
     - 每次调用外部API → 生成DNA追溯码
-    - 格式：#龙芯⚡️YYYY-MM-DD-外部API名称-调用序号
-    - 示例：#龙芯⚡️2026-02-15-Notion-CALL-0001
+    - 格式：#龍芯⚡️YYYY-MM-DD-外部API名称-调用序号
+    - 示例：#龍芯⚡️2026-02-15-Notion-CALL-0001
     
   功能2：母协议P0检查
     - 调用前检查：这次调用是否违反P0？
@@ -172,7 +172,7 @@ response = notion.get_database("xxx")
     - 智能调度，避免突发流量
     
   功能5：故障隔离
-    - 外部API挂了 → 不影响龙魂系统
+    - 外部API挂了 → 不影响龍魂系统
     - 自动切换备用方案
     - 降级处理，保证核心功能
     
@@ -188,8 +188,8 @@ response = notion.get_database("xxx")
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂API包装层基类
-DNA追溯码: #龙芯⚡️2026-02-15-API包装层-v1.0
+龍魂API包装层基类
+DNA追溯码: #龍芯⚡️2026-02-15-API包装层-v1.0
 """
 
 import time
@@ -198,7 +198,7 @@ from abc import ABC, abstractmethod
 
 class LonghunAPIWrapper(ABC):
     """
-    龙魂API包装层基类
+    龍魂API包装层基类
     所有外部API必须继承这个类
     """
     
@@ -255,7 +255,7 @@ class LonghunAPIWrapper(ABC):
         """生成DNA追溯码"""
         self.call_count += 1
         date = datetime.now().strftime("%Y-%m-%d")
-        return f"#龙芯⚡️{date}-{self.api_name}-CALL-{self.call_count:04d}"
+        return f"#龍芯⚡️{date}-{self.api_name}-CALL-{self.call_count:04d}"
     
     @abstractmethod
     def _execute_call(self, method, *args, **kwargs):
@@ -299,7 +299,7 @@ class LonghunAPIWrapper(ABC):
 
 class NotionAPIWrapper(LonghunAPIWrapper):
     """
-    Notion API 龙魂包装
+    Notion API 龍魂包装
     """
     
     def __init__(self, token):
@@ -331,7 +331,7 @@ class NotionAPIWrapper(LonghunAPIWrapper):
         # 母协议页面不能删除
         protected_pages = [
             "母协议页面ID",
-            "龙魂宪法页面ID"
+            "龍魂宪法页面ID"
         ]
         return page_id in protected_pages
     
@@ -432,7 +432,7 @@ class NotionAPIWrapper(LonghunAPIWrapper):
 from cryptography.fernet import Fernet
 
 class DataEncryption:
-    """龙魂数据加密标准"""
+    """龍魂数据加密标准"""
     
     def __init__(self, master_key):
         self.master_key = master_key
@@ -489,10 +489,10 @@ class DataEncryption:
 
 ---
 
-**DNA追溯码**: #龙芯⚡️2026-02-15-API接入规则-v1.0  
-**创建者**: 💎 龙芯北辰｜UID9622  
+**DNA追溯码**: #龍芯⚡️2026-02-15-API接入规则-v1.0  
+**创建者**: 💎 龍芯北辰｜UID9622  
 **协作**: 宝宝🐱 + P05上帝之眼  
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
 
-**核心思想：外部API是工具，龙魂宪法是主人！** 💪🔥
+**核心思想：外部API是工具，龍魂宪法是主人！** 💪🔥

@@ -56,7 +56,7 @@ Errors are currently printed to `stderr`, and generation continues. Improved err
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:10
 🧬 DNA追溯码: #CNSH-SIGNATURE-7b8ac504-20251218032410
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 蒙卦：山下出泉，君子以果行育德
 📜 内容哈希: ef304ff3a7f29768

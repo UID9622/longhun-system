@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🛡️ 三色审计引擎 | Three-Color Audit Engine
-DNA追溯码: #龙芯⚡️2026-01-21-三色审计引擎-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-三色审计引擎-v2.0
 
 三色审计机制：
 🟢 绿色：安全，直接执行
@@ -215,7 +215,7 @@ class ThreeColorAuditEngine:
         """生成DNA追溯码"""
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         hash_part = hashlib.md5(f"{timestamp}{action}".encode()).hexdigest()[:8].upper()
-        return f"#龙芯⚡️{timestamp}-AUDIT-{action}-{hash_part}"
+        return f"#龍芯⚡️{timestamp}-AUDIT-{action}-{hash_part}"
     
     def mask_sensitive_data(self, text: str) -> str:
         """脱敏处理敏感数据"""

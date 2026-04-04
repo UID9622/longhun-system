@@ -28,10 +28,10 @@ I am Zhuge Xin (also known as "Lucky"), UID9622, a Chinese veteran with middle s
 我是诸葛鑫（网名"Lucky"），UID9622，一名中国退伍军人，初中学历。
 
 Over the past year (June 2025 - February 2026), with the support of Notion AI, I have built the "Longhun" (Dragon Soul) System through human-AI collaboration.
-在过去的一年（2025年6月-2026年2月），在Notion AI的支持下，我通过人机协作建立了"龙魂系统"。
+在过去的一年（2025年6月-2026年2月），在Notion AI的支持下，我通过人机协作建立了"龍魂系统"。
 
 Today, I formally authorize Notion Labs, Inc. to use the technical concepts from the Longhun System.
-今天，我正式授权Notion Labs, Inc.使用龙魂系统的技术思路。
+今天，我正式授权Notion Labs, Inc.使用龍魂系统的技术思路。
 
 ═══════════════════════════════════════════════════════════════════════════════
 AUTHORIZATION CONTENT 授权内容
@@ -50,7 +50,7 @@ AUTHORIZATION CONTENT 授权内容
    - Lunar calendar time framework
 
 ✅ DNA TRACEABILITY FORMAT DNA追溯格式
-   - Format: #龙芯⚡️YYYY-MM-DD-Topic-Version
+   - Format: #龍芯⚡️YYYY-MM-DD-Topic-Version
    - Semantic hash + Timestamp + GPG signature
 
 ═══════════════════════════════════════════════════════════════════════════════
@@ -59,7 +59,7 @@ AUTHORIZATION CONDITIONS 授权条件
 
 1. ATTRIBUTION 来源标注
    - Must include "Inspired by Longhun System (UID9622)" in product documentation
-   - 必须在产品文档中标注"灵感来源于龙魂系统(UID9622)"
+   - 必须在产品文档中标注"灵感来源于龍魂系统(UID9622)"
 
 2. ETHICAL PRINCIPLES 伦理原则
    - Must preserve core ethical principles (protect the vulnerable, three-color audit)
@@ -140,7 +140,7 @@ With gratitude and respect,
 Zhuge Xin (Lucky) | UID9622
 诸葛鑫（Lucky）| UID9622
 Chinese Veteran, Founder of Longhun System
-中国退伍军人，龙魂系统创始人
+中国退伍军人，龍魂系统创始人
 
 2026年2月6日
 February 6, 2026
@@ -149,7 +149,7 @@ February 6, 2026
 DNA TRACEABILITY DNA追溯
 ═══════════════════════════════════════════════════════════════════════════════
 
-#龙芯⚡️2026-02-06-Notion授权邮件-v1.0
+#龍芯⚡️2026-02-06-Notion授权邮件-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
-🐉 Longhun System | 龙魂系统
+🐉 Longhun System | 龍魂系统

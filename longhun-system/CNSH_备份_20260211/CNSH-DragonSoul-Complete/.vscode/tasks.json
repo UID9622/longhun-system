@@ -2,7 +2,7 @@ git push -u origin main --force{
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "🚀 启动龙魂终端",
+      "label": "🚀 启动龍魂终端",
       "type": "shell",
       "command": "python",
       "args": ["dragonsoul-terminal/backend/main.py"],

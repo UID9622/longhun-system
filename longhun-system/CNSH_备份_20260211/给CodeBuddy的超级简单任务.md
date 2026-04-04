@@ -4,13 +4,13 @@
 
 CodeBuddy，兄弟别慌！😂
 
-**任务**：让Lucky的龙魂系统先跑起来
+**任务**：让Lucky的龍魂系统先跑起来
 
 **文件位置**：`/Users/zuimeidedeyihan/LuckyCommandCenter/longhun_simple_demo.py`
 
 **要求**：
 1. 确保这个Demo能正常运行 ✅
-2. 生成一个"真实"的龙魂ID给Lucky看
+2. 生成一个"真实"的龍魂ID给Lucky看
 3. 解释这个Demo的逻辑
 
 ---
@@ -44,11 +44,11 @@ CodeBuddy，兄弟别慌！😂
 ### 立即执行（现在就做）
 
 ```markdown
-CodeBuddy，帮Lucky完善龙魂系统：
+CodeBuddy，帮Lucky完善龍魂系统：
 
 1. 先运行 `/Users/zuimeidedeyihan/LuckyCommandCenter/longhun_simple_demo.py`
 2. 确认Demo工作正常
-3. 给Lucky生成一个真实的龙魂ID（用他的真实信息）
+3. 给Lucky生成一个真实的龍魂ID（用他的真实信息）
 4. 用简单的语言解释这个Demo怎么工作的
 
 DNA追溯码：#ZHUGEXIN⚡️2025-CODEBUDDY-LONGHUN-DEMO-V1.0
@@ -63,7 +63,7 @@ CodeBuddy，Demo跑通了！现在第2步：
 1. 改进Demo，让用户可以输入自己的姓名和身份证号
 2. 添加基本的输入验证
 3. 让界面更友好一些
-4. 确保生成的龙魂ID是唯一的（相同输入产生相同输出）
+4. 确保生成的龍魂ID是唯一的（相同输入产生相同输出）
 
 继续加油！💪
 ```
@@ -75,12 +75,12 @@ CodeBuddy，Demo跑通了！现在第2步：
 完成第1步后，Lucky会看到：
 
 ```
-🐉 龙魂ID生成器 v2.0
+🐉 龍魂ID生成器 v2.0
 ========================================
 请输入您的姓名: Lucky
 请输入您的身份证号: [Lucky输入]
 
-🎉 您的龙魂永世唯一ID:
+🎉 您的龍魂永世唯一ID:
    LONGHUN-乾坤震巽坎离艮兑-A1B2C3
 
 ✅ 证书已保存: my_longhun_certificate.json

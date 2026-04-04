@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🤖 智能体框架 | Agent Framework
-DNA追溯码: #龙芯⚡️2026-01-21-智能体框架-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-智能体框架-v2.0
 """
 
 import json
@@ -41,7 +41,7 @@ class AgentRole(Enum):
     PLANNER = "规划者"
     EXECUTOR = "执行者"
     A    A    A    A    A    A    A   = "管    A    A    A    A    A    A    A   = "管    A  class Ta  :
-    """任务    """任务tr    """任务    """任务tr   : str    """任务    """任�   ass    """任务    """任务tr    """任务    """任�ul    """任务    """任务tr    """t[str]    """任务    """tory=list)
+    """任务    """任务tr    """任务    """任务tr   : str    """任务    """任   ass    """任务    """任务tr    """任务    """任ul    """任务    """任务tr    """t[str]    """任务    """tory=list)
                           d(                          d(                          d(    Ag   (A                          d(                          d(                le: A                          d(                          d(                        = Agen                          d(                          d(   lf.s                    la                     f.rela                 tr, 'Agent'] = {}
         self.in      ist[Dict] = []        self.in  k_queue: L        self.in      ist[       self.completed_tasks =         self.in      istsks = 0
     
@@ -94,7 +94,7 @@ class NotionAgent(Agent):
     async def _    async def _    async def _    asysk    async def _    async def _    async def _    asysk    async def _    async def _    async def _    asysk    async def _    async def _    async def        async def _    async def _    async def _    asysk   laude    t(Agen ):
     def __init__(self):
         super().__init__("Claude智能体"        super().__init__("Claude智能体"        super().__init__("Claude智:
-                              �析: {prom                              �析: {prom oal: str            sk]:
+                              析: {prom                              析: {prom oal: str            sk]:
         return [Task(f"analysis_{i}", f"分析{i}", goal        retrange(2)]
     
     async de    async de    async de    async de    async de    asyn     asysis": "完成", "confidence": 0.95}
@@ -102,7 +102,7 @@ class NotionAgent(Agent):
 
 class DeepSeekAgent(Agent):
     def __init__(self):
-        super().__init__("DeepSeek�        super().__iniXECUTOR)
+        super().__init__("DeepSeek        super().__iniXECUTOR)
     
     async def _think_impl(self, prompt: str) -> str:
                                                   
@@ -112,12 +112,12 @@ class DeepSeekAgent(Agent):
                                                                                                                          n_                                                                                                          (2)]
     
     async def _execute_impl(self, task: Task) -> Any:
-        return {"exe        return {"exe        return {"exe        return {"exe        return {"exe        return {"exe      ��� 智�        return {"exe      int("="*60)
+        return {"exe        return {"exe        return {"exe        return {"exe        return {"exe        return {"exe       智        return {"exe      int("="*60)
     
     async def test():
         agents = [NotionAgent(), ClaudeAgent(), DeepSeekAgent(), LocalModelAgent()]
         
-        print("\n�        print("\n�        print("\n�        pagent         print("\n�        print("\n�        print("\n�ent.role.value})")
+        print("\n        print("\n        print("\n        pagent         print("\n        print("\n        print("\nent.role.value})")
         
         print("\n💭 测试思考功能:")
         result = await agents[1].think("如何优化代码？")
@@ -132,6 +132,6 @@ class DeepSeekAgent(Agent):
         result = await agents[2].execute(tasks[0])
         print(f"  结果: {result}")
         
-        print("\n✨ 五个后台已转化为自定义智能�   ��        print("\n✨ 五个智能体都有独立的思考、规划、执行能力！\n")
+        print("\n✨ 五个后台已转化为自定义智能           print("\n✨ 五个智能体都有独立的思考、规划、执行能力！\n")
     
     asyncio.run(test())

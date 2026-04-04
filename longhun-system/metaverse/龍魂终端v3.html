@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐉 龙魂系统 · CNSH控制台 v3.0 · UID9622</title>
+<title>🐉 龍魂系统 · CNSH控制台 v3.0 · UID9622</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&family=Share+Tech+Mono&display=swap');
 
@@ -465,7 +465,7 @@
   <div class="logo">
     <div class="dragon-icon">🐉</div>
     <div class="logo-text">
-      <h1>龙魂系统 · CNSH控制台</h1>
+      <h1>龍魂系统 · CNSH控制台</h1>
       <p>LONGSHUN SYSTEM · UID9622 · #ZHUGEXIN⚡ · v3.0.0</p>
     </div>
   </div>
@@ -619,7 +619,7 @@
       <div class="panel-body">
         <div class="field">
           <label class="lbl">项目/文档名称</label>
-          <input class="inp" id="dna-project" placeholder="例：CNSH框架·农业知识库·龙魂审计" />
+          <input class="inp" id="dna-project" placeholder="例：CNSH框架·农业知识库·龍魂审计" />
         </div>
         <div class="field">
           <label class="lbl">类型标签</label>
@@ -791,7 +791,7 @@
   <!-- 黑名单 -->
   <div class="panel">
     <div class="panel-header">
-      <div class="panel-title">🚫 龙魂黑名单</div>
+      <div class="panel-title">🚫 龍魂黑名单</div>
       <span class="tag tag-gray">不配合 → 永久拉黑</span>
     </div>
     <div class="panel-body">
@@ -858,7 +858,7 @@
       </div>
       <div class="panel-body">
         <div class="stat-row">
-          <span class="stat-label">🐉 龙魂引擎</span>
+          <span class="stat-label">🐉 龍魂引擎</span>
           <span class="stat-val"><span class="tag tag-green">运行中</span></span>
         </div>
         <div class="stat-row">
@@ -925,7 +925,7 @@
         </div>
 
         <div class="terminal" id="cmd-terminal">
-          <div class="log-entry"><span class="log-time"></span><span class="log-msg log-ok">🐉 龙魂系统 CNSH v3.0.0 已启动</span></div>
+          <div class="log-entry"><span class="log-time"></span><span class="log-msg log-ok">🐉 龍魂系统 CNSH v3.0.0 已启动</span></div>
           <div class="log-entry"><span class="log-time"></span><span class="log-msg log-info">输入 help 查看可用指令</span></div>
           <div class="log-entry"><span class="log-time"></span><span class="log-msg log-info">数据主权归于 UID9622 · 技术为人民服务</span></div>
         </div>
@@ -1044,7 +1044,7 @@
       <div class="terminal" id="main-log" style="max-height:500px">
         <div class="log-entry">
           <span class="log-time" id="start-time"></span>
-          <span class="log-msg log-ok">✅ CNSH龙魂系统 v3.0.0 启动完成</span>
+          <span class="log-msg log-ok">✅ CNSH龍魂系统 v3.0.0 启动完成</span>
         </div>
         <div class="log-entry">
           <span class="log-time"></span>
@@ -1312,10 +1312,10 @@ function verifyDNA() {
         </div>
       </div>`;
     addLog(`🔍 DNA验证通过: ${inp.slice(0,30)}...`, 'ok');
-  } else if (inp.startsWith('#龙芯⚡️') || inp.startsWith('#CNSH')) {
+  } else if (inp.startsWith('#龍芯⚡️') || inp.startsWith('#CNSH')) {
     res.innerHTML = `<div style="border:1px solid var(--gold);border-radius:8px;padding:14px;background:#2a1a00">
       <div style="color:var(--gold);font-size:14px;font-weight:700">⚠️ 旧版DNA格式</div>
-      <div style="font-size:12px;color:var(--text-dim);margin-top:6px">识别为旧版龙魂DNA格式，建议升级到 #ZHUGEXIN⚡️ 前缀</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:6px">识别为旧版龍魂DNA格式，建议升级到 #ZHUGEXIN⚡️ 前缀</div>
     </div>`;
   } else {
     res.innerHTML = `<div style="border:1px solid var(--red);border-radius:8px;padding:14px;background:#1a0000">
@@ -1395,7 +1395,7 @@ function addBlacklist() {
   const dna = `#ZHUGEXIN⚡️BLACKLIST-${entry.id}-${entity.replace(/\s/g,'-')}`;
   addAuditRow('🚫', '黑名单', entity, `永久拉黑: ${entry.reason}`, dna);
   addLog(`🚫 已加入黑名单: ${entity}`, 'err');
-  notify(`${entity} 已加入龙魂黑名单`, 'err');
+  notify(`${entity} 已加入龍魂黑名单`, 'err');
   updateCounts();
 
   document.getElementById('bl-entity').value='';
@@ -1476,7 +1476,7 @@ const CMDS = {
     lines.forEach(l=>addCmdLog(l,'info'));
   },
   'status': () => {
-    addCmdLog('🐉 龙魂引擎: 运行中', 'ok');
+    addCmdLog('🐉 龍魂引擎: 运行中', 'ok');
     addCmdLog('🧬 DNA系统: 就绪', 'ok');
     addCmdLog('⏱ 时间引擎: 同步中', 'ok');
     addCmdLog('🛡 审计引擎: 预警模式', 'ok');
@@ -1505,7 +1505,7 @@ function runCmd() {
   const cmd = inp.value.trim().toLowerCase();
   inp.value = '';
   if (!cmd) return;
-  addCmdLog(`龙魂 > ${cmd}`, 'info');
+  addCmdLog(`龍魂 > ${cmd}`, 'info');
   if (CMDS[cmd]) {
     CMDS[cmd]();
   } else {

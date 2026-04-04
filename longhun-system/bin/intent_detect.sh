@@ -1,6 +1,6 @@
 #!/bin/bash
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 龙魂输入意图识别引擎
+# 龍魂输入意图识别引擎
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #
 # Copyright © 2026 UID9622 诸葛鑫（龍芯北辰）
@@ -20,6 +20,10 @@
 # Hook: UserPromptSubmit
 # 输入: stdin JSON {"prompt": "...", "session_id": "..."}
 # 输出: JSON {"continue": true, "promptSuffix": "..."}
+
+# ── 自愈健康检测：后台非阻塞运行，不影响响应速度 ──
+nohup bash "$HOME/longhun-system/bin/auto_health.sh" \
+    >> "$HOME/longhun-system/logs/health.log" 2>&1 &
 
 INPUT=$(cat)
 PROMPT=$(echo "$INPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('prompt',''))" 2>/dev/null || echo "")

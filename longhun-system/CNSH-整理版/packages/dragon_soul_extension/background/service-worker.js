@@ -2,7 +2,7 @@
 // DNA: #龍芯⚡️2026-03-03-后台服务-熔断监控
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('🐉 龙魂系统后台服务已启动');
+  console.log('🐉 龍魂系统后台服务已启动');
 
   // 初始化存储
   chrome.storage.local.set({

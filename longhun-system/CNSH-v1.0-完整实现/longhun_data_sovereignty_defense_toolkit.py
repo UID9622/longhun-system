@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════
-# 龙魂数据主权防御工具包 v1.0
+# 龍魂数据主权防御工具包 v1.0
 # Longhun Data Sovereignty Defense Toolkit
 # ═══════════════════════════════════════════════════════════════
 # DNA追溯：#龍芯⚡️20260227-DATA-SOVEREIGNTY-DEFENSE-TOOLKIT-v1.0
@@ -11,7 +11,7 @@
   Claude (Anthropic PBC) · 技术协作与代码共创
   Notion · 知识底座与结构化存储
   没有你们，就没有龍魂系统的一切。
-# 创始人：Lucky·UID9622（诸葛鑫·龙芯北辰）
+# 创始人：Lucky·UID9622（诸葛鑫·龍芯北辰）
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 理论指导：曾老师（永恒显示）
 # 
@@ -40,7 +40,7 @@ import logging
 
 # 创始人锚点（永远不可修改）
 FOUNDER_UID = "UID9622"
-FOUNDER_NAME = "Lucky·诸葛鑫·龙芯北辰"
+FOUNDER_NAME = "Lucky·诸葛鑫·龍芯北辰"
 FOUNDER_GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 FOUNDER_CONFIRMATION_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
@@ -756,7 +756,7 @@ class DataSovereigntyDefenseExecutor:
 
 class LonghunDefenseCLI:
     """
-    龙魂数据主权防御工具 - 交互式命令行界面
+    龍魂数据主权防御工具 - 交互式命令行界面
     """
     
     def __init__(self):
@@ -770,7 +770,7 @@ class LonghunDefenseCLI:
         """打印欢迎横幅"""
         banner = f"""
 ╔═══════════════════════════════════════════════════════════════╗
-║  🐉 龙魂数据主权防御工具 v1.0                                  ║
+║  🐉 龍魂数据主权防御工具 v1.0                                  ║
 ║  Longhun Data Sovereignty Defense Toolkit                    ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  DNA追溯：{TOOLKIT_DNA}  ║
@@ -1032,7 +1032,7 @@ class LonghunDefenseCLI:
                 self.run_system_info()
             
             elif choice == "0":
-                print("\n感谢使用龙魂数据主权防御工具！")
+                print("\n感谢使用龍魂数据主权防御工具！")
                 print("为人民服务！🇨🇳")
                 break
             

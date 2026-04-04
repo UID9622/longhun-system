@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐉 龙魂系统 v2.0 | 开箱即用版</title>
+    <title>🐉 龍魂系统 v2.0 | 开箱即用版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
         
-        /* 龙纹背景 */
+        /* 龍纹背景 */
         body::before {
             content: '';
             position: fixed;
@@ -590,7 +590,7 @@
             <div class="logo">
                 <span class="logo-icon">🐉</span>
                 <div class="logo-text">
-                    <h1>龙魂系统 v2.0</h1>
+                    <h1>龍魂系统 v2.0</h1>
                     <p>开箱即用版 | 原生自研生态 | 零API依赖</p>
                 </div>
             </div>
@@ -764,19 +764,19 @@
                                 <button class="toolbar-btn" onclick="generateDNA()">🧬 生成DNA</button>
                             </div>
                             <div class="editor-area">
-                                <textarea class="code-input" id="codeInput" placeholder="【程序】 你好龙魂
+                                <textarea class="code-input" id="codeInput" placeholder="【程序】 你好龍魂
 
-【输出】 "你好，龙魂系统已就绪！"
+【输出】 "你好，龍魂系统已就绪！"
 【输出】 "当前时间：" + 时间.现在()
 
-【结束程序】">【程序】 你好龙魂
+【结束程序】">【程序】 你好龍魂
 
-【输出】 "你好，龙魂系统已就绪！"
+【输出】 "你好，龍魂系统已就绪！"
 【输出】 "当前时间：" + 时间.现在()
 
 【结束程序】</textarea>
                                 <div class="code-output" id="codeOutput">
-                                    <div style="color: #7dd87d;">🐉 龙魂系统 v2.0 编译器就绪</div>
+                                    <div style="color: #7dd87d;">🐉 龍魂系统 v2.0 编译器就绪</div>
                                     <div style="color: #888; margin-top: 10px;">点击「运行」执行CNSH代码...</div>
                                 </div>
                             </div>
@@ -788,11 +788,11 @@
                 <div id="tab-terminal" class="tab-content">
                     <div class="terminal" id="terminal">
                         <div class="terminal-line">
-                            <span class="terminal-prompt">龙魂@UID9622:~$</span>
+                            <span class="terminal-prompt">龍魂@UID9622:~$</span>
                             <span class="terminal-output">systemctl status longhun</span>
                         </div>
                         <div class="terminal-line terminal-output">
-🐉 龙魂系统状态报告
+🐉 龍魂系统状态报告
 ═══════════════════════════════════════
 ✅ 五大人格引擎: 运行中
 ✅ DNA追溯系统: 运行中
@@ -808,7 +808,7 @@
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
                         </div>
                         <div class="terminal-line">
-                            <span class="terminal-prompt">龙魂@UID9622:~$</span>
+                            <span class="terminal-prompt">龍魂@UID9622:~$</span>
                             <span class="terminal-output" style="animation: blink 1s infinite;">_</span>
                         </div>
                     </div>
@@ -886,7 +886,7 @@
                     <span>🧬</span> DNA追溯
                 </div>
                 <div class="dna-display">
-                    <div class="dna-code">#龙芯⚡️2026-02-06-系统启动-v1.0</div>
+                    <div class="dna-code">#龍芯⚡️2026-02-06-系统启动-v1.0</div>
                     <div class="dna-meta">
                         UID: 9622 | 时间: 2026-02-06 06:54:32
                     </div>
@@ -1012,7 +1012,7 @@
             </div>
             <div class="status-item">
                 <span>🐉</span>
-                <span>龙魂系统 v2.0</span>
+                <span>龍魂系统 v2.0</span>
             </div>
             <div class="status-item">
                 <span>UID:</span>
@@ -1056,14 +1056,14 @@
                 result += '<div style="margin-top: 10px; color: #7dd87d;">输出:</div>';
                 
                 if (code.includes('你好')) {
-                    result += '<div class="terminal-output">你好，龙魂系统已就绪！</div>';
+                    result += '<div class="terminal-output">你好，龍魂系统已就绪！</div>';
                 }
                 if (code.includes('时间')) {
                     result += '<div class="terminal-output">当前时间：' + new Date().toLocaleString('zh-CN') + '</div>';
                 }
                 
                 result += '<div style="margin-top: 15px; color: #888; font-size: 11px;">';
-                result += '🧬 DNA: #龙芯⚡️' + new Date().toISOString().slice(0,10) + '-CNSH执行-v1.0';
+                result += '🧬 DNA: #龍芯⚡️' + new Date().toISOString().slice(0,10) + '-CNSH执行-v1.0';
                 result += '</div>';
                 
                 output.innerHTML = result;
@@ -1079,7 +1079,7 @@
 
         // 分享代码
         function shareCode() {
-            const dna = '#龙芯⚡️' + new Date().toISOString().slice(0,10) + '-代码分享-v1.0';
+            const dna = '#龍芯⚡️' + new Date().toISOString().slice(0,10) + '-代码分享-v1.0';
             alert('📤 分享DNA: ' + dna + '\n\n(实际功能需要后端支持)');
         }
 
@@ -1094,7 +1094,7 @@
             const version = document.getElementById('dnaVersion').value || 'v1.0';
             const date = new Date().toISOString().slice(0,10);
             
-            const dna = '#龙芯⚡️' + date + '-' + topic + '-' + version;
+            const dna = '#龍芯⚡️' + date + '-' + topic + '-' + version;
             
             document.getElementById('dnaCode').textContent = dna;
             document.getElementById('dnaResult').style.display = 'block';

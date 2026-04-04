@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ═══════════════════════════════════════════════════════════
-# 🐉 龙魂系统 · Notion本地模型连接器
+# 🐉 龍魂系统 · Notion本地模型连接器
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG:    A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # DNA:    #龍芯⚡️2026-03-16-NOTION-AGENT-v1.0
@@ -167,7 +167,7 @@ def boyi_enhance(user_input: str) -> str:
     print(f"📥 输入: {user_input[:80]}")
 
     # 构建提示词
-    prompt = f"""你是龙魂系统的博弈引擎。
+    prompt = f"""你是龍魂系统的博弈引擎。
 用户输入了一个观点或话题，请从对立面角度进行深度反驳或补全。
 
 要求：
@@ -208,7 +208,7 @@ def simple_ask(question: str, log: bool = True) -> str:
 # ── CLI 入口 ──────────────────────────────────────────────
 def main():
     print("╔══════════════════════════════════════════════════╗")
-    print("║  🐉 龙魂 Notion 本地模型连接器                  ║")
+    print("║  🐉 龍魂 Notion 本地模型连接器                  ║")
     print("║  DNA: #龍芯⚡️2026-03-16-NOTION-AGENT-v1.0     ║")
     print("╚══════════════════════════════════════════════════╝")
 
@@ -260,7 +260,7 @@ def main():
         else:
             boyi_enhance(user)
 
-    print("\n龙魂连接器退出。DNA追溯完整。")
+    print("\n龍魂连接器退出。DNA追溯完整。")
 
 if __name__ == "__main__":
     main()

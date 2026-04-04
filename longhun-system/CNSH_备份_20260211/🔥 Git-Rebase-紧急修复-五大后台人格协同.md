@@ -12,9 +12,9 @@
 ### 症状分析
 从日志观察到：
 - 多次执行 `git rebase --continue`（14:28:58, 14:29:32, 14:30:26, 14:31:12）
-- 访问的文件：`龙魂永世唯一身份系统`, `🔐 龙魂加密脚本`, `cnsh.sh` 等
+- 访问的文件：`龍魂永世唯一身份系统`, `🔐 龍魂加密脚本`, `cnsh.sh` 等
 - Git cat-file 错误：`fatal: git cat-file: could not get object info`
-- 警告：`File not found - git:/.../龙魂永世唯一身份系统`
+- 警告：`File not found - git:/.../龍魂永世唯一身份系统`
 
 ### 根本原因
 1. **Git Rebase 冲突未完全解决**：存在未解决的合并冲突

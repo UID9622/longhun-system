@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
-# 龙魂系统 v2.0 | 开箱即用版启动器
+# 龍魂系统 v2.0 | 开箱即用版启动器
 # ═══════════════════════════════════════════════════════════
 # 一键启动所有本地服务
-# DNA: #龙芯⚡️2026-02-06-启动器-v1.0
+# DNA: #龍芯⚡️2026-02-06-启动器-v1.0
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════════
 
@@ -22,12 +22,12 @@ from datetime import datetime
 # 添加core目录到路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'core'))
 
-from local_database import 龙魂本地数据库
+from local_database import 龍魂本地数据库
 
 
-class 龙魂启动器:
+class 龍魂启动器:
     """
-    龙魂系统开箱即用版启动器
+    龍魂系统开箱即用版启动器
     
     功能:
     1. 初始化本地数据库
@@ -44,11 +44,11 @@ class 龙魂启动器:
         self.运行目录 = Path(__file__).parent
         
     def 显示启动画面(self):
-        """显示龙魂系统启动画面"""
+        """显示龍魂系统启动画面"""
         print("""
 ╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
-║                    🐉 龙魂系统 v2.0 开箱即用版                   ║
+║                    🐉 龍魂系统 v2.0 开箱即用版                   ║
 ║                                                                  ║
 ║     永恒锚: "再楠不惧，终成豪图"                                  ║
 ║     核心主权: 农历/易经/道德经/DNA追溯/CNSH编码/OCSL许可证          ║
@@ -72,7 +72,7 @@ class 龙魂启动器:
         
         # 检查核心文件
         必要文件 = [
-            "龙魂系统.html",
+            "龍魂系统.html",
             "core/local_database.py",
         ]
         
@@ -90,7 +90,7 @@ class 龙魂启动器:
         print("\n🗄️  初始化本地数据库...")
         
         try:
-            self.数据库 = 龙魂本地数据库()
+            self.数据库 = 龍魂本地数据库()
             统计 = self.数据库.获取系统统计()
             
             print(f"  ✅ 数据库连接成功")
@@ -111,7 +111,7 @@ class 龙魂启动器:
         # 切换到运行目录
         os.chdir(self.运行目录)
         
-        class 龙魂HTTP处理器(http.server.SimpleHTTPRequestHandler):
+        class 龍魂HTTP处理器(http.server.SimpleHTTPRequestHandler):
             def __init__(self, *args, **kwargs):
                 super().__init__(*args, directory=str(Path(__file__).parent), **kwargs)
             
@@ -120,9 +120,9 @@ class 龙魂启动器:
                 pass
         
         try:
-            self.服务器 = socketserver.TCPServer(("", self.端口), 龙魂HTTP处理器)
+            self.服务器 = socketserver.TCPServer(("", self.端口), 龍魂HTTP处理器)
             print(f"  ✅ 服务器启动成功")
-            print(f"  📍 访问地址: http://localhost:{self.端口}/龙魂系统.html")
+            print(f"  📍 访问地址: http://localhost:{self.端口}/龍魂系统.html")
             
             # 在后台线程运行服务器
             服务器线程 = threading.Thread(target=self.服务器.serve_forever)
@@ -141,7 +141,7 @@ class 龙魂启动器:
         """自动打开浏览器"""
         print("\n🌍 正在打开浏览器...")
         
-        url = f"http://localhost:{self.端口}/龙魂系统.html"
+        url = f"http://localhost:{self.端口}/龍魂系统.html"
         
         try:
             webbrowser.open(url)
@@ -156,7 +156,7 @@ class 龙魂启动器:
 ════════════════════════════════════════════════════════════════════
 📋 系统信息
 ════════════════════════════════════════════════════════════════════
-  版本: 龙魂系统 v2.0.0 开箱即用版
+  版本: 龍魂系统 v2.0.0 开箱即用版
   模式: 本地运行 (零API依赖)
   数据: 本地SQLite存储 (~/.longhun/database/)
   调试: 所有功能免费使用
@@ -187,7 +187,7 @@ class 龙魂启动器:
         """)
     
     def 启动(self):
-        """启动龙魂系统"""
+        """启动龍魂系统"""
         self.显示启动画面()
         
         try:
@@ -210,7 +210,7 @@ class 龙魂启动器:
             
             print("""
 ════════════════════════════════════════════════════════════════════
-✅ 龙魂系统启动成功！
+✅ 龍魂系统启动成功！
 ════════════════════════════════════════════════════════════════════
 
 按 Ctrl+C 停止服务器
@@ -224,7 +224,7 @@ class 龙魂启动器:
                     import time
                     time.sleep(1)
             except KeyboardInterrupt:
-                print("\n\n🛑 正在关闭龙魂系统...")
+                print("\n\n🛑 正在关闭龍魂系统...")
                 if self.服务器:
                     self.服务器.shutdown()
                 if self.数据库:
@@ -242,7 +242,7 @@ class 龙魂启动器:
 
 def 主函数():
     """主入口"""
-    启动器 = 龙魂启动器()
+    启动器 = 龍魂启动器()
     return 启动器.启动()
 
 

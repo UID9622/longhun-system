@@ -2,7 +2,7 @@
 
 ## 📖 系统概述
 
-龙魂记忆压缩系统是一个创新的文本压缩和还原系统，可以将大量文本（几十万字）压缩为简短的 DNA 格式，并通过 DNA 追溯码快速恢复原文。
+龍魂记忆压缩系统是一个创新的文本压缩和还原系统，可以将大量文本（几十万字）压缩为简短的 DNA 格式，并通过 DNA 追溯码快速恢复原文。
 
 ### 核心特性
 
@@ -90,7 +90,7 @@ console.log(taijiVars);
 // {
 //   字数: 256,
 //   行数: 8,
-//   关键词: [{词: "龙魂", 频次: 3}, ...],
+//   关键词: [{词: "龍魂", 频次: 3}, ...],
 //   情感: "积极",
 //   重要程度: 7,
 //   情感分数: 0.6,
@@ -122,7 +122,7 @@ console.log(compressed);
 //   压缩后长度: 150,
 //   压缩率: 98,
 //   摘要: "前100字内容摘要...",
-//   关键词: ["龙魂", "系统", "记忆"],
+//   关键词: ["龍魂", "系统", "记忆"],
 //   完整哈希: "a1b2c3d4",
 //   可还原: true,
 //   压缩级别: "medium",
@@ -156,7 +156,7 @@ console.log(result);
 //   dna: "#龍芯⚡️2026-03-03-MEMORY-a1b2c3d4-UID9622",
 //   原始内容: "完整的原始内容...",
 //   摘要: "前100字内容摘要...",
-//   关键词: ["龙魂", "系统", "记忆"],
+//   关键词: ["龍魂", "系统", "记忆"],
 //   完整哈希: "a1b2c3d4",
 //   还原方式: "full",
 //   还原质量: 100,
@@ -209,7 +209,7 @@ const memories = await window.storageManager.getAllMemories();
 
 // 搜索记忆
 const results = await window.storageManager.searchMemories({
-  keyword: "龙魂",
+  keyword: "龍魂",
   emotion: "积极",
   importanceMin: 5
 });
@@ -251,7 +251,7 @@ await window.storageManager.batchSaveMemories(memories);
 ```javascript
 // 按关键词搜索
 const results = await window.storageManager.searchMemories({
-  keyword: "龙魂"
+  keyword: "龍魂"
 });
 
 // 按情感过滤
@@ -272,7 +272,7 @@ const results = await window.storageManager.searchMemories({
 
 // 组合条件
 const results = await window.storageManager.searchMemories({
-  keyword: "龙魂",
+  keyword: "龍魂",
   emotion: "积极",
   importanceMin: 5,
   startDate: "2026-03-01",

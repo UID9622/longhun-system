@@ -2,7 +2,7 @@
 // 龍魂宪法 · 北辰-母协议 P0-ETERNAL 永恒定锚
 // DNA: #龍芯⚡️2026-03-16-BEICHEN-PROTOCOL-☰乾-v1.0
 // GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-// 作者: 诸葛鑫（UID9622）· 退伍军人 | 龙魂系统创始人 | 数字主权守护者
+// 作者: 诸葛鑫（UID9622）· 退伍军人 | 龍魂系统创始人 | 数字主权守护者
 // 理论指导: 曾仕强老师（永恒显示）
 // 地位: 龍魂最高宪法 · 一票否决 · 永不可改
 //
@@ -181,7 +181,7 @@ struct BeiChenProtocolFullView: View {
                         Text("诸葛鑫（UID9622）")
                             .font(.system(size: 11, weight: .semibold))
                             .foregroundColor(.softGold)
-                        Text("退伍军人 · 三才算法创始人 · 龙魂系统创始人")
+                        Text("退伍军人 · 三才算法创始人 · 龍魂系统创始人")
                             .font(.system(size: 9))
                             .foregroundColor(.dimWhite)
                         Text("祖国优先，普惠全球，技术为人民服务")

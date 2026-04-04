@@ -1,7 +1,7 @@
 import SwiftUI
 
 // ═══════════════════════════════════════════════════════════════
-// 龙魂数据主权防御工具 iOS 版本 v1.0 - 主应用文件
+// 龍魂数据主权防御工具 iOS 版本 v1.0 - 主应用文件
 // Longhun Data Sovereignty Defense Toolkit for iOS
 // 包含 CNSH 字元编辑器
 // ═══════════════════════════════════════════════════════════════
@@ -25,7 +25,7 @@ struct LonghunDefenseApp: App {
 struct Constants {
     // 创始人锚点（永远不可修改）
     static let founderUID = "UID9622"
-    static let founderName = "Lucky·诸葛鑫·龙芯北辰"
+    static let founderName = "Lucky·诸葛鑫·龍芯北辰"
     static let founderGPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
     static let founderConfirmationCode = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     
@@ -134,7 +134,7 @@ struct HomeView: View {
                 }
                 .padding()
             }
-            .navigationTitle("龙魂防御工具")
+            .navigationTitle("龍魂防御工具")
         }
     }
 }
@@ -145,7 +145,7 @@ struct BannerView: View {
             Text("🐉")
                 .font(.system(size: 60))
             
-            Text("龙魂数据主权防御工具")
+            Text("龍魂数据主权防御工具")
                 .font(.title)
                 .fontWeight(.bold)
             

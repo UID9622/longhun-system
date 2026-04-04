@@ -9,7 +9,7 @@
 | `cnsh_gateway_ui.html` | Downloads/ | CNSH网关UI |
 | `CNSH审计哲学引擎.html` | Downloads/ | 审计哲学引擎 |
 | `index.html` | Downloads/ | 主入口页 |
-| `longhun_navigation.html` | Downloads/龙魂导航系统/ | 龍魂导航系统 |
+| `longhun_navigation.html` | Downloads/龍魂导航系统/ | 龍魂导航系统 |
 | `龍魂终端v3.html` | Downloads/ | 龍魂终端 v3 |
 
 收归时间: 2026-03-19

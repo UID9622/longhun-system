@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 📝 Notion集成管理器 | Notion Integration Manager
-DNA追溯码: #龙芯⚡️2026-01-21-Notion管理-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-Notion管理-v2.0
 
 功能：
 - 任务管理
@@ -116,7 +116,7 @@ class NotionManager:
         
         Usage:
             await notion.create_task(
-                title="完成龙魂终端",
+                title="完成龍魂终端",
                 priority=TaskPriority.HIGH,
                 assignee="Claude"
             )

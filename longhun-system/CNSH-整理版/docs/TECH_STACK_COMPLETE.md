@@ -253,7 +253,7 @@ DECISION_MATRIX = {
 
 **文件位置**: `cnsh-deployment/decision/64_hexagram_matrix.py`
 
-### 15. **龙魂价值内核**
+### 15. **龍魂价值内核**
 
 ```python
 # 五大原则

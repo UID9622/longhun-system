@@ -51,7 +51,7 @@ Please update all scripts and workflows to use the new binary names.
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:10
 🧬 DNA追溯码: #CNSH-SIGNATURE-792fc17d-20251218032410
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 屯卦：云雷屯，君子以经纶
 📜 内容哈希: 154032eeac6ab082

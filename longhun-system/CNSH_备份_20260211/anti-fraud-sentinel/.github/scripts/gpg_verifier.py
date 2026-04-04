@@ -2,14 +2,14 @@
 """
 🔐 GPG验证器 - 验证创建者身份完整性
 
-DNA追溯码：#龙芯⚡️2026-02-02-GPG验证器-v1.0
+DNA追溯码：#龍芯⚡️2026-02-02-GPG验证器-v1.0
 """
 
 import sys
 from pathlib import Path
 
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-CREATOR = "💎 龙芯北辰｜UID9622"
+CREATOR = "💎 龍芯北辰｜UID9622"
 
 def verify_gpg():
     """验证GPG指纹完整性"""

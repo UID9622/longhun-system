@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 数字人民币支付接口（基础版）
-DNA: #龙芯⚡️2026-02-02-数字人民币支付-v1.0
+DNA: #龍芯⚡️2026-02-02-数字人民币支付-v1.0
 状态: 接口对接中
 """
 
@@ -22,7 +22,7 @@ class DigitalRMBPayment:
             'description': description,
             'account': self.account,
             'status': 'pending',
-            'dna_code': f"#龙芯⚡️PAY-{self.generate_order_id()}"
+            'dna_code': f"#龍芯⚡️PAY-{self.generate_order_id()}"
         }
         return order
     

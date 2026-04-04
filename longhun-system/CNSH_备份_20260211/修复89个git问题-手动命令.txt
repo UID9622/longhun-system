@@ -34,7 +34,7 @@ git commit -m "🔧 修复89个git追踪问题，应用.gitignore规则
 - 应用.gitignore过滤规则
 - 文件数量从89+减少到20个
 
-DNA追溯码：#龙芯⚡️2026-01-28-CNSH-GITIGNORE-APPLY-v1.0
+DNA追溯码：#龍芯⚡️2026-01-28-CNSH-GITIGNORE-APPLY-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅"
 
 步骤7：查看最终结果

@@ -27,7 +27,7 @@ ICLOUD_DIR = Path.home() / "Library" / "Mobile Documents" / "iCloud~com~uid9622~
 OUTPUT_FILE = ICLOUD_DIR / "cnsh_status.json"
 
 # 备用路径：iCloud Drive 通用目录
-ICLOUD_FALLBACK = Path.home() / "Library" / "CloudStorage" / "iCloudDrive" / "龙魂系统"
+ICLOUD_FALLBACK = Path.home() / "Library" / "CloudStorage" / "iCloudDrive" / "龍魂系统"
 
 # ─── 卦象映射 ────────────────────────────────────────────
 def _检测卦象(dna: str, event: str) -> tuple:

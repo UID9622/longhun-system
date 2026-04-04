@@ -1,5 +1,5 @@
 /**
- * 每日复盘服务 - 重点关注龙魂价值内核和场景化人格调用地图
+ * 每日复盘服务 - 重点关注龍魂价值内核和场景化人格调用地图
  */
 
 const fs = require('fs').promises;
@@ -12,8 +12,8 @@ class DailyReviewService {
         this.reviewDir = path.join(__dirname, '../../.cache/daily-reviews');
         this.coreFocus = {
             dragonSoul: {
-                name: 'UID9622龙魂价值内核',
-                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622_龙魂系统_执行机制与核心价值观.md',
+                name: 'UID9622龍魂价值内核',
+                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622_龍魂系统_执行机制与核心价值观.md',
                 priority: 'critical'
             },
             personaMap: {
@@ -23,12 +23,12 @@ class DailyReviewService {
             },
             quickGuide: {
                 name: '快速协作指南',
-                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622龙魂系统_快速使用指南_宝宝整理版.md',
+                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/UID9622龍魂系统_快速使用指南_宝宝整理版.md',
                 priority: 'high'
             },
             monitoring: {
                 name: '全局监控中枢',
-                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/Notion_龙魂指挥中枢模板.md',
+                path: '/Users/zuimeidedeyihan/LuckyCommandCenter/CodeBuddy/20251207144453/Notion_龍魂指挥中枢模板.md',
                 priority: 'high'
             }
         };
@@ -38,7 +38,7 @@ class DailyReviewService {
      * 执行每日复盘
      */
     async performDailyReview() {
-        console.log('\n🌅 开始每日复盘 - 重点关注龙魂价值内核和场景化人格调用地图');
+        console.log('\n🌅 开始每日复盘 - 重点关注龍魂价值内核和场景化人格调用地图');
         const startTime = Date.now();
         
         try {
@@ -48,7 +48,7 @@ class DailyReviewService {
             // 2. 同步Notion更新
             const notionSyncResult = await this.notionSync.performDailySync();
             
-            // 3. 重点关注龙魂价值内核变化
+            // 3. 重点关注龍魂价值内核变化
             const dragonSoulReview = await this.reviewDragonSoulCore();
             
             // 4. 深度分析场景化人格调用地图
@@ -88,10 +88,10 @@ class DailyReviewService {
     }
 
     /**
-     * 复盘龙魂价值内核
+     * 复盘龍魂价值内核
      */
     async reviewDragonSoulCore() {
-        console.log('🐉 深度复盘龙魂价值内核...');
+        console.log('🐉 深度复盘龍魂价值内核...');
         
         try {
             const content = await fs.readFile(this.coreFocus.dragonSoul.path, 'utf8');
@@ -118,7 +118,7 @@ class DailyReviewService {
             };
             
         } catch (error) {
-            console.error('❌ 龙魂价值内核复盘失败:', error);
+            console.error('❌ 龍魂价值内核复盘失败:', error);
             return { status: 'failed', error: error.message };
         }
     }
@@ -184,7 +184,7 @@ class DailyReviewService {
         const report = {
             date: data.date,
             duration: data.duration,
-            focus: '龙魂价值内核与场景化人格调用地图',
+            focus: '龍魂价值内核与场景化人格调用地图',
             status: 'completed',
             summary: {
                 dragonSoulStatus: data.dragonSoul.status,
@@ -279,7 +279,7 @@ class DailyReviewService {
     }
 
     /**
-     * 生成龙魂建议
+     * 生成龍魂建议
      */
     generateDragonSoulRecommendations(valueChanges, dnaExecution, healthAssessment) {
         const recommendations = [];
@@ -406,7 +406,7 @@ class DailyReviewService {
         const issues = [];
         
         if (data.dragonSoul.status === 'failed') {
-            issues.push('龙魂价值内核复盘失败');
+            issues.push('龍魂价值内核复盘失败');
         }
         
         if (data.personaMap.status === 'failed') {
@@ -422,10 +422,10 @@ class DailyReviewService {
     generateActionableItems(data) {
         const items = [];
         
-        // 添加龙魂相关建议
+        // 添加龍魂相关建议
         if (data.dragonSoul.recommendations) {
             items.push(...data.dragonSoul.recommendations.map(rec => ({
-                category: '龙魂价值内核',
+                category: '龍魂价值内核',
                 action: rec,
                 priority: 'high'
             })));
@@ -449,15 +449,15 @@ class DailyReviewService {
     generateMarkdownReport(report) {
         return `# 每日复盘报告 - ${report.date}
 
-## 🎯 重点关注：龙魂价值内核与场景化人格调用地图
+## 🎯 重点关注：龍魂价值内核与场景化人格调用地图
 
 ### 📊 复盘概览
 - **复盘时间**: ${report.duration}ms
-- **龙魂价值内核状态**: ${report.summary.dragonSoulStatus}
+- **龍魂价值内核状态**: ${report.summary.dragonSoulStatus}
 - **场景化人格调用地图状态**: ${report.summary.personaMapStatus}
 - **系统协调性评分**: ${(report.summary.coordinationScore * 100).toFixed(1)}%
 
-### 🐉 龙魂价值内核
+### 🐉 龍魂价值内核
 ${report.dragonSoul.status === 'completed' ? `
 #### 核心价值观
 ${report.dragonSoul.coreValues.map(v => `- ${v}`).join('\n')}

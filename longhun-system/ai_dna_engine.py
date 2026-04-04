@@ -7,7 +7,7 @@ DNA追溯码: #ZHUGEXIN⚡️2026-02-25-AI-DNA-THINKING-KERNEL-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 时间戳: 2026-02-25T23:00:00+08:00
 
-创始人: Lucky·UID9622（诸葛鑫·龙芯北辰）
+创始人: Lucky·UID9622（诸葛鑫·龍芯北辰）
 GPG公钥指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 理论指导: 曾老师（永恒显示）
 
@@ -35,7 +35,7 @@ from enum import Enum
 # ==================== 全局配置 ====================
 DNA_CONFIG = {
 "uid": "9622",
-"founder": "Lucky·UID9622（诸葛鑫·龙芯北辰）",
+"founder": "Lucky·UID9622（诸葛鑫·龍芯北辰）",
 "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 "dna_prefix": "#ZHUGEXIN⚡️",
 "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",

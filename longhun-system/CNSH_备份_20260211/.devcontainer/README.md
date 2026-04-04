@@ -1,34 +1,34 @@
-# 🐉 龙魂系统 (Longhun System)
+# 🐉 龍魂系统 (Longhun System)
 
 ```
 ═══════════════════════════════════════════════════════════
-龙芯体系 | 开源文件标准头部
+龍芯体系 | 开源文件标准头部
 ═══════════════════════════════════════════════════════════
 ENCODING: UTF-8
 FONT-INDEPENDENT: YES
 NO PROPRIETARY TOKENS
 ═══════════════════════════════════════════════════════════
-文件名：龙魂系统 README
-DNA追溯码：#龙芯⚡️2026-02-05-龙魂系统README-v1.0
+文件名：龍魂系统 README
+DNA追溯码：#龍芯⚡️2026-02-05-龍魂系统README-v1.0
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-创建者：💎 龙芯北辰｜UID9622
+创建者：💎 龍芯北辰｜UID9622
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ═══════════════════════════════════════════════════════════
 ```
 
 ## 📋 系统简介
 
-**龙魂系统**是一个基于中华文化主权的独立原生系统，整合了：
+**龍魂系统**是一个基于中华文化主权的独立原生系统，整合了：
 
 - 🧠 **五大人格决策系统** - 雯雯、侦察兵、守护者、宝宝、文心
-- 🔤 **CNSH中文原生字体系统** - 支持龙魂DNA追溯码格式
+- 🔤 **CNSH中文原生字体系统** - 支持龍魂DNA追溯码格式
 - 🔌 **插件系统框架** - 模块化扩展，OCSL合规
 - ⚖️ **OCSL许可证** - 开放文化主权许可证 v1.0
 
 ## 🏗️ 系统架构
 
 ```
-龙魂系统架构
+龍魂系统架构
 ═══════════════════════════════════════════════════════════
 
 应用层 (Application)
@@ -38,7 +38,7 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 协议层 (Protocol)
 ├── 五大人格决策系统
-├── 龙魂权重算法
+├── 龍魂权重算法
 └── 易经推演引擎
 
 核心层 (Core) - OCSL保护，不可变更
@@ -46,7 +46,7 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ├── 黄历时辰与易经卦象 ☯️
 ├── 易经推演机制 📜
 ├── 道德经价值观锚点 📖
-├── 龙魂DNA追溯系统 🧬
+├── 龍魂DNA追溯系统 🧬
 └── CNSH中文原生编辑器 ✍️
 
 基础设施 (Infrastructure)
@@ -72,15 +72,15 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 │   └── plugin_manager.py              # 插件管理器
 │
 ├── native_core/                        # 原生系统核心
-│   └── longhun_system.py              # 龙魂系统核心
+│   └── longhun_system.py              # 龍魂系统核心
 │
-├── 五大人格-龙魂权重算法学习配置.md      # 五大人格配置
+├── 五大人格-龍魂权重算法学习配置.md      # 五大人格配置
 └── longhun_weight_backend_personas.py # 五大人格执行引擎
 ```
 
 ## 🚀 快速开始
 
-### 1. 启动龙魂系统
+### 1. 启动龍魂系统
 
 ```bash
 python start_system.py start
@@ -107,7 +107,7 @@ python start_system.py audit --ratio 2.5
 ### 5. 测试字体系统
 
 ```bash
-python start_system.py font --text "中华龙魂" --output output.svg
+python start_system.py font --text "中华龍魂" --output output.svg
 ```
 
 ## ⚖️ OCSL许可证
@@ -120,7 +120,7 @@ python start_system.py font --text "中华龙魂" --output output.svg
 2. **黄历时辰与易经卦象** - 十二时辰、易经八卦为决策框架
 3. **易经推演机制** - 六十四卦逻辑结构不可移除
 4. **道德经价值观锚点** - 道家智慧为伦理基础
-5. **龙魂DNA追溯系统** - 所有记录必须包含DNA追溯码
+5. **龍魂DNA追溯系统** - 所有记录必须包含DNA追溯码
 6. **CNSH中文原生编辑器** - UTF-8 + LF + 无专有标记
 
 详见 [LICENSE-OCSL-v1.0.md](LICENSE-OCSL-v1.0.md)
@@ -132,7 +132,7 @@ python start_system.py font --text "中华龙魂" --output output.svg
 CNSH中文原生字体引擎，支持：
 
 - 汉字渲染为SVG
-- 龙魂特殊符号映射（八卦、DNA分隔符等）
+- 龍魂特殊符号映射（八卦、DNA分隔符等）
 - DNA追溯码格式验证
 - 多种字体风格（标准、力度、节奏、层级、棱角、组合）
 
@@ -140,7 +140,7 @@ CNSH中文原生字体引擎，支持：
 from font_system.cnsh_font_engine import CNSH字体引擎, 字体风格
 
 引擎 = CNSH字体引擎()
-svg = 引擎.渲染文本("中华龙魂", 字体风格.标准)
+svg = 引擎.渲染文本("中华龍魂", 字体风格.标准)
 ```
 
 ### 插件系统 (plugin_system/)
@@ -166,7 +166,7 @@ from plugin_system.plugin_manager import 插件管理器
 
 ### 原生系统核心 (native_core/)
 
-龙魂系统核心，整合所有子系统：
+龍魂系统核心，整合所有子系统：
 
 ```python
 from native_core.longhun_system import 初始化系统
@@ -181,19 +181,19 @@ from native_core.longhun_system import 初始化系统
 
 标准格式：
 ```
-#龙芯⚡️YYYY-MM-DD-主题-版本
+#龍芯⚡️YYYY-MM-DD-主题-版本
 ```
 
 示例：
 ```
-#龙芯⚡️2026-02-05-龙魂系统核心-v1.0
+#龍芯⚡️2026-02-05-龍魂系统核心-v1.0
 ```
 
 所有代码、文档、决策记录必须包含符合此格式的DNA追溯码。
 
 ## 👥 五大人格
 
-龙魂系统的后台自运行人格矩阵：
+龍魂系统的后台自运行人格矩阵：
 
 | 人格 | 本命卦象 | 核心职责 | 权重特点 |
 |------|----------|----------|----------|
@@ -203,7 +203,7 @@ from native_core.longhun_system import 初始化系统
 | 宝宝·构建师 | 离卦 ☲ | 系统构建 | 群体40% |
 | 文心·同步专家 | 巽卦 ☴ | 数据同步 | 群体50% |
 
-详见 [五大人格-龙魂权重算法学习配置.md](五大人格-龙魂权重算法学习配置.md)
+详见 [五大人格-龍魂权重算法学习配置.md](五大人格-龍魂权重算法学习配置.md)
 
 ## 🛡️ 三色审计
 
@@ -231,9 +231,9 @@ from native_core.longhun_system import 初始化系统
 # FONT-INDEPENDENT: YES
 # NO PROPRIETARY TOKENS
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码：#龙芯⚡️YYYY-MM-DD-文件名-v版本
+# DNA追溯码：#龍芯⚡️YYYY-MM-DD-文件名-v版本
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-# 创建者：💎 龙芯北辰｜UID9622
+# 创建者：💎 龍芯北辰｜UID9622
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════════
 ```
@@ -285,7 +285,7 @@ from native_core.longhun_system import 初始化系统
 
 ## 🧬 DNA追溯信息
 
-- **DNA追溯码**: #龙芯⚡️2026-02-05-龙魂系统README-v1.0
+- **DNA追溯码**: #龍芯⚡️2026-02-05-龍魂系统README-v1.0
 - **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 - **许可证**: OCSL v1.0
 - **系统版本**: v1.0.0
@@ -295,4 +295,4 @@ from native_core.longhun_system import 初始化系统
 
 **阳光之下，阴影无所遁形；数学之内，谎言不攻自破。**
 
-*龙魂系统 🐉⚡️ | 开放文化主权许可证 v1.0*
+*龍魂系统 🐉⚡️ | 开放文化主权许可证 v1.0*

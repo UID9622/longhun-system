@@ -449,7 +449,7 @@ def check_rules_integrity() -> dict:
         score -= 30
 
     # 核心规则文件检查
-    critical_rules = ["L0-伦理", "L1-架构", "龙魂铁律", "DNA标准"]
+    critical_rules = ["L0-伦理", "L1-架构", "龍魂铁律", "DNA标准"]
     rules = list_rules()
     existing = {r["name"] for r in rules if r["exists"]}
 
@@ -467,7 +467,7 @@ def check_rules_integrity() -> dict:
 
     if not missing_critical and rules:
         good.append({"title": f"四大核心规则文件完整 (L0/L1/铁律/DNA)",
-                     "plain": "最重要的四个规则（L0伦理、L1架构、龙魂铁律、DNA标准）全部同步完整，系统推理有底座。✅",
+                     "plain": "最重要的四个规则（L0伦理、L1架构、龍魂铁律、DNA标准）全部同步完整，系统推理有底座。✅",
                      "dna": gen_dna("RULES-CORE-OK")})
 
     # 规则库大小检查

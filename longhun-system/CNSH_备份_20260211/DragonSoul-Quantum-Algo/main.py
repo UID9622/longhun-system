@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂量子系统主程序
-DNA追溯码: #龙芯⚡️2026-02-09-QUANTUM-MAIN-v1.0
+龍魂量子系统主程序
+DNA追溯码: #龍芯⚡️2026-02-09-QUANTUM-MAIN-v1.0
 """
 
 from quantum_engine import DragonCoreQuantumSystem, create_personality_basis_states, SCENE_PROFILES
@@ -11,7 +11,7 @@ from typing import Dict, Any
 def main():
     """主函数"""
     print("="*60)
-    print("🐉 龙魂量子系统启动")
+    print("🐉 龍魂量子系统启动")
     print("="*60)
     
     # 初始化系统

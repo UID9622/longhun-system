@@ -3,7 +3,7 @@
 **DNA:** #ZHUGEXIN⚡️2025-01-27-LU-TAIJI-BUNDLE-v2.1
 **License:** CC BY-NC-SA 4.0
 
-基于龙魂 DNA 追溯与太极哲学的完整知识组织系统部署包。
+基于龍魂 DNA 追溯与太极哲学的完整知识组织系统部署包。
 
 ## 快速开始
 

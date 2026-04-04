@@ -66,7 +66,7 @@ NOTE: conversion scripts are located under `tools/mtmd/legacy-models`
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:10
 🧬 DNA追溯码: #CNSH-SIGNATURE-dceaeb0e-20251218032410
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 坤卦：地势坤，君子以厚德载物
 📜 内容哈希: 35e6476918b1ff08

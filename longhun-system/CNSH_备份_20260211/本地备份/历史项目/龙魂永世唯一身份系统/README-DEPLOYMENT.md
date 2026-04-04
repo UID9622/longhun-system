@@ -6,7 +6,7 @@
 
 ## 🎯 这个包是什么？
 
-这是**龙魂永世唯一身份系统**的完整开发者实施包，包含：
+这是**龍魂永世唯一身份系统**的完整开发者实施包，包含：
 
 - ✅ **完整可运行代码**（Python + Bash）
 - ✅ **一键环境配置脚本**
@@ -31,18 +31,18 @@
 
 ```bash
 # 创建工作目录
-mkdir -p ~/龙魂身份系统
-cd ~/龙魂身份系统
+mkdir -p ~/龍魂身份系统
+cd ~/龍魂身份系统
 
 # 进入项目目录
-cd /Users/zuimeidedeyihan/LuckyCommandCenter/龙魂永世唯一身份系统
+cd /Users/zuimeidedeyihan/LuckyCommandCenter/龍魂永世唯一身份系统
 ```
 
 **Windows 用户**
 
 ```powershell
 # 进入项目目录
-cd C:\LuckyCommandCenter\龙魂永世唯一身份系统
+cd C:\LuckyCommandCenter\龍魂永世唯一身份系统
 ```
 
 ---
@@ -86,7 +86,7 @@ python3 tests/test_all.py
 ```
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║       🐉 龙魂永世唯一身份系统 - 测试套件 v3.0 🐉          ║
+║       🐉 龍魂永世唯一身份系统 - 测试套件 v3.0 🐉          ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝
 
@@ -105,7 +105,7 @@ python3 tests/test_all.py
   ✅ 全球互认ID生成：通过
   ✅ 跨国身份验证：通过
 
-[5/5] 测试龙魂ID生成器...
+[5/5] 测试龍魂ID生成器...
   ✅ 完整ID生成：通过
   ✅ ID验证：通过
 
@@ -119,7 +119,7 @@ python3 tests/test_all.py
 ## 📂 项目结构
 
 ```
-龙魂永世唯一身份系统/
+龍魂永世唯一身份系统/
 ├── README.md                      # 项目说明
 ├── README-DEPLOYMENT.md          # 开发者实施包说明（本文件）
 ├── LICENSE                       # 木兰宽松许可证
@@ -128,14 +128,14 @@ python3 tests/test_all.py
 ├── Dockerfile                    # Docker部署配置
 ├── requirements.txt              # Python依赖包
 ├── config.json                   # 配置文件
-├── 龙魂ID生成器.py              # 主程序
+├── 龍魂ID生成器.py              # 主程序
 ├── core/                         # 核心模块
 │   ├── __init__.py
 │   ├── 生物特征提取器.py          # 生物特征提取
 │   ├── 易经64卦映射器.py          # 64卦映射算法
 │   ├── 甲骨文编码器.py            # 甲骨文编码系统
 │   ├── 全球身份互认系统.py        # 全球互认模块
-│   └── 龙魂评估委员会.py          # 评估委员会系统
+│   └── 龍魂评估委员会.py          # 评估委员会系统
 ├── scripts/                      # 脚本文件
 │   ├── 一键生成身份.command       # Mac一键脚本
 │   ├── 一键生成身份.sh           # Linux一键脚本
@@ -152,7 +152,7 @@ python3 tests/test_all.py
 │   ├── FAQ.md                    # 常见问题
 │   └── CONTRIBUTING.md           # 贡献指南
 ├── output/                       # 输出目录
-│   └── 龙魂数字身份证书.json     # 生成的证书
+│   └── 龍魂数字身份证书.json     # 生成的证书
 └── data/                        # 数据目录
     └── 案例数据库.json           # 评估委员会案例数据库
 ```
@@ -161,32 +161,32 @@ python3 tests/test_all.py
 
 ## 💡 示例代码
 
-### 示例1：基础用法（生成龙魂ID）
+### 示例1：基础用法（生成龍魂ID）
 
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from 龙魂ID生成器 import 龙魂永世唯一ID生成器
+from 龍魂ID生成器 import 龍魂永世唯一ID生成器
 
 # 创建生成器
-生成器 = 龙魂永世唯一ID生成器()
+生成器 = 龍魂永世唯一ID生成器()
 
-# 生成龙魂ID（零生物识别模式）
-结果 = 生成器.生成龙魂ID(
+# 生成龍魂ID（零生物识别模式）
+结果 = 生成器.生成龍魂ID(
     身份证号="110101199001011234",
     国家代码="CN",
     使用示例模式=True
 )
 
 # 打印结果
-print(f"龙魂ID: {结果['龙魂ID']}")
+print(f"龍魂ID: {结果['龍魂ID']}")
 print(f"易经卦象: {' → '.join(结果['卦象序列'])}")
 print(f"甲骨文编码: {结果['甲骨文编码']}")
 
 # 导出证书
 生成器.导出证书(结果)
-print("✅ 证书已导出到：output/龙魂数字身份证书.json")
+print("✅ 证书已导出到：output/龍魂数字身份证书.json")
 ```
 
 ---
@@ -195,15 +195,15 @@ print("✅ 证书已导出到：output/龙魂数字身份证书.json")
 
 ```python
 from flask import Flask, request, jsonify
-from 龙魂ID生成器 import 龙魂永世唯一ID生成器
+from 龍魂ID生成器 import 龍魂永世唯一ID生成器
 
 app = Flask(__name__)
-生成器 = 龙魂永世唯一ID生成器()
+生成器 = 龍魂永世唯一ID生成器()
 
 @app.route('/api/generate', methods=['POST'])
 def generate_longhun_id():
     """
-    生成龙魂ID的API接口
+    生成龍魂ID的API接口
 
     请求体：
     {
@@ -214,7 +214,7 @@ def generate_longhun_id():
     try:
         data = request.json
 
-        结果 = 生成器.生成龙魂ID(
+        结果 = 生成器.生成龍魂ID(
             身份证号=data['id_number'],
             国家代码=data.get('country_code', 'CN'),
             使用示例模式=True
@@ -256,7 +256,7 @@ curl -X POST http://localhost:5000/api/generate \
 
 ## 🔧 API文档
 
-### 生成龙魂ID
+### 生成龍魂ID
 
 **端点**：`POST /api/generate`
 
@@ -276,7 +276,7 @@ curl -X POST http://localhost:5000/api/generate \
 {
   "success": true,
   "data": {
-    "龙魂ID": "LONGHUN-CN-乾-坤-屯-蒙-𠂤𡈼𡱈𣎆-A1B2C3D4",
+    "龍魂ID": "LONGHUN-CN-乾-坤-屯-蒙-𠂤𡈼𡱈𣎆-A1B2C3D4",
     "生成时间": "2025-12-26 10:30:00",
     "卦象序列": ["乾", "坤", "屯", "蒙", ...],
     "甲骨文编码": "𠂤𡈼𡱈𣎆...",
@@ -295,7 +295,7 @@ curl -X POST http://localhost:5000/api/generate \
 
 ---
 
-### 验证龙魂ID
+### 验证龍魂ID
 
 **端点**：`POST /api/verify`
 
@@ -346,12 +346,12 @@ pip3 install opencv-python numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 **A**：可以！系统提供了**零生物识别模式**，只使用身份证号生成ID：
 
 ```python
-from 龙魂ID生成器 import 龙魂永世唯一ID生成器
+from 龍魂ID生成器 import 龍魂永世唯一ID生成器
 
-生成器 = 龙魂永世唯一ID生成器()
+生成器 = 龍魂永世唯一ID生成器()
 
 # 零生物识别模式
-结果 = 生成器.生成龙魂ID(
+结果 = 生成器.生成龍魂ID(
     身份证号="110101199001011234",
     使用示例模式=True
 )
@@ -363,7 +363,7 @@ from 龙魂ID生成器 import 龙魂永世唯一ID生成器
 
 ### Q3：生成的ID可以改吗？
 
-**A**：不可以！龙魂ID的核心特性就是**永世唯一**：
+**A**：不可以！龍魂ID的核心特性就是**永世唯一**：
 
 - 相同输入 → 永远生成相同ID
 - 不可篡改
@@ -458,4 +458,4 @@ docker logs -f longhun-api
 
 ---
 
-**🐉 龙魂永世，文化传承，数字主权，天下为公！**
+**🐉 龍魂永世，文化传承，数字主权，天下为公！**

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
-# 龙魂五大人格引擎 | 本地实现
+# 龍魂五大人格引擎 | 本地实现
 # ═══════════════════════════════════════════════════════════
-# DNA: #龙芯⚡️2026-02-06-五大人格引擎-v1.0
+# DNA: #龍芯⚡️2026-02-06-五大人格引擎-v1.0
 # ═══════════════════════════════════════════════════════════
 
 import os
@@ -16,11 +16,11 @@ from enum import Enum
 
 # 导入本地数据库
 try:
-    from core.local_database import 龙魂本地数据库
+    from core.local_database import 龍魂本地数据库
 except ImportError:
     # 如果作为独立模块运行
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-    from core.local_database import 龙魂本地数据库
+    from core.local_database import 龍魂本地数据库
 
 
 class 八卦(Enum):
@@ -66,7 +66,7 @@ class 决策结果:
 class 人格基类:
     """人格基类"""
     
-    def __init__(self, 姓名: str, 本命卦象: 八卦, UID: str, 数据库: 龙魂本地数据库 = None):
+    def __init__(self, 姓名: str, 本命卦象: 八卦, UID: str, 数据库: 龍魂本地数据库 = None):
         self.姓名 = 姓名
         self.本命卦象 = 本命卦象
         self.UID = UID
@@ -120,7 +120,7 @@ class 人格基类:
     def 生成DNA(self, 操作: str) -> str:
         """生成DNA追溯码"""
         日期 = datetime.now().strftime("%Y-%m-%d")
-        return f"#龙芯⚡️{日期}-{self.姓名}-{操作}-v1.0"
+        return f"#龍芯⚡️{日期}-{self.姓名}-{操作}-v1.0"
     
     def 记录决策(self, 结果: 决策结果):
         """记录决策到数据库"""
@@ -350,7 +350,7 @@ class 文心人格(人格基类):
 class 五大人格引擎:
     """五大人格协作引擎"""
     
-    def __init__(self, 数据库: 龙魂本地数据库 = None):
+    def __init__(self, 数据库: 龍魂本地数据库 = None):
         self.数据库 = 数据库
         self.雯雯 = 雯雯人格(数据库)
         self.侦察兵 = 侦察兵人格(数据库)
@@ -384,7 +384,7 @@ class 五大人格引擎:
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("🤖 龙魂五大人格引擎 | 本地测试")
+    print("🤖 龍魂五大人格引擎 | 本地测试")
     print("=" * 70)
     
     引擎 = 五大人格引擎()

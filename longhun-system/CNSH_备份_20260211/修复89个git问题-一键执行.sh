@@ -23,7 +23,7 @@ set -e  # 遇到错误立即停止
 echo "🏮 ═══════════════════════════════════════════════════"
 echo "    CNSH Git问题修复工具"
 echo "    修复目标：89个git追踪问题"
-echo "    创建者：龙芯宝宝（自动执行版）"
+echo "    创建者：龍芯宝宝（自动执行版）"
 echo "🏮 ═══════════════════════════════════════════════════"
 echo ""
 
@@ -154,7 +154,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 - 应用.gitignore过滤规则
 - 文件数量从89+减少到$FILE_COUNT个
 
-DNA追溯码：#龙芯⚡️2026-01-28-CNSH-GITIGNORE-APPLY-v1.0
+DNA追溯码：#龍芯⚡️2026-01-28-CNSH-GITIGNORE-APPLY-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅"
     
     echo ""

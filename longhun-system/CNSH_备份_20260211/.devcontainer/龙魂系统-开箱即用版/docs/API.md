@@ -1,8 +1,8 @@
-# 龙魂系统本地API文档
+# 龍魂系统本地API文档
 
 ## 概述
 
-龙魂系统提供本地HTTP API，供前端和第三方应用调用。
+龍魂系统提供本地HTTP API，供前端和第三方应用调用。
 
 **基础URL**: `http://localhost:9622/api/`
 
@@ -55,7 +55,7 @@ POST /api/dna/trace
 **响应**:
 ```json
 {
-  "dna_code": "#龙芯⚡️2026-02-06-文档整理-v1.0",
+  "dna_code": "#龍芯⚡️2026-02-06-文档整理-v1.0",
   "status": "recorded"
 }
 ```
@@ -79,7 +79,7 @@ POST /api/cnsh/execute
 ```json
 {
   "output": "Hello",
-  "dna": "#龙芯⚡️2026-02-06-CNSH执行-v1.0"
+  "dna": "#龍芯⚡️2026-02-06-CNSH执行-v1.0"
 }
 ```
 
@@ -151,7 +151,7 @@ X-Longhun-Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 {
   "error": "错误描述",
   "code": 400,
-  "dna": "#龙芯⚡️2026-02-06-错误-v1.0"
+  "dna": "#龍芯⚡️2026-02-06-错误-v1.0"
 }
 ```
 

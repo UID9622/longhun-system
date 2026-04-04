@@ -145,7 +145,7 @@ def _seed_templates():
     """预置常用模板"""
     seeds = [
         ("三才分析", "用三才算法（天地人）分析以下内容：\n{input}"),
-        ("龙魂审计", "对以下内容进行三色审计，输出🟢/🟡/🔴：\n{input}"),
+        ("龍魂审计", "对以下内容进行三色审计，输出🟢/🟡/🔴：\n{input}"),
         ("中英翻译", "将以下中文翻译成英文，保留专业术语：\n{input}"),
         ("代码优化", "优化以下代码，保持功能不变，提升可读性：\n```\n{input}\n```"),
         ("摘要压缩", "用3句话概括以下内容的核心意思：\n{input}"),
@@ -618,7 +618,7 @@ def run_tests():
     cases = [
         ("普通文本",  "今天天气不错，适合写代码"),
         ("Python代码", "user_id = 9622\ntimestamp = '2026-03-15'\nproject_name = 'CNSH'"),
-        ("JSON输入",  '{"name":"龙魂","version":"2.0","active":null}'),
+        ("JSON输入",  '{"name":"龍魂","version":"2.0","active":null}'),
         ("中文输入",  "帮我分析三才算法的应用场景"),
         ("URL输入",   "https://github.com/uid9622/longhun-system"),
         ("危险操作",  "rm -rf /tmp/important"),

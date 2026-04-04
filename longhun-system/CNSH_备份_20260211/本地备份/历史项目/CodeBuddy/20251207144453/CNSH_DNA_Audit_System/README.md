@@ -152,7 +152,7 @@ classification = classifier.classify_by_category()
 - DNA
 - CNSH
 - P0
-- 龙魂
+- 龍魂
 - 甲骨文
 - 三色审计
 - H武器
@@ -182,7 +182,7 @@ registry = DNARegistry("/path/to/your/database.db")
 ```python
 self.protected_keywords = [
     "ZHUGEXIN", "UID9622", "DNA", "CNSH", "P0", 
-    "龙魂", "甲骨文", "三色审计", "H武器",
+    "龍魂", "甲骨文", "三色审计", "H武器",
     "你的自定义关键词"
 ]
 ```
@@ -239,7 +239,7 @@ self.protected_keywords = [
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:12
 🧬 DNA追溯码: #CNSH-SIGNATURE-54ec7198-20251218032412
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 蒙卦：山下出泉，君子以果行育德
 📜 内容哈希: fc02ff92643009df

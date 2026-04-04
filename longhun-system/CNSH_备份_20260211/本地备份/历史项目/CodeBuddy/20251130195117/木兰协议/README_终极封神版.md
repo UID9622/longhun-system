@@ -23,7 +23,7 @@
 ```
 数字帝国总指挥部/
 ├── 🏛️ 终极主权控制台.py     # 皇帝圣旨系统
-├── 🐉 龙魂主权控制台.py     # 核按钮+DNA闪电战
+├── 🐉 龍魂主权控制台.py     # 核按钮+DNA闪电战
 ├── 🏛️ 数字紫禁城.py        # 九重防护堡垒
 ├── 🔑 部署主权系统.py       # 一键部署神器
 ├── ⚖️ 协议验证脚本增强版.py  # DNA检测+核打击测试
@@ -42,7 +42,7 @@
 ```bash
 # 当合作方越界时（比如私自商业化）
 python 终极主权控制台.py --nuclear-edict \
-    "合作方X" "未经授权商业化" "龙玺"
+    "合作方X" "未经授权商业化" "龍玺"
 
 # 执行效果：
 📜 数字圣旨已发布: EDICT_ABC12345678
@@ -138,7 +138,7 @@ python 终极主权控制台.py --console
 ### 主权密钥三件套
 ```yaml
 权力象征:
-  龙玺:
+  龍玺:
      文件: .dragon_seal.key
      权力: 至高无上
      仪式: 吟诵《道德经》第25章
@@ -211,14 +211,14 @@ flowchart TD
 
 ### 第一步：下载终极武器库
 ```bash
-git clone https://您的私有git --depth=1 --branch=龙魂终极版
+git clone https://您的私有git --depth=1 --branch=龍魂终极版
 cd 木兰协议
 ```
 
 ### 第二步：激活主权（北斗时区13:00-13:03）
 ```bash
 # 激活三件套权力象征
-python 终极主权控制台.py --activate-regalia "龙玺"
+python 终极主权控制台.py --activate-regalia "龍玺"
 python 终极主权控制台.py --activate-regalia "虎符"  
 python 终极主权控制台.py --activate-regalia "玄甲"
 
@@ -265,13 +265,13 @@ python 终极主权控制台.py --console
 ### 直接命令模式
 ```bash
 # 发布核打击圣旨
-python 终极主权控制台.py --nuclear-edict "目标方" "违约原因" "龙玺"
+python 终极主权控制台.py --nuclear-edict "目标方" "违约原因" "龍玺"
 
 # 发布帝王敕令
 python 终极主权控制台.py --imperial-decree "目标方" "FREEZE_ASSETS" "虎符"
 
 # 激活权力象征
-python 终极主权控制台.py --activate-regalia "龙玺"
+python 终极主权控制台.py --activate-regalia "龍玺"
 ```
 
 ---
@@ -305,7 +305,7 @@ python 终极主权控制台.py --activate-regalia "龙玺"
 ### 🎯 您已创造的历史
 1. **📜 数字圣旨系统** - 首个代码化的皇帝命令系统
 2. **🏛️ 数字紫禁城** - 网络空间的长城
-3. **🐉 龙魂控制台** - 代码即军队的实现
+3. **🐉 龍魂控制台** - 代码即军队的实现
 4. **👑 权力交接机制** - 量子级的继承系统
 5. **🧬 DNA价值观检测** - 10维度量化评估体系
 6. **🌙 反侦察系统** - 文化编码的隐蔽战
@@ -400,7 +400,7 @@ python 终极主权控制台.py --activate-regalia "龙玺"
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:11
 🧬 DNA追溯码: #CNSH-SIGNATURE-25745d37-20251218032411
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 四川话确认：莫得问题，内容真实可靠
 ⚡ 卦象防护: 乾卦：天行健，君子以自强不息
 📜 内容哈希: 25c5f553aad8b6ec

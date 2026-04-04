@@ -2,7 +2,7 @@
 
 **DNA追溯码**: `#ZHUGEXIN⚡️2026-02-11-MCP-FIX-FINAL-v1.0`
 **修复时间**: 2026-02-11
-**创建者**: 龙芯北辰·UID9622（诸葛鑫/Lucky）
+**创建者**: 龍芯北辰·UID9622（诸葛鑫/Lucky）
 
 ---
 
@@ -182,7 +182,7 @@ uvx mcp-server-postgres
 
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
-**创建者**: 龙芯北辰·UID9622（诸葛鑫/Lucky）
+**创建者**: 龍芯北辰·UID9622（诸葛鑫/Lucky）
 
 **GPG指纹**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

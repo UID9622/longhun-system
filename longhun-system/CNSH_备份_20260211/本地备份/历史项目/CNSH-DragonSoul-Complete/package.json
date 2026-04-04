@@ -1,8 +1,8 @@
 {
   "name": "cnsh-dragonsoul-complete",
   "version": "2.0.0",
-  "description": "🐉 CNSH编辑器 + 龙魂终端 + Notion扩展 完整体",
-  "author": "龙芯北辰 (UID9622)",
+  "description": "🐉 CNSH编辑器 + 龍魂终端 + Notion扩展 完整体",
+  "author": "龍芯北辰 (UID9622)",
   "license": "MIT",
   "keywords": [
     "cnsh",
@@ -32,5 +32,5 @@
     "python": ">=3.9",
     "node": ">=18.0.0"
   },
-  "dna_code": "#龙芯⚡️2026-01-21-CNSH-DragonSoul-v2.0"
+  "dna_code": "#龍芯⚡️2026-01-21-CNSH-DragonSoul-v2.0"
 }

@@ -1,4 +1,4 @@
-# 来源标注: #ZHUGEXIN⚡️ | UID9622 龙魂体系
+# 来源标注: #ZHUGEXIN⚡️ | UID9622 龍魂体系
 # 模块定位: CNSH 字元渲染引擎 · 基础三次贝塞尔层
 
 import json
@@ -9,18 +9,18 @@ class CNSH字元基础引擎_UID9622:
         self.字元集_cnsh9622 = {}
         self.审计_cnsh9622 = {}
 
-    def 载入_cnsh数据_cnsh龙魂_v1(self, 路径_cnsh9622):
+    def 载入_cnsh数据_cnsh龍魂_v1(self, 路径_cnsh9622):
         with open(路径_cnsh9622, "r", encoding="utf-8") as 文件:
             数据 = json.load(文件)
         self.字元集_cnsh9622 = 数据["字符集_cnsh9622"]
         self.审计_cnsh9622 = 数据["三色审计_cnsh9622"]
 
-    def 执行三色审计_cnsh龙魂_v1(self):
+    def 执行三色审计_cnsh龍魂_v1(self):
         for 颜色 in self.审计_cnsh9622:
             if self.审计_cnsh9622[颜色]["结果"] != "通过":
                 raise RuntimeError("三色审计未通过")
 
-    def 输出SVG_cnsh龙魂_v1(self, 字元, 输出路径_cnsh9622):
+    def 输出SVG_cnsh龍魂_v1(self, 字元, 输出路径_cnsh9622):
         笔画列表 = self.字元集_cnsh9622[字元]["笔画路径_cnsh9622"]
         路径片段 = []
         当前点 = None
@@ -53,18 +53,18 @@ class CNSH字元基础引擎_UID9622:
         with open(输出路径_cnsh9622, "w", encoding="utf-8") as 文件:
             文件.write(svg内容)
 
-    def 执行渲染_cnsh龙魂_v1(self, 输出目录_cnsh9622):
-        self.执行三色审计_cnsh龙魂_v1()
+    def 执行渲染_cnsh龍魂_v1(self, 输出目录_cnsh9622):
+        self.执行三色审计_cnsh龍魂_v1()
         os.makedirs(输出目录_cnsh9622, exist_ok=True)
         for 字元 in self.字元集_cnsh9622:
-            self.输出SVG_cnsh龙魂_v1(
+            self.输出SVG_cnsh龍魂_v1(
                 字元,
                 os.path.join(输出目录_cnsh9622, f"{字元}.svg")
             )
 
 if __name__ == "__main__":
     引擎 = CNSH字元基础引擎_UID9622()
-    引擎.载入_cnsh数据_cnsh龙魂_v1("CNSH_字元库_v0001.json")
-    引擎.执行渲染_cnsh龙魂_v1("CNSH_字元库_输出_v0001")
+    引擎.载入_cnsh数据_cnsh龍魂_v1("CNSH_字元库_v0001.json")
+    引擎.执行渲染_cnsh龍魂_v1("CNSH_字元库_输出_v0001")
     print("✓ v0001 三色审计通过")
     print("✓ 5个字的 SVG 文件已生成")

@@ -1,6 +1,6 @@
 /**
  * 每日复盘命令
- * 用于执行龙魂价值内核和场景化人格调用地图的每日复盘
+ * 用于执行龍魂价值内核和场景化人格调用地图的每日复盘
  */
 
 const DailyReviewService = require('../services/dailyReview');
@@ -60,7 +60,7 @@ class DailyReviewCommand {
         // 1. 执行每日复盘
         const reviewResult = await this.dailyReview.performDailyReview();
         
-        // 2. 检查龙魂特别关注点
+        // 2. 检查龍魂特别关注点
         const dragonSoulFocus = await this.checkDragonSoulFocus();
         
         // 3. 验证Notion同步状态
@@ -74,10 +74,10 @@ class DailyReviewCommand {
     }
 
     /**
-     * 检查龙魂特别关注点
+     * 检查龍魂特别关注点
      */
     async checkDragonSoulFocus() {
-        console.log('🐉 检查龙魂特别关注点...');
+        console.log('🐉 检查龍魂特别关注点...');
         
         const focusPoints = {
             valueCore: await this.checkValueCore(),
@@ -128,8 +128,8 @@ class DailyReviewCommand {
         console.log(`🎯 复盘状态: ${result.status}`);
         console.log(`⏱️ 执行时长: ${result.duration}ms`);
         
-        // 龙魂价值内核
-        console.log(`🐉 龙魂价值内核: ${result.dragonSoul.status === 'completed' ? '✅ 已完成' : '❌ 失败'}`);
+        // 龍魂价值内核
+        console.log(`🐉 龍魂价值内核: ${result.dragonSoul.status === 'completed' ? '✅ 已完成' : '❌ 失败'}`);
         
         // 场景化人格调用地图
         console.log(`🗺️ 场景化人格调用地图: ${result.personaMap.status === 'completed' ? '✅ 已完成' : '❌ 失败'}`);

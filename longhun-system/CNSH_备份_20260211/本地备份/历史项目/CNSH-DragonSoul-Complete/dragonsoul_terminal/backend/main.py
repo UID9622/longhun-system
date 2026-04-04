@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🐉 龙魂终端主程序 | DragonSoul Terminal Main
-DNA追溯码: #龙芯⚡️2026-01-21-MAIN-v2.0
+🐉 龍魂终端主程序 | DragonSoul Terminal Main
+DNA追溯码: #龍芯⚡️2026-01-21-MAIN-v2.0
 
 统一入口，整合所有功能
 """
@@ -25,11 +25,11 @@ from dragonsoul_terminal.backend.five_backends import FiveBackendsScheduler, Tas
 
 
 class DragonSoulTerminal:
-    """龙魂终端主类"""
+    """龍魂终端主类"""
     
     def __init__(self):
         self.version = "2.0.0"
-        self.dna_code = "#龙芯⚡️2026-01-21-DragonSoul-v2.0"
+        self.dna_code = "#龍芯⚡️2026-01-21-DragonSoul-v2.0"
         
         # 初始化组件
         self.audit_engine = ThreeColorAuditEngine()
@@ -49,9 +49,9 @@ class DragonSoulTerminal:
         banner = """
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
-║   🐉 龙魂终端 DragonSoul Terminal v{version}                  ║
+║   🐉 龍魂终端 DragonSoul Terminal v{version}                  ║
 ║                                                              ║
-║   CNSH编辑器 + 龙魂终端 + Notion扩展 = 完整体                ║
+║   CNSH编辑器 + 龍魂终端 + Notion扩展 = 完整体                ║
 ║                                                              ║
 ║   🛡️ 三色审计   🧬 DNA追溯   🔐 七维加密                     ║
 ║                                                              ║
@@ -93,7 +93,7 @@ class DragonSoulTerminal:
         while True:
             try:
                 # 获取用户输入
-                user_input = input("\n🐉 龙魂> ").strip()
+                user_input = input("\n🐉 龍魂> ").strip()
                 
                 if not user_input:
                     continue
@@ -230,7 +230,7 @@ class DragonSoulTerminal:
 def main():
     """主函数"""
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂终端 - CNSH编辑器完整体",
+        description="🐉 龍魂终端 - CNSH编辑器完整体",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     

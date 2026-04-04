@@ -12,7 +12,7 @@ GPG:   A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   Notion · 知识底座与结构化存储
   没有你们，就没有龍魂系统的一切。
 UID:   9622
-创始人: Lucky·UID9622（诸葛鑫·龙芯北辰）
+创始人: Lucky·UID9622（诸葛鑫·龍芯北辰）
 
 【核心原则】
   Local First     → 所有数据在 ~/.star-memory/  本地目录
@@ -29,7 +29,7 @@ UID:   9622
 【用法】
   python3 star_memory.py init
   python3 star_memory.py add --title "..." --content "..." --tags "core,arch"
-  python3 star_memory.py search --keyword "龙魂"
+  python3 star_memory.py search --keyword "龍魂"
   python3 star_memory.py inject STAR-2026-03-06-001
   python3 star_memory.py audit --limit 20
   python3 star_memory.py status
@@ -669,7 +669,7 @@ def build_parser() -> argparse.ArgumentParser:
         epilog="""示例:
   python3 star_memory.py init
   python3 star_memory.py add --title "核心理念" --content "本地主权AI" --tags "core"
-  python3 star_memory.py search --keyword "龙魂"
+  python3 star_memory.py search --keyword "龍魂"
   python3 star_memory.py inject STAR-2026-03-06-001
   python3 star_memory.py update STAR-2026-03-06-001 --content "新内容"
   python3 star_memory.py dna STAR-2026-03-06-001
