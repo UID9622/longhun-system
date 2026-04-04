@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂反诈守护系统
+龍魂反诈守护系统
 本地运行，保护老百姓不被诈骗
 """
 
@@ -9,7 +9,7 @@ import hashlib
 import json
 from datetime import datetime
 
-class 龙魂反诈守护:
+class 龍魂反诈守护:
     """保护无知的人不被诈骗"""
     
     def __init__(self):
@@ -33,7 +33,7 @@ class 龙魂反诈守护:
     def 启动(self):
         """启动系统"""
         print("=" * 60)
-        print("龙魂反诈守护系统")
+        print("龍魂反诈守护系统")
         print("=" * 60)
         print("\n本系统保护您不被诈骗")
         print("所有数据本地处理，不上传网络\n")
@@ -60,7 +60,7 @@ class 龙魂反诈守护:
     def 预警(self, 发现列表):
         """弹出预警"""
         print("\n" + "=" * 60)
-        print("【龙魂反诈预警 - 发现诈骗风险！】")
+        print("【龍魂反诈预警 - 发现诈骗风险！】")
         print("=" * 60)
         
         for 发现 in 发现列表:
@@ -131,9 +131,9 @@ class 龙魂反诈守护:
             else:
                 print("未检测到风险\n")
         
-        print("\n龙魂守护已退出，请保持警惕！")
+        print("\n龍魂守护已退出，请保持警惕！")
 
 # 启动
 if __name__ == "__main__":
-    系统 = 龙魂反诈守护()
+    系统 = 龍魂反诈守护()
     系统.运行()

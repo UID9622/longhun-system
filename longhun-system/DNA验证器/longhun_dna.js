@@ -1,5 +1,5 @@
 /**
- * 龙魂DNA存证系统 - JavaScript核心引擎
+ * 龍魂DNA存证系统 - JavaScript核心引擎
  * 
  * 作者: 诸葛鑫 (Lucky) | UID9622
  * DNA追溯码: #ZHUGEXIN⚡️2026-01-06-LONGHUN-DNA-CORE-001
@@ -48,7 +48,7 @@ class LonghunDNA {
                 dnaCode: dnaCode,
                 digitalFingerprint: fingerprint,
                 metadata: {
-                    toolVersion: "龙魂DNA存证系统 v1.0",
+                    toolVersion: "龍魂DNA存证系统 v1.0",
                     systemNote: "本存证基于SHA-256算法生成，任何修改都会导致指纹失效",
                     creatorStatement: "技术主权·数据主权·中文原生"
                 }

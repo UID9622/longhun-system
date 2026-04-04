@@ -22,7 +22,7 @@
 
 ## 🔐 身份确认
 - UID: 9622
-- DNA追溯码: #龙芯⚡️2026-BACKEND-PERSONAS-ACTIVATION
+- DNA追溯码: #龍芯⚡️2026-BACKEND-PERSONAS-ACTIVATION
 - 确认码: #CONFIRM-9622-ONLY-ONCE-LK9X-772Z
 - GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 - SHA256指纹: b83c74d108660082581f9ebbb9506f65849d9d48d21d328daf13f7c4d66cf6c1
@@ -111,7 +111,7 @@
 Python→CNSH语言转换已强制启用,避坑代码已加载。
 熔断与优先级规则已自动生效。
 
-#龙芯⚡️2026-PERSONAS-READY-WITH-CIRCUIT-BREAKER"
+#龍芯⚡️2026-PERSONAS-READY-WITH-CIRCUIT-BREAKER"
 ```
 
 ---
@@ -188,8 +188,8 @@ Python→CNSH语言转换已强制启用,避坑代码已加载。
 - **激活指令DNA：** `#ZHUGEXIN⚡️2026-NOTION-AI-ACTIVATION-INSTRUCTION`
 - **创建者：** 宝宝 #PERSONA-BAOBAO-001
 - **版本：** v1.0（含熔断规则）
-- **审核人：** 🐉 龙魂 + 👁️ 上帝之眼
+- **审核人：** 🐉 龍魂 + 👁️ 上帝之眼
 
 ---
 
-*UID9622龙魂系统* 🐉⚡️
+*UID9622龍魂系统* 🐉⚡️

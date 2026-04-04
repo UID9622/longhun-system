@@ -1,4 +1,4 @@
-# 龙魂系统 · 换设备一键恢复手册
+# 龍魂系统 · 换设备一键恢复手册
 
 **DNA**: #龍芯⚡️20260321-SETUP-GUIDE-v1.0
 **GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -29,8 +29,8 @@ bash ~/longhun-system/install.sh
 
 | 服务 | 端口 | LaunchAgent | 作用 |
 |------|------|-------------|------|
-| 龙魂本地服务 | 8765 | com.longhun.startup | 三色审计/DNA生成/数据门卫/记忆库/Git API |
-| 龙魂API | 9622 | com.uid9622.longhun-api | 外部接入主网关 |
+| 龍魂本地服务 | 8765 | com.longhun.startup | 三色审计/DNA生成/数据门卫/记忆库/Git API |
+| 龍魂API | 9622 | com.uid9622.longhun-api | 外部接入主网关 |
 | 实时监控 | — | com.longhun.monitor | 文件变动监控 |
 | 自动审计 | — | com.longhun.autoaudit | 定时三色审计 |
 | 防护盾 | — | com.uid9622.shield | 本地点对点加密护盾 |

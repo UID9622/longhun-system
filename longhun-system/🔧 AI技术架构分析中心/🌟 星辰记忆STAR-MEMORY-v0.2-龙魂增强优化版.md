@@ -1,11 +1,11 @@
-# 🌟 星辰记忆 STAR-MEMORY v0.2（龙魂增强优化版）
+# 🌟 星辰记忆 STAR-MEMORY v0.2（龍魂增强优化版）
 
 **DNA追溯码**: #龍芯⚡️2026-03-04-STAR-MEMORY-v0.2-ENHANCED  
 **原版DNA**: #STAR⚡️2026-02-23-UID9622-INIT  
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅  
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
 **GPG指纹**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F  
-**创建者**: 💎 龙芯北辰｜UID9622  
+**创建者**: 💎 龍芯北辰｜UID9622  
 **优化时间**: 2026-03-04  
 
 ---
@@ -27,7 +27,7 @@
   依赖: typer, pyyaml, rich（纯Python，无外部服务）
   协议: 木兰宽松许可证 v2.0
   
-龙魂对齐:
+龍魂对齐:
   数字主权: ✅ 所有数据本地
   三色审计: ✅ audit.log记录所有操作
   DNA追溯: ✅ SHA256哈希 + 时间戳 + UID
@@ -38,12 +38,12 @@
 
 ## 🆕 v0.2 新增模块（补全优化）
 
-### 1️⃣ 与Notion龙魂代理宝宝集成方案
+### 1️⃣ 与Notion龍魂代理宝宝集成方案
 
 **集成架构：**
 
 ```
-Notion龙魂代理宝宝 ←→ 星辰记忆
+Notion龍魂代理宝宝 ←→ 星辰记忆
         ↓                    ↓
    理解润色引擎         本地记忆库
         ↓                    ↓
@@ -57,7 +57,7 @@ Notion龙魂代理宝宝 ←→ 星辰记忆
 ```python
 # 在Notion代理宝宝中调用星辰记忆
 
-class Notion龙魂代理宝宝:
+class Notion龍魂代理宝宝:
     def __init__(self):
         self.star_memory = StarMemoryConnector()
     
@@ -479,14 +479,14 @@ star.py import data.json        # 从JSON导入
 
 ---
 
-### 7️⃣ 与其他龙魂模块集成
+### 7️⃣ 与其他龍魂模块集成
 
 **集成矩阵：**
 
 ```yaml
-龙魂系统模块集成:
+龍魂系统模块集成:
   
-  Notion龙魂代理宝宝:
+  Notion龍魂代理宝宝:
     集成方式: Python API调用
     数据流: Notion ←→ STAR-MEMORY ←→ 本地文件
     用途: 上下文记忆管理
@@ -519,13 +519,13 @@ star.py import data.json        # 从JSON导入
 ### 新增模块（8个）
 
 ```yaml
-1. Notion龙魂代理宝宝集成方案: ✅
+1. Notion龍魂代理宝宝集成方案: ✅
 2. 性能指标与基准测试: ✅
 3. 错误处理与异常恢复: ✅
 4. 数据迁移与备份策略: ✅
 5. CLI命令速查表: ✅
 6. 工作流程可视化: ✅
-7. 与其他龙魂模块集成: ✅
+7. 与其他龍魂模块集成: ✅
 8. 高级功能扩展: ✅
 ```
 

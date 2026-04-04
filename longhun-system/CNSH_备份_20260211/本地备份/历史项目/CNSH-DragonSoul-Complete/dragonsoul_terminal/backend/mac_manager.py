@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🍎 Mac系统管理器 | Mac System Manager
-DNA追溯码: #龙芯⚡️2026-01-21-Mac管理-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-Mac管理-v2.0
 
 功能：
 - 清理系统缓存

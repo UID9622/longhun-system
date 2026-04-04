@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🤖 五大AI后台调度系统 | Five AI Backends Scheduler
-DNA追溯码: #龙芯⚡️2026-01-21-五大后台-v2.0
+DNA追溯码: #龍芯⚡️2026-01-21-五大后台-v2.0
 
 五大后台规则：
 1. Notion AI - 优先级1，数据管理专家
@@ -396,7 +396,7 @@ if __name__ == "__main__":
         # 安全操作
         result = await scheduler.execute_task(
             TaskType.CHAT,
-            "你好，请介绍一下龙魂终端"
+            "你好，请介绍一下龍魂终端"
         )
         print(f"  结果: {result['success']}")
         print(f"  后台: {result.get('backend', 'N/A')}")

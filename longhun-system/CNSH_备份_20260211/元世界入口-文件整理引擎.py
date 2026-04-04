@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🌌 元世界入口 · 全设备文件整理引擎
-DNA追溯码: #龙芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0
+DNA追溯码: #龍芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0
 创建者: 诸葛鑫（Lucky）｜UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -27,7 +27,7 @@ class 元世界文件整理引擎_UID9622:
         self.元世界根目录 = Path(元世界根目录)
         self.整理规则_cnsh9622 = self._加载整理规则()
         self.扫描结果_cnsh9622 = {}
-        self.DNA追溯码 = "#龙芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0"
+        self.DNA追溯码 = "#龍芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0"
         
         print(f"🌌 元世界入口已激活")
         print(f"📍 根目录: {self.元世界根目录}")
@@ -79,7 +79,7 @@ class 元世界文件整理引擎_UID9622:
             }
         }
     
-    def 扫描全设备_cnsh龙魂_v1(self) -> Dict:
+    def 扫描全设备_cnsh龍魂_v1(self) -> Dict:
         """扫描整个元世界目录"""
         print(f"\n🔍 开始扫描元世界...")
         
@@ -160,10 +160,10 @@ class 元世界文件整理引擎_UID9622:
             大小 /= 1024.0
         return f"{大小:.2f} PB"
     
-    def 生成整理方案_cnsh龙魂_v1(self) -> Dict:
+    def 生成整理方案_cnsh龍魂_v1(self) -> Dict:
         """生成详细的整理方案"""
         if not self.扫描结果_cnsh9622:
-            self.扫描全设备_cnsh龙魂_v1()
+            self.扫描全设备_cnsh龍魂_v1()
         
         print(f"\n📋 生成整理方案...")
         
@@ -208,10 +208,10 @@ class 元世界文件整理引擎_UID9622:
         
         return 方案
     
-    def 执行整理_cnsh龙魂_v1(self, 方案: Dict = None, 模拟模式: bool = True):
+    def 执行整理_cnsh龍魂_v1(self, 方案: Dict = None, 模拟模式: bool = True):
         """执行文件整理"""
         if 方案 is None:
-            方案 = self.生成整理方案_cnsh龙魂_v1()
+            方案 = self.生成整理方案_cnsh龍魂_v1()
         
         模式 = "【模拟模式】" if 模拟模式 else "【实际执行】"
         print(f"\n🚀 开始执行整理 {模式}")
@@ -237,7 +237,7 @@ class 元世界文件整理引擎_UID9622:
         
         return 方案
     
-    def 生成元世界地图_cnsh龙魂_v1(self) -> str:
+    def 生成元世界地图_cnsh龍魂_v1(self) -> str:
         """生成元世界目录结构图"""
         print(f"\n🗺️ 生成元世界地图...")
         
@@ -256,7 +256,7 @@ class 元世界文件整理引擎_UID9622:
 ├── 📝 文档资料/          # Markdown, 文档, 指南
 ├── 💾 数据文件/          # JSON, CSV, XML 数据
 ├── 🗃️ 归档压缩/          # ZIP, RAR, 备份文件
-├── 🐉 龙魂系统/          # 核心系统文件
+├── 🐉 龍魂系统/          # 核心系统文件
 │   ├── 量子算法/
 │   ├── 字体引擎/
 │   └── 反殖民计划/
@@ -269,14 +269,14 @@ class 元世界文件整理引擎_UID9622:
         print(地图)
         return 地图
     
-    def 导出整理报告_cnsh龙魂_v1(self, 输出路径: str = "元世界整理报告.json"):
+    def 导出整理报告_cnsh龍魂_v1(self, 输出路径: str = "元世界整理报告.json"):
         """导出整理报告"""
         报告 = {
             "DNA追溯码": self.DNA追溯码,
             "生成时间": datetime.now().isoformat(),
             "元世界根目录": str(self.元世界根目录),
             "扫描结果": self.扫描结果_cnsh9622,
-            "整理方案": self.生成整理方案_cnsh龙魂_v1()
+            "整理方案": self.生成整理方案_cnsh龍魂_v1()
         }
         
         with open(输出路径, 'w', encoding='utf-8') as f:
@@ -296,19 +296,19 @@ def main():
     引擎 = 元世界文件整理引擎_UID9622()
     
     # 生成元世界地图
-    引擎.生成元世界地图_cnsh龙魂_v1()
+    引擎.生成元世界地图_cnsh龍魂_v1()
     
     # 扫描全设备
-    扫描结果 = 引擎.扫描全设备_cnsh龙魂_v1()
+    扫描结果 = 引擎.扫描全设备_cnsh龍魂_v1()
     
     # 生成整理方案
-    整理方案 = 引擎.生成整理方案_cnsh龙魂_v1()
+    整理方案 = 引擎.生成整理方案_cnsh龍魂_v1()
     
     # 模拟执行整理
-    引擎.执行整理_cnsh龙魂_v1(整理方案, 模拟模式=True)
+    引擎.执行整理_cnsh龍魂_v1(整理方案, 模拟模式=True)
     
     # 导出报告
-    引擎.导出整理报告_cnsh龙魂_v1()
+    引擎.导出整理报告_cnsh龍魂_v1()
     
     print("\n" + "="*60)
     print("✅ 元世界扫描完成!")
@@ -317,7 +317,7 @@ def main():
     print("   1. 查看生成的整理报告")
     print("   2. 确认整理方案")
     print("   3. 执行实际整理 (模拟模式=False)")
-    print("\n🧬 DNA追溯码: #龙芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0")
+    print("\n🧬 DNA追溯码: #龍芯⚡️2026-02-09-METAVERSE-ENGINE-v1.0")
     print("🔒 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
 
 

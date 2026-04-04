@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>龙魂编辑器 | UID9622</title>
+    <title>龍魂编辑器 | UID9622</title>
     <style>
         * {
             margin: 0;
@@ -404,9 +404,9 @@
 <body>
     <!-- 头部 -->
     <div class="header">
-        <h1><span class="dragon">🐉</span> 龙魂编辑器 <span style="font-size: 14px;">| UID9622</span></h1>
+        <h1><span class="dragon">🐉</span> 龍魂编辑器 <span style="font-size: 14px;">| UID9622</span></h1>
         <div class="dna-info">
-            <div>DNA追溯码: #龙芯⚡️2026-02-06-龙魂编辑器-v1.0</div>
+            <div>DNA追溯码: #龍芯⚡️2026-02-06-龍魂编辑器-v1.0</div>
             <div>确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
         </div>
     </div>
@@ -453,14 +453,14 @@
                     <span class="editor-title">📝 CNSH代码编辑器</span>
                     <span id="file-status">未保存</span>
                 </div>
-                <textarea class="editor-textarea" id="editor" placeholder="# 龙魂系统 CNSH编辑器
+                <textarea class="editor-textarea" id="editor" placeholder="# 龍魂系统 CNSH编辑器
 # 输入CNSH代码...
 
-函数 龙魂决策(场景):
+函数 龍魂决策(场景):
     当前卦象 = 易经推演(现在())
     返回 当前卦象
 
-打印("中华龙魂，技术为民！")"></textarea>
+打印("中华龍魂，技术为民！")"></textarea>
             </div>
             
             <!-- 终端 -->
@@ -469,11 +469,11 @@
                     <span class="terminal-dot red"></span>
                     <span class="terminal-dot yellow"></span>
                     <span class="terminal-dot green"></span>
-                    <span class="terminal-title">龙魂终端</span>
+                    <span class="terminal-title">龍魂终端</span>
                 </div>
                 <div class="terminal-body" id="terminal">
                     <div class="terminal-line">
-                        <span class="terminal-prompt">龙魂 ></span>
+                        <span class="terminal-prompt">龍魂 ></span>
                         <input type="text" class="terminal-input" id="terminal-input" placeholder="输入命令..." onkeypress="handleTerminal(event)">
                     </div>
                 </div>
@@ -525,8 +525,8 @@
             
             <!-- 字体预览 -->
             <div class="font-preview">
-                <h2>🔤 龙魂字体</h2>
-                <div class="preview-text">中华龙魂</div>
+                <h2>🔤 龍魂字体</h2>
+                <div class="preview-text">中华龍魂</div>
             </div>
         </div>
     </div>
@@ -604,7 +604,7 @@
             const date = now.toISOString().split('T')[0];
             const timestamp = now.getTime().toString(36).toUpperCase().slice(-4);
             
-            const dnaCode = `#龙芯⚡️${date}-${contentType}-v1.0`;
+            const dnaCode = `#龍芯⚡️${date}-${contentType}-v1.0`;
             const confirmCode = `#CONFIRM🌌${uid}-ONLY-ONCE🧬${timestamp}`;
             
             // 模拟SHA256
@@ -637,7 +637,7 @@
             const terminal = document.getElementById('terminal');
             const line = document.createElement('div');
             line.className = 'terminal-line';
-            line.innerHTML = `<span class="terminal-prompt">龙魂 ></span> ${text}`;
+            line.innerHTML = `<span class="terminal-prompt">龍魂 ></span> ${text}`;
             terminal.insertBefore(line, terminal.lastElementChild);
             terminal.scrollTop = terminal.scrollHeight;
         }
@@ -707,7 +707,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = '龙魂代码.cnsh';
+            a.download = '龍魂代码.cnsh';
             a.click();
             URL.revokeObjectURL(url);
             document.getElementById('file-status').textContent = '已保存';
@@ -721,7 +721,7 @@
             // 模拟执行
             setTimeout(() => {
                 addTerminalLine('✅ 代码执行完成');
-                addTerminalLine('输出: 中华龙魂，技术为民！');
+                addTerminalLine('输出: 中华龍魂，技术为民！');
             }, 500);
         }
         
@@ -733,7 +733,7 @@
         // 初始化
         updateTime();
         setInterval(updateTime, 1000);
-        addTerminalLine('🐉 龙魂编辑器已启动');
+        addTerminalLine('🐉 龍魂编辑器已启动');
         addTerminalLine('输入 help 查看可用命令');
     </script>
 </body>

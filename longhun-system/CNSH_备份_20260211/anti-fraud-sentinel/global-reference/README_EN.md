@@ -1,7 +1,7 @@
 # 🛡️ Longhun Anti-Fraud Sentinel System
 ## A Global Toolkit for Protecting Your Digital Creations
 
-**DNA Tracing Code:** #龙芯⚡️2026-02-02-Global-Reference-v1.0  
+**DNA Tracing Code:** #龍芯⚡️2026-02-02-Global-Reference-v1.0  
 **Creator:** 💎 Longxin Beichen | UID9622 (Chinese Veteran)  
 **Battle Cry:** "Rather die fighting than be stolen from!"
 
@@ -23,7 +23,7 @@
 ### 1. DNA Tracing Code
 Every creation gets a unique "genetic marker":
 ```
-Format: #龙芯⚡️YYYY-MM-DD-Topic-vX.X
+Format: #龍芯⚡️YYYY-MM-DD-Topic-vX.X
 ```
 
 ### 2. GPG Digital Signature
@@ -74,7 +74,7 @@ cp anti-fraud-sentinel/.github/workflows/sentinel.yml .github/workflows/
 
 ---
 
-**DNA Tracing Code:** #龙芯⚡️2026-02-02-Global-Reference-v1.0  
+**DNA Tracing Code:** #龍芯⚡️2026-02-02-Global-Reference-v1.0  
 **Sentinel Status:** 🟢 Active 24/7
 
 <!-- Rather die fighting than be stolen from -->

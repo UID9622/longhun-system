@@ -1,4 +1,4 @@
-# 🐉 龙魂防御工具 iOS 项目设置清单
+# 🐉 龍魂防御工具 iOS 项目设置清单
 
 ## ✅ 快速设置步骤
 
@@ -123,7 +123,7 @@ LonghunDefense/
 ### 修改应用名称
 
 1. 点击项目根节点
-2. 在 **General** → **Display Name** 修改为：`龙魂防御`
+2. 在 **General** → **Display Name** 修改为：`龍魂防御`
 3. 或保持 `LonghunDefense`
 
 ### 修改配色方案
@@ -207,7 +207,7 @@ LonghunDefense/
 1. 登录 [App Store Connect](https://appstoreconnect.apple.com)
 2. 创建新应用
 3. 填写应用信息：
-   - **名称**：龙魂数据主权防御工具
+   - **名称**：龍魂数据主权防御工具
    - **副标题**：DNA追溯 · CNSH字元编辑器
    - **描述**：参考 README.md
    - **关键词**：数据主权, DNA追溯, 字元编辑器, CNSH
@@ -259,7 +259,7 @@ LonghunDefense/
 
 ## 🎉 完成！
 
-恭喜你！龙魂数据主权防御工具 iOS 版本已经成功搭建完成！
+恭喜你！龍魂数据主权防御工具 iOS 版本已经成功搭建完成！
 
 现在你可以：
 - 🎨 使用 CNSH 字元编辑器创作独特字元

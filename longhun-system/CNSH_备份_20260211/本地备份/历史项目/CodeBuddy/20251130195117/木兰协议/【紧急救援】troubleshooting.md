@@ -29,10 +29,10 @@ python 工具/数字签名工具.py --generate-key
 **急救措施**：
 ```python
 # 检查DNA算法配置
-python 工具/龙魂主权控制台.py --check-dna
+python 工具/龍魂主权控制台.py --check-dna
 
 # 重新校准
-python 工具/龙魂主权控制台.py --recalibrate
+python 工具/龍魂主权控制台.py --recalibrate
 ```
 
 ### 🔥 场景4：区块链存证失败
@@ -72,7 +72,7 @@ python 工具/存证上链工具.py --test-connection
 🔐 数字主权签名防护系统
 📅 签名时间: 2025-12-18 03:24:11
 🧬 DNA追溯码: #CNSH-SIGNATURE-7a0ad444-20251218032411
-🌐 签名人: 龙魂文化加密系统
+🌐 签名人: 龍魂文化加密系统
 💬 方言确认: 东北话确认：没毛病，内容真实可靠
 ⚡ 卦象防护: 乾卦：天行健，君子以自强不息
 📜 内容哈希: f8f9cc08b3746fba

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 🐉 龙魂多语言编译系统 | LongHun Compiler v1.0
+ * 🐉 龍魂多语言编译系统 | LongHun Compiler v1.0
  * DNA追溯码：#ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
  * 
  * 支持多种自然语言编程，生成多种目标语言代码
@@ -547,7 +547,7 @@ class 代码生成器基类 {
   生成头部注释() {
     const dna = this.DNA系统.生成追溯码(this.ast.语言, this.目标语言);
     return `/*
- * 🐉 龙魂系统 | ${this.目标语言}代码生成器
+ * 🐉 龍魂系统 | ${this.目标语言}代码生成器
  * DNA: ${dna}
  * 源语言: ${this.ast.语言}
  * 生成时间: ${new Date().toISOString()}
@@ -809,15 +809,15 @@ class Python代码生成器 extends 代码生成器基类 {
   }
 }
 
-// ==================== 龙魂编译器主类 ====================
-class 龙魂编译器 {
+// ==================== 龍魂编译器主类 ====================
+class 龍魂编译器 {
   constructor() {
     this.DNA系统 = new DNA追溯系统();
   }
   
   编译(源代码路径, 目标语言 = 'js') {
     try {
-      console.log('🐉 龙魂编译器启动...');
+      console.log('🐉 龍魂编译器启动...');
       console.log(`📁 编译文件: ${源代码路径}`);
       
       // 读取源代码
@@ -866,7 +866,7 @@ class 龙魂编译器 {
       fs.writeFileSync(输出文件路径, 生成的代码, 'utf8');
       console.log(`💾 输出文件已保存: ${输出文件路径}`);
       
-      console.log('🎉 龙魂编译完成！');
+      console.log('🎉 龍魂编译完成！');
       return 输出文件路径;
       
     } catch (错误) {
@@ -882,11 +882,11 @@ function 主程序() {
   
   if (参数.length === 0) {
     console.log(`
-🐉 龙魂多语言编译系统 v1.0
+🐉 龍魂多语言编译系统 v1.0
 DNA追溯码: #ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
 
 使用方法:
-  longhun compile <文件.longhun> [选项]    编译龙魂程序
+  longhun compile <文件.longhun> [选项]    编译龍魂程序
   longhun run <文件.longhun> [选项]        编译并运行
   longhun help                            显示帮助信息
 
@@ -914,7 +914,7 @@ DNA追溯码: #ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
   ✅ 文化符号智能映射
   ✅ 多目标代码生成
 
-🐉 龙魂系统 - 一个代码 = 千万个代码的性质
+🐉 龍魂系统 - 一个代码 = 千万个代码的性质
     `);
     return;
   }
@@ -927,7 +927,7 @@ DNA追溯码: #ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
   }
   
   if (命令 === 'compile' || 命令 === 'run') {
-    const 编译器 = new 龙魂编译器();
+    const 编译器 = new 龍魂编译器();
     
     // 解析参数
     let 文件路径 = null;
@@ -943,7 +943,7 @@ DNA追溯码: #ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
     }
     
     if (!文件路径) {
-      console.error('❌ 错误: 请指定龙魂文件');
+      console.error('❌ 错误: 请指定龍魂文件');
       process.exit(1);
     }
     
@@ -970,7 +970,7 @@ DNA追溯码: #ZHUGEXIN⚡️2026-01-20-LONGHUN-COMPILER-v1.0
 
 // 导出编译器类
 module.exports = {
-  龙魂编译器,
+  龍魂编译器,
   词法分析器,
   语法分析器,
   JavaScript代码生成器,

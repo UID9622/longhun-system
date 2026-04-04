@@ -22,7 +22,7 @@ struct LunarCalendar {
 
     private static let heavenlyStems  = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
     private static let earthlyBranches = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"]
-    private static let zodiacAnimals   = ["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"]
+    private static let zodiacAnimals   = ["鼠","牛","虎","兔","龍","蛇","马","羊","猴","鸡","狗","猪"]
 
     // MARK: - 农历日期结构
 

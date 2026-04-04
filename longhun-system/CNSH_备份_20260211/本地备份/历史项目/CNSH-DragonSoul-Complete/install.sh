@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 🐉 龙魂终端一键安装脚本
-# DNA追溯码: #龙芯⚡️2026-01-21-INSTALL-v2.0
+# 🐉 龍魂终端一键安装脚本
+# DNA追溯码: #龍芯⚡️2026-01-21-INSTALL-v2.0
 
 set -e  # 遇到错误立即退出
 
@@ -34,9 +34,9 @@ echo ""
 echo "╔══════════════════════════════════════════════════════════╗"
 echo "║                                                          ║"
 echo "║   🐉 CNSH-DragonSoul-Complete 安装程序                   ║"
-echo "║   龙魂终端 + CNSH编辑器 + Notion扩展                     ║"
+echo "║   龍魂终端 + CNSH编辑器 + Notion扩展                     ║"
 echo "║                                                          ║"
-echo "║   DNA: #龙芯⚡️2026-01-21-INSTALL                         ║"
+echo "║   DNA: #龍芯⚡️2026-01-21-INSTALL                         ║"
 echo "║                                                          ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
@@ -111,8 +111,8 @@ print_status "创建配置文件..."
 if [ ! -f "config/config.yaml" ]; then
     mkdir -p config
     cat > config/config.yaml << 'EOF'
-# 🐉 龙魂终端配置文件
-# DNA: #龙芯⚡️CONFIG
+# 🐉 龍魂终端配置文件
+# DNA: #龍芯⚡️CONFIG
 
 system:
   name: "DragonSoul Terminal"
@@ -159,8 +159,8 @@ fi
 print_status "创建环境变量模板..."
 if [ ! -f ".env" ]; then
     cat > .env << 'EOF'
-# 🐉 龙魂终端环境变量
-# DNA: #龙芯⚡️ENV
+# 🐉 龍魂终端环境变量
+# DNA: #龍芯⚡️ENV
 
 # Claude API
 CLAUDE_API_KEY=
@@ -213,4 +213,4 @@ echo "║                                                          ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
 
-print_success "🐉 龙魂终端安装完成！"
+print_success "🐉 龍魂终端安装完成！"
