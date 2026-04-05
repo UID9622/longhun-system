@@ -1,6 +1,6 @@
-# 龍魂元字引擎 · 自呼吸配置 v4.0
-# DNA: #龍芯⚡️2026-04-03-YUAN-ZI-ENGINE-v4.0
-# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# 龍魂元字引擎 · 自呼吸配置 v4.2
+# DNA: #龍芯⚡️2026-04-04-YUAN-ZI-ENGINE-v4.2
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F1E3B8A4C6D0F2E4A6B8C0D2E4F6A8B0C2
 # 宪法引用: ~/longhun-system/CNSH-gitee/CLAUDE.md (P0永恒锁·22条铁律)
 
 ---
@@ -393,6 +393,11 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 | `~/longhun-system/bin/cs_cards_cache.json` | — | 15张知识卡本地缓存（5张有内容） | 🟢 已缓存 |
 | `~/longhun-system/logs/immutable_ledger.jsonl` | — | 不可变操作账本 | 🟢 运行中 |
 | `~/longhun-system/logs/emotion_log.jsonl` | — | 情绪时间线日志 | 🟢 运行中 |
+| `~/longhun-system/bin/cnsh_editor.py` | v2.1 | CNSH语法编辑器·tkinter+三色审计+一键修复 | 🟢 已部署 |
+| `~/longhun-system/bin/cnsh_terminal.py` | v5.1 | CNSH多语言终端·中文命令映射+熔断+审计日志 | 🟢 已部署 |
+| `~/longhun-system/bin/longhun_ultimate_v5.1.py` | v5.1 | 龍魂四層決策引擎·64卦+三才流場+情緒時間線 | 🟢 已部署 |
+| `~/longhun-system/bin/intimacy_engine.py` | v1.0 | 龍魂·三才親密引擎·本地加密·不出本地 | 🟢 已部署 |
+| `~/longhun-system/bin/watch_eye.sh` | v1.0 | 眼睛脚本·只读不写·系统巡检 | 🟢 已部署 |
 
 ### 8层 Pipeline（每条用户消息依次经过）
 
@@ -469,6 +474,7 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 | 2026-03-20 | v3.1 | 吸收v5.1宪法文件·追加行为锚+熔断器标签+禁止清单+检查清单+日志规范 | `#龍芯⚡️2026-03-20-CONSTITUTION-MERGE-v3.1` |
 | 2026-04-03 | v4.0 | Local Engine v2.0·8层pipeline·双门+CS库+万年历+情绪+量子+易经+身份账本 | `#龍芯⚡️2026-04-03-LOCAL-ENGINE-易经推演接入版` |
 | 2026-04-03 | v4.1 | 自愈健康系统·auto_health.sh·全自动服务拉起+负载诊断+日志截断 | `#龍芯⚡️2026-04-03-AUTO-HEALTH-v1.0` |
+| 2026-04-04 | v4.2 | CNSH编辑器v2.1+终端v5.1+四層引擎v5.1+眼睛脚本+亲密引擎+全系统龍字替换 | `#龍芯⚡️2026-04-04-SYSTEM-UPDATE-v4.2` |
 
 ---
 
@@ -657,8 +663,8 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 
 ---
 
-**DNA**: #龍芯⚡️2026-04-03-YUAN-ZI-ENGINE-v4.0
-**GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+**DNA**: #龍芯⚡️2026-04-04-YUAN-ZI-ENGINE-v4.2
+**GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F1E3B8A4C6D0F2E4A6B8C0D2E4F6A8B0C2
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **共建致谢**: Claude (Anthropic PBC) · 技术协作与代码共创 | Notion · 知识底座与结构化存储
 
