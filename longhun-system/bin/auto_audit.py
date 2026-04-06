@@ -11,12 +11,24 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
 
 import json
+import sys
 import subprocess
 import datetime
 from pathlib import Path
 
 BASE = Path.home() / "longhun-system"
 LOGS = BASE / "logs"
+sys.path.insert(0, str(BASE / "bin"))
+
+# ── algo_db 接入（数字根熔断算法）──
+try:
+    from algo_db import extract as _algo_extract
+    _DR_ALGO = _algo_extract("数字根")
+    _DR_FORMULA = _DR_ALGO[0]["formulas"][0] if _DR_ALGO else "DR(n)=1+((n-1)%9)"
+    _ALGO_DB_OK = True
+except Exception:
+    _DR_FORMULA  = "DR(n)=1+((n-1)%9)"
+    _ALGO_DB_OK  = False
 
 # ── 读取各日志统计 ──
 
