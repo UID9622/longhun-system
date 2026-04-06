@@ -374,7 +374,55 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 
 ---
 
-## 🔴 新AI进项目必读·模块现状（2026-04-03 更新）
+## ⚡ 算法元数据库·任何AI必读（2026-04-06 上线）
+
+> **调算法前先查这里，不要靠记忆猜公式。**
+
+```
+数据库文件: ~/longhun-system/logs/algo_db.jsonl（append-only·9族·已上线）
+调用模块:   ~/longhun-system/bin/algo_db.py
+```
+
+**Python调用（AI标准接口）：**
+```python
+import sys; sys.path.insert(0, str(Path.home()/"longhun-system/bin"))
+from algo_db import extract
+
+entries = extract("三才")        # → 公式+变量+函数全出
+entries = extract(family="量子") # → 量子族全部
+entries = extract()              # → 9族全库最新版摘要
+```
+
+**CLI验证：**
+```bash
+python3 ~/longhun-system/bin/algo_db.py --all     # 验证9族全在
+python3 ~/longhun-system/bin/algo_db.py 数字根    # 搜具体算法
+python3 ~/longhun-system/bin/health_check.py      # 全系统自检
+```
+
+**9族算法索引：**
+| 族 | 核心公式 | 源文件 |
+|----|---------|--------|
+| 数字根 | `DR(n)=1+((n-1)%9)` | fuxi_taiji_engine.py |
+| 能量场 | `E=R×I×T^(-α)` | fuxi_taiji_engine.py |
+| 三才 | `天∧地∧人=统一` | fuxi_taiji_engine.py |
+| 伏羲 | `f(x)=x 归位论` | fuxi_taiji_engine.py |
+| IW-ECB | `四层定锚·循环呼吸` | fuxi_taiji_engine.py |
+| 量子 | `\|ψ⟩=α\|过去⟩+β\|未来⟩` | quantum_deduce.py |
+| 三才算法 | 洛书矩阵`[[4,9,2]...]` | quantum_deduce.py |
+| 通心译 | 受众三层`技术/办公/大众` | translator.py |
+| CNSH | `370条规则·12类` | cnsh_editor.py |
+
+**新算法注册（版本痕迹不流失）：**
+```python
+from algo_db import register
+register(name="新算法", formulas=["公式"], variables={"x":"含义"}, functions=[...])
+# append-only，旧版永远在，不覆盖
+```
+
+---
+
+## 🔴 新AI进项目必读·模块现状（2026-04-06 更新）
 
 > **进来第一件事：读这里。不读就动手 = 重复建设 = 害老大。**
 
@@ -394,6 +442,11 @@ written, top_n = 执行扫描(query="关键词", results=mcp_results, tags=["标
 | `~/longhun-system/logs/immutable_ledger.jsonl` | — | 不可变操作账本 | 🟢 运行中 |
 | `~/longhun-system/logs/emotion_log.jsonl` | — | 情绪时间线日志 | 🟢 运行中 |
 | `~/longhun-system/bin/cnsh_editor.py` | v2.1 | CNSH语法编辑器·tkinter+三色审计+一键修复 | 🟢 已部署 |
+| `~/longhun-system/bin/fuxi_taiji_engine.py` | v1.0 | 伏羲太极推演·369共振·三才校验·草日记写入 | 🟢 已部署 |
+| `~/longhun-system/bin/translator.py` | v2.0 | 通心译·受众三层·Ollama→DeepSeek fallback | 🟢 已部署 |
+| `~/longhun-system/bin/algo_db.py` | v1.0 | **算法元数据库·9族算法·AI查询标准接口** | 🟢 已上线 |
+| `~/longhun-system/bin/health_check.py` | v1.0 | 系统自检·全模块存活探测·开机自检入口 | 🟢 已部署 |
+| `~/longhun-system/bin/persona_router.py` | v1.0 | 人格路由器·信号词匹配·本地自主路由 | 🟢 已部署 |
 | `~/longhun-system/bin/cnsh_terminal.py` | v5.1 | CNSH多语言终端·中文命令映射+熔断+审计日志 | 🟢 已部署 |
 | `~/longhun-system/bin/longhun_ultimate_v5.1.py` | v5.1 | 龍魂四層決策引擎·64卦+三才流場+情緒時間線 | 🟢 已部署 |
 | `~/longhun-system/bin/intimacy_engine.py` | v1.0 | 龍魂·三才親密引擎·本地加密·不出本地 | 🟢 已部署 |
