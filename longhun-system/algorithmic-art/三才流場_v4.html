@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<!--
+  三才流場 v4.0 · 龍盾接入版
+  宝宝P72·龍盾 = 人场中枢 · 洛书引擎 × :9622 双向实时
+  DNA: #龍芯⚡️2026-03-30-三才流場-v4.0
+  创建者: 诸葛鑫（UID9622）
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  理论指导: 曾仕强老师（永恒显示）
+  道生一，一生二，二生三，三生万物。——道德经第四十二章
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>三才流場 v4.0 · 龍盾接入 · UID9622</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;height:100vh;overflow:hidden;background:#f8f5f0;font-family:'Poppins',sans-serif}
+#sidebar{width:270px;min-width:270px;background:#fff;border-right:1px solid #e8e0d8;display:flex;flex-direction:column;padding:14px;overflow-y:auto;gap:10px}
+#canvas-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:#f0ece6;position:relative}
+canvas{border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.12)}
+h1{font-size:13px;font-weight:600;color:#333;letter-spacing:.5px}
+.subtitle{font-size:10px;color:#999;font-family:'Noto Sans SC',sans-serif}
+.section{border-top:1px solid #eee;padding-top:10px}
+.section-title{font-size:10px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.ctrl{display:flex;flex-direction:column;gap:3px;margin-bottom:7px}
+.ctrl label{font-size:11px;color:#555;display:flex;justify-content:space-between}
+.ctrl label span{color:#e67e22;font-weight:600}
+input[type=range]{width:100%;accent-color:#e67e22;height:4px;cursor:pointer}
+input[type=number]{width:72px;border:1px solid #ddd;border-radius:4px;padding:3px 6px;font-size:11px}
+.row{display:flex;gap:6px;align-items:center}
+.btn{flex:1;padding:6px;border:none;border-radius:5px;font-size:11px;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
+.btn-primary{background:#e67e22;color:#fff}.btn-primary:hover{background:#d35400}
+.btn-secondary{background:#f0ece6;color:#555}.btn-secondary:hover{background:#e0dbd4}
+.btn-shield{background:#1a1a2e;color:#c39bd3}.btn-shield:hover{background:#2c2c4e}
+.seed-display{text-align:center;font-size:20px;font-weight:600;color:#333;padding:4px 0}
+.seed-sub{text-align:center;font-size:10px;color:#999;margin-bottom:8px;font-family:'Noto Sans SC',sans-serif}
+.tri-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:4px;margin-bottom:8px}
+.tri-heaven{background:#4a90d9}.tri-earth{background:#7cb87c}.tri-human{background:#c39bd3}
+.tri-labels{display:flex;justify-content:space-between;font-size:9px;color:#888;margin-bottom:4px}
+
+/* ── 龍盾状态面板 ── */
+#shield-panel{
+  background:linear-gradient(135deg,#1a1a2e,#2c1654);
+  border-radius:8px;padding:10px;color:#fff;
+  font-family:'Noto Sans SC',sans-serif;
+}
+#shield-panel .sp-title{font-size:10px;color:#c39bd3;font-weight:600;margin-bottom:6px;letter-spacing:1px}
+#shield-panel .sp-row{display:flex;justify-content:space-between;align-items:center;font-size:10px;margin-bottom:4px}
+#shield-panel .sp-label{color:#aaa}
+#shield-panel .sp-val{color:#c39bd3;font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}
+.dot-green{background:#27ae60}.dot-orange{background:#e67e22}.dot-red{background:#c0392b}.dot-grey{background:#666}
+
+/* ── 路由输入框 ── */
+#route-box{padding:8px;background:#f9f6f2;border-radius:6px;border:1px solid #e8e0d8}
+#route-input{width:100%;border:1px solid #ddd;border-radius:4px;padding:5px 7px;font-size:11px;font-family:'Noto Sans SC',sans-serif;resize:none}
+#route-result{font-size:10px;color:#666;margin-top:5px;min-height:18px;font-family:'Noto Sans SC',sans-serif;line-height:1.5}
+
+/* ── 画布叠层信息 ── */
+#canvas-overlay{
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  background:rgba(10,10,15,0.7);color:#c39bd3;
+  font-size:10px;font-family:'Noto Sans SC',sans-serif;
+  padding:6px 14px;border-radius:20px;pointer-events:none;
+  letter-spacing:.5px;white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h1>☰☷☱ 三才流場 v4.0</h1>
+  <div class="subtitle">龍盾接入版 · 宝宝P72中枢 · UID9622<br>DNA: #龍芯⚡️2026-03-30-v4.0</div>
+
+  <!-- 龍盾状态面板 -->
+  <div id="shield-panel">
+    <div class="sp-title">🛡️ 龍盾实时状态</div>
+    <div class="sp-row">
+      <span class="sp-label">:9622 连接</span>
+      <span class="sp-val" id="sp-conn"><span class="dot dot-grey"></span>离线</span>
+    </div>
+    <div class="sp-row">
+      <span class="sp-label">向善四律</span>
+      <span class="sp-val" id="sp-ethics"><span class="dot dot-grey"></span>—</span>
+    </div>
+    <div class="sp-row">
+      <span class="sp-label">激活人格</span>
+      <span class="sp-val" id="sp-persona">—</span>
+    </div>
+    <div class="sp-row">
+      <span class="sp-label">留痕粒子</span>
+      <span class="sp-val" id="sp-audit">0</span>
+    </div>
+    <div class="sp-row">
+      <span class="sp-label">Merkle密度</span>
+      <span class="sp-val" id="sp-density">—</span>
+    </div>
+    <button class="btn btn-shield" style="width:100%;margin-top:6px;font-size:10px" onclick="syncWithEngine()">⚡ 立即同步</button>
+  </div>
+
+  <!-- 路由输入框 -->
+  <div id="route-box">
+    <div class="section-title" style="border:none;padding:0 0 6px">🧭 实时路由</div>
+    <textarea id="route-input" rows="2" placeholder="输入一句话，宝宝帮你路由…"></textarea>
+    <div id="route-result">—</div>
+    <button class="btn btn-primary" style="width:100%;margin-top:5px;font-size:11px" onclick="triggerRoute()">发送 →</button>
+  </div>
+
+  <!-- 种子 -->
+  <div class="section">
+    <div class="section-title">🌱 种子 Seed</div>
+    <div class="seed-display" id="seedDisplay">9622</div>
+    <div class="seed-sub">同一种子·永远同一幅宇宙</div>
+    <div class="row">
+      <button class="btn btn-secondary" onclick="prevSeed()">◀</button>
+      <button class="btn btn-secondary" onclick="randomSeed()">随机</button>
+      <button class="btn btn-secondary" onclick="nextSeed()">▶</button>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <input type="number" id="seedInput" value="9622" style="flex:1">
+      <button class="btn btn-primary" onclick="jumpSeed()">Go</button>
+    </div>
+  </div>
+
+  <!-- 三才权重 -->
+  <div class="section">
+    <div class="section-title">☰☷☱ 三才权重</div>
+    <div class="tri-labels">
+      <span style="color:#4a90d9">☰天 <span id="wHVal">35%</span></span>
+      <span style="color:#7cb87c">☷地 <span id="wEVal">15%</span></span>
+      <span style="color:#c39bd3">☱宝宝 <span id="wPVal">50%</span></span>
+    </div>
+    <div class="tri-bar">
+      <div class="tri-heaven" id="barH" style="flex:35"></div>
+      <div class="tri-earth"  id="barE" style="flex:15"></div>
+      <div class="tri-human"  id="barP" style="flex:50"></div>
+    </div>
+    <div class="ctrl">
+      <label>☰ 天场（系统熵/活跃度）<span id="wHSlider">35</span></label>
+      <input type="range" id="wH" min="5" max="80" value="35" oninput="updateWeights()">
+    </div>
+    <div class="ctrl">
+      <label>☷ 地场（洛书锚点·底线）<span id="wESlider">15</span></label>
+      <input type="range" id="wE" min="5" max="80" value="15" oninput="updateWeights()">
+    </div>
+    <div class="ctrl">
+      <label>☱ 宝宝P72·龍盾中枢<span id="wPSlider">50</span></label>
+      <input type="range" id="wP" min="5" max="80" value="50" oninput="updateWeights()">
+    </div>
+  </div>
+
+  <!-- 参数 -->
+  <div class="section">
+    <div class="section-title">⚙️ 参数</div>
+    <div class="ctrl">
+      <label>粒子数量<span id="numPVal">2000</span></label>
+      <input type="range" id="numP" min="200" max="5000" step="100" value="2000">
+    </div>
+    <div class="ctrl">
+      <label>噪声频率<span id="nFreqVal">0.003</span></label>
+      <input type="range" id="nFreq" min="1" max="20" value="3">
+    </div>
+    <div class="ctrl">
+      <label>步长<span id="stepVal">1.8</span></label>
+      <input type="range" id="step" min="5" max="40" value="18">
+    </div>
+    <div class="ctrl">
+      <label>粒子寿命<span id="lifeVal">120</span></label>
+      <input type="range" id="life" min="30" max="400" value="120">
+    </div>
+    <div class="ctrl">
+      <label>线条透明度<span id="alphaVal">18</span></label>
+      <input type="range" id="alpha" min="3" max="80" value="18">
+    </div>
+  </div>
+
+  <!-- 配色 -->
+  <div class="section">
+    <div class="section-title">🎨 配色</div>
+    <div class="ctrl">
+      <label>天场色 ☰</label>
+      <input type="color" id="cH" value="#4a90d9" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()">
+    </div>
+    <div class="ctrl">
+      <label>地场色 ☷</label>
+      <input type="color" id="cE" value="#7cb87c" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()">
+    </div>
+    <div class="ctrl">
+      <label>龍盾色 ☱</label>
+      <input type="color" id="cP" value="#c39bd3" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()">
+    </div>
+    <div class="ctrl">
+      <label>背景色</label>
+      <input type="color" id="cBg" value="#0a0a0f" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()">
+    </div>
+  </div>
+
+  <!-- 操作 -->
+  <div class="section">
+    <div class="section-title">🎬 操作</div>
+    <div class="row">
+      <button class="btn btn-primary" onclick="restartSketch()">重新生成</button>
+      <button class="btn btn-secondary" onclick="resetAll()">重置</button>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <button class="btn btn-secondary" onclick="downloadPNG()" style="flex:1">💾 保存PNG</button>
+    </div>
+    <div style="font-size:9px;color:#aaa;margin-top:8px;font-family:'Noto Sans SC',sans-serif;line-height:1.6">
+      DNA: #龍芯⚡️2026-03-30-三才流場-v4.0<br>
+      UID9622 × Claude · 三才算法 · 龍盾接入<br>
+      理论指导：曾仕强老师
+    </div>
+  </div>
+</div>
+
+<div id="canvas-wrap">
+  <div id="canvas-overlay" style="display:none" id="overlay-text">🛡️ 宝宝P72 · 龍盾守护中</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  三才流場 v4.0 · 龍盾接入版
+//  宝宝P72 = 人场中枢（紫色·护身符）
+//  洛书引擎 × :9622 双向实时
+//  DNA: #龍芯⚡️2026-03-30-三才流場-v4.0 · UID9622
+// ═══════════════════════════════════════════════════════════════
+
+const API_BASE = 'http://localhost:9622';
+
+let params = {
+  seed: 9622, numP: 2000, nFreq: 0.003, step: 1.8, life: 120, alpha: 18,
+  wH: 35, wE: 15, wP: 50,
+  cH: [74,144,217], cE: [124,184,124], cP: [195,155,211], cBg: [10,10,15]
+};
+
+// ── 龍盾全局状态 ──────────────────────────────────────────────
+const shield = {
+  connected: false,
+  ethicsStatus: 'unknown',   // green / orange / red
+  ethicsTint: null,          // [r,g,b] 叠加色调
+  activePersona: '—',
+  auditCount: 0,
+  merkleValue: 0,
+  auditParticles: [],        // 留痕粒子（永不消亡）
+  lastRouteResult: null,
+};
+
+// ── 洛书九宫格 ────────────────────────────────────────────────
+// 戴九履一，左三右七，二四为肩，六八为足，五居中央
+const LUOSHU = [
+  {x:0.5, y:0.5, v:5},  // 中 5（阳·吸引·DNA不动点）
+  {x:0.5, y:0.1, v:9},  // 北 9（阳·吸引）
+  {x:0.5, y:0.9, v:1},  // 南 1（阳·吸引）
+  {x:0.1, y:0.5, v:3},  // 东 3（阳·吸引）
+  {x:0.9, y:0.5, v:7},  // 西 7（阳·吸引）
+  {x:0.9, y:0.1, v:8},  // 东北 8（阴·排斥）
+  {x:0.1, y:0.1, v:6},  // 西北 6（阴·排斥）
+  {x:0.9, y:0.9, v:4},  // 东南 4（阴·排斥）
+  {x:0.1, y:0.9, v:2}   // 西南 2（阴·排斥）
+];
+
+let particles = [], myp5, canvasG;
+
+// ═══ p5.js 核心 ═══════════════════════════════════════════════
+const sketch = (p) => {
+  let W = 800, H = 800;
+
+  p.setup = () => {
+    let cnv = p.createCanvas(W, H);
+    cnv.parent('canvas-wrap');
+    p.randomSeed(params.seed);
+    p.noiseSeed(params.seed);
+    canvasG = p.createGraphics(W, H);
+    initParticles(p);
+    let bg = params.cBg;
+    canvasG.background(bg[0], bg[1], bg[2]);
+    p.background(bg[0], bg[1], bg[2]);
+  };
+
+  p.draw = () => {
+    p.image(canvasG, 0, 0);
+    updateParticles(p, canvasG);
+    drawAuditParticles(p);   // 留痕粒子画在最上层
+    drawShieldPulse(p);      // 龍盾光晕
+    if (shield.ethicsTint) applyEthicsTint(p); // 向善四律染色
+  };
+};
+
+function initParticles(p) {
+  particles = [];
+  for (let i = 0; i < params.numP; i++) particles.push(newParticle(p));
+}
+
+function newParticle(p) {
+  let r = p.random();
+  let threshH = params.wH / 100;
+  let threshE = (params.wH + params.wE) / 100;
+  return {
+    x: p.random(800), y: p.random(800),
+    age: p.floor(p.random(params.life)),
+    maxAge: params.life + p.floor(p.random(60)),
+    humanBias: p.random(p.TWO_PI),
+    flavor: r < threshH ? 0 : (r < threshE ? 1 : 2),
+    isAudit: false,
+  };
+}
+
+function sanCaiAngle(p, x, y, humanBias) {
+  // ☰ 天场：Perlin噪声 × 系统熵权重
+  let t = p.frameCount * 0.003;
+  let heavenAngle = p.noise(x * params.nFreq, y * params.nFreq, t) * p.TWO_PI * 4;
+
+  // ☷ 地场：洛书九宫格·Merkle密度调制
+  let earthScale = 1 + shield.merkleValue * 0.5; // 密度越高，地场越强
+  let ex = 0, ey = 0;
+  for (let node of LUOSHU) {
+    let dx = node.x - x / 800;
+    let dy = node.y - y / 800;
+    let dist2 = dx * dx + dy * dy + 0.0001;
+    let sign = (node.v % 2 === 1) ? 1 : -1;
+    let force = sign * node.v / (dist2 * 500) * earthScale;
+    ex += dx * force;
+    ey += dy * force;
+  }
+  let earthAngle = p.atan2(ey, ex);
+
+  // ☱ 宝宝P72·龍盾：种子偏置旋转（中枢意志）
+  let humanAngle = humanBias + t * 0.5;
+
+  let wH = params.wH / 100, wE = params.wE / 100, wP = params.wP / 100;
+  let total = wH + wE + wP;
+  wH /= total; wE /= total; wP /= total;
+
+  let vx = p.cos(heavenAngle)*wH + p.cos(earthAngle)*wE + p.cos(humanAngle)*wP;
+  let vy = p.sin(heavenAngle)*wH + p.sin(earthAngle)*wE + p.sin(humanAngle)*wP;
+  return p.atan2(vy, vx);
+}
+
+function updateParticles(p, g) {
+  for (let pt of particles) {
+    if (pt.isAudit) continue; // 留痕粒子另行处理
+    let angle = sanCaiAngle(p, pt.x, pt.y, pt.humanBias);
+    let newX = pt.x + p.cos(angle) * params.step;
+    let newY = pt.y + p.sin(angle) * params.step;
+
+    let col = pt.flavor === 0 ? params.cH : (pt.flavor === 1 ? params.cE : params.cP);
+    let lifeRatio = 1 - pt.age / pt.maxAge;
+    let a = params.alpha * lifeRatio;
+
+    g.stroke(col[0], col[1], col[2], a);
+    g.strokeWeight(0.7 + lifeRatio * 0.8);
+    g.line(pt.x, pt.y, newX, newY);
+
+    pt.x = newX; pt.y = newY; pt.age++;
+    if (pt.age > pt.maxAge || newX < 0 || newX > 800 || newY < 0 || newY > 800) {
+      let reborn = newParticle(p);
+      reborn.humanBias = pt.humanBias;
+      Object.assign(pt, reborn);
+    }
+  }
+}
+
+// ── 留痕粒子（永不消亡·对应审计记录） ───────────────────────
+function drawAuditParticles(p) {
+  if (!shield.auditParticles.length) return;
+  let t = p.frameCount * 0.01;
+  for (let ap of shield.auditParticles) {
+    // 缓慢脉冲
+    let pulse = 0.5 + 0.5 * Math.sin(t + ap.phase);
+    let a = 40 + 60 * pulse;
+    p.noStroke();
+    p.fill(255, 215, 0, a); // 金色
+    p.ellipse(ap.x, ap.y, 3 + pulse * 2, 3 + pulse * 2);
+  }
+}
+
+// ── 龍盾脉冲光晕（中心·宝宝P72） ────────────────────────────
+let shieldPulsePhase = 0;
+function drawShieldPulse(p) {
+  if (!shield.connected) return;
+  shieldPulsePhase += 0.03;
+  let pulse = 0.5 + 0.5 * Math.sin(shieldPulsePhase);
+  let r = 195, g2 = 155, b = 211;
+  // 中心光晕（宫格5·不动点）
+  let cx = 400, cy = 400;
+  for (let ring = 3; ring > 0; ring--) {
+    let radius = (60 + ring * 20) * (1 + pulse * 0.2);
+    let alpha = (15 - ring * 3) * pulse;
+    p.noFill();
+    p.stroke(r, g2, b, alpha);
+    p.strokeWeight(ring === 1 ? 1.5 : 0.5);
+    p.ellipse(cx, cy, radius * 2, radius * 2);
+  }
+  p.noStroke();
+  p.fill(r, g2, b, 20 * pulse);
+  p.ellipse(cx, cy, 30, 30);
+}
+
+// ── 向善四律染色叠层 ─────────────────────────────────────────
+function applyEthicsTint(p) {
+  let [r, g2, b] = shield.ethicsTint;
+  p.noStroke();
+  p.fill(r, g2, b, 8);
+  p.rect(0, 0, 800, 800);
+}
+
+// ── 新增留痕粒子（每次收到新审计记录）────────────────────────
+function addAuditParticle(count) {
+  let current = shield.auditParticles.length;
+  for (let i = current; i < count; i++) {
+    shield.auditParticles.push({
+      x: 400 + (Math.random() - 0.5) * 600,
+      y: 400 + (Math.random() - 0.5) * 600,
+      phase: Math.random() * Math.PI * 2,
+    });
+  }
+}
+
+// ═══ :9622 双向同步 ═══════════════════════════════════════════
+async function syncWithEngine() {
+  try {
+    // 1. 健康检查
+    const health = await fetch(`${API_BASE}/api/router/health`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => null);
+
+    if (!health || health.status !== 'ok') {
+      setConnStatus(false);
+      return;
+    }
+    setConnStatus(true);
+
+    // 2. 向善四律状态（如果引擎支持）
+    const ethics = await fetch(`${API_BASE}/loShu/ethics_status`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => ({status: 'green'}));
+    updateEthics(ethics.status);
+
+    // 3. Merkle密度
+    const density = await fetch(`${API_BASE}/loShu/merkle_density`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => ({value: 0}));
+    shield.merkleValue = density.value || 0;
+    document.getElementById('sp-density').textContent =
+      shield.merkleValue > 0 ? shield.merkleValue.toFixed(3) : '0.000';
+
+    // 4. 审计留痕数量
+    const audit = await fetch(`${API_BASE}/loShu/audit_count`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => ({count: shield.auditCount}));
+    let newCount = audit.count || 0;
+    if (newCount > shield.auditCount) {
+      addAuditParticle(Math.min(newCount, shield.auditCount + 50)); // 每次最多加50个
+    }
+    shield.auditCount = newCount;
+    document.getElementById('sp-audit').textContent = shield.auditCount;
+
+    // 5. 从德者永生殿读人格调用统计 → 动态调权重
+    const personas = await fetch(`${API_BASE}/api/router/personas`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => null);
+    if (personas) updateOverlay('🛡️ 宝宝P72 · 龍盾守护中 · 已接入:9622');
+
+  } catch(e) {
+    setConnStatus(false);
+  }
+}
+
+function setConnStatus(online) {
+  shield.connected = online;
+  const el = document.getElementById('sp-conn');
+  el.innerHTML = online
+    ? '<span class="dot dot-green"></span>在线'
+    : '<span class="dot dot-grey"></span>离线';
+  updateOverlay(online ? '🛡️ 宝宝P72 · 龍盾守护中 · :9622 已接入' : '🛡️ 宝宝P72 · 龍盾守护中 · 离线模式');
+}
+
+function updateEthics(status) {
+  shield.ethicsStatus = status;
+  const el = document.getElementById('sp-ethics');
+  const colorMap = {
+    green:  {dot:'dot-green',  text:'🟢 向善四律通过', tint:[74,144,217]},
+    orange: {dot:'dot-orange', text:'🟠 P1警告·待确认', tint:[230,126,34]},
+    red:    {dot:'dot-red',    text:'🔴 P0熔断', tint:[192,57,43]},
+  };
+  const cfg = colorMap[status] || colorMap.green;
+  el.innerHTML = `<span class="dot ${cfg.dot}"></span>${cfg.text}`;
+  shield.ethicsTint = cfg.tint;
+  // 更新流场天场颜色
+  params.cH = cfg.tint;
+}
+
+function updateOverlay(text) {
+  const el = document.getElementById('canvas-overlay');
+  el.style.display = 'block';
+  el.textContent = text;
+}
+
+// ═══ 实时路由 ══════════════════════════════════════════════════
+async function triggerRoute() {
+  const text = document.getElementById('route-input').value.trim();
+  if (!text) return;
+  const resEl = document.getElementById('route-result');
+  resEl.textContent = '⏳ 路由中…';
+
+  if (!shield.connected) {
+    // 离线模式：简单关键词匹配
+    resEl.textContent = '🛡️ 离线模式 · 宝宝接球 · 宝宝P72·龍盾';
+    shield.activePersona = '🌌 宝宝P72·龍盾';
+    document.getElementById('sp-persona').textContent = '🌌 宝宝P72';
+    return;
+  }
+
+  try {
+    const resp = await fetch(`${API_BASE}/api/router/route`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text, risk_score: 0.0, update_notion: true}),
+      signal: AbortSignal.timeout(5000),
+    }).then(r => r.json());
+
+    if (resp.status === 'FUSED') {
+      resEl.textContent = `🔴 熔断！触发词: ${resp.trigger}`;
+      updateEthics('red');
+      shield.auditParticles.push({x:400,y:400,phase:0});
+    } else {
+      let shortcutTag = resp.shortcut ? '⚡短路' : '';
+      resEl.textContent = `✅ ${resp.activated_name} (${resp.score?.toFixed(3)}) ${shortcutTag}`;
+      shield.activePersona = resp.activated_name;
+      document.getElementById('sp-persona').textContent = resp.activated_name?.slice(0, 12) || '—';
+      // 人格激活 → 在中心产生一个脉冲留痕
+      shield.auditParticles.push({
+        x: 350 + Math.random()*100,
+        y: 350 + Math.random()*100,
+        phase: Math.random()*Math.PI*2,
+      });
+    }
+  } catch(e) {
+    resEl.textContent = `🛡️ 宝宝接球 · ${text.slice(0,15)}…`;
+    document.getElementById('sp-persona').textContent = '🌌 宝宝P72';
+  }
+}
+
+// Enter键触发路由
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('route-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); triggerRoute(); }
+  });
+});
+
+// ═══ UI工具函数 ════════════════════════════════════════════════
+function updateWeights() {
+  let h=+document.getElementById('wH').value;
+  let e=+document.getElementById('wE').value;
+  let pp=+document.getElementById('wP').value;
+  let total=h+e+pp;
+  params.wH=Math.round(h/total*100);
+  params.wE=Math.round(e/total*100);
+  params.wP=100-params.wH-params.wE;
+  ['wHVal','wEVal','wPVal'].forEach((id,i)=>{
+    document.getElementById(id).textContent=[params.wH,params.wE,params.wP][i]+'%';
+  });
+  ['wHSlider','wESlider','wPSlider'].forEach((id,i)=>{
+    document.getElementById(id).textContent=[params.wH,params.wE,params.wP][i];
+  });
+  document.getElementById('barH').style.flex=params.wH;
+  document.getElementById('barE').style.flex=params.wE;
+  document.getElementById('barP').style.flex=params.wP;
+}
+
+function hexToRgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+function updateColors(){
+  params.cH=hexToRgb(document.getElementById('cH').value);
+  params.cE=hexToRgb(document.getElementById('cE').value);
+  params.cP=hexToRgb(document.getElementById('cP').value);
+  params.cBg=hexToRgb(document.getElementById('cBg').value);
+}
+
+function prevSeed(){params.seed=Math.max(1,params.seed-1);applySeed();}
+function nextSeed(){params.seed+=1;applySeed();}
+function randomSeed(){params.seed=Math.floor(Math.random()*99999)+1;applySeed();}
+function jumpSeed(){params.seed=parseInt(document.getElementById('seedInput').value)||9622;applySeed();}
+function applySeed(){
+  document.getElementById('seedDisplay').textContent=params.seed;
+  document.getElementById('seedInput').value=params.seed;
+  restartSketch();
+}
+
+function restartSketch(){if(myp5)myp5.remove();myp5=new p5(sketch);}
+
+function resetAll(){
+  params={seed:9622,numP:2000,nFreq:0.003,step:1.8,life:120,alpha:18,
+    wH:35,wE:15,wP:50,cH:[74,144,217],cE:[124,184,124],cP:[195,155,211],cBg:[10,10,15]};
+  document.getElementById('wH').value=35;
+  document.getElementById('wE').value=15;
+  document.getElementById('wP').value=50;
+  document.getElementById('nFreq').value=3;
+  document.getElementById('step').value=18;
+  document.getElementById('life').value=120;
+  document.getElementById('alpha').value=18;
+  document.getElementById('numP').value=2000;
+  document.getElementById('cH').value='#4a90d9';
+  document.getElementById('cE').value='#7cb87c';
+  document.getElementById('cP').value='#c39bd3';
+  document.getElementById('cBg').value='#0a0a0f';
+  shield.auditParticles=[];
+  updateWeights();
+  applySeed();
+}
+
+function downloadPNG(){if(myp5)myp5.saveCanvas('三才流場_v4_seed'+params.seed+'_UID9622','png');}
+
+// 参数滑块绑定
+document.getElementById('nFreq').oninput=function(){params.nFreq=this.value/1000;document.getElementById('nFreqVal').textContent=params.nFreq.toFixed(3);};
+document.getElementById('step').oninput=function(){params.step=this.value/10;document.getElementById('stepVal').textContent=params.step.toFixed(1);};
+document.getElementById('life').oninput=function(){params.life=+this.value;document.getElementById('lifeVal').textContent=this.value;};
+document.getElementById('alpha').oninput=function(){params.alpha=+this.value;document.getElementById('alphaVal').textContent=this.value;};
+document.getElementById('numP').oninput=function(){params.numP=+this.value;document.getElementById('numPVal').textContent=this.value;restartSketch();};
+
+// ═══ 启动 ══════════════════════════════════════════════════════
+myp5 = new p5(sketch);
+updateOverlay('🛡️ 宝宝P72 · 龍盾守护中');
+
+// 首次同步 + 定时60秒同步
+syncWithEngine();
+setInterval(syncWithEngine, 60000);
+</script>
+</body>
+</html>
