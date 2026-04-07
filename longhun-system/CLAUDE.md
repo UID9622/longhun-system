@@ -447,6 +447,8 @@ register(name="新算法", formulas=["公式"], variables={"x":"含义"}, functi
 | `~/longhun-system/bin/algo_db.py` | v1.0 | **算法元数据库·9族算法·AI查询标准接口** | 🟢 已上线 |
 | `~/longhun-system/bin/health_check.py` | v1.0 | 系统自检·全模块存活探测·开机自检入口 | 🟢 已部署 |
 | `~/longhun-system/bin/persona_router.py` | v1.0 | 人格路由器·信号词匹配·本地自主路由 | 🟢 已部署 |
+| `~/longhun-system/time_machine.py` | v1.1 | **时光机快照·AES-256-CBC·对话留痕不丢** | 🟢 已部署 |
+| `~/longhun-system/emergency-recovery.swift` | v1.0 | Swift紧急恢复·检查容器完整性·调Python | 🟢 已部署 |
 | `~/longhun-system/bin/cnsh_terminal.py` | v5.1 | CNSH多语言终端·中文命令映射+熔断+审计日志 | 🟢 已部署 |
 | `~/longhun-system/bin/longhun_ultimate_v5.1.py` | v5.1 | 龍魂四層決策引擎·64卦+三才流場+情緒時間線 | 🟢 已部署 |
 | `~/longhun-system/bin/intimacy_engine.py` | v1.0 | 龍魂·三才親密引擎·本地加密·不出本地 | 🟢 已部署 |
@@ -731,3 +733,50 @@ register(name="新算法", formulas=["公式"], variables={"x":"含义"}, functi
 ## ChatGPT对话找回建议
 ChatGPT有"导出数据"功能（设置→数据控制→导出），导出后是JSON文件。
 可以一次性导出，放入 `~/CreativeArchive/文字创作/龍魂文档/chatgpt-export/`
+
+<!-- PAGE_REGISTRY_START -->
+
+## 📚 Notion页面索引（自动同步·2026-04-06 12:46）
+> DNA: #龍芯⚡️2026-04-06-page-registry-v1.0  总计: 78 页  核心: 30 条
+
+| 页面名称 | ID(短) | 用法 |
+|---------|--------|------|
+| 🐉 三才算法·龍魂系统统一算法根基（天·地·人） | `...9046e804` | `find_page("三才算法龍魂系统")` |
+| ⚖️ 龍魂天道系统 v1.3｜天下无欺·真相受理+网络户口本… | `...003ab12c` | `find_page("龍魂天道系统天下")` |
+| 🔒 场景记忆压缩引擎·甲骨文算法 | 封印级核心 | `...19410ea3` | `find_page("场景记忆压缩引擎")` |
+| 🐉 龍魂系统·动态AI协议入口｜主控中心 | `...0e4bce68` | `find_page("龍魂系统动态协议")` |
+| 🐉 龍魂权重算法·太极易经数学大师联动系统 | `...f80f0ea1` | `find_page("龍魂权重算法太极")` |
+| 曾老师智慧算法（三才算法）v1.0｜天地人决策模型 | `...86e2a3d7` | `find_page("曾老师智慧算法三")` |
+| 曾老师智慧算法（三才算法）v1.0 | 天地人决策模型 | `...2a374ead` | `find_page("曾老师智慧算法三")` |
+| 🧬 龍魂永世唯一身份系统 | `...0b2ceda6` | `find_page("龍魂永世唯一身份")` |
+| 📚 龍魂知识库·论文&白皮书总部 v1.0 | `...aa3c14ed` | `find_page("龍魂知识库论文白")` |
+| 🐉 龍魂AI人格体系·93人格合集 v3.0 | `...91ccc6ea` | `find_page("龍魂人格体系人格")` |
+| 🌍 龍魂元宇宙七大支柱宪法 | `...7a509ad1` | `find_page("龍魂元宇宙七大支")` |
+| 🇨🇳 中国人民解放军·龍魂系统核心军纪框架 | `...11026097` | `find_page("中国人民解放军龍")` |
+| 龍魂系统宣言·知识库守护宣言 v1.0 | `...69b4b5f1` | `find_page("龍魂系统宣言知识")` |
+| 龍魂系统·全景导航图 v2.0 | `...59880ace` | `find_page("龍魂系统全景导航")` |
+| 龍魂系统 GitHub README | `...c40da210` | `find_page("龍魂系统")` |
+| 龍魂智能体系统需求规格说明书 | SRS v1.0 | `...aeb89b33` | `find_page("龍魂智能体系统需")` |
+| 龍魂智能体系统SRS v1.0·MCP×LangGraph×… | `...e5871e56` | `find_page("龍魂智能体系统天")` |
+| 龍魂智能体大脑集成手册 v1.0 | `...636af935` | `find_page("龍魂智能体大脑集")` |
+| 龍魂数字军纪法典 | `...d4c69de6` | `find_page("龍魂数字军纪法典")` |
+| 龍魂指令集 v3.0 | `...023caaa2` | `find_page("龍魂指令集")` |
+| 龍魂宪法层·一票否决权×阴阳调和 v1.0 | `...6aa1d7f0` | `find_page("龍魂宪法层一票否")` |
+| 龍魂全球文化主权与维权宪法 v2.0 | `...72656cf1` | `find_page("龍魂全球文化主权")` |
+| 龍魂·全局入口 v2.0 | `...d553c3d4` | `find_page("龍魂全局入口")` |
+| 龍魂·Notion开源社区·分层激活方案 v1.0 | `...ad038c2d` | `find_page("龍魂开源社区分层")` |
+| 龍魂AI架构原理 | 太极×易经×道德经×人格矩阵 | `...0a66e874` | `find_page("龍魂架构原理太极")` |
+| 道德经底层引擎·81章算法映射 v1.0 | `...06fc7e59` | `find_page("道德经底层引擎章")` |
+| 诸葛亮沙盒训练场·易经道德经算法实验室 | `...76182b9e` | `find_page("诸葛亮沙盒训练场")` |
+| 人格矩阵协作算法 | `...44fb68cb` | `find_page("人格矩阵协作算法")` |
+| 三色审计规则固定页 | `...72508742` | `find_page("三色审计规则固定")` |
+| 三才流场·MCP自适应引擎 v4.0 | `...a1821c71` | `find_page("三才流场自适应引")` |
+
+**调用方式（任何AI直接用）：**
+```python
+from notion_page_registry import find_page, get_page_id
+page = find_page("草日志")   # → {"id": "b35faf46...", "url": "..."}
+pid  = get_page_id("主控")   # → "2507125a..."
+```
+
+<!-- PAGE_REGISTRY_END -->
