@@ -345,6 +345,17 @@ def 生成可视化面板(推演结果: dict, 审计结果: dict, 人格: str, �
     def _行颜色(h):
         return 色图.get(h.get('三色', '🟢')[:2], '#888')
 
+    def _方案HTML(方案):
+        parts = []
+        for k, v in 方案.items():
+            parts.append(
+                f'<div class="plan">'
+                f'<strong>方案{k}：{v["标题"]}</strong><span class="risk">{v["风险"]}</span>'
+                f'<div style="font-size:0.85em;color:#aaa;margin-top:4px">适合：{v["适合"]} · 后果：{v["后果"]}</div>'
+                f'</div>'
+            )
+        return "".join(parts)
+
     历史行 = "".join(
         f"<tr><td>{h.get('时间','')}</td>"
         f"<td style='color:{_行颜色(h)}'>{h.get('三色','')}</td>"
@@ -425,10 +436,7 @@ def 生成可视化面板(推演结果: dict, 审计结果: dict, 人格: str, �
 <!-- 三方案 -->
 <div class="card" style="margin-bottom:16px">
   <h3>🗺 三路方案</h3>
-  {''.join(f"""<div class="plan">
-    <strong>方案{k}：{v['标题']}</strong><span class="risk">{v['风险']}</span>
-    <div style="font-size:0.85em;color:#aaa;margin-top:4px">适合：{v['适合']} · 后果：{v['后果']}</div>
-  </div>""" for k,v in 方案.items())}
+  {_方案HTML(方案)}
 </div>
 
 <!-- 历史记录 -->
