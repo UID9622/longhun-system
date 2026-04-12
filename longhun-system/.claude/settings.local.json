@@ -6,7 +6,16 @@
       "Bash(du -sh ~/Desktop/* 2>/dev/null | sort -rh | head -20)",
       "Bash(du -sh ~/WPS云盘/AI数字资产/*/ 2>/dev/null | sort -rh)",
       "Bash(ls ~/longhun-system/digital_archive_toolkit*.sh 2>/dev/null && ls ~/longhun-system/file_organizer*.py 2>/dev/null)",
-      "Bash(grep -rn \"AI数字资产\\\\|WPS云盘\" ~/longhun-system/ --include=\"*.py\" --include=\"*.sh\" 2>/dev/null | head -20)"
+      "Bash(grep -rn \"AI数字资产\\\\|WPS云盘\" ~/longhun-system/ --include=\"*.py\" --include=\"*.sh\" 2>/dev/null | head -20)",
+      "Bash(sed \"s|/Users/zuimeidedeyihan/Desktop/LongHunWidget/||\" echo echo '=== 桌面独有（仓库没有的） ===' echo 共生体/ ls ~/Desktop/LongHunWidget/共生体/ 2)",
+      "Bash(/dev/null echo:*)",
+      "Read(//Users/zuimeidedeyihan/Desktop/LongHunWidget/**)",
+      "Bash(env)",
+      "Read(//Users/zuimeidedeyihan/**)",
+      "Bash(python3 core/baobao_authority.py init)",
+      "Bash(python3 core/baobao_dispatcher.py)",
+      "Bash(python3 core/baobao_dispatcher.py 钥匙状态)",
+      "Bash(python3 core/baobao_authority.py report)"
     ]
   }
 }
