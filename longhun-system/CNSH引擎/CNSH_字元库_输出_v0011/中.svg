@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs>
+<filter id="纹理_石刻">
+  <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="4" seed="2"/>
+  <feDisplacementMap in="SourceGraphic" scale="5"/>
+  <feGaussianBlur stdDeviation="0.5"/>
+</filter>
+<filter id="纹理_粗糙">
+  <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="1"/>
+  <feDisplacementMap in="SourceGraphic" scale="3"/>
+</filter>
+</defs>
+<path d="M 153.59978873112854 180.01712752237074 L 453.64337992603294 181.16663410234412" fill="none" stroke="black" stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter" filter="url(#纹理_粗糙)"/><path d="M 147.48366661975578 331.83982084467215 L 449.20207674826423 333.4925016553931" fill="none" stroke="black" stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter" filter="url(#纹理_石刻)"/><path d="M 301.34052343306473 179.15706508539765 L 297.8388240307663 475.9063524463113" fill="none" stroke="black" stroke-width="16" stroke-linecap="butt" stroke-linejoin="miter" filter="url(#纹理_粗糙)"/>
+</svg>
