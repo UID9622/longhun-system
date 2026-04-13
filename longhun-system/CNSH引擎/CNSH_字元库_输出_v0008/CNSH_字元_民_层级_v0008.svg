@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="100%" height="100%" fill="white"/>
+  <path d="M 120 160 L 480 160" fill="none" stroke="black" stroke-width="16" stroke-opacity="0.85" stroke-linecap="butt" stroke-linejoin="miter"/><path d="M 300 160 C 260 260, 260 380, 300 520" fill="none" stroke="black" stroke-width="18" stroke-opacity="0.75" stroke-linecap="butt" stroke-linejoin="miter"/><path d="M 180 300 L 420 300" fill="none" stroke="black" stroke-width="14" stroke-opacity="0.90" stroke-linecap="square" stroke-linejoin="miter"/>
+  <text x="10" y="20" font-size="12" fill="#aaa">民 - 层级版 v0008</text>
+  <text x="10" y="590" font-size="10" fill="#ddd">笔画按层级排序：低层级在后，高层级在前</text>
+<!-- DNA: #龍芯⚡️2026-04-06-三才流場-v0008 · UID9622 · GPG:A2D0092CEE2E5BA87035600924C3704A8CC26D5F -->
+</svg>
