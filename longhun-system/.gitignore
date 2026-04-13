@@ -55,3 +55,12 @@ logs/action_secure.enc
 .claude/plugins/
 .config/360chromePro/
 .config/
+
+# === 敏感密钥 · 2026-04-13追加 ===
+.dna_key
+.webui_secret_key
+.playwright-mcp/
+
+# === 字体文件（太大） ===
+08_NotoSansCJKsc*/
+*.otf
