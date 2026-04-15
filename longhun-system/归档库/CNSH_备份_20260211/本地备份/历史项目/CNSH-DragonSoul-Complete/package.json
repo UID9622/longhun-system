@@ -1,0 +1,36 @@
+{
+  "name": "cnsh-dragonsoul-complete",
+  "version": "2.0.0",
+  "description": "🐉 CNSH编辑器 + 龍魂终端 + Notion扩展 完整体",
+  "author": "龍芯北辰 (UID9622)",
+  "license": "MIT",
+  "keywords": [
+    "cnsh",
+    "dragonsoul",
+    "chinese-programming",
+    "ai-assistant",
+    "automation"
+  ],
+  "main": "dragonsoul-terminal/backend/main.py",
+  "scripts": {
+    "start": "python dragonsoul-terminal/backend/main.py",
+    "dev": "python dragonsoul-terminal/backend/main.py --dev",
+    "test": "python -m pytest tests/",
+    "test:audit": "python security-core/audit_engine.py",
+    "test:dna": "python security-core/dna_tracer.py",
+    "test:mac": "python dragonsoul-terminal/backend/mac_manager.py",
+    "clean": "python dragonsoul-terminal/backend/mac_manager.py --clean",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "install:deps": "pip install -r requirements.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/cnsh-dragonsoul-complete.git"
+  },
+  "engines": {
+    "python": ">=3.9",
+    "node": ">=18.0.0"
+  },
+  "dna_code": "#龍芯⚡️2026-01-21-CNSH-DragonSoul-v2.0"
+}

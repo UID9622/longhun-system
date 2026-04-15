@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZHUGEXIN⚡️ System Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+/* popup.css | 玄黑视觉风格样式表 */
+/* DNA确认码：#ZHUGEXIN⚡️2025-LU-SYNC-POPUP-CSS-V1.0 */
+
+:root{
+  --bg:#060608;
+  --card-bg:linear-gradient(180deg, rgba(14,14,14,0.96), rgba(18,18,18,0.92));
+  --accent-gold:#e6c36a;
+  --accent-red:#d63b2d;
+  --accent-green:#00897B;
+  --accent-blue:#1E88E5;
+  --accent-brown:#8D6E63;
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  --shadow: 0 6px 20px rgba(0,0,0,0.6);
+  font-family: "Noto Sans SC", "Helvetica Neue", Arial;
+  color: var(--accent-gold);
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;background:var(--bg);color:var(--accent-gold)}
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 14px;
+  border-bottom:1px solid rgba(255,255,255,0.03)
+}
+
+.logo{display:flex;align-items:center;gap:10px}
+.title{font-weight:700;font-size:14px;letter-spacing:1px}
+
+.controls button{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--accent-gold);
+  padding:6px 10px;
+  border-radius:8px;
+  margin-left:8px;
+  cursor:pointer;
+  transition:transform .18s, box-shadow .18s
+}
+.controls button:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow)
+}
+
+.main{display:flex;gap:12px;padding:12px;height:calc(100% - 120px)}
+.left-col{flex:1;display:flex;flex-direction:column;gap:12px}
+.right-col{width:420px;display:flex;flex-direction:column;gap:12px}
+
+.card{
+  background:var(--card-bg);
+  padding:12px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(6px);
+  border:1px solid rgba(255,255,255,0.02)
+}
+
+.taiji-container{width:100%;height:240px;display:flex;align-items:center;justify-content:center;position:relative}
+.taiji-caption{text-align:center;margin-top:8px;font-size:12px;color:rgba(230,195,106,0.9)}
+
+.matrix-container{height:180px;display:flex;align-items:center;justify-content:center}
+.matrix-details{margin-top:8px;color:rgba(255,255,255,0.75);font-size:12px;min-height:44px}
+
+.furnace{height:120px;display:flex;align-items:center;justify-content:center}
+.furnace-log{margin-top:8px;font-size:12px;color:rgba(255,255,255,0.7)}
+
+.learning-ring{height:120px;display:flex;align-items:center;justify-content:center}
+.learning-stats{margin-top:8px;font-size:13px;color:rgba(255,255,255,0.8)}
+
+.kanban-container{height:330px;overflow:auto}
+.kanban-header{display:flex;align-items:center;justify-content:space-between}
+.kanban-list{display:flex;gap:10px;padding-top:8px}
+.kanban-col{min-width:200px;background:var(--glass);padding:8px;border-radius:10px}
+
+.kanban-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:8px;
+  border-radius:8px;
+  margin-bottom:8px;
+  cursor:pointer;
+  transition:transform .18s;
+  border:1px solid rgba(255,255,255,0.02)
+}
+.kanban-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.6)
+}
+.kanban-card .badge{
+  display:inline-block;
+  padding:2px 6px;
+  border-radius:6px;
+  font-size:11px;
+  margin-top:6px;
+  color:#fff
+}
+
+.footer{
+  padding:8px 12px;
+  border-top:1px solid rgba(255,255,255,0.03);
+  text-align:right;
+  font-size:11px;
+  color:rgba(255,255,255,0.5)
+}
+
+/* taiji small icon */
+.taiji-small{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:conic-gradient(#000 0 180deg, #fff 180deg 360deg);
+  box-shadow:0 6px 18px rgba(0,0,0,0.5);
+  position:relative
+}
+
+/* 增强：太极阴阳鱼眼 */
+.taiji-small::before,
+.taiji-small::after{
+  content:'';
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  top:50%;
+  transform:translateY(-50%)
+}
+.taiji-small::before{
+  left:25%;
+  background:#fff
+}
+.taiji-small::after{
+  right:25%;
+  background:#000
+}
+
+/* 增强：大型太极SVG */
+.taiji-large{
+  width:180px;
+  height:180px;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.7))
+}
+
+/* 增强：矩阵网格 */
+.matrix-grid{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:4px;
+  width:100%;
+  max-width:280px
+}
+.matrix-cell{
+  aspect-ratio:1;
+  border-radius:4px;
+  background:var(--glass);
+  transition:all .2s
+}
+.matrix-cell.active{
+  background:var(--accent-gold);
+  box-shadow:0 0 8px rgba(230,195,106,0.4)
+}
+.matrix-cell.red{background:var(--accent-red)}
+.matrix-cell.green{background:var(--accent-green)}
+.matrix-cell.blue{background:var(--accent-blue)}
+
+/* 增强：炼丹炉动画 */
+.furnace-core{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #ff6b35, var(--accent-red));
+  box-shadow:0 0 40px rgba(214,59,45,0.6), inset 0 0 20px rgba(0,0,0,0.5);
+  animation:pulse 2s ease-in-out infinite
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:0.9}
+  50%{transform:scale(1.05);opacity:1}
+}
+
+/* 增强：学习进度环 */
+.progress-ring{
+  width:100px;
+  height:100px;
+  transform:rotate(-90deg)
+}
+.progress-ring-bg{
+  fill:none;
+  stroke:rgba(255,255,255,0.1);
+  stroke-width:8
+}
+.progress-ring-fill{
+  fill:none;
+  stroke:var(--accent-gold);
+  stroke-width:8;
+  stroke-linecap:round;
+  stroke-dasharray:283;
+  stroke-dashoffset:70;
+  transition:stroke-dashoffset .5s
+}
+
+/* 增强：徽章颜色 */
+.badge-red{background:var(--accent-red)}
+.badge-green{background:var(--accent-green)}
+.badge-blue{background:var(--accent-blue)}
+.badge-brown{background:var(--accent-brown)}
+.badge-gold{background:rgba(230,195,106,0.2);color:var(--accent-gold)}
+
+/* 增强：滚动条 */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2)}
+
+/* 增强：状态指示器 */
+.status-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  display:inline-block;
+  margin-right:6px
+}
+.status-dot.active{background:var(--accent-green);box-shadow:0 0 6px var(--accent-green)}
+.status-dot.pending{background:var(--accent-gold)}
+.status-dot.error{background:var(--accent-red)}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <div class="taiji-small"></div>
+        <div class="title">ZHUGEXIN⚡️ SYSTEM</div>
+      </div>
+      <div class="controls">
+        <button>同步</button>
+        <button>设置</button>
+        <button>退出</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <!-- Left Column -->
+      <div class="left-col">
+        <!-- 太极模块 -->
+        <div class="card">
+          <div class="taiji-container">
+            <svg class="taiji-large" viewBox="0 0 200 200">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- 外圆 -->
+              <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(230,195,106,0.3)" stroke-width="1"/>
+              <!-- 太极主体 -->
+              <path d="M100,5 A95,95 0 0,1 100,195 A47.5,47.5 0 0,1 100,100 A47.5,47.5 0 0,0 100,5" fill="#000"/>
+              <path d="M100,5 A95,95 0 0,0 100,195 A47.5,47.5 0 0,0 100,100 A47.5,47.5 0 0,1 100,5" fill="#fff"/>
+              <!-- 鱼眼 -->
+              <circle cx="100" cy="72.5" r="12" fill="#fff"/>
+              <circle cx="100" cy="127.5" r="12" fill="#000"/>
+              <!-- 旋转动画 -->
+              <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
+            </svg>
+          </div>
+          <div class="taiji-caption">阴阳流转 · 生生不息</div>
+        </div>
+
+        <!-- 矩阵模块 -->
+        <div class="card">
+          <div class="matrix-container">
+            <div class="matrix-grid">
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell red"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell green"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell blue"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell green"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell red"></div>
+              <div class="matrix-cell"></div>
+              <div class="matrix-cell active"></div>
+              <div class="matrix-cell"></div>
+            </div>
+          </div>
+          <div class="matrix-details">
+            <span class="status-dot active"></span>系统运行正常 | 节点: 12/25 | 负载: 34%
+          </div>
+        </div>
+
+        <!-- 炼丹炉模块 -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px">
+            <div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:4px">模型熔炼中</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5)">Batch 128 | LR 0.001</div>
+            </div>
+            <div class="furnace-core"></div>
+            <div style="text-align:right">
+              <div style="font-size:16px;font-weight:700;color:var(--accent-gold)">87.3%</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5)">准确率</div>
+            </div>
+          </div>
+          <div class="furnace-log">
+            [14:32:01] Epoch 47/100 | Loss: 0.234 | Val: 0.198
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-col">
+        <!-- 学习环模块 -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-around">
+            <div>
+              <div style="font-size:13px;margin-bottom:8px">今日学习进度</div>
+              <div style="font-size:24px;font-weight:700;color:var(--accent-gold)">75%</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px">3.2h / 4h 目标</div>
+            </div>
+            <svg class="progress-ring" viewBox="0 0 100 100">
+              <circle class="progress-ring-bg" cx="50" cy="50" r="45"/>
+              <circle class="progress-ring-fill" cx="50" cy="50" r="45"/>
+            </svg>
+          </div>
+          <div class="learning-stats">
+            <span style="color:var(--accent-green)">●</span> 记忆巩固 92% &nbsp;
+            <span style="color:var(--accent-blue)">●</span> 新知摄入 68%
+          </div>
+        </div>
+
+        <!-- Kanban模块 -->
+        <div class="card" style="flex:1">
+          <div class="kanban-header">
+            <span style="font-size:13px;font-weight:500">任务看板</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.5)">12 待处理</span>
+          </div>
+          <div class="kanban-container">
+            <div class="kanban-list">
+              <!-- 待办列 -->
+              <div class="kanban-col">
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:8px;padding:0 4px">待办</div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">优化CSS渲染性能</div>
+                  <span class="badge badge-red">高优</span>
+                </div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">更新文档注释</div>
+                  <span class="badge badge-gold">文档</span>
+                </div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">修复玻璃态模糊</div>
+                  <span class="badge badge-blue">Bug</span>
+                </div>
+              </div>
+
+              <!-- 进行中列 -->
+              <div class="kanban-col">
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:8px;padding:0 4px">进行中</div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">太极SVG动画重构</div>
+                  <span class="badge badge-green">开发</span>
+                </div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">色彩系统变量化</div>
+                  <span class="badge badge-brown">设计</span>
+                </div>
+              </div>
+
+              <!-- 已完成列 -->
+              <div class="kanban-col">
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:8px;padding:0 4px">已完成</div>
+                <div class="kanban-card">
+                  <div style="font-size:12px">玄黑主题基础搭建</div>
+                  <span class="badge badge-gold">架构</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      UID9622 | LU × CNSH | Memory > Thinking | v1.0.0
+    </div>
+  </div>
+
+  <script>
+    // 矩阵动画交互
+    document.querySelectorAll('.matrix-cell').forEach(cell => {
+      cell.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.2)';
+        this.style.boxShadow = '0 0 10px rgba(230,195,106,0.5)';
+      });
+      cell.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Kanban卡片点击
+    document.querySelectorAll('.kanban-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.opacity = '0.6';
+        setTimeout(() => this.style.opacity = '1', 200);
+      });
+    });
+  </script>
+</body>
+</html>

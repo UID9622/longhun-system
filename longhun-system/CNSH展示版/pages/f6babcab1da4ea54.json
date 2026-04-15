@@ -1,0 +1,8 @@
+{
+  "content": "<!DOCTYPE html>\n<html lang=\"zh\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>做一个个人主页，有头像、简介、联系方式</title>\n  <meta name=\"dna\" content=\"#CNSH-9622\">\n  <style>\n    :root {\n      --bg: #ffffff;\n      --fg: #1a1a1a;\n      --fg-light: #1a1a1a99;\n      --accent: #4a90e2;\n    }\n    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n    body {\n      font-family: system-ui, -apple-system, sans-serif;\n      background: var(--bg);\n      color: var(--fg);\n      min-height: 100vh;\n    }\n    .cnsh-container {\n      max-width: 900px;\n      margin: 0 auto;\n      padding: 2rem 1.5rem;\n    }\n    .cnsh-avatar, .cnsh-bio, .cnsh-contact, .cnsh-form,\n    .cnsh-portfolio, .cnsh-stats, .cnsh-hero, .cnsh-nav,\n    .cnsh-timeline, .cnsh-footer {\n      margin: 1.5rem 0;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"cnsh-container\">\n    <div class=\"cnsh-avatar\"><img src=\"https://api.dicebear.com/7.x/initials/svg?seed=UID9622\" alt=\"头像\" style=\"width:100px;height:100px;border-radius:50%;border:3px solid var(--accent)\"/></div>\n<div class=\"cnsh-bio\"><p style=\"color:var(--fg-light);line-height:1.8\">做一个个人主页，有头像、简介、联系方式</p></div>\n<div class=\"cnsh-contact\"><a href=\"mailto:uid9622@example.com\" style=\"color:var(--accent);text-decoration:none\">📧 联系我</a></div>\n\n  </div>\n  <!-- DNA: #CNSH-9622 | 风格: 简约 | CNSH MVP v2.0 -->\n</body>\n</html>",
+  "timestamp": "2026-03-31T08:35:32.736825",
+  "dna": "#CNSH-9622",
+  "version": 1,
+  "parent": null,
+  "children": []
+}

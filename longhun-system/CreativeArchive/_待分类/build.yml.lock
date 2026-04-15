@@ -1,0 +1,299 @@
+# build.yml.lock file, created by cloud build 2.0
+# please do not modify this file manually
+# checksum: 5dd7279c92ac00df3bf079a82a5acd70
+# create time: Mon Feb 09 21:03:24 CST 2026
+
+---
+version: "2.0"
+metadata:
+  display_name: "ResourceMonitor"
+  project_id: "6b3e77bf-c046-4c76-9f09-228e984fe594"
+  record_id: "2VBXXGFY-745S-8680-0000-9MSX4KFGXEcu"
+  build_script_path: ".cloudbuild/build.yml"
+  trigger:
+    trigger_name: "w30050448"
+    group_name: "g09fc35e4b5a84761b69520621f50b00a"
+  scm:
+    repository: "https://codehub-dg-g.huawei.com/hicode-hw/hicode/resource-monitor.git"
+    branch: "master-ai"
+    revision: "90cb1c2658b32ea730799ef4961407a69afc8118"
+  execution:
+    execution_id: "j_MF2VOSUF"
+    build_no: 1
+  build_params:
+  - name: "ENV_PIPELINE_TASKNAME"
+    value: "build20"
+    type: "string"
+    secret: false
+  - name: "ENV_SERVICE_NAME"
+    value: "ResourceMonitor"
+    type: "string"
+    secret: false
+  - name: "ENV_CHECK_ASYNC"
+    value: "true"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_JOB_NAME"
+    value: "job_4fa9645768414600ac60455eacd23159_20260209210258"
+    type: "string"
+    secret: false
+  - name: "codehubSourceRepoHttpUrl"
+    value: "https://codehub-dg-g.huawei.com/hicode-hw/hicode/resource-monitor.git"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_JOB_ID"
+    value: "4fa9645768414600ac60455eacd23159"
+    type: "string"
+    secret: false
+  - name: "ENV_MR_INFO"
+    value: "{\"sourceBranch\":\"ai/style2\",\"targetBranch\":\"master-ai\",\"mrIid\":\"56\"}"
+    type: "string"
+    secret: false
+  - name: "branch"
+    value: "master-ai"
+    type: "string"
+    secret: false
+  - name: "isRelease"
+    value: "false"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_STARTTIME"
+    value: "20260209210258"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestTitle"
+    value: "feat: 适配白色主题 BUG2026020744414"
+    type: "string"
+    secret: false
+  - name: "codehubSourceRepoURL"
+    value: "https://codehub-g.huawei.com/hicode-hw/hicode/resource-monitor"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_EXECUTOR"
+    value: "w30050448"
+    type: "string"
+    secret: false
+  - name: "codehubSourceRepoSshUrl"
+    value: "ssh://git@codehub-dg-g.huawei.com:2222/hicode-hw/hicode/resource-monitor.git"
+    type: "string"
+    secret: false
+  - name: "ENV_TAG"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_EXETYPE"
+    value: "MRBuild"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_ID"
+    value: "8447057d1147431b9df3b8ce7244fff3"
+    type: "string"
+    secret: false
+  - name: "codehubTargetRepoName"
+    value: "resource-monitor"
+    type: "string"
+    secret: false
+  - name: "ENV_IS_ASSEMBLE"
+    value: "false"
+    type: "string"
+    secret: false
+  - name: "ENV_BRANCH"
+    value: "master-ai"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestLastCommit"
+    value: "{\"author\":{\"name\":\"w30050448\",\"email\":\"wangkangkang10@huawei.com\"},\"id\":\"90cb1c2658b32ea730799ef4961407a69afc8118\",\"message\":\"fix: 修复mac上的磁盘显示问题 BUG2026020744414\\n\",\"url\":\"https:\\/\\/codehub-g.huawei.com\\/hicode-hw\\/hicode\\/resource-monitor\\/files\\/commit\\/90cb1c2658b32ea730799ef4961407a69afc8118\",\"timestamp\":\"2026-02-09T13:02:39Z\"}"
+    type: "string"
+    secret: false
+  - name: "ENV_LABEL"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "ENV_PBI_NAME"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "repoType"
+    value: "codehub"
+    type: "string"
+    secret: false
+  - name: "codehubTargetRepoSshUrl"
+    value: "ssh://git@codehub-dg-g.huawei.com:2222/hicode-hw/hicode/resource-monitor.git"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestTargetProjectId"
+    value: "4122050"
+    type: "string"
+    secret: false
+  - name: "codehubSourceRepoHomepage"
+    value: "https://codehub-dg-g.huawei.com/hicode-hw/hicode/resource-monitor"
+    type: "string"
+    secret: false
+  - name: "ENV_IS_RELEASE"
+    value: "false"
+    type: "string"
+    secret: false
+  - name: "codehubTargetBranch"
+    value: "master-ai"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestDescription"
+    value: "![image](/uploads/c88836e6-e08d-4651-9a0a-591ef5ee6722/1770627800047.png '1770627800047.png')"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestLastCommitId"
+    value: "90cb1c2658b32ea730799ef4961407a69afc8118"
+    type: "string"
+    secret: false
+  - name: "triggerSystem"
+    value: "CloudPipeline"
+    type: "string"
+    secret: false
+  - name: "exeType"
+    value: "MRBuild"
+    type: "string"
+    secret: false
+  - name: "CLOUDBUILD_TASK_TYPE"
+    value: "version_build"
+    secret: false
+  - name: "codehubMergedByUser"
+    value: "w30050448"
+    type: "string"
+    secret: false
+  - name: "codehubActionType"
+    value: "update"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_EXENAME"
+    value: "Default"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestIid"
+    value: "56"
+    type: "string"
+    secret: false
+  - name: "codehubMergeRequestId"
+    value: "45284871"
+    type: "string"
+    secret: false
+  - name: "ENV_WORKSPACE_ID"
+    value: "pb8f1e901965f40fbb538ed5f30ecd444"
+    type: "string"
+    secret: false
+  - name: "ENV_STAGE_NAME"
+    value: "Build"
+    type: "string"
+    secret: false
+  - name: "userEmail"
+    value: "wangkangkang10@huawei.com"
+    type: "string"
+    secret: false
+  - name: "codehubSourceBranch"
+    value: "ai/style2"
+    type: "string"
+    secret: false
+  - name: "ENV_JOB_NAME"
+    value: "job_Build20"
+    type: "string"
+    secret: false
+  - name: "serviceId"
+    value: "a9d78a78279f4c5893bb0f404c71ee43"
+    type: "string"
+    secret: false
+  - name: "ENV_DEVELOPMENT_VERSION"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "CLOUD_BUILD2_URL"
+    value: "https://build.huawei.com"
+    type: "string"
+    secret: false
+  - name: "ENV_RELEASE_VERSION"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "isAssemble"
+    value: "false"
+    type: "string"
+    secret: false
+  - name: "codehubTargetNamespace"
+    value: "hicode-hw/hicode"
+    type: "string"
+    secret: false
+  - name: "ENV_SERVICE_ID"
+    value: "a9d78a78279f4c5893bb0f404c71ee43"
+    type: "string"
+    secret: false
+  - name: "serviceName"
+    value: "ResourceMonitor"
+    type: "string"
+    secret: false
+  - name: "exeName"
+    value: "Default"
+    type: "string"
+    secret: false
+  - name: "ENV_PIPELINE_NAME"
+    value: "ResourceMonitor"
+    type: "string"
+    secret: false
+  - name: "codehubSourceRepoName"
+    value: "resource-monitor"
+    type: "string"
+    secret: false
+  - name: "ENV_PBI_ID"
+    value: ""
+    type: "string"
+    secret: false
+  - name: "codehubSourceNamespace"
+    value: "hicode-hw/hicode"
+    type: "string"
+    secret: false
+  - name: "codehubTargetCommitId"
+    value: "200603fe10da5d024a393524bad3ef55bd301f76"
+    type: "string"
+    secret: false
+  - name: "codehubTargetRepoHttpUrl"
+    value: "https://codehub-dg-g.huawei.com/hicode-hw/hicode/resource-monitor.git"
+    type: "string"
+    secret: false
+params: []
+env:
+  resource: !<docker>
+    image: "szvecr03.his.huawei.com:80/ecr-build-green/vscode_huawei_linux_cloudbuildimage_x86:1.69.2_x86"
+    mode: "toolbox"
+    type: "docker"
+    resource_class: "8U16G"
+    privileged: false
+  cache: []
+  byLabel: false
+  byResource: true
+steps:
+  PRE_BUILD:
+  - "checkout"
+  BUILD:
+  - build_execute:
+      command: "sh .cloudbuild/build.sh"
+      accelerate: false
+      check: true
+  POST_BUILD:
+  - upload_cloud_artifact:
+      file_path: "*.vsix"
+  - "version_set"
+security: false
+buildhook:
+  "on": true
+  branches:
+    include:
+    - "*/**"
+    exclude: []
+  paths:
+    include:
+    - "*/**"
+    exclude: []
+  mr:
+    "on": true
+    auto_cancel: true
+    ignore_wip: true
+    on_open: true
+    on_merge: false
+    on_close: false

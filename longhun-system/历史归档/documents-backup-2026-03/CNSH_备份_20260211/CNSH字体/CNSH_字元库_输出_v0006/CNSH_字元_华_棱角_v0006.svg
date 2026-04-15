@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="100%" height="100%" fill="white"/>
+  <path d="M 120 140 L 360 140" fill="none" stroke="black" stroke-width="16" stroke-linecap="butt" stroke-linejoin="miter"/><path d="M 240 140 L 240 520" fill="none" stroke="black" stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter"/><path d="M 160 260 L 320 260" fill="none" stroke="black" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter"/>
+  <text x="10" y="20" font-size="12" fill="#aaa">华 - 棱角版 v0006</text>
+</svg>

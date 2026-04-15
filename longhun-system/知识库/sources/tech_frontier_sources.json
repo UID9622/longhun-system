@@ -1,0 +1,186 @@
+{
+  "dna": "#龍芯⚡️2026-04-08-TECH-FRONTIER-SOURCES-v1.0",
+  "ts_beijing": "2026-04-08T01:54:00+08:00",
+  "author": "诸葛鑫（UID9622）",
+  "description": "三色知识库·科技前沿采集源·按DNA兼才理念碎片化入库",
+  "principle": {
+    "core": "不抄知识库，只取碎片，重构生长",
+    "rules": [
+      "知识拆解为最小单元：标签/词/字/句子",
+      "系统可分可合，非完整功能块",
+      "DNA兼容度筛选，不适放入隔离区",
+      "一级必胜，不重复工作",
+      "逻辑自产，知识天生，我们只是引用练习"
+    ]
+  },
+  "sources": {
+    "quantum_tech": {
+      "name": "量子科技",
+      "icon": "⚛️",
+      "palace": 1,
+      "palace_name": "坎·技术",
+      "sites": [
+        {
+          "id": "qtc_com_cn",
+          "name": "量子科技中心",
+          "url": "http://www.qtc.com.cn",
+          "description": "量子计算、量子通信、量子精密测量",
+          "tags": ["量子计算", "量子通信", "精密测量", "产业动态"],
+          "dna_compatibility": 0.85,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "daily",
+          "fragments_target": ["量子比特", "纠缠态", "量子门", " decoherence", "量子优势"]
+        },
+        {
+          "id": "baqis_ac_cn",
+          "name": "北京量子信息科学研究院",
+          "url": "http://baqis.ac.cn",
+          "description": "量子计算/通信/测量三大方向前沿研究",
+          "tags": ["量子研究", "前沿难题", "学术动态"],
+          "dna_compatibility": 0.90,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "weekly",
+          "fragments_target": ["超导量子", "离子阱", "光量子", "量子纠错", "NISQ时代"]
+        }
+      ]
+    },
+    "dna_tech": {
+      "name": "DNA技术",
+      "icon": "🧬",
+      "palace": 2,
+      "palace_name": "坤·生命",
+      "sites": [
+        {
+          "id": "cngb_genomics",
+          "name": "基因组门户",
+          "url": "https://db.cngb.org/genomics",
+          "description": "地球物种基因组门户，物种元数据/组装/注释",
+          "tags": ["基因组学", "生物信息学", "物种数据"],
+          "dna_compatibility": 0.75,
+          "status": "待采集",
+          "language": "zh/en",
+          "update_freq": "weekly",
+          "fragments_target": ["基因组组装", "转录组", "变异分析", "注释", "宏基因组"]
+        },
+        {
+          "id": "synbio_tech",
+          "name": "泓迅生物",
+          "url": "http://www.synbio-tech.com.cn",
+          "description": "合成生物学DNA合成平台",
+          "tags": ["合成生物学", "DNA合成", "抗体库", "疫苗"],
+          "dna_compatibility": 0.80,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "monthly",
+          "fragments_target": ["基因合成", "密码子优化", "载体构建", "文库构建", "CRISPR"]
+        }
+      ]
+    },
+    "digital_human": {
+      "name": "数字人技术",
+      "icon": "🤖",
+      "palace": 3,
+      "palace_name": "震·人格",
+      "sites": [
+        {
+          "id": "baidu_digital_human",
+          "name": "百度数字人技术",
+          "url": "https://new.qq.com/rain/a/20251107A03G1G00",
+          "description": "剧本驱动多模协同高拟真数字人",
+          "tags": ["数字人", "多模态", "语音合成", "动作捕捉"],
+          "dna_compatibility": 0.88,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "weekly",
+          "fragments_target": ["唇形同步", "表情驱动", "语音克隆", "动作生成", "TTS"]
+        },
+        {
+          "id": "sensetime_standard",
+          "name": "商汤虚拟数字人标准",
+          "url": "https://new.qq.com/rain/a/20251118A05V1B00",
+          "description": "虚拟数字人领域首项国家标准",
+          "tags": ["数字人标准", "技术规范", "2D/3D生成"],
+          "dna_compatibility": 0.92,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "monthly",
+          "fragments_target": ["形象生成", "形象驱动", "视觉交互", "语音交互", "国家标准"]
+        }
+      ]
+    },
+    "metaverse": {
+      "name": "元宇宙去中心化",
+      "icon": "🌐",
+      "palace": 4,
+      "palace_name": "巽·网络",
+      "sites": [
+        {
+          "id": "meta_force",
+          "name": "原力元宇宙",
+          "url": "https://meta-force.space",
+          "description": "区块链去中心化元宇宙平台",
+          "tags": ["去中心化", "区块链", "DeFi", "虚拟现实"],
+          "dna_compatibility": 0.70,
+          "status": "待采集",
+          "language": "zh/en",
+          "update_freq": "daily",
+          "fragments_target": ["智能合约", "NFT", "DAO", "链上治理", "Token经济"]
+        },
+        {
+          "id": "metabd_nav",
+          "name": "斗极元宇宙导航",
+          "url": "https://metabd.cc",
+          "description": "Web3.0应用导航门户",
+          "tags": ["Web3.0", "去中心化应用", "内容推荐"],
+          "dna_compatibility": 0.72,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "daily",
+          "fragments_target": ["DApp", "去中心化存储", "链上身份", "价值量化", "内容激励"]
+        }
+      ]
+    },
+    "frontier_challenges": {
+      "name": "科技挑战难题",
+      "icon": "💡",
+      "palace": 6,
+      "palace_name": "乾·挑战",
+      "sites": [
+        {
+          "id": "people_kpzg",
+          "name": "前沿科技(人民网科普)",
+          "url": "http://kpzg.people.com.cn",
+          "description": "AI/量子/生物技术前沿突破",
+          "tags": ["前沿科技", "技术难题", "科普"],
+          "dna_compatibility": 0.82,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "daily",
+          "fragments_target": ["技术突破", "科学难题", "创新成果", "研究前沿"]
+        },
+        {
+          "id": "zqcyzg",
+          "name": "创新科技网",
+          "url": "https://www.zqcyzg.com",
+          "description": "前沿变革科技技术",
+          "tags": ["科技创新", "技术突破", "解决方案"],
+          "dna_compatibility": 0.78,
+          "status": "待采集",
+          "language": "zh",
+          "update_freq": "weekly",
+          "fragments_target": ["变革技术", "未来科技", "创新方案", "产业升级"]
+        }
+      ]
+    }
+  },
+  "stats": {
+    "total_sources": 8,
+    "total_sites": 8,
+    "avg_dna_compatibility": 0.80,
+    "pending": 8,
+    "collected": 0,
+    "quarantined": 0
+  }
+}

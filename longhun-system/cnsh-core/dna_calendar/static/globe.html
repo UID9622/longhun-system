@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>龍魂 · 元现实投影</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#000; overflow:hidden; font-family:'PingFang SC','SF Pro',sans-serif; color:#fff; }
+canvas { display:block; }
+
+/* ── 统计面板 ── */
+#panel {
+  position:fixed; top:20px; left:20px;
+  background:rgba(0,0,0,0.75); border:1px solid rgba(255,215,0,0.25);
+  padding:16px 18px; border-radius:14px; min-width:210px; backdrop-filter:blur(8px);
+  z-index:10;
+}
+#panel h3 { color:#FFD700; font-size:13px; letter-spacing:1px; margin-bottom:10px; }
+.stat-row { display:flex; justify-content:space-between; font-size:12px; color:#aaa; margin:4px 0; }
+.stat-val  { color:#fff; font-weight:600; }
+.mood-dot  { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+
+/* ── 节点弹窗 ── */
+#popup {
+  position:fixed; top:50%; right:24px; transform:translateY(-50%);
+  background:rgba(0,0,0,0.88); border:1px solid rgba(255,255,255,0.15);
+  padding:22px; border-radius:18px; width:300px; display:none;
+  backdrop-filter:blur(12px); z-index:20;
+}
+#popup-emoji { font-size:36px; margin-bottom:8px; display:block; }
+#popup-time  { color:#666; font-size:11px; margin-bottom:6px; }
+#popup-city  { font-size:18px; font-weight:700; margin-bottom:8px; }
+#popup-info  { font-size:13px; color:#aaa; margin-bottom:10px; line-height:1.6; }
+#popup-dna   { font-family:monospace; font-size:10px; color:#4ecdc4; word-break:break-all;
+               background:rgba(78,205,196,0.08); padding:6px 8px; border-radius:6px; }
+#popup-priv  { margin-top:8px; font-size:10px; color:#444; }
+.popup-actions { display:flex; gap:8px; margin-top:14px; }
+.btn { padding:7px 14px; border-radius:8px; border:none; cursor:pointer; font-size:12px;
+       background:rgba(255,255,255,0.08); color:#ddd; transition:background .2s; }
+.btn:hover { background:rgba(255,255,255,0.18); }
+.btn-gold { background:rgba(255,215,0,0.15); color:#FFD700; }
+.btn-gold:hover { background:rgba(255,215,0,0.28); }
+#reflow-out { margin-top:12px; font-size:11px; color:#81ecec; display:none;
+              background:rgba(129,236,236,0.06); padding:8px; border-radius:6px; }
+
+/* ── 底部控制条 ── */
+#bar {
+  position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,0.72); border:1px solid rgba(255,255,255,0.12);
+  padding:10px 20px; border-radius:30px; display:flex; gap:14px;
+  align-items:center; backdrop-filter:blur(8px); z-index:10; white-space:nowrap;
+}
+#bar label { font-size:12px; color:#888; }
+#lim { width:100px; cursor:pointer; accent-color:#FFD700; }
+#lim-val { font-size:12px; color:#FFD700; min-width:28px; }
+.nav-btn { text-decoration:none; padding:5px 12px; border-radius:8px;
+           border:1px solid rgba(255,255,255,0.12); color:#ccc; font-size:12px; }
+.nav-btn:hover { background:rgba(255,255,255,0.08); color:#fff; }
+
+/* ── 加载提示 ── */
+#loading { position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+           background:#000; z-index:100; flex-direction:column; gap:12px; }
+#loading span { color:#FFD700; font-size:14px; letter-spacing:2px; }
+.spinner { width:40px; height:40px; border:3px solid rgba(255,215,0,.2);
+           border-top-color:#FFD700; border-radius:50%; animation:spin 1s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div id="loading"><div class="spinner"></div><span>龍魂 · 元现实投影加载中</span></div>
+
+<!-- 统计面板 -->
+<div id="panel">
+  <h3>🌍 龍魂 元现实投影</h3>
+  <div class="stat-row"><span>公域节点</span><span class="stat-val" id="s-nodes">—</span></div>
+  <div class="stat-row"><span>覆盖城市</span><span class="stat-val" id="s-cities">—</span></div>
+  <div class="stat-row"><span>时空胶囊总计</span><span class="stat-val" id="s-total">—</span></div>
+  <div id="mood-legend" style="margin-top:10px;font-size:11px;color:#666;"></div>
+</div>
+
+<!-- 节点弹窗 -->
+<div id="popup">
+  <button class="btn" style="position:absolute;top:12px;right:12px;padding:4px 8px;"
+          onclick="closePopup()">✕</button>
+  <span id="popup-emoji">🌍</span>
+  <div id="popup-time"></div>
+  <div id="popup-city">—</div>
+  <div id="popup-info"></div>
+  <div id="popup-dna"></div>
+  <div id="popup-priv">🔒 内容存于本地私域 · 此处仅显示公域元数据</div>
+  <div class="popup-actions">
+    <button class="btn btn-gold" id="btn-reflow">⏰ 时光回流</button>
+    <button class="btn" onclick="closePopup()">关闭</button>
+  </div>
+  <div id="reflow-out"></div>
+</div>
+
+<!-- 底部控制 -->
+<div id="bar">
+  <label>节点数</label>
+  <input type="range" id="lim" min="10" max="500" value="200">
+  <span id="lim-val">200</span>
+  <button class="btn" onclick="reloadNodes()" style="border-color:rgba(255,215,0,.3);color:#FFD700;">刷新</button>
+  <a href="/ui/index.html"    class="nav-btn">📅 日历</a>
+  <a href="/ui/timeline.html" class="nav-btn">🕰️ 时间轴</a>
+</div>
+
+<!-- Three.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   龍魂 元现实投影 · Three.js Globe
+   仅渲染公域元数据（GPS/心情颜色/天气效果/DNA码）
+   内容不出现。私域不投影。
+   ═══════════════════════════════════════════════════════════════ */
+
+const API = '';   // 同源
+
+let scene, camera, renderer, controls;
+let earth, atmosphere;
+let dnaNodes   = [];   // {sprite, hitSphere, data}
+let raycaster  = new THREE.Raycaster();
+let mouse      = new THREE.Vector2();
+let currentNode = null;
+
+// ── 初始化场景 ───────────────────────────────────────────────────
+
+function initScene() {
+  scene  = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.01, 100);
+  camera.position.set(0, 0, 3.2);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(devicePixelRatio);
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  document.body.appendChild(renderer.domElement);
+
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.minDistance   = 1.5;
+  controls.maxDistance   = 8;
+  controls.autoRotate    = true;
+  controls.autoRotateSpeed = 0.4;
+
+  // 灯光
+  scene.add(new THREE.AmbientLight(0x334466, 1.5));
+  const sun = new THREE.DirectionalLight(0xffffff, 2.0);
+  sun.position.set(5, 3, 5);
+  scene.add(sun);
+
+  // 背景星空
+  addStars();
+
+  // 地球
+  buildEarth();
+
+  // 大气层
+  buildAtmosphere();
+}
+
+// ── 星空背景 ─────────────────────────────────────────────────────
+
+function addStars() {
+  const geom = new THREE.BufferGeometry();
+  const n    = 8000;
+  const pos  = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    const r   = 50 + Math.random() * 50;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const th  = Math.random() * Math.PI * 2;
+    pos[i*3]   = r * Math.sin(phi) * Math.cos(th);
+    pos[i*3+1] = r * Math.cos(phi);
+    pos[i*3+2] = r * Math.sin(phi) * Math.sin(th);
+  }
+  geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const mat   = new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, sizeAttenuation: true });
+  scene.add(new THREE.Points(geom, mat));
+}
+
+// ── 地球体 ───────────────────────────────────────────────────────
+
+function buildEarth() {
+  const geom = new THREE.SphereGeometry(1, 64, 64);
+  const mat  = new THREE.MeshPhongMaterial({
+    color:    0x1a4a6a,
+    emissive: 0x051015,
+    specular: 0x335577,
+    shininess: 30,
+  });
+  earth = new THREE.Mesh(geom, mat);
+  scene.add(earth);
+
+  // 尝试加载真实贴图（有网则有，无网降级）
+  const loader = new THREE.TextureLoader();
+  loader.load(
+    'https://raw.githubusercontent.com/mrdoob/three.js/r128/examples/textures/planets/earth_atmos_2048.jpg',
+    (tex) => { mat.map = tex; mat.needsUpdate = true; },
+    undefined,
+    () => { /* 离线降级：用程序化贴图 */ buildProceduralEarth(geom, mat); }
+  );
+}
+
+function buildProceduralEarth(geom, mat) {
+  // 离线时：用 Canvas 绘制简单大陆轮廓
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+
+  // 海洋底色
+  const grad = ctx.createLinearGradient(0, 0, 0, 512);
+  grad.addColorStop(0,   '#1a3a5a');
+  grad.addColorStop(0.5, '#0d2035');
+  grad.addColorStop(1,   '#1a3a5a');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 512, 512);
+
+  // 极地
+  ctx.fillStyle = 'rgba(200,230,255,0.3)';
+  ctx.fillRect(0, 0, 512, 50);
+  ctx.fillRect(0, 462, 512, 50);
+
+  // 简化大陆色块
+  ctx.fillStyle = 'rgba(40,80,50,0.6)';
+  const lands = [
+    [180,130,100,120],[100,160,80,120],[290,160,80,100],  // 亚欧非
+    [20,160,70,110],[340,180,50,80],                       // 美洲
+    [380,290,60,50],                                       // 大洋洲
+  ];
+  for (const [x,y,w,h] of lands) {
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 20);
+    ctx.fill();
+  }
+
+  mat.map = new THREE.CanvasTexture(canvas);
+  mat.needsUpdate = true;
+}
+
+// ── 大气层 ───────────────────────────────────────────────────────
+
+function buildAtmosphere() {
+  const geom = new THREE.SphereGeometry(1.04, 64, 64);
+  const mat  = new THREE.MeshPhongMaterial({
+    color:       0x4488ff,
+    transparent: true,
+    opacity:     0.12,
+    side:        THREE.FrontSide,
+    depthWrite:  false,
+  });
+  atmosphere = new THREE.Mesh(geom, mat);
+  scene.add(atmosphere);
+}
+
+// ── DNA 节点 ─────────────────────────────────────────────────────
+
+function gpsTo3D(lat, lng, r = 1.015) {
+  const phi = (90 - lat) * Math.PI / 180;
+  const th  = (lng + 180) * Math.PI / 180;
+  return new THREE.Vector3(
+    -r * Math.sin(phi) * Math.cos(th),
+     r * Math.cos(phi),
+     r * Math.sin(phi) * Math.sin(th),
+  );
+}
+
+function glowTexture(hex) {
+  const color = hex || '#ffffff';
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = 64;
+  const ctx = cv.getContext('2d');
+  const g   = ctx.createRadialGradient(32,32,0, 32,32,32);
+  g.addColorStop(0,   color + 'ff');
+  g.addColorStop(0.25, color + 'cc');
+  g.addColorStop(0.6, color + '44');
+  g.addColorStop(1,   color + '00');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(cv);
+}
+
+function addNode(nodeData) {
+  const { lat, lng, color, dna, city, emoji, weather, temp, mood_cat, effect, time } = nodeData;
+
+  // 发光精灵
+  const sprite = new THREE.Sprite(
+    new THREE.SpriteMaterial({
+      map:         glowTexture(color),
+      transparent: true,
+      depthWrite:  false,
+      blending:    THREE.AdditiveBlending,
+    })
+  );
+  const pos = gpsTo3D(lat, lng);
+  sprite.position.copy(pos);
+  sprite.scale.set(0.055, 0.055, 0.055);
+  scene.add(sprite);
+
+  // 不可见拾取球（用于 raycasting）
+  const hitGeom = new THREE.SphereGeometry(0.025, 6, 6);
+  const hitMat  = new THREE.MeshBasicMaterial({ visible: false });
+  const hit     = new THREE.Mesh(hitGeom, hitMat);
+  hit.position.copy(pos);
+  hit.userData  = { lat, lng, color, dna, city, emoji, weather, temp, mood_cat, effect, time };
+  scene.add(hit);
+
+  dnaNodes.push({ sprite, hit });
+}
+
+function clearNodes() {
+  for (const n of dnaNodes) {
+    scene.remove(n.sprite);
+    scene.remove(n.hit);
+    n.sprite.material.map?.dispose();
+    n.sprite.material.dispose();
+    n.hit.geometry.dispose();
+  }
+  dnaNodes = [];
+}
+
+// ── 数据加载 ─────────────────────────────────────────────────────
+
+async function loadNodes() {
+  const limit = document.getElementById('lim').value;
+  try {
+    const r   = await fetch(`${API}/projection/nodes?limit=${limit}`);
+    const data = await r.json();
+    clearNodes();
+    for (const node of data.nodes || []) {
+      addNode(node);
+    }
+    document.getElementById('s-nodes').textContent = data.count;
+  } catch(e) {
+    console.warn('投影节点加载失败:', e);
+  }
+}
+
+async function loadStats() {
+  try {
+    const r    = await fetch(`${API}/projection/stats`);
+    const data  = await r.json();
+    document.getElementById('s-cities').textContent = data.cities ?? '—';
+    document.getElementById('s-total').textContent  = data.total  ?? '—';
+
+    // 心情图例
+    const legend = document.getElementById('mood-legend');
+    legend.innerHTML = '';
+    const dist = data.mood_dist || {};
+    Object.entries(dist).slice(0,5).forEach(([mood, info]) => {
+      legend.innerHTML += `<div style="display:flex;align-items:center;gap:5px;margin:2px 0;">
+        <span class="mood-dot" style="background:${info.color}"></span>
+        <span style="color:#888">${mood}</span>
+        <span style="color:#555;margin-left:auto">${info.count}</span>
+      </div>`;
+    });
+  } catch(e) {}
+}
+
+async function reloadNodes() {
+  clearNodes();
+  await loadNodes();
+}
+
+// ── 交互：点击节点 ────────────────────────────────────────────────
+
+function onMouseClick(e) {
+  if (e.target !== renderer.domElement) return;
+
+  mouse.x =  (e.clientX / innerWidth)  * 2 - 1;
+  mouse.y = -(e.clientY / innerHeight) * 2 + 1;
+  raycaster.setFromCamera(mouse, camera);
+
+  const meshes  = dnaNodes.map(n => n.hit);
+  const hits    = raycaster.intersectObjects(meshes);
+
+  if (hits.length) {
+    const data = hits[0].object.userData;
+    showPopup(data);
+    controls.autoRotate = false;
+  }
+}
+
+function showPopup(d) {
+  currentNode = d;
+  document.getElementById('popup-emoji').textContent = d.emoji || '🌍';
+  document.getElementById('popup-time').textContent  = d.time
+    ? new Date(d.time * 1000).toLocaleString('zh-CN') : '时间未知';
+  document.getElementById('popup-city').textContent  = d.city || '未知地点';
+  document.getElementById('popup-info').innerHTML    = `
+    <span class="mood-dot" style="background:${d.color};display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;"></span>
+    情绪 · ${d.mood_cat || '—'} &nbsp;|&nbsp; ${d.weather || '天气未知'}
+    ${d.temp != null ? ` · ${d.temp}°C` : ''}
+  `;
+  document.getElementById('popup-dna').textContent = d.dna || '—';
+  document.getElementById('reflow-out').style.display = 'none';
+  document.getElementById('popup').style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+  controls.autoRotate = true;
+  currentNode = null;
+}
+
+// 时光回流
+document.getElementById('btn-reflow').onclick = async function() {
+  if (!currentNode?.dna) return;
+  const out = document.getElementById('reflow-out');
+  out.style.display = 'block';
+  out.textContent   = '回流中...';
+  try {
+    const dna = encodeURIComponent(currentNode.dna);
+    const r   = await fetch(`${API}/calendar/reflow/dna/${dna}`);
+    const d   = await r.json();
+    const sc  = d.scene || {};
+    out.innerHTML = `
+      <b>📍</b> ${sc.location_desc || '位置未知'}<br>
+      <b>🌤️</b> ${sc.weather_desc || '天气数据缺失'} ${sc.temperature != null ? sc.temperature+'°C' : ''}<br>
+      <b>🕐</b> ${sc.time_label || '—'}<br>
+      <b>😊</b> ${sc.mood || '—'}
+    `;
+  } catch(e) {
+    out.textContent = '回流失败（确认服务运行中）';
+  }
+};
+
+// ── 响应式 + 动画 ─────────────────────────────────────────────────
+
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+renderer.domElement.addEventListener('click', onMouseClick);
+
+document.getElementById('lim').addEventListener('input', (e) => {
+  document.getElementById('lim-val').textContent = e.target.value;
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+// ── 启动 ──────────────────────────────────────────────────────────
+
+(async function boot() {
+  initScene();
+  animate();
+  await Promise.all([loadNodes(), loadStats()]);
+  document.getElementById('loading').style.display = 'none';
+})();
+</script>
+</body>
+</html>

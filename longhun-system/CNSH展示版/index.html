@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+  CNSH MVP v2.0 · 前端入口
+  DNA: #龍芯⚡️2026-03-31-CNSH-MVP-v2.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  创建者: 💎 龍芯北辰｜UID9622
+-->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNSH · 一句话造一个东西</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'PingFang SC', sans-serif;
+      background: #0d0d1a;
+      color: #e0e0ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* 顶部 */
+    .hero { text-align: center; margin-bottom: 2.5rem; }
+    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #6c83e2; letter-spacing: .05em; }
+    .hero p  { margin-top: .5rem; color: #888; font-size: 1rem; }
+
+    /* 输入区 */
+    .input-area { width: 100%; max-width: 640px; }
+
+    textarea {
+      width: 100%; padding: 1rem 1.25rem;
+      border-radius: 14px;
+      border: 1.5px solid #2a2a4a;
+      background: #13132a;
+      color: #e0e0ff;
+      font-size: 1rem;
+      resize: none;
+      height: 90px;
+      line-height: 1.6;
+      transition: border-color .2s;
+      outline: none;
+    }
+    textarea:focus { border-color: #6c83e2; }
+    textarea::placeholder { color: #444; }
+
+    /* 示例标签 */
+    .examples { display: flex; gap: .5rem; flex-wrap: wrap; margin: .75rem 0; }
+    .tag {
+      padding: .3rem .85rem;
+      border-radius: 20px;
+      border: 1px solid #2a2a4a;
+      background: transparent;
+      color: #888;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .tag:hover { border-color: #6c83e2; color: #6c83e2; }
+
+    /* 生成按钮 */
+    button.gen {
+      width: 100%; margin-top: .5rem;
+      padding: .9rem;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #6c3483, #4a90e2);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .04em;
+      transition: opacity .15s, transform .1s;
+    }
+    button.gen:hover   { opacity: .9; }
+    button.gen:active  { transform: scale(.98); }
+    button.gen:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* 结果区 */
+    #result { width: 100%; max-width: 640px; margin-top: 1.75rem; }
+
+    .result-card {
+      background: #13132a;
+      border: 1.5px solid #2a2a4a;
+      border-radius: 14px;
+      padding: 1.5rem;
+      animation: fadeIn .3s ease;
+    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+    .result-link {
+      color: #6c83e2;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-bottom: .75rem;
+    }
+    .result-link:hover { text-decoration: underline; }
+
+    .result-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .75rem; }
+    .badge {
+      padding: .25rem .75rem;
+      border-radius: 8px;
+      background: #1e1e38;
+      font-size: .78rem;
+      color: #888;
+    }
+    .badge span { color: #6c83e2; }
+
+    .dna-tag { font-size: .72rem; color: #444; margin-top: .75rem; font-family: monospace; }
+
+    .error-msg { color: #e74c3c; font-size: .95rem; }
+
+    /* 加载 spinner */
+    .spinner {
+      width: 20px; height: 20px;
+      border: 2px solid #333;
+      border-top-color: #6c83e2;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: .5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer {
+      position: fixed; bottom: 1rem;
+      font-size: .72rem;
+      color: #333;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>⚙️ CNSH</h1>
+    <p>一句话 → 造一个东西 · MVP v2.0</p>
+  </div>
+
+  <div class="input-area">
+    <textarea id="userInput" placeholder="做一个个人主页，有头像、简介、联系方式..."></textarea>
+
+    <div class="examples">
+      <button class="tag" onclick="fill('做一个个人主页，有头像、简介、联系方式')">个人主页</button>
+      <button class="tag" onclick="fill('做一个登录页，有用户名和密码')">登录页</button>
+      <button class="tag" onclick="fill('做一个作品集页面，展示项目和统计数据')">作品集</button>
+      <button class="tag" onclick="fill('做一个极简的个人介绍页')">极简介绍页</button>
+      <button class="tag" onclick="fill('做一个科技风格的技术博客首页')">科技博客</button>
+    </div>
+
+    <button class="gen" id="genBtn" onclick="generate()">🚀 生成</button>
+  </div>
+
+  <div id="result"></div>
+
+  <footer>DNA: #龍芯⚡️2026-03-31-CNSH-MVP-v2.0 · UID9622</footer>
+
+  <script>
+    function fill(text) {
+      document.getElementById('userInput').value = text;
+      document.getElementById('userInput').focus();
+    }
+
+    async function generate() {
+      const input = document.getElementById('userInput').value.trim();
+      if (!input) return;
+
+      const btn = document.getElementById('genBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> 生成中...';
+
+      document.getElementById('result').innerHTML =
+        '<div class="result-card"><p style="color:#888">正在生成，请稍候...</p></div>';
+
+      try {
+        const res = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ input })
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          document.getElementById('result').innerHTML = `
+            <div class="result-card">
+              <a class="result-link" href="${data.url}" target="_blank">🌐 查看生成的页面 →</a>
+              <div class="result-meta">
+                <span class="badge">风格: <span>${data.style}</span></span>
+                <span class="badge">组件: <span>${data.components.join(', ')}</span></span>
+                <span class="badge">人格: <span>${data.persona_used}</span></span>
+              </div>
+              <p class="dna-tag">ID: ${data.id} &nbsp;·&nbsp; DNA: ${data.dna}</p>
+            </div>`;
+        } else {
+          document.getElementById('result').innerHTML =
+            `<div class="result-card"><p class="error-msg">❌ ${data.reason}</p></div>`;
+        }
+      } catch (e) {
+        document.getElementById('result').innerHTML =
+          `<div class="result-card"><p class="error-msg">❌ 请求失败: ${e.message}</p></div>`;
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '🚀 生成';
+    }
+
+    // 回车快捷提交（Ctrl/Cmd + Enter）
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') generate();
+    });
+  </script>
+</body>
+</html>

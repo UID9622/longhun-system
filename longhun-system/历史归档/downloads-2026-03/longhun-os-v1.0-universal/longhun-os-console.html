@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂操作系统 v2.0 - 统一控制台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* 顶部导航 */
+        .top-nav {
+            background: linear-gradient(135deg, #E63946 0%, #c41e29 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 32px;
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+            50% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FFD700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        /* 主容器 */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+        
+        /* 侧边栏 */
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+        }
+        
+        .menu-item {
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 3px solid transparent;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: #FFD700;
+        }
+        
+        .menu-item.active {
+            background: rgba(255, 215, 0, 0.2);
+            border-left-color: #FFD700;
+        }
+        
+        .menu-icon {
+            font-size: 20px;
+        }
+        
+        /* 主内容区 */
+        .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 仪表盘卡片 */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* 系统状态 */
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-online {
+            background: #06D6A0;
+            box-shadow: 0 0 10px #06D6A0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* AI助手聊天 */
+        .chat-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .message-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 12px;
+            max-width: 70%;
+        }
+        
+        .message.user .message-content {
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-gold {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .btn-gold:hover {
+            background: #ffed4e;
+        }
+        
+        /* 实时日志 */
+        .log-container {
+            background: #000;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: logFadeIn 0.5s forwards;
+        }
+        
+        @keyframes logFadeIn {
+            to { opacity: 1; }
+        }
+        
+        .log-info { color: #06D6A0; }
+        .log-warning { color: #FFB627; }
+        .log-error { color: #EF476F; }
+        .log-success { color: #06D6A0; }
+        
+        /* 系统模块卡片 */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .module-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: scale(1.05);
+            border-color: #FFD700;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .module-icon {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+        
+        .module-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .module-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .status-active {
+            background: rgba(6, 214, 160, 0.2);
+            color: #06D6A0;
+        }
+        
+        /* 进度条 */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #06D6A0, #FFD700);
+            transition: width 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <div class="logo">
+            <span class="logo-icon">🐉</span>
+            <span>龍魂操作系统 v2.0</span>
+        </div>
+        <div class="user-info">
+            <span><span class="status-indicator status-online"></span> 系统在线</span>
+            <div class="user-avatar">老兵</div>
+            <span>UID9622</span>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="menu-item active" onclick="showPage('dashboard')">
+                <span class="menu-icon">🎛️</span>
+                <span>控制台</span>
+            </div>
+            <div class="menu-item" onclick="showPage('modules')">
+                <span class="menu-icon">🔧</span>
+                <span>系统模块</span>
+            </div>
+            <div class="menu-item" onclick="showPage('chat')">
+                <span class="menu-icon">🤖</span>
+                <span>AI助手</span>
+            </div>
+            <div class="menu-item" onclick="showPage('logs')">
+                <span class="menu-icon">📊</span>
+                <span>实时日志</span>
+            </div>
+            <div class="menu-item" onclick="showPage('settings')">
+                <span class="menu-icon">⚙️</span>
+                <span>系统设置</span>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="content-area">
+            <!-- 仪表盘页面 -->
+            <div id="dashboard" class="page active">
+                <h2 style="margin-bottom: 20px;">📊 系统仪表盘</h2>
+                
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🛡️</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">威胁检测次数</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🚨</div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">威胁拦截次数</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🔐</div>
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">认证成功率</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value">5.0%</div>
+                        <div class="stat-label">CPU使用率</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 5%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">💾</div>
+                        <div class="stat-value">500MB</div>
+                        <div class="stat-label">内存占用</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">在线用户</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="margin: 30px 0 15px;">🎯 快速操作</h3>
+                <div style="display: flex; gap: 15px;">
+                    <button class="btn btn-gold" onclick="alert('🔧 正在配置安全...')">一键配置安全</button>
+                    <button class="btn btn-primary" onclick="alert('🛡️ 自动防护已启用')">开启自动防护</button>
+                    <button class="btn btn-primary" onclick="alert('📊 正在生成报告...')">生成安全报告</button>
+                </div>
+            </div>
+
+            <!-- 系统模块页面 -->
+            <div id="modules" class="page">
+                <h2 style="margin-bottom: 20px;">🔧 系统模块</h2>
+                
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">🎨</div>
+                        <div class="module-title">CNSH中文编程</div>
+                        <div class="module-status status-active">运行中</div>
+                        <p style="margin-top: 15px; opacity: 0.7; font-size: 14px;">
+                            中文编程环境<br>
+                            智能代码补全<br>
+                            实时编译运行
+                        </p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">🚨</div>
+                        <div class="module-title">公安联动系统</div>
+                        <div class="module-status status-active">运行中</div>
+                        <p style="margin-top: 15px; opacity: 0.7; font-size: 14px;">
+                            本地威胁检测<br>
+                            自动报警<br>
+                            DNA加密封存
+                        </p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">🔐</div>
+                        <div class="module-title">双重认证</div>
+                        <div class="module-status status-active">运行中</div>
+                        <p style="margin-top: 15px; opacity: 0.7; font-size: 14px;">
+                            华为 + 微信<br>
+                            量子纠缠密钥<br>
+                            100%防窃听
+                        </p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">🤖</div>
+                        <div class="module-title">AI智能助手</div>
+                        <div class="module-status status-active">运行中</div>
+                        <p style="margin-top: 15px; opacity: 0.7; font-size: 14px;">
+                            自然语言交互<br>
+                            智能引导配置<br>
+                            24小时在线
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI助手页面 -->
+            <div id="chat" class="page">
+                <h2 style="margin-bottom: 20px;">🤖 AI智能助手</h2>
+                
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <span style="font-size: 24px;">🤖</span>
+                        <div>
+                            <div style="font-weight: bold;">龍魂AI助手</div>
+                            <div style="font-size: 12px; opacity: 0.7;">在线 · 随时为您服务</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                你好！我是龍魂AI助手。<br><br>
+                                我可以帮你：<br>
+                                • 配置系统安全<br>
+                                • 解答技术问题<br>
+                                • 生成代码<br>
+                                • 实时监控<br><br>
+                                有什么可以帮你的？😊
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="输入消息..." onkeypress="if(event.key==='Enter') sendMessage()">
+                        <button class="btn btn-gold" onclick="sendMessage()">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实时日志页面 -->
+            <div id="logs" class="page">
+                <h2 style="margin-bottom: 20px;">📊 实时系统日志</h2>
+                
+                <div class="log-container" id="logContainer">
+                    <div class="log-entry log-success">[2026-02-02 14:30:01] ✅ 龍魂操作系统启动成功</div>
+                    <div class="log-entry log-info">[2026-02-02 14:30:02] ℹ️  公安联动系统已加载</div>
+                    <div class="log-entry log-info">[2026-02-02 14:30:03] ℹ️  双重认证系统已加载</div>
+                    <div class="log-entry log-success">[2026-02-02 14:30:04] ✅ AI助手已就绪</div>
+                    <div class="log-entry log-info">[2026-02-02 14:30:10] ℹ️  用户UID9622登录成功</div>
+                    <div class="log-entry log-info">[2026-02-02 14:30:15] ℹ️  威胁检测引擎运行中...</div>
+                    <div class="log-entry log-success">[2026-02-02 14:30:20] ✅ 系统健康检查通过</div>
+                </div>
+            </div>
+
+            <!-- 系统设置页面 -->
+            <div id="settings" class="page">
+                <h2 style="margin-bottom: 20px;">⚙️ 系统设置</h2>
+                
+                <div style="max-width: 800px;">
+                    <div class="stat-card" style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 15px;">🔐 安全设置</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span>自动防护</span>
+                            <button class="btn btn-gold">已启用</button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span>华为账号绑定</span>
+                            <button class="btn btn-primary">已绑定</button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>微信绑定</span>
+                            <button class="btn btn-primary">已绑定</button>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3 style="margin-bottom: 15px;">🎨 界面设置</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span>深色模式</span>
+                            <button class="btn btn-gold">已启用</button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>语言</span>
+                            <button class="btn btn-primary">简体中文</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 移除所有菜单项的active类
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 显示选中的页面
+            document.getElementById(pageId).classList.add('active');
+            
+            // 激活对应的菜单项
+            event.target.closest('.menu-item').classList.add('active');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // 添加用户消息
+            const messagesContainer = document.getElementById('chatMessages');
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.innerHTML = `
+                <div class="message-avatar">👤</div>
+                <div class="message-content">${message}</div>
+            `;
+            messagesContainer.appendChild(userMsg);
+            
+            // 清空输入框
+            input.value = '';
+            
+            // 模拟AI回复
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message';
+                
+                let response = '';
+                if (message.includes('安全') || message.includes('配置')) {
+                    response = '好的！我来帮你配置安全。<br><br>步骤如下：<br>1️⃣ 绑定华为账号<br>2️⃣ 绑定微信<br>3️⃣ 生成量子密钥<br>4️⃣ 开启自动防护<br><br>现在开始第一步吗？';
+                } else if (message.includes('系统')) {
+                    response = '系统状态良好！<br><br>✅ CPU使用: 5.0%<br>✅ 内存占用: 500MB<br>✅ 威胁检测: 正常<br>✅ 所有模块: 运行中<br><br>有什么需要优化的吗？';
+                } else {
+                    response = '我理解了！让我来帮你。😊<br><br>你可以随时问我任何问题，我会尽力帮助你的！';
+                }
+                
+                aiMsg.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">${response}</div>
+                `;
+                messagesContainer.appendChild(aiMsg);
+                
+                // 滚动到底部
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+            
+            // 滚动到底部
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // 模拟实时日志
+        setInterval(() => {
+            const logContainer = document.getElementById('logContainer');
+            if (logContainer && document.getElementById('logs').classList.contains('active')) {
+                const types = ['info', 'success', 'warning'];
+                const messages = [
+                    '威胁检测完成，未发现威胁',
+                    '系统健康检查通过',
+                    '用户认证成功',
+                    'AI助手响应正常',
+                    '实时监控运行中'
+                ];
+                
+                const type = types[Math.floor(Math.random() * types.length)];
+                const message = messages[Math.floor(Math.random() * messages.length)];
+                const time = new Date().toLocaleTimeString();
+                
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry log-${type}`;
+                logEntry.textContent = `[${time}] ${message}`;
+                
+                logContainer.appendChild(logEntry);
+                logContainer.scrollTop = logContainer.scrollHeight;
+                
+                // 限制日志数量
+                if (logContainer.children.length > 50) {
+                    logContainer.removeChild(logContainer.firstChild);
+                }
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

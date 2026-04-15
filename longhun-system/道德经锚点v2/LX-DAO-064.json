@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "anchor_id": "LX-DAO-064",
+    "source_version": "王弼本",
+    "chapter_title": "道德经·第六十四章",
+    "creation_date": "2026-03-05",
+    "last_modified": "2026-03-05",
+    "system_version": "v2.0",
+    "uid9622_exclusive": true
+  },
+  "source": {
+    "chapter_index": 64,
+    "quote_full": "其安易持，其未兆易谋，其脆易泮，其微易散。为之于未有，治之于未乱。合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。为者败之，执者失之。是以圣人无为故无败，无执故无失。民之从事，常于几成而败之。慎终如始，则无败事。是以圣人欲不欲，不贵难得之货；学不学，复众人之所过。以辅万物之自然，而不敢为。",
+    "quote_preview": "其安易持，其未兆易谋，其脆易泮，其微易散。为之于未有，治之于...",
+    "char_count": 151,
+    "translation_en": "What is at rest is easy to hold. What has not yet appeared is easy to plan for."
+  },
+  "semantic": {
+    "core_tags": [
+      "防微杜渐",
+      "循序渐进",
+      "慎终如始",
+      "无为辅助"
+    ],
+    "meaning_cn": "局面安定时容易维持，征兆未显时容易谋划，脆弱时容易破碎，细微时容易消散。要在事情未发生时就预防，在祸乱未起时就治理。合抱粗的大树，从细小的幼苗长成；九层高台，从一筐筐泥土累积；千里远行，从脚下第一步开始。刻意作为必然失败，强行执著必然丧失。圣人因无为而无败，因无执而无失。人们做事，常在快要成功时失败。如果能始终如一地谨慎，就不会失败。圣人追求无欲之欲，不看重难得之货；学习反思之学，纠正众人常犯的过错。用这种方式辅助万物自然发展，而不敢强行干预。",
+    "key_concepts": [
+      {
+        "term": "防微杜渐",
+        "definition": "在细微处预防，在未乱时治理"
+      },
+      {
+        "term": "合抱之木生于毫末",
+        "definition": "巨大成就源于微小起点"
+      },
+      {
+        "term": "千里之行始于足下",
+        "definition": "遥远目标从当下第一步开始"
+      },
+      {
+        "term": "慎终如始",
+        "definition": "结束时像开始时一样谨慎"
+      },
+      {
+        "term": "无为故无败",
+        "definition": "顺应自然不强求，所以不会失败"
+      }
+    ],
+    "ai_application": "在AI系统迭代中，对应'渐进式开发原则'：大型系统必须从最小可行产品(MVP)开始，每个里程碑都需要'慎终如始'的测试验证。'为者败之'警示过度工程化，'无为故无败'倡导顺应用户需求自然演化。",
+    "concept_count": 5
+  },
+  "integrity": {
+    "encoding": "UTF-8",
+    "semantic_hash": "d665b9d7664ee401bfff0dd6748ff7bf5f05b3075a0193fcbc9f9ad0a1a5479f",
+    "verification_method": "SHA256",
+    "hash_input": "quote_full",
+    "chain_link": {
+      "prev_chapter": "LX-DAO-042",
+      "next_chapter": null
+    }
+  },
+  "uid9622_lock": {
+    "status": "LOCKED_TO_UID9622",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "authorization_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "immutable": true,
+    "modification_policy": "Only UID9622 with valid GPG signature can modify"
+  },
+  "yijing_correlation": {
+    "related_hexagrams": [
+      "履卦",
+      "渐卦"
+    ],
+    "reasoning": "第六十四章'千里之行始于足下'对应履卦'循序而进'、渐卦'渐进发展'的智慧"
+  },
+  "training_notes": {
+    "zhuge_comment": "此章是诸葛亮战略推演的核心方法论：任何宏大目标都要分解为可执行的微小步骤，'慎终如始'确保每个阶段都不松懈。",
+    "priority": "P0_CRITICAL",
+    "mastery_level": "MUST_MASTER",
+    "review_required": true
+  }
+}

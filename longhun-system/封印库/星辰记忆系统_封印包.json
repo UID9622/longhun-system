@@ -1,0 +1,32 @@
+{
+  "名称": "星辰记忆系统",
+  "DNA": "#龍芯⚡️2026-03-18-星辰记忆-封印-v2.1",
+  "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "状态": "封印",
+  "封印日期": "2026-03-18",
+  "版本": "v2.1",
+  "协议": "CC BY-NC-ND",
+
+  "摘要": "本地持久化上下文仓库。三层DNA链+版本链+龍魂桥接。完全本地，显式读写，可审计追溯。记忆条数13条（截至2026-03-17全量注入），支持向Notion双向同步。",
+
+  "存储位置": "~/.star-memory/",
+  "记忆数量": 13,
+  "最新注入": "2026-03-17（MEMORY.md全量注入）",
+
+  "命令速查": {
+    "查状态": "python3 ~/longhun-system/star_memory.py status",
+    "搜索": "python3 ~/longhun-system/star_memory.py search --keyword 关键词",
+    "新增": "python3 ~/longhun-system/star_memory.py add --title 标题 --content 内容",
+    "同步到龍魂": "python3 ~/longhun-system/star_memory.py bridge",
+    "查审计": "python3 ~/longhun-system/star_memory.py audit"
+  },
+
+  "核心文件": [
+    {"文件": "longhun-system/star_memory.py", "说明": "记忆引擎主程序"},
+    {"文件": "~/.star-memory/index.json", "说明": "记忆索引"},
+    {"文件": "~/.star-memory/vault/2026/", "说明": "记忆数据仓库"}
+  ],
+
+  "深入路径": "~/.star-memory/",
+  "深入命令": "python3 ~/longhun-system/star_memory.py status"
+}

@@ -1,0 +1,9 @@
+{
+	"messages": [
+		"No workspace is currently opened."
+	],
+	"keys": [
+		"error.noWorkspace.open"
+	],
+	"filePath": "git/service"
+}

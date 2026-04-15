@@ -1,0 +1,72 @@
+═══════════════════════════════════════
+🐉 龍魂数字资产清单（自动生成）
+📅 2026-04-13 00:11:51
+═══════════════════════════════════════
+
+── 核心目录统计 ──
+  📁 core: 19文件 · 416K
+  📁 web: 20文件 · 756K
+  📁 algorithmic-art: 8文件 · 224K
+  📁 万年历: 17文件 · 324K
+  📁 DNA验证器: 4文件 ·  56K
+  📁 LongHunWidget: 22文件 · 204K
+  📁 plugins: 267文件 ·  12M
+
+── Python模块 (core/) ──
+  🐍 agent_daemon.py (23224B) — 
+  🐍 app.py (13181B) — 
+  🐍 app_patch.py (10756B) — 
+  🐍 baobao_authority.py (9180B) — 
+  🐍 baobao_dispatcher.py (32454B) — 
+  🐍 dragon_stamp.py (12434B) — 
+  🐍 gentle_refusal.py (25272B) — 
+  🐍 inline_annotator.py (11495B) — 
+  🐍 longhun_commander.py (12551B) — 
+  🐍 longhun_dragon.py (19348B) — 
+  🐍 longhun_lang.py (16382B) — 
+  🐍 longhun_local_agent.py (20110B) — 
+  🐍 longhun_local_service.py (44152B) — 
+  🐍 longhun_qa_bot.py (43450B) — 
+  🐍 page_helper.py (16408B) — 
+  🐍 sandbox_engine.py (26629B) — 
+  🐍 tail_sign.py (8872B) — 
+  🐍 voice_reflux.py (17074B) — 
+  🐍 龍.py (20646B) — 
+
+── HTML创作 (web/) ──
+  🌐 LU_Time_Engine.html (31229B) — LU-TIME ENGINE · 时间推演系统
+  🌐 dragon-terminal-v2.html (44084B) — 🐉 龍魂终端 v2.0 | UID9622
+  🌐 dragon_soul_9622.html (46571B) — 龍魂系统 · UID9622 本地工作站
+  🌐 index.html (15274B) — 龍魂主控台 | UID9622
+  🌐 longhun_hub.html (84826B) — 🐉 龍魂智能中枢 v4.0 | UID9622 全套系统
+  🌐 luoshu_map.html (15973B) — 🐉 洛书九宫·龍魂页面地图
+  🌐 memory_console.html (66217B) — 🐉 龍魂主控台 v3.0 · 天时地利人和
+  🌐 mvp_workbench_v6.1.html (37578B) — 🐉 龍魂·造物主MVP工作台 v6.1
+  🌐 public_audit.html (28329B) — 🐉 龍魂公开审计报告 · UID9622
+  🌐 qa_report.html (33465B) — 🔍 龍魂质检报告 · 公开透明审计
+  🌐 register.html (20964B) — 龍魂身份注册 · 网络户口本 · DNA Identity Register
+  🌐 sandbox_dashboard.html (7674B) — 🐉 龍魂沙盒推演面板 v3.0
+  🌐 script_龍魂起源.html (8288B) — 龍魂起源 · 脚本 v1.0
+  🌐 stats_dashboard.html (6058B) — 📊 龍魂系统统计看板 · 事事有回应
+  🌐 truth_report.html (15182B) — 天下无欺 · 真相受理台 · AI Truth Protocol
+  🌐 三才流场_v3.0.html (14059B) — 三才流场 · 呼吸大脑 v3.0
+  🌐 三才流場_v6.html (40972B) — 三才流場 v6优化版 · 龍盾呼吸接入 · UID9622
+  🌐 三才流場_v6_优化版.html (40972B) — 三才流場 v6优化版 · 龍盾呼吸接入 · UID9622
+  🌐 龍魂控制台.html (18579B) — 龍魂控制台 · UID9622
+  🌐 龍魂智能中枢_v5.0_全套一体化.html (152243B) — 🐉 龍魂智能中枢 v5.0 | UID9622 全套一体化
+
+── C++17内核 (万年历/) ──
+  ⚙️ bagua/bagua_engine.cpp
+  ⚙️ calendar/lunar_engine.cpp
+  ⚙️ digital_root/sancai_engine.cpp
+  ⚙️ dna/dna_activator.cpp
+  ⚙️ tests/test_main.cpp
+
+── 沙箱容器状态 ──
+  📦 config: 1文件
+  📦 unknown: 5文件
+
+── 回收站 ──
+  🗑️ 3 文件 · 1.5G
+
+DNA: #龍芯⚡️2026-04-13 00:11:51-AUTO-CATALOG
