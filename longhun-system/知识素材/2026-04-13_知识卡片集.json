@@ -1,0 +1,83 @@
+{
+  "dna": "#龍芯⚡️2026-04-13-知识卡片引擎-v1.0",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "exported": "2026-04-13T10:39:26.119659",
+  "cards": [
+    {
+      "name": "数据结构",
+      "one_line": "东西怎么摆放，才能好找好用",
+      "essence": "「存」和「取」的平衡。再复杂的结构，本质都逃不掉这个。",
+      "minimal": "data = [1, 2, 3]\ndata.append(4)  # 存\nprint(data[0])  # 取",
+      "boundary": "数据量大→列表慢，需要排序→要换结构",
+      "source": "计算机基础公开知识 · ChatGPT灵感 · Claude落地",
+      "category": "计算机基础",
+      "fail_conditions": [
+        "无溯源 → 无效",
+        "修改不留痕 → 无效",
+        "用于欺骗 → 自动拒绝"
+      ],
+      "created": "2026-04-13 10:39",
+      "uid": "9622",
+      "dna": "#龍芯⚡️20260413-数据结构-v1.0",
+      "hash": "2887a84af5c6b7f0",
+      "status": "🟢"
+    },
+    {
+      "name": "操作系统",
+      "one_line": "管电脑资源的管家",
+      "essence": "资源分配。CPU、内存、文件、设备——谁用？什么时候用？用多少？",
+      "minimal": "ps aux       # 查看进程\nkill -9 PID  # 杀进程",
+      "boundary": "误杀系统进程→系统崩，权限不足→执行失败",
+      "source": "计算机基础公开知识 · ChatGPT灵感 · Claude落地",
+      "category": "计算机基础",
+      "fail_conditions": [
+        "无溯源 → 无效",
+        "修改不留痕 → 无效",
+        "用于欺骗 → 自动拒绝"
+      ],
+      "created": "2026-04-13 10:39",
+      "uid": "9622",
+      "dna": "#龍芯⚡️20260413-操作系统-v1.0",
+      "hash": "b6b198d7dedb5af7",
+      "status": "🟢"
+    },
+    {
+      "name": "网络TCP/IP",
+      "one_line": "把数据从A送到B",
+      "essence": "可靠传输。不是「发出去」，是：发到+对方收到+没错。",
+      "minimal": "ping 8.8.8.8  # 最简网络测试",
+      "boundary": "网络通≠服务正常，IP通≠网站能访问",
+      "source": "计算机基础公开知识 · ChatGPT灵感 · Claude落地",
+      "category": "计算机基础",
+      "fail_conditions": [
+        "无溯源 → 无效",
+        "修改不留痕 → 无效",
+        "用于欺骗 → 自动拒绝"
+      ],
+      "created": "2026-04-13 10:39",
+      "uid": "9622",
+      "dna": "#龍芯⚡️20260413-网络TCP/IP-v1.0",
+      "hash": "1fdcb90972c48be5",
+      "status": "🟢"
+    },
+    {
+      "name": "哈希/加密",
+      "one_line": "把内容变成指纹",
+      "essence": "唯一映射。同一输入→同一输出，不同输入→基本不同输出。",
+      "minimal": "import hashlib\ndata = \"hello\"\nhash_value = hashlib.sha256(data.encode()).hexdigest()\nprint(hash_value)",
+      "boundary": "哈希≠加密（不能还原），不能用于隐藏数据",
+      "source": "计算机基础公开知识 · ChatGPT灵感 · Claude落地",
+      "category": "计算机基础",
+      "fail_conditions": [
+        "无溯源 → 无效",
+        "修改不留痕 → 无效",
+        "用于欺骗 → 自动拒绝"
+      ],
+      "created": "2026-04-13 10:39",
+      "uid": "9622",
+      "dna": "#龍芯⚡️20260413-哈希/加密-v1.0",
+      "hash": "276379fb9d1d49c9",
+      "status": "🟢"
+    }
+  ]
+}

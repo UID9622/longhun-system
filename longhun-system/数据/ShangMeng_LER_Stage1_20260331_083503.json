@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "version": "1.0",
+    "dna": "#龍芯⚡️2026-03-31-SHANGMENG-LER-v1.0",
+    "seed": 9622,
+    "timestamp": "2026-03-31T08:35:03.604294",
+    "sample_rate": 4096,
+    "segment_len": 4096,
+    "ler_threshold": 2.5
+  },
+  "results": [
+    {
+      "name": "纯噪声段 H₀",
+      "injected": false,
+      "snr_target": 0.0,
+      "stats": {
+        "mean": -1.8183132257808565e-24,
+        "rms": 1.0026090140512744e-21,
+        "peak": 4.2214992768445854e-21,
+        "n": 4096
+      },
+      "ler": {
+        "L_null": 0,
+        "L_mdl": 7.199999999999999,
+        "delta_HL": -7.199999999999999,
+        "compression_ratio": -71999999999.99998,
+        "is_candidate": false
+      },
+      "dna_hash": "66a6c9ccf1e9b1d3",
+      "timestamp": "2026-03-31T08:35:03.554582"
+    },
+    {
+      "name": "弱信号注入 SNR=4",
+      "injected": true,
+      "snr_target": 4.0,
+      "stats": {
+        "mean": 7.339105755414804e-24,
+        "rms": 4.078870282425815e-21,
+        "peak": 1.2705249662532773e-20,
+        "n": 4096
+      },
+      "ler": {
+        "L_null": 0,
+        "L_mdl": 7.199999999999999,
+        "delta_HL": -7.199999999999999,
+        "compression_ratio": -71999999999.99998,
+        "is_candidate": false
+      },
+      "dna_hash": "67ff8ac2b37dc40b",
+      "timestamp": "2026-03-31T08:35:03.567163"
+    },
+    {
+      "name": "中等信号 SNR=8 (GW150914级)",
+      "injected": true,
+      "snr_target": 8.0,
+      "stats": {
+        "mean": 5.0972117943584e-24,
+        "rms": 7.958354297628916e-21,
+        "peak": 2.2157657537388895e-20,
+        "n": 4096
+      },
+      "ler": {
+        "L_null": 0,
+        "L_mdl": 7.199999999999999,
+        "delta_HL": -7.199999999999999,
+        "compression_ratio": -71999999999.99998,
+        "is_candidate": false
+      },
+      "dna_hash": "28df7f2379a77390",
+      "timestamp": "2026-03-31T08:35:03.579280"
+    },
+    {
+      "name": "强信号 SNR=15",
+      "injected": true,
+      "snr_target": 15.0,
+      "stats": {
+        "mean": 5.3690748681422965e-24,
+        "rms": 1.486591615714965e-20,
+        "peak": 4.0041236911471265e-20,
+        "n": 4096
+      },
+      "ler": {
+        "L_null": 0,
+        "L_mdl": 7.199999999999999,
+        "delta_HL": -7.199999999999999,
+        "compression_ratio": -71999999999.99998,
+        "is_candidate": false
+      },
+      "dna_hash": "5901acfabf76d761",
+      "timestamp": "2026-03-31T08:35:03.591483"
+    },
+    {
+      "name": "极弱信号 SNR=2",
+      "injected": true,
+      "snr_target": 2.0,
+      "stats": {
+        "mean": -2.8295813414389987e-23,
+        "rms": 2.209201191890456e-21,
+        "peak": 7.381729127336852e-21,
+        "n": 4096
+      },
+      "ler": {
+        "L_null": 0,
+        "L_mdl": 7.199999999999999,
+        "delta_HL": -7.199999999999999,
+        "compression_ratio": -71999999999.99998,
+        "is_candidate": false
+      },
+      "dna_hash": "b369596b46aa141b",
+      "timestamp": "2026-03-31T08:35:03.603917"
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Huawei Technologies Co., Ltd. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+	background: url('./media/login-background.png') center center / cover no-repeat;
+	background-color: #1a1a2e;
+	color: #ffffff;
+	height: 100vh;
+	overflow: hidden;
+	-webkit-app-region: no-drag;
+}
+
+/* Window header for controls */
+.window-header {
+	height: 28px;
+	position: fixed;
+	top: 16px;
+	left: 16px;
+	right: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	-webkit-app-region: drag;
+	z-index: 1000;
+}
+
+/* Window controls container */
+.window-controls {
+	width: 116px;
+	height: 28px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 16px;
+	background: transparent;
+	-webkit-app-region: no-drag;
+}
+
+/* Window control buttons */
+.window-control {
+	box-sizing: border-box;
+	width: 28px;
+	height: 28px;
+	background: transparent;
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 6px;
+	border-radius: 8px;
+	-webkit-app-region: no-drag;
+}
+
+.window-control img {
+	width: 16px;
+	height: 16px;
+}
+
+.window-control:hover {
+	background: rgba(77, 77, 77, 1);
+}
+
+.window-control:focus-visible {
+	border: 2px solid rgba(180, 148, 245, 1);
+	outline: none;
+}
+
+.window-control:active {
+	background: rgba(51, 51, 51, 1);
+}
+
+/* Back button */
+.back-button {
+	width: 72px;
+	height: 28px;
+	background: transparent;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 8px;
+	border-radius: 8px;
+	-webkit-app-region: no-drag;
+}
+
+.back-button .back-icon {
+	width: 16px;
+	height: 16px;
+	display: block;
+	margin-left: 8px;
+	background-image: url('./media/back.svg');
+}
+
+.back-button .back-text {
+	height: 22px;
+	color: rgba(230, 230, 230, 1);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+.back-button:not(:disabled):hover {
+	background: rgba(77, 77, 77, 1);
+}
+
+.back-button:not(:disabled):active {
+	background: rgba(51, 51, 51, 1);
+}
+
+/* Main content container */
+.container {
+	position: relative;
+	width: 960px;
+	height: 624px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+/* Login title */
+.container h1 {
+	margin-top: 100px;
+	height: 36px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 36px;
+	letter-spacing: 0px;
+	text-align: center;
+}
+
+/* Logo and product name combo */
+.logo-product-combo {
+	margin-top: 32px;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 16px;
+}
+
+/* Logo image */
+.logo-product-combo .logo-img {
+	width: 26px;
+	height: 26px;
+}
+
+/* Product name */
+.logo-product-combo .product-name {
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: rgba(255, 255, 255, 1);
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 44px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+/* Architecture section */
+.architecture-section {
+	margin-top: 21px;
+	width: 722px;
+	height: 359px;
+	border-radius: 30px;
+	background: url('./media/login-architecture.png') center top / cover no-repeat;
+	position: relative;
+}
+
+/* Buttons */
+.button-group {
+	position: absolute;
+	top: 221px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 21px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button styles */
+.btn {
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	cursor: pointer;
+}
+
+.btn:focus-visible,
+.back-button:focus-visible {
+	border: 2px solid rgba(180, 148, 245, 1);
+	outline: none;
+}
+
+.btn-primary {
+	width: 252px;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	padding: 9px 20px;
+	border-radius: 8px;
+	background: rgba(131, 77, 240, 1);
+}
+
+.btn-primary:hover {
+	background: rgba(180, 148, 245, 1);
+}
+
+.btn-primary .btn-primary-text {
+	height: 22px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: 0px;
+	margin: 9px 0;
+}
+
+.btn-secondary {
+	width: 252px;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 20px;
+	border-radius: 8px;
+	background: transparent;
+}
+
+.btn-secondary .btn-secondary-text {
+	color: rgba(230, 230, 230, 1);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+.btn-secondary:not(:disabled):hover {
+	background: rgba(77, 77, 77, 1);
+}
+
+.btn-secondary:not(:disabled):active {
+	background: rgba(38, 38, 38, 1);
+}
+
+/* Progress bar */
+.progress-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 6px;
+	transform: rotate(-180.00deg);
+	background: linear-gradient(90.00deg, rgba(152, 107, 255, 1) 11%, rgba(59, 153, 186, 1) 56%, rgba(22, 24, 26, 1) 95%);
+	opacity: 0.55;
+}

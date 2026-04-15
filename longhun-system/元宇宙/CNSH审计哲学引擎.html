@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂天道系统 · CNSH审计哲学引擎 v0.3.0 · UID9622</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+:root {
+  --bg:#020408;--bg2:#060d14;--bg3:#0a1520;--panel:#040c14;
+  --gold:#c8973a;--gold2:#f0c060;--jade:#1fd18a;--jade2:#0e7a50;
+  --red:#e03535;--red2:#8a1f1f;--orange:#e07820;--orange2:#7a3a08;
+  --yellow:#d0c020;--yellow2:#5a5008;--gray:#708090;--gray2:#2a3a48;
+  --purple:#cc44cc;--purple2:#440044;
+  --text:#c8d8e8;--text2:#5a7a8a;--border:#1a3040;--border-gold:#3a2a10;
+  --gG:0 0 14px rgba(31,209,138,.4);--gO:0 0 14px rgba(224,120,32,.5);
+  --gR:0 0 14px rgba(224,53,53,.5);--gAu:0 0 14px rgba(200,151,58,.4);
+  --gP:0 0 14px rgba(204,68,204,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Share Tech Mono',monospace;min-height:100vh;overflow-x:hidden;}
+
+/* HEADER */
+.hdr{background:linear-gradient(180deg,#000,var(--bg2));border-bottom:1px solid var(--border-gold);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.hdr-title{font-family:'Noto Serif SC',serif;font-weight:900;font-size:16px;color:var(--gold);letter-spacing:2px;text-shadow:var(--gAu);}
+.hdr-sub{font-size:10px;color:var(--text2);letter-spacing:1px;}
+.dragon{font-size:26px;filter:drop-shadow(0 0 8px rgba(200,151,58,.9));animation:dp 3s ease-in-out infinite;}
+@keyframes dp{0%,100%{filter:drop-shadow(0 0 8px rgba(200,151,58,.8));}50%{filter:drop-shadow(0 0 20px rgba(200,151,58,1));}}
+.uid-tag{background:var(--border-gold);border:1px solid var(--gold);border-radius:4px;padding:3px 10px;font-size:10px;color:var(--gold);}
+.live-t{font-size:12px;color:var(--jade);text-shadow:var(--gG);letter-spacing:1px;}
+
+/* NAV */
+.nav{background:var(--bg2);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;padding:0 16px;}
+.tab{padding:9px 18px;font-size:11px;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:'Share Tech Mono',monospace;letter-spacing:1px;transition:all .2s;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);text-shadow:var(--gAu);}
+
+/* LAYOUT */
+.main{padding:16px 20px;max-width:1120px;margin:0 auto;}
+.page{display:none;}.page.active{display:block;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr;}}
+
+/* CARDS */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:16px 18px;margin-bottom:14px;}
+.card.cG{border-color:var(--jade2);}
+.card.cR{border-color:var(--red2);}
+.card.cO{border-color:var(--orange2);}
+.card.cAu{border-color:var(--border-gold);}
+.card.cP{border-color:var(--purple2);}
+
+/* SECTION TITLE */
+.st{font-family:'Noto Serif SC',serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;letter-spacing:1px;}
+.st::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-gold),transparent);}
+
+/* BUTTONS */
+.btn{border:none;border-radius:4px;padding:8px 16px;font-family:'Share Tech Mono',monospace;font-size:11px;cursor:pointer;letter-spacing:1px;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn:active{transform:scale(.96);}
+.bG{background:linear-gradient(135deg,#041a0e,#083020);border:1px solid var(--jade2);color:var(--jade);}
+.bG:hover{box-shadow:var(--gG);}
+.bAu{background:linear-gradient(135deg,#2a1a04,#4a2e08);border:1px solid var(--gold);color:var(--gold2);}
+.bAu:hover{box-shadow:var(--gAu);}
+.bR{background:linear-gradient(135deg,#1a0404,#300808);border:1px solid var(--red2);color:var(--red);}
+.bR:hover{box-shadow:var(--gR);}
+.bO{background:linear-gradient(135deg,#1a0e04,#302008);border:1px solid var(--orange2);color:var(--orange);}
+.bO:hover{box-shadow:var(--gO);}
+.bY{background:linear-gradient(135deg,#1a1a04,#302808);border:1px solid var(--yellow2);color:var(--yellow);}
+.bGr{background:linear-gradient(135deg,#101820,#1a2a38);border:1px solid var(--gray2);color:var(--gray);}
+.bP{background:linear-gradient(135deg,#100010,#220022);border:1px solid var(--purple2);color:var(--purple);}
+.bP:hover{box-shadow:var(--gP);}
+.bGhost{background:transparent;border:1px solid var(--border);color:var(--text2);}
+.bGhost:hover{border-color:var(--text2);color:var(--text);}
+.sm{padding:4px 10px;font-size:10px;}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+
+/* INPUT */
+.inp{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:8px 12px;color:var(--text);font-family:'Share Tech Mono',monospace;font-size:11px;width:100%;outline:none;transition:border-color .2s;}
+.inp:focus{border-color:var(--gold);}
+.inp::placeholder{color:var(--text2);}
+textarea.inp{resize:vertical;min-height:70px;}
+select.inp{cursor:pointer;}
+lbl{font-size:10px;color:var(--text2);display:block;margin-bottom:4px;letter-spacing:1px;}
+.fr{margin-bottom:10px;}
+
+/* STATUS DOTS */
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;animation:blink 2s ease-in-out infinite;}
+.dG{background:var(--jade);box-shadow:var(--gG);}
+.dR{background:var(--red);box-shadow:var(--gR);}
+.dO{background:var(--orange);box-shadow:var(--gO);}
+.dY{background:var(--yellow);}
+.dGr{background:var(--gray);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* LOG BOX */
+.log{background:#000;border:1px solid var(--border);border-radius:4px;padding:10px;min-height:100px;max-height:260px;overflow-y:auto;font-size:11px;line-height:1.9;font-family:'Share Tech Mono',monospace;}
+.log::-webkit-scrollbar{width:3px;}.log::-webkit-scrollbar-thumb{background:var(--border);}
+.lG{color:var(--jade);}.lO{color:var(--orange);}.lR{color:var(--red);}.lY{color:var(--yellow);}.lAu{color:var(--gold);}.li{color:var(--text2);}.lP{color:var(--purple);}
+
+/* AUDIT ITEMS */
+.ai{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:11px 14px;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;transition:border-color .2s;}
+.ai:hover{border-color:var(--border-gold);}
+.ai-icon{font-size:20px;min-width:28px;text-align:center;padding-top:1px;}
+.ai-body{flex:1;}
+.ai-name{font-size:12px;color:var(--text);margin-bottom:3px;font-weight:bold;}
+.ai-meta{font-size:10px;color:var(--text2);margin-bottom:3px;}
+.ai-desc{font-size:10px;color:var(--text2);}
+.ai-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.badge{font-size:10px;padding:2px 8px;border-radius:3px;letter-spacing:.5px;font-weight:bold;white-space:nowrap;}
+.bPending{background:#1a1a1a;border:1px solid #666;color:#999;}
+.bWarned{background:var(--yellow2);border:1px solid var(--yellow);color:var(--yellow);}
+.bEscalated{background:var(--orange2);border:1px solid var(--orange);color:var(--orange);}
+.bAlerted{background:var(--red2);border:1px solid var(--red);color:var(--red);}
+.bBlacklisted{background:var(--purple2);border:1px solid var(--purple);color:var(--purple);}
+.bCleared{background:#041a0e;border:1px solid var(--jade2);color:var(--jade);}
+
+/* COUNTDOWN */
+.countdown{font-size:10px;color:var(--orange);letter-spacing:.5px;}
+.countdown.expired{color:var(--red);}
+
+/* FOUR COLOR CHART */
+.four-color{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.fc-item{background:var(--bg3);border-radius:5px;padding:10px 12px;border-left:3px solid;}
+.fc-gray{border-color:var(--gray);}
+.fc-yellow{border-color:var(--yellow);}
+.fc-orange{border-color:var(--orange);}
+.fc-red{border-color:var(--red);}
+.fc-title{font-size:12px;font-weight:bold;margin-bottom:4px;}
+.fc-desc{font-size:10px;color:var(--text2);line-height:1.6;}
+
+/* SHIELD */
+.shield-item{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:10px 12px;margin-bottom:6px;}
+.shield-title{font-size:11px;color:var(--text);margin-bottom:3px;}
+.shield-meta{font-size:10px;color:var(--text2);}
+.shield-status{font-size:10px;padding:2px 7px;border-radius:3px;}
+.sBurn{background:rgba(224,53,53,.15);color:var(--red);border:1px solid var(--red2);}
+.sFeed{background:rgba(204,68,204,.15);color:var(--purple);border:1px solid var(--purple2);}
+.sState{background:rgba(200,151,58,.15);color:var(--gold);border:1px solid var(--border-gold);}
+.sClear{background:rgba(31,209,138,.1);color:var(--jade);border:1px solid var(--jade2);}
+
+/* ERROR BOOK LAYERS */
+.eb-layer{border-radius:5px;padding:12px 14px;margin-bottom:8px;}
+.ebL1{background:rgba(224,53,53,.05);border:1px solid var(--red2);}
+.ebL2{background:rgba(224,120,32,.05);border:1px solid var(--orange2);}
+.ebL3{background:rgba(112,128,144,.05);border:1px solid var(--gray2);}
+.eb-count{font-size:28px;font-weight:bold;margin-bottom:2px;}
+.eb-label{font-size:10px;color:var(--text2);letter-spacing:1px;}
+.hash-chain{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--jade2);margin-top:6px;word-break:break-all;}
+
+/* STAT CARD */
+.scard{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:12px;text-align:center;}
+.sval{font-size:26px;font-weight:bold;margin-bottom:3px;}
+.slabel{font-size:10px;color:var(--text2);letter-spacing:1px;}
+
+/* STATUS BAR */
+.statusbar{background:var(--bg2);border-top:1px solid var(--border);padding:5px 20px;display:flex;gap:20px;font-size:10px;color:var(--text2);position:fixed;bottom:0;left:0;right:0;z-index:100;flex-wrap:wrap;}
+.statusbar span{display:flex;align-items:center;gap:4px;}
+body{padding-bottom:32px;}
+
+/* TOAST */
+#toast{position:fixed;bottom:40px;right:20px;background:var(--bg3);border:1px solid var(--jade);border-radius:5px;padding:9px 16px;font-size:11px;color:var(--jade);z-index:999;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;}
+#toast.show{opacity:1;transform:translateY(0);}
+#toast.warn{border-color:var(--orange);color:var(--orange);}
+#toast.err{border-color:var(--red);color:var(--red);}
+
+/* PROGRESS BAR */
+.pbar{background:var(--bg3);border-radius:3px;height:5px;overflow:hidden;margin-top:5px;}
+.pfill{height:100%;border-radius:3px;transition:width .5s;}
+
+/* BLOCKQUOTE */
+.quote{border-left:2px solid var(--gold);padding:8px 14px;font-size:11px;color:var(--text2);background:rgba(200,151,58,.04);border-radius:0 4px 4px 0;margin-bottom:12px;line-height:1.8;}
+
+/* SEPARATOR */
+.sep{border:none;border-top:1px solid var(--border);margin:12px 0;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="dragon">⚖️</span>
+    <div>
+      <div class="hdr-title">龍魂天道系统 · CNSH审计哲学引擎</div>
+      <div class="hdr-sub">天网恢恢·疏而不失 · v0.3.0 · 四色审计 · 加密盾 · 记错本三层</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="live-t" id="hClock">--:--:--</div>
+    <div class="uid-tag">UID · 9622</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="tab active" onclick="sp('audit')">🛡 四色审计链</button>
+  <button class="tab" onclick="sp('shield')">🔐 加密盾</button>
+  <button class="tab" onclick="sp('errbook')">📕 记错本三层</button>
+  <button class="tab" onclick="sp('blacklist')">🚫 龍魂黑名单</button>
+  <button class="tab" onclick="sp('dna')">🧬 DNA生成</button>
+  <button class="tab" onclick="sp('dashboard')">📊 天道总览</button>
+</div>
+
+<div class="main">
+
+<!-- ══════════════ 四色审计链 ══════════════ -->
+<div class="page active" id="page-audit">
+  <div class="quote">《道德经》第七十三章："天网恢恢，疏而不失" —— 先预警48h → 走漏洞全网警报 → 不配合永久拉黑</div>
+
+  <!-- 四色说明 -->
+  <div class="card cAu">
+    <div class="st">⚖️ 四色行为分级体系</div>
+    <div class="four-color">
+      <div class="fc-item fc-gray">
+        <div class="fc-title">⚪ 灰色 · 思想/模式</div>
+        <div class="fc-desc">异常模式但未违规 · 仅记录不行动 · 写入L3灰度层 · 90天自动清理</div>
+      </div>
+      <div class="fc-item fc-yellow">
+        <div class="fc-title">🟡 黄色 · 犯错</div>
+        <div class="fc-desc">首次触发敏感规则 · 自动警告"请注意言行" · 写入L2模式层 · 给机会改正</div>
+      </div>
+      <div class="fc-item fc-orange">
+        <div class="fc-title">🟠 橙色 · 严重犯错</div>
+        <div class="fc-desc">连续3次黄色 / 预警48h无回应 · 降信用限功能 · 最后警告机会</div>
+      </div>
+      <div class="fc-item fc-red">
+        <div class="fc-title">🔴 红色 · 犯罪/走漏洞</div>
+        <div class="fc-desc">触发刑法红线 / 走漏洞免责 · 立即存证上链 · 推送司法节点 · 全网曝光</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <!-- 提交举报 -->
+    <div class="card">
+      <div class="st">📋 提交审计举报</div>
+      <div class="fr"><lbl>被举报主体</lbl><input class="inp" id="aName" placeholder="系统/平台/账号/机构名称..."></div>
+      <div class="fr"><lbl>举报类型</lbl>
+        <select class="inp" id="aType">
+          <option value="翻译偏差">翻译偏差 · 出海失根</option>
+          <option value="走漏洞">走漏洞 · 绕过规则免责</option>
+          <option value="数据窃取">数据窃取 · 侵犯主权</option>
+          <option value="拒不配合">拒不配合 · 拒绝调查</option>
+          <option value="重复违规">重复违规 · 多次触发</option>
+          <option value="系统绕过">系统绕过 · 权限穿越</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>初始颜色级别</lbl>
+        <select class="inp" id="aSeverity">
+          <option value="gray">⚪ 灰色 · 仅观察</option>
+          <option value="yellow" selected>🟡 黄色 · 犯错预警</option>
+          <option value="orange">🟠 橙色 · 严重犯错</option>
+          <option value="red">🔴 红色 · 直接存证</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>详细描述</lbl><textarea class="inp" id="aDesc" placeholder="具体说明问题经过..."></textarea></div>
+      <button class="btn bAu" style="width:100%;padding:10px;font-size:12px" onclick="submitAudit()">⚡ 提交审计举报</button>
+    </div>
+
+    <!-- 统计 -->
+    <div class="card">
+      <div class="st">📊 实时审计统计</div>
+      <div class="g3" id="auditStats">
+        <div class="scard"><div class="sval" id="s-gray" style="color:var(--gray)">0</div><div class="slabel">⚪ 灰色</div></div>
+        <div class="scard"><div class="sval" id="s-yellow" style="color:var(--yellow)">0</div><div class="slabel">🟡 黄色</div></div>
+        <div class="scard"><div class="sval" id="s-orange" style="color:var(--orange)">0</div><div class="slabel">🟠 橙色</div></div>
+        <div class="scard"><div class="sval" id="s-alerted" style="color:var(--red)">0</div><div class="slabel">🚨 警报</div></div>
+        <div class="scard"><div class="sval" id="s-blacklisted" style="color:var(--purple)">0</div><div class="slabel">🚫 拉黑</div></div>
+        <div class="scard"><div class="sval" id="s-cleared" style="color:var(--jade)">0</div><div class="slabel">✅ 清除</div></div>
+      </div>
+      <div class="st" style="margin-top:14px;">📋 操作日志</div>
+      <div class="log" id="auditLog"><span class="li">-- 审计操作日志 --</span></div>
+    </div>
+  </div>
+
+  <!-- 案例列表 -->
+  <div class="card">
+    <div class="st">🗂 审计案例列表（全执行链路）</div>
+    <div style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="btn bGhost sm" onclick="filterAudit('all')">全部</button>
+      <button class="btn bGr sm" onclick="filterAudit('gray')">⚪ 灰色</button>
+      <button class="btn bY sm" onclick="filterAudit('yellow')">🟡 黄色</button>
+      <button class="btn bO sm" onclick="filterAudit('orange')">🟠 橙色</button>
+      <button class="btn bR sm" onclick="filterAudit('alerted')">🔴 已警报</button>
+      <button class="btn bP sm" onclick="filterAudit('blacklisted')">🚫 黑名单</button>
+    </div>
+    <div id="auditList"><div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">暂无审计案例 · 使用上方表单提交</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ 加密盾 ══════════════ -->
+<div class="page" id="page-shield">
+  <div class="quote">加密盾·责任倒置设计 — 自己的隐私阅后即焚·投喂别人数据你就是证据·国家信息P0永久封存</div>
+
+  <div class="g2">
+    <div class="card cR">
+      <div class="st">🔥 加密盾检测器</div>
+      <div class="fr"><lbl>提交者DNA码</lbl><input class="inp" id="shDNA" placeholder="#ZHUGEXIN⚡️ 或 UID9622..."></div>
+      <div class="fr"><lbl>提交内容（模拟检测）</lbl><textarea class="inp" id="shContent" placeholder="输入要检测的内容...&#10;&#10;测试：&#10;- 含「机密」「军事」→ 触发国家封存&#10;- 提交者DNA与数据身份不符 → 投喂追踪&#10;- 含私钥/身份证字段 → 阅后即焚"></textarea></div>
+      <div class="fr"><lbl>包含字段类型</lbl>
+        <select class="inp" id="shField">
+          <option value="normal">普通内容</option>
+          <option value="contact">联系方式 (contact)</option>
+          <option value="gpg_private">GPG私钥 (gpg_private)</option>
+          <option value="id_number">身份证号 (id_number)</option>
+          <option value="biometric">生物特征 (biometric)</option>
+          <option value="webauthn_id">WebAuthn ID</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>数据来源身份</lbl>
+        <select class="inp" id="shOwner">
+          <option value="self">本人（提交者本人数据）</option>
+          <option value="other">他人（疑似投喂他人数据）</option>
+        </select>
+      </div>
+      <button class="btn bR" style="width:100%;padding:10px;font-size:12px" onclick="runShield()">🔐 运行加密盾检测</button>
+    </div>
+
+    <div class="card">
+      <div class="st">📋 三层盾机制</div>
+      <div class="shield-item">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+          <div class="shield-title">🔥 阅后即焚处理器</div>
+          <span class="shield-status sBurn" id="st-burn">就绪</span>
+        </div>
+        <div class="shield-meta">触发：提交含私钥/身份证/生物特征 → 内存处理→销毁原文→只留哈希痕迹</div>
+        <div class="pbar"><div class="pfill" id="pb-burn" style="width:0%;background:var(--red)"></div></div>
+      </div>
+      <div class="shield-item">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+          <div class="shield-title">🔍 投喂追踪检测器</div>
+          <span class="shield-status sFeed" id="st-feed">就绪</span>
+        </div>
+        <div class="shield-meta">触发：DNA与数据指向身份不符 → 投喂者DNA码本身成为证据 · 永久锁定</div>
+        <div class="pbar"><div class="pfill" id="pb-feed" style="width:0%;background:var(--purple)"></div></div>
+      </div>
+      <div class="shield-item">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+          <div class="shield-title">🇨🇳 国家信息封存</div>
+          <span class="shield-status sState" id="st-state">就绪</span>
+        </div>
+        <div class="shield-meta">触发：内容命中机密特征词 → P0永久封存·不可删·不可匿名</div>
+        <div class="pbar"><div class="pfill" id="pb-state" style="width:0%;background:var(--gold)"></div></div>
+      </div>
+      <div class="sep"></div>
+      <div class="st">🛡 加密盾日志 (shield_burn.jsonl)</div>
+      <div class="log" id="shieldLog"><span class="li">-- shield_burn.jsonl 输出 --</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="st">📊 API权限矩阵</div>
+    <div style="font-size:11px;line-height:2.2;">
+      <div style="display:grid;grid-template-columns:2fr 1fr 2fr;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+        <div style="background:var(--bg3);padding:8px 12px;font-weight:bold;color:var(--gold)">数据类型</div>
+        <div style="background:var(--bg3);padding:8px 12px;font-weight:bold;color:var(--gold);text-align:center">Notion API</div>
+        <div style="background:var(--bg3);padding:8px 12px;font-weight:bold;color:var(--gold)">说明</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border)">用户贡献 / 公开档案</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);text-align:center;color:var(--jade)">✅ 可读</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);color:var(--text2)">公开内容 · 已脱敏版本</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border)">举报记录（脱敏版）</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);text-align:center;color:var(--jade)">✅ 可读</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);color:var(--text2)">去除个人身份信息</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border)">私钥 / GPG私钥</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);text-align:center;color:var(--red)">❌ 永不</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);color:var(--text2)">阅后即焚 · 永不入Notion</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border)">生物认证 / 联系方式</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);text-align:center;color:var(--red)">❌ 永不</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);color:var(--text2)">阅后即焚 · 本地销毁</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border)">身份证号 / 国家机密词</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);text-align:center;color:var(--red)">❌ P0封存</div>
+        <div style="padding:6px 12px;border-top:1px solid var(--border);color:var(--text2)">P0永久封存 · 不可匿名化</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 记错本三层 ══════════════ -->
+<div class="page" id="page-errbook">
+  <div class="quote">三层原则：L1铁证层·不可擦除 → L2模式层·自动学习 → L3灰度层·90天清理</div>
+
+  <div class="g3" style="margin-bottom:14px;">
+    <div class="eb-layer ebL1">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span class="dot dR"></span>
+        <span style="color:var(--red);font-size:12px;font-weight:bold">L1 铁证层</span>
+      </div>
+      <div class="eb-count" style="color:var(--red)" id="eb-l1-count">0</div>
+      <div class="eb-label">🔴红色 / 🟠橙色 · 不可DELETE/UPDATE · 哈希链</div>
+      <div class="hash-chain" id="eb-l1-hash">GENESIS_HASH: tiandao_v1_init</div>
+      <button class="btn bR sm" style="width:100%;margin-top:8px" onclick="verifyChain('L1')">🔍 验证哈希链完整性</button>
+    </div>
+    <div class="eb-layer ebL2">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span class="dot dO"></span>
+        <span style="color:var(--orange);font-size:12px;font-weight:bold">L2 模式层</span>
+      </div>
+      <div class="eb-count" style="color:var(--orange)" id="eb-l2-count">0</div>
+      <div class="eb-label">🟡黄色 · 不可DELETE · 可标注 · 自动学习</div>
+      <div class="hash-chain" id="eb-l2-hash">学习引擎就绪 · 等待数据...</div>
+      <button class="btn bO sm" style="width:100%;margin-top:8px" onclick="showPatterns()">🧠 查看已学习模式</button>
+    </div>
+    <div class="eb-layer ebL3">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span class="dot dGr"></span>
+        <span style="color:var(--gray);font-size:12px;font-weight:bold">L3 灰度层</span>
+      </div>
+      <div class="eb-count" style="color:var(--gray)" id="eb-l3-count">0</div>
+      <div class="eb-label">⚪灰色 · 90天自动清理 · 仅分析 · 不作证据</div>
+      <div class="hash-chain" id="eb-l3-expires">最早过期: 90天后</div>
+      <button class="btn bGr sm" style="width:100%;margin-top:8px" onclick="cleanL3()">🗑 清理过期L3记录</button>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="st">🧠 错误模式识别引擎</div>
+      <div id="patternList"><div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">暂无已学习模式 · 3次同类错误触发自动学习</div></div>
+      <div class="sep"></div>
+      <div class="st">升级规则（自动触发）</div>
+      <div style="font-size:11px;line-height:2;color:var(--text2);">
+        <div>🟡→🟠: 30天内同类黄色 ≥ <strong style="color:var(--yellow)">3次</strong></div>
+        <div>🟠→🔴: 7天内连续橙色 ≥ <strong style="color:var(--orange)">3次</strong></div>
+        <div>忽略预警: 连续3次无回应 → <strong style="color:var(--red)">直接推送证据链</strong></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="st">📋 记错本操作日志</div>
+      <div class="log" id="ebLog"><span class="li">-- 记错本操作日志 --</span></div>
+      <div class="btn-row" style="margin-top:8px">
+        <button class="btn bGhost sm" onclick="exportErrBook()">📤 导出证据包</button>
+        <button class="btn bG sm" onclick="checkChainIntegrity()">🔗 全链完整性检查</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="st">🗂 记错本完整记录</div>
+    <div style="margin-bottom:8px;display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="btn bGhost sm" onclick="filterEB('all')">全部</button>
+      <button class="btn bR sm" onclick="filterEB('RED')">🔴 L1铁证</button>
+      <button class="btn bO sm" onclick="filterEB('ORANGE')">🟠 L1铁证</button>
+      <button class="btn bY sm" onclick="filterEB('YELLOW')">🟡 L2模式</button>
+      <button class="btn bGr sm" onclick="filterEB('GRAY')">⚪ L3灰度</button>
+    </div>
+    <div id="ebRecords"><div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">审计触发后记录自动写入</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ 黑名单 ══════════════ -->
+<div class="page" id="page-blacklist">
+  <div class="quote">龍魂黑名单 — 走漏洞+不配合=永久拉黑·没有灰色地带·不接受申诉</div>
+
+  <div class="g2">
+    <div class="card cP">
+      <div class="st" style="color:var(--purple)">🚫 加入龍魂黑名单</div>
+      <div class="fr"><lbl>主体名称</lbl><input class="inp" id="blName" placeholder="系统/平台/账号/机构..."></div>
+      <div class="fr"><lbl>主体类型</lbl>
+        <select class="inp" id="blType">
+          <option value="系统">系统</option><option value="个人">个人</option>
+          <option value="机构">机构</option><option value="企业">企业</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>拉黑级别</lbl>
+        <select class="inp" id="blLevel">
+          <option value="警告">⚠️ 警告</option>
+          <option value="全网通报">📢 全网通报</option>
+          <option value="永久拉黑" selected>🚫 永久拉黑</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>触发原因</lbl>
+        <select class="inp" id="blReason">
+          <option value="走漏洞绕过审计">走漏洞绕过审计</option>
+          <option value="拒绝配合调查">拒绝配合调查</option>
+          <option value="数据主权侵犯">数据主权侵犯</option>
+          <option value="多次违规不改正">多次违规不改正</option>
+          <option value="欺诈行为">欺诈行为</option>
+          <option value="全网警报后继续违规">全网警报后继续违规</option>
+        </select>
+      </div>
+      <div class="fr"><lbl>补充说明</lbl><textarea class="inp" id="blNote" style="min-height:55px" placeholder="记录详情..."></textarea></div>
+      <button class="btn bP" style="width:100%;padding:10px;font-size:12px" onclick="addBL()">🚫 列入龍魂黑名单</button>
+    </div>
+
+    <div class="card">
+      <div class="st">🔍 黑名单查询</div>
+      <div class="fr"><input class="inp" id="blCheck" placeholder="输入名称查询是否在黑名单..."></div>
+      <button class="btn bO" style="width:100%;margin-bottom:12px" onclick="checkBL()">🔍 查询</button>
+      <div id="blCheckResult"></div>
+      <div class="sep"></div>
+      <div style="font-size:11px;color:var(--text2);line-height:2.2">
+        <div>🚫 黑名单总数：<span id="blCount" style="color:var(--purple);font-size:16px;font-weight:bold">0</span></div>
+        <div>🛡 保护范围：全平台·永久生效·无灰色地带</div>
+        <div>🧬 DNA存证：每次操作自动生成追溯码</div>
+        <div>⚖️ 无申诉窗口：走漏洞·不配合→直接封</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="st">🗂 黑名单列表</div>
+    <div id="blItems"><div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">黑名单为空 · 保持这个状态是最好的</div></div>
+    <div class="btn-row" style="margin-top:8px">
+      <button class="btn bGhost sm" onclick="exportBL()">📤 导出黑名单证据</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DNA生成 ══════════════ -->
+<div class="page" id="page-dna">
+  <div class="card cAu">
+    <div class="st">🧬 DNA追溯码生成器 v0.3.0</div>
+    <div class="g2">
+      <div>
+        <div class="fr"><lbl>前缀</lbl>
+          <select class="inp" id="dnaPrefix">
+            <option value="#ZHUGEXIN⚡️">#ZHUGEXIN⚡️ (标准)</option>
+            <option value="#龍芯⚡️">#龍芯⚡️ (天道)</option>
+            <option value="#UID9622⚡️">#UID9622⚡️ (身份)</option>
+          </select>
+        </div>
+        <div class="fr"><lbl>模块类型</lbl>
+          <select class="inp" id="dnaModule">
+            <option value="CNSH-SYSTEM">CNSH-SYSTEM</option>
+            <option value="AUDIT-ENGINE">AUDIT-ENGINE</option>
+            <option value="SHIELD-BURN">SHIELD-BURN</option>
+            <option value="BLACKLIST">BLACKLIST</option>
+            <option value="WARN">WARN</option>
+            <option value="ALERT">ALERT</option>
+            <option value="天道系统">天道系统</option>
+            <option value="自定义">自定义</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="fr"><lbl>版本号</lbl><input class="inp" id="dnaVer" value="v0.3.0"></div>
+        <div class="fr"><lbl>自定义标签</lbl><input class="inp" id="dnaTag" placeholder="可选 · 如: AUDIT-ENGINE-772Z"></div>
+      </div>
+    </div>
+    <div class="fr"><lbl>摘要说明</lbl><input class="inp" id="dnaSummary" placeholder="这条DNA码标记的内容简述..."></div>
+    <div style="display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap;">
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px"><input type="checkbox" id="dnaDate" checked> 含日期</label>
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px"><input type="checkbox" id="dnaTS"> 含时间戳</label>
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px"><input type="checkbox" id="dnaConfirm"> 含确认码</label>
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px"><input type="checkbox" id="dnaGPG"> 含GPG指纹</label>
+    </div>
+    <button class="btn bG" style="width:100%;padding:11px;font-size:12px" onclick="genDNA()">🧬 生成 DNA 追溯码</button>
+    <div style="margin-top:14px">
+      <lbl>生成结果（点击复制）</lbl>
+      <div id="dnaResult" onclick="copyDNA()" style="background:var(--bg3);border:2px dashed var(--jade2);border-radius:5px;padding:14px;font-size:12px;color:var(--jade);min-height:52px;cursor:pointer;word-break:break-all;display:flex;align-items:center;justify-content:center;text-align:center">点击「生成」按钮后，DNA码将在这里显示</div>
+      <div id="dnaHint" style="display:none;font-size:10px;color:var(--jade);margin-top:4px">✅ 已复制到剪贴板</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="st">🗂 DNA历史记录</div>
+    <div class="log" id="dnaHist"><span class="li">-- DNA生成记录 --</span></div>
+    <div class="btn-row"><button class="btn bGhost sm" onclick="exportDNA()">📤 导出全部</button><button class="btn bGhost sm" onclick="clearDNA()">🗑 清空</button></div>
+  </div>
+</div>
+
+<!-- ══════════════ 天道总览 ══════════════ -->
+<div class="page" id="page-dashboard">
+  <div class="card cAu">
+    <div class="st">📊 龍魂天道系统 · 实时总览</div>
+    <div class="g3" id="dashGrid">
+      <div class="scard"><div class="sval" id="d-total" style="color:var(--gold)">0</div><div class="slabel">总审计案例</div></div>
+      <div class="scard"><div class="sval" id="d-shield" style="color:var(--red)">0</div><div class="slabel">加密盾触发</div></div>
+      <div class="scard"><div class="sval" id="d-bl" style="color:var(--purple)">0</div><div class="slabel">黑名单数量</div></div>
+      <div class="scard"><div class="sval" id="d-dna" style="color:var(--jade)">0</div><div class="slabel">DNA已生成</div></div>
+      <div class="scard"><div class="sval" id="d-eb-l1" style="color:var(--red)">0</div><div class="slabel">L1铁证记录</div></div>
+      <div class="scard"><div class="sval" id="d-eb-l2" style="color:var(--orange)">0</div><div class="slabel">L2模式记录</div></div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="st">⚖️ 核心哲学三句话</div>
+      <div style="font-size:13px;line-height:2.8;font-family:'Noto Serif SC',serif;">
+        <div>① <strong style="color:var(--jade)">错误发生前警告</strong> → cnsh-warn → 48小时等改正</div>
+        <div>② <strong style="color:var(--orange)">绕漏洞就全网曝光</strong> → cnsh-alert → L1-L3一查到底</div>
+        <div>③ <strong style="color:var(--red)">不配合就永久拉黑</strong> → cnsh-blacklist → 龍魂永久不合作</div>
+      </div>
+      <div class="sep"></div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:12px;color:var(--text2);line-height:2.2">
+        <div>📌 数据主权归于人民</div>
+        <div>📌 AI不惩罚，只陪伴</div>
+        <div>📌 技术为人民服务</div>
+        <div>📌 天下无欺·守护人民</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="st">📋 全局操作日志</div>
+      <div class="log" id="globalLog">
+        <span class="lAu">⚖️ 龍魂天道系统 v0.3.0 已启动 · UID9622</span><br>
+        <span class="li">-- 所有操作在此记录 --</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="st">🔗 DNA追溯链 · 本次会话</div>
+    <div style="font-size:11px;line-height:2.4;color:var(--text2)">
+      <div>系统DNA：<span style="color:var(--jade)">#ZHUGEXIN⚡️20260319-CNSH-SYSTEM-v0.3.0</span></div>
+      <div>确认码：<span style="color:var(--gold)">#CONFIRM🌌9622-ONLY-ONCE🧬AUDIT-ENGINE-772Z</span></div>
+      <div>GPG指纹：<span style="color:var(--jade2)">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></div>
+      <div>上位系统：<span style="color:var(--text2)">龍魂天道系统 v1.3 · 天下无欺·真相受理+网络户口本+观察者日志</span></div>
+      <div>存储：<span style="color:var(--text2)">本地SQLite + iCloud同步 · append-only</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<!-- STATUS BAR -->
+<div class="statusbar">
+  <span><span class="dot dG"></span> 天道系统 在线</span>
+  <span>⚖️ 审计: <span id="sb-audit">0</span></span>
+  <span>🔐 加密盾: <span id="sb-shield">0</span></span>
+  <span>🚫 黑名单: <span id="sb-bl">0</span></span>
+  <span>🧬 DNA: <span id="sb-dna">0</span></span>
+  <span id="sb-time" style="margin-left:auto"></span>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── STATE ──
+const S = {
+  auditList: [], blacklist: [], shieldLog: [], dnaList: [],
+  ebL1: [], ebL2: [], ebL3: [], patterns: {},
+  shieldCount: 0, currentFilter: 'all', currentEBFilter: 'all'
+};
+
+// ── UTILS ──
+const now = () => new Date();
+const fd = d => `${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`;
+const ft = d => `${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())}`;
+const fdt = d => `${fd(d)} ${ft(d)}`;
+const p2 = n => String(n).padStart(2,'0');
+const r4 = () => Math.random().toString(36).slice(2,6).toUpperCase();
+const sha256sim = s => {
+  let h = 0;
+  for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}
+  return Math.abs(h).toString(16).padStart(8,'0').repeat(4).slice(0,64);
+};
+
+function toast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = type ? `show ${type}` : 'show';
+  clearTimeout(t._t); t._t = setTimeout(()=>t.className='', 2300);
+}
+
+function gLog(msg, cls='li') {
+  const b = document.getElementById('globalLog');
+  b.innerHTML += `<span style="display:block" class="${cls}">[${ft(now())}] ${msg}</span>`;
+  b.scrollTop = b.scrollHeight;
+}
+
+function aLog(msg, cls='li') {
+  const b = document.getElementById('auditLog');
+  b.innerHTML += `<span style="display:block" class="${cls}">[${ft(now())}] ${msg}</span>`;
+  b.scrollTop = b.scrollHeight;
+}
+
+function ebLog(msg, cls='li') {
+  const b = document.getElementById('ebLog');
+  b.innerHTML += `<span style="display:block" class="${cls}">[${ft(now())}] ${msg}</span>`;
+  b.scrollTop = b.scrollHeight;
+}
+
+function shieldLogAdd(msg, cls='li') {
+  const b = document.getElementById('shieldLog');
+  b.innerHTML += `<span style="display:block" class="${cls}">[${ft(now())}] ${msg}</span>`;
+  b.scrollTop = b.scrollHeight;
+}
+
+function copyText(t) {
+  try { navigator.clipboard.writeText(t); }
+  catch { const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a); }
+}
+
+function updateSB() {
+  document.getElementById('sb-audit').textContent = S.auditList.length;
+  document.getElementById('sb-shield').textContent = S.shieldCount;
+  document.getElementById('sb-bl').textContent = S.blacklist.filter(b=>b.status==='active').length;
+  document.getElementById('sb-dna').textContent = S.dnaList.length;
+  document.getElementById('d-total').textContent = S.auditList.length;
+  document.getElementById('d-shield').textContent = S.shieldCount;
+  document.getElementById('d-bl').textContent = S.blacklist.filter(b=>b.status==='active').length;
+  document.getElementById('d-dna').textContent = S.dnaList.length;
+  document.getElementById('d-eb-l1').textContent = S.ebL1.length;
+  document.getElementById('d-eb-l2').textContent = S.ebL2.length;
+  document.getElementById('eb-l1-count').textContent = S.ebL1.length;
+  document.getElementById('eb-l2-count').textContent = S.ebL2.length;
+  document.getElementById('eb-l3-count').textContent = S.ebL3.length;
+  document.getElementById('blCount').textContent = S.blacklist.filter(b=>b.status==='active').length;
+  // audit stats
+  const byStatus = k => S.auditList.filter(a=>a.status===k).length;
+  document.getElementById('s-gray').textContent = byStatus('gray');
+  document.getElementById('s-yellow').textContent = byStatus('yellow');
+  document.getElementById('s-orange').textContent = byStatus('orange');
+  document.getElementById('s-alerted').textContent = byStatus('alerted');
+  document.getElementById('s-blacklisted').textContent = byStatus('blacklisted');
+  document.getElementById('s-cleared').textContent = byStatus('cleared');
+}
+
+// ── NAVIGATION ──
+function sp(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── CLOCK ──
+setInterval(()=>{
+  const d=now(), t=ft(d);
+  document.getElementById('hClock').textContent=t;
+  document.getElementById('sb-time').textContent=`⏱ ${fdt(d)}`;
+  // update countdowns
+  document.querySelectorAll('.cdown-el').forEach(el=>{
+    const deadline=parseInt(el.dataset.deadline);
+    const rem=deadline-Date.now();
+    if(rem<=0){el.textContent='⏰ 超时未回应 → 建议升级';el.classList.add('expired');}
+    else{const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000);el.textContent=`⏳ 预警有效期剩余 ${h}h ${m}m`;}
+  });
+},1000);
+
+// ── AUDIT SYSTEM ──
+let auditSeq = 0;
+const colorIcon = {gray:'⚪',yellow:'🟡',orange:'🟠',red:'🔴',alerted:'🚨',blacklisted:'🚫',cleared:'✅'};
+const colorLabel = {gray:'灰色·仅观察',yellow:'黄色·预警',orange:'橙色·严重',red:'红色·存证',alerted:'全网警报',blacklisted:'龍魂黑名单',cleared:'已清除'};
+
+function submitAudit() {
+  const name = document.getElementById('aName').value.trim();
+  if(!name){toast('请填写被举报主体','warn');return;}
+  const type = document.getElementById('aType').value;
+  const sev = document.getElementById('aSeverity').value;
+  const desc = document.getElementById('aDesc').value;
+  auditSeq++;
+  const dna = `#ZHUGEXIN⚡️${fd(now())}-AUDIT-${r4()}-v0.3.0`;
+  const item = {
+    id:`AUD-${String(auditSeq).padStart(4,'0')}`, name, type, sev, desc,
+    status: sev, // initial status = severity
+    time: fdt(now()), dna,
+    warnDeadline: sev==='yellow'||sev==='orange' ? Date.now()+48*3600*1000 : null,
+    hash: sha256sim(name+type+dna)
+  };
+  S.auditList.push(item);
+  writeErrBook(item); // auto-write to error book
+  learnPattern(item);
+  renderAudit();
+  updateSB();
+  aLog(`${colorIcon[sev]} 新举报: [${item.id}] ${name} · ${type}`, sev==='red'?'lR':sev==='orange'?'lO':'lY');
+  gLog(`🛡 新审计案例: ${name} [${sev}]`, sev==='red'?'lR':'lO');
+  toast(`${colorIcon[sev]} 举报已提交: ${name}`);
+  document.getElementById('aName').value='';
+  document.getElementById('aDesc').value='';
+}
+
+function writeErrBook(item) {
+  const level = ({red:'RED',orange:'ORANGE',yellow:'YELLOW',gray:'GRAY',alerted:'RED',blacklisted:'RED',cleared:'YELLOW'})[item.status]||'GRAY';
+  const prevHash = level==='RED'||level==='ORANGE'
+    ? (S.ebL1.length ? S.ebL1[S.ebL1.length-1].hash : 'GENESIS_tiandao_v1')
+    : level==='YELLOW'
+    ? (S.ebL2.length ? S.ebL2[S.ebL2.length-1].hash : 'GENESIS_L2')
+    : 'L3_START';
+  const rec = { id:`REC-${r4()}`, level, ruleId:item.type, category:item.type, time:fdt(now()), prevHash, hash:sha256sim(prevHash+item.id+level), target:item.name };
+  if(level==='RED'||level==='ORANGE') { S.ebL1.push(rec); document.getElementById('eb-l1-hash').textContent='最新哈希: '+rec.hash.slice(0,32)+'...'; ebLog(`🔴 L1铁证写入: [${rec.id}] ${item.name} · ${level}`,'lR'); }
+  else if(level==='YELLOW') { S.ebL2.push(rec); document.getElementById('eb-l2-hash').textContent='模式学习中: '+item.type; ebLog(`🟡 L2模式写入: [${rec.id}] ${item.name}`,'lY'); }
+  else { S.ebL3.push({...rec, expires: Date.now()+90*24*3600*1000}); ebLog(`⚪ L3灰度写入: ${item.name}`,'li'); }
+  renderEBRecords(); updateSB();
+}
+
+function learnPattern(item) {
+  const cat = item.type;
+  if(!S.patterns[cat]) S.patterns[cat] = {count:0, level:item.sev, autoBlock:false};
+  S.patterns[cat].count++;
+  if(S.patterns[cat].count>=3) S.patterns[cat].autoBlock=true;
+  renderPatterns();
+}
+
+function renderPatterns() {
+  const box = document.getElementById('patternList');
+  const keys = Object.keys(S.patterns);
+  if(!keys.length) { box.innerHTML='<div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">暂无已学习模式</div>'; return; }
+  box.innerHTML = keys.map(k=>{
+    const p = S.patterns[k];
+    const pct = Math.min(100, (p.count/3)*100);
+    const col = p.autoBlock ? 'var(--red)' : p.count>=2 ? 'var(--orange)' : 'var(--yellow)';
+    return `<div class="shield-item">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+        <span style="font-size:11px;color:var(--text)">${k}</span>
+        <span style="font-size:10px;color:${col}">${p.autoBlock?'🔴 自动拦截已启用':p.count>=2?'⚠️ 接近阈值':'🟡 观察中'}</span>
+      </div>
+      <div style="font-size:10px;color:var(--text2)">命中 ${p.count} 次 · 阈值 3 次触发自动拦截</div>
+      <div class="pbar"><div class="pfill" style="width:${pct}%;background:${col}"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function warnCase(idx) {
+  const item = S.auditList[idx];
+  item.status = 'yellow';
+  item.warnDeadline = Date.now()+48*3600*1000;
+  renderAudit(); updateSB();
+  aLog(`⚠️ 预警发出: ${item.name} · 48h等待回应`,'lY');
+  gLog(`⚠️ 预警: ${item.name}`, 'lY');
+  toast(`⚠️ 预警已发出: ${item.name} · 48h后无回应将升级`,'warn');
+}
+
+function escalateCase(idx) {
+  const item = S.auditList[idx];
+  item.status = 'orange';
+  writeErrBook({...item, status:'orange'});
+  renderAudit(); updateSB();
+  aLog(`🟠 橙色升级: ${item.name}`,'lO');
+  gLog(`🟠 橙色: ${item.name}`,'lO');
+  toast(`🟠 橙色升级: ${item.name}`,'warn');
+}
+
+function alertCase(idx) {
+  const item = S.auditList[idx];
+  item.status = 'alerted';
+  const broadcastDNA = `#ZHUGEXIN⚡️${fd(now())}-ALERT-${r4()}-v0.3.0`;
+  item.alertDNA = broadcastDNA;
+  const broadcast = `【龍魂系统 L3 全网警报】\n主体：${item.name}\n触发：走漏洞/拒不配合\n举报ID：${item.id}\n处理：一查到底·不免责·不妥协\nDNA：${broadcastDNA}`;
+  writeErrBook({...item, status:'red'});
+  renderAudit(); updateSB();
+  aLog(`🚨 全网警报发出: ${item.name} · DNA: ${broadcastDNA}`,'lR');
+  gLog(`🚨 全网警报: ${item.name}`,'lR');
+  toast(`🚨 全网警报！${item.name}`,'err');
+}
+
+function blacklistCase(idx) {
+  const item = S.auditList[idx];
+  item.status = 'blacklisted';
+  addBLItem(item.name, item.type, '走漏洞绕过审计', `审计ID: ${item.id}`);
+  renderAudit(); updateSB();
+  aLog(`🚫 列入黑名单: ${item.name}`,'lP');
+  gLog(`🚫 黑名单: ${item.name}`,'lP');
+  toast(`🚫 已封禁: ${item.name}`,'err');
+}
+
+function clearCase(idx) {
+  S.auditList[idx].status = 'cleared';
+  renderAudit(); updateSB();
+  aLog(`✅ 案例已清除: ${S.auditList[idx].name}`,'lG');
+  toast(`✅ 已清除: ${S.auditList[idx].name}`);
+}
+
+function filterAudit(f) { S.currentFilter=f; renderAudit(); }
+
+function renderAudit() {
+  const box = document.getElementById('auditList');
+  let items = S.auditList;
+  if(S.currentFilter!=='all') items = items.filter(a=>a.status===S.currentFilter);
+  if(!items.length) { box.innerHTML=`<div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">暂无 ${S.currentFilter==='all'?'':'['+S.currentFilter+']'} 案例</div>`; return; }
+  box.innerHTML = items.slice().reverse().map((item,ri)=>{
+    const i = S.auditList.indexOf(item);
+    const icon = colorIcon[item.status]||'❓';
+    const badges = {gray:'bPending',yellow:'bWarned',orange:'bEscalated',alerted:'bAlerted',blacklisted:'bBlacklisted',cleared:'bCleared'}[item.status]||'bPending';
+    let btns = '';
+    if(item.status==='gray') btns += `<button class="btn bY sm" onclick="warnCase(${i})">🟡预警</button>`;
+    if(item.status==='yellow') btns += `<button class="btn bO sm" onclick="escalateCase(${i})">🟠升级</button>`;
+    if(item.status==='yellow'||item.status==='orange') btns += `<button class="btn bR sm" onclick="alertCase(${i})">🚨全网警报</button>`;
+    if(item.status==='alerted') btns += `<button class="btn bP sm" onclick="blacklistCase(${i})">🚫永久拉黑</button>`;
+    if(item.status!=='cleared'&&item.status!=='blacklisted') btns += `<button class="btn bG sm" onclick="clearCase(${i})">✅清除</button>`;
+    const cdEl = item.warnDeadline ? `<div class="countdown cdown-el" data-deadline="${item.warnDeadline}">⏳ 计算中...</div>` : '';
+    return `<div class="ai">
+      <div class="ai-icon">${icon}</div>
+      <div class="ai-body">
+        <div class="ai-name">${item.name}</div>
+        <div class="ai-meta">${item.id} · ${item.type} · ${item.time}</div>
+        ${item.desc?`<div class="ai-desc">${item.desc}</div>`:''}
+        ${cdEl}
+        <div class="ai-meta" style="margin-top:3px;color:var(--jade2)">🧬 ${item.dna}</div>
+      </div>
+      <div class="ai-right">
+        <span class="badge ${badges}">${colorLabel[item.status]||item.status}</span>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end">${btns}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── SHIELD ──
+const SENSITIVE = ['contact','gpg_private','id_number','biometric','webauthn_id'];
+const STATE_WORDS = ['军事','国防','机密','绝密','导弹','核','情报','军委','classified','top secret','military','nuclear','intelligence'];
+
+function runShield() {
+  const dna = document.getElementById('shDNA').value.trim() || 'ANONYMOUS';
+  const content = document.getElementById('shContent').value;
+  const field = document.getElementById('shField').value;
+  const owner = document.getElementById('shOwner').value;
+  let triggered = false;
+
+  // Reset
+  ['burn','feed','state'].forEach(k=>{
+    document.getElementById(`pb-${k}`).style.width='0%';
+    document.getElementById(`st-${k}`).textContent='就绪';
+    document.getElementById(`st-${k}`).className='shield-status s'+{burn:'Burn',feed:'Feed',state:'State'}[k];
+  });
+
+  shieldLogAdd(`── 开始加密盾检测 · DNA: ${dna} ──`,'lAu');
+
+  // Rule 1: Burn after read
+  if(SENSITIVE.includes(field)) {
+    triggered=true; S.shieldCount++;
+    document.getElementById('pb-burn').style.width='100%';
+    document.getElementById('st-burn').textContent='已触发·已销毁';
+    const hash = sha256sim(content+dna).slice(0,16);
+    shieldLogAdd(`🔥 [阅后即焚] 高危字段:${field} · 哈希:${hash} · 原文已销毁`,'lR');
+    toast('🔥 阅后即焚触发·原文已内存销毁','err');
+  }
+
+  // Rule 2: Feed tracking
+  if(owner==='other') {
+    triggered=true; S.shieldCount++;
+    document.getElementById('pb-feed').style.width='100%';
+    document.getElementById('st-feed').textContent='已触发·锁定证据';
+    shieldLogAdd(`🔍 [投喂追踪] 投喂者DNA: ${dna} · 已锁定为证据 · 永久记录`,'lP');
+    toast('🔍 投喂追踪触发·投喂者DNA成为证据','err');
+  }
+
+  // Rule 3: State secrets
+  const stateHits = STATE_WORDS.filter(w=>content.toLowerCase().includes(w.toLowerCase()));
+  if(stateHits.length>0) {
+    triggered=true; S.shieldCount++;
+    document.getElementById('pb-state').style.width='100%';
+    document.getElementById('st-state').textContent='已触发·P0封存';
+    const contentHash = sha256sim(content).slice(0,32);
+    shieldLogAdd(`🇨🇳 [国家封存] P0永久 · 命中词:${stateHits.join('/')} · 内容哈希:${contentHash}`,'lAu');
+    shieldLogAdd(`   提交者DNA: ${dna} · 时间戳: ${fdt(now())} · 不可删·不可匿名`,'lAu');
+    toast(`🇨🇳 国家机密词触发·P0永久封存`,'err');
+  }
+
+  if(!triggered) {
+    shieldLogAdd(`✅ 检测通过 · 无敏感字段 · 无投喂 · 无机密词`,'lG');
+    ['burn','feed','state'].forEach(k=>{ document.getElementById(`st-${k}`).textContent='通过'; document.getElementById(`st-${k}`).className='shield-status sClear'; });
+    toast('✅ 加密盾检测通过');
+  }
+
+  shieldLogAdd(`── 检测完成 · 三色审计: ${triggered?'🔴已触发':'🟢通过'} ──`,'li');
+  updateSB();
+}
+
+// ── ERROR BOOK ──
+function filterEB(f) { S.currentEBFilter=f; renderEBRecords(); }
+
+function renderEBRecords() {
+  const box = document.getElementById('ebRecords');
+  let all = [
+    ...S.ebL1.map(r=>({...r,layer:'L1'})),
+    ...S.ebL2.map(r=>({...r,layer:'L2'})),
+    ...S.ebL3.map(r=>({...r,layer:'L3'}))
+  ];
+  if(S.currentEBFilter!=='all') all=all.filter(r=>r.level===S.currentEBFilter);
+  if(!all.length) { box.innerHTML='<div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">暂无记录</div>'; return; }
+  const cols = {RED:'lR',ORANGE:'lO',YELLOW:'lY',GRAY:'li'};
+  box.innerHTML = all.slice().reverse().map(r=>`
+    <div class="ai">
+      <div class="ai-icon">${{RED:'🔴',ORANGE:'🟠',YELLOW:'🟡',GRAY:'⚪'}[r.level]||'❓'}</div>
+      <div class="ai-body">
+        <div class="ai-name">${r.target||'未知'}</div>
+        <div class="ai-meta">${r.id} · ${r.layer} · ${r.time}</div>
+        <div class="ai-meta">规则: ${r.ruleId}</div>
+        <div class="hash-chain" style="margin-top:3px">哈希: ${r.hash}</div>
+      </div>
+      <div class="ai-right"><span class="badge" style="background:${{RED:'rgba(224,53,53,.15)',ORANGE:'rgba(224,120,32,.15)',YELLOW:'rgba(208,192,32,.15)',GRAY:'rgba(112,128,144,.15)'}[r.level]};color:${{RED:'var(--red)',ORANGE:'var(--orange)',YELLOW:'var(--yellow)',GRAY:'var(--gray)'}[r.level]};border:1px solid">${r.layer} ${r.level}</span></div>
+    </div>`).join('');
+}
+
+function verifyChain(layer) {
+  const arr = layer==='L1' ? S.ebL1 : S.ebL2;
+  if(arr.length<2){toast(`${layer} 记录不足，无需校验`);return;}
+  let ok=true;
+  for(let i=1;i<arr.length;i++) {
+    if(arr[i].prevHash!==arr[i-1].hash){ok=false;break;}
+  }
+  if(ok){toast(`✅ ${layer} 哈希链完整·共${arr.length}条记录`);ebLog(`✅ ${layer} 哈希链验证通过·${arr.length}条`,'lG');}
+  else{toast(`🔴 ${layer} 哈希链断裂！可能被篡改`,'err');ebLog(`🔴 ${layer} 哈希链断裂！`,'lR');}
+}
+
+function showPatterns() {
+  renderPatterns();
+  toast('🧠 模式库已刷新');
+}
+
+function cleanL3() {
+  const before = S.ebL3.length;
+  S.ebL3 = S.ebL3.filter(r=>r.expires>Date.now());
+  const removed = before-S.ebL3.length;
+  updateSB(); renderEBRecords();
+  toast(`🗑 清理${removed}条过期L3记录`);
+  ebLog(`🗑 清理过期L3记录: ${removed}条`,'li');
+}
+
+function checkChainIntegrity() {
+  verifyChain('L1'); verifyChain('L2');
+  toast('🔗 哈希链全检完成');
+}
+
+function exportErrBook() {
+  const data = { L1:S.ebL1, L2:S.ebL2, L3:S.ebL3, exportTime: fdt(now()), dna:`#ZHUGEXIN⚡️${fd(now())}-ERRBOOK-EXPORT-v0.3.0` };
+  copyText(JSON.stringify(data,null,2));
+  toast('📤 记错本证据包已复制到剪贴板');
+  ebLog('📤 记错本导出·加密后可提交司法节点','lAu');
+}
+
+// ── BLACKLIST ──
+let blSeq=0;
+function addBL() {
+  const name=document.getElementById('blName').value.trim();
+  if(!name){toast('请填写主体名称','warn');return;}
+  addBLItem(name,document.getElementById('blType').value,document.getElementById('blReason').value,document.getElementById('blNote').value);
+  document.getElementById('blName').value='';
+  document.getElementById('blNote').value='';
+}
+
+function addBLItem(name,type,reason,note='') {
+  if(S.blacklist.find(b=>b.name===name&&b.status==='active')){toast(`"${name}"已在黑名单`,'warn');return;}
+  blSeq++;
+  const dna=`#ZHUGEXIN⚡️${fd(now())}-BL-${r4()}-v0.3.0`;
+  S.blacklist.push({id:`BL-${String(blSeq).padStart(4,'0')}`,name,type:type||'系统',reason,note,status:'active',time:fdt(now()),dna});
+  renderBL(); updateSB();
+  gLog(`🚫 黑名单: ${name} · ${reason}`,'lP');
+  toast(`🚫 已列入龍魂黑名单: ${name}`,'err');
+}
+
+function renderBL() {
+  const box=document.getElementById('blItems');
+  const active=S.blacklist.filter(b=>b.status==='active');
+  if(!active.length){box.innerHTML='<div style="color:var(--text2);font-size:11px;text-align:center;padding:20px">黑名单为空 · 保持这个状态是最好的</div>';return;}
+  box.innerHTML=active.map((b,i)=>{
+    const ri=S.blacklist.indexOf(b);
+    return `<div style="background:#08000a;border:1px solid var(--purple2);border-radius:4px;padding:11px 14px;margin-bottom:6px;display:flex;align-items:flex-start;gap:10px">
+      <div style="font-size:18px">🚫</div>
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--purple);font-weight:bold">${b.name} <span style="font-size:10px;background:var(--purple2);padding:1px 6px;border-radius:3px">${b.type}</span></div>
+        <div style="font-size:10px;color:var(--text2);margin-top:3px">${b.reason}${b.note?' · '+b.note:''}</div>
+        <div style="font-size:9px;color:var(--text2);margin-top:2px">${b.time} · ${b.dna}</div>
+      </div>
+      <button class="btn bGhost sm" onclick="removeBL(${ri})">移除</button>
+    </div>`;
+  }).join('');
+}
+
+function removeBL(i) {
+  const name=S.blacklist[i].name;
+  S.blacklist[i].status='revoked';
+  renderBL(); updateSB();
+  toast(`⚠️ 已从黑名单移除: ${name}`,'warn');
+  gLog(`黑名单移除: ${name}`,'lO');
+}
+
+function checkBL() {
+  const q=document.getElementById('blCheck').value.trim();
+  if(!q)return;
+  const found=S.blacklist.find(b=>b.name.toLowerCase().includes(q.toLowerCase())&&b.status==='active');
+  const box=document.getElementById('blCheckResult');
+  if(found){
+    box.innerHTML=`<div style="color:var(--red);border:1px solid var(--red2);background:rgba(224,53,53,.08);border-radius:4px;padding:10px;font-size:11px;line-height:2">
+      🚫 <strong>在黑名单中！</strong><br>名称: ${found.name}<br>类型: ${found.type}<br>原因: ${found.reason}<br>时间: ${found.time}<br>龍魂系统：拒绝一切合作
+    </div>`;
+  } else {
+    box.innerHTML=`<div style="color:var(--jade);border:1px solid var(--jade2);background:rgba(31,209,138,.05);border-radius:4px;padding:10px;font-size:11px">✅ "${q}" 不在黑名单中</div>`;
+  }
+}
+
+function exportBL() {
+  if(!S.blacklist.length){toast('黑名单为空','warn');return;}
+  const txt=S.blacklist.filter(b=>b.status==='active').map(b=>`[${b.time}] 🚫 ${b.name} [${b.type}] · ${b.reason}${b.note?' · '+b.note:''}\nDNA: ${b.dna}`).join('\n\n');
+  copyText(txt); toast('📤 黑名单证据已复制');
+}
+
+// ── DNA ──
+let dnaSeq=0;
+function genDNA() {
+  const prefix=document.getElementById('dnaPrefix').value;
+  const mod=document.getElementById('dnaModule').value;
+  const ver=document.getElementById('dnaVer').value||'v0.3.0';
+  const tag=document.getElementById('dnaTag').value;
+  const sum=document.getElementById('dnaSummary').value;
+  const withDate=document.getElementById('dnaDate').checked;
+  const withTS=document.getElementById('dnaTS').checked;
+  const withConfirm=document.getElementById('dnaConfirm').checked;
+  const withGPG=document.getElementById('dnaGPG').checked;
+  dnaSeq++;
+  let dna=prefix;
+  if(withDate) dna+=fd(now());
+  dna+=`-${mod}`;
+  if(tag) dna+=`-${tag.toUpperCase()}`;
+  dna+=`-${ver}`;
+  if(withTS) dna+=`-T${Math.floor(Date.now()/1000)}`;
+  let full=dna;
+  if(sum) full+=`\n摘要: ${sum}`;
+  if(withConfirm) full+=`\n#CONFIRM🌌9622-ONLY-ONCE🧬${r4()}-${r4()}`;
+  if(withGPG) full+=`\nGPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F`;
+  const box=document.getElementById('dnaResult');
+  box.textContent=full; box.style.color='var(--jade)'; box.style.borderColor='var(--jade)';
+  document.getElementById('dnaHint').style.display='none';
+  S.dnaList.push({dna,time:fdt(now()),module:mod,summary:sum});
+  const hist=document.getElementById('dnaHist');
+  hist.innerHTML+=`<span style="display:block" class="lG">[${ft(now())}] ${dna}${sum?' — '+sum:''}</span>`;
+  hist.scrollTop=hist.scrollHeight;
+  updateSB(); gLog(`🧬 DNA生成: ${dna}`,'lG');
+  toast('🧬 DNA已生成·点击复制');
+}
+
+function copyDNA() {
+  const txt=document.getElementById('dnaResult').textContent;
+  if(txt.includes('点击'))return;
+  copyText(txt);
+  document.getElementById('dnaHint').style.display='block';
+  toast('✅ DNA已复制到剪贴板');
+}
+
+function exportDNA() {
+  if(!S.dnaList.length){toast('暂无记录','warn');return;}
+  copyText(S.dnaList.map(d=>`[${d.time}] ${d.dna}${d.summary?' — '+d.summary:''}`).join('\n'));
+  toast('📤 DNA历史已复制');
+}
+
+function clearDNA() {
+  S.dnaList=[]; document.getElementById('dnaHist').innerHTML='<span class="li">-- DNA生成记录 --</span>';
+  const box=document.getElementById('dnaResult'); box.textContent='点击「生成」按钮后，DNA码将在这里显示'; box.style.color='var(--text2)';
+  updateSB(); toast('🗑 DNA历史已清空','warn');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+	"messages": [
+		"Switch Repository",
+		"Search repo by path",
+		"Select Reference",
+		"Search ref by name",
+		"All branches"
+	],
+	"keys": [
+		"icon.switch.repository",
+		"repository.quickPick.placeholder",
+		"reference.quickPick.title",
+		"reference.quickPick.placeholder",
+		"reference.allBranches"
+	],
+	"filePath": "commands/switch"
+}
