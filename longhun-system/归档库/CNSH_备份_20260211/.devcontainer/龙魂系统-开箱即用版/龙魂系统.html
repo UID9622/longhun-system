@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂系统 v2.0 | 开箱即用版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #c41e3a;      /* 中国红 */
+            --secondary: #1a1a2e;    /* 深邃蓝 */
+            --accent: #d4af37;       /* 金色 */
+            --success: #2d5a27;      /* 墨绿 */
+            --warning: #e6a817;      /* 琥珀 */
+            --danger: #8b0000;       /* 暗红 */
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --text: #e8e8e8;
+            --text-muted: #888;
+        }
+        
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* 龍纹背景 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(196,30,58,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* 顶部导航 */
+        .header {
+            background: linear-gradient(90deg, var(--secondary) 0%, #16213e 100%);
+            border-bottom: 2px solid var(--primary);
+            padding: 15px 30px;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 36px;
+            animation: dragonFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes dragonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(212,175,55,0.5);
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .header-status {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .status-badge {
+            background: rgba(45,90,39,0.3);
+            border: 1px solid var(--success);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .status-badge.local {
+            background: rgba(196,30,58,0.2);
+            border-color: var(--primary);
+        }
+        
+        /* 主容器 */
+        .main-container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 左侧功能菜单 */
+        .sidebar-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .module-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(212,175,55,0.2);
+        }
+        
+        .module-header {
+            background: linear-gradient(90deg, rgba(196,30,58,0.3) 0%, transparent 100%);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .module-icon {
+            font-size: 20px;
+        }
+        
+        .module-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .module-status {
+            margin-left: auto;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--success);
+        }
+        
+        .module-status.free {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+        
+        .module-content {
+            padding: 15px;
+            display: none;
+        }
+        
+        .module-card.active .module-content {
+            display: block;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(212,175,55,0.2);
+            color: var(--accent);
+        }
+        
+        .feature-tag.offline {
+            background: rgba(45,90,39,0.3);
+            color: #7dd87d;
+        }
+        
+        /* 中间工作区 */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 5px;
+            background: var(--bg-card);
+            padding: 5px;
+            border-radius: 8px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .tab.active {
+            background: var(--primary);
+        }
+        
+        .workspace-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            flex: 1;
+            min-height: 600px;
+            overflow: hidden;
+        }
+        
+        /* CNSH编辑器 */
+        .editor-container {
+            display: flex;
+            height: 100%;
+        }
+        
+        .editor-sidebar {
+            width: 200px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .file-tree {
+            font-size: 13px;
+        }
+        
+        .file-item {
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .file-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .file-item.active {
+            background: rgba(196,30,58,0.3);
+        }
+        
+        .editor-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .editor-toolbar {
+            padding: 10px 15px;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .toolbar-btn {
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 4px;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .toolbar-btn:hover {
+            background: var(--primary);
+        }
+        
+        .editor-area {
+            flex: 1;
+            display: flex;
+        }
+        
+        .code-input {
+            flex: 1;
+            background: #0d1117;
+            color: #e6edf3;
+            border: none;
+            padding: 20px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+        }
+        
+        .code-output {
+            flex: 1;
+            background: #161b22;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            font-family: monospace;
+            font-size: 13px;
+            overflow: auto;
+        }
+        
+        /* 右侧状态面板 */
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .panel {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .panel-title {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* DNA追溯面板 */
+        .dna-display {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 11px;
+            word-break: break-all;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .dna-code {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .dna-meta {
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+        
+        /* 五大人格状态 */
+        .persona-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .persona-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .persona-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: rgba(196,30,58,0.3);
+        }
+        
+        .persona-info {
+            flex: 1;
+        }
+        
+        .persona-name {
+            font-weight: 600;
+        }
+        
+        .persona-role {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        
+        .persona-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* 支付面板 */
+        .payment-info {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .payment-mode {
+            background: linear-gradient(135deg, var(--success) 0%, #1e4d1e 100%);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-mode h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .payment-mode p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .feature-price {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+        
+        .feature-price:last-child {
+            border-bottom: none;
+        }
+        
+        .price-tag {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .pay-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, var(--primary) 0%, #8b0000 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .pay-btn:hover {
+            box-shadow: 0 0 20px rgba(196,30,58,0.5);
+        }
+        
+        /* 底部状态栏 */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            border-top: 1px solid var(--primary);
+            padding: 8px 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        .status-left {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .status-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+        
+        /* 隐藏的标签内容 */
+        .tab-content {
+            display: none;
+            height: 100%;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 终端样式 */
+        .terminal {
+            background: #0d1117;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            height: 100%;
+            overflow: auto;
+        }
+        
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+        
+        .terminal-prompt {
+            color: var(--success);
+        }
+        
+        .terminal-output {
+            color: var(--text);
+        }
+        
+        .terminal-error {
+            color: var(--danger);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1400px) {
+            .main-container {
+                grid-template-columns: 260px 1fr 280px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-left, .sidebar-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🐉</span>
+                <div class="logo-text">
+                    <h1>龍魂系统 v2.0</h1>
+                    <p>开箱即用版 | 原生自研生态 | 零API依赖</p>
+                </div>
+            </div>
+            <div class="header-status">
+                <span class="status-badge local">
+                    <span>🔒</span> 本地运行
+                </span>
+                <span class="status-badge">
+                    <span>🟢</span> 五大人格就绪
+                </span>
+                <span class="status-badge free">
+                    <span>🎁</span> 调试期免费
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 左侧功能菜单 -->
+        <aside class="sidebar-left">
+            <!-- 核心功能 -->
+            <div class="module-card active">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span class="module-icon">💎</span>
+                    <span class="module-title">核心功能</span>
+                    <span class="module-status free">免费</span>
+                </div>
+                <div class="module-content">
+                    <ul class="feature-list">
+                        <li>
+                            <span>📝 CNSH编辑器</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>🤖 五大人格</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>🔐 DNA追溯</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>☯️ 易经推演</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 安全功能 -->
+            <div class="module-card">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span class="module-icon">🛡️</span>
+                    <span class="module-title">安全守护</span>
+                    <span class="module-status free">免费</span>
+                </div>
+                <div class="module-content">
+                    <ul class="feature-list">
+                        <li>
+                            <span>🚨 反诈守护</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>🟢🟡🔴 三色审计</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>🧬 护弱者修正</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 开发者功能 -->
+            <div class="module-card">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span class="module-icon">🔧</span>
+                    <span class="module-title">开发者功能</span>
+                    <span class="module-status">华为优先</span>
+                </div>
+                <div class="module-content">
+                    <ul class="feature-list">
+                        <li>
+                            <span>📱 华为手机集成</span>
+                            <span class="feature-tag">¥1/月</span>
+                        </li>
+                        <li>
+                            <span>🔌 本地API服务</span>
+                            <span class="feature-tag">¥1/月</span>
+                        </li>
+                        <li>
+                            <span>📊 数据库管理</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 生活功能 -->
+            <div class="module-card">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span class="module-icon">🏠</span>
+                    <span class="module-title">生活功能</span>
+                    <span class="module-status free">免费</span>
+                </div>
+                <div class="module-content">
+                    <ul class="feature-list">
+                        <li>
+                            <span>💰 数字人民币</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>📅 农历黄历</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                        <li>
+                            <span>✍️ 字体渲染</span>
+                            <span class="feature-tag offline">离线</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 中间工作区 -->
+        <main class="workspace">
+            <!-- 标签页 -->
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('editor')">
+                    <span>📝</span> CNSH编辑器
+                </div>
+                <div class="tab" onclick="switchTab('terminal')">
+                    <span>💻</span> 终端
+                </div>
+                <div class="tab" onclick="switchTab('dna')">
+                    <span>🧬</span> DNA生成器
+                </div>
+                <div class="tab" onclick="switchTab('yijing')">
+                    <span>☯️</span> 易经推演
+                </div>
+            </div>
+
+            <!-- 工作区内容 -->
+            <div class="workspace-content">
+                <!-- CNSH编辑器 -->
+                <div id="tab-editor" class="tab-content active">
+                    <div class="editor-container">
+                        <div class="editor-sidebar">
+                            <div class="file-tree">
+                                <div class="file-item active">
+                                    <span>📄</span> hello.cnsh
+                                </div>
+                                <div class="file-item">
+                                    <span>📄</span> 反诈守护.longhun
+                                </div>
+                                <div class="file-item">
+                                    <span>📄</span> 五大人格.longhun
+                                </div>
+                                <div class="file-item">
+                                    <span>📁</span> examples/
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editor-main">
+                            <div class="editor-toolbar">
+                                <button class="toolbar-btn" onclick="runCode()">▶ 运行</button>
+                                <button class="toolbar-btn" onclick="saveCode()">💾 保存</button>
+                                <button class="toolbar-btn" onclick="shareCode()">📤 分享</button>
+                                <button class="toolbar-btn" onclick="generateDNA()">🧬 生成DNA</button>
+                            </div>
+                            <div class="editor-area">
+                                <textarea class="code-input" id="codeInput" placeholder="【程序】 你好龍魂
+
+【输出】 "你好，龍魂系统已就绪！"
+【输出】 "当前时间：" + 时间.现在()
+
+【结束程序】">【程序】 你好龍魂
+
+【输出】 "你好，龍魂系统已就绪！"
+【输出】 "当前时间：" + 时间.现在()
+
+【结束程序】</textarea>
+                                <div class="code-output" id="codeOutput">
+                                    <div style="color: #7dd87d;">🐉 龍魂系统 v2.0 编译器就绪</div>
+                                    <div style="color: #888; margin-top: 10px;">点击「运行」执行CNSH代码...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 终端 -->
+                <div id="tab-terminal" class="tab-content">
+                    <div class="terminal" id="terminal">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">龍魂@UID9622:~$</span>
+                            <span class="terminal-output">systemctl status longhun</span>
+                        </div>
+                        <div class="terminal-line terminal-output">
+🐉 龍魂系统状态报告
+═══════════════════════════════════════
+✅ 五大人格引擎: 运行中
+✅ DNA追溯系统: 运行中
+✅ 本地数据库: 已连接 (SQLite)
+✅ CNSH编译器: 就绪
+✅ 反诈守护: 监控中
+
+存储使用: 24.5 MB / 100 MB
+内存使用: 128 MB / 512 MB
+运行时间: 0天 2小时 15分
+
+永恒锚: "再楠不惧，终成豪图"
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">龍魂@UID9622:~$</span>
+                            <span class="terminal-output" style="animation: blink 1s infinite;">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DNA生成器 -->
+                <div id="tab-dna" class="tab-content">
+                    <div style="padding: 30px;">
+                        <h2 style="color: var(--accent); margin-bottom: 20px;">🧬 DNA追溯码生成器</h2>
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 8px; color: var(--text-muted);">操作主题</label>
+                                <input type="text" id="dnaTopic" placeholder="例如：知识入库" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: white;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 8px; color: var(--text-muted);">版本号</label>
+                                <input type="text" id="dnaVersion" value="v1.0" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: white;">
+                            </div>
+                            <button class="pay-btn" onclick="generateDNACode()">生成DNA追溯码</button>
+                        </div>
+                        <div id="dnaResult" style="display: none;">
+                            <div class="dna-display">
+                                <div class="dna-code" id="dnaCode"></div>
+                                <div class="dna-meta">
+                                    创建者: 诸葛鑫(UID9622) | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 易经推演 -->
+                <div id="tab-yijing" class="tab-content">
+                    <div style="padding: 30px;">
+                        <h2 style="color: var(--accent); margin-bottom: 20px;">☯️ 易经八卦推演</h2>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: rgba(196,30,58,0.2); padding: 20px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 36px; margin-bottom: 10px;">☰</div>
+                                <div style="font-weight: 600;">乾卦</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">刚健</div>
+                            </div>
+                            <div style="background: rgba(196,30,58,0.2); padding: 20px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 36px; margin-bottom: 10px;">☷</div>
+                                <div style="font-weight: 600;">坤卦</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">包容</div>
+                            </div>
+                            <div style="background: rgba(196,30,58,0.2); padding: 20px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 36px; margin-bottom: 10px;">☵</div>
+                                <div style="font-weight: 600;">坎卦</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">危机</div>
+                            </div>
+                            <div style="background: rgba(196,30,58,0.2); padding: 20px; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 36px; margin-bottom: 10px;">☲</div>
+                                <div style="font-weight: 600;">离卦</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">文明</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px;">
+                            <div style="color: var(--accent); margin-bottom: 10px;">当前时辰卦象</div>
+                            <div id="currentGua" style="font-size: 24px; margin-bottom: 10px;">☵ 坎卦</div>
+                            <div style="color: var(--text-muted); font-size: 13px;">
+                                子时 (23:00-01:00) | 水洊至，习坎，君子以常德行
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧状态面板 -->
+        <aside class="sidebar-right">
+            <!-- DNA追溯 -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>🧬</span> DNA追溯
+                </div>
+                <div class="dna-display">
+                    <div class="dna-code">#龍芯⚡️2026-02-06-系统启动-v1.0</div>
+                    <div class="dna-meta">
+                        UID: 9622 | 时间: 2026-02-06 06:54:32
+                    </div>
+                </div>
+            </div>
+
+            <!-- 五大人格 -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>🤖</span> 五大人格状态
+                </div>
+                <div class="persona-list">
+                    <div class="persona-item">
+                        <div class="persona-avatar">☷</div>
+                        <div class="persona-info">
+                            <div class="persona-name">雯雯</div>
+                            <div class="persona-role">承载包容 · 文档整理</div>
+                        </div>
+                        <div class="persona-status"></div>
+                    </div>
+                    <div class="persona-item">
+                        <div class="persona-avatar">☶</div>
+                        <div class="persona-info">
+                            <div class="persona-name">侦察兵</div>
+                            <div class="persona-role">止静观察 · 信息收集</div>
+                        </div>
+                        <div class="persona-status"></div>
+                    </div>
+                    <div class="persona-item">
+                        <div class="persona-avatar">☵</div>
+                        <div class="persona-info">
+                            <div class="persona-name">守护者</div>
+                            <div class="persona-role">危机应对 · 安全监控</div>
+                        </div>
+                        <div class="persona-status"></div>
+                    </div>
+                    <div class="persona-item">
+                        <div class="persona-avatar">☲</div>
+                        <div class="persona-info">
+                            <div class="persona-name">宝宝</div>
+                            <div class="persona-role">文明光明 · 系统构建</div>
+                        </div>
+                        <div class="persona-status"></div>
+                    </div>
+                    <div class="persona-item">
+                        <div class="persona-avatar">☴</div>
+                        <div class="persona-info">
+                            <div class="persona-name">文心</div>
+                            <div class="persona-role">柔顺协调 · 数据同步</div>
+                        </div>
+                        <div class="persona-status"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 支付信息 -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>💰</span> 服务状态
+                </div>
+                <div class="payment-info">
+                    <div class="payment-mode">
+                        <h3>🎁 调试期免费</h3>
+                        <p>所有功能免费使用</p>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">
+                        后期正式版价格：
+                    </div>
+                    <div class="feature-price">
+                        <span>📱 华为开发者功能</span>
+                        <span class="price-tag">¥1/月</span>
+                    </div>
+                    <div class="feature-price">
+                        <span>🔌 本地API服务</span>
+                        <span class="price-tag">¥1/月</span>
+                    </div>
+                    <div class="feature-price">
+                        <span>💾 扩展存储空间</span>
+                        <span class="price-tag">¥1/月</span>
+                    </div>
+                    <button class="pay-btn" onclick="showPayment()">
+                        💳 数字人民币支付
+                    </button>
+                    <div style="font-size: 10px; color: var(--text-muted); margin-top: 10px;">
+                        数据本地存储，华为不收集用户信息
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系统信息 -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>ℹ️</span> 系统信息
+                </div>
+                <div style="font-size: 12px; line-height: 1.8;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">版本</span>
+                        <span>v2.0.0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">数据库</span>
+                        <span>SQLite (本地)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">API依赖</span>
+                        <span style="color: var(--success);">零依赖</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">数据位置</span>
+                        <span>本地存储</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 底部状态栏 -->
+    <footer class="status-bar">
+        <div class="status-left">
+            <div class="status-item">
+                <span class="status-indicator"></span>
+                <span>系统正常</span>
+            </div>
+            <div class="status-item">
+                <span>🐉</span>
+                <span>龍魂系统 v2.0</span>
+            </div>
+            <div class="status-item">
+                <span>UID:</span>
+                <span>9622</span>
+            </div>
+        </div>
+        <div>
+            <span style="color: var(--accent);">永恒锚: "再楠不惧，终成豪图"</span>
+        </div>
+    </footer>
+
+    <script>
+        // 切换模块展开/折叠
+        function toggleModule(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+
+        // 切换标签页
+        function switchTab(tabName) {
+            // 移除所有active
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            // 添加active到当前
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        // 运行代码
+        function runCode() {
+            const code = document.getElementById('codeInput').value;
+            const output = document.getElementById('codeOutput');
+            
+            output.innerHTML = '<div style="color: #7dd87d;">🐉 正在编译...</div>';
+            
+            setTimeout(() => {
+                // 模拟CNSH编译输出
+                const lines = code.split('\n');
+                let result = '<div style="color: var(--accent);">✅ 编译成功</div>';
+                result += '<div style="margin-top: 10px; color: #7dd87d;">输出:</div>';
+                
+                if (code.includes('你好')) {
+                    result += '<div class="terminal-output">你好，龍魂系统已就绪！</div>';
+                }
+                if (code.includes('时间')) {
+                    result += '<div class="terminal-output">当前时间：' + new Date().toLocaleString('zh-CN') + '</div>';
+                }
+                
+                result += '<div style="margin-top: 15px; color: #888; font-size: 11px;">';
+                result += '🧬 DNA: #龍芯⚡️' + new Date().toISOString().slice(0,10) + '-CNSH执行-v1.0';
+                result += '</div>';
+                
+                output.innerHTML = result;
+            }, 800);
+        }
+
+        // 保存代码
+        function saveCode() {
+            const code = document.getElementById('codeInput').value;
+            localStorage.setItem('cnsh_code', code);
+            alert('✅ 代码已保存到本地存储');
+        }
+
+        // 分享代码
+        function shareCode() {
+            const dna = '#龍芯⚡️' + new Date().toISOString().slice(0,10) + '-代码分享-v1.0';
+            alert('📤 分享DNA: ' + dna + '\n\n(实际功能需要后端支持)');
+        }
+
+        // 生成DNA
+        function generateDNA() {
+            switchTab('dna');
+        }
+
+        // 生成DNA追溯码
+        function generateDNACode() {
+            const topic = document.getElementById('dnaTopic').value || '未命名操作';
+            const version = document.getElementById('dnaVersion').value || 'v1.0';
+            const date = new Date().toISOString().slice(0,10);
+            
+            const dna = '#龍芯⚡️' + date + '-' + topic + '-' + version;
+            
+            document.getElementById('dnaCode').textContent = dna;
+            document.getElementById('dnaResult').style.display = 'block';
+        }
+
+        // 显示支付
+        function showPayment() {
+            alert('💳 数字人民币支付模块\n\n' +
+                  '调试期间所有功能免费！\n\n' +
+                  '正式版价格：\n' +
+                  '- 华为开发者功能: ¥1/月\n' +
+                  '- 本地API服务: ¥1/月\n' +
+                  '- 扩展存储: ¥1/月\n\n' +
+                  '数据完全本地存储，华为不收集用户信息。');
+        }
+
+        // 页面加载时恢复代码
+        window.onload = function() {
+            const savedCode = localStorage.getItem('cnsh_code');
+            if (savedCode) {
+                document.getElementById('codeInput').value = savedCode;
+            }
+            
+            // 更新当前卦象
+            updateCurrentGua();
+        };
+
+        // 更新当前卦象
+        function updateCurrentGua() {
+            const hour = new Date().getHours();
+            const guaMap = [
+                ['☵', '坎卦', '危机'],  // 23-1
+                ['☷', '坤卦', '包容'],  // 1-3
+                ['☳', '震卦', '变革'],  // 3-5
+                ['☴', '巽卦', '协调'],  // 5-7
+                ['☱', '兑卦', '交流'],  // 7-9
+                ['☲', '离卦', '文明'],  // 9-11
+                ['☰', '乾卦', '刚健'],  // 11-13
+                ['☷', '坤卦', '包容'],  // 13-15
+                ['☱', '兑卦', '交流'],  // 15-17
+                ['☴', '巽卦', '协调'],  // 17-19
+                ['☶', '艮卦', '观察'],  // 19-21
+                ['☵', '坎卦', '危机'],  // 21-23
+            ];
+            
+            let guaIndex;
+            if (hour >= 23 || hour < 1) guaIndex = 0;
+            else if (hour < 3) guaIndex = 1;
+            else if (hour < 5) guaIndex = 2;
+            else if (hour < 7) guaIndex = 3;
+            else if (hour < 9) guaIndex = 4;
+            else if (hour < 11) guaIndex = 5;
+            else if (hour < 13) guaIndex = 6;
+            else if (hour < 15) guaIndex = 7;
+            else if (hour < 17) guaIndex = 8;
+            else if (hour < 19) guaIndex = 9;
+            else if (hour < 21) guaIndex = 10;
+            else guaIndex = 11;
+            
+            const gua = guaMap[guaIndex];
+            const guaDiv = document.getElementById('currentGua');
+            if (guaDiv) {
+                guaDiv.innerHTML = gua[0] + ' ' + gua[1] + ' <span style="font-size: 14px; color: #888;">(' + gua[2] + ')</span>';
+            }
+        }
+    </script>
+</body>
+</html>

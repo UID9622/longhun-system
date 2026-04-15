@@ -1,0 +1,15 @@
+{
+	"messages": [
+		"Select Authors",
+		"Search author by name",
+		"Clear all selections",
+		"Input message keywords to filter commits"
+	],
+	"keys": [
+		"author.quickPick.title",
+		"author.quickPick.placeholder",
+		"author.quickPick.buttons.tooltip",
+		"description.inputBox.placeholder"
+	],
+	"filePath": "commands/filter"
+}

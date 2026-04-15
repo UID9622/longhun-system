@@ -1,0 +1,69 @@
+import json
+import os
+import requests
+
+# 加载你的 Notion 数据
+def load_notion_data():
+    path = os.path.expanduser("~/longhun-system/logs/notion_all_pages.json")
+    with open(path) as f:
+        pages = json.load(f)
+    
+    # 提取有用内容
+    docs = []
+    for p in pages:
+        title = ""
+        try:
+            title = p["properties"]["title"]["title"][0]["plain_text"]
+        except:
+            pass
+        url = p.get("url", "")
+        docs.append({"title": title, "url": url, "id": p.get("id", "")})
+    return docs
+
+# 搜索相关页面（关键词匹配）
+def search_pages(docs, keyword):
+    results = [d for d in docs if keyword.lower() in d["title"].lower()]
+    return results[:10]  # 最多返回10条
+
+# 问 Ollama
+def ask_ollama(prompt, model="qwen2.5:7b"):
+    res = requests.post("http://localhost:11434/api/generate", json={
+        "model": model,
+        "prompt": prompt,
+        "stream": False
+    })
+    return res.json().get("response", "")
+
+# 主循环
+def main():
+    print("🐉 龍魂本地知识库启动")
+    print("加载 Notion 数据...")
+    docs = load_notion_data()
+    print(f"已加载 {len(docs)} 个页面")
+    print("输入 'quit' 退出\n")
+    
+    while True:
+        question = input("你问：").strip()
+        if question == "quit":
+            break
+        
+        # 搜相关页面
+        related = search_pages(docs, question)
+        context = "\n".join([f"- {d['title']}" for d in related]) if related else "未找到相关页面"
+        
+        # 构建提示词
+        prompt = f"""你是龍魂系统的智能助手，以下是用户工作间里与问题相关的页面：
+
+{context}
+
+用户问题：{question}
+
+请基于以上信息给出简洁回答。"""
+        
+        print("\n宝宝：", end="")
+        answer = ask_ollama(prompt)
+        print(answer)
+        print()
+
+if __name__ == "__main__":
+    main()

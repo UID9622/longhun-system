@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂时间轴 · DNA时空胶囊</title>
+<style>
+  :root {
+    --bg:      #08080f;
+    --surface: #0f0f1a;
+    --card:    #13131f;
+    --border:  #1a1a2e;
+    --accent:  #7c6aff;
+    --dna:     #a78bfa;
+    --green:   #4ade80;
+    --yellow:  #fbbf24;
+    --red:     #f87171;
+    --text:    #e2e8f0;
+    --muted:   #64748b;
+    --line:    #1e1e35;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── 顶栏 ── */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(8,8,15,0.95);
+    backdrop-filter: blur(16px);
+  }
+
+  .logo {
+    font-size: 17px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--dna));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+  }
+
+  .nav-tab {
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .nav-tab:hover { color: var(--text); background: var(--border); }
+  .nav-tab.active {
+    color: var(--dna);
+    border-color: rgba(124,106,255,0.3);
+    background: rgba(124,106,255,0.08);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .dot { width:7px; height:7px; border-radius:50%; background: var(--green); }
+
+  /* ── 主区 ── */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 120px;
+  }
+
+  /* ── 统计条 ── */
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-val {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--dna));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-label { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.06em; }
+
+  /* ── 时间轴容器 ── */
+  .timeline {
+    position: relative;
+    padding-left: 36px;
+  }
+
+  /* 垂直线 */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    border-radius: 1px;
+  }
+
+  /* ── 日期组标题 ── */
+  .date-group {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .date-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 4px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+    left: -36px;
+  }
+
+  /* ── 单个事件节点 ── */
+  .event-node {
+    position: relative;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  /* 圆点 */
+  .event-node::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
+    transition: all 0.2s;
+    z-index: 1;
+  }
+
+  .event-node:hover::before,
+  .event-node.expanded::before {
+    background: var(--dna);
+    box-shadow: 0 0 0 3px var(--dna), 0 0 12px rgba(167,139,250,0.4);
+    width: 12px;
+    height: 12px;
+    left: -31px;
+    top: 17px;
+  }
+
+  /* 卡片 */
+  .event-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .event-node:hover .event-card,
+  .event-node.expanded .event-card {
+    border-color: rgba(124,106,255,0.3);
+    box-shadow: 0 4px 24px rgba(124,106,255,0.08);
+  }
+
+  /* 卡片头部 */
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .card-time {
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 42px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card-title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .card-badges {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-wx    { background: rgba(251,191,36,0.1);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+  .badge-mood  { background: rgba(124,106,255,0.1); color: var(--dna); border: 1px solid rgba(124,106,255,0.2); }
+  .badge-loc   { background: rgba(74,222,128,0.1);  color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
+
+  /* 卡片展开详情 */
+  .card-detail {
+    display: none;
+    padding: 0 18px 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+
+  .event-node.expanded .card-detail { display: block; }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .detail-item { display: flex; flex-direction: column; gap: 3px; }
+  .detail-item-label { font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .detail-item-val   { font-size: 13px; }
+
+  .notes-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+    padding: 12px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+  }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background: rgba(124,106,255,0.08);
+    border: 1px solid rgba(124,106,255,0.2);
+    color: var(--dna);
+  }
+
+  /* 时光回流按钮 */
+  .reflow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(30,30,63,0.8), rgba(45,27,105,0.8));
+    border: 1px solid rgba(124,106,255,0.3);
+    border-radius: 8px;
+    color: var(--dna);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .reflow-btn:hover { background: linear-gradient(135deg, rgba(45,45,94,0.9), rgba(61,37,128,0.9)); }
+
+  /* 时光回流结果 */
+  .reflow-scene {
+    display: none;
+    background: linear-gradient(135deg, rgba(124,106,255,0.04), rgba(167,139,250,0.04));
+    border: 1px solid rgba(124,106,255,0.15);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  .reflow-scene.visible { display: block; }
+  .reflow-summary {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dna);
+    margin-bottom: 10px;
+  }
+  .reflow-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    align-items: center;
+    color: var(--text);
+  }
+  .reflow-icon { font-size: 15px; min-width: 20px; }
+
+  /* DNA追溯 */
+  .dna-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 8px;
+    font-size: 10px;
+    font-family: "SF Mono", monospace;
+    color: var(--dna);
+    word-break: break-all;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .dna-row:hover { background: rgba(124,106,255,0.08); }
+
+  /* ── 空状态 ── */
+  .empty {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--muted);
+  }
+  .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+  .empty-text { font-size: 14px; margin-bottom: 24px; }
+
+  /* ── 快速创建浮窗 ── */
+  .fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(124,106,255,0.5);
+    transition: all 0.2s;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(124,106,255,0.7); }
+
+  /* ── 加载 ── */
+  .spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 100px; right: 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 12px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.25s;
+    max-width: 300px;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* ── 响应式 ── */
+  @media (max-width: 600px) {
+    header { padding: 12px 16px; }
+    main { padding: 32px 16px 100px; }
+    .timeline { padding-left: 28px; }
+    .stats-bar { gap: 16px; padding: 16px; }
+    .stat-val { font-size: 20px; }
+    .detail-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">龍魂时间轴</div>
+  <div class="nav-tabs">
+    <a href="/ui/index.html" class="nav-tab">📅 日历</a>
+    <a href="/ui/timeline.html" class="nav-tab active">⏳ 时间轴</a>
+  </div>
+  <div class="header-right">
+    <div class="dot" id="dot"></div>
+    <span id="statusText">连接中…</span>
+  </div>
+</header>
+
+<main>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat">
+      <div class="stat-val" id="statTotal">—</div>
+      <div class="stat-label">时空胶囊</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statDays">—</div>
+      <div class="stat-label">跨越天数</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statMoods">—</div>
+      <div class="stat-label">情绪种类</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statCities">—</div>
+      <div class="stat-label">留痕城市</div>
+    </div>
+  </div>
+
+  <div class="timeline" id="timeline">
+    <div class="empty">
+      <div class="empty-icon">🕰️</div>
+      <div class="empty-text">加载时间轴…</div>
+    </div>
+  </div>
+</main>
+
+<button class="fab" onclick="window.location='/ui/index.html'" title="新建事件">＋</button>
+<div class="toast" id="toast"></div>
+
+<script>
+const API     = 'http://127.0.0.1:9622';
+const USER_ID = 'UID9622';
+
+let allEvents = [];
+
+// ── 初始化 ─────────────────────────────────────────────────────
+
+async function init() {
+  try {
+    const r = await fetch(API + '/');
+    if (r.ok) {
+      document.getElementById('dot').style.background = 'var(--green)';
+      document.getElementById('statusText').textContent = 'CNSH-64 在线';
+    }
+  } catch(e) {
+    document.getElementById('dot').style.background = 'var(--red)';
+    document.getElementById('statusText').textContent = '离线';
+  }
+  await loadTimeline();
+}
+
+// ── 加载数据 ───────────────────────────────────────────────────
+
+async function loadTimeline() {
+  try {
+    const r = await fetch(`${API}/calendar/events/${USER_ID}?limit=500`);
+    const data = await r.json();
+    allEvents = (data.events || []).sort((a,b) => b.timestamp - a.timestamp);
+    renderStats();
+    renderTimeline();
+  } catch(e) {
+    document.getElementById('timeline').innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⚠️</div>
+        <div class="empty-text">无法连接 CNSH-64 API<br><small style="color:var(--muted)">确认服务运行在 port 9622</small></div>
+      </div>`;
+  }
+}
+
+// ── 统计 ───────────────────────────────────────────────────────
+
+function renderStats() {
+  const days   = new Set(allEvents.map(e => e.display_date)).size;
+  const moods  = new Set(allEvents.map(e => e.mood).filter(Boolean)).size;
+  const cities = new Set(allEvents.map(e => e.geo_city).filter(Boolean)).size;
+
+  document.getElementById('statTotal').textContent = allEvents.length;
+  document.getElementById('statDays').textContent  = days;
+  document.getElementById('statMoods').textContent = moods || '—';
+  document.getElementById('statCities').textContent = cities || '—';
+}
+
+// ── 时间轴渲染 ─────────────────────────────────────────────────
+
+function renderTimeline() {
+  const container = document.getElementById('timeline');
+
+  if (!allEvents.length) {
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">🕰️</div>
+        <div class="empty-text">还没有时空胶囊</div>
+        <a href="/ui/index.html" style="color:var(--dna);font-size:13px;">+ 封印第一个</a>
+      </div>`;
+    return;
+  }
+
+  // 按日期分组
+  const groups = {};
+  allEvents.forEach(e => {
+    const d = e.display_date;
+    if (!groups[d]) groups[d] = [];
+    groups[d].push(e);
+  });
+
+  const dates = Object.keys(groups).sort().reverse();
+  container.innerHTML = '';
+
+  dates.forEach(date => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'date-group';
+
+    // 日期标签
+    const label = document.createElement('div');
+    label.className = 'date-label';
+    label.innerHTML = `📅 ${formatDate(date)}`;
+    groupEl.appendChild(label);
+
+    groups[date].forEach(evt => {
+      groupEl.appendChild(buildEventNode(evt));
+    });
+
+    container.appendChild(groupEl);
+  });
+}
+
+function buildEventNode(evt) {
+  const node = document.createElement('div');
+  node.className = 'event-node';
+  node.id = `node-${evt.dna_trace}`;
+
+  const ts   = new Date(evt.timestamp * 1000);
+  const time = ts.toLocaleTimeString('zh-CN', { hour:'2-digit', minute:'2-digit' });
+
+  const wxEmoji = weatherEmoji(evt.wx_code);
+  const wxText  = evt.wx_temp ? `${wxEmoji} ${evt.wx_temp}°C` : '';
+  const mood    = evt.mood ? `${moodEmoji(evt.mood)} ${evt.mood}` : '';
+  const city    = evt.geo_city || '';
+
+  let tags = [];
+  try { tags = JSON.parse(evt.tags || '[]'); } catch(e) {}
+
+  const dnaShort = (evt.dna_trace || '').slice(-16);
+
+  node.innerHTML = `
+    <div class="event-card">
+      <div class="card-head">
+        <div class="card-time">${time}</div>
+        <div class="card-title">${evt.title || '(无标题)'}</div>
+        <div class="card-badges">
+          ${wxText  ? `<div class="badge badge-wx">${wxText}</div>` : ''}
+          ${mood    ? `<div class="badge badge-mood">${mood}</div>` : ''}
+          ${city    ? `<div class="badge badge-loc">📍${city}</div>` : ''}
+        </div>
+      </div>
+
+      <div class="card-detail">
+        ${tags.length ? `<div class="tags-row">${tags.map(t => `<div class="tag">#${t}</div>`).join('')}</div>` : ''}
+
+        ${evt.notes ? `<div class="notes-text">${evt.notes}</div>` : ''}
+
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="detail-item-label">天气</div>
+            <div class="detail-item-val">${wxEmoji} ${evt.wx_desc || '—'} ${evt.wx_temp ? evt.wx_temp+'°C' : ''}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">湿度 / 风速</div>
+            <div class="detail-item-val">${evt.wx_humidity ? evt.wx_humidity+'%' : '—'} / ${evt.wx_wind ? evt.wx_wind+' km/h' : '—'}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">位置</div>
+            <div class="detail-item-val">${city || '未记录'} ${evt.geo_lat ? `(${Number(evt.geo_lat).toFixed(4)}, ${Number(evt.geo_lng).toFixed(4)})` : ''}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">同步状态</div>
+            <div class="detail-item-val">${evt.sync_status || '未知'}</div>
+          </div>
+        </div>
+
+        <button class="reflow-btn" onclick="triggerReflow(event, '${evt.dna_trace}')">
+          ⏳ 时光回流 · 还原当时场景
+        </button>
+
+        <div class="reflow-scene" id="scene-${CSS.escape(evt.dna_trace)}"></div>
+
+        <div class="dna-row" onclick="copyDNA('${evt.dna_trace}')">
+          🧬 ${evt.dna_trace}
+        </div>
+      </div>
+    </div>
+  `;
+
+  node.querySelector('.card-head').addEventListener('click', () => {
+    node.classList.toggle('expanded');
+  });
+
+  return node;
+}
+
+// ── 时光回流 ───────────────────────────────────────────────────
+
+async function triggerReflow(e, dnaTrace) {
+  e.stopPropagation();
+  const sceneEl = document.getElementById('scene-' + CSS.escape(dnaTrace));
+  if (!sceneEl) return;
+
+  sceneEl.classList.add('visible');
+  sceneEl.innerHTML = `<div style="text-align:center;padding:12px"><div class="spinner"></div><span style="margin-left:10px;font-size:12px;color:var(--muted)">还原场景中…</span></div>`;
+
+  try {
+    const encoded = encodeURIComponent(dnaTrace);
+    const r = await fetch(`${API}/calendar/reflow/dna/${encoded}`);
+    const scene = await r.json();
+
+    if (scene.error) {
+      sceneEl.innerHTML = `<div style="color:var(--red);font-size:12px">${scene.error}</div>`;
+      return;
+    }
+
+    sceneEl.innerHTML = `
+      <div class="reflow-summary">${scene.summary}</div>
+      <div class="reflow-row"><div class="reflow-icon">${scene.weather.emoji}</div><div>${scene.weather.description} · ${scene.weather.temperature}°C · 💨${scene.weather.wind_speed} km/h · 💧${scene.weather.humidity}%</div></div>
+      <div class="reflow-row"><div class="reflow-icon">📍</div><div>${scene.location.city || '—'} ${scene.location.lat ? `(${scene.location.lat.toFixed(4)}, ${scene.location.lng.toFixed(4)})` : ''}</div></div>
+      <div class="reflow-row"><div class="reflow-icon">📅</div><div>${scene.time} ${scene.weekday}</div></div>
+      ${scene.mood ? `<div class="reflow-row"><div class="reflow-icon">${moodEmoji(scene.mood)}</div><div>${scene.mood}</div></div>` : ''}
+    `;
+  } catch(err) {
+    sceneEl.innerHTML = `<div style="color:var(--red);font-size:12px">还原失败: ${err.message}</div>`;
+  }
+}
+
+// ── 工具 ───────────────────────────────────────────────────────
+
+function formatDate(d) {
+  const [y, m, day] = d.split('-');
+  const dt = new Date(d);
+  const weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
+  return `${y}年${parseInt(m)}月${parseInt(day)}日 ${weekdays[dt.getDay()]}`;
+}
+
+function weatherEmoji(code) {
+  if (code == null || code < 0) return '🌡️';
+  if (code === 0)  return '☀️';
+  if (code <= 2)   return '🌤️';
+  if (code === 3)  return '☁️';
+  if (code <= 48)  return '🌫️';
+  if (code <= 65)  return '🌧️';
+  if (code <= 75)  return '❄️';
+  if (code <= 82)  return '🌦️';
+  return '⛈️';
+}
+
+function moodEmoji(m) {
+  return {'平静':'😌','开心':'😊','激动':'🔥','专注':'🎯','疲惫':'😴','忧虑':'😟'}[m] || '';
+}
+
+async function copyDNA(dna) {
+  try {
+    await navigator.clipboard.writeText(dna);
+    showToast('DNA已复制 · ' + dna.slice(-12));
+  } catch(e) {
+    showToast(dna);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+init();
+</script>
+</body>
+</html>

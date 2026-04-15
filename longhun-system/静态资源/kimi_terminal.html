@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🤖 Kimi终端版 · DeepSeek主引擎</title>
+<style>
+:root {
+  --bg: #0a0a12;
+  --panel: #13131f;
+  --panel2: #1a1a28;
+  --border: #2a2a40;
+  --gold: #c8a84b;
+  --green: #4caf7d;
+  --red: #e05a5a;
+  --text: #e8e4d9;
+  --muted: #55556a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'PingFang SC', 'Microsoft YaHei', monospace;
+  min-height: 100vh;
+  padding: 20px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+.header {
+  text-align: center;
+  padding: 30px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+}
+.header h1 {
+  font-size: 28px;
+  background: linear-gradient(135deg, var(--gold), #e8d5a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header .subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 10px;
+}
+.terminal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.dot.red { background: var(--red); }
+.dot.yellow { background: var(--gold); }
+.dot.green { background: var(--green); }
+.output {
+  background: var(--panel2);
+  border-radius: 8px;
+  padding: 15px;
+  min-height: 200px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  max-height: 400px;
+}
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+input[type="text"] {
+  flex: 1;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+button {
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+button:hover {
+  opacity: 0.9;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.btn {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+.btn:hover {
+  border-color: var(--gold);
+  background: var(--panel2);
+}
+.btn-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.btn-title {
+  font-size: 12px;
+  color: var(--gold);
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🤖 Kimi终端版</h1>
+    <div class="subtitle">DeepSeek主引擎 · Kimi挂载执行 · 无依赖纯Python</div>
+    <div style="margin-top:10px;font-size:11px;color:var(--gold);">
+      DNA: #龍芯⚡️2026-04-09-KIMI-OPT-v1.0
+    </div>
+  </div>
+
+  <div class="buttons">
+    <div class="btn" onclick="runCommand('generate')">
+      <div class="btn-icon">🧬</div>
+      <div class="btn-title">生成DNA</div>
+    </div>
+    <div class="btn" onclick="runCommand('verify')">
+      <div class="btn-icon">🔍</div>
+      <div class="btn-title">验证DNA</div>
+    </div>
+    <div class="btn" onclick="runCommand('rules')">
+      <div class="btn-icon">📜</div>
+      <div class="btn-title">P0++规则</div>
+    </div>
+    <div class="btn" onclick="runCommand('bash')">
+      <div class="btn-icon">💻</div>
+      <div class="btn-title">Bash模式</div>
+    </div>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span style="margin-left:10px;color:var(--muted);font-size:12px;">
+        GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+      </span>
+    </div>
+    <div class="output" id="output">
+☰☰ 龍🇨🇳魂 ☷ · Kimi终端版已就绪
+
+支持命令:
+  • generate <内容>  - 生成DNA追溯码
+  • verify <DNA>     - 验证DNA真伪
+  • rules [CN/US/EU] - 显示P0++规则
+  • bash             - 启动Bash交互模式
+
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    </div>
+    <div class="input-area">
+      <input type="text" id="cmdInput" placeholder="输入命令..." onkeypress="if(event.key==='Enter')execute()">
+      <button onclick="execute()">执行</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    UID9622 · 诸葛鑫 · 龍芯北辰 · 理论指导: 曾仕强老师<br>
+    七维权重: 哲学0.35/技术0.20/架构0.15/进化0.10/创新0.08/协同0.07/量子0.05
+  </div>
+</div>
+
+<script>
+let mode = 'python';
+
+function runCommand(cmd) {
+  document.getElementById('cmdInput').value = cmd;
+  execute();
+}
+
+async function execute() {
+  const input = document.getElementById('cmdInput');
+  const output = document.getElementById('output');
+  const cmd = input.value.trim();
+  
+  if (!cmd) return;
+  
+  output.textContent += '\n\n> ' + cmd + '\n';
+  output.scrollTop = output.scrollHeight;
+  
+  // 模拟执行结果
+  if (cmd.startsWith('generate') || cmd === 'gen' || cmd === 'g') {
+    const content = cmd.replace(/^generate|^gen|^g\s*/, '') || '龍魂系统Kimi终端';
+    const timestamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19);
+    const hash = Math.random().toString(16).substr(2, 8);
+    output.textContent += `DNA: #龍芯⚡️${timestamp}-UID9622-${hash}\n`;
+    output.textContent += `卦象: 同人 (第13卦)\n`;
+    output.textContent += `道德经: 第8章 - 上善若水\n`;
+    output.textContent += `确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`;
+  }
+  else if (cmd.startsWith('verify') || cmd === 'v') {
+    output.textContent += '✅ DNA验证通过 | 内容未被篡改\n';
+    output.textContent += '原始HASH: 93687c2e\n';
+    output.textContent += '计算HASH: 93687c2e';
+  }
+  else if (cmd.startsWith('rules') || cmd === 'r') {
+    const country = cmd.split(' ')[1] || 'CN';
+    output.textContent += `=== P0++ 全球规则 (16条锁死) [${country}] ===\n\n`;
+    const rules = [
+      '1. 人民利益优先', '2. 中国领土主权', '3. 创作主权归属中国',
+      '4. 数据主权归个人', '5. 支付主权(数字人民币)', '6. 内容与安全红线',
+      '7. 反道德绑架', '8. 诽谤必究', '9. 易经确权归属',
+      '10. 文化根代码不可翻译', '11. 唯一协作栈', '12. 记忆存明细',
+      '13. GPG+时间戳引擎', '14. 权利在老大', '15. L0＞P0++＞P0＞P1＞P2', '16. 不设文字陷阱'
+    ];
+    rules.forEach(r => output.textContent += r + '\n');
+    output.textContent += '\n七维权重: 哲学0.35/技术0.20/架构0.15/进化0.10/创新0.08/协同0.07/量子0.05';
+  }
+  else if (cmd === 'bash' || cmd === 'sh') {
+    output.textContent += '切换到Bash模式...\n';
+    output.textContent += '命令: bash ~/longhun-system/longhun_kimi.sh\n';
+    output.textContent += '请在终端中执行上述命令。';
+  }
+  else {
+    output.textContent += '未知命令。支持: generate, verify, rules, bash';
+  }
+  
+  output.scrollTop = output.scrollHeight;
+  input.value = '';
+}
+</script>
+</body>
+</html>

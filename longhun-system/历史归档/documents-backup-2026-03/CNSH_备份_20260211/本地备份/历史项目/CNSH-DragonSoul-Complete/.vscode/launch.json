@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🐉 龍魂终端",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/dragonsoul-terminal/backend/main.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "🛡️ 审计引擎",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/security-core/audit_engine.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🧬 DNA追溯",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/security-core/dna_tracer.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🍎 Mac管理器",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/dragonsoul-terminal/backend/mac_manager.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "📝 当前Python文件",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}

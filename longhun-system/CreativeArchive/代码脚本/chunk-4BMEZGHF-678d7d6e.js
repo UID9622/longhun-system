@@ -1,0 +1,1 @@
+import{_ as c}from"./main.store-98b135cb.js";function l(c,l){var t,e,a;c.accDescr&&(null==(t=l.setAccDescription)||t.call(l,c.accDescr)),c.accTitle&&(null==(e=l.setAccTitle)||e.call(l,c.accTitle)),c.title&&(null==(a=l.setDiagramTitle)||a.call(l,c.title))}c(l,"populateCommonDb");export{l as p};

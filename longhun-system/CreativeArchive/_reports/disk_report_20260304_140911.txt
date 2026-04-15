@@ -1,0 +1,33 @@
+# 磁盘空间分析报告 - 2026年 3月 4日 星期三 14时09分11秒 CST
+
+## 整体磁盘使用
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1   1.8Ti    11Gi   389Gi     3%    453k  4.1G    0%   /
+
+## 各挂载磁盘
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1   1.8Ti    11Gi   389Gi     3%    453k  4.1G    0%   /
+devfs            210Ki   210Ki     0Bi   100%     726     0  100%   /dev
+/dev/disk3s6     1.8Ti   2.0Gi   389Gi     1%       2  4.1G    0%   /System/Volumes/VM
+/dev/disk3s4     1.8Ti   7.8Gi   389Gi     2%    1.4k  4.1G    0%   /System/Volumes/Preboot
+/dev/disk3s1     1.8Ti    55Mi   389Gi     1%     107  4.1G    0%   /System/Volumes/Update
+/dev/disk1s2     500Mi   6.0Mi   478Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk1s1     500Mi   5.6Mi   478Mi     2%      30  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk1s3     500Mi   5.3Mi   478Mi     2%     106  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s2     1.8Ti   1.4Ti   389Gi    79%     39M  4.1G    1%   /System/Volumes/Data
+map auto_home      0Bi     0Bi     0Bi   100%       0     0     -   /System/Volumes/Data/home
+/dev/disk5s1      16Gi    16Gi   436Mi    98%    607k  4.5M   12%   /Library/Developer/CoreSimulator/Volumes/iOS_23C54
+/dev/disk6s2     1.9Ti   509Gi   1.4Ti    27%       1     0  100%   /Volumes/LonghunDisk
+/dev/disk7s1     432Mi   280Mi   153Mi    65%     635  4.3G    0%   /Volumes/Notion Installer
+
+## 创作归档目录占用
+ 16M	/Users/zuimeidedeyihan/CreativeArchive/_reports
+2.9G	/Users/zuimeidedeyihan/CreativeArchive/_待分类
+  0B	/Users/zuimeidedeyihan/CreativeArchive/_重复文件回收站
+  0B	/Users/zuimeidedeyihan/CreativeArchive/代码脚本
+  0B	/Users/zuimeidedeyihan/CreativeArchive/图像设计
+  0B	/Users/zuimeidedeyihan/CreativeArchive/文字创作
+  0B	/Users/zuimeidedeyihan/CreativeArchive/压缩包原始
+  0B	/Users/zuimeidedeyihan/CreativeArchive/音频视频
+
+## 前20大文件

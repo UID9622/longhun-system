@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <rect width="100%" height="100%" fill="white"/>
+  <path d="M 120 140 L 360 140 M 240 140 L 240 520 " fill="none" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="10" y="20" font-size="10" fill="#aaa">华</text>
+</svg>

@@ -1,0 +1,124 @@
+{
+  "isInnerVersion": false,
+  "isHcsVersion": false,
+  "isCommercialVersion": true,
+  "isGammaVersion": false,
+  "isPartnerVersion": false,
+  "isDefaultToken": false,
+  "developersToken": "",
+  "isNewFramework": true,
+  "isSupportWebUrl": false,
+  "dottingDisabledInProd": false,
+  "internalBrandName": "",
+  "externalBrandName": "CodeArts Agent",
+  "englishBrandName": "CodeArts Agent",
+  "chineseBrandName": "CodeArts代码智能体",
+  "onlyDisplayDefaultGpt": false,
+  "enterActiveTimeDelay": 75,
+  "camelCaseRepoParam": false,
+  "snippetSimilarityThreshold": 0.75,
+  "workspaceSimilarityThreshold": 0.1,
+  "markLogEnable": false,
+  "policyBundleInvokeDelaySeed": 21600,
+  "departmentRefreshInterval": 21600,
+  "kiaExpiryDelayInterval": 86400,
+  "releaseNotesDetailInterval": 43200,
+  "productLine": "default",
+  "codehubTelemetryIntervalMins": 30,
+  "logStorageDays": 30,
+  "MKTSecret": "",
+  "enableLogInHc": true,
+  "decryptionKey": "5d126a12261d8b110a70a88fa55b853c1f9ab60b47829ad1c75eada8b2557485",
+  "getUsageTimeout": 5,
+  "autoUpdateXmlUrl": "",
+  "introductionUrl": "",
+  "internalJavaExtensionInstallUrl": "",
+  "complainGammaDomain": "",
+  "complainProductDomain": "https://css-complain-drcn.platform.dbankcloud.cn",
+  "disclaimerUrlDomains": {
+    "cuaComputingUrl": "https://www.huaweicloud.com/declaration/sa_cua_computing.html",
+    "cuaComputingIntlUrl": "https://www.huaweicloud.com/intl/en-us/declaration-sg/sa_cua.html",
+    "productPriceUrl": "https://www.huaweicloud.com/product/price.html",
+    "saPrpUrl": "https://www.huaweicloud.com/declaration/sa_prp.html",
+    "saPrpIntlUrl": "https://www.huaweicloud.com/intl/en-us/declaration-sg/sa_prp.html",
+    "saDpaUrl": "https://www.huaweicloud.com/declaration/sa-dpa.html",
+    "saDpaIntlUrl": "https://www.huaweicloud.com/intl/en-us/declaration-sg/sa_dpa.html"
+  },
+  "innerAdvisorUrl": "https://12345.his.huawei.com/wecare/onlineservice/portal/#/serviceRequest?appId=com.huawei.devmind.codemate",
+  "innerBetaAdvisorUrl": "https://snic.gtsdata.huawei.com/datalinkpro/web/#/openFormFill?hashcode=kzrMxK8HsHy/ARMsSNYl6UFb5uF2xpMwKp4nT+uV7MM=",
+  "publicAdvisorUrl": "https://console.huaweicloud.com/smartadvisor/#/",
+  "utCoverageUrl": "http://ostest.developer.huawei.com/pyapi/get/coverage/code?",
+  "projectRulePath": "./.codeartsdoer/rule",
+  "fileSuffixLanguageMap": {},
+  "customEnglishBrandName": "",
+  "customChineseBrandName": "",
+  "delayReview": false,
+  "isAgentInFullStream": false,
+  "featureSwitches": {
+    "preferLanguageEnable": true,
+    "allowUploadFile": false,
+    "hideAdvisorEntry": false,
+    "hideComplaintEntry": false,
+    "hideDisclaimerLinkEntry": false,
+    "isSupportBeta": false,
+    "isSupportCustomInstructions": false,
+    "isExternalVersionSupportAutoUpdate": false,
+    "isSupportSingleLogin": false,
+    "isSupportTerminal": false,
+    "isSupportRules": false,
+    "codeTranslate": {
+      "isEnable": false,
+      "params": {
+        "supportLanguage": {
+          "C": [
+            "Rust"
+          ],
+          "Flex": [
+            "React"
+          ]
+        }
+      }
+    },
+    "agentModeEnable": false,
+    "policyCenterEnable": true,
+    "statusBarCompletionSwitchEnable": false,
+    "inlineChatEnable": false,
+    "knowledgeRepoSupportSearch": true,
+    "codeDebugEnable": true
+  },
+  "commercialVersionDomain": {
+    "newFramework": {
+      "codemateHomeUrl": "https://www.huaweicloud.com/product/codeartside/snap.html",
+      "userGuideUrl": "https://support.huaweicloud.com/usermanual-codeartssnap/codeartsdoer_ug_0001.html",
+      "faqsUrl": "https://support.huaweicloud.com/codeartssnap_faq/codeartsdoer_faq_0001.html",
+      "privacyPolicy": "https://www.huaweicloud.com/declaration/tsa-codearts-doer.html",
+      "haierEndpoint": "",
+      "haierRequestEndpoint": "",
+      "productDomain": {
+        "codeGenDomain": "https://snap-access.cn-north-4.myhuaweicloud.com",
+        "chatDomain": "https://snap-access.cn-north-4.myhuaweicloud.com",
+        "knowledgeRepoListDomain": "https://snap-access.cn-north-4.myhuaweicloud.com/ragGateway",
+        "assetListDomain": "https://snap-access.cn-north-4.myhuaweicloud.com/ragGateway",
+        "knowledgeRepoManagementUrl": "https://devcloud.cn-north-4.huaweicloud.com/rag/management/home",
+        "chatWithFileUrl": "",
+        "uploadLocalKnowledgeFileUrl": "",
+        "policyDomain": "https://snap-access.cn-north-4.myhuaweicloud.com",
+        "agentModeDomain": "https://snap-access.cn-north-4.myhuaweicloud.com",
+        "toolkitDomain": "https://iam.myhuaweicloud.com",
+        "policyCenterDomain": "https://snap-access.cn-north-4.myhuaweicloud.com",
+        "codeartsWebUrl": "https://devcloud.cn-north-4.huaweicloud.com",
+        "ruleCenterUrl": "https://devcloud.cn-north-4.huaweicloud.com/doer/skills-and-rules",
+        "ruleDetailUrl": "https://devcloud.cn-north-4.huaweicloud.com/doer/skills-and-rules",
+        "skillCenterUrl": "https://devcloud.cn-north-4.huaweicloud.com/doer/skills-and-rules",
+        "mcpLearnWikiUrl": "https://support.huaweicloud.com/usermanual-codeartssnap/codeartsdoer_ug_0010.html",
+        "releaseUrl": "https://support.huaweicloud.com/productdesc-codeartssnap/codeartsdoer_pd_0011.html"
+      }
+    },
+    "oldFramework": {
+      "productDomain": {
+        "chatDomain": "https://codebreezeagent.cn-north-4.myhuaweicloud.com",
+        "voteDomain": "https://cloudide.cn-north-4.myhuaweicloud.com"
+      }
+    }
+  }
+}

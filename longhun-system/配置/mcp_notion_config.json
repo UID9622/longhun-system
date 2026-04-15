@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "龍魂本地文件系统": {
+      "command": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/core/mcp_server.py"
+      ],
+      "env": {}
+    }
+  }
+}
