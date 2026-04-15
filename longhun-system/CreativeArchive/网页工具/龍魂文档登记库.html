@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龍魂文档登记库 · UID9622</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080f;--bg2:#0f0f1e;--card:rgba(15,15,35,0.9);
+  --gold:#ffd700;--jade:#00ff88;--neon:#00ffc8;--red:#ff4757;
+  --blue:#00d4ff;--purple:#6c5ce7;--sub:#6b7280;--text:#e2e8f0;
+  --border:rgba(0,212,255,0.15);
+}
+body{background:var(--bg);color:var(--text);font-family:"Microsoft YaHei","PingFang SC",sans-serif;padding:20px;min-height:100vh}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:rgba(0,255,200,0.2);border-radius:2px}
+
+/* 顶部 */
+.header{text-align:center;padding:24px 0 20px;border-bottom:1px solid rgba(255,215,0,0.15);margin-bottom:20px}
+.header h1{font-size:22px;color:var(--gold);letter-spacing:3px;margin-bottom:6px}
+.header .sub{font-size:11px;color:var(--sub);letter-spacing:2px}
+.header .dna{font-family:Consolas,monospace;font-size:10px;color:rgba(0,255,200,0.4);margin-top:5px}
+
+/* 统计栏 */
+.stats{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.stat{flex:1;min-width:90px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center}
+.stat-n{font-family:Consolas,monospace;font-size:18px;font-weight:bold;color:var(--neon)}
+.stat-l{font-size:9px;color:var(--sub);margin-top:2px;letter-spacing:1px;text-transform:uppercase}
+
+/* 搜索栏 */
+.search-bar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.search-bar input{flex:1;min-width:200px;padding:9px 14px;background:rgba(0,0,0,0.4);border:1.5px solid rgba(0,212,255,0.2);border-radius:8px;color:var(--text);font-size:13px;outline:none;transition:border-color 0.2s}
+.search-bar input:focus{border-color:var(--neon)}
+.filter-btn{padding:8px 14px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);background:transparent;color:var(--sub);font-size:11px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(255,215,0,0.06)}
+
+/* 数据库表格 */
+.db-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.db-header{display:grid;grid-template-columns:32px 180px 80px 70px 90px 80px 1fr 100px;gap:0;background:rgba(0,212,255,0.07);border-bottom:1px solid var(--border);padding:0}
+.db-header .dh{padding:9px 10px;font-size:10px;font-weight:bold;color:var(--blue);letter-spacing:1px;text-transform:uppercase;border-right:1px solid rgba(0,212,255,0.07)}
+.db-header .dh:last-child{border-right:none}
+
+.db-row{display:grid;grid-template-columns:32px 180px 80px 70px 90px 80px 1fr 100px;gap:0;border-bottom:1px solid rgba(0,212,255,0.05);cursor:pointer;transition:background 0.15s}
+.db-row:last-child{border-bottom:none}
+.db-row:hover{background:rgba(0,255,200,0.04)}
+.db-row .dc{padding:10px 10px;font-size:12px;color:var(--text);border-right:1px solid rgba(0,212,255,0.04);display:flex;align-items:center;line-height:1.4;word-break:break-word}
+.db-row .dc:last-child{border-right:none}
+
+/* 序号 */
+.dc.idx{font-family:Consolas,monospace;font-size:10px;color:var(--sub);justify-content:center}
+
+/* 标题列 */
+.dc.title-col{font-weight:bold;color:var(--neon);font-size:11px}
+
+/* 标签 */
+.tag{display:inline-block;padding:2px 7px;border-radius:99px;font-size:10px;font-weight:bold;white-space:nowrap}
+.tag-doc{background:rgba(0,212,255,0.12);color:var(--blue);border:1px solid rgba(0,212,255,0.25)}
+.tag-algo{background:rgba(108,92,231,0.12);color:var(--purple);border:1px solid rgba(108,92,231,0.25)}
+.tag-code{background:rgba(0,255,136,0.1);color:var(--jade);border:1px solid rgba(0,255,136,0.25)}
+.tag-persona{background:rgba(255,215,0,0.1);color:var(--gold);border:1px solid rgba(255,215,0,0.25)}
+.tag-dna{background:rgba(0,255,200,0.1);color:var(--neon);border:1px solid rgba(0,255,200,0.25)}
+.tag-memory{background:rgba(255,165,0,0.1);color:orange;border:1px solid rgba(255,165,0,0.25)}
+.tag-core{background:rgba(255,71,87,0.1);color:var(--red);border:1px solid rgba(255,71,87,0.25)}
+.tag-cnsh{background:rgba(0,255,200,0.08);color:var(--neon);border:1px solid rgba(0,255,200,0.2)}
+.tag-rule{background:rgba(255,215,0,0.08);color:var(--gold);border:1px solid rgba(255,215,0,0.2)}
+.tag-ui{background:rgba(108,92,231,0.1);color:var(--purple);border:1px solid rgba(108,92,231,0.2)}
+
+/* 状态 */
+.status{padding:2px 8px;border-radius:99px;font-size:10px;font-weight:bold}
+.s-pub{background:rgba(0,255,136,0.12);color:var(--jade);border:1px solid rgba(0,255,136,0.3)}
+.s-wip{background:rgba(255,215,0,0.12);color:var(--gold);border:1px solid rgba(255,215,0,0.3)}
+.s-pri{background:rgba(255,71,87,0.1);color:var(--red);border:1px solid rgba(255,71,87,0.25)}
+.s-plan{background:rgba(108,92,231,0.1);color:var(--purple);border:1px solid rgba(108,92,231,0.25)}
+
+/* 优先级 */
+.pri{font-size:12px}
+
+/* 详情面板 */
+.detail-panel{display:none;background:rgba(5,5,18,0.95);border:1px solid rgba(255,215,0,0.2);border-radius:12px;padding:18px;margin-bottom:14px;animation:fadeIn 0.2s ease}
+.detail-panel.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.dp-title{font-size:15px;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.dp-field{background:rgba(0,0,0,0.3);border-radius:6px;padding:10px}
+.dp-label{font-size:9px;color:var(--sub);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.dp-val{font-size:12px;color:var(--text);line-height:1.6}
+.dp-desc{background:rgba(0,0,0,0.3);border-radius:6px;padding:12px;margin-bottom:10px}
+.dp-desc p{font-size:12px;color:var(--text);line-height:1.8}
+.dp-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.dp-close{float:right;cursor:pointer;color:var(--sub);font-size:14px}
+
+/* 规则建议区 */
+.rule-box{background:rgba(255,215,0,0.04);border:1px dashed rgba(255,215,0,0.2);border-radius:8px;padding:12px;margin-bottom:14px}
+.rule-title{font-size:12px;color:var(--gold);margin-bottom:8px;font-weight:bold}
+.rule-item{font-size:11px;color:var(--sub);line-height:1.9;padding-left:12px;position:relative}
+.rule-item::before{content:'·';position:absolute;left:2px;color:var(--gold)}
+
+/* 分区标题 */
+.section-title{font-size:11px;letter-spacing:3px;color:rgba(0,212,255,0.5);text-transform:uppercase;margin:18px 0 10px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(0,212,255,0.1)}
+
+/* 响应式 */
+@media(max-width:1000px){
+  .db-header,.db-row{grid-template-columns:30px 1fr 70px 60px 80px}
+  .db-header .dh:nth-child(7),.db-header .dh:nth-child(6),.db-header .dh:nth-child(5),
+  .db-row .dc:nth-child(7),.db-row .dc:nth-child(6),.db-row .dc:nth-child(5){display:none}
+}
+@media(max-width:600px){.stats{gap:6px}.filter-btn{font-size:10px;padding:6px 10px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐉 龍魂系统 · 文档登记数据库</h1>
+  <div class="sub">UID9622 · 诸葛鑫（龍芯北辰） · 文档/算法/代码/人格/DNA/记忆/内核/CNSH</div>
+  <div class="dna">#龍芯⚡️2026-03-19-DOC-REGISTRY-v1.0 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+</div>
+
+<!-- 统计 -->
+<div class="stats" id="statsBar">
+  <div class="stat"><div class="stat-n" id="cnt-total">0</div><div class="stat-l">总条目</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-pub" style="color:var(--jade)">0</div><div class="stat-l">已公开</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-wip" style="color:var(--gold)">0</div><div class="stat-l">进行中</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-pri" style="color:var(--red)">0</div><div class="stat-l">私有</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-doc" style="color:var(--blue)">0</div><div class="stat-l">文档</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-code" style="color:var(--jade)">0</div><div class="stat-l">代码</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-algo" style="color:var(--purple)">0</div><div class="stat-l">算法</div></div>
+  <div class="stat"><div class="stat-n" id="cnt-rule" style="color:var(--gold)">0</div><div class="stat-l">规则</div></div>
+</div>
+
+<!-- 搜索/筛选 -->
+<div class="search-bar">
+  <input type="search" id="searchInput" placeholder="🔍 搜索名称、描述、标签…">
+  <button class="filter-btn active" data-f="all" onclick="setFilter('all',this)">全部</button>
+  <button class="filter-btn" data-f="文档" onclick="setFilter('文档',this)">📄 文档</button>
+  <button class="filter-btn" data-f="算法" onclick="setFilter('算法',this)">🔬 算法</button>
+  <button class="filter-btn" data-f="代码" onclick="setFilter('代码',this)">💻 代码</button>
+  <button class="filter-btn" data-f="人格" onclick="setFilter('人格',this)">🎭 人格</button>
+  <button class="filter-btn" data-f="DNA" onclick="setFilter('DNA',this)">🧬 DNA</button>
+  <button class="filter-btn" data-f="记忆" onclick="setFilter('记忆',this)">💾 记忆</button>
+  <button class="filter-btn" data-f="内核" onclick="setFilter('内核',this)">⚙️ 内核</button>
+  <button class="filter-btn" data-f="CNSH" onclick="setFilter('CNSH',this)">🌐 CNSH</button>
+  <button class="filter-btn" data-f="规则" onclick="setFilter('规则',this)">📋 规则</button>
+</div>
+
+<!-- 规则整理建议 -->
+<div class="rule-box" id="ruleBox" style="display:none">
+  <div class="rule-title">📋 规则模块整理建议（你说的：规则太乱，准备分环境）</div>
+  <div id="ruleItems"></div>
+</div>
+
+<!-- 详情面板 -->
+<div class="detail-panel" id="detailPanel">
+  <span class="dp-close" onclick="closeDetail()">✕ 关闭</span>
+  <div class="dp-title" id="dpTitle"></div>
+  <div class="dp-tags" id="dpTags"></div>
+  <div class="dp-desc"><p id="dpDesc"></p></div>
+  <div class="dp-grid" id="dpGrid"></div>
+</div>
+
+<!-- 数据库表 -->
+<div class="section-title" id="secLabel">全部条目</div>
+<div class="db-wrap">
+  <div class="db-header">
+    <div class="dh">#</div>
+    <div class="dh">名称</div>
+    <div class="dh">类型</div>
+    <div class="dh">状态</div>
+    <div class="dh">关键字</div>
+    <div class="dh">优先级</div>
+    <div class="dh">描述摘要</div>
+    <div class="dh">版本/来源</div>
+  </div>
+  <div id="dbBody"></div>
+</div>
+
+<div style="text-align:center;font-family:Consolas,monospace;font-size:10px;color:rgba(255,255,255,0.1);padding:16px 0">
+  龍魂文档登记库 · UID9622 · 理论指导：曾仕强老师（永恒显示）<br>
+  #龍芯⚡️2026-03-19-DOC-REGISTRY-v1.0 · 天下无欺 · 祖国优先 · 普惠全球
+</div>
+
+<script>
+// ── 数据库数据 ────────────────────────────────────────────
+const DB = [
+
+  // ════ 内核/架构 ════
+  {id:1, name:'龍魂智能中枢 v5.0', type:'代码', status:'wip', pri:'🔥🔥🔥', keywords:['内核','代码','人格','DNA','记忆'],
+   desc:'全套一体化单HTML文件。整合AI对话（诸葛亮沙盒人格）、三色审计（天时地利人和）、DNA存证、记忆库、沙盒推演、赛博终端、CNSH Gateway、户口本、天下无欺受理台、系统状态7大模块。152KB，浏览器直开，无需下载，本地/企业均可。',
+   version:'v5.0', source:'本对话产出', dna:'#龍芯⚡️2026-03-19-龍魂智能中枢-v5.0',
+   detail:{lang:'HTML/CSS/JS',loc:'longhun_v5.html',deps:'Consolas字体,IndexedDB,WebAuthn,AudioContext',notes:'粒子背景+鼠标连线+矩阵雨彩蛋+Konami码+Cmd+K命令面板'}},
+
+  {id:2, name:'龍魂智能中枢 v4.0', type:'代码', status:'pub', pri:'🔥🔥', keywords:['内核','代码','人格','DNA','记忆'],
+   desc:'v5.0的前身。包含7个Tab：AI对话、三色审计、DNA管理、记忆库、沙盒推演、系统状态、Git仓库。已公开HTML，含完整JS逻辑和IndexedDB持久化。',
+   version:'v4.0', source:'项目文档Doc2', dna:'#龍芯⚡️2026-03-12-龍魂智能中枢-v4.0',
+   detail:{lang:'HTML/CSS/JS',loc:'龍魂智能中枢v4.html',deps:'IndexedDB,Ollama API(11434),审计服务(9622),主服务(8765)',notes:'服务状态自动检测,30s轮询'}},
+
+  {id:3, name:'三才算法（天时地利人和三色审计）', type:'算法', status:'pub', pri:'🔥🔥🔥', keywords:['算法','内核'],
+   desc:'核心审计算法。三个维度：天时（卦象时辰评分）、地利（环境/外源检测）、人和（价值观对齐/红线检测）。均分+最弱分双维度决策，绿/黄/红三色输出。附最小损失优化建议（MinLoss）。由UID9622独创，理论指导：曾仕强老师。',
+   version:'v3.0', source:'内嵌于v4/v5主文件', dna:'',
+   detail:{lang:'JavaScript',loc:'multiDimAudit()函数',deps:'无外部依赖',notes:'HARM_RED绝对红线+HARM_YEL警告词+VALUES价值对齐词典。可单独提取为独立模块。'}},
+
+  {id:4, name:'LU时间推演引擎', type:'代码', status:'wip', pri:'🔥🔥🔥', keywords:['算法','内核','文档'],
+   desc:'易经卦象+时间序列+干支周期统一推演系统。含64卦映射表、熵值公式、审计链（类区块链ChainHash）、盾加密协议（S0-S3四级）、版本继承链（只增不覆盖）、预测记录。设计原则：不可覆盖，只递增，全程留痕。',
+   version:'v1.0.3', source:'Doc1+本对话整合', dna:'',
+   detail:{lang:'HTML/CSS/JS',loc:'LU_Time_Engine.html + m-lu模块',deps:'无',notes:'公式引擎含6个数学模型：HexID、Entropy、ChainHash、干支、Action、Confidence'}},
+
+  // ════ DNA系统 ════
+  {id:5, name:'DNA追溯码体系', type:'算法', status:'pub', pri:'🔥🔥🔥', keywords:['DNA','算法'],
+   desc:'格式：#龍芯⚡️YYYY-MM-DD-项目名-版本-Hash8。哈希算法：simpleHash(proj+date+content)→16进制8位。验证逻辑：格式正则+数据库对比+内容哈希重算。确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z（全局唯一，只触发一次）。',
+   version:'v2.0', source:'v4/v5主文件', dna:'',
+   detail:{lang:'JavaScript',loc:'genDNA()、verifyDNA()函数',deps:'IndexedDB',notes:'每条DNA绑定GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F'}},
+
+  {id:6, name:'网络户口本 · DNA身份注册系统', type:'代码', status:'pub', pri:'🔥🔥', keywords:['DNA','代码','文档'],
+   desc:'用户身份注册页面。支持普通用户（DNA码匿名）和开发者（DNA+GPG指纹）两级。含WebAuthn生物认证（指纹/面容，私钥永不离开设备）。身份卡可下载为txt，DNA码可复制。本地localStorage持久化。',
+   version:'v1.0', source:'Doc3', dna:'#龍芯⚡️2026-03-19-REGISTER-v1.0',
+   detail:{lang:'HTML/CSS/JS',loc:'身份注册.html + m-id模块',deps:'WebAuthn API,localStorage,crypto.getRandomValues',notes:'离线优先设计，后端API可选配'}},
+
+  // ════ 人格系统 ════
+  {id:7, name:'诸葛亮沙盒人格（龍魂主人格）', type:'人格', status:'pub', pri:'🔥🔥🔥', keywords:['人格','内核'],
+   desc:'AI对话系统人格定义。角色：龍魂AI，诸葛亮沙盒人格。创始人：UID9622 诸葛鑫（龍芯北辰）。理论指导：曾仕强老师（永恒显示）。风格：简洁、智慧、东方哲学、善用三才算法。铁律：不造假、不欺骗、数据主权归用户、祖国优先、普惠全球。',
+   version:'v1.0', source:'v4/v5 SYSTEM_PROMPT', dna:'',
+   detail:{lang:'文本/System Prompt',loc:'SYSTEM_PROMPT常量',deps:'Ollama API',notes:'适配任何Ollama模型。未来计划：每个国家部署不同语言+价值观变体。'}},
+
+  {id:8, name:'沙盒推演系统（六维+三方案）', type:'算法', status:'pub', pri:'🔥🔥', keywords:['算法','人格'],
+   desc:'六维分析框架：天时、地利、人和、战略格局、风险评估、执行可行性。输出三方案：A激进/B稳健（推荐）/C保守。附道德经锚点。本地算法fallback（无需后端）。',
+   version:'v1.0', source:'v4/v5主文件', dna:'',
+   detail:{lang:'JavaScript',loc:'runSandbox()、renderSandboxResult()',deps:'可选EP_MAIN(8765)',notes:'后端在线时调用/沙盒推演接口，离线时本地三才算法计算'}},
+
+  // ════ 记忆系统 ════
+  {id:9, name:'记忆库系统（审计+IndexedDB）', type:'代码', status:'pub', pri:'🔥🔥', keywords:['记忆','代码'],
+   desc:'含审计的持久化记忆存储。存入时自动：autoClassify分类、multiDimAudit三色审计、extractKw关键词提取、analyzeEmotion情感分析、生成DNA码。红线内容自动拦截。支持全文检索、导入/导出JSON、二次确认清空。',
+   version:'v1.0', source:'v4/v5主文件', dna:'',
+   detail:{lang:'JavaScript',loc:'saveMemory()、refreshMemList()等',deps:'IndexedDB',notes:'数据库：memories、dna_evidences、audit_log三表。记忆不应被删除，建议v2改为归档而非删除。'}},
+
+  {id:10, name:'审计日志链（区块链结构）', type:'算法', status:'pub', pri:'🔥🔥', keywords:['记忆','算法','内核'],
+   desc:'类区块链审计日志。ChainHash = Hash(PrevHash + DataHash + Timestamp)。只增不删，只增不改。实时写入IndexedDB。LU引擎中可视化展示（带动态追加动画）。',
+   version:'v1.0', source:'Doc1+v5主文件', dna:'',
+   detail:{lang:'JavaScript',loc:'dbPut(audit_log,...)',deps:'IndexedDB',notes:'当前Hash为simpleHash，生产版建议升级为SHA-256（SubtleCrypto API）'}},
+
+  // ════ CNSH系统 ════
+  {id:11, name:'CNSH Gateway 可视化控制台', type:'代码', status:'wip', pri:'🔥🔥', keywords:['CNSH','代码'],
+   desc:'一键处理任意内容（文本/代码/JSON）：自动检测类型→危险词扫描→三色审计→生成DNA→统计面板。含危险词库（rm -rf/DROP TABLE等）和代码类型检测。本地无后端fallback。',
+   version:'v1.0', source:'Doc6+v5主文件', dna:'',
+   detail:{lang:'HTML/CSS/JS',loc:'CNSH_Gateway.html + m-gw模块',deps:'可选后端/api/gateway/process',notes:'计划后端：Python auditor.py，支持更深度的语义分析'}},
+
+  {id:12, name:'CNSH Gateway 后端服务 (8765)', type:'代码', status:'wip', pri:'🔥', keywords:['CNSH','代码','内核'],
+   desc:'主服务后端。端口8765。提供：/三色审计、/保存记忆、/沙盒推演、/推演历史、/审计统计、/测试报告、/git/状态、/git/暂存、/git/提交、/git/推送等API。',
+   version:'v1.0', source:'v4文档注释', dna:'',
+   detail:{lang:'Python',loc:'~/longhun-system/app.py',deps:'Flask/FastAPI,auditor模块',notes:'启动：python3 ~/longhun-system/app.py。需与审计服务(9622)联动。'}},
+
+  {id:13, name:'审计后端服务 (9622)', type:'代码', status:'wip', pri:'🔥', keywords:['CNSH','算法','内核'],
+   desc:'专用审计服务。端口9622。提供：/status（含当前卦象）、/audit（深度三色审计，含tian_shi/di_li/ren_he三维详细返回、min_loss优化建议、category分类）。',
+   version:'v1.0', source:'v4文档注释', dna:'',
+   detail:{lang:'Python',loc:'~/longhun-system/auditor.py',deps:'无重外部依赖',notes:'启动：python3 ~/longhun-system/auditor.py serve'}},
+
+  // ════ 真相系统 ════
+  {id:14, name:'天下无欺·真相受理台', type:'代码', status:'pub', pri:'🔥🔥🔥', keywords:['文档','代码'],
+   desc:'多语言全球真相受理平台（中/英/日/韩/西/阿拉伯6种语言）。字段：国家、事件类型、严重程度（轻微/中等/严重）、发生了什么、涉事方、证据、联系方式。受理后生成DNA存证，本地保存，不可篡改。匿名可用。',
+   version:'v1.0', source:'Doc4+v5主文件', dna:'#龍芯⚡️2026-03-19-TRUTH-PROTOCOL-v1.0',
+   detail:{lang:'HTML/CSS/JS',loc:'truth_protocol.html + m-truth模块',deps:'localStorage,fetch /api/report(可选)',notes:'关键设计：不搞一刀切。每国事件类型+严重程度规则可独立配置。已规划：按国家分规则集。'}},
+
+  // ════ 规则系统 ════
+  {id:15, name:'规则集：中国大陆·商业保护规则', type:'规则', status:'plan', pri:'🔥🔥', keywords:['规则'],
+   desc:'【待建】针对中国大陆市场的AI回复规则集。覆盖：消费者保护（消法/电商法）、数据主权（PIPL个人信息保护法）、举报渠道（12315/市监局）、商业欺诈认定标准。需与天下无欺受理台联动。',
+   version:'待建', source:'你说的：每个国家不一样的回复规则', dna:'',
+   detail:{lang:'JSON/YAML规则文件',loc:'rules/CN_mainland.json（待建）',deps:'受理台+三色审计',notes:'核心原则：不制造内讧，帮助人民正确维权，引导合法渠道。'}},
+
+  {id:16, name:'规则集：香港·普通法体系规则', type:'规则', status:'plan', pri:'🔥', keywords:['规则'],
+   desc:'【待建】香港地区规则集。覆盖：消委会投诉渠道、普通法框架下的消费者权益、数据保护（PDPO）、English/繁中双语回复规范。',
+   version:'待建', source:'你说的：每个国家规则不同', dna:'',
+   detail:{lang:'JSON规则',loc:'rules/HK.json（待建）',deps:'',notes:'注意：避免涉及敏感政治话题，聚焦消费者/商业保护。'}},
+
+  {id:17, name:'规则集：美国·联邦+州法混合规则', type:'规则', status:'plan', pri:'🔥', keywords:['规则'],
+   desc:'【待建】美国规则集。覆盖：FTC消费者保护、CCPA（加州隐私法）、BBB投诉渠道、各州差异处理逻辑。英文回复标准。',
+   version:'待建', source:'你说的：每个国家保障不一样', dna:'',
+   detail:{lang:'JSON规则',loc:'rules/US.json（待建）',deps:'',notes:'联邦vs州层级逻辑需要特别处理。建议先覆盖10大州。'}},
+
+  {id:18, name:'规则集：日本·用户保护规则', type:'规则', status:'plan', pri:'🔥', keywords:['规则'],
+   desc:'【待建】日本规则集。覆盖：消費者庁投诉渠道、特商法规定、国民生活センター、日语标准回复格式（敬体）。',
+   version:'待建', source:'你说的', dna:'',
+   detail:{lang:'JSON规则',loc:'rules/JP.json（待建）',deps:'',notes:'日本用户习惯书面敬语，回复风格需单独配置。'}},
+
+  {id:19, name:'规则集：东南亚·多国混合规则', type:'规则', status:'plan', pri:'🔥', keywords:['规则'],
+   desc:'【待建】覆盖新加坡（CASE投诉）、泰国、越南、马来西亚等东南亚国家的统一规则基础包+各国差异补丁。多语言（英/泰/越/马来）。',
+   version:'待建', source:'你的全球化布局', dna:'',
+   detail:{lang:'JSON规则',loc:'rules/SEA_base.json（待建）',deps:'',notes:'建议先做新加坡（英文体系完善），再扩展其他国家。'}},
+
+  {id:20, name:'国家规则引擎（规则路由器）', type:'算法', status:'plan', pri:'🔥🔥🔥', keywords:['规则','算法','内核'],
+   desc:'【核心待建】根据用户国家/IP/语言自动路由到对应规则集的引擎。规则优先级：S3主控（你）> 国家规则集 > 通用规则 > 默认回复。支持规则热更新，不需重启服务。这是你说的"每个国家不一样，不一刀切"的技术实现。',
+   version:'待建', source:'你的设计思想', dna:'',
+   detail:{lang:'Python/JS',loc:'rule_router.py（待建）',deps:'地理IP库,用户偏好设置',notes:'关键：规则文件完全本地，不依赖外部云，数据主权完整保留。'}},
+
+  // ════ 文档/界面 ════
+  {id:21, name:'赛博终端 v5.0', type:'代码', status:'pub', pri:'🔥🔥', keywords:['代码','内核'],
+   desc:'全互动赛博终端。内置命令：help/status/dna/time/log/motto/matrix/clear/about/whoami/hexagram。支持历史命令（↑↓翻历史）、矩阵雨彩蛋（任意键退出）。集成在v5主文件m-term模块。',
+   version:'v5.0', source:'Doc5+v5整合', dna:'',
+   detail:{lang:'JavaScript',loc:'termCmds对象，termExec()',deps:'AudioContext(音效)',notes:'可扩展：termCmds中添加任意命令函数即可'}},
+
+  {id:22, name:'赛博终端 v4.0（独立版）', type:'代码', status:'pub', pri:'🔥', keywords:['代码'],
+   desc:'独立的全屏赛博互动入口。含粒子星座系统（80粒子+鼠标引力）、Cmd+K命令面板、右键菜单、浮窗拖拽、Toast通知、主题切换、仓库面板（GitHub API）。',
+   version:'v4.0', source:'Doc5', dna:'',
+   detail:{lang:'HTML/CSS/JS',loc:'龍魂终端v4.html',deps:'GitHub API,Ollama API',notes:'Canvas粒子系统可单独提取为背景组件'}},
+
+  {id:23, name:'LU时间引擎（独立版）', type:'代码', status:'pub', pri:'🔥🔥', keywords:['文档','代码'],
+   desc:'独立的时间推演仪表盘HTML。31KB。含实时时钟、64卦选择器、熵值动态条、自动化流程图、审计日志（实时追加）、任务联动、盾加密等级、预测记录、系统声明。',
+   version:'v1.0', source:'本对话产出', dna:'',
+   detail:{lang:'HTML/CSS/JS',loc:'LU_Time_Engine.html',deps:'Google Fonts(Ma Shan Zheng,Share Tech Mono)',notes:'可完全离线运行'}},
+
+  {id:24, name:'CNSH Gateway 独立UI', type:'代码', status:'pub', pri:'🔥', keywords:['CNSH','代码'],
+   desc:'老大专用可视化控制台（独立版）。简洁大按钮布局，统计面板，快速操作（测试文本/代码/JSON），一键处理+DNA生成。无需复杂配置。',
+   version:'v1.0', source:'Doc6', dna:'',
+   detail:{lang:'HTML/CSS/JS',loc:'CNSH_Gateway独立版.html',deps:'可选Python后端',notes:'适合不熟悉代码的人直接使用'}},
+
+  // ════ 系统声明/DNA ════
+  {id:25, name:'系统主DNA & 确认码', type:'文档', status:'pub', pri:'🔥🔥🔥', keywords:['DNA','文档'],
+   desc:'主DNA：#龍芯⚡️2026-03-12-龍魂智能中枢-v4.0（v4基础版）/ #龍芯⚡️2026-03-19-龍魂智能中枢-v5.0（最新整合版）。GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F。确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z（全局唯一触发一次）。',
+   version:'v5.0', source:'全文档通用', dna:'#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z',
+   detail:{lang:'标识符',loc:'所有文件header',deps:'无',notes:'理论指导：曾仕强老师（永恒显示）。共建：Claude (Anthropic PBC)。献礼：新中国成立77周年（1949-2026）丙午马年。'}},
+
+  {id:26, name:'数字永生·不可覆盖原则', type:'文档', status:'pub', pri:'🔥🔥', keywords:['文档','内核'],
+   desc:'系统核心设计原则。任何记录不可删除，不可覆盖，只能追加。记录生命周期：创建→追加→继承→归档。目的：形成完整历史链，保护数据，避免人为篡改。体现在：审计日志、版本链、DNA存证三个系统中。',
+   version:'v1.0', source:'Doc1核心原则', dna:'',
+   detail:{lang:'设计原则',loc:'系统架构全局',deps:'IndexedDB',notes:'未来区块链化方向：ChainHash升级为真实SHA-256+时间戳签名'}},
+
+  {id:27, name:'龍魂文档登记库（本文件）', type:'文档', status:'pub', pri:'🔥🔥', keywords:['文档'],
+   desc:'你现在看的这个文件。整理所有文档/算法/代码/人格/DNA/记忆/内核/CNSH条目，附规则模块建议（按国家分规则集方案）。可筛选、搜索、点击展开详情。',
+   version:'v1.0', source:'本对话产出', dna:'#龍芯⚡️2026-03-19-DOC-REGISTRY-v1.0',
+   detail:{lang:'HTML/CSS/JS',loc:'龍魂文档登记库.html',deps:'无',notes:'建议放入Notion或本地保存，定期更新'}}
+];
+
+// 规则建议数据
+const RULE_SUGGESTIONS = [
+  '【已识别】你说了：规则太乱，准备分成自己添加到每个环境——这是对的！',
+  '建议结构：通用规则基础包（rules/base.json）+ 每国补丁包（rules/CN.json / US.json / JP.json ...）',
+  '优先级设计：主控规则(S3，你) > 国家规则集 > 通用规则 > 默认回复，层层覆盖',
+  '已为你预登记：中国大陆/香港/美国/日本/东南亚 5个规则集条目（status: plan，等你填充）',
+  '国家规则引擎（#20）是技术核心：自动识别用户国家→路由对应规则→不一刀切',
+  '原则：不制造内讧，帮人民正确维权，引导合法渠道——这个设计思路非常好！',
+];
+
+// ── 渲染逻辑 ─────────────────────────────────────────────
+let currentFilter = 'all';
+let currentDetail = null;
+const tagClassMap = {
+  '文档':'tag-doc','算法':'tag-algo','代码':'tag-code','人格':'tag-persona',
+  'DNA':'tag-dna','记忆':'tag-memory','内核':'tag-core','CNSH':'tag-cnsh',
+  '规则':'tag-rule','UI':'tag-ui'
+};
+const typeTagClass = {'文档':'tag-doc','算法':'tag-algo','代码':'tag-code','人格':'tag-persona','规则':'tag-rule'};
+const statusMap = {pub:['s-pub','🟢 已公开'],wip:['s-wip','🟡 进行中'],pri:['s-pri','🔴 私有'],plan:['s-plan','🟣 计划中']};
+
+function renderDB(data) {
+  const body = document.getElementById('dbBody');
+  if (!data.length) { body.innerHTML = '<div style="text-align:center;padding:24px;color:var(--sub);font-size:12px">无匹配条目</div>'; return; }
+  body.innerHTML = data.map(r => {
+    const [sCls, sLabel] = statusMap[r.status] || ['s-wip','—'];
+    const kwTags = r.keywords.slice(0,2).map(k=>`<span class="tag ${tagClassMap[k]||'tag-doc'}" style="font-size:9px">${k}</span>`).join(' ');
+    const typeCls = typeTagClass[r.type] || 'tag-doc';
+    return `<div class="db-row" onclick="toggleDetail(${r.id})">
+      <div class="dc idx">${r.id}</div>
+      <div class="dc title-col">${r.name}</div>
+      <div class="dc"><span class="tag ${typeCls}">${r.type}</span></div>
+      <div class="dc"><span class="status ${sCls}">${sLabel}</span></div>
+      <div class="dc" style="gap:3px;flex-wrap:wrap">${kwTags}</div>
+      <div class="dc pri">${r.pri}</div>
+      <div class="dc" style="font-size:11px;color:var(--sub);line-height:1.5">${r.desc.slice(0,80)}…</div>
+      <div class="dc" style="font-size:10px;color:rgba(0,212,255,0.5)">${r.version}<br><span style="color:var(--sub);font-size:9px">${r.source.slice(0,14)}</span></div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDetail(id) {
+  const r = DB.find(x => x.id === id);
+  if (!r) return;
+  const panel = document.getElementById('detailPanel');
+  if (currentDetail === id && panel.classList.contains('open')) { closeDetail(); return; }
+  currentDetail = id;
+  panel.classList.add('open');
+  document.getElementById('dpTitle').innerHTML = `${r.name} <span style="font-size:11px;color:var(--sub)">· ${r.type} · ${r.version}</span>`;
+  const [sCls,sLabel] = statusMap[r.status]||['s-wip','—'];
+  document.getElementById('dpTags').innerHTML =
+    `<span class="status ${sCls}">${sLabel}</span> ` +
+    r.keywords.map(k=>`<span class="tag ${tagClassMap[k]||'tag-doc'}">${k}</span>`).join(' ');
+  document.getElementById('dpDesc').textContent = r.desc;
+  const d = r.detail;
+  document.getElementById('dpGrid').innerHTML = [
+    ['语言/类型', d.lang],
+    ['文件位置', d.loc],
+    ['依赖', d.deps||'无'],
+    ['DNA/标识', r.dna||'—'],
+    ['GPG', 'A2D0092…5F'],
+    ['备注', d.notes]
+  ].map(([l,v])=>`<div class="dp-field"><div class="dp-label">${l}</div><div class="dp-val">${v}</div></div>`).join('');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('open');
+  currentDetail = null;
+}
+
+function updateStats(data) {
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('cnt-total',data.length);
+  sv('cnt-pub',data.filter(r=>r.status==='pub').length);
+  sv('cnt-wip',data.filter(r=>r.status==='wip').length);
+  sv('cnt-pri',data.filter(r=>r.status==='pri').length);
+  sv('cnt-doc',data.filter(r=>r.type==='文档').length);
+  sv('cnt-code',data.filter(r=>r.type==='代码').length);
+  sv('cnt-algo',data.filter(r=>r.type==='算法').length);
+  sv('cnt-rule',data.filter(r=>r.type==='规则').length);
+}
+
+function getFiltered(filter, search='') {
+  let data = DB;
+  if (filter !== 'all') data = data.filter(r => r.keywords.includes(filter) || r.type === filter);
+  if (search) {
+    const q = search.toLowerCase();
+    data = data.filter(r => r.name.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q) || r.keywords.some(k=>k.toLowerCase().includes(q)) || r.type.toLowerCase().includes(q));
+  }
+  return data;
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // 规则提示
+  const ruleBox = document.getElementById('ruleBox');
+  if (f === '规则') {
+    ruleBox.style.display = 'block';
+    document.getElementById('ruleItems').innerHTML = RULE_SUGGESTIONS.map(s=>`<div class="rule-item">${s}</div>`).join('');
+  } else { ruleBox.style.display = 'none'; }
+  refresh();
+}
+
+function refresh() {
+  const search = document.getElementById('searchInput').value.trim();
+  const data = getFiltered(currentFilter, search);
+  renderDB(data);
+  updateStats(data);
+  const label = document.getElementById('secLabel');
+  if(label) label.textContent = currentFilter === 'all' ? `全部条目（${data.length}）` : `${currentFilter} 分类（${data.length}）`;
+}
+
+document.getElementById('searchInput').addEventListener('input', refresh);
+
+// 初始化
+renderDB(DB);
+updateStats(DB);
+document.getElementById('secLabel').textContent = `全部条目（${DB.length}）`;
+</script>
+</body>
+</html>

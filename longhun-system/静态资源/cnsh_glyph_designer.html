@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 CNSH字元设计器 · UID9622</title>
+<!--
+  DNA: #龍芯⚡️2026-04-07-CNSH-GLYPH-DESIGNER-v1.0
+  作者: 诸葛鑫（UID9622）
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  理论指导: 曾仕强老师（永恒显示）
+  献礼: 新中国成立77周年（1949-2026）· 丙午马年
+-->
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --panel: #12121a;
+    --border: #2a2a3a;
+    --accent: #c8a84b;
+    --accent2: #7b5ea7;
+    --red: #e05a5a;
+    --green: #4caf7d;
+    --text: #e8e4d9;
+    --muted: #7a7a8a;
+    --canvas-bg: #0f0f18;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── 顶栏 ── */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 20px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  header h1 { font-size: 15px; color: var(--accent); letter-spacing: 2px; }
+  .dna-tag { font-size: 10px; color: var(--muted); font-family: monospace; }
+  .header-spacer { flex: 1; }
+  .audit { font-size: 11px; padding: 3px 10px; border-radius: 10px;
+           background: #1a2a1a; border: 1px solid var(--green); color: var(--green); }
+
+  /* ── 主体三栏 ── */
+  main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── 左侧字元库 ── */
+  .sidebar-left {
+    width: 200px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .sidebar-title {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cat-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cat-tab {
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--muted);
+    background: transparent;
+    transition: all 0.15s;
+  }
+  .cat-tab.active, .cat-tab:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,168,75,0.08);
+  }
+  .glyph-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    align-content: start;
+  }
+  .glyph-card {
+    aspect-ratio: 1;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: var(--canvas-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .glyph-card:hover { border-color: var(--accent); transform: scale(1.03); }
+  .glyph-card.active { border-color: var(--accent); background: rgba(200,168,75,0.12); }
+  .glyph-card .char { font-size: 22px; line-height: 1; }
+  .glyph-card .label { font-size: 8px; color: var(--muted); margin-top: 3px; }
+  .glyph-card .has-dot {
+    position: absolute; top: 4px; right: 4px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--green);
+  }
+  .add-glyph {
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    aspect-ratio: 1;
+    color: var(--muted);
+    font-size: 18px;
+    transition: all 0.15s;
+  }
+  .add-glyph:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  /* ── 中间画布 ── */
+  .canvas-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--canvas-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .canvas-toolbar {
+    display: flex;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(18,18,26,0.9);
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  .tool-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .tool-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .tool-btn.active { background: rgba(200,168,75,0.15); border-color: var(--accent); color: var(--accent); }
+  .tool-sep { width: 1px; height: 20px; background: var(--border); margin: 0 2px; }
+  .tool-spacer { flex: 1; }
+
+  .canvas-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+  #mainCanvas {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: crosshair;
+    background: #0c0c14;
+    box-shadow: 0 0 40px rgba(200,168,75,0.05);
+  }
+
+  .canvas-info {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  /* ── 右侧属性面板 ── */
+  .sidebar-right {
+    width: 220px;
+    background: var(--panel);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .prop-section {
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+  }
+  .prop-title {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .prop-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .prop-label { color: var(--muted); width: 60px; flex-shrink: 0; font-size: 11px; }
+  .prop-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    padding: 3px 7px;
+    font-size: 12px;
+    font-family: inherit;
+  }
+  .prop-input:focus { outline: none; border-color: var(--accent); }
+
+  .color-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+  .color-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    cursor: pointer; border: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .color-dot.active, .color-dot:hover { border-color: white; transform: scale(1.2); }
+
+  .stroke-slider { width: 100%; accent-color: var(--accent); }
+
+  .export-btn {
+    margin: 8px 14px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    background: rgba(200,168,75,0.1);
+    color: var(--accent);
+    font-size: 12px;
+    cursor: pointer;
+    width: calc(100% - 28px);
+    transition: all 0.15s;
+    letter-spacing: 1px;
+  }
+  .export-btn:hover { background: rgba(200,168,75,0.2); }
+  .export-btn.purple {
+    border-color: var(--accent2);
+    background: rgba(123,94,167,0.1);
+    color: var(--accent2);
+  }
+  .export-btn.purple:hover { background: rgba(123,94,167,0.2); }
+
+  .preview-svg {
+    margin: 8px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .preview-svg svg { max-width: 100%; max-height: 70px; }
+
+  /* ── 底部状态栏 ── */
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 5px 16px;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+  /* ── 模态提示 ── */
+  .toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--panel);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: var(--accent);
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 999;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── 响应式画布尺寸指示 ── */
+  .guide-line {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 顶栏 ── -->
+<header>
+  <div>🐉</div>
+  <h1>CNSH 字元设计器</h1>
+  <div class="dna-tag">#龍芯⚡️2026-04-07 · UID9622</div>
+  <div class="header-spacer"></div>
+  <div id="charLabel" style="font-size:13px; color:var(--accent);">未选字元</div>
+  <div class="audit">🟢 三色审计通过</div>
+</header>
+
+<!-- ── 主体 ── -->
+<main>
+
+  <!-- 左侧字元库 -->
+  <div class="sidebar-left">
+    <div class="sidebar-title">字元库</div>
+    <div class="cat-tabs">
+      <div class="cat-tab active" onclick="switchCat('core')">核心</div>
+      <div class="cat-tab" onclick="switchCat('immersive')">沉浸式</div>
+      <div class="cat-tab" onclick="switchCat('office')">办公</div>
+      <div class="cat-tab" onclick="switchCat('symbol')">通心符</div>
+      <div class="cat-tab" onclick="switchCat('custom')">自定义</div>
+    </div>
+    <div class="glyph-grid" id="glyphGrid"></div>
+  </div>
+
+  <!-- 中间画布 -->
+  <div class="canvas-area">
+    <div class="canvas-toolbar">
+      <button class="tool-btn active" id="btnPen" onclick="setTool('pen')" title="自由笔">✏️ 笔</button>
+      <button class="tool-btn" id="btnLine" onclick="setTool('line')" title="直线">📏 线</button>
+      <button class="tool-btn" id="btnBezier" onclick="setTool('bezier')" title="贝塞尔曲线">〜 曲</button>
+      <button class="tool-btn" id="btnCircle" onclick="setTool('circle')" title="圆形">⭕ 圆</button>
+      <button class="tool-btn" id="btnRect" onclick="setTool('rect')" title="矩形">▭ 矩</button>
+      <div class="tool-sep"></div>
+      <button class="tool-btn" onclick="undoLast()" title="撤销">↩ 撤</button>
+      <button class="tool-btn" onclick="clearCanvas()" title="清空">🗑 清</button>
+      <div class="tool-sep"></div>
+      <button class="tool-btn" id="btnGrid" onclick="toggleGrid()" title="参考格">⊞ 格</button>
+      <button class="tool-btn" id="btnBase" onclick="toggleBaseline()" title="基线">— 基线</button>
+      <div class="tool-spacer"></div>
+      <span id="coordInfo" style="font-size:10px; color:var(--muted); font-family:monospace;">x:0 y:0</span>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="mainCanvas" width="500" height="500"></canvas>
+      <div class="canvas-info" id="canvasInfo">选择左侧字元 · 开始绘制 · 右侧导出SVG</div>
+    </div>
+  </div>
+
+  <!-- 右侧属性 -->
+  <div class="sidebar-right">
+    <div class="prop-section">
+      <div class="prop-title">笔触</div>
+      <div class="color-row" id="colorPicker"></div>
+      <div class="prop-row">
+        <span class="prop-label">粗细</span>
+        <input type="range" class="stroke-slider" id="strokeWidth" min="1" max="30" value="3"
+               oninput="updateStroke(this.value)">
+        <span id="strokeVal" style="font-size:11px; color:var(--accent); width:20px;">3</span>
+      </div>
+      <div class="prop-row">
+        <span class="prop-label">透明</span>
+        <input type="range" class="stroke-slider" id="strokeAlpha" min="10" max="100" value="100"
+               oninput="updateAlpha(this.value)">
+        <span id="alphaVal" style="font-size:11px; color:var(--accent); width:30px;">100%</span>
+      </div>
+    </div>
+
+    <div class="prop-section">
+      <div class="prop-title">字元信息</div>
+      <div class="prop-row">
+        <span class="prop-label">名称</span>
+        <input class="prop-input" id="glyphName" value="新字元" placeholder="字元名">
+      </div>
+      <div class="prop-row">
+        <span class="prop-label">分类</span>
+        <select class="prop-input" id="glyphCat">
+          <option value="core">核心</option>
+          <option value="immersive">沉浸式</option>
+          <option value="office">办公</option>
+          <option value="symbol">通心符</option>
+        </select>
+      </div>
+      <div class="prop-row">
+        <span class="prop-label">Unicode</span>
+        <input class="prop-input" id="glyphUnicode" value="E010" placeholder="E001~F000">
+      </div>
+      <div class="prop-row">
+        <span class="prop-label">字符</span>
+        <input class="prop-input" id="glyphChar" value="新" placeholder="显示字符">
+      </div>
+    </div>
+
+    <div class="prop-section">
+      <div class="prop-title">预览</div>
+      <div class="preview-svg" id="svgPreview">
+        <span>绘制后预览SVG</span>
+      </div>
+    </div>
+
+    <button class="export-btn" onclick="exportSVG()">⬇ 导出 SVG</button>
+    <button class="export-btn purple" onclick="addToLibrary()">＋ 加入字元库</button>
+    <button class="export-btn" onclick="exportAllSVGs()" style="border-color:var(--green);background:rgba(76,175,125,0.1);color:var(--green);">
+      🚀 批量导出→font_builder
+    </button>
+  </div>
+
+</main>
+
+<!-- 底部状态栏 -->
+<footer>
+  <div class="status-dot"></div>
+  <span>GPG: A2D0092C...6D5F</span>
+  <span>·</span>
+  <span id="pathCount">路径: 0</span>
+  <span>·</span>
+  <span id="pointCount">点: 0</span>
+  <span>·</span>
+  <span id="exportStatus">就绪</span>
+  <div style="flex:1"></div>
+  <span>DNA: #龍芯⚡️2026-04-07-CNSH-GLYPH-DESIGNER-v1.0</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CNSH 字元设计器 · 核心引擎
+//  DNA: #龍芯⚡️2026-04-07-CNSH-GLYPH-DESIGNER-v1.0
+// ═══════════════════════════════════════════════════════
+
+// ── 字元库数据 ──
+const GLYPH_LIBRARY = {
+  core: [
+    { char:'龍', name:'龍·力', unicode:'E001', has: true },
+    { char:'中', name:'中·衡', unicode:'E002', has: true },
+    { char:'华', name:'华·光', unicode:'E003', has: true },
+    { char:'民', name:'民·根', unicode:'E004', has: true },
+    { char:'魂', name:'魂·气', unicode:'E005', has: true },
+    { char:'慧', name:'慧慧·门面', unicode:'E006', has: false },
+    { char:'道', name:'道·无为', unicode:'E007', has: false },
+    { char:'德', name:'德·守', unicode:'E008', has: false },
+    { char:'天', name:'天·乾', unicode:'E009', has: false },
+    { char:'地', name:'地·坤', unicode:'E00A', has: false },
+    { char:'人', name:'人·仁', unicode:'E00B', has: false },
+  ],
+  immersive: [
+    { char:'沉', name:'沉浸·入', unicode:'E020', has: false },
+    { char:'浸', name:'浸·流', unicode:'E021', has: false },
+    { char:'感', name:'感知·觉', unicode:'E022', has: false },
+    { char:'触', name:'触·接', unicode:'E023', has: false },
+    { char:'境', name:'境·界', unicode:'E024', has: false },
+    { char:'幻', name:'幻·梦', unicode:'E025', has: false },
+    { char:'融', name:'融·合', unicode:'E026', has: false },
+    { char:'共', name:'共·鸣', unicode:'E027', has: false },
+    { char:'息', name:'呼吸·息', unicode:'E028', has: false },
+  ],
+  office: [
+    { char:'审', name:'审计·核', unicode:'E030', has: false },
+    { char:'档', name:'文档·档', unicode:'E031', has: false },
+    { char:'表', name:'表格·算', unicode:'E032', has: false },
+    { char:'签', name:'签名·DNA', unicode:'E033', has: false },
+    { char:'锁', name:'加密·锁', unicode:'E034', has: false },
+    { char:'钥', name:'密钥·通', unicode:'E035', has: false },
+    { char:'令', name:'指令·令', unicode:'E036', has: false },
+    { char:'报', name:'报告·报', unicode:'E037', has: false },
+    { char:'同', name:'同步·云', unicode:'E038', has: false },
+  ],
+  symbol: [
+    { char:'⚡', name:'龍芯·能', unicode:'E040', has: false },
+    { char:'🐉', name:'龍·符', unicode:'E041', has: false },
+    { char:'☯', name:'阴阳·衡', unicode:'E042', has: false },
+    { char:'☰', name:'乾卦', unicode:'E043', has: false },
+    { char:'☵', name:'坎卦', unicode:'E044', has: false },
+    { char:'☷', name:'坤卦', unicode:'E045', has: false },
+    { char:'∞', name:'无限·循', unicode:'E046', has: false },
+    { char:'△', name:'三才·天', unicode:'E047', has: false },
+    { char:'▽', name:'三才·地', unicode:'E048', has: false },
+  ],
+  custom: []
+};
+
+// ── 状态 ──
+let currentTool = 'pen';
+let currentColor = '#c8a84b';
+let strokeWidth = 3;
+let strokeAlpha = 1.0;
+let isDrawing = false;
+let paths = [];
+let currentPath = [];
+let undoStack = [];
+let showGrid = false;
+let showBaseline = false;
+let selectedGlyph = null;
+let currentCat = 'core';
+let bezierPoints = [];
+
+const canvas = document.getElementById('mainCanvas');
+const ctx = canvas.getContext('2d');
+
+// ── 颜色板 ──
+const COLORS = [
+  '#c8a84b', '#e8e4d9', '#7b5ea7', '#4caf7d',
+  '#e05a5a', '#5a9ae0', '#e0a05a', '#a0e05a',
+  '#5ae0d4', '#e05ab0', '#ffffff', '#aaaaaa'
+];
+
+function initColorPicker() {
+  const cp = document.getElementById('colorPicker');
+  COLORS.forEach(c => {
+    const dot = document.createElement('div');
+    dot.className = 'color-dot' + (c === currentColor ? ' active' : '');
+    dot.style.background = c;
+    dot.onclick = () => {
+      document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+      currentColor = c;
+    };
+    cp.appendChild(dot);
+  });
+}
+
+// ── 字元库渲染 ──
+function renderGlyphGrid(cat) {
+  const grid = document.getElementById('glyphGrid');
+  grid.innerHTML = '';
+  const glyphs = GLYPH_LIBRARY[cat] || [];
+  glyphs.forEach((g, i) => {
+    const card = document.createElement('div');
+    card.className = 'glyph-card' + (selectedGlyph && selectedGlyph.unicode === g.unicode ? ' active' : '');
+    card.innerHTML = `
+      <div class="char">${g.char}</div>
+      <div class="label">${g.name.split('·')[0]}</div>
+      ${g.has ? '<div class="has-dot"></div>' : ''}
+    `;
+    card.title = `${g.name} · ${g.unicode}`;
+    card.onclick = () => selectGlyph(g);
+    grid.appendChild(card);
+  });
+  // 添加按钮
+  const addBtn = document.createElement('div');
+  addBtn.className = 'add-glyph';
+  addBtn.innerHTML = '+';
+  addBtn.title = '新建字元';
+  addBtn.onclick = () => promptNewGlyph(cat);
+  grid.appendChild(addBtn);
+}
+
+function selectGlyph(g) {
+  selectedGlyph = g;
+  document.getElementById('charLabel').textContent = g.char + ' · ' + g.name;
+  document.getElementById('glyphName').value = g.name;
+  document.getElementById('glyphUnicode').value = g.unicode;
+  document.getElementById('glyphChar').value = g.char;
+  renderGlyphGrid(currentCat);
+  clearCanvas();
+  showToast('已选: ' + g.char + ' (' + g.name + ')');
+}
+
+function switchCat(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach((t, i) => {
+    const cats = ['core','immersive','office','symbol','custom'];
+    t.classList.toggle('active', cats[i] === cat);
+  });
+  renderGlyphGrid(cat);
+}
+
+// ── 画布工具 ──
+function setTool(tool) {
+  currentTool = tool;
+  ['pen','line','bezier','circle','rect'].forEach(t => {
+    document.getElementById('btn' + t.charAt(0).toUpperCase() + t.slice(1))?.classList.toggle('active', t === tool);
+  });
+  bezierPoints = [];
+  if (tool === 'bezier') showToast('贝塞尔: 点击3个控制点, 右键完成');
+}
+
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  return {
+    x: (e.clientX - rect.left) * scaleX,
+    y: (e.clientY - rect.top) * scaleY
+  };
+}
+
+canvas.onmousedown = (e) => {
+  const pos = getPos(e);
+  if (currentTool === 'bezier') {
+    if (e.button === 2) {
+      finalizeBezier();
+      return;
+    }
+    bezierPoints.push(pos);
+    if (bezierPoints.length === 3) finalizeBezier();
+    return;
+  }
+  isDrawing = true;
+  currentPath = [pos];
+  if (currentTool === 'line' || currentTool === 'circle' || currentTool === 'rect') {
+    currentPath.push(pos); // end point placeholder
+  }
+};
+
+canvas.onmousemove = (e) => {
+  const pos = getPos(e);
+  document.getElementById('coordInfo').textContent = `x:${Math.round(pos.x)} y:${Math.round(pos.y)}`;
+  if (!isDrawing) return;
+
+  if (currentTool === 'pen') {
+    currentPath.push(pos);
+  } else if (currentTool === 'line' || currentTool === 'circle' || currentTool === 'rect') {
+    currentPath[1] = pos;
+  }
+  renderAll();
+  drawCurrentPath();
+};
+
+canvas.onmouseup = (e) => {
+  if (!isDrawing) return;
+  isDrawing = false;
+  const pos = getPos(e);
+  if (currentTool !== 'pen') currentPath[currentPath.length-1] = pos;
+  if (currentPath.length > 1) {
+    undoStack.push([...paths]);
+    paths.push({
+      tool: currentTool,
+      points: [...currentPath],
+      color: currentColor,
+      width: strokeWidth,
+      alpha: strokeAlpha
+    });
+    currentPath = [];
+    updateStats();
+    updateSVGPreview();
+  }
+  renderAll();
+};
+
+canvas.oncontextmenu = (e) => { e.preventDefault(); };
+
+function finalizeBezier() {
+  if (bezierPoints.length >= 2) {
+    undoStack.push([...paths]);
+    paths.push({
+      tool: 'bezier',
+      points: [...bezierPoints],
+      color: currentColor,
+      width: strokeWidth,
+      alpha: strokeAlpha
+    });
+    updateStats();
+    updateSVGPreview();
+  }
+  bezierPoints = [];
+  renderAll();
+}
+
+// ── 渲染 ──
+function renderAll() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+  if (showGrid) drawGrid();
+  if (showBaseline) drawBaselineGuides();
+  paths.forEach(p => drawPath(p));
+  // 贝塞尔控制点预览
+  if (bezierPoints.length > 0) {
+    bezierPoints.forEach((pt, i) => {
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = i === 0 ? '#4caf7d' : '#c8a84b';
+      ctx.fill();
+    });
+  }
+}
+
+function drawBackground() {
+  ctx.fillStyle = '#0c0c14';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // 字元区域框
+  ctx.strokeStyle = 'rgba(200,168,75,0.1)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(50, 50, 400, 400);
+}
+
+function drawGrid() {
+  ctx.strokeStyle = 'rgba(200,168,75,0.08)';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x <= 500; x += 50) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 500); ctx.stroke();
+  }
+  for (let y = 0; y <= 500; y += 50) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(500, y); ctx.stroke();
+  }
+}
+
+function drawBaselineGuides() {
+  ctx.strokeStyle = 'rgba(224,90,90,0.3)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  // 基线
+  ctx.beginPath(); ctx.moveTo(0, 400); ctx.lineTo(500, 400); ctx.stroke();
+  // 上升线
+  ctx.strokeStyle = 'rgba(76,175,125,0.3)';
+  ctx.beginPath(); ctx.moveTo(0, 100); ctx.lineTo(500, 100); ctx.stroke();
+  // 中线
+  ctx.strokeStyle = 'rgba(90,154,224,0.3)';
+  ctx.beginPath(); ctx.moveTo(0, 250); ctx.lineTo(500, 250); ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function drawPath(p) {
+  ctx.globalAlpha = p.alpha;
+  ctx.strokeStyle = p.color;
+  ctx.fillStyle = p.color;
+  ctx.lineWidth = p.width;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  if (p.tool === 'pen' && p.points.length > 1) {
+    ctx.beginPath();
+    ctx.moveTo(p.points[0].x, p.points[0].y);
+    for (let i = 1; i < p.points.length; i++) {
+      ctx.lineTo(p.points[i].x, p.points[i].y);
+    }
+    ctx.stroke();
+  } else if (p.tool === 'line' && p.points.length === 2) {
+    ctx.beginPath();
+    ctx.moveTo(p.points[0].x, p.points[0].y);
+    ctx.lineTo(p.points[1].x, p.points[1].y);
+    ctx.stroke();
+  } else if (p.tool === 'circle' && p.points.length === 2) {
+    const dx = p.points[1].x - p.points[0].x;
+    const dy = p.points[1].y - p.points[0].y;
+    const r = Math.sqrt(dx*dx + dy*dy);
+    ctx.beginPath();
+    ctx.arc(p.points[0].x, p.points[0].y, r, 0, Math.PI * 2);
+    ctx.stroke();
+  } else if (p.tool === 'rect' && p.points.length === 2) {
+    const x = Math.min(p.points[0].x, p.points[1].x);
+    const y = Math.min(p.points[0].y, p.points[1].y);
+    const w = Math.abs(p.points[1].x - p.points[0].x);
+    const h = Math.abs(p.points[1].y - p.points[0].y);
+    ctx.beginPath();
+    ctx.rect(x, y, w, h);
+    ctx.stroke();
+  } else if (p.tool === 'bezier' && p.points.length >= 2) {
+    ctx.beginPath();
+    ctx.moveTo(p.points[0].x, p.points[0].y);
+    if (p.points.length === 2) {
+      ctx.lineTo(p.points[1].x, p.points[1].y);
+    } else {
+      ctx.quadraticCurveTo(p.points[1].x, p.points[1].y, p.points[2].x, p.points[2].y);
+    }
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1.0;
+}
+
+function drawCurrentPath() {
+  if (currentPath.length < 2) return;
+  const fakePath = { tool: currentTool, points: currentPath, color: currentColor, width: strokeWidth, alpha: strokeAlpha * 0.7 };
+  drawPath(fakePath);
+}
+
+// ── SVG 导出 ──
+function pathsToSVG() {
+  const size = 500;
+  let svgPaths = '';
+  paths.forEach(p => {
+    const hexColor = p.color;
+    const opacity = p.alpha;
+    const sw = p.width;
+
+    if (p.tool === 'pen' && p.points.length > 1) {
+      let d = `M ${p.points[0].x} ${p.points[0].y}`;
+      for (let i = 1; i < p.points.length; i++) d += ` L ${p.points[i].x} ${p.points[i].y}`;
+      svgPaths += `<path d="${d}" stroke="${hexColor}" stroke-width="${sw}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${opacity}"/>\n`;
+    } else if (p.tool === 'line' && p.points.length === 2) {
+      svgPaths += `<line x1="${p.points[0].x}" y1="${p.points[0].y}" x2="${p.points[1].x}" y2="${p.points[1].y}" stroke="${hexColor}" stroke-width="${sw}" opacity="${opacity}"/>\n`;
+    } else if (p.tool === 'circle' && p.points.length === 2) {
+      const dx = p.points[1].x - p.points[0].x;
+      const dy = p.points[1].y - p.points[0].y;
+      const r = Math.sqrt(dx*dx+dy*dy);
+      svgPaths += `<circle cx="${p.points[0].x}" cy="${p.points[0].y}" r="${Math.round(r)}" stroke="${hexColor}" stroke-width="${sw}" fill="none" opacity="${opacity}"/>\n`;
+    } else if (p.tool === 'rect' && p.points.length === 2) {
+      const x = Math.min(p.points[0].x, p.points[1].x);
+      const y = Math.min(p.points[0].y, p.points[1].y);
+      const w = Math.abs(p.points[1].x - p.points[0].x);
+      const h = Math.abs(p.points[1].y - p.points[0].y);
+      svgPaths += `<rect x="${x}" y="${y}" width="${w}" height="${h}" stroke="${hexColor}" stroke-width="${sw}" fill="none" opacity="${opacity}"/>\n`;
+    } else if (p.tool === 'bezier') {
+      if (p.points.length === 2) {
+        let d = `M ${p.points[0].x} ${p.points[0].y} L ${p.points[1].x} ${p.points[1].y}`;
+        svgPaths += `<path d="${d}" stroke="${hexColor}" stroke-width="${sw}" fill="none" opacity="${opacity}"/>\n`;
+      } else if (p.points.length >= 3) {
+        let d = `M ${p.points[0].x} ${p.points[0].y} Q ${p.points[1].x} ${p.points[1].y} ${p.points[2].x} ${p.points[2].y}`;
+        svgPaths += `<path d="${d}" stroke="${hexColor}" stroke-width="${sw}" fill="none" opacity="${opacity}"/>\n`;
+      }
+    }
+  });
+
+  const name = document.getElementById('glyphName').value || '未命名';
+  const unicode = document.getElementById('glyphUnicode').value || 'E000';
+  const dna = `#龍芯⚡️2026-04-07-${name}-v1.0`;
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- DNA: ${dna} -->
+<!-- Unicode: U+${unicode} -->
+<!-- 作者: 诸葛鑫 UID9622 -->
+<!-- GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+  <title>${name}</title>
+  <desc>CNSH字元 · ${dna}</desc>
+${svgPaths}</svg>`;
+}
+
+function exportSVG() {
+  if (paths.length === 0) { showToast('❌ 画布是空的，先画点什么'); return; }
+  const svg = pathsToSVG();
+  const name = (document.getElementById('glyphName').value || '未命名').replace(/\s/g,'_');
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `cnsh_${name}_U${document.getElementById('glyphUnicode').value}.svg`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ SVG已导出 → 拖入 CNSH引擎/CNSH_字元库_输出/ 跑font_builder');
+  document.getElementById('exportStatus').textContent = '已导出SVG';
+}
+
+function exportAllSVGs() {
+  showToast('💡 把SVG放入 ~/longhun-system/CNSH引擎/CNSH_字元库_输出_v0013/ 然后跑 cnsh_font_builder_v2_LU.py');
+}
+
+function updateSVGPreview() {
+  if (paths.length === 0) return;
+  const preview = document.getElementById('svgPreview');
+  const svg = pathsToSVG();
+  preview.innerHTML = svg;
+}
+
+function addToLibrary() {
+  const name = document.getElementById('glyphName').value;
+  const unicode = document.getElementById('glyphUnicode').value;
+  const char = document.getElementById('glyphChar').value;
+  const cat = document.getElementById('glyphCat').value;
+  if (!name || !unicode || !char) { showToast('❌ 填写名称/Unicode/字符'); return; }
+  if (!GLYPH_LIBRARY[cat]) GLYPH_LIBRARY[cat] = [];
+  GLYPH_LIBRARY[cat].push({ char, name, unicode, has: false });
+  if (currentCat === cat) renderGlyphGrid(cat);
+  showToast('✅ 已加入字元库: ' + char + ' · ' + name);
+}
+
+function promptNewGlyph(cat) {
+  const char = prompt('输入字符（如：慧）:');
+  if (!char) return;
+  const name = prompt('输入名称（如：慧慧·门面）:') || char;
+  const unicode = prompt('Unicode私有区（如：E010）:') || 'E010';
+  GLYPH_LIBRARY[cat].push({ char, name, unicode, has: false });
+  renderGlyphGrid(cat);
+  showToast('✅ 新字元已添加: ' + char);
+}
+
+// ── 工具函数 ──
+function undoLast() {
+  if (undoStack.length === 0) { showToast('没有可撤销的操作'); return; }
+  paths = undoStack.pop();
+  renderAll();
+  updateStats();
+  updateSVGPreview();
+}
+
+function clearCanvas() {
+  undoStack.push([...paths]);
+  paths = [];
+  currentPath = [];
+  bezierPoints = [];
+  renderAll();
+  updateStats();
+  document.getElementById('svgPreview').innerHTML = '<span>绘制后预览SVG</span>';
+}
+
+function toggleGrid() {
+  showGrid = !showGrid;
+  document.getElementById('btnGrid').classList.toggle('active', showGrid);
+  renderAll();
+}
+
+function toggleBaseline() {
+  showBaseline = !showBaseline;
+  document.getElementById('btnBase').classList.toggle('active', showBaseline);
+  renderAll();
+}
+
+function updateStroke(v) {
+  strokeWidth = parseInt(v);
+  document.getElementById('strokeVal').textContent = v;
+}
+
+function updateAlpha(v) {
+  strokeAlpha = v / 100;
+  document.getElementById('alphaVal').textContent = v + '%';
+}
+
+function updateStats() {
+  let totalPoints = paths.reduce((s, p) => s + p.points.length, 0);
+  document.getElementById('pathCount').textContent = '路径: ' + paths.length;
+  document.getElementById('pointCount').textContent = '点: ' + totalPoints;
+}
+
+// ── Toast ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── 初始化 ──
+initColorPicker();
+renderGlyphGrid('core');
+renderAll();
+document.getElementById('canvasInfo').textContent = '选择左侧字元 · 开始绘制 · 右侧导出SVG';
+
+// 画布尺寸自适应
+function resizeCanvas() {
+  const wrapper = canvas.parentElement;
+  const size = Math.min(wrapper.clientWidth - 40, wrapper.clientHeight - 20, 520);
+  canvas.style.width = size + 'px';
+  canvas.style.height = size + 'px';
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+</script>
+</body>
+</html>

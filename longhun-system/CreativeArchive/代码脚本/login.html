@@ -1,0 +1,68 @@
+<!-- Copyright (C) Huawei Technologies Co. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src 'self' 'unsafe-inline'; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
+	<title>CodeArts Agent</title>
+	<link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+	<!-- Window header for controls -->
+	<div class="window-header">
+		<button class="btn back-button" id="btnLoginBack" aria-label="Back">
+			<span class="back-icon"></span>
+			<span class="back-text" id="loginBackText">Back</span>
+		</button>
+		<div class="window-controls">
+			<button class="window-control" id="windowMinimize" aria-label="Minimize">
+				<img src="./media/window-minimize.svg" alt="Minimize">
+			</button>
+			<button class="window-control" id="windowMaxRestore" aria-label="Maximize">
+				<img src="./media/window-max-restore.svg" alt="Maximize">
+			</button>
+			<button class="window-control window-close" id="windowClose" aria-label="Close">
+				<img src="./media/window-close.svg" alt="Close">
+			</button>
+		</div>
+	</div>
+
+	<!-- Main content -->
+	<div class="container" id="login-container">
+		<!-- First line: Title -->
+		<h1 id="loginTitle">Ready to Start</h1>
+
+		<!-- Second line: Logo and product name -->
+		<div class="logo-product-combo">
+			<img src="./media/logo.svg" alt="Logo" class="logo-img">
+			<span id="loginProductName" class="product-name">CodeArts Agent</span>
+		</div>
+
+		<!-- Third line: Architecture section with background -->
+		<div class="architecture-section">
+			<!-- Buttons -->
+			<div class="button-group">
+				<!-- Login button -->
+				<button class="btn btn-primary" id="btnLogin">
+					<span class="btn-primary-text" id="btnLoginText">Sign In</span>
+				</button>
+
+				<!-- Skip button -->
+				<button class="btn btn-secondary" id="btnSkip">
+					<span class="btn-secondary-text" id="btnSkipText">Skip</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Progress bar -->
+	<div class="progress-bar"></div>
+
+	<script src="./locales.js"></script>
+	<script src="./login.js"></script>
+</body>
+
+</html>

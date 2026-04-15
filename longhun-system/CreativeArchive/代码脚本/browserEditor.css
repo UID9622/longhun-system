@@ -1,0 +1,306 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Huawei Technologies Co., Ltd. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.editor-instance.browser-editor {
+	border-radius: 14px;
+	background-color: white;
+}
+
+.browser-editor-container {
+	width: 100%;
+	height: 100%;
+	container-type: inline-size;
+	container-name: browser-editor-container;
+}
+
+.browser-editor-container .browser-editor-header {
+	padding: 2px 2px 2px 6px;
+	display: flex;
+	align-items: center;
+	background-color: var(--vscode-editorGroupHeader-tabsBackground);
+	border-top: 1px solid var(--vscode-editorWidget-border);
+	border-bottom: 1px solid var(--vscode-editorWidget-border);
+	overflow: hidden;
+	height: 37px;
+}
+
+.browser-editor-container .browser-editor-header .left-action-bar {
+	margin-right: 6px;
+}
+
+.browser-editor-container .browser-editor-header .actions-container {
+	gap: 8px;
+}
+
+.monaco-workbench.vs-dark .browser-editor-container .browser-editor-header .browser-editor-url-input {
+	background-color: rgba(255, 255, 255, 0.06);
+}
+
+.browser-editor-container .browser-editor-header .browser-editor-url-input {
+	flex: 1;
+	height: 20px;
+	margin: 4px 6px 4px 0;
+	padding: 2px 8px;
+	border: none;
+	border-radius: 8px;
+	color: var(--vscode-input-foreground);
+	min-width: 100px;
+}
+
+.browser-editor-container .browser-editor-header .browser-editor-url-input:focus {
+	outline: none !important;
+}
+
+.browser-editor-container .browser-editor-header > .dev-tools-action,
+.browser-editor-container .browser-editor-header .line-decoration {
+	margin-right: 8px;
+}
+
+.browser-editor-container .browser-editor-header .line-decoration {
+	height: 14px;
+	min-width: 1px;
+	background: var(--vscode-editorWidget-border);
+}
+
+.browser-editor-container .browser-editor-header > .action {
+	display: flex;
+	align-items: center;
+	border-radius: 4px;
+	padding: 3px;
+	cursor: pointer;
+	margin-right: 8px;
+}
+
+.browser-editor-container .browser-editor-header > .action:not(.disabled):not(.selected):hover {
+	background-color: var(--vscode-toolbar-hoverBackground);
+}
+
+.browser-editor-container .browser-editor-header > .action.disabled {
+	cursor: auto;
+}
+
+.browser-editor-container .browser-editor-header > .select-action span {
+	color: var(--vscode-icon-foreground);
+}
+
+.browser-editor-container .browser-editor-header > .action.disabled span {
+	color: var(--vscode-disabledForeground);
+}
+
+.browser-editor-container .browser-editor-header > .select-action.selected {
+	background-color: rgba(152, 107, 239, 0.2);
+}
+
+.browser-editor-container .browser-editor-header > .select-action.selected .codicon,
+.browser-editor-container .browser-editor-header > .select-action.selected .label {
+	color: rgb(152, 107, 255);
+}
+
+.browser-editor-container .browser-editor-header > .select-action > .label {
+	font-size: 12px;
+	margin-left: 4px;
+	margin-bottom: 1px;
+	white-space: nowrap;
+}
+
+.browser-editor-container .browser-editor-content {
+	height: calc(100% - 37px);
+}
+
+.browser-editor-container .browser-editor-webview-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.browser-editor-container .browser-editor-webview-container .high-light-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.browser-editor-container .browser-editor-webview-container .high-light-border {
+	position: absolute;
+	border: 1px solid transparent;
+	border-image: repeating-linear-gradient(-45deg,
+			#834EF0 0,
+			#834EF0 3px,
+			/* dash width */
+			transparent 3px,
+			/* dash width */
+			transparent 6px
+			/* dash width + gap width */
+		) 1 round;
+	background: transparent;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	pointer-events: none;
+	z-index: 1;
+	background: #8E5CF013;
+}
+
+.browser-editor-container .browser-editor-webview-container .tooltip-container {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	gap: 4px;
+	padding: 4px;
+	pointer-events: auto;
+}
+
+.browser-editor-container .browser-editor-webview-container .tooltip-element,
+.browser-editor-container .browser-editor-webview-container .beautify-element {
+	padding: 0 6px;
+	height: 20px;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	white-space: nowrap;
+}
+
+.browser-editor-container .browser-editor-webview-container .tooltip-element {
+	background: linear-gradient(115deg, #4D42FF, #8d36ff);
+}
+
+.browser-editor-container .browser-editor-webview-container .beautify-element {
+	background: #6f3cce;
+	cursor: pointer;
+}
+
+.browser-editor-container .browser-editor-webview-container .beautify-element:hover {
+	background: var(--vscode-button-hoverBackground);
+}
+
+.browser-editor-container .browser-editor-webview-container .beautify-element.hidden {
+	display: none;
+}
+
+.browser-editor-container .browser-editor-webview-container .beautify-element img {
+	width: 14px;
+	height: 14px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+.browser-editor-container .browser-editor-webview-container .ctrl-background {
+	padding: 0 4px;
+	height: 16px;
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	margin: 0 4px;
+	text-align: center;
+	line-height: 16px;
+}
+
+.browser-editor-container .browser-editor-webview-container .tooltip-container span {
+	color: white;
+	font-size: 10px;
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container,
+.browser-editor-container .browser-editor-webview-container .loading-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	padding: 0 16px 0 16px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	background-color: var(--vscode-editor-background);
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-icon-container {
+	width: 300px;
+	height: 240px;
+	position: relative;
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-icon-container .loading-spin {
+	position: absolute;
+	top: 50px;
+	right: 30px;
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-icon-container .loading-spin span::before {
+	font-size: 30px;
+	color: #834Df0;
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-icon-container .loading-circle {
+	width: 11px;
+	height: 11px;
+	border: 3px solid rgba(59, 153, 186, 1);
+	border-radius: 50%;
+	position: absolute;
+	left: 25px;
+	bottom: 78px;
+	animation: moveUpDown 1s ease-in-out infinite;
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-title {
+	font-size: 16px;
+}
+
+.browser-editor-container .browser-editor-webview-container .loading-container .loading-subtitle {
+	font-size: 14px;
+	color: var(--vscode-disabledForeground);
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .icon-container {
+	margin: 0 auto;
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .icon-container .codicon {
+	font-size: 48px !important;
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .icon-container .codicon.codicon-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .icon-container .codicon.codicon-warning {
+	color: var(--vscode-editorWarning-foreground);
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .icon-container .codicon.codicon-info {
+	color: var(--vscode-editorInfo-foreground);
+}
+
+.browser-editor-container .browser-editor-webview-container .message-container .label-container {
+	font-size: 14px;
+	max-width: 450px;
+	text-align: center;
+	word-break: break-word;
+	user-select: text;
+	-webkit-user-select: text;
+}
+
+@container browser-editor-container (max-width: 400px) {
+	.browser-editor-container .browser-editor-header .browser-editor-url-input {
+		display: none !important;
+	}
+}
+
+@keyframes moveUpDown {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(18px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

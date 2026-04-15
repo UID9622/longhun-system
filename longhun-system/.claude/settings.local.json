@@ -243,7 +243,25 @@
       "Read(//opt/homebrew/Cellar/node/25.6.1_1/bin/**)",
       "Read(//opt/homebrew/lib/node_modules/npm/bin/**)",
       "Bash(/opt/homebrew/bin/npx -y @notionhq/notion-mcp-server --help)",
-      "Bash(npx -y @notionhq/notion-mcp-server --help)"
+      "Bash(npx -y @notionhq/notion-mcp-server --help)",
+      "Bash(/opt/homebrew/bin/npm install:*)",
+      "Bash(npm install:*)",
+      "Bash(export PATH=/opt/homebrew/bin:$PATH)",
+      "Bash(find ~/longhun-system -name *三才* -o -name *流場* -o -name *flow*field*)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-fetch",
+      "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-query-database-view",
+      "Bash(find /Users/zuimeidedeyihan/longhun-system -type f \\\\\\(-name *.md -o -name *.txt -o -name *.py -o -name *.js -o -name *.json -o -name *.yaml -o -name *.yml -o -name *.html -o -name *.css \\\\\\))",
+      "Bash(grep -r \"#龍芯⚡️\\\\|#LONGHUN⚡️\\\\|#ZHUGEXIN⚡️\\\\|DNA:\\\\s*#\" /Users/zuimeidedeyihan/longhun-system --include=*.md --include=*.txt --include=*.py --include=*.json)",
+      "Bash(grep -r \"#龍芯⚡️\\\\|#LONGHUN⚡️\\\\|#ZHUGEXIN⚡️\" /Users/zuimeidedeyihan/longhun-system --include=*.md --include=*.txt --include=*.py)",
+      "Bash(for file:*)",
+      "Bash(do echo:*)",
+      "Bash(grep -rn \"DNA追溯码\\\\|DNA:\" /Users/zuimeidedeyihan/longhun-system/core --include=*.py)",
+      "Bash(grep -rn \"DNA追溯码\\\\|DNA:\" /Users/zuimeidedeyihan/longhun-system/同步模块 --include=*.py)",
+      "Bash(grep -rn \"DNA追溯码\\\\|DNA:\" /Users/zuimeidedeyihan/longhun-system/bin --include=*.py)",
+      "Bash(grep -rn \"DNA\\\\|LONGHUN\\\\|ZHUGEXIN\" /Users/zuimeidedeyihan/longhun-system/文档 --include=*.md)",
+      "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-create-pages",
+      "Bash(grep \"\\\\.git$\")"
     ]
   }
 }

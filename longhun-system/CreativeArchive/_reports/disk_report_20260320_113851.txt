@@ -1,0 +1,38 @@
+# 磁盘空间分析报告 - 2026年 3月20日 星期五 11时38分51秒 CST
+
+## 整体磁盘使用
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1   1.8Ti    12Gi   1.3Ti     1%    455k  4.3G    0%   /
+
+## 各挂载磁盘
+Filesystem                                   Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1                              1.8Ti    12Gi   1.3Ti     1%    455k  4.3G    0%   /
+devfs                                       210Ki   210Ki     0Bi   100%     726     0  100%   /dev
+/dev/disk3s6                                1.8Ti   2.0Gi   1.3Ti     1%       2   14G    0%   /System/Volumes/VM
+/dev/disk3s4                                1.8Ti    15Gi   1.3Ti     2%    1.6k   14G    0%   /System/Volumes/Preboot
+/dev/disk3s1                                1.8Ti    57Mi   1.3Ti     1%     288   14G    0%   /System/Volumes/Update
+/dev/disk1s2                                500Mi   6.0Mi   478Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk1s1                                500Mi   5.6Mi   478Mi     2%      33  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk1s3                                500Mi   5.3Mi   478Mi     2%     106  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s2                                1.8Ti   477Gi   1.3Ti    27%    5.8M   14G    0%   /System/Volumes/Data
+map auto_home                                 0Bi     0Bi     0Bi   100%       0     0     -   /System/Volumes/Data/home
+/dev/disk5s1                                 16Gi    16Gi   436Mi    98%    607k  4.5M   12%   /Library/Developer/CoreSimulator/Volumes/iOS_23C54
+/dev/disk7s1                                2.1Gi   1.5Gi   586Mi    73%     26k  6.0M    0%   /Volumes/LM Studio 0.4.6+1-arm64
+/dev/disk8s1                                779Mi   715Mi    64Mi    92%     971  4.3G    0%   /Volumes/Kimi
+/Applications/讯飞星火.app/Wrapper          1.8Ti   528Gi   1.3Ti    29%    7.7M   14G    0%   /private/var/folders/t7/xnm3vs951n9bj0g4dpksnznm0000gn/X/A5F20932-4CF3-5D9D-BC60-B79675ED78AA
+/Users/zuimeidedeyihan/Desktop/Claude.app   1.8Ti   586Gi   1.2Ti    33%    9.5M   13G    0%   /private/var/folders/t7/xnm3vs951n9bj0g4dpksnznm0000gn/T/AppTranslocation/B369E70D-277B-4BDC-A804-8C38E8A67A3F
+/Applications/讯飞星火.app/Wrapper          1.8Ti   963Gi   871Gi    53%     21M  9.1G    0%   /private/var/folders/t7/xnm3vs951n9bj0g4dpksnznm0000gn/X/DBFA14E6-54B1-5F47-BE15-31844856159B
+/dev/disk3s3                                1.8Ti    12Gi   1.3Ti     1%    455k  4.3G    0%   /System/Volumes/Update/mnt1
+/Users/zuimeidedeyihan/Desktop/Notion.app   1.8Ti   477Gi   1.3Ti    27%    5.8M   14G    0%   /private/var/folders/t7/xnm3vs951n9bj0g4dpksnznm0000gn/T/AppTranslocation/75F322B3-C2BD-4C18-A046-F8DACBB3E0E9
+
+## 创作归档目录占用
+ 17M	/Users/zuimeidedeyihan/CreativeArchive/_reports
+3.2G	/Users/zuimeidedeyihan/CreativeArchive/_待分类
+  0B	/Users/zuimeidedeyihan/CreativeArchive/_重复文件回收站
+167M	/Users/zuimeidedeyihan/CreativeArchive/代码脚本
+ 57M	/Users/zuimeidedeyihan/CreativeArchive/图像设计
+ 14M	/Users/zuimeidedeyihan/CreativeArchive/文字创作
+  0B	/Users/zuimeidedeyihan/CreativeArchive/压缩包原始
+ 17M	/Users/zuimeidedeyihan/CreativeArchive/音频视频
+
+## 前20大文件

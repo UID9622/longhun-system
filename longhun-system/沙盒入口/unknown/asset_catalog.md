@@ -1,0 +1,1 @@
+/Users/zuimeidedeyihan/longhun-system/config/asset_catalog.md

@@ -1,0 +1,9 @@
+{
+	"messages": [
+		"Input commit hash to locate"
+	],
+	"keys": [
+		"hash.inputBox.placeholder"
+	],
+	"filePath": "commands/input"
+}

@@ -1,0 +1,424 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+cnsh — CNSH 语言命令行工具
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DNA追溯码：#龍芯⚡️2026-03-22-CNSH-CLI-v1.0
+GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+创建者：诸葛鑫（UID9622）
+理论指导：曾仕强老师（永恒显示）
+协议：Apache License 2.0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+用法：
+  cnsh compile <file.cnsh>        编译为 C 文件
+  cnsh run     <file.cnsh>        编译并直接运行
+  cnsh build   <目录/>            编译目录下所有 .cnsh 文件
+  cnsh check   <file.cnsh>        三色审计（不编译）
+  cnsh new     <程序名>           新建 CNSH 程序模板
+  cnsh version                    显示版本信息
+  cnsh help                       显示帮助
+
+中文别名（等价）：
+  cnsh 编译  <file.cnsh>
+  cnsh 运行  <file.cnsh>
+  cnsh 构建  <目录/>
+  cnsh 检查  <file.cnsh>
+  cnsh 新建  <程序名>
+"""
+
+import sys
+import os
+import subprocess
+import shutil
+from pathlib import Path
+from datetime import datetime
+
+# ─────────────────────────────────────────────────────
+# 路径配置（自动发现编译器位置）
+# ─────────────────────────────────────────────────────
+
+_CLI_DIR    = Path(__file__).resolve().parent
+_ROOT_DIR   = _CLI_DIR.parent
+_COMPILER   = _ROOT_DIR / "compiler" / "cnsh_compiler.py"
+_STDLIB_INJ = _ROOT_DIR / "compiler" / "stdlib_injector.py"
+
+# 将 compiler 目录加入 Python 路径
+sys.path.insert(0, str(_ROOT_DIR / "compiler"))
+
+# ─────────────────────────────────────────────────────
+# 颜色输出（终端）
+# ─────────────────────────────────────────────────────
+
+def _green(s):  return f"\033[92m{s}\033[0m"
+def _yellow(s): return f"\033[93m{s}\033[0m"
+def _red(s):    return f"\033[91m{s}\033[0m"
+def _bold(s):   return f"\033[1m{s}\033[0m"
+def _cyan(s):   return f"\033[96m{s}\033[0m"
+
+# ─────────────────────────────────────────────────────
+# 版本与横幅
+# ─────────────────────────────────────────────────────
+
+VERSION = "1.0.0"
+DNA     = "#龍芯⚡️2026-03-22-CNSH-CLI-v1.0"
+
+BANNER = f"""
+{_bold("🇨🇳 CNSH 中文编程语言")}  v{VERSION}
+{_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")}
+创始人：诸葛鑫（UID9622）
+理论指导：曾仕强老师（永恒显示）
+协议：Apache License 2.0
+DNA：{DNA}
+{_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")}
+"""
+
+HELP_TEXT = f"""
+{_bold("用法：")}
+  cnsh compile <file.cnsh>     编译为 C 文件（不执行）
+  cnsh run     <file.cnsh>     编译 + 运行
+  cnsh build   <目录/>         批量编译目录下所有 .cnsh 文件
+  cnsh check   <file.cnsh>     只做三色审计，不编译
+  cnsh new     <程序名>        生成新程序模板
+  cnsh version                 显示版本信息
+  cnsh help                    显示此帮助
+
+{_bold("中文别名（完全等价）：")}
+  cnsh 编译  →  compile
+  cnsh 运行  →  run
+  cnsh 构建  →  build
+  cnsh 检查  →  check
+  cnsh 新建  →  new
+
+{_bold("示例：")}
+  cnsh run hello.cnsh
+  cnsh 运行 hello.cnsh
+  cnsh compile 个体户收支分析.cnsh
+  cnsh build examples/
+  cnsh new 我的程序
+"""
+
+# ─────────────────────────────────────────────────────
+# 中文命令别名映射
+# ─────────────────────────────────────────────────────
+
+ALIASES = {
+    "编译": "compile",
+    "运行": "run",
+    "构建": "build",
+    "检查": "check",
+    "新建": "new",
+    "帮助": "help",
+    "版本": "version",
+}
+
+# ─────────────────────────────────────────────────────
+# 工具函数
+# ─────────────────────────────────────────────────────
+
+def _check_compiler():
+    if not _COMPILER.exists():
+        print(_red(f"错误：找不到编译器 {_COMPILER}"))
+        print("请确认 cnsh-runtime 目录结构完整。")
+        sys.exit(1)
+
+def _check_gcc():
+    if not shutil.which("gcc"):
+        print(_red("错误：系统中找不到 gcc，请先安装："))
+        print("  macOS:  xcode-select --install")
+        print("  Linux:  sudo apt install gcc")
+        sys.exit(1)
+
+def _dna_stamp():
+    today = datetime.now().strftime("%Y-%m-%d")
+    return f"#龍芯⚡️{today}-CNSH-CLI-v1.0"
+
+# ─────────────────────────────────────────────────────
+# 三色审计（独立于编译器，快速版）
+# ─────────────────────────────────────────────────────
+
+import re
+
+_RED_PATTERNS    = [r'暴力|血腥|杀人', r'诈骗|贩毒|恐怖', r'种族歧视|性别歧视']
+_YELLOW_PATTERNS = [r'政治敏感', r'\d{15,18}']
+
+def _quick_audit(source: str) -> tuple[str, str]:
+    """返回 (颜色, 原因)"""
+    for pat in _RED_PATTERNS:
+        if re.search(pat, source):
+            return "red", re.search(pat, source).group()
+    for pat in _YELLOW_PATTERNS:
+        if re.search(pat, source):
+            return "yellow", re.search(pat, source).group()
+    return "green", "内容安全"
+
+# ─────────────────────────────────────────────────────
+# compile 命令
+# ─────────────────────────────────────────────────────
+
+def cmd_compile(source_path: str) -> Path | None:
+    """编译 .cnsh 文件，返回生成的 .c 文件路径（失败返回 None）"""
+    _check_compiler()
+    src = Path(source_path)
+
+    if not src.exists():
+        print(_red(f"错误：文件不存在 → {src}"))
+        return None
+    if src.suffix != ".cnsh":
+        print(_red(f"错误：不是 .cnsh 文件 → {src}"))
+        return None
+
+    # 读源码
+    source = src.read_text(encoding="utf-8")
+
+    # 快速三色审计
+    color, reason = _quick_audit(source)
+    if color == "red":
+        print(_red(f"🔴 三色审计阻断：{reason}"))
+        print("   编译终止。")
+        return None
+    elif color == "yellow":
+        print(_yellow(f"🟡 三色审计警告：{reason}，请注意内容"))
+    else:
+        print(_green("🟢 三色审计通过"))
+
+    # 调用编译器（先 flush 确保审计消息已输出）
+    sys.stdout.flush()
+    result = subprocess.run(
+        [sys.executable, str(_COMPILER), str(src)],
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        if result.stderr:
+            print(_red(result.stderr), end="")
+        if result.stdout:
+            print(result.stdout, end="")
+        return None
+
+    c_file = src.with_suffix(".c")
+    if not c_file.exists():
+        print(_red("错误：编译器未生成 .c 文件"))
+        return None
+
+    # 注入标准库
+    try:
+        from stdlib_injector import inject_stdlib
+        c_code = c_file.read_text(encoding="utf-8")
+        c_code = inject_stdlib(c_code)
+        c_file.write_text(c_code, encoding="utf-8")
+    except ImportError:
+        pass  # 没有 stdlib_injector 也能继续
+
+    print(_green(f"✅ 编译成功 → {c_file}"))
+    return c_file
+
+# ─────────────────────────────────────────────────────
+# run 命令
+# ─────────────────────────────────────────────────────
+
+def cmd_run(source_path: str):
+    """编译 + 用 gcc 构建 + 运行"""
+    _check_gcc()
+
+    src      = Path(source_path)
+    c_file   = cmd_compile(source_path)
+    if not c_file:
+        sys.exit(1)
+
+    exe_file = src.with_suffix("")
+
+    # gcc 编译
+    print(_cyan(f"⚙️  gcc 编译中 → {exe_file}"))
+    gcc_result = subprocess.run(
+        ["gcc", str(c_file), "-o", str(exe_file), "-lm"],
+        capture_output=True, text=True
+    )
+    if gcc_result.returncode != 0:
+        print(_red("❌ gcc 编译失败："))
+        print(gcc_result.stderr)
+        sys.exit(1)
+
+    print(_green(f"✅ 构建成功 → {exe_file}"))
+    print(_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"))
+    print(_bold("🚀 运行输出："))
+    print(_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"))
+    sys.stdout.flush()
+
+    # 运行（继承 stdout，实时输出）
+    run_result = subprocess.run([str(exe_file)])
+    sys.stdout.flush()
+    print(_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"))
+    print(f"DNA追溯：{_dna_stamp()}")
+
+    sys.exit(run_result.returncode)
+
+# ─────────────────────────────────────────────────────
+# build 命令
+# ─────────────────────────────────────────────────────
+
+def cmd_build(dir_path: str):
+    """批量编译目录下所有 .cnsh 文件"""
+    d = Path(dir_path)
+    if not d.is_dir():
+        print(_red(f"错误：不是目录 → {d}"))
+        sys.exit(1)
+
+    files = list(d.glob("**/*.cnsh"))
+    if not files:
+        print(_yellow(f"目录中没有 .cnsh 文件：{d}"))
+        return
+
+    ok, fail = 0, 0
+    for f in files:
+        print(f"\n{_bold(f'→ 编译 {f.name}')}")
+        c_file = cmd_compile(str(f))
+        if c_file:
+            ok += 1
+        else:
+            fail += 1
+
+    print(f"\n{_cyan('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}")
+    print(f"构建结果：{_green(f'{ok} 成功')}  {_red(f'{fail} 失败') if fail else ''}")
+    if fail:
+        sys.exit(1)
+
+# ─────────────────────────────────────────────────────
+# check 命令
+# ─────────────────────────────────────────────────────
+
+def cmd_check(source_path: str):
+    """只做三色审计，不编译"""
+    src = Path(source_path)
+    if not src.exists():
+        print(_red(f"错误：文件不存在 → {src}"))
+        sys.exit(1)
+
+    source = src.read_text(encoding="utf-8")
+    color, reason = _quick_audit(source)
+
+    print(f"\n三色审计报告 → {src.name}")
+    print(_cyan("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"))
+
+    lines = source.split('\n')
+    print(f"  行数：{len(lines)}")
+    print(f"  字符：{len(source)}")
+
+    if color == "red":
+        print(_red(f"\n🔴 结论：不通过"))
+        print(f"  原因：{reason}")
+        sys.exit(1)
+    elif color == "yellow":
+        print(_yellow(f"\n🟡 结论：警告"))
+        print(f"  原因：{reason}")
+    else:
+        print(_green(f"\n🟢 结论：通过"))
+        print(f"  内容安全，可以编译")
+
+# ─────────────────────────────────────────────────────
+# new 命令
+# ─────────────────────────────────────────────────────
+
+TEMPLATE = """\
+# {name}.cnsh
+# DNA追溯码：#龍芯⚡️{date}-{name}-v1.0
+# 创建者：诸葛鑫（UID9622）
+# 理论指导：曾仕强老师（永恒显示）
+# 协议：Apache License 2.0
+
+函数 主函数() 返回类型 整数 {{
+    打印「你好，CNSH！」
+    打印「🇨🇳 中文编程，为人民服务」
+    返回 0
+}}
+"""
+
+def cmd_new(name: str):
+    """生成新程序模板"""
+    filename = name if name.endswith(".cnsh") else f"{name}.cnsh"
+    filepath = Path(filename)
+
+    if filepath.exists():
+        print(_yellow(f"文件已存在：{filepath}"))
+        ans = input("是否覆盖？(y/N) ").strip().lower()
+        if ans != 'y':
+            print("已取消。")
+            return
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    content = TEMPLATE.format(name=name, date=today)
+    filepath.write_text(content, encoding="utf-8")
+
+    print(_green(f"✅ 已创建：{filepath}"))
+    print(f"  运行方式：cnsh run {filepath}")
+
+# ─────────────────────────────────────────────────────
+# 主入口
+# ─────────────────────────────────────────────────────
+
+def main():
+    args = sys.argv[1:]
+
+    if not args:
+        print(BANNER)
+        print(HELP_TEXT)
+        return
+
+    cmd = args[0]
+    cmd = ALIASES.get(cmd, cmd)  # 中文别名转英文
+
+    if cmd in ("version", "--version", "-v"):
+        print(BANNER)
+        return
+
+    if cmd in ("help", "--help", "-h"):
+        print(BANNER)
+        print(HELP_TEXT)
+        return
+
+    if cmd == "compile":
+        if len(args) < 2:
+            print(_red("错误：请指定 .cnsh 文件"))
+            print("用法：cnsh compile <file.cnsh>")
+            sys.exit(1)
+        cmd_compile(args[1])
+        return
+
+    if cmd == "run":
+        if len(args) < 2:
+            print(_red("错误：请指定 .cnsh 文件"))
+            print("用法：cnsh run <file.cnsh>")
+            sys.exit(1)
+        cmd_run(args[1])
+        return
+
+    if cmd == "build":
+        if len(args) < 2:
+            print(_red("错误：请指定目录"))
+            print("用法：cnsh build <目录/>")
+            sys.exit(1)
+        cmd_build(args[1])
+        return
+
+    if cmd == "check":
+        if len(args) < 2:
+            print(_red("错误：请指定 .cnsh 文件"))
+            print("用法：cnsh check <file.cnsh>")
+            sys.exit(1)
+        cmd_check(args[1])
+        return
+
+    if cmd == "new":
+        if len(args) < 2:
+            print(_red("错误：请指定程序名"))
+            print("用法：cnsh new <程序名>")
+            sys.exit(1)
+        cmd_new(args[1])
+        return
+
+    print(_red(f"未知命令：{cmd}"))
+    print("运行 cnsh help 查看所有命令。")
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

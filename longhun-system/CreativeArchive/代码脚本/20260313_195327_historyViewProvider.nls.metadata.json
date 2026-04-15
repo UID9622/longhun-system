@@ -1,0 +1,17 @@
+{
+	"messages": [
+		"Select a branch to see its history",
+		"Select an author to see the commits",
+		"Load more commits",
+		"Click to see GitHub PR",
+		"Turn on or off of the history view Express mode"
+	],
+	"keys": [
+		"branch.hover.message",
+		"author.hover.message",
+		"load.more.hover.message",
+		"pr.hover.message",
+		"expressStatusBarToolTip"
+	],
+	"filePath": "historyViewProvider"
+}

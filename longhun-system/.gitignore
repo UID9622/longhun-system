@@ -64,3 +64,81 @@ logs/action_secure.enc
 # === 字体文件（太大） ===
 08_NotoSansCJKsc*/
 *.otf
+
+# === MCP配置（含Token·绝对不推） ===
+.mcp.json
+.bearer_token
+
+# === 私密媒体 ===
+LongHun_Private_Photos_Videos/
+
+# === 日志文件（运行时产生·不推） ===
+logs/
+运行日志/
+app.log
+*.log
+
+# === 缓存 ===
+缓存/
+*.cache.json
+cs_cards_cache.json
+
+# === 大型二进制/模型 ===
+ComfyUI/
+模型库/
+*.gguf
+*.safetensors
+*.bin
+*.onnx
+*.pt
+
+# === 临时/编辑器 ===
+*.swp
+*.swo
+*~
+.claude/launch.json
+
+# === docx/pptx（二进制文档） ===
+*.docx
+*.pptx
+*.ai
+
+# === 嵌套git仓库（不可作为子目录提交） ===
+CNSH-gitee/
+CNSH-github/
+北辰流水线/
+龍魂英文版/
+插件/Mybatis-PageHelper/
+历史归档/claude-code-rewrite/
+历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH字体/longhun/
+历史归档/documents-backup-2026-03/CNSH_备份_20260211/Longhun-AntiColonial-Algorithm/
+历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/ai-truth-protocol/
+历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/v0.1发布包/
+归档库/CNSH_备份_20260211/CNSH字体/longhun/
+归档库/CNSH_备份_20260211/Longhun-AntiColonial-Algorithm/
+归档库/CNSH_备份_20260211/本地备份/历史项目/ai-truth-protocol/
+归档库/CNSH_备份_20260211/本地备份/历史项目/v0.1发布包/
+
+# === 数据库文件 ===
+*.db
+
+# === 敏感配置文件（追加排除） ===
+*.env.bak
+*.env.new
+*_config.env
+longhun_config.env
+*.key_hash
+*tokens-*.node
+配置/.key_hash
+配置/longhun_config.env
+配置/.env.new
+
+# === 超大文件（>50MB·GitHub拒绝） ===
+*.dmg
+*.pdf
+Electron Framework
+下载文件/ip-dapter_face_250000/
+归档库/ip-dapter_face_250000/
+归档库/哈希临时文件/
+历史归档/documents-backup-2026-03/CNSH_备份_20260211/blobs/
+归档库/CNSH_备份_20260211/blobs/

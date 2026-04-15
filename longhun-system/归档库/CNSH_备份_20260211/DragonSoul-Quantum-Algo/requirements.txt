@@ -1,0 +1,4 @@
+numpy>=1.24.0
+scipy>=1.11.0
+python-dateutil>=2.8.0
+pyyaml>=6.0.1

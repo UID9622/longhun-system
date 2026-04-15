@@ -1,0 +1,41 @@
+{
+	"messages": [
+		"Index Modified",
+		"Modified",
+		"Added",
+		"Index Deleted",
+		"Deleted",
+		"Renamed",
+		"Index Copied",
+		"Untracked",
+		"Ignored",
+		"Intent to Add",
+		"Conflict: Both Deleted",
+		"Conflict: Added By Us",
+		"Conflict: Deleted By Them",
+		"Conflict: Added By Them",
+		"Conflict: Deleted By Us",
+		"Conflict: Both Added",
+		"Conflict: Both Modified"
+	],
+	"keys": [
+		"index modified",
+		"modified",
+		"added",
+		"index deleted",
+		"deleted",
+		"renamed",
+		"index copied",
+		"untracked",
+		"ignored",
+		"intent to add",
+		"both deleted",
+		"added by us",
+		"deleted by them",
+		"added by them",
+		"deleted by us",
+		"both added",
+		"both modified"
+	],
+	"filePath": "git/changes/status"
+}

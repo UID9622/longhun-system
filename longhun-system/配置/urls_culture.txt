@@ -1,0 +1,86 @@
+# 龍魂知識庫 · 中華文化URL清單 v2.0
+# DNA: #龍芯⚡️2026-04-03-CULTURE-URLS
+# 共60+個URL · 17個分類
+
+# ===== 曾仕強老師 =====
+https://www.liangxin.net.cn/
+https://www.douban.com/note/851917193/
+https://zhuanlan.zhihu.com/p/472705959
+https://baike.baidu.com/item/%E5%A4%A7%E6%98%93%E7%AE%A1%E7%90%86/10644482
+
+# ===== 易經經典 =====
+https://ctext.org/book-of-changes/zh
+https://www.guoxuedashi.com/yj/
+https://www.quanxue.cn/ct_rujia/ZhouYi/ZhouYi01.html
+https://ctext.org/wiki.pl?if=gb&chapter=96430
+
+# ===== 河圖洛書·八卦·五行 =====
+https://baike.baidu.com/item/%E6%B2%B3%E5%9B%BE%E6%B4%9B%E4%B9%A6/10856917
+https://zhuanlan.zhihu.com/p/104522748
+https://baike.baidu.com/item/%E5%85%AB%E5%8D%A6/21997
+https://zhuanlan.zhihu.com/p/50883691
+https://baike.baidu.com/item/%E4%BA%94%E8%A1%8C/11521
+
+# ===== 道德經 =====
+https://ctext.org/dao-de-jing/zh
+https://www.guoxuedashi.com/ddj/
+https://www.quanxue.cn/ct_daoruism/DaoDe/DaoDe01.html
+https://baike.baidu.com/item/%E8%80%81%E5%AD%90/210148
+
+# ===== 甲骨文·書法 =====
+https://baike.baidu.com/item/%E7%94%B2%E9%AA%A8%E6%96%87/387729
+https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E4%B9%A6%E6%B3%95/7495
+https://www.shufazidian.com/
+https://zhuanlan.zhihu.com/p/266055319
+
+# ===== 歷史通史 =====
+https://www.guoxuedashi.com/shiji/
+https://ctext.org/zi-zhi-tong-jian/zh
+
+# ===== 先秦諸子 =====
+https://ctext.org/analects/zh
+https://ctext.org/mengzi/zh
+https://ctext.org/zhuangzi/zh
+https://ctext.org/art-of-war/zh
+
+# ===== 三國 =====
+https://www.guoxue.com/shibu/24shi/sangzz/sgzzml.htm
+https://baike.baidu.com/item/%E4%B8%89%E5%9B%BD/182126
+https://baike.baidu.com/item/%E8%AF%B8%E8%91%9B%E4%BA%AE/27563
+
+# ===== 抗戰·軍魂 =====
+https://baike.baidu.com/item/%E6%8A%97%E6%97%A5%E6%88%98%E4%BA%89/249089
+https://baike.baidu.com/item/%E5%85%AB%E8%B7%AF%E5%86%9B/100947
+https://baike.baidu.com/item/%E6%96%B0%E5%9B%9B%E5%86%9B/102106
+https://baike.baidu.com/item/%E5%86%9B%E9%AD%82/6110074
+https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E5%86%9B/133024
+https://baike.baidu.com/item/%E9%95%BF%E6%B4%A5%E6%B9%96%E6%88%98%E5%BD%B9/6906162
+https://zhuanlan.zhihu.com/p/342728129
+
+# ===== 習近平精神 =====
+https://baike.baidu.com/item/%E4%B9%A0%E8%BF%91%E5%B9%B3/112959
+https://baike.baidu.com/item/%E4%B9%A0%E8%BF%91%E5%B9%B3%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%80%9D%E6%83%B3/23055964
+
+# ===== 綜合門戶 =====
+https://ctext.org/zh
+https://www.gushiwen.cn/
+
+# ===== 詩詞曲賦 =====
+https://www.guoxuedashi.com/tangshi/
+https://www.guoxuedashi.com/songci/
+
+# ===== 中醫經典 =====
+https://ctext.org/huangdi-neijing/zh
+https://ctext.org/shang-han-lun/zh
+
+# ===== 文物考古 =====
+https://www.chnmuseum.cn/
+https://www.dpm.org.cn/
+
+# ===== 非遺·古代科技·少數民族 =====
+https://www.ihchina.cn/
+https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E7%A7%91%E6%8A%80/1271706
+https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%B0%91%E6%95%B0%E6%B0%91%E6%97%8F/176247
+
+# ===== 易經百度百科 =====
+https://baike.baidu.com/item/%E6%98%93%E7%BB%8F/8920

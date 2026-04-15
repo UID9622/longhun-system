@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "48f8e3b4a3da31d2",
+    "type": "split",
+    "children": [
+      {
+        "id": "1212d000a25e459d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66ab2b15104f17d5",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a358929df141137b",
+    "type": "split",
+    "children": [
+      {
+        "id": "509a4be228940857",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5e4d9003d2088508",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "47f44391a365a1af",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b8e8374b444e4690",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dcc9d0bb6d47f030",
+    "type": "split",
+    "children": [
+      {
+        "id": "ae00dcd1a142d677",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6eea811784bf80b6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "07f855221dc53b1b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "fa524c014a0b5dfc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "4a692d16b03265f0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "15c440b27511ff8f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "66ab2b15104f17d5",
+  "lastOpenFiles": [
+    "本地备份/历史项目/ai-truth-protocol/cnsh-editor-guard/node_modules/slash/readme.md",
+    "manifests/registry.ollama.ai/firerootlad/ROOT_UID9622/latest",
+    "manifests/registry.ollama.ai/firerootlad/ROOT_UID9622",
+    "manifests/registry.ollama.ai/firerootlad",
+    "blobs/sha256-32ba8b50b4ce387ec8af4c39691a2d659e6bd70f943de58a2d91f62c87933bb3",
+    "blobs/sha256-63fcaa2d012bb53745a9c86f2e6d55187691a175fa88523a80f55f8990df8f22",
+    "Modelfile",
+    "manifests/registry.ollama.ai/library/llama3.2/latest",
+    "manifests/registry.ollama.ai/library/llama3.2",
+    "manifests/registry.ollama.ai/library",
+    "manifests/registry.ollama.ai",
+    "本地备份/历史项目/cnsh-deployment/node_modules/@so-ric/colorspace/README.md",
+    "未命名.canvas",
+    "Lucky个人IP锚点-UID9622.md",
+    "CNSH发布状态报告-20260101.md",
+    "CNSH龍魂系统-公开对话历史记录.md",
+    "CNSH公开发布清单.md",
+    "龍魂协作承诺书.md",
+    "龍魂徽章系统_三色审计版_V1.0.md",
+    "Lucky的超级标签分类系统.md",
+    "Lucky的文件标签指南.md",
+    "修复总结_CNSH三色审计集成.md",
+    "CSDN互动话题.md",
+    "CSDN发布指南.md",
+    "CSDN文章_CNSH中文编程语言.md",
+    "UID9622/1111.jpg",
+    "CodeBuddy/U盘文件解压后/encoding_fix/系统9.17/私人与共享/__UID9622主控操作台_最高权限控制中心_2507125a9c9f80d2b214c07deced0f0f/__太极智能协同中枢_bdca555c7c7248168e19b5ddcc00dd3d/__用户接口模块_04d6c33f8c59403a91476af34273bac5/Unknown-2.jpg",
+    "cnsh-deployment/legal-knowledge/CNSH全球法律知识库.md",
+    "私人与共享/⚖️ CNSH全球法律知识库 多国法规智能适配引擎 c6b5c1995ebe4bd28ced5b8f7a26afb3.md",
+    "CodeBuddy/20251204055052/技术实现方案与代码结构.md",
+    "CodeBuddy/U盘提取文件/📦 SYS - UID9622系统中枢模板包 v1 2 0 24e7125a9c9f80018287f983603f6adb.md",
+    "CodeBuddy/20251204055052/CNSH情感陪伴系统设计规范.md",
+    "龍魂P0级-三层交叉监督与镜像人格完整方案.md",
+    "UID9622-增强版主控页面结构.md",
+    "数字人分身引擎-完整版-经宝宝审查补全.md",
+    "ZHX-20251212-OLLAMA-MASTER-SYSTEM.md",
+    "CodeBuddy/20251204055052/Lucky五大誓言与承诺.md",
+    "私人与共享/⚖️ CNSH全球法律知识库 多国法规智能适配引擎/🇪🇺 欧盟法律知识库 4faa092e955b43deb052a6d17307305f.md",
+    "ZHX-20251212-OLLAMA-COMPLETE-GUIDE.md",
+    "我的想法.canvas",
+    "UID9622-LocalServer/venv/lib/python3.14/site-packages/werkzeug/debug/shared/console.png",
+    "UID9622-LocalServer/venv/lib/python3.14/site-packages/werkzeug/debug/shared/more.png",
+    "UID9622-LocalServer/venv/lib/python3.14/site-packages/werkzeug/debug/shared/less.png",
+    "mac-ai-server/venv/lib/python3.14/site-packages/werkzeug/debug/shared/console.png",
+    "mac-ai-server/venv/lib/python3.14/site-packages/werkzeug/debug/shared/more.png",
+    "mac-ai-server/venv/lib/python3.14/site-packages/werkzeug/debug/shared/less.png",
+    "龍魂Notion主权自动化/venv/lib/python3.14/site-packages/werkzeug/debug/shared/console.png",
+    "龍魂Notion主权自动化/venv/lib/python3.14/site-packages/werkzeug/debug/shared/more.png"
+  ]
+}

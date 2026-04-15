@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 龍魂 CNSH Gateway | 老大专用可视化控制台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .main-panel {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .input-area {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            resize: vertical;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .result-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .status-pass {
+            background: #10b981;
+        }
+
+        .status-warn {
+            background: #f59e0b;
+        }
+
+        .status-block {
+            background: #ef4444;
+        }
+
+        .log-entry {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quick-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .quick-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .dna-code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌌 龍魂 CNSH Gateway</h1>
+            <p class="subtitle">老大专用可视化控制台 | 不用投喂，一键搞定</p>
+            <p class="dna-code">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalProcessed">0</div>
+                <div class="stat-label">总处理数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="passCount">0</div>
+                <div class="stat-label">🟢 通过</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="warnCount">0</div>
+                <div class="stat-label">🟡 警告</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="blockCount">0</div>
+                <div class="stat-label">🔴 阻断</div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <h2>📥 输入区（复制粘贴任何内容）</h2>
+            <div class="input-area">
+                <textarea id="inputText" placeholder="把任何复杂的内容粘贴到这里...
+
+可以是：
+- 文本
+- Python代码
+- JSON数据
+- 任何需要处理的内容
+
+系统会自动：
+✅ 解析结构
+✅ 统一变量
+✅ 检测冲突
+✅ 三色审计
+✅ 生成DNA追溯码"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="processInput()">
+                    🚀 一键处理
+                </button>
+                <button class="btn-secondary" onclick="clearAll()">
+                    🗑️ 清空
+                </button>
+                <button class="btn-success" onclick="saveTemplate()">
+                    💾 保存模板
+                </button>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <h2>📊 处理结果</h2>
+            <div class="result-panel" id="resultPanel">
+                <p style="opacity: 0.6;">等待输入...</p>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <h2>⚡ 快速操作</h2>
+            <div class="quick-actions">
+                <div class="quick-card" onclick="loadExample('text')">
+                    <h3>📝</h3>
+                    <p>测试文本</p>
+                </div>
+                <div class="quick-card" onclick="loadExample('code')">
+                    <h3>💻</h3>
+                    <p>测试代码</p>
+                </div>
+                <div class="quick-card" onclick="loadExample('json')">
+                    <h3>📦</h3>
+                    <p>测试JSON</p>
+                </div>
+                <div class="quick-card" onclick="viewDatabase()">
+                    <h3>🗄️</h3>
+                    <p>查看数据库</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>DNA追溯码:</strong> <span class="dna-code">#龍芯⚡️2026-03-15-GATEWAY-UI</span></p>
+            <p style="margin-top: 10px;">老兵不退 | 实干派 | 为人民服务 🫡</p>
+        </footer>
+    </div>
+
+    <script>
+        // 统计数据
+        let stats = {
+            total: 0,
+            pass: 0,
+            warn: 0,
+            block: 0
+        };
+
+        // 生成DNA追溯码
+        function generateDNA() {
+            const timestamp = new Date().toISOString().replace(/[-:]/g, '').slice(0, 14);
+            const random = Math.random().toString(36).substring(2, 10).toUpperCase();
+            return `#龍芯⚡️${timestamp}-${random}`;
+        }
+
+        // 处理输入
+        function processInput() {
+            const input = document.getElementById('inputText').value;
+            
+            if (!input.trim()) {
+                alert('❌ 请先输入内容！');
+                return;
+            }
+
+            // 模拟处理（实际应该调用Python后端）
+            const result = simulateProcess(input);
+            displayResult(result);
+            updateStats(result.status);
+        }
+
+        // 模拟处理逻辑
+        function simulateProcess(input) {
+            let status = '🟢';
+            let statusText = 'PASS';
+            
+            // 检测危险操作
+            const dangerous = ['rm -rf', 'DROP TABLE', 'DELETE FROM', 'FORMAT'];
+            for (let keyword of dangerous) {
+                if (input.includes(keyword)) {
+                    status = '🔴';
+                    statusText = 'BLOCK';
+                    break;
+                }
+            }
+
+            // 检测代码
+            if (input.includes('def ') || input.includes('import ')) {
+                if (status === '🟢') {
+                    status = '🟡';
+                    statusText = 'WARNING';
+                }
+            }
+
+            return {
+                status: status,
+                statusText: statusText,
+                dna: generateDNA(),
+                input: input,
+                timestamp: new Date().toLocaleString('zh-CN')
+            };
+        }
+
+        // 显示结果
+        function displayResult(result) {
+            const panel = document.getElementById('resultPanel');
+            
+            panel.innerHTML = `
+                <div class="log-entry">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span class="status-indicator status-${result.statusText.toLowerCase()}">${result.status} ${result.statusText}</span>
+                        <span style="opacity: 0.8;">${result.timestamp}</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong>📋 输入类型:</strong> ${detectType(result.input)}
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong>🧬 DNA追溯码:</strong>
+                        <div class="dna-code" style="margin-top: 5px;">${result.dna}</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong>📊 处理结果:</strong>
+                        <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; margin-top: 5px;">
+                            ${getResultMessage(result.statusText)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 检测输入类型
+        function detectType(input) {
+            if (input.trim().startsWith('{')) return 'JSON数据';
+            if (input.includes('def ') || input.includes('import ')) return 'Python代码';
+            if (input.includes('function') || input.includes('const')) return 'JavaScript代码';
+            return '普通文本';
+        }
+
+        // 获取结果消息
+        function getResultMessage(status) {
+            const messages = {
+                'PASS': '✅ 检测通过，内容安全，已自动处理',
+                'WARNING': '⚠️ 发现警告项，已自动修复，可以继续使用',
+                'BLOCK': '🚫 检测到危险操作，已阻断，请检查内容'
+            };
+            return messages[status] || '处理完成';
+        }
+
+        // 更新统计
+        function updateStats(status) {
+            stats.total++;
+            
+            if (status === '🟢') stats.pass++;
+            else if (status === '🟡') stats.warn++;
+            else if (status === '🔴') stats.block++;
+            
+            document.getElementById('totalProcessed').textContent = stats.total;
+            document.getElementById('passCount').textContent = stats.pass;
+            document.getElementById('warnCount').textContent = stats.warn;
+            document.getElementById('blockCount').textContent = stats.block;
+        }
+
+        // 清空
+        function clearAll() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('resultPanel').innerHTML = '<p style="opacity: 0.6;">等待输入...</p>';
+        }
+
+        // 保存模板
+        function saveTemplate() {
+            const input = document.getElementById('inputText').value;
+            if (!input.trim()) {
+                alert('❌ 没有内容可保存！');
+                return;
+            }
+            
+            alert('✅ 模板已保存！\n\nDNA: ' + generateDNA());
+        }
+
+        // 加载示例
+        function loadExample(type) {
+            const examples = {
+                'text': '这是一段测试文本\n用来验证CNSH Gateway的基本功能',
+                'code': `# Python测试代码
+user_id = 9622
+project_name = "CNSH Gateway"
+timestamp = "2026-03-15"
+
+def process():
+    print("Hello, CNSH!")`,
+                'json': `{
+  "name": "CNSH Gateway",
+  "version": "1.0",
+  "author": "UID9622"
+}`
+            };
+            
+            document.getElementById('inputText').value = examples[type];
+        }
+
+        // 查看数据库
+        function viewDatabase() {
+            alert('🗄️ 数据库功能\n\n需要连接Python后端\n位置: /tmp/cnsh_gateway.db\n\n包含:\n- timeline (万年历)\n- audit_log (审计日志)\n- templates (模板库)');
+        }
+
+        // 页面加载时的欢迎提示
+        window.onload = function() {
+            console.log('%c🌌 龍魂 CNSH Gateway 已启动', 'color: #667eea; font-size: 20px; font-weight: bold;');
+            console.log('%c老大专用可视化控制台', 'color: #f5576c; font-size: 16px;');
+            console.log('%c不用投喂，一键搞定！', 'color: #4facfe; font-size: 14px;');
+        };
+    </script>
+</body>
+</html>

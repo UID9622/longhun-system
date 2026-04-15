@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<style>
+    html {
+        scrollbar-color: unset; /* overwrite default webview scrollbar color */
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .jqi-host {
+        height: 100%;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQi proxy server</title>
+</head>
+
+<body>
+    <script>
+        {jqiModuleJs}
+    </script>
+<script defer>(()=>{"use strict";var e={885:e=>{e.exports=window}},t={};function o(i){var r=t[i];if(void 0!==r)return r.exports;var s=t[i]={exports:{}};return e[i](s,s.exports,o),s.exports}(()=>{const e=o(885),t=new e.CodeartsApiMock;(0,e.initFrontApi)(t);const i=new e.JqiProxyServer,r=acquireVsCodeApi();i.onNotification((e=>r.postMessage(e))),window.addEventListener("message",(e=>{"WebviewServiceMessage"!==e.data["#TYPE"]?i.sendNotification(e.data):t.fireColorThemeChange(e.data.value)}))})()})();</script></body>
+
+</html>

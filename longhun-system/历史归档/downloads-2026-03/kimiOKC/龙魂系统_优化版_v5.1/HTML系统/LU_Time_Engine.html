@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LU-TIME ENGINE · 时间推演系统</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Share+Tech+Mono&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#c8a84b; --jade:#4a9b7f; --cinnabar:#c0392b;
+  --void:#0a0a1a; --glow:#7ecfcf; --paper:#f0e8d0;
+}
+body{background:var(--void);color:var(--paper);font-family:'Noto Serif SC',serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(74,155,127,0.07),transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(200,168,75,0.05),transparent 50%);pointer-events:none;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(200,168,75,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.wrap{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:24px;}
+
+/* HEADER */
+.header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(200,168,75,0.3);margin-bottom:24px;}
+.logo{display:flex;align-items:center;gap:16px;}
+.logo-icon{font-size:50px;animation:float 4s ease-in-out infinite;}
+.logo-text h1{font-size:26px;color:var(--gold);letter-spacing:5px;}
+.logo-text p{font-size:9px;color:var(--jade);letter-spacing:3px;margin-top:3px;}
+.live-box{text-align:right;}
+#clock{font-family:'Share Tech Mono',monospace;font-size:26px;color:var(--glow);letter-spacing:2px;}
+#dateStr{font-size:10px;color:rgba(200,168,75,0.6);letter-spacing:2px;margin-top:2px;}
+.status-badge{font-size:9px;margin-top:5px;}
+.dot{display:inline-block;width:7px;height:7px;background:var(--jade);border-radius:50%;margin-right:5px;animation:pulse 2s infinite;}
+
+/* STATUS CARDS */
+.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;}
+.stat-card{background:rgba(20,20,40,0.8);border:1px solid rgba(200,168,75,0.2);border-radius:8px;padding:13px 15px;border-left:3px solid var(--gold);transition:transform .2s,border-color .2s;}
+.stat-card:hover{transform:translateY(-2px);border-color:rgba(200,168,75,0.6);}
+.stat-card.jade{border-left-color:var(--jade);}
+.stat-card.glow{border-left-color:var(--glow);}
+.stat-card.red{border-left-color:var(--cinnabar);}
+.stat-label{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(200,168,75,0.45);text-transform:uppercase;margin-bottom:6px;}
+.stat-card.jade .stat-label{color:rgba(74,155,127,0.5);}
+.stat-card.glow .stat-label{color:rgba(126,207,207,0.5);}
+.stat-card.red .stat-label{color:rgba(192,57,43,0.5);}
+.stat-val{font-family:'Share Tech Mono',monospace;font-size:18px;color:var(--gold);font-weight:bold;}
+.stat-card.jade .stat-val{color:var(--jade);}
+.stat-card.glow .stat-val{color:var(--glow);}
+.stat-card.red .stat-val{color:var(--cinnabar);}
+.stat-sub{font-size:9px;color:rgba(245,240,232,0.3);margin-top:3px;}
+
+/* MAIN GRID */
+.main-grid{display:grid;grid-template-columns:310px 1fr;gap:16px;margin-bottom:16px;}
+.panel{background:rgba(10,10,28,0.85);border:1px solid rgba(200,168,75,0.2);border-radius:10px;padding:20px;}
+.panel-title{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.panel-title::after{content:'';flex:1;height:1px;background:rgba(200,168,75,0.15);}
+
+/* HEXAGRAM */
+.hex-center{text-align:center;padding:10px 0;}
+.hex-big{font-size:68px;display:block;filter:drop-shadow(0 0 18px rgba(200,168,75,0.35));animation:hexglow 5s ease-in-out infinite;}
+.hex-name{font-family:serif;font-size:22px;color:var(--gold);margin:10px 0 4px;}
+.hex-id{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--jade);letter-spacing:2px;}
+.hex-meaning{font-size:11px;color:rgba(245,240,232,0.5);margin:13px 0;line-height:1.9;border-left:2px solid rgba(200,168,75,0.3);padding-left:10px;text-align:left;}
+.trigrams{display:flex;justify-content:space-around;margin-top:12px;}
+.tri-item{text-align:center;}
+.tri-sym{font-size:26px;display:block;}
+.tri-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(200,168,75,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:3px;}
+
+/* ENTROPY */
+.entropy-block{border-top:1px solid rgba(200,168,75,0.12);margin-top:16px;padding-top:13px;}
+.ent-row{display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(200,168,75,0.5);margin-bottom:5px;}
+.ent-bar{height:5px;background:rgba(200,168,75,0.08);border-radius:3px;overflow:hidden;}
+.ent-fill{height:100%;width:43%;background:linear-gradient(90deg,var(--jade),var(--glow));border-radius:3px;transition:width 1s ease;}
+.ent-labels{display:flex;justify-content:space-between;font-size:8px;color:rgba(245,240,232,0.2);margin-top:3px;}
+
+/* 64 GRID */
+.hex-mini-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:14px;border-top:1px solid rgba(200,168,75,0.1);padding-top:12px;}
+.hm-item{font-size:13px;text-align:center;cursor:pointer;padding:2px;border-radius:2px;color:rgba(245,240,232,0.2);transition:all .15s;}
+.hm-item:hover,.hm-item.active{color:var(--gold);background:rgba(200,168,75,0.1);}
+
+/* RIGHT SIDE */
+.right-stack{display:flex;flex-direction:column;gap:14px;}
+
+/* FLOW */
+.flow-row{display:flex;align-items:center;gap:4px;overflow-x:auto;padding-bottom:4px;}
+.flow-step{flex-shrink:0;text-align:center;padding:8px 12px;background:rgba(200,168,75,0.06);border:1px solid rgba(200,168,75,0.18);border-radius:5px;}
+.flow-step.active{background:rgba(74,155,127,0.15);border-color:var(--jade);}
+.flow-step.done{background:rgba(200,168,75,0.12);border-color:rgba(200,168,75,0.4);}
+.fs-icon{font-size:17px;display:block;}
+.fs-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(245,240,232,0.5);margin-top:3px;white-space:nowrap;}
+.flow-arr{color:rgba(200,168,75,0.35);font-size:14px;padding:0 2px;flex-shrink:0;}
+
+/* AUDIT */
+.audit-log{max-height:185px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
+.audit-log::-webkit-scrollbar{width:3px;}
+.audit-log::-webkit-scrollbar-thumb{background:rgba(200,168,75,0.2);border-radius:2px;}
+.log-row{display:grid;grid-template-columns:7px 70px 90px 1fr 72px;gap:8px;align-items:center;padding:5px 8px;border-left:2px solid transparent;border-radius:3px;font-family:'Share Tech Mono',monospace;font-size:9px;background:rgba(200,168,75,0.02);animation:logIn .3s ease-out;}
+.log-row.info{border-left-color:var(--jade);}
+.log-row.warn{border-left-color:var(--gold);}
+.log-row.alert{border-left-color:var(--cinnabar);}
+.log-dot{width:5px;height:5px;border-radius:50%;}
+.log-row.info .log-dot{background:var(--jade);}
+.log-row.warn .log-dot{background:var(--gold);}
+.log-row.alert .log-dot{background:var(--cinnabar);}
+.log-time{color:rgba(200,168,75,0.4);}
+.log-type{color:var(--glow);}
+.log-msg{color:rgba(245,240,232,0.6);}
+.log-hash{color:rgba(200,168,75,0.25);text-align:right;}
+
+/* BOTTOM */
+.bottom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+
+/* TASKS */
+.task-item{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(200,168,75,0.07);}
+.task-item:last-child{border-bottom:none;}
+.task-bar{width:3px;height:26px;border-radius:2px;flex-shrink:0;}
+.task-name{font-size:11px;color:rgba(245,240,232,0.75);}
+.task-meta{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(200,168,75,0.35);margin-top:2px;}
+.task-badge{font-family:'Share Tech Mono',monospace;font-size:8px;padding:2px 6px;border-radius:3px;}
+
+/* SHIELD */
+.shield-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;border:1px solid rgba(200,168,75,0.1);cursor:pointer;margin-bottom:7px;transition:all .2s;}
+.shield-row:hover{border-color:rgba(200,168,75,0.35);}
+.shield-row.active{background:rgba(74,155,127,0.08);border-color:var(--jade);}
+.sh-icon{font-size:17px;}
+.sh-name{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--gold);}
+.sh-desc{font-size:9px;color:rgba(245,240,232,0.3);margin-top:1px;}
+
+/* PREDICTIONS */
+.pred-item{padding:9px;background:rgba(200,168,75,0.04);border-radius:5px;border:1px solid rgba(200,168,75,0.1);margin-bottom:8px;}
+.pred-h{display:flex;justify-content:space-between;margin-bottom:4px;}
+.pred-date{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(200,168,75,0.4);}
+.pred-acc{font-family:'Share Tech Mono',monospace;font-size:9px;}
+.pred-txt{font-size:10px;color:rgba(245,240,232,0.6);line-height:1.5;}
+.pred-bar{height:2px;background:rgba(200,168,75,0.1);border-radius:1px;margin-top:5px;overflow:hidden;}
+.pred-fill{height:100%;border-radius:1px;}
+
+/* MODULE NAV */
+.mod-nav{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+.mod-btn{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:1.5px;padding:5px 11px;border-radius:4px;border:1px solid rgba(200,168,75,0.2);color:rgba(200,168,75,0.45);cursor:pointer;background:transparent;text-transform:uppercase;transition:all .2s;}
+.mod-btn:hover,.mod-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,0.1);}
+
+/* DECLARATION */
+.declaration{padding:14px 20px;background:rgba(5,5,15,0.8);border:1px solid rgba(200,168,75,0.12);border-radius:8px;display:flex;align-items:center;gap:16px;}
+.decl-seal{font-size:32px;flex-shrink:0;}
+.decl-text{flex:1;font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(245,240,232,0.28);line-height:1.9;letter-spacing:1px;}
+.decl-text strong{color:rgba(200,168,75,0.45);}
+.chain-info{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(74,155,127,0.35);text-align:right;line-height:1.9;flex-shrink:0;}
+
+/* FORMULA SECTION */
+.formula-panel{background:rgba(10,10,28,0.85);border:1px solid rgba(74,155,127,0.2);border-radius:10px;padding:20px;margin-bottom:16px;}
+.formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+.formula-card{background:rgba(74,155,127,0.05);border:1px solid rgba(74,155,127,0.15);border-radius:6px;padding:12px;}
+.f-title{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--jade);margin-bottom:8px;}
+.f-formula{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(245,240,232,0.6);line-height:1.8;white-space:pre-wrap;}
+.f-note{font-size:9px;color:rgba(245,240,232,0.3);margin-top:6px;line-height:1.5;}
+
+/* SECURITY */
+.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;}
+.sec-event{padding:9px 11px;background:rgba(200,168,75,0.03);border-radius:5px;border-left:2px solid;}
+.sec-type{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1px;margin-bottom:3px;}
+.sec-desc{font-size:10px;color:rgba(245,240,232,0.5);}
+.sec-time{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(245,240,232,0.25);margin-top:3px;}
+
+/* VERSION CHAIN */
+.ver-chain{display:flex;flex-direction:column;gap:0;}
+.ver-item{display:flex;gap:12px;padding:10px 0;}
+.ver-line{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.ver-dot{width:10px;height:10px;border-radius:50%;background:var(--jade);flex-shrink:0;}
+.ver-connector{flex:1;width:2px;background:rgba(74,155,127,0.2);margin:3px 0;}
+.ver-content{padding-bottom:8px;}
+.ver-id{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);}
+.ver-author{font-size:10px;color:rgba(245,240,232,0.5);margin-top:2px;}
+.ver-sum{font-size:9px;color:rgba(245,240,232,0.3);margin-top:3px;line-height:1.5;}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes hexglow{0%,100%{filter:drop-shadow(0 0 18px rgba(200,168,75,0.35))}50%{filter:drop-shadow(0 0 35px rgba(74,155,127,0.55))}}
+@keyframes logIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="wrap">
+
+<!-- MODULE NAV -->
+<div class="mod-nav">
+  <button class="mod-btn active" onclick="showModule('overview')">01 系统总览</button>
+  <button class="mod-btn" onclick="showModule('hexagram')">03 卦象计算</button>
+  <button class="mod-btn" onclick="showModule('tasks')">04 任务联动</button>
+  <button class="mod-btn" onclick="showModule('audit')">05 审计日志</button>
+  <button class="mod-btn" onclick="showModule('shield')">06 盾加密</button>
+  <button class="mod-btn" onclick="showModule('version')">07 版本链</button>
+  <button class="mod-btn" onclick="showModule('formula')">公式引擎</button>
+  <button class="mod-btn" onclick="showModule('security')">09 安全监控</button>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <span class="logo-icon">☯</span>
+    <div class="logo-text">
+      <h1>LU-TIME ENGINE</h1>
+      <p>时间推演 · 卦象计算 · 审计链 · 盾加密协议</p>
+    </div>
+  </div>
+  <div class="live-box">
+    <div id="clock">--:--:--</div>
+    <div id="dateStr">LOADING...</div>
+    <div class="status-badge"><span class="dot"></span><span style="color:var(--jade)">SYSTEM ONLINE · ACTIVE</span></div>
+  </div>
+</div>
+
+<!-- STATUS CARDS -->
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat-label">TODAY HEXAGRAM</div>
+    <div class="stat-val" id="todayHex">泰卦 #11</div>
+    <div class="stat-sub">地天泰 · 亨</div>
+  </div>
+  <div class="stat-card jade">
+    <div class="stat-label">ENTROPY LEVEL</div>
+    <div class="stat-val" id="entropyNum">0.43</div>
+    <div class="stat-sub">低熵 · 执行态</div>
+  </div>
+  <div class="stat-card glow">
+    <div class="stat-label">CURRENT PHASE</div>
+    <div class="stat-val">执行</div>
+    <div class="stat-sub">EXECUTE MODE</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">AUDIT CHAIN</div>
+    <div class="stat-val" id="chainLen">2,847</div>
+    <div class="stat-sub">块 · 链完整</div>
+  </div>
+  <div class="stat-card red">
+    <div class="stat-label">SHIELD LEVEL</div>
+    <div class="stat-val">S2</div>
+    <div class="stat-sub">系统控制</div>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+  <!-- LEFT: HEXAGRAM PANEL -->
+  <div class="panel">
+    <div class="panel-title">卦象推演</div>
+    <div class="hex-center">
+      <span class="hex-big" id="bigHex">䷊</span>
+      <div class="hex-name">地天泰</div>
+      <div class="hex-id">HEX #11 · PHASE: 亨 · 大吉</div>
+      <div class="hex-meaning">天地交泰，万物生焉。<br>内阳外阴，动静相宜。<br>此时当行大事，势顺宜进。<br>建议行动：执行</div>
+      <div class="trigrams">
+        <div class="tri-item"><span class="tri-sym">☰</span><div class="tri-label">UPPER·坤</div></div>
+        <div style="color:rgba(200,168,75,0.2);font-size:18px;line-height:2.5">↕</div>
+        <div class="tri-item"><span class="tri-sym">☷</span><div class="tri-label">LOWER·乾</div></div>
+      </div>
+    </div>
+
+    <div class="entropy-block">
+      <div class="ent-row"><span>系统熵值 ENTROPY</span><span id="entVal">0.43</span></div>
+      <div class="ent-bar"><div class="ent-fill" id="entBar"></div></div>
+      <div class="ent-labels"><span>低熵·执行</span><span>高熵·延迟</span></div>
+    </div>
+
+    <div class="hex-mini-grid" id="hexMiniGrid"></div>
+  </div>
+
+  <!-- RIGHT STACK -->
+  <div class="right-stack">
+    <!-- FLOW -->
+    <div class="panel">
+      <div class="panel-title">自动化执行流程</div>
+      <div class="flow-row">
+        <div class="flow-step done"><span class="fs-icon">⏱</span><div class="fs-label">时间变化</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step done"><span class="fs-icon">📐</span><div class="fs-label">TimeIndex</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step active"><span class="fs-icon">☯</span><div class="fs-label">计算卦象</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step"><span class="fs-icon">📊</span><div class="fs-label">更新熵值</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step"><span class="fs-icon">⚡</span><div class="fs-label">触发行动</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step"><span class="fs-icon">📝</span><div class="fs-label">写入任务</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step"><span class="fs-icon">🔗</span><div class="fs-label">审计日志</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step"><span class="fs-icon">🔮</span><div class="fs-label">预测更新</div></div>
+      </div>
+    </div>
+
+    <!-- AUDIT -->
+    <div class="panel" style="flex:1">
+      <div class="panel-title" style="justify-content:space-between">
+        <span>审计日志链 AUDIT CHAIN</span>
+        <span style="color:rgba(74,155,127,0.6);font-size:9px">↑ 只增不删 · 不可覆盖</span>
+      </div>
+      <div class="audit-log" id="auditLog"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM -->
+<div class="bottom-grid">
+  <!-- TASKS -->
+  <div class="panel">
+    <div class="panel-title">任务联动系统</div>
+    <div id="taskList"></div>
+  </div>
+
+  <!-- SHIELD -->
+  <div class="panel">
+    <div class="panel-title">盾加密协议 SHIELD</div>
+    <div class="shield-row" onclick="selectShield(0)">
+      <span class="sh-icon">🔓</span>
+      <div><div class="sh-name" style="color:#aaa">S0 · 公共</div><div class="sh-desc">Public Access · 无限制</div></div>
+      <span style="margin-left:auto">🌐</span>
+    </div>
+    <div class="shield-row" onclick="selectShield(1)">
+      <span class="sh-icon">🔐</span>
+      <div><div class="sh-name" style="color:var(--jade)">S1 · 用户可见</div><div class="sh-desc">User Visible · 需认证</div></div>
+      <span style="margin-left:auto">👤</span>
+    </div>
+    <div class="shield-row active" id="sh2" onclick="selectShield(2)">
+      <span class="sh-icon">🛡</span>
+      <div><div class="sh-name">S2 · 系统控制 ✓ ACTIVE</div><div class="sh-desc">System Control · 当前等级</div></div>
+      <span style="margin-left:auto">⚙️</span>
+    </div>
+    <div class="shield-row" onclick="selectShield(3)">
+      <span class="sh-icon">🔒</span>
+      <div><div class="sh-name" style="color:var(--cinnabar)">S3 · 主控权限</div><div class="sh-desc">Master Key Required · 锁定</div></div>
+      <span style="margin-left:auto">🗝</span>
+    </div>
+  </div>
+
+  <!-- PREDICTIONS -->
+  <div class="panel">
+    <div class="panel-title">预测记录</div>
+    <div class="pred-item">
+      <div class="pred-h"><span class="pred-date">2026-03-14</span><span class="pred-acc" style="color:var(--jade)">87%</span></div>
+      <div class="pred-txt">泰卦·东南方向利于推进重大决策，行动期</div>
+      <div class="pred-bar"><div class="pred-fill" style="width:87%;background:linear-gradient(90deg,var(--jade),var(--glow))"></div></div>
+    </div>
+    <div class="pred-item">
+      <div class="pred-h"><span class="pred-date">2026-03-13</span><span class="pred-acc" style="color:var(--gold)">73%</span></div>
+      <div class="pred-txt">坎卦·险中求稳，不宜冒进，静待时机</div>
+      <div class="pred-bar"><div class="pred-fill" style="width:73%;background:linear-gradient(90deg,var(--gold),var(--glow))"></div></div>
+    </div>
+    <div class="pred-item">
+      <div class="pred-h"><span class="pred-date">2026-03-12</span><span class="pred-acc" style="color:var(--cinnabar)">41%</span></div>
+      <div class="pred-txt">革卦·变革时机，结果偏差较大，需调整模型</div>
+      <div class="pred-bar"><div class="pred-fill" style="width:41%;background:linear-gradient(90deg,var(--cinnabar),var(--gold))"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMULA ENGINE (hidden by default) -->
+<div id="formulaSection" style="display:none">
+<div class="formula-panel">
+  <div class="panel-title" style="color:var(--jade)">易经公式引擎 · 干支+卦象+时间统一推演模型</div>
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="f-title">HEXAGRAM_ID 公式</div>
+      <div class="f-formula">HexID = 
+  (floor(Timestamp/Period)
+  × SeedKey) mod 64
+  + 1</div>
+      <div class="f-note">Period = 86400s (日周期)<br>SeedKey = 干支系数</div>
+    </div>
+    <div class="formula-card">
+      <div class="f-title">ENTROPY 熵值公式</div>
+      <div class="f-formula">Entropy = 
+  |sin(TimeIndex × π/32)|
+  × PhaseWeight
+  + Noise(0.05)</div>
+      <div class="f-note">PhaseWeight: 亨=0.3 吉=0.2<br>凶=0.7 否=0.8</div>
+    </div>
+    <div class="formula-card">
+      <div class="f-title">AUDIT HASH 链式</div>
+      <div class="f-formula">ChainHash =
+  SHA256(
+    PrevHash +
+    DataHash +
+    Timestamp
+  )</div>
+      <div class="f-note">形成不可篡改区块链<br>任何修改均破坏链路</div>
+    </div>
+    <div class="formula-card">
+      <div class="f-title">干支周期映射</div>
+      <div class="f-formula">天干: i mod 10
+  → 甲乙丙丁戊
+    己庚辛壬癸
+地支: i mod 12
+  → 子丑寅卯辰
+    巳午未申酉戌亥</div>
+      <div class="f-note">60甲子 = lcm(10,12)</div>
+    </div>
+    <div class="formula-card">
+      <div class="f-title">ACTION 决策公式</div>
+      <div class="f-formula">if Entropy < 0.35:
+  Action = "执行"
+elif Entropy < 0.6:
+  Action = "调整"
+elif Entropy < 0.8:
+  Action = "观察"
+else:
+  Action = "暂停"</div>
+      <div class="f-note">基于熵值自动分配</div>
+    </div>
+    <div class="formula-card">
+      <div class="f-title">CONFIDENCE 置信度</div>
+      <div class="f-formula">Confidence =
+  (1 - Entropy)
+  × HexPhaseScore
+  × HistAccuracy</div>
+      <div class="f-note">HistAccuracy = 历史准确率均值<br>动态修正预测模型</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- VERSION CHAIN (hidden) -->
+<div id="versionSection" style="display:none">
+<div class="panel" style="margin-bottom:16px">
+  <div class="panel-title">版本继承链 VERSION CHAIN · 只增不覆盖</div>
+  <div class="ver-chain">
+    <div class="ver-item">
+      <div class="ver-line"><div class="ver-dot"></div><div class="ver-connector"></div></div>
+      <div class="ver-content">
+        <div class="ver-id">v1.0.3 · CURRENT</div>
+        <div class="ver-author">Author: SYSTEM · 2026-03-14 08:00</div>
+        <div class="ver-sum">新增今日泰卦计算结果。熵值从0.41→0.43。预测准确率更新至78.3%。</div>
+      </div>
+    </div>
+    <div class="ver-item">
+      <div class="ver-line"><div class="ver-dot" style="background:rgba(74,155,127,0.5)"></div><div class="ver-connector"></div></div>
+      <div class="ver-content">
+        <div class="ver-id">v1.0.2</div>
+        <div class="ver-author">Author: SYSTEM · 2026-03-13 08:00</div>
+        <div class="ver-sum">更新坎卦推演结果。任务4条写入。审计链块+24。</div>
+      </div>
+    </div>
+    <div class="ver-item">
+      <div class="ver-line"><div class="ver-dot" style="background:rgba(74,155,127,0.3)"></div></div>
+      <div class="ver-content">
+        <div class="ver-id">v1.0.1</div>
+        <div class="ver-author">Author: SYSTEM · 2026-03-12 08:00</div>
+        <div class="ver-sum">初始化革卦周期。建立64卦映射表。审计链创世块生成。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SECURITY (hidden) -->
+<div id="securitySection" style="display:none">
+<div class="panel" style="margin-bottom:16px">
+  <div class="panel-title" style="color:var(--cinnabar)">安全与异常监控 SECURITY MONITOR</div>
+  <div class="sec-grid">
+    <div class="sec-event" style="border-left-color:var(--jade)">
+      <div class="sec-type" style="color:var(--jade)">NORMAL · 访问记录</div>
+      <div class="sec-desc">S2权限正常访问时间引擎</div>
+      <div class="sec-time">2026-03-14 08:32:11</div>
+    </div>
+    <div class="sec-event" style="border-left-color:var(--gold)">
+      <div class="sec-type" style="color:var(--gold)">WARNING · 权限越界尝试</div>
+      <div class="sec-desc">S1用户尝试访问S3字段，已拒绝</div>
+      <div class="sec-time">2026-03-14 07:14:05</div>
+    </div>
+    <div class="sec-event" style="border-left-color:var(--cinnabar)">
+      <div class="sec-type" style="color:var(--cinnabar)">ALERT · 数据修改尝试</div>
+      <div class="sec-desc">检测到审计日志修改请求，已拦截并记录</div>
+      <div class="sec-time">2026-03-13 22:07:43</div>
+    </div>
+    <div class="sec-event" style="border-left-color:var(--jade)">
+      <div class="sec-type" style="color:var(--jade)">NORMAL · 链完整性</div>
+      <div class="sec-desc">审计链SHA256验证通过，无篡改</div>
+      <div class="sec-time">2026-03-14 08:00:00</div>
+    </div>
+    <div class="sec-event" style="border-left-color:var(--gold)">
+      <div class="sec-type" style="color:var(--gold)">WARNING · 熵值异常</div>
+      <div class="sec-desc">革卦期间熵值超出预期范围0.82</div>
+      <div class="sec-time">2026-03-12 15:30:22</div>
+    </div>
+    <div class="sec-event" style="border-left-color:var(--jade)">
+      <div class="sec-type" style="color:var(--jade)">NORMAL · 版本写入</div>
+      <div class="sec-desc">v1.0.3版本快照写入成功</div>
+      <div class="sec-time">2026-03-14 08:00:02</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DECLARATION -->
+<div class="declaration">
+  <span class="decl-seal">⛩</span>
+  <div class="decl-text">
+    <strong>本系统采用递增式记录机制。</strong><br>
+    任何记录不可删除 · 不可覆盖 · 只能追加 · 全程留痕。<br>
+    所有数据变更均自动进入审计链。任何异常访问均被监控并永久记录。
+  </div>
+  <div class="chain-info" id="chainInfo">
+    CHAIN: 0x4a9f...<br>
+    VERSION: v1.0.3<br>
+    BLOCKS: 2847<br>
+    INTEGRITY: OK
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ─── Clock ───
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=n.toTimeString().slice(0,8);
+  document.getElementById('dateStr').textContent=n.toISOString().slice(0,10)+' · 系统运行中';
+}
+setInterval(updateClock,1000); updateClock();
+
+// ─── 64 Hexagrams ───
+const hexMini=document.getElementById('hexMiniGrid');
+const hNames=['乾','坤','屯','蒙','需','讼','师','比','小畜','履','泰','否','同人','大有','谦','豫','随','蛊','临','观','噬嗑','贲','剥','复','无妄','大畜','颐','大过','坎','离','咸','恒','遁','大壮','晋','明夷','家人','睽','蹇','解','损','益','夬','姤','萃','升','困','井','革','鼎','震','艮','渐','归妹','丰','旅','巽','兑','涣','节','中孚','小过','既济','未济'];
+for(let i=0;i<64;i++){
+  const d=document.createElement('div');
+  d.className='hm-item'+(i===10?' active':'');
+  d.textContent=String.fromCodePoint(0x4DC0+i);
+  d.title=hNames[i]+' #'+(i+1);
+  hexMini.appendChild(d);
+}
+
+// ─── Tasks ───
+const tasks=[
+  {name:'计算今日TimeIndex',meta:'HEX#11·高优先级',badge:'执行中',pc:'var(--jade)',bc:'rgba(74,155,127,0.15)',cc:'var(--jade)'},
+  {name:'更新卦象数据库',meta:'每日自动更新',badge:'等待',pc:'var(--gold)',bc:'rgba(200,168,75,0.15)',cc:'var(--gold)'},
+  {name:'验证审计链完整性',meta:'安全检查任务',badge:'执行中',pc:'var(--jade)',bc:'rgba(74,155,127,0.15)',cc:'var(--jade)'},
+  {name:'生成预测报告',meta:'基于坎卦计算中',badge:'暂停',pc:'var(--cinnabar)',bc:'rgba(192,57,43,0.15)',cc:'var(--cinnabar)'},
+];
+const tl=document.getElementById('taskList');
+tasks.forEach(t=>{
+  tl.innerHTML+=`<div class="task-item">
+    <div class="task-bar" style="background:${t.pc}"></div>
+    <div style="flex:1"><div class="task-name">${t.name}</div><div class="task-meta">${t.meta}</div></div>
+    <div class="task-badge" style="background:${t.bc};color:${t.cc}">${t.badge}</div>
+  </div>`;
+});
+
+// ─── Audit Log ───
+const initLogs=[
+  {t:'info',type:'SYS_BOOT',msg:'时间引擎初始化完成'},
+  {t:'info',type:'HEX_CALC',msg:'今日卦象: 泰卦 #11'},
+  {t:'info',type:'ENTROPY',msg:'熵值初始化 → 0.43'},
+  {t:'warn',type:'TASK_DELAY',msg:'革卦任务延迟至明日'},
+  {t:'info',type:'CHAIN_OK',msg:'审计链完整性验证通过'},
+  {t:'info',type:'PREDICT',msg:'预测准确率 78.3% 写入'},
+  {t:'info',type:'SHIELD',msg:'S2权限激活'},
+];
+const al=document.getElementById('auditLog');
+const colors={info:'var(--jade)',warn:'var(--gold)',alert:'var(--cinnabar)'};
+function addLog(ev){
+  const c=colors[ev.t];
+  const ts=new Date().toTimeString().slice(0,8);
+  const hash=Math.random().toString(16).slice(2,10).toUpperCase();
+  const row=document.createElement('div');
+  row.className=`log-row ${ev.t}`;
+  row.innerHTML=`<div class="log-dot"></div><span class="log-time">${ts}</span><span class="log-type">${ev.type}</span><span class="log-msg">${ev.msg}</span><span class="log-hash">${hash}</span>`;
+  al.insertBefore(row,al.firstChild);
+  if(al.children.length>25)al.removeChild(al.lastChild);
+}
+initLogs.forEach((l,i)=>setTimeout(()=>addLog(l),(i+1)*350));
+
+// Live log + entropy
+const liveLogs=[
+  {t:'info',type:'TIME_TICK',msg:'时间索引递增 +1'},
+  {t:'info',type:'HEX_SYNC',msg:'卦象与干支同步完成'},
+  {t:'warn',type:'ENTROPY',msg:'熵值小幅波动检测'},
+  {t:'info',type:'SHIELD',msg:'S2访问验证通过'},
+  {t:'info',type:'PREDICT',msg:'预测模型参数更新'},
+  {t:'info',type:'VERSION',msg:'数据快照写入版本链'},
+];
+let li=0,chainCount=2847;
+let entropy=0.43;
+setInterval(()=>{
+  entropy+=(Math.random()-.5)*.025;
+  entropy=Math.max(0.1,Math.min(0.9,entropy));
+  const pct=Math.round(entropy*100);
+  document.getElementById('entVal').textContent=entropy.toFixed(2);
+  document.getElementById('entropyNum').textContent=entropy.toFixed(2);
+  document.getElementById('entBar').style.width=pct+'%';
+  chainCount++;
+  document.getElementById('chainLen').textContent=chainCount.toLocaleString();
+  document.getElementById('chainInfo').innerHTML=`CHAIN: 0x${Math.random().toString(16).slice(2,10)}<br>VERSION: v1.0.3<br>BLOCKS: ${chainCount}<br>INTEGRITY: OK`;
+  addLog(liveLogs[li%liveLogs.length]);
+  li++;
+},3500);
+
+// Shield selection
+function selectShield(n){
+  document.querySelectorAll('.shield-row').forEach((r,i)=>{
+    r.classList.toggle('active',i===n);
+  });
+}
+
+// Module nav
+function showModule(m){
+  document.querySelectorAll('.mod-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('formulaSection').style.display=m==='formula'?'block':'none';
+  document.getElementById('versionSection').style.display=m==='version'?'block':'none';
+  document.getElementById('securitySection').style.display=m==='security'?'block':'none';
+}
+</script>
+</body>
+</html>

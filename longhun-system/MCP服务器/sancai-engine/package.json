@@ -1,0 +1,14 @@
+{
+  "name": "sancai-mcp-engine",
+  "version": "4.0.0",
+  "description": "龍魂三才流场·MCP自适应引擎 v4.0 · DNA: #龍芯⚡️2026-04-07",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["sancai", "longhun", "mcp", "flowfield"],
+  "author": "UID9622 诸葛鑫（龍芯北辰）",
+  "license": "Apache-2.0",
+  "dependencies": {}
+}

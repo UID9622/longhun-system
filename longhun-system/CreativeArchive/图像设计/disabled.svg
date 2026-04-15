@@ -1,0 +1,36 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none" customFrame="#000000">
+	<defs>
+		<g id="pixso_custom_effect_0">
+			<effect x="0.000000" y="8.000000" visibility="visible" fill="rgb(0,0,0)" fill-opacity="0.160784319" effectType="dropShadow" stdDeviation="24" radius="0" />
+		</g>
+		<filter id="filter_0" width="14.250000" height="14.250000" x="4.875000" y="9.819702" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_0)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feOffset dx="0.000000" dy="8.000000" in="SourceAlpha" />
+			<feGaussianBlur stdDeviation="8" />
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.160784 0 " />
+			<feBlend result="effect_dropShadow_1" in2="BackgroundImageFix" mode="normal" />
+			<feBlend result="shape" in="SourceGraphic" in2="effect_dropShadow_1" mode="normal" />
+		</filter>
+		<g id="pixso_custom_effect_1">
+			<effect x="0.000000" y="8.000000" visibility="visible" fill="rgb(0,0,0)" fill-opacity="0.160784319" effectType="dropShadow" stdDeviation="24" radius="0" />
+		</g>
+		<filter id="filter_1" width="6.123749" height="8.390991" x="5.250000" y="1.805237" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feOffset dx="0.000000" dy="8.000000" in="SourceAlpha" />
+			<feGaussianBlur stdDeviation="8" />
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.160784 0 " />
+			<feBlend result="effect_dropShadow_1" in2="BackgroundImageFix" mode="normal" />
+			<feBlend result="shape" in="SourceGraphic" in2="effect_dropShadow_1" mode="normal" />
+		</filter>
+	</defs>
+	<rect id="disable" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+	<g id="disable">
+		<g filter="url(#filter_0)">
+			<path id="shape" d="M4.875 16.9447C4.875 13.0162 8.0715 9.8197 12 9.8197C15.9285 9.8197 19.125 13.0162 19.125 16.9447C19.125 20.8732 15.9285 24.0697 12 24.0697C8.0715 24.0697 4.875 20.8732 4.875 16.9447ZM9.45516 12.7919C10.2224 12.3179 11.0939 12.0697 11.9999 12.0697C14.6879 12.0697 16.8749 14.2567 16.8749 16.9447C16.8749 17.8507 16.6267 18.7222 16.1527 19.4894L9.45516 12.7919ZM11.9998 21.8197C9.31184 21.8197 7.12484 19.6327 7.12484 16.9447C7.12484 16.0297 7.37759 15.1515 7.85984 14.379L14.5656 21.0847C13.7931 21.567 12.9148 21.8197 11.9998 21.8197Z" fill="rgb(223,223,223)" fill-rule="evenodd" />
+		</g>
+		<path id="path" d="M4.5 12.0112L4.5 0L13.1932 8.71425L7.9125 8.71425L7.79925 8.80725L4.5 12.0112Z" opacity="0" fill="rgb(255,255,255)" fill-rule="evenodd" />
+		<g filter="url(#filter_1)">
+			<path id="path" d="M5.25 1.80524L5.25 10.1962L7.47675 8.04674L7.59675 7.94249L11.3737 7.94249L5.25 1.80524Z" fill="rgb(25,25,25)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>

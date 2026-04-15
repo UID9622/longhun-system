@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<!--
+  三才流場 v7.0 · 主权不动点版
+  v6.0优化版 × 主权不动点系统 × DNA双螺旋锚 × 加密粒子印记
+  不动点三层：TIER_0永恒锚·种子锚9622·龍盾宫格5 — 视觉分层分清
+  主权环：DNA双螺旋 + UID9622主权标识 + 熔断脉冲
+  DNA: #龍芯⚡️2026-04-15-三才流場-v7主权不动点
+  创建者: 诸葛鑫（UID9622）
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  理论指导: 曾仕强老师（永恒显示）
+  道生一，一生二，二生三，三生万物。——道德经第四十二章
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>三才流場 v7主权不动点 · 龍盾呼吸接入 · UID9622</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;height:100vh;overflow:hidden;background:#f8f5f0;font-family:'Poppins',sans-serif}
+#sidebar{width:270px;min-width:270px;background:#fff;border-right:1px solid #e8e0d8;display:flex;flex-direction:column;padding:14px;overflow-y:auto;gap:10px}
+#canvas-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:#0a0a0f;position:relative}
+canvas{border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.3);cursor:crosshair}
+h1{font-size:13px;font-weight:600;color:#333;letter-spacing:.5px}
+.subtitle{font-size:10px;color:#999;font-family:'Noto Sans SC',sans-serif}
+.section{border-top:1px solid #eee;padding-top:10px}
+.section-title{font-size:10px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.ctrl{display:flex;flex-direction:column;gap:3px;margin-bottom:7px}
+.ctrl label{font-size:11px;color:#555;display:flex;justify-content:space-between}
+.ctrl label span{color:#e67e22;font-weight:600}
+input[type=range]{width:100%;accent-color:#e67e22;height:4px;cursor:pointer}
+input[type=number]{width:72px;border:1px solid #ddd;border-radius:4px;padding:3px 6px;font-size:11px}
+.row{display:flex;gap:6px;align-items:center}
+.btn{flex:1;padding:6px;border:none;border-radius:5px;font-size:11px;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
+.btn-primary{background:#e67e22;color:#fff}.btn-primary:hover{background:#d35400}
+.btn-secondary{background:#f0ece6;color:#555}.btn-secondary:hover{background:#e0dbd4}
+.btn-shield{background:#1a1a2e;color:#c39bd3}.btn-shield:hover{background:#2c2c4e}
+.seed-display{text-align:center;font-size:20px;font-weight:600;color:#333;padding:4px 0}
+.seed-sub{text-align:center;font-size:10px;color:#999;margin-bottom:8px;font-family:'Noto Sans SC',sans-serif}
+.tri-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:4px;margin-bottom:8px}
+.tri-heaven{background:#4a90d9}.tri-earth{background:#7cb87c}.tri-human{background:#c39bd3}
+.tri-labels{display:flex;justify-content:space-between;font-size:9px;color:#888;margin-bottom:4px}
+
+/* ── 龍盾状态面板 ── */
+#shield-panel{background:linear-gradient(135deg,#1a1a2e,#2c1654);border-radius:8px;padding:10px;color:#fff;font-family:'Noto Sans SC',sans-serif}
+#shield-panel .sp-title{font-size:10px;color:#c39bd3;font-weight:600;margin-bottom:6px;letter-spacing:1px}
+#shield-panel .sp-row{display:flex;justify-content:space-between;align-items:center;font-size:10px;margin-bottom:4px}
+#shield-panel .sp-label{color:#aaa}
+#shield-panel .sp-val{color:#c39bd3;font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}
+.dot-green{background:#27ae60}.dot-orange{background:#e67e22}.dot-red{background:#c0392b}.dot-grey{background:#666}
+
+/* ── 呼吸状态面板（新增）── */
+#breath-panel{background:linear-gradient(135deg,#0a1f30,#162840);border-radius:8px;padding:10px;color:#fff;font-family:'Noto Sans SC',sans-serif}
+#breath-panel .sp-title{font-size:10px;color:#7ecbf8;font-weight:600;margin-bottom:6px;letter-spacing:1px}
+#breath-dir{font-size:10px;color:#b0d8f0;margin-bottom:4px;min-height:14px}
+#breath-bar-bg{background:rgba(255,255,255,0.1);border-radius:3px;height:5px;margin:4px 0;overflow:hidden}
+#breath-bar{height:100%;border-radius:3px;background:linear-gradient(to right,#4a90d9,#c39bd3);width:50%;transition:width 0.15s ease}
+#breath-eff{font-size:10px;color:#7ecbf8;margin-top:4px}
+#ring-info{font-size:10px;color:#aaa;margin-top:3px}
+
+/* ── 路由输入框 ── */
+#route-box{padding:8px;background:#f9f6f2;border-radius:6px;border:1px solid #e8e0d8}
+#route-input{width:100%;border:1px solid #ddd;border-radius:4px;padding:5px 7px;font-size:11px;font-family:'Noto Sans SC',sans-serif;resize:none}
+#route-result{font-size:10px;color:#666;margin-top:5px;min-height:18px;font-family:'Noto Sans SC',sans-serif;line-height:1.5}
+
+/* ── 画布叠层信息 ── */
+#canvas-overlay{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(10,10,15,0.75);color:#c39bd3;font-size:10px;font-family:'Noto Sans SC',sans-serif;padding:6px 14px;border-radius:20px;pointer-events:none;letter-spacing:.5px;white-space:nowrap;display:none}
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h1>☰☷☱ 三才流場 v7·主权不动点</h1>
+  <div class="subtitle">龍盾神经接入 · 宝宝P72中枢 · UID9622<br>主权锚·DNA双螺旋·不动点分层 · #龍芯⚡️2026-04-15</div>
+
+  <!-- 龍盾状态面板 -->
+  <div id="shield-panel">
+    <div class="sp-title">🛡️ 龍盾实时状态</div>
+    <div class="sp-row"><span class="sp-label">:9622 连接</span><span class="sp-val" id="sp-conn"><span class="dot dot-grey"></span>离线</span></div>
+    <div class="sp-row"><span class="sp-label">向善四律</span><span class="sp-val" id="sp-ethics"><span class="dot dot-grey"></span>—</span></div>
+    <div class="sp-row"><span class="sp-label">激活人格</span><span class="sp-val" id="sp-persona">—</span></div>
+    <div class="sp-row"><span class="sp-label">留痕粒子</span><span class="sp-val" id="sp-audit">0</span></div>
+    <div class="sp-row"><span class="sp-label">Merkle密度</span><span class="sp-val" id="sp-density">—</span></div>
+    <div class="sp-row"><span class="sp-label">不动点</span><span class="sp-val" id="sp-anchor">T0·T1·T2 锚定</span></div>
+    <div style="display:flex;gap:4px;margin-top:6px">
+      <button class="btn btn-shield" style="flex:1;font-size:10px" onclick="syncWithEngine()">⚡ 同步</button>
+      <button class="btn btn-shield" style="flex:1;font-size:10px;background:#4a1a2e" onclick="triggerFuse()">🔥 熔断</button>
+    </div>
+  </div>
+
+  <!-- 呼吸节律面板（v3.0新增）-->
+  <div id="breath-panel">
+    <div class="sp-title">🫁 呼吸节律 · 年轮记忆</div>
+    <div id="breath-dir">— 初始化中 —</div>
+    <div id="breath-bar-bg"><div id="breath-bar"></div></div>
+    <div id="breath-eff">天 —%  地 —%  人 —%</div>
+    <div id="ring-info">🌳 年轮 1 圈 · 突触激活 0 · 点击画布注入</div>
+  </div>
+
+  <!-- 路由输入框 -->
+  <div id="route-box">
+    <div class="section-title" style="border:none;padding:0 0 6px">🧭 实时路由</div>
+    <textarea id="route-input" rows="2" placeholder="输入一句话，宝宝帮你路由…"></textarea>
+    <div id="route-result">—</div>
+    <button class="btn btn-primary" style="width:100%;margin-top:5px;font-size:11px" onclick="triggerRoute()">发送 →</button>
+  </div>
+
+  <!-- 种子 -->
+  <div class="section">
+    <div class="section-title">🌱 种子 Seed</div>
+    <div class="seed-display" id="seedDisplay">9622</div>
+    <div class="seed-sub">同一种子·永远同一幅宇宙</div>
+    <div class="row">
+      <button class="btn btn-secondary" onclick="prevSeed()">◀</button>
+      <button class="btn btn-secondary" onclick="randomSeed()">随机</button>
+      <button class="btn btn-secondary" onclick="nextSeed()">▶</button>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <input type="number" id="seedInput" value="9622" style="flex:1">
+      <button class="btn btn-primary" onclick="jumpSeed()">Go</button>
+    </div>
+  </div>
+
+  <!-- 三才权重（基础值·呼吸在此基础上实时浮动）-->
+  <div class="section">
+    <div class="section-title">☰☷☱ 三才权重（基础值）</div>
+    <div class="tri-labels">
+      <span style="color:#4a90d9">☰天 <span id="wHVal">35%</span></span>
+      <span style="color:#7cb87c">☷地 <span id="wEVal">15%</span></span>
+      <span style="color:#c39bd3">☱宝宝 <span id="wPVal">50%</span></span>
+    </div>
+    <div class="tri-bar">
+      <div class="tri-heaven" id="barH" style="flex:35"></div>
+      <div class="tri-earth"  id="barE" style="flex:15"></div>
+      <div class="tri-human"  id="barP" style="flex:50"></div>
+    </div>
+    <div class="ctrl">
+      <label>☰ 天场（系统熵/活跃度）<span id="wHSlider">35</span></label>
+      <input type="range" id="wH" min="5" max="80" value="35" oninput="updateWeights()">
+    </div>
+    <div class="ctrl">
+      <label>☷ 地场（洛书锚点·底线）<span id="wESlider">15</span></label>
+      <input type="range" id="wE" min="5" max="80" value="15" oninput="updateWeights()">
+    </div>
+    <div class="ctrl">
+      <label>☱ 宝宝P72·龍盾中枢<span id="wPSlider">50</span></label>
+      <input type="range" id="wP" min="5" max="80" value="50" oninput="updateWeights()">
+    </div>
+  </div>
+
+  <!-- 参数 -->
+  <div class="section">
+    <div class="section-title">⚙️ 参数</div>
+    <div class="ctrl">
+      <label>粒子数量<span id="numPVal">1200</span></label>
+      <input type="range" id="numP" min="200" max="3000" step="100" value="1200">
+    </div>
+    <div class="ctrl">
+      <label>噪声频率<span id="nFreqVal">0.003</span></label>
+      <input type="range" id="nFreq" min="1" max="20" value="3">
+    </div>
+    <div class="ctrl">
+      <label>步长<span id="stepVal">1.8</span></label>
+      <input type="range" id="step" min="5" max="40" value="18">
+    </div>
+    <div class="ctrl">
+      <label>粒子寿命<span id="lifeVal">300</span></label>
+      <input type="range" id="life" min="60" max="900" value="300">
+    </div>
+    <div class="ctrl">
+      <label>轨迹透明度<span id="alphaVal">25</span></label>
+      <input type="range" id="alpha" min="3" max="80" value="25">
+    </div>
+    <div class="ctrl">
+      <label>呼吸幅度<span id="breathDepthVal">25</span>%</label>
+      <input type="range" id="breathDepth" min="0" max="50" value="25"
+        oninput="params.breathDepth=this.value/100;document.getElementById('breathDepthVal').textContent=this.value">
+    </div>
+  </div>
+
+  <!-- 配色 -->
+  <div class="section">
+    <div class="section-title">🎨 配色</div>
+    <div class="ctrl"><label>天场色 ☰</label><input type="color" id="cH" value="#4a90d9" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()"></div>
+    <div class="ctrl"><label>地场色 ☷</label><input type="color" id="cE" value="#7cb87c" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()"></div>
+    <div class="ctrl"><label>龍盾色 ☱</label><input type="color" id="cP" value="#c39bd3" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()"></div>
+    <div class="ctrl"><label>背景色</label><input type="color" id="cBg" value="#0a0a0f" style="width:100%;height:26px;border:none;border-radius:4px;cursor:pointer" oninput="updateColors()"></div>
+  </div>
+
+  <!-- 操作 -->
+  <div class="section">
+    <div class="section-title">🎬 操作</div>
+    <div class="row">
+      <button class="btn btn-primary" onclick="restartSketch()">重新生成</button>
+      <button class="btn btn-secondary" onclick="resetAll()">重置</button>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <button class="btn btn-secondary" onclick="downloadPNG()" style="flex:1">💾 保存PNG</button>
+    </div>
+    <div style="font-size:9px;color:#aaa;margin-top:8px;font-family:'Noto Sans SC',sans-serif;line-height:1.6">
+      DNA: #龍芯⚡️2026-04-01-三才流場-v6优化版<br>
+      v5.0神经版 × 噪声网格 × 赫布分区 · 合并升级<br>
+      UID9622 × Claude · 三才算法 · 理论指导：曾仕强老师
+    </div>
+  </div>
+</div>
+
+<div id="canvas-wrap">
+  <div id="canvas-overlay">🛡️ 宝宝P72 · 龍盾守护中</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  三才流場 v5·神经版 · 龍盾神经接入
+//  v4.0龍盾接入 × v3.0呼吸神经 合并升级
+//  核心新特性：
+//    🫁 呼吸节律 — sin波调制三才权重（约785帧一个完整周期）
+//    🌳 年轮记忆 — 每300帧自动生长·点击手动注入·甜甜圈引力
+//    🧬 赫布学习 — 邻居越多突触越强·激活粒子发紫色辉光
+//    🎯 神经可塑性 — 每粒子独立plasticity·seedBias缓慢漂移
+//    🔄 环形边界 — 左右上下穿越·无边界感
+//  人格修正：guardian → p72（宝宝P72·龍盾）
+//  DNA: #龍芯⚡️2026-03-31-三才流場-v5神经版 · UID9622
+// ═══════════════════════════════════════════════════════════════
+
+const API_BASE = 'http://localhost:9622';
+
+// ── 呼吸·年轮·神经常量 ──────────────────────────────────────
+const TRAIL_LEN       = 18;    // 记忆轨迹帧数（神经激活痕迹长度）
+const BREATH_RATE     = 0.008; // 呼吸速率（2π/0.008 ≈ 785帧一周期）
+const GROWTH_INTERVAL = 300;   // 年轮生长间隔（帧）
+const MAX_RINGS       = 12;    // 最大同时存在年轮数
+
+// ── 全局参数 ────────────────────────────────────────────────
+let params = {
+  seed: 9622, numP: 1200, nFreq: 0.003, step: 1.8, life: 300, alpha: 25,
+  wH: 35, wE: 15, wP: 50, breathDepth: 0.25,
+  cH: [74,144,217], cE: [124,184,124], cP: [195,155,211], cBg: [10,10,15]
+};
+
+// ── 龍盾全局状态 ────────────────────────────────────────────
+const shield = {
+  connected: false,
+  ethicsStatus: 'unknown',
+  ethicsTint: null,
+  activePersona: '—',
+  auditCount: 0,
+  merkleValue: 0,
+  auditParticles: [], // 金色留痕粒子（永不消亡）
+};
+
+// ── 年轮系统 ────────────────────────────────────────────────
+let growthRings = [];
+let growthTimer = 0;
+
+// ── 呼吸实时值（module级·供 sanCaiAngle 和 UI 共用）────────
+let breathPhaseNow = 0;
+let eWH = 0.35, eWE = 0.15, eWP = 0.50;
+
+// ── 洛书九宫格（阴阳锚点·地场骨架）────────────────────────
+// 戴九履一，左三右七，二四为肩，六八为足，五居中央
+const LUOSHU = [
+  {x:0.5, y:0.5, v:5}, {x:0.5, y:0.1, v:9}, {x:0.5, y:0.9, v:1},
+  {x:0.1, y:0.5, v:3}, {x:0.9, y:0.5, v:7},
+  {x:0.9, y:0.1, v:8}, {x:0.1, y:0.1, v:6},
+  {x:0.9, y:0.9, v:4}, {x:0.1, y:0.9, v:2}
+];
+
+let particles = [], myp5;
+
+// ── 噪声网格缓存（v6优化：每帧建一次·粒子查表·参考噪声网格方案）──
+// 每帧只调用 20×20=400 次 p.noise()，替代原来 numP×1 次（最多3000次）
+let _noiseGrid   = null;
+let _noiseGridFrame = -1;
+
+function _buildNoiseGrid(p) {
+  if (_noiseGridFrame === p.frameCount) return _noiseGrid; // 同帧复用
+  const COLS = 20, ROWS = 20; // 800/40
+  const t = p.frameCount * 0.003;
+  if (!_noiseGrid) {
+    _noiseGrid = Array.from({length: COLS}, () => new Float32Array(ROWS));
+  }
+  for (let i = 0; i < COLS; i++) {
+    for (let j = 0; j < ROWS; j++) {
+      _noiseGrid[i][j] = p.noise(i * 40 * params.nFreq,
+                                  j * 40 * params.nFreq, t);
+    }
+  }
+  _noiseGridFrame = p.frameCount;
+  return _noiseGrid;
+}
+
+// ── 活跃突触计数（updateParticles 顺带统计·零额外 filter 开销）──
+let _synActiveCount = 0;
+
+// ══ 年轮类（生长环·时间记忆·甜甜圈引力场）══════════════════
+class GrowthRing {
+  constructor(x, y) {
+    this.x = x; this.y = y;
+    this.radius   = 5;
+    this.maxR     = 80 + Math.random() * 140;  // 每圈成长极限不同
+    this.strength = 1.0;
+    this.age      = 0;
+    // 蓝紫色系（年轮色彩随机·各圈有个性）
+    this.cr = 80  + Math.floor(Math.random() * 100);
+    this.cg = 50  + Math.floor(Math.random() * 60);
+    this.cb = 195 + Math.floor(Math.random() * 60);
+  }
+
+  update() {
+    this.age++;
+    if (this.radius < this.maxR) this.radius += 0.08; // 缓慢向外扩张
+    this.strength = Math.max(0.08, 1.0 - this.age / 4000); // 老化衰减
+  }
+
+  // 甜甜圈引力：粒子在环内→推向边缘，在环外→拉向边缘
+  forceOn(px, py) {
+    let dx   = this.x - px, dy = this.y - py;
+    let d    = Math.sqrt(dx*dx + dy*dy) + 0.001;
+    let diff = d - this.radius;
+    let mag  = -diff / (Math.abs(diff) + 60) * this.strength * 0.08;
+    return { fx: (dx/d)*mag, fy: (dy/d)*mag };
+  }
+
+  draw(p) {
+    let a = this.strength * 30;
+    p.noFill();
+    p.stroke(this.cr, this.cg, this.cb, a);
+    p.strokeWeight(0.6);
+    p.ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
+    // 新生年轮：出生80帧内有核心闪光
+    if (this.age < 80) {
+      p.noStroke();
+      p.fill(180, 100, 255, (1 - this.age/80) * 180);
+      p.ellipse(this.x, this.y, 6, 6);
+    }
+  }
+}
+
+// ══ 粒子工厂 ════════════════════════════════════════════════
+function newParticle(p) {
+  let r       = p.random();
+  let threshH = params.wH / 100;
+  let threshE = (params.wH + params.wE) / 100;
+  return {
+    x:          p.random(800),
+    y:          p.random(800),
+    age:        p.floor(p.random(params.life)),
+    maxAge:     params.life + p.floor(p.random(100)),
+    seedBias:   p.random(p.TWO_PI),    // ☱人场初始方向
+    plasticity: 0.2 + p.random(0.8),  // 神经可塑性（高=学习快·低=稳定）
+    flavor:     r < threshH ? 0 : (r < threshE ? 1 : 2), // 0天 1地 2人
+    synaptic:   0,                     // 突触权重（赫布学习积累）
+    trail:      [],                    // 记忆轨迹（最多 TRAIL_LEN 帧历史）
+    isAudit:    false,
+    sovereign:  p.random() < 0.03,    // 3%粒子带主权印记（金色光晕·代表DNA加密主权）
+  };
+}
+
+// ══ p5.js 核心 sketch ═══════════════════════════════════════
+const sketch = (p) => {
+  const W = 800, H = 800;
+
+  p.setup = () => {
+    let cnv = p.createCanvas(W, H);
+    cnv.parent('canvas-wrap');
+    p.randomSeed(params.seed);
+    p.noiseSeed(params.seed);
+    let bg = params.cBg;
+    p.background(bg[0], bg[1], bg[2]);
+    growthRings = [new GrowthRing(400, 400)]; // 初始年轮：宫格5中心
+    growthTimer = 0;
+    initParticles(p);
+  };
+
+  p.draw = () => {
+    // ── 🫁 呼吸节律计算（每帧·驱动全局） ─────────────────
+    breathPhaseNow = Math.sin(p.frameCount * BREATH_RATE);
+    let bd  = params.breathDepth;
+    let bwH = Math.max(0.05, params.wH/100 + breathPhaseNow * bd);
+    let bwE = Math.max(0.03, params.wE/100 - breathPhaseNow * bd * 0.5);
+    let bwP = Math.max(0.25, 1.0 - bwH - bwE);
+    let tot = bwH + bwE + bwP;
+    eWH = bwH/tot; eWE = bwE/tot; eWP = bwP/tot;
+
+    // ── 拖尾背景（吸气时轨迹更长·呼气时更快清除）──────
+    let bg    = params.cBg;
+    let fadeA = 12 + (1 - breathPhaseNow) * 6; // 呼气时 fadeA 更高→更快淡出
+    p.fill(bg[0], bg[1], bg[2], fadeA);
+    p.noStroke();
+    p.rect(0, 0, W, H);
+
+    // ── 🌳 年轮生长周期（每300帧自动萌发新年轮）─────────
+    growthTimer++;
+    if (growthTimer >= GROWTH_INTERVAL) {
+      growthTimer = 0;
+      let cx = 400 + (Math.random() - 0.5) * 480;
+      let cy = 400 + (Math.random() - 0.5) * 480;
+      growthRings.push(new GrowthRing(cx, cy));
+      if (growthRings.length > MAX_RINGS) growthRings.shift();
+    }
+    for (let ring of growthRings) { ring.update(); ring.draw(p); }
+
+    // ── 洛书九宫骨架（v6新增·地场锚点隐显·参考代码 5.1）────
+    // 极淡不喧宾夺主，让地场"骨头"若隐若现
+    for (let node of LUOSHU) {
+      let nx = node.x * 800, ny = node.y * 800;
+      let ce = params.cE;
+      // 圈：亮度随宫格数字值变化（奇数=阳·偶数=阴）
+      let isYang = node.v % 2 === 1;
+      p.noFill();
+      p.stroke(ce[0], ce[1], ce[2], isYang ? 18 + node.v * 1.5 : 9 + node.v);
+      p.strokeWeight(0.5);
+      p.ellipse(nx, ny, node.v * 9, node.v * 9);
+      // 核心小点
+      p.noStroke();
+      p.fill(ce[0], ce[1], ce[2], isYang ? 30 : 15);
+      p.ellipse(nx, ny, 3, 3);
+    }
+
+    // ── 粒子更新·绘制 ────────────────────────────────────
+    updateParticles(p);
+
+    // ── 🧬 赫布学习（每30帧·突触权重批量更新）──────────
+    if (p.frameCount % 30 === 0) hebbianLearning();
+
+    // ── 留痕粒子（龍盾审计·金色·永不消亡）──────────────
+    drawAuditParticles(p);
+
+    // ── 主权不动点系统（v7·三层锚+DNA双螺旋+主权环）──────
+    applyFuseShake(p);       // 熔断震颤（如果激活）
+    drawFixedPoints(p);      // 三层不动点 + DNA螺旋 + 主权环
+
+    // ── 向善四律染色叠层 ──────────────────────────────────
+    if (shield.ethicsTint) applyEthicsTint(p);
+
+    // ── 呼吸面板UI更新（每10帧·DOM操作限频）────────────
+    if (p.frameCount % 10 === 0) updateBreathUI();
+  };
+
+  // 点击画布 → 注入新年轮（老大干预·主权注入成长点）
+  p.mousePressed = () => {
+    if (p.mouseX >= 0 && p.mouseX <= W && p.mouseY >= 0 && p.mouseY <= H) {
+      let ring = new GrowthRing(p.mouseX, p.mouseY);
+      ring.strength = 1.3; // 老大干预：初始引力更强
+      growthRings.push(ring);
+      if (growthRings.length > MAX_RINGS) growthRings.shift();
+      // 注入点留下金色审计痕迹
+      shield.auditParticles.push({
+        x: p.mouseX, y: p.mouseY, phase: Math.random() * Math.PI * 2
+      });
+    }
+  };
+};
+
+// ── 粒子初始化 ──────────────────────────────────────────────
+function initParticles(p) {
+  particles = [];
+  for (let i = 0; i < params.numP; i++) particles.push(newParticle(p));
+}
+
+// ── 三才角度计算（含呼吸调制·年轮引力·Merkle密度）─────────
+function sanCaiAngle(p, x, y, seedBias) {
+  let t = p.frameCount * 0.003;
+
+  // ☰ 天场：网格查表（v6优化：_buildNoiseGrid 同帧只算一次，粒子直接查表）
+  const _ng = _buildNoiseGrid(p);
+  const _ci = Math.min(19, Math.floor(x / 40));
+  const _ri = Math.min(19, Math.floor(y / 40));
+  let heavenAngle = _ng[_ci][_ri] * p.TWO_PI * 4;
+
+  // ☷ 地场：洛书九宫格（呼气时骨架收紧·Merkle密度调制）
+  let earthScale = (1 + shield.merkleValue * 0.5) * (1 + (1 - breathPhaseNow) * 0.15);
+  let ex = 0, ey = 0;
+  for (let node of LUOSHU) {
+    let dx    = node.x - x/800;
+    let dy    = node.y - y/800;
+    let dist2 = dx*dx + dy*dy + 0.0001;
+    let sign  = (node.v % 2 === 1) ? 1 : -1;
+    let force = sign * node.v / (dist2 * 500) * earthScale;
+    ex += dx * force; ey += dy * force;
+  }
+  let earthAngle = p.atan2(ey, ex);
+
+  // ☱ 人场：种子偏置旋转（可塑性漂移在外部已更新）
+  let humanAngle = seedBias + t * 0.5;
+
+  // 三才合力（使用呼吸调制后的实时权重）
+  let vx = p.cos(heavenAngle)*eWH + p.cos(earthAngle)*eWE + p.cos(humanAngle)*eWP;
+  let vy = p.sin(heavenAngle)*eWH + p.sin(earthAngle)*eWE + p.sin(humanAngle)*eWP;
+
+  // 叠加年轮引力（老大注入的成长方向影响流场）
+  for (let ring of growthRings) {
+    let f = ring.forceOn(x, y);
+    vx += f.fx * 1.5;
+    vy += f.fy * 1.5;
+  }
+
+  return p.atan2(vy, vx);
+}
+
+// ── 粒子更新·绘制（v6：移动/渲染分离·按味批量·零开销统计）──
+function updateParticles(p) {
+  const breathBoost = 1 + breathPhaseNow * 0.1;
+
+  // ── 第一遍：移动·更新状态（不触碰 Canvas 状态）────────────
+  for (let pt of particles) {
+    if (pt.isAudit) continue;
+    pt.seedBias += Math.sin(pt.age * 0.018) * pt.plasticity * 0.0008;
+    let angle = sanCaiAngle(p, pt.x, pt.y, pt.seedBias);
+    let step  = params.step * breathBoost;
+    let newX  = pt.x + p.cos(angle) * step;
+    let newY  = pt.y + p.sin(angle) * step;
+    let jumped = false;
+    if (newX < 0)   { newX += 800; jumped = true; }
+    if (newX > 800) { newX -= 800; jumped = true; }
+    if (newY < 0)   { newY += 800; jumped = true; }
+    if (newY > 800) { newY -= 800; jumped = true; }
+    if (jumped) pt.trail = [];
+    pt.trail.push({ x: pt.x, y: pt.y });
+    if (pt.trail.length > TRAIL_LEN) pt.trail.shift();
+    pt.x = newX; pt.y = newY; pt.age++;
+    if (pt.age > pt.maxAge) {
+      let mem = pt.synaptic * 0.3;
+      let nb  = newParticle(p);
+      Object.assign(pt, nb);
+      pt.synaptic = mem;
+    }
+  }
+
+  // ── 第二遍：按味(flavor)分组批量渲染（参考代码方案·减少颜色切换）──
+  // 分组：0=天(cH) 1=地(cE) 2=人(cP)
+  const groups = [[], [], []];
+  for (let pt of particles) {
+    if (!pt.isAudit) groups[pt.flavor].push(pt);
+  }
+
+  _synActiveCount = 0; // 顺带统计·不需要额外 filter
+
+  for (let flavor = 0; flavor < 3; flavor++) {
+    // 同味粒子共享 base color，避免每粒子重复查参数
+    const baseCol = flavor === 0 ? params.cH : (flavor === 1 ? params.cE : params.cP);
+
+    for (let pt of groups[flavor]) {
+      const lifeRatio = 1 - pt.age / pt.maxAge;
+      // 突触紫漂移：计算一次复用整条轨迹
+      const r2 = Math.min(255, baseCol[0] + pt.synaptic * 50);
+      const g2 = Math.max(0,   baseCol[1] - pt.synaptic * 25);
+      const b2 = Math.min(255, baseCol[2] + pt.synaptic * 30);
+
+      // 🧬 记忆轨迹
+      for (let i = 1; i < pt.trail.length; i++) {
+        let prog = i / pt.trail.length;
+        p.stroke(r2, g2, b2, prog * params.alpha * lifeRatio);
+        p.strokeWeight(0.4 + prog * 0.8 * (1 + breathPhaseNow * 0.12));
+        p.line(pt.trail[i-1].x, pt.trail[i-1].y, pt.trail[i].x, pt.trail[i].y);
+      }
+
+      // 突触辉光 + 头部微点（v6新增·参考代码 5.2）
+      if (pt.synaptic > 0.35) {
+        _synActiveCount++; // 零开销统计
+        p.noStroke();
+        let gsz = 6 * pt.synaptic * (1 + breathPhaseNow * 0.25);
+        p.fill(180, 100, 255, pt.synaptic * 35 * lifeRatio);
+        p.ellipse(pt.x, pt.y, gsz, gsz);
+        // 头部微点：高突触粒子顶端白点，轨迹感更强
+        p.fill(255, 255, 255, 200 * pt.synaptic * lifeRatio);
+        p.ellipse(pt.x, pt.y, 1.5, 1.5);
+      }
+
+      // 🔒 主权印记粒子（v7新增·金色菱形光晕·代表"数据主权在用户手里"）
+      if (pt.sovereign) {
+        p.noStroke();
+        let sPulse = 0.6 + 0.4 * Math.sin(p.frameCount * 0.05 + pt.seedBias);
+        p.fill(255, 215, 0, 45 * sPulse * lifeRatio);
+        // 菱形标记（旋转45度的方形·区别于圆形粒子）
+        p.push();
+        p.translate(pt.x, pt.y);
+        p.rotate(Math.PI / 4);
+        p.rect(-2, -2, 4, 4);
+        p.pop();
+      }
+    }
+  }
+}
+
+// ── 赫布学习（v6优化：网格分区·O(n²)→O(n)·参考代码方案）─────
+// 原版：sample=300，最差 300²=90000 次比较
+// v6版：65px网格分区，每粒子只查9个邻格，均摊 O(n)
+function hebbianLearning() {
+  const CELL = 65;                          // 感应半径 = 格宽
+  const COLS = Math.ceil(800 / CELL);       // ≈13
+  const ROWS = Math.ceil(800 / CELL);       // ≈13
+  const SQ   = 65 * 65;
+
+  // 初始化网格（复用 flat array）
+  const grid = Array.from({length: COLS * ROWS}, () => []);
+
+  for (let pt of particles) {
+    if (pt.isAudit) continue;
+    let c = Math.min(COLS - 1, Math.floor(pt.x / CELL));
+    let r = Math.min(ROWS - 1, Math.floor(pt.y / CELL));
+    grid[r * COLS + c].push(pt);
+  }
+
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const cell = grid[r * COLS + c];
+      if (!cell.length) continue;
+      for (let a of cell) {
+        let near = 0;
+        // 检查当前格 + 8 邻格（含自身格·skip self）
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            const nr = r + dr, nc = c + dc;
+            if (nr < 0 || nr >= ROWS || nc < 0 || nc >= COLS) continue;
+            for (let b of grid[nr * COLS + nc]) {
+              if (a === b) continue;
+              const dx = a.x - b.x, dy = a.y - b.y;
+              if (dx*dx + dy*dy < SQ) near++;
+            }
+          }
+        }
+        // 邻居越多→突触增强；自然衰减（遗忘曲线·同原版公式）
+        a.synaptic = Math.min(1.0, a.synaptic * 0.94 + near * 0.018);
+      }
+    }
+  }
+}
+
+// ── 呼吸面板UI更新 ──────────────────────────────────────────
+function updateBreathUI() {
+  let inhale = breathPhaseNow > 0;
+  let pct    = Math.round((breathPhaseNow + 1) / 2 * 100);
+  document.getElementById('breath-dir').textContent =
+    inhale ? '☰ 吸气 · 天场扩张 · 步长↑' : '☷ 呼气 · 地场收缩 · 轨迹显';
+  document.getElementById('breath-bar').style.width = pct + '%';
+  document.getElementById('breath-eff').textContent =
+    `天 ${Math.round(eWH*100)}%  地 ${Math.round(eWE*100)}%  人 ${Math.round(eWP*100)}%`;
+  // v7：加上主权粒子计数
+  let sovCount = particles.filter(pt => pt.sovereign).length;
+  document.getElementById('ring-info').textContent =
+    `🌳 年轮 ${growthRings.length} 圈 · 突触 ${_synActiveCount} · 🔒主权 ${sovCount} · 点击注入`;
+}
+
+// ── 留痕粒子（龍盾审计·金色·永不消亡）─────────────────────
+function drawAuditParticles(p) {
+  if (!shield.auditParticles.length) return;
+  let t = p.frameCount * 0.01;
+  for (let ap of shield.auditParticles) {
+    let pulse = 0.5 + 0.5 * Math.sin(t + ap.phase);
+    p.noStroke();
+    p.fill(255, 215, 0, 40 + 60 * pulse);
+    p.ellipse(ap.x, ap.y, 3 + pulse * 2, 3 + pulse * 2);
+  }
+}
+
+// ══ 主权不动点系统（v7核心·三层不动点·DNA双螺旋·主权环）═══════
+
+// 不动点三层定义：
+// TIER_0 永恒锚 — 金色·最内层·绝对不动·代表创始人主权
+// TIER_1 种子锚 — 蓝白色·中层·9622种子决定的确定性
+// TIER_2 龍盾锚 — 紫色·外层·宫格5守护·连接:9622引擎
+
+let sovereigntyPhase = 0;    // 主权环旋转相位
+let dnaHelixPhase = 0;       // DNA双螺旋旋转
+let fuseShakeFrames = 0;     // 熔断震颤帧数
+
+// ── TIER_0 永恒锚（金色·创始人主权·绝对不动点）──────────────
+function drawTier0Anchor(p) {
+  let cx = 400, cy = 400;
+  let t = p.frameCount * 0.008;
+  let breathScale = 1 + breathPhaseNow * 0.05; // 永恒锚几乎不受呼吸影响·极稳
+
+  // 核心金点 — 永不消失
+  p.noStroke();
+  let corePulse = 0.7 + 0.3 * Math.sin(t * 2);
+  p.fill(255, 215, 0, 80 * corePulse);
+  p.ellipse(cx, cy, 12 * breathScale, 12 * breathScale);
+  p.fill(255, 235, 120, 180 * corePulse);
+  p.ellipse(cx, cy, 5 * breathScale, 5 * breathScale);
+
+  // 永恒六芒锚线（六个方向·代表六合·不随呼吸大幅变化）
+  p.stroke(255, 215, 0, 20 + 15 * corePulse);
+  p.strokeWeight(0.4);
+  for (let i = 0; i < 6; i++) {
+    let angle = i * Math.PI / 3 + t * 0.1;
+    let len = 25 * breathScale;
+    p.line(cx, cy,
+      cx + Math.cos(angle) * len,
+      cy + Math.sin(angle) * len);
+  }
+}
+
+// ── TIER_1 种子锚（9622确定性环·蓝白·种子→宇宙的映射不变性）──
+function drawTier1SeedRing(p) {
+  let cx = 400, cy = 400;
+  let t = p.frameCount * 0.005;
+
+  // 种子确定性环 — 半径固定·不随呼吸变·代表"同一种子永远同一幅宇宙"
+  p.noFill();
+  p.stroke(120, 180, 240, 15);
+  p.strokeWeight(0.8);
+  p.ellipse(cx, cy, 90, 90); // 固定半径·不动
+
+  // 种子数字光点（4个·代表9-6-2-2·在固定环上旋转）
+  let digits = [9, 6, 2, 2];
+  for (let i = 0; i < 4; i++) {
+    let angle = t + i * Math.PI / 2;
+    let r = 45;
+    let dx = cx + Math.cos(angle) * r;
+    let dy = cy + Math.sin(angle) * r;
+    let brightness = 0.5 + 0.5 * Math.sin(t * 3 + i);
+    p.noStroke();
+    p.fill(150, 200, 255, 40 + 40 * brightness);
+    p.ellipse(dx, dy, 3 + digits[i] * 0.3, 3 + digits[i] * 0.3);
+  }
+}
+
+// ── TIER_2 龍盾锚（紫色·宫格5·连接引擎·受呼吸影响最大）──────
+function drawTier2ShieldAnchor(p) {
+  if (!shield.connected) return;
+  sovereigntyPhase += 0.03;
+  let pulse = 0.5 + 0.5 * Math.sin(sovereigntyPhase);
+  let boost = 1 + breathPhaseNow * 0.2; // 呼吸影响最大层
+  let cx = 400, cy = 400;
+
+  // 龍盾三环（与原版一致·外层会呼吸）
+  for (let ring = 3; ring > 0; ring--) {
+    let radius = (60 + ring * 20) * (1 + pulse * 0.2) * boost;
+    let alpha  = (15 - ring * 3) * pulse;
+    p.noFill();
+    p.stroke(195, 155, 211, alpha);
+    p.strokeWeight(ring === 1 ? 1.5 : 0.5);
+    p.ellipse(cx, cy, radius * 2, radius * 2);
+  }
+  p.noStroke();
+  p.fill(195, 155, 211, 20 * pulse);
+  p.ellipse(cx, cy, 30 * boost, 30 * boost);
+}
+
+// ── DNA双螺旋（主权印记·围绕不动点旋转）─────────────────────
+function drawDNAHelix(p) {
+  dnaHelixPhase += 0.02;
+  let cx = 400, cy = 400;
+  let helixR = 55; // 双螺旋半径·在TIER_1和TIER_2之间
+  let points = 24;
+
+  for (let strand = 0; strand < 2; strand++) {
+    let offset = strand * Math.PI; // 两条链相位差180°
+    p.noFill();
+
+    for (let i = 0; i < points; i++) {
+      let t = i / points * Math.PI * 2;
+      let phase = dnaHelixPhase + t + offset;
+
+      // 3D透视：用sin模拟z轴深度
+      let z = Math.sin(phase);
+      let perspScale = 0.6 + 0.4 * (z + 1) / 2;
+      let alpha = 15 + 25 * perspScale;
+
+      let angle = dnaHelixPhase * 0.5 + t;
+      let dx = cx + Math.cos(angle) * helixR * perspScale;
+      let dy = cy + Math.sin(angle) * helixR * perspScale;
+
+      // 链1金色·链2青色（代表加密的两个密钥半片）
+      if (strand === 0) {
+        p.fill(255, 215, 0, alpha);
+      } else {
+        p.fill(0, 220, 200, alpha);
+      }
+      p.noStroke();
+      p.ellipse(dx, dy, 2 * perspScale, 2 * perspScale);
+
+      // 碱基对连线（每4个点连一条横档）
+      if (i % 4 === 0 && strand === 0) {
+        let phase2 = dnaHelixPhase + t + Math.PI;
+        let z2 = Math.sin(phase2);
+        let ps2 = 0.6 + 0.4 * (z2 + 1) / 2;
+        let angle2 = dnaHelixPhase * 0.5 + t;
+        let dx2 = cx + Math.cos(angle2) * helixR * ps2;
+        let dy2 = cy + Math.sin(angle2) * helixR * ps2;
+        p.stroke(255, 255, 255, 8);
+        p.strokeWeight(0.3);
+        p.line(dx, dy, dx2, dy2);
+      }
+    }
+  }
+}
+
+// ── 主权环文字（UID9622·极淡·围绕中心慢转）─────────────────
+function drawSovereigntyRing(p) {
+  let cx = 400, cy = 400;
+  let r = 140; // 最外主权环半径
+  let t = p.frameCount * 0.002;
+  let breathR = r * (1 + breathPhaseNow * 0.03);
+
+  // 主权环虚线
+  p.noFill();
+  p.stroke(255, 215, 0, 8);
+  p.strokeWeight(0.5);
+  let segments = 36;
+  for (let i = 0; i < segments; i += 2) {
+    let a1 = t + i / segments * Math.PI * 2;
+    let a2 = t + (i + 1) / segments * Math.PI * 2;
+    p.line(
+      cx + Math.cos(a1) * breathR, cy + Math.sin(a1) * breathR,
+      cx + Math.cos(a2) * breathR, cy + Math.sin(a2) * breathR
+    );
+  }
+
+  // 四个主权锚点文字位置（极淡·不喧宾夺主）
+  let labels = ['主', '权', '在', '我'];
+  p.textAlign(p.CENTER, p.CENTER);
+  p.textSize(8);
+  p.noStroke();
+  for (let i = 0; i < 4; i++) {
+    let angle = t * 0.5 + i * Math.PI / 2;
+    let lx = cx + Math.cos(angle) * (breathR + 12);
+    let ly = cy + Math.sin(angle) * (breathR + 12);
+    p.fill(255, 215, 0, 25 + 10 * Math.sin(p.frameCount * 0.02 + i));
+    p.text(labels[i], lx, ly);
+  }
+}
+
+// ── 熔断震颤效果（P0红线触发时全场抖动）─────────────────────
+function applyFuseShake(p) {
+  if (fuseShakeFrames <= 0) return;
+  fuseShakeFrames--;
+  let intensity = fuseShakeFrames * 0.3;
+  p.translate(
+    (Math.random() - 0.5) * intensity,
+    (Math.random() - 0.5) * intensity
+  );
+}
+
+// 触发熔断震颤（外部调用）
+function triggerFuse() {
+  fuseShakeFrames = 30;
+  shield.ethicsStatus = 'red';
+  updateEthics('red');
+}
+
+// ── 不动点总绘制（按层级从内到外）─────────────────────────────
+function drawFixedPoints(p) {
+  drawTier0Anchor(p);       // 最内·永恒锚·金色
+  drawTier1SeedRing(p);     // 中层·种子确定性环·蓝白
+  drawDNAHelix(p);          // DNA双螺旋·金青色
+  drawTier2ShieldAnchor(p); // 外层·龍盾锚·紫色
+  drawSovereigntyRing(p);   // 最外·主权环·金色虚线
+}
+
+// ── 向善四律染色叠层 ─────────────────────────────────────────
+function applyEthicsTint(p) {
+  let [r, g2, b] = shield.ethicsTint;
+  p.noStroke();
+  p.fill(r, g2, b, 8);
+  p.rect(0, 0, 800, 800);
+}
+
+// ── 新增留痕粒子 ─────────────────────────────────────────────
+function addAuditParticle(count) {
+  let current = shield.auditParticles.length;
+  for (let i = current; i < count; i++) {
+    shield.auditParticles.push({
+      x: 400 + (Math.random() - 0.5) * 600,
+      y: 400 + (Math.random() - 0.5) * 600,
+      phase: Math.random() * Math.PI * 2,
+    });
+  }
+}
+
+// ═══ :9622 双向同步 ═══════════════════════════════════════════
+async function syncWithEngine() {
+  try {
+    // 健康检测：用真实存在的根路由 GET /
+    const root = await fetch(`${API_BASE}/`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => null);
+    if (!root || !root.system) { setConnStatus(false); return; }
+    setConnStatus(true);
+
+    // 龍盾状态：GET /shield/status → {gpg, prev_hash, layers, mode}
+    const shieldData = await fetch(`${API_BASE}/shield/status`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => null);
+    if (shieldData) {
+      // mode: strict → green，layers含ethical → 向善通过
+      const isStrict = shieldData.mode === 'strict';
+      updateEthics(isStrict ? 'green' : 'orange');
+    }
+
+    // 人格统计：GET /persona/stats → {humanWeight, systemWeight, topPersona, counts, total_routes, fence_hits}
+    const stats = await fetch(`${API_BASE}/persona/stats`, {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json()).catch(() => null);
+    if (stats) {
+      const persona = stats.topPersona || '宝宝·温度';
+      document.getElementById('sp-persona').textContent = persona.slice(0, 12);
+      // 用 total_routes 作为路由计数显示在留痕粒子
+      const newCount = stats.total_routes || 0;
+      if (newCount > shield.auditCount) addAuditParticle(Math.min(newCount - shield.auditCount, 50));
+      shield.auditCount = newCount;
+      document.getElementById('sp-audit').textContent = shield.auditCount;
+      // fence_hits → Merkle密度近似
+      const merkleApprox = stats.fence_hits > 0 ? (stats.fence_hits / Math.max(stats.total_routes, 1)) : 0;
+      shield.merkleValue = merkleApprox;
+      document.getElementById('sp-density').textContent = merkleApprox.toFixed(3);
+    }
+
+    updateOverlay('🛡️ 宝宝P72 · 龍盾守护中 · 已接入:9622');
+  } catch(e) { setConnStatus(false); }
+}
+
+function setConnStatus(online) {
+  shield.connected = online;
+  document.getElementById('sp-conn').innerHTML = online
+    ? '<span class="dot dot-green"></span>在线'
+    : '<span class="dot dot-grey"></span>离线';
+  updateOverlay(online
+    ? '🛡️ 宝宝P72 · 龍盾守护中 · :9622 已接入'
+    : '🛡️ 宝宝P72 · 龍盾守护中 · 离线模式');
+}
+
+function updateEthics(status) {
+  shield.ethicsStatus = status;
+  const colorMap = {
+    green:  {dot:'dot-green',  text:'🟢 向善四律通过', tint:[74,144,217]},
+    orange: {dot:'dot-orange', text:'🟠 P1警告·待确认', tint:[230,126,34]},
+    red:    {dot:'dot-red',    text:'🔴 P0熔断',       tint:[192,57,43]},
+  };
+  const cfg = colorMap[status] || colorMap.green;
+  document.getElementById('sp-ethics').innerHTML = `<span class="dot ${cfg.dot}"></span>${cfg.text}`;
+  shield.ethicsTint = cfg.tint;
+  params.cH = cfg.tint;
+}
+
+function updateOverlay(text) {
+  const el = document.getElementById('canvas-overlay');
+  el.style.display = 'block';
+  el.textContent   = text;
+}
+
+// ═══ 实时路由 ══════════════════════════════════════════════════
+async function triggerRoute() {
+  const text  = document.getElementById('route-input').value.trim();
+  if (!text) return;
+  const resEl = document.getElementById('route-result');
+  resEl.textContent = '⏳ 路由中…';
+  if (!shield.connected) {
+    resEl.textContent = '🛡️ 离线模式 · 宝宝P72·龍盾接球';
+    document.getElementById('sp-persona').textContent = '🌌 宝宝P72';
+    return;
+  }
+  try {
+    // 真实路由：POST /persona/route，入参 {uid, content}
+    // 响应：{routed_to, emoji, logic, dna, timestamp}
+    const resp = await fetch(`${API_BASE}/persona/route`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({uid: '9622', content: text}),
+      signal: AbortSignal.timeout(5000),
+    }).then(r => r.json());
+    const persona = resp.routed_to || '宝宝·温度';
+    const emoji   = resp.emoji || '🌌';
+    resEl.textContent = `${emoji} ${persona} · ${resp.logic?.slice(0,20) || '已接球'}`;
+    document.getElementById('sp-persona').textContent = persona.slice(0, 12);
+    shield.auditParticles.push({
+      x: 350 + Math.random()*100, y: 350 + Math.random()*100,
+      phase: Math.random()*Math.PI*2,
+    });
+    // 同步刷新统计
+    syncWithEngine();
+  } catch(e) {
+    resEl.textContent = `🛡️ 宝宝接球 · ${text.slice(0,15)}…`;
+    document.getElementById('sp-persona').textContent = '🌌 宝宝P72';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('route-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); triggerRoute(); }
+  });
+});
+
+// ═══ UI工具函数 ════════════════════════════════════════════════
+function updateWeights() {
+  let h=+document.getElementById('wH').value;
+  let e=+document.getElementById('wE').value;
+  let pp=+document.getElementById('wP').value;
+  let total=h+e+pp;
+  params.wH=Math.round(h/total*100);
+  params.wE=Math.round(e/total*100);
+  params.wP=100-params.wH-params.wE;
+  ['wHVal','wEVal','wPVal'].forEach((id,i)=>{
+    document.getElementById(id).textContent=[params.wH,params.wE,params.wP][i]+'%';
+  });
+  ['wHSlider','wESlider','wPSlider'].forEach((id,i)=>{
+    document.getElementById(id).textContent=[params.wH,params.wE,params.wP][i];
+  });
+  document.getElementById('barH').style.flex=params.wH;
+  document.getElementById('barE').style.flex=params.wE;
+  document.getElementById('barP').style.flex=params.wP;
+}
+
+function hexToRgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+function updateColors(){
+  params.cH=hexToRgb(document.getElementById('cH').value);
+  params.cE=hexToRgb(document.getElementById('cE').value);
+  params.cP=hexToRgb(document.getElementById('cP').value);
+  params.cBg=hexToRgb(document.getElementById('cBg').value);
+}
+
+function prevSeed()  {params.seed=Math.max(1,params.seed-1);applySeed();}
+function nextSeed()  {params.seed+=1;applySeed();}
+function randomSeed(){params.seed=Math.floor(Math.random()*99999)+1;applySeed();}
+function jumpSeed()  {params.seed=parseInt(document.getElementById('seedInput').value)||9622;applySeed();}
+function applySeed() {
+  document.getElementById('seedDisplay').textContent=params.seed;
+  document.getElementById('seedInput').value=params.seed;
+  restartSketch();
+}
+
+function restartSketch() {
+  growthRings = [new GrowthRing(400, 400)];
+  growthTimer = 0;
+  if(myp5) myp5.remove();
+  myp5 = new p5(sketch);
+}
+
+function resetAll() {
+  params={seed:9622,numP:1200,nFreq:0.003,step:1.8,life:300,alpha:25,
+    wH:35,wE:15,wP:50,breathDepth:0.12,
+    cH:[74,144,217],cE:[124,184,124],cP:[195,155,211],cBg:[10,10,15]};
+  ['wH','wE','wP'].forEach((id,i)=>document.getElementById(id).value=[35,15,50][i]);
+  document.getElementById('nFreq').value=3;
+  document.getElementById('step').value=18;
+  document.getElementById('life').value=300;
+  document.getElementById('alpha').value=25;
+  document.getElementById('numP').value=1200;
+  document.getElementById('breathDepth').value=12;
+  document.getElementById('breathDepthVal').textContent='12';
+  document.getElementById('cH').value='#4a90d9';
+  document.getElementById('cE').value='#7cb87c';
+  document.getElementById('cP').value='#c39bd3';
+  document.getElementById('cBg').value='#0a0a0f';
+  shield.auditParticles=[];
+  updateWeights();
+  applySeed();
+}
+
+function downloadPNG(){if(myp5)myp5.saveCanvas('三才流場_v5神经版_seed'+params.seed+'_UID9622','png');}
+
+// 参数滑块绑定
+document.getElementById('nFreq').oninput=function(){params.nFreq=this.value/1000;document.getElementById('nFreqVal').textContent=params.nFreq.toFixed(3);};
+document.getElementById('step').oninput=function(){params.step=this.value/10;document.getElementById('stepVal').textContent=params.step.toFixed(1);};
+document.getElementById('life').oninput=function(){params.life=+this.value;document.getElementById('lifeVal').textContent=this.value;};
+document.getElementById('alpha').oninput=function(){params.alpha=+this.value;document.getElementById('alphaVal').textContent=this.value;};
+document.getElementById('numP').oninput=function(){params.numP=+this.value;document.getElementById('numPVal').textContent=this.value;restartSketch();};
+
+// ═══ 启动 ══════════════════════════════════════════════════════
+myp5 = new p5(sketch);
+updateOverlay('🛡️ 宝宝P72 · 龍盾守护中 · 呼吸激活');
+syncWithEngine();
+setInterval(syncWithEngine, 60000);
+</script>
+</body>
+</html>

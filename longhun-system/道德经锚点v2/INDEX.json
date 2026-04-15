@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "system": "道德经·王弼本·语义锚点系统",
+    "version": "v2.0",
+    "generated_at": "2026-03-05T04:52:26.242039",
+    "total_chapters": 5,
+    "uid9622_lock": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "道德经·第一章",
+      "anchor_id": "LX-DAO-001",
+      "file": "daodejing_anchors_v2/LX-DAO-001.json",
+      "hash_preview": "73650c1961b5d5c2..."
+    },
+    {
+      "chapter": 2,
+      "title": "道德经·第二章",
+      "anchor_id": "LX-DAO-002",
+      "file": "daodejing_anchors_v2/LX-DAO-002.json",
+      "hash_preview": "05d5eb5e22f152a0..."
+    },
+    {
+      "chapter": 3,
+      "title": "道德经·第三章",
+      "anchor_id": "LX-DAO-003",
+      "file": "daodejing_anchors_v2/LX-DAO-003.json",
+      "hash_preview": "894f788bc85f622e..."
+    },
+    {
+      "chapter": 42,
+      "title": "道德经·第四十二章",
+      "anchor_id": "LX-DAO-042",
+      "file": "daodejing_anchors_v2/LX-DAO-042.json",
+      "hash_preview": "19ad7fd3458bd37b..."
+    },
+    {
+      "chapter": 64,
+      "title": "道德经·第六十四章",
+      "anchor_id": "LX-DAO-064",
+      "file": "daodejing_anchors_v2/LX-DAO-064.json",
+      "hash_preview": "d665b9d7664ee401..."
+    }
+  ]
+}

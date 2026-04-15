@@ -1,0 +1,378 @@
+龍魂归集工具包 v2.1 - 使用说明书
+
+================================================================
+
+一、脚本位置在哪里？
+
+脚本位置：/Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh
+
+================================================================
+
+二、如何运行脚本？
+
+方法1：进入目录后运行
+cd /Users/zuimeidedeyihan/longhun-system
+chmod +x digital_archive_toolkit_v2.1.sh
+./digital_archive_toolkit_v2.1.sh
+
+方法2：直接运行完整路径
+chmod +x /Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh
+/Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh
+
+================================================================
+
+三、有哪些功能可以使用？
+
+0 一键全流程（自动完成所有步骤）
+1 初始化归档目录结构
+2 解压压缩包
+3 按类型归类文件
+4 查找重复文件
+5 移除重复文件
+6 检查iCloud状态
+7 Git初始化
+8 Git提交快照
+9 磁盘空间分析
+10 GPG签名文件
+11 GPG验证签名
+
+================================================================
+
+四、如何使用特定功能？
+
+示例1：初始化归档目录
+./digital_archive_toolkit_v2.1.sh init
+
+示例2：查找重复文件
+./digital_archive_toolkit_v2.1.sh sha256
+
+示例3：移除重复文件
+./digital_archive_toolkit_v2.1.sh dedup
+
+示例4：检查iCloud状态
+./digital_archive_toolkit_v2.1.sh icloud
+
+示例5：Git提交快照
+./digital_archive_toolkit_v2.1.sh git-push
+
+================================================================
+
+五、文件会保存到哪里？
+
+归档目录：~/CreativeArchive
+报告目录：~/CreativeArchive/_reports
+
+归档目录结构：
+文字创作/
+图像设计/
+音频视频/
+代码脚本/
+压缩包原始/
+_待分类/
+_重复文件回收站/
+_reports/
+
+================================================================
+
+六、如何查看报告？
+
+查看所有报告：
+ls -la ~/CreativeArchive/_reports
+
+查看最新重复文件报告：
+cat ~/CreativeArchive/_reports/duplicates_*.txt | tail -100
+
+查看重复文件列表：
+cat ~/CreativeArchive/_reports/dup_list_*.csv
+
+查看iCloud状态报告：
+cat ~/CreativeArchive/_reports/icloud_status_*.txt
+
+查看磁盘分析报告：
+cat ~/CreativeArchive/_reports/disk_report_*.txt
+
+================================================================
+
+七、如何配置脚本？
+
+创建配置文件：
+mkdir -p ~/.longhun
+cat > ~/.longhun/config.yml << EOF
+dna_prefix: #龍芯⚡️
+uid_code: 9622
+archive_root: ~/CreativeArchive
+github_user: uid9622
+github_repo: cnsh
+EOF
+
+创建文件类型映射：
+cat > ~/CreativeArchive/.type_mappings.conf << EOF
+文字创作=txt md doc docx pdf rtf pages odt
+图像设计=jpg jpeg png gif bmp tiff psd ai svg webp heic raw cr2 nef
+音频视频=mp3 wav flac aac ogg mp4 mov avi mkv m4v m4a
+代码脚本=sh py js ts html css json xml yaml yml rb go rs c cpp java
+3D模型=blend obj fbx stl dae
+科研数据=csv xlsx mat nc dat
+EOF
+
+================================================================
+
+八、如何使用环境变量配置？
+
+自定义DNA前缀：
+export LONGHUN_DNA_PREFIX="#我的龍芯"
+
+自定义归档目录：
+export ARCHIVE_ROOT=~/MyArchive
+
+启用JSON日志：
+export LONGHUN_LOG_JSON=1
+
+设置并行任务数：
+export LONGHUN_JOBS=8
+
+启用并行处理：
+export LONGHUN_PARALLEL=1
+
+================================================================
+
+九、如何使用批量模式？
+
+设置批量模式环境变量：
+export LONGHUN_BATCH_MODE=1
+
+设置要执行的任务列表：
+export LONGHUN_TASKS="1,4,10"
+
+运行脚本：
+./digital_archive_toolkit_v2.1.sh
+
+任务列表说明：
+1 = init（初始化）
+4 = sha256（查找重复）
+10 = git-push（Git提交）
+
+================================================================
+
+十、如何设置定时任务？
+
+编辑crontab：
+crontab -e
+
+添加定时任务（每天凌晨2点执行）：
+0 2 * * * cd /Users/zuimeidedeyihan/longhun-system && LONGHUN_BATCH_MODE=1 LONGHUN_TASKS="1,4,10" ./digital_archive_toolkit_v2.1.sh
+
+每周日凌晨3点执行完整归档：
+0 3 * * 0 cd /Users/zuimeidedeyihan/longhun-system && LONGHUN_BATCH_MODE=1 LONGHUN_TASKS="1,2,3,4,5,10" ./digital_archive_toolkit_v2.1.sh
+
+================================================================
+
+十一、常用命令速查
+
+查看归档目录结构：
+tree ~/CreativeArchive -L 3
+
+查看磁盘使用情况：
+du -sh ~/CreativeArchive/*
+
+查看文件数量：
+find ~/CreativeArchive -type f | wc -l
+
+查看重复文件数量：
+cat ~/CreativeArchive/_reports/dup_list_*.csv | wc -l
+
+查看iCloud状态：
+cat ~/CreativeArchive/_reports/icloud_status_*.txt
+
+查看磁盘报告：
+cat ~/CreativeArchive/_reports/disk_report_*.txt
+
+查看GPG签名报告：
+cat ~/CreativeArchive/_reports/gpg_sign_*.txt
+
+================================================================
+
+十二、如何检查脚本状态？
+
+检查脚本是否存在：
+test -f /Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh && echo "脚本文件存在" || echo "脚本文件不存在"
+
+检查执行权限：
+test -x /Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh && echo "执行权限已设置" || echo "需要设置执行权限"
+
+检查配置文件：
+test -f ~/.longhun/config.yml && echo "配置文件存在" || echo "配置文件不存在"
+
+检查归档目录：
+test -d ~/CreativeArchive && echo "归档目录存在" || echo "归档目录不存在"
+
+检查报告目录：
+test -d ~/CreativeArchive/_reports && echo "报告目录存在" || echo "报告目录不存在"
+
+检查Git仓库：
+test -d ~/CreativeArchive/.git && echo "Git仓库已初始化" || echo "Git仓库未初始化"
+
+================================================================
+
+十三、故障排查
+
+问题1：脚本没有执行权限
+解决：chmod +x digital_archive_toolkit_v2.1.sh
+
+问题2：找不到配置文件
+解决：创建配置文件（参考第七步）
+
+问题3：归档目录不存在
+解决：mkdir -p ~/CreativeArchive
+
+问题4：报告目录不存在
+解决：mkdir -p ~/CreativeArchive/_reports
+
+问题5：查看日志文件
+解决：cat ~/.longhun/.longhun.log
+
+问题6：并行处理失败
+解决：export LONGHUN_PARALLEL=0
+
+问题7：iCloud路径错误
+解决：export ICLOUD_DIR=/custom/icloud/path
+
+================================================================
+
+十四、快速开始流程
+
+第一步：进入脚本目录
+cd /Users/zuimeidedeyihan/longhun-system
+
+第二步：添加执行权限
+chmod +x digital_archive_toolkit_v2.1.sh
+
+第三步：运行脚本
+./digital_archive_toolkit_v2.1.sh
+
+第四步：选择功能
+输入数字0-11选择对应功能
+
+第五步：查看报告
+ls -la ~/CreativeArchive/_reports
+
+================================================================
+
+十五、性能优化
+
+启用并行处理（速度提升3倍）：
+export LONGHUN_PARALLEL=1
+export LONGHUN_JOBS=8
+
+禁用颜色输出：
+export LONGHUN_NO_COLOR=1
+
+启用JSON日志（适合云端）：
+export LONGHUN_LOG_JSON=1
+
+================================================================
+
+十六、安全功能
+
+GPG签名文件：
+./digital_archive_toolkit_v2.1.sh gpg-sign
+
+GPG验证签名：
+./digital_archive_toolkit_v2.1.sh gpg-verify
+
+自定义GPG密钥：
+export LONGHUN_GPG_KEY=你的GPG密钥ID
+
+================================================================
+
+十七、云端部署
+
+检测云端环境：
+export CLOUD_PROVIDER=aliyun
+
+云端环境会自动：
+启用JSON日志
+禁用颜色输出
+适配云端路径
+
+================================================================
+
+十八、文件类型支持
+
+文字创作：txt md doc docx pdf rtf pages odt
+图像设计：jpg jpeg png gif bmp tiff psd ai svg webp heic raw cr2 nef
+音频视频：mp3 wav flac aac ogg mp4 mov avi mkv m4v m4a
+代码脚本：sh py js ts html css json xml yaml yml rb go rs c cpp java
+3D模型：blend obj fbx stl dae
+科研数据：csv xlsx mat nc dat
+
+可以自定义添加更多类型：
+编辑 ~/CreativeArchive/.type_mappings.conf
+
+================================================================
+
+十九、Git集成
+
+初始化Git仓库：
+./digital_archive_toolkit_v2.1.sh git-init
+
+提交快照：
+./digital_archive_toolkit_v2.1.sh git-push
+
+查看Git日志：
+cd ~/CreativeArchive
+git log
+
+查看Git状态：
+cd ~/CreativeArchive
+git status
+
+================================================================
+
+二十、完成状态检查
+
+运行状态检查：
+cd /Users/zuimeidedeyihan/longhun-system
+bash 快速开始.sh
+
+会自动检查：
+脚本文件是否存在
+执行权限是否已设置
+配置文件是否存在
+归档目录是否存在
+报告目录是否存在
+Git仓库是否已初始化
+
+================================================================
+
+总结
+
+脚本位置：/Users/zuimeidedeyihan/longhun-system/digital_archive_toolkit_v2.1.sh
+归档目录：~/CreativeArchive
+报告目录：~/CreativeArchive/_reports
+
+快速开始：
+cd /Users/zuimeidedeyihan/longhun-system
+chmod +x digital_archive_toolkit_v2.1.sh
+./digital_archive_toolkit_v2.1.sh
+
+选择功能：
+0 一键全流程
+1 初始化归档
+2 解压压缩包
+3 归类文件
+4 查找重复
+5 移除重复
+6 iCloud检查
+7 Git初始化
+8 Git提交
+9 磁盘分析
+10 GPG签名
+11 GPG验证
+
+查看报告：
+ls -la ~/CreativeArchive/_reports
+
+================================================================
+
+完成！现在可以开始使用脚本了！

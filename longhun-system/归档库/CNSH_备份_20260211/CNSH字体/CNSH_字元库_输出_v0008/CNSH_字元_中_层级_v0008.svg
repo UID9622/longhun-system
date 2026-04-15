@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="100%" height="100%" fill="white"/>
+  <path d="M 300 80 L 300 520" fill="none" stroke="black" stroke-width="20" stroke-opacity="0.70" stroke-linecap="butt" stroke-linejoin="miter"/><path d="M 120 300 L 480 300" fill="none" stroke="black" stroke-width="16" stroke-opacity="0.80" stroke-linecap="square" stroke-linejoin="miter"/><path d="M 140 140 L 460 140" fill="none" stroke="black" stroke-width="14" stroke-opacity="0.90" stroke-linecap="round" stroke-linejoin="bevel"/>
+  <text x="10" y="20" font-size="12" fill="#aaa">中 - 层级版 v0008</text>
+  <text x="10" y="590" font-size="10" fill="#ddd">笔画按层级排序：低层级在后，高层级在前</text>
+</svg>

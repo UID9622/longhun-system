@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<!--
+  龍魂本地 AI 入口 v1.0
+  DNA: #龍芯⚡️2026-03-15-本地入口-v1.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  创建者：诸葛鑫（UID9622）
+  理论指导：曾仕强老师（永恒显示）
+  献礼：新中国成立77周年（1949-2026）丙午马年
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂入口</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f2f2f7;
+    --sidebar: #ffffff;
+    --card: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --text: #1c1c1e;
+    --sub: #8e8e93;
+    --blue: #007aff;
+    --green: #34c759;
+    --red: #ff3b30;
+    --orange: #ff9500;
+    --bubble-me: #007aff;
+    --bubble-ai: #e9e9eb;
+    --input-bg: #ffffff;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --sidebar: #2c2c2e;
+      --card: #2c2c2e;
+      --border: rgba(255,255,255,0.08);
+      --text: #ffffff;
+      --sub: #8e8e93;
+      --bubble-ai: #3a3a3c;
+      --input-bg: #3a3a3c;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* ── 侧边栏 ── */
+  .sidebar {
+    width: 260px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    flex-shrink: 0;
+  }
+
+  .sidebar-logo {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  .sidebar-logo h1 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .sidebar-logo p {
+    font-size: 12px;
+    color: var(--sub);
+    margin-top: 2px;
+  }
+
+  .model-select {
+    padding: 0 12px;
+    margin-bottom: 16px;
+  }
+
+  .model-select select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238e8e93' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+
+  .nav-section {
+    padding: 4px 8px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--sub);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 12px 4px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.15s;
+    margin-bottom: 2px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-item:hover { background: var(--border); }
+  .nav-item.active { background: rgba(0,122,255,0.12); color: var(--blue); }
+  .nav-item .icon { font-size: 16px; width: 20px; text-align: center; }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .status-dot.on { background: var(--green); }
+  .status-dot.off { background: var(--red); }
+
+  .sidebar-bottom {
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+
+  .uid-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--bg);
+  }
+
+  .uid-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007aff, #5856d6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: white; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .uid-info { flex: 1; min-width: 0; }
+  .uid-name { font-size: 13px; font-weight: 600; }
+  .uid-sub { font-size: 11px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* ── 主区域 ── */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  /* ── 顶栏 ── */
+  .topbar {
+    height: 52px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .topbar-title { font-size: 15px; font-weight: 600; flex: 1; }
+
+  .topbar-btn {
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .topbar-btn:hover { background: var(--bg); }
+  .topbar-btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
+  .topbar-btn.primary:hover { opacity: 0.85; }
+
+  /* ── 对话区 ── */
+  .chat-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .msg-row {
+    display: flex;
+    padding: 3px 20px;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .msg-row.me { flex-direction: row-reverse; }
+
+  .msg-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-bottom: 2px;
+  }
+
+  .msg-avatar.ai { background: linear-gradient(135deg, #5856d6, #007aff); color: white; }
+  .msg-avatar.me { background: var(--blue); color: white; }
+
+  .bubble {
+    max-width: 68%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .bubble.ai {
+    background: var(--bubble-ai);
+    color: var(--text);
+    border-bottom-left-radius: 4px;
+  }
+
+  .bubble.me {
+    background: var(--bubble-me);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  .bubble code {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    background: rgba(0,0,0,0.08);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .bubble pre {
+    background: rgba(0,0,0,0.1);
+    padding: 10px 12px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 6px 0;
+    font-size: 13px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    background: var(--bubble-ai);
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-dot {
+    width: 7px; height: 7px;
+    background: var(--sub);
+    border-radius: 50%;
+    animation: typing 1.2s infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; }
+  }
+
+  /* ── 空状态 ── */
+  .empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--sub);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .empty-icon { font-size: 48px; }
+  .empty-title { font-size: 22px; font-weight: 600; color: var(--text); }
+  .empty-sub { font-size: 15px; max-width: 340px; line-height: 1.5; }
+
+  .suggestion-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text);
+  }
+  .chip:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+  /* ── 输入区 ── */
+  .input-area {
+    padding: 12px 16px 20px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .input-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 10px 10px 10px 16px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s;
+  }
+
+  .input-box:focus-within { border-color: var(--blue); }
+
+  #userInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--text);
+    resize: none;
+    line-height: 1.5;
+    max-height: 180px;
+    min-height: 24px;
+  }
+
+  #userInput::placeholder { color: var(--sub); }
+
+  .send-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .send-btn:hover { opacity: 0.85; }
+  .send-btn:active { transform: scale(0.92); }
+  .send-btn:disabled { opacity: 0.3; cursor: default; }
+
+  /* ── 工具卡片 ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .tool-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tool-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .tool-icon { font-size: 32px; margin-bottom: 12px; }
+  .tool-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .tool-desc { font-size: 13px; color: var(--sub); line-height: 1.4; }
+
+  .tool-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    margin-top: 10px;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tool-status.on { background: rgba(52,199,89,0.12); color: var(--green); }
+  .tool-status.off { background: rgba(255,59,48,0.1); color: var(--red); }
+
+  /* ── 面板切换 ── */
+  .panel { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+  .panel.active { display: flex; }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* 状态栏 */
+  .status-bar {
+    display: flex;
+    gap: 16px;
+    padding: 6px 20px;
+    background: var(--bg);
+    font-size: 11px;
+    color: var(--sub);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .status-item { display: flex; align-items: center; gap: 5px; }
+</style>
+</head>
+<body>
+
+<!-- 侧边栏 -->
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <h1>🐉 龍魂入口</h1>
+    <p>本地 AI · 完全私有</p>
+  </div>
+
+  <div class="model-select">
+    <select id="modelSelect" onchange="updateModel()">
+      <option value="qwen2.5:7b">Qwen2.5 7B · 快速</option>
+      <option value="llama3.1:8b">Llama3.1 8B · 通用</option>
+      <option value="qwen2.5:72b">Qwen2.5 72B · 强力</option>
+      <option value="chuxinzhiyi:latest">初心之翼 · 专属</option>
+      <option value="deepseek-coder:6.7b">DeepSeek Coder · 代码</option>
+      <option value="llava:13b">LLaVA 13B · 视觉</option>
+    </select>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">功能</div>
+    <div class="nav-item active" onclick="switchPanel('chat')">
+      <span class="icon">💬</span> 对话
+      <span class="status-dot on" id="ollamaStatus"></span>
+    </div>
+    <div class="nav-item" onclick="switchPanel('tools')">
+      <span class="icon">🛠</span> 工具箱
+    </div>
+    <div class="nav-item" onclick="openRoop()">
+      <span class="icon">🎭</span> 换脸工具
+    </div>
+
+    <div class="nav-label" style="margin-top:8px">系统</div>
+    <div class="nav-item" onclick="switchPanel('audit')">
+      <span class="icon">🛡</span> 龍魂盾
+    </div>
+    <div class="nav-item" id="navNotion" onclick="openNotion()">
+      <span class="icon">📋</span> Notion
+    </div>
+    <div class="nav-item" onclick="clearChat()">
+      <span class="icon">🗑</span> 清空对话
+    </div>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="uid-badge">
+      <div class="uid-avatar">鑫</div>
+      <div class="uid-info">
+        <div class="uid-name">诸葛鑫</div>
+        <div class="uid-sub">UID9622 · 龍魂系统</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 主区域 -->
+<div class="main">
+
+  <!-- 状态栏 -->
+  <div class="status-bar">
+    <div class="status-item">
+      <span id="statusDot" style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block"></span>
+      <span id="statusText">检测中...</span>
+    </div>
+    <div class="status-item">🔒 数据100%本地</div>
+    <div class="status-item">⚡ DNA: #龍芯2026-03-15</div>
+  </div>
+
+  <!-- 对话面板 -->
+  <div class="panel active" id="panel-chat">
+    <div class="topbar">
+      <span class="topbar-title" id="chatTitle">💬 本地对话</span>
+      <button class="topbar-btn" onclick="clearChat()">新对话</button>
+    </div>
+
+    <div class="chat-area" id="chatArea">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🐉</div>
+        <div class="empty-title">龍魂入口</div>
+        <div class="empty-sub">本地 AI，数据不出设备，说你想说的话</div>
+        <div class="suggestion-chips">
+          <div class="chip" onclick="sendSuggestion('帮我写一段Python代码')">💻 写代码</div>
+          <div class="chip" onclick="sendSuggestion('分析一下这段文字的逻辑')">🔍 分析</div>
+          <div class="chip" onclick="sendSuggestion('翻译成英文：')">🌐 翻译</div>
+          <div class="chip" onclick="sendSuggestion('用三才算法分析：')">☯️ 三才算法</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-box">
+        <textarea id="userInput" placeholder="说点什么..." rows="1"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">↑</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 工具箱面板 -->
+  <div class="panel" id="panel-tools">
+    <div class="topbar">
+      <span class="topbar-title">🛠 工具箱</span>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card" onclick="switchPanel('chat')">
+        <div class="tool-icon">💬</div>
+        <div class="tool-name">本地对话</div>
+        <div class="tool-desc">Ollama 驱动，完全本地</div>
+        <div class="tool-status on">● 运行中</div>
+      </div>
+      <div class="tool-card" onclick="openRoop()">
+        <div class="tool-icon">🎭</div>
+        <div class="tool-name">换脸工具</div>
+        <div class="tool-desc">Roop · 本地运行</div>
+        <div class="tool-status on">● 已安装</div>
+      </div>
+      <div class="tool-card" onclick="openHub()">
+        <div class="tool-icon">🐉</div>
+        <div class="tool-name">龍魂中枢</div>
+        <div class="tool-desc">完整系统控制台</div>
+        <div class="tool-status on">● 可用</div>
+      </div>
+      <div class="tool-card" onclick="openAudit()">
+        <div class="tool-icon">🛡</div>
+        <div class="tool-name">龍魂盾</div>
+        <div class="tool-desc">剪贴板加密 · 阅后即焚</div>
+        <div class="tool-status on">● 激活</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🖼</div>
+        <div class="tool-name">图像生成</div>
+        <div class="tool-desc">ComfyUI · 待安装</div>
+        <div class="tool-status off">● 未启动</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🎙</div>
+        <div class="tool-name">语音转文字</div>
+        <div class="tool-desc">Whisper 本地</div>
+        <div class="tool-status off">● 待接入</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 盾面板 -->
+  <div class="panel" id="panel-audit">
+    <div class="topbar">
+      <span class="topbar-title">🛡 龍魂盾</span>
+      <button class="topbar-btn primary" onclick="openTerminalShield()">打开终端盾</button>
+    </div>
+    <div style="padding:40px;text-align:center;color:var(--sub)">
+      <div style="font-size:48px;margin-bottom:16px">🛡</div>
+      <div style="font-size:18px;font-weight:600;color:var(--text);margin-bottom:8px">龍魂盾已就绪</div>
+      <div style="font-size:14px;line-height:1.6">剪贴板监控 · AES加密 · 阅后即焚<br>在终端运行 <code style="background:var(--border);padding:2px 6px;border-radius:4px">python3 ~/.longhorn/shield/main.py</code></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── 状态 ──
+  let messages = [];
+  let currentModel = 'qwen2.5:7b';
+  let isStreaming = false;
+
+  // ── 启动检测 ──
+  async function checkOllama() {
+    try {
+      const r = await fetch('http://localhost:11434/api/tags', { signal: AbortSignal.timeout(3000) });
+      if (r.ok) {
+        const data = await r.json();
+        const models = data.models || [];
+        document.getElementById('statusText').textContent = `Ollama · ${models.length} 个模型在线`;
+        document.getElementById('statusDot').style.background = 'var(--green)';
+        document.getElementById('ollamaStatus').className = 'status-dot on';
+        // 更新模型列表
+        const sel = document.getElementById('modelSelect');
+        if (models.length > 0) {
+          sel.innerHTML = models.map(m =>
+            `<option value="${m.name}">${m.name}</option>`
+          ).join('');
+        }
+      }
+    } catch(e) {
+      document.getElementById('statusText').textContent = 'Ollama 未连接 · 请启动 ollama serve';
+      document.getElementById('statusDot').style.background = 'var(--red)';
+      document.getElementById('ollamaStatus').className = 'status-dot off';
+    }
+  }
+
+  function updateModel() {
+    currentModel = document.getElementById('modelSelect').value;
+    document.getElementById('chatTitle').textContent = `💬 ${currentModel}`;
+  }
+
+  // ── 面板切换 ──
+  function switchPanel(name) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    event && event.currentTarget && event.currentTarget.classList.add('active');
+  }
+
+  // ── 发送消息 ──
+  async function sendMessage() {
+    const input = document.getElementById('userInput');
+    const text = input.value.trim();
+    if (!text || isStreaming) return;
+
+    input.value = '';
+    autoResize(input);
+
+    // 隐藏空状态
+    const empty = document.getElementById('emptyState');
+    if (empty) empty.style.display = 'none';
+
+    // 用户气泡
+    messages.push({ role: 'user', content: text });
+    appendBubble('me', text);
+
+    // AI 思考中
+    const typingId = 'typing-' + Date.now();
+    const chatArea = document.getElementById('chatArea');
+    const typingRow = document.createElement('div');
+    typingRow.className = 'msg-row';
+    typingRow.id = typingId;
+    typingRow.innerHTML = `
+      <div class="msg-avatar ai">🐉</div>
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>`;
+    chatArea.appendChild(typingRow);
+    chatArea.scrollTop = chatArea.scrollHeight;
+
+    isStreaming = true;
+    document.getElementById('sendBtn').disabled = true;
+
+    try {
+      const resp = await fetch('http://localhost:11434/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: currentModel,
+          messages: messages,
+          stream: true
+        })
+      });
+
+      // 移除 typing
+      document.getElementById(typingId)?.remove();
+
+      // AI 气泡（流式）
+      const row = document.createElement('div');
+      row.className = 'msg-row';
+      row.innerHTML = `<div class="msg-avatar ai">🐉</div><div class="bubble ai" id="stream-bubble"></div>`;
+      chatArea.appendChild(row);
+      const bubble = document.getElementById('stream-bubble');
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const lines = decoder.decode(value).split('\n').filter(l => l.trim());
+        for (const line of lines) {
+          try {
+            const j = JSON.parse(line);
+            if (j.message?.content) {
+              fullText += j.message.content;
+              bubble.textContent = fullText;
+              chatArea.scrollTop = chatArea.scrollHeight;
+            }
+          } catch {}
+        }
+      }
+
+      messages.push({ role: 'assistant', content: fullText });
+      bubble.id = '';
+
+    } catch(e) {
+      document.getElementById(typingId)?.remove();
+      appendBubble('ai', '❌ 无法连接 Ollama，请确认已运行：ollama serve');
+    }
+
+    isStreaming = false;
+    document.getElementById('sendBtn').disabled = false;
+    document.getElementById('userInput').focus();
+  }
+
+  function appendBubble(who, text) {
+    const chatArea = document.getElementById('chatArea');
+    const row = document.createElement('div');
+    row.className = 'msg-row ' + who;
+    row.innerHTML = `
+      <div class="msg-avatar ${who}">${who === 'me' ? '鑫' : '🐉'}</div>
+      <div class="bubble ${who}">${text}</div>`;
+    chatArea.appendChild(row);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function sendSuggestion(text) {
+    document.getElementById('userInput').value = text;
+    sendMessage();
+  }
+
+  function clearChat() {
+    messages = [];
+    const chatArea = document.getElementById('chatArea');
+    chatArea.innerHTML = `
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🐉</div>
+        <div class="empty-title">龍魂入口</div>
+        <div class="empty-sub">本地 AI，数据不出设备，说你想说的话</div>
+        <div class="suggestion-chips">
+          <div class="chip" onclick="sendSuggestion('帮我写一段Python代码')">💻 写代码</div>
+          <div class="chip" onclick="sendSuggestion('分析一下这段文字的逻辑')">🔍 分析</div>
+          <div class="chip" onclick="sendSuggestion('翻译成英文：')">🌐 翻译</div>
+          <div class="chip" onclick="sendSuggestion('用三才算法分析：')">☯️ 三才算法</div>
+        </div>
+      </div>`;
+    switchPanel('chat');
+  }
+
+  // ── 输入框 ──
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 180) + 'px';
+  }
+
+  // ── 外部链接 ──
+  function openRoop() {
+    alert('在终端运行：\nbash ~/Desktop/龍魂换脸工具/🎭启动换脸工具.sh');
+  }
+
+  function openHub() {
+    window.open('file://' + encodeURI('/Users/zuimeidedeyihan/longhun-system/longhun_hub.html'));
+  }
+
+  function openNotion() {
+    window.open('https://notion.so');
+  }
+
+  function openAudit() {
+    switchPanel('audit');
+  }
+
+  function openTerminalShield() {
+    alert('在终端运行：\npython3 ~/.longhorn/shield/main.py');
+  }
+
+  // ── 初始化 ──
+  checkOllama();
+  setInterval(checkOllama, 30000);
+</script>
+</body>
+</html>

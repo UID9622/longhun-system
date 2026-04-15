@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="codehub" fetch="https://open.codehub.huawei.com/" review="https://open.codehub.huawei.com/" />
+    <default revision="master" remote="codehub" />
+    <project path="CodeMate-WebView" name="innersource/AICoder_G/CodeMate/CodeMate-WebView.git" remote="codehub" revision="dev" groups="default" />
+</manifest>

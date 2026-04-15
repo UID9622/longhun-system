@@ -1,0 +1,22 @@
+
+version: 2.0
+
+env:
+  resource:
+    type: docker
+    image: szvecr03.his.huawei.com:80/ecr-build-green/vscode_huawei_linux_cloudbuildimage_x86:1.69.2_x86
+    class: 8U16G
+    mode: toolbox
+
+steps: 
+  PRE_BUILD:
+    - checkout
+  BUILD:
+    - build_execute:
+        command: "sh .cloudbuild/build.sh"
+        accelerate: false
+        check: true
+  POST_BUILD: 
+    - upload_cloud_artifact:
+        file_path: "*.vsix"
+    - version_set

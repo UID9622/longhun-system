@@ -1,0 +1,357 @@
+[
+    {
+        "agent_id": "Pangu_Doer_in_CodeArts",
+        "zh_name": "智能问答",
+        "en_name": "Ask",
+        "scope": ["hc"],
+        "isPartnerEnable": true,
+        "description_en": "Master your code. Get instant answers.",
+        "description_zh": "精通代码，即问即答",
+        "tasks": [
+            {
+                "task_id": "task-jodbb6tw40vl450kri",
+                "task_alias": "chat",
+                "task_name": "chat",
+                "task_type": "default",
+                "task_description_en": "Chat",
+                "task_description_zh": "问答",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-brmawxkpq24y7fiyhj",
+                "task_alias": "explain",
+                "task_name": "code-explain",
+                "task_type": "default",
+                "task_description_en": "Explain Code",
+                "task_description_zh": "代码解释",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-kwn8ppygs292tpxs18",
+                "task_alias": "comment",
+                "task_name": "code-comment",
+                "task_type": "default",
+                "task_description_en": "Generate Comment",
+                "task_description_zh": "代码注释",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-zb6ooo6zg4dmkqrsfc",
+                "task_alias": "debug",
+                "task_name": "code-debug",
+                "task_type": "default",
+                "task_description_en": "Debug Code",
+                "task_description_zh": "代码调试",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-mj787x3r7r9l8ipesl",
+                "task_alias": "optimize",
+                "task_name": "code-optimize",
+                "task_type": "default",
+                "task_description_en": "Optimize Code",
+                "task_description_zh": "代码优化",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-mr988mgik20kmp7grq",
+                "task_alias": "tests",
+                "task_name": "ut-generate",
+                "task_type": "default",
+                "task_description_en": "Generate Unit Tests",
+                "task_description_zh": "单元测试",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "agent_id": "Pangu_Doer_in_CodeArts",
+        "zh_name": "CodeArts Doer代码智能体",
+        "en_name": "CodeArts Agent",
+        "scope": ["hcs"],
+        "isPartnerEnable": true,
+        "description_zh" : "研发代码问答智能体",
+        "description_en": "R&D Code Q&A Agent",
+        "tasks": [
+            {
+                "task_id": "task-jodbb6tw40vl450kri",
+                "task_alias": "chat",
+                "task_name": "chat",
+                "task_type": "default",
+                "task_description_en": "Chat",
+                "task_description_zh": "问答",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-brmawxkpq24y7fiyhj",
+                "task_alias": "explain",
+                "task_name": "code-explain",
+                "task_type": "default",
+                "task_description_en": "Explain Code",
+                "task_description_zh": "代码解释",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-kwn8ppygs292tpxs18",
+                "task_alias": "comment",
+                "task_name": "code-comment",
+                "task_type": "default",
+                "task_description_en": "Generate Comment",
+                "task_description_zh": "代码注释",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-zb6ooo6zg4dmkqrsfc",
+                "task_alias": "debug",
+                "task_name": "code-debug",
+                "task_type": "default",
+                "task_description_en": "Debug Code",
+                "task_description_zh": "代码调试",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-mj787x3r7r9l8ipesl",
+                "task_alias": "optimize",
+                "task_name": "code-optimize",
+                "task_type": "default",
+                "task_description_en": "Optimize Code",
+                "task_description_zh": "代码优化",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-mr988mgik20kmp7grq",
+                "task_alias": "tests",
+                "task_name": "ut-generate",
+                "task_type": "default",
+                "task_description_en": "Generate Unit Tests",
+                "task_description_zh": "单元测试",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "agent_id": "Workspace",
+        "zh_name": "Workspace",
+        "en_name": "Workspace",
+        "scope": ["hcs"],
+        "isPartnerEnable": false,
+        "description_zh" : "帮助快速理解跨项目代码逻辑，支持一键生成项目框架",
+        "description_en": "Workspace level analysis to understand cross-project code and supports one-click generation of project frameworks",
+        "tasks": [
+            {
+                "task_id": "task-jodbb6tw40vl450kri",
+                "task_alias": "chat",
+                "task_name": "chat",
+                "task_type": "default",
+                "task_description_en": "Chat",
+                "task_description_zh": "问答",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "task_id": "task-4m5w60kctscjiwx30j",
+                "task_alias": "new",
+                "task_name": "project-tree-generate",
+                "task_type": "default",
+                "task_description_en": "Workspace Scaffolding",
+                "task_description_zh": "工程脚手架",
+                "task_version": null,
+                "task_params": [
+                    {
+                        "param_name": "code_snippet",
+                        "param_required": false,
+                        "param_type": "string",
+                        "default_value": ""
+                    },
+                    {
+                        "param_name": "user_query",
+                        "param_required": true,
+                        "param_type": "string",
+                        "default_value": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

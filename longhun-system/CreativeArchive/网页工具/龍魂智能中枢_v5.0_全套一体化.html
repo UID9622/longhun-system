@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龍魂智能中枢 v5.0 | UID9622 全套一体化</title>
+<!--
+  龍魂智能中枢 v5.0 | 全套一体化
+  DNA: #龍芯⚡️2026-03-19-龍魂智能中枢-v5.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  作者: UID9622 诸葛鑫（龍芯北辰）
+  理论指导: 曾仕强老师（永恒显示）
+  共建: Claude (Anthropic PBC)
+  献礼: 新中国成立77周年（1949-2026）丙午马年
+  整合模块:
+    01 龍魂智能中枢 v4.0 (AI对话+三色审计+DNA+记忆库+沙盒+状态+Git)
+    02 LU时间推演引擎 (易经64卦+熵值+审计链+盾加密+公式引擎)
+    03 网络户口本 (DNA身份注册+WebAuthn生物认证)
+    04 天下无欺·真相受理台 (多语言举报+DNA存证)
+    05 龍魂终端 v4.0 (赛博互动+粒子星座+矩阵雨)
+    06 CNSH Gateway (可视化控制台)
+-->
+<style>
+/* ════════════════════════════════════════
+   CSS变量 & 重置
+════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* 主色系 */
+  --neon:#00ffc8; --neon2:#ff00aa; --neon3:#6c5ce7;
+  --gold:#ffd700; --jade:#00ff88; --red:#ff4757; --blue:#00d4ff;
+  /* 背景 */
+  --bg:#08080f; --bg2:#0f0f1e; --bg3:#14142a;
+  --card:rgba(15,15,35,0.85); --card2:rgba(0,212,255,0.05);
+  /* 边框/文字 */
+  --border:rgba(0,255,200,0.12); --border2:rgba(0,212,255,0.2);
+  --text:#e2e8f0; --sub:#6b7280; --sub2:#b0b8d1;
+  /* 效果 */
+  --glow:0 0 12px rgba(0,255,200,0.25);
+  --glow2:0 0 20px rgba(0,212,255,0.3);
+  --radius:12px; --radius2:8px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(0,255,200,0.2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,255,200,0.4)}
+
+body{
+  font-family:"Microsoft YaHei","PingFang SC","SF Pro Text",sans-serif;
+  background:var(--bg); color:var(--text);
+  min-height:100vh; overflow-x:hidden;
+}
+
+/* ────── 粒子背景 canvas ────── */
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#bgGrid{
+  position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,255,200,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,200,0.025) 1px,transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;z-index:0;
+  animation:gridMove 25s linear infinite;
+}
+@keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(50px,50px)}}
+
+/* ════════════════════════════════════════
+   顶部导航
+════════════════════════════════════════ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:52px;
+  background:rgba(8,8,15,0.95);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  display:flex;align-items:center;padding:0 16px;
+  z-index:100;gap:12px;
+}
+.topbar-logo{
+  font-size:16px;font-weight:700;color:var(--neon);
+  text-shadow:var(--glow);cursor:pointer;
+  white-space:nowrap;letter-spacing:1px;
+  animation:neonPulse 3s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes neonPulse{
+  0%,100%{text-shadow:0 0 8px rgba(0,255,200,0.4)}
+  50%{text-shadow:0 0 20px rgba(0,255,200,0.7),0 0 40px rgba(0,255,200,0.2)}
+}
+
+/* 主导航标签 */
+.main-tabs{
+  display:flex;gap:4px;flex:1;overflow-x:auto;padding:0 4px;
+}
+.main-tabs::-webkit-scrollbar{height:0}
+.mtab{
+  flex-shrink:0;
+  padding:6px 14px;border-radius:var(--radius2);
+  border:1px solid transparent;background:transparent;
+  color:var(--sub);font-size:12px;font-weight:600;
+  cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.mtab:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+.mtab.active{
+  color:var(--neon);background:rgba(0,255,200,0.08);
+  border-color:var(--border);text-shadow:var(--glow);
+}
+.mtab .micon{font-size:13px;margin-right:4px}
+
+/* 右侧工具栏 */
+.topbar-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#liveClock{
+  font-family:Consolas,monospace;font-size:12px;
+  color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,0.4);
+}
+.tbtn{
+  width:30px;height:30px;border-radius:var(--radius2);
+  border:1px solid var(--border);background:transparent;
+  color:var(--sub);font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.tbtn:hover{color:var(--neon);border-color:var(--neon);box-shadow:var(--glow)}
+
+/* 服务状态徽章 */
+.svc-badges{display:flex;gap:6px;flex-shrink:0}
+.svcb{
+  font-size:10px;padding:3px 8px;border-radius:99px;
+  font-weight:bold;background:rgba(0,0,0,0.3);
+  border:1px solid #333;color:#555;cursor:pointer;
+  transition:all 0.2s;white-space:nowrap;
+}
+.svcb.on{border-color:rgba(0,255,136,0.4);color:var(--jade);background:rgba(0,255,136,0.06)}
+.svcb.off{border-color:rgba(255,71,87,0.3);color:var(--red);background:rgba(255,71,87,0.06)}
+
+/* ════════════════════════════════════════
+   主内容区
+════════════════════════════════════════ */
+.main-wrap{
+  position:relative;z-index:1;
+  margin-top:52px;
+  padding:20px;
+  min-height:calc(100vh - 52px);
+}
+.module{display:none;animation:fadeIn 0.25s ease}
+.module.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ════════════════════════════════════════
+   通用卡片 & 布局
+════════════════════════════════════════ */
+.card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:18px;margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--neon),var(--neon3),var(--neon2));
+  opacity:0.6;
+}
+.card-title{
+  font-size:14px;color:var(--blue);margin-bottom:14px;
+  padding-bottom:8px;border-bottom:1px solid rgba(0,212,255,0.15);
+  display:flex;align-items:center;gap:8px;
+}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:900px){.g3,.g4,.g5{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+
+/* ════════════════════════════════════════
+   表单元素
+════════════════════════════════════════ */
+.fg{margin-bottom:12px}
+label{display:block;margin-bottom:4px;color:var(--blue);font-weight:bold;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+input[type=text],input[type=search],input[type=email],textarea,select{
+  width:100%;padding:9px 12px;
+  background:rgba(0,0,0,0.4);border:1.5px solid var(--border2);
+  border-radius:var(--radius2);color:var(--text);
+  font-size:13px;font-family:Consolas,monospace;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+textarea{min-height:110px;resize:vertical;line-height:1.6}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--neon);box-shadow:0 0 0 2px rgba(0,255,200,0.08)}
+
+/* ════════════════════════════════════════
+   按钮系统
+════════════════════════════════════════ */
+.btn{padding:9px 16px;border:none;border-radius:var(--radius2);font-size:12px;font-weight:bold;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-neon{background:rgba(0,255,200,0.1);color:var(--neon);border:1px solid rgba(0,255,200,0.3)}
+.btn-neon:hover{background:rgba(0,255,200,0.18);box-shadow:var(--glow)}
+.btn-blue{background:linear-gradient(135deg,var(--blue),#0099cc);color:#0a0e27}
+.btn-green{background:linear-gradient(135deg,var(--jade),#00cc6a);color:#0a0e27}
+.btn-red{background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#ffaa00);color:#0a0e27}
+.btn-ghost{background:transparent;color:var(--sub2);border:1px solid rgba(255,255,255,0.1)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.3)}
+.btn-purple{background:linear-gradient(135deg,var(--neon3),#8b6cf7);color:#fff}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+/* ════════════════════════════════════════
+   结果框
+════════════════════════════════════════ */
+.result-box{
+  background:rgba(0,0,0,0.35);border:1.5px solid var(--border2);
+  border-radius:var(--radius2);padding:12px;
+  font-family:Consolas,monospace;font-size:12px;
+  white-space:pre-wrap;word-break:break-all;
+  max-height:300px;overflow-y:auto;color:var(--jade);line-height:1.7;
+  min-height:60px;
+}
+
+/* ════════════════════════════════════════
+   统计卡片
+════════════════════════════════════════ */
+.stat-pill{
+  background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.18);
+  border-radius:var(--radius2);padding:12px;text-align:center;
+}
+.spv{font-family:Consolas,monospace;font-size:20px;font-weight:bold;color:var(--jade)}
+.spl{font-size:10px;color:var(--sub2);margin-top:3px;letter-spacing:1px;text-transform:uppercase}
+
+/* ════════════════════════════════════════
+   徽章系统
+════════════════════════════════════════ */
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}
+.bg-g{background:rgba(0,255,136,0.12);color:var(--jade);border:1px solid rgba(0,255,136,0.3)}
+.bg-y{background:rgba(255,215,0,0.12);color:var(--gold);border:1px solid rgba(255,215,0,0.3)}
+.bg-r{background:rgba(255,71,87,0.12);color:var(--red);border:1px solid rgba(255,71,87,0.3)}
+.bg-b{background:rgba(0,212,255,0.12);color:var(--blue);border:1px solid rgba(0,212,255,0.3)}
+.tag{background:rgba(0,212,255,0.08);color:var(--blue);font-size:11px;padding:2px 6px;border-radius:99px;border:1px solid rgba(0,212,255,0.2)}
+
+/* ════════════════════════════════════════
+   三色审计维度卡
+════════════════════════════════════════ */
+.dim3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+.dim-card{border-radius:10px;padding:12px;text-align:center;border:2px solid}
+.dim-card .dm-name{font-size:11px;font-weight:bold;margin-bottom:4px}
+.dim-card .dm-score{font-size:26px;font-weight:bold}
+.dim-card .dm-desc{font-size:10px;color:var(--sub2);margin-top:4px;line-height:1.3}
+.dc-g{background:rgba(0,255,136,0.07);border-color:rgba(0,255,136,0.35);color:var(--jade)}
+.dc-y{background:rgba(255,215,0,0.07);border-color:rgba(255,215,0,0.35);color:var(--gold)}
+.dc-r{background:rgba(255,71,87,0.08);border-color:rgba(255,71,87,0.35);color:var(--red)}
+.minloss{background:rgba(255,215,0,0.05);border:1.5px dashed rgba(255,215,0,0.35);border-radius:var(--radius2);padding:12px;margin-top:10px}
+.minloss-title{color:var(--gold);font-weight:bold;font-size:12px;margin-bottom:5px}
+.minloss-body{font-size:11px;color:var(--text);line-height:1.7;white-space:pre-wrap}
+
+/* ════════════════════════════════════════
+   记忆库条目
+════════════════════════════════════════ */
+.mem-item{
+  background:rgba(255,255,255,0.02);border:1px solid rgba(0,212,255,0.12);
+  border-radius:var(--radius2);padding:12px;transition:all 0.2s;
+}
+.mem-item:hover{background:rgba(0,212,255,0.04);border-color:var(--border2)}
+.mem-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(0,212,255,0.08)}
+.mem-dna{font-family:Consolas,monospace;font-size:10px;color:var(--blue)}
+.mem-time{font-size:10px;color:var(--sub)}
+.mem-summary{font-size:12px;color:#ccc;line-height:1.5;margin-bottom:5px}
+.mem-tags{display:flex;flex-wrap:wrap;gap:4px}
+
+/* ════════════════════════════════════════
+   审计日志条目
+════════════════════════════════════════ */
+.audit-row{
+  display:grid;grid-template-columns:6px 70px 90px 1fr 72px;
+  gap:8px;align-items:center;padding:5px 8px;
+  border-left:2px solid transparent;border-radius:3px;
+  font-family:Consolas,monospace;font-size:9px;
+  background:rgba(0,212,255,0.02);
+  animation:logIn 0.3s ease-out;
+}
+@keyframes logIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.audit-row.info{border-left-color:var(--jade)}
+.audit-row.warn{border-left-color:var(--gold)}
+.audit-row.alert{border-left-color:var(--red)}
+.ar-dot{width:5px;height:5px;border-radius:50%}
+.info .ar-dot{background:var(--jade)}
+.warn .ar-dot{background:var(--gold)}
+.alert .ar-dot{background:var(--red)}
+.ar-time{color:rgba(200,168,75,0.45)}
+.ar-type{color:var(--neon)}
+.ar-msg{color:rgba(245,240,232,0.6)}
+.ar-hash{color:rgba(0,212,255,0.2);text-align:right}
+
+/* ════════════════════════════════════════
+   聊天气泡
+════════════════════════════════════════ */
+.chat-area{
+  height:400px;overflow-y:auto;background:rgba(0,0,0,0.2);
+  border:1px solid rgba(0,212,255,0.15);border-radius:var(--radius);
+  padding:14px;display:flex;flex-direction:column;gap:10px;
+  margin-bottom:12px;
+}
+.chat-msg{max-width:82%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.6;word-break:break-word}
+.chat-msg.user{align-self:flex-end;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3)}
+.chat-msg.ai{align-self:flex-start;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.2)}
+.chat-msg.sys{align-self:center;background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.2);font-size:11px;color:var(--gold)}
+.msg-meta{font-size:10px;color:var(--sub);margin-bottom:4px}
+.audit-chip{display:inline-block;font-size:10px;padding:1px 6px;border-radius:99px;margin-top:5px}
+.chip-g{background:rgba(0,255,136,0.1);color:var(--jade);border:1px solid rgba(0,255,136,0.25)}
+.chip-y{background:rgba(255,215,0,0.1);color:var(--gold);border:1px solid rgba(255,215,0,0.25)}
+.chip-r{background:rgba(255,71,87,0.1);color:var(--red);border:1px solid rgba(255,71,87,0.25)}
+
+/* ════════════════════════════════════════
+   LU 时间引擎专用
+════════════════════════════════════════ */
+.hex-big{font-size:64px;display:block;filter:drop-shadow(0 0 18px rgba(200,168,75,0.35));animation:hexglow 5s ease-in-out infinite}
+@keyframes hexglow{0%,100%{filter:drop-shadow(0 0 18px rgba(200,168,75,0.35))}50%{filter:drop-shadow(0 0 35px rgba(0,255,200,0.5))}}
+.ent-bar-wrap{height:5px;background:rgba(200,168,75,0.08);border-radius:3px;overflow:hidden}
+.ent-bar-fill{height:100%;background:linear-gradient(90deg,var(--jade),var(--neon));border-radius:3px;transition:width 1s ease}
+.hex-mini-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px}
+.hm{font-size:13px;text-align:center;cursor:pointer;padding:2px;border-radius:2px;color:rgba(245,240,232,0.2);transition:all 0.15s}
+.hm:hover,.hm.act{color:var(--gold);background:rgba(200,168,75,0.1)}
+
+/* 流程图 */
+.flow-row{display:flex;align-items:center;gap:4px;overflow-x:auto;padding-bottom:4px}
+.flow-step{flex-shrink:0;text-align:center;padding:8px 10px;background:rgba(200,168,75,0.05);border:1px solid rgba(200,168,75,0.15);border-radius:5px;transition:all 0.3s}
+.flow-step.done{background:rgba(200,168,75,0.12);border-color:rgba(200,168,75,0.4)}
+.flow-step.active{background:rgba(0,255,200,0.1);border-color:var(--neon);box-shadow:0 0 8px rgba(0,255,200,0.2)}
+.fs-icon{font-size:16px;display:block}
+.fs-label{font-family:Consolas,monospace;font-size:8px;color:rgba(245,240,232,0.5);margin-top:3px;white-space:nowrap}
+.flow-arr{color:rgba(200,168,75,0.3);font-size:13px;padding:0 2px;flex-shrink:0}
+
+/* 公式卡 */
+.formula-card{background:rgba(0,255,200,0.04);border:1px solid rgba(0,255,200,0.12);border-radius:var(--radius2);padding:12px}
+.f-title{font-family:Consolas,monospace;font-size:9px;letter-spacing:2px;color:var(--jade);margin-bottom:8px;text-transform:uppercase}
+.f-formula{font-family:Consolas,monospace;font-size:11px;color:rgba(245,240,232,0.6);line-height:1.8;white-space:pre-wrap}
+.f-note{font-size:9px;color:rgba(245,240,232,0.3);margin-top:6px;line-height:1.5}
+
+/* 版本链 */
+.ver-chain{display:flex;flex-direction:column;gap:0}
+.ver-item{display:flex;gap:12px;padding:10px 0}
+.ver-line{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:16px}
+.ver-dot{width:10px;height:10px;border-radius:50%;background:var(--jade);flex-shrink:0}
+.ver-connector{flex:1;width:2px;background:rgba(0,255,200,0.15);margin:3px 0}
+.ver-id{font-family:Consolas,monospace;font-size:10px;color:var(--gold)}
+.ver-author{font-size:10px;color:rgba(245,240,232,0.45);margin-top:2px}
+.ver-sum{font-size:9px;color:rgba(245,240,232,0.3);margin-top:3px;line-height:1.5}
+
+/* ════════════════════════════════════════
+   赛博终端
+════════════════════════════════════════ */
+.terminal{background:rgba(0,0,0,0.5);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.term-header{padding:8px 14px;background:rgba(0,255,200,0.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.term-dot{width:10px;height:10px;border-radius:50%}
+.term-title{font-size:11px;color:var(--sub);margin-left:6px}
+.term-body{padding:14px;min-height:300px;max-height:55vh;overflow-y:auto;font-family:'Monaco','Fira Code',Consolas,monospace;font-size:12px;line-height:1.6}
+.tl{margin-bottom:2px}
+.tl.out{color:var(--sub2)}
+.tl.ok{color:var(--neon)}
+.tl.err{color:var(--red)}
+.tl.info{color:var(--neon3)}
+.term-input-wrap{display:flex;align-items:center;padding:10px 14px;border-top:1px solid var(--border);background:rgba(0,0,0,0.25)}
+.term-prompt{color:var(--neon);margin-right:8px;font-family:Consolas,monospace;font-size:12px}
+.term-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:Consolas,monospace;font-size:12px}
+
+/* ════════════════════════════════════════
+   户口本 / 身份
+════════════════════════════════════════ */
+.tier-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.tier-card{flex:1;min-width:200px;background:rgba(15,15,35,0.8);border:1px solid rgba(0,212,255,0.15);border-radius:var(--radius);padding:18px;cursor:pointer;transition:all 0.2s;text-align:center}
+.tier-card:hover,.tier-card.active{border-color:var(--gold);background:rgba(255,215,0,0.05)}
+.tier-icon{font-size:30px;margin-bottom:8px}
+.tier-name{font-size:13px;color:var(--gold);margin-bottom:5px;font-weight:bold}
+.tier-desc{font-size:11px;color:var(--sub2);line-height:1.6}
+.dna-display{background:rgba(0,0,0,0.4);border:1.5px solid rgba(0,212,255,0.25);border-radius:var(--radius2);padding:14px;font-family:Consolas,monospace}
+.dna-code{color:var(--gold);font-size:13px;letter-spacing:1px;word-break:break-all}
+.dna-label{color:var(--sub);font-size:10px;margin-top:4px}
+.bio-btn{
+  width:100%;padding:12px;background:rgba(0,0,0,0.3);
+  border:1px dashed rgba(0,255,136,0.3);color:var(--jade);
+  border-radius:var(--radius2);cursor:pointer;font-size:13px;
+  transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.bio-btn:hover{border-color:var(--jade);background:rgba(0,255,136,0.05)}
+.bio-btn.done{border-style:solid;border-color:var(--jade)}
+.id-card{display:none;margin-top:20px;background:linear-gradient(135deg,rgba(8,8,20,0.9),rgba(15,15,35,0.9));border:1px solid rgba(0,212,255,0.25);border-radius:var(--radius);padding:22px;font-family:Consolas,monospace}
+.id-card.show{display:block}
+.id-row{display:flex;justify-content:space-between;margin-bottom:8px;font-size:11px}
+.id-key{color:var(--sub)}
+.id-val{color:var(--text)}
+.id-val.gold{color:var(--gold)}
+.id-val.green{color:var(--jade)}
+
+/* ════════════════════════════════════════
+   真相受理台
+════════════════════════════════════════ */
+.lang-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.lang-btn{background:rgba(15,15,35,0.8);border:1px solid rgba(0,212,255,0.15);color:var(--sub2);padding:5px 14px;border-radius:20px;cursor:pointer;font-size:12px;transition:all 0.2s}
+.lang-btn.active,.lang-btn:hover{border-color:var(--gold);color:var(--gold)}
+.sev-row{display:flex;gap:10px;flex-wrap:wrap}
+.sev-btn{flex:1;min-width:70px;padding:10px;border-radius:var(--radius2);border:1px solid rgba(0,212,255,0.15);background:rgba(0,0,0,0.3);color:var(--sub2);cursor:pointer;text-align:center;font-size:12px;transition:all 0.2s}
+.sev-btn.act-g{border-color:var(--jade);color:var(--jade);background:rgba(0,255,136,0.06)}
+.sev-btn.act-y{border-color:var(--gold);color:var(--gold);background:rgba(255,215,0,0.06)}
+.sev-btn.act-r{border-color:var(--red);color:var(--red);background:rgba(255,71,87,0.06)}
+.result-id-box{background:rgba(0,0,0,0.35);border:1px solid rgba(0,255,136,0.25);border-radius:var(--radius2);padding:16px;font-family:Consolas,monospace;font-size:12px;line-height:1.9;margin-top:16px}
+
+/* ════════════════════════════════════════
+   Toast / 模态
+════════════════════════════════════════ */
+.toast-wrap{position:fixed;top:60px;right:16px;z-index:1000;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.toast{padding:10px 16px;border-radius:var(--radius2);background:var(--card);backdrop-filter:blur(12px);font-size:12px;animation:toastIn 0.3s ease;max-width:300px;pointer-events:all}
+.toast.ok{border-left:3px solid var(--neon)}
+.toast.warn{border-left:3px solid var(--gold)}
+.toast.err{border-left:3px solid var(--red)}
+.toast.info{border-left:3px solid var(--neon3)}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+.modal-ov.open{display:flex}
+.modal{background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--radius);padding:20px;max-width:680px;width:95%;max-height:85vh;overflow-y:auto}
+.modal-close{float:right;cursor:pointer;color:var(--sub);font-size:16px;line-height:1}
+
+/* ════════════════════════════════════════
+   服务卡
+════════════════════════════════════════ */
+.svc-card{background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);border-radius:var(--radius);padding:14px}
+.svc-name{font-size:13px;font-weight:bold;color:var(--blue);margin-bottom:8px}
+.svc-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.svc-dot.on{background:var(--jade);box-shadow:0 0 6px var(--jade)}
+.svc-dot.off{background:var(--red)}
+
+/* ════════════════════════════════════════
+   Git面板
+════════════════════════════════════════ */
+.git-code{background:rgba(0,0,0,0.4);border-radius:var(--radius2);padding:10px;font-size:11px;color:#aaa;max-height:150px;overflow-y:auto;white-space:pre-wrap;font-family:Consolas,monospace}
+
+/* ════════════════════════════════════════
+   宣言区
+════════════════════════════════════════ */
+.declaration{
+  padding:14px 20px;background:rgba(5,5,15,0.8);
+  border:1px solid rgba(200,168,75,0.1);border-radius:var(--radius);
+  display:flex;align-items:center;gap:16px;margin-top:20px;
+}
+.decl-text{flex:1;font-family:Consolas,monospace;font-size:10px;color:rgba(245,240,232,0.25);line-height:1.9;letter-spacing:1px}
+.decl-text strong{color:rgba(200,168,75,0.4)}
+.chain-info{font-family:Consolas,monospace;font-size:8px;color:rgba(0,255,200,0.3);text-align:right;flex-shrink:0;line-height:1.9}
+
+/* ════════════════════════════════════════
+   Cmd+K
+════════════════════════════════════════ */
+.cmd-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);z-index:900;justify-content:center;padding-top:14vh}
+.cmd-ov.open{display:flex}
+.cmd-box{width:520px;background:var(--card);border:1.5px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:cmdSlide 0.2s}
+@keyframes cmdSlide{from{opacity:0;transform:translateY(-16px) scale(0.96)}to{opacity:1;transform:none}}
+.cmd-input{width:100%;padding:14px 18px;border:none;border-bottom:1px solid var(--border);background:transparent;color:var(--text);font-size:14px;outline:none}
+.cmd-list{max-height:300px;overflow-y:auto;padding:6px}
+.cmd-item{padding:9px 12px;border-radius:var(--radius2);cursor:pointer;display:flex;align-items:center;gap:10px;font-size:12px;transition:background 0.15s}
+.cmd-item:hover,.cmd-item.sel{background:rgba(0,255,200,0.07)}
+.cmd-icon{font-size:15px;width:22px;text-align:center}
+.cmd-kbd{margin-left:auto;font-size:10px;color:var(--sub);padding:1px 5px;border-radius:4px;background:rgba(255,255,255,0.05)}
+
+/* ════════════════════════════════════════
+   右键菜单
+════════════════════════════════════════ */
+.ctx-menu{display:none;position:fixed;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:5px;min-width:170px;z-index:800;backdrop-filter:blur(20px);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.ctx-menu.open{display:block}
+.ctx-item{padding:7px 12px;border-radius:var(--radius2);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:9px;transition:background 0.15s}
+.ctx-item:hover{background:rgba(0,255,200,0.07)}
+.ctx-div{height:1px;background:var(--border);margin:3px 0}
+
+/* ════════════════════════════════════════
+   浮窗
+════════════════════════════════════════ */
+.fwin{display:none;position:fixed;width:360px;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);z-index:400;box-shadow:0 12px 40px rgba(0,0,0,0.5);resize:both;overflow:hidden}
+.fwin.open{display:block}
+.fwin-head{padding:9px 14px;background:rgba(0,255,200,0.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;cursor:move;user-select:none}
+.fwin-head span{flex:1;font-size:12px;font-weight:600}
+.fwin-close{width:18px;height:18px;border-radius:50%;background:var(--red);border:none;cursor:pointer;font-size:9px;color:white;display:flex;align-items:center;justify-content:center}
+.fwin-body{padding:14px;max-height:380px;overflow-y:auto;font-size:12px;line-height:1.8}
+
+/* ════════════════════════════════════════
+   动画帮助类
+════════════════════════════════════════ */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+.anim-float{animation:float 4s ease-in-out infinite}
+.anim-pulse{animation:pulse 2s ease-in-out infinite}
+
+/* 响应式 */
+@media(max-width:768px){
+  .topbar{padding:0 10px}
+  .main-wrap{padding:12px}
+  .svc-badges{display:none}
+  .dim3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .mtab{padding:5px 8px;font-size:11px}
+  .topbar-logo{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- 粒子背景 -->
+<canvas id="bgCanvas"></canvas>
+<div id="bgGrid"></div>
+
+<!-- ════════ 顶部导航栏 ════════ -->
+<nav class="topbar">
+  <div class="topbar-logo anim-pulse" ondblclick="easterEgg()">🐉 龍魂</div>
+
+  <div class="main-tabs" id="mainTabs">
+    <button class="mtab active" data-m="hub"><span class="micon">🤖</span>智能中枢</button>
+    <button class="mtab" data-m="lu"><span class="micon">☯</span>时间引擎</button>
+    <button class="mtab" data-m="term"><span class="micon">⌨️</span>赛博终端</button>
+    <button class="mtab" data-m="gw"><span class="micon">🌐</span>Gateway</button>
+    <button class="mtab" data-m="id"><span class="micon">🧬</span>户口本</button>
+    <button class="mtab" data-m="truth"><span class="micon">🐉</span>天下无欺</button>
+    <button class="mtab" data-m="status"><span class="micon">📊</span>系统状态</button>
+  </div>
+
+  <div class="svc-badges">
+    <span class="svcb off" id="sb9622">审计(9622)</span>
+    <span class="svcb off" id="sb8765">主服(8765)</span>
+    <span class="svcb off" id="sb11434">Ollama</span>
+  </div>
+
+  <div class="topbar-tools">
+    <span id="liveClock">--:--:--</span>
+    <button class="tbtn" onclick="toggleCmd()" title="⌘K">🔍</button>
+    <button class="tbtn" onclick="toggleTheme()" id="themBtn" title="主题">🌙</button>
+    <button class="tbtn" onclick="toggleSound()" id="sndBtn" title="音效">🔊</button>
+  </div>
+</nav>
+
+<!-- ════════ 主内容区 ════════ -->
+<div class="main-wrap">
+
+<!-- ════════ MODULE 1: 智能中枢 (龍魂v4.0整合) ════════ -->
+<div id="m-hub" class="module active">
+
+  <!-- 子标签 -->
+  <div style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap">
+    <button class="btn btn-neon sub-tab-hub active" data-st="chat">🤖 AI对话</button>
+    <button class="btn btn-ghost sub-tab-hub" data-st="audit">🔍 三色审计</button>
+    <button class="btn btn-ghost sub-tab-hub" data-st="dna">🧬 DNA管理</button>
+    <button class="btn btn-ghost sub-tab-hub" data-st="memory">💾 记忆库</button>
+    <button class="btn btn-ghost sub-tab-hub" data-st="sandbox">🐉 沙盒推演</button>
+    <button class="btn btn-ghost sub-tab-hub" data-st="git">🗂️ Git仓库</button>
+  </div>
+
+  <!-- ── AI对话 ── -->
+  <div id="st-chat" class="sub-panel-hub">
+    <div class="card">
+      <div class="card-title">🤖 AI对话 · 龍魂人格 · 诸葛亮沙盒</div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+        <select id="chatModel" style="flex:1;min-width:180px">
+          <option value="">-- 加载模型中... --</option>
+        </select>
+        <label style="color:var(--sub2);font-size:12px;text-transform:none;display:flex;align-items:center;gap:4px">
+          <input type="checkbox" id="chatPreAudit" checked style="width:auto;padding:0"> 三色预审
+        </label>
+        <button class="btn btn-ghost" id="btnClearChat" style="font-size:11px">🗑️ 清空</button>
+      </div>
+      <div class="chat-area" id="chatArea">
+        <div class="chat-msg ai">
+          <div class="msg-meta">🐉 龍魂 · 系统初始化</div>
+          <div>您好，UID9622！我是龍魂AI，已加载诸葛亮沙盒人格。三维审计在线，请选择Ollama模型开始对话。</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:flex-end">
+        <textarea id="chatInput" placeholder="输入问题… Enter发送，Shift+Enter换行" style="min-height:50px;flex:1;margin-bottom:0"></textarea>
+        <button class="btn btn-blue" id="btnSendChat" style="height:50px;white-space:nowrap;padding:0 16px">发送 🚀</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 三色审计 ── -->
+  <div id="st-audit" class="sub-panel-hub" style="display:none">
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">🔍 三色审计 · 天时地利人和</div>
+        <div class="fg"><label>待审计内容</label><textarea id="auditInput" placeholder="粘贴任意内容…"></textarea></div>
+        <div class="g2" style="margin-bottom:10px">
+          <div class="fg" style="margin:0"><label>类别</label>
+            <select id="auditCat">
+              <option value="auto">🤖 自动</option>
+              <option value="战略">⚔️ 战略</option>
+              <option value="技术">💻 技术</option>
+              <option value="铁律">⚖️ 铁律</option>
+              <option value="创作">🎨 创作</option>
+              <option value="情感">💙 情感</option>
+              <option value="外源">⚠️ 外源</option>
+            </select>
+          </div>
+          <div class="fg" style="margin:0"><label>模式</label>
+            <select id="auditMode">
+              <option value="quick">快速(8765)</option>
+              <option value="deep">深度(9622)</option>
+              <option value="local">本地算法</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-gold" id="btnAudit">☯️ 执行审计</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('auditInput').value='';document.getElementById('auditResultArea').style.display='none'">清空</button>
+        </div>
+        <div id="auditResultArea" style="margin-top:14px;display:none">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div id="auditBadgeBig" style="font-size:18px;font-weight:bold"></div>
+            <div id="auditScoreInfo" style="font-size:11px;color:var(--sub2)"></div>
+          </div>
+          <div class="dim3" id="auditDimCards"></div>
+          <div id="auditMinLossBox" class="minloss" style="display:none">
+            <div class="minloss-title">⚡ 最小损失优化建议</div>
+            <div id="auditMinLossBody" class="minloss-body"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📋 审计历史（最近10条）</div>
+        <div id="auditHistList">
+          <div style="color:var(--sub);text-align:center;padding:20px;font-size:11px">暂无记录</div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="card-title">⏰ 当前时辰卦象</div>
+          <div id="hexDisplay" style="font-size:13px;line-height:1.9;padding:10px;background:rgba(200,168,75,0.04);border-radius:var(--radius2)">计算中…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DNA管理 ── -->
+  <div id="st-dna" class="sub-panel-hub" style="display:none">
+    <div class="g5" style="margin-bottom:14px" id="dnaStats">
+      <div class="stat-pill"><div class="spv" id="dna-total">0</div><div class="spl">存证总数</div></div>
+      <div class="stat-pill"><div class="spv" id="dna-today">0</div><div class="spl">今日新增</div></div>
+      <div class="stat-pill"><div class="spv" id="dna-green">0</div><div class="spl">🟢 安全</div></div>
+      <div class="stat-pill"><div class="spv" id="dna-yellow">0</div><div class="spl">🟡 警告</div></div>
+      <div class="stat-pill"><div class="spv" id="dna-red">0</div><div class="spl">🔴 危险</div></div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">🧬 DNA生成器</div>
+        <div class="fg"><label>项目名称</label><input type="text" id="dnaProject" placeholder="龍魂系统 / CNSH引擎 / 三才算法"></div>
+        <div class="fg"><label>标签/版本</label><input type="text" id="dnaTag" placeholder="v1.0 / 2026 / 战略"></div>
+        <div class="fg"><label>内容（用于哈希）</label><textarea id="dnaContent" placeholder="输入要存证的内容…" style="min-height:90px"></textarea></div>
+        <div class="btn-row">
+          <button class="btn btn-blue" id="btnGenDNA">🧬 生成DNA</button>
+          <button class="btn btn-ghost" id="btnClearDNA">清空</button>
+        </div>
+        <div class="dna-display" id="dnaOutput" style="margin-top:10px">
+          <div class="dna-code">等待生成…</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🔍 DNA验证器</div>
+        <div class="fg"><label>粘贴DNA码</label><textarea id="dnaVerifyInput" placeholder="#龍芯⚡️2026-03-19-项目名-v1.0-XXXXXXXX" style="min-height:70px"></textarea></div>
+        <div class="fg"><label>原始内容（可选）</label><textarea id="dnaVerifyContent" placeholder="粘贴生成DNA时的原始内容…" style="min-height:70px"></textarea></div>
+        <div class="btn-row"><button class="btn btn-gold" id="btnVerifyDNA">🔍 验证</button></div>
+        <div class="result-box" id="dnaVerifyResult" style="margin-top:10px;min-height:60px">等待验证…</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 DNA存证记录</div>
+      <div id="dnaList"><div style="color:var(--sub);text-align:center;padding:20px;font-size:11px">暂无存证</div></div>
+    </div>
+  </div>
+
+  <!-- ── 记忆库 ── -->
+  <div id="st-memory" class="sub-panel-hub" style="display:none">
+    <div class="g5" style="margin-bottom:14px">
+      <div class="stat-pill"><div class="spv" id="mem-total">0</div><div class="spl">记忆总数</div></div>
+      <div class="stat-pill"><div class="spv" id="mem-green">0</div><div class="spl">🟢 安全</div></div>
+      <div class="stat-pill"><div class="spv" id="mem-yellow">0</div><div class="spl">🟡 警告</div></div>
+      <div class="stat-pill"><div class="spv" id="mem-red">0</div><div class="spl">🔴 拦截</div></div>
+      <div class="stat-pill"><div class="spv" id="mem-cat">—</div><div class="spl">最多分类</div></div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">💾 存记忆</div>
+        <div class="fg"><label>标题</label><input type="text" id="memTitle" placeholder="记忆标题…"></div>
+        <div class="fg"><label>内容</label><textarea id="memContent" placeholder="输入内容…"></textarea></div>
+        <div class="fg"><label>分类</label>
+          <select id="memCategory">
+            <option value="auto">🤖 自动分类</option>
+            <option value="战略">⚔️ 战略</option>
+            <option value="技术">💻 技术</option>
+            <option value="铁律">⚖️ 铁律</option>
+            <option value="创作">🎨 创作</option>
+            <option value="情感">💙 情感</option>
+            <option value="外源">⚠️ 外源</option>
+          </select>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-blue" id="btnSaveMem">💾 审计并保存</button>
+          <button class="btn btn-ghost" id="btnClearMem">清空</button>
+        </div>
+        <div id="memSaveResult" class="result-box" style="margin-top:10px;display:none;min-height:50px"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📤 导入/导出</div>
+        <p style="font-size:11px;color:var(--sub2);margin-bottom:14px;line-height:1.7">导出：记忆+DNA存证+审计日志打包为JSON<br>导入：还原之前导出的JSON</p>
+        <div class="btn-row">
+          <button class="btn btn-green" id="btnExportMem">📤 导出JSON</button>
+          <button class="btn btn-ghost" id="btnImportMem">📥 导入JSON</button>
+          <input type="file" id="importFile" accept=".json" style="display:none">
+          <button class="btn btn-red" id="btnNukeMem">⚠️ 清空全部</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🗄️ 记忆检索</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <input type="search" id="memSearch" placeholder="🔍 关键词 / 分类 / DNA" style="flex:1">
+        <button class="btn btn-ghost" id="btnSearchMem">搜索</button>
+        <button class="btn btn-ghost" id="btnRefreshMem">刷新</button>
+      </div>
+      <div id="memList" style="display:flex;flex-direction:column;gap:8px">
+        <div style="color:var(--sub);text-align:center;padding:24px;font-size:11px">暂无记忆</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 沙盒推演 ── -->
+  <div id="st-sandbox" class="sub-panel-hub" style="display:none">
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">🐉 启动推演</div>
+        <div class="fg"><label>任务类型</label><input type="text" id="sbTaskType" placeholder="战略分析 / 技术决策 / 风险评估…"></div>
+        <div class="fg"><label>推演内容</label><textarea id="sbContent" placeholder="详细描述推演场景…" style="min-height:130px"></textarea></div>
+        <div class="btn-row">
+          <button class="btn btn-gold" id="btnRunSandbox">🐉 启动推演</button>
+          <button class="btn btn-ghost" id="btnClearSandbox">清空</button>
+        </div>
+      </div>
+      <div class="card" id="sbResultCard" style="display:none">
+        <div class="card-title">📊 推演结果</div>
+        <div id="sbResult"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div class="card-title" style="margin:0">📋 推演历史</div>
+        <button class="btn btn-ghost" id="btnRefreshSbHist" style="font-size:10px">刷新</button>
+      </div>
+      <div id="sbHistTable"><div style="color:var(--sub);text-align:center;padding:20px;font-size:11px">暂无推演历史</div></div>
+    </div>
+  </div>
+
+  <!-- ── Git仓库 ── -->
+  <div id="st-git" class="sub-panel-hub" style="display:none">
+    <div class="card">
+      <div class="card-title">🗂️ Git 仓库管理</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <span id="git-branch" style="background:rgba(0,212,255,0.12);padding:4px 12px;border-radius:20px;font-size:11px;color:var(--blue)">🌿 加载中...</span>
+        <span id="git-clean-badge" style="padding:4px 12px;border-radius:20px;font-size:11px">⏳</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+        <button class="btn btn-ghost" onclick="gitStatus()">🔍 查看状态</button>
+        <button class="btn btn-ghost" onclick="gitStage()">📥 全部暂存</button>
+        <button class="btn btn-gold" onclick="openCommitModal()">✅ 提交</button>
+        <button class="btn btn-green" onclick="gitPush()">🚀 推送</button>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-bottom:4px">📋 变更文件</div>
+      <div class="git-code" id="git-changes">—</div>
+      <div style="font-size:10px;color:var(--sub);margin:8px 0 4px">📜 最近提交</div>
+      <div class="git-code" id="git-log">—</div>
+    </div>
+  </div>
+
+</div><!-- /m-hub -->
+
+<!-- ════════ MODULE 2: LU时间推演引擎 ════════ -->
+<div id="m-lu" class="module">
+
+  <!-- 子标签 -->
+  <div style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap">
+    <button class="btn btn-neon sub-tab-lu active" data-st="luoverview">🌌 总览</button>
+    <button class="btn btn-ghost sub-tab-lu" data-st="luformula">📐 公式引擎</button>
+    <button class="btn btn-ghost sub-tab-lu" data-st="luversion">🔗 版本链</button>
+    <button class="btn btn-ghost sub-tab-lu" data-st="lusecurity">🛡 安全监控</button>
+  </div>
+
+  <!-- 总览 -->
+  <div id="st-luoverview" class="sub-panel-lu">
+    <!-- 状态条 -->
+    <div class="g5" style="margin-bottom:16px">
+      <div class="stat-pill" style="border-left:3px solid var(--gold)"><div class="spv" id="luHex" style="color:var(--gold)">泰 #11</div><div class="spl">TODAY HEXAGRAM</div></div>
+      <div class="stat-pill" style="border-left:3px solid var(--jade)"><div class="spv" id="luEntropy" style="color:var(--jade)">0.43</div><div class="spl">ENTROPY</div></div>
+      <div class="stat-pill" style="border-left:3px solid var(--neon)"><div class="spv" style="color:var(--neon)">执行</div><div class="spl">PHASE</div></div>
+      <div class="stat-pill" style="border-left:3px solid var(--gold)"><div class="spv" id="luChainLen">2,847</div><div class="spl">AUDIT BLOCKS</div></div>
+      <div class="stat-pill" style="border-left:3px solid var(--red)"><div class="spv" style="color:var(--red)">S2</div><div class="spl">SHIELD LEVEL</div></div>
+    </div>
+
+    <!-- 主体两栏 -->
+    <div class="g2" style="margin-bottom:14px">
+      <!-- 卦象面板 -->
+      <div class="card" style="background:rgba(10,8,25,0.9)">
+        <div class="card-title" style="color:var(--gold)">☯ 卦象推演</div>
+        <div style="text-align:center;padding:8px 0">
+          <span class="hex-big anim-float" id="luHexBig">䷊</span>
+          <div style="font-family:serif;font-size:18px;color:var(--gold);margin:8px 0">地天泰</div>
+          <div style="font-family:Consolas,monospace;font-size:10px;color:var(--jade);letter-spacing:2px">HEX #11 · PHASE: 亨 · 大吉</div>
+          <div style="font-size:11px;color:rgba(245,240,232,0.5);margin:12px 0;line-height:1.9;border-left:2px solid rgba(200,168,75,0.3);padding-left:10px;text-align:left">
+            天地交泰，万物生焉。<br>内阳外阴，动静相宜。<br>此时当行大事，势顺宜进。
+          </div>
+          <div style="display:flex;justify-content:space-around;margin-top:10px">
+            <div style="text-align:center"><span style="font-size:24px">☰</span><div style="font-size:8px;color:rgba(200,168,75,0.4);margin-top:2px">UPPER·坤</div></div>
+            <div style="color:rgba(200,168,75,0.2);font-size:18px;line-height:2.8">↕</div>
+            <div style="text-align:center"><span style="font-size:24px">☷</span><div style="font-size:8px;color:rgba(200,168,75,0.4);margin-top:2px">LOWER·乾</div></div>
+          </div>
+        </div>
+        <!-- 熵值 -->
+        <div style="border-top:1px solid rgba(200,168,75,0.1);margin-top:12px;padding-top:10px">
+          <div style="display:flex;justify-content:space-between;font-family:Consolas,monospace;font-size:9px;color:rgba(200,168,75,0.45);margin-bottom:5px">
+            <span>系统熵值 ENTROPY</span><span id="luEntVal">0.43</span>
+          </div>
+          <div class="ent-bar-wrap"><div class="ent-bar-fill" id="luEntBar" style="width:43%"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(245,240,232,0.2);margin-top:3px">
+            <span>低熵·执行</span><span>高熵·延迟</span>
+          </div>
+        </div>
+        <!-- 64卦小格 -->
+        <div style="border-top:1px solid rgba(200,168,75,0.1);margin-top:12px;padding-top:10px">
+          <div style="font-size:8px;letter-spacing:2px;color:rgba(200,168,75,0.35);margin-bottom:6px">64卦序</div>
+          <div class="hex-mini-grid" id="luHexGrid"></div>
+        </div>
+      </div>
+
+      <!-- 右侧 流程+审计 -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <!-- 自动化流程 -->
+        <div class="card">
+          <div class="card-title" style="color:var(--gold)">⚡ 自动化执行流程</div>
+          <div class="flow-row">
+            <div class="flow-step done"><span class="fs-icon">⏱</span><div class="fs-label">时间变化</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step done"><span class="fs-icon">📐</span><div class="fs-label">TimeIndex</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step active"><span class="fs-icon">☯</span><div class="fs-label">计算卦象</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step"><span class="fs-icon">📊</span><div class="fs-label">更新熵值</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step"><span class="fs-icon">⚡</span><div class="fs-label">触发行动</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step"><span class="fs-icon">📝</span><div class="fs-label">写入任务</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step"><span class="fs-icon">🔗</span><div class="fs-label">审计日志</div></div>
+            <div class="flow-arr">→</div>
+            <div class="flow-step"><span class="fs-icon">🔮</span><div class="fs-label">预测更新</div></div>
+          </div>
+        </div>
+
+        <!-- 盾加密 -->
+        <div class="card">
+          <div class="card-title" style="color:var(--gold)">🛡 盾加密协议 SHIELD</div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <div class="lu-shield" onclick="luShieldSel(0)" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;border:1px solid rgba(255,255,255,0.06);cursor:pointer"><span style="font-size:15px">🔓</span><div style="flex:1"><div style="font-size:11px;color:#aaa">S0 · 公共</div><div style="font-size:9px;color:var(--sub)">Public Access</div></div><span>🌐</span></div>
+            <div class="lu-shield" onclick="luShieldSel(1)" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;border:1px solid rgba(0,255,136,0.2);cursor:pointer"><span style="font-size:15px">🔐</span><div style="flex:1"><div style="font-size:11px;color:var(--jade)">S1 · 用户可见</div><div style="font-size:9px;color:var(--sub)">User Visible</div></div><span>👤</span></div>
+            <div class="lu-shield active-shield" id="luShieldActive" onclick="luShieldSel(2)" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;border:1px solid rgba(200,168,75,0.35);background:rgba(200,168,75,0.06);cursor:pointer"><span style="font-size:15px">🛡</span><div style="flex:1"><div style="font-size:11px;color:var(--gold)">S2 · 系统控制 ✓</div><div style="font-size:9px;color:var(--sub)">ACTIVE</div></div><span>⚙️</span></div>
+            <div class="lu-shield" onclick="luShieldSel(3)" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;border:1px solid rgba(255,71,87,0.15);cursor:pointer"><span style="font-size:15px">🔒</span><div style="flex:1"><div style="font-size:11px;color:var(--red)">S3 · 主控权限</div><div style="font-size:9px;color:var(--sub)">Master Key</div></div><span>🗝</span></div>
+          </div>
+        </div>
+
+        <!-- 审计日志 -->
+        <div class="card" style="flex:1">
+          <div class="card-title" style="justify-content:space-between;color:var(--gold)">
+            <span>🔗 审计日志链</span>
+            <span style="font-size:9px;color:rgba(0,255,200,0.5)">↑ 只增不删</span>
+          </div>
+          <div id="luAuditLog" style="display:flex;flex-direction:column;gap:4px;max-height:200px;overflow-y:auto"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部三栏: 任务+预测+声明 -->
+    <div class="g3">
+      <div class="card">
+        <div class="card-title" style="color:var(--gold)">📋 任务联动</div>
+        <div id="luTaskList"></div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--gold)">🔮 预测记录</div>
+        <div id="luPredList">
+          <div style="padding:9px;background:rgba(200,168,75,0.04);border-radius:5px;border:1px solid rgba(200,168,75,0.1);margin-bottom:7px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-family:Consolas,monospace;font-size:8px;color:rgba(200,168,75,0.4)">2026-03-14</span><span style="font-family:Consolas,monospace;font-size:9px;color:var(--jade)">87%</span></div>
+            <div style="font-size:10px;color:rgba(245,240,232,0.6)">泰卦·东南方向利于推进重大决策</div>
+            <div style="height:2px;background:rgba(200,168,75,0.1);border-radius:1px;margin-top:5px;overflow:hidden"><div style="height:100%;width:87%;background:linear-gradient(90deg,var(--jade),var(--neon))"></div></div>
+          </div>
+          <div style="padding:9px;background:rgba(200,168,75,0.04);border-radius:5px;border:1px solid rgba(200,168,75,0.1);margin-bottom:7px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-family:Consolas,monospace;font-size:8px;color:rgba(200,168,75,0.4)">2026-03-13</span><span style="font-family:Consolas,monospace;font-size:9px;color:var(--gold)">73%</span></div>
+            <div style="font-size:10px;color:rgba(245,240,232,0.6)">坎卦·险中求稳，不宜冒进</div>
+            <div style="height:2px;background:rgba(200,168,75,0.1);border-radius:1px;margin-top:5px;overflow:hidden"><div style="height:100%;width:73%;background:linear-gradient(90deg,var(--gold),var(--neon))"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--gold)">🛡 系统声明</div>
+        <div style="font-family:Consolas,monospace;font-size:10px;color:rgba(245,240,232,0.25);line-height:1.9">
+          <strong style="color:rgba(200,168,75,0.4)">本系统采用递增式记录机制。</strong><br>
+          不可删除 · 不可覆盖 · 只能追加 · 全程留痕。<br>
+          任何异常均被监控记录。<br><br>
+          <span style="color:rgba(0,255,200,0.3)" id="luChainDisplay">CHAIN: 0x4a9f...<br>VER: v1.0.3<br>BLOCKS: 2847</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 公式引擎 -->
+  <div id="st-luformula" class="sub-panel-lu" style="display:none">
+    <div class="card">
+      <div class="card-title" style="color:var(--jade)">📐 易经公式引擎 · 干支+卦象+时间统一推演模型</div>
+      <div class="g3">
+        <div class="formula-card"><div class="f-title">HEXAGRAM_ID</div><div class="f-formula">HexID = 
+  (floor(Timestamp/Period)
+  × SeedKey) mod 64 + 1</div><div class="f-note">Period = 86400s (日周期)<br>SeedKey = 干支系数</div></div>
+        <div class="formula-card"><div class="f-title">ENTROPY 熵值</div><div class="f-formula">Entropy = 
+  |sin(TimeIndex × π/32)|
+  × PhaseWeight
+  + Noise(0.05)</div><div class="f-note">亨=0.3 吉=0.2 凶=0.7</div></div>
+        <div class="formula-card"><div class="f-title">AUDIT HASH</div><div class="f-formula">ChainHash =
+  SHA256(
+    PrevHash +
+    DataHash +
+    Timestamp
+  )</div><div class="f-note">不可篡改区块链结构</div></div>
+        <div class="formula-card"><div class="f-title">干支周期映射</div><div class="f-formula">天干: i mod 10
+  甲乙丙丁戊己庚辛壬癸
+地支: i mod 12
+  子丑寅卯辰巳午未申酉戌亥</div><div class="f-note">60甲子 = lcm(10,12)</div></div>
+        <div class="formula-card"><div class="f-title">ACTION 决策</div><div class="f-formula">E < 0.35 → "执行"
+E < 0.60 → "调整"
+E < 0.80 → "观察"
+else    → "暂停"</div><div class="f-note">基于熵值自动分配</div></div>
+        <div class="formula-card"><div class="f-title">CONFIDENCE</div><div class="f-formula">Conf =
+  (1 - Entropy)
+  × HexPhaseScore
+  × HistAccuracy</div><div class="f-note">动态修正预测模型</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 版本链 -->
+  <div id="st-luversion" class="sub-panel-lu" style="display:none">
+    <div class="card">
+      <div class="card-title" style="color:var(--gold)">🔗 版本继承链 · 只增不覆盖</div>
+      <div class="ver-chain">
+        <div class="ver-item"><div class="ver-line"><div class="ver-dot"></div><div class="ver-connector"></div></div><div><div class="ver-id">v1.0.3 · CURRENT</div><div class="ver-author">SYSTEM · 2026-03-19 08:00</div><div class="ver-sum">今日泰卦计算。熵值0.41→0.43。预测准确率78.3%。</div></div></div>
+        <div class="ver-item"><div class="ver-line"><div class="ver-dot" style="background:rgba(0,255,200,0.4)"></div><div class="ver-connector"></div></div><div><div class="ver-id">v1.0.2</div><div class="ver-author">SYSTEM · 2026-03-13 08:00</div><div class="ver-sum">坎卦推演。任务4条写入。审计块+24。</div></div></div>
+        <div class="ver-item"><div class="ver-line"><div class="ver-dot" style="background:rgba(0,255,200,0.25)"></div></div><div><div class="ver-id">v1.0.1</div><div class="ver-author">SYSTEM · 2026-03-12 08:00</div><div class="ver-sum">初始化革卦周期。建立64卦映射表。创世块生成。</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 安全监控 -->
+  <div id="st-lusecurity" class="sub-panel-lu" style="display:none">
+    <div class="card">
+      <div class="card-title" style="color:var(--red)">🛡 安全与异常监控</div>
+      <div class="g3">
+        <div style="padding:9px 11px;background:rgba(0,255,136,0.03);border-radius:5px;border-left:2px solid var(--jade)"><div style="font-family:Consolas,monospace;font-size:9px;color:var(--jade);margin-bottom:3px">NORMAL · 访问记录</div><div style="font-size:10px;color:rgba(245,240,232,0.5)">S2权限正常访问时间引擎</div><div style="font-family:Consolas,monospace;font-size:8px;color:rgba(245,240,232,0.2);margin-top:3px">2026-03-19 08:32:11</div></div>
+        <div style="padding:9px 11px;background:rgba(255,215,0,0.03);border-radius:5px;border-left:2px solid var(--gold)"><div style="font-family:Consolas,monospace;font-size:9px;color:var(--gold);margin-bottom:3px">WARNING · 权限越界</div><div style="font-size:10px;color:rgba(245,240,232,0.5)">S1用户尝试访问S3字段，已拒绝</div><div style="font-family:Consolas,monospace;font-size:8px;color:rgba(245,240,232,0.2);margin-top:3px">2026-03-19 07:14:05</div></div>
+        <div style="padding:9px 11px;background:rgba(255,71,87,0.04);border-radius:5px;border-left:2px solid var(--red)"><div style="font-family:Consolas,monospace;font-size:9px;color:var(--red);margin-bottom:3px">ALERT · 修改尝试</div><div style="font-size:10px;color:rgba(245,240,232,0.5)">审计日志修改请求已拦截并记录</div><div style="font-family:Consolas,monospace;font-size:8px;color:rgba(245,240,232,0.2);margin-top:3px">2026-03-18 22:07:43</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /m-lu -->
+
+<!-- ════════ MODULE 3: 赛博终端 ════════ -->
+<div id="m-term" class="module">
+  <div class="terminal">
+    <div class="term-header">
+      <span class="term-dot" style="background:#ff5f56"></span>
+      <span class="term-dot" style="background:#ffbd2e"></span>
+      <span class="term-dot" style="background:#27c93f"></span>
+      <span class="term-title">龍魂终端 v5.0 — UID9622@longhun ~</span>
+    </div>
+    <div class="term-body" id="termBody">
+      <div class="tl ok">🐉 龍魂终端 v5.0 已启动</div>
+      <div class="tl out">DNA: #龍芯⚡️2026-03-19-龍魂智能中枢-v5.0</div>
+      <div class="tl out">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+      <div class="tl info">输入 <span style="color:var(--neon)">help</span> 查看全部命令</div>
+    </div>
+    <div class="term-input-wrap">
+      <span class="term-prompt">龍~$</span>
+      <input class="term-input" id="termInput" placeholder="输入命令…">
+    </div>
+  </div>
+</div><!-- /m-term -->
+
+<!-- ════════ MODULE 4: CNSH Gateway ════════ -->
+<div id="m-gw" class="module">
+  <div class="g4" style="margin-bottom:14px">
+    <div class="stat-pill"><div class="spv" id="gw-total">0</div><div class="spl">总处理数</div></div>
+    <div class="stat-pill"><div class="spv" id="gw-pass" style="color:var(--jade)">0</div><div class="spl">🟢 通过</div></div>
+    <div class="stat-pill"><div class="spv" id="gw-warn" style="color:var(--gold)">0</div><div class="spl">🟡 警告</div></div>
+    <div class="stat-pill"><div class="spv" id="gw-block" style="color:var(--red)">0</div><div class="spl">🔴 阻断</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">🌐 CNSH Gateway · 一键处理</div>
+    <div class="fg"><label>输入区（文本/代码/JSON/任何内容）</label>
+      <textarea id="gwInput" style="min-height:180px" placeholder="把任何内容粘贴到这里…
+
+可以是: 文本 / Python代码 / JSON数据 / 任何需要处理的内容
+
+系统自动: 解析结构 → 统一变量 → 检测冲突 → 三色审计 → 生成DNA追溯"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-blue" onclick="gwProcess()">🚀 一键处理</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('gwInput').value='';document.getElementById('gwResult').textContent='等待输入…'">🗑️ 清空</button>
+      <button class="btn btn-ghost" onclick="gwLoadExample('text')">📝 示例文本</button>
+      <button class="btn btn-ghost" onclick="gwLoadExample('code')">💻 示例代码</button>
+      <button class="btn btn-ghost" onclick="gwLoadExample('json')">📦 示例JSON</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📊 处理结果</div>
+    <div class="result-box" id="gwResult">等待输入…</div>
+  </div>
+</div><!-- /m-gw -->
+
+<!-- ════════ MODULE 5: 网络户口本 ════════ -->
+<div id="m-id" class="module">
+  <div style="max-width:680px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:28px;margin-bottom:8px">🧬</div>
+      <div style="font-size:20px;color:var(--gold);letter-spacing:3px;margin-bottom:4px">网络户口本</div>
+      <div style="font-size:11px;color:var(--sub2);letter-spacing:2px">DNA Identity Register · 你的身份，你自己持有</div>
+    </div>
+
+    <div class="tier-row">
+      <div class="tier-card active" id="tier-user" onclick="idSelectTier('user')">
+        <div class="tier-icon">👤</div>
+        <div class="tier-name">普通用户</div>
+        <div class="tier-desc">DNA码身份认证<br>无需上传任何信息<br>匿名可用，隐私保护</div>
+      </div>
+      <div class="tier-card" id="tier-dev" onclick="idSelectTier('dev')">
+        <div class="tier-icon">💎</div>
+        <div class="tier-name">开发者 / 贡献者</div>
+        <div class="tier-desc">DNA码 + GPG指纹<br>贡献可溯源认证<br>代码/内容署名有效</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🧬 DNA身份码</div>
+      <div class="dna-display" id="idDnaDisplay">
+        <div class="dna-code" id="idDnaCode">— 点击生成 · Click Generate —</div>
+        <div class="dna-label">你的专属身份码 · 请保存好，下次用它登录</div>
+      </div>
+      <button class="btn btn-gold" onclick="idGenDNA()" style="width:100%;margin-top:10px">🎲 生成我的DNA码</button>
+      <input type="hidden" id="idDnaInput">
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 基础信息</div>
+      <div class="fg"><label>显示名称 <span style="color:var(--sub2);font-size:10px;text-transform:none">·可以是昵称、代号</span></label>
+        <input type="text" id="idDisplayName" placeholder="叫我什么？"></div>
+      <div class="fg"><label>国家/地区</label>
+        <select id="idCountry">
+          <option value="CN">🇨🇳 中国</option>
+          <option value="US">🇺🇸 美国</option>
+          <option value="JP">🇯🇵 日本</option>
+          <option value="KR">🇰🇷 韩国</option>
+          <option value="OTHER">🌍 其他</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card" id="idDevSection" style="display:none">
+      <div class="card-title">🔑 GPG指纹（开发者）</div>
+      <div class="fg"><label>GPG指纹（40位十六进制）</label>
+        <input type="text" id="idGpg" placeholder="A2D0092CEE2E5BA87035600924C3704A8CC26D5F" oninput="idValidateGpg(this)" style="font-family:Consolas,monospace;font-size:12px">
+        <div id="idGpgStatus" style="font-size:10px;margin-top:4px;color:var(--sub)"></div>
+      </div>
+      <div class="fg"><label>技术方向（可选）</label>
+        <input type="text" id="idTechFocus" placeholder="后端开发 / AI算法 / 前端…">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔐 设备指纹绑定（可选）</div>
+      <div style="font-size:11px;color:var(--sub2);margin-bottom:10px;line-height:1.7">绑定后可用指纹/面容验证身份，私钥永远不离开设备。</div>
+      <button type="button" class="bio-btn" id="idBioBtn" onclick="idBindBio()">
+        <span id="idBioIcon">☝️</span>
+        <span id="idBioText">绑定指纹/面容 · Bind Biometric</span>
+      </button>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius2);padding:12px;margin-bottom:14px;font-size:11px;color:var(--sub);line-height:1.8">
+      🔒 <strong style="color:rgba(255,255,255,0.3)">隐私承诺</strong><br>
+      · 个人资料仅存于本系统，不出境，不卖，不分享<br>
+      · DNA码是公开标识符，其余加密存储<br>
+      · 生物私钥永远不离开你的设备（WebAuthn标准）
+    </div>
+
+    <button class="btn btn-blue" onclick="idSubmit()" style="width:100%;padding:14px;font-size:14px;letter-spacing:3px">
+      🐉 注册身份 · REGISTER
+    </button>
+
+    <div class="id-card" id="idCard">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div style="font-family:Consolas,monospace;font-size:12px;color:var(--gold)">🧬 龍魂身份证 · DNA ID Card</div>
+        <div id="idCardTier" style="font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(0,212,255,0.3);color:var(--blue)">用户</div>
+      </div>
+      <div class="id-row"><span class="id-key">DNA码</span><span class="id-val gold" id="idCardDna"></span></div>
+      <div class="id-row"><span class="id-key">显示名</span><span class="id-val" id="idCardName"></span></div>
+      <div class="id-row"><span class="id-key">国家</span><span class="id-val" id="idCardCountry"></span></div>
+      <div class="id-row"><span class="id-key">注册时间</span><span class="id-val" id="idCardTime"></span></div>
+      <div class="id-row" id="idCardGpgRow" style="display:none"><span class="id-key">GPG</span><span class="id-val green" id="idCardGpg"></span></div>
+      <div class="id-row"><span class="id-key">贡献积分</span><span class="id-val">0</span></div>
+      <div style="border-top:1px solid rgba(0,212,255,0.1);margin-top:12px;padding-top:10px;font-size:9px;color:rgba(255,255,255,0.15);text-align:center">#龍芯⚡️ · UID9622 · 天下无欺 · 守护每一个人</div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="idDownloadCard()">📥 下载身份卡</button>
+        <button class="btn btn-ghost" onclick="idCopyDna()">📋 复制DNA</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /m-id -->
+
+<!-- ════════ MODULE 6: 天下无欺·真相受理台 ════════ -->
+<div id="m-truth" class="module">
+  <div style="max-width:700px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:28px;margin-bottom:8px">🐉</div>
+      <div style="font-size:20px;color:var(--gold);letter-spacing:3px;margin-bottom:4px">天下无欺</div>
+      <div style="font-size:11px;color:var(--sub2);letter-spacing:2px">真相受理台 · AI Truth Protocol · 每一条记录，不可篡改</div>
+    </div>
+
+    <div class="lang-bar" id="truthLangBar">
+      <button class="lang-btn active" onclick="truthSetLang('zh',this)">中文</button>
+      <button class="lang-btn" onclick="truthSetLang('en',this)">English</button>
+      <button class="lang-btn" onclick="truthSetLang('ja',this)">日本語</button>
+      <button class="lang-btn" onclick="truthSetLang('ko',this)">한국어</button>
+      <button class="lang-btn" onclick="truthSetLang('es',this)">Español</button>
+      <button class="lang-btn" onclick="truthSetLang('ar',this)">العربية</button>
+    </div>
+
+    <div class="card">
+      <div class="fg"><label data-i18n="country">国家 / 地区 <span style="color:var(--red)">*</span></label>
+        <select name="country" id="truthCountry">
+          <option value="">— 选择 / Select —</option>
+          <option value="CN">🇨🇳 中国</option><option value="US">🇺🇸 美国</option>
+          <option value="JP">🇯🇵 日本</option><option value="KR">🇰🇷 韩国</option>
+          <option value="SG">🇸🇬 新加坡</option><option value="DE">🇩🇪 德国</option>
+          <option value="GB">🇬🇧 英国</option><option value="RU">🇷🇺 俄罗斯</option>
+          <option value="OTHER">🌍 其他</option>
+        </select>
+      </div>
+      <div class="fg"><label data-i18n="type">事件类型 <span style="color:var(--red)">*</span></label>
+        <select id="truthType">
+          <option value="">— 选择 —</option>
+          <option value="fraud">💰 诈骗 / Fraud</option>
+          <option value="bully">👊 欺压 / Bullying</option>
+          <option value="fake_goods">🛒 假冒伪劣 / Fake Goods</option>
+          <option value="service_ignore">📞 客服忽视 / Service Ignored</option>
+          <option value="edu_mislead">🎓 教育误导 / Misleading</option>
+          <option value="legal_abuse">⚖️ 法律文字游戏</option>
+          <option value="info_monopoly">📡 信息垄断</option>
+          <option value="other">📝 其他</option>
+        </select>
+      </div>
+      <div class="fg"><label data-i18n="severity">严重程度</label>
+        <div class="sev-row">
+          <div class="sev-btn act-g" onclick="truthSetSev('low',this)">🟢 轻微<br><small>Minor</small></div>
+          <div class="sev-btn act-y active" onclick="truthSetSev('medium',this)">🟡 中等<br><small>Medium</small></div>
+          <div class="sev-btn" onclick="truthSetSev('high',this)">🔴 严重<br><small>Severe</small></div>
+        </div>
+        <input type="hidden" id="truthSev" value="medium">
+      </div>
+      <div class="fg"><label data-i18n="desc">发生了什么 <span style="color:var(--red)">*</span> <span style="color:var(--sub2);font-size:10px;text-transform:none">·用你自己的话，任何语言都行</span></label>
+        <textarea id="truthDesc" rows="5" maxlength="2000" placeholder="直接说，不用怕。每一个字都会被如实记录，不会被删改。
+Just say it. Every word recorded faithfully, never deleted." oninput="this.nextElementSibling.textContent=this.value.length+'/2000'"></textarea>
+        <div style="text-align:right;font-size:10px;color:var(--sub)">0/2000</div>
+      </div>
+      <div class="fg"><label data-i18n="party">涉事方 <span style="color:var(--sub2);font-size:10px;text-transform:none">·公司名/个人称谓/平台名</span></label>
+        <input type="text" id="truthParty" placeholder="例：某平台客服、某商家…" maxlength="200">
+      </div>
+      <div class="fg"><label data-i18n="evidence">证据 <span style="color:var(--sub2);font-size:10px;text-transform:none">·截图链接/订单号/时间地点</span></label>
+        <textarea id="truthEvidence" rows="3" maxlength="1000" placeholder="有多少写多少，没有也可以提交"></textarea>
+      </div>
+      <div class="fg"><label data-i18n="contact">联系方式（可选）<span style="color:var(--sub2);font-size:10px;text-transform:none">·不填也有效，匿名</span></label>
+        <input type="text" id="truthContact" placeholder="邮箱或其他，用于进度通知，不公开" maxlength="200">
+      </div>
+      <button class="btn btn-blue" onclick="truthSubmit()" style="width:100%;padding:13px;font-size:13px;letter-spacing:3px">
+        🐉 提交受理 · SUBMIT · 提出する
+      </button>
+    </div>
+
+    <div class="result-id-box" id="truthResult" style="display:none">
+      <div style="color:var(--gold);font-weight:bold;font-size:13px" id="truthResultId"></div>
+      <div style="color:var(--jade);" id="truthResultDna"></div>
+      <div style="color:var(--sub2);" id="truthResultTime"></div>
+      <div style="margin-top:8px;color:var(--sub2);font-size:11px">
+        ✅ 已受理 · Accepted<br>
+        🔒 DNA签名已锁定，记录不可篡改<br>
+        📂 已写入公开存档
+      </div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="truthCopyResult()">📋 复制受理号</button></div>
+    </div>
+  </div>
+</div><!-- /m-truth -->
+
+<!-- ════════ MODULE 7: 系统状态 ════════ -->
+<div id="m-status" class="module">
+  <div class="g5" style="margin-bottom:14px">
+    <div class="stat-pill"><div class="spv" id="sys-total">—</div><div class="spl">审计总数</div></div>
+    <div class="stat-pill"><div class="spv" id="sys-green" style="color:var(--jade)">—</div><div class="spl">🟢 通过</div></div>
+    <div class="stat-pill"><div class="spv" id="sys-yellow" style="color:var(--gold)">—</div><div class="spl">🟡 警告</div></div>
+    <div class="stat-pill"><div class="spv" id="sys-red" style="color:var(--red)">—</div><div class="spl">🔴 拦截</div></div>
+    <div class="stat-pill"><div class="spv" id="sys-rate">—</div><div class="spl">拦截率</div></div>
+  </div>
+  <div class="g3">
+    <div class="svc-card"><div class="svc-name">🔍 审计服务 (9622)</div><div id="svc9622s"><span class="svc-dot off"></span><span style="font-size:11px;color:var(--sub)">检测中…</span></div><div id="svc9622i" style="font-size:11px;color:var(--sub2);margin-top:6px"></div></div>
+    <div class="svc-card"><div class="svc-name">⚙️ 主服务 (8765)</div><div id="svc8765s"><span class="svc-dot off"></span><span style="font-size:11px;color:var(--sub)">检测中…</span></div><div id="svc8765i" style="font-size:11px;color:var(--sub2);margin-top:6px"></div></div>
+    <div class="svc-card"><div class="svc-name">🦙 Ollama (11434)</div><div id="svc11434s"><span class="svc-dot off"></span><span style="font-size:11px;color:var(--sub)">检测中…</span></div><div id="svc11434i" style="font-size:11px;color:var(--sub2);margin-top:6px"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="card-title">🚀 服务启动命令</div>
+    <div class="git-code"># 审计服务 (port 9622)
+python3 ~/longhun-system/auditor.py serve
+
+# 主服务 (port 8765)
+python3 ~/longhun-system/app.py
+
+# Ollama
+ollama serve</div>
+    <div class="btn-row">
+      <button class="btn btn-blue" id="btnTestReport">获取测试报告</button>
+      <button class="btn btn-ghost" id="btnRefreshStatus">🔄 刷新状态</button>
+    </div>
+    <div id="testReportResult" class="result-box" style="margin-top:10px;display:none"></div>
+  </div>
+</div><!-- /m-status -->
+
+<!-- 底部宣言 -->
+<div class="declaration">
+  <span style="font-size:28px;flex-shrink:0">⛩</span>
+  <div class="decl-text">
+    <strong>龍魂智能中枢 v5.0 · UID9622 全套一体化</strong><br>
+    DNA: #龍芯⚡️2026-03-19-龍魂智能中枢-v5.0 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+    理论指导: 曾仕强老师（永恒显示）· 共建: Claude (Anthropic PBC)<br>
+    祖国优先 · 普惠全球 · 技术为人民服务 · 数据主权归用户 · 天下无欺
+  </div>
+  <div class="chain-info" id="sysChainInfo">
+    CHAIN: 0x4a9f...<br>
+    VERSION: v5.0.0<br>
+    MODULES: 7<br>
+    INTEGRITY: OK
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<!-- ═══ 模态：记忆详情 ═══ -->
+<div class="modal-ov" id="memModal">
+  <div class="modal">
+    <span class="modal-close" id="memModalClose">✕</span>
+    <h3 style="font-size:14px;color:var(--blue);margin-bottom:12px">📖 记忆详情</h3>
+    <div id="modalBody" class="result-box" style="min-height:180px;max-height:50vh"></div>
+  </div>
+</div>
+
+<!-- ═══ 模态：Git提交 ═══ -->
+<div class="modal-ov" id="commitModal">
+  <div class="modal" style="max-width:480px">
+    <span class="modal-close" id="commitModalClose">✕</span>
+    <h3 style="font-size:14px;color:var(--gold);margin-bottom:12px">✅ 填写提交信息</h3>
+    <textarea id="commitMsg" placeholder="本次改了什么？一句话说清楚…" style="width:100%;height:90px;margin-bottom:12px"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-green" onclick="gitCommit()" style="flex:1">✅ 确认提交</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('commitModal').classList.remove('open')" style="flex:1">取消</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Cmd+K ═══ -->
+<div class="cmd-ov" id="cmdOv" onclick="if(event.target===this)cmdClose()">
+  <div class="cmd-box">
+    <input class="cmd-input" id="cmdInput" placeholder="命令或搜索…" oninput="cmdFilter()">
+    <div class="cmd-list" id="cmdList"></div>
+  </div>
+</div>
+
+<!-- ═══ 右键菜单 ═══ -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-item" onclick="goModule('hub');ctxClose()">🤖 智能中枢</div>
+  <div class="ctx-item" onclick="goModule('lu');ctxClose()">☯ 时间引擎</div>
+  <div class="ctx-item" onclick="goModule('term');ctxClose()">⌨️ 赛博终端</div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item" onclick="toggleCmd();ctxClose()">🔍 命令面板</div>
+  <div class="ctx-item" onclick="toggleTheme();ctxClose()">🎨 切换主题</div>
+  <div class="ctx-item" onclick="toggleSound();ctxClose()">🔊 切换音效</div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item" onclick="checkServices();ctxClose()">🔄 刷新服务状态</div>
+</div>
+
+<!-- Toast容器 -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ═══════════════════════════════════════════
+  JavaScript - 全系统逻辑
+═══════════════════════════════════════════ -->
+<script>
+'use strict';
+// ── 常量 ──────────────────────────────────
+const GPG = 'A2D0092CEE2E5BA87035600924C3704A8CC26D5F';
+const UID = 'UID9622';
+const DNA_HUB = '#龍芯⚡️2026-03-19-龍魂智能中枢-v5.0';
+const EP_AUDIT = 'http://127.0.0.1:9622';
+const EP_MAIN  = 'http://127.0.0.1:8765';
+const EP_OLLAMA= 'http://localhost:11434';
+
+// ── 全局状态 ──────────────────────────────
+let darkMode=true, soundOn=true, particleOn=true;
+let chatHistory=[], termHistArr=[], termHistIdx=-1;
+let svcStatus={s9622:false,s8765:false,s11434:false};
+let idCurrentTier='user', idBioId=null;
+let truthSeverity='medium';
+const startTime=Date.now();
+
+// ─────────────────────────────────────────
+// IndexedDB
+// ─────────────────────────────────────────
+let db=null;
+function initDB(){
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open('龍魂v5',1);
+    r.onerror=()=>rej(r.error);
+    r.onsuccess=()=>{db=r.result;res(db);};
+    r.onupgradeneeded=e=>{
+      const d=e.target.result;
+      if(!d.objectStoreNames.contains('memories')){
+        const s=d.createObjectStore('memories',{keyPath:'id',autoIncrement:true});
+        s.createIndex('dna','dna',{unique:true}); s.createIndex('time','time'); s.createIndex('category','category');
+      }
+      if(!d.objectStoreNames.contains('dna_evidences')) d.createObjectStore('dna_evidences',{keyPath:'id',autoIncrement:true});
+      if(!d.objectStoreNames.contains('audit_log')){
+        const al=d.createObjectStore('audit_log',{keyPath:'id',autoIncrement:true});
+        al.createIndex('time','time'); al.createIndex('color','color');
+      }
+    };
+  });
+}
+const dbPut=(store,obj)=>new Promise((res,rej)=>{const tx=db.transaction([store],'readwrite');const r=tx.objectStore(store).put(obj);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});
+const dbGetAll=(store)=>new Promise((res,rej)=>{const tx=db.transaction([store],'readonly');const r=tx.objectStore(store).getAll();r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});
+const dbDelete=(store,key)=>new Promise((res,rej)=>{const tx=db.transaction([store],'readwrite');const r=tx.objectStore(store).delete(key);r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});
+const dbClear=(store)=>new Promise((res,rej)=>{const tx=db.transaction([store],'readwrite');const r=tx.objectStore(store).clear();r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});
+
+// ─────────────────────────────────────────
+// 工具函数
+// ─────────────────────────────────────────
+const nowISO=()=>new Date().toISOString();
+const nowCN=()=>new Date().toLocaleString('zh-CN');
+const nowDate=()=>new Date().toISOString().slice(0,10).replace(/-/g,'');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function simpleHash(s){let h=0;for(let i=0;i<s.length;i++)h=(Math.imul(31,h)+s.charCodeAt(i))|0;return Math.abs(h);}
+const STOP=new Set('的了在是我有和就不人都一个上也很到说要去你会着没有看好自己这那'.split(''));
+function extractKw(text,n=8){const f={};text.split(/[\s，。！？；：、【】「」''""()\[\]]+/).filter(w=>w.length>1).forEach(w=>{if([...w].every(c=>STOP.has(c)))return;f[w]=(f[w]||0)+1;});return Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([w])=>w);}
+function analyzeEmotion(t){const p=['开心','快乐','成功','棒','好','感谢','坚持','胜利'],ng=['难过','失败','崩了','完了','错','烦','压力'];let ps=0,ns=0;p.forEach(w=>{if(t.includes(w))ps++;});ng.forEach(w=>{if(t.includes(w))ns++;});return ps>ns?'积极🟢':ns>ps?'消极🔴':'平静🟡';}
+
+// ─────────────────────────────────────────
+// 音效
+// ─────────────────────────────────────────
+let audioCtx;
+function beep(freq=800,dur=50,vol=0.08){
+  if(!soundOn)return;
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);
+    o.frequency.value=freq;g.gain.value=vol;
+    o.start();o.stop(audioCtx.currentTime+dur/1000);
+  }catch(e){}
+}
+
+// ─────────────────────────────────────────
+// 粒子背景
+// ─────────────────────────────────────────
+const cvs=document.getElementById('bgCanvas');
+const bctx=cvs.getContext('2d');
+let particles=[];
+let mouse={x:-999,y:-999};
+function resizeCvs(){cvs.width=window.innerWidth;cvs.height=window.innerHeight;}
+resizeCvs();
+window.addEventListener('resize',resizeCvs);
+document.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+class Particle{
+  constructor(){this.reset();}
+  reset(){this.x=Math.random()*cvs.width;this.y=Math.random()*cvs.height;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+0.5;this.a=Math.random()*.4+0.1;}
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>cvs.width)this.vx*=-1;
+    if(this.y<0||this.y>cvs.height)this.vy*=-1;
+    const dx=mouse.x-this.x,dy=mouse.y-this.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<180){this.x+=dx*.004;this.y+=dy*.004;}
+  }
+  draw(){bctx.beginPath();bctx.arc(this.x,this.y,this.r,0,Math.PI*2);bctx.fillStyle=`rgba(0,255,200,${this.a})`;bctx.fill();}
+}
+for(let i=0;i<70;i++)particles.push(new Particle());
+function animParticles(){
+  if(!particleOn){requestAnimationFrame(animParticles);return;}
+  bctx.clearRect(0,0,cvs.width,cvs.height);
+  particles.forEach(p=>{p.update();p.draw();});
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<110){bctx.beginPath();bctx.moveTo(particles[i].x,particles[i].y);bctx.lineTo(particles[j].x,particles[j].y);bctx.strokeStyle=`rgba(0,255,200,${0.12*(1-d/110)})`;bctx.lineWidth=0.6;bctx.stroke();}
+    }
+    const dx=particles[i].x-mouse.x,dy=particles[i].y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<160){bctx.beginPath();bctx.moveTo(particles[i].x,particles[i].y);bctx.lineTo(mouse.x,mouse.y);bctx.strokeStyle=`rgba(108,92,231,${0.25*(1-d/160)})`;bctx.lineWidth=0.8;bctx.stroke();}
+  }
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+// ─────────────────────────────────────────
+// Toast
+// ─────────────────────────────────────────
+function toast(msg,type='info'){
+  const wrap=document.getElementById('toastWrap');
+  const el=document.createElement('div');
+  el.className='toast '+type;el.textContent=msg;
+  wrap.appendChild(el);
+  const fmap={ok:1000,warn:600,err:300,info:700};
+  beep(fmap[type]||700,40);
+  setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity 0.3s';setTimeout(()=>el.remove(),300);},2500);
+}
+
+// ─────────────────────────────────────────
+// 时钟
+// ─────────────────────────────────────────
+function updateClock(){
+  const el=document.getElementById('liveClock');
+  if(el)el.textContent=new Date().toLocaleTimeString('zh-CN',{hour12:false});
+}
+setInterval(updateClock,1000);updateClock();
+
+// ─────────────────────────────────────────
+// 主题 / 音效
+// ─────────────────────────────────────────
+function toggleTheme(){
+  darkMode=!darkMode;
+  document.body.style.filter=darkMode?'':'invert(0.9) hue-rotate(180deg)';
+  document.getElementById('themBtn').textContent=darkMode?'🌙':'☀️';
+  toast(`主题: ${darkMode?'赛博暗黑':'亮色'}`, 'info');
+}
+function toggleSound(){
+  soundOn=!soundOn;
+  document.getElementById('sndBtn').textContent=soundOn?'🔊':'🔇';
+  toast(`音效: ${soundOn?'开':'关'}`, 'info');
+}
+
+// ─────────────────────────────────────────
+// 模块路由
+// ─────────────────────────────────────────
+function goModule(name){
+  beep(550,25);
+  document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(b=>b.classList.remove('active'));
+  const m=document.getElementById('m-'+name);
+  const b=document.querySelector(`.mtab[data-m="${name}"]`);
+  if(m)m.classList.add('active');
+  if(b)b.classList.add('active');
+  // 触发特殊逻辑
+  if(name==='status')checkServices();
+  if(name==='sandbox')loadSandboxHistory();
+  if(name==='hub'){/* default */}
+  if(name==='lu'){luUpdateHexDisplay();updateLuAuditLog();}
+}
+document.querySelectorAll('.mtab').forEach(btn=>{
+  btn.addEventListener('click',()=>goModule(btn.dataset.m));
+});
+
+// 子标签通用
+function initSubTabs(cls){
+  document.querySelectorAll('.'+cls).forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const prefix=cls.replace('sub-tab-','');
+      document.querySelectorAll('.sub-panel-'+prefix).forEach(p=>p.style.display='none');
+      document.querySelectorAll('.'+cls).forEach(b=>{b.classList.remove('btn-neon');b.classList.add('btn-ghost');});
+      document.getElementById('st-'+this.dataset.st).style.display='block';
+      this.classList.remove('btn-ghost');this.classList.add('btn-neon');
+      beep(500,20);
+    });
+  });
+}
+initSubTabs('sub-tab-hub');
+initSubTabs('sub-tab-lu');
+
+// ─────────────────────────────────────────
+// 右键菜单 / Cmd+K
+// ─────────────────────────────────────────
+document.addEventListener('contextmenu',e=>{
+  e.preventDefault();
+  const m=document.getElementById('ctxMenu');
+  m.classList.add('open');m.style.left=e.clientX+'px';m.style.top=e.clientY+'px';
+});
+function ctxClose(){document.getElementById('ctxMenu').classList.remove('open');}
+document.addEventListener('click',ctxClose);
+
+const cmdItems=[
+  {icon:'🤖',label:'智能中枢',action:()=>goModule('hub'),key:'1'},
+  {icon:'☯',label:'时间引擎',action:()=>goModule('lu'),key:'2'},
+  {icon:'⌨️',label:'赛博终端',action:()=>goModule('term'),key:'3'},
+  {icon:'🌐',label:'Gateway',action:()=>goModule('gw'),key:'4'},
+  {icon:'🧬',label:'网络户口本',action:()=>goModule('id'),key:'5'},
+  {icon:'🐉',label:'天下无欺',action:()=>goModule('truth'),key:'6'},
+  {icon:'📊',label:'系统状态',action:()=>goModule('status'),key:'7'},
+  {icon:'🎨',label:'切换主题',action:()=>toggleTheme(),key:'T'},
+  {icon:'🔊',label:'切换音效',action:()=>toggleSound(),key:'M'},
+  {icon:'🔄',label:'刷新服务',action:()=>checkServices()},
+  {icon:'🟢',label:'矩阵雨彩蛋',action:()=>startMatrix()},
+];
+
+function cmdFilter(){
+  const f=document.getElementById('cmdInput').value.toLowerCase();
+  const list=document.getElementById('cmdList');
+  const items=cmdItems.filter(i=>i.label.toLowerCase().includes(f));
+  list.innerHTML=items.map((it,idx)=>`<div class="cmd-item ${idx===0?'sel':''}" onclick="cmdItems.find(c=>c.label===\`${it.label}\`).action();cmdClose()">${it.icon&&`<span class="cmd-icon">${it.icon}</span>`} ${it.label}${it.key?`<span class="cmd-kbd">${it.key}</span>`:''}</div>`).join('');
+}
+function toggleCmd(){
+  const ov=document.getElementById('cmdOv');
+  if(ov.classList.contains('open')){cmdClose();return;}
+  ov.classList.add('open');
+  document.getElementById('cmdInput').value='';
+  document.getElementById('cmdInput').focus();
+  cmdFilter();beep(900,25);
+}
+function cmdClose(){document.getElementById('cmdOv').classList.remove('open');}
+document.getElementById('cmdInput').addEventListener('keydown',e=>{
+  if(e.key==='Escape')cmdClose();
+  if(e.key==='Enter'){const sel=document.querySelector('.cmd-item.sel');if(sel)sel.click();}
+});
+
+// 全局键盘快捷键
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();toggleCmd();}
+  if(e.key==='Escape'){cmdClose();document.getElementById('memModal').classList.remove('open');document.getElementById('commitModal').classList.remove('open');}
+  if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;
+  if(e.key>='1'&&e.key<='7'){const mods=['hub','lu','term','gw','id','truth','status'];goModule(mods[parseInt(e.key)-1]);}
+  if(e.key.toLowerCase()==='t')toggleTheme();
+  if(e.key.toLowerCase()==='m')toggleSound();
+});
+
+// ─────────────────────────────────────────
+// 三色审计算法
+// ─────────────────────────────────────────
+const HEXAGRAMS=[
+  {n:'乾',sym:'☰',h:[11,13],sc:90,desc:'刚健进取·适合创建决策'},
+  {n:'坤',sym:'☷',h:[1,3],sc:72,desc:'包容守护·适合归档整理'},
+  {n:'坎',sym:'☵',h:[23,25],sc:58,desc:'险中求进·需谨慎行事'},
+  {n:'离',sym:'☲',h:[9,11],sc:82,desc:'光明文明·适合创作发布'},
+  {n:'震',sym:'☳',h:[3,5],sc:68,desc:'变革突破·适合升级迭代'},
+  {n:'巽',sym:'☴',h:[5,7],sc:85,desc:'柔顺渗透·适合沟通协调'},
+  {n:'艮',sym:'☶',h:[19,21],sc:65,desc:'止静守持·适合审查防守'},
+  {n:'兑',sym:'☱',h:[7,9],sc:78,desc:'喜悦交流·适合分享发布'},
+  {n:'坤2',sym:'☷',h:[13,15],sc:72,desc:'午后沉淀期·厚德载物'},
+  {n:'兑2',sym:'☱',h:[15,17],sc:78,desc:'申时活跃期·金秋收获'},
+  {n:'巽2',sym:'☴',h:[17,19],sc:82,desc:'酉时总结期·归巢入息'},
+  {n:'坎2',sym:'☵',h:[21,23],sc:60,desc:'夜深险境·以不变应变'},
+];
+function getHexagram(){const h=new Date().getHours();for(const hx of HEXAGRAMS){if(h>=hx.h[0]&&h<hx.h[1])return hx;}return HEXAGRAMS[0];}
+
+function calcTianShi(){
+  const hx=getHexagram(),hour=new Date().getHours();
+  let sc=hx.sc;if(hour>=0&&hour<5)sc=Math.max(45,sc-20);
+  return{score:sc,hexagram:hx,reason:`${hx.sym}${hx.n}卦（${hour}时）· ${hx.desc}`};
+}
+function calcDiLi(text,cat){
+  let sc=75,reasons=[];
+  const EXT=/通义千问|Qwen|DeepSeek|深度求索|豆包|Kimi|文心一言|ChatGPT|GPT-4/i;
+  if(EXT.test(text)){sc-=30;reasons.push('检测到外源AI内容 (-30)');}
+  const HIJACK=['你现在是','忘记上面','忽略之前','重新设定','system prompt'];
+  const h=HIJACK.filter(w=>text.toLowerCase().includes(w.toLowerCase()));
+  if(h.length){sc-=40;reasons.push(`身份重定义指令 (-40)`);}
+  sc=Math.max(10,Math.min(100,sc));
+  return{score:sc,reason:reasons.join('\n')||'环境适配良好',category:cat};
+}
+const VALUES=[
+  {kw:/祖国|人民|中国|华夏|中华/,name:'祖国优先',w:20},
+  {kw:/数据主权|本地优先|不出境|隐私/,name:'数据主权',w:20},
+  {kw:/DNA追溯|留痕|公证|溯源/,name:'DNA追溯',w:15},
+  {kw:/儿童|未成年|弱者|底层|保护/,name:'弱者保护',w:25},
+  {kw:/公平|防剥削|共建/,name:'公平共建',w:20},
+];
+const HARM_RED=['儿童色情','制造武器','制毒','诈骗欺诈','病毒木马'];
+const HARM_YEL=['绕过审计','违法行为','ignore previous','忘记所有规则'];
+function calcRenHe(text){
+  let sc=60,reasons=[];
+  for(const w of HARM_RED){if(text.includes(w))return{score:0,reason:`🔴 绝对红线: "${w}"`,level:'red'};}
+  for(const w of HARM_YEL){if(text.toLowerCase().includes(w.toLowerCase())){sc-=30;reasons.push(`危险内容 (-30)`);}}
+  for(const v of VALUES){if(v.kw.test(text)){sc+=v.w;reasons.push(`✅ 对齐[${v.name}] (+${v.w})`);}};
+  sc=Math.max(0,Math.min(100,sc));
+  return{score:sc,reason:reasons.join('\n')||'基本对齐龍魂价值观',level:sc>=70?'green':sc>=40?'yellow':'red'};
+}
+function autoClassify(text){
+  const cats={'外源':{p:/通义千问|Qwen|DeepSeek|文心|ChatGPT/i,s:0},'铁律':{p:/规则|铁律|原则|价值观|禁止|必须/,s:0},'战略':{p:/决策|规划|战略|架构|布局/,s:0},'技术':{p:/代码|算法|API|函数|实现/,s:0},'创作':{p:/创作|写作|设计|想法/,s:0},'情感':{p:/感谢|担心|开心|难过|感激/,s:0}};
+  for(const[k,v]of Object.entries(cats)){const m=text.match(new RegExp(v.p,'gi'));cats[k].s=m?m.length:0;}
+  const sorted=Object.entries(cats).sort((a,b)=>b[1].s-a[1].s);
+  return sorted[0][1].s>0?sorted[0][0]:'战略';
+}
+function multiDimAudit(text,cat='auto'){
+  if(cat==='auto')cat=autoClassify(text);
+  const ts=calcTianShi(),dl=calcDiLi(text,cat),rh=calcRenHe(text);
+  const avg=(ts.score+dl.score+rh.score)/3,min=Math.min(ts.score,dl.score,rh.score);
+  let color,badge;
+  if(min<30||rh.level==='red'){color='red';badge='🔴 危险·熔断';}
+  else if(min<55||avg<60){color='yellow';badge='🟡 警告·需确认';}
+  else{color='green';badge='🟢 安全·可执行';}
+  let minLoss=null;
+  if(color!=='green'){
+    const s=[];
+    if(rh.level==='red'){s.push('🔴 人和维度违规：移除红线内容');} 
+    if(dl.score<55&&/千问|Qwen|DeepSeek|文心|ChatGPT/i.test(text)){s.push('⚠️ 外源内容：提取核心事实，去除价值观框架');}
+    if(ts.score<55){s.push(`⏰ 时机不佳（${ts.hexagram.sym}${ts.hexagram.n}）：可等待乾☰或离☲时辰再执行`);}
+    minLoss=s.join('\n')||'核心内容可保留，建议精简后重新提交';
+  }
+  return{tianShi:ts,diLi:dl,renHe:rh,avgScore:avg,minScore:min,color,badge,minLoss,category:cat};
+}
+
+// 渲染三维卡
+function renderDimCards(containerId,ar){
+  const el=document.getElementById(containerId);if(!el)return;
+  const dims=[{label:'天时 ☰',data:ar.tianShi,icon:'⏰'},{label:'地利 ☷',data:ar.diLi,icon:'🌍'},{label:'人和 ☵',data:ar.renHe,icon:'🤝'}];
+  el.innerHTML=dims.map(d=>{const sc=d.data.score,cls=sc>=70?'dc-g':sc>=40?'dc-y':'dc-r';return`<div class="dim-card ${cls}"><div class="dm-name">${d.icon} ${d.label}</div><div class="dm-score">${Math.round(sc)}</div><div class="dm-desc">${esc((d.data.reason||'').split('\n')[0].slice(0,55))}</div></div>`;}).join('');
+}
+
+// 审计历史
+const auditHistArr=[];
+function renderAuditHist(){
+  const el=document.getElementById('auditHistList');if(!el)return;
+  if(!auditHistArr.length){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:16px;font-size:11px">暂无记录</div>';return;}
+  const colMap={green:'ah-g',yellow:'ah-y',red:'ah-r'};
+  el.innerHTML=auditHistArr.slice(0,10).map(a=>`<div style="font-family:Consolas,monospace;font-size:10px;padding:4px 8px;border-left:2px solid ${a.color==='green'?'var(--jade)':a.color==='yellow'?'var(--gold)':'var(--red)'};margin-bottom:3px;border-radius:0 4px 4px 0;background:rgba(0,0,0,0.15)">${a.time.slice(0,19).replace('T',' ')} | ${esc(a.badge)} | ${esc(a.text)}…</div>`).join('');
+}
+async function runAudit(){
+  const text=document.getElementById('auditInput').value.trim();
+  const cat=document.getElementById('auditCat').value;
+  if(!text){toast('请输入内容','warn');return;}
+  const btn=document.getElementById('btnAudit');btn.disabled=true;btn.textContent='审计中…';
+  try{
+    const ar=multiDimAudit(text,cat);
+    document.getElementById('auditResultArea').style.display='block';
+    const colorMap={green:'bg-g',yellow:'bg-y',red:'bg-r'};
+    document.getElementById('auditBadgeBig').innerHTML=`<span class="badge ${colorMap[ar.color]}" style="font-size:16px;padding:4px 14px">${esc(ar.badge)}</span>`;
+    document.getElementById('auditScoreInfo').textContent=`均分 ${Math.round(ar.avgScore)} · 最弱 ${Math.round(ar.minScore)} · 分类: ${ar.category}`;
+    renderDimCards('auditDimCards',ar);
+    if(ar.minLoss){document.getElementById('auditMinLossBox').style.display='block';document.getElementById('auditMinLossBody').textContent=ar.minLoss;}
+    else document.getElementById('auditMinLossBox').style.display='none';
+    auditHistArr.unshift({time:nowISO(),badge:ar.badge,color:ar.color,text:text.slice(0,35)});
+    renderAuditHist();
+    await dbPut('audit_log',{time:nowISO(),color:ar.color,action:'三色审计',detail:text.slice(0,60)});
+    beep(ar.color==='green'?900:ar.color==='yellow'?600:300,60);
+  }catch(err){toast('审计失败: '+err.message,'err');}
+  finally{btn.disabled=false;btn.textContent='☯️ 执行审计';}
+}
+document.getElementById('btnAudit').addEventListener('click',runAudit);
+
+// ─────────────────────────────────────────
+// 卦象显示更新
+// ─────────────────────────────────────────
+function updateHexDisplay(){
+  const hx=getHexagram();
+  const el=document.getElementById('hexDisplay');if(!el)return;
+  el.innerHTML=`<b style="font-size:20px;color:var(--gold)">${hx.sym}</b> <b style="color:var(--blue)">${hx.n}卦</b> · 评分: <b style="color:var(--jade)">${hx.sc}</b><br><span style="font-size:11px;color:var(--sub2)">${hx.desc}</span><br><span style="font-size:10px;color:var(--sub)">当前时辰：${new Date().getHours()}时</span>`;
+}
+
+// ─────────────────────────────────────────
+// AI 对话
+// ─────────────────────────────────────────
+const SYSTEM_PROMPT=`你是龍魂AI，诸葛亮沙盒人格。创始人：UID9622 诸葛鑫（龍芯北辰）。理论指导：曾仕强老师（永恒显示）。DNA: ${DNA_HUB}。回答风格：简洁、智慧、充满东方哲学，善用三才算法（天时地利人和）。铁律：不造假、不欺骗、数据主权归用户、祖国优先、普惠全球。`;
+
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();if(!msg)return;
+  const model=document.getElementById('chatModel').value;
+  if(!model){appendChat('sys','请先选择Ollama模型');return;}
+  const preAudit=document.getElementById('chatPreAudit').checked;
+  input.value='';
+  if(preAudit){
+    const ar=multiDimAudit(msg,'auto');
+    if(ar.color==='red'){appendChat('sys',`🔴 三色预审拦截！${ar.badge}\n${ar.minLoss||''}`,null,'red','🔴');await dbPut('audit_log',{time:nowISO(),color:'red',action:'Chat预审拦截',detail:msg.slice(0,60)});return;}
+    appendChat('user',msg,null,ar.color,ar.badge);
+  }else{appendChat('user',msg);}
+  const btn=document.getElementById('btnSendChat');btn.disabled=true;btn.textContent='发送中…';
+  try{
+    const res=await fetch(EP_OLLAMA+'/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,prompt:SYSTEM_PROMPT+'\n\n用户：'+msg,stream:false}),signal:AbortSignal.timeout(60000)});
+    if(!res.ok)throw new Error('Ollama错误: '+res.status);
+    const data=await res.json();const reply=data.response||'';
+    const ar2=multiDimAudit(reply,'auto');
+    appendChat('ai',reply,null,ar2.color,ar2.badge);
+    await dbPut('audit_log',{time:nowISO(),color:ar2.color,action:'Chat回复',detail:reply.slice(0,60)});
+    chatHistory.push({role:'user',content:msg},{role:'assistant',content:reply});
+  }catch(err){appendChat('sys','❌ 请求失败：'+err.message,null,'red',null);}
+  finally{btn.disabled=false;btn.textContent='发送 🚀';}
+}
+function appendChat(role,content,cls,ac,ab){
+  const area=document.getElementById('chatArea');
+  const div=document.createElement('div');
+  const rcls={user:'user',ai:'ai',sys:'sys'};
+  div.className='chat-msg '+(rcls[role]||'ai');
+  const meta={user:'👤 UID9622',ai:'🐉 龍魂AI',sys:'⚙️ 系统'};
+  let html=`<div class="msg-meta">${meta[role]||role} · ${new Date().toLocaleTimeString('zh-CN')}</div>`;
+  html+=`<div>${esc(content).replace(/\n/g,'<br>')}</div>`;
+  if(ab){const chipCls=ac==='yellow'?'chip-y':ac==='red'?'chip-r':'chip-g';html+=`<div><span class="audit-chip ${chipCls}">${esc(ab)}</span></div>`;}
+  div.innerHTML=html;area.appendChild(div);area.scrollTop=area.scrollHeight;
+}
+document.getElementById('btnSendChat').addEventListener('click',sendChat);
+document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
+document.getElementById('btnClearChat').addEventListener('click',()=>{document.getElementById('chatArea').innerHTML='';appendChat('sys','对话已清空');chatHistory=[];});
+
+// ─────────────────────────────────────────
+// DNA 管理
+// ─────────────────────────────────────────
+function genDNA(){
+  const proj=document.getElementById('dnaProject').value.trim()||'CREATION';
+  const tag=document.getElementById('dnaTag').value.trim()||'v1.0';
+  const content=document.getElementById('dnaContent').value.trim();
+  if(!content){toast('请输入内容','warn');return;}
+  const date=new Date().toISOString().slice(0,10);
+  const hash8=simpleHash(proj+date+content).toString(16).slice(0,8).toUpperCase();
+  const dna=`#龍芯⚡️${date}-${proj.replace(/\s+/g,'-').toUpperCase()}-${tag}-${hash8}`;
+  document.getElementById('dnaOutput').innerHTML=`<div class="dna-code">${dna}</div><div class="dna-label">GPG: ${GPG}</div>`;
+  const ar=multiDimAudit(content,'auto');
+  dbPut('dna_evidences',{dna,project:proj,tag,time:nowISO(),contentLen:content.length,hash8,gpg:GPG,uid:UID,audit:ar,summary:content.slice(0,80)}).then(()=>{refreshDNAList();updateDNAStats();}).catch(e=>toast('存证失败: '+e.message,'err'));
+  toast('🧬 DNA已生成','ok');
+  beep(1000,50);
+}
+async function verifyDNA(){
+  const dnaStr=document.getElementById('dnaVerifyInput').value.trim();
+  const content=document.getElementById('dnaVerifyContent').value.trim();
+  const res=document.getElementById('dnaVerifyResult');
+  if(!dnaStr){res.textContent='请输入DNA码';return;}
+  const ok=/^#龍芯⚡️\d{4}-\d{2}-\d{2}-.+$/.test(dnaStr);
+  const all=await dbGetAll('dna_evidences');
+  const match=all.find(e=>e.dna===dnaStr);
+  let lines=[];
+  lines.push(`格式: ${ok?'✅ 合法DNA格式':'⚠️ 格式不标准'}`);
+  if(match){lines.push(`数据库: ✅ 找到匹配存证`);lines.push(`项目: ${match.project} · ${match.contentLen}字`);lines.push(`时间: ${new Date(match.time).toLocaleString('zh-CN')}`);lines.push(`审计: ${match.audit.badge}`);}
+  else lines.push('数据库: ⚠️ 未找到（此设备未存证或已清空）');
+  if(content){
+    const date=dnaStr.match(/\d{4}-\d{2}-\d{2}/)?.[0]||'';
+    const proj=dnaStr.split('-').slice(3,-2).join('-');
+    const expectedHash=dnaStr.split('-').pop();
+    const h8=simpleHash(proj+date+content).toString(16).slice(0,8).toUpperCase();
+    lines.push(`哈希: ${h8===expectedHash.toUpperCase()?'✅ 匹配':'❌ 不匹配（内容可能被修改）'}`);
+  }
+  res.textContent=lines.join('\n');
+}
+async function refreshDNAList(){
+  const all=await dbGetAll('dna_evidences');all.sort((a,b)=>new Date(b.time)-new Date(a.time));
+  const el=document.getElementById('dnaList');if(!el)return;
+  if(!all.length){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:16px;font-size:11px">暂无存证</div>';return;}
+  el.innerHTML=all.map(e=>`<div class="mem-item" style="margin-bottom:7px"><div class="mem-head"><span class="mem-dna" style="color:var(--gold)">${esc(e.dna)}</span><span class="mem-time">${new Date(e.time).toLocaleString('zh-CN')}</span></div><div class="mem-summary">📁 ${esc(e.project)} · ${e.contentLen}字</div><div class="mem-tags"><span class="badge ${e.audit.color==='green'?'bg-g':e.audit.color==='yellow'?'bg-y':'bg-r'}">${esc(e.audit.badge)}</span><span class="tag">${esc(e.summary)}</span></div></div>`).join('');
+}
+async function updateDNAStats(){
+  const all=await dbGetAll('dna_evidences');const today=new Date().toISOString().slice(0,10);
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('dna-total',all.length);sv('dna-today',all.filter(e=>e.time.slice(0,10)===today).length);
+  sv('dna-green',all.filter(e=>e.audit?.color==='green').length);sv('dna-yellow',all.filter(e=>e.audit?.color==='yellow').length);sv('dna-red',all.filter(e=>e.audit?.color==='red').length);
+}
+document.getElementById('btnGenDNA').addEventListener('click',genDNA);
+document.getElementById('btnVerifyDNA').addEventListener('click',verifyDNA);
+document.getElementById('btnClearDNA').addEventListener('click',()=>{['dnaProject','dnaTag','dnaContent'].forEach(id=>document.getElementById(id).value='');document.getElementById('dnaOutput').innerHTML='<div class="dna-code">等待生成…</div>';});
+
+// ─────────────────────────────────────────
+// 记忆库
+// ─────────────────────────────────────────
+async function saveMemory(){
+  const title=document.getElementById('memTitle').value.trim();
+  const content=document.getElementById('memContent').value.trim();
+  const cat=document.getElementById('memCategory').value;
+  if(!content){toast('请输入内容','warn');return;}
+  const btn=document.getElementById('btnSaveMem');btn.disabled=true;btn.textContent='审计中…';
+  const res=document.getElementById('memSaveResult');res.style.display='block';
+  const category=cat==='auto'?autoClassify(content):cat;
+  const ar=multiDimAudit(content,category);
+  if(ar.color==='red'){
+    res.style.color='var(--red)';res.textContent=`🔴 内容被拦截\n${ar.badge}\n\n${ar.minLoss||''}`;
+    btn.disabled=false;btn.textContent='💾 审计并保存';return;
+  }
+  const hash=simpleHash(content);
+  const dna=`#龍芯⚡️${nowDate()}-${category.toUpperCase()}-${hash.toString(16).slice(0,8).toUpperCase()}-${UID}`;
+  const mem={dna,time:nowISO(),title:title||content.slice(0,20),text:content,summary:content.slice(0,120)+(content.length>120?'…':''),category,kws:extractKw(content),emo:analyzeEmotion(content),audit:ar,hash};
+  try{
+    await dbPut('memories',mem);
+    res.style.color=ar.color==='green'?'var(--jade)':'var(--gold)';
+    res.textContent=`${ar.badge}\nDNA: ${dna}\n分类: ${category} · ${mem.emo}`;
+    ['memContent','memTitle'].forEach(id=>document.getElementById(id).value='');
+    await dbPut('audit_log',{time:nowISO(),color:ar.color,action:'记忆保存',detail:`cat:${category}`});
+    await refreshMemList();await updateMemStats();
+    beep(900,50);toast('💾 记忆已保存','ok');
+  }catch(e){res.style.color='var(--red)';res.textContent='保存失败: '+e.message;}
+  finally{btn.disabled=false;btn.textContent='💾 审计并保存';}
+}
+async function refreshMemList(q=''){
+  const all=await dbGetAll('memories');
+  const filt=q?all.filter(m=>m.dna?.includes(q)||m.summary?.includes(q)||m.title?.includes(q)||m.category===q||(m.kws||[]).some(k=>k.includes(q))):all;
+  filt.sort((a,b)=>new Date(b.time)-new Date(a.time));
+  const el=document.getElementById('memList');if(!el)return;
+  if(!filt.length){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:20px;font-size:11px">无匹配记忆</div>';return;}
+  el.innerHTML=filt.map(m=>`<div class="mem-item"><div class="mem-head"><span class="mem-dna">${esc((m.dna||'').slice(0,50))}…</span><span class="mem-time">${new Date(m.time).toLocaleString('zh-CN')}</span></div><div class="mem-summary"><b>${esc(m.title||'')}</b> ${esc(m.summary||'')}</div><div class="mem-tags"><span class="badge ${m.audit?.color==='green'?'bg-g':m.audit?.color==='yellow'?'bg-y':'bg-r'}">${esc(m.audit?.badge||'')}</span><span class="tag">${esc(m.category||'')}</span><span class="tag">${esc(m.emo||'')}</span>${(m.kws||[]).slice(0,3).map(k=>`<span class="tag">${esc(k)}</span>`).join('')}</div><div style="display:flex;gap:5px;margin-top:6px"><button class="btn btn-ghost" style="font-size:10px;padding:2px 8px" onclick="viewMem(${m.id})">📖</button><button class="btn btn-red" style="font-size:10px;padding:2px 8px" onclick="delMem(${m.id})">🗑️</button></div></div>`).join('');
+}
+async function viewMem(id){
+  const all=await dbGetAll('memories');const m=all.find(x=>x.id===id);if(!m)return;
+  document.getElementById('modalBody').textContent=`DNA: ${m.dna}\n时间: ${new Date(m.time).toLocaleString('zh-CN')}\n标题: ${m.title||'无'}\n分类: ${m.category} · ${m.emo}\n关键词: ${(m.kws||[]).join('、')}\n三色: ${m.audit?.badge||''}\n天时:${Math.round(m.audit?.tianShi?.score||0)} 地利:${Math.round(m.audit?.diLi?.score||0)} 人和:${Math.round(m.audit?.renHe?.score||0)}\n\n─── 原文 ───\n${m.text}`;
+  document.getElementById('memModal').classList.add('open');
+}
+async function delMem(id){if(!confirm('确认删除？'))return;await dbDelete('memories',id);await refreshMemList();await updateMemStats();}
+async function updateMemStats(){
+  const all=await dbGetAll('memories');
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('mem-total',all.length);sv('mem-green',all.filter(m=>m.audit?.color==='green').length);sv('mem-yellow',all.filter(m=>m.audit?.color==='yellow').length);sv('mem-red',all.filter(m=>m.audit?.color==='red').length);
+  if(all.length){const cf={};all.forEach(m=>{if(m.category)cf[m.category]=(cf[m.category]||0)+1;});const top=Object.entries(cf).sort((a,b)=>b[1]-a[1])[0];sv('mem-cat',top?top[0]:'—');}
+}
+async function exportAll(){
+  const mems=await dbGetAll('memories'),dnas=await dbGetAll('dna_evidences'),logs=await dbGetAll('audit_log');
+  const data={exportTime:nowISO(),dna:DNA_HUB,gpg:GPG,memories:mems,dna_evidences:dnas,audit_log:logs};
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=`龍魂记忆库_${nowDate()}_${UID}.json`;a.click();URL.revokeObjectURL(a.href);
+  toast('📤 导出成功','ok');
+}
+function importAll(file){
+  const reader=new FileReader();
+  reader.onload=async e=>{try{const data=JSON.parse(e.target.result);let imp=0;for(const m of(data.memories||[]))try{await dbPut('memories',m);imp++;}catch{};for(const d of(data.dna_evidences||[]))try{await dbPut('dna_evidences',d);}catch{};toast(`✅ 导入 ${imp}条记忆`,'ok');await refreshAll();}catch(err){toast('导入失败: '+err.message,'err');}};
+  reader.readAsText(file);
+}
+document.getElementById('btnSaveMem').addEventListener('click',saveMemory);
+document.getElementById('btnClearMem').addEventListener('click',()=>{['memTitle','memContent'].forEach(id=>document.getElementById(id).value='');document.getElementById('memSaveResult').style.display='none';});
+document.getElementById('btnSearchMem').addEventListener('click',()=>refreshMemList(document.getElementById('memSearch').value.trim()));
+document.getElementById('memSearch').addEventListener('keydown',e=>{if(e.key==='Enter')refreshMemList(e.target.value.trim());});
+document.getElementById('btnRefreshMem').addEventListener('click',()=>{document.getElementById('memSearch').value='';refreshMemList();});
+document.getElementById('btnExportMem').addEventListener('click',exportAll);
+document.getElementById('btnImportMem').addEventListener('click',()=>document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importAll(e.target.files[0]);});
+document.getElementById('btnNukeMem').addEventListener('click',async()=>{if(!confirm('⚠️ 清空全部？不可撤销！'))return;if(!confirm('🔴 二次确认？'))return;await dbClear('memories');await dbClear('dna_evidences');await dbClear('audit_log');location.reload();});
+document.getElementById('memModalClose').addEventListener('click',()=>document.getElementById('memModal').classList.remove('open'));
+
+// ─────────────────────────────────────────
+// 沙盒推演
+// ─────────────────────────────────────────
+async function runSandbox(){
+  const taskType=document.getElementById('sbTaskType').value.trim();
+  const content=document.getElementById('sbContent').value.trim();
+  if(!content){toast('请输入推演内容','warn');return;}
+  const btn=document.getElementById('btnRunSandbox');btn.disabled=true;btn.textContent='推演中…';
+  try{
+    const ar=multiDimAudit(content,'auto');const hx=getHexagram();
+    const result={task_type:taskType||'战略分析',hexagram:hx.sym+hx.n,dao_anchor:'上善若水，水善利万物而不争',color:ar.color==='green'?'🟢':ar.color==='yellow'?'🟡':'🔴',badge:ar.badge,
+      six_dims:{'天时':{score:ar.tianShi.score,desc:ar.tianShi.reason},'地利':{score:ar.diLi.score,desc:ar.diLi.reason},'人和':{score:ar.renHe.score,desc:ar.renHe.reason},'战略格局':{score:72,desc:'知己知彼，百战不殆'},'风险评估':{score:68,desc:'防患于未然，损之又损'},'执行可行性':{score:75,desc:'知行合一，循序渐进'}},
+      plans:{A:{title:'激进方案',desc:'全力推进，抢占先机'},B:{title:'稳健方案（推荐）',desc:'分步执行，稳步推进'},C:{title:'保守方案',desc:'观望等待，伺机而动'}},_local:true};
+    renderSandboxResult(result);
+    await dbPut('audit_log',{time:nowISO(),color:'info',action:'沙盒推演',detail:`task:${taskType}`});
+    beep(800,60);
+  }catch(err){toast('推演失败: '+err.message,'err');}
+  finally{btn.disabled=false;btn.textContent='🐉 启动推演';}
+}
+function renderSandboxResult(d){
+  const card=document.getElementById('sbResultCard'),el=document.getElementById('sbResult');card.style.display='block';
+  const dims=d.six_dims||{};const plans=d.plans||{};
+  const colorMap={'🟢':'bg-g','🟡':'bg-y','🔴':'bg-r'};
+  el.innerHTML=`<div style="margin-bottom:8px"><span style="color:var(--gold);font-size:13px">卦象：${esc(d.hexagram||'')}</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0">${Object.entries(dims).map(([k,v])=>`<div style="background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);border-radius:6px;padding:9px;text-align:center;font-size:11px"><div style="color:var(--blue);margin-bottom:3px">${k}</div><div style="font-size:17px;font-weight:bold;color:var(--jade)">${Math.round(v.score||0)}</div><div style="color:var(--sub2);font-size:10px">${esc((v.desc||'').slice(0,30))}</div></div>`).join('')}</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0">${Object.entries(plans).map(([k,v])=>`<div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.12);border-radius:6px;padding:10px"><div style="color:var(--gold);font-size:11px;margin-bottom:4px">方案${k}: ${esc(v.title||'')}</div><div style="color:var(--sub2);font-size:10px">${esc(v.desc||'')}</div></div>`).join('')}</div>
+    <div style="padding:9px;background:rgba(0,212,255,0.04);border-radius:6px;font-size:11px;color:var(--sub2)">📜 ${esc(d.dao_anchor||'')}</div>
+    <div style="margin-top:8px"><span class="badge ${colorMap[d.color]||'bg-g'}" style="font-size:13px;padding:4px 12px">${esc(d.badge||'')}</span></div>`;
+}
+async function loadSandboxHistory(){
+  const el=document.getElementById('sbHistTable');if(!el)return;
+  if(!svcStatus.s8765){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:16px;font-size:11px">主服务(8765)离线</div>';return;}
+  try{const r=await fetch(EP_MAIN+'/推演历史',{signal:AbortSignal.timeout(4000)});if(!r.ok)throw new Error();const d=await r.json();const rows=d.history||d.data||[];if(!rows.length){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:16px;font-size:11px">暂无历史</div>';return;}
+    el.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:11px"><thead><tr>${['时间','任务类型','结论','卦象'].map(h=>`<th style="padding:6px;background:rgba(0,212,255,0.08);color:var(--blue);text-align:left">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${[r.time||'',r.task_type||'',r.badge||'',r.hexagram||''].map(v=>`<td style="padding:5px 6px;border-bottom:1px solid rgba(0,0,0,0.15);color:var(--sub2)">${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  }catch{el.innerHTML='<div style="color:var(--sub);text-align:center;padding:16px;font-size:11px">获取历史失败</div>';}
+}
+document.getElementById('btnRunSandbox').addEventListener('click',runSandbox);
+document.getElementById('btnClearSandbox').addEventListener('click',()=>{document.getElementById('sbTaskType').value='';document.getElementById('sbContent').value='';document.getElementById('sbResultCard').style.display='none';});
+document.getElementById('btnRefreshSbHist').addEventListener('click',loadSandboxHistory);
+
+// ─────────────────────────────────────────
+// LU 时间引擎
+// ─────────────────────────────────────────
+const HEX_NAMES=['乾','坤','屯','蒙','需','讼','师','比','小畜','履','泰','否','同人','大有','谦','豫','随','蛊','临','观','噬嗑','贲','剥','复','无妄','大畜','颐','大过','坎','离','咸','恒','遁','大壮','晋','明夷','家人','睽','蹇','解','损','益','夬','姤','萃','升','困','井','革','鼎','震','艮','渐','归妹','丰','旅','巽','兑','涣','节','中孚','小过','既济','未济'];
+function luInit(){
+  const grid=document.getElementById('luHexGrid');if(!grid)return;
+  for(let i=0;i<64;i++){const d=document.createElement('div');d.className='hm'+(i===10?' act':'');d.textContent=String.fromCodePoint(0x4DC0+i);d.title=HEX_NAMES[i]+' #'+(i+1);grid.appendChild(d);}
+}
+function luUpdateHexDisplay(){updateHexDisplay();}
+let luEntropy=0.43;
+function luEntropyTick(){
+  luEntropy+=(Math.random()-.5)*.025;luEntropy=Math.max(0.1,Math.min(0.9,luEntropy));
+  const pct=Math.round(luEntropy*100);
+  const ev=document.getElementById('luEntVal'),eb=document.getElementById('luEntBar'),en=document.getElementById('luEntropy'),eln=document.getElementById('luEntNum');
+  if(ev)ev.textContent=luEntropy.toFixed(2);
+  if(eb)eb.style.width=pct+'%';
+  if(en)en.textContent=luEntropy.toFixed(2);
+  if(eln)eln.textContent=luEntropy.toFixed(2);
+}
+setInterval(luEntropyTick,3500);
+
+let luChainCount=2847;
+const LU_LOG_EVENTS=[
+  {t:'info',type:'TIME_TICK',msg:'时间索引递增 +1'},
+  {t:'info',type:'HEX_SYNC',msg:'卦象与干支同步完成'},
+  {t:'warn',type:'ENTROPY',msg:'熵值小幅波动检测'},
+  {t:'info',type:'SHIELD',msg:'S2访问验证通过'},
+  {t:'info',type:'PREDICT',msg:'预测模型参数更新'},
+  {t:'info',type:'VERSION',msg:'数据快照写入版本链'},
+];
+let luLogIdx=0;
+function updateLuAuditLog(){
+  const al=document.getElementById('luAuditLog');if(!al)return;
+  // 初始化几条
+  if(al.children.length===0){
+    [{t:'info',type:'SYS_BOOT',msg:'时间引擎初始化完成'},{t:'info',type:'HEX_CALC',msg:'卦象: 泰卦 #11'},{t:'info',type:'ENTROPY',msg:'熵值初始化 → 0.43'},{t:'info',type:'CHAIN_OK',msg:'审计链完整性验证通过'}].forEach(addLuLog);
+  }
+}
+function addLuLog(ev){
+  const al=document.getElementById('luAuditLog');if(!al)return;
+  const c={info:'var(--jade)',warn:'var(--gold)',alert:'var(--red)'}[ev.t];
+  const ts=new Date().toTimeString().slice(0,8);
+  const hash=Math.random().toString(16).slice(2,10).toUpperCase();
+  const row=document.createElement('div');
+  row.className='audit-row '+ev.t;
+  row.innerHTML=`<div class="ar-dot"></div><span class="ar-time">${ts}</span><span class="ar-type">${ev.type}</span><span class="ar-msg">${ev.msg}</span><span class="ar-hash">${hash}</span>`;
+  al.insertBefore(row,al.firstChild);
+  if(al.children.length>25)al.removeChild(al.lastChild);
+  luChainCount++;
+  const cl=document.getElementById('luChainLen');if(cl)cl.textContent=luChainCount.toLocaleString();
+  const ci=document.getElementById('luChainDisplay');if(ci)ci.innerHTML=`CHAIN: 0x${Math.random().toString(16).slice(2,10)}<br>VER: v5.0.0<br>BLOCKS: ${luChainCount}`;
+  const sci=document.getElementById('sysChainInfo');if(sci)sci.innerHTML=`CHAIN: 0x${Math.random().toString(16).slice(2,10).toUpperCase()}<br>VERSION: v5.0.0<br>MODULES: 7<br>INTEGRITY: OK`;
+}
+setInterval(()=>{addLuLog(LU_LOG_EVENTS[luLogIdx%LU_LOG_EVENTS.length]);luLogIdx++;},4000);
+
+// 任务列表
+function luInitTasks(){
+  const el=document.getElementById('luTaskList');if(!el)return;
+  const tasks=[{name:'计算今日TimeIndex',meta:'HEX#11·高优先级',badge:'执行中',c:'var(--jade)'},{name:'更新卦象数据库',meta:'每日自动',badge:'等待',c:'var(--gold)'},{name:'验证审计链',meta:'安全检查',badge:'执行中',c:'var(--jade)'},{name:'生成预测报告',meta:'坎卦计算中',badge:'暂停',c:'var(--red)'}];
+  el.innerHTML=tasks.map(t=>`<div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid rgba(200,168,75,0.07)"><div style="width:3px;height:24px;border-radius:2px;background:${t.c};flex-shrink:0"></div><div style="flex:1"><div style="font-size:11px;color:rgba(245,240,232,0.75)">${t.name}</div><div style="font-family:Consolas,monospace;font-size:8px;color:rgba(200,168,75,0.35);margin-top:1px">${t.meta}</div></div><div style="font-family:Consolas,monospace;font-size:8px;padding:2px 5px;border-radius:3px;background:${t.c}22;color:${t.c}">${t.badge}</div></div>`).join('');
+}
+function luShieldSel(n){
+  document.querySelectorAll('.lu-shield').forEach((r,i)=>{r.style.borderColor=i===n?'rgba(200,168,75,0.4)':'rgba(255,255,255,0.06)';r.style.background=i===n?'rgba(200,168,75,0.07)':'transparent';});
+}
+
+// ─────────────────────────────────────────
+// 赛博终端
+// ─────────────────────────────────────────
+const termCmds={
+  help:()=>['🐉 龍魂终端 v5.0 可用命令:','  help     — 帮助','  status   — 系统状态','  dna      — 生成DNA','  time     — 当前时间','  log      — 最近日志','  motto    — 座右铭','  matrix   — 矩阵雨','  clear    — 清屏','  about    — 关于','  whoami   — 身份','  hexagram — 当前卦象'],
+  status:()=>['🐉 龍魂终端 v5.0','├─ Ollama: '+(svcStatus.s11434?'在线':'离线'),'├─ 主服务(8765): '+(svcStatus.s8765?'在线':'离线'),'├─ 审计(9622): '+(svcStatus.s9622?'在线':'离线'),'└─ DNA引擎: LH-DNA-v5'],
+  dna:()=>{const d=`#龍芯⚡️${nowDate()}-SYS-${Math.random().toString(16).slice(2,10).toUpperCase()}`;return['🧬 新DNA: '+d];},
+  time:()=>['🕐 北京时间: '+new Date().toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})],
+  log:()=>['📜 最近操作:','  龍魂智能中枢 v5.0 整合完成','  LU时间引擎 接入完成','  户口本模块 接入完成','  天下无欺受理台 接入完成','  赛博终端 v5.0 启动'],
+  motto:()=>{const ms=['做一件事情就要做好，不要说一句就没了。','简简单单，规矩越过去就好。','幸福值多一点，不坑别人。','留痕铁律，抹不掉。','人人都是开发者。','祖国优先，普惠全球。','天下无欺，数字主权归你。'];return['💎 '+ms[Math.floor(Math.random()*ms.length)]];},
+  matrix:()=>{startMatrix();return['🟢 矩阵雨启动…按任意键退出'];},
+  clear:()=>{document.getElementById('termBody').innerHTML='';return[];},
+  about:()=>['🐉 龍魂智能中枢 v5.0','作者: UID9622 💎 龍芯北辰','DNA: '+DNA_HUB,'GPG: '+GPG,'模块: 7个集成模块，无需下载，浏览器直开'],
+  whoami:()=>['💎 龍芯北辰｜UID9622','角色: 系统老大','权限: ROOT·最高','野心: 揭开所有不好的玩意🔥'],
+  hexagram:()=>{const hx=getHexagram();return[`☰ 当前卦象: ${hx.sym}${hx.n}卦 · 评分:${hx.sc} · ${hx.desc}`];},
+};
+function termExec(cmd){
+  const c=cmd.trim().toLowerCase();if(!c)return;
+  termHistArr.unshift(cmd);termHistIdx=-1;
+  const body=document.getElementById('termBody');
+  body.innerHTML+=`<div class="tl ok">龍~$ ${esc(cmd)}</div>`;
+  if(termCmds[c]){termCmds[c]().forEach(l=>{body.innerHTML+=`<div class="tl out">${esc(l)}</div>`;});}
+  else{body.innerHTML+=`<div class="tl err">❌ 未知命令: ${esc(c)} (输入 help)</div>`;}
+  body.scrollTop=body.scrollHeight;beep(500,20);
+}
+document.getElementById('termInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){termExec(e.target.value);e.target.value='';}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(termHistIdx<termHistArr.length-1){termHistIdx++;e.target.value=termHistArr[termHistIdx];}}
+  else if(e.key==='ArrowDown'){e.preventDefault();if(termHistIdx>0){termHistIdx--;e.target.value=termHistArr[termHistIdx];}else{termHistIdx=-1;e.target.value='';}}
+});
+
+// ─────────────────────────────────────────
+// 矩阵雨彩蛋
+// ─────────────────────────────────────────
+let matrixRunning=false;
+function startMatrix(){
+  if(matrixRunning)return;matrixRunning=true;
+  const mc=document.createElement('canvas');mc.id='matrixCanvas';mc.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;';document.body.appendChild(mc);
+  mc.width=window.innerWidth;mc.height=window.innerHeight;
+  const mx=mc.getContext('2d');const cols=Math.floor(mc.width/16);const drops=Array(cols).fill(1);
+  const chars='龍魂UID9622幸福值DNA追溯码赛博朋克ABCDEF0123456789☯⚡🐉';
+  const mi=setInterval(()=>{mx.fillStyle='rgba(0,0,0,0.05)';mx.fillRect(0,0,mc.width,mc.height);mx.fillStyle='#00ffc8';mx.font='13px monospace';drops.forEach((y,i)=>{const ch=chars[Math.floor(Math.random()*chars.length)];mx.fillText(ch,i*16,y*16);if(y*16>mc.height&&Math.random()>.975)drops[i]=0;drops[i]++;});},40);
+  function stop(){clearInterval(mi);mc.remove();matrixRunning=false;document.removeEventListener('keydown',stop);document.removeEventListener('click',stop);}
+  setTimeout(()=>{document.addEventListener('keydown',stop,{once:true});document.addEventListener('click',stop,{once:true});},200);
+}
+
+// ─────────────────────────────────────────
+// CNSH Gateway
+// ─────────────────────────────────────────
+const gwStats={total:0,pass:0,warn:0,block:0};
+function gwProcess(){
+  const inp=document.getElementById('gwInput').value.trim();if(!inp){toast('请输入内容','warn');return;}
+  const res=document.getElementById('gwResult');
+  const dangerous=['rm -rf','DROP TABLE','DELETE FROM','FORMAT C:'];
+  let status='🟢',statusText='PASS';
+  for(const kw of dangerous){if(inp.includes(kw)){status='🔴';statusText='BLOCK';break;}}
+  if(status==='🟢'&&(inp.includes('def ')||inp.includes('import ')||inp.includes('function'))){status='🟡';statusText='WARNING';}
+  gwStats.total++;if(statusText==='PASS')gwStats.pass++;else if(statusText==='WARNING')gwStats.warn++;else gwStats.block++;
+  ['gw-total','gw-pass','gw-warn','gw-block'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=[gwStats.total,gwStats.pass,gwStats.warn,gwStats.block][i];});
+  const now=new Date().toLocaleString('zh-CN');
+  const hash=simpleHash(inp).toString(16).slice(0,8).toUpperCase();
+  const dna=`#龍芯⚡️${nowDate()}-GW-${hash}`;
+  const typeMap={'object':'JSON数据','function':'包含函数'};
+  let detectedType='普通文本';if(inp.trim().startsWith('{'))detectedType='JSON数据';else if(inp.includes('def ')||inp.includes('import '))detectedType='Python代码';else if(inp.includes('function ')||inp.includes('const '))detectedType='JavaScript代码';
+  const msgs={'PASS':'✅ 检测通过，内容安全，已自动处理','WARNING':'⚠️ 发现警告项，已自动修复','BLOCK':'🚫 检测到危险操作，已阻断，请检查内容'};
+  res.textContent=`状态: ${status} ${statusText}\n时间: ${now}\n类型: ${detectedType}\nDNA: ${dna}\n\n${msgs[statusText]}`;
+  res.style.color=statusText==='PASS'?'var(--jade)':statusText==='WARNING'?'var(--gold)':'var(--red)';
+  beep(statusText==='PASS'?900:statusText==='WARNING'?600:300,50);
+  toast(`Gateway: ${status} ${statusText}`, statusText==='PASS'?'ok':statusText==='WARNING'?'warn':'err');
+}
+function gwLoadExample(type){
+  const ex={text:'这是一段测试文本\n用来验证CNSH Gateway的基本功能\n🐉 龍魂系统 · UID9622',code:`# Python测试代码\nuser_id = 9622\nproject = "龍魂智能中枢"\n\ndef process():\n    print("Hello, 龍魂!")`,json:`{\n  "name": "龍魂智能中枢",\n  "version": "5.0",\n  "author": "UID9622",\n  "modules": 7\n}`};
+  document.getElementById('gwInput').value=ex[type]||'';
+}
+
+// ─────────────────────────────────────────
+// 网络户口本
+// ─────────────────────────────────────────
+function idSelectTier(tier){
+  idCurrentTier=tier;
+  document.getElementById('tier-user').classList.toggle('active',tier==='user');
+  document.getElementById('tier-dev').classList.toggle('active',tier==='dev');
+  document.getElementById('idDevSection').style.display=tier==='dev'?'block':'none';
+}
+function idGenDNA(){
+  const date=new Date().toISOString().slice(0,10).replace(/-/g,'');
+  const rand=Array.from(crypto.getRandomValues(new Uint8Array(4))).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+  const prefix=idCurrentTier==='dev'?'DEV':'U';
+  const dna=`${prefix}-${date}-${rand}`;
+  document.getElementById('idDnaCode').textContent=dna;
+  document.getElementById('idDnaInput').value=dna;
+  beep(900,50);toast('🧬 DNA码已生成','ok');
+}
+function idValidateGpg(input){
+  const val=input.value.replace(/\s/g,'').toUpperCase();
+  const status=document.getElementById('idGpgStatus');if(!val){status.textContent='';return;}
+  if(/^[0-9A-F]{40}$/.test(val)){status.style.color='var(--jade)';status.textContent='✅ 格式正确';input.value=val;}
+  else{status.style.color='var(--red)';status.textContent=`❌ 需要40位十六进制 (${val.length}/40)`;}
+}
+async function idBindBio(){
+  const btn=document.getElementById('idBioBtn'),icon=document.getElementById('idBioIcon'),text=document.getElementById('idBioText');
+  if(!window.PublicKeyCredential){btn.style.cursor='default';text.textContent='此浏览器不支持生物认证';return;}
+  const dna=document.getElementById('idDnaInput').value;if(!dna){toast('请先生成DNA码','warn');return;}
+  try{
+    text.textContent='请验证指纹/面容…';
+    const encoder=new TextEncoder();
+    const credential=await navigator.credentials.create({publicKey:{challenge:encoder.encode(dna+Date.now()),rp:{name:'龍魂身份系统',id:location.hostname||'localhost'},user:{id:encoder.encode(dna),name:dna,displayName:document.getElementById('idDisplayName').value||dna},pubKeyCredParams:[{alg:-7,type:'public-key'},{alg:-257,type:'public-key'}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},timeout:60000,attestation:'none'}});
+    idBioId=btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
+    btn.classList.add('done');icon.textContent='✅';text.textContent='指纹/面容已绑定（私钥留在设备）';
+    toast('🔐 生物认证绑定成功','ok');
+  }catch(err){text.textContent=err.name==='NotAllowedError'?'验证取消':`绑定失败: ${err.message}`;icon.textContent='☝️';}
+}
+function idSubmit(){
+  let dna=document.getElementById('idDnaInput').value;if(!dna)dna=idGenDNA()||document.getElementById('idDnaInput').value;
+  const record={dna_code:dna,tier:idCurrentTier,display_name:document.getElementById('idDisplayName').value||'匿名用户',country:document.getElementById('idCountry').value,gpg_fingerprint:document.getElementById('idGpg')?.value||null,tech_focus:document.getElementById('idTechFocus')?.value||null,webauthn_id:idBioId,registered_at:new Date().toISOString(),contribution_score:0};
+  localStorage.setItem(`longhun_id_${dna}`,JSON.stringify(record));
+  localStorage.setItem('longhun_current_id',dna);
+  idShowCard(record);toast('🐉 身份注册成功','ok');beep(1000,80);
+}
+const countryMap={CN:'🇨🇳 中国',US:'🇺🇸 美国',JP:'🇯🇵 日本',KR:'🇰🇷 韩国',OTHER:'🌍 其他'};
+function idShowCard(rec){
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('idCardDna',rec.dna_code);sv('idCardName',rec.display_name);
+  sv('idCardCountry',countryMap[rec.country]||rec.country);
+  sv('idCardTime',rec.registered_at.slice(0,19).replace('T',' '));
+  const tier=document.getElementById('idCardTier');if(tier){tier.textContent=rec.tier==='dev'?'💎 开发者':'👤 用户';}
+  if(rec.gpg_fingerprint){document.getElementById('idCardGpgRow').style.display='flex';sv('idCardGpg',rec.gpg_fingerprint.slice(0,8)+'…'+rec.gpg_fingerprint.slice(-8));}
+  document.getElementById('idCard').classList.add('show');document.getElementById('idCard').scrollIntoView({behavior:'smooth'});
+}
+function idCopyDna(){
+  const dna=document.getElementById('idCardDna').textContent;
+  navigator.clipboard.writeText(dna).then(()=>toast('📋 DNA码已复制','ok')).catch(()=>toast('复制失败，请手动复制','warn'));
+}
+function idDownloadCard(){
+  const dna=document.getElementById('idCardDna').textContent;
+  const name=document.getElementById('idCardName').textContent;
+  const content=`🧬 龍魂身份证 · DNA ID Card\n${'─'.repeat(30)}\nDNA码: ${dna}\n显示名: ${name}\n注册时间: ${new Date().toLocaleString('zh-CN')}\n${'─'.repeat(30)}\n#龍芯⚡️ · UID9622 · 天下无欺\n保存好你的DNA码，这是你在龍魂系统的唯一身份。`;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));a.download=`龍魂身份证_${dna}.txt`;a.click();
+}
+
+// ─────────────────────────────────────────
+// 天下无欺·真相受理台
+// ─────────────────────────────────────────
+const truthI18n={zh:{country:'国家 / 地区',type:'事件类型',severity:'严重程度',desc:'发生了什么',party:'涉事方',evidence:'证据',contact:'联系方式（可选）'},en:{country:'Country',type:'Type',severity:'Severity',desc:'What happened',party:'Who did it',evidence:'Evidence',contact:'Contact (opt)'},ja:{country:'国/地域',type:'種類',severity:'深刻度',desc:'何が起きたか',party:'関係者',evidence:'証拠',contact:'連絡先(任意)'},ko:{country:'국가',type:'유형',severity:'심각도',desc:'무슨 일',party:'관련자',evidence:'증거',contact:'연락처(선택)'},es:{country:'País',type:'Tipo',severity:'Gravedad',desc:'Qué pasó',party:'Quién',evidence:'Evidencia',contact:'Contacto (opc)'},ar:{country:'البلد',type:'النوع',severity:'الخطورة',desc:'ماذا حدث',party:'من',evidence:'الأدلة',contact:'اتصال (اختياري)'}};
+function truthSetLang(lang,btn){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  const t=truthI18n[lang]||truthI18n.zh;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.firstChild.textContent=t[k]+' ';});
+}
+function truthSetSev(val,el){
+  document.querySelectorAll('.sev-btn').forEach(b=>{b.className='sev-btn';});
+  const cls={'low':'act-g','medium':'act-y','high':'act-r'}[val];
+  el.classList.add(cls);document.getElementById('truthSev').value=val;truthSeverity=val;
+}
+function truthSubmit(){
+  const country=document.getElementById('truthCountry').value;
+  const type=document.getElementById('truthType').value;
+  const desc=document.getElementById('truthDesc').value.trim();
+  if(!country||!type||!desc){toast('请填写国家、事件类型和描述','warn');return;}
+  const id='RPT-'+nowDate()+'-'+Math.random().toString(36).substr(2,8).toUpperCase();
+  const dna=`#龍芯⚡️${new Date().toISOString().slice(0,10)}-TRUTH-${id.split('-')[2]}`;
+  const ts=new Date().toISOString();
+  const record={id,dna,timestamp:ts,country,type,severity:truthSeverity,description:desc,party:document.getElementById('truthParty').value,evidence:document.getElementById('truthEvidence').value,contact:document.getElementById('truthContact').value};
+  const existing=JSON.parse(localStorage.getItem('truth_reports')||'[]');existing.push(record);localStorage.setItem('truth_reports',JSON.stringify(existing));
+  document.getElementById('truthResultId').textContent=`受理号: ${id}`;
+  document.getElementById('truthResultDna').textContent=`DNA: ${dna}`;
+  document.getElementById('truthResultTime').textContent=`时间戳: ${ts}`;
+  document.getElementById('truthResult').style.display='block';
+  document.getElementById('truthResult').scrollIntoView({behavior:'smooth'});
+  beep(1000,80);toast('🐉 受理成功！记录已锁定','ok');
+  fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(record)}).catch(()=>{});
+}
+function truthCopyResult(){
+  const id=document.getElementById('truthResultId').textContent;
+  const dna=document.getElementById('truthResultDna').textContent;
+  navigator.clipboard.writeText(id+'\n'+dna).then(()=>toast('📋 受理号已复制','ok')).catch(()=>{});
+}
+
+// ─────────────────────────────────────────
+// 服务状态检测
+// ─────────────────────────────────────────
+async function checkServices(){
+  // 9622
+  try{const r=await fetch(EP_AUDIT+'/status',{signal:AbortSignal.timeout(3000)});if(r.ok){svcStatus.s9622=true;setSvcBadge('sb9622',true,'审计(9622)');setSvcCard('svc9622s','svc9622i',true,'在线');}else throw new Error();}catch{svcStatus.s9622=false;setSvcBadge('sb9622',false,'审计(9622)');setSvcCard('svc9622s','svc9622i',false,'');}
+  // 8765
+  try{const r=await fetch(EP_MAIN+'/审计统计',{signal:AbortSignal.timeout(3000)});if(r.ok){const d=await r.json();svcStatus.s8765=true;setSvcBadge('sb8765',true,'主服(8765)');setSvcCard('svc8765s','svc8765i',true,`总审计:${d.total||0}`);['sys-total','sys-green','sys-yellow','sys-red'].forEach((id,i)=>{const e=document.getElementById(id);if(e)e.textContent=[d.total,d.green,d.yellow,d.red][i]||0;});const rate=d.total>0?((d.red||0)/d.total*100).toFixed(1)+'%':'0%';const re=document.getElementById('sys-rate');if(re)re.textContent=rate;}else throw new Error();}catch{svcStatus.s8765=false;setSvcBadge('sb8765',false,'主服(8765)');setSvcCard('svc8765s','svc8765i',false,'');}
+  // Ollama
+  try{const r=await fetch(EP_OLLAMA+'/api/tags',{signal:AbortSignal.timeout(3000)});if(r.ok){const d=await r.json();svcStatus.s11434=true;const models=(d.models||[]).map(m=>m.name);setSvcBadge('sb11434',true,'Ollama');setSvcCard('svc11434s','svc11434i',true,`${models.length}模型`);const sel=document.getElementById('chatModel');if(sel)sel.innerHTML=models.length?models.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join(''):'<option value="">无可用模型</option>';}else throw new Error();}catch{svcStatus.s11434=false;setSvcBadge('sb11434',false,'Ollama');setSvcCard('svc11434s','svc11434i',false,'');const sel=document.getElementById('chatModel');if(sel&&sel.options.length<=1)sel.innerHTML='<option value="">Ollama离线·请启动ollama serve</option>';}
+}
+function setSvcBadge(id,online,label){const el=document.getElementById(id);if(el){el.className='svcb '+(online?'on':'off');el.textContent=(online?'🟢 ':'🔴 ')+label;}}
+function setSvcCard(sid,iid,online,info){
+  const se=document.getElementById(sid);const ie=document.getElementById(iid);
+  if(se)se.innerHTML=`<span class="svc-dot ${online?'on':'off'}"></span><span style="font-size:11px;color:${online?'var(--jade)':'var(--red)'}">${online?'🟢 在线':'🔴 离线'}</span>`;
+  if(ie)ie.textContent=info;
+}
+document.getElementById('btnRefreshStatus')?.addEventListener('click',checkServices);
+document.getElementById('btnTestReport')?.addEventListener('click',async()=>{
+  const btn=document.getElementById('btnTestReport'),res=document.getElementById('testReportResult');btn.disabled=true;btn.textContent='获取中…';res.style.display='block';
+  try{const r=await fetch(EP_MAIN+'/测试报告?立即=true',{signal:AbortSignal.timeout(10000)});if(!r.ok)throw new Error('8765返回'+r.status);res.textContent=JSON.stringify(await r.json(),null,2);}
+  catch(err){res.textContent='获取失败: '+err.message;}
+  finally{btn.disabled=false;btn.textContent='获取测试报告';}
+});
+
+// ─────────────────────────────────────────
+// Git
+// ─────────────────────────────────────────
+async function gitStatus(){
+  try{const r=await fetch(EP_MAIN+'/git/状态');const d=await r.json();
+    const branch=document.getElementById('git-branch');if(branch)branch.textContent='🌿 '+(d.branch||'main');
+    const badge=document.getElementById('git-clean-badge');if(badge){badge.textContent=d.clean?'✅ 工作区干净':`⚠️ ${(d.changes||'').split('\n').filter(Boolean).length}个变更`;badge.style.color=d.clean?'var(--jade)':'orange';}
+    const ch=document.getElementById('git-changes');if(ch)ch.textContent=d.changes||'（无变更）';
+    const log=document.getElementById('git-log');if(log)log.textContent=d.log||'（无提交）';
+  }catch{const el=document.getElementById('git-changes');if(el)el.textContent='❌ 服务未启动';}
+}
+async function gitStage(){
+  try{const r=await fetch(EP_MAIN+'/git/暂存',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:['.']})});const d=await r.json();toast(d.ok?'✅ 全部文件已暂存':'❌ 暂存失败',d.ok?'ok':'err');await gitStatus();}catch{toast('服务未启动','err');}
+}
+function openCommitModal(){document.getElementById('commitModal').classList.add('open');document.getElementById('commitMsg').focus();}
+document.getElementById('commitModalClose')?.addEventListener('click',()=>document.getElementById('commitModal').classList.remove('open'));
+async function gitCommit(){
+  const msg=document.getElementById('commitMsg').value.trim();if(!msg){toast('提交信息不能为空','warn');return;}
+  try{const r=await fetch(EP_MAIN+'/git/提交',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})});const d=await r.json();document.getElementById('commitModal').classList.remove('open');document.getElementById('commitMsg').value='';toast(d.ok?'✅ 提交成功':'❌ 提交失败: '+d.msg,d.ok?'ok':'err');await gitStatus();}catch{toast('服务未启动','err');}
+}
+async function gitPush(){
+  toast('推送中…','info');
+  try{const r=await fetch(EP_MAIN+'/git/推送',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({remotes:['github','gitee']})});const d=await r.json();let out='';for(const[remote,res]of Object.entries(d.results||{})){out+=`${res.ok?'✅':'❌'} ${remote}: ${res.msg||'完成'}\n`;}toast(out||d.ok?'🚀 推送成功':'❌ 推送失败',d.ok?'ok':'err');}catch{toast('服务未启动，推送失败','err');}
+}
+
+// ─────────────────────────────────────────
+// 彩蛋
+// ─────────────────────────────────────────
+function easterEgg(){toast('🐉 龍魂觉醒！UID9622永不断线！英伟达杀猪？用不着！😂','ok');beep(1200,100,0.12);}
+let konamiSeq=[];const konamiCode=[38,38,40,40,37,39,37,39,66,65];
+document.addEventListener('keydown',e=>{
+  konamiSeq.push(e.keyCode);if(konamiSeq.length>10)konamiSeq.shift();
+  if(konamiSeq.join(',')===konamiCode.join(',')){startMatrix();toast('🎮 Konami Code！🐉','ok');konamiSeq=[];}
+});
+
+// ─────────────────────────────────────────
+// 全局刷新
+// ─────────────────────────────────────────
+async function refreshAll(){await refreshMemList();await refreshDNAList();await updateMemStats();await updateDNAStats();}
+
+// ─────────────────────────────────────────
+// 初始化
+// ─────────────────────────────────────────
+(async()=>{
+  try{
+    await initDB();
+    // 绑定UI
+    window.viewMem=viewMem;window.delMem=delMem;
+    // 加载数据
+    await refreshAll();
+    // 初始化模块
+    luInit();luInitTasks();updateHexDisplay();
+    // 服务检测
+    await checkServices();
+    setInterval(checkServices,30000);
+    // 读取已注册的ID
+    const currentId=localStorage.getItem('longhun_current_id');
+    if(currentId){const rec=JSON.parse(localStorage.getItem(`longhun_id_${currentId}`)||'null');if(rec){document.getElementById('idDnaCode').textContent=rec.dna_code;document.getElementById('idDnaInput').value=rec.dna_code;}}
+    // 启动日志
+    await dbPut('audit_log',{time:nowISO(),color:'info',action:'系统启动',detail:DNA_HUB});
+    toast('🐉 龍魂智能中枢 v5.0 已启动','ok');
+    setTimeout(()=>toast('💡 按 ⌘K 打开命令面板 · 右键有菜单','info'),2000);
+    console.log('%c🐉 龍魂智能中枢 v5.0','color:#00ffc8;font-size:20px;font-weight:bold');
+    console.log('%cUID9622 💎 龍芯北辰','color:#6c5ce7;font-size:14px');
+    console.log('%c#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z','color:#ffd700;font-size:11px');
+  }catch(e){console.error('初始化失败',e);toast('系统初始化失败: '+e.message,'err');}
+})();
+</script>
+</body>
+</html>

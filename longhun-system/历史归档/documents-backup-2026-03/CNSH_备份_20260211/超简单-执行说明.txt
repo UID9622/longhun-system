@@ -1,0 +1,13 @@
+超简单执行步骤（复制粘贴到终端）：
+
+第一步：执行验证测试
+cd "/Users/zuimeidedeyihan/Desktop/CNSH 军人的编辑器"
+bash "🔥 验证层面-测试验证.sh"
+
+第二步：执行完整流程（如果验证通过）
+bash integration-layer/coordinator.sh
+
+或者使用超简单一键脚本：
+bash "🔥 超简单-一键执行.sh"
+
+注意：请一行一行复制粘贴到终端执行，不要复制#开头的注释行。

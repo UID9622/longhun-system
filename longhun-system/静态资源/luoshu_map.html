@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>🐉 洛书九宫·龍魂页面地图</title>
+<!--
+  DNA: #龍芯⚡️2026-04-07-LUOSHU-MAP-v1.0
+  作者: 诸葛鑫（UID9622）
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  理论指导: 曾仕强老师（永恒显示）
+  原点: 369·洛书·归一·永不熄
+-->
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #07070f;
+  --panel: #0f0f1a;
+  --border: #1e1e2e;
+  --text: #e8e4d9;
+  --muted: #606070;
+  --gold: #c8a84b;
+  --pulse: rgba(200,168,75,0.15);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 60px;
+}
+
+/* ── 顶部 ── */
+.top {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.top h1 {
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-shadow: 0 0 30px rgba(200,168,75,0.4);
+  margin-bottom: 8px;
+}
+.top .sub { font-size: 12px; color: var(--muted); letter-spacing: 2px; }
+.top .dna { font-size: 10px; color: var(--muted); margin-top: 6px; font-family: monospace; }
+
+/* ── 洛书数字展示 ── */
+.luoshu-mini {
+  display: grid;
+  grid-template-columns: repeat(3,36px);
+  gap: 4px;
+  margin: 0 auto 28px;
+}
+.luoshu-mini .cell {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: bold;
+  color: var(--gold);
+  background: var(--panel);
+  position: relative;
+}
+.luoshu-mini .cell.center {
+  border-color: var(--gold);
+  background: rgba(200,168,75,0.1);
+  box-shadow: 0 0 12px rgba(200,168,75,0.2);
+}
+
+/* ── 九宫格主体 ── */
+.nine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 40px;
+}
+
+.palace {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+.palace::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 10px;
+}
+.palace:hover { transform: translateY(-2px); }
+.palace:hover::before { opacity: 1; }
+.palace.center {
+  border-color: var(--gold);
+  background: rgba(200,168,75,0.06);
+}
+
+.palace-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.palace-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: bold;
+  flex-shrink: 0;
+}
+.palace-info { flex: 1; }
+.palace-title { font-size: 13px; font-weight: bold; }
+.palace-desc { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.palace-count {
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.page-list { list-style: none; }
+.page-item {
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 11px;
+  color: #b0aaa0;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+.page-item:last-child { border-bottom: none; }
+.page-item:hover { color: var(--text); }
+.page-item a {
+  color: inherit;
+  text-decoration: none;
+  flex: 1;
+}
+.page-item a:hover { color: var(--gold); }
+.page-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 5px;
+}
+.page-type {
+  font-size: 9px;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── 底部统计 ── */
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.stat-item { display: flex; align-items: center; gap: 6px; }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: var(--muted);
+  font-family: monospace;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+/* ── 哲学语句 ── */
+.dao-quote {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(200,168,75,0.6);
+  letter-spacing: 3px;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+/* ── 过滤栏 ── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.filter-btn {
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(200,168,75,0.08);
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>☯ 洛书九宫 · 龍魂页面地图</h1>
+  <div class="sub">369河洛为原点 · 易经为量子 · 道德经为界限 · 归一为不动点</div>
+  <div class="dna">DNA: #龍芯⚡️2026-04-07-LUOSHU-MAP-v1.0 · GPG: A2D0092C...6D5F · UID9622</div>
+</div>
+
+<!-- 洛书矩阵 -->
+<div class="luoshu-mini">
+  <div class="cell">4</div><div class="cell">9</div><div class="cell">2</div>
+  <div class="cell">3</div><div class="cell center">5</div><div class="cell">7</div>
+  <div class="cell">8</div><div class="cell">1</div><div class="cell">6</div>
+</div>
+
+<div class="dao-quote">每个人是1 · 每个功能是1 · 每句话是1 · 归一·不动点·永不熄</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterAll()">全部 59</button>
+  <button class="filter-btn" onclick="filterPalace(5)">💎 核心</button>
+  <button class="filter-btn" onclick="filterPalace(1)">🔧 技术</button>
+  <button class="filter-btn" onclick="filterPalace(6)">👑 道法</button>
+  <button class="filter-btn" onclick="filterPalace(3)">⚡ 人格</button>
+  <button class="filter-btn" onclick="filterPalace(8)">🔢 算法</button>
+  <button class="filter-btn" onclick="filterPalace(2)">🏗 架构</button>
+  <button class="filter-btn" onclick="filterPalace(4)">🔄 协同</button>
+  <button class="filter-btn" onclick="filterPalace(7)">💬 记忆</button>
+  <button class="filter-btn" onclick="filterPalace(9)">🌟 元宇宙</button>
+</div>
+
+<!-- 九宫格 顺序：4,9,2 / 3,5,7 / 8,1,6 -->
+<div class="nine-grid" id="nineGrid"></div>
+
+<div class="stats" id="statsBar"></div>
+
+<div class="footer">
+  洛书九宫·行列对角线之和皆为15 · DR(n)=1+((n-1)%9) · 原点永不熄<br>
+  #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+</div>
+
+<script>
+// ── 数据（路由结果）──
+const PALACES = {
+  1: { num:1, icon:'🔧', name:'坎·技术', dir:'北', color:'#5a9ae0', desc:'代码·CNSH·审计·安全·API', pages:[
+    {title:'🔖 CNSH三色追溯卡 | 绿黄红分级审计', url:'', type:'page'},
+    {title:'🇨🇳 CNSH编译器框架 | 中文原生编程语言', url:'', type:'page'},
+    {title:'🈯 CNSH中文编程语言完整规范 v1.0', url:'', type:'page'},
+    {title:'🧬 三色审计系统 | 安全机制说明', url:'', type:'page'},
+    {title:'三色审计系统 | 技术不作恶的护城河', url:'', type:'page'},
+    {title:'三色审计规则固定页', url:'', type:'page'},
+    {title:'⚖️ 三色审计·AI回复真实性验证协议 v1.0', url:'', type:'page'},
+    {title:'三色审计·创作明细登记表 v1.1', url:'', type:'page'},
+    {title:'CNSH通用解析规范 v2.0', url:'', type:'page'},
+    {title:'CNSH中文语法规范 v1', url:'', type:'page'},
+    {title:'CNSH-64·顶会投递策略+龍魂灵魂升华', url:'', type:'page'},
+    {title:'⚖️ CNSH全球法律知识库 | 多国法规智能适配引擎', url:'', type:'page'},
+  ]},
+  2: { num:2, icon:'🏗', name:'坤·架构', dir:'西南', color:'#8B7355', desc:'系统·架构·MCP·引擎·本地大脑', pages:[
+    {title:'🇨🇳 中国人民解放军·龍魂系统核心军纪框架', url:'', type:'page'},
+    {title:'龍魂系统 GitHub README', url:'', type:'page'},
+    {title:'三才流场·MCP自适应引擎 v4.0', url:'', type:'page'},
+    {title:'龍魂指令集 v3.0', url:'', type:'page'},
+    {title:'诸葛亮沙盒训练场·易经道德经算法实验室', url:'', type:'database'},
+    {title:'🧬 龍魂永世唯一身份系统', url:'', type:'page'},
+    {title:'🧬 龍芯·德者永生殿（数据库）', url:'', type:'database'},
+    {title:'龍魂·本地大脑神经网络 v1.0', url:'', type:'page'},
+    {title:'龍魂智能体系统SRS v1.0·MCP×LangGraph×天道轮回', url:'', type:'page'},
+    {title:'龍魂智能体大脑集成手册 v1.0', url:'', type:'page'},
+  ]},
+  3: { num:3, icon:'⚡', name:'震·人格', dir:'东', color:'#4caf7d', desc:'人格·进化·矩阵·调度·龍盾', pages:[
+    {title:'🧠 AI人格矩阵管理中心 | 71人格协同体系', url:'', type:'page'},
+    {title:'人格矩阵协作算法', url:'', type:'page'},
+    {title:'P72·龍盾·自适应智商引擎', url:'', type:'page'},
+    {title:'🛡️ P72·龍盾·贴身管家×自适应智商引擎 v2.0', url:'', type:'page'},
+    {title:'🐉 龍芯家族·人格与工具管理中心', url:'', type:'page'},
+    {title:'P03·雯雯·P72首次人格调度记录', url:'', type:'page'},
+    {title:'🐉 龍魂AI人格体系·93人格合集 v3.0', url:'', type:'page'},
+    {title:'五大后台自运行人格配置中心 v3.0', url:'', type:'page'},
+  ]},
+  4: { num:4, icon:'🔄', name:'巽·协同', dir:'东南', color:'#7b5ea7', desc:'知识库·Notion·论文·开源', pages:[
+    {title:'龍魂智能体系统需求规格说明书 | SRS v1.0', url:'', type:'page'},
+    {title:'🌟 星辰记忆·Notion同步库', url:'', type:'page'},
+    {title:'📚 龍魂知识库·论文&白皮书总部 v1.0', url:'', type:'page'},
+    {title:'龍魂系统宣言·知识库守护宣言 v1.0', url:'', type:'page'},
+    {title:'龍魂·Notion开源社区·分层激活方案 v1.0', url:'', type:'page'},
+  ]},
+  5: { num:5, icon:'💎', name:'中·核心', dir:'中央', color:'#c8a84b', desc:'入口·主控·全局·DNA', pages:[
+    {title:'🐉 龍魂系统·动态AI协议入口｜主控中心', url:'', type:'page'},
+    {title:'龍魂系统·全景导航图 v2.0', url:'', type:'page'},
+    {title:'龍魂·全局入口 v2.0', url:'', type:'page'},
+  ]},
+  6: { num:6, icon:'👑', name:'乾·道法', dir:'西北', color:'#e05a5a', desc:'宪法·道德经·天道·主权·军纪', pages:[
+    {title:'龍魂AI架构原理 | 太极×易经×道德经×人格矩阵', url:'', type:'page'},
+    {title:'☯️ 道德经引擎逻辑总纲', url:'', type:'page'},
+    {title:'道德经底层引擎·81章算法映射 v1.0', url:'', type:'page'},
+    {title:'《道德经·通行版》章节锚点总目录', url:'', type:'page'},
+    {title:'龍魂全球文化主权与维权宪法 v2.0', url:'', type:'page'},
+    {title:'龍魂赋能宪法', url:'', type:'page'},
+    {title:'龍魂宪法层·一票否决权×阴阳调和 v1.0', url:'', type:'page'},
+    {title:'龍魂数字军纪法典', url:'', type:'page'},
+    {title:'⚖️ 龍魂天道系统 v1.3｜天下无欺·真相受理+网络户口本+观察者日志', url:'', type:'page'},
+  ]},
+  7: { num:7, icon:'💬', name:'兑·记忆', dir:'西', color:'#e0a05a', desc:'永生·血统·梦想·回流', pages:[
+    {title:'龍芯·曾老师', url:'', type:'page'},
+    {title:'数字血统UID体系·永恒烙印', url:'', type:'page'},
+    {title:'德者永生殿·路由回流协议 v2.0', url:'', type:'page'},
+    {title:'龍魂·梦想生态入口｜开天辟地·数字永生', url:'', type:'page'},
+  ]},
+  8: { num:8, icon:'🔢', name:'艮·算法', dir:'东北', color:'#9a7aa0', desc:'易经·三才·量子·甲骨文·数字根', pages:[
+    {title:'🔒 场景记忆压缩引擎·甲骨文算法 | 封印级核心', url:'', type:'page'},
+    {title:'曾老师智慧算法（三才算法）v1.0 | 天地人决策模型', url:'', type:'page'},
+    {title:'🐉 三才算法·龍魂系统统一算法根基（天·地·人）', url:'', type:'page'},
+    {title:'🐉 龍魂权重算法·太极易经数学大师联动系统', url:'', type:'page'},
+    {title:'🀄 CNSH数字甲骨文字元立碑工程 v1.0', url:'', type:'page'},
+    {title:'曾老师智慧算法（三才算法）v1.0｜天地人决策模型', url:'', type:'page'},
+  ]},
+  9: { num:9, icon:'🌟', name:'离·元宇宙', dir:'南', color:'#e0d45a', desc:'元宇宙·数字永生·文化·全球', pages:[
+    {title:'🌍 龍魂元宇宙七大支柱宪法', url:'', type:'page'},
+    {title:'数字永生·龍魂终端完整方案', url:'', type:'page'},
+  ]},
+};
+
+// 洛书顺序
+const ORDER = [4,9,2, 3,5,7, 8,1,6];
+
+function renderGrid(filter = null) {
+  const grid = document.getElementById('nineGrid');
+  grid.innerHTML = '';
+
+  ORDER.forEach(num => {
+    const p = PALACES[num];
+    const isCenter = num === 5;
+    const pages = filter ? p.pages.filter(pg => pg.title.toLowerCase().includes(filter)) : p.pages;
+
+    const palace = document.createElement('div');
+    palace.className = 'palace' + (isCenter ? ' center' : '');
+    palace.style.setProperty('--hover-bg', p.color + '15');
+    palace.style.borderColor = isCenter ? p.color : '';
+
+    palace.innerHTML = `
+      <div class="palace-header">
+        <div class="palace-num" style="background:${p.color}22;color:${p.color};border:1px solid ${p.color}44">${p.icon}</div>
+        <div class="palace-info">
+          <div class="palace-title" style="color:${p.color}">${p.name}</div>
+          <div class="palace-desc">${p.desc}</div>
+        </div>
+        <div class="palace-count">${pages.length}</div>
+      </div>
+      <ul class="page-list">
+        ${pages.map(pg => `
+          <li class="page-item">
+            <div class="page-dot" style="background:${p.color}"></div>
+            ${pg.url ? `<a href="${pg.url}" target="_blank">${pg.title}</a>` : `<span>${pg.title}</span>`}
+            ${pg.type === 'database' ? '<span class="page-type">db</span>' : ''}
+          </li>
+        `).join('')}
+      </ul>
+    `;
+
+    palace.addEventListener('mouseenter', () => {
+      palace.style.borderColor = p.color;
+      palace.style.boxShadow = `0 0 20px ${p.color}20`;
+    });
+    palace.addEventListener('mouseleave', () => {
+      palace.style.borderColor = isCenter ? p.color : '';
+      palace.style.boxShadow = '';
+    });
+
+    grid.appendChild(palace);
+  });
+}
+
+function filterAll() {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn')[0].classList.add('active');
+  renderGrid(null);
+}
+
+function filterPalace(num) {
+  // highlight selected palace
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  // scroll to palace
+  const grids = document.querySelectorAll('.palace');
+  ORDER.forEach((n, i) => {
+    if (n === num) {
+      grids[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      grids[i].style.boxShadow = `0 0 30px ${PALACES[num].color}40`;
+      setTimeout(() => { grids[i].style.boxShadow = ''; }, 2000);
+    }
+  });
+}
+
+function renderStats() {
+  const bar = document.getElementById('statsBar');
+  const total = Object.values(PALACES).reduce((s, p) => s + p.pages.length, 0);
+  bar.innerHTML = `<div class="stat-item"><span>共 <strong style="color:var(--gold)">${total}</strong> 页 · 洛书归一</span></div>` +
+    ORDER.map(n => {
+      const p = PALACES[n];
+      return `<div class="stat-item"><div class="stat-dot" style="background:${p.color}"></div><span style="color:${p.color}">${p.name.split('·')[1]}</span><span>${p.pages.length}</span></div>`;
+    }).join('');
+}
+
+// 初始化
+renderGrid();
+renderStats();
+</script>
+</body>
+</html>

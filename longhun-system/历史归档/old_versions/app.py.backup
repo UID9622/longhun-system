@@ -1,0 +1,34 @@
+# BRAIN_GATE v1.1 受保护文件
+# DNA: #龍芯⚡️20260324-LOCAL-ENGINE
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import json
+
+class Handler(BaseHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass  # 静默日志
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({
+            "status": "ok",
+            "name": "local-engine",
+            "dna": "#龍芯⚡️20260324-LOCAL-ENGINE",
+            "uid": "9622"
+        }).encode())
+
+    def do_POST(self):
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length)
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"status": "ok", "received": len(body)}).encode())
+
+if __name__ == "__main__":
+    server = HTTPServer(("0.0.0.0", 8000), Handler)
+    print("local-engine 启动 port=8000")
+    server.serve_forever()
