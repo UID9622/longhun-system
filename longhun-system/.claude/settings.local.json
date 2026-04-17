@@ -265,7 +265,24 @@
       "Bash(jobs -l)",
       "Bash(while ps:*)",
       "Bash(do sleep:*)",
-      "Bash(kill 89263 89258)"
+      "Bash(kill 89263 89258)",
+      "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-search",
+      "Bash(ls -la ~/longhun-system/bin/*.py ~/longhun-system/bin/*.sh)",
+      "Bash(curl -s http://localhost:9622/)",
+      "Bash(curl -s http://localhost:8765/)",
+      "Bash(curl -s http://localhost:11434/api/tags)",
+      "Bash(ls ~/longhun-system/bin/*.py)",
+      "Bash(ls ~/longhun-system/bin/*.sh)",
+      "Bash(curl -s http://localhost:9622/api/)",
+      "Bash(curl -s http://localhost:9622/routes)",
+      "Bash(ls ~/longhun-system/mcp-server/*.py)",
+      "Bash(grep -n \"app\\\\.\\\\\\(get\\\\|post\\\\|route\\\\\\)\" ~/longhun-system/mcp-server/*.py)",
+      "Bash(find ~/longhun-system -name *.py -path */mcp*)",
+      "Bash(find ~/longhun-system -name mcp_* -o -name *_mcp*)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(curl -s http://localhost:8765/health)",
+      "Bash(echo \"SSL=$?\")",
+      "Bash(curl -sk https://localhost:8765/)"
     ]
   }
 }
