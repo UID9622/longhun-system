@@ -282,7 +282,21 @@
       "Bash(echo \"EXIT:$?\")",
       "Bash(curl -s http://localhost:8765/health)",
       "Bash(echo \"SSL=$?\")",
-      "Bash(curl -sk https://localhost:8765/)"
+      "Bash(curl -sk https://localhost:8765/)",
+      "Bash(bash -n ~/Documents/龍魂系统/代码/voice_assistant/start_sovits.sh)",
+      "Bash(bash -n ~/Documents/龍魂系统/代码/voice_assistant/start.sh)",
+      "Bash(bash -n ~/Documents/龍魂系统/代码/voice_assistant/install_sao_assistant.sh)",
+      "Bash(curl -s --max-time 2 http://localhost:9880/)",
+      "Bash(ffprobe -v error -show_entries stream=sample_rate,channels,codec_name -show_entries format=duration -of default=nw=1 ~/Documents/龍魂系统/voice/reference.wav)",
+      "Bash(bash ~/Documents/龍魂系统/代码/voice_assistant/start_sovits.sh bg)",
+      "Bash(curl -s --max-time 3 http://localhost:9880/)",
+      "Bash(~/.longhun/voice_env/bin/pip list:*)",
+      "Bash(~/.longhun/voice_env/bin/pip install:*)",
+      "Bash(say -v Tingting \"宝宝测试一下，老大能听到吗\")",
+      "Bash(echo \"Tingting EXIT=$?\")",
+      "Bash(1 echo:*)",
+      "Bash(curl -s http://127.0.0.1:9624/router/persona/P01/status)",
+      "Bash(curl -s 'http://127.0.0.1:9624/router/fuse/log?limit=3')"
     ]
   }
 }
