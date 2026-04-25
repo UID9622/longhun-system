@@ -1,1 +1,0 @@
-/Users/zuimeidedeyihan/longhun-system/bin/notion_verify.sh
