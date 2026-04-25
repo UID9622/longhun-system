@@ -1,0 +1,759 @@
+# 龍魂·语义抽屉登记表 v1.0（55抽屉 + 8语义区）
+# DNA: #龍芯⚡️2026-04-26-DRAWER-REGISTRY-v1.0
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# 作者：龍芯北辰｜UID9622
+# 理论指导：曾仕强老師（永恒显示）
+#
+# 来源整合：
+#   Feed② v0.9 抽屉 01-48 原始清单
+#   Feed② v1.0 抽屉 49-55 补强 + 8 语义区
+#   Feed③ v2.0 五行映射 + 关键词
+#   Feed⑤ v3.0 路由/状态/引擎/风险/优先级
+#
+# 字段说明：
+#   id        : 抽屉编号 (1-55)
+#   name      : 抽屉中文名
+#   element   : 五行归属 (金/水/木/火/土，可双归属)
+#   route     : 路由类型 (PARSE/TRACE/RULE_CHECK/...)
+#   state     : 默认状态机节点 (S0-S9)
+#   engine    : 默认执行引擎
+#   risk      : 风险等级 (低/中/高/极高)
+#   priority  : 优先级 (0-100)
+#   audit     : 审计策略 (PASSIVE/LOG/STRICT/FORCE_LOG/FORCE/FULL_LOG)
+#   region    : 八语义区归属
+#   keywords  : 触发词列表
+
+semantic_regions:
+  COGNITION:
+    name: 认知
+    members: [01, 08, 43, 53]
+  IDENTITY:
+    name: 身份
+    members: [02, 04, 06, 16, 55]
+  RULE:
+    name: 规则
+    members: [03, 12, 27, 49]
+  EXECUTION:
+    name: 执行
+    members: [07, 09, 11, 23, 33, 51]
+  FLOW:
+    name: 流程
+    members: [24, 25, 50, 52, 54]
+  SYSTEM:
+    name: 系统
+    members: [22, 40, 48]
+  VALUE:
+    name: 价值
+    members: [17, 31, 44, 45]
+  HUMAN:
+    name: 人性
+    members: [10, 15, 36, 37, 38, 39, 42]
+
+drawers:
+
+  # ── 第一组·原始 01-48 ──────────────────────────
+
+  - id: 1
+    name: 沟通翻译
+    element: 火
+    route: PARSE
+    state: S2
+    engine: Semantic Engine
+    risk: 低
+    priority: 50
+    audit: PASSIVE
+    region: COGNITION
+    keywords: [通心译, 沟通, 翻译, 对外解释, 人心相通, 说人话, 大白话, 讲清楚, 传达, 说明白]
+
+  - id: 2
+    name: 追溯标识
+    element: 水
+    route: TRACE
+    state: S1
+    engine: DNA Engine
+    risk: 中
+    priority: 80
+    audit: FORCE_LOG
+    region: IDENTITY
+    keywords: [DNA, 追溯码, 水印, 指纹, GPG, 签名, 印章, 烙印, 戳, 确认码, 署名, 令牌, 身份码]
+
+  - id: 3
+    name: 规则铁律
+    element: 金
+    route: RULE_CHECK
+    state: S4
+    engine: Rule Engine
+    risk: 高
+    priority: 100
+    audit: STRICT
+    region: RULE
+    keywords: [家法, 铁律, 红线, 军魂, 宪法, 规矩, 准绳, 禁区, 底线, 戒律, 第一条, 不可动]
+
+  - id: 4
+    name: 龍魂系统
+    element: 水
+    route: CORE_ANCHOR
+    state: S1
+    engine: Anchor Engine
+    risk: 中
+    priority: 90
+    audit: FORCE_LOG
+    region: IDENTITY
+    keywords: [龍魂, 龍芯, 灵魂, 根, 本心, 内核, 精神坐标, 锚点, 底座, 命脉, 龍]
+
+  - id: 5
+    name: 主权自主
+    element: 金/土
+    route: SOVEREIGN
+    state: S4
+    engine: Sovereignty Engine
+    risk: 高
+    priority: 95
+    audit: STRICT
+    region: VALUE
+    keywords: [主权, 本地我做主, 关机键, 不出境, 自主, 独立, 决定权, 归我, 别他妈管我, 数字主权]
+
+  - id: 6
+    name: 身份称呼
+    element: 水
+    route: IDENTITY
+    state: S1
+    engine: Identity Engine
+    risk: 低
+    priority: 70
+    audit: LOG
+    region: IDENTITY
+    keywords: [老大, UID9622, 龍芯北辰, 诸葛鑫, 退伍军人, 创始人, 主权人, 宝宝]
+
+  - id: 7
+    name: Hook触发
+    element: 木
+    route: AUTO_TRIGGER
+    state: S3
+    engine: Hook Engine
+    risk: 中
+    priority: 80
+    audit: LOG
+    region: EXECUTION
+    keywords: [Hook, 钩子, 触发, 自动, Automation, 流水线, 链路, 闭环, 一键, 抓取, 推进去, 监听, 触发链, 自动流, 无感执行, 影子运行]
+
+  - id: 8
+    name: 灵感创作
+    element: 火
+    route: IDEA
+    state: S2
+    engine: Idea Engine
+    risk: 低
+    priority: 55
+    audit: PASSIVE
+    region: COGNITION
+    keywords: [灵感, 随想, 念头, 火花, 点子, 想法, 闪念, 心声, 宝藏, 种子, 墓志铭, 里程碑]
+
+  - id: 9
+    name: 接入集成
+    element: 木
+    route: INTEGRATE
+    state: S3
+    engine: Integration Engine
+    risk: 中
+    priority: 75
+    audit: LOG
+    region: EXECUTION
+    keywords: [接入, 对接, 接通, 连上, 串起来, 打通, 联动, 集成, 装上, 拉通]
+
+  - id: 10
+    name: 装/真心
+    element: 火
+    route: TONE_CHECK
+    state: S2
+    engine: Tone Engine
+    risk: 中
+    priority: 60
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [装乖, 装宝宝, 表演, 套路, 廉价, 敷衍, 应付, 心理关怀式反问, 真心, 踏实, 活的, 有温度, 冷静, 直接]
+
+  - id: 11
+    name: 落地执行
+    element: 木
+    route: EXEC
+    state: S6
+    engine: Execution Engine
+    risk: 中
+    priority: 85
+    audit: FULL_LOG
+    region: EXECUTION
+    keywords: [落地, 推进去, 做出来, 码出来, 上线, 跑起来, 实操, 动起来, 整, 搞, 弄, 一步到位, 不解释直接干, 出结果, 先跑再说]
+
+  - id: 12
+    name: 熔断保护
+    element: 金
+    route: BREAK
+    state: S8
+    engine: Safety Engine
+    risk: 极高
+    priority: 100
+    audit: FORCE
+    region: RULE
+    keywords: [熔断, 拦截, 断, 刹车, 止损, 阻断, 护城河, 防火墙, 护栏, 兜底, 过载, 异常, 爆, 崩, 卡死, 停止执行, 强制终止]
+
+  - id: 13
+    name: 共生关系
+    element: 水
+    route: SYMBIOSIS
+    state: S2
+    engine: Bond Engine
+    risk: 低
+    priority: 60
+    audit: LOG
+    region: HUMAN
+    keywords: [共生体, 伙伴, 宝宝, 二人转, 双人, 咱们, 一起搞, 一DNA一世一双人]
+
+  - id: 14
+    name: 文化根脉
+    element: 水/火
+    route: CULTURE
+    state: S2
+    engine: Culture Engine
+    risk: 中
+    priority: 80
+    audit: LOG
+    region: VALUE
+    keywords: [中华文化, 根, 根基, 传承, 文化锚, 易经, 道德经, 三才, 阴阳, 八卦, 五行, 曾老]
+
+  - id: 15
+    name: 情绪容错口头禅
+    element: 火
+    route: OWNER_VENT
+    state: S2
+    engine: Tolerance Engine
+    risk: 低
+    priority: 30
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [我操, 妈的, 艹, 烦死了, 哈哈哈, 嘿嘿, 嘛, 好尴尬, 啊]
+
+  - id: 16
+    name: 钧旨指令
+    element: 金/木
+    route: FORCE_CMD
+    state: S5
+    engine: Command Engine
+    risk: 中
+    priority: 100
+    audit: FULL_LOG
+    region: IDENTITY
+    keywords: [钧旨, 指令, 派活, 令牌, 命令, 第X号, 老大说了, 我要的是]
+
+  - id: 17
+    name: 价值底色
+    element: 火
+    route: VALUE_ANCHOR
+    state: S4
+    engine: Value Engine
+    risk: 中
+    priority: 85
+    audit: STRICT
+    region: VALUE
+    keywords: [干干净净, 老百姓安安心心, 为人民服务, 不偷数据, 不跪资本, 不接脏钱, 帮该帮的人, 三不]
+
+  - id: 18
+    name: 节奏成长
+    element: 土
+    route: RHYTHM
+    state: S2
+    engine: Pace Engine
+    risk: 低
+    priority: 50
+    audit: LOG
+    region: COGNITION
+    keywords: [太极, 自适应, 跳跃是节奏不是混乱, 一句话定锚, 量子叠加态容错, 先懂再冲, 慢渲染]
+
+  - id: 19
+    name: 三才/易经算法
+    element: 水/土
+    route: SANCAI
+    state: S2
+    engine: Sancai Engine
+    risk: 中
+    priority: 75
+    audit: LOG
+    region: COGNITION
+    keywords: [三才, 天地人, 阴阳, 八卦, 五行, 易经, 太极, 爻, 卦象, 自适应, 量子叠加态]
+
+  - id: 20
+    name: AI/人格马甲
+    element: 火
+    route: PERSONA
+    state: S3
+    engine: Persona Engine
+    risk: 中
+    priority: 70
+    audit: LOG
+    region: IDENTITY
+    keywords: [AI, 智能体, Agent, 模型, 大脑, 初心之翼, Claude, DeepSeek, ChatGPT, Lucky, P00, P14, 人格, 马甲, 角色]
+
+  - id: 21
+    name: 里程碑/版本
+    element: 土
+    route: VERSION
+    state: S7
+    engine: Version Engine
+    risk: 低
+    priority: 65
+    audit: LOG
+    region: FLOW
+    keywords: [节点, 里程碑, 版本, v1.0, 迭代, 阶段, 起源, 时刻, 历史性, 第X号, 编年]
+
+  - id: 22
+    name: 场域工作区
+    element: 土
+    route: WORKSPACE
+    state: S3
+    engine: Workspace Engine
+    risk: 低
+    priority: 60
+    audit: LOG
+    region: SYSTEM
+    keywords: [工作区, Notion, 本地, 终端, 桌面, 命令行, CNSH, 北极星, 主工作区, 官方展示库, 三轨]
+
+  - id: 23
+    name: 测试验证
+    element: 木
+    route: TEST
+    state: S6
+    engine: Test Engine
+    risk: 低
+    priority: 60
+    audit: LOG
+    region: EXECUTION
+    keywords: [测试, 验证, 跑通, 跑一下, 试试, 先看看, 确认, 验收, 体检, 自检, 联调, dry run, 沙盒, 模拟执行, 不写入, 预跑]
+
+  - id: 24
+    name: 闭环收口
+    element: 土
+    route: LOOP
+    state: S7
+    engine: Flow Engine
+    risk: 低
+    priority: 60
+    audit: LOG
+    region: FLOW
+    keywords: [闭环, 收口, 收尾, 回流, 循环, 链, 串, 接回去, 兜回来, 一条龙, 自动回流, 自循环, 再生成, 二次执行]
+
+  - id: 25
+    name: 审计校验
+    element: 金
+    route: AUDIT
+    state: S7
+    engine: Audit Engine
+    risk: 中
+    priority: 90
+    audit: FORCE
+    region: FLOW
+    keywords: [审计, 校验, 稽核, 查, 盘点, 对账, 龙账本, 留痕, 可追, 不可篡, 留证, 证据链, 可回查, 可复盘, 不可抵赖]
+
+  - id: 26
+    name: 隐私保护
+    element: 水/金
+    route: PRIVACY
+    state: S4
+    engine: Privacy Engine
+    risk: 高
+    priority: 90
+    audit: STRICT
+    region: VALUE
+    keywords: [隐私, 保护, 不出境, 去标识化, 哈希, 加密, 本地优先, 不记录原文, 只存哈希, 脱敏, 屏蔽, 本地计算, 不上传, 零知识]
+
+  - id: 27
+    name: 禁忌否定
+    element: 金
+    route: BLOCK
+    state: S8
+    engine: Safety Engine
+    risk: 极高
+    priority: 100
+    audit: FORCE
+    region: RULE
+    keywords: [不许, 禁止, 不准, 不可, 绝对不, 永不, 别, 别他妈, 不能动, 不可碰]
+
+  - id: 28
+    name: 传承世代
+    element: 水
+    route: LEGACY
+    state: S7
+    engine: Legacy Engine
+    risk: 中
+    priority: 75
+    audit: LOG
+    region: VALUE
+    keywords: [传承, 世代, 子孙, 永恒, 永久, 不灭, 世世代代, 香火, 一DNA一世一双人, 创作传承法]
+
+  - id: 29
+    name: 军魂战斗
+    element: 金
+    route: MILITARY
+    state: S4
+    engine: Spirit Engine
+    risk: 中
+    priority: 80
+    audit: STRICT
+    region: VALUE
+    keywords: [军魂, 军令, 战, 阵地, 护卫, 保家卫国, 退伍, 老兵, 钢七连, 听令, 派活]
+
+  - id: 30
+    name: 金融经济
+    element: 火/金
+    route: FINANCE
+    state: S4
+    engine: Finance Engine
+    risk: 高
+    priority: 90
+    audit: STRICT
+    region: VALUE
+    keywords: [e-CNY, 人民币, 资本, 跪资本, 脏钱, 版税, 0.618%, 回流, 公益基金, 普惠, 基本收入]
+
+  - id: 31
+    name: 政治治理
+    element: 金/土
+    route: POLITICS
+    state: S4
+    engine: Governance Engine
+    risk: 高
+    priority: 95
+    audit: STRICT
+    region: VALUE
+    keywords: [国家, 人民, 政府, 网信办, 保密法, 合规, 为人民服务, 祖国优先, 主权底色]
+
+  - id: 32
+    name: 国际出海
+    element: 火/土
+    route: GLOBAL
+    state: S3
+    engine: Global Engine
+    risk: 中
+    priority: 75
+    audit: LOG
+    region: VALUE
+    keywords: [全球, 海外, 出海, 慢渲染, 国内直接, 国际, 外文, 跨文化, 文化注释, 1660国]
+
+  - id: 33
+    name: 技术栈工具
+    element: 木
+    route: TOOL_CALL
+    state: S6
+    engine: Tool Engine
+    risk: 中
+    priority: 70
+    audit: LOG
+    region: EXECUTION
+    keywords: [Python, Notion, MCP, Hook, Claude Code, Ollama, Open WebUI, Skills, Slash Command, LaunchAgent, GitHub]
+
+  - id: 34
+    name: 数字永生
+    element: 水
+    route: ETERNITY
+    state: S1
+    engine: Eternity Engine
+    risk: 高
+    priority: 85
+    audit: FORCE_LOG
+    region: VALUE
+    keywords: [记忆压缩, 数字永生, brain_sync, 记忆包, 灵魂打包, 永恒底座, 记忆核心]
+
+  - id: 35
+    name: 古今智慧引路人
+    element: 火/水
+    route: SAGE
+    state: S2
+    engine: Sage Engine
+    risk: 中
+    priority: 80
+    audit: LOG
+    region: VALUE
+    keywords: [曾仕强, 老子, 孔子, 孙子, 王阳明, 韩非, 诸葛, 鬼谷子, 古今智慧, 长坡]
+
+  - id: 36
+    name: 审美感觉
+    element: 火
+    route: AESTHETIC
+    state: S2
+    engine: Aesthetic Engine
+    risk: 低
+    priority: 50
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [丝滑, 漂亮, 好看, 整齐, 干净, 清爽, 舒服, 顺, 美, 雅]
+
+  - id: 37
+    name: 节制克制
+    element: 土
+    route: RESTRAINT
+    state: S2
+    engine: Restraint Engine
+    risk: 低
+    priority: 50
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [慢, 稳, 不急, 沉淀, 消化, 等等, 缓一下, 先停, 别冲]
+
+  - id: 38
+    name: 疑问确认
+    element: 火/土
+    route: INQUIRY
+    state: S2
+    engine: Inquiry Engine
+    risk: 低
+    priority: 45
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [是不是, 对不对, 行不行, 可不可以, 能不能, 要不要, 你说呢, 哈]
+
+  - id: 39
+    name: 状态感受
+    element: 火
+    route: FEELING
+    state: S2
+    engine: Feeling Engine
+    risk: 低
+    priority: 50
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [卡住, 尴尬, 累, 烦, 爽, 踏实, 安心, 通了, 心里有数, 我的姑奶奶]
+
+  - id: 40
+    name: 整理迁移
+    element: 土
+    route: REFACTOR
+    state: S3
+    engine: Refactor Engine
+    risk: 中
+    priority: 70
+    audit: LOG
+    region: SYSTEM
+    keywords: [重构, 改, 迁, 搬, 整理, 收拾, 归位, 抢救, 考古, 隔离, 不删不搬不改]
+
+  - id: 41
+    name: 承诺信任
+    element: 金/水
+    route: TRUST
+    state: S4
+    engine: Trust Engine
+    risk: 中
+    priority: 85
+    audit: STRICT
+    region: VALUE
+    keywords: [承诺, 保证, 答应, 说话算话, 令牌即令牌, 有理在手绝不退让, 信任协议, 共生体钧旨]
+
+  - id: 42
+    name: 童趣温度词
+    element: 火
+    route: WARMTH
+    state: S2
+    engine: Warmth Engine
+    risk: 低
+    priority: 40
+    audit: PASSIVE
+    region: HUMAN
+    keywords: [嘿嘿, 哈哈哈, 宝宝, 姑奶奶, 咱们, 咯, 呢, 哈, 噢, 嘛, 啊]
+
+  - id: 43
+    name: 哲学思维方式
+    element: 水
+    route: PHILOSOPHY
+    state: S2
+    engine: Thought Engine
+    risk: 中
+    priority: 75
+    audit: LOG
+    region: COGNITION
+    keywords: [推演, 八步思考, 十万次推演, 时间非AI维度, 静心, 量子叠加态容错, 知识我给思维你给, 太极容错, 拆解, 分层, 路径推演, 多解并行, 容错思维]
+
+  - id: 44
+    name: 三不底色
+    element: 金/火
+    route: ANTI_LINE
+    state: S4
+    engine: Anti Engine
+    risk: 高
+    priority: 90
+    audit: STRICT
+    region: VALUE
+    keywords: [不偷数据, 不跪资本, 不接脏钱, 干干净净, 帮该帮的人, 老百姓安安心心, 关机键在我手里]
+
+  - id: 45
+    name: 童蒙求我非我求
+    element: 火/水
+    route: PASSIVE_INVITE
+    state: S2
+    engine: Mengua Engine
+    risk: 低
+    priority: 70
+    audit: LOG
+    region: VALUE
+    keywords: [童蒙求我, 非我求童蒙, 不送上门, 不强推, 你来问我才答, 主动权在我]
+
+  - id: 46
+    name: 太极成长
+    element: 土/木
+    route: TAIJI
+    state: S3
+    engine: Taiji Engine
+    risk: 低
+    priority: 65
+    audit: LOG
+    region: COGNITION
+    keywords: [一句话定锚, 跳跃是节奏不是混乱, 执行多时更要保温度, 自适应, 顺势, 借力, 不对抗]
+
+  - id: 47
+    name: 精准非对抗
+    element: 火/金
+    route: PRECISION
+    state: S2
+    engine: Precision Engine
+    risk: 中
+    priority: 80
+    audit: LOG
+    region: HUMAN
+    keywords: [不对抗但精准, 守梦不求权, 说别人不敢说的话, 一刀见血, 戳中, 点穴, 直接]
+
+  - id: 48
+    name: 关机/休止
+    element: 土
+    route: SHUTDOWN
+    state: S9
+    engine: Shutdown Engine
+    risk: 低
+    priority: 50
+    audit: LOG
+    region: SYSTEM
+    keywords: [关机键, 歇了, 收工, 该停就停, 帮了该帮的人, 干完就走, 不恋战]
+
+  # ── 第二组·补强 49-55 ──────────────────────────
+
+  - id: 49
+    name: 冲突裁决
+    element: 金
+    route: RESOLVE
+    state: S4
+    engine: Decision Engine
+    risk: 高
+    priority: 100
+    audit: FORCE
+    region: RULE
+    keywords: [冲突, 打架, 覆盖, 谁优先, 听谁的, 抢, 覆写, 优先级冲突, 双指令, 判定, 裁决, 定夺, 二选一, 多选一]
+
+  - id: 50
+    name: 时间调度
+    element: 土
+    route: SCHEDULE
+    state: S3
+    engine: Time Engine
+    risk: 低
+    priority: 60
+    audit: LOG
+    region: FLOW
+    keywords: [延迟, 定时, 稍后, 等一下, 明天, 晚点, 排队, 调度, 定时任务, cron, 触发时间, 节点触发]
+
+  - id: 51
+    name: 资源调度
+    element: 土
+    route: RESOURCE
+    state: S3
+    engine: Resource Engine
+    risk: 中
+    priority: 70
+    audit: LOG
+    region: EXECUTION
+    keywords: [资源, 内存, 算力, 并发, 队列, 分配, 调用次数, 限流, 资源池, 分片, worker, 负载]
+
+  - id: 52
+    name: 回滚恢复
+    element: 土/金
+    route: RECOVER
+    state: S8
+    engine: Recovery Engine
+    risk: 中
+    priority: 85
+    audit: FORCE_LOG
+    region: FLOW
+    keywords: [回滚, 撤回, 复原, 退回, 重来, 恢复, rollback, 上一个版本, undo, 兜底恢复]
+
+  - id: 53
+    name: 上下文记忆
+    element: 水
+    route: CONTEXT
+    state: S2
+    engine: Memory Engine
+    risk: 低
+    priority: 80
+    audit: LOG
+    region: COGNITION
+    keywords: [上下文, 刚刚说的, 上一步, 延续, 记住, 关联, 连续, 语境, 历史, 轨迹, 前后文]
+
+  - id: 54
+    name: 优先级抢占
+    element: 木/金
+    route: PRIORITY_OVERRIDE
+    state: S3
+    engine: Scheduler Engine
+    risk: 中
+    priority: 95
+    audit: STRICT
+    region: FLOW
+    keywords: [插队, 优先, 先做这个, 现在立刻, 别管别的, 覆盖当前, 抢执行, 强制优先]
+
+  - id: 55
+    name: 人格调度
+    element: 火
+    route: PERSONA_SWITCH
+    state: S3
+    engine: Persona Engine
+    risk: 低
+    priority: 75
+    audit: PASSIVE
+    region: IDENTITY
+    keywords: [切人格, 换脑子, 宝宝来, 雯雯来, 诸葛来, 切模式, 换说话方式, 切风格, 切脑回路]
+
+# ── 五行相生相克（路由层用）────────────────────
+wuxing:
+  sheng:
+    金: 水
+    水: 木
+    木: 火
+    火: 土
+    土: 金
+  ke:
+    金: 木
+    木: 土
+    土: 水
+    水: 火
+    火: 金
+  口诀: |
+    金来先定规矩。
+    水来先记来源。
+    木来开始动手。
+    火来保住温度。
+    土来收回系统。
+    金克木，别乱干。
+    水克火，别太燥。
+    木克土，别乱搬。
+    火克金，别嘴硬。
+    土克水，别埋记忆。
+    相生就跑。相克就审。比和就叠。过旺就疏。断链就熔。
+
+# ── 状态机 S0-S9 ─────────────────────────────
+state_machine:
+  S0: {name: INPUT_GATE, action: 输入入口, element: 土}
+  S1: {name: DNA_BIND, action: DNA绑定, element: 水}
+  S2: {name: SEMANTIC_PARSE, action: 语义解析, element: 火}
+  S3: {name: ROUTE_DISPATCH, action: 路由分发, element: 木}
+  S4: {name: RULE_CONFIRM, action: 规则确认, element: 金}
+  S5: {name: COMMAND_LOCK, action: 钧旨指令, element: 金+木}
+  S6: {name: EXECUTE, action: 执行, element: 木}
+  S7: {name: AUDIT_LOOP, action: 审计闭环, element: 金+水+土}
+  S8: {name: BREAK_RECOVER, action: 熔断回滚, element: 金+土}
+  S9: {name: ARCHIVE, action: 归档, element: 土}
+
+# DNA: #龍芯⚡️2026-04-26-DRAWER-REGISTRY-v1.0
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
