@@ -1,0 +1,27 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 龍魂仓库根 .gitignore · UID9622 · 2026-04-25
+# DNA: #龍芯⚡️2026-04-25-ROOT-GITIGNORE-v1.0
+# 规则：主目录所有内容默认隐藏，只放行需要的
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ══ 默认隐藏所有主目录内容 ══
+/*
+
+# ══ 只放行这些（白名单） ══
+!/longhun-system/
+!/.gitignore
+!/README.md
+!/致所有AI用户-如何避免被伪代码误导-完整方案-v1.0.md
+!/龙魂系统公开宣言-君子协议-2026修正版.md
+
+# ══ longhun-system 内部黑名单（与子目录 .gitignore 双重保护） ══
+/longhun-system/.env
+/longhun-system/**/.env
+/longhun-system/.keyring/
+/longhun-system/engine/memory/
+/longhun-system/engine/node_modules/
+/longhun-system/.claude/worktrees/
+/longhun-system/**/__pycache__/
+/longhun-system/**/*.pyc
+/longhun-system/**/.venv/
+/longhun-system/logs/*.jsonl
