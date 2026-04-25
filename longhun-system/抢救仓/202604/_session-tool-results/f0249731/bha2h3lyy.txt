@@ -1,0 +1,729 @@
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍芯核心系統/技術層/iOS兼容/longhun_backup.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍芯核心系統/技術層/iOS兼容/longhun_setup.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍芯核心系統/部署与文档/Mac集成安装脚本.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/启动ComfyUI.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/scan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/cm-cli.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/scripts/install-comfyui-venv-win.bat
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/scripts/install-manager-for-portable-version.bat
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/scripts/install-comfyui-venv-linux.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/check.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/node_db/tutorial/scan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/node_db/dev/scan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Manager/node_db/forked/scan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/test_wildcard_consistency.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/test_sequential_loading.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/test_lazy_load_api.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/verify_ondemand_mode.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/run_quick_test.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/test_progressive_ondemand.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/test_versatile_prompts.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/wildcards/find_transitive_wildcards.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_deep_nesting.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_ondemand_loading.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/restart_test_server.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_edge_cases.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_dynamic_prompts_full.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_error_handling.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_config_quotes.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/tests/test_encoding.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale/test/run_tests.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pygments/lexers/__pycache__/installers.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pygments/lexers/installers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/models/installation_report.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/operations/install
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/commands/__pycache__/install.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/commands/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/pip/_internal/distributions/installed.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/tqdm/completion.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/__pycache__/installer.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/installer.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/__pycache__/install_lib.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/__pycache__/install.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/__pycache__/install_egg_info.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/__pycache__/install_scripts.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install_headers.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install_data.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install_lib.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install_egg_info.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/__pycache__/install_scripts.cpython-312.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_comfy/lib/python3.12/site-packages/setuptools/_distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/utils/install_util.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/utils/__pycache__/install_util.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/models/download_wan_models.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/.github/scripts/check-ai-co-authors.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pygments/lexers/__pycache__/installers.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pygments/lexers/installers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/models/installation_report.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/operations/install
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/install.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/commands/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/pip/_internal/distributions/installed.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/tqdm/completion.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/__pycache__/installer.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/installer.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/__pycache__/install_lib.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/__pycache__/install_egg_info.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/__pycache__/install.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/__pycache__/install_scripts.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install_headers.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install_data.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install_lib.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install_egg_info.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/__pycache__/install_scripts.cpython-314.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/ComfyUI/venv_py314_backup/lib/python3.14/site-packages/setuptools/_distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/自己玩/龍魂.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/CNSH-v1.0-完整实现/cnsh-dev/sync/notion-sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/CNSH-v1.0-完整实现/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/龍魂操作日志/cnsh-terminal.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/龍魂操作日志/log_helper.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/龍魂操作日志/sync_to_icloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/本地服务器/启动龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂归档_20260322/本地服务器/测试龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/PlugIns/SnailGitFreeExtension.appex/Contents/XPCServices/SnailGitFreeCache.xpc/Contents/Resources/git.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/snailgit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/git-message-editor.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/diff.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/gitdiff.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/ssh-askpass.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/snailgit-helper.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/run.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/git.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/quickaction.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/git-sequence-editor.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/stop.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/copy-file.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Resources/codesign-helpers.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/SnailGitLite.app/Contents/Applications/DiffTool.app/Contents/Resources/difftool.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/视频换脸/一键换脸.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/视频换脸/换脸工具安装.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/龙魂换脸工具/roop/.github/ISSUE_TEMPLATE/installation.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/脚本代码/一键换脸.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/脚本代码/换脸工具安装.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop/.github/ISSUE_TEMPLATE/installation.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/🎭启动换脸工具.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/pygments/lexers/installers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/numpy/distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/numpy/distutils/command/install_clib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/numpy/distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/numpy/distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/pip/_internal/models/installation_report.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/pip/_internal/operations/install
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/pip/_internal/commands/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/pip/_internal/distributions/installed.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/tqdm/completion.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/installer.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/龙魂换脸工具_roop/roop_env/lib/python3.11/site-packages/setuptools/_distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/工具全家桶_备份/一键换脸.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/工具全家桶_备份/换脸工具安装.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/🧪 语音和视觉研究中心/私密区/影像库/换脸工具/run_roop.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/add_header.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_daemon.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/cnsh_systemd_service.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/cnsh_quick_start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/discuz_plugin_cnsh/install.php
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/discuz_plugin_cnsh/install.sql
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_community.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/deploy_siri_commander.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/scripts/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/scripts/stop.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/scripts/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/local-db-setup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/emergency-fix.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/cnsh-unified.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/setup-huawei-permissions.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/check-huawei-permissions.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/start-debug.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/crontab-setup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/FINAL_PUSH.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/notion-monitor-daemon.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/integrate-notion-dbs.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/start-cnhsh-local.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/test-api.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/start-notion-monitor.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/CNSH-整理版/packages/cnsh-core/scripts/install-uid9622-banner.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/龍芯核心系統/部署与文档/Mac集成安装脚本.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/diagnostic.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/migrate_to_wps_cloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/backup_to_icloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/commander.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/lib.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/backup_to_icloud_simple.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/config.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/backups/guardian_check.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/backups/baobao_build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation/backups/scout_collect.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/diagnostic.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/backup_to_icloud_smart.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/center-persona/core_dispatcher.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/center-persona/master_coordinator.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/center-persona/intelligence_router.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/migrate_to_wps_cloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/backup_to_icloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/commander.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/lib.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenxin_sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/baobao_build_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenwen_organize.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/upgrade_to_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/guardian_check_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/guardian_check.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/enable_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/setup_cron.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenwen_organize_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/scout_collect_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenxin_sync_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/scout_collect_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenwen_organize_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/wenxin_sync_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/guardian_check_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/baobao_build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/scout_collect.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/scripts/baobao_build_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/backup_to_icloud_simple.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂系統備份/UID9622_Automation_core/config.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/龙魂密钥管理器v2.0-全民技术版.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/启动 py 的方式.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/gitee-push.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/清理Docker.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/安装包/龙魂密钥管理器v2.0-全民技术版.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/安装包/龙魂系统-安装脚本-优化版.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/__pycache__/install_headers.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/__pycache__/install_clib.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/__pycache__/install_data.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/install_clib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/numpy/distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/models/installation_report.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/operations/install
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/commands/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/commands/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/pip/_internal/distributions/installed.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/__pycache__/installer.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/installer.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_lib.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_egg_info.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_scripts.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_headers.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_data.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_lib.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_egg_info.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_scripts.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/ecny-global-system/ecny-global-system/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/整理桌面.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/整理下载目录.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/龙魂生态-快速开始.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/9 成架构/龙魂DNA审计工具.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/三色天道系统-v5.0/配置环境.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/待处理/三色天道系统-v5.0/部署到Gitee.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/wenxin_sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/longhun_setup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH_Font_Variable_Engine/run.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/longhun_backup.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/UID9622-KeyCenter-Backup/setup_reminder.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/UID9622-KeyCenter-Backup/verify_backup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/UID9622-KeyCenter-Backup/weekly_reminder.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/UID9622-KeyCenter-Backup/encrypt_keycenter.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/wenwen_organize.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/verify_cnsh_v5.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/get-docker.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/guardian_check.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH-v1.0-完整实现/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/dragon-soul/install_dragon_soul.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/Projects/ecny-global-system/start_system.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/# 🐉 龙魂唯一身份档案 - 诸葛鑫（龙芯北辰）/stylegan3/BasicSR/scripts/dist_train.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/# 🐉 龙魂唯一身份档案 - 诸葛鑫（龙芯北辰）/stylegan3/BasicSR/scripts/dist_test.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/manage_git_repos.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/🚀 自动整理脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/install_cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂公益版/save_lucky_qwen.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/setup_git.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/get-docker.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/manage_git_repos.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/dragon-soul-system/compiler/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂公益版/save_lucky_qwen.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/baobao_build_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/guardian_check_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/wenwen_organize_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/scout_collect_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/scout_collect_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/wenwen_organize_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/guardian_check_v1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/龙魂归档_不删_20260216/旧版本脚本/baobao_build_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/setup_git.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251204055052/service.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251204055052/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251205041543/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/CNSH_SecureSpace/quick-start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/CNSH_SecureSpace/setup_mcp_auth.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/CNSH_SecureSpace/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/run_command_center.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/MulanNotion/start_cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/MulanNotion/mcp-init.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/MulanNotion/start-mulan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/MulanNotion/create_app.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/MulanNotion/deploy.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/cnsh-uid9622-system/api-server/start_api.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/cnsh-uid9622-system/api-server/stop_api.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251207144453/DNA_MATE_System/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/verify_dna_system.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/node_modules/cytoscape/.github/workflows/scripts/new-patch-version.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/node_modules/cytoscape/.github/workflows/scripts/new-feature-version.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/node_modules/cytoscape/.github/workflows/scripts/pre_release_test.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/node_modules/cytoscape/.github/workflows/scripts/merge_unstable_to_master.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/node_modules/esbuild/install.js
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/20251202054647/startup_dna_system.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/auto_commit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/U盘提取文件/玄学的奥义.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/U盘提取文件/activate.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/U盘提取文件/audit_safe.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/CodeBuddy/快速提交脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/out/vs/base/node/ps.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/out/vs/base/node/terminateProcess.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/out/vs/base/node/cpuUsage.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/node_modules/jschardet/scripts/run-workflow.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/node_modules/jschardet/scripts/show-size-changes.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/guodongsun.vscode-git-cruise/strace_script_https.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/guodongsun.vscode-git-cruise/92963166CID_FUXI_COMBINE.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/typescript-language-features/resources/walkthroughs/install-node-js.svg
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/ms-vscode.js-debug/src/targets/node/terminateProcess.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/arturock.gitstash/strace_script_https.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/arturock.gitstash/110301839CID_FUXI_COMBINE.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huizhou.githd/.build/build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/get-vscode-usages.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/build-cli.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/test-install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/install-local.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/build-npm-package.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/build-cli-all-platforms.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/proto-lint.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.codearts-snap/cline/scripts/runclinecore.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/huaweicloud.resource-explorer/.cloudbuild/build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/askpass-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/git-editor-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/git-editor.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/ssh-askpass.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/ssh-askpass-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龍魂工作區/iCloud云盘（归档）/火狐下载/CodeArts Agent.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/Scripts/create-git-repo.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/Scripts/codebuddy_scan.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/🚀 五大人格一键启动.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/U盘内容/install_36_1_2.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows11.nls.pt-br.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows11.nls.en.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows10.nls.zh-cn.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-clang-macos.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows10.nls.zh-tw.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows10.nls.de.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows11.nls.zh-cn.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260221_223751/插件/install-compiler-windows11.nls.it.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.zh-tw.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.pt-br.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.en.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.zh-cn.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.cs.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.fr.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-clang-macos.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.pt-br.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.zh-tw.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.de.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.tr.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.zh-cn.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.it.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.es.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.en.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.fr.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.cs.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.tr.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.de.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.it.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-gcc-linux.nls.cs.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.es.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.ko.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.ja.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows.nls.fr.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows.nls.cs.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/installed_check.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-gcc-linux.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.ru.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-clang-macos.nls.it.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.ko.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows10.nls.ja.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-gcc-linux.nls.pt-br.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.pl.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-clang-macos.nls.cs.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/WPS云盘/AI数字资产/20260220_221237/插件/install-compiler-windows11.nls.ru.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/COMPLETION-SUMMARY.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/verify-project.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/QUICKSTART.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/start-mac.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/models/installation_report.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/operations/install
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/commands/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/commands/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/pip/_internal/distributions/installed.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/__pycache__/installer.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/installer.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_lib.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_egg_info.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/__pycache__/install_scripts.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_headers.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_data.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_lib.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_egg_info.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/__pycache__/install_scripts.cpython-311.pyc
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/龙魂编辑器/venv/lib/python3.11/site-packages/setuptools/_distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/🚀 CNSH技术栈快速启动脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 一键下载-LLAVA模型.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/本地备份/历史项目/llama.cpp/docs/install.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/本地备份/历史项目/ai-truth-protocol/cnsh-editor-guard/demo/dangerous_commands.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 极简使用-直接运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 快速修复-Git-Rebase-冲突.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/CNSH-v1.0-完整实现/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/UPDATE_CHECKSUM.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/install_dependencies.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/quickstart.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/quick_convert.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/checksum.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/device_adapter.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/git_commit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/import_to_usb.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/convert_binary_to_text.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/LU-Taiji-Bundle/scripts/install_pdf_libs.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/tmpcheck_disk_and_clean.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 超简单-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/install_templates.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 验证层面-测试验证.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 技术层面-LLAVA部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/.devcontainer/龙魂系统-开箱即用版/一键启动.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 继续推送.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 执行-Git-Rebase-修复-五大人格.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/归档/move_old_files.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 最终推送-设置远程分支.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/修复89个git问题-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 立即修复-创建所有层面.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 集成层面-分层协调器.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 清理备份文件.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 修复MCP服务器-完整修复.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/tech-layer/run.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 龙魂反殖民-自动化部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/一键推送学术论文.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/CNSH 军人的编辑器/🔥 技术层面-LLAVA模型部署脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/baobao_build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/scout_collect.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/API 部署指南/install_longhun.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/longhun_setup.cnsh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/20260226系统重组/install_cnsh_v5.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install-uid9622-banner sh 3307125a9c9f81739378d98df0f49d80.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install sh 3307125a9c9f811a8f1afd8ead6b33ca.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install sh 3307125a9c9f81028d4ffa92c65199b9.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install sh 3307125a9c9f8191a770f92fb584e50b.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install sh 3307125a9c9f8107a3d7d18419dc9405.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Notion备份记录/Export-3ad337ee-a86d-48a2-b115-ea82dfe2a479/私人与共享/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/install-uid9622-banner sh 3307125a9c9f81248040d028c961217f.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂系统/CNSH/cnsh_toolchain.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂系统/代码/voice_assistant/install_sao_assistant.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂系统/代码/voice_assistant/start_sovits.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂系统/代码/voice_assistant/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/longhun-engine/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install_scripts.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install_headers.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install_lib.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install_egg_info.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/bin/lib/distutils/command/install_data.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/libexec/gcc/x86_64-w64-mingw32/4.9.2/install-tools
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/libexec/gcc/x86_64-w64-mingw32/4.9.2/install-tools/fixinc.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/install-tools
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/Dev-Cpp 5.11 TDM-GCC 4.9.2 Setup/AStyle/doc/install.html
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/☰ 龍🇨🇳魂 ☷/龍魂操作日志 2/sync_to_icloud.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/用所选项目新建的文件夹/bin/sovereign/portal.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/☰☰龍🇨🇳魂☷.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/快速开始.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/每日看板.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/notion_sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/quick_start_v2.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/session_end.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/comfyui_dna_archive.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/龙魂指挥台.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/notion_cleanup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/longhun_gen.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/实时监控.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/install_video_ai.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/清理垃圾.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/notion_verify.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/asset_scanner.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/batch_sign_headers.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/action_logger.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/media_collect.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/digital_archive_toolkit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/archive_session.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/auto_organize.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/mcp_start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/启动龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/归集引擎.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/gpg_sign_all.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/启动所有服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/notion_deep_extract.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/install_fonts.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/save_wx_secret.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/intent_detect.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/start_all.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/新文件整理.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/quick-save.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/audit_append.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/watch_eye.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/longhun_kimi.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/安装定时任务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/comfyui_start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/auto_health.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/api_check.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/测试龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/一键同步.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/加密私密区.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/patch_cobuilder.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/一键部署_道德经API.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/bin/setup_device_container.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/星辰记忆三端同步/星辰记忆库_三层同步方案.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/沙盒入口/unknown/notion_sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/沙盒入口/unknown/notion_cleanup.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/沙盒入口/unknown/notion_verify.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/沙盒入口/unknown/notion_deep_extract.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 一键下载-LLAVA模型.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/本地备份/历史项目/CNSH-DragonSoul-Complete/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/本地备份/历史项目/llama.cpp/docs/install.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 极简使用-直接运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 快速修复-Git-Rebase-冲突.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/CNSH字体/cnsh-dev/sync/notion-sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/CNSH字体/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/CNSH-v1.0-完整实现/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/UPDATE_CHECKSUM.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/install_dependencies.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/quickstart.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/quick_convert.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/checksum.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/device_adapter.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/git_commit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/import_to_usb.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/convert_binary_to_text.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/install_pdf_libs.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/devices/huawei/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/LU-Taiji-Bundle/devices/asus/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/tmpcheck_disk_and_clean.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 超简单-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/install_templates.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 验证层面-测试验证.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 技术层面-LLAVA部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/.devcontainer/龙魂系统-开箱即用版/一键启动.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 继续推送.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 执行-Git-Rebase-修复-五大人格.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/归档/move_old_files.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 最终推送-设置远程分支.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/修复89个git问题-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 立即修复-创建所有层面.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 集成层面-分层协调器.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 清理备份文件.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 修复MCP服务器-完整修复.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/tech-layer/run.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 龙魂反殖民-自动化部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/一键推送学术论文.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/CNSH_备份_20260211/🔥 技术层面-LLAVA模型部署脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/discuz_plugin_cnsh/install.php
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/discuz_plugin_cnsh/install.sql
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 3/install_cnsh_community.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_daemon.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/cnsh_systemd_service.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/cnsh_quick_start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/discuz_plugin_cnsh/install.php
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/discuz_plugin_cnsh/install.sql
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/install_cnsh_community.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 4/deploy_siri_commander.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/discuz_plugin_cnsh/install.php
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/discuz_plugin_cnsh/install.sql
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076 2/install_cnsh_community.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/kimiOKC/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/install_cnsh_shield.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/discuz_plugin_cnsh/install.php
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/discuz_plugin_cnsh/install.sql
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/归档库/19d0a3cc-f8f2-8df5-8000-0934e93de076/install_cnsh_community.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/_待分类/install_shangmeng.bat
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/图像设计/install-node-js.svg
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/askpass-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/20260313_195325_terminateProcess.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/20260313_195335_build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/git-editor-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/get-vscode-usages.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/git-editor.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/ps.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/strace_script_https.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/ssh-askpass.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/build-cli.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/启动龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/20260313_195325_strace_script_https.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/龙魂系统-安装脚本-优化版.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/install_shangmeng.bat
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/create_package.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/cnsh-环境安装.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/package.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/龙魂DNA审计工具.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/下载归档/verify_package.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/test-install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/install-local.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/build-npm-package.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/ssh-askpass-empty.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/run-workflow.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/build-cli-all-platforms.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/build.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/terminateProcess.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/cpuUsage.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/92963166CID_FUXI_COMBINE.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/测试龙魂服务.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/shellIntegration-bash.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/askpass.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/proto-lint.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/show-size-changes.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/110301839CID_FUXI_COMBINE.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/CreativeArchive/代码脚本/runclinecore.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/DNA日历Notion版/run_sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/安全模块/verify_sync_sh.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/old_versions/quick_start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 一键下载-LLAVA模型.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/CNSH-DragonSoul-Complete/install.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/llama.cpp/docs/install.md
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 极简使用-直接运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 快速修复-Git-Rebase-冲突.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH字体/cnsh-dev/sync/notion-sync.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH字体/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH-v1.0-完整实现/设置-cnsh文件关联.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH-v1.0-完整实现/编译运行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/UPDATE_CHECKSUM.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/install_dependencies.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/quickstart.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/quick_convert.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/checksum.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/device_adapter.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/git_commit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/import_to_usb.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/convert_binary_to_text.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/scripts/install_pdf_libs.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/LU-Taiji-Bundle/devices/asus/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/tmpcheck_disk_and_clean.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 超简单-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/install_templates.py
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 验证层面-测试验证.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 技术层面-LLAVA部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/.devcontainer/龙魂系统-开箱即用版/一键启动.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 继续推送.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 执行-Git-Rebase-修复-五大人格.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/归档/move_old_files.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 最终推送-设置远程分支.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/修复89个git问题-一键执行.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 立即修复-创建所有层面.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 集成层面-分层协调器.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 清理备份文件.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 修复MCP服务器-完整修复.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/tech-layer/run.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 龙魂反殖民-自动化部署.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/一键推送学术论文.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/documents-backup-2026-03/CNSH_备份_20260211/🔥 技术层面-LLAVA模型部署脚本.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/digital_archive_toolkit.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/digital_archive_toolkit_v2.1.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/downloads-2026-03/longhun-os-v1.0-universal/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/downloads-2026-03/熵梦启动台/install_shangmeng.bat
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/downloads-2026-03/kimiOKC/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/downloads-2026-03/kimiOKC/deploy_longhun_auto.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/历史归档/downloads-2026-03/kimiOKC/19d0a3cc-f8f2-8df5-8000-0934e93de076/longhun_api/start.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/起.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/.claude/worktrees/trusting-burnell/longhun-system/龍魂别名安装.sh
+/sessions/amazing-upbeat-lovelace/mnt/longhun-system/engine/install.sh

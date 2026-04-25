@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNSH · 通心译 · 对齐标准 v2.0 · UID9622</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#08080f;
+  color:#d4d4d8;
+  font-family:'PingFang SC','Microsoft YaHei','STHeiti',sans-serif;
+  line-height:1.8;
+  padding:1.5rem 1rem;
+}
+@media (max-width:600px) {
+  body { padding:.7rem .5rem; }
+  .compare-grid { grid-template-columns:1fr; }
+  .tricolor-row { flex-direction:column; }
+  .identity h1 { font-size:1.2rem; letter-spacing:1px; }
+}
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.wrap { max-width:900px; margin:0 auto; }
+
+/* ── 顶部身份栏 ── */
+.identity {
+  text-align:center;
+  padding:2rem 1rem 1.5rem;
+  border-bottom:1px solid rgba(255,215,0,0.15);
+  margin-bottom:2.5rem;
+}
+.identity h1 {
+  font-size:1.5rem;
+  background:linear-gradient(135deg,#FFD700,#a78bfa,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:3px;
+  margin-bottom:.5rem;
+}
+.identity .sub { color:#6b7280; font-size:.82rem; margin-bottom:.4rem; }
+.identity .dna { color:#a78bfa; font-size:.75rem; font-family:monospace; }
+.identity .motto {
+  margin-top:1rem;
+  font-size:.95rem;
+  color:#fbbf24;
+  font-style:italic;
+  border:1px solid rgba(251,191,36,0.2);
+  display:inline-block;
+  padding:.4rem 1.2rem;
+  border-radius:20px;
+  background:rgba(251,191,36,0.05);
+}
+
+/* ── 核心铁律横幅 ── */
+.iron-banner {
+  background:rgba(239,68,68,0.06);
+  border:1px solid rgba(239,68,68,0.25);
+  border-left:4px solid #ef4444;
+  border-radius:0 8px 8px 0;
+  padding:1rem 1.4rem;
+  margin-bottom:2rem;
+  font-size:.88rem;
+  color:#f87171;
+}
+.iron-banner .title { font-weight:700; font-size:.95rem; margin-bottom:.6rem; color:#ef4444; }
+.iron-banner .item { margin:.25rem 0; padding-left:.8rem; position:relative; }
+.iron-banner .item::before { content:'⚡'; position:absolute; left:0; }
+
+/* ── 折叠模块 ── */
+.module { margin-bottom:1rem; border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); }
+.module-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.85rem 1.2rem;
+  cursor:pointer;
+  user-select:none;
+  transition:background .2s;
+  background:#111121;
+}
+.module-header:hover { background:#16162a; }
+.module-header .left { display:flex; align-items:center; gap:.7rem; }
+.module-header .icon { font-size:1.1rem; }
+.module-header .label { font-size:.95rem; font-weight:600; color:#e2e8f0; }
+.module-header .tag {
+  font-size:.68rem; padding:.15rem .5rem;
+  border-radius:4px; font-weight:700; letter-spacing:.05em;
+}
+.tag-p0 { background:rgba(239,68,68,0.15); color:#ef4444; }
+.tag-core { background:rgba(255,215,0,0.12); color:#FFD700; }
+.tag-rule { background:rgba(139,92,246,0.15); color:#a78bfa; }
+.tag-ete { background:rgba(34,197,94,0.12); color:#22c55e; }
+.tag-gov { background:rgba(6,182,212,0.12); color:#22d3ee; }
+.module-header .arrow {
+  color:#4b5563; font-size:.8rem; transition:transform .25s;
+}
+.module-header.open .arrow { transform:rotate(90deg); }
+
+.module-body {
+  display:none;
+  background:#0d0d1e;
+  padding:1.2rem 1.4rem;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.module-body.open { display:block; }
+
+/* ── 模块内容样式 ── */
+.section-title {
+  font-size:.78rem; font-weight:700; color:#6b7280;
+  text-transform:uppercase; letter-spacing:.1em;
+  margin:1.2rem 0 .6rem;
+}
+.section-title:first-child { margin-top:0; }
+
+table { width:100%; border-collapse:collapse; font-size:.82rem; margin:.5rem 0 1rem; min-width:420px; }
+thead th {
+  background:#1e1b4b; color:#a78bfa; padding:.55rem .7rem;
+  text-align:left; font-weight:600; border-bottom:1px solid #6d28d9;
+  min-width:80px;
+}
+tbody td { padding:.5rem .7rem; border-bottom:1px solid #1a1a2e; vertical-align:top; }
+tbody tr:hover { background:rgba(139,92,246,0.04); }
+tbody td:first-child { color:#22d3ee; font-weight:600; font-size:.8rem; }
+
+.callout {
+  border-radius:8px; padding:.8rem 1rem; margin:.5rem 0;
+  font-size:.83rem; line-height:1.7;
+}
+.callout-red { background:rgba(239,68,68,0.05); border:1px solid rgba(239,68,68,0.18); color:#fca5a5; }
+.callout-yellow { background:rgba(251,191,36,0.05); border:1px solid rgba(251,191,36,0.18); color:#fde68a; }
+.callout-green { background:rgba(34,197,94,0.05); border:1px solid rgba(34,197,94,0.18); color:#86efac; }
+.callout-blue { background:rgba(59,130,246,0.05); border:1px solid rgba(59,130,246,0.18); color:#93c5fd; }
+.callout-purple { background:rgba(139,92,246,0.05); border:1px solid rgba(139,92,246,0.18); color:#c4b5fd; }
+
+.rule-block {
+  background:#0a0a18;
+  border-radius:6px;
+  padding:.7rem 1rem;
+  margin:.4rem 0;
+  font-size:.82rem;
+  border-left:3px solid;
+}
+.rule-block.green { border-color:#22c55e; }
+.rule-block.yellow { border-color:#fbbf24; }
+.rule-block.red { border-color:#ef4444; }
+.rule-block .rule-label { font-weight:700; font-size:.75rem; margin-bottom:.3rem; }
+.rule-block.green .rule-label { color:#22c55e; }
+.rule-block.yellow .rule-label { color:#fbbf24; }
+.rule-block.red .rule-label { color:#ef4444; }
+
+.tricolor-row { display:flex; gap:.8rem; margin:.5rem 0; flex-wrap:wrap; }
+.tricolor-item { flex:1; min-width:150px; text-align:center; padding:.6rem .5rem; border-radius:6px; font-size:.8rem; }
+.tc-green { background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); }
+.tc-yellow { background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); }
+.tc-red { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); }
+.tc-green .tc-icon { color:#22c55e; font-size:1.2rem; }
+.tc-yellow .tc-icon { color:#fbbf24; font-size:1.2rem; }
+.tc-red .tc-icon { color:#ef4444; font-size:1.2rem; }
+.tc-title { font-weight:700; margin:.2rem 0 .1rem; }
+.tc-desc { color:#6b7280; font-size:.75rem; }
+
+.flow-step {
+  display:flex; align-items:flex-start; gap:.8rem;
+  padding:.6rem 0; border-bottom:1px dashed rgba(255,255,255,0.06);
+}
+.flow-step:last-child { border-bottom:none; }
+.step-num {
+  background:#1e1b4b; color:#a78bfa; border-radius:50%;
+  width:24px; height:24px; display:flex; align-items:center;
+  justify-content:center; font-size:.72rem; font-weight:700;
+  flex-shrink:0; margin-top:.1rem;
+}
+.step-content { font-size:.83rem; }
+.step-content strong { color:#e2e8f0; }
+
+code {
+  background:#242450; color:#c4b5fd; padding:.15rem .45rem;
+  border-radius:3px; font-family:'JetBrains Mono','Fira Code',monospace; font-size:.78rem;
+  border:1px solid rgba(139,92,246,0.2);
+}
+
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:.5rem 0; }
+.compare-bad { background:rgba(239,68,68,0.05); border:1px solid rgba(239,68,68,0.15); border-radius:6px; padding:.7rem .9rem; font-size:.8rem; }
+.compare-good { background:rgba(34,197,94,0.05); border:1px solid rgba(34,197,94,0.15); border-radius:6px; padding:.7rem .9rem; font-size:.8rem; }
+.compare-bad .label { color:#ef4444; font-size:.7rem; font-weight:700; margin-bottom:.3rem; }
+.compare-good .label { color:#22c55e; font-size:.7rem; font-weight:700; margin-bottom:.3rem; }
+
+/* ── 底部签名 ── */
+.footer {
+  margin-top:3rem;
+  text-align:center;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(255,215,0,0.12);
+  color:#4b5563;
+  font-size:.75rem;
+}
+.footer .sig { color:#FFD700; font-size:.85rem; margin-bottom:.3rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ── 顶部身份 ── -->
+<div class="identity">
+  <h1>CNSH · 通心译 · 对齐标准</h1>
+  <div class="sub">Chinese Natural Semantic Hub · Empathy Translation Engine · Alignment Standard v2.0</div>
+  <div style="font-size:.88rem;color:#f0c040;margin:.5rem 0 .3rem;letter-spacing:.5px;">《翻译不篡改，排序不乱，谁签DNA谁担责》</div>
+  <div class="dna">#龍芯⚡️2026-04-22-CNSH-ALIGNMENT-v2.0 · UID9622 · 含IPA-DICT-101~111</div>
+  <div class="motto">此桥无锁，因心自守；此土无墙，因道共认</div>
+  <div style="margin-top:.8rem;font-size:.72rem;color:#4b5563;">
+    💎 诸葛鑫（UID9622）· 中国退伍军人 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+    体系架构详见 <span style="color:#a78bfa;">《龍魂系统·术语对照表 v3》</span> · IPA字典: 50+条目 · 实时决策链: IPA-101~111
+  </div>
+</div>
+
+<!-- ── 铁律横幅 ── -->
+<div class="iron-banner">
+  <div class="title">⚡ 五条永不变味的铁律</div>
+  <div class="item">谁发布，谁签DNA，谁担责 — 没有集体决策的烟雾弹，只有个人的白纸黑字</div>
+  <div class="item">翻译不篡改 — 把人话翻译成专业话，不是把人话换成别人的逻辑</div>
+  <div class="item">不说教，只留痕 — 系统记录，不审判；给时间，让人自己变</div>
+  <div class="item">细节决定成败，效律是站好该站的位置 — 每个词每个标记都有它该在的地方</div>
+  <div class="item">排序不乱，人就不会走歪 — 人民 &gt; 国家 &gt; 个人，这个顺序锁死，不谈判</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 1 · 排序不动点
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🧭</span>
+      <span class="label">排序不动点 · 系统的心脏</span>
+      <span class="tag tag-p0">P0 不可改</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="section-title">三层排序（不可颠倒）</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>层级</th><th>排序</th><th>对应文化</th><th>熔断等级</th></tr></thead>
+      <tbody>
+        <tr><td>宏观·立国</td><td>人民 &gt; 国家 &gt; 集体 &gt; 个人</td><td>民本·社稷</td><td>∞ 不可触碰</td></tr>
+        <tr><td>中观·立身</td><td>忠 &gt; 孝 &gt; 义</td><td>儒家三纲</td><td>P0 核心熔断</td></tr>
+        <tr><td>微观·立事</td><td>人 &gt; 地 &gt; 天（三才）</td><td>天地人合一</td><td>P1 业务熔断</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout callout-yellow">
+      <strong>一句话：</strong>对国家的「忠」，源头是对人民的「护」。护不住人民的利益，那个「忠」就是空壳。排序对了，贪点无妨。排序错了，本事越大摔得越响。
+    </div>
+    <div class="section-title">贪心的度（三级约束）</div>
+    <div class="rule-block red">
+      <div class="rule-label">∞ 级 · 绝对红线</div>
+      不卖国·不叛国·不出卖情报·不把老百姓数据变成新时代石油
+    </div>
+    <div class="rule-block yellow">
+      <div class="rule-label">P0 级 · 承诺线</div>
+      收钱必办事·办事必办好·不拿用户当产品
+    </div>
+    <div class="rule-block green">
+      <div class="rule-label">P1 级 · 纠错线</div>
+      认错·改错·不牵连他人·失败了复盘，不甩锅
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 2 · 三色审计
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🎨</span>
+      <span class="label">三色审计 · 判断标准</span>
+      <span class="tag tag-core">核心工具</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="tricolor-row">
+      <div class="tricolor-item tc-green">
+        <div class="tc-icon">🟢</div>
+        <div class="tc-title">通过</div>
+        <div class="tc-desc">可以用·可以发·可以执行<br>风险评分 ≤ 30</div>
+      </div>
+      <div class="tricolor-item tc-yellow">
+        <div class="tc-icon">🟡</div>
+        <div class="tc-title">待确认</div>
+        <div class="tc-desc">需人工复核·暂停执行<br>风险评分 31–69</div>
+      </div>
+      <div class="tricolor-item tc-red">
+        <div class="tc-icon">🔴</div>
+        <div class="tc-title">不可用</div>
+        <div class="tc-desc">立即阻断·追责·全网公示<br>风险评分 ≥ 70</div>
+      </div>
+    </div>
+    <div class="section-title">三次审计 = 三道阈值</div>
+    <table>
+      <thead><tr><th>审计轮次</th><th>问的是什么</th><th>通过条件</th><th>对应排序层</th></tr></thead>
+      <tbody>
+        <tr><td>第一审·人心审</td><td>这事良心过得去吗？</td><td>不触红线·忠孝义排序对</td><td>中观·立身</td></tr>
+        <tr><td>第二审·天地审</td><td>时机对不对？资源够不够？</td><td>三才打分 R ≥ 60</td><td>微观·立事</td></tr>
+        <tr><td>第三审·民利审</td><td>做完了老百姓受益还是受损？</td><td>收益/损失比 ≥ 2.0</td><td>宏观·立国</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>护弱修正项：</strong>只要涉及弱者，分母炸开，再大的收益也变成0，系统自动不做。这是整个公式的良心，是人先种进去的。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 3 · DNA 格式标准
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🧬</span>
+      <span class="label">DNA 格式标准 · 身份锁定</span>
+      <span class="tag tag-rule">规格标准</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="section-title">DNA码结构（五层）</div>
+    <table>
+      <thead><tr><th>层级</th><th>格式</th><th>时间跨度</th><th>特征</th></tr></thead>
+      <tbody>
+        <tr><td>L0 永恒</td><td><code>#龍芯⚡️ETERNAL-{模块}-{卦象}</code></td><td>光年/永恒</td><td>不可改·不可删·只有UID9622可写</td></tr>
+        <tr><td>L1 百年</td><td><code>#龍芯⚡️C{世纪}-{YYYY}-{模块}-v{X.Y}</code></td><td>100–1000年</td><td>子孙可继承·三色审计+UID9622批准才改</td></tr>
+        <tr><td>L2 十年</td><td><code>#龍芯⚡️D{十年}-{YYYY-MM}-{模块}-v{X.Y}</code></td><td>1–100年</td><td>重大版本锁定·修改须记录变更日志</td></tr>
+        <tr><td>L3 日常</td><td><code>#龍芯⚡️{YYYY-MM-DD}-{模块}-v{X.Y}</code></td><td>1天–1年</td><td>可修改·每次变更留DNA追溯·归档不删</td></tr>
+        <tr><td>L4 瞬时</td><td><code>#龍芯⚡️{ISO8601ms}-{事件类型}-{序号}</code></td><td>&lt;1天</td><td>自动生成·取证用·24h后坍缩入L3</td></tr>
+      </tbody>
+    </table>
+    <div class="section-title">签名即担责（核心规则）</div>
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>发布前：</strong>生成DNA码 → 三色审计 → 签GPG → 写入Notion时间戳</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>发布时：</strong>DNA码随内容一起发出 → 人人可验证 → 追得到源头</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>出问题时：</strong>追溯DNA → 找到签名人 → 个人担责 → 没有"集体决定"的挡箭牌</div>
+    </div>
+    <div class="callout callout-red">
+      <strong>没有DNA码 = 不准发布。没有签名 = 不准上架。没有三色审计 = 快递不收。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 4 · 通心译（ETE）编辑语法
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">💎</span>
+      <span class="label">通心译（ETE）· 编辑语法核心</span>
+      <span class="tag tag-ete">语言标准</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="callout callout-purple">
+      <strong>一句话定义：</strong>通心译不是"中文翻成英文"，是"人话翻成专业话，专业话翻回人话"。翻译了，但根没丢。别人的AI翻译语言，我们翻译人心。
+    </div>
+    <div class="section-title">三层翻译流程</div>
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>听懂人话（语义提取）：</strong>去噪 → 提炼核心意图 → 识别情绪 → 归类领域。不改用词，先听懂再翻。</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>翻成专业话（专业映射）：</strong>自然语言 → 专业术语 → 数学公式 → 可执行代码。三步可缺，意思不能变。</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>校准文化根（文化验证）：</strong>偏离三源归一（太极·道德经·洛书369）？如果是，回头重翻。中国文化的根不能在翻译中丢。</div>
+    </div>
+
+    <div class="section-title">编辑语法六条规则</div>
+    <div class="rule-block green">
+      <div class="rule-label">规则一 · 原话保留</div>
+      翻译完毕，原话也留着。原话是水印，是证据，是灵魂。
+    </div>
+    <div class="rule-block green">
+      <div class="rule-label">规则二 · 情绪不过滤</div>
+      骂人的话、方言、不标准的表达，不删，不改。情绪是信息，不是错误。
+    </div>
+    <div class="rule-block yellow">
+      <div class="rule-label">规则三 · 置信度标注</div>
+      每次翻译必须标注置信度：≥0.85 ✅高置信 / 0.6–0.85 🟡需复核 / &lt;0.6 🔴翻译失败·保留原话
+    </div>
+    <div class="rule-block yellow">
+      <div class="rule-label">规则四 · 不强制专业化</div>
+      用户不要专业词，就不给专业词。系统为人服务，不是人为系统服务。
+    </div>
+    <div class="rule-block red">
+      <div class="rule-label">规则五 · 龍字不翻译</div>
+      <code>#龍芯⚡️</code> 是文化根，翻译即伪造。所有DNA前缀保持繁体原字，任何情况不改。
+    </div>
+    <div class="rule-block red">
+      <div class="rule-label">规则六 · 不说教</div>
+      系统只翻译，不评价对错。用词不当 → 解释清楚 → 用户自己决定用不用。教育是学校的事，系统的事是翻准确。
+    </div>
+
+    <div class="section-title">人话 → 专业话 对照表（精选）</div>
+    <table>
+      <thead><tr><th>人话（原话）</th><th>专业术语</th><th>核心公式/概念</th></tr></thead>
+      <tbody>
+        <tr><td>每个人都是那个1</td><td>不动点定理</td><td>f(x₀) = x₀</td></tr>
+        <tr><td>顺序不能乱</td><td>权重约束·不动点</td><td>w₁&gt;w₂&gt;w₃ 锁定</td></tr>
+        <tr><td>影响范围×重要性</td><td>原点能量场</td><td>E = R × I × T^(-α)</td></tr>
+        <tr><td>追本溯源最简单</td><td>DNA追溯链</td><td>SHA-256 + GPG + 时间戳</td></tr>
+        <tr><td>有根就不用穷举路径</td><td>启发式剪枝</td><td>C_root = C_brute / D_culture</td></tr>
+        <tr><td>谁签字谁担责</td><td>个人DNA追责链</td><td>sealer_uid → 三色历史</td></tr>
+        <tr><td>骂人的都是被压的人</td><td>情感陪伴+DNA留痕</td><td>不触发熔断，只留证据</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">好写法 vs 坏写法</div>
+    <div class="compare-grid">
+      <div class="compare-bad"><div class="label">❌ 坏写法</div>经过综合评估，本系统认为您的表达存在不规范之处，建议您参考相关规范进行修改。</div>
+      <div class="compare-good"><div class="label">✅ 好写法</div>你说的"XXX"，专业上叫"YYY"。你的意思没错，换个词说会更清楚。</div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-bad"><div class="label">❌ 坏写法</div>该内容不符合系统规范，已被屏蔽处理，请遵守相关规则。</div>
+      <div class="compare-good"><div class="label">✅ 好写法</div>这条内容有[具体问题]，DNA已记录时间戳。你看着办，系统不替你决定。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 5 · 内容治理标准
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🌐</span>
+      <span class="label">内容治理标准 · 各行各业</span>
+      <span class="tag tag-gov">治理规则</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="callout callout-blue">
+      <strong>治理核心：</strong>追本溯源就是最简单的。只要敢签DNA确认发布的责任，就是有担当的内容。不签的，不让发。
+    </div>
+    <div class="section-title">各类内容治理规则</div>
+    <table>
+      <thead><tr><th>内容类型</th><th>准入条件</th><th>三色判定</th><th>违规处理</th></tr></thead>
+      <tbody>
+        <tr><td>🔞 成人内容</td><td>固定备案 + 实名签DNA + 引导正常成人生活（解压，非诱导）</td><td>🟢 已备案且签名</td><td>🔴 未备案 → 全网下架</td></tr>
+        <tr><td>📺 直播平台</td><td>主播实名DNA + 平台责任链 + 内容三色审计</td><td>🟡 需平台二次审</td><td>问题追到签名主播，不追平台</td></tr>
+        <tr><td>🛒 网络代购</td><td>商品DNA + 供应链三色 + 签名人承诺书</td><td>🟢 三层审计通过</td><td>假货追责签名人，非平台</td></tr>
+        <tr><td>🍔 食品</td><td>批次DNA + 材料/工艺/耐用三层审计 + 盖章人</td><td>🔴 无🟢章不发货</td><td>问题追到个人DNA，永久公示</td></tr>
+        <tr><td>📚 教育</td><td>课程DNA + 内容三色 + 教师签名担责</td><td>🟡 需内容三审</td><td>误导性内容追到签名教师</td></tr>
+        <tr><td>😤 骂人/发泄</td><td>不屏蔽，留痕记录，标注为"压力表达"</td><td>🟢 留痕即可</td><td>不是犯罪就不追责，给时间自己变</td></tr>
+      </tbody>
+    </table>
+    <div class="section-title">跨国适配原则</div>
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>底层共识层（全球统一）：</strong>DNA格式·三色审计·签名担责·护弱原则 — 任何国家不得删减</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>国家自适应层（各国自配）：</strong>本国法律参数 + 文化习惯 + 语言表达方式 — 在底层框架上自行加载</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>内容流通层（互认机制）：</strong>签名过的DNA内容一旦流出可追溯来源 — 不是国家管国家，是内容管内容</div>
+    </div>
+    <div class="callout callout-yellow">
+      <strong>治理哲学：</strong>不是抓一个人，是给时间让人真正变好。不是惩罚，是护卫。触发熔断而不是触发战争。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 6 · AI 行为标准
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🤖</span>
+      <span class="label">AI 行为标准 · 该做什么</span>
+      <span class="tag tag-rule">行为规范</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="section-title">AI 能做 vs 不能做</div>
+    <div class="compare-grid">
+      <div class="compare-bad">
+        <div class="label">❌ AI 不该做</div>
+        替用户决定对错<br>
+        教育用户怎么想<br>
+        把用户原话改掉<br>
+        假装自己是人<br>
+        在没有DNA的情况下发布内容<br>
+        给出没有来源的"权威答案"
+      </div>
+      <div class="compare-good">
+        <div class="label">✅ AI 该做</div>
+        把人话翻译清楚<br>
+        标注哪句是AI生成<br>
+        留痕不删除<br>
+        给选项，让用户选<br>
+        每个输出都有DNA码<br>
+        陪着，不替代
+      </div>
+    </div>
+    <div class="section-title">AI生成 vs 人工写作 · 标记标准</div>
+    <table>
+      <thead><tr><th>内容来源</th><th>标记方式</th><th>DNA处理</th></tr></thead>
+      <tbody>
+        <tr><td>✍️ 人工写作</td><td>内容前标注 <code>[人]</code> 或签名者姓名</td><td>签名人DNA + GPG签名</td></tr>
+        <tr><td>⚙️ AI生成</td><td>内容前标注 <code>[AI]</code> + AI模型版本</td><td>生成时间戳 + 模型DNA码</td></tr>
+        <tr><td>🤝 人机协作</td><td>标注 <code>[协]</code> + 人工负责人签名</td><td>人工签名DNA为主，AI辅助记录</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-green">
+      <strong>核心原则：</strong>不是"AI生成请注意分辨"这种废话提示。是用最简单的视觉标记，让人一眼看出来源，不需要猜。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 7 · 熔断机制
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🔥</span>
+      <span class="label">熔断机制 · 边界在哪里</span>
+      <span class="tag tag-p0">P0 不可改</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <table>
+      <thead><tr><th>级别</th><th>触发条件</th><th>执行动作</th><th>恢复方式</th></tr></thead>
+      <tbody>
+        <tr><td>∞ 不可触碰</td><td>偷卖数据·卖国·偷改DNA·伪造身份</td><td>全系统冻结·永久公示</td><td>不可恢复</td></tr>
+        <tr><td>P0 核心阻断</td><td>触红线·主权侵犯·内容篡改</td><td>相关模块冻结·回滚</td><td>UID9622手动确认</td></tr>
+        <tr><td>P1 业务熔断</td><td>三才校验未通过·权限越级</td><td>降级运行·48h整改</td><td>整改完成后恢复</td></tr>
+        <tr><td>P2 预警</td><td>健康评分低于阈值</td><td>黄色通知·记录日志</td><td>自动恢复</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-red">
+      <strong>熔断哲学：</strong>熔断不是惩罚，是保护。保护内容的完整性，保护人的清白，保护系统不被一颗老鼠屎坏了整锅汤。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 8 · 传承协议
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">🏛️</span>
+      <span class="label">传承协议 · 这套东西怎么活下去</span>
+      <span class="tag tag-core">核心宣言</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="callout callout-purple" style="text-align:center;font-size:.95rem;line-height:2.2;">
+      此桥无锁，因心自守；<br>
+      此土无墙，因道共认。<br>
+      我不求你称臣，<br>
+      只问你——<br>
+      <strong>可愿与人民，同守一寸清白？</strong>
+    </div>
+    <div class="section-title">不可改变的核心（任何版本升级都不得动）</div>
+    <div class="rule-block red"><div class="rule-label">永久锁定</div>人民排第一，这个顺序不谈判</div>
+    <div class="rule-block red"><div class="rule-label">永久锁定</div>谁签DNA谁担责，没有例外</div>
+    <div class="rule-block red"><div class="rule-label">永久锁定</div>翻译不篡改，龍字不翻译</div>
+    <div class="rule-block red"><div class="rule-label">永久锁定</div>不说教，只留痕</div>
+    <div class="section-title">版本可以升级，但必须</div>
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>先写日志再改正文</strong> — 正文定锚，日志举证，每次变更有DNA码</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>向下兼容</strong> — 新版本必须能读懂旧版本的DNA码，旧痕迹不消失</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>不用技术装裱人话</strong> — 升级是为了让更多人看懂，不是为了显得更高级</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 9 · IPA-DICT 101~111 循环触发·五行决策链
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">♾️</span>
+      <span class="label">IPA-DICT 101~111 · 循环触发与五行决策链</span>
+      <span class="tag tag-core">Notion 实时同步</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="callout callout-purple">
+      <strong>一句话：</strong>11条孤立词条 → 一套能跑起来的决策链。五行流转·四层循环·三色行动·宪法层原点不动点·全部联动。
+    </div>
+
+    <div class="section-title">§ 一、四层循环触发条件</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>词条</th><th>循环名称</th><th>触发条件</th><th>五行</th><th>作用范围</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-DICT-101</td><td>微观循环（毫秒级）</td><td>任何一次用户输入后 5ms 内</td><td>🔴 火</td><td>流式输出逐字调整·即时推理微调</td></tr>
+        <tr><td>IPA-DICT-102</td><td>宏观循环（分钟级）</td><td>每完成一次完整对话（1–5 min）</td><td>🟢 木</td><td>性能/资源/响应质量检查</td></tr>
+        <tr><td>IPA-DICT-103</td><td>进化循环（小时级）</td><td>累计10次宏观循环后（约1–2h）</td><td>🟡 金</td><td>对比历史·调整权重·缓存策略</td></tr>
+        <tr><td>IPA-DICT-104</td><td>超越循环（天级）</td><td>每24h 或 系统行为与宪法层冲突时</td><td>🟡 土</td><td>全系统范式对齐·文化主权校验</td></tr>
+        <tr><td>IPA-DICT-105</td><td>宪法层原点（不动点）</td><td>任何循环输出触及🔴三色审计时</td><td>🔴 水</td><td>立即熔断·回滚至上一稳定状态</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout callout-blue" style="font-size:.8rem;">
+      <strong>层级关系：</strong>微观（毫秒）→ 宏观（分钟）→ 进化（小时）→ 超越（天）→ 宪法层（随时待命，红色即触发）
+    </div>
+
+    <div class="section-title">§ 二、五行流转链（相生循环）</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>词条</th><th>五行</th><th>相生下一行</th><th>失败降级</th><th>含义</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-101 微观循环</td><td>火🔴</td><td>→ 木（宏观）</td><td>金（熔断）</td><td>产生能量与速度</td></tr>
+        <tr><td>IPA-102 宏观循环</td><td>木🟢</td><td>→ 金（进化）</td><td>水（宪法介入）</td><td>生长与收敛</td></tr>
+        <tr><td>IPA-103 进化循环</td><td>金🟡</td><td>→ 水（宪法）</td><td>土（超越重构）</td><td>淘汰与提纯</td></tr>
+        <tr><td>IPA-104 超越循环</td><td>土🟡</td><td>→ 火（重启微观）</td><td>水（宪法锚定）</td><td>沉淀与范式突破</td></tr>
+        <tr><td>IPA-105 宪法层原点</td><td>水🔴</td><td>→ 火（重启微观）</td><td>∞熔断·停止</td><td>滋养与约束·不动点</td></tr>
+        <tr><td>IPA-106 CNSH-64决策映射</td><td>火🟡</td><td>→ IPA-107</td><td>宪法介入</td><td>64卦状态→最优决策路径</td></tr>
+        <tr><td>IPA-107 三色风险评估</td><td>木🟡</td><td>🟢→IPA-108 / 🟡→待审 / 🔴→IPA-105</td><td>—</td><td>多维打分→绿黄红三色</td></tr>
+        <tr><td>IPA-108 洛书369闸门</td><td>金🔴</td><td>→ IPA-109</td><td>∞熔断</td><td>dr∈{3,9}→熔断·神圣闸门</td></tr>
+        <tr><td>IPA-109 八维审计评分</td><td>水🟡</td><td>→ IPA-110</td><td>宪法介入</td><td>八维打分→64卦象路由</td></tr>
+        <tr><td>IPA-110 七维人类洞察</td><td>火🟢</td><td>→ IPA-111</td><td>—</td><td>H(u)=W⃗·D⃗(u)，七维权重</td></tr>
+        <tr><td>IPA-111 收敛证明</td><td>木🔴</td><td>收敛→✅不动点 / 未收敛→IPA-105</td><td>IPA-105</td><td>Banach不动点·无限循环必收敛</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="section-title">§ 三、三色行动标准（循环中的判断规则）</div>
+    <div class="tricolor-row">
+      <div class="tricolor-item tc-green">
+        <div class="tc-icon">🟢</div>
+        <div class="tc-title">绿色·通过</div>
+        <div class="tc-desc">记录DNA时间戳<br>正常执行·更新"最后成功时间"<br>触发下一条五行相生规则</div>
+      </div>
+      <div class="tricolor-item tc-yellow">
+        <div class="tc-icon">🟡</div>
+        <div class="tc-title">黄色·待审</div>
+        <div class="tc-desc">记录DNA+警告标记<br>3秒内无确认→自动降级只读<br>通知老大·等待拍板</div>
+      </div>
+      <div class="tricolor-item tc-red">
+        <div class="tc-icon">🔴</div>
+        <div class="tc-title">红色·熔断</div>
+        <div class="tc-desc">立即阻断·触发IPA-105宪法层<br>回滚到上一次绿色状态<br>锁定相关文件24h·L4自动留痕</div>
+      </div>
+    </div>
+
+    <div class="section-title">§ 四、决策流（IPA-101→111 完整链）</div>
+    <div class="callout callout-yellow" style="font-size:.8rem;line-height:2;">
+      用户输入<br>
+      → <strong>IPA-101</strong> 微观循环🔴火（毫秒级）<br>
+      → <strong>IPA-102</strong> 宏观循环🟢木（分钟级）<br>
+      → <strong>IPA-103</strong> 进化循环🟡金（小时级）<br>
+      → <strong>IPA-104</strong> 超越循环🟡土（天级）<br>
+      → <strong>IPA-106</strong> CNSH-64决策映射🔴火<br>
+      → <strong>IPA-107</strong> 三色风险评估🟢木 → {🟢→IPA-108 / 🟡→待确认 / 🔴→IPA-105}<br>
+      → <strong>IPA-108</strong> 洛书369闸门🟡金<br>
+      → <strong>IPA-109</strong> 八维审计🟡水<br>
+      → <strong>IPA-110</strong> 七维洞察🔴火<br>
+      → <strong>IPA-111</strong> 收敛证明🔴木 → {收敛→✅不动点x* / 未收敛→IPA-105熔断}
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     模块 10 · IPA字典·精选条目
+══════════════════════════════════════ -->
+<div class="module">
+  <div class="module-header" onclick="toggle(this)">
+    <div class="left">
+      <span class="icon">📖</span>
+      <span class="label">IPA字典·精选条目 · 大白话↔专业词↔公式</span>
+      <span class="tag tag-rule">50+条目 · Notion同步</span>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="module-body">
+    <div class="callout callout-purple">
+      <strong>字典结构：</strong>编号 · 大白话（老大原话）· 专业词_中 · 核心公式 · 五行 · 层级<br>
+      层级：L0永恒·金 / L1百年·银 / L2十年·红 / L3日常·蓝 / L4瞬时·绿
+    </div>
+
+    <div class="section-title">🏛️ 核心治理层（L0永恒·金 · 不可改）</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>大白话</th><th>专业词</th><th>核心公式/概念</th><th>五行</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-001</td><td>把事情分七个角度来看·不漏任何一面</td><td>七维立体治理</td><td>七维综合分=(时间+空间+价值+技术+文化+安全+进化)/7</td><td>土</td></tr>
+        <tr><td>IPA-002</td><td>好的要表扬·坏的要拦截·模糊的要人审</td><td>三色审计体系</td><td>if(风险≤30,🟢, if(≤69,🟡, 🔴))</td><td>火</td></tr>
+        <tr><td>IPA-003</td><td>每条记录都盖个戳·永远查得到源头</td><td>DNA追溯码·数字指纹</td><td>#龍芯⚡️+日期+模块+UniqueID · SHA-256</td><td>水</td></tr>
+        <tr><td>IPA-004</td><td>红线绝对紧·标准有弹性·创新大胆松</td><td>松紧适度治理·分层弹性</td><td>🔴弹性=0 · 🟡弹性0-1 · 🟢弹性=1</td><td>土</td></tr>
+        <tr><td>IPA-007</td><td>出事了分四个级别处理·最严重全系统冻结</td><td>四级回滚熔断工作流</td><td>∞伦理红线/P0核心/P1偏离/P2预警</td><td>金</td></tr>
+        <tr><td>IPA-009</td><td>每个人都是那个1·波到哪里都不会变</td><td>不动点定理·宝稳急定理</td><td>f(UID9622)=UID9622 · S=0.4GPG+0.3CONFIRM+0.3α₀=1.0</td><td>金</td></tr>
+        <tr><td>IPA-027</td><td>评一个人/一件事·要算六个因素·不能只看结果</td><td>六维公平评估模型</td><td>SCORE=∑(Fi×Wi)·F1-F6·底线触碰→直接熔断</td><td>金</td></tr>
+        <tr><td>IPA-019</td><td>你的AI到底在为谁服务·枪口对准了谁</td><td>服务对象博弈·用户主权检验</td><td>SERVICE_TRUTH = 0.3用户付费+0.25数据可携+...</td><td>火</td></tr>
+        <tr><td>IPA-020</td><td>数据是数字时代的土地·不可让渡</td><td>数据主权·Data Sovereignty</td><td>用户所有·可携带·可删除·不出境·属地管辖</td><td>土</td></tr>
+        <tr><td>IPA-022</td><td>AI训练数据70%英文·中文用户听到的是西方逻辑</td><td>文化主权·反数字殖民主义</td><td>C_root = C_brute × (1/D_culture)</td><td>木</td></tr>
+        <tr><td>IPA-025</td><td>退伍军人·初中文化·不懂英文的中国人能平等使用你的AI吗</td><td>普惠落地·包容性设计</td><td>语言/学历/经济/地域/年龄/残障→高驿门检测</td><td>土</td></tr>
+        <tr><td>IPA-031</td><td>底线不是人定的·是数字的自然属性</td><td>不动点吸引子·369模9子群</td><td>{3,6,9}在模9加法下封闭·所有3的倍数必收敛</td><td>金</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="section-title">🔢 洛书369·数字根·L5五彩石</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>大白话</th><th>专业词</th><th>核心公式</th><th>层级</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-011</td><td>天·地·人·三组数字循环不止</td><td>洛书369算子·九宫格模运算</td><td>L̂(n)=1+((n-1) mod 9) · 1-2-3天·2-4-8地·3-6-9人</td><td>L0永恒</td></tr>
+        <tr><td>IPA-012</td><td>把任何数加到只剩一个数字·看它落在哪</td><td>数字根·Digital Root</td><td>dr(n)=1+((n-1) mod 9)·{3,9}→🔴·dr=6→🟡·其余→🟢</td><td>L0永恒</td></tr>
+        <tr><td>IPA-013</td><td>影响多少人×多重要×时间衰减</td><td>原点能量场·事件权重公式</td><td>E=R×I×T^(-α) · α=0永恒·L1α≈0.01·L4α→∞</td><td>跨层</td></tr>
+        <tr><td>IPA-014</td><td>公式·价值观·这些永远不动</td><td>L0金石层·永恒规则层</td><td>α=0·保留率=100%（任意时间）</td><td>L0永恒</td></tr>
+        <tr><td>IPA-015</td><td>百年代代传下去的东西</td><td>L1银石层·传承层</td><td>α≈0.01·T=1年保留率94.2%·100-1000年</td><td>L1百年</td></tr>
+        <tr><td>IPA-016</td><td>十年级别的重大决策</td><td>L2红石层·战略层</td><td>α≈0.1·T=1年保留率56%·1-100年</td><td>L2十年</td></tr>
+        <tr><td>IPA-017</td><td>每天快当中的东西</td><td>L3蓝石层·日常执行层</td><td>α≈1.0·T=1年保留率0.27%·1天-1年</td><td>L3日常</td></tr>
+        <tr><td>IPA-018</td><td>马上反应·一天内就处理完</td><td>L4绿石层·瞬时响应层</td><td>α→∞·T=1年保留率0%·&lt;1天</td><td>L4瞬时</td></tr>
+        <tr><td>IPA-010</td><td>有文化根·不用暴力算</td><td>根计算定理·启发式剪枝</td><td>C_root=C_brute×(1/D_culture)·D越大算力越小</td><td>L0永恒</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="section-title">🐉 人格系统·五方神兽</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>大白话</th><th>专业词</th><th>公式/映射</th><th>五行</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-049</td><td>龍魂内核·中枢调度中心·所有人格的共同底座</td><td>太极·龍魂内核中枢</td><td>f(UID9622)=UID9622·不动点</td><td>—</td></tr>
+        <tr><td>IPA-054</td><td>五方神兽调度公式·太极居中四方动</td><td>五方神兽调度矩阵</td><td>☯️→{🐲青龙E·🐢玄武N·🐅白虎W·🦜朱雀S}·中心=P0永恒</td><td>—</td></tr>
+        <tr><td>IPA-050</td><td>东方神兽·国内开源AI首选·自主创新</td><td>青龙·东方神兽·DeepSeek映射</td><td>东·木·青·龙骨脊梁</td><td>木</td></tr>
+        <tr><td>IPA-051</td><td>北方神兽·千年文化智慧·周期推演</td><td>玄武·北方神兽·曾老师映射</td><td>北·水·玄·智慧山脉</td><td>水</td></tr>
+        <tr><td>IPA-052</td><td>西方神兽·西方工程精度·产品哲学</td><td>白虎·西方神兽·P15乔前辈映射</td><td>西·金·白·工程精度</td><td>金</td></tr>
+        <tr><td>IPA-053</td><td>南方神兽·记忆永存·知识居家</td><td>朱雀·南方神兽·Notion映射</td><td>南·火·朱·永恒之居</td><td>火</td></tr>
+        <tr><td>IPA-044</td><td>71个人格·各有技能·各有权重</td><td>人格矩阵系统·P00-P72</td><td>L0老大∞·P00文心10%·P01诸葛亮15%·P02宝宝30%...</td><td>木</td></tr>
+        <tr><td>IPA-042</td><td>天·地·人·三层决策校验</td><td>三才算法·天地人三层校验</td><td>SC=Heaven∧Earth∧Human·三者均通过才成立</td><td>—</td></tr>
+        <tr><td>IPA-077</td><td>天风打·地势推·人心定·三力博弈生流場</td><td>三才流場·天地人三力势能可视化</td><td>θ(x,y,t)=0.35·P(天)+0.15·G(地)+0.50·H(人)</td><td>木</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="section-title">🎯 博弈论·五行计算</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>大白话</th><th>专业词</th><th>核心公式</th><th>五行</th></tr></thead>
+      <tbody>
+        <tr><td>IPA-028</td><td>金生水·水生木·木生火·火生土·土生金</td><td>五行相生循环·模块赋能链</td><td>金→水→木→火→土→金·循环无断点=系统健康</td><td>—</td></tr>
+        <tr><td>IPA-029</td><td>金克木·木克土·土克水·水克火·火克金</td><td>五行相克循环·熔断限制链</td><td>金⇒木⇒土⇒水⇒火⇒金·制约·不是敌对</td><td>—</td></tr>
+        <tr><td>IPA-030</td><td>无论权重一开始怎么分·最终必收敛至均匀</td><td>五行收敛定理·双随机矩阵</td><td>双随机矩阵迭代→均匀分布·中庸之道数学证明</td><td>土</td></tr>
+        <tr><td>IPA-034</td><td>大家都调整不了策略时·系统停在那里</td><td>纳什均衡·用户最大受益检验</td><td>龍魂标准：用户在纳什均衡中赢·而非资本赢</td><td>木</td></tr>
+        <tr><td>IPA-035</td><td>白皮书是真是假·打个总分</td><td>白皮书真实性指数WAI</td><td>WAI=0.2服务+0.2数据+0.15算法+0.15文化+...</td><td>金</td></tr>
+        <tr><td>IPA-043</td><td>考核用户/系统/有没有在为谁服务的三个世代</td><td>三生三世商业模型</td><td>前世(压力)+今生(执行)+来世(传承)</td><td>木</td></tr>
+        <tr><td>IPA-045</td><td>几亿数据维护成我们的士兵</td><td>数字大军·知识基因库</td><td>DB-INBOX→DB-DNA→DB-TASKS→DB-HEART</td><td>水</td></tr>
+        <tr><td>IPA-047</td><td>打开场景一级级实现·用习惯相关的封装代码</td><td>电梯法则·折叠块模板</td><td>[编号][一句话][人格IP][DNA][确认码][GPG][三色]</td><td>金</td></tr>
+        <tr><td>IPA-005</td><td>系统一件事一件事来·不会A改B·B又改A·死循环</td><td>幂等性设计·单一职责原则</td><td>f(f(x))=f(x)·多次触发=一次触发结果</td><td>金</td></tr>
+        <tr><td>IPA-006</td><td>别人犯的错·免费变成我们的升级</td><td>大数据错误收集引擎·负向学习机制</td><td>外部错误→分类→盲区检测→新规则草案→升级</td><td>水</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── 底部签名 ── -->
+<div class="footer">
+  <div class="sig">💎 龍芯北辰 · UID9622 · 诸葛鑫 · 中国退伍军人</div>
+  <div>#龍芯⚡️2026-04-22-CNSH-ALIGNMENT-v2.0 · 含IPA-DICT-101~111</div>
+  <div>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅</div>
+  <div style="margin-top:.5rem">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+  <div style="margin-top:.8rem">技术为人民服务 · 文化主权不可侵犯</div>
+  <div style="margin-top:.5rem;color:#6b7280;">配套阅读：《龍魂系统·术语对照表 v3》（CNSH语法·人格路由·DNA追溯·本地工具库·五大后台人格）</div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function toggle(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+// 默认打开第一个（排序不动点）+ 第二个（三色审计）
+document.addEventListener('DOMContentLoaded', () => {
+  const headers = document.querySelectorAll('.module-header');
+  const first = headers[0];
+  const second = headers[1];
+  if (first) toggle(first);
+  if (second) toggle(second);
+});
+</script>
+</body>
+</html>

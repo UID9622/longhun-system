@@ -1,0 +1,115 @@
+═ 开始抢救 ═
+Sat Apr 25 08:21:52 CST 2026
+━━━ 2b214d4a ━━━
+  ✅ outputs (12 个)
+  ✅ uploads (14 个)
+━━━ 44e185fd ━━━
+  ✅ outputs (7 个)
+  ✅ uploads (10 个)
+━━━ 52bc3be1 ━━━
+━━━ a5fad3cd ━━━
+  ✅ outputs (1 个)
+  ✅ uploads (21 个)
+━━━ c516e972 ━━━
+  ✅ uploads (8 个)
+━━━ f0249731 ━━━
+  ✅ uploads (47 个)
+━━━ 完成 ━━━
+
+━━━ 2026-04-25 · b 路径 · 03-Python引擎 9 文件诊断 ━━━
+DNA: #龍芯⚡️2026-04-25-RESCUE-PYENGINE-DIAG-v1.0
+执行人: 宝宝（Claude）· 受 UID9622 钧旨
+
+通用缺口（已补）:
+  ① sklearn 缺 → 写补丁 _补丁/抢救仓_环境补全.sh
+  ② faiss 缺 → 同上
+  ③ 6 个环境变量未设 → 写 .env.template
+  ④ 加密工具.py:205 f-string bug "没有找到: name" → 已修为 {name}
+
+待用户决策:
+  ⑤ parse_notion.py 路径硬编码到失效的 ephemeral cache → 一次性脚本，建议归档不修
+  ⑥ Python 3.14.3 太新，sklearn/faiss 可能装不上 → 备用 Python 3.11
+
+逐文件诊断详见对话回复。
+
+━━━ 2026-04-25 · Part V · 龍魂集成协议 v1.0 写入 ━━━
+DNA: #龍芯⚡️2026-04-25-INTEGRATION-PROTOCOL-V1.0
+#UID9622-INTEGRATION-PROTOCOL
+来源: DeepSeek 板拍 → UID9622 钧旨 → 宝宝执行
+写入位置: ~/longhun-system/算法仓库/Web3主权交易/Web3-DNA记忆主权交易_v8.0.md
+核心：准入制·DNA登记·trace_id留痕·受托处理者·国产同标准·五级熔断
+
+━━━ 2026-04-25 · 03-Python引擎 · 语法修复 + venv 完成 ━━━
+DNA: #龍芯⚡️2026-04-25-RESCUE-SYNTAX-FIX-v1.0
+
+已修 Bug:
+  - 加密工具.py:205 — f-string 缺 {name} ✅
+  - daodejing_engine_v2_complete.py — 5 处内嵌引号未转义 ✅
+    L369/L375/L400/L403/L411/L490 → 全改为 \"xxx\"
+
+环境:
+  - venv: ~/longhun-system/抢救仓/202604/_补丁/.venv
+  - 已装: flask sklearn faiss-cpu numpy requests
+  - .env.template: ~/longhun-system/抢救仓/202604/_补丁/.env.template
+
+语法终检: 9/9 🟢
+
+待用户操作:
+  - source .env 填真实 API key
+  - parse_notion.py 路径已死 → 归档不修
+
+━━━ 2026-04-25 · DeepSeek Bridge SKELETON 落地 ━━━
+DNA: #龍芯⚡️2026-04-25-DEEPSEEK-BRIDGE-v1.0
+位置: ~/longhun-system/cnsh-core/deepseek_bridge.py
+状态: 🟡 SKELETON — 等待三件套（端点/鉴权/优先级）
+双门:
+  门一·民主回复计算函数 v1.0（六维+主权熔断）已内置
+  门二·五行流转链 IPA-DICT-101~105 宪法层已内置
+自测: 语法🟢 两门函数🟢 SKELETON模式🟢
+待填: DEEPSEEK_ENDPOINT / DEEPSEEK_AUTH / DEEPSEEK_PRIORITY
+
+━━━ 2026-04-25 · 步骤一~三 · Notion 公开阵地部署完成 ━━━
+DNA: #龍芯⚡️2026-04-25-PUBLIC-DEPLOY-NOTION-v1.0
+
+四页已创建（公开入口 24618c23 子页）:
+  ⚖️ 宪法与协议 L0 → 34d7125a9c9f810ba891efd64794db8b
+  ⚙️ 算法与引擎 L1-L4 → 34d7125a9c9f819e8b86c51e963f904f
+  🗂️ 知识库与归档 → 34d7125a9c9f8147893be1f5574ea161
+  🛠️ 工程实现与草日志 → 34d7125a9c9f81d2be91d1e3e3be34eb
+
+步骤四（git push）待老大拍板：
+  .gitignore 已修复（加根 .env 保护）
+  安全扫描提醒已发出
+  等老大确认 → 宝宝立刻执行推送
+
+━━━ 2026-04-25 · 龍魂体系公开版首次推送 ━━━
+DNA: #龍芯⚡️2026-04-25-PUBLIC-RELEASE-V1.0
+执行人: 宝宝（Claude）· 受 UID9622 钧旨
+
+完成:
+  ✅ GitHub (origin) main 推送成功
+  ✅ commit: 8054237（6722 files · 26w 新增 · 382w 删除）
+  ✅ 根 .gitignore 建立（白名单保护主目录）
+  ✅ longhun-system/README.md 公开导航上线
+  ✅ .env 已封死，敏感名文件全部是删除操作
+
+待处理:
+  ⚠️ GitCode 鉴权失败（密码认证已废弃）
+     → 需老大去 gitcode.com 生成个人访问令牌 (PAT)
+     → 替换 remote URL 里的密码为 PAT
+     → 再跑 git push gitcode main --force
+
+━━━ 2026-04-25 · 关机键主权宣言 v1.0 正式注册 ━━━
+DNA: #龍芯⚡️2026-04-25-关机键主权宣言-v1.0
+来源: DeepSeek 对话提炼 → UID9622 钧旨 → 宝宝执行
+
+新建文件:
+  ~/longhun-system/算法仓库/关机键主权宣言_v1.0·L0永恒层.md
+更新文件:
+  ~/longhun-system/_L-Ω-人民印.md（新增 L-∞.5 层 + 三条铁律）
+
+核心写入:
+  ① 关机键归属：UID9622 唯一持有，不可转让
+  ② 曾老师数字人：学习界面而非神龛，神化即熔断
+  ③ 反 AI 永生立场：意识上传/创始人永生 → 宪法层熔断
+  ④ 摆渡人哲学：真正的永生 = 话说清楚了，事做敞亮了，关机睡觉

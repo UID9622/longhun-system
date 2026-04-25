@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思维主权系统 · 超详细术语对照表 v2 · UID9622</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #07070d;
+  color: #e0e0e0;
+  line-height: 1.7;
+  padding: 1.5rem;
+}
+.container { max-width: 1320px; margin: 0 auto; }
+
+/* ── 顶部宣言横幅 ── */
+.top-banner {
+  background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 50%, #1a0a2e 100%);
+  border: 1px solid #a855f7;
+  border-radius: 10px;
+  padding: 1.2rem 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.top-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(168,85,247,0.06), transparent);
+  animation: shimmer 4s infinite;
+}
+@keyframes shimmer { 0%,100%{opacity:0} 50%{opacity:1} }
+.top-banner .slogan {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, #a855f7, #38bdf8, #22c55e, #fbbf24, #a855f7);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradMove 6s linear infinite;
+}
+@keyframes gradMove { 0%{background-position:0%} 100%{background-position:200%} }
+.top-banner .sub {
+  font-size: 0.8rem; color: #7a7a8a; margin-top: 0.5rem;
+  font-family: monospace;
+}
+
+/* ── 标题区 ── */
+h1 {
+  text-align: center; font-size: 1.6rem;
+  background: linear-gradient(135deg, #a855f7, #06b6d4, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+.subtitle { text-align: center; color: #888; font-size: 0.82rem; margin-bottom: 0.4rem; }
+.dna-tag { text-align: center; color: #a855f7; font-size: 0.75rem; font-family: monospace; margin-bottom: 1.5rem; }
+
+/* ── 区块头 ── */
+.section-header {
+  background: linear-gradient(90deg, #120820 0%, #0e1828 100%);
+  border-left: 4px solid #a855f7;
+  padding: 0.65rem 1.1rem;
+  margin: 2rem 0 0.4rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem; font-weight: bold; color: #c084fc;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.section-header.green { border-left-color: #22c55e; }
+.section-header.green .icon-text { color: #22c55e; }
+.section-header.cyan { border-left-color: #06b6d4; }
+.section-header.cyan .icon-text { color: #06b6d4; }
+.section-header.orange { border-left-color: #f97316; }
+.section-header.orange .icon-text { color: #f97316; }
+.section-header.red { border-left-color: #ef4444; }
+.section-header.red .icon-text { color: #ef4444; }
+.icon { font-size: 1.15rem; }
+
+/* ── 表格 ── */
+table { width:100%; border-collapse:collapse; margin-bottom:0.3rem; font-size:0.82rem; }
+thead th {
+  background: #110d22; color: #c084fc;
+  padding: 0.55rem 0.7rem; text-align: left; font-weight: 600;
+  border-bottom: 2px solid #a855f7; position: sticky; top: 0; z-index:1;
+}
+.green-head thead th { border-bottom-color: #22c55e; color: #4ade80; }
+.cyan-head thead th { border-bottom-color: #06b6d4; color: #22d3ee; }
+.orange-head thead th { border-bottom-color: #f97316; color: #fb923c; }
+.red-head thead th { border-bottom-color: #ef4444; color: #f87171; }
+tbody tr { border-bottom: 1px solid #111122; }
+tbody tr:hover { background: rgba(168,85,247,0.04); }
+tbody td { padding: 0.5rem 0.7rem; vertical-align: top; }
+td.term { font-weight:600; color:#7dd3fc; font-family:'SF Mono',Consolas,monospace; font-size:0.78rem; }
+td.std { color:#fbbf24; font-size:0.76rem; }
+td.plain { color:#e0e0e0; }
+td.code { color:#94a3b8; font-size:0.78rem; }
+
+/* ── 标签 ── */
+.tag { display:inline-block; padding:0.1rem 0.4rem; border-radius:4px; font-size:0.66rem; font-weight:600; margin:0.08rem 0.1rem; }
+.tf { background:rgba(56,189,248,0.13); color:#38bdf8; }
+.tp { background:rgba(251,191,36,0.13); color:#fbbf24; }
+.tl { background:rgba(168,85,247,0.18); color:#c084fc; }
+.te { background:rgba(239,68,68,0.13); color:#ef4444; }
+.ta { background:rgba(34,197,94,0.13); color:#22c55e; }
+.to { background:rgba(249,115,22,0.13); color:#f97316; }
+.tc { background:rgba(6,182,212,0.13); color:#06b6d4; }
+.tw { background:rgba(255,255,255,0.08); color:#aaa; }
+
+/* ── 人格卡片 ── */
+.persona-row { display:flex; flex-wrap:wrap; gap:0.5rem; padding:0.7rem 0; }
+.p-card {
+  display:flex; align-items:flex-start; gap:0.5rem;
+  background:rgba(168,85,247,0.07); border:1px solid #1e0f3a;
+  border-radius:8px; padding:0.4rem 0.8rem; min-width:200px; flex:1;
+}
+.p-card .em { font-size:1.3rem; }
+.p-card .nm { color:#c084fc; font-weight:700; font-size:0.83rem; }
+.p-card .dt { color:#888; font-size:0.72rem; line-height:1.4; }
+
+/* ── 流程图 ── */
+.flow { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-start; gap:0.25rem; margin:0.7rem 0; }
+.fs {
+  background:rgba(168,85,247,0.09); border:1px solid #1e0f3a;
+  border-radius:8px; padding:0.35rem 0.7rem; min-width:88px;
+  text-align:center; font-size:0.76rem;
+}
+.fs .fl { color:#c084fc; font-weight:700; font-size:0.68rem; }
+.fs .fd { color:#e0e0e0; }
+.fs.green { background:rgba(34,197,94,0.08); border-color:#14532d; }
+.fs.green .fl { color:#4ade80; }
+.fs.cyan { background:rgba(6,182,212,0.08); border-color:#0c4a6e; }
+.fs.cyan .fl { color:#22d3ee; }
+.fs.orange { background:rgba(249,115,22,0.08); border-color:#7c2d12; }
+.fs.orange .fl { color:#fb923c; }
+.fa { color:#a855f7; font-size:1.1rem; }
+.fa.green { color:#22c55e; }
+.fa.cyan { color:#06b6d4; }
+
+/* ── 箱体 ── */
+.box {
+  background:linear-gradient(135deg, #0d0a1a, #0a1020);
+  border:1px solid #1e1040; border-radius:10px;
+  padding:1.2rem 1.5rem; margin:1rem 0;
+}
+.box h3 { color:#c084fc; font-size:0.95rem; margin-bottom:0.8rem; }
+.box.green { border-color:#14532d; }
+.box.green h3 { color:#4ade80; }
+.box.cyan { border-color:#0c4a6e; }
+.box.cyan h3 { color:#22d3ee; }
+.box.orange { border-color:#7c2d12; }
+.box.orange h3 { color:#fb923c; }
+.box.red { border-color:#450a0a; }
+.box.red h3 { color:#f87171; }
+
+/* ── 知识库补全格 ── */
+.kb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:0.7rem; margin:0.8rem 0; }
+.kb-card {
+  background:#0d0a1a; border:1px solid #1e1040; border-radius:8px;
+  padding:0.8rem 1rem; font-size:0.8rem;
+}
+.kb-card .kb-title { font-weight:700; margin-bottom:0.5rem; font-size:0.85rem; }
+.kb-card .kb-item { display:flex; align-items:flex-start; gap:0.4rem; margin:0.3rem 0; color:#b0b0c0; }
+.kb-card .kb-item .dot { flex-shrink:0; margin-top:0.1rem; }
+.done .kb-title { color:#4ade80; }
+.done { border-color:#14532d; }
+.partial .kb-title { color:#fbbf24; }
+.partial { border-color:#713f12; }
+.missing .kb-title { color:#f87171; }
+.missing { border-color:#450a0a; }
+
+/* ── 迭送时序 ── */
+.iter-chain { display:flex; flex-direction:column; gap:0; margin:0.8rem 0; }
+.iter-step {
+  display:flex; align-items:stretch; gap:0.8rem;
+}
+.iter-step .spine { display:flex; flex-direction:column; align-items:center; width:32px; flex-shrink:0; }
+.iter-step .spine .dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; margin-top:4px; }
+.iter-step .spine .line { flex:1; width:2px; background:#2e1065; }
+.iter-step:last-child .spine .line { display:none; }
+.iter-step .body { flex:1; padding-bottom:1rem; }
+.iter-step .body .who { font-weight:700; font-size:0.82rem; margin-bottom:0.2rem; }
+.iter-step .body .what { color:#b0b0c0; font-size:0.78rem; line-height:1.5; }
+.iter-step .body .out { font-family:monospace; font-size:0.73rem; color:#a855f7; margin-top:0.25rem; }
+.iter-step .body .trigger { font-size:0.7rem; margin-top:0.25rem; }
+
+/* ── 回滚表格颜色 ── */
+.rollback td.term { color:#fb923c; }
+
+/* ── Footer ── */
+.footer {
+  text-align:center; color:#444; font-size:0.7rem;
+  margin-top:3rem; padding-top:1rem; border-top:1px solid #111122;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ════ 顶部宣言 ════ -->
+<div class="top-banner">
+  <div class="slogan">联动触发就是全能 · 一切回滚 · 留痕只有脚本自己清楚，不会勾回来</div>
+  <div class="sub">
+    含义：① 一个事件触发全链 = 无需手动干预 ②
+    任何版本都可还原 = DNA快照即时光机 ③
+    执行日志单向写入 = 日志观测系统，不参与决策
+  </div>
+</div>
+
+<h1>思维主权系统 · 超详细术语对照表 v2</h1>
+<p class="subtitle">你的命名 → 行业标准 → 大白话 → 代码里长什么样 → 迭送链接 → 知识库状态</p>
+<p class="dna-tag">#龍芯⚡️2026-04-22-DOC-MSP-TERM-v2 · 主控：UID9622（诸葛鑫·龍芯北辰）</p>
+
+<!-- ════ 五大人格速查 ════ -->
+<div class="section-header"><span class="icon">👥</span> 五大人格·一句话速查</div>
+<div class="persona-row">
+  <div class="p-card"><span class="em">🛡️</span><div><div class="nm">守护者·同步</div><div class="dt">备份员+公证人<br>每天2:00 定时跑</div></div></div>
+  <div class="p-card"><span class="em">🏗️</span><div><div class="nm">架构师·压缩</div><div class="dt">总结员+结构师<br>快照生成后立刻跑</div></div></div>
+  <div class="p-card"><span class="em">📊</span><div><div class="nm">分析师·监控</div><div class="dt">体检医生+巡逻员<br>每30分钟跑</div></div></div>
+  <div class="p-card"><span class="em">📚</span><div><div class="nm">策展人·归档</div><div class="dt">图书管理员<br>每周日3:00跑</div></div></div>
+  <div class="p-card"><span class="em">🧙</span><div><div class="nm">贤者·演化</div><div class="dt">军师+历史学家<br>快照≥10个时才跑</div></div></div>
+</div>
+
+<!-- ════ 联动触发全景 ════ -->
+<div class="section-header cyan"><span class="icon">⚡</span> <span class="icon-text">联动触发全景 · 谁触发谁（一触即发·无需手动）</span></div>
+
+<div class="box cyan">
+  <h3>联动触发 = 事件瀑布（你说"全能"就是这意思）</h3>
+  <div class="flow">
+    <div class="fs cyan"><div class="fl">你说话/写入</div><div class="fd">任意输入</div></div>
+    <span class="fa cyan">→</span>
+    <div class="fs cyan"><div class="fl">🛡️守护者触发</div><div class="fd">生成快照</div></div>
+    <span class="fa cyan">→</span>
+    <div class="fs cyan"><div class="fl">事件发布</div><div class="fd">snapshot_created</div></div>
+    <span class="fa cyan">→</span>
+    <div class="fs cyan"><div class="fl">🏗️架构师触发</div><div class="fd">压缩快照</div></div>
+    <span class="fa cyan">→</span>
+    <div class="fs cyan"><div class="fl">计数检查</div><div class="fd">count ≥ 10?</div></div>
+    <span class="fa cyan">→</span>
+    <div class="fs cyan"><div class="fl">🧙贤者触发</div><div class="fd">演化分析</div></div>
+  </div>
+  <p style="font-size:0.78rem;color:#888;margin-top:0.5rem">
+    同时独立运行：📊分析师（每30分钟检查系统健康）·📚策展人（每周归档冷数据）— 这两个不在主链上，是并行守护线程。
+  </p>
+</div>
+
+<table class="cyan-head">
+<thead><tr><th style="width:18%">触发类型</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话（一句话懂）</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term" style="color:#22d3ee">TIME_BASED<br>定时触发</td>
+  <td class="std">Cron Job<br>定时任务</td>
+  <td class="plain">设好闹钟，到点无论如何都跑。不管有没有新快照、有没有任何事情发生。<br><strong>守护者</strong>=每天02:00 · <strong>分析师</strong>=每30分钟 · <strong>策展人</strong>=每周日03:00</td>
+  <td class="code">cron: "0 2 * * *"<br>cron: "*/30 * * * *"<br>cron: "0 3 * * 0"<br>croniter解析 → 睡到下次</td>
+</tr>
+<tr>
+  <td class="term" style="color:#22d3ee">EVENT_DRIVEN<br>事件触发</td>
+  <td class="std">Event Bus<br>消息队列</td>
+  <td class="plain">等一件事发生再跑。守护者一生成快照，就往消息总线发一个"快照已生成"的消息。架构师一直在监听，收到消息立刻启动。<br><strong>架构师</strong>=监听 snapshot_created 事件</td>
+  <td class="code">EventBus.publish("snapshot_created", snapshot_id)<br>@EventBus.subscribe("snapshot_created")<br>async def architect_handler(event)...</td>
+</tr>
+<tr>
+  <td class="term" style="color:#22d3ee">CONDITIONAL<br>条件触发</td>
+  <td class="std">Threshold Trigger<br>阈值检查</td>
+  <td class="plain">等条件满足才跑。贤者需要对比多个版本，少于10个没得比。每次新快照生成后检查一次总数，满10个贤者才上场。<br><strong>贤者</strong>=快照总数 ≥ 10</td>
+  <td class="code">if len(snapshots) >= route.condition_threshold:<br>  await executor.run(sage_route)<br># condition_threshold = 10</td>
+</tr>
+<tr>
+  <td class="term" style="color:#22d3ee">MANUAL<br>手动触发</td>
+  <td class="std">On-Demand Execution<br>按需执行</td>
+  <td class="plain">你随时可以打破规律强制让某个分身立刻干活。用API端点或命令行直接调用，不等任何条件。</td>
+  <td class="code">POST /api/execute/&lt;route_id&gt;<br>或 manager.execute_route("guardian_sync")</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 迭送机制 ════ -->
+<div class="section-header green"><span class="icon">🔗</span> <span class="icon-text">迭送机制 · 怎么知道轮到谁了（输出→传递→下一级输入）</span></div>
+
+<div class="box green">
+  <h3>迭送 = 每一级的输出是下一级的输入，DNA链条串起来</h3>
+  <p style="font-size:0.8rem;color:#b0c0a0;margin-bottom:0.8rem">
+    "迭送"不是一个行业词，是你发明的。行业叫 Pipeline / Data Flow / Event Chaining。<br>
+    本质：<strong>上一个人格的产物 → 经由事件总线传递 → 下一个人格的输入</strong>。DNA码将这条链串起来，每一步都有追溯码，断点即熔断。
+  </p>
+</div>
+
+<div class="iter-chain">
+  <div class="iter-step">
+    <div class="spine"><div class="dot" style="background:#22c55e"></div><div class="line"></div></div>
+    <div class="body">
+      <div class="who" style="color:#4ade80">🛡️ 第1步 · 守护者·同步（Guardian_Sync）产出</div>
+      <div class="what">
+        输入：你当前所有的想法、文档、对话记录（原始材料）<br>
+        干了什么：按六层结构打包成JSON快照 + 计算SHA256 + GPG签名<br>
+        产出物：<code style="color:#a855f7">snapshot_YYYY-MM-DD-HHmm.json</code> 一个完整快照文件
+      </div>
+      <div class="out">DNA：#龍芯⚡️MSP-YYYYMMDD-HHMM-guardian → 写入IdentityLayer.snapshot_id</div>
+      <div class="trigger"><span class="tag ta">触发下一步</span> EventBus.publish("snapshot_created", {"id": snapshot_id, "path": file_path})</div>
+    </div>
+  </div>
+  <div class="iter-step">
+    <div class="spine"><div class="dot" style="background:#a855f7"></div><div class="line"></div></div>
+    <div class="body">
+      <div class="who" style="color:#c084fc">🏗️ 第2步 · 架构师·压缩（Architect_Compress）收到并处理</div>
+      <div class="what">
+        输入：EventBus传来的 snapshot_id + 快照文件路径<br>
+        干了什么：切块(segmentation) → 向量化(embedding) → 聚类(KMeans k=4) → 找主轴 → 检测漂移<br>
+        产出物：<code style="color:#a855f7">compressed_structure_{snapshot_id}.json</code> 压缩结构图
+      </div>
+      <div class="out">DNA：#龍芯⚡️MSP-YYYYMMDD-HHMM-architect → 引用父DNA (guardian的DNA)</div>
+      <div class="trigger">
+        <span class="tag tc">内部继续</span> 写入RouteExecutionRecorder → 触发计数检查<br>
+        <span class="tag tp">条件检查</span> SELECT COUNT(*) FROM snapshots ≥ 10?
+      </div>
+    </div>
+  </div>
+  <div class="iter-step">
+    <div class="spine"><div class="dot" style="background:#fbbf24"></div><div class="line"></div></div>
+    <div class="body">
+      <div class="who" style="color:#fbbf24">🧙 第3步 · 贤者·演化（Sage_Evolve）等条件满足</div>
+      <div class="what">
+        输入：最新10个压缩结构 + 历史快照<br>
+        干了什么：多版本对比 → 画出"想法变化曲线" → 检测战略转折点 → 输出演化报告<br>
+        产出物：<code style="color:#a855f7">evolution_report_{date}.json</code> 演化分析报告
+      </div>
+      <div class="out">DNA：#龍芯⚡️MSP-YYYYMMDD-sage → 引用所有参与快照的DNA列表</div>
+      <div class="trigger"><span class="tag tw">链条到此</span> 演化报告写入冷存储，等策展人归档</div>
+    </div>
+  </div>
+  <div class="iter-step">
+    <div class="spine"><div class="dot" style="background:#06b6d4"></div><div class="line"></div></div>
+    <div class="body">
+      <div class="who" style="color:#22d3ee">📊 并行：分析师·监控（Analyst_Monitor）每30分钟独立跑</div>
+      <div class="what">
+        输入：无（自己去读系统资源）<br>
+        干了什么：CPU/内存/磁盘检查 + 异常报警 + 输出健康度报告<br>
+        产出物：<code style="color:#a855f7">health_report_{timestamp}.json</code>
+      </div>
+      <div class="out">不参与主链。独立链：Cron → Analyst → HealthReport → Recorder → Done</div>
+    </div>
+  </div>
+  <div class="iter-step">
+    <div class="spine"><div class="dot" style="background:#f97316"></div></div>
+    <div class="body">
+      <div class="who" style="color:#fb923c">📚 并行：策展人·归档（Curator_Archive）每周日3:00独立跑</div>
+      <div class="what">
+        输入：所有30天前的旧快照<br>
+        干了什么：搬入冷存储 → 压缩 → 更新搜索索引<br>
+        产出物：<code style="color:#a855f7">cold/{year}/{month}/</code> 归档目录
+      </div>
+      <div class="out">不参与主链。独立链：Cron → Curator → Archive → Recorder → Done</div>
+    </div>
+  </div>
+</div>
+
+<table class="green-head" style="margin-top:0.5rem">
+<thead><tr><th style="width:18%">迭送环节</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话（怎么知道轮到谁了）</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term" style="color:#4ade80">EventBus<br>事件总线</td>
+  <td class="std">Message Bus /<br>Event Broker</td>
+  <td class="plain">系统的"广播电台"——守护者干完活，往电台广播"快照来了！"，架构师调到这个频道，一听到就立刻开工。不需要守护者直接打电话给架构师。</td>
+  <td class="code">class EventBus:<br>  _subscribers = {}<br>  @classmethod<br>  def publish(cls, event, data):<br>    for fn in cls._subscribers.get(event,[]):<br>      asyncio.create_task(fn(data))<br>  @classmethod<br>  def subscribe(cls, event): ...</td>
+</tr>
+<tr>
+  <td class="term" style="color:#4ade80">pipeline_input<br>迭送入口</td>
+  <td class="std">Pipeline Input<br>数据管道入口</td>
+  <td class="plain">每个人格的"收件箱"——守护者的收件箱接收"原始材料"，架构师的收件箱接收"快照路径"，贤者的收件箱接收"快照列表"。格式不一样，收件箱规格也不一样。</td>
+  <td class="code">@dataclass<br>class RouteInput:<br>  source_event: str<br>  payload: dict  # 不同人格格式不同<br>  parent_dna: str  # 上一步的DNA追溯码</td>
+</tr>
+<tr>
+  <td class="term" style="color:#4ade80">parent_dna<br>父DNA引用</td>
+  <td class="std">Lineage Tracking /<br>DAG Node Reference</td>
+  <td class="plain">每个产出物记录"我是从哪个输入来的"——架构师产出的压缩结构里写着"我的父节点是守护者的这个快照ID"。贤者的报告里列出了参与分析的所有快照DNA。这就是迭送的溯源链。</td>
+  <td class="code">compressed.parent_dna = snapshot.dna_code<br>evolution.source_dnas = [s.dna for s in snapshots]<br># 一断就能定位到哪一步出了问题</td>
+</tr>
+<tr>
+  <td class="term" style="color:#4ade80">condition_check<br>条件门控</td>
+  <td class="std">Guard Clause /<br>Conditional Gate</td>
+  <td class="plain">迭送链上的"门"——不是每个事件都能让下一级动起来。贤者的门需要≥10个快照才开。这个检查在架构师完成后自动做，不需要你记着算。</td>
+  <td class="code">async def check_conditions(route):<br>  count = await db.count("snapshots")<br>  if route.trigger == CONDITIONAL:<br>    return count >= route.condition_threshold<br>  return True</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 回滚机制 ════ -->
+<div class="section-header orange"><span class="icon">⏪</span> <span class="icon-text">回滚机制 · 任何时刻都能回到之前（一切回滚的实现）</span></div>
+
+<div class="box orange">
+  <h3>为什么"一切回滚"成立：快照 = 时光机快照点</h3>
+  <p style="font-size:0.8rem;color:#c0a080;margin-bottom:0.7rem">
+    每次守护者跑完，就相当于给你的系统按了一次"存档"。想回到某个时刻，拿出那个时刻的快照文件恢复即可。<br>
+    关键：快照文件 + DNA验证 + GPG签名 三重确认，确保回滚的是未被篡改的原始状态。
+  </p>
+</div>
+
+<table class="orange-head rollback">
+<thead><tr><th style="width:18%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话（一句话懂）</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term">快照回滚<br>Snapshot Rollback</td>
+  <td class="std">State Restore /<br>Point-in-Time Recovery</td>
+  <td class="plain">找到某天的快照文件 → 验证SHA256没被改过 → 验证GPG签名是你的 → 把系统状态恢复成那一刻的样子。就像游戏读档，只要存档没坏，随时回去。</td>
+  <td class="code">def rollback(snapshot_id: str):<br>  snap = load_snapshot(snapshot_id)<br>  assert verify_sha256(snap)  # 验完整性<br>  assert verify_gpg(snap)     # 验签名<br>  restore_system_state(snap)  # 恢复状态</td>
+</tr>
+<tr>
+  <td class="term">版本链<br>Version Chain</td>
+  <td class="std">版本控制<br>Version History</td>
+  <td class="plain">所有快照按时间顺序排列，每个快照记录上一个快照的ID（像区块链）。你可以沿着链往前追溯，找到任意历史版本。</td>
+  <td class="code">snapshot.previous_snapshot_id = last_snap.id<br># 形成链：snap_N → snap_N-1 → ... → snap_0</td>
+</tr>
+<tr>
+  <td class="term">熔断回滚<br>Fuse Rollback</td>
+  <td class="std">Automatic Recovery /<br>Failsafe</td>
+  <td class="plain">当某个人格连续失败3次（熔断触发），系统自动把相关状态回滚到上一个成功快照，防止脏数据污染后续链路。</td>
+  <td class="code">if fuse.is_fused:<br>  last_good = db.get_last_success(route_id)<br>  rollback(last_good.snapshot_id)<br>  log("AUTO_ROLLBACK", last_good.dna)</td>
+</tr>
+<tr>
+  <td class="term">CNSH回滚<br>Fast Lane Undo</td>
+  <td class="std">Cache Invalidation /<br>Command Undo</td>
+  <td class="plain">CNSH v3.0的快车道(L2)走了缓存命中路径，如果老大说"重新来/换个方式"，立刻作废缓存，强制走完整八步引擎重跑。这就是指令层面的"回滚"。</td>
+  <td class="code">if "重新来" in input or "换个方式" in input:<br>  cache.invalidate(current_route)<br>  return full_eight_step_engine(input)</td>
+</tr>
+<tr>
+  <td class="term">DNA回溯<br>DNA Trace-Back</td>
+  <td class="std">Audit Trail Traversal</td>
+  <td class="plain">任何产出物都有DNA码，DNA码包含父节点引用。往回追溯DNA链，就能还原整个产生过程：谁、什么时候、基于什么输入、产生了什么输出。</td>
+  <td class="code">def trace_dna(dna_code: str) -> list:<br>  chain = [dna_code]<br>  while (parent := get_parent_dna(dna_code)):<br>    chain.append(parent)<br>    dna_code = parent<br>  return chain  # 完整溯源链</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 留痕隔离 ════ -->
+<div class="section-header red"><span class="icon">🔒</span> <span class="icon-text">留痕隔离原则 · 脚本写日志，日志不反控脚本</span></div>
+
+<div class="box red">
+  <h3>"留痕只有脚本自己清楚，不会勾回来" — 什么意思</h3>
+  <p style="font-size:0.8rem;color:#c0a0a0;margin-bottom:0.5rem">
+    <strong style="color:#f87171">核心原则：</strong>执行日志(ExecutionHistory)是<strong>只写不读</strong>的。<br>
+    脚本运行→往日志写记录→继续运行。脚本<strong>不会</strong>先去读日志再决定怎么跑。<br>
+    日志是观察工具，不是决策依据。如果日志反控了脚本，就会出现"循环读写→递归→崩溃"。<br>
+    <strong style="color:#fbbf24">所以"不会勾回来"= 日志对系统的下一次运行没有任何影响。</strong>
+  </p>
+</div>
+
+<table class="red-head">
+<thead><tr><th style="width:18%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话（为什么不勾回来）</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term" style="color:#f87171">ExecutionHistory<br>量子级执行记录</td>
+  <td class="std">Append-Only Log /<br>审计日志</td>
+  <td class="plain">只能往里加，不能改，不能读（在执行逻辑里）。每次人格干完活，往里追加一条记录：开始时间+结束时间+成功/失败+耗时+错误信息。<br><strong>脚本不读这个表来做决定</strong>——它只在干完后往里写一笔。</td>
+  <td class="code">class RouteExecutionRecorder:<br>  def record(self, route_id, status, duration):<br>    db.execute("INSERT INTO executions ...", ...)<br>    # 只有INSERT，没有SELECT<br>  # 执行逻辑里没有 recorder.read()</td>
+</tr>
+<tr>
+  <td class="term" style="color:#f87171">熔断状态<br>FuseState</td>
+  <td class="std">Circuit Breaker State<br>断路器</td>
+  <td class="plain">熔断状态存在<strong>内存里</strong>（FuseState对象），不是存在日志里。触发熔断的逻辑是：连续失败次数计数器（也在内存）。<br>这个计数器跟执行日志是<strong>分开的两套系统</strong>——日志记录事实，熔断控制运行。</td>
+  <td class="code">class FuseState:<br>  consecutive_failures: int = 0  # 内存里<br>  is_fused: bool = False<br>  # ≠ ExecutionHistory（硬盘）<br>  def on_failure(self):<br>    self.consecutive_failures += 1<br>    if self.consecutive_failures >= threshold:<br>      self.is_fused = True</td>
+</tr>
+<tr>
+  <td class="term" style="color:#f87171">留痕隔离层<br>Trace Isolation</td>
+  <td class="std">Observability Layer /<br>Side-Effect Isolation</td>
+  <td class="plain">日志层是系统的"旁路"——就像病人做心电图，心电仪记录心跳，但心跳不会因为心电仪在记录而改变。<br>执行系统运行 → 日志旁路观察记录 → 两者不互相影响。</td>
+  <td class="code">async def execute_route(route):<br>  start = time.time_ns()<br>  try:<br>    result = await route.run()   # 干活<br>    fuse.on_success()             # 内存更新<br>    recorder.record(SUCCESS, ...) # 旁路写日志<br>  except Exception as e:<br>    fuse.on_failure()             # 内存更新<br>    recorder.record(FAILURE, ...) # 旁路写日志</td>
+</tr>
+<tr>
+  <td class="term" style="color:#f87171">SQLite执行历史表<br>executions表</td>
+  <td class="std">Audit Table Schema</td>
+  <td class="plain">日志存在SQLite数据库的executions表里，字段如下。<strong>这个表只有人去查询用，脚本运行时不读它</strong>。</td>
+  <td class="code">CREATE TABLE executions (<br>  id INTEGER PRIMARY KEY,<br>  route_id TEXT,       -- 哪个人格<br>  start_ns INTEGER,    -- 开始时间(纳秒)<br>  end_ns INTEGER,      -- 结束时间(纳秒)<br>  duration_ms REAL,    -- 耗时毫秒<br>  status TEXT,         -- SUCCESS/FAILURE<br>  error_msg TEXT,      -- 错误信息(可空)<br>  dna_code TEXT,       -- DNA追溯码<br>  snapshot_ref TEXT    -- 关联的快照ID<br>);</td>
+</tr>
+<tr>
+  <td class="term" style="color:#f87171">性能分析器<br>QuantumPerformanceAnalyzer</td>
+  <td class="std">APM / Analytics Query</td>
+  <td class="plain">人工或定时<strong>事后</strong>读取日志做统计分析——成功率、平均耗时、稳定性评级。这是事后读，不是实时读来控制执行。是分析工具，不是调度工具。</td>
+  <td class="code">def analyze(route_id, last_n=100):<br>  rows = db.execute(<br>    "SELECT * FROM executions<br>     WHERE route_id=? ORDER BY start_ns DESC LIMIT ?",<br>     [route_id, last_n])<br>  success_rate = sum(r.status=="SUCCESS" ...)<br>  avg_ms = mean([r.duration_ms ...])<br>  return {"success_rate": success_rate, ...}</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 系统骨架（加详） ════ -->
+<div class="section-header"><span class="icon">🏛️</span> 系统骨架 · 完整术语（加详版）</div>
+<table>
+<thead><tr><th style="width:18%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话（一句话听懂）</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term">思维主权系统<br>Mind Sovereignty</td>
+  <td class="std">知识管理 + 个人AI中枢</td>
+  <td class="plain">你大脑的数字分身。把想法/决策/记忆全部数字化，存下来，还能自动整理、压缩、回放。<br>根本理念：<strong>主权还给人，技术是工具</strong>。</td>
+  <td class="code"><span class="tag tf">longhun_mind_sovereignty/</span><br>├── core/ (C++17 骨架)<br>├── persona/ (Python 人格层)<br>├── data/ (快照存储)<br>└── web/ (Flask仪表盘)</td>
+</tr>
+<tr>
+  <td class="term">确认码<br>#CONFIRM🌌9622</td>
+  <td class="std">数字签名 / 授权令牌</td>
+  <td class="plain">你的专属印章。盖了这个章代表你本人授权。系统遇到不确定的输入时检查这个码——有码=你允许，没码=拒绝执行高权限操作。</td>
+  <td class="code">CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"<br>def is_authorized(input_text):<br>  return CONFIRM_CODE in input_text</td>
+</tr>
+<tr>
+  <td class="term">DNA追溯码<br>#龍芯⚡️</td>
+  <td class="std">Content Hash /<br>Audit Trail ID</td>
+  <td class="plain">每个文件、每个操作的"出生证明+身份证"。格式：#龍芯⚡️{日期}-{模块}-{版本}。<br>追溯时用这个ID找到原始记录，验证有没有被改过。</td>
+  <td class="code">def gen_dna(module, version) -> str:<br>  date = datetime.now().strftime("%Y%m%d-%H%M")<br>  return f"#龍芯⚡️{date}-{module}-{version}"<br># 示例: #龍芯⚡️20260422-guardian-v1.0</td>
+</tr>
+<tr>
+  <td class="term">GPG指纹<br>A2D0...6D5F</td>
+  <td class="std">公钥指纹<br>PGP Key Fingerprint</td>
+  <td class="plain">你的数字身份证号。40位字符，全球唯一。用来验证"这个快照/文件确实是诸葛鑫签的，没人伪造"。<br>签名用私钥（你独有），验证用公钥（所有人可查）。</td>
+  <td class="code">GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"<br># 签名: gpg --sign snapshot.json<br># 验证: gpg --verify snapshot.json.sig</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 六层快照（加详） ════ -->
+<div class="section-header"><span class="icon">📸</span> 思维快照六层结构 · 完整字段明细</div>
+<table>
+<thead><tr><th style="width:18%">层名（你的命名）</th><th style="width:14%">行业标准术语</th><th style="width:30%">大白话</th><th style="width:38%">完整字段（代码里）</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term">IdentityLayer<br>身份层</td>
+  <td class="std">Metadata Layer</td>
+  <td class="plain">快照的"封面信息"：什么时候、谁、哪台设备、用哪个人格处理的</td>
+  <td class="code">snapshot_id: str        # MSP-YYYYMMDD-HHMM<br>dna_code: str           # #龍芯⚡️...<br>creator_name: str       # "诸葛鑫·UID9622"<br>created_at: datetime    # 纳秒精度<br>device_origin: str      # 生成设备<br>route_id: str           # 哪个人格生成的<br>persona_name: str       # GUARDIAN_SYNC<br>previous_snapshot_id: str  # 版本链上一节点</td>
+</tr>
+<tr>
+  <td class="term">OwnershipLayer<br>主权层</td>
+  <td class="std">Access Control / License</td>
+  <td class="plain">这张照片是我的——声明归属权、分享级别、解释权</td>
+  <td class="code">ownership_statement: str   # "UID9622·诸葛鑫·龍芯北辰"<br>public_sharing_level: str  # PRIVATE/SELECTIVE/PUBLIC<br>license: str               # "CC BY-NC-ND 4.0 + 龍魂附加条款"<br>interpretation_right: str  # "解释权归UID9622"<br>inheritance_rule: str      # 继承人: 佳琪(身份证号)</td>
+</tr>
+<tr>
+  <td class="term">StructureLayer<br>结构层</td>
+  <td class="std">Knowledge Graph</td>
+  <td class="plain">快照的骨架：想法分几个大类、子项、互相关系</td>
+  <td class="code">main_axis: str          # 主轴方向(架构师分析后填入)<br>decision_tree: list[DecisionNode]  # 决策树<br>  └── DecisionNode:<br>      ├── node_id, label, weight<br>      ├── children: list[DecisionNode]<br>      └── decision_type: STRATEGIC/TACTICAL/OPERATIONAL<br>subsystems: list[str]   # 关联子系统列表<br>knowledge_links: list[str]  # 关联知识库节点</td>
+</tr>
+<tr>
+  <td class="term">PriorityLayer<br>优先级层</td>
+  <td class="std">Weighted Scoring Model</td>
+  <td class="plain">哪个最重要——给每个想法打分排序，三色审计在这里</td>
+  <td class="code">core_priority_list: list[PriorityItem]<br>  └── PriorityItem:<br>      ├── item_id, title, weight_score (0-10)<br>      ├── audit_color: GREEN/YELLOW/RED  # 三色审计<br>      └── fuse_level: P0∞/P0/P1/P2<br>weight_scores: dict[str, float]  # {模块名: 权重值}<br>risk_weight_model: str  # "三色审计 v2.4"<br>排序不动点: "人民>国家>个人"  # P0∞永恒级</td>
+</tr>
+<tr>
+  <td class="term">StateLayer<br>状态层</td>
+  <td class="std">State Machine</td>
+  <td class="plain">目前在什么阶段——概念探索/架构构建/结构稳定</td>
+  <td class="code">development_phase: str  # CONCEPT_EXPLORATION / ARCHITECTURE_BUILDING / STRUCTURE_STABLE<br>  # 判断规则：weight最大>0.55=稳定 >0.40=构建 其他=探索<br>active_module: str      # 当前主要活跃模块<br>pending_decisions: list[str]  # 待决策事项<br>blocked_items: list[str]  # 被熔断/阻塞的项<br>phase_confidence: float   # 阶段判断置信度(0-1)</td>
+</tr>
+<tr>
+  <td class="term">VerificationLayer<br>验证层</td>
+  <td class="std">Integrity Check</td>
+  <td class="plain">这张照片没被改过——SHA256指纹+GPG签名双重验证</td>
+  <td class="code">snapshot_hash: str       # SHA256(前五层JSON内容)<br>gpg_signature: str       # base64编码的GPG签名<br>gpg_key_id: str          # "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"<br>verification_status: str  # VERIFIED / PENDING / FAILED<br>hash_algorithm: str      # "SHA256"<br>signature_timestamp: datetime<br>tamper_evidence: bool    # True=有篡改迹象</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 熔断（加详） ════ -->
+<div class="section-header"><span class="icon">🔥</span> 熔断保护 · 五重保险丝（加详版）</div>
+<table>
+<thead><tr><th style="width:18%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话</th><th style="width:30%">代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td class="term">数字根熔断<br>dr=3/9</td>
+  <td class="std">Input Validation Gate /<br>Pre-filter</td>
+  <td class="plain">CNSH v3.0的第一道门。输入里含数字时，把所有数字加起来求数字根。dr=3或9立刻熔断拒绝执行，只记录不解释。dr=6待审需补充依据，dr=其他正常通过。<br><strong>这是在系统真正跑任务之前的过滤</strong>，不是运行时的熔断。</td>
+  <td class="code">def digital_root(n):<br>  while n > 9: n = sum(int(d) for d in str(n))<br>  return n<br>def first_gate(input_text):<br>  nums = extract_numbers(input_text)<br>  if not nums: return "PASS"<br>  dr = digital_root(sum(nums))<br>  if dr in [3,9]: return f"🔴 dr={dr} FUSE"<br>  if dr == 6:     return f"🟡 dr={dr} PENDING"<br>  return f"🟢 dr={dr} PASS"</td>
+</tr>
+<tr>
+  <td class="term">FuseManager<br>五重熔断管理器</td>
+  <td class="std">Circuit Breaker Pattern</td>
+  <td class="plain">运行时的五道保险丝——每个人格各自有一个FuseState，管理自己的熔断状态。五个人格=五重独立保险丝。一个熔断不影响其他四个。</td>
+  <td class="code">class FuseManager:<br>  def __init__(self):<br>    self.fuses: dict[str, FuseState] = {<br>      "guardian_sync": FuseState(threshold=3, recovery=3600),<br>      "architect_compress": FuseState(threshold=3, recovery=1800),<br>      "analyst_monitor": FuseState(threshold=5, recovery=600),<br>      "curator_archive": FuseState(threshold=2, recovery=7200),<br>      "sage_evolve": FuseState(threshold=2, recovery=3600),<br>    }</td>
+</tr>
+<tr>
+  <td class="term">fuse_threshold=3<br>熔断阈值</td>
+  <td class="std">Failure Threshold</td>
+  <td class="plain">连续失败多少次拉闸。默认3次——失败1次记录警告，失败2次黄灯警告，失败3次直接断电。每次成功后计数归零重新计。</td>
+  <td class="code">def on_failure(self):<br>  self.consecutive_failures += 1<br>  if self.consecutive_failures >= self.threshold:<br>    self.is_fused = True<br>    self.fuse_time = datetime.now()<br>    # 触发自动回滚到上一成功快照<br>    auto_rollback()</td>
+</tr>
+<tr>
+  <td class="term">fuse_recovery=3600s<br>恢复时间</td>
+  <td class="std">Cooldown Period / TTL</td>
+  <td class="plain">断电后多久自动恢复试一试。默认1小时。时间到了会从"已熔断"变成"半开"——跑一次，成功就完全恢复，失败重新熔断并重置等待时间。</td>
+  <td class="code">def check(self) -> bool:<br>  if not self.is_fused: return True<br>  elapsed = (datetime.now()-self.fuse_time).seconds<br>  if elapsed >= self.recovery_time:<br>    self.is_fused = False  # 进入半开态<br>    self.consecutive_failures = 0<br>    return True  # 允许试一次<br>  return False  # 还在冷却</td>
+</tr>
+<tr>
+  <td class="term">三色审计映射<br>🟢🟡🔴</td>
+  <td class="std">Health Status Indicator</td>
+  <td class="plain">🟢=consecutive_failures=0·正常运行中<br>🟡=0&lt;failures&lt;threshold·有失败但还没断<br>🔴=is_fused=True·已断路·等冷却期<br><strong>仪表盘实时显示每个人格的颜色</strong></td>
+  <td class="code">def get_color(self) -> str:<br>  if self.is_fused: return "🔴"<br>  if self.consecutive_failures > 0: return "🟡"<br>  return "🟢"</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ════ 知识库补全清单 ════ -->
+<div class="section-header"><span class="icon">📋</span> 知识库补全清单 · 哪些有、哪些缺、怎么补</div>
+<div class="kb-grid">
+  <div class="kb-card done">
+    <div class="kb-title">✅ 已完整记录</div>
+    <div class="kb-item"><span class="dot">🟢</span><span>五大人格名称+职责+触发时间</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>六层快照结构+字段名</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>熔断机制+阈值+恢复时间</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>DNA追溯码格式标准</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>GPG签名+SHA256验证</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>三色审计判断规则</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>API端点清单(/api/*)</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>CNSH v3.0 L0-L8架构</span></div>
+  </div>
+  <div class="kb-card partial">
+    <div class="kb-title">🟡 部分记录（需补全）</div>
+    <div class="kb-item"><span class="dot">🟡</span><span>EventBus实现（接口有，代码待补）</span></div>
+    <div class="kb-item"><span class="dot">🟡</span><span>SQLite表完整Schema（executions表已补，snapshots表待确认）</span></div>
+    <div class="kb-item"><span class="dot">🟡</span><span>快照JSON完整示例文件（结构有，样例无）</span></div>
+    <div class="kb-item"><span class="dot">🟡</span><span>贤者·演化的对比算法（概念有，实现待补）</span></div>
+    <div class="kb-item"><span class="dot">🟡</span><span>Web仪表盘HTML模板（接口有，前端样式未归档）</span></div>
+    <div class="kb-item"><span class="dot">🟡</span><span>V9道权重系统（2025-12-11版·待更新到2026）</span></div>
+  </div>
+  <div class="kb-card missing">
+    <div class="kb-title">🔴 缺失·需要新建</div>
+    <div class="kb-item"><span class="dot">🔴</span><span>通心译ETE可用实现（概念完备，无工具）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>迭送链完整测试用例（本文档是第一次整理）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>Chrome插件MVP代码（规格书有·开发未开始）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>ARKit五行算法（概念·无实现）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>错误码清单（FUSE_001, CHAIN_ERR_002等）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>部署文档（本地运行步骤·依赖安装）</span></div>
+    <div class="kb-item"><span class="dot">🔴</span><span>人格矩阵P00-P72完整卡片（索引有·内容缺）</span></div>
+  </div>
+  <div class="kb-card done">
+    <div class="kb-title">✅ 本次新补充的明细</div>
+    <div class="kb-item"><span class="dot">🟢</span><span>联动触发类型+触发条件+代码</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>迭送机制完整时序+parent_dna链</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>回滚机制5种方式+代码</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>留痕隔离原则+SQLite完整Schema</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>六层快照所有字段（含继承人字段）</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>数字根熔断第一道门代码</span></div>
+    <div class="kb-item"><span class="dot">🟢</span><span>FuseManager五重熔断配置</span></div>
+  </div>
+</div>
+
+<!-- 补全方法 -->
+<div class="box">
+  <h3>怎么补全知识库·三步走</h3>
+  <div class="flow">
+    <div class="fs"><div class="fl">第1步</div><div class="fd">用本文档作为底座，把🟡待补项逐个填入Notion知识卡片</div></div>
+    <span class="fa">→</span>
+    <div class="fs"><div class="fl">第2步</div><div class="fd">每新建一个卡片，加DNA码+三色审计+学习状态标签</div></div>
+    <span class="fa">→</span>
+    <div class="fs"><div class="fl">第3步</div><div class="fd">🔴缺失项按P1/P2优先级排队，不急的等天时</div></div>
+  </div>
+  <p style="font-size:0.78rem;color:#888;margin-top:0.7rem">
+    <strong style="color:#c084fc">原则：</strong>只补自己测试过的，没测试过的标🟡待审。宁缺毋滥，错的内容比没有内容更有害。
+  </p>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰 · 思维主权系统术语对照表 v2.0<br>
+  #龍芯⚡️2026-04-22-DOC-MSP-TERM-v2 · 三色审计：🟢 通过<br>
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+</div>
+</div>
+</body>
+</html>

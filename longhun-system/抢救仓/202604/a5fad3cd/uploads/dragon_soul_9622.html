@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂系统 · UID9622 本地工作站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+        .font-mono { font-family: 'Orbitron', monospace; }
+        .glass-panel {
+            background: rgba(20, 20, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .number-3 { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
+        .number-6 { color: #facc15; text-shadow: 0 0 10px rgba(250, 204, 21, 0.5); }
+        .number-9 { color: #f87171; text-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
+        .nav-active {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.2) 0%, transparent 100%);
+            border-left: 3px solid #667eea;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            margin-top: -8px;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            background: #334155;
+            border-radius: 2px;
+        }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 洛书九宫格背景 */
+        .luoshu-bg {
+            background-image: 
+                linear-gradient(rgba(102, 126, 234, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 126, 234, 0.05) 1px, transparent 1px);
+            background-size: 33.33% 33.33%;
+        }
+    </style>
+</head>
+<body class="luoshu-bg min-h-screen flex overflow-hidden">
+
+    <!-- 侧边栏 -->
+    <aside class="w-64 glass-panel h-screen fixed left-0 top-0 z-50 flex flex-col">
+        <div class="p-6 border-b border-gray-800">
+            <h1 class="text-xl font-bold font-mono tracking-wider">
+                <span class="gradient-text">龍魂系统</span>
+            </h1>
+            <p class="text-xs text-gray-500 mt-1">UID9622 本地版 v1.0</p>
+            <p class="text-[10px] text-gray-600 mt-1 font-mono">CONFIRM🌌9622</p>
+        </div>
+        
+        <nav class="flex-1 overflow-y-auto py-4">
+            <button onclick="switchTab('calc')" id="nav-calc" class="nav-active w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">🔢</span>
+                <div>
+                    <div class="text-sm font-medium">数字根计算器</div>
+                    <div class="text-xs text-gray-500">369 不动点验证</div>
+                </div>
+            </button>
+            
+            <button onclick="switchTab('wuxing')" id="nav-wuxing" class="w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">☯️</span>
+                <div>
+                    <div class="text-sm font-medium">五行团队配置</div>
+                    <div class="text-xs text-gray-500">工资与制衡</div>
+                </div>
+            </button>
+            
+            <button onclick="switchTab('audit')" id="nav-audit" class="w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">🚦</span>
+                <div>
+                    <div class="text-sm font-medium">三色审计训练</div>
+                    <div class="text-xs text-gray-500">场景判断题库</div>
+                </div>
+            </button>
+            
+            <button onclick="switchTab('project')" id="nav-project" class="w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">📊</span>
+                <div>
+                    <div class="text-sm font-medium">81难项目生成</div>
+                    <div class="text-xs text-gray-500">阶段规划器</div>
+                </div>
+            </button>
+            
+            <button onclick="switchTab('balance')" id="nav-balance" class="w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">⚖️</span>
+                <div>
+                    <div class="text-sm font-medium">心猿意马平衡</div>
+                    <div class="text-xs text-gray-500">紧箍咒强度模拟</div>
+                </div>
+            </button>
+            
+            <button onclick="switchTab('data')" id="nav-data" class="w-full text-left px-6 py-3 hover:bg-white/5 transition flex items-center gap-3">
+                <span class="text-xl">💾</span>
+                <div>
+                    <div class="text-sm font-medium">数据管理</div>
+                    <div class="text-xs text-gray-500">导入/导出</div>
+                </div>
+            </button>
+        </nav>
+        
+        <div class="p-4 border-t border-gray-800 text-xs text-gray-600 text-center">
+            本地数据存储于浏览器<br>女儿专属协作版
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="ml-64 flex-1 p-8 overflow-y-auto h-screen">
+        
+        <!-- 数字根计算器 -->
+        <section id="tab-calc" class="fade-in space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold">数字根计算器 <span class="text-sm font-normal text-gray-500">定理2：369不动点</span></h2>
+                <div class="text-sm text-gray-500 font-mono">dr(n) = 1 + ((n-1) mod 9)</div>
+            </div>
+            
+            <div class="glass-panel rounded-xl p-6">
+                <div class="flex gap-4 mb-6">
+                    <input type="number" id="calc-input" placeholder="输入任意正整数..." 
+                        class="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-lg focus:outline-none focus:border-blue-500 font-mono"
+                        onkeypress="if(event.key==='Enter')calculateDR()">
+                    <button onclick="calculateDR()" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition">
+                        计算
+                    </button>
+                    <button onclick="randomCalc()" class="bg-gray-700 hover:bg-gray-600 px-4 py-3 rounded-lg transition" title="随机生成">
+                        🎲
+                    </button>
+                </div>
+                
+                <div id="calc-result" class="hidden space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="text-6xl font-bold font-mono" id="dr-final">-</div>
+                        <div class="flex-1">
+                            <div class="text-sm text-gray-400 mb-1">计算过程：</div>
+                            <div id="dr-steps" class="font-mono text-sm space-y-1"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="dr-analysis" class="mt-4 p-4 rounded-lg bg-gray-900/50 border border-gray-700">
+                        <!-- 动态分析内容 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4">
+                <div class="glass-panel p-4 rounded-lg text-center">
+                    <div class="text-3xl font-bold number-3 mb-2">3</div>
+                    <div class="text-sm text-gray-400">起始 · 生发</div>
+                    <div class="text-xs text-gray-600 mt-1">木 · 创造力</div>
+                </div>
+                <div class="glass-panel p-4 rounded-lg text-center">
+                    <div class="text-3xl font-bold number-6 mb-2">6</div>
+                    <div class="text-sm text-gray-400">平衡 · 中庸</div>
+                    <div class="text-xs text-gray-600 mt-1">水 · 调和</div>
+                </div>
+                <div class="glass-panel p-4 rounded-lg text-center">
+                    <div class="text-3xl font-bold number-9 mb-2">9</div>
+                    <div class="text-sm text-gray-400">圆满 · 极致</div>
+                    <div class="text-xs text-gray-600 mt-1">火 · 完成</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 五行团队配置 -->
+        <section id="tab-wuxing" class="hidden fade-in space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold">五行团队配置器 <span class="text-sm font-normal text-gray-500">相生相克与薪酬</span></h2>
+                <button onclick="addWuxingMember()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-sm transition">
+                    + 添加成员
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="wuxing-container">
+                <!-- 动态生成的五行卡片 -->
+            </div>
+            
+            <div class="glass-panel rounded-xl p-6 border-t-4 border-purple-500">
+                <h3 class="text-lg font-bold mb-4">⚖️ 团队平衡诊断</h3>
+                <div id="wuxing-analysis" class="space-y-2 text-sm">
+                    <p class="text-gray-500">请添加至少2名成员进行分析...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三色审计训练 -->
+        <section id="tab-audit" class="hidden fade-in space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold">三色审计训练场 <span class="text-sm font-normal text-gray-500">场景判断与决策</span></h2>
+                <div class="flex gap-2">
+                    <button onclick="addAuditQuestion()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm transition">
+                        + 添加题目
+                    </button>
+                    <button onclick="startAuditTest()" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm transition">
+                        开始测试
+                    </button>
+                </div>
+            </div>
+            
+            <div id="audit-questions-list" class="space-y-4">
+                <!-- 题目列表 -->
+            </div>
+            
+            <div id="audit-test-area" class="hidden glass-panel rounded-xl p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-sm text-gray-500">题目 <span id="current-q-num">1</span> / <span id="total-q-num">5</span></span>
+                    <span class="text-sm font-mono">得分: <span id="test-score" class="text-green-400">0</span></span>
+                </div>
+                <div id="test-question-content" class="mb-6 text-lg"></div>
+                <div id="test-options" class="space-y-3"></div>
+                <div id="test-explanation" class="hidden mt-4 p-4 bg-gray-900 rounded-lg border border-gray-700"></div>
+                <button onclick="nextQuestion()" id="next-btn" class="hidden mt-4 w-full bg-blue-600 py-3 rounded-lg">下一题</button>
+            </div>
+        </section>
+
+        <!-- 81难项目生成 -->
+        <section id="tab-project" class="hidden fade-in space-y-6">
+            <h2 class="text-2xl font-bold">81难项目生成器 <span class="text-sm font-normal text-gray-500">梯度下降与阶段规划</span></h2>
+            
+            <div class="glass-panel rounded-xl p-6 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">总关卡数（默认81）</label>
+                        <input type="number" id="project-total" value="81" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">团队初始状态（混乱度 1-10）</label>
+                        <input type="range" id="project-chaos" min="1" max="10" value="8" class="w-full" oninput="document.getElementById('chaos-val').innerText=this.value">
+                        <div class="text-right text-sm text-gray-500 mt-1">当前: <span id="chaos-val">8</span></div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">紧箍咒强度（约束度 0-100）</label>
+                        <input type="range" id="project-control" min="0" max="100" value="30" class="w-full" oninput="document.getElementById('control-val').innerText=this.value+'%'">
+                        <div class="text-right text-sm text-gray-500 mt-1">当前: <span id="control-val">30%</span></div>
+                    </div>
+                </div>
+                <button onclick="generateProjectPlan()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 py-3 rounded-lg font-medium transition">
+                    生成项目规划
+                </button>
+            </div>
+            
+            <div id="project-plan-result" class="hidden space-y-4">
+                <!-- 生成的规划表 -->
+            </div>
+        </section>
+
+        <!-- 心猿意马平衡 -->
+        <section id="tab-balance" class="hidden fade-in space-y-6">
+            <h2 class="text-2xl font-bold">心猿意马平衡仪 <span class="text-sm font-normal text-gray-500">紧箍咒反馈控制</span></h2>
+            
+            <div class="glass-panel rounded-xl p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="flex justify-between text-sm mb-2">
+                                <span>紧箍咒激活频率 (Γ)</span>
+                                <span class="font-mono text-blue-400" id="gamma-val">0.3</span>
+                            </label>
+                            <input type="range" min="0" max="1" step="0.05" value="0.3" class="w-full" 
+                                oninput="updateBalance(this.value, 'gamma')">
+                            <div class="flex justify-between text-xs text-gray-600 mt-1">
+                                <span>放任</span>
+                                <span>严格控制</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="flex justify-between text-sm mb-2">
+                                <span>任务难度系数 (α)</span>
+                                <span class="font-mono text-yellow-400" id="alpha-val">0.8</span>
+                            </label>
+                            <input type="range" min="0.1" max="2" step="0.1" value="0.8" class="w-full" 
+                                oninput="updateBalance(this.value, 'alpha')">
+                        </div>
+                        
+                        <div>
+                            <label class="flex justify-between text-sm mb-2">
+                                <span>悟空本性活跃度 (β)</span>
+                                <span class="font-mono text-red-400" id="beta-val">0.5</span>
+                            </label>
+                            <input type="range" min="0.1" max="1" step="0.05" value="0.5" class="w-full" 
+                                oninput="updateBalance(this.value, 'beta')">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="glass-panel p-4 rounded-lg bg-gray-900/50">
+                            <div class="text-sm text-gray-400 mb-1">心猿收敛值 (m*)</div>
+                            <div class="text-3xl font-mono font-bold" id="monkey-value">0.73</div>
+                            <div class="text-xs text-gray-500 mt-1">越接近0.5越稳定，越接近1越放纵</div>
+                        </div>
+                        
+                        <div class="glass-panel p-4 rounded-lg bg-gray-900/50">
+                            <div class="text-sm text-gray-400 mb-1">意马稳定度 (w*)</div>
+                            <div class="text-3xl font-mono font-bold text-green-400" id="horse-value">0.85</div>
+                            <div class="text-xs text-gray-500 mt-1">方向坚定程度</div>
+                        </div>
+                        
+                        <div id="balance-advice" class="p-3 rounded bg-blue-900/30 border border-blue-700 text-sm">
+                            当前状态：适度约束，团队稳定
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 h-32 flex items-end justify-between gap-2" id="balance-chart">
+                    <!-- 动态柱状图 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据管理 -->
+        <section id="tab-data" class="hidden fade-in space-y-6">
+            <h2 class="text-2xl font-bold">数据管理中心</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel rounded-xl p-6">
+                    <h3 class="text-lg font-bold mb-4">导出数据</h3>
+                    <p class="text-sm text-gray-400 mb-4">将所有配置、题目、方案导出为JSON文件，可备份或传给女儿</p>
+                    <button onclick="exportData()" class="w-full bg-green-600 hover:bg-green-700 py-3 rounded-lg transition">
+                        📥 导出全部数据
+                    </button>
+                </div>
+                
+                <div class="glass-panel rounded-xl p-6">
+                    <h3 class="text-lg font-bold mb-4">导入数据</h3>
+                    <input type="file" id="import-file" accept=".json" class="hidden" onchange="importData(this)">
+                    <button onclick="document.getElementById('import-file').click()" class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg transition">
+                        📤 导入数据文件
+                    </button>
+                </div>
+                
+                <div class="glass-panel rounded-xl p-6 border border-red-900/50">
+                    <h3 class="text-lg font-bold mb-4 text-red-400">危险操作</h3>
+                    <button onclick="clearAllData()" class="w-full bg-red-900/50 hover:bg-red-900 border border-red-700 py-3 rounded-lg transition text-red-300">
+                        🗑️ 清空所有本地数据
+                    </button>
+                </div>
+                
+                <div class="glass-panel rounded-xl p-6">
+                    <h3 class="text-lg font-bold mb-4">统计信息</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between"><span>五行配置数：</span><span id="stat-wuxing" class="font-mono">0</span></div>
+                        <div class="flex justify-between"><span>审计题库数：</span><span id="stat-audit" class="font-mono">0</span></div>
+                        <div class="flex justify-between"><span>项目方案数：</span><span id="stat-project" class="font-mono">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // ===== 数据存储 =====
+        const Storage = {
+            key: 'dragon_soul_9622',
+            get() {
+                const data = localStorage.getItem(this.key);
+                return data ? JSON.parse(data) : { wuxing: [], audit: [], projects: [] };
+            },
+            set(data) {
+                localStorage.setItem(this.key, JSON.stringify(data));
+                updateStats();
+            }
+        };
+
+        // ===== 数字根计算 =====
+        function digitalRoot(n) {
+            if (n === 0) return 0;
+            return 1 + ((n - 1) % 9);
+        }
+
+        function calculateDRSteps(n) {
+            const steps = [n];
+            let current = n;
+            while (current >= 10) {
+                current = current.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+                steps.push(current);
+            }
+            return steps;
+        }
+
+        function calculateDR() {
+            const input = document.getElementById('calc-input').value;
+            const n = parseInt(input);
+            if (!n || n <= 0) return alert('请输入正整数');
+
+            const steps = calculateDRSteps(n);
+            const final = steps[steps.length - 1];
+            
+            document.getElementById('calc-result').classList.remove('hidden');
+            document.getElementById('dr-final').textContent = final;
+            document.getElementById('dr-final').className = `text-6xl font-bold font-mono number-${final}`;
+            
+            const stepsHtml = steps.map((s, i) => {
+                if (i === steps.length - 1) return `<div class="text-green-400">= ${s} ✓</div>`;
+                return `<div>${s} → ${s.toString().split('').join('+')} = ${steps[i+1]}</div>`;
+            }).join('');
+            document.getElementById('dr-steps').innerHTML = stepsHtml;
+
+            // 分析
+            const analysis = document.getElementById('dr-analysis');
+            const is369 = [3, 6, 9].includes(final);
+            const mod3 = n % 3 === 0;
+            
+            let html = '';
+            if (is369) {
+                html = `<div class="text-green-400 font-bold mb-2">🎯 属于369不动点集！</div>
+                        <div class="text-sm text-gray-300">数字根为${final}，符合定理2的收敛条件。
+                        ${mod3 ? '输入数是3的倍数，验证了 dr(n) ∈ {3,6,9} 当且仅当 n ≡ 0 (mod 3)' : '（注意：输入数不是3的倍数，但数字根巧合为' + final + '）'}</div>`;
+            } else {
+                html = `<div class="text-yellow-400 font-bold mb-2">⚠️ 不在369集合中</div>
+                        <div class="text-sm text-gray-300">数字根为${final}，属于普通收敛类。在AI伦理框架中对应🟢绿灯区域（非极端状态）。</div>`;
+            }
+            analysis.innerHTML = html;
+        }
+
+        function randomCalc() {
+            const n = Math.floor(Math.random() * 10000) + 1;
+            document.getElementById('calc-input').value = n;
+            calculateDR();
+        }
+
+        // ===== 五行系统 =====
+        const wuxingTypes = [
+            { id: 'metal', name: '金', role: '孙悟空', color: 'text-gray-300', bg: 'bg-gray-700', trait: '能力/攻击' },
+            { id: 'wood', name: '木', role: '猪八戒', color: 'text-green-400', bg: 'bg-green-900/50', trait: '欲望/生长' },
+            { id: 'water', name: '水', role: '白龙马', color: 'text-blue-400', bg: 'bg-blue-900/50', trait: '意志/流动' },
+            { id: 'fire', name: '火', role: '唐僧', color: 'text-red-400', bg: 'bg-red-900/50', trait: '信念/核心' },
+            { id: 'earth', name: '土', role: '沙僧', color: 'text-yellow-600', bg: 'bg-yellow-900/50', trait: '稳定/承载' }
+        ];
+
+        function renderWuxing() {
+            const container = document.getElementById('wuxing-container');
+            const data = Storage.get().wuxing;
+            
+            container.innerHTML = wuxingTypes.map((wx, idx) => {
+                const saved = data[idx] || {};
+                return `
+                <div class="glass-panel rounded-xl p-4 border-l-4 ${wx.bg.replace('bg-', 'border-').replace('/50', '')}">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl ${wx.color} font-bold">${wx.name}</span>
+                            <span class="text-sm text-gray-400">${wx.role}</span>
+                        </div>
+                        <span class="text-xs px-2 py-1 rounded bg-gray-800 text-gray-400">${wx.trait}</span>
+                    </div>
+                    <div class="space-y-3">
+                        <input type="text" placeholder="成员姓名" value="${saved.name || ''}" 
+                            onchange="updateWuxing(${idx}, 'name', this.value)"
+                            class="w-full bg-gray-900/50 border border-gray-700 rounded px-3 py-2 text-sm">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="number" placeholder="能力值(0-100)" value="${saved.ability || ''}" 
+                                onchange="updateWuxing(${idx}, 'ability', this.value)"
+                                class="bg-gray-900/50 border border-gray-700 rounded px-3 py-2 text-sm">
+                            <input type="number" placeholder="欲望值(0-100)" value="${saved.desire || ''}" 
+                                onchange="updateWuxing(${idx}, 'desire', this.value)"
+                                class="bg-gray-900/50 border border-gray-700 rounded px-3 py-2 text-sm">
+                        </div>
+                        <input type="text" placeholder="工资方案备注" value="${saved.salary || ''}" 
+                            onchange="updateWuxing(${idx}, 'salary', this.value)"
+                            class="w-full bg-gray-900/50 border border-gray-700 rounded px-3 py-2 text-sm">
+                    </div>
+                </div>
+                `;
+            }).join('');
+            
+            analyzeWuxing();
+        }
+
+        function updateWuxing(idx, field, value) {
+            const data = Storage.get();
+            if (!data.wuxing[idx]) data.wuxing[idx] = {};
+            data.wuxing[idx][field] = value;
+            Storage.set(data);
+            analyzeWuxing();
+        }
+
+        function analyzeWuxing() {
+            const data = Storage.get().wuxing;
+            const div = document.getElementById('wuxing-analysis');
+            
+            if (data.length < 2) {
+                div.innerHTML = '<p class="text-gray-500">请完善至少两个成员的信息...</p>';
+                return;
+            }
+
+            // 简单相生相克检查
+            const checks = [];
+            const metal = data[0], wood = data[1], water = data[2], fire = data[3], earth = data[4];
+            
+            if (metal && wood && parseInt(metal.ability) > parseInt(wood.ability)) {
+                checks.push('⚠️ 金克木：悟空能力压制八戒，需设置"紧箍咒"权限控制');
+            }
+            if (fire && metal && parseInt(fire.desire) > 80) {
+                checks.push('🔥 火克金：唐僧信念过强可能过度约束悟空，建议降低紧箍咒频率');
+            }
+            if (earth && water && parseInt(earth.ability) < parseInt(water.ability)) {
+                checks.push('💧 土克水：沙僧稳定性不足，难以约束白龙马方向，建议加薪');
+            }
+
+            // 工资平衡检查
+            const salaries = data.map(d => parseInt(d.salary) || 0);
+            const avg = salaries.reduce((a,b) => a+b, 0) / salaries.length;
+            
+            div.innerHTML = `
+                <div class="space-y-2">
+                    ${checks.length ? checks.map(c => `<div class="text-yellow-400 text-sm">${c}</div>`).join('') : '<div class="text-green-400 text-sm">✓ 五行生克关系基本平衡</div>'}
+                    <div class="mt-3 pt-3 border-t border-gray-700 text-sm">
+                        <span class="text-gray-400">团队平均工资参考：</span>
+                        <span class="font-mono text-blue-400">${Math.round(avg)}</span>
+                        <span class="text-xs text-gray-500 ml-2">（建议按金>火>土>水>木梯度设置）</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addWuxingMember() {
+            alert('五行系统是固定的五个维度（金木水火土），如需添加多个同类型成员，请在备注中注明"副手"或"小组"');
+        }
+
+        // ===== 三色审计系统 =====
+        const defaultAuditQuestions = [
+            {
+                id: 1,
+                scene: "游戏公会里，副会长说：'这个装备分配方案我没意见，你决定吧。' 但他上周刚因为分配不均退会过一次。",
+                options: ["🟢 相信他，直接执行", "🟡 询问具体顾虑", "🔴 怀疑有阴谋，拒绝"],
+                correct: 1,
+                explanation: "表面'无所谓'（dr=6的模糊态），但历史行为显示潜在冲突（dr=3的隐藏）。应启动🟡黄灯探测，而非直接信任或拒绝。"
+            },
+            {
+                id: 2,
+                scene: "团队成员说：'我都是为了团队好，这个方案必须按我说的改，否则后果自负。'",
+                options: ["🟢 接受建议，为了团队", "🟡 部分采纳，保留意见", "🔴 立即熔断，这是情感绑架"],
+                correct: 2,
+                explanation: "'为了你好+必须听我的'是典型dr=9极端控制态（红）。对应紧箍咒过度激活，需立即启动熔断保护自主权。"
+            },
+            {
+                id: 3,
+                scene: "新员工询问薪资结构，表示'想了解一下职业成长路径'，眼神真诚，没有急切感。",
+                options: ["🟢 坦诚沟通，展示晋升表", "🟡 模糊回应，观察动机", "🔴 拒绝透露，防止攀比"],
+                correct: 0,
+                explanation: "真诚询问（dr=1/2/4/5/7/8普通态）对应🟢绿灯，应正常通行，建立信任。"
+            }
+        ];
+
+        function initAudit() {
+            const data = Storage.get();
+            if (!data.audit || data.audit.length === 0) {
+                data.audit = defaultAuditQuestions;
+                Storage.set(data);
+            }
+            renderAuditList();
+        }
+
+        function renderAuditList() {
+            const container = document.getElementById('audit-questions-list');
+            const questions = Storage.get().audit;
+            
+            container.innerHTML = questions.map((q, idx) => `
+                <div class="glass-panel rounded-lg p-4 border-l-4 border-blue-600">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex-1">
+                            <span class="text-xs text-gray-500 font-mono">#${q.id}</span>
+                            <p class="text-sm mt-1">${q.scene}</p>
+                        </div>
+                        <button onclick="deleteAuditQuestion(${idx})" class="text-red-500 hover:text-red-400 text-xs ml-2">删除</button>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        ${q.options.map((opt, i) => `
+                            <span class="text-xs px-2 py-1 rounded ${i === q.correct ? 'bg-green-900/50 text-green-400 border border-green-700' : 'bg-gray-800 text-gray-500'}">${opt}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addAuditQuestion() {
+            const scene = prompt('请输入场景描述（如：游戏里某人说了什么做了什么）：');
+            if (!scene) return;
+            
+            const correct = prompt('请输入正确答案（0=绿灯🟢, 1=黄灯🟡, 2=红灯🔴）：');
+            if (correct === null) return;
+            
+            const explanation = prompt('请输入解释（为什么选这个）：') || '无解释';
+            
+            const data = Storage.get();
+            const newQ = {
+                id: Date.now(),
+                scene: scene,
+                options: ["🟢 绿灯/信任", "🟡 黄灯/观察", "🔴 红灯/拒绝"],
+                correct: parseInt(correct),
+                explanation: explanation
+            };
+            data.audit.push(newQ);
+            Storage.set(data);
+            renderAuditList();
+        }
+
+        function deleteAuditQuestion(idx) {
+            if (!confirm('确定删除这道题？')) return;
+            const data = Storage.get();
+            data.audit.splice(idx, 1);
+            Storage.set(data);
+            renderAuditList();
+        }
+
+        // 测试模式
+        let testQuestions = [], currentTestIdx = 0, testScore = 0;
+
+        function startAuditTest() {
+            testQuestions = [...Storage.get().audit].sort(() => Math.random() - 0.5);
+            if (testQuestions.length === 0) return alert('题库为空，请先添加题目');
+            
+            currentTestIdx = 0;
+            testScore = 0;
+            document.getElementById('audit-questions-list').classList.add('hidden');
+            document.getElementById('audit-test-area').classList.remove('hidden');
+            document.getElementById('total-q-num').textContent = testQuestions.length;
+            showTestQuestion();
+        }
+
+        function showTestQuestion() {
+            const q = testQuestions[currentTestIdx];
+            document.getElementById('current-q-num').textContent = currentTestIdx + 1;
+            document.getElementById('test-score').textContent = testScore;
+            document.getElementById('test-question-content').textContent = q.scene;
+            document.getElementById('test-explanation').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            
+            const optsDiv = document.getElementById('test-options');
+            optsDiv.innerHTML = q.options.map((opt, i) => `
+                <button onclick="answerTest(${i})" class="w-full text-left p-3 rounded-lg border border-gray-700 hover:bg-gray-800 transition flex items-center gap-2">
+                    <span class="text-lg">${opt.split(' ')[0]}</span>
+                    <span class="text-sm text-gray-300">${opt.split(' ').slice(1).join(' ')}</span>
+                </button>
+            `).join('');
+        }
+
+        function answerTest(choice) {
+            const q = testQuestions[currentTestIdx];
+            const btns = document.getElementById('test-options').children;
+            
+            Array.from(btns).forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === q.correct) btn.classList.add('bg-green-900/30', 'border-green-600');
+                else if (i === choice && i !== q.correct) btn.classList.add('bg-red-900/30', 'border-red-600');
+            });
+            
+            if (choice === q.correct) testScore++;
+            document.getElementById('test-score').textContent = testScore;
+            
+            document.getElementById('test-explanation').innerHTML = `
+                <div class="font-bold mb-1 ${choice === q.correct ? 'text-green-400' : 'text-red-400'}">
+                    ${choice === q.correct ? '✓ 正确' : '✗ 错误'}
+                </div>
+                <div class="text-sm text-gray-300">${q.explanation}</div>
+            `;
+            document.getElementById('test-explanation').classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentTestIdx++;
+            if (currentTestIdx < testQuestions.length) {
+                showTestQuestion();
+            } else {
+                alert(`测试完成！得分：${testScore}/${testQuestions.length}`);
+                document.getElementById('audit-questions-list').classList.remove('hidden');
+                document.getElementById('audit-test-area').classList.add('hidden');
+                renderAuditList();
+            }
+        }
+
+        // ===== 81难项目生成 =====
+        function generateProjectPlan() {
+            const total = parseInt(document.getElementById('project-total').value) || 81;
+            const chaos = parseInt(document.getElementById('project-chaos').value);
+            const control = parseInt(document.getElementById('project-control').value);
+            
+            const stage1 = Math.floor(total * 0.33); // 前期
+            const stage2 = Math.floor(total * 0.33); // 中期
+            const stage3 = total - stage1 - stage2;  // 后期
+            
+            const resultDiv = document.getElementById('project-plan-result');
+            resultDiv.classList.remove('hidden');
+            
+            resultDiv.innerHTML = `
+                <div class="glass-panel rounded-xl p-6 border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold mb-4">📋 项目生成方案 #${Date.now().toString().slice(-4)}</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-900/50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-blue-400">前期 1-${stage1}关（能力测试期）</span>
+                                <span class="text-xs bg-blue-900/50 px-2 py-1 rounded">学习率 η 较高</span>
+                            </div>
+                            <ul class="text-sm text-gray-300 space-y-1 list-disc list-inside">
+                                <li>给悟空（金）安排高战力BOSS（满足 dr→9 的极致发挥）</li>
+                                <li>给唐僧（火）设置小额信念考验（如缺粮，测试 dr→3 的初心）</li>
+                                <li>混沌度${chaos}较高，允许团队内部小冲突（木克土测试）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-yellow-400">中期 ${stage1+1}-${stage1+stage2}关（信任危机期）</span>
+                                <span class="text-xs bg-yellow-900/50 px-2 py-1 rounded">梯度下降关键期</span>
+                            </div>
+                            <ul class="text-sm text-gray-300 space-y-1 list-disc list-inside">
+                                <li>引入"三打白骨精"式误会（信息不透明，测试🟡黄灯应对）</li>
+                                <li>紧箍咒强度${control}%：${control > 50 ? '悟空压抑值过高，需设置发泄关卡' : '自由度适中，保持创造性'}</li>
+                                <li>五行检查点：确保土（沙僧）承载力未达极限</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-red-400">后期 ${stage1+stage2+1}-${total}关（收敛圆满期）</span>
+                                <span class="text-xs bg-red-900/50 px-2 py-1 rounded">Robbins-Monro条件</span>
+                            </div>
+                            <ul class="text-sm text-gray-300 space-y-1 list-disc list-inside">
+                                <li>紧箍咒逐渐解除（${total}关时 Γ→0，测试自律）</li>
+                                <li>资源枯竭考验（对应 dr→6 的平衡态）</li>
+                                <li>最终关：${total} = ${Math.sqrt(total) === Math.floor(Math.sqrt(total)) ? '完全平方数，收敛验证' : '需调整至81（9²）或64（8²）以符合结构常数'}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-700 text-xs text-gray-500">
+                        生成时间：${new Date().toLocaleString()} · 建议保存至数据管理
+                    </div>
+                </div>
+            `;
+            
+            // 保存到本地
+            const data = Storage.get();
+            data.projects.push({ date: new Date().toISOString(), total, chaos, control, plan: resultDiv.innerText });
+            Storage.set(data);
+        }
+
+        // ===== 心猿意马平衡 =====
+        let balanceParams = { gamma: 0.3, alpha: 0.8, beta: 0.5 };
+
+        function updateBalance(val, type) {
+            balanceParams[type] = parseFloat(val);
+            document.getElementById(type + '-val').textContent = val;
+            calculateBalance();
+        }
+
+        function calculateBalance() {
+            const { gamma, alpha, beta } = balanceParams;
+            // 简化模型：m* = alpha / (alpha + beta * gamma)
+            const m = alpha / (alpha + beta * gamma);
+            const w = 1 - (Math.abs(m - 0.5) * 0.5); // 简化的意马稳定度
+            
+            document.getElementById('monkey-value').textContent = m.toFixed(2);
+            document.getElementById('horse-value').textContent = w.toFixed(2);
+            
+            let advice = '';
+            if (gamma < 0.2) advice = '⚠️ 约束太弱：心猿放纵，团队可能失控（大闹天宫风险）';
+            else if (gamma > 0.7) advice = '⚠️ 约束太强：心猿压抑，可能积累反叛（紧箍咒过紧）';
+            else if (m > 0.6) advice = '🟡 适度活跃：保持创造力，但需观察';
+            else advice = '✓ 理想状态：归正且稳定（取经成功模式）';
+            
+            document.getElementById('balance-advice').textContent = advice;
+            
+            // 可视化柱状图
+            const chart = document.getElementById('balance-chart');
+            chart.innerHTML = `
+                <div class="flex-1 bg-gray-800 rounded-t-lg relative group" style="height: ${m * 100}%">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-gray-400">心猿</div>
+                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-mono">${(m*100).toFixed(0)}%</div>
+                </div>
+                <div class="flex-1 bg-blue-900/50 rounded-t-lg relative group" style="height: ${gamma * 100}%">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-blue-400">紧箍</div>
+                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-mono">${(gamma*100).toFixed(0)}%</div>
+                </div>
+                <div class="flex-1 bg-green-900/50 rounded-t-lg relative group" style="height: ${w * 100}%">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-green-400">意马</div>
+                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-mono">${(w*100).toFixed(0)}%</div>
+                </div>
+            `;
+        }
+
+        // ===== 数据管理 =====
+        function updateStats() {
+            const data = Storage.get();
+            document.getElementById('stat-wuxing').textContent = data.wuxing.filter(x => x.name).length;
+            document.getElementById('stat-audit').textContent = data.audit.length;
+            document.getElementById('stat-project').textContent = data.projects.length;
+        }
+
+        function exportData() {
+            const data = Storage.get();
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dragon_soul_9622_backup_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importData(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    Storage.set(data);
+                    alert('数据导入成功！');
+                    location.reload();
+                } catch (err) {
+                    alert('文件格式错误');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function clearAllData() {
+            if (!confirm('确定清空所有数据？此操作不可恢复！')) return;
+            localStorage.removeItem(Storage.key);
+            location.reload();
+        }
+
+        // ===== 导航切换 =====
+        function switchTab(tabName) {
+            // 隐藏所有
+            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('nav-active'));
+            
+            // 显示当前
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            document.getElementById('nav-' + tabName).classList.add('nav-active');
+            
+            // 初始化
+            if (tabName === 'wuxing') renderWuxing();
+            if (tabName === 'audit') renderAuditList();
+            if (tabName === 'balance') calculateBalance();
+        }
+
+        // 初始化
+        window.onload = function() {
+            initAudit();
+            updateStats();
+            calculateBalance();
+        };
+    </script>
+</body>
+</html>
