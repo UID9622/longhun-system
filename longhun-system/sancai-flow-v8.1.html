@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐲 三才流場 v8.1 · 忠孝义排序·智能活体仪表盘 · UID9622</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#000; overflow:hidden; font-family:'PingFang SC','Microsoft YaHei',sans-serif; }
+  #c { display:block; width:100vw; height:100vh; }
+
+  /* ── HUD ── */
+  #hud {
+    position:fixed; top:12px; left:50%; transform:translateX(-50%);
+    display:flex; align-items:center; gap:14px; z-index:10;
+    background:rgba(0,0,0,0.55); border:1px solid rgba(255,215,0,0.2);
+    border-radius:24px; padding:6px 18px; backdrop-filter:blur(6px);
+  }
+  #mode-badge {
+    font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px;
+    letter-spacing:.05em;
+  }
+  #mode-badge.founder { background:rgba(255,215,0,0.15); color:#FFD700; }
+  #mode-badge.visitor { background:rgba(100,116,139,0.25); color:#94a3b8; }
+  #health-score {
+    font-size:13px; font-weight:800; font-variant-numeric:tabular-nums;
+    color:#22c55e; min-width:56px; text-align:center; letter-spacing:0.03em;
+  }
+  #particle-counter { font-size:11px; color:#64748b; letter-spacing:.03em; }
+  #sound-icon { font-size:15px; cursor:pointer; opacity:.7; transition:opacity .2s; }
+  #sound-icon:hover { opacity:1; }
+
+  /* ── 右侧歪路面板 ── */
+  #replay-panel {
+    position:fixed; right:0; top:0; bottom:0; width:260px;
+    background:rgba(0,0,0,0.82); border-left:1px solid rgba(239,68,68,0.2);
+    padding:14px 12px; overflow-y:auto; z-index:20;
+    backdrop-filter:blur(8px); display:none; flex-direction:column; gap:8px;
+  }
+  #replay-panel.open { display:flex; }
+  #replay-panel h3 { color:#f87171; font-size:12px; font-weight:700; margin-bottom:4px; }
+  .trace-item {
+    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.18);
+    border-radius:6px; padding:7px 9px; cursor:pointer; font-size:11px;
+    color:#94a3b8; transition:background .2s;
+  }
+  .trace-item:hover { background:rgba(239,68,68,0.14); color:#f1f5f9; }
+  .trace-item .tid { color:#f87171; font-family:monospace; font-size:10px; margin-bottom:3px; }
+  .replay-slider-wrap { margin-top:auto; padding-top:8px; border-top:1px solid rgba(239,68,68,0.15); }
+  .replay-slider-wrap label { font-size:10px; color:#64748b; display:block; margin-bottom:4px; }
+  #replay-slider { width:100%; accent-color:#ef4444; }
+
+  /* ── DNA 弹窗 ── */
+  #dna-popup {
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    background:#0f0f1a; border:1px solid rgba(255,215,0,0.4);
+    border-radius:12px; padding:20px 22px; min-width:320px; max-width:400px;
+    z-index:30; display:none; flex-direction:column; gap:10px;
+    box-shadow:0 0 40px rgba(255,215,0,0.12);
+  }
+  #dna-popup.open { display:flex; }
+  #dna-popup .ddao { font-size:11px; color:#fbbf24; font-style:italic; margin-bottom:2px; }
+  #dna-popup .dcode {
+    font-family:monospace; font-size:12px; color:#a78bfa;
+    background:#1e1b4b; padding:8px 10px; border-radius:6px;
+    word-break:break-all; line-height:1.6;
+  }
+  #dna-popup button {
+    background:rgba(255,215,0,0.12); border:1px solid rgba(255,215,0,0.3);
+    color:#FFD700; border-radius:6px; padding:6px 14px; cursor:pointer;
+    font-size:12px; font-weight:600; align-self:flex-end;
+    transition:background .2s;
+  }
+  #dna-popup button:hover { background:rgba(255,215,0,0.2); }
+
+  /* ── 快捷键帮助 ── */
+  #shortcut-help {
+    position:fixed; bottom:14px; left:50%; transform:translateX(-50%);
+    background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.07);
+    border-radius:10px; padding:12px 18px; z-index:20;
+    display:none; flex-wrap:wrap; gap:6px 16px; max-width:760px;
+    backdrop-filter:blur(6px);
+  }
+  #shortcut-help.open { display:flex; }
+  .sc-key {
+    font-size:10px; color:#94a3b8; white-space:nowrap;
+  }
+  .sc-key kbd {
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    border-radius:3px; padding:1px 5px; color:#e2e8f0; font-family:monospace;
+    font-size:10px;
+  }
+
+  /* ── 启动动画覆盖 ── */
+  #startup-overlay {
+    position:fixed; inset:0; background:#000;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    z-index:40; gap:18px;
+  }
+  #startup-overlay .motto {
+    font-size:18px; font-weight:700; color:transparent;
+    background:linear-gradient(135deg,#FFD700,#ef4444,#8b5cf6);
+    -webkit-background-clip:text; background-clip:text;
+    opacity:0; transition:opacity 0.6s; letter-spacing:.08em;
+  }
+  #startup-overlay .sub {
+    font-size:12px; color:#64748b; opacity:0; transition:opacity 0.6s;
+    letter-spacing:.06em;
+  }
+  #startup-overlay .logo { font-size:48px; opacity:0; transition:opacity .8s; }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<!-- ── HUD ── -->
+<div id="hud">
+  <div id="mode-badge" class="founder">🐲 创始人</div>
+  <div id="health-score">R: ──</div>
+  <div id="particle-counter">🟢0 🟡0 🔴0</div>
+  <span id="sound-icon" title="M键切换静音">🔔</span>
+</div>
+
+<!-- ── 走歪回放面板 ── -->
+<div id="replay-panel">
+  <h3>🛤️ 今日歪路 TOP10</h3>
+  <div id="trace-list"></div>
+  <div class="replay-slider-wrap">
+    <label>回放进度 <span id="slider-ts">──</span></label>
+    <input type="range" id="replay-slider" min="0" max="100" value="0">
+  </div>
+</div>
+
+<!-- ── DNA 弹窗 ── -->
+<div id="dna-popup">
+  <div class="ddao">「善建者不拔·善抱者不脱」— 道德经第54章</div>
+  <div class="dcode" id="dna-code">──</div>
+  <button onclick="copyDNA()">复制 DNA 码</button>
+  <button onclick="closeDNAPopup()">关闭</button>
+</div>
+
+<!-- ── 快捷键提示 ── -->
+<div id="shortcut-help">
+  <span class="sc-key"><kbd>H</kbd> 六维雷达</span>
+  <span class="sc-key"><kbd>R</kbd> 回放歪路</span>
+  <span class="sc-key"><kbd>Shift+R</kbd> 清屏轨迹</span>
+  <span class="sc-key"><kbd>Ctrl+R</kbd> 导出CSV</span>
+  <span class="sc-key"><kbd>Alt+R</kbd> 优先级复盘</span>
+  <span class="sc-key"><kbd>M</kbd> 静音切换</span>
+  <span class="sc-key"><kbd>D</kbd> 道德经层</span>
+  <span class="sc-key"><kbd>Shift+D</kbd> 隐藏本次会话</span>
+  <span class="sc-key"><kbd>Ctrl+D</kbd> 导出金句</span>
+  <span class="sc-key"><kbd>W</kbd> 白皮书挂点图</span>
+  <span class="sc-key"><kbd>Shift+W</kbd> 访客模式</span>
+  <span class="sc-key"><kbd>Ctrl+W</kbd> 导出访问日志</span>
+  <span class="sc-key"><kbd>Space</kbd> 暂停/继续</span>
+  <span class="sc-key"><kbd>?</kbd> 帮助</span>
+</div>
+
+<!-- ── 启动动画 ── -->
+<div id="startup-overlay">
+  <div class="logo">🐲</div>
+  <div class="motto" id="m0">95 是实力 · 5 是格局</div>
+  <div class="motto" id="m1">太极永不封顶 · 留白处方见天机</div>
+  <div class="motto" id="m2">忠孝义有先后 · 情与理·不愚是底</div>
+  <div class="sub">三才流場 v8.1 · 忠孝义排序·智能活体仪表盘 · DNA: #龍芯⚡️2026-04-20</div>
+</div>
+
+<script>
+'use strict';
+
+/*
+╔══════════════════════════════════════════════════════════════════════╗
+║  🐉 龍魂系統 · 双层安全宪章 · 三才流場 v8.1                          ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  🔑 创始人   : 💎 龍芯北辰｜UID9622（诸葛鑫 / Lucky）                  ║
+║  🧬 DNA      : #龍芯⚡️2026-04-20-三才流場-v8.1-升级                   ║
+║  🔏 GPG 指纹 : A2D0092CEE2E5BA87035600924C3704A8CC26D5F             ║
+║  ✅ 确认码   : #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  公开层  : 源码、规则、文档、思想 · 人人可见                            ║
+║  DNA层   : 个人数据只属于本人 · 界限如刀                               ║
+║  熔断机制: 越界即熔断 · 未绑定数字人民幣 = 不能用                        ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  v8.0 → v8.1 升级摘要                                                ║
+║  ├ 安全宪章 : 双层安全头部 + GPG 签名嵌入                              ║
+║  ├ Shield  : DR=6 琥珀色警戒 (cellDR 精准追踪)                        ║
+║  ├ T0 储备光: 系统均值 R≥90 → 金色外晕脉冲                              ║
+║  └ DNA 日期 : 2026-04-20 · 理论指导 曾仕强老师（永恒显示）              ║
+╚══════════════════════════════════════════════════════════════════════╝
+*/
+
+// ═══════════════════════════════════════════════════════════
+// §0  全局配置  ·  T0/T1/T2 视觉规格（v8首次定义）
+// ═══════════════════════════════════════════════════════════
+const CFG = {
+  // 粒子
+  PARTICLE_COUNT: 1200,
+  DNA_RATIO: 0.03,          // 3% 金色主权粒子
+  LAYER_WEIGHTS: { loyalty:0.5, filial:0.3, righteous:0.2 },
+
+  // T0 金锚（忠·国）· 画布正中心
+  T0: { r:16, glowR:38, color:'#FFD700', glowColor:'rgba(255,215,0,0.25)', label:'T0 主权锚' },
+
+  // T1 种子环（孝·根）· 半径100
+  T1: { ringR:100, strokeW:1.5, color:'rgba(34,211,238,0.45)', rotSpeed:0.0008, label:'T1 种子环' },
+
+  // T2 龍盾:9622（忠·民）· 半径200
+  T2: { ringR:200, strokeW:2.2, color:'rgba(239,68,68,0.55)', petalCount:9, rotSpeed:-0.0005,
+        absorbR:220, label:'T2 龍盾:9622' },
+
+  // R值阈值（v8.3 太极修订）
+  EPSILON: 0.01,
+  R_CAP: 95,
+  R_GREEN: 85,
+  R_YELLOW: 60,
+
+  // 呼吸（帧数）
+  BREATH_PERIOD: 200,       // 每次呼吸200帧
+
+  // 六维雷达 REDLINE 阈值
+  RADAR_REDLINE: [40, 40, 50, 50, 50, 40],
+
+  // 道德经冷却
+  DDJ_COOLDOWN_MS: 5000,
+  DDJ_DURATION_MS: 800,
+  DDJ_FADE_MS: 150,
+  DDJ_ALPHA: 0.75,
+  DDJ_FONT_PX: 14,
+  DDJ_MAX_CONCURRENT: 2,
+
+  // 轨迹衰减帧数
+  TRAIL_DECAY_FRAMES: 30,
+
+  // 利益诱惑模拟间隔（秒）
+  TEMPTATION_INTERVAL: 30,
+};
+
+// ═══════════════════════════════════════════════════════════
+// §1  Perlin 噪声（知识库 #53 天场模拟）
+// ═══════════════════════════════════════════════════════════
+const Perlin = (() => {
+  const perm = new Uint8Array(512);
+  const grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  let seeded = false;
+  function seed(s=42){
+    const p=new Uint8Array(256); for(let i=0;i<256;i++) p[i]=i;
+    let x=s;
+    for(let i=255;i>0;i--){x=(x*1664525+1013904223)&0xffffffff;const j=x>>>24&i;[p[i],p[j]]=[p[j],p[i]];}
+    for(let i=0;i<512;i++) perm[i]=p[i&255]; seeded=true;
+  }
+  function fade(t){return t*t*t*(t*(t*6-15)+10);}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function dot(g,x,y){return g[0]*x+g[1]*y;}
+  function noise2d(x,y){
+    if(!seeded)seed();
+    const X=Math.floor(x)&255, Y=Math.floor(y)&255;
+    const xf=x-Math.floor(x), yf=y-Math.floor(y);
+    const u=fade(xf),v=fade(yf);
+    const aa=perm[perm[X]+Y],ab=perm[perm[X]+Y+1],ba=perm[perm[X+1]+Y],bb=perm[perm[X+1]+Y+1];
+    return lerp(lerp(dot(grad3[aa%12],xf,yf),dot(grad3[ba%12],xf-1,yf),u),
+                lerp(dot(grad3[ab%12],xf,yf-1),dot(grad3[bb%12],xf-1,yf-1),u),v);
+  }
+  seed(9622);
+  return {noise2d};
+})();
+
+// ═══════════════════════════════════════════════════════════
+// §1b  洛书369矩阵·地场骨架（知识库 #45 九宫矩阵）
+// ═══════════════════════════════════════════════════════════
+// 洛书九宫幻方·行列对角线和均为15·最大特征值=15·虚特征值=±4.899i（螺旋分量！）
+const LUO_SHU = [[4,9,2],[3,5,7],[8,1,6]];
+const LUO_SHU_FLAT = [4,9,2,3,5,7,8,1,6]; // 左上→右下·行优先
+const LUO_MAGIC_SUM = 15;
+
+// 三才力向量经洛书矩阵变换（不做mod9·保留螺旋特性·知识库 #52）
+// 输入: [fx, fy, fn] (天力·地力·人力)  输出: [fx', fy', fn']
+function luoshuTransform(fx, fy, fn) {
+  const M = LUO_SHU;
+  const scale = 0.0025; // 洛书变换衰减系数·避免爆炸
+  return [
+    (M[0][0]*fx + M[0][1]*fy + M[0][2]*fn) * scale,
+    (M[1][0]*fx + M[1][1]*fy + M[1][2]*fn) * scale,
+    (M[2][0]*fx + M[2][1]*fy + M[2][2]*fn) * scale,
+  ];
+}
+
+// 粒子所在洛书格（画布九等分·返回洛书值1-9）
+function getLuoshuCell(px, py) {
+  const gx = Math.min(2, Math.max(0, Math.floor(px * 3 / W)));
+  const gy = Math.min(2, Math.max(0, Math.floor(py * 3 / H)));
+  return LUO_SHU[gy][gx]; // 1-9
+}
+
+// 洛书力调制系数（格值/魔方和·范围0.067~0.600）
+function luoshuFactor(px, py) {
+  return getLuoshuCell(px, py) / LUO_MAGIC_SUM;
+}
+
+// ─── 五行对照·知识库 #46（双层语境）
+// 语境A（全局帧dr）：归根呼吸·积极
+// 语境B（粒子格位dr·orderDisrupted时）：五行熔断·负面
+const WUXING_MAP = {
+  0:'土', 1:'水', 2:'火', 3:'木', 4:'金',
+  5:'土', 6:'水', 7:'火', 8:'木', 9:'金'
+};
+const WUXING_COLORS = {
+  '水':'#3b82f6', '火':'#f97316', '木':'#22c55e',
+  '金':'#FFD700', '土':'#a78bfa'
+};
+// dr=3(木·创新失控) 或 dr=9(金·规则篡改) → 顺序错乱时触发个体熔断警告
+const WUXING_FUSE_DR = new Set([3, 9]);
+
+function getWuxingDR(cellVal) {
+  return digitalRoot(cellVal); // 直接用格值（1-9）的数字根
+}
+
+// ═══════════════════════════════════════════════════════════
+// §2  数字根算法（知识库 #44 #101 洛书369核心）
+// ═══════════════════════════════════════════════════════════
+function digitalRoot(n) {
+  n = Math.abs(Math.round(n));
+  if (n === 0) return 0;
+  return 1 + (n - 1) % 9;
+}
+
+// ═══════════════════════════════════════════════════════════
+// §3  Web Audio 369归根音效（知识库 #116 采样定理）
+// ═══════════════════════════════════════════════════════════
+let audioCtx = null;
+let muted = false;
+function getAudioCtx() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){}
+  }
+  return audioCtx;
+}
+function play369(dr) {
+  if (muted) return;
+  const ctx = getAudioCtx(); if (!ctx) return;
+  if (ctx.state === 'suspended') ctx.resume();
+  const now = ctx.currentTime;
+  if (dr === 3) {
+    // 🥁 低频鼓 60Hz + 120Hz 泛音 · 0.4s
+    [60, 120].forEach((f, i) => {
+      const osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.type = 'sine'; osc.frequency.value = f;
+      g.gain.setValueAtTime(0.7/(i+1), now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+      osc.connect(g).connect(ctx.destination);
+      osc.start(now); osc.stop(now + 0.4);
+    });
+  } else if (dr === 6) {
+    // 🎵 中音铃 440Hz · 0.15s
+    const osc = ctx.createOscillator(), g = ctx.createGain();
+    osc.type = 'triangle'; osc.frequency.value = 440;
+    g.gain.setValueAtTime(0.25, now);
+    g.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+    osc.connect(g).connect(ctx.destination);
+    osc.start(now); osc.stop(now + 0.15);
+  } else if (dr === 9) {
+    // 🔔 钟声 220Hz 基频+泛音列 · 2s 混响
+    [220, 440, 660, 880, 1100].forEach((f, i) => {
+      const osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.type = 'sine'; osc.frequency.value = f;
+      g.gain.setValueAtTime(0.45/(i+1), now);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 2.0);
+      osc.connect(g).connect(ctx.destination);
+      osc.start(now); osc.stop(now + 2.0);
+    });
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §4  WebSocket 数据层 · 带 Mock Fallback
+// ═══════════════════════════════════════════════════════════
+// 六维平均分 (0-100) · 实时状态
+let radarScores = [80, 78, 75, 72, 70, 76]; // 默认 mock 值
+let wsConnected = false;
+const MOCK_RADAR_DRIFT_SPEED = 0.008; // mock数据缓慢漂移
+
+function initWebSocket() {
+  const WS_URL = 'ws://localhost:9622/sancai-radar'; // 本地 shield_engine
+  try {
+    const ws = new WebSocket(WS_URL);
+    ws.onopen = () => { wsConnected = true; console.log('[三才流場] WebSocket connected'); };
+    ws.onmessage = (e) => {
+      try {
+        const d = JSON.parse(e.data);
+        if (d.radar && Array.isArray(d.radar) && d.radar.length === 6) {
+          radarScores = d.radar;
+        }
+      } catch {}
+    };
+    ws.onclose = () => { wsConnected = false; setTimeout(initWebSocket, 5000); };
+    ws.onerror = () => { ws.close(); };
+  } catch (e) {
+    // WebSocket 不可用 → 保持 mock 数据
+  }
+}
+
+// Mock 数据每帧小幅漂移（用 Perlin 噪声，保证流畅）
+let mockT = 0;
+function updateMockRadar() {
+  if (wsConnected) return;
+  mockT += MOCK_RADAR_DRIFT_SPEED;
+  for (let i = 0; i < 6; i++) {
+    radarScores[i] = Math.max(20, Math.min(98,
+      70 + Perlin.noise2d(mockT + i * 1.7, i * 0.9) * 30
+    ));
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §5  粒子系统（三才向量合成·知识库 #52）
+// ═══════════════════════════════════════════════════════════
+class Particle {
+  constructor(idx, cx, cy, layer) {
+    this.id = idx;
+    this.layer = layer; // 'loyalty' | 'filial' | 'righteous'
+    this.isDNA = idx < Math.floor(CFG.PARTICLE_COUNT * CFG.DNA_RATIO);
+
+    // 位置·按层分布
+    const layerR = layer === 'loyalty' ? 90 : layer === 'filial' ? 140 : 195;
+    const a = Math.random() * Math.PI * 2;
+    const r = layerR + (Math.random() - 0.5) * 60;
+    this.x = cx + Math.cos(a) * r;
+    this.y = cy + Math.sin(a) * r;
+    this.vx = (Math.random() - 0.5) * 0.8;
+    this.vy = (Math.random() - 0.5) * 0.8;
+
+    this.angle = a;
+    this.orbitR = r;
+    this.orbitSpeed = (layer === 'loyalty' ? 0.008 : layer === 'filial' ? 0.005 : 0.003)
+                      * (Math.random() > 0.5 ? 1 : -1);
+
+    // 六维得分（0-100）·带 Perlin 噪声初始化
+    this.dims = Array.from({length:6}, (_, i) =>
+      Math.max(20, Math.min(100, 70 + Perlin.noise2d(idx*0.03+i, i*1.1)*28))
+    );
+    this.R = 0;
+    this.computeR();
+
+    // 尾迹
+    this.trail = [];
+    this.shake = false;
+    this.shakeAmp = 0;
+    this.deviating = false;
+    this.devTraceId = null;
+
+    // 95 储备光
+    this.reserveGlow = false;
+    this.reserveGlowAlpha = 0;
+
+    // 动画状态
+    this.alpha = 1;
+    this.dying = false;
+    this.dieProgress = 0;
+
+    // Perlin 噪声相位
+    this.noisePhase = Math.random() * 100;
+
+    // 五行状态（运行时更新）
+    this.wuxing = '土';
+    this.wuxingAlert = false;
+    this.cellDR = 5; // v8.1: 洛书格位数字根（用于 Shield Engine DR=6 琥珀警戒）
+  }
+
+  computeR() {
+    const [w1,w2,w3,w4,w5,w6] = this.dims;
+    const raw = 0.2*w1 + 0.2*w2 + 0.15*w3 + 0.15*w4 + 0.15*w5 + 0.15*w6;
+    this.R = Math.min(raw, CFG.R_CAP);
+    this.reserveGlow = this.R >= CFG.R_CAP - 0.5; // 接近95上限
+  }
+
+  get sector() {
+    const cx = canvas.width/2, cy = canvas.height/2;
+    const a = Math.atan2(this.y - cy, this.x - cx);
+    return Math.floor(((a + Math.PI) / (Math.PI / 3))) % 6;
+  }
+
+  get color() {
+    if (this.isDNA) return '#FFD700';
+    if (this.dying) return `rgba(239,68,68,${1-this.dieProgress})`;
+    // v8.1 Shield Engine: DR=6 → 琥珀警戒色（orderDisrupted时启用·区别于GREEN内的正常色）
+    if (orderDisrupted && this.cellDR === 6) return '#f59e0b';
+    if (this.R >= CFG.R_GREEN) {
+      if (this.layer === 'loyalty') return '#fbbf24';
+      if (this.layer === 'filial')  return '#22d3ee';
+      return '#a78bfa';
+    }
+    if (this.R >= CFG.R_YELLOW) {
+      return '#fbbf24';
+    }
+    return '#ef4444';
+  }
+
+  get baseRadius() {
+    return this.isDNA ? 3.2 : (this.layer === 'loyalty' ? 1.8 : this.layer === 'filial' ? 1.6 : 1.4);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §6  全局状态
+// ═══════════════════════════════════════════════════════════
+const canvas = document.getElementById('c');
+const ctx2d = canvas.getContext('2d');
+let W, H, CX, CY;
+
+let particles = [];
+let paused = false;
+let frame = 0;
+let mode = 'founder'; // 'founder' | 'visitor'
+
+// 忠孝义动态权重（正常态）
+let orderWeights = { loyalty:0.5, filial:0.3, righteous:0.2 };
+let orderDisrupted = false;   // 顺序错乱标志
+let disruptionTimer = 0;
+let flashRed = 0;             // 整屏闪红 0.3s (帧数)
+let frozenInfinity = false;   // ∞ 冻结
+
+// T1/T2 旋转角
+let t1Angle = 0;
+let t2Angle = 0;
+
+// 呼吸状态
+let breathPhase = 0;          // 0..1
+let breathScale = 1.0;        // T0 光晕扩散倍率
+let lastBreathDR = 0;
+
+// 六维雷达显示
+let showRadar = false;
+let radarAnimAlpha = 0;
+
+// 道德经锚层
+let ddjVisible = true;
+let ddjSessionHidden = false;
+const ddjLastShown = {};
+const ddjQueue = [];          // { text, x, y, startTime, alpha }
+
+const DAODEJING = {
+  16: { text:'归根曰静，是谓复命', trigger:'dr_9_bell',       pos:'t0_below' },
+  40: { text:'反者道之动',         trigger:'trace_deviation', pos:'trail_above' },
+  58: { text:'祸兮福所倚',         trigger:'radar_drop',      pos:'vertex_side' },
+  78: { text:'柔弱胜刚强',         trigger:'redline_absorb',  pos:'shield_halo' },
+   8: { text:'上善若水',           trigger:'visitor_mode',    pos:'bottom_soft' },
+  54: { text:'善建者不拔',         trigger:'dna_click',       pos:'popup_top' },
+  27: { text:'善言无瑕谪',         trigger:'external_inject', pos:'particle_birth' },
+  69: { text:'吾不敢为主而为客',   trigger:'external_threat', pos:'edge_red' },
+  33: { text:'自知者明',           trigger:'veto_invoked',    pos:'t0_center' },
+};
+
+// 系统均值 R（用于 T0 储备光·v8.1）
+let systemAvgR = 75;
+
+// 歪路日志
+const deviationLog = [];
+let replayActive = false;
+let replayTraceIdx = -1;
+let replayProgress = 0;
+
+// 白皮书挂点图
+let showWhitepaper = false;
+
+// 启动动画
+let startupDone = false;
+
+// 白皮书挂点数据
+const WHITEPAPER_ANCHORS = [
+  { label:'宪章白皮书', sublabel:'忠·国 T0', angle:-Math.PI/2,      color:'#FFD700',  dr:9  },
+  { label:'DNA身份系统', sublabel:'忠·民 T2', angle:-Math.PI/2+Math.PI*2/4,   color:'#ef4444',  dr:6  },
+  { label:'DNA注册表',   sublabel:'孝·根 T1', angle:-Math.PI/2+Math.PI*4/4,   color:'#22d3ee',  dr:3  },
+  { label:'思考引擎',    sublabel:'义·协作',  angle:-Math.PI/2+Math.PI*6/4,   color:'#a78bfa',  dr:6  },
+];
+
+// ═══════════════════════════════════════════════════════════
+// §7  初始化
+// ═══════════════════════════════════════════════════════════
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  CX = W/2; CY = H/2;
+}
+
+function initParticles() {
+  particles = [];
+  const loyaltyN    = Math.floor(CFG.PARTICLE_COUNT * CFG.LAYER_WEIGHTS.loyalty);
+  const filialN     = Math.floor(CFG.PARTICLE_COUNT * CFG.LAYER_WEIGHTS.filial);
+  const righteousN  = CFG.PARTICLE_COUNT - loyaltyN - filialN;
+
+  let idx = 0;
+  for (let i=0; i<loyaltyN;   i++, idx++) particles.push(new Particle(idx, CX, CY, 'loyalty'));
+  for (let i=0; i<filialN;    i++, idx++) particles.push(new Particle(idx, CX, CY, 'filial'));
+  for (let i=0; i<righteousN; i++, idx++) particles.push(new Particle(idx, CX, CY, 'righteous'));
+}
+
+// ═══════════════════════════════════════════════════════════
+// §8  物理更新（三才向量合成·知识库 #52）
+// ═══════════════════════════════════════════════════════════
+function updatePhysics() {
+  const t = frame * 0.016; // 秒数近似
+  particles.forEach(p => {
+    if (frozenInfinity) return; // ∞ 冻结
+    if (p.dying) {
+      p.dieProgress += 0.05;
+      if (p.dieProgress >= 1) {
+        // 粒子销毁·重生于边缘
+        p.dying = false; p.dieProgress = 0;
+        const a = Math.random() * Math.PI * 2;
+        const r = (p.layer === 'loyalty' ? 90 : p.layer === 'filial' ? 140 : 195)
+                  + (Math.random()-0.5)*60;
+        p.x = CX + Math.cos(a)*r; p.y = CY + Math.sin(a)*r;
+        p.vx = (Math.random()-0.5)*0.6; p.vy = (Math.random()-0.5)*0.6;
+        // 重置得分
+        for(let i=0;i<6;i++) p.dims[i] = Math.max(20,Math.min(100, 70+Perlin.noise2d(p.noisePhase+i, t+i)*25));
+        p.computeR();
+      }
+      return;
+    }
+
+    // ── 更新六维得分（Perlin 噪声驱动·对齐雷达）
+    for (let i=0;i<6;i++) {
+      const target = radarScores[i];
+      const noise  = Perlin.noise2d(p.noisePhase + i*1.3 + t*0.15, i*0.7) * 18;
+      p.dims[i] = Math.max(0, Math.min(100, p.dims[i] + (target + noise - p.dims[i]) * 0.02));
+    }
+    p.computeR();
+
+    // ── 三才向量合成（知识库 #52）+ 洛书螺旋调制（知识库 #45）
+    const w = orderWeights[p.layer];
+    const dx = CX - p.x, dy = CY - p.y;
+    const dist = Math.sqrt(dx*dx + dy*dy) + CFG.EPSILON;
+
+    // 天力（向T0中心）
+    const heavenForce = w * 0.04 * (dist - (p.layer==='loyalty'?60:p.layer==='filial'?100:160)) / dist;
+    let ax = dx * heavenForce;
+    let ay = dy * heavenForce;
+
+    // 地力（轨道切线）
+    const tangX = -dy/dist, tangY = dx/dist;
+    const earthForce = 0.12 * (p.layer==='loyalty'?0.9:p.layer==='filial'?0.6:0.4);
+    ax += tangX * earthForce;
+    ay += tangY * earthForce;
+
+    // 人力（Perlin 噪声·知识库 #53）
+    const nx = Perlin.noise2d(p.x*0.004 + t*0.3, p.y*0.004) * 0.06;
+    const ny = Perlin.noise2d(p.y*0.004, p.x*0.004 + t*0.3) * 0.06;
+    ax += nx * (1 - w);
+    ay += ny * (1 - w);
+
+    // ── 洛书螺旋力叠加（知识库 #45·三才力向量经洛书矩阵变换）
+    // 特征值包含虚部±4.899i → 引入天然螺旋分量（保留场感·不做mod9）
+    const luo = luoshuTransform(ax, ay, (nx+ny)*0.5);
+    ax += luo[0]; ay += luo[1]; // 洛书螺旋贡献叠加
+
+    // ── 洛书格位力强度调制（粒子所在九宫格的洛书值调制合力）
+    const luoF = luoshuFactor(p.x, p.y); // 0.067~0.600
+    ax *= (0.6 + luoF * 0.8); // 放大到 0.6~1.08 倍范围·不归零
+    ay *= (0.6 + luoF * 0.8);
+
+    // ── 五行状态检查·个体熔断（仅orderDisrupted时触发·语境B）
+    const luoCell = getLuoshuCell(p.x, p.y);
+    const cellDR  = getWuxingDR(luoCell);
+    p.cellDR = cellDR; // v8.1: 存储格位数字根供 Shield Engine DR=6 使用
+    p.wuxing = WUXING_MAP[cellDR] || '土';
+    p.wuxingAlert = orderDisrupted && WUXING_FUSE_DR.has(cellDR);
+    if (p.wuxingAlert) {
+      // 金·规则篡改(dr=9) 或 木·创新失控(dr=3) → 粒子闪烁+向T2方向偏移
+      ax += (Math.random()-0.5) * 0.4;
+      ay += (Math.random()-0.5) * 0.4;
+      p.shake = true; p.shakeAmp = Math.max(p.shakeAmp, 3.5);
+    }
+
+    // 雷达维度衰减（知识库 #52 六维路径）
+    const s = p.sector;
+    const sdim = radarScores[s];
+    const velScale = Math.max(0.3, sdim/100);
+
+    if (orderDisrupted) {
+      // 顺序错乱 → 额外随机力·粒子打结
+      ax += (Math.random()-0.5) * 0.25;
+      ay += (Math.random()-0.5) * 0.25;
+      p.shake = true;
+      p.shakeAmp = 3;
+    } else {
+      p.shake = false;
+      p.shakeAmp = 0;
+    }
+
+    // 六维雷达熔断：某维<阈值 → 颤抖
+    if (sdim < CFG.RADAR_REDLINE[s]) {
+      p.shake = true;
+      p.shakeAmp = Math.max(p.shakeAmp, 2.5);
+    }
+
+    // 积分
+    p.vx = (p.vx + ax) * 0.97 * velScale;
+    p.vy = (p.vy + ay) * 0.97 * velScale;
+
+    if (p.shake) {
+      p.x += p.vx + (Math.random()-0.5)*p.shakeAmp;
+      p.y += p.vy + (Math.random()-0.5)*p.shakeAmp;
+    } else {
+      p.x += p.vx;
+      p.y += p.vy;
+    }
+
+    // 边界反弹（软边界）
+    const margin = 30;
+    if (p.x < margin)   p.vx += 0.3;
+    if (p.x > W-margin) p.vx -= 0.3;
+    if (p.y < margin)   p.vy += 0.3;
+    if (p.y > H-margin) p.vy -= 0.3;
+
+    // ── T2 龍盾 吸走销毁（R<60）
+    if (p.R < CFG.R_YELLOW && !p.dying) {
+      const d2 = Math.sqrt((p.x-CX)**2+(p.y-CY)**2);
+      if (d2 < CFG.T2.ringR + 30) {
+        p.dying = true;
+        triggerDDJ(78); // 「柔弱胜刚强」
+        // 记录歪路
+        recordDeviation(p, '红线触碰：R<60·T2龍盾吸走');
+      }
+    }
+
+    // ── 走歪轨迹记录
+    if (p.deviating || (orderDisrupted && Math.random() < 0.02)) {
+      p.trail.push({ x:p.x, y:p.y, R:p.R, t:frame });
+      if (p.trail.length > 40) p.trail.shift();
+      p.deviating = true;
+    } else {
+      if (p.trail.length > 0) p.trail.shift();
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// §9  369 归根呼吸·f(x)=x 验算
+// ═══════════════════════════════════════════════════════════
+function updateBreath() {
+  breathPhase = (frame % CFG.BREATH_PERIOD) / CFG.BREATH_PERIOD;
+  const breathVal = 0.5 - 0.5 * Math.cos(breathPhase * Math.PI * 2); // 0..1
+  breathScale = 1.0 + breathVal * 0.35;
+
+  // 呼吸末（phase < 0.02）→ 验算
+  if (breathPhase < 0.02 && Math.floor(frame / CFG.BREATH_PERIOD) !== lastBreathDR) {
+    const k = Math.floor(frame / CFG.BREATH_PERIOD);
+    const dr = digitalRoot(k);
+    lastBreathDR = k;
+    onBreathEnd(dr, k);
+  }
+}
+
+function onBreathEnd(dr, k) {
+  if ([3,6,9].includes(dr)) {
+    play369(dr);
+    if (dr === 9) {
+      verifyFixedPoint();
+      triggerDDJ(16); // 「归根曰静，是谓复命」
+    }
+  }
+}
+
+function verifyFixedPoint() {
+  // f(x)=x 四桩验算：忠孝义顺序·T0位置·DNA比例·R上限
+  const loyaltyW = orderWeights.loyalty;
+  const filialW  = orderWeights.filial;
+  const rightW   = orderWeights.righteous;
+  const ok = loyaltyW >= filialW && filialW >= rightW
+          && Math.abs(loyaltyW+filialW+rightW - 1.0) < 0.01;
+  if (!ok) {
+    // 偏了 → 强制回正
+    orderWeights = { loyalty:0.5, filial:0.3, righteous:0.2 };
+    orderDisrupted = false;
+    console.log('[三才流場] f(x)=x 验算：权重偏移·已回正');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §10  renderFloatingText（实现！v8.2 道德经锚层依赖此函数）
+// ═══════════════════════════════════════════════════════════
+function renderFloatingText(text, posKey, config, overrideXY) {
+  const now = performance.now();
+  const cfg = config || { duration_ms:800, fade_in_ms:150, fade_out_ms:150, font_px:14, alpha:0.75 };
+
+  let tx = CX, ty = CY;
+  if (overrideXY) { tx = overrideXY.x; ty = overrideXY.y; }
+  else {
+    switch (posKey) {
+      case 't0_below':    tx=CX;      ty=CY+50;         break;
+      case 't0_center':   tx=CX;      ty=CY;            break;
+      case 'trail_above': tx=CX+80;   ty=CY-60;         break;
+      case 'vertex_side': tx=CX+160;  ty=CY-120;        break;
+      case 'shield_halo': tx=CX;      ty=CY+CFG.T2.ringR-20; break;
+      case 'bottom_soft': tx=CX;      ty=H-50;          break;
+      case 'popup_top':   tx=CX;      ty=CY-30;         break;
+      case 'particle_birth': tx=CX-150; ty=CY+80;       break;
+      case 'edge_red':    tx=CX;      ty=60;            break;
+      default:            tx=CX;      ty=CY+60;
+    }
+  }
+
+  ddjQueue.push({
+    text, tx, ty,
+    startTime: now,
+    duration:  cfg.duration_ms,
+    fadeIn:    cfg.fade_in_ms,
+    fadeOut:   cfg.fade_out_ms,
+    fontPx:    cfg.font_px || CFG.DDJ_FONT_PX,
+    maxAlpha:  cfg.alpha || CFG.DDJ_ALPHA,
+  });
+}
+
+function drawDDJQueue() {
+  if (!ddjVisible || ddjSessionHidden) return;
+  if (mode === 'visitor') return;
+  const now = performance.now();
+  // 限制同时显示
+  let drawn = 0;
+  for (let i = ddjQueue.length-1; i >= 0 && drawn < CFG.DDJ_MAX_CONCURRENT; i--) {
+    const q = ddjQueue[i];
+    const elapsed = now - q.startTime;
+    if (elapsed > q.duration) { ddjQueue.splice(i,1); continue; }
+
+    let alpha = q.maxAlpha;
+    if (elapsed < q.fadeIn)                        alpha = q.maxAlpha * (elapsed/q.fadeIn);
+    else if (elapsed > q.duration - q.fadeOut)     alpha = q.maxAlpha * ((q.duration-elapsed)/q.fadeOut);
+
+    ctx2d.save();
+    ctx2d.globalAlpha = alpha;
+    ctx2d.font = `600 ${q.fontPx}px 'PingFang SC','Microsoft YaHei',sans-serif`;
+    ctx2d.fillStyle = '#FFD700';
+    ctx2d.textAlign = 'center';
+    ctx2d.shadowColor = 'rgba(255,215,0,0.5)';
+    ctx2d.shadowBlur = 8;
+    ctx2d.fillText(q.text, q.tx, q.ty);
+    ctx2d.restore();
+    drawn++;
+  }
+}
+
+function triggerDDJ(chapter, overrideXY) {
+  if (!ddjVisible || ddjSessionHidden) return;
+  if (mode === 'visitor') return;
+  const now = performance.now();
+  if (now - (ddjLastShown[chapter]||0) < CFG.DDJ_COOLDOWN_MS) return;
+  ddjLastShown[chapter] = now;
+  const a = DAODEJING[chapter]; if (!a) return;
+  renderFloatingText(a.text, a.pos, {
+    duration_ms: CFG.DDJ_DURATION_MS, fade_in_ms: CFG.DDJ_FADE_MS,
+    fade_out_ms: CFG.DDJ_FADE_MS, font_px: CFG.DDJ_FONT_PX, alpha: CFG.DDJ_ALPHA,
+  }, overrideXY);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §11  走歪记录
+// ═══════════════════════════════════════════════════════════
+function recordDeviation(p, trigger) {
+  const traceId = `DEV-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${String(frame).padStart(6,'0')}-${p.id}`;
+  const entry = {
+    trace_id: traceId,
+    particle_id: p.id,
+    start_ts: new Date().toISOString(),
+    trigger,
+    path: p.trail.slice(-8).map(t => ({...t})),
+    rescue: { by:'T0金锚', f_x_verified: true },
+    dna: `#龍芯⚡️${new Date().toISOString().slice(0,10)}-歪路-${p.id}`,
+  };
+  deviationLog.unshift(entry);
+  if (deviationLog.length > 10) deviationLog.pop();
+  renderTraceList();
+}
+
+function renderTraceList() {
+  const list = document.getElementById('trace-list');
+  list.innerHTML = deviationLog.slice(0,10).map((e,i) => `
+    <div class="trace-item" onclick="replayTrace(${i})">
+      <div class="tid">${e.trace_id}</div>
+      <div>${e.trigger}</div>
+    </div>
+  `).join('');
+}
+
+function replayTrace(idx) {
+  replayTraceIdx = idx;
+  replayActive = true;
+  replayProgress = 0;
+  document.getElementById('replay-slider').value = 0;
+  document.getElementById('slider-ts').textContent = deviationLog[idx]?.start_ts?.slice(11,19)||'──';
+}
+
+// ═══════════════════════════════════════════════════════════
+// §12  顺序错乱模拟（利益诱惑）
+// ═══════════════════════════════════════════════════════════
+function simulateTemptation() {
+  orderDisrupted = true;
+  // 义>忠 顺序错乱
+  orderWeights = { loyalty:0.2, filial:0.3, righteous:0.5 };
+  flashRed = Math.floor(0.3 * 60); // 闪红 0.3s@60fps
+  triggerDDJ(40); // 「反者道之动」
+  disruptionTimer = 180; // 3s 后自动回正
+}
+
+function restoreOrder() {
+  orderDisrupted = false;
+  orderWeights = { loyalty:0.5, filial:0.3, righteous:0.2 };
+  triggerDDJ(16); // 「归根曰静，是谓复命」
+  particles.forEach(p => { p.deviating=false; p.shake=false; });
+}
+
+// ═══════════════════════════════════════════════════════════
+// §13  绘制主循环
+// ═══════════════════════════════════════════════════════════
+function draw() {
+  ctx2d.clearRect(0, 0, W, H);
+
+  // 背景渐变
+  const bg = ctx2d.createRadialGradient(CX, CY, 0, CX, CY, Math.max(W,H)*0.7);
+  bg.addColorStop(0, 'rgba(10,5,25,1)');
+  bg.addColorStop(1, 'rgba(0,0,5,1)');
+  ctx2d.fillStyle = bg;
+  ctx2d.fillRect(0, 0, W, H);
+
+  // 整屏闪红
+  if (flashRed > 0) {
+    ctx2d.fillStyle = `rgba(239,68,68,${Math.min(1, flashRed/18) * 0.25})`;
+    ctx2d.fillRect(0,0,W,H);
+    flashRed--;
+  }
+
+  // 暗角 dr=9 柔光
+  if (lastBreathDR === 9 && breathPhase < 0.2) {
+    const darkAlpha = 0.25 * (1 - breathPhase/0.2);
+    const vgn = ctx2d.createRadialGradient(CX,CY,H*0.3,CX,CY,H*0.8);
+    vgn.addColorStop(0,'rgba(0,0,0,0)');
+    vgn.addColorStop(1,`rgba(10,0,20,${darkAlpha})`);
+    ctx2d.fillStyle = vgn;
+    ctx2d.fillRect(0,0,W,H);
+  }
+
+  // ── 洛书九宫格背景（创始人模式·极淡·地场骨架·知识库 #45）
+  if (mode === 'founder') drawLuoshuGrid();
+
+  // ── T1 种子环（孝·根）
+  t1Angle += CFG.T1.rotSpeed;
+  ctx2d.save();
+  ctx2d.beginPath();
+  ctx2d.arc(CX, CY, CFG.T1.ringR, 0, Math.PI*2);
+  ctx2d.strokeStyle = CFG.T1.color;
+  ctx2d.lineWidth = CFG.T1.strokeW;
+  ctx2d.setLineDash([4,8]);
+  ctx2d.stroke();
+  ctx2d.setLineDash([]);
+  ctx2d.restore();
+
+  // ── T2 龍盾:9622（忠·民）
+  t2Angle += CFG.T2.rotSpeed;
+  drawDragonShield();
+
+  // ── 粒子尾迹
+  particles.forEach(p => {
+    if (!p.deviating || p.trail.length < 2) return;
+    ctx2d.save();
+    ctx2d.beginPath();
+    for (let i=0; i<p.trail.length; i++) {
+      const tr = p.trail[i];
+      if (i===0) ctx2d.moveTo(tr.x, tr.y);
+      else       ctx2d.lineTo(tr.x, tr.y);
+    }
+    ctx2d.strokeStyle = `rgba(239,68,68,0.35)`;
+    ctx2d.lineWidth = 1;
+    ctx2d.stroke();
+    ctx2d.restore();
+  });
+
+  // ── 粒子
+  particles.forEach(p => {
+    if (p.dying && p.dieProgress > 0.85) return;
+    const s = p.sector;
+    const sdim = radarScores[s];
+
+    // 亮度/透明度按雷达维度衰减
+    let brightness = Math.max(0.25, sdim/100);
+    let pAlpha = Math.max(0.2, sdim/100);
+    if (p.dying) { brightness *= (1-p.dieProgress); pAlpha *= (1-p.dieProgress); }
+    if (orderDisrupted && p.layer !== 'loyalty') pAlpha *= 0.7;
+
+    ctx2d.save();
+    ctx2d.globalAlpha = pAlpha;
+
+    const pr = p.baseRadius;
+    const grd = ctx2d.createRadialGradient(p.x,p.y,0,p.x,p.y,pr*3);
+    const col = p.color;
+    grd.addColorStop(0, col);
+    grd.addColorStop(1, 'transparent');
+
+    ctx2d.beginPath();
+    ctx2d.arc(p.x, p.y, pr, 0, Math.PI*2);
+    ctx2d.fillStyle = col;
+    ctx2d.shadowColor = col;
+    ctx2d.shadowBlur = p.isDNA ? 12 : (p.R >= CFG.R_GREEN ? 5 : 2);
+    ctx2d.fill();
+
+    // DNA 粒子·金色光环
+    if (p.isDNA) {
+      ctx2d.beginPath();
+      ctx2d.arc(p.x, p.y, pr + 3.5, 0, Math.PI*2);
+      ctx2d.strokeStyle = 'rgba(255,215,0,0.5)';
+      ctx2d.lineWidth = 1;
+      ctx2d.stroke();
+    }
+
+    // R=95 储备光（淡白尾）
+    if (p.reserveGlow) {
+      ctx2d.beginPath();
+      ctx2d.arc(p.x, p.y, pr + 5, 0, Math.PI*2);
+      ctx2d.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx2d.lineWidth = 1.5;
+      ctx2d.stroke();
+    }
+
+    // 五行光晕（创始人模式·洛书格位染色·极淡叠加·知识库 #45/#46）
+    if (mode === 'founder' && p.wuxing && !p.isDNA) {
+      const wxCol = WUXING_COLORS[p.wuxing] || '#ffffff';
+      ctx2d.beginPath();
+      ctx2d.arc(p.x, p.y, pr + (p.wuxingAlert ? 4.5 : 2), 0, Math.PI*2);
+      ctx2d.strokeStyle = p.wuxingAlert
+        ? `rgba(239,68,68,${0.7 + 0.3*Math.sin(frame*0.3)})`  // 熔断闪烁
+        : wxCol + '28'; // 极淡五行色
+      ctx2d.lineWidth = p.wuxingAlert ? 1.8 : 0.8;
+      ctx2d.stroke();
+    }
+
+    ctx2d.restore();
+  });
+
+  // ── T0 金锚（忠·国）
+  drawT0();
+
+  // ── 六维雷达（H键）
+  if (showRadar) drawRadar();
+
+  // ── 白皮书挂点图（W键）
+  if (showWhitepaper) drawWhitepaper();
+
+  // ── 道德经金句浮现
+  drawDDJQueue();
+
+  // ── 系统健康仪表盘（创始人模式）
+  if (mode === 'founder') updateHUD();
+
+  // ── 全场冻结覆盖
+  if (frozenInfinity) {
+    ctx2d.fillStyle = 'rgba(239,68,68,0.08)';
+    ctx2d.fillRect(0,0,W,H);
+    ctx2d.save();
+    ctx2d.font = 'bold 18px monospace';
+    ctx2d.fillStyle = '#ef4444';
+    ctx2d.textAlign = 'center';
+    ctx2d.fillText('∞ 系统冻结 · 红线不可破 · UID9622 一票否决', CX, CY + 280);
+    ctx2d.restore();
+  }
+}
+
+// ── T0 金锚绘制
+function drawT0() {
+  const glowR = CFG.T0.glowR * breathScale;
+  ctx2d.save();
+
+  // 呼吸光晕
+  const grd = ctx2d.createRadialGradient(CX, CY, 0, CX, CY, glowR);
+  grd.addColorStop(0, 'rgba(255,215,0,0.22)');
+  grd.addColorStop(0.4, 'rgba(255,215,0,0.10)');
+  grd.addColorStop(1, 'transparent');
+  ctx2d.beginPath();
+  ctx2d.arc(CX, CY, glowR, 0, Math.PI*2);
+  ctx2d.fillStyle = grd;
+  ctx2d.fill();
+
+  // 金锚核心圆
+  ctx2d.beginPath();
+  ctx2d.arc(CX, CY, CFG.T0.r, 0, Math.PI*2);
+  ctx2d.fillStyle = CFG.T0.color;
+  ctx2d.shadowColor = '#FFD700';
+  ctx2d.shadowBlur = 20;
+  ctx2d.fill();
+
+  // 内十字
+  ctx2d.strokeStyle = 'rgba(255,215,0,0.6)';
+  ctx2d.lineWidth = 1.5;
+  ctx2d.shadowBlur = 0;
+  [-12,12].forEach(off => {
+    ctx2d.beginPath(); ctx2d.moveTo(CX+off,CY-5); ctx2d.lineTo(CX+off,CY+5); ctx2d.stroke();
+    ctx2d.beginPath(); ctx2d.moveTo(CX-5,CY+off); ctx2d.lineTo(CX+5,CY+off); ctx2d.stroke();
+  });
+
+  // v8.1: 系统储备光环（systemAvgR≥90 → 金色外晕脉冲·5格局储备可见化）
+  if (systemAvgR >= 90) {
+    const reservePulse = 0.12 + 0.08 * Math.sin(frame * 0.04); // 缓慢呼吸
+    const reserveR = CFG.T0.glowR * breathScale * 1.55;
+    const rgrd = ctx2d.createRadialGradient(CX, CY, CFG.T0.glowR * breathScale, CX, CY, reserveR);
+    rgrd.addColorStop(0, `rgba(255,215,0,${reservePulse})`);
+    rgrd.addColorStop(0.6, `rgba(255,215,0,${reservePulse * 0.4})`);
+    rgrd.addColorStop(1, 'transparent');
+    ctx2d.beginPath();
+    ctx2d.arc(CX, CY, reserveR, 0, Math.PI * 2);
+    ctx2d.fillStyle = rgrd;
+    ctx2d.fill();
+    // 外圈细线
+    ctx2d.beginPath();
+    ctx2d.arc(CX, CY, reserveR * 0.92, 0, Math.PI * 2);
+    ctx2d.strokeStyle = `rgba(255,255,255,${0.08 + 0.05 * Math.sin(frame * 0.04)})`;
+    ctx2d.lineWidth = 0.8;
+    ctx2d.stroke();
+  }
+
+  // 标签（创始人模式）
+  if (mode === 'founder') {
+    ctx2d.font = '10px monospace';
+    ctx2d.fillStyle = 'rgba(255,215,0,0.6)';
+    ctx2d.textAlign = 'center';
+    ctx2d.fillText('T0 主权锚', CX, CY + CFG.T0.r + 14);
+    // v8.1: R≥90 储备标注
+    if (systemAvgR >= 90) {
+      ctx2d.font = '9px monospace';
+      ctx2d.fillStyle = `rgba(255,255,255,${0.35 + 0.15 * Math.sin(frame * 0.04)})`;
+      ctx2d.fillText('· 5 格局储备 ·', CX, CY + CFG.T0.r + 26);
+    }
+  }
+  ctx2d.restore();
+}
+
+// ── T2 龍盾绘制
+function drawDragonShield() {
+  ctx2d.save();
+  ctx2d.translate(CX, CY);
+  ctx2d.rotate(t2Angle);
+
+  // 主环
+  ctx2d.beginPath();
+  ctx2d.arc(0, 0, CFG.T2.ringR, 0, Math.PI*2);
+  ctx2d.strokeStyle = CFG.T2.color;
+  ctx2d.lineWidth = CFG.T2.strokeW;
+  ctx2d.setLineDash([6,14]);
+  ctx2d.stroke();
+  ctx2d.setLineDash([]);
+
+  // 九个盾刺
+  for (let i=0; i<9; i++) {
+    const a = (i / 9) * Math.PI * 2;
+    const ix = Math.cos(a) * (CFG.T2.ringR - 8);
+    const iy = Math.sin(a) * (CFG.T2.ringR - 8);
+    const ox = Math.cos(a) * (CFG.T2.ringR + 8);
+    const oy = Math.sin(a) * (CFG.T2.ringR + 8);
+    ctx2d.beginPath();
+    ctx2d.moveTo(ix, iy);
+    ctx2d.lineTo(ox, oy);
+    ctx2d.strokeStyle = 'rgba(239,68,68,0.5)';
+    ctx2d.lineWidth = 1.5;
+    ctx2d.stroke();
+  }
+
+  ctx2d.restore();
+
+  // 标签（创始人模式）
+  if (mode === 'founder') {
+    ctx2d.save();
+    ctx2d.font = '10px monospace';
+    ctx2d.fillStyle = 'rgba(239,68,68,0.55)';
+    ctx2d.textAlign = 'center';
+    ctx2d.fillText('T2 龍盾:9622', CX, CY - CFG.T2.ringR - 8);
+    ctx2d.restore();
+  }
+}
+
+// ── 六维雷达绘制（H键）
+function drawRadar() {
+  if (radarAnimAlpha < 1) radarAnimAlpha = Math.min(1, radarAnimAlpha + 0.05);
+  ctx2d.save();
+  ctx2d.globalAlpha = radarAnimAlpha * 0.88;
+  ctx2d.translate(CX, CY);
+
+  const R  = 110;
+  const labels = ['人类福祉','公平公正','可控可信','透明可解','责任可追','隐私保护'];
+  const colors  = ['#22d3ee','#a78bfa','#fbbf24','#4ade80','#f87171','#f472b6'];
+
+  // 背景六边形
+  for (let lvl=0.2; lvl<=1.0; lvl+=0.2) {
+    ctx2d.beginPath();
+    for (let i=0;i<6;i++) {
+      const a = (i/6)*Math.PI*2 - Math.PI/2;
+      const x = Math.cos(a)*R*lvl, y = Math.sin(a)*R*lvl;
+      i===0 ? ctx2d.moveTo(x,y) : ctx2d.lineTo(x,y);
+    }
+    ctx2d.closePath();
+    ctx2d.strokeStyle = 'rgba(255,255,255,0.07)';
+    ctx2d.lineWidth = 0.8;
+    ctx2d.stroke();
+  }
+
+  // 轴线
+  for (let i=0;i<6;i++) {
+    const a = (i/6)*Math.PI*2 - Math.PI/2;
+    ctx2d.beginPath();
+    ctx2d.moveTo(0,0);
+    ctx2d.lineTo(Math.cos(a)*R, Math.sin(a)*R);
+    ctx2d.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx2d.lineWidth = 0.8;
+    ctx2d.stroke();
+  }
+
+  // 数据多边形
+  ctx2d.beginPath();
+  for (let i=0;i<6;i++) {
+    const a = (i/6)*Math.PI*2 - Math.PI/2;
+    const r = R * radarScores[i]/100;
+    const x = Math.cos(a)*r, y = Math.sin(a)*r;
+    i===0 ? ctx2d.moveTo(x,y) : ctx2d.lineTo(x,y);
+  }
+  ctx2d.closePath();
+  ctx2d.fillStyle = 'rgba(139,92,246,0.12)';
+  ctx2d.fill();
+  ctx2d.strokeStyle = 'rgba(139,92,246,0.6)';
+  ctx2d.lineWidth = 1.5;
+  ctx2d.stroke();
+
+  // 顶点
+  for (let i=0;i<6;i++) {
+    const a = (i/6)*Math.PI*2 - Math.PI/2;
+    const r = R * radarScores[i]/100;
+    const x = Math.cos(a)*r, y = Math.sin(a)*r;
+    ctx2d.beginPath();
+    ctx2d.arc(x, y, 3.5, 0, Math.PI*2);
+    ctx2d.fillStyle = radarScores[i] < CFG.RADAR_REDLINE[i] ? '#ef4444' : colors[i];
+    ctx2d.fill();
+
+    // 得分标签
+    const lx = Math.cos(a)*(R+20), ly = Math.sin(a)*(R+20);
+    ctx2d.font = '10px monospace';
+    ctx2d.fillStyle = colors[i];
+    ctx2d.textAlign = 'center';
+    ctx2d.fillText(`${labels[i]} ${Math.round(radarScores[i])}`, lx, ly);
+
+    // 低分预警 → 道德经第58章
+    if (radarScores[i] < 70 && frame % 180 === i*30) {
+      triggerDDJ(58, {x:CX + Math.cos(a)*(R+50), y:CY + Math.sin(a)*(R+50)});
+    }
+  }
+
+  ctx2d.restore();
+}
+
+// ── 白皮书挂点图（W键）
+function drawWhitepaper() {
+  ctx2d.save();
+  const wR = 310;
+  WHITEPAPER_ANCHORS.forEach((anch, i) => {
+    const x = CX + Math.cos(anch.angle) * wR;
+    const y = CY + Math.sin(anch.angle) * wR;
+
+    // 连线
+    ctx2d.beginPath();
+    ctx2d.moveTo(CX, CY);
+    ctx2d.lineTo(x, y);
+    ctx2d.strokeStyle = `${anch.color}44`;
+    ctx2d.lineWidth = 1;
+    ctx2d.setLineDash([4,8]);
+    ctx2d.stroke();
+    ctx2d.setLineDash([]);
+
+    // 卡片
+    ctx2d.fillStyle = 'rgba(0,0,0,0.8)';
+    ctx2d.strokeStyle = `${anch.color}88`;
+    ctx2d.lineWidth = 1;
+    roundRect(ctx2d, x-60, y-22, 120, 40, 8);
+    ctx2d.fill();
+    ctx2d.stroke();
+
+    ctx2d.font = 'bold 11px PingFang SC';
+    ctx2d.fillStyle = anch.color;
+    ctx2d.textAlign = 'center';
+    ctx2d.fillText(anch.label, x, y - 4);
+    ctx2d.font = '9px monospace';
+    ctx2d.fillStyle = 'rgba(255,255,255,0.45)';
+    ctx2d.fillText(anch.sublabel, x, y + 10);
+  });
+  ctx2d.restore();
+}
+
+function roundRect(c, x, y, w, h, r) {
+  c.beginPath();
+  c.moveTo(x+r, y);
+  c.lineTo(x+w-r, y);
+  c.arcTo(x+w, y, x+w, y+r, r);
+  c.lineTo(x+w, y+h-r);
+  c.arcTo(x+w, y+h, x+w-r, y+h, r);
+  c.lineTo(x+r, y+h);
+  c.arcTo(x, y+h, x, y+h-r, r);
+  c.lineTo(x, y+r);
+  c.arcTo(x, y, x+r, y, r);
+  c.closePath();
+}
+
+// ── 洛书九宫格背景（极淡·地场骨架·知识库 #45）
+function drawLuoshuGrid() {
+  const cellW = W/3, cellH = H/3;
+  ctx2d.save();
+  ctx2d.globalAlpha = 0.06;
+  for (let gy=0; gy<3; gy++) {
+    for (let gx=0; gx<3; gx++) {
+      const val = LUO_SHU[gy][gx];
+      const dr  = digitalRoot(val);
+      const wx  = WUXING_MAP[dr] || '土';
+      const col = WUXING_COLORS[wx];
+
+      // 格子底色（极淡五行色）
+      ctx2d.fillStyle = col + '18';
+      ctx2d.fillRect(gx*cellW, gy*cellH, cellW, cellH);
+
+      // 洛书数字
+      ctx2d.globalAlpha = 0.12;
+      ctx2d.font = `bold ${Math.min(cellW, cellH)*0.22}px monospace`;
+      ctx2d.fillStyle = WUXING_FUSE_DR.has(dr) ? '#ef4444' : col;
+      ctx2d.textAlign = 'center';
+      ctx2d.textBaseline = 'middle';
+      ctx2d.fillText(val, gx*cellW + cellW/2, gy*cellH + cellH/2);
+
+      // 五行标签（极小）
+      ctx2d.globalAlpha = 0.08;
+      ctx2d.font = `11px PingFang SC`;
+      ctx2d.fillStyle = col;
+      ctx2d.fillText(wx + (WUXING_FUSE_DR.has(dr)?'🔴':''), gx*cellW + cellW/2, gy*cellH + cellH/2 + Math.min(cellW,cellH)*0.16);
+
+      ctx2d.globalAlpha = 0.06;
+    }
+  }
+  // 格线
+  ctx2d.globalAlpha = 0.04;
+  ctx2d.strokeStyle = 'rgba(255,215,0,0.3)';
+  ctx2d.lineWidth = 0.5;
+  for (let i=1; i<3; i++) {
+    ctx2d.beginPath(); ctx2d.moveTo(i*cellW,0); ctx2d.lineTo(i*cellW,H); ctx2d.stroke();
+    ctx2d.beginPath(); ctx2d.moveTo(0,i*cellH); ctx2d.lineTo(W,i*cellH); ctx2d.stroke();
+  }
+  ctx2d.restore();
+}
+
+// ── HUD 健康仪表
+function updateHUD() {
+  let rSum=0, gCount=0, yCount=0, rCount=0, wuxingAlertCount=0;
+  particles.forEach(p => {
+    rSum += p.R;
+    if (p.R >= CFG.R_GREEN)  gCount++;
+    else if (p.R >= CFG.R_YELLOW) yCount++;
+    else rCount++;
+    if (p.wuxingAlert) wuxingAlertCount++;
+  });
+  systemAvgR = rSum / particles.length; // v8.1: 全局均值供 T0 储备光使用
+  const avgR = systemAvgR.toFixed(1);
+  const scoreEl = document.getElementById('health-score');
+  // 五行状态叠加显示：正常 or 顺序错乱时标注熔断数
+  const wuxingTag = orderDisrupted && wuxingAlertCount > 0
+    ? ` 🔥${wuxingAlertCount}` : '';
+  scoreEl.textContent = `R: ${avgR}${wuxingTag}`;
+  scoreEl.style.color = avgR >= CFG.R_GREEN ? '#22c55e' : avgR >= CFG.R_YELLOW ? '#fbbf24' : '#ef4444';
+  document.getElementById('particle-counter').textContent =
+    `🟢${gCount} 🟡${yCount} 🔴${rCount}` + (wuxingAlertCount>0 ? ` 五行⚠${wuxingAlertCount}` : '');
+}
+
+// ═══════════════════════════════════════════════════════════
+// §14  主循环（requestAnimationFrame · 心跳）
+// ═══════════════════════════════════════════════════════════
+function loop() {
+  if (!paused && startupDone) {
+    updateMockRadar();
+    updatePhysics();
+    updateBreath();
+
+    // 顺序错乱自动回正
+    if (disruptionTimer > 0) {
+      disruptionTimer--;
+      if (disruptionTimer === 0) restoreOrder();
+    }
+  }
+  if (startupDone) draw();
+  frame++;
+  requestAnimationFrame(loop);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §15  DNA 弹窗
+// ═══════════════════════════════════════════════════════════
+function showDNAPopup(p) {
+  const ts = new Date().toISOString().slice(0,10);
+  const code = `#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · L1:${p.id} · L2:${p.layer.toUpperCase()} · L3:${frame}\nR=${p.R.toFixed(1)} dims=[${p.dims.map(d=>Math.round(d)).join(',')}]\n层级:${p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义'} · DNA=${p.isDNA?'金色主权':'普通'}`;
+  document.getElementById('dna-code').textContent = code;
+  document.getElementById('dna-popup').classList.add('open');
+  triggerDDJ(54); // 「善建者不拔·善抱者不脱」
+}
+function closeDNAPopup() {
+  document.getElementById('dna-popup').classList.remove('open');
+}
+function copyDNA() {
+  navigator.clipboard?.writeText(document.getElementById('dna-code').textContent);
+  const btn = document.querySelector('#dna-popup button');
+  btn.textContent = '✅ 已复制'; setTimeout(()=>btn.textContent='复制 DNA 码',1500);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §16  Canvas 点击事件（DNA粒子·右键复制）
+// ═══════════════════════════════════════════════════════════
+canvas.addEventListener('click', e => {
+  const mx = e.clientX, my = e.clientY;
+  for (const p of particles) {
+    const dx = p.x-mx, dy = p.y-my;
+    if (p.isDNA && dx*dx+dy*dy < 64) { // 8px 范围
+      showDNAPopup(p); return;
+    }
+  }
+  // 点空白处关闭弹窗
+  closeDNAPopup();
+});
+canvas.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  const mx = e.clientX, my = e.clientY;
+  for (const p of particles) {
+    const dx = p.x-mx, dy = p.y-my;
+    if (p.isDNA && dx*dx+dy*dy < 64) {
+      const ts = new Date().toISOString().slice(0,10);
+      navigator.clipboard?.writeText(`#龍芯⚡️${ts}-DNA-P${p.id}-${p.layer}-R${Math.round(p.R)}`);
+      return;
+    }
+  }
+});
+
+// ═══════════════════════════════════════════════════════════
+// §17  键盘口令总表（完整·v8.0-v8.4所有口令汇总）
+// ═══════════════════════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  const key = e.key;
+
+  // H · 六维雷达
+  if (key === 'h' || key === 'H') {
+    showRadar = !showRadar;
+    radarAnimAlpha = showRadar ? 0 : radarAnimAlpha;
+    return;
+  }
+
+  // R · 走歪回放  Shift+R · 清屏  Ctrl+R · 导出CSV  Alt+R · 优先级复盘
+  if (key === 'r' || key === 'R') {
+    if (e.ctrlKey || e.metaKey) { e.preventDefault(); exportDeviationCSV(); return; }
+    if (e.altKey)   { showPriorityOverride(); return; }
+    if (e.shiftKey) { clearTrails(); return; }
+    const rPanel = document.getElementById('replay-panel');
+    rPanel.classList.toggle('open');
+    renderTraceList();
+    return;
+  }
+
+  // M · 静音
+  if (key === 'm' || key === 'M') {
+    muted = !muted;
+    document.getElementById('sound-icon').textContent = muted ? '🔕' : '🔔';
+    return;
+  }
+
+  // D · 道德经层  Shift+D · 强制隐藏  Ctrl+D · 导出
+  if (key === 'd' || key === 'D') {
+    if (e.ctrlKey || e.metaKey) { e.preventDefault(); exportDDJLog(); return; }
+    if (e.shiftKey) { ddjSessionHidden = true; return; }
+    ddjVisible = !ddjVisible;
+    return;
+  }
+
+  // W · 白皮书挂点  Shift+W · 访客模式  Ctrl+W · 导出日志
+  if (key === 'w' || key === 'W') {
+    if (e.ctrlKey || e.metaKey) { e.preventDefault(); exportWhitepaperLog(); return; }
+    if (e.shiftKey) { setMode('visitor'); triggerDDJ(8); return; }
+    showWhitepaper = !showWhitepaper;
+    return;
+  }
+
+  // F · 创始人模式切换
+  if (key === 'f' || key === 'F') { setMode('founder'); return; }
+
+  // Space · 暂停/继续
+  if (key === ' ') { e.preventDefault(); paused = !paused; return; }
+
+  // T · 触发利益诱惑模拟（测试用）
+  if (key === 't' || key === 'T') { simulateTemptation(); return; }
+
+  // X · 触发红线∞冻结（测试）
+  if (key === 'x' || key === 'X') { triggerInfinityFreeze(); return; }
+
+  // ? · 帮助
+  if (key === '?') {
+    document.getElementById('shortcut-help').classList.toggle('open');
+    return;
+  }
+});
+
+function setMode(m) {
+  mode = m;
+  const badge = document.getElementById('mode-badge');
+  if (m === 'founder') {
+    badge.textContent = '🐲 创始人'; badge.className = 'founder';
+  } else {
+    badge.textContent = '👁️ 访客'; badge.className = 'visitor';
+    triggerDDJ(8); // 「上善若水」
+  }
+}
+
+function clearTrails() {
+  particles.forEach(p => { p.trail = []; p.deviating = false; });
+}
+
+function exportDeviationCSV() {
+  const rows = ['trace_id,particle_id,trigger,start_ts,dna'];
+  deviationLog.forEach(e => rows.push(`${e.trace_id},${e.particle_id},"${e.trigger}",${e.start_ts},${e.dna}`));
+  const blob = new Blob([rows.join('\n')], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `歪路日志-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+function exportDDJLog() {
+  const lines = Object.entries(ddjLastShown).map(([ch,ts]) =>
+    `L${ch}: ${DAODEJING[ch]?.text||''} | 最后触发: ${new Date(ts).toISOString()}`
+  ).join('\n');
+  navigator.clipboard?.writeText(lines);
+  alert('道德经触发日志已复制到剪贴板');
+}
+
+function exportWhitepaperLog() {
+  navigator.clipboard?.writeText(JSON.stringify({
+    exported: new Date().toISOString(),
+    anchors: WHITEPAPER_ANCHORS.map(a => a.label)
+  }, null, 2));
+  alert('白皮书访问日志已复制');
+}
+
+function showPriorityOverride() {
+  const overrideParticles = particles.filter(p => p.layer !== 'loyalty' && p.deviating);
+  alert(`优先级复盘：${overrideParticles.length} 个义/孝粒子曾为忠让路\nAlt+R 标记详见右侧歪路面板`);
+}
+
+function triggerInfinityFreeze() {
+  frozenInfinity = true;
+  flashRed = 60;
+  triggerDDJ(78); // 「柔弱胜刚强」
+  play369(9);
+  // 5s 后提示用户手动解冻
+  setTimeout(() => {
+    console.log('[三才流場] ∞冻结激活·等待老大解除');
+  }, 5000);
+}
+
+// 回放进度条
+document.getElementById('replay-slider').addEventListener('input', e => {
+  replayProgress = parseInt(e.target.value);
+  if (replayTraceIdx >= 0 && deviationLog[replayTraceIdx]) {
+    const path = deviationLog[replayTraceIdx].path;
+    const idx = Math.floor(path.length * replayProgress/100);
+    const pt = path[idx];
+    if (pt) document.getElementById('slider-ts').textContent = `R=${pt.R?.toFixed(1)||'--'}`;
+  }
+});
+
+// 音效图标点击
+document.getElementById('sound-icon').addEventListener('click', () => {
+  muted = !muted;
+  document.getElementById('sound-icon').textContent = muted ? '🔕' : '🔔';
+});
+
+// ═══════════════════════════════════════════════════════════
+// §18  启动动画（v8.3 三句箴言）
+// ═══════════════════════════════════════════════════════════
+function runStartupAnimation() {
+  const overlay = document.getElementById('startup-overlay');
+  const logo  = overlay.querySelector('.logo');
+  const m0 = document.getElementById('m0');
+  const m1 = document.getElementById('m1');
+  const m2 = document.getElementById('m2');
+  const sub = overlay.querySelector('.sub');
+
+  logo.style.opacity = '1';
+  setTimeout(() => { m0.style.opacity = '1'; }, 600);
+  setTimeout(() => { m1.style.opacity = '1'; }, 1800);
+  setTimeout(() => { m2.style.opacity = '1'; }, 3000);
+  setTimeout(() => { sub.style.opacity = '1'; }, 3800);
+  setTimeout(() => {
+    overlay.style.transition = 'opacity 0.8s';
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      startupDone = true;
+      play369(3); // 启动鼓声
+    }, 800);
+  }, 5200);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §19  利益诱惑定时模拟（每30秒一次·仅创始人模式）
+// ═══════════════════════════════════════════════════════════
+setInterval(() => {
+  if (mode === 'founder' && !orderDisrupted && !frozenInfinity && startupDone) {
+    simulateTemptation();
+  }
+}, CFG.TEMPTATION_INTERVAL * 1000);
+
+// ═══════════════════════════════════════════════════════════
+// §20  Bootstrap
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('resize', () => { resize(); initParticles(); });
+resize();
+initParticles();
+initWebSocket();
+runStartupAnimation();
+requestAnimationFrame(loop);
+
+console.log([
+  '🐲 三才流場 v8.1 · 已启动',
+  `DNA: #龍芯⚡️2026-04-20-三才流場-v8.1-双层安全+Shield+储备光`,
+  `确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`,
+  `GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F`,
+  `创始人: 💎 龍芯北辰｜UID9622 · 理论指导: 曾仕强老师（永恒显示）`,
+  `T0 坐标: (${W/2}, ${H/2}) r=16px glow=38px | R≥90→金色储备光环`,
+  `T1 种子环: r=100px 旋转=0.0008rad/f`,
+  `T2 龍盾: r=200px 9盾刺 旋转=-0.0005rad/f`,
+  `粒子: 1200 (忠600·孝360·义240·DNA36)`,
+  `洛书矩阵: 特征值=15,±4.899i · 九宫格力调制 · 三才螺旋叠加`,
+  `Shield Engine: DR绿={1,2,4,5,7,8} DR黄={6}琥珀警戒 DR红={3,9}熔断`,
+  `五行熔断: dr=3木·创新失控 / dr=9金·规则篡改 (仅orderDisrupted时触发)`,
+  `五行颜色: 水🔵 火🔴 木🌿 金🟡 土🟣`,
+  `? 键 = 查看全部快捷键`,
+].join('\n'));
+</script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思维主权系统 · 术语对照表 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    line-height: 1.7;
+    padding: 2rem;
+  }
+  .container { max-width: 1260px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #a855f7, #06b6d4, #a855f7);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .dna-tag { text-align: center; color: #a855f7; font-size: 0.78rem; font-family: monospace; margin-bottom: 2rem; }
+
+  .section-header {
+    background: linear-gradient(90deg, #1a1a2e 0%, #1e1b4b 100%);
+    border-left: 4px solid #a855f7;
+    padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; color: #c084fc;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .section-header .icon { font-size: 1.2rem; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  thead th {
+    background: #1e1b4b; color: #c084fc;
+    padding: 0.6rem 0.7rem; text-align: left; font-weight: 600;
+    border-bottom: 2px solid #a855f7; position: sticky; top: 0;
+  }
+  thead th:first-child { width: 18%; }
+  thead th:nth-child(2) { width: 14%; }
+  thead th:nth-child(3) { width: 38%; }
+  thead th:nth-child(4) { width: 30%; }
+
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(168, 85, 247, 0.04); }
+  tbody td { padding: 0.55rem 0.7rem; vertical-align: top; }
+  tbody td:first-child {
+    font-weight: 600; color: #7dd3fc;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.8rem;
+  }
+  tbody td:nth-child(2) {
+    color: #fbbf24; font-size: 0.78rem;
+  }
+  tbody td:nth-child(4) { color: #94a3b8; font-size: 0.8rem; }
+
+  .tag {
+    display: inline-block; padding: 0.12rem 0.45rem;
+    border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin: 0.1rem 0.15rem;
+  }
+  .tag-file { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+  .tag-persona { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+  .tag-layer { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+  .tag-fuse { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+  .tag-api { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+
+  .persona-card {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(168, 85, 247, 0.08); border: 1px solid #2e1065;
+    border-radius: 8px; padding: 0.3rem 0.7rem; margin: 0.2rem;
+    font-size: 0.8rem;
+  }
+  .persona-card .emoji { font-size: 1.1rem; }
+  .persona-card .name { color: #c084fc; font-weight: 600; }
+  .persona-card .duty { color: #888; font-size: 0.72rem; }
+
+  .summary {
+    background: linear-gradient(135deg, #1a1a2e, #1e1b4b);
+    border: 1px solid #2e1065; border-radius: 12px;
+    padding: 1.5rem; margin: 2rem 0;
+  }
+  .summary h2 { color: #c084fc; font-size: 1.05rem; margin-bottom: 1rem; }
+
+  .flow-diagram {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.3rem; margin: 1rem 0;
+  }
+  .flow-step {
+    background: rgba(168, 85, 247, 0.1); border: 1px solid #2e1065;
+    border-radius: 8px; padding: 0.4rem 0.8rem;
+    text-align: center; font-size: 0.78rem; min-width: 100px;
+  }
+  .flow-step .label { color: #c084fc; font-weight: 600; font-size: 0.7rem; }
+  .flow-step .desc { color: #e0e0e0; }
+  .flow-arrow { color: #a855f7; font-size: 1.2rem; }
+
+  .footer {
+    text-align: center; color: #555; font-size: 0.72rem;
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1a1a2e;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>思维主权系统 · 完整术语对照表</h1>
+<p class="subtitle">你的每一个命名 → 行业标准术语 → 大白话解释 → 在代码里长什么样</p>
+<p class="dna-tag">#龍芯⚡️20260415-DOC-MSP-TERM · 主控：UID9622（诸葛鑫·龍芯北辰）</p>
+
+<!-- ========== 五大人格速查 ========== -->
+<div class="section-header"><span class="icon">👥</span> 五大人格·一句话速查</div>
+<div style="display:flex;flex-wrap:wrap;gap:0.5rem;padding:0.8rem 0;">
+  <div class="persona-card"><span class="emoji">🛡️</span><span class="name">守护者·同步</span><span class="duty">= 备份员，负责存档 + 验证签名</span></div>
+  <div class="persona-card"><span class="emoji">🏗️</span><span class="name">架构师·压缩</span><span class="duty">= 总结员，把长文章压缩成结构图</span></div>
+  <div class="persona-card"><span class="emoji">📊</span><span class="name">分析师·监控</span><span class="duty">= 巡逻员，每30分钟检查系统健不健康</span></div>
+  <div class="persona-card"><span class="emoji">📚</span><span class="name">策展人·归档</span><span class="duty">= 图书管理员，把旧档案整理压缩</span></div>
+  <div class="persona-card"><span class="emoji">🧙</span><span class="name">贤者·演化</span><span class="duty">= 军师，对比多版本找出转折点</span></div>
+</div>
+
+<!-- ========== 第1区：系统骨架 ========== -->
+<div class="section-header"><span class="icon">🏛️</span> 系统骨架 · 整个系统是什么</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>思维主权系统<br>Mind Sovereignty</td>
+  <td>知识管理系统<br>+ 个人AI中枢</td>
+  <td>你大脑的"数字分身"。把你的想法、决策、记忆全部数字化，存下来，还能自动整理、压缩、回放。关键词：<strong>你的思维，你做主</strong>。</td>
+  <td><span class="tag tag-file">longhun_mind_sovereignty/</span> 整个项目文件夹</td>
+</tr>
+<tr>
+  <td>主权声明</td>
+  <td>License / 版权声明</td>
+  <td>声明"这些思维数据是我的，别人不能随便用"。跟开源协议类似，但保护的是你的思维而不是代码。</td>
+  <td><span class="tag tag-layer">OwnershipLayer</span> 快照第2层</td>
+</tr>
+<tr>
+  <td>确认码<br>#CONFIRM🌌9622</td>
+  <td>数字签名 / 授权令牌</td>
+  <td>你的"专属印章"，盖了这个章就代表是你本人授权的。别人伪造不了。</td>
+  <td>写在每个重要文档的头部和尾部</td>
+</tr>
+<tr>
+  <td>GPG指纹</td>
+  <td>公钥指纹<br>Public Key Fingerprint</td>
+  <td>你的"数字身份证号码"，40位字符，全世界唯一。用来证明"这东西确实是诸葛鑫签的"。</td>
+  <td><span class="tag tag-file">A2D0092C...26D5F</span></td>
+</tr>
+<tr>
+  <td>DNA追溯码<br>#龍芯⚡️</td>
+  <td>Content Hash /<br>审计追踪码</td>
+  <td>每个文件、每个想法的"出生证明"——什么时候生的、谁生的、属于什么类型，一查就知道。</td>
+  <td><span class="tag tag-file">snapshot_id: MSP-YYYY-MM-DD-HHMM</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第2区：六层快照 ========== -->
+<div class="section-header"><span class="icon">📸</span> 思维快照 · 给你的大脑拍照</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>MindSnapshot<br>思维快照</td>
+  <td>状态快照<br>State Snapshot</td>
+  <td>在某一个时刻，把你大脑里"正在想什么、关心什么、做到哪一步了"全拍一张照片存下来。以后可以回到这个时刻重新看。</td>
+  <td><span class="tag tag-file">snapshot_core.hpp</span> MindSnapshot结构体，输出为JSON</td>
+</tr>
+<tr>
+  <td>IdentityLayer<br>身份层</td>
+  <td>元数据层<br>Metadata</td>
+  <td>快照的"封面信息"：什么时候拍的、谁拍的、在哪台设备上拍的、关联哪个人格。</td>
+  <td>snapshot_id, creator_name, device_origin, route_id, persona_name</td>
+</tr>
+<tr>
+  <td>OwnershipLayer<br>主权层</td>
+  <td>权限/版权层<br>Access Control</td>
+  <td>"这张照片是我的"——声明归属权、解释权、能不能给别人看。</td>
+  <td>ownership_statement, public_sharing_level</td>
+</tr>
+<tr>
+  <td>StructureLayer<br>结构层</td>
+  <td>知识图谱<br>Knowledge Graph</td>
+  <td>快照的"骨架"：你的想法分成几个大类，每个大类下面有什么子项，互相什么关系。像一棵思维树。</td>
+  <td>main_axis, decision_tree (DecisionNode[]), subsystems</td>
+</tr>
+<tr>
+  <td>PriorityLayer<br>优先级层</td>
+  <td>权重模型<br>Weighted Scoring</td>
+  <td>"哪个最重要"——给每个想法打分排序，分清楚先做啥后做啥。</td>
+  <td>core_priority_list, weight_scores, risk_weight_model=三色审计</td>
+</tr>
+<tr>
+  <td>StateLayer<br>状态层</td>
+  <td>状态机<br>State Machine</td>
+  <td>"目前在什么阶段"——概念探索期/架构构建期/结构稳定期，像怀孕几个月一样。</td>
+  <td>development_phase, active_module, pending_decisions</td>
+</tr>
+<tr>
+  <td>VerificationLayer<br>验证层</td>
+  <td>完整性校验<br>Integrity Check</td>
+  <td>"这张照片有没有被人篡改过"——用SHA256算一个指纹，再用GPG签个名。改一个字都能发现。</td>
+  <td>snapshot_hash (SHA256), gpg_signature, verification_status</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第3区：语义压缩 ========== -->
+<div class="section-header"><span class="icon">🗜️</span> 语义压缩引擎 · 把10页纸变成1张图</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>SemanticCompression<br>Engine v2.0<br>语义压缩引擎</td>
+  <td>文本摘要 +<br>主题建模 Pipeline</td>
+  <td>把一大段话"浓缩"成几个核心要点。不是删字，是理解意思后重新组织。像把一本书变成目录+笔记。</td>
+  <td><span class="tag tag-file">semantic_compression_v2.py</span></td>
+</tr>
+<tr>
+  <td>分块<br>Segmentation</td>
+  <td>文本分段<br>Text Segmentation</td>
+  <td>把长文章切成一段一段的小块。不是随便切，是按"意思变了没有"来切。同一个话题的放一起。</td>
+  <td>_segment() → 用余弦相似度判断"话题跳转点"，threshold=0.35</td>
+</tr>
+<tr>
+  <td>向量化</td>
+  <td>文本嵌入<br>Text Embedding</td>
+  <td>把每段文字变成一串数字（向量），这样计算机就能算出"这两段话有多像"。</td>
+  <td>SentenceTransformer("all-MiniLM-L6-v2").encode()</td>
+</tr>
+<tr>
+  <td>聚类</td>
+  <td>K-Means聚类<br>Clustering</td>
+  <td>把意思相近的段落"自动分组"。不用你手动标，机器自己发现"这几段在说同一件事"。</td>
+  <td>_cluster() → KMeans(n_clusters=4)</td>
+</tr>
+<tr>
+  <td>漂移检测</td>
+  <td>概念漂移检测<br>Concept Drift</td>
+  <td>发现你的想法"是不是在慢慢变"。比如三个月前关心A，现在更关心B——这就是漂移。</td>
+  <td>贤者·演化的核心职责：多版本对比 → 发现战略转折点</td>
+</tr>
+<tr>
+  <td>发展阶段检测<br>Phase Detection</td>
+  <td>成熟度评估<br>Maturity Model</td>
+  <td>自动判断你当前处于哪个阶段：<strong>概念探索期</strong>（还在想）/ <strong>架构构建期</strong>（开始搭）/ <strong>结构稳定期</strong>（基本成型）。</td>
+  <td>_detect_phase() → 根据权重最大值判断：>0.55稳定、>0.40构建、其他探索</td>
+</tr>
+</tbody>
+</table>
+
+<div class="summary">
+<h2>压缩引擎工作流（大白话版）</h2>
+<div class="flow-diagram">
+  <div class="flow-step"><div class="label">① 切块</div><div class="desc">长文→小段</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">② 变数字</div><div class="desc">文字→向量</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">③ 自动分组</div><div class="desc">相似的归一堆</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">④ 找主线</div><div class="desc">哪组最大→主轴</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">⑤ 打分</div><div class="desc">每组权重</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">⑥ 判阶段</div><div class="desc">探索/构建/稳定</div></div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-step"><div class="label">⑦ 输出快照</div><div class="desc">六层JSON</div></div>
+</div>
+</div>
+
+<!-- ========== 第4区：人格路由 ========== -->
+<div class="section-header"><span class="icon">🛤️</span> 人格路由系统 · 五个分身帮你干活</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>PersonaRoute<br>人格路由节</td>
+  <td>微服务 /<br>Worker Process</td>
+  <td>一个"专门干某件事的分身"。你有5个分身，每个负责不同的事。它不是你，但按你设定的规则干活。</td>
+  <td><span class="tag tag-file">persona_routes.py</span> PersonaRoute数据类</td>
+</tr>
+<tr>
+  <td>PersonaRouteManager<br>路由管理器</td>
+  <td>编排器 /<br>Orchestrator</td>
+  <td>5个分身的"总调度"——决定谁什么时候上班、该干什么、出问题了怎么办。</td>
+  <td><span class="tag tag-file">persona_route_manager.py</span> 统一入口类</td>
+</tr>
+<tr>
+  <td>RouteExecutor<br>路由执行引擎</td>
+  <td>任务执行器<br>Task Runner</td>
+  <td>"真正干活的手"——管理器说"该你上了"，执行器就开始跑任务。</td>
+  <td><span class="tag tag-file">route_executor.py</span> 异步执行</td>
+</tr>
+<tr>
+  <td>PersonaScheduler<br>定时调度器</td>
+  <td>Cron调度器<br>Job Scheduler</td>
+  <td>"闹钟系统"——设好时间，到点自动叫分身起床干活。守护者每天2点、分析师每30分钟、策展人每周日3点。</td>
+  <td><span class="tag tag-file">persona_scheduler.py</span> + croniter</td>
+</tr>
+<tr>
+  <td>TriggerType<br>触发方式</td>
+  <td>事件触发 /<br>定时触发</td>
+  <td>分身"什么时候开始干活"的三种方式：<br>① <strong>定时</strong>=到点就干（守护者/分析师/策展人）<br>② <strong>事件</strong>=有事才干（架构师：快照一生成就压缩）<br>③ <strong>条件</strong>=够数才干（贤者：快照攒够10个才分析）</td>
+  <td>TriggerType枚举: TIME_BASED / EVENT_DRIVEN / CONDITIONAL</td>
+</tr>
+<tr>
+  <td>Duties<br>职责列表</td>
+  <td>任务清单<br>Task List</td>
+  <td>每个分身的"工作说明书"——守护者要做快照+签名+备份，架构师要做分块+向量化+聚类。</td>
+  <td>PersonaRoute.duties: list[str]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第5区：五大人格详细 ========== -->
+<div class="section-header"><span class="icon">🎭</span> 五大人格·详细职责对照</div>
+<table>
+<thead><tr><th>人格（你的命名）</th><th>大白话身份</th><th>干的活（大白话）</th><th>什么时候干</th></tr></thead>
+<tbody>
+<tr>
+  <td>🛡️ 守护者·同步<br><span class="tag tag-persona">GUARDIAN_SYNC</span></td>
+  <td>备份员 + 公证人</td>
+  <td>① 给你的大脑拍照（生成快照）<br>② 给照片盖章（SHA256+GPG签名）<br>③ 把照片存好（同步备份）<br>就像每天晚上帮你锁门+检查窗户的保安。</td>
+  <td>每天凌晨2:00<br>定时触发</td>
+</tr>
+<tr>
+  <td>🏗️ 架构师·压缩<br><span class="tag tag-persona">ARCHITECT_COMPRESS</span></td>
+  <td>总结员 + 整理师</td>
+  <td>① 把你的长篇大论切成小块<br>② 自动分组（聚类）<br>③ 画出结构图<br>④ 发现想法有没有在"漂移"<br>就像帮你把乱七八糟的笔记整理成思维导图。</td>
+  <td>快照一生成就干<br>事件触发</td>
+</tr>
+<tr>
+  <td>📊 分析师·监控<br><span class="tag tag-persona">ANALYST_MONITOR</span></td>
+  <td>巡逻员 + 体检医生</td>
+  <td>① 查看系统资源（CPU/内存/磁盘）<br>② 发现异常立刻报警<br>③ 出具"系统健康度报告"<br>就像每半小时量一次血压的智能手表。</td>
+  <td>每30分钟<br>定时触发</td>
+</tr>
+<tr>
+  <td>📚 策展人·归档<br><span class="tag tag-persona">CURATOR_ARCHIVE</span></td>
+  <td>图书管理员</td>
+  <td>① 把旧快照搬进"冷库"<br>② 压缩不常用的数据<br>③ 优化搜索索引<br>就像图书馆定期把旧书搬到地下室，同时更新目录卡。</td>
+  <td>每周日凌晨3:00<br>定时触发</td>
+</tr>
+<tr>
+  <td>🧙 贤者·演化<br><span class="tag tag-persona">SAGE_EVOLVE</span></td>
+  <td>军师 + 历史学家</td>
+  <td>① 拿出多个版本的快照放在一起比较<br>② 画出"你的想法是怎么变化的"曲线<br>③ 找出"战略转折点"（哪天你的想法突然变了）<br>就像站在高处看你走过的路，发现规律。</td>
+  <td>快照数≥10时<br>条件触发</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第6区：熔断保护 ========== -->
+<div class="section-header"><span class="icon">🔥</span> 熔断保护 · 系统的保险丝</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>FuseManager<br>五重熔断管理器</td>
+  <td>Circuit Breaker<br>熔断器模式</td>
+  <td>家里的"保险丝"——电器短路了自动断电保护，不会把整栋楼烧了。同理，程序连续出错就自动暂停。</td>
+  <td><span class="tag tag-file">fuse_manager.py</span></td>
+</tr>
+<tr>
+  <td>FuseState<br>熔断状态</td>
+  <td>断路器状态</td>
+  <td>保险丝当前的状态：<strong>正常通电</strong>（is_fused=False）还是<strong>已经断了</strong>（is_fused=True）。</td>
+  <td>FuseState: is_fused, fuse_time, consecutive_failures</td>
+</tr>
+<tr>
+  <td>fuse_threshold<br>熔断阈值</td>
+  <td>失败阈值<br>Failure Threshold</td>
+  <td>"连续错几次就断电"——默认3次。错1次不管，错2次警告，错3次直接拉闸。</td>
+  <td>默认值=3，可按路由配置</td>
+</tr>
+<tr>
+  <td>fuse_recovery_time<br>恢复时间</td>
+  <td>冷却时间<br>Cooldown Period</td>
+  <td>"断电后多久可以重新试"——默认3600秒（1小时）。过了冷却期自动恢复，不用你手动重启。</td>
+  <td>默认3600s，check()里计时</td>
+</tr>
+<tr>
+  <td>🟢🟡🔴<br>三色审计映射</td>
+  <td>健康状态指示器</td>
+  <td>🟢=正常跑着呢，连续失败=0<br>🟡=有点不对劲，失败了但还没到阈值<br>🔴=拉闸了！连续失败≥3次，冻结1小时</td>
+  <td><span class="tag tag-fuse">on_success()</span> <span class="tag tag-fuse">on_failure()</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第7区：执行记录 ========== -->
+<div class="section-header"><span class="icon">📝</span> 执行记录与分析 · 每一步都有据可查</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>ExecutionHistory<br>量子级执行记录</td>
+  <td>审计日志<br>Audit Log</td>
+  <td>每个分身每次干活都被"录像"——什么时候开始、什么时候结束、用了多长时间、成功还是失败。精确到纳秒。你说"量子级"就是因为精度高到变态。</td>
+  <td><span class="tag tag-file">execution_history.py</span> 纳秒时间戳</td>
+</tr>
+<tr>
+  <td>RouteExecutionRecorder<br>持久化记录器</td>
+  <td>数据库写入层<br>Persistence Layer</td>
+  <td>把"录像"存到硬盘上的SQLite数据库里，关机也不丢。不是存在内存里——真正写到文件。</td>
+  <td><span class="tag tag-file">route_execution_recorder.py</span> SQLite</td>
+</tr>
+<tr>
+  <td>QuantumPerformance<br>Analyzer<br>性能分析器</td>
+  <td>性能监控<br>APM / Analytics</td>
+  <td>看每个分身"干活快不快、稳不稳"——成功率多少？平均耗时多少？有没有越来越慢？给个评分。</td>
+  <td><span class="tag tag-file">performance_analyzer.py</span> 成功率+平均时长+稳定性评级</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第8区：Web仪表盘 ========== -->
+<div class="section-header"><span class="icon">🌐</span> Web仪表盘 · 用浏览器看全局</div>
+<table>
+<thead><tr><th>你的命名</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>在代码里长什么样</th></tr></thead>
+<tbody>
+<tr>
+  <td>Flask Web仪表盘<br>端口5000</td>
+  <td>Web Dashboard<br>管理后台</td>
+  <td>打开浏览器输入 localhost:5000 就能看到所有分身的状态——谁在干活、谁休息了、谁出问题了。不用看代码，看网页就行。</td>
+  <td><span class="tag tag-file">web_dashboard.py</span> + <span class="tag tag-file">templates/dashboard.html</span></td>
+</tr>
+<tr>
+  <td>/api/dashboard</td>
+  <td>REST API 端点</td>
+  <td>"给我看所有分身的状态"——返回一个JSON，列出5个人格各自的运行情况。</td>
+  <td><span class="tag tag-api">GET</span> 所有路由节状态</td>
+</tr>
+<tr>
+  <td>/api/execute/&lt;id&gt;</td>
+  <td>触发API</td>
+  <td>"手动叫某个分身起来干活"——不等闹钟了，你现在就让他动。</td>
+  <td><span class="tag tag-api">POST</span> 手动执行指定路由</td>
+</tr>
+<tr>
+  <td>/api/history/&lt;id&gt;</td>
+  <td>历史查询API</td>
+  <td>"看看某个分身之前干了啥"——返回执行历史记录。</td>
+  <td><span class="tag tag-api">GET</span> 纳秒级执行记录</td>
+</tr>
+<tr>
+  <td>/api/statistics/&lt;id&gt;</td>
+  <td>统计API</td>
+  <td>"这个分身干活靠不靠谱"——成功率、平均耗时、稳定性评分。</td>
+  <td><span class="tag tag-api">GET</span> 评分数据</td>
+</tr>
+<tr>
+  <td>/api/scheduler/start<br>/api/scheduler/stop</td>
+  <td>调度控制API</td>
+  <td>"开/关闹钟"——启动后分身们按时上班，停止后全部放假。</td>
+  <td><span class="tag tag-api">POST</span> 启停调度器</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第9区：技术底层 ========== -->
+<div class="section-header"><span class="icon">⚙️</span> 技术底层 · 代码里的关键词</div>
+<table>
+<thead><tr><th>代码里看到的</th><th>行业标准术语</th><th>大白话（一句话听懂）</th><th>补充说明</th></tr></thead>
+<tbody>
+<tr>
+  <td>C++17</td>
+  <td>编程语言版本</td>
+  <td>用C++语言的2017年版来写程序，特别快、特别精确。快照的"骨架"用它定义，因为它跑得比Python快100倍。</td>
+  <td><span class="tag tag-file">core/*.hpp, *.cpp</span></td>
+</tr>
+<tr>
+  <td>async / await</td>
+  <td>异步编程</td>
+  <td>"不排队等"——叫一个分身干活后不傻等结果，先去忙别的，干完了它自己告诉你。</td>
+  <td>route_executor.py 里的异步执行</td>
+</tr>
+<tr>
+  <td>threading.Thread<br>daemon=True</td>
+  <td>后台守护线程</td>
+  <td>"在后台默默跑的小弟"——主程序关了它就自动关。调度器就是一个守护线程。</td>
+  <td>persona_route_manager.py _scheduler_loop</td>
+</tr>
+<tr>
+  <td>SQLite</td>
+  <td>嵌入式数据库</td>
+  <td>"不用装软件的小数据库"——一个文件就是一整个数据库，不需要MySQL那种大家伙。</td>
+  <td>route_execution_recorder.py 存执行历史</td>
+</tr>
+<tr>
+  <td>Flask :5000</td>
+  <td>Web框架</td>
+  <td>Python的"网页生成器"——用几行代码就能做出一个可以在浏览器里打开的管理页面。5000是端口号（就像门牌号）。</td>
+  <td>web_dashboard.py</td>
+</tr>
+<tr>
+  <td>SentenceTransformer</td>
+  <td>预训练嵌入模型</td>
+  <td>"懂语义的翻译机"——不是逐字翻译，而是理解意思后把文字变成数字。all-MiniLM-L6-v2是模型名，小而快。</td>
+  <td>semantic_compression_v2.py</td>
+</tr>
+<tr>
+  <td>KMeans</td>
+  <td>K均值聚类算法</td>
+  <td>"自动分堆机"——给它一堆东西，告诉它"分成4堆"，它自动按相似度分好。</td>
+  <td>_cluster(k=4)</td>
+</tr>
+<tr>
+  <td>cosine_similarity</td>
+  <td>余弦相似度</td>
+  <td>"两段话有多像"的打分器——1.0=完全一样，0=毫无关系。不看字数，只看方向。</td>
+  <td>_segment()里判断话题跳转</td>
+</tr>
+<tr>
+  <td>SHA256</td>
+  <td>哈希算法</td>
+  <td>"指纹提取器"——不管多长的内容，都能算出一个64位的唯一指纹。改一个字，指纹就完全不同。</td>
+  <td>hashlib.sha256() 在验证层使用</td>
+</tr>
+<tr>
+  <td>croniter</td>
+  <td>Cron表达式解析器</td>
+  <td>"看懂闹钟的翻译器"——"0 2 * * *"翻译成"每天凌晨2点"，程序靠它判断到没到时间。</td>
+  <td>persona_scheduler.py（待接入）</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 总结 ========== -->
+<div class="summary">
+<h2>一句话总结整个系统</h2>
+<p style="font-size:1rem; line-height:2; color:#e0e0e0;">
+你造了一个<strong style="color:#c084fc;">数字版的自己</strong>：它能把你的想法<strong style="color:#38bdf8;">拍照</strong>（快照）、<strong style="color:#22c55e;">压缩</strong>（语义引擎）、<strong style="color:#fbbf24;">分类</strong>（聚类）、<strong style="color:#ef4444;">保护</strong>（熔断+签名）、<strong style="color:#f472b6;">记录</strong>（执行历史），还有<strong style="color:#a855f7;">5个分身</strong>帮你自动干活。
+</p>
+<p style="font-size:0.85rem; color:#888; margin-top:0.8rem;">
+对应行业术语就是：个人知识管理系统 + 微服务架构 + 事件驱动 + 熔断保护 + 审计日志 + NLP文本摘要 + 向量聚类 + 数字签名。<br>
+但你用你的方式命名了它们——思维主权、龍魂、人格路由、三色审计、量子级记录。<br>
+<strong style="color:#c084fc;">名字不一样，但该有的一样都没少。</strong>
+</p>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰 · 思维主权系统 v1.0 术语对照表<br>
+  #龍芯⚡️20260415-DOC-MSP-TERM<br>
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI智能体专业术语 vs 大白话 vs 龍魂映射 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    line-height: 1.7;
+    padding: 2rem;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #ff6b35, #ffd700, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .dna-tag {
+    text-align: center;
+    color: #ffd700;
+    font-size: 0.8rem;
+    font-family: monospace;
+    margin-bottom: 2rem;
+  }
+
+  /* Section headers */
+  .section-header {
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+    border-left: 4px solid #ffd700;
+    padding: 0.8rem 1.2rem;
+    margin: 2rem 0 0.5rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-header .num {
+    background: #ffd700;
+    color: #0a0a0f;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+  thead th {
+    background: #16213e;
+    color: #ffd700;
+    padding: 0.7rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #ffd700;
+    position: sticky;
+    top: 0;
+  }
+  thead th:first-child { width: 22%; }
+  thead th:nth-child(2) { width: 42%; }
+  thead th:nth-child(3) { width: 36%; }
+
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(255, 215, 0, 0.04); }
+  tbody td { padding: 0.65rem 0.8rem; vertical-align: top; }
+  tbody td:first-child {
+    font-weight: 600;
+    color: #66b2ff;
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.82rem;
+  }
+  tbody td:nth-child(3) {
+    color: #ff9f43;
+    font-size: 0.82rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+  .tag-green { background: rgba(46, 213, 115, 0.15); color: #2ed573; }
+  .tag-yellow { background: rgba(255, 215, 0, 0.15); color: #ffd700; }
+  .tag-red { background: rgba(255, 71, 87, 0.15); color: #ff4757; }
+  .tag-blue { background: rgba(102, 178, 255, 0.15); color: #66b2ff; }
+  .tag-new { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+
+  /* Summary section */
+  .summary {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid #2a2a4e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .summary h2 {
+    color: #ffd700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #ffd700, #ff6b35, #ff4757);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.55rem;
+    top: 0.7rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffd700;
+    border: 2px solid #0a0a0f;
+  }
+  .timeline-item strong { color: #66b2ff; }
+  .timeline-item .module { color: #888; font-size: 0.82rem; }
+
+  .footer {
+    text-align: center;
+    color: #555;
+    font-size: 0.75rem;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1a1a2e;
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat .num { font-size: 1.8rem; font-weight: 700; color: #ffd700; }
+  .stat .label { font-size: 0.75rem; color: #888; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>AI智能体专业术语 vs 大白话 vs 龍魂映射</h1>
+<p class="subtitle">从0到1构建AI智能体 · 完整对照手册 · UID9622专属版</p>
+<p class="dna-tag">#龍芯⚡️20260415-DOC-9A3F7C2B</p>
+
+<div class="stats-bar">
+  <div class="stat"><div class="num">9</div><div class="label">层级体系</div></div>
+  <div class="stat"><div class="num">52</div><div class="label">核心术语</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">视角对照</div></div>
+</div>
+
+<!-- ========== 第1层 ========== -->
+<div class="section-header"><span class="num">1</span> 基础概念层 · 什么是智能体</div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>智能体<br>Agent</td>
+  <td>一个能自己"看情况办事"的虚拟助手，而不是只会回答问题的聊天机器人。它有感知、思考、行动三件套。</td>
+  <td>龍魂代理 dragon-soul-agent —— 你的系统本身就是一个Agent，只是还在从"静态脚本"进化到"活体"</td>
+</tr>
+<tr>
+  <td>环境<br>Environment</td>
+  <td>智能体所在的"工作场所"，比如一个网页、一个软件系统，或者整个互联网。</td>
+  <td>Notion数据库 + Chrome插件 + 本地文件系统 —— 你的环境是三位一体的</td>
+</tr>
+<tr>
+  <td>目标<br>Goal</td>
+  <td>你给智能体下的"死命令"，比如"帮我订到最便宜的机票"或者"总结这篇报告"。</td>
+  <td>Learning Tasks 学习小卡片 —— 每张卡片就是一个目标</td>
+</tr>
+<tr>
+  <td>自主性<br>Autonomy</td>
+  <td>不用你每步都指挥，它自己能判断下一步该干什么。越自主，越像"转正员工"而非实习生。</td>
+  <td>三才算法的"人"层 —— 自主决策权在"人"这一层</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>上下文<br>Context</td>
+  <td>智能体"当前看到的全部信息"，就像你跟人说话时对方已经知道的前因后果。信息越完整，干活越准。</td>
+  <td>DNA追溯码 —— 每条信息都带着来龍去脉，上下文永远不丢</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>令牌<br>Token</td>
+  <td>AI看文字的最小单位，不是按字数算，而是按"小碎片"算。1个中文字≈1.5个token。每次对话有上限。</td>
+  <td>精力消耗字段 —— token就是AI的精力值，和你学习任务里的"精力消耗"一个意思</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第2层 ========== -->
+<div class="section-header"><span class="num">2</span> 核心组件层 · 智能体的五脏六腑</div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>感知模块<br>Perception</td>
+  <td>智能体的"眼睛和耳朵"，负责读取屏幕信息、听语音指令或接收API数据。</td>
+  <td>三才·天层（输入）—— Learning Inbox就是感知入口</td>
+</tr>
+<tr>
+  <td>规划模块<br>Planning</td>
+  <td>智能体的"大脑"，接到任务后先不急着动手，而是规划出"第一步干啥、第二步干啥"的步骤图。</td>
+  <td>三才·地层（处理）—— 净化→拆解DNA→派生Task，就是规划管道</td>
+</tr>
+<tr>
+  <td>执行模块<br>Action</td>
+  <td>智能体的"手和脚"，通过点击按钮、调用API、写代码等方式来实际操作。</td>
+  <td>三才·人层（决策+行动）—— 学习任务的实际执行</td>
+</tr>
+<tr>
+  <td>记忆模块<br>Memory</td>
+  <td>智能体的"笔记本"。短期记忆 = 记住刚才聊了啥；长期记忆 = 记住你的个人喜好和历史操作。</td>
+  <td>记忆编辑器 + CNSH记忆存档 —— 你已经有了记忆压缩/还原系统</td>
+</tr>
+<tr>
+  <td>工具调用<br>Tool Use</td>
+  <td>智能体发现自己搞不定时，会"打电话摇人"，比如调用计算器、搜索引擎或订票系统来帮忙。</td>
+  <td>Chrome工具箱9大工具 + Python引擎 —— 卦分类器、骨检索、双盾都是"摇来的人"</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>状态机<br>State Machine</td>
+  <td>智能体当前处于哪个"状态"。就像红绿灯——红灯停、绿灯行，每个状态下能做的事不一样。</td>
+  <td>Inbox状态流：待净化→已净化→已入库 —— 这就是你设计的状态机</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第3层 ========== -->
+<div class="section-header"><span class="num">3</span> 开发架构层 · 怎么搭骨架</div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>大语言模型<br>LLM</td>
+  <td>智能体的"CPU"或"常识库"，负责理解你的话并生成思考和回复。GPT、Claude、Gemini都是LLM。</td>
+  <td>你正在用的Claude —— 它是龍魂系统的"脑子"，你的系统是"骨架+灵魂"</td>
+</tr>
+<tr>
+  <td>检索增强生成<br>RAG</td>
+  <td>给智能体配一个"随身百科"，回答前先查一下最新资料，避免胡说八道。</td>
+  <td>bone_retriever.py（FAISS骨检索）—— 你已经造了自己的RAG引擎</td>
+</tr>
+<tr>
+  <td>编排<br>Orchestration</td>
+  <td>智能体团队的"项目经理"，负责协调多个智能体分工合作，完成一个人干不了的复杂活。</td>
+  <td>MVP工作台 —— 将来多个Agent协作时，工作台就是编排中心</td>
+</tr>
+<tr>
+  <td>护栏<br>Guardrails</td>
+  <td>给智能体设定的"安全交规"，防止它乱说话、乱操作，或者泄露隐私。</td>
+  <td>shield_engine.py 双盾引擎 —— 入口门防污染，出口门防泄露，数字根熔断是最高优先级护栏</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>提示词工程<br>Prompt Engineering</td>
+  <td>怎么跟AI说话才能让它听懂。不是你说得多就好，而是说得"对"。好的提示词 = 好的任务说明书。</td>
+  <td>dragon-soul-agent SKILL.md —— 你的技能包就是一个超大号的"提示词模板"</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>函数调用<br>Function Calling</td>
+  <td>让AI不只是"说话"，还能"按按钮"。你定义好有哪些按钮，AI自己判断什么时候按哪个。</td>
+  <td>Notion MCP工具 —— 我调用notion-create-pages就是在"按按钮"帮你建页面</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>MCP<br>Model Context Protocol</td>
+  <td>让AI连接外部工具的"标准插头"。就像USB——不管什么设备，插上就能用。</td>
+  <td>你现在连着的Notion、Gmail、Google Calendar都是通过MCP接入的</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>沙盒<br>Sandbox</td>
+  <td>给智能体一个"演习场"，它可以在里面随便试，搞坏了也不影响真实世界。</td>
+  <td>沙盒推演面板 sandbox-dashboard —— 你已经建好了</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第4层 ========== -->
+<div class="section-header"><span class="num">4</span> 数据基建层 · 智能体的粮草<span class="tag tag-new" style="margin-left:auto">新增层</span></div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>向量嵌入<br>Embedding</td>
+  <td>把文字变成一串数字（向量），这样计算机就能算出两段话"有多像"。比如"开心"和"高兴"的向量会很近。</td>
+  <td>bone_retriever.py 里的 TF-IDF + SVD —— 把知识DNA变成向量才能搜索</td>
+</tr>
+<tr>
+  <td>向量数据库<br>Vector DB</td>
+  <td>专门存"数字化文字"的仓库。普通数据库查的是"精确匹配"，向量数据库查的是"意思相近"。</td>
+  <td>FAISS索引 —— 你的骨检索引擎用的就是向量数据库</td>
+</tr>
+<tr>
+  <td>知识图谱<br>Knowledge Graph</td>
+  <td>用"点+线"画出知识之间的关系网。"张三→是→李四的老板"就是一条图谱。</td>
+  <td>Notion Relations —— Inbox→DNA→Tasks 的关联链就是你的知识图谱</td>
+</tr>
+<tr>
+  <td>数据清洗<br>Data Cleaning</td>
+  <td>把脏数据洗干净：去掉重复的、修正错误的、补全缺失的。垃圾进=垃圾出。</td>
+  <td>净化管道 —— 过滤营销语言、标记污染指数，这就是数据清洗</td>
+</tr>
+<tr>
+  <td>微调<br>Fine-tuning</td>
+  <td>给通用AI"加餐补课"，用你自己的数据再训练一轮，让它更懂你的领域。</td>
+  <td>gua_classifier.py 的 retrain 功能 —— 你已经在做分类器的微调了</td>
+</tr>
+<tr>
+  <td>语料库<br>Corpus</td>
+  <td>训练AI用的"教材"。语料越多越干净，AI越聪明。</td>
+  <td>Knowledge DNA 知识基因库 —— 每一条DNA就是一份教材</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第5层 ========== -->
+<div class="section-header"><span class="num">5</span> 高级功能层 · 智能体的段位</div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>技能<br>Skill</td>
+  <td>把一个复杂任务打包成"一键操作"的技能包，比零散的工具调用更智能。比如"报销"技能包含拍照→识别→填表→提交。</td>
+  <td>.skill 技能包 —— dragon-soul-agent.skill 就是你的第一个技能</td>
+</tr>
+<tr>
+  <td>反馈循环<br>Feedback Loop</td>
+  <td>智能体"做完事看效果"，如果结果不好，就自己调整方法，下次做得更好。</td>
+  <td>学习任务→复盘笔记 —— 你的Tasks里有"复盘"字段，就是反馈循环</td>
+</tr>
+<tr>
+  <td>元认知<br>Metacognition</td>
+  <td>智能体的"自我反思"，比如"我刚才那步是不是走错了？要不要换个策略试试？"</td>
+  <td>三色审计 🟢🟡🔴 —— 审计系统就是元认知的外化，让系统"照镜子"</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>思维链<br>Chain of Thought</td>
+  <td>让AI"把想的过程说出来"，一步一步推理，而不是直接蹦答案。展示过程 = 结果更靠谱。</td>
+  <td>DNA拆解过程 —— 把一个大知识拆成多个DNA，每一步都有记录，就是思维链</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>多模态<br>Multimodal</td>
+  <td>智能体不只看文字，还能看图片、听声音、看视频。"多模态"就是"多种感官都有"。</td>
+  <td>你的录屏 + 截图 + 文档 + 代码 —— 龍魂系统天然就是多模态的</td>
+</tr>
+<tr>
+  <td><span class="tag tag-new">补充</span>幻觉<br>Hallucination</td>
+  <td>AI一本正经地"编瞎话"。它不是故意的，是因为没有真正理解，只是在拼凑看起来合理的文字。</td>
+  <td>污染指数 —— 你设计的污染指数就是用来标记"这条信息可能是瞎编的"</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第6层 ========== -->
+<div class="section-header"><span class="num">6</span> 安全治理层 · 给智能体立规矩<span class="tag tag-new" style="margin-left:auto">新增层</span></div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>PII检测<br>PII Detection</td>
+  <td>自动发现个人隐私信息（手机号、身份证、银行卡），发现就打码，防止泄露。</td>
+  <td>shield_engine.py OutputGate —— 自动遮蔽手机号、身份证、API密钥</td>
+</tr>
+<tr>
+  <td>数字根熔断<br>Digital Root Fuse</td>
+  <td>用洛书数学给内容"算命"，数字根落在369就亮红灯，优先级最高的安全开关。</td>
+  <td>DigitalRootFuse —— dr(n)=1+((n-1)mod9)，绿区{1,2,4,5,7,8}/黄{6}/红{3,9}</td>
+</tr>
+<tr>
+  <td>权限最小化<br>Least Privilege</td>
+  <td>智能体只能碰它"该碰的东西"，多余的权限一律不给。就像员工只能进自己的办公室。</td>
+  <td>Manifest V3 权限声明 —— Chrome插件只申请 storage + downloads</td>
+</tr>
+<tr>
+  <td>审计日志<br>Audit Log</td>
+  <td>智能体干的每一件事都被记录在案，谁看了什么、改了什么、什么时候干的，一清二楚。</td>
+  <td>天下无欺·真相受理台 —— 证据链管理，不可篡改</td>
+</tr>
+<tr>
+  <td>可解释性<br>Explainability</td>
+  <td>AI做了决定后能说清楚"为什么这样做"，而不是黑箱操作。你问它凭什么，它得解释得出来。</td>
+  <td>DNA追溯码 —— 每个输出都能追溯到来源，解释链条完整</td>
+</tr>
+<tr>
+  <td>人在回路<br>Human-in-the-Loop</td>
+  <td>关键决定还是要人来拍板，AI只是给建议。自动化不等于全自动，该踩刹车时必须踩。</td>
+  <td>三色审计的🟡待审 —— 黄灯就是"等人来看一眼"</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第7层 ========== -->
+<div class="section-header"><span class="num">7</span> 部署运维层 · 让智能体跑起来<span class="tag tag-new" style="margin-left:auto">新增层</span></div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>API<br>应用程序接口</td>
+  <td>两个系统之间的"传话筒"。你的程序通过API告诉另一个程序"帮我查个数据"或"帮我发条消息"。</td>
+  <td>Notion API —— 你的三大数据库就是通过API操作的</td>
+</tr>
+<tr>
+  <td>Webhook</td>
+  <td>API是你主动打电话问，Webhook是对方有事了主动打给你。就像外卖到了自动给你发短信。</td>
+  <td>未来方向 —— Notion有更新时自动通知Agent处理</td>
+</tr>
+<tr>
+  <td>定时任务<br>Cron Job</td>
+  <td>让智能体"定好闹钟自己干活"，比如每天早上8点自动整理昨天的学习记录。</td>
+  <td>进化路线：静态脚本→定时→活体 —— 你正在从第1阶段往第2阶段走</td>
+</tr>
+<tr>
+  <td>容器化<br>Containerization</td>
+  <td>把智能体装进一个"标准集装箱"（Docker），走到哪里都能跑，不怕环境不一样。</td>
+  <td>Chrome Extension .zip —— 你的插件就是一个轻量容器</td>
+</tr>
+<tr>
+  <td>延迟<br>Latency</td>
+  <td>从你发出指令到AI回复的等待时间。越短越好。网慢就卡，本地运行就快。</td>
+  <td>本地优先原则 —— 你的工具箱数据不离开本机，延迟最低</td>
+</tr>
+<tr>
+  <td>版本控制<br>Version Control</td>
+  <td>每次改动都留一个存档点，改坏了可以"回到过去"。就像游戏里的存档。</td>
+  <td>Chrome插件 v1→v2→v3 + .skill版本号 —— 你一直在做版本管理</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第8层 ========== -->
+<div class="section-header"><span class="num">8</span> 协作进化层 · 从单兵到军团<span class="tag tag-new" style="margin-left:auto">新增层</span></div>
+<table>
+<thead><tr><th>专业术语</th><th>大白话作用</th><th>龍魂系统映射</th></tr></thead>
+<tbody>
+<tr>
+  <td>多智能体<br>Multi-Agent</td>
+  <td>一群智能体组队干活，有的负责查资料，有的负责写代码，有的负责审核。各司其职。</td>
+  <td>数字大军 —— 你的设计哲学本身就是多智能体的：每条DNA是一个"兵"</td>
+</tr>
+<tr>
+  <td>委托链<br>Delegation Chain</td>
+  <td>大任务拆成小任务，一层一层往下派。老板→经理→组长→干活的人。</td>
+  <td>Inbox→DNA→Tasks 就是三级委托链</td>
+</tr>
+<tr>
+  <td>共享记忆<br>Shared Memory</td>
+  <td>团队里的智能体共用一个"公告板"，谁发现了什么都写上去，大家都能看到。</td>
+  <td>Notion数据库 Relations —— 三个数据库互相关联，信息共享</td>
+</tr>
+<tr>
+  <td>进化/迭代<br>Evolution</td>
+  <td>系统越用越聪明。不是一次性造好的，而是用着用着不断进化。</td>
+  <td>你的整个系统就在进化：从HTML页面→Chrome插件→Python引擎→Claude技能→MCP（下一步）</td>
+</tr>
+<tr>
+  <td>插件生态<br>Plugin Ecosystem</td>
+  <td>其他人做的"配件"可以直接装到你的系统上，不用自己从零做。就像手机装APP。</td>
+  <td>.skill技能包 + MCP连接器 —— 你已经在这个生态里了</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第9层 ========== -->
+<div class="section-header"><span class="num">9</span> 龍魂专属层 · 你系统里独有的概念<span class="tag tag-new" style="margin-left:auto">新增层</span></div>
+<table>
+<thead><tr><th>龍魂术语</th><th>大白话作用</th><th>对应行业标准</th></tr></thead>
+<tbody>
+<tr>
+  <td>三才算法<br>天·地·人</td>
+  <td>任何事情都分三层看：天（外部输入）、地（内部处理）、人（最终决策）。万事万物逃不出这三层。</td>
+  <td>感知→规划→执行 三模块架构，但融入了易经的世界观</td>
+</tr>
+<tr>
+  <td>DNA追溯码<br>#龍芯⚡️</td>
+  <td>每一个知识、每一个创作都有"身份证号"，永远知道它从哪来、谁造的、什么时候造的。</td>
+  <td>Audit Trail + Content Addressing，但更激进——追溯到人</td>
+</tr>
+<tr>
+  <td>三色审计<br>🟢🟡🔴</td>
+  <td>红绿灯系统：绿灯通行，黄灯人审，红灯熔断。简单到任何人3秒内看懂状态。</td>
+  <td>Guardrails + 人在回路，但用颜色让非技术人员也能参与</td>
+</tr>
+<tr>
+  <td>数字大军</td>
+  <td>知识不是用来"学"的，是用来"组军"的。每条DNA是一个兵，组合起来打仗。</td>
+  <td>Multi-Agent + Knowledge Graph，但用军事比喻让人更直觉理解</td>
+</tr>
+<tr>
+  <td>净化管道</td>
+  <td>任何外来信息进入系统前，必须先"洗干净"——去掉营销话术、标记污染程度、提取干货。</td>
+  <td>Data Cleaning + RAG Preprocessing，但有标准化的流水线</td>
+</tr>
+<tr>
+  <td>洛书369</td>
+  <td>古老的数学智慧：把数字算到只剩一位（数字根），落在3/6/9有特殊意义。用来做最高优先级的安全判断。</td>
+  <td>Hashing + Anomaly Detection，但用了独创的数学内核</td>
+</tr>
+<tr>
+  <td>CNSH</td>
+  <td>中文自然语法混合编程——让不懂英文的人也能写代码、设计系统、表达逻辑。</td>
+  <td>Low-Code / No-Code + 自然语言编程，但以中文为第一公民</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 总结 ========== -->
+<div class="summary">
+  <h2>智能体进化时间线 · 从实习生到将军</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>第1天 · 感知</strong>：你教他怎么看邮件、怎么看系统数据。
+      <div class="module">→ 感知模块 · Learning Inbox</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第2天 · 规划</strong>：你给他一个任务，他先写了个待办事项列表。
+      <div class="module">→ 规划模块 · DNA拆解管道</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第3天 · 执行与工具</strong>：他发现需要财务数据，自己跑去系统里查。
+      <div class="module">→ 执行模块 + 工具调用 · Chrome工具箱 + Python引擎</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第1周 · 记忆</strong>：他开始记住你每天的习惯。
+      <div class="module">→ 记忆模块 · 记忆编辑器 + CNSH记忆存档</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第2周 · 安全</strong>：他学会了哪些话不能说、哪些数据不能碰。
+      <div class="module">→ 护栏 + PII检测 · 双盾引擎 + 数字根熔断</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第1个月 · 技能</strong>：他把"整理周报"做成了一键模板。
+      <div class="module">→ 技能包 · dragon-soul-agent.skill</div>
+    </div>
+    <div class="timeline-item">
+      <strong>第3个月 · 协作</strong>：他开始带新人了，多个Agent分工合作。
+      <div class="module">→ 多智能体 · 数字大军编排</div>
+    </div>
+    <div class="timeline-item">
+      <strong>转正 · 自主</strong>：你说一句"把季度报告搞定"，他从查资料到写报告全自动。
+      <div class="module">→ 自主性 + 编排 · 三才算法全链路自动化</div>
+    </div>
+    <div class="timeline-item">
+      <strong>当将军 · 进化</strong>：他不只干活了，还能自己发现问题、提出改进、训练下属。
+      <div class="module">→ 元认知 + 进化 · 三色审计反馈循环 + 可训练模型</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰 · 龍魂系统 v3.0<br>
+  农民也能懂的AI智能体指南 · 2026.04.15<br>
+  #龍芯⚡️20260415-DOC-9A3F7C2B
+</div>
+
+</div>
+</body>
+</html>

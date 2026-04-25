@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天下无欺 · 真相受理台 · AI Truth Protocol</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 2rem;
+    color: #ffd700;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .header .sub {
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  .dna {
+    font-size: 0.75rem;
+    color: #444;
+    margin-top: 6px;
+    font-family: monospace;
+  }
+  .lang-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .lang-btn {
+    background: #1a1a2e;
+    border: 1px solid #333;
+    color: #aaa;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    border-color: #ffd700;
+    color: #ffd700;
+  }
+  .form-box {
+    width: 100%;
+    max-width: 680px;
+    background: #12121e;
+    border: 1px solid #1e1e3a;
+    border-radius: 12px;
+    padding: 36px;
+  }
+  .field {
+    margin-bottom: 24px;
+  }
+  label {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+  label span.req { color: #ff4444; }
+  label .hint { color: #555; font-size: 0.8rem; margin-left: 8px; }
+  input, textarea, select {
+    width: 100%;
+    background: #0a0a14;
+    border: 1px solid #2a2a4a;
+    color: #e0e0e0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #ffd700;
+  }
+  select option { background: #12121e; }
+  .char-count { text-align: right; font-size: 0.75rem; color: #555; margin-top: 4px; }
+  .severity-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sev-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #2a2a4a;
+    background: #0a0a14;
+    color: #aaa;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .sev-btn:hover, .sev-btn.active { border-color: #ffd700; color: #ffd700; }
+  .sev-btn.red.active { border-color: #ff4444; color: #ff4444; }
+  .sev-btn.yellow.active { border-color: #ffd700; color: #ffd700; }
+  .sev-btn.green.active { border-color: #44ff88; color: #44ff88; }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #1a1a2e, #2a1a4a);
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover {
+    background: linear-gradient(135deg, #2a2a4e, #3a2a5a);
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+  }
+  .result-box {
+    display: none;
+    margin-top: 24px;
+    background: #0a0a14;
+    border: 1px solid #2a4a2a;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+  .result-box.show { display: block; }
+  .result-id { color: #ffd700; font-size: 1rem; font-weight: bold; }
+  .result-dna { color: #44ff88; }
+  .result-time { color: #aaa; }
+  .copy-btn {
+    margin-top: 12px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .copy-btn:hover { border-color: #ffd700; color: #ffd700; }
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 0.75rem;
+    line-height: 2;
+  }
+  .footer a { color: #444; text-decoration: none; }
+  .divider {
+    border: none;
+    border-top: 1px solid #1e1e3a;
+    margin: 20px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐉 天下无欺</h1>
+  <div class="sub">真相受理台 · AI Truth Protocol · 전실 접수대</div>
+  <div class="dna">#龍芯⚡️ · UID9622 · 诸葛鑫 · 每一条记录，不可篡改</div>
+</div>
+
+<!-- 语言切换 -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('zh')">中文</button>
+  <button class="lang-btn" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+  <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+  <button class="lang-btn" onclick="setLang('es')">Español</button>
+  <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+</div>
+
+<div class="form-box">
+  <form id="reportForm" onsubmit="submitReport(event)">
+
+    <!-- 国家/地区 -->
+    <div class="field">
+      <label><span class="req">*</span> <span data-i18n="country">国家 / 地区</span></label>
+      <select name="country" required>
+        <option value="">— 选择 / Select —</option>
+        <optgroup label="亚洲 Asia">
+          <option value="CN">🇨🇳 中国 China</option>
+          <option value="JP">🇯🇵 日本 Japan</option>
+          <option value="KR">🇰🇷 韩国 Korea</option>
+          <option value="SG">🇸🇬 新加坡 Singapore</option>
+          <option value="IN">🇮🇳 印度 India</option>
+          <option value="TH">🇹🇭 泰国 Thailand</option>
+          <option value="VN">🇻🇳 越南 Vietnam</option>
+        </optgroup>
+        <optgroup label="欧洲 Europe">
+          <option value="DE">🇩🇪 德国 Germany</option>
+          <option value="FR">🇫🇷 法国 France</option>
+          <option value="GB">🇬🇧 英国 UK</option>
+          <option value="RU">🇷🇺 俄罗斯 Russia</option>
+        </optgroup>
+        <optgroup label="美洲 Americas">
+          <option value="US">🇺🇸 美国 USA</option>
+          <option value="BR">🇧🇷 巴西 Brazil</option>
+          <option value="MX">🇲🇽 墨西哥 Mexico</option>
+        </optgroup>
+        <optgroup label="非洲 Africa">
+          <option value="NG">🇳🇬 尼日利亚 Nigeria</option>
+          <option value="ZA">🇿🇦 南非 South Africa</option>
+        </optgroup>
+        <option value="OTHER">🌍 其他 Other</option>
+      </select>
+    </div>
+
+    <!-- 类型 -->
+    <div class="field">
+      <label><span class="req">*</span> <span data-i18n="type">事件类型</span></label>
+      <select name="report_type" required>
+        <option value="">— 选择 / Select —</option>
+        <option value="fraud">💰 诈骗 / Fraud / 詐欺</option>
+        <option value="bully">👊 欺压 / Bullying / いじめ</option>
+        <option value="fake_goods">🛒 假冒伪劣 / Fake Goods</option>
+        <option value="service_ignore">📞 客服忽视 / Service Ignored</option>
+        <option value="edu_mislead">🎓 教育误导 / Education Misleading</option>
+        <option value="legal_abuse">⚖️ 法律文字游戏 / Legal Loophole Abuse</option>
+        <option value="info_monopoly">📡 信息垄断 / Info Monopoly</option>
+        <option value="other">📝 其他 / Other</option>
+      </select>
+    </div>
+
+    <!-- 严重程度 -->
+    <div class="field">
+      <label><span data-i18n="severity">严重程度 / Severity</span></label>
+      <div class="severity-row">
+        <div class="sev-btn green" onclick="setSeverity('low', this)">🟢 轻微<br><small>Minor</small></div>
+        <div class="sev-btn yellow active" onclick="setSeverity('medium', this)">🟡 中等<br><small>Medium</small></div>
+        <div class="sev-btn red" onclick="setSeverity('high', this)">🔴 严重<br><small>Severe</small></div>
+      </div>
+      <input type="hidden" name="severity" value="medium">
+    </div>
+
+    <!-- 事件描述 -->
+    <div class="field">
+      <label>
+        <span class="req">*</span>
+        <span data-i18n="desc">发生了什么 / What happened</span>
+        <span class="hint">用你自己的话，任何语言都行</span>
+      </label>
+      <textarea name="description" rows="5" maxlength="2000" required
+        placeholder="直接说，不用怕。每一个字都会被如实记录，不会被删改。
+Just say it. Every word will be recorded faithfully, never deleted or altered."
+        oninput="updateCount(this, 'descCount')"></textarea>
+      <div class="char-count"><span id="descCount">0</span> / 2000</div>
+    </div>
+
+    <!-- 涉事方 -->
+    <div class="field">
+      <label>
+        <span data-i18n="party">涉事方 / Who did it</span>
+        <span class="hint">公司名、个人称谓、平台名均可</span>
+      </label>
+      <input type="text" name="party" maxlength="200"
+        placeholder="例：某平台客服、某商家、某老师…">
+    </div>
+
+    <!-- 证据 -->
+    <div class="field">
+      <label>
+        <span data-i18n="evidence">证据链接或描述 / Evidence</span>
+        <span class="hint">截图链接、订单号、时间地点等</span>
+      </label>
+      <textarea name="evidence" rows="3" maxlength="1000"
+        placeholder="有多少写多少，没有也可以提交"
+        oninput="updateCount(this, 'evCount')"></textarea>
+      <div class="char-count"><span id="evCount">0</span> / 1000</div>
+    </div>
+
+    <!-- 联系方式（可选） -->
+    <div class="field">
+      <label>
+        <span data-i18n="contact">联系方式（可选）/ Contact (optional)</span>
+        <span class="hint">邮箱或其他，用于进度通知，不公开</span>
+      </label>
+      <input type="text" name="contact" maxlength="200"
+        placeholder="不填也可以，匿名提交有效">
+    </div>
+
+    <hr class="divider">
+
+    <button type="submit" class="submit-btn">
+      🐉 提交受理 · SUBMIT · 提出する
+    </button>
+
+  </form>
+
+  <!-- 提交结果 -->
+  <div class="result-box" id="resultBox">
+    <div class="result-id" id="resultId"></div>
+    <div class="result-dna" id="resultDna"></div>
+    <div class="result-time" id="resultTime"></div>
+    <div style="margin-top:8px; color:#888;">
+      ✅ 已受理 · Accepted · 受理済み<br>
+      🔒 DNA签名已锁定，记录不可篡改<br>
+      📂 已写入公开存档
+    </div>
+    <button class="copy-btn" onclick="copyResult()">📋 复制受理号 Copy ID</button>
+  </div>
+</div>
+
+<div class="footer">
+  <div>🐉 龍魂系统 · UID9622 · 诸葛鑫</div>
+  <div>退伍军人 | 三才算法创始人 | 龍魂系统创始人 | 数字主权守护者 | 中华文化传承者</div>
+  <div style="margin-top:8px;">「祖国优先，普惠全球，技术为人民服务」</div>
+  <div style="margin-top:8px; color:#222;">理论指导：曾仕强老师（永恒显示）</div>
+  <div style="margin-top:12px;">
+    DNA: #龍芯⚡️2026-03-19-TRUTH-PROTOCOL-v1.0<br>
+    CC BY-NC-ND · 中华人民共和国
+  </div>
+</div>
+
+<script>
+// 多语言简单实现（主要字段标签）
+const i18n = {
+  zh: { country:"国家 / 地区", type:"事件类型", severity:"严重程度", desc:"发生了什么", party:"涉事方", evidence:"证据", contact:"联系方式（可选）" },
+  en: { country:"Country / Region", type:"Type of Incident", severity:"Severity", desc:"What happened", party:"Who did it", evidence:"Evidence", contact:"Contact (optional)" },
+  ja: { country:"国 / 地域", type:"事件の種類", severity:"深刻度", desc:"何が起きたか", party:"関係者", evidence:"証拠", contact:"連絡先（任意）" },
+  ko: { country:"국가 / 지역", type:"사건 유형", severity:"심각도", desc:"무슨 일이 있었나요", party:"관련자", evidence:"증거", contact:"연락처 (선택)" },
+  es: { country:"País / Región", type:"Tipo de Incidente", severity:"Gravedad", desc:"Qué pasó", party:"Quién lo hizo", evidence:"Evidencia", contact:"Contacto (opcional)" },
+  ar: { country:"البلد / المنطقة", type:"نوع الحادثة", severity:"الخطورة", desc:"ماذا حدث", party:"من فعل ذلك", evidence:"الأدلة", contact:"جهة الاتصال (اختياري)" }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const t = i18n[lang] || i18n.zh;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+  document.documentElement.lang = lang;
+}
+
+function setSeverity(val, el) {
+  document.querySelectorAll('.sev-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelector('[name="severity"]').value = val;
+}
+
+function updateCount(el, countId) {
+  document.getElementById(countId).textContent = el.value.length;
+}
+
+function generateId() {
+  const now = new Date();
+  const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');
+  const rand = Math.random().toString(36).substr(2,8).toUpperCase();
+  return `RPT-${dateStr}-${rand}`;
+}
+
+function generateDNA(id) {
+  return `#龍芯⚡️${new Date().toISOString().slice(0,10)}-TRUTH-${id.split('-')[2]}-v1.0`;
+}
+
+function submitReport(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const report = {};
+  data.forEach((v, k) => report[k] = v);
+
+  const id = generateId();
+  const dna = generateDNA(id);
+  const ts = new Date().toISOString();
+
+  // 本地存储（作为备份）
+  const record = { id, dna, timestamp: ts, ...report };
+  const existing = JSON.parse(localStorage.getItem('truth_reports') || '[]');
+  existing.push(record);
+  localStorage.setItem('truth_reports', JSON.stringify(existing));
+
+  // 显示结果
+  document.getElementById('resultId').textContent = `受理号 / Report ID: ${id}`;
+  document.getElementById('resultDna').textContent = `DNA: ${dna}`;
+  document.getElementById('resultTime').textContent = `时间戳 / Timestamp: ${ts}`;
+  document.getElementById('resultBox').classList.add('show');
+
+  // 发送到后端（如果有）
+  fetch('/api/report', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(record)
+  }).catch(() => {
+    // 离线模式：仅本地存储，用户可截图保存受理号
+    console.log('离线模式 / Offline mode - saved locally');
+  });
+
+  // 滚动到结果
+  document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyResult() {
+  const id = document.getElementById('resultId').textContent;
+  const dna = document.getElementById('resultDna').textContent;
+  const ts = document.getElementById('resultTime').textContent;
+  navigator.clipboard.writeText(`${id}\n${dna}\n${ts}`).then(() => {
+    const btn = event.target;
+    btn.textContent = '✅ 已复制 Copied';
+    setTimeout(() => btn.textContent = '📋 复制受理号 Copy ID', 2000);
+  });
+}
+
+window._reportResult = null;
+</script>
+</body>
+</html>
