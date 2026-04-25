@@ -1,9 +1,0 @@
-{
-	"messages": [
-		"Committed Files"
-	],
-	"keys": [
-		"committed.files"
-	],
-	"filePath": "blameViewProvider"
-}

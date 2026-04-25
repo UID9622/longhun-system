@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>🐉 龍魂工具箱 v3</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 380px;
+  max-height: 580px;
+  overflow-y: auto;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: linear-gradient(135deg, #0a0a12 0%, #12122a 50%, #0d1f3c 100%);
+  color: #e2e8f0;
+  padding: 16px;
+}
+body::-webkit-scrollbar { width: 4px; }
+body::-webkit-scrollbar-thumb { background: #00d4ff40; border-radius: 4px; }
+
+.header {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c8a84b;
+}
+.header h1 {
+  font-size: 20px;
+  background: linear-gradient(135deg, #c8a84b, #f0d060);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+.header .subtitle { font-size: 10px; color: #8b949e; letter-spacing: 2px; }
+.header .version {
+  font-size: 9px; color: #c8a84b;
+  margin-top: 6px;
+  font-family: "Consolas", monospace;
+}
+
+.section-label {
+  font-size: 10px;
+  color: #c8a84b;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 14px 0 8px 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #c8a84b40, transparent);
+}
+
+.tools { display: flex; flex-direction: column; gap: 6px; }
+.tool-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #ffffff15;
+  border-radius: 8px;
+  background: #ffffff08;
+  color: #e2e8f0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+.tool-btn:hover {
+  background: #ffffff15;
+  border-color: #c8a84b60;
+  transform: translateX(3px);
+  box-shadow: -3px 0 12px #c8a84b20;
+}
+.tool-btn .icon { font-size: 20px; width: 28px; text-align: center; }
+.tool-btn .info { flex: 1; }
+.tool-btn .name { display: block; font-weight: bold; font-size: 12px; margin-bottom: 1px; }
+.tool-btn .desc { display: block; font-size: 9px; color: #8b949e; font-weight: normal; }
+
+/* 分类颜色条 */
+.cat-core .tool-btn { border-left: 3px solid #00d4ff; }
+.cat-algo .tool-btn { border-left: 3px solid #a371f7; }
+.cat-shield .tool-btn { border-left: 3px solid #f0883e; }
+
+.footer {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 9px;
+  color: #3fb950;
+  padding: 6px;
+  background: #3fb95010;
+  border-radius: 6px;
+  border: 1px solid #3fb95020;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🐉 龍魂系统工具箱</h1>
+  <div class="subtitle">技术主权 · 数据主权 · 本地优先</div>
+  <div class="version">v3.0.0 | UID9622 | #龍芯⚡️20260415-EXT-V3</div>
+</div>
+
+<!-- 核心工具 -->
+<div class="section-label">🎮 核心主控</div>
+<div class="tools cat-core">
+  <a class="tool-btn" href="pages/main-console.html" target="_blank">
+    <div class="icon">🎛️</div>
+    <div class="info">
+      <span class="name">系统主控台</span>
+      <span class="desc">记忆压缩 · DNA存证 · 资产扫描 · 统计分析</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/mvp-workbench.html" target="_blank">
+    <div class="icon">🔨</div>
+    <div class="info">
+      <span class="name">造物主MVP工作台</span>
+      <span class="desc">v6.1 · 项目规划 · 任务管理 · 迭代追踪</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/memory-editor.html" target="_blank">
+    <div class="icon">🧠</div>
+    <div class="info">
+      <span class="name">记忆编辑器</span>
+      <span class="desc">DNA追溯 · 太极算法 · 智能压缩 · 快速还原</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/asset-scanner.html" target="_blank">
+    <div class="icon">🔍</div>
+    <div class="info">
+      <span class="name">资产扫描器</span>
+      <span class="desc">核心原创识别 · 混合检测 · 资产分类</span>
+    </div>
+  </a>
+</div>
+
+<!-- 算法引擎 -->
+<div class="section-label">🧬 算法引擎</div>
+<div class="tools cat-algo">
+  <a class="tool-btn" href="pages/sancai-flow.html" target="_blank">
+    <div class="icon">🌀</div>
+    <div class="info">
+      <span class="name">三才流場</span>
+      <span class="desc">v6优化版 · 神经粒子 · 洛书骨架 · 赫布学习</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/lu-time-engine.html" target="_blank">
+    <div class="icon">⏳</div>
+    <div class="info">
+      <span class="name">LU-TIME时间推演</span>
+      <span class="desc">天干地支 · 五行推演 · 时间轴引擎</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/sandbox-dashboard.html" target="_blank">
+    <div class="icon">🧪</div>
+    <div class="info">
+      <span class="name">沙盒推演面板</span>
+      <span class="desc">v3.0 · 模拟推演 · 三色预警 · 关键词分析</span>
+    </div>
+  </a>
+</div>
+
+<!-- 审计与守护 -->
+<div class="section-label">🛡️ 审计守护</div>
+<div class="tools cat-shield">
+  <a class="tool-btn" href="pages/stats-dashboard.html" target="_blank">
+    <div class="icon">📊</div>
+    <div class="info">
+      <span class="name">统计看板</span>
+      <span class="desc">事事有回应 · 数据可视化 · 全局概览</span>
+    </div>
+  </a>
+  <a class="tool-btn" href="pages/truth-report.html" target="_blank">
+    <div class="icon">⚖️</div>
+    <div class="info">
+      <span class="name">天下无欺·真相受理台</span>
+      <span class="desc">真相协议 · 证据链 · DNA签名</span>
+    </div>
+  </a>
+</div>
+
+<div class="footer">✅ 9大工具就绪 | 🗄️ 本地存储 | 🔒 数据不离开本机 | 🛡️ 双盾守护</div>
+
+</body>
+</html>

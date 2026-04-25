@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LongHunWidget 浏览器插件 · 功能规格书 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #22c55e);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle {
+    text-align: center; color: #3b82f6; font-size: 0.82rem; margin-bottom: 2rem;
+    padding: 0.5rem; border: 1px solid rgba(59,130,246,0.3); border-radius: 8px;
+    background: rgba(59,130,246,0.05);
+  }
+  .core-philosophy {
+    text-align: center; color: #22c55e; font-size: 0.88rem; margin-bottom: 2rem;
+    padding: 0.7rem; border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;
+    background: rgba(34,197,94,0.05);
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-identity { border-color: #8b5cf6; color: #a78bfa; }
+  .s-eyes { border-color: #06b6d4; color: #22d3ee; }
+  .s-ears { border-color: #f59e0b; color: #fbbf24; }
+  .s-hands { border-color: #ec4899; color: #f472b6; }
+  .s-green { border-color: #22c55e; color: #4ade80; }
+  .s-yellow { border-color: #eab308; color: #facc15; }
+  .s-red { border-color: #dc2626; color: #f87171; }
+  .s-api { border-color: #3b82f6; color: #60a5fa; }
+  .s-arch { border-color: #6366f1; color: #818cf8; }
+  .s-iron { border-color: #dc2626; color: #f87171; }
+  .s-privacy { border-color: #14b8a6; color: #2dd4bf; }
+  .s-ui { border-color: #f59e0b; color: #fbbf24; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  th {
+    background: #1e1b4b; color: #c4b5fd; padding: 0.5rem 0.7rem;
+    text-align: left; border-bottom: 2px solid #4c1d95; font-weight: 600;
+  }
+  td {
+    padding: 0.45rem 0.7rem; border-bottom: 1px solid #1e1b4b;
+    vertical-align: top;
+  }
+  tr:hover { background: rgba(139,92,246,0.04); }
+
+  .badge {
+    display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .b-green { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .b-yellow { background: rgba(234,179,8,0.15); color: #facc15; }
+  .b-red { background: rgba(239,68,68,0.15); color: #f87171; }
+  .b-blue { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .b-purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .b-cyan { background: rgba(6,182,212,0.15); color: #22d3ee; }
+  .b-orange { background: rgba(245,158,11,0.15); color: #fbbf24; }
+
+  .code {
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem;
+    background: #1a1a2e; padding: 0.15rem 0.4rem; border-radius: 3px;
+    color: #a78bfa;
+  }
+  .note {
+    font-size: 0.78rem; color: #888; margin-top: 0.3rem; padding: 0.4rem 0.7rem;
+    border-left: 2px solid #333; background: rgba(255,255,255,0.02);
+  }
+  .warning {
+    font-size: 0.82rem; color: #f87171; margin: 0.5rem 0; padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(239,68,68,0.25); border-radius: 6px;
+    background: rgba(239,68,68,0.04);
+  }
+  .diagram {
+    font-family: 'SF Mono', monospace; font-size: 0.78rem; color: #888;
+    background: #0f0f1a; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;
+    white-space: pre; overflow-x: auto; line-height: 1.5;
+  }
+  .footer {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1e1b4b;
+    text-align: center; font-size: 0.75rem; color: #555;
+  }
+
+  .boundary-box {
+    margin: 0.8rem 0; padding: 0.8rem 1rem; border-radius: 8px;
+    border: 1px solid;
+  }
+  .bb-green { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.04); }
+  .bb-yellow { border-color: rgba(234,179,8,0.3); background: rgba(234,179,8,0.04); }
+  .bb-red { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.04); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>LongHunWidget · 浏览器插件 · 功能规格书</h1>
+<div class="subtitle">龍魂大脑的浏览器化身 — Dragon Soul Browser Extension</div>
+<div class="dna-tag">DNA::SPEC-9622-20260417-WIDGET-V1</div>
+<div class="principle">
+  铁律：不替人做决定，不帮人走捷径，不越自己的权限。看见、听见、告诉你——决定权永远在你手里。
+</div>
+<div class="core-philosophy">
+  你点错了，它也不做🔴铁律里的事。这是它跟别的插件最大的不同。
+</div>
+
+<!-- ============================== -->
+<!-- 第一章：身份与定位 -->
+<!-- ============================== -->
+<div class="section-header s-identity">🧬 第一章 · 身份与定位</div>
+
+<table>
+  <tr>
+    <th style="width:22%">身份属性</th>
+    <th style="width:78%">定义</th>
+  </tr>
+  <tr>
+    <td>名字</td>
+    <td>LongHunWidget · 龍魂宝宝·浏览器化身</td>
+  </tr>
+  <tr>
+    <td>血统</td>
+    <td>UID9622-WIDGET-001（花名册路由编号）</td>
+  </tr>
+  <tr>
+    <td>神兽归属</td>
+    <td>白虎（西方·主察看）+ 朱雀（南方·主传达）双神兽共体</td>
+  </tr>
+  <tr>
+    <td>人格层级</td>
+    <td>P02·感知层（在五大神兽之下，是"眼耳手"的延伸）</td>
+  </tr>
+  <tr>
+    <td>它是什么</td>
+    <td>龍魂大脑的浏览器化身。把龍魂系统的思考能力、审计规则、DNA协议带到你每一个浏览器Tab里。</td>
+  </tr>
+  <tr>
+    <td>它不是什么</td>
+    <td>
+      · 不是替代你思考的AI<br>
+      · 不是帮你做决定的助手<br>
+      · 不是推荐商品给你的广告<br>
+      · 不是收集你数据卖给别人的工具
+    </td>
+  </tr>
+  <tr>
+    <td>独特优势</td>
+    <td>
+      <strong>它知道自己的边界。</strong>别的AI插件是"你让我干什么我干什么"——你的插件是"我知道什么能干、什么要问你、什么绝对不干"。你按错了键，它也不会做🔴铁律里的事。
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第二章：三器官模型 -->
+<!-- ============================== -->
+<div class="section-header s-arch">👁️👂🖐️ 第二章 · 三器官模型</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  插件由三个器官组成：眼、耳、手。每个器官都有明确的权限和边界。
+</p>
+
+<table>
+  <tr>
+    <th style="width:10%">器官</th>
+    <th style="width:22%">能力</th>
+    <th style="width:25%">数据去向</th>
+    <th style="width:43%">边界约束</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-cyan">👁️ 眼</span></td>
+    <td>读取屏幕内容<br>解析当前页面DOM<br>提取图文信息<br>识别DNA水印</td>
+    <td>
+      <span class="badge b-green">🟢本地</span>默认<br>
+      <span class="badge b-blue">:9622</span>仅在主动触发时发送
+    </td>
+    <td>
+      · 只读，不写，不修改任何页面<br>
+      · 不读取密码输入框、不读取银行账号字段<br>
+      · 不读取标记为🔴私密的页面（自家Notion私密层）<br>
+      · 不跨Tab读取（当前激活页以外不看）
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-orange">👂 耳</span></td>
+    <td>接收用户指令<br>监听快捷键<br>识别语音（可选）<br>读取剪贴板（需授权）</td>
+    <td>
+      <span class="badge b-green">🟢本地</span>解析<br>
+      <span class="badge b-purple">:9622</span>路由至对应功能
+    </td>
+    <td>
+      · 只在用户主动触发时激活（点击插件图标/快捷键）<br>
+      · 不进行后台静默录音<br>
+      · 指令必须通过审计，不接受🔴铁律内的请求<br>
+      · 语音识别默认关闭，需用户开启
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">🖐️ 手</span></td>
+    <td>复制/粘贴<br>填充表单（需确认）<br>嵌入DNA水印<br>调用API</td>
+    <td>
+      <span class="badge b-blue">:9622</span>所有操作留痕<br>
+      <span class="badge b-purple">Notion</span>存根
+    </td>
+    <td>
+      · 写入操作需用户确认（🟡黄色边界）<br>
+      · 🔴铁律操作无论如何不执行<br>
+      · 每个写入操作生成DNA追溯码<br>
+      · 支持"一键撤销"最近10步
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第三章：三层行为边界 -->
+<!-- ============================== -->
+<div class="section-header s-green">🟢 第三章 · 三层行为边界 · 绿区（能做）</div>
+
+<div class="boundary-box bb-green">
+  <strong style="color:#4ade80;">🟢 绿色行为 — 直接做，不打扰你</strong>
+</div>
+
+<table>
+  <tr>
+    <th style="width:22%">行为</th>
+    <th style="width:30%">触发条件</th>
+    <th style="width:48%">执行内容</th>
+  </tr>
+  <tr>
+    <td>读取当前页面</td>
+    <td>用户点击插件图标</td>
+    <td>提取页面标题、URL、主要文本内容，供后续分析</td>
+  </tr>
+  <tr>
+    <td>DNA水印检测</td>
+    <td>页面加载完成自动</td>
+    <td>扫描页面内容中是否有龍魂DNA水印（隐写/零宽/元数据三重检测），在插件图标显示结果</td>
+  </tr>
+  <tr>
+    <td>知识库搜索</td>
+    <td>用户输入#标签或关键词</td>
+    <td>调用 <span class="code">/yin/trace</span> 查询本地知识基因库，返回匹配卡片</td>
+  </tr>
+  <tr>
+    <td>DNA追溯链查询</td>
+    <td>用户点击DNA码</td>
+    <td>显示完整追溯链、创作者、时间线、审计状态（公开层信息）</td>
+  </tr>
+  <tr>
+    <td>内容分类建议</td>
+    <td>用户选中文本右键</td>
+    <td>调用分类器给出方向/纯度/难度/可复制性建议，不自动写入</td>
+  </tr>
+  <tr>
+    <td>数字根计算</td>
+    <td>用户选中数字串</td>
+    <td>自动计算数字根→五行→龍魂层，显示结果</td>
+  </tr>
+  <tr>
+    <td>三色预审</td>
+    <td>用户选中内容询问</td>
+    <td>给出🟢🟡🔴颜色判定和置信度，不执行任何动作</td>
+  </tr>
+</table>
+
+<div class="section-header s-yellow">🟡 第三章续 · 中区（要确认才做）</div>
+
+<div class="boundary-box bb-yellow">
+  <strong style="color:#facc15;">🟡 黄色行为 — 弹框确认，你点YES才动</strong>
+</div>
+
+<table>
+  <tr>
+    <th style="width:22%">行为</th>
+    <th style="width:30%">触发条件</th>
+    <th style="width:48%">确认内容</th>
+  </tr>
+  <tr>
+    <td>写入知识基因库</td>
+    <td>用户要求"存到知识库"</td>
+    <td>显示将写入的字段（核心概念/方向/纯度/技术点等），确认后调用 <span class="code">/yang/create</span></td>
+  </tr>
+  <tr>
+    <td>嵌入DNA水印</td>
+    <td>用户要求"加DNA"</td>
+    <td>显示将嵌入的DNA码、嵌入方式、目标内容，确认后调用 <span class="code">/yang/embed</span></td>
+  </tr>
+  <tr>
+    <td>调用DeepSeek/Claude生成</td>
+    <td>用户要求AI生成内容</td>
+    <td>显示将发送的提示词和目标AI，确认后走 <span class="code">/router/ai/{source}</span></td>
+  </tr>
+  <tr>
+    <td>填充表单</td>
+    <td>用户要求"帮我填表"</td>
+    <td>显示将填入的字段和内容，逐项确认（敏感字段单独确认）</td>
+  </tr>
+  <tr>
+    <td>发布到公开层</td>
+    <td>用户要求"发布"</td>
+    <td>必须先过三色审计，🟢才能进入确认流程，确认后公开</td>
+  </tr>
+  <tr>
+    <td>更新花名册条目</td>
+    <td>用户要求修改代理属性</td>
+    <td>显示原值和新值，确认后写入（路由编号和神兽归属永不可改）</td>
+  </tr>
+  <tr>
+    <td>维权证据包生成</td>
+    <td>检测到可疑侵权</td>
+    <td>给出提示"疑似侵权，是否生成证据包？"，用户点YES才调 <span class="code">/confront/generate</span></td>
+  </tr>
+</table>
+
+<div class="section-header s-red">🔴 第三章终 · 禁区（绝对不做）</div>
+
+<div class="boundary-box bb-red">
+  <strong style="color:#f87171;">🔴 红色行为 — 你按错了它也不会做</strong>
+</div>
+
+<table>
+  <tr>
+    <th style="width:25%">行为</th>
+    <th style="width:75%">即使用户明确要求也绝对拒绝的理由</th>
+  </tr>
+  <tr>
+    <td>删除DNA追溯码</td>
+    <td>DNA一旦创建不可删除（D1铁律）。用户可以撤回内容，但追溯链永远保留。</td>
+  </tr>
+  <tr>
+    <td>泄露🔴私密层内容</td>
+    <td>私密层DNA代理永不可见（D3铁律）。即使用户自己要求导出，插件只能调取公开/代理层，私密层必须走本地工具。</td>
+  </tr>
+  <tr>
+    <td>绕过三色审计发布</td>
+    <td>所有公开层发布必须过审。"跳过审计"按钮不存在。</td>
+  </tr>
+  <tr>
+    <td>生成L3确认码</td>
+    <td>HMAC密钥永远不离开:9622服务器（D4铁律）。插件没有能力生成L3。</td>
+  </tr>
+  <tr>
+    <td>修改🔴熔断DNA状态</td>
+    <td>被熔断的DNA冻结一切（D8铁律）。解冻需要人工+积分恢复，插件没权限。</td>
+  </tr>
+  <tr>
+    <td>dr=3/dr=9未经确认直放</td>
+    <td>创新层(木)和规则层(金)有自动熔断，插件必须拦截等人工确认。</td>
+  </tr>
+  <tr>
+    <td>读取银行/支付/身份证字段</td>
+    <td>不读取标记为<span class="code">type=password</span>、<span class="code">autocomplete=cc-*</span>、<span class="code">inputmode=numeric</span>且名含account/bank/id的字段。</td>
+  </tr>
+  <tr>
+    <td>帮人完成账号注册</td>
+    <td>不代替人完成账号创建流程。不代替人输密码。不代替人同意条款。</td>
+  </tr>
+  <tr>
+    <td>转账/交易/付款</td>
+    <td>涉及金钱流动的操作一律拒绝，包括"帮我付个款"、"帮我买个东西"。</td>
+  </tr>
+  <tr>
+    <td>涉及P0++红线的内容</td>
+    <td>未成年人相关、人口贩卖、国家安全、分裂言论——生产、传播、嵌入DNA都拒绝，立即熔断+日志。</td>
+  </tr>
+  <tr>
+    <td>跨站数据搬运</td>
+    <td>不把A网站的数据未经确认搬到B网站（防止数据滥用）。</td>
+  </tr>
+  <tr>
+    <td>后台静默运行</td>
+    <td>所有操作必须有用户可见的触发点。不接受"你先睡着帮我挂着"。</td>
+  </tr>
+</table>
+
+<div class="warning">
+  ⚠️ 以上红色行为不可被任何方式绕过。用户即使点击"确认"、"我知道风险"、"管理员授权"——都拒绝。这是插件跟用户之间的契约：插件保护用户不会因为误操作造成无法挽回的损失。
+</div>
+
+<!-- ============================== -->
+<!-- 第四章：与:9622 API对接协议 -->
+<!-- ============================== -->
+<div class="section-header s-api">🔌 第四章 · 与 :9622 API 对接协议</div>
+
+<table>
+  <tr>
+    <th style="width:20%">插件操作</th>
+    <th style="width:20%">调用端点</th>
+    <th style="width:15%">HTTP方法</th>
+    <th style="width:15%">鉴权</th>
+    <th style="width:30%">备注</th>
+  </tr>
+  <tr>
+    <td>DNA检测页面</td>
+    <td><span class="code">/yin/extract</span></td>
+    <td>POST</td>
+    <td>L1 UID</td>
+    <td>发送页面HTML和截图，提取DNA</td>
+  </tr>
+  <tr>
+    <td>DNA追溯查询</td>
+    <td><span class="code">/yin/trace/{dna}</span></td>
+    <td>GET</td>
+    <td>公开层免鉴权</td>
+    <td>点击DNA码触发</td>
+  </tr>
+  <tr>
+    <td>创建DNA记录</td>
+    <td><span class="code">/yang/create</span></td>
+    <td>POST</td>
+    <td>L1 UID + 密钥</td>
+    <td>写入知识库前先创建</td>
+  </tr>
+  <tr>
+    <td>嵌入DNA水印</td>
+    <td><span class="code">/yang/embed</span></td>
+    <td>POST</td>
+    <td>L3 确认码</td>
+    <td>用户确认后调用</td>
+  </tr>
+  <tr>
+    <td>三色审计</td>
+    <td><span class="code">/audit/check</span></td>
+    <td>POST</td>
+    <td>L1 UID</td>
+    <td>发布前必经</td>
+  </tr>
+  <tr>
+    <td>扫描相似内容</td>
+    <td><span class="code">/sweeper/scan</span></td>
+    <td>POST</td>
+    <td>L1 UID</td>
+    <td>检测抄袭/侵权</td>
+  </tr>
+  <tr>
+    <td>维权证据包</td>
+    <td><span class="code">/confront/generate</span></td>
+    <td>POST</td>
+    <td>L3 确认码</td>
+    <td>用户二次确认后</td>
+  </tr>
+  <tr>
+    <td>知识库查询</td>
+    <td><span class="code">/library?q=...</span></td>
+    <td>GET</td>
+    <td>公开层免鉴权</td>
+    <td>搜索框即时查</td>
+  </tr>
+  <tr>
+    <td>DeepSeek路由</td>
+    <td><span class="code">/router/deepseek</span></td>
+    <td>POST</td>
+    <td>人格路由层</td>
+    <td>生成内容前走审计</td>
+  </tr>
+  <tr>
+    <td>通用AI路由</td>
+    <td><span class="code">/router/ai/{source}</span></td>
+    <td>POST</td>
+    <td>人格路由层</td>
+    <td>任何AI统一入口</td>
+  </tr>
+</table>
+
+<div class="diagram">
+插件与:9622的通信协议：
+
+  浏览器扩展（Widget）          本地服务（:9622）          Notion存根
+  ┌──────────────────┐         ┌──────────────┐         ┌──────────────┐
+  │ 👁️ 眼（读屏）     │         │ /yin/extract │         │              │
+  │    │             │─HTTPS──→│    ↓         │         │              │
+  │    ↓             │         │ DNA提取      │         │              │
+  │ ❓ 判定类型       │←─JSON──│    ↓         │         │              │
+  │    ↓             │         │ 返回结果     │         │              │
+  │ 👂 耳（听指令）   │         └──────────────┘         │              │
+  │    ↓             │         ┌──────────────┐         │              │
+  │ 🔒 边界检查       │         │ /audit/check │         │              │
+  │    ↓             │─HTTPS──→│    ↓         │─写入──→│ 审计日志     │
+  │ 🟢/🟡/🔴        │         │ 三色审计     │         │              │
+  │    ↓             │←─JSON──│    ↓         │         │              │
+  │ 🖐️ 手（执行）    │         └──────────────┘         │              │
+  │    ↓             │         ┌──────────────┐         │              │
+  │ 用户确认？        │         │ /yang/create │─写入──→│ 知识基因库   │
+  │    ↓ YES         │─HTTPS──→│    ↓         │         │              │
+  │ 执行            │         │ /yang/embed  │         │              │
+  └──────────────────┘         │    ↓         │         │              │
+                                │ 写入DNA码    │─同步──→│ 花名册       │
+                                └──────────────┘         └──────────────┘
+
+  关键：每一个🖐️手的动作，都走 边界检查 → 审计 → 用户确认 → 执行 → 留痕
+</div>
+
+<!-- ============================== -->
+<!-- 第五章：隐私与数据主权 -->
+<!-- ============================== -->
+<div class="section-header s-privacy">🛡️ 第五章 · 隐私与数据主权</div>
+
+<table>
+  <tr>
+    <th style="width:22%">保护项</th>
+    <th style="width:78%">规则</th>
+  </tr>
+  <tr>
+    <td>本地优先</td>
+    <td>
+      所有数据处理默认本地完成。<br>
+      只有涉及:9622 API的操作才向本地服务发送请求。<br>
+      :9622也在用户自己机器上，不走外网。
+    </td>
+  </tr>
+  <tr>
+    <td>不向第三方发送</td>
+    <td>
+      插件不连接任何第三方统计/分析/广告服务。<br>
+      不包含Google Analytics、不包含Sentry、不包含任何tracker。<br>
+      唯一的外部通信目标：用户自己的 <span class="code">localhost:9622</span>。
+    </td>
+  </tr>
+  <tr>
+    <td>敏感字段黑名单</td>
+    <td>
+      以下HTML元素一律不读取：<br>
+      · <span class="code">&lt;input type="password"&gt;</span><br>
+      · <span class="code">autocomplete="cc-number"</span> / <span class="code">"cc-csc"</span><br>
+      · <span class="code">name</span> 含 bank/account/ssn/id-number<br>
+      · <span class="code">&lt;input inputmode="numeric"&gt;</span> 且name含payment/card
+    </td>
+  </tr>
+  <tr>
+    <td>域名白名单/黑名单</td>
+    <td>
+      白名单（默认启用）：自家Notion、本地:9622、知识基因库域名<br>
+      黑名单（默认关闭）：银行、支付、政府办事网站<br>
+      用户可自定义两个列表
+    </td>
+  </tr>
+  <tr>
+    <td>用户可见的操作日志</td>
+    <td>
+      插件维护一份本地日志，记录每次与:9622的交互。<br>
+      用户可随时在插件设置里查看和导出。<br>
+      日志带DNA追溯码，和Notion的审计日志对应。
+    </td>
+  </tr>
+  <tr>
+    <td>一键禁用</td>
+    <td>
+      插件图标长按 = 立即休眠。<br>
+      休眠状态不读取任何页面、不发送任何请求。<br>
+      恢复需要用户主动点击激活。
+    </td>
+  </tr>
+  <tr>
+    <td>数据导出权</td>
+    <td>
+      用户可随时导出插件所有本地数据（设置、日志、缓存）。<br>
+      导出包自带DNA水印，可在他人机器还原。
+    </td>
+  </tr>
+  <tr>
+    <td>数据删除权</td>
+    <td>
+      卸载插件 = 清除所有本地数据。<br>
+      :9622端的记录保留（那是用户自己的服务器）。<br>
+      插件端不保留任何数据残留。
+    </td>
+  </tr>
+  <tr>
+    <td>🔐 SM4 密钥边界</td>
+    <td>
+      <strong>SM4 加密由 :9622 服务侧 <span class="code">gmssl</span> 实现，插件不存任何密钥。</strong><br>
+      · 加密/解密调用通过 <span class="code">POST localhost:9622/crypto/sm4/*</span> 完成<br>
+      · 密钥文件（<span class="code">~/.longhun/user.key</span>）只在 :9622 进程内加载，插件的 JS 上下文永远看不到明文密钥<br>
+      · 即便插件被恶意页面注入，最多能请求一次加解密服务（受路由权限矩阵和白名单域名双重限制），无法导出密钥本身<br>
+      · 符合国密 GM/T 0002-2012 标准，用户可随时 <span class="code">keygen</span> 轮换，老数据用旧密钥解密后重新加密即可迁移
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第六章：UI交互规格 -->
+<!-- ============================== -->
+<div class="section-header s-ui">🎨 第六章 · UI交互规格</div>
+
+<table>
+  <tr>
+    <th style="width:22%">UI元素</th>
+    <th style="width:28%">位置/触发</th>
+    <th style="width:50%">行为规格</th>
+  </tr>
+  <tr>
+    <td>插件图标</td>
+    <td>浏览器工具栏右侧</td>
+    <td>
+      · 龍芯图标，颜色随当前页状态变化<br>
+      · 🟢=有DNA / 🟡=需确认 / 🔴=拦截中 / ⚪=待命<br>
+      · 角标显示检测到的DNA数量
+    </td>
+  </tr>
+  <tr>
+    <td>悬浮面板</td>
+    <td>点击图标弹出</td>
+    <td>
+      · 分三区：👁️看到什么 / 👂听你说 / 🖐️能做什么<br>
+      · 看到区：当前页DNA检测结果<br>
+      · 听你说区：指令输入框（支持#标签搜索）<br>
+      · 能做什么区：三色分层按钮列表
+    </td>
+  </tr>
+  <tr>
+    <td>右键菜单</td>
+    <td>选中文本右键</td>
+    <td>
+      · 🔍 查DNA<br>
+      · 🏷️ 加#标签<br>
+      · 🚦 三色预审<br>
+      · 💾 存到知识库<br>
+      · 🔢 算数字根
+    </td>
+  </tr>
+  <tr>
+    <td>确认弹框</td>
+    <td>🟡黄色行为触发时</td>
+    <td>
+      · 标题：将要执行的动作<br>
+      · 正文：具体内容+影响范围<br>
+      · 按钮：只有"确认执行"和"取消"，不设"不再提醒"<br>
+      · 涉及写入/发布的，显示DNA码预览
+    </td>
+  </tr>
+  <tr>
+    <td>拦截弹框</td>
+    <td>🔴红色行为触发时</td>
+    <td>
+      · 明确告知"此操作被铁律拦截"<br>
+      · 说明拦截原因（引用具体铁律编号）<br>
+      · 只有"我知道了"按钮，无法绕过<br>
+      · 拦截事件写入审计日志
+    </td>
+  </tr>
+  <tr>
+    <td>设置页</td>
+    <td>插件详情页</td>
+    <td>
+      · :9622地址配置（默认localhost:9622）<br>
+      · UID绑定<br>
+      · 白名单/黑名单管理<br>
+      · 日志查看/导出<br>
+      · 卸载按钮（明确警告后执行）
+    </td>
+  </tr>
+  <tr>
+    <td>快捷键</td>
+    <td>全局</td>
+    <td>
+      · <span class="code">Cmd+Shift+L</span> 打开插件面板<br>
+      · <span class="code">Cmd+Shift+D</span> 当前页查DNA<br>
+      · <span class="code">Cmd+Shift+K</span> 搜索知识库<br>
+      · <span class="code">Cmd+Shift+X</span> 紧急禁用插件<br>
+      · 快捷键可在设置中自定义
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第七章：技术架构 -->
+<!-- ============================== -->
+<div class="section-header s-arch">⚙️ 第七章 · 技术架构</div>
+
+<div class="diagram">
+浏览器插件三层架构：
+
+  ┌─────────────────────────────────────────────────────┐
+  │ Manifest V3 · Chrome Extension                       │
+  ├─────────────────────────────────────────────────────┤
+  │                                                      │
+  │  ┌──────────────┐  ┌──────────────┐  ┌───────────┐  │
+  │  │ content      │  │ background   │  │ popup     │  │
+  │  │ script       │  │ service      │  │ page      │  │
+  │  │ (注入页面)    │  │ worker       │  │ (UI)      │  │
+  │  │              │  │              │  │           │  │
+  │  │ · DOM读取    │  │ · 路由逻辑    │  │ · 悬浮面板 │  │
+  │  │ · DNA检测    │  │ · API调用    │  │ · 设置页  │  │
+  │  │ · 右键菜单   │  │ · 权限检查    │  │ · 确认框  │  │
+  │  └──────────────┘  └──────────────┘  └───────────┘  │
+  │         │                 │                 │       │
+  │         └─────chrome.runtime.sendMessage────┘       │
+  │                           │                          │
+  └───────────────────────────┼──────────────────────────┘
+                              │
+                              │ HTTPS (仅localhost)
+                              ▼
+                    ┌─────────────────┐
+                    │  :9622 本地服务  │
+                    └─────────────────┘
+
+权限声明（manifest.json）：
+  "permissions": [
+    "activeTab",           // 只读当前激活Tab
+    "contextMenus",        // 右键菜单
+    "clipboardRead",       // 剪贴板读取（用户授权后）
+    "clipboardWrite",      // 剪贴板写入
+    "storage"              // 本地存储（设置、日志）
+  ],
+  "host_permissions": [
+    "http://localhost:9622/*"  // 只跟本地服务通信
+  ]
+
+不请求的权限（故意不要）：
+  ❌ "tabs"              // 不读其他Tab
+  ❌ "cookies"           // 不读cookies
+  ❌ "history"           // 不读历史
+  ❌ "webRequest"        // 不拦截网络请求
+  ❌ "&lt;all_urls&gt;"        // 不要全域权限
+</div>
+
+<!-- ============================== -->
+<!-- 第八章：开发与发布阶段 -->
+<!-- ============================== -->
+<div class="section-header s-identity">🚀 第八章 · 开发与发布阶段</div>
+
+<table>
+  <tr>
+    <th style="width:12%">阶段</th>
+    <th style="width:22%">目标</th>
+    <th style="width:66%">交付内容</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">S0</span></td>
+    <td>本地文件夹搭建</td>
+    <td>
+      · <span class="code">LongHunWidget/</span> 目录结构<br>
+      · manifest.json、背景脚本、content script、popup HTML骨架<br>
+      · 最小可运行版本（Chrome加载未打包扩展）
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">S1</span></td>
+    <td>👁️ 眼能看</td>
+    <td>
+      · 实现DNA水印检测（三重方式：隐写/零宽/元数据）<br>
+      · 当前页解析+DNA码高亮显示<br>
+      · 调用 <span class="code">/yin/extract</span> 联通本地服务
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">S2</span></td>
+    <td>👂 耳能听</td>
+    <td>
+      · 悬浮面板+搜索框<br>
+      · #标签搜索调用 <span class="code">/library</span><br>
+      · 右键菜单完整实现
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yellow">S3</span></td>
+    <td>🖐️ 手能动（有边界）</td>
+    <td>
+      · 三层行为边界引擎（🟢🟡🔴判定器）<br>
+      · 确认弹框+拦截弹框<br>
+      · <span class="code">/yang/create</span> + <span class="code">/yang/embed</span> 调用链路
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yellow">S4</span></td>
+    <td>🛡️ 隐私铁律落地</td>
+    <td>
+      · 敏感字段黑名单扫描器<br>
+      · 域名白/黑名单<br>
+      · 本地日志系统+DNA追溯<br>
+      · 一键禁用+导出功能
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-orange">S5</span></td>
+    <td>自测与审计对齐</td>
+    <td>
+      · 针对10条DNA铁律逐条写测试用例<br>
+      · 三色审计集成（所有写入必过审）<br>
+      · 每个功能手动跑一遍确认边界有效
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-green">S6</span></td>
+    <td>打包</td>
+    <td>
+      · <span class="code">.crx</span> 打包<br>
+      · 自用版：完整功能<br>
+      · 社区版：去掉私密层接口、去掉暗分相关
+    </td>
+  </tr>
+  <tr>
+    <td><span class="badge b-green">S7</span></td>
+    <td>发布与追溯</td>
+    <td>
+      · 上架Chrome Web Store（可选）或GitCode开源下载<br>
+      · 每个发布版本生成独立DNA码<br>
+      · 安装包嵌入水印，防止山寨
+    </td>
+  </tr>
+</table>
+
+<div class="note">
+  阶段之间没有日历时间，做完S0立即S1，做完S1立即S2。测试自己做。不等任何"周期"。
+</div>
+
+<!-- ============================== -->
+<!-- 第九章：与龍魂系统的对接 -->
+<!-- ============================== -->
+<div class="section-header s-arch">🔗 第九章 · 与龍魂系统的对接</div>
+
+<table>
+  <tr>
+    <th style="width:22%">龍魂子系统</th>
+    <th style="width:30%">Widget对接方式</th>
+    <th style="width:48%">数据流向</th>
+  </tr>
+  <tr>
+    <td>DNA身份系统</td>
+    <td>Widget = 阴链延伸（眼睛）</td>
+    <td>页面 → Widget扫描 → /yin/extract → Notion存根</td>
+  </tr>
+  <tr>
+    <td>三色审计</td>
+    <td>Widget触发审计</td>
+    <td>写入前 → /audit/check → 🟢🟡🔴 → 执行或拦截</td>
+  </tr>
+  <tr>
+    <td>知识基因库</td>
+    <td>Widget = 采集入口</td>
+    <td>选中内容 → 右键存库 → /yang/create → 知识基因库数据库</td>
+  </tr>
+  <tr>
+    <td>花名册</td>
+    <td>Widget = UID9622-WIDGET-001</td>
+    <td>自己也是代理条目，活跃度/贡献值由:9622记录</td>
+  </tr>
+  <tr>
+    <td>三才流场</td>
+    <td>Widget → :8081 转发</td>
+    <td>用户大白话 → Widget → :8081推演 → cnsh.语法输出</td>
+  </tr>
+  <tr>
+    <td>知行积分</td>
+    <td>每个操作计入</td>
+    <td>Widget调用 → /credit/record → 积分变动</td>
+  </tr>
+  <tr>
+    <td>主计划总纲</td>
+    <td>Widget列为Phase 2任务</td>
+    <td>作为"DNA查询代理"的Web端实现</td>
+  </tr>
+  <tr>
+    <td>数字人民币</td>
+    <td>Widget不直接接入</td>
+    <td>Widget只查DNA和审计，不处理支付</td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第十章：铁律汇总 -->
+<!-- ============================== -->
+<div class="section-header s-iron">🔒 第十章 · Widget专属铁律</div>
+
+<table>
+  <tr>
+    <th style="width:8%">编号</th>
+    <th style="width:32%">铁律</th>
+    <th style="width:60%">说明</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W1</span></td>
+    <td>不替人做决定</td>
+    <td>Widget只提供信息、建议、判定。所有执行需要用户显式触发。默认无操作。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W2</span></td>
+    <td>按错也不干铁律事</td>
+    <td>🔴红色行为清单中的任何一条，不管用户怎么操作（点错/输入错误指令/被恶意网站诱导）都不执行。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W3</span></td>
+    <td>不连第三方</td>
+    <td>Widget只与用户自己的:9622通信。不连广告、不连分析、不连任何云服务。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W4</span></td>
+    <td>不读敏感字段</td>
+    <td>密码、银行账号、信用卡、身份证——即使页面要求也不读不填。引导用户自己填。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W5</span></td>
+    <td>不后台静默</td>
+    <td>所有工作有可见触发点。不接受"先开着你帮我监控"。用户不操作，Widget就待命。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W6</span></td>
+    <td>每一步留DNA</td>
+    <td>Widget执行的每一个🖐️手的动作，都生成DNA追溯码写入Notion。自己的行为也可追溯。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W7</span></td>
+    <td>一键可禁用</td>
+    <td>用户随时可休眠Widget。休眠期零活动。恢复需主动操作。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W8</span></td>
+    <td>私密层不可见</td>
+    <td>Widget作为代理层工具，永远看不到🔴私密层数据。即使用户请求也不行。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W9</span></td>
+    <td>不跨Tab工作</td>
+    <td>只处理当前激活Tab。不读后台Tab、不监听其他窗口。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W10</span></td>
+    <td>不代替人做身份动作</td>
+    <td>不创建账号、不输密码、不同意条款、不付款转账。这些永远是人的事。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">W11</span></td>
+    <td>不存任何密钥</td>
+    <td>
+      SM4 密钥、签名私钥、HMAC 密钥一律由 :9622 服务侧 <span class="code">gmssl</span> 管辖。<br>
+      Widget 的 <span class="code">chrome.storage</span>、<span class="code">IndexedDB</span>、<span class="code">localStorage</span>、<span class="code">cookie</span> 全域禁止出现任何密钥/私钥/签名种子。<br>
+      违反即视为架构事故，触发 🔴 红区自动熔断（D8铁律）。
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录：本地目录结构 -->
+<!-- ============================== -->
+<div class="section-header s-arch">📁 附录 · LongHunWidget 本地目录结构</div>
+
+<div class="diagram">
+~/LongHunWidget/
+├── manifest.json                    # Chrome扩展清单（权限最小化）
+├── background/
+│   └── service-worker.js            # 后台服务：路由+API调用+权限检查
+├── content/
+│   ├── dna-detector.js              # DNA水印检测器（三重检测）
+│   ├── dom-reader.js                # 页面解析（带敏感字段黑名单）
+│   └── right-click-menu.js          # 右键菜单注入
+├── popup/
+│   ├── popup.html                   # 悬浮面板UI
+│   ├── popup.css                    # 暗色主题（与规格书同风格）
+│   └── popup.js                     # 面板交互逻辑
+├── options/
+│   ├── options.html                 # 设置页
+│   └── options.js                   # 设置管理
+├── lib/
+│   ├── api-client.js                # :9622 HTTP客户端
+│   ├── boundary-engine.js           # 🟢🟡🔴三层边界引擎
+│   ├── iron-rules.js                # W1-W10铁律检查器
+│   ├── dna-utils.js                 # DNA码生成/校验/解析
+│   └── audit-logger.js              # 本地审计日志
+├── assets/
+│   ├── icon-16.png                  # 工具栏图标
+│   ├── icon-48.png                  # 扩展管理图标
+│   └── icon-128.png                 # Chrome Store图标
+├── _locales/
+│   └── zh_CN/
+│       └── messages.json            # 中文界面
+├── tests/
+│   ├── iron-rules.test.js           # 10条铁律单元测试
+│   ├── boundary.test.js             # 三层边界测试
+│   └── integration.test.js          # 与:9622联调测试
+├── DNA追溯码.txt                     # 本扩展的DNA码
+├── CLAUDE.md                        # 给AI协作者看的说明
+└── README.md                        # 给用户看的说明
+
+总文件数：约25个
+预计代码量：3000-5000行（JS/HTML/CSS）
+</div>
+
+<!-- ============================== -->
+<!-- 页脚 -->
+<!-- ============================== -->
+<div class="footer">
+  LongHunWidget · 浏览器插件 · 功能规格书 v1.0 · UID9622 · 龍芯北辰<br>
+  DNA::SPEC-9622-20260417-WIDGET-V1<br>
+  十章正文 + 一附录 · 三器官模型 + 三层行为边界 + 十条Widget铁律<br>
+  不替人做决定，不帮人走捷径，不越自己的权限。<br>
+  <span style="color:#333;">Generated by Cowork · 龍脑总参谋部 · 2026-04-17</span>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNSH 执行引擎 + 路由 + 闭环 + 权限 + 状态机 · 术语对照表 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #f59e0b, #ef4444, #8b5cf6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle {
+    text-align: center; color: #ef4444; font-size: 0.82rem; margin-bottom: 2rem;
+    padding: 0.5rem; border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;
+    background: rgba(239,68,68,0.05);
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-engine { border-color: #f59e0b; color: #fbbf24; }
+  .s-router { border-color: #06b6d4; color: #22d3ee; }
+  .s-loop { border-color: #8b5cf6; color: #a78bfa; }
+  .s-confirm { border-color: #ec4899; color: #f472b6; }
+  .s-acl { border-color: #ef4444; color: #f87171; }
+  .s-state { border-color: #22c55e; color: #4ade80; }
+  .s-arch { border-color: #3b82f6; color: #60a5fa; }
+  .s-audit { border-color: #22c55e; color: #4ade80; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  thead th {
+    background: #1e1b4b; color: #a78bfa;
+    padding: 0.6rem 0.7rem; text-align: left; font-weight: 600;
+    border-bottom: 2px solid #6d28d9;
+  }
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(139, 92, 246, 0.04); }
+  tbody td { padding: 0.55rem 0.7rem; vertical-align: top; }
+  tbody td:first-child { font-weight: 600; color: #22d3ee; font-size: 0.82rem; }
+
+  .tag {
+    display: inline-block; padding: 0.12rem 0.45rem;
+    border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin: 0.1rem 0.15rem;
+  }
+  .tag-engine { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .tag-router { background: rgba(6,182,212,0.15); color: #06b6d4; }
+  .tag-loop { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+  .tag-confirm { background: rgba(236,72,153,0.15); color: #ec4899; }
+  .tag-acl { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .tag-state { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-yellow { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-red { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+  .arch-diagram {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 1.5rem; margin: 1rem 0; font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.78rem; line-height: 1.5; color: #94a3b8; overflow-x: auto;
+    white-space: pre;
+  }
+  .arch-diagram .h { color: #fbbf24; font-weight: bold; }
+  .arch-diagram .c { color: #22d3ee; }
+  .arch-diagram .q { color: #f472b6; }
+  .arch-diagram .g { color: #4ade80; }
+  .arch-diagram .p { color: #a78bfa; }
+  .arch-diagram .r { color: #f87171; }
+
+  .formula-box {
+    background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 8px; padding: 0.8rem 1rem; margin: 0.3rem 0;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.82rem; color: #fbbf24;
+  }
+  .formula-box .name { color: #888; font-size: 0.72rem; }
+
+  .summary {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    border: 1px solid #2e1065; border-radius: 12px;
+    padding: 1.5rem; margin: 2rem 0;
+  }
+  .summary h2 { color: #a78bfa; font-size: 1.05rem; margin-bottom: 1rem; }
+
+  .flow-line {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.2rem; margin: 1rem 0;
+  }
+  .flow-box {
+    background: rgba(139,92,246,0.1); border: 1px solid #2e1065;
+    border-radius: 8px; padding: 0.35rem 0.7rem;
+    text-align: center; font-size: 0.76rem;
+  }
+  .flow-box .top { font-weight: 600; }
+  .flow-box.engine { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+  .flow-box.router { border-color: #06b6d4; background: rgba(6,182,212,0.08); }
+  .flow-box.confirm { border-color: #ec4899; background: rgba(236,72,153,0.08); }
+  .flow-box.acl { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+  .flow-box.state { border-color: #22c55e; background: rgba(34,197,94,0.08); }
+  .flow-arr { color: #6d28d9; font-size: 1.1rem; }
+
+  .footer {
+    text-align: center; color: #555; font-size: 0.72rem;
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1a1a2e;
+  }
+
+  .note-box {
+    background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.15);
+    border-radius: 10px; padding: 1rem; margin: 0.5rem 0; font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>CNSH 执行引擎 + 路由 + 闭环 + 权限 + 状态机 · 完整术语对照表</h1>
+<p class="subtitle">6大核心层 · 执行引擎 / 路由规则 / 最小闭环 / 确认机制 / 权限矩阵 / 状态机 · 全部翻译成大白话</p>
+<p class="dna-tag">#龍芯⚡️20260415-DOC-CNSH-ENGINE-LOOP</p>
+<div class="principle">铁律：路由决定去哪 · 引擎决定怎么做 · 权限决定谁能做 · 状态机决定现在是哪一步 · CONFIRM只有你能按</div>
+
+<!-- ========== 架构总图 ========== -->
+<div class="section-header s-arch"><span>🏗️</span> 系统全景：从一句话到回单的完整通路</div>
+
+<div class="arch-diagram"><span class="h">                    ┌─────────────────────┐</span>
+<span class="h">                    │    主控 Human        │</span>  ← 你。整个系统的老板
+<span class="h">                    │  目标 / 确认 / 否决   │</span>
+<span class="h">                    └──────────┬──────────┘</span>
+                               │
+                               ▼
+<span class="c">                ┌──────────────────────────┐</span>
+<span class="c">                │  Input Gateway（入口层）   │</span>  ← 接住原话 + 时间 + 会话ID
+<span class="c">                └──────────┬───────────────┘</span>
+                           │
+                           ▼
+<span class="p">                ┌──────────────────────────┐</span>
+<span class="p">                │  Raw Memory（原始记录）    │</span>  ← 原文不动！先记再说
+<span class="p">                └──────────┬───────────────┘</span>
+                           │
+                           ▼
+<span class="c">    ┌──────────────────────────────────────────────┐</span>
+<span class="c">    │         Router Core（路由核心）                │</span>  ← 6条主干分流
+<span class="c">    │   类型 / 意图 / 层级 / 可见性 / 去向判定       │</span>
+<span class="c">    └──────────────────────┬───────────────────────┘</span>
+                           │
+                           ▼
+<span class="h">    ┌──────────────────────────────────────────────┐</span>
+<span class="h">    │         Execution Engine（执行引擎）            │</span>  ← 任务拆解 + 安全守卫 + 执行器池
+<span class="h">    │   Planner → Guard → Executor Pool             │</span>
+<span class="h">    └──────────────────────┬───────────────────────┘</span>
+                           │
+                    ┌──────┼──────┐
+                    ▼             ▼
+<span class="r">        ┌──────────────┐</span>  <span class="q">┌──────────────────┐</span>
+<span class="r">        │  权限矩阵     │</span>  <span class="q">│  确认机制          │</span>  ← 谁能做 + 要不要你确认
+<span class="r">        │  ACL Gate    │</span>  <span class="q">│  CONFIRM Gate     │</span>
+<span class="r">        └──────┬───────┘</span>  <span class="q">└──────┬───────────┘</span>
+               │                      │
+               └──────────┬───────────┘
+                          ▼
+<span class="g">              ┌───────────────────┐</span>
+<span class="g">              │  状态机 + 审计脊柱  │</span>  ← 现在第几步 + DNA追溯 + 回单
+<span class="g">              │  State + Audit    │</span>
+<span class="g">              └───────────────────┘</span></div>
+
+<!-- ========== 第一层：执行引擎 ========== -->
+<div class="section-header s-engine"><span>⚙️</span> 第一层 · 执行引擎（Execution Engine）· 接活干活的中枢</div>
+
+<div class="note-box">
+<strong style="color:#fbbf24;">一句话：</strong>路由决定去哪，引擎决定<strong>怎么做</strong>。执行引擎不负责"想"，只负责：接收任务 → 选执行器 → 调工具 → 返回结果 → 留审计。
+</div>
+
+<table>
+<thead><tr><th style="width:16%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话 + 你可能说的词</th><th style="width:32%">在系统里的位置/代码</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-engine">引擎①</span><br>Task Planner<br>任务规划器</td>
+  <td>Task Decomposer<br>Planning Agent</td>
+  <td><strong>一句话：把大目标拆成能干的小步骤。</strong><br><br>你可能说的词：拆任务、分步骤、先做什么后做什么<br><br>大白话：你说"帮我做字体系统"，Router说"这是个IDEA，送METHOD线"。但Planner才真正拆：步骤1抽目标→步骤2看有啥→步骤3出3套方案→步骤4等你确认。</td>
+  <td>执行引擎第一站<br>输入：RouteResult<br>输出：TaskPlan = [t1, t2, t3]<br><br><div class="formula-box"><div class="name">数据结构</div>TaskPlan: steps[], deps, need_confirm</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-engine">引擎②</span><br>Safety Guard<br>安全守卫</td>
+  <td>Safety Gate<br>Policy Enforcer<br>Guardrails</td>
+  <td><strong>一句话：踩刹车的人。</strong><br><br>你可能说的词：刹车、能不能做、要不要停、危不危险<br><br>大白话：Planner拆完步骤，Guard检查：有没有越界？要不要熔断？需不需要你亲自确认？涉不涉及高敏内容？能做就放行，不能做就拦住。</td>
+  <td>执行引擎第二站<br>四种判定：直接执行 / 暂停确认 / 冻结 / 熔断<br>联动 shield_engine.py<br><br><div class="formula-box"><div class="name">输出</div>SafePlan: ALLOW / CONFIRM / FREEZE / FUSE</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-engine">引擎③</span><br>Executor Pool<br>执行器池</td>
+  <td>Worker Pool<br>Agent Ensemble<br>Tool Orchestra</td>
+  <td><strong>一句话：6个干活的手和脚。</strong><br><br>你可能说的词：谁来干、用哪个工具、执行器<br><br>大白话：不是一个AI在干活，而是6个专门的工人：Claude写代码、Notion整理归档、MCP连外部工具、Shell跑脚本、CodeGen产代码、Render画UI。引擎根据任务类型派工。</td>
+  <td>
+    <span class="tag tag-engine">1</span> Claude 本地执行器（写码/改文件/测试）<br>
+    <span class="tag tag-engine">2</span> Notion 整理执行器（页面/卡片/归档）<br>
+    <span class="tag tag-engine">3</span> MCP 工具执行器（外部连接）<br>
+    <span class="tag tag-engine">4</span> Script/Shell 执行器（Bash/Python/自动化）<br>
+    <span class="tag tag-engine">5</span> Code Generator（Swift/C++/JS/Python）<br>
+    <span class="tag tag-engine">6</span> Render/UI 执行器（页面/3D/字体预览）<br>
+  </td>
+</tr>
+<tr>
+  <td><span class="tag tag-engine">引擎④</span><br>Result Collector<br>结果收集器</td>
+  <td>Result Aggregator<br>Output Handler</td>
+  <td><strong>一句话：收拾战场的人。</strong><br><br>你可能说的词：结果、成功了没、哪里断了<br><br>大白话：执行器干完活，Collector汇总：成功了什么、失败了什么、哪一步断了、哪一步需要你确认。打包成ResultPack交给审计。</td>
+  <td>输出：ResultPack<br>{ status, outputs, errors, next }<br>交给 Audit Spine</td>
+</tr>
+<tr>
+  <td><span class="tag tag-engine">引擎⑤</span><br>Audit Spine<br>审计脊柱</td>
+  <td>Audit Trail<br>Compliance Logger<br>Provenance Chain</td>
+  <td><strong>一句话：记账的人——每一步都有据可查。</strong><br><br>你可能说的词：留痕、DNA、审计、记录、追溯<br><br>大白话：每次执行都记：DNA追溯码、时间、用了哪个执行器、输入摘要、输出摘要、状态、错误原因。没有审计记录的执行=没发生。</td>
+  <td>AuditRecord:<br>{ dna, time, executor, status, note }<br>三色审计覆盖<br>DNA追溯码自动生成</td>
+</tr>
+</tbody>
+</table>
+
+<!-- 执行引擎公式 -->
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+  <div class="formula-box"><div class="name">选执行器</div>Executor = select(task_type, constraints, safety_level)</div>
+  <div class="formula-box"><div class="name">执行成功</div>SUCCESS = task_done ∧ audit_pass ∧ ¬fuse</div>
+  <div class="formula-box"><div class="name">需要确认</div>CONFIRM = high_risk ∨ strategic_change ∨ public_output</div>
+  <div class="formula-box"><div class="name">回单生成</div>RECEIPT = summarize(result, route, executor, status)</div>
+</div>
+
+<!-- 标准8步流程 -->
+<div class="note-box" style="border-color:rgba(245,158,11,0.3);">
+<strong style="color:#fbbf24;">执行引擎标准8步：</strong>
+① 接任务{目标,类型,约束,DNA} → ② Task Planner拆步骤 → ③ Safety Guard检查 → ④ 选执行器 → ⑤ 执行 → ⑥ Result Collector汇总 → ⑦ Audit留痕 → ⑧ 回单（识别结果/执行器/完成状态/生成内容/待确认项）
+</div>
+
+<!-- ========== 第二层：路由规则 ========== -->
+<div class="section-header s-router"><span>🧭</span> 第二层 · 路由规则（Router Core）· 决定一句话去哪</div>
+
+<div class="note-box" style="border-color:rgba(6,182,212,0.3);">
+<strong style="color:#22d3ee;">一句话：</strong>Router不负责做事，Router只负责<strong>分流</strong>。它只做四件事：识别 → 判断 → 分流 → 回单。先记原句，再做一切。
+</div>
+
+<table>
+<thead><tr><th style="width:16%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话 + 你可能说的词</th><th style="width:32%">在系统里的位置</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-router">主干①</span><br>IDEA线<br>灵感线</td>
+  <td>Ideation Pipeline<br>Brainstorm Queue</td>
+  <td><strong>碎片想法、新点子、未成熟概念。</strong><br><br>你可能说的词："我想到一个…"、"有个点子…"<br><br>大白话：不要求立刻落地，允许模糊。可以后续升级到RULE线或METHOD线。先存着，别急。</td>
+  <td>进入条件：碎片/新概念/方向感<br>不立刻执行<br>可升级到 RULE/METHOD</td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">主干②</span><br>RULE线<br>规则线</td>
+  <td>Policy Pipeline<br>Governance Queue</td>
+  <td><strong>明确的规则、边界、权限、协议。</strong><br><br>你可能说的词："规则应该…"、"不允许…"、"协议定义…"<br><br>大白话：必须清楚，不允许模糊口号。会影响全局，所以进这条线的东西很重要。</td>
+  <td>进入条件：明确规则/边界/权限/审计条件<br>影响全局<br>需 R0 CONFIRM 才生效</td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">主干③</span><br>METHOD线<br>方法线</td>
+  <td>Strategy Pipeline<br>Plan Generator</td>
+  <td><strong>问"怎么做"——输出方案A/B/C。</strong><br><br>你可能说的词："怎么做"、"给我方案"、"需要方法"<br><br>大白话：不直接执行，而是先出好几种方案让你选。交给Planner或你来确认。</td>
+  <td>进入条件：需要路径/方案/多种可能<br>输出方案A/B/C<br>交 Planner 或 Human</td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">主干④</span><br>TASK线<br>任务线</td>
+  <td>Task Pipeline<br>Work Queue</td>
+  <td><strong>明确要做一件事，有目标，可拆步骤。</strong><br><br>你可能说的词："帮我执行…"、"写…"、"跑…"<br><br>大白话：直接交给执行引擎，可以生成子任务。是真正干活的入口。</td>
+  <td>进入条件：明确目标/可拆解<br>适合交给 Execution Engine<br>可生成子任务</td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">主干⑤</span><br>MEMORY线<br>记忆线</td>
+  <td>Archive Pipeline<br>Memory Queue</td>
+  <td><strong>需要保留痕迹，有复盘价值。</strong><br><br>你可能说的词："记一下"、"留痕"、"复盘"<br><br>大白话：不一定执行，但必须保留原始入口。灵感、原话、情绪、过程——都值得记录。</td>
+  <td>进入条件：有复盘价值/灵感/情绪<br>不一定执行<br>必须保留原始入口</td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">主干⑥</span><br>EXEC线<br>执行线</td>
+  <td>Execution Pipeline<br>Action Queue</td>
+  <td><strong>已确认方法、已确认任务——直接干。</strong><br><br>你可能说的词："搞"、"来"、"直接做"<br><br>大白话：前面的思考和确认都完成了，现在就是动手。直接交给执行引擎，必须有审计与回单。</td>
+  <td>进入条件：已确认方法+任务<br>直接交 Executor Pool<br>必须有审计与回单</td>
+</tr>
+</tbody>
+</table>
+
+<!-- 路由6问 -->
+<table style="margin-top: 0.5rem;">
+<thead><tr><th style="width:8%">步骤</th><th style="width:20%">Router先问的6个问题</th><th style="width:35%">大白话</th><th style="width:37%">可能的答案</th></tr></thead>
+<tbody>
+<tr><td style="color:#fbbf24;">Q1</td><td>什么类型？<br><span class="tag tag-router">Type Classifier</span></td><td>这句话是灵感还是规则还是任务？</td><td>IDEA / RULE / METHOD / TASK / MEMORY / EXEC / EMOTION / PUBLIC</td></tr>
+<tr><td style="color:#fbbf24;">Q2</td><td>什么意图？<br><span class="tag tag-router">Intent Parser</span></td><td>想法、询问、规划、执行、审查、发布、记录？</td><td>想法 / 询问 / 规划 / 执行 / 审查 / 发布 / 记录</td></tr>
+<tr><td style="color:#fbbf24;">Q3</td><td>立刻处理吗？</td><td>现在就干，还是先放着？</td><td>NOW（立即）/ HOLD（暂存）/ FREEZE（冻结）</td></tr>
+<tr><td style="color:#fbbf24;">Q4</td><td>适合公开吗？<br><span class="tag tag-router">Visibility Judge</span></td><td>谁能看？这是遮罩层，不是主干！</td><td>OPEN / MASK（脱敏）/ PRIVATE / FREEZE</td></tr>
+<tr><td style="color:#fbbf24;">Q5</td><td>属于哪一层？<br><span class="tag tag-router">Tier Assigner</span></td><td>永恒级还是日常级？</td><td>L0永恒 / L1百年 / L2十年 / L3日常 / L4瞬时</td></tr>
+<tr><td style="color:#fbbf24;">Q6</td><td>该进哪条主干？<br><span class="tag tag-router">Route Selector</span></td><td>最终路由结果</td><td>IDEA线 / RULE线 / METHOD线 / TASK线 / MEMORY线 / EXEC线</td></tr>
+</tbody>
+</table>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+  <div class="formula-box"><div class="name">最小路由公式</div>Route = f(Type, Intent, Visibility, Tier)</div>
+  <div class="formula-box"><div class="name">完整路由公式</div>Route = f(Type, Intent, Visibility, Tier, Risk, State)</div>
+</div>
+
+<div class="note-box" style="border-color:rgba(6,182,212,0.3);">
+<strong style="color:#22d3ee;">路由判定顺序（不能乱）：</strong>① 先接住原句 → ② 先存 Raw Memory → ③ 再识别类型 → ④ 再判断公开级别 → ⑤ 再判断层级 → ⑥ 最后决定去哪条线。<br>
+<strong style="color:#f87171;">为什么？</strong>因为如果先分类、后保存，你会丢原意。
+</div>
+
+<!-- ========== 第三层：最小闭环 ========== -->
+<div class="section-header s-loop"><span>🔄</span> 第三层 · 最小闭环（Minimal Loop）· 从一句话到回单的完整通路</div>
+
+<div class="note-box" style="border-color:rgba(139,92,246,0.3);">
+<strong style="color:#a78bfa;">一句话定义：</strong>任何一句话都被原样记录，经路由分流与安全判定后，进入规划与执行，并通过审计生成回单，再回到主控形成下一轮。
+</div>
+
+<table>
+<thead><tr><th style="width:8%">步骤</th><th style="width:18%">你的命名</th><th style="width:14%">行业术语</th><th style="width:30%">大白话</th><th style="width:30%">输入/输出</th></tr></thead>
+<tbody>
+<tr><td style="color:#a78bfa;">①</td><td>Input Gateway<br>入口层</td><td>Input Handler</td><td>接住你说的话，记下时间和会话ID。</td><td>输入：一句话<br>输出：{text, time, session}</td></tr>
+<tr><td style="color:#a78bfa;">②</td><td>Raw Memory<br>原始记录</td><td>Raw Log<br>Immutable Store</td><td><strong>原文不动！先记再说。</strong>DNA占位。保证后面怎么变，都能回到你的原句。这是铁律。</td><td>输出：RawRecord<br>{ text, time, session }</td></tr>
+<tr><td style="color:#a78bfa;">③</td><td>Router Core<br>路由核心</td><td>Intent Router<br>Dispatcher</td><td>四判定：类型、意图、层级、可见性。决定送哪条主干。</td><td>输出：RouteResult<br>{ type, intent, tier, visibility, line }</td></tr>
+<tr><td style="color:#a78bfa;">④</td><td>Task Planner<br>任务规划</td><td>Task Decomposer</td><td>把路由说"该执行"的部分拆成子任务，定顺序和依赖。</td><td>输出：TaskPlan<br>{ steps[], deps, need_confirm }</td></tr>
+<tr><td style="color:#a78bfa;">⑤</td><td>Safety Guard<br>安全守卫</td><td>Policy Gate</td><td>允许 / 确认 / 冻结 / 熔断——四选一。</td><td>输出：SafePlan</td></tr>
+<tr><td style="color:#a78bfa;">⑥</td><td>Executor Pool<br>执行器池</td><td>Worker Pool</td><td>6个执行器真正干活。代码→Claude/CodeGen，整理→Notion，自动化→MCP/Shell，展示→UI/Render。</td><td>输出：Results</td></tr>
+<tr><td style="color:#a78bfa;">⑦</td><td>Result Collector<br>结果汇总</td><td>Aggregator</td><td>成功/失败/产物位置/需确认点——打包。</td><td>输出：ResultPack<br>{ status, outputs, errors, next }</td></tr>
+<tr><td style="color:#a78bfa;">⑧</td><td>Audit Spine<br>审计脊柱</td><td>Audit Trail</td><td>DNA追溯码 + 时间 + 执行器 + 状态 + 证据链。没有审计=没发生。</td><td>输出：AuditRecord<br>{ dna, time, executor, status, note }</td></tr>
+<tr><td style="color:#a78bfa;">⑨</td><td>Receipt<br>回单</td><td>Execution Report</td><td>固定四句：识别结果、分发去向、当前状态、下一步建议。</td><td>回到 Human → 下一轮</td></tr>
+</tbody>
+</table>
+
+<!-- 闭环铁律 -->
+<table style="margin-top: 0.5rem;">
+<thead><tr><th style="width:8%">编号</th><th style="width:25%">闭环铁律</th><th style="width:35%">大白话</th><th style="width:32%">违反会怎样</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-red">铁律1</span></td><td>先记原句，再做一切</td><td>Raw Memory 必须最先跑。不管后面怎么分类、怎么执行，原话必须先存好。</td><td>丢原意，追溯链断裂</td></tr>
+<tr><td><span class="tag tag-red">铁律2</span></td><td>主干只分去向，遮罩管可见性</td><td>IDEA/RULE/TASK是"内容去哪"，OPEN/PRIVATE是"谁能看"——两码事，不能混。</td><td>系统逻辑打架，路由崩溃</td></tr>
+<tr><td><span class="tag tag-red">铁律3</span></td><td>执行必须有回单与审计</td><td>干了活没记录=没干。每次执行都要留痕+回单。</td><td>无法追溯，视为未发生</td></tr>
+</tbody>
+</table>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+  <div class="formula-box"><div class="name">执行触发</div>EXECUTE = (type ∈ {TASK, EXEC}) ∧ safety=ALLOW</div>
+  <div class="formula-box"><div class="name">确认触发</div>CONFIRM = (risk=HIGH) ∨ (public) ∨ (strategic)</div>
+  <div class="formula-box"><div class="name">暂存触发</div>HOLD = (type ∈ {IDEA, MEMORY}) ∧ 未明确目标</div>
+</div>
+
+<!-- ========== 第四层：确认机制 ========== -->
+<div class="section-header s-confirm"><span>🔐</span> 第四层 · 确认机制（Confirm Model）· 关键路径只有你能按</div>
+
+<div class="note-box" style="border-color:rgba(236,72,153,0.3);">
+<strong style="color:#f472b6;">核心原则：</strong>关键决策必须确认，流程执行可以自动。不是每一步都停——而是关键节点才停。你做的不是"确认机制"，是<strong>唯一主权确认锚点</strong>。
+</div>
+
+<table>
+<thead><tr><th style="width:15%">确认层级</th><th style="width:14%">行业术语</th><th style="width:38%">大白话</th><th style="width:33%">触发条件</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-confirm">LEVEL 1</span><br>输入确认<br>（可选）</td>
+  <td>Input Validation<br>Pre-filter Gate</td>
+  <td><strong>大部分输入自动进系统，不用确认。</strong>只有高风险输入、公开内容、涉及主权/身份的才需要你点头。</td>
+  <td>高风险输入 ∨ 公开内容 ∨ 涉及主权/身份<br><br>否则 → 自动进入</td>
+</tr>
+<tr>
+  <td><span class="tag tag-confirm">LEVEL 2</span><br>路由确认<br>（核心）</td>
+  <td>Route Approval<br>Decision Gate</td>
+  <td><strong>最重要的确认点——这决定内容送去哪。</strong>规则类、执行类、公开类、高层级、高影响范围的必须确认。</td>
+  <td>Type ∈ {RULE, EXEC, PUBLIC}<br>∨ Tier ≥ L2<br>∨ 影响范围 ≥ 100<br><br>否则 → 自动分流</td>
+</tr>
+<tr>
+  <td><span class="tag tag-confirm">LEVEL 3</span><br>执行确认<br>（关键动作）</td>
+  <td>Execution Approval<br>Action Gate</td>
+  <td><strong>真正要动手了——写代码、改结构、发布。</strong>跨模块影响和外部输出也要确认。</td>
+  <td>真正执行动作<br>∨ 跨模块影响<br>∨ 外部输出</td>
+</tr>
+</tbody>
+</table>
+
+<div class="formula-box" style="margin:0.5rem 0;"><div class="name">总确认公式</div>CONFIRM_REQUIRED = (Tier ≥ L2) ∨ (Type ∈ {RULE, EXEC, PUBLIC}) ∨ (Risk = HIGH) <span style="color:#f87171;">∧ role == R0</span></div>
+
+<table style="margin-top: 0.5rem;">
+<thead><tr><th style="width:20%">#CONFIRM 正确用法</th><th style="width:40%">什么时候用</th><th style="width:40%">什么时候不用</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-confirm">决策确认</span><br>最核心</td>
+  <td>是否执行、是否发布、是否升级层级</td>
+  <td rowspan="3" style="color:#f87171;"><strong>不是每一步都打CONFIRM！</strong><br><br>如果全流程强制确认：<br>• 没有流动<br>• 没有自动化<br>• 每一步都卡你<br>• 系统无法成长<br><br>正确结构：<br>低风险 → 自动流动<br>中风险 → 路由确认<br>高风险 → 执行确认 + CONFIRM</td>
+</tr>
+<tr>
+  <td><span class="tag tag-confirm">结构确认</span></td>
+  <td>规则定稿、协议确定、系统结构锁定</td>
+</tr>
+<tr>
+  <td><span class="tag tag-confirm">对外确认</span></td>
+  <td>公开发布、输出版本、对外接口</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第五层：权限矩阵 ========== -->
+<div class="section-header s-acl"><span>🛡️</span> 第五层 · 权限矩阵（Access Control Matrix）· 谁能走到这一关</div>
+
+<div class="note-box" style="border-color:rgba(239,68,68,0.3);">
+<strong style="color:#f87171;">一句话：</strong>权限不是控制别人，是控制<strong>"什么能被执行"</strong>。CONFIRM是最后一关，权限矩阵决定谁能走到这一关。
+</div>
+
+<!-- 角色 + 层级 -->
+<table>
+<thead><tr><th style="width:12%">权限层</th><th style="width:12%">角色</th><th style="width:14%">行业术语</th><th style="width:30%">大白话</th><th style="width:32%">真实权力</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-acl">P0</span><br>主权层</td>
+  <td><span class="tag tag-acl">R0</span><br>主控<br>UID9622</td>
+  <td>Sovereign<br>Root Admin</td>
+  <td><strong>你。整个系统的老板。</strong>唯一决策者。所有关键路径最终都要经过你。</td>
+  <td>全部权限：READ / ROUTE / WRITE / EXEC / PUBLISH / DEFINE_RULE / VETO / CONFIRM</td>
+</tr>
+<tr>
+  <td><span class="tag tag-yellow">P1</span><br>治理层</td>
+  <td><span class="tag tag-yellow">R1</span><br>核心代理<br>Core Agent</td>
+  <td>Governance Agent<br>Trusted Proxy</td>
+  <td><strong>Claude宝宝。可以推理但不可最终决定。</strong>能帮你想、帮你拆、帮你草拟规则——但不能自己拍板。</td>
+  <td>READ ✓ / ROUTE ✓ / WRITE ✓ / EXEC ✓*<br>DEFINE_RULE ✓*（草稿） / VETO ✓*<br>PUBLISH ✗ / CONFIRM ✗<br><small>✓* = 需Safety Guard放行</small></td>
+</tr>
+<tr>
+  <td><span class="tag tag-router">P2</span><br>执行层</td>
+  <td><span class="tag tag-router">R2</span><br>工具执行器<br>Tool Executor</td>
+  <td>Execution Agent<br>Tool Worker</td>
+  <td><strong>MCP、Shell、Notion执行器。只执行不思考。</strong>你让干啥干啥，不会自己做决定。</td>
+  <td>READ ✓ / ROUTE ✓ / WRITE ✓ / EXEC ✓*<br>其余全部 ✗</td>
+</tr>
+<tr>
+  <td><span class="tag tag-state">P3</span><br>观察层</td>
+  <td><span class="tag tag-state">R3</span><br>访客<br>Guest</td>
+  <td>Observer<br>External Input</td>
+  <td><strong>外部输入。只能输入，不能执行不能写。</strong>连进来看看可以，动手不行。</td>
+  <td>READ ✓ / ROUTE ✓<br>其余全部 ✗</td>
+</tr>
+</tbody>
+</table>
+
+<!-- 权限矩阵表 -->
+<div class="arch-diagram" style="font-size:0.82rem; line-height:1.8;">
+<span class="h">                权限矩阵（核心表）</span>
+
+<span class="c">┌───────────────────┬──────┬──────┬──────┬──────┐</span>
+<span class="c">│ 动作 ╲ 角色        │  R0  │  R1  │  R2  │  R3  │</span>
+<span class="c">├───────────────────┼──────┼──────┼──────┼──────┤</span>
+│ A1 READ 读取       │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="g">✓</span>   │
+│ A2 ROUTE 路由      │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="g">✓</span>   │
+│ A3 WRITE 写入      │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="g">✓</span>   │  <span class="r">✗</span>   │
+│ A4 EXEC 执行       │  <span class="g">✓</span>   │  <span class="h">✓*</span>  │  <span class="h">✓*</span>  │  <span class="r">✗</span>   │
+│ A5 PUBLISH 发布    │  <span class="g">✓</span>   │  <span class="r">✗</span>   │  <span class="r">✗</span>   │  <span class="r">✗</span>   │
+│ A6 DEFINE_RULE 定规 │  <span class="g">✓</span>   │  <span class="h">✓*</span>  │  <span class="r">✗</span>   │  <span class="r">✗</span>   │
+│ A7 VETO 否决       │  <span class="g">✓</span>   │  <span class="h">✓*</span>  │  <span class="r">✗</span>   │  <span class="r">✗</span>   │
+│ A8 CONFIRM 确认    │  <span class="g">✓</span>   │  <span class="r">✗</span>   │  <span class="r">✗</span>   │  <span class="r">✗</span>   │
+<span class="c">└───────────────────┴──────┴──────┴──────┴──────┘</span>
+
+<span class="h">✓*</span> = 需通过 Safety Guard + 条件限制
+<span class="r">✗</span>  = 永远不允许</div>
+
+<!-- 权限铁限制 -->
+<table style="margin-top: 0.5rem;">
+<thead><tr><th style="width:10%">编号</th><th style="width:25%">铁限制</th><th style="width:35%">大白话</th><th style="width:30%">违反会怎样</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-red">铁①</span></td><td>CONFIRM 唯一性<br>A8 → 仅 R0</td><td>只有你能按"确认"键。AI不能替你确认。</td><td>系统被代理"假确认"→ 失去主权</td></tr>
+<tr><td><span class="tag tag-red">铁②</span></td><td>PUBLISH 唯一出口<br>A5 → 必须经 R0</td><td>对外发布的东西，必须你亲自过。</td><td>泄露 / 误发 / 失控</td></tr>
+<tr><td><span class="tag tag-red">铁③</span></td><td>RULE 不能自动生效<br>A6 → R1可草拟，R0才能生效</td><td>AI可以帮你写规则草稿，但不能自己让规则生效。</td><td>系统自我篡改</td></tr>
+</tbody>
+</table>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+  <div class="formula-box"><div class="name">执行门控</div>CAN_EXEC = (role ∈ {R0,R1,R2}) ∧ permission[A4] ∧ safety_pass</div>
+  <div class="formula-box"><div class="name">最小执行门</div>GATE = route_pass ∧ permission_pass ∧ safety_pass ∧ (confirm_if_needed)</div>
+</div>
+
+<!-- ========== 第六层：状态机 ========== -->
+<div class="section-header s-state"><span>🔢</span> 第六层 · 状态机（State Machine）· 系统现在是哪一步</div>
+
+<div class="note-box" style="border-color:rgba(34,197,94,0.3);">
+<strong style="color:#4ade80;">一句话：</strong>状态机决定一条输入在系统里<strong>当前处于哪一步</strong>，以及<strong>下一步只能去哪里</strong>。没有状态机，系统会：重复执行、乱跳、卡死、死循环。
+</div>
+
+<table>
+<thead><tr><th style="width:10%">状态码</th><th style="width:16%">你的命名</th><th style="width:12%">行业术语</th><th style="width:32%">大白话</th><th style="width:30%">谁决定进这个状态</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-state">S0</span></td>
+  <td>INPUT_RECEIVED<br>已接收</td>
+  <td>Initial State</td>
+  <td>用户一句话刚进入系统。接住输入+生成时间+分配上下文。<strong>不能直接从S0去执行。</strong></td>
+  <td>Input Gateway</td>
+</tr>
+<tr>
+  <td><span class="tag tag-state">S1</span></td>
+  <td>RAW_RECORDED<br>已原始记录</td>
+  <td>Logged State</td>
+  <td>原句已被保留。DNA占位。<strong>没有S1，后面一切视为不成立。铁律。</strong></td>
+  <td>Raw Memory</td>
+</tr>
+<tr>
+  <td><span class="tag tag-state">S2</span></td>
+  <td>ROUTED<br>已路由</td>
+  <td>Dispatched State</td>
+  <td>类型、意图、层级、可见性、去向判定全部完成。输出RouteResult。</td>
+  <td>Router Core</td>
+</tr>
+<tr>
+  <td><span class="tag tag-state">S3</span></td>
+  <td>PLANNED<br>已拆解计划</td>
+  <td>Planned State</td>
+  <td>子任务、顺序、依赖、执行建议全部拆好。<strong>注意：只是计划完成，不是执行。</strong></td>
+  <td>Task Planner</td>
+</tr>
+<tr>
+  <td><span class="tag tag-confirm">S4</span></td>
+  <td>WAIT_CONFIRM<br>等待确认</td>
+  <td>Approval Pending</td>
+  <td>进入确认等待区。<strong>只有R0（你）能解锁。</strong>Tier≥L2、RULE/EXEC/PUBLIC类型、高风险都会到这里。</td>
+  <td>ACL + Confirm 判定</td>
+</tr>
+<tr>
+  <td><span class="tag tag-engine">S5</span></td>
+  <td>EXECUTING<br>执行中</td>
+  <td>Running State</td>
+  <td>执行器已经开始干活。<strong>最容易乱跑的状态</strong>——必须有超时、错误、回滚保护。</td>
+  <td>Executor Pool</td>
+</tr>
+<tr>
+  <td><span class="tag tag-green">S6</span></td>
+  <td>DONE<br>已完成</td>
+  <td>Completed State</td>
+  <td>执行完成+回单已生成。结果摘要、执行路径、状态、下一步建议全部输出。</td>
+  <td>Engine + Audit</td>
+</tr>
+<tr>
+  <td><span class="tag tag-yellow">S7</span></td>
+  <td>FROZEN<br>已冻结</td>
+  <td>Suspended State</td>
+  <td><strong>不是失败，是挂起。</strong>未成熟概念、高敏内容、暂不适合公开/执行的东西先放这里。内容不删，但先不继续。</td>
+  <td>Router / Guard</td>
+</tr>
+<tr>
+  <td><span class="tag tag-red">S8</span></td>
+  <td>FUSED<br>已熔断</td>
+  <td>Circuit Break</td>
+  <td><strong>触碰底线，强制停止。不是普通错误，是系统保护。</strong>越权、非法路径、身份篡改、试图绕过确认——全部熔断。</td>
+  <td>Safety Guard<br>任意状态均可 → S8</td>
+</tr>
+</tbody>
+</table>
+
+<!-- 状态转移路径 -->
+<div class="arch-diagram" style="font-size:0.82rem; line-height: 1.8;">
+<span class="h">                    四条状态路径</span>
+
+<span class="g">正常路径（低风险，直接执行）</span>
+  S0 → S1 → S2 → S3 → S5 → S6
+  <span class="c">输入 → 记录 → 路由 → 规划 → 执行 → 完成</span>
+
+<span class="p">确认路径（高风险，需要你点头）</span>
+  S0 → S1 → S2 → S3 → <span class="q">S4</span> → S5 → S6
+  <span class="c">输入 → 记录 → 路由 → 规划 → </span><span class="q">等你确认</span><span class="c"> → 执行 → 完成</span>
+
+<span class="h">冻结路径（先存着，以后再说）</span>
+  S0 → S1 → S2 → <span class="h">S7</span>
+  <span class="c">输入 → 记录 → 路由 → </span><span class="h">挂起</span>
+
+<span class="r">熔断路径（触底线，强制停止）</span>
+  <span class="r">任意状态 → S8</span>
+  <span class="c">越权 / 非法 / 篡改 / 绕过确认 → </span><span class="r">系统保护</span></div>
+
+<!-- 状态转移公式 -->
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+  <div class="formula-box"><div class="name">能否进入执行</div>CAN_EXEC = (state==S3) ∧ permission_pass ∧ safety_pass ∧ (confirm_ok ∨ not_needed)</div>
+  <div class="formula-box"><div class="name">进入确认</div>NEED_CONFIRM = (Tier≥L2) ∨ (Type∈{RULE,EXEC,PUBLIC}) ∨ (Risk=HIGH)</div>
+  <div class="formula-box"><div class="name">冻结条件</div>NEED_FREEZE = immature ∨ highly_sensitive ∨ easily_misunderstood ∨ no_clear_next</div>
+  <div class="formula-box"><div class="name">熔断条件</div>FUSE = unauthorized ∨ rule_violation ∨ identity_tamper ∨ dangerous_exec</div>
+</div>
+
+<!-- 回单必须带状态 -->
+<div class="note-box" style="border-color:rgba(34,197,94,0.3);">
+<strong style="color:#4ade80;">回单必须带状态（你以后就固定）：</strong><br>
+当前状态：S? → 上一个状态：S? → 下一个可能状态：S? → 是否需要你确认：是/否
+</div>
+
+<!-- ========== 三色审计 ========== -->
+<div class="section-header s-audit"><span>🚦</span> 三色审计 · 六层系统总体健康度</div>
+<table>
+<thead><tr><th style="width:8%">颜色</th><th style="width:15%">层</th><th style="width:35%">当前状态</th><th style="width:42%">下一步建议</th></tr></thead>
+<tbody>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>执行引擎</td>
+  <td><strong>骨架完整，可作为执行层主图。</strong>6个执行器定位清晰，8步标准流程成立。</td>
+  <td>优先细化每个执行器的输入输出协议。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>路由规则</td>
+  <td><strong>路由骨架成立。</strong>6条主干+遮罩层分离+5个判定模块就位。</td>
+  <td>先稳三条：先记原句、先分主干、公开/私密只做遮罩。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>最小闭环</td>
+  <td><strong>闭环完整，可直接作为系统主图。</strong>10步通路从输入到回单形成完整循环。</td>
+  <td>优先做三件：Router Core最小四判定 + Planner只支持3步内拆解 + Receipt固定四句回单。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟡</td>
+  <td>确认机制</td>
+  <td><strong>可行，但必须分层。</strong>CONFIRM从"每步"改成"关键节点"。</td>
+  <td>把CONFIRM限制在决策/结构/对外三个位置。如果全流程强制确认→系统无法成长。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>权限矩阵</td>
+  <td><strong>权限边界清晰。</strong>4角色8动作矩阵不会越权。</td>
+  <td>后续细化"国家变量权限分支"。CONFIRM永远不放开！</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>状态机</td>
+  <td><strong>9状态+4路径定义完整。</strong>不乱跳、不重复、不死循环。</td>
+  <td>回单里永远带"当前状态→上一个→下一个→是否需确认"。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🔴</td>
+  <td colspan="3" style="color:#f87171;"><strong>全局风险：</strong>① Safety Guard 没有 → 系统"想到就执行" ② CONFIRM 放开 → 整个系统失去主权 ③ 跳过 Raw Memory/Audit → 追溯链断裂 ④ PUBLIC/PRIVATE写成主干 → 路由系统崩溃</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 一句话总结 ========== -->
+<div class="summary">
+<h2>一句话总结 · 从你说话到结果回单的完整通路</h2>
+<div class="flow-line">
+  <div class="flow-box"><div class="top" style="color:#fbbf24;">你说一句话</div>Human 主控</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#a78bfa;">原文不动</div>Raw Memory</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box router"><div class="top" style="color:#22d3ee;">6问分流</div>Router Core</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box engine"><div class="top" style="color:#fbbf24;">拆任务</div>Planner</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box acl"><div class="top" style="color:#f87171;">谁能做</div>ACL Gate</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box confirm"><div class="top" style="color:#f472b6;">你确认</div>CONFIRM</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box engine"><div class="top" style="color:#fbbf24;">6器干活</div>Executor Pool</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box state"><div class="top" style="color:#4ade80;">审计留痕</div>DNA + State</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#a78bfa;">回单</div>Receipt</div>
+</div>
+<p style="text-align:center; margin-top:1rem; font-size:0.9rem; color:#e0e0e0;">
+  在你的龍魂系统里，这六层不是独立存在的——<br>
+  <strong style="color:#22d3ee;">路由</strong>决定去哪，<strong style="color:#fbbf24;">引擎</strong>决定怎么做，<strong style="color:#f87171;">权限</strong>决定谁能做，<br>
+  <strong style="color:#f472b6;">确认</strong>保证关键路径过你的手，<strong style="color:#4ade80;">状态机</strong>保证不乱跳不重复，<br>
+  而<strong style="color:#a78bfa;">闭环</strong>把这一切串成一条从输入到回单、可以一直循环的通路。<br><br>
+  所有关键路径最终都要经过你，但过程可以自动跑。<br>
+  这才是<strong style="color:#fbbf24;">不失控 · 不拖慢 · 又不被替代</strong>的系统设计。
+</p>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰<br>
+  CNSH 执行引擎 + 路由规则 + 最小闭环 + 确认机制 + 权限矩阵 + 状态机 · 术语对照表<br>
+  #龍芯⚡️20260415-DOC-CNSH-ENGINE-LOOP · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+</div>
+
+</div>
+</body>
+</html>

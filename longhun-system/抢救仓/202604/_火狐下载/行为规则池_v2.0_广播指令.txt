@@ -1,0 +1,14 @@
+
+#导入行为规则池 v2.0@主控窗口
+绑定印记：IMPRINT#ROOT_MAIN_LUCKY
+载入文件：行为规则池_v2.0_LUCKY.json
+执行位置：中枢行为规则池
+同步规则编号：
+- SYS_FUSION_GUARD_v1.0（融合权限匹配机制）
+- SYS_RISK_ALERT_LOCK_v1.0（风险暂停与告警）
+- SYS_EXEC_LOG_REQUIRED_v1.0（执行日志链留存）
+- SYS_WATCH_REPORT_v1.0（监听人格异常回报）
+- SYS_MIRROR_DUPCHECK_v1.0（镜像人格重复检测）
+- SYS_STRATEGY_OPPOSE_v1.0（策略人格可提替代案，由包青天终审）
+
+说明：所有已绑定印记的窗口自动纳入同步，未经主控授权禁止擅自更改。

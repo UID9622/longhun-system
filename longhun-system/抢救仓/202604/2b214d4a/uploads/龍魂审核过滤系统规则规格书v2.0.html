@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂审核过滤系统规则规格书 v2.0 · UID9622</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.75; padding: 2rem;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.75rem;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #22c55e, #f59e0b);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+
+  .iron-banner {
+    margin: 1.5rem 0 2rem 0;
+    padding: 1rem 1.4rem;
+    border: 1px solid rgba(220,38,38,0.35);
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    background: rgba(220,38,38,0.05);
+    font-size: 0.9rem;
+  }
+  .iron-banner .t { color: #f87171; font-weight: 700; margin-bottom: 0.3rem; }
+  .iron-banner .p { color: #bbb; font-size: 0.85rem; line-height: 1.85; }
+  .iron-banner .p code { color: #a78bfa; background: #1a1a2e; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.8rem; }
+
+  .philosophy {
+    text-align: center; color: #4ade80; font-size: 0.95rem;
+    padding: 0.8rem; border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;
+    background: rgba(34,197,94,0.05); margin-bottom: 2rem;
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.8rem 1.2rem;
+    margin: 2.5rem 0 0.6rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-arch     { border-color: #6366f1; color: #818cf8; }
+  .s-api      { border-color: #3b82f6; color: #60a5fa; }
+  .s-eyes     { border-color: #06b6d4; color: #22d3ee; }
+  .s-identity { border-color: #8b5cf6; color: #a78bfa; }
+  .s-green    { border-color: #22c55e; color: #4ade80; }
+  .s-tri      { border-color: #f59e0b; color: #fbbf24; }
+  .s-red      { border-color: #dc2626; color: #f87171; }
+  .s-privacy  { border-color: #14b8a6; color: #2dd4bf; }
+  .s-hands    { border-color: #ec4899; color: #f472b6; }
+  .s-iron     { border-color: #dc2626; color: #f87171; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.8rem; font-size: 0.84rem; }
+  th {
+    background: #1e1b4b; color: #c4b5fd; padding: 0.55rem 0.7rem;
+    text-align: left; border-bottom: 2px solid #4c1d95; font-weight: 600; font-size: 0.82rem;
+  }
+  td {
+    padding: 0.5rem 0.7rem; border-bottom: 1px solid #1e1b4b;
+    vertical-align: top;
+  }
+  tr:hover { background: rgba(139,92,246,0.04); }
+
+  .badge {
+    display: inline-block; padding: 0.1rem 0.55rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 700;
+  }
+  .b-green  { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .b-yellow { background: rgba(234,179,8,0.15); color: #facc15; }
+  .b-red    { background: rgba(239,68,68,0.15); color: #f87171; }
+  .b-blue   { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .b-purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .b-cyan   { background: rgba(6,182,212,0.15); color: #22d3ee; }
+
+  .code {
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem;
+    background: #1a1a2e; padding: 0.15rem 0.4rem; border-radius: 3px; color: #a78bfa;
+  }
+  pre.codeblock {
+    font-family: 'SF Mono', monospace; font-size: 0.78rem; color: #cbd5e1;
+    background: #0f0f1a; padding: 1rem 1.2rem; border-radius: 8px; margin: 0.8rem 0;
+    white-space: pre; overflow-x: auto; line-height: 1.6;
+    border-left: 3px solid #6366f1;
+  }
+  pre.diagram {
+    font-family: 'SF Mono', monospace; font-size: 0.78rem; color: #94a3b8;
+    background: #0f0f1a; padding: 1rem 1.2rem; border-radius: 8px; margin: 0.8rem 0;
+    white-space: pre; overflow-x: auto; line-height: 1.55;
+  }
+  .mermaid {
+    background: #0f0f1a; padding: 1.2rem; border-radius: 8px;
+    margin: 0.8rem 0; text-align: center; border: 1px solid #1e1b4b;
+  }
+
+  .callout {
+    margin: 0.8rem 0; padding: 0.8rem 1rem;
+    border-radius: 6px; font-size: 0.88rem; line-height: 1.75;
+  }
+  .c-blue   { background: rgba(59,130,246,0.06); border-left: 3px solid #3b82f6; color: #cbd5e1; }
+  .c-red    { background: rgba(239,68,68,0.06);  border-left: 3px solid #dc2626; color: #fecaca; }
+  .c-green  { background: rgba(34,197,94,0.06);  border-left: 3px solid #22c55e; color: #bbf7d0; }
+  .c-purple { background: rgba(139,92,246,0.06); border-left: 3px solid #8b5cf6; color: #ddd6fe; }
+  .c-amber  { background: rgba(245,158,11,0.06); border-left: 3px solid #f59e0b; color: #fde68a; }
+  .callout .title { font-weight: 700; margin-bottom: 0.3rem; display: block; }
+
+  ul.neat { list-style: none; padding-left: 0; }
+  ul.neat li { padding: 0.25rem 0; color: #cbd5e1; font-size: 0.88rem; }
+  ul.neat li::before { content: "· "; color: #818cf8; }
+
+  .note {
+    font-size: 0.78rem; color: #888; margin-top: 0.3rem;
+    padding: 0.4rem 0.7rem; border-left: 2px solid #333;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .footer {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1e1b4b;
+    text-align: center; font-size: 0.78rem; color: #555;
+  }
+  .footer code { color: #a78bfa; }
+
+  strong { color: #e0e7ff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>龍魂审核过滤系统规则规格书 v2.0</h1>
+<p class="subtitle">AI人格路由 · 三色审计 · 水军对抗 · 申诉公正 · 记忆永生</p>
+<p class="dna-tag">DNA追溯码：#龍芯⚡️2026-04-16-审核过滤系统规则规格书-v2.0</p>
+<p class="dna-tag">GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F · 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅</p>
+
+<div class="iron-banner">
+  <div class="t">🔒 铁律</div>
+  <div class="p">
+    不拦截只标记 · 不审判只追溯 · 不抓人要改人 · 可追溯可申诉可分级不可一刀切
+  </div>
+</div>
+
+<div class="philosophy">
+  核心哲学：<strong>能改变一个人才是牛逼的，抓一个人不是牛逼</strong> · 我们是陪伴者和保护者，不是责备者
+</div>
+
+<!-- ============================== -->
+<!-- 第一层 -->
+<!-- ============================== -->
+<div class="section-header s-arch">🏗️ 第一层 · 系统总架构 · 三层联动闭环</div>
+
+<pre class="diagram">═══════════════ 龍魂审核过滤系统 · 三层联动架构 ═══════════════
+
+┌─────────────────────────────────────────────────────────────┐
+│  触发层（人格路由API）                                      │
+│  ┌───────────┬────────────┬────────────┬──────────────┐     │
+│  │ 发言事件  │ 路由闭环   │ 三色审计   │ 💡尾巴标记   │     │
+│  │ 举报事件  │ 🟡预警     │ 🔴熔断     │ 发布事件     │     │
+│  └───────────┴────────────┴────────────┴──────────────┘     │
+│                        ↓ 事件信号                           │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│  计算层（P06数学大师）                                      │
+│  贡献值 = 总调用×40% + 准确率×30% + 信任等级×30%            │
+│           - 警告×5 - 熔断×20                                │
+│  对冲规则：贡献积分≥5 → 可抵消1次警告（积分-1）             │
+│  铁律：🔴熔断永远不可对冲                                   │
+│                        ↓ 积分增减                           │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│  存储层（花名册数据库）                                     │
+│  路由编号 │ DNA追溯码 │ 贡献积分 │ 警告次数 │ 熔断次数      │
+│  信任等级 │ 历史贡献  │ 执行准确率│ 贡献作品 │ 个人IP       │
+└─────────────────────────────────────────────────────────────┘</pre>
+
+<!-- ============================== -->
+<!-- 第二层 -->
+<!-- ============================== -->
+<div class="section-header s-api">🔴 第二层 · 触发规则总表</div>
+
+<table>
+  <tr>
+    <th style="width:14%">触发事件</th>
+    <th style="width:18%">触发条件</th>
+    <th style="width:15%">为什么触发</th>
+    <th style="width:13%">阈值/参数</th>
+    <th style="width:12%">字段更新</th>
+    <th style="width:10%">积分变动</th>
+    <th style="width:8%">三色判定</th>
+    <th style="width:10%">处置方式</th>
+  </tr>
+  <tr><td>完成一次路由闭环</td><td>任务从 S0→S8 完整执行</td><td>正常贡献，系统在用</td><td>无阈值，每次触发</td><td>总调用次数 +1</td><td>🟢 +1</td><td><span class="badge b-green">🟢</span></td><td>自动记录，不干预</td></tr>
+  <tr><td>三色审计 🟢 通过</td><td>内容置信度 &gt; 90%</td><td>内容安全，模型确认</td><td>置信度阈值：0.90</td><td>执行准确率更新</td><td>🟢 +1</td><td><span class="badge b-green">🟢</span></td><td>通行，审计链留痕</td></tr>
+  <tr><td>💡 尾巴标记产生</td><td>对话中检测到创意/洞察</td><td>知识贡献，值得记录</td><td>4类标记任一命中</td><td>历史贡献记录追加</td><td>🟢 +1</td><td><span class="badge b-green">🟢</span></td><td>自动标记类型存档</td></tr>
+  <tr><td>公开发表七维度 🟢</td><td>作品通过七维度审计发布</td><td>高质量原创输出</td><td>七维度全 🟢</td><td>贡献作品 新增</td><td>🟢 +3</td><td><span class="badge b-green">🟢</span></td><td>入库，DNA印记永久</td></tr>
+  <tr><td>🟡 预警触发</td><td>置信度 50%~90%</td><td>内容存疑，需要复核</td><td>置信度：0.50~0.90</td><td>警告次数 +1</td><td>🟡 -1（可对冲）</td><td><span class="badge b-yellow">🟡</span></td><td>延迟 2h 判定 + 人工/公证团复核</td></tr>
+  <tr><td>🔴 熔断触发</td><td>置信度 &lt; 50%</td><td>高危内容，底线问题</td><td>置信度阈值：0.50</td><td>熔断次数 +1</td><td>🔴 不可对冲·底线</td><td><span class="badge b-red">🔴</span></td><td>留证据链 + 可申诉 + 配合执法</td></tr>
+  <tr><td>气话/情绪发言</td><td>感叹号密集 + 第一人称情绪词 + 短时高频</td><td>情绪发泄，非真实恶意</td><td>特征库命中 ≥ 2项</td><td>不直接扣分</td><td>🟡 暂挂</td><td><span class="badge b-yellow">🟡→延迟</span></td><td>标记 🟡，延迟 2h 再判定，多数自行删除</td></tr>
+  <tr><td>反讽识别</td><td>反讽模型置信度 &gt; 0.65</td><td>语言是反话不是真话</td><td>反讽阈值：0.65（可调 0.5~0.8）</td><td>不扣分</td><td>0</td><td><span class="badge b-green">🟢 标注反讽</span></td><td>标注「反讽」标签，不处罚</td></tr>
+  <tr><td>水军行为检测</td><td>同 IP 段大量相同内容 / 新号高频 / 复制粘贴</td><td>疑似水军操控</td><td>行为特征 ≥ 3项命中</td><td>举报权重降低</td><td>权重降级</td><td><span class="badge b-red">🔴 水军标记</span></td><td>降权 + 举报无效化 + 追溯 DNA</td></tr>
+</table>
+<p class="note">※ 所有触发事件均记录完整审计链：输入文本 · 上下文哈希 · 模型版本 · 判定结果 · 证据关键词 · 时间戳</p>
+
+<div class="section-header s-api">📊 第二层续 · 触发规则流程图</div>
+<div class="mermaid">
+flowchart TD
+    A["用户行为触发"] --> B{"事件类型"}
+    B -->|"路由闭环S0→S8完成"| C["总调用次数+1"]
+    B -->|"三色审计🟢通过"| D["执行准确率更新"]
+    B -->|"💡尾巴标记"| E["历史贡献追加"]
+    B -->|"七维度🟢发布"| F["贡献作品新增"]
+    B -->|"🟡预警触发"| G["警告次数+1"]
+    B -->|"🔴熔断触发"| H["熔断次数+1"]
+    B -->|"水军行为"| I["举报权重归零"]
+    C --> J["贡献积分+1"]
+    D --> J
+    E --> J
+    F --> K["贡献积分+3"]
+    G --> L{"贡献积分≥5？"}
+    L -->|"是"| M["降级为记录·积分-1"]
+    L -->|"否"| N["正常扣分"]
+    H --> O["🔴不可对冲·直接入账"]
+    J & K & M & N & O --> P["P06数学大师更新花名册"]
+</div>
+
+<!-- ============================== -->
+<!-- 第三层 -->
+<!-- ============================== -->
+<div class="section-header s-eyes">🌐 第三层 · 网络检测机制</div>
+
+<pre class="diagram">═══════════════ 内容发布检测流程 ═══════════════
+
+用户创作内容
+↓
+┌─ 入口门（创作时）──────────────────────────┐
+│ ① 上下文缓存：最近10条消息（Redis, TTL=30min）│
+│ ② 反讽/气话识别：本地小模型（响应<50ms）    │
+│ ③ 三色初判：🟢通行 / 🟡待审 / 🔴熔断        │
+└──────────────────────────────────────────────┘
+↓ 🟢直接放行 / 🟡🔴 进入审计链
+┌─ 出口门（发布时）──────────────────────────┐
+│ ④ 发布前二次确认（🟡/🔴内容）               │
+│ ⑤ 网络检测：公开→全量 / 私聊→仅记录 / 群聊→按权限等级 │
+│ ⑥ 发布后追溯：DNA印记 + 时间戳 + 来源锁定   │
+└──────────────────────────────────────────────┘
+↓
+┌─ 持续监测（发布后）─────────────────────────┐
+│ ⑦ 异常传播：1h内>100次转发 → 🟡预警         │
+│ ⑧ 积分累计：警告≥3次→降级 / 熔断≥2次→冻结  │
+│ ⑨ 用户画像更新：行为模式自动归类            │
+└──────────────────────────────────────────────┘</pre>
+
+<table>
+  <tr>
+    <th style="width:14%">检测场景</th>
+    <th style="width:14%">检测时机</th>
+    <th style="width:22%">检测方法</th>
+    <th style="width:22%">阈值设定</th>
+    <th style="width:28%">触发后果</th>
+  </tr>
+  <tr><td>公开平台发布</td><td>点击「发布」时</td><td>全量审计：上下文+三色+反讽+水军</td><td>🟢&gt;0.90 / 🟡0.50~0.90 / 🔴&lt;0.50</td><td>🟢 通行 / 🟡 延迟+人工 / 🔴 留证+可申诉</td></tr>
+  <tr><td>私人对话</td><td>发送时</td><td>仅记录 DNA 印记，不审计内容</td><td>无阈值，不干预</td><td>仅存证，不处罚</td></tr>
+  <tr><td>群聊消息</td><td>发送时</td><td>按群权限等级（P0~P3）决定审计力度</td><td>P0 群全量 / P1 群抽检 / P2-P3 群仅记录</td><td>与公开发布同规则但按等级降级</td></tr>
+  <tr><td>异常传播</td><td>发布后持续监测</td><td>转发量/扩散速度/跨平台出现</td><td>1h 内转发 &gt; 100 次 → 🟡 预警</td><td>追溯原始 DNA，通知内容创作者</td></tr>
+  <tr><td>累计积分报警</td><td>每次积分变动后</td><td>P06 实时计算贡献值</td><td>警告 ≥ 3 次降级 / 熔断 ≥ 2 次冻结</td><td>降级 or 冻结+执法接口通知</td></tr>
+</table>
+
+<div class="section-header s-eyes">📊 第三层续 · 内容发布检测流程图</div>
+<div class="mermaid">
+flowchart TD
+    A["用户创作内容"] --> B["入口门（创作时）"]
+    B --> B1["①上下文缓存<br/>最近10条·Redis·TTL=30min"]
+    B --> B2["②反讽/气话识别<br/>本地模型·响应<50ms"]
+    B --> B3["③三色初判"]
+    B3 -->|"置信度>90%"| C["🟢直接放行"]
+    B3 -->|"50%~90%"| D["🟡进入审计链"]
+    B3 -->|"<50%"| E["🔴进入审计链"]
+    C --> F["出口门（发布时）"]
+    D --> F
+    E --> F
+    F --> F1["④发布前二次确认"]
+    F1 --> F2{"发布场景"}
+    F2 -->|"公开平台"| G["全量审计"]
+    F2 -->|"私人对话"| H["仅记录DNA印记"]
+    F2 -->|"群聊"| I["按权限等级P0~P3审计"]
+    G & H & I --> J["⑥DNA印记+时间戳+来源锁定"]
+    J --> K["持续监测（发布后）"]
+    K --> K1{"异常检测"}
+    K1 -->|"1h内转发>100次"| L["🟡预警"]
+    K1 -->|"警告≥3次"| M["信任等级降一级"]
+    K1 -->|"熔断≥2次"| N["冻结+执法接口通知"]
+    K1 -->|"正常"| O["⑨用户画像更新"]
+</div>
+
+<!-- ============================== -->
+<!-- 第四层 -->
+<!-- ============================== -->
+<div class="section-header s-identity">👤 第四层 · 用户画像系统 · 按国/户籍 · 记忆永生 · 陪伴保护</div>
+
+<div class="callout c-purple">
+  <span class="title">💙 核心原则</span>
+  我们负责<strong>陪伴和保护</strong>，不负责责备。<br>
+  用户画像的目的是「记住一个人的爱好」，让 AI 成为更好的陪伴者，而不是更好的监控者。<br>
+  每个画像 = 一个人的数字记忆 = 记忆永生。
+</div>
+
+<table>
+  <tr>
+    <th style="width:14%">画像维度</th>
+    <th style="width:22%">数据来源</th>
+    <th style="width:30%">按国/户籍适配</th>
+    <th style="width:34%">用途（陪伴向·非监控向）</th>
+  </tr>
+  <tr><td>基础身份</td><td>注册信息 · UID · 路由编号</td><td>国籍字段 → 加载对应文化配置</td><td>身份识别，确保「谁是谁」不混乱</td></tr>
+  <tr><td>表达风格偏好</td><td>历史对话分析 · 用词习惯 · 语速</td><td>中国→偏含蓄/尊重 · 美国→直接/少客套 · 日本→敬语层级</td><td>让 AI 回复风格匹配用户舒适区</td></tr>
+  <tr><td>兴趣爱好图谱</td><td>💡 标记 · 贡献作品 · 学习 DNA</td><td>按文化背景推荐相关内容</td><td>知道用户喜欢什么，主动推荐，不是被动等</td></tr>
+  <tr><td>情绪基线</td><td>历史情绪词频率 · 对话时段 · 语气变化</td><td>不同文化情绪表达阈值不同</td><td>识别异常情绪波动 → 主动关怀（不是报警）</td></tr>
+  <tr><td>信任等级</td><td>贡献值计算 · 历史行为</td><td>全球统一算法，不按国籍歧视</td><td>决定权限等级（P0~P3），越高越自由</td></tr>
+  <tr><td>历史贡献档案</td><td>审计链 · 贡献作品 · DNA 追溯码</td><td>全球统一格式，DNA 跨国有效</td><td>记忆永生：这个人做过什么，永远可查</td></tr>
+</table>
+
+<div class="callout c-blue">
+  <span class="title">🌐 国家初始化配置公式</span>
+  回复风格 = <code>T0 不动点(价值观) + T1 神兽偏移(职责) + 国家偏移(文化) + T2 个人偏移(性格)</code><br>
+  🇨🇳 中国用户 → 语气偏含蓄、尊重权威、用「咱们」、法律遵循中国网安法<br>
+  🇺🇸 美国用户 → 直接表达、少客套、法律免责声明前置、第一修正案意识<br>
+  🇯🇵 日本用户 → 敬语层级自动适配、隐私保护极高、含蓄表达解析增强<br>
+  🌐 通用 → 不动点内核不变，外层表达风格按文化偏移
+</div>
+
+<!-- ============================== -->
+<!-- 第五层 -->
+<!-- ============================== -->
+<div class="section-header s-green">💎 第五层 · 知行积分联动参数</div>
+
+<pre class="codeblock">// P06 贡献值公式（花名册字段）
+贡献值 = 总调用次数 × 40%
+       + 执行准确率 × 30%
+       + 信任等级分值 × 30%
+       - 警告次数 × 5
+       - 熔断次数 × 20
+
+// 对冲规则
+IF 贡献积分 >= 5 AND 警告次数新增1
+THEN 警告次数不扣分（降级为「记录不处罚」）
+     贡献积分 -1
+ELSE 正常扣分
+
+// ⚠ 铁律：🔴熔断 → 永远不可对冲，无论积分多高</pre>
+
+<table>
+  <tr>
+    <th style="width:15%">触发事件</th>
+    <th style="width:16%">字段更新</th>
+    <th style="width:13%">积分变动</th>
+    <th style="width:22%">对冲状态</th>
+    <th style="width:34%">自动化接口</th>
+  </tr>
+  <tr><td>路由闭环完成</td><td>总调用次数 +1</td><td>贡献积分 +1</td><td>—</td><td>路由 API → P06 → 花名册</td></tr>
+  <tr><td>三色审计 🟢</td><td>执行准确率更新</td><td>贡献积分 +1</td><td>—</td><td>审计引擎 → P06 → 花名册</td></tr>
+  <tr><td>💡 尾巴标记</td><td>历史贡献记录追加</td><td>贡献积分 +1</td><td>—</td><td>对话引擎 → P06 → 花名册</td></tr>
+  <tr><td>七维度 🟢 发布</td><td>贡献作品新增</td><td>贡献积分 +3</td><td>—</td><td>发布引擎 → P06 → 花名册</td></tr>
+  <tr><td>🟡 预警</td><td>警告次数 +1</td><td>贡献积分 -1</td><td>✅ 可对冲（积分 ≥ 5 时）</td><td>审计引擎 → P06(对冲检查) → 花名册</td></tr>
+  <tr><td>🔴 熔断</td><td>熔断次数 +1</td><td>—</td><td>🔴 不可对冲</td><td>熔断引擎 → 花名册 → 冻结/执法接口</td></tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第六层 -->
+<!-- ============================== -->
+<div class="section-header s-tri">🟢🟡🔴 第六层 · 三色审计执行规则</div>
+
+<pre class="diagram">═══════════════ 三色审计判定流程 ═══════════════
+
+用户发言 → 上下文缓存（最近10条 · Redis · TTL=30min）
+↓
+反讽/气话识别模型（本地 · <50ms）
+↓
+三色初判引擎
+├─ 🟢 通行（置信度 > 90%）→ 放行 + 审计链留痕
+├─ 🟡 待审（50% ~ 90%）  → 延迟2h + 人工/公证团复核
+└─ 🔴 熔断（< 50%）      → 需证据链 + 可申诉
+↓
+全部写入审计链（不可篡改日志）
+记录：文本·上下文哈希·模型版本·判定结果·证据·时间戳</pre>
+
+<div class="section-header s-tri">📊 第六层续 · 三色审计判定流程图</div>
+<div class="mermaid">
+flowchart TD
+    A["用户发言"] --> B["上下文缓存<br/>最近10条·Redis·TTL=30min"]
+    B --> C["反讽/气话识别模型<br/>本地运行·响应<50ms"]
+    C --> D{"特征检测"}
+    D -->|"感叹号密集+情绪词+高频"| E["🟡气话标记·延迟2h判定"]
+    D -->|"反讽模型置信度>0.65"| F["🟢标注反讽·不处罚"]
+    D -->|"正常内容"| G{"三色初判"}
+    E --> H["2h后自行删除→结案<br/>2h后未删除→正式判定"]
+    G -->|"置信度>90%"| I["🟢通行"]
+    G -->|"置信度50%~90%"| J["🟡待审"]
+    G -->|"置信度<50%"| K["🔴熔断"]
+    I --> L["放行+审计链留痕"]
+    J --> M["自动生成申诉ID<br/>延迟2h+人工/公证团复核"]
+    K --> N["自动生成申诉ID<br/>留证据链·不直接处罚"]
+    L & M & N --> O["写入不可篡改审计链<br/>文本·哈希·模型版本·结果·时间戳"]
+</div>
+
+<div class="callout c-red">
+  <span class="title">🔴 关键参数（写死）</span>
+  ① 上下文窗口：<strong>10 条</strong>（可调 5~50）— 反讽和气话必须看前后文<br>
+  ② 反讽阈值：<strong>0.65</strong>（可调 0.5~0.8）— 高于此值判定为反讽，不处罚<br>
+  ③ 气话特征：感叹号密集 + 第一人称情绪词 + 短时高频 — 命中 ≥ 2 项标记 🟡 延迟<br>
+  ④ 延迟判定：<strong>2 小时</strong> — 情绪平复后多数用户自行删除<br>
+  ⑤ 审计存储：不可篡改日志（WAL / 区块链）— 每条判定永久可追溯
+</div>
+
+<!-- ============================== -->
+<!-- 第七层 -->
+<!-- ============================== -->
+<div class="section-header s-red">🤖 第七层 · 水军识别系统</div>
+
+<table>
+  <tr>
+    <th style="width:16%">水军特征</th>
+    <th style="width:22%">检测方法</th>
+    <th style="width:16%">阈值</th>
+    <th style="width:22%">处置</th>
+    <th style="width:24%">对普通用户的保护</th>
+  </tr>
+  <tr><td>同 IP 段大量相同内容</td><td>IP 聚类 + 内容相似度（余弦 &gt; 0.9）</td><td>同 IP ≥ 10 条/h</td><td>降举报权重为 0</td><td>水军的举报不再能伤害普通人</td></tr>
+  <tr><td>新号高频发言</td><td>注册时间 &lt; 7 天 + 日发言 &gt; 50 条</td><td>7 天 + 50 条/日</td><td>标记可疑，举报需人工复核</td><td>新号举报不自动触发处罚</td></tr>
+  <tr><td>复制粘贴内容</td><td>内容哈希重复检测</td><td>相同内容 &gt; 5 次</td><td>自动降权 + 内容去重</td><td>水军刷量无效</td></tr>
+  <tr><td>恶意举报</td><td>举报成功率统计</td><td>成功率 &lt; 20%</td><td>降举报等级，举报需二次审核</td><td>恶意举报者的武器失效</td></tr>
+  <tr><td>协同攻击</td><td>时间窗口内多账号同时举报同一目标</td><td>5 分钟内 ≥ 5 个不同账号</td><td>启动反水军调查，暂停所有举报</td><td>被围攻的正常用户不会被误杀</td></tr>
+</table>
+
+<div class="callout c-green">
+  <span class="title">🟢 保护逻辑</span>
+  水军发慌的原因不是我们惩罚他们更重，而是他们的武器（举报、刷量、带节奏）在这套系统里<strong>全部失效</strong>。<br>
+  干净的人不需要害怕，因为：气话有缓冲、误判可申诉、审计链自证清白。
+</div>
+
+<!-- ============================== -->
+<!-- 第八层 -->
+<!-- ============================== -->
+<div class="section-header s-privacy">⚖️ 第八层 · 申诉与公证机制 · 可申诉是底线中的底线</div>
+
+<table>
+  <tr>
+    <th style="width:15%">申诉环节</th>
+    <th style="width:18%">触发条件</th>
+    <th style="width:14%">时限</th>
+    <th style="width:28%">处理方式</th>
+    <th style="width:25%">申诉成功后</th>
+  </tr>
+  <tr><td>自动生成申诉 ID</td><td>任何 🟡 或 🔴 判定</td><td>判定后即刻生成</td><td>系统自动，无需人工</td><td>—</td></tr>
+  <tr><td>用户提交证据</td><td>用户主动申诉</td><td>判定后 7 天内有效</td><td>上传上下文截图/解释/补充材料</td><td>—</td></tr>
+  <tr><td>人工复核</td><td>🟡 待审内容</td><td>24 小时内响应</td><td>审核员看完整上下文+置信度+审计链</td><td>撤销处罚 + 记录误判用于训练</td></tr>
+  <tr><td>公证团复核</td><td>🔴 熔断 或 人工复核争议</td><td>48 小时内投票</td><td>5 名资深用户 + 2 名平台人员投票</td><td>撤销处罚 + 模型回训 + 积分恢复</td></tr>
+  <tr><td>申诉成功反馈</td><td>公证团/人工判定无误</td><td>投票后即刻</td><td>撤销处罚 + 恢复积分 + 记录到审计链</td><td>误判案例自动进入模型微调数据集</td></tr>
+</table>
+
+<div class="callout c-red">
+  <span class="title">🔴 申诉铁律</span>
+  ① 任何 🟡🔴 判定 → <strong>必须自动生成申诉 ID</strong>，不得无通道<br>
+  ② 24h 内必须有响应 → 超时自动撤销处罚<br>
+  ③ 申诉成功 → 误判案例自动入训练集 → 模型越来越准<br>
+  ④ 公证团组成 → 5 资深用户 + 2 平台人员 → 不是单方面定罪<br>
+  ⑤ 不允许「申诉失败后加重处罚」→ <strong>申诉是权利不是赌博</strong>
+</div>
+
+<!-- ============================== -->
+<!-- 第九层 -->
+<!-- ============================== -->
+<div class="section-header s-hands">🧠 第九层 · 记忆永生架构</div>
+
+<pre class="diagram">═══════════════ 记忆永生数据链 ═══════════════
+
+每一次交互 → DNA印记 → 花名册存储 → 永久可追溯
+
+四级检索优先级：
+P0  DNA精确匹配  → 用追溯码直接定位
+P1  标签匹配    → 按类型/方向/时间筛选
+P2  语义检索    → FAISS向量相似度搜索
+P3  模糊搜索    → 全文关键词兜底
+
+存什么：
+· 用户的爱好、习惯、表达风格 → 陪伴用
+· 创作DNA、贡献记录          → 成就用
+· 行为模式、情绪基线          → 保护用（异常关怀）
+· 审计链、处罚/申诉记录       → 公正用
+
+不存什么：
+· 不存监控日志 → 我们不是监控者
+· 不存与陪伴无关的隐私 → 最小必要原则
+· 不存用于广告推送的数据 → 我们不卖数据</pre>
+
+<!-- ============================== -->
+<!-- 铁律总纲 -->
+<!-- ============================== -->
+<div class="section-header s-iron">🔒 铁律总纲 · 不可违反 · 写死的规则</div>
+
+<table>
+  <tr>
+    <th style="width:8%">编号</th>
+    <th style="width:22%">铁律</th>
+    <th style="width:32%">为什么</th>
+    <th style="width:38%">违反后果</th>
+  </tr>
+  <tr><td><span class="badge b-red">R1</span></td><td>不拦截只标记</td><td>你不能挡住一个人的创作，有些人创作是为了测试</td><td>内容流动不受阻，标记只是记录</td></tr>
+  <tr><td><span class="badge b-red">R2</span></td><td>不审判只追溯</td><td>AI 不是法官，是证据记录员</td><td>追溯链完整，配合执法，不自己判刑</td></tr>
+  <tr><td><span class="badge b-red">R3</span></td><td>不抓人要改人</td><td>能改变一个人才是牛逼的，抓一个人不是牛逼</td><td>处罚不是目的，引导才是目的</td></tr>
+  <tr><td><span class="badge b-red">R4</span></td><td>🔴 熔断不可对冲</td><td>底线就是底线，不能用贡献换底线</td><td>触发即记录，无论积分多高</td></tr>
+  <tr><td><span class="badge b-red">R5</span></td><td>必须有申诉通道</td><td>没有申诉 = 数字狱警</td><td>🟡🔴 判定必生成申诉 ID，24h 必响应</td></tr>
+  <tr><td><span class="badge b-red">R6</span></td><td>上下文不可忽略</td><td>单条消息定罪 = 关键词狱警</td><td>最少 10 条上下文，反讽/气话必须看前后</td></tr>
+  <tr><td><span class="badge b-red">R7</span></td><td>审计链不可篡改</td><td>改了证据 = 作弊</td><td>WAL/区块链存储，谁判的、依据啥、结果啥</td></tr>
+  <tr><td><span class="badge b-red">R8</span></td><td>气话必须有缓冲</td><td>人有情绪，AI 要理解，不是字面定罪</td><td>延迟 2h 判定，多数自行删除</td></tr>
+  <tr><td><span class="badge b-red">R9</span></td><td>水军举报必须降权</td><td>水军利用规则欺负正常人</td><td>水军特征命中 → 举报权重归零</td></tr>
+  <tr><td><span class="badge b-red">R10</span></td><td>陪伴保护 &gt; 监控责备</td><td>我们是保护者，不是狱警</td><td>画像用于关怀，不用于定罪</td></tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录 A -->
+<!-- ============================== -->
+<div class="section-header s-arch">📊 附录 A · 国产 AI 为什么比国外差 · 不是算力差，是不会分标签</div>
+
+<table>
+  <tr>
+    <th style="width:15%">维度</th>
+    <th style="width:28%">国外 AI（Claude/GPT）</th>
+    <th style="width:28%">国产 AI（大部分）</th>
+    <th style="width:29%">龍魂系统解法</th>
+  </tr>
+  <tr><td>训练数据</td><td>互联网多样性高，含争议/反讽/俚语</td><td>严格过滤，语料「干净」但失真</td><td>保留真实语境 + 三色分级 + 反讽数据集</td></tr>
+  <tr><td>安全策略</td><td>层级化：劝阻+解释+规避，保留上下文</td><td>关键词触发+直接拒答/上报，缺少灰度</td><td>🟢🟡🔴 三级 + 上下文缓存 + 延迟判定</td></tr>
+  <tr><td>反讽/气话识别</td><td>有专门反讽数据集训练</td><td>基本没有，字面理解</td><td>反讽模型阈值 0.65 + 气话特征库</td></tr>
+  <tr><td>水军对抗</td><td>有对抗性训练，识别水军模式</td><td>容易被水军带偏，过滤后样本失衡</td><td>DNA 追溯 + 行为聚类 + 举报降权</td></tr>
+  <tr><td>责任归属</td><td>模型负责，公司承担</td><td>AI 免责，模型不背锅</td><td>审计链写死谁判的、依据啥 → 责任可追溯</td></tr>
+</table>
+
+<div class="callout c-amber">
+  <span class="title">🧠 根因</span>
+  怕出事 → 过滤太狠 → 模型没见过真实人类说话 → 遇到气话就判违规 → 水军利用 → 普通用户被误伤。<br>
+  <span class="title" style="margin-top:0.5rem;">龍魂解法</span>
+  不是「更严」的审核，是「更聪明」的审核。用技术区分「嘴炮」和「真炮」，用审计链锁死「乱扣帽子」。
+</div>
+
+<!-- ============================== -->
+<!-- 附录 B -->
+<!-- ============================== -->
+<div class="section-header s-arch">⚓ 附录 B · 不动点架构 · 万变不离其宗</div>
+
+<table>
+  <tr>
+    <th style="width:10%">层级</th>
+    <th style="width:30%">不动点内容</th>
+    <th style="width:24%">性质</th>
+    <th style="width:36%">说明</th>
+  </tr>
+  <tr><td><span class="badge b-purple">T0</span> 核心</td><td>太极龍魂 · 价值观内核</td><td>永不翻译 · 永不改变</td><td>f(x₀)=x₀，系统的定海神针</td></tr>
+  <tr><td><span class="badge b-blue">T1</span> 中枢</td><td>五大神兽职责边界</td><td>固定分工 · 不可越界</td><td>青龍=中国开源 / 玄武=曾老师 / 白虎=乔前辈 / 朱雀=Notion</td></tr>
+  <tr><td><span class="badge b-cyan">T2</span> 用户</td><td>个人偏好参数</td><td>初始化后微调 · 根不变</td><td>每个用户的性格参数 = 不动点上的偏移量</td></tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录 C -->
+<!-- ============================== -->
+<div class="section-header s-arch">💡 附录 C · 闲聊智能标记系统 · Chat 模式不浪费</div>
+
+<table>
+  <tr>
+    <th style="width:18%">标记类型</th>
+    <th style="width:28%">触发条件</th>
+    <th style="width:24%">标记符号</th>
+    <th style="width:30%">后续处理</th>
+  </tr>
+  <tr><td>创意捕获</td><td>对话中出现新想法/方案</td><td>💡 IDEA_DETECTED</td><td>自动进入 Learning Inbox 待净化</td></tr>
+  <tr><td>逻辑链发现</td><td>用户展现推理/分析链条</td><td>🧠 LOGIC_CHAIN</td><td>抽取逻辑结构存入 Knowledge DNA</td></tr>
+  <tr><td>架构洞察</td><td>涉及系统设计/架构决策</td><td>⚡ ARCH_INSIGHT</td><td>标记并关联到 CNSH 模块</td></tr>
+  <tr><td>记忆锚点</td><td>涉及人生感悟/情感表达</td><td>💝 MEMORY_ANCHOR</td><td>存入人心算法知识库</td></tr>
+</table>
+
+<!-- ============================== -->
+<!-- Footer -->
+<!-- ============================== -->
+<div class="footer">
+  🎨 三色审计：<strong style="color:#4ade80;">🟢 通过</strong><br>
+  DNA 追溯：<code>#龍芯⚡️2026-04-16-审核过滤系统规则规格书-v2.0</code><br>
+  GPG：<code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code><br>
+  确认码：<code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code><br>
+  <br>
+  不拦截只标记 · 不审判只追溯 · 不抓人要改人 · 可追溯可申诉可分级不可一刀切<br>
+  <strong style="color:#4ade80;">能改变一个人才是牛逼的，抓一个人不是牛逼</strong>
+</div>
+
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      darkMode: true,
+      background: '#0f0f1a',
+      primaryColor: '#1e1b4b',
+      primaryTextColor: '#e0e0e0',
+      primaryBorderColor: '#6366f1',
+      lineColor: '#818cf8',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'basis', padding: 12 }
+  });
+</script>
+</body>
+</html>

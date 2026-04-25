@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍脈留痕 · Dragon Vein Immutable Trace</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --anthropic-dark: #141413;
+            --anthropic-light: #faf9f5;
+            --anthropic-mid-gray: #b0aea5;
+            --anthropic-light-gray: #e8e6dc;
+            --anthropic-orange: #d97757;
+            --anthropic-blue: #6a9bcc;
+            --anthropic-green: #788c5d;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--anthropic-light) 0%, #f0ede6 100%);
+            min-height: 100vh;
+            color: var(--anthropic-dark);
+        }
+        .container { display:flex; min-height:100vh; padding:20px; gap:20px; }
+        .sidebar {
+            width:300px; flex-shrink:0;
+            background:rgba(255,255,255,0.96);
+            backdrop-filter:blur(10px);
+            padding:22px; border-radius:12px;
+            box-shadow:0 10px 30px rgba(20,20,19,0.1);
+            overflow-y:auto; overflow-x:hidden;
+        }
+        .sidebar h1 { font-family:'Lora',serif; font-size:20px; font-weight:500; color:var(--anthropic-dark); margin-bottom:4px; }
+        .sidebar .sub1 { font-size:11px; color:#9C27B0; margin-bottom:4px; font-weight:500; }
+        .sidebar .subtitle { color:var(--anthropic-mid-gray); font-size:11px; margin-bottom:24px; line-height:1.5; }
+        .control-section { margin-bottom:24px; }
+        .control-section h3 { font-size:13px; font-weight:600; color:var(--anthropic-dark); margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+        .control-section h3::before { content:'•'; color:var(--anthropic-orange); font-weight:bold; }
+        .seed-input { width:100%; background:var(--anthropic-light); padding:9px; border-radius:8px; font-family:'Courier New',monospace; font-size:13px; margin-bottom:10px; border:1px solid var(--anthropic-light-gray); text-align:center; }
+        .seed-controls { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+        .control-group { margin-bottom:14px; }
+        .control-group label { display:block; font-size:12px; font-weight:500; color:var(--anthropic-dark); margin-bottom:5px; }
+        .slider-container { display:flex; align-items:center; gap:8px; }
+        .slider-container input[type=range] { flex:1; height:4px; background:var(--anthropic-light-gray); border-radius:2px; outline:none; -webkit-appearance:none; }
+        .slider-container input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; background:var(--anthropic-orange); border-radius:50%; cursor:pointer; }
+        .value-display { font-family:'Courier New',monospace; font-size:11px; color:var(--anthropic-mid-gray); min-width:44px; text-align:right; }
+        .button { background:var(--anthropic-orange); color:white; border:none; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:500; cursor:pointer; transition:all 0.2s; width:100%; }
+        .button:hover { background:#c86641; transform:translateY(-1px); }
+        .button.secondary { background:var(--anthropic-blue); }
+        .button.secondary:hover { background:#5a8bb8; }
+        .button.tertiary { background:var(--anthropic-green); }
+        .button.tertiary:hover { background:#6b7b52; }
+        .button.purple { background:#7B1FA2; }
+        .button.purple:hover { background:#6A1691; }
+        .button-row { display:flex; gap:6px; margin-bottom:6px; }
+        .button-row .button { flex:1; }
+        .canvas-area { flex:1; display:flex; align-items:center; justify-content:center; min-width:0; }
+        #canvas-container { width:100%; max-width:860px; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.3); }
+        #canvas-container canvas { display:block; width:100% !important; height:auto !important; }
+        .audit-legend { display:flex; flex-direction:column; gap:4px; font-size:11px; }
+        .audit-row { display:flex; align-items:center; gap:6px; }
+        .audit-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+        .dna-tag { font-family:'Courier New',monospace; font-size:9px; color:var(--anthropic-mid-gray); margin-top:16px; line-height:1.6; text-align:center; padding:8px; background:var(--anthropic-light); border-radius:6px; }
+        @media(max-width:600px){ .container{flex-direction:column;} .sidebar{width:100%;} }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <h1>龍脈留痕</h1>
+    <div class="sub1">Dragon Vein · Immutable Trace</div>
+    <div class="subtitle">洛书九宫力场 · 369共振 · 不动点锚定<br>每一次触碰，都是不可撤销的证明</div>
+
+    <div class="control-section">
+      <h3>种子 · Seed</h3>
+      <input type="number" id="seed-input" class="seed-input" value="9622" onchange="updateSeed()">
+      <div class="seed-controls">
+        <button class="button secondary" onclick="prevSeed()">← 上一个</button>
+        <button class="button secondary" onclick="nextSeed()">下一个 →</button>
+      </div>
+      <button class="button tertiary" onclick="randSeed()">↻ 随机种子</button>
+    </div>
+
+    <div class="control-section">
+      <h3>参数 · Parameters</h3>
+      <div class="control-group">
+        <label>粒子数量 · Particles</label>
+        <div class="slider-container">
+          <input type="range" id="particleCount" min="500" max="6000" step="250" value="3000" oninput="updateParam('particleCount',parseInt(this.value))">
+          <span class="value-display" id="particleCount-v">3000</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>流速 · Flow Speed</label>
+        <div class="slider-container">
+          <input type="range" id="flowSpeed" min="0.3" max="3.0" step="0.1" value="1.1" oninput="updateParam('flowSpeed',parseFloat(this.value))">
+          <span class="value-display" id="flowSpeed-v">1.1</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>369共振 · Resonance</label>
+        <div class="slider-container">
+          <input type="range" id="resonance" min="0" max="1.5" step="0.05" value="0.75" oninput="updateParam('resonance',parseFloat(this.value))">
+          <span class="value-display" id="resonance-v">0.75</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>不动点引力 · Anchor</label>
+        <div class="slider-container">
+          <input type="range" id="anchorGravity" min="0" max="2.0" step="0.05" value="0.55" oninput="updateParam('anchorGravity',parseFloat(this.value))">
+          <span class="value-display" id="anchorGravity-v">0.55</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>留痕淡出 · Persistence</label>
+        <div class="slider-container">
+          <input type="range" id="persistence" min="0.01" max="0.12" step="0.005" value="0.025" oninput="updateParam('persistence',parseFloat(this.value))">
+          <span class="value-display" id="persistence-v">0.025</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-section">
+      <h3>三色审计 · Audit Legend</h3>
+      <div class="audit-legend">
+        <div class="audit-row"><div class="audit-dot" style="background:#9B59B6"></div><span style="font-size:11px">🔮 永恒 · L0 不动点</span></div>
+        <div class="audit-row"><div class="audit-dot" style="background:#3CAB6A"></div><span style="font-size:11px">🟢 通过 · 低速稳定</span></div>
+        <div class="audit-row"><div class="audit-dot" style="background:#F0C020"></div><span style="font-size:11px">🟡 待审 · 中速流动</span></div>
+        <div class="audit-row"><div class="audit-dot" style="background:#E84030"></div><span style="font-size:11px">🔴 熔断 · 高速激活</span></div>
+      </div>
+    </div>
+
+    <div class="control-section">
+      <h3>操作 · Actions</h3>
+      <div class="button-row">
+        <button class="button" onclick="reinit()">重生成</button>
+        <button class="button secondary" onclick="resetAll()">重置</button>
+      </div>
+      <div class="button-row">
+        <button class="button purple" onclick="toggleGrid()">九宫格 <span id="grid-state">ON</span></button>
+        <button class="button tertiary" onclick="dlPNG()">下载 PNG</button>
+      </div>
+    </div>
+
+    <div class="dna-tag">
+      #龍芯⚡️2026-04-22<br>LONGHUN-IMMUTABLE-v1.0<br>UID9622 · 不动点永恒 · 留痕不可覆盖
+    </div>
+  </div>
+
+  <div class="canvas-area">
+    <div id="canvas-container"></div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+// 龍脈留痕 · IMMUTABLE TRACE FLOW FIELD
+// DNA: #龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-v1.0
+// UID9622 · 洛书骨架 + 369共振 + 不动点引力
+// 每一粒子的轨迹 = 不可覆盖的记录
+// ════════════════════════════════════════════════════════
+
+let params = {
+  seed: 9622,
+  particleCount: 3000,
+  flowSpeed: 1.1,
+  resonance: 0.75,
+  anchorGravity: 0.55,
+  persistence: 0.025
+};
+const defaults = {...params};
+
+// 洛书九宫 3x3 矩阵
+const LUOSHU = [[4,9,2],[3,5,7],[8,1,6]];
+
+// Lo Shu number → compass angle (radians)
+const LS_ANGLES = {
+  9: -Math.PI/2,          // N
+  1:  Math.PI/2,          // S
+  3:  Math.PI,            // W
+  7:  0,                  // E
+  4: -Math.PI*3/4,        // NW
+  2: -Math.PI/4,          // NE
+  8:  Math.PI*3/4,        // SW
+  6:  Math.PI/4           // SE
+};
+
+let particles = [];
+let showGrid = true;
+let myP5;
+
+// ── Lo Shu flow vector ──────────────────────────────────
+function getLuoshuVec(x, y) {
+  let W = myP5.width, H = myP5.height;
+  let col = Math.max(0, Math.min(2, Math.floor(x / (W/3))));
+  let row = Math.max(0, Math.min(2, Math.floor(y / (H/3))));
+  let val = LUOSHU[row][col];
+
+  let angle;
+  if (val === 5) {
+    // 不动点: tangential circular orbit
+    angle = Math.atan2(y - H/2, x - W/2) + Math.PI/2;
+  } else {
+    angle = LS_ANGLES[val];
+  }
+  return { x: Math.cos(angle), y: Math.sin(angle) };
+}
+
+// ── Full flow vector: Lo Shu + 369 noise + attractor ───
+function getFlow(px, py, p5) {
+  let W = p5.width, H = p5.height;
+  let lv = getLuoshuVec(px, py);
+
+  // 369 resonance: 3 Perlin octaves
+  let ns = 0.0028, t = p5.frameCount * 0.0018;
+  let n3 = p5.noise(px*ns*3, py*ns*3, t*3);
+  let n6 = p5.noise(px*ns*6+73, py*ns*6+73, t*6);
+  let n9 = p5.noise(px*ns*9+137, py*ns*9+137, t*9);
+  let nv = (n3 + n6*0.5 + n9*0.25) / 1.75;
+  let na = (nv * 2 - 1) * Math.PI * 2 * params.resonance;
+
+  // Blend Lo Shu base + noise perturbation
+  let noiseBlend = 0.28;
+  let bx = lv.x * (1-noiseBlend) + Math.cos(na) * noiseBlend;
+  let by = lv.y * (1-noiseBlend) + Math.sin(na) * noiseBlend;
+
+  // Central attractor (不动点引力)
+  let cx = W/2, cy = H/2;
+  let dx = cx - px, dy = cy - py;
+  let dist = Math.sqrt(dx*dx + dy*dy);
+
+  if (dist > 25) {
+    let ax = dx/dist, ay = dy/dist;
+    let aStr = params.anchorGravity * Math.min(1.0, 160/(dist+1)) * 0.45;
+    bx = bx*(1-aStr) + ax*aStr;
+    by = by*(1-aStr) + ay*aStr;
+  } else {
+    // Very close to center → tangential orbit
+    let tang = Math.atan2(py-cy, px-cx) + Math.PI/2;
+    bx = Math.cos(tang);
+    by = Math.sin(tang);
+  }
+
+  // Normalize + speed
+  let len = Math.sqrt(bx*bx + by*by) || 1;
+  let spd = params.flowSpeed * (0.6 + p5.noise(px*0.009, py*0.009)*0.8);
+  return { vx: (bx/len)*spd, vy: (by/len)*spd };
+}
+
+// ── Three-color audit palette ───────────────────────────
+function auditColor(speed, distC) {
+  let r, g, b, a;
+  if (distC < 72) {
+    let t = distC/72;
+    r = Math.floor(220 - 60*t);
+    g = Math.floor(180 - 110*t);
+    b = 255;
+    a = Math.floor(200 + 55*(1-t));
+  } else {
+    let s = Math.min(speed/2.2, 1);
+    if (s > 0.62) {
+      let t = (s-0.62)/0.38;
+      r = 255; g = Math.floor(130 - 90*t); b = Math.floor(40 + 30*t);
+    } else if (s > 0.28) {
+      let t = (s-0.28)/0.34;
+      r = 255; g = Math.floor(215 - 65*t); b = Math.floor(55 - 25*t);
+    } else {
+      let t = s/0.28;
+      r = Math.floor(30 + 20*t); g = Math.floor(210 - 30*t); b = Math.floor(155 - 55*t);
+    }
+    a = Math.floor(130 + 80*(1-s));
+  }
+  return [r,g,b,a];
+}
+
+// ── Particle class ──────────────────────────────────────
+class Particle {
+  constructor(p5, scattered) {
+    this.p5 = p5;
+    this.vx = 0; this.vy = 0;
+    if (scattered) {
+      this.x = p5.random(p5.width);
+      this.y = p5.random(p5.height);
+      this.life = p5.random(0, 500);
+    } else {
+      this.spawnEdge();
+      this.life = 0;
+    }
+    this.maxLife = p5.random(280, 720);
+    this.px = this.x; this.py = this.y;
+  }
+
+  spawnEdge() {
+    let p5 = this.p5;
+    let side = Math.floor(p5.random(4));
+    if (side===0){ this.x=p5.random(p5.width); this.y=-8; }
+    else if(side===1){ this.x=p5.random(p5.width); this.y=p5.height+8; }
+    else if(side===2){ this.x=-8; this.y=p5.random(p5.height); }
+    else { this.x=p5.width+8; this.y=p5.random(p5.height); }
+    this.vx=0; this.vy=0;
+  }
+
+  update() {
+    let p5 = this.p5;
+    this.px = this.x; this.py = this.y;
+    this.life++;
+    if (this.life > this.maxLife || this.x<-25||this.x>p5.width+25||this.y<-25||this.y>p5.height+25) {
+      this.spawnEdge();
+      this.maxLife = p5.random(280, 720);
+      this.life = 0;
+      return;
+    }
+    let f = getFlow(this.x, this.y, p5);
+    this.vx = this.vx*0.82 + f.vx*0.18;
+    this.vy = this.vy*0.82 + f.vy*0.18;
+    this.x += this.vx;
+    this.y += this.vy;
+  }
+
+  render() {
+    let p5 = this.p5;
+    if (this.life < 3) return;
+    let speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+    let cx = p5.width/2, cy = p5.height/2;
+    let dc = Math.sqrt((this.x-cx)**2+(this.y-cy)**2);
+    let lr = 1 - this.life/this.maxLife;
+    let [r,g,b,a] = auditColor(speed, dc);
+    a = Math.floor(a * lr + a*0.3);
+    let sz = p5.map(speed, 0, 3, 0.7, 2.2);
+    let ddist = Math.sqrt((this.x-this.px)**2+(this.y-this.py)**2);
+    if (ddist < 15) {
+      p5.stroke(r, g, b, a);
+      p5.strokeWeight(sz);
+      p5.line(this.px, this.py, this.x, this.y);
+    }
+  }
+}
+
+// ── p5.js sketch ────────────────────────────────────────
+const sketch = (p5) => {
+  myP5 = p5;
+
+  p5.setup = () => {
+    let cnv = p5.createCanvas(860, 860);
+    cnv.parent('canvas-container');
+    p5.colorMode(p5.RGB, 255, 255, 255, 255);
+    document.querySelector('#canvas-container').style.background='#08080f';
+    reinit();
+  };
+
+  p5.draw = () => {
+    // 留痕原则: near-permanent trail accumulation
+    p5.noStroke();
+    p5.fill(8, 8, 15, params.persistence * 255);
+    p5.rect(0, 0, p5.width, p5.height);
+
+    // Draw Lo Shu grid overlay every 360 frames
+    if (showGrid && (p5.frameCount === 1 || p5.frameCount % 360 === 0)) {
+      drawGrid(p5);
+    }
+
+    // Particles
+    for (let pt of particles) {
+      pt.update();
+      pt.render();
+    }
+
+    // Center pulse every 360 frames
+    if (p5.frameCount % 360 === 0) {
+      drawCenterPulse(p5);
+    }
+  };
+};
+
+function drawGrid(p5) {
+  let cw = p5.width/3, ch = p5.height/3;
+  p5.stroke(255, 255, 255, 10);
+  p5.strokeWeight(1);
+  for (let i=1;i<3;i++){
+    p5.line(i*cw,0,i*cw,p5.height);
+    p5.line(0,i*ch,p5.width,i*ch);
+  }
+  p5.noStroke();
+  p5.textAlign(p5.CENTER, p5.CENTER);
+  for (let row=0;row<3;row++){
+    for (let col=0;col<3;col++){
+      let val = LUOSHU[row][col];
+      let cx2=(col+0.5)*cw, cy2=(row+0.5)*ch;
+      if (val===5){
+        p5.fill(180,130,255,22);
+        p5.textSize(72);
+        p5.text('5',cx2,cy2);
+        p5.noFill();
+        p5.stroke(180,130,255,12);
+        p5.strokeWeight(1);
+        p5.ellipse(cx2,cy2,55,55);
+        p5.ellipse(cx2,cy2,110,110);
+        p5.ellipse(cx2,cy2,190,190);
+        p5.noStroke();
+      } else {
+        p5.fill(255,255,255,10);
+        p5.textSize(38);
+        p5.text(val,cx2,cy2);
+      }
+    }
+  }
+}
+
+function drawCenterPulse(p5) {
+  let cx=p5.width/2, cy=p5.height/2;
+  p5.noFill();
+  p5.stroke(180,130,255,40);
+  p5.strokeWeight(2);
+  p5.ellipse(cx,cy,20,20);
+  p5.stroke(180,130,255,20);
+  p5.ellipse(cx,cy,60,60);
+  p5.noStroke();
+}
+
+function reinit() {
+  if (!myP5) return;
+  let p5 = myP5;
+  p5.randomSeed(params.seed);
+  p5.noiseSeed(params.seed);
+  p5.background(8, 8, 15);
+  drawGrid(p5);
+  drawCenterPulse(p5);
+  particles = [];
+  for (let i=0;i<params.particleCount;i++){
+    particles.push(new Particle(p5, i < params.particleCount*0.7));
+  }
+}
+
+// ── UI handlers ─────────────────────────────────────────
+function updateParam(name, val) {
+  params[name] = val;
+  document.getElementById(name+'-v').textContent = val;
+  if (name === 'particleCount') {
+    while (particles.length > params.particleCount) particles.pop();
+    while (particles.length < params.particleCount && myP5) particles.push(new Particle(myP5, true));
+  }
+}
+
+function updateSeed() {
+  let v = parseInt(document.getElementById('seed-input').value);
+  if (v > 0) { params.seed = v; reinit(); }
+}
+
+function prevSeed() {
+  params.seed = Math.max(1, params.seed-1);
+  document.getElementById('seed-input').value = params.seed;
+  reinit();
+}
+
+function nextSeed() {
+  params.seed += 1;
+  document.getElementById('seed-input').value = params.seed;
+  reinit();
+}
+
+function randSeed() {
+  params.seed = Math.floor(Math.random()*999999)+1;
+  document.getElementById('seed-input').value = params.seed;
+  reinit();
+}
+
+function toggleGrid() {
+  showGrid = !showGrid;
+  document.getElementById('grid-state').textContent = showGrid ? 'ON' : 'OFF';
+  if (showGrid && myP5) drawGrid(myP5);
+}
+
+function resetAll() {
+  params = {...defaults};
+  document.getElementById('particleCount').value = params.particleCount;
+  document.getElementById('particleCount-v').textContent = params.particleCount;
+  document.getElementById('flowSpeed').value = params.flowSpeed;
+  document.getElementById('flowSpeed-v').textContent = params.flowSpeed;
+  document.getElementById('resonance').value = params.resonance;
+  document.getElementById('resonance-v').textContent = params.resonance;
+  document.getElementById('anchorGravity').value = params.anchorGravity;
+  document.getElementById('anchorGravity-v').textContent = params.anchorGravity;
+  document.getElementById('persistence').value = params.persistence;
+  document.getElementById('persistence-v').textContent = params.persistence;
+  document.getElementById('seed-input').value = params.seed;
+  reinit();
+}
+
+function dlPNG() {
+  if (myP5) myP5.saveCanvas('longhun-' + params.seed, 'png');
+}
+
+new p5(sketch);
+</script>
+</body>
+</html>

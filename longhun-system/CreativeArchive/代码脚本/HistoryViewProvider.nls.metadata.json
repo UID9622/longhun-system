@@ -1,9 +1,0 @@
-{
-	"messages": [
-		"{1}/{0} commits in total"
-	],
-	"keys": [
-		"webviewView.description"
-	],
-	"filePath": "views/history/HistoryViewProvider"
-}

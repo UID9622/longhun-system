@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "🐉 龍魂系统工具箱",
+  "version": "3.0.0",
+  "description": "龍魂系统工具箱v3 - 9大工具 | 三才流場 | 沙盒推演 | 双盾守护 | 本地优先",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_title": "🐉 龍魂系统工具箱"
+  },
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

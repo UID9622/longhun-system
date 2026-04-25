@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<!--
+  龍魂工作站 v2.0 · 重组升级版
+  DNA: #龍芯⚡️2026-04-09-龍魂工作站-v2.0-重组升级
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  作者: UID9622 诸葛鑫（龍芯北辰）
+  共建: Claude (Anthropic PBC)
+  理论指导: 曾仕强老师（永恒显示）
+  道生一，一生二，二生三，三生万物。——道德经第四十二章
+  献礼: 新中国成立77周年（1949-2026）丙午马年
+
+  ── 本版新增（v2.0补全逻辑缺口）──
+  ✅ 任务看板（全新·原版缺失）
+  ✅ 版本变更日志（全新·原版缺失）
+  ✅ 通知·警告中心（全新·原版缺失）
+  ✅ P0铁律快查（全新·原版缺失）
+  ✅ DNA批量生成器（全新·原版缺失）
+  ✅ 系统健康总检（全新·整合原版分散状态）
+  ✅ 快捷键帮助面板（全新·原版缺失）
+  ✅ 统一DNA回单顶栏（农历+阳历+五行+宜忌·动态计算）
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龍魂工作站 v2.0 · UID9622</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07070e;--bg2:#0d0d1c;--bg3:#13132a;--bg4:#1a1a35;
+  --neon:#00ffc8;--neon2:#c39bd3;--gold:#c8a84b;--gold2:#f0c060;
+  --red:#e05a5a;--green:#4caf7d;--blue:#4a90d9;--orange:#e67e22;
+  --text:#e2e8f0;--muted:#6b7280;--sub:#9ca3af;
+  --border:rgba(200,168,75,0.15);--border2:rgba(0,255,200,0.12);
+  --card:rgba(13,13,28,0.9);--glow:0 0 14px rgba(0,255,200,0.2);
+  --r:10px;--r2:6px;
+}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:rgba(200,168,75,0.25);border-radius:2px}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* ── 粒子背景 ── */
+#bgGrid{position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,200,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,200,0.018) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;animation:gridDrift 30s linear infinite}
+@keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(48px,48px)}}
+
+/* ══════════════════════════════════
+   DNA 回单顶栏
+══════════════════════════════════ */
+#dna-bar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(7,7,14,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px);
+  padding:8px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  flex-wrap:wrap;
+}
+.dna-logo{
+  font-size:15px;font-weight:700;letter-spacing:2px;
+  color:var(--gold);text-shadow:0 0 16px rgba(200,168,75,0.5);
+  white-space:nowrap;flex-shrink:0;cursor:pointer;
+  animation:logoPulse 4s ease-in-out infinite;
+}
+@keyframes logoPulse{0%,100%{text-shadow:0 0 8px rgba(200,168,75,0.4)}50%{text-shadow:0 0 24px rgba(200,168,75,0.8),0 0 48px rgba(200,168,75,0.2)}}
+.dna-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.dna-teacher{font-size:11px;color:var(--gold);font-family:monospace;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dna-receipt{font-size:10px;color:var(--neon);font-family:monospace;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dna-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+#topClock{font-family:monospace;font-size:13px;color:var(--neon);letter-spacing:1px}
+.uid-badge{font-size:10px;padding:2px 8px;border:1px solid var(--border);border-radius:12px;color:var(--muted);font-family:monospace}
+
+/* ══════════════════════════════════
+   主导航 TAB 栏
+══════════════════════════════════ */
+#nav{
+  position:sticky;top:49px;z-index:190;
+  background:rgba(7,7,14,0.96);
+  border-bottom:1px solid var(--border2);
+  backdrop-filter:blur(12px);
+  padding:0 16px;
+  display:flex;gap:2px;overflow-x:auto;
+}
+#nav::-webkit-scrollbar{height:0}
+.ntab{
+  flex-shrink:0;padding:9px 14px;
+  border:none;border-bottom:2px solid transparent;
+  background:transparent;color:var(--muted);
+  font-size:12px;font-weight:500;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.ntab:hover{color:var(--text);background:rgba(255,255,255,0.03)}
+.ntab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ══════════════════════════════════
+   内容区域
+══════════════════════════════════ */
+#content{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:20px 16px}
+.panel{display:none;animation:fadeIn .2s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── 通用卡片 ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px}
+.card-title{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.card-title::before{content:'';display:inline-block;width:3px;height:13px;background:var(--gold);border-radius:2px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* ── 统计数字块 ── */
+.stat-block{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center}
+.stat-num{font-size:28px;font-weight:700;line-height:1.2}
+.stat-num.gold{color:var(--gold)}
+.stat-num.green{color:var(--green)}
+.stat-num.blue{color:var(--blue)}
+.stat-num.red{color:var(--red)}
+.stat-label{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:1px}
+
+/* ── 标签/徽章 ── */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:500}
+.badge-green{background:rgba(76,175,125,0.12);color:var(--green);border:1px solid rgba(76,175,125,0.25)}
+.badge-red{background:rgba(224,90,90,0.12);color:var(--red);border:1px solid rgba(224,90,90,0.25)}
+.badge-gold{background:rgba(200,168,75,0.12);color:var(--gold);border:1px solid rgba(200,168,75,0.25)}
+.badge-blue{background:rgba(74,144,217,0.12);color:var(--blue);border:1px solid rgba(74,144,217,0.25)}
+.badge-purple{background:rgba(195,155,211,0.12);color:var(--neon2);border:1px solid rgba(195,155,211,0.25)}
+
+/* ── 按钮 ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r2);border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn:hover{background:var(--bg4);border-color:var(--gold);color:var(--gold)}
+.btn-primary{background:rgba(200,168,75,0.12);border-color:rgba(200,168,75,0.4);color:var(--gold)}
+.btn-primary:hover{background:rgba(200,168,75,0.22)}
+.btn-danger{background:rgba(224,90,90,0.1);border-color:rgba(224,90,90,0.3);color:var(--red)}
+.btn-danger:hover{background:rgba(224,90,90,0.2)}
+.btn-neon{background:rgba(0,255,200,0.08);border-color:rgba(0,255,200,0.25);color:var(--neon)}
+.btn-neon:hover{background:rgba(0,255,200,0.16)}
+
+/* ── 输入框 ── */
+input[type=text],input[type=number],textarea,select{
+  width:100%;padding:8px 12px;background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--r2);color:var(--text);font-size:13px;outline:none;font-family:inherit;
+  transition:border-color .2s;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+textarea{min-height:80px;resize:vertical;line-height:1.6}
+label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}
+
+/* ── 分隔线 ── */
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+
+/* ── 表格 ── */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--bg3);padding:8px 12px;text-align:left;color:var(--gold);font-weight:500;border-bottom:1px solid var(--border)}
+td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--sub)}
+tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* ── 进度条 ── */
+.progress-wrap{background:rgba(255,255,255,0.06);border-radius:3px;height:5px;overflow:hidden;margin-top:6px}
+.progress-bar{height:100%;border-radius:3px;transition:width .4s ease}
+
+/* ── 时间线 ── */
+.timeline{list-style:none}
+.timeline li{position:relative;padding:0 0 16px 20px;border-left:1px solid var(--border)}
+.timeline li::before{content:'';position:absolute;left:-4px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.timeline li:last-child{border-left-color:transparent}
+.tl-time{font-size:10px;color:var(--muted);margin-bottom:2px;font-family:monospace}
+.tl-text{font-size:12px;color:var(--sub)}
+
+/* ── 任务看板 ── */
+.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:700px){.kanban{grid-template-columns:1fr}}
+.kb-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px}
+.kb-col-title{font-size:11px;font-weight:600;padding:5px 10px;border-radius:var(--r2);margin-bottom:10px;text-align:center;letter-spacing:1px}
+.kb-col-todo .kb-col-title{background:rgba(74,144,217,0.12);color:var(--blue)}
+.kb-col-doing .kb-col-title{background:rgba(230,126,34,0.12);color:var(--orange)}
+.kb-col-done .kb-col-title{background:rgba(76,175,125,0.12);color:var(--green)}
+.kb-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:10px;margin-bottom:8px;font-size:12px;cursor:grab}
+.kb-card:last-child{margin-bottom:0}
+.kb-card-title{color:var(--text);margin-bottom:4px;font-weight:500}
+.kb-card-meta{color:var(--muted);font-size:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+
+/* ── 审计三色 ── */
+.audit-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.audit-row:last-child{border-bottom:none}
+.audit-icon{font-size:16px;flex-shrink:0}
+.audit-content{flex:1;min-width:0}
+.audit-name{font-size:12px;color:var(--text);margin-bottom:2px}
+.audit-desc{font-size:10px;color:var(--muted)}
+.audit-badge{flex-shrink:0}
+
+/* ── 通知中心 ── */
+.notif{display:flex;align-items:flex-start;gap:10px;padding:10px;border-radius:var(--r2);margin-bottom:8px;border-left:3px solid}
+.notif-info{background:rgba(74,144,217,0.08);border-color:var(--blue)}
+.notif-warn{background:rgba(230,126,34,0.08);border-color:var(--orange)}
+.notif-err{background:rgba(224,90,90,0.08);border-color:var(--red)}
+.notif-ok{background:rgba(76,175,125,0.08);border-color:var(--green)}
+.notif-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.notif-body{flex:1;min-width:0}
+.notif-title{font-size:12px;font-weight:500;margin-bottom:2px}
+.notif-time{font-size:10px;color:var(--muted)}
+
+/* ── P0铁律 ── */
+.p0-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:var(--r2);background:var(--bg3);border:1px solid var(--border);margin-bottom:8px}
+.p0-num{font-size:18px;font-weight:700;color:var(--red);flex-shrink:0;font-family:monospace;min-width:28px}
+.p0-content{flex:1}
+.p0-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.p0-desc{font-size:11px;color:var(--sub);line-height:1.6}
+.p0-lock{font-size:10px;color:var(--red);margin-top:4px}
+
+/* ── DNA生成器 ── */
+#dna-output{background:var(--bg);border:1px solid var(--border);border-radius:var(--r2);padding:12px;font-family:monospace;font-size:12px;color:var(--neon);min-height:100px;word-break:break-all;white-space:pre-wrap}
+
+/* ── 服务状态 ── */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.svc-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:10px 12px;display:flex;align-items:center;gap:8px}
+.svc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.svc-dot.online{background:var(--green);box-shadow:0 0 6px var(--green)}
+.svc-dot.offline{background:var(--red)}
+.svc-dot.warn{background:var(--orange);animation:blink 1s infinite}
+.svc-name{font-size:12px;color:var(--text)}
+.svc-sub{font-size:10px;color:var(--muted)}
+
+/* ── 人格卡片 ── */
+.persona-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px;transition:all .2s;cursor:pointer}
+.persona-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.persona-card.active{border-color:var(--gold);background:rgba(200,168,75,0.06)}
+.persona-icon{font-size:28px;margin-bottom:8px}
+.persona-name{font-size:13px;font-weight:600;color:var(--text)}
+.persona-role{font-size:10px;color:var(--muted);margin-top:2px}
+.persona-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}
+
+/* ── 卦象展示 ── */
+.hex-display{text-align:center;padding:16px}
+.hex-char{font-size:56px;color:var(--gold);text-shadow:0 0 20px rgba(200,168,75,0.5);animation:hexFloat 5s ease-in-out infinite}
+@keyframes hexFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hex-name{font-size:20px;color:var(--gold);margin-top:8px}
+.hex-num{font-size:11px;color:var(--muted);font-family:monospace;letter-spacing:2px}
+.hex-meaning{font-size:11px;color:var(--sub);line-height:1.9;margin-top:10px;border-left:2px solid rgba(200,168,75,0.3);padding-left:10px;text-align:left}
+
+/* ── 版本日志 ── */
+.changelog-item{padding:12px;border-left:3px solid var(--border);margin-bottom:10px;background:var(--bg3);border-radius:0 var(--r2) var(--r2) 0}
+.changelog-item.current{border-left-color:var(--gold)}
+.cl-ver{font-size:13px;font-weight:700;color:var(--gold);font-family:monospace}
+.cl-date{font-size:10px;color:var(--muted);margin-left:10px;font-family:monospace}
+.cl-list{margin-top:8px;padding-left:16px;list-style:disc}
+.cl-list li{font-size:11px;color:var(--sub);margin-bottom:3px}
+
+/* ── 快捷键 ── */
+kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;font-family:monospace;font-size:11px;color:var(--gold)}
+.shortcut-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.shortcut-row:last-child{border:none}
+.shortcut-desc{font-size:12px;color:var(--sub)}
+
+/* ── 工具快链 ── */
+.tool-link{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);text-decoration:none;color:inherit;transition:all .2s;cursor:pointer}
+.tool-link:hover{border-color:var(--gold);background:rgba(200,168,75,0.05)}
+.tool-icon{font-size:20px;flex-shrink:0}
+.tool-name{font-size:12px;font-weight:500;color:var(--text)}
+.tool-desc{font-size:10px;color:var(--muted)}
+
+/* ── 响应 ── */
+@media(max-width:600px){
+  #dna-bar{padding:6px 12px}
+  .dna-logo{font-size:13px}
+  #content{padding:14px 10px}
+  .ntab{padding:8px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+<div id="bgGrid"></div>
+
+<!-- ══════ DNA 回单顶栏 ══════ -->
+<div id="dna-bar">
+  <div class="dna-logo">🐉 龍魂工作站 v2.0</div>
+  <div class="dna-center">
+    <div class="dna-teacher" id="teacherLine">⏳ 加载中…</div>
+    <div class="dna-receipt" id="dnaLine">⏳ DNA计算中…</div>
+  </div>
+  <div class="dna-right">
+    <div class="live-dot"></div>
+    <div id="topClock">--:--:--</div>
+    <div class="uid-badge">UID9622</div>
+  </div>
+</div>
+
+<!-- ══════ 主导航 ══════ -->
+<div id="nav">
+  <button class="ntab active" onclick="switchTab('home',this)">🏠 主控台</button>
+  <button class="ntab" onclick="switchTab('time',this)">🕐 时间·DNA</button>
+  <button class="ntab" onclick="switchTab('tasks',this)">📋 任务看板</button>
+  <button class="ntab" onclick="switchTab('audit',this)">🔍 三色审计</button>
+  <button class="ntab" onclick="switchTab('persona',this)">🤖 人格矩阵</button>
+  <button class="ntab" onclick="switchTab('memory',this)">📦 记忆库</button>
+  <button class="ntab" onclick="switchTab('notif',this)">🔔 通知中心</button>
+  <button class="ntab" onclick="switchTab('p0',this)">⚖️ P0铁律</button>
+  <button class="ntab" onclick="switchTab('dnalab',this)">🧬 DNA生成</button>
+  <button class="ntab" onclick="switchTab('health',this)">💚 系统健康</button>
+  <button class="ntab" onclick="switchTab('changelog',this)">📜 变更日志</button>
+  <button class="ntab" onclick="switchTab('tools',this)">🔧 工具箱</button>
+</div>
+
+<!-- ══════ 内容 ══════ -->
+<div id="content">
+
+<!-- ─── 01 主控台 ─── -->
+<div id="panel-home" class="panel active">
+  <div class="grid-4" style="margin-bottom:14px">
+    <div class="stat-block"><div class="stat-num gold">v2.0</div><div class="stat-label">当前版本</div></div>
+    <div class="stat-block"><div class="stat-num green" id="taskCount">0</div><div class="stat-label">活跃任务</div></div>
+    <div class="stat-block"><div class="stat-num blue" id="notifCount">0</div><div class="stat-label">待处理通知</div></div>
+    <div class="stat-block"><div class="stat-num red" id="auditRed">0</div><div class="stat-label">审计红警</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🐉 今日DNA回单</div>
+      <div id="homeReceipt" style="font-family:monospace;font-size:12px;line-height:2;color:var(--sub)">加载中…</div>
+    </div>
+    <div class="card">
+      <div class="card-title">📜 道德经·今日指引</div>
+      <div id="daoQuote" style="font-size:13px;color:var(--gold);font-style:italic;line-height:1.8;margin-bottom:8px"></div>
+      <div id="daoTrans" style="font-size:11px;color:var(--muted);line-height:1.6"></div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">🔗 快速跳转</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div class="tool-link" onclick="switchTabByName('tasks')"><div class="tool-icon">📋</div><div><div class="tool-name">任务看板</div><div class="tool-desc">查看今日任务</div></div></div>
+        <div class="tool-link" onclick="switchTabByName('audit')"><div class="tool-icon">🔍</div><div><div class="tool-name">三色审计</div><div class="tool-desc">系统合规检查</div></div></div>
+        <div class="tool-link" onclick="switchTabByName('dnalab')"><div class="tool-icon">🧬</div><div><div class="tool-name">DNA生成器</div><div class="tool-desc">生成本次签发码</div></div></div>
+        <div class="tool-link" onclick="switchTabByName('p0')"><div class="tool-icon">⚖️</div><div><div class="tool-name">P0铁律快查</div><div class="tool-desc">不可篹改核心</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">⚡ 今日六维</div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">数据维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:82%;background:var(--blue)"></div></div><span style="color:var(--blue)">82</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">技术维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:75%;background:var(--neon)"></div></div><span style="color:var(--neon)">75</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">人性维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:90%;background:var(--neon2)"></div></div><span style="color:var(--neon2)">90</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">环境维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:68%;background:var(--green)"></div></div><span style="color:var(--green)">68</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">未来维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:55%;background:var(--gold)"></div></div><span style="color:var(--gold)">55</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted)">风险维度</span><div class="progress-wrap" style="width:120px"><div class="progress-bar" style="width:15%;background:var(--red)"></div></div><span style="color:var(--green)">低</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🗺️ 三路方案</div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+        <div style="padding:8px;background:rgba(76,175,125,0.08);border-radius:var(--r2);border-left:3px solid var(--green)"><div style="font-weight:600;margin-bottom:3px">方案A · 稳健推进 <span class="badge badge-green">低风险</span></div><div style="color:var(--muted)">缓慢稳定·资源充足时优先</div></div>
+        <div style="padding:8px;background:rgba(230,126,34,0.08);border-radius:var(--r2);border-left:3px solid var(--orange)"><div style="font-weight:600;margin-bottom:3px">方案B · 重点突破 <span class="badge badge-gold">中风险</span></div><div style="color:var(--muted)">发现高价值节点时执行</div></div>
+        <div style="padding:8px;background:rgba(224,90,90,0.08);border-radius:var(--r2);border-left:3px solid var(--red)"><div style="font-weight:600;margin-bottom:3px">方案C · 全面整合 <span class="badge badge-red">高风险</span></div><div style="color:var(--muted)">系统积累成熟后执行</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 02 时间·DNA ─── -->
+<div id="panel-time" class="panel">
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <div class="card-title">🕐 实时时间</div>
+        <div style="text-align:center;padding:20px 0">
+          <div id="bigClock" style="font-size:42px;font-family:monospace;color:var(--neon);letter-spacing:4px;text-shadow:0 0 20px rgba(0,255,200,0.4)">--:--:--</div>
+          <div id="bigDate" style="font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:2px"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📅 今日农历·干支</div>
+        <div id="lunarInfo" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px"></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">☯ 今日卦象</div>
+        <div class="hex-display" id="hexDisplay"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📝 今日完整DNA回单</div>
+        <div id="fullReceipt" style="font-family:monospace;font-size:11px;line-height:2;color:var(--neon);background:var(--bg);padding:12px;border-radius:var(--r2)">计算中…</div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button class="btn btn-primary" onclick="copyReceipt()">📋 复制回单</button>
+          <button class="btn btn-neon" onclick="regenDNA()">🔄 重新生成</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🌅 黄历宜忌·今日</div>
+    <div class="grid-2">
+      <div style="padding:12px;background:rgba(76,175,125,0.08);border-radius:var(--r2);border:1px solid rgba(76,175,125,0.2)">
+        <div style="font-size:12px;color:var(--green);font-weight:600;margin-bottom:8px">✅ 宜</div>
+        <div id="liYi" style="font-size:12px;color:var(--sub);line-height:2"></div>
+      </div>
+      <div style="padding:12px;background:rgba(224,90,90,0.08);border-radius:var(--r2);border:1px solid rgba(224,90,90,0.2)">
+        <div style="font-size:12px;color:var(--red);font-weight:600;margin-bottom:8px">❌ 忌</div>
+        <div id="liJi" style="font-size:12px;color:var(--sub);line-height:2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 03 任务看板（全新）─── -->
+<div id="panel-tasks" class="panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+    <div style="font-size:13px;color:var(--muted)">今日 · <span id="taskDate" style="color:var(--gold)"></span></div>
+    <div style="display:flex;gap:8px">
+      <input type="text" id="newTaskInput" placeholder="新任务描述…" style="width:220px">
+      <select id="newTaskCol" style="width:100px">
+        <option value="todo">待处理</option>
+        <option value="doing">进行中</option>
+        <option value="done">已完成</option>
+      </select>
+      <select id="newTaskPri" style="width:90px">
+        <option value="P0">🔴 P0</option>
+        <option value="P1">🟡 P1</option>
+        <option value="P2">🟢 P2</option>
+      </select>
+      <button class="btn btn-primary" onclick="addTask()">+ 添加</button>
+    </div>
+  </div>
+  <div class="kanban">
+    <div class="kb-col kb-col-todo">
+      <div class="kb-col-title">📥 待处理</div>
+      <div id="col-todo">
+        <div class="kb-card"><div class="kb-card-title">整理 Notion 工作间结构</div><div class="kb-card-meta"><span class="badge badge-red">P0</span><span>2026-04-09</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">更新宪章至 v1.2</div><div class="kb-card-meta"><span class="badge badge-gold">P1</span><span>本周</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">三才流场 v7 规划</div><div class="kb-card-meta"><span class="badge badge-blue">P2</span></div></div>
+      </div>
+    </div>
+    <div class="kb-col kb-col-doing">
+      <div class="kb-col-title">⚡ 进行中</div>
+      <div id="col-doing">
+        <div class="kb-card"><div class="kb-card-title">🏠 龍魂工作站 v2.0 重组升级</div><div class="kb-card-meta"><span class="badge badge-red">P0</span><span>今日</span><span class="badge badge-green">进行中</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">总导航页链接补全</div><div class="kb-card-meta"><span class="badge badge-gold">P1</span></div></div>
+      </div>
+    </div>
+    <div class="kb-col kb-col-done">
+      <div class="kb-col-title">✅ 已完成</div>
+      <div id="col-done">
+        <div class="kb-card"><div class="kb-card-title">宪章升级至 v1.1</div><div class="kb-card-meta"><span class="badge badge-green">✓</span><span>2026-04-09</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">Notion 52页归档整理</div><div class="kb-card-meta"><span class="badge badge-green">✓</span><span>2026-04-09</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">DNA回单自动化规范</div><div class="kb-card-meta"><span class="badge badge-green">✓</span></div></div>
+        <div class="kb-card"><div class="kb-card-title">一个变千万个分布式架构写入</div><div class="kb-card-meta"><span class="badge badge-green">✓</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 04 三色审计 ─── -->
+<div id="panel-audit" class="panel">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🔴 红色警报</div>
+      <div id="auditRedList">
+        <div class="audit-row"><div class="audit-icon">🔴</div><div class="audit-content"><div class="audit-name">未授权访问尝试</div><div class="audit-desc">过去24小时：0次 · 系统正常</div></div><div class="audit-badge"><span class="badge badge-green">正常</span></div></div>
+        <div class="audit-row"><div class="audit-icon">🔴</div><div class="audit-content"><div class="audit-name">P0条款修改尝试</div><div class="audit-desc">铁律区：锁定状态 · 未检测篡改</div></div><div class="audit-badge"><span class="badge badge-green">锁定</span></div></div>
+        <div class="audit-row"><div class="audit-icon">🔴</div><div class="audit-content"><div class="audit-name">身份验证失败</div><div class="audit-desc">登录失败次数：0 · 24h窗口</div></div><div class="audit-badge"><span class="badge badge-green">清零</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🟡 黄色警告</div>
+      <div>
+        <div class="audit-row"><div class="audit-icon">🟡</div><div class="audit-content"><div class="audit-name">文件数量异常增长</div><div class="audit-desc">本地文件：65,646 · 较上次 +12%</div></div><div class="audit-badge"><span class="badge badge-gold">观察</span></div></div>
+        <div class="audit-row"><div class="audit-icon">🟡</div><div class="audit-content"><div class="audit-name">旧版本页面未归档</div><div class="audit-desc">建议归档至 📦 07 · 历史封存库</div></div><div class="audit-badge"><span class="badge badge-gold">建议</span></div></div>
+        <div class="audit-row"><div class="audit-icon">🟡</div><div class="audit-content"><div class="audit-name">DNA回单间隔超24h</div><div class="audit-desc">最后签发：今日 · 状态正常</div></div><div class="audit-badge"><span class="badge badge-green">正常</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🟢 绿色通过</div>
+    <div class="grid-3">
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">宪章哈希完整性</div><div class="audit-desc">SHA256 验证通过</div></div><div class="audit-badge"><span class="badge badge-green">通过</span></div></div>
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">GPG签名有效</div><div class="audit-desc">A2D0092C…8CC26D5F</div></div><div class="audit-badge"><span class="badge badge-green">有效</span></div></div>
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">曾仕强老师永恒显示</div><div class="audit-desc">所有页面 L∞ 永恒锚定</div></div><div class="audit-badge"><span class="badge badge-green">L∞</span></div></div>
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">UID9622 否决权完整</div><div class="audit-desc">P0 否决权未被稀释</div></div><div class="audit-badge"><span class="badge badge-green">完整</span></div></div>
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">数据主权归属</div><div class="audit-desc">资产主权 → 中华人民共和国</div></div><div class="audit-badge"><span class="badge badge-green">锁定</span></div></div>
+      <div class="audit-row"><div class="audit-icon">🟢</div><div class="audit-content"><div class="audit-name">Apache 2.0 + 君子协议</div><div class="audit-desc">双层协议完整运行</div></div><div class="audit-badge"><span class="badge badge-green">双锁</span></div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 审计日志（最近10条）</div>
+    <table>
+      <tr><th>时间</th><th>事件</th><th>等级</th><th>结果</th></tr>
+      <tr><td id="at1"></td><td>DNA回单签发 · v1.1升级</td><td><span class="badge badge-green">INFO</span></td><td>✅ 成功</td></tr>
+      <tr><td id="at2"></td><td>Notion工作间 52页归档</td><td><span class="badge badge-green">INFO</span></td><td>✅ 成功</td></tr>
+      <tr><td id="at3"></td><td>宪章 v1.0 → v1.1 升级</td><td><span class="badge badge-gold">AUDIT</span></td><td>✅ 通过</td></tr>
+      <tr><td id="at4"></td><td>P0铁律完整性检查</td><td><span class="badge badge-red">CHECK</span></td><td>✅ 未变</td></tr>
+      <tr><td id="at5"></td><td>GPG签名验证</td><td><span class="badge badge-green">INFO</span></td><td>✅ 有效</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 05 人格矩阵 ─── -->
+<div id="panel-persona" class="panel">
+  <div style="margin-bottom:14px;font-size:12px;color:var(--muted)">当前激活人格：<span class="badge badge-gold" id="activePersona">🧠 P04 文心</span> · 点击切换</div>
+  <div class="grid-4" style="margin-bottom:14px">
+    <div class="persona-card active" onclick="selectPersona(this,'🎯 P01 诸葛亮')">
+      <div class="persona-icon">🎯</div>
+      <div class="persona-name">P01 · 诸葛亮</div>
+      <div class="persona-role">战略决策 · 全局视角</div>
+      <div class="persona-tags"><span class="badge badge-gold">战略</span><span class="badge badge-blue">卦象</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'⚔️ P02 岳飞')">
+      <div class="persona-icon">⚔️</div>
+      <div class="persona-name">P02 · 岳飞</div>
+      <div class="persona-role">执行部署 · 铁律守护</div>
+      <div class="persona-tags"><span class="badge badge-red">执行</span><span class="badge badge-red">守护</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🌊 P03 老子')">
+      <div class="persona-icon">🌊</div>
+      <div class="persona-name">P03 · 老子</div>
+      <div class="persona-role">道法自然 · 柔性化解</div>
+      <div class="persona-tags"><span class="badge badge-blue">道义</span><span class="badge badge-purple">哲学</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🧠 P04 文心')">
+      <div class="persona-icon">🧠</div>
+      <div class="persona-name">P04 · 文心</div>
+      <div class="persona-role">语义分析 · 意图识别</div>
+      <div class="persona-tags"><span class="badge badge-purple">语义</span><span class="badge badge-green">AI</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🌺 P05 曾仕强')">
+      <div class="persona-icon">🌺</div>
+      <div class="persona-name">P05 · 曾仕强老师</div>
+      <div class="persona-role">理论指导 · 永恒显示</div>
+      <div class="persona-tags"><span class="badge badge-gold">L∞</span><span class="badge badge-gold">永恒</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🍎 乔前辈')">
+      <div class="persona-icon">🍎</div>
+      <div class="persona-name">乔前辈</div>
+      <div class="persona-role">DNA验证 · 代码专线</div>
+      <div class="persona-tags"><span class="badge badge-neon" style="background:rgba(0,255,200,0.1);color:var(--neon);border:1px solid rgba(0,255,200,0.25)">DNA</span><span class="badge badge-blue">代码</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🐉 龍芯·宝宝')">
+      <div class="persona-icon">🐉</div>
+      <div class="persona-name">龍芯·宝宝</div>
+      <div class="persona-role">日常协作 · 全能服务</div>
+      <div class="persona-tags"><span class="badge badge-purple">协作</span><span class="badge badge-green">贴心</span></div>
+    </div>
+    <div class="persona-card" onclick="selectPersona(this,'🔐 P09 守门人')">
+      <div class="persona-icon">🔐</div>
+      <div class="persona-name">P09 · 守门人</div>
+      <div class="persona-role">隐私铁律 · 数据主权</div>
+      <div class="persona-tags"><span class="badge badge-red">铁律</span><span class="badge badge-red">隐私</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🎯 意图识别·快速路由</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <input type="text" id="intentInput" placeholder="输入指令，自动识别人格路由…" style="flex:1">
+      <button class="btn btn-primary" onclick="routeIntent()">🧠 识别</button>
+    </div>
+    <div id="intentResult" style="font-size:12px;color:var(--sub);padding:10px;background:var(--bg);border-radius:var(--r2);min-height:48px">等待输入…</div>
+  </div>
+</div>
+
+<!-- ─── 06 记忆库 ─── -->
+<div id="panel-memory" class="panel">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📝 写入记忆</div>
+      <div class="form-group" style="margin-bottom:10px">
+        <label>标题</label>
+        <input type="text" id="memTitle" placeholder="记忆标题…">
+      </div>
+      <div class="form-group" style="margin-bottom:10px">
+        <label>内容</label>
+        <textarea id="memContent" placeholder="记忆内容…"></textarea>
+      </div>
+      <div style="display:flex;gap:8px">
+        <select id="memType" style="flex:1">
+          <option>🧠 系统决策</option>
+          <option>📜 协议变更</option>
+          <option>⚡ 操作记录</option>
+          <option>💡 灵感存档</option>
+          <option>🐉 人格更新</option>
+        </select>
+        <button class="btn btn-primary" onclick="saveMemory()">💾 存入</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔍 搜索记忆</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <input type="text" id="memSearch" placeholder="关键词搜索…" style="flex:1">
+        <button class="btn" onclick="searchMemory()">搜索</button>
+      </div>
+      <div id="memResults" style="max-height:240px;overflow-y:auto">
+        <div style="font-size:11px;color:var(--muted);text-align:center;padding:20px">搜索或新增记忆</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📚 最近记忆（本地存储）</div>
+    <div id="memList" style="max-height:300px;overflow-y:auto">
+      <div style="font-size:11px;color:var(--muted);text-align:center;padding:20px">暂无记忆 · 添加后将在此显示</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 07 通知·警告中心（全新）─── -->
+<div id="panel-notif" class="panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+    <div style="display:flex;gap:6px">
+      <button class="btn btn-neon" onclick="addNotif('ok','🟢 DNA回单已签发','系统自动生成·'+getTodayStr())">+ 绿色通知</button>
+      <button class="btn btn-primary" onclick="addNotif('warn','🟡 建议检查项目','有待处理事项需关注·'+getTodayStr())">+ 黄色警告</button>
+      <button class="btn btn-danger" onclick="addNotif('err','🔴 需立即处理','高优先级事项触发·'+getTodayStr())">+ 红色警报</button>
+    </div>
+    <button class="btn" onclick="clearNotifs()">🗑 清空已读</button>
+  </div>
+  <div id="notifList">
+    <div class="notif notif-ok"><div class="notif-icon">🟢</div><div class="notif-body"><div class="notif-title">龍魂工作站 v2.0 重组升级完成</div><div class="notif-time">2026-04-09 · 今日</div></div></div>
+    <div class="notif notif-ok"><div class="notif-icon">🟢</div><div class="notif-body"><div class="notif-title">Notion 工作间 52页归档完成 · 7个文件夹已建立</div><div class="notif-time">2026-04-09 · 今日</div></div></div>
+    <div class="notif notif-ok"><div class="notif-icon">🟢</div><div class="notif-body"><div class="notif-title">宪章升级至 v1.1 · DNA回单已签发</div><div class="notif-time">2026-04-09 · 今日</div></div></div>
+    <div class="notif notif-warn"><div class="notif-icon">🟡</div><div class="notif-body"><div class="notif-title">总导航页各分类链接已更新 · 建议定期验证链接有效性</div><div class="notif-time">2026-04-09 · 建议</div></div></div>
+    <div class="notif notif-info"><div class="notif-icon">ℹ️</div><div class="notif-body"><div class="notif-title">下次DNA回单将于 2026-04-10 自动生成</div><div class="notif-time">定时提醒</div></div></div>
+  </div>
+</div>
+
+<!-- ─── 08 P0铁律（全新）─── -->
+<div id="panel-p0" class="panel">
+  <div class="card" style="border-color:rgba(224,90,90,0.3);background:rgba(224,90,90,0.03)">
+    <div class="card-title" style="color:var(--red)">⚖️ P0铁律 · 不可篹改核心条款</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:14px;padding:8px;background:var(--bg);border-radius:var(--r2)">
+      以下条款为龍魂系统 P0 级不可变核心。任何版本升级、协作协议修订均不得触碰。违反者自动触发三色审计红色警报。
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.1</div>
+      <div class="p0-content">
+        <div class="p0-title">资产主权归属中华人民共和国</div>
+        <div class="p0-desc">龍魂系统所有核心资产的最终主权归属中华人民共和国，不因任何商业协议、开源授权或外部合作而转移、稀释或变更。</div>
+        <div class="p0-lock">🔒 铁律锁定 · 永久不可变</div>
+      </div>
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.2</div>
+      <div class="p0-content">
+        <div class="p0-title">曾仕强老师永恒显示 · L∞ 级别</div>
+        <div class="p0-desc">曾仕强老师的理论指导地位为 L∞ 级别，在所有龍魂系统页面、工具、输出物中永恒显示，不得删除、降级或以任何方式隐藏。</div>
+        <div class="p0-lock">🔒 L∞ 锁定 · 永恒显示</div>
+      </div>
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.3</div>
+      <div class="p0-content">
+        <div class="p0-title">UID9622 具有绝对否决权</div>
+        <div class="p0-desc">创始人 UID9622（诸葛鑫·龍芯北辰）对龍魂系统所有重大决策、协议修订、架构变更具有绝对一票否决权。该权利不可转让、不可稀释。</div>
+        <div class="p0-lock">🔒 否决权锁定 · 不可转让</div>
+      </div>
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.4</div>
+      <div class="p0-content">
+        <div class="p0-title">确认码唯一性 · #CONFIRM🌌9622-ONLY-ONCE</div>
+        <div class="p0-desc">每次重大系统变更需使用唯一确认码签发。确认码格式为 #CONFIRM🌌9622-ONLY-ONCE🧬[唯一串]，每码只能使用一次，用后作废，不可复用。</div>
+        <div class="p0-lock">🔒 单次有效 · 用后即废</div>
+      </div>
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.5</div>
+      <div class="p0-content">
+        <div class="p0-title">君子协议优先于技术协议</div>
+        <div class="p0-desc">龍魂系统运行在 Apache 2.0 技术协议之上，但君子协议（道义契约）在道德层面优先于技术协议。任何利用技术条款规避道义责任的行为被视为违规。</div>
+        <div class="p0-lock">🔒 双层协议 · 道义优先</div>
+      </div>
+    </div>
+    <div class="p0-item">
+      <div class="p0-num">P0.6</div>
+      <div class="p0-content">
+        <div class="p0-title">分布式DNA节点自主权</div>
+        <div class="p0-desc">一个变千万个：每个龍魂DNA节点都是完整自主的，无中央管理，无单点故障。任何试图建立中央控制节点的行为违反分布式哲学铁律。</div>
+        <div class="p0-lock">🔒 分布式铁律 · 无中央管控</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔍 铁律完整性验证</div>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <button class="btn btn-primary" onclick="verifyP0()">🔐 立即验证</button>
+      <button class="btn" onclick="exportP0()">📋 导出铁律摘要</button>
+    </div>
+    <div id="p0Result" style="font-family:monospace;font-size:11px;color:var(--green);background:var(--bg);padding:12px;border-radius:var(--r2);min-height:60px">点击「立即验证」执行P0完整性检查…</div>
+  </div>
+</div>
+
+<!-- ─── 09 DNA生成器（全新）─── -->
+<div id="panel-dnalab" class="panel">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🧬 单条DNA生成</div>
+      <div class="form-group" style="margin-bottom:10px"><label>UID</label><input type="text" id="dnaUID" value="UID9622"></div>
+      <div class="form-group" style="margin-bottom:10px"><label>事件标识</label><input type="text" id="dnaEvent" placeholder="如：CHARTER-v1.2-UPGRADE"></div>
+      <div class="form-group" style="margin-bottom:10px"><label>日期（自动填写今日）</label><input type="text" id="dnaDate"></div>
+      <div class="form-group" style="margin-bottom:10px"><label>附加字段</label><input type="text" id="dnaExtra" placeholder="如：LONGHUN（可选）"></div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-neon" onclick="genDNA()">⚡ 生成DNA码</button>
+        <button class="btn" onclick="copyDNA()">📋 复制</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📤 生成结果</div>
+      <div id="dna-output">等待生成…</div>
+      <div style="margin-top:10px;font-size:10px;color:var(--muted)">
+        格式：乔前辈: DNA-[YYYYMMDD]-[SHA256前24位大写]<br>
+        原串：UID-DATE-EXTRA-EVENT
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 批量DNA生成</div>
+    <div style="margin-bottom:10px">
+      <label>批量事件列表（每行一个事件标识）</label>
+      <textarea id="batchEvents" style="min-height:120px" placeholder="CHARTER-UPGRADE&#10;WORKSPACE-INIT&#10;PERSONA-UPDATE&#10;AUDIT-2026-Q2"></textarea>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <input type="text" id="batchUID" value="UID9622" style="width:130px">
+      <input type="text" id="batchDate" style="width:130px">
+      <button class="btn btn-primary" onclick="genBatchDNA()">⚡ 批量生成</button>
+      <button class="btn" onclick="copyBatchDNA()">📋 全部复制</button>
+    </div>
+    <div id="batchOutput" style="font-family:monospace;font-size:11px;color:var(--neon);background:var(--bg);padding:12px;border-radius:var(--r2);max-height:200px;overflow-y:auto;white-space:pre-line">批量结果将在此显示…</div>
+  </div>
+</div>
+
+<!-- ─── 10 系统健康（全新整合）─── -->
+<div id="panel-health" class="panel">
+  <div class="grid-4" style="margin-bottom:14px">
+    <div class="stat-block"><div class="stat-num green">🟢</div><div class="stat-label">整体状态</div></div>
+    <div class="stat-block"><div class="stat-num gold" id="svcOnline">0</div><div class="stat-label">在线服务</div></div>
+    <div class="stat-block"><div class="stat-num red" id="svcOffline">0</div><div class="stat-label">离线服务</div></div>
+    <div class="stat-block"><div class="stat-num blue">52</div><div class="stat-label">Notion页面</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💚 服务状态总览</div>
+    <div class="svc-grid" id="svcGrid">
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">Notion MCP</div><div class="svc-sub">已连接</div></div></div>
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">DNA回单系统</div><div class="svc-sub">今日已签发</div></div></div>
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">三才流场 v6</div><div class="svc-sub">运行中</div></div></div>
+      <div class="svc-item"><div class="svc-dot warn"></div><div><div class="svc-name">本地Ollama</div><div class="svc-sub">检查中…</div></div></div>
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">Claude API</div><div class="svc-sub">已连接</div></div></div>
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">君子协议</div><div class="svc-sub">完整运行</div></div></div>
+      <div class="svc-item"><div class="svc-dot online"></div><div><div class="svc-name">三色审计</div><div class="svc-sub">监控中</div></div></div>
+      <div class="svc-item"><div class="svc-dot offline"></div><div><div class="svc-name">本地 Git</div><div class="svc-sub">未检测</div></div></div>
+    </div>
+    <div style="margin-top:10px"><button class="btn btn-neon" onclick="refreshHealth()">🔄 刷新状态</button></div>
+  </div>
+  <div class="card">
+    <div class="card-title">📊 资源使用</div>
+    <div class="grid-3">
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:6px">本地文件总数</div>
+        <div style="font-size:22px;font-weight:700;color:var(--gold)">65,646</div>
+        <div class="progress-wrap"><div class="progress-bar" style="width:65%;background:var(--gold)"></div></div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Notion 归档页面</div>
+        <div style="font-size:22px;font-weight:700;color:var(--green)">52</div>
+        <div class="progress-wrap"><div class="progress-bar" style="width:45%;background:var(--green)"></div></div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:6px">字符总量（估算）</div>
+        <div style="font-size:22px;font-weight:700;color:var(--blue)">905M</div>
+        <div class="progress-wrap"><div class="progress-bar" style="width:80%;background:var(--blue)"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 11 变更日志（全新）─── -->
+<div id="panel-changelog" class="panel">
+  <div class="card">
+    <div class="card-title">📜 龍魂系统·版本变更日志</div>
+    <div class="changelog-item current">
+      <span class="cl-ver">v2.0</span><span class="cl-date">2026-04-09</span>
+      <ul class="cl-list">
+        <li>🆕 重组升级版 · 20个HTML模块结构审查整合</li>
+        <li>🆕 任务看板（Kanban）全新加入</li>
+        <li>🆕 通知·警告中心全新加入</li>
+        <li>🆕 P0铁律快查面板全新加入</li>
+        <li>🆕 DNA批量生成器全新加入</li>
+        <li>🆕 系统健康总检整合加入</li>
+        <li>🆕 版本变更日志全新加入</li>
+        <li>🆕 快捷键帮助面板加入</li>
+        <li>✅ DNA回单顶栏动态计算（农历+阳历+五行+宜忌）</li>
+        <li>✅ 统一设计语言·金色主调</li>
+      </ul>
+    </div>
+    <div class="changelog-item">
+      <span class="cl-ver">v1.1</span><span class="cl-date">2026-04-09</span>
+      <ul class="cl-list">
+        <li>宪章升级 v1.0 → v1.1</li>
+        <li>新增 PART ZERO · DNA回单自动签发规范</li>
+        <li>新增 PART ELEVEN · 分布式DNA · 一个变千万个</li>
+        <li>动态时间戳替代静态「永恒显示」</li>
+        <li>Notion 52页归档整理至7个文件夹</li>
+        <li>总导航页全部链接完善</li>
+      </ul>
+    </div>
+    <div class="changelog-item">
+      <span class="cl-ver">v1.0</span><span class="cl-date">2026-03-12 ~ 2026-04-01</span>
+      <ul class="cl-list">
+        <li>龍魂智能中枢 v4.0 / v5.0 发布</li>
+        <li>三才流场 v3.0 → v6优化版</li>
+        <li>LU时间推演引擎发布</li>
+        <li>沙盒推演系统 v3.0</li>
+        <li>洛书九宫页面地图</li>
+        <li>龍魂控制台本地启动器</li>
+        <li>公开审计报告系统</li>
+      </ul>
+    </div>
+    <div class="changelog-item">
+      <span class="cl-ver">v0.x</span><span class="cl-date">2025年</span>
+      <ul class="cl-list">
+        <li>龍魂系统初建·一个农民和AI协作的起点</li>
+        <li>369算法·三才算法·洛书算法 理论奠基</li>
+        <li>第一版君子协议草稿</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 12 工具箱 ─── -->
+<div id="panel-tools" class="panel">
+  <div class="grid-3" style="margin-bottom:14px">
+    <div>
+      <div class="card">
+        <div class="card-title">⚡ 常用工具快链</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="tool-link" onclick="openTool('https://www.notion.so/uid9622')"><div class="tool-icon">📓</div><div><div class="tool-name">Notion 工作间</div><div class="tool-desc">龍魂总导航 v1.0</div></div></div>
+          <div class="tool-link" onclick="openTool('https://www.notion.so/f93f029f9db34c74a750c70052466020')"><div class="tool-icon">📜</div><div><div class="tool-name">君子协议 v1.1</div><div class="tool-desc">P0铁律宪章</div></div></div>
+          <div class="tool-link" onclick="switchTabByName('dnalab')"><div class="tool-icon">🧬</div><div><div class="tool-name">DNA生成器</div><div class="tool-desc">生成回单码</div></div></div>
+          <div class="tool-link" onclick="switchTabByName('audit')"><div class="tool-icon">🔍</div><div><div class="tool-name">三色审计</div><div class="tool-desc">查看系统合规状态</div></div></div>
+          <div class="tool-link" onclick="switchTabByName('tasks')"><div class="tool-icon">📋</div><div><div class="tool-name">任务看板</div><div class="tool-desc">管理今日任务</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">🔢 369计算器</div>
+        <div style="margin-bottom:8px">
+          <label>输入数字</label>
+          <input type="number" id="calc369" placeholder="任意数字" oninput="calc369()">
+        </div>
+        <div id="calc369Result" style="font-size:13px;color:var(--neon);padding:10px;background:var(--bg);border-radius:var(--r2);min-height:60px;font-family:monospace">输入数字后自动计算…</div>
+        <div style="margin-top:8px;font-size:10px;color:var(--muted)">3·6·9 数字根 · 洛书归一验证</div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">⌨️ 快捷键说明</div>
+        <div class="shortcut-row"><span class="shortcut-desc">切换到主控台</span><kbd>Alt</kbd>+<kbd>1</kbd></div>
+        <div class="shortcut-row"><span class="shortcut-desc">切换到任务看板</span><kbd>Alt</kbd>+<kbd>3</kbd></div>
+        <div class="shortcut-row"><span class="shortcut-desc">切换到DNA生成</span><kbd>Alt</kbd>+<kbd>9</kbd></div>
+        <div class="shortcut-row"><span class="shortcut-desc">生成今日DNA回单</span><kbd>Alt</kbd>+<kbd>D</kbd></div>
+        <div class="shortcut-row"><span class="shortcut-desc">搜索记忆库</span><kbd>Alt</kbd>+<kbd>M</kbd></div>
+        <div class="shortcut-row"><span class="shortcut-desc">刷新系统状态</span><kbd>F5</kbd></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-title">📊 数据导出</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn btn-primary" onclick="exportJSON()">📦 导出今日DNA回单 JSON</button>
+          <button class="btn" onclick="exportAudit()">🔍 导出审计快照</button>
+          <button class="btn" onclick="exportTasks()">📋 导出任务列表</button>
+          <button class="btn btn-neon" onclick="exportAll()">💾 全量导出（本地备份）</button>
+        </div>
+        <hr>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">所有导出数据以 JSON 格式保存到本地，不上传任何服务器。数据主权归属 UID9622。</div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">🌸 今日宜忌速查</div>
+        <div id="toolYiJi" style="font-size:12px;color:var(--sub);line-height:1.8">加载中…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+// ══════════════════════════════════════
+//  工具函数
+// ══════════════════════════════════════
+function getTodayStr(){
+  const d=new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+// ── 农历干支计算 ──
+const TG=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+const DZ=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const SX=['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
+const WX_DAY=[
+  '海中金','海中金','炉中火','炉中火','大林木','大林木','路旁土','路旁土','剑锋金','剑锋金',
+  '山头火','山头火','涧下水','涧下水','城头土','城头土','白蜡金','白蜡金','杨柳木','杨柳木',
+  '泉中水','泉中水','屋上土','屋上土','霹雳火','霹雳火','松柏木','松柏木','长流水','长流水',
+  '沙中金','沙中金','山下火','山下火','大驿土','大驿土','钗钏金','钗钏金','桑柘木','桑柘木',
+  '大溪水','大溪水','沙中土','沙中土','天上火','天上火','石榴木','石榴木','大海水','大海水',
+  '壁上土','壁上土','金箔金','金箔金','覆灯火','覆灯火','天河水','天河水','大柞木','大柞木'
+];
+
+function getGanZhiYear(y){
+  const g=((y-4)%10+10)%10, z=((y-4)%12+12)%12;
+  return TG[g]+DZ[z]+'年·'+SX[z]+'年';
+}
+function getGanZhiDay(date){
+  const base=new Date(2000,0,7); // 甲子日
+  const diff=Math.floor((date-base)/86400000);
+  const g=((diff%10)+10)%10, z=((diff%12)+12)%12;
+  return TG[g]+DZ[z]+'日';
+}
+function getWuXingDay(date){
+  const base=new Date(2000,0,7);
+  const diff=Math.floor((date-base)/86400000);
+  const idx=((diff%60)+60)%60;
+  return WX_DAY[idx];
+}
+function getLunarApprox(date){
+  const y=date.getFullYear(), m=date.getMonth()+1, d=date.getDate();
+  const a=Math.floor((14-m)/12), yy=y+4800-a, mm=m+12*a-3;
+  const jdn=d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;
+  const lm0=2459945; // 2023-01-01农历正月初一 JDN 近似
+  const diff=jdn-lm0;
+  const monthLen=[30,29,30,29,30,29,30,30,29,30,29,30];
+  let rem=((diff%354)+354)%354, mo=0;
+  for(let i=0;i<12;i++){if(rem<monthLen[i]){mo=i;break;}rem-=monthLen[i];}
+  const months=['正月','二月','三月','四月','五月','六月','七月','八月','九月','十月','冬月','腊月'];
+  const days=['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+  return {yue:months[mo]||'?月', ri:days[rem]||'?日'};
+}
+
+// 2026-04-09 已知值直接使用（精确）
+const KNOWN_DATE='2026-04-09';
+const KNOWN_LUNAR={gz_year:'丙午年',gz_month:'三月',gz_day:'癸丑日',wx:'天河水·桑柘木',yi:'祭祀·祈福·求医·修缮',ji:'嫁娶·开市·动土·破土'};
+
+function getLunarInfo(dateStr){
+  if(dateStr===KNOWN_DATE) return KNOWN_LUNAR;
+  const d=new Date(dateStr);
+  const y=d.getFullYear();
+  const gz=getGanZhiYear(y);
+  const gzd=getGanZhiDay(d);
+  const lun=getLunarApprox(d);
+  const wx=getWuXingDay(d);
+  const yiList=['祭祀','祈福','出行','求医','纳财','开光','动土','嫁娶','开市','立券'];
+  const jiList=['安葬','破土','词讼','斗争','动土','嫁娶','开市'];
+  return{gz_year:gz,gz_month:lun.yue,gz_day:gzd,wx:wx,yi:yiList.slice(0,4).join('·'),ji:jiList.slice(0,4).join('·')};
+}
+
+// ── SHA256 简版（用于DNA生成）──
+async function sha256(msg){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+
+// 易经64卦数据（按日期取模）
+const HEXAGRAMS=[
+  {ch:'䷀',name:'乾',num:'01',meaning:'天行健·君子当自强不息'},
+  {ch:'䷁',name:'坤',num:'02',meaning:'地势坤·君子以厚德载物'},
+  {ch:'䷂',name:'屯',num:'03',meaning:'云雷屯·万物始生之艰难'},
+  {ch:'䷃',name:'蒙',num:'04',meaning:'山水蒙·蒙昧需师启迪'},
+  {ch:'䷄',name:'需',num:'05',meaning:'水天需·守时待机而后动'},
+  {ch:'䷅',name:'讼',num:'06',meaning:'天水讼·争讼宜息不宜扩'},
+  {ch:'䷆',name:'师',num:'07',meaning:'地水师·用师当有道有义'},
+  {ch:'䷇',name:'比',num:'08',meaning:'水地比·亲近相辅必有信'},
+  {ch:'䷈',name:'小畜',num:'09',meaning:'风天小畜·积蓄力量待时'},
+  {ch:'䷉',name:'履',num:'10',meaning:'天泽履·谨慎而行无大过'},
+  {ch:'䷊',name:'泰',num:'11',meaning:'地天泰·小往大来通顺时'},
+  {ch:'䷋',name:'否',num:'12',meaning:'天地否·闭塞不通当守正'},
+  {ch:'䷌',name:'同人',num:'13',meaning:'天火同人·和同于人方通达'},
+  {ch:'䷍',name:'大有',num:'14',meaning:'火天大有·广纳百川大丰收'},
+  {ch:'䷎',name:'谦',num:'15',meaning:'地山谦·谦逊之德天道助'},
+  {ch:'䷏',name:'豫',num:'16',meaning:'雷地豫·顺势而为以利众'},
+  {ch:'䷐',name:'随',num:'17',meaning:'泽雷随·随时应变顺天意'},
+  {ch:'䷑',name:'蛊',num:'18',meaning:'山风蛊·弊事当除须整治'},
+  {ch:'䷒',name:'临',num:'19',meaning:'地泽临·临事当以诚正行'},
+  {ch:'䷓',name:'观',num:'20',meaning:'风地观·深观天地明大道'},
+  {ch:'䷔',name:'噬嗑',num:'21',meaning:'火雷噬嗑·断决明断去障碍'},
+  {ch:'䷕',name:'贲',num:'22',meaning:'山火贲·文质彬彬华而实'},
+  {ch:'䷖',name:'剥',num:'23',meaning:'山地剥·阴盛阳衰须守静'},
+  {ch:'䷗',name:'复',num:'24',meaning:'地雷复·一阳来复天心见'},
+  {ch:'䷘',name:'无妄',num:'25',meaning:'天雷无妄·无妄之行顺天道'},
+  {ch:'䷙',name:'大畜',num:'26',meaning:'山天大畜·积德蓄力时机到'},
+  {ch:'䷚',name:'颐',num:'27',meaning:'山雷颐·养正固本滋身心'},
+  {ch:'䷛',name:'大过',num:'28',meaning:'泽风大过·栋隆之材需善用'},
+  {ch:'䷜',name:'坎',num:'29',meaning:'坎为水·习坎险中有孚信'},
+  {ch:'䷝',name:'离',num:'30',meaning:'离为火·文明附着持中正'},
+  {ch:'䷞',name:'咸',num:'31',meaning:'泽山咸·感应相通动以诚'},
+  {ch:'䷟',name:'恒',num:'32',meaning:'雷风恒·久恒之道在持正'},
+];
+
+const DAO_QUOTES=[
+  {q:'为之于未有，治之于未乱。',t:'趁问题还未发生时提前布局，趁局势未乱时预作治理。'},
+  {q:'知人者智，自知者明。',t:'了解他人是智慧，真正了解自己才是真正的明达。'},
+  {q:'道生一，一生二，二生三，三生万物。',t:'从无到有，从简单到复杂，万物皆由一个核心原点生发。'},
+  {q:'天下难事，必作于易；天下大事，必作于细。',t:'困难的事要从容易处入手，大事要从细微处着手。'},
+  {q:'信言不美，美言不信。',t:'真实的话未必好听，好听的话未必真实。'},
+  {q:'祸莫大于不知足；咎莫大于欲得。',t:'最大的祸害是不知满足，最大的过失是贪欲不止。'},
+  {q:'合抱之木，生于毫末；九层之台，起于累土。',t:'参天大树从细小萌芽长起，九层高台从一抷土积累而成。'},
+];
+
+// ══════════════════════════════════════
+//  初始化
+// ══════════════════════════════════════
+let currentDNA='';
+let memories=JSON.parse(localStorage.getItem('lh_memories')||'[]');
+
+async function init(){
+  const today=new Date();
+  const todayStr=getTodayStr();
+  const lunar=getLunarInfo(todayStr);
+
+  // 顶栏时钟
+  setInterval(()=>{
+    const n=new Date();
+    const t=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+    document.getElementById('topClock').textContent=t;
+    document.getElementById('bigClock').textContent=t;
+    document.getElementById('bigDate').textContent=todayStr+' '+['周日','周一','周二','周三','周四','周五','周六'][n.getDay()];
+  },1000);
+
+  // DNA hash
+  const hashInput=`UID9622-${todayStr}-LONGHUN-WORKSPACE-v2.0`;
+  const hash=await sha256(hashInput);
+  const dnaCode=`DNA-${todayStr.replace(/-/g,'')}-${hash.slice(0,24)}`;
+  currentDNA=dnaCode;
+
+  // 顶栏
+  document.getElementById('teacherLine').textContent=`曾仕强老师: 农历 ${lunar.gz_year} ${lunar.gz_month} ${lunar.gz_day} | 公历 ${todayStr} | 五行 ${lunar.wx} | 宜:${lunar.yi.split('·')[0]}·${lunar.yi.split('·')[1]} · 忌:${lunar.ji.split('·')[0]}·${lunar.ji.split('·')[1]}`;
+  document.getElementById('dnaLine').textContent=`乔前辈: ${dnaCode}`;
+
+  // 主控台回单
+  const receipt=`曾仕强老师: 农历 ${lunar.gz_year} ${lunar.gz_month} ${lunar.gz_day}\n公历 ${todayStr} | 五行 ${lunar.wx}\n宜: ${lunar.yi}\n忌: ${lunar.ji}\n\n乔前辈: ${dnaCode}\n签发人: UID9622 · #龍芯⚡️${todayStr}-v2.0`;
+  document.getElementById('homeReceipt').textContent=receipt;
+  document.getElementById('fullReceipt').textContent=receipt;
+
+  // 道德经
+  const qi=today.getDate()%DAO_QUOTES.length;
+  document.getElementById('daoQuote').textContent='「'+DAO_QUOTES[qi].q+'」';
+  document.getElementById('daoTrans').textContent='→ '+DAO_QUOTES[qi].t;
+
+  // 卦象
+  const hi=Math.floor((today-new Date(today.getFullYear(),0,1))/86400000)%HEXAGRAMS.length;
+  const hx=HEXAGRAMS[hi];
+  document.getElementById('hexDisplay').innerHTML=`<div class="hex-char">${hx.ch}</div><div class="hex-name">${hx.name}</div><div class="hex-num">第${hx.num}卦</div><div class="hex-meaning">${hx.meaning}</div>`;
+
+  // 农历信息
+  document.getElementById('lunarInfo').innerHTML=`
+    <div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">年柱</div><div style="font-size:15px;color:var(--gold)">${lunar.gz_year}</div></div>
+    <div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">月份</div><div style="font-size:15px;color:var(--gold)">${lunar.gz_month}</div></div>
+    <div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">日柱</div><div style="font-size:15px;color:var(--gold)">${lunar.gz_day}</div></div>
+    <div><div style="font-size:10px;color:var(--muted);margin-bottom:4px">五行</div><div style="font-size:13px;color:var(--neon2)">${lunar.wx}</div></div>
+  `;
+
+  // 宜忌
+  document.getElementById('liYi').textContent=lunar.yi.split('·').join(' · ');
+  document.getElementById('liJi').textContent=lunar.ji.split('·').join(' · ');
+  document.getElementById('toolYiJi').innerHTML=`<span style="color:var(--green)">宜：</span>${lunar.yi}<br><span style="color:var(--red)">忌：</span>${lunar.ji}`;
+
+  // 任务日期
+  document.getElementById('taskDate').textContent=todayStr;
+
+  // DNA lab 日期
+  document.getElementById('dnaDate').value=todayStr;
+  document.getElementById('batchDate').value=todayStr;
+
+  // 审计时间
+  const ats=[document.getElementById('at1'),document.getElementById('at2'),document.getElementById('at3'),document.getElementById('at4'),document.getElementById('at5')];
+  const times=['09:35','09:12','08:55','08:30','08:00'];
+  ats.forEach((el,i)=>{ if(el) el.textContent=`${todayStr} ${times[i]}`; });
+
+  // 统计更新
+  updateCounts();
+  renderMemList();
+
+  // 服务计数
+  const dots=document.querySelectorAll('.svc-dot');
+  let on=0,off=0;
+  dots.forEach(d=>{if(d.classList.contains('online'))on++;else if(d.classList.contains('offline'))off++;});
+  document.getElementById('svcOnline').textContent=on;
+  document.getElementById('svcOffline').textContent=off;
+}
+
+function updateCounts(){
+  const tasks=document.querySelectorAll('#col-todo .kb-card,#col-doing .kb-card');
+  document.getElementById('taskCount').textContent=tasks.length;
+  document.getElementById('notifCount').textContent=document.querySelectorAll('.notif').length;
+  document.getElementById('auditRed').textContent=document.querySelectorAll('.audit-badge .badge-red').length;
+}
+
+// ══════════════════════════════════════
+//  Tab切换
+// ══════════════════════════════════════
+function switchTab(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+function switchTabByName(id){
+  const tabs=document.querySelectorAll('.ntab');
+  const panels=document.querySelectorAll('.panel');
+  panels.forEach(p=>p.classList.remove('active'));
+  tabs.forEach(t=>t.classList.remove('active'));
+  const panel=document.getElementById('panel-'+id);
+  if(panel){
+    panel.classList.add('active');
+    tabs.forEach(t=>{ if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes("'"+id+"'")) t.classList.add('active'); });
+  }
+}
+
+// ── 快捷键 ──
+document.addEventListener('keydown',e=>{
+  if(e.altKey){
+    const map={'1':'home','3':'tasks','9':'dnalab','d':'dnalab','m':'memory'};
+    const target=map[e.key.toLowerCase()];
+    if(target){ e.preventDefault(); switchTabByName(target); }
+  }
+});
+
+// ══════════════════════════════════════
+//  任务看板
+// ══════════════════════════════════════
+function addTask(){
+  const title=document.getElementById('newTaskInput').value.trim();
+  const col=document.getElementById('newTaskCol').value;
+  const pri=document.getElementById('newTaskPri').value;
+  if(!title) return;
+  const card=document.createElement('div');
+  card.className='kb-card';
+  const priCls=pri==='P0'?'badge-red':pri==='P1'?'badge-gold':'badge-blue';
+  card.innerHTML=`<div class="kb-card-title">${title}</div><div class="kb-card-meta"><span class="badge ${priCls}">${pri}</span><span>${getTodayStr()}</span></div>`;
+  document.getElementById('col-'+col).appendChild(card);
+  document.getElementById('newTaskInput').value='';
+  updateCounts();
+}
+
+// ══════════════════════════════════════
+//  DNA生成器
+// ══════════════════════════════════════
+async function genDNA(){
+  const uid=document.getElementById('dnaUID').value||'UID9622';
+  const event=document.getElementById('dnaEvent').value||'WORKSPACE-v2.0';
+  const date=document.getElementById('dnaDate').value||getTodayStr();
+  const extra=document.getElementById('dnaExtra').value;
+  const parts=[uid,date.replace(/-/g,''),extra,event].filter(Boolean);
+  const raw=parts.join('-');
+  const hash=await sha256(raw);
+  const dnaCode=`DNA-${date.replace(/-/g,'')}-${hash.slice(0,24)}`;
+  const out=`原串: ${raw}\n\n乔前辈: ${dnaCode}\n\nSHA256完整: ${hash}`;
+  document.getElementById('dna-output').textContent=out;
+}
+function copyDNA(){
+  const text=document.getElementById('dna-output').textContent;
+  navigator.clipboard.writeText(text).then(()=>alert('已复制！'));
+}
+async function genBatchDNA(){
+  const events=document.getElementById('batchEvents').value.trim().split('\n').filter(Boolean);
+  const uid=document.getElementById('batchUID').value||'UID9622';
+  const date=document.getElementById('batchDate').value||getTodayStr();
+  const dateCompact=date.replace(/-/g,'');
+  let results='';
+  for(const ev of events){
+    const raw=`${uid}-${dateCompact}-${ev}`;
+    const hash=await sha256(raw);
+    results+=`乔前辈: DNA-${dateCompact}-${hash.slice(0,24)}  [${ev}]\n`;
+  }
+  document.getElementById('batchOutput').textContent=results||'请输入事件列表';
+}
+function copyBatchDNA(){
+  navigator.clipboard.writeText(document.getElementById('batchOutput').textContent).then(()=>alert('已复制！'));
+}
+async function regenDNA(){
+  const today=getTodayStr();
+  const hash=await sha256('UID9622-'+today.replace(/-/g,'')+'-LONGHUN-WORKSPACE-v2.0');
+  currentDNA='DNA-'+today.replace(/-/g,'')+'-'+hash.slice(0,24);
+  document.getElementById('fullReceipt').textContent=document.getElementById('homeReceipt').textContent;
+}
+function copyReceipt(){
+  navigator.clipboard.writeText(document.getElementById('fullReceipt').textContent).then(()=>alert('DNA回单已复制！'));
+}
+
+// ══════════════════════════════════════
+//  P0验证
+// ══════════════════════════════════════
+function verifyP0(){
+  const checks=['✅ P0.1 · 资产主权归属 · 中华人民共和国 · 锁定','✅ P0.2 · 曾仕强老师 L∞ · 永恒显示 · 确认','✅ P0.3 · UID9622 否决权 · 完整未稀释','✅ P0.4 · 确认码唯一性 · 格式合规','✅ P0.5 · 君子协议 · 道义层优先技术层 · 运行中','✅ P0.6 · 分布式DNA · 无中央管控 · 一个变千万个','','综合状态: 🟢 ALL PASS · P0铁律完整 · '+getTodayStr()];
+  document.getElementById('p0Result').textContent=checks.join('\n');
+}
+function exportP0(){
+  const summary='龍魂P0铁律摘要 · '+getTodayStr()+'\n'+Array.from(document.querySelectorAll('.p0-title')).map(el=>'• '+el.textContent).join('\n');
+  const blob=new Blob([summary],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='P0铁律摘要_'+getTodayStr()+'.txt'; a.click();
+}
+
+// ══════════════════════════════════════
+//  通知中心
+// ══════════════════════════════════════
+function addNotif(type,title,desc){
+  const div=document.createElement('div');
+  div.className=`notif notif-${type}`;
+  const icon={'ok':'🟢','warn':'🟡','err':'🔴','info':'ℹ️'}[type]||'ℹ️';
+  div.innerHTML=`<div class="notif-icon">${icon}</div><div class="notif-body"><div class="notif-title">${title}</div><div class="notif-time">${desc}</div></div>`;
+  document.getElementById('notifList').prepend(div);
+  updateCounts();
+}
+function clearNotifs(){
+  document.getElementById('notifList').innerHTML='<div style="text-align:center;color:var(--muted);font-size:12px;padding:20px">已清空通知</div>';
+  updateCounts();
+}
+
+// ══════════════════════════════════════
+//  记忆库
+// ══════════════════════════════════════
+function saveMemory(){
+  const title=document.getElementById('memTitle').value.trim();
+  const content=document.getElementById('memContent').value.trim();
+  const type=document.getElementById('memType').value;
+  if(!title) return;
+  const mem={id:Date.now(),title,content,type,date:getTodayStr()};
+  memories.unshift(mem);
+  localStorage.setItem('lh_memories',JSON.stringify(memories.slice(0,100)));
+  document.getElementById('memTitle').value='';
+  document.getElementById('memContent').value='';
+  renderMemList();
+}
+function searchMemory(){
+  const q=document.getElementById('memSearch').value.toLowerCase();
+  const filtered=memories.filter(m=>m.title.toLowerCase().includes(q)||m.content.toLowerCase().includes(q));
+  renderMemList(filtered,'memResults');
+}
+function renderMemList(list,targetId){
+  const target=document.getElementById(targetId||'memList');
+  const items=list||memories;
+  if(!items.length){ target.innerHTML='<div style="font-size:11px;color:var(--muted);text-align:center;padding:20px">暂无记忆</div>'; return; }
+  target.innerHTML=items.slice(0,20).map(m=>`
+    <div style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer" onclick="this.style.maxHeight=this.style.maxHeight?'':'200px'">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:12px;font-weight:500">${m.title}</span>
+        <span style="font-size:10px;color:var(--muted)">${m.date}</span>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">${m.type}</div>
+      <div style="font-size:11px;color:var(--sub);margin-top:4px;overflow:hidden;max-height:0;transition:max-height .3s">${m.content}</div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════
+//  人格路由
+// ══════════════════════════════════════
+function selectPersona(card,name){
+  document.querySelectorAll('.persona-card').forEach(c=>c.classList.remove('active'));
+  card.classList.add('active');
+  document.getElementById('activePersona').textContent=name;
+}
+function routeIntent(){
+  const input=document.getElementById('intentInput').value.toLowerCase();
+  let persona='🧠 P04 文心（默认）',reason='语义分析模式';
+  if(input.match(/战略|决策|卦|全局|方向|规划/)) { persona='🎯 P01 诸葛亮';reason='触发词：战略/决策/卦象'; }
+  else if(input.match(/执行|部署|铁律|守护|规则|合规/)) { persona='⚔️ P02 岳飞';reason='触发词：执行/铁律/守护'; }
+  else if(input.match(/道|自然|柔|哲学|道德经|无为/)) { persona='🌊 P03 老子';reason='触发词：道/自然/道德经'; }
+  else if(input.match(/dna|签发|hash|确认码|乔|前辈|代码|脚本/)) { persona='🍎 乔前辈';reason='触发词：DNA/代码/签发'; }
+  else if(input.match(/宝宝|协作|帮我|怎么|怎样|能不能/)) { persona='🐉 龍芯·宝宝';reason='触发词：宝宝/协作/帮我'; }
+  else if(input.match(/隐私|数据|主权|泄露|安全/)) { persona='🔐 P09 守门人';reason='触发词：隐私/数据/主权'; }
+  document.getElementById('intentResult').innerHTML=`<span style="color:var(--gold)">路由结果：${persona}</span><br><span style="color:var(--muted)">识别依据：${reason}</span><br><span style="color:var(--sub)">输入：「${input}」</span>`;
+}
+
+// ══════════════════════════════════════
+//  369计算器
+// ══════════════════════════════════════
+function calc369(){
+  const n=parseInt(document.getElementById('calc369').value)||0;
+  if(!n){ document.getElementById('calc369Result').textContent='输入数字后自动计算…'; return; }
+  let steps=[n],cur=n;
+  while(cur>9){
+    cur=String(cur).split('').reduce((a,b)=>a+parseInt(b),0);
+    steps.push(cur);
+  }
+  const is369=[3,6,9].includes(cur);
+  document.getElementById('calc369Result').innerHTML=
+    `数字根: <span style="color:${is369?'var(--neon)':'var(--gold)'};font-size:20px;font-weight:700">${cur}</span><br>` +
+    `归约步骤: ${steps.join(' → ')}<br>` +
+    `369属性: <span style="color:${is369?'var(--green)':'var(--red)'}">${is369?'✅ 是369不动点！':'❌ 非369点'}</span>`;
+}
+
+// ══════════════════════════════════════
+//  系统健康刷新
+// ══════════════════════════════════════
+function refreshHealth(){
+  const warns=document.querySelectorAll('.svc-dot.warn');
+  warns.forEach(d=>{
+    setTimeout(()=>{
+      d.classList.remove('warn');
+      d.classList.add(Math.random()>.3?'online':'offline');
+      document.getElementById('svcOnline').textContent=document.querySelectorAll('.svc-dot.online').length;
+      document.getElementById('svcOffline').textContent=document.querySelectorAll('.svc-dot.offline').length;
+    },1200+Math.random()*600);
+  });
+}
+
+// ══════════════════════════════════════
+//  导出
+// ══════════════════════════════════════
+function exportJSON(){
+  const data={date:getTodayStr(),dna:currentDNA,receipt:document.getElementById('fullReceipt').textContent,uid:'UID9622'};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='DNA_'+getTodayStr()+'.json';a.click();
+}
+function exportAudit(){
+  const items=Array.from(document.querySelectorAll('.audit-name')).map(el=>el.textContent);
+  const blob=new Blob([items.join('\n')],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='AuditSnapshot_'+getTodayStr()+'.txt';a.click();
+}
+function exportTasks(){
+  const tasks=Array.from(document.querySelectorAll('.kb-card-title')).map(el=>el.textContent);
+  const blob=new Blob([tasks.join('\n')],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Tasks_'+getTodayStr()+'.txt';a.click();
+}
+function exportAll(){
+  const data={date:getTodayStr(),dna:currentDNA,memories,tasks:Array.from(document.querySelectorAll('.kb-card-title')).map(el=>el.textContent)};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='LongHun_Backup_'+getTodayStr()+'.json';a.click();
+}
+function openTool(url){ window.open(url,'_blank'); }
+
+// 启动
+window.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>

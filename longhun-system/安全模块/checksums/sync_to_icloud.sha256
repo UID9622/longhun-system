@@ -1,7 +1,0 @@
-4fff6b32661cc98520827bb416e4e177fedeb5df63a9fd483d090d188514e843  /Users/zuimeidedeyihan/Desktop/龍魂操作日志/sync_to_icloud.sh
-# 校验时间: 2026-03-24
-# 文件大小: 2265 bytes
-# 最后修改: Mar 24 07:30
-# 校验人: UID9622 #龍芯⚡️20260324-SYNCSH-BASELINE
-# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-# 异常扫描: 无curl/wget/nc/外联命令，rsync仅指向本地iCloud路径，安全

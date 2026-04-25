@@ -1,9 +1,0 @@
-# iCloud 文件状态报告 - 2026年 3月13日 星期五 19时54分16秒 CST
-
-## 仅在云端（未下载到本地）:
-
-## 已下载文件数量:
-    3630
-
-## iCloud Drive 总占用:
-152K	/Users/zuimeidedeyihan/Library/Mobile Documents/com~apple~CloudDocs

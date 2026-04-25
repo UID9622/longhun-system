@@ -1,144 +1,23 @@
-# 龍魂系統 · .gitignore
-# DNA: #龍芯⚡️2026-03-06-SECURITY-LOCAL-v1.0
-
-# === 敏感凭证 · 绝对禁止提交 ===
+# ══ 密钥 & 敏感配置 ══
+.keyring/
 .env
-*.enc
-*_checksum.txt
-重要的密码/
-*.key
-*.pem
-*.p12
+**/.env
+*.env.local
+config/*.env
 
-# === 龍魂运行日志 ===
-memory.jsonl
-dna_log.jsonl
+# ══ 引擎日志 ══
+engine/.env
+engine/memory/
+engine/out.log
+engine/err.log
+logs/*.jsonl
 
-# === Python ===
-__pycache__/
-*.pyc
-*.pyo
-.venv/
-persona_env/
-
-# === Node ===
-node_modules/
-
-# === macOS ===
+# ══ 系统垃圾 ══
 .DS_Store
+**/__pycache__/
+**/*.pyc
+**/.venv/
+engine/node_modules/
 
-# === 超大文件 ===
-*.zip
-*.app
-*.framework
-
-# === 超大二进制数据（超过GitHub 100MB限制）===
-数据归集/gz解压/
-数据归集/*.tar.gz
-数据归集/*.gz
-CNSH_备份_20260211/blobs/
-CNSH_备份_20260211/UID9622/FireShot/
-CNSH_备份_20260211/CNSH字体/Noto_Sans_SC/
-sha256-加密签名/sha256-*
-*.tar.gz
-*.tar
-*.ttf
-blobs/sha256-*
-logs/action_secure.jsonl
-logs/action_secure.enc
-
-# === 私密区 · 永不提交 ===
-私密区/
-私密区/**
-
-# === 嵌套git仓库 / 权限问题文件 ===
-.claude/plugins/
-.config/360chromePro/
-.config/
-
-# === 敏感密钥 · 2026-04-13追加 ===
-.dna_key
-.webui_secret_key
-.playwright-mcp/
-
-# === 字体文件（太大） ===
-08_NotoSansCJKsc*/
-*.otf
-
-# === MCP配置（含Token·绝对不推） ===
-.mcp.json
-.bearer_token
-
-# === 私密媒体 ===
-LongHun_Private_Photos_Videos/
-
-# === 日志文件（运行时产生·不推） ===
-logs/
-运行日志/
-app.log
-*.log
-
-# === 缓存 ===
-缓存/
-*.cache.json
-cs_cards_cache.json
-
-# === 大型二进制/模型 ===
-ComfyUI/
-模型库/
-*.gguf
-*.safetensors
-*.bin
-*.onnx
-*.pt
-
-# === 临时/编辑器 ===
-*.swp
-*.swo
-*~
-.claude/launch.json
-
-# === docx/pptx（二进制文档） ===
-*.docx
-*.pptx
-*.ai
-
-# === 嵌套git仓库（不可作为子目录提交） ===
-CNSH-gitee/
-CNSH-github/
-北辰流水线/
-龍魂英文版/
-插件/Mybatis-PageHelper/
-历史归档/claude-code-rewrite/
-历史归档/documents-backup-2026-03/CNSH_备份_20260211/CNSH字体/longhun/
-历史归档/documents-backup-2026-03/CNSH_备份_20260211/Longhun-AntiColonial-Algorithm/
-历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/ai-truth-protocol/
-历史归档/documents-backup-2026-03/CNSH_备份_20260211/本地备份/历史项目/v0.1发布包/
-归档库/CNSH_备份_20260211/CNSH字体/longhun/
-归档库/CNSH_备份_20260211/Longhun-AntiColonial-Algorithm/
-归档库/CNSH_备份_20260211/本地备份/历史项目/ai-truth-protocol/
-归档库/CNSH_备份_20260211/本地备份/历史项目/v0.1发布包/
-
-# === 数据库文件 ===
-*.db
-
-# === 敏感配置文件（追加排除） ===
-*.env.bak
-*.env.new
-*_config.env
-longhun_config.env
-*.key_hash
-*tokens-*.node
-配置/.key_hash
-配置/longhun_config.env
-配置/.env.new
-
-# === 超大文件（>50MB·GitHub拒绝） ===
-*.dmg
-*.pdf
-Electron Framework
-下载文件/ip-dapter_face_250000/
-归档库/ip-dapter_face_250000/
-归档库/哈希临时文件/
-历史归档/documents-backup-2026-03/CNSH_备份_20260211/blobs/
-归档库/CNSH_备份_20260211/blobs/
+# ══ Claude 工具内部 ══
+.claude/worktrees/

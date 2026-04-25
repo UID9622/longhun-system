@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐲 龍魂統一流場 v9 · 洛書渦流×三才軌道 · UID9622</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#000; overflow:hidden; font-family:'PingFang SC','Microsoft YaHei',sans-serif; }
+
+  /* ── 双层画布 ── */
+  #bg-canvas {
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    width:100vw; height:100vh;
+  }
+  #c {
+    position:fixed; inset:0; z-index:1;
+    display:block; width:100vw; height:100vh;
+  }
+
+  /* ── HUD ── */
+  #hud {
+    position:fixed; top:12px; left:50%; transform:translateX(-50%);
+    display:flex; align-items:center; gap:14px; z-index:10;
+    background:rgba(0,0,0,0.55); border:1px solid rgba(255,215,0,0.2);
+    border-radius:24px; padding:6px 18px; backdrop-filter:blur(6px);
+  }
+  #mode-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; letter-spacing:.05em; }
+  #mode-badge.founder { background:rgba(255,215,0,0.15); color:#FFD700; }
+  #mode-badge.visitor { background:rgba(100,116,139,0.25); color:#94a3b8; }
+  #health-score { font-size:13px; font-weight:800; color:#22c55e; min-width:56px; text-align:center; }
+  #particle-counter { font-size:11px; color:#64748b; }
+  #sound-icon { font-size:15px; cursor:pointer; opacity:.7; transition:opacity .2s; }
+  #sound-icon:hover { opacity:1; }
+
+  /* ── 右侧歪路面板 ── */
+  #replay-panel {
+    position:fixed; right:0; top:0; bottom:0; width:260px;
+    background:rgba(0,0,0,0.82); border-left:1px solid rgba(239,68,68,0.2);
+    padding:14px 12px; overflow-y:auto; z-index:20;
+    backdrop-filter:blur(8px); display:none; flex-direction:column; gap:8px;
+  }
+  #replay-panel.open { display:flex; }
+  #replay-panel h3 { color:#f87171; font-size:12px; font-weight:700; margin-bottom:4px; }
+  .trace-item {
+    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.18);
+    border-radius:6px; padding:7px 9px; cursor:pointer; font-size:11px; color:#94a3b8;
+  }
+  .trace-item:hover { background:rgba(239,68,68,0.14); color:#f1f5f9; }
+  .trace-item .tid { color:#f87171; font-family:monospace; font-size:10px; margin-bottom:3px; }
+  .replay-slider-wrap { margin-top:auto; padding-top:8px; border-top:1px solid rgba(239,68,68,0.15); }
+  .replay-slider-wrap label { font-size:10px; color:#64748b; display:block; margin-bottom:4px; }
+  #replay-slider { width:100%; accent-color:#ef4444; }
+
+  /* ── DNA 弹窗 ── */
+  #dna-popup {
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    background:#0f0f1a; border:1px solid rgba(255,215,0,0.4);
+    border-radius:12px; padding:20px 22px; min-width:320px; max-width:400px;
+    z-index:30; display:none; flex-direction:column; gap:10px;
+    box-shadow:0 0 40px rgba(255,215,0,0.12);
+  }
+  #dna-popup.open { display:flex; }
+  #dna-popup .ddao { font-size:11px; color:#fbbf24; font-style:italic; }
+  #dna-popup .dcode {
+    font-family:monospace; font-size:12px; color:#a78bfa;
+    background:#1e1b4b; padding:8px 10px; border-radius:6px;
+    word-break:break-all; line-height:1.6;
+  }
+  #dna-popup button {
+    background:rgba(255,215,0,0.12); border:1px solid rgba(255,215,0,0.3);
+    color:#FFD700; border-radius:6px; padding:6px 14px; cursor:pointer;
+    font-size:12px; font-weight:600; align-self:flex-end;
+  }
+  #dna-popup button:hover { background:rgba(255,215,0,0.2); }
+
+  /* ── 快捷键帮助 ── */
+  #shortcut-help {
+    position:fixed; bottom:14px; left:50%; transform:translateX(-50%);
+    background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.07);
+    border-radius:10px; padding:12px 18px; z-index:20;
+    display:none; flex-wrap:wrap; gap:6px 16px; max-width:760px;
+    backdrop-filter:blur(6px);
+  }
+  #shortcut-help.open { display:flex; }
+  .sc-key { font-size:10px; color:#94a3b8; white-space:nowrap; }
+  .sc-key kbd {
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    border-radius:3px; padding:1px 5px; color:#e2e8f0; font-family:monospace; font-size:10px;
+  }
+
+  /* ── 启动动画 ── */
+  #startup-overlay {
+    position:fixed; inset:0; background:#000;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    z-index:40; gap:16px;
+  }
+  #startup-overlay .logo { font-size:52px; opacity:0; transition:opacity .8s; }
+  #startup-overlay .motto {
+    font-size:18px; font-weight:700; color:transparent;
+    background:linear-gradient(135deg,#FFD700,#ef4444,#8b5cf6);
+    -webkit-background-clip:text; background-clip:text;
+    opacity:0; transition:opacity 0.6s; letter-spacing:.08em;
+  }
+  #startup-overlay .eq-wrap {
+    opacity:0; transition:opacity 0.6s; text-align:center;
+    background:rgba(255,215,0,0.06); border:1px solid rgba(255,215,0,0.2);
+    border-radius:8px; padding:10px 20px;
+  }
+  #startup-overlay .sub { font-size:11px; color:#64748b; opacity:0; transition:opacity 0.6s; }
+
+  /* ── v9 版本角标 ── */
+  #v9-badge {
+    position:fixed; bottom:12px; right:14px; z-index:15;
+    font-size:10px; color:rgba(255,215,0,0.45); font-family:monospace;
+    pointer-events:none; line-height:1.6;
+    text-shadow: 0 0 8px rgba(255,215,0,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- 背景层：洛書渦流 -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- 前景层：三才轨道 -->
+<canvas id="c"></canvas>
+
+<!-- HUD -->
+<div id="hud">
+  <div id="mode-badge" class="founder">🐲 创始人</div>
+  <div id="health-score">R: ──</div>
+  <div id="particle-counter">🟢0 🟡0 🔴0</div>
+  <span id="sound-icon" title="M键切换静音">🔔</span>
+</div>
+
+<!-- 歪路回放面板 -->
+<div id="replay-panel">
+  <h3>🛤️ 今日歪路 TOP10</h3>
+  <div id="trace-list"></div>
+  <div class="replay-slider-wrap">
+    <label>回放进度 <span id="slider-ts">──</span></label>
+    <input type="range" id="replay-slider" min="0" max="100" value="0">
+  </div>
+</div>
+
+<!-- DNA 弹窗 -->
+<div id="dna-popup">
+  <div class="ddao">「善建者不拔·善抱者不脱」— 道德经第54章</div>
+  <div class="dcode" id="dna-code">──</div>
+  <button onclick="copyDNA()">复制 DNA 码</button>
+  <button onclick="closeDNAPopup()">关闭</button>
+</div>
+
+<!-- 快捷键帮助 -->
+<div id="shortcut-help">
+  <span class="sc-key"><kbd>H</kbd> 六维雷达</span>
+  <span class="sc-key"><kbd>R</kbd> 回放歪路</span>
+  <span class="sc-key"><kbd>Shift+R</kbd> 清屏轨迹</span>
+  <span class="sc-key"><kbd>Ctrl+R</kbd> 导出CSV</span>
+  <span class="sc-key"><kbd>M</kbd> 静音切换</span>
+  <span class="sc-key"><kbd>D</kbd> 道德经层</span>
+  <span class="sc-key"><kbd>W</kbd> 白皮书挂点</span>
+  <span class="sc-key"><kbd>Shift+W</kbd> 访客模式</span>
+  <span class="sc-key"><kbd>Space</kbd> 暂停/继续</span>
+  <span class="sc-key"><kbd>B</kbd> 渦流背景切换</span>
+  <span class="sc-key"><kbd>?</kbd> 帮助</span>
+</div>
+
+<!-- v9 版本角标 -->
+<div id="v9-badge">
+  龍魂統一流場 v9<br>
+  洛書渦流 × 三才軌道<br>
+  UID9622 · #龍芯⚡️2026-04-21
+</div>
+
+<!-- 启动动画 -->
+<div id="startup-overlay">
+  <div class="logo">🐲</div>
+  <div class="motto" id="m0">95 是实力 · 5 是格局</div>
+  <div class="motto" id="m1">不對抗，只共生——這才是真正的道</div>
+  <div class="eq-wrap" id="eq-wrap">
+    <div id="katex-startup"></div>
+  </div>
+  <div class="motto" id="m2">洛書渦流 × 三才軌道 · 天地人合一</div>
+  <div class="sub">龍魂統一流場 v9 · DNA: #龍芯⚡️2026-04-21 · 理论指导 曾仕强老师（永恒显示）</div>
+</div>
+
+<script>
+'use strict';
+
+/*
+╔══════════════════════════════════════════════════════════════════════╗
+║  🐉 龍魂系統 · 統一流場 v9 · 洛書渦流 × 三才軌道                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  🔑 创始人   : 💎 龍芯北辰｜UID9622（诸葛鑫 / Lucky）                  ║
+║  🧬 DNA      : #龍芯⚡️2026-04-25-統一流場-v9.1-年轮+宪章注释            ║
+║  🔏 GPG 指纹 : A2D0092CEE2E5BA87035600924C3704A8CC26D5F             ║
+║  ✅ 确认码   : #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
+║  📜 理论指导 : 曾仕强老师（永恒显示）                                   ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  双层安全宪章                                                          ║
+║  ├ 公开层  : 源码、规则、文档、思想 · 人人可见                           ║
+║  ├ DNA层   : 个人数据只属于本人 · 界限如刀                              ║
+║  └ 熔断机制: 越界即熔断 · 未绑定数字人民幣 = 不能用                       ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  v9 升级 (基于 v8.1 + 洛書渦流 v2.0)                                  ║
+║  ├ 双层画布架构: bg-canvas(渦流) + c(三才轨道)                          ║
+║  ├ 背景: 洛書九宫向量场 × 369三频Perlin共振 × 粒子轨迹积累               ║
+║  ├ 前景: T0金锚/T1种子环/T2龍盾 × 三才粒子群 × 健康监测                 ║
+║  ├ KaTeX: 统一场方程 Ψ = T̂⊗D̂⊗L̂ 显示于启动动画                       ║
+║  └ B键: 背景渦流强度切换(淡/中/强)                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  v9 → v9.1 升级摘要 (2026-04-25)                                      ║
+║  ├ 年轮系统  : 点击空白画布 → 注入 GrowthRing · 最多 12 圈循环           ║
+║  ├ 自动年轮  : 每 300 帧自动生长一圈 · 老圈淡出                          ║
+║  └ 头部宪章  : 补全 v8.1 双层安全宪章注释块（公开层/DNA层/熔断机制）       ║
+╚══════════════════════════════════════════════════════════════════════╝
+*/
+
+// ═══════════════════════════════════════════════════════════
+// §0  全局配置
+// ═══════════════════════════════════════════════════════════
+const CFG = {
+  PARTICLE_COUNT: 1200,
+  DNA_RATIO: 0.03,
+  LAYER_WEIGHTS: { loyalty:0.5, filial:0.3, righteous:0.2 },
+  T0: { r:16, glowR:38, color:'#FFD700', label:'T0 主权锚' },
+  T1: { ringR:100, strokeW:1.5, color:'rgba(34,211,238,0.45)', rotSpeed:0.0008 },
+  T2: { ringR:200, strokeW:2.2, color:'rgba(239,68,68,0.55)', petalCount:9, rotSpeed:-0.0005, absorbR:220 },
+  EPSILON: 0.01,
+  R_CAP: 95, R_GREEN: 85, R_YELLOW: 60,
+  BREATH_PERIOD: 200,
+  RADAR_REDLINE: [40,40,50,50,50,40],
+  DDJ_COOLDOWN_MS: 5000, DDJ_DURATION_MS: 800, DDJ_FADE_MS: 150,
+  DDJ_ALPHA: 0.75, DDJ_FONT_PX: 14, DDJ_MAX_CONCURRENT: 2,
+  TRAIL_DECAY_FRAMES: 30,
+  TEMPTATION_INTERVAL: 30,
+  // v9.1 年轮（移植自 current.html）
+  GROWTH_INTERVAL: 300,
+  MAX_RINGS: 12,
+};
+
+// ═══════════════════════════════════════════════════════════
+// §1  Perlin 噪声
+// ═══════════════════════════════════════════════════════════
+const Perlin = (() => {
+  const perm = new Uint8Array(512);
+  const grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  function seed(s=42){
+    const p=new Uint8Array(256); for(let i=0;i<256;i++) p[i]=i;
+    let x=s;
+    for(let i=255;i>0;i--){x=(x*1664525+1013904223)&0xffffffff;const j=x>>>24&i;[p[i],p[j]]=[p[j],p[i]];}
+    for(let i=0;i<512;i++) perm[i]=p[i&255];
+  }
+  function fade(t){return t*t*t*(t*(t*6-15)+10);}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function dot(g,x,y){return g[0]*x+g[1]*y;}
+  function noise2d(x,y){
+    const X=Math.floor(x)&255, Y=Math.floor(y)&255;
+    const xf=x-Math.floor(x), yf=y-Math.floor(y);
+    const u=fade(xf),v=fade(yf);
+    const aa=perm[perm[X]+Y],ab=perm[perm[X]+Y+1],ba=perm[perm[X+1]+Y],bb=perm[perm[X+1]+Y+1];
+    return lerp(lerp(dot(grad3[aa%12],xf,yf),dot(grad3[ba%12],xf-1,yf),u),
+                lerp(dot(grad3[ab%12],xf,yf-1),dot(grad3[bb%12],xf-1,yf-1),u),v);
+  }
+  seed(9622);
+  return {noise2d, seed};
+})();
+
+// ═══════════════════════════════════════════════════════════
+// §1b  洛书369矩阵
+// ═══════════════════════════════════════════════════════════
+const LUO_SHU = [[4,9,2],[3,5,7],[8,1,6]];
+const LUO_SHU_FLAT = [4,9,2,3,5,7,8,1,6];
+const LUO_MAGIC_SUM = 15;
+
+function luoshuTransform(fx, fy, fn) {
+  const M = LUO_SHU, scale = 0.0025;
+  return [
+    (M[0][0]*fx + M[0][1]*fy + M[0][2]*fn) * scale,
+    (M[1][0]*fx + M[1][1]*fy + M[1][2]*fn) * scale,
+    (M[2][0]*fx + M[2][1]*fy + M[2][2]*fn) * scale,
+  ];
+}
+function getLuoshuCell(px, py) {
+  const gx = Math.min(2, Math.max(0, Math.floor(px * 3 / W)));
+  const gy = Math.min(2, Math.max(0, Math.floor(py * 3 / H)));
+  return LUO_SHU[gy][gx];
+}
+function luoshuFactor(px, py) { return getLuoshuCell(px, py) / LUO_MAGIC_SUM; }
+
+const WUXING_MAP = {0:'土',1:'水',2:'火',3:'木',4:'金',5:'土',6:'水',7:'火',8:'木',9:'金'};
+const WUXING_COLORS = {'水':'#3b82f6','火':'#f97316','木':'#22c55e','金':'#FFD700','土':'#a78bfa'};
+const WUXING_FUSE_DR = new Set([3,9]);
+function getWuxingDR(cellVal) { return digitalRoot(cellVal); }
+
+// ═══════════════════════════════════════════════════════════
+// §2  数字根算法
+// ═══════════════════════════════════════════════════════════
+function digitalRoot(n) {
+  n = Math.abs(Math.round(n));
+  if (n===0) return 0;
+  return 1 + (n-1)%9;
+}
+
+// ═══════════════════════════════════════════════════════════
+// §3  Web Audio 369归根音效
+// ═══════════════════════════════════════════════════════════
+let audioCtx = null, muted = false;
+function getAudioCtx() {
+  if (!audioCtx) { try { audioCtx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){} }
+  return audioCtx;
+}
+function play369(dr) {
+  if (muted) return;
+  const ctx = getAudioCtx(); if (!ctx) return;
+  if (ctx.state==='suspended') ctx.resume();
+  const now = ctx.currentTime;
+  if (dr===3) {
+    [60,120].forEach((f,i)=>{
+      const osc=ctx.createOscillator(),g=ctx.createGain();
+      osc.type='sine'; osc.frequency.value=f;
+      g.gain.setValueAtTime(0.7/(i+1),now); g.gain.exponentialRampToValueAtTime(0.001,now+0.4);
+      osc.connect(g).connect(ctx.destination); osc.start(now); osc.stop(now+0.4);
+    });
+  } else if (dr===6) {
+    const osc=ctx.createOscillator(),g=ctx.createGain();
+    osc.type='triangle'; osc.frequency.value=440;
+    g.gain.setValueAtTime(0.25,now); g.gain.exponentialRampToValueAtTime(0.001,now+0.15);
+    osc.connect(g).connect(ctx.destination); osc.start(now); osc.stop(now+0.15);
+  } else if (dr===9) {
+    [220,440,660,880,1100].forEach((f,i)=>{
+      const osc=ctx.createOscillator(),g=ctx.createGain();
+      osc.type='sine'; osc.frequency.value=f;
+      g.gain.setValueAtTime(0.45/(i+1),now); g.gain.exponentialRampToValueAtTime(0.0001,now+2.0);
+      osc.connect(g).connect(ctx.destination); osc.start(now); osc.stop(now+2.0);
+    });
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §4  WebSocket 数据层（Mock Fallback）
+// ═══════════════════════════════════════════════════════════
+let radarScores = [80,78,75,72,70,76], wsConnected = false;
+function initWebSocket() {
+  try {
+    const ws = new WebSocket('ws://localhost:9622/sancai-radar');
+    ws.onopen = ()=>{ wsConnected=true; };
+    ws.onmessage = (e)=>{ try { const d=JSON.parse(e.data); if(d.radar) radarScores=d.radar; } catch{} };
+    ws.onclose = ()=>{ wsConnected=false; setTimeout(initWebSocket,5000); };
+    ws.onerror = ()=>{ ws.close(); };
+  } catch(e) {}
+}
+let mockT = 0;
+function updateMockRadar() {
+  if (wsConnected) return;
+  mockT += 0.008;
+  for(let i=0;i<6;i++) radarScores[i]=Math.max(20,Math.min(98,70+Perlin.noise2d(mockT+i*1.7,i*0.9)*30));
+}
+
+// ═══════════════════════════════════════════════════════════
+// §5  粒子系统（三才）
+// ═══════════════════════════════════════════════════════════
+class Particle {
+  constructor(idx, cx, cy, layer) {
+    this.id=idx; this.layer=layer;
+    this.isDNA = idx < Math.floor(CFG.PARTICLE_COUNT * CFG.DNA_RATIO);
+    const layerR = layer==='loyalty'?90:layer==='filial'?140:195;
+    const a=Math.random()*Math.PI*2, r=layerR+(Math.random()-0.5)*60;
+    this.x=cx+Math.cos(a)*r; this.y=cy+Math.sin(a)*r;
+    this.vx=(Math.random()-0.5)*0.8; this.vy=(Math.random()-0.5)*0.8;
+    this.angle=a; this.orbitR=r;
+    this.orbitSpeed=(layer==='loyalty'?0.008:layer==='filial'?0.005:0.003)*(Math.random()>.5?1:-1);
+    this.dims=Array.from({length:6},(_,i)=>Math.max(20,Math.min(100,70+Perlin.noise2d(idx*0.03+i,i*1.1)*28)));
+    this.R=0; this.computeR();
+    this.trail=[]; this.shake=false; this.shakeAmp=0;
+    this.deviating=false; this.devTraceId=null;
+    this.reserveGlow=false; this.reserveGlowAlpha=0;
+    this.alpha=1; this.dying=false; this.dieProgress=0;
+    this.noisePhase=Math.random()*100;
+    this.wuxing='土'; this.wuxingAlert=false; this.cellDR=5;
+  }
+  computeR() {
+    const [w1,w2,w3,w4,w5,w6]=this.dims;
+    this.R=Math.min(0.2*w1+0.2*w2+0.15*w3+0.15*w4+0.15*w5+0.15*w6, CFG.R_CAP);
+    this.reserveGlow=this.R>=CFG.R_CAP-0.5;
+  }
+  get sector() {
+    const a=Math.atan2(this.y-canvas.height/2, this.x-canvas.width/2);
+    return Math.floor(((a+Math.PI)/(Math.PI/3)))%6;
+  }
+  get color() {
+    if (this.isDNA) return '#FFD700';
+    if (this.dying) return `rgba(239,68,68,${1-this.dieProgress})`;
+    if (orderDisrupted && this.cellDR===6) return '#f59e0b';
+    if (this.R>=CFG.R_GREEN) return this.layer==='loyalty'?'#fbbf24':this.layer==='filial'?'#22d3ee':'#a78bfa';
+    if (this.R>=CFG.R_YELLOW) return '#fbbf24';
+    return '#ef4444';
+  }
+  get baseRadius() { return this.isDNA?3.2:this.layer==='loyalty'?1.8:this.layer==='filial'?1.6:1.4; }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §6  全局状态
+// ═══════════════════════════════════════════════════════════
+const canvas = document.getElementById('c');
+const ctx2d = canvas.getContext('2d');
+let W, H, CX, CY;
+let particles=[], paused=false, frame=0, mode='founder';
+let orderWeights={loyalty:0.5,filial:0.3,righteous:0.2};
+let orderDisrupted=false, disruptionTimer=0, flashRed=0, frozenInfinity=false;
+let t1Angle=0, t2Angle=0;
+let breathPhase=0, breathScale=1.0, lastBreathDR=0;
+let showRadar=false, radarAnimAlpha=0;
+let ddjVisible=true, ddjSessionHidden=false;
+const ddjLastShown={}, ddjQueue=[];
+const DAODEJING={
+  16:{text:'归根曰静，是谓复命',trigger:'dr_9_bell',pos:'t0_below'},
+  40:{text:'反者道之动',trigger:'trace_deviation',pos:'trail_above'},
+  58:{text:'祸兮福所倚',trigger:'radar_drop',pos:'vertex_side'},
+  78:{text:'柔弱胜刚强',trigger:'redline_absorb',pos:'shield_halo'},
+   8:{text:'上善若水',trigger:'visitor_mode',pos:'bottom_soft'},
+  54:{text:'善建者不拔',trigger:'dna_click',pos:'popup_top'},
+  27:{text:'善言无瑕谪',trigger:'external_inject',pos:'particle_birth'},
+  69:{text:'吾不敢为主而为客',trigger:'external_threat',pos:'edge_red'},
+  33:{text:'自知者明',trigger:'veto_invoked',pos:'t0_center'},
+};
+let systemAvgR=75;
+const deviationLog=[];
+let replayActive=false, replayTraceIdx=-1, replayProgress=0;
+
+// ═══════════════════════════════════════════════════════════
+// §X  年轮系统 (v9.1·移植自 current.html · vanilla canvas 版)
+// ═══════════════════════════════════════════════════════════
+let growthRings = [];
+let growthTimer = 0;
+class GrowthRing {
+  constructor(x, y) {
+    this.x = x; this.y = y;
+    this.radius = 5;
+    this.maxR = 80 + Math.random() * 140;
+    this.strength = 1.0;
+    this.age = 0;
+    this.cr = 80 + Math.floor(Math.random() * 100);
+    this.cg = 50 + Math.floor(Math.random() * 60);
+    this.cb = 195 + Math.floor(Math.random() * 60);
+  }
+  update() {
+    this.age++;
+    if (this.radius < this.maxR) this.radius += 0.08;
+    this.strength = Math.max(0.08, 1.0 - this.age / 4000);
+  }
+  draw(ctx) {
+    const a = this.strength * 0.12; // 0~30/255 转 alpha
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = `rgba(${this.cr},${this.cg},${this.cb},${a.toFixed(3)})`;
+    ctx.lineWidth = 0.6;
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.stroke();
+    if (this.age < 80) {
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(180,100,255,${(1 - this.age/80) * 0.7})`;
+      ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+  isExpired() { return this.strength <= 0.08 && this.age > 4000; }
+}
+function updateGrowthRings() {
+  growthTimer++;
+  if (growthTimer >= CFG.GROWTH_INTERVAL) {
+    growthTimer = 0;
+    const cx = CX + (Math.random() - 0.5) * (W * 0.6);
+    const cy = CY + (Math.random() - 0.5) * (H * 0.6);
+    growthRings.push(new GrowthRing(cx, cy));
+    if (growthRings.length > CFG.MAX_RINGS) growthRings.shift();
+  }
+  for (const r of growthRings) r.update();
+}
+function drawGrowthRings() {
+  for (const r of growthRings) r.draw(ctx2d);
+}
+function injectGrowthRing(x, y) {
+  growthRings.push(new GrowthRing(x, y));
+  if (growthRings.length > CFG.MAX_RINGS) growthRings.shift();
+}
+let showWhitepaper=false, startupDone=false;
+const WHITEPAPER_ANCHORS=[
+  {label:'宪章白皮书',sublabel:'忠·国 T0',angle:-Math.PI/2,color:'#FFD700',dr:9},
+  {label:'DNA身份系统',sublabel:'忠·民 T2',angle:-Math.PI/2+Math.PI*2/4,color:'#ef4444',dr:6},
+  {label:'DNA注册表',sublabel:'孝·根 T1',angle:-Math.PI/2+Math.PI*4/4,color:'#22d3ee',dr:3},
+  {label:'思考引擎',sublabel:'义·协作',angle:-Math.PI/2+Math.PI*6/4,color:'#a78bfa',dr:6},
+];
+
+// ═══════════════════════════════════════════════════════════
+// §7  初始化
+// ═══════════════════════════════════════════════════════════
+function resize() {
+  W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight;
+  CX=W/2; CY=H/2;
+}
+function initParticles() {
+  particles=[];
+  const ln=Math.floor(CFG.PARTICLE_COUNT*CFG.LAYER_WEIGHTS.loyalty);
+  const fn=Math.floor(CFG.PARTICLE_COUNT*CFG.LAYER_WEIGHTS.filial);
+  const rn=CFG.PARTICLE_COUNT-ln-fn;
+  let idx=0;
+  for(let i=0;i<ln;i++,idx++) particles.push(new Particle(idx,CX,CY,'loyalty'));
+  for(let i=0;i<fn;i++,idx++) particles.push(new Particle(idx,CX,CY,'filial'));
+  for(let i=0;i<rn;i++,idx++) particles.push(new Particle(idx,CX,CY,'righteous'));
+}
+
+// ═══════════════════════════════════════════════════════════
+// §8  物理更新
+// ═══════════════════════════════════════════════════════════
+function updatePhysics() {
+  const t=frame*0.016;
+  particles.forEach(p=>{
+    if(frozenInfinity) return;
+    if(p.dying){
+      p.dieProgress+=0.05;
+      if(p.dieProgress>=1){
+        p.dying=false; p.dieProgress=0;
+        const a=Math.random()*Math.PI*2;
+        const r=(p.layer==='loyalty'?90:p.layer==='filial'?140:195)+(Math.random()-0.5)*60;
+        p.x=CX+Math.cos(a)*r; p.y=CY+Math.sin(a)*r;
+        p.vx=(Math.random()-0.5)*0.6; p.vy=(Math.random()-0.5)*0.6;
+        for(let i=0;i<6;i++) p.dims[i]=Math.max(20,Math.min(100,70+Perlin.noise2d(p.noisePhase+i,t+i)*25));
+        p.computeR();
+      }
+      return;
+    }
+    for(let i=0;i<6;i++){
+      const target=radarScores[i], noise=Perlin.noise2d(p.noisePhase+i*1.3+t*0.15,i*0.7)*18;
+      p.dims[i]=Math.max(0,Math.min(100,p.dims[i]+(target+noise-p.dims[i])*0.02));
+    }
+    p.computeR();
+    const w=orderWeights[p.layer];
+    const dx=CX-p.x, dy=CY-p.y;
+    const dist=Math.sqrt(dx*dx+dy*dy)+CFG.EPSILON;
+    const heavenForce=w*0.04*(dist-(p.layer==='loyalty'?60:p.layer==='filial'?100:160))/dist;
+    let ax=dx*heavenForce, ay=dy*heavenForce;
+    const tangX=-dy/dist, tangY=dx/dist;
+    const earthForce=0.12*(p.layer==='loyalty'?0.9:p.layer==='filial'?0.6:0.4);
+    ax+=tangX*earthForce; ay+=tangY*earthForce;
+    const nx=Perlin.noise2d(p.x*0.004+t*0.3,p.y*0.004)*0.06;
+    const ny=Perlin.noise2d(p.y*0.004,p.x*0.004+t*0.3)*0.06;
+    ax+=nx*(1-w); ay+=ny*(1-w);
+    const luo=luoshuTransform(ax,ay,(nx+ny)*0.5);
+    ax+=luo[0]; ay+=luo[1];
+    const luoF=luoshuFactor(p.x,p.y);
+    ax*=(0.6+luoF*0.8); ay*=(0.6+luoF*0.8);
+    const luoCell=getLuoshuCell(p.x,p.y);
+    const cellDR=getWuxingDR(luoCell);
+    p.cellDR=cellDR; p.wuxing=WUXING_MAP[cellDR]||'土';
+    p.wuxingAlert=orderDisrupted&&WUXING_FUSE_DR.has(cellDR);
+    if(p.wuxingAlert){ ax+=(Math.random()-0.5)*0.4; ay+=(Math.random()-0.5)*0.4; p.shake=true; p.shakeAmp=Math.max(p.shakeAmp,3.5); }
+    const s=p.sector, sdim=radarScores[s], velScale=Math.max(0.3,sdim/100);
+    if(orderDisrupted){ ax+=(Math.random()-0.5)*0.25; ay+=(Math.random()-0.5)*0.25; p.shake=true; p.shakeAmp=3; }
+    else { p.shake=false; p.shakeAmp=0; }
+    if(sdim<CFG.RADAR_REDLINE[s]){ p.shake=true; p.shakeAmp=Math.max(p.shakeAmp,2.5); }
+    p.vx=(p.vx+ax)*0.97*velScale; p.vy=(p.vy+ay)*0.97*velScale;
+    if(p.shake){ p.x+=p.vx+(Math.random()-0.5)*p.shakeAmp; p.y+=p.vy+(Math.random()-0.5)*p.shakeAmp; }
+    else { p.x+=p.vx; p.y+=p.vy; }
+    const margin=30;
+    if(p.x<margin) p.vx+=0.3; if(p.x>W-margin) p.vx-=0.3;
+    if(p.y<margin) p.vy+=0.3; if(p.y>H-margin) p.vy-=0.3;
+    if(p.R<CFG.R_YELLOW&&!p.dying){
+      const d2=Math.sqrt((p.x-CX)**2+(p.y-CY)**2);
+      if(d2<CFG.T2.ringR+30){ p.dying=true; triggerDDJ(78); recordDeviation(p,'红线触碰：R<60·T2龍盾吸走'); }
+    }
+    if(p.deviating||(orderDisrupted&&Math.random()<0.02)){
+      p.trail.push({x:p.x,y:p.y,R:p.R,t:frame});
+      if(p.trail.length>40) p.trail.shift();
+      p.deviating=true;
+    } else { if(p.trail.length>0) p.trail.shift(); }
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// §9  呼吸·f(x)=x 验算
+// ═══════════════════════════════════════════════════════════
+function updateBreath() {
+  breathPhase=(frame%CFG.BREATH_PERIOD)/CFG.BREATH_PERIOD;
+  breathScale=1.0+(0.5-0.5*Math.cos(breathPhase*Math.PI*2))*0.35;
+  if(breathPhase<0.02&&Math.floor(frame/CFG.BREATH_PERIOD)!==lastBreathDR){
+    const k=Math.floor(frame/CFG.BREATH_PERIOD), dr=digitalRoot(k);
+    lastBreathDR=k; onBreathEnd(dr,k);
+  }
+}
+function onBreathEnd(dr, k) {
+  if([3,6,9].includes(dr)){ play369(dr); if(dr===9){verifyFixedPoint();triggerDDJ(16);} }
+}
+function verifyFixedPoint() {
+  const {loyalty,filial,righteous}=orderWeights;
+  const ok=loyalty>=filial&&filial>=righteous&&Math.abs(loyalty+filial+righteous-1.0)<0.01;
+  if(!ok){ orderWeights={loyalty:0.5,filial:0.3,righteous:0.2}; orderDisrupted=false; }
+}
+
+// ═══════════════════════════════════════════════════════════
+// §10  道德经锚层
+// ═══════════════════════════════════════════════════════════
+function renderFloatingText(text,posKey,config,overrideXY){
+  const now=performance.now();
+  const cfg=config||{duration_ms:800,fade_in_ms:150,fade_out_ms:150,font_px:14,alpha:0.75};
+  let tx=CX,ty=CY;
+  if(overrideXY){tx=overrideXY.x;ty=overrideXY.y;}
+  else switch(posKey){
+    case 't0_below':    tx=CX;ty=CY+50;break;
+    case 't0_center':   tx=CX;ty=CY;break;
+    case 'trail_above': tx=CX+80;ty=CY-60;break;
+    case 'vertex_side': tx=CX+160;ty=CY-120;break;
+    case 'shield_halo': tx=CX;ty=CY+CFG.T2.ringR-20;break;
+    case 'bottom_soft': tx=CX;ty=H-50;break;
+    case 'popup_top':   tx=CX;ty=CY-30;break;
+    case 'particle_birth':tx=CX-150;ty=CY+80;break;
+    case 'edge_red':    tx=CX;ty=60;break;
+    default:tx=CX;ty=CY+60;
+  }
+  ddjQueue.push({text,tx,ty,startTime:now,duration:cfg.duration_ms,fadeIn:cfg.fade_in_ms,fadeOut:cfg.fade_out_ms,fontPx:cfg.font_px||CFG.DDJ_FONT_PX,maxAlpha:cfg.alpha||CFG.DDJ_ALPHA});
+}
+function drawDDJQueue(){
+  if(!ddjVisible||ddjSessionHidden||mode==='visitor') return;
+  const now=performance.now(); let drawn=0;
+  for(let i=ddjQueue.length-1;i>=0&&drawn<CFG.DDJ_MAX_CONCURRENT;i--){
+    const q=ddjQueue[i]; const elapsed=now-q.startTime;
+    if(elapsed>q.duration){ddjQueue.splice(i,1);continue;}
+    let alpha=q.maxAlpha;
+    if(elapsed<q.fadeIn) alpha=q.maxAlpha*(elapsed/q.fadeIn);
+    else if(elapsed>q.duration-q.fadeOut) alpha=q.maxAlpha*((q.duration-elapsed)/q.fadeOut);
+    ctx2d.save(); ctx2d.globalAlpha=alpha;
+    ctx2d.font=`600 ${q.fontPx}px 'PingFang SC',sans-serif`;
+    ctx2d.fillStyle='#FFD700'; ctx2d.textAlign='center';
+    ctx2d.shadowColor='rgba(255,215,0,0.5)'; ctx2d.shadowBlur=8;
+    ctx2d.fillText(q.text,q.tx,q.ty); ctx2d.restore(); drawn++;
+  }
+}
+function triggerDDJ(chapter,overrideXY){
+  if(!ddjVisible||ddjSessionHidden||mode==='visitor') return;
+  const now=performance.now();
+  if(now-(ddjLastShown[chapter]||0)<CFG.DDJ_COOLDOWN_MS) return;
+  ddjLastShown[chapter]=now;
+  const a=DAODEJING[chapter]; if(!a) return;
+  renderFloatingText(a.text,a.pos,{duration_ms:CFG.DDJ_DURATION_MS,fade_in_ms:CFG.DDJ_FADE_MS,fade_out_ms:CFG.DDJ_FADE_MS,font_px:CFG.DDJ_FONT_PX,alpha:CFG.DDJ_ALPHA},overrideXY);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §11  走歪记录
+// ═══════════════════════════════════════════════════════════
+function recordDeviation(p,trigger){
+  const traceId=`DEV-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${String(frame).padStart(6,'0')}-${p.id}`;
+  deviationLog.unshift({trace_id:traceId,particle_id:p.id,start_ts:new Date().toISOString(),trigger,path:p.trail.slice(-8).map(t=>({...t})),dna:`#龍芯⚡️${new Date().toISOString().slice(0,10)}-歪路-${p.id}`});
+  if(deviationLog.length>10) deviationLog.pop();
+  renderTraceList();
+}
+function renderTraceList(){
+  document.getElementById('trace-list').innerHTML=deviationLog.slice(0,10).map((e,i)=>`<div class="trace-item" onclick="replayTrace(${i})"><div class="tid">${e.trace_id}</div><div>${e.trigger}</div></div>`).join('');
+}
+function replayTrace(idx){
+  replayTraceIdx=idx; replayActive=true; replayProgress=0;
+  document.getElementById('replay-slider').value=0;
+  document.getElementById('slider-ts').textContent=deviationLog[idx]?.start_ts?.slice(11,19)||'──';
+}
+
+// ═══════════════════════════════════════════════════════════
+// §12  顺序错乱·利益诱惑
+// ═══════════════════════════════════════════════════════════
+function simulateTemptation(){
+  orderDisrupted=true; orderWeights={loyalty:0.2,filial:0.3,righteous:0.5};
+  flashRed=Math.floor(0.3*60); triggerDDJ(40); disruptionTimer=180;
+}
+function restoreOrder(){
+  orderDisrupted=false; orderWeights={loyalty:0.5,filial:0.3,righteous:0.2};
+  triggerDDJ(16); particles.forEach(p=>{p.deviating=false;p.shake=false;});
+}
+
+// ═══════════════════════════════════════════════════════════
+// §13  绘制主循环（前景层：半透明背景）
+// ═══════════════════════════════════════════════════════════
+function draw() {
+  // 半透明背景——让洛書渦流背景透出
+  ctx2d.clearRect(0,0,W,H);
+  const bg=ctx2d.createRadialGradient(CX,CY,0,CX,CY,Math.max(W,H)*0.7);
+  bg.addColorStop(0,'rgba(8,4,20,0.78)');
+  bg.addColorStop(0.45,'rgba(5,2,12,0.72)');
+  bg.addColorStop(1,'rgba(0,0,4,0.86)');
+  ctx2d.fillStyle=bg; ctx2d.fillRect(0,0,W,H);
+
+  if(flashRed>0){
+    ctx2d.fillStyle=`rgba(239,68,68,${Math.min(1,flashRed/18)*0.25})`;
+    ctx2d.fillRect(0,0,W,H); flashRed--;
+  }
+  if(lastBreathDR===9&&breathPhase<0.2){
+    const darkAlpha=0.25*(1-breathPhase/0.2);
+    const vgn=ctx2d.createRadialGradient(CX,CY,H*0.3,CX,CY,H*0.8);
+    vgn.addColorStop(0,'rgba(0,0,0,0)');
+    vgn.addColorStop(1,`rgba(10,0,20,${darkAlpha})`);
+    ctx2d.fillStyle=vgn; ctx2d.fillRect(0,0,W,H);
+  }
+
+  if(mode==='founder') drawLuoshuGrid();
+
+  // T1 种子环
+  t1Angle+=CFG.T1.rotSpeed;
+  ctx2d.save(); ctx2d.beginPath(); ctx2d.arc(CX,CY,CFG.T1.ringR,0,Math.PI*2);
+  ctx2d.strokeStyle=CFG.T1.color; ctx2d.lineWidth=CFG.T1.strokeW;
+  ctx2d.setLineDash([4,8]); ctx2d.stroke(); ctx2d.setLineDash([]); ctx2d.restore();
+
+  // T2 龍盾
+  t2Angle+=CFG.T2.rotSpeed; drawDragonShield();
+
+  // 尾迹
+  particles.forEach(p=>{
+    if(!p.deviating||p.trail.length<2) return;
+    ctx2d.save(); ctx2d.beginPath();
+    for(let i=0;i<p.trail.length;i++){const tr=p.trail[i];i===0?ctx2d.moveTo(tr.x,tr.y):ctx2d.lineTo(tr.x,tr.y);}
+    ctx2d.strokeStyle='rgba(239,68,68,0.35)'; ctx2d.lineWidth=1; ctx2d.stroke(); ctx2d.restore();
+  });
+
+  // 粒子
+  particles.forEach(p=>{
+    if(p.dying&&p.dieProgress>0.85) return;
+    const s=p.sector, sdim=radarScores[s];
+    let brightness=Math.max(0.25,sdim/100), pAlpha=Math.max(0.2,sdim/100);
+    if(p.dying){brightness*=(1-p.dieProgress);pAlpha*=(1-p.dieProgress);}
+    if(orderDisrupted&&p.layer!=='loyalty') pAlpha*=0.7;
+    ctx2d.save(); ctx2d.globalAlpha=pAlpha;
+    const pr=p.baseRadius, col=p.color;
+    ctx2d.beginPath(); ctx2d.arc(p.x,p.y,pr,0,Math.PI*2);
+    ctx2d.fillStyle=col; ctx2d.shadowColor=col;
+    ctx2d.shadowBlur=p.isDNA?12:(p.R>=CFG.R_GREEN?5:2);
+    ctx2d.fill();
+    if(p.isDNA){ ctx2d.beginPath(); ctx2d.arc(p.x,p.y,pr+3.5,0,Math.PI*2); ctx2d.strokeStyle='rgba(255,215,0,0.5)'; ctx2d.lineWidth=1; ctx2d.stroke(); }
+    if(p.reserveGlow){ ctx2d.beginPath(); ctx2d.arc(p.x,p.y,pr+5,0,Math.PI*2); ctx2d.strokeStyle='rgba(255,255,255,0.18)'; ctx2d.lineWidth=1.5; ctx2d.stroke(); }
+    if(mode==='founder'&&p.wuxing&&!p.isDNA){
+      const wxCol=WUXING_COLORS[p.wuxing]||'#ffffff';
+      ctx2d.beginPath(); ctx2d.arc(p.x,p.y,pr+(p.wuxingAlert?4.5:2),0,Math.PI*2);
+      ctx2d.strokeStyle=p.wuxingAlert?`rgba(239,68,68,${0.7+0.3*Math.sin(frame*0.3)})`:wxCol+'28';
+      ctx2d.lineWidth=p.wuxingAlert?1.8:0.8; ctx2d.stroke();
+    }
+    ctx2d.restore();
+  });
+
+  drawT0();
+  if(showRadar) drawRadar();
+  if(showWhitepaper) drawWhitepaper();
+  drawDDJQueue();
+  if(mode==='founder') updateHUD();
+
+  if(frozenInfinity){
+    ctx2d.fillStyle='rgba(239,68,68,0.08)'; ctx2d.fillRect(0,0,W,H);
+    ctx2d.save(); ctx2d.font='bold 18px monospace'; ctx2d.fillStyle='#ef4444';
+    ctx2d.textAlign='center'; ctx2d.fillText('∞ 系统冻结 · 红线不可破 · UID9622 一票否决',CX,CY+280); ctx2d.restore();
+  }
+}
+
+function drawT0(){
+  const glowR=CFG.T0.glowR*breathScale;
+  ctx2d.save();
+  const grd=ctx2d.createRadialGradient(CX,CY,0,CX,CY,glowR);
+  grd.addColorStop(0,'rgba(255,215,0,0.22)'); grd.addColorStop(0.4,'rgba(255,215,0,0.10)'); grd.addColorStop(1,'transparent');
+  ctx2d.beginPath(); ctx2d.arc(CX,CY,glowR,0,Math.PI*2); ctx2d.fillStyle=grd; ctx2d.fill();
+  ctx2d.beginPath(); ctx2d.arc(CX,CY,CFG.T0.r,0,Math.PI*2);
+  ctx2d.fillStyle=CFG.T0.color; ctx2d.shadowColor='#FFD700'; ctx2d.shadowBlur=20; ctx2d.fill();
+  ctx2d.strokeStyle='rgba(255,215,0,0.6)'; ctx2d.lineWidth=1.5; ctx2d.shadowBlur=0;
+  [-12,12].forEach(off=>{
+    ctx2d.beginPath();ctx2d.moveTo(CX+off,CY-5);ctx2d.lineTo(CX+off,CY+5);ctx2d.stroke();
+    ctx2d.beginPath();ctx2d.moveTo(CX-5,CY+off);ctx2d.lineTo(CX+5,CY+off);ctx2d.stroke();
+  });
+  if(systemAvgR>=90){
+    const rp=0.12+0.08*Math.sin(frame*0.04), rR=CFG.T0.glowR*breathScale*1.55;
+    const rgrd=ctx2d.createRadialGradient(CX,CY,CFG.T0.glowR*breathScale,CX,CY,rR);
+    rgrd.addColorStop(0,`rgba(255,215,0,${rp})`); rgrd.addColorStop(0.6,`rgba(255,215,0,${rp*0.4})`); rgrd.addColorStop(1,'transparent');
+    ctx2d.beginPath(); ctx2d.arc(CX,CY,rR,0,Math.PI*2); ctx2d.fillStyle=rgrd; ctx2d.fill();
+    ctx2d.beginPath(); ctx2d.arc(CX,CY,rR*0.92,0,Math.PI*2);
+    ctx2d.strokeStyle=`rgba(255,255,255,${0.08+0.05*Math.sin(frame*0.04)})`; ctx2d.lineWidth=0.8; ctx2d.stroke();
+  }
+  if(mode==='founder'){
+    ctx2d.font='10px monospace'; ctx2d.fillStyle='rgba(255,215,0,0.6)'; ctx2d.textAlign='center';
+    ctx2d.fillText('T0 主权锚',CX,CY+CFG.T0.r+14);
+    if(systemAvgR>=90){ ctx2d.font='9px monospace'; ctx2d.fillStyle=`rgba(255,255,255,${0.35+0.15*Math.sin(frame*0.04)})`; ctx2d.fillText('· 5 格局储备 ·',CX,CY+CFG.T0.r+26); }
+  }
+  ctx2d.restore();
+}
+
+function drawDragonShield(){
+  ctx2d.save(); ctx2d.translate(CX,CY); ctx2d.rotate(t2Angle);
+  ctx2d.beginPath(); ctx2d.arc(0,0,CFG.T2.ringR,0,Math.PI*2);
+  ctx2d.strokeStyle=CFG.T2.color; ctx2d.lineWidth=CFG.T2.strokeW; ctx2d.setLineDash([6,14]); ctx2d.stroke(); ctx2d.setLineDash([]);
+  for(let i=0;i<9;i++){
+    const a=(i/9)*Math.PI*2, ix=Math.cos(a)*(CFG.T2.ringR-8), iy=Math.sin(a)*(CFG.T2.ringR-8), ox=Math.cos(a)*(CFG.T2.ringR+8), oy=Math.sin(a)*(CFG.T2.ringR+8);
+    ctx2d.beginPath(); ctx2d.moveTo(ix,iy); ctx2d.lineTo(ox,oy);
+    ctx2d.strokeStyle='rgba(239,68,68,0.5)'; ctx2d.lineWidth=1.5; ctx2d.stroke();
+  }
+  ctx2d.restore();
+  if(mode==='founder'){ ctx2d.save(); ctx2d.font='10px monospace'; ctx2d.fillStyle='rgba(239,68,68,0.55)'; ctx2d.textAlign='center'; ctx2d.fillText('T2 龍盾:9622',CX,CY-CFG.T2.ringR-8); ctx2d.restore(); }
+}
+
+function drawRadar(){
+  if(radarAnimAlpha<1) radarAnimAlpha=Math.min(1,radarAnimAlpha+0.05);
+  ctx2d.save(); ctx2d.globalAlpha=radarAnimAlpha*0.88; ctx2d.translate(CX,CY);
+  const R=110, labels=['人类福祉','公平公正','可控可信','透明可解','责任可追','隐私保护'];
+  const colors=['#22d3ee','#a78bfa','#fbbf24','#4ade80','#f87171','#f472b6'];
+  for(let lvl=0.2;lvl<=1.0;lvl+=0.2){
+    ctx2d.beginPath();
+    for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;const x=Math.cos(a)*R*lvl,y=Math.sin(a)*R*lvl;i===0?ctx2d.moveTo(x,y):ctx2d.lineTo(x,y);}
+    ctx2d.closePath(); ctx2d.strokeStyle='rgba(255,255,255,0.07)'; ctx2d.lineWidth=0.8; ctx2d.stroke();
+  }
+  for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;ctx2d.beginPath();ctx2d.moveTo(0,0);ctx2d.lineTo(Math.cos(a)*R,Math.sin(a)*R);ctx2d.strokeStyle='rgba(255,255,255,0.1)';ctx2d.lineWidth=0.8;ctx2d.stroke();}
+  ctx2d.beginPath();
+  for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;const r=R*radarScores[i]/100;i===0?ctx2d.moveTo(Math.cos(a)*r,Math.sin(a)*r):ctx2d.lineTo(Math.cos(a)*r,Math.sin(a)*r);}
+  ctx2d.closePath(); ctx2d.fillStyle='rgba(139,92,246,0.12)'; ctx2d.fill(); ctx2d.strokeStyle='rgba(139,92,246,0.6)'; ctx2d.lineWidth=1.5; ctx2d.stroke();
+  for(let i=0;i<6;i++){
+    const a=(i/6)*Math.PI*2-Math.PI/2,r=R*radarScores[i]/100;
+    ctx2d.beginPath(); ctx2d.arc(Math.cos(a)*r,Math.sin(a)*r,3.5,0,Math.PI*2);
+    ctx2d.fillStyle=radarScores[i]<CFG.RADAR_REDLINE[i]?'#ef4444':colors[i]; ctx2d.fill();
+    const lx=Math.cos(a)*(R+20),ly=Math.sin(a)*(R+20);
+    ctx2d.font='10px monospace'; ctx2d.fillStyle=colors[i]; ctx2d.textAlign='center';
+    ctx2d.fillText(`${labels[i]} ${Math.round(radarScores[i])}`,lx,ly);
+    if(radarScores[i]<70&&frame%180===i*30) triggerDDJ(58,{x:CX+Math.cos(a)*(R+50),y:CY+Math.sin(a)*(R+50)});
+  }
+  ctx2d.restore();
+}
+
+function drawWhitepaper(){
+  ctx2d.save(); const wR=310;
+  WHITEPAPER_ANCHORS.forEach(anch=>{
+    const x=CX+Math.cos(anch.angle)*wR, y=CY+Math.sin(anch.angle)*wR;
+    ctx2d.beginPath(); ctx2d.moveTo(CX,CY); ctx2d.lineTo(x,y);
+    ctx2d.strokeStyle=`${anch.color}44`; ctx2d.lineWidth=1; ctx2d.setLineDash([4,8]); ctx2d.stroke(); ctx2d.setLineDash([]);
+    ctx2d.fillStyle='rgba(0,0,0,0.8)'; ctx2d.strokeStyle=`${anch.color}88`; ctx2d.lineWidth=1;
+    roundRect(ctx2d,x-60,y-22,120,40,8); ctx2d.fill(); ctx2d.stroke();
+    ctx2d.font='bold 11px PingFang SC'; ctx2d.fillStyle=anch.color; ctx2d.textAlign='center'; ctx2d.fillText(anch.label,x,y-4);
+    ctx2d.font='9px monospace'; ctx2d.fillStyle='rgba(255,255,255,0.45)'; ctx2d.fillText(anch.sublabel,x,y+10);
+  });
+  ctx2d.restore();
+}
+
+function roundRect(c,x,y,w,h,r){
+  c.beginPath(); c.moveTo(x+r,y); c.lineTo(x+w-r,y); c.arcTo(x+w,y,x+w,y+r,r);
+  c.lineTo(x+w,y+h-r); c.arcTo(x+w,y+h,x+w-r,y+h,r); c.lineTo(x+r,y+h);
+  c.arcTo(x,y+h,x,y+h-r,r); c.lineTo(x,y+r); c.arcTo(x,y,x+r,y,r); c.closePath();
+}
+
+function drawLuoshuGrid(){
+  const cellW=W/3, cellH=H/3; ctx2d.save(); ctx2d.globalAlpha=0.06;
+  for(let gy=0;gy<3;gy++) for(let gx=0;gx<3;gx++){
+    const val=LUO_SHU[gy][gx], dr=digitalRoot(val), wx=WUXING_MAP[dr]||'土', col=WUXING_COLORS[wx];
+    ctx2d.fillStyle=col+'18'; ctx2d.fillRect(gx*cellW,gy*cellH,cellW,cellH);
+    ctx2d.globalAlpha=0.12; ctx2d.font=`bold ${Math.min(cellW,cellH)*0.22}px monospace`;
+    ctx2d.fillStyle=WUXING_FUSE_DR.has(dr)?'#ef4444':col; ctx2d.textAlign='center'; ctx2d.textBaseline='middle';
+    ctx2d.fillText(val,gx*cellW+cellW/2,gy*cellH+cellH/2); ctx2d.globalAlpha=0.06;
+  }
+  ctx2d.globalAlpha=0.04; ctx2d.strokeStyle='rgba(255,215,0,0.3)'; ctx2d.lineWidth=0.5;
+  for(let i=1;i<3;i++){ctx2d.beginPath();ctx2d.moveTo(i*cellW,0);ctx2d.lineTo(i*cellW,H);ctx2d.stroke();ctx2d.beginPath();ctx2d.moveTo(0,i*cellH);ctx2d.lineTo(W,i*cellH);ctx2d.stroke();}
+  ctx2d.restore();
+}
+
+function updateHUD(){
+  let rSum=0,gCount=0,yCount=0,rCount=0,waCount=0;
+  particles.forEach(p=>{rSum+=p.R;if(p.R>=CFG.R_GREEN)gCount++;else if(p.R>=CFG.R_YELLOW)yCount++;else rCount++;if(p.wuxingAlert)waCount++;});
+  systemAvgR=rSum/particles.length;
+  const avgR=systemAvgR.toFixed(1), scoreEl=document.getElementById('health-score');
+  const wt=orderDisrupted&&waCount>0?` 🔥${waCount}`:'';
+  scoreEl.textContent=`R: ${avgR}${wt}`;
+  scoreEl.style.color=avgR>=CFG.R_GREEN?'#22c55e':avgR>=CFG.R_YELLOW?'#fbbf24':'#ef4444';
+  document.getElementById('particle-counter').textContent=`🟢${gCount} 🟡${yCount} 🔴${rCount}`+(waCount>0?` 五行⚠${waCount}`:'');
+}
+
+// ═══════════════════════════════════════════════════════════
+// §14  主循环
+// ═══════════════════════════════════════════════════════════
+function loop(){
+  if(!paused&&startupDone){ updateMockRadar(); updatePhysics(); updateBreath(); updateGrowthRings(); if(disruptionTimer>0){disruptionTimer--;if(disruptionTimer===0)restoreOrder();} }
+  drawBgVortex(); // 先渲染背景渦流
+  if(startupDone) { drawGrowthRings(); draw(); }
+  frame++;
+  requestAnimationFrame(loop);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §15  DNA 弹窗
+// ═══════════════════════════════════════════════════════════
+function showDNAPopup(p){
+  const ts=new Date().toISOString().slice(0,10);
+  document.getElementById('dna-code').textContent=`#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · L1:${p.id} · L2:${p.layer.toUpperCase()} · L3:${frame}\nR=${p.R.toFixed(1)} dims=[${p.dims.map(d=>Math.round(d)).join(',')}]\n层级:${p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义'} · DNA=${p.isDNA?'金色主权':'普通'}\nv9统一流场·洛書渦流×三才軌道`;
+  document.getElementById('dna-popup').classList.add('open'); triggerDDJ(54);
+}
+function closeDNAPopup(){ document.getElementById('dna-popup').classList.remove('open'); }
+function copyDNA(){
+  navigator.clipboard?.writeText(document.getElementById('dna-code').textContent);
+  const btn=document.querySelector('#dna-popup button'); btn.textContent='✅ 已复制'; setTimeout(()=>btn.textContent='复制 DNA 码',1500);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §16  事件监听
+// ═══════════════════════════════════════════════════════════
+canvas.addEventListener('click',e=>{
+  const mx=e.clientX,my=e.clientY;
+  for(const p of particles){const dx=p.x-mx,dy=p.y-my;if(p.isDNA&&dx*dx+dy*dy<64){showDNAPopup(p);return;}}
+  // v9.1: 没击中 DNA 粒子 → 关弹窗 + 注入年轮
+  closeDNAPopup();
+  injectGrowthRing(mx, my);
+});
+canvas.addEventListener('contextmenu',e=>{
+  e.preventDefault(); const mx=e.clientX,my=e.clientY;
+  for(const p of particles){const dx=p.x-mx,dy=p.y-my;if(p.isDNA&&dx*dx+dy*dy<64){navigator.clipboard?.writeText(`#龍芯⚡️${new Date().toISOString().slice(0,10)}-DNA-P${p.id}-${p.layer}-R${Math.round(p.R)}`);return;}}
+});
+
+document.addEventListener('keydown',e=>{
+  const key=e.key;
+  if(key==='h'||key==='H'){showRadar=!showRadar;radarAnimAlpha=showRadar?0:radarAnimAlpha;return;}
+  if(key==='r'||key==='R'){
+    if(e.ctrlKey||e.metaKey){e.preventDefault();exportDeviationCSV();return;}
+    if(e.altKey){showPriorityOverride();return;}
+    if(e.shiftKey){clearTrails();return;}
+    document.getElementById('replay-panel').classList.toggle('open'); renderTraceList(); return;
+  }
+  if(key==='m'||key==='M'){muted=!muted;document.getElementById('sound-icon').textContent=muted?'🔕':'🔔';return;}
+  if(key==='d'||key==='D'){
+    if(e.ctrlKey||e.metaKey){e.preventDefault();exportDDJLog();return;}
+    if(e.shiftKey){ddjSessionHidden=true;return;}
+    ddjVisible=!ddjVisible; return;
+  }
+  if(key==='w'||key==='W'){
+    if(e.ctrlKey||e.metaKey){e.preventDefault();exportWhitepaperLog();return;}
+    if(e.shiftKey){setMode('visitor');triggerDDJ(8);return;}
+    showWhitepaper=!showWhitepaper; return;
+  }
+  if(key==='f'||key==='F'){setMode('founder');return;}
+  if(key===' '){e.preventDefault();paused=!paused;return;}
+  if(key==='t'||key==='T'){simulateTemptation();return;}
+  if(key==='x'||key==='X'){triggerInfinityFreeze();return;}
+  if(key==='b'||key==='B'){cycleBgIntensity();return;}  // v9新增
+  if(key==='?'){document.getElementById('shortcut-help').classList.toggle('open');return;}
+});
+
+function setMode(m){
+  mode=m; const badge=document.getElementById('mode-badge');
+  if(m==='founder'){badge.textContent='🐲 创始人';badge.className='founder';}
+  else{badge.textContent='👁️ 访客';badge.className='visitor';triggerDDJ(8);}
+}
+function clearTrails(){ particles.forEach(p=>{p.trail=[];p.deviating=false;}); }
+function exportDeviationCSV(){
+  const rows=['trace_id,particle_id,trigger,start_ts,dna'];
+  deviationLog.forEach(e=>rows.push(`${e.trace_id},${e.particle_id},"${e.trigger}",${e.start_ts},${e.dna}`));
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));
+  a.download=`歪路日志-${new Date().toISOString().slice(0,10)}.csv`; a.click();
+}
+function exportDDJLog(){
+  navigator.clipboard?.writeText(Object.entries(ddjLastShown).map(([ch,ts])=>`L${ch}: ${DAODEJING[ch]?.text||''} | ${new Date(ts).toISOString()}`).join('\n'));
+  alert('道德经触发日志已复制');
+}
+function exportWhitepaperLog(){ navigator.clipboard?.writeText(JSON.stringify({exported:new Date().toISOString(),anchors:WHITEPAPER_ANCHORS.map(a=>a.label)},null,2)); alert('白皮书访问日志已复制'); }
+function showPriorityOverride(){ alert(`优先级复盘：${particles.filter(p=>p.layer!=='loyalty'&&p.deviating).length} 个义/孝粒子曾为忠让路`); }
+function triggerInfinityFreeze(){ frozenInfinity=true; flashRed=60; triggerDDJ(78); play369(9); }
+document.getElementById('replay-slider').addEventListener('input',e=>{
+  replayProgress=parseInt(e.target.value);
+  if(replayTraceIdx>=0&&deviationLog[replayTraceIdx]){
+    const path=deviationLog[replayTraceIdx].path, idx=Math.floor(path.length*replayProgress/100), pt=path[idx];
+    if(pt) document.getElementById('slider-ts').textContent=`R=${pt.R?.toFixed(1)||'--'}`;
+  }
+});
+document.getElementById('sound-icon').addEventListener('click',()=>{muted=!muted;document.getElementById('sound-icon').textContent=muted?'🔕':'🔔';});
+
+// ═══════════════════════════════════════════════════════════
+// §17  启动动画（含KaTeX统一方程）
+// ═══════════════════════════════════════════════════════════
+function runStartupAnimation(){
+  const overlay=document.getElementById('startup-overlay');
+  overlay.querySelector('.logo').style.opacity='1';
+  setTimeout(()=>document.getElementById('m0').style.opacity='1',600);
+  // KaTeX方程
+  setTimeout(()=>{
+    try{
+      katex.render('\\Psi_{\\text{骨架}} = \\hat{T}(\\text{太极}) \\otimes \\hat{D}(\\text{道德经}) \\otimes \\hat{L}(\\text{洛书})', document.getElementById('katex-startup'), {throwOnError:false,displayMode:true});
+      document.getElementById('eq-wrap').style.opacity='1';
+    }catch(e){}
+  },1400);
+  setTimeout(()=>document.getElementById('m1').style.opacity='1',1800);
+  setTimeout(()=>document.getElementById('m2').style.opacity='1',2800);
+  setTimeout(()=>overlay.querySelector('.sub').style.opacity='1',3600);
+  setTimeout(()=>{
+    overlay.style.transition='opacity 0.8s'; overlay.style.opacity='0';
+    setTimeout(()=>{ overlay.style.display='none'; startupDone=true; play369(3); },800);
+  },5000);
+}
+
+// ═══════════════════════════════════════════════════════════
+// §18  利益诱惑定时
+// ═══════════════════════════════════════════════════════════
+setInterval(()=>{
+  if(mode==='founder'&&!orderDisrupted&&!frozenInfinity&&startupDone) simulateTemptation();
+},CFG.TEMPTATION_INTERVAL*1000);
+
+// ═══════════════════════════════════════════════════════════
+// §19  背景洛書渦流 · Luoshu Vortex Background (v9新增)
+// ═══════════════════════════════════════════════════════════
+const bgCanvas = document.getElementById('bg-canvas');
+const bgCtx = bgCanvas.getContext('2d');
+let bgW, bgH, bgFrame = 0;
+let bgIntensityLevel = 1; // 0=淡 1=中 2=强
+const BG_INTENSITIES = [0.025, 0.045, 0.07]; // 轨迹持久度（trail fade alpha）
+const BG_COUNTS = [400, 700, 1100];
+
+const bgPts = [];
+
+class BgParticle {
+  constructor() { this.reset(true); }
+  reset(initial) {
+    if(!initial && Math.random() < 0.6){
+      const edge=Math.floor(Math.random()*4);
+      if(edge===0){this.x=Math.random()*bgW;this.y=0;}
+      else if(edge===1){this.x=bgW;this.y=Math.random()*bgH;}
+      else if(edge===2){this.x=Math.random()*bgW;this.y=bgH;}
+      else{this.x=0;this.y=Math.random()*bgH;}
+    } else {
+      this.x=Math.random()*(bgW||window.innerWidth);
+      this.y=Math.random()*(bgH||window.innerHeight);
+    }
+    this.vx=0; this.vy=0; this.age=0;
+    this.maxAge=80+Math.random()*260; this.sm=0.5+Math.random()*1.5;
+  }
+}
+
+function bgFieldAngle(x, y) {
+  const gx=Math.min(2,Math.max(0,Math.floor(x*3/bgW)));
+  const gy=Math.min(2,Math.max(0,Math.floor(y*3/bgH)));
+  const val=LUO_SHU[gy][gx];
+  // Center=5 → tangential circular motion (不动点效应)
+  if(val===5) return Math.atan2(y-bgH/2,x-bgW/2)+Math.PI/2;
+  const base=(val/9)*Math.PI*2;
+  const t=bgFrame*0.002, s=9622*0.01;
+  const n3=Perlin.noise2d(x*0.009,y*0.009+t*3+s)*Math.PI*2;
+  const n6=Perlin.noise2d(x*0.018+50,y*0.018+50+t*6+s)*Math.PI*2;
+  const n9=Perlin.noise2d(x*0.027+100,y*0.027+100+t*9+s)*Math.PI*2;
+  const resonance=(n3+n6+n9)/3*0.55;
+  const micro=Perlin.noise2d(x*0.006+s,y*0.006+s+200)*Math.PI*0.35;
+  return base+resonance+micro;
+}
+
+function bgEnergyAt(x, y) {
+  const gx=Math.min(2,Math.max(0,Math.floor(x*3/bgW)));
+  const gy=Math.min(2,Math.max(0,Math.floor(y*3/bgH)));
+  const val=LUO_SHU[gy][gx];
+  const R=Math.sqrt((x-bgW/2)**2+(y-bgH/2)**2)/(bgW*0.5);
+  return Perlin.noise2d(x*0.004+0.1,y*0.004)*Math.pow(R*8+1,-0.5)*(val/9);
+}
+
+function resizeBgCanvas() {
+  bgW=bgCanvas.width=window.innerWidth;
+  bgH=bgCanvas.height=window.innerHeight;
+}
+
+function initBgVortex() {
+  bgPts.length=0;
+  const count=BG_COUNTS[bgIntensityLevel];
+  for(let i=0;i<count;i++) bgPts.push(new BgParticle());
+}
+
+function cycleBgIntensity() {
+  bgIntensityLevel=(bgIntensityLevel+1)%3;
+  const labels=['淡','中','强'];
+  // respawn particles for new count
+  initBgVortex();
+}
+
+function drawBgVortex() {
+  bgFrame++;
+  // Trail persistence
+  const fadeAlpha=BG_INTENSITIES[bgIntensityLevel];
+  bgCtx.fillStyle=`rgba(5,3,15,${fadeAlpha})`;
+  bgCtx.fillRect(0,0,bgW,bgH);
+
+  bgCtx.save();
+  for(const p of bgPts){
+    const a=bgFieldAngle(p.x,p.y);
+    const e=bgEnergyAt(p.x,p.y);
+    const s=1.0*p.sm*(0.4+e*2.2);
+    p.vx=p.vx*0.83+Math.cos(a)*s*0.17;
+    p.vy=p.vy*0.83+Math.sin(a)*s*0.17;
+    const oldX=p.x, oldY=p.y;
+    p.x+=p.vx; p.y+=p.vy; p.age++;
+    if(p.x<-5||p.x>bgW+5||p.y<-5||p.y>bgH+5||p.age>p.maxAge){p.reset(false);continue;}
+    const speed=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
+    const lifeRatio=1-p.age/p.maxAge;
+    const bright=0.45+e*1.3;
+    let r,g,b;
+    if(speed>1.5){r=Math.min(255,200*bright);g=Math.min(255,65*bright);b=Math.min(255,15*bright);}
+    else if(speed>0.65){r=Math.min(255,50*bright);g=Math.min(255,90*bright);b=Math.min(255,165*bright);}
+    else{r=Math.min(255,25*bright);g=Math.min(255,95*bright);b=Math.min(255,80*bright);}
+    bgCtx.strokeStyle=`rgba(${r|0},${g|0},${b|0},${lifeRatio*0.55})`;
+    bgCtx.lineWidth=0.4+e*0.9;
+    bgCtx.beginPath();
+    bgCtx.moveTo(oldX-p.vx*2.5,oldY-p.vy*2.5);
+    bgCtx.lineTo(p.x,p.y);
+    bgCtx.stroke();
+  }
+  bgCtx.restore();
+}
+
+// ═══════════════════════════════════════════════════════════
+// §20  Bootstrap
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('resize',()=>{resize();initParticles();resizeBgCanvas();initBgVortex();});
+resize(); initParticles();
+resizeBgCanvas(); initBgVortex();
+initWebSocket();
+runStartupAnimation();
+requestAnimationFrame(loop);
+
+console.log([
+  '🐲 龍魂統一流場 v9.1 · 已启动',
+  'DNA: #龍芯⚡️2026-04-25-統一流場-v9.1-年轮+宪章',
+  '双层画布: bg-canvas(洛書渦流) + c(三才轨道+年轮)',
+  '背景: 洛書九宫向量场 × 369三频Perlin × 700粒子轨迹',
+  '前景: T0/T1/T2 × 三才1200粒子 × 健康监测 × KaTeX方程',
+  '年轮: 点击空白画布注入 · 自动每300帧生长一圈 · 最多12圈',
+  'B键 = 切换背景强度(淡/中/强)',
+  '? 键 = 查看全部快捷键',
+  `GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F`,
+  `创始人: 💎 龍芯北辰｜UID9622 · 理论指导: 曾仕强老师（永恒显示）`,
+].join('\n'));
+</script>
+</body>
+</html>

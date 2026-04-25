@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂DNA身份系统 · 功能规格书 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4, #22c55e);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle {
+    text-align: center; color: #8b5cf6; font-size: 0.82rem; margin-bottom: 2rem;
+    padding: 0.5rem; border: 1px solid rgba(139,92,246,0.3); border-radius: 8px;
+    background: rgba(139,92,246,0.05);
+  }
+  .core-philosophy {
+    text-align: center; color: #22c55e; font-size: 0.88rem; margin-bottom: 2rem;
+    padding: 0.7rem; border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;
+    background: rgba(34,197,94,0.05);
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-core { border-color: #8b5cf6; color: #a78bfa; }
+  .s-yang { border-color: #f59e0b; color: #fbbf24; }
+  .s-yin { border-color: #06b6d4; color: #22d3ee; }
+  .s-evidence { border-color: #ef4444; color: #f87171; }
+  .s-sweep { border-color: #ec4899; color: #f472b6; }
+  .s-classify { border-color: #22c55e; color: #4ade80; }
+  .s-sovereign { border-color: #14b8a6; color: #2dd4bf; }
+  .s-iron { border-color: #dc2626; color: #f87171; }
+  .s-lifecycle { border-color: #3b82f6; color: #60a5fa; }
+  .s-format { border-color: #f59e0b; color: #fbbf24; }
+  .s-integrate { border-color: #6366f1; color: #818cf8; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  th {
+    background: #1e1b4b; color: #c4b5fd; padding: 0.5rem 0.7rem;
+    text-align: left; border-bottom: 2px solid #4c1d95; font-weight: 600;
+    position: sticky; top: 0;
+  }
+  td {
+    padding: 0.45rem 0.7rem; border-bottom: 1px solid #1e1b4b;
+    vertical-align: top;
+  }
+  tr:hover { background: rgba(139,92,246,0.04); }
+  .badge {
+    display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .b-yang { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .b-yin { background: rgba(6,182,212,0.15); color: #22d3ee; }
+  .b-both { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .b-red { background: rgba(239,68,68,0.15); color: #f87171; }
+  .b-green { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .b-blue { background: rgba(59,130,246,0.15); color: #60a5fa; }
+
+  .code {
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem;
+    background: #1a1a2e; padding: 0.15rem 0.4rem; border-radius: 3px;
+    color: #a78bfa;
+  }
+  .note {
+    font-size: 0.78rem; color: #666; margin-top: 0.3rem; padding: 0.4rem 0.7rem;
+    border-left: 2px solid #333; background: rgba(255,255,255,0.02);
+  }
+  .warning {
+    font-size: 0.8rem; color: #f87171; margin: 0.5rem 0; padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(239,68,68,0.2); border-radius: 6px;
+    background: rgba(239,68,68,0.04);
+  }
+  .diagram {
+    font-family: 'SF Mono', monospace; font-size: 0.78rem; color: #888;
+    background: #0f0f1a; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;
+    white-space: pre; overflow-x: auto; line-height: 1.5;
+  }
+  .footer {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1e1b4b;
+    text-align: center; font-size: 0.75rem; color: #555;
+  }
+  a { color: #8b5cf6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>龍魂DNA身份系统 · 功能规格书</h1>
+<div class="subtitle">Dragon Soul DNA Identity System — Functional Specification v1.0</div>
+<div class="dna-tag">DNA::SPEC-9622-20260416-FUNC-V1</div>
+<div class="principle">
+  铁律：代码出去的都有DNA，别的技术识别不了。追溯不是惩罚，是证明。
+</div>
+<div class="core-philosophy">
+  DNA不拦截、不阻断、不删除。DNA只做一件事：让每一个创作都有来处，让每一次传播都有去向。
+</div>
+
+<!-- ============================== -->
+<!-- 第一章：DNA三层身份体系 -->
+<!-- ============================== -->
+<div class="section-header s-core">🧬 第一章 · DNA三层身份体系</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  DNA不是一个码，是三层码。每一层解决不同的问题，三层叠加才是完整身份。
+</p>
+
+<table>
+  <tr>
+    <th style="width:12%">层级</th>
+    <th style="width:18%">名称</th>
+    <th style="width:25%">格式</th>
+    <th style="width:20%">生成时机</th>
+    <th style="width:25%">用途</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-yang">L1</span></td>
+    <td>路由编号<br><span style="color:#888;font-size:0.75rem;">Routing ID</span></td>
+    <td><span class="code">UID{4位数字}-{神兽代号}{2位序号}</span><br>
+      例: <span class="code">UID9622-LH01</span></td>
+    <td>用户注册/代理创建时<br>一次生成，<strong>永不改变</strong></td>
+    <td>永久身份标识。等同身份证号。花名册主键。所有后续DNA的根锚点。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yin">L2</span></td>
+    <td>DNA追溯码<br><span style="color:#888;font-size:0.75rem;">DNA Trace Code</span></td>
+    <td><span class="code">DNA::{类型}-{UID}-{时间戳8位}-{功能标签}-{版本}</span><br>
+      例: <span class="code">DNA::SPEC-9622-20260416-FUNC-V1</span></td>
+    <td>每次创作/操作/输出时<br><strong>事件级</strong>，一事一码</td>
+    <td>事件印记。谁、什么时候、做了什么、输出了什么。追溯链的核心节点。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-both">L3</span></td>
+    <td>确认码<br><span style="color:#888;font-size:0.75rem;">Confirmation Code</span></td>
+    <td><span class="code">{DNA追溯码}::{HMAC-SHA256前8位}</span><br>
+      例: <span class="code">DNA::SPEC-9622-20260416-FUNC-V1::a3f7c2e1</span></td>
+    <td>需要权限验证时<br>按需生成，可过期</td>
+    <td>权限验证。证明"这个操作确实是UID9622授权的"。防伪造、防篡改。</td>
+  </tr>
+</table>
+
+<div class="diagram">
+三层关系：
+
+  L1 路由编号（永久） ─── 人的身份证
+       │
+       ├── L2 DNA追溯码（事件级） ─── 每件事的指纹
+       │        │
+       │        └── L3 确认码（按需） ─── 授权戳
+       │
+       ├── L2 另一个追溯码...
+       │        └── L3 ...
+       └── ...
+
+规则：
+  · L1 全局唯一，创建后不可修改不可回收
+  · L2 由 L1 派生，包含 L1 的 UID 字段
+  · L3 由 L2 派生，HMAC密钥仅存于 :9622 服务端
+  · 任何外部系统只能验证 L3，不能生成 L3
+</div>
+
+<!-- ============================== -->
+<!-- 第二章：DNA追溯码命名规范 -->
+<!-- ============================== -->
+<div class="section-header s-format">📐 第二章 · DNA追溯码命名规范</div>
+
+<table>
+  <tr>
+    <th style="width:12%">字段</th>
+    <th style="width:20%">位置</th>
+    <th style="width:38%">取值规则</th>
+    <th style="width:30%">示例</th>
+  </tr>
+  <tr>
+    <td>前缀</td>
+    <td>固定 <span class="code">DNA::</span></td>
+    <td>所有DNA码必须以此开头，用于机器识别</td>
+    <td><span class="code">DNA::</span></td>
+  </tr>
+  <tr>
+    <td>类型</td>
+    <td>前缀后第1段</td>
+    <td>
+      <span class="badge b-yang">ART</span> 文章/创作<br>
+      <span class="badge b-yin">SPEC</span> 规格/规范<br>
+      <span class="badge b-blue">AGENT</span> 代理操作<br>
+      <span class="badge b-green">AUDIT</span> 审计记录<br>
+      <span class="badge b-red">CONF</span> 维权/对质<br>
+      <span class="badge b-both">SYS</span> 系统事件<br>
+      <span class="badge b-yang">KNOW</span> 知识库条目<br>
+      <span class="badge b-yin">FLOW</span> 三才流场计算
+    </td>
+    <td><span class="code">DNA::ART-</span></td>
+  </tr>
+  <tr>
+    <td>UID</td>
+    <td>第2段</td>
+    <td>操作者的4位UID。系统自动操作用 <span class="code">0000</span></td>
+    <td><span class="code">9622</span></td>
+  </tr>
+  <tr>
+    <td>时间戳</td>
+    <td>第3段</td>
+    <td>8位日期 YYYYMMDD。精确到秒时追加 <span class="code">-HHmmss</span></td>
+    <td><span class="code">20260416</span></td>
+  </tr>
+  <tr>
+    <td>功能标签</td>
+    <td>第4段</td>
+    <td>自由命名，大写英文+数字，最长12字符。描述本次操作的核心动作。</td>
+    <td><span class="code">FUNC</span> / <span class="code">EMBED01</span> / <span class="code">TRACE</span></td>
+  </tr>
+  <tr>
+    <td>版本</td>
+    <td>第5段</td>
+    <td><span class="code">V{主版本}</span> 或 <span class="code">V{主}.{次}</span></td>
+    <td><span class="code">V1</span> / <span class="code">V2.1</span></td>
+  </tr>
+</table>
+
+<div class="note">
+  完整格式：<span class="code">DNA::{TYPE}-{UID}-{DATE}-{TAG}-{VER}</span><br>
+  最短合法码：<span class="code">DNA::SYS-0000-20260416-BOOT-V1</span>（系统启动事件）<br>
+  最长合法码：<span class="code">DNA::AGENT-9622-20260416-143022-REVIEWPOST-V2.1</span>（精确到秒+12字符标签）
+</div>
+
+<!-- ============================== -->
+<!-- 第三章：阳链功能（创建 + 嵌入） -->
+<!-- ============================== -->
+<div class="section-header s-yang">☀️ 第三章 · 阳链功能 — 创建与嵌入</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  阳链 = 明面上的、可见的、主动的DNA操作。创作者知道自己在做什么。
+</p>
+
+<table>
+  <tr>
+    <th style="width:18%">功能</th>
+    <th style="width:14%">端点</th>
+    <th style="width:13%">方法</th>
+    <th style="width:55%">规格</th>
+  </tr>
+  <tr>
+    <td><strong>创建DNA记录</strong><br><span style="font-size:0.75rem;color:#888;">Yang Create</span></td>
+    <td><span class="code">/yang/create</span></td>
+    <td><span class="badge b-yang">POST</span></td>
+    <td>
+      <strong>输入参数：</strong><br>
+      · <span class="code">uid</span> <span style="color:#ef4444;">*必填</span> — 创作者UID（4位数字）<br>
+      · <span class="code">type</span> <span style="color:#ef4444;">*必填</span> — DNA类型（ART/SPEC/AGENT/AUDIT/CONF/SYS/KNOW/FLOW）<br>
+      · <span class="code">tag</span> <span style="color:#ef4444;">*必填</span> — 功能标签（大写英文+数字，≤12字符）<br>
+      · <span class="code">version</span> 选填 — 版本号，默认 V1<br>
+      · <span class="code">meta</span> 选填 — JSON对象，附加元数据（标题、摘要、关联DNA等）<br>
+      <strong>输出：</strong><br>
+      · <span class="code">dna_code</span> — 生成的完整DNA追溯码<br>
+      · <span class="code">confirm_code</span> — L3确认码（含HMAC签名）<br>
+      · <span class="code">created_at</span> — ISO 8601时间戳<br>
+      · <span class="code">chain_id</span> — 阳链存储序号<br>
+      <strong>规则：</strong><br>
+      · 同一UID+同一TAG+同一日期：自动追加版本号（V1→V2→V3...）<br>
+      · DNA码一旦创建不可删除、不可修改（只能追加新版本）<br>
+      · 每次创建自动写入审计日志
+    </td>
+  </tr>
+  <tr>
+    <td><strong>嵌入DNA水印</strong><br><span style="font-size:0.75rem;color:#888;">Yang Embed</span></td>
+    <td><span class="code">/yang/embed</span></td>
+    <td><span class="badge b-yang">POST</span></td>
+    <td>
+      <strong>输入参数：</strong><br>
+      · <span class="code">dna_code</span> <span style="color:#ef4444;">*必填</span> — 要嵌入的DNA追溯码<br>
+      · <span class="code">content</span> <span style="color:#ef4444;">*必填</span> — 原始内容（文本/Base64图片/HTML）<br>
+      · <span class="code">mode</span> 选填 — 嵌入模式：<br>
+      &nbsp;&nbsp;<span class="badge b-yang">steganography</span> 隐写术（图片，像素级不可见）<br>
+      &nbsp;&nbsp;<span class="badge b-yin">watermark</span> 文字水印（文本，零宽字符嵌入）<br>
+      &nbsp;&nbsp;<span class="badge b-both">metadata</span> 元数据注入（HTML/文档头部）<br>
+      &nbsp;&nbsp;默认：根据content类型自动选择<br>
+      <strong>输出：</strong><br>
+      · <span class="code">embedded_content</span> — 嵌入DNA后的内容<br>
+      · <span class="code">embed_method</span> — 实际使用的嵌入方式<br>
+      · <span class="code">verify_hash</span> — 校验哈希（用于后续提取验证）<br>
+      <strong>嵌入技术规格：</strong><br>
+      · 隐写术：LSB（最低有效位）嵌入，每像素修改≤1bit，肉眼不可见<br>
+      · 零宽字符：使用U+200B/U+200C/U+200D/U+FEFF编码DNA到文本间隙<br>
+      · 元数据：HTML注释 + meta标签 + 自定义data属性三重嵌入<br>
+      · 所有模式都不影响原始内容的显示效果和使用体验
+    </td>
+  </tr>
+</table>
+
+<div class="warning">
+  ⚠️ 铁律：嵌入操作不可逆。一旦DNA嵌入内容，该DNA与该内容永久绑定。如需更新DNA，只能创建新版本重新嵌入。
+</div>
+
+<!-- ============================== -->
+<!-- 第四章：阴链功能（追溯 + 提取） -->
+<!-- ============================== -->
+<div class="section-header s-yin">🌙 第四章 · 阴链功能 — 追溯与提取</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  阴链 = 暗面的、被动的、追查的DNA操作。当内容在外部流转时，阴链追踪它的足迹。
+</p>
+
+<table>
+  <tr>
+    <th style="width:18%">功能</th>
+    <th style="width:18%">端点</th>
+    <th style="width:10%">方法</th>
+    <th style="width:54%">规格</th>
+  </tr>
+  <tr>
+    <td><strong>DNA追溯查询</strong><br><span style="font-size:0.75rem;color:#888;">Yin Trace</span></td>
+    <td><span class="code">/yin/trace/{dna}</span></td>
+    <td><span class="badge b-yin">GET</span></td>
+    <td>
+      <strong>输入：</strong><br>
+      · <span class="code">{dna}</span> 路径参数 — 完整DNA追溯码或L1路由编号<br>
+      · <span class="code">?depth=full|summary</span> 查询参数 — 追溯深度<br>
+      · <span class="code">?from=YYYYMMDD&to=YYYYMMDD</span> 时间范围<br>
+      <strong>输出（depth=full）：</strong><br>
+      · <span class="code">origin</span> — 创建者信息（UID、神兽归属、信任等级）<br>
+      · <span class="code">timeline</span> — 完整时间线（创建→嵌入→传播→检测记录）<br>
+      · <span class="code">derivatives</span> — 衍生品列表（谁引用/转载/修改了这个DNA）<br>
+      · <span class="code">audit_history</span> — 三色审计历史<br>
+      · <span class="code">credit_impact</span> — 该DNA对知行积分的影响<br>
+      <strong>输出（depth=summary）：</strong><br>
+      · <span class="code">owner</span> / <span class="code">created</span> / <span class="code">status</span> / <span class="code">spread_count</span><br>
+      <strong>规则：</strong><br>
+      · 用L1查询：返回该用户所有DNA记录<br>
+      · 用L2查询：返回单个事件的完整追溯链<br>
+      · 查询本身也写入审计日志（谁在查谁）<br>
+      · 公开层DNA任何人可查；代理层需代理权限；私密层只有本人
+    </td>
+  </tr>
+  <tr>
+    <td><strong>DNA提取</strong><br><span style="font-size:0.75rem;color:#888;">Yin Extract</span></td>
+    <td><span class="code">/yin/extract</span></td>
+    <td><span class="badge b-yin">POST</span></td>
+    <td>
+      <strong>输入：</strong><br>
+      · <span class="code">content</span> <span style="color:#ef4444;">*必填</span> — 待检测内容（文本/Base64图片/HTML/URL）<br>
+      · <span class="code">mode</span> 选填 — 检测模式：all（默认）/ steganography / watermark / metadata<br>
+      <strong>输出：</strong><br>
+      · <span class="code">found</span> — boolean，是否找到DNA<br>
+      · <span class="code">dna_codes[]</span> — 提取到的所有DNA码列表<br>
+      · <span class="code">embed_methods[]</span> — 每个码的嵌入方式<br>
+      · <span class="code">integrity</span> — 完整性校验结果（match/tampered/partial）<br>
+      · <span class="code">confidence</span> — 置信度（0-100%）<br>
+      <strong>规则：</strong><br>
+      · 三种嵌入方式全部扫描，交叉验证<br>
+      · integrity=tampered 时触发🟡三色预警<br>
+      · 置信度<50% 记录但不作为追溯依据<br>
+      · 支持批量提取：content可以是URL数组，批量扫描
+    </td>
+  </tr>
+</table>
+
+<div class="diagram">
+阳链与阴链的关系：
+
+  创作者                                    外部世界
+    │                                         │
+    ├─ /yang/create → 生成DNA码                │
+    │                                         │
+    ├─ /yang/embed  → DNA嵌入内容 ──发布──→  内容流转
+    │                                         │
+    │                                  有人发现内容
+    │                                         │
+    │              /yin/extract ←── 提取DNA ──┤
+    │                                         │
+    │              /yin/trace   ←── 追溯来源 ──┤
+    │                                         │
+    └─ 确认：这是我的 ←──────────── 验证确认 ──┘
+
+  阳链负责"种DNA"，阴链负责"收DNA"
+  种和收的过程全程可追溯，全程有审计日志
+</div>
+
+<!-- ============================== -->
+<!-- 第五章：证据链与维权 -->
+<!-- ============================== -->
+<div class="section-header s-evidence">⚔️ 第五章 · 证据链与维权</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  DNA的终极目的不是追溯——是维权。当创作被盗用时，DNA是你手里的刀。
+</p>
+
+<table>
+  <tr>
+    <th style="width:18%">功能</th>
+    <th style="width:20%">端点</th>
+    <th style="width:10%">方法</th>
+    <th style="width:52%">规格</th>
+  </tr>
+  <tr>
+    <td><strong>证据链查询</strong><br><span style="font-size:0.75rem;color:#888;">Evidence Chain</span></td>
+    <td><span class="code">/evidence/chain/{dna}</span></td>
+    <td><span class="badge b-red">GET</span></td>
+    <td>
+      <strong>输入：</strong> DNA追溯码（L2）<br>
+      <strong>输出：</strong><br>
+      · <span class="code">chain[]</span> — 完整证据链，每个节点包含：<br>
+      &nbsp;&nbsp;· 时间戳（精确到毫秒）<br>
+      &nbsp;&nbsp;· 操作类型（create/embed/detect/extract/tamper）<br>
+      &nbsp;&nbsp;· 操作者UID或外部来源标识<br>
+      &nbsp;&nbsp;· 内容哈希（SHA-256）<br>
+      &nbsp;&nbsp;· 服务器签名<br>
+      · <span class="code">integrity_proof</span> — 链完整性证明（Merkle树根哈希）<br>
+      · <span class="code">legal_summary</span> — 可直接用于法律文书的摘要<br>
+      <strong>规则：</strong><br>
+      · 证据链一旦写入不可修改（append-only log）<br>
+      · 每个节点包含前一个节点的哈希（链式结构）<br>
+      · 服务器签名使用 :9622 的私钥，外部可验证
+    </td>
+  </tr>
+  <tr>
+    <td><strong>维权证据包生成</strong><br><span style="font-size:0.75rem;color:#888;">Confront Generate</span></td>
+    <td><span class="code">/confront/generate</span></td>
+    <td><span class="badge b-red">POST</span></td>
+    <td>
+      <strong>输入：</strong><br>
+      · <span class="code">dna_code</span> <span style="color:#ef4444;">*必填</span> — 被侵权的DNA码<br>
+      · <span class="code">infringer_url</span> 选填 — 侵权方URL/证据<br>
+      · <span class="code">description</span> 选填 — 侵权描述<br>
+      <strong>输出：</strong><br>
+      · <span class="code">package_id</span> — 证据包ID<br>
+      · <span class="code">contents</span> — 包含：<br>
+      &nbsp;&nbsp;· 原创DNA证据链（完整时间线）<br>
+      &nbsp;&nbsp;· 嵌入验证截图/数据<br>
+      &nbsp;&nbsp;· 内容对比报告<br>
+      &nbsp;&nbsp;· 法律声明模板<br>
+      &nbsp;&nbsp;· 所有数据的数字签名<br>
+      · <span class="code">download_url</span> — <span class="code">/confront/download/{package_id}</span><br>
+      <strong>规则：</strong><br>
+      · 证据包生成后48小时内可下载<br>
+      · 每个证据包有独立的数字签名<br>
+      · 法律声明模板包含中英文版本<br>
+      · 生成操作本身写入证据链（证明维权时间线）
+    </td>
+  </tr>
+  <tr>
+    <td><strong>下载证据包</strong><br><span style="font-size:0.75rem;color:#888;">Confront Download</span></td>
+    <td><span class="code">/confront/download/{id}</span></td>
+    <td><span class="badge b-red">GET</span></td>
+    <td>
+      <strong>输入：</strong> 证据包ID（路径参数）<br>
+      <strong>输出：</strong> ZIP压缩包，内含：<br>
+      · <span class="code">evidence_chain.json</span> — 机器可读证据链<br>
+      · <span class="code">evidence_report.pdf</span> — 人类可读维权报告<br>
+      · <span class="code">comparison/</span> — 对比截图目录<br>
+      · <span class="code">signatures/</span> — 数字签名文件<br>
+      · <span class="code">legal_notice_cn.docx</span> — 中文法律函<br>
+      · <span class="code">legal_notice_en.docx</span> — 英文法律函<br>
+      <strong>规则：</strong><br>
+      · 48小时过期后自动清理（但证据链永久保留在数据库中）<br>
+      · 下载记录写入审计日志
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第六章：扫描检测 -->
+<!-- ============================== -->
+<div class="section-header s-sweep">🔍 第六章 · 扫描检测</div>
+
+<table>
+  <tr>
+    <th style="width:18%">功能</th>
+    <th style="width:15%">端点</th>
+    <th style="width:10%">方法</th>
+    <th style="width:57%">规格</th>
+  </tr>
+  <tr>
+    <td><strong>内容扫描</strong><br><span style="font-size:0.75rem;color:#888;">Sweeper Scan</span></td>
+    <td><span class="code">/sweeper/scan</span></td>
+    <td><span class="badge b-both">POST</span></td>
+    <td>
+      <strong>输入：</strong><br>
+      · <span class="code">target</span> <span style="color:#ef4444;">*必填</span> — 扫描目标（URL/文本/文件）<br>
+      · <span class="code">scan_type</span> 选填 — <br>
+      &nbsp;&nbsp;<span class="badge b-yang">dna_detect</span> 仅检测DNA水印<br>
+      &nbsp;&nbsp;<span class="badge b-yin">similarity</span> 内容相似度匹配<br>
+      &nbsp;&nbsp;<span class="badge b-both">full</span> 全面扫描（默认）<br>
+      · <span class="code">match_threshold</span> 选填 — 相似度阈值（默认70%）<br>
+      <strong>输出：</strong><br>
+      · <span class="code">dna_found[]</span> — 检测到的DNA码<br>
+      · <span class="code">similarity_matches[]</span> — 相似内容匹配结果<br>
+      &nbsp;&nbsp;每个匹配包含：原始DNA、相似度%、匹配片段<br>
+      · <span class="code">risk_level</span> — 🟢safe / 🟡suspect / 🔴infringement<br>
+      · <span class="code">recommendations[]</span> — 建议操作<br>
+      <strong>规则：</strong><br>
+      · full扫描 = dna_detect + similarity 两者合并<br>
+      · 相似度≥90%且DNA不匹配 → 自动标记🔴infringement<br>
+      · 相似度70-89%且DNA不匹配 → 标记🟡suspect<br>
+      · 扫描结果自动写入被查内容对应DNA的追溯链
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第七章：DNA分类器 -->
+<!-- ============================== -->
+<div class="section-header s-classify">🏷️ 第七章 · DNA分类器</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  本地工具 <span class="code">dna_classifier.py</span> — 对DNA记录进行自动分类和标签管理。
+</p>
+
+<table>
+  <tr>
+    <th style="width:20%">分类维度</th>
+    <th style="width:35%">分类值</th>
+    <th style="width:45%">规则</th>
+  </tr>
+  <tr>
+    <td>内容类型</td>
+    <td>
+      <span class="badge b-yang">原创</span>
+      <span class="badge b-yin">整理</span>
+      <span class="badge b-blue">翻译</span>
+      <span class="badge b-green">引用</span>
+      <span class="badge b-both">混合</span>
+    </td>
+    <td>
+      · 原创：创作者从零产出，无引用来源<br>
+      · 整理：对已有材料的归纳、提炼<br>
+      · 翻译：跨语言转换<br>
+      · 引用：明确标注来源的引用型内容<br>
+      · 混合：上述多种的组合（需标注各部分比例）
+    </td>
+  </tr>
+  <tr>
+    <td>可见层级</td>
+    <td>
+      <span class="badge b-green">🟢公开</span>
+      <span class="badge b-yang">🟡代理</span>
+      <span class="badge b-red">🔴私密</span>
+      <span class="badge b-both">🌌三生三世</span>
+    </td>
+    <td>
+      · 🟢公开：审计通过，任何人可查<br>
+      · 🟡代理：仅代理和管理员可见<br>
+      · 🔴私密：仅创作者本人可见，代理永远看不到<br>
+      · 🌌三生三世：读完即销毁，不留痕迹
+    </td>
+  </tr>
+  <tr>
+    <td>审计状态</td>
+    <td>
+      <span class="badge b-green">🟢通过</span>
+      <span class="badge b-yang">🟡待审</span>
+      <span class="badge b-red">🔴熔断</span>
+      <span class="badge b-blue">⚪未审</span>
+    </td>
+    <td>
+      · 🟢通过：置信度>90%，自动通过<br>
+      · 🟡待审：置信度50-90%，需人工审核<br>
+      · 🔴熔断：置信度<50%或触发铁律，自动熔断<br>
+      · ⚪未审：尚未进入审计流程
+    </td>
+  </tr>
+  <tr>
+    <td>传播状态</td>
+    <td>
+      <span class="badge b-green">本地</span>
+      <span class="badge b-blue">已发布</span>
+      <span class="badge b-yang">已传播</span>
+      <span class="badge b-red">已侵权</span>
+    </td>
+    <td>
+      · 本地：仅存在于创作者设备<br>
+      · 已发布：通过正式渠道发布<br>
+      · 已传播：在外部被检测到流转<br>
+      · 已侵权：扫描确认侵权
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第八章：数据主权保护 -->
+<!-- ============================== -->
+<div class="section-header s-sovereign">🛡️ 第八章 · 数据主权保护</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  本地工具 <span class="code">data_sovereignty.py</span> — DNA是追溯工具，数据主权是DNA的保护伞。
+</p>
+
+<table>
+  <tr>
+    <th style="width:22%">保护规则</th>
+    <th style="width:38%">描述</th>
+    <th style="width:40%">技术实现</th>
+  </tr>
+  <tr>
+    <td><strong>数据不出域</strong></td>
+    <td>🔴私密层数据永远不离开创作者本地设备。代理看不到，系统看不到，只有本人知道。</td>
+    <td>
+      · 私密层DNA码存本地，仅L1路由编号上报<br>
+      · 加密存储使用AES-256-GCM<br>
+      · 密钥仅存于用户设备，不上传
+    </td>
+  </tr>
+  <tr>
+    <td><strong>授权可撤回</strong></td>
+    <td>用户可以随时撤回对任何代理的DNA访问授权。撤回后，代理立即失去查询能力。</td>
+    <td>
+      · 授权基于L3确认码，确认码可设过期时间<br>
+      · 撤回 = 将确认码加入黑名单<br>
+      · 撤回操作本身写入审计日志
+    </td>
+  </tr>
+  <tr>
+    <td><strong>删除权</strong></td>
+    <td>用户可以请求删除自己在🟢公开层的DNA内容（但DNA追溯码本身不删，变为"已撤回"状态）。</td>
+    <td>
+      · 内容删除，DNA码保留（变更status=withdrawn）<br>
+      · 追溯链中标注"创作者主动撤回"<br>
+      · 已被他人引用的内容标注"原始已撤回"
+    </td>
+  </tr>
+  <tr>
+    <td><strong>导出权</strong></td>
+    <td>用户可以导出自己所有DNA记录的完整数据包。</td>
+    <td>
+      · 导出格式：JSON + CSV + PDF报告<br>
+      · 包含所有三层数据（L1+L2+L3历史）<br>
+      · 导出包本身带有DNA（防篡改）
+    </td>
+  </tr>
+  <tr>
+    <td><strong>继承权</strong></td>
+    <td>用户可以指定DNA继承人。在特定条件下，继承人可接管所有DNA的管理权限。</td>
+    <td>
+      · 继承人UID写入L1的meta字段<br>
+      · 触发条件由用户自定义<br>
+      · 继承操作需要多方确认（防误触）
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第九章：DNA生命周期 -->
+<!-- ============================== -->
+<div class="section-header s-lifecycle">♻️ 第九章 · DNA生命周期</div>
+
+<div class="diagram">
+DNA生命周期状态机：
+
+  ┌─────────┐    /yang/create     ┌─────────┐
+  │  不存在  │ ──────────────────→ │  已创建  │
+  └─────────┘                     └────┬────┘
+                                       │
+                               /yang/embed
+                                       │
+                                       ▼
+                                 ┌─────────┐     扫描发现传播     ┌─────────┐
+                                 │  已嵌入  │ ──────────────────→ │  已传播  │
+                                 └────┬────┘                     └────┬────┘
+                                      │                               │
+                              内容发布到公开层                   /sweeper/scan
+                                      │                        发现侵权行为
+                                      ▼                               │
+                                ┌─────────┐                           ▼
+                                │  已发布  │                    ┌─────────┐
+                                └────┬────┘                    │  已侵权  │
+                                     │                         └────┬────┘
+                                     │                              │
+                              创作者主动撤回               /confront/generate
+                                     │                              │
+                                     ▼                              ▼
+                               ┌─────────┐                   ┌─────────┐
+                               │  已撤回  │                   │  维权中  │
+                               └─────────┘                   └────┬────┘
+                                                                   │
+                                                            维权结果确认
+                                                                   │
+                                                    ┌──────────────┼──────────────┐
+                                                    ▼              ▼              ▼
+                                              ┌─────────┐   ┌─────────┐   ┌─────────┐
+                                              │  已胜诉  │   │  已和解  │   │  已败诉  │
+                                              └─────────┘   └─────────┘   └─────────┘
+
+特殊状态：
+  · 🌌三生三世 → 生命周期为"创建→阅读→销毁"，不进入传播链
+  · 🔴熔断DNA → 冻结状态，不可传播、不可嵌入、只可查询
+</div>
+
+<table>
+  <tr>
+    <th style="width:15%">状态</th>
+    <th style="width:15%">可执行操作</th>
+    <th style="width:15%">不可执行操作</th>
+    <th style="width:55%">自动触发规则</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">已创建</span></td>
+    <td>嵌入、查询、分类</td>
+    <td>维权、撤回</td>
+    <td>创建后24h未嵌入 → 自动标记"孤立DNA"，保留但预警</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yang">已嵌入</span></td>
+    <td>发布、查询、再嵌入</td>
+    <td>删除DNA码</td>
+    <td>嵌入后自动进入审计队列（三色审计）</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-green">已发布</span></td>
+    <td>追溯、扫描、撤回</td>
+    <td>修改内容</td>
+    <td>发布后定期扫描（频率由知行积分等级决定）</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yang">已传播</span></td>
+    <td>追溯、维权、扫描</td>
+    <td>撤回（已在外部）</td>
+    <td>首次检测到传播 → 通知创作者</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">已侵权</span></td>
+    <td>维权、证据包生成</td>
+    <td>—</td>
+    <td>标记侵权 → 自动冻结侵权方操作 → 启动申诉倒计时</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yin">已撤回</span></td>
+    <td>查询追溯链</td>
+    <td>嵌入、发布</td>
+    <td>撤回后追溯链标注"原始已撤回"，引用方收到通知</td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 第十章：数字根×五行×熔断对照 -->
+<!-- ============================== -->
+<div class="section-header s-iron">🔥 第十章 · 数字根×五行×熔断对照</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  每个DNA追溯码都有数字根。数字根决定五行归属，五行归属决定龍魂层级，部分数字根触发自动熔断。
+</p>
+
+<table>
+  <tr>
+    <th style="width:10%">数字根</th>
+    <th style="width:10%">五行</th>
+    <th style="width:12%">龍魂层</th>
+    <th style="width:12%">熔断</th>
+    <th style="width:56%">规则说明</th>
+  </tr>
+  <tr>
+    <td style="text-align:center;font-size:1.2rem;font-weight:bold;color:#22d3ee;">1, 6</td>
+    <td><span class="badge b-yin">水 💧</span></td>
+    <td>L1 记忆</td>
+    <td><span class="badge b-green">无</span></td>
+    <td>存东西的层。DNA存储、记忆压缩、知识库写入。水主收纳，不熔断。</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;font-size:1.2rem;font-weight:bold;color:#f87171;">2, 7</td>
+    <td><span class="badge b-red">火 🔥</span></td>
+    <td>L2 文明</td>
+    <td><span class="badge b-green">无</span></td>
+    <td>照亮的层。审计、追溯、证据链、维权。火主照见，不熔断。</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;font-size:1.2rem;font-weight:bold;color:#4ade80;">3, 8</td>
+    <td><span class="badge b-green">木 🌿</span></td>
+    <td>L4 创新</td>
+    <td><span class="badge b-red">dr=3 熔断</span></td>
+    <td>长的快的层。创作、实验、新功能。木主生长，但 <strong>dr=3 触发熔断</strong>——长太快会疯，需要审核拦一下。dr=8通行。</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;font-size:1.2rem;font-weight:bold;color:#fbbf24;">4, 9</td>
+    <td><span class="badge b-yang">金 ⚔️</span></td>
+    <td>L0 规则</td>
+    <td><span class="badge b-red">dr=9 熔断</span></td>
+    <td>硬的层。铁律、系统边界、权限控制。金主刚硬，但 <strong>dr=9 触发熔断</strong>——规则层的变动必须人工确认，自动操作全拦。</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;font-size:1.2rem;font-weight:bold;color:#a78bfa;">5, 0</td>
+    <td><span class="badge b-both">土 🏔️</span></td>
+    <td>L3 普惠</td>
+    <td><span class="badge b-green">无</span></td>
+    <td>装所有的层。公开知识库、社区内容、代理模板。土主承载，不熔断。</td>
+  </tr>
+</table>
+
+<div class="warning">
+  ⚠️ 熔断铁律：dr=3（木·创新失控）和 dr=9（金·规则篡改）自动触发熔断。其他数字根全部通行。<br>
+  数字根计算方式：取DNA追溯码中UID+日期的所有数字，逐位相加，循环直到单位数。<br>
+  例：UID9622 + 20260416 → 9+6+2+2+2+0+2+6+0+4+1+6 = 40 → 4+0 = <strong>4</strong>（金·L0·dr≠9 → 通行）
+</div>
+
+<div class="diagram">
+数字根计算流程：
+
+  DNA::SPEC-9622-20260416-FUNC-V1
+              │        │
+              ▼        ▼
+        UID=9622   DATE=20260416
+              │        │
+              └──合并───┘
+                   │
+            9+6+2+2+2+0+2+6+0+4+1+6 = 40
+                   │
+                 4+0 = 4
+                   │
+              dr=4 → 金 → L0规则 → 非9 → 通行 ✅
+
+  如果 dr=3 → 木·创新层 → 🔴自动熔断 → 需人工审核
+  如果 dr=9 → 金·规则层 → 🔴自动熔断 → 需人工确认
+</div>
+
+<!-- ============================== -->
+<!-- 第十一章：DNA-as-Tag 搜索机制 -->
+<!-- ============================== -->
+<div class="section-header s-format">🏷️ 第十一章 · DNA-as-Tag 搜索机制</div>
+<p style="color:#999; font-size:0.84rem; margin:0.5rem 0 1rem 0;">
+  DNA追溯码 = 标签。加#号就是搜索关键词。这是从本地HTML走向网站的桥梁。
+</p>
+
+<table>
+  <tr>
+    <th style="width:18%">标签类型</th>
+    <th style="width:25%">格式</th>
+    <th style="width:22%">搜索示例</th>
+    <th style="width:35%">返回结果</th>
+  </tr>
+  <tr>
+    <td><strong>完整DNA标签</strong></td>
+    <td><span class="code">#DNA::SPEC-9622-20260416-FUNC-V1</span></td>
+    <td>精确匹配单条记录</td>
+    <td>该DNA码对应的完整追溯链、内容、审计状态</td>
+  </tr>
+  <tr>
+    <td><strong>UID标签</strong></td>
+    <td><span class="code">#9622</span></td>
+    <td>搜该用户所有创作</td>
+    <td>UID9622名下所有DNA记录（按时间倒序）</td>
+  </tr>
+  <tr>
+    <td><strong>类型标签</strong></td>
+    <td><span class="code">#ART</span> / <span class="code">#SPEC</span> / <span class="code">#FLOW</span></td>
+    <td>搜某类型全部内容</td>
+    <td>所有该类型的DNA记录</td>
+  </tr>
+  <tr>
+    <td><strong>日期标签</strong></td>
+    <td><span class="code">#20260416</span></td>
+    <td>搜某天全部产出</td>
+    <td>该日期所有DNA记录</td>
+  </tr>
+  <tr>
+    <td><strong>功能标签</strong></td>
+    <td><span class="code">#FUNC</span> / <span class="code">#EMBED01</span></td>
+    <td>搜某功能所有版本</td>
+    <td>所有包含该TAG的DNA记录（跨UID、跨日期）</td>
+  </tr>
+  <tr>
+    <td><strong>五行标签</strong></td>
+    <td><span class="code">#水</span> / <span class="code">#火</span> / <span class="code">#木</span> / <span class="code">#金</span> / <span class="code">#土</span></td>
+    <td>搜某五行层全部内容</td>
+    <td>根据数字根自动归类到五行的所有DNA记录</td>
+  </tr>
+  <tr>
+    <td><strong>状态标签</strong></td>
+    <td><span class="code">#🟢</span> / <span class="code">#🟡</span> / <span class="code">#🔴</span></td>
+    <td>搜某审计状态全部</td>
+    <td>该三色审计状态下所有DNA记录</td>
+  </tr>
+  <tr>
+    <td><strong>组合标签</strong></td>
+    <td><span class="code">#9622 #ART #🟢</span></td>
+    <td>UID9622的🟢通过的文章</td>
+    <td>多标签AND逻辑，交集结果</td>
+  </tr>
+</table>
+
+<div class="note">
+  <strong>标签解析规则：</strong><br>
+  · 标签识别：以 <span class="code">#</span> 开头，空格或标点结束<br>
+  · 多标签搜索：空格分隔 = AND逻辑（交集），逗号分隔 = OR逻辑（并集）<br>
+  · 标签自动生成：/yang/create 时系统自动为DNA码生成所有维度的标签<br>
+  · 标签存储：Notion数据库的Multi-select属性 + :9622本地索引双存<br>
+  · 标签不可手动添加/删除（由DNA码自动派生，防止篡改）
+</div>
+
+<div class="diagram">
+DNA-as-Tag 的网站化路径：
+
+  现在（本地）                     过渡（对接）                    最终（网站）
+  ┌──────────┐              ┌──────────────┐              ┌──────────────┐
+  │ 7张HTML表 │              │ Notion数据库  │              │ 公开知识站点  │
+  │ 本地规格书 │  ──导出──→  │ 每页带DNA标签 │  ──发布──→   │ #标签即搜索   │
+  │ 暗色主题   │              │ Multi-select  │              │ 每篇带DNA水印 │
+  └──────────┘              └──────────────┘              └──────────────┘
+       │                          │                              │
+       │     :9622 API 贯穿全程    │                              │
+       └──────────────────────────┴──────────────────────────────┘
+
+  步骤：
+  1. 本地HTML规格书 → 定义规则（写死的石头）
+  2. Notion数据库 → 每条记录加DNA标签（#9622 #ART #🟢 #水...）
+  3. Notion导出/GitCode Pages → 公开网站
+  4. 网站搜索框 → 输入#标签 → 调用/yin/trace → 返回结果
+  5. 每篇公开文章 → /yang/embed嵌入DNA水印 → 外部无法识别但我们能提取
+</div>
+
+<!-- ============================== -->
+<!-- 第十二章：与其他系统的联动 -->
+<!-- ============================== -->
+<div class="section-header s-integrate">🔗 第十二章 · 系统联动规格</div>
+
+<table>
+  <tr>
+    <th style="width:18%">联动系统</th>
+    <th style="width:30%">联动方式</th>
+    <th style="width:52%">联动规则</th>
+  </tr>
+  <tr>
+    <td><strong>知行积分</strong><br><span style="font-size:0.75rem;color:#888;">Knowledge-Action Credits</span></td>
+    <td>
+      DNA操作 → 积分计算<br>
+      <span class="code">积分 = 调用×40% + 准确率×30% + 信任×30% - 警告×5 - 熔断×20</span>
+    </td>
+    <td>
+      · 每次 /yang/create 调用 → 调用次数+1<br>
+      · 审计通过率计入准确率<br>
+      · 🔴熔断 → 积分-20，不可抵消<br>
+      · 🟡警告 → 积分-5，积分≥5时可抵消1次<br>
+      · 积分决定扫描频率和权限等级
+    </td>
+  </tr>
+  <tr>
+    <td><strong>三色审计</strong><br><span style="font-size:0.75rem;color:#888;">Three-Color Audit</span></td>
+    <td>
+      DNA嵌入 → 自动进入审计<br>
+      审计结果写回DNA分类
+    </td>
+    <td>
+      · 🟢通过（>90%）→ DNA状态保持，可发布<br>
+      · 🟡待审（50-90%）→ DNA冻结，等待人工<br>
+      · 🔴熔断（<50%）→ DNA冻结+积分扣除+审计日志<br>
+      · 审计结果是DNA分类器的输入之一
+    </td>
+  </tr>
+  <tr>
+    <td><strong>花名册</strong><br><span style="font-size:0.75rem;color:#888;">Agent Registry</span></td>
+    <td>
+      L1路由编号 = 花名册主键<br>
+      神兽归属写入DNA元数据
+    </td>
+    <td>
+      · 每个代理的DNA操作归入其所属神兽<br>
+      · 花名册的信任等级影响DNA权限<br>
+      · 花名册黑名单 → DNA创建权限冻结
+    </td>
+  </tr>
+  <tr>
+    <td><strong>知识基因库</strong><br><span style="font-size:0.75rem;color:#888;">Knowledge Gene Pool</span></td>
+    <td>
+      每篇知识库文章 = 一个DNA<br>
+      DNA类型 = KNOW
+    </td>
+    <td>
+      · 写入知识库 = /yang/create(type=KNOW) + /yang/embed<br>
+      · 公开层文章自动嵌入DNA水印<br>
+      · 引用链：文章A引用文章B → A的DNA链接B的DNA
+    </td>
+  </tr>
+  <tr>
+    <td><strong>三才流场</strong><br><span style="font-size:0.75rem;color:#888;">:8081 Sancai Flow</span></td>
+    <td>
+      DNA类型 = FLOW<br>
+      三才计算结果带DNA标记
+    </td>
+    <td>
+      · 每次三才推演 = /yang/create(type=FLOW)<br>
+      · 推演参数和结果都嵌入DNA<br>
+      · 跨时间对话：用DNA链接不同时间的推演结果<br>
+      · 数字永生：记忆压缩后的DNA网络存储
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Notion数据库</strong><br><span style="font-size:0.75rem;color:#888;">Notion MCP</span></td>
+    <td>
+      Notion页面 ↔ DNA双向同步<br>
+      花名册/知识库/审计日志
+    </td>
+    <td>
+      · Notion写入 → 自动调用/yang/create生成DNA<br>
+      · DNA变更 → 自动更新Notion页面状态<br>
+      · Notion是展示层，:9622是数据层<br>
+      · Notion宝宝执行，不决策
+    </td>
+  </tr>
+  <tr>
+    <td><strong>DeepSeek</strong><br><span style="font-size:0.75rem;color:#888;">国内主编辑</span></td>
+    <td>
+      DeepSeek API → :9622 路由<br>
+      输出统一DNA格式
+    </td>
+    <td>
+      · DeepSeek作为国内内容生产引擎，所有输出自动带DNA码<br>
+      · :9622新增端点 <span class="code">/router/deepseek</span>：接收DeepSeek输出 → 校验DNA格式 → 写入追溯链<br>
+      · DeepSeek不做审计决策，只做内容生产<br>
+      · 审计权归Claude/Cowork（三色审计）和人格路由层<br>
+      · DeepSeek输出的DNA类型标记 <span class="code">source:deepseek</span> 写入meta字段
+    </td>
+  </tr>
+  <tr>
+    <td><strong>多AI协作协议</strong><br><span style="font-size:0.75rem;color:#888;">Multi-AI DNA Protocol</span></td>
+    <td>
+      任何AI遵守DNA格式 = 可接入<br>
+      dragon-soul-agent = 唯一入口
+    </td>
+    <td>
+      · <strong>接入规则：</strong>任何AI系统只要输出符合 <span class="code">DNA::{TYPE}-{UID}-{DATE}-{TAG}-{VER}</span> 格式 → 自动进入追溯体系<br>
+      · <strong>身份标识：</strong>每个AI在meta字段标注 <span class="code">source:{ai_name}</span>（deepseek/claude/ollama/...）<br>
+      · <strong>权限分层：</strong><br>
+      &nbsp;&nbsp;🟢 内容生产权（所有AI都有）→ 输出带DNA<br>
+      &nbsp;&nbsp;🟡 审计决策权（仅人格路由层）→ 三色判定<br>
+      &nbsp;&nbsp;🔴 铁律修改权（仅UID9622本人）→ 规则不动<br>
+      · <strong>人格路由唯一入口：</strong>不管哪个AI来，先过 <span class="code">dragon-soul-agent</span>，不认这个文件夹的AI = 外人<br>
+      · <strong>可见性规则：</strong>审计过程🔴私密，普通人看不到。只有人格路由层的AI可见审计数据。人看到的只有最终结果（🟢通过/🟡待审/🔴熔断）<br>
+      · <strong>Notion存根：</strong>所有AI的所有输出，DNA存根统一写入Notion数据库<br>
+      · <strong>数字人民币留痕：</strong>涉及交易的DNA操作，自动关联数字人民币流水号
+    </td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录A：铁律（DNA专属） -->
+<!-- ============================== -->
+<div class="section-header s-iron">🔒 附录A · DNA铁律</div>
+
+<table>
+  <tr>
+    <th style="width:10%">编号</th>
+    <th style="width:30%">铁律</th>
+    <th style="width:60%">解释</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D1</span></td>
+    <td>DNA一旦创建，不可删除</td>
+    <td>DNA码是历史记录，不是文件。你可以撤回内容，但不能抹去"曾经存在过"的事实。追溯链永久保留。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D2</span></td>
+    <td>DNA不拦截创作</td>
+    <td>DNA的作用是追溯和证明，不是审批和阻断。任何人的创作不需要DNA"批准"才能发布。DNA在嵌入的那一刻就完成了使命。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D3</span></td>
+    <td>私密层DNA代理不可见</td>
+    <td>🔴私密层的DNA内容，任何代理、任何管理员、任何系统都无法查看。只有创作者本人。如果代理需要私密层数据，答案是"不"。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D4</span></td>
+    <td>确认码(L3)只能由:9622生成</td>
+    <td>任何外部系统、任何代理、任何第三方都不能生成L3确认码。确认码是"只有我才能盖的章"。HMAC密钥永远不离开:9622服务器。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D5</span></td>
+    <td>证据链不可篡改</td>
+    <td>证据链采用链式哈希结构，每个节点包含前一个节点的哈希。篡改任何一个节点 → 后续所有节点哈希失效 → 立即可检测。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D6</span></td>
+    <td>查询行为本身留痕</td>
+    <td>谁查了谁的DNA，什么时间查的，查了几次——全部记录。追溯链不只追溯创作，也追溯"谁在追溯"。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D7</span></td>
+    <td>DNA跟着内容走，不跟着平台走</td>
+    <td>内容从Notion搬到微信、从微信搬到网站——DNA跟着走。平台消失了DNA还在。DNA不依赖任何第三方平台。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D8</span></td>
+    <td>🔴熔断DNA冻结一切</td>
+    <td>被三色审计判定🔴熔断的DNA，冻结全部操作（不可嵌入、不可发布、不可传播）。只保留查询权限。解冻需要人工审核+积分恢复。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D9</span></td>
+    <td>别的技术识别不了我们的DNA</td>
+    <td>DNA的嵌入算法是龍魂系统专有的。普通的水印检测工具、截图工具、文本复制都无法感知或移除DNA。只有:9622的/yin/extract能提取。</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">D10</span></td>
+    <td>一生的DNA网络就是一个人的数字灵魂</td>
+    <td>所有DNA码构成一个有向图网络。这个网络记录了一个人的全部创作、思考、交互和成长轨迹。这是三才流场的输入，是数字永生的基础，是三生三世空间的数据层。</td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录B：API端点速查表 -->
+<!-- ============================== -->
+<div class="section-header s-format">📋 附录B · API端点速查表</div>
+
+<table>
+  <tr>
+    <th style="width:8%">链</th>
+    <th style="width:22%">端点</th>
+    <th style="width:8%">方法</th>
+    <th style="width:18%">功能</th>
+    <th style="width:15%">鉴权</th>
+    <th style="width:29%">备注</th>
+  </tr>
+  <tr>
+    <td><span class="badge b-yang">阳</span></td>
+    <td><span class="code">/yang/create</span></td>
+    <td>POST</td>
+    <td>创建DNA记录</td>
+    <td>L1 UID + 密钥</td>
+    <td>核心端点，所有DNA从这里诞生</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yang">阳</span></td>
+    <td><span class="code">/yang/embed</span></td>
+    <td>POST</td>
+    <td>嵌入DNA水印</td>
+    <td>L3 确认码</td>
+    <td>支持隐写术/零宽字符/元数据</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yin">阴</span></td>
+    <td><span class="code">/yin/trace/{dna}</span></td>
+    <td>GET</td>
+    <td>追溯查询</td>
+    <td>视层级而定</td>
+    <td>公开层免鉴权，代理/私密层需权限</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-yin">阴</span></td>
+    <td><span class="code">/yin/extract</span></td>
+    <td>POST</td>
+    <td>提取DNA</td>
+    <td>L1 UID</td>
+    <td>支持批量URL扫描</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">证</span></td>
+    <td><span class="code">/evidence/chain/{dna}</span></td>
+    <td>GET</td>
+    <td>证据链查询</td>
+    <td>L3 确认码</td>
+    <td>链式哈希结构，法律级别</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">证</span></td>
+    <td><span class="code">/confront/generate</span></td>
+    <td>POST</td>
+    <td>维权证据包</td>
+    <td>L3 确认码</td>
+    <td>生成ZIP包，48h有效</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-red">证</span></td>
+    <td><span class="code">/confront/download/{id}</span></td>
+    <td>GET</td>
+    <td>下载证据包</td>
+    <td>生成时的token</td>
+    <td>48h后自动清理</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-both">扫</span></td>
+    <td><span class="code">/sweeper/scan</span></td>
+    <td>POST</td>
+    <td>内容扫描</td>
+    <td>L1 UID</td>
+    <td>DNA检测+相似度匹配</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">辅</span></td>
+    <td><span class="code">/audit/blacklist</span></td>
+    <td>GET</td>
+    <td>黑名单查询</td>
+    <td>管理员权限</td>
+    <td>与花名册联动</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">辅</span></td>
+    <td><span class="code">/audit/add_blacklist</span></td>
+    <td>POST</td>
+    <td>添加黑名单</td>
+    <td>管理员权限</td>
+    <td>触发DNA冻结</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">辅</span></td>
+    <td><span class="code">/library</span></td>
+    <td>GET</td>
+    <td>知识库查询</td>
+    <td>公开层免鉴权</td>
+    <td>每条记录带DNA</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-blue">辅</span></td>
+    <td><span class="code">/library/log</span></td>
+    <td>POST</td>
+    <td>知识库日志</td>
+    <td>代理权限</td>
+    <td>写入操作自动生成DNA</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-both">路由</span></td>
+    <td><span class="code">/router/deepseek</span></td>
+    <td>POST</td>
+    <td>DeepSeek路由</td>
+    <td>人格路由层</td>
+    <td>接收DeepSeek输出→校验DNA→写入追溯链</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-both">路由</span></td>
+    <td><span class="code">/router/ai/{source}</span></td>
+    <td>POST</td>
+    <td>通用AI路由</td>
+    <td>人格路由层</td>
+    <td>任何AI的输出统一入口，{source}=ai名称</td>
+  </tr>
+  <tr>
+    <td><span class="badge b-both">路由</span></td>
+    <td><span class="code">/router/audit</span></td>
+    <td>GET</td>
+    <td>审计结果查询</td>
+    <td>🔴仅人格路由可见</td>
+    <td>普通人不可见，只返回🟢🟡🔴状态码</td>
+  </tr>
+</table>
+
+<!-- ============================== -->
+<!-- 附录C：DNA格式校验正则 -->
+<!-- ============================== -->
+<div class="section-header s-core">🧪 附录C · DNA格式校验</div>
+
+<div class="diagram">
+L2 DNA追溯码正则表达式：
+
+  /^DNA::(ART|SPEC|AGENT|AUDIT|CONF|SYS|KNOW|FLOW)-\d{4}-\d{8}(-\d{6})?-[A-Z0-9]{1,12}-V\d+(\.\d+)?$/
+
+分解：
+  DNA::          固定前缀
+  (ART|SPEC|...) 类型枚举（8种）
+  -\d{4}         UID（4位数字）
+  -\d{8}         日期（YYYYMMDD）
+  (-\d{6})?      可选：时间（HHmmss）
+  -[A-Z0-9]{1,12} 功能标签（大写+数字，1-12位）
+  -V\d+(\.\d+)?  版本号
+
+L3 确认码正则表达式：
+
+  /^DNA::.*::[a-f0-9]{8}$/
+
+  在L2的基础上追加 :: + 8位十六进制HMAC签名
+
+校验函数（Python）：
+
+  import re
+
+  DNA_L2_PATTERN = re.compile(
+      r'^DNA::(ART|SPEC|AGENT|AUDIT|CONF|SYS|KNOW|FLOW)'
+      r'-\d{4}-\d{8}(-\d{6})?-[A-Z0-9]{1,12}-V\d+(\.\d+)?$'
+  )
+  DNA_L3_PATTERN = re.compile(
+      r'^DNA::(ART|SPEC|AGENT|AUDIT|CONF|SYS|KNOW|FLOW)'
+      r'-\d{4}-\d{8}(-\d{6})?-[A-Z0-9]{1,12}-V\d+(\.\d+)?::[a-f0-9]{8}$'
+  )
+
+  def validate_dna(code: str) -> dict:
+      if DNA_L3_PATTERN.match(code):
+          return {"valid": True, "level": "L3", "code": code}
+      if DNA_L2_PATTERN.match(code):
+          return {"valid": True, "level": "L2", "code": code}
+      if code.startswith("UID") and "-" in code:
+          return {"valid": True, "level": "L1", "code": code}
+      return {"valid": False, "level": None, "code": code}
+</div>
+
+<!-- ============================== -->
+<!-- 页脚 -->
+<!-- ============================== -->
+<div class="footer">
+  龍魂DNA身份系统 · 功能规格书 v1.2 · UID9622 · 龍芯北辰<br>
+  DNA::SPEC-9622-20260417-FUNC-V1.2<br>
+  十二章正文 + 三附录 · 含数字根×五行熔断 + DNA-as-Tag搜索 + 多AI协作协议<br>
+  代码出去的都有DNA，别的技术识别不了。<br>
+  <span style="color:#333;">Generated by Cowork · 龍脑总参谋部 · 2026-04-16</span>
+</div>
+
+</div>
+</body>
+</html>
