@@ -1,49 +1,62 @@
-# 致所有AI用户：如何避免被"伪代码"误导
+# Longhun System · 龍魂
 
-**作者：** Lucky | UID9622  
-**GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 諸葛鑫).
 
-## 问题
+**Maintainer:** [UID9622](https://github.com/UID9622) · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
-AI（Claude、ChatGPT、DeepSeek等）生成的代码：
-- 70%是"伪代码"（不能直接运行）
-- 20%是"示例代码"（需要修改）
-- 10%是"真代码"（可以直接用）
+---
 
-但AI不会告诉你。
+## Why this layout looks unusual
 
-## 解决方案
+The Git root uses a **whitelist** (see [`.gitignore`](.gitignore)): almost everything outside [`longhun-system/`](longhun-system/) is ignored on purpose. Treat **`longhun-system/`** as the canonical working tree you care about after clone.
 
-### AI输出标注协议
+---
 
-每次AI输出代码时，应该标注：
-```markdown
-## 🏷️ AI输出类型声明
+## What is in this repo (tracked)
 
-**输出者：** [AI名称]
-**输出类型：** [架构伪代码/生产级代码/示例代码]
-**可执行性：** [❌不可直接执行 / ⚠️需要适配 / ✅可直接执行]
-**依赖环境：** [具体环境]
-**关键提示：** [注意事项]
+### Protocols · 協議
+
+- [**北辰母協議 v2.0（清理版）**](longhun-system/01_protocols/cnsh/PROTOCOL__20260325__BEICHEN-MOTHER-PROTOCOL__v2.0-clean.md) — P0-ETERNAL constitution-grade protocol (CNSH).
+
+### Research · Behavioral Cryptography
+
+- [**Full paper body draft v1.0**](longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md) — *Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication* / 行为密码学（人机协作内容认证的多因素来源追溯框架）.
+
+### Logs · 運行日誌
+
+- [`longhun-system/logs/`](longhun-system/logs/) — automation / audit output. **Ephemeral diagnostics only**, not a stable contract.
+
+### Obsidian (vault hints)
+
+- [`longhun-system/.obsidian/`](longhun-system/.obsidian/) — editor settings for local knowledge work.
+
+### Further reading · 延伸阅读
+
+- [**致所有AI用户：如何避免被「伪代码」误导**](致所有AI用户-如何避免被伪代码误导-完整方案-v1.0.md) — AI 输出类型标注与使用提示（由原 `main` 默认首页迁移，内容独立成篇）。
+
+---
+
+## Branch
+
+**`main`** is the default branch and includes the Longhun snapshot merged from **`release-snapshot`**. For ongoing snapshot work:
+
+```bash
+git fetch origin
+git checkout release-snapshot
 ```
 
-### 使用方法
+---
 
-问AI时加一句：
-```
-"请用标注协议回复"
-```
+## License & boundaries
 
-## 完整文档
+Rights follow **each file’s own header** (typical manuscript license: **CC BY-NC-SA 4.0** plus **Longhun DNA Inheritance Clause** where stated). The short guide [致所有AI用户…](致所有AI用户-如何避免被伪代码误导-完整方案-v1.0.md) is marked **MIT** in its body unless you replace that notice. Nothing here is legal advice; protocols and papers are **normative documents**, not substitute for counsel or platform ToS.
 
-详见仓库文件。
+---
 
-## 联系方式
+## 中文摘要
 
-- **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-- **Signal：** UID9622.20120813
-- **QQ：** 346045695
+本仓库为 **龍魂 / Longhun** 的精选快照：根目录刻意极简，正文与协议集中在 **`longhun-system/`**。当前可见主干包括 **北辰母協議 v2.0** 与 **行为密码学** 论文正文草稿；运行日志仅作排障参考。默认分支 **`main`** 已合并 **`release-snapshot`**。
 
-## 开源协议
+---
 
-MIT License
+*README · UID9622 · default `main` (merged `release-snapshot` · 2026-05-07)*
