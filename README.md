@@ -20,7 +20,7 @@ The Git root uses a **whitelist** (see [`.gitignore`](.gitignore)): almost every
 
 ### Research · Behavioral Cryptography
 
-- [**Manuscript bundle (canonical anchor)**](longhun-system/BehavCrypto_v1.0/README.md) — TOC, claim audit, glossary, publication stubs; **master file** is the body draft below.
+- [**Manuscript bundle (canonical anchor)**](longhun-system/BehavCrypto_v1.0/README.md) — TOC, claim audit, glossary, publication stubs; **master file** is the body draft below. **Lock:** [`CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md).
 - [**Full paper body draft v1.0**](longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md) — *Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication* / 行为密码学（人机协作内容认证的多因素来源追溯框架）.
 
 ### Logs · 運行日誌
