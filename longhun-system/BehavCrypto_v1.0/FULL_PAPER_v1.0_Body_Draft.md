@@ -28,9 +28,12 @@
 - **Not Permitted:** Independent factual claims, unsupervised modifications to security claims, omission of uncertainty qualifiers
 - **Acknowledgment:** Claude served as a writing instrument—analogous to a word processor with semantic capabilities—not as an originator of the scientific contribution
 
-### CONFIRM Signature
+### CONFIRM + SEAL（canonical manuscript lock）
 
-`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+- **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
+- **SEAL:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
+- **Lock line（verbatim）:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
+- **Rule:** All full-text edits for this paper are authoritative only in this file; see [`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md).
 
 ---
 
