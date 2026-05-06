@@ -1,0 +1,17 @@
+---
+description: Behavioral Cryptography full paper — single canonical manuscript (FULL_PAPER_v1.0_Body_Draft.md) with UID9622 CONFIRM/SEAL lock.
+globs: "**/BehavCrypto_v1.0/**/*.md"
+alwaysApply: true
+---
+
+# BehavCrypto · Canonical full paper (locked)
+
+When editing any file under `BehavCrypto_v1.0/` (Markdown):
+
+1. **Single source of truth for full manuscript text:** `FULL_PAPER_v1.0_Body_Draft.md`. Apply all substantive body/appendix changes there first unless the user explicitly scopes a satellite-only edit (e.g. glossary typo with no claim impact).
+2. **Do not** replace or “sync from” `~/Downloads/`, `~/Documents/`, or other offline copies as authority. If the user supplies an external snippet, merge it **into** `FULL_PAPER_v1.0_Body_Draft.md` via explicit edit, preserving existing audited fixes (WGM wording, §1.2, Appendix A pseudocode, etc.).
+3. **`FULL_PAPER_v1.0_TOC.md`:** regenerate or align section tree **from** the body draft; do not invent chapter structure that contradicts the body draft.
+4. **Lock tokens** (must remain consistent with `CANONICAL_LOCK.md` and paper front matter):  
+   `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
+
+Read `BehavCrypto_v1.0/CANONICAL_LOCK.md` before large diffs to this bundle.

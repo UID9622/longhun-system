@@ -1,5 +1,13 @@
 # BehavCrypto v1.0 · Manuscript bundle
 
+## 🔒 Canonical lock（锁死）
+
+**[`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md)** — 全文修改仅以 **`FULL_PAPER_v1.0_Body_Draft.md`** 为准；封印线：
+
+`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
+
+---
+
 ## Canonical full paper（主稿 · 唯一真源）
 
 **[`FULL_PAPER_v1.0_Body_Draft.md`](./FULL_PAPER_v1.0_Body_Draft.md)** — English body + Chinese abstract + Appendix A–E + change log.  
