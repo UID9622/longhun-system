@@ -15,14 +15,25 @@
 
 ## CANONICAL_SHA256（完整性指纹）
 
-- **`CANONICAL_SHA256`**：单行 `shasum -a 256` / `sha256sum` 格式，记录 **`FULL_PAPER_v1.0_Body_Draft.md`** 相对于仓库根的路径与 **SHA-256**。用于检出「母稿字节级」是否与登记一致。
-- **更新：** `bash longhun-system/scripts/canonical-sha256/update.sh`（修改母稿后若未走 pre-commit，请手跑并 `git add`）。
-- **校验：** `bash longhun-system/scripts/canonical-sha256/verify.sh`；**pre-commit**（见下）与 **CI**（GitHub Actions `canonical-sha256.yml`）均调用该校验。
+- **`CANONICAL_SHA256`**：单行 `shasum -a 256` / `sha256sum` 格式；第二列路径为 **`BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md`**（相对于**本包根目录**：即同时含有 `BehavCrypto_v1.0/` 与 `scripts/` 的那一层——在独立仓库中就是 Git 根；若仍嵌在上级 monorepo 的 `longhun-system/` 子目录中，则相对于该子目录）。用于检出「母稿字节级」是否与登记一致。
+- **更新：** 在包根执行 `bash scripts/canonical-sha256/update.sh`（修改母稿后若未走 pre-commit，请手跑并按 monorepo 前缀 `git add`）。
+- **校验：** `bash scripts/canonical-sha256/verify.sh`；**pre-commit**（见下）与 **CI** 均调用该校验。
 - **若变更母稿文件名：** 须同步改 `CANONICAL_SHA256` 内路径、`update.sh` / `verify.sh` 常量，以及 CI 路径过滤器——此类变更视为对锁规则的结构性修改，**须由 UID9622 亲自改 `CANONICAL_LOCK.md` 与相关脚本并审阅**。
 
 ### 启用 pre-commit（一次性）
 
-在**仓库根**执行：
+在 **Git 仓库根** 执行（`git rev-parse --show-toplevel` 所在目录）：
+
+**独立仓库（根目录即本包，含 `BehavCrypto_v1.0` 与 `scripts`）：**
+
+```bash
+git config core.hooksPath scripts/githooks
+chmod +x scripts/githooks/pre-commit
+chmod +x scripts/canonical-sha256/update.sh
+chmod +x scripts/canonical-sha256/verify.sh
+```
+
+**上级 monorepo（Git 根在上一级，正文路径为 `longhun-system/BehavCrypto_v1.0/...`）：**
 
 ```bash
 git config core.hooksPath longhun-system/scripts/githooks
@@ -31,7 +42,7 @@ chmod +x longhun-system/scripts/canonical-sha256/update.sh
 chmod +x longhun-system/scripts/canonical-sha256/verify.sh
 ```
 
-钩子行为：若暂存区包含 `FULL_PAPER_v1.0_Body_Draft.md`，则**自动**重写并 `git add` `CANONICAL_SHA256`；每次提交前**始终**运行 `verify.sh`。
+钩子行为：若暂存区包含母稿，则**自动**重写并 `git add` 对应路径下的 `CANONICAL_SHA256`；每次提交前**始终**运行 `verify.sh`。
 
 ## 封印线（CONFIRM + SEAL）
 
@@ -50,3 +61,7 @@ chmod +x longhun-system/scripts/canonical-sha256/verify.sh
 ---
 
 *本文件与 `README.md` 同目录；**仅 UID9622 亲自**变更锁规则（含母稿路径/定义）；须保留 CONFIRM/SEAL 行。*
+
+---
+
+**DNA（路径修正锚）：** `#龍芯⚡️2026-05-07-CANONICAL-SHA256-PATH-FIX-v1.0`
