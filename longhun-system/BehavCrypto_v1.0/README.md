@@ -2,7 +2,7 @@
 
 ## CANONICAL_SHA256
 
-[`CANONICAL_SHA256`](./CANONICAL_SHA256) fingerprints **`FULL_PAPER_v1.0_Body_Draft.md`**. Update with `bash longhun-system/scripts/canonical-sha256/update.sh`; enable hooks per [`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md).
+[`CANONICAL_SHA256`](./CANONICAL_SHA256) fingerprints **`FULL_PAPER_v1.0_Body_Draft.md`**. From **package root** (directory containing `BehavCrypto_v1.0` and `scripts`): `bash scripts/canonical-sha256/update.sh`. Hooks: see [`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md) (`scripts/githooks` vs `longhun-system/scripts/githooks` for monorepo).
 
 ---
 
