@@ -13,12 +13,12 @@
 **[`FULL_PAPER_v1.0_Body_Draft.md`](./FULL_PAPER_v1.0_Body_Draft.md)** — English body + Chinese abstract + Appendix A–E + change log.  
 Compared with copies under `~/Downloads/` (2026-05-06/07), this repository revision is **newer and longer** and retains post-audit edits (WGM definition alignment, §1.2 hypothesis wording, Appendix A `verify_behavioral_signature` / `verify_ledger_integrity`, TOC link).
 
-Do not treat the following as authoritative unless re-diffed and merged here:
+Offline copies are **not** the Git master unless merged **into** `FULL_PAPER_v1.0_Body_Draft.md`:
 
-- `~/Downloads/FULL_PAPER_v1.0_Body_Draft.md` (older)
-- `~/Downloads/FULL_PAPER_v1.0_Body_Draft_Clean.md` (missing the repo-only fixes above)
-- `~/Downloads/PAPER_Behavioral_Cryptography_v1.0.md` (shorter, 2026-05-02 slice)
-- `~/Documents/行为密码学csdn.md` / `~/Documents/*.pdf` — channel exports, not the Git master
+- `~/Downloads/FULL_PAPER_v1.0_Body_Draft.md` — may be older; diff → merge to body draft.
+- `~/Downloads/FULL_PAPER_v1.0_Body_Draft_Clean.md` — **cleaning scratch only**; final text must land in the body draft ([`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md)).
+- `~/Downloads/PAPER_Behavioral_Cryptography_v1.0.md` — short slice, 2026-05-02.
+- `~/Documents/行为密码学csdn.md` / `~/Documents/*.pdf` — channel exports.
 
 ## Supporting files（围绕主稿）
 
