@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Longhun: keep BehavCrypto CANONICAL_SHA256 in sync when the body draft is committed.
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+HOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPTS="$(cd "$HOOK_DIR/../canonical-sha256" && pwd)"
+export ROOT
+
+BODY_REL="longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md"
+SUM_REL="longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256"
+
+staged_body="$(git diff --cached --name-only --diff-filter=ACM | grep -F "$BODY_REL" || true)"
+if [[ -n "$staged_body" ]]; then
+  echo "pre-commit: updating CANONICAL_SHA256 (staged: $BODY_REL)"
+  bash "$SCRIPTS/update.sh"
+  git add "$ROOT/$SUM_REL"
+fi
+
+bash "$SCRIPTS/verify.sh"

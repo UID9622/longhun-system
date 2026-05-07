@@ -10,6 +10,7 @@
 
 # ══ 只放行这些（白名单） ══
 !/longhun-system/
+!/.github/
 !/.gitignore
 !/README.md
 !/致所有AI用户-如何避免被伪代码误导-完整方案-v1.0.md
