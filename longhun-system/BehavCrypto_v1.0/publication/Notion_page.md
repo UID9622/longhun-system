@@ -2,7 +2,7 @@
 
 > **DNA:** `#龍芯⚡️2026-05-06-BEHAV-CRYPTO-NOTION-v1.0`  
 > **Owner:** UID9622  
-> **Git 真源:** `longhun-system/BehavCrypto_v1.0/`
+> **Git 真源:** `BehavCrypto_v1.0/`（仓库根若即本包，无外层 `longhun-system/` 前缀）
 
 ---
 
