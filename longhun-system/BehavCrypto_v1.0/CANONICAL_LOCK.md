@@ -13,6 +13,26 @@
 - **`FULL_PAPER_v1.0_TOC.md`**：由母稿标题同步生成或手工对齐母稿，**不得**反过来定义与母稿冲突的章节真源。
 - **`Claim_Strength_Audit.md` / `Glossary_Unified.md` / `publication/*`**：为母稿的**卫星文件**，修订须与母稿主张一致；**不**取代母稿正文。
 
+## CANONICAL_SHA256（完整性指纹）
+
+- **`CANONICAL_SHA256`**：单行 `shasum -a 256` / `sha256sum` 格式，记录 **`FULL_PAPER_v1.0_Body_Draft.md`** 相对于仓库根的路径与 **SHA-256**。用于检出「母稿字节级」是否与登记一致。
+- **更新：** `bash longhun-system/scripts/canonical-sha256/update.sh`（修改母稿后若未走 pre-commit，请手跑并 `git add`）。
+- **校验：** `bash longhun-system/scripts/canonical-sha256/verify.sh`；**pre-commit**（见下）与 **CI**（GitHub Actions `canonical-sha256.yml`）均调用该校验。
+- **若变更母稿文件名：** 须同步改 `CANONICAL_SHA256` 内路径、`update.sh` / `verify.sh` 常量，以及 CI 路径过滤器——此类变更视为对锁规则的结构性修改，**须由 UID9622 亲自改 `CANONICAL_LOCK.md` 与相关脚本并审阅**。
+
+### 启用 pre-commit（一次性）
+
+在**仓库根**执行：
+
+```bash
+git config core.hooksPath longhun-system/scripts/githooks
+chmod +x longhun-system/scripts/githooks/pre-commit
+chmod +x longhun-system/scripts/canonical-sha256/update.sh
+chmod +x longhun-system/scripts/canonical-sha256/verify.sh
+```
+
+钩子行为：若暂存区包含 `FULL_PAPER_v1.0_Body_Draft.md`，则**自动**重写并 `git add` `CANONICAL_SHA256`；每次提交前**始终**运行 `verify.sh`。
+
 ## 封印线（CONFIRM + SEAL）
 
 以下两行一并视为本锁规则的**执行锚**（复制时保持完整、勿拆）：
