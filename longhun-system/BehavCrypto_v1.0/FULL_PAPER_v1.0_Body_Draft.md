@@ -33,7 +33,7 @@
 - **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 - **SEAL:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 - **Lock line（verbatim）:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
-- **Rule:** All full-text edits for this paper are authoritative only in this file; see [`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md).
+- **Rule:** All full-text edits for this paper are authoritative only in this file; see `[CANONICAL_LOCK.md](./CANONICAL_LOCK.md)`.
 
 ---
 
@@ -195,6 +195,7 @@ The Behavioral Cryptography framework rests on three design principles:
 [正文骨架 · Def 3.1]
 
 A **content artifact** C is a tuple C = (content, format, context), where:
+
 - `content` is the textual, visual, or multimedia payload;
 - `format` specifies the encoding and structural representation;
 - `context` captures the creation environment (tool, platform, timestamp, session).
@@ -213,15 +214,17 @@ The **behavioral signature** of a content artifact C is a seven-tuple:
 
 where each Fi(C) ∈ [0, 1] represents the confidence score for factor i:
 
-| Factor | Name | Description | Evidence Source |
-|--------|------|-------------|-----------------|
-| F1 | Identity DNA | Cryptographic identity binding | GPG signature, UID anchor |
-| F2 | Temporal Anchor | Temporal consistency of creation | Trusted timestamps, session logs |
-| F3 | Rule Trace | Documented transformation rules | Rule application logs, diff history |
-| F4 | Persona Route | Consistency of authorial persona | Persona specification, style baseline |
-| F5 | Protected Lexicon | Creator-specific vocabulary markers | Private lexicon, personal dictionary |
-| F6 | Style Vector | Stylistic fingerprint consistency | Syntactic patterns, structural habits |
-| F7 | Mistake Ledger | Error pattern authenticity | Known error patterns, correction history |
+
+| Factor | Name              | Description                         | Evidence Source                          |
+| ------ | ----------------- | ----------------------------------- | ---------------------------------------- |
+| F1     | Identity DNA      | Cryptographic identity binding      | GPG signature, UID anchor                |
+| F2     | Temporal Anchor   | Temporal consistency of creation    | Trusted timestamps, session logs         |
+| F3     | Rule Trace        | Documented transformation rules     | Rule application logs, diff history      |
+| F4     | Persona Route     | Consistency of authorial persona    | Persona specification, style baseline    |
+| F5     | Protected Lexicon | Creator-specific vocabulary markers | Private lexicon, personal dictionary     |
+| F6     | Style Vector      | Stylistic fingerprint consistency   | Syntactic patterns, structural habits    |
+| F7     | Mistake Ledger    | Error pattern authenticity          | Known error patterns, correction history |
+
 
 ---
 
@@ -234,6 +237,7 @@ The **verification oracle** V takes as input a behavioral signature Σ and auxil
 V(Σ, E) = (conf, evidence)
 
 where:
+
 - `conf` ∈ [0, 1] is the composite confidence score;
 - `evidence` is a structured report of per-factor scores and their evidentiary basis.
 
@@ -348,6 +352,7 @@ The composite confidence is computed using the weighted geometric mean (WGM). Wi
 conf = WGM_τ(Σ) = ∏_{i=1}^{7} s_i^{w_i}
 
 where:
+
 - s_i = Fi(C) if Fi(C) > 0, else s_i = 0 (hard failure)
 - w_i > 0, ∑w_i = 1 (normalized factor weights)
 - τ ∈ {0.85, 0.95} is the acceptance threshold
@@ -391,14 +396,14 @@ Under protocol compliance (all factors logged, no hard failures), this lower bou
 *Statement.* Under Assumptions A1–A5 (GPG security, append-only ledger integrity, honest originator behavior, non-colluding verifiers, and bounded computational adversary), Behavioral Cryptography significantly raises the cost and difficulty of full-lineage forgery compared to single-signal provenance schemes.
 
 *Assumptions:*
+
 - **A1 (GPG security):** The GPG signature scheme remains computationally secure against existential forgery under chosen-message attack.
 - **A2 (Ledger integrity):** The append-only evidence ledger cannot be modified retroactively without detection.
 - **A3 (Honest originator):** The originator follows the protocol and does not intentionally undermine their own provenance chain.
 - **A4 (Non-colluding verifiers):** Verifiers do not collude to accept fraudulent evidence.
 - **A5 (Bounded adversary):** The adversary has polynomially bounded computational resources and does not control the verification infrastructure.
 
-*Proof Sketch.* A full-lineage forgery requires the adversary to simultaneously satisfy all seven factors for content they did not create. Under A1, forging F1 requires breaking GPG. Under A2, fabricating a temporal chain requires compromising the append-only ledger. Under A3–A5, the adversary cannot rely on originator cooperation, verifier collusion, or unbounded computation. Each factor represents an independent channel; the probability of successful simultaneous forgery is bounded by the product of per-channel success probabilities (assuming independence). Even if the adversary succeeds in some channels, hard-failure semantics ensure that failure in any single channel collapses the composite. Therefore, the adversary's required effort scales with the number of independent channels rather than with the strength of the strongest single channel. ∎
----
+## *Proof Sketch.* A full-lineage forgery requires the adversary to simultaneously satisfy all seven factors for content they did not create. Under A1, forging F1 requires breaking GPG. Under A2, fabricating a temporal chain requires compromising the append-only ledger. Under A3–A5, the adversary cannot rely on originator cooperation, verifier collusion, or unbounded computation. Each factor represents an independent channel; the probability of successful simultaneous forgery is bounded by the product of per-channel success probabilities (assuming independence). Even if the adversary succeeds in some channels, hard-failure semantics ensure that failure in any single channel collapses the composite. Therefore, the adversary's required effort scales with the number of independent channels rather than with the strength of the strongest single channel. ∎
 
 ## 3.5 Attack Simulation and Resistance Model
 
@@ -503,6 +508,7 @@ This section formalizes the security properties of the append-only evidence ledg
 [正文骨架 · Def 3.5]
 
 An **evidence ledger** L is an append-only data structure consisting of a sequence of records L = [r_1, r_2, ..., r_n], where each record r_i contains:
+
 - A content hash h_i = H(content_i)
 - A behavioral signature fragment Σ_i
 - A timestamp t_i
@@ -589,16 +595,18 @@ Static signatures—whether cryptographic (GPG), statistical (watermarks), or me
 
 The Dynamic DNA is a structured evidence record that binds a content artifact to its creation lineage. Each DNA record contains the following components:
 
-| Component | Description | Purpose |
-|-----------|-------------|---------|
-| UID Identity Anchor | Unique identifier of the originator | Establishes ownership |
-| GPG Fingerprint | Public key fingerprint for verification | Enables cryptographic verification |
-| ISO Timestamp | ISO 8601 timestamp of creation | Provides temporal ordering |
-| Shichen (時辰) | Cultural-temporal layer (Chinese traditional time) | Adds semantic/cultural anchoring |
-| Digit Root & Wuxing (五行) | Numerological and elemental mapping | Semantic layer for pattern recognition |
-| Action Label | Type of action (create, edit, review, publish) | Contextualizes the record |
-| Content Hash | SHA-256 hash of the content payload | Ensures content integrity |
-| Confirmation Seal | GPG signature over all above fields | Provides tamper evidence |
+
+| Component                | Description                                        | Purpose                                |
+| ------------------------ | -------------------------------------------------- | -------------------------------------- |
+| UID Identity Anchor      | Unique identifier of the originator                | Establishes ownership                  |
+| GPG Fingerprint          | Public key fingerprint for verification            | Enables cryptographic verification     |
+| ISO Timestamp            | ISO 8601 timestamp of creation                     | Provides temporal ordering             |
+| Shichen (時辰)             | Cultural-temporal layer (Chinese traditional time) | Adds semantic/cultural anchoring       |
+| Digit Root & Wuxing (五行) | Numerological and elemental mapping                | Semantic layer for pattern recognition |
+| Action Label             | Type of action (create, edit, review, publish)     | Contextualizes the record              |
+| Content Hash             | SHA-256 hash of the content payload                | Ensures content integrity              |
+| Confirmation Seal        | GPG signature over all above fields                | Provides tamper evidence               |
+
 
 **Important Note on Semantic Layers.** The Shichen, Digit Root, and Wuxing components are *culturally-anchored semantic layers*, not cryptographic substitutes. They provide additional structure for pattern recognition and cultural context but do not replace the cryptographic security provided by GPG signatures and hash chains. The cultural-temporal layer is discussed further in §4.6.
 
@@ -670,9 +678,7 @@ The inclusion of Shichen (時辰), Digit Root, and Wuxing (五行) components in
 **Claim:** The cultural-temporal semantic layer serves three purposes:
 
 1. **Human Auditability.** The Shichen and Wuxing components provide human-interpretable temporal and semantic markers that complement machine-readable cryptographic evidence. A human examiner can quickly verify whether the claimed creation time aligns with the Shichen without requiring specialized tools.
-
 2. **Pattern Recognition.** The Wuxing mapping creates additional structure that can be used for anomaly detection. Unusual patterns in the semantic layer may indicate manipulation even if the cryptographic layer appears valid.
-
 3. **Cultural Anchoring.** For creators working within Chinese cultural contexts, the Shichen provides a familiar temporal framework that is independent of the ISO timestamp. This redundancy adds resilience against timestamp manipulation.
 
 **Critical Boundary:** The semantic layer is *not* a cryptographic substitute. It does not replace GPG signatures, hash chains, or append-only ledger integrity. An adversary who can forge the cryptographic evidence can also forge the semantic layer. The semantic layer is useful only when the cryptographic layer is intact— it provides additional structure, not additional security.
@@ -714,6 +720,7 @@ All evidence records are stored locally in an append-only log format. The storag
 ### Shield Engine (入口门 + 出口门)
 
 The Shield Engine provides entry and exit gates for content:
+
 - **Entry Gate:** Validates incoming content against the originator's behavioral baseline
 - **Exit Gate:** Generates DNA records and updates the evidence ledger before content leaves the system
 
@@ -724,6 +731,7 @@ The Memory Compress module condenses the evidence ledger into a compact represen
 ### SanCai Weight System (天地人 H≥0.34)
 
 The SanCai (Three Powers) weight system assigns factor weights based on the heaven-earth-human (天地人) framework:
+
 - **Heaven (天):** F1 (Identity), F2 (Temporal) — highest weight
 - **Earth (地):** F5 (Protected Lexicon), F6 (Style Vector) — medium weight
 - **Human (人):** F3 (Rule Trace), F4 (Persona Route), F7 (Mistake Ledger) — context-dependent weight
@@ -866,17 +874,19 @@ An independent reproduction check verifies that a third party can replicate the 
 
 [正文骨架 · §6.3]
 
-| Attack Type | F1 | F2 | F3 | F4 | F5 | F6 | F7 | Composite | Detection |
-|-------------|----|----|----|----|----|----|----|-----------|-----------|
-| Direct Copy | 0 | 0 | - | - | 0.8 | 0.9 | - | **0** | Hard Fail |
-| Paraphrase | 0 | 0 | - | - | 0.2 | 0.3 | - | **0** | Hard Fail |
-| Translation | 0 | 0 | - | - | 0.1 | 0.2 | - | **0** | Hard Fail |
-| Multi-Model Laundering | 0 | 0 | 0 | 0 | 0.1 | 0.4 | 0 | **0** | Hard Fail |
-| Persona Hijack | 0.9 | 0.8 | - | 0 | - | 0.5 | - | **0** | Hard Fail |
-| Timestamp Backdating | 0.9 | 0 | - | - | - | - | - | **0** | Hard Fail |
-| Style Mimicry | 0.9 | 0.9 | - | - | 0.7 | 0.3 | - | **< τ** | Fail |
-| Selective Ledger | 0 | 0 | 0 | - | - | - | - | **0** | Hard Fail |
-| Multi-Agent Identity | 0 | 0 | - | 0 | - | - | - | **0** | Hard Fail |
+
+| Attack Type            | F1  | F2  | F3  | F4  | F5  | F6  | F7  | Composite | Detection |
+| ---------------------- | --- | --- | --- | --- | --- | --- | --- | --------- | --------- |
+| Direct Copy            | 0   | 0   | -   | -   | 0.8 | 0.9 | -   | **0**     | Hard Fail |
+| Paraphrase             | 0   | 0   | -   | -   | 0.2 | 0.3 | -   | **0**     | Hard Fail |
+| Translation            | 0   | 0   | -   | -   | 0.1 | 0.2 | -   | **0**     | Hard Fail |
+| Multi-Model Laundering | 0   | 0   | 0   | 0   | 0.1 | 0.4 | 0   | **0**     | Hard Fail |
+| Persona Hijack         | 0.9 | 0.8 | -   | 0   | -   | 0.5 | -   | **0**     | Hard Fail |
+| Timestamp Backdating   | 0.9 | 0   | -   | -   | -   | -   | -   | **0**     | Hard Fail |
+| Style Mimicry          | 0.9 | 0.9 | -   | -   | 0.7 | 0.3 | -   | **< τ**   | Fail      |
+| Selective Ledger       | 0   | 0   | 0   | -   | -   | -   | -   | **0**     | Hard Fail |
+| Multi-Agent Identity   | 0   | 0   | -   | 0   | -   | -   | -   | **0**     | Hard Fail |
+
 
 *Note:* "-" indicates the factor is not applicable or not tested for this attack. Composite scores marked as 0 result from hard failure in at least one factor.
 
@@ -897,6 +907,7 @@ False positives occur when legitimate content is incorrectly flagged as fraudule
 ## 6.5 Threshold Selection
 
 **Recommendation 6.1 (Threshold Selection).** Based on the evaluation results in §6, we recommend:
+
 - **Standard security:** τ = 0.85 — suitable for general content provenance
 - **High security:** τ = 0.95 — suitable for high-stakes applications (legal, financial, academic)
 
@@ -940,6 +951,7 @@ The privacy-preserving verification model allows verifiers to check provenance w
 [正文骨架 · §6.8]
 
 The threat model assumes:
+
 - **Adversary goal:** Forge provenance for content not created by the claimed originator
 - **Adversary capabilities:** Polynomially bounded computation, no control over verification infrastructure, no collusion with verifiers
 - **Adversary knowledge:** Public knowledge of the framework, access to the content, access to public verification keys
@@ -1032,6 +1044,7 @@ We propose a three-phase standardization pathway:
 [正文骨架 · §7.5]
 
 Hash-only mode allows verifiers to confirm provenance without accessing the full content. In this mode, the verifier checks:
+
 1. That the content hash matches the claimed hash in the DNA record
 2. That the DNA signature is valid
 3. That the lineage chain is continuous
@@ -1273,10 +1286,10 @@ Conducting large-scale empirical studies with diverse content types, languages, 
 
 [正文骨架 · References · 待补充 ≥25条]
 
-1. C2PA Technical Specification. Coalition for Content Provenance and Authenticity. https://c2pa.org/specifications/
+1. C2PA Technical Specification. Coalition for Content Provenance and Authenticity. [https://c2pa.org/specifications/](https://c2pa.org/specifications/)
 2. Kirchenbauer, J., et al. (2023). A Watermark for Large Language Models. *ICML 2023*.
 3. Gehrmann, S., et al. (2019). GLTR: Statistical Detection and Visualization of Generated Text. *ACL 2019*.
-4. W3C PROV. Provenance Ontology. https://www.w3.org/TR/prov-o/
+4. W3C PROV. Provenance Ontology. [https://www.w3.org/TR/prov-o/](https://www.w3.org/TR/prov-o/)
 5. [待补充]
 6. [待补充]
 7. [待补充]
@@ -1731,11 +1744,13 @@ proof_bundle:
 
 [正文骨架 · §B.4]
 
-| Level | Fields Visible | Verifier Requirements |
-|-------|---------------|----------------------|
-| Public | content_hash, timestamps, GPG fingerprint, composite score | None |
-| Restricted | + per-factor scores, rule traces, style vectors | Registration required |
-| Sealed | + full content, private lexicon, mistake ledger | Creator authorization + legal basis |
+
+| Level      | Fields Visible                                             | Verifier Requirements               |
+| ---------- | ---------------------------------------------------------- | ----------------------------------- |
+| Public     | content_hash, timestamps, GPG fingerprint, composite score | None                                |
+| Restricted | + per-factor scores, rule traces, style vectors            | Registration required               |
+| Sealed     | + full content, private lexicon, mistake ledger            | Creator authorization + legal basis |
+
 
 ---
 
@@ -1766,6 +1781,7 @@ LCP-1.0 defines the co-authorship protocol for human-AI collaborative works unde
 [正文骨架 · §C.2]
 
 The human originator declares:
+
 - I am the primary author of the creative and intellectual content
 - AI tools were used as instruments of production
 - I take full responsibility for all factual claims and normative positions
@@ -1778,6 +1794,7 @@ The human originator declares:
 [正文骨架 · §C.3]
 
 The AI collaborator:
+
 - Assists with structural organization and formal notation
 - Does not make independent factual claims
 - Does not modify security claims without human authorization
@@ -1790,6 +1807,7 @@ The AI collaborator:
 [正文骨架 · §C.4]
 
 All human-AI interactions must be logged in the evidence ledger with:
+
 - Timestamp of interaction
 - Prompt/response hash (not content)
 - Action label (draft, review, formalize, verify)
@@ -1802,6 +1820,7 @@ All human-AI interactions must be logged in the evidence ledger with:
 [正文骨架 · §C.5]
 
 In case of disputes about authorship contribution:
+
 1. The evidence ledger is examined by an independent auditor
 2. The human author's original drafts are compared with AI-assisted revisions
 3. Contribution is assessed based on: origin of ideas, origin of claims, editorial control
@@ -1870,14 +1889,16 @@ evidence_record_redacted:
 
 [正文骨架 · §D.3]
 
-| Field | Rule | Rationale |
-|-------|------|-----------|
-| Content | never_disclose | Content itself is not evidence |
-| Content hash | may_disclose_as_hash | Verifies integrity without revealing content |
-| Private lexicon | may_disclose_as_hash | Protects creator's vocabulary |
-| Mistake ledger | may_disclose_as_summary | Privacy for errors; summary suffices |
-| Full DNA record | may_disclose_publicly | Public components only |
-| GPG private key | never_disclose | Cryptographic security |
+
+| Field           | Rule                    | Rationale                                    |
+| --------------- | ----------------------- | -------------------------------------------- |
+| Content         | never_disclose          | Content itself is not evidence               |
+| Content hash    | may_disclose_as_hash    | Verifies integrity without revealing content |
+| Private lexicon | may_disclose_as_hash    | Protects creator's vocabulary                |
+| Mistake ledger  | may_disclose_as_summary | Privacy for errors; summary suffices         |
+| Full DNA record | may_disclose_publicly   | Public components only                       |
+| GPG private key | never_disclose          | Cryptographic security                       |
+
 
 ---
 
@@ -1942,6 +1963,7 @@ BC-v1.0 | Parent: SHA256:... | UID: ... | Confirm: #CONFIRM...
 [正文骨架 · §E.5]
 
 This clause does **not** prohibit:
+
 - Fair use and fair dealing
 - Independent creation of similar content
 - Criticism, commentary, or parody
@@ -1955,6 +1977,7 @@ This clause does **not** prohibit:
 [正文骨架 · §E.6]
 
 Provenance disputes are resolved through:
+
 1. Evidence bundle examination by independent auditors
 2. Chain continuity verification
 3. LCP-1.0 audit log review
@@ -1969,6 +1992,7 @@ Provenance disputes are resolved through:
 [正文骨架 · Glossary · 完整定义参见 Glossary_Unified.md]
 
 Key terms:
+
 - **Behavioral Cryptography:** Multi-factor provenance framework treating authenticity as composite behavioral lineage
 - **Behavioral Signature Σ(C):** Seven-tuple of per-factor confidence scores
 - **Composite Confidence:** Weighted geometric mean of per-factor scores
@@ -1993,13 +2017,15 @@ Key terms:
 
 ## Document History
 
-| Version | Date | Description |
-|---------|------|-------------|
-| v0.1 | 2025 | First draft, core framework |
-| v0.9 | 2026-05-02 | Appendix A-E first complete |
-| v1.0 | 2026-05-06 | Full paper package, all sections finalized |
-| v1.0-body | 2026-05-06 | Body draft generated with Claim Strength Audit patches applied |
+
+| Version        | Date       | Description                                                                                     |
+| -------------- | ---------- | ----------------------------------------------------------------------------------------------- |
+| v0.1           | 2025       | First draft, core framework                                                                     |
+| v0.9           | 2026-05-02 | Appendix A-E first complete                                                                     |
+| v1.0           | 2026-05-06 | Full paper package, all sections finalized                                                      |
+| v1.0-body      | 2026-05-06 | Body draft generated with Claim Strength Audit patches applied                                  |
 | v1.0-body-edit | 2026-05-07 | WGM notation aligned (Def 3.3 / §3.4); Appendix A pseudocode repaired; TOC link; §1.2 tightened |
+
 
 ---
 
@@ -2016,6 +2042,7 @@ Key terms:
 **位置：** §1.2 在 Hypothesis 1.1 块之后；其下一段以 “Building on Hypothesis 1.1...” 展开，避免与 Hypothesis 1.1 首句重复断言。
 
 **插入内容：**
+
 - `**Hypothesis 1.1 (Behavioral Cryptography Hypothesis).** Content authenticity is not a single signal. It is a composite behavioral lineage. Copying content is easy; copying lineage is hard.`
 - `*Argument.* Existing provenance systems rely on isolated signals... This hypothesis motivates the seven-factor framework developed in Chapter 3 and the Dynamic DNA Engine in Chapter 4.`
 
@@ -2028,6 +2055,7 @@ Key terms:
 **位置：** Proposition 3.4 的 Proof Sketch 末尾，替换原有 "prevents forgery" / "保证防止伪造" 类表述。
 
 **替换为：**
+
 - 结论句改为："Behavioral Cryptography **significantly raises the cost and difficulty of full-lineage forgery** compared to single-signal provenance schemes."
 - 新增明确边界说明："It does not claim mathematical impossibility of forgery; rather, the multi-factor independence and the append-only evidence structure increase the adversary's required effort across identity, temporal, lexical, stylistic, and behavioral channels simultaneously. ∎"
 
@@ -2040,6 +2068,7 @@ Key terms:
 **位置：** Theorem 3.12 "Correction Preservation" 的 Proof Sketch 段落，替换原有偏定性表述。
 
 **替换为形式化 Proof Sketch：**
+
 - `Let r be the original record in the evidence ledger and r' be an honest correction appended later. Under the append-only constraint, both r and r' remain auditable in the ledger.`
 - `Formally, the append-only property guarantees that for any ledger state L_t at time t, the set of contained records {r_1, r_2, ..., r_n} is monotonically non-decreasing in n.`
 - `Therefore, appending r' preserves r; replacing r with r' violates monotonicity and removes the original from the audit trail. ∎`
@@ -2059,11 +2088,13 @@ Key terms:
 
 ## 审计状态更新
 
-| 编号 | 名称 | 修补前 | 修补后 |
-|------|------|--------|--------|
-| Hyp 1.1 | Behavioral Cryptography Hypothesis | 🟡 隐式 Claim | 🟢 显式标注 + Argument |
+
+| 编号       | 名称                                   | 修补前                   | 修补后                             |
+| -------- | ------------------------------------ | --------------------- | ------------------------------- |
+| Hyp 1.1  | Behavioral Cryptography Hypothesis   | 🟡 隐式 Claim           | 🟢 显式标注 + Argument              |
 | Prop 3.4 | Forgery Resistance Under Assumptions | 🟡 "prevents forgery" | 🟢 "raises cost and difficulty" |
-| Thm 3.12 | Correction Preservation | 🟡 定性 Proof Sketch | 🟢 形式化 + monotonicity |
+| Thm 3.12 | Correction Preservation              | 🟡 定性 Proof Sketch    | 🟢 形式化 + monotonicity           |
+
 
 **Claim Strength Audit 6 项 🟡 全部清零！**
 
