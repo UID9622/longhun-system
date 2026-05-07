@@ -20,7 +20,7 @@ The Git root uses a **whitelist** (see [`.gitignore`](.gitignore)): almost every
 
 ### Research · Behavioral Cryptography
 
-- [**Manuscript bundle (canonical anchor)**](longhun-system/BehavCrypto_v1.0/README.md) — TOC, claim audit, glossary, publication stubs; **master file** is the body draft below. **Lock:** [`CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md). **Integrity:** [`CANONICAL_SHA256`](longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256) + pre-commit (`git config core.hooksPath longhun-system/scripts/githooks`) + CI workflow `.github/workflows/canonical-sha256.yml`.
+- [**Manuscript bundle (canonical anchor)**](longhun-system/BehavCrypto_v1.0/README.md) — TOC, claim audit, glossary, publication stubs; **master file** is the body draft below. **Lock:** [`CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md). **Integrity:** [`CANONICAL_SHA256`](longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256) + pre-commit: `git config core.hooksPath longhun-system/scripts/githooks`（本 monorepo 根）/ 若独立仓库根在 `longhun-system/` 则用 `scripts/githooks` — 详见 CANONICAL_LOCK。 **CI:** 根目录 `.github/workflows/canonical-sha256.yml`；独立 `longhun-system` 仓库内另有 [`longhun-system/.github/workflows/canonical-sha256.yml`](longhun-system/.github/workflows/canonical-sha256.yml)。
 - [**Full paper body draft v1.0**](longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md) — *Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication* / 行为密码学（人机协作内容认证的多因素来源追溯框架）.
 
 ### Logs · 運行日誌

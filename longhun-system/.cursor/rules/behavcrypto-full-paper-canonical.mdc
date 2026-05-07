@@ -15,6 +15,6 @@ When editing any file under `BehavCrypto_v1.0/` (Markdown):
 5. **Lock tokens** (must remain consistent with `CANONICAL_LOCK.md` and paper front matter):  
    `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 
-After editing `FULL_PAPER_v1.0_Body_Draft.md`, ensure `BehavCrypto_v1.0/CANONICAL_SHA256` matches: run `bash longhun-system/scripts/canonical-sha256/update.sh` and stage both files (or rely on pre-commit if `core.hooksPath` is set — see `CANONICAL_LOCK.md`).
+After editing `FULL_PAPER_v1.0_Body_Draft.md`, ensure `BehavCrypto_v1.0/CANONICAL_SHA256` matches: from package root run `bash scripts/canonical-sha256/update.sh` and stage the body + checksum (or rely on pre-commit — see `CANONICAL_LOCK.md` for `core.hooksPath`: `scripts/githooks` vs `longhun-system/scripts/githooks`).
 
 Read `BehavCrypto_v1.0/CANONICAL_LOCK.md` before large diffs to this bundle.
