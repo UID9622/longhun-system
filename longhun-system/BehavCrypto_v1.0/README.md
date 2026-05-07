@@ -1,5 +1,11 @@
 # BehavCrypto v1.0 · Manuscript bundle
 
+## CANONICAL_SHA256
+
+[`CANONICAL_SHA256`](./CANONICAL_SHA256) fingerprints **`FULL_PAPER_v1.0_Body_Draft.md`**. Update with `bash longhun-system/scripts/canonical-sha256/update.sh`; enable hooks per [`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md).
+
+---
+
 ## 🔒 Canonical lock（锁死）
 
 **[`CANONICAL_LOCK.md`](./CANONICAL_LOCK.md)** — 全文修改仅以 **`FULL_PAPER_v1.0_Body_Draft.md`** 为准；封印线：
