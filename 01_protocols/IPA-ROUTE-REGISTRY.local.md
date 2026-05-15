@@ -60,6 +60,12 @@
 | `[IPA-WEB-WIDGETS]` | 🎨移动AI知识库本体·widgets合集 | `#龍芯⚡️2026-04-18-WEB-WIDGETS-v1.0` | 🟢 |
 | `[WIDGET-三才流場]` | 🌊天地人三力博弈流场·v6优化版 | `#龍芯⚡️2026-04-01-三才流場-v6优化版` | 🟢 |
 | `[IPA-SOVEREIGN-CONTAINER-v1.0]` | 🛡️主权个人容器·管壁宪法·只叠不删 | `#龍芯⚡️2026-05-15-SOVEREIGN-CONTAINER-v1.0` | 🟢 |
+| `[IPA-FIRST-GATE-v3.0]` | 🚪第一道闸门·dr+三重检测·默认熔断不执行 | `#龍芯⚡️2026-04-26-第一道闸门-三色审计-沙盒闭环-v3.0` | 🟢 |
+| `[IPA-UID9622-口令备忘-v1.0]` | 📋37/GPG/令牌/闸门·一页备忘 | `#龍芯⚡️2026-05-15-UID9622-口令备忘-v1.0` | 🟢 |
+| `[IPA-INTAKE-收纳-v1.0]` | 📦清洗=收纳·三分仓·自动分流 | `#龍芯⚡️2026-05-15-收纳与分流-v1.0` | 🟢 |
+| `[IPA-TERM-量子甲骨文-v1.0]` | 🦴⚛️甲骨文×量子·L2花名册模块 | `#龍芯⚡️2026-03-18-量子甲骨文-框架宣言-v1.0` | 🟡 |
+| `[IPA-TRACEABLE-OPEN-SOURCE-DNA-REGISTRY-v1.0]` | 🐉有痕开源·DNA登记·门开留痕 | `#龍芯⚡️2026-05-15-22:59-LONGHUN-TRACEABLE-OPEN-SOURCE-DNA-REGISTRY-v1.0` | 🟢 |
+| `[IPA-FAMILY-ROSTER-CNS-v1.0]` | 🧠花名册中枢神经·分流升格联动 | `#龍芯⚡️2026-05-15-FAMILY-ROSTER-CNS-v1.0` | 🟢 |
 | `[IPA-95-5-ROOT-RATIO-v2.0]` | ⚖️95/5数字根主权·稳态限幅·漂移扫描 | `#龍芯⚡️2026-05-15-95-5-ROOT-RATIO-v2.0` | 🟢 |
 | `[IPA-CNSH-CIVILIZATION-v2.0]` | 📜协议层文明论·五骨合一·本地镜像 | `#龍芯⚡️2026-05-14-CNSH-PROTOCOL-LAYER-CIVILIZATION-MASTERPIECE-v2.0` | 🟢 |
 | `[IPA-FLOW-PORT-v1.0]` | 🚪龍魂单口·FLOW_IN/OUT·flow_port | `#龍芯⚡️2026-05-15-FLOW-PORT-v1.0` | 🟢 |
@@ -79,6 +85,10 @@
 ### 主权容器 + 单口流场 · 本地工程实装
 
 - **宪法：** `01_protocols/cnsh/PROTOCOL__SOVEREIGN-CONTAINER-v1.0.md`
+- **第一道闸门：** `01_protocols/cnsh/PROTOCOL__FIRST-GATE-v3.0.md` · `cnsh/gate_v3/`
+- **口令备忘：** `01_protocols/cnsh/UID9622-口令备忘-v1.0.md`
+- **收纳分流：** `01_protocols/cnsh/PROTOCOL__收纳与分流-v1.0.md` · `cnsh/intake/triage.py` · `sandbox/intake/`
+- **对账表：** `01_protocols/IPA-RECONCILE-v1.0.md`
 - **95/5：** `01_protocols/cnsh/PROTOCOL__95-5-ROOT-RATIO-v2.0.md` · `cnsh/root_ratio/`
 - **文明论：** `01_protocols/cnsh/PROTOCOL__CNSH-PROTOCOL-LAYER-CIVILIZATION-v2.0.md`
 - **主权策略：** `cnsh/sovereign/container_policy.py`（append 账本 · 粒子视图）
