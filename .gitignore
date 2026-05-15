@@ -1,0 +1,24 @@
+# Claude Code worktrees & cache（勿提交副本工程）
+.claude/
+
+# macOS
+.DS_Store
+
+# 本地工具配置（可选）
+.arts/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.Python
+
+# 环境与密钥（仅模板可入库）
+.env
+.env.*
+!.env.example
+!**/env.template
+
+# 编辑器
+.idea/

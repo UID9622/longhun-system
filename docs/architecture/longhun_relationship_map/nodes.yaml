@@ -1,0 +1,679 @@
+# 龍魂关系图 · 节点登记表（canonical_id；不改动仓库内真实文件名）
+# 与 Notion「原始流場母圖 v3.1 / 洛書鋼骨 / 五行對沖 H」對齊；notion_url 為可選欄位。
+# DNA: #龍芯⚡️2026-05-07-LONGHUN-RELATIONSHIP-MAP-ENGINEERING-PACK-v1.1-NOTION-SYNC
+
+nodes:
+  - id: CORE__MAIN_CONTROL_v2.7
+    label: "🐉 龍魂决策流场总控页 v2.7｜M×CNSH｜功能同步总闸版（中宫·权力源）"
+    type: core
+    layer: L0
+    palace: 5
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    notion_url: "https://www.notion.so/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-ORIGINAL-FLOWFIELD-MOTHER-MAP-v3.1"
+
+  - id: FLOW__ORIGINAL_MOTHER_MAP_v3.1
+    label: "原始流場母圖 v3.1｜決策流場之前總河道·洛書鋼骨·五行H接入"
+    type: flow
+    layer: L1
+    palace: 7
+    status: green
+    owner: UID9622
+    route: ORIGINAL_FLOWFIELD
+    path: ""
+    notion_url: "https://www.notion.so/uid9622/3367125a9c9f808a9692f0c6752e92fa?v=3367125a9c9f80349364000cc2a0eb8c&source=copy_link"
+    notion_mother_ids:
+      - "https://www.notion.so/uid9622/3367125a9c9f808a9692f0c6752e92fa?v=3367125a9c9f80349364000cc2a0eb8c&source=copy_link"
+      - "https://www.notion.so/uid9622/UID9622-3427125a9c9f80449e88f4f2170b7940?source=copy_link"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-ORIGINAL-FLOWFIELD-MOTHER-MAP-v3.1"
+
+  - id: GOAL__TIANDAO
+    label: 天道目标（九宫·9）
+    type: goal
+    layer: L1
+    palace: 9
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: EXEC__PLAYBOOK
+    label: 执行落地（九宫·1）
+    type: execution
+    layer: L1
+    palace: 1
+    status: green
+    owner: UID9622
+    route: EXECUTION
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: INTENT__RULES
+    label: 意志入流（九宫·3）
+    type: intent
+    layer: L1
+    palace: 3
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: ROUTER__INDEX
+    label: 决策路由（九宫·7）
+    type: router
+    layer: L1
+    palace: 7
+    status: green
+    owner: UID9622
+    route: ROUTER
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: SHIELD__DRAGON
+    label: 安全龍盾（九宫·8）
+    type: shield
+    layer: L1
+    palace: 8
+    status: yellow
+    owner: UID9622
+    route: SHIELD
+    path: "~/.longhorn/shield/main.py"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: BOUNDARY__DATA
+    label: 资源边界（九宫·4）
+    type: boundary
+    layer: L1
+    palace: 4
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: DNA__RETURN_LOG
+    label: DNA 回流沉淀（九宫·2 / 日志汇流）
+    type: dna
+    layer: L1
+    palace: 2
+    status: green
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: SIG__M_CNSH_TEMPLATES
+    label: "M:: / CNSH:: 验收签章模板（九宫·6）"
+    type: signature
+    layer: L1
+    palace: 6
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "01_protocols/cnsh/PROTOCOL__20260325__BEICHEN-MOTHER-PROTOCOL__v2.0-clean.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "M::FLOW-9622-20260507-ORIGINAL-FLOWFIELD-MOTHER-MAP-V3.1"
+
+  - id: FLOW__FEATURE_SYNC_GATE
+    label: "龍魂功能同步总闸｜决策流场结构细化索引 v1.0（同步門）"
+    type: flow
+    layer: L2
+    palace: 7
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    notion_url: "https://www.notion.so/db14bdde9b674c8a98a93eace102e4ee"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-SYNC-GATE-v1.0"
+
+  - id: RULE__IRONCLAD_FOUR_PACK
+    label: 铁律四件套（P0 / 红）
+    type: rule
+    layer: L2
+    palace: 8
+    status: missing
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: INDEX__SUBPAGE_INDEX_v2.7
+    label: "决策流场结构细化索引（与同步总闸同页口径）"
+    type: index
+    layer: L2
+    palace: 7
+    status: green
+    owner: UID9622
+    route: ROUTER
+    path: ""
+    notion_url: "https://www.notion.so/db14bdde9b674c8a98a93eace102e4ee"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-SUBPAGE-INDEX-v2.7"
+
+  - id: RULE__LONGHUN_VALUES_IRONCLAD
+    label: 龍魂价值铁律
+    type: rule
+    layer: L2
+    palace: 8
+    status: missing
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: RULE__LONGHUN_USAGE_IRONCLAD
+    label: 龍魂使用铁律
+    type: rule
+    layer: L2
+    palace: 8
+    status: missing
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: AUDIT__CLAIM_STRENGTH
+    label: 主张强度审计
+    type: audit
+    layer: L3
+    palace: 6
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/Claim_Strength_Audit.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: GLOSSARY__UNIFIED
+    label: 统一术语表
+    type: glossary
+    layer: L3
+    palace: 7
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/Glossary_Unified.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: PAPER__FULL_BODY_DRAFT
+    label: 论文正文冻结稿
+    type: paper
+    layer: L3
+    palace: 9
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: PAPER__FULL_PAPER_TOC
+    label: 论文目录树
+    type: paper
+    layer: L3
+    palace: 9
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/FULL_PAPER_v1.0_TOC.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: HASH__CANONICAL_SHA256
+    label: 正文 canonical SHA256 指纹
+    type: hash
+    layer: L3
+    palace: 6
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/CANONICAL_SHA256"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: HASH__CANONICAL_LOCK
+    label: canonical 锁与 hooks 约定
+    type: hash
+    layer: L3
+    palace: 6
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: "BehavCrypto_v1.0/CANONICAL_LOCK.md"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: INDEX__README
+    label: 仓库 README（入口说明）
+    type: index
+    layer: L3
+    palace: 7
+    status: missing
+    owner: UID9622
+    route: ROUTER
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: PAPER__CONTRIBUTING
+    label: CONTRIBUTING（对外协作入口）
+    type: paper
+    layer: L3
+    palace: 7
+    status: missing
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: RULE__CODE_OF_CONDUCT
+    label: CODE_OF_CONDUCT（行为公约）
+    type: rule
+    layer: L3
+    palace: 8
+    status: missing
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: SCRIPT__VERIFY_SH
+    label: canonical 校验脚本 verify.sh
+    type: script
+    layer: L4
+    palace: 1
+    status: green
+    owner: UID9622
+    route: EXECUTION
+    path: "scripts/canonical-sha256/verify.sh"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: SCRIPT__UPDATE_SH
+    label: canonical 更新脚本 update.sh
+    type: script
+    layer: L4
+    palace: 1
+    status: green
+    owner: UID9622
+    route: EXECUTION
+    path: "scripts/canonical-sha256/update.sh"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: SCRIPT__PRE_COMMIT
+    label: Git pre-commit（正文变更触发 SHA 同步）
+    type: script
+    layer: L4
+    palace: 1
+    status: green
+    owner: UID9622
+    route: EXECUTION
+    path: "scripts/githooks/pre-commit"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: LOG__AUTO_AUDIT_ERR
+    label: 自动审计错误日志
+    type: log
+    layer: L4
+    palace: 2
+    status: yellow
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/auto_audit_err.log"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: LOG__BRAIN_SYNC
+    label: 脑同步日志
+    type: log
+    layer: L4
+    palace: 2
+    status: yellow
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/brain_sync.log"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: LOG__PERSONAL_SCHEDULER
+    label: 人格调度日志
+    type: log
+    layer: L4
+    palace: 2
+    status: yellow
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/persona_scheduler.log"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: LOG__MONITOR_ERROR
+    label: 实时监控错误日志
+    type: log
+    layer: L4
+    palace: 2
+    status: yellow
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/监控错误.log"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: LOG__MONITOR_OUTPUT
+    label: 实时监控标准输出日志
+    type: log
+    layer: L4
+    palace: 2
+    status: yellow
+    owner: UID9622
+    route: DNA_RETURN
+    path: "logs/监控输出.log"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: ""
+
+  - id: PAGE__LOSHU_JIUGONG_MATRIX
+    label: "① 洛书九宫矩阵(Magic Square)·地场骨架"
+    type: page
+    layer: L1
+    palace: 4
+    status: green
+    owner: UID9622
+    route: ORIGINAL_FLOWFIELD
+    path: ""
+    notion_url: "https://www.notion.so/Magic-Square-33e7125a9c9f813f9ea7ef047a2cd49f"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-LOSHU-MATRIX"
+
+  - id: PAGE__SANCAI_FLOW_V8
+    label: "🐲 三才流場 v8 · 忠孝义排序·智能活体仪表盘"
+    type: page
+    layer: L2
+    palace: 9
+    status: green
+    owner: UID9622
+    route: ORIGINAL_FLOWFIELD
+    path: ""
+    notion_url: "https://www.notion.so/v8-5de6a8906eb544f6b835879759dba3cb"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-SANCAI-V8"
+
+  - id: PAGE__INTENT_RECOGNITION_RULES
+    label: "📋 意图识别·训练规则 | 让AI自动理解老大的话"
+    type: page
+    layer: L3
+    palace: 3
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    notion_url: "https://www.notion.so/AI-032204b151dc4c34b8a1a36c80f706cc"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-INTENT-RULES"
+
+  - id: PAGE__P72_SHIELD_SKILL_V2
+    label: "🛡️ P72·龍盾·贴身管家×自适应智商引擎｜技能页 v2.0"
+    type: page
+    layer: L4
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    notion_url: "https://www.notion.so/P72-v2-0-b160d376d8f544128345b2b83367cd39"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-P72-SHIELD"
+
+  - id: PAGE__AGENT_OS_V9
+    label: "🌌 UID9622·V9 龍魂智能体操作系统｜道术器用·脱胎换骨版"
+    type: page
+    layer: L5
+    palace: 7
+    status: green
+    owner: UID9622
+    route: ROUTER
+    path: ""
+    notion_url: "https://www.notion.so/UID9622-V9-175033ea45f64a4083d83a2102e02328"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-AGENT-OS-V9"
+
+  - id: PAGE__DNA_TIMELINE_L5
+    label: "🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場"
+    type: page
+    layer: L6
+    palace: 2
+    status: green
+    owner: UID9622
+    route: DNA_RETURN
+    path: "01_protocols/cnsh/PROTOCOL__DNA-L5-ARCHITECTURE-v1.4.local.md"
+    notion_url: "https://www.notion.so/DNA-L5-v1-4-C-UID9622-1dd88844789e4185a0efbb43017f3e74"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-DNA-L5"
+
+  - id: PAGE__LU_FULLTEXT_COMPRESSOR_V11
+    label: "LU全文压缩归集器 v1.1｜思考胶囊×时间胶囊×未来复现"
+    type: page
+    layer: L6
+    palace: 2
+    status: green
+    owner: UID9622
+    route: DNA_RETURN
+    path: ""
+    notion_url: "https://www.notion.so/LU-v1-1-UID9622-f6e7adba0d4c4d9988ac6cd0852ef64c"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-LU-COMPRESSOR"
+
+  - id: PAGE__FIXED_POINT_REGISTER_V10
+    label: "🔮 不动点压缩登记册·封顶仪式 v1.0｜f(x₀)=x₀·指纹不灭"
+    type: page
+    layer: L3
+    palace: 6
+    status: green
+    owner: UID9622
+    route: PAPER_CHAIN
+    path: ""
+    notion_url: "https://www.notion.so/v1-0-f-x-x-UID9622-93e645cb146c49dc8761396ec5628358"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-FIXED-POINT"
+
+  - id: PAGE__IP_PUBLIC_INDEX_V11
+    label: "UID9622｜个人创作IP公开索引｜DNA赋能表单 v1.1"
+    type: page
+    layer: L5
+    palace: 7
+    status: green
+    owner: UID9622
+    route: ROUTER
+    path: ""
+    notion_url: "https://www.notion.so/UID9622-IP-DNA-v1-1-552f0b1365c441369f26922f579c602f"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-IP-INDEX"
+
+  - id: PAGE__SEVEN_DIM_GOVERNANCE_V10
+    label: "📐 龍魂七維AI治理×數字主權執行表·設計規範 v1.0"
+    type: page
+    layer: L4
+    palace: 4
+    status: green
+    owner: UID9622
+    route: MAIN_CONTROL
+    path: ""
+    notion_url: "https://www.notion.so/AI-v1-0-Notion-UID9622-84daa1d2030447318ade20e12b1fdb36"
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-PAGE-SEVEN-DIM"
+
+  - id: ALGO__DIGITAL_ROOT
+    label: 数字根 dr（天道技術內核入口）
+    type: algorithm
+    layer: L2
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-ALGO-DIGITAL-ROOT"
+
+  - id: ALGO__WUXING_STRENGTH
+    label: 五行强度计分（位置权重）
+    type: algorithm
+    layer: L2
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-ALGO-WUXING-STRENGTH"
+
+  - id: ALGO__LINK_HEALTH
+    label: 生克链路健康度
+    type: algorithm
+    layer: L2
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-ALGO-LINK-HEALTH"
+
+  - id: ALGO__WUXING_HEDGE_H_v3.1
+    label: "五行對沖指數 H v3.1（龍盾守門前置平衡閘）"
+    type: algorithm
+    layer: L4
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-五行对冲指数H-修复-v3.1"
+
+  - id: AUDIT__THREE_COLOR_GATE
+    label: 三色審計閘門（enter / hold / fuse）
+    type: audit
+    layer: L4
+    palace: 8
+    status: green
+    owner: UID9622
+    route: SHIELD
+    path: ""
+    depends_on: []
+    verifies: []
+    logs_to: []
+    dna: "#龍芯⚡️2026-05-07-AUDIT-THREE-COLOR-GATE"
