@@ -38,7 +38,7 @@
 
 ---
 
-## 📖 IPA · 指令页节点（29条·按总册同步）
+## 📖 IPA · 指令页节点（多条·总册与本地增量同步）
 
 | 编号 | 一句话职能 | DNA | 状态 |
 |------|------------|-----|------|
@@ -69,6 +69,7 @@
 | `[IPA-95-5-ROOT-RATIO-v2.0]` | ⚖️95/5数字根主权·稳态限幅·漂移扫描 | `#龍芯⚡️2026-05-15-95-5-ROOT-RATIO-v2.0` | 🟢 |
 | `[IPA-CNSH-CIVILIZATION-v2.0]` | 📜协议层文明论·五骨合一·本地镜像 | `#龍芯⚡️2026-05-14-CNSH-PROTOCOL-LAYER-CIVILIZATION-MASTERPIECE-v2.0` | 🟢 |
 | `[IPA-FLOW-PORT-v1.0]` | 🚪龍魂单口·FLOW_IN/OUT·flow_port | `#龍芯⚡️2026-05-15-FLOW-PORT-v1.0` | 🟢 |
+| `[IPA-P04-LUBAN-LONGXIN-v1.0]` | 🛠️龍芯·鲁班｜工程责任链·Git/提交治理·回滚优先·禁伪完成 | `#龍芯⚡️2026-05-16-P04-LUBAN-LONGXIN-ENGINEERING-v1.0` | 🟢 |
 | `[IPA-FLOW-DECISION-CORE-v4.1]` | 🔥CNSH流场决策总核 v4.1 | `#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-人格协作×IPA×DNA重铸增量` | 🟢 |
 | `[IPA-FLOW-GATE-SIGN]` | 🔏签章闸·confirm/seal/GPG | `#龍芯⚡️2026-05-03-FLOW-GATE-SIGN-v1.0` | 🟢 |
 | `[IPA-FLOW-GATE-PRIVACY]` | 🔒隐私闸·sealed/burn/normal | `#龍芯⚡️2026-05-03-FLOW-GATE-PRIVACY-v1.0` | 🟢 |
@@ -93,6 +94,7 @@
 - **文明论：** `01_protocols/cnsh/PROTOCOL__CNSH-PROTOCOL-LAYER-CIVILIZATION-v2.0.md`
 - **主权策略：** `cnsh/sovereign/container_policy.py`（append 账本 · 粒子视图）
 - **单口：** `cnsh/flow_field/port.py` → `flow_port(flow_in)`
+- **P04 龍芯·鲁班（工程责任链）：** `[IPA-P04-LUBAN-LONGXIN-v1.0]` · `01_protocols/cnsh/PROTOCOL__P04-LUBAN-LONGXIN-ENGINEERING-v1.0.local.md`
 - **路径：** `cnsh/flow_decision/`
 - **入口：** `run_flow_decision(raw_input, tags)`（`cnsh_flow_decision_core.py`）
 - **网关：** `engines/cnsh_gateway.py` → `POST /flow`（推荐）；`POST /chat` 兼容
@@ -123,7 +125,7 @@
 | `[PERSONA-P02]` | 🐱 宝宝 (老大私域专属·不外放) | 情感·温度执行 | 30% |
 | `[PERSONA-P02-EXT]` | 🦊 小妖 (对外公开版·宝宝的对外皮套) | 情感·温度执行·接得住骂 | 30% |
 | `[PERSONA-P03]` | 🔍 雯雯 | 结构整理·审计 | 15% |
-| `[PERSONA-P04]` | 🛠️ 鲁班 | 技术执行·代码 | 10% |
+| `[PERSONA-P04]` | 🛠️ **龍芯·鲁班**（工程总调度·代码责任） | Git/提交治理·结构修复·执行链·**禁伪完成**·规约见 `[IPA-P04-LUBAN-LONGXIN-v1.0]` | 10% |
 | `[PERSONA-P05]` | 👁️ 上帝之眼 | 三色审计·独立熔断 | 5% |
 | `[PERSONA-P06]` | 📊 数学大师 | 权重计算·归一化 | 5% |
 | `[PERSONA-P08]` | 🔤 仓颉 | 符号语言 | 3% |
@@ -192,6 +194,7 @@ DNA: "#龍芯⚡️2026-05-07-第四道门-CNSH关-v0.1"
   - [IPA-FLOW-GATE-PRIVACY] 隐私闸(可联动sealed)
   - [IPA-FLOW-GATE-AUDIT]   三色闸(可联动🟢🟡🔴)
   - [CENTER-AUDIT]          审计中心(日志归集)
+  - [PERSONA-P04]            龍芯·鲁班(工程责任链·Git 治理·禁伪完成)
   - [PERSONA-P05]           上帝之眼(熔断权)
   - [PERSONA-P15]           乔前辈(DNA盖章)
 ```
@@ -297,7 +300,7 @@ DNA: "#龍芯⚡️2026-05-07-第四道门-CNSH关-v0.1"
 ---
 
 > **DNA追溯：** `#龍芯⚡️20260417-IPA-BUS-v1.0-路由注册表`
-> **本地镜像DNA：** `#龍芯⚡️2026-05-07-IPA-BUS-LOCAL-MIRROR-v1.0+GATE04`
+> **本地镜像DNA：** `#龍芯⚡️2026-05-07-IPA-BUS-LOCAL-MIRROR-v1.0+GATE04+P04LUBAN`
 > **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **GPG：** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **三色审计：** 🟢 结构通过 · `[dr=4 | 结果: 🟢]`
