@@ -18,6 +18,7 @@ M::
     - DDJ-81-ENGINE
     - DNA-L5-ARCHITECTURE
     - NUWA-COLOR-TERMINAL
+    - P04-LUBAN-LONGXIN
   notion_canonical: "https://www.notion.so/0f6dea05dd944be1a05c188152d4aa6c"
   confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
@@ -45,6 +46,7 @@ M::
 | 关联 | `01_protocols/cnsh/PROTOCOL__DAODEJING-81-ENGINE-v1.0.local.md` | 道德经 81 章算法映射 v1.0 |
 | 关联 | `01_protocols/cnsh/PROTOCOL__DNA-L5-ARCHITECTURE-v1.4.local.md` | DNA 时间轴 L5 分层（ETE·DASR·与 Notion v1.5 对齐） |
 | 关联 | `01_protocols/cnsh/PROTOCOL__NUWA-COLOR-TERMINAL-v1.0.local.md` | 女娲五彩石 · 主权终端 UI（五色语义 + TERMINAL_BEHAVIOR_LAYER） |
+| 关联 | `01_protocols/cnsh/PROTOCOL__P04-LUBAN-LONGXIN-ENGINEERING-v1.0.local.md` | P04 龍芯·鲁班 · 工程责任链（Git/提交·禁伪完成） |
 
 ## 六子协议 DNA 索引
 
