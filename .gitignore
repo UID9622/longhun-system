@@ -22,3 +22,17 @@ __pycache__/
 
 # 编辑器
 .idea/
+
+# Cursor · 本机工程缓存（规则若需入库用 .cursor/rules，勿把整个 projects 提交）
+.cursor/projects/
+
+# Obsidian 库配置（非龍魂源码）
+.obsidian/
+
+# 本地进程 / 壁纸态等运行时文件
+.run/
+*.pid
+
+# 抢救仓 · Claude / MCP 会话导出（体积大·无版本价值；要留档走 01_protocols / docs）
+抢救仓/**/_session-configs/
+抢救仓/**/_session-tool-results/
