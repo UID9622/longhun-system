@@ -14,6 +14,8 @@ from .schemas import EXPECTED_FIELD_COUNT, FlowDecisionNode
 from .digital_root import compute_four_source_dr
 from .dna_tag_policy import burn_proof, parse_dna_tail_tags, seal_proof, validate_parent_chain
 from .wuxing_router import element_for_dr
+from cnsh.algorithms.sancai import compute_sancai_decision, parse_sancai_inputs
+
 from .sancai_weight import normalize_sancai
 from .shengke_relation import relation_to_parent
 from .palace_router import route_palaces
@@ -186,6 +188,18 @@ def run_flow_decision(raw_input: str, tags: Optional[Dict[str, Any]] = None, kno
     n.sancai_heaven, n.sancai_human, n.sancai_earth = sc.heaven, sc.human, sc.earth
     if sc.clamped:
         laws.append("LAW-06-human_floor")
+
+    t_in, d_in, r_in = parse_sancai_inputs(tags)
+    n.sancai_input_heaven, n.sancai_input_earth, n.sancai_input_human = t_in, d_in, r_in
+    sdec = compute_sancai_decision(t_in, d_in, r_in)
+    n.sancai_score = round(sdec.composite_score, 6)
+    n.sancai_advice = sdec.advice
+    n.sancai_pass = sdec.passed
+    n.gate_trace.append(
+        f"sancai:score={n.sancai_score}:pass={int(sdec.passed)}:w人={sdec.human_weight_dynamic}"
+    )
+    if not sdec.complete:
+        laws.append("LAW-SANCAI-incomplete")
     if n.level.startswith("L0"):
         n.audit_need_uid_confirm = True
         laws.append("LAW-09-L0")
