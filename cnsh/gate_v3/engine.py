@@ -42,7 +42,7 @@ RISK_AVOID = ["避开", "规避", "降低风险", "未发现明显风险", "建�
 
 
 def digital_root_from_text(text: str) -> int:
-    digits = [int(c) for c in text if c.isdigit()]
+    digits = [int(c) for c in text if c in "0123456789"]
     if not digits:
         return 0
     total = sum(digits)

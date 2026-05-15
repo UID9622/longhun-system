@@ -42,6 +42,9 @@ from cnsh.sovereign.container_policy import (
     order_anchor_scan,
     sha256_hex,
 )
+from cnsh.defense_bridge import defense_scan
+
+DEFENSE_DNA = "#龍芯⚡️2026-05-15-DEFENSE-BACKGROUND-v1.0"
 
 try:
     from deepseek_bridge import 民主回复计算函数
@@ -58,6 +61,67 @@ DEFAULT_LEDGER = Path.home() / "longhun" / "data" / "sovereign_ledger.jsonl"
 
 def _ipa_summary(receipts: List[Dict[str, Any]]) -> List[str]:
     return [f"{r.get('ipa_node', '?')}:{r.get('output_signal', '?')}" for r in receipts]
+
+
+def _defense_out_dict(d: Dict[str, Any]) -> Dict[str, Any]:
+    shield = d.get("shield") if isinstance(d.get("shield"), dict) else {}
+    return {
+        "allowed": d.get("allowed", True),
+        "mode": d.get("mode"),
+        "direction": d.get("direction"),
+        "violations": d.get("violations") or [],
+        "fuse_reason": d.get("fuse_reason"),
+        "recommendation": shield.get("recommendation"),
+        "tags": shield.get("tags") or shield.get("tags_summary"),
+        "skipped": d.get("skipped", False),
+    }
+
+
+def _defense_hold(
+    defense: Dict[str, Any],
+    *,
+    gate: GateDecision,
+    content_sha: str,
+    operator_id: str,
+    tier: str,
+    ledger: Path,
+    red_streak: int,
+    direction: str,
+) -> Dict[str, Any]:
+    tricolor = "🔴" if defense.get("fuse_reason") else "🟡"
+    reason = defense.get("fuse_reason") or _defense_out_dict(defense).get("recommendation") or "护盾拦截"
+    dna = gate.dna or DEFENSE_DNA
+    append_ledger_event(
+        ledger,
+        "fuse" if tricolor == "🔴" else "hold",
+        operator_id=operator_id,
+        content_sha256=content_sha,
+        dna=dna,
+        tricolor=tricolor,
+        meta={"defense": _defense_out_dict(defense), "direction": direction},
+    )
+    return {
+        "reply": f"🛡️ 护盾{'熔断' if tricolor == '🔴' else '挂起'}（{direction}）·{reason}",
+        "tricolor": tricolor,
+        "status": "fuse" if tricolor == "🔴" else "hold",
+        "dna": dna,
+        "particle": make_particle_view(
+            dna=dna,
+            content_sha256=content_sha,
+            tricolor=tricolor,
+            operator_id=operator_id,
+            operator_tier=tier,
+            fuse_reason=reason,
+            gate_trace=[f"defense:{direction}"],
+        ),
+        "protocol_dna": PROTOCOL_DNA,
+        "gate_v3": _gate_out_dict(gate, red_streak),
+        "defense": _defense_out_dict(defense),
+        "defense_dna": DEFENSE_DNA,
+        "execute_allowed": False,
+        "hold_for_audit": True,
+        "founder_same_rules": True,
+    }
 
 
 def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) -> Dict[str, Any]:
@@ -169,6 +233,26 @@ def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) ->
             "founder_same_rules": True,
         }
 
+    # L0 护盾 · 入站（Notion v1.7 + QPS · 每条消息）
+    defense_in: Dict[str, Any] = {"ok": True, "allowed": True, "skipped": True}
+    if not tags.get("skip_defense"):
+        defense_in = defense_scan(
+            message or content_for_hash,
+            direction="in",
+            url=str(tags.get("url") or flow_in.get("url") or ""),
+        )
+        if not defense_in.get("allowed", True):
+            return _defense_hold(
+                defense_in,
+                gate=gate,
+                content_sha=content_sha,
+                operator_id=operator_id,
+                tier=tier,
+                ledger=ledger,
+                red_streak=red_streak,
+                direction="in",
+            )
+
     # L0 排序不动点
     order = order_anchor_scan(message)
     if order.get("inversion"):
@@ -272,6 +356,23 @@ def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) ->
         inspiration_mode=inspiration_mode,
         operator_id=operator_id,
     )
+
+    # L0 护盾 · 出站（草稿出去前）
+    defense_out: Dict[str, Any] = {"ok": True, "allowed": True, "skipped": True}
+    if not tags.get("skip_defense"):
+        defense_out = defense_scan(draft, direction="out")
+        if not defense_out.get("allowed", True):
+            return _defense_hold(
+                defense_out,
+                gate=gate,
+                content_sha=sha256_hex(draft),
+                operator_id=operator_id,
+                tier=tier,
+                ledger=ledger,
+                red_streak=red_streak,
+                direction="out",
+            )
+
     if ratio_guard.get("fused"):
         append_ledger_event(
             ledger,
@@ -354,6 +455,23 @@ def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) ->
         burn_readable=burn_readable,
     )
 
+    sancai_out = {
+        "inputs": {
+            "heaven": r.node.sancai_input_heaven,
+            "earth": r.node.sancai_input_earth,
+            "human": r.node.sancai_input_human,
+        },
+        "weights": {
+            "heaven": r.node.sancai_heaven,
+            "earth": r.node.sancai_earth,
+            "human": r.node.sancai_human,
+        },
+        "score": r.node.sancai_score,
+        "passed": r.node.sancai_pass,
+        "advice": r.node.sancai_advice,
+        "canonical_source": "longhun-algorithms-cnsh-v1.0.md#算法二",
+    }
+
     return {
         "reply": draft if dem.get("是否通过", True) else f"🟡 待修正输出（民主门）\n{draft[:500]}",
         "tricolor": tricolor,
@@ -367,6 +485,7 @@ def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) ->
         "operator_tier_applied": tier,
         "ipa_receipts": r.ipa_receipts,
         "gate_trace": r.node.gate_trace,
+        "sancai": sancai_out,
         "democratic": dem,
         "immutable_laws": list(IMMUTABLE_LAWS),
         "root_ratio": ratio_guard,
@@ -374,6 +493,11 @@ def flow_port(flow_in: Dict[str, Any], *, ledger_path: Optional[Path] = None) ->
         "civilization_dna": CIVILIZATION_DNA,
         "gate_dna": GATE_DNA,
         "gate_v3": _gate_out_dict(gate, red_streak),
+        "defense": {
+            "inbound": _defense_out_dict(defense_in),
+            "outbound": _defense_out_dict(defense_out),
+        },
+        "defense_dna": DEFENSE_DNA,
         "execute_allowed": True,
         "hold_for_audit": False,
         "founder_same_rules": True,
