@@ -110,12 +110,13 @@ UID9622（创始人）与每一位用户适用**同一套**容器规则，无特
 
 ```
 P0 管壁   SOVEREIGN-CONTAINER v1.0     ← 本文件（门/审计/隐私/只叠不删）
+P0 海关   FIRST-GATE v3.0              ← 数字根+三重检测·默认不执行
 P0 稳态   95-5-ROOT-RATIO v2.0         ← 95%稳态·5%混沌·漂移L0-L5
 P0 论文   CNSH-CIVILIZATION v2.0       ← 协议层文明论·五骨合一
 工程      FLOW-PORT v1.0               ← flow_port() 单口编排
 ```
 
-**焊接顺序：** `FLOW_IN` → 主权吸收账本 → `flow_decision` → 民主门 → `apply_95_5_guard` → `FLOW_OUT`
+**焊接顺序：** `FLOW_IN` → **第一道闸门** → 主权吸收账本 → ORDER → `flow_decision` → 民主门 → 95/5 → `FLOW_OUT`
 
 ## 与现有工程包对照
 
