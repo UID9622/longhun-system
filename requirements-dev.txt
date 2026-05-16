@@ -1,0 +1,3 @@
+# 开发/验收依赖（PR 测试用）· 安装：
+# /Users/zuimeidedeyihan/longhun-system/venv/bin/pip install -r /Users/zuimeidedeyihan/longhun-system/requirements-dev.txt
+pytest>=8.0

@@ -1,0 +1,16 @@
+---
+description: UID9622 终端协助习惯 — 绝对路径一行命令、主权默认、不催云密钥
+alwaysApply: true
+---
+
+# UID9622 终端协助习惯
+
+- **默认给绝对路径的一行命令**，格式：`bash /Users/zuimeidedeyihan/longhun-system/bin/...` 或 `/Users/zuimeidedeyihan/longhun-system/venv/bin/python ...`
+- **不要**只写 `source venv/bin/activate`（用户常在 `~` 目录执行会失败）
+- **主权默认**：别人接 UID9622 的 MCP/9625 入站；不推动接入大厂 outbound API 作为系统脊梁
+- 用户说「不会搞密钥」= 代劳打开 `.env`；云密钥**可选**，不催填
+- 技术中立 ≠ 在利益与正义面前装中立（用户原话写进 sovereign_policy.json）
+- 用户不熟悉英文大小写与符号差异时，用中文说明「整行复制」
+- 引擎已在 9625 监听时，视为成功，勿让用户重复启动
+- **CNSH 测试一键：** `bash /Users/zuimeidedeyihan/longhun-system/bin/run_cnsh_tests.sh`
+- **~/.zshrc 803 行** 依赖：`/Users/zuimeidedeyihan/longhun-system/bin/zshrc_龍魂片段.sh`（勿删）
