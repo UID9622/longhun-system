@@ -47,3 +47,8 @@ data/cnsw_circuit_audit.jsonl
 # H武器 · 本地 Monte Carlo / 痕迹库（勿提交）
 tools/h_weapon_100k/db/*.db
 tools/h_weapon_100k/out/
+
+# 责任卡运行时（模板/引擎入库；生成卡片与 SQLite 本机增长）
+cnsh/decision_cards/cards/**/*.md
+cnsh/decision_cards/db/*.sqlite*
+cnsh/decision_cards/logs/*.log

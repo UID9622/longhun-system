@@ -252,12 +252,58 @@ def _feed_source_type(data: dict) -> str:
     return "F1"
 
 
-def _maybe_attach_feed(data: dict, raw_message: str, flow_body: str, out: dict) -> dict:
+def _feed_card(
+    flow_tri: str,
+    *,
+    skipped: bool = False,
+    fr: dict | None = None,
+) -> str:
+    """投喂「一单清」卡片：单一出口，避免多段重复拼装。"""
+    if skipped:
+        return (
+            "【投喂·一单清】\n"
+            f"· 流场三色：{flow_tri}（闸门未放行）\n"
+            "· 投喂：未落档 — 先处理红点再发同一贴即可\n"
+            f"· 沙盒分拣台（对照）：{DROP_ZONE_NOTION}\n"
+            "────────\n"
+        )
+    if not fr:
+        return ""
+    if fr.get("status") == "rejected":
+        return (
+            "【投喂·一单清】\n"
+            f"· 流场三色：{flow_tri}\n"
+            f"· 投喂受理：🔴 未写入 — {fr.get('reason', '')}\n"
+            "· 你不用选：看清原因后改一版再发即可\n"
+            f"· 沙盒分拣台：{DROP_ZONE_NOTION}\n"
+            "────────\n"
+        )
+    return (
+        "【投喂·一单清】\n"
+        f"· 流场三色：{flow_tri}\n"
+        f"· 投喂：已落档 · {fr.get('layer', '?')} · {fr.get('layer_name', '')}\n"
+        f"· 文件：{fr.get('file_path', '')}\n"
+        f"· DNA：{fr.get('dna', '')}\n"
+        f"· 来源默认：{fr.get('_source_type', '?')} · Notion 仅为「分发建议」未自动发帖\n"
+        f"· 沙盒 Drop Zone：{DROP_ZONE_NOTION}\n"
+        "────────\n"
+    )
+
+
+def _maybe_attach_feed(
+    data: dict,
+    raw_message: str,
+    flow_body: str,
+    out: dict,
+    *,
+    feed_intent: bool | None = None,
+) -> dict:
     """
     投喂入口并进流场：先 flow_port（闸门+决策），再 feeding_gateway（落档+锚）。
     响应顶栏追加「一单清」人话卡，避免你再选分支。
     """
-    if not _feed_intent(data, raw_message):
+    fi = feed_intent if feed_intent is not None else _feed_intent(data, raw_message)
+    if not fi:
         return out
     title, content = _parse_feed_title_content(data, flow_body)
     if not title or not content:
@@ -266,13 +312,7 @@ def _maybe_attach_feed(data: dict, raw_message: str, flow_body: str, out: dict) 
 
     flow_tri = out.get("tricolor") or "🟡"
     if flow_tri == "🔴" or out.get("status") == "fuse":
-        card = (
-            "【投喂·一单清】\n"
-            f"· 流场三色：{flow_tri}（闸门未放行）\n"
-            "· 投喂：未落档 — 先处理红点再发同一贴即可\n"
-            f"· 沙盒分拣台（对照）：{DROP_ZONE_NOTION}\n"
-            "────────\n"
-        )
+        card = _feed_card(flow_tri, skipped=True)
         out["feed_skipped"] = "flow_fuse_or_red"
         out["reply"] = card + (out.get("reply") or "")
         return out
@@ -288,28 +328,10 @@ def _maybe_attach_feed(data: dict, raw_message: str, flow_body: str, out: dict) 
     if st not in FEED_SOURCES:
         st = "F1"
     fr = feeding_feed(title, content, source_type=st, silent=True)
+    fr["_source_type"] = st
     out["feed_receipt"] = fr
 
-    if fr.get("status") == "rejected":
-        card = (
-            "【投喂·一单清】\n"
-            f"· 流场三色：{flow_tri}\n"
-            f"· 投喂受理：🔴 未写入 — {fr.get('reason', '')}\n"
-            "· 你不用选：看清原因后改一版再发即可\n"
-            f"· 沙盒分拣台：{DROP_ZONE_NOTION}\n"
-            "────────\n"
-        )
-    else:
-        card = (
-            "【投喂·一单清】\n"
-            f"· 流场三色：{flow_tri}\n"
-            f"· 投喂：已落档 · {fr.get('layer', '?')} · {fr.get('layer_name', '')}\n"
-            f"· 文件：{fr.get('file_path', '')}\n"
-            f"· DNA：{fr.get('dna', '')}\n"
-            f"· 来源默认：{st} · Notion 仅为「分发建议」未自动发帖\n"
-            f"· 沙盒 Drop Zone：{DROP_ZONE_NOTION}\n"
-            "────────\n"
-        )
+    card = _feed_card(flow_tri, fr=fr)
     out["reply"] = card + (out.get("reply") or "")
     return out
 
@@ -364,11 +386,14 @@ def flow():
         return jsonify({"error": "message 不能为空", "tricolor": "🔴"}), 400
 
     msg_for_port = flow_body or str(data.get("draft_reply") or "").strip()
+    feed_here = _feed_intent(data, raw_message)
     out = _flow_port_call(msg_for_port, data)
-    out = _maybe_attach_feed(data, raw_message, flow_body or msg_for_port, out)
+    out = _maybe_attach_feed(
+        data, raw_message, flow_body or msg_for_port, out, feed_intent=feed_here
+    )
     entry = {
         "ts": datetime.now(timezone.utc).isoformat(),
-        "route": "flow_port+feed" if _feed_intent(data, raw_message) else "flow_port",
+        "route": "flow_port+feed" if feed_here else "flow_port",
         "tricolor": out.get("tricolor", "🟡"),
         "dna": out.get("dna", ""),
         "summary": (flow_body or raw_message or "")[:80],

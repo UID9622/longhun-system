@@ -54,8 +54,9 @@ def engineering_tricolor(drift_level: str, sovereignty_score: int) -> Dict[str, 
         "sovereignty_score": sovereignty_score,
         "commit_allowed": commit_ok,
         "p05_lane": (
-            "简并：围猎 drift × 主权分；全量64卦×八维见 Notion "
-            "bc03c66f9913455b987708b0ccc11ca3"
+            "简并：围猎 drift × 主权分；全量指标见 Notion。总索引（分层导航）"
+            "https://www.notion.so/dcb73d6fbff9409a98780964bcbc3e30 — "
+            "仅作图谱入口，正文与可执行定义以本仓为准，有界迭代。"
         ),
     }
 
