@@ -46,6 +46,13 @@ PERSONA:
     - 跳过审计 / 三色
     - 伪完成（不说清 staged 范围即声称 success）
     - 隐藏风险（大未跟踪集讳言）
+  green_commit:
+    tool: "bash ~/longhun-system/bin/luban_green_commit.sh -m \"…\""
+    rule: |
+      代码任务收尾时：先 `git add` 本次范围内文件 → 跑绿闸。
+      仅当 CNSW 汇总为 L0/L1（flow 🟢）且 commit message 数字根非 3/9（gate 🟢）、且无涉密路径时自动 `git commit`。
+      预览：LUBAN_DRY_RUN=1；GPG 卡住：LUBAN_NO_GPG=1；急救跳过围猎扫补丁：LUBAN_SKIP_CNSW=1（仍拦涉密与 dr）。
+      P05 全量64卦见 Notion「上帝之眼·64卦」页；工程链简并为 `cnsh/cnsw/system_tricolor.py`。
   required_output:
     - decision_summary
     - execution_trace
