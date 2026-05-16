@@ -27,6 +27,7 @@ from typing import List, Tuple
 from cnsh.gate_v3.engine import digital_root_from_text, gate_color
 
 from .hook_scanner import scan_output
+from .pseudocode_audit import audit_pseudocode_in_text, incremental_added_text_from_patch
 from .system_tricolor import aggregate_engineering_from_rows, combine_gate_dr
 
 _PATCH_MAX = 512_000
@@ -83,7 +84,7 @@ def _aggregate_from_patch(patch: str) -> dict:
         return aggregate_engineering_from_rows(
             [{"drift_level": "L0", "sovereignty_score": 100}]
         )
-    scan = scan_output(patch or "(empty)", include_supplemental=True)
+    scan = scan_output(patch or "(empty)", include_supplemental=True, pseudocode_scan=False)
     return aggregate_engineering_from_rows(
         [
             {
@@ -137,6 +138,9 @@ def main(argv: List[str] | None = None) -> int:
         "gate": {"dr": dr, "gate_color": gc},
         "commit_allowed": commit_ok,
         "staged_files": len(paths),
+        "pseudocode_on_added_lines": audit_pseudocode_in_text(
+            incremental_added_text_from_patch(patch)
+        ),
     }
     print(json.dumps(out, ensure_ascii=False, indent=2))
 

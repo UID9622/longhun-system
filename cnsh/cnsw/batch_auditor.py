@@ -90,6 +90,8 @@ def audit_messages(
             "sovereignty_score": scan["sovereignty_score"],
             "matched_hooks": ";".join(scan["matched_hooks"]),
             "matched_supplemental": ";".join(scan["matched_supplemental"]),
+            "pseudo_risk": (scan.get("pseudocode_audit") or {}).get("risk", ""),
+            "pseudo_fence_n": (scan.get("pseudocode_audit") or {}).get("fence_count", 0),
             "content_hash": scan["content_hash"],
             "circuit": cb,
             "excerpt": scan["input_excerpt"][:200],

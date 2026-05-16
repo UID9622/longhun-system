@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# UID9622 · 责任卡 CLI 入口（仓库内默认数据目录）
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+exec python3 "$ROOT/cnsh/decision_cards/engine/decision_cli.py" "$@"

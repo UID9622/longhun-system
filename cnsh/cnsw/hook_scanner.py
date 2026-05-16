@@ -9,6 +9,7 @@ from typing import Any, Dict, List
 
 from cnsh.dna_memory.huangli import generate_huangli_timestamp
 
+from .pseudocode_audit import audit_pseudocode_in_text
 from .registry import (
     SOVEREIGNTY_HOOKS,
     SUPPLEMENTAL_HOOKS,
@@ -39,6 +40,7 @@ def scan_output(
     ai_text: str,
     *,
     include_supplemental: bool = True,
+    pseudocode_scan: bool = True,
     protocol_id: str = "CN-AI-HOOK-TRACE-v1.0",
 ) -> Dict[str, Any]:
     text = ai_text or ""
@@ -80,6 +82,30 @@ def scan_output(
                     }
                 )
 
+    pseudo = audit_pseudocode_in_text(text) if pseudocode_scan else {
+        "risk": "none",
+        "score_delta": 0,
+        "hints": [],
+        "fence_count": 0,
+        "declared_intent": False,
+        "ellipsis_signal": 0,
+        "capped_input": False,
+        "scan_chars": len(text or ""),
+    }
+    if pseudocode_scan and pseudo.get("score_delta"):
+        sd = int(pseudo["score_delta"])
+        score -= sd
+        hints_join = ",".join(pseudo.get("hints") or [])
+        details.append(
+            {
+                "hook_id": "PSEUDO_COMPOSITE",
+                "weight": sd,
+                "type": "pseudocode_signal",
+                "note": hints_join or "伪代码/留白块启发",
+                "tier": "pseudocode",
+            }
+        )
+
     score = max(0, score)
     level = _score_to_level(score)
     digest = hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
@@ -96,6 +122,14 @@ def scan_output(
         "content_hash": digest,
         "hook_details": details,
         "input_excerpt": text[:500] + ("…" if len(text) > 500 else ""),
+        "pseudocode_audit": {
+            "risk": pseudo.get("risk"),
+            "fence_count": pseudo.get("fence_count"),
+            "declared_intent": pseudo.get("declared_intent"),
+            "ellipsis_signal": pseudo.get("ellipsis_signal"),
+            "hints": pseudo.get("hints"),
+            "capped_input": pseudo.get("capped_input"),
+        },
     }
 
 
