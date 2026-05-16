@@ -196,6 +196,124 @@ def security_check(req):
         return False, "无效 DNA 令牌"
     return True, ""
 
+# Notion「专用投喂入口 v1.1」·沙盒分拣台（人话对照 URL）
+DROP_ZONE_NOTION = "https://www.notion.so/4dfcb90d97344139b823e49a6ebac696"
+
+
+def _normalize_flow_body(data: dict) -> str:
+    """向流场闸门上交的正文：支持 tags.content；支持 /投喂 前缀剥掉。"""
+    tags = data.get("tags") or {}
+    if tags.get("content"):
+        body = str(tags["content"]).strip()
+        title = str(tags.get("title") or "").strip()
+        if title:
+            return f"{title}\n\n{body}"
+        return body
+    msg = (data.get("message") or "").strip()
+    if msg.startswith("/投喂"):
+        msg = msg[len("/投喂") :].lstrip("\n:： ").strip()
+    return msg
+
+
+def _feed_intent(data: dict, raw_message: str) -> bool:
+    tags = data.get("tags") or {}
+    if data.get("mode") == "feed":
+        return True
+    if tags.get("feed") or tags.get("feeding") or tags.get("drop_zone"):
+        return True
+    if (raw_message or "").lstrip().startswith("/投喂"):
+        return True
+    return False
+
+
+def _parse_feed_title_content(data: dict, flow_body: str) -> tuple:
+    tags = data.get("tags") or {}
+    title = (tags.get("title") or "").strip()
+    content = (tags.get("content") or "").strip()
+    if content:
+        if not title:
+            title = (content.split("\n", 1)[0].strip()[:120] or "无标题投喂")
+        return title, content
+    blob = (flow_body or "").strip()
+    if not blob:
+        return "", ""
+    lines = blob.split("\n", 1)
+    if len(lines) >= 2 and len(lines[0]) <= 200:
+        return lines[0].strip()[:120], lines[1].strip()
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    return f"粘贴投喂 {ts}", blob
+
+
+def _feed_source_type(data: dict) -> str:
+    tags = data.get("tags") or {}
+    st = (data.get("source_type") or tags.get("source_type") or "F1").strip().upper()
+    if len(st) == 2 and st[0] == "F" and st[1].isdigit():
+        return st
+    return "F1"
+
+
+def _maybe_attach_feed(data: dict, raw_message: str, flow_body: str, out: dict) -> dict:
+    """
+    投喂入口并进流场：先 flow_port（闸门+决策），再 feeding_gateway（落档+锚）。
+    响应顶栏追加「一单清」人话卡，避免你再选分支。
+    """
+    if not _feed_intent(data, raw_message):
+        return out
+    title, content = _parse_feed_title_content(data, flow_body)
+    if not title or not content:
+        out["feed_error"] = "投喂需要正文：message、或 tags.content（可加 tags.title）"
+        return out
+
+    flow_tri = out.get("tricolor") or "🟡"
+    if flow_tri == "🔴" or out.get("status") == "fuse":
+        card = (
+            "【投喂·一单清】\n"
+            f"· 流场三色：{flow_tri}（闸门未放行）\n"
+            "· 投喂：未落档 — 先处理红点再发同一贴即可\n"
+            f"· 沙盒分拣台（对照）：{DROP_ZONE_NOTION}\n"
+            "────────\n"
+        )
+        out["feed_skipped"] = "flow_fuse_or_red"
+        out["reply"] = card + (out.get("reply") or "")
+        return out
+
+    try:
+        from feeding_gateway import SOURCES as FEED_SOURCES
+        from feeding_gateway import feed as feeding_feed
+    except ImportError:
+        out["feed_error"] = "feeding_gateway 模块未找到"
+        return out
+
+    st = _feed_source_type(data)
+    if st not in FEED_SOURCES:
+        st = "F1"
+    fr = feeding_feed(title, content, source_type=st, silent=True)
+    out["feed_receipt"] = fr
+
+    if fr.get("status") == "rejected":
+        card = (
+            "【投喂·一单清】\n"
+            f"· 流场三色：{flow_tri}\n"
+            f"· 投喂受理：🔴 未写入 — {fr.get('reason', '')}\n"
+            "· 你不用选：看清原因后改一版再发即可\n"
+            f"· 沙盒分拣台：{DROP_ZONE_NOTION}\n"
+            "────────\n"
+        )
+    else:
+        card = (
+            "【投喂·一单清】\n"
+            f"· 流场三色：{flow_tri}\n"
+            f"· 投喂：已落档 · {fr.get('layer', '?')} · {fr.get('layer_name', '')}\n"
+            f"· 文件：{fr.get('file_path', '')}\n"
+            f"· DNA：{fr.get('dna', '')}\n"
+            f"· 来源默认：{st} · Notion 仅为「分发建议」未自动发帖\n"
+            f"· 沙盒 Drop Zone：{DROP_ZONE_NOTION}\n"
+            "────────\n"
+        )
+    out["reply"] = card + (out.get("reply") or "")
+    return out
+
+
 # ═══════════════════════════════
 # Flask 路由
 # ═══════════════════════════════
@@ -215,6 +333,10 @@ def _flow_port_call(message: str, data: dict) -> dict:
         "tags": data.get("tags") or {},
         "history": data.get("history"),
         "draft_reply": data.get("draft_reply"),
+        "auto_execute": data.get("auto_execute"),
+        "timestamp": data.get("timestamp"),
+        "evidence": data.get("evidence"),
+        "url": data.get("url"),
     }
     return flow_port(flow_in)
 
@@ -224,23 +346,32 @@ def flow():
     """
     龍魂唯一推荐入口 — 主权容器 + 流场决策 + 民主门
     请求体与 /chat 相同，可增加 operator_id / operator_tier / tags / draft_reply
+
+    投喂并进流场（免选分支，默认落档）任选其一触发：
+      · JSON `"mode": "feed"`
+      · tags 里 `feed`: true（或 `feeding` / `drop_zone`）
+      · message 以 `/投喂` 开头
+    正文可写在 message，或用 tags.content（可选 tags.title）。
     """
     ok, err = security_check(request)
     if not ok:
         return jsonify({"error": err, "tricolor": "🔴"}), 403
 
     data = request.json or {}
-    message = (data.get("message") or "").strip()
-    if not message and not data.get("draft_reply"):
+    raw_message = (data.get("message") or "").strip()
+    flow_body = _normalize_flow_body(data)
+    if not flow_body and not data.get("draft_reply"):
         return jsonify({"error": "message 不能为空", "tricolor": "🔴"}), 400
 
-    out = _flow_port_call(message, data)
+    msg_for_port = flow_body or str(data.get("draft_reply") or "").strip()
+    out = _flow_port_call(msg_for_port, data)
+    out = _maybe_attach_feed(data, raw_message, flow_body or msg_for_port, out)
     entry = {
         "ts": datetime.now(timezone.utc).isoformat(),
-        "route": "flow_port",
+        "route": "flow_port+feed" if _feed_intent(data, raw_message) else "flow_port",
         "tricolor": out.get("tricolor", "🟡"),
         "dna": out.get("dna", ""),
-        "summary": message[:80],
+        "summary": (flow_body or raw_message or "")[:80],
         "particle_sha": (out.get("particle") or {}).get("sha256", ""),
     }
     log_local(entry)

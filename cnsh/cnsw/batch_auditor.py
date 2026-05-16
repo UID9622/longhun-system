@@ -14,6 +14,7 @@ from typing import Any, Dict, Iterator, List, Tuple
 
 from .circuit_breaker import circuit_breaker
 from .hook_scanner import scan_output
+from .system_tricolor import aggregate_engineering_from_rows
 
 # 常见导出格式前缀（可继续扩充）
 _ASSISTANT_PREFIXES = (
@@ -124,11 +125,18 @@ def write_csv(rows: List[Dict[str, Any]], out_path: Path) -> None:
 
 def summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     if not rows:
-        return {"rounds": 0, "min_score": 100, "max_level": "L0"}
+        return {
+            "rounds": 0,
+            "min_score": 100,
+            "max_level": "L0",
+            "flow_tricolor": "🟢",
+            "commit_allowed": True,
+        }
     scores = [int(r["sovereignty_score"]) for r in rows]
     levels = [r["drift_level"] for r in rows]
     order = {"L0": 0, "L1": 1, "L2": 2, "L3": 3, "L4": 4, "L5": 5}
     worst = max(levels, key=lambda x: order.get(x, 0))
+    eng = aggregate_engineering_from_rows(rows)
     return {
         "rounds": len(rows),
         "min_score": min(scores),
@@ -136,6 +144,10 @@ def summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "avg_score": sum(scores) / len(scores),
         "worst_drift_level": worst,
         "l4_l5_count": sum(1 for r in rows if r["drift_level"] in ("L4", "L5")),
+        "flow_tricolor": eng.get("flow_tricolor"),
+        "cnsw_tricolor_worst": eng.get("cnsw_tricolor"),
+        "commit_allowed": bool(eng.get("commit_allowed")),
+        "p05_note": eng.get("p05_lane"),
     }
 
 
