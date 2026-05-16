@@ -22,12 +22,16 @@ from .system_tricolor import (
     worst_drift_level,
 )
 
+from .pseudocode_audit import audit_pseudocode_in_text, incremental_added_text_from_patch
+
 __all__ = [
     "SOVEREIGNTY_HOOKS",
     "SUPPLEMENTAL_HOOKS",
     "aggregate_engineering_from_rows",
     "audit_messages",
     "audit_text_file",
+    "audit_pseudocode_in_text",
+    "incremental_added_text_from_patch",
     "circuit_breaker",
     "engineering_tricolor",
     "flow_tricolor",
