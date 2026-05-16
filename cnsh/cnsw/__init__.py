@@ -15,17 +15,27 @@ from .batch_auditor import (
 from .circuit_breaker import circuit_breaker, set_audit_writer
 from .hook_scanner import scan_output, scan_outputs
 from .registry import SOVEREIGNTY_HOOKS, SUPPLEMENTAL_HOOKS
+from .system_tricolor import (
+    aggregate_engineering_from_rows,
+    engineering_tricolor,
+    flow_tricolor,
+    worst_drift_level,
+)
 
 __all__ = [
     "SOVEREIGNTY_HOOKS",
     "SUPPLEMENTAL_HOOKS",
+    "aggregate_engineering_from_rows",
     "audit_messages",
     "audit_text_file",
     "circuit_breaker",
+    "engineering_tricolor",
+    "flow_tricolor",
     "parse_chat_lines",
     "scan_output",
     "scan_outputs",
     "set_audit_writer",
     "summarize",
+    "worst_drift_level",
     "write_csv",
 ]
