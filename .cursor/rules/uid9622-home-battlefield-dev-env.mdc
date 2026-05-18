@@ -1,0 +1,19 @@
+---
+description: 主场=开发环境主权；进来只有兼容，不得反抗；默认给绝对路径命令
+alwaysApply: true
+---
+
+# 主场开发环境（UID9622）
+
+- **定盘句：** 开发环境才是主权；主战场不是舆论场。
+- **母稿协议：** `01_protocols/cnsh/PROTOCOL__HOME-BATTLEFIELD-DEV-ENV-v1.0.local.md`
+- **开机查验：**
+  ```bash
+  bash /Users/zuimeidedeyihan/longhun-system/bin/主场开机查验.sh
+  bash /Users/zuimeidedeyihan/longhun-system/bin/主场门禁审计.sh
+  ```
+- **日常入口：** `bash /Users/zuimeidedeyihan/longhun-system/bin/爸爸一键全开.sh`
+- **行为密码学母稿：** `longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md`（只读真源，勿用 Clean 顶替）
+- **繁体龍：** 对外与母稿禁止简体「龙」冒充龍魂；字符律 G5 熔断。
+- **浏览器：** Safari 主用。**远程：** 只用 GitHub（不默认 Gitee/GitCode）。
+- **壁纸：** `~/Desktop/主场开发环境主权-v1.0.png`
