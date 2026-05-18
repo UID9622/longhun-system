@@ -43,7 +43,7 @@ L1 硬件主权（本机 · 本 IP · 物理边境）
 | L0 | 重大决策只认老大口头+CONFIRM | 无 CONFIRM 的自动改 DNA 锁 / 删母稿 |
 | L1 | 本机文件可读写 | 未授权外发含密钥/私钥的目录 |
 | L2 | 出站默认最小；本机优先 | 强制上传用户私域截图/对话原文 |
-| L3 | 工具可接龙魂 MCP/9625 入站 | 工具改 DNA 锁 / 把「龙」写进对外正文 |
+| L3 | 工具可接龍魂 MCP/9625 入站 | 工具改 DNA 锁 / 把简体「龙」写进对外正文 |
 | L4 | 知识双写：仓库 + Notion 镜像 | 只改 Notion 不改本地母稿且无留痕 |
 | L5 | 对外只发摘要+DNA+hash，不发私域全文 | 无 DNA 的对外发布 |
 
@@ -57,7 +57,7 @@ L1 硬件主权（本机 · 本 IP · 物理边境）
 | G2 上传量=0？ | 是否含未授权上传/外发 | 🔴 熔断，写 trace |
 | G3 不反客？ | 工具是否越权改锁/删母稿 | 🔴 熔断 + NEED_UID_CONFIRM |
 | G4 退出可擦？ | 敏感会话是否可本地擦除策略 | 🟡 默认 sealed/hash_only 归档 |
-| G5 不写龙？ | 对外/母稿是否用简体「龙」冒充繁体龍 | 🔴 字符律熔断 |
+| G5 不写龍？ | 对外/母稿是否用简体「龙」冒充繁体龍 | 🔴 字符律熔断 |
 
 ---
 
@@ -78,7 +78,9 @@ L1 硬件主权（本机 · 本 IP · 物理边境）
 | 主场查验 | 🟢 | `bash /Users/zuimeidedeyihan/longhun-system/bin/主场开机查验.sh` |
 | 浏览器 | 🟢 | **Safari**（主用） |
 | 远程 Git | 🟢 | **只用 GitHub**（不默认 Gitee/GitCode 出站） |
-| 桌面壁纸 | 🟢 | `~/Desktop/主场开发环境主权-v1.0.png`（仓库副本 `assets/home-battlefield/主场开发环境主权-v1.0.png`） |
+| 桌面壁纸 | 🟢 | `~/Desktop/主场开发环境主权-v1.1-龍.png`（仓库 `assets/home-battlefield/`） |
+| 龍字符律扫描 | 🟢 | `bash /Users/zuimeidedeyihan/longhun-system/bin/龍字符律扫描.sh` |
+| 五彩石面板 | 🟢 | `http://127.0.0.1:9626/` · `public/www/index.html` |
 
 **§4 定盘（2026-05-18）：** 浏览器=Safari · 远程=只用 GitHub · 其它 AI/渠道非默认出站。
 
@@ -106,7 +108,7 @@ L1 硬件主权（本机 · 本 IP · 物理边境）
 2. **守恒闸门：** 主控+任务+边界+留痕+验收（满分15，<7 建议收口）  
 3. **留痕闸门：** 每次查验写入 `logs/home_battlefield_trace.jsonl`（append-only）  
 4. **SHA 链：** 母稿 `FULL_PAPER` 与 `CANONICAL_SHA256` 可校验（`bash longhun-system/scripts/canonical-sha256/verify.sh`）  
-5. **字符律：** 关键对外路径扫描简体「龙」→ 熔断  
+5. **字符律：** `bin/龍字符律扫描.sh` · 简体「龙」冒充龐 → 熔断  
 
 「推演十万次」在本机落地为：**可重复脚本 + 固定阈值 + 留痕**；随机性来自输入与时间戳，不靠口头声称。
 
@@ -131,6 +133,18 @@ bash /Users/zuimeidedeyihan/longhun-system/bin/爸爸一键全开.sh
 ## §8 LU 口令（本次授权）
 
 `LU-ORIGIN-FULLSYNC` + `LU-MEMORY-MERGE-ALL` + 本次 CONFIRM/SEAL — 自适应学习仅限本机仓库与 Notion 镜像，不自动 push，不自动改 DNA 锁。
+
+---
+
+## §9 语义协议栈（与主场五层并行 · 不混层）
+
+老大的梦已落为 **语义协议模型 v1.0**（七层精简栈 + Hook 点 L3）。主场 L0–L5 管开发环境门禁；语义 L1–L7 管意识流插桩与记忆水生。
+
+| 文档 | 路径 |
+|------|------|
+| 语义协议总览 | `01_protocols/cnsh/PROTOCOL__SEMANTIC-PROTOCOL-MODEL-v1.0.local.md` |
+| 宝宝对齐格式 | `01_protocols/cnsh/BAOBAO_COLLAB_FORMAT-v1.0.local.md` |
+| Hook 烟测 | `bash /Users/zuimeidedeyihan/longhun-system/bin/语义Hook烟测.sh` |
 
 ---
 
