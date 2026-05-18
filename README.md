@@ -1,5 +1,11 @@
 # Longhun System · 龍魂
 
+> **⚠️ Preprint v1.0 · Work in Progress · 约 40% sections marked skeleton**  
+> **Badge:** `v1.0-draft` · **not peer-reviewed** · **not journal-accepted**
+>
+> 行为密码学母稿: [`longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md`](longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md)  
+> 引用请标明 `v1.0-rc1 draft · CANONICAL_SHA256:892f96be3dfe5de0b1b7c96576eef0344fbd907ac79f882ac6ccf4b7ec2ddcfa` · 禁止越界主张（见 [`OVERCLAIM_BLACKLIST.md`](longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md)）
+
 Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 諸葛鑫).
 
 **Maintainer:** [UID9622](https://github.com/UID9622) · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`

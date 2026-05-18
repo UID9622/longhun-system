@@ -1,0 +1,8 @@
+# Cursor 执行指令包镜像 · BehavCrypto v1.0
+
+**DNA:** `#龍芯⚡2026-05-18-BEHAVCRYPTO-CURSOR-EXEC-ORDER-v1.0`  
+**CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+
+原文由 UID9622 下达 · 本文件为仓库内可审计镜像。逐步回执见 [`EXEC_TRACE_20260518.md`](./EXEC_TRACE_20260518.md)。
+
+P0: STEP 1–4 · P1: STEP 5–8 · P2: STEP 9–10 · P3: STEP 11

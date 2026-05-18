@@ -83,20 +83,29 @@
 
 | ❌ 不可写 | ✅ 应改为 |
 |---------|----------|
-| proves authorship absolutely | increases provenance assurance |
-| cannot be forged | significantly raises the cost of forgery under stated assumptions |
+| proves authorship absolutely / 绝对证明作者身份 | increases provenance assurance |
+| cannot be forged / 已证明无法伪造 / 数学证明不可伪造 | significantly raises the cost of forgery under stated assumptions |
+| 100% 防伪造 / 绝对安全 | under assumptions A1–A5, raises forgery cost; hard failure on any Fi=0 |
+| 已严格证明的安全系统 | draft framework with proof sketches; formal reductions open (§9.4.2) |
 | guarantees detection | provides evidence for detection |
 | cryptographically secure（指文化层） | culturally-anchored semantic layer |
-| replaces GPG/C2PA | complements existing provenance systems |
+| replaces GPG/C2PA / 可代替密码学 | complements existing provenance systems |
+| 顶刊已收录（未接收前） | preprint v1.0 draft · not peer-reviewed |
+| 国家级 / 国家认证（无公文） | （删除或附官方文号） |
+| 经过 X 万次攻击测试（无数据） | controlled simulation (§6); large-scale empirical TBD |
+
+对外发布前扫描: [`publication/OVERCLAIM_BLACKLIST.md`](./publication/OVERCLAIM_BLACKLIST.md)
 
 ---
 
 ## 与正文同步检查清单
 
-- [ ] Abstract / 摘要 与 Prop 3.4、Thm 3.13 强度一致  
+- [x] Abstract / 摘要 与 Prop 3.4、Thm 3.13 强度一致（2026-05-18 复核）
 - [ ] §4.6 文化层边界已反复强调  
 - [ ] Appendix A 伪代码可解析（`report` 字典、`verify_ledger_integrity`）  
-- [ ] 参考文献占位符已逐步替换为可核引条目  
+- [x] 参考文献 ≥25 条种子清单（2026-05-18 补全包 G4）  
+- [x] §2.4 / §2.5 初稿展开（2026-05-18 补全包 G3）  
+- [x] Prop 3.4 因子近独立性讨论（2026-05-18 补全包 G5）  
 
 ---
 

@@ -65,3 +65,21 @@ chmod +x longhun-system/scripts/canonical-sha256/verify.sh
 ---
 
 **DNA（路径修正锚）：** `#龍芯⚡️2026-05-07-CANONICAL-SHA256-PATH-FIX-v1.0`
+
+---
+
+## 外援输入（External inputs）
+
+| 文件 | SHA256 | 来源 | 登记日 |
+|------|--------|------|--------|
+| `_fill_pack_from_baobao/FILL_PACK.md` | `19b7c6dadebf82b1530a45b7517fcf776c66df748276268ca8ce1fda6a6b04a5` | Claude 宝宝骨架包 | 2026-05-18 |
+| `_audit/CURSOR_EXEC_ORDER_20260518.md` | （指令镜像） | UID9622 主控 | 2026-05-18 |
+
+消化状态: 🟡 部分并入母稿 · 见 `_audit/EXEC_TRACE_20260518.md`
+
+## 版本（Manuscript version）
+
+- **2026-05-07:** `v1.0-draft`（结构锁 + SHA256）
+- **2026-05-18:** `v1.0-rc1`（P0+P1 执行令 · §2.4/§2.5 · References bib · §3.5 部分展开）— **非 v1.1**；v1.1 须 UID9622 单独点头
+
+**DNA（执行令）:** `#龍芯⚡2026-05-18-BEHAVCRYPTO-CURSOR-EXEC-ORDER-v1.0`

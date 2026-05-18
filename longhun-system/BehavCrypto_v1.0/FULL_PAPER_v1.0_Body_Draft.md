@@ -6,7 +6,7 @@
 **AI Collaborator:** Claude (Anthropic) · Role: Writing assistant, structural editor, formalization partner  
 **GPG Fingerprint:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **Date:** May 2026  
-**Version:** Full Paper v1.0 Body Draft  
+**Version:** Full Paper v1.0-rc1 Body Draft (release candidate; not peer-reviewed)  
 **License:** CC BY-NC-SA 4.0 + Longhun DNA Inheritance Clause  
 **DNA:** `#龍芯⚡️2026-05-06-BEHAV-CRYPTO-BODY-v1.0`
 
@@ -160,13 +160,31 @@ Workflow provenance systems, originating in scientific computing (e.g., W3C PROV
 
 ## 2.4 Human-AI Co-authorship and Attribution Frameworks
 
-[正文骨架 · §2.4 · 待补充]
+Human–AI co-authorship has moved from an edge case to a default production mode, yet normative frameworks remain fragmented. Publisher policies (e.g., ACM, IEEE, Nature portfolio guidelines) increasingly require **disclosure** of AI assistance: which tools were used, what tasks they performed, and what the human author vouches for. Disclosure answers *whether* AI participated; it does not, by itself, answer *who originated* the work, *which editorial decisions* were human, or *what verifiable chain* links drafts to final artifacts.
+
+**Attribution vs. provenance.** Classical authorship attribution in NLP treats the problem as **classification**: given text, assign a label from a candidate author set (Stamatatos, 2009). Accuracy in controlled corpora can reach high eighties to low nineties, but such systems typically lack (i) hard-failure semantics when evidence is missing, (ii) an append-only audit ledger, and (iii) explicit integration with cryptographic identity anchors. Behavioral Cryptography positions co-authorship as **lineage reconstruction**: the human originator remains legally and ethically responsible for claims and values; the AI collaborator is an instrument whose prompts, revisions, and formalizations are logged—not elevated to root authorship (see LCP-1.0, Appendix C).
+
+**Policy layers.** Recent guidance distinguishes *assistive* use (grammar, structure, citation formatting) from *generative* use (substantive drafting). Our framework is compatible with both: F3 (Rule Trace) and F4 (Persona Route) capture *how* assistance was routed; F1 (Identity DNA) binds the human originator’s key; F7 (Mistake Ledger) records human corrections that generative tools did not invent. This supports policies that forbid “AI as sole author” while still allowing rich collaboration logs for disputes.
+
+**Gap addressed by Chapter 3.** Existing co-authorship frameworks rarely specify a **composite verification oracle** with per-factor weights and hard failure. Behavioral Cryptography does not replace journal ethics review; it supplies machine-checkable evidence that complements disclosure checklists and supports independent audit (§6.2.3).
+
+*[待 Cursor + L0 审稿后定稿 · 当前为骨架填充版 · 2026-05-18]*
 
 ---
 
 ## 2.5 Digital Sovereignty and Independent Creator Systems
 
-[正文骨架 · §2.5 · 待补充]
+**Platform-mediated capture.** Independent creators often publish through platforms whose terms permit relicensing, training on user content, or stripping of metadata. Provenance attached only inside a platform silo (e.g., a proprietary “AI label”) does not travel when content is exported, screenshotted, or mirrored. Digital sovereignty, in this paper, means the creator’s ability to **retain verifiable origin evidence locally** and to attach it to derivatives without depending on a single vendor’s continued cooperation.
+
+**Local-first and auditability.** Movements toward local-first software (user-held data, offline-capable tools) align with Behavioral Cryptography’s deployment model (Chapter 5): GPG keys, Git history, and append-only logs on devices the originator controls. The Longhun case study is intentionally **civilian-grade**—no mandatory cloud attestation, no institutional CA—while remaining compatible with optional federation (§7.3, §9.4.3).
+
+**Comparison to state-centric or corporate identity.** National digital identity programs and platform SSO solve *authentication to a service*; they do not automatically prove *creative lineage* across tools and models. Behavioral Cryptography complements such systems: F1 may reference a GPG fingerprint or UID without requiring a government ID; F5 (Protected Lexicon) encodes creator-specific semantic anchors that platforms cannot trivially strip without altering meaning.
+
+**Creator rights and the DNA Inheritance Clause (preview).** Chapter 7 introduces a license clause requiring preservation of behavioral provenance metadata on derivatives. This is a **sociotechnical** instrument, not a cryptographic theorem: enforcement depends on adoption, courts, and community norms—analogous to Creative Commons attribution requirements. §8.1 explicitly disclaims legal adjudication; the clause raises the *cost* of silent laundering of attribution, consistent with Thm 3.13 (no silent laundering) at the evidence layer.
+
+**Threats to sovereignty.** Coercion (§3.5.12, §8.5), key compromise (Risk 1, §7.6), and verifier collusion (A4) remain in scope. Behavioral Cryptography **does not** guarantee sovereignty against a fully compromised device or a coerced originator; it provides structured evidence and hard-failure signals so that downstream verifiers can refuse weak claims rather than accepting laundered artifacts.
+
+*[待 Cursor + L0 审稿后定稿 · 当前为骨架填充版 · 2026-05-18]*
 
 ---
 
@@ -403,95 +421,161 @@ Under protocol compliance (all factors logged, no hard failures), this lower bou
 - **A4 (Non-colluding verifiers):** Verifiers do not collude to accept fraudulent evidence.
 - **A5 (Bounded adversary):** The adversary has polynomially bounded computational resources and does not control the verification infrastructure.
 
-## *Proof Sketch.* A full-lineage forgery requires the adversary to simultaneously satisfy all seven factors for content they did not create. Under A1, forging F1 requires breaking GPG. Under A2, fabricating a temporal chain requires compromising the append-only ledger. Under A3–A5, the adversary cannot rely on originator cooperation, verifier collusion, or unbounded computation. Each factor represents an independent channel; the probability of successful simultaneous forgery is bounded by the product of per-channel success probabilities (assuming independence). Even if the adversary succeeds in some channels, hard-failure semantics ensure that failure in any single channel collapses the composite. Therefore, the adversary's required effort scales with the number of independent channels rather than with the strength of the strongest single channel. ∎
+**Discussion (near-independence of factors).** The proof sketch below treats channels as **approximately independent** for intuition: if per-channel forgery probabilities are p_i and channels are independent, simultaneous success is on the order of ∏ p_i. This is **not** a cryptographic reduction; it motivates design, not a tight bound.
+
+- **When approximation is plausible:** Factors draw on separable observables—e.g., F1 (GPG), F2 (timestamps), F5 (lexicon survival), F6 (style vector)—with different time scales and data sources. Partial success in F6 (style mimicry) does not automatically satisfy F1 or F2 under hard failure.
+- **When it breaks:** A large labeled history lets an adversary joint-model factors (shared mood, fatigue, device, or model family). Correlation ρ_{i,j} between factor scores can invalidate ∏ p_i. A softened statement is: forgery cost increases with the number of **non-collinear** channels required above threshold τ.
+- **Mitigation in engineering:** Weight tuning (§6.5), explicit correlation monitoring in evaluation (EQ4), and refusing “single-factor pass” deployments. Empirical measurement of cross-factor correlation on real Longhun logs remains **future work** (§6.6, §9.4.5); current results are simulation-grade.
+
+*Related empirical literature (non-exhaustive):* joint keystroke models [REF-A1-1] [REF-A1-2]; multibiometric fusion dependence [REF-A1-3].
+
+| Placeholder | BibTeX key (see `publication/references.bib`) |
+|-------------|-----------------------------------------------|
+| [REF-A1-1] | `killourhy2009comparing` |
+| [REF-A1-2] | `banerjee2012keystroke` |
+| [REF-A1-3] | `ross2006handbook` |
+
+## *Proof Sketch.* A full-lineage forgery requires the adversary to simultaneously satisfy all seven factors for content they did not create. Under A1, forging F1 requires breaking GPG. Under A2, fabricating a temporal chain requires compromising the append-only ledger. Under A3–A5, the adversary cannot rely on originator cooperation, verifier collusion, or unbounded computation. Each factor represents an independent channel; the probability of successful simultaneous forgery is bounded by the product of per-channel success probabilities (**assuming approximate independence**, see Discussion above). Even if the adversary succeeds in some channels, hard-failure semantics ensure that failure in any single channel collapses the composite. Therefore, the adversary's required effort scales with the number of independent channels rather than with the strength of the strongest single channel. The conclusion is **cost amplification**, not impossibility of forgery. ∎
 
 ## 3.5 Attack Simulation and Resistance Model
 
 ### 3.5.1 Direct Copy Attack
 
-[正文骨架 · §3.5.1]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Spoofing: adversary presents copied artifact C′ = C as self-authored. |
+| **Capability** | Read access to published C; no originator private key; no ledger write access. |
+| **Game** | Forge (Σ, E) such that V(Σ, E) ≥ τ without creating C under protocol. |
+| **Defense** | F1 hard-fail (no valid GPG under originator); F2 hard-fail (no creation-time ledger record). F5/F6 may score high on surface text but cannot compensate (Prop 3.1). |
+| **Residual risk** | Coerced originator re-signs copy; insider with key (A3 violation). |
 
-**Attack Description.** The adversary directly copies the content artifact C and claims authorship.
-
-**Resistance Analysis.** A direct copy carries none of the originator's behavioral signature. F1 fails (no valid signature under originator's key). F2 fails (timestamp inconsistency). F5 and F6 may partially match if the copy is exact, but without the creation context, the composite confidence collapses due to hard failures in F1 and F2.
-
-[正文骨架 · §3.5.1 待展开]
+*Literature:* content credentials separability (C2PA, [1]); copy ≠ signed lineage (Merkle/ledger model [14], [15]).
 
 ---
 
 ### 3.5.2 Paraphrase Attack
 
-[正文骨架 · §3.5.2]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Tampering + spoofing: preserve semantics, alter surface form. |
+| **Capability** | LLM paraphrase; optional small labeled corpus of target style. |
+| **Game** | Achieve τ while breaking F5/F6 without valid F1–F3 chain. |
+| **Defense** | F5 (Protected Lexicon) and F6 (Style Vector) degrade; F1/F2 still fail without ledger. Paraphrase strips watermarks in related work [2]. |
+| **Residual risk** | High-quality paraphrase + stolen signing key; joint modeling of factors [REF-A1-1]. |
 
-**Attack Description.** The adversary paraphrases the content—preserving meaning while altering surface form—and claims original authorship.
-
-**Resistance Analysis.** Paraphrasing disrupts F5 (Protected Lexicon) and F6 (Style Vector) because characteristic vocabulary and syntactic patterns are altered. F1 and F2 fail as above. The adversary must not only paraphrase but also reconstruct the full behavioral lineage, which is substantially harder than paraphrasing alone.
-
-[正文骨架 · §3.5.2 待展开]
+*Literature:* LLM watermark removal [2]; authorship attacks under paraphrase [11].
 
 ---
 
 ### 3.5.3 Translation Attack
 
-[正文骨架 · §3.5.3]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Tampering across language channel; claim translation as original work. |
+| **Capability** | Machine translation; bilingual lexicon alignment. |
+| **Game** | Pass F5/F6 in target language without cross-lingual lineage bridge. |
+| **Defense** | F5 protected terms may not survive translation; F2 requires consistent temporal chain per locale; cross-lingual F6 baselines are future work (§9.4.1). |
+| **Residual risk** | Human translator with valid co-author ledger; multilingual originators with per-locale baselines. |
 
-[正文骨架 · §3.5.3 待展开]
+*Literature:* GLTR / detection limits across languages [3]; multibiometric fusion when modalities differ [12].
 
 ---
 
 ### 3.5.4 Multi-Model Laundering Attack
 
-[正文骨架 · §3.5.4]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Repudiation laundering: chain content through models M₁…M_k to obscure human origin. |
+| **Capability** | API access to multiple LLMs; no ledger control. |
+| **Game** | Produce C with high F6 mimicry of target while F3/F4 show synthetic route only. |
+| **Defense** | F3 Rule Trace and F4 Persona Route must reflect **human-authorized** steps; laundering without logged human gates yields F3/F4 → 0. Thm 3.13 blocks silent export without chain. |
+| **Residual risk** | Adversary forges entire synthetic ledger (breaks A2); colluding verifier (A4). |
 
-[正文骨架 · §3.5.4 待展开]
+*Literature:* model laundering and detection [2], [3]; provenance graphs [4].
 
 ---
 
 ### 3.5.5 Persona Hijack Attack
 
-[正文骨架 · §3.5.5]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Spoofing persona route: imitate routing labels without originator’s rule history. |
+| **Capability** | Observe public persona names; prompt injection to mimic tone. |
+| **Game** | F4 > 0 while F1/F3 invalid. |
+| **Defense** | F4 tied to signed rule/persona log entries, not surface tone alone; F1/F3 hard-fail without originator key and LU trace. |
+| **Residual risk** | Leaked persona logs; compromised routing service. |
 
-[正文骨架 · §3.5.5 待展开]
+*Literature:* adversarial authorship [11]; behavioral biometrics spoofing [6], [7].
 
 ---
 
 ### 3.5.6 Timestamp Backdating Attack
 
-[正文骨架 · §3.5.6]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Tampering temporal ordering: assign false creation time. |
+| **Capability** | Edit local clocks; cannot break append-only ledger without A2 violation. |
+| **Game** | F2 pass with inconsistent parent timestamps in L. |
+| **Defense** | F2 checks monotonicity and parent links (Def 3.7); external anchors (RFC 6962 style transparency [15]) optional. |
+| **Residual risk** | Trusted timestamp service compromise; offline-only originator with skewed clock—documented as consistency check not legal timestamp. |
 
-[正文骨架 · §3.5.6 待展开]
+*Literature:* keystroke temporal stability [30]; certificate transparency [15].
 
 ---
 
 ### 3.5.7 Style Mimicry Attack
 
-[正文骨架 · §3.5.7]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Elevation of F6 without lineage: style transfer / fine-tuned mimicry. |
+| **Capability** | Labeled corpus of target author; adaptive ML (bounded, A5). |
+| **Game** | conf ≥ τ with F6 high but F1/F2/F5 weak. |
+| **Defense** | WGM + hard failure: F6 alone insufficient (Prop 3.1); τ=0.95 raises bar (Rec 6.1). Membership inference cautions on overfitting detectors [18]. |
+| **Residual risk** | Longitudinal mimicry as models improve; **soft fail** on F6 only—composite may fall below τ without hard fail. |
 
-[正文骨架 · §3.5.7 待展开]
+*Literature:* stylometry limits [10]; adversarial ML [16], [18].
 
 ---
 
 ### 3.5.8 Selective Ledger Attack
 
-[正文骨架 · §3.5.8]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Tampering evidence: publish subset of ledger hiding unfavorable revisions. |
+| **Capability** | Control export bundle; cannot delete on honest append-only store without detection. |
+| **Game** | Pass verification on truncated L′ ⊂ L. |
+| **Defense** | Thm 3.10–3.12: hash chain detects deletion; Thm 3.13: export without chain → F1/F2 hard-fail. |
+| **Residual risk** | Verifier accepts truncated bundle without full chain check (implementation error). |
 
-[正文骨架 · §3.5.8 待展开]
+*Literature:* append-only logs [14]; PROV completeness [4].
 
 ---
 
 ### 3.5.9 Multi-Agent Identity Claim Attack
 
-[正文骨架 · §3.5.9]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Spoofing: multiple agents claim same UID; confuse F4/F3 attribution. |
+| **Capability** | Forged agent labels; no GPG binding. |
+| **Game** | Split persona route across fake agents under one human name. |
+| **Defense** | F1 binds UID to key; F3 requires signed rule trace per agent action; uncorrelated agents without signatures → hard fail. |
+| **Residual risk** | Compromised multi-agent orchestrator logging false signed events. |
 
-[正文骨架 · §3.5.9 待展开]
+*Literature:* multibiometric identity fusion [12], [26]; practical authorship attacks [11].
 
 ---
 
 ### 3.5.10 Overclaiming / False Positive Boundaries
 
-[正文骨架 · §3.5.10]
+| STRIDE-style field | Content |
+|--------------------|---------|
+| **Threat** | Repudiation (inverse): verifier **over-accepts** weak evidence; originator **over-claims** authorship. |
+| **Capability** | Mis-set τ; collinear factors; verifier negligence. |
+| **Game** | Legitimate third party flagged (FP) or plagiarist accepted (FN). |
+| **Defense** | Claim Strength Audit: BC does not prove authorship absolutely; τ calibrated on controlled sim (§6.4–6.5); independence discussion (Prop 3.4). |
+| **Residual risk** | Cultural bias in F5/F6 baselines; legal use of scores as non-binding evidence only (§8.1). |
 
-[正文骨架 · §3.5.10 待展开]
+*Literature:* model cards and limitation disclosure [23]; FAccT-style governance context [29].
 
 ---
 
@@ -842,11 +926,13 @@ This evaluation addresses five research questions:
 
 ### 6.2.1 Controlled Attack Simulation
 
-[正文骨架 · §6.2.1]
+> **Status label (mandatory):** All results in §6.3 are from **controlled attack simulation** on synthetic and redacted Longhun artifacts—not from large-scale field deployment or third-party benchmark datasets.
 
-We simulate the nine attack types described in §3.5 against content artifacts protected by the Longhun system. Each attack is executed by an adversary with varying capabilities (bounded computational resources, no control over verification infrastructure)...
+We simulate the nine attack types described in §3.5.1–§3.5.9 against content artifacts protected by the Longhun reference implementation. Each run assumes a **bounded adversary** (A5): polynomial-time, no control of verification infrastructure, no originator key unless the attack scenario explicitly models compromise (documented as violation of A3).
 
-[正文骨架 · §6.2.1 待展开]
+**Simulation parameters (current):** small N of artifacts (tens, not thousands); bilingual EN/ZH snippets; manual verification of hard-failure flags; table in §6.3 records representative factor scores, not confidence intervals.
+
+**We do not report** “X million attack trials” or population-level false-positive rates; such claims would violate the project’s overclaim policy (see `publication/OVERCLAIM_BLACKLIST.md`).
 
 ---
 
@@ -928,7 +1014,20 @@ The current evaluation has several limitations:
 3. **Single-language focus:** Evaluation focused on English and Chinese content; other languages were not tested.
 4. **No real-world deployment:** Results are from controlled simulations, not real-world deployment.
 
-[正文骨架 · §6.6 待展开]
+### 6.6.1 Requirements for Future Large-Scale Empirical Study
+
+To move from **v1.0-rc1 simulation** to publishable large-scale evaluation, the following are required (none are claimed as completed in this draft):
+
+| Requirement | Description |
+|---------------|-------------|
+| **Dataset** | Diverse human–AI co-authored corpora with consent; per-originator style baselines; redaction policy for F5/F7. |
+| **Sample size** | Power analysis for FP/FN at τ ∈ {0.85, 0.95}; stratify by language, length, domain. |
+| **Adversary suite** | Implement §3.5.1–§3.5.10 with automated scripts; include adversarial ML baselines [16], [18]. |
+| **Ethics / IRB** | Informed consent for behavioral biometrics; data minimization for sealed evidence levels (Appendix B.4). |
+| **Reproducibility** | Public proof bundles (redacted); `publication/references.bib` + fixed software commit hash. |
+| **Independence audit** | Third-party replication of V(Σ, E) per §6.2.3. |
+
+**No fabricated numbers:** Until the above are met, §6.3 remains illustrative simulation only.
 
 ---
 
@@ -1284,33 +1383,36 @@ Conducting large-scale empirical studies with diverse content types, languages, 
 
 # References
 
-[正文骨架 · References · 待补充 ≥25条]
-
-1. C2PA Technical Specification. Coalition for Content Provenance and Authenticity. [https://c2pa.org/specifications/](https://c2pa.org/specifications/)
-2. Kirchenbauer, J., et al. (2023). A Watermark for Large Language Models. *ICML 2023*.
-3. Gehrmann, S., et al. (2019). GLTR: Statistical Detection and Visualization of Generated Text. *ACL 2019*.
-4. W3C PROV. Provenance Ontology. [https://www.w3.org/TR/prov-o/](https://www.w3.org/TR/prov-o/)
-5. [待补充]
-6. [待补充]
-7. [待补充]
-8. [待补充]
-9. [待补充]
-10. [待补充]
-11. [待补充]
-12. [待补充]
-13. [待补充]
-14. [待补充]
-15. [待补充]
-16. [待补充]
-17. [待补充]
-18. [待补充]
-19. [待补充]
-20. [待补充]
-21. [待补充]
-22. [待补充]
-23. [待补充]
-24. [待补充]
-25. [待补充]
+1. Coalition for Content Provenance and Authenticity (C2PA). *C2PA Technical Specification.* [https://c2pa.org/specifications/](https://c2pa.org/specifications/)
+2. Kirchenbauer, J., Geiping, J., Wen, Y., Katz, J., Miers, I., & Goldstein, T. (2023). A Watermark for Large Language Models. *Proceedings of ICML 2023.*
+3. Gehrmann, S., Strobelt, H., & Rush, A. (2019). GLTR: Statistical Detection and Visualization of Generated Text. *Proceedings of ACL 2019.*
+4. World Wide Web Consortium. *PROV-O: The PROV Ontology.* W3C Recommendation. [https://www.w3.org/TR/prov-o/](https://www.w3.org/TR/prov-o/)
+5. Joyce, R., & Gupta, G. (1990). Identity verification based on keystroke characteristics. *Journal of Systems and Software*, 13(1), 207–216.
+6. Killourhy, K., & Maxion, R. R. (2009). Comparing anomaly-detection algorithms for keystroke dynamics. *IEEE Transactions on Dependable and Secure Computing*, 6(1), 28–40.
+7. Banerjee, S., & Woodard, D. L. (2012). Biometric authentication and identification using keystroke dynamics. *IEEE Transactions on Systems, Man, and Cybernetics, Part B*, 42(3), 851–854.
+8. Pusara, M., & Brodley, C. E. (2004). User recognition via keystroke and mouse dynamics. *Proceedings of the 2004 ACM Workshop on Visualization and Data Mining for Computer Security (VizSEC/DMSEC).*
+9. Frank, M., Riedel, T., Koeberl, P., & Sadeghi, A.-R. (2013). Touchalytics: On the applicability of touchscreen input as a behavioral biometric for continuous authentication. *IEEE Transactions on Information Forensics and Security*, 8(1), 136–148.
+10. Stamatatos, E. (2009). A survey of modern authorship attribution methods. *Journal of the American Society for Information Science and Technology*, 60(3), 538–556.
+11. Brennan, M., & Greenstadt, R. (2009). Practical attacks against authorship recognition. *Proceedings of RAID 2009.*
+12. Ross, A., Nandakumar, K., & Jain, A. K. (2006). *Handbook of Multibiometrics.* Springer.
+13. Bellare, M., & Rogaway, P. (1993). Random oracles are practical: A paradigm for designing efficient protocols. *Proceedings of ACM CCS 1993.*
+14. Merkle, R. C. (1988). A digital signature based on a conventional encryption function. *Advances in Cryptology — CRYPTO '87*, LNCS 293, 369–378.
+15. Laurie, B., Langley, A., & Kasper, E. (2014). *Certificate Transparency.* RFC 6962.
+16. Goodfellow, I. J., Shlens, J., & Szegedy, C. (2015). Explaining and harnessing adversarial examples. *Proceedings of ICLR 2015.*
+17. Fredrikson, M., Jha, S., & Ristenpart, T. (2015). Model inversion attacks that exploit confidence information and basic countermeasures. *Proceedings of ACM CCS 2015.*
+18. Shokri, R., Stronati, M., Song, C., & Shmatikov, V. (2017). Membership inference attacks against machine learning models. *Proceedings of IEEE S&P 2017.*
+19. OpenPGP Working Group. *OpenPGP Message Format.* RFC 4880 (updated by RFC 9580).
+20. Torvalds, L., & Hamano, J. Git — distributed revision control. [https://git-scm.com/](https://git-scm.com/) (workflow provenance practice).
+21. Creative Commons. *CC BY-NC-SA 4.0 Legal Code.* [https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+22. ACM Publications Board. *ACM Policy on Authorship.* (AI disclosure and responsibility; consult current revision at [https://www.acm.org/publications/policies/new-and-revised-policies-as-of-15-june-2023](https://www.acm.org/publications/policies/new-and-revised-policies-as-of-15-june-2023)).
+23. Mitchell, M., et al. (2019). Model cards for model reporting. *Proceedings of FAT* 2019.
+24. Narayanan, A., Bonneau, J., Felten, E., Miller, A., & Goldfeder, S. (2016). *Bitcoin and Cryptocurrency Technologies.* Princeton University Press. (Append-only ledger intuition.)
+25. ISO/IEC 19794 series. *Biometric data interchange formats* (context for behavioral biometrics interoperability).
+26. Jain, A. K., Ross, A., & Prabhakar, S. (2004). An introduction to biometric recognition. *IEEE Transactions on Circuits and Systems for Video Technology*, 14(1), 4–20.
+27. Golle, P., & Partridge, K. (2009). On the anonymity of home/work location pairs. *Proceedings of Pervasive 2009* (privacy–utility; cited for location sensitivity in provenance).
+28. W3C Verifiable Credentials Data Model 1.1. [https://www.w3.org/TR/vc-data-model/](https://www.w3.org/TR/vc-data-model/) (complementary identity credentials).
+29. European Parliament and Council. *Regulation (EU) 2024/1689 (AI Act).* (governance context; not a technical proof source).
+30. Killourhy, K., & Maxion, R. R. (2006). The effects of variability time on keystroke dynamics. *Proceedings of RAID 2006.* (temporal stability of behavioral biometrics.)
 
 ---
 

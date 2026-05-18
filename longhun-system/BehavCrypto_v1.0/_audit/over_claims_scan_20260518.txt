@@ -1,0 +1,11 @@
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/Claim_Strength_Audit.md:86:| proves authorship absolutely / 绝对证明作者身份 | increases provenance assurance |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/Claim_Strength_Audit.md:87:| cannot be forged / 已证明无法伪造 / 数学证明不可伪造 | significantly raises the cost of forgery under stated assumptions |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/Claim_Strength_Audit.md:88:| 100% 防伪造 / 绝对安全 | under assumptions A1–A5, raises forgery cost; hard failure on any Fi=0 |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/Claim_Strength_Audit.md:89:| 已严格证明的安全系统 | draft framework with proof sketches; formal reductions open (§9.4.2) |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:13:| 1 | 「已证明无法伪造」/「数学证明不可伪造」 |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:14:| 2 | 「100% 防伪造」/「绝对安全」 |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:15:| 3 | 「已严格证明的安全系统」 |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:17:| 5 | 「绝对证明作者身份」/ proves authorship absolutely |
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:34:grep -rE "(无法伪造|100%.*防|绝对证明|不可能伪造|顶刊已收录|国家认证)" \
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/publication/OVERCLAIM_BLACKLIST.md:43:grep -nE "(cannot be forged|100% secure|proves authorship absolutely|cryptographically secure)" \
+/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/README.md:17:> - 不得在对外文案中写「已证明无法伪造」「绝对证明作者身份」等越界主张（见 [`publication/OVERCLAIM_BLACKLIST.md`](./publication/OVERCLAIM_BLACKLIST.md)）
