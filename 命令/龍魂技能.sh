@@ -49,6 +49,12 @@ with open(out, 'w', encoding='utf-8') as f:
 print('wrote', out)
 "
     ;;
+  notion)
+    exec "$REPO_ROOT/命令/Notion算力.sh" "$@"
+    ;;
+  dna-emit)
+    exec python3 "$SKILLS/dna_color_codec.py" --emit "$@"
+    ;;
   help|-h|--help)
     cat <<'EOF'
 龍魂 v3.0 主干 Skill
@@ -59,6 +65,7 @@ print('wrote', out)
   龍魂技能 translate    通心译 (6 项自测)
   龍魂技能 all-test     四件套全跑
   龍魂技能 export-dict   导出 data/tongxinyi_dict.json
+  龍魂技能 notion all    Notion 免费算力四用法导出
 
 路径: longhun-system/skills/
 EOF

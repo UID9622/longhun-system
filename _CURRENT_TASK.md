@@ -16,7 +16,8 @@
 
 待办:
 - [ ] on_flow / on_persona / AUDIT_LOG / VALUE_VETO (下一批)
-- [ ] Notion 词典同步脚本 (老大选用法 1–4 后做)
+- [x] Notion 免费算力四用法 → `命令/Notion算力.sh` (本机已跑通)
+- [ ] 填 config/notion_power.json 后 `dict --push` / `kanban-pull` 走 API
 - [ ] BehavCrypto QUESTIONS_FOR_LAODA 4 项待裁
 
 最近 DNA:

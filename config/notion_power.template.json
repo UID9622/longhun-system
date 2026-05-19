@@ -1,0 +1,16 @@
+{
+  "_comment": "复制为 config/notion_power.json 并填入 database_id（Notion 数据库页面 → 复制链接里的 ID）",
+  "notion_token": "从 config.json 读取，或设环境变量 NOTION_TOKEN",
+  "databases": {
+    "tongxinyi_dict": "",
+    "execute_board_parent_page": "",
+    "identity_audit_parent_page": "",
+    "kanban_tasks": ""
+  },
+  "export_dir": "数据/notion_export",
+  "local": {
+    "dict_json": "data/tongxinyi_dict.json",
+    "execute_trace": "日志/execute_trace.jsonl",
+    "identity_audit": "日志/identity_audit.jsonl"
+  }
+}

@@ -39,6 +39,19 @@ from on_translate import TongxinYi
 - `日志/execute_trace.jsonl` — 执行调度留痕
 - `data/tongxinyi_dict.json` — 通心译词典 (可扩展)
 
+## Notion 免费算力
+
+```bash
+命令/Notion算力.sh all          # 四用法一次导出
+命令/Notion算力.sh dict         # CSV → Notion 导入通心译
+命令/Notion算力.sh board        # 执行看板 MD
+命令/Notion算力.sh identity --snapshot
+命令/Notion算力.sh kanban run 数据/notion_export/kanban_tasks_*.json
+```
+
+配置: `config/notion_power.template.json` → `config/notion_power.json`  
+导出: `数据/notion_export/`
+
 ## 待焊 (下一批)
 
 on_flow · on_persona · AUDIT_LOG · VALUE_VETO — 见 `_archive_notes/V3_THREE_SKILLS_NOTES.txt`

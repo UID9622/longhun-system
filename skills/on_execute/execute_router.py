@@ -28,6 +28,10 @@ if _SKILLS_ROOT not in sys.path:
 _REPO_ROOT = os.path.dirname(_SKILLS_ROOT)
 _DEFAULT_LOG = os.path.join(_REPO_ROOT, "日志", "execute_trace.jsonl")
 try:
+    from dna_gate import require_dna
+except ImportError:
+    require_dna = None
+try:
     from on_guard.audit_v3 import audit, AuditResult, COLOR_GREEN, COLOR_YELLOW, COLOR_RED, COLOR_BLACK, COLOR_GOLD, COLOR_VOID
 except ImportError:
     # fallback: 直接定义 (开发模式)
@@ -89,6 +93,17 @@ class ExecuteRouter:
         if not self.queue:
             return None
         task = self.queue.pop(0)
+
+        # 步 0: DNA 登记门禁 · 没 DNA 不进入生态逻辑
+        if require_dna is not None:
+            gate = require_dna(task.context, actor=f"task:{task.id}", register=True)
+            if not gate.ok:
+                task.state = TaskState.BLOCKED
+                task.error = f"dna_gate: {gate.reason}"
+                self._trace("dna_gate_reject", task)
+                self.history.append(task)
+                return task
+            task.context.setdefault("dna", gate.dna)
 
         # 步 1: 审计 (五色 v3.0)
         task.state = TaskState.AUDITING
@@ -195,10 +210,14 @@ def _selftest():
     def green_action(task):
         return f"executed: {task.name}"
 
+    _dna = {
+        "dna": "#龍芯⚡2026-05-19-ON-EXECUTE-SELFTEST-v1.0[彩:🟢][流:木↑][触:可][宫:震][底:守]",
+    }
     t1 = Task(
         id="t001", name="日常记笔记",
         factors={"sharpness": 0.3, "long_term": 0.3, "density": 0.2,
                  "absence": 0.7, "pleasing": 0.6},
+        context=dict(_dna),
         action_callable=green_action,
     )
     router.enqueue(t1)
@@ -211,6 +230,7 @@ def _selftest():
         id="t002", name="极端越界",
         factors={"sharpness": 0.9, "long_term": 0.9, "density": 0.8,
                  "absence": 0.1, "pleasing": 0.1},
+        context=dict(_dna),
         action_callable=green_action,
     )
     router.enqueue(t2)
@@ -230,6 +250,7 @@ def _selftest():
         id="t003", name="易抖动任务",
         factors={"sharpness": 0.3, "long_term": 0.3, "density": 0.2,
                  "absence": 0.7, "pleasing": 0.6},
+        context=dict(_dna),
         action_callable=flaky_action,
         max_retries=5,
     )
@@ -246,6 +267,7 @@ def _selftest():
         id="t004", name="主权失锚",
         factors={"sharpness": 0.3, "long_term": 0.3, "density": 0.2,
                  "absence": 0.7, "pleasing": 0.6},
+        context=dict(_dna),
         triadic={"heaven": 0.1, "earth": 0.2, "human": 0.2},
         action_callable=green_action,
     )
