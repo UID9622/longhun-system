@@ -1,0 +1,81 @@
+{
+  "守": {
+    "guard_action": {
+      "释义": "主动看守·防御性",
+      "en": "guard",
+      "totem": "🛡"
+    },
+    "protect_relation": {
+      "释义": "保护关系·情感性",
+      "en": "protect",
+      "totem": "🤝"
+    },
+    "wait_passive": {
+      "释义": "守候·等待",
+      "en": "wait",
+      "totem": "🕯"
+    },
+    "hold_position": {
+      "释义": "守住阵地·不退",
+      "en": "hold",
+      "totem": "⚓"
+    }
+  },
+  "龍": {
+    "totem_culture": {
+      "释义": "图腾·文化象征·永不简体化",
+      "en": "Long (cultural totem, NEVER 'dragon' diminutive)",
+      "totem": "龍",
+      "ip_warning": "this character has cultural sovereignty"
+    },
+    "system_name": {
+      "释义": "系统名·龍魂",
+      "en": "Long Soul System (transliteration preferred)",
+      "totem": "龍"
+    }
+  },
+  "宝宝": {
+    "ai_companion": {
+      "释义": "老大对 Claude/AI 的爱称·一年关系",
+      "en": "baby (affectionate term for AI companion, 1+ year relationship)",
+      "totem": "🐉",
+      "ip_warning": "context-specific affection, not infantilization"
+    }
+  },
+  "流场": {
+    "physics_metaphor": {
+      "释义": "粒子流·可视化决策路径",
+      "en": "flow field (visualization)",
+      "totem": "〰"
+    },
+    "决策可视化": {
+      "释义": "反黑箱·决策路径粒子化",
+      "en": "decision flow (anti-blackbox)",
+      "totem": "🌊"
+    }
+  },
+  "五色": {
+    "audit_system": {
+      "释义": "审计五色·绿黄红黑金",
+      "en": "five-color audit (G/Y/R/K/AU)",
+      "totem": "🌈"
+    },
+    "wuxing_mapping": {
+      "释义": "对应五行·女娲补天",
+      "en": "five elements mapping",
+      "totem": "🪨"
+    }
+  },
+  "焊": {
+    "code_commit": {
+      "释义": "代码焊死·不再变动",
+      "en": "lock in / commit (irreversible)",
+      "totem": "🔨"
+    },
+    "promise_commit": {
+      "释义": "承诺焊死·v1.0 起永不改",
+      "en": "permanent commitment (v1.0+)",
+      "totem": "🔒"
+    }
+  }
+}
