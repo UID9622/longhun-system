@@ -216,6 +216,26 @@ def audit(task: str,
     dna = _dna_now()
     chain = {}  # 最小执行链留痕
 
+    # ━━━ Q0 · 地区主权 (#ZERO-REGION-NEGOTIATION) ━━━
+    try:
+        from region_sovereignty import scene_region_q0
+
+        q0_ok, q0_msg = scene_region_q0(task)
+        chain["Q0_region"] = q0_msg
+        if not q0_ok:
+            return AuditResult(
+                color=COLOR_RED,
+                R_value=None,
+                reasoning=q0_msg,
+                action="停止·校准设备 TZ/LANG/字符律后重审",
+                next_step="source ~/longhun-system/bin/sovereignty_init.sh",
+                dna_trace=dna,
+                override_required=True,
+                execution_chain=chain,
+            )
+    except ImportError:
+        chain["Q0_region"] = "skipped_no_module"
+
     # ━━━ 步 0 · α 合法性 (前置·裸 α 一票否决) ━━━
     alpha_violation = check_alpha_violation(context)
     if alpha_violation:

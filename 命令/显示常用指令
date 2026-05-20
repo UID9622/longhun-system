@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# 老大指令卡 · 只列常用的 · 不用背 46 个脚本
+# DNA: #龍芯⚡2026-05-20-CMD-CHEATSHEET-v1.0
+set -euo pipefail
+ROOT="${HOME}/longhun-system"
+BIN="${ROOT}/bin"
+
+cat <<'EOF'
+════════════════════════════════════════════════════════
+  🐉 龍魂 · 老大指令卡（2026-05-20）
+  你搞那么多自动，就是为了只记下面几条 — 没错
+════════════════════════════════════════════════════════
+
+【只记 3 条 · 90% 够用】
+
+  ① 全检（查本地+能修就修）
+     bash ~/longhun-system/bin/主场全链路自检.sh --fix
+
+  ② 看这张菜单（忘了就打）
+     bash ~/longhun-system/bin/显示常用指令
+
+  ③ 全开（9625+操作台+草日志监控）
+     bash ~/longhun-system/bin/爸爸一键全开.sh
+
+  终端别名（可选一次 source）:
+     source ~/longhun-system/加载环境.sh
+     → 全检 | 指令 | 对照入口
+
+────────────────────────────────────────────────────────
+【浏览器 · 不用记命令】
+
+  DNA 控制台    http://127.0.0.1:9625/console
+  操作台 MVP    http://127.0.0.1:8765/00_main_control/操作台v3/components/龍魂操作台_MVP_v1.html
+
+────────────────────────────────────────────────────────
+【按需 · 想起来再用】
+
+  本机开机（不拉公网）     bash bin/本机开机.sh
+  帮你检查全部（偏 9625）  bash bin/帮你检查全部
+  龍魂四 Skill 自测        bash bin/龍魂技能.sh all-test
+  CNSH 单测                bash bin/run_cnsh_tests.sh
+  本地搜文件               bash bin/本地_search.sh "关键词"
+  发射五彩 DNA             bash ~/longhun-system/发射DNA
+  Notion 算力导出          bash bin/Notion算力.sh all
+  公开层同步（要 token）   bash bin/公开层同步.command
+  指纹自检                 bash bin/指纹自检.sh
+  填 Notion 密钥           bash bin/帮你打开密钥填写
+
+────────────────────────────────────────────────────────
+【打字坑 · 龍 字】
+
+  文件名是 U+9F8D「龍」· 打成「龐」(U+9F90) 会找不到
+  已做软链: 龐魂技能 / zshrc_龐魂片段.sh 都能用
+  推荐: source ~/longhun-system/加载环境.sh
+
+【🟡 常误报 · 其实没事】
+
+  Notion MCP :9623  — Cursor 自带 Notion 插件时不一定要开
+                      要用: bash bin/开NotionMCP9623.sh
+
+  secrets.env 空   — engine/.env 有 ntn_ 就够 9625 用
+                      接单台同步才需要 ~/.longhun/secrets.env
+
+────────────────────────────────────────────────────────
+【文件夹 · 中文=英文】
+
+  命令/=bin/  技能/=skills/  日志/=logs/  主控/=本表
+  详表: cat ~/longhun-system/主控/入口对照_中英文.txt
+
+DNA: #龍芯⚡2026-05-20-CMD-CHEATSHEET-v1.0
+════════════════════════════════════════════════════════
+EOF
+
+# 顺手打一眼端口（不启动）
+for p in 9625 8765 11434 9623; do
+  if lsof -nP -iTCP:"$p" -sTCP:LISTEN >/dev/null 2>&1; then
+    echo "  :$p 🟢"
+  else
+    echo "  :$p ⚪"
+  fi
+done

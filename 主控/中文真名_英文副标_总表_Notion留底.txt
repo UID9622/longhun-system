@@ -1,0 +1,85 @@
+═══════════════════════════════════════════════════════════════
+龍魂系统 · 中文真名 ↔ 英文副标 · 总表（贴 Notion 留底）
+主控: UID9622 · 主权: 中文命名 + 本机真源 + 中英对照
+DNA: #龍芯⚡2026-05-19-ZH-EN-MASTER-TABLE-v1.0
+═══════════════════════════════════════════════════════════════
+
+【仓库根目录 · 中文入口（双击或终端·不要手敲龍字）】
+
+  发射DNA              ← 发射五彩身份证（无英文路径）
+  加载环境.sh          ← 终端加载别名
+  技能/                ← skills/
+  命令/                ← bin/
+  数据/                ← data/
+  日志/                ← logs/
+  主控/                ← 本表所在
+
+【命令/ 文件夹 · 中文真名 ↔ 英文副标】
+
+  中文真名              英文副标(代码用)        干什么
+  ─────────────────────────────────────────────────────────
+  发射DNA               lh-dna                 发射五彩DNA
+  龐魂技能.sh           (脚本名)              四主干自测28项
+  Notion算力.sh         notion-power           Notion四用法导出
+  显示dna               show-dna               红色DNA样例
+  zshrc_龐魂片段.sh     zshrc-snippet          终端配置片段
+  本机开机.sh           boot-local             本机开机
+  主场开机查验.sh       home-battlefield-check 主场查验
+  主场门禁审计.sh       gate-audit             门禁审计
+  语义Hook烟测.sh       semantic-hook-test     Hook烟测
+  本地_search.sh        local-search           本地搜索兜底
+
+【技能/ 文件夹 · 中文软链 ↔ 英文目录】
+
+  中文真名(点这个)       英文副标               干什么
+  ─────────────────────────────────────────────────────────
+  守门_五色审计          on_guard               五色审计v3·F18·α·六步链
+  执行调度               on_execute             任务队列·审计派发·重试
+  身份核验               on_identity            CONFIRM/SEAL/GPG·字符律
+  通心译                 on_translate           场景词典·0 LLM
+  Notion算力模块         notion_power           Notion免费算力四用法
+  归档说明               _archive_notes         升级说明留档
+  五彩DNA编解码.py       dna_color_codec.py     一眼看色·压缩尾标
+  DNA门禁.py             dna_gate.py            没DNA不执行
+
+【技能/ 内文件 · 中文职责 ↔ 英文文件名】
+
+  中文职责               英文文件名             说明
+  ─────────────────────────────────────────────────────────
+  五色审计主程序         audit_v3.py            12项自测
+  执行路由器             execute_router.py      4项自测
+  身份核验主程序         identity_verify.py     6项自测
+  通心译主程序           tongxinyi.py           6项自测
+  Notion算力主程序       free_compute.py        四用法CLI
+
+【数据/ 日志/ 其它顶层】
+
+  数据/                  data/                  tongxinyi_dict.json 等
+  日志/                  logs/                  execute_trace·dna_registry
+  数据/notion_export/    notion_export/         CSV/MD导出给Notion贴
+  协议库/                协议库/                CNSH协议
+  文件/                  files/                 网页宝宝投递
+  协议同步/              protocols-sync/        同步包
+  CNSH核心/              CNSH核心/              规范核心
+
+【DNA 尾标 · 中文标签（写在DNA字符串里）】
+
+  [彩:🟢]  绿·可通行    [彩:🟡]  黄·慢触复核
+  [彩:🔴]  红·禁止越界  [彩:⚫]  黑·隔离不转绿
+  [彩:🟡金] 金·仅主控    [彩:🔵]  VOID·绝对冻结
+  [流:木↑] 流场方向     [触:禁]  勿碰
+  [触:可]  可走         [触:主控-only] 仅老大+CONFIRM
+  [底:守]  底线焊死
+
+【铁律 · 主控已盖章】
+
+  · 没登记 DNA → 生态逻辑不执行
+  · Unicode 偷换「龍/龍」→ 字符律一票否决
+  · 默认不推云 · 你下令才动 Notion
+  · 中文是真名 · 英文是副标 · 不是让你只看英文
+
+【桌面双击 · 见「龍魂主控启动.command」】
+
+  不用 cat · 不用 Finder 找 · 不用手敲
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "CNSH-SEMLAYER Runtime",
+  "version": "1.4.0",
+  "description": "中文语义主权运行层 · 双轨闸门 · DNA 三验",
+  "default_locale": "zh_CN",
+  "action": {
+    "default_title": "CNSH 转译"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "clipboardWrite", "activeTab"],
+  "host_permissions": []
+}

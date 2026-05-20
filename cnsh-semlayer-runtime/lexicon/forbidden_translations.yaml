@@ -1,0 +1,20 @@
+# 禁简化 / 禁压缩 / 禁 ChatGPT 式偷换
+# CNSH-SEMLAYER v1.4
+
+forbidden_replacements:
+  - wrong: "DNA traceability only"
+    right: "DNA 三验锁人 + 留痕可追踪（闸门与日志分开）"
+  - wrong: "English-first runtime layer"
+    right: "中文语义主权运行层（英文附属）"
+  - wrong: "IP protection"
+    right: "身份锁 / 出代码权身份证（非知识产权主张）"
+
+must_keep_verbatim:
+  - "信任的基础止于沟通层"
+  - "锁人不锁账号"
+  - "龍"  # U+9F8D 禁止 U+9FB2 龍
+
+compress_ban:
+  - "把中文压成英文注释"
+  - "协议压过主权"
+  - "runtime 压掉伦理锚"

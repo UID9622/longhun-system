@@ -36,7 +36,7 @@ case "$cmd" in
     echo "── on_translate ──"
     python3 "$SKILLS/on_translate/tongxinyi.py"
     echo ""
-    echo "✓ 主干四 Skill 自测完成 (28/28)"
+    echo "✓ 主干四 Skill 自测完成 (identity 7/7 · 合计约 29/29)"
     ;;
   export-dict)
     python3 -c "
@@ -51,6 +51,10 @@ print('wrote', out)
     ;;
   notion)
     exec "$REPO_ROOT/命令/Notion算力.sh" "$@"
+    ;;
+  health|全检|自检|api-check)
+    shift || true
+    exec bash "$REPO_ROOT/命令/主场全链路自检.sh" "${@:---fix}"
     ;;
   dna-emit)
     exec python3 "$SKILLS/dna_color_codec.py" --emit "$@"

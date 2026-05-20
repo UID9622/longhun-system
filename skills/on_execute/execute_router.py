@@ -29,8 +29,11 @@ _REPO_ROOT = os.path.dirname(_SKILLS_ROOT)
 _DEFAULT_LOG = os.path.join(_REPO_ROOT, "日志", "execute_trace.jsonl")
 try:
     from dna_gate import require_dna
+    from render_gate import begin_render, close_render
 except ImportError:
     require_dna = None
+    begin_render = None
+    close_render = None
 try:
     from on_guard.audit_v3 import audit, AuditResult, COLOR_GREEN, COLOR_YELLOW, COLOR_RED, COLOR_BLACK, COLOR_GOLD, COLOR_VOID
 except ImportError:
@@ -94,8 +97,17 @@ class ExecuteRouter:
             return None
         task = self.queue.pop(0)
 
-        # 步 0: DNA 登记门禁 · 没 DNA 不进入生态逻辑
-        if require_dna is not None:
+        # 步 0: 渲染门禁 + DNA · 无 DNA = 结束渲染
+        if begin_render is not None:
+            rv = begin_render(task.context.get("dna"), task.context, actor=f"task:{task.id}")
+            if not rv.allow:
+                task.state = TaskState.BLOCKED
+                task.error = f"render_gate: {rv.reason}"
+                self._trace("render_denied", task)
+                self.history.append(task)
+                return task
+            task.context.setdefault("dna", rv.render_id)
+        elif require_dna is not None:
             gate = require_dna(task.context, actor=f"task:{task.id}", register=True)
             if not gate.ok:
                 task.state = TaskState.BLOCKED
@@ -149,6 +161,8 @@ class ExecuteRouter:
             task.error = f"void_sovereignty_lost: SI={result.SI_value}"
 
         self._trace("after_audit", task)
+        if close_render is not None and task.context.get("dna"):
+            close_render(task.context["dna"], status="after_audit")
         self.history.append(task)
         return task
 

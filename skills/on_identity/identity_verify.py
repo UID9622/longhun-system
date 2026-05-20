@@ -129,6 +129,7 @@ def verify_identity(
     uid_claim: Optional[str] = None,
     text_to_check: Optional[str] = None,
     behavior_samples: Optional[List[str]] = None,
+    skip_region: bool = False,
 ) -> IdentityResult:
     """
     身份核验主入口
@@ -138,6 +139,23 @@ def verify_identity(
     failures = []
     score_points = 0
     max_points = 0
+
+    # Q0 · 地区主权 (#ZERO-REGION-NEGOTIATION)
+    if not skip_region:
+        try:
+            from region_sovereignty import region_lock_check
+
+            rr = region_lock_check(text=text_to_check, strict_red=True)
+            checks["region_sovereignty"] = rr.ok
+            max_points += 15
+            if rr.ok:
+                score_points += 15
+            else:
+                failures.extend(rr.violations)
+            if rr.warnings:
+                failures.extend([f"warn:{w}" for w in rr.warnings[:2]])
+        except ImportError:
+            checks["region_sovereignty"] = True
 
     # 1. CONFIRM
     if confirm_token is not None:
@@ -280,8 +298,15 @@ def _selftest():
     assert r.is_master is False  # 但没 CONFIRM/GPG·不算主控
     print(f"  [6/6 ✓] 仅 SEAL · 通过但非主控 · score={r.score:.3f}")
 
+    # 测 7: 地区主权
+    r = verify_identity(text_to_check="龲魂", skip_region=False)
+    assert r.checks.get("region_sovereignty") is True
+    r_bad = verify_identity(text_to_check="按您所在地区推荐", skip_region=False)
+    assert not r_bad.checks.get("region_sovereignty", True)
+    print("  [7/7 ✓] 地区主权 Q0 · region_lock_check")
+
     print("=" * 60)
-    print("6/6 全过")
+    print("7/7 全过")
     print("=" * 60)
 
 
