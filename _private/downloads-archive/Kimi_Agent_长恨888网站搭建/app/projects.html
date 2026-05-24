@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目 · 龍魂 · longhun888.com</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Tooltip -->
+  <div id="cn-tooltip"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand">龍魂</a>
+    <nav>
+      <a href="index.html">主页</a>
+      <a href="projects.html" class="current">项目</a>
+      <a href="list.html">清单</a>
+      <a href="https://github.com/UID9622" target="_blank">退出</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="cn-canvas-container" style="height: 35vh; margin-bottom: 0;">
+        <canvas id="cn-canvas-main"></canvas>
+      </div>
+      <div style="position: relative; z-index: 1; margin-top: -6rem;">
+        <div class="title-card">
+          <h1 style="font-size: 2.5rem;">项目</h1>
+          <p class="subtitle">龍魂系统各模块与子项目</p>
+          <p class="desc">浏览流场、终端、审计引擎、时间引擎等核心模块的文档与入口。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nav Card -->
+    <div class="nav-card">
+      <div class="nav-links">
+        <a href="index.html">主页</a>
+        <a href="list.html">清单</a>
+      </div>
+    </div>
+
+    <!-- 流场宫殿 -->
+    <div class="h2-row">
+      <span class="line"></span>
+      <h2>流场宫殿</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="card">
+      <p class="sub" style="color: var(--gold); font-size: 0.85em; margin-bottom: 0.25rem;">Flow Palace</p>
+      <p class="desc">四大主厅，龍魂流场的核心入口。</p>
+      <hr class="divider">
+
+      <div class="hall-grid">
+        <div class="hall-card">
+          <div class="hall-label">UNIFIED FIELD</div>
+          <h4>统一流场 v9</h4>
+          <p class="hall-desc">洛书涡流 × 三才轨道 × 忠孝义三层权重 × R_CAP 95 储备光 × 年轮系统 × 道德经触发。集大成者。</p>
+          <p class="hall-status">推荐基线</p>
+        </div>
+
+        <div class="hall-card">
+          <div class="hall-label">SAN CAI</div>
+          <h4>三才流场 v8.1</h4>
+          <p class="hall-desc">天·地·人三场 Perlin 噪声叠加 · 忠孝义排序 · 智能活体仪表盘。储备光起源。</p>
+          <p class="hall-status">起源版</p>
+        </div>
+
+        <div class="hall-card">
+          <div class="hall-label">LUOSHU VORTEX</div>
+          <h4>洛书涡流 v2</h4>
+          <p class="hall-desc">九宫格戴九履一 · 奇数阳吸引 · 偶数阴排斥 · 洛书算子 L̂ 的纯粹形态。</p>
+          <p class="hall-status">独立支线</p>
+        </div>
+
+        <div class="hall-card">
+          <div class="hall-label">28 MANSIONS</div>
+          <h4>二十八星宿</h4>
+          <p class="hall-desc">Three.js 3D 球面星图 · 东青龙西白虎南朱雀北玄武 · 元宇宙 3D 入口雏形。</p>
+          <p class="hall-status">元宇宙雏形</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas interlude -->
+    <div class="cn-canvas-container">
+      <canvas id="cn-canvas-stars"></canvas>
+    </div>
+
+    <!-- 核心模块 -->
+    <div class="h2-row">
+      <span class="line"></span>
+      <h2>核心模块</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="card">
+      <p class="sub" style="color: var(--gold); font-size: 0.85em; margin-bottom: 0.25rem;">Core Modules</p>
+      <p class="desc">龍魂系统的六大功能模块。</p>
+      <hr class="divider">
+
+      <div class="module-list">
+        <div class="module-item">
+          <span class="module-name">DNA 追溯码系统</span>
+          <span class="module-desc">唯一身份标识生成与验证系统。</span>
+        </div>
+        <div class="module-item">
+          <span class="module-name">时间引擎</span>
+          <span class="module-desc">实时时钟 · 时间快照 · 锚点记录 · 时间差计算。</span>
+        </div>
+        <div class="module-item">
+          <span class="module-name">三色审计系统</span>
+          <span class="module-desc">天时 · 地利 · 人和三维评估，预警/警报/黑名单三级机制。</span>
+        </div>
+        <div class="module-item">
+          <span class="module-name">CNSH 控制台</span>
+          <span class="module-desc">China Native Semantic Hub · 中文语义中枢控制台。</span>
+        </div>
+        <div class="module-item">
+          <span class="module-name">AI 协作网络</span>
+          <span class="module-desc">多 AI 节点协作 · 任务分发 · 信任度评分。</span>
+        </div>
+        <div class="module-item">
+          <span class="module-name">操作日志</span>
+          <span class="module-desc">全系统操作记录 · 只增不删 · 区块链式审计日志。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 文章列表 -->
+    <div class="h2-row">
+      <span class="line"></span>
+      <h2>模块文档</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="card article-list">
+      <div class="article-item">
+        <a href="#" class="article-title">北辰母协议</a>
+        <p class="article-excerpt">龍魂最高宪法，七条永恒原则，一票否决，永不可改。</p>
+        <p class="article-meta">母协议 · P0-ETERNAL</p>
+      </div>
+      <div class="article-item">
+        <a href="#" class="article-title">龍魂终端 v3.0</a>
+        <p class="article-excerpt">CNSH 控制台，时间引擎，DNA 追溯码，审计系统，四大承诺。</p>
+        <p class="article-meta">终端 · v3.0.0</p>
+      </div>
+      <div class="article-item">
+        <a href="#" class="article-title">五行配色系统</a>
+        <p class="article-excerpt">基于日干动态计算的五行配色，竹绿/朱砂红/古铜金/墨蓝/赭黄五主色。</p>
+        <p class="article-meta">配色 · Wuxing</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <hr class="footer-line">
+      <div class="footer-card">
+        <div class="footer-links">
+          <a href="index.html">主页</a>
+          <a href="projects.html">项目</a>
+          <a href="list.html">清单</a>
+          <a href="https://github.com/UID9622" target="_blank">退出</a>
+        </div>
+        <p class="footer-copy">© 2026 龍魂 · 技术为人民服务</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="js/particles.js"></script>
+</body>
+</html>
