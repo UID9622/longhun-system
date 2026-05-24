@@ -52,3 +52,20 @@ tools/h_weapon_100k/out/
 cnsh/decision_cards/cards/**/*.md
 cnsh/decision_cards/db/*.sqlite*
 cnsh/decision_cards/logs/*.log
+
+# 小快乐专区（本地放松用·不入库·不污染主干）
+小快乐/
+
+# 语音虚拟环境（太大·本地重建即可）
+引擎/voice_env/
+**/voice_env/
+
+# 私密空间（不进git）
+CNSH/私密空间/
+# §9.49 中文路径永不进 git
+龍芯北辰UID9622/
+evidence-matrix/
+snapshots/
+logs/
+*.log
+*.backup.*
