@@ -1,0 +1,292 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "Kimi Code 文档" [ref=e6] [cursor=pointer]:
+            - /url: /code/docs/
+            - generic [ref=e7]: Kimi Code 文档
+          - generic [ref=e8]:
+            - button "Search" [ref=e11] [cursor=pointer]:
+              - generic [ref=e14]: Search
+              - generic [ref=e15]: ⌘ K
+            - button "extra navigation" [ref=e17] [cursor=pointer]
+  - button "On this page" [ref=e22] [cursor=pointer]: On this page
+  - complementary [ref=e24]:
+    - navigation "Sidebar Navigation" [ref=e26]:
+      - generic [ref=e27]: Sidebar Navigation
+      - generic [ref=e29]:
+        - button "Kimi Code" [ref=e30]:
+          - heading "Kimi Code" [level=2] [ref=e32]
+        - generic [ref=e33]:
+          - link "产品概览" [ref=e37] [cursor=pointer]:
+            - /url: /code/docs/
+            - paragraph [ref=e38]: 产品概览
+          - link "社区倡议" [ref=e42] [cursor=pointer]:
+            - /url: /code/docs/kimi-code/community-guidelines.html
+            - paragraph [ref=e43]: 社区倡议
+          - link "常见问题" [ref=e47] [cursor=pointer]:
+            - /url: /code/docs/kimi-code/faq.html
+            - paragraph [ref=e48]: 常见问题
+          - link "错误参考" [ref=e52] [cursor=pointer]:
+            - /url: /code/docs/kimi-code/error-reference.html
+            - paragraph [ref=e53]: 错误参考
+      - generic [ref=e55]:
+        - button "Kimi Code CLI" [ref=e56]:
+          - heading "Kimi Code CLI" [level=2] [ref=e58]
+        - generic [ref=e59]:
+          - link "快速开始" [ref=e63] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-cli/getting-started.html
+            - paragraph [ref=e64]: 快速开始
+          - link "核心操作" [ref=e68] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-cli/core-operations.html
+            - paragraph [ref=e69]: 核心操作
+          - generic [ref=e70]:
+            - button "配置 toggle section" [ref=e71] [cursor=pointer]:
+              - heading "配置" [level=3] [ref=e73]
+              - button "toggle section" [ref=e74]
+            - generic [ref=e76]:
+              - link "配置文件" [ref=e80] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/configuration/configuration-files.html
+                - paragraph [ref=e81]: 配置文件
+              - link "配置覆盖" [ref=e85] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/configuration/overrides-and-precedence.html
+                - paragraph [ref=e86]: 配置覆盖
+              - link "环境变量" [ref=e90] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/configuration/environment-variables.html
+                - paragraph [ref=e91]: 环境变量
+              - link "平台与模型" [ref=e95] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/configuration/providers-and-models.html
+                - paragraph [ref=e96]: 平台与模型
+              - link "数据路径" [ref=e100] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/configuration/data-locations.html
+                - paragraph [ref=e101]: 数据路径
+          - generic [ref=e102]:
+            - button "定制化 toggle section" [ref=e103] [cursor=pointer]:
+              - heading "定制化" [level=3] [ref=e105]
+              - button "toggle section" [ref=e106]
+            - generic [ref=e108]:
+              - link "官方插件 NEW" [ref=e112] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/official%20plugins.html
+                - paragraph [ref=e113]: 官方插件 NEW
+              - link "MCP" [ref=e117] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/mcp.html
+                - paragraph [ref=e118]: MCP
+              - link "Hooks (Beta)" [ref=e122] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/hooks.html
+                - paragraph [ref=e123]: Hooks (Beta)
+              - link "Skills" [ref=e127] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/skills.html
+                - paragraph [ref=e128]: Skills
+              - link "自定义插件 (Beta)" [ref=e132] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/plugins.html
+                - paragraph [ref=e133]: 自定义插件 (Beta)
+              - link "Agents 和 Subagents" [ref=e137] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/sub-agents.html
+                - paragraph [ref=e138]: Agents 和 Subagents
+              - link "Wire Protocol" [ref=e142] [cursor=pointer]:
+                - /url: /code/docs/kimi-code-cli/customization/wire-protocol.html
+                - paragraph [ref=e143]: Wire Protocol
+          - button "参考手册 toggle section" [ref=e145] [cursor=pointer]:
+            - heading "参考手册" [level=3] [ref=e147]
+            - button "toggle section" [ref=e148]
+      - generic [ref=e151]:
+        - button "Kimi Code for VS Code" [ref=e152]:
+          - heading "Kimi Code for VS Code" [level=2] [ref=e154]
+        - generic [ref=e155]:
+          - link "快速开始" [ref=e159] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-for-vscode/getting-started.html
+            - paragraph [ref=e160]: 快速开始
+          - link "核心操作" [ref=e164] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-for-vscode/core-operations.html
+            - paragraph [ref=e165]: 核心操作
+          - link "配置" [ref=e169] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-for-vscode/configuration.html
+            - paragraph [ref=e170]: 配置
+          - link "定制化" [ref=e174] [cursor=pointer]:
+            - /url: /code/docs/kimi-code-for-vscode/customization.html
+            - paragraph [ref=e175]: 定制化
+      - generic [ref=e177]:
+        - button "在更多第三方工具中使用" [ref=e178]:
+          - heading "在更多第三方工具中使用" [level=2] [ref=e180]
+        - generic [ref=e181]:
+          - link "JetBrains" [ref=e185] [cursor=pointer]:
+            - /url: /code/docs/third-party-tools/jetbrains.html
+            - paragraph [ref=e186]: JetBrains
+          - link "Zed" [ref=e190] [cursor=pointer]:
+            - /url: /code/docs/third-party-tools/zed.html
+            - paragraph [ref=e191]: Zed
+          - link "Zsh" [ref=e195] [cursor=pointer]:
+            - /url: /code/docs/third-party-tools/zsh.html
+            - paragraph [ref=e196]: Zsh
+          - link "在其他 coding agent 中使用" [ref=e200] [cursor=pointer]:
+            - /url: /code/docs/third-party-tools/other-coding-agents.html
+            - paragraph [ref=e201]: 在其他 coding agent 中使用
+  - generic [ref=e206]:
+    - main [ref=e207]:
+      - generic [ref=e382]:
+        - heading "官方插件 Permalink to “官方插件”" [level=1] [ref=e383]:
+          - text: 官方插件
+          - link "Permalink to “官方插件”" [ref=e384] [cursor=pointer]:
+            - /url: "#官方插件"
+            - text: "#"
+        - heading "kimi-datasource (Beta) Permalink to “kimi-datasource (Beta)”" [level=2] [ref=e385]:
+          - text: kimi-datasource (Beta)
+          - link "Permalink to “kimi-datasource (Beta)”" [ref=e386] [cursor=pointer]:
+            - /url: "#kimi-datasource-beta"
+            - text: "#"
+        - paragraph [ref=e387]: kimi-datasource 是 Kimi Code 官方推出的股票行情插件，支持查询 A 股、港股的实时价格、技术指标和盘面摘要，全程通过自然语言驱动，无需手动调用接口。
+        - heading "快速开始 Permalink to “快速开始”" [level=2] [ref=e388]:
+          - text: 快速开始
+          - link "Permalink to “快速开始”" [ref=e389] [cursor=pointer]:
+            - /url: "#快速开始"
+            - text: "#"
+        - paragraph [ref=e390]:
+          - text: ①
+          - strong [ref=e391]: 打开终端、安装插件
+        - generic [ref=e392]:
+          - button "Copy Code" [ref=e393] [cursor=pointer]
+          - generic [ref=e394]: bash
+          - code [ref=e396]:
+            - generic [ref=e397]: kimi plugin install https://cdn.kimi.com/kimi-code-plugins/kimi-datasource.zip
+        - blockquote [ref=e398]:
+          - paragraph [ref=e399]:
+            - text: 插件安装后位于
+            - code [ref=e400]: ~/.kimi/plugins/
+            - text: 。
+        - paragraph [ref=e401]: │
+        - paragraph [ref=e402]:
+          - text: ②
+          - strong [ref=e403]: 验证安装
+        - generic [ref=e404]:
+          - button "Copy Code" [ref=e405] [cursor=pointer]
+          - generic [ref=e406]: bash
+          - code [ref=e408]:
+            - generic [ref=e409]: kimi plugin list
+        - paragraph [ref=e410]:
+          - text: 确认输出中包含
+          - code [ref=e411]: kimi-datasource
+          - text: 即安装成功。
+        - paragraph [ref=e412]: │
+        - paragraph [ref=e413]:
+          - text: ③
+          - strong [ref=e414]: 唤起 Kimi，开始使用
+        - paragraph [ref=e415]: 通过 slash 命令触发：
+        - generic [ref=e416]:
+          - button "Copy Code" [ref=e417] [cursor=pointer]
+          - code [ref=e419]:
+            - generic [ref=e420]: /skill:kimi-datasource 帮我查一下茅台现在的价格
+        - paragraph [ref=e421]: 或直接用自然语言描述需求，Kimi 会自动调用插件，例如：
+        - generic [ref=e422]:
+          - button "Copy Code" [ref=e423] [cursor=pointer]
+          - code [ref=e425]:
+            - generic [ref=e426]: 比亚迪今天收盘涨了还是跌了
+        - heading "功能覆盖 Permalink to “功能覆盖”" [level=2] [ref=e427]:
+          - text: 功能覆盖
+          - link "Permalink to “功能覆盖”" [ref=e428] [cursor=pointer]:
+            - /url: "#功能覆盖"
+            - text: "#"
+        - table [ref=e429]:
+          - rowgroup [ref=e430]:
+            - row "功能类别 说明 支持市场" [ref=e431]:
+              - columnheader "功能类别" [ref=e432]
+              - columnheader "说明" [ref=e433]
+              - columnheader "支持市场" [ref=e434]
+          - rowgroup [ref=e435]:
+            - row "实时行情 当前价、分钟 K 线、涨跌幅 A 股、港股" [ref=e436]:
+              - cell "实时行情" [ref=e437]
+              - cell "当前价、分钟 K 线、涨跌幅" [ref=e438]
+              - cell "A 股、港股" [ref=e439]
+            - row "技术指标 MACD、KDJ、RSI、BOLL、MA 等 仅 A 股" [ref=e440]:
+              - cell "技术指标" [ref=e441]
+              - cell "MACD、KDJ、RSI、BOLL、MA 等" [ref=e442]
+              - cell "仅 A 股" [ref=e443]
+            - row "开盘摘要 盘前参考价（前一日收盘） A 股、港股" [ref=e444]:
+              - cell "开盘摘要" [ref=e445]
+              - cell "盘前参考价（前一日收盘）" [ref=e446]
+              - cell "A 股、港股" [ref=e447]
+            - row "收盘摘要 涨跌幅、成交量、换手率、均价等 A 股、港股" [ref=e448]:
+              - cell "收盘摘要" [ref=e449]
+              - cell "涨跌幅、成交量、换手率、均价等" [ref=e450]
+              - cell "A 股、港股" [ref=e451]
+            - row "自选股管理 添加、查看自选股，支持持仓盈亏计算 A 股、港股" [ref=e452]:
+              - cell "自选股管理" [ref=e453]
+              - cell "添加、查看自选股，支持持仓盈亏计算" [ref=e454]
+              - cell "A 股、港股" [ref=e455]
+        - blockquote [ref=e456]:
+          - paragraph [ref=e457]: 美股、ETF、指数、基金暂不支持。
+        - heading "示例 Permalink to “示例”" [level=2] [ref=e458]:
+          - text: 示例
+          - link "Permalink to “示例”" [ref=e459] [cursor=pointer]:
+            - /url: "#示例"
+            - text: "#"
+        - group [ref=e460]:
+          - generic "查询实时股价" [ref=e461] [cursor=pointer]
+        - group [ref=e462]:
+          - generic "查看技术指标" [ref=e463] [cursor=pointer]
+        - group [ref=e464]:
+          - generic "收盘摘要" [ref=e465] [cursor=pointer]
+        - group [ref=e466]:
+          - generic "多股对比" [ref=e467] [cursor=pointer]
+        - group [ref=e468]:
+          - generic "添加自选股" [ref=e469] [cursor=pointer]
+        - heading "插件管理 Permalink to “插件管理”" [level=2] [ref=e470]:
+          - text: 插件管理
+          - link "Permalink to “插件管理”" [ref=e471] [cursor=pointer]:
+            - /url: "#插件管理"
+            - text: "#"
+        - paragraph [ref=e472]: 查看插件详情
+        - generic [ref=e473]:
+          - button "Copy Code" [ref=e474] [cursor=pointer]
+          - generic [ref=e475]: bash
+          - code [ref=e477]:
+            - generic [ref=e478]: kimi plugin info kimi-datasource
+        - paragraph [ref=e479]: 卸载
+        - generic [ref=e480]:
+          - button "Copy Code" [ref=e481] [cursor=pointer]
+          - generic [ref=e482]: bash
+          - code [ref=e484]:
+            - generic [ref=e485]: kimi plugin remove kimi-datasource
+        - paragraph [ref=e486]: 升级（重新安装覆盖即可）
+        - generic [ref=e487]:
+          - button "Copy Code" [ref=e488] [cursor=pointer]
+          - generic [ref=e489]: bash
+          - code [ref=e491]:
+            - generic [ref=e492]: kimi plugin install https://cdn.kimi.com/kimi-code-plugins/kimi-datasource.zip
+        - heading "注意事项 Permalink to “注意事项”" [level=2] [ref=e493]:
+          - text: 注意事项
+          - link "Permalink to “注意事项”" [ref=e494] [cursor=pointer]:
+            - /url: "#注意事项"
+            - text: "#"
+        - list [ref=e495]:
+          - listitem [ref=e496]: 本插件为只读查询，不提供交易下单功能。
+          - listitem [ref=e497]: 数据覆盖 A 股（上交所、深交所、北交所）及港股，美股暂不支持。
+          - listitem [ref=e498]: 技术指标（MACD、KDJ 等）及实时行情仅在交易时段内可用。
+          - listitem [ref=e499]: AI 输出内容仅供参考，不构成任何投资建议。
+        - heading "下一步 Permalink to “下一步”" [level=2] [ref=e500]:
+          - text: 下一步
+          - link "Permalink to “下一步”" [ref=e501] [cursor=pointer]:
+            - /url: "#下一步"
+            - text: "#"
+        - list [ref=e502]:
+          - listitem [ref=e503]:
+            - link "自定义插件" [ref=e504] [cursor=pointer]:
+              - /url: ./plugins.html
+            - text: — 了解如何安装、卸载与配置自己的插件
+          - listitem [ref=e505]:
+            - link "Skills" [ref=e506] [cursor=pointer]:
+              - /url: ./skills.html
+            - text: — 了解 skill 的调用方式与目录结构
+    - contentinfo [ref=e374]:
+      - navigation "Pager" [ref=e375]:
+        - generic [ref=e376]: Pager
+        - link "上一页 数据路径" [ref=e507] [cursor=pointer]:
+          - /url: /code/docs/kimi-code-cli/configuration/data-locations.html
+          - generic [ref=e508]: 上一页
+          - generic [ref=e509]: 数据路径
+        - link "下一页 MCP" [ref=e510] [cursor=pointer]:
+          - /url: /code/docs/kimi-code-cli/customization/mcp.html
+          - generic [ref=e380]: 下一页
+          - generic [ref=e381]: MCP
