@@ -1,0 +1,6 @@
+#!/bin/bash
+# 全系统龍化脚本 - 把设备里所有"龘"改成"龍"
+# 用法: 全系统龍化 [目录]  默认当前目录
+DIR="${1:-$HOME/longhun-system}"
+find "$DIR" -type f \( -name "*.sh" -o -name "*.py" -o -name "*.md" -o -name "*.html" -o -name "*.json" -o -name "*.txt" \) -exec sed -i '' 's/龘魂/龍魂/g; s/龘芯/龍芯/g; s/一条龘/一条龍/g; s/龘/龍/g' {} \; 2>/dev/null
+echo "🐉 搞定。$DIR 里所有'龘'已变'龍'。"

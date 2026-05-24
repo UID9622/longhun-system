@@ -88,6 +88,7 @@
 - **宪法：** `01_protocols/cnsh/PROTOCOL__SOVEREIGN-CONTAINER-v1.0.md`
 - **第一道闸门：** `01_protocols/cnsh/PROTOCOL__FIRST-GATE-v3.0.md` · `cnsh/gate_v3/`
 - **口令备忘：** `01_protocols/cnsh/UID9622-口令备忘-v1.0.md`
+- **AI 对接守则：** `[IPA-AI-HANDSHAKE-BASELINE-v1.0]` · `01_protocols/cnsh/PROTOCOL__AI-HANDSHAKE-BASELINE-v1.0.local.md` · `.cursor/rules/uid9622-ai-handshake-baseline.mdc`
 - **收纳分流：** `01_protocols/cnsh/PROTOCOL__收纳与分流-v1.0.md` · `cnsh/intake/triage.py` · `sandbox/intake/`
 - **对账表：** `01_protocols/IPA-RECONCILE-v1.0.md`
 - **95/5：** `01_protocols/cnsh/PROTOCOL__95-5-ROOT-RATIO-v2.0.md` · `cnsh/root_ratio/`
@@ -98,6 +99,7 @@
 - **路径：** `cnsh/flow_decision/`
 - **入口：** `run_flow_decision(raw_input, tags)`（`cnsh_flow_decision_core.py`）
 - **网关：** `engines/cnsh_gateway.py` → `POST /flow`（推荐）；`POST /chat` 兼容
+- **测试：** `bash ~/longhun-system/bin/run_cnsh_tests.sh`（闸门+流场+三才等·见 `requirements-dev.txt`）
 - **测试：** `python3 -m unittest discover -s cnsh/flow_decision/tests -p 'test_*.py' -v`
 - **测试：** `python3 -m unittest discover -s cnsh/sovereign/tests -p 'test_*.py' -v`
 

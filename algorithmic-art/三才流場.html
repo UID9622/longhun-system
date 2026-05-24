@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三才流場 · San Cai Flow Field · UID9622</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #f8f6f0 0%, #ede8df 50%, #f0ece3 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e8e0d4;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .logo { font-size: 22px; }
+    .title-block h1 { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.3px; }
+    .title-block p { font-size: 11px; color: #8a7968; font-weight: 300; }
+    .dna-badge {
+      font-size: 10px; color: #9c7c3c; background: #fdf6e8;
+      border: 1px solid #e8d5a0; border-radius: 20px; padding: 3px 10px;
+    }
+
+    .main-layout {
+      display: flex;
+      flex: 1;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 260px;
+      min-width: 260px;
+      background: white;
+      border-right: 1px solid #e8e0d4;
+      padding: 20px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #9c7c3c;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f0e8d8;
+    }
+
+    /* Seed Controls */
+    .seed-display {
+      background: #fdf8f2;
+      border: 1px solid #e8d5a0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .seed-label { font-size: 10px; color: #8a7968; text-transform: uppercase; letter-spacing: 0.8px; }
+    .seed-number { font-size: 24px; font-weight: 600; color: #4a3728; font-variant-numeric: tabular-nums; }
+
+    .seed-nav { display: flex; gap: 6px; margin-bottom: 8px; }
+    .seed-nav button {
+      flex: 1; padding: 7px 4px; font-size: 12px; font-weight: 500;
+      border: 1px solid #ddd; border-radius: 6px; background: white;
+      cursor: pointer; color: #4a3728; transition: all 0.15s;
+    }
+    .seed-nav button:hover { background: #fdf6e8; border-color: #c8a96e; }
+
+    .seed-jump { display: flex; gap: 6px; }
+    .seed-jump input {
+      flex: 1; padding: 7px 10px; font-size: 12px; border: 1px solid #ddd;
+      border-radius: 6px; outline: none; color: #4a3728;
+    }
+    .seed-jump input:focus { border-color: #c8a96e; }
+    .seed-jump button {
+      padding: 7px 14px; font-size: 12px; font-weight: 600;
+      background: #c8a96e; color: white; border: none;
+      border-radius: 6px; cursor: pointer; transition: background 0.15s;
+    }
+    .seed-jump button:hover { background: #b8935a; }
+
+    /* Parameter Controls */
+    .control-group { margin-bottom: 14px; }
+    .control-group label {
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: #5a4a38; font-weight: 500; margin-bottom: 5px;
+    }
+    .control-group label .val {
+      font-weight: 400; color: #9c7c3c; font-variant-numeric: tabular-nums;
+    }
+    .control-group input[type=range] {
+      width: 100%; height: 4px; appearance: none;
+      background: linear-gradient(to right, #c8a96e, #c8a96e) no-repeat;
+      background-size: var(--fill, 50%) 100%;
+      background-color: #e8e0d4;
+      border-radius: 2px; cursor: pointer; outline: none;
+    }
+    .control-group input[type=range]::-webkit-slider-thumb {
+      appearance: none; width: 14px; height: 14px;
+      background: #c8a96e; border-radius: 50%;
+      border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Three Talents weights */
+    .weights-display {
+      background: #fdf8f2; border-radius: 8px; padding: 10px 12px;
+      margin-bottom: 6px;
+    }
+    .weight-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 11px; color: #5a4a38; margin-bottom: 5px;
+    }
+    .weight-row:last-child { margin-bottom: 0; }
+    .weight-bar-bg { flex: 1; height: 5px; background: #e8e0d4; border-radius: 3px; overflow: hidden; }
+    .weight-bar { height: 100%; border-radius: 3px; transition: width 0.3s; }
+    .w-heaven { background: #6ba3d6; }
+    .w-earth  { background: #7db87d; }
+    .w-human  { background: #d4866a; }
+
+    /* Color pickers */
+    .color-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .color-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .color-item label { font-size: 10px; color: #8a7968; }
+    .color-item input[type=color] {
+      width: 36px; height: 28px; border: 1px solid #ddd;
+      border-radius: 5px; cursor: pointer; padding: 2px;
+    }
+
+    /* Action buttons */
+    .action-btn {
+      width: 100%; padding: 9px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; cursor: pointer; transition: all 0.15s;
+      margin-bottom: 7px; border: none;
+    }
+    .btn-primary { background: #c8a96e; color: white; }
+    .btn-primary:hover { background: #b8935a; }
+    .btn-secondary { background: #f0ece3; color: #5a4a38; border: 1px solid #ddd; }
+    .btn-secondary:hover { background: #e8e0d4; }
+    .btn-dl { background: #4a7c6e; color: white; }
+    .btn-dl:hover { background: #3a6c5e; }
+
+    /* Canvas */
+    .canvas-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #canvas-container canvas {
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    }
+
+    /* Status bar */
+    .status-bar {
+      background: white;
+      border-top: 1px solid #e8e0d4;
+      padding: 8px 28px;
+      font-size: 11px;
+      color: #8a7968;
+      display: flex;
+      gap: 20px;
+    }
+    .status-item span { color: #4a3728; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo">🐉</div>
+    <div class="title-block">
+      <h1>三才流場 · San Cai Flow Field</h1>
+      <p>天地人三才算法 · 粒子流场生成艺术 · UID9622</p>
+    </div>
+  </div>
+  <div class="dna-badge">#龍芯⚡️2026-03-27-三才流場-v1.0</div>
+</header>
+
+<div class="main-layout">
+  <div class="sidebar">
+
+    <!-- SEED SECTION (FIXED) -->
+    <div class="section">
+      <div class="section-title">🌱 种子 · Seed</div>
+      <div class="seed-display">
+        <div class="seed-label">当前种子</div>
+        <div class="seed-number" id="seed-display">9622</div>
+      </div>
+      <div class="seed-nav">
+        <button onclick="changeSeed(-1)">← 上一</button>
+        <button onclick="randomSeedFn()">🎲 随机</button>
+        <button onclick="changeSeed(1)">下一 →</button>
+      </div>
+      <div class="seed-jump">
+        <input type="number" id="seed-input" placeholder="输入种子..." min="1" max="99999">
+        <button onclick="jumpSeed()">跳转</button>
+      </div>
+    </div>
+
+    <!-- PARAMETERS (VARIABLE) -->
+    <div class="section">
+      <div class="section-title">⚙️ 参数 · Parameters</div>
+
+      <div class="control-group">
+        <label>粒子数量 <span class="val" id="particles-val">3000</span></label>
+        <input type="range" id="particles" min="500" max="8000" step="100" value="3000"
+          oninput="updateParam('particles', +this.value, 'particles-val')">
+      </div>
+
+      <div class="control-group">
+        <label>天场频率 Heaven Noise <span class="val" id="noiseScale-val">0.003</span></label>
+        <input type="range" id="noiseScale" min="0.001" max="0.010" step="0.001" value="0.003"
+          oninput="updateParam('noiseScale', +this.value, 'noiseScale-val')">
+      </div>
+
+      <div class="control-group">
+        <label>粒子步长 Step Size <span class="val" id="stepSize-val">2.5</span></label>
+        <input type="range" id="stepSize" min="0.5" max="6" step="0.5" value="2.5"
+          oninput="updateParam('stepSize', +this.value, 'stepSize-val')">
+      </div>
+
+      <div class="control-group">
+        <label>生命周期 Lifespan <span class="val" id="lifespan-val">180</span></label>
+        <input type="range" id="lifespan" min="60" max="400" step="10" value="180"
+          oninput="updateParam('lifespan', +this.value, 'lifespan-val')">
+      </div>
+
+      <div class="control-group">
+        <label>时间流速 Time Flow <span class="val" id="timeSpeed-val">0.0008</span></label>
+        <input type="range" id="timeSpeed" min="0.0001" max="0.003" step="0.0001" value="0.0008"
+          oninput="updateParam('timeSpeed', +this.value, 'timeSpeed-val')">
+      </div>
+
+      <div class="control-group">
+        <label>地场强度 Earth Force <span class="val" id="earthForce-val">0.15</span></label>
+        <input type="range" id="earthForce" min="0" max="0.5" step="0.01" value="0.15"
+          oninput="updateParam('earthForce', +this.value, 'earthForce-val')">
+      </div>
+
+      <div class="control-group">
+        <label>轨迹透明度 Trail Alpha <span class="val" id="trailAlpha-val">18</span></label>
+        <input type="range" id="trailAlpha" min="5" max="60" step="1" value="18"
+          oninput="updateParam('trailAlpha', +this.value, 'trailAlpha-val')">
+      </div>
+    </div>
+
+    <!-- THREE TALENTS WEIGHTS -->
+    <div class="section">
+      <div class="section-title">☰ 三才权重</div>
+      <div class="weights-display">
+        <div class="weight-row">
+          <span style="width:28px">☰天</span>
+          <div class="weight-bar-bg"><div class="weight-bar w-heaven" id="wh-bar" style="width:35%"></div></div>
+          <span style="width:28px;text-align:right" id="wh-val">0.35</span>
+        </div>
+        <div class="weight-row">
+          <span style="width:28px">☷地</span>
+          <div class="weight-bar-bg"><div class="weight-bar w-earth" id="we-bar" style="width:15%"></div></div>
+          <span style="width:28px;text-align:right" id="we-val">0.15</span>
+        </div>
+        <div class="weight-row">
+          <span style="width:28px">☱人</span>
+          <div class="weight-bar-bg"><div class="weight-bar w-human" id="wp-bar" style="width:50%"></div></div>
+          <span style="width:28px;text-align:right" id="wp-val">0.50</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>天场权重 <span class="val" id="wHeaven-val">0.35</span></label>
+        <input type="range" id="wHeaven" min="0.1" max="0.7" step="0.01" value="0.35"
+          oninput="updateWeights('wHeaven', +this.value)">
+      </div>
+      <div class="control-group">
+        <label>地场权重 <span class="val" id="wEarth-val">0.15</span></label>
+        <input type="range" id="wEarth" min="0" max="0.4" step="0.01" value="0.15"
+          oninput="updateWeights('wEarth', +this.value)">
+      </div>
+    </div>
+
+    <!-- COLORS -->
+    <div class="section">
+      <div class="section-title">🎨 色彩 · Colors</div>
+      <div class="color-row">
+        <div class="color-item">
+          <label>天</label>
+          <input type="color" id="col-heaven" value="#4a8fdf" oninput="updateColor()">
+        </div>
+        <div class="color-item">
+          <label>地</label>
+          <input type="color" id="col-earth" value="#5cb87a" oninput="updateColor()">
+        </div>
+        <div class="color-item">
+          <label>人</label>
+          <input type="color" id="col-human" value="#e07050" oninput="updateColor()">
+        </div>
+        <div class="color-item">
+          <label>背景</label>
+          <input type="color" id="col-bg" value="#0a0a12" oninput="updateColor()">
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIONS (FIXED) -->
+    <div class="section">
+      <div class="section-title">▶ 操作 · Actions</div>
+      <button class="action-btn btn-primary" onclick="regenerate()">⟳ 重新生成</button>
+      <button class="action-btn btn-secondary" onclick="resetDefaults()">↺ 恢复默认</button>
+      <button class="action-btn btn-dl" onclick="downloadPNG()">⬇ 下载 PNG</button>
+    </div>
+
+  </div>
+
+  <div class="canvas-area">
+    <div id="canvas-container"></div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <div>帧率 <span id="fps-display">—</span> fps</div>
+  <div>粒子 <span id="alive-display">—</span> 活跃</div>
+  <div>帧数 <span id="frame-display">—</span></div>
+  <div>种子 <span id="seed-status">9622</span></div>
+</div>
+
+<script>
+// ============================================================
+//  三才流場 · San Cai Flow Field
+//  天地人三才算法 + Perlin噪声流场 + 洛书地格 + 种子确定性
+//  DNA: #龍芯⚡️2026-03-27-三才流場-v1.0 · UID9622
+// ============================================================
+
+const CANVAS_SIZE = 800;
+
+let params = {
+  seed:        9622,
+  particles:   3000,
+  noiseScale:  0.003,
+  stepSize:    2.5,
+  lifespan:    180,
+  timeSpeed:   0.0008,
+  earthForce:  0.15,
+  trailAlpha:  18,
+  wHeaven:     0.35,
+  wEarth:      0.15,
+  // wHuman = 1 - wHeaven - wEarth (always)
+  colHeaven:   [74, 143, 223],
+  colEarth:    [92, 184, 122],
+  colHuman:    [224, 112, 80],
+  colBg:       [10, 10, 18],
+};
+
+let particles = [];
+let t = 0;
+let earthGrid = [];   // 洛书地格锚点
+let fpsHistory = [];
+
+// ---- Seeded LCG PRNG (deterministic, not p5 noise) ----
+function makeRng(seed) {
+  let s = seed >>> 0;
+  return function() {
+    s = (Math.imul(1664525, s) + 1013904223) >>> 0;
+    return s / 4294967296;
+  };
+}
+
+// ---- Hex to RGB ----
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return [r, g, b];
+}
+
+// ---- Build Earth Grid (Luoshu 9×9) ----
+function buildEarthGrid(rng) {
+  earthGrid = [];
+  const rows = 9, cols = 9;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      // Luoshu polarity: odd positions attract, even repel
+      const polarity = ((r + c) % 2 === 0) ? 1 : -1;
+      earthGrid.push({
+        x: (c + 0.5) / cols * CANVAS_SIZE,
+        y: (r + 0.5) / rows * CANVAS_SIZE,
+        polarity,
+        strength: 0.3 + rng() * 0.7,
+      });
+    }
+  }
+}
+
+// ---- Compute earth field angle at (x, y) ----
+function earthAngle(x, y) {
+  let ax = 0, ay = 0;
+  for (const pt of earthGrid) {
+    const dx = pt.x - x;
+    const dy = pt.y - y;
+    const dist2 = dx * dx + dy * dy + 100;
+    const force = pt.polarity * pt.strength * params.earthForce * 800 / dist2;
+    ax += force * dx;
+    ay += force * dy;
+  }
+  return Math.atan2(ay, ax);
+}
+
+// ---- Particle class ----
+class Particle {
+  constructor(rng) {
+    this.reset(rng);
+  }
+  reset(rng) {
+    this.x  = rng() * CANVAS_SIZE;
+    this.y  = rng() * CANVAS_SIZE;
+    this.px = this.x;
+    this.py = this.y;
+    this.age = Math.floor(rng() * params.lifespan);  // stagger birth
+    this.maxAge = params.lifespan + Math.floor(rng() * params.lifespan * 0.5);
+    this.hueOffset = rng() * 60 - 30;   // human hue variation
+    this.speed = 0.6 + rng() * 0.8;
+  }
+}
+
+// ============================================================
+//  p5.js Sketch
+// ============================================================
+new p5(function(p) {
+
+  let rng;
+
+  function init() {
+    rng = makeRng(params.seed);
+    p.randomSeed(params.seed);
+    p.noiseSeed(params.seed);
+    buildEarthGrid(rng);
+
+    // Respawn all particles deterministically
+    rng = makeRng(params.seed ^ 0xDEADBEEF);
+    particles = [];
+    for (let i = 0; i < params.particles; i++) {
+      particles.push(new Particle(rng));
+    }
+
+    t = 0;
+    const bg = params.colBg;
+    p.background(bg[0], bg[1], bg[2]);
+  }
+
+  p.setup = function() {
+    const cnv = p.createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+    cnv.parent('canvas-container');
+    p.colorMode(p.RGB, 255);
+    p.strokeWeight(1.0);
+    p.noFill();
+    init();
+  };
+
+  p.draw = function() {
+    // Fade background each frame (trail effect)
+    const bg = params.colBg;
+    p.fill(bg[0], bg[1], bg[2], params.trailAlpha);
+    p.noStroke();
+    p.rect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+
+    const wH = params.wHeaven;
+    const wE = params.wEarth;
+    const wP = 1.0 - wH - wE;   // human weight is remainder
+
+    let alive = 0;
+
+    for (let i = 0; i < particles.length; i++) {
+      const pt = particles[i];
+      pt.age++;
+
+      if (pt.age > pt.maxAge) {
+        // Respawn deterministically using current frame as extra entropy
+        const localRng = makeRng(params.seed ^ (i * 7919) ^ (p.frameCount));
+        pt.reset(localRng);
+        continue;
+      }
+
+      // ---- 天场：Perlin噪声矢量 ----
+      const nx = pt.x * params.noiseScale;
+      const ny = pt.y * params.noiseScale;
+      const heavenAngle = p.noise(nx, ny, t) * p.TWO_PI * 4.0;
+
+      // ---- 地场：洛书引力 ----
+      const eAngle = earthAngle(pt.x, pt.y);
+
+      // ---- 人场：种子偏置旋转 ----
+      const seedBias = (params.seed % 360) / 360 * p.TWO_PI;
+      const humanAngle = heavenAngle + seedBias + Math.sin(pt.age * 0.04) * 0.8;
+
+      // ---- 三才合力 ----
+      // Circular mean via vector sum
+      const ax = wH * Math.cos(heavenAngle) + wE * Math.cos(eAngle) + wP * Math.cos(humanAngle);
+      const ay = wH * Math.sin(heavenAngle) + wE * Math.sin(eAngle) + wP * Math.sin(humanAngle);
+      const finalAngle = Math.atan2(ay, ax);
+
+      const step = params.stepSize * pt.speed;
+      pt.px = pt.x;
+      pt.py = pt.y;
+      pt.x += Math.cos(finalAngle) * step;
+      pt.y += Math.sin(finalAngle) * step;
+
+      // Wrap boundaries
+      if (pt.x < 0) pt.x = CANVAS_SIZE;
+      if (pt.x > CANVAS_SIZE) pt.x = 0;
+      if (pt.y < 0) pt.y = CANVAS_SIZE;
+      if (pt.y > CANVAS_SIZE) pt.y = 0;
+
+      // ---- 颜色：三才权重混合 ----
+      const life = 1 - pt.age / pt.maxAge;
+      const alpha = Math.floor(life * 200 + 30);
+
+      const r = Math.floor(wH * params.colHeaven[0] + wE * params.colEarth[0] + wP * params.colHuman[0]);
+      const g = Math.floor(wH * params.colHeaven[1] + wE * params.colEarth[1] + wP * params.colHuman[1]);
+      const b = Math.floor(wH * params.colHeaven[2] + wE * params.colEarth[2] + wP * params.colHuman[2]);
+
+      // Age-based hue shift
+      const shift = Math.sin(pt.age * 0.02 + pt.hueOffset) * 40;
+      const cr = Math.min(255, Math.max(0, r + shift));
+      const cg = Math.min(255, Math.max(0, g));
+      const cb = Math.min(255, Math.max(0, b - shift * 0.5));
+
+      p.stroke(cr, cg, cb, alpha);
+      p.line(pt.px, pt.py, pt.x, pt.y);
+      alive++;
+    }
+
+    t += params.timeSpeed;
+
+    // Status updates (throttled)
+    if (p.frameCount % 20 === 0) {
+      fpsHistory.push(Math.round(p.frameRate()));
+      if (fpsHistory.length > 5) fpsHistory.shift();
+      const fps = Math.round(fpsHistory.reduce((a,b)=>a+b,0)/fpsHistory.length);
+      document.getElementById('fps-display').textContent = fps;
+      document.getElementById('alive-display').textContent = alive;
+      document.getElementById('frame-display').textContent = p.frameCount;
+    }
+  };
+
+  // Expose for UI
+  window._p5 = p;
+  window._init = init;
+
+}, 'canvas-container');
+
+// ============================================================
+//  UI Handlers
+// ============================================================
+
+function updateParam(key, val, labelId) {
+  params[key] = val;
+  if (labelId) document.getElementById(labelId).textContent = val;
+  updateSliderFill(document.getElementById(key));
+}
+
+function updateWeights(key, val) {
+  params[key] = val;
+  document.getElementById(key + '-val').textContent = val.toFixed(2);
+  updateSliderFill(document.getElementById(key));
+
+  // wHuman = 1 - wH - wE (clamp to 0)
+  const wP = Math.max(0, 1 - params.wHeaven - params.wEarth);
+  const wPct = Math.round(wP * 100);
+  const wHPct = Math.round(params.wHeaven * 100);
+  const wEPct = Math.round(params.wEarth * 100);
+
+  document.getElementById('wh-bar').style.width = wHPct + '%';
+  document.getElementById('we-bar').style.width = wEPct + '%';
+  document.getElementById('wp-bar').style.width = wPct + '%';
+  document.getElementById('wh-val').textContent = params.wHeaven.toFixed(2);
+  document.getElementById('we-val').textContent = params.wEarth.toFixed(2);
+  document.getElementById('wp-val').textContent = wP.toFixed(2);
+  document.getElementById('wHeaven-val').textContent = params.wHeaven.toFixed(2);
+  document.getElementById('wEarth-val').textContent = params.wEarth.toFixed(2);
+}
+
+function updateColor() {
+  params.colHeaven = hexToRgb(document.getElementById('col-heaven').value);
+  params.colEarth  = hexToRgb(document.getElementById('col-earth').value);
+  params.colHuman  = hexToRgb(document.getElementById('col-human').value);
+  params.colBg     = hexToRgb(document.getElementById('col-bg').value);
+}
+
+function updateSliderFill(el) {
+  if (!el) return;
+  const pct = (el.value - el.min) / (el.max - el.min) * 100;
+  el.style.setProperty('--fill', pct + '%');
+}
+
+function setSeed(s) {
+  params.seed = Math.max(1, Math.min(99999, Math.floor(s)));
+  document.getElementById('seed-display').textContent = params.seed;
+  document.getElementById('seed-status').textContent = params.seed;
+  document.getElementById('seed-input').value = '';
+  regenerate();
+}
+
+function changeSeed(delta) { setSeed(params.seed + delta); }
+function randomSeedFn()    { setSeed(Math.floor(Math.random() * 99999) + 1); }
+function jumpSeed() {
+  const v = parseInt(document.getElementById('seed-input').value);
+  if (!isNaN(v)) setSeed(v);
+}
+
+function regenerate() {
+  if (window._init) window._init();
+}
+
+function resetDefaults() {
+  const defaults = {
+    particles: 3000, noiseScale: 0.003, stepSize: 2.5,
+    lifespan: 180, timeSpeed: 0.0008, earthForce: 0.15,
+    trailAlpha: 18, wHeaven: 0.35, wEarth: 0.15
+  };
+  for (const [k, v] of Object.entries(defaults)) {
+    params[k] = v;
+    const el = document.getElementById(k);
+    if (el) { el.value = v; updateSliderFill(el); }
+    const lbl = document.getElementById(k + '-val');
+    if (lbl) lbl.textContent = v;
+  }
+  document.getElementById('wHeaven-val').textContent = '0.35';
+  document.getElementById('wEarth-val').textContent = '0.15';
+  updateWeights('wHeaven', 0.35);
+  regenerate();
+}
+
+function downloadPNG() {
+  if (window._p5) window._p5.saveCanvas('三才流場_seed' + params.seed, 'png');
+}
+
+// Init slider fills
+document.querySelectorAll('input[type=range]').forEach(updateSliderFill);
+
+</script>
+</body>
+</html>

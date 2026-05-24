@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>龍魂主场 · 五彩石主权面板 v1.0 | UID9622</title>
+  <style>
+    :root {
+      --gold: #C6A664;
+      --red: #A61B1B;
+      --blue: #1C3D5A;
+      --white: #D9D4C7;
+      --green: #3F5E45;
+      --bg: #0b1020;
+      --bg2: #121a2e;
+      --text: #e8e0d0;
+      --muted: #9a9080;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "STHeiti", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .marquee-wrap {
+      position: sticky; top: 0; z-index: 100;
+      background: #000;
+      border-bottom: 2px solid var(--gold);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; white-space: nowrap;
+      animation: marquee 48s linear infinite;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .marquee-track span {
+      padding: 10px 28px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .marquee-track .c-gold { color: var(--gold); background: rgba(198,166,100,0.12); }
+    .marquee-track .c-red { color: #ff6b6b; background: rgba(166,27,27,0.25); }
+    .marquee-track .c-blue { color: #7eb8ff; background: rgba(28,61,90,0.5); }
+    .marquee-track .c-white { color: var(--white); background: rgba(217,212,199,0.08); }
+    .marquee-track .c-green { color: #8fd49a; background: rgba(63,94,69,0.35); }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-wrap.breaker { border-color: var(--red); box-shadow: 0 0 20px rgba(166,27,27,0.5); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
+    header.hero {
+      text-align: center; padding: 28px 16px 20px;
+      background: linear-gradient(180deg, rgba(198,166,100,0.15) 0%, transparent 70%);
+      border-radius: 12px; margin-bottom: 20px;
+    }
+    header.hero h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--gold);
+      text-shadow: 0 0 24px rgba(198,166,100,0.4);
+    }
+    header.hero .sub { color: var(--muted); margin-top: 8px; font-size: 0.95rem; }
+    .confirm {
+      display: inline-block; margin-top: 12px; padding: 6px 14px;
+      border: 1px solid var(--gold); border-radius: 6px;
+      font-size: 11px; color: var(--gold); word-break: break-all;
+    }
+    section {
+      margin-bottom: 18px; border-radius: 10px;
+      background: var(--bg2); overflow: hidden;
+      border-left: 5px solid var(--gold);
+    }
+    section[data-color="gold"] { border-left-color: var(--gold); }
+    section[data-color="red"] { border-left-color: var(--red); }
+    section[data-color="blue"] { border-left-color: var(--blue); }
+    section[data-color="white"] { border-left-color: var(--white); }
+    section[data-color="green"] { border-left-color: var(--green); }
+    section[data-color="multi"] {
+      border-left: 5px solid transparent;
+      border-image: linear-gradient(180deg, var(--green), var(--gold), var(--blue), var(--white), var(--red)) 1;
+    }
+    .sec-hd {
+      padding: 12px 16px; font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sec-hd .tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 4px;
+      background: rgba(0,0,0,0.3);
+    }
+    .sec-bd { padding: 14px 16px 18px; font-size: 0.9rem; }
+    .layer-stack { display: flex; flex-direction: column; gap: 8px; }
+    .layer {
+      display: grid; grid-template-columns: 56px 1fr auto;
+      gap: 12px; align-items: center; padding: 10px 12px;
+      background: rgba(0,0,0,0.25); border-radius: 8px;
+    }
+    .layer .lv {
+      font-weight: 800; font-size: 1.1rem; text-align: center;
+      border-radius: 6px; padding: 4px;
+    }
+    .lv-l0, .lv-l5 { background: var(--gold); color: #1a1208; }
+    .lv-l4 { background: var(--blue); color: #fff; }
+    .lv-l3, .lv-l1 { background: var(--green); color: #fff; }
+    .lv-l2 { background: var(--red); color: #fff; }
+    .gates { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .gate {
+      padding: 12px; border-radius: 8px; min-height: 88px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .gate h4 { font-size: 0.8rem; margin-bottom: 6px; }
+    .gate p { font-size: 0.75rem; color: var(--muted); }
+    .g1 { background: rgba(217,212,199,0.12); border-top: 3px solid var(--white); }
+    .g2 { background: rgba(166,27,27,0.2); border-top: 3px solid var(--red); }
+    .g3 { background: rgba(28,61,90,0.5); border-top: 3px solid #4a8fd4; }
+    .g4 { background: rgba(63,94,69,0.3); border-top: 3px solid var(--green); }
+    .g5 { background: rgba(198,166,100,0.15); border-top: 3px solid var(--gold); }
+    .wusei-legend {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; text-align: center;
+    }
+    @media (max-width: 700px) { .wusei-legend { grid-template-columns: 1fr; } }
+    .stone { padding: 12px 8px; border-radius: 8px; font-size: 0.75rem; }
+    .stone b { display: block; font-size: 0.85rem; margin-bottom: 4px; }
+    .s-gold { background: var(--gold); color: #1a1208; }
+    .s-red { background: var(--red); color: #fff; }
+    .s-blue { background: var(--blue); color: #cde; }
+    .s-white { background: #4a4540; color: var(--white); border: 1px solid var(--white); }
+    .s-green { background: var(--green); color: #dfe; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    th { color: var(--gold); font-weight: 600; }
+    code, .mono { font-family: ui-monospace, Menlo, monospace; font-size: 0.78rem; word-break: break-all; }
+    .port-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .port {
+      padding: 10px; border-radius: 8px; text-align: center;
+      background: rgba(0,0,0,0.3); font-size: 0.8rem;
+    }
+    .port.ok { border: 1px solid var(--green); color: #8fd49a; }
+    .port.down { border: 1px solid var(--muted); color: var(--muted); }
+    .port.warn { border: 1px solid var(--gold); color: var(--gold); }
+    .cmd-list { list-style: none; }
+    .cmd-list li {
+      margin: 8px 0; padding: 10px 12px;
+      background: rgba(0,0,0,0.35); border-radius: 6px;
+      border-left: 3px solid var(--green);
+    }
+    .chain {
+      display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+      font-size: 0.8rem; margin-top: 10px;
+    }
+    .chain .step {
+      padding: 4px 10px; border-radius: 20px;
+      background: rgba(28,61,90,0.6); border: 1px solid #4a8fd4;
+    }
+    .chain .arr { color: var(--gold); }
+    .connector {
+      height: 4px; margin: 0 16px 18px;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--blue), var(--white), var(--red), var(--green));
+      background-size: 200% 100%;
+      animation: flow 8s linear infinite;
+      border-radius: 2px;
+    }
+    @keyframes flow {
+      0% { background-position: 0% 0; }
+      100% { background-position: 200% 0; }
+    }
+    footer {
+      text-align: center; padding: 24px 16px; color: var(--muted);
+      font-size: 0.75rem; border-top: 1px solid rgba(198,166,100,0.2);
+    }
+    footer .seal { color: var(--gold); margin-top: 8px; }
+    a { color: #7eb8ff; }
+    .child-row td:first-child { font-weight: 600; }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  </style>
+</head>
+<body>
+  <div class="marquee-wrap" id="marqueeWrap">
+    <div class="marquee-track" id="marqueeTrack" aria-live="polite"></div>
+  </div>
+
+  <div class="container">
+    <header class="hero" id="hdr">
+      <h1>龍芯北辰 · 主场开发环境</h1>
+      <p class="sub">开发环境，才是主权 · 进来只有兼容，不得反抗</p>
+      <p class="sub">LONGHUN-SYSTEM · 五彩石色标 · 自动化 · 全子系统可见</p>
+      <div class="confirm">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+    </header>
+
+    <div class="connector" title="五色跑马灯链 L0→G5"></div>
+
+    <section data-color="multi" id="arch">
+      <div class="sec-hd"><span class="tag" style="background:var(--gold);color:#111">§1</span> 五层主权 L0→L5</div>
+      <div class="sec-bd layer-stack">
+        <div class="layer"><div class="lv lv-l0">L0</div><div><b>主控 UID9622</b> — 唯一拍板 · CONFIRM/SEAL</div><span style="color:var(--gold)">黄土金</span></div>
+        <div class="layer"><div class="lv lv-l5">L5</div><div><b>输出主权</b> — 出去带 DNA · 退出可擦</div><span style="color:var(--gold)">金</span></div>
+        <div class="layer"><div class="lv lv-l4">L4</div><div><b>知识主权</b> — Notion + 本地母稿 + 草日志</div><span style="color:#7eb8ff">深海青</span></div>
+        <div class="layer"><div class="lv lv-l3">L3</div><div><b>工具主权</b> — Cursor · Git · Ollama · 9625</div><span style="color:#8fd49a">苍木绿</span></div>
+        <div class="layer"><div class="lv lv-l2">L2</div><div><b>系统主权</b> — macOS · Safari · GitHub only</div><span style="color:#ff6b6b">赤火红</span></div>
+        <div class="layer"><div class="lv lv-l1">L1</div><div><b>硬件主权</b> — 本机 · 本 IP</div><span style="color:#8fd49a">木</span></div>
+      </div>
+    </section>
+
+    <div class="connector"></div>
+
+    <section data-color="white" id="gates">
+      <div class="sec-hd"><span class="tag">§2</span> 五道闸门 G1–G5 · 色=规则</div>
+      <div class="sec-bd gates">
+        <div class="gate g1"><h4>G1 敢露面? · 玉白</h4><p>对外全文须审计 · 默认只读留痕</p></div>
+        <div class="gate g2"><h4>G2 上传量=0? · 赤红</h4><p>未授权外发 → 熔断 + trace</p></div>
+        <div class="gate g3"><h4>G3 不反客? · 深海青</h4><p>工具不得改 DNA 锁 / 删母稿</p></div>
+        <div class="gate g4"><h4>G4 退出可擦? · 苍木绿</h4><p>敏感默认 sealed / hash_only</p></div>
+        <div class="gate g5"><h4>G5 不写龍? · 黄土金</h4><p>简体「龍」冒充 → 字符律熔断</p></div>
+      </div>
+    </section>
+
+    <div class="connector"></div>
+
+    <section data-color="red" id="auto">
+      <div class="sec-hd"><span class="tag">§4</span> 自动化 · 执行链</div>
+      <div class="sec-bd">
+        <p>最小链：<strong>语义 → dr → W(x) → Risk → S → D → Action</strong></p>
+        <div class="chain">
+          <span class="step">语义</span><span class="arr">→</span>
+          <span class="step">dr</span><span class="arr">→</span>
+          <span class="step">五行</span><span class="arr">→</span>
+          <span class="step">三色</span><span class="arr">→</span>
+          <span class="step">守恒S</span><span class="arr">→</span>
+          <span class="step">决策D</span><span class="arr">→</span>
+          <span class="step">Action</span>
+        </div>
+        <ul class="cmd-list" style="margin-top:14px">
+          <li><code>bash /Users/zuimeidedeyihan/longhun-system/bin/开机一條龍</code></li>
+          <li><code>bash /Users/zuimeidedeyihan/longhun-system/bin/主场开机查验.sh</code></li>
+          <li><code>bash /Users/zuimeidedeyihan/longhun-system/bin/龍字符律扫描.sh</code></li>
+          <li><code>bash /Users/zuimeidedeyihan/longhun-system/longhun-system/scripts/canonical-sha256/verify.sh</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-color="white" id="audit">
+      <div class="sec-hd"><span class="tag">§5</span> 审计与留痕</div>
+      <div class="sec-bd">
+        <table>
+          <tr><th>留痕</th><td class="mono">logs/home_battlefield_trace.jsonl</td></tr>
+          <tr><th>草日志</th><td class="mono">tools/local-sync-monitor/</td></tr>
+          <tr><th>BehavCrypto</th><td id="shaRow">CANONICAL_SHA256 · 本机 verify.sh</td></tr>
+          <tr><th>字符律</th><td id="longLaw">bin/龍字符律扫描.sh</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section data-color="green" id="ports">
+      <div class="sec-hd"><span class="tag">§6</span> L1/L2 端口 · 实时</div>
+      <div class="sec-bd port-grid" id="portGrid"></div>
+    </section>
+
+    <section data-color="multi" id="wusei">
+      <div class="sec-hd"><span class="tag">§7</span> 五彩石 · 看色知规则</div>
+      <div class="sec-bd">
+        <div class="wusei-legend">
+          <div class="stone s-gold"><b>黄土金</b>L0/G5<br>主权·DNA</div>
+          <div class="stone s-red"><b>赤火红</b>G2/L2<br>熔断·出站</div>
+          <div class="stone s-blue"><b>深海青</b>L4/G3<br>推演·知识</div>
+          <div class="stone s-white"><b>玉白色</b>G1<br>审计·只读</div>
+          <div class="stone s-green"><b>苍木绿</b>L1/L3<br>恢复·本机</div>
+        </div>
+        <p style="margin-top:12px;font-size:0.8rem;color:var(--muted)">协议：<code>PROTOCOL__WUSEI-HOME-TEMPLATE-v1.0.local.md</code></p>
+      </div>
+    </section>
+
+    <section data-color="blue" id="knowledge">
+      <div class="sec-hd"><span class="tag">§8</span> L4 知识源</div>
+      <div class="sec-bd">
+        <table>
+          <tr><th>源</th><th>仓库</th></tr>
+          <tr><td>CNSH v2</td><td class="mono">01_protocols/cnsh/</td></tr>
+          <tr><td>公式对准 v1.5</td><td class="mono">01_protocols/ + Notion</td></tr>
+          <tr><td>BehavCrypto rc1</td><td class="mono">longhun-system/BehavCrypto_v1.0/</td></tr>
+          <tr><td>Web3-DNA v8</td><td class="mono">算法仓库/Web3主权交易/</td></tr>
+          <tr><td>洛书九宫</td><td class="mono">流场 / 中宫5</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section data-color="multi" id="children">
+      <div class="sec-hd"><span class="tag">§9</span> 子系统全表 · 禁止躲藏</div>
+      <div class="sec-bd" style="overflow-x:auto">
+        <table>
+          <thead><tr><th>色</th><th>子系统</th><th>入口</th><th>负责</th></tr></thead>
+          <tbody>
+            <tr class="child-row"><td><span class="dot" style="background:var(--gold)"></span>金</td><td>主场 / 字符律 / NUWA 五色</td><td class="mono">01_protocols/cnsh/</td><td>规则</td></tr>
+            <tr><td><span class="dot" style="background:var(--gold)"></span>金</td><td>DNA · CONFIRM · SEAL</td><td>页眉</td><td>L0</td></tr>
+            <tr><td><span class="dot" style="background:var(--white)"></span>白</td><td>三色 · dr · gate_v3</td><td class="mono">cnsh/gate_v3</td><td>审计</td></tr>
+            <tr><td><span class="dot" style="background:#4a8fd4"></span>青</td><td>9625 龍魂引擎</td><td><a href="http://127.0.0.1:9625/console">:9625</a></td><td>大脑</td></tr>
+            <tr><td><span class="dot" style="background:var(--green)"></span>绿</td><td>9633 + Cloudflare</td><td class="mono">bin/开龍魂</td><td>公网</td></tr>
+            <tr><td><span class="dot" style="background:var(--green)"></span>绿</td><td>8765 操作台</td><td><a href="http://127.0.0.1:8765/">:8765</a></td><td>UI</td></tr>
+            <tr><td><span class="dot" style="background:var(--green)"></span>绿</td><td>Ollama</td><td>:11434</td><td>本机 LLM</td></tr>
+            <tr><td><span class="dot" style="background:var(--gold)"></span>金</td><td>9623 Notion MCP</td><td class="mono">bin/开NotionMCP9623.sh</td><td>可选</td></tr>
+            <tr><td><span class="dot" style="background:var(--red)"></span>红</td><td>一票否决</td><td>.env / token</td><td>阻断</td></tr>
+            <tr><td><span class="dot" style="background:#4a8fd4"></span>青</td><td>flow_field / 流场</td><td class="mono">cnsh/flow_field</td><td>烟测</td></tr>
+            <tr><td><span class="dot" style="background:var(--white)"></span>白</td><td>草日志监控</td><td class="mono">tools/local-sync-monitor</td><td>同步</td></tr>
+            <tr><td><span class="dot" style="background:var(--gold)"></span>金</td><td>BehavCrypto 11 步</td><td class="mono">_audit/EXEC_TRACE</td><td>论文</td></tr>
+            <tr><td><span class="dot" style="background:#4a8fd4"></span>青</td><td>Cursor 规则</td><td class="mono">.cursor/rules/uid9622-*</td><td>AI 边界</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section data-color="gold" id="control">
+      <div class="sec-hd"><span class="tag">§11</span> 主控入口</div>
+      <div class="sec-bd">
+        <p>
+          <a href="http://127.0.0.1:9625/console">DNA 控制台</a> ·
+          <a href="http://127.0.0.1:8765/00_main_control/操作台v3/components/龍魂操作台_MVP_v1.html">操作台</a> ·
+          <a href="https://api.longhun888.com/api/v1/health">公网 health</a>
+        </p>
+        <p style="margin-top:10px;color:var(--muted)">壁纸：<code>~/Desktop/主场开发环境主权-v1.1-龍.png</code></p>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div>龍魂系统原创 · 诸葛鑫 (Lucky) · 龍芯北辰 · UID9622</div>
+      <div class="seal">#ZHUGEXIN⚡2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</div>
+      <div style="margin-top:6px" id="clock"></div>
+    </footer>
+  </div>
+
+  <script>
+    const PORTS = [
+      { p: 9625, name: "龍魂引擎", path: "/api/health" },
+      { p: 8765, name: "操作台", path: "/" },
+      { p: 9633, name: "AI网关", path: "/api/v1/health" },
+      { p: 11434, name: "Ollama", path: "/" },
+      { p: 9626, name: "官网", path: "/" },
+      { p: 9623, name: "Notion MCP", path: "/" },
+    ];
+
+    function buildMarquee(extra) {
+      const parts = [
+        { c: "c-green", t: "[木·本机] 开发环境=主权" },
+        { c: "c-gold", t: "[金·L0] UID9622 · CONFIRM锁" },
+        { c: "c-blue", t: "[青·推演] dr→Risk→D→Action" },
+        { c: "c-white", t: "[白·审计] jsonl · SHA256" },
+        { c: "c-red", t: "[火·G2] 上传量=0" },
+        { c: "c-gold", t: "[金·G5] 只用龍" },
+        { c: "c-green", t: "[木·9625·8765·9633]" },
+      ];
+      if (extra) parts.unshift({ c: "c-red", t: extra });
+      const seg = parts.map(x => `<span class="${x.c}">${x.t}</span>`).join("");
+      return seg + seg;
+    }
+
+    function setMarquee(extra) {
+      document.getElementById("marqueeTrack").innerHTML = buildMarquee(extra);
+      document.getElementById("marqueeWrap").classList.toggle("breaker", !!extra);
+    }
+
+    async function probe(url, ms = 2500) {
+      try {
+        const c = new AbortController();
+        const t = setTimeout(() => c.abort(), ms);
+        const r = await fetch(url, { signal: c.signal, mode: "cors" });
+        clearTimeout(t);
+        return r.ok;
+      } catch { return false; }
+    }
+
+    async function refreshPorts() {
+      const grid = document.getElementById("portGrid");
+      grid.innerHTML = "";
+      for (const { p, name, path } of PORTS) {
+        const url = `http://127.0.0.1:${p}${path}`;
+        const ok = await probe(url);
+        const el = document.createElement("div");
+        el.className = "port " + (ok ? "ok" : (p === 9623 ? "warn" : "down"));
+        el.innerHTML = `<strong>:${p}</strong><br>${name}<br>${ok ? "🟢 LISTEN" : "⚪ down"}`;
+        grid.appendChild(el);
+      }
+    }
+
+    async function refreshHealth() {
+      let down = false;
+      try {
+        const h = await fetch("http://127.0.0.1:9625/api/health");
+        if (!h.ok) down = true;
+      } catch { down = true; }
+      setMarquee(down ? "CIRCUIT BREAKER | 9625 DOWN" : null);
+    }
+
+    function tick() {
+      document.getElementById("clock").textContent =
+        new Date().toLocaleString("zh-Hant", { timeZone: "Asia/Phnom_Penh" }) + " · 面板 v1.0";
+    }
+
+    setMarquee(null);
+    refreshPorts();
+    refreshHealth();
+    tick();
+    setInterval(tick, 30000);
+    setInterval(refreshPorts, 45000);
+  </script>
+</body>
+</html>

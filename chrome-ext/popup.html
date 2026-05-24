@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+	<h2>🐉 龍魂9625 · 本地引擎</h2>
+	<div id="status">⏳ 检测中...</div>
+
+	<textarea id="input" placeholder="粘贴要处理的文本..."></textarea>
+	<div class="btns">
+		<button data-ep="/api/ethics/review">⚖️ 伦理</button>
+		<button data-ep="/api/tongxin/translate">🟡 通心译</button>
+		<button data-ep="/api/wuxing/analyze">🔥 五行</button>
+		<button data-ep="/api/errata/submit">📓 记错本</button>
+	</div>
+
+	<hr style="margin:12px 0;border:none;border-top:1px solid #eee">
+
+	<div class="chat-section">
+		<div id="chat-window"></div>
+		<div class="chat-input-row">
+			<select id="mode">
+				<option value="auto">🐉自动</option>
+				<option value="deepseek">🇨🇳DeepSeek</option>
+				<option value="claude">🌏Claude</option>
+				<option value="local">💾本地</option>
+			</select>
+			<input id="chat-input" placeholder="问点啥·系统知道您有啥">
+			<button id="send-btn">发送</button>
+		</div>
+	</div>
+
+	<pre id="out"></pre>
+	<script src="popup.js"></script>
+</body>
+</html>

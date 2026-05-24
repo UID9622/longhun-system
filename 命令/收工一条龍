@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# 收工：对应 bin/开机一條龍
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "════════════════════════════════════════"
+echo "  🐉 龍魂收工一條龍"
+echo "════════════════════════════════════════"
+bash "${ROOT}/bin/全日收工"
+echo ""
+echo "✅ 收工完成。明天: 开机   或  bash ~/longhun-system/bin/开机一條龍"
