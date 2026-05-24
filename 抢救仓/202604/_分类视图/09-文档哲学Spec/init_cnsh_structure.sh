@@ -1,1 +1,0 @@
-/Users/zuimeidedeyihan/longhun-system/抢救仓/202604/2b214d4a/outputs/init_cnsh_structure.sh
