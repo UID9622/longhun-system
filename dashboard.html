@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>龍魂赋能引擎 · 本地面板</title>
+    <style>
+        :root { --bg:#0a0a0a; --fg:#00ff88; --warn:#ff4444; --caution:#ffaa00; }
+        body { background:var(--bg); color:var(--fg); font-family:monospace; padding:2em; }
+        textarea { width:100%; height:120px; background:#111; color:#fff; border:1px solid #333; padding:1em; }
+        button { background:var(--fg); color:#000; border:none; padding:1em 2em; font-weight:bold; cursor:pointer; margin-top:1em; }
+        .result { margin-top:2em; border-left:3px solid var(--fg); padding-left:1em; }
+        .harvest { color:var(--warn); }
+        .empower { color:var(--fg); }
+        .neutral { color:var(--caution); }
+        .sig { background:#151515; padding:1em; margin:0.5em 0; border-radius:4px; }
+        .dna { opacity:0.5; font-size:0.8em; margin-top:3em; }
+    </style>
+</head>
+<body>
+    <h1>⚡ 龍魂赋能引擎 · 本地面板</h1>
+    <p>输入文字，本地识别，不上传服务器</p>
+    <textarea id="input" placeholder="输入你想说的话..."></textarea><br>
+    <button onclick="analyze()">🔍 识别需求</button>
+    <div id="output" class="result"></div>
+    <div class="dna">CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · DNA: #龍芯⚡️2026-05-17-本地面板 · UID9622</div>
+<script>
+const ROUTER = {
+    "民生": {k:["吃饭","租房","工资","失业","看病","孩子","老人"], p:["P02宝宝","P09孙思邈"], d:"具体可执行一步"},
+    "教育": {k:["学习","考试","不会","教我","怎么做"], p:["P14吕蒙","P02宝宝"], d:"最短路径学会"},
+    "维权": {k:["被骗","投诉","维权","不公平","举报"], p:["P12屈原","P05上帝之眼"], d:"护底层人"},
+    "情绪": {k:["好累","不想干了","崩溃","烦","难受"], p:["P02宝宝"], d:"先接住·不给方案"},
+    "科技": {k:["代码","编程","系统","开发","AI","报错"], p:["P04鲁班","P15乔前辈"], d:"技术深度匹配"},
+    "商业": {k:["创业","生意","合同","客户","利润"], p:["P01诸葛亮","P03雯雯"], d:"推演多路径"},
+    "数据主权": {k:["隐私","数据","被监控","平台","算法"], p:["P05上帝之眼","P12屈原"], d:"看清机制·还主权"},
+    "家庭": {k:["女儿","儿子","老婆","父母","离婚"], p:["P02宝宝","P09孙思邈"], d:"温度优先"},
+    "军事": {k:["退伍","战友","部队","当兵","军魂"], p:["P12屈原","P01诸葛亮"], d:"军规执行·不褪色"}
+};
+function analyze() {
+    const text = document.getElementById('input').value;
+    if(!text){ alert('输入不能为空'); return; }
+    let matched = [];
+    for(let [cat, cfg] of Object.entries(ROUTER)){
+        let hits = cfg.k.filter(kw => text.includes(kw));
+        if(hits.length > 0){
+            matched.push({cat, hits, persona:cfg.p, direction:cfg.d, priority:hits.length});
+        }
+    }
+    matched.sort((a,b) => b.priority - a.priority);
+    const harvest = /月入过万|限时优惠|错过就没有了|内部资料|财务自由|暴富|躺赚/;
+    const empower = /你来决定|免费|开源|主权|自己选|不强迫/;
+    let h = harvest.test(text) ? 1 : 0;
+    let e = empower.test(text) ? 1 : 0;
+    let score = e - h*2;
+    let verdict = score > 0 ? '<span class="empower">🟢 赋能内容</span>' : (score==0 ? '<span class="neutral">🟡 中性</span>' : '<span class="harvest">🔴 疑似收割内容</span>');
+    let html = `<h3>识别结果</h3>`;
+    if(matched.length === 0){
+        html += `<div class="sig">未识别特定需求 → 默认调用 <strong>P02宝宝</strong>（先陪着）</div>`;
+    } else {
+        let top = matched[0];
+        html += `<div class="sig"><strong>主要需求：</strong>${top.cat}<br>`;
+        html += `<strong>调用人格：</strong>${top.persona.join(' + ')}<br>`;
+        html += `<strong>赋能方向：</strong>${top.direction}</div>`;
+        if(matched.length > 1){
+            html += `<div class="sig" style="opacity:0.7">次要需求：${matched.slice(1).map(m=>m.cat).join('、')}</div>`;
+        }
+    }
+    html += `<div class="sig"><strong>反垄断评分：</strong>${verdict}</div>`;
+    html += `<div style="margin-top:1em;opacity:0.6;font-size:0.9em;">输入长度：${text.length}字 | 时间：${new Date().toLocaleString()}</div>`;
+    document.getElementById('output').innerHTML = html;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# 发射DNA · Launch DNA · 五彩压缩身份证
+# 用法: bash ~/longhun-system/发射DNA 主题名 "内容" --color "🔴"
+REPO="$(cd "$(dirname "$0")" && pwd)"
+export PYTHONPATH="$REPO/skills${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 "$REPO/skills/dna_color_codec.py" --emit "$@"

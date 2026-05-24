@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# 收掉全日开机拉起的各服务（不动 Ollama / 不动 launchd 自启）
+set -euo pipefail
+# shellcheck source=_longhun_common.sh
+source "$(dirname "$0")/_longhun_common.sh"
+
+echo "════════════════════════════════════════"
+echo "  🐉 全日收工"
+echo "════════════════════════════════════════"
+
+bash "${LONGHUN_ROOT}/bin/收龍魂" || true
+bash "${LONGHUN_ROOT}/bin/收官网" 2>/dev/null || true
+bash "${LONGHUN_ROOT}/bin/收主控台" 2>/dev/null || true
+
+# 9625
+if [[ -f "${RUN_DIR}/engine9625.pid" ]]; then
+  pid="$(cat "${RUN_DIR}/engine9625.pid" 2>/dev/null || true)"
+  [[ -n "${pid:-}" ]] && kill "$pid" 2>/dev/null || true
+  rm -f "${RUN_DIR}/engine9625.pid"
+fi
+lsof -ti:9625 2>/dev/null | xargs kill -9 2>/dev/null || true
+
+# 8765 操作台
+if [[ -f "${RUN_DIR}/mvp_http_8765.pid" ]]; then
+  pid="$(cat "${RUN_DIR}/mvp_http_8765.pid" 2>/dev/null || true)"
+  [[ -n "${pid:-}" ]] && kill "$pid" 2>/dev/null || true
+  rm -f "${RUN_DIR}/mvp_http_8765.pid"
+fi
+pkill -f "python3 -m http.server 8765" 2>/dev/null || true
+
+echo ""
+bash "${LONGHUN_ROOT}/bin/龍魂状态"
