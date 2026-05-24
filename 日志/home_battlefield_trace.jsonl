@@ -1,0 +1,36 @@
+{"ts":"2026-05-dT16:34:13+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-dT16:34:13+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-dT16:34:13+0800","event":"gate","detail":"G5 protocol sample OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-dT16:34:13+0800","event":"gate","detail":"dr pass dr=0","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-dT16:34:13+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:34:37+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:34:37+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:34:37+0800","event":"gate","detail":"G5 protocol sample OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:34:37+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:34:37+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts": "2026-05-18T16:34:56.710359+08:00", "dna": "#龍芯⚡2026-05-18-HOME-BATTLEFIELD-AUDIT-v1.0", "gates": {"G5_simp_long": "pass", "G_dr_fuse": "pass", "G2_upload": "pass"}, "conservation_S": 13, "conservation_color": "green", "samples": [{"path": "/Users/zuimeidedeyihan/longhun-system/01_protocols/cnsh/PROTOCOL__HOME-BATTLEFIELD-DEV-ENV-v1.0.local.md", "dr_confirm": 8, "long_dr": 3, "sha256": "6d2fee754954b471", "simp_long_only": false}, {"path": "/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md", "dr_confirm": 8, "long_dr": 1, "sha256": "892f96be3dfe5de0", "simp_long_only": false}, {"path": "/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md", "dr_confirm": 8, "long_dr": 9, "sha256": "c73819a241e56b80", "simp_long_only": false}]}
+{"ts":"2026-05-18T16:56:25+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:56:25+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:56:25+0800","event":"gate","detail":"G5 protocol sample OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:56:25+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T16:56:25+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts": "2026-05-18T16:56:25.688076+08:00", "dna": "#龍芯⚡2026-05-18-HOME-BATTLEFIELD-AUDIT-v1.0", "gates": {"G5_simp_long": "pass", "G_dr_fuse": "pass", "G2_upload": "pass"}, "conservation_S": 13, "conservation_color": "green", "samples": [{"path": "/Users/zuimeidedeyihan/longhun-system/01_protocols/cnsh/PROTOCOL__HOME-BATTLEFIELD-DEV-ENV-v1.0.local.md", "dr_confirm": 8, "long_dr": 3, "sha256": "6d2fee754954b471", "simp_long_only": false}, {"path": "/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md", "dr_confirm": 8, "long_dr": 1, "sha256": "892f96be3dfe5de0", "simp_long_only": false}, {"path": "/Users/zuimeidedeyihan/longhun-system/longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md", "dr_confirm": 8, "long_dr": 9, "sha256": "c73819a241e56b80", "simp_long_only": false}]}
+{"ts":"2026-05-18T17:04:35+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:04:35+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:04:35+0800","event":"gate","detail":"G5 protocol sample OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:04:35+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:04:35+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:16:14+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:16:14+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:16:14+0800","event":"gate","detail":"G5 long-char-law OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:16:14+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T17:16:14+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T18:54:35+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T18:54:35+0800","event":"sha256","detail":"BehavCrypto verify OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T18:54:35+0800","event":"gate","detail":"G5 long-char-law OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T18:54:35+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-18T18:54:35+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-20T08:16:27+0800","event":"start","detail":"主场开机查验","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-20T08:16:27+0800","event":"gate","detail":"G5 long-char-law OK","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-20T08:16:27+0800","event":"gate","detail":"dr pass dr=8","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}
+{"ts":"2026-05-20T08:16:27+0800","event":"done","detail":"主场开机查验 complete","dna":"#龍芯⚡2026-05-18-HOME-BATTLEFIELD-CHECK-v1.0"}

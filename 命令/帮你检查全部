@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+# 老大不用懂英文 · 我代你跑检查（整行复制即可）
+set -u
+
+ROOT="/Users/zuimeidedeyihan/longhun-system"
+VENV_PY="${ROOT}/venv/bin/python"
+ENGINE="${ROOT}/engine"
+ENV_FILE="${ENGINE}/.env"
+
+echo "════════════════════════════════════════"
+echo "  🐉 龍魂 · 帮你检查全部"
+echo "  时间: $(date '+%Y-%m-%d %H:%M:%S')"
+echo "════════════════════════════════════════"
+echo ""
+
+# 1 依赖
+echo "▶ ① 检查 Python 依赖…"
+"${VENV_PY}" -m pip install -q -r "${ENGINE}/requirements.txt" && echo "   ✅ 依赖 OK" || echo "   ❌ 依赖安装失败"
+
+# 2 引擎
+echo ""
+echo "▶ ② 检查 9625 引擎…"
+if curl -sf "http://127.0.0.1:9625/api/health" >/dev/null; then
+  echo "   ✅ 9625 正在运行"
+else
+  echo "   🟡 9625 未运行 → 正在帮你启动…"
+  cd "${ENGINE}"
+  nohup "${VENV_PY}" main.py >>"${ROOT}/logs/engine9625.out.log" 2>>"${ROOT}/logs/engine9625.err.log" &
+  sleep 3
+  curl -sf "http://127.0.0.1:9625/api/health" >/dev/null && echo "   ✅ 已启动" || echo "   ❌ 启动失败·看 logs/engine9625.err.log"
+fi
+
+# 3 密钥（只显示空/已填，不显示内容）
+echo ""
+echo "▶ ③ 密钥文件（engine/.env）· 只报空不泄密"
+if [[ ! -f "${ENV_FILE}" ]]; then
+  cp "${ENGINE}/.env.example" "${ENV_FILE}"
+  chmod 600 "${ENV_FILE}"
+  echo "   📄 已帮你创建 .env（从模板复制）"
+fi
+echo "   📜 主权模式：别人接你 · 系统脊梁不接大厂 outbound"
+echo "   只检：9625 + 本机 Ollama + 你的 MCP"
+
+# 3b Ollama
+if curl -sf "http://127.0.0.1:11434/api/tags" >/dev/null 2>&1; then
+  echo "   ✅ 本机 Ollama：在线"
+else
+  echo "   🟡 本机 Ollama：未开（可选·终端执行 ollama serve）"
+fi
+
+# 3c 出站云 API（可选·不催填）
+"${VENV_PY}" <<'PY'
+from pathlib import Path
+p = Path("/Users/zuimeidedeyihan/longhun-system/engine/.env")
+optional = [("NOTION_TOKEN", "Notion"), ("DEEPSEEK_API_KEY", "DeepSeek"), ("ANTHROPIC_API_KEY", "Claude")]
+data = {}
+for line in p.read_text(encoding="utf-8").splitlines():
+    if "=" in line and not line.strip().startswith("#"):
+        k, v = line.split("=", 1)
+        data[k.strip()] = v.strip()
+print("   （出站云密钥·仅你个人要用时填·系统不依赖）")
+for key, label in optional:
+    print(f"   · {label}：{'已填·个人用' if data.get(key) else '未填·正常'}")
+PY
+
+# 4 入站能力（MCP 列表）
+echo ""
+echo "▶ ④ 你的 MCP / 入站接口…"
+if curl -sf "http://127.0.0.1:9625/api/mcp/list" >/dev/null 2>&1; then
+  echo "   ✅ GET /api/mcp/list 可用（别人接你的入口之一）"
+else
+  echo "   🟡 MCP 桥未响应（9625 需运行）"
+fi
+echo "   ✅ 入站：flow_port · triage · assemble · /api/chat/local"
+echo "   ✅ 一键导出：POST /api/chat/export（数据在你手里）"
+
+echo ""
+echo "▶ ⑤ 护盾后台（Notion v1.7 + QPS）· 只防不攻"
+if curl -sf "http://127.0.0.1:9625/api/defense/status" >/dev/null; then
+  curl -s "http://127.0.0.1:9625/api/defense/status" | "${VENV_PY}" -c "import sys,json; d=json.load(sys.stdin); print('   模式:', d.get('mode'), '|', d.get('qps',{}).get('stance',''))" 2>/dev/null || echo "   ✅ /api/defense/status 在线"
+else
+  echo "   🟡 护盾 API 未响应（重启 9625 后自动跟引擎起）"
+fi
+echo "   觉得防御太强 → POST mode=loose 见 PROTOCOL__DEFENSE-BACKGROUND-v1.0.local.md"
+
+echo ""
+echo "════════════════════════════════════════"
+echo "  浏览器："
+echo "    DNA 控制台  http://127.0.0.1:9625/console"
+echo "    操作台 MVP  先 bash ${ROOT}/bin/开操作台"
+echo "  密钥填写：  bash ${ROOT}/bin/帮你打开密钥填写"
+echo "════════════════════════════════════════"

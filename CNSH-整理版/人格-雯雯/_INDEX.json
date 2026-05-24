@@ -1,0 +1,129 @@
+{
+  "category": "人格-雯雯",
+  "count": 7,
+  "generated_at": "2026-03-06T07:47:21.399634",
+  "pages": [
+    {
+      "id": "4c4a025e-a8be-48b1-9b8b-3f12947747a2",
+      "title": "开发环境快速部署工具",
+      "icon": "",
+      "tags": [
+        "配置文件",
+        "雯雯",
+        "中枢"
+      ],
+      "url": "https://www.notion.so/4c4a025ea8be48b19b8b3f12947747a2",
+      "created": "2025-09-30",
+      "modified": "2025-11-22",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "955b97d9-c0f5-4bee-8c68-14d937399df1",
+      "title": "实时性能监控仪表板",
+      "icon": "",
+      "tags": [
+        "雯雯",
+        "数据大师",
+        "小程序",
+        "H5网页",
+        "PWA应用",
+        "点击",
+        "滑动",
+        "双击",
+        "长按"
+      ],
+      "url": "https://www.notion.so/955b97d9c0f54bee8c6814d937399df1",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "71455902-a46b-4630-b70f-4c9bed5af0a5",
+      "title": "移动端身份验证系统",
+      "icon": "",
+      "tags": [
+        "雯雯",
+        "UI设计师",
+        "iOS",
+        "Android",
+        "小程序",
+        "点击",
+        "长按"
+      ],
+      "url": "https://www.notion.so/71455902a46b4630b70f4c9bed5af0a5",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "c6b95be1-8a29-4b13-ac7f-5a153feb63a9",
+      "title": "智能任务管理移动端",
+      "icon": "",
+      "tags": [
+        "雯雯",
+        "宝宝",
+        "小程序",
+        "H5网页",
+        "PWA应用",
+        "点击",
+        "滑动",
+        "长按",
+        "手势识别"
+      ],
+      "url": "https://www.notion.so/c6b95be18a294b13ac7f5a153feb63a9",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "8af0b727-d48a-47ea-a3d6-538c028204c1",
+      "title": "智能管理系统企业版授权",
+      "icon": "",
+      "tags": [
+        "大型企业",
+        "政府部门",
+        "雯雯",
+        "Lucky"
+      ],
+      "url": "https://www.notion.so/8af0b727d48a47eaa3d6538c028204c1",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "1eed8f5a-be11-4438-87be-bc01cf1bbae9",
+      "title": "智能体协作管理权限",
+      "icon": "",
+      "tags": [
+        "雯雯",
+        "AI智能体",
+        "数据分析"
+      ],
+      "url": "https://www.notion.so/1eed8f5abe11443887bebc01cf1bbae9",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    },
+    {
+      "id": "d5663927-1aca-4d2f-bdad-d6cc0c12bad8",
+      "title": "用户数据读取权限",
+      "icon": "",
+      "tags": [
+        "雯雯",
+        "系统自动",
+        "数据分析"
+      ],
+      "url": "https://www.notion.so/d56639271aca4d2fbdadd6cc0c12bad8",
+      "created": "2025-09-04",
+      "modified": "2025-09-04",
+      "parent_type": "database_id",
+      "category_reason": "雯雯"
+    }
+  ]
+}

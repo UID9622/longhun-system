@@ -1,0 +1,22 @@
+{
+  "_hint": "填 config/notion_power.json → databases.kanban_tasks + notion_token 后重跑",
+  "tasks": [
+    {
+      "id": "local-demo-1",
+      "name": "示例任务",
+      "factors": {
+        "sharpness": 0.3,
+        "long_term": 0.3,
+        "density": 0.2,
+        "absence": 0.7,
+        "pleasing": 0.6
+      },
+      "context": {},
+      "triadic": {
+        "heaven": 0.8,
+        "earth": 0.8,
+        "human": 0.8
+      }
+    }
+  ]
+}

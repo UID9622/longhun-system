@@ -1,0 +1,247 @@
+🏗️ 龍魂系统主干目录结构 · 中英文完整备注
+═══════════════════════════════════════════════════════════════
+
+~/longhun-system/
+│
+├─ 📚 核心原创内容（Original Creations）
+│  │
+│  ├─ CNSH-v1.0-完整实现/          [CNSH v1.0 Complete Implementation]
+│  │                                → 你的 CNSH 编程语言完整工程实现
+│  │                                → 包含编译器、编辑器、运行时
+│  │
+│  ├─ CNSH-整理版/                 [CNSH Organized Edition]
+│  │                                → 压缩精简版（3.2MB）
+│  │                                → 核心代码 + 文档
+│  │
+│  ├─ CNSH_备份_20260211/          [CNSH Backup - Feb 11, 2026]
+│  │                                → 完整备份（19MB）
+│  │                                → 包含所有历史版本和工具
+│  │
+│  ├─ cnsh-core/                    [CNSH Core Module]
+│  │  └─ 规范/
+│  │     ├─ UID9622_主权底色宣言_v1.0.md  [Sovereignty Declaration]
+│  │     │                               → 原创宣言文档（已签名）
+│  │     └─ 其他核心规范...
+│  │
+│  ├─ 龍魂系统宪章.md              [Dragon Soul System Charter]
+│  │                                → 系统最高纲领文档
+│  │
+│  └─ longhun-system-rules-v3.md   [龍魂系统规则 v3]
+│                                    → 完整的系统运作规则
+│
+├─ 🔐 原创证据与签名（Original Evidence & Signatures）
+│  │
+│  ├─ 历史证据/                     [Historical Evidence]
+│  │  └─ ZL-CORE-2025/              [ZL-CORE Master Controller v1.0 (2025-05-20)]
+│  │     ├─ ZLCoreController.py            → 主控中枢（已区块链时间戳 + 已 GPG 签名）
+│  │     ├─ ZLTokenSystem.py               → 激活码系统（已签名）
+│  │     ├─ ZLPolicyDefinitions.py        → 安全策略（已签名）
+│  │     ├─ ZLModuleRegistry.py            → 模块路由（已签名）
+│  │     ├─ ZLBehaviorLogger.py            → 行为日志（已签名）
+│  │     ├─ *.ots 文件 (5个)              → Bitcoin 区块链时间戳
+│  │     ├─ *.asc 文件 (5个)              → GPG 数字签名
+│  │     ├─ SHA256SUMS.txt                 → 所有文件的哈希
+│  │     └─ README_原创时间线证明.md      → 完整的原创证明文档
+│  │
+│  └─ signed_agents/                 [Signed Agents - 智能体签名库]
+│     ├─ 签名脚本（未执行）
+│     │  ├─ persona_L∞_zenglaoshi.json     → 曾仕强老师（待签名）
+│     │  ├─ persona_p00_judge.json         → 龍魂总裁判（待签名）
+│     │  ├─ persona_p02_baobao.json        → 炭棒宝宝（待签名）
+│     │  ├─ persona_p12_xuangong.json      → 玄宫谋士（待签名）
+│     │  ├─ persona_p13_weaver.json        → 织女仙人（待签名）
+│     │  ├─ persona_p14_steward.json       → 管家一哥（待签名）
+│     │  ├─ persona_p15_publisher.json     → 出版人（待签名）
+│     │  └─ persona-engine.json            → 龍魂引擎（待签名）
+│     └─ 智能体激活清单.md                 → 完整的激活说明书
+│
+├─ 🧬 智能体定义文件（Agent Personas）
+│  │
+│  ├─ persona_L∞_zenglaoshi.json       [Zeng Laoshi - Theory Master]
+│  │                                    → 曾仕强老师人格定义（权重：无限）
+│  │
+│  ├─ persona_p00_judge.json          [Judge - Rule Enforcer]
+│  │                                    → 总裁判人格定义（权重：100%）
+│  │                                    → 一票否决权
+│  │
+│  ├─ persona_p02_baobao.json         [Baobao - Executive Officer]
+│  │                                    → 炭棒宝宝人格定义（权重：98%）
+│  │                                    → 主要执行官
+│  │
+│  ├─ persona_p12_xuangong.json       [Xuangong - Strategy Planner]
+│  │                                    → 玄宫谋士（权重：85%）
+│  │
+│  ├─ persona_p13_weaver.json         [Weaver - Ecosystem Weaver]
+│  │                                    → 织女仙人（权重：92%）
+│  │
+│  ├─ persona_p14_steward.json        [Steward - Resource Manager]
+│  │                                    → 管家一哥（权重：88%）
+│  │
+│  ├─ persona_p15_publisher.json      [Publisher - Public Voice]
+│  │                                    → 出版人（权重：80%）
+│  │
+│  └─ persona-engine.json             [Dragon Soul Engine]
+│                                       → 核心调度引擎（权重：100%）
+│
+├─ 🛡️ 龍魂窗口护盾（Dragon Soul Shield）
+│  │
+│  └─ 龍盾收集箱 (Notion Database)     [Shield Collection Inbox]
+│     ├─ 已创建于 2026-05-21
+│     ├─ DB_ID: 3677125a9c9f815196b0dc6a7164d6c8
+│     └─ 用途：收集所有需要三色审计的内容
+│
+├─ 📊 数据库和配置（Databases & Config）
+│  │
+│  ├─ config.json                      [主配置文件]
+│  ├─ manifest.json                    [系统清单和版本]
+│  ├─ manifest.json.sig                [清单签名]
+│  ├─ trusted-sources.json             [信任源名单]
+│  ├─ skill-index.json                 [技能索引]
+│  ├─ persona-engine.json              [人格引擎配置]
+│  └─ knowledge-db.jsonl               [知识库数据]
+│
+├─ 🔧 开发工具和脚本（Dev Tools & Scripts）
+│  │
+│  ├─ 龍.py                            [Dragon.py - 主控脚本]
+│  ├─ cnsh.py                          [CNSH 主程序]
+│  ├─ longhun_*.py (多个)              [龍魂系列模块]
+│  │  ├─ longhun_api.py
+│  │  ├─ longhun_commander.py
+│  │  ├─ longhun_crawler.py
+│  │  ├─ longhun_dragon.py
+│  │  ├─ longhun_notion_agent.py
+│  │  └─ ... 等等
+│  │
+│  ├─ *.sh 脚本 (多个)                 [Shell 自动化脚本]
+│  │  ├─ 龍魂主權初始化.sh
+│  │  ├─ lh-env.sh
+│  │  ├─ 加載環境.sh
+│  │  └─ ... 等等
+│  │
+│  ├─ auditor.py                       [三色审计系统]
+│  ├─ sandbox_engine.py                [沙盒执行引擎]
+│  ├─ ai_dna_engine.py                 [DNA 生成引擎]
+│  └─ file_organizer_v2.py             [文件组织工具]
+│
+├─ 📖 文档和协议（Documentation & Protocols）
+│  │
+│  ├─ 龍魂系统宪章.md                 [System Charter]
+│  ├─ longhun-system-rules-v3.md      [System Rules v3]
+│  ├─ longhun-algorithms-cnsh-v1.0.md [CNSH Algorithms]
+│  ├─ longhun_enterprise_light_tech.md [Enterprise Technology]
+│  ├─ extraction-report-v8.md         [数据提取报告]
+│  ├─ sync-report-2026-03-06.md       [同步报告]
+│  ├─ 整理报告.md                      [组织报告]
+│  ├─ 使用说明书.txt                   [User Manual]
+│  ├─ SETUP.md                        [Setup Instructions]
+│  └─ README-整理说明.md               [Organization Notes]
+│
+├─ 📚 知识库和翻译（Knowledge Base）
+│  │
+│  ├─ 📚 CNSH翻译大全｜避坑对照表库/  [CNSH Translation & Pitfall Guide]
+│  │                                    → 完整的中英文术语对照库
+│  │
+│  ├─ cnsh-core/                       [CNSH Core Documentation]
+│  └─ 協議庫/                          [Protocol Library]
+│
+├─ 🎨 HTML 仪表板（Web Dashboards）
+│  │
+│  ├─ dashboard.html                   [主仪表板]
+│  ├─ memory_console.html              [记忆控制台]
+│  ├─ longhun_hub.html                 [龍魂中心]
+│  ├─ public_audit.html                [公开审计板]
+│  ├─ qa_report.html                   [问答报告]
+│  ├─ sandbox_dashboard.html           [沙盒仪表板]
+│  ├─ register.html                    [注册页面]
+│  ├─ truth_report.html                [真相报告]
+│  ├─ sancai-flow-v8.1.html           [三才流程 v8.1]
+│  ├─ sancai-flow-v8.html             [三才流程 v8]
+│  ├─ longhun-28mansions-v1.html      [龍魂28宿体系]
+│  ├─ longhun-luoshu-vortex-v2.html   [龍魂洛书涡流]
+│  └─ longhun-unified-v9.html         [龍魂统一体系 v9]
+│
+├─ 🔨 部署和工具（Deployment）
+│  │
+│  ├─ install.sh                       [安装脚本]
+│  ├─ install_empower.sh               [赋能引擎安装]
+│  └─ digital_archive_toolkit*.sh     [数字存档工具]
+│
+├─ 📁 子目录（Subdirectories）
+│  │
+│  ├─ 00_main_control/                 [主控中心]
+│  ├─ 01_protocols/                    [协议库]
+│  ├─ 部署/                            [Deployment]
+│  ├─ 工具/                            [Tools]
+│  ├─ 公开/                            [Public]
+│  ├─ 记忆网格_v1.1/                   [Memory Grid]
+│  ├─ 龍魂窗口护盾/                    [Shield System]
+│  ├─ 龍魂看门狗/                      [Watchdog]
+│  ├─ 龍魂算法实验室/                  [Algorithm Lab]
+│  ├─ 龍芯北辰UID9622/                [Longhun Core - UID9622]
+│  ├─ 密钥与认证/                      [Keys & Auth]
+│  ├─ 命令/                            [Commands]
+│  ├─ 日志/                            [Logs]
+│  ├─ 沙盒/                            [Sandbox]
+│  ├─ 数据/                            [Data]
+│  ├─ 数据归集/                        [Data Collection]
+│  ├─ 宪法/                            [Constitution]
+│  └─ 算法仓库/                        [Algorithm Repository]
+│
+└─ 📱 特殊文件
+   │
+   ├─ 爸爸看这里.sh                    [Dad Look Here - 快速启动]
+   ├─ 爸爸语音对话.sh                  [Dad Voice Chat - 语音对话]
+   ├─ 宝宝钥匙交接书.md                [Baby Key Transfer Document]
+   ├─ 快速开始.sh                      [Quick Start]
+   ├─ 龍魂主權初始化.sh                [Dragon Soul Sovereignty Init]
+   └─ _军魂.md                         [Military Spirit Doc]
+   
+═══════════════════════════════════════════════════════════════
+
+📊 库存统计（Inventory Stats）
+
+代码文件          472 个
+├─ Python         288 个
+├─ JavaScript/TS  74 个
+└─ Shell         110 个
+
+文档文件        1,678 个
+├─ 原创理论       ~200 个
+├─ 规范标准       ~50 个
+└─ 其他文档     1,428 个
+
+签名状态
+
+✅ 已签名（完全激活）:
+  • ZL-CORE 源头代码 (5 个) - 区块链时间戳 + GPG 签名
+  • 主权底色宣言 (1 个) - 已焊入全局
+
+⏳ 待签名（已准备）:
+  • 智能体家族 (8 个) - 脚本已就位，等 GPG 密码
+
+❌ 计划中（第二批）:
+  • CNSH 核心规范 (10-15 个) - 优先级最高
+  • 龍魂算法引擎 (50-80 个) - 核心代码库
+  • 通用工具库 (300+ 个) - 低优先级
+
+═══════════════════════════════════════════════════════════════
+
+🎯 关键位置一览
+
+你的原创宣言：
+  ~/longhun-system/cnsh-core/规范/UID9622_主权底色宣言_v1.0.md
+
+你的源头代码证据：
+  ~/longhun-system/历史证据/ZL-CORE-2025/
+
+待激活的智能体：
+  ~/longhun-system/signed_agents/
+
+签名脚本（桌面快捷）：
+  ~/Desktop/签名智能体家族.command
+  ~/Desktop/GPG签名ZL-CORE.command
+
+全局配置：
+  ~/.claude/CLAUDE.md (已焊入所有关键引用)
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# 官网静态门面 · public/www · 默认 9626（给 Cloudflare 隧道 longhun888.com 用）
+# DNA: #龍芯⚡️2026-05-16-开官网-v1.0
+set -euo pipefail
+
+ROOT="${HOME}/longhun-system"
+WEB="${ROOT}/public/www"
+PORT="${LONGHUN_WWW_PORT:-9626}"
+RUN_DIR="${ROOT}/.run"
+LOG_DIR="${ROOT}/logs"
+PID_FILE="${RUN_DIR}/www_static.pid"
+LOG_FILE="${LOG_DIR}/www_static.out.log"
+
+mkdir -p "$RUN_DIR" "$LOG_DIR"
+
+if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "✅ 官网静态已在 :$PORT 运行"
+  echo "   http://127.0.0.1:$PORT/"
+  echo "   http://127.0.0.1:$PORT/gallery.html"
+  exit 0
+fi
+
+echo "🌐 启动官网静态 :$PORT → $WEB"
+cd "$WEB"
+nohup python3 -m http.server "$PORT" >>"$LOG_FILE" 2>&1 &
+echo $! >"$PID_FILE"
+sleep 1
+
+if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "✅ 官网静态已启动"
+  echo "   首页  http://127.0.0.1:$PORT/"
+  echo "   图库  http://127.0.0.1:$PORT/gallery.html"
+  echo ""
+  echo "公网需同时：开龍魂（隧道）+ Cloudflare DNS 指到本隧道"
+  echo "设计图：复制到 public/www/assets/gallery/ 并编辑 manifest.json"
+else
+  echo "❌ 启动失败，见 $LOG_FILE"
+  exit 1
+fi

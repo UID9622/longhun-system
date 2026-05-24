@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>龍魂本地對話</title>
+    <style>
+        body { font-family: system-ui; max-width: 800px; margin: 0 auto; padding: 20px; background: #0a0a0a; color: #e0e0e0; }
+        #chat { height: 400px; overflow-y: auto; border: 1px solid #333; padding: 10px; margin-bottom: 10px; border-radius: 8px; }
+        .user { color: #4caf50; margin: 5px 0; }
+        .assistant { color: #ff9800; margin: 5px 0; white-space: pre-wrap; }
+        input { width: 70%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 8px; }
+        button { padding: 10px 20px; background: #ff9800; border: none; border-radius: 8px; cursor: pointer; }
+        .loading { color: #888; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>🐉 龍魂本地對話引擎</h1>
+    <div id="chat"></div>
+    <input type="text" id="message" placeholder="輸入你的問題..." onkeypress="if(event.key==='Enter')send()" />
+    <button onclick="send()">發送</button>
+    <script>
+        let history = [];
+        async function send() {
+            const input = document.getElementById('message');
+            const msg = input.value.trim();
+            if (!msg) return;
+            input.value = '';
+            const chat = document.getElementById('chat');
+            chat.innerHTML += `<div class="user">👤 你: ${msg}</div>`;
+            history.push({role: "user", content: msg});
+            const loadingId = 'loading-' + Date.now();
+            chat.innerHTML += `<div id="${loadingId}" class="loading">🤖 龍魂思考中...</div>`;
+            chat.scrollTop = chat.scrollHeight;
+            try {
+                const response = await fetch('http://localhost:8000/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: history })
+                });
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+                if (data.error) {
+                    chat.innerHTML += `<div class="assistant">❌ 错误: ${data.error}</div>`;
+                } else {
+                    const reply = data.choices?.[0]?.message?.content || '（無回應）';
+                    history.push({role: "assistant", content: reply});
+                    chat.innerHTML += `<div class="assistant">🤖 龍魂: ${reply}</div>`;
+                }
+            } catch (e) {
+                document.getElementById(loadingId).remove();
+                chat.innerHTML += `<div class="assistant">❌ 連接失敗: ${e.message}</div>`;
+            }
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>

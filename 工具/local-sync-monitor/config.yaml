@@ -1,0 +1,18 @@
+notion:
+  log_page_url: "https://www.notion.so/b35faf462bc042aa9de5192520180728"
+  poll_seconds: 300
+
+local:
+  db_path: "audit.db"
+  jsonl_path: "logs/notion_log_watch.jsonl"
+  snapshot_dir: "snapshots/草日志"
+
+rules:
+  require_keywords:
+    - "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+    - "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
+    - "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+  forbidden_replacements:
+    - from: "龍"
+      to: "龍"
+  append_only: true
