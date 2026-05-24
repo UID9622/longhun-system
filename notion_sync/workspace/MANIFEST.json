@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-05-25T07:04:22.084698",
+  "dna": "#龍芯⚡️2026-05-25-NOTION-SYNC-GATEWAY-MANIFEST-v1.0",
+  "workspace": "https://www.notion.so/uid9622",
+  "sync_dir": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace",
+  "pages": {
+    "DNA": {
+      "url": "https://www.notion.so/uid9622/DNA-34d7125a9c9f81d2be91d1e3e3be34eb",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/DNA.md",
+      "description": "龍魂核心 DNA 定义",
+      "status": "pending"
+    },
+    "BAOBAO-COLLAB-v1": {
+      "url": "https://www.notion.so/uid9622/UID9622-24618c23ac3247a19e652de6ab09f82c",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/BAOBAO-COLLAB-v1.md",
+      "description": "宝宝协作框架 v1.0",
+      "status": "pending"
+    },
+    "FLOW-DECISION-v3": {
+      "url": "https://www.notion.so/uid9622/UID9622-3427125a9c9f80449e88f4f2170b7940",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/FLOW-DECISION-v3.md",
+      "description": "流场决策 v3",
+      "status": "pending"
+    },
+    "AI-COLLABORATION": {
+      "url": "https://www.notion.so/uid9622/AI-868fec34e5a24e7e829dc5851a75f6b7",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/AI-COLLABORATION.md",
+      "description": "AI 协作框架",
+      "status": "pending"
+    },
+    "SYSTEMS-v1": {
+      "url": "https://www.notion.so/uid9622/UID9622-v1-0-33d7125a9c9f81818d40de9b63c86203",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/SYSTEMS-v1.md",
+      "description": "系统 v1.0",
+      "status": "pending"
+    },
+    "UNIFIED-FRAMEWORK": {
+      "url": "https://www.notion.so/uid9622/b35faf462bc042aa9de5192520180728",
+      "local_path": "/Users/zuimeidedeyihan/longhun-system/notion_sync/workspace/UNIFIED-FRAMEWORK.md",
+      "description": "统一框架",
+      "status": "pending"
+    }
+  },
+  "next_step": "手动导出 Notion 页面为 Markdown，放入 notion_sync/workspace/",
+  "instructions": "\n① 打开每个 Notion 页面\n② 右上角 ⋯ → Export → Markdown & CSV\n③ 下载后放入: ~/longhun-system/notion_sync/workspace/\n④ 改名为对应的文件名（DNA.md, BAOBAO-COLLAB-v1.md 等）\n⑤ 再运行: python3 notion_sync_gateway.py sync\n        "
+}
