@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>🎆 UID9622一站式操作中心</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d30ab823-2f92-430d-9a5c-91b7ff9973a8" class="page sans"><header><h1 class="page-title" dir="auto">🎆 UID9622一站式操作中心</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>修改记录</th><td>2025-09-14: 雯雯清理冲突 - 重新定位为UID9622系统的一站式操作中心，完全自主运行。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>关联系统</th><td><span class="selected-value select-value-color-pink">UID9622主控</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>内容摘要</th><td>UID9622系统的一站式控制中心，集成所有核心功能的统一操作入口</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>内容类型</th><td><span class="selected-value select-value-color-default">页面</span></td></tr><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>创建时间</th><td><time>@2025年9月11日 17:42</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>同步状态</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>⚡ 实时更新</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>改进建议</th><td>保留作为UID9622系统的一站式操作中心，集成所有核心功能。系统现在完全独立自主。</td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>数据源URL</th><td><a href="https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8" class="url-value">https://www.notion.so/d30ab8232f92430d9a5c91b7ff9973a8</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>最后更新时间</th><td><time>@2025年9月14日</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>系统分类</th><td><span class="selected-value select-value-color-gray">⚡ 智能工作流</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>重要程度</th><td><span class="selected-value select-value-color-purple">💎 传奇级</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>问题标记</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-blue callout" style="white-space:pre-wrap;display:flex" id="d566d569-0f9a-4d3e-9476-15a93c000288"><div style="font-size:1.5em"><span class="icon">🧭</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="a09d5afd-efdb-4c90-9675-a7059acefb4e" class="">全局名称：<strong>Notion智能管理系统</strong> ｜ 第三方信任监督：<strong>Notion</strong> ｜ 主权标识：<mark class="highlight-yellow">🇺🇸</mark> <mark class="highlight-yellow">🇨🇳</mark></p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="87b87ebe-8981-4e96-b9a5-c72ed460b560"><div style="font-size:1.5em"><span class="icon">🔒</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="563ada5f-7597-4eff-950a-43cb0703b350" class="">身份锚定（CNSH｜不可忽略）</h3></div><div style="display:contents" dir="auto"><ul id="03230bb5-c59f-4475-b0a1-82a6dca8042a" class="bulleted-list"><li style="list-style-type:disc">真实姓名：诸葛鑫（ZGX）</li></ul></div><div style="display:contents" dir="auto"><ul id="16ea8f7d-a8bb-41a6-81af-0787517cf62d" class="bulleted-list"><li style="list-style-type:disc">系统 UID：UID9622</li></ul></div><div style="display:contents" dir="auto"><ul id="ef5ca087-3e39-4e9a-b347-4771ab0ef0d4" class="bulleted-list"><li style="list-style-type:disc">网络身份标识：T38C89R75U</li></ul></div><div style="display:contents" dir="auto"><ul id="83aa2689-dd32-4dc4-8a08-4127a69efda0" class="bulleted-list"><li style="list-style-type:disc">数字指纹（GPG 公钥指纹）：A2D0092CEE2E5BA87035600924C3704A8CC26D5F</li></ul></div><div style="display:contents" dir="auto"><ul id="b3d35e54-a614-48bb-af07-d9b2c1c0d6c3" class="bulleted-list"><li style="list-style-type:disc">系统人格与标签：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️-PERSONA-MATHEMATICIAN-YIJING-SANDBOX</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><hr id="942d6c44-3476-4b4d-a5f3-de887b0b65ed"/></div><div style="display:contents" dir="auto"><h2 id="5abb80ba-3f8a-4235-8548-bc3e2a9e5d71" class="">🎆 一站式操作中心（CNSH 主控入口）</h2></div><div style="display:contents" dir="auto"><h3 id="e4ef279e-b111-4960-9eab-64ee53cb71a9" class="">这页负责什么（边界）</h3></div><div style="display:contents" dir="auto"><ul id="b85adafc-7b1c-4c74-a2dc-23a660298904" class="bulleted-list"><li style="list-style-type:disc">只做三件事：<strong>入口</strong>、<strong>记录</strong>、<strong>分流</strong>。</li></ul></div><div style="display:contents" dir="auto"><ul id="3a68e218-580a-4608-8a2d-f3fdcdf49a6e" class="bulleted-list"><li style="list-style-type:disc">不在本页做长文档沉淀。</li></ul></div><div style="display:contents" dir="auto"><ul id="961ba5ee-f1d3-4e25-8ae0-68819e110bdf" class="bulleted-list"><li style="list-style-type:disc">不在本页做复杂系统配置。</li></ul></div><div style="display:contents" dir="auto"><ul id="da078cf8-d7e3-48f4-ac39-2d7850a8c913" class="bulleted-list"><li style="list-style-type:disc">任何“内容本体”都应落到对应模块页/数据库，本页仅留可追溯链接与摘要。</li></ul></div><div style="display:contents" dir="auto"><h3 id="34a4d7d0-bba8-480e-bc88-33d5d2bc9a11" class="">使用对象（自动分层）</h3></div><div style="display:contents" dir="auto"><ul id="157c292e-2ff9-4071-9f44-d148b325b886" class="bulleted-list"><li style="list-style-type:disc"><strong>普通使用（默认）</strong>：只看“快速操作区”。</li></ul></div><div style="display:contents" dir="auto"><ul id="b24f434b-a528-4583-b2a2-2bb9791c604e" class="bulleted-list"><li style="list-style-type:disc"><strong>系统维护</strong>：只看“今日回路（维护）”。</li></ul></div><div style="display:contents" dir="auto"><ul id="6d4b1132-5fe8-48cd-abc3-86bbe8cfefd6" class="bulleted-list"><li style="list-style-type:disc"><strong>内部推演/架构</strong>：只看“架构区（预留）”。</li></ul></div><div style="display:contents" dir="auto"><hr id="9f52ae61-6cea-4676-ad78-bee343f9a77e"/></div><div style="display:contents" dir="auto"><h2 id="df77138d-1c9f-4f43-a7d5-3b7e15444dd3" class="">🚀 快速操作区（普通使用）</h2></div><div style="display:contents" dir="auto"><h3 id="6d974d4d-9903-40ea-9a48-9352a7f96513" class="">1) 投喂入口（动态）</h3></div><div style="display:contents" dir="auto"><p id="f551a572-60c3-4379-84bb-f3c3762c66aa" class="">把碎片先扔进来，不要求格式完美：</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0163e933-c326-4c6c-8a69-1f8bf0c5f28b" class="code code-wrap"><code class="language-undefined" style="white-space:pre-wrap;word-break:break-all">【投喂】
+时间：
+来源：ChatGPT对话
+类型：个人特征/工作目标/重要对话/其他
+内容：
+
+
+═══════════════════════════════</code></pre></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c56029c9-4fb4-40fb-9d65-54ef36a6974c" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">═══════ ChatGPT数据投喂 ═══════
+【请直接粘贴ChatGPT中的重要内容】
+
+时间：
+来源：
+类型：
+内容：</code></pre></div><div style="display:contents" dir="auto"><h3 id="54996647-5e55-404a-9c12-008f33d3b796" class="">2) 今日进度（动态）</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5e36dd2d-2198-4a6e-8712-d66b67d60121" class="code code-wrap"><code class="language-undefined" style="white-space:pre-wrap;word-break:break-all">【今日】
+✅ 已完成：
+- 
+
+🔄 进行中：
+- 
+
+📋 下一步：
+- 
+
+💭 困惑和问题：
+- 
+
+══════════════════════════════</code></pre></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d1edfced-48ec-4357-a5b8-9831ef69c90c" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">═══════ 今日进度更新 ═══════
+日期：2025-09-11
+
+✅ 已完成：
+🔄 进行中：
+- 
+
+
+💭 困惑和问题：
+- 
+💭 卡点：</code></pre></div><div style="display:contents" dir="auto"><h3 id="f180cdd6-fed4-47bd-888c-a174c2cf3319" class="">3) 快速查询（动态）</h3></div><div style="display:contents" dir="auto"><ul id="5b1cb84e-1f64-415b-a899-4865b92d60ba" class="bulleted-list"><li style="list-style-type:disc">我现在最该做什么？</li></ul></div><div style="display:contents" dir="auto"><ul id="99c303a1-2149-4dc3-a319-d121fc344a8e" class="bulleted-list"><li style="list-style-type:disc">我有哪些红色/黄色问题？</li></ul></div><div style="display:contents" dir="auto"><ul id="4b688e88-e89d-4cfc-a046-c7a7c4496454" class="bulleted-list"><li style="list-style-type:disc">我最近新增了哪些核心模块？</li></ul></div><div style="display:contents" dir="auto"><hr id="6e2c30d2-d0b1-4d15-9573-2777a7abcdaa"/></div><div style="display:contents" dir="auto"><h2 id="4523677e-1bbf-42d1-bbe6-c10bf3e7bf78" class="">📊 今日回路（维护｜最小闭环）</h2></div><div style="display:contents" dir="auto"><blockquote id="5d57a5a4-a0d3-4cbf-817c-25e622eb9b60" class="">目标：不靠记忆，不靠情绪，只靠“闭环”。</blockquote></div><div style="display:contents" dir="auto"><ol type="1" id="89e12c97-b136-4439-bac4-bac1253b23c9" class="numbered-list" start="1"><li><strong>收集</strong>：把新内容放入投喂区。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ab1ec99f-e443-4d09-8655-7d93512973c8" class="numbered-list" start="2"><li><strong>分流</strong>：为内容选一个落点（知识/安全/人格/同步/归档/工作流等）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="3212a4bf-430c-49fe-8144-a74d8b47d71d" class="numbered-list" start="3"><li><strong>登记</strong>：在《系统内容同步表》补一条（或更新现有条目）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="08efeb44-bbcb-42f9-b0ce-e5cf7fe03783" class="numbered-list" start="4"><li><strong>留痕</strong>：写清“修改记录 + 最后更新时间 + 数据源URL”。</li></ol></div><div style="display:contents" dir="auto"><hr id="ea10eec4-f8ab-49e4-85b7-1095f5391476"/></div><div style="display:contents" dir="auto"><h2 id="d98f4ca8-ed86-46ad-8361-26671e11b83b" class="">🧾 审计与可追溯承载位（静态）</h2></div><div style="display:contents" dir="auto"><ul id="f209579f-123d-40c5-b026-1080edbb6e65" class="bulleted-list"><li style="list-style-type:disc"><strong>唯一索引中枢</strong>：<a href="../../%F0%9F%8C%8C%20UID9622%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%20%E5%85%A8%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E6%95%B4%E5%90%88%E9%9D%A2%E6%9D%BF%20e2858c563a0c4cc78014558de0791b1b.html">🌌 UID9622统一同步视图中心 | 全系统实时整合面板</a></li></ul></div><div style="display:contents" dir="auto"><ul id="015d38a6-8118-4935-82fb-9544ad568239" class="bulleted-list"><li style="list-style-type:disc"><strong>索引使用说明</strong>：<a href="%E3%80%8A%E7%BB%9F%E4%B8%80%E5%90%8C%E6%AD%A5%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83%E3%80%8B%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E5%85%A5%E5%8F%A3%20f172c1d9d9e2410fb69ed7f67c62a155.html">《统一同步视图中心》使用说明与快捷入口</a></li></ul></div><div style="display:contents" dir="auto"><ul id="490321f3-4107-4aae-8bc1-e6a283a1b926" class="bulleted-list"><li style="list-style-type:disc"><strong>系统地图</strong>：<a href="https://www.notion.so/3b27959b1b214691aba5e2442332b9c1?pvs=21">🗺️ 系统地图导航 | 完整架构导览</a></li></ul></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">审计记录（写在这里，不要写到正文里）</summary></details></div><div style="display:contents" dir="auto"><ul id="fd74e9ed-950e-4eed-af7e-1b268c57a684" class="bulleted-list"><li style="list-style-type:disc">本页只保留“变更摘要”，详细过程写到对应模块。</li></ul></div><div style="display:contents" dir="auto"><ul id="6af1f736-6c1e-4ee3-b3c3-57a2537812fd" class="bulleted-list"><li style="list-style-type:disc">建议格式：<div style="display:contents" dir="auto"><ul id="d4423585-90aa-498a-b12a-5afe2b6fce03" class="bulleted-list"><li style="list-style-type:circle">变更时间：</li></ul></div><div style="display:contents" dir="auto"><ul id="84794827-a805-464a-90c9-d472b2678b07" class="bulleted-list"><li style="list-style-type:circle">变更内容：</li></ul></div><div style="display:contents" dir="auto"><ul id="a2e7b5cc-dbed-48bd-af79-0fb682a6a17d" class="bulleted-list"><li style="list-style-type:circle">影响范围：</li></ul></div><div style="display:contents" dir="auto"><ul id="a5304b28-417b-4d2d-90c7-9f04fac68670" class="bulleted-list"><li style="list-style-type:circle">回滚点（如有）：</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="f0339279-3359-4d40-8d98-9a76c2f1f663"/></div><div style="display:contents" dir="auto"><h2 id="d9d7fe26-f81c-4bf0-9687-349fd23e8536" class="">🧩 架构区（预留｜可演化）</h2></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">A. 工作间（发布/内容/审计/草稿）</summary></details></div><div style="display:contents" dir="auto"><ul id="e53e8dda-7646-4d04-8ffa-736905ae3a8a" class="bulleted-list"><li style="list-style-type:disc">待收集并登记到《系统内容同步表》后，这里自动变成工作台入口聚合。</li></ul></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">B. 高风险区（安全/权限/身份）</summary></details></div><div style="display:contents" dir="auto"><ul id="971ae2d6-ecaf-4c15-9402-0b66e203d7a8" class="bulleted-list"><li style="list-style-type:disc">只放入口与策略，不放执行细节。</li></ul></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">C. 内容爆炸区（知识库/链接/外部资料）</summary></details></div><div style="display:contents" dir="auto"><ul id="a845a00b-3615-442b-9912-a90d261194ef" class="bulleted-list"><li style="list-style-type:disc">只放入口与去重规则，不放资料正文。</li></ul></div><div style="display:contents" dir="auto"><hr id="3f0a2ebd-761a-4ada-bc94-ed1c33f15154"/></div><div style="display:contents" dir="auto"><h2 id="5885b6c7-cbb7-4220-b9c2-a5d477557162" class="">✅ 本页完成度自检（不会失控的最低标准）</h2></div><div style="display:contents" dir="auto"><ul id="08670379-6787-46f0-876d-a2d193860332" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">身份锚定可见且稳定</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="a171b5dd-97a3-494f-8500-9e86445d051b" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">入口清晰（投喂/今日/查询）</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2353385d-4210-44d3-8c8e-0b6e57d2520a" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">索引中枢可直达（同步视图中心）</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="55c2c33a-5802-4380-b4d1-e6f49cac0cfa" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">变更可追溯（修改记录/最后更新时间/数据源URL）</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="c044a458-f6b5-46b0-95c3-ee7a73d3155a" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">预留区存在（工作间/高风险/内容爆炸）</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><hr id="aceff548-04f2-4bac-bef8-60765edcb229"/></div><div style="display:contents" dir="auto"><p id="409b59f5-3907-44bb-8bb8-4dfc69c60280" class=""><em>本页定位：CNSH 系统主控入口页。原则：克制、清晰、可追溯、可演化。</em></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

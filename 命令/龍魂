@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+# 🐉 龍魂·中文自然语言总控台 v1.0
+# DNA: #龍芯⚡️2026-05-24-LONGHUN-CN-COMMANDER-v1.0
+# 说人话，搞定事。一句话，不废话。
+
+import os, sys, subprocess, re, json
+from pathlib import Path
+
+HOME = Path.home()
+ROOT = HOME / "longhun-system"
+CMD_DIR = ROOT / "命令"
+BIN_DIR = ROOT / "bin"
+
+# 颜色
+R = '\033[0;31m'; G = '\033[0;32m'; Y = '\033[1;33m'
+C = '\033[0;36m'; P = '\033[0;35m'; NC = '\033[0m'; B = '\033[1m'
+
+def 跑(cmd, shell=True, cwd=None):
+    """跑命令，带颜色输出"""
+    print(f"{C}▶ 执行: {cmd}{NC}")
+    return subprocess.run(cmd, shell=shell, cwd=cwd or ROOT)
+
+def 看看家底():
+    """看看系统里都有啥"""
+    print(f"{P}{B}═══════════════════════════════════════{NC}")
+    print(f"{P}{B}  🐉 龍魂家底一览{NC}")
+    print(f"{P}{B}═══════════════════════════════════════{NC}\n")
+    
+    # 核心引擎
+    print(f"{Y}【核心引擎】{NC}")
+    引擎 = list(ROOT.glob("*.py"))
+    for f in sorted(引擎)[:8]:
+        print(f"  {G}✓{NC} {f.name}")
+    if len(引擎) > 8:
+        print(f"  ... 还有 {len(引擎)-8} 个")
+    
+    # 命令
+    print(f"\n{Y}【一句话命令】{NC}")
+    cmds = [f.name for f in CMD_DIR.iterdir() if f.is_file() and not f.name.startswith('.')]
+    for c in sorted(cmds)[:12]:
+        print(f"  {G}✓{NC} {c}")
+    
+    # 服务状态
+    print(f"\n{Y}【服务状态】{NC}")
+    服务 = [
+        ("9625 引擎", "http://127.0.0.1:9625/api/health"),
+        ("本地服务", "http://127.0.0.1:8765"),
+    ]
+    import urllib.request
+    for 名, url in 服务:
+        try:
+            urllib.request.urlopen(url, timeout=2)
+            print(f"  {G}🟢{NC} {名} 在线")
+        except:
+            print(f"  {R}🔴{NC} {名} 离线")
+    
+    print(f"\n{P}DNA: #龍芯⚡️2026-05-24-STATUS-CHECK{NC}")
+
+def 全开():
+    """爸爸一键全开"""
+    脚本 = CMD_DIR / "爸爸一键全开.sh"
+    if 脚本.exists():
+        跑(f'bash "{脚本}"')
+    else:
+        print(f"{R}没找到 爸爸一键全开.sh{NC}")
+
+def 开机():
+    """开机一条龍"""
+    脚本 = CMD_DIR / "开机一条龍"
+    if 脚本.exists():
+        跑(f'bash "{脚本}"')
+    else:
+        全开()
+
+def 检查一下():
+    """帮你检查全部"""
+    脚本 = CMD_DIR / "帮你检查全部"
+    if 脚本.exists():
+        跑(f'bash "{脚本}"')
+    else:
+        print(f"{R}没找到 帮你检查全部{NC}")
+
+def 开龍魂():
+    """开龍魂服务"""
+    脚本 = CMD_DIR / "开龍魂"
+    if 脚本.exists():
+        跑(f'bash "{脚本}"')
+    else:
+        print(f"{R}没找到 开龍魂{NC}")
+
+def 同步():
+    """同步数据"""
+    print(f"{Y}🔄 正在同步...{NC}")
+    跑("git status --short", cwd=ROOT)
+    print(f"\n{G}提示: 用 '龍魂 推送' 提交并推送{NC}")
+
+def 推送():
+    """git 提交+推送"""
+    跑("bash bin/luban_green_commit.sh", cwd=ROOT)
+
+def 审计():
+    """三色审计"""
+    print(f"{Y}🔍 三色审计启动...{NC}")
+    审计脚本 = ROOT / "auditor.py"
+    if 审计脚本.exists():
+        跑(f"python3 {审计脚本}")
+    else:
+        print(f"{R}auditor.py 没找到{NC}")
+
+def 备份():
+    """备份系统"""
+    print(f"{Y}💾 正在备份...{NC}")
+    时间 = subprocess.check_output("date +%Y%m%d_%H%M", shell=True).decode().strip()
+    备份名 = f"longhun-backup-{时间}"
+    跑(f"tar czf {HOME}/{备份名}.tar.gz --exclude='.git' --exclude='venv' --exclude='node_modules' longhun-system/", cwd=HOME)
+    print(f"{G}✅ 备份完成: {HOME}/{备份名}.tar.gz{NC}")
+
+def 清理():
+    """清理垃圾"""
+    print(f"{Y}🧹 清理中...{NC}")
+    跑("find . -name '*.pyc' -delete", cwd=ROOT)
+    跑("find . -name '__pycache__' -type d -exec rm -rf {{}} + 2>/dev/null; true", cwd=ROOT)
+    跑("find . -name '.DS_Store' -delete", cwd=ROOT)
+    print(f"{G}✅ 清理完成{NC}")
+
+def 帮助():
+    """显示帮助"""
+    print(f"""
+{P}{B}═══════════════════════════════════════{NC}
+{P}{B}  🐉 龍魂·中文自然语言总控台{NC}
+{P}{B}═══════════════════════════════════════{NC}
+
+{Y}【系统控制】{NC}
+  龍魂 全开          → 爸爸一键全开所有服务
+  龍魂 开机          → 开机一条龍（自检+全开+指令表）
+  龍魂 开龍魂        → 启动龍魂核心服务
+  龍魂 关服务        → 停止所有服务（还没焊）
+
+{Y}【检查维护】{NC}
+  龍魂 看看家底      → 看系统状态·引擎·命令清单
+  龍魂 检查一下      → 帮你检查全部（依赖/引擎/网络）
+  龍魂 审计          → 三色审计
+  龍魂 清理          → 清理缓存垃圾
+
+{Y}【数据操作】{NC}
+  龍魂 同步          → git 状态检查
+  龍魂 推送          → 提交+推送（带DNA签名）
+  龍魂 备份          → 打包备份整个系统
+
+{Y}【CNSH】{NC}
+  龍魂 说话          → 进入CNSH中文编程交互
+
+{G}用法: 龍魂 <你想干啥>{NC}
+{G}例: 龍魂 看看家底{NC}
+
+DNA: #龍芯⚡️2026-05-24-LONGHUN-CN-COMMANDER-v1.0
+""")
+
+# ============ 自然语言路由表 ============
+路由 = {
+    # 看看家底
+    r'看看家底|家底|状态|什么情况|咋样了|还好吗': 看看家底,
+    # 全开
+    r'全开|全部打开|全开服务|一键全开|爸爸一键': 全开,
+    # 开机
+    r'开机|开机一条龍|启动|起来|醒了': 开机,
+    # 开龍魂
+    r'开龍魂|启动龍魂|龍魂启动|开服务': 开龍魂,
+    # 检查
+    r'检查|检查一下|查查|体检|看看健康': 检查一下,
+    # 审计
+    r'审计|三色审计|查账|审查': 审计,
+    # 同步
+    r'同步|git|状态|改了啥': 同步,
+    # 推送
+    r'推送|提交|push|上传|保存': 推送,
+    # 备份
+    r'备份|打包|存档|留底': 备份,
+    # 清理
+    r'清理|清垃圾|打扫|收拾': 清理,
+    # 帮助
+    r'帮助|help|怎么用|不会用|帮我': 帮助,
+    # CNSH
+    r'说话|cnsh|中文编程|编程': lambda: 跑(f"python3 {ROOT}/cnsh.py"),
+}
+
+def 解析(话):
+    """解析人话，找到匹配的命令"""
+    话 = 话.strip().lower()
+    for 模式, 动作 in 路由.items():
+        if re.search(模式, 话):
+            return 动作
+    return None
+
+def main():
+    if len(sys.argv) < 2:
+        帮助()
+        return
+    
+    输入 = ' '.join(sys.argv[1:])
+    动作 = 解析(输入)
+    
+    if 动作:
+        try:
+            动作()
+        except Exception as e:
+            print(f"{R}❌ 出错了: {e}{NC}")
+    else:
+        print(f"{R}❌ 听不懂: '{输入}'{NC}")
+        print(f"{Y}💡 试试: 龍魂 帮助{NC}")
+
+if __name__ == '__main__':
+    main()

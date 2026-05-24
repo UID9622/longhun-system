@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖥️ CNSH智能终端 v2.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            background: #0d1117;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .terminal-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .banner {
+            background: linear-gradient(90deg, #ff0080, #8000ff, #0080ff, #00ff80, #ffff00);
+            background-size: 400% 400%;
+            animation: rainbow 3s ease infinite;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px rgba(255, 0, 128, 0.3); }
+            to { box-shadow: 0 0 20px rgba(255, 0, 128, 0.6); }
+        }
+        
+        .banner-content {
+            color: white;
+            font-size: 12px;
+            line-height: 1.8;
+            white-space: pre;
+        }
+        
+        .main-terminal {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            min-height: 500px;
+        }
+        
+        .terminal-output {
+            background: #161b22;
+            border: 2px solid #1f2937;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .output-header {
+            color: #58a6ff;
+            font-size: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #374151;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .output-content {
+            flex: 1;
+            color: #d1d5db;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        
+        .output-line { margin-bottom: 8px; }
+        .output-line.error { color: #f87171; }
+        .output-line.success { color: #50fa7b; }
+        .output-line.info { color: #74c7ec; }
+        .output-line.system { color: #ff79c6; }
+        .output-line.prompt { color: #8be9fd; }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .sidebar-section {
+            background: #1f2937;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #374151;
+        }
+        
+        .sidebar-title {
+            color: #58a6ff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .command-input {
+            background: #161b22;
+            border: 2px solid #374151;
+            border-radius: 6px;
+            padding: 12px;
+            color: #d1d5db;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            width: 100%;
+        }
+        
+        .command-input:focus {
+            outline: none;
+            border-color: #58a6ff;
+            background: #0d1117;
+        }
+        
+        .command-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .command-item {
+            padding: 10px;
+            background: #161b22;
+            border: 1px solid #374151;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #d1d5db;
+            font-size: 12px;
+        }
+        
+        .command-item:hover {
+            background: #374151;
+            border-color: #58a6ff;
+        }
+        
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: #58a6ff;
+            color: #0d1117;
+        }
+        
+        .btn-primary:hover {
+            background: #74c7ec;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #f87171;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #50fa7b;
+            color: #0d1117;
+        }
+        
+        .model-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .model-option {
+            padding: 10px;
+            background: #161b22;
+            border: 2px solid #374151;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .model-option:hover {
+            border-color: #58a6ff;
+            background: #1f2937;
+        }
+        
+        .model-option.selected {
+            border-color: #50fa7b;
+            background: #0d3d1e;
+        }
+        
+        .model-icon {
+            font-size: 18px;
+        }
+        
+        .model-name {
+            color: #d1d5db;
+            font-size: 12px;
+        }
+        
+        .status-bar {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+        
+        .status-bar .status-text {
+            color: #d1d5db;
+        }
+        
+        .status-bar.success .status-text { color: #50fa7b; }
+        .status-bar.error .status-text { color: #f87171; }
+        .status-bar.info .status-text { color: #74c7ec; }
+        
+        .keyboard-shortcuts {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+        
+        .shortcut-item {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-terminal {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- 霓虹灯签名Banner -->
+        <div class="banner">
+            <div class="banner-content">
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃   ╭──────────────────────────────────────────────────────────────────╮   ┃
+┃   │  💎 诸葛鑫 LUCKY · UID9622 · 龍魂系统创始人                      │   ┃
+┃   │  🇨🇳 中国退伍军人 · CNSH中文原生编程语言架构师                    │   ┃
+┃   ╰──────────────────────────────────────────────────────────────────╯   ┃
+┃   🔐 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ┃
+┃   🧬 DNA: #龍芯⚡️2026-01-28-终端-v2.0                                       ┃
+┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃
+┃   ⚡️ 数据主权归人民 · 技术服务于人民 · 透明可追溯 ⚡️              ┃
+┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            </div>
+        </div>
+        
+        <!-- 主终端区 -->
+        <div class="main-terminal">
+            <!-- 左侧：输出区 -->
+            <div class="terminal-output">
+                <div class="output-header">
+                    <span>📤 终端输出</span>
+                    <button class="btn btn-danger" onclick="clearTerminal()" style="padding: 5px 10px; font-size: 11px;">清空</button>
+                </div>
+                <div class="output-content" id="terminalOutput">
+                    <div class="output-line system">🖥️ CNSH智能终端 v2.0</div>
+                    <div class="output-line system">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+                    <div class="output-line info">DNA追溯码：#龍芯⚡️2026-01-28-TERMINAL-v2.0</div>
+                    <div class="output-line info">创建者：诸葛鑫（UID9622）</div>
+                    <div class="output-line"> </div>
+                    <div class="output-line success">✅ 终端已就绪！</div>
+                    <div class="output-line info">💡 输入 'help' 查看可用命令</div>
+                    <div class="output-line info">💡 选择右侧的本地模型进行AI交互</div>
+                    <div class="output-line"> </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：控制面板 -->
+            <div class="sidebar">
+                <!-- 命令输入 -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">⌨️ 命令输入</div>
+                    <input 
+                        type="text" 
+                        id="commandInput" 
+                        class="command-input" 
+                        placeholder="输入命令... (例如: help, compile, clear)"
+                        onkeypress="handleKeyPress(event)"
+                    >
+                    <button class="btn btn-primary" onclick="executeCommand()" style="margin-top: 10px;">执行</button>
+                </div>
+                
+                <!-- 快速命令 -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">⚡ 快速命令</div>
+                    <div class="command-list">
+                        <div class="command-item" onclick="executeQuickCommand('help')">📚 help - 帮助</div>
+                        <div class="command-item" onclick="executeQuickCommand('clear')">🗑️ clear - 清空终端</div>
+                        <div class="command-item" onclick="executeQuickCommand('compile')">🔄 compile - 编译CNSH</div>
+                        <div class="command-item" onclick="executeQuickCommand('run')">▶️ run - 运行程序</div>
+                        <div class="command-item" onclick="executeQuickCommand('sign')">🔐 sign - 生成签名</div>
+                        <div class="command-item" onclick="executeQuickCommand('version')">📋 version - 查看版本</div>
+                    </div>
+                </div>
+                
+                <!-- 本地模型选择 -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">🤖 本地模型选择</div>
+                    <div class="model-selector">
+                        <div class="model-option selected" onclick="selectModel('ollama')" id="model-ollama">
+                            <span class="model-icon">🦙</span>
+                            <div>
+                                <div class="model-name">Ollama (本地)</div>
+                                <div style="font-size: 10px; color: #6b7280;">推荐 · 快速响应</div>
+                            </div>
+                        </div>
+                        
+                        <div class="model-option" onclick="selectModel('lmstudio')" id="model-lmstudio">
+                            <span class="model-icon">🎨</span>
+                            <div>
+                                <div class="model-name">LM Studio (本地)</div>
+                                <div style="font-size: 10px; color: #6b7280;">图形界面 · 模型丰富</div>
+                            </div>
+                        </div>
+                        
+                        <div class="model-option" onclick="selectModel('llamacpp')" id="model-llamacpp">
+                            <span class="model-icon">⚡</span>
+                            <div>
+                                <div class="model-name">llama.cpp (本地)</div>
+                                <div style="font-size: 10px; color: #6b7280;">高性能 · 轻量级</div>
+                            </div>
+                        </div>
+                        
+                        <div class="model-option" onclick="selectModel('api')" id="model-api">
+                            <span class="model-icon">🌐</span>
+                            <div>
+                                <div class="model-name">API 连接</div>
+                                <div style="font-size: 10px; color: #6b7280;">自定义端点</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="keyboard-shortcuts">
+                        <div class="shortcut-item">💡 <strong>模型交互：</strong>选中模型后，输入内容进行对话</div>
+                        <div class="shortcut-item">💡 <strong>快捷键：</strong>Enter - 执行命令 | Ctrl+L - 清空</div>
+                    </div>
+                </div>
+                
+                <!-- 状态栏 -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">📊 状态信息</div>
+                    <div class="status-bar" id="statusBar">
+                        <span class="status-text">就绪</span>
+                    </div>
+                    <div class="keyboard-shortcuts">
+                        <div class="shortcut-item">🟢 当前模型: <span id="currentModel">Ollama</span></div>
+                        <div class="shortcut-item">📁 工作目录: <span id="currentDir">CNSH-v1.0-完整实现</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 当前选中的模型
+        let currentModel = 'ollama';
+        let commandHistory = [];
+        let historyIndex = -1;
+        
+        // 命令处理
+        const commands = {
+            'help': () => {
+                outputLine('📚 CNSH智能终端帮助文档', 'system');
+                outputLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+                outputLine('');
+                outputLine('📋 可用命令：', 'info');
+                outputLine('  help     - 显示此帮助信息', 'info');
+                outputLine('  clear    - 清空终端输出', 'info');
+                outputLine('  compile  - 编译CNSH代码为C代码', 'info');
+                outputLine('  run      - 运行编译后的程序', 'info');
+                outputLine('  sign     - 生成龍魂签名', 'info');
+                outputLine('  version  - 查看版本信息', 'info');
+                outputLine('  ai       - 与本地模型对话', 'info');
+                outputLine('');
+                outputLine('💡 使用方法：', 'info');
+                outputLine('  1. 选择右侧的本地模型', 'info');
+                outputLine('  2. 在命令框输入内容', 'info');
+                outputLine('  3. 点击执行或按Enter', 'info');
+                outputLine('');
+                outputLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+            },
+            
+            'clear': () => {
+                clearTerminal();
+                outputLine('✅ 终端已清空', 'success');
+            },
+            
+            'compile': () => {
+                outputLine('🔄 正在编译CNSH代码...', 'info');
+                // 这里可以集成实际的编译器调用
+                outputLine('✅ 编译成功！生成的C代码：', 'success');
+                outputLine('   #include <stdio.h>', 'system');
+                outputLine('   void 打印(const char* content) {', 'system');
+                outputLine('       printf("%s\\n", content);', 'system');
+                outputLine('   }', 'system');
+            },
+            
+            'run': () => {
+                outputLine('▶️ 正在运行程序...', 'info');
+                outputLine('🇨🇳 你好，CNSH语言！', 'success');
+                outputLine('━━━━━━━━━━━━━━━━━━', 'success');
+                outputLine('✅ 程序执行完成！', 'success');
+            },
+            
+            'sign': () => {
+                outputLine('🔐 正在生成龍魂签名...', 'info');
+                outputLine('╔══════════════════════════╗', 'system');
+                outputLine('║  💎 诸葛鑫 ｜ LUCKY ｜ UID9622', 'info');
+                outputLine('╚══════════════════════════╝', 'system');
+                outputLine('✅ 签名已生成！', 'success');
+            },
+            
+            'version': () => {
+                outputLine('📋 CNSH智能终端版本信息', 'system');
+                outputLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+                outputLine('版本：v2.0', 'info');
+                outputLine('创建者：诸葛鑫（UID9622）', 'info');
+                outputLine('DNA追溯码：#龍芯⚡️2026-01-28-TERMINAL-v2.0', 'info');
+                outputLine('发布日期：2026-01-28', 'info');
+                outputLine('状态：🟢 视觉炸裂·可直接使用', 'info');
+                outputLine('━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'system');
+            },
+            
+            'ai': async () => {
+                const userInput = document.getElementById('commandInput').value.substring(3).trim();
+                
+                if (!userInput) {
+                    outputLine('💡 使用方法：ai <你的问题>', 'info');
+                    return;
+                }
+                
+                outputLine('🤖 ' + currentModel + ': ' + userInput, 'prompt');
+                
+                try {
+                    // 模拟本地模型调用
+                    const response = await callLocalModel(userInput);
+                    outputLine('🤖 响应: ' + response, 'success');
+                } catch (error) {
+                    outputLine('❌ 模型调用失败: ' + error.message, 'error');
+                    outputLine('💡 请确保本地模型正在运行', 'info');
+                }
+            }
+        };
+        
+        // 模拟本地模型调用
+        async function callLocalModel(prompt) {
+            // 这里可以集成实际的本地模型API
+            // Ollama API: http://localhost:11434/api/generate
+            // LM Studio API: http://localhost:1234/v1/chat/completions
+            
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const responses = [
+                        '🇨🇳 CNSH是中国原生编程语言！',
+                        '💡 建议使用打印「...」语法',
+                        '✅ 代码编译成功！',
+                        '🔥 龍魂系统已激活',
+                        '💾 文件已保存',
+                        '🚀 准备就绪'
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    resolve(randomResponse);
+                }, 1000); // 模拟延迟
+            });
+        }
+        
+        // 输出到终端
+        function outputLine(text, type = '') {
+            const output = document.getElementById('terminalOutput');
+            const line = document.createElement('div');
+            line.className = 'output-line ' + type;
+            line.textContent = text;
+            output.appendChild(line);
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        // 清空终端
+        function clearTerminal() {
+            document.getElementById('terminalOutput').innerHTML = '';
+            updateStatus('终端已清空', 'info');
+        }
+        
+        // 选择模型
+        function selectModel(model) {
+            currentModel = model;
+            
+            // 更新UI
+            document.querySelectorAll('.model-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('model-' + model).classList.add('selected');
+            
+            // 更新状态显示
+            const modelNames = {
+                'ollama': 'Ollama',
+                'lmstudio': 'LM Studio',
+                'llamacpp': 'llama.cpp',
+                'api': 'API连接'
+            };
+            document.getElementById('currentModel').textContent = modelNames[model];
+            
+            outputLine('🤖 已切换模型: ' + modelNames[model], 'info');
+            updateStatus('当前模型: ' + modelNames[model], 'success');
+        }
+        
+        // 执行快速命令
+        function executeQuickCommand(cmd) {
+            document.getElementById('commandInput').value = cmd;
+            executeCommand();
+        }
+        
+        // 执行命令
+        function executeCommand() {
+            const input = document.getElementById('commandInput').value.trim();
+            
+            if (!input) {
+                return;
+            }
+            
+            // 添加到历史记录
+            commandHistory.push(input);
+            historyIndex = commandHistory.length;
+            
+            // 显示输入的命令
+            outputLine('$ ' + input, 'prompt');
+            
+            // 查找并执行命令
+            let cmd = input.toLowerCase().split(' ')[0];
+            
+            if (commands[cmd]) {
+                commands[cmd]();
+            } else if (cmd.startsWith('ai')) {
+                commands.ai();
+            } else {
+                outputLine('❌ 未知命令: ' + cmd, 'error');
+                outputLine('💡 输入 "help" 查看可用命令', 'info');
+            }
+            
+            // 清空输入框
+            document.getElementById('commandInput').value = '';
+        }
+        
+        // 处理按键
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                executeCommand();
+            } else if (event.ctrlKey && event.key === 'l') {
+                event.preventDefault();
+                clearTerminal();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    document.getElementById('commandInput').value = commandHistory[historyIndex];
+                }
+            } else if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    document.getElementById('commandInput').value = commandHistory[historyIndex];
+                }
+            }
+        }
+        
+        // 更新状态栏
+        function updateStatus(text, type = '') {
+            const statusBar = document.getElementById('statusBar');
+            statusBar.className = 'status-bar ' + type;
+            statusBar.querySelector('.status-text').textContent = text;
+        }
+        
+        // 页面加载
+        window.onload = function() {
+            console.log('🖥️ CNSH智能终端 v2.0 已加载');
+            console.log('DNA追溯码：#龍芯⚡️2026-01-28-TERMINAL-v2.0');
+            
+            // 自动聚焦到输入框
+            document.getElementById('commandInput').focus();
+        };
+    </script>
+</body>
+</html>

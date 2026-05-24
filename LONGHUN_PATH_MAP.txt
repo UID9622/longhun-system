@@ -1,0 +1,8 @@
+Canonical:
+/Users/zuimeidedeyihan/longhun-system
+
+Clone root (do not use as main vault):
+/Users/zuimeidedeyihan/longhun-system-clone-8480adf
+
+Nested clone (do not use as main vault):
+/Users/zuimeidedeyihan/longhun-system-clone-8480adf/longhun-system

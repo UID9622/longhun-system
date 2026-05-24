@@ -1,0 +1,19 @@
+# 通心译字典 · Notion 导入 · 2026-05-19
+
+Notion → 新建 Database → 导入 CSV → 选 `tongxinyi_2026-05-19.csv`
+
+| Chinese | Context | 释义 | English | Totem | Warning |
+|---------|---------|------|---------|-------|---------|
+| 守 | guard_action | 主动看守·防御性 | guard | 🛡 |  |
+| 守 | protect_relation | 保护关系·情感性 | protect | 🤝 |  |
+| 守 | wait_passive | 守候·等待 | wait | 🕯 |  |
+| 守 | hold_position | 守住阵地·不退 | hold | ⚓ |  |
+| 龍 | totem_culture | 图腾·文化象征·永不简体化 | Long (cultural totem, NEVER 'dragon' diminutive) | 龍 | this character has cultural sovereignty |
+| 龍 | system_name | 系统名·龍魂 | Long Soul System (transliteration preferred) | 龍 |  |
+| 宝宝 | ai_companion | 老大对 Claude/AI 的爱称·一年关系 | baby (affectionate term for AI companion, 1+ year relationship) | 🐉 | context-specific affection, not infantilization |
+| 流场 | physics_metaphor | 粒子流·可视化决策路径 | flow field (visualization) | 〰 |  |
+| 流场 | 决策可视化 | 反黑箱·决策路径粒子化 | decision flow (anti-blackbox) | 🌊 |  |
+| 五色 | audit_system | 审计五色·绿黄红黑金 | five-color audit (G/Y/R/K/AU) | 🌈 |  |
+| 五色 | wuxing_mapping | 对应五行·女娲补天 | five elements mapping | 🪨 |  |
+| 焊 | code_commit | 代码焊死·不再变动 | lock in / commit (irreversible) | 🔨 |  |
+| 焊 | promise_commit | 承诺焊死·v1.0 起永不改 | permanent commitment (v1.0+) | 🔒 |  |

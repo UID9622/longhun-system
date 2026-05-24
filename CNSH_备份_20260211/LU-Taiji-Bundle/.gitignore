@@ -1,0 +1,34 @@
+# LU-Taiji Bundle Git Ignore
+# DNA: #ZHUGEXIN⚡️2025-01-27-GITIGNORE-v2.1
+
+# 环境变量（敏感信息）
+.env
+.env.local
+.env.*.local
+
+# 校验和文件（重新生成）
+CHECKSUMS.txt
+CHECKSUMS.sha256
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 防止提交敏感的测试配置
+test-config-*.json

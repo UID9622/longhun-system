@@ -1,0 +1,67 @@
+{
+  "bundleId": "LU-Taiji-Bundle-v2.2",
+  "dnaCode": "#ZHUGEXIN⚡️2026-01-27-LU-TAIJI-BUNDLE-v2.2",
+  "confirmationCode": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "version": "2.2.0",
+  "timestamp": "2026-01-27T10:50:00Z",
+  "creators": [
+    {
+      "name": "Lucky·UID9622",
+      "role": "主创",
+      "dnaId": "UID9622"
+    },
+    {
+      "name": "开源大师",
+      "role": "技术负责"
+    },
+    {
+      "name": "工匠",
+      "role": "工程实施"
+    }
+  ],
+  "description": "LU-Taiji 2.2 完整部署包，整合 CNSH 中文编程语言系统（2.53 MB + 57.47 MB 大文档），包含内容模型、图数据、验证脚本和 Notion 导入工具",
+  "components": [
+    "content/LU-Taiji-2.1.json",
+    "content/LU-Taiji-Graph.json",
+    "content/CNSH-Language-2.0.json",
+    "content/CNSH-Language-Graph.json",
+    "scripts/validate_schema.mjs",
+    "scripts/checksum.sh",
+    "scripts/import_notion.mjs",
+    "scripts/quickstart.sh",
+    "scripts/git_commit.sh",
+    "scripts/import_to_usb.sh",
+    "scripts/device_adapter.sh",
+    "devices/huawei/start.sh",
+    "devices/asus/start.sh",
+    "placeholders.json"
+  ],
+  "integration": {
+    "cnsh": {
+      "version": "2.0",
+      "documentation": [
+        {
+          "name": "CNSH_Language_Documentation.docx",
+          "size": "2.53 MB",
+          "location": "/CNSH_Language_Documentation.docx",
+          "description": "CNSH 语言规范文档"
+        },
+        {
+          "name": "提取文字_体系.pdf",
+          "size": "57.47 MB",
+          "location": "/UID9622/未命名文件夹/提取文字_体系.pdf",
+          "description": "CNSH 系统完整体系文档"
+        }
+      ],
+      "status": "integrated",
+      "date": "2026-01-27",
+      "totalSize": "60 MB"
+    }
+  },
+  "checksum": {
+    "algorithm": "sha256",
+    "manifest": "PLACEHOLDER_TO_GENERATE"
+  },
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}

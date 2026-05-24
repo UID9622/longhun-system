@@ -1,0 +1,1 @@
+{"audit_id": "02a7dae914034d64", "timestamp": "2026-05-21T13:43:12.287471", "operation": "unknown", "persona": "P01", "uid": 9622, "input_hash": "c5b17402909dc7841566563e04e16ad6a049dbcf00a685b82377e73f63eefe98", "mode": "NORMAL", "threats": [], "layer_status": {"0": "PASSED", "1": "PASSED", "2": "PASSED", "3": "PASSED", "4": "PASSED"}}

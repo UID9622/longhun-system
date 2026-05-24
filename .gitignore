@@ -69,3 +69,8 @@ snapshots/
 logs/
 *.log
 *.backup.*
+
+# 系统工具本地配置（Kimi · Cloudflare · Playwright 等）
+.cloudflared/
+.playwright-mcp/
+.龍魂錨點
