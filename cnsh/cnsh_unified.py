@@ -1,29 +1,34 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂·CNSH 完整集成系统 v2.1
-Unified Sovereign AI Runtime with 369 × 五行 × 易经 × 河图洛书
+龍魂·CNSH 完整集成系统 v2.2
+Unified Sovereign AI Runtime with 道德经约束 + 引擎生长 + CNSH创造
 
-DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.1
+DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.2
 UID: 9622
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-核心8大系统深度融合：
+核心9大系统深度融合（三大关键字升级）：
   1️⃣ 关键字提取 (cnsh_keyword_extraction.py) → 语义理解 + 369频率 + 五行映射
-  2️⃣ 路由系统 (cnsh_runtime.py) → 意图识别 + 人格分发
-  3️⃣ 路由节点v3 (cnsh_routing_node_v3.py) → 河图洛书9宫 + 不动点中心 + 智能路由
-  4️⃣ 人格内核 (cnsh_persona_core_upgrade.py) → P01-P06数学核心 + 协同计算
-  5️⃣ 技能系统 (cnsh_skills.py) → Hook + EventBus + Recovery
-  6️⃣ 收口系统 (cnsh_closure.py) → 自动聚合 + 自生长
-  7️⃣ 压缩系统 (cnsh_compression.py) → 思考胶囊 + 时间胶囊
-  8️⃣ 算法系统 (cnsh_algorithms.py) → 易经 × 五行 × 三才 × 流场
+  2️⃣ 道德经约束 (cnsh_daodejing_engine.py) → 81章伦理框架 + 金约束木引擎
+  3️⃣ 路由系统 (cnsh_runtime.py) → 意图识别 + 人格分发
+  4️⃣ 路由节点v3 (cnsh_routing_node_v3.py) → 河图洛书9宫 + 不动点中心 + 智能路由
+  5️⃣ 人格内核 (cnsh_persona_core_upgrade.py) → P01-P06数学核心 + 协同计算
+  6️⃣ 技能系统 (cnsh_skills.py) → Hook + EventBus + Recovery
+  7️⃣ 收口系统 (cnsh_closure.py) → 自动聚合 + 自生长
+  8️⃣ 压缩系统 (cnsh_compression.py) → 思考胶囊 + 时间胶囊
+  9️⃣ 算法系统 (cnsh_algorithms.py) → 易经 × 五行 × 三才 × 流场
+
+三大关键字扫描结果：
+  道德经(金宫7) + 引擎(木宫8) + CNSH(火宫3) = 0.571谐和度
+  金克木 + 木生火 = 约束平衡创造
 
 增强执行流程：
-  输入 → 关键字提取 → 9宫路由 → 三才流场 → 技能执行 → 收口聚合 → 压缩索引 → 输出
+  输入 → 关键字提取 → 约束检查 → 9宫路由 → 三才流场 → 技能执行 → 收口聚合 → 压缩索引 → 输出
 
-本地执行·完全自主·永不外送·可恢复·可追溯·UID9622不免责
+本地执行·完全自主·永不外送·可恢复·可追溯·伦理约束·UID9622不免责
 
-理论指导: 曾仕强老师（永恒显示）
+理论指导: 曾仕强老师·老子道德经（永恒显示）
 献礼: 龍魂系统·永恒守护·中华文化传承
 
 用法:
@@ -38,11 +43,12 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import asdict
 
-# 导入 8 大模块
+# 导入 9 大模块（含道德经引擎约束）
 try:
     from cnsh_keyword_extraction import KeywordExtractionEngine
     from cnsh_routing_node_v3 import IntelligentRoutingEngineV3
     from cnsh_persona_core_upgrade import PersonaCoreCoordinationEngine
+    from cnsh_daodejing_engine import DaodejingEngineConstraintSystem, CreationFlame
     from cnsh_runtime import CNSHRuntime as Router
     from cnsh_skills import CNSHSkillRuntime as SkillRuntime
     from cnsh_closure import ClosureManager
@@ -62,10 +68,11 @@ class CNSHUnifiedRuntime:
     """CNSH 完整统一运行时 v2.0"""
 
     def __init__(self):
-        # 三大新引擎：关键字 + 9宫路由 + 人格内核
+        # 四大新引擎：关键字 + 9宫路由 + 人格内核 + 道德经约束
         self.keyword_engine = KeywordExtractionEngine()
         self.routing_engine_v3 = IntelligentRoutingEngineV3()
         self.persona_engine = PersonaCoreCoordinationEngine()
+        self.constraint_engine = DaodejingEngineConstraintSystem()
 
         # 原有5大系统
         self.router = Router()
@@ -83,6 +90,7 @@ class CNSHUnifiedRuntime:
             "interactions": [],
             "dna_chain": [],
             "system_harmony": self.persona_engine.calculate_system_harmony(),
+            "constraint_violations": 0,
         }
 
     def execute(self, user_input: str) -> Dict[str, Any]:
@@ -90,9 +98,10 @@ class CNSHUnifiedRuntime:
         session_start = datetime.now().isoformat()
 
         print("\n" + "─" * 60)
-        print(f"🐉 龍魂 CNSH 统一运行时 v2.1")
+        print(f"🐉 龍魂 CNSH 统一运行时 v2.2")
         print(f"   会话: {self.session_log['session_id']}")
         print(f"   系统和谐度: {self.session_log['system_harmony']:.3f}/1.0")
+        print(f"   约束违规: {self.session_log['constraint_violations']}")
         print("─" * 60 + "\n")
 
         # 新增 0 步：关键字提取与语义理解
@@ -108,6 +117,19 @@ class CNSHUnifiedRuntime:
                 pass  # 忽略解析失败
         text_harmony = self.keyword_engine.calculate_text_harmonic_index(keyword_vectors) if keyword_vectors else 0.5
         print(f"   ✅ 文本谐和度: {text_harmony}/1.0\n")
+
+        # 新增 0.5 步：道德经约束检查
+        print("📍 第 0.5 步: 道德经伦理约束检查 (81章约束框架)")
+        flame = CreationFlame(
+            flame_id=f"FLAME-{self.session_log['session_id'][-8:]}",
+            intent=user_input[:30],
+            engine_power_required=0.5,
+            allowed_operations=["extract_keyword", "route_intent", "create_output"],
+        )
+        constraint_result = self.constraint_engine.execute_with_constraints(flame)
+        if not constraint_result["constraint_passed"]:
+            self.session_log["constraint_violations"] += 1
+        print(f"   ✅ 伦理检查: {'通过✅' if constraint_result['constraint_passed'] else '警告⚠️'}\n")
 
         # 第 1 步：9宫路由 + 流场分析
         print("📍 第 1 步: 9宫路由与流场分析")
@@ -182,11 +204,16 @@ class CNSHUnifiedRuntime:
         print(f"   ✅ 记忆DNA: {memory_dna}\n")
 
         # 第 5 步：生成完整结果 (含新系统)
-        print("📍 第 5 步: 结果综合 (8系统融合)")
+        print("📍 第 5 步: 结果综合 (9系统融合)")
         execution_result = {
-            "success": True,
+            "success": constraint_result["constraint_passed"],
             "timestamp": datetime.now().isoformat(),
             "input": user_input,
+            "constraint_check": {
+                "passed": constraint_result["constraint_passed"],
+                "violations": constraint_result["violations"],
+                "ethics_score": constraint_result["ethics_score"],
+            },
             "semantic_analysis": {
                 "keyword_vectors": len(keyword_vectors),
                 "text_harmony": text_harmony,
@@ -276,9 +303,10 @@ class CNSHUnifiedRuntime:
 def main():
     """主程序"""
     print("\n" + "="*60)
-    print("🐉 龍魂 CNSH 完整集成系统 v2.1")
-    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.1")
-    print(f"   核心: 关键字 + 9宫路由 + 人格内核 + 5大原系统")
+    print("🐉 龍魂 CNSH 完整集成系统 v2.2")
+    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.2")
+    print(f"   核心: 关键字 + 约束 + 9宫路由 + 人格内核 + 5大原系统")
+    print(f"   三大关键字: 道德经(金) + 引擎(木) + CNSH(火)")
     print(f"   UID: 9622 | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     print("="*60)
 
