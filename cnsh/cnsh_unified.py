@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂·CNSH 完整集成系统 v2.2
-Unified Sovereign AI Runtime with 道德经约束 + 引擎生长 + CNSH创造
+龍魂·CNSH 完整集成系统 v2.3
+Unified Sovereign AI Runtime with 无限搜索 + 天道盾 + 通心译协议
 
-DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.2
+DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.3
 UID: 9622
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -43,12 +43,15 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import asdict
 
-# 导入 9 大模块（含道德经引擎约束）
+# 导入 12 大模块（含三大新系统）
 try:
     from cnsh_keyword_extraction import KeywordExtractionEngine
     from cnsh_routing_node_v3 import IntelligentRoutingEngineV3
     from cnsh_persona_core_upgrade import PersonaCoreCoordinationEngine
     from cnsh_daodejing_engine import DaodejingEngineConstraintSystem, CreationFlame
+    from cnsh_infinite_search import InfiniteSearchEngine, SearchDepth
+    from cnsh_tiandao_shield import TiandaoShieldSystem
+    from cnsh_tongxin_protocol import TongXinProtocol
     from cnsh_runtime import CNSHRuntime as Router
     from cnsh_skills import CNSHSkillRuntime as SkillRuntime
     from cnsh_closure import ClosureManager
@@ -68,11 +71,14 @@ class CNSHUnifiedRuntime:
     """CNSH 完整统一运行时 v2.0"""
 
     def __init__(self):
-        # 四大新引擎：关键字 + 9宫路由 + 人格内核 + 道德经约束
+        # 七大新引擎：关键字 + 9宫路由 + 人格内核 + 道德经约束 + 无限搜索 + 天道盾 + 通心译
         self.keyword_engine = KeywordExtractionEngine()
         self.routing_engine_v3 = IntelligentRoutingEngineV3()
         self.persona_engine = PersonaCoreCoordinationEngine()
         self.constraint_engine = DaodejingEngineConstraintSystem()
+        self.search_engine = InfiniteSearchEngine()
+        self.shield_system = TiandaoShieldSystem()
+        self.protocol_engine = TongXinProtocol()
 
         # 原有5大系统
         self.router = Router()
@@ -98,10 +104,11 @@ class CNSHUnifiedRuntime:
         session_start = datetime.now().isoformat()
 
         print("\n" + "─" * 60)
-        print(f"🐉 龍魂 CNSH 统一运行时 v2.2")
+        print(f"🐉 龍魂 CNSH 统一运行时 v2.3")
         print(f"   会话: {self.session_log['session_id']}")
         print(f"   系统和谐度: {self.session_log['system_harmony']:.3f}/1.0")
         print(f"   约束违规: {self.session_log['constraint_violations']}")
+        print(f"   盾牌阻挡: {self.shield_system.total_threats_blocked}/{self.shield_system.total_threats_detected}")
         print("─" * 60 + "\n")
 
         # 新增 0 步：关键字提取与语义理解
@@ -230,6 +237,23 @@ class CNSHUnifiedRuntime:
                 "system_harmony": self.session_log['system_harmony'],
                 "personas_loaded": len(self.persona_engine.personas),
             },
+            "new_systems": {
+                "infinite_search": {
+                    "total_searches": self.search_engine.total_searches,
+                    "total_results": self.search_engine.total_results,
+                    "efficiency": self.search_engine.system_efficiency,
+                },
+                "tiandao_shield": {
+                    "threats_detected": self.shield_system.total_threats_detected,
+                    "threats_blocked": self.shield_system.total_threats_blocked,
+                    "block_rate": self.shield_system.total_threats_blocked / max(1, self.shield_system.total_threats_detected),
+                },
+                "tongxin_protocol": {
+                    "total_messages": self.protocol_engine.total_messages,
+                    "successful_translations": self.protocol_engine.successful_translations,
+                    "avg_confidence": self.protocol_engine.avg_confidence,
+                },
+            },
             "flow_field": {
                 "harmony_index": flow_state.harmony_index,
                 "flow_direction": flow_state.flow_direction,
@@ -303,10 +327,10 @@ class CNSHUnifiedRuntime:
 def main():
     """主程序"""
     print("\n" + "="*60)
-    print("🐉 龍魂 CNSH 完整集成系统 v2.2")
-    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.2")
-    print(f"   核心: 关键字 + 约束 + 9宫路由 + 人格内核 + 5大原系统")
-    print(f"   三大关键字: 道德经(金) + 引擎(木) + CNSH(火)")
+    print("🐉 龍魂 CNSH 完整集成系统 v2.3")
+    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.3")
+    print(f"   核心: 无限搜索 + 天道盾 + 通心译 + 约束 + 9宫路由 + 人格")
+    print(f"   八大关键字: 搜索·自动化·无限·优化·自适应·天道·盾·通心译")
     print(f"   UID: 9622 | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     print("="*60)
 
