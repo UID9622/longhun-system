@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂·CNSH 完整集成系统 v2.4
-Unified Sovereign AI Runtime with 16大系统 + 终端·Notion·人性·三才
+龍魂·CNSH 完整集成系统 v2.5
+Unified Sovereign AI Runtime with 17大系统 + 协议派生四层转换
 
-DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.4
+DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.5
 UID: 9622
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-核心16大系统深度融合（完整四层级）：
+核心17大系统深度融合（四层级+派生层）：
 【第一层·基础系统】
   1️⃣ 关键字提取 (cnsh_keyword_extraction.py) → 语义理解 + 369频率 + 五行映射
   2️⃣ 道德经约束 (cnsh_daodejing_engine.py) → 81章伦理框架 + 金约束木引擎
@@ -31,13 +31,17 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   1️⃣5️⃣ 人性框架 (cnsh_human_nature.py) → 用户建模 + 5层人性 (火3·震)
   1️⃣6️⃣ 三才协调 (cnsh_three_talents.py) → 天地人平衡 + 动态演化 (金7·兑)
 
-四大关键字扫描结果（完美对齐）：
-  终端(dr=9·火·离) + Notion(dr=1·水·坎) + 人性(dr=3·火·震) + 三才(dr=7·金·兑)
-  = dr向量[1,3,7,9]（四个宫位对齐）+ 太极平衡avg=0.50 + 和谐度0.65
+【第四层·派生系统 ⭐ NEW】
+  1️⃣7️⃣ 协议派生 (cnsh_protocol_derivation.py) → 四层协议转换 + 六术语融合 (火3·震)
+
+六大派生术语：
+  语义(dr=8·木) · 语法(dr=7·金) · 语用(dr=5·土) · 上下文(dr=5·土) · 翻译(dr=3·火) · 规则(dr=8·木)
+  四层协议：SEMANTIC(0.80) → SYNTACTIC(0.95) → PRAGMATIC(0.75) → CONTEXTUAL(0.70)
+  和谐度: 0.628/1.0 (良好)
 
 增强执行流程：
   输入 → 关键字提取 → 约束检查 → 9宫路由 → 三才流场 → 技能执行
-  → 收口聚合 → 压缩索引 → [终端处理] → [Notion同步] → [人性分析] → [三才协调] → 输出
+  → 收口聚合 → 压缩索引 → 【协议派生四层转换】 → [终端处理] → [Notion同步] → [人性分析] → [三才协调] → 输出
 
 本地执行·完全自主·永不外送·可恢复·可追溯·伦理约束·UID9622不免责
 
@@ -56,7 +60,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import asdict
 
-# 导入 16 大模块（含七大新系统）
+# 导入 17 大模块（含八大新系统）
 try:
     from cnsh_keyword_extraction import KeywordExtractionEngine
     from cnsh_routing_node_v3 import IntelligentRoutingEngineV3
@@ -69,6 +73,7 @@ try:
     from cnsh_notion_bridge import NotionBridgeEngine
     from cnsh_human_nature import HumanNatureFramework
     from cnsh_three_talents import ThreeTalentsCoordinationEngine
+    from cnsh_protocol_derivation import ProtocolDerivationEngine
     from cnsh_runtime import CNSHRuntime as Router
     from cnsh_skills import CNSHSkillRuntime as SkillRuntime
     from cnsh_closure import ClosureManager
@@ -88,7 +93,7 @@ class CNSHUnifiedRuntime:
     """CNSH 完整统一运行时 v2.0"""
 
     def __init__(self):
-        # 十大新引擎：关键字 + 9宫路由 + 人格内核 + 道德经约束 + 无限搜索 + 天道盾 + 通心译 + 终端 + Notion + 人性 + 三才
+        # 十一大新引擎：关键字 + 9宫路由 + 人格内核 + 道德经约束 + 无限搜索 + 天道盾 + 通心译 + 终端 + Notion + 人性 + 三才 + 协议派生
         self.keyword_engine = KeywordExtractionEngine()
         self.routing_engine_v3 = IntelligentRoutingEngineV3()
         self.persona_engine = PersonaCoreCoordinationEngine()
@@ -100,6 +105,7 @@ class CNSHUnifiedRuntime:
         self.notion_bridge = NotionBridgeEngine()
         self.human_nature_framework = HumanNatureFramework()
         self.three_talents_engine = ThreeTalentsCoordinationEngine()
+        self.derivation_engine = ProtocolDerivationEngine()
 
         # 原有5大系统
         self.router = Router()
@@ -121,16 +127,17 @@ class CNSHUnifiedRuntime:
         }
 
     def execute(self, user_input: str) -> Dict[str, Any]:
-        """完整执行流程 (v2.4: 16系统深度融合 + 终端·Notion·人性·三才)"""
+        """完整执行流程 (v2.5: 17系统深度融合 + 协议派生四层转换)"""
         session_start = datetime.now().isoformat()
 
         print("\n" + "─" * 60)
-        print(f"🐉 龍魂 CNSH 统一运行时 v2.4")
+        print(f"🐉 龍魂 CNSH 统一运行时 v2.5")
         print(f"   会话: {self.session_log['session_id']}")
         print(f"   系统和谐度: {self.session_log['system_harmony']:.3f}/1.0")
         print(f"   约束违规: {self.session_log['constraint_violations']}")
         print(f"   盾牌阻挡: {self.shield_system.total_threats_blocked}/{self.shield_system.total_threats_detected}")
-        print(f"   人性层级: 多层次分析中")
+        print(f"   协议派生: 四层转换中")
+        print(f"   人性分析: 多层次分析中")
         print(f"   三才对齐: 动态协调中")
         print("─" * 60 + "\n")
 
@@ -233,6 +240,16 @@ class CNSHUnifiedRuntime:
         print(f"   ✅ 思考胶囊: {capsule.capsule_id}")
         print(f"   ✅ 记忆DNA: {memory_dna}\n")
 
+        # 第 4.5 步：协议派生转换（四层协议）
+        print("📍 第 4.5 步: 协议派生四层转换")
+        derivation_context = self.derivation_engine.derive(
+            keyword=user_input[:20],
+            intent=intent_str,
+            content=flow_rec.get('recommended_action', '')
+        )
+        print(f"   ✅ 派生路径: {' → '.join(derivation_context.derivation_path)}")
+        print(f"   ✅ 派生置信度: {derivation_context.derivation_confidence:.2f}\n")
+
         # 第 5.1 步：终端处理
         print("📍 第 5.1 步: 终端交互处理")
         terminal_session = self.terminal_engine.create_session(
@@ -279,7 +296,7 @@ class CNSHUnifiedRuntime:
         print(f"   ✅ 有效力量 - 天: {coord_result['effective_power']['heaven']:.2f}, 地: {coord_result['effective_power']['earth']:.2f}, 人: {coord_result['effective_power']['human']:.2f}\\n")
 
         # 第 5 步：生成完整结果 (含新系统)
-        print("📍 第 5 步: 结果综合 (16系统融合)")
+        print("📍 第 5 步: 结果综合 (17系统融合)")
         execution_result = {
             "success": constraint_result["constraint_passed"],
             "timestamp": datetime.now().isoformat(),
@@ -345,6 +362,15 @@ class CNSHUnifiedRuntime:
                     "heaven_power": coord_result['effective_power']['heaven'],
                     "earth_power": coord_result['effective_power']['earth'],
                     "human_power": coord_result['effective_power']['human'],
+                },
+            },
+            "new_systems_v2_5": {
+                "protocol_derivation": {
+                    "total_derivations": self.derivation_engine.total_derivations,
+                    "successful_derivations": self.derivation_engine.successful_derivations,
+                    "derivation_path": derivation_context.derivation_path,
+                    "layers_traversed": len(derivation_context.layer_traversal),
+                    "confidence": derivation_context.derivation_confidence,
                 },
             },
             "flow_field": {
@@ -420,10 +446,10 @@ class CNSHUnifiedRuntime:
 def main():
     """主程序"""
     print("\n" + "="*60)
-    print("🐉 龍魂 CNSH 完整集成系统 v2.4")
-    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.4")
-    print(f"   核心: 16大系统 + 终端·Notion·人性·三才")
-    print(f"   关键字: 搜索·自动化·无限·优化·自适应·天道·盾·通心译·终端·Notion·人性·三才")
+    print("🐉 龍魂 CNSH 完整集成系统 v2.5")
+    print(f"   DNA: #龍芯⚡️2026-05-25-CNSH-UNIFIED-v2.5")
+    print(f"   核心: 17大系统 + 协议派生四层转换")
+    print(f"   关键字: 搜索·自动化·无限·优化·自适应·天道·盾·通心译·终端·Notion·人性·三才·语义·语法·语用·上下文·翻译·规则")
     print(f"   UID: 9622 | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     print("="*60)
 
