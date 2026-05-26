@@ -9,12 +9,21 @@
 
 ## 系统概览
 
-龍魂系统由四个核心层组成，形成完整的数字主权治理生态：
+龍魂系统由五个核心层组成，形成完整的数字主权治理生态：
 
 ```
 ┌─────────────────────────────────────────────────────┐
 │  L0: 老大 (UID9622)                                 │
 │  造物主 - 不免责 - 永恒显示曾仕强老师              │
+└────────────────┬────────────────────────────────────┘
+                 │
+┌────────────────▼────────────────────────────────────┐
+│  L0.5: 通心译 (Comprehension Translator)            │
+│  智能理解与隐私保护                                 │
+│  • F5/F6/F7 行为密码学身份识别                     │
+│  • 隐私等级判定(🔴🟡🟢📖)                          │
+│  • 8种消息类型分类                                 │
+│  • 基于身份+隐私+类型的智能路由                     │
 └────────────────┬────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────┐
@@ -56,7 +65,46 @@
 
 ---
 
-## 四大核心系统
+## 五大核心系统
+
+### 🧠 通心译 · 智能理解系统 (Intelligence Layer)
+
+**提交:** 2026-05-26
+**文件:**
+- `core/comprehension_translator.py` - 通心译系统
+- `config/behavioral_profiles.json` - 行为特征库
+- `docs/COMPREHENSION_TRANSLATOR.md` - 完整文档
+
+**功能:**
+```python
+# 分析消息的多维特征
+analyzer = ComprehensionTranslator()
+result = analyzer.analyze_message("我这样和你说吧,,,我想建立通心译", uid="UID9622")
+
+# → 返回:
+# {
+#   "user_id": "UID9622",
+#   "identity_confidence": 0.92,          # 身份识别置信度
+#   "privacy_level": "🟢",                # 隐私等级
+#   "message_type": "decision",           # 消息类型
+#   "recommended_routing": {...},         # 智能路由建议
+#   "security_flags": {"status": "🟢"}    # 安全标志
+# }
+```
+
+**核心能力：**
+- **行为密码学** - F5(词汇)/F6(节奏)/F7(标点) 识别用户身份
+- **隐私判定** - 🔴私密/🟡半私密/🟢公开/📖法律公开
+- **消息分类** - 私聊/八卦/指令/技术/情感/决策/知识/创意
+- **智能路由** - 根据(身份+隐私+消息类型)生成最优路由
+- **安全检查** - 识别风险操作和身份验证状态
+
+**特征识别强度:**
+- 🔴 不动点(,,,)识别 - 几乎100%确认身份
+- 🟡 词汇特征 - 80-90%匹配
+- 🟢 节奏模式 - 70-85%匹配
+
+---
 
 ### 1️⃣ Baobao 权限管理系统 (Foundation)
 
@@ -291,32 +339,51 @@ orchestrator.handle_conflict(
 ### 典型执行流程
 
 ```
-老大输入命令
+消息输入
     ↓
-Persona Orchestrator 分析任务
+[L0.5] 通心译分析
+    ├─ 识别身份 (F5/F6/F7)
+    ├─ 判定隐私等级 (🔴🟡🟢📖)
+    ├─ 分类消息类型 (8种)
+    ├─ 获取上下文 (用户角色/权限)
+    └─ 生成智能路由建议
     ↓
-确定主要人格 + 权限等级
+[L1] Persona Orchestrator 协调
+    ├─ 根据路由建议选择人格
+    ├─ 检查三大支柱是否需要批准
+    └─ 构建执行计划
     ↓
 需要三大支柱批准?
     ├─ YES → 等待 P00/P02/P05 同意
-    └─ NO → 直接执行
+    └─ NO → 继续
     ↓
-委托给 Baobao Dispatcher
+[L2] 委托给 Baobao Dispatcher
     ↓
-检查权限 (baobao_authority.py)
+[L2] 检查权限 (baobao_authority.py)
     ├─ 权限被拒? → 拒绝 + 报告 P00
     └─ 权限通过? → 继续
     ↓
 操作前快照 (Snapshot)
     ↓
-执行操作 (代码/文件/Git等)
+[L3] 执行操作 (代码/文件/Git等)
     ↓
 记录完整审计日志 (append-only)
+    ├─ DNA追溯码
+    ├─ 用户身份确认
+    └─ 隐私等级标记
     ↓
-返回结果给老大
+返回结果给用户
+    ├─ 根据隐私等级过滤内容 (🔴🟡🟢)
+    └─ 记录用户满意度
     ↓
 可选: 提交上诉 (7天期限)
 ```
+
+**关键点**: 通心译是**第一道关**，在所有其他系统之前执行。它确保：
+1. 系统知道**谁**在说话
+2. 系统理解**隐私需求**
+3. 系统可以**准确路由**
+4. 系统可以**保护隐私**
 
 ### 仲裁流程
 
@@ -541,13 +608,17 @@ TIER 3: 未认证 (Unverified)
 ## 完整系统状态
 
 ```
-🟢 Baobao Permission System    - OPERATIONAL
-🟢 Three-Lights Diagnostic     - OPERATIONAL
-🟢 Persona Governor            - OPERATIONAL
-🟢 Persona Orchestrator        - OPERATIONAL
-🟢 DNA Traceability            - OPERATIONAL
-🟢 Append-Only Logging         - OPERATIONAL
-🟢 Emergency Protection        - OPERATIONAL
+🟢 通心译 (Comprehension Translator)   - OPERATIONAL
+🟢 Baobao Permission System            - OPERATIONAL
+🟢 Three-Lights Diagnostic            - OPERATIONAL
+🟢 Persona Governor                   - OPERATIONAL
+🟢 Persona Orchestrator               - OPERATIONAL
+🟢 DNA Traceability                   - OPERATIONAL
+🟢 Append-Only Logging                - OPERATIONAL
+🟢 Emergency Protection               - OPERATIONAL
+
+Core Systems: 五大核心系统
+Core Features: 行为密码学、隐私等级、智能路由、完整审计
 
 Overall Status: ✅ COMPLETE & PRODUCTION-READY
 ```
