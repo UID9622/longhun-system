@@ -95,35 +95,34 @@ MEMORY = BASE / "memory.jsonl"
 # 指令路由表
 # ══════════════════════════════════════════════════════════
 
+
 def 运行(cmd: list, cwd=None):
     """运行子进程"""
     env = os.environ.copy()
     env["PYTHONPATH"] = str(BASE)
     try:
-        result = subprocess.run(
-            cmd,
-            cwd=str(cwd or BASE),
-            env=env
-        )
+        result = subprocess.run(cmd, cwd=str(cwd or BASE), env=env)
         return result.returncode
     except FileNotFoundError as e:
-        print(f"🔴 找不到命令: {e}")
+        print("🔴 找不到命令: {e}")
         return 1
+
 
 def 写记忆(事件, dna_后缀="CMD"):
     record = {
         "timestamp": datetime.datetime.now().isoformat(),
-        "dna": f"#龍芯⚡️{datetime.date.today()}-{dna_后缀}-☷坤-v1.0",
+        "dna": "#龍芯⚡️{datetime.date.today()}-{dna_后缀}-☷坤-v1.0",
         "event": 事件,
-        "engine": "龍魂指令调度器v1.0"
+        "engine": "龍魂指令调度器v1.0",
     }
     with open(MEMORY, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
+
 def 显示状态():
     """龍魂系统全局状态"""
     sep = "─" * 52
-    print(f"\n{sep}")
+    print("\n{sep}")
     print("  龍魂系统状态")
     print(sep)
 
@@ -131,44 +130,48 @@ def 显示状态():
     行数 = 0
     if MEMORY.exists():
         with open(MEMORY, "r", encoding="utf-8") as f:
-            行数 = sum(1 for _ in f)
-    print(f"  记忆流(memory.jsonl)  : {行数} 条记录")
+            _行数 = sum(1 for _ in f)  # noqa: F841
+    print("  记忆流(memory.jsonl)  : {行数} 条记录")
 
     # knowledge-db
     知识库 = BASE / "knowledge-db.jsonl"
     知识数 = 0
     if 知识库.exists():
         with open(知识库, "r", encoding="utf-8") as f:
-            知识数 = sum(1 for _ in f)
-    print(f"  知识库(knowledge-db)  : {知识数} 个节点")
+            _知识数 = sum(1 for _ in f)  # noqa: F841
+    print("  知识库(knowledge-db)  : {知识数} 个节点")
 
     # skill-index
     索引 = BASE / "skill-index.json"
     if 索引.exists():
         with open(索引, "r", encoding="utf-8") as f:
-            idx = json.load(f)
-        print(f"  技能索引(skill-index) : {idx.get('_meta',{}).get('total_nodes',0)} 节点")
+            _idx = json.load(f)  # noqa: F841
+        print(
+            "  技能索引(skill-index) : {idx.get('_meta',{}).get('total_nodes',0)} 节点"
+        )
     else:
         print("  技能索引(skill-index) : 未初始化")
 
     # star-memory
     星辰 = Path.home() / ".star-memory" / "vault"
-    星辰数 = len(list(星辰.glob("*.json"))) if 星辰.exists() else 0
-    print(f"  星辰记忆(star-memory) : {星辰数} 条记忆")
+    _星辰数 = len(list(星辰.glob("*.json"))) if 星辰.exists() else 0  # noqa: F841
+    print("  星辰记忆(star-memory) : {星辰数} 条记忆")
 
     # Ollama
     try:
         import urllib.request
+
         r = urllib.request.urlopen("http://localhost:11434/api/tags", timeout=3)
-        模型列表 = json.loads(r.read()).get("models", [])
-        print(f"  Ollama本地模型        : {len(模型列表)} 个可用")
-    except:
+        _模型列表 = json.loads(r.read()).get("models", [])  # noqa: F841
+        print("  Ollama本地模型        : {len(模型列表)} 个可用")
+    except Exception:
         print("  Ollama本地模型        : 未运行")
 
     # DNA签名
-    print(f"\n  DNA: #龍芯⚡️{datetime.date.today()}-STATUS-v1.0")
-    print(f"  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
+    print("\n  DNA: #龍芯⚡️{datetime.date.today()}-STATUS-v1.0")
+    print("  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     print(sep + "\n")
+
 
 def 显示记忆流(n=10):
     """显示最近n条memory记录"""
@@ -180,38 +183,41 @@ def 显示记忆流(n=10):
         for line in f:
             try:
                 records.append(json.loads(line.strip()))
-            except:
+            except (json.JSONDecodeError, ValueError):
                 continue
     recent = records[-n:]
     sep = "─" * 52
-    print(f"\n{sep}\n  记忆流 — 最近{len(recent)}条\n{sep}")
+    print("\n{sep}\n  记忆流 — 最近{len(recent)}条\n{sep}")
     for r in recent:
-        ts = r.get("timestamp", "")[:16]
-        ev = r.get("event", r.get("type", ""))[:40]
-        dna = r.get("dna", "")[-20:]
-        print(f"  {ts}  {ev}")
-        print(f"           DNA尾: ...{dna}")
+        _ts = r.get("timestamp", "")[:16]  # noqa: F841
+        _ev = r.get("event", r.get("type", ""))[:40]  # noqa: F841
+        _dna = r.get("dna", "")[-20:]  # noqa: F841
+        print("  {ts}  {ev}")
+        print("           DNA尾: ...{dna}")
     print(sep + "\n")
+
 
 def 配置别名():
     """写入 ~/.zshrc 别名"""
-    脚本路径 = str(BASE / "龍.py")
-    别名行 = f'\nalias 龍="python3 {脚本路径}"\nalias dragon="python3 {脚本路径}"\n'
+    _脚本路径 = str(BASE / "龍.py")  # noqa: F841
+    别名行 = '\nalias 龍="python3 {脚本路径}"\nalias dragon="python3 {脚本路径}"\n'
     zshrc = Path.home() / ".zshrc"
     现有内容 = zshrc.read_text(encoding="utf-8") if zshrc.exists() else ""
     if "龍.py" in 现有内容:
         print("🟡 别名已存在于 ~/.zshrc，无需重复添加。")
-        print(f'   已有: alias 龍="python3 {脚本路径}"')
+        print('   已有: alias 龍="python3 {脚本路径}"')
     else:
         with open(zshrc, "a", encoding="utf-8") as f:
             f.write(别名行)
         print("🟢 别名已写入 ~/.zshrc")
-        print(f'   alias 龍="python3 {脚本路径}"')
-        print('   请运行: source ~/.zshrc  或重开终端后生效')
+        print('   alias 龍="python3 {脚本路径}"')
+        print("   请运行: source ~/.zshrc  或重开终端后生效")
+
 
 # ══════════════════════════════════════════════════════════
 # 主路由
 # ══════════════════════════════════════════════════════════
+
 
 def main():
     参数 = sys.argv[1:]
@@ -228,7 +234,7 @@ def main():
 
     elif 指令 == "问":
         if not 其余:
-            print("用法: 龍 问 \"问题内容\"")
+            print('用法: 龍 问 "问题内容"')
             return
         问题 = 其余[0]
         cmd = ["python3", "longhun_dragon.py", "--ask", 问题]
@@ -242,19 +248,20 @@ def main():
     elif 指令 == "模型列表":
         try:
             import urllib.request
+
             r = urllib.request.urlopen("http://localhost:11434/api/tags", timeout=5)
             模型列表 = json.loads(r.read()).get("models", [])
             print("\n可用本地模型:")
             for m in 模型列表:
-                print(f"  · {m.get('name','')}")
+                print("  · {m.get('name','')}")
             print()
-        except:
+        except Exception:
             print("🔴 Ollama未运行，无法获取模型列表。")
 
     # ── 知识爬虫 ──────────────────────────────────────────
     elif 指令 == "吸收":
         if not 其余:
-            print("用法: 龍 吸收 \"知识文本\"")
+            print('用法: 龍 吸收 "知识文本"')
             return
         运行(["python3", "longhun_crawler.py", "--absorb", 其余[0]])
         写记忆("知识吸收", "CRAWL-ABSORB")
@@ -264,11 +271,11 @@ def main():
             print("用法: 龍 抓取 URL")
             return
         运行(["python3", "longhun_crawler.py", "--crawl", 其余[0]])
-        写记忆(f"网页抓取:{其余[0][:40]}", "CRAWL-URL")
+        写记忆("网页抓取:{其余[0][:40]}", "CRAWL-URL")
 
     elif 指令 == "推荐":
         if not 其余:
-            print("用法: 龍 推荐 \"查询词\"")
+            print('用法: 龍 推荐 "查询词"')
             return
         cmd = ["python3", "longhun_crawler.py", "--recommend", 其余[0]]
         if len(其余) >= 2:
@@ -290,7 +297,7 @@ def main():
 
     elif 指令 == "存记忆":
         if len(其余) < 2:
-            print("用法: 龍 存记忆 \"标题\" \"内容\"")
+            print('用法: 龍 存记忆 "标题" "内容"')
             return
         cmd = ["python3", "star_memory.py", "add", 其余[0], 其余[1]]
         if len(其余) >= 3:
@@ -299,7 +306,7 @@ def main():
 
     elif 指令 == "查记忆":
         if not 其余:
-            print("用法: 龍 查记忆 \"关键词\"")
+            print('用法: 龍 查记忆 "关键词"')
             return
         运行(["python3", "star_memory.py", "search", 其余[0]])
 
@@ -327,7 +334,7 @@ def main():
     # ── Notion ────────────────────────────────────────────
     elif 指令 == "notion搜索":
         if not 其余:
-            print("用法: 龍 notion搜索 \"关键词\"")
+            print('用法: 龍 notion搜索 "关键词"')
             return
         运行(["python3", "cnsh.py"], cwd=BASE)  # cnsh.py交互模式传参待扩展
         # 直接调用cnsh内部函数
@@ -389,7 +396,7 @@ def main():
 
     elif 指令 == "双脑分类":
         if not 其余:
-            print("用法: 龍 双脑分类 \"标题文字\"")
+            print('用法: 龍 双脑分类 "标题文字"')
             return
         运行(["python3", "brain_sync.py", "--classify", 其余[0]])
 
@@ -398,7 +405,7 @@ def main():
 
     elif 指令 == "日记写入":
         if not 其余:
-            print("用法: 龍 日记写入 \"操作内容\"")
+            print('用法: 龍 日记写入 "操作内容"')
             return
         运行(["python3", "agent_daemon.py", "--diary", 其余[0]])
 
@@ -424,25 +431,38 @@ def main():
 
     elif 指令 == "桥接状态":
         状态文件候选 = [
-            Path.home() / "Library" / "Mobile Documents" / "iCloud~com~uid9622~longhun" / "Documents" / "cnsh_status.json",
-            Path.home() / "Library" / "CloudStorage" / "iCloudDrive" / "龍魂系统" / "cnsh_status.json",
+            Path.home()
+            / "Library"
+            / "Mobile Documents"
+            / "iCloud~com~uid9622~longhun"
+            / "Documents"
+            / "cnsh_status.json",
+            Path.home()
+            / "Library"
+            / "CloudStorage"
+            / "iCloudDrive"
+            / "龍魂系统"
+            / "cnsh_status.json",
             BASE / "cnsh_status.json",
         ]
         找到 = False
         for p in 状态文件候选:
             if p.exists():
                 import datetime as _dt
-                mtime = _dt.datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
-                print(f"🟢 桥接文件: {p}")
-                print(f"   最后写入: {mtime}")
+
+                _mtime = _dt.datetime.fromtimestamp(p.stat().st_mtime).strftime(  # noqa: F841
+                    "%Y-%m-%d %H:%M:%S"
+                )
+                print("🟢 桥接文件: {p}")
+                print("   最后写入: {mtime}")
                 try:
                     with open(p, "r", encoding="utf-8") as f:
                         d = json.load(f)
-                    y = d.get("yuanzi", {})
-                    a = d.get("audit", {})
-                    print(f"   卦象    : {y.get('display','')}")
-                    print(f"   审计    : {a.get('label','')} ({a.get('score','')}/100)")
-                except:
+                    _y = d.get("yuanzi", {})  # noqa: F841
+                    _a = d.get("audit", {})  # noqa: F841
+                    print("   卦象    : {y.get('display','')}")
+                    print("   审计    : {a.get('label','')} ({a.get('score','')}/100)")
+                except Exception:
                     pass
                 找到 = True
                 break
@@ -456,8 +476,8 @@ def main():
         print(帮助文本)
 
     else:
-        print(f'🔴 未知指令: 「{指令}」')
-        print('   输入 「龍 帮助」 查看所有指令')
+        print("🔴 未知指令: 「{指令}」")
+        print("   输入 「龍 帮助」 查看所有指令")
 
 
 def _notion_exec(子指令, 参数列表):
@@ -465,6 +485,7 @@ def _notion_exec(子指令, 参数列表):
     sys.path.insert(0, str(BASE))
     try:
         import importlib.util
+
         spec = importlib.util.spec_from_file_location("cnsh", str(BASE / "cnsh.py"))
         cnsh = importlib.util.load_from_spec(spec)
         spec.loader.exec_module(cnsh)
@@ -480,9 +501,9 @@ def _notion_exec(子指令, 参数列表):
         elif 子指令 == "查数据库" and 参数列表:
             cnsh.notion_查数据库(参数列表[0])
         else:
-            print(f"参数不足，请检查用法：龍 帮助")
+            print("参数不足，请检查用法：龍 帮助")
     except Exception as e:
-        print(f"🔴 Notion调用失败: {e}")
+        print("🔴 Notion调用失败: {e}")
 
 
 if __name__ == "__main__":

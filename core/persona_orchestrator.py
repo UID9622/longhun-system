@@ -33,12 +33,13 @@ import json
 import datetime
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 from enum import Enum
+from typing import Dict, Optional, List
 
 
 class TaskType(Enum):
     """任务类型"""
+
     FILE_OPERATION = "file"
     CODE_EXECUTION = "code"
     DATA_OPERATION = "data"
@@ -75,7 +76,7 @@ class PersonaOrchestrator:
             "P09": ["ui", "ux", "design"],  # 界面炼金
             "P10": ["monitoring", "detection"],  # 侦察兵
             "P11": ["security", "emergency"],  # 上帝之眼
-            "LUCKY": ["expression", "documentation"]  # Lucky
+            "LUCKY": ["expression", "documentation"],  # Lucky
         }
 
         self._load_registry()
@@ -83,7 +84,7 @@ class PersonaOrchestrator:
     def _load_registry(self):
         """加载人格注册表"""
         try:
-            with open(self.registry_path, 'r', encoding='utf-8') as f:
+            with open(self.registry_path, "r", encoding="utf-8") as f:
                 registry = json.load(f)
             self.personas = registry.get("personas", {})
             return True
@@ -112,13 +113,12 @@ class PersonaOrchestrator:
             "min_permission_level": self._calculate_min_permission(task_type),
             "requires_three_pillars": self._requires_pillars_approval(task_type),
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("TASK-ANALYSIS")
+            "dna": self._generate_dna("TASK-ANALYSIS"),
         }
 
-    def orchestrate(self,
-                    task_description: str,
-                    task_type: str,
-                    parameters: Optional[Dict] = None) -> Dict:
+    def orchestrate(
+        self, task_description: str, task_type: str, parameters: Optional[Dict] = None
+    ) -> Dict:
         """
         协调任务执行
 
@@ -163,16 +163,15 @@ class PersonaOrchestrator:
             "parameters": parameters or {},
             "created_at": datetime.datetime.now().isoformat(),
             "dna": self._generate_dna(f"ORCHESTRATION-{primary_persona_id}"),
-            "status": "ready_for_dispatch"
+            "status": "ready_for_dispatch",
         }
 
         self._log_execution(execution_plan)
         return execution_plan
 
-    def handle_conflict(self,
-                        decision_a: Dict,
-                        decision_b: Dict,
-                        context: str = "") -> Dict:
+    def handle_conflict(
+        self, decision_a: Dict, decision_b: Dict, context: str = ""
+    ) -> Dict:
         """
         处理人格间的冲突
 
@@ -196,10 +195,12 @@ class PersonaOrchestrator:
             "decision_b": decision_b.get("description", ""),
             "context": context,
             "status": "initiated",
-            "expected_resolution_time": (datetime.datetime.now() + datetime.timedelta(hours=4)).isoformat(),
+            "expected_resolution_time": (
+                datetime.datetime.now() + datetime.timedelta(hours=4)
+            ).isoformat(),
             "timestamp": datetime.datetime.now().isoformat(),
             "dna": self._generate_dna("CONFLICT-ARBITRATION"),
-            "message": "冲突已提交给审判长，等待仲裁"
+            "message": "冲突已提交给审判长，等待仲裁",
         }
 
         self._log_arbitration(arbitration)
@@ -256,7 +257,9 @@ class PersonaOrchestrator:
             # 把任务类型转换为小写并匹配
             task_type_lower = task_type.lower().replace("_", "")
             for specialty in specialties:
-                if "all" in specialties or task_type_lower in specialty.replace("_", ""):
+                if "all" in specialties or task_type_lower in specialty.replace(
+                    "_", ""
+                ):
                     suitable.append(persona_id)
                     break
 
@@ -276,7 +279,7 @@ class PersonaOrchestrator:
             "quality": 50,
             "decision": 90,
             "security": 85,
-            "communication": 40
+            "communication": 40,
         }
         return permission_map.get(task_type.lower(), 50)
 
@@ -294,7 +297,7 @@ class PersonaOrchestrator:
             "dispatcher_path": "~/longhun-system/core/baobao_dispatcher.py",
             "message": "已路由给宝宝执行器",
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("ROUTE-BAOBAO")
+            "dna": self._generate_dna("ROUTE-BAOBAO"),
         }
 
     def _route_via_persona(self, execution_plan: Dict, persona: Dict) -> Dict:
@@ -309,7 +312,7 @@ class PersonaOrchestrator:
             "core_power": persona.get("core_power", ""),
             "message": f"已路由给 {persona.get('name', persona_id)} 处理",
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna(f"ROUTE-{persona_id}")
+            "dna": self._generate_dna(f"ROUTE-{persona_id}"),
         }
 
     def _generate_dna(self, operation_type: str) -> str:
@@ -321,7 +324,7 @@ class PersonaOrchestrator:
         """记录执行计划"""
         try:
             log_path = self.logs_dir / "persona_executions.jsonl"
-            with open(log_path, 'a', encoding='utf-8') as f:
+            with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(execution_plan, ensure_ascii=False) + "\n")
             self.execution_history.append(execution_plan)
         except Exception as e:
@@ -331,7 +334,7 @@ class PersonaOrchestrator:
         """记录仲裁"""
         try:
             log_path = self.logs_dir / "persona_arbitrations.jsonl"
-            with open(log_path, 'a', encoding='utf-8') as f:
+            with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(arbitration, ensure_ascii=False) + "\n")
         except Exception as e:
             print(f"仲裁日志写入失败: {e}", file=sys.stderr)
@@ -345,7 +348,7 @@ class PersonaOrchestrator:
             "execution_queue_length": len(self.task_queue),
             "total_executions": len(self.execution_history),
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("ORCHESTRATOR-STATUS")
+            "dna": self._generate_dna("ORCHESTRATOR-STATUS"),
         }
 
 
@@ -363,7 +366,9 @@ def main():
 
     if command == "analyze":
         if len(sys.argv) < 4:
-            print("用法: python3 persona_orchestrator.py analyze <task_type> <description>")
+            print(
+                "用法: python3 persona_orchestrator.py analyze <task_type> <description>"
+            )
             sys.exit(1)
         task_type = sys.argv[2]
         description = " ".join(sys.argv[3:])
@@ -373,7 +378,9 @@ def main():
 
     elif command == "orchestrate":
         if len(sys.argv) < 4:
-            print("用法: python3 persona_orchestrator.py orchestrate <task_type> <description>")
+            print(
+                "用法: python3 persona_orchestrator.py orchestrate <task_type> <description>"
+            )
             sys.exit(1)
         task_type = sys.argv[2]
         description = " ".join(sys.argv[3:])
