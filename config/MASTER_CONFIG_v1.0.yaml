@@ -1,0 +1,371 @@
+# 龍魂主干配置 v1.0
+#
+# DNA: #龍芯⚡️2026-05-26-MASTER-CONFIG-CANONICAL-v1.0
+# 目的: 单一真实源头·所有配置从这里生成
+# 特点: 启动时自动展开·无需手动维护零散文件
+#
+# 使用: python3 master_config_bootstrap.py
+#       └─ 自动生成所有衍生配置文件到 ./generated/
+
+version: "1.0"
+last_sync: "2026-05-26T23:54:00+08:00"
+source_notion_urls:
+  - "https://www.notion.so/uid9622/DNA-v1-0-F5F6F7-DNA-msg223-a852b05370fc4ab291d18d7278d17d15"
+  - "https://www.notion.so/uid9622/CNSH-v1-0-369-81-64-64-M227-c42233c1f1904c398d6b2d1b659ea91d"
+
+# ================================================================
+# 第1部分: 行为密码学 (F5/F6/F7)
+# 源头: 待从 Notion DNA-v1-0-F5F6F7 导入
+# ================================================================
+
+behavioral_cryptography:
+  enabled: true
+
+  F5_vocabulary:
+    description: "第5层·语言词汇层·签名词汇"
+    source: "Notion: DNA-v1-0-F5F6F7"
+
+    master_profile:
+      UID9622:
+        name: "诸葛鑫（老大）"
+        signature_words: []  # 待导入：宝宝、龍魂、DNA等
+        common_particles: []  # 待导入：是吧、对不对
+        signature_expressions: []  # 待导入：我这样和你说吧
+
+    P02_BAOBAO:
+      name: "宝宝（守护者人格）"
+      signature_words: []  # 待导入
+      communication_style: "直接、执行力强、陪伴感"
+
+    P00_CHIEF_JUSTICE:
+      name: "审判长（仲裁者人格）"
+      signature_words: []  # 待导入
+      style: "法律性、逻辑性强"
+
+    P05_DAODE_SAGE:
+      name: "老子（价值观守护者）"
+      signature_words: []  # 待导入
+      style: "哲学性、深邃"
+
+  F6_rhythm:
+    description: "第6层·节奏·语言节奏和模式"
+    source: "Notion: DNA-v1-0-F5F6F7"
+
+    UID9622:
+      triple_comma_pattern: "特征明显，经常用，，，作为思考暂停"
+      triple_comma_frequency: "high"  # 待确认
+      sentence_structure: "complex_with_pauses"
+      average_paragraph_length: "medium"
+      punctuation_before_thinking: ",,,"
+
+    P02_BAOBAO:
+      sentence_structure: "concise_and_direct"
+      response_speed: "fast"
+      average_response_length: "short_to_medium"
+
+  F7_punctuation:
+    description: "第7层·标点符号和视觉特征"
+    source: "Notion: DNA-v1-0-F5F6F7"
+
+    UID9622:
+      preferred_comma: "中文逗号(，)"
+      period_style: "中文句号(。)"
+      mixed_language: true
+      english_usage: "DNA、API、Python、UID等技术术语用英文"
+      emoji_preference: "🟢🟡🔴(信号灯色)、⚡️(闪电)、DNA相关符号"
+      bracket_style: "中文括号（）"
+      typo_signature: "无常见错字，表达准确"
+
+    P02_BAOBAO:
+      style: "清晰、准确"
+      emoji_preference: "✅、🔄、⏳、🎯"
+
+  immovable_points:
+    description: "不动点·绝对不变的身份标记"
+    UID9622:
+      - "，，，(三逗号思考暂停)"
+      - "宝宝(特定含义不变)"
+      - "龍(繁体，永不简化)"
+      - "是吧(口语特徵)"
+      - "CONFIRM(確認碼風格)"
+
+# ================================================================
+# 第2部分: 五色审计系统
+# 源头: 待从 Notion CNSH-v1-0 导入
+# ================================================================
+
+five_color_audit:
+  enabled: true
+  source: "Notion: CNSH-v1-0-369-81-64-64"
+
+  colors:
+    green:
+      name: "🟢 綠·青石·木"
+      hex: "#2E8B57"
+      r_value_range: "< 0.30"
+      meaning: "自由意志態·安全·常態·可自動放行"
+      action: "直接執行·留痕·不打擾"
+      # 待导入：梯度色、ANSI色、CSS变量
+
+    yellow:
+      name: "🟡 黃·黃石·土"
+      hex: "#DAA520"
+      r_value_range: "0.30 ≤ R < 0.67"
+      meaning: "老好人態·需複核"
+      action: "二次確認·要求加證據"
+
+    red:
+      name: "🔴 紅·赤石·火"
+      hex: "#DC143C"
+      r_value_range: "0.67 ≤ R < 0.85"
+      meaning: "越界態·人工介入"
+      action: "立即停止·上報老大"
+
+    black:
+      name: "⚫ 黑·玄石·水"
+      hex: "#191970"
+      r_value_range: "N/A (不可計算)"
+      meaning: "未明徵兆·觀察池"
+      action: "標記隔離"
+
+    gold:
+      name: "🟡金 金·金石"
+      hex: "#FFD700"
+      r_value_range: "N/A (超規則)"
+      meaning: "主控保留權·一票否決"
+      action: "主控簽字·覆蓋任何R判定"
+
+  wuxing_mapping:
+    mu_wood:
+      name: "木"
+      color: "🟢 綠"
+      direction: "東"
+      season: "春"
+      stone: "青石"
+      virtue: "仁"
+      flow: "上升流"
+
+    huo_fire:
+      name: "火"
+      color: "🔴 紅"
+      direction: "南"
+      season: "夏"
+      stone: "赤石"
+      virtue: "禮"
+      flow: "爆發流"
+
+    tu_earth:
+      name: "土"
+      color: "🟡 黃"
+      direction: "中"
+      season: "季(四季中央)"
+      stone: "黃石"
+      virtue: "信"
+      flow: "旋渦流"
+
+    jin_metal:
+      name: "金"
+      color: "🟡金"
+      direction: "西"
+      season: "秋"
+      stone: "金石(白石)"
+      virtue: "義"
+      flow: "光明流"
+
+    shui_water:
+      name: "水"
+      color: "⚫ 黑"
+      direction: "北"
+      season: "冬"
+      stone: "玄石(影子)"
+      virtue: "智"
+      flow: "下沉流"
+
+# ================================================================
+# 第3部分: 权重公式系统
+# 源头: 待从 Notion CNSH-v1-0 导入
+# ================================================================
+
+weight_formulas:
+  responsibility_coefficient_r:
+    name: "責任係數 R v2.0"
+    formula: "R = F2·0.4 + F6·0.4 + F3·0.2 − F1·0.5 − F5·0.3"
+    description: "根據7維權重因子計算R值"
+
+    factors:
+      F2_sharpness:
+        name: "銳度 (Sharpness)"
+        weight: 0.4
+        type: "positive"
+        meaning: "主控的行為銳度/果決度"
+
+      F6_long_term:
+        name: "長期視角 (Long-term perspective)"
+        weight: 0.4
+        type: "positive"
+        meaning: "是否考慮長期後果"
+
+      F3_density:
+        name: "密度 (Decision density)"
+        weight: 0.2
+        type: "positive"
+        meaning: "決策的密度/強度"
+
+      F1_absence:
+        name: "缺席 (Absence)"
+        weight: -0.5
+        type: "negative"
+        meaning: "L0-L5間隔有多大"
+
+      F5_pleasing:
+        name: "討好傾向 (Pleasing tendency)"
+        weight: -0.3
+        type: "negative"
+        meaning: "自我審查傾向"
+
+    color_thresholds:
+      green_top: 0.30
+      yellow_top: 0.67
+      red_top: 0.85
+
+  three_talent_system:
+    name: "三才權重系統"
+    formula: "sancai(H,E,P) = H×0.25 + E×0.25 + P×max(0.5, 1-(H×0.3+E×0.3))"
+
+    components:
+      heaven:
+        name: "天 (Heaven/Timing)"
+        symbol: "H"
+        default: 0.35
+        description: "時勢·大環境·外部條件"
+
+      human:
+        name: "人 (Human/Will)"
+        symbol: "P"
+        default: 0.50
+        floor: 0.34
+        floor_meaning: "低於0.34=黃旗·需要加持"
+
+      earth:
+        name: "地 (Earth/Resources)"
+        symbol: "E"
+        default: 0.15
+        description: "條件·資源·客觀環境"
+
+# ================================================================
+# 第4部分: 多人格系统 (15个人格)
+# 源头: FEARLESS_STEVE_PROTOCOL 系列文件
+# ================================================================
+
+multi_persona_system:
+  enabled: true
+  total_personas: 15
+
+  personas:
+    P00:
+      name: "審判長"
+      english: "Chief Justice"
+      role: "最高仲裁"
+      decision_weight: 100
+
+    P01:
+      name: "乔前辈"
+      english: "Steve"
+      role: "工程極簡·品質審計"
+      decision_weight: 95
+      reference: "Steve Jobs·品質無妥協"
+
+    P02:
+      name: "寶寶"
+      english: "Baobao"
+      role: "日常執行·陪伴守護"
+      decision_weight: 90
+
+    P03:
+      name: "策略家"
+      english: "Strategist"
+      role: "長期規劃"
+      decision_weight: 85
+
+    P04:
+      name: "戰士"
+      english: "Warrior"
+      role: "堅毅執行"
+      decision_weight: 80
+
+    P05:
+      name: "老子"
+      english: "Daode Sage"
+      role: "道德經·價值觀守護"
+      decision_weight: 92
+      reference: "曾仕强老師·中國智慧"
+
+    # ... P06 到 P14 待补充
+
+# ================================================================
+# 第5部分: DNA 签名系统
+# ================================================================
+
+dna_signature_system:
+  enabled: true
+  creator: "UID9622·龍芯北辰"
+  gpg_fingerprint: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+
+  format: "DNA-<权限>-<序号>-<时间戳>-<源哈希>-<内容哈希>-<衰减>-<社群>-<关联>"
+
+  permissions:
+    V999: { level: 0, name: "VOID", color: "#050507" }
+    E001: { level: 1, name: "TRUST", color: "#32D74B" }
+    A002: { level: 2, name: "AUDIT", color: "#4FC3F7" }
+    D003: { level: 3, name: "CREATE", color: "#6E3FF3" }
+    C004: { level: 4, name: "CONFIRM", color: "#D6B36A" }
+
+# ================================================================
+# 第6部分: 配置元数据
+# ================================================================
+
+metadata:
+  dna: "#龍芯⚡️2026-05-26-MASTER-CONFIG-CANONICAL-v1.0"
+  confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+  seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️-DEVICE-BIND-SOUL"
+
+  integrity_check:
+    method: "SHA256"
+    hash: ""  # 待计算
+
+  versioning:
+    major: 1
+    minor: 0
+    revision: 0
+
+  synchronization:
+    primary_source: "Notion 工作区"
+    local_mirror: "/Users/zuimeidedeyihan/longhun-system/config"
+    sync_frequency: "on-boot"
+    last_sync_time: "2026-05-26T23:54:00+08:00"
+    next_sync_time: "待启动时计算"
+
+# ================================================================
+# 导入说明
+# ================================================================
+
+import_instructions: |
+  这个文件是「单一真实源头」。
+
+  使用方式：
+    1. 从 Notion 页面导入新内容时，更新对应的 section
+    2. 运行 python3 master_config_bootstrap.py
+    3. 系统自动生成所有衍生配置文件
+    4. 所有其他 .json / .py / .md 文件从这里生成
+       （不要手动修改它们）
+
+  待导入的Notion内容：
+    [ ] DNA-v1-0-F5F6F7 → F5_vocabulary / F6_rhythm / F7_punctuation
+    [ ] CNSH-v1-0-369 → five_color_audit / weight_formulas
+    [ ] 其他协议 → 补充
+
+  导入者负责：
+    - 确保数据完整性
+    - 更新 last_sync 时间戳
+    - 运行完整性检查
+    - 生成新的 DNA 哈希

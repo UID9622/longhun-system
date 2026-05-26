@@ -1,0 +1,623 @@
+{
+  "metadata": {
+    "name": "龍魂權重·色彩映射統一配置表",
+    "dna": "#龍芯⚡️2026-05-26-WEIGHT-COLOR-MAPPING-v1.0",
+    "timestamp": "2026-05-26T08:00:00+08:00",
+    "version": "1.0",
+    "status": "🟢 ACTIVE",
+    "description": "「文字即權重」可視化系統的完整權重定義·五色映射·RGB/Hex色值·ANSI終端色·CSS變量·梯度色系統"
+  },
+
+  "five_color_system": {
+    "definition": "五色審計系統 v1.0·綠/黃/紅/黑/金五檔判定·反映責任係數R值落檔",
+    "colors": {
+      "green": {
+        "name": "🟢 綠·青石·木",
+        "emoji": "🟢",
+        "english": "Green",
+        "chinese": "綠",
+        "stone": "青石",
+        "wuxing": "木",
+        "direction": "東",
+        "r_value_range": "< 0.30",
+        "meaning": "自由意志態·安全·常態·可自動放行",
+        "action": "直接執行·留痕·不打擾",
+        "flow_field": "上升流·生長態",
+        "colors": {
+          "hex": "#2E8B57",
+          "rgb": { "r": 46, "g": 139, "b": 87 },
+          "ansi_fg": "\u001b[38;5;35m",
+          "ansi_bright": "\u001b[92m",
+          "css_var": "--wucai-mu"
+        },
+        "gradient": {
+          "lightest": "#A8E6A1",
+          "light": "#5EBF4F",
+          "medium": "#2E8B57",
+          "dark": "#1F5630",
+          "darkest": "#0F3820"
+        }
+      },
+      "yellow": {
+        "name": "🟡 黃·黃石·土",
+        "emoji": "🟡",
+        "english": "Yellow",
+        "chinese": "黃",
+        "stone": "黃石",
+        "wuxing": "土",
+        "direction": "中",
+        "r_value_range": "0.30 ≤ R < 0.67",
+        "meaning": "老好人態/未明朗·需複核·可繼續但記錄",
+        "action": "二次確認·要求caller加證據·記入審計日誌",
+        "flow_field": "旋渦流·待補承載",
+        "colors": {
+          "hex": "#DAA520",
+          "rgb": { "r": 218, "g": 165, "b": 32 },
+          "ansi_fg": "\u001b[38;5;178m",
+          "ansi_bright": "\u001b[93m",
+          "css_var": "--wucai-tu"
+        },
+        "gradient": {
+          "lightest": "#F5DDA0",
+          "light": "#E5BB6A",
+          "medium": "#DAA520",
+          "dark": "#B88615",
+          "darkest": "#8B6914"
+        }
+      },
+      "red": {
+        "name": "🔴 紅·赤石·火",
+        "emoji": "🔴",
+        "english": "Red",
+        "chinese": "紅",
+        "stone": "赤石",
+        "wuxing": "火",
+        "direction": "南",
+        "r_value_range": "0.67 ≤ R < 0.85",
+        "meaning": "真負責者越界態/極端緊急·阻斷·人工介入",
+        "action": "立即停止·上報老大·觸發§8.5極端態協議",
+        "flow_field": "爆發流·決策熔斷",
+        "colors": {
+          "hex": "#DC143C",
+          "rgb": { "r": 220, "g": 20, "b": 60 },
+          "ansi_fg": "\u001b[38;5;196m",
+          "ansi_bright": "\u001b[91m",
+          "css_var": "--wucai-huo"
+        },
+        "gradient": {
+          "lightest": "#FF9999",
+          "light": "#FF5555",
+          "medium": "#DC143C",
+          "dark": "#B30000",
+          "darkest": "#800000"
+        }
+      },
+      "black": {
+        "name": "⚫ 黑·玄石·水·影子",
+        "emoji": "⚫",
+        "english": "Black / Shadow",
+        "chinese": "黑",
+        "stone": "玄石(影子)",
+        "wuxing": "水",
+        "direction": "北",
+        "r_value_range": "N/A (不可計算)",
+        "meaning": "檢測不出·未明徵兆·灰色相遇·黑箱嫌疑",
+        "action": "標記隔離·不通過也不否決·等待更多證據·進觀察池",
+        "flow_field": "下沉流·光譜失常",
+        "colors": {
+          "hex": "#191970",
+          "rgb": { "r": 25, "g": 25, "b": 112 },
+          "ansi_fg": "\u001b[38;5;18m",
+          "ansi_bright": "\u001b[96m",
+          "css_var": "--wucai-shui"
+        },
+        "gradient": {
+          "lightest": "#6B7FA6",
+          "light": "#404080",
+          "medium": "#191970",
+          "dark": "#0F0F40",
+          "darkest": "#050520"
+        },
+        "rules": [
+          "影子≠錯·影子='我看不清'",
+          "系統寧可錯判為黑·不可錯判為綠",
+          "黑色樣本進觀察池·永遠不自動轉綠",
+          "只有主控(L0老大)或§5金色介入可解鎖"
+        ]
+      },
+      "gold": {
+        "name": "🟡金 金石·金·主控獨佔·超規則",
+        "emoji": "🟡金",
+        "english": "Gold / Master Control",
+        "chinese": "金",
+        "stone": "金石(主控)",
+        "wuxing": "金",
+        "direction": "西/中心",
+        "r_value_range": "N/A (超規則)",
+        "meaning": "主控保留權·一票否決/一票通過·凌駕任何R公式",
+        "action": "僅由UID9622主控本人觸發·任何AI不可自動賦金色",
+        "flow_field": "收斂流·光明流",
+        "colors": {
+          "hex": "#FFD700",
+          "rgb": { "r": 255, "g": 215, "b": 0 },
+          "ansi_fg": "\u001b[38;5;226m",
+          "ansi_bright": "\u001b[97m",
+          "css_var": "--wucai-jin"
+        },
+        "gradient": {
+          "lightest": "#FFEB99",
+          "light": "#FFE066",
+          "medium": "#FFD700",
+          "dark": "#DAA520",
+          "darkest": "#B8860B"
+        },
+        "rules": [
+          "慈不掌兵=主控保留'超規則手段'的權利",
+          "金色=老大簽字·覆蓋任何R判定",
+          "金色使用必須留痕·必須帶CONFIRM·必須帶DNA",
+          "金色不可代理·AI永遠不能'代替老大簽金'",
+          "金色不可外授·即便老大本人也不能授權給第三方"
+        ]
+      },
+      "cosmic_369": {
+        "description": "宇宙369特殊色·數字根映射特殊色",
+        "colors": {
+          "3": {
+            "name": "炎 (Fire in Fire)",
+            "hex": "#FF4500",
+            "rgb": { "r": 255, "g": 69, "b": 0 },
+            "meaning": "三重強化·火上加火·極端決策"
+          },
+          "6": {
+            "name": "銳 (Gold in Gold)",
+            "hex": "#FFD700",
+            "rgb": { "r": 255, "g": 215, "b": 0 },
+            "meaning": "六方和諧·黃金分割·完美決策"
+          },
+          "9": {
+            "name": "淵 (Water in Water)",
+            "hex": "#000080",
+            "rgb": { "r": 0, "g": 0, "b": 128 },
+            "meaning": "九層深淵·最高智慧·究竟覺知"
+          }
+        }
+      }
+    }
+  },
+
+  "weight_factors_seven_dimensional": {
+    "description": "七維權重因子系統·用於計算責任係數R值",
+    "factors": {
+      "proximity": {
+        "name": "接近度 (Proximity)",
+        "symbol": "Prox",
+        "weight": 0.8,
+        "description": "物理/時間接近性·涉及的人距離有多近",
+        "scale": [0.0, 1.0],
+        "meaning": "越接近·權重越高·越應該審慎"
+      },
+      "capability": {
+        "name": "能力 (Capability)",
+        "symbol": "Cap",
+        "weight": 0.9,
+        "description": "執行能力·是否真的能做成·虛張聲勢的低",
+        "scale": [0.0, 1.0],
+        "meaning": "能力越強·越應該對後果負責"
+      },
+      "knowledge": {
+        "name": "知識 (Knowledge)",
+        "symbol": "Know",
+        "weight": 0.7,
+        "description": "對後果的認識·知道會發生什麼嗎",
+        "scale": [0.0, 1.0],
+        "meaning": "越清楚後果·越應該倫理考量"
+      },
+      "duty": {
+        "name": "責任 (Duty)",
+        "symbol": "Duty",
+        "weight": 0.6,
+        "description": "本職責任·這是他的責任範圍嗎",
+        "scale": [0.0, 1.0],
+        "meaning": "越是責任所在·越應該執行"
+      },
+      "consent": {
+        "name": "同意 (Consent)",
+        "symbol": "Cons",
+        "weight": 0.5,
+        "description": "明確同意·是否有人明確同意這個行動",
+        "scale": [0.0, 1.0],
+        "meaning": "有同意的權重會降低·因為有人背書"
+      },
+      "alternatives": {
+        "name": "替代方案 (Alternatives)",
+        "symbol": "Alt",
+        "weight": 0.4,
+        "description": "是否有更溫和的替代方案",
+        "scale": [0.0, 1.0],
+        "meaning": "有替代方案·原方案的權重應該更高"
+      },
+      "cost": {
+        "name": "成本 (Cost)",
+        "symbol": "Cost",
+        "weight": 0.3,
+        "description": "對自己/他人的成本·代價有多大",
+        "scale": [0.0, 1.0],
+        "meaning": "代價越大·權重越高·越謹慎"
+      }
+    }
+  },
+
+  "responsibility_coefficient_r_formula": {
+    "name": "責任係數 R v2.0",
+    "description": "根據7維權重因子計算R值·用於五色判定",
+    "formula": "R = F2·0.4 + F6·0.4 + F3·0.2 − F1·0.5 − F5·0.3",
+    "explanation": {
+      "positive_weights": {
+        "F2_sharpness": {
+          "name": "銳度 (Sharpness)",
+          "weight": 0.4,
+          "meaning": "主控的行為銳度/果決度"
+        },
+        "F6_long_term": {
+          "name": "長期視角 (Long-term perspective)",
+          "weight": 0.4,
+          "meaning": "是否考慮長期後果"
+        },
+        "F3_density": {
+          "name": "密度 (Decision density)",
+          "weight": 0.2,
+          "meaning": "決策的密度/強度"
+        }
+      },
+      "negative_weights": {
+        "F1_absence": {
+          "name": "缺席 (Absence)",
+          "weight": -0.5,
+          "meaning": "L0-L5間隔有多大·越缺席R越低"
+        },
+        "F5_pleasing": {
+          "name": "討好傾向 (Pleasing tendency)",
+          "weight": -0.3,
+          "meaning": "自我審查傾向·越討好R越低"
+        }
+      }
+    },
+    "color_thresholds": {
+      "green_top": 0.30,
+      "yellow_top": 0.67,
+      "red_top": 0.85,
+      "description": "R值三閾值系統·決定五色落檔"
+    }
+  },
+
+  "three_talent_weights": {
+    "name": "三才權重系統",
+    "description": "天·人·地三維決策框架",
+    "weights": {
+      "heaven": {
+        "name": "天 (Heaven/Timing)",
+        "symbol": "H",
+        "default": 0.35,
+        "description": "時勢·大環境·外部條件",
+        "meaning": "天下大勢·不以人意為轉移"
+      },
+      "human": {
+        "name": "人 (Human/Will)",
+        "symbol": "P",
+        "default": 0.50,
+        "description": "意志·人心·人根",
+        "meaning": "人的主觀能動性·最重要因素",
+        "floor": 0.34,
+        "floor_meaning": "低於0.34=黃旗·需要加持"
+      },
+      "earth": {
+        "name": "地 (Earth/Resources)",
+        "symbol": "E",
+        "default": 0.15,
+        "description": "條件·資源·客觀環境",
+        "meaning": "客觀條件·基礎保障"
+      }
+    },
+    "formula": "sancai(H,E,P) = H×0.25 + E×0.25 + P×max(0.5, 1-(H×0.3+E×0.3))",
+    "normalization_rule": "If human < 0.34 → clamp to 0.34 (染黃yellow flag) → re-normalize to sum=1.0",
+    "validation": "任何維度 < 0.1 = 不完整·需補充"
+  },
+
+  "cnsh_tier_audit_density": {
+    "name": "CNSH協議T0-T4審計密度系統",
+    "description": "五層信任級別·對應五層審計密度ρ",
+    "tiers": {
+      "T0": {
+        "name": "創始者/憲制級",
+        "role": "創始人本人",
+        "audit_density_rho": 5.0,
+        "description": "完整鏈審計·解鎖需雙簽",
+        "rules": "最嚴格閾值·不豁免於ρ審計"
+      },
+      "T1": {
+        "name": "主控/L0",
+        "role": "主控UID9622",
+        "audit_density_rho": 4.0,
+        "description": "同T0·最嚴格審計",
+        "rules": "即使主控也需要留痕·符合程序"
+      },
+      "T2": {
+        "name": "協作/內部",
+        "role": "龍魂生態內部成員",
+        "audit_density_rho": 3.0,
+        "description": "標準流場審計",
+        "rules": "可跳過部分深層鏈·但必須留痕"
+      },
+      "T3": {
+        "name": "普通授權",
+        "role": "常規用戶",
+        "audit_density_rho": 2.0,
+        "description": "可短路部分深層鏈",
+        "rules": "基礎審計·不深入追溯"
+      },
+      "T4": {
+        "name": "外部只讀",
+        "role": "訪客/觀察者",
+        "audit_density_rho": 1.0,
+        "description": "粒子層為主",
+        "rules": "最低審計·隻讀訪問"
+      }
+    }
+  },
+
+  "ninety_five_five_stability": {
+    "name": "95/5根比穩定性協議",
+    "description": "95%穩定+5%混沌的動態平衡",
+    "formula": "P = 0.95·S + 0.05·C",
+    "components": {
+      "S_stable": {
+        "name": "穩定態 (Stable state)",
+        "symbol": "S",
+        "percentage": 95.0,
+        "meaning": "主控穩定·可預測·遵循規則"
+      },
+      "C_chaos": {
+        "name": "混沌層/靈感 (Chaos/Inspiration)",
+        "symbol": "C",
+        "percentage": 5.0,
+        "meaning": "創意空間·靈感·突破規則的可能"
+      }
+    },
+    "stability_rules": [
+      "穩定輸出: ≤95%",
+      "自由探索: ≤5%",
+      "超限(C>0.05): D↑ (漂移風險)",
+      "窒息(C→0): I→0 (靈感死亡)",
+      "超限→熔斷回到中宮(中5)"
+    ]
+  },
+
+  "behavioral_fingerprint_system": {
+    "name": "行為指紋系統 (F5/F6/F7)",
+    "description": "三層行為識別·詞彙/節奏/標點·識別身份",
+    "layers": {
+      "F5_vocabulary": {
+        "name": "F5·語言詞彙層",
+        "description": "特定詞彙選擇·簽名詞·不可替代",
+        "example": "UID9622: 宝宝·龍魂·龍芯·DNA·是吧·對對·通心译·三生燈·CONFIRM",
+        "weight": "高·單個簽名詞=強信號"
+      },
+      "F6_rhythm": {
+        "name": "F6·節奏·語言節奏",
+        "description": "句式·段落·停頓·打字速度",
+        "example": "UID9622: 三逗號(,,,)思考暫停·複雜句式·深思熟慮",
+        "weight": "中等·需結合上下文"
+      },
+      "F7_punctuation": {
+        "name": "F7·標點符號層",
+        "description": "逗號風格·括號·emoji·大小寫習慣",
+        "example": "UID9622: 中文逗號(，)·中文句號(。)·混合語言(技術術語英文)·Emoji(🟢🟡🔴⚡️)",
+        "weight": "低·單獨不夠·需綜合"
+      }
+    },
+    "confidence_thresholds": {
+      "auto_accept": ">= 0.85",
+      "manual_review": "0.60 - 0.84",
+      "reject": "< 0.60"
+    },
+    "rules": [
+      "不動點必須完全匹配·不可替代",
+      "三逗號(,,,)如果出現·幾乎100%確認是老大",
+      "特定詞彙(宝宝·龍魂·DNA等)出現·權重高",
+      "綜合上下文·提高準確度",
+      "假冒老大的成本高·寧可暫時不認識·也不要假認"
+    ]
+  },
+
+  "visualization_rules": {
+    "text_as_weight": {
+      "concept": "「文字即權重」可視化系統",
+      "meaning": "別人看或AI看·從文字的色彩·亮度·動畫效果·直觀理解該部分的權重",
+      "layers": {
+        "color": {
+          "rule": "文字色彩=五色系統(🟢🟡🔴⚫🟡金)",
+          "mapping": "R值 → 五色 → 色彩",
+          "effect": "立即視覺判定·這個決策屬於什麼級別"
+        },
+        "brightness": {
+          "rule": "文字亮度=權重大小",
+          "mapping": "R值越高 → 色彩越鮮艷/飽和度越高 → 視覺強度越強",
+          "effect": "暗色=低權重·亮色=高權重"
+        },
+        "animation": {
+          "rule": "文字動畫=實時權重變化",
+          "mapping": "跑馬燈效果 = 權重流動·實時上升/下降",
+          "effect": "流動感=動態決策過程·觀者能看到權重變化"
+        },
+        "size": {
+          "rule": "文字大小=重要度等級",
+          "mapping": "T0-T4層級 + 五色層級 = 多層視覺編碼",
+          "effect": "大=重要·小=細節"
+        }
+      }
+    },
+    "marquee_effect": {
+      "name": "權重跑馬燈效果",
+      "description": "文字從左到右流動·邊流動邊變色·邊變亮度·實時展示權重演變",
+      "implementation": {
+        "css_animation": "@keyframes marquee { 0% { translate: -100%; } 100% { translate: 100%; } }",
+        "color_transition": "邊移動邊從前色過渡到後色·如🟢→🟡→🔴",
+        "brightness_curve": "贝塞尔曲线·权重高时亮度峰值更高"
+      }
+    },
+    "color_highlight_rules": {
+      "rule_1": "關鍵詞(宝宝·龍魂·DNA·CONFIRM)=永遠金色高亮",
+      "rule_2": "決策詞(仲裁·判決·熔斷·金色)=對應色彩(🟡金·🔴紅·⚫黑)",
+      "rule_3": "權重係數(R值)=漸變色(低綠→黃→紅高)",
+      "rule_4": "時間標記=灰色低調·但隨時間變化而刷新",
+      "rule_5": "不動點(,,)=閃爍金色·吸引註意"
+    }
+  },
+
+  "cultural_mapping": {
+    "name": "文化層映射·五行+五彩石",
+    "description": "中華傳統五行理論·與現代權重系統結合",
+    "wuxing_mapping": {
+      "mu_wood": {
+        "name": "木 (Wood)",
+        "color": "🟢 綠",
+        "direction": "東",
+        "season": "春",
+        "stone": "青石",
+        "virtue": "仁",
+        "flow": "上升流",
+        "meaning": "生長·新生·勃發"
+      },
+      "huo_fire": {
+        "name": "火 (Fire)",
+        "color": "🔴 紅",
+        "direction": "南",
+        "season": "夏",
+        "stone": "赤石",
+        "virtue": "禮",
+        "flow": "爆發流",
+        "meaning": "光明·決策·明澈"
+      },
+      "tu_earth": {
+        "name": "土 (Earth)",
+        "color": "🟡 黃",
+        "direction": "中",
+        "season": "季(四季中央)",
+        "stone": "黃石",
+        "virtue": "信",
+        "flow": "旋渦流",
+        "meaning": "承載·平衡·調和"
+      },
+      "jin_metal": {
+        "name": "金 (Metal)",
+        "color": "🟡金",
+        "direction": "西",
+        "season": "秋",
+        "stone": "金石(白石)",
+        "virtue": "義",
+        "flow": "收斂流·光明流",
+        "meaning": "堅固·主控·超越"
+      },
+      "shui_water": {
+        "name": "水 (Water)",
+        "color": "⚫ 黑",
+        "direction": "北",
+        "season": "冬",
+        "stone": "玄石(影子)",
+        "virtue": "智",
+        "flow": "下沉流",
+        "meaning": "深藏·未明·觀察"
+      }
+    },
+    "nuwa_five_stones": {
+      "concept": "女娲五彩石補天·五色齊·系統主權完整",
+      "meaning": "缺任一色=五彩石缺角=天有漏洞=主權失守",
+      "stones": ["青石·木", "赤石·火", "黃石·土", "金石·金", "玄石·水"]
+    }
+  },
+
+  "implementation_templates": {
+    "css_variables": {
+      "description": "CSS變量·用於Web可視化",
+      "variables": {
+        "--wucai-mu": "#2E8B57",
+        "--wucai-huo": "#DC143C",
+        "--wucai-tu": "#DAA520",
+        "--wucai-jin": "#FFD700",
+        "--wucai-shui": "#191970",
+        "--cosmic-3": "#FF4500",
+        "--cosmic-6": "#FFD700",
+        "--cosmic-9": "#000080",
+        "--fuse-normal": "#28a745",
+        "--fuse-caution": "#ffc107",
+        "--fuse-critical": "#fd7e14",
+        "--fuse-absolute": "#dc3545"
+      }
+    },
+    "ansi_terminal_colors": {
+      "description": "ANSI終端色·用於命令行可視化",
+      "colors": {
+        "metal_bright_white": "\u001b[97m",
+        "wood_bright_green": "\u001b[92m",
+        "water_bright_cyan": "\u001b[96m",
+        "fire_bright_red": "\u001b[91m",
+        "earth_bright_yellow": "\u001b[93m",
+        "bold_metal": "\u001b[1;97m",
+        "bold_wood": "\u001b[1;92m",
+        "bold_water": "\u001b[1;96m",
+        "bold_fire": "\u001b[1;91m",
+        "bold_earth": "\u001b[1;93m"
+      }
+    },
+    "gradient_system": {
+      "description": "梯度色系統·表示權重漸變",
+      "wood_gradient": ["#A8E6A1", "#5EBF4F", "#2E8B57", "#1F5630", "#0F3820"],
+      "fire_gradient": ["#FF9999", "#FF5555", "#DC143C", "#B30000", "#800000"],
+      "earth_gradient": ["#F5DDA0", "#E5BB6A", "#DAA520", "#B88615", "#8B6914"],
+      "metal_gradient": ["#FFEB99", "#FFE066", "#FFD700", "#DAA520", "#B8860B"],
+      "water_gradient": ["#6B7FA6", "#404080", "#191970", "#0F0F40", "#050520"]
+    }
+  },
+
+  "examples": {
+    "simple_decision": {
+      "input": "是否發佈這條內容到公開平台",
+      "factors": {
+        "proximity": 0.8,
+        "capability": 0.9,
+        "knowledge": 0.7,
+        "duty": 0.6,
+        "consent": 0.5,
+        "alternatives": 0.4,
+        "cost": 0.3
+      },
+      "calculated_r": 0.45,
+      "color": "🟡 黃",
+      "action": "二次確認"
+    },
+    "critical_decision": {
+      "input": "主控是否需要金色覆蓋",
+      "triggers": ["master_confirm", "sovereignty_redline"],
+      "calculated_r": "N/A",
+      "color": "🟡金",
+      "action": "主控簽字·覆蓋任何R判定"
+    }
+  },
+
+  "dna_and_seal": {
+    "dna": "#龍芯⚡️2026-05-26-WEIGHT-COLOR-MAPPING-v1.0",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "version": "1.0",
+    "author": "UID9622 (龍芯北辰) + 宝宝 (實現)",
+    "lineage": [
+      "五色追蹤卡",
+      "五色審計判定參數",
+      "五色審計系統邊界",
+      "七維權重因子系統",
+      "三才決策框架",
+      "95/5根比穩定性協議"
+    ],
+    "quote": "「文字即權重·別人看·或者AI看·什麼叫做文字即權重」— UID9622 verbatim"
+  }
+}

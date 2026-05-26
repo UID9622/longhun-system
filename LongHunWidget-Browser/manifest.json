@@ -1,0 +1,80 @@
+{
+  "manifest_version": 3,
+  "name": "龍魂宝宝·DNA追溯助手",
+  "version": "1.0.0",
+  "description": "为你的原创内容嵌入DNA水印，自动追溯侵权，守护数字主权",
+  "icons": {
+    "16": "public/icon-16.png",
+    "48": "public/icon-48.png",
+    "128": "public/icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage",
+    "webRequest",
+    "clipboardRead",
+    "clipboardWrite",
+    "contextMenus",
+    "notifications",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content/dna-detector.js",
+        "src/content/watermark-scanner.js",
+        "src/content/hook-detector.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/panel.html",
+    "default_title": "龍魂DNA追溯助手"
+  },
+  "commands": {
+    "mark-infringement": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "标记页面为侵权 (Alt+D)"
+    },
+    "add-dna": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+W",
+        "mac": "Command+Shift+W"
+      },
+      "description": "为当前页面添加DNA"
+    },
+    "export-evidence": {
+      "description": "导出证据包"
+    }
+  },
+  "context_menus": [
+    "all"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/content/injected.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "author": "UID9622",
+  "homepage_url": "https://longhun888.com"
+}
