@@ -39,30 +39,31 @@ import json
 import datetime
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
-import hashlib
+from typing import Dict, Any, Optional, Tuple, List
 import re
 
 
 class PrivacyLevel(Enum):
     """隐私等级"""
-    PRIVATE = "🔴"          # 完全私密（个人、家庭、医疗、财务）
-    SEMI_PRIVATE = "🟡"     # 半私密（工作、关系、计划）
-    PUBLIC = "🟢"           # 开放讨论（观点、建议、新闻）
-    LEGAL_PUBLIC = "📖"     # 法律公开（涉及他人、政策、指引）
+
+    PRIVATE = "🔴"  # 完全私密（个人、家庭、医疗、财务）
+    SEMI_PRIVATE = "🟡"  # 半私密（工作、关系、计划）
+    PUBLIC = "🟢"  # 开放讨论（观点、建议、新闻）
+    LEGAL_PUBLIC = "📖"  # 法律公开（涉及他人、政策、指引）
 
 
 class MessageType(Enum):
     """消息类型"""
-    PRIVATE_CHAT = "private"        # 私人聊天
-    GOSSIP = "gossip"              # 八卦（涉及他人）
-    INSTRUCTION = "instruction"    # 指令（命令、要求）
-    TECHNICAL = "technical"        # 技术（代码、配置、系统）
-    EMOTIONAL = "emotional"        # 情感（倾诉、寻求陪伴）
-    DECISION = "decision"          # 决策（寻求意见、仲裁）
-    KNOWLEDGE = "knowledge"        # 知识（学习、提问）
-    CREATIVE = "creative"          # 创意（头脑风暴、想象）
+
+    PRIVATE_CHAT = "private"  # 私人聊天
+    GOSSIP = "gossip"  # 八卦（涉及他人）
+    INSTRUCTION = "instruction"  # 指令（命令、要求）
+    TECHNICAL = "technical"  # 技术（代码、配置、系统）
+    EMOTIONAL = "emotional"  # 情感（倾诉、寻求陪伴）
+    DECISION = "decision"  # 决策（寻求意见、仲裁）
+    KNOWLEDGE = "knowledge"  # 知识（学习、提问）
+    CREATIVE = "creative"  # 创意（头脑风暴、想象）
 
 
 class BehavioralCryptography:
@@ -95,7 +96,7 @@ class BehavioralCryptography:
         """加载已注册用户的行为特征"""
         try:
             if self.profile_path.exists():
-                with open(self.profile_path, 'r', encoding='utf-8') as f:
+                with open(self.profile_path, "r", encoding="utf-8") as f:
                     self.user_profiles = json.load(f)
         except Exception as e:
             print(f"加载行为特征失败: {e}", file=sys.stderr)
@@ -111,7 +112,7 @@ class BehavioralCryptography:
             "common_particles": text.count("是吧"),
             "agreement_patterns": text.count("对对") + text.count("对对对"),
             "negation_patterns": text.count("不是"),
-            "unique_vocab": self._extract_unique_words(text)
+            "unique_vocab": self._extract_unique_words(text),
         }
         return features
 
@@ -124,7 +125,7 @@ class BehavioralCryptography:
             "sentence_count": len([s for s in text.split("。") if s.strip()]),
             "paragraph_count": len([p for p in text.split("\n") if p.strip()]),
             "ellipsis_count": text.count("…") + text.count("..."),
-            "rhythm_signature": self._extract_rhythm_signature(text)
+            "rhythm_signature": self._extract_rhythm_signature(text),
         }
         return features
 
@@ -136,11 +137,13 @@ class BehavioralCryptography:
             "capitalization_style": self._analyze_caps(text),
             "bracket_usage": text.count("（") + text.count("）"),
             "quote_style": self._detect_quote_style(text),
-            "emoji_patterns": self._extract_emoji_patterns(text)
+            "emoji_patterns": self._extract_emoji_patterns(text),
         }
         return features
 
-    def recognize_identity(self, text: str, known_profiles: Optional[Dict] = None) -> Tuple[str, float]:
+    def recognize_identity(
+        self, text: str, known_profiles: Optional[Dict] = None
+    ) -> Tuple[str, float]:
         """
         识别身份
 
@@ -167,7 +170,9 @@ class BehavioralCryptography:
         best_score = 0.0
 
         for uid, profile in known_profiles.items():
-            score = self._calculate_similarity(combined_features, profile.get("features", {}))
+            score = self._calculate_similarity(
+                combined_features, profile.get("features", {})
+            )
             if score > best_score:
                 best_score = score
                 best_match = uid
@@ -181,15 +186,15 @@ class BehavioralCryptography:
     def _extract_unique_words(self, text: str) -> List[str]:
         """提取文本中的独特词汇"""
         # 分词（简单实现）
-        words = re.findall(r'[\w]+|[\u4e00-\u9fff]+', text)
+        words = re.findall(r"[\w]+|[\u4e00-\u9fff]+", text)
         return words
 
     def _calc_avg_line_length(self, text: str) -> float:
         """计算平均行长度"""
-        lines = [l for l in text.split("\n") if l.strip()]
+        lines = [line for line in text.split("\n") if line.strip()]
         if not lines:
             return 0.0
-        return sum(len(l) for l in lines) / len(lines)
+        return sum(len(line) for line in lines) / len(lines)
 
     def _extract_rhythm_signature(self, text: str) -> str:
         """提取节奏签名（简化实现）"""
@@ -213,7 +218,7 @@ class BehavioralCryptography:
             "english_period": text.count("."),
             "question_mark": text.count("？") + text.count("?"),
             "exclamation": text.count("！") + text.count("!"),
-            "parenthesis": text.count("（") + text.count("）")
+            "parenthesis": text.count("（") + text.count("）"),
         }
 
     def _detect_typos(self, text: str) -> List[str]:
@@ -235,15 +240,15 @@ class BehavioralCryptography:
         return {
             "total_caps": sum(1 for c in text if c.isupper()),
             "total_lower": sum(1 for c in text if c.islower()),
-            "all_caps_words": len(re.findall(r'\b[A-Z]{2,}\b', text)),
-            "mixed_case_words": len(re.findall(r'[A-Z][a-z]+[A-Z]', text))
+            "all_caps_words": len(re.findall(r"\b[A-Z]{2,}\b", text)),
+            "mixed_case_words": len(re.findall(r"[A-Z][a-z]+[A-Z]", text)),
         }
 
     def _extract_emoji_patterns(self, text: str) -> Dict[str, int]:
         """提取emoji使用习惯"""
         emoji_counts = {}
         # 简单的emoji检测
-        emoji_pattern = r'[\U0001F300-\U0001F9FF]'
+        emoji_pattern = r"[\U0001F300-\U0001F9FF]"
         emojis = re.findall(emoji_pattern, text)
 
         for emoji in emojis:
@@ -298,13 +303,15 @@ class ComprehensionTranslator:
         """加载人格族谱"""
         registry_path = self.system_root / "family_registry.json"
         try:
-            with open(registry_path, 'r', encoding='utf-8') as f:
+            with open(registry_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception as e:
             print(f"加载族谱失败: {e}", file=sys.stderr)
             return {}
 
-    def analyze_message(self, message: str, known_uid: Optional[str] = None) -> Dict[str, Any]:
+    def analyze_message(
+        self, message: str, known_uid: Optional[str] = None
+    ) -> Dict[str, Any]:
         """
         分析消息的各个维度
 
@@ -352,7 +359,7 @@ class ComprehensionTranslator:
             "recommended_routing": routing,
             "security_flags": security_flags,
             "dna": self._generate_dna("MESSAGE-ANALYSIS"),
-            "message_preview": message[:100] + "..." if len(message) > 100 else message
+            "message_preview": message[:100] + "..." if len(message) > 100 else message,
         }
 
         # 记录分析结果
@@ -364,17 +371,32 @@ class ComprehensionTranslator:
         """判定隐私等级"""
         # 检查消息内容特征
         private_keywords = [
-            "家", "孩子", "医生", "钱", "工资", "健康", "病", "秘密",
-            "只有你知道", "别说出去", "私密", "隐私"
+            "家",
+            "孩子",
+            "医生",
+            "钱",
+            "工资",
+            "健康",
+            "病",
+            "秘密",
+            "只有你知道",
+            "别说出去",
+            "私密",
+            "隐私",
         ]
 
         semi_private_keywords = [
-            "工作", "公司", "团队", "关系", "计划", "想法", "感受", "烦恼"
+            "工作",
+            "公司",
+            "团队",
+            "关系",
+            "计划",
+            "想法",
+            "感受",
+            "烦恼",
         ]
 
-        legal_public_keywords = [
-            "法律", "政策", "权利", "责任", "规则", "制度", "公共"
-        ]
+        legal_public_keywords = ["法律", "政策", "权利", "责任", "规则", "制度", "公共"]
 
         # 计算匹配度
         private_score = sum(1 for kw in private_keywords if kw in message)
@@ -398,15 +420,24 @@ class ComprehensionTranslator:
             return MessageType.INSTRUCTION
 
         # 技术特征
-        if any(kw in message for kw in ["代码", "脚本", "配置", "API", "JSON", "Python", "import"]):
+        if any(
+            kw in message
+            for kw in ["代码", "脚本", "配置", "API", "JSON", "Python", "import"]
+        ):
             return MessageType.TECHNICAL
 
         # 情感特征
-        if any(kw in message for kw in ["累", "烦", "难受", "不开心", "想", "希望", "能不能", "可以吗"]):
+        if any(
+            kw in message
+            for kw in ["累", "烦", "难受", "不开心", "想", "希望", "能不能", "可以吗"]
+        ):
             return MessageType.EMOTIONAL
 
         # 决策特征
-        if any(kw in message for kw in ["应该", "怎么办", "意见", "建议", "决定", "选择", "对不对"]):
+        if any(
+            kw in message
+            for kw in ["应该", "怎么办", "意见", "建议", "决定", "选择", "对不对"]
+        ):
             return MessageType.DECISION
 
         # 八卦特征（涉及他人）
@@ -415,11 +446,15 @@ class ComprehensionTranslator:
                 return MessageType.GOSSIP
 
         # 知识特征
-        if any(kw in message for kw in ["什么是", "怎么样", "为什么", "如何", "教", "学"]):
+        if any(
+            kw in message for kw in ["什么是", "怎么样", "为什么", "如何", "教", "学"]
+        ):
             return MessageType.KNOWLEDGE
 
         # 创意特征
-        if any(kw in message for kw in ["想象", "设想", "假如", "如果", "创意", "脑风暴"]):
+        if any(
+            kw in message for kw in ["想象", "设想", "假如", "如果", "创意", "脑风暴"]
+        ):
             return MessageType.CREATIVE
 
         # 默认为私人聊天
@@ -436,7 +471,7 @@ class ComprehensionTranslator:
                 "role": persona.get("role", ""),
                 "permission_level": persona.get("permission_level", 0),
                 "trust_formula": persona.get("trust_formula", ""),
-                "is_three_pillar": user_id in ["P00", "P02", "P05"]
+                "is_three_pillar": user_id in ["P00", "P02", "P05"],
             }
 
         elif user_id == "UID9622":
@@ -445,7 +480,7 @@ class ComprehensionTranslator:
                 "name": "诸葛鑫（老大）",
                 "role": "龍魂系统创始人",
                 "permission_level": 999,  # 最高权限
-                "special_status": "不免责，永恒显示曾仕强老师"
+                "special_status": "不免责，永恒显示曾仕强老师",
             }
 
         else:
@@ -453,11 +488,16 @@ class ComprehensionTranslator:
                 "type": "unknown_user",
                 "name": f"未知用户 {user_id}",
                 "permission_level": 0,
-                "requires_verification": True
+                "requires_verification": True,
             }
 
-    def _generate_routing(self, user_id: str, privacy_level: PrivacyLevel,
-                         message_type: MessageType, context: Dict) -> Dict[str, Any]:
+    def _generate_routing(
+        self,
+        user_id: str,
+        privacy_level: PrivacyLevel,
+        message_type: MessageType,
+        context: Dict,
+    ) -> Dict[str, Any]:
         """生成智能路由建议"""
 
         routing = {
@@ -465,7 +505,7 @@ class ComprehensionTranslator:
             "secondary_handlers": [],
             "required_personas": [],
             "requires_approval": False,
-            "visibility_scope": None
+            "visibility_scope": None,
         }
 
         # 基于消息类型的初步路由
@@ -508,12 +548,11 @@ class ComprehensionTranslator:
 
         return routing
 
-    def _check_security_flags(self, message: str, user_id: str, privacy_level: PrivacyLevel) -> Dict[str, Any]:
+    def _check_security_flags(
+        self, message: str, user_id: str, privacy_level: PrivacyLevel
+    ) -> Dict[str, Any]:
         """检查安全标志"""
-        flags = {
-            "status": "🟢 SAFE",
-            "alerts": []
-        }
+        flags = {"status": "🟢 SAFE", "alerts": []}
 
         # 检查危险操作
         dangerous_operations = ["删除", "rm -rf", "卸载", "格式化", "重置"]
@@ -544,7 +583,7 @@ class ComprehensionTranslator:
             log_path = self.logs_dir / "comprehension_analysis.jsonl"
             log_path.parent.mkdir(parents=True, exist_ok=True)
 
-            with open(log_path, 'a', encoding='utf-8') as f:
+            with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
         except Exception as e:
@@ -558,7 +597,9 @@ def main():
     if len(sys.argv) < 2:
         print("✅ 通心译系统已启动")
         print("用法: python3 comprehension_translator.py analyze <message> [uid]")
-        print("示例: python3 comprehension_translator.py analyze '我想删除这个文件' UID9622")
+        print(
+            "示例: python3 comprehension_translator.py analyze '我想删除这个文件' UID9622"
+        )
         sys.exit(0)
 
     command = sys.argv[1]
