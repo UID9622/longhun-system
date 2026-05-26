@@ -74,3 +74,15 @@ logs/
 .cloudflared/
 .playwright-mcp/
 .龍魂錨點
+
+# 大型工作目录（本地构建·不入库）
+_work/notion-sync/Export-*/
+_work/cnsh-special/
+_work/tools/
+_work/docs/
+_private/
+.venv/
+node_modules/
+*.egg-info/
+dist/
+build/
