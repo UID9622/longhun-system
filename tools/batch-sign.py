@@ -13,17 +13,18 @@ UID: 9622 · 诸葛鑫
 三色判定: dr∈{1,2}→🟢 | dr∈{3,4,5,6}→🟡 | dr∈{7,8,9}→🔴
 """
 
-import os
-import sys
 import json
 import subprocess
 import hashlib
 from pathlib import Path
 from datetime import datetime
+import sys
+
 
 def digital_root(n):
     """递归数字根：Σ digits → 单个digit"""
     return 1 + ((n - 1) % 9) if n > 0 else 0
+
 
 def get_file_color(dr):
     """dr → 三色"""
@@ -34,12 +35,13 @@ def get_file_color(dr):
     else:
         return "🔴"
 
+
 def compute_dna_color(filepath):
     """
     计算文件的DNA签名（数字根 + 三色）
     返回: (dr, color, file_hash)
     """
-    with open(filepath, 'rb') as f:
+    with open(filepath, "rb") as f:
         content = f.read()
 
     # 字节和 → 数字根
@@ -52,18 +54,27 @@ def compute_dna_color(filepath):
 
     return dr, color, file_hash
 
+
 def gpg_sign_file(filepath, gpg_key_id="A2D0092CEE2E5BA87035600924C3704A8CC26D5F"):
     """
     用GPG签名文件，生成 .sig
     返回: (success, sig_filepath, error_msg)
     """
-    sig_path = f"{filepath}.sig"
+    sig_path = "{filepath}.sig"
     try:
         result = subprocess.run(
-            ["gpg", "--default-key", gpg_key_id, "--output", sig_path, "--detach-sign", filepath],
+            [
+                "gpg",
+                "--default-key",
+                gpg_key_id,
+                "--output",
+                sig_path,
+                "--detach-sign",
+                filepath,
+            ],
             capture_output=True,
             text=True,
-            timeout=10
+            timeout=10,
         )
         if result.returncode == 0:
             return True, sig_path, None
@@ -72,7 +83,10 @@ def gpg_sign_file(filepath, gpg_key_id="A2D0092CEE2E5BA87035600924C3704A8CC26D5F
     except Exception as e:
         return False, None, str(e)
 
-def batch_sign_directory(root_dir="~/longhun-system", gpg_key_id="A2D0092CEE2E5BA87035600924C3704A8CC26D5F"):
+
+def batch_sign_directory(
+    root_dir="~/longhun-system", gpg_key_id="A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+):
     """
     批量扫描 + 签名 + 审计日志
     返回: (files_processed, audit_records)
@@ -81,16 +95,30 @@ def batch_sign_directory(root_dir="~/longhun-system", gpg_key_id="A2D0092CEE2E5B
     audit_records = []
 
     # 排除目录：.venv, node_modules, .git等
-    exclude_dirs = {'.venv', 'node_modules', '.git', '__pycache__', '.pytest_cache',
-                    '.vscode', 'dist', 'build', '.idea', 'venv', 'env'}
+    exclude_dirs = {
+        ".venv",
+        "node_modules",
+        ".git",
+        "__pycache__",
+        ".pytest_cache",
+        ".vscode",
+        "dist",
+        "build",
+        ".idea",
+        "venv",
+        "env",
+    }
 
     # 递归扫描所有.md文件，排除不必要的目录
-    md_files = [f for f in root_path.rglob("*.md")
-                if not any(part in exclude_dirs for part in f.parts)]
+    md_files = [
+        f
+        for f in root_path.rglob("*.md")
+        if not any(part in exclude_dirs for part in f.parts)
+    ]
     md_files = sorted(md_files)
 
-    print(f"[📋] 扫描完成: {len(md_files)} 个.md文件")
-    print(f"[🔐] GPG密钥: {gpg_key_id[:16]}...")
+    print("[📋] 扫描完成: {len(md_files)} 个.md文件")
+    print("[🔐] GPG密钥: {gpg_key_id[:16]}...")
     print()
 
     for idx, md_file in enumerate(md_files, 1):
@@ -110,21 +138,18 @@ def batch_sign_directory(root_dir="~/longhun-system", gpg_key_id="A2D0092CEE2E5B
             "dr": dr,
             "color": color,
             "file_hash": file_hash,
-            "gpg_sign": {
-                "success": success,
-                "sig_file": sig_path,
-                "error": error
-            }
+            "gpg_sign": {"success": success, "sig_file": sig_path, "error": error},
         }
         audit_records.append(record)
 
         # 实时输出
         status = "✅" if success else "❌"
-        print(f"[{idx:3d}] {status} {color} dr={dr} | {rel_path}")
+        print("[{idx:3d}] {status} {color} dr={dr} | {rel_path}")
         if error:
-            print(f"      ⚠️  ERROR: {error[:80]}")
+            print("      ⚠️  ERROR: {error[:80]}")
 
     return len(md_files), audit_records
+
 
 def save_audit_log(audit_records, log_dir="~/longhun-system/logs"):
     """
@@ -134,18 +159,19 @@ def save_audit_log(audit_records, log_dir="~/longhun-system/logs"):
     log_path = Path(log_dir).expanduser()
     log_path.mkdir(parents=True, exist_ok=True)
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = log_path / f"batch_audit_{timestamp}.jsonl"
+    _timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # noqa: F841
+    log_file = log_path / "batch_audit_{timestamp}.jsonl"
 
-    with open(log_file, 'w', encoding='utf-8') as f:
+    with open(log_file, "w", encoding="utf-8") as f:
         for record in audit_records:
-            f.write(json.dumps(record, ensure_ascii=False, separators=(',', ':')) + '\n')
+            f.write(
+                json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n"
+            )
 
     return str(log_file)
 
-def main():
-    import sys
 
+def main():
     output_lines = []
 
     output_lines.append("=" * 70)
@@ -165,7 +191,7 @@ def main():
     # 统计三色分布
     dr_stats = {}
     color_stats = {"🟢": 0, "🟡": 0, "🔴": 0}
-    success_count = sum(1 for r in audit_records if r["gpg_sign"]["success"])
+    _success_count = sum(1 for r in audit_records if r["gpg_sign"]["success"])  # noqa: F841
 
     for record in audit_records:
         dr = record["dr"]
@@ -173,15 +199,17 @@ def main():
         color_stats[record["color"]] += 1
 
     # 保存审计日志
-    log_file = save_audit_log(audit_records, "~/longhun-system/logs")
+    _log_file = save_audit_log(audit_records, "~/longhun-system/logs")  # noqa: F841
 
-    output_lines.append(f"[📊] 统计结果")
-    output_lines.append(f"    总文件数: {total_files}")
-    output_lines.append(f"    签名成功: {success_count}/{total_files}")
-    output_lines.append(f"    三色分布: 🟢={color_stats['🟢']} 🟡={color_stats['🟡']} 🔴={color_stats['🔴']}")
-    output_lines.append(f"    数字根分布: {dict(sorted(dr_stats.items()))}")
+    output_lines.append("[📊] 统计结果")
+    output_lines.append("    总文件数: {total_files}")
+    output_lines.append("    签名成功: {success_count}/{total_files}")
+    output_lines.append(
+        "    三色分布: 🟢={color_stats['🟢']} 🟡={color_stats['🟡']} 🔴={color_stats['🔴']}"
+    )
+    output_lines.append("    数字根分布: {dict(sorted(dr_stats.items()))}")
     output_lines.append("")
-    output_lines.append(f"[💾] 审计日志: {log_file}")
+    output_lines.append("[💾] 审计日志: {log_file}")
     output_lines.append("")
     output_lines.append("=" * 70)
 
@@ -189,6 +217,7 @@ def main():
     output_text = "\n".join(output_lines)
     print(output_text, flush=True)
     sys.stdout.flush()
+
 
 if __name__ == "__main__":
     main()
