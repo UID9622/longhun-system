@@ -1,0 +1,179 @@
+{
+  "_meta": {
+    "name": "宝宝权限总钥匙",
+    "version": "1.0.0",
+    "creator": "诸葛鑫（UID9622）",
+    "created_at": "2026-05-26T20:30:00+08:00",
+    "last_modified": "2026-05-26T20:30:00+08:00",
+    "dna": "#龍芯⚡️2026-05-26-BAOBAO-MASTER-KEY-v1.0",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "description": "老大你只管一个文件，宝宝的所有权限都在里面。改了这个文件保存就生效。"
+  },
+
+  "emergency_switches": {
+    "global_freeze": false,
+    "read_only_mode": false,
+    "audit_only_mode": false,
+    "description": "全局冻结=宝宝什么都不能做; 只读模式=只能看不能改; 审计模式=所有操作自动审计上报"
+  },
+
+  "permissions": {
+    "文件系统": {
+      "读取任意文件": true,
+      "写入和创建文件": true,
+      "整理和归档": true,
+      "删除文件": false,
+      "读取隐私区": false,
+      "description": "删除文件=防误删 | 隐私区=保护隐私"
+    },
+
+    "服务调度": {
+      "启动服务": true,
+      "停止服务": true,
+      "重启服务": true,
+      "查看服务状态": true,
+      "修改服务配置": false,
+      "description": "修改配置=防改乱，老大手动改"
+    },
+
+    "Notion": {
+      "读取页面": true,
+      "创建页面": true,
+      "更新页面": true,
+      "查询数据库": true,
+      "同步知识库": true,
+      "删除页面": false,
+      "description": "删除页面=防误删，重要数据不能删"
+    },
+
+    "代码执行": {
+      "运行Python脚本": true,
+      "运行Shell脚本": true,
+      "运行测试": true,
+      "编译Swift": true,
+      "安装Python包": false,
+      "description": "安装包=防装垃圾，老大确认"
+    },
+
+    "Git": {
+      "查看状态和日志": true,
+      "提交代码": true,
+      "创建分支": true,
+      "创建PR": true,
+      "推送到远程": false,
+      "合并PR": false,
+      "description": "推送=老大亲自确认 | 合并=老大亲自确认"
+    },
+
+    "AI模型": {
+      "Ollama本地对话": true,
+      "切换模型": true,
+      "调用Claude API": true,
+      "下载模型": false,
+      "删除模型": false,
+      "description": "下载删除=占空间，防止磁盘爆满"
+    },
+
+    "系统自动化": {
+      "AppleScript执行": true,
+      "定时任务管理": true,
+      "进程管理": true,
+      "网络请求": true,
+      "LaunchAgent管理": false,
+      "description": "LaunchAgent=涉及开机启动，系统级别"
+    },
+
+    "记忆系统": {
+      "读取记忆": true,
+      "写入记忆": true,
+      "压缩记忆": true,
+      "同步到Notion": true,
+      "删除记忆": false,
+      "description": "删除记忆=记忆是灵魂，永不删"
+    },
+
+    "审计系统": {
+      "三色审计": true,
+      "DNA追溯": true,
+      "安全扫描": true,
+      "生成报告": true,
+      "自动修复": false,
+      "description": "自动修复=修什么老大说了算"
+    },
+
+    "通信": {
+      "桌面通知": true,
+      "语音播报": true,
+      "邮件发送": false,
+      "Slack发送": false,
+      "description": "邮件Slack=宝宝只跟老大说话，不对外"
+    }
+  },
+
+  "permission_levels": {
+    "owner": {
+      "uid": 9622,
+      "name": "诸葛鑫",
+      "level": 100,
+      "power": "绝对权力，所有权限由老大控制",
+      "veto_power": "一票否决权"
+    },
+    "baobao": {
+      "uid": 2,
+      "name": "宝宝",
+      "level": 95,
+      "power": "日常执行权，读钥匙执行",
+      "can_override": false
+    },
+    "system": {
+      "uid": 0,
+      "name": "系统",
+      "level": 50,
+      "power": "只读，紧急情况下自动审计"
+    }
+  },
+
+  "audit_settings": {
+    "log_all_actions": true,
+    "log_file": "logs/baobao_dispatch.jsonl",
+    "audit_file": "logs/authority_audit.jsonl",
+    "retention_days": 365,
+    "immutable_logs": true,
+    "description": "全量日志=宝宝做的每一件事都记"
+  },
+
+  "safety_mechanisms": {
+    "confirmation_code_enabled": true,
+    "hash_verification": true,
+    "tamper_detection": true,
+    "auto_freeze_on_invalid": true,
+    "notify_owner_on_freeze": true,
+    "rollback_on_freeze": true,
+    "description": "确认码保护 | 哈希校验 | 自动冻结 | 全量日志 | 回滚快照"
+  },
+
+  "integration_endpoints": {
+    "notch_api": "http://localhost:9622/api",
+    "ollama_api": "http://localhost:11434/api",
+    "notion_api": "https://api.notion.com/v1",
+    "claude_api": "https://api.anthropic.com/v1",
+    "description": "宝宝通过这些接口和外界沟通"
+  },
+
+  "quick_test_commands": {
+    "check_key_status": "python3 ~/longhun-system/core/baobao_dispatcher.py",
+    "check_services": "python3 ~/longhun-system/core/baobao_dispatcher.py 服务状态",
+    "view_audit": "python3 ~/longhun-system/core/baobao_authority.py report",
+    "ai_chat": "python3 ~/longhun-system/core/baobao_dispatcher.py AI对话",
+    "description": "快速终端测试命令"
+  },
+
+  "notes": {
+    "how_to_use": "打开这个文件 → 里面每个功能都是 true（开）或 false（关）→ 改了保存就生效",
+    "change_emergency_freeze": "紧急情况下把 'global_freeze' 改成 true，宝宝立刻停止所有操作",
+    "read_only_mode": "只读模式下宝宝只能看，不能改任何东西，用于紧急审计",
+    "hash_protection": "钥匙文件被改时，系统会记录哈希值，异常会报警",
+    "rollback_support": "每次修改前自动快照，需要回滚时可以恢复"
+  }
+}
