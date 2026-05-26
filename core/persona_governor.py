@@ -40,16 +40,17 @@ import datetime
 import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from dataclasses import dataclass, asdict
-
+from dataclasses import dataclass
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 数据模型
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
 @dataclass
 class Persona:
     """人格定义"""
+
     pid: str
     name: str
     english_name: str
@@ -75,6 +76,7 @@ class Persona:
 @dataclass
 class Decision:
     """人格决策"""
+
     decision_id: str
     persona_id: str
     decision_type: str  # "judgment", "approval", "veto", "recommendation"
@@ -88,6 +90,7 @@ class Decision:
 @dataclass
 class Appeal:
     """上诉记录"""
+
     appeal_id: str
     appealer_id: str
     target_decision_id: str
@@ -99,6 +102,7 @@ class Appeal:
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 人格治理系统
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 class PersonaGovernor:
     """龍魂人格生态治理控制器"""
@@ -118,7 +122,7 @@ class PersonaGovernor:
     def _load_registry(self):
         """从 family_registry.json 加载人格信息"""
         try:
-            with open(self.registry_path, 'r', encoding='utf-8') as f:
+            with open(self.registry_path, "r", encoding="utf-8") as f:
                 registry = json.load(f)
 
             personas_data = registry.get("personas", {})
@@ -134,7 +138,7 @@ class PersonaGovernor:
                     trust_formula=data.get("trust_formula"),
                     key_constraints=data.get("key_constraints", []),
                     status=data.get("status", "🟢 SIGNED"),
-                    signed_date=data.get("signed_date")
+                    signed_date=data.get("signed_date"),
                 )
                 self.personas[pid] = persona
 
@@ -204,10 +208,9 @@ class PersonaGovernor:
         except Exception as e:
             return 0.5, f"评估异常: {str(e)}"
 
-    def arbitrate(self,
-                  decision_a_id: str,
-                  decision_b_id: str,
-                  context: Optional[str] = None) -> Dict:
+    def arbitrate(
+        self, decision_a_id: str, decision_b_id: str, context: Optional[str] = None
+    ) -> Dict:
         """
         仲裁两个相冲突的决策
 
@@ -238,16 +241,17 @@ class PersonaGovernor:
             "reasoning": "仲裁系统准备就绪",
             "timestamp": datetime.datetime.now().isoformat(),
             "dna": self._generate_dna("ARBITRATION"),
-            "appeal_deadline": (datetime.datetime.now() + datetime.timedelta(days=7)).isoformat()
+            "appeal_deadline": (
+                datetime.datetime.now() + datetime.timedelta(days=7)
+            ).isoformat(),
         }
 
         self._log_arbitration(arbitration)
         return arbitration
 
-    def submit_appeal(self,
-                      appealer_id: str,
-                      target_decision_id: str,
-                      reason: str) -> Dict:
+    def submit_appeal(
+        self, appealer_id: str, target_decision_id: str, reason: str
+    ) -> Dict:
         """
         提出上诉
 
@@ -267,7 +271,7 @@ class PersonaGovernor:
             target_decision_id=target_decision_id,
             reason=reason,
             timestamp=datetime.datetime.now().isoformat(),
-            status="pending"
+            status="pending",
         )
 
         self.appeals.append(appeal)
@@ -275,9 +279,11 @@ class PersonaGovernor:
         return {
             "appeal_id": appeal.appeal_id,
             "status": "received",
-            "expected_resolution": (datetime.datetime.now() + datetime.timedelta(days=3)).isoformat(),
+            "expected_resolution": (
+                datetime.datetime.now() + datetime.timedelta(days=3)
+            ).isoformat(),
             "dna": self._generate_dna("APPEAL"),
-            "message": f"上诉已提交，由 P00 审判长处理"
+            "message": "上诉已提交，由 P00 审判长处理",
         }
 
     def check_constraints(self, persona_id: str, action: str) -> Tuple[bool, str]:
@@ -302,11 +308,13 @@ class PersonaGovernor:
 
         return True, f"符合 {persona.name} 的所有约束"
 
-    def delegate_task(self,
-                      assigner_id: str,
-                      assignee_id: str,
-                      task_description: str,
-                      priority: str = "normal") -> Dict:
+    def delegate_task(
+        self,
+        assigner_id: str,
+        assignee_id: str,
+        task_description: str,
+        priority: str = "normal",
+    ) -> Dict:
         """
         委托任务给人格
 
@@ -332,16 +340,18 @@ class PersonaGovernor:
             return {
                 "status": "denied",
                 "reason": f"{assigner.name} 的权限等级 ({assigner.permission_level}) 不足以委托给 {assignee.name} ({assignee.permission_level})",
-                "dna": self._generate_dna("DELEGATION-DENIED")
+                "dna": self._generate_dna("DELEGATION-DENIED"),
             }
 
         # 检查约束
-        constraints_ok, constraint_msg = self.check_constraints(assignee_id, task_description)
+        constraints_ok, constraint_msg = self.check_constraints(
+            assignee_id, task_description
+        )
         if not constraints_ok:
             return {
                 "status": "denied",
                 "reason": constraint_msg,
-                "dna": self._generate_dna("DELEGATION-DENIED")
+                "dna": self._generate_dna("DELEGATION-DENIED"),
             }
 
         # 创建任务委托
@@ -357,7 +367,7 @@ class PersonaGovernor:
             "timestamp": datetime.datetime.now().isoformat(),
             "dna": self._generate_dna("DELEGATION"),
             "deadline": self._calculate_deadline(priority),
-            "message": f"任务已分配给 {assignee.name}"
+            "message": f"任务已分配给 {assignee.name}",
         }
 
         self._log_delegation(delegation)
@@ -390,57 +400,73 @@ class PersonaGovernor:
                     "pillar": p00.name,
                     "pillar_id": p00.pid,
                     "power": "仲裁权（最高权力）",
-                    "status": "ready"
+                    "status": "ready",
                 },
                 {
                     "pillar": p02.name,
                     "pillar_id": p02.pid,
                     "power": "执行权（日常运作）",
-                    "status": "ready"
+                    "status": "ready",
                 },
                 {
                     "pillar": p05.name,
                     "pillar_id": p05.pid,
                     "power": "价值观权（精神指导）",
-                    "status": "ready"
-                }
+                    "status": "ready",
+                },
             ],
             "consensus_type": "全体同意(100%) 或 多数同意(2/3+)",
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("THREE-PILLARS-DECISION")
+            "dna": self._generate_dna("THREE-PILLARS-DECISION"),
         }
 
     def get_governance_status(self) -> Dict:
         """获取整个治理系统的状态"""
         return {
             "total_personas": len(self.personas),
-            "active_personas": len([p for p in self.personas.values() if "SIGNED" in p.status]),
+            "active_personas": len(
+                [p for p in self.personas.values() if "SIGNED" in p.status]
+            ),
             "total_decisions": len(self.decisions),
             "pending_appeals": len([a for a in self.appeals if a.status == "pending"]),
             "three_pillars": {
-                "P00": self.three_pillars["P00"].name if self.three_pillars["P00"] else None,
-                "P02": self.three_pillars["P02"].name if self.three_pillars["P02"] else None,
-                "P05": self.three_pillars["P05"].name if self.three_pillars["P05"] else None,
-                "status": "ready" if all(self.three_pillars.values()) else "incomplete"
+                "P00": (
+                    self.three_pillars["P00"].name
+                    if self.three_pillars["P00"]
+                    else None
+                ),
+                "P02": (
+                    self.three_pillars["P02"].name
+                    if self.three_pillars["P02"]
+                    else None
+                ),
+                "P05": (
+                    self.three_pillars["P05"].name
+                    if self.three_pillars["P05"]
+                    else None
+                ),
+                "status": "ready" if all(self.three_pillars.values()) else "incomplete",
             },
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("GOVERNANCE-STATUS")
+            "dna": self._generate_dna("GOVERNANCE-STATUS"),
         }
 
     def list_personas(self) -> List[Dict]:
         """列出所有人格"""
         result = []
         for persona in self.personas.values():
-            result.append({
-                "id": persona.pid,
-                "name": persona.name,
-                "english_name": persona.english_name,
-                "role": persona.role,
-                "permission_level": persona.permission_level,
-                "core_power": persona.core_power,
-                "status": persona.status,
-                "compliance_score": persona.compliance_score
-            })
+            result.append(
+                {
+                    "id": persona.pid,
+                    "name": persona.name,
+                    "english_name": persona.english_name,
+                    "role": persona.role,
+                    "permission_level": persona.permission_level,
+                    "core_power": persona.core_power,
+                    "status": persona.status,
+                    "compliance_score": persona.compliance_score,
+                }
+            )
         return sorted(result, key=lambda x: x["permission_level"], reverse=True)
 
     def _generate_dna(self, operation_type: str) -> str:
@@ -465,7 +491,7 @@ class PersonaGovernor:
         """记录仲裁"""
         try:
             log_path = self.logs_dir / "persona_arbitrations.jsonl"
-            with open(log_path, 'a', encoding='utf-8') as f:
+            with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(arbitration, ensure_ascii=False) + "\n")
         except Exception as e:
             print(f"仲裁日志写入失败: {e}", file=sys.stderr)
@@ -474,7 +500,7 @@ class PersonaGovernor:
         """记录委托"""
         try:
             log_path = self.logs_dir / "persona_delegations.jsonl"
-            with open(log_path, 'a', encoding='utf-8') as f:
+            with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(delegation, ensure_ascii=False) + "\n")
         except Exception as e:
             print(f"委托日志写入失败: {e}", file=sys.stderr)
@@ -504,7 +530,9 @@ def main():
         print("\n📋 龍魂13大人格")
         print("=" * 80)
         for p in personas:
-            print(f"{p['id']:6} | {p['name']:12} | 权限等级: {p['permission_level']:3d} | {p['role']}")
+            print(
+                f"{p['id']:6} | {p['name']:12} | 权限等级: {p['permission_level']:3d} | {p['role']}"
+            )
 
     elif command == "status":
         status = governor.get_governance_status()
@@ -539,7 +567,7 @@ def main():
             print(f"权限等级: {persona.permission_level}")
             print(f"核心权力: {persona.core_power}")
             print(f"信任公式: {persona.trust_formula}")
-            print(f"关键约束:")
+            print("关键约束:")
             for constraint in persona.key_constraints:
                 print(f"  • {constraint}")
         else:
