@@ -22,9 +22,8 @@ import json
 import subprocess
 import datetime
 import sys
-import os
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Dict, Optional
 from baobao_authority import BaobaoAuthority
 
 
@@ -42,11 +41,9 @@ class BaobaoDispatcher:
             print("❌ 失败：无法初始化权限系统", file=sys.stderr)
             sys.exit(1)
 
-    def dispatch(self,
-                 category: str,
-                 permission: str,
-                 action: str,
-                 params: Optional[Dict] = None) -> Dict:
+    def dispatch(
+        self, category: str, permission: str, action: str, params: Optional[Dict] = None
+    ) -> Dict:
         """
         调度执行
 
@@ -64,8 +61,7 @@ class BaobaoDispatcher:
 
         # 1. 权限检查
         allowed, reason = self.authority.check_permission(
-            category, permission,
-            action_details={"action": action, "params": params}
+            category, permission, action_details={"action": action, "params": params}
         )
 
         if not allowed:
@@ -73,7 +69,7 @@ class BaobaoDispatcher:
                 "status": "DENIED",
                 "reason": reason,
                 "timestamp": start_time.isoformat(),
-                "dna": self._generate_dna("DISPATCH-DENIED")
+                "dna": self._generate_dna("DISPATCH-DENIED"),
             }
             self._log_dispatch(category, permission, action, result)
             return result
@@ -90,18 +86,20 @@ class BaobaoDispatcher:
                 "status": "SUCCESS",
                 "execution_result": execution_result,
                 "snapshot_id": snapshot_id,
-                "duration_ms": (datetime.datetime.now() - start_time).total_seconds() * 1000,
+                "duration_ms": (datetime.datetime.now() - start_time).total_seconds()
+                * 1000,
                 "timestamp": start_time.isoformat(),
-                "dna": self._generate_dna("DISPATCH-SUCCESS")
+                "dna": self._generate_dna("DISPATCH-SUCCESS"),
             }
         except Exception as e:
             result = {
                 "status": "ERROR",
                 "error": str(e),
                 "snapshot_id": snapshot_id,
-                "duration_ms": (datetime.datetime.now() - start_time).total_seconds() * 1000,
+                "duration_ms": (datetime.datetime.now() - start_time).total_seconds()
+                * 1000,
                 "timestamp": start_time.isoformat(),
-                "dna": self._generate_dna("DISPATCH-ERROR")
+                "dna": self._generate_dna("DISPATCH-ERROR"),
             }
 
         self._log_dispatch(category, permission, action, result)
@@ -131,7 +129,7 @@ class BaobaoDispatcher:
             path = params.get("path")
             if not path or not Path(path).exists():
                 raise FileNotFoundError(f"文件不存在: {path}")
-            with open(path, 'r', encoding='utf-8') as f:
+            with open(path, "r", encoding="utf-8") as f:
                 content = f.read()
             return {"action": "read", "path": path, "size": len(content)}
 
@@ -139,7 +137,7 @@ class BaobaoDispatcher:
             path = params.get("path")
             content = params.get("content", "")
             Path(path).parent.mkdir(parents=True, exist_ok=True)
-            with open(path, 'w', encoding='utf-8') as f:
+            with open(path, "w", encoding="utf-8") as f:
                 f.write(content)
             return {"action": "write", "path": path, "size": len(content)}
 
@@ -159,28 +157,24 @@ class BaobaoDispatcher:
                     ["launchctl", "list", service_name],
                     capture_output=True,
                     text=True,
-                    timeout=5
+                    timeout=5,
                 )
                 return {
                     "action": "status_check",
                     "service": service_name,
-                    "running": result.returncode == 0
+                    "running": result.returncode == 0,
                 }
             except Exception as e:
-                return {"action": "status_check", "service": service_name, "error": str(e)}
+                return {
+                    "action": "status_check",
+                    "service": service_name,
+                    "error": str(e),
+                }
 
         elif permission in ["启动服务", "停止服务", "重启服务"]:
-            cmd_map = {
-                "启动服务": "start",
-                "停止服务": "stop",
-                "重启服务": "restart"
-            }
+            cmd_map = {"启动服务": "start", "停止服务": "stop", "重启服务": "restart"}
             cmd = cmd_map.get(permission)
-            return {
-                "action": cmd,
-                "service": service_name,
-                "status": "queued"
-            }
+            return {"action": cmd, "service": service_name, "status": "queued"}
 
         else:
             raise ValueError(f"未知的服务权限: {permission}")
@@ -195,14 +189,14 @@ class BaobaoDispatcher:
                     ["python3", script_path] + args,
                     capture_output=True,
                     text=True,
-                    timeout=30
+                    timeout=30,
                 )
                 return {
                     "action": "python_execute",
                     "script": script_path,
                     "returncode": result.returncode,
                     "stdout_len": len(result.stdout),
-                    "stderr_len": len(result.stderr)
+                    "stderr_len": len(result.stderr),
                 }
             except Exception as e:
                 raise RuntimeError(f"Python脚本执行失败: {e}")
@@ -211,16 +205,12 @@ class BaobaoDispatcher:
             command = params.get("command")
             try:
                 result = subprocess.run(
-                    command,
-                    shell=True,
-                    capture_output=True,
-                    text=True,
-                    timeout=30
+                    command, shell=True, capture_output=True, text=True, timeout=30
                 )
                 return {
                     "action": "shell_execute",
                     "command": command[:100] + "..." if len(command) > 100 else command,
-                    "returncode": result.returncode
+                    "returncode": result.returncode,
                 }
             except Exception as e:
                 raise RuntimeError(f"Shell脚本执行失败: {e}")
@@ -238,12 +228,12 @@ class BaobaoDispatcher:
                     ["git", "-C", repo_path, "status", "--porcelain"],
                     capture_output=True,
                     text=True,
-                    timeout=10
+                    timeout=10,
                 )
                 return {
                     "action": "git_status",
                     "repo": repo_path,
-                    "returncode": result.returncode
+                    "returncode": result.returncode,
                 }
             except Exception as e:
                 raise RuntimeError(f"Git状态查询失败: {e}")
@@ -251,21 +241,18 @@ class BaobaoDispatcher:
         elif permission == "提交代码":
             message = params.get("message", "Auto commit")
             try:
-                subprocess.run(
-                    ["git", "-C", repo_path, "add", "."],
-                    timeout=10
-                )
+                subprocess.run(["git", "-C", repo_path, "add", "."], timeout=10)
                 result = subprocess.run(
                     ["git", "-C", repo_path, "commit", "-m", message],
                     capture_output=True,
                     text=True,
-                    timeout=10
+                    timeout=10,
                 )
                 return {
                     "action": "git_commit",
                     "repo": repo_path,
                     "message": message[:50] + "..." if len(message) > 50 else message,
-                    "returncode": result.returncode
+                    "returncode": result.returncode,
                 }
             except Exception as e:
                 raise RuntimeError(f"Git提交失败: {e}")
@@ -280,7 +267,7 @@ class BaobaoDispatcher:
             return {
                 "action": "claude_api_call",
                 "prompt_len": len(prompt),
-                "status": "ready"
+                "status": "ready",
             }
 
         elif permission == "Ollama本地对话":
@@ -288,7 +275,7 @@ class BaobaoDispatcher:
             return {
                 "action": "ollama_chat",
                 "message_len": len(message),
-                "endpoint": "http://localhost:11434"
+                "endpoint": "http://localhost:11434",
             }
 
         else:
@@ -303,11 +290,11 @@ class BaobaoDispatcher:
                     ["osascript", "-e", script],
                     capture_output=True,
                     text=True,
-                    timeout=10
+                    timeout=10,
                 )
                 return {
                     "action": "applescript_execute",
-                    "returncode": result.returncode
+                    "returncode": result.returncode,
                 }
             except Exception as e:
                 raise RuntimeError(f"AppleScript执行失败: {e}")
@@ -319,7 +306,7 @@ class BaobaoDispatcher:
                 "action": "http_request",
                 "url": url,
                 "method": method,
-                "status": "queued"
+                "status": "queued",
             }
 
         else:
@@ -331,20 +318,22 @@ class BaobaoDispatcher:
             return {
                 "action": "dna_trace",
                 "status": "ready",
-                "dna": self._generate_dna("AUDIT-TRACE")
+                "dna": self._generate_dna("AUDIT-TRACE"),
             }
 
         elif permission == "三色审计":
             return {
                 "action": "three_color_audit",
                 "colors": ["🟢", "🟡", "🔴"],
-                "status": "ready"
+                "status": "ready",
             }
 
         else:
             raise ValueError(f"未知的审计权限: {permission}")
 
-    def _execute_communication(self, permission: str, action: str, params: Dict) -> Dict:
+    def _execute_communication(
+        self, permission: str, action: str, params: Dict
+    ) -> Dict:
         """通信执行器"""
         if permission == "桌面通知":
             title = params.get("title", "龍魂系統")
@@ -355,7 +344,7 @@ class BaobaoDispatcher:
                 return {
                     "action": "desktop_notification",
                     "title": title,
-                    "message": message[:50] + "..." if len(message) > 50 else message
+                    "message": message[:50] + "..." if len(message) > 50 else message,
                 }
             except Exception as e:
                 return {"action": "desktop_notification", "error": str(e)}
@@ -378,10 +367,10 @@ class BaobaoDispatcher:
                 "permission": permission,
                 "action": action,
                 "result": result,
-                "dna": result.get("dna", self._generate_dna("DISPATCH-LOG"))
+                "dna": result.get("dna", self._generate_dna("DISPATCH-LOG")),
             }
 
-            with open(self.dispatch_log_path, 'a', encoding='utf-8') as f:
+            with open(self.dispatch_log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(dispatch_log, ensure_ascii=False) + "\n")
         except Exception as e:
             print(f"调度日志写入失败: {e}", file=sys.stderr)
@@ -398,7 +387,7 @@ class BaobaoDispatcher:
             "status": "ready",
             "authority_status": self.authority.get_status(),
             "timestamp": datetime.datetime.now().isoformat(),
-            "dna": self._generate_dna("DISPATCHER-STATUS")
+            "dna": self._generate_dna("DISPATCHER-STATUS"),
         }
 
 
