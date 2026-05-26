@@ -1,0 +1,7 @@
+session_memory:
+  enabled: true
+  source_path: "~/.claude/projects/-Users-zuimeidedeyihan/memory/SESSION_MEMORY.md"
+  conversation_record_path: "~/.claude/projects/-Users-zuimeidedeyihan/memory/CONVERSATION_RECORD_20260527_COMPLETE.md"
+  import_mode: metadata_and_status
+  emit_event: session_memory_sync
+  audit_risk: low
