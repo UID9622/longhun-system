@@ -1,0 +1,29 @@
+{
+  "name": "longhun-widget-browser",
+  "version": "1.0.0",
+  "description": "龍魂宝宝·DNA追溯助手·为原创守护·为抄袭开刀",
+  "main": "manifest.json",
+  "scripts": {
+    "dev": "echo 'Development mode - use Chrome DevTools'",
+    "build": "echo 'Build process - zip dist/'",
+    "test": "jest"
+  },
+  "keywords": [
+    "龍魂",
+    "DNA追溯",
+    "水印",
+    "侵权追踪",
+    "数字主权",
+    "UID9622"
+  ],
+  "author": "UID9622",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longhun-system/LongHunWidget-Browser"
+  },
+  "homepage": "https://longhun888.com",
+  "devDependencies": {
+    "jest": "^27.0.0"
+  }
+}

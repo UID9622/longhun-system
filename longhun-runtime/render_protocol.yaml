@@ -1,0 +1,21 @@
+semantic_colors:
+  confirm: "#D4AF37"
+  dna: "#7B61FF"
+  audit: "#4A90E2"
+  risk: "#FF3B30"
+  isolation: "#0A0A0A"
+  memory: "#00C2FF"
+motion:
+  pulse:
+    speed: 1.2
+    intensity: 0.8
+typography:
+  authority:
+    weight: 700
+    tracking: 1.4
+effects:
+  sovereign_glow:
+    blur: 24
+    opacity: 0.7
+risk_effect:
+  animation: breathing_red

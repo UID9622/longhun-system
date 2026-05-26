@@ -86,3 +86,6 @@ node_modules/
 *.egg-info/
 dist/
 build/
+
+# AtomCode local-scope configs (machine-specific)
+.atomcode/local/
