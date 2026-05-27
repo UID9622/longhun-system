@@ -1,22 +1,22 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 
-================================================================
-🔧 CNSH 本地开发环境治疗脚本（Mac 专用）
-Local Development Environment Setup - macOS
-
-功能：
-  • 无交互式配置（直接参数·绕过 Mac 终端兼容性问题）
-  • 生成本地 DNA 主权身份证
-  • 自动检测并修复权限问题
-  • 完整的环境变量初始化
-
-使用方式：
-  bash _work/setup_local_dev_mac.sh <NOTION_TOKEN> <DATABASE_ID> <OPENAI_KEY>
-
-  或者（测试模式）：
-  bash _work/setup_local_dev_mac.sh --test
-================================================================
+# ================================================================
+# 🔧 CNSH 本地开发环境治疗脚本（Mac 专用）
+# Local Development Environment Setup - macOS
+#
+# 功能：
+#   • 无交互式配置（直接参数·绕过 Mac 终端兼容性问题）
+#   • 生成本地 DNA 主权身份证
+#   • 自动检测并修复权限问题
+#   • 完整的环境变量初始化
+#
+# 使用方式：
+#   bash _work/setup_local_dev_mac.sh <NOTION_TOKEN> <DATABASE_ID> <OPENAI_KEY>
+#
+#   或者（测试模式）：
+#   bash _work/setup_local_dev_mac.sh --test
+# ================================================================
 
 set -e
 
