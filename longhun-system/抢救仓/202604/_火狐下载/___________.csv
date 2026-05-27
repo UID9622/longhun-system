@@ -1,0 +1,6 @@
+功能名称,设置路径（中文）,Setting Path (English),说明
+朗读所选项目,设置 > 辅助使用 > 朗读内容 > 开启『朗读所选项目』,Settings > Accessibility > Spoken Content > Enable 'Speak Selection',选中文字后会出现朗读按钮，点击即可朗读选中的文字
+朗读屏幕,设置 > 辅助使用 > 朗读内容 > 开启『朗读屏幕』,Settings > Accessibility > Spoken Content > Enable 'Speak Screen',用两根手指从屏幕顶部往下滑，系统会朗读整个页面内容
+语音选择（中文+英文）,设置 > 辅助使用 > 朗读内容 > 语音 > 添加英文（美国）,Settings > Accessibility > Spoken Content > Voices > Add English (US),设置系统识别中英文混合内容时自动切换发音
+激活 Siri,设置 > Siri 与搜索 > 启用 Siri / 听取『嘿 Siri』,Settings > Siri & Search > Enable 'Listen for Hey Siri',可用语音唤醒 Siri 实现部分控制
+辅助触控（可选）,设置 > 辅助使用 > 触控 > AssistiveTouch > 开启,Settings > Accessibility > Touch > AssistiveTouch > On,开启后可快速点按执行常用操作，如回主画面/截屏等

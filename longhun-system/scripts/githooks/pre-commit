@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Keep BehavCrypto CANONICAL_SHA256 in sync when the body draft is committed.
+# Supports Git root = WORKTREE, or Git root = parent with tracked path longhun-system/...
+set -euo pipefail
+HOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
+WORKTREE="$(cd "$HOOK_DIR/../.." && pwd)"
+SCRIPTS="$(cd "$HOOK_DIR/../canonical-sha256" && pwd)"
+GIT_TOP="$(git rev-parse --show-toplevel)"
+
+if [[ "$WORKTREE" == "$GIT_TOP" ]]; then
+  PFX=""
+elif [[ "$WORKTREE" == "$GIT_TOP"/* ]]; then
+  PFX="${WORKTREE#"$GIT_TOP"/}/"
+else
+  echo "pre-commit: scripts must live under git work tree (WORKTREE=$WORKTREE GIT_TOP=$GIT_TOP)" >&2
+  exit 1
+fi
+
+BODY_GIT="${PFX}BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md"
+SUM_GIT="${PFX}BehavCrypto_v1.0/CANONICAL_SHA256"
+
+if git diff --cached --name-only --diff-filter=ACM | grep -Fxq "$BODY_GIT"; then
+  echo "pre-commit: updating CANONICAL_SHA256 (staged: $BODY_GIT)"
+  bash "$SCRIPTS/update.sh"
+  git add "$GIT_TOP/$SUM_GIT"
+fi
+
+bash "$SCRIPTS/verify.sh"

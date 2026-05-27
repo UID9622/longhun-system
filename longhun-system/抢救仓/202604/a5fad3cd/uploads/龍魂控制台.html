@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--
+  龍魂控制台 · 本地启动器
+  一键直达：Notion / 本地文件 / 仓库 / 本地模型 / 服务
+  DNA: #龍芯⚡️2026-03-31-龍魂控制台-v1.0
+  创建者: 诸葛鑫（UID9622）
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  理论指导: 曾仕强老师（永恒显示）
+  道生一，一生二，二生三，三生万物。——道德经第四十二章
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>龍魂控制台 · UID9622</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d18;--bg2:#13132a;--bg3:#1a1a35;
+  --accent:#c39bd3;--gold:#f5c518;--green:#52d68a;
+  --red:#e05c5c;--orange:#e67e22;--blue:#4a90d9;
+  --text:#e8e4f0;--muted:#888;--border:rgba(195,155,211,0.15);
+}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;padding:0;
+}
+
+/* ── 顶部 ── */
+header{
+  background:linear-gradient(135deg,#0d0d18,#1a0a2e);
+  border-bottom:1px solid var(--border);
+  padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:'Noto Sans SC',sans-serif;
+  font-size:20px;font-weight:500;
+  background:linear-gradient(90deg,#c39bd3,#7b68ee,#4a90d9);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:2px;
+}
+.logo-sub{font-size:11px;color:var(--muted);font-family:'Noto Sans SC',sans-serif;margin-top:2px}
+.status-bar{display:flex;gap:10px;align-items:center}
+.svc{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:20px;padding:4px 10px;
+  font-size:11px;cursor:pointer;
+  transition:all .2s;
+}
+.svc:hover{background:rgba(195,155,211,0.1);border-color:var(--accent)}
+.dot{width:7px;height:7px;border-radius:50%;background:#444;flex-shrink:0}
+.dot.green{background:var(--green);box-shadow:0 0 6px var(--green)}
+.dot.red{background:var(--red)}
+.dot.checking{background:var(--gold);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── 主体 ── */
+main{padding:28px 32px;max-width:1200px;margin:0 auto}
+.section-title{
+  font-size:11px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:14px;margin-top:28px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── 卡片网格 ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;padding:16px;
+  cursor:pointer;transition:all .2s;
+  display:flex;flex-direction:column;gap:8px;
+  text-decoration:none;color:inherit;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent,rgba(195,155,211,0.03));
+  opacity:0;transition:opacity .2s;
+}
+.card:hover{
+  border-color:rgba(195,155,211,0.4);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.4);
+}
+.card:hover::before{opacity:1}
+.card-icon{font-size:24px;line-height:1}
+.card-name{font-size:13px;font-weight:500;color:var(--text)}
+.card-desc{font-size:11px;color:var(--muted);font-family:'Noto Sans SC',sans-serif;line-height:1.5}
+.card-tag{
+  font-size:9px;padding:2px 7px;border-radius:10px;
+  background:rgba(195,155,211,0.12);color:var(--accent);
+  width:fit-content;margin-top:auto;
+}
+.card.notion .card-tag{background:rgba(74,144,217,0.15);color:var(--blue)}
+.card.local  .card-tag{background:rgba(82,214,138,0.12);color:var(--green)}
+.card.repo   .card-tag{background:rgba(245,197,24,0.12);color:var(--gold)}
+.card.model  .card-tag{background:rgba(195,155,211,0.15);color:var(--accent)}
+.card.service .card-tag{background:rgba(230,126,34,0.15);color:var(--orange)}
+
+/* ── Ollama 模型区 ── */
+.model-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.model-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:10px;padding:12px;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:10px;
+}
+.model-card:hover{border-color:var(--accent);background:rgba(195,155,211,0.06)}
+.model-icon{font-size:20px;flex-shrink:0}
+.model-info{flex:1;min-width:0}
+.model-name{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.model-size{font-size:10px;color:var(--muted)}
+
+/* ── 快速路由区 ── */
+.route-box{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;padding:16px;margin-top:12px;
+}
+.route-row{display:flex;gap:8px}
+.route-input{
+  flex:1;background:var(--bg3);border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;
+  color:var(--text);font-size:13px;font-family:'Poppins',sans-serif;
+  outline:none;transition:border-color .2s;
+}
+.route-input:focus{border-color:var(--accent)}
+.route-input::placeholder{color:#555}
+.btn{
+  padding:10px 18px;border:none;border-radius:8px;
+  font-size:12px;font-family:'Poppins',sans-serif;
+  cursor:pointer;transition:all .2s;font-weight:500;
+}
+.btn-primary{background:linear-gradient(135deg,#7b68ee,#c39bd3);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.route-result{
+  margin-top:10px;padding:10px 14px;
+  background:rgba(195,155,211,0.06);border-radius:8px;
+  font-size:12px;color:var(--accent);
+  font-family:'Noto Sans SC',sans-serif;min-height:36px;
+  display:flex;align-items:center;
+}
+
+/* ── 底部 ── */
+footer{
+  text-align:center;padding:24px;
+  font-size:10px;color:#444;
+  font-family:'Noto Sans SC',sans-serif;
+  border-top:1px solid var(--border);margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">龍魂控制台</div>
+    <div class="logo-sub">诸葛鑫 · UID9622 · 曾仕强老师理论指导</div>
+  </div>
+  <div class="status-bar">
+    <div class="svc" onclick="window.open('http://localhost:9622/docs')">
+      <div class="dot checking" id="dot-9622"></div>
+      <span id="lbl-9622">:9622 检测中</span>
+    </div>
+    <div class="svc" onclick="window.open('http://localhost:11434')">
+      <div class="dot checking" id="dot-ollama"></div>
+      <span id="lbl-ollama">Ollama 检测中</span>
+    </div>
+    <div class="svc" onclick="window.open('http://localhost:8765')">
+      <div class="dot checking" id="dot-8765"></div>
+      <span id="lbl-8765">:8765 检测中</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ── NOTION ── -->
+<div class="section-title">📓 Notion 工作区</div>
+<div class="grid">
+  <a class="card notion" href="https://www.notion.so/uid9622/af5bb287-9ffd-4d73-8b98-b6f2b5f25bd6" target="_blank">
+    <div class="card-icon">🏠</div>
+    <div class="card-name">龍魂总入口</div>
+    <div class="card-desc">主工作区 · 9大分类索引</div>
+    <div class="card-tag">notion · 主库</div>
+  </a>
+  <a class="card notion" href="https://www.notion.so/uid9622/baf3b574023e49c987eee620a811e70d" target="_blank">
+    <div class="card-icon">🇨🇳</div>
+    <div class="card-name">中国科技自主创新</div>
+    <div class="card-desc">龍魂主知识库 · 三才算法 · IEEE方法论</div>
+    <div class="card-tag">notion · 知识库</div>
+  </a>
+  <a class="card notion" href="https://www.notion.so/uid9622/3c86539572d348a08e003669a1821c71" target="_blank">
+    <div class="card-icon">🤖</div>
+    <div class="card-name">MCP自适应引擎 v4.0</div>
+    <div class="card-desc">人格路由规则 · 触发逻辑</div>
+    <div class="card-tag">notion · 引擎</div>
+  </a>
+  <a class="card notion" href="https://www.notion.so/uid9622/2d87125a9c9f802889e2e18002f7cf4f" target="_blank">
+    <div class="card-icon">🧠</div>
+    <div class="card-name">AI技能页</div>
+    <div class="card-desc">蒙卦启智 · AI回复流程 · 9条触发规则</div>
+    <div class="card-tag">notion · 技能</div>
+  </a>
+  <a class="card notion" href="https://www.notion.so/uid9622/2507125a9c9f80d2b214c07deced0f0f" target="_blank">
+    <div class="card-icon">🎛️</div>
+    <div class="card-name">主控操作台</div>
+    <div class="card-desc">系统架构全景 · 模块状态</div>
+    <div class="card-tag">notion · 控制台</div>
+  </a>
+  <a class="card notion" href="https://www.notion.so/uid9622/1d714fe5-d7a0-40a9-8b2b-43f511301a9a" target="_blank">
+    <div class="card-icon">💎</div>
+    <div class="card-name">设计哲学</div>
+    <div class="card-desc">龍魂系统设计原话 · 精神坐标</div>
+    <div class="card-tag">notion · 哲学</div>
+  </a>
+</div>
+
+<!-- ── 本地服务 ── -->
+<div class="section-title">⚡ 本地服务</div>
+<div class="grid">
+  <a class="card service" href="http://localhost:9622/docs" target="_blank">
+    <div class="card-icon">🛡️</div>
+    <div class="card-name">CNSH-64 治理引擎</div>
+    <div class="card-desc">:9622 · v0.4.0 · FastAPI文档</div>
+    <div class="card-tag">service · 人格路由</div>
+  </a>
+  <a class="card service" href="http://localhost:9622/" target="_blank">
+    <div class="card-icon">🧭</div>
+    <div class="card-name">龍盾状态</div>
+    <div class="card-desc">L1-L9层防御 · 三层统一入口</div>
+    <div class="card-tag">service · :9622</div>
+  </a>
+  <a class="card service" href="http://localhost:11434" target="_blank">
+    <div class="card-icon">🦙</div>
+    <div class="card-name">Ollama 本地模型</div>
+    <div class="card-desc">:11434 · 9个模型已加载</div>
+    <div class="card-tag">service · 本地AI</div>
+  </a>
+  <a class="card service" href="http://localhost:8765" target="_blank">
+    <div class="card-icon">🌐</div>
+    <div class="card-name">龍魂本地服务</div>
+    <div class="card-desc">:8765 · 龍魂主服务入口</div>
+    <div class="card-tag">service · :8765</div>
+  </a>
+</div>
+
+<!-- ── 本地文件 ── -->
+<div class="section-title">📁 本地文件 &amp; 工具</div>
+<div class="grid">
+  <a class="card local" href="file:///Users/zuimeidedeyihan/longhun-system/algorithmic-art/三才流場_v5_神经版.html" target="_blank">
+    <div class="card-icon">🌊</div>
+    <div class="card-name">三才流場 v5神经版</div>
+    <div class="card-desc">呼吸节律 · 年轮记忆 · :9622 接入</div>
+    <div class="card-tag">local · 算法艺术</div>
+  </a>
+  <a class="card local" href="file:///Users/zuimeidedeyihan/longhun-system/algorithmic-art/三才流场_v3.0.html" target="_blank">
+    <div class="card-icon">🌀</div>
+    <div class="card-name">三才流場 v3.0</div>
+    <div class="card-desc">经典版 · 呼吸原版</div>
+    <div class="card-tag">local · 算法艺术</div>
+  </a>
+  <a class="card local" href="file:///Users/zuimeidedeyihan/longhun-system/龍魂智能中枢_v5.0_全套一体化.html" target="_blank">
+    <div class="card-icon">🧬</div>
+    <div class="card-name">龍魂智能中枢 v5.0</div>
+    <div class="card-desc">全套一体化 · 系统总览</div>
+    <div class="card-tag">local · 中枢</div>
+  </a>
+  <a class="card local" href="file:///Users/zuimeidedeyihan/longhun-system/LU_Time_Engine.html" target="_blank">
+    <div class="card-icon">⏳</div>
+    <div class="card-name">LU Time Engine</div>
+    <div class="card-desc">时间轴引擎 · 日历系统</div>
+    <div class="card-tag">local · 时间</div>
+  </a>
+  <div class="card local" onclick="openInFinder('/Users/zuimeidedeyihan/longhun-system/')">
+    <div class="card-icon">🗂️</div>
+    <div class="card-name">龍魂系统主目录</div>
+    <div class="card-desc">~/longhun-system/ · 14G · 全部模块</div>
+    <div class="card-tag">local · Finder</div>
+  </div>
+  <div class="card local" onclick="openInFinder('/Users/zuimeidedeyihan/longhun-system/algorithmic-art/')">
+    <div class="card-icon">🎨</div>
+    <div class="card-name">算法艺术目录</div>
+    <div class="card-desc">所有流場 HTML 文件</div>
+    <div class="card-tag">local · Finder</div>
+  </div>
+</div>
+
+<!-- ── 代码仓库 ── -->
+<div class="section-title">🔗 代码仓库</div>
+<div class="grid">
+  <a class="card repo" href="https://gitee.com/uid9622/cnsh" target="_blank">
+    <div class="card-icon">🔴</div>
+    <div class="card-name">CNSH · Gitee</div>
+    <div class="card-desc">中文原生编程语言 · 国内主仓库</div>
+    <div class="card-tag">repo · gitee</div>
+  </a>
+  <a class="card repo" href="https://github.com/UID9622/CNSH" target="_blank">
+    <div class="card-icon">⚫</div>
+    <div class="card-name">CNSH · GitHub</div>
+    <div class="card-desc">中文原生编程语言 · 国际镜像</div>
+    <div class="card-tag">repo · github</div>
+  </a>
+  <div class="card repo" onclick="openTerminal('cd ~/longhun-system/CNSH-gitee && git status')">
+    <div class="card-icon">📊</div>
+    <div class="card-name">Gitee 本地状态</div>
+    <div class="card-desc">查看本地 git status</div>
+    <div class="card-tag">repo · 本地</div>
+  </div>
+</div>
+
+<!-- ── Ollama 本地模型 ── -->
+<div class="section-title">🦙 Ollama 本地模型</div>
+<div class="model-list" id="model-list">
+  <!-- 动态加载 -->
+  <div style="color:var(--muted);font-size:12px;padding:10px">检测中…</div>
+</div>
+
+<!-- ── 快速路由 ── -->
+<div class="section-title">🧭 快速路由 · :9622</div>
+<div class="route-box">
+  <div class="route-row">
+    <input class="route-input" id="route-input" placeholder="输入一句话，宝宝P72帮你路由…" />
+    <button class="btn btn-primary" onclick="doRoute()">发送 →</button>
+  </div>
+  <div class="route-result" id="route-result">等待输入…</div>
+</div>
+
+</main>
+
+<footer>
+  龍魂控制台 · DNA: #龍芯⚡️2026-03-31-龍魂控制台-v1.0 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+  理论指导：曾仕强老师（永恒显示）· 道生一，一生二，二生三，三生万物。
+</footer>
+
+<script>
+// ── 服务状态检测 ──────────────────────────────
+async function checkService(url, dotId, lblId, okLabel) {
+  const dot = document.getElementById(dotId);
+  const lbl = document.getElementById(lblId);
+  try {
+    const r = await fetch(url, {signal: AbortSignal.timeout(2000)});
+    if (r.ok) {
+      dot.className = 'dot green';
+      lbl.textContent = okLabel + ' ✓';
+    } else { throw new Error(); }
+  } catch {
+    dot.className = 'dot red';
+    lbl.textContent = okLabel + ' ✗';
+  }
+}
+
+// ── Ollama 模型列表 ───────────────────────────
+const MODEL_ICONS = {
+  'qwen': '🇨🇳', 'deepseek': '🔍', 'llama': '🦙',
+  'llava': '👁️', 'chuxin': '🌱', 'mistral': '⚡',
+};
+function modelIcon(name) {
+  for (const [k,v] of Object.entries(MODEL_ICONS)) {
+    if (name.toLowerCase().startsWith(k)) return v;
+  }
+  return '🤖';
+}
+
+async function loadModels() {
+  const container = document.getElementById('model-list');
+  try {
+    const r = await fetch('http://localhost:11434/api/tags', {signal: AbortSignal.timeout(3000)});
+    const data = await r.json();
+    const models = data.models || [];
+    if (!models.length) { container.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:10px">Ollama 无已加载模型</div>'; return; }
+    container.innerHTML = models.map(m => {
+      const shortName = m.name.replace(':latest','');
+      const sizeGB = m.size ? (m.size/1e9).toFixed(1)+'GB' : '';
+      return `
+        <div class="model-card" onclick="chatWithModel('${m.name}')">
+          <div class="model-icon">${modelIcon(shortName)}</div>
+          <div class="model-info">
+            <div class="model-name">${shortName}</div>
+            <div class="model-size">${sizeGB}</div>
+          </div>
+        </div>`;
+    }).join('');
+  } catch {
+    container.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:10px">Ollama 离线</div>';
+  }
+}
+
+function chatWithModel(modelName) {
+  // 打开 Ollama Web UI 或者直接到终端
+  const text = prompt(`🦙 ${modelName}\n\n输入消息（回车发送）：`);
+  if (!text) return;
+  // 调用 Ollama generate API
+  fetch('http://localhost:11434/api/generate', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({model: modelName, prompt: text, stream: false}),
+    signal: AbortSignal.timeout(30000),
+  }).then(r => r.json()).then(d => {
+    alert(`🦙 ${modelName} 回复：\n\n${d.response || '无回复'}`);
+  }).catch(() => alert('Ollama 请求失败，请检查服务'));
+}
+
+// ── :9622 路由 ───────────────────────────────
+async function doRoute() {
+  const text = document.getElementById('route-input').value.trim();
+  const res  = document.getElementById('route-result');
+  if (!text) return;
+  res.textContent = '⏳ 路由中…';
+  try {
+    const r = await fetch('http://localhost:9622/persona/route', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({uid:'9622', content: text}),
+      signal: AbortSignal.timeout(6000),
+    }).then(r => r.json());
+    res.textContent = `${r.emoji || '🌌'} ${r.routed_to || '宝宝·温度'} · ${r.logic?.slice(0,40) || '已接球'}`;
+  } catch {
+    res.textContent = '🛡️ :9622 离线 · 宝宝P72本地接球';
+  }
+}
+
+// ── Finder ───────────────────────────────────
+function openInFinder(path) {
+  // 通过 URL scheme 打开 Finder（仅 macOS）
+  window.open('file://' + path);
+}
+
+// ── Enter 快捷键 ─────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('route-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doRoute();
+  });
+
+  // 检测所有服务
+  checkService('http://localhost:9622/', 'dot-9622', 'lbl-9622', ':9622 龍盾');
+  checkService('http://localhost:11434/api/tags', 'dot-ollama', 'lbl-ollama', 'Ollama');
+  checkService('http://localhost:8765/', 'dot-8765', 'lbl-8765', ':8765');
+
+  // 加载 Ollama 模型列表
+  loadModels();
+});
+</script>
+</body>
+</html>

@@ -1,91 +1,29 @@
-# Claude Code worktrees & cache（勿提交副本工程）
-.claude/
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 龍魂仓库根 .gitignore · UID9622 · 2026-04-25
+# DNA: #龍芯⚡️2026-04-25-ROOT-GITIGNORE-v1.0
+# 规则：主目录所有内容默认隐藏，只放行需要的
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# macOS
-.DS_Store
+# ══ 默认隐藏所有主目录内容 ══
+/*
+/.DS_Store
 
-# 本地工具配置（可选）
-.arts/
+# ══ 只放行这些（白名单） ══
+!/longhun-system/
+!/.github/
+!/.gitignore
+!/README.md
+!/致所有AI用户-如何避免被伪代码误导-完整方案-v1.0.md
+!/龙魂系统公开宣言-君子协议-2026修正版.md
 
-# Python
-venv/
-.venv/
-__pycache__/
-*.py[cod]
-.Python
-
-# 环境与密钥（仅模板可入库）
-.env
-.env.*
-!.env.example
-!**/env.template
-
-# 编辑器
-.idea/
-
-# Cursor · 本机工程缓存（规则若需入库用 .cursor/rules，勿把整个 projects 提交）
-.cursor/projects/
-
-# Obsidian 库配置（非龍魂源码）
-.obsidian/
-
-# 本地进程 / 壁纸态等运行时文件
-.run/
-*.pid
-
-# 抢救仓 · Claude / MCP 会话导出（体积大·无版本价值；要留档走 01_protocols / docs）
-抢救仓/**/_session-configs/
-抢救仓/**/_session-tool-results/
-# DNA 记忆粒子审计库（本地 SQLite · append-only）
-data/dna_particle_audit.sqlite3
-data/dna_particle_audit.sqlite3-shm
-data/dna_particle_audit.sqlite3-wal
-
-# CNSW 熔断审计 JSONL（append-only 本地账本）
-data/cnsw_circuit_audit.jsonl
-
-# H武器 · 本地 Monte Carlo / 痕迹库（勿提交）
-tools/h_weapon_100k/db/*.db
-tools/h_weapon_100k/out/
-
-# 责任卡运行时（模板/引擎入库；生成卡片与 SQLite 本机增长）
-cnsh/decision_cards/cards/**/*.md
-cnsh/decision_cards/db/*.sqlite*
-cnsh/decision_cards/logs/*.log
-
-# 小快乐专区（本地放松用·不入库·不污染主干）
-小快乐/
-
-# 语音虚拟环境（太大·本地重建即可）
-引擎/voice_env/
-**/voice_env/
-
-# 私密空间（不进git）
-CNSH/私密空间/
-# §9.49 中文路径永不进 git
-龍芯北辰UID9622/
-evidence-matrix/
-snapshots/
-logs/
-*.log
-*.backup.*
-
-# 系统工具本地配置（Kimi · Cloudflare · Playwright 等）
-.cloudflared/
-.playwright-mcp/
-.龍魂錨點
-
-# 大型工作目录（本地构建·不入库）
-_work/notion-sync/Export-*/
-_work/cnsh-special/
-_work/tools/
-_work/docs/
-_private/
-.venv/
-node_modules/
-*.egg-info/
-dist/
-build/
-
-# AtomCode local-scope configs (machine-specific)
-.atomcode/local/
+# ══ longhun-system 内部黑名单（与子目录 .gitignore 双重保护） ══
+/longhun-system/.env
+/longhun-system/**/.env
+/longhun-system/.keyring/
+/longhun-system/engine/memory/
+/longhun-system/engine/node_modules/
+/longhun-system/.claude/worktrees/
+/longhun-system/**/__pycache__/
+/longhun-system/**/*.pyc
+/longhun-system/**/.venv/
+/longhun-system/logs/*.jsonl
