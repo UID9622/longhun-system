@@ -776,7 +776,7 @@ class CNSHTranslationSystem:
 # ============================================================================
 
 def demo():
-    """主函数·演示翻译系统"""
+    """演示模式·单次运行"""
 
     system = CNSHTranslationSystem()
 
@@ -803,5 +803,74 @@ def demo():
     logger.info("=" * 80)
 
 
+def run_forever():
+    """生产模式·无限循环自运行
+
+    系统启动后：
+    1. 初始化完成
+    2. 进入无限循环
+    3. 定期扫描任务队列
+    4. 自动处理新任务
+    5. 支持热重启和迭代升级
+    """
+
+    system = CNSHTranslationSystem()
+
+    logger.info("\n" + "=" * 80)
+    logger.info("🚀 CNSH 翻译系统启动（无限循环模式）")
+    logger.info("=" * 80)
+    logger.info("✓ 系统已初始化")
+    logger.info("✓ 任务队列管理器就绪")
+    logger.info("✓ Notion 集成已激活")
+    logger.info("✓ DNA 签名生成器启动")
+    logger.info("\n进入主循环·监听任务队列...\n")
+
+    # 无限循环运行
+    loop_count = 0
+    while True:
+        try:
+            loop_count += 1
+
+            # 每100循环输出一次心跳信号（防止日志过多）
+            if loop_count % 100 == 0:
+                stats = system.manager.get_statistics()
+                logger.info(f"💓 [心跳 #{loop_count}] 队列状态: "
+                           f"待处理={stats['pending']}, "
+                           f"校对中={stats['reviewing']}, "
+                           f"已完成={stats['completed']}")
+
+            # 处理队列中的任务
+            if system.manager.get_queue_length() > 0:
+                system.process_queue()
+
+            # 等待0.5秒后继续（避免CPU占用过高）
+            time.sleep(0.5)
+
+        except KeyboardInterrupt:
+            logger.info("\n\n" + "=" * 80)
+            logger.info("🛑 收到停止信号，系统优雅关闭中...")
+            logger.info("=" * 80)
+            stats = system.manager.get_statistics()
+            logger.info(f"📊 最终统计:")
+            logger.info(f"   总任务数: {stats['total_tasks']}")
+            logger.info(f"   已完成: {stats['completed']}")
+            logger.info(f"   校对中: {stats['reviewing']}")
+            logger.info(f"   待处理: {stats['pending']}")
+            logger.info("✅ 系统已关闭\n")
+            break
+        except Exception as e:
+            logger.error(f"❌ 处理过程中发生错误: {e}")
+            logger.info("⚠ 系统继续运行，2秒后重试...")
+            time.sleep(2)
+
+
 if __name__ == '__main__':
-    demo()
+    import sys
+
+    # 检查命令行参数
+    if len(sys.argv) > 1 and sys.argv[1] == 'demo':
+        # 演示模式：运行一次就退出
+        demo()
+    else:
+        # 生产模式：无限循环（默认）
+        run_forever()
