@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNSH 数学骨架 + 量子层 · 术语对照表 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle {
+    text-align: center; color: #ef4444; font-size: 0.82rem; margin-bottom: 2rem;
+    padding: 0.5rem; border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;
+    background: rgba(239,68,68,0.05);
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-math { border-color: #06b6d4; color: #22d3ee; }
+  .s-bridge { border-color: #8b5cf6; color: #a78bfa; }
+  .s-quantum { border-color: #ec4899; color: #f472b6; }
+  .s-formula { border-color: #f59e0b; color: #fbbf24; }
+  .s-audit { border-color: #22c55e; color: #4ade80; }
+  .s-arch { border-color: #3b82f6; color: #60a5fa; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  thead th {
+    background: #1e1b4b; color: #a78bfa;
+    padding: 0.6rem 0.7rem; text-align: left; font-weight: 600;
+    border-bottom: 2px solid #6d28d9;
+  }
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(139, 92, 246, 0.04); }
+  tbody td { padding: 0.55rem 0.7rem; vertical-align: top; }
+  tbody td:first-child { font-weight: 600; color: #22d3ee; font-size: 0.82rem; }
+
+  .tag {
+    display: inline-block; padding: 0.12rem 0.45rem;
+    border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin: 0.1rem 0.15rem;
+  }
+  .tag-bone { background: rgba(6,182,212,0.15); color: #06b6d4; }
+  .tag-q { background: rgba(236,72,153,0.15); color: #ec4899; }
+  .tag-formula { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .tag-bridge { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+  .tag-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-yellow { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-red { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+  .arch-diagram {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 1.5rem; margin: 1rem 0; font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.78rem; line-height: 1.5; color: #94a3b8; overflow-x: auto;
+    white-space: pre;
+  }
+  .arch-diagram .h { color: #fbbf24; font-weight: bold; }
+  .arch-diagram .c { color: #22d3ee; }
+  .arch-diagram .q { color: #f472b6; }
+  .arch-diagram .g { color: #4ade80; }
+  .arch-diagram .p { color: #a78bfa; }
+
+  .formula-box {
+    background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 8px; padding: 0.8rem 1rem; margin: 0.3rem 0;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.82rem; color: #fbbf24;
+  }
+  .formula-box .name { color: #888; font-size: 0.72rem; }
+
+  .summary {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    border: 1px solid #2e1065; border-radius: 12px;
+    padding: 1.5rem; margin: 2rem 0;
+  }
+  .summary h2 { color: #a78bfa; font-size: 1.05rem; margin-bottom: 1rem; }
+
+  .flow-line {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.2rem; margin: 1rem 0;
+  }
+  .flow-box {
+    background: rgba(139,92,246,0.1); border: 1px solid #2e1065;
+    border-radius: 8px; padding: 0.35rem 0.7rem;
+    text-align: center; font-size: 0.76rem;
+  }
+  .flow-box .top { font-weight: 600; }
+  .flow-box.math { border-color: #06b6d4; }
+  .flow-box.quantum { border-color: #ec4899; background: rgba(236,72,153,0.08); }
+  .flow-arr { color: #6d28d9; font-size: 1.1rem; }
+
+  .footer {
+    text-align: center; color: #555; font-size: 0.72rem;
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1a1a2e;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>CNSH 数学骨架 + 量子计算层 · 完整术语对照表</h1>
+<p class="subtitle">五大数学骨头 + 五大量子应用 + 桥接层 + 专属公式 · 全部翻译成大白话</p>
+<p class="dna-tag">#龍芯⚡️20260415-DOC-CNSH-MATH-QC</p>
+<div class="principle">铁律：不拿任何人当测试数据 · 必须留痕但不看隐私 · 万事有度方能生存</div>
+
+<!-- ========== 架构总图 ========== -->
+<div class="section-header s-arch"><span>🏗️</span> 系统全景：从你说话到最终输出</div>
+
+<div class="arch-diagram"><span class="h">                    ┌─────────────────────┐</span>
+<span class="h">                    │    主控（Human）      │</span>  ← 你。整个系统的老板
+<span class="h">                    │  意志 / 目标 / 判断   │</span>
+<span class="h">                    └──────────┬──────────┘</span>
+                               │
+                               ▼
+<span class="p">                ┌──────────────────────────┐</span>
+<span class="p">                │   语义 → 数学映射层        │</span>  ← 把你说的话变成数学能算的东西
+<span class="p">                │  "舒服的东西" → 向量[0.8,  │</span>
+<span class="p">                │   0.3, 0.9, ...]          │</span>
+<span class="p">                └──────────┬───────────────┘</span>
+                           │
+                           ▼
+<span class="c">    ┌──────────────────────────────────────────────┐</span>
+<span class="c">    │          CNSH 数学核心骨架（5根骨头）           │</span>  ← 系统的脊柱
+<span class="c">    │  线性代数 · 概率论 · 优化论 · 信息论 · 变换    │</span>
+<span class="c">    └──────────────────────┬───────────────────────┘</span>
+                           │
+                    ┌──────┼──────┐
+                    ▼             ▼
+<span class="p">        ┌──────────────┐</span>  <span class="q">┌──────────────────┐</span>
+<span class="p">        │  路由生成层   │</span>  <span class="q">│  量子辅助层（可选）│</span>  ← 只在需要时启动
+<span class="p">        │  决定去哪     │</span>  <span class="q">│  处理不确定性      │</span>
+<span class="p">        └──────┬───────┘</span>  <span class="q">└──────┬───────────┘</span>
+               │                      │
+               └──────────┬───────────┘
+                          ▼
+<span class="p">              ┌───────────────────┐</span>
+<span class="p">              │    执行映射层      │</span>  ← 真正干活：写代码、画UI、渲染AR
+<span class="p">              └─────────┬─────────┘</span>
+                        ▼
+<span class="g">              ┌───────────────────┐</span>
+<span class="g">              │   审计与留痕       │</span>  ← DNA追溯码 + 三色审计
+<span class="g">              │   每一步都有据可查  │</span>
+<span class="g">              └───────────────────┘</span></div>
+
+<!-- ========== 五大骨头 ========== -->
+<div class="section-header s-math"><span>🦴</span> 五大数学核心 · 系统的「骨头」</div>
+<table>
+<thead><tr><th style="width:16%">骨头名称</th><th style="width:14%">行业术语</th><th style="width:38%">大白话 + 你可能会说的词</th><th style="width:32%">在龍魂系统里干啥</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-bone">骨①</span><br>线性代数<br>Linear Algebra</td>
+  <td>矩阵运算<br>向量空间<br>特征分解</td>
+  <td><strong>一句话：给万物一个"坐标"和"形状"。</strong><br><br>你可能说的词：向量、嵌入、embedding、变换、坐标、矩阵、形状、结构<br><br>大白话：就像给每个东西画一个"位置标记"。"开心"在某个位置，"高兴"在旁边，"伤心"在远处。没有它，系统就是瞎子——什么都看不见形状。</td>
+  <td>• 语义向量（你说的话→数字坐标）<br>• 字体形状变换<br>• Knowledge DNA embedding<br>• bone_retriever.py 里的 TF-IDF+SVD<br><br><div class="formula-box"><div class="name">关键公式</div>x' = Ax（向量变换）<br>Ax = λx（特征分解）</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-bone">骨②</span><br>概率论<br>Probability</td>
+  <td>贝叶斯推理<br>期望/方差<br>概率分布</td>
+  <td><strong>一句话：判断"可能发生什么"。</strong><br><br>你可能说的词：权重、概率、可能性、不确定、预测、猜、多方案、概率云<br><br>大白话：你说"帮我搞个舒服的东西"，系统不是硬猜一个答案，而是列出好几个可能——"舒服"有60%概率是指界面、30%是指速度、10%是指音乐。然后挑最可能的。</td>
+  <td>• 路由决策权重（哪个人格去处理）<br>• AI预测/多方案选择<br>• gua_classifier.py 的分类概率<br>• 量子层的概率云生成<br><br><div class="formula-box"><div class="name">关键公式</div>P(A|B) = P(B|A)P(A)/P(B)（贝叶斯）<br>E[X] = Σx·P(x)（期望值）</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-bone">骨③</span><br>优化论<br>Optimization</td>
+  <td>梯度下降<br>损失函数<br>约束优化</td>
+  <td><strong>一句话：从100条路里选出最好的那条。</strong><br><br>你可能说的词：最优、调优、训练、学习、收敛、迭代、路径、选哪条<br><br>大白话：就像导航——从A到B有很多条路，有的堵车有的绕远，优化就是帮你找出"最快+最省油"的那条。每试一次，路线就更好一点。</td>
+  <td>• 方法选择（用哪种方案）<br>• gua_classifier.py 的 SGD 训练<br>• 系统调优（参数怎么设最好）<br>• 量子退火找全局最优<br><br><div class="formula-box"><div class="name">关键公式</div>θ = θ - η∇L（梯度下降）<br>η = 学习率，∇L = 损失方向</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-bone">骨④</span><br>信息论<br>Information Theory</td>
+  <td>信息熵<br>互信息<br>数据压缩</td>
+  <td><strong>一句话：判断"什么重要、什么是废话"。</strong><br><br>你可能说的词：压缩、净化、精华、去污、重要性、信息量、熵、冗余、废话<br><br>大白话：一段话里有些是干货有些是注水。信息论帮你算出来"这句话包含多少信息量"。信息量高的留下，低的丢掉——这就是你说的"净化"。</td>
+  <td>• 记忆压缩（semantic_compression_v2.py）<br>• DNA最小表达<br>• 净化管道的核心逻辑<br>• 知识筛选（污染指数计算）<br><br><div class="formula-box"><div class="name">关键公式</div>H(X) = -Σ p(x) log p(x)（信息熵）<br>熵越大 = 不确定性越大</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-bone">骨⑤</span><br>变换系统<br>Transform</td>
+  <td>几何变换<br>傅里叶变换<br>坐标映射</td>
+  <td><strong>一句话：把世界变成你能用的样子。</strong><br><br>你可能说的词：渲染、UI、字体、画面、变形、滤镜、声音处理、AR、视觉<br><br>大白话：同样的数据，可以显示成表格、可以画成图、可以变成3D模型、可以变成声音。变换就是"换一种呈现方式"。</td>
+  <td>• 字体变换引擎<br>• UI渲染<br>• AR增强现实层<br>• 声音处理<br>• Chrome工具箱的可视化<br><br><div class="formula-box"><div class="name">关键公式</div>x' = Ax + b（仿射变换）<br>F(ω) = ∫f(t)e^(-iωt)dt（傅里叶）</div></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 桥接层 ========== -->
+<div class="section-header s-bridge"><span>🌉</span> 四大桥接层 · 骨头之间的"筋"</div>
+<table>
+<thead><tr><th style="width:18%">桥接名称</th><th style="width:14%">行业术语</th><th style="width:38%">大白话</th><th style="width:30%">龍魂系统对应</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-bridge">桥①</span><br>语义→数学<br>Intent → Vector</td>
+  <td>NLP Encoding<br>语义编码</td>
+  <td><strong>把人话变成数学。</strong>你说"帮我搞个舒服的东西"，这句话被翻译成一串数字[0.8, 0.3, 0.9...]，数学才看得懂。没有这座桥，骨架是聋子。</td>
+  <td>SentenceTransformer<br>TF-IDF Vectorizer<br>bone_retriever.py</td>
+</tr>
+<tr>
+  <td><span class="tag tag-bridge">桥②</span><br>数学→路由<br>Vector → Route</td>
+  <td>Intent Router<br>意图分发</td>
+  <td><strong>决定"谁来处理"。</strong>数学看完你的需求，判断该派哪个人格去干活。守护者？架构师？分析师？就像公司前台把来访者引到对的部门。</td>
+  <td>Route = f(Intent, Context, DNA)<br>PersonaRouteManager<br>五大人格路由</td>
+</tr>
+<tr>
+  <td><span class="tag tag-bridge">桥③</span><br>数学→方法<br>Goal → Methods</td>
+  <td>Plan Generation<br>方案生成</td>
+  <td><strong>知道去哪了，还得知道"怎么去"。</strong>路由决定了方向，这一步生成具体方案——是写代码？画UI？调API？可能同时生成好几套方案让你选。</td>
+  <td>Methods = generate(goal, constraints)<br>优化论在这里选最佳方案</td>
+</tr>
+<tr>
+  <td><span class="tag tag-bridge">桥④</span><br>数学→执行<br>Method → Output</td>
+  <td>Execution Engine<br>执行引擎</td>
+  <td><strong>方案确定了，开始干活。</strong>写代码就写代码、渲染UI就渲染UI、生成AR就生成AR。从"计划"变成"现实"的最后一步。</td>
+  <td>Code / Render / AR<br>Chrome工具箱<br>Python引擎群</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 量子层 ========== -->
+<div class="section-header s-quantum"><span>⚛️</span> 量子计算辅助层 · 五大应用场景</div>
+
+<div style="background:rgba(236,72,153,0.05);border:1px solid rgba(236,72,153,0.15);border-radius:10px;padding:1rem;margin:0.5rem 0;font-size:0.85rem;">
+<strong style="color:#f472b6;">定位：</strong>量子计算不是主引擎，是<strong>高阶辅助层</strong>。只在经典计算明显不足时启动，平时关闭。它解决的是"不确定性、并行探索、压缩、真实感、不可篡改"这几个最难的问题。
+</div>
+
+<table>
+<thead><tr><th style="width:16%">应用场景</th><th style="width:14%">对应骨头</th><th style="width:38%">大白话（量子在这里干啥）</th><th style="width:32%">技术细节</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-q">量子①</span><br>概率云生成<br>多方案并行</td>
+  <td><span class="tag tag-bone">骨②</span><br>概率论</td>
+  <td><strong>经典计算一次算一条路，量子一次算100条。</strong><br><br>你说一句模糊的话，经典计算硬挑一个答案给你。量子可以同时展开所有可能性，生成一朵"概率云"——这个60%可能、那个30%可能，让系统更有"人味"，不会强迫你接受单一方案。</td>
+  <td>量子叠加态同时探索多路径<br>概率振幅 → 概率分布<br>用于路由决策<br><br><span class="tag tag-q">最天然的量子优势</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-q">量子②</span><br>记忆量子压缩</td>
+  <td><span class="tag tag-bone">骨④</span><br>信息论</td>
+  <td><strong>把一本书压缩成一句话，需要时还能展开成一本书。</strong><br><br>量子态叠加允许用极少的"位"存储大量信息。长期记忆压成量子态，需要回忆时再展开。而且压缩后还能验证"原始意图没被改过"——这就是你说的"记忆永生"的数学基础。</td>
+  <td>量子态叠加用于存储压缩<br>结合DNA留痕验证<br>semantic_compression 高阶版本<br><br><span class="tag tag-q">记忆永生的底层</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-q">量子③</span><br>全局最优搜索</td>
+  <td><span class="tag tag-bone">骨③</span><br>优化论</td>
+  <td><strong>经典优化容易掉进"局部最优"的坑，量子能跳出来。</strong><br><br>就像你找饭馆——经典算法可能找到附近最好的，但不知道隔壁街有更好的。量子退火算法能"穿墙"，有更大机会找到全局最优。用在"一句话生成复杂系统"这种场景特别合适。</td>
+  <td>量子退火 / VQE<br>变分量子算法<br>用于复杂约束下的路径搜索<br><br><span class="tag tag-q">复杂需求的加速器</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-q">量子④</span><br>真实感渲染</td>
+  <td><span class="tag tag-bone">骨⑤</span><br>变换系统</td>
+  <td><strong>量子随机数比伪随机数更"自然"。</strong><br><br>计算机生成的随机数其实是"假随机"，有规律。量子随机数是真正的随机，用来生成更自然的光影、噪声、水滴效果。AR体验会更真实。但只做辅助，硬件不可用时自动回退到经典模拟。</td>
+  <td>QRNG量子随机数<br>量子模拟（物理行为）<br>AR/视觉辅助<br><br><span class="tag tag-q">可回退到经典</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-q">量子⑤</span><br>不可篡改留痕</td>
+  <td>原点不动点<br>+ 审计层</td>
+  <td><strong>量子态的"观测即改变"特性，用来保护你的原始记录。</strong><br><br>量子纠缠有个特性：偷看就会留下痕迹。用在DNA追溯码上，意味着任何人试图篡改你的记录，系统都能察觉。这是理论上最强的"不可篡改"保证。</td>
+  <td>量子纠缠验证<br>量子密钥分发(QKD)概念<br>不可复制定理<br><br><span class="tag tag-q">你最在意的部分</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 专属公式 ========== -->
+<div class="section-header s-formula"><span>📐</span> CNSH 专属内核公式 · 你自己的数学</div>
+<table>
+<thead><tr><th style="width:18%">公式名称</th><th style="width:25%">数学表达</th><th style="width:32%">大白话</th><th style="width:25%">在系统里干啥</th></tr></thead>
+<tbody>
+<tr>
+  <td>原点不动点</td>
+  <td><div class="formula-box">f(x₀) = x₀</div></td>
+  <td><strong>"不管怎么变，核心不能变。"</strong>不管系统跑多少次、经历多少版本，你的初心（x₀）永远是起点和终点。回滚、验证、审计——都回到这个点。</td>
+  <td>系统回滚核心<br>快照验证的锚点<br>DNA追溯的"根"</td>
+</tr>
+<tr>
+  <td>三才校验</td>
+  <td><div class="formula-box">SC = Heaven ∧ Earth ∧ Human</div></td>
+  <td><strong>"天地人三个条件都满足才放行。"</strong>天=输入合法，地=处理正确，人=符合意愿。三个都打勾才通过，少一个就拦下来。</td>
+  <td>过滤非法路径<br>shield_engine 三重验证<br>入口门+出口门都用</td>
+</tr>
+<tr>
+  <td>流场方程</td>
+  <td><div class="formula-box">Flow = Σ (信息 × 权重 × 时间)</div></td>
+  <td><strong>"信息像水一样流动，流量=信息量×重要性×时间。"</strong>重要的信息权重高，流得快；时间越久，有些信息流速会变慢（自然遗忘）。三才流場的数学核心。</td>
+  <td>三才流場可视化<br>LU-TIME时间推演<br>信息流动态监测</td>
+</tr>
+<tr>
+  <td>能量函数</td>
+  <td><div class="formula-box">E = R × I × T<sup>-α</sup></div></td>
+  <td><strong>"系统的能量=资源×信息÷时间的衰减。"</strong>R=资源（你有多少工具），I=信息（你掌握多少知识），T=时间（越久衰减越大，所以要及时行动）。α控制衰减速度。</td>
+  <td>系统健康度评估<br>任务紧急度排序<br>决策优先级计算</td>
+</tr>
+<tr>
+  <td>数字根熔断</td>
+  <td><div class="formula-box">dr(n) = 1 + ((n-1) mod 9)<br>绿区{1,2,4,5,7,8} 黄{6} 红{3,9}</div></td>
+  <td><strong>"用洛书369给内容算命。"</strong>算出数字根，落在绿区放行，黄区人审，红区熔断。最高优先级的安全开关——比任何其他检查都先跑。</td>
+  <td>shield_engine.py<br>DigitalRootFuse<br>双盾第一道关</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 量子使用原则 ========== -->
+<div class="section-header s-quantum"><span>⚖️</span> 量子层铁律 · 五条不可违反的规则</div>
+<table>
+<thead><tr><th style="width:15%">原则</th><th style="width:45%">大白话</th><th style="width:40%">怎么执行</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-green">有度</span><br>按需启用</td>
+  <td>量子计算平时<strong>关着的</strong>。只有经典计算明显搞不定时才开。用完就关。不炫技、不浪费。</td>
+  <td>默认 quantum_layer = OFF<br>触发条件明确写在路由配置里<br>没触发条件 = 不启动</td>
+</tr>
+<tr>
+  <td><span class="tag tag-red">不测真人</span><br>绝不用人当小白鼠</td>
+  <td>所有量子实验只在<strong>模拟数据</strong>或<strong>你自己的测试环境</strong>中跑，绝不拿真人的真实数据做量子训练。</td>
+  <td>沙盒隔离<br>测试数据标记 is_synthetic=True<br>违反即 🔴 熔断</td>
+</tr>
+<tr>
+  <td><span class="tag tag-bone">留痕</span><br>每次调用都记录</td>
+  <td>每次用量子层，必须记下来：<strong>为什么用？用了哪部分？结果怎样？</strong>生成DNA追溯码。</td>
+  <td>quantum_audit_log<br>DNA追溯码必带 TYPE=QUANTUM<br>三色审计覆盖</td>
+</tr>
+<tr>
+  <td><span class="tag tag-bridge">透明</span><br>告诉用户</td>
+  <td>如果某一步用了量子辅助，必须<strong>明确告诉用户</strong>"这一步用了量子"。不隐瞒、不装神秘。</td>
+  <td>输出结果标记 [quantum_assisted]<br>UI上显示量子图标</td>
+</tr>
+<tr>
+  <td><span class="tag tag-yellow">回退</span><br>永远有Plan B</td>
+  <td>量子硬件挂了？没关系，<strong>自动回退到经典算法</strong>，系统照常运行。量子是加分项，不是必需品。</td>
+  <td>fallback_to_classical = True<br>所有量子函数都有经典等价实现</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 三色审计 ========== -->
+<div class="section-header s-audit"><span>🚦</span> 三色审计 · 整个骨架的健康度</div>
+<table>
+<thead><tr><th style="width:8%">颜色</th><th style="width:40%">当前状态</th><th style="width:52%">下一步建议</th></tr></thead>
+<tbody>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td><strong>骨架完整，可扩展。</strong>五大数学核心 + 四大桥接层 + 量子层定位已清晰。系统脊柱已成型。</td>
+  <td>继续按这个骨架搭建，新模块必须挂在五根骨头上，不允许"无骨模块"出现。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟡</td>
+  <td><strong>视觉/音频接入待完善。</strong>变换系统（骨⑤）目前只在Chrome工具箱里有简单实现，AR/声音层还没接上。</td>
+  <td>优先完成：字体变换引擎 → 音频处理模块 → AR手势联动。按骨⑤框架接入。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🔴</td>
+  <td><strong>风险：无限扩散。</strong>如果不锁死核心5大数学，系统容易什么都想做、什么都做不好。违背"万事有度"。</td>
+  <td>任何新功能上线前，必须回答："它挂在哪根骨头上？"回答不出来 = 不做。</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 一句话总结 ========== -->
+<div class="summary">
+<h2>一句话总结</h2>
+<div class="flow-line">
+  <div class="flow-box"><div class="top" style="color:#fbbf24;">人类意志</div>你说的话</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box math"><div class="top" style="color:#22d3ee;">数学结构</div>5根骨头处理</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box quantum"><div class="top" style="color:#f472b6;">量子辅助</div>不确定性处理</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#a78bfa;">路由</div>谁来干</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#a78bfa;">方法</div>怎么干</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#60a5fa;">执行</div>真正干</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#4ade80;">审计留痕</div>DNA记录</div>
+</div>
+<p style="text-align:center; margin-top:1rem; font-size:0.9rem; color:#e0e0e0;">
+  在你的龍魂系统里，量子计算不是"更强大的大脑"，<br>
+  而是帮助系统在<strong style="color:#f472b6;">不确定性、压缩、真实感、原点守护</strong>上做得更好的一把辅助工具。<br>
+  它必须服务于<strong style="color:#fbbf24;">"有心、有度、让普通人能开心记忆永生"</strong>这个最终目标。
+</p>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰<br>
+  CNSH 数学骨架 v2.0 + 量子计算 v1.0 · 术语对照表<br>
+  #龍芯⚡️20260415-DOC-CNSH-MATH-QC · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+</div>
+
+</div>
+</body>
+</html>

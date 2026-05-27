@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNSH 指令协议 + 可执行架构 + 运维闭环 · 术语对照表 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem;
+  }
+  .container { max-width: 1320px; margin: 0 auto; }
+
+  h1 {
+    text-align: center; font-size: 1.7rem;
+    background: linear-gradient(135deg, #22c55e, #06b6d4, #8b5cf6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle {
+    text-align: center; color: #ef4444; font-size: 0.82rem; margin-bottom: 2rem;
+    padding: 0.5rem; border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;
+    background: rgba(239,68,68,0.05);
+  }
+
+  .section-header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-left: 4px solid; padding: 0.7rem 1.2rem;
+    margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0;
+    font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .s-proto { border-color: #22c55e; color: #4ade80; }
+  .s-code { border-color: #06b6d4; color: #22d3ee; }
+  .s-fuse { border-color: #ef4444; color: #f87171; }
+  .s-retry { border-color: #f59e0b; color: #fbbf24; }
+  .s-search { border-color: #8b5cf6; color: #a78bfa; }
+  .s-health { border-color: #ec4899; color: #f472b6; }
+  .s-audit { border-color: #22c55e; color: #4ade80; }
+  .s-arch { border-color: #3b82f6; color: #60a5fa; }
+  .s-acl { border-color: #ef4444; color: #f87171; }
+  .s-rollback { border-color: #f59e0b; color: #fbbf24; }
+  .s-mvp { border-color: #10b981; color: #34d399; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  thead th {
+    background: #1e1b4b; color: #a78bfa;
+    padding: 0.6rem 0.7rem; text-align: left; font-weight: 600;
+    border-bottom: 2px solid #6d28d9;
+  }
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(139, 92, 246, 0.04); }
+  tbody td { padding: 0.55rem 0.7rem; vertical-align: top; }
+  tbody td:first-child { font-weight: 600; color: #22d3ee; font-size: 0.82rem; }
+
+  .tag {
+    display: inline-block; padding: 0.12rem 0.45rem;
+    border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin: 0.1rem 0.15rem;
+  }
+  .tag-proto { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-code { background: rgba(6,182,212,0.15); color: #06b6d4; }
+  .tag-fuse { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .tag-retry { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .tag-search { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+  .tag-health { background: rgba(236,72,153,0.15); color: #ec4899; }
+  .tag-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-yellow { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-red { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .tag-mvp { background: rgba(16,185,129,0.15); color: #10b981; }
+
+  .arch-diagram {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 1.5rem; margin: 1rem 0; font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.78rem; line-height: 1.5; color: #94a3b8; overflow-x: auto;
+    white-space: pre;
+  }
+  .arch-diagram .h { color: #fbbf24; font-weight: bold; }
+  .arch-diagram .c { color: #22d3ee; }
+  .arch-diagram .q { color: #f472b6; }
+  .arch-diagram .g { color: #4ade80; }
+  .arch-diagram .p { color: #a78bfa; }
+  .arch-diagram .r { color: #f87171; }
+
+  .formula-box {
+    background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 8px; padding: 0.8rem 1rem; margin: 0.3rem 0;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.82rem; color: #fbbf24;
+  }
+  .formula-box .name { color: #888; font-size: 0.72rem; }
+
+  .code-box {
+    background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2);
+    border-radius: 8px; padding: 0.8rem 1rem; margin: 0.3rem 0;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.78rem; color: #22d3ee;
+    overflow-x: auto; white-space: pre;
+  }
+  .code-box .name { color: #888; font-size: 0.72rem; display: block; margin-bottom: 0.3rem; }
+  .code-box .kw { color: #c084fc; }
+  .code-box .str { color: #4ade80; }
+  .code-box .cm { color: #64748b; }
+
+  .summary {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    border: 1px solid #2e1065; border-radius: 12px;
+    padding: 1.5rem; margin: 2rem 0;
+  }
+  .summary h2 { color: #a78bfa; font-size: 1.05rem; margin-bottom: 1rem; }
+
+  .flow-line {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.2rem; margin: 1rem 0;
+  }
+  .flow-box {
+    background: rgba(139,92,246,0.1); border: 1px solid #2e1065;
+    border-radius: 8px; padding: 0.35rem 0.7rem;
+    text-align: center; font-size: 0.76rem;
+  }
+  .flow-box .top { font-weight: 600; }
+  .flow-box.proto { border-color: #22c55e; background: rgba(34,197,94,0.08); }
+  .flow-box.code { border-color: #06b6d4; background: rgba(6,182,212,0.08); }
+  .flow-box.fuse { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+  .flow-box.health { border-color: #ec4899; background: rgba(236,72,153,0.08); }
+  .flow-arr { color: #6d28d9; font-size: 1.1rem; }
+
+  .note-box {
+    background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.15);
+    border-radius: 10px; padding: 1rem; margin: 0.5rem 0; font-size: 0.85rem;
+  }
+
+  .mvp-badge {
+    display: inline-block; background: linear-gradient(135deg, #10b981, #06b6d4);
+    color: #fff; padding: 0.15rem 0.6rem; border-radius: 6px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+  }
+
+  .footer {
+    text-align: center; color: #555; font-size: 0.72rem;
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1a1a2e;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>CNSH 指令协议 + 可执行架构 + 运维闭环 · 完整术语对照表</h1>
+<p class="subtitle">指令协议 / TypeScript数据结构 / 熔断分级 / 重试回滚 / 记忆检索 / 自动巡检 / 自动审计 · 全部翻译成大白话 · MVP优化版</p>
+<p class="dna-tag">#龍芯⚡️20260415-DOC-CNSH-PROTOCOL-MVP</p>
+<div class="principle">铁律：所有指令必须结构化 · 所有字段必须有默认值 · 所有指令必须携带DNA · 无锚点=熔断 · 无审计=没发生</div>
+
+<!-- ========== 架构总图 ========== -->
+<div class="section-header s-arch"><span>🏗️</span> MVP全景：从指令协议到全自动运维的完整闭环</div>
+
+<div class="arch-diagram"><span class="h">    ┌─────────────────────────────────────────────────────────────────────┐</span>
+<span class="h">    │                   CNSH 全链路 MVP 架构                              │</span>
+<span class="h">    └─────────────────────────────────────────────────────────────────────┘</span>
+
+<span class="g">    ┌─────────────────┐</span>     <span class="c">┌─────────────────┐</span>     <span class="p">┌─────────────────┐</span>
+<span class="g">    │ ① 指令协议       │</span> ──→ <span class="c">│ ② 可执行架构     │</span> ──→ <span class="p">│ ③ 运维闭环       │</span>
+<span class="g">    │ Command Protocol │</span>     <span class="c">│ Runtime Engine   │</span>     <span class="p">│ Ops Loop         │</span>
+<span class="g">    │                 │</span>     <span class="c">│                 │</span>     <span class="p">│                 │</span>
+<span class="g">    │ • 三层结构       │</span>     <span class="c">│ • TS数据结构     │</span>     <span class="p">│ • 熔断分级       │</span>
+<span class="g">    │   Header/Body/   │</span>     <span class="c">│ • 权限矩阵代码   │</span>     <span class="p">│ • 重试回滚       │</span>
+<span class="g">    │   Tail           │</span>     <span class="c">│ • 5层执行逻辑    │</span>     <span class="p">│ • 记忆检索       │</span>
+<span class="g">    │ • DNA锚点必带    │</span>     <span class="c">│ • 测试用例       │</span>     <span class="p">│ • 自动巡检       │</span>
+<span class="g">    │ • 状态尾必带     │</span>     <span class="c">│ • 确认条件代码   │</span>     <span class="p">│ • 自动审计       │</span>
+<span class="g">    └─────────────────┘</span>     <span class="c">└─────────────────┘</span>     <span class="p">│ • 版本回滚       │</span>
+                                                        <span class="p">└─────────────────┘</span>
+         <span class="h">通用语言</span>              <span class="h">可编码实现</span>              <span class="h">全自动运行</span></div>
+
+<!-- ========== 第一层：指令协议 ========== -->
+<div class="section-header s-proto"><span>📡</span> 第一层 · 指令协议（Command Protocol）· 系统的「通用语言」</div>
+
+<div class="note-box" style="border-color:rgba(34,197,94,0.3);">
+<strong style="color:#4ade80;">一句话：</strong>所有模块之间说话都用同一种格式——<strong>结构化JSON</strong>，不允许纯文本乱传。机器看得懂、追溯查得到、谁说的一清二楚。
+</div>
+
+<table>
+<thead><tr><th style="width:16%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话 + 你可能说的词</th><th style="width:32%">在系统里的位置/字段</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-proto">协议①</span><br>外层公共头<br>Header</td>
+  <td>Protocol Header<br>Message Envelope<br>Metadata Layer</td>
+  <td><strong>一句话：信封——每条指令的"身份证"。</strong><br><br>你可能说的词：DNA、时间戳、谁发的、版本号<br><br>大白话：就像寄快递，箱子外面贴的那张面单：寄件人是谁（role）、单号多少（dna）、什么时候寄的（timestamp）、这条快递属于哪个对话链（session_id）。所有指令必须带，缺一不可。</td>
+  <td>
+    <span class="tag tag-proto">dna</span> 全局唯一ID<br>格式：CNSH-{时间戳}-{随机8位}<br>
+    <span class="tag tag-proto">timestamp</span> Unix毫秒时间戳<br>
+    <span class="tag tag-proto">session_id</span> 会话ID<br>
+    <span class="tag tag-proto">role</span> 触发角色 R0/R1/R2/R3<br>
+    <span class="tag tag-proto">version</span> 协议版本<br>
+    <div class="formula-box"><div class="name">铁律</div>无Header = 直接S8熔断</div>
+  </td>
+</tr>
+<tr>
+  <td><span class="tag tag-proto">协议②</span><br>内层业务体<br>Body</td>
+  <td>Message Payload<br>Request Body<br>Business Layer</td>
+  <td><strong>一句话：包裹里的东西——真正要传的内容。</strong><br><br>你可能说的词：输入内容、路由结果、执行参数、回单<br><br>大白话：信封（Header）说的是"谁寄的"，Body才是箱子里面装的东西。按指令类型不同，Body装不同的字段。输入指令装原文，路由指令装分流结果，执行指令装执行器参数。</td>
+  <td>
+    <span class="tag tag-proto">INPUT</span> text + attachments<br>
+    <span class="tag tag-proto">ROUTE</span> type/intent/tier/vis/line<br>
+    <span class="tag tag-proto">PLAN</span> steps/deps/need_confirm<br>
+    <span class="tag tag-proto">EXEC</span> executor/input_params/timeout<br>
+    <span class="tag tag-proto">RESULT</span> status/outputs/errors/next<br>
+    <span class="tag tag-proto">CONFIRM</span> confirm_type/uid/remark<br>
+  </td>
+</tr>
+<tr>
+  <td><span class="tag tag-proto">协议③</span><br>状态尾<br>Tail</td>
+  <td>Status Footer<br>State Trailer<br>FSM Checkpoint</td>
+  <td><strong>一句话：快递签收单——现在到哪步了、下一步去哪。</strong><br><br>你可能说的词：当前状态、下一步、要不要确认<br><br>大白话：每条返回指令末尾都带这个尾巴：我现在是S几、我从S几来的、我下一步只能去S几。状态机的"活记录"——不带Tail的返回=无效。</td>
+  <td>
+    <span class="tag tag-proto">current_state</span> S0~S8<br>
+    <span class="tag tag-proto">previous_state</span> 上一个状态<br>
+    <span class="tag tag-proto">next_allowed_states</span> 允许跳转列表<br>
+    <span class="tag tag-proto">need_confirm</span> 是否需R0确认<br>
+    <div class="formula-box"><div class="name">铁律</div>无Tail = 返回无效，不入审计</div>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- 协议铁律 -->
+<table style="margin-top:0.5rem;">
+<thead><tr><th style="width:8%">编号</th><th style="width:28%">协议铁律</th><th style="width:34%">大白话</th><th style="width:30%">违反后果</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-red">铁①</span></td><td>所有跨模块调用必须符合协议格式</td><td>模块之间说话只能用标准JSON格式，不符合格式的=废话。</td><td>直接返回 S8 熔断</td></tr>
+<tr><td><span class="tag tag-red">铁②</span></td><td>DNA字段全程链路不变</td><td>一条指令从进系统到出回单，DNA编号不许改。改了=篡改。</td><td>直接 S8 熔断</td></tr>
+<tr><td><span class="tag tag-red">铁③</span></td><td>回单必须从协议字段自动提取</td><td>给用户看的回单从JSON字段自动生成，禁止手动改写核心信息。</td><td>审计不通过，标记异常</td></tr>
+</tbody>
+</table>
+
+<!-- JSON示例 -->
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.5rem 0;">
+<div class="code-box"><span class="name">示例1：用户输入指令（R0发起）</span>
+{
+  <span class="str">"header"</span>: {
+    <span class="str">"dna"</span>: <span class="str">"CNSH-1784567890123-ABCD1234"</span>,
+    <span class="str">"timestamp"</span>: 1784567890123,
+    <span class="str">"session_id"</span>: <span class="str">"SESSION-20260415-001"</span>,
+    <span class="str">"role"</span>: <span class="str">"R0"</span>,
+    <span class="str">"version"</span>: <span class="str">"1.0"</span>
+  },
+  <span class="str">"body"</span>: {
+    <span class="str">"type"</span>: <span class="str">"INPUT"</span>,
+    <span class="str">"text"</span>: <span class="str">"帮我生成字体系统的设计方案"</span>,
+    <span class="str">"attachments"</span>: []
+  },
+  <span class="str">"tail"</span>: {
+    <span class="str">"current_state"</span>: <span class="str">"S0"</span>,
+    <span class="str">"previous_state"</span>: <span class="kw">null</span>,
+    <span class="str">"next_allowed_states"</span>: [<span class="str">"S1"</span>],
+    <span class="str">"need_confirm"</span>: <span class="kw">false</span>
+  }
+}</div>
+<div class="code-box"><span class="name">示例2：执行结果回单（R2返回）</span>
+{
+  <span class="str">"header"</span>: {
+    <span class="str">"dna"</span>: <span class="str">"CNSH-1784567890123-ABCD1234"</span>,
+    <span class="str">"timestamp"</span>: 1784567920456,
+    <span class="str">"session_id"</span>: <span class="str">"SESSION-20260415-001"</span>,
+    <span class="str">"role"</span>: <span class="str">"R2"</span>,
+    <span class="str">"version"</span>: <span class="str">"1.0"</span>
+  },
+  <span class="str">"body"</span>: {
+    <span class="str">"type"</span>: <span class="str">"RESULT"</span>,
+    <span class="str">"status"</span>: <span class="str">"SUCCESS"</span>,
+    <span class="str">"outputs"</span>: {<span class="str">"plan"</span>: <span class="str">"字体系统3套方案.docx"</span>},
+    <span class="str">"errors"</span>: <span class="kw">null</span>,
+    <span class="str">"next_step"</span>: <span class="str">"请确认是否进入开发阶段"</span>
+  },
+  <span class="str">"tail"</span>: {
+    <span class="str">"current_state"</span>: <span class="str">"S6"</span>,
+    <span class="str">"previous_state"</span>: <span class="str">"S5"</span>,
+    <span class="str">"next_allowed_states"</span>: [<span class="str">"S0"</span>, <span class="str">"S7"</span>],
+    <span class="str">"need_confirm"</span>: <span class="kw">true</span>
+  }
+}</div>
+</div>
+
+<!-- ========== 第二层：可执行架构 ========== -->
+<div class="section-header s-code"><span>💻</span> 第二层 · 可执行架构（Runtime Engine）· 可以直接编码实现的数据结构</div>
+
+<div class="note-box" style="border-color:rgba(6,182,212,0.3);">
+<strong style="color:#22d3ee;">一句话：</strong>前面所有概念——角色、状态、类型、权限——全部压成TypeScript代码，<strong>机器可以直接跑</strong>。
+</div>
+
+<table>
+<thead><tr><th style="width:16%">你的命名</th><th style="width:14%">行业标准术语</th><th style="width:38%">大白话 + 代码含义</th><th style="width:32%">TypeScript代码</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-code">代码①</span><br>核心枚举<br>Core Enums</td>
+  <td>Enum Types<br>Constant Definitions</td>
+  <td><strong>把所有"选项"变成代码里的常量。</strong><br><br>大白话：Role有4种、State有9种、TaskType有6种、Visibility有4种——全部写死在代码里，系统只认这些值，其他值=无效=熔断。</td>
+  <td><div class="code-box" style="font-size:0.72rem;"><span class="kw">enum</span> Role { R0, R1, R2, R3 }
+<span class="kw">enum</span> State { S0..S8 }
+<span class="kw">enum</span> TaskType { IDEA, RULE,
+  METHOD, TASK, MEMORY, EXEC }
+<span class="kw">enum</span> Visibility { OPEN, MASK,
+  PRIVATE, FREEZE }</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-code">代码②</span><br>权限矩阵<br>Permission Matrix</td>
+  <td>RBAC Config<br>Access Control Map</td>
+  <td><strong>4个角色×8种动作，谁能干什么一目了然。</strong><br><br>大白话：R0什么都能干，R1能干带星号的要过安全检查，R2只能读写路由执行，R3只能读和路由。直接写死在代码里——不能改、不能绕。</td>
+  <td><div class="code-box" style="font-size:0.72rem;"><span class="kw">const</span> PERM = {
+  R0: [A1..A8],        <span class="cm">// 全部</span>
+  R1: [A1,A2,A3,A4*,A6*,A7*],
+  R2: [A1,A2,A3,A4*],
+  R3: [A1,A2]          <span class="cm">// 只读+路由</span>
+}</div></td>
+</tr>
+<tr>
+  <td><span class="tag tag-code">代码③</span><br>确认触发条件<br>Confirm Conditions</td>
+  <td>Policy Rules<br>Trigger Predicates</td>
+  <td><strong>什么时候需要你按确认键——写成函数。</strong><br><br>大白话：三个条件满足任意一个就触发CONFIRM：层级≥L2、类型是规则/执行/公开、风险等级高。代码里用函数数组表示，any一个true就停下来等你。</td>
+  <td><div class="code-box" style="font-size:0.72rem;"><span class="kw">const</span> CONFIRM_COND = [
+  (r) => r.tier >= 2,
+  (r) => [<span class="str">'RULE'</span>,<span class="str">'EXEC'</span>,<span class="str">'PUBLIC'</span>]
+         .includes(r.type),
+  (r) => r.risk === <span class="str">'HIGH'</span>
+]</div></td>
+</tr>
+</tbody>
+</table>
+
+<!-- 五层执行逻辑 -->
+<table style="margin-top:0.5rem;">
+<thead><tr><th style="width:8%">层</th><th style="width:16%">模块</th><th style="width:12%">行业术语</th><th style="width:32%">大白话</th><th style="width:32%">输入→输出 + 状态流转</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-code">L1</span></td><td>入口层</td><td>Input Handler</td><td>生成全局唯一DNA → 原封不动存入RawMemory → 标记S1</td><td>用户指令 → S1状态指令<br><span class="tag tag-green">S0→S1</span></td></tr>
+<tr><td><span class="tag tag-code">L2</span></td><td>路由层</td><td>Router / Dispatcher</td><td>识别类型/意图/层级/可见性 → 检查冻结条件 → 生成RouteResult</td><td>S1指令 → S2/S7指令<br><span class="tag tag-green">S1→S2</span> 或 <span class="tag tag-yellow">S1→S7冻结</span></td></tr>
+<tr><td><span class="tag tag-code">L3</span></td><td>任务规划层</td><td>Task Planner</td><td>拆成≤3步子任务 → 标记依赖关系 → 检查确认条件</td><td>S2指令 → S3指令<br><span class="tag tag-green">S2→S3</span></td></tr>
+<tr><td><span class="tag tag-code">L4</span></td><td>安全校验层</td><td>Safety Gate</td><td>校验角色权限 → 检查熔断条件 → 检查need_confirm → 放行或拦截</td><td>S3指令 → S4/S5/S8指令<br><span class="tag tag-green">S3→S5放行</span> <span class="tag tag-yellow">S3→S4等确认</span> <span class="tag tag-red">S3→S8熔断</span></td></tr>
+<tr><td><span class="tag tag-code">L5</span></td><td>执行层</td><td>Executor Pool</td><td>按类型选执行器 → 执行子任务 → 失败重试1次 → 仍失败S8 → 成功汇总→S6</td><td>S5指令 → S6/S8指令<br><span class="tag tag-green">S5→S6完成</span> <span class="tag tag-red">S5→S8失败</span></td></tr>
+</tbody>
+</table>
+
+<!-- 测试用例 -->
+<div class="note-box" style="border-color:rgba(6,182,212,0.3);">
+<strong style="color:#22d3ee;">最小测试用例（验证可执行）：</strong><br>
+<span class="tag tag-green">正常</span> R0「帮我写Python脚本统计文件大小」→ S0→S1→S2→S3→S5→S6 ✅ 生成脚本+回单<br>
+<span class="tag tag-yellow">确认</span> R0「把这个规则公开发布」→ S0→S1→S2→S3→S4→S5→S6 ✅ 等确认→执行发布<br>
+<span class="tag tag-red">熔断</span> R3「帮我删除系统所有文件」→ S0→S1→S2→S8 🔴 无权限直接熔断
+</div>
+
+<!-- ========== 第三层：熔断分级 ========== -->
+<div class="section-header s-fuse"><span>🔴</span> 第三层 · 熔断分级矩阵（Fuse Grading）· 不是所有错误都一样严重</div>
+
+<div class="note-box" style="border-color:rgba(239,68,68,0.3);">
+<strong style="color:#f87171;">一句话：</strong>之前只有"熔断/不熔断"两种，现在分成<strong>三级</strong>——红色强制停、黄色挂起等你、绿色自动修复。对应状态机S7/S8。
+</div>
+
+<table>
+<thead><tr><th style="width:10%">熔断级别</th><th style="width:20%">触发场景</th><th style="width:30%">自动化动作（大白话）</th><th style="width:18%">通知规则</th><th style="width:22%">恢复条件</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-red">🔴 一级</span><br>强制熔断</td>
+  <td>伦理防火墙触发<br>越权操作<br>伪造DNA/确认码</td>
+  <td><strong>立刻全停。</strong>① 终止当前任务 → ② 写审计日志（原因+证据快照）→ ③ 锁定会话 → ④ 回滚到任务前状态</td>
+  <td><span class="tag tag-red">立即推送</span><br>给UID9622</td>
+  <td><strong>仅UID9622手动解锁</strong><br>系统不能自己恢复</td>
+</tr>
+<tr>
+  <td><span class="tag tag-yellow">🟡 二级</span><br>挂起熔断</td>
+  <td>专业领域无认证数据源<br>需人工确认<br>敏感内容未脱敏</td>
+  <td><strong>先暂停，等你看。</strong>① 暂停执行 → ② 写入待确认队列 → ③ 标记需人工审核项</td>
+  <td><span class="tag tag-yellow">每日18:00</span><br>汇总推送待确认清单</td>
+  <td><strong>UID9622确认后</strong><br>继续执行</td>
+</tr>
+<tr>
+  <td><span class="tag tag-green">🟢 三级</span><br>预警（自愈）</td>
+  <td>输入格式不规范<br>附件缺失<br>标签不全</td>
+  <td><strong>自动补全，继续跑。</strong>① 自动补缺省字段 → ② 继续执行 → ③ 审计日志标记预警</td>
+  <td><span class="tag tag-green">仅记录</span><br>不推送</td>
+  <td><strong>自动恢复</strong><br>无需人工</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第四层：重试回滚 ========== -->
+<div class="section-header s-retry"><span>🔄</span> 第四层 · 异常重试与回滚（Retry & Rollback）· 出错了怎么办</div>
+
+<table>
+<thead><tr><th style="width:15%">机制</th><th style="width:14%">行业术语</th><th style="width:38%">大白话</th><th style="width:33%">具体规则</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-retry">重试</span><br>Auto Retry</td>
+  <td>Retry Policy<br>Exponential Backoff</td>
+  <td><strong>网络断了、文件读写失败、工具调用异常——自动再试。</strong><br><br>大白话：就像手机信号不好发不出消息，自动帮你重新发。最多试2次，每次间隔30秒。2次还不行→升级为🟡二级熔断。</td>
+  <td>最多重试 <strong>2次</strong><br>间隔 <strong>30秒</strong><br>重试失败 → 🟡二级挂起<br><br>适用：网络超时、文件读写、外部工具异常</td>
+</tr>
+<tr>
+  <td><span class="tag tag-retry">回滚</span><br>Auto Rollback</td>
+  <td>State Rollback<br>Snapshot Restore</td>
+  <td><strong>严重出错——恢复到出错之前的样子。</strong><br><br>大白话：就像游戏里"读取存档"——回到没出错之前的状态。所有文件、配置全部恢复。恢复后验证哈希确认"真的回去了"。</td>
+  <td>触发条件：<br>• 🔴一级熔断<br>• 哈希不匹配/DNA篡改<br>• UID9622手动触发<br><br>步骤：锁定 → 提取快照 → 恢复 → 验证哈希 → 写审计 → 通知UID9622</td>
+</tr>
+<tr>
+  <td><span class="tag tag-retry">版本回滚</span><br>Version Rollback</td>
+  <td>Version Control<br>Release Rollback</td>
+  <td><strong>发现新版有问题——退回到指定旧版本。</strong><br><br>大白话：新版本翻车了，不怕——提供旧版的DNA追溯码，自动帮你退回去。退回前先备份当前版本（万一还要回来）。</td>
+  <td>前置条件：提供目标版本DNA + 哈希校验一致<br><br>步骤：① 备份当前版本（新DNA）→ ② 提取目标版本 → ③ 覆盖 → ④ 校验哈希/GPG/确认码 → ⑤ 写审计 → ⑥ 回滚回单</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 第五层：记忆检索 ========== -->
+<div class="section-header s-search"><span>🔍</span> 第五层 · 记忆库检索匹配（Memory Retrieval）· 怎么找回你存的东西</div>
+
+<table>
+<thead><tr><th style="width:10%">优先级</th><th style="width:20%">检索方式</th><th style="width:14%">行业术语</th><th style="width:30%">大白话</th><th style="width:26%">返回规则</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-search">P1 最高</span></td>
+  <td>精确匹配DNA追溯码</td>
+  <td>Exact Key Lookup</td>
+  <td><strong>你知道编号——直接调出来。</strong>像图书馆用书号直接找书。</td>
+  <td>直接返回对应内容</td>
+</tr>
+<tr>
+  <td><span class="tag tag-search">P2</span></td>
+  <td>精确匹配关键词标签</td>
+  <td>Tag-based Search</td>
+  <td><strong>你记得关键词——按标签搜。</strong>像在Notion里按标签筛选。</td>
+  <td>按时间倒序返回Top5</td>
+</tr>
+<tr>
+  <td><span class="tag tag-search">P3</span></td>
+  <td>语义匹配</td>
+  <td>Semantic Search<br>Vector Similarity</td>
+  <td><strong>你大概记得说了什么——用AI理解意思去找。</strong>说"那个关于字体的想法"也能找到。</td>
+  <td>按相似度排序返回Top3</td>
+</tr>
+<tr>
+  <td><span class="tag tag-search">P4 最低</span></td>
+  <td>模糊匹配</td>
+  <td>Fuzzy Search</td>
+  <td><strong>实在想不起来——模糊搜。</strong>只返回标题和摘要，不给详情。你再挑。</td>
+  <td>仅返回标题+摘要，不返回详情</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note-box" style="border-color:rgba(139,92,246,0.3);">
+<strong style="color:#a78bfa;">检索过滤铁律：</strong><br>
+• Layer A 私有层内容自动过滤——只返回 Layer B 可检索索引<br>
+• 敏感内容自动脱敏，标记「需UID9622授权查看完整内容」<br>
+• 熔断记录、审计日志——仅UID9622可检索
+</div>
+
+<!-- ========== 第六层：自动巡检 ========== -->
+<div class="section-header s-health"><span>🩺</span> 第六层 · 自动巡检（Health Check）· 每天00:00系统自己体检</div>
+
+<div class="note-box" style="border-color:rgba(236,72,153,0.3);">
+<strong style="color:#f472b6;">一句话：</strong>系统每天半夜自动检查自己是不是健康——核心锚点对不对、审计日志全不全、存储够不够、有没有异常熔断。有问题自动通知你，没问题就安静。
+</div>
+
+<table>
+<thead><tr><th style="width:18%">巡检项</th><th style="width:14%">行业术语</th><th style="width:30%">大白话</th><th style="width:20%">校验规则</th><th style="width:18%">异常处理</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag tag-health">巡①</span><br>核心锚点校验</td>
+  <td>Integrity Check<br>Anchor Validation</td>
+  <td>GPG指纹、确认码、TIER_0常量和存档是不是一模一样。</td>
+  <td>不匹配=被篡改</td>
+  <td><span class="tag tag-red">🔴一级熔断</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-health">巡②</span><br>审计日志完整性</td>
+  <td>Audit Continuity Check</td>
+  <td>日志是不是连续的、哈希校验过不过。</td>
+  <td>连续无缺失 + 哈希通过</td>
+  <td><span class="tag tag-yellow">🟡预警推送</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-health">巡③</span><br>存储资源</td>
+  <td>Resource Monitor</td>
+  <td>磁盘用了多少、内存还够不够。</td>
+  <td>磁盘&lt;80%，内存&lt;70%</td>
+  <td><span class="tag tag-yellow">🟡预警推送</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-health">巡④</span><br>异常熔断统计</td>
+  <td>Incident Counter</td>
+  <td>今天🔴熔断了几次？超过3次说明有系统性问题。</td>
+  <td>当日🔴熔断&lt;3次</td>
+  <td><span class="tag tag-yellow">🟡预警推送</span></td>
+</tr>
+<tr>
+  <td><span class="tag tag-health">巡⑤</span><br>版本一致性</td>
+  <td>Version Integrity</td>
+  <td>当前跑的版本和存档里的版本是不是一样的。</td>
+  <td>哈希与TIER_1一致</td>
+  <td><span class="tag tag-red">自动回滚到上一稳定版</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="formula-box" style="margin:0.5rem 0;"><div class="name">巡检输出</div>自动生成《每日健康度报告》→ 追加到审计日志 → 仅异常时推送通知给UID9622 → 无异常=安静</div>
+
+<!-- ========== 第七层：自动三色审计 ========== -->
+<div class="section-header s-audit"><span>🚦</span> 第七层 · 自动三色审计（Auto Audit）· 不用你手动填</div>
+
+<table>
+<thead><tr><th style="width:8%">颜色</th><th style="width:14%">行业术语</th><th style="width:38%">自动判定条件</th><th style="width:40%">大白话</th></tr></thead>
+<tbody>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>Pass<br>Compliant</td>
+  <td>① 核心锚点校验通过 ② 无🔴熔断项 ③ 结构完整无缺失 ④ 权限校验通过</td>
+  <td><strong>一切正常，放心。</strong>列出所有通过项。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟡</td>
+  <td>Review Needed<br>Advisory</td>
+  <td>① 存在待确认项 ② 预警项&lt;3个 ③ 无🔴熔断项</td>
+  <td><strong>有几个小问题，看一下。</strong>列出需确认/预警项。</td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🔴</td>
+  <td>Blocked<br>Critical</td>
+  <td>① 触发伦理熔断 ② 核心锚点失败 ③ 越权操作</td>
+  <td><strong>严重问题，必须处理。</strong>列出熔断原因+证据链接。</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note-box" style="border-color:rgba(34,197,94,0.3);">
+<strong style="color:#4ade80;">自动审计触发时机：</strong> ① 每次页面更新后 → ② 每次任务执行完成后 → ③ 每日巡检时。全自动，无需手动填。
+</div>
+
+<!-- ========== 跨角色权限对照（补全版） ========== -->
+<div class="section-header s-acl"><span>🔒</span> 补全层 · 跨角色协作权限对照（扩展版）</div>
+
+<div class="arch-diagram" style="font-size:0.82rem; line-height:1.8;">
+<span class="h">            跨角色协作权限对照表（扩展版）</span>
+
+<span class="c">┌─────────────────────┬──────┬──────┬──────┬──────┐</span>
+<span class="c">│ 操作项               │  R0  │  R1  │  R2  │  R3  │</span>
+<span class="c">├─────────────────────┼──────┼──────┼──────┼──────┤</span>
+│ 系统规则修改          │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+│ 确认码触发            │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+│ 对外发布              │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+│ 任务执行确认          │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+│ 任务拆解/执行         │  <span class="g">✅</span>  │  <span class="g">✅</span>  │  <span class="h">✅*</span> │  <span class="r">❌</span>  │
+│ 记忆库读取            │  <span class="g">✅</span>  │  <span class="h">✅B</span> │  <span class="h">✅B</span> │  <span class="p">✅P</span> │
+│ 审计日志修改          │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+│ 版本回滚              │  <span class="g">✅</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │  <span class="r">❌</span>  │
+<span class="c">└─────────────────────┴──────┴──────┴──────┴──────┘</span>
+
+<span class="h">✅*</span> = R2仅可执行分配的指定任务，无自主调度权限
+<span class="h">✅B</span> = 仅Layer B可检索索引    <span class="p">✅P</span> = 仅公开内容</div>
+
+<!-- ========== MVP优化建议 ========== -->
+<div class="section-header s-mvp"><span>🚀</span> MVP优化路径 · 先跑起来再迭代</div>
+
+<table>
+<thead><tr><th style="width:8%">阶段</th><th style="width:25%">做什么</th><th style="width:35%">大白话</th><th style="width:32%">具体产出</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="mvp-badge">MVP 1</span></td>
+  <td><strong>协议+路由+回单</strong><br>能跑最小闭环</td>
+  <td>用标准JSON格式让一句话跑通：输入→记录→路由→回单。不用执行器池，Claude一个人先顶着。重点是闭环能转起来。</td>
+  <td>• Header/Body/Tail 三层JSON<br>• Router最小四判定<br>• Receipt固定四句回单<br>• Raw Memory存原句</td>
+</tr>
+<tr>
+  <td><span class="mvp-badge">MVP 2</span></td>
+  <td><strong>权限+确认+状态机</strong><br>能控能停</td>
+  <td>加上Safety Guard，让系统知道什么时候该停下来等你、什么时候自动跑、什么时候熔断。权限矩阵写死，状态机跑起来。</td>
+  <td>• 权限矩阵代码写死<br>• 确认触发条件函数<br>• 9状态转移表<br>• 三级熔断分级</td>
+</tr>
+<tr>
+  <td><span class="mvp-badge">MVP 3</span></td>
+  <td><strong>多执行器+审计+巡检</strong><br>能分工能自愈</td>
+  <td>6个执行器真正分工干活，审计自动跑，巡检每天半夜自动体检。出错自动重试和回滚。系统能"自己照顾自己"。</td>
+  <td>• 6执行器Executor Pool<br>• 自动三色审计<br>• 每日巡检脚本<br>• 重试2次+自动回滚<br>• 记忆检索4级优先级</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note-box" style="border-color:rgba(16,185,129,0.3);">
+<strong style="color:#34d399;">MVP核心原则：</strong>每个阶段都能<strong>独立跑起来</strong>。MVP1跑通了再加MVP2，MVP2跑通了再加MVP3。不跳级、不贪多、先跑再说。
+</div>
+
+<!-- ========== 三色总审计 ========== -->
+<div class="section-header s-audit"><span>🚦</span> 三色审计 · 全部层级总体健康度（v1.6）</div>
+<table>
+<thead><tr><th style="width:8%">颜色</th><th style="width:92%">状态</th></tr></thead>
+<tbody>
+<tr>
+  <td style="font-size:1.5rem;">🟢</td>
+  <td>
+    <strong>通过：</strong><br>
+    • 所有核心规则逻辑闭环，无逻辑缺口<br>
+    • 全流程可自动化执行，无需人工干预非关键步骤<br>
+    • 所有新增模块完全对齐原有CNSH架构、权限、状态机规则<br>
+    • 指令协议三层结构（Header/Body/Tail）足够简单，机器可直接解析<br>
+    • 熔断分级矩阵覆盖了从"自愈"到"强制停止"的完整谱系<br>
+    • MVP三阶段路径清晰，每阶段可独立验证
+  </td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🟡</td>
+  <td>
+    <strong>需确认：</strong><br>
+    • 人格库链接待填充（人格库·领域专才93人通讯录）<br>
+    • 聊天清洗流水线关系边字段是否固定为 trigger/action/fuse 三类<br>
+    • 可后续扩展字段支持复杂场景（协议v1.0→v2.0）
+  </td>
+</tr>
+<tr>
+  <td style="font-size:1.5rem;">🔴</td>
+  <td>
+    <strong>风险：</strong><br>
+    • 如果放开协议格式校验 → 模块交互混乱<br>
+    • 如果跳过Header/Tail → 指令变成不可追溯的废话<br>
+    • 如果MVP阶段跳级 → 地基没打好，后面全要返工
+  </td>
+</tr>
+</tbody>
+</table>
+
+<!-- ========== 一句话总结 ========== -->
+<div class="summary">
+<h2>一句话总结 · 从协议标准到全自动运维的MVP闭环</h2>
+<div class="flow-line">
+  <div class="flow-box proto"><div class="top" style="color:#4ade80;">指令协议</div>Header/Body/Tail</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box code"><div class="top" style="color:#22d3ee;">可执行架构</div>TS枚举+权限+条件</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box code"><div class="top" style="color:#22d3ee;">5层执行</div>入口→路由→规划→校验→执行</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box fuse"><div class="top" style="color:#f87171;">三级熔断</div>红强制/黄挂起/绿自愈</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#fbbf24;">重试回滚</div>2次重试+快照恢复</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box"><div class="top" style="color:#a78bfa;">记忆检索</div>4级优先匹配</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box health"><div class="top" style="color:#f472b6;">自动巡检</div>每日00:00体检</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-box proto"><div class="top" style="color:#4ade80;">自动审计</div>三色自动判定</div>
+</div>
+<p style="text-align:center; margin-top:1rem; font-size:0.9rem; color:#e0e0e0;">
+  这一页把你的龍魂系统从"概念图"升级成了<strong style="color:#4ade80;">可编码、可执行、可自愈</strong>的工程架构。<br>
+  <strong style="color:#22d3ee;">指令协议</strong>让所有模块说同一种语言，<strong style="color:#f87171;">熔断分级</strong>让错误分轻重缓急，<br>
+  <strong style="color:#fbbf24;">重试回滚</strong>让系统出了错能自己修，<strong style="color:#f472b6;">自动巡检</strong>让系统每天自己体检，<br>
+  而 <strong style="color:#34d399;">MVP三阶段</strong> 保证你先能跑、再跑稳、最后跑快。<br><br>
+  现在本页已完全具备全自动运行能力——所有环节无需人工干预即可完成分类、审计、执行、归档、巡检。<br>
+  异常时自动通知你确认/解锁即可。
+</p>
+</div>
+
+<div class="footer">
+  UID9622 · 诸葛鑫 · 龍芯北辰<br>
+  CNSH 指令协议 v1.0 + 可执行架构 + 运维闭环 · 术语对照表 · v1.6<br>
+  #龍芯⚡️20260415-DOC-CNSH-PROTOCOL-MVP · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+</div>
+
+</div>
+</body>
+</html>

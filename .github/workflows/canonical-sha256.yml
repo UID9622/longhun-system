@@ -1,0 +1,25 @@
+# Verify FULL_PAPER_v1.0_Body_Draft.md matches BehavCrypto_v1.0/CANONICAL_SHA256
+name: canonical-sha256
+
+on:
+  push:
+    branches: [main, release-snapshot]
+    paths:
+      - "longhun-system/BehavCrypto_v1.0/**"
+      - "longhun-system/scripts/canonical-sha256/**"
+      - ".github/workflows/canonical-sha256.yml"
+  pull_request:
+    branches: [main, release-snapshot]
+    paths:
+      - "longhun-system/BehavCrypto_v1.0/**"
+      - "longhun-system/scripts/canonical-sha256/**"
+      - ".github/workflows/canonical-sha256.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify CANONICAL_SHA256
+        run: bash longhun-system/scripts/canonical-sha256/verify.sh
