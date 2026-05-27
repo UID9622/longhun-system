@@ -33,6 +33,16 @@ from enum import Enum
 from queue import PriorityQueue
 import time
 
+# 不動點錨點系統·v9.0（龍魂系統核心不可動之點）
+from fixed_point_anchor import (
+    FixedPointAnchor,
+    DNASignature,
+    TianDaoCompliance,
+    ThreeColorAudit,
+    initialize_fixed_point_system,
+    check_fusing_digital_root
+)
+
 
 # ============================================================================
 # 日志配置
@@ -612,20 +622,49 @@ class NotionTranslationIntegration:
 # ============================================================================
 
 class CNSHTranslationSystem:
-    """CNSH 完整翻译系统"""
+    """
+    CNSH 完整翻译系统·與不動點架構v9.0融合
+
+    三層不動點 + DNA主權 + 龍盾:9622 + ☰天道價值觀
+    """
 
     def __init__(self, notion_db_id: str = None):
+        # ✅ 第一步：初始化不動點系統（系統核心·永不改變）
+        self.fixed_point_system = initialize_fixed_point_system()
+
+        if not self.fixed_point_system:
+            logger.error("❌ 不動點系統初始化失敗·系統拒絕啟動")
+            raise RuntimeError("Fixed point system initialization failed")
+
+        # ✅ 提取不動點子系統
+        self.fixed_point = self.fixed_point_system["anchor"]
+        self.dna_system = self.fixed_point_system["dna_system"]
+        self.tian_dao_system = self.fixed_point_system["tian_dao_system"]
+
+        # ✅ 常規初始化
         self.manager = TaskQueueManager()
         self.notion = NotionTranslationIntegration(self.manager, notion_db_id)
         self.running = False
 
         logger.info("=" * 80)
-        logger.info("🌐 CNSH 完整翻译系统 v1.0")
+        logger.info("🌐 CNSH 完整翻译系统 v1.0·龍魂不動點v9.0")
         logger.info("=" * 80)
+        logger.info(f"\n✓ 不動點DNA錨點：{self.fixed_point.get_dna_anchor()}")
+        logger.info(f"✓ 創始人：UID{self.fixed_point.uid_creator} {self.fixed_point.creator_name}")
+        logger.info(f"✓ 龍盾簽章：{self.fixed_point.creator_dragon_shield}\n")
 
     def process_queue(self) -> None:
-        """处理队列中的任务"""
+        """
+        处理队列中的任务·与不動點系統v9.0融合
+
+        每个任务都要经过：
+        1. ☰天道合规检查
+        2. 熔斷數字根檢查
+        3. DNA主權簽章
+        4. 三色審計
+        """
         logger.info("🚀 开始处理任务队列...")
+        logger.info("✓ 不動點系統v9.0启动·☰天道监察激活\n")
 
         while True:
             task = self.manager.dequeue()
@@ -638,6 +677,35 @@ class CNSHTranslationSystem:
                     logger.info(f"⏳ 队列中有 {len(pending)} 个待翻译任务")
                     for task in pending:
                         logger.info(f"  - {task.task_id}: {task.source_text[:30]}...")
+
+                        # ✅ 第一層：☰天道合規檢查
+                        tian_dao_metadata = {
+                            "authoritarian": False,
+                            "transparent": True,
+                            "auditable": True,
+                            "data_sovereignty_respected": True
+                        }
+                        passed, color, msg = self.tian_dao_system.check_tian_dao_compliance(
+                            action="translate_task",
+                            metadata=tian_dao_metadata
+                        )
+                        logger.info(f"    {color} ☰天道檢查：{msg}")
+
+                        if not passed:
+                            logger.warning(f"    ❌ 任務 {task.task_id} 違反☰天道·熔斷拒絕")
+                            continue
+
+                        # ✅ 第二層：熔斷數字根檢查
+                        from fixed_point_anchor import calculate_digital_root
+                        dr = calculate_digital_root(task.source_text)
+                        dr_passed, dr_msg = check_fusing_digital_root(dr, self.fixed_point)
+                        logger.info(f"    {dr_msg}")
+
+                        if not dr_passed:
+                            logger.warning(f"    ❌ 任務 {task.task_id} 數字根熔斷·拒絕處理")
+                            continue
+
+                        # ✅ 翻譯任務
                         self.manager.auto_translate_task(task.task_id)
                         self.notion.sync_to_notion(task)
 
@@ -651,6 +719,7 @@ class CNSHTranslationSystem:
                 logger.info(f"  已完成: {stats['completed']}")
                 logger.info(f"  失败: {stats['failed']}")
                 logger.info(f"  完成率: {stats['completion_rate']:.1f}%")
+                logger.info(f"  🐉 不動點DNA錨點：{self.fixed_point.get_dna_anchor()}")
                 logger.info(f"  总字数: {stats['total_words']}\n")
 
                 break
