@@ -93,18 +93,7 @@ start_service() {
         fi
     fi
 
-    # 激活虚拟环境
-    source "$SCRIPT_DIR/venv/bin/activate"
-    log_info "虚拟环境已激活"
-
-    # 安装依赖（如果需要）
-    if [ ! -f "$SCRIPT_DIR/venv/lib/python*/site-packages/dotenv" ]; then
-        log_warn "安装依赖中..."
-        pip install -q -r "$SCRIPT_DIR/requirements_cnsh.txt"
-        log_info "依赖已安装"
-    fi
-
-    # 后台启动系统
+    # 使用系统 Python 直接启动（不依赖虚拟环境）
     log_info "启动后台进程..."
     nohup python3 "$SCRIPT_DIR/cnsh_translator_complete.py" \
         >> "$LOG_DIR/cnsh_translator.log" 2>&1 &
