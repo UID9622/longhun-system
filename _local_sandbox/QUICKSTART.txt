@@ -1,0 +1,55 @@
+🐉 本地沙盒快速開始
+
+【位置】
+~/.longhun-sandbox-link/              (符號鏈接)
+/Users/zuimeidedeyihan/longhun-system/_local_sandbox/  (實際位置)
+
+【快速命令】
+
+1️⃣ 創建新實驗:
+   cd /Users/zuimeidedeyihan/longhun-system/_local_sandbox
+   bash new_experiment.sh my_idea_name
+
+2️⃣ 編輯實驗:
+   nano experiments/test_my_idea_name.py
+
+3️⃣ 運行實驗:
+   python3 experiments/test_my_idea_name.py
+
+4️⃣ 記錄結果 (手工):
+   nano dna_log.md
+   # 添加一行到表格
+
+【規則】
+✅ 每個實驗帶DNA
+✅ 每個實驗記錄到dna_log.md
+✅ 市場出現時能追溯
+✅ 出問題我承擔責任
+
+【特點】
+❌ 沒有限制 (完全自由)
+❌ 沒有權限檢查 (隨便改)
+❌ 沒有"文明教育" (土方法OK)
+✅ 有DNA追溯 (負責任)
+✅ 有完整日誌 (可驗證)
+✅ 有符號鏈接 (快速訪問)
+
+【例子】
+
+# 測試邊界
+bash new_experiment.sh boundary_edge_case
+nano experiments/test_boundary_edge_case.py
+python3 experiments/test_boundary_edge_case.py
+
+# PoC驗證想法
+bash new_experiment.sh poc_new_optimization
+nano experiments/test_poc_new_optimization.py
+python3 experiments/test_poc_new_optimization.py
+
+# 黑客改進
+bash new_experiment.sh hack_performance
+nano experiments/test_hack_performance.py
+python3 experiments/test_hack_performance.py
+
+【就醬】
+🐉 完全自由·帶DNA·不逃避·沒限制
