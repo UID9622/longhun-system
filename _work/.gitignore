@@ -1,0 +1,29 @@
+# 龍魂系統 - 敏感配置文件
+.longhunsystemconfig
+
+# 本地數據和日誌
+~/.longhun/
+~/.notion_cache/
+*.log
+
+# Python 生成文件
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE 和編輯器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 臨時文件
+*.tmp
+*.bak
+.env.local
