@@ -1,103 +1,81 @@
-# 🐉 龍魂系統 · 唯一入口 v1.0
+# 🐉 龍魂系統 · 唯一入口 v2.0
 
-**DNA**: `#龍芯⚡️2026-05-27-SYSTEM-ENTRY-v1.0`
+**DNA**: `#龍芯⚡️2026-05-28-SYSTEM-ENTRY-UNIFIED-v2.0`
 **確認碼**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
-**状態**: 🟢 SINGLE ENTRY POINT
+**状態**: 🟢 FULLY UNIFIED · ZERO DUPLICATES
 
 ---
 
-## 📍 唯一入口规则
+## 📍 四个核心位置（仅此而已）
 
-### 开机第一步（永远只做这个）
+你需要知道的**只有这四个地方**：
+
+| 位置 | 用途 | 打开方法 |
+|------|------|----------|
+| **~/Desktop/🔑龍魂系統API密鑰管理中心.md** | 所有 API 密钥·一次配置永久用 | 直接打开 |
+| **~/longhun-system/** | 系统核心·代码·配置 | `cd ~/longhun-system` |
+| **~/longhun-system/config/** | 凭证·环境·初始化 | 启动前检查 |
+| **~/.longhun/secrets.env** | 真实密钥存储（本地·不上Git） | `chmod 600` |
+
+---
+
+## ⚡ 开机三步（简单到不能再简单）
 
 ```bash
+# Step 1: 进入目录
 cd ~/longhun-system
-python3 config/master_config_bootstrap.py
+
+# Step 2: 检查密钥（可选）
+python3 ~/longhun-system/test_all_api_keys.py
+
+# Step 3: 完成
+# 所有东西都活着·你可以开始工作了
 ```
 
-**这一个命令做了什么**:
-1. ✅ 验证所有凭证完整性
-2. ✅ 加载 MASTER_CONFIG_v1.0.yaml
-3. ✅ 自动生成所有衍生配置
-4. ✅ 生成启动报告
-5. ✅ 系统就绪
+**就这样。不需要更多。**
 
 ---
 
-## 📁 目录结构（已整理）
-
-### 核心目录（只需要关心这 3 个）
+## 📁 目录清单（2026-05-28 最终清理版）
 
 ```
 ~/longhun-system/
-│
-├── 【入口】master_config_bootstrap.py
-│           └─ 启动时唯一运行的脚本
-│
-├── config/                          【配置】
-│   ├── MASTER_CONFIG_v1.0.yaml      ← 唯一配置源
-│   ├── credential_manager_v1.0.py
-│   ├── verify_credentials_on_boot.py
-│   └── generated/                   ← 自动生成的配置
-│
-├── cnsh-core/                       【龍魂七层防护·协议规范】
-│   └── 规范/
-│       ├── 铁律 12 (尾巴审计)
-│       ├── 七层防护 (L0-L7)
-│       ├── 权重公式
-│       └── ...
-│
-├── 日志/                            【所有运行日志】
-│   ├── credential_audit.jsonl       ← 凭证访问记录
-│   ├── credentials_verified_on_boot.jsonl
-│   └── ...
-│
-├── 密钥/                            【密钥存储】
-│   ├── keys/                        ← GPG密钥
-│   ├── .cnsh_credentials/           ← 服务凭证
-│   └── .network_api_env             ← API环境变量
-│
-├── 01_protocols/                    【协议·人格定义】
-│   ├── cnsh/
-│   ├── persona_definitions.json     ← P00-P14 完整定义（唯一版本）
-│   └── ...
-│
-└── _work/                           【工作目录·不需要关心】
-    ├── cnsh-v2.0/
-    ├── longhun-modules/
-    └── ...
+├── config/                  ← 配置·密钥·初始化
+├── specs/                   ← 规范·协议·架构
+│   ├── persona-protocols/   ← 人格协议（已整合）
+│   ├── architecture/        ← 系统架构
+│   └── cryptography/        ← 密码学规范
+├── policies/                ← 主权声明·法律政策
+├── cnsh-core/               ← CNSH 框架·七层防护
+├── tools/                   ← 可执行工具·脚本
+├── core/                    ← 代码库
+├── emails/                  ← 邮箱系统
+├── logs/                    ← 运行日志
+├── 龍魂知識庫/              ← 知识库索引
+└── 龍魂系统宪章.md          ← 不动点·永不改动
 ```
 
-### 彻底删除的目录
+**已删除的混乱：**
+- ✅ 删除了 10+ 个 UPGRADE-*.md（已过时）
+- ✅ 删除了 MIGRATION_PLAN 系列（已完成）
+- ✅ 删除了 7 个重复的 PERSONA-*.md（已整合到 specs/）
+- ✅ 删除了所有版本号重复的文件
 
-```
-❌ 所有重复的 PERSONA-*PROTOCOL-v1.0.md (P00-P10)
-   → 统一到 01_protocols/persona_definitions.json
-
-❌ 所有重复的 MIGRATION_PLAN_*.md / MIGRATION_PLAN_*.json
-   → 最新版本保留在 01_protocols/
-
-❌ 所有重复的 *ACTIVATION* 文件
-   → 合并到 MASTER_CONFIG_v1.0.yaml
-
-❌ 所有散落的 PERSONA-*.md (生态协议)
-   → 统一到 cnsh-core/
-```
+**结果：最上层从 30+ 个文件 → 4 个文件**
 
 ---
 
-## 🔄 三步启动流程
+## 🔧 需要的时候用
 
-### 流程图
+```bash
+# 验证所有 API 密钥有效性
+python3 ~/longhun-system/test_all_api_keys.py
 
-```
-1️⃣ cd ~/longhun-system
+# 启动 offlineimap 邮件同步
+/opt/homebrew/bin/offlineimap -c ~/.offlineimaprc
 
-2️⃣ python3 config/master_config_bootstrap.py
-   ├─ 验证凭证 (verify_credentials_on_boot.py)
-   ├─ 加载配置 (MASTER_CONFIG_v1.0.yaml)
-   ├─ 展开衍生 (生成 behavioral_profiles.json 等)
-   └─ 报告完成
+# 检查日志
+ls -la ~/longhun-system/logs/
 
 3️⃣ 系统就绪 ✓
    └─ 其他所有工作都从这里开始
