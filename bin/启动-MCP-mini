@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# 龍魂 MCP-mini 启动脚本
+# DNA: #龍芯⚡️2026-06-01-MCP-MINI-LAUNCHER-v1.0
+
+set -e
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+LONGHUN_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
+SERVER_DIR="$LONGHUN_ROOT/server"
+
+echo ""
+echo "╔════════════════════════════════════════╗"
+echo "║  🐉 龍魂 MCP-mini 启动器              ║"
+echo "║  Model Context Protocol 本地数据集成   ║"
+echo "╚════════════════════════════════════════╝"
+echo ""
+
+# 检查 Python 依赖
+echo "📦 检查 Python 依赖..."
+if ! python3 -c "import flask" 2>/dev/null; then
+    echo "⚠️  缺失 flask，正在安装..."
+    pip3 install flask python-dotenv gitpython requests
+fi
+
+# 检查端口占用
+echo "🔍 检查端口 9999..."
+if lsof -i :9999 >/dev/null 2>&1; then
+    echo "❌ 端口 9999 已被占用，请先停止现有进程："
+    echo "   pkill -f 'mcp-mini.py'"
+    exit 1
+fi
+
+echo "✅ 端口 9999 可用"
+
+# 设置环境变量
+export PYTHONUNBUFFERED=1
+export PORT=9999
+
+# 启动 MCP-mini
+echo ""
+echo "🚀 启动 MCP-mini 服务器..."
+cd "$SERVER_DIR"
+python3 mcp-mini.py
