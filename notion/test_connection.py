@@ -11,11 +11,17 @@ import sys
 import os
 from pathlib import Path
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent))
+# Add current directory to path
+current_dir = str(Path(__file__).parent)
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
 
-from notion_config import NotionConfigManager, NotionConfig
-from notion_client import NotionClient, NotionAuthError, NotionAPIError
+try:
+    from .notion_config import NotionConfigManager, NotionConfig
+    from .notion_client import NotionClient, NotionAuthError, NotionAPIError
+except ImportError:
+    from notion_config import NotionConfigManager, NotionConfig
+    from notion_client import NotionClient, NotionAuthError, NotionAPIError
 
 
 def print_header(title: str):
