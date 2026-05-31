@@ -25,7 +25,13 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 from pathlib import Path
 import hashlib
-from .notion_config import NotionConfig, NotionConfigManager
+import sys
+
+# Handle both relative and absolute imports
+try:
+    from .notion_config import NotionConfig, NotionConfigManager
+except ImportError:
+    from notion_config import NotionConfig, NotionConfigManager
 
 
 class NotionAPIError(Exception):
