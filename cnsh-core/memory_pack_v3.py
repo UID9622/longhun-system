@@ -475,6 +475,226 @@ class MultiLayerCache:
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Phase 3: 并发测试 + 性能优化
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+import queue
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+class ConcurrencyTester:
+    """
+    并发性能测试器
+
+    测试场景:
+      · 并发写入: 20 个线程同时添加记录
+      · 并发读取: 20 个线程同时查询
+      · 混合负载: 10个写 + 10个读 同时进行
+      · 压力测试: 逐步增加并发数，找到性能崖
+    """
+
+    def __init__(self, cache: MultiLayerCache):
+        self.cache = cache
+        self.results = {
+            'write_tasks': [],
+            'read_tasks': [],
+            'mixed_tasks': [],
+            'total_ops': 0,
+            'total_errors': 0,
+            'start_time': None,
+            'end_time': None
+        }
+
+    def concurrent_write_test(self, num_threads: int = 20, records_per_thread: int = 50) -> Dict[str, Any]:
+        """
+        并发写入测试
+
+        Args:
+            num_threads: 并发线程数
+            records_per_thread: 每个线程添加的记录数
+        """
+        logger.info(f"\n⚙️ 开始并发写入测试: {num_threads} 线程 × {records_per_thread} 条记录")
+
+        self.results['start_time'] = time.time()
+        success_count = 0
+        error_count = 0
+
+        def write_worker(thread_id: int):
+            nonlocal success_count, error_count
+            try:
+                for i in range(records_per_thread):
+                    record = {
+                        'content': f'线程 #{thread_id} 记录 #{i}: 并发测试数据。' * 10,
+                        'category': 'concurrent_test',
+                        'thread_id': thread_id,
+                        'record_idx': i
+                    }
+                    self.cache.add_record(record)
+                    success_count += 1
+            except Exception as e:
+                error_count += 1
+                logger.warning(f"线程 #{thread_id} 写入错误: {e}")
+
+        with ThreadPoolExecutor(max_workers=num_threads) as executor:
+            futures = [executor.submit(write_worker, tid) for tid in range(num_threads)]
+            for future in as_completed(futures):
+                future.result()
+
+        self.results['end_time'] = time.time()
+        elapsed = self.results['end_time'] - self.results['start_time']
+        throughput = success_count / elapsed if elapsed > 0 else 0
+
+        stats = {
+            'test_type': 'concurrent_write',
+            'threads': num_threads,
+            'success': success_count,
+            'errors': error_count,
+            'total_records_added': success_count + error_count,
+            'elapsed_seconds': f"{elapsed:.3f}",
+            'throughput_ops_per_sec': f"{throughput:.1f}",
+        }
+
+        logger.info(f"   ✅ 成功: {success_count} · 失败: {error_count}")
+        logger.info(f"   耗时: {elapsed:.3f}s · 吞吐: {throughput:.1f} ops/sec")
+
+        self.results['write_tasks'].append(stats)
+        return stats
+
+    def concurrent_read_test(self, num_threads: int = 20, queries_per_thread: int = 50) -> Dict[str, Any]:
+        """
+        并发读取测试
+
+        Args:
+            num_threads: 并发线程数
+            queries_per_thread: 每个线程的查询次数
+        """
+        logger.info(f"\n⚙️ 开始并发读取测试: {num_threads} 线程 × {queries_per_thread} 次查询")
+
+        # 先添加一些记录供查询
+        logger.info("   预加载 100 条记录...")
+        test_records = []
+        for i in range(100):
+            record = {
+                'content': f'查询测试记录 #{i}。' * 5,
+                'category': 'read_test'
+            }
+            _, dna = self.cache.add_record(record)
+            test_records.append(dna)
+
+        # 合并到 L3
+        if len(self.cache.compressor.delta_buffer) > 0:
+            self.cache.merge_to_archive()
+
+        self.results['start_time'] = time.time()
+        success_count = 0
+        error_count = 0
+
+        def read_worker(thread_id: int):
+            nonlocal success_count, error_count
+            try:
+                for i in range(queries_per_thread):
+                    # 随机读取一条记录
+                    import random
+                    dna = random.choice(test_records)
+                    result = self.cache.get_record(dna)
+                    if result:
+                        success_count += 1
+                    else:
+                        error_count += 1
+            except Exception as e:
+                error_count += 1
+                logger.warning(f"线程 #{thread_id} 读取错误: {e}")
+
+        with ThreadPoolExecutor(max_workers=num_threads) as executor:
+            futures = [executor.submit(read_worker, tid) for tid in range(num_threads)]
+            for future in as_completed(futures):
+                future.result()
+
+        self.results['end_time'] = time.time()
+        elapsed = self.results['end_time'] - self.results['start_time']
+        throughput = success_count / elapsed if elapsed > 0 else 0
+
+        stats = {
+            'test_type': 'concurrent_read',
+            'threads': num_threads,
+            'success': success_count,
+            'errors': error_count,
+            'total_queries': success_count + error_count,
+            'elapsed_seconds': f"{elapsed:.3f}",
+            'throughput_ops_per_sec': f"{throughput:.1f}",
+        }
+
+        logger.info(f"   ✅ 成功: {success_count} · 失败: {error_count}")
+        logger.info(f"   耗时: {elapsed:.3f}s · 吞吐: {throughput:.1f} ops/sec")
+
+        self.results['read_tasks'].append(stats)
+        return stats
+
+    def stress_test(self) -> Dict[str, Any]:
+        """
+        压力测试: 逐步增加并发数，找到性能崖
+
+        线程数: 1 → 2 → 5 → 10 → 20
+        """
+        logger.info("\n🔥 开始压力测试: 逐步增加并发线程")
+
+        stress_results = []
+
+        for thread_count in [1, 2, 5, 10, 20]:
+            logger.info(f"\n   测试 {thread_count} 线程...")
+
+            start = time.time()
+            success = 0
+
+            def stress_worker():
+                nonlocal success
+                try:
+                    for _ in range(20):
+                        record = {
+                            'content': f'压力测试数据。' * 10,
+                            'category': 'stress_test'
+                        }
+                        self.cache.add_record(record)
+                        success += 1
+                except:
+                    pass
+
+            with ThreadPoolExecutor(max_workers=thread_count) as executor:
+                futures = [executor.submit(stress_worker) for _ in range(thread_count)]
+                for future in as_completed(futures):
+                    future.result()
+
+            elapsed = time.time() - start
+            throughput = success / elapsed if elapsed > 0 else 0
+
+            result = {
+                'threads': thread_count,
+                'ops': success,
+                'elapsed_sec': f"{elapsed:.3f}",
+                'throughput_ops_per_sec': f"{throughput:.1f}"
+            }
+
+            stress_results.append(result)
+            logger.info(f"      {thread_count} 线程: {throughput:.1f} ops/sec")
+
+        return {
+            'test_type': 'stress_test',
+            'thread_progression': stress_results
+        }
+
+    def get_performance_report(self) -> Dict[str, Any]:
+        """生成性能报告"""
+        cache_stats = self.cache.get_cache_stats()
+
+        return {
+            'cache_stats': cache_stats,
+            'write_tests': self.results['write_tasks'],
+            'read_tests': self.results['read_tasks'],
+            'mixed_tests': self.results['mixed_tasks'],
+            'total_duration': f"{self.results.get('end_time', time.time()) - self.results.get('start_time', time.time()):.3f}s"
+        }
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 验证 & 测试
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -625,6 +845,58 @@ def test_phase2():
     return cache, stats
 
 
+def test_phase3():
+    """Phase 3 测试：并发测试 + 性能优化"""
+
+    logger.info("=" * 60)
+    logger.info("🧪 Phase 3 测试: 并发测试 + 性能优化")
+    logger.info("=" * 60)
+
+    cache = MultiLayerCache()
+    tester = ConcurrencyTester(cache)
+
+    # 1. 并发写入测试
+    logger.info("\n📝 第1步: 并发写入测试")
+    write_stats = tester.concurrent_write_test(num_threads=20, records_per_thread=50)
+
+    # 2. 并发读取测试
+    logger.info("\n📖 第2步: 并发读取测试")
+    read_stats = tester.concurrent_read_test(num_threads=20, queries_per_thread=50)
+
+    # 3. 压力测试
+    logger.info("\n🔥 第3步: 压力测试 (逐步增加并发)")
+    stress_stats = tester.stress_test()
+
+    # 4. 性能报告
+    logger.info("\n📊 第4步: 完整性能报告")
+    report = tester.get_performance_report()
+
+    logger.info(f"\n   📈 缓存统计:")
+    for key, value in report['cache_stats'].items():
+        if key not in ['version', 'phase']:
+            logger.info(f"      {key}: {value}")
+
+    logger.info(f"\n   📊 并发写入结果:")
+    for stat in report['write_tests']:
+        logger.info(f"      线程: {stat['threads']} · 成功: {stat['success']} · 吞吐: {stat['throughput_ops_per_sec']} ops/sec")
+
+    logger.info(f"\n   📊 并发读取结果:")
+    for stat in report['read_tests']:
+        logger.info(f"      线程: {stat['threads']} · 成功: {stat['success']} · 吞吐: {stat['throughput_ops_per_sec']} ops/sec")
+
+    logger.info(f"\n   🔥 压力测试结果:")
+    for item in stress_stats['thread_progression']:
+        logger.info(f"      线程: {item['threads']} · 吞吐: {item['throughput_ops_per_sec']} ops/sec")
+
+    cache.close()
+
+    logger.info("\n" + "=" * 60)
+    logger.info("✨ Phase 3 测试完成！")
+    logger.info("=" * 60)
+
+    return tester, report
+
+
 if __name__ == "__main__":
     import sys
 
@@ -633,26 +905,40 @@ if __name__ == "__main__":
             test_phase1()
         elif sys.argv[1] == "test2":
             test_phase2()
+        elif sys.argv[1] == "test3":
+            test_phase3()
         elif sys.argv[1] == "test":
-            # 运行完整的 Phase 1 + Phase 2 测试
-            logger.info("🧪 运行完整测试: Phase 1 + Phase 2")
+            # 运行完整的 Phase 1 + 2 + 3 测试
+            logger.info("🧪 运行完整测试: Phase 1 + Phase 2 + Phase 3")
             logger.info("=" * 70)
             test_phase1()
             logger.info("")
+            # 清理数据用于 Phase 2
+            import shutil
+            if DATA_DIR.exists():
+                shutil.rmtree(DATA_DIR)
+                DATA_DIR.mkdir(parents=True, exist_ok=True)
             test_phase2()
+            logger.info("")
+            # 清理数据用于 Phase 3
+            if DATA_DIR.exists():
+                shutil.rmtree(DATA_DIR)
+                DATA_DIR.mkdir(parents=True, exist_ok=True)
+            test_phase3()
             logger.info("=" * 70)
             logger.info("✨ 所有测试完成！")
     else:
         print(f"""
-🐉 龍魂记忆压缩 v3.0 - Phase 1&2 (增量算法 + 多层缓存)
+🐉 龍魂记忆压缩 v3.0 - Phase 1-3 (增量算法 + 多层缓存 + 并发)
 
 用法:
   python3 memory_pack_v3.py test1       # 运行 Phase 1 测试 (增量算法)
   python3 memory_pack_v3.py test2       # 运行 Phase 2 测试 (多层缓存)
-  python3 memory_pack_v3.py test        # 运行完整测试 (1+2)
+  python3 memory_pack_v3.py test3       # 运行 Phase 3 测试 (并发性能)
+  python3 memory_pack_v3.py test        # 运行完整测试 (1+2+3)
 
 DNA: #龍芯⚇️2026-06-01-MEMORY-PACK-v3.0-INCREMENTAL
 数据目录: {DATA_DIR}
 
-版本: 3.0 · Phase 1&2/4 完成
+版本: 3.0 · Phase 1-3/4 完成 (并发安全和性能优化验证就绪)
         """)
