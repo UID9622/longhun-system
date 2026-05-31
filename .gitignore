@@ -27,3 +27,6 @@
 /longhun-system/**/*.pyc
 /longhun-system/**/.venv/
 /longhun-system/logs/*.jsonl
+
+bridges/.venv/
+~/.deepseek_bridge.env
