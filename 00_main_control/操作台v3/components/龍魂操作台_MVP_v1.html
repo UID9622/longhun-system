@@ -457,6 +457,7 @@ a.qa-btn{color:inherit;box-sizing:border-box}
     <div class="tab" onclick="switchTab('mcp');setTab(this)">🔌 MCP接口</div>
     <div class="tab" onclick="switchTab('persona');setTab(this);loadFamilyRoster()">🎭 花名册·路由</div>
     <div class="tab" onclick="switchTab('route');setTab(this)">🗂️ 路由注册表</div>
+    <div class="tab" onclick="switchTab('dialog');setTab(this)">💬 对话</div>
   </div>
 
   <div id="panels">
@@ -854,6 +855,92 @@ a.qa-btn{color:inherit;box-sizing:border-box}
         <div class="dna-block" style="text-align:center">
           #龍芯⚡️20260510-ROUTE-REGISTRY-EMBED-v1.0 · 30节点 · 编号为骨·DNA为血
         </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: DIALOG ── -->
+    <div class="panel" id="panel-dialog" style="display:flex;flex-direction:column;overflow:hidden">
+      <style>
+        #dialog-container {
+          flex: 1; display: flex; flex-direction: column; overflow: hidden;
+          background: var(--bg1); border: 1px solid var(--bd);
+        }
+        #dialog-messages {
+          flex: 1; overflow-y: auto; padding: 12px 16px;
+          display: flex; flex-direction: column; gap: 8px;
+        }
+        .dialog-msg {
+          display: flex; gap: 8px; margin-bottom: 8px;
+          animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .dialog-msg.user { flex-direction: row-reverse; }
+        .dialog-msg.assistant { flex-direction: row; }
+        .dialog-avatar {
+          width: 24px; height: 24px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 12px; flex-shrink: 0;
+          background: var(--bg2); border: 1px solid var(--bd);
+        }
+        .dialog-msg.user .dialog-avatar { background: rgba(0,212,255,0.1); border-color: rgba(0,212,255,0.3); }
+        .dialog-msg.assistant .dialog-avatar { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.3); }
+        .dialog-bubble {
+          max-width: 60%; padding: 8px 12px; border-radius: 6px;
+          font-size: 12px; line-height: 1.5; word-break: break-word;
+        }
+        .dialog-msg.user .dialog-bubble {
+          background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25);
+          color: var(--cyn);
+        }
+        .dialog-msg.assistant .dialog-bubble {
+          background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.25);
+          color: var(--tp);
+        }
+        #dialog-input-area {
+          padding: 12px 16px; border-top: 1px solid var(--bd);
+          background: var(--bg0); display: flex; gap: 8px;
+        }
+        #dialog-input {
+          flex: 1; padding: 8px 12px; border: 1px solid var(--bd);
+          background: var(--bg2); color: var(--tp); border-radius: 4px;
+          font-family: inherit; font-size: 12px; outline: none;
+        }
+        #dialog-input:focus { border-color: var(--cyn); }
+        .dialog-btn {
+          padding: 8px 14px; border: 1px solid var(--bd);
+          background: var(--bg2); color: var(--ts); border-radius: 4px;
+          cursor: pointer; font-size: 11px; font-family: inherit;
+          transition: all 0.15s;
+        }
+        .dialog-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .dialog-btn.send { color: var(--cyn); border-color: rgba(0,212,255,0.3); }
+        .dialog-btn.send:hover { background: rgba(0,212,255,0.1); }
+        #dialog-status {
+          padding: 8px 16px; background: var(--bg2); border-top: 1px solid var(--bd);
+          font: 10px 'JetBrains Mono', monospace; color: var(--td);
+        }
+        .status-ok { color: var(--grn); }
+        .status-error { color: var(--red); }
+      </style>
+
+      <div id="dialog-container">
+        <div id="dialog-messages">
+          <div style="font: 11px 'JetBrains Mono', monospace; color: var(--td); text-align: center; padding: 20px;">
+            🚀 龍魂对话系统 · Dialog System<br>
+            <span style="font-size: 10px; margin-top: 6px; display: block;">正在连接本地服务器... (ws://127.0.0.1:9625)</span>
+          </div>
+        </div>
+        <div id="dialog-input-area">
+          <input type="text" id="dialog-input" placeholder="输入消息，按Enter发送 / Type a message...">
+          <button class="dialog-btn send" onclick="sendDialogMsg()">发送</button>
+          <button class="dialog-btn" onclick="clearDialogHistory()">清空</button>
+        </div>
+      </div>
+      <div id="dialog-status">
+        <span id="dialog-status-text" class="status-error">⚠ 未连接 · Disconnected</span>
       </div>
     </div>
 
@@ -1509,6 +1596,136 @@ async function hWeaponStats() {
 }
 
 document.addEventListener('DOMContentLoaded', loadFamilyRoster);
+
+// ═══════════════ DIALOG SYSTEM ═══════════════
+let dialogWs = null;
+let dialogSessionId = null;
+const DIALOG_SERVER = 'ws://127.0.0.1:9625';
+
+function initDialog() {
+  const statusEl = document.getElementById('dialog-status-text');
+  try {
+    dialogWs = new WebSocket(DIALOG_SERVER);
+
+    dialogWs.onopen = () => {
+      statusEl.textContent = '🟢 正在初始化会话... · Initializing session...';
+      statusEl.className = 'status-ok';
+      // 发送init消息创建会话
+      dialogWs.send(JSON.stringify({
+        action: 'init',
+        userId: 'UID9622'
+      }));
+    };
+
+    dialogWs.onmessage = (evt) => {
+      const msg = JSON.parse(evt.data);
+
+      if (msg.type === 'session_created') {
+        dialogSessionId = msg.sessionId;
+        statusEl.textContent = '✓ 已连接 · Connected (Session: ' + msg.sessionId.substr(0, 12) + '...)';
+        statusEl.className = 'status-ok';
+        addDialogSysmsg('✅ 已连接到龍魂对话系统\n\nDNA: ' + msg.dna);
+      } else if (msg.type === 'message') {
+        const role = msg.role;
+        const content = msg.content;
+        const avatar = role === 'user' ? '👤' : '🐉';
+        const cls = role === 'user' ? 'user' : 'assistant';
+
+        const msgEl = document.createElement('div');
+        msgEl.className = 'dialog-msg ' + cls;
+        msgEl.innerHTML =
+          '<div class="dialog-avatar">' + avatar + '</div>' +
+          '<div class="dialog-bubble">' + escapeHtml(content) + '</div>';
+        document.getElementById('dialog-messages').appendChild(msgEl);
+        scrollDialogToBottom();
+      }
+    };
+
+    dialogWs.onerror = (err) => {
+      statusEl.textContent = '❌ 连接错误 · Connection error';
+      statusEl.className = 'status-error';
+      console.error('WebSocket error:', err);
+    };
+
+    dialogWs.onclose = () => {
+      statusEl.textContent = '⚠ 连接已关闭 · Disconnected';
+      statusEl.className = 'status-error';
+      // 自动重连
+      setTimeout(initDialog, 3000);
+    };
+
+  } catch (e) {
+    statusEl.textContent = '❌ 连接失败 · Failed to connect: ' + e.message;
+    statusEl.className = 'status-error';
+    console.error('Dialog init error:', e);
+    // 重试
+    setTimeout(initDialog, 3000);
+  }
+}
+
+function sendDialogMsg() {
+  const input = document.getElementById('dialog-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  if (!dialogWs || dialogWs.readyState !== WebSocket.OPEN) {
+    alert('⚠ 对话系统未连接，请等待...');
+    return;
+  }
+
+  // 清空输入框
+  input.value = '';
+  input.focus();
+
+  // 发送消息
+  dialogWs.send(JSON.stringify({
+    action: 'message',
+    content: msg
+  }));
+}
+
+function addDialogSysmsg(text) {
+  const msgEl = document.createElement('div');
+  msgEl.style.cssText = 'text-align:center;padding:10px;color:var(--td);font-size:11px;font:10px "JetBrains Mono",monospace';
+  msgEl.textContent = text;
+  document.getElementById('dialog-messages').appendChild(msgEl);
+  scrollDialogToBottom();
+}
+
+function clearDialogHistory() {
+  if (confirm('清空对话历史？')) {
+    document.getElementById('dialog-messages').innerHTML = '';
+    addDialogSysmsg('✓ 已清空对话历史');
+  }
+}
+
+function scrollDialogToBottom() {
+  const container = document.getElementById('dialog-messages');
+  setTimeout(() => {
+    container.scrollTop = container.scrollHeight;
+  }, 0);
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// 监听回车键
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('dialog-input');
+  if (input) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendDialogMsg();
+      }
+    });
+  }
+  // 初始化对话
+  initDialog();
+});
 
 // Dynamic DNA ticker
 const dnas=['#龍芯⚡️20260510-OPS-CONSOLE-MVP-v1.1','#龍芯⚡️20260417-IPA-BUS-v1.0','#龍芯⚡️2026-05-07-CNSH-ALGORITHM-RUNTIME-BLUEPRINT-v1.0','#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-人格协作×IPA×DNA重铸增量'];
