@@ -33,3 +33,14 @@
 
 bridges/.venv/
 ~/.deepseek_bridge.env
+# ==== M270 大文件铁律 2026-06-01 ====
+*.dmg
+*.db
+*.sqlite3
+*.mov
+*.mp4
+Export-*
+_private/downloads-archive/
+_work/notion-sync/Export-*/
+_work/tools/**/db/
+_work/data/vector_db/
