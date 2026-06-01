@@ -17,6 +17,7 @@
 !/龙魂系统公开宣言-君子协议-2026修正版.md
 !/modules/
 !/philosophy_governance/
+!/longhun-system/bin/
 
 # ══ longhun-system 内部黑名单（与子目录 .gitignore 双重保护） ══
 /longhun-system/.env
