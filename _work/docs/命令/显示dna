@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-TOPIC="${1:-TASK}"
-shift || true
-CONTENT="${*:-$TOPIC}"
-bash "/Users/zuimeidedeyihan/longhun-system/命令/龍魂技能" dna-emit "$TOPIC" "$CONTENT" --color "🔴"

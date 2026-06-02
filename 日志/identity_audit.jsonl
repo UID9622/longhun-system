@@ -1,1 +1,0 @@
-{"ts": "2026-05-19T14:54:51.294109+07:00", "event": "snapshot", "is_valid": true, "is_master": true, "score": 1.0, "yaml": "identity_result:\n  is_valid: True\n  is_master: True\n  score: 1.000\n  checks:\n    confirm: True\n    gpg: True\n    uid: True\n    character_law: True\n    behavioral_fp_captured: True\n  fingerprint: c78564698ac695de"}
