@@ -1,3 +1,15 @@
+<!--
+  龍魂·六层来源链 / LongHun Six-Layer Source Chain
+  1 道统层 Dao           : 曾仕强老师
+  2 精神层 Spirit        : Steve Jobs
+  3 设备层 Device        : Apple
+  4 技术层 Technology    : Open Source
+  5 系统层 System        : UID9622
+  6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+  DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+  文件: README.md | 标记时间: 2026-06-03T07:46:00+0800
+-->
 # UID9622 · MCP-mini Flask 版本（v0.1）
 
 本项目为 UID9622 的本地 MCP-mini 引擎原型，采用 Flask 提供本地 HTTP 接口，并使用 SQLite 做审计记录。
