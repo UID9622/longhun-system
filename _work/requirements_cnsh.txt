@@ -1,8 +1,0 @@
-# CNSH 翻译系统 - 最小化依赖
-# DNA: #龍芯⚡️2026-05-27-CNSH-REQUIREMENTS-MINIMAL
-# 注：此版本只安装绝对必需的包
-#     其他可选包（Google Translate, Redis, Slack等）在需要时可单独安装
-
-# 核心依赖（必需）
-python-dotenv>=1.0.0          # 环境变量管理
-requests>=2.28.0              # HTTP 请求
