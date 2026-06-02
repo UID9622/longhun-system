@@ -1,8 +1,0 @@
-=== 清扫追踪 2026-05-19T18:59:20.182662 ===
-目标域: doubleclick.net, google-analytics.com, facebook.com, yandex.ru, criteo.com… 共 14 个
-Chrome Default: 删除 cookie 行 2
-Chrome Profile 1: 删除 cookie 行 1
-Chrome Profile 2: 删除 cookie 行 8
-Service Worker 目录清除: 4 处
-合计删除 cookie 行: 11
-🟢 Chrome 追踪域 cookie 已扫·请在 F12→Application 复核

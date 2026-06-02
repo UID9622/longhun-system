@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-exec bash "/Users/zuimeidedeyihan/longhun-system/命令/Notion算力.sh" "$@"
