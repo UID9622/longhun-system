@@ -26,28 +26,50 @@ from datetime import datetime
 # ═══════════════════════════════════════════════════════════════
 
 try:
-    from constitution.longhun_foundation_config import (
+    from cnsh_core.constitution.longhun_foundation_config import (
         get_system_config, validate_config, SystemMission, CreatorIdentity
     )
-    from identity.identity_verification import (
+    from cnsh_core.identity.identity_verification import (
         IdentityVerificationL0, generate_identity_proof
     )
-    from permissions.rbac_system import (
+    from cnsh_core.permissions.rbac_system import (
         get_rbac_system, Role, Permission, SystemLayer
     )
-    from dna.dna_system import (
+    from cnsh_core.dna.dna_system import (
         get_dna_generator, DNA, DNAStatus
     )
-    from logging.append_only_logging import (
+    from cnsh_core.logging.append_only_logging import (
         get_system_log, log_operation, LogEventType, LogLevel
     )
-    from scheduler.execution_schedule import (
+    from cnsh_core.scheduler.execution_schedule import (
         get_scheduler, create_default_tasks, TriggerType
     )
 except ImportError as e:
-    print(f"❌ 模块导入失败: {e}")
-    print("请确保所有核心模块都已安装")
-    sys.exit(1)
+    # 如果使用 cnsh_core 前缀失败，尝试相对导入
+    try:
+        from constitution.longhun_foundation_config import (
+            get_system_config, validate_config, SystemMission, CreatorIdentity
+        )
+        from identity.identity_verification import (
+            IdentityVerificationL0, generate_identity_proof
+        )
+        from permissions.rbac_system import (
+            get_rbac_system, Role, Permission, SystemLayer
+        )
+        from dna.dna_system import (
+            get_dna_generator, DNA, DNAStatus
+        )
+        from logging.append_only_logging import (
+            get_system_log, log_operation, LogEventType, LogLevel
+        )
+        from scheduler.execution_schedule import (
+            get_scheduler, create_default_tasks, TriggerType
+        )
+    except ImportError as e2:
+        print(f"❌ 模块导入失败: {e}")
+        print(f"❌ 相对导入也失败: {e2}")
+        print("请确保所有核心模块都已安装")
+        sys.exit(1)
 
 
 # ═══════════════════════════════════════════════════════════════
