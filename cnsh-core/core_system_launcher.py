@@ -53,6 +53,9 @@ try:
     from cnsh_core.compiler import (
         get_cnsh_compiler, reset_cnsh_compiler
     )
+    from cnsh_core.router.persona_router import (
+        get_persona_router
+    )
 except ImportError as e:
     # 如果使用 cnsh_core 前缀失败，尝试相对导入
     try:
@@ -83,6 +86,9 @@ except ImportError as e:
         from compiler import (
             get_cnsh_compiler, reset_cnsh_compiler
         )
+        from router.persona_router import (
+            get_persona_router
+        )
     except ImportError as e2:
         print(f"❌ 模块导入失败: {e}")
         print(f"❌ 相对导入也失败: {e2}")
@@ -107,6 +113,7 @@ class LongHunCoreSystem:
         self.registry = None
         self.rule_engine = None
         self.compiler = None
+        self.persona_router = None
         self.startup_timestamp = datetime.now().isoformat()
 
     def startup(self) -> Tuple[bool, Dict]:
@@ -178,13 +185,13 @@ class LongHunCoreSystem:
             print(f"   ✅ 日志系统就绪")
 
             # 步骤6: 初始化执行调度器
-            print("🔄 [6/8] 初始化执行调度器...")
+            print("🔄 [6/10] 初始化执行调度器...")
             self.scheduler = create_default_tasks()
             startup_report["steps"].append({"step": "init_scheduler", "status": "✅"})
             print(f"   ✅ 调度器就绪 (已注册 {len(self.scheduler.tasks)} 个任务)")
 
             # 步骤7: 初始化路由注册表和P0模块预注册
-            print("🔄 [7/8] 初始化路由注册表和预注册P0模块...")
+            print("🔄 [7/10] 初始化路由注册表和预注册P0模块...")
             self.registry = get_route_registry()
 
             # 自动预注册所有P0模块
@@ -204,7 +211,7 @@ class LongHunCoreSystem:
             print(f"   ✅ 路由注册表就绪 (已注册 {registry_stats['total_nodes']} 个节点)")
 
             # 步骤8: 初始化规则引擎和加载内置规则
-            print("🔄 [8/8] 初始化规则引擎和加载内置规则...")
+            print("🔄 [8/10] 初始化规则引擎和加载内置规则...")
             self.rule_engine = get_rule_engine()
 
             # 加载内置规则
@@ -236,7 +243,7 @@ class LongHunCoreSystem:
                 print(f"   ⚠️ 规则引擎注册失败: {rule_engine_msg}")
 
             # 步骤9: 初始化CNSH编译器
-            print("🔄 [9/9] 初始化CNSH编译器...")
+            print("🔄 [9/10] 初始化CNSH编译器...")
             self.compiler = get_cnsh_compiler()
 
             # 运行编译器自检
@@ -260,6 +267,41 @@ class LongHunCoreSystem:
                 print(f"   ✅ 编译器已注册到路由表 (IPA-L1-003)")
             else:
                 print(f"   ⚠️ 编译器注册失败: {compiler_msg}")
+
+            # 步骤10: 初始化PersonaRouter (人格路由系统·F4因子)
+            print("🔄 [10/10] 初始化PersonaRouter (人格路由系统)...")
+            try:
+                self.persona_router = get_persona_router()
+
+                # 运行PersonaRouter自检
+                persona_ok, persona_errors = self.persona_router.selftest()
+                if persona_ok:
+                    startup_report["steps"].append({"step": "init_persona_router", "status": "✅"})
+                    print("   ✅ PersonaRouter就绪 (虚伪词汇四分类·F4因子)")
+                else:
+                    print(f"   ⚠️ PersonaRouter自检报告:")
+                    for error in persona_errors:
+                        print(f"      - {error}")
+                    startup_report["steps"].append({
+                        "step": "init_persona_router",
+                        "status": "⚠️",
+                        "errors": persona_errors
+                    })
+            except ImportError:
+                # PersonaRouter模块不可用
+                print("   ⚠️ PersonaRouter未初始化 (模块不可用)")
+                startup_report["steps"].append({
+                    "step": "init_persona_router",
+                    "status": "⚠️",
+                    "reason": "module_not_available"
+                })
+            except Exception as e:
+                print(f"   ❌ PersonaRouter初始化失败: {str(e)}")
+                startup_report["steps"].append({
+                    "step": "init_persona_router",
+                    "status": "❌",
+                    "error": str(e)
+                })
 
             # 触发启动事件
             print("\n🚀 触发 STARTUP 事件...")
@@ -298,6 +340,7 @@ class LongHunCoreSystem:
                 "registry": self.registry is not None,
                 "rule_engine": self.rule_engine is not None,
                 "compiler": self.compiler is not None,
+                "persona_router": self.persona_router is not None,
             },
             "rbac_status": self.rbac.get_system_status() if self.rbac else None,
             "dna_statistics": self.dna_generator.get_statistics() if self.dna_generator else None,
