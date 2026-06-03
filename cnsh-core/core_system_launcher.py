@@ -47,6 +47,12 @@ try:
     from cnsh_core.registry.route_registry import (
         get_route_registry, RouteRegistry
     )
+    from cnsh_core.rules import (
+        get_rule_engine, reset_rule_engine
+    )
+    from cnsh_core.compiler import (
+        get_cnsh_compiler, reset_cnsh_compiler
+    )
 except ImportError as e:
     # 如果使用 cnsh_core 前缀失败，尝试相对导入
     try:
@@ -71,6 +77,12 @@ except ImportError as e:
         from registry.route_registry import (
             get_route_registry, RouteRegistry
         )
+        from rules import (
+            get_rule_engine, reset_rule_engine
+        )
+        from compiler import (
+            get_cnsh_compiler, reset_cnsh_compiler
+        )
     except ImportError as e2:
         print(f"❌ 模块导入失败: {e}")
         print(f"❌ 相对导入也失败: {e2}")
@@ -93,6 +105,8 @@ class LongHunCoreSystem:
         self.system_log = None
         self.scheduler = None
         self.registry = None
+        self.rule_engine = None
+        self.compiler = None
         self.startup_timestamp = datetime.now().isoformat()
 
     def startup(self) -> Tuple[bool, Dict]:
@@ -164,13 +178,13 @@ class LongHunCoreSystem:
             print(f"   ✅ 日志系统就绪")
 
             # 步骤6: 初始化执行调度器
-            print("🔄 [6/7] 初始化执行调度器...")
+            print("🔄 [6/8] 初始化执行调度器...")
             self.scheduler = create_default_tasks()
             startup_report["steps"].append({"step": "init_scheduler", "status": "✅"})
             print(f"   ✅ 调度器就绪 (已注册 {len(self.scheduler.tasks)} 个任务)")
 
             # 步骤7: 初始化路由注册表和P0模块预注册
-            print("🔄 [7/7] 初始化路由注册表和预注册P0模块...")
+            print("🔄 [7/8] 初始化路由注册表和预注册P0模块...")
             self.registry = get_route_registry()
 
             # 自动预注册所有P0模块
@@ -188,6 +202,64 @@ class LongHunCoreSystem:
                 "p0_modules": p0_success
             })
             print(f"   ✅ 路由注册表就绪 (已注册 {registry_stats['total_nodes']} 个节点)")
+
+            # 步骤8: 初始化规则引擎和加载内置规则
+            print("🔄 [8/8] 初始化规则引擎和加载内置规则...")
+            self.rule_engine = get_rule_engine()
+
+            # 加载内置规则
+            from rules.builtin_rules import register_all_builtin_rules
+            rules_success, rules_results = register_all_builtin_rules(self.rule_engine)
+
+            if rules_success:
+                rule_stats = self.rule_engine.get_statistics()
+                print(f"   ✅ 规则引擎就绪 (已加载 {rule_stats['total_rules']} 条内置规则)")
+                startup_report["steps"].append({
+                    "step": "init_rule_engine",
+                    "status": "✅",
+                    "rules_count": rule_stats['total_rules']
+                })
+            else:
+                # 部分规则加载失败，但继续启动
+                print(f"   ⚠️ 内置规则加载: {len(rules_results)} 条规则")
+                startup_report["steps"].append({
+                    "step": "init_rule_engine",
+                    "status": "⚠️",
+                    "partial": True
+                })
+
+            # 将规则引擎注册到路由表
+            rule_engine_success, rule_engine_msg = self.register_rule_engine_to_registry()
+            if rule_engine_success:
+                print(f"   ✅ 规则引擎已注册到路由表 (IPA-L1-002)")
+            else:
+                print(f"   ⚠️ 规则引擎注册失败: {rule_engine_msg}")
+
+            # 步骤9: 初始化CNSH编译器
+            print("🔄 [9/9] 初始化CNSH编译器...")
+            self.compiler = get_cnsh_compiler()
+
+            # 运行编译器自检
+            compiler_ok, compiler_errors = self.compiler.selftest()
+            if compiler_ok:
+                startup_report["steps"].append({"step": "init_compiler", "status": "✅"})
+                print("   ✅ CNSH编译器就绪")
+            else:
+                print(f"   ⚠️ 编译器自检报告:")
+                for error in compiler_errors:
+                    print(f"      - {error}")
+                startup_report["steps"].append({
+                    "step": "init_compiler",
+                    "status": "⚠️",
+                    "errors": compiler_errors
+                })
+
+            # 将编译器注册到路由表
+            compiler_success, compiler_msg = self.register_compiler_to_registry()
+            if compiler_success:
+                print(f"   ✅ 编译器已注册到路由表 (IPA-L1-003)")
+            else:
+                print(f"   ⚠️ 编译器注册失败: {compiler_msg}")
 
             # 触发启动事件
             print("\n🚀 触发 STARTUP 事件...")
@@ -224,12 +296,15 @@ class LongHunCoreSystem:
                 "logging": self.system_log is not None,
                 "scheduler": self.scheduler is not None,
                 "registry": self.registry is not None,
+                "rule_engine": self.rule_engine is not None,
+                "compiler": self.compiler is not None,
             },
             "rbac_status": self.rbac.get_system_status() if self.rbac else None,
             "dna_statistics": self.dna_generator.get_statistics() if self.dna_generator else None,
             "log_statistics": self.system_log.get_statistics() if self.system_log else None,
             "scheduled_tasks": len(self.scheduler.tasks) if self.scheduler else 0,
             "registry_statistics": self.registry.get_statistics() if self.registry else None,
+            "rule_engine_statistics": self.rule_engine.get_statistics() if self.rule_engine else None,
         }
 
     def execute_operation(self, operation: str, params: Dict = None) -> Dict:
@@ -280,6 +355,74 @@ class LongHunCoreSystem:
             )
 
         return result
+
+    def register_compiler_to_registry(self) -> Tuple[bool, str]:
+        """
+        将CNSH编译器注册到路由表（P1-3 节点）
+
+        Returns:
+            (success, message)
+        """
+        if not self.registry or not self.compiler:
+            return False, "编译器或路由表未初始化"
+
+        try:
+            from registry.node import RouteNode, NodeStatus, NodeType
+
+            compiler_node = RouteNode(
+                node_id="IPA-L1-003",
+                name="cnsh_compiler",
+                node_type=NodeType.LOCAL,
+                status=NodeStatus.ACTIVE,
+                local_path="cnsh_core.compiler",
+                entry_point="get_cnsh_compiler",
+                dna="#龍芯⚡️2026-06-03-CNSH-COMPILER-v1.0",
+                layer="L1_SEASONAL",
+                description="CNSH编译器·计算逻辑赋能层·可参数化编译",
+                tags=["L1", "compiler", "cnsh", "calculation"],
+                dependencies=["IPA-L0-001", "IPA-L0-004", "IPA-L0-005", "IPA-L0-006", "IPA-L1-001"],
+            )
+
+            success, msg = self.registry.register(compiler_node)
+            return success, msg
+
+        except Exception as e:
+            return False, f"编译器注册失败: {str(e)}"
+
+    def register_rule_engine_to_registry(self) -> Tuple[bool, str]:
+        """
+        将规则引擎注册到路由表（P1-2 节点）
+
+        Returns:
+            (success, message)
+        """
+        if not self.registry or not self.rule_engine:
+            return False, "规则引擎或路由表未初始化"
+
+        try:
+            from registry.node import RouteNode, NodeStatus, NodeType
+
+            rule_engine_node = RouteNode(
+                node_id="IPA-L1-002",
+                name="rule_engine",
+                node_type=NodeType.GATE,
+                status=NodeStatus.ACTIVE,
+                local_path="cnsh_core.rules",
+                entry_point="get_rule_engine",
+                dna="#龍芯⚡️2026-06-03-RULE-ENGINE-v1.0",
+                layer="L1_SEASONAL",
+                description="规则引擎·守门人·业务规则执行器",
+                tags=["L1", "rules", "gate", "decision"],
+                dependencies=["IPA-L0-001", "IPA-L0-002", "IPA-L0-003",
+                              "IPA-L0-004", "IPA-L0-005", "IPA-L0-006",
+                              "IPA-L1-001"],
+            )
+
+            success, msg = self.registry.register(rule_engine_node)
+            return success, msg
+
+        except Exception as e:
+            return False, f"规则引擎注册失败: {str(e)}"
 
     def register_p0_modules(self) -> Tuple[bool, str]:
         """
@@ -455,16 +598,19 @@ def main():
   • DNA系统: ~/longhun-system/cnsh-core/dna/
   • 日志系统: ~/longhun-system/cnsh-core/logging/
   • 调度器: ~/longhun-system/cnsh-core/scheduler/
+  • 编译器: ~/longhun-system/cnsh-core/compiler/
+  • 编译配置: ~/longhun-system/03_compiler/
 
 日志文件:
   • 系统审计: ~/longhun-system/logs/system_audit.jsonl
   • 工作流操作: ~/longhun-system/logs/workflow_operations.jsonl
+  • 编译执行: ~/longhun-system/logs/compiler_execution.jsonl
 
 下一步:
   1. 启用定时任务运行
   2. 集成工作流引擎
-  3. 部署CNSH编译器
-  4. 启动主控操作台
+  3. 部署主控操作台
+  4. 启动CNSH IDE
 
 DNA标记:
   #龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-v1.0
