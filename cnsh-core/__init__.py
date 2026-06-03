@@ -22,6 +22,7 @@ from . import dna
 from . import logging
 from . import scheduler
 from . import mathematics
+from . import registry
 from .core_system_launcher import LongHunCoreSystem
 
 __version__ = "1.0.0"
@@ -35,5 +36,6 @@ __all__ = [
     'logging',
     'scheduler',
     'mathematics',
+    'registry',
     'LongHunCoreSystem',
 ]
