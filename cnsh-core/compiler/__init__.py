@@ -33,6 +33,8 @@ from .parser import Parser
 from .audit import ThreeColorAudit, DNATracer
 from .semantic import SemanticAnalyzer, SemanticError
 from .codegen import CodeGenerator, CodeGenError
+from .optimizer import Optimizer, OptimizerError
+from .cnsh_compiler import CNSHCompiler, CompileError, get_cnsh_compiler, reset_cnsh_compiler
 
 __version__ = "1.0.0"
 __author__ = "UID9622 · 诸葛鑫 · 龍芯北辰"
@@ -51,4 +53,10 @@ __all__ = [
     'SemanticError',
     'CodeGenerator',
     'CodeGenError',
+    'Optimizer',
+    'OptimizerError',
+    'CNSHCompiler',
+    'CompileError',
+    'get_cnsh_compiler',
+    'reset_cnsh_compiler',
 ]
