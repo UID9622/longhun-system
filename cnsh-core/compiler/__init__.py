@@ -32,6 +32,7 @@ from .lexer import Lexer
 from .parser import Parser
 from .audit import ThreeColorAudit, DNATracer
 from .semantic import SemanticAnalyzer, SemanticError
+from .codegen import CodeGenerator, CodeGenError
 
 __version__ = "1.0.0"
 __author__ = "UID9622 · 诸葛鑫 · 龍芯北辰"
@@ -48,4 +49,6 @@ __all__ = [
     'DNATracer',
     'SemanticAnalyzer',
     'SemanticError',
+    'CodeGenerator',
+    'CodeGenError',
 ]
