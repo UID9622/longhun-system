@@ -23,6 +23,8 @@ from . import logging
 from . import scheduler
 from . import mathematics
 from . import registry
+from . import rules
+from . import compiler
 from .core_system_launcher import LongHunCoreSystem
 
 __version__ = "1.0.0"
@@ -37,5 +39,7 @@ __all__ = [
     'scheduler',
     'mathematics',
     'registry',
+    'rules',
+    'compiler',
     'LongHunCoreSystem',
 ]
