@@ -44,6 +44,9 @@ try:
     from cnsh_core.scheduler.execution_schedule import (
         get_scheduler, create_default_tasks, TriggerType
     )
+    from cnsh_core.registry.route_registry import (
+        get_route_registry, RouteRegistry
+    )
 except ImportError as e:
     # 如果使用 cnsh_core 前缀失败，尝试相对导入
     try:
@@ -64,6 +67,9 @@ except ImportError as e:
         )
         from scheduler.execution_schedule import (
             get_scheduler, create_default_tasks, TriggerType
+        )
+        from registry.route_registry import (
+            get_route_registry, RouteRegistry
         )
     except ImportError as e2:
         print(f"❌ 模块导入失败: {e}")
@@ -86,6 +92,7 @@ class LongHunCoreSystem:
         self.dna_generator = None
         self.system_log = None
         self.scheduler = None
+        self.registry = None
         self.startup_timestamp = datetime.now().isoformat()
 
     def startup(self) -> Tuple[bool, Dict]:
@@ -157,10 +164,30 @@ class LongHunCoreSystem:
             print(f"   ✅ 日志系统就绪")
 
             # 步骤6: 初始化执行调度器
-            print("🔄 [6/6] 初始化执行调度器...")
+            print("🔄 [6/7] 初始化执行调度器...")
             self.scheduler = create_default_tasks()
             startup_report["steps"].append({"step": "init_scheduler", "status": "✅"})
             print(f"   ✅ 调度器就绪 (已注册 {len(self.scheduler.tasks)} 个任务)")
+
+            # 步骤7: 初始化路由注册表和P0模块预注册
+            print("🔄 [7/7] 初始化路由注册表和预注册P0模块...")
+            self.registry = get_route_registry()
+
+            # 自动预注册所有P0模块
+            p0_success, p0_msg = self.register_p0_modules()
+            if p0_success:
+                print(f"   ✅ {p0_msg}")
+            else:
+                print(f"   ⚠️ P0模块预注册: {p0_msg}")
+
+            registry_stats = self.registry.get_statistics()
+            startup_report["steps"].append({
+                "step": "init_registry",
+                "status": "✅",
+                "nodes_count": registry_stats["total_nodes"],
+                "p0_modules": p0_success
+            })
+            print(f"   ✅ 路由注册表就绪 (已注册 {registry_stats['total_nodes']} 个节点)")
 
             # 触发启动事件
             print("\n🚀 触发 STARTUP 事件...")
@@ -196,11 +223,13 @@ class LongHunCoreSystem:
                 "dna": self.dna_generator is not None,
                 "logging": self.system_log is not None,
                 "scheduler": self.scheduler is not None,
+                "registry": self.registry is not None,
             },
             "rbac_status": self.rbac.get_system_status() if self.rbac else None,
             "dna_statistics": self.dna_generator.get_statistics() if self.dna_generator else None,
             "log_statistics": self.system_log.get_statistics() if self.system_log else None,
             "scheduled_tasks": len(self.scheduler.tasks) if self.scheduler else 0,
+            "registry_statistics": self.registry.get_statistics() if self.registry else None,
         }
 
     def execute_operation(self, operation: str, params: Dict = None) -> Dict:
@@ -251,6 +280,133 @@ class LongHunCoreSystem:
             )
 
         return result
+
+    def register_p0_modules(self) -> Tuple[bool, str]:
+        """
+        预注册所有P0核心模块到路由表
+
+        Returns:
+            (success, message)
+        """
+        if not self.registry:
+            return False, "路由注册表未初始化"
+
+        try:
+            from registry.node import RouteNode, NodeStatus, NodeType
+
+            # 定义7个P0模块
+            p0_modules = [
+                RouteNode(
+                    node_id="IPA-L0-001",
+                    name="constitution",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.constitution",
+                    entry_point="get_system_config",
+                    dna="#龍芯⚡️2026-06-03-CONSTITUTION-v1.0",
+                    layer="L0_ETERNAL",
+                    description="系统宪法和基础配置",
+                    tags=["L0", "config", "foundation"],
+                    dependencies=[],
+                ),
+                RouteNode(
+                    node_id="IPA-L0-002",
+                    name="identity",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.identity",
+                    entry_point="generate_identity_proof",
+                    dna="#龍芯⚡️2026-06-03-IDENTITY-v1.0",
+                    layer="L0_ETERNAL",
+                    description="三重身份验证系统",
+                    tags=["L0", "security", "authentication"],
+                    dependencies=["IPA-L0-001"],
+                ),
+                RouteNode(
+                    node_id="IPA-L0-003",
+                    name="permissions",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.permissions",
+                    entry_point="get_rbac_system",
+                    dna="#龍芯⚡️2026-06-03-PERMISSIONS-v1.0",
+                    layer="L0_ETERNAL",
+                    description="RBAC权限控制系统",
+                    tags=["L0", "security", "governance"],
+                    dependencies=["IPA-L0-001", "IPA-L0-002"],
+                ),
+                RouteNode(
+                    node_id="IPA-L0-004",
+                    name="dna",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.dna",
+                    entry_point="get_dna_generator",
+                    dna="#龍芯⚡️2026-06-03-DNA-v1.0",
+                    layer="L0_ETERNAL",
+                    description="DNA追溯码生成和验证",
+                    tags=["L0", "traceability", "identity"],
+                    dependencies=["IPA-L0-001"],
+                ),
+                RouteNode(
+                    node_id="IPA-L0-005",
+                    name="logging",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.logging",
+                    entry_point="get_system_log",
+                    dna="#龍芯⚡️2026-06-03-LOGGING-v1.0",
+                    layer="L0_ETERNAL",
+                    description="Append-Only日志系统",
+                    tags=["L0", "audit", "storage"],
+                    dependencies=["IPA-L0-001", "IPA-L0-004"],
+                ),
+                RouteNode(
+                    node_id="IPA-L0-006",
+                    name="mathematics",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.mathematics",
+                    entry_point="get_formula_executor",
+                    dna="#龍芯⚡️2026-06-03-MATHEMATICS-v1.0",
+                    layer="L0_ETERNAL",
+                    description="数学公式和算法核心",
+                    tags=["L0", "algorithm", "logic"],
+                    dependencies=["IPA-L0-001"],
+                ),
+                RouteNode(
+                    node_id="IPA-L1-001",
+                    name="scheduler",
+                    node_type=NodeType.LOCAL,
+                    status=NodeStatus.ACTIVE,
+                    local_path="cnsh_core.scheduler",
+                    entry_point="get_scheduler",
+                    dna="#龍芯⚡️2026-06-03-SCHEDULER-v1.0",
+                    layer="L1_SEASONAL",
+                    description="执行调度和任务管理",
+                    tags=["L1", "scheduling", "automation"],
+                    dependencies=["IPA-L0-001", "IPA-L0-005"],
+                ),
+            ]
+
+            # 注册所有模块
+            success_count = 0
+            failed_modules = []
+
+            for node in p0_modules:
+                success, msg = self.registry.register(node)
+                if success:
+                    success_count += 1
+                else:
+                    failed_modules.append(f"{node.node_id}: {msg}")
+
+            if failed_modules:
+                return False, f"注册 {success_count}/{len(p0_modules)} 个模块，失败: {', '.join(failed_modules)}"
+            else:
+                return True, f"成功注册所有 {len(p0_modules)} 个P0模块"
+
+        except Exception as e:
+            return False, f"预注册失败: {str(e)}"
 
 
 # ═══════════════════════════════════════════════════════════════
