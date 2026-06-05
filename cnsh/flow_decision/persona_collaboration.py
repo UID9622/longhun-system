@@ -15,7 +15,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Tuple
 from enum import Enum
-from schemas import PersonaEnum, GateReceipt
+from .schemas import PersonaEnum, GateReceipt
 
 
 # ============================================================================
