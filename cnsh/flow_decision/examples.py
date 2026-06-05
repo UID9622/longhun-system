@@ -18,9 +18,9 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
 
 import json
-from cnsh_flow_decision_core import CNSHFlowDecisionCore
-from schemas import VisibilityEnum, TraceModeEnum, LevelEnum
-from ipa_route_registry import get_ipa_chain_order
+from .cnsh_flow_decision_core import CNSHFlowDecisionCore
+from .schemas import VisibilityEnum, TraceModeEnum, LevelEnum
+from .ipa_route_registry import get_ipa_chain_order
 
 
 def example_1_normal():
