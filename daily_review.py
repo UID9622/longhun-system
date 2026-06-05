@@ -40,9 +40,18 @@ def check_db_heartbeat():
 def check_tests():
     try:
         r = subprocess.run(["pytest", "-q"], cwd=HOME, capture_output=True, text=True, timeout=300)
-        return ("🟢", "pytest 通过") if r.returncode == 0 else ("🔴", "pytest 失败")
+        if r.returncode == 0:
+            return ("🟢", "pytest 通过")
+        elif r.returncode == 5:
+            # pytest 找不到测试文件 = 项目无测试,非失败
+            return ("🟡", "无测试(找不到test_*.py)")
+        else:
+            # 其他非0码 = 真正失败
+            return ("🔴", f"pytest 失败(code {r.returncode})")
+    except FileNotFoundError:
+        return ("🟡", "pytest 未装")
     except Exception as e:
-        return ("🟡", f"无测试:{e}")
+        return ("🟡", f"测试检查异常:{e}")
 
 def build_report():
     checks = {
