@@ -29,7 +29,7 @@ AGENT_COMMANDS = {
     "AGENT-011": ["python3", str(HOME / ".龍魂/longhun_notion_sync_auto.py")],
     "AGENT-012": ["python3", str(HOME / ".龍魂/baobao_workflow_transparent.py")],
     "AGENT-013": ["python3", str(HOME / ".龍魂/xpay/xpay_cli.py"), "stats"],
-    "AGENT-014": ["python3", str(HOME / ".龍魂/xpay/xpay_core.py")],
+    "AGENT-014": ["python3", str(HOME / ".龍魂/xpay/xpay_core_auto.py")],
 }
 
 class LiveTaskExecutor:
