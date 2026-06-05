@@ -23,8 +23,17 @@ try:
         DNAChainTracer,
     )
 
-    __version__ = "4.1"
+    from .sancai_sync import (
+        SancaiSyncHub,
+        IPAReceipt,
+        ParticleInstruction,
+        NeuralSignal,
+        PalaceNode,
+    )
+
+    __version__ = "5.0"
     __all__ = [
+        # v4.1 Flow Decision Core
         'FlowDecisionNode',
         'quick_process',
         'CNSHFlowDecisionCore',
@@ -32,6 +41,12 @@ try:
         'IPARouteRegistry',
         'PersonaCollaborationFramework',
         'DNAChainTracer',
+        # v1.0 Sancai Sync Hub
+        'SancaiSyncHub',
+        'IPAReceipt',
+        'ParticleInstruction',
+        'NeuralSignal',
+        'PalaceNode',
     ]
 
 except ImportError as e:
