@@ -26,7 +26,7 @@ AGENT_COMMANDS = {
     "AGENT-005": ["python3", str(HOME / "longhun-system/daily_review.py")],
     "AGENT-007": ["python3", str(HOME / ".龍魂/longhun_foundation_launcher_auto.py")],
     "AGENT-008": ["python3", str(HOME / "agent_orchestrator_v1.py"), "execute", "AGENT-008"],
-    "AGENT-011": ["python3", str(HOME / ".龍魂/longhun_notion_sync.py")],
+    "AGENT-011": ["python3", str(HOME / ".龍魂/longhun_notion_sync_auto.py")],
     "AGENT-012": ["python3", str(HOME / ".龍魂/baobao_workflow_transparent.py")],
     "AGENT-013": ["python3", str(HOME / ".龍魂/xpay/xpay_cli.py"), "stats"],
     "AGENT-014": ["python3", str(HOME / ".龍魂/xpay/xpay_core.py")],
