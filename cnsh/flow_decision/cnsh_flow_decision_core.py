@@ -17,15 +17,15 @@ import json
 import hashlib
 from typing import Optional, List, Tuple
 from datetime import datetime
-from schemas import (
+from .schemas import (
     FlowDecisionNode, VisibilityEnum, BucketEnum, StatusEnum,
     WuxingEnum, AuditColorEnum, PersonaEnum, PrivacyConfig,
     TraceModeEnum, LevelEnum
 )
-from digital_root import DigitalRootCalculator, quick_dr
-from ipa_route_registry import IPARouteRegistry, get_ipa_chain_order
-from persona_collaboration import PersonaCollaborationFramework
-from dna_chain_tracer import DNAChainTracer, DNATagPolicyValidator
+from .digital_root import DigitalRootCalculator, quick_dr
+from .ipa_route_registry import IPARouteRegistry, get_ipa_chain_order
+from .persona_collaboration import PersonaCollaborationFramework
+from .dna_chain_tracer import DNAChainTracer, DNATagPolicyValidator
 
 
 class CNSHFlowDecisionCore:

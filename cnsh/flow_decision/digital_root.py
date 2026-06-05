@@ -14,7 +14,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 import hashlib
 from typing import Optional, Tuple
-from schemas import DigitalRootConfig, WuxingEnum
+from .schemas import DigitalRootConfig, WuxingEnum
 
 
 class DigitalRootCalculator:

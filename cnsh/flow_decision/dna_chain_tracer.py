@@ -17,7 +17,7 @@ import json
 from dataclasses import dataclass, asdict
 from typing import Optional, List, Tuple
 from datetime import datetime
-from schemas import DNATagPolicy, LevelEnum, VisibilityEnum, TraceModeEnum
+from .schemas import DNATagPolicy, LevelEnum, VisibilityEnum, TraceModeEnum
 
 
 @dataclass

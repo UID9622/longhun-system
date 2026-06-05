@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from typing import Dict, Optional, List
 from enum import Enum
 from datetime import datetime
-from schemas import PersonaEnum, IPAReceipt
+from .schemas import PersonaEnum, IPAReceipt
 
 
 class IPANodeType(str, Enum):
