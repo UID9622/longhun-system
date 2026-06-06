@@ -455,6 +455,173 @@ const AlertsPage = () => {
   );
 };
 
+
+
+// 龍魂 Skills 页面
+const LonghunSkillsPage = () => {
+  const [htmlSkills, setHtmlSkills] = useState([]);
+  const [pythonSkills, setPythonSkills] = useState([]);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [skillContent, setSkillContent] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('list');
+
+  useEffect(() => {
+    loadLonghunSkills();
+  }, []);
+
+  const loadLonghunSkills = async () => {
+    try {
+      const data = await ApiClient.get('/longhun-skills');
+      setHtmlSkills(data.html_skills || []);
+      setPythonSkills(data.python_skills || []);
+      setLoading(false);
+    } catch (error) {
+      console.error('加载龍魂 Skills 失败:', error);
+    }
+  };
+
+  const handleViewSkill = async (skillId) => {
+    try {
+      const data = await ApiClient.get(`/longhun-skills/${skillId}/content`);
+      setSelectedSkill(skillId);
+      setSkillContent(data.content);
+      setActiveTab('content');
+    } catch (error) {
+      console.error('获取 Skill 内容失败:', error);
+    }
+  };
+
+  const handleExecuteSkill = async (skillId) => {
+    try {
+      const result = await ApiClient.post(`/longhun-skills/${skillId}/execute`, {});
+      alert(`Skill 已提交执行: ${result.execution_id}`);
+    } catch (error) {
+      console.error('执行 Skill 失败:', error);
+      alert('执行 Skill 失败');
+    }
+  };
+
+  if (loading) return <div className="loading">加载龍魂 Skills 中...</div>;
+
+  return (
+    <div className="longhun-skills-page">
+      <h2>🐉 龍魂 Skills 系統</h2>
+      
+      <div className="skills-tabs">
+        <button
+          className={activeTab === 'list' ? 'active' : ''}
+          onClick={() => setActiveTab('list')}
+        >
+          Skills 列表 ({htmlSkills.length + pythonSkills.length})
+        </button>
+        {selectedSkill && (
+          <button
+            className={activeTab === 'content' ? 'active' : ''}
+            onClick={() => setActiveTab('content')}
+          >
+            查看内容
+          </button>
+        )}
+      </div>
+
+      {activeTab === 'list' && (
+        <>
+          {/* HTML Interactive Skills */}
+          <section className="skills-section">
+            <h3>🎨 HTML Interactive Skills ({htmlSkills.length})</h3>
+            <div className="skills-grid">
+              {htmlSkills.map(skill => (
+                <div key={skill.name} className="skill-card html-skill">
+                  <div className="skill-header">
+                    <h4>{skill.name}</h4>
+                    <span className="skill-type">HTML</span>
+                  </div>
+                  <div className="skill-body">
+                    <p>{skill.filename}</p>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                    <button 
+                      onClick={() => handleViewSkill(skill.name)} 
+                      className="btn-small"
+                    >
+                      查看
+                    </button>
+                    <button 
+                      onClick={() => handleExecuteSkill(skill.name)} 
+                      className="btn-small"
+                    >
+                      渲染
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Python Utility Skills */}
+          <section className="skills-section">
+            <h3>🐍 Python Utility Skills ({pythonSkills.length})</h3>
+            <div className="skills-grid">
+              {pythonSkills.map(skill => (
+                <div key={skill.name} className="skill-card python-skill">
+                  <div className="skill-header">
+                    <h4>{skill.name}</h4>
+                    <span className="skill-type">Python</span>
+                  </div>
+                  <div className="skill-body">
+                    <p>{skill.filename}</p>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                    <button 
+                      onClick={() => handleViewSkill(skill.name)} 
+                      className="btn-small"
+                    >
+                      查看
+                    </button>
+                    <button 
+                      onClick={() => handleExecuteSkill(skill.name)} 
+                      className="btn-small"
+                    >
+                      执行
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
+
+      {activeTab === 'content' && selectedSkill && (
+        <section className="skill-content-section">
+          <h3>📄 {selectedSkill} - 内容</h3>
+          <div style={{ 
+            backgroundColor: '#0a0e27', 
+            padding: '20px', 
+            borderRadius: '8px',
+            border: '1px solid #00d4ff',
+            maxHeight: '600px',
+            overflow: 'auto'
+          }}>
+            <pre style={{ margin: 0, color: '#00d4ff', fontSize: '12px' }}>
+              {skillContent.substring(0, 2000)}...
+            </pre>
+          </div>
+          <button 
+            onClick={() => setActiveTab('list')} 
+            className="btn-primary"
+            style={{ marginTop: '20px' }}
+          >
+            返回列表
+          </button>
+        </section>
+      )}
+    </div>
+  );
+};
+
+
 // ═══════════════════════════════════════════════════════════════════════════
 // 第四部·主应用组件
 // ═══════════════════════════════════════════════════════════════════════════
@@ -470,6 +637,8 @@ export default function App() {
         return <SkillsPage />;
       case 'alerts':
         return <AlertsPage />;
+            case 'longhun-skills':
+        return <LonghunSkillsPage />;
       default:
         return <DashboardPage />;
     }
@@ -503,6 +672,13 @@ export default function App() {
         >
           🚨 告警系統
         </button>
+        <button
+          className={currentPage === 'longhun-skills' ? 'active' : ''}
+          onClick={() => setCurrentPage('longhun-skills')}
+        >
+          🐉 龍魂 Skills
+        </button>
+
       </nav>
 
       <main className="app-main">
