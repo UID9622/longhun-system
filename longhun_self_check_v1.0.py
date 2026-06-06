@@ -79,7 +79,7 @@ class SelfCheck:
 
 if __name__=="__main__":
     sc=SelfCheck()
-    sc.check_files(["daily_review.py"])
+    sc.check_files([str(Path.home()/"longhun-system/daily_review.py")])
     db_path=str(Path.home()/".龍魂/kfpp/kfpp_execution.db")
     if Path(db_path).exists():
         sc.check_db_heartbeat(db_path,"contamination_events")
