@@ -1,0 +1,28 @@
+{
+  "rules": [
+    {
+      "id": "critical_error_spike",
+      "name": "嚴重錯誤激增",
+      "metric": "error_count",
+      "threshold": 10,
+      "window": 60,
+      "severity": "critical"
+    },
+    {
+      "id": "api_latency_spike",
+      "name": "API延遲激增",
+      "metric": "api_response_time",
+      "threshold": 5000,
+      "window": 300,
+      "severity": "high"
+    },
+    {
+      "id": "resource_exhaustion",
+      "name": "資源耗盡",
+      "metric": "cpu_usage",
+      "threshold": 90,
+      "window": 120,
+      "severity": "high"
+    }
+  ]
+}

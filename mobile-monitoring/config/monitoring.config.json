@@ -1,0 +1,40 @@
+{
+  "version": "4.1",
+  "monitoring": {
+    "enabled": true,
+    "logEndpoint": "https://logs.longhun.io/api/v1/monitor/events",
+    "batchSize": 50,
+    "flushInterval": 5000,
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256-GCM"
+    }
+  },
+  "applications": {
+    "app_realtime_dashboard": {
+      "name": "實時性能監控儀表板",
+      "priority": "P10",
+      "platforms": ["h5", "pwa", "miniprogram"],
+      "status": "published"
+    },
+    "app_data_visualization": {
+      "name": "數據可視化儀表板",
+      "priority": "P8",
+      "platforms": ["android", "h5", "ios"],
+      "status": "designing"
+    },
+    "app_mobile_auth": {
+      "name": "移動端身份驗證系統",
+      "priority": "P10",
+      "platforms": ["android", "ios", "miniprogram"],
+      "status": "published"
+    },
+    "app_task_management": {
+      "name": "智能任務管理移動端",
+      "priority": "P9",
+      "platforms": ["h5", "pwa", "miniprogram"],
+      "status": "developing"
+    }
+  },
+  "dna": "#龍芯⚡️2026-06-07-MOBILE-MONITORING-CONFIG"
+}
