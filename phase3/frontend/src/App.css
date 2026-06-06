@@ -92,7 +92,8 @@ body {
   gap: 1rem;
   max-width: 100%;
   overflow-x: auto;
-  sticky top 60px;
+  position: sticky;
+  top: 60px;
   z-index: 99;
 }
 
