@@ -1,0 +1,16 @@
+# Obsidian 緩存
+.obsidian/cache/
+.obsidian/workspace.json
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# 本地配置
+.obsidian/plugins/
+.obsidian/snippets/
+
+# 臨時文件
+*.swp
+*.swo
+*~
