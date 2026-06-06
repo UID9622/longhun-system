@@ -1,0 +1,58 @@
+{
+  "name": "baobao-guardian-frontend",
+  "version": "1.0.0",
+  "description": "宝宝守护助手 · 龍魂系统心脏应用",
+  "type": "module",
+  "main": "dist/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm run dev\" \"electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^r161",
+    "zustand": "^4.4.7",
+    "axios": "^1.17.0",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/three": "^r161.5.8",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^27.2.0",
+    "electron-builder": "^24.6.4",
+    "tailwindcss": "^3.3.6",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16"
+  },
+  "build": {
+    "appId": "com.longhun.baobao",
+    "productName": "宝宝守护助手",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "../../backend/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.utilities"
+    }
+  }
+}
