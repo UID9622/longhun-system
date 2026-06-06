@@ -1,0 +1,56 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: package.json | 标记时间: 2026-06-03T07:46:00+0800
+{
+  "name": "cnsh-deployment",
+  "version": "1.0.0",
+  "description": "CNSH 本地部署系统 - 集成 Obsidian 和 Ollama 的知识管理和智能助手",
+  "main": "src/server-fixed.js",
+  "scripts": {
+    "start": "node src/server-fixed.js",
+    "start-debug": "./start-debug.sh",
+    "monitor-notion": "node notion-monitor.js",
+    "start-monitor": "./start-notion-monitor.sh",
+    "monitor": "./notion-monitor-daemon.sh",
+    "monitor-start": "./notion-monitor-daemon.sh start",
+    "monitor-stop": "./notion-monitor-daemon.sh stop",
+    "monitor-restart": "./notion-monitor-daemon.sh restart",
+    "monitor-status": "./notion-monitor-daemon.sh status",
+    "monitor-logs": "./notion-monitor-daemon.sh logs",
+    "install-deps": "npm install",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "cnsh",
+    "obsidian",
+    "ollama",
+    "knowledge-management",
+    "ai-assistant",
+    "local-llm"
+  ],
+  "author": "CNSH Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "axios": "^1.5.0",
+    "socket.io": "^4.7.2",
+    "fs-extra": "^11.1.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

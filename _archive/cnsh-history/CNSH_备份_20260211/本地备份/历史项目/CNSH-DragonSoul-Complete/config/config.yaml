@@ -1,0 +1,47 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: config.yaml | 标记时间: 2026-06-03T07:46:00+0800
+# 🐉 龍魂终端配置文件
+# DNA: #龍芯⚡️CONFIG
+
+system:
+  name: "DragonSoul Terminal"
+  version: "2.0"
+  owner: "请填写您的用户名"
+
+backends:
+  claude:
+    enabled: true
+    priority: 2
+    # api_key: "sk-xxx"  # 请填写您的API Key
+    
+  deepseek:
+    enabled: true
+    priority: 3
+    # api_key: "sk-xxx"  # 请填写您的API Key
+    
+  notion:
+    enabled: true
+    priority: 1
+    # api_key: "secret_xxx"  # 请填写您的Notion API Key
+    # task_database_id: ""   # 任务数据库ID
+    # finance_database_id: ""  # 财务数据库ID
+
+security:
+  audit_enabled: true
+  dna_tracing: true
+  data_encryption: true
+  data_sovereignty: "china"
+
+features:
+  mac_management: true
+  email_automation: false  # 需要额外配置
+  finance_tracking: true
+  health_monitoring: false  # 需要额外配置

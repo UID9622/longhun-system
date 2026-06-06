@@ -1,0 +1,66 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: manifest.json | 标记时间: 2026-06-03T07:46:00+0800
+{
+  "manifest_version": 3,
+  "name": "🐉 龍魂·思维主权守护者",
+  "version": "1.0.0",
+  "description": "自动净化输入，熔断风险内容，保障思维主权完整性",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "core/purifier.js",
+        "core/dna-validator.js",
+        "core/memory-compressor.js",
+        "core/dna-generator.js",
+        "core/taiji-extractor.js",
+        "core/storage-manager.js",
+        "core/memory-restorer.js",
+        "core/asset-scanner.js",
+        "content/content-script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["wasm/dragon_soul.wasm"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  }
+}

@@ -1,0 +1,1534 @@
+<!--
+  龍魂·六层来源链 / LongHun Six-Layer Source Chain
+  1 道统层 Dao           : 曾仕强老师
+  2 精神层 Spirit        : Steve Jobs
+  3 设备层 Device        : Apple
+  4 技术层 Technology    : Open Source
+  5 系统层 System        : UID9622
+  6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+  DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+  文件: 龍魂操作台_MVP_v1.html | 标记时间: 2026-06-03T07:46:00+0800
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🐉 龍魂操作台 MVP v1.1 · UID9622</title>
+<style>
+:root{
+  --bg0:#030310;--bg1:#070720;--bg2:#0b0b2e;--bg3:#0f0f3a;
+  --bd:#1c1c55;--bd2:#2a2a6a;
+  --gold:#d4af37;--goldb:#ffd700;--goldd:#6a4e0e;
+  --red:#ff3355;--redg:rgba(255,51,85,.18);
+  --yel:#ffcc00;--yelg:rgba(255,204,0,.15);
+  --grn:#00ff88;--grng:rgba(0,255,136,.14);
+  --cyn:#00d4ff;--cynl:rgba(0,212,255,.12);
+  --pur:#7b2dff;--purs:#a855f7;
+  --tp:#e8e0f8;--ts:#6868a8;--td:#2e2e66;
+  --nav-w:220px;--right-w:260px;
+  --hdr-h:48px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg0);color:var(--tp);
+  font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif;
+  font-size:13px;display:flex;flex-direction:column}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:2px}
+a{color:var(--cyn);text-decoration:none}
+a:hover{color:var(--goldb)}
+
+/* ── HEADER ── */
+#hdr{
+  height:var(--hdr-h);flex-shrink:0;
+  background:var(--bg1);border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;padding:0 16px;gap:14px;
+  position:relative;z-index:100;
+}
+#hdr-logo{font-size:16px;font-weight:900;white-space:nowrap;
+  background:linear-gradient(135deg,var(--gold),var(--goldb),var(--purs));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#hdr-dna{font:10px 'JetBrains Mono',monospace;color:var(--goldd);
+  flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hdr-badge{display:flex;align-items:center;gap:6px;padding:3px 10px;
+  border-radius:3px;font:10px 'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0}
+.hdr-badge.grn{background:var(--grng);color:var(--grn);border:1px solid rgba(0,255,136,.3)}
+.hdr-badge.uid{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3)}
+.hdr-badge.live{background:rgba(0,212,255,.08);color:var(--cyn);border:1px solid rgba(0,212,255,.25)}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot.grn{background:var(--grn);box-shadow:0 0 6px var(--grn)}
+.dot.red{background:var(--red);box-shadow:0 0 6px var(--red)}
+.dot.yel{background:var(--yel);box-shadow:0 0 6px var(--yel)}
+.dot.pulse{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── BODY LAYOUT ── */
+#body{flex:1;display:flex;overflow:hidden}
+
+/* ── LEFT NAV ── */
+#nav{
+  width:var(--nav-w);flex-shrink:0;
+  background:var(--bg1);border-right:1px solid var(--bd);
+  overflow-y:auto;display:flex;flex-direction:column;
+}
+.nav-section{padding:10px 0}
+.nav-section-title{
+  padding:6px 14px;font:10px 'JetBrains Mono',monospace;
+  color:var(--goldd);letter-spacing:2px;text-transform:uppercase;
+}
+.nav-item{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 14px;cursor:pointer;border-left:2px solid transparent;
+  transition:all .15s;color:var(--ts);font-size:12px;
+}
+.nav-item:hover{background:rgba(255,255,255,.03);color:var(--tp);border-left-color:var(--gold)}
+.nav-item.active{background:rgba(212,175,55,.06);color:var(--gold);border-left-color:var(--gold)}
+a.nav-item{color:inherit;text-decoration:none}
+a.nav-item:hover{color:var(--tp)}
+.nav-item .ni-icon{font-size:13px;flex-shrink:0;width:18px;text-align:center}
+.nav-item .ni-badge{
+  margin-left:auto;padding:1px 5px;border-radius:2px;font:9px 'JetBrains Mono',monospace;
+  background:var(--bd);color:var(--ts);flex-shrink:0;
+}
+.nav-item .ni-badge.live{background:var(--grng);color:var(--grn)}
+.nav-item .ni-badge.warn{background:var(--yelg);color:var(--yel)}
+
+/* ── MAIN PANEL ── */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+
+/* Tabs */
+#tabs{
+  display:flex;align-items:center;gap:0;
+  background:var(--bg1);border-bottom:1px solid var(--bd);
+  padding:0 16px;flex-shrink:0;overflow-x:auto;
+}
+.tab{
+  padding:10px 18px;font:12px 'JetBrains Mono',monospace;
+  cursor:pointer;border-bottom:2px solid transparent;
+  color:var(--ts);white-space:nowrap;transition:all .15s;
+}
+.tab:hover{color:var(--tp)}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* Panels */
+#panels{flex:1;overflow:hidden;position:relative}
+.panel{position:absolute;inset:0;overflow-y:auto;padding:0;display:none}
+.panel.active{display:block}
+
+/* Panel padding wrapper */
+.pad{padding:20px}
+
+/* ── RIGHT SIDEBAR ── */
+#right{
+  width:var(--right-w);flex-shrink:0;
+  background:var(--bg1);border-left:1px solid var(--bd);
+  overflow-y:auto;display:flex;flex-direction:column;gap:0;
+}
+.rbox{border-bottom:1px solid var(--bd);padding:14px}
+.rbox-title{font:10px 'JetBrains Mono',monospace;color:var(--goldd);
+  letter-spacing:2px;margin-bottom:10px}
+
+/* ── CARDS ── */
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:6px;padding:14px;margin-bottom:12px;position:relative}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:3px 0 0 3px}
+.card.gold::before{background:var(--gold)}
+.card.red::before{background:var(--red)}
+.card.grn::before{background:var(--grn)}
+.card.yel::before{background:var(--yel)}
+.card.cyn::before{background:var(--cyn)}
+.card.pur::before{background:var(--pur)}
+.card-title{font-size:12px;font-weight:700;margin-bottom:8px;color:var(--tp)}
+.card-body{font-size:11px;color:var(--ts);line-height:1.9}
+.card-mono{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ts);line-height:2}
+
+/* ── FLOW PANEL ── */
+#flow-canvas-wrap{position:relative;background:#030310}
+#flowCanvas{display:block;width:100%;cursor:crosshair}
+.flow-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:12px 16px;
+  background:linear-gradient(0deg,rgba(3,3,16,.95),transparent);
+  display:flex;gap:20px;align-items:flex-end;pointer-events:none;
+}
+.flow-stat{text-align:center}
+.flow-stat-val{font:20px 'JetBrains Mono',monospace;font-weight:900}
+.flow-stat-lbl{font:9px 'JetBrains Mono',monospace;color:var(--td);letter-spacing:1px}
+.heaven .flow-stat-val{color:var(--cyn)}
+.earth  .flow-stat-val{color:var(--grn)}
+.human  .flow-stat-val{color:var(--gold)}
+.breath-bar-wrap{flex:1;align-self:center}
+.breath-bar-label{font:9px 'JetBrains Mono',monospace;color:var(--td);margin-bottom:4px}
+.breath-bar-track{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}
+.breath-bar-fill{height:100%;border-radius:2px;transition:width .1s linear}
+
+/* Luoshu mini */
+.luoshu-mini{display:grid;grid-template-columns:repeat(3,28px);gap:3px}
+.lu-cell{width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  font:11px 'JetBrains Mono',monospace;border:1px solid var(--bd);color:rgba(0,212,255,.6)}
+.lu-cell.center{border-color:var(--goldd);color:var(--gold);background:rgba(212,175,55,.06)}
+
+/* ── CNSH TERMINAL ── */
+#terminal{height:100%;display:flex;flex-direction:column;background:#020208}
+.term-output{
+  flex:1;overflow-y:auto;padding:16px;
+  font:12px 'JetBrains Mono',monospace;line-height:1.9;
+}
+.term-line{margin-bottom:2px}
+.term-line.prompt{color:var(--gold)}
+.term-line.result{color:var(--grn)}
+.term-line.blocked{color:var(--red)}
+.term-line.hold{color:var(--yel)}
+.term-line.info{color:var(--ts)}
+.term-line.dna{color:var(--cyn)}
+.term-line.system{color:var(--pur)}
+.term-input-row{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-top:1px solid var(--bd);
+  background:var(--bg1);flex-shrink:0;
+}
+.term-prompt-sym{font:12px 'JetBrains Mono',monospace;color:var(--gold);flex-shrink:0}
+.term-input{
+  flex:1;background:transparent;border:none;outline:none;
+  font:12px 'JetBrains Mono',monospace;color:var(--tp);
+}
+.term-btn{
+  padding:5px 12px;border-radius:3px;border:1px solid var(--bd2);
+  background:var(--bg2);color:var(--gold);font:11px 'JetBrains Mono',monospace;
+  cursor:pointer;transition:all .15s;
+}
+.term-btn:hover{background:rgba(212,175,55,.1);border-color:var(--goldd)}
+.term-btn.danger{color:var(--red);border-color:rgba(255,51,85,.3)}
+.term-btn.danger:hover{background:var(--redg)}
+
+/* ── MCP PANEL ── */
+.mcp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcp-card{
+  background:var(--bg2);border:1px solid var(--bd);border-radius:6px;
+  padding:12px;display:flex;flex-direction:column;gap:6px;
+}
+.mcp-card.connected{border-color:rgba(0,255,136,.25)}
+.mcp-card.local{border-color:rgba(0,212,255,.2)}
+.mcp-card.pending{border-color:rgba(255,204,0,.2)}
+.mcp-header{display:flex;align-items:center;gap:8px}
+.mcp-icon{font-size:18px}
+.mcp-name{font-size:12px;font-weight:700;color:var(--tp)}
+.mcp-status{font:10px 'JetBrains Mono',monospace;margin-top:2px}
+.mcp-status.ok{color:var(--grn)}
+.mcp-status.local{color:var(--cyn)}
+.mcp-status.pending{color:var(--yel)}
+.mcp-actions{display:flex;gap:6px;flex-wrap:wrap}
+.mcp-btn{
+  padding:3px 8px;border-radius:3px;border:1px solid var(--bd);
+  background:var(--bg3);color:var(--ts);font:10px 'JetBrains Mono',monospace;
+  cursor:pointer;transition:all .15s;
+}
+.mcp-btn:hover{border-color:var(--gold);color:var(--gold)}
+.mcp-ping{font:9px 'JetBrains Mono',monospace;color:var(--td)}
+
+/* ── PERSONA MATRIX ── */
+.persona-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.persona-card{
+  background:var(--bg2);border:1px solid var(--bd);border-radius:6px;
+  padding:10px 8px;text-align:center;cursor:pointer;transition:all .2s;
+}
+.persona-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.persona-card.active{border-color:var(--gold);background:rgba(212,175,55,.06)}
+.persona-card.special{border-color:rgba(168,85,247,.4);background:rgba(123,45,255,.06)}
+.persona-icon{font-size:22px;margin-bottom:4px}
+.persona-id{font:9px 'JetBrains Mono',monospace;color:var(--goldd);margin-bottom:3px}
+.persona-name{font-size:11px;font-weight:700;color:var(--tp);margin-bottom:3px}
+.persona-role{font-size:10px;color:var(--ts);line-height:1.5}
+.persona-weight{font:9px 'JetBrains Mono',monospace;color:var(--gold);margin-top:4px}
+.roster-bar{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  padding:10px 12px;margin-bottom:14px;
+  background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.2);border-radius:6px;
+  font:10px 'JetBrains Mono',monospace;color:var(--ts);
+}
+.roster-bar b{color:var(--gold)}
+.roster-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:8px}
+.roster-mod{
+  background:var(--bg2);border:1px solid var(--bd);border-radius:6px;padding:12px;
+  cursor:pointer;transition:border-color .15s;
+}
+.roster-mod:hover{border-color:var(--cyn)}
+.roster-mod .mod-ipa{font:9px 'JetBrains Mono',monospace;color:var(--goldd);margin-bottom:4px;word-break:break-all}
+.roster-mod .mod-title{font-size:12px;font-weight:700;color:var(--tp);margin-bottom:4px}
+.roster-mod .mod-meta{font-size:10px;color:var(--ts);line-height:1.6}
+.roster-mod .mod-route{color:var(--cyn);font-size:10px;margin-top:6px}
+.roster-offline{color:var(--yel);font-size:11px;margin-bottom:10px}
+.roster-urgent{background:rgba(180,40,40,.15);border:1px solid rgba(255,80,80,.4);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:11px;line-height:1.6}
+.roster-sync-ok{color:var(--grn);font-size:10px;margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+
+/* ── ROUTE REGISTRY ── */
+.route-table{width:100%;border-collapse:collapse;font-size:11px}
+.route-table th{padding:8px 12px;text-align:left;border:1px solid var(--bd);
+  background:rgba(212,175,55,.06);color:var(--gold);font-weight:400;font-family:'JetBrains Mono',monospace}
+.route-table td{padding:7px 12px;border:1px solid var(--bd);color:var(--ts);
+  font-family:'JetBrains Mono',monospace;vertical-align:top;line-height:1.7}
+.route-table tr:hover td{background:rgba(255,255,255,.015)}
+.status-badge{display:inline-block;padding:1px 6px;border-radius:2px;font-size:9px}
+.status-badge.live{background:var(--grng);color:var(--grn);border:1px solid rgba(0,255,136,.3)}
+.status-badge.warn{background:var(--yelg);color:var(--yel);border:1px solid rgba(255,204,0,.3)}
+.status-badge.arc{background:var(--redg);color:var(--red);border:1px solid rgba(255,51,85,.3)}
+
+/* ── DATA CHAIN PANEL ── */
+.chain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.chain-card{
+  background:var(--bg2);border:1px solid var(--bd);border-radius:6px;
+  padding:14px;transition:border-color .2s;
+}
+.chain-card:hover{border-color:var(--goldd)}
+.chain-card-title{font-size:12px;font-weight:700;color:var(--tp);margin-bottom:6px}
+.chain-card-dna{font:9px 'JetBrains Mono',monospace;color:var(--goldd);margin-bottom:8px;word-break:break-all}
+.chain-card-desc{font-size:11px;color:var(--ts);line-height:1.7;margin-bottom:8px}
+.chain-card-link{display:inline-block;font:10px 'JetBrains Mono',monospace;
+  color:var(--cyn);border:1px solid rgba(0,212,255,.2);padding:2px 8px;border-radius:3px}
+.chain-card-link + .chain-card-link{display:block;margin-top:6px}
+.chain-card-link:hover{background:var(--cynl)}
+.chain-section-title{
+  font:11px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px;
+  margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bd);
+}
+
+/* DNA block */
+.dna-block{
+  font:10px 'JetBrains Mono',monospace;color:var(--gold);
+  background:rgba(212,175,55,.05);border:1px solid rgba(212,175,55,.15);
+  padding:8px 12px;border-radius:3px;word-break:break-all;margin:6px 0;
+}
+
+/* ── RIGHT PANEL ── */
+.status-row{display:flex;align-items:center;justify-content:space-between;
+  padding:4px 0;border-bottom:1px solid var(--bd);font-size:11px;color:var(--ts)}
+.status-row:last-child{border-bottom:none}
+.status-row b{color:var(--tp);font-size:10px}
+.status-row .val{font:10px 'JetBrains Mono',monospace}
+.health-bar{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin:4px 0}
+.health-fill{height:100%;border-radius:2px;background:var(--grn)}
+
+/* Quick actions */
+.qa-btn{
+  display:block;width:100%;text-align:left;margin-bottom:6px;
+  padding:7px 10px;background:var(--bg2);border:1px solid var(--bd);
+  border-radius:4px;color:var(--ts);font-size:11px;cursor:pointer;
+  transition:all .15s;font-family:inherit;
+}
+.qa-btn:hover{border-color:var(--gold);color:var(--gold)}
+a.qa-btn{color:inherit;box-sizing:border-box}
+.qa-btn .qa-icon{margin-right:6px}
+
+/* ── UTILITY ── */
+.mono{font-family:'JetBrains Mono',monospace}
+.gold{color:var(--gold)}
+.grn{color:var(--grn)}
+.red{color:var(--red)}
+.cyn{color:var(--cyn)}
+.pur{color:var(--purs)}
+.dim{color:var(--td)}
+.mb8{margin-bottom:8px}
+.mb16{margin-bottom:16px}
+.flex{display:flex;align-items:center;gap:8px}
+.spacer{flex:1}
+</style>
+</head>
+<body>
+<script>
+(function () {
+  if (location.protocol !== "file:") return;
+  var d = document.createElement("div");
+  d.id = "file-open-hint";
+  d.style.cssText =
+    "flex-shrink:0;background:#2a1f08;border-bottom:1px solid #8a6a1a;color:#f5e6c4;font:12px/1.65 'PingFang SC','Microsoft YaHei',sans-serif;padding:10px 16px;white-space:pre-wrap;user-select:text";
+  d.textContent =
+    "【花名册·人格路由】需 9625 在线。推荐：先 bash /Users/zuimeidedeyihan/longhun-system/bin/开龍魂9625，再打开\n\n    http://127.0.0.1:9625/mvp/龍魂操作台_MVP_v1.html\n\n【备选】8765 静态服：python3 -m http.server 8765 后打开\n\n    http://127.0.0.1:8765/00_main_control/操作台v3/components/龍魂操作台_MVP_v1.html\n\nfile:// 双击时花名册会显示离线，属正常。";
+  document.body.insertBefore(d, document.body.firstChild);
+})();
+</script>
+
+<!-- ═══════ HEADER ═══════ -->
+<div id="hdr">
+  <div id="hdr-logo">🐉 龍魂操作台</div>
+  <div id="hdr-dna" class="mono">#龍芯⚡️20260510-OPS-CONSOLE-MVP-v1.1 · UID9622 · 三色🟢 · dr=5 · 土·承载 · 屏显用字「龍魂」不简写</div>
+  <div class="hdr-badge live"><div class="dot grn pulse"></div>流场活跃</div>
+  <div class="hdr-badge grn">🟢 审计通过</div>
+  <div class="hdr-badge uid">⚡ UID9622</div>
+</div>
+
+<!-- ═══════ BODY ═══════ -->
+<div id="body">
+
+<!-- LEFT NAV -->
+<nav id="nav">
+  <div class="nav-section">
+    <div class="nav-section-title">▌ 核心入口</div>
+    <div class="nav-item active" onclick="switchTab('flow');setNav(this)">
+      <span class="ni-icon">🌊</span>三才流场<span class="ni-badge live">活</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('data');setNav(this)">
+      <span class="ni-icon">🧬</span>数据链路<span class="ni-badge">30+</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('terminal');setNav(this)">
+      <span class="ni-icon">⌨️</span>CNSH 终端
+    </div>
+    <div class="nav-item" onclick="switchTab('mcp');setNav(this)">
+      <span class="ni-icon">🔌</span>MCP 接口<span class="ni-badge live">7✓</span>
+    </div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">▌ 龍芯家族花名册</div>
+    <div class="nav-item" onclick="switchTab('persona');setNav(this);loadFamilyRoster()">
+      <span class="ni-icon">🎭</span>人格路由·P00–P72<span class="ni-badge live" id="navRosterBadge">CNS</span>
+    </div>
+    <div class="nav-item" onclick="switchTab('route');setNav(this)">
+      <span class="ni-icon">🗂️</span>路由注册表
+    </div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">▌ IPA 节点</div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/UID9622-3427125a9c9f80449e88f4f2170b7940')">
+      <span class="ni-icon">💎</span>公开首页
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f')">
+      <span class="ni-icon">🐉</span>统一入口 v2.7
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/IPA-ROUTE-REGISTRY-v1-0-3457125a9c9f814689a0e88a6c833f36')">
+      <span class="ni-icon">🗺️</span>路由注册表
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/CNSH-Algorithm-Runtime-v1-1-c4082ed1122b41b08033c6ba11f427d1')">
+      <span class="ni-icon">🧮</span>CNSH Runtime
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/CNSH-2026-05-07-DNA-v2-0-M-CNSH-UID9622-bc81f5acf69c4290a40ef54dfd80bc1d')">
+      <span class="ni-icon">⚡</span>DNA生成器 v2.0
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/v3-1-4649636d4d40411c926508a52a030be4')">
+      <span class="ni-icon">🔥</span>流场决策核 v4.1（Notion 沿革页）
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/Dialogue-Pipeline-KB-32b7125a9c9f8183837bfb45ddc415bb')">
+      <span class="ni-icon">🔄</span>对话流水线 KB
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/IPA-DICT-101-111-441ccaf0f48343c79a518621993107a4')">
+      <span class="ni-icon">📖</span>IPA 字典
+    </div>
+    <div class="nav-item" onclick="openNotion('https://www.notion.so/uid9622/b35faf462bc042aa9de5192520180728')">
+      <span class="ni-icon">📋</span>草日志·留痕
+    </div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">▌ 本地引擎</div>
+    <div class="nav-item">
+      <span class="ni-icon">🔤</span>卦分类器<span class="ni-badge warn">本地</span>
+    </div>
+    <div class="nav-item">
+      <span class="ni-icon">🔍</span>FAISS检索<span class="ni-badge warn">本地</span>
+    </div>
+    <div class="nav-item">
+      <span class="ni-icon">🛡️</span>双盾引擎<span class="ni-badge warn">本地</span>
+    </div>
+    <div class="nav-item">
+      <span class="ni-icon">👁️</span>守护进程<span class="ni-badge warn">本地</span>
+    </div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-title">▌ 本地仓库（相对本页打开）</div>
+    <a class="nav-item" href="../../../cnsh/flow_decision/README.md" target="_blank" rel="noopener">
+      <span class="ni-icon">🔥</span>流场决策核 v4.1 README
+    </a>
+    <a class="nav-item" href="../../../01_protocols/IPA-ROUTE-REGISTRY.local.md" target="_blank" rel="noopener">
+      <span class="ni-icon">🗺️</span>IPA 路由镜像 local
+    </a>
+    <a class="nav-item" href="../../../engine/README.md" target="_blank" rel="noopener">
+      <span class="ni-icon">⚡</span>龍魂9625 引擎说明
+    </a>
+    <a class="nav-item" href="../../../cnsh-core/CNSH完整实现/CNSH编辑器.html" target="_blank" rel="noopener">
+      <span class="ni-icon">🇨🇳</span>CNSH 中文编辑器
+    </a>
+    <a class="nav-item" href="../../../cnsh-core/规范/龍魂_CNSH_通心译_USE_需求总纲_v2.1.md" target="_blank" rel="noopener">
+      <span class="ni-icon">🗣️</span>通心译 USE v2.1
+    </a>
+    <a class="nav-item" href="../../../cnsh-core/规范/龍魂_CNSH_协议层文明论_本地索引.md" target="_blank" rel="noopener">
+      <span class="ni-icon">🏛️</span>主权栈·文明论索引
+    </a>
+    <a class="nav-item" href="../../../memory_grid_v1_1/README.md" target="_blank" rel="noopener">
+      <span class="ni-icon">🧠</span>MEMORY-GRID v1.1
+    </a>
+    <a class="nav-item" href="./龍魂L10控制台占位_v0.1.html" target="_blank" rel="noopener">
+      <span class="ni-icon">🖥️</span>L10 控制台占位 v0.1
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN PANEL -->
+<div id="main">
+  <div id="tabs">
+    <div class="tab active" onclick="switchTab('flow');setTab(this)">🌊 三才流场</div>
+    <div class="tab" onclick="switchTab('data');setTab(this)">🧬 数据链路</div>
+    <div class="tab" onclick="switchTab('terminal');setTab(this)">⌨️ CNSH终端</div>
+    <div class="tab" onclick="switchTab('mcp');setTab(this)">🔌 MCP接口</div>
+    <div class="tab" onclick="switchTab('persona');setTab(this);loadFamilyRoster()">🎭 花名册·路由</div>
+    <div class="tab" onclick="switchTab('route');setTab(this)">🗂️ 路由注册表</div>
+  </div>
+
+  <div id="panels">
+
+    <!-- ── PANEL: FLOW ── -->
+    <div class="panel active" id="panel-flow">
+      <div id="flow-canvas-wrap">
+        <canvas id="flowCanvas"></canvas>
+        <div class="flow-overlay">
+          <div class="flow-stat heaven">
+            <div class="flow-stat-val" id="heavenPct">35%</div>
+            <div class="flow-stat-lbl">☰ 天 · 系统熵</div>
+          </div>
+          <div class="flow-stat earth">
+            <div class="flow-stat-val" id="earthPct">15%</div>
+            <div class="flow-stat-lbl">☷ 地 · 洛书锚</div>
+          </div>
+          <div class="flow-stat human">
+            <div class="flow-stat-val" id="humanPct">50%</div>
+            <div class="flow-stat-lbl">☱ 人 · 龍盾枢</div>
+          </div>
+          <div class="breath-bar-wrap">
+            <div class="breath-bar-label" id="breathLabel">吸气 · 天场活跃</div>
+            <div class="breath-bar-track">
+              <div class="breath-bar-fill" id="breathFill" style="width:50%"></div>
+            </div>
+          </div>
+          <div class="luoshu-mini" id="luoshuMini">
+            <div class="lu-cell">4</div><div class="lu-cell">9</div><div class="lu-cell">2</div>
+            <div class="lu-cell">3</div><div class="lu-cell center">5</div><div class="lu-cell">7</div>
+            <div class="lu-cell">8</div><div class="lu-cell">1</div><div class="lu-cell">6</div>
+          </div>
+        </div>
+      </div>
+      <div class="pad" style="padding:12px 16px;background:var(--bg1);border-top:1px solid var(--bd)">
+        <div class="flex">
+          <span class="dim mono" style="font-size:10px">流场参数：</span>
+          <span class="mono" style="font-size:10px;color:var(--cyn)">天=35% 地=15% 人=50%</span>
+          <span class="mono" style="font-size:10px;color:var(--ts)">· 呼吸周期=10s · 粒子=160</span>
+          <span class="spacer"></span>
+          <span class="dna-block" style="margin:0;padding:4px 10px;font-size:9px">#龍芯⚡️20260510-FLOW-SANCAI-v6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: DATA CHAIN ── -->
+    <div class="panel" id="panel-data">
+      <div class="pad">
+        <div class="chain-section-title">🔴 私密层 · L0 永恒锚</div>
+        <div class="chain-grid">
+          <div class="chain-card card red">
+            <div class="chain-card-title">欢迎来到💎 龍芯北辰｜UID9622</div>
+            <div class="chain-card-dna">#龍芯⚡️2026-04-23-权重速查卡-v1.0</div>
+            <div class="chain-card-desc">系统总入口。L0永恒层·L1百年层·L2十年层·L3日常层·权重铁律卡。GPG: A2D0092C…</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/UID9622-3427125a9c9f80449e88f4f2170b7940" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card red">
+            <div class="chain-card-title">UID9622 人格路由 v1.1</div>
+            <div class="chain-card-dna">#龍芯⚡️-PERSONA-ROUTE-v1.1</div>
+            <div class="chain-card-desc">人格矩阵路由·P00-P72全注册·五神兽调度·花名册对齐版</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/UID9622-v1-1-b755bd198a604ca0a954ad0e69575397" target="_blank">→ 打开 Notion</a>
+          </div>
+        </div>
+
+        <div class="chain-section-title">🟡 代理层 · L2-L3 执行核</div>
+        <p class="dim mono" style="font-size:10px;margin:0 0 10px 2px;line-height:1.6">命名铁律：系统名屏显与对外标题用「<span class="gold">龍魂</span>」·文件名若仍为 <code>龍魂_</code> 属历史路径·打开后内容以正本为准。</p>
+        <div class="chain-grid">
+          <div class="chain-card card yel">
+            <div class="chain-card-title">🐉 龍魂决策流场总控 v2.7</div>
+            <div class="chain-card-dna">#龍芯⚡️-FLOW-DECISION-v2.7</div>
+            <div class="chain-card-desc">M×CNSH·功能同步总闸版·全系统统一入口·IPA-UNIFIED-ENTRY</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card yel">
+            <div class="chain-card-title">🧮 CNSH Algorithm Runtime v1.1</div>
+            <div class="chain-card-dna">#龍芯⚡️2026-05-07-CNSH-ALGORITHM-RUNTIME-BLUEPRINT-v1.0</div>
+            <div class="chain-card-desc">统一语法入口+算法建模+本地护盾+执行沙盒+DNA追溯。洛书九宫挂位完整架构</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/CNSH-Algorithm-Runtime-v1-1-c4082ed1122b41b08033c6ba11f427d1" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card yel">
+            <div class="chain-card-title">🔥 CNSH 龍魂流场决策总核 v4.1</div>
+            <div class="chain-card-dna">#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-人格协作×IPA×DNA重铸增量</div>
+            <div class="chain-card-desc">11 节点 IPA 链·27 条硬闸人格背书·工程包 `cnsh/flow_decision/`（本机可 unittest）</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/v3-1-4649636d4d40411c926508a52a030be4" target="_blank">→ Notion 沿革</a>
+            <a class="chain-card-link" href="../../../cnsh/flow_decision/README.md" target="_blank" rel="noopener">→ 本地 README</a>
+          </div>
+          <div class="chain-card card yel">
+            <div class="chain-card-title">⚡ DNA追溯码生成器 v2.0</div>
+            <div class="chain-card-dna">#龍芯⚡️2026-05-07-DNA追溯码生成器-v2.0</div>
+            <div class="chain-card-desc">双视角封装·M::验收+CNSH::路由·UID9622专属DNA生成工具</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/CNSH-2026-05-07-DNA-v2-0-M-CNSH-UID9622-bc81f5acf69c4290a40ef54dfd80bc1d" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card yel">
+            <div class="chain-card-title">🗂️ IPA路由注册表 v1.0</div>
+            <div class="chain-card-dna">#龍芯⚡️20260417-IPA-BUS-v1.0-路由注册表</div>
+            <div class="chain-card-desc">编号→地址·全系统唯一地址簿·换平台只改这一页·五大中心+人格注册+DB注册</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/IPA-ROUTE-REGISTRY-v1-0-3457125a9c9f814689a0e88a6c833f36" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card yel">
+            <div class="chain-card-title">🔄 对话流水线 KB</div>
+            <div class="chain-card-dna">#ZHUGEXIN⚡️2026-03-22-龍魂-PipelineKB</div>
+            <div class="chain-card-desc">4个互联数据库·Pipeline A(事实检索)+B(生成创作)·三色审计校验</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/Dialogue-Pipeline-KB-32b7125a9c9f8183837bfb45ddc415bb" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card cyn">
+            <div class="chain-card-title">📖 IPA字典 101-111</div>
+            <div class="chain-card-dna">#龍芯⚡️20260418-IPA-DICTIONARY-v1.0</div>
+            <div class="chain-card-desc">龍魂字典·大白话↔专业词↔DNA·术语对照表</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/IPA-DICT-101-111-441ccaf0f48343c79a518621993107a4" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card cyn">
+            <div class="chain-card-title">🧮 CNSH v2.0 语法规范</div>
+            <div class="chain-card-dna">#龍芯⚡️-CNSH-SYNTAX-v2.0</div>
+            <div class="chain-card-desc">CNSH原生语法完整规范·@MODULE:ACTION结构·字段定义</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/CNSH-v2-0-e7d1a594c4b8408b90d04f568f4314dd" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card cyn">
+            <div class="chain-card-title">📋 草日志·操作留痕</div>
+            <div class="chain-card-dna">#龍芯⚡️-CENTER-AUDIT-草日志</div>
+            <div class="chain-card-desc">CENTER-AUDIT·审计中心·所有操作必须留痕·append-only日志</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/b35faf462bc042aa9de5192520180728" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card cyn">
+            <div class="chain-card-title">🔏 SHA256 工具 v1.0</div>
+            <div class="chain-card-dna">#龍芯⚡️-SHA256-v1.0</div>
+            <div class="chain-card-desc">chain_hash防篡改工具·DNA哈希生成·previous_hash链式结构</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/2-SHA256-v1-0-e4588700088d40abbc8607849f19734b" target="_blank">→ 打开 Notion</a>
+          </div>
+        </div>
+
+        <div class="chain-section-title">🟢 公开层 · 知识库·数据库</div>
+        <div class="chain-grid">
+          <div class="chain-card card grn">
+            <div class="chain-card-title">🧩 Learning Inbox 数据库</div>
+            <div class="chain-card-dna">collection://1d9af383-6784-42db-827f-c035be3f1458</div>
+            <div class="chain-card-desc">学习入口池·所有资源第一站·待净化→已净化→已入库</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/f73674795e6b4cfeab38b5039ede5828" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card grn">
+            <div class="chain-card-title">🧬 Knowledge DNA 数据库</div>
+            <div class="chain-card-dna">collection://6f1ddacc-289c-46fc-9369-a07e3d937f5e</div>
+            <div class="chain-card-desc">知识基因库·核心兵源池·DNA-ID·纯度·可复制性·难度等级</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/88f478ed64e54f82afebe1d09cd512d9" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card grn">
+            <div class="chain-card-title">🗂️ Learning Tasks 数据库</div>
+            <div class="chain-card-dna">collection://58953efd-0588-40df-b30c-b763e76b0ae9</div>
+            <div class="chain-card-desc">学习小卡片·每天执行场·学习模式：扫盲/深入/实战</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/b498c4e033aa49b7b47fb2de36dee747" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card grn">
+            <div class="chain-card-title">💖 人心算法知识库</div>
+            <div class="chain-card-dna">collection://9702a79e-c4e2-40c1-ab28-cc7721fb19e9</div>
+            <div class="chain-card-desc">人际洞察·人生场景·核心金句·情感标记·来源对话</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/2c27e303421b49688854c0fe0dd9b228" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card grn">
+            <div class="chain-card-title">📖 龍魂字典数据库</div>
+            <div class="chain-card-dna">collection://63ac2dc5-a2d3-4674-af71-8dc8a427d110</div>
+            <div class="chain-card-desc">大白话↔专业词↔DNA·全量术语对照</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/63ac2dc5a2d34674af718dc8a427d110" target="_blank">→ 打开 Notion</a>
+          </div>
+          <div class="chain-card card pur">
+            <div class="chain-card-title">🌌 IPA-MCP三才流场 v4.0</div>
+            <div class="chain-card-dna">#龍芯⚡️2026-03-30-三才流场MCP引擎-v4.0</div>
+            <div class="chain-card-desc">MCP自适应引擎·人格协同+流场融合+路由统一入口</div>
+            <a class="chain-card-link" href="https://www.notion.so/uid9622/v1-0-15e108db57944f17a824a8b475367342" target="_blank">→ 打开 Notion</a>
+          </div>
+        </div>
+
+        <div class="dna-block" style="margin-top:20px;text-align:center">
+          #龍芯⚡️20260510-DATA-CHAIN-EMBED-v1.0 · 共30+节点 · 三色🟢 · chain完整
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: CNSH TERMINAL ── -->
+    <div class="panel" id="panel-terminal">
+      <div id="terminal">
+        <div class="term-output" id="termOutput">
+          <div class="term-line system">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="term-line system">  龍魂 CNSH Runtime Terminal · UID9622 · v1.0</div>
+          <div class="term-line system">  Local Shield: ACTIVE · DNA Trace: AUTO · Sandbox: ISOLATED</div>
+          <div class="term-line system">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="term-line info"></div>
+          <div class="term-line info">语法：@MODULE:ACTION PARAMS{key=val} SECURITY[level] TRACE[AUTO]</div>
+          <div class="term-line info">示例：@ROUTE:QUERY PARAMS{ipa=IPA-UNIFIED-ENTRY} SECURITY[LOCAL]</div>
+          <div class="term-line info">示例：@DNA:GENERATE PARAMS{type=DOC,content=主计划} SECURITY[LOCAL]</div>
+          <div class="term-line info">示例：@AUDIT:CHECK PARAMS{target=last} SECURITY[LOCAL]</div>
+          <div class="term-line info">示例：@FLOW:STATUS PARAMS{} SECURITY[PUBLIC]</div>
+          <div class="term-line info">输入 help 查看完整命令列表。</div>
+          <div class="term-line info"></div>
+        </div>
+        <div class="term-input-row">
+          <div class="term-prompt-sym">CNSH ⚡</div>
+          <input class="term-input" id="termInput" placeholder="@MODULE:ACTION PARAMS{} SECURITY[LOCAL] TRACE[AUTO]" autocomplete="off" spellcheck="false"/>
+          <button class="term-btn" onclick="runCNSH()">执行</button>
+          <button class="term-btn danger" onclick="clearTerm()">清屏</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: MCP ── -->
+    <div class="panel" id="panel-mcp">
+      <div class="pad">
+        <div class="mb16">
+          <span class="gold" style="font-size:14px;font-weight:700">MCP 接口状态</span>
+          <span class="dim mono" style="font-size:10px;margin-left:12px">操作台接口连接状态 · 点击调用</span>
+        </div>
+
+        <div style="margin-bottom:16px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px">▌ 已连接 · CLOUD MCPs</div>
+        <div class="mcp-grid" style="margin-bottom:24px">
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">🗒️</div><div><div class="mcp-name">Notion</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~200ms · 30+页面已索引</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('notion','search')">搜索页面</button>
+              <button class="mcp-btn" onclick="mcpAction('notion','fetch')">拉取内容</button>
+              <button class="mcp-btn" onclick="mcpAction('notion','create')">新建页面</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">📅</div><div><div class="mcp-name">Google Calendar</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~150ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('calendar','list')">查看日程</button>
+              <button class="mcp-btn" onclick="mcpAction('calendar','create')">新建事件</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">📧</div><div><div class="mcp-name">Gmail</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~180ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('gmail','search')">搜索邮件</button>
+              <button class="mcp-btn" onclick="mcpAction('gmail','draft')">起草邮件</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">🎨</div><div><div class="mcp-name">Figma</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~250ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('figma','get')">获取设计</button>
+              <button class="mcp-btn" onclick="mcpAction('figma','export')">导出资产</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">🖼️</div><div><div class="mcp-name">Canva</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~200ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('canva','generate')">生成设计</button>
+              <button class="mcp-btn" onclick="mcpAction('canva','list')">查看作品</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">🚀</div><div><div class="mcp-name">Vercel</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~300ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('vercel','list')">查看部署</button>
+              <button class="mcp-btn" onclick="mcpAction('vercel','deploy')">触发部署</button>
+            </div>
+          </div>
+          <div class="mcp-card connected">
+            <div class="mcp-header"><div class="mcp-icon">🌐</div><div><div class="mcp-name">Claude in Chrome</div><div class="mcp-status ok">● CONNECTED</div></div></div>
+            <div class="mcp-ping mono">延迟: ~50ms</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="mcpAction('chrome','navigate')">导航</button>
+              <button class="mcp-btn" onclick="mcpAction('chrome','read')">读取页面</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px">▌ 本地引擎 · LOCAL ENGINES</div>
+        <div class="mcp-grid" style="margin-bottom:24px">
+          <div class="mcp-card local">
+            <div class="mcp-header"><div class="mcp-icon">⚙️</div><div><div class="mcp-name">:9622 主服务</div><div class="mcp-status local">◈ LOCAL</div></div></div>
+            <div class="mcp-ping mono">localhost:9622 · 状态未知</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="terminalPing(':9625')">PING</button>
+              <button class="mcp-btn" onclick="window.open('http://127.0.0.1:9625/console','_blank')">控制台</button>
+            </div>
+          </div>
+          <div class="mcp-card local">
+            <div class="mcp-header"><div class="mcp-icon">🔍</div><div><div class="mcp-name">:8081 FAISS</div><div class="mcp-status local">◈ LOCAL</div></div></div>
+            <div class="mcp-ping mono">localhost:8081 · 向量检索</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="terminalPing(':8081')">PING</button>
+            </div>
+          </div>
+          <div class="mcp-card local">
+            <div class="mcp-header"><div class="mcp-icon">🛡️</div><div><div class="mcp-name">:8765 Shield</div><div class="mcp-status local">◈ LOCAL</div></div></div>
+            <div class="mcp-ping mono">localhost:8765 · 双盾引擎</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="terminalPing(':8765')">PING</button>
+            </div>
+          </div>
+          <div class="mcp-card local">
+            <div class="mcp-header"><div class="mcp-icon">🤖</div><div><div class="mcp-name">:11434 Ollama</div><div class="mcp-status local">◈ LOCAL</div></div></div>
+            <div class="mcp-ping mono">localhost:11434 · 本地LLM</div>
+            <div class="mcp-actions">
+              <button class="mcp-btn" onclick="terminalPing(':11434')">PING</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px">▌ 待接入 · PENDING</div>
+        <div class="mcp-grid">
+          <div class="mcp-card pending">
+            <div class="mcp-header"><div class="mcp-icon">🐙</div><div><div class="mcp-name">GitHub</div><div class="mcp-status pending">○ PENDING</div></div></div>
+            <div class="mcp-ping mono">longhun-watchdog仓库·待授权</div>
+          </div>
+          <div class="mcp-card pending">
+            <div class="mcp-header"><div class="mcp-icon">🔐</div><div><div class="mcp-name">Cursor Bridge</div><div class="mcp-status pending">○ PENDING</div></div></div>
+            <div class="mcp-ping mono">IPA-CURSOR-BRIDGE·待登记</div>
+          </div>
+          <div class="mcp-card pending">
+            <div class="mcp-header"><div class="mcp-icon">📊</div><div><div class="mcp-name">Analytics DB</div><div class="mcp-status pending">○ PENDING</div></div></div>
+            <div class="mcp-ping mono">知行积分·统计看板·待接</div>
+          </div>
+        </div>
+
+        <div class="dna-block" style="margin-top:20px;text-align:center">
+          #龍芯⚡️20260510-MCP-INTERFACE-REGISTRY-v1.0 · 7✓接入 · 4本地 · 3待接
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: PERSONA / 花名册 ── -->
+    <div class="panel" id="panel-persona">
+      <div class="pad">
+        <div class="mb16 flex">
+          <span class="gold" style="font-size:14px;font-weight:700">龍芯家族花名册 · 人格路由</span>
+          <span class="dim mono" style="font-size:10px;margin-left:12px">中枢神经 · 9625 · 点击激活</span>
+          <span class="spacer"></span>
+          <a class="chain-card-link" href="https://www.notion.so/4cf99c3e7a014e919fdab705ceb4cbc4" target="_blank" rel="noopener">Notion 花名册 ↗</a>
+        </div>
+        <div id="rosterOffline" class="roster-offline" style="display:none">⚠ 9625 未启动 · 先运行 /Users/zuimeidedeyihan/longhun-system/bin/开龍魂9625</div>
+        <div class="roster-bar" id="rosterBar">
+          <span><b>当前路由链</b></span>
+          <span id="rosterActiveChain">P72 龍盾 + P02 宝宝</span>
+          <span class="dim">|</span>
+          <span><b>原则</b></span>
+          <span id="rosterPrinciple">花名册调度·语义抽屉·闸门审计</span>
+        </div>
+        <div style="margin-bottom:8px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px">▌ 人格矩阵（IPA 注册表）</div>
+        <div class="persona-grid" id="personaGrid"></div>
+        <div style="margin:20px 0 8px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px">▌ 花名册功能模块（L2）</div>
+        <div class="roster-modules" id="rosterModules"></div>
+        <div class="dna-block" style="margin-top:20px;text-align:center" id="rosterDnaFooter">
+          #龍芯⚡️2026-05-15-FAMILY-ROSTER-CNS-v1.0
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: ROUTE REGISTRY ── -->
+    <div class="panel" id="panel-route">
+      <div class="pad">
+        <div class="mb16 flex">
+          <span class="gold" style="font-size:14px;font-weight:700">IPA 路由注册表</span>
+          <span class="dim mono" style="font-size:10px">编号为骨·DNA为血·URL为房号</span>
+        </div>
+        <table class="route-table" style="margin-bottom:20px">
+          <thead><tr><th>编号</th><th>职能</th><th>状态</th><th>打开</th></tr></thead>
+          <tbody>
+            <tr><td>[IPA-ROUTE-REGISTRY]</td><td>分布式总线路由注册表（本页）</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/IPA-ROUTE-REGISTRY-v1-0-3457125a9c9f814689a0e88a6c833f36" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-UNIFIED-ENTRY]</td><td>统一入口·全系统唯一入口</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-NAV-TOTAL]</td><td>龍魂工作间总导航 v1.0</td><td><span class="status-badge live">🟢活</span></td><td><a href="#" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-PUBLIC-HOME]</td><td>公开首页·对外门面</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://uid9622.notion.site" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-PERSONA-MATRIX]</td><td>人格矩阵·P00-P72注册地</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/UID9622-v1-1-b755bd198a604ca0a954ad0e69575397" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-CORE-CMD-v3.0]</td><td>指令统一核心v3.0·蒙卦启智结构版</td><td><span class="status-badge live">🟢活</span></td><td><a href="#" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-CURSOR-BRIDGE]</td><td>Cursor×IPA桥接入口</td><td><span class="status-badge warn">🟡待登记</span></td><td>-</td></tr>
+            <tr><td>[IPA-DICTIONARY]</td><td>龍魂字典·大白话↔专业词↔DNA</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/63ac2dc5a2d34674af718dc8a427d110" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-FLOW-DECISION-CORE-v4.1]</td><td>CNSH 龍魂流场决策总核 v4.1</td><td><span class="status-badge live">🟢活</span></td><td><a href="../../../cnsh/flow_decision/README.md" target="_blank" rel="noopener">本地</a> · <a href="https://www.notion.so/uid9622/v3-1-4649636d4d40411c926508a52a030be4" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-FLOW-GATE-SIGN]</td><td>签章闸·confirm/seal/GPG校验</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-GATE-PRIVACY]</td><td>隐私闸·sealed/burn/normal三态</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-GATE-DR]</td><td>数字根闸·四源优先级取数</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-GATE-AUDIT]</td><td>三色闸·🟢🟡🔴判定</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-GATE-SANCAI]</td><td>三才闸·天地人权重校验</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-PALACE-ROUTER]</td><td>九宫派位·按trace/action/element派宫</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-FLOW-DNA-CHAIN]</td><td>父子链落档·写JSONL+SQLite+Notion</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[IPA-MCP-SANCAI-v4.0]</td><td>三才流场·MCP自适应引擎v4.0</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/v1-0-15e108db57944f17a824a8b475367342" target="_blank">↗</a></td></tr>
+            <tr><td>[IPA-VISUAL-SEAL]</td><td>龍印乾坤·印章视觉系统v2.0</td><td><span class="status-badge live">🟢活·v2.1待迭代</span></td><td>-</td></tr>
+            <tr><td>[WIDGET-三才流場]</td><td>天地人三力博弈流场v6优化版</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+            <tr><td>[DB-INBOX]</td><td>Learning Inbox·学习入口池</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/f73674795e6b4cfeab38b5039ede5828" target="_blank">↗</a></td></tr>
+            <tr><td>[DB-DNA]</td><td>Knowledge DNA·知识基因库</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/88f478ed64e54f82afebe1d09cd512d9" target="_blank">↗</a></td></tr>
+            <tr><td>[DB-TASKS]</td><td>Learning Tasks·学习小卡片</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/b498c4e033aa49b7b47fb2de36dee747" target="_blank">↗</a></td></tr>
+            <tr><td>[DB-HEART]</td><td>人心算法知识库</td><td><span class="status-badge live">🟢活</span></td><td><a href="https://www.notion.so/uid9622/2c27e303421b49688854c0fe0dd9b228" target="_blank">↗</a></td></tr>
+            <tr><td>[GATE-01]</td><td>第一道门·数字根熔断</td><td><span class="status-badge live">🟢</span></td><td>-</td></tr>
+            <tr><td>[GATE-02]</td><td>身份认证门·UID+确认码+GPG</td><td><span class="status-badge live">🟢</span></td><td>-</td></tr>
+            <tr><td>[GATE-03]</td><td>伦理防火墙·立即熔断</td><td><span class="status-badge live">🟢</span></td><td>-</td></tr>
+            <tr><td>[LOCAL-SHIELD]</td><td>双盾引擎·shield_engine.py</td><td><span class="status-badge warn">🟡本地</span></td><td>-</td></tr>
+            <tr><td>[LOCAL-GUA-CLS]</td><td>卦分类器·gua_classifier.py</td><td><span class="status-badge warn">🟡本地</span></td><td>-</td></tr>
+            <tr><td>[TOOL-SANCAI]</td><td>三才流場·sancai-flow.html</td><td><span class="status-badge live">🟢活</span></td><td>-</td></tr>
+          </tbody>
+        </table>
+        <div class="dna-block" style="text-align:center">
+          #龍芯⚡️20260510-ROUTE-REGISTRY-EMBED-v1.0 · 30节点 · 编号为骨·DNA为血
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /panels -->
+</div><!-- /main -->
+
+<!-- RIGHT SIDEBAR -->
+<div id="right">
+  <div class="rbox">
+    <div class="rbox-title">▌ 系统状态</div>
+    <div class="status-row"><b>三色审计</b><span class="val grn">🟢 通过</span></div>
+    <div class="status-row"><b>主权层</b><span class="val gold">L2 · UID9622</span></div>
+    <div class="status-row"><b>数字根</b><span class="val gold">dr=5 · 土</span></div>
+    <div class="status-row"><b>当前人格</b><span class="val" id="activePersonaLabel">P72 龍盾 + P02 宝宝</span></div>
+    <div class="status-row"><b>流场画布</b><span class="val cyn">v6 · 活态</span></div>
+    <div class="status-row"><b>决策总核</b><span class="val grn">v4.1 · 工程包</span></div>
+    <div class="status-row"><b>GPG</b><span class="val dim" style="font-size:9px">A2D009…8CC26D5F</span></div>
+    <div style="margin-top:10px;font:10px 'JetBrains Mono',monospace;color:var(--td);margin-bottom:4px">系统健康度</div>
+    <div class="health-bar"><div class="health-fill" style="width:88%"></div></div>
+    <div style="font:9px 'JetBrains Mono',monospace;color:var(--td);text-align:right">88% · 正常</div>
+  </div>
+
+  <div class="rbox">
+    <div class="rbox-title">▌ 当前DNA</div>
+    <div class="dna-block" style="font-size:9px">#龍芯⚡️20260510-OPS-CONSOLE-MVP-v1.1</div>
+    <div style="font:9px 'JetBrains Mono',monospace;color:var(--td);line-height:2">
+      Type: DOC<br>Layer: L3·日常<br>Retention: full<br>TraceMode: chain
+    </div>
+  </div>
+
+  <div class="rbox">
+    <div class="rbox-title">▌ 流场实时</div>
+    <div id="rightFlow" style="padding:4px 0">
+      <div class="status-row"><b>天场</b><span class="val cyn" id="rHeavenPct">35%</span></div>
+      <div class="status-row"><b>地场</b><span class="val grn" id="rEarthPct">15%</span></div>
+      <div class="status-row"><b>人场</b><span class="val gold" id="rHumanPct">50%</span></div>
+      <div class="status-row"><b>呼吸</b><span class="val" id="rBreath">吸气</span></div>
+      <div class="status-row"><b>粒子数</b><span class="val">160</span></div>
+    </div>
+  </div>
+
+  <div class="rbox">
+    <div class="rbox-title">▌ 快速操作</div>
+    <button class="qa-btn" onclick="switchTab('terminal');setTab(document.querySelectorAll('.tab')[2]);document.getElementById('termInput').focus()">
+      <span class="qa-icon">⌨️</span>打开CNSH终端
+    </button>
+    <button class="qa-btn" onclick="openNotion('https://www.notion.so/uid9622/UID9622-3427125a9c9f80449e88f4f2170b7940')">
+      <span class="qa-icon">💎</span>打开UID9622首页
+    </button>
+    <button class="qa-btn" onclick="openNotion('https://www.notion.so/uid9622/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f')">
+      <span class="qa-icon">🐉</span>统一入口 v2.7
+    </button>
+    <button class="qa-btn" onclick="openNotion('https://www.notion.so/uid9622/b35faf462bc042aa9de5192520180728')">
+      <span class="qa-icon">📋</span>草日志·留痕
+    </button>
+    <button class="qa-btn" onclick="openNotion('https://www.notion.so/uid9622/CNSH-2026-05-07-DNA-v2-0-M-CNSH-UID9622-bc81f5acf69c4290a40ef54dfd80bc1d')">
+      <span class="qa-icon">⚡</span>生成DNA追溯码
+    </button>
+    <a class="qa-btn" href="http://127.0.0.1:9625/api/health" target="_blank" rel="noopener" style="display:block">
+      <span class="qa-icon">💓</span>龍魂9625 健康检查（需先启动引擎）
+    </a>
+    <a class="qa-btn" href="../../../cnsh/flow_decision/README.md" target="_blank" rel="noopener" style="display:block">
+      <span class="qa-icon">📄</span>流场决策 v4.1 工程 README
+    </a>
+    <a class="qa-btn" href="./龍魂L10控制台占位_v0.1.html" target="_blank" rel="noopener" style="display:block">
+      <span class="qa-icon">🖥️</span>L10 主权栈占位控制台
+    </a>
+  </div>
+
+  <div class="rbox">
+    <div class="rbox-title">▌ ⚔️ H武器（10万次 / 漂移 / 痕迹）</div>
+    <div style="font:9px 'JetBrains Mono',monospace;color:var(--td);line-height:1.6;margin-bottom:8px">
+      DNA: #龍芯⚡️2026-05-16-08:10-H-WEAPON-100K<br>
+      需先启动 API：<code style="color:var(--cyn)">python3 tools/h_weapon_100k/api/server.py</code>
+    </div>
+    <button class="qa-btn" type="button" onclick="hWeaponRun(100000)">
+      <span class="qa-icon">⚔️</span>启动推演（n=100000·后台）
+    </button>
+    <button class="qa-btn" type="button" onclick="hWeaponRun(1000)">
+      <span class="qa-icon">🧪</span>试跑 n=1000
+    </button>
+    <button class="qa-btn" type="button" onclick="hFootprintScan()">
+      <span class="qa-icon">🔍</span>扫本地国产 AI 痕迹
+    </button>
+    <button class="qa-btn" type="button" onclick="hImprintRun(100000)">
+      <span class="qa-icon">🧬</span>印记蒙特卡洛 n=100000
+    </button>
+    <button class="qa-btn" type="button" onclick="hImprintRun(5000)">
+      <span class="qa-icon">🧪</span>印记试跑 n=5000
+    </button>
+    <pre id="hWeaponOut" style="margin-top:8px;background:#12121c;color:var(--grn);padding:10px;border-radius:4px;max-height:220px;overflow:auto;font:10px 'JetBrains Mono',monospace;white-space:pre-wrap"></pre>
+  </div>
+
+  <div class="rbox">
+    <div class="rbox-title">▌ 闸门状态</div>
+    <div class="status-row"><b>GATE-01 数字根</b><span class="val grn">🟢</span></div>
+    <div class="status-row"><b>GATE-02 身份</b><span class="val grn">🟢</span></div>
+    <div class="status-row"><b>GATE-03 伦理</b><span class="val grn">🟢</span></div>
+    <div class="status-row"><b>LOCAL Shield</b><span class="val yel">🟡本地</span></div>
+  </div>
+
+  <div class="rbox" style="border-bottom:none">
+    <div style="font:9px 'JetBrains Mono',monospace;color:var(--td);line-height:2.2;text-align:center">
+      UID9622 · 龍芯北辰<br>
+      #CONFIRM🌌9622-ONLY-ONCE🧬<br>
+      LK9X-772Z<br>
+      GPG: A2D0092C…8CC26D5F
+    </div>
+  </div>
+</div>
+
+</div><!-- /body -->
+
+<script>
+// ═══════════════ FLOW CANVAS ═══════════════
+(function(){
+  const cv = document.getElementById('flowCanvas');
+  const wrap = document.getElementById('flow-canvas-wrap');
+  const ctx = cv.getContext('2d');
+  let W, H, CX, CY, tick=0;
+
+  function resize(){
+    W = wrap.clientWidth; H = Math.max(wrap.clientHeight, 360);
+    cv.width=W; cv.height=H;
+    CX=W*0.45; CY=H*0.5;
+    ctx.fillStyle='#030310'; ctx.fillRect(0,0,W,H);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Particles
+  const N=160; const parts=[];
+  function mkP(){
+    const a=Math.random()*Math.PI*2, r=30+Math.random()*Math.min(CX,CY)*0.95;
+    const layer=Math.random()<.35?0:(Math.random()<.3?1:2);
+    return{x:CX+Math.cos(a)*r,y:CY+Math.sin(a)*r,vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8,
+      life:Math.random()*200,maxLife:140+Math.random()*200,size:1.2+Math.random()*2.2,layer,
+      colors:['#00d4ff','#00ff88','#d4af37']};
+  }
+  for(let i=0;i<N;i++) parts.push(mkP());
+
+  function resetP(p){
+    const a=Math.random()*Math.PI*2,r=30+Math.random()*Math.min(CX,CY)*.95;
+    p.x=CX+Math.cos(a)*r; p.y=CY+Math.sin(a)*r;
+    p.vx=(Math.random()-.5)*.8; p.vy=(Math.random()-.5)*.8;
+    p.life=0; p.maxLife=140+Math.random()*200;
+    p.size=1.2+Math.random()*2.2;
+    p.layer=Math.random()<.35?0:(Math.random()<.3?1:2);
+  }
+
+  function breath(t){
+    const ph=(t%600)/600;
+    if(ph<.4) return ph/.4;
+    if(ph<.6) return 1;
+    return 1-(ph-.6)/.4;
+  }
+
+  function frame(){
+    ctx.fillStyle='rgba(3,3,16,0.13)'; ctx.fillRect(0,0,W,H);
+    const b=breath(tick);
+
+    // rings
+    [[60+b*4,'rgba(0,255,136,'],
+     [120+b*10,'rgba(212,175,55,'],
+     [190+b*18,'rgba(0,212,255,']].forEach(([r,c],i)=>{
+      ctx.beginPath(); ctx.arc(CX,CY,r,0,Math.PI*2);
+      ctx.strokeStyle=c+(i===1?0.18+b*.12:0.1+b*.08)+')';
+      ctx.lineWidth=i===1?1.5:1; ctx.stroke();
+    });
+
+    // center glow
+    const grd=ctx.createRadialGradient(CX,CY,0,CX,CY,16*(0.6+b*.4));
+    grd.addColorStop(0,'rgba(255,215,0,'+(0.9*(0.6+b*.4))+')');
+    grd.addColorStop(1,'rgba(212,175,55,0)');
+    ctx.beginPath(); ctx.arc(CX,CY,16*(0.6+b*.4),0,Math.PI*2);
+    ctx.fillStyle=grd; ctx.fill();
+
+    // particles
+    parts.forEach(p=>{
+      const fx=Math.sin(p.y*.018+tick*.007)*.28;
+      const fy=Math.cos(p.x*.018+tick*.007)*.28;
+      const dx=CX-p.x,dy=CY-p.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
+      const ep=.0008*(0.15+(1-b)*.05);
+      const hf=p.layer===0?(0.3+b*.22):0.06;
+      const ho=p.layer===2?.003:0;
+      p.vx+=fx*hf+dx*ep+(-dy/dist)*ho;
+      p.vy+=fy*hf+dy*ep+(dx/dist)*ho;
+      p.vx*=.979; p.vy*=.979;
+      const sp=0.75+b*.4;
+      p.x+=p.vx*sp; p.y+=p.vy*sp; p.life++;
+      if(p.life>=p.maxLife||p.x<0||p.x>W||p.y<0||p.y>H) resetP(p);
+      const a=Math.sin((p.life/p.maxLife)*Math.PI)*.85;
+      ctx.globalAlpha=a;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle=p.colors[p.layer]; ctx.fill();
+      ctx.globalAlpha=1;
+    });
+
+    // labels
+    ctx.font='12px monospace'; ctx.textAlign='left';
+    [['☰ 天',CX+195,CY-22,'rgba(0,212,255,'],
+     ['☱ 人',CX+125,CY-22,'rgba(212,175,55,'],
+     ['☷ 地',CX+64,CY-10,'rgba(0,255,136,']].forEach(([t,x,y,c])=>{
+      ctx.fillStyle=c+(0.5+b*.3)+')';
+      ctx.fillText(t,x,y);
+    });
+
+    // update UI
+    const hp=Math.round((35+b*8)), ep2=Math.round(15-(b*3)), hup=100-hp-ep2;
+    document.getElementById('heavenPct').textContent=hp+'%';
+    document.getElementById('earthPct').textContent=ep2+'%';
+    document.getElementById('humanPct').textContent=hup+'%';
+    document.getElementById('rHeavenPct').textContent=hp+'%';
+    document.getElementById('rEarthPct').textContent=ep2+'%';
+    document.getElementById('rHumanPct').textContent=hup+'%';
+
+    const ph=(tick%600)/600;
+    const lbl=ph<.4?'吸气 · 天场活跃':ph<.6?'屏息 · 蓄能中':'呼气 · 地场收缩';
+    document.getElementById('breathLabel').textContent=lbl;
+    document.getElementById('rBreath').textContent=ph<.4?'吸气':ph<.6?'屏息':'呼气';
+    document.getElementById('breathFill').style.width=(b*100)+'%';
+    document.getElementById('breathFill').style.background=b>.5?'#00d4ff':'#00ff88';
+
+    tick++; requestAnimationFrame(frame);
+  }
+  ctx.fillStyle='#030310'; ctx.fillRect(0,0,W,H);
+  frame();
+})();
+
+// ═══════════════ TAB / NAV SWITCHING ═══════════════
+function switchTab(name){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById('panel-'+name);
+  if(p) p.classList.add('active');
+}
+function setTab(el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function setNav(el){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+}
+function openNotion(url){ window.open(url,'_blank'); }
+
+// ═══════════════ CNSH TERMINAL ═══════════════
+const termOut=document.getElementById('termOutput');
+const termIn=document.getElementById('termInput');
+let dnaCounter=1;
+
+function termWrite(text,cls='info'){
+  const d=document.createElement('div');
+  d.className='term-line '+cls;
+  d.textContent=text;
+  termOut.appendChild(d);
+  termOut.scrollTop=termOut.scrollHeight;
+}
+
+// CNSH command presets
+const shortcuts={
+  'help':'@SYSTEM:HELP',
+  'status':'@FLOW:STATUS PARAMS{} SECURITY[PUBLIC] TRACE[AUTO]',
+  'audit':'@AUDIT:CHECK PARAMS{target=current} SECURITY[LOCAL] TRACE[AUTO]',
+  'dna':'@DNA:GENERATE PARAMS{type=DOC,content=操作台操作} SECURITY[LOCAL] TRACE[AUTO]',
+};
+
+document.getElementById('termInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){runCNSH();}
+  if(e.key==='Tab'){
+    e.preventDefault();
+    const v=termIn.value.trim().toLowerCase();
+    if(shortcuts[v]) termIn.value=shortcuts[v];
+  }
+});
+
+function runCNSH(){
+  const raw=termIn.value.trim();
+  if(!raw) return;
+  termIn.value='';
+  termWrite('CNSH ⚡ '+raw,'prompt');
+
+  // Simple shortcuts
+  if(shortcuts[raw.toLowerCase()]){
+    termIn.value=shortcuts[raw.toLowerCase()];
+    termWrite('[TAB展开完整指令]','info');
+    return;
+  }
+  if(raw.toLowerCase()==='help'){
+    ['可用指令：',
+     '  @FLOW:STATUS         查看流场当前状态',
+     '  @AUDIT:CHECK         三色审计检查',
+     '  @DNA:GENERATE        生成DNA追溯码',
+     '  @ROUTE:QUERY         查询IPA路由',
+     '  @PERSONA:ACTIVATE    激活人格',
+     '  @SHIELD:STATUS       双盾引擎状态',
+     '  @GATE:CHECK          闸门检查',
+     '  status / audit / dna → Tab键展开',
+    ].forEach(l=>termWrite(l,'info'));
+    return;
+  }
+
+  const moduleMatch=raw.match(/@(\w+):(\w+)/);
+  if(!moduleMatch){
+    termWrite('× 语法错误：请以 @MODULE:ACTION 开头','blocked');
+    termWrite('  示例：@FLOW:STATUS PARAMS{} SECURITY[PUBLIC]','info');
+    return;
+  }
+  const [,mod,action]=moduleMatch;
+  const secMatch=raw.match(/SECURITY\[(\w+)\]/);
+  const security=secMatch?secMatch[1]:'LOCAL';
+
+  const ts=new Date().toISOString();
+  const dnaHash=Math.random().toString(36).substr(2,8).toUpperCase();
+  const dna=`#龍芯⚡️${ts.slice(0,10).replace(/-/g,'')}-${mod}-${action}-${dnaHash}`;
+
+  termWrite('','info');
+  termWrite('[ 9625 本地引擎 → 检查中 ]','info');
+
+  fetch('http://127.0.0.1:9625/api/cnsh/exec',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({command:raw})
+  }).then(r=>r.json()).then(j=>{
+    if(j.ok && j.lines){
+      termWrite('  GATE-01 数字根  → 🟢','result');
+      termWrite('  GATE-02 身份锚  → 🟢 UID9622','result');
+      termWrite(`  三色审计       → ${j.audit||'🟢'} PASS`,'result');
+      termWrite('','info');
+      termWrite(`[ @${mod}:${action} · ${security} · 9625 ]`,'info');
+      j.lines.forEach(l=>termWrite(l,'result'));
+      termWrite(`  DNA → ${j.dna||dna}`,'dna');
+      termWrite('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','info');
+      dnaCounter++;
+      return;
+    }
+    _runCNSHMock(mod,action,security,ts,dna);
+  }).catch(()=>{
+    termWrite('  ⚠ 9625 未启动 → 演示模式（先 bash ~/longhun-system/bin/开龍魂9625）','blocked');
+    _runCNSHMock(mod,action,security,ts,dna);
+  });
+}
+
+function _runCNSHMock(mod,action,security,ts,dna){
+  setTimeout(()=>{
+    // Gate checks
+    termWrite('  GATE-01 数字根  → 🟢','result');
+    termWrite('  GATE-02 身份锚  → 🟢 UID9622 确认','result');
+    termWrite('  GATE-03 伦理墙  → 🟢','result');
+    termWrite('  三色审计       → 🟢 PASS','result');
+
+    // Execute
+    setTimeout(()=>{
+      termWrite('','info');
+      termWrite(`[ @${mod}:${action} · ${security} · EXECUTING ]`,'info');
+      const results={
+        'FLOW:STATUS':'  天场=35% 地场=15% 人场=50%  呼吸周期=10s  粒子=160  v6活态运行',
+        'AUDIT:CHECK':'  三色=🟢  dr=5·土  身份=UID9622  GPG=A2D009…  PASS',
+        'DNA:GENERATE':`  DNA已生成 → ${dna}`,
+        'ROUTE:QUERY':'  [IPA-UNIFIED-ENTRY] → https://www.notion.so/uid9622/v2-7-M-CNSH-…',
+        'PERSONA:ACTIVATE':'  人格已激活 · 路由更新完成',
+        'SHIELD:STATUS':'  双盾引擎 · 入口门🟢 · 出口门🟢 · PII遮蔽=ON · 熔断器=STANDBY',
+        'GATE:CHECK':'  GATE-01🟢 GATE-02🟢 GATE-03🟢 · 全部通过',
+      };
+      const key=`${mod}:${action}`;
+      termWrite(results[key]||`  ${mod}::${action} 执行完成`,'result');
+      termWrite('','info');
+      termWrite(`  DNA → ${dna}`,'dna');
+      termWrite(`  M:: 机器验收 → PASS · ts=${ts}`,'dna');
+      termWrite(`  CNSH:: 签章 → ${security} · audit=🟢`,'dna');
+      termWrite('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','info');
+      dnaCounter++;
+    },400);
+  },300);
+}
+
+function clearTerm(){
+  termOut.innerHTML='';
+  termWrite('屏幕已清空 · Local Shield 持续运行中…','system');
+}
+
+// ═══════════════ MCP ACTIONS ═══════════════
+function mcpAction(service, action){
+  switchTab('terminal');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab')[2].classList.add('active');
+  const map={
+    'notion:search':'@NOTION:SEARCH PARAMS{query=龍魂} SECURITY[LOCAL] TRACE[AUTO]',
+    'notion:fetch':'@NOTION:FETCH PARAMS{id=IPA-UNIFIED-ENTRY} SECURITY[LOCAL] TRACE[AUTO]',
+    'notion:create':'@NOTION:CREATE PARAMS{title=新页面,parent=草日志} SECURITY[LOCAL] TRACE[AUTO]',
+    'calendar:list':'@CALENDAR:LIST PARAMS{days=7} SECURITY[LOCAL] TRACE[AUTO]',
+    'calendar:create':'@CALENDAR:CREATE PARAMS{title=龍魂会议,date=today} SECURITY[LOCAL] TRACE[AUTO]',
+    'gmail:search':'@GMAIL:SEARCH PARAMS{query=龍魂} SECURITY[LOCAL] TRACE[AUTO]',
+    'gmail:draft':'@GMAIL:DRAFT PARAMS{subject=龍魂通知} SECURITY[LOCAL] TRACE[AUTO]',
+    'figma:get':'@FIGMA:GET PARAMS{file=龍魂设计稿} SECURITY[LOCAL] TRACE[AUTO]',
+    'figma:export':'@FIGMA:EXPORT PARAMS{format=PNG} SECURITY[LOCAL] TRACE[AUTO]',
+    'canva:generate':'@CANVA:GENERATE PARAMS{type=poster,theme=龍魂} SECURITY[LOCAL] TRACE[AUTO]',
+    'canva:list':'@CANVA:LIST PARAMS{} SECURITY[LOCAL] TRACE[AUTO]',
+    'vercel:list':'@VERCEL:LIST PARAMS{} SECURITY[LOCAL] TRACE[AUTO]',
+    'vercel:deploy':'@VERCEL:DEPLOY PARAMS{project=longhun} SECURITY[LOCAL] TRACE[AUTO]',
+    'chrome:navigate':'@CHROME:NAVIGATE PARAMS{url=https://uid9622.notion.site} SECURITY[LOCAL] TRACE[AUTO]',
+    'chrome:read':'@CHROME:READ PARAMS{} SECURITY[LOCAL] TRACE[AUTO]',
+  };
+  const cmd=map[`${service}:${action}`]||`@${service.toUpperCase()}:${action.toUpperCase()} PARAMS{} SECURITY[LOCAL]`;
+  document.getElementById('termInput').value=cmd;
+  setTimeout(()=>document.getElementById('termInput').focus(),100);
+}
+function terminalPing(port){
+  switchTab('terminal');
+  document.querySelectorAll('.tab')[2].classList.add('active');
+  document.getElementById('termInput').value=`@LOCAL:PING PARAMS{host=localhost${port}} SECURITY[LOCAL] TRACE[AUTO]`;
+  setTimeout(()=>document.getElementById('termInput').focus(),100);
+}
+
+// ═══════════════ 龍芯家族花名册 · 9625 ═══════════════
+const ENGINE_BASE = (location.port === '9625') ? '' : 'http://127.0.0.1:9625';
+let rosterCache = null;
+let activePersonaIds = ['P72', 'P02'];
+
+function rosterLabel(ids) {
+  if (!rosterCache || !rosterCache.personas) return ids.join(' + ');
+  const by = Object.fromEntries(rosterCache.personas.map((p) => [p.id, p]));
+  return ids.map((id) => {
+    const p = by[id];
+    return p ? (id + ' ' + p.name) : id;
+  }).join(' + ');
+}
+
+function updateRosterUI() {
+  const txt = rosterLabel(activePersonaIds);
+  const el = document.getElementById('activePersonaLabel');
+  const chain = document.getElementById('rosterActiveChain');
+  if (el) el.textContent = txt;
+  if (chain) chain.textContent = txt;
+}
+
+function renderPersonaGrid(personas) {
+  const grid = document.getElementById('personaGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  personas.forEach((p) => {
+    const card = document.createElement('div');
+    card.className = 'persona-card' + (p.special ? ' special' : '') + (activePersonaIds.includes(p.id) ? ' active' : '');
+    card.onclick = () => activatePersona(p.id);
+    const w = p.weight + (activePersonaIds[0] === p.id ? ' · 主路由' : '');
+    card.innerHTML = '<div class="persona-icon">' + p.icon + '</div><div class="persona-id">' + p.id + '</div><div class="persona-name">' + p.name + '</div><div class="persona-role">' + p.role + '</div><div class="persona-weight">' + w + '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function renderRosterModules(modules) {
+  const box = document.getElementById('rosterModules');
+  if (!box) return;
+  box.innerHTML = '';
+  modules.forEach((m) => {
+    const el = document.createElement('div');
+    el.className = 'roster-mod';
+    let pid = m.persona_id || '';
+    if (m.persona_route) {
+      const mm = m.persona_route.match(/P\d+|L0/);
+      if (mm) pid = mm[0];
+    }
+    el.onclick = () => {
+      if (pid) activatePersona(pid);
+      const url = m.notion_url || m.notion_protocol_url || m.notion_roster_url;
+      if (url) window.open(url, '_blank');
+    };
+    const holds = (m.hold_acknowledged || []).slice(0, 2).join(' · ');
+    el.innerHTML = '<div class="mod-ipa">' + (m.ipa || '') + '</div><div class="mod-title">' + (m.title || '模块') + '</div><div class="mod-meta">' + (m.tier || '') + ' · ' + (m.vault || '') + '</div><div class="mod-route">路由 → ' + (m.persona_route || '待指定') + '</div>' + (holds ? '<div class="mod-meta" style="color:var(--yel)">hold: ' + holds + '</div>' : '');
+    box.appendChild(el);
+  });
+}
+
+function ensureRosterSyncPanels() {
+  const bar = document.getElementById('rosterBar');
+  if (!bar || document.getElementById('rosterUrgent')) return;
+  const sm = document.createElement('div');
+  sm.id = 'rosterSyncMeta';
+  sm.className = 'roster-sync-ok';
+  sm.style.display = 'none';
+  const urg = document.createElement('div');
+  urg.id = 'rosterUrgent';
+  urg.className = 'roster-urgent';
+  urg.style.display = 'none';
+  bar.parentNode.insertBefore(urg, bar);
+  bar.parentNode.insertBefore(sm, urg);
+}
+
+function loadFamilyRoster() {
+  ensureRosterSyncPanels();
+  fetch(ENGINE_BASE + '/api/roster/full')
+    .then((r) => r.json())
+    .then((data) => {
+      if (!data.ok) return;
+      rosterCache = data;
+      activePersonaIds = data.active_personas || activePersonaIds;
+      const off = document.getElementById('rosterOffline');
+      if (off) off.style.display = 'none';
+      const nb = document.getElementById('navRosterBadge');
+      if (nb) { nb.textContent = '🟢'; nb.className = 'ni-badge live'; }
+      if (data.meta && data.meta.principle) {
+        const pr = document.getElementById('rosterPrinciple');
+        if (pr) pr.textContent = data.meta.principle;
+      }
+      if (data.meta && data.meta.dna) {
+        const ft = document.getElementById('rosterDnaFooter');
+        if (ft) ft.textContent = data.meta.dna;
+      }
+      const sm = document.getElementById('rosterSyncMeta');
+      if (sm && data.meta && data.meta.notion_synced_at) {
+        sm.style.display = 'block';
+        sm.textContent =
+          '🧬 Notion已同步 ' +
+          data.meta.notion_synced_at +
+          ' · ' +
+          (data.meta.notion_row_count || '?') +
+          ' 条 · ' +
+          (data.meta.brain || '');
+      }
+      const urg = document.getElementById('rosterUrgent');
+      const urgent = data.urgent || [];
+      if (urg && urgent.length) {
+        urg.style.display = 'block';
+        urg.innerHTML =
+          '<b>只看紧急（其余不用管）</b><br>' +
+          urgent
+            .slice(0, 6)
+            .map(
+              (u) =>
+                (u.audit || '🟡') +
+                ' <b>' +
+                (u.title || '') +
+                '</b> — ' +
+                (u.reason || '') +
+                (u.url ? ' <a href="' + u.url + '" target="_blank" rel="noopener">↗</a>' : '')
+            )
+            .join('<br>');
+      } else if (urg) {
+        urg.style.display = 'none';
+      }
+      renderPersonaGrid(data.personas || []);
+      renderRosterModules(data.modules || []);
+      updateRosterUI();
+    })
+    .catch(() => {
+      const off = document.getElementById('rosterOffline');
+      if (off) off.style.display = 'block';
+      const nb = document.getElementById('navRosterBadge');
+      if (nb) { nb.textContent = '离线'; nb.className = 'ni-badge warn'; }
+    });
+}
+
+function activatePersona(pid) {
+  activePersonaIds = [pid];
+  if (pid !== 'P72') activePersonaIds.push('P72');
+  fetch(ENGINE_BASE + '/api/roster/activate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ids: activePersonaIds }),
+  }).catch(() => {});
+  if (rosterCache && rosterCache.personas) renderPersonaGrid(rosterCache.personas);
+  updateRosterUI();
+  switchTab('terminal');
+  document.querySelectorAll('.tab').forEach((t, i) => { if (i === 2) t.classList.add('active'); });
+  document.getElementById('termInput').value = '@PERSONA:ACTIVATE PARAMS{id=' + activePersonaIds.join(',') + '} SECURITY[LOCAL] TRACE[AUTO]';
+  setTimeout(() => document.getElementById('termInput').focus(), 100);
+}
+
+const H_WEAPON_API = 'http://127.0.0.1:8765';
+
+async function hWeaponRun(n) {
+  const el = document.getElementById('hWeaponOut');
+  if (!el) return;
+  el.textContent = '启动中… n=' + n;
+  try {
+    const r = await fetch(H_WEAPON_API + '/api/h_weapon/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ n: n, max_loops: 3 })
+    });
+    el.textContent = JSON.stringify(await r.json(), null, 2);
+  } catch (e) {
+    el.textContent = '失败：' + e + '\n（请先在本机运行 python3 tools/h_weapon_100k/api/server.py）';
+  }
+}
+
+async function hFootprintScan() {
+  const el = document.getElementById('hWeaponOut');
+  if (!el) return;
+  el.textContent = '痕迹扫描启动中…';
+  try {
+    const r = await fetch(H_WEAPON_API + '/api/footprint/scan', { method: 'POST' });
+    el.textContent = JSON.stringify(await r.json(), null, 2);
+  } catch (e) {
+    el.textContent = '失败：' + e;
+  }
+}
+
+async function hImprintRun(n) {
+  const el = document.getElementById('hWeaponOut');
+  if (!el) return;
+  el.textContent = '印记推演启动… n=' + n;
+  try {
+    const r = await fetch(H_WEAPON_API + '/api/imprint/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ n: n })
+    });
+    el.textContent = JSON.stringify(await r.json(), null, 2);
+  } catch (e) {
+    el.textContent = '失败：' + e;
+  }
+}
+
+async function hWeaponStats() {
+  const el = document.getElementById('hWeaponOut');
+  if (!el) return;
+  el.textContent = '拉取统计…';
+  try {
+    const stats = await (await fetch(H_WEAPON_API + '/api/stats')).json();
+    let agg = {};
+    try {
+      agg = await (await fetch(H_WEAPON_API + '/api/aggregate')).json();
+    } catch (x) {
+      agg = { note: 'no aggregate file yet' };
+    }
+    let fp = {};
+    try {
+      fp = await (await fetch(H_WEAPON_API + '/api/footprints')).json();
+    } catch (x) {
+      fp = { note: 'no footprint.db' };
+    }
+    let im = {};
+    try {
+      im = await (await fetch(H_WEAPON_API + '/api/imprint/stats')).json();
+    } catch (x) {
+      im = { note: 'imprint stats unavailable' };
+    }
+    let iagg = {};
+    try {
+      iagg = await (await fetch(H_WEAPON_API + '/api/imprint/aggregate')).json();
+    } catch (x) {
+      iagg = { note: 'no imprint aggregate' };
+    }
+    el.textContent =
+      '【events.db】\n' + JSON.stringify(stats, null, 2) +
+      '\n\n【latest_aggregate】\n' + JSON.stringify(agg, null, 2) +
+      '\n\n【dna_trace / imprint】\n' + JSON.stringify(im, null, 2) +
+      '\n\n【latest_imprint_aggregate】\n' + JSON.stringify(iagg, null, 2) +
+      '\n\n【footprint】\n' + JSON.stringify(fp, null, 2);
+  } catch (e) {
+    el.textContent = '失败：' + e;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadFamilyRoster);
+
+// Dynamic DNA ticker
+const dnas=['#龍芯⚡️20260510-OPS-CONSOLE-MVP-v1.1','#龍芯⚡️20260417-IPA-BUS-v1.0','#龍芯⚡️2026-05-07-CNSH-ALGORITHM-RUNTIME-BLUEPRINT-v1.0','#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-人格协作×IPA×DNA重铸增量'];
+let dnaIdx=0;
+setInterval(()=>{
+  dnaIdx=(dnaIdx+1)%dnas.length;
+  document.getElementById('hdr-dna').textContent=dnas[dnaIdx]+' · UID9622 · 🟢 · dr=5';
+},4000);
+</script>
+</body>
+</html>

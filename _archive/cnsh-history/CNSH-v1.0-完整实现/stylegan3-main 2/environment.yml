@@ -1,0 +1,34 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: environment.yml | 标记时间: 2026-06-03T07:46:00+0800
+name: stylegan3
+channels:
+  - pytorch
+  - nvidia
+dependencies:
+  - python >= 3.8
+  - pip
+  - numpy>=1.20
+  - click>=8.0
+  - pillow=8.3.1
+  - scipy=1.7.1
+  - pytorch=1.9.1
+  - cudatoolkit=11.1
+  - requests=2.26.0
+  - tqdm=4.62.2
+  - ninja=1.10.2
+  - matplotlib=3.4.2
+  - imageio=2.9.0
+  - pip:
+    - imgui==1.3.0
+    - glfw==2.2.0
+    - pyopengl==3.1.5
+    - imageio-ffmpeg==0.4.3
+    - pyspng

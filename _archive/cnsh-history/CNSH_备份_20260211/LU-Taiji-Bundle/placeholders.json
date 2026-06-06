@@ -1,0 +1,45 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: placeholders.json | 标记时间: 2026-06-03T07:46:00+0800
+{
+  "_comment": " centralized placeholder management for security",
+  "placeholders": {
+    "NOTION_API_KEY": {
+      "description": "Notion Integration Token",
+      "required": true,
+      "sensitive": true,
+      "instructions": "从 https://www.notion.so/my-integrations 获取"
+    },
+    "NOTION_DATABASE_ID": {
+      "description": "目标数据库 ID",
+      "required": true,
+      "sensitive": false,
+      "instructions": "从 Notion 数据库 URL 中提取"
+    },
+    "CUSTOM_USER_NAME": {
+      "description": "自定义用户名",
+      "required": false,
+      "sensitive": false,
+      "default": "Lucky"
+    },
+    "DEBUG_MODE": {
+      "description": "调试模式",
+      "required": false,
+      "sensitive": false,
+      "default": "false"
+    }
+  },
+  "config_template": {
+    "api_key": "{{NOTION_API_KEY}}",
+    "database_id": "{{NOTION_DATABASE_ID}}",
+    "user_name": "{{CUSTOM_USER_NAME}}",
+    "debug": "{{DEBUG_MODE}}"
+  }
+}
