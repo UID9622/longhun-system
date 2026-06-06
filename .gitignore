@@ -14,3 +14,79 @@
 *.swp
 *.swo
 *~
+
+# Python 構建和緩存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node 和 npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# 環境配置（敏感信息）
+.env
+.env.*
+!.env.example
+.venv
+env/
+ENV/
+
+# IDE 和編輯器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.idea/
+*.iml
+
+# 本地數據和臨時文件
+.claude/
+*.log
+*.tmp
+*.bak
+.backup/
+.local/
+
+# 備份和歷史文件
+*.backup
+*.old
+*~.md
+.backup/
+
+# 系統相關
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
