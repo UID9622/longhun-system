@@ -1,0 +1,21 @@
+{
+  "name": "@longhun/mobile-monitoring",
+  "version": "4.1.0",
+  "description": "龍魂移動端監控自動化系統 v4.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "axios": "^1.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["monitoring", "analytics", "mobile"],
+  "author": "Longhun System",
+  "license": "MIT"
+}
