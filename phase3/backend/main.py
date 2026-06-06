@@ -19,6 +19,23 @@ import json
 import logging
 import asyncio
 from pathlib import Path
+import sys
+
+# 龍魂 Skill 系統集成
+try:
+    from pathlib import Path
+    import sys
+    skills_path = Path(__file__).parent.parent / "longhun-system" / "skills"
+    if str(skills_path) not in sys.path:
+        sys.path.insert(0, str(skills_path))
+    from __init__ import get_registry as get_skill_registry
+    SKILLS_AVAILABLE = True
+except Exception as e:
+    logger = logging.getLogger(__name__)
+    logger.warning(f"⚠️ Skill 系統加載失敗: {e}")
+    SKILLS_AVAILABLE = False
+    get_skill_registry = None
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # 第一部·配置与初始化
@@ -449,6 +466,138 @@ async def export_json(body: Dict[str, Any]):
         raise HTTPException(status_code=400, detail="不支援的資料類型")
 
 
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 龍魂 Skill 集成 API 端點
+# ═══════════════════════════════════════════════════════════════════════════
+
+@app.get("/api/v1/longhun-skills")
+async def list_longhun_skills():
+    """列出所有龍魂 Skills"""
+    if not SKILLS_AVAILABLE:
+        return {"error": "Skills 系統未可用", "skills": []}
+    
+    try:
+        skill_registry = get_skill_registry()
+        skills_list = skill_registry.list_skills()
+        return {
+            "status": "success",
+            "html_skills": skills_list["html"],
+            "python_skills": skills_list["python"],
+            "total": skills_list["total"],
+            "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
+        }
+    except Exception as e:
+        logger.error(f"❌ 獲取 Skills 失敗: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/longhun-skills/{skill_id}")
+async def get_longhun_skill(skill_id: str):
+    """獲取龍魂 Skill 詳情"""
+    if not SKILLS_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+    
+    try:
+        skill_registry = get_skill_registry()
+        skill = skill_registry.get_skill(skill_id)
+        if not skill:
+            raise HTTPException(status_code=404, detail=f"Skill '{skill_id}' 不存在")
+        return {
+            "status": "success",
+            "skill": skill,
+            "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ 獲取 Skill 失敗: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/longhun-skills/{skill_id}/content")
+async def get_longhun_skill_content(skill_id: str):
+    """獲取龍魂 Skill 完整內容"""
+    if not SKILLS_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+    
+    try:
+        skill_registry = get_skill_registry()
+        content = skill_registry.get_skill_content(skill_id)
+        if not content:
+            raise HTTPException(status_code=404, detail=f"Skill '{skill_id}' 內容不可用")
+        
+        skill = skill_registry.get_skill(skill_id)
+        return {
+            "status": "success",
+            "skill_id": skill_id,
+            "type": skill["type"],
+            "content": content,
+            "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ 獲取 Skill 內容失敗: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/v1/longhun-skills/{skill_id}/execute")
+async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):
+    """執行龍魂 Skill"""
+    if not SKILLS_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+    
+    try:
+        skill_registry = get_skill_registry()
+        skill = skill_registry.get_skill(skill_id)
+        if not skill:
+            raise HTTPException(status_code=404, detail=f"Skill '{skill_id}' 不存在")
+        
+        import uuid
+        execution_id = str(uuid.uuid4())
+        
+        # 如果是 Python Skill，執行它
+        if skill["type"] == "python":
+            # 實際執行邏輯（這裡簡化處理）
+            result = {"status": "queued", "execution_id": execution_id}
+        else:
+            # HTML Skill 只能在前端渲染
+            result = {"status": "info", "message": "HTML Skill 需要在瀏覽器中渲染"}
+        
+        return {
+            "status": "success",
+            "skill_id": skill_id,
+            "execution_id": execution_id,
+            "result": result,
+            "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ 執行 Skill 失敗: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/longhun-skills/config/export")
+async def export_longhun_skills_config():
+    """匯出龍魂 Skills 配置"""
+    if not SKILLS_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+    
+    try:
+        skill_registry = get_skill_registry()
+        config = skill_registry.export_config()
+        return {
+            "status": "success",
+            "config": config,
+            "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
+        }
+    except Exception as e:
+        logger.error(f"❌ 匯出配置失敗: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/v1/settings")
 async def get_settings():
     """獲取系統設置"""
@@ -500,6 +649,17 @@ async def websocket_stream(websocket: WebSocket):
 async def startup_event():
     """應用啟動事件"""
     logger.info("🚀 龍魂系統 Phase 3 後端已啟動")
+
+    # 初始化龍魂 Skill 系統
+    if SKILLS_AVAILABLE:
+        try:
+            skill_registry = get_skill_registry()
+            skills_list = skill_registry.list_skills()
+            logger.info(f"✅ 已加載 {skills_list['total']} 個龍魂 Skills")
+            logger.info(f"   HTML Skills: {len(skills_list['html'])}")
+            logger.info(f"   Python Skills: {len(skills_list['python'])}")
+        except Exception as e:
+            logger.error(f"❌ Skill 系統加載失敗: {e}")
     
     # 初始化示例技能
     sample_skills = [
