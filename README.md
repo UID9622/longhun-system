@@ -1,1 +1,140 @@
-# 龍魂系統知識庫
+# 🐉 龙魂系统 · LongHun System
+
+> **一个人。25个模块。13,800+行可运行代码。**
+> **One person. 25 modules. 13,800+ lines of running code.**
+> 用逻辑驱动，用AI实现。/ Built on logic, executed by AI.
+
+[![版本](https://img.shields.io/badge/version-v4.1.1-blue)]()
+[![状态](https://img.shields.io/badge/status-Production%20Ready-green)]()
+[![DNA](https://img.shields.io/badge/DNA-Full%20Traceability-orange)]()
+[![语言](https://img.shields.io/badge/language-Python%20|%20React-yellow)]()
+
+---
+
+## 🇨🇳 中文介绍
+
+### 这是什么？
+
+龙魂系统是一套 **AI行为治理框架**，让AI可控、可审计、可追责。
+
+当全世界还在讨论如何治理AI的时候，龙魂已经在做了。
+
+**核心理念：逻辑是真正的引擎，AI是执行者。**
+
+### 三大核心机制
+
+**三层监督**
+每个动作在执行前经过三个独立的监督层，无单点故障。
+
+**三色审计**
+- 🟢 绿色 — 正常，已批准
+- 🟡 黄色 — 标记，待审查
+- 🔴 红色 — 阻断，潜在违规
+
+**DNA全追踪**
+每个模块、每次提交、每个动作都携带唯一DNA签名。
+没有匿名，一切可溯源。
+
+### 模块总览（25个核心模块）
+
+| 分类 | 内容 |
+|------|------|
+| 📋 协议 | 治理规则、主权框架 |
+| 🛠️ 技能库 | 10项龙魂技能（艺术、设计、MCP、Slack、React...） |
+| 📏 规则 | 执行约束、合规逻辑 |
+| 📂 执行记录 | 完整行动历史 |
+| 🧠 知识图谱 | 结构化智能知识库 |
+| 📓 决策日志 | 决策审计追踪 |
+| 📊 系统报告 | 健康、性能、状态 |
+| 📖 技术文档 | 架构文档 |
+| 🤖 代理人 | 自主任务执行器 |
+| 🛡️ 宝宝守护者 | 安全与异常保护 |
+
+### 版本历史
+
+| 版本 | 亮点 |
+|------|------|
+| **v4.1.1** | 🔐 安全热修复 — 修复18+个Electron漏洞 |
+| **v4.0** | 📱 移动端监控 — 15层体系，4个应用监控，AES-256-GCM加密 |
+| **v3.1.0** | ⚡ 第三阶段 — 10项技能完整集成，API响应 < 100ms |
+
+---
+
+## 🌍 English Introduction
+
+### What is LongHun System?
+
+LongHun (龙魂 / Dragon Soul) is an **AI Behavior Governance Framework** designed to make AI systems controllable, auditable, and accountable.
+
+While the world debates how to govern AI, LongHun is already doing it.
+
+**Core philosophy:** Logic is the real engine. AI is the executor.
+
+### Three Core Mechanisms
+
+**Three-Layer Supervision**
+Every action passes through three independent oversight layers before execution — no single point of failure.
+
+**Three-Color Audit System**
+- 🟢 Green — Normal, approved operations
+- 🟡 Yellow — Flagged, requires review
+- 🔴 Red — Blocked, potential violation
+
+**DNA Full Traceability**
+Every module, every commit, every action carries a unique DNA signature.
+Nothing is anonymous. Everything is traceable.
+
+### Modules (25 Core)
+
+| Category | Modules |
+|----------|---------|
+| 📋 Protocols | Governance rules, sovereignty framework |
+| 🛠️ Skills | 10 Dragon Skills (art, design, MCP, Slack, React...) |
+| 📏 Rules | Execution constraints, compliance logic |
+| 📂 Execution Logs | Full action history |
+| 🧠 Knowledge Graph | Structured intelligence base |
+| 📓 Decision Journal | Decision audit trail |
+| 📊 System Reports | Health, performance, status |
+| 📖 Tech Docs | Architecture documentation |
+| 🤖 Agents | Autonomous task executors |
+| 🛡️ Guardian | Security & anomaly protection |
+
+### Release History
+
+| Version | Highlights |
+|---------|-----------|
+| **v4.1.1** | 🔐 Security hotfix — 18+ Electron vulnerabilities patched |
+| **v4.0** | 📱 Mobile monitoring — 15-layer system, 4 app monitors, AES-256-GCM |
+| **v3.1.0** | ⚡ Phase 3 — 10 skills complete, API response < 100ms |
+
+### Tech Stack
+
+- **Backend:** Python, FastAPI, SQLAlchemy
+- **Frontend:** Electron, React, Vite
+- **Protocol:** Custom CNSH governance layer
+- **Security:** AES-256-GCM encryption
+- **Monitoring:** 15-layer real-time + self-healing
+
+---
+
+## 🌏 Vision · 愿景
+
+> *"全世界所有AI，都应该运行在可控的协议上。"*
+> *"All AI in the world should run on a controllable protocol."*
+> — UID9622，创造者 / Creator
+
+龙魂协议的目标是成为任何AI系统都能采用的治理层——透明、可审计、根植于中国哲学智慧。
+
+The LongHun Protocol is designed to be the governance layer that any AI system can adopt — transparent, auditable, and grounded in Chinese systems thinking (中国哲学).
+
+---
+
+## 📬 Contact · 联系
+
+- **GitHub:** [@UID9622](https://github.com/UID9622)
+- **Repository:** [longhun-system](https://github.com/UID9622/longhun-system)
+
+---
+
+*一个人建造。逻辑驱动。AI执行。*
+*Built by one person. Powered by logic. Executed by AI.*
