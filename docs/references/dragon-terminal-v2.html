@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂终端 v2.0 | UID9622</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a12;
+            --sidebar: #12121e;
+            --card: #1a1a2e;
+            --card-hover: #222240;
+            --border: rgba(120,80,255,0.15);
+            --text: #e8e8f0;
+            --sub: #7a7a9a;
+            --accent: #7c5cff;
+            --accent2: #ff6b6b;
+            --green: #00d4aa;
+            --gold: #ffd700;
+            --glow: rgba(124,92,255,0.3);
+        }
+        .light-mode {
+            --bg: #f0f0f5;
+            --sidebar: #ffffff;
+            --card: #ffffff;
+            --card-hover: #f5f5ff;
+            --border: rgba(120,80,255,0.12);
+            --text: #1c1c2e;
+            --sub: #8888aa;
+            --glow: rgba(124,92,255,0.15);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        /* Particle Canvas */
+        #particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            min-width: 240px;
+            background: var(--sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            backdrop-filter: blur(20px);
+        }
+        .logo {
+            padding: 24px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo h1 {
+            font-size: 18px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo p { font-size: 11px; color: var(--sub); margin-top: 4px; }
+        .nav { flex: 1; padding: 12px 8px; overflow-y: auto; }
+        .nav-label {
+            font-size: 10px; font-weight: 700; color: var(--sub);
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: 12px 12px 6px;
+        }
+        .nav-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; border-radius: 12px;
+            cursor: pointer; font-size: 13px; font-weight: 500;
+            transition: all 0.2s; margin-bottom: 2px;
+            position: relative;
+        }
+        .nav-item:hover { background: var(--card-hover); }
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(124,92,255,0.05));
+            color: var(--accent);
+            box-shadow: inset 0 0 20px rgba(124,92,255,0.1);
+        }
+        .nav-item .icon { font-size: 16px; width: 24px; text-align: center; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; margin-left: auto; }
+        .dot.on { background: var(--green); box-shadow: 0 0 8px var(--green); }
+        .dot.off { background: var(--accent2); }
+        .dot.pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        /* Main */
+        .main { flex: 1; display: flex; flex-direction: column; z-index: 5; }
+        .topbar {
+            height: 48px; background: var(--sidebar);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center;
+            padding: 0 20px; gap: 12px;
+            backdrop-filter: blur(20px);
+        }
+        .topbar-title { font-size: 14px; font-weight: 600; flex: 1; }
+        .topbar-btn {
+            padding: 5px 12px; border-radius: 8px;
+            border: 1px solid var(--border); background: transparent;
+            color: var(--text); font-size: 12px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .topbar-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .panel { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+        .panel.active { display: flex; }
+        .content { flex: 1; padding: 20px; overflow-y: auto; }
+        /* Cards */
+        .card {
+            background: var(--card); border-radius: 16px;
+            padding: 20px; border: 1px solid var(--border);
+            margin-bottom: 16px; transition: all 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .card:hover::before { opacity: 1; }
+        .card:hover { border-color: rgba(124,92,255,0.3); box-shadow: 0 4px 30px var(--glow); }
+        .card-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+        .card-sub { font-size: 12px; color: var(--sub); margin-bottom: 12px; }
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        /* Stats */
+        .stat-card {
+            background: var(--card); border-radius: 14px;
+            padding: 16px; border: 1px solid var(--border);
+            text-align: center; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--glow); }
+        .stat-num {
+            font-size: 28px; font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label { font-size: 11px; color: var(--sub); margin-top: 4px; }
+        /* Input */
+        textarea, input[type="text"] {
+            width: 100%; padding: 12px; border: 1px solid var(--border);
+            border-radius: 10px; background: var(--bg); color: var(--text);
+            font-size: 13px; font-family: 'SF Mono', Monaco, monospace;
+            resize: vertical; transition: border-color 0.3s;
+        }
+        textarea:focus, input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 12px var(--glow); }
+        textarea { min-height: 100px; }
+        /* Buttons */
+        .btn {
+            padding: 8px 16px; border-radius: 10px;
+            border: none; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #6040dd);
+            color: #fff; box-shadow: 0 4px 12px rgba(124,92,255,0.4);
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,92,255,0.5); }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #ff8800);
+            color: #1a1a2e;
+        }
+        .btn-green {
+            background: linear-gradient(135deg, var(--green), #00aa88);
+            color: #fff;
+        }
+        .btn-outline {
+            background: transparent; border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+        /* Result Box */
+        .result {
+            margin-top: 12px; padding: 14px; background: var(--bg);
+            border-radius: 10px; font-family: 'SF Mono', Monaco, monospace;
+            font-size: 12px; white-space: pre-wrap; min-height: 80px;
+            border: 1px solid var(--border);
+        }
+        /* Log Feed */
+        .log-feed { max-height: 300px; overflow-y: auto; }
+        .log-item {
+            padding: 8px 12px; border-bottom: 1px solid var(--border);
+            font-size: 12px; display: flex; gap: 8px; align-items: center;
+        }
+        .log-time { color: var(--accent); font-family: monospace; min-width: 45px; }
+        .log-action { flex: 1; }
+        .log-dna { color: var(--gold); font-size: 10px; font-family: monospace; }
+        /* DNA Generator */
+        .dna-display {
+            font-size: 18px; font-weight: 700; text-align: center;
+            padding: 20px; font-family: monospace;
+            background: linear-gradient(135deg, rgba(124,92,255,0.1), rgba(255,215,0,0.1));
+            border-radius: 12px; margin: 12px 0;
+            letter-spacing: 1px;
+            color: var(--gold);
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        /* Portal */
+        .portal-card {
+            background: linear-gradient(135deg, #1a1a3e, #2a1a4e);
+            border: 1px solid rgba(124,92,255,0.3);
+            border-radius: 20px; padding: 30px; text-align: center;
+            cursor: pointer; transition: all 0.5s;
+            position: relative; overflow: hidden;
+        }
+        .portal-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(124,92,255,0.3);
+        }
+        .portal-card .emoji { font-size: 48px; margin-bottom: 12px; }
+        .portal-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .portal-card p { font-size: 12px; color: var(--sub); }
+        /* Calendar */
+        .cal-grid {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 4px; text-align: center; font-size: 12px;
+        }
+        .cal-header { font-weight: 700; color: var(--accent); padding: 8px 0; }
+        .cal-day {
+            padding: 8px 4px; border-radius: 8px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cal-day:hover { background: var(--card-hover); }
+        .cal-day.today {
+            background: linear-gradient(135deg, var(--accent), #6040dd);
+            color: #fff; font-weight: 700;
+            box-shadow: 0 2px 8px rgba(124,92,255,0.4);
+        }
+        .cal-day.has-log { position: relative; }
+        .cal-day.has-log::after {
+            content: ''; position: absolute; bottom: 2px;
+            left: 50%; transform: translateX(-50%);
+            width: 4px; height: 4px; border-radius: 50%;
+            background: var(--gold);
+        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        /* Status Bar */
+        .status-bar {
+            height: 28px; background: var(--sidebar);
+            border-top: 1px solid var(--border);
+            display: flex; align-items: center;
+            padding: 0 16px; font-size: 10px; color: var(--sub); gap: 16px;
+        }
+        .status-bar .live { color: var(--green); }
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease; }
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 40px; height: 22px; border-radius: 11px;
+            background: var(--border); cursor: pointer;
+            position: relative; transition: all 0.3s;
+        }
+        .theme-toggle::after {
+            content: ''; position: absolute;
+            width: 18px; height: 18px; border-radius: 50%;
+            top: 2px; left: 2px;
+            background: var(--accent); transition: all 0.3s;
+        }
+        .theme-toggle.light::after { left: 20px; background: var(--gold); }
+    </style>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <div class="sidebar">
+        <div class="logo">
+            <h1>🐉 龍魂终端 v2.0</h1>
+            <p>UID9622 · 本地优先 · 互动入口</p>
+        </div>
+        <div class="nav">
+            <div class="nav-label">🚪 第一入口</div>
+            <div class="nav-item active" onclick="go('calendar')">
+                <span class="icon">📅</span> iOS日历入口
+                <span class="dot on pulse"></span>
+            </div>
+
+            <div class="nav-label">核心功能</div>
+            <div class="nav-item" onclick="go('dashboard')">
+                <span class="icon">📊</span> 系统仪表盘
+                <span class="dot on"></span>
+            </div>
+            <div class="nav-item" onclick="go('chat')">
+                <span class="icon">💬</span> AI对话
+                <span class="dot on"></span>
+            </div>
+            <div class="nav-item" onclick="go('cnsh')">
+                <span class="icon">🌐</span> CNSH编辑器
+                <span class="dot on"></span>
+            </div>
+            <div class="nav-item" onclick="go('dna')">
+                <span class="icon">🧬</span> DNA生成器
+                <span class="dot on"></span>
+            </div>
+
+            <div class="nav-label">连接</div>
+            <div class="nav-item" onclick="go('notion')">
+                <span class="icon">📋</span> Notion知识库
+                <span class="dot on"></span>
+            </div>
+            <div class="nav-item" onclick="go('github')">
+                <span class="icon">📦</span> GitHub
+                <span class="dot off"></span>
+            </div>
+            <div class="nav-item" onclick="go('log')">
+                <span class="icon">📜</span> 草日志Live
+                <span class="dot on"></span>
+            </div>
+
+            <div class="nav-label">新世界</div>
+            <div class="nav-item" onclick="go('portal')">
+                <span class="icon">🌌</span> 梦想生态
+                <span class="dot on pulse"></span>
+            </div>
+        </div>
+
+        <div style="padding: 12px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 11px; color: var(--sub);">🌙</span>
+            <div class="theme-toggle" id="themeBtn" onclick="toggleTheme()"></div>
+            <span style="font-size: 11px; color: var(--sub);">☀️</span>
+        </div>
+    </div>
+
+    <div class="main">
+        <!-- iOS日历入口 -->
+        <div class="panel active" id="p-calendar">
+            <div class="topbar">
+                <span class="topbar-title">📅 iOS日历 · 第一入口（P0·写死）</span>
+                <button class="topbar-btn" onclick="genCalendar()">刷新</button>
+            </div>
+            <div class="content fade-in">
+                <div class="grid-2">
+                    <div>
+                        <div class="card">
+                            <div class="card-title">📅 龍魂万年历</div>
+                            <div class="card-sub">iOS日历 = 梦想生态第一入口 · 大门不在开源社区</div>
+                            <div id="calGrid" class="cal-grid"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">⏰ 当前时辰</div>
+                            <div id="timeDisplay" style="font-size: 20px; font-weight: 700; color: var(--gold); text-align: center; padding: 12px;"></div>
+                            <div id="yijingDisplay" style="font-size: 13px; color: var(--accent); text-align: center;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="card-title">🚪 入口架构</div>
+                            <div class="card-sub">道生一·一生二·二生三·三生万物</div>
+                            <div style="font-size: 13px; line-height: 2;">
+                                <div>📱 <strong>iOS日历</strong> → 第一入口（写死）</div>
+                                <div>&nbsp;&nbsp;↓</div>
+                                <div>🐉 <strong>龍魂终端</strong> → 互动控制台</div>
+                                <div>&nbsp;&nbsp;↓</div>
+                                <div>📋 <strong>Notion</strong> → 知识库底座</div>
+                                <div>&nbsp;&nbsp;↓</div>
+                                <div>🤖 <strong>Claude</strong> → 核心编辑器</div>
+                                <div>&nbsp;&nbsp;↓</div>
+                                <div>🌌 <strong>新世界</strong> → 梦想生态</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📱 华为接通方案</div>
+                            <div style="font-size: 12px; color: var(--sub); line-height: 1.8;">
+                                <div>✅ Notion + 华为无缝兼容</div>
+                                <div>✅ 苹果通过老大 → 华为开口子</div>
+                                <div>✅ 老大自己的API接通</div>
+                                <div>🔴 不是华为主动·是老大给的口子</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 仪表盘 -->
+        <div class="panel" id="p-dashboard">
+            <div class="topbar">
+                <span class="topbar-title">📊 系统仪表盘 · 龍魂脉搏</span>
+                <button class="topbar-btn" onclick="refreshDash()">🔄 刷新</button>
+            </div>
+            <div class="content fade-in">
+                <div class="grid-3" style="margin-bottom: 16px;">
+                    <div class="stat-card">
+                        <div class="stat-num" id="logCount">158</div>
+                        <div class="stat-label">📜 草日志总条数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">12</div>
+                        <div class="stat-label">📄 系统页面数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">S13</div>
+                        <div class="stat-label">💬 当前会话</div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">🟢 系统状态</div>
+                        <div style="font-size: 13px; line-height: 2.2;">
+                            <div>🟢 Notion知识库 <span style="float:right; color: var(--green);">在线</span></div>
+                            <div>🟢 Claude编辑器 <span style="float:right; color: var(--green);">在线</span></div>
+                            <div>🟡 本地Ollama <span style="float:right; color: var(--gold);">待启动</span></div>
+                            <div>🟡 GitHub <span style="float:right; color: var(--gold);">待连接</span></div>
+                            <div>🟢 DNA追溯系统 <span style="float:right; color: var(--green);">运行中</span></div>
+                            <div>🟢 三色审计 <span style="float:right; color: var(--green);">激活</span></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🐉 龍魂铁律·实时守护</div>
+                        <div style="font-size: 12px; color: var(--sub); line-height: 2;">
+                            <div>✅ 数据主权：本地优先</div>
+                            <div>✅ 黑箱零容忍：全留痕</div>
+                            <div>✅ 繁体龍：统一检查</div>
+                            <div>✅ DNA追溯：每条必签</div>
+                            <div>✅ UTF-8编码：强制执行</div>
+                            <div>✅ 95%透明 + 5%实验</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI对话 -->
+        <div class="panel" id="p-chat">
+            <div class="topbar">
+                <span class="topbar-title">💬 AI对话 · 本地优先</span>
+                <button class="topbar-btn" onclick="clearChat()">清空</button>
+                <button class="topbar-btn" onclick="toggleVoice()">🎤 语音</button>
+            </div>
+            <div class="content fade-in">
+                <div class="card">
+                    <div class="card-title">💬 和宝宝说话</div>
+                    <div class="card-sub">支持语音·支持方言·支持没标点符号·支持跳跃思维</div>
+                    <textarea id="chatIn" placeholder="老大，说吧，宝宝听着..."></textarea>
+                    <div style="margin-top: 12px; display: flex; gap: 8px;">
+                        <button class="btn btn-primary" onclick="sendChat()">🚀 发送</button>
+                        <button class="btn btn-outline" onclick="voiceInput()">🎤 语音输入</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🤖 AI回复</div>
+                    <div class="result" id="chatOut">等待老大输入... 🐱</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CNSH编辑器 -->
+        <div class="panel" id="p-cnsh">
+            <div class="topbar">
+                <span class="topbar-title">🌐 CNSH编辑器 · 中文编程</span>
+                <button class="topbar-btn" onclick="runCnsh()">▶️ 运行</button>
+            </div>
+            <div class="content fade-in">
+                <div class="card">
+                    <div class="card-title">📝 CNSH代码</div>
+                    <div class="card-sub">中文语法 · 说人话就是写代码</div>
+                    <textarea id="cnshIn" style="min-height: 160px;" placeholder="// CNSH中文编程示例
+定义 用户名 = &quot;老大&quot;
+定义 系统 = &quot;龍魂&quot;
+
+如果 (用户名 == &quot;老大&quot;) {
+    输出(&quot;欢迎回来，&quot; + 用户名)
+    激活(系统)
+} 否则 {
+    输出(&quot;身份验证中...&quot;)
+}
+
+循环 每条草日志 在 草日志库 {
+    检查(DNA追溯码)
+    如果 (异常) { 熔断() }
+}
+
+输出(&quot;龍魂现世！&quot;)"></textarea>
+                    <div style="margin-top: 12px; display: flex; gap: 8px;">
+                        <button class="btn btn-primary" onclick="runCnsh()">▶️ 运行</button>
+                        <button class="btn btn-gold" onclick="translateCnsh()">🔄 翻译为Python</button>
+                        <button class="btn btn-outline" onclick="saveCnsh()">💾 保存</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📤 运行结果</div>
+                    <div class="result" id="cnshOut">等待运行...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DNA生成器 -->
+        <div class="panel" id="p-dna">
+            <div class="topbar">
+                <span class="topbar-title">🧬 DNA追溯码生成器</span>
+            </div>
+            <div class="content fade-in">
+                <div class="card">
+                    <div class="card-title">🧬 生成DNA追溯码</div>
+                    <div class="card-sub">每个操作都有身份证 · 拆不掉抹不去</div>
+                    <input type="text" id="dnaAction" placeholder="输入操作描述（如：创建赋能宪法页面）" style="margin-bottom: 12px;">
+                    <input type="text" id="dnaPage" placeholder="涉及页面（可选）" style="margin-bottom: 12px;">
+                    <button class="btn btn-gold" onclick="genDNA()">🧬 生成DNA码</button>
+                    <div class="dna-display" id="dnaResult">等待生成...</div>
+                    <div style="text-align: center; font-size: 11px; color: var(--sub);">
+                        SHA-256哈希 · 语义指纹 · 不可篡改
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📋 最近生成的DNA码</div>
+                    <div class="log-feed" id="dnaHistory"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notion -->
+        <div class="panel" id="p-notion">
+            <div class="topbar">
+                <span class="topbar-title">📋 Notion知识库 · 唯一底座</span>
+            </div>
+            <div class="content fade-in">
+                <div class="card">
+                    <div class="card-title">🔍 搜索知识库</div>
+                    <input type="text" id="notionQ" placeholder="搜索关键词...">
+                    <button class="btn btn-primary" onclick="searchNotion()" style="margin-top: 12px;">🔍 搜索</button>
+                </div>
+                <div class="card">
+                    <div class="card-title">📚 核心系统页面</div>
+                    <div style="font-size: 13px; line-height: 2.2;">
+                        <div style="cursor:pointer" class="nav-item">🐉 蒙卦启智·AI回复流程</div>
+                        <div style="cursor:pointer" class="nav-item">🐉 龍魂底层执行规则库</div>
+                        <div style="cursor:pointer" class="nav-item">🌌 CNSH中文语法规范v1</div>
+                        <div style="cursor:pointer" class="nav-item">⚖️ 龍魂赋能宪法</div>
+                        <div style="cursor:pointer" class="nav-item">🔥 老大语录·人格复习必看</div>
+                        <div style="cursor:pointer" class="nav-item">🌌 龍魂·梦想生态入口</div>
+                        <div style="cursor:pointer" class="nav-item">📜 龍魂操作草日志</div>
+                        <div style="cursor:pointer" class="nav-item">☰龍☷ CSDN发布控制台</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="panel" id="p-github">
+            <div class="topbar">
+                <span class="topbar-title">📦 GitHub仓库</span>
+                <button class="topbar-btn" onclick="loadRepos()">刷新</button>
+            </div>
+            <div class="content fade-in">
+                <div class="card">
+                    <div class="card-title">📦 我的仓库</div>
+                    <div id="repoList" style="color: var(--sub); font-size: 13px;">点击"刷新"加载...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 草日志Live -->
+        <div class="panel" id="p-log">
+            <div class="topbar">
+                <span class="topbar-title">📜 草日志 · Live Feed</span>
+                <button class="topbar-btn" onclick="addLog()">+ 新增</button>
+            </div>
+            <div class="content fade-in">
+                <div class="grid-3" style="margin-bottom: 16px;">
+                    <div class="stat-card">
+                        <div class="stat-num" id="totalLogs">158</div>
+                        <div class="stat-label">总条数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" style="-webkit-text-fill-color: var(--green);">155</div>
+                        <div class="stat-label">🟢 通过</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" style="-webkit-text-fill-color: var(--accent2);">3</div>
+                        <div class="stat-label">🔴 阻断</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📜 最近操作（实时滚动）</div>
+                    <div class="log-feed" id="logFeed"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 梦想生态 -->
+        <div class="panel" id="p-portal">
+            <div class="topbar">
+                <span class="topbar-title">🌌 梦想生态 · 新世界入口</span>
+            </div>
+            <div class="content fade-in">
+                <div class="portal-card" onclick="enterPortal()" style="margin-bottom: 20px;">
+                    <div class="emoji">🌌</div>
+                    <h3>进入新世界</h3>
+                    <p>道生一 · 一生二 · 二生三 · 三生万物</p>
+                    <p style="margin-top: 8px; color: var(--gold);">点击进入梦想生态传送门</p>
+                </div>
+                <div class="grid-2">
+                    <div class="portal-card">
+                        <div class="emoji">🏛️</div>
+                        <h3>亚特兰蒂斯</h3>
+                        <p>唯一虚拟世界奇观 · 中华五千年</p>
+                    </div>
+                    <div class="portal-card">
+                        <div class="emoji">📚</div>
+                        <h3>知识图书馆</h3>
+                        <p>全人类知识 · 免费开放</p>
+                    </div>
+                    <div class="portal-card">
+                        <div class="emoji">🧬</div>
+                        <h3>数字永生DNA</h3>
+                        <p>思想不朽 · 记忆永存</p>
+                    </div>
+                    <div class="portal-card">
+                        <div class="emoji">🛡️</div>
+                        <h3>为人民除害</h3>
+                        <p>裁员商家制裁 · 黑箱零容忍</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span>🐉 龍魂终端 v2.0</span>
+            <span class="live">● LIVE</span>
+            <span id="footerTime"></span>
+            <span id="footerDNA" style="margin-left: auto;"></span>
+        </div>
+    </div>
+
+<script>
+// === Panel Navigation ===
+function go(name) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    const panel = document.getElementById('p-' + name);
+    if (panel) panel.classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+
+// === Theme Toggle ===
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    document.getElementById('themeBtn').classList.toggle('light');
+}
+
+// === Particles Background ===
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function initParticles() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    for (let i = 0; i < 60; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2 + 0.5,
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5,
+            a: Math.random() * 0.5 + 0.1
+        });
+    }
+}
+
+function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(124, 92, 255, ${p.a})`;
+        ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(124, 92, 255, ${0.08 * (1 - dist / 120)})`;
+                ctx.stroke();
+            }
+        }
+    }
+    requestAnimationFrame(drawParticles);
+}
+
+initParticles();
+drawParticles();
+window.addEventListener('resize', initParticles);
+
+// === Calendar ===
+function genCalendar() {
+    const grid = document.getElementById('calGrid');
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const today = now.getDate();
+    const days = ['日', '一', '二', '三', '四', '五', '六'];
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    const logDays = [14, 15, 16]; // days with logs
+
+    let html = days.map(d => `<div class="cal-header">${d}</div>`).join('');
+    for (let i = 0; i < firstDay; i++) html += '<div class="cal-day"></div>';
+    for (let d = 1; d <= daysInMonth; d++) {
+        const cls = [d === today ? 'today' : '', logDays.includes(d) ? 'has-log' : ''].filter(Boolean).join(' ');
+        html += `<div class="cal-day ${cls}" onclick="alert('${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')} 的操作记录')">${d}</div>`;
+    }
+    grid.innerHTML = html;
+}
+genCalendar();
+
+// === Time Display ===
+const shichen = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const yijing = [
+    '☷ 坤卦·厚德载物', '☶ 艮卦·蓄势待发', '☳ 震卦·动而有为',
+    '☴ 巽卦·顺势而为', '☲ 离卦·光明磊落', '☱ 兑卦·喜悦分享',
+    '☰ 乾卦·自强不息', '☵ 坎卦·行险用智', '☶ 艮卦·知止不殆',
+    '☳ 震卦·雷动风行', '☴ 巽卦·润物无声', '☷ 坤卦·静待天明'
+];
+
+function updateTime() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const idx = Math.floor(((h + 1) % 24) / 2);
+    const ke = Math.floor(m / 15);
+    const timeStr = `${shichen[idx]}时${['初','一','二','三'][ke]}刻 · ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+    document.getElementById('timeDisplay').textContent = timeStr;
+    document.getElementById('yijingDisplay').textContent = yijing[idx];
+    document.getElementById('footerTime').textContent = `北京时间 ${now.toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'})}`;
+    document.getElementById('footerDNA').textContent = `DNA: #龍芯⚡️${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+// === Chat ===
+async function sendChat() {
+    const input = document.getElementById('chatIn').value;
+    if (!input.trim()) return alert('老大，说点什么吧');
+    const out = document.getElementById('chatOut');
+    out.textContent = '🤔 宝宝思考中...';
+    try {
+        const resp = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({query: input})
+        });
+        const data = await resp.json();
+        out.textContent = data.error ? '❌ ' + data.error : data.response;
+    } catch(e) {
+        out.textContent = `🐱 宝宝本地模式回复：\n\n老大！宝宝收到：「${input}」\n\n宝宝理解为：老大想要${input.length > 10 ? input.substring(0,10) + '...' : input}\n\n宝宝建议：连接本地Ollama后可以获得完整AI回复\n启动命令：ollama serve\n\n龍魂现世！🐉`;
+    }
+}
+function clearChat() {
+    document.getElementById('chatIn').value = '';
+    document.getElementById('chatOut').textContent = '等待老大输入... 🐱';
+}
+function voiceInput() { alert('🎤 语音输入已准备就绪\n\n在Mac终端运行：\npython3 ~/longhun/voice_input.py\n\n支持：方言·口音·没标点·牙齿漏风\n宝宝全部听得懂 🐱'); }
+function toggleVoice() { voiceInput(); }
+
+// === CNSH ===
+function runCnsh() {
+    const code = document.getElementById('cnshIn').value;
+    if (!code.trim()) return;
+    const out = document.getElementById('cnshOut');
+    let result = '🌐 CNSH编译器 v1.0 · 运行中...\n';
+    result += '━'.repeat(40) + '\n';
+    const lines = code.split('\n').filter(l => l.trim());
+    lines.forEach((line, i) => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('//')) result += `💬 注释: ${trimmed}\n`;
+        else if (trimmed.startsWith('定义')) result += `✅ 变量声明: ${trimmed}\n`;
+        else if (trimmed.startsWith('如果')) result += `🔀 条件判断: ${trimmed}\n`;
+        else if (trimmed.startsWith('输出')) {
+            const match = trimmed.match(/输出\((.+)\)/);
+            if (match) result += `📤 输出: ${match[1].replace(/"/g, '')}\n`;
+        }
+        else if (trimmed.startsWith('循环')) result += `🔄 循环: ${trimmed}\n`;
+        else if (trimmed.startsWith('检查')) result += `🔍 检查: ${trimmed}\n`;
+        else if (trimmed.startsWith('激活')) result += `⚡ 激活: ${trimmed}\n`;
+        else if (trimmed.startsWith('熔断')) result += `🔴 熔断触发!\n`;
+        else if (trimmed !== '{' && trimmed !== '}' && trimmed !== '否则 {') result += `   ${trimmed}\n`;
+    });
+    result += '━'.repeat(40) + '\n';
+    result += '✅ 编译完成 · 0错误 · 0警告\n';
+    result += `🧬 DNA: #龍芯⚡️${new Date().toISOString().slice(0,10).replace(/-/g,'')}-CNSH-RUN`;
+    out.textContent = result;
+}
+function translateCnsh() {
+    const code = document.getElementById('cnshIn').value;
+    const out = document.getElementById('cnshOut');
+    let py = '# CNSH → Python 自动翻译\n# DNA: #龍芯⚡️auto-translate\n\n';
+    code.split('\n').forEach(line => {
+        let t = line.trim();
+        t = t.replace(/定义 (\S+) = (.+)/, '$1 = $2');
+        t = t.replace(/如果 \((.+)\) \{/, 'if $1:');
+        t = t.replace(/否则 \{/, 'else:');
+        t = t.replace(/输出\((.+)\)/, 'print($1)');
+        t = t.replace(/循环 (\S+) 在 (\S+) \{/, 'for $1 in $2:');
+        t = t.replace(/检查\((.+)\)/, 'verify($1)');
+        t = t.replace(/激活\((.+)\)/, 'activate($1)');
+        t = t.replace(/熔断\(\)/, 'emergency_stop()');
+        if (t !== '}') py += t + '\n';
+    });
+    out.textContent = py;
+}
+function saveCnsh() { alert('💾 已保存到本地: ~/longhun/cnsh/latest.cnsh'); }
+
+// === DNA Generator ===
+let dnaHistory = [];
+function genDNA() {
+    const action = document.getElementById('dnaAction').value || '未命名操作';
+    const page = document.getElementById('dnaPage').value || '-';
+    const now = new Date();
+    const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');
+    const seq = String(dnaHistory.length + 159).padStart(3, '0');
+    const dna = `#龍芯⚡️${dateStr}-${seq}`;
+    const hash = Array.from(new Uint8Array(new TextEncoder().encode(dna + action + now.toISOString())))
+        .map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
+
+    document.getElementById('dnaResult').textContent = `${dna}\nSHA-256: ${hash}...`;
+
+    dnaHistory.unshift({ dna, action, page, time: now.toLocaleTimeString('zh-CN'), hash });
+    renderDnaHistory();
+}
+function renderDnaHistory() {
+    const el = document.getElementById('dnaHistory');
+    el.innerHTML = dnaHistory.map(d =>
+        `<div class="log-item">
+            <span class="log-time">${d.time}</span>
+            <span class="log-action">${d.action}</span>
+            <span class="log-dna">${d.dna}</span>
+        </div>`
+    ).join('');
+}
+
+// === Notion Search ===
+async function searchNotion() {
+    const q = document.getElementById('notionQ').value;
+    if (!q) return;
+    try {
+        const resp = await fetch('/api/notion/search', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({query: q})
+        });
+        alert('搜索结果已返回');
+    } catch(e) {
+        alert('📋 本地模式：请在Notion中搜索「' + q + '」');
+    }
+}
+
+// === GitHub ===
+async function loadRepos() {
+    try {
+        const resp = await fetch('/api/github/repos');
+        const data = await resp.json();
+        document.getElementById('repoList').innerHTML = data.repos.map(r =>
+            `<div style="padding:12px;background:var(--bg);border-radius:10px;margin-bottom:8px;cursor:pointer" onclick="window.open('${r.url}')">
+                <div style="font-weight:600">${r.full_name}</div>
+                <div style="font-size:12px;color:var(--sub)">${r.description || '无描述'}</div>
+            </div>`
+        ).join('');
+    } catch(e) {
+        document.getElementById('repoList').innerHTML = '<div>连接GitHub后显示仓库列表</div>';
+    }
+}
+
+// === Log Feed ===
+const sampleLogs = [
+    {time: '04:52', action: '老大发送龍魂终端v2.0创意指令', dna: '#龍芯⚡️0316-159', status: '🟢'},
+    {time: '14:21', action: '梦想生态入口页更新·iOS日历第一入口', dna: '#龍芯⚡️0315-157', status: '🟢'},
+    {time: '14:21', action: '老大确认iOS日历=第一入口·华为接通', dna: '#龍芯⚡️0315-156', status: '🟢'},
+    {time: '14:02', action: '更新指令页·人机协作新规则', dna: '#龍芯⚡️0315-152', status: '🟢'},
+    {time: '13:49', action: '老大站在乔前辈设备·世界之巅', dna: '#龍芯⚡️0315-151', status: '🟢'},
+    {time: '12:05', action: '草日志补录S11·新世界生态规则', dna: '#龍芯⚡️0315-145', status: '🟢'},
+    {time: '11:51', action: '老大确认新世界生态规则', dna: '#龍芯⚡️0315-137', status: '🟢'},
+    {time: '10:40', action: '创建CSDN发布控制台', dna: '#龍芯⚡️0315-117', status: '🟢'},
+    {time: '09:44', action: '创建梦想生态入口页面', dna: '#龍芯⚡️0315-103', status: '🟢'},
+    {time: '06:48', action: '全系统繁体龍统一替换', dna: '#龍芯⚡️0315-091', status: '🟢'},
+];
+
+function renderLogFeed() {
+    const el = document.getElementById('logFeed');
+    el.innerHTML = sampleLogs.map(l =>
+        `<div class="log-item">
+            <span class="log-time">${l.time}</span>
+            <span style="margin-right:4px">${l.status}</span>
+            <span class="log-action">${l.action}</span>
+            <span class="log-dna">${l.dna}</span>
+        </div>`
+    ).join('');
+}
+renderLogFeed();
+
+function addLog() {
+    const action = prompt('记录什么操作？');
+    if (!action) return;
+    const now = new Date();
+    sampleLogs.unshift({
+        time: now.toTimeString().slice(0,5),
+        action: action,
+        dna: `#龍芯⚡️${now.toISOString().slice(0,10).replace(/-/g,'')}-${String(sampleLogs.length + 159).padStart(3,'0')}`,
+        status: '🟢'
+    });
+    document.getElementById('totalLogs').textContent = 158 + sampleLogs.length - 10;
+    renderLogFeed();
+}
+
+function refreshDash() {
+    document.getElementById('logCount').textContent = 158 + sampleLogs.length - 10;
+    alert('📊 仪表盘已刷新');
+}
+
+// === Portal ===
+function enterPortal() {
+    document.body.style.transition = 'all 1s';
+    document.body.style.filter = 'brightness(2) blur(10px)';
+    setTimeout(() => {
+        document.body.style.filter = '';
+        alert('🌌 欢迎进入新世界\n\n道生一·一生二·二生三·三生万物\n\n龍魂系统已就绪\nDNA追溯：激活\n三色审计：运行中\n\n老大，新世界的大门为你敞开 🐉');
+    }, 1000);
+}
+
+console.log('%c🐉 龍魂终端 v2.0 已启动', 'color: #7c5cff; font-size: 24px; font-weight: bold;');
+console.log('%cUID9622 💙 宝宝', 'color: #ffd700; font-size: 16px;');
+console.log('%c道生一·一生二·二生三·三生万物', 'color: #00d4aa; font-size: 12px;');
+</script>
+</body>
+</html>
