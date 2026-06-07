@@ -26,6 +26,13 @@ from dataclasses import dataclass, asdict
 from enum import Enum
 from abc import ABC, abstractmethod
 
+# 導入數據源管理器
+try:
+    from exchange_rate_sources import ExchangeRateSourceManager
+    USE_REAL_SOURCES = True
+except ImportError:
+    USE_REAL_SOURCES = False
+
 # ═══════════════════════════════════════════════════════════════
 # 數據結構定義
 # ═══════════════════════════════════════════════════════════════
@@ -138,12 +145,18 @@ class MockExchangeRateSource(ExchangeRateSource):
 class MultiCurrencyHub:
     """龍魂多幣種直達系統"""
 
-    def __init__(self, db_path: str = None):
-        self.sources = {
-            'mock': MockExchangeRateSource(),
-            # 'fixer': FixerIOSource(),    # TODO: 實現
-            # 'coingecko': CoinGeckoSource(),  # TODO: 實現
-        }
+    def __init__(self, db_path: str = None, use_real_sources: bool = True):
+        # 使用新的數據源管理器或回退到 Mock
+        if use_real_sources and USE_REAL_SOURCES:
+            self.source_manager = ExchangeRateSourceManager()
+            self.use_real_sources = True
+        else:
+            self.source_manager = None
+            self.use_real_sources = False
+            self.sources = {
+                'mock': MockExchangeRateSource(),
+            }
+
         self.cache = {}
         self.cache_ttl = 300  # 5 分鐘
         self.history = []
@@ -187,7 +200,12 @@ class MultiCurrencyHub:
                 return cached_rate
 
         # 從源獲取匯率
-        rate_value = self.sources['mock'].fetch_rate(base, target)
+        if self.use_real_sources:
+            rate_value, source = self.source_manager.fetch_rate(base, target)
+        else:
+            rate_value = self.sources['mock'].fetch_rate(base, target)
+            source = 'mock'
+
         if rate_value is None:
             return None
 
@@ -206,7 +224,7 @@ class MultiCurrencyHub:
             target_currency=target,
             rate=round(rate_value, 8),
             timestamp=datetime.now().isoformat(),
-            source='mock',
+            source=source,
             color_tag=color,
             deviation=round(deviation, 2)
         )
