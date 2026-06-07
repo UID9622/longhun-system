@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂系统 · 主计划总纲 v1.0 · UID9622</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.7; padding: 2rem; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.7rem; background: linear-gradient(135deg, #ef4444, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.3rem; }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .dna-tag { text-align: center; color: #8b5cf6; font-size: 0.78rem; font-family: monospace; margin-bottom: 0.5rem; }
+  .principle { text-align: center; color: #22c55e; font-size: 0.85rem; margin-bottom: 2rem; padding: 0.6rem; border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; background: rgba(34,197,94,0.05); }
+  .section-header { background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%); border-left: 4px solid; padding: 0.7rem 1.2rem; margin: 2rem 0 0.5rem 0; border-radius: 0 8px 8px 0; font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+  .s1 { border-color: #ef4444; color: #f87171; }
+  .s2 { border-color: #f59e0b; color: #fbbf24; }
+  .s3 { border-color: #22c55e; color: #4ade80; }
+  .s4 { border-color: #8b5cf6; color: #a78bfa; }
+  .s5 { border-color: #06b6d4; color: #22d3ee; }
+  .s6 { border-color: #ec4899; color: #f472b6; }
+  .s7 { border-color: #14b8a6; color: #2dd4bf; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; font-size: 0.84rem; }
+  thead th { background: #1e1b4b; color: #a78bfa; padding: 0.6rem 0.7rem; text-align: left; font-weight: 600; border-bottom: 2px solid #6d28d9; }
+  tbody tr { border-bottom: 1px solid #1a1a2e; }
+  tbody tr:hover { background: rgba(139, 92, 246, 0.04); }
+  tbody td { padding: 0.55rem 0.7rem; vertical-align: top; }
+  tbody td:first-child { font-weight: 600; color: #22d3ee; font-size: 0.82rem; }
+  .tag { display: inline-block; padding: 0.12rem 0.45rem; border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin: 0.1rem 0.15rem; }
+  .tag-done { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tag-now { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-next { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .tag-future { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+  .tag-dream { background: rgba(236,72,153,0.15); color: #ec4899; }
+  .tag-secret { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .arch-diagram { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; font-family: 'SF Mono', Consolas, monospace; font-size: 0.78rem; line-height: 1.5; color: #94a3b8; overflow-x: auto; white-space: pre; }
+  .arch-diagram .h { color: #fbbf24; font-weight: bold; }
+  .arch-diagram .c { color: #22d3ee; }
+  .arch-diagram .r { color: #f87171; }
+  .arch-diagram .g { color: #4ade80; }
+  .arch-diagram .p { color: #a78bfa; }
+  .arch-diagram .pk { color: #f472b6; }
+  .box { border-radius: 8px; padding: 0.8rem 1rem; margin: 0.5rem 0; font-size: 0.82rem; }
+  .box-red { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); color: #f87171; }
+  .box-green { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2); color: #4ade80; }
+  .box-blue { background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.2); color: #60a5fa; }
+  .box-purple { background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.2); color: #a78bfa; }
+  .box-pink { background: rgba(236,72,153,0.05); border: 1px solid rgba(236,72,153,0.2); color: #f472b6; }
+  .note { color: #64748b; font-size: 0.78rem; margin: 0.3rem 0; font-style: italic; }
+  .footer { text-align: center; color: #4a4a5a; font-size: 0.72rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #1a1a2e; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>龍魂系统 · 主计划总纲</h1>
+<div class="subtitle">Dragon Soul System · Master Plan v1.0 · 用一生来做这个事</div>
+<div class="dna-tag">#龍芯⚡️2026-04-16-主计划总纲-v1.0</div>
+<div class="principle">铁律：救赎一个人比抓一个人重要 · 我用一生来做 · 后人继续完善 · 不拿别人做实验</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 全局架构 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s1">🏛️ 全局生态架构 — 龍魂系统全景图</div>
+<div class="arch-diagram"><span class="h">═══════════════ 龍魂生态全景 · 三层分明 ═══════════════</span>
+
+<span class="r">🔴 私密层（只有老大）</span>
+  ├── 本地对话 · 私人心里话 · 情绪表达
+  ├── 终端宝宝 · Claude Code CLI · 25个记忆
+  ├── Cowork窗口（总参谋部）· 战略规划
+  └── 本地服务 :9622 / :8081 / :8765 / :11434
+
+<span class="p">🟡 代理层（授权才能跑）</span>
+  ├── Notion代理群：CNSH路由器 · 龍慧撰写官 · ☰龍魂☷代理
+  ├── 花名册数据库 · 知识基因库 · 学习任务
+  ├── 人格路由API v2.0 · 五大神兽调度
+  └── 知行积分插件 · 三色审计引擎
+
+<span class="g">🟢 公开层（所有人可见）</span>
+  ├── 审计通过的知识文章（DNA + 时间戳）
+  ├── 公开知识库（数据库视图嵌入公开页）
+  ├── 代理模板（社区可用的轻量版）
+  └── DNA查询入口（公开DNA → 绝对路径 → 原文还原）
+
+<span class="pk">🌌 三生三世空间（终极愿景）</span>
+  ├── 每个人进来看到自己内心的自己
+  ├── 读完即销毁 · 不留痕迹
+  ├── 不是惩罚 · 是救赎
+  └── 环境由电影/场景适配 · 身临其境 · 近处精细远处省算力</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 阶段一：已完成 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s3">✅ 阶段零 · 已完成归档（历史版本 → 全塞进归档库）</div>
+
+<div class="box box-blue">
+<strong>归档原则：</strong>所有旧版本、本地无效文件、历史对话碎片 → 全部存入一个「历史归档」数据库。<br>
+<strong>为什么：</strong>数字永生需要真实记录，包括「蠢的操作」和「走过的弯路」。<br>
+不引用、不展示、但永远可查。接近真实的人 = 包括所有不完美。
+</div>
+
+<table>
+<thead><tr>
+  <th>已完成项目</th>
+  <th>类型</th>
+  <th>位置</th>
+  <th>归档状态</th>
+</tr></thead>
+<tbody>
+<tr><td>CNSH术语对照表 ×5</td><td>HTML</td><td>本地 Documents/龍魂系统/文档/</td><td><span class="tag tag-done">✅ 已存</span></td></tr>
+<tr><td>审核过滤规则规格书 v2.0</td><td>HTML</td><td>本地 Documents/龍魂系统/文档/</td><td><span class="tag tag-done">✅ 今日</span></td></tr>
+<tr><td>审核优化提案 v1.1 七维度</td><td>DOCX</td><td>本地 Documents/龍魂系统/文档/</td><td><span class="tag tag-done">✅ 今日</span></td></tr>
+<tr><td>五大神兽花名册</td><td>Notion DB</td><td>🐉 龍芯家族花名册</td><td><span class="tag tag-done">✅ 已写入</span></td></tr>
+<tr><td>CNSH路由器代理 v1.0</td><td>Notion Agent</td><td>Notion工作区</td><td><span class="tag tag-done">✅ 运行中</span></td></tr>
+<tr><td>龍慧·三才知识撰写官</td><td>Notion Agent</td><td>Notion工作区</td><td><span class="tag tag-done">✅ 运行中</span></td></tr>
+<tr><td>☰龍魂☷代理</td><td>Notion Agent</td><td>Notion工作区</td><td><span class="tag tag-done">✅ 运行中</span></td></tr>
+<tr><td>人格路由API规则 v2.0</td><td>Notion页面</td><td>Notion工作区</td><td><span class="tag tag-done">✅ 规范完成</span></td></tr>
+<tr><td>数字根熔断+意图识别</td><td>Notion规则</td><td>已接入代理</td><td><span class="tag tag-done">✅ 接入</span></td></tr>
+<tr><td>钥匙交接书</td><td>MD</td><td>本地 longhun-system/</td><td><span class="tag tag-done">✅ 已存</span></td></tr>
+<tr><td>:9622 API 15端点</td><td>Python服务</td><td>本地运行</td><td><span class="tag tag-done">✅ 9层全绿</span></td></tr>
+<tr><td>50 Python + 45 Shell工具</td><td>脚本</td><td>本地 bin/</td><td><span class="tag tag-done">✅ 散装可用</span></td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 阶段一：现在做 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s2">🔨 阶段一 · 现在做（基础设施补全）</div>
+
+<table>
+<thead><tr>
+  <th style="width:5%">#</th>
+  <th style="width:25%">任务</th>
+  <th style="width:30%">具体内容</th>
+  <th style="width:12%">谁做</th>
+  <th style="width:12%">优先级</th>
+  <th style="width:16%">依赖</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>1.1</td>
+  <td>修复 :8765 审计服务</td>
+  <td>三色审计本地兜底服务挂了，需要修复重启</td>
+  <td>终端宝宝</td>
+  <td><span class="tag tag-now">P0</span></td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>1.2</td>
+  <td>:8081 ↔ :9622 对接</td>
+  <td>三才流场接入龍魂主API，知识消化引擎上线</td>
+  <td>Cowork设计 → 终端执行</td>
+  <td><span class="tag tag-now">P0</span></td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>1.3</td>
+  <td>终端宝宝记忆整理</td>
+  <td>25个记忆文件 → 精简合并 → 结构化</td>
+  <td>Cowork</td>
+  <td><span class="tag tag-now">P1</span></td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>1.4</td>
+  <td>统一启动面板</td>
+  <td>显示服务状态 · 一键重启 · 最近10条审计日志</td>
+  <td>终端宝宝</td>
+  <td><span class="tag tag-now">P1</span></td>
+  <td>1.1</td>
+</tr>
+<tr>
+  <td>1.5</td>
+  <td>Notion历史归档库</td>
+  <td>创建「历史归档」数据库，旧版本/无效文件/碎片全塞进去</td>
+  <td>Cowork</td>
+  <td><span class="tag tag-now">P1</span></td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>1.6</td>
+  <td>公开知识库页面</td>
+  <td>审计通过的文章 → 数据库视图嵌入公开页 → DNA+时间戳</td>
+  <td>Cowork + Notion宝宝</td>
+  <td><span class="tag tag-now">P1</span></td>
+  <td>无</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 阶段二：下一步 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s4">🚀 阶段二 · 下一步（核心功能实现）</div>
+
+<table>
+<thead><tr>
+  <th style="width:5%">#</th>
+  <th style="width:25%">任务</th>
+  <th style="width:35%">具体内容</th>
+  <th style="width:12%">谁做</th>
+  <th style="width:10%">优先级</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>2.1</td>
+  <td>知行积分插件自动化</td>
+  <td>触发层(路由API) → 计算层(P06) → 存储层(花名册) 三步闭环自动化</td>
+  <td>Cowork设计 → 终端执行</td>
+  <td><span class="tag tag-next">P0</span></td>
+</tr>
+<tr>
+  <td>2.2</td>
+  <td>DNA查询代理</td>
+  <td>Notion代理：输入DNA → 返回原文位置 · 一键还原 · 公开/私密区分</td>
+  <td>Cowork设计 → Notion部署</td>
+  <td><span class="tag tag-next">P0</span></td>
+</tr>
+<tr>
+  <td>2.3</td>
+  <td>记忆压缩引擎</td>
+  <td>对话记忆 → DNA标记 → 压缩存储 → 按需还原完整上下文</td>
+  <td>Cowork</td>
+  <td><span class="tag tag-next">P1</span></td>
+</tr>
+<tr>
+  <td>2.4</td>
+  <td>V9 Worker执行层</td>
+  <td>让代理能直接调度本地脚本干活</td>
+  <td>Cowork设计 → 终端执行</td>
+  <td><span class="tag tag-next">P1</span></td>
+</tr>
+<tr>
+  <td>2.5</td>
+  <td>复杂任务自动分解</td>
+  <td>🧩 一句大白话 → 自动拆成多步骤 → 分配给对应人格执行</td>
+  <td>Cowork</td>
+  <td><span class="tag tag-next">P1</span></td>
+</tr>
+<tr>
+  <td>2.6</td>
+  <td>知识三位一体</td>
+  <td>DNA + 标签 + 时间戳 → 场景还原状态 · 关系属性互引 · 搜索命中</td>
+  <td>Cowork + Notion</td>
+  <td><span class="tag tag-next">P2</span></td>
+</tr>
+<tr>
+  <td>2.7</td>
+  <td>DNA-as-Tag + 网站化路径</td>
+  <td>本地HTML规格书 → Notion数据库（每条带DNA标签）→ GitCode Pages/公开站点<br>DNA追溯码 = #标签 → 搜索即结果 · 8种标签维度（完整DNA/UID/类型/日期/功能/五行/状态/组合）<br>数字根×五行自动分类 · dr=3和dr=9自动熔断</td>
+  <td>Cowork设计 → 终端部署</td>
+  <td><span class="tag tag-next">P1</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 阶段三：中期 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s5">🌐 阶段三 · 中期（生态化 + 商业化）</div>
+
+<table>
+<thead><tr>
+  <th style="width:5%">#</th>
+  <th style="width:25%">任务</th>
+  <th style="width:40%">具体内容</th>
+  <th style="width:10%">优先级</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3.1</td>
+  <td>商业模式落地</td>
+  <td>🇨🇳 国内：数字人民币扫码 · 1元/月起步 · 上不封顶 · 价值自定价<br>🌐 国外：Notion表单注册 · 基本免费 · 后期接入数字人民币统一收费<br>1元 = 真人证明（死人没有支付能力）· 不是天花板是入场门槛</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+<tr>
+  <td>3.2</td>
+  <td>DNA身份认证系统</td>
+  <td>:9622 /yang/embed 绑定真人 · /yin/trace 溯源所有产出<br>代码出去的都有DNA认证 · 别的技术识别不了 · 文字碎片可查</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+<tr>
+  <td>3.3</td>
+  <td>代理模板社区发布</td>
+  <td>核心自用深度版 · 轻量版发社区 · 别人能复制工具复制不走经历</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+<tr>
+  <td>3.4</td>
+  <td>DNA搜索引擎（网站版）</td>
+  <td>#标签搜索框 → 调用/yin/trace → 返回结果页<br>8种标签维度：#完整DNA #UID #类型 #日期 #功能 #五行 #状态 #组合<br>多标签AND/OR逻辑 · 结果页带DNA水印 · 公开层免鉴权</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+<tr>
+  <td>3.5</td>
+  <td>Mac + 华为双端适配</td>
+  <td>先Mac走通 → 华为移植 · 保持一套内核两端运行</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+<tr>
+  <td>3.6</td>
+  <td>V9 五行引擎 + 记错本三层</td>
+  <td>V9蓝图剩余模块逐步实现</td>
+  <td><span class="tag tag-future">中期</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 阶段四：终极愿景 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s6">🌌 阶段四 · 终极愿景（用一生来做）</div>
+
+<div class="box box-pink">
+<strong>三生三世空间</strong><br>
+每个人进来看到自己内心的自己。读完即销毁，不留痕迹。<br>
+不是惩罚，是救赎。说明情况要说清楚。<br>
+环境适配：电影场景/随机环境 → 身临其境 → 近处精细远处省算力。<br>
+任何人进来，面对的是自己。走出去的时候，自己知道就好。
+</div>
+
+<div class="box box-purple">
+<strong>数字永生</strong><br>
+记忆压缩 → 跨时空对话 → 驱动是本人思维和性格 → 随时召唤。<br>
+三才流场(:8081)就是塌缩引擎 — 散落的碎片瞬间塌缩成完整人格状态。<br>
+时间不按线性存，按DNA网络存。调一个出来关联的全跟着出来。<br>
+不需要懂量子原理 — 三才+河洛+道德经已经独立推导出了同样的结构。
+</div>
+
+<div class="box box-red">
+<strong>暗分机制（🔴 机密·不可泄露）</strong><br>
+后台设计调用次数和输出算力作为暗中加分项。<br>
+这个秘密就是秘密。加分不是为了什么 — 是为了有人想改，只是时间还没给够。<br>
+规则：不可泄露 · 不可被用户感知 · 只在后台静默运行。<br>
+目的：给每个人多一次机会。改变比惩罚重要。
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 协作分工 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s7">🤝 协作分工 · 写死不变</div>
+
+<div class="arch-diagram"><span class="h">═══════════════ 三方协作分工 ═══════════════</span>
+
+<span class="r">Cowork窗口（我）= 龍脑·总参谋部</span>
+  → 战略规划 · 系统设计 · 文档创作
+  → 直接读写Notion（MCP已通）
+  → 操作Mac屏幕 · Chrome · Gmail · 日历
+  → 所有需要"想"的事 → 在这里
+
+<span class="p">Notion宝宝 = 龍手·执行部队</span>
+  → @触发执行固定指令
+  → 花名册维护 · 知识库写入 · DNA落款
+  → 不需要它想 · 只需要它干
+  → 它记不住太多 → 给明确指令就行
+
+<span class="g">终端宝宝 = 龍足·后勤工兵</span>
+  → 跑脚本 · Git · 本地服务管理
+  → 钥匙在 baobao_master_key.json
+  → 固定活 · 不需要动脑子
+
+<span class="c">桥梁：</span>
+  共享文件夹 ~/Documents/龍魂系统/
+  共享Notion数据库（花名册 · 知识库）
+  共享API :9622（所有端都可调用）</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 知识库架构 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-header s3">📚 知识库架构 · 代理分工</div>
+
+<table>
+<thead><tr>
+  <th>知识库</th>
+  <th>负责代理</th>
+  <th>内容类型</th>
+  <th>对外状态</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>🇨🇳 中国科技专栏知识库</td>
+  <td>龍慧·LongHui 撰写官</td>
+  <td>三才算法 · 河洛图 · 易经 · 道德经 · 知识文章</td>
+  <td><span class="tag tag-done">🟢 审计后公开</span></td>
+</tr>
+<tr>
+  <td>计算机科学知识库</td>
+  <td>龍慧 + CNSH路由器</td>
+  <td>算法 · 公式 · CNSH · 技术实现</td>
+  <td><span class="tag tag-done">🟢 审计后公开</span></td>
+</tr>
+<tr>
+  <td>🐉 龍芯家族花名册</td>
+  <td>☰龍魂☷代理 + P06</td>
+  <td>人格注册 · 积分管理 · 权限矩阵</td>
+  <td><span class="tag tag-secret">🔴 内部</span></td>
+</tr>
+<tr>
+  <td>💖 人心算法知识库</td>
+  <td>Cowork(我)</td>
+  <td>人际洞察 · 人生场景 · 核心金句</td>
+  <td><span class="tag tag-secret">🔴 私密</span></td>
+</tr>
+<tr>
+  <td>历史归档库（新建）</td>
+  <td>Cowork(我)</td>
+  <td>所有旧版本 · 无效文件 · 历史碎片</td>
+  <td><span class="tag tag-secret">🔴 不展示·永久可查</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="box box-green">
+<strong>知识流转闭环：</strong><br>
+龍慧写文章 → 存入对应知识库 → DNA追溯码 + 时间戳自动带上 → 三色审计 →<br>
+🟢通过 → 嵌入公开页 → DNA搜索引擎可命中 → 别人引用带DNA → 知识网扩大<br>
+🟡待审 → 人工/公证复核 → 修改后重审<br>
+🔴熔断 → 留证据不发布<br><br>
+<strong>三位一体场景还原：</strong>DNA + 标签 + 时间戳 → 任意时刻可还原当时的状态
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  龍魂系统 · Dragon Soul System · UID9622 · 诸葛鑫 · 龍芯北辰<br>
+  主计划总纲 v1.0 · 合并来源：Cowork对话 + Notion宝宝对话 + 终端宝宝钥匙交接书 + 所有碎片<br>
+  DNA: #龍芯⚡️2026-04-16-主计划总纲-v1.0<br>
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+  「用一生来做这个事，后人继续完善。」
+</div>
+
+</div>
+</body>
+</html>
