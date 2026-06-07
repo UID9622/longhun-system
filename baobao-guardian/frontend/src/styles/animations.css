@@ -1,0 +1,166 @@
+/* 龍魂宝宝守护助手 · 动画库 */
+/* DNA: #龍芯⚡️2026-06-04-ANIMATIONS-v1.0 */
+
+/* ═══════════════════════════════════════════════════════════ */
+/* Overlay 脉冲动画 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes pulse-danger {
+  0%, 100% {
+    box-shadow:
+      0 0 10px #ff0000,
+      inset 0 0 10px rgba(255, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 40px #ff0000,
+      inset 0 0 30px rgba(255, 0, 0, 0.4);
+  }
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    box-shadow:
+      0 0 10px #ffa500,
+      inset 0 0 10px rgba(255, 165, 0, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px #ffa500,
+      inset 0 0 20px rgba(255, 165, 0, 0.3);
+  }
+}
+
+@keyframes pulse-safe {
+  0%, 100% {
+    box-shadow:
+      0 0 5px #00ff00,
+      inset 0 0 5px rgba(0, 255, 0, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px #00ff00,
+      inset 0 0 15px rgba(0, 255, 0, 0.2);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 宝宝动画 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes baobao-breathing {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+  }
+  25% {
+    transform: scale(1.05) translateX(-2px);
+  }
+  75% {
+    transform: scale(1.05) translateX(2px);
+  }
+}
+
+@keyframes baobao-talk {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.1);
+  }
+}
+
+@keyframes baobao-wave {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-10deg) translateY(-5px);
+  }
+  50% {
+    transform: rotate(10deg) translateY(0);
+  }
+  75% {
+    transform: rotate(-10deg) translateY(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes baobao-tail {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 气泡动画 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes bubble-pop {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 彩虹流动 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes rainbow-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 闪烁 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 淡入淡出 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
