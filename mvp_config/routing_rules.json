@@ -1,0 +1,62 @@
+{
+  "ROUTE-001": {
+    "name": "数学问题路由",
+    "trigger": "task_type == 'math'",
+    "task_type": "math",
+    "primary_persona": "P02",
+    "secondary_personas": [
+      "P03"
+    ],
+    "execution_mode": "sequential",
+    "priority": 1
+  },
+  "ROUTE-002": {
+    "name": "系统设计路由",
+    "trigger": "task_type == 'system'",
+    "task_type": "system_design",
+    "primary_persona": "P01",
+    "secondary_personas": [
+      "P04"
+    ],
+    "execution_mode": "parallel",
+    "priority": 2
+  },
+  "ROUTE-003": {
+    "name": "安全验证路由",
+    "trigger": "task_type == 'security'",
+    "task_type": "security",
+    "primary_persona": "P03",
+    "secondary_personas": [
+      "P06"
+    ],
+    "execution_mode": "adversarial",
+    "priority": 3
+  },
+  "ROUTE-004": {
+    "name": "论文生成路由",
+    "trigger": "task_type == 'paper'",
+    "task_type": "paper",
+    "primary_persona": "P01",
+    "secondary_personas": [
+      "P02",
+      "P05"
+    ],
+    "execution_mode": "sequential",
+    "priority": 4
+  },
+  "ROUTE-005": {
+    "name": "混合任务路由",
+    "trigger": "task_type == 'mixed'",
+    "task_type": "mixed",
+    "primary_persona": "P05",
+    "secondary_personas": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P06"
+    ],
+    "execution_mode": "parallel",
+    "priority": 5
+  }
+}

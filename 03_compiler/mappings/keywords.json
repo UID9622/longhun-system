@@ -1,0 +1,73 @@
+{
+  "comment": "CNSH关键字映射表 · 可扩展的参数化配置",
+  "dna": "#龍芯⚡️2026-06-03-KEYWORDS-MAPPING-v1.0",
+  "note": "用户可以添加新的中文关键字和对应的目标语言映射",
+  "mappings": {
+    "函数": {
+      "c": "void",
+      "python": "def",
+      "javascript": "function",
+      "rust": "fn"
+    },
+    "返回": {
+      "c": "return",
+      "python": "return",
+      "javascript": "return",
+      "rust": "return"
+    },
+    "如果": {
+      "c": "if",
+      "python": "if",
+      "javascript": "if",
+      "rust": "if"
+    },
+    "否则": {
+      "c": "else",
+      "python": "else",
+      "javascript": "else",
+      "rust": "else"
+    },
+    "循环": {
+      "c": "while",
+      "python": "while",
+      "javascript": "while",
+      "rust": "loop"
+    },
+    "变量": {
+      "c": "int",
+      "python": "",
+      "javascript": "let",
+      "rust": "let"
+    },
+    "类": {
+      "c": "struct",
+      "python": "class",
+      "javascript": "class",
+      "rust": "struct"
+    },
+    "接口": {
+      "c": "typedef",
+      "python": "ABC",
+      "javascript": "interface",
+      "rust": "trait"
+    },
+    "导入": {
+      "c": "#include",
+      "python": "import",
+      "javascript": "import",
+      "rust": "use"
+    },
+    "真": {
+      "c": "true",
+      "python": "True",
+      "javascript": "true",
+      "rust": "true"
+    },
+    "假": {
+      "c": "false",
+      "python": "False",
+      "javascript": "false",
+      "rust": "false"
+    }
+  }
+}
