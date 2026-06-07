@@ -1,0 +1,109 @@
+{
+  "comment": "CNSH运算符映射表 · 可扩展的参数化配置",
+  "dna": "#龍芯⚡️2026-06-03-OPERATORS-MAPPING-v1.0",
+  "note": "大多数运算符在所有编程语言中是通用的，但某些运算符可能有平台特定的映射",
+  "mappings": {
+    "加": {
+      "c": "+",
+      "python": "+",
+      "javascript": "+",
+      "rust": "+"
+    },
+    "减": {
+      "c": "-",
+      "python": "-",
+      "javascript": "-",
+      "rust": "-"
+    },
+    "乘": {
+      "c": "*",
+      "python": "*",
+      "javascript": "*",
+      "rust": "*"
+    },
+    "除": {
+      "c": "/",
+      "python": "/",
+      "javascript": "/",
+      "rust": "/"
+    },
+    "模": {
+      "c": "%",
+      "python": "%",
+      "javascript": "%",
+      "rust": "%"
+    },
+    "等于": {
+      "c": "==",
+      "python": "==",
+      "javascript": "===",
+      "rust": "=="
+    },
+    "不等于": {
+      "c": "!=",
+      "python": "!=",
+      "javascript": "!==",
+      "rust": "!="
+    },
+    "小于": {
+      "c": "<",
+      "python": "<",
+      "javascript": "<",
+      "rust": "<"
+    },
+    "大于": {
+      "c": ">",
+      "python": ">",
+      "javascript": ">",
+      "rust": ">"
+    },
+    "小于等于": {
+      "c": "<=",
+      "python": "<=",
+      "javascript": "<=",
+      "rust": "<="
+    },
+    "大于等于": {
+      "c": ">=",
+      "python": ">=",
+      "javascript": ">=",
+      "rust": ">="
+    },
+    "且": {
+      "c": "&&",
+      "python": "and",
+      "javascript": "&&",
+      "rust": "&&"
+    },
+    "或": {
+      "c": "||",
+      "python": "or",
+      "javascript": "||",
+      "rust": "||"
+    },
+    "非": {
+      "c": "!",
+      "python": "not",
+      "javascript": "!",
+      "rust": "!"
+    },
+    "赋值": {
+      "c": "=",
+      "python": "=",
+      "javascript": "=",
+      "rust": "="
+    },
+    "加等": {
+      "c": "+=",
+      "python": "+=",
+      "javascript": "+=",
+      "rust": "+="
+    },
+    "减等": {
+      "c": "-=",
+      "python": "-=",
+      "javascript": "-=",
+      "rust": "-="
+    }
+  }
+}
