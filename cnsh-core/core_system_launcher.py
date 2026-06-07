@@ -490,7 +490,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.constitution",
                     entry_point="get_system_config",
-                    dna="#龍芯⚡️2026-06-03-CONSTITUTION-v1.0",
+                    dna="#龍芯⚡️2026-06-03-LAUNCHER-CONSTITUTION-v1.0",
                     layer="L0_ETERNAL",
                     description="系统宪法和基础配置",
                     tags=["L0", "config", "foundation"],
