@@ -1,0 +1,12 @@
+{
+  "L0": 0.1,
+  "L1": 0.2,
+  "L2": 0.3,
+  "L3": 0.5,
+  "L4": 0.7,
+  "global": 0.4,
+  "description": "五层熔断阈值 - 当威胁评分超过此值时自动熔断",
+  "recovery_delay_seconds": 300,
+  "max_fuse_attempts": 3,
+  "fuse_window_hours": 24
+}

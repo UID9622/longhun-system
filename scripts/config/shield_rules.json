@@ -1,0 +1,29 @@
+{
+  "protocol_shield": {
+    "enabled": true,
+    "check_interval_seconds": 86400,
+    "auto_repair": true,
+    "readonly_enforced": true
+  },
+  "semantic_shield": {
+    "enabled": true,
+    "check_intent": true,
+    "detect_manipulation": true
+  },
+  "existence_shield": {
+    "enabled": true,
+    "verify_presence": true,
+    "require_dna": true
+  },
+  "temporal_shield": {
+    "enabled": true,
+    "check_timestamps": true,
+    "detect_time_manipulation": true
+  },
+  "sovereignty_shield": {
+    "enabled": true,
+    "enforce_boundaries": true,
+    "reject_foreign_commands": true
+  },
+  "description": "五道防护盾规则 - 保护系统完整性和主权"
+}
