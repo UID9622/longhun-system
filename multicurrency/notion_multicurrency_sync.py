@@ -272,11 +272,11 @@ class NotionMulticurrencySyncManager:
                     }
                 },
                 '狀態': {
-                    'select': {
+                    'status': {
                         'name': rate_obj.color_tag.value + ' ' + self._get_status_name(rate_obj.color_tag.value)
                     }
                 },
-                '偏離%': {
+                '偏離': {
                     'number': rate_obj.deviation
                 },
                 '數據源': {
