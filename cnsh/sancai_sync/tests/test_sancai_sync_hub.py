@@ -200,7 +200,7 @@ class TestSancaiSyncHub:
 
     def test_dna_generation(self, hub):
         """測試 DNA 生成"""
-        dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-PARENT-v1.0")
+        dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-SANCAI-SYNC-TEST-v1.0")
 
         assert dna.startswith("#龍芯⚡️")
         assert "THREE-INTEGRATION-SYNC" in dna

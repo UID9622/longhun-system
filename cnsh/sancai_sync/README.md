@@ -124,7 +124,7 @@ ok, msg = hub.verify_sync()
 生成全鏈 DNA 簽章，支持父子鏈追溯。
 
 ```python
-dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-PARENT-v1.0")
+dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1.0")
 # → #龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-v1.0-XXXXXXXX
 ```
 
