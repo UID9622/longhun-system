@@ -11,6 +11,18 @@
 
 ---
 
+## 📚 文档导航 · Documentation
+
+| 文件 | 内容 | 语言 |
+|------|------|------|
+| 📖 [README.md](./README.md) | 系统门面介绍·双语概览 | 中文 + English |
+| 🐉 [CNSH-PROTOCOL.md](./CNSH-PROTOCOL.md) | CNSH语言完整规范v2.0·14章·符号体系·语法·编译器·标准库 | 中文为主 |
+| 🔗 [CNSH-SEMANTIC.md](./CNSH-SEMANTIC.md) | 语义接入规范·术语对照表·协作宣言·八条永恒铁律 | 中英双语 |
+
+> 阅读顺序建议：README → CNSH-PROTOCOL → CNSH-SEMANTIC
+
+---
+
 ## 🇨🇳 中文介绍
 
 ### 这是什么？
