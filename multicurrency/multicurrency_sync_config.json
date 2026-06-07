@@ -1,0 +1,51 @@
+{
+  "notion": {
+    "token": "NOTION_TOKEN",
+    "parent_page_id": "PAGE_ID",
+    "database_id": "DATABASE_ID",
+    "api_version": "2022-06-28"
+  },
+  "sync": {
+    "enabled": true,
+    "interval_seconds": 300,
+    "max_retries": 3,
+    "timeout": 15
+  },
+  "currencies": {
+    "fiat": [
+      "CNY",
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY"
+    ],
+    "crypto": [
+      "BTC",
+      "ETH"
+    ]
+  },
+  "color_tags": {
+    "green": {
+      "min": 0,
+      "max": 2
+    },
+    "yellow": {
+      "min": 2,
+      "max": 5
+    },
+    "red": {
+      "min": 5,
+      "max": 100
+    }
+  },
+  "data_sources": {
+    "primary": "fixer.io",
+    "secondary": "coingecko",
+    "fallback": "mock"
+  },
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "file": "~/.龍魂/multicurrency_sync.log"
+  }
+}
