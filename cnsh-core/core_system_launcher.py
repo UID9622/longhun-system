@@ -7,7 +7,8 @@
 ║  集成所有P0模块：配置·身份·权限·DNA·日志·调度                      ║
 ║  完整的系统初始化和运行                                           ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-v1.0              ║
+║  DNA v1.0: #龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-v1.0         ║
+║  DNA v1.1: #龍芯⚡️2026-06-07-LAUNCHER-CORE-v1.0 (P0 對齐)      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 五个Notion核心宣言                                        ║
