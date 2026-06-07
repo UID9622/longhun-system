@@ -3,7 +3,8 @@
 """
 龍魂·五行计算器 v3.2｜渲染优化版
 CNSH中文编程·天干地支·五行相生相克·终端彩色输出·表格美化
-DNA: #龍芯⚡️2026-05-07-五行计算器-v3.2-渲染层
+DNA v3.2: #龍芯⚡️2026-05-07-五行计算器-v3.2-渲染层
+DNA P0:   #龍芯⚡️2026-06-07-ENGINE-WUXING-v1.0
 """
 import hashlib, json, sys, os
 from datetime import datetime
