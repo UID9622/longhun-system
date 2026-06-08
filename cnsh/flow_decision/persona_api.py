@@ -5,7 +5,7 @@
 DNA: #龍芯⚡️2026-06-09-PERSONA-API-v1.0
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 import json
@@ -34,7 +34,7 @@ PERSONAS = {
 
 @app.get("/personas/list")
 def list_personas():
-    return {"count": len(PERSONAS), "personas": PERSONAS}
+    return {"count": len(PERSONAS), "personas": list(PERSONAS.values())}
 
 @app.get("/personas/{pid}")
 def get_persona(pid: str):
@@ -43,10 +43,10 @@ def get_persona(pid: str):
     return PERSONAS[pid]
 
 @app.post("/personas/route")
-def route_task(task: str, layer: Optional[str] = None):
+def route_task(task: str = Query(...), layer: Optional[str] = Query(None)):
     """根据任务类型和层级路由到对应人格"""
     candidates = [p for p in PERSONAS.values() if layer is None or p["layer"] == layer]
-    return {"task": task, "routed_to": candidates[:3]}
+    return {"task": task, "assigned_personas": [c["name"] for c in candidates[:3]], "count": len(candidates)}
 
 if __name__ == "__main__":
     import uvicorn
