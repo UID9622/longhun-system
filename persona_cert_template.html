@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂人格认证证书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .certificate {
+            width: 100%;
+            max-width: 1000px;
+            aspect-ratio: 1.414;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border: 3px solid #c9a227;
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.3),
+                inset 0 0 30px rgba(201,162,39,0.1);
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .certificate::before {
+            content: '🐉';
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 80px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .certificate::after {
+            content: '🐉';
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            font-size: 80px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #c9a227;
+            padding-bottom: 20px;
+        }
+
+        .header .dragon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .header .title {
+            font-size: 36px;
+            color: #1a1a2e;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        .body {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .certification-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .recipient-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+            font-size: 16px;
+        }
+
+        .info-item {
+            text-align: left;
+            border-left: 3px solid #c9a227;
+            padding-left: 15px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #1a1a2e;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .level-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a227 0%, #d4b844 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(201,162,39,0.3);
+        }
+
+        .permissions {
+            background: rgba(201,162,39,0.05);
+            border: 1px solid #c9a227;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .permissions-title {
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .permission-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .permission-item {
+            color: #333;
+            font-size: 13px;
+            padding: 5px;
+        }
+
+        .permission-item::before {
+            content: '✓ ';
+            color: #c9a227;
+            font-weight: bold;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            border-top: 2px solid #c9a227;
+            padding-top: 20px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .signature-line {
+            border-top: 2px solid #333;
+            margin-top: 15px;
+            padding-top: 5px;
+        }
+
+        .dna-code {
+            background: #1a1a2e;
+            color: #c9a227;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 15px 0 5px 0;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        .confirm-code {
+            background: #f0f0f0;
+            color: #1a1a2e;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .expiry {
+            color: #666;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .seal {
+            position: absolute;
+            bottom: 60px;
+            right: 80px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            opacity: 0.6;
+            transform: rotate(-15deg);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .certificate {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="header">
+            <div class="dragon">🐉</div>
+            <div class="title">龍魂人格认证</div>
+            <div class="subtitle">LONGHUN PERSONA CERTIFICATION</div>
+        </div>
+
+        <div class="content">
+            <div class="body">
+                <div class="certification-text">
+                    特此证明，以下人士已通过龍魂人格体系培训与认证考试
+                </div>
+
+                <div class="recipient-info">
+                    <div class="info-item">
+                        <div class="info-label">认证编号</div>
+                        <div class="info-value">{{UID}}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">人格代码</div>
+                        <div class="info-value">{{PERSONA_ID}}</div>
+                    </div>
+                </div>
+
+                <div class="level-badge">{{LEVEL}}</div>
+
+                <div class="permissions">
+                    <div class="permissions-title">权限清单</div>
+                    <div class="permission-list">
+                        {{PERMISSIONS}}
+                    </div>
+                </div>
+
+                <div class="expiry">
+                    <strong>有效期:</strong> 至 {{EXPIRY}}<br>
+                    <strong>颁布日期:</strong> {{ISSUE_DATE}}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <strong>龍魂总部</strong>
+                <div class="signature-line">签署</div>
+            </div>
+            <div>
+                <strong>验收官</strong>
+                <div class="signature-line">确认</div>
+            </div>
+            <div>
+                <strong>UID9622</strong>
+                <div class="signature-line">颁证</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center; position: relative; z-index: 1;">
+            <div class="dna-code">{{DNA}}</div>
+            <div class="confirm-code">{{CONFIRM}}</div>
+        </div>
+
+        <div class="seal">🔱</div>
+    </div>
+</body>
+</html>
