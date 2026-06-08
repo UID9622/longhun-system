@@ -62,10 +62,10 @@ else
 fi
 echo ""
 
-# 测试 4: 任务路由 (战略投资决策 - L1)
+# 测试 4: 任务路由 (任务分配 - L1)
 echo "[4/5] 任务路由测试 (POST /personas/route)"
 echo "─────────────────────────────────────────────────────────────"
-if response=$(curl -s -X POST "$API_URL/personas/route?task=战略投资决策&layer=L1"); then
+if response=$(curl -s -X POST "$API_URL/personas/route?task=strategy_planning&layer=L1"); then
     if echo "$response" | python3 -c "import sys, json; data = json.load(sys.stdin); assigned = data.get('assigned_personas', []); print(f'✅ 成功: 分配给 {len(assigned)} 个人格'); [print(f'   • {p}') for p in assigned[:3]]" 2>/dev/null; then
         ((PASS++))
     else
