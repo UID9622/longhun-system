@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "owner": "longhun2025@petalmail.com",
+  "owner_uid": "9622",
+  "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "dna_signature": "#龍芯⚡️20260525|LONGHUN-CHROME-MCP-AUTH-BRIDGE|v0.1|e5c407ec",
+  "audit_rules": {
+    "green": ["read_page", "take_screenshot", "list_pages", "list_network_requests", "list_console_messages"],
+    "yellow": ["click", "type", "navigate", "fill", "select_option"],
+    "red": ["evaluate_script", "delete_cookies", "clear_storage", "close_page", "upload_file"]
+  },
+  "red_action": "circuit_break_and_log_to_shame_wall",
+  "shame_wall_url": "https://www.notion.so/4e9a0e9a37fd4024a2ea091b45304b07",
+  "lighthouse_auto": true,
+  "memory_snapshot_auto": false
+}
