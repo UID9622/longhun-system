@@ -1236,3 +1236,321 @@ PagerDuty: longhun-deployment-oncall
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **最後更新**: 2026-06-08 20:20 CST
 **版本**: 1.0
+
+---
+
+## 第 11 部分：Kimi 集成（新增 2026-06-08）
+
+### 🔗 概述
+
+龍魂系統已與 Kimi AI 完整集成，支持四種模式：
+
+1. **備用推理模型** - 故障轉移機制
+2. **多模態處理** - 圖像/文件分析
+3. **實時對話** - 用戶直接交互
+4. **Skill 引擎** - 特定 Skill 集成
+
+### 📦 部署步驟
+
+#### 步驟 1: 環境配置 (T-24小時)
+
+**1.1 設置 API 密鑰**
+
+```bash
+# 方案 A: 環境變數（推薦）
+export KIMI_API_KEY="apisk-kimi-OLIN0lpHBND0Xsyh7ZG2U9BtaD4NY9QML2eDCfHMD5f6bSw1L7SEj2LGGTuWEjF9"
+
+# 驗證設置
+echo $KIMI_API_KEY
+```
+
+**1.2 驗證 Kimi API 連接**
+
+```bash
+cd ~/longhun-system/kimi
+
+python3 << 'VERIFY'
+from kimi_client import KimiClient
+client = KimiClient()
+status = "✅ 連接成功" if client.health_check() else "❌ 連接失敗"
+print(f"Kimi API 狀態: {status}")
+VERIFY
+```
+
+**預期輸出**:
+```
+Kimi API 狀態: ✅ 連接成功
+```
+
+#### 步驟 2: 集成測試 (T-12小時)
+
+**2.1 運行集成測試**
+
+```bash
+cd ~/longhun-system/kimi
+python3 kimi_integration.py
+```
+
+**預期輸出**:
+```
+🔗 初始化 Kimi 集成...
+
+1️⃣ 備用推理模型
+  {
+    "status": "success",
+    "model": "kimi",
+    "response": "..."
+  }
+
+2️⃣ 多模態處理
+  📸 圖像處理（演示模式）
+
+3️⃣ 實時對話
+  會話 ID: KIMI-CHAT-user_001-...
+
+4️⃣ Skill 引擎
+  📐 Canvas 設計...
+
+📊 集成狀態
+{
+  "kimi_api": "🟢 connected",
+  "circuit_breaker": {"state": "CLOSED"},
+  ...
+}
+```
+
+**2.2 測試各集成模式**
+
+```bash
+# 測試備用推理
+python3 << 'TEST'
+from kimi import KimiIntegration
+kimi = KimiIntegration()
+result = kimi.infer_with_fallback("龍魂系統的核心是什麼？")
+print(f"備用推理: {result['status']}")
+TEST
+
+# 測試實時聊天
+python3 << 'TEST'
+from kimi import KimiIntegration
+kimi = KimiIntegration()
+session = kimi.start_realtime_chat("test_user")
+print(f"聊天會話: {session['session_id']}")
+TEST
+
+# 測試 Skill 引擎
+python3 << 'TEST'
+from kimi import KimiIntegration
+kimi = KimiIntegration()
+result = kimi.use_kimi_for_skill(
+    "skill-3-canvas-design",
+    {"description": "設計一個數據儀表板"}
+)
+print(f"Skill 引擎: {result['status']}")
+TEST
+```
+
+#### 步驟 3: 監控和告警 (T-6小時)
+
+**3.1 配置 Kimi 集成監控**
+
+```bash
+# 啟用 Kimi 日誌監控
+mkdir -p /tmp/longhun-kimi/logs
+touch /tmp/longhun-kimi/logs/kimi_operations.log
+
+# 配置日誌輪轉
+cat > /etc/logrotate.d/longhun-kimi << 'LOGROTATE'
+/tmp/longhun-kimi/logs/*.log {
+  daily
+  rotate 7
+  compress
+  delaycompress
+  notifempty
+  missingok
+}
+LOGROTATE
+```
+
+**3.2 監控指標**
+
+```bash
+# 監控斷路器狀態
+watch -n 5 'python3 << "MONITOR"
+from kimi import KimiIntegration
+kimi = KimiIntegration()
+status = kimi.get_health_status()
+print(f"Kimi API: {status[\"kimi_api\"]}")
+print(f"斷路器: {status[\"circuit_breaker\"][\"state\"]}")
+print(f"失敗計數: {status[\"circuit_breaker\"][\"failure_count\"]}")
+MONITOR
+'
+
+# 監控集成日誌
+tail -f /tmp/longhun-kimi/logs/kimi_operations.log | grep -E "SUCCESS|FAILED"
+```
+
+**3.3 告警規則**
+
+| 指標 | 閾值 | 嚴重性 |
+|------|------|--------|
+| Kimi API 連接 | 連續失敗 3 次 | 🔴 Critical |
+| 斷路器狀態 | 狀態 = OPEN | 🟡 Warning |
+| 響應時間 | > 5000ms | 🟡 Warning |
+| 錯誤率 | > 5% | 🔴 Critical |
+
+#### 步驟 4: 部署驗收 (T-2小時)
+
+**4.1 預部署檢查清單**
+
+```
+✅ Kimi API 密鑰已設置
+✅ API 連接測試通過
+✅ 所有集成模式可用
+✅ 斷路器機制正常
+✅ 監控日誌正常運行
+✅ 告警規則已配置
+✅ 回滾計劃已驗證
+```
+
+**4.2 執行部署前驗收測試**
+
+```bash
+cd ~/longhun-system
+python3 << 'ACCEPTANCE'
+from kimi import KimiIntegration
+import json
+
+print("🧪 Kimi 集成驗收測試\n")
+
+kimi = KimiIntegration()
+
+# 測試 1: API 連接
+print("1️⃣ API 連接測試")
+is_connected = kimi.kimi_client.health_check()
+print(f"  結果: {'✅ PASS' if is_connected else '❌ FAIL'}\n")
+
+# 測試 2: 備用推理
+print("2️⃣ 備用推理測試")
+result = kimi.infer_with_fallback("測試提示詞")
+print(f"  結果: {'✅ PASS' if result['status'] in ['success', 'fallback'] else '❌ FAIL'}\n")
+
+# 測試 3: 實時聊天
+print("3️⃣ 實時聊天測試")
+session = kimi.start_realtime_chat("test_user")
+print(f"  結果: {'✅ PASS' if session['status'] == 'active' else '❌ FAIL'}\n")
+
+# 測試 4: Skill 引擎
+print("4️⃣ Skill 引擎測試")
+result = kimi.use_kimi_for_skill(
+    "skill-3-canvas-design",
+    {"description": "測試"}
+)
+print(f"  結果: {'✅ PASS' if result['status'] in ['success', 'unsupported'] else '❌ FAIL'}\n")
+
+# 整體結果
+print("📊 整體驗收結果")
+print(f"  健康狀態: {json.dumps(kimi.get_health_status(), ensure_ascii=False)}")
+ACCEPTANCE
+```
+
+### 🔄 故障排查
+
+#### 問題 1: Kimi API 無法連接
+
+**症狀**: 
+```
+❌ Kimi API 連接失敗: Connection refused
+```
+
+**診斷**:
+```bash
+# 檢查環境變數
+echo $KIMI_API_KEY
+
+# 測試 API 端點
+curl -s https://api.moonshot.cn/v1/models \
+  -H "Authorization: Bearer $KIMI_API_KEY" | jq .
+
+# 檢查網絡連接
+ping api.moonshot.cn
+```
+
+**解決方案**:
+1. 驗證 KIMI_API_KEY 是否正確設置
+2. 檢查 API key 是否過期
+3. 驗證網絡連接和防火牆規則
+4. 檢查 Kimi API 服務狀態
+
+#### 問題 2: 斷路器打開
+
+**症狀**:
+```json
+{
+  "circuit_breaker": {
+    "state": "OPEN",
+    "failure_count": 3
+  }
+}
+```
+
+**診斷**:
+```bash
+# 查看最近的失敗日誌
+tail -n 50 /tmp/longhun-kimi/logs/kimi_operations.log | grep FAILED
+
+# 檢查 Kimi API 狀態
+python3 -c "from kimi import KimiClient; c = KimiClient(); print(c.health_check())"
+```
+
+**解決方案**:
+1. 檢查 Kimi API 是否正常
+2. 查看失敗原因（網絡、超時、認證等）
+3. 等待 60 秒自動恢復
+4. 或手動重置: `kimi.circuit_breaker.failure_count = 0`
+
+#### 問題 3: 響應時間過長
+
+**症狀**: 
+```
+⏱️ Kimi API 響應時間 > 5000ms
+```
+
+**診斷**:
+```bash
+# 測試 API 響應時間
+time python3 << 'TEST'
+from kimi import KimiClient
+client = KimiClient()
+result = client.chat_completion([{"role": "user", "content": "Hi"}])
+print(f"完成")
+TEST
+```
+
+**解決方案**:
+1. 檢查網絡延遲
+2. 檢查 Kimi API 負載
+3. 增加超時設置: `client = KimiClient(timeout=60)`
+4. 如需緊急响应，使用本地推理降級
+
+### ✅ 驗收標準
+
+| 項目 | 標準 | 驗收方式 |
+|------|------|---------|
+| API 連接 | 能夠成功調用 Kimi API | `health_check()` |
+| 備用推理 | 故障轉移機制正常 | 模擬 Kimi 故障測試 |
+| 多模態 | 能夠處理圖像和文件 | 使用示例圖像/文件測試 |
+| 實時聊天 | 能夠創建和維持會話 | 創建會話並發送消息 |
+| Skill 引擎 | 支持的 Skill 可使用 Kimi | 測試 3 個支持的 Skill |
+| 監控 | 日誌和指標正常記錄 | 檢查日誌文件 |
+| 斷路器 | 故障自動檢測和恢復 | 模擬故障並觀察恢復 |
+
+### 📚 相關文檔
+
+- `~/longhun-system/kimi/KIMI_INTEGRATION_GUIDE.md` - 完整集成指南
+- `~/longhun-system/deployment/kimi_integration_config.json` - 配置文件
+- `~/longhun-system/kimi/kimi_client.py` - API 客户端源碼
+- `~/longhun-system/kimi/kimi_integration.py` - 集成框架源碼
+
+---
+
