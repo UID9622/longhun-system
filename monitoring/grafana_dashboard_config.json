@@ -1,0 +1,175 @@
+{
+  "_comment": "龍魂系統生產監控儀表板配置",
+  "dashboard": {
+    "title": "🐉 龍魂系統生產監控",
+    "tags": ["longhun", "production", "realtime"],
+    "timezone": "Asia/Shanghai",
+    "refresh": "30s",
+    "time_range": "last_6h",
+    "panels": [
+      {
+        "id": 1,
+        "title": "API 響應時間 (P50/P95/P99)",
+        "type": "graph",
+        "metrics": [
+          "api_response_time_p50",
+          "api_response_time_p95",
+          "api_response_time_p99"
+        ],
+        "alert_threshold": {
+          "p95": "500ms",
+          "p99": "1000ms"
+        }
+      },
+      {
+        "id": 2,
+        "title": "API 吞吐量 (req/s)",
+        "type": "gauge",
+        "metric": "api_request_rate",
+        "thresholds": [0, 50, 100],
+        "targets": ["healthy", "warning", "critical"]
+      },
+      {
+        "id": 3,
+        "title": "錯誤率 (%)",
+        "type": "stat",
+        "metric": "api_error_rate",
+        "alert_threshold": "1%"
+      },
+      {
+        "id": 4,
+        "title": "數據庫連接池使用率",
+        "type": "gauge",
+        "metric": "db_pool_usage",
+        "max": 20,
+        "alert_threshold": "90%"
+      },
+      {
+        "id": 5,
+        "title": "Redis 快取命中率",
+        "type": "stat",
+        "metric": "cache_hit_rate",
+        "unit": "percent",
+        "target": "92%"
+      },
+      {
+        "id": 6,
+        "title": "服務器資源使用",
+        "type": "multi_stat",
+        "metrics": {
+          "cpu_usage": {"unit": "%", "alert": "80%"},
+          "memory_usage": {"unit": "%", "alert": "80%"},
+          "disk_usage": {"unit": "%", "alert": "85%"}
+        }
+      },
+      {
+        "id": 7,
+        "title": "10 個 Skill 執行狀態",
+        "type": "table",
+        "skills": [
+          "skill-1-algorithmic-art",
+          "skill-2-brand-guidelines",
+          "skill-3-canvas-design",
+          "skill-4-doc-coauthoring",
+          "skill-5-internal-comms",
+          "skill-6-mcp-builder",
+          "skill-7-skill-creator",
+          "skill-8-slack-gif-creator",
+          "skill-9-theme-factory",
+          "skill-10-web-artifacts-builder"
+        ],
+        "columns": ["Skill 名稱", "狀態", "平均耗時", "失敗率"]
+      },
+      {
+        "id": 8,
+        "title": "Kimi AI 集成狀態",
+        "type": "stat_card",
+        "metrics": {
+          "kimi_api_status": "connected/disconnected",
+          "circuit_breaker_state": "CLOSED/OPEN/HALF_OPEN",
+          "failure_count": "0-3",
+          "request_latency": "ms"
+        }
+      },
+      {
+        "id": 9,
+        "title": "部署歷史",
+        "type": "table",
+        "columns": ["部署 ID", "時間", "環境", "狀態", "耗時"]
+      },
+      {
+        "id": 10,
+        "title": "告警活動",
+        "type": "alert_list",
+        "alert_rules": [
+          "High Error Rate (> 1%)",
+          "High Response Time P95 (> 500ms)",
+          "Database Pool Exhausted (> 90%)",
+          "Memory Usage High (> 80%)",
+          "Disk Space Low (< 10%)",
+          "SSL Certificate Expiring (< 30 days)",
+          "Kimi API Disconnected",
+          "Circuit Breaker Open"
+        ]
+      }
+    ]
+  },
+  "alerts": {
+    "critical": [
+      {
+        "name": "High Error Rate",
+        "condition": "error_rate > 0.01",
+        "severity": "critical",
+        "channels": ["slack", "pagerduty"]
+      },
+      {
+        "name": "Database Connection Pool Exhausted",
+        "condition": "db_pool_usage > 0.9",
+        "severity": "critical",
+        "channels": ["slack", "pagerduty"]
+      },
+      {
+        "name": "Disk Space Critical",
+        "condition": "disk_available < 0.1",
+        "severity": "critical",
+        "channels": ["slack", "pagerduty"]
+      }
+    ],
+    "warning": [
+      {
+        "name": "High Response Time",
+        "condition": "p95_latency > 500ms",
+        "severity": "warning",
+        "channels": ["slack"]
+      },
+      {
+        "name": "Memory Usage High",
+        "condition": "memory_usage > 0.8",
+        "severity": "warning",
+        "channels": ["slack"]
+      },
+      {
+        "name": "Kimi API Latency High",
+        "condition": "kimi_latency > 5000ms",
+        "severity": "warning",
+        "channels": ["slack"]
+      }
+    ]
+  },
+  "sli": {
+    "availability": {
+      "target": "99.95%",
+      "window": "rolling_30_days"
+    },
+    "latency_p95": {
+      "target": "500ms",
+      "window": "rolling_7_days"
+    },
+    "error_rate": {
+      "target": "0.1%",
+      "window": "rolling_7_days"
+    }
+  },
+  "dna": "#龍芯⚡️2026-06-08-GRAFANA-DASHBOARD-CONFIG-v1.0",
+  "confirmation_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}
