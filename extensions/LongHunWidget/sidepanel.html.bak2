@@ -470,7 +470,6 @@ textarea{min-height:80px;resize:vertical;font-family:monospace}
   龍魂系统 · UID9622 · 曾仕强老师理论指导 · <span id="footerDNA"></span>
 </div>
 
-<script src="modules/engine.js"></script>
 <script src="modules/dna.js"></script>
 <script src="modules/memory.js"></script>
 <script src="modules/audit.js"></script>
