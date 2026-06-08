@@ -1,0 +1,230 @@
+# 🐉 龍魂系統 Prometheus 告警規則
+# DNA: #龍芯⚡️2026-06-08-PROMETHEUS-RULES-v1.0
+
+groups:
+  - name: longhun_production
+    interval: 30s
+    rules:
+      # ════════════════════════════════════════════════════════════
+      # 🔴 Critical Alerts (需要立即響應)
+      # ════════════════════════════════════════════════════════════
+
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.01
+        for: 5m
+        labels:
+          severity: critical
+          service: longhun
+        annotations:
+          summary: "🔴 高錯誤率 ({{ $value | humanize }}%)"
+          description: "API 錯誤率在過去 5 分鐘內超過 1%"
+          runbook: "https://docs.longhun.example.com/runbooks/high-error-rate"
+          channels: "slack,pagerduty"
+
+      - alert: DatabasePoolExhausted
+        expr: db_pool_usage_percent > 90
+        for: 2m
+        labels:
+          severity: critical
+          service: longhun
+        annotations:
+          summary: "🔴 數據庫連接池已耗盡 ({{ $value | humanize }}%)"
+          description: "數據庫連接池使用率超過 90%，可能導致連接拒絕"
+          runbook: "https://docs.longhun.example.com/runbooks/db-pool-exhausted"
+          channels: "slack,pagerduty"
+
+      - alert: DiskSpaceCritical
+        expr: node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes < 0.1
+        for: 1m
+        labels:
+          severity: critical
+          service: longhun
+        annotations:
+          summary: "🔴 磁盤空間緊急 ({{ $value | humanize }}% 可用)"
+          description: "根分區可用空間低於 10%"
+          runbook: "https://docs.longhun.example.com/runbooks/disk-space-critical"
+          channels: "slack,pagerduty"
+
+      # ════════════════════════════════════════════════════════════
+      # 🟡 Warning Alerts (需要關注)
+      # ════════════════════════════════════════════════════════════
+
+      - alert: HighAPILatencyP95
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 0.5
+        for: 10m
+        labels:
+          severity: warning
+          service: longhun
+        annotations:
+          summary: "🟡 API 高延遲 P95 ({{ $value | humanize }}s)"
+          description: "API P95 延遲超過 500ms"
+          runbook: "https://docs.longhun.example.com/runbooks/high-latency"
+          channels: "slack"
+
+      - alert: MemoryUsageHigh
+        expr: (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) > 0.8
+        for: 10m
+        labels:
+          severity: warning
+          service: longhun
+        annotations:
+          summary: "🟡 內存使用率高 ({{ $value | humanizePercentage }})"
+          description: "系統內存使用率超過 80%"
+          runbook: "https://docs.longhun.example.com/runbooks/memory-usage-high"
+          channels: "slack"
+
+      - alert: CPUUsageHigh
+        expr: rate(node_cpu_seconds_total{mode="user"}[5m]) > 0.8
+        for: 10m
+        labels:
+          severity: warning
+          service: longhun
+        annotations:
+          summary: "🟡 CPU 使用率高 ({{ $value | humanizePercentage }})"
+          description: "CPU 使用率超過 80%"
+          runbook: "https://docs.longhun.example.com/runbooks/cpu-usage-high"
+          channels: "slack"
+
+      - alert: CacheHitRateLow
+        expr: cache_hit_ratio < 0.8
+        for: 10m
+        labels:
+          severity: warning
+          service: longhun
+        annotations:
+          summary: "🟡 快取命中率低 ({{ $value | humanizePercentage }})"
+          description: "Redis 快取命中率低於 80%，影響性能"
+          runbook: "https://docs.longhun.example.com/runbooks/cache-hit-low"
+          channels: "slack"
+
+      - alert: KimiAPILatencyHigh
+        expr: kimi_api_latency_milliseconds > 5000
+        for: 5m
+        labels:
+          severity: warning
+          service: longhun-kimi
+        annotations:
+          summary: "🟡 Kimi API 延遲高 ({{ $value | humanize }}ms)"
+          description: "Kimi API 響應時間超過 5 秒"
+          runbook: "https://docs.longhun.example.com/runbooks/kimi-latency-high"
+          channels: "slack"
+
+      - alert: CircuitBreakerOpen
+        expr: kimi_circuit_breaker_state == 1
+        for: 1m
+        labels:
+          severity: warning
+          service: longhun-kimi
+        annotations:
+          summary: "🟡 Kimi 斷路器打開"
+          description: "Kimi API 故障次數過多，斷路器已打開，使用本地推理"
+          runbook: "https://docs.longhun.example.com/runbooks/circuit-breaker-open"
+          channels: "slack"
+
+      # ════════════════════════════════════════════════════════════
+      # 📊 SLO 違反告警
+      # ════════════════════════════════════════════════════════════
+
+      - alert: AvailabilitySLOAtRisk
+        expr: (1 - (errors_total / requests_total)) < 0.9995
+        for: 5m
+        labels:
+          severity: warning
+          slo: availability
+        annotations:
+          summary: "🟡 可用性 SLO 處於風險中"
+          description: "近期可用性低於 99.95% SLO 目標"
+          channels: "slack"
+
+      - alert: LatencySLOViolated
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[1h])) > 0.5
+        for: 10m
+        labels:
+          severity: warning
+          slo: latency
+        annotations:
+          summary: "🟡 延遲 SLO 違反"
+          description: "1 小時內 P95 延遲超過 500ms 目標"
+          channels: "slack"
+
+      # ════════════════════════════════════════════════════════════
+      # 🧠 Skill 健康檢查
+      # ════════════════════════════════════════════════════════════
+
+      - alert: SkillFailureRateHigh
+        expr: rate(skill_execution_failures_total[5m]) / rate(skill_executions_total[5m]) > 0.05
+        for: 10m
+        labels:
+          severity: warning
+          component: skill
+        annotations:
+          summary: "🟡 Skill 失敗率高 ({{ $value | humanizePercentage }})"
+          description: "Skill 執行失敗率超過 5%"
+          channels: "slack"
+
+      - alert: SkillExecutionTimeoutHigh
+        expr: rate(skill_execution_timeouts_total[5m]) > 1
+        for: 5m
+        labels:
+          severity: warning
+          component: skill
+        annotations:
+          summary: "🟡 Skill 超時頻繁 ({{ $value | humanize }} per min)"
+          description: "Skill 執行超時次數過多"
+          channels: "slack"
+
+      # ════════════════════════════════════════════════════════════
+      # 🔐 安全相關告警
+      # ════════════════════════════════════════════════════════════
+
+      - alert: RateLimitExceeded
+        expr: rate(http_requests_rejected_rate_limit_total[5m]) > 0
+        for: 5m
+        labels:
+          severity: warning
+          component: security
+        annotations:
+          summary: "🟡 速率限制被觸發"
+          description: "檢測到超過速率限制的請求"
+          channels: "slack"
+
+      - alert: SSLCertificateExpiringSoon
+        expr: ssl_certificate_expiry_timestamp - time() < 86400 * 30
+        for: 1h
+        labels:
+          severity: warning
+          component: security
+        annotations:
+          summary: "🟡 SSL 證書即將過期 ({{ humanize $value }}天)"
+          description: "SSL 證書將在 30 天內過期"
+          runbook: "https://docs.longhun.example.com/runbooks/ssl-cert-expiring"
+          channels: "slack,email"
+
+  # ════════════════════════════════════════════════════════════
+  # 錄製規則 (用於優化查詢)
+  # ════════════════════════════════════════════════════════════
+
+  - name: longhun_recording_rules
+    interval: 30s
+    rules:
+      - record: instance:node_cpu:rate5m
+        expr: rate(node_cpu_seconds_total[5m])
+
+      - record: instance:node_memory_utilization:ratio
+        expr: |
+          (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes))
+
+      - record: api:request_rate:5m
+        expr: rate(http_requests_total[5m])
+
+      - record: api:error_rate:5m
+        expr: |
+          (rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]))
+
+      - record: api:latency_p95:5m
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
+
+      - record: skill:success_rate:5m
+        expr: |
+          (rate(skill_executions_total{status="success"}[5m]) /
+           rate(skill_executions_total[5m]))
