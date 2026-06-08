@@ -421,6 +421,10 @@ class LonghunAuditEngine:
                 "status": "SKIP",
                 "message": "P72未触发审计",
                 "identity_ok": identity_ok,
+                "judgment": "🟢",  # Default to GREEN when skipped
+                "total_score": 1.0,
+                "trigger_level": trigger_level,
+                "severity": severity,
             }
 
         # 第三步：执行审计
