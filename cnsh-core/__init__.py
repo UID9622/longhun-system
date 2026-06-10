@@ -1,45 +1,57 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-╔══════════════════════════════════════════════════════════════════╗
-║     龍魂核心系统 / LongHun Core System (CNSH)                   ║
-║                                                                  ║
-║  P0核心模块·完整governance体系·8层架构                            ║
-║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-CNSH-CORE-SYSTEM-v1.0                  ║
-║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
-║                                                                  ║
-║  来源: 五个Notion核心宣言 + 数学公式算法核心                      ║
-║  责任: UID9622·不免责                                            ║
-║  状态: 🟢 MAIN·可公开                                            ║
-╚══════════════════════════════════════════════════════════════════╝
+龍魂CNSH·流場決策核集成包
+CNSH Flow Decision Core Integration Package
+
+DNA: #龍芯⚡️2026-06-06-CNSH-INTEGRATION-v1.0
+CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+責任: UID9622·不免責
 """
 
-from . import constitution
-from . import identity
-from . import permissions
-from . import dna
-from . import logging
-from . import scheduler
-from . import mathematics
-from . import registry
-from . import rules
-from . import compiler
-from .core_system_launcher import LongHunCoreSystem
+try:
+    from .flow_decision import (
+        FlowDecisionNode,
+        quick_process,
+        CNSHFlowDecisionCore,
+        DigitalRootCalculator,
+        IPARouteRegistry,
+        PersonaCollaborationFramework,
+        DNAChainTracer,
+    )
 
-__version__ = "1.0.0"
-__author__ = "UID9622 · 诸葛鑫 · 龍芯北辰"
+    from .sancai_sync import (
+        SancaiSyncHub,
+        IPAReceipt,
+        ParticleInstruction,
+        NeuralSignal,
+        PalaceNode,
+    )
 
-__all__ = [
-    'constitution',
-    'identity',
-    'permissions',
-    'dna',
-    'logging',
-    'scheduler',
-    'mathematics',
-    'registry',
-    'rules',
-    'compiler',
-    'LongHunCoreSystem',
-]
+    __version__ = "5.0"
+    __all__ = [
+        # v4.1 Flow Decision Core
+        'FlowDecisionNode',
+        'quick_process',
+        'CNSHFlowDecisionCore',
+        'DigitalRootCalculator',
+        'IPARouteRegistry',
+        'PersonaCollaborationFramework',
+        'DNAChainTracer',
+        # v1.0 Sancai Sync Hub
+        'SancaiSyncHub',
+        'IPAReceipt',
+        'ParticleInstruction',
+        'NeuralSignal',
+        'PalaceNode',
+    ]
+
+except ImportError as e:
+    # 優雅降級：如果flow_decision尚未初始化
+    import warnings
+    warnings.warn(f"CNSH流場決策核導入失敗: {e}。系統仍可工作，但決策功能不可用。")
+    __version__ = "4.1"
+    __all__ = []
