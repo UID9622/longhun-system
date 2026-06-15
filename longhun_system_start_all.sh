@@ -65,12 +65,12 @@ start_service() {
     # 檢查是否成功
     if kill -0 $NEW_PID 2>/dev/null; then
         echo -e " ${GREEN}✅ 成功 (PID: $NEW_PID)${NC}"
-        ((SERVICES_STARTED++))
+        SERVICES_STARTED=$((SERVICES_STARTED + 1))
         echo "   日誌: $LOG_FILE"
         return 0
     else
         echo -e " ${RED}❌ 失敗${NC}"
-        ((SERVICES_FAILED++))
+        SERVICES_FAILED=$((SERVICES_FAILED + 1))
         echo "   日誌: $LOG_FILE"
         echo "   錯誤信息:"
         tail -5 "$LOG_FILE" | sed 's/^/     /'
@@ -129,16 +129,24 @@ fi
 
 print_header "Part 3: 啟動監控服務器 (monitoring_server)"
 
-MONITORING_FILE="$LONGHUN_DIR/mobile-monitoring/backend/python/monitoring_server.py"
+MONITORING_FILE="$LONGHUN_DIR/mobile-monitoring.integrated/backend/python/monitoring_server.py"
 MONITORING_PID="$LOG_DIR/monitoring_server.pid"
 MONITORING_LOG="$LOG_DIR/monitoring_server.log"
+
+# 若 8000 已被佔用（如 phase3 後端），則使用 8001
+if nc -z -G 1 127.0.0.1 8000 2>/dev/null; then
+    MONITORING_PORT=8001
+    echo -e "${YELLOW}⚠️  端口 8000 已被佔用，監控服務器將使用 8001${NC}"
+else
+    MONITORING_PORT=8000
+fi
 
 if [ ! -f "$MONITORING_FILE" ]; then
     echo -e "${YELLOW}⚠️  監控服務器文件不存在${NC}"
 else
     start_service \
-        "監控服務器 (localhost:9000)" \
-        "cd $LONGHUN_DIR/mobile-monitoring/backend/python && python3 monitoring_server.py" \
+        "監控服務器 (localhost:$MONITORING_PORT)" \
+        "cd $LONGHUN_DIR/mobile-monitoring.integrated/backend/python && MONITORING_PORT=$MONITORING_PORT python3 monitoring_server.py" \
         "$MONITORING_PID" \
         "$MONITORING_LOG"
 fi
@@ -183,19 +191,19 @@ else
     echo -e "  ${YELLOW}⚠️  monitoring_server 未運行${NC}"
 fi
 
-# 檢查 localhost:9000
+# 檢查監控服務端口
 echo ""
 echo "📡 檢查服務可達性:"
 echo ""
-if timeout 2 curl -s http://localhost:9000/api/v1/monitor/health > /dev/null 2>&1; then
-    HEALTH=$(curl -s http://localhost:9000/api/v1/monitor/health 2>/dev/null)
+if curl --max-time 3 -s http://localhost:$MONITORING_PORT/api/v1/monitor/health > /dev/null 2>&1; then
+    HEALTH=$(curl --max-time 3 -s http://localhost:$MONITORING_PORT/api/v1/monitor/health 2>/dev/null)
     if echo "$HEALTH" | grep -q "healthy"; then
-        echo -e "  ${GREEN}✅ localhost:9000 (正常)${NC}"
+        echo -e "  ${GREEN}✅ localhost:$MONITORING_PORT (正常)${NC}"
     else
-        echo -e "  ${YELLOW}⚠️  localhost:9000 (響應異常)${NC}"
+        echo -e "  ${YELLOW}⚠️  localhost:$MONITORING_PORT (響應異常)${NC}"
     fi
 else
-    echo -e "  ${YELLOW}⚠️  localhost:9000 (不可達)${NC}"
+    echo -e "  ${YELLOW}⚠️  localhost:$MONITORING_PORT (不可達)${NC}"
 fi
 
 # ═══════════════════════════════════════════════════════════════
