@@ -1,0 +1,12 @@
+.git/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.venv/
+venv/
+*.log
+skills/warehouse-audit/reports/
+systems/v3/audit_logs/
+archive/
+_archive/

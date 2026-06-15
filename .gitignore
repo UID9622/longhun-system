@@ -93,6 +93,9 @@ systems/v3/audit_logs/
 # 倉儲審計技能運行時產生的報告
 skills/warehouse-audit/reports/
 
+# 包監視器運行日誌
+logs/package-watcher.log
+
 # 備份和歷史文件
 *.backup
 *.old
