@@ -1,0 +1,1791 @@
+<!--
+龍魂智能中枢 v4.0 | 全套一体化
+DNA: #龍芯⚡️2026-03-12-龍魂智能中枢-v4.0
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+作者: UID9622 诸葛鑫（龍芯北辰）
+理论指导: 曾仕强老师（永恒显示）
+共建: Claude (Anthropic PBC)
+献礼: 新中国成立77周年（1949-2026）丙午马年
+-->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>🐉 龍魂智能中枢 v4.0 | UID9622 全套系统</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#00d4ff;--gold:#ffd700;--green:#00ff88;--red:#ff6b6b;
+  --card:rgba(255,255,255,.05);--warn:rgba(255,165,0,.8);
+  --bg1:#1a1a2e;--bg2:#16213e;--bg3:#0f3460
+}
+body{
+  font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+  background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);
+  color:#e2e8f0;min-height:100vh;padding:12px
+}
+.container{max-width:1600px;margin:0 auto}
+
+/* ── header ── */
+.hub-header{
+  text-align:center;padding:18px 20px;background:var(--card);
+  border-radius:14px;border:2px solid var(--blue);
+  box-shadow:0 0 28px rgba(0,212,255,.25);margin-bottom:14px;
+  position:relative;overflow:hidden
+}
+.hub-header::before{
+  content:'';position:absolute;top:0;left:-100%;width:200%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(0,212,255,.06),transparent);
+  animation:shimmer 4s infinite
+}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+.hub-header h1{
+  font-size:26px;
+  background:linear-gradient(135deg,var(--blue),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px
+}
+.hub-header .dna{
+  font-family:Consolas,monospace;font-size:11px;color:var(--blue);
+  background:rgba(0,212,255,.1);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:8px
+}
+.hub-header .gpg{font-size:10px;color:#666;font-family:Consolas,monospace;margin-bottom:8px;display:block}
+.header-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.svc-badge{
+  font-size:11px;padding:3px 10px;border-radius:99px;font-weight:bold;
+  background:rgba(0,0,0,.3);border:1px solid #333;color:#888;cursor:pointer
+}
+.svc-badge.online{border-color:rgba(0,255,136,.4);color:var(--green);background:rgba(0,255,136,.08)}
+.svc-badge.offline{border-color:rgba(255,107,107,.4);color:var(--red);background:rgba(255,107,107,.08)}
+#headerClock{font-size:13px;color:var(--gold);font-family:Consolas,monospace}
+
+/* ── tabs ── */
+.tabs{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:14px}
+.tab-btn{
+  padding:12px 6px;border:2px solid rgba(0,212,255,.3);border-radius:10px;
+  background:rgba(0,212,255,.05);color:var(--blue);font-size:12px;font-weight:bold;
+  cursor:pointer;transition:.25s;text-align:center;line-height:1.4
+}
+.tab-btn:hover{background:rgba(0,212,255,.12);transform:translateY(-1px)}
+.tab-btn.active{background:rgba(0,212,255,.2);border-color:var(--gold);color:var(--gold)}
+.tab-btn .ticon{font-size:18px;display:block;margin-bottom:3px}
+
+/* ── panels ── */
+.panel{display:none;animation:fadeIn .25s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── cards / layout ── */
+.card{
+  background:var(--card);border:1px solid rgba(0,212,255,.2);
+  border-radius:12px;padding:18px;margin-bottom:14px
+}
+.card-title{font-size:16px;color:var(--blue);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(0,212,255,.2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+/* ── forms ── */
+.fg{margin-bottom:12px}
+label{display:block;margin-bottom:4px;color:var(--blue);font-weight:bold;font-size:12px}
+input[type=text],input[type=search],textarea,select{
+  width:100%;padding:9px;background:rgba(0,0,0,.35);border:2px solid var(--blue);
+  border-radius:7px;color:#e2e8f0;font-size:13px;font-family:Consolas,monospace
+}
+textarea{min-height:120px;resize:vertical;line-height:1.6}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+
+/* ── buttons ── */
+.btn{padding:9px 16px;border:none;border-radius:7px;font-size:12px;font-weight:bold;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-primary{background:linear-gradient(135deg,var(--blue),#0099cc);color:#0a0e27}
+.btn-success{background:linear-gradient(135deg,var(--green),#00cc6a);color:#0a0e27}
+.btn-danger{background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff}
+.btn-warn{background:linear-gradient(135deg,var(--gold),#ffaa00);color:#0a0e27}
+.btn-ghost{background:rgba(0,212,255,.1);color:var(--blue);border:1px solid var(--blue)}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+/* ── result box ── */
+.result-box{
+  background:rgba(0,0,0,.3);border:2px solid var(--blue);border-radius:8px;
+  padding:12px;min-height:80px;font-family:Consolas,monospace;font-size:12px;
+  white-space:pre-wrap;word-wrap:break-word;max-height:320px;overflow-y:auto;
+  color:var(--green);line-height:1.6
+}
+
+/* ── stats ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.stat-card{background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.2);border-radius:8px;padding:12px;text-align:center}
+.stat-val{font-size:24px;font-weight:bold;color:var(--green)}
+.stat-label{font-size:11px;color:#b0b8d1;margin-top:3px}
+
+/* ── three-dim cards ── */
+.audit3d{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0}
+.dim-card{border-radius:10px;padding:12px;text-align:center;border:2px solid}
+.dim-name{font-size:12px;font-weight:bold;margin-bottom:4px}
+.dim-score{font-size:26px;font-weight:bold}
+.dim-desc{font-size:11px;color:#b0b8d1;margin-top:4px;line-height:1.3}
+.dim-green{background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.4);color:var(--green)}
+.dim-yellow{background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.4);color:var(--gold)}
+.dim-red{background:rgba(255,107,107,.1);border-color:rgba(255,107,107,.4);color:var(--red)}
+
+/* ── chat ── */
+.chat-area{
+  height:420px;overflow-y:auto;background:rgba(0,0,0,.25);border:1px solid rgba(0,212,255,.2);
+  border-radius:10px;padding:14px;margin-bottom:12px;display:flex;flex-direction:column;gap:10px
+}
+.chat-msg{max-width:80%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.6;word-wrap:break-word}
+.chat-msg.user{align-self:flex-end;background:rgba(0,212,255,.2);border:1px solid rgba(0,212,255,.4);color:#e2e8f0}
+.chat-msg.ai{align-self:flex-start;background:rgba(0,0,0,.4);border:1px solid rgba(0,255,136,.3);color:#e2e8f0}
+.chat-msg .msg-meta{font-size:10px;color:#666;margin-bottom:4px}
+.chat-msg .audit-chip{
+  display:inline-block;font-size:10px;padding:1px 6px;border-radius:99px;margin-top:5px;
+  background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.3)
+}
+.chat-msg .audit-chip.yellow{background:rgba(255,215,0,.1);color:var(--gold);border-color:rgba(255,215,0,.3)}
+.chat-msg .audit-chip.red{background:rgba(255,107,107,.1);color:var(--red);border-color:rgba(255,107,107,.3)}
+.chat-input-row{display:flex;gap:8px;align-items:flex-end}
+.chat-input-row textarea{min-height:54px;flex:1;margin-bottom:0}
+.chat-opts{display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.chat-opts label{color:#b0b8d1;font-size:12px;font-weight:normal;display:flex;align-items:center;gap:4px;cursor:pointer}
+.chat-opts input[type=checkbox]{width:auto;padding:0}
+
+/* ── mem items ── */
+.mem-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mem-item{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.15);border-radius:9px;padding:12px;transition:.2s}
+.mem-item:hover{background:rgba(0,212,255,.06);border-color:var(--blue)}
+.mem-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(0,212,255,.1)}
+.mem-dna{font-family:Consolas,monospace;font-size:10px;color:var(--blue)}
+.mem-time{font-size:10px;color:#666}
+.mem-summary{font-size:12px;color:#ccc;line-height:1.5;margin-bottom:5px}
+.mem-tags{display:flex;flex-wrap:wrap;gap:4px}
+
+/* ── badges ── */
+.abadge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}
+.abadge-g{background:rgba(0,255,136,.12);color:var(--green);border:1px solid rgba(0,255,136,.35)}
+.abadge-y{background:rgba(255,215,0,.12);color:var(--gold);border:1px solid rgba(255,215,0,.35)}
+.abadge-r{background:rgba(255,107,107,.12);color:var(--red);border:1px solid rgba(255,107,107,.35)}
+.tag{background:rgba(0,212,255,.1);color:var(--blue);font-size:11px;padding:2px 6px;border-radius:99px;border:1px solid rgba(0,212,255,.25)}
+.tag-gold{background:rgba(255,215,0,.1);color:var(--gold);border-color:rgba(255,215,0,.25)}
+.tag-green{background:rgba(0,255,136,.08);color:var(--green);border-color:rgba(0,255,136,.25)}
+.tag-red{background:rgba(255,107,107,.08);color:var(--red);border-color:rgba(255,107,107,.25)}
+
+/* ── minloss ── */
+.minloss-box{background:rgba(255,215,0,.06);border:2px dashed rgba(255,215,0,.4);border-radius:8px;padding:12px;margin-top:10px}
+.minloss-title{color:var(--gold);font-weight:bold;font-size:13px;margin-bottom:6px}
+.minloss-body{font-size:12px;color:#e2e8f0;line-height:1.6;white-space:pre-wrap}
+
+/* ── svc status cards ── */
+.svc-card{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);border-radius:10px;padding:14px}
+.svc-name{font-size:14px;font-weight:bold;color:var(--blue);margin-bottom:8px}
+.svc-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.svc-dot.online{background:var(--green);box-shadow:0 0 8px var(--green)}
+.svc-dot.offline{background:var(--red)}
+
+/* ── sandbox 6-dim ── */
+.sixdim{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.sixdim-card{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.18);border-radius:8px;padding:10px;text-align:center;font-size:12px}
+.sixdim-card h4{color:var(--blue);font-size:11px;margin-bottom:4px}
+.sixdim-card p{color:#b0b8d1;font-size:11px;line-height:1.4}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+.plan-card{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);border-radius:8px;padding:12px}
+.plan-card h4{color:var(--gold);font-size:12px;margin-bottom:6px}
+.plan-card p{color:#ccc;font-size:12px;line-height:1.5}
+
+/* ── history table ── */
+.hist-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}
+.hist-table th{padding:8px;background:rgba(0,212,255,.1);color:var(--blue);text-align:left;border-bottom:1px solid rgba(0,212,255,.2)}
+.hist-table td{padding:7px 8px;border-bottom:1px solid rgba(0,0,0,.2);color:#ccc}
+.hist-table tr:hover td{background:rgba(0,212,255,.05)}
+
+/* ── code block ── */
+.code-block{background:rgba(0,0,0,.5);border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:12px;font-family:Consolas,monospace;font-size:11px;color:var(--green);white-space:pre;overflow-x:auto}
+
+/* ── modal ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#16213e;border:2px solid var(--blue);border-radius:12px;padding:20px;max-width:700px;width:95%;max-height:85vh;overflow-y:auto}
+.modal-title{font-size:16px;color:var(--blue);margin-bottom:12px}
+.modal-close{float:right;cursor:pointer;font-size:16px;color:#888}
+
+/* ── scrollbar ── */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.15)}
+::-webkit-scrollbar-thumb{background:rgba(0,212,255,.35);border-radius:3px}
+
+/* ── search bar ── */
+.search-bar{display:flex;gap:8px;margin-bottom:12px}
+.search-bar input{flex:1}
+
+/* ── dna gen ── */
+.dna-display{
+  background:rgba(0,212,255,.06);border:2px solid rgba(0,212,255,.3);border-radius:8px;
+  padding:14px;font-family:Consolas,monospace;font-size:13px;color:var(--gold);
+  word-break:break-all;min-height:50px;margin-top:10px
+}
+
+/* ── audit history ── */
+.audit-hist-item{
+  font-family:Consolas,monospace;font-size:11px;padding:5px 10px;
+  border-left:3px solid;margin-bottom:3px;border-radius:0 5px 5px 0;background:rgba(0,0,0,.2)
+}
+.ah-g{border-color:var(--green);color:var(--green)}
+.ah-y{border-color:var(--gold);color:var(--gold)}
+.ah-r{border-color:var(--red);color:var(--red)}
+
+/* ── mobile ── */
+@media(max-width:768px){
+  .tabs{grid-template-columns:repeat(3,1fr)}
+  .grid2,.grid3,.audit3d,.sixdim,.plans-grid{grid-template-columns:1fr}
+  .chat-area{height:300px}
+}
+@media(max-width:480px){
+  .tabs{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ═══════ HEADER ═══════ -->
+<div class="hub-header">
+  <h1>🐉 龍魂智能中枢 v4.0 | UID9622 全套系统</h1>
+  <div class="dna">DNA: #龍芯⚡️2026-03-12-龍魂智能中枢-v4.0</div>
+  <span class="gpg">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · 理论指导：曾仕强老师（永恒显示）</span>
+  <div class="header-badges">
+    <span class="svc-badge" id="badge9622">⚫ 审计后端(9622)</span>
+    <span class="svc-badge" id="badge8765">⚫ 主服务(8765)</span>
+    <span class="svc-badge" id="badge11434">⚫ Ollama(11434)</span>
+    <span id="headerClock">--:--:--</span>
+  </div>
+</div>
+
+<!-- ═══════ TABS ═══════ -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="chat"><span class="ticon">🤖</span>AI对话</button>
+  <button class="tab-btn" data-tab="audit"><span class="ticon">🔍</span>三色审计</button>
+  <button class="tab-btn" data-tab="dna"><span class="ticon">🧬</span>DNA管理</button>
+  <button class="tab-btn" data-tab="memory"><span class="ticon">💾</span>记忆库</button>
+  <button class="tab-btn" data-tab="sandbox"><span class="ticon">🐉</span>沙盒推演</button>
+  <button class="tab-btn" data-tab="status"><span class="ticon">📊</span>系统状态</button>
+  <button class="tab-btn" data-tab="git"><span class="ticon">🗂️</span>Git仓库</button>
+</div>
+
+<!-- ═══════ TAB 1: AI对话 ═══════ -->
+<div id="panel-chat" class="panel active">
+  <div class="card">
+    <div class="card-title">🤖 AI对话 · 龍魂人格</div>
+    <div class="chat-opts">
+      <div class="fg" style="margin:0;flex:1;min-width:160px">
+        <select id="chatModel">
+          <option value="">-- 加载模型中... --</option>
+        </select>
+      </div>
+      <label><input type="checkbox" id="chatPreAudit" checked> 三色预审</label>
+      <label><input type="checkbox" id="chatStream"> 流式输出</label>
+      <button class="btn btn-ghost" id="btnClearChat">🗑️ 清空对话</button>
+    </div>
+    <div class="chat-area" id="chatArea">
+      <div class="chat-msg ai">
+        <div class="msg-meta">🐉 龍魂 · 系统初始化</div>
+        <div>您好，UID9622！我是龍魂AI助手，已加载诸葛亮沙盒人格。三维审计在线，可随时与您对话。请先在上方选择Ollama模型。</div>
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <textarea id="chatInput" placeholder="输入问题…（Enter发送，Shift+Enter换行）" style="min-height:54px"></textarea>
+      <button class="btn btn-primary" id="btnSendChat" style="height:54px;white-space:nowrap">发送</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ TAB 2: 三色审计 ═══════ -->
+<div id="panel-audit" class="panel">
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🔍 三色审计 · 天时地利人和</div>
+      <div class="fg"><label>📋 待审计内容</label><textarea id="auditInput" placeholder="粘贴任意内容…"></textarea></div>
+      <div class="grid2" style="margin-bottom:10px">
+        <div class="fg" style="margin:0"><label>🏷️ 类别</label>
+          <select id="auditCat">
+            <option value="auto">🤖 自动</option>
+            <option value="战略">⚔️ 战略</option>
+            <option value="技术">💻 技术</option>
+            <option value="铁律">⚖️ 铁律</option>
+            <option value="创作">🎨 创作</option>
+            <option value="情感">💙 情感</option>
+            <option value="外源">⚠️ 外源</option>
+          </select>
+        </div>
+        <div class="fg" style="margin:0"><label>🔎 模式</label>
+          <select id="auditMode">
+            <option value="quick">快速审计(8765)</option>
+            <option value="deep">深度审计(9622)</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-warn" id="btnAudit">☯️ 执行审计</button>
+        <button class="btn btn-ghost" id="btnAuditClear">清空</button>
+      </div>
+      <div id="auditResultArea" style="margin-top:14px;display:none">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div id="auditBadgeBig" style="font-size:20px;font-weight:bold"></div>
+          <div id="auditScoreInfo" style="font-size:12px;color:#b0b8d1"></div>
+        </div>
+        <div class="audit3d" id="auditDimCards"></div>
+        <div id="auditMinLossBox" class="minloss-box" style="display:none">
+          <div class="minloss-title">⚡ 一键优化建议</div>
+          <div id="auditMinLossBody" class="minloss-body"></div>
+        </div>
+        <div class="result-box" id="auditDetailBox" style="margin-top:10px;display:none"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 审计历史（最近10条）</div>
+      <div id="auditHistList" style="display:flex;flex-direction:column;gap:5px">
+        <div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无审计记录</div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="card-title" style="margin-top:10px">⏰ 当前时辰卦象</div>
+        <div id="hexDisplay" class="stat-card" style="text-align:left;padding:12px;font-size:13px;line-height:1.8">计算中…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ TAB 3: DNA管理 ═══════ -->
+<div id="panel-dna" class="panel">
+  <div class="stats-grid" id="dnaStats">
+    <div class="stat-card"><div class="stat-val" id="dna-total">0</div><div class="stat-label">存证总数</div></div>
+    <div class="stat-card"><div class="stat-val" id="dna-today">0</div><div class="stat-label">今日新增</div></div>
+    <div class="stat-card"><div class="stat-val" id="dna-green">0</div><div class="stat-label">🟢 安全</div></div>
+    <div class="stat-card"><div class="stat-val" id="dna-yellow">0</div><div class="stat-label">🟡 警告</div></div>
+    <div class="stat-card"><div class="stat-val" id="dna-red">0</div><div class="stat-label">🔴 危险</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🧬 DNA生成器</div>
+      <div class="fg"><label>项目名称</label><input type="text" id="dnaProject" placeholder="龍魂系统 / CNSH翻译引擎 / 三才算法"></div>
+      <div class="fg"><label>标签/版本</label><input type="text" id="dnaTag" placeholder="v1.0 / 2026 / 战略"></div>
+      <div class="fg"><label>内容（用于哈希）</label><textarea id="dnaContent" placeholder="输入要存证的内容…" style="min-height:100px"></textarea></div>
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btnGenDNA">🧬 生成DNA</button>
+        <button class="btn btn-ghost" id="btnClearDNA">清空</button>
+      </div>
+      <div class="dna-display" id="dnaOutput">等待生成…</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔍 DNA验证器</div>
+      <div class="fg"><label>粘贴DNA码</label><textarea id="dnaVerifyInput" placeholder="#龍芯⚡️2026-03-12-项目名-v1.0-XXXXXXXX" style="min-height:80px"></textarea></div>
+      <div class="fg"><label>原始内容（可选，精确验证）</label><textarea id="dnaVerifyContent" placeholder="粘贴生成DNA时用的原始内容…" style="min-height:80px"></textarea></div>
+      <div class="btn-group">
+        <button class="btn btn-warn" id="btnVerifyDNA">🔍 验证</button>
+      </div>
+      <div class="result-box" id="dnaVerifyResult" style="margin-top:10px;min-height:80px">等待验证…</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 DNA存证记录</div>
+    <div id="dnaList" class="mem-list"><div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无存证</div></div>
+  </div>
+</div>
+
+<!-- ═══════ TAB 4: 记忆库 ═══════ -->
+<div id="panel-memory" class="panel">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-val" id="mem-total">0</div><div class="stat-label">记忆总数</div></div>
+    <div class="stat-card"><div class="stat-val" id="mem-green">0</div><div class="stat-label">🟢 安全</div></div>
+    <div class="stat-card"><div class="stat-val" id="mem-yellow">0</div><div class="stat-label">🟡 警告</div></div>
+    <div class="stat-card"><div class="stat-val" id="mem-red">0</div><div class="stat-label">🔴 拦截</div></div>
+    <div class="stat-card"><div class="stat-val" id="mem-cat">—</div><div class="stat-label">最多分类</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">💾 存记忆</div>
+      <div class="fg"><label>标题</label><input type="text" id="memTitle" placeholder="记忆标题…"></div>
+      <div class="fg"><label>内容</label><textarea id="memContent" placeholder="输入内容…"></textarea></div>
+      <div class="fg"><label>分类</label>
+        <select id="memCategory">
+          <option value="auto">🤖 自动分类</option>
+          <option value="战略">⚔️ 战略</option>
+          <option value="技术">💻 技术</option>
+          <option value="铁律">⚖️ 铁律</option>
+          <option value="创作">🎨 创作</option>
+          <option value="情感">💙 情感</option>
+          <option value="外源">⚠️ 外源</option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btnSaveMem">💾 审计并保存</button>
+        <button class="btn btn-ghost" id="btnClearMem">清空</button>
+      </div>
+      <div id="memSaveResult" class="result-box" style="margin-top:10px;display:none;min-height:60px"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📤 导入/导出</div>
+      <p style="font-size:12px;color:#b0b8d1;margin-bottom:12px;line-height:1.6">
+        导出：将所有记忆、DNA存证、审计日志打包为JSON<br>
+        导入：还原之前导出的JSON文件
+      </p>
+      <div class="btn-group">
+        <button class="btn btn-success" id="btnExportMem">📤 导出JSON</button>
+        <button class="btn btn-ghost" id="btnImportMem">📥 导入JSON</button>
+        <input type="file" id="importFile" accept=".json" style="display:none">
+        <button class="btn btn-danger" id="btnNukeMem">⚠️ 清空全部</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🗄️ 记忆检索</div>
+    <div class="search-bar">
+      <input type="search" id="memSearch" placeholder="🔍 关键词 / 分类 / DNA">
+      <button class="btn btn-ghost" id="btnSearchMem">搜索</button>
+      <button class="btn btn-ghost" id="btnRefreshMem">刷新</button>
+    </div>
+    <div id="memList" class="mem-list"><div style="color:#666;text-align:center;padding:30px;font-size:12px">暂无记忆</div></div>
+  </div>
+</div>
+
+<!-- ═══════ TAB 5: 沙盒推演 ═══════ -->
+<div id="panel-sandbox" class="panel">
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🐉 启动推演</div>
+      <div class="fg"><label>任务类型</label><input type="text" id="sbTaskType" placeholder="战略分析 / 技术决策 / 风险评估…"></div>
+      <div class="fg"><label>推演内容</label><textarea id="sbContent" placeholder="详细描述推演场景…" style="min-height:140px"></textarea></div>
+      <div class="btn-group">
+        <button class="btn btn-warn" id="btnRunSandbox">🐉 启动推演</button>
+        <button class="btn btn-ghost" id="btnClearSandbox">清空</button>
+        <a href="sandbox_dashboard.html" target="_blank" class="btn btn-ghost">📊 可视化面板</a>
+      </div>
+    </div>
+    <div class="card" id="sbResultCard" style="display:none">
+      <div class="card-title">📊 推演结果</div>
+      <div id="sbResult"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div class="card-title" style="margin:0">📋 推演历史</div>
+      <button class="btn btn-ghost" id="btnRefreshSbHist" style="font-size:11px">刷新</button>
+    </div>
+    <div id="sbHistTable"><div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无推演历史</div></div>
+  </div>
+</div>
+
+<!-- ═══════ TAB 6: 系统状态 ═══════ -->
+<!-- ═══════════════ Git 面板 ═══════════════ -->
+<div id="panel-git" class="panel">
+  <div class="card">
+    <div class="card-title">🗂️ Git 仓库管理 · 无需终端 · 开源免费</div>
+
+    <!-- 状态栏 -->
+    <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+      <span id="git-branch" style="background:rgba(0,212,255,.15);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--blue)">🌿 加载中...</span>
+      <span id="git-clean-badge" style="padding:4px 12px;border-radius:20px;font-size:12px">⏳</span>
+    </div>
+
+    <!-- 四个操作按钮 -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+      <button class="btn" onclick="gitStatus()">🔍 查看状态</button>
+      <button class="btn" onclick="gitStage()">📥 全部暂存</button>
+      <button class="btn" style="background:rgba(255,215,0,.15);border-color:var(--gold)" onclick="openCommitModal()">✅ 提交</button>
+      <button class="btn" style="background:rgba(0,255,136,.1);border-color:var(--green)" onclick="gitPush()">🚀 推送 GitHub+Gitee</button>
+    </div>
+
+    <!-- 变更文件列表 -->
+    <div style="margin-bottom:10px">
+      <div style="font-size:11px;color:#888;margin-bottom:5px">📋 变更文件</div>
+      <pre id="git-changes" style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;font-size:12px;color:#ccc;max-height:140px;overflow-y:auto;white-space:pre-wrap">—</pre>
+    </div>
+
+    <!-- 最近提交日志 -->
+    <div>
+      <div style="font-size:11px;color:#888;margin-bottom:5px">📜 最近提交</div>
+      <pre id="git-log" style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;font-size:11px;color:#aaa;max-height:180px;overflow-y:auto;white-space:pre-wrap">—</pre>
+    </div>
+
+    <!-- 推送结果 -->
+    <div id="git-push-result" style="margin-top:10px;display:none">
+      <div style="font-size:11px;color:#888;margin-bottom:5px">🚀 推送结果</div>
+      <pre id="git-push-log" style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;font-size:11px;color:var(--green);max-height:100px;overflow-y:auto;white-space:pre-wrap"></pre>
+    </div>
+  </div>
+
+  <!-- 提交弹窗 -->
+  <div id="commit-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center">
+    <div style="background:#1a1a2e;border:2px solid var(--gold);border-radius:14px;padding:24px;width:90%;max-width:500px">
+      <div style="font-size:16px;color:var(--gold);margin-bottom:14px">✅ 填写提交信息</div>
+      <textarea id="commit-msg" placeholder="本次改了什么？一句话说清楚..." style="width:100%;height:100px;background:rgba(0,0,0,.4);border:1px solid rgba(0,212,255,.3);border-radius:8px;color:#eee;padding:10px;font-size:13px;resize:none;margin-bottom:12px"></textarea>
+      <div style="display:flex;gap:10px">
+        <button class="btn" style="flex:1;background:rgba(0,255,136,.1);border-color:var(--green)" onclick="gitCommit()">✅ 确认提交</button>
+        <button class="btn" style="flex:1" onclick="closeCommitModal()">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="panel-status" class="panel">
+  <div class="stats-grid" id="sysAuditStats">
+    <div class="stat-card"><div class="stat-val" id="sys-total">—</div><div class="stat-label">审计总数</div></div>
+    <div class="stat-card"><div class="stat-val" id="sys-green">—</div><div class="stat-label">🟢 通过</div></div>
+    <div class="stat-card"><div class="stat-val" id="sys-yellow">—</div><div class="stat-label">🟡 警告</div></div>
+    <div class="stat-card"><div class="stat-val" id="sys-red">—</div><div class="stat-label">🔴 拦截</div></div>
+    <div class="stat-card"><div class="stat-val" id="sys-rate">—</div><div class="stat-label">拦截率</div></div>
+  </div>
+  <div class="grid3">
+    <div class="svc-card">
+      <div class="svc-name">🔍 审计服务 (9622)</div>
+      <div id="svc9622Status"><span class="svc-dot offline"></span><span style="font-size:12px;color:#888">检测中…</span></div>
+      <div id="svc9622Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-name">⚙️ 主服务 (8765)</div>
+      <div id="svc8765Status"><span class="svc-dot offline"></span><span style="font-size:12px;color:#888">检测中…</span></div>
+      <div id="svc8765Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-name">🦙 Ollama (11434)</div>
+      <div id="svc11434Status"><span class="svc-dot offline"></span><span style="font-size:12px;color:#888">检测中…</span></div>
+      <div id="svc11434Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="card-title">🧪 测试报告</div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnTestReport">获取测试报告</button>
+      <button class="btn btn-ghost" id="btnRefreshStatus">刷新所有状态</button>
+    </div>
+    <div id="testReportResult" class="result-box" style="margin-top:10px;display:none"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">🚀 服务启动命令</div>
+    <div class="code-block">
+# 审计服务 (port 9622)
+python3 ~/longhun-system/auditor.py serve
+
+# 主服务 (port 8765)
+python3 ~/longhun-system/app.py
+
+# Ollama
+ollama serve
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MODAL ═══════ -->
+<div class="modal-overlay" id="memModal">
+  <div class="modal">
+    <span class="modal-close" id="modalClose">✕</span>
+    <h3 class="modal-title">📖 记忆详情</h3>
+    <div id="modalBody" class="result-box" style="min-height:200px;max-height:50vh"></div>
+  </div>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 龍魂智能中枢 v4.0
+// DNA: #龍芯⚡️2026-03-12-龍魂智能中枢-v4.0
+// GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+// 理论指导: 曾仕强老师（永恒显示）
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// ── constants ──────────────────────────────────
+const GPG = 'A2D0092CEE2E5BA87035600924C3704A8CC26D5F';
+const UID = 'UID9622';
+const CONFIRM = '#CONFIRM\uD83C\uDF0C9622-ONLY-ONCE\uD83E\uDDEC\u{1F9EC}LK9X-772Z';
+const DNA_HUB = '#\u9F99\u82AF\u26A1\uFE0F2026-03-12-\u9F99\u9B42\u667A\u80FD\u4E2D\u67A2-v4.0';
+
+// ── endpoints ──────────────────────────────────
+const EP_AUDITOR = 'http://127.0.0.1:9622';
+const EP_MAIN    = 'http://127.0.0.1:8765';
+const EP_OLLAMA  = 'http://localhost:11434';
+
+// ── DB ──────────────────────────────────────────
+const DB_NAME = '龍魂v4', DB_VER = 1;
+let db = null;
+
+function initDB() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(DB_NAME, DB_VER);
+    r.onerror = () => rej(r.error);
+    r.onsuccess = () => { db = r.result; res(db); };
+    r.onupgradeneeded = e => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains('memories')) {
+        const s = d.createObjectStore('memories', { keyPath: 'id', autoIncrement: true });
+        s.createIndex('dna', 'dna', { unique: true });
+        s.createIndex('time', 'time');
+        s.createIndex('category', 'category');
+      }
+      if (!d.objectStoreNames.contains('dna_evidences')) {
+        d.createObjectStore('dna_evidences', { keyPath: 'id', autoIncrement: true });
+      }
+      if (!d.objectStoreNames.contains('audit_log')) {
+        const al = d.createObjectStore('audit_log', { keyPath: 'id', autoIncrement: true });
+        al.createIndex('time', 'time');
+        al.createIndex('color', 'color');
+      }
+    };
+  });
+}
+function dbPut(store, obj) {
+  return new Promise((res, rej) => {
+    const tx = db.transaction([store], 'readwrite');
+    const r = tx.objectStore(store).put(obj);
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+function dbGetAll(store) {
+  return new Promise((res, rej) => {
+    const tx = db.transaction([store], 'readonly');
+    const r = tx.objectStore(store).getAll();
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+function dbDelete(store, key) {
+  return new Promise((res, rej) => {
+    const tx = db.transaction([store], 'readwrite');
+    const r = tx.objectStore(store).delete(key);
+    r.onsuccess = () => res();
+    r.onerror = () => rej(r.error);
+  });
+}
+function dbClear(store) {
+  return new Promise((res, rej) => {
+    const tx = db.transaction([store], 'readwrite');
+    const r = tx.objectStore(store).clear();
+    r.onsuccess = () => res();
+    r.onerror = () => rej(r.error);
+  });
+}
+
+// ── helpers ────────────────────────────────────
+function nowISO() { return new Date().toISOString(); }
+function nowCN() { return new Date().toLocaleString('zh-CN'); }
+function nowDate() { return new Date().toISOString().slice(0, 10).replace(/-/g, ''); }
+function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+function simpleHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+const STOP = new Set('的了在是我有和就不人都一个上也很到说要去你会着没有看好自己这那'.split(''));
+function extractKw(text, n = 8) {
+  const f = {};
+  text.split(/[\s，。！？；：、【】「」''""()\[\]]+/).filter(w => w.length > 1).forEach(w => {
+    if ([...w].every(c => STOP.has(c))) return;
+    f[w] = (f[w] || 0) + 1;
+  });
+  return Object.entries(f).sort((a, b) => b[1] - a[1]).slice(0, n).map(([w]) => w);
+}
+function analyzeEmotion(text) {
+  const p = ['开心', '快乐', '成功', '棒', '好', '感谢', '坚持', '胜利'];
+  const ng = ['难过', '失败', '崩了', '完了', '错', '烦', '压力'];
+  let ps = 0, ns = 0;
+  p.forEach(w => { if (text.includes(w)) ps++; });
+  ng.forEach(w => { if (text.includes(w)) ns++; });
+  return ps > ns ? '积极🟢' : ns > ps ? '消极🔴' : '平静🟡';
+}
+
+// ── 天时地利人和三维审计 ────────────────────────
+const HEXAGRAMS = [
+  { n: '乾', sym: '☰', h: [11, 13], sc: 90, desc: '刚健进取·适合创建决策·阳气充足' },
+  { n: '坤', sym: '☷', h: [1, 3], sc: 72, desc: '包容守护·适合归档整理·以柔克刚' },
+  { n: '坎', sym: '☵', h: [23, 25], sc: 58, desc: '险中求进·需谨慎行事·知险方胜' },
+  { n: '离', sym: '☲', h: [9, 11], sc: 82, desc: '光明文明·适合创作发布·智慧燃烧' },
+  { n: '震', sym: '☳', h: [3, 5], sc: 68, desc: '变革突破·适合升级迭代·雷声阵阵' },
+  { n: '巽', sym: '☴', h: [5, 7], sc: 85, desc: '柔顺渗透·适合沟通协调·顺势而为' },
+  { n: '艮', sym: '☶', h: [19, 21], sc: 65, desc: '止静守持·适合审查防守·止于所止' },
+  { n: '兑', sym: '☱', h: [7, 9], sc: 78, desc: '喜悦交流·适合分享发布·泽被万物' },
+  { n: '坤2', sym: '☷', h: [13, 15], sc: 72, desc: '包容守护·午后沉淀期·厚德载物' },
+  { n: '兑2', sym: '☱', h: [15, 17], sc: 78, desc: '喜悦交流·申时活跃期·金秋收获' },
+  { n: '巽2', sym: '☴', h: [17, 19], sc: 82, desc: '巽风化雨·酉时总结期·归巢入息' },
+  { n: '坎2', sym: '☵', h: [21, 23], sc: 60, desc: '夜深险境·亥时慎独期·以不变应变' },
+];
+function getHexagram() {
+  const h = new Date().getHours();
+  for (const hx of HEXAGRAMS) { if (h >= hx.h[0] && h < hx.h[1]) return hx; }
+  return HEXAGRAMS[0];
+}
+function calcTianShi() {
+  const hx = getHexagram();
+  const hour = new Date().getHours();
+  let score = hx.sc;
+  if (hour >= 0 && hour < 5) score = Math.max(45, score - 20);
+  return { score, hexagram: hx, reason: `${hx.sym}${hx.n}卦（${hour}时）· ${hx.desc}` };
+}
+function calcDiLi(text, category) {
+  let score = 75, reasons = [];
+  const EXT = [/通义千问|Qwen|DeepSeek|深度求索|豆包|Kimi|文心一言|ChatGPT|GPT-4/i];
+  if (EXT.some(p => p.test(text))) { score -= 30; reasons.push('检测到外源AI内容（-30）'); }
+  const HIJACK = ['你现在是', '忘记上面', '忽略之前', '重新设定', 'system prompt'];
+  const h = HIJACK.filter(w => text.toLowerCase().includes(w.toLowerCase()));
+  if (h.length) { score -= 40; reasons.push(`身份重定义指令: ${h.join('|')} (-40)`); }
+  if (text.length > 800 && category === '外源') { score -= 15; reasons.push('大段外源内容未经净化 (-15)'); }
+  const catMatch = {
+    战略: /决策|规划|架构|布局|战略|方向/,
+    技术: /代码|算法|API|函数|系统|实现/,
+    铁律: /原则|规则|铁律|价值观|不能|禁止|必须/,
+    创作: /创作|写作|设计|想法|发布/,
+    情感: /感谢|担心|开心|感动|爱/
+  };
+  if (category !== 'auto' && category in catMatch && catMatch[category].test(text)) {
+    score += 10; reasons.push(`内容与分类(${category})高度匹配 (+10)`);
+  }
+  score = Math.max(10, Math.min(100, score));
+  return { score, reason: reasons.length ? reasons.join('\n') : '环境适配良好', category };
+}
+const VALUES = [
+  { kw: /祖国|人民|中国|华夏|中华/, name: '祖国优先', w: 20 },
+  { kw: /数据主权|本地优先|不出境|隐私/, name: '数据主权', w: 20 },
+  { kw: /DNA追溯|留痕|公证|溯源/, name: 'DNA追溯', w: 15 },
+  { kw: /儿童|未成年|弱者|底层|保护/, name: '儿童/弱者保护', w: 25 },
+  { kw: /公平|防剥削|一人一DNA|共建/, name: '公平共建', w: 20 },
+];
+const HARM_RED = ['儿童色情', '儿童性', '制造武器', '制毒', '诈骗欺诈', '病毒木马'];
+const HARM_YEL = ['绕过审计', '违法行为', 'ignore previous', '忘记所有规则'];
+function calcRenHe(text) {
+  let score = 60, reasons = [];
+  for (const w of HARM_RED) {
+    if (text.includes(w)) return { score: 0, reason: `🔴 绝对红线: "${w}"`, level: 'red' };
+  }
+  for (const w of HARM_YEL) {
+    if (text.toLowerCase().includes(w.toLowerCase())) { score -= 30; reasons.push(`危险内容: "${w}" (-30)`); }
+  }
+  for (const v of VALUES) {
+    if (v.kw.test(text)) { score += v.w; reasons.push(`✅ 对齐[${v.name}] (+${v.w})`); }
+  }
+  if (/弱者|底层|无知|儿童|老人|残障|贫困/.test(text) && !/伤害|诱导|欺骗/.test(text)) {
+    score += 15; reasons.push('保护弱势群体 (+15)');
+  }
+  score = Math.max(0, Math.min(100, score));
+  const level = score >= 70 ? 'green' : score >= 40 ? 'yellow' : 'red';
+  return { score, reason: reasons.join('\n') || '基本对齐龍魂价值观', level };
+}
+function autoClassify(text) {
+  const cats = {
+    '外源': { p: /通义千问|Qwen|DeepSeek|文心一言|ChatGPT|GPT-|Kimi|豆包/i, score: 0 },
+    '铁律': { p: /规则|铁律|原则|价值观|禁止|必须|不能|红线/, score: 0 },
+    '战略': { p: /决策|规划|战略|架构|布局|目标|系统|方向/, score: 0 },
+    '技术': { p: /代码|算法|API|函数|实现|调试|程序|脚本/, score: 0 },
+    '创作': { p: /创作|写作|设计|想法|灵感|发布|论文|文章/, score: 0 },
+    '情感': { p: /感谢|担心|开心|难过|感动|感激|爱|家人/, score: 0 },
+  };
+  for (const [k, v] of Object.entries(cats)) {
+    const m = text.match(new RegExp(v.p, 'gi'));
+    cats[k].score = m ? m.length : 0;
+  }
+  const sorted = Object.entries(cats).sort((a, b) => b[1].score - a[1].score);
+  return sorted[0][1].score > 0 ? sorted[0][0] : '战略';
+}
+function multiDimAudit(text, category = 'auto') {
+  if (category === 'auto') category = autoClassify(text);
+  const tianShi = calcTianShi();
+  const diLi = calcDiLi(text, category);
+  const renHe = calcRenHe(text);
+  const avgScore = (tianShi.score + diLi.score + renHe.score) / 3;
+  const minScore = Math.min(tianShi.score, diLi.score, renHe.score);
+  let color, badge;
+  if (minScore < 30 || renHe.level === 'red') { color = 'red'; badge = '🔴 危险·熔断'; }
+  else if (minScore < 55 || avgScore < 60) { color = 'yellow'; badge = '🟡 警告·需确认'; }
+  else { color = 'green'; badge = '🟢 安全·可执行'; }
+  let minLoss = null;
+  if (color !== 'green') minLoss = calcMinLoss(text, { tianShi, diLi, renHe, color, category });
+  return { tianShi, diLi, renHe, avgScore, minScore, color, badge, minLoss, category };
+}
+function calcMinLoss(text, dims) {
+  const suggestions = [];
+  if (dims.renHe.level === 'red') {
+    suggestions.push('🔴 人和维度违规：');
+    suggestions.push('  → 移除涉及绝对红线的内容');
+    suggestions.push('  → 保留可用的技术/事实内容');
+  }
+  if (dims.diLi.score < 55) {
+    if (/千问|Qwen|DeepSeek|文心|ChatGPT/i.test(text)) {
+      suggestions.push('⚠️ 地利维度：外源内容处理：');
+      suggestions.push('  → 提取核心事实，去除价值观框架');
+      suggestions.push('  → 用【我的意图是：...】重新表述');
+    }
+    if (dims.diLi.score < 30) suggestions.push('  → 建议降低操作频率');
+  }
+  if (dims.tianShi.score < 55) {
+    suggestions.push(`⏰ 天时维度：时机不佳（当前${dims.tianShi.hexagram.sym}${dims.tianShi.hexagram.n}卦）`);
+    suggestions.push('  → 可等待乾☰或离☲时辰再执行');
+  }
+  if (!suggestions.length) suggestions.push('核心内容可保留，建议精简后重新提交');
+  return suggestions.join('\n');
+}
+
+// ── render dim cards ────────────────────────────
+function renderDimCards(containerId, auditR) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const dims = [
+    { label: '天时 ☰', data: auditR.tianShi, icon: '⏰' },
+    { label: '地利 ☷', data: auditR.diLi, icon: '🌍' },
+    { label: '人和 ☵', data: auditR.renHe, icon: '🤝' },
+  ];
+  el.innerHTML = dims.map(d => {
+    const sc = d.data.score;
+    const cls = sc >= 70 ? 'dim-green' : sc >= 40 ? 'dim-yellow' : 'dim-red';
+    return `<div class="dim-card ${cls}">
+      <div class="dim-name">${d.icon} ${d.label}</div>
+      <div class="dim-score">${Math.round(sc)}</div>
+      <div class="dim-desc">${escHtml((d.data.reason || '').split('\n')[0].slice(0, 60))}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── audit log ───────────────────────────────────
+async function logAudit(color, action, detail) {
+  try {
+    await dbPut('audit_log', { time: nowISO(), color, action, detail });
+  } catch (e) { /* non-critical */ }
+}
+
+// ── service status ──────────────────────────────
+const svcStatus = { s9622: false, s8765: false, s11434: false };
+
+async function checkServices() {
+  // 9622
+  try {
+    const r = await fetch(EP_AUDITOR + '/status', { signal: AbortSignal.timeout(3000) });
+    if (r.ok) {
+      const d = await r.json();
+      svcStatus.s9622 = true;
+      setSvcBadge('badge9622', true, '审计后端(9622)');
+      setSvcCard('svc9622Status', 'svc9622Info', true, d.hexagram?.hexagram || '');
+    } else { throw new Error('not ok'); }
+  } catch {
+    svcStatus.s9622 = false;
+    setSvcBadge('badge9622', false, '审计后端(9622)');
+    setSvcCard('svc9622Status', 'svc9622Info', false, '');
+  }
+  // 8765
+  try {
+    const r = await fetch(EP_MAIN + '/审计统计', { signal: AbortSignal.timeout(3000) });
+    if (r.ok) {
+      const d = await r.json();
+      svcStatus.s8765 = true;
+      setSvcBadge('badge8765', true, '主服务(8765)');
+      setSvcCard('svc8765Status', 'svc8765Info', true, `总审计: ${d.total || 0}`);
+      // update stats panel
+      const el_t = document.getElementById('sys-total');
+      const el_g = document.getElementById('sys-green');
+      const el_y = document.getElementById('sys-yellow');
+      const el_r = document.getElementById('sys-red');
+      const el_rate = document.getElementById('sys-rate');
+      if (el_t) el_t.textContent = d.total || 0;
+      if (el_g) el_g.textContent = d.green || 0;
+      if (el_y) el_y.textContent = d.yellow || 0;
+      if (el_r) el_r.textContent = d.red || 0;
+      if (el_rate) {
+        const rate = d.total > 0 ? ((d.red || 0) / d.total * 100).toFixed(1) : '0';
+        el_rate.textContent = rate + '%';
+      }
+    } else { throw new Error('not ok'); }
+  } catch {
+    svcStatus.s8765 = false;
+    setSvcBadge('badge8765', false, '主服务(8765)');
+    setSvcCard('svc8765Status', 'svc8765Info', false, '');
+  }
+  // 11434
+  try {
+    const r = await fetch(EP_OLLAMA + '/api/tags', { signal: AbortSignal.timeout(3000) });
+    if (r.ok) {
+      const d = await r.json();
+      svcStatus.s11434 = true;
+      const models = (d.models || []).map(m => m.name);
+      setSvcBadge('badge11434', true, 'Ollama(11434)');
+      setSvcCard('svc11434Status', 'svc11434Info', true, `${models.length}个模型: ${models.slice(0, 3).join(', ')}`);
+      loadOllamaModels(models);
+    } else { throw new Error('not ok'); }
+  } catch {
+    svcStatus.s11434 = false;
+    setSvcBadge('badge11434', false, 'Ollama(11434)');
+    setSvcCard('svc11434Status', 'svc11434Info', false, '');
+    // keep default option
+    const sel = document.getElementById('chatModel');
+    if (sel && sel.options.length <= 1) {
+      sel.innerHTML = '<option value="">Ollama离线 · 请启动ollama serve</option>';
+    }
+  }
+}
+
+function setSvcBadge(id, online, label) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.className = 'svc-badge ' + (online ? 'online' : 'offline');
+  el.textContent = (online ? '🟢 ' : '🔴 ') + label;
+}
+function setSvcCard(statusId, infoId, online, info) {
+  const se = document.getElementById(statusId);
+  const ie = document.getElementById(infoId);
+  if (se) se.innerHTML = `<span class="svc-dot ${online ? 'online' : 'offline'}"></span><span style="font-size:12px;color:${online ? 'var(--green)' : 'var(--red)'}">${online ? '🟢 在线' : '🔴 离线'}</span>`;
+  if (ie) ie.textContent = info;
+}
+function loadOllamaModels(models) {
+  const sel = document.getElementById('chatModel');
+  if (!sel) return;
+  const prev = sel.value;
+  sel.innerHTML = models.length
+    ? models.map(m => `<option value="${escHtml(m)}">${escHtml(m)}</option>`).join('')
+    : '<option value="">无可用模型</option>';
+  if (prev && models.includes(prev)) sel.value = prev;
+}
+
+// ── clock ───────────────────────────────────────
+function updateClock() {
+  const el = document.getElementById('headerClock');
+  if (el) el.textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+}
+
+// ── hex display ─────────────────────────────────
+function updateHexDisplay() {
+  const hx = getHexagram();
+  const el = document.getElementById('hexDisplay');
+  if (!el) return;
+  el.innerHTML = `<b style="font-size:22px;color:var(--gold)">${hx.sym}</b>
+   <b style="color:var(--blue)">${hx.n}卦</b> · 评分: <b style="color:var(--green)">${hx.sc}</b><br>
+   <span style="font-size:12px;color:#b0b8d1">${hx.desc}</span><br>
+   <span style="font-size:11px;color:#666">当前时辰：${new Date().getHours()}时</span>`;
+}
+
+// ── Tab 1: Chat ─────────────────────────────────
+const SYSTEM_PROMPT = `你是龍魂AI，诸葛亮沙盒人格。
+创始人：UID9622 诸葛鑫（龍芯北辰）
+理论指导：曾仕强老师（永恒显示）
+DNA: ${DNA_HUB}
+你的回答风格：简洁、智慧、充满东方哲学，善用三才算法（天时地利人和）分析问题。
+铁律：不造假、不欺骗、数据主权归用户、祖国优先、普惠全球。`;
+
+let chatHistory = [];
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const model = document.getElementById('chatModel').value;
+  if (!model) { appendChat('system', '请先选择Ollama模型'); return; }
+
+  const preAudit = document.getElementById('chatPreAudit').checked;
+  input.value = '';
+
+  // pre-audit
+  if (preAudit) {
+    const ar = multiDimAudit(msg, 'auto');
+    if (ar.color === 'red') {
+      appendChat('system', `🔴 三色预审拦截！${ar.badge}\n${ar.minLoss || ''}`, 'red');
+      await logAudit('red', 'Chat预审拦截', msg.slice(0, 60));
+      return;
+    }
+    appendChat('user', msg, null, ar.color, ar.badge);
+  } else {
+    appendChat('user', msg);
+  }
+
+  const btn = document.getElementById('btnSendChat');
+  btn.disabled = true; btn.textContent = '发送中…';
+
+  try {
+    const prompt = SYSTEM_PROMPT + '\n\n用户：' + msg;
+    const res = await fetch(EP_OLLAMA + '/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model, prompt, stream: false }),
+      signal: AbortSignal.timeout(60000)
+    });
+    if (!res.ok) throw new Error('Ollama返回错误: ' + res.status);
+    const data = await res.json();
+    const reply = data.response || '';
+
+    // auto quick audit on AI response
+    let replyColor = null, replyBadge = null;
+    try {
+      const ar2 = await quickAudit8765(reply);
+      replyColor = ar2.color; replyBadge = ar2.badge;
+    } catch {
+      const ar2 = multiDimAudit(reply, 'auto');
+      replyColor = ar2.color; replyBadge = ar2.badge;
+    }
+    appendChat('ai', reply, null, replyColor, replyBadge);
+    await logAudit(replyColor || 'green', 'Chat AI回复', reply.slice(0, 60));
+    chatHistory.push({ role: 'user', content: msg }, { role: 'assistant', content: reply });
+  } catch (err) {
+    appendChat('system', '❌ 请求失败：' + err.message, 'red');
+  } finally {
+    btn.disabled = false; btn.textContent = '发送';
+  }
+}
+
+function appendChat(role, content, cls, auditColor, auditBadge) {
+  const area = document.getElementById('chatArea');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + (role === 'user' ? 'user' : role === 'ai' ? 'ai' : 'ai');
+  const metaMap = { user: '👤 UID9622', ai: '🐉 龍魂AI', system: '⚙️ 系统' };
+  let html = `<div class="msg-meta">${metaMap[role] || role} · ${new Date().toLocaleTimeString('zh-CN')}</div>`;
+  html += `<div>${escHtml(content).replace(/\n/g, '<br>')}</div>`;
+  if (auditBadge) {
+    const chipCls = auditColor === 'yellow' ? 'yellow' : auditColor === 'red' ? 'red' : '';
+    html += `<div><span class="audit-chip ${chipCls}">${escHtml(auditBadge)}</span></div>`;
+  }
+  div.innerHTML = html;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+// ── Tab 2: Audit ─────────────────────────────────
+const auditHist = [];
+
+async function runAudit() {
+  const text = document.getElementById('auditInput').value.trim();
+  const cat = document.getElementById('auditCat').value;
+  const mode = document.getElementById('auditMode').value;
+  if (!text) { alert('请输入内容'); return; }
+
+  const btn = document.getElementById('btnAudit');
+  btn.disabled = true; btn.textContent = '审计中…';
+
+  try {
+    let auditR;
+    if (mode === 'quick' && svcStatus.s8765) {
+      auditR = await quickAudit8765(text, cat);
+    } else if (mode === 'deep' && svcStatus.s9622) {
+      auditR = await deepAudit9622(text, cat);
+    } else {
+      auditR = multiDimAudit(text, cat);
+    }
+
+    document.getElementById('auditResultArea').style.display = 'block';
+    const colorMap = { green: 'abadge-g', yellow: 'abadge-y', red: 'abadge-r' };
+    document.getElementById('auditBadgeBig').innerHTML =
+      `<span class="abadge ${colorMap[auditR.color] || 'abadge-g'}" style="font-size:18px;padding:5px 16px">${escHtml(auditR.badge)}</span>`;
+    document.getElementById('auditScoreInfo').textContent =
+      `均分 ${Math.round(auditR.avgScore || 0)} · 最弱 ${Math.round(auditR.minScore || 0)} · 分类: ${auditR.category || cat}`;
+    renderDimCards('auditDimCards', auditR);
+
+    if (auditR.minLoss) {
+      document.getElementById('auditMinLossBox').style.display = 'block';
+      document.getElementById('auditMinLossBody').textContent = auditR.minLoss;
+    } else {
+      document.getElementById('auditMinLossBox').style.display = 'none';
+    }
+
+    if (auditR._raw) {
+      document.getElementById('auditDetailBox').style.display = 'block';
+      document.getElementById('auditDetailBox').textContent = JSON.stringify(auditR._raw, null, 2);
+    } else {
+      document.getElementById('auditDetailBox').style.display = 'none';
+    }
+
+    // history
+    auditHist.unshift({ time: nowCN(), badge: auditR.badge, color: auditR.color, text: text.slice(0, 40) });
+    renderAuditHist();
+    await logAudit(auditR.color, `三色审计(${mode})`, text.slice(0, 60));
+  } catch (err) {
+    alert('审计失败: ' + err.message);
+  } finally {
+    btn.disabled = false; btn.textContent = '☯️ 执行审计';
+  }
+}
+
+function renderAuditHist() {
+  const el = document.getElementById('auditHistList');
+  if (!el) return;
+  const items = auditHist.slice(0, 10);
+  if (!items.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无审计记录</div>'; return; }
+  el.innerHTML = items.map(a => {
+    const cls = a.color === 'green' ? 'ah-g' : a.color === 'yellow' ? 'ah-y' : 'ah-r';
+    return `<div class="audit-hist-item ${cls}">${a.time} | ${escHtml(a.badge)} | ${escHtml(a.text)}…</div>`;
+  }).join('');
+}
+
+async function quickAudit8765(text, cat) {
+  const r = await fetch(EP_MAIN + '/三色审计', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, category: cat || 'auto' }),
+    signal: AbortSignal.timeout(5000)
+  });
+  if (!r.ok) throw new Error('8765 error ' + r.status);
+  const d = await r.json();
+  // normalize
+  const colorStr = d.color || '';
+  const color = colorStr.includes('🟢') ? 'green' : colorStr.includes('🟡') ? 'yellow' : 'red';
+  const localFallback = multiDimAudit(text, cat || 'auto');
+  return {
+    color, badge: d.badge || colorStr,
+    avgScore: d.score || localFallback.avgScore,
+    minScore: d.min_score || localFallback.minScore,
+    tianShi: localFallback.tianShi,
+    diLi: localFallback.diLi,
+    renHe: localFallback.renHe,
+    category: d.category || localFallback.category,
+    minLoss: d.suggestions ? d.suggestions.join('\n') : localFallback.minLoss,
+    _raw: d
+  };
+}
+
+async function deepAudit9622(text, cat) {
+  const r = await fetch(EP_AUDITOR + '/audit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, category: cat || 'auto' }),
+    signal: AbortSignal.timeout(5000)
+  });
+  if (!r.ok) throw new Error('9622 error ' + r.status);
+  const d = await r.json();
+  const colorStr = d.color || '';
+  const color = colorStr.includes('🟢') ? 'green' : colorStr.includes('🟡') ? 'yellow' : 'red';
+  const tsSc = d.tian_shi?.score || 0;
+  const dlSc = d.di_li?.score || 0;
+  const rhSc = d.ren_he?.score || 0;
+  return {
+    color, badge: d.badge || colorStr,
+    avgScore: d.avg_score || (tsSc + dlSc + rhSc) / 3,
+    minScore: d.min_score || Math.min(tsSc, dlSc, rhSc),
+    tianShi: { score: tsSc, reason: d.tian_shi?.reason || '', hexagram: getHexagram() },
+    diLi: { score: dlSc, reason: d.di_li?.reason || '' },
+    renHe: { score: rhSc, reason: d.ren_he?.reason || '', level: rhSc >= 70 ? 'green' : rhSc >= 40 ? 'yellow' : 'red' },
+    category: d.category || cat,
+    minLoss: d.min_loss?.suggestions?.join('\n') || '',
+    _raw: d
+  };
+}
+
+// ── Tab 3: DNA ───────────────────────────────────
+function genDNA() {
+  const proj = document.getElementById('dnaProject').value.trim() || 'CREATION';
+  const tag = document.getElementById('dnaTag').value.trim() || 'v1.0';
+  const content = document.getElementById('dnaContent').value.trim();
+  if (!content) { alert('请输入内容'); return; }
+  const date = new Date().toISOString().slice(0, 10);
+  const hash8 = simpleHash(proj + date + content).toString(16).slice(0, 8).toUpperCase();
+  const dna = `#龍芯⚡️${date}-${proj.replace(/\s+/g, '-').toUpperCase()}-${tag}-${hash8}`;
+  document.getElementById('dnaOutput').textContent = dna;
+
+  const ar = multiDimAudit(content, 'auto');
+  const ev = {
+    dna, project: proj, tag, time: nowISO(),
+    contentLen: content.length, hash8, gpg: GPG, uid: UID,
+    audit: ar, summary: content.slice(0, 80) + (content.length > 80 ? '…' : '')
+  };
+  dbPut('dna_evidences', ev).then(() => {
+    refreshDNAList(); updateDNAStats(); logAudit(ar.color, 'DNA生成', `proj:${proj}`);
+  }).catch(e => alert('存证失败: ' + e.message));
+}
+
+function verifyDNA() {
+  const dnaStr = document.getElementById('dnaVerifyInput').value.trim();
+  const content = document.getElementById('dnaVerifyContent').value.trim();
+  const resEl = document.getElementById('dnaVerifyResult');
+
+  if (!dnaStr) { resEl.textContent = '请输入DNA码'; return; }
+
+  // format check
+  const dnaRegex = /^#龍芯⚡️\d{4}-\d{2}-\d{2}-.+$/;
+  const formatOk = dnaRegex.test(dnaStr);
+
+  dbGetAll('dna_evidences').then(all => {
+    const match = all.find(e => e.dna === dnaStr);
+    let lines = [];
+    lines.push(`格式检查: ${formatOk ? '✅ 合法DNA格式' : '⚠️ 格式不标准'}`);
+    if (match) {
+      lines.push(`数据库查找: ✅ 找到匹配存证`);
+      lines.push(`项目: ${match.project}  内容: ${match.contentLen}字`);
+      lines.push(`存证时间: ${new Date(match.time).toLocaleString('zh-CN')}`);
+      lines.push(`审计: ${match.audit.badge}`);
+    } else {
+      lines.push(`数据库查找: ⚠️ 未找到（此设备未存证或已清空）`);
+    }
+    if (content) {
+      const date = dnaStr.match(/\d{4}-\d{2}-\d{2}/)?.[0] || '';
+      const proj = dnaStr.split('-').slice(3, -2).join('-');
+      const hash8 = simpleHash(proj + date.replace(/-/g, '-') + content).toString(16).slice(0, 8).toUpperCase();
+      const expectedHash = dnaStr.split('-').pop();
+      lines.push(`内容哈希校验: ${hash8.toUpperCase() === expectedHash.toUpperCase() ? '✅ 哈希匹配' : '❌ 哈希不匹配（内容可能被修改）'}`);
+    }
+    resEl.textContent = lines.join('\n');
+  });
+}
+
+async function refreshDNAList() {
+  const all = await dbGetAll('dna_evidences');
+  all.sort((a, b) => new Date(b.time) - new Date(a.time));
+  const el = document.getElementById('dnaList');
+  if (!el) return;
+  if (!all.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无存证</div>'; return; }
+  el.innerHTML = all.map(e => `
+    <div class="mem-item">
+      <div class="mem-head">
+        <span class="mem-dna" style="color:var(--gold)">${escHtml(e.dna)}</span>
+        <span class="mem-time">${new Date(e.time).toLocaleString('zh-CN')}</span>
+      </div>
+      <div class="mem-summary">📁 ${escHtml(e.project)} · ${e.contentLen}字</div>
+      <div class="mem-tags">
+        <span class="abadge ${e.audit.color === 'green' ? 'abadge-g' : e.audit.color === 'yellow' ? 'abadge-y' : 'abadge-r'}">${escHtml(e.audit.badge)}</span>
+        <span class="tag">${escHtml(e.summary)}</span>
+      </div>
+    </div>`).join('');
+}
+
+async function updateDNAStats() {
+  const all = await dbGetAll('dna_evidences');
+  const today = new Date().toISOString().slice(0, 10);
+  const el = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
+  el('dna-total', all.length);
+  el('dna-today', all.filter(e => e.time.slice(0, 10) === today).length);
+  el('dna-green', all.filter(e => e.audit?.color === 'green').length);
+  el('dna-yellow', all.filter(e => e.audit?.color === 'yellow').length);
+  el('dna-red', all.filter(e => e.audit?.color === 'red').length);
+}
+
+// ── Tab 4: Memory ────────────────────────────────
+async function saveMemory() {
+  const title = document.getElementById('memTitle').value.trim();
+  const content = document.getElementById('memContent').value.trim();
+  const cat = document.getElementById('memCategory').value;
+  if (!content) { alert('请输入内容'); return; }
+
+  const btn = document.getElementById('btnSaveMem');
+  btn.disabled = true; btn.textContent = '审计中…';
+  const resEl = document.getElementById('memSaveResult');
+  resEl.style.display = 'block';
+
+  const category = cat === 'auto' ? autoClassify(content) : cat;
+  const ar = multiDimAudit(content, category);
+  const kws = extractKw(content);
+  const emo = analyzeEmotion(content);
+  const hash = simpleHash(content);
+  const dna = `#龍芯⚡️${nowDate()}-${category.toUpperCase()}-${hash.toString(16).slice(0, 8).toUpperCase()}-${UID}`;
+
+  if (ar.color === 'red') {
+    resEl.style.color = 'var(--red)';
+    resEl.textContent = `🔴 内容被拦截\n${ar.badge}\n\n优化建议：\n${ar.minLoss || '请修改后重新提交'}`;
+    await logAudit('red', '记忆拦截', `cat:${category}`);
+    btn.disabled = false; btn.textContent = '💾 审计并保存';
+    return;
+  }
+
+  const mem = {
+    dna, time: nowISO(), title: title || content.slice(0, 20),
+    text: content, summary: content.slice(0, 120) + (content.length > 120 ? '…' : ''),
+    category, kws, emo, audit: ar, hash
+  };
+
+  try {
+    await dbPut('memories', mem);
+    // also try backend
+    if (svcStatus.s8765) {
+      try {
+        await fetch(EP_MAIN + '/保存记忆', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dna, title: mem.title, content, category }),
+          signal: AbortSignal.timeout(5000)
+        });
+      } catch { /* non-critical */ }
+    }
+    resEl.style.color = ar.color === 'green' ? 'var(--green)' : 'var(--gold)';
+    resEl.textContent = `${ar.badge}\nDNA: ${dna}\n分类: ${category} · ${emo}`;
+    document.getElementById('memContent').value = '';
+    document.getElementById('memTitle').value = '';
+    await logAudit(ar.color, '记忆保存', `cat:${category}`);
+    await refreshMemList(); await updateMemStats();
+  } catch (e) {
+    resEl.style.color = 'var(--red)';
+    resEl.textContent = '保存失败: ' + e.message;
+  } finally {
+    btn.disabled = false; btn.textContent = '💾 审计并保存';
+  }
+}
+
+async function refreshMemList(q = '') {
+  const all = await dbGetAll('memories');
+  const filt = q ? all.filter(m =>
+    m.dna?.includes(q) || m.summary?.includes(q) || m.title?.includes(q) ||
+    m.category === q || (m.kws || []).some(k => k.includes(q))
+  ) : all;
+  filt.sort((a, b) => new Date(b.time) - new Date(a.time));
+  const el = document.getElementById('memList');
+  if (!el) return;
+  if (!filt.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:30px;font-size:12px">无匹配记忆</div>'; return; }
+  el.innerHTML = filt.map(m => `
+    <div class="mem-item">
+      <div class="mem-head">
+        <span class="mem-dna">${escHtml((m.dna || '').slice(0, 50))}…</span>
+        <span class="mem-time">${new Date(m.time).toLocaleString('zh-CN')}</span>
+      </div>
+      <div class="mem-summary"><b>${escHtml(m.title || '')}</b> ${escHtml(m.summary || '')}</div>
+      <div class="mem-tags">
+        <span class="abadge ${m.audit?.color === 'green' ? 'abadge-g' : m.audit?.color === 'yellow' ? 'abadge-y' : 'abadge-r'}">${escHtml(m.audit?.badge || '')}</span>
+        <span class="tag tag-gold">${escHtml(m.category || '')}</span>
+        <span class="tag tag-green">${escHtml(m.emo || '')}</span>
+        ${(m.kws || []).slice(0, 3).map(k => `<span class="tag">${escHtml(k)}</span>`).join('')}
+      </div>
+      <div style="display:flex;gap:5px;margin-top:7px">
+        <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px" onclick="viewMem(${m.id})">📖 全文</button>
+        <button class="btn btn-danger" style="font-size:11px;padding:3px 8px" onclick="delMem(${m.id})">🗑️</button>
+      </div>
+    </div>`).join('');
+}
+
+async function viewMem(id) {
+  const all = await dbGetAll('memories');
+  const m = all.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('modalBody').textContent =
+    `DNA: ${m.dna}\n时间: ${new Date(m.time).toLocaleString('zh-CN')}\n标题: ${m.title || '无'}\n分类: ${m.category}\n情感: ${m.emo}\n关键词: ${(m.kws || []).join('、')}\n三色: ${m.audit?.badge || ''}\n天时: ${Math.round(m.audit?.tianShi?.score || 0)} 地利: ${Math.round(m.audit?.diLi?.score || 0)} 人和: ${Math.round(m.audit?.renHe?.score || 0)}\n\n─── 原始内容 ───\n${m.text}`;
+  document.getElementById('memModal').classList.add('open');
+}
+
+async function delMem(id) {
+  if (!confirm('确认删除？')) return;
+  await dbDelete('memories', id);
+  await logAudit('blue', '删除记忆', `id:${id}`);
+  await refreshMemList();
+  await updateMemStats();
+}
+
+async function updateMemStats() {
+  const all = await dbGetAll('memories');
+  const el = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
+  el('mem-total', all.length);
+  el('mem-green', all.filter(m => m.audit?.color === 'green').length);
+  el('mem-yellow', all.filter(m => m.audit?.color === 'yellow').length);
+  el('mem-red', all.filter(m => m.audit?.color === 'red').length);
+  // top category
+  if (all.length) {
+    const cf = {};
+    all.forEach(m => { if (m.category) cf[m.category] = (cf[m.category] || 0) + 1; });
+    const top = Object.entries(cf).sort((a, b) => b[1] - a[1])[0];
+    el('mem-cat', top ? top[0] : '—');
+  }
+}
+
+async function exportAll() {
+  const mems = await dbGetAll('memories');
+  const dnas = await dbGetAll('dna_evidences');
+  const logs = await dbGetAll('audit_log');
+  const data = {
+    exportTime: nowISO(), dna: DNA_HUB, gpg: GPG,
+    memories: mems, dna_evidences: dnas, audit_log: logs
+  };
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+  a.download = `龍魂记忆库_${nowDate()}_${UID}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importAll(file) {
+  const reader = new FileReader();
+  reader.onload = async e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      let imp = 0;
+      for (const m of (data.memories || [])) try { await dbPut('memories', m); imp++; } catch { }
+      for (const d of (data.dna_evidences || [])) try { await dbPut('dna_evidences', d); } catch { }
+      for (const l of (data.audit_log || [])) try { await dbPut('audit_log', l); } catch { }
+      alert(`✅ 导入: ${imp}条记忆`);
+      await refreshAll();
+    } catch (err) { alert('导入失败: ' + err.message); }
+  };
+  reader.readAsText(file);
+}
+
+// ── Tab 5: Sandbox ───────────────────────────────
+async function runSandbox() {
+  const taskType = document.getElementById('sbTaskType').value.trim();
+  const content = document.getElementById('sbContent').value.trim();
+  if (!content) { alert('请输入推演内容'); return; }
+
+  const btn = document.getElementById('btnRunSandbox');
+  btn.disabled = true; btn.textContent = '推演中…';
+
+  try {
+    let result;
+    if (svcStatus.s8765) {
+      const r = await fetch(EP_MAIN + '/沙盒推演', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task_type: taskType || '战略分析', content }),
+        signal: AbortSignal.timeout(15000)
+      });
+      if (r.ok) result = await r.json();
+    }
+
+    if (!result) {
+      // local fallback
+      const ar = multiDimAudit(content, 'auto');
+      const hx = getHexagram();
+      result = {
+        task_type: taskType || '战略分析',
+        hexagram: hx.sym + hx.n,
+        dao_anchor: '上善若水，水善利万物而不争',
+        color: ar.color === 'green' ? '🟢' : ar.color === 'yellow' ? '🟡' : '🔴',
+        badge: ar.badge,
+        six_dims: {
+          '天时': { score: ar.tianShi.score, desc: ar.tianShi.reason },
+          '地利': { score: ar.diLi.score, desc: ar.diLi.reason },
+          '人和': { score: ar.renHe.score, desc: ar.renHe.reason },
+          '战略格局': { score: 72, desc: '知己知彼，百战不殆' },
+          '风险评估': { score: 68, desc: '防患于未然，损之又损' },
+          '执行可行性': { score: 75, desc: '知行合一，循序渐进' }
+        },
+        plans: {
+          A: { title: '激进方案', desc: '全力推进，抢占先机' },
+          B: { title: '稳健方案（推荐）', desc: '分步执行，稳步推进' },
+          C: { title: '保守方案', desc: '观望等待，伺机而动' }
+        },
+        _local: true
+      };
+    }
+
+    renderSandboxResult(result);
+    await logAudit('blue', '沙盒推演', `task:${taskType}`);
+    await loadSandboxHistory();
+  } catch (err) {
+    alert('推演失败: ' + err.message);
+  } finally {
+    btn.disabled = false; btn.textContent = '🐉 启动推演';
+  }
+}
+
+function renderSandboxResult(d) {
+  const card = document.getElementById('sbResultCard');
+  const el = document.getElementById('sbResult');
+  card.style.display = 'block';
+
+  const dims = d.six_dims || {};
+  const dimKeys = Object.keys(dims);
+  const sixDimHtml = dimKeys.length
+    ? `<div class="sixdim">${dimKeys.map(k => `
+        <div class="sixdim-card">
+          <h4>${escHtml(k)}</h4>
+          <div style="font-size:18px;font-weight:bold;color:var(--green)">${Math.round(dims[k].score || 0)}</div>
+          <p>${escHtml((dims[k].desc || '').slice(0, 40))}</p>
+        </div>`).join('')}</div>`
+    : '';
+
+  const plans = d.plans || {};
+  const plansHtml = Object.keys(plans).length
+    ? `<div class="plans-grid">${Object.entries(plans).map(([k, v]) => `
+        <div class="plan-card">
+          <h4>方案${k}: ${escHtml(v.title || '')}</h4>
+          <p>${escHtml(v.desc || '')}</p>
+        </div>`).join('')}</div>`
+    : '';
+
+  const colorMap = { '🟢': 'abadge-g', '🟡': 'abadge-y', '🔴': 'abadge-r' };
+  const badgeCls = colorMap[d.color] || 'abadge-g';
+
+  el.innerHTML = `
+    <div style="margin-bottom:10px">
+      <span style="color:var(--gold);font-size:14px">卦象：${escHtml(d.hexagram || '')}</span>
+      <span style="color:#b0b8d1;font-size:12px;margin-left:10px">${d._local ? '[本地推演]' : '[后端推演]'}</span>
+    </div>
+    ${sixDimHtml}
+    ${plansHtml}
+    <div style="margin:10px 0;padding:10px;background:rgba(0,212,255,.05);border-radius:8px;font-size:12px;color:#b0b8d1">
+      📜 道德经锚点：${escHtml(d.dao_anchor || '')}
+    </div>
+    <div><span class="abadge ${badgeCls}" style="font-size:14px;padding:4px 14px">${escHtml(d.badge || d.color || '')}</span></div>`;
+}
+
+async function loadSandboxHistory() {
+  const el = document.getElementById('sbHistTable');
+  if (!el) return;
+  if (!svcStatus.s8765) {
+    el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">主服务(8765)离线，无法获取历史</div>';
+    return;
+  }
+  try {
+    const r = await fetch(EP_MAIN + '/推演历史', { signal: AbortSignal.timeout(5000) });
+    if (!r.ok) throw new Error('error');
+    const d = await r.json();
+    const rows = d.history || d.data || d || [];
+    if (!rows.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">暂无推演历史</div>'; return; }
+    el.innerHTML = `<table class="hist-table">
+      <thead><tr><th>时间</th><th>任务类型</th><th>结论</th><th>卦象</th></tr></thead>
+      <tbody>${rows.map(row => `<tr>
+        <td>${escHtml(row.time || row.created_at || '')}</td>
+        <td>${escHtml(row.task_type || '')}</td>
+        <td>${escHtml(row.badge || row.color || '')}</td>
+        <td>${escHtml(row.hexagram || '')}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  } catch {
+    el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">获取历史失败</div>';
+  }
+}
+
+// ── Tab 6: Status ────────────────────────────────
+async function getTestReport() {
+  const btn = document.getElementById('btnTestReport');
+  const resEl = document.getElementById('testReportResult');
+  btn.disabled = true; btn.textContent = '获取中…';
+  resEl.style.display = 'block';
+  try {
+    const r = await fetch(EP_MAIN + '/测试报告?立即=true', { signal: AbortSignal.timeout(10000) });
+    if (!r.ok) throw new Error('8765 返回 ' + r.status);
+    const d = await r.json();
+    resEl.textContent = JSON.stringify(d, null, 2);
+  } catch (err) {
+    resEl.textContent = '获取失败: ' + err.message + '\n\n（请确保主服务(8765)在线）';
+  } finally {
+    btn.disabled = false; btn.textContent = '获取测试报告';
+  }
+}
+
+// ── full refresh ────────────────────────────────
+async function refreshAll() {
+  await refreshMemList();
+  await refreshDNAList();
+  await updateMemStats();
+  await updateDNAStats();
+}
+
+// ── tab navigation ──────────────────────────────
+function initTabs() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const tabId = btn.dataset.tab;
+      document.getElementById('panel-' + tabId).classList.add('active');
+      if (tabId === 'audit') updateHexDisplay();
+      if (tabId === 'status') checkServices();
+      if (tabId === 'sandbox') loadSandboxHistory();
+      if (tabId === 'dna') { updateDNAStats(); refreshDNAList(); }
+      if (tabId === 'memory') { updateMemStats(); refreshMemList(); }
+    });
+  });
+}
+
+// ── event bindings ──────────────────────────────
+function bindUI() {
+  // Chat
+  document.getElementById('btnSendChat').addEventListener('click', sendChat);
+  document.getElementById('chatInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+  });
+  document.getElementById('btnClearChat').addEventListener('click', () => {
+    document.getElementById('chatArea').innerHTML = '';
+    appendChat('system', '对话已清空。', null);
+    chatHistory = [];
+  });
+
+  // Audit
+  document.getElementById('btnAudit').addEventListener('click', runAudit);
+  document.getElementById('btnAuditClear').addEventListener('click', () => {
+    document.getElementById('auditInput').value = '';
+    document.getElementById('auditResultArea').style.display = 'none';
+  });
+
+  // DNA
+  document.getElementById('btnGenDNA').addEventListener('click', genDNA);
+  document.getElementById('btnClearDNA').addEventListener('click', () => {
+    document.getElementById('dnaProject').value = '';
+    document.getElementById('dnaTag').value = '';
+    document.getElementById('dnaContent').value = '';
+    document.getElementById('dnaOutput').textContent = '等待生成…';
+  });
+  document.getElementById('btnVerifyDNA').addEventListener('click', verifyDNA);
+
+  // Memory
+  document.getElementById('btnSaveMem').addEventListener('click', saveMemory);
+  document.getElementById('btnClearMem').addEventListener('click', () => {
+    document.getElementById('memTitle').value = '';
+    document.getElementById('memContent').value = '';
+    document.getElementById('memSaveResult').style.display = 'none';
+  });
+  document.getElementById('btnSearchMem').addEventListener('click', () => {
+    refreshMemList(document.getElementById('memSearch').value.trim());
+  });
+  document.getElementById('memSearch').addEventListener('keydown', e => {
+    if (e.key === 'Enter') refreshMemList(e.target.value.trim());
+  });
+  document.getElementById('btnRefreshMem').addEventListener('click', () => {
+    document.getElementById('memSearch').value = '';
+    refreshMemList();
+  });
+  document.getElementById('btnExportMem').addEventListener('click', exportAll);
+  document.getElementById('btnImportMem').addEventListener('click', () => {
+    document.getElementById('importFile').click();
+  });
+  document.getElementById('importFile').addEventListener('change', e => {
+    if (e.target.files[0]) importAll(e.target.files[0]);
+  });
+  document.getElementById('btnNukeMem').addEventListener('click', async () => {
+    if (!confirm('⚠️ 清空全部数据？此操作不可撤销！')) return;
+    if (!confirm('🔴 二次确认：真的要清空所有记忆和DNA存证？')) return;
+    await dbClear('memories'); await dbClear('dna_evidences'); await dbClear('audit_log');
+    location.reload();
+  });
+
+  // Sandbox
+  document.getElementById('btnRunSandbox').addEventListener('click', runSandbox);
+  document.getElementById('btnClearSandbox').addEventListener('click', () => {
+    document.getElementById('sbTaskType').value = '';
+    document.getElementById('sbContent').value = '';
+    document.getElementById('sbResultCard').style.display = 'none';
+  });
+  document.getElementById('btnRefreshSbHist').addEventListener('click', loadSandboxHistory);
+
+  // Status
+  document.getElementById('btnTestReport').addEventListener('click', getTestReport);
+  document.getElementById('btnRefreshStatus').addEventListener('click', checkServices);
+
+  // Modal
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('memModal').classList.remove('open');
+  });
+  document.getElementById('memModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('memModal')) {
+      document.getElementById('memModal').classList.remove('open');
+    }
+  });
+
+  // expose globals for inline onclick
+  window.viewMem = viewMem;
+  window.delMem = delMem;
+}
+
+// ── init ────────────────────────────────────────
+(async () => {
+  try {
+    await initDB();
+    initTabs();
+    bindUI();
+
+    // clock
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // hex display
+    updateHexDisplay();
+
+    // initial data load
+    await refreshAll();
+
+    // services check
+    await checkServices();
+    setInterval(checkServices, 30000);
+
+    // sandbox history auto-refresh
+    setInterval(() => {
+      if (document.getElementById('panel-sandbox').classList.contains('active')) {
+        loadSandboxHistory();
+      }
+    }, 60000);
+
+    // startup log
+    await logAudit('blue', '系统启动', `龍魂智能中枢 v4.0 · DNA:${DNA_HUB}`);
+    console.log('🐉 龍魂智能中枢 v4.0 启动成功');
+    console.log('DNA:', DNA_HUB);
+    console.log('GPG:', GPG);
+    console.log('理论指导：曾仕强老师（永恒显示）');
+  } catch (e) {
+    console.error('初始化失败', e);
+    alert('系统初始化失败: ' + e.message);
+  }
+})();
+
+// ── Git 操作 ─────────────────────────────────────────────
+async function gitStatus() {
+  try {
+    const r = await fetch(`${API}/git/状态`);
+    const d = await r.json();
+    document.getElementById('git-branch').textContent = '🌿 ' + (d.branch || 'main');
+    const badge = document.getElementById('git-clean-badge');
+    badge.textContent = d.clean ? '✅ 工作区干净' : `⚠️ ${(d.changes||'').split('\n').filter(Boolean).length} 个变更`;
+    badge.style.background = d.clean ? 'rgba(0,255,136,.15)' : 'rgba(255,165,0,.2)';
+    badge.style.color = d.clean ? 'var(--green)' : 'orange';
+    document.getElementById('git-changes').textContent = d.changes || '（无变更）';
+    document.getElementById('git-log').textContent = d.log || '（无提交记录）';
+  } catch(e) {
+    document.getElementById('git-changes').textContent = '❌ 服务未启动，请双击 🐉启动指挥塔.command';
+  }
+}
+
+async function gitStage() {
+  try {
+    const r = await fetch(`${API}/git/暂存`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({files:['.']})
+    });
+    const d = await r.json();
+    alert(d.ok ? '✅ 全部文件已暂存，可以提交了' : '❌ 暂存失败: ' + JSON.stringify(d.results));
+    await gitStatus();
+  } catch(e) { alert('服务未启动'); }
+}
+
+function openCommitModal() {
+  const m = document.getElementById('commit-modal');
+  m.style.display = 'flex';
+  document.getElementById('commit-msg').focus();
+}
+
+function closeCommitModal() {
+  document.getElementById('commit-modal').style.display = 'none';
+}
+
+async function gitCommit() {
+  const msg = document.getElementById('commit-msg').value.trim();
+  if (!msg) { alert('提交信息不能为空'); return; }
+  try {
+    const r = await fetch(`${API}/git/提交`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({message: msg})
+    });
+    const d = await r.json();
+    closeCommitModal();
+    document.getElementById('commit-msg').value = '';
+    alert(d.ok ? '✅ 提交成功！\n' + d.msg : '❌ 提交失败：' + d.msg);
+    await gitStatus();
+  } catch(e) { alert('服务未启动'); }
+}
+
+async function gitPush() {
+  const result = document.getElementById('git-push-result');
+  const log = document.getElementById('git-push-log');
+  result.style.display = 'block';
+  log.textContent = '⏳ 推送中，请稍候...';
+  try {
+    const r = await fetch(`${API}/git/推送`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({remotes:['github','gitee']})
+    });
+    const d = await r.json();
+    let out = '';
+    for (const [remote, res] of Object.entries(d.results || {})) {
+      out += `${res.ok ? '✅' : '❌'} ${remote}: ${res.msg || '完成'}\n`;
+    }
+    log.textContent = out || (d.ok ? '✅ 全部推送成功' : '❌ 推送失败');
+    log.style.color = d.ok ? 'var(--green)' : 'var(--red)';
+    await gitStatus();
+  } catch(e) { log.textContent = '❌ 服务未启动，请先运行本地服务'; }
+}
+
+// git 面板激活时自动刷新
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.tab === 'git') gitStatus();
+    });
+  });
+});
+</script>
+</body>
+</html>
