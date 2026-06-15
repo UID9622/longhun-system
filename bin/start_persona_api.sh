@@ -20,5 +20,5 @@ python3 -c "import fastapi" 2>/dev/null || {
 
 # 启动 API
 echo "🚀 启动龍魂人格 API (端口 9001)..."
-python3 -m uvicorn cnsh.flow_decision.persona_api:app --host 0.0.0.0 --port 9001 --reload
+python3 -m uvicorn cnsh.integrated.flow_decision.persona_api:app --host 0.0.0.0 --port 9001 --reload
 
