@@ -35,17 +35,19 @@ import sys, os, json, time, sqlite3, hashlib, argparse
 from datetime import datetime, date
 from pathlib import Path
 
+from integrated_modules.longhun_config import getenv
+
 # ═══════════════════════════════════════
 # ⚙️ 配置区（首次运行必填）
 # ═══════════════════════════════════════
 
 CONFIG = {
     # Notion Integration Token（到 notion.so/my-integrations 创建）
-    "NOTION_TOKEN": os.environ.get("NOTION_TOKEN", ""),
+    "NOTION_TOKEN": getenv("NOTION_TOKEN", ""),
 
     # 记忆数据库 ID（把 Notion 数据库 URL 里的 32位ID 粘贴在这里）
     # 例：https://www.notion.so/你的ID → 复制那32位
-    "DATABASE_ID": os.environ.get("NOTION_BRAIN_DB", ""),
+    "DATABASE_ID": getenv("DB_LU", ""),
 
     # brain.db 路径（和 longhun_brain.py 保持一致）
     "DB_PATH": Path.home() / "longhun-system" / "brain" / "memories.db",
@@ -436,7 +438,7 @@ def sync_status():
     con.close()
 
     token_ok = "✅ 已配置" if CONFIG["NOTION_TOKEN"] else "❌ 未配置（设置环境变量 NOTION_TOKEN）"
-    db_ok    = "✅ 已配置" if CONFIG["DATABASE_ID"] else "❌ 未配置（设置环境变量 NOTION_BRAIN_DB）"
+    db_ok    = "✅ 已配置" if CONFIG["DATABASE_ID"] else "❌ 未配置（设置环境变量 DB_LU）"
 
     print(f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -460,9 +462,9 @@ def sync_status():
   ✅ 詳細的錯誤日誌
   ✅ 失敗恢復機制
 
-📋 配置方法（在 ~/.zshrc 或 ~/.bash_profile 加入）：
+📋 配置方法（写入 ~/.longhun/secrets.env）：
   export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
-  export NOTION_BRAIN_DB="your-database-id-here"
+  export DB_LU="your-database-id-here"
 
 DNA: #龍芯⚡️2026-06-07-NOTION-BRIDGE-v1.1
 """)

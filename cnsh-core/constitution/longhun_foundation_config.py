@@ -22,6 +22,8 @@ from enum import Enum
 from datetime import datetime
 import json
 
+from integrated_modules.longhun_config import getenv
+
 # ═══════════════════════════════════════════════════════════════
 # 【身份和根基】- L0永恒层
 # ═══════════════════════════════════════════════════════════════
@@ -33,8 +35,8 @@ class CreatorIdentity:
     name_cn: str = "诸葛鑫"
     name_en: str = "Zhu Gexin"
     alias: str = "龍芯北辰"
-    gpg_fingerprint: str = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-    confirm_code: str = "CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+    gpg_fingerprint: str = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
+    confirm_code: str = getenv("LONGHUN_CONFIRM_CODE", "CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     country: str = "中华人民共和国"
     role: str = "创始人 · 主权人 · 系统架构师"
     created_at: str = "2026-04-09"  # v1.1升级日

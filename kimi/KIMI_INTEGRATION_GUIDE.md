@@ -21,11 +21,11 @@
 ### 1. 设置环境变量（推荐方案 A）
 
 ```bash
-# 在 ~/.zshrc 或 ~/.bashrc 中添加
-export KIMI_API_KEY="apisk-kimi-OLIN0lpHBND0Xsyh7ZG2U9BtaD4NY9QML2eDCfHMD5f6bSw1L7SEj2LGGTuWEjF9"
+# 写入 ~/.longhun/secrets.env（不上传 Git）
+export KIMI_API_KEY="<YOUR_KIMI_API_KEY>"
 
 # 立即生效
-source ~/.zshrc
+source ~/.longhun/secrets.env
 ```
 
 ### 2. 验证连接
