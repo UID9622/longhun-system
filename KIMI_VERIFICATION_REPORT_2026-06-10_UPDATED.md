@@ -114,7 +114,7 @@
 
 ### 当前使用
 ```
-API Key: sk-5WFGNVDZliZ1oCOeJsawuQiA8u5l2VFrvmTKLp1ryZF0EMOj (充值版)
+API Key: [REDACTED] (充值版·已从报告中移除真实密钥)
 状态: ✅ 有效 (已验证)
 ```
 
