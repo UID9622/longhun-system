@@ -19,59 +19,61 @@ echo "🐉 龍魂系統自我檢測評估啟動..."
 
 # 初始化評分
 SCORE=0
-TOTAL=100
+TOTAL=0
 CHECKS=()
 
 add_check() {
     local name="$1"
     local status="$2"   # PASS / WARN / FAIL
-    local score="$3"
-    local note="$4"
-    CHECKS+=("{\"name\":\"$name\",\"status\":\"$status\",\"score\":$score,\"note\":\"$note\"}")
-    SCORE=$((SCORE + score))
+    local max_score="$3"
+    local actual_score="$4"
+    local note="$5"
+    CHECKS+=("{\"name\":\"$name\",\"status\":\"$status\",\"max_score\":$max_score,\"score\":$actual_score,\"note\":\"$note\"}")
+    SCORE=$((SCORE + actual_score))
+    TOTAL=$((TOTAL + max_score))
 }
 
 # 1. Git 倉庫狀態
 cd "$LONGHUN_DIR"
 if git diff --quiet && git diff --cached --quiet; then
-    add_check "Git工作區乾淨" "PASS" 10 "無未提交變更"
+    add_check "Git工作區乾淨" "PASS" 10 10 "無未提交變更"
 else
-    add_check "Git工作區乾淨" "WARN" 5 "存在未提交變更，建議及時提交"
+    add_check "Git工作區乾淨" "WARN" 10 5 "存在未提交變更，建議及時提交"
 fi
 
 # 2. 核心 Python 可導入
 if cd "$LONGHUN_DIR" && python3 -c "from systems.v3 import WuxingDecisionEngine, PersonaMatrixEngine, SecurityDomainActivator, DNATraceabilityManager, TricolorAuditEngine; print('OK')" >/dev/null 2>&1; then
-    add_check "v3核心模塊可導入" "PASS" 20 "5個v3模塊正常"
+    add_check "v3核心模塊可導入" "PASS" 20 20 "5個v3模塊正常"
 else
-    add_check "v3核心模塊可導入" "FAIL" 0 "存在導入錯誤"
+    add_check "v3核心模塊可導入" "FAIL" 20 0 "存在導入錯誤"
 fi
 
 # 3. Skill 註冊表正常
 if cd "$LONGHUN_DIR" && python3 -c "from skills import get_registry; r=get_registry(); assert len(r.skills)==10; print('OK')" >/dev/null 2>&1; then
-    add_check "Skill註冊表正常" "PASS" 15 "10/10 skills 已註冊"
+    add_check "Skill註冊表正常" "PASS" 15 15 "10/10 skills 已註冊"
 else
-    add_check "Skill註冊表正常" "FAIL" 0 "註冊表異常"
+    add_check "Skill註冊表正常" "FAIL" 15 0 "註冊表異常"
 fi
 
 # 4. 關鍵目錄結構完整
 for dir in skills/warehouse-audit systems/v3 docs/v3 bin; do
     if [[ -d "$LONGHUN_DIR/$dir" ]]; then
-        add_check "目錄存在: $dir" "PASS" 3 "目錄結構完整"
+        add_check "目錄存在: $dir" "PASS" 3 3 "目錄結構完整"
     else
-        add_check "目錄存在: $dir" "FAIL" 0 "目錄缺失"
+        add_check "目錄存在: $dir" "FAIL" 3 0 "目錄缺失"
     fi
 done
 
 # 5. 核心腳本可執行
 for script in bin/run-warehouse-audit.sh bin/skill-launcher-v3.sh; do
     if [[ -x "$LONGHUN_DIR/$script" ]]; then
-        add_check "腳本可執行: $script" "PASS" 2 "權限正常"
+        add_check "腳本可執行: $script" "PASS" 2 2 "權限正常"
     else
-        add_check "腳本可執行: $script" "WARN" 1 "權限不足或缺失"
+        add_check "腳本可執行: $script" "WARN" 2 1 "權限不足或缺失"
     fi
 done
 
-# 6. 運行中服務檢測（可選，不影響總分）
+# 6. 運行中服務檢測
 SERVICE_SCORE=0
 for port in 8000 8001 9001 9622; do
     if nc -z -G 1 127.0.0.1 "$port" 2>/dev/null; then
@@ -79,17 +81,17 @@ for port in 8000 8001 9001 9622; do
     fi
 done
 if [[ "$SERVICE_SCORE" -ge 2 ]]; then
-    add_check "核心服務運行中" "PASS" 10 "$SERVICE_SCORE 個端口有服務"
+    add_check "核心服務運行中" "PASS" 10 10 "$SERVICE_SCORE 個端口有服務"
 else
-    add_check "核心服務運行中" "WARN" 5 "僅 $SERVICE_SCORE 個端口有服務"
+    add_check "核心服務運行中" "WARN" 10 5 "僅 $SERVICE_SCORE 個端口有服務"
 fi
 
 # 7. 倉儲審計引擎可運行
 if cd "$LONGHUN_DIR" && python3 skills/warehouse-audit/scripts/audit_engine.py --system "自檢" --version "v1.0" --format json --output /tmp/longhun-audit-test >/dev/null 2>&1; then
-    add_check "倉儲審計引擎可運行" "PASS" 10 "引擎無報錯"
+    add_check "倉儲審計引擎可運行" "PASS" 10 10 "引擎無報錯"
     rm -rf /tmp/longhun-audit-test
 else
-    add_check "倉儲審計引擎可運行" "FAIL" 0 "引擎運行失敗"
+    add_check "倉儲審計引擎可運行" "FAIL" 10 0 "引擎運行失敗"
 fi
 
 # 生成 Markdown 報告
@@ -115,18 +117,19 @@ cat > "$REPORT_FILE" << EOF
 
 ## 檢查項明細
 
-| 檢查項 | 狀態 | 得分 | 備註 |
-|--------|------|------|------|
+| 檢查項 | 狀態 | 得分 | 滿分 | 備註 |
+|--------|------|------|------|------|
 EOF
 
 # 將 CHECKS 數組寫入報告
 for check in "${CHECKS[@]}"; do
     name=$(echo "$check" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())['name'])")
     status=$(echo "$check" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())['status'])")
+    max_score=$(echo "$check" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())['max_score'])")
     score=$(echo "$check" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())['score'])")
     note=$(echo "$check" | python3 -c "import sys,json; print(json.loads(sys.stdin.read())['note'])")
     icon="🟢"; [[ "$status" == "WARN" ]] && icon="🟡"; [[ "$status" == "FAIL" ]] && icon="🔴"
-    echo "| $name | $icon $status | $score | $note |" >> "$REPORT_FILE"
+    echo "| $name | $icon $status | $score | $max_score | $note |" >> "$REPORT_FILE"
 done
 
 cat >> "$REPORT_FILE" << EOF
