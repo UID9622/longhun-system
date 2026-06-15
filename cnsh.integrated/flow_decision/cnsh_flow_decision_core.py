@@ -28,11 +28,14 @@ from .persona_collaboration import PersonaCollaborationFramework
 from .dna_chain_tracer import DNAChainTracer, DNATagPolicyValidator
 
 
+from integrated_modules.longhun_config import getenv
+
+
 class CNSHFlowDecisionCore:
     """龍魂流场决策核 v4.1 主类"""
 
-    CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
-    GPG_CODE = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    CONFIRM_CODE = getenv("LONGHUN_CONFIRM_CODE", "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
+    GPG_CODE = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
 
     def __init__(self):
         self.dna_registry = {}  # 存储所有DNA及其关系

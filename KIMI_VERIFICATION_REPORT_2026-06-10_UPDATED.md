@@ -120,7 +120,7 @@ API Key: [REDACTED] (充值版·已从报告中移除真实密钥)
 
 ### 已失效
 ```
-API Key: sk-kimi-AiGToYJt7yavhhywBSxAAXtCZZ2YVdxee5Hm8AHTcoavdwguWKhZCeU7WDIwbii5 (包月版)
+API Key: [REDACTED] (包月版)
 状态: ❌ 无效 (Invalid Authentication)
 建议: 需要重新生成或续费
 ```
