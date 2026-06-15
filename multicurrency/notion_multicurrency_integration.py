@@ -27,13 +27,16 @@ from pathlib import Path
 # Notion 配置
 # ═══════════════════════════════════════════════════════════════
 
+from integrated_modules.longhun_config import getenv
+
+
 class NotionConfig:
     """Notion 配置管理"""
 
     def __init__(self):
-        self.token = os.environ.get('NOTION_TOKEN', '')
-        self.parent_page_id = os.environ.get('NOTION_MULTICURRENCY_PAGE', '')
-        self.database_id = os.environ.get('NOTION_MULTICURRENCY_DB', '')
+        self.token = getenv('NOTION_TOKEN', '')
+        self.parent_page_id = getenv('DB_PUB', '')
+        self.database_id = getenv('DB_AL', '')
         self.api_version = '2022-06-28'
 
     def is_configured(self) -> bool:
@@ -210,7 +213,7 @@ class NotionMulticurrencyIntegration:
         if not self.config.is_configured():
             print("❌ Notion 未配置·請設置環境變量:")
             print("   export NOTION_TOKEN='your_token'")
-            print("   export NOTION_MULTICURRENCY_PAGE='parent_page_id'")
+            print("   export DB_PUB='parent_page_id'")
             return False
 
         print("\n📋 頁面設計:")

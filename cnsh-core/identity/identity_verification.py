@@ -24,6 +24,8 @@ from dataclasses import dataclass, field
 from datetime import datetime
 import binascii
 
+from integrated_modules.longhun_config import getenv
+
 # ═══════════════════════════════════════════════════════════════
 # 【身份三重验证框架】
 # ═══════════════════════════════════════════════════════════════
@@ -31,7 +33,7 @@ import binascii
 @dataclass
 class GPGIdentity:
     """GPG身份和签名验证"""
-    fingerprint: str = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    fingerprint: str = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     key_id: str = "24C3704A8CC26D5F"  # 后16位
     user_name: str = "Zhu Gexin (龍芯北辰)"
     user_email: str = "longhun2025@petalmail.com"

@@ -3,7 +3,8 @@
 ## 1️⃣ 设置环境变量 (30 秒)
 
 ```bash
-export KIMI_API_KEY="apisk-kimi-OLIN0lpHBND0Xsyh7ZG2U9BtaD4NY9QML2eDCfHMD5f6bSw1L7SEj2LGGTuWEjF9"
+# 写入 ~/.longhun/secrets.env（不上传 Git）
+export KIMI_API_KEY="<YOUR_KIMI_API_KEY>"
 ```
 
 ## 2️⃣ 验证连接 (1 分钟)

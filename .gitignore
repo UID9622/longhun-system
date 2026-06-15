@@ -71,6 +71,13 @@ ENV/
 .idea/
 *.iml
 
+# 本地凭证与密钥（绝不上传 Git）
+.longhun-credentials
+*.secrets.env
+secrets.env
+.longhun/secrets.env
+.kimi-code/sessions/*/secrets*
+
 # 本地數據和臨時文件
 .claude/
 *.log

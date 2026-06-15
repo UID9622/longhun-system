@@ -18,8 +18,10 @@ import json
 from pathlib import Path
 from datetime import datetime
 
+from integrated_modules.longhun_config import getenv
+
 # 配置
-GPG_KEY_ID = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+GPG_KEY_ID = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
 SIGN_FILES = [
     "CNSH_v2.0_SIGNATURE.md",
     "CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md",

@@ -20,17 +20,19 @@ import os, time, json, hashlib, requests
 from datetime import datetime, timezone
 from flask import Flask, request, jsonify
 
+from integrated_modules.longhun_config import getenv
+
 app = Flask(__name__)
 
 # ═══════════════════════════════
 # 配置 — 全部从环境变量读取
 # ═══════════════════════════════
-CLAUDE_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-OLLAMA_HOST      = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-NOTION_TOKEN     = os.environ.get("NOTION_TOKEN", "")
-NOTION_LOG_DB    = os.environ.get("NOTION_AUDIT_DB_ID", "")
-DNA_TOKEN        = os.environ.get("DNA_TOKEN", "UID9622-CHANGE-THIS")
+CLAUDE_API_KEY   = getenv("ANTHROPIC_API_KEY", "")
+DEEPSEEK_API_KEY = getenv("DEEPSEEK_API_KEY", "")
+OLLAMA_HOST      = getenv("OLLAMA_HOST", "http://localhost:11434")
+NOTION_TOKEN     = getenv("NOTION_TOKEN", "")
+NOTION_LOG_DB    = getenv("DB_JQ", "")
+DNA_TOKEN        = getenv("DNA_TOKEN", "UID9622-CHANGE-THIS")
 LOG_DIR          = os.path.expanduser("~/cnsh/logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 

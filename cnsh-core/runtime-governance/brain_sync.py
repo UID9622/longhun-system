@@ -43,12 +43,17 @@ import urllib.error
 import argparse
 from pathlib import Path
 
+from integrated_modules.longhun_config import load_secrets_env, getenv
+
 # ─── 路径常量 ────────────────────────────────────────────
 BASE       = Path.home() / "longhun-system"
 MEMORY     = BASE / "memory.jsonl"
 BACKUP     = BASE / "brain_backup.jsonl"
 STATE_FILE = BASE / "brain_sync_state.json"
 NOTION_API = "https://api.notion.com/v1"
+
+# 优先加载 ~/.longhun/secrets.env（真实密钥不上 Git）
+load_secrets_env()
 
 # ─── 读取 .env ───────────────────────────────────────────
 def _读env(键):
@@ -62,7 +67,7 @@ def _读env(键):
 
 展示脑TOKEN   = _读env("NOTION_TOKEN")
 内核脑TOKEN   = _读env("NOTION_TOKEN_TEAM")
-指定父页ID    = _读env("NOTION_TEAM_PARENT_ID")   # 可选：指定内核脑的父页面
+指定父页ID    = getenv("DB_CLOUD")   # 团队/云端数据库（旧名 NOTION_TEAM_PARENT_ID 仍兼容）
 
 # ─── 冲突检测状态 ────────────────────────────────────────
 CONFLICT_STATE = BASE / "brain_sync_conflicts.json"
@@ -312,7 +317,7 @@ def _安全截块(块: dict) -> dict:
 # ─── 自动寻找内核脑可用父页面 ────────────────────────────
 def _找内核脑父页(指定ID="") -> dict:
     """
-    优先级: 1.指定ID 2.env里NOTION_TEAM_PARENT_ID 3.搜索第一个可用页
+    优先级: 1.指定ID 2.env里DB_CLOUD（旧名 NOTION_TEAM_PARENT_ID 仍兼容） 3.搜索第一个可用页
     返回 Notion parent 对象
     """
     用ID = 指定ID or 指定父页ID
@@ -791,7 +796,7 @@ def 执行同步(增量=False, 只检查=False, 模式="full"):
     if 模式 in ["full", "d2c"]:
         # ═══ 显示脑 → 内核脑 (原始流程) ════════════════════════════════
         if not 内核OK:
-            print("🔴 内核脑未连通 | Core-Brain not connected，请检查 .env → NOTION_TOKEN_TEAM")
+            print("🔴 内核脑未连通 | Core-Brain not connected，请检查 ~/.longhun/secrets.env → NOTION_TOKEN_TEAM")
             return
 
         # 2. 读取展示脑

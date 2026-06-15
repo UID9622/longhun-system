@@ -18,7 +18,7 @@
     "db_port": 0,
     "db_name": "/tmp/longhun-staging/staging_prod_test.db",
     "db_user": "staging_user",
-    "db_password": "staging_password",
+    "db_password": "${LONGHUN_DB_PASSWORD}",
     "db_pool_size": 10,
     "db_backup_location": "/tmp/longhun-staging/backups",
     "db_backup_retention_days": 7,
@@ -29,7 +29,7 @@
     "cache_type": "memory",
     "redis_host": "localhost",
     "redis_port": 6379,
-    "redis_password": "staging_password",
+    "redis_password": "${LONGHUN_REDIS_PASSWORD}",
     "redis_db": 0,
     "redis_pool_size": 10,
     "cache_ttl_seconds": 1800,
@@ -139,5 +139,5 @@
   },
 
   "dna": "#龍芯⚡️2026-06-08-STAGING-PROD-TEST-CONFIG-v1.0",
-  "confirmation_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+  "confirmation_code": "${LONGHUN_CONFIRM_CODE}"
 }

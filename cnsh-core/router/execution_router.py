@@ -550,8 +550,8 @@ if __name__ == '__main__':
             }
         },
         "verification": {
-            "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-            "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "gpg_fingerprint": os.environ.get("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"),
+            "confirm_code": os.environ.get("LONGHUN_CONFIRM_CODE", "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"),
             "total_assets": 3
         }
     }
