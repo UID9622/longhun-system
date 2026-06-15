@@ -85,6 +85,10 @@ secrets.env
 *.bak
 .backup/
 .local/
+*.pid
+
+# v3.0 核心模塊運行時產生的審計日誌
+systems/v3/audit_logs/
 
 # 備份和歷史文件
 *.backup
