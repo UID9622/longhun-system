@@ -95,8 +95,8 @@ DNA: #龍芯⚇️2026-05-30-MESSAGE-v1.0
 回复：LongHun_Sentinel_Bot
 回复：longhun_sentinel (选一个用户名)
 
-# 获得Token格式:
-# 8643060944:AAFa-bQT1GyP4Ry32iYJc7Cnrkg0hMPA1l4
+# 获得Token格式（示例，请替换为你自己的 Bot Token）:
+# <YOUR_TELEGRAM_BOT_TOKEN>
 ```
 
 ### 2. 启动哨兵

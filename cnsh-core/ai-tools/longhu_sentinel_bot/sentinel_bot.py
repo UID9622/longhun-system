@@ -61,16 +61,18 @@ from typing import Dict, Any, Optional
 # 配置区
 # ═══════════════════════════════════════════════════════════
 
+from integrated_modules.longhun_config import getenv
+
 CONFIG = {
-    "TELEGRAM_TOKEN": os.environ.get("TELEGRAM_BOT_TOKEN", "8643060944:AAFa-bQT1GyP4Ry32iYJc7Cnrkg0hMPA1l4"),
+    "TELEGRAM_TOKEN": getenv("TELEGRAM_BOT_TOKEN"),
     "BOT_NAME": "LongHun_Sentinel_Bot",
     "BOT_URL": "https://t.me/LongHun_Sentinel_Bot",
 
     # 龍魂系统配置
     "UID": "9622",
     "OWNER": "UID9622 · 龍芯北辰 · 诸葛鑫",
-    "GPG_KEY_ID": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-    "CONFIRM_CODE": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "GPG_KEY_ID": getenv("GPG_FINGERPRINT"),
+    "CONFIRM_CODE": getenv("LONGHUN_CONFIRM_CODE"),
 
     # 数据库配置
     "AUDIT_DB_PATH": Path.home() / ".龍魂_config" / "sentinel_audit.db",

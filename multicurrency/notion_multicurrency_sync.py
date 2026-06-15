@@ -48,12 +48,15 @@ logger = logging.getLogger(__name__)
 # Notion API 配置和工具
 # ═══════════════════════════════════════════════════════════════
 
+from integrated_modules.longhun_config import getenv
+
+
 class NotionAPI:
     """Notion API 客戶端"""
 
     def __init__(self):
-        self.token = os.environ.get('NOTION_TOKEN', '')
-        self.database_id = os.environ.get('NOTION_MULTICURRENCY_DB', '')
+        self.token = getenv('NOTION_TOKEN', '')
+        self.database_id = getenv('DB_AL', '')
         self.api_version = '2022-06-28'
         self.base_url = 'https://api.notion.com/v1'
         self.timeout = 10

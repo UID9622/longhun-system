@@ -177,9 +177,11 @@ page_id  (同步成功，得到真實 ID)
 **實現位置**: `CONFIG` 字典 (第 54-69 行)
 
 ```python
+from integrated_modules.longhun_config import getenv
+
 CONFIG = {
-    "NOTION_TOKEN": os.environ.get("NOTION_TOKEN", ""),
-    "DATABASE_ID": os.environ.get("NOTION_BRAIN_DB", ""),
+    "NOTION_TOKEN": getenv("NOTION_TOKEN", ""),
+    "DATABASE_ID": getenv("DB_LU", ""),
     # ... 其他配置
 }
 ```
