@@ -32,15 +32,17 @@ BASE_DIR      = os.path.expanduser("~/cnsh")
 DNA_DIR       = os.path.join(BASE_DIR, "入口", "DNA")
 LOG_DIR       = os.path.join(BASE_DIR, "logs")
 SIGNED_DIR    = os.path.join(LOG_DIR, "signed")
-DB_PATH       = os.path.join(LOG_DIR, "audit.db")
-GPG_KEY       = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+from integrated_modules.longhun_config import getenv
 
-# Notion — 在 ~/.zshrc 中 export 这两个变量
-NOTION_TOKEN  = os.environ.get("NOTION_TOKEN", "")
-NOTION_DB_ID  = os.environ.get("NOTION_AUDIT_DB_ID", "")   # 审计日志 DB ID
+DB_PATH       = os.path.join(LOG_DIR, "audit.db")
+GPG_KEY       = getenv("GPG_FINGERPRINT", "")
+
+# Notion — 在 ~/.longhun/secrets.env 中 export 这两个变量
+NOTION_TOKEN  = getenv("NOTION_TOKEN", "")
+NOTION_DB_ID  = getenv("DB_JQ", "")   # 审计/纪律/日志数据库
 
 # 本地安全令牌 — export DNA_TOKEN=你自己设的密码
-DNA_TOKEN     = os.environ.get("DNA_TOKEN", "UID9622-CHANGE-THIS")
+DNA_TOKEN     = getenv("DNA_TOKEN", "UID9622-CHANGE-THIS")
 
 # 数字根熔断阈值 (来自 IPA-DICT)
 FUSE_THRESHOLD = 3   # 连续失败3次 → 🔴熔断

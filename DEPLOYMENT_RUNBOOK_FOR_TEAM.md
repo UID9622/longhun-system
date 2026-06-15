@@ -1257,8 +1257,9 @@ PagerDuty: longhun-deployment-oncall
 **1.1 设置 API 密鑰**
 
 ```bash
-# 方案 A: 环境變数（推薦）
-export KIMI_API_KEY="apisk-kimi-OLIN0lpHBND0Xsyh7ZG2U9BtaD4NY9QML2eDCfHMD5f6bSw1L7SEj2LGGTuWEjF9"
+# 方案 A: 本地密钥文件（推薦）
+# 写入 ~/.longhun/secrets.env，不上传 Git
+export KIMI_API_KEY="<YOUR_KIMI_API_KEY>"
 
 # 验證设置
 echo $KIMI_API_KEY

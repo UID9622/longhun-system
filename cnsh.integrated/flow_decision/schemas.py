@@ -18,6 +18,8 @@ from typing import List, Dict, Optional, Literal, Any
 from enum import Enum
 from datetime import datetime
 
+from integrated_modules.longhun_config import getenv
+
 
 # ============================================================================
 # 枚举类型定义
@@ -218,8 +220,8 @@ class FlowDecisionNode:
     # ===== 核心身份字段 (5) =====
     title: str
     node_id: str  # 格式: FLOW-9622-YYYYMMDD-8charHash
-    confirm_code: str = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
-    gpg: str = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    confirm_code: str = getenv("LONGHUN_CONFIRM_CODE", "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
+    gpg: str = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
     dna: str = ""
 
     # ===== 链接字段 (2) =====

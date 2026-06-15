@@ -398,14 +398,30 @@ done
 
 ## 📋 凭证清单模板
 
-创建文件 `~/.longhun-credentials` (仅本地·禁止提交 Git)
+创建文件 `~/.longhun/secrets.env` (仅本地·禁止提交 Git)
 
 ```bash
 # ⚠️ 安全提醒: 此文件包含敏感信息，不要提交到 Git
-# 使用方式: source ~/.longhun-credentials
+# 龍魂/CNSH 主权变量规范 · UID9622
 
 # Kimi AI
-export KIMI_API_KEY="sk-5WFGNVDZliZ1oCOeJsawuQiA8u5l2VFrvmTKLp1ryZF0EMOj"
+export KIMI_API_KEY="<YOUR_KIMI_API_KEY>"
+
+# Notion 知识底座
+export NOTION_TOKEN="<YOUR_NOTION_TOKEN>"
+export DB_LU="<YOUR_BRAIN_DATABASE_ID>"
+export DB_JQ="<YOUR_AUDIT_DATABASE_ID>"
+export DB_AL="<YOUR_MULTICURRENCY_DATABASE_ID>"
+export DB_PUB="<YOUR_PUBLIC_PAGE_ID>"
+export DB_CLOUD="<YOUR_TEAM_DATABASE_ID>"
+
+# 身份与加密
+export GPG_FINGERPRINT="<YOUR_GPG_FINGERPRINT>"
+export LONGHUN_CONFIRM_CODE="<YOUR_CONFIRM_CODE>"
+
+# 大本营/工厂
+export CAMP_IP="<YOUR_CAMP_IP>"
+export LONGHUN_FACTORY_ID="<YOUR_FACTORY_ID>"
 
 # Datadog (获取地址: https://app.datadoghq.com/account/settings)
 export DATADOG_API_KEY="<YOUR_DATADOG_API_KEY>"
@@ -420,12 +436,13 @@ export PAGERDUTY_SERVICE_ID="<YOUR_PAGERDUTY_SERVICE_ID>"
 
 # 数据库
 export DATABASE_URL="postgresql://user:pass@host:5432/longhun"
-export REDIS_URL="redis://:password@host:6379/0"
+export LONGHUN_DB_PASSWORD="<YOUR_DB_PASSWORD>"
+export LONGHUN_REDIS_PASSWORD="<YOUR_REDIS_PASSWORD>"
 ```
 
 使用方式：
 ```bash
-source ~/.longhun-credentials
+source ~/.longhun/secrets.env
 # 现在所有环境变量都可用了
 ```
 

@@ -318,11 +318,14 @@ class WeightSystemIntegration:
 # 集成接口 4: DNA·确认码·GPG验证链
 # ═════════════════════════════════════════════════════════════════════════════
 
+from integrated_modules.longhun_config import getenv
+
+
 class IdentityVerificationIntegration:
     """与DNA/确认码/GPG的验证链对接"""
 
-    GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-    CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+    GPG_FINGERPRINT = getenv("GPG_FINGERPRINT", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
+    CONFIRM_CODE = getenv("LONGHUN_CONFIRM_CODE", "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     SEAL_CODE = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
     @staticmethod

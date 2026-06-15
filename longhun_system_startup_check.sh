@@ -253,10 +253,12 @@ else
     log_warn "NOTION_TOKEN 未配置 (可選，但需要才能同步到 Notion)"
 fi
 
-if [ -n "$NOTION_BRAIN_DB" ]; then
-    log_pass "NOTION_BRAIN_DB 已配置: $NOTION_BRAIN_DB"
+# 优先检查主权变量 DB_LU，兼容旧名 NOTION_BRAIN_DB
+DB_LU_VALUE="${DB_LU:-$NOTION_BRAIN_DB}"
+if [ -n "$DB_LU_VALUE" ]; then
+    log_pass "DB_LU 已配置: ${DB_LU_VALUE:0:8}...${DB_LU_VALUE: -8}"
 else
-    log_warn "NOTION_BRAIN_DB 未配置 (可選，但需要才能同步到 Notion)"
+    log_warn "DB_LU 未配置 (可選，但需要才能同步到 Notion)"
 fi
 
 # ═══════════════════════════════════════════════════════════════
