@@ -623,13 +623,13 @@
       "size_human": "-",
       "modified_utc": "2026-06-01T15:44:01.945346+00:00",
       "sha256": "",
-      "category": "unknown",
-      "priority": "P3",
-      "suggested_target": "待人工分類",
-      "status": "pending",
-      "notes": "",
+      "category": "multi_content_archive",
+      "priority": "P0",
+      "suggested_target": "按 docs/龍魂待整理-integration-gap-report.md 分 P0-P3 逐步融入",
+      "status": "partially_integrated",
+      "notes": "已融入 P0 控制台/流場/HTML 與核心協議文檔，詳見差距報告；剩餘 8000+ Notion 導出文件待分類",
       "discovered_at": "2026-06-15T23:22:28.634306+00:00",
-      "last_seen": "2026-06-15T23:22:28.634306+00:00"
+      "last_seen": "2026-06-15T23:41:18.482371+00:00"
     },
     "longhun-lu": {
       "name": "longhun-lu",
@@ -1023,9 +1023,10 @@
       "last_seen": "2026-06-15T23:23:07.915673+00:00"
     }
   },
-  "last_scan_at": "2026-06-15T23:24:08.186375+00:00",
+  "last_scan_at": "2026-06-15T23:41:06.080137+00:00",
   "total_packages": 60,
-  "pending_count": 56,
+  "pending_count": 55,
   "updated_count": 0,
-  "integrated_count": 4
+  "integrated_count": 4,
+  "partially_integrated_count": 1
 }

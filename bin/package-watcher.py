@@ -33,6 +33,7 @@ from typing import Dict, List, Optional, Tuple
 # 分類規則：按關鍵字匹配（優先級從高到低）
 # ═══════════════════════════════════════════════════════════════════════════════
 CLASSIFICATION_RULES: List[Tuple[str, List[str]]] = [
+    ("multi_content_archive", ["龍魂待整理", "待整理"]),
     ("warehouse_audit", ["技能检查", "warehouse", "audit", "審計改進", "审计改进"]),
     ("skills",          ["skill", "技能", "Skill"]),
     ("cnsh",            ["CNSH", "cnsh", "Runtime Governance", "語義接入", "语义接入"]),
@@ -111,6 +112,7 @@ def package_id(path: Path) -> str:
 def priority_for(category: str) -> str:
     """根據分類給出優先級建議。"""
     pmap = {
+        "multi_content_archive": "P0",
         "systems": "P0",
         "cnsh": "P0",
         "phase3": "P0",
@@ -131,6 +133,7 @@ def priority_for(category: str) -> str:
 def suggested_target(category: str) -> str:
     """建議融入主幹的目標目錄。"""
     tmap = {
+        "multi_content_archive": "按 docs/龍魂待整理-integration-gap-report.md 分 P0-P3 逐步融入",
         "systems": "systems/ 或新增 systems/{name}/",
         "cnsh": "cnsh-core/",
         "phase3": "phase3/ 或 longhun-phase3/",
