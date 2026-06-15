@@ -2,6 +2,9 @@
 .obsidian/cache/
 .obsidian/workspace.json
 
+# 归档与备份（可能含敏感记忆/密钥）
+_archive/
+
 # macOS
 .DS_Store
 .AppleDouble
