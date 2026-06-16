@@ -129,8 +129,16 @@ class CNSHInterpreter:
             placeholder_idx += 1
             return key
 
-        # 匹配單引號或雙引號字符串，含 f-string / r-string
-        line = re.sub(r"[frbu]*(?:'[^'\\]*(?:\\.[^'\\]*)*'|\"[^\"\\]*(?:\\.[^\"\\]*)*\")", protect_string, line)
+        # 匹配單引號或雙引號字符串（非 f-string）
+        # 保護：plain / raw / byte / unicode 字符串的字面量
+        # 不保護：f-string，因為其內含可執行表達式需要轉譯
+        string_pattern = (
+            r"(?:[rRbBuU]+'[^'\\]*(?:\\.[^'\\]*)*')"          # raw/byte/unicode 單引號
+            r"|(?:[rRbBuU]+\"[^\"\\]*(?:\\.[^\"\\]*)*\")"    # raw/byte/unicode 雙引號
+            r"|(?<![fFrRbBuU])'[^'\\]*(?:\\.[^'\\]*)*'"        # plain 單引號（前面無 f/r/b/u 前綴）
+            r"|(?<![fFrRbBuU])\"[^\"\\]*(?:\\.[^\"\\]*)*\""    # plain 雙引號
+        )
+        line = re.sub(string_pattern, protect_string, line)
 
         result = line
 
