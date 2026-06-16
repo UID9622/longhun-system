@@ -207,20 +207,113 @@ description: >
 
 ---
 
+## WMS 数据对接
+
+检查引擎支持通过 `--wms-data` 参数接入真实 WMS 数据，自动为可量化检查项打分并填充证据与改进建议；未提供 `--wms-data` 时仍按原行为输出 0 分报告，保持向后兼容。
+
+### 支持格式
+
+- **JSON 文件**：嵌套对象，如 `{"inventory_diff_rate": 0.0008, ...}`
+- **CSV 文件或目录**：
+  - 单文件：第一行数据作为指标值
+  - 目录：自动合并该目录下所有 `.csv` 文件
+  - 也支持 `metric_name` / `metric_value` 两列的 key-value 形式
+- **SQLite 数据库**：
+  - 自动读取所有表，支持列名为指标名的单表
+  - 或 `wms_metrics(metric_name, metric_value)` key-value 表
+
+### WMS 数据 Schema
+
+字段名同时支持英文和中文：
+
+| 英文字段 | 中文字段 | 类型 | 说明 |
+|----------|----------|------|------|
+| `inventory_diff_rate` | `库存差异率` | float | 库存差异率，≤0.1% 得满分 |
+| `scan_success_rate` | `扫码成功率` | float | 扫码成功率，≥99.5% 得满分 |
+| `daily_orders` | `日均订单量` | int | 日均订单处理量，≥10万单得满分 |
+| `query_p95_ms` | `查询P95延迟` / `出库平均P95查询延迟` | int | 出库查询 P95 延迟(ms)，≤500ms 得满分 |
+| `picking_steps` | `拣货步数` / `拣货平均步数` | float | 拣货平均步数，≤3 步得满分 |
+| `return_cycle_hours` | `退货处理周期` | float | 退货处理周期(小时)，≤24h 得满分 |
+| `batch_trace_ratio` | `批次追溯比例` | float | 批次可追溯比例，≥95% 得满分 |
+| `training_hours` | `培训时长` | float | 新员工培训时长(小时)，≤4h 得满分 |
+| `offline_supported` | `离线支持` | bool | 是否支持离线操作 |
+| `failover_seconds` | `切换时长` / `主备切换时间` | int | 主备切换时间(秒)，≤60s 得满分 |
+| `fire_safety_score` | `消防安全得分` | float | 消防安全检查得分(百分制) |
+| `5s_score` | `5S得分` | float | 5S 检查得分(百分制) |
+
+### 评分逻辑示例
+
+- **库存差异率**：≤0.1% 得满分；0.1%~0.5% 线性扣分；≥0.5% 得 0 分
+- **扫码成功率**：≥99.5% 得满分；99.5%~95% 线性扣分；≤95% 得 0 分
+- **日均订单量**：≥10万单得满分；1万~10万单线性扣分
+- **退货处理周期**：≤24h 得满分；24h~120h 线性扣分
+- **离线支持**：支持得满分，不支持得 0 分
+- **5S/消防得分**：按百分制比例折算
+
+对于无法直接映射的检查项，引擎会给出“未提供直接对应的 WMS 指标数据”的默认证据，保持报告可解释性。部分检查项会结合相关指标做合理推断（如培训时长推断操作引导、日均单量推断看板配置等）。
+
+---
+
 ## 执行脚本
 
 自动化检查引擎：`scripts/audit_engine.py`
 
-使用方法：
+### 基本用法
+
 ```bash
 python scripts/audit_engine.py --system "系统名" --version "版本" --dimensions all --output ./report
 ```
 
-参数：
+### 对接 WMS 数据
+
+```bash
+# JSON 文件
+python scripts/audit_engine.py --system "XX仓储" --version "v2.0" \
+    --wms-data ./demo_wms_data/demo_wms.json --output ./report
+
+# CSV 目录
+python scripts/audit_engine.py --system "XX仓储" --version "v2.0" \
+    --wms-data ./demo_wms_data/demo_wms_csv --output ./report
+
+# SQLite 数据库
+python scripts/audit_engine.py --system "XX仓储" --version "v2.0" \
+    --wms-data ./demo_wms_data/demo_wms.db --output ./report
+
+# JSON + 中文键名
+python scripts/audit_engine.py --system "XX仓储" --version "v2.0" \
+    --wms-data ./demo_wms_data/demo_wms_zh.json --output ./report
+
+# 同时输出 markdown + json
+python scripts/audit_engine.py --system "XX仓储" --version "v2.0" \
+    --wms-data ./demo_wms_data/demo_wms.json --output ./report --format all
+```
+
+### 生成演示数据
+
+```bash
+python scripts/generate_demo_wms_data.py --output ./demo_wms_data
+```
+
+运行后会生成：
+- `demo_wms_data/demo_wms.json`（英文键名）
+- `demo_wms_data/demo_wms_zh.json`（中文键名）
+- `demo_wms_data/demo_wms_csv/`（多 CSV 目录）
+- `demo_wms_data/demo_wms.db`（SQLite）
+
+### 参数
+
 - `--system`: 被检查系统名称
 - `--version`: 系统版本
 - `--dimensions`: 检查维度（all/core/integration/ux/performance/data/wenzhou）
 - `--output`: 输出目录
+- `--format`: 输出格式（markdown/json/all）
+- `--mode`: 输出模式（standard/longhun）
+- `--wms-data`: WMS 数据文件或目录（CSV/JSON/SQLite）
+
+### 验证结果参考
+
+- 不带 `--wms-data`：综合得分 **0.0 分**，评级 E（不合格）
+- 带演示数据：综合得分约 **68.2 分**，评级 C（合格）
 
 ---
 

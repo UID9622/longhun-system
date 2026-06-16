@@ -15,21 +15,28 @@
     python audit_engine.py --system "XX仓储系统" --version "v2.0" \
         --dimensions all --output ./report
 
+    # 对接真实 WMS 数据
+    python audit_engine.py --system "XX仓储系统" --version "v2.0" \
+        --wms-data ./wms_data.json --output ./report
+
 参数:
     --system: 被检查系统名称
     --version: 系统版本号
     --dimensions: 检查维度 (all/core/integration/ux/performance/data/wenzhou)
     --output: 输出目录
     --format: 输出格式 (markdown/json/all)
+    --wms-data: WMS 数据文件或目录（CSV/JSON/SQLite）
 """
 
 import argparse
+import csv
 import json
 import os
+import sqlite3
 import sys
 from datetime import datetime
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -58,7 +65,7 @@ class 审计色(Enum):
 
 
 class 检查项:
-    def __init__(self, 名称: str, 要求: str, 满分: int, 权重: float = 1.0):
+    def __init__(self, 名称: str, 要求: str, 满分: int, 权重: float = 1.0, 证据键: str = ""):
         self.名称 = 名称
         self.要求 = 要求
         self.满分 = 满分
@@ -70,9 +77,10 @@ class 检查项:
         self.证据 = ""
         self.改进建议 = ""
         self.是否检查 = False
+        self.证据键 = 证据键 or 名称  # 用于匹配 WMS 证据提取函数
 
     def 评分(self, 得分: int, 证据: str = "", 改进建议: str = ""):
-        self.得分 = min(得分, self.满分)
+        self.得分 = min(max(得分, 0), self.满分)
         self.证据 = 证据
         self.改进建议 = 改进建议
         self.是否检查 = True
@@ -118,6 +126,905 @@ class 检查维度:
         总分 = sum(项.得分 for 项 in self.检查项列表)
         self.得分 = (总分 / self.满分 * 100) if self.满分 > 0 else 0
         return self.得分
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WMS 数据适配器
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# 字段名映射：支持英文和中文键名
+WMS字段映射 = {
+    # 英文 -> 英文（标准化目标键）
+    "inventory_diff_rate": "inventory_diff_rate",
+    "scan_success_rate": "scan_success_rate",
+    "daily_orders": "daily_orders",
+    "query_p95_ms": "query_p95_ms",
+    "picking_steps": "picking_steps",
+    "return_cycle_hours": "return_cycle_hours",
+    "batch_trace_ratio": "batch_trace_ratio",
+    "training_hours": "training_hours",
+    "offline_supported": "offline_supported",
+    "failover_seconds": "failover_seconds",
+    "fire_safety_score": "fire_safety_score",
+    "5s_score": "5s_score",
+    # 中文 -> 英文
+    "库存差异率": "inventory_diff_rate",
+    "扫码成功率": "scan_success_rate",
+    "日均订单量": "daily_orders",
+    "查询P95延迟": "query_p95_ms",
+    "出库平均P95查询延迟": "query_p95_ms",
+    "拣货步数": "picking_steps",
+    "拣货平均步数": "picking_steps",
+    "退货处理周期": "return_cycle_hours",
+    "退货处理时长": "return_cycle_hours",
+    "批次追溯比例": "batch_trace_ratio",
+    "批次可追溯比例": "batch_trace_ratio",
+    "培训时长": "training_hours",
+    "员工培训时长": "training_hours",
+    "离线支持": "offline_supported",
+    "是否支持离线": "offline_supported",
+    "切换时长": "failover_seconds",
+    "主备切换时间": "failover_seconds",
+    "消防安全得分": "fire_safety_score",
+    "消防安全检查得分": "fire_safety_score",
+    "5S得分": "5s_score",
+    "5S检查得分": "5s_score",
+}
+
+# 数值型字段
+WMS数值字段 = {
+    "inventory_diff_rate", "scan_success_rate", "daily_orders",
+    "query_p95_ms", "picking_steps", "return_cycle_hours",
+    "batch_trace_ratio", "training_hours", "failover_seconds",
+    "fire_safety_score", "5s_score"
+}
+
+# 布尔型字段
+WMS布尔字段 = {"offline_supported"}
+
+
+class WMS数据:
+    """统一 WMS 数据容器，支持从 CSV / JSON / SQLite 加载并标准化。"""
+
+    def __init__(self, 原始数据: Dict[str, Any]):
+        self.原始数据 = 原始数据
+        self.数据 = self._标准化(原始数据)
+
+    @classmethod
+    def 从路径加载(cls, 路径: str) -> "WMS数据":
+        if not os.path.exists(路径):
+            raise FileNotFoundError(f"WMS 数据路径不存在: {路径}")
+
+        if os.path.isdir(路径):
+            合并数据: Dict[str, Any] = {}
+            for 文件名 in sorted(os.listdir(路径)):
+                文件路径 = os.path.join(路径, 文件名)
+                if os.path.isfile(文件路径):
+                    合并数据.update(cls._加载文件(文件路径))
+            return cls(合并数据)
+        else:
+            return cls(cls._加载文件(路径))
+
+    @classmethod
+    def _加载文件(cls, 路径: str) -> Dict[str, Any]:
+        扩展名 = os.path.splitext(路径)[1].lower()
+        if 扩展名 == ".json":
+            return cls._加载JSON(路径)
+        elif 扩展名 == ".csv":
+            return cls._加载CSV(路径)
+        elif 扩展名 in (".db", ".sqlite", ".sqlite3"):
+            return cls._加载SQLite(路径)
+        else:
+            raise ValueError(f"不支持的 WMS 数据格式: {扩展名} ({路径})")
+
+    @classmethod
+    def _加载JSON(cls, 路径: str) -> Dict[str, Any]:
+        with open(路径, "r", encoding="utf-8") as f:
+            数据 = json.load(f)
+        if not isinstance(数据, dict):
+            raise ValueError("JSON 文件必须是一个对象（嵌套 key-value）")
+        return 数据
+
+    @classmethod
+    def _加载CSV(cls, 路径: str) -> Dict[str, Any]:
+        结果: Dict[str, Any] = {}
+        with open(路径, "r", encoding="utf-8-sig", newline="") as f:
+            读取器 = csv.DictReader(f)
+            行列表 = list(读取器)
+        if not 行列表:
+            return 结果
+
+        # 若只有一行数据，则直接以表头为 key
+        if len(行列表) == 1:
+            return {k: v for k, v in 行列表[0].items() if v is not None and v != ""}
+
+        # 若存在 metric_name / metric_value 列，则按 key-value 读取
+        首行 = 行列表[0]
+        if "metric_name" in 首行 and "metric_value" in 首行:
+            for 行 in 行列表:
+                键 = 行.get("metric_name", "").strip()
+                值 = 行.get("metric_value", "").strip()
+                if 键:
+                    结果[键] = 值
+            return 结果
+
+        # 否则取第一行作为指标（适用于 inventory.csv / orders.csv 等单记录表）
+        return {k: v for k, v in 行列表[0].items() if v is not None and v != ""}
+
+    @classmethod
+    def _加载SQLite(cls, 路径: str) -> Dict[str, Any]:
+        结果: Dict[str, Any] = {}
+        conn = sqlite3.connect(路径)
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            表名列表 = [row[0] for row in cursor.fetchall()]
+
+            for 表名 in 表名列表:
+                # 优先读取 key-value 表
+                cursor.execute(f"PRAGMA table_info({表名})")
+                列名列表 = [row[1] for row in cursor.fetchall()]
+
+                if "metric_name" in 列名列表 and "metric_value" in 列名列表:
+                    cursor.execute(f"SELECT metric_name, metric_value FROM {表名}")
+                    for 键, 值 in cursor.fetchall():
+                        if 键:
+                            结果[键] = 值
+                else:
+                    # 读取第一行，列名为指标名
+                    cursor.execute(f"SELECT * FROM {表名} LIMIT 1")
+                    列名 = [desc[0] for desc in cursor.description]
+                    行 = cursor.fetchone()
+                    if 行:
+                        for 键, 值 in zip(列名, 行):
+                            if 键:
+                                结果[键] = 值
+        finally:
+            conn.close()
+        return 结果
+
+    def _标准化(self, 原始数据: Dict[str, Any]) -> Dict[str, Any]:
+        标准化: Dict[str, Any] = {}
+        for 键, 值 in 原始数据.items():
+            英文键 = WMS字段映射.get(键.strip() if isinstance(键, str) else 键, 键)
+            if 英文键 in WMS数值字段:
+                标准化[英文键] = self._解析数值(值)
+            elif 英文键 in WMS布尔字段:
+                标准化[英文键] = self._解析布尔(值)
+            else:
+                标准化[英文键] = 值
+        return 标准化
+
+    @staticmethod
+    def _解析数值(值: Any) -> Optional[float]:
+        if 值 is None or 值 == "":
+            return None
+        if isinstance(值, (int, float)):
+            return float(值)
+        文本 = str(值).strip().replace(",", "")
+        try:
+            return float(文本)
+        except ValueError:
+            return None
+
+    @staticmethod
+    def _解析布尔(值: Any) -> bool:
+        if isinstance(值, bool):
+            return 值
+        文本 = str(值).strip().lower()
+        return 文本 in ("1", "true", "yes", "是", "y", "on", "支持", "已支持")
+
+    def 取(self, 键: str, 默认值: Any = None) -> Any:
+        return self.数据.get(键, 默认值)
+
+    def 有(self, 键: str) -> bool:
+        return self.数据.get(键) is not None
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WMS 证据提取器
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class WMS证据提取器:
+    """根据 WMS 数据为每个检查项自动打分并生成证据/改进建议。"""
+
+    def __init__(self, wms数据: WMS数据):
+        self.wms = wms数据
+
+    def 提取全部(self, 维度列表: List[检查维度]):
+        for 维度 in 维度列表:
+            for 项 in 维度.检查项列表:
+                self.提取(项)
+
+    def 提取(self, 项: 检查项):
+        函数 = self.提取函数表.get(项.名称)
+        if 函数:
+            函数(项)
+        else:
+            self._默认(项)
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 评分辅助函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    @staticmethod
+    def 线性扣分(实际值: Optional[float], 目标值: float, 最差值: float,
+                 满分: int, 方向: str = "lower") -> int:
+        """方向 lower: 越小越好；higher: 越大越好。"""
+        if 实际值 is None:
+            return 0
+        if 方向 == "lower":
+            if 实际值 <= 目标值:
+                return 满分
+            if 实际值 >= 最差值:
+                return 0
+            return int(满分 * (1 - (实际值 - 目标值) / (最差值 - 目标值)))
+        else:
+            if 实际值 >= 目标值:
+                return 满分
+            if 实际值 <= 最差值:
+                return 0
+            return int(满分 * ((实际值 - 最差值) / (目标值 - 最差值)))
+
+    @staticmethod
+    def 比例得分(实际值: Optional[float], 满分: int, 上限: float = 100.0) -> int:
+        if 实际值 is None:
+            return 0
+        return int(min(实际值 / 上限, 1.0) * 满分)
+
+    @staticmethod
+    def 布尔得分(条件: bool, 满分: int) -> int:
+        return 满分 if 条件 else 0
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 默认处理
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _默认(self, 项: 检查项):
+        项.评分(0, "未提供直接对应的 WMS 指标数据，按默认无证据处理。",
+                "建议在 WMS 数据源中补充与本项相关的指标字段。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 检查项评分函数注册表
+    # ───────────────────────────────────────────────────────────────────────────
+
+    @property
+    def 提取函数表(self) -> Dict[str, Any]:
+        return {
+            # 核心功能
+            "收货扫码自动化": self._收货扫码自动化,
+            "批量收货处理": self._批量收货处理,
+            "入库单据闭环": self._默认,
+            "入库分区管理": self._默认,
+            "波次管理": self._波次管理,
+            "扫码拣货复核": self._扫码拣货复核,
+            "发货管理": self._默认,
+            "退货处理": self._退货处理,
+            "库存差异率指标": self._库存差异率指标,
+            "盘点机制": self._盘点机制,
+            "差异追溯": self._差异追溯,
+            "批次追踪": self._批次追踪,
+            "批次冻结": self._默认,
+            "批次报表": self._默认,
+            "实时同步": self._实时同步,
+            "数据一致性": self._数据一致性,
+            "断网续传": self._断网续传,
+
+            # 系统集成
+            "API规范性": self._默认,
+            "API响应延迟": self._API响应延迟,
+            "国产适配": self._默认,
+            "设备兼容性": self._默认,
+            "扫码稳定性": self._扫码稳定性,
+            "交互体验": self._默认,
+            "离线操作": self._离线操作,
+            "自动同步": self._自动同步,
+            "多端适配": self._默认,
+            "订单同步": self._订单同步,
+            "库存回写": self._库存回写,
+            "异常处理": self._异常处理,
+            "多平台支持": self._默认,
+            "电子秤联动": self._默认,
+            "标签打印": self._默认,
+            "分拣线联动": self._默认,
+            "摄像头留痕": self._默认,
+
+            # 用户体验
+            "关键操作触达": self._关键操作触达,
+            "快捷操作": self._快捷操作,
+            "操作引导": self._操作引导,
+            "培训时长": self._培训时长,
+            "培训材料": self._培训材料,
+            "学习支持": self._学习支持,
+            "自主配置": self._自主配置,
+            "核心指标": self._核心指标,
+            "数据可视化": self._数据可视化,
+            "角色矩阵": self._角色矩阵,
+            "数据隔离": self._数据隔离,
+            "审批流程": self._审批流程,
+            "异常体验": self._异常体验,
+
+            # 性能压力
+            "日常处理能力": self._日常处理能力,
+            "峰值处理能力": self._峰值处理能力,
+            "队列机制": self._队列机制,
+            "查询响应时间": self._查询响应时间,
+            "数据库优化": self._数据库优化,
+            "国产数据库": self._默认,
+            "切换时长": self._切换时长,
+            "容灾指标": self._容灾指标,
+            "容灾演练": self._容灾演练,
+            "扩容能力": self._扩容能力,
+            "资源利用": self._资源利用,
+
+            # 数据分析（暂无能直接映射的指标，默认处理）
+            "ABC分类": self._默认,
+            "滞销预警": self._默认,
+            "补货建议": self._默认,
+            "库龄分布": self._默认,
+            "周转天数": self._默认,
+            "资金占用": self._默认,
+            "操作环节成本": self._默认,
+            "人效分析": self._默认,
+            "坪效分析": self._默认,
+            "预测能力": self._默认,
+            "报表能力": self._默认,
+
+            # 温州合规
+            "待检区": self._区域划分,
+            "合格区": self._区域划分,
+            "不合格区": self._区域划分,
+            "待发区": self._区域划分,
+            "退货区": self._区域划分,
+            "处理流程": self._处理流程,
+            "追溯完整": self._追溯完整,
+            "处理台账": self._处理台账,
+            "SOP规范": self._SOP规范,
+            "环节检查": self._环节检查,
+            "整理整顿": self._整理整顿,
+            "清扫清洁素养": self._清扫清洁素养,
+            "消防安全": self._消防安全,
+            "防盗与环境": self._防盗与环境,
+            "应急预案": self._应急预案,
+        }
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 核心功能评分函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _收货扫码自动化(self, 项: 检查项):
+        扫码率 = self.wms.取("scan_success_rate")
+        if 扫码率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(扫码率, 0.995, 0.95, 项.满分, "higher")
+        项.评分(得分, f"扫码成功率 {扫码率*100:.2f}%。",
+                "若扫码率低于 99.5%，需优化 PDA 扫码识别算法或更换设备。")
+
+    def _批量收货处理(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 50000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单。",
+                "批量收货能力需与日均单量匹配，建议单量大时启用 ASN 批量收货。")
+
+    def _波次管理(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单。",
+                "高单量场景下必须配置自动波次规则以提升拣货效率。")
+
+    def _扫码拣货复核(self, 项: 检查项):
+        扫码率 = self.wms.取("scan_success_rate")
+        if 扫码率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(扫码率, 0.995, 0.95, 项.满分, "higher")
+        项.评分(得分, f"扫码复核成功率 {扫码率*100:.2f}%。",
+                "复核准确率直接影响库存差异，建议低于 99.5% 时加强复核节点。")
+
+    def _退货处理(self, 项: 检查项):
+        周期 = self.wms.取("return_cycle_hours")
+        if 周期 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(周期, 24, 120, 项.满分, "lower")
+        项.评分(得分, f"退货处理周期 {周期:.1f} 小时。",
+                "退货周期超过 24 小时会积压库存，建议优化质检与上架流程。")
+
+    def _库存差异率指标(self, 项: 检查项):
+        差异率 = self.wms.取("inventory_diff_rate")
+        if 差异率 is None:
+            self._默认(项)
+            return
+        # 目标 ≤0.1%，每高 0.05% 线性扣分，≥0.5% 得 0 分
+        得分 = self.线性扣分(差异率, 0.001, 0.005, 项.满分, "lower")
+        项.评分(得分, f"库存差异率 {差异率*100:.3f}%。",
+                "差异率超过 ±0.1% 需加强盘点与差异分析机制。")
+
+    def _盘点机制(self, 项: 检查项):
+        差异率 = self.wms.取("inventory_diff_rate")
+        if 差异率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(差异率, 0.001, 0.005, 项.满分, "lower")
+        项.评分(得分, f"库存差异率 {差异率*100:.3f}%，反映盘点机制有效性。",
+                "差异率偏高时建议引入动态盘点与差异责任追溯。")
+
+    def _差异追溯(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次可追溯比例 {追溯比*100:.1f}%。",
+                "追溯比例不足时需完善批次录入与操作日志关联。")
+
+    def _批次追踪(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次全链路追溯比例 {追溯比*100:.1f}%。",
+                "建议实现批次录入→出入库→FIFO 执行的全链路覆盖。")
+
+    def _实时同步(self, 项: 检查项):
+        切换时间 = self.wms.取("failover_seconds")
+        if 切换时间 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(切换时间, 60, 300, 项.满分, "lower")
+        项.评分(得分, f"主备切换时间 {切换时间:.0f} 秒。",
+                "切换时间过长将影响实时同步可用性，建议控制在 60 秒以内。")
+
+    def _数据一致性(self, 项: 检查项):
+        差异率 = self.wms.取("inventory_diff_rate")
+        if 差异率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(差异率, 0.001, 0.005, 项.满分, "lower")
+        项.评分(得分, f"库存差异率 {差异率*100:.3f}%。",
+                "差异率是数据一致性的重要指标，需建立差异告警机制。")
+
+    def _断网续传(self, 项: 检查项):
+        离线 = self.wms.取("offline_supported")
+        if 离线 is None:
+            self._默认(项)
+            return
+        得分 = self.布尔得分(离线, 项.满分)
+        项.评分(得分, f"离线支持：{'是' if 离线 else '否'}。",
+                "移动端需支持离线缓存与断网续传以保障现场作业连续性。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 系统集成评分函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _API响应延迟(self, 项: 检查项):
+        延迟 = self.wms.取("query_p95_ms")
+        if 延迟 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(延迟, 500, 3000, 项.满分, "lower")
+        项.评分(得分, f"出库查询 P95 延迟 {延迟:.0f} ms。",
+                "API P95 延迟超过 3 秒将严重影响 PDA 体验，建议优化索引与缓存。")
+
+    def _扫码稳定性(self, 项: 检查项):
+        扫码率 = self.wms.取("scan_success_rate")
+        if 扫码率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(扫码率, 0.995, 0.95, 项.满分, "higher")
+        项.评分(得分, f"扫码成功率 {扫码率*100:.2f}%。",
+                "扫码稳定性低于 99.5% 会显著降低作业效率，需排查设备与网络。")
+
+    def _离线操作(self, 项: 检查项):
+        离线 = self.wms.取("offline_supported")
+        if 离线 is None:
+            self._默认(项)
+            return
+        得分 = self.布尔得分(离线, 项.满分)
+        项.评分(得分, f"离线操作支持：{'是' if 离线 else '否'}。",
+                "建议移动端入库/出库/盘点均支持断网操作。")
+
+    def _自动同步(self, 项: 检查项):
+        切换时间 = self.wms.取("failover_seconds")
+        if 切换时间 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(切换时间, 60, 300, 项.满分, "lower")
+        项.评分(得分, f"主备切换时间 {切换时间:.0f} 秒。",
+                "同步链路高可用性不足时，需完善自动切换与冲突处理机制。")
+
+    def _订单同步(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单。",
+                "订单同步能力需与业务量匹配，建议配置实时同步与失败重试。")
+
+    def _库存回写(self, 项: 检查项):
+        差异率 = self.wms.取("inventory_diff_rate")
+        if 差异率 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(差异率, 0.001, 0.005, 项.满分, "lower")
+        项.评分(得分, f"库存差异率 {差异率*100:.3f}%，反映回写准确性。",
+                "差异率偏高时需校验 ERP/WMS 回写链路。")
+
+    def _异常处理(self, 项: 检查项):
+        周期 = self.wms.取("return_cycle_hours")
+        if 周期 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(周期, 24, 120, 项.满分, "lower")
+        项.评分(得分, f"退货异常处理周期 {周期:.1f} 小时。",
+                "异常处理周期过长将影响客户体验，建议建立一键上报与闭环跟踪。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 用户体验评分函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _关键操作触达(self, 项: 检查项):
+        步数 = self.wms.取("picking_steps")
+        if 步数 is None:
+            self._默认(项)
+            return
+        if 步数 <= 3:
+            得分 = 项.满分
+        elif 步数 <= 4:
+            得分 = int(项.满分 * 0.7)
+        elif 步数 <= 5:
+            得分 = int(项.满分 * 0.4)
+        else:
+            得分 = 0
+        项.评分(得分, f"拣货平均步数 {步数:.1f} 步。",
+                "关键操作超过 3 步将降低人效，建议优化界面与流程。")
+
+    def _培训时长(self, 项: 检查项):
+        时长 = self.wms.取("training_hours")
+        if 时长 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(时长, 4, 8, 项.满分, "lower")
+        项.评分(得分, f"新员工培训时长 {时长:.1f} 小时。",
+                "培训时长超过 4 小时说明系统上手门槛偏高，需优化引导与 SOP。")
+
+    def _培训材料(self, 项: 检查项):
+        时长 = self.wms.取("training_hours")
+        if 时长 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(时长, 4, 8, 项.满分, "lower")
+        项.评分(得分, f"培训时长 {时长:.1f} 小时，材料需覆盖该周期。",
+                "建议配套操作手册、视频教程与在线考试。")
+
+    def _异常体验(self, 项: 检查项):
+        周期 = self.wms.取("return_cycle_hours")
+        if 周期 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(周期, 24, 120, 项.满分, "lower")
+        项.评分(得分, f"退货异常闭环周期 {周期:.1f} 小时。",
+                "异常处理体验与闭环时效强相关，建议控制在 24 小时内。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 性能压力评分函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _日常处理能力(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单处理能力 {日单量:,.0f} 单。",
+                "未达到十万级日单量时，需评估扩容与队列优化。")
+
+    def _峰值处理能力(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        # 假设峰值能力约为日常的 2.5 倍（工程经验值）
+        峰值 = 日单量 * 2.5
+        目标峰值 = 300000  # 日常 10 万的 3 倍
+        得分 = self.线性扣分(峰值, 目标峰值, 50000, 项.满分, "higher")
+        项.评分(得分, f"估算峰值处理能力 {峰值:,.0f} 单/日。",
+                "峰值需达到日常的 3 倍，建议进行压测与容量规划。")
+
+    def _查询响应时间(self, 项: 检查项):
+        延迟 = self.wms.取("query_p95_ms")
+        if 延迟 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(延迟, 500, 3000, 项.满分, "lower")
+        项.评分(得分, f"查询 P95 延迟 {延迟:.0f} ms。",
+                "P95 超过 500ms 需优化数据库索引、缓存或读写分离。")
+
+    def _数据库优化(self, 项: 检查项):
+        延迟 = self.wms.取("query_p95_ms")
+        if 延迟 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(延迟, 500, 3000, 项.满分, "lower")
+        项.评分(得分, f"查询 P95 延迟 {延迟:.0f} ms，反映数据库优化水平。",
+                "建议持续监控慢查询、连接池与索引命中率。")
+
+    def _切换时长(self, 项: 检查项):
+        切换时间 = self.wms.取("failover_seconds")
+        if 切换时间 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(切换时间, 60, 300, 项.满分, "lower")
+        项.评分(得分, f"主备切换时间 {切换时间:.0f} 秒。",
+                "切换时间超过 60 秒将扩大故障影响面，需优化自动切换。")
+
+    def _容灾指标(self, 项: 检查项):
+        切换时间 = self.wms.取("failover_seconds")
+        if 切换时间 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(切换时间, 60, 300, 项.满分, "lower")
+        项.评分(得分, f"主备切换时间 {切换时间:.0f} 秒，RTO 关键指标。",
+                "建议 RTO<30 分钟、RPO<5 分钟并定期演练。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 温州合规评分函数
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _追溯完整(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%。",
+                "温州制度要求不合格品处理 10 要素可追溯，需覆盖时间/人/原因/批次等。")
+
+    def _整理整顿(self, 项: 检查项):
+        分数 = self.wms.取("5s_score")
+        if 分数 is None:
+            self._默认(项)
+            return
+        得分 = self.比例得分(分数, 项.满分)
+        项.评分(得分, f"5S 检查得分 {分数:.1f} 分。",
+                "5S 得分偏低时需加强整理整顿与定置管理。")
+
+    def _清扫清洁素养(self, 项: 检查项):
+        分数 = self.wms.取("5s_score")
+        if 分数 is None:
+            self._默认(项)
+            return
+        得分 = self.比例得分(分数, 项.满分)
+        项.评分(得分, f"5S 检查得分 {分数:.1f} 分。",
+                "需建立清扫清洁标准与员工素养养成机制。")
+
+    def _消防安全(self, 项: 检查项):
+        分数 = self.wms.取("fire_safety_score")
+        if 分数 is None:
+            self._默认(项)
+            return
+        得分 = self.比例得分(分数, 项.满分)
+        项.评分(得分, f"消防安全检查得分 {分数:.1f} 分。",
+                "消防得分不足 100 分时需补齐灭火器、消防栓、应急灯与疏散标识。")
+
+    # ───────────────────────────────────────────────────────────────────────────
+    # 推断评分函数（基于核心指标间接推断，保持可解释性）
+    # ───────────────────────────────────────────────────────────────────────────
+
+    def _系统成熟度评分(self, 项: 检查项, 依赖指标: List[str], 阈值: float):
+        """当所有依赖指标均达到阈值时，按满分比例给分。"""
+        命中数 = 0
+        for 指标 in 依赖指标:
+            值 = self.wms.取(指标)
+            if 值 is None:
+                return 0
+            if 指标 in ("inventory_diff_rate", "query_p95_ms", "picking_steps",
+                        "return_cycle_hours", "training_hours", "failover_seconds"):
+                命中数 += 1 if 值 <= 阈值 else 0
+            else:
+                命中数 += 1 if 值 >= 阈值 else 0
+        比例 = 命中数 / len(依赖指标)
+        return int(项.满分 * 比例)
+
+    # 用户体验推断
+    def _快捷操作(self, 项: 检查项):
+        步数 = self.wms.取("picking_steps")
+        if 步数 is None:
+            self._默认(项)
+            return
+        得分 = 项.满分 if 步数 <= 3 else int(项.满分 * 0.5)
+        项.评分(得分, f"拣货平均步数 {步数:.1f} 步，间接反映快捷操作水平。",
+                "步数≤3 说明流程已做shortcut优化，否则建议增加扫码直达/批量操作。")
+
+    def _操作引导(self, 项: 检查项):
+        时长 = self.wms.取("training_hours")
+        if 时长 is None:
+            self._默认(项)
+            return
+        得分 = 项.满分 if 时长 <= 4 else int(项.满分 * 0.5)
+        项.评分(得分, f"培训时长 {时长:.1f} 小时，反映上手引导成熟度。",
+                "培训时长越短通常意味着引导与 SOP 越完善。")
+
+    def _学习支持(self, 项: 检查项):
+        时长 = self.wms.取("training_hours")
+        if 时长 is None:
+            self._默认(项)
+            return
+        得分 = 项.满分 if 时长 <= 4 else int(项.满分 * 0.5)
+        项.评分(得分, f"培训时长 {时长:.1f} 小时，推断学习支持体系完备度。",
+                "建议配套 FAQ、模拟环境与在线客服以缩短培训周期。")
+
+    def _自主配置(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单，推断系统配置灵活度。",
+                "业务量大的系统通常需要高度可配置的 KPI 看板。")
+
+    def _核心指标(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单，反映核心指标监控需求。",
+                "建议看板覆盖周转率、时效、准确率、人效与预警。")
+
+    def _数据可视化(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单，推断可视化建设水平。",
+                "高单量仓库需具备趋势图、饼图与下钻分析能力。")
+
+    def _角色矩阵(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%，反映流程规范化程度。",
+                "高追溯比例通常伴随完善的角色权限与操作审计。")
+
+    def _数据隔离(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%，推断数据隔离与审计水平。",
+                "完善的批次追溯需要仓库隔离与敏感数据保护。")
+
+    def _审批流程(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%，反映流程闭环能力。",
+                "库存调整与异常处理建议配置多级审批。")
+
+    # 性能压力推断
+    def _队列机制(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        if 日单量 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(日单量, 100000, 10000, 项.满分, "higher")
+        项.评分(得分, f"日均订单量 {日单量:,.0f} 单，推断队列机制必要性。",
+                "十万级日单量必须配备消息队列、深度监控与死信处理。")
+
+    def _容灾演练(self, 项: 检查项):
+        切换时间 = self.wms.取("failover_seconds")
+        if 切换时间 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(切换时间, 60, 300, 项.满分, "lower")
+        项.评分(得分, f"主备切换时间 {切换时间:.0f} 秒，反映容灾体系建设。",
+                "切换时间达标说明具备容灾演练基础，建议半年内完成一次演练。")
+
+    def _扩容能力(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        延迟 = self.wms.取("query_p95_ms")
+        if 日单量 is None or 延迟 is None:
+            self._默认(项)
+            return
+        得分 = self._系统成熟度评分(项, ["daily_orders", "query_p95_ms"], 100000) if 延迟 <= 500 else int(项.满分 * 0.4)
+        项.评分(得分, f"日均 {日单量:,.0f} 单、P95 {延迟:.0f} ms，推断扩容能力。",
+                "高并发低延迟通常依赖自动扩容、负载均衡与无状态架构。")
+
+    def _资源利用(self, 项: 检查项):
+        日单量 = self.wms.取("daily_orders")
+        延迟 = self.wms.取("query_p95_ms")
+        if 日单量 is None or 延迟 is None:
+            self._默认(项)
+            return
+        得分 = self._系统成熟度评分(项, ["daily_orders", "query_p95_ms"], 100000) if 延迟 <= 500 else int(项.满分 * 0.4)
+        项.评分(得分, f"日均 {日单量:,.0f} 单、P95 {延迟:.0f} ms，推断资源利用健康度。",
+                "建议 CPU≤70%、内存≤80%、磁盘≤80%、网络≤70%。")
+
+    # 温州合规推断
+    def _区域划分(self, 项: 检查项):
+        消防 = self.wms.取("fire_safety_score")
+        s5分数 = self.wms.取("5s_score")
+        if 消防 is None or s5分数 is None:
+            self._默认(项)
+            return
+        平均 = (消防 + s5分数) / 2
+        得分 = self.比例得分(平均, 项.满分, 100)
+        项.评分(得分, f"消防 {消防:.1f} 分、5S {s5分数:.1f} 分，间接反映区域管理规范度。",
+                "区域划分是 5S 与安全管理的基础，建议按色标管理。")
+
+    def _处理流程(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%，反映流程闭环能力。",
+                "不合格处理流程需覆盖发现→隔离→标识→记录→通知→判定→处理→归档。")
+
+    def _处理台账(self, 项: 检查项):
+        追溯比 = self.wms.取("batch_trace_ratio")
+        if 追溯比 is None:
+            self._默认(项)
+            return
+        得分 = self.线性扣分(追溯比, 0.95, 0.7, 项.满分, "higher")
+        项.评分(得分, f"批次追溯比例 {追溯比*100:.1f}%，推断台账完整度。",
+                "建议建立完整的不合格处理台账备查。")
+
+    def _SOP规范(self, 项: 检查项):
+        消防 = self.wms.取("fire_safety_score")
+        s5分数 = self.wms.取("5s_score")
+        if 消防 is None or s5分数 is None:
+            self._默认(项)
+            return
+        平均 = (消防 + s5分数) / 2
+        得分 = self.比例得分(平均, 项.满分, 100)
+        项.评分(得分, f"消防 {消防:.1f} 分、5S {s5分数:.1f} 分，反映现场规范化水平。",
+                "SOP 规范需覆盖收货→质检→上架→存储→拣货→复核→打包→发货。")
+
+    def _环节检查(self, 项: 检查项):
+        消防 = self.wms.取("fire_safety_score")
+        s5分数 = self.wms.取("5s_score")
+        if 消防 is None or s5分数 is None:
+            self._默认(项)
+            return
+        平均 = (消防 + s5分数) / 2
+        得分 = self.比例得分(平均, 项.满分, 100)
+        项.评分(得分, f"消防 {消防:.1f} 分、5S {s5分数:.1f} 分，反映环节检查执行情况。",
+                "每环节需有标准、步骤、检查、异常与记录。")
+
+    def _防盗与环境(self, 项: 检查项):
+        分数 = self.wms.取("fire_safety_score")
+        if 分数 is None:
+            self._默认(项)
+            return
+        得分 = self.比例得分(分数, 项.满分, 100)
+        项.评分(得分, f"消防安全检查得分 {分数:.1f} 分，间接反映安防环境管理水平。",
+                "建议同步完善监控、门禁、防潮、防虫与温控措施。")
+
+    def _应急预案(self, 项: 检查项):
+        分数 = self.wms.取("fire_safety_score")
+        if 分数 is None:
+            self._默认(项)
+            return
+        得分 = self.比例得分(分数, 项.满分, 100)
+        项.评分(得分, f"消防安全检查得分 {分数:.1f} 分，反映安全管理重视度。",
+                "建议制定火灾、水灾、系统故障与人员安全应急预案。")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -419,23 +1326,27 @@ radarChart
     # 各维度详细结果
     for 维度 in 维度列表:
         report += f"\n## {维度.名称}（权重{维度.权重*100:.0f}%）\n\n"
-        report += "| 检查项 | 满分 | 得分 | 评级 | 风险 |\n"
-        report += "|--------|------|------|------|------|\n"
+        report += "| 检查项 | 满分 | 得分 | 评级 | 风险 | 证据 | 改进建议 |\n"
+        report += "|--------|------|------|------|------|------|----------|\n"
         
         for 项 in 维度.检查项列表:
             色 = 项.审计色.value
-            report += f"| {项.名称} | {项.满分} | {色} {项.得分} | {项.评级.value} | {项.风险等级.value} |\n"
+            证据 = (项.证据 or "无").replace("|", "\\|")
+            建议 = (项.改进建议 or "无").replace("|", "\\|")
+            report += f"| {项.名称} | {项.满分} | {色} {项.得分} | {项.评级.value} | {项.风险等级.value} | {证据} | {建议} |\n"
         
         report += f"\n**维度得分：{维度.得分:.1f}分，评级：{生成评级(维度.得分)}**\n"
     
     # 温州合规详细
     report += f"\n## {温州维度.名称}（附加维度，不计入总分）\n\n"
-    report += "| 检查项 | 满分 | 得分 | 评级 | 风险 |\n"
-    report += "|--------|------|------|------|------|\n"
+    report += "| 检查项 | 满分 | 得分 | 评级 | 风险 | 证据 | 改进建议 |\n"
+    report += "|--------|------|------|------|------|------|----------|\n"
     
     for 项 in 温州维度.检查项列表:
         色 = 项.审计色.value
-        report += f"| {项.名称} | {项.满分} | {色} {项.得分} | {项.评级.value} | {项.风险等级.value} |\n"
+        证据 = (项.证据 or "无").replace("|", "\\|")
+        建议 = (项.改进建议 or "无").replace("|", "\\|")
+        report += f"| {项.名称} | {项.满分} | {色} {项.得分} | {项.评级.value} | {项.风险等级.value} | {证据} | {建议} |\n"
     
     report += f"\n**合规得分：{温州维度.得分:.1f}分，评级：{生成评级(温州维度.得分)}**\n"
     
@@ -531,7 +1442,9 @@ def 生成JSON报告(
                     "满分": 项.满分,
                     "得分": 项.得分,
                     "评级": 项.评级.value,
-                    "风险": 项.风险等级.value
+                    "风险": 项.风险等级.value,
+                    "证据": 项.证据,
+                    "改进建议": 项.改进建议
                 }
                 for 项 in 维度.检查项列表
             ]
@@ -553,6 +1466,8 @@ def 主函数():
     python audit_engine.py --system "XX仓储" --version "v2.0"
     python audit_engine.py --system "XX仓储" --dimensions core,ux
     python audit_engine.py --system "XX仓储" --format json
+    python audit_engine.py --system "XX仓储" --wms-data ./wms_data.json
+    python audit_engine.py --system "XX仓储" --wms-data ./wms_data_dir/ --format all
         """
     )
     
@@ -566,6 +1481,7 @@ def 主函数():
     解析器.add_argument("--output", default="./report", help="输出目录")
     解析器.add_argument("--format", default="markdown", choices=["markdown", "json", "all"], help="输出格式")
     解析器.add_argument("--mode", default="standard", choices=["standard", "longhun"], help="输出模式：standard标准模式 / longhun龍魂模式")
+    解析器.add_argument("--wms-data", default="", help="WMS 数据文件或目录（CSV/JSON/SQLite），支持多文件合并")
     
     参数 = 解析器.parse_args()
     
@@ -590,6 +1506,18 @@ def 主函数():
         维度键列表 = 参数.dimensions.split(",")
         选中维度 = [全部维度[k] for k in 维度键列表 if k in 全部维度 and k != "wenzhou"]
         温州维度 = 全部维度["wenzhou"] if "wenzhou" in 维度键列表 else 创建温州合规维度()
+    
+    # 加载 WMS 数据并自动打分
+    if 参数.wms_data:
+        try:
+            wms数据 = WMS数据.从路径加载(参数.wms_data)
+            提取器 = WMS证据提取器(wms数据)
+            提取器.提取全部(选中维度)
+            提取器.提取全部([温州维度])
+            print(f"📊 已加载 WMS 数据: {参数.wms_data}")
+        except Exception as e:
+            print(f"⚠️  加载 WMS 数据失败: {e}", file=sys.stderr)
+            sys.exit(1)
     
     # 生成报告
     os.makedirs(参数.output, exist_ok=True)
