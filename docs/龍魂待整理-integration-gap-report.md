@@ -240,3 +240,42 @@ ls -la ~/longhun-system/cnsh-core/rules-engine/ai-response-enforcement-rules/
 ---
 
 > 🐉 龍魂永世，文化傳承，數字主權，科技自主創新不可讓渡！
+
+---
+
+## 第五批：Export 全量工作區結構化融入（2026-06-16）
+
+本次對 `/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa` 下的 7 大工作區進行掃描、分類、脫敏與融入。
+
+### 工作區清單與融入狀態
+
+| 工作區 | 風險等級 | 掃描文件數 | 融入文件數 | 目標目錄 | 狀態 |
+|--------|----------|------------|------------|----------|------|
+| `龍魂技术全站` | low | 383 | 101 | `docs/longhun-tech/` | ✅ 已融入 |
+| `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | low | 998 | 146 | `docs/dragon-soul-open-hub/` | ✅ 已融入 |
+| `UID9622·托管区` | high | 292 | 108 | `docs/uid9622-hosted/` | ✅ 已融入 |
+| `宝宝这是我们的家` | high | 11 | 4 | `docs/dragon-soul-philosophy/` | ✅ 已融入（僅技術/哲學檔案） |
+| `易学堂` | high | 29 | 2 | `docs/yixuetang/` | ✅ 已融入（僅公開教學/架構） |
+| `CNSH｜UID9622` | high | 1,940 | 120 | `docs/cnsh-uid9622/` | ✅ 已融入 |
+| `私人与共享` | high | 4,344 | 214（累計） | `docs/private-shared-imports/` | ✅ 頂層 + 子文件夾 + 第二批補充 |
+
+### 新增輔助腳本
+
+- `bin/organize_longhun_tech.py`：龍魂技术全站自動分類與融入
+- `bin/integrate_cnsh_uid9622.py`：CNSH｜UID9622 自動分類與融入
+- `bin/integrate_private_shared_batch2.py`：私人与共享第二批補充
+- `bin/generate_workspace_metadata.py`：為已融入目錄生成 README 與 scan JSON
+- `bin/update_private_shared_readme.py`：更新私人与共享總覽 README
+
+### 敏感內容處理
+
+- 已排除：私人對話、家庭/情感內容、加密密鑰、激活碼、DNA 身份檔案、個人主權綁定檔案。
+- 已脫敏：UID9622 等公開標識保留；真實姓名、GPG 指紋、確認碼、個人聯繫方式已替換或刪除。
+- 已過濾空文件、無標題殘留、明顯碎片化的待辦/記錄。
+
+### 後續建議
+
+1. 對 `docs/private-shared-imports/` 第二批自動化結果進行人工抽樣審查。
+2. 建立 `.sensitive-ignore` 清單，將本次排除的目錄與檔案模式化。
+3. 將 `docs/cnsh-uid9622/` 中的 CNSH 語言規範與 `cnsh-core/` 現有運行時對接。
+4. 將 `docs/dragon-soul-open-hub/` 中的開源模板與學術論文模板發布到 `templates/`。
