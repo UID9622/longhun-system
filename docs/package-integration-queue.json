@@ -627,9 +627,9 @@
       "priority": "P0",
       "suggested_target": "按 docs/龍魂待整理-integration-gap-report.md 分 P0-P3 逐步融入",
       "status": "partially_integrated",
-      "notes": "已融入 P0 控制台/流場/HTML 與核心協議文檔，詳見差距報告；剩餘 8000+ Notion 導出文件待分類",
+      "notes": "已融入 P0 控制台/流場/HTML 與核心協議文檔，詳見差距報告；剩餘 8000+ Notion 導出文件待分類 | 第三批：已從私人与共享融入40個非敏感核心文檔",
       "discovered_at": "2026-06-15T23:22:28.634306+00:00",
-      "last_seen": "2026-06-15T23:41:18.482371+00:00"
+      "last_seen": "2026-06-16T04:29:50.063899+00:00"
     },
     "longhun-lu": {
       "name": "longhun-lu",
