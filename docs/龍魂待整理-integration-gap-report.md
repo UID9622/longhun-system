@@ -107,6 +107,26 @@
 | `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | ✅ 已融入 | 12 個測試文件/腳本/HTML |
 | `龍魂API/` | `cnsh-core/api/` | ✅ 已融入 | API 實現 + 部署指令 + 使用說明 |
 
+### 第三批：私人与共享批量融入
+
+從 Notion `私人与共享` 工作區頂層 413 個 `.md` 文件中：
+- 篩出 **34 個敏感文件**（私人對話、加密、密鑰、DNA 身份、激活碼等）**排除**
+- 融入 **40 個非敏感核心文檔**至 `docs/private-shared-imports/`
+
+| 類別 | 數量 | 主幹位置 |
+|------|------|---------|
+| AI 行為規則 | 4 | `docs/private-shared-imports/ai-behavior/` |
+| CNSH 協議 | 7 | `docs/private-shared-imports/cnsh-protocols/` |
+| 系統架構 | 5 | `docs/private-shared-imports/architecture/` |
+| 治理與君子協議 | 6 | `docs/private-shared-imports/governance/` |
+| 安全與審計 | 5 | `docs/private-shared-imports/security-audit/` |
+| 人格與工具 | 4 | `docs/private-shared-imports/persona-tools/` |
+| API 與集成 | 2 | `docs/private-shared-imports/api-integration/` |
+| 記憶與 DNA | 3 | `docs/private-shared-imports/memory-dna/` |
+| 綜合文檔 | 4 | `docs/private-shared-imports/documentation/` |
+
+詳見 `docs/private-shared-imports/README.md` 與 `docs/private-shared-scan.json`。
+
 ### P1 · 建議融入
 
 | 來源 | 建議目標 |
