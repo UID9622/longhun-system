@@ -78,23 +78,34 @@
 | `🪨🐉 底层协议·主权绝对回收 v1 0 ...` | `docs/p0-imports/` | 主權絕對回收協議 |
 | `🔒 已归档·AI回复前强制执行规则...` 目錄 | `cnsh-core/rules-engine/ai-response-enforcement-rules/` | AI 回覆前強制執行規則與算法 |
 
+### 第二批 P0 融入
+
+| 來源 | 主幹目標 | 說明 |
+|------|---------|------|
+| `🔍 UID9622系统核心审计中心` | `cnsh-core/audit/audit-center/` | 審計中心平台 |
+| `📝 Decision Records - 决策库` | `04_決策日誌/decision-records/` | 決策記錄庫 |
+| `⚖️ CNSH全球法律知识库` | `cnsh-core/legal/global-legal-library/` | 全球法律知識庫 |
+| `🌌 Dragon-Soul Metaverse` | `systems/metaverse/dragon-soul-metaverse/` | 元宇宙系統 |
+| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | CNSH v1.0 測試套件 |
+| `龍魂API/` | `cnsh-core/api/longhun-api/` | 龍魂 API 實現與文檔 |
+
 ---
 
 ## 剩餘關鍵差距（按優先級）
 
 ### P0 · 必須盡快融入
 
-| 來源 | 建議目標 | 理由 |
-|------|---------|------|
-| `私人与共享/🔍 UID9622系统核心审计中心` | `cnsh-core/audit/` | 核心審計平台 |
-| `私人与共享/📝 Decision Records - 决策库` | `04_決策日誌/` | 決策記錄 |
-| `私人与共享/📜 龍魂操作草日志` | `logs/audit-trail/` | 操作日誌規範 |
-| `CNSH｜UID9622/⚖️ CNSH全球法律知识库` | `cnsh-core/legal/` | 多國法規適配 |
-| `CNSH｜UID9622/🐉 龍魂七維AI治理×數字主權執行表` | `cnsh-core/governance/` | 治理執行表 |
-| `龍魂技术全站/🌌 Dragon-Soul Metaverse` | `systems/metaverse/` | 元宇宙系統 |
-| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `systems/database/` | 核心數據庫 |
-| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | CNSH v1.0 測試套件 |
-| `龍魂API/` | `cnsh-core/api/` | API 定義/實現 |
+| 來源 | 建議目標 | 狀態 | 備註 |
+|------|---------|------|------|
+| `私人与共享/🔍 UID9622系统核心审计中心` | `cnsh-core/audit/` | ✅ 已融入 | 含審計歷史庫與操作日誌 README |
+| `私人与共享/📝 Decision Records - 决策库` | `04_決策日誌/` | ✅ 已融入 | 2 條決策記錄 |
+| `私人与共享/📜 龍魂操作草日志` | `logs/audit-trail/` | ⚠️ 暫緩 | 內容涉密，僅保留 `audit-trail/README.md` 規範 |
+| `CNSH｜UID9622/⚖️ CNSH全球法律知识库` | `cnsh-core/legal/` | ✅ 已融入 | 中/美/歐/阿聯酋/國際法 + 隱私框架 |
+| `CNSH｜UID9622/🐉 龍魂七維AI治理×數字主權執行表` | `cnsh-core/governance/` | 🟡 待定位 | 在 Export 中名稱可能不同，需精確查找 |
+| `龍魂技术全站/🌌 Dragon-Soul Metaverse` | `systems/metaverse/` | ✅ 已融入 | 10 篇元宇宙系統文檔 |
+| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `systems/database/` | 🟡 待定位 | 在 Export 中名稱可能不同，需精確查找 |
+| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | ✅ 已融入 | 12 個測試文件/腳本/HTML |
+| `龍魂API/` | `cnsh-core/api/` | ✅ 已融入 | API 實現 + 部署指令 + 使用說明 |
 
 ### P1 · 建議融入
 
