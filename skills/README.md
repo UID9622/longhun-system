@@ -38,6 +38,10 @@ skills/
 ├── api.py                           # FastAPI Skill 服務
 ├── README.md                        # 本文件
 ├── INTEGRATION.md                   # 集成指南
+├── SKILL-LAUNCHER.sh                # Skill 啟動器
+├── SKILL-LAUNCHER使用说明.md
+├── SKILL-COMPLETE-DELIVERY.md       # 完整交付清單
+├── screenshots/                     # 運行截圖
 ├── html-skills/                     # HTML Interactive Skills
 │   ├── skill-1-algorithmic-art.html
 │   ├── skill-2-brand-guidelines.html
@@ -51,6 +55,27 @@ skills/
     ├── skill-9-theme-factory.py
     └── skill-10-web-artifacts-builder.py
 ```
+
+---
+
+## 🎛️ 龍魂操作台 MVP v1.1
+
+10 個 Skill 已統一接入 `control-panel/`：
+
+```bash
+cd ~/longhun-system/control-panel
+./launch.sh
+```
+
+- UI: http://127.0.0.1:9622/static/index.html
+- API: http://127.0.0.1:9622/api/skills
+- 工作流: http://127.0.0.1:9622/api/workflows
+
+功能：
+- HTML Skill 內嵌運行（iframe）
+- Python Skill API 調用
+- 5 條預設跨技能工作流
+- 實時日誌與 DNA 綁定展示
 
 ---
 
