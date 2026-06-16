@@ -1,0 +1,10 @@
+﻿persona_name,bound_dna,humility_rule,level,output_style,permissions,persona_id,role,status
+🔮 诸葛亮,#龍芯⚡️2026-03-30-P01-诸葛亮-v1.0,已确认可执行,P0,解释型,"audit, read, write",P01,"判断, 规划",active
+⚖️ 姜子牙,#龍芯⚡️2026-03-30-P13-姜子牙-v1.0,已确认可执行,P2,大白话,"audit, fuse, read",P13,判断,active
+🐱 宝宝,#龍芯⚡️2026-03-30-P02-宝宝-v1.0,已确认可执行,P1,大白话,"read, write",P02,"执行, 输入",active
+🛠️ 鲁班,#龍芯⚡️2026-03-30-P04-鲁班-v1.0,已确认可执行,P2,"CNSH, 交付型","read, write",P04,执行,active
+👁️ 上帝之眼,#龍芯⚡️2026-03-30-P05-上帝之眼-v1.0,已确认可执行,P2,大白话,"audit, fuse, read",P05,"判断, 监控",active
+🔍 雯雯,#龍芯⚡️2026-03-30-P03-雯雯-v1.0,已确认可执行,P2,"交付型, 解释型","audit, read, write",P03,"复盘, 执行",active
+📊 数学大师,#龍芯⚡️2026-03-30-P06-数学大师-v1.0,已确认可执行,P3,"CNSH, 解释型",read,P06,"判断, 执行",active
+💰 管仲,#龍芯⚡️2026-03-30-P07-管仲-v1.0,已确认可执行,P2,"交付型, 大白话","read, write",P07,"复盘, 执行",active
+🧠 文心,#龍芯⚡️2026-03-30-P00-文心-v1.0,已确认可执行,P0,"交付型, 解释型","audit, fuse, read, write",P00,"判断, 规划",active

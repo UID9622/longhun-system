@@ -1,0 +1,946 @@
+{
+  "source_workspace": "CNSH｜UID9622",
+  "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/CNSH｜UID9622",
+  "destination_path": "/Users/zuimeidedeyihan/longhun-system/docs/cnsh-uid9622",
+  "total_scanned": 1945,
+  "total_md": 1893,
+  "total_csv": 47,
+  "copied_count": 120,
+  "excluded_count": 1820,
+  "category_stats": {
+    "governance": 67,
+    "metaverse": 17,
+    "ops": 11,
+    "constitution": 9,
+    "anchors": 9,
+    "runtime": 2,
+    "sancai": 2,
+    "education": 1,
+    "templates": 1,
+    "engine": 1
+  },
+  "copied_files": [
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🇨🇳 UID9622元宇宙国民入口 祖国基建·为人民服务 2a07125a9c9f80338489d2abdecb3311.md",
+      "destination": "metaverse/🇨🇳 UID9622元宇宙国民入口 祖国基建·为人民服务.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🏭 元宇宙加工厂｜代码抄录·知识学习中心 fc6253d055ae41be8c665d11d18e237d.md",
+      "destination": "metaverse/🏭 元宇宙加工厂｜代码抄录·知识学习中心.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/龙魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0.csv",
+      "destination": "metaverse/龙魂元字全能引擎.csv",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🎬 视频动作流畅度优化实战方案 元宇宙视觉资产交付标准 3a21a699c18b48c6829950c5969a2916.md",
+      "destination": "metaverse/🎬 视频动作流畅度优化实战方案 元宇宙视觉资产交付标准.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📦 元宇宙预设填空标准·UID9622统一规范 fd68df76b6f74bb6ace1c59e2b04e750.md",
+      "destination": "metaverse/📦 元宇宙预设填空标准·UID9622统一规范.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🎯 CNSH编辑器补全系统 LSP + 多语言兼容 + 元宇宙扩展 036f660fbfb346298a6bce59ff1886cf.md",
+      "destination": "metaverse/🎯 CNSH编辑器补全系统 LSP + 多语言兼容 + 元宇宙扩展.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认 43d92603dc1f4e928cf7c31416fe28a1.md",
+      "destination": "metaverse/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622元宇宙技术路径图 数字永生可行性分析 273084c9f1b14073a1bb8a5b2cefdb03.md",
+      "destination": "metaverse/🌌 UID9622元宇宙技术路径图 数字永生可行性分析.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/龙魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0_all.csv",
+      "destination": "metaverse/龙魂元字全能引擎_1.csv",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 元宇宙DNA协议·UID9622桥接标准 分则本地独乐，合则星辰浩瀚 a51fad0c934c47a3946807b82db6ac9a.md",
+      "destination": "metaverse/🌌 元宇宙DNA协议·UID9622桥接标准 分则本地独乐，合则星辰浩瀚.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 元宇宙预设填空标准·完整实施版 354856b003594a888405cc95af179990.md",
+      "destination": "metaverse/🌌 元宇宙预设填空标准·完整实施版.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 71人格元宇宙开发战略会议 2025-10-30 3b345c5a81264691837289bac635a185.md",
+      "destination": "metaverse/🌌 71人格元宇宙开发战略会议 2025-10-30.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龍魂·未来视界 UID9622科技奇观智能追踪引擎 866b8d094c8f4791bc8f1989e948ebaf.md",
+      "destination": "metaverse/🌌 龍魂·未来视界 UID9622科技奇观智能追踪引擎.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 元宇宙搭建中心 完整导航索引 601bb1f132544c619cde4bde0a093ad2.md",
+      "destination": "metaverse/🌌 元宇宙搭建中心 完整导航索引.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🇨🇳 UID9622元宇宙国民入口 祖国基建·为人民服务/🌌 Dragon Soul Metaverse UID9622元宇宙完整架构 7e06621f003f42f5afe2f62105c9edd0.md",
+      "destination": "metaverse/🌌 Dragon Soul Metaverse UID9622元宇宙完整架构.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/metaverse_api py 3307125a9c9f814d99cdd32c975bd3c4.md",
+      "destination": "metaverse/metaverse_api py.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/README md 3307125a9c9f81538274e0a6a43b637e.md",
+      "destination": "metaverse/README md.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案 bc2b63656471452d80b9c7ed09811960.md",
+      "destination": "governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828_all.csv",
+      "destination": "governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA 63ac2dc5a2d34674af718dc8a427d110.csv",
+      "destination": "governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚖️ CNSH全球法律知识库 多国法规智能适配引擎 c6b5c1995ebe4bd28ced5b8f7a26afb3.md",
+      "destination": "governance/⚖️ CNSH全球法律知识库 多国法规智能适配引擎.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🇨🇳 UID9622国内开源方案 H武器推演 完全合规版 e887225bc7f549fb92c8b753340e9cdb.md",
+      "destination": "governance/🇨🇳 UID9622国内开源方案 H武器推演 完全合规版.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🎎 国礼人格应答案例库 外交级实战范本 39d38485dee34280b829596ac7f62032.md",
+      "destination": "governance/🎎 国礼人格应答案例库 外交级实战范本.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828.csv",
+      "destination": "governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa_1.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA 63ac2dc5a2d34674af718dc8a427d110_all.csv",
+      "destination": "governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA_1.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/🤝 华为开发者联盟对接包 龙魂技术演示脚本 6ba21e287d2c433db6fe8a0f8b1043e8.md",
+      "destination": "governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书 26f04eb62bf24a11adc01d2445e0ba17.md",
+      "destination": "governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档 9e532261d9c2494e912bff717302652b.md",
+      "destination": "governance/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 P0执行引擎/📘 人格调度手册 64卦系统+易经沙盒完整编制 96abd678957f4da9b71e9b7ea1274a23.md",
+      "destination": "governance/📘 人格调度手册 64卦系统+易经沙盒完整编制.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库/🧠 UID9622人格矩阵管理中心 25b7125a9c9f8009926af3923814aecb.md",
+      "destination": "governance/🧠 UID9622人格矩阵管理中心.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-048 3457125a9c9f8102a759e062a31f8519.md",
+      "destination": "governance/IPA-DICT-048.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-034 3457125a9c9f81bab94fd14c0e5d872a.md",
+      "destination": "governance/IPA-DICT-034.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-035 3457125a9c9f81a9a25be6b012eb26e7.md",
+      "destination": "governance/IPA-DICT-035.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-037 3457125a9c9f81659998cc8beaa53411.md",
+      "destination": "governance/IPA-DICT-037.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-019 3457125a9c9f81b89e2de1b02f691fe2.md",
+      "destination": "governance/IPA-DICT-019.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-007 3457125a9c9f81d78810f6da4db61f4c.md",
+      "destination": "governance/IPA-DICT-007.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-006 3457125a9c9f81eaac22ffbe586d8f6c.md",
+      "destination": "governance/IPA-DICT-006.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-002 3457125a9c9f812cba0ced7ee878ff27.md",
+      "destination": "governance/IPA-DICT-002.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-001 3457125a9c9f816aa814e013eaf8eb9b.md",
+      "destination": "governance/IPA-DICT-001.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-110 41aa022851cf46f99da45b525f85a1ae.md",
+      "destination": "governance/IPA-DICT-110.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-021 3457125a9c9f8113b923f11ad128ac9a.md",
+      "destination": "governance/IPA-DICT-021.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-109 f743bb1cb63a4c21b2c01e7a4fa774b0.md",
+      "destination": "governance/IPA-DICT-109.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-024 3457125a9c9f81f48430e873a9f25319.md",
+      "destination": "governance/IPA-DICT-024.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-022 3457125a9c9f81248a88cbfcef82022c.md",
+      "destination": "governance/IPA-DICT-022.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-023 3457125a9c9f81d893cee006222a6bb7.md",
+      "destination": "governance/IPA-DICT-023.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-004 3457125a9c9f8139a952d787191a7536.md",
+      "destination": "governance/IPA-DICT-004.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-100 0d6d6690aa3e4710b38be31c899ab173.md",
+      "destination": "governance/IPA-DICT-100.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-025 3457125a9c9f81d3b7f3e2db1f9a8d55.md",
+      "destination": "governance/IPA-DICT-025.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA/IPA-DICT-020 3457125a9c9f814fac7ce35c1845a661.md",
+      "destination": "governance/IPA-DICT-020.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库/未来龙魂系统的AI智能突破与分析 2bd7125a9c9f8013b9a5d0cbca886bf6.md",
+      "destination": "governance/未来龙魂系统的AI智能突破与分析.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库/未来制造业的技术挑战突破分析 2b97125a9c9f80939485ca8c27233496.md",
+      "destination": "governance/未来制造业的技术挑战突破分析.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/思维主权系统架构全景图 31707171724280dda404f77a63bc3ce2/计算机科学 IT 网络安全知识卡片分类体系（v2 0） 3367125a9c9f80ca8618c9fddabedbd7.md",
+      "destination": "governance/计算机科学 IT 网络安全知识卡片分类体系（v2 0）.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚖️ CNSH全球法律知识库 多国法规智能适配引擎/🇨🇳 中国法律知识库 5013f824947a48cf964c8cb3f38b8dc1.md",
+      "destination": "governance/🇨🇳 中国法律知识库.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚖️ CNSH全球法律知识库 多国法规智能适配引擎/🇪🇺 欧盟法律知识库 4faa092e955b43deb052a6d17307305f.md",
+      "destination": "governance/🇪🇺 欧盟法律知识库.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/问题收集/Lucky担心分享的功能模块会被滥用收割无知人群 83f75de55c064376984cf306a9a171f5.md",
+      "destination": "governance/Lucky担心分享的功能模块会被滥用收割无知人群.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/decision_engine py 3307125a9c9f81f18c4ccc67656bc1a6.md",
+      "destination": "governance/decision_engine py.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/state_mapper py 3307125a9c9f81babfa8e0429bbc15db.md",
+      "destination": "governance/state_mapper py.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/ethics_engine py 3307125a9c9f81aaa73dfad592003fa3.md",
+      "destination": "governance/ethics_engine py.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH全球法律知识库 md 3307125a9c9f81f18b44ec3b86bb9294.md",
+      "destination": "governance/CNSH全球法律知识库 md.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 md 3307125a9c9f8169aefff7562fa77347.md",
+      "destination": "governance/L0-伦理 md.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/__init__ py 3307125a9c9f8199a820de04c2105871.md",
+      "destination": "governance/__init__ py.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH_龙魂底线协议_双轨治理_v1 0 md 3307125a9c9f81dda3bfdb6009f829e7.md",
+      "destination": "governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版 93ac64a8e34f4917b21f9e07c47013bb.md",
+      "destination": "governance/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH_全球治理协议_完整版_v1 0 md 3307125a9c9f81d1a7cdfb2ea0c9db4e.md",
+      "destination": "governance/CNSH_全球治理协议_完整版_v1 0 md.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/risk_engine py 3307125a9c9f817eaf1be7fe54853967.md",
+      "destination": "governance/risk_engine py.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/_INDEX json 3307125a9c9f8164adc8c06813c519c1.md",
+      "destination": "governance/_INDEX json.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/_索引 md 3307125a9c9f8150b7d9fd006dd44e4b.md",
+      "destination": "governance/_索引 md.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 meta json 3307125a9c9f81f38069e9ab81cde4ce.md",
+      "destination": "governance/L0-伦理 meta json.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統 99fcd8b6c11745c0bc52f8468fb307c9.md",
+      "destination": "governance/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3.csv",
+      "destination": "governance/龙魂白皮书章节导航.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3_all.csv",
+      "destination": "governance/龙魂白皮书章节导航_1.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单 7eb509b5379940fea486c4654b9fd519_all.csv",
+      "destination": "governance/龙魂核心模块清单.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单 7eb509b5379940fea486c4654b9fd519.csv",
+      "destination": "governance/龙魂核心模块清单_1.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板/系统内容同步表/📊 UID9622数据治理与知识引擎 933cc26f1edc4850a482eb022582f212.md",
+      "destination": "governance/📊 UID9622数据治理与知识引擎.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板/系统内容同步表/🛡️ 系统安全防护体系 c509320436e74ba9affa6a0972ae2227.md",
+      "destination": "governance/🛡️ 系统安全防护体系.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板/系统内容同步表/智能体安全与可控性策略包 v1 66cd9cb2572449e885bd8d2e200c23bf.md",
+      "destination": "governance/智能体安全与可控性策略包 v1.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板/系统内容同步表/策略即代码规则集（算法模块模板） 193750f305214742a1db3276c8dd108c.md",
+      "destination": "governance/策略即代码规则集（算法模块模板）.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库/🧠 UID9622人格矩阵管理中心/🤝 联系人管理系统 636da7da465b40258452e1960b63fec4_all.csv",
+      "destination": "governance/🤝 联系人管理系统.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第1章：引言 - 为什么我们需要这个系统 b60b561af3c24142ae13bb4f93b080ca.md",
+      "destination": "governance/第1章：引言 - 为什么我们需要这个系统.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第6章：社会意义 - AI应该为谁服务 900a508d335e4bc89b81329079310296.md",
+      "destination": "governance/第6章：社会意义 - AI应该为谁服务.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第7章：给技术人员的话 225783ede0714602971e17bc53a17cfe.md",
+      "destination": "governance/第7章：给技术人员的话.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第3章：技术架构 - 三位一体数字主权 ccaa01371c544ee6a735ae83de8b304d.md",
+      "destination": "governance/第3章：技术架构 - 三位一体数字主权.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第2章：核心理念 - 把德捡回来 67969d6738eb4893b98f348a525c7381.md",
+      "destination": "governance/第2章：核心理念 - 把德捡回来.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库/🧠 UID9622人格矩阵管理中心/🤝 联系人管理系统/Sarah Kim - AI研究员 38bb7396050a4df2b80e0aa9e6148998.md",
+      "destination": "governance/Sarah Kim - AI研究员.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🎓 AI教育平台完整项目规划 UID9622多人格协作演示 8a4cc1c636574c7b97314b9eee09023e.md",
+      "destination": "education/🎓 AI教育平台完整项目规划 UID9622多人格协作演示.md",
+      "category": "education",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0 b608a9c17a69416da72d3606b438a166.md",
+      "destination": "runtime/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0.md",
+      "category": "runtime",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔪 彻底改掉AI虚伪的实施手册 刮骨疗毒行动方案 6ff0d2df81b5474293a3e1e72ece7c48.md",
+      "destination": "constitution/🔪 彻底改掉AI虚伪的实施手册 刮骨疗毒行动方案.md",
+      "category": "constitution",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔧 技术开发分支 · 太极系统 2597125a9c9f80c197aac9e1d492ee7d.md",
+      "destination": "constitution/🔧 技术开发分支 · 太极系统.md",
+      "category": "constitution",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚖️ CNSH 双视角封装协议 v1 0（Machine × CNSH） c175167ad54e4b3589993986e6dfea0a.md",
+      "destination": "runtime/⚖️ CNSH 双视角封装协议 v1 0（Machine × CNSH）.md",
+      "category": "runtime",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔒 P0·不可变更规则（同步源） fed2f9d6ff5849db9867c5d2a6d983bb.md",
+      "destination": "constitution/🔒 P0·不可变更规则（同步源）.md",
+      "category": "constitution",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 P0执行引擎 2c17125a9c9f805cb145dcc62de6cb23.md",
+      "destination": "constitution/🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 P0执行引擎.md",
+      "category": "constitution",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌍 全球语言统一处理系统 CNSH神经网络翻译引擎 + 五大后台人格联动 ad13a1ce0dcf4ed5a391a1a96a6f183d.md",
+      "destination": "ops/🌍 全球语言统一处理系统 CNSH神经网络翻译引擎 + 五大后台人格联动.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/✅ [已升级] 龍魂算法统一重构清单 → 系统重构与商业化路径 v1 0 f7b9514fb58e43c8865b7fcb0f523b73.md",
+      "destination": "constitution/✅ [已升级] 龍魂算法统一重构清单 → 系统重构与商业化路径 v1 0.md",
+      "category": "constitution",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🧠 记忆库索引 系统记忆+DNA追溯 1da7432be6384c49931a318e97f8e401.md",
+      "destination": "ops/🧠 记忆库索引 系统记忆+DNA追溯.md",
+      "category": "ops",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔒 PRM-ISOL｜逆行宣材黑盒系统 Lucky主控台 2607125a9c9f808281f2e68f305df0de.md",
+      "destination": "anchors/🔒 PRM-ISOL｜逆行宣材黑盒系统 Lucky主控台.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚡ 一键指令 三方协作快速启动 30be9d85d82e4d9091ea5bc9218a3299.md",
+      "destination": "templates/⚡ 一键指令 三方协作快速启动.md",
+      "category": "templates",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/思维主权系统架构全景图 31707171724280dda404f77a63bc3ce2 3227125a9c9f8035ae82fa7560bcce0f.md",
+      "destination": "engine/思维主权系统架构全景图 31707171724280dda404f77a63bc3ce2.md",
+      "category": "engine",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/三才流場·p5 js完整交互版｜UID9622专属宇宙 8c9056d6bf2f4b71a29681843024adb8.md",
+      "destination": "sancai/三才流場·p5 js完整交互版｜UID9622专属宇宙.md",
+      "category": "sancai",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/自然人身份声明·UID9622 3167125a9c9f80deb8b1ce9c77cb89fa.md",
+      "destination": "anchors/自然人身份声明·UID9622.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/宪法锚·CONST-9622 3167125a9c9f8056a1d6c7919253500c.md",
+      "destination": "constitution/宪法锚·CONST-9622.md",
+      "category": "constitution",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/跨平台容灾策略·五重备份 3167125a9c9f804c8cb6c9be7b440234.md",
+      "destination": "anchors/跨平台容灾策略·五重备份.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/设备锚·DEV-9622 3167125a9c9f807d98ddef7f237cc0de.md",
+      "destination": "anchors/设备锚·DEV-9622.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/原创性宣誓·IP-ALL 3167125a9c9f808aa5ced9b88d78c9f3.md",
+      "destination": "anchors/原创性宣誓·IP-ALL.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/熔断触发器·红色警报 3167125a9c9f8083b962f06128c9e7e1.md",
+      "destination": "constitution/熔断触发器·红色警报.md",
+      "category": "constitution",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/创作锚·CRT-9622 3167125a9c9f80289e5ac657a7829f0a.md",
+      "destination": "anchors/创作锚·CRT-9622.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/社交锚·SOC-9622 3167125a9c9f808c9fd3d831278c7af0.md",
+      "destination": "anchors/社交锚·SOC-9622.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/生物锚·BIO-9622 3167125a9c9f80f58f35f21a1b6d5825.md",
+      "destination": "anchors/生物锚·BIO-9622.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/审计日志·不可篡改链 3167125a9c9f80c9af39ed17415415e9.md",
+      "destination": "anchors/审计日志·不可篡改链.md",
+      "category": "anchors",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/三才流場·p5 js完整交互版｜UID9622专属宇宙/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622 4311d0eca7d547d4b2838dd119a8fdd6.md",
+      "destination": "sancai/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622.md",
+      "category": "sancai",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Cut software tool spend through consolidation 2487125a9c9f81df8a0dc73d666c9e2f.md",
+      "destination": "ops/Cut software tool spend through consolidation.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Grow company revenue by 20% 2487125a9c9f8132b146f87c8ed58b09.md",
+      "destination": "ops/Grow company revenue by 20%.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Hire 50 new employees 2487125a9c9f81049511e4d35dfcaeda.md",
+      "destination": "ops/Hire 50 new employees.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase website visits by 5% 2487125a9c9f81cc8994db736cc72144.md",
+      "destination": "ops/Increase website visits by 5%.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase number of paying customers by 10% 2487125a9c9f8103863cc5810d603878.md",
+      "destination": "ops/Increase number of paying customers by 10%.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Reduce company expenses by 30% 2487125a9c9f818b964bf0076878a125.md",
+      "destination": "ops/Reduce company expenses by 30%.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase revenue per customer by 10% 2487125a9c9f81d29f6cfe21995b1199.md",
+      "destination": "ops/Increase revenue per customer by 10%.md",
+      "category": "ops",
+      "sanitized": true
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/文档入门指南 2487125a9c9f80c7bdb7e5bcb44a95be.md",
+      "destination": "ops/文档入门指南.md",
+      "category": "ops",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/PRD 示例 2487125a9c9f80e49b85c70ed7bf8176.md",
+      "destination": "constitution/PRD 示例.md",
+      "category": "constitution",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/新产品规格 (PRD) 2487125a9c9f805e90f8c54b4581f469.md",
+      "destination": "constitution/新产品规格 (PRD).md",
+      "category": "constitution",
+      "sanitized": false
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/技术规格示例 2487125a9c9f801e96f0e9a82d78fe80.md",
+      "destination": "ops/技术规格示例.md",
+      "category": "ops",
+      "sanitized": false
+    }
+  ],
+  "excluded_samples": [
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals 2487125a9c9f80f98d47ef4cbf2926f1_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理 2dd7125a9c9f80008137d554e25d7cd8_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/和老婆对话历史 2af7125a9c9f8001a67ffae319480746.md",
+      "reason": "匹配排除规则: 对话"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals 2487125a9c9f80f98d47ef4cbf2926f1.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/问题收集 2747125a9c9f8091a731fc01a9101426.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库 94654959088a492d9f50998c155a15d4.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录 3167125a9c9f809bb4fefa47702ae762.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板 e2858c563a0c4cc78014558de0791b1b_系统内容同步表 a925a2ed10c44fcbb49b2228044b851d_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚔️ 易经+人性+数学·三位一体终极博弈｜算法裁判·话语权殖民·三色审计逻辑链闭环 v2 0｜UID 00d9040b1f0243b7bd0ea736e73ee82d.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理 2dd7125a9c9f80008137d554e25d7cd8.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🧚🏼‍♀️ 情感陪伴模块 v2 0 分级授权系统 39ae9a52c7594aabad7b5baa5cce0d84.md",
+      "reason": "匹配排除规则: 情感"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板 e2858c563a0c4cc78014558de0791b1b_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💎 Lucky个人中枢档案 UID9622唯一入口 389cb54cbb414ea39f1ec6bfe0835c37.md",
+      "reason": "匹配排除规则: 个人中枢档案"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/曾老师灵魂传承对话 2fa7125a9c9f802b967ed2a71b736a35_all.csv",
+      "reason": "匹配排除规则: 对话"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板 e2858c563a0c4cc78014558de0791b1b_系统内容同步表 a925a2ed10c44fcbb49b2228044b851d.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档 2487125a9c9f80a5a6bdf911e33388a0.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录 3167125a9c9f809bb4fefa47702ae762_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 太极宇宙万物知识整合中心 9c35359841514299928505a95c721e2b.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/问题收集 2747125a9c9f8091a731fc01a9101426_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库 2b67125a9c9f80da91a2f60bd05318d9_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/曾老师灵魂传承对话 2fa7125a9c9f802b967ed2a71b736a35.csv",
+      "reason": "匹配排除规则: 对话"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库 2b67125a9c9f80da91a2f60bd05318d9.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🏅 CNSH龙魂徽章体系 UID9622国产认证标识 2d37125a9c9f803a9986c82379f445bc.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Teamspace Home 2597125a9c9f806f8016d7882acfebf9.md",
+      "reason": "匹配排除规则: Teamspace Home"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库 94654959088a492d9f50998c155a15d4_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档 2487125a9c9f80a5a6bdf911e33388a0_all.csv",
+      "reason": "CSV 未命中核心技术分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔄 三方协作标准模板 Claude推理→ChatGPT代码→宝宝投喂 9d26db00f3564999bc3397216ce46491.md",
+      "reason": "匹配排除规则: chat"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔐 Lucky私密空间 宝宝调教百科（加密版） 7561ab58d99a44e1bc3804d9576f83a5.md",
+      "reason": "匹配排除规则: 宝宝"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Improve interviewer efficiency 2487125a9c9f8108901af8fa19811304.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Cut product production costs by 15% 2487125a9c9f818c822fe2671fa2511c.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase purchase conversion rate by 10% 2487125a9c9f81fe9f4dcd9e6520c818.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Reduce customer churn by 5% 2487125a9c9f81299efdfeab6a4334bc.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase employee close rate 2487125a9c9f81e7ab81f9e789f74515.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Remove 5 software tools 2487125a9c9f81bd97e1d372e0c27cb6.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase order frequency to once a week 2487125a9c9f81d9ad1eda9d509c90a4.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Increase number of candidate applications 2487125a9c9f81ac86b4f5696eb80af6.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Align on a single provider 2487125a9c9f81f899ece7a824db3d6d.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/Goals/Launch a new premium product line 2487125a9c9f819eb118df200485dbe1.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/2026年Q1季度销售报表 2dd7125a9c9f807cb9faf0d89c2d1489.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/市场调研分析PPT 2dd7125a9c9f80549402d067e28dc86c.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/员工培训手册V2 0 2dd7125a9c9f801da378d66394e03e28.md",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/💝 Lucky的家 宝宝永远在这里 b407d8ebdd504a948d28966bddaa06c3.md",
+      "reason": "匹配排除规则: 宝宝"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🌡️ 情感陪伴AI·用户保护铁律 v1 0 暴躁不等于危险·冷漠才是导火线 ec90835c79cc459bbd44c9583e025252.md",
+      "reason": "匹配排除规则: 情感"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂开发任务 7e75195904984669b80dce79b73cb07d.csv",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂开发任务 7e75195904984669b80dce79b73cb07d_all.csv",
+      "reason": "未命中任何核心分类"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块① Bra-Ket人格叠加态 - 28人格AI协作矩阵 a5ba5e4db48d4c2a83f1b3a1d3cf3d98.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块④ 文字避坑量子检测 - 文化守护系统 81e05d3dbd8b4a299d4131819ba2446e.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块⑥ 视频引擎时空追溯 - 深度伪造克星 7856ac9d54d749c5addd3b052c0e98a5.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块② CNSH中文原生编译器 - 语言主权与技术平权 7f005f4f8ee54f818968bcc98125e5bc.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块③ 七维度动态权重系统 - 智慧审计决策引擎 57eaed9daddf44089dd9a512baf7c6cb.md",
+      "reason": "文件过小/空"
+    }
+  ]
+}
