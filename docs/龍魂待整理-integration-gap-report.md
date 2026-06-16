@@ -101,9 +101,9 @@
 | `私人与共享/📝 Decision Records - 决策库` | `04_決策日誌/` | ✅ 已融入 | 2 條決策記錄 |
 | `私人与共享/📜 龍魂操作草日志` | `logs/audit-trail/` | ⚠️ 暫緩 | 內容涉密，僅保留 `audit-trail/README.md` 規範 |
 | `CNSH｜UID9622/⚖️ CNSH全球法律知识库` | `cnsh-core/legal/` | ✅ 已融入 | 中/美/歐/阿聯酋/國際法 + 隱私框架 |
-| `CNSH｜UID9622/🐉 龍魂七維AI治理×數字主權執行表` | `cnsh-core/governance/` | 🟡 待定位 | 在 Export 中名稱可能不同，需精確查找 |
+| `CNSH｜UID9622/🐉 龍魂七維AI治理×數字主權執行表` | `docs/private-shared-imports/governance/` | ✅ 已融入 | 已定位 CSV 並複製；新增字段說明文件 |
 | `龍魂技术全站/🌌 Dragon-Soul Metaverse` | `systems/metaverse/` | ✅ 已融入 | 10 篇元宇宙系統文檔 |
-| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `systems/database/` | 🟡 待定位 | 在 Export 中名稱可能不同，需精確查找 |
+| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `docs/private-shared-imports/architecture/` | ✅ 已融入 | 已定位核心數據庫頁面；新增索引/映射文件與關聯架構文件 |
 | `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | ✅ 已融入 | 12 個測試文件/腳本/HTML |
 | `龍魂API/` | `cnsh-core/api/` | ✅ 已融入 | API 實現 + 部署指令 + 使用說明 |
 
@@ -111,14 +111,14 @@
 
 從 Notion `私人与共享` 工作區頂層 413 個 `.md` 文件中：
 - 篩出 **34 個敏感文件**（私人對話、加密、密鑰、DNA 身份、激活碼等）**排除**
-- 融入 **40 個非敏感核心文檔**至 `docs/private-shared-imports/`
+- 融入 **44 個非敏感核心文檔**至 `docs/private-shared-imports/`
 
 | 類別 | 數量 | 主幹位置 |
 |------|------|---------|
 | AI 行為規則 | 4 | `docs/private-shared-imports/ai-behavior/` |
 | CNSH 協議 | 7 | `docs/private-shared-imports/cnsh-protocols/` |
-| 系統架構 | 5 | `docs/private-shared-imports/architecture/` |
-| 治理與君子協議 | 6 | `docs/private-shared-imports/governance/` |
+| 系統架構 | 7 | `docs/private-shared-imports/architecture/` |
+| 治理與君子協議 | 8 | `docs/private-shared-imports/governance/` |
 | 安全與審計 | 5 | `docs/private-shared-imports/security-audit/` |
 | 人格與工具 | 4 | `docs/private-shared-imports/persona-tools/` |
 | API 與集成 | 2 | `docs/private-shared-imports/api-integration/` |
@@ -126,6 +126,30 @@
 | 綜合文檔 | 4 | `docs/private-shared-imports/documentation/` |
 
 詳見 `docs/private-shared-imports/README.md` 與 `docs/private-shared-scan.json`。
+
+### 第四批：子文件夾掃描批次
+
+進一步遞迴掃描 `私人与共享` 下所有子文件夾，從 4,251 個 `.md/.csv/.json` 文件中：
+
+- **排除**：約 628 個涉私人對話、密鑰、激活碼、DNA 身份、家庭內容、封存備份等敏感/重複文件
+- **融入**：精選 **50** 個 P0/P1 級核心文檔至 `docs/private-shared-imports/`
+
+| 類別 | 本批數量 | 累計位置 |
+|------|----------|----------|
+| 安全與審計 | 9 | `docs/private-shared-imports/security-audit/` |
+| 記憶與 DNA | 8 | `docs/private-shared-imports/memory-dna/` |
+| 系統架構 | 7 | `docs/private-shared-imports/architecture/` |
+| 治理與君子協議 | 6 | `docs/private-shared-imports/governance/` |
+| 人格與工具 | 5 | `docs/private-shared-imports/persona-tools/` |
+| CNSH 協議 | 5 | `docs/private-shared-imports/cnsh-protocols/` |
+| AI 行為規則 | 3 | `docs/private-shared-imports/ai-behavior/` |
+| 綜合文檔 | 2 | `docs/private-shared-imports/documentation/` |
+| API 與集成 | 2 | `docs/private-shared-imports/api-integration/` |
+| 決策記錄 | 2 | `docs/private-shared-imports/decision-records/` |
+| 開發者工具與技術棧 | 1 | `docs/private-shared-imports/developer-tools/` |
+| **本批合計** | **50** | — |
+
+詳見 `docs/private-shared-imports/README.md` 與 `docs/private-shared-scan-subfolders.json`。
 
 ### P1 · 建議融入
 
