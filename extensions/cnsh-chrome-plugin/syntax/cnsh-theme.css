@@ -1,0 +1,95 @@
+/**
+ * CNSH · 龍魂配色主题
+ * 紫金 + 朱砂 + 玄墨 · 东方数字主权审美
+ */
+
+pre > code.cnsh-highlighted,
+pre.cnsh,
+code.cnsh {
+  font-family: "JetBrains Mono", "PingFang SC", "Microsoft YaHei", monospace;
+  line-height: 1.65;
+  background: linear-gradient(180deg, #1a1030 0%, #0f0820 100%);
+  color: #e8e0ff;
+  border-left: 3px solid #8b5cf6;
+  padding: 1em 1.2em;
+  border-radius: 6px;
+  overflow-x: auto;
+  display: block;
+}
+
+/* 控制流 · 天 · 紫 */
+.cnsh-kw-control {
+  color: #c4a7ff;
+  font-weight: 600;
+}
+
+/* 定义 · 地 · 青金 */
+.cnsh-kw-define {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+/* 动作 · 人 · 朱砂 */
+.cnsh-kw-action {
+  color: #fb923c;
+}
+
+/* 龍魂专属 · 流金 */
+.cnsh-kw-dragonsoul {
+  color: #fbbf24;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(251, 191, 36, 0.35);
+}
+
+/* 布尔/常量 · 翠 */
+.cnsh-kw-literal {
+  color: #86efac;
+  font-style: italic;
+}
+
+/* 运算/连接 · 玉 */
+.cnsh-kw-operator {
+  color: #a5b4fc;
+}
+
+/* 字符串 · 米白 */
+.cnsh-string {
+  color: #fde68a;
+}
+
+/* 注释 · 淡灰 */
+.cnsh-comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* DNA 追溯码 */
+.cnsh-dna {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fcd34d;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px dashed rgba(251, 191, 36, 0.4);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 三色审计 */
+.cnsh-audit-green { filter: drop-shadow(0 0 3px #10b981); }
+.cnsh-audit-yellow { filter: drop-shadow(0 0 3px #eab308); }
+.cnsh-audit-red { filter: drop-shadow(0 0 3px #ef4444); }
+
+/* 选中态视觉反馈（让 UID9622 看到扫描生效） */
+.cnsh-highlighted::before {
+  content: "⚡ CNSH";
+  display: inline-block;
+  font-size: 10px;
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}

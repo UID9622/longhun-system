@@ -3,6 +3,22 @@
  * + MCP 认证桥接面板
  */
 
+// ===== Web Crypto HMAC-SHA256（MCP L0 簽到用）=====
+async function hmacSHA256(key, message) {
+  const enc = new TextEncoder();
+  const cryptoKey = await crypto.subtle.importKey(
+    'raw',
+    enc.encode(key),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const signature = await crypto.subtle.sign('HMAC', cryptoKey, enc.encode(message));
+  return Array.from(new Uint8Array(signature))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
 // ===== 初始化 =====
 let memMgr = null;
 let auditEng = null;
