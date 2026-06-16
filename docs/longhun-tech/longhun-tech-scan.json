@@ -1,0 +1,832 @@
+{
+  "source_workspace": "龍魂技术全站",
+  "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/龍魂技术全站",
+  "destination_path": "/Users/zuimeidedeyihan/longhun-system/docs/longhun-tech",
+  "total_scanned": 383,
+  "total_md": 315,
+  "total_csv": 67,
+  "copied_count": 101,
+  "excluded_count": 281,
+  "category_stats": {
+    "operations": 23,
+    "integration": 18,
+    "governance": 17,
+    "audit": 9,
+    "metaverse": 8,
+    "database": 6,
+    "personas": 6,
+    "general": 6,
+    "navigation": 4,
+    "roadmap": 4
+  },
+  "copied_files": [
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 UID9622元宇宙公开入口 普通人的规则 29d7125a9c9f80f685a3c970b6090d42.md",
+      "destination": "governance/🌌 UID9622元宇宙公开入口 普通人的规则.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景 e580dd2f7d624390987f49b0a4931937.md",
+      "destination": "metaverse/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库 2567125a9c9f8085abe6c32b73d2446c.md",
+      "destination": "database/📊 UID9622智能数据库管理中心 核心数据库.md",
+      "category": "database",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📋 UID9622系统功能与徽章完整清单 万里长城导航预备 e09ee784da4e4ab7b1b050dc59812a82.md",
+      "destination": "navigation/📋 UID9622系统功能与徽章完整清单 万里长城导航预备.md",
+      "category": "navigation",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🐉 UID9622愿景闭环总纲 从理念到实现的完整蓝图 8fc5d0df13d2467c8a0873b53d832482.md",
+      "destination": "metaverse/🐉 UID9622愿景闭环总纲 从理念到实现的完整蓝图.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b9847fdfc4a6f94d01a0d348b5c5b.md",
+      "destination": "metaverse/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🏢 UID9622人格职位会议中心 8f39cd92063a49d38140fc55e3534f78.md",
+      "destination": "personas/🏢 UID9622人格职位会议中心.md",
+      "category": "personas",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 元宇宙入口 普通人专属的AI世界 3f6db63cfd6d4b00bab3390c9e132e92.md",
+      "destination": "metaverse/🌌 元宇宙入口 普通人专属的AI世界.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 b927ecaacbeb4f4495134f78789ae264.md",
+      "destination": "metaverse/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统_1.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/06｜人格协同协议（Interaction Protocol） fc2fa0b61e8a4df781ff0ef247b5328c.md",
+      "destination": "personas/06｜人格协同协议（Interaction Protocol）.md",
+      "category": "personas",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/08｜治理（Governance） a72a39d4377146659ee7a9ac77eb1989.md",
+      "destination": "governance/08｜治理（Governance）.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/02｜人格矩阵（71 Personas） 8779dbf286684cae97bd4240d5db96ac.md",
+      "destination": "personas/02｜人格矩阵（71 Personas）.md",
+      "category": "personas",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/09｜Roadmap（里程碑） 5cadeb425bd448d5b2620799adaef2ec.md",
+      "destination": "roadmap/09｜Roadmap（里程碑）.md",
+      "category": "roadmap",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/10｜Gitee开源（脱敏版） 8e13c92a208f4c71b1357ca463fe3fbe.md",
+      "destination": "roadmap/10｜Gitee开源（脱敏版）.md",
+      "category": "roadmap",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/04｜净土审计（Purity Engine） 3966ce55b1e54e258b7048f06961770c.md",
+      "destination": "audit/04｜净土审计（Purity Engine）.md",
+      "category": "audit",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/03｜API & 数据学习（Dataflow Engine） e64e5c926498460d8f5919b112686a48.md",
+      "destination": "integration/03｜API & 数据学习（Dataflow Engine）.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/01｜世界观（World Lore） af7c47dabd4a4f1fad2039d4d7c57df1.md",
+      "destination": "metaverse/01｜世界观（World Lore）.md",
+      "category": "metaverse",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/05｜经济与玩法（Gameplay） e477c2d36d9342b085c44ea01b00e1dd.md",
+      "destination": "metaverse/05｜经济与玩法（Gameplay）.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统 606b-5c5b/07｜UI展现（Visual Layer） c38384666d8048cba5a33f669c6157e0.md",
+      "destination": "navigation/07｜UI展现（Visual Layer）.md",
+      "category": "navigation",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景/🔐 多设备指挥系统 Mac·iPad·云端三位一体 29f8c5f1d6174a7f8512fd24ee26a6db.md",
+      "destination": "operations/🔐 多设备指挥系统 Mac·iPad·云端三位一体.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景/💰 UID9622价值交换系统 随缘打赏·人性分层·智能匹配 5f1128a1462548c48540d3d314fdb04e.md",
+      "destination": "metaverse/💰 UID9622价值交换系统 随缘打赏·人性分层·智能匹配.md",
+      "category": "metaverse",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用） 2627125a9c9f80c7891fc3e62d7dc16d.md",
+      "destination": "governance/🤝 合作标准 · 系统结构模板（内部专用）.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🚀 UID9622系统深度优化升级方案 全面性能提升 8468f2cc9e5c45b199f79cdcee1ea32f.md",
+      "destination": "operations/🚀 UID9622系统深度优化升级方案 全面性能提升.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 重要索引数据库｜跨平台记忆联动中枢 2537125a9c9f80468fdfc1fc23409997.md",
+      "destination": "governance/🧠 重要索引数据库｜跨平台记忆联动中枢.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎓 UID9622教育AI独立系统 v∞免费教育平台 00216948030140bab5e1bccecadb07b2.md",
+      "destination": "integration/🎓 UID9622教育AI独立系统 v∞免费教育平台.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🚀 UID9622系统性能优化引擎 深度性能调优 e24a7227671f4b23b08790f71f629b73.md",
+      "destination": "operations/🚀 UID9622系统性能优化引擎 深度性能调优.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 UID9622系统导航优化中心 主要路径优化 8fa7d19e531f46a69afe4e154d1545e2.md",
+      "destination": "navigation/🎯 UID9622系统导航优化中心 主要路径优化.md",
+      "category": "navigation",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🏗️ UID9622系统权限管理矩阵 第一阶段优化 639edca1169a4902992448ab21f9f238.md",
+      "destination": "governance/🏗️ UID9622系统权限管理矩阵 第一阶段优化.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/⚡ 智能工作流引擎 49a274c5040b49908fdc62142f2de8eb.md",
+      "destination": "operations/⚡ 智能工作流引擎.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 用户权限管理矩阵 476accde5ddc4ab8a93990e465bc5936.csv",
+      "destination": "governance/🎯 用户权限管理矩阵.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔗 UID9622智能数据库关联架构 深度关联优化 e9b412381e204212ae95331620651346.md",
+      "destination": "database/🔗 UID9622智能数据库关联架构 深度关联优化.md",
+      "category": "database",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤖 安卓版本开发规划 未来功能蓝图 2b7426c8b56849dd80520ae9aab12b78.md",
+      "destination": "roadmap/🤖 安卓版本开发规划 未来功能蓝图.md",
+      "category": "roadmap",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/💾 UID9622企业级备份系统 全自动化备份解决方案 2281fdac5c8e4a24871fe2c3cc61c6d2.md",
+      "destination": "database/💾 UID9622企业级备份系统 全自动化备份解决方案.md",
+      "category": "database",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/Notion AI 共生体 · 社区开源版（示例副本） 4c646866e724417fbe9d77a082a26c10.md",
+      "destination": "roadmap/Notion AI 共生体 · 社区开源版（示例副本）.md",
+      "category": "roadmap",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔁 节奏引导结构（SLIDE框架） 25d7125a9c9f801d97bdd2364800b75d.md",
+      "destination": "personas/🔁 节奏引导结构（SLIDE框架）.md",
+      "category": "personas",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心 380432c773fe43b5b117034c36588a7e_all.csv",
+      "destination": "integration/🔌 第三方集成开发标准中心.csv",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔄 系统更新同步中心 032dddc46996463d9392c0ffa53732e4.md",
+      "destination": "operations/🔄 系统更新同步中心.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🛡️ UID9622-AI系统边界管理规则 分层服务与安全策略 b2a7fc768bf2447383b622286fe2f122.md",
+      "destination": "governance/🛡️ UID9622-AI系统边界管理规则 分层服务与安全策略.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🚀 快速操作指南 OpenAI通知系统 a09e003371e1413085d350c8ddc455a6.md",
+      "destination": "integration/🚀 快速操作指南 OpenAI通知系统.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🌐 对外展示页｜基层接口 25f7125a9c9f806687f9f49c40eefe94.md",
+      "destination": "integration/🌐 对外展示页｜基层接口.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心 8456e57dfc734e418d7d423c02f33904.csv",
+      "destination": "operations/📱 移动端专用功能与体验中心.csv",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📚 知识产权保护与变现 - 权威资源库 4b73ba4cbc3f40b48a2e658b6b066d0b.md",
+      "destination": "general/📚 知识产权保护与变现 - 权威资源库.md",
+      "category": "general",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🛡️ Notion 我的边界中心 25c7125a9c9f80af9ad9ff1cc3fedabc.md",
+      "destination": "audit/🛡️ Notion 我的边界中心.md",
+      "category": "audit",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🌟 自动化协同工作台（面向普通用户） 7353bacdc62f4612aa3048da1bf173bc.md",
+      "destination": "operations/🌟 自动化协同工作台（面向普通用户）.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 真伪判断中心 Lucky专用求证页面 d03ab6cc2cc5452eb544c05277dc6672.md",
+      "destination": "audit/🔍 真伪判断中心 Lucky专用求证页面.md",
+      "category": "audit",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/Notion单账户页面优化与性能提升指南 25c7125a9c9f809b8186f3c808665c98.md",
+      "destination": "operations/Notion单账户页面优化与性能提升指南.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统 a1f3f1f4a40a44ed95e2b029fdcadfc0.csv",
+      "destination": "governance/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心 8456e57dfc734e418d7d423c02f33904_all.csv",
+      "destination": "operations/📱 移动端专用功能与体验中心_1.csv",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔧 存档点使用说明 一键生成指南 0a54c82f60fe49f7a1cc02842f6083b0.md",
+      "destination": "integration/🔧 存档点使用说明 一键生成指南.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔄 系统备份恢复与灾难预案中心 396c0a1dcdd040adb5cfcba1af5107bc.md",
+      "destination": "database/🔄 系统备份恢复与灾难预案中心.md",
+      "category": "database",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🏷️ UID9622统一视觉标识系统 完整设计规范 7d8219c8c1004e809588a640b2082ccc.md",
+      "destination": "general/🏷️ UID9622统一视觉标识系统 完整设计规范.md",
+      "category": "general",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护 c0b42fb6bec44aeeaae06358b74aa3ad.csv",
+      "destination": "audit/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护.csv",
+      "category": "audit",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧭LU-PASSIVE-FIRE｜路径状态总览 2567125a9c9f8059b57deb40dbac498d.md",
+      "destination": "governance/🧭LU-PASSIVE-FIRE｜路径状态总览.md",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📦 Claude同步包 UID9622系统完整迁移 1ae63d410d9c4111b5c3df112eb142e1.md",
+      "destination": "governance/📦 Claude同步包 UID9622系统完整迁移.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流 db42360cdf2d48039603fc36ff9b9d4c.md",
+      "destination": "operations/🎯 AI情报分析模板库 快速启动工作流.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心 4158c8158cdd4360a710bf52ca5c0019.md",
+      "destination": "personas/🧠 UID9622 思维模式管理中心.md",
+      "category": "personas",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心 2637125a9c9f80108ef2dc16e6e2879a.md",
+      "destination": "integration/UID9622 链接管理中心.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 系统中枢自动工作报告 - 2025-08-28 b4f1255c2cbb4dce886ecd3c9db8b2ca.md",
+      "destination": "operations/📊 系统中枢自动工作报告 - 2025-08-28.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板 fb9c84c922db462db69a21284735a8f7_all.csv",
+      "destination": "operations/📊 商业化运营仪表板.csv",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🖥️ Mac AI 工程师工作环境配置指南（标准版） 2577125a9c9f80afa307f8b7a082fba8.md",
+      "destination": "general/🖥️ Mac AI 工程师工作环境配置指南（标准版）.md",
+      "category": "general",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤖 AI 系统一键同步操作指南 b04ef0b2ed744d0da7731ca6863d1744.md",
+      "destination": "integration/🤖 AI 系统一键同步操作指南.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护 c0b42fb6bec44aeeaae06358b74aa3ad_all.csv",
+      "destination": "audit/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护_1.csv",
+      "category": "audit",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/♾️ UID9622无限智能增长引擎 v∞自主进化系统 21cd54a02f3a478d9113337d06be7865.md",
+      "destination": "operations/♾️ UID9622无限智能增长引擎 v∞自主进化系统.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📚 UID9622智能系统用户手册 完整使用指南 2c385f3f22304b0dbfc84f974dc7f51d.md",
+      "destination": "database/📚 UID9622智能系统用户手册 完整使用指南.md",
+      "category": "database",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心 380432c773fe43b5b117034c36588a7e.csv",
+      "destination": "integration/🔌 第三方集成开发标准中心_1.csv",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔧 快捷键与语音辅助工具推荐 25d7125a9c9f808ebb36c024bb27cbd2.md",
+      "destination": "operations/🔧 快捷键与语音辅助工具推荐.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🌍 UID9622全域智能化生态系统 v∞智能协作矩阵 7d9637a226dc4b9fb04a308173bb83a9.md",
+      "destination": "operations/🌍 UID9622全域智能化生态系统 v∞智能协作矩阵.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统 a1f3f1f4a40a44ed95e2b029fdcadfc0_all.csv",
+      "destination": "governance/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统_1.csv",
+      "category": "governance",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板 fb9c84c922db462db69a21284735a8f7.csv",
+      "destination": "operations/📊 商业化运营仪表板_1.csv",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔔 OpenAI通知追踪系统 v2 0 全自动化监控中心 b68568ddc53c4f54ab4874a48ed2ee6a.md",
+      "destination": "operations/🔔 OpenAI通知追踪系统 v2 0 全自动化监控中心.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/平台实时同步的问题 2557125a9c9f80188a1ac252403b56c3.md",
+      "destination": "integration/平台实时同步的问题.md",
+      "category": "integration",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属） 2537125a9c9f805f947bdbf7c2247b78.md",
+      "destination": "integration/🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属）.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🥺 V♾️自动化设置小白教程 一步一确认版 c8ce78413ca1492081d852dfba42f11e.md",
+      "destination": "integration/🥺 V♾️自动化设置小白教程 一步一确认版.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 用户权限管理矩阵 476accde5ddc4ab8a93990e465bc5936_all.csv",
+      "destination": "governance/🎯 用户权限管理矩阵_1.csv",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/平台实时同步的问题/📊LU-SYSTEM-SCORE 2577125a9c9f80478021f7f69422d6f4.md",
+      "destination": "governance/📊LU-SYSTEM-SCORE.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🚀 UID9622系统深度优化升级方案 全面性能提升/🔄 太极引擎管理与监控 2567125a9c9f80c4859ce699cdab2f65.md",
+      "destination": "integration/🔄 太极引擎管理与监控.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板/AI协作管理专业培训课程 df5f8c38cbaa43fc804cc4bfcc7de371.md",
+      "destination": "general/AI协作管理专业培训课程.md",
+      "category": "general",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心/实时性能监控仪表板 955b97d9c0f54bee8c6814d937399df1.md",
+      "destination": "operations/实时性能监控仪表板.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心/数据可视化仪表板 77debdba3dec4da7b2e0d54ddddef471.md",
+      "destination": "database/数据可视化仪表板.md",
+      "category": "database",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心/智能任务管理移动端 c6b95be18a294b13ac7f5a153feb63a9.md",
+      "destination": "operations/智能任务管理移动端.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 技术协作规范 9fe7b697b5cb4eb285cd8b6acbc745d8.md",
+      "destination": "governance/📁 技术协作规范.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/⚖️ 商业合作智能评估标准 UID9622价值观筛选体系 adc9b8b3fca4459fa0286fc6f3e55b85.md",
+      "destination": "governance/⚖️ 商业合作智能评估标准 UID9622价值观筛选体系.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心/Notion API深度集成 fa6d061e43a44ea0a5df24c64e43fe47.md",
+      "destination": "integration/Notion API深度集成.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心/微信小程序前端集成 0f609fb133f244d2879efbb2da1feb45.md",
+      "destination": "integration/微信小程序前端集成.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心/OpenAI GPT API集成 ca3703ac829d45149c59e6ebafbbbcbf.md",
+      "destination": "integration/OpenAI GPT API集成.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔌 第三方集成开发标准中心/性能监控系统集成 200ec513bab24dd5abf5bb7eda8b9b36.md",
+      "destination": "operations/性能监控系统集成.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🌟 自动化协同工作台（面向普通用户）/🔐 账号网络与登录管理 4f0d0427a35544058ca14f33153a8e6c.md",
+      "destination": "audit/🔐 账号网络与登录管理.md",
+      "category": "audit",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔄 系统更新同步中心/🔐 AI助手权限矩阵 2537125a9c9f80a69546e7980a682d23.md",
+      "destination": "governance/🔐 AI助手权限矩阵.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/⚡ 智能工作流引擎/🎨 创新实验室 突破性思维工坊 c4a48d72b71b42b681b34d73130c8cfe.md",
+      "destination": "general/🎨 创新实验室 突破性思维工坊.md",
+      "category": "general",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统/🔍 质量监控官 bb82299f4d784c308a45fc0a1a300043.md",
+      "destination": "audit/🔍 质量监控官.md",
+      "category": "audit",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎭 UID9622人格矩阵统一管理数据库 一站式人格生态系统/🧠 大脑-元治理 772ac10dac3f40179a9adf59996f83e4.md",
+      "destination": "governance/🧠 大脑-元治理.md",
+      "category": "governance",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🖥️ Mac AI 工程师工作环境配置指南（标准版）/✅ 插件模板脚本（⁠ plugin_template sh ⁠） 2537125a9c9f8000905bd0766933a4f4.md",
+      "destination": "integration/✅ 插件模板脚本（⁠ plugin_template sh ⁠）.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔧 快捷键与语音辅助工具推荐/🤖 AI系统运行监控中心 专业版 819a3259e45346a0ad0fd092688bc1b5.md",
+      "destination": "operations/🤖 AI系统运行监控中心 专业版.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流/📚 AI术语知识库 统一口径管理中心 46043af919934384ae72570a93b7d64b.md",
+      "destination": "general/📚 AI术语知识库 统一口径管理中心.md",
+      "category": "general",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流/🛡️ 权限管理与审计追踪中心 cadb808c20ec4b34ad5064bbf7338ce6.md",
+      "destination": "audit/🛡️ 权限管理与审计追踪中心.md",
+      "category": "audit",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流/🔄 AI情报工作流自动化中心 97122320d92241da9693247430317946.md",
+      "destination": "operations/🔄 AI情报工作流自动化中心.md",
+      "category": "operations",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流/⚙️ 智能自动化触发器配置中心 00949737922744d296df9af3ca90531c.md",
+      "destination": "operations/⚙️ 智能自动化触发器配置中心.md",
+      "category": "operations",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🎯 AI情报分析模板库 快速启动工作流/🛡️ 权限管理与审计追踪中心/🧠 UID9622智能生活管理中心 傻瓜式全能助手 a980db7f180942fb95d8e2fa3f0133b5.md",
+      "destination": "navigation/🧠 UID9622智能生活管理中心 傻瓜式全能助手.md",
+      "category": "navigation",
+      "sanitized": true
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护/🕵️ UID9622人格矩阵构架暴露检测 a7d0630c155e4ecea2c761c2eb3505d7.md",
+      "destination": "personas/🕵️ UID9622人格矩阵构架暴露检测.md",
+      "category": "personas",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护/🔍 Notion API调用追踪检测 31fc861bc7844a5c8089416da3fba64e.md",
+      "destination": "integration/🔍 Notion API调用追踪检测.md",
+      "category": "integration",
+      "sanitized": false
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🔍 UID9622系统指纹检测与清理中心 OpenAI结构追踪防护/⚠️ 系统名称和标识混淆检测 734711b4b1ac40dba236b01a815cc059.md",
+      "destination": "audit/⚠️ 系统名称和标识混淆检测.md",
+      "category": "audit",
+      "sanitized": false
+    }
+  ],
+  "excluded_samples": [
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/Teamspace Home 4627125a9c9f83b195a581499cb3335f.md",
+      "reason": "匹配排除规则: Teamspace Home"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧮 小学数学解题助手 直接可用AI设定模板 1b573da3f0cf4a33a7cefdabcf99c1af.md",
+      "reason": "匹配排除规则: 小学数学"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧹 UID9622账号内容专业整理报告 a24adfa47c25416cbfebcdf01d17b5ba.md",
+      "reason": "匹配排除规则: 账号.*整理"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/我的链接 · 提炼模板块（同步块） 68fa5bbe50284378b7c7c39552520d33.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🍬 #投喂宝宝 - 一键内容优化 0c243821c43f4427933233f84b3c5155.md",
+      "reason": "匹配排除规则: 宝宝"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🍎 用户设备档案 Mac环境专属配置 7933e02527614f958e0745a6ad705e09.md",
+      "reason": "匹配排除规则: 用户设备档案"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/激活码安全审计机制 v1 0 全流程演练 699451374e964b1eb3c9dac71a08f10d.md",
+      "reason": "匹配排除规则: 激活码"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/分支 · 分支 · Stay Updated on OpenAI News 26a7125a9c9f81c1a982f81b82104336.md",
+      "reason": "匹配排除规则: Stay Updated"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/AI协作任务完成记录 2577125a9c9f8033a432f06844a032b5.md",
+      "reason": "匹配排除规则: 任务完成记录"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8050368ba4cdca55171bd8c83fb1f_all.csv",
+      "reason": "匹配排除规则: 思维分类待办"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8050368ba4cdca55171bd8c83fb1f.csv",
+      "reason": "匹配排除规则: 思维分类待办"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8-fb1f/💡 邮箱可以按颜色分类管理，每种颜色代表不同的安全级别 0ab68e763fa84ddf858c497637d072e0.md",
+      "reason": "匹配排除规则: 邮箱.*颜色"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8-fb1f/🔮 建立全套邮箱安全监控体系，包含AI预测和自动化告警 31e162d8fbfd4ca98d3c4aafe7eaf54b.md",
+      "reason": "匹配排除规则: 思维分类待办"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8-fb1f/⚡ 立即为当前邮箱账号启用两步验证 29be393e92e844ff9f95501a9d2a2c3b.md",
+      "reason": "匹配排除规则: 两步验证"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🧠 UID9622 思维模式管理中心/思维分类待办管理 acf8-fb1f/🔗 在想法收集和执行之间，需要增加可行性评估环节 17e31178f8184ce1aa34c3dfee22538c.md",
+      "reason": "匹配排除规则: 想法收集"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/平台实时同步的问题/无标题 2587125a9c9f80249d9ac4debf68c4c9.md",
+      "reason": "匹配排除规则: 无标题"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单 ece27d0aafe44622aeea304700c4b0e4_all.csv",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单 ece27d0aafe44622aeea304700c4b0e4.csv",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接 55a3aa04a19d481e9309ba2388bfb8e9_all.csv",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接 55a3aa04a19d481e9309ba2388bfb8e9.csv",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/UID9622 AI学伴部署入口 029d33268a6f4122a867ea832c784bd7.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/我的链接示例 ed612d93156d4c13bd173f1ebca82dd7.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/Vercel 官方站点 b8199eb9642548dd8e5e54b315254728.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/OpenAI 平台 31a5bc1329644fd4b88d524bebac59d1.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/Cloudflare 官方站点（Workers 26 Pages） 8e72c28305eb44f1887ad69ebb49d83e.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/Netlify 官方站点 36f514f815364a4bb5a27a52a24b974e.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/部署链接中心（黑客级自动化部署） a57359caf30b4280818d15edb32345e2.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/我的链接/管理 144 202 26 123 - Vultr com 20ded3884b4d403eb0329ad5f77daebf.md",
+      "reason": "匹配排除规则: 我的链接"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/yourproject notion site efd327710a9242f39cd3d79cc143454b.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/uid9622 tech a309dbde1a86442aad6ac2ccc3868e46.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/coursera org 466663841cbe4ac88452e0b93c7b8ab8.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/vultr com 85481037ae664bb4b679a45f263b82c8.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/notion so db175e6cf54346aa8290af266c7402c7.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/无标题 2717125a9c9f80de84a7ec8fd5a791e2.md",
+      "reason": "匹配排除规则: 无标题"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/github com 8cfd41bf91d74b29a0081fd8e7b3d514.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/无标题 2f17125a9c9f803391a4f9ae80053aca.md",
+      "reason": "匹配排除规则: 无标题"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/notion site 4ec630bb241140ff83b10f0874c4bccf.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/deploy your-system com b5854a5086ee4f41a2b41b060b9db930.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/uid9622 notion site 1af9527514fc470088389278360c1720.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/UID9622 链接管理中心/域名白名单/edx org 5da717c09ef3462d8c64f83ea1b7daff.md",
+      "reason": "匹配排除规则: 域名白名单"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板/UID9622智能协作平台SaaS服务 b1c1920169604f5aa84bc5a14dc7215a.md",
+      "reason": "匹配排除规则: SaaS服务\\.(md|csv)$"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板/智能管理系统企业版授权 8af0b727d48a47eaa3d6538c028204c1.md",
+      "reason": "匹配排除规则: 授权\\.(md|csv)$"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📊 商业化运营仪表板/传奇级UID9622系统商业化 d931c9b7309d41f6b02e529f6f8e69fe.md",
+      "reason": "匹配排除规则: 商业化\\.(md|csv)$"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/📱 移动端专用功能与体验中心/移动端身份验证系统 71455902a46b4630b70f4c9bed5af0a5.md",
+      "reason": "匹配排除规则: 身份"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 合作回顾与审查记录 5355f316e4c9470dbb9f2bde279ece8f.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 灰区内容处理规范 5f81b8e79e594c2ea66cee4f286d906a.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 AI协同智能体指令 5176dce320c844ca85d2045c2d8b89f2.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 暂缓 禁止合作清单 4b6fbdc01a4c48488bb4f5b12fbb1156.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 协作权限与日志系统 ce2f1194b9414894b6ada1232d61d75e.md",
+      "reason": "文件过小/空"
+    },
+    {
+      "source": "30e7125a9c9f81deb55200420115c4e6/📊 UID9622智能数据库管理中心 核心数据库/🤝 合作标准 · 系统结构模板（内部专用）/📁 情绪 共情合作 5d7dcd82817441808b5d5b3072870cc0.md",
+      "reason": "文件过小/空"
+    }
+  ]
+}
