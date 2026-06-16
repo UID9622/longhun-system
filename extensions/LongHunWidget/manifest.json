@@ -10,7 +10,9 @@
     "scripting",
     "sidePanel",
     "clipboardWrite",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "alarms",
+    "notifications"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -29,7 +31,6 @@
     "default_path": "sidepanel.html"
   },
   "action": {
-    "default_popup": "popup.html",
     "default_title": "龍魂宝宝",
     "default_icon": {
       "16": "icons/icon16.png",

@@ -1,0 +1,71 @@
+{
+  "manifest_version": 3,
+  "name": "CNSH · 龍魂语法引擎",
+  "short_name": "CNSH",
+  "version": "0.1.0",
+  "description": "中文自然语法（CNSH）高亮 · 一键送入龍魂 Notion 数字大军（Inbox / DNA / Tasks / 人心算法）",
+  "author": "UID9622 · 龍芯北辰",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "action": {
+    "default_title": "龍魂 · CNSH 快速入库",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "options_page": "options.html",
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["syntax/cnsh-highlighter.js", "content.js"],
+      "css": ["syntax/cnsh-theme.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "notifications",
+    "clipboardWrite"
+  ],
+
+  "host_permissions": [
+    "https://api.notion.com/*",
+    "<all_urls>"
+  ],
+
+  "commands": {
+    "quick_capture": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "快速送入 Inbox（龍魂净化入口）"
+    },
+    "open_popup": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "打开龍魂快速面板"
+    }
+  }
+}

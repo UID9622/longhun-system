@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>龍魂 CNSH · 配置</title>
+  <style>
+    :root {
+      --bg: #0f0820;
+      --bg2: #1a1030;
+      --fg: #e8e0ff;
+      --accent: #8b5cf6;
+      --gold: #fbbf24;
+      --green: #10b981;
+      --red: #ef4444;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--bg2);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 10px;
+      padding: 32px 36px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+    section {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 15px;
+      margin: 0 0 14px;
+      color: var(--accent);
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 12px 0 5px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 5px;
+      padding: 9px 12px;
+      font-family: "JetBrains Mono", Menlo, monospace;
+      font-size: 13px;
+    }
+    input:focus { outline: none; border-color: var(--accent); }
+    .hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .row { display: flex; gap: 10px; margin-top: 16px; }
+    button {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent), #6d28d9);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.1); }
+    button.ghost {
+      background: transparent;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: var(--fg);
+      font-weight: 400;
+    }
+    .status {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 5px;
+      font-size: 13px;
+      display: none;
+    }
+    .status.ok { background: rgba(16, 185, 129, 0.15); color: var(--green); display: block; }
+    .status.err { background: rgba(239, 68, 68, 0.15); color: var(--red); display: block; }
+    .callout {
+      background: rgba(139, 92, 246, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.65;
+      color: #cdc0ff;
+      margin-bottom: 20px;
+    }
+    a { color: #7dd3fc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    code {
+      background: rgba(139, 92, 246, 0.12);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚡ 龍魂 · CNSH 配置</h1>
+    <div class="sub">把你的 Notion 数字大军和这个浏览器打通 · UID9622 专属</div>
+
+    <div class="callout">
+      <b>三步走：</b><br>
+      1. 去 <a href="https://www.notion.so/my-integrations" target="_blank">my-integrations</a> 建个 Internal Integration，复制 Token（<code>ntn_...</code> 或 <code>secret_...</code>）。<br>
+      2. 回到 Notion，进入每个数据库页面 → <code>···</code> → <code>Connections</code> → 添加刚建的 integration。<br>
+      3. 把数据库 URL 里那串 32 位字符贴到下面对应的框里。
+    </div>
+
+    <section>
+      <h2>🔑 Notion Integration Token</h2>
+      <label>Token（本地存储，不上传）</label>
+      <input type="password" id="notion_token" placeholder="ntn_... 或 secret_..." />
+      <div class="hint">
+        存在 <code>chrome.storage.local</code>，仅用于直连 Notion API。清除浏览器数据会失效。
+      </div>
+      <div class="row">
+        <button id="test-conn">🔌 测试连接</button>
+        <button class="ghost" id="show-token">👁️ 显/隐</button>
+      </div>
+      <div class="status" id="conn-status"></div>
+    </section>
+
+    <section>
+      <h2>📚 数据库 ID 四大库</h2>
+      <div class="hint" style="margin-bottom: 12px;">
+        从数据库页面 URL 复制，或者直接用下面"预填我的"按钮一键填充 UID9622 已有的四库。
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>🧩 Learning Inbox</label>
+          <input type="text" id="db_inbox" placeholder="1d9af383-6784-42db-827f-c035be3f1458" />
+        </div>
+        <div>
+          <label>🧬 Knowledge DNA</label>
+          <input type="text" id="db_dna" placeholder="6f1ddacc-289c-46fc-9369-a07e3d937f5e" />
+        </div>
+        <div>
+          <label>🗂️ Learning Tasks</label>
+          <input type="text" id="db_tasks" placeholder="58953efd-0588-40df-b30c-b763e76b0ae9" />
+        </div>
+        <div>
+          <label>💖 人心算法</label>
+          <input type="text" id="db_heart" placeholder="9702a79e-c4e2-40c1-ab28-cc7721fb19e9" />
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="ghost" id="fill-mine">⚡ 预填我的（UID9622）</button>
+        <button id="save">💾 保存</button>
+      </div>
+      <div class="status" id="save-status"></div>
+    </section>
+
+    <section>
+      <h2>⌨️ 快捷键提示</h2>
+      <div class="hint" style="line-height: 2;">
+        <code>Ctrl/Cmd + Shift + L</code> — 快速把当前选中/页面送入 Inbox<br>
+        <code>Ctrl/Cmd + Shift + K</code> — 打开龍魂快速面板<br>
+        如需修改：浏览器地址栏输入 <code>chrome://extensions/shortcuts</code>
+      </div>
+    </section>
+
+    <section>
+      <h2>🩷 关于</h2>
+      <div class="hint">
+        CNSH · Chinese Natural Syntax Hybrid · 中文自然语法<br>
+        龍魂系统 v0.1.0 · UID9622 诸葛鑫 · 龍芯北辰<br>
+        此扩展将你的浏览器变成龍魂数字大军的 <b>前线哨所</b>：
+        任何选中 → 右键 → 瞬间入 Notion 数据库，自动打上 DNA 追溯码。
+      </div>
+    </section>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
