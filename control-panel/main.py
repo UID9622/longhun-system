@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from api import skill_wrappers
+from api import skill_wrappers, foundation_wrappers
 
 app = FastAPI(
     title="龍魂操作台 MVP v1.1",
@@ -119,21 +119,107 @@ async def run_workflow(workflow_id: str, request: Request):
 
     results = []
     for idx, step in enumerate(wf["steps"]):
-        skill = step["skill"]
-        action = step.get("action", "run")
-        payload = step.get("payload", {})
-        if skill in override_payload:
-            payload = {**payload, **override_payload[skill]}
-
-        if action == "render":
-            results.append({"step": idx + 1, "skill": skill, "action": "render", "url": SKILL_METADATA[skill].get("url")})
+        if "foundation" in step:
+            action = step["foundation"]
+            payload = step.get("payload", {})
+            if action in override_payload:
+                payload = {**payload, **override_payload[action]}
+            result = foundation_wrappers.run_foundation(action, payload)
+            results.append({"step": idx + 1, "foundation": action, "result": result})
         else:
-            result = await skill_wrappers.run_skill(skill, payload)
-            results.append({"step": idx + 1, "skill": skill, "action": "run", "result": result})
+            skill = step["skill"]
+            action = step.get("action", "run")
+            payload = step.get("payload", {})
+            if skill in override_payload:
+                payload = {**payload, **override_payload[skill]}
+
+            if action == "render":
+                results.append({"step": idx + 1, "skill": skill, "action": "render", "url": SKILL_METADATA[skill].get("url")})
+            else:
+                result = await skill_wrappers.run_skill(skill, payload)
+                results.append({"step": idx + 1, "skill": skill, "action": "run", "result": result})
 
     return {"workflow_id": workflow_id, "name": wf["name"], "results": results}
 
 
+# ===== 底座能力聯動 API =====
+
+@app.get("/api/foundation")
+def list_foundation_apis():
+    return {
+        "apis": [
+            {"path": "/api/audit/integrated", "method": "POST", "desc": "融合審計：system/script"},
+            {"path": "/api/shield/{action}", "method": "POST", "desc": "龍盾：check/analyze/validate"},
+            {"path": "/api/cnsh/align", "method": "POST", "desc": "CNSH 對齊檢查"},
+            {"path": "/api/cnsh/script-manager", "method": "POST", "desc": "全腳本掃描"},
+            {"path": "/api/instruction/execute", "method": "POST", "desc": "執行 @shield.check 等 DNA 指令"},
+        ]
+    }
+
+
+@app.post("/api/audit/integrated")
+async def audit_integrated(request: Request):
+    payload = {}
+    try:
+        body = await request.json()
+        if isinstance(body, dict):
+            payload = body
+    except Exception:
+        pass
+    mode = payload.get("mode", "system")
+    target = payload.get("file")
+    return foundation_wrappers.run_integrated_audit(mode=mode, target_file=target)
+
+
+@app.post("/api/shield/{action}")
+async def shield_action(action: str, request: Request):
+    if action not in ("check", "analyze", "validate"):
+        raise HTTPException(status_code=400, detail="action must be check/analyze/validate")
+    payload = {}
+    try:
+        body = await request.json()
+        if isinstance(body, dict):
+            payload = body
+    except Exception:
+        pass
+    file_name = payload.get("file", "shield_test_example.py")
+    options = payload.get("options", [])
+    return foundation_wrappers.run_shield(action, file_name, options)
+
+
+@app.post("/api/cnsh/align")
+async def cnsh_align(request: Request):
+    payload = {}
+    try:
+        body = await request.json()
+        if isinstance(body, dict):
+            payload = body
+    except Exception:
+        pass
+    text = payload.get("text", "")
+    context = payload.get("context", "stdin")
+    return foundation_wrappers.run_cnsh_align(text, context)
+
+
+@app.post("/api/cnsh/script-manager")
+def cnsh_script_manager():
+    return foundation_wrappers.run_script_manager()
+
+
+@app.post("/api/instruction/execute")
+async def instruction_execute(request: Request):
+    payload = {}
+    try:
+        body = await request.json()
+        if isinstance(body, dict):
+            payload = body
+    except Exception:
+        pass
+    instruction = payload.get("instruction", "")
+    return foundation_wrappers.run_instruction(instruction)
+
+
 if __name__ == "__main__":
+
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=9622, reload=False)

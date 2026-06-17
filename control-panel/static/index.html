@@ -70,6 +70,7 @@
       <div class="nav-title">SKILLS</div>
       <div class="nav-item active" onclick="showPanel('skills')">🧩 技能總覽</div>
       <div class="nav-item" onclick="showPanel('workflows')">🔄 工作流</div>
+      <div class="nav-item" onclick="showPanel('foundation')">🛡️ 底座聯動</div>
       <div class="nav-item" onclick="showPanel('api')">🔌 API 文檔</div>
       <div class="nav-item" onclick="showPanel('logs')">📋 運行日誌</div>
       <div class="nav-title">SYSTEM</div>
@@ -84,6 +85,60 @@
           <div id="skill-viewer" class="hidden" style="margin-top:20px">
             <h3 id="viewer-title"></h3>
             <iframe id="viewer-frame"></iframe>
+          </div>
+        </section>
+
+        <!-- 底座聯動 -->
+        <section id="panel-foundation" class="panel">
+          <h2>🛡️ 底座聯動 · 不是孤立功能</h2>
+          <div class="grid">
+            <div class="card">
+              <div class="card-title">🛡️ 龍盾檢查</div>
+              <div class="card-meta">/api/shield/check</div>
+              <div class="card-desc">調用龍盾 CLI 對指定文件做風險檢查。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.check', {file:'shield_test_example.py'}, this)">▶ 檢查</button></div>
+              <div class="result" id="res-shield-check"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🔍 龍盾分析</div>
+              <div class="card-meta">/api/shield/analyze</div>
+              <div class="card-desc">深度分析 + 代碼轉譯。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.analyze', {file:'shield_test_example.py'}, this)">▶ 分析</button></div>
+              <div class="result" id="res-shield-analyze"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">✅ 龍盾驗證</div>
+              <div class="card-meta">/api/shield/validate</div>
+              <div class="card-desc">完整驗證 + 請求權限。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.validate', {file:'shield_test_example.py'}, this)">▶ 驗證</button></div>
+              <div class="result" id="res-shield-validate"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">📐 CNSH 對齊</div>
+              <div class="card-meta">/api/cnsh/align</div>
+              <div class="card-desc">四層 CNSH 檢查：字符、關鍵字、語法、語義。</div>
+              <textarea class="payload" id="payload-cnsh">def verify_dna():\n    return calculate_hash()</textarea>
+              <div class="actions"><button class="btn run" onclick="runCnshAlign(this)">▶ 對齊</button></div>
+              <div class="result" id="res-cnsh-align"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🔬 融合審計</div>
+              <div class="card-meta">/api/audit/integrated</div>
+              <div class="card-desc">CNSH + 10 維系統審計融合。</div>
+              <div class="actions">
+                <button class="btn run" onclick="callFoundation('audit.integrated', {mode:'system'}, this)">▶ 系統審計</button>
+                <button class="btn primary" onclick="callFoundation('cnsh.script-manager', {}, this)">▶ 腳本管理</button>
+              </div>
+              <div class="result" id="res-audit-integrated"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🧬 DNA 指令</div>
+              <div class="card-meta">/api/instruction/execute</div>
+              <div class="card-desc">指令 = 身份證 + DNA + 參數。</div>
+              <textarea class="payload" id="payload-instruction">@shield.check shield_test_example.py</textarea>
+              <div class="actions"><button class="btn run" onclick="runInstruction(this)">▶ 執行指令</button></div>
+              <div class="result" id="res-instruction"></div>
+            </div>
           </div>
         </section>
 
@@ -103,7 +158,13 @@
             <tr><td>POST</td><td>/api/skills/{skill_id}/run</td><td>運行 Python Skill</td></tr>
             <tr><td>GET</td><td>/api/workflows</td><td>列出工作流</td></tr>
             <tr><td>GET</td><td>/api/workflows/{id}</td><td>取得工作流定義</td></tr>
-            <tr><td>POST</td><td>/api/workflows/{id}/run</td><td>執行工作流</td></tr>
+            <tr><td>POST</td><td>/api/workflows/{id}/run</td><td>執行工作流（含 Skill + 底座聯動）</td></tr>
+            <tr><td>GET</td><td>/api/foundation</td><td>列出底座 API</td></tr>
+            <tr><td>POST</td><td>/api/shield/{check|analyze|validate}</td><td>龍盾檢查</td></tr>
+            <tr><td>POST</td><td>/api/cnsh/align</td><td>CNSH 對齊</td></tr>
+            <tr><td>POST</td><td>/api/cnsh/script-manager</td><td>全腳本掃描</td></tr>
+            <tr><td>POST</td><td>/api/audit/integrated</td><td>融合審計</td></tr>
+            <tr><td>POST</td><td>/api/instruction/execute</td><td>DNA 指令執行</td></tr>
           </table>
           <h3>WebSocket / SSE 預留</h3>
           <p class="card-desc">未來可透過 <code>/api/stream</code> 訂閱技能執行狀態與審計日誌。</p>
@@ -229,6 +290,42 @@
       document.getElementById('wf-result-'+id).textContent = JSON.stringify(res, null, 2);
       btn.disabled = false; btn.textContent = '▶ 執行工作流';
       log(`Workflow ${id} result: ${res.results ? res.results.length + ' steps' : 'error'}`, res.results?'ok':'err');
+    }
+
+    async function callFoundation(action, payload, btn, resultId){
+      const rid = resultId || 'res-' + action.replace(/\./g, '-');
+      btn.disabled = true; btn.textContent = '⏳ 執行中...';
+      let endpoint = '/api/foundation';
+      let body = {};
+      if(action.startsWith('shield.')){
+        endpoint = `/api/shield/${action.split('.')[1]}`;
+        body = payload;
+      } else if(action === 'cnsh.align'){
+        endpoint = '/api/cnsh/align';
+        body = payload;
+      } else if(action === 'cnsh.script-manager'){
+        endpoint = '/api/cnsh/script-manager';
+      } else if(action === 'audit.integrated'){
+        endpoint = '/api/audit/integrated';
+        body = payload;
+      }
+      const res = await api(endpoint, 'POST', body);
+      const box = document.getElementById(rid);
+      if(box) box.textContent = JSON.stringify(res, null, 2);
+      btn.disabled = false; btn.textContent = '▶ 執行';
+      log(`Foundation ${action} result returned`, res.error?'err':'ok');
+    }
+
+    async function runCnshAlign(btn){
+      const text = document.getElementById('payload-cnsh').value;
+      await callFoundation('cnsh.align', {text: text.replace(/\\n/g, '\n'), context: 'ui'}, btn, 'res-cnsh-align');
+    }
+
+    async function runInstruction(btn){
+      const instruction = document.getElementById('payload-instruction').value;
+      const res = await api('/api/instruction/execute', 'POST', {instruction});
+      document.getElementById('res-instruction').textContent = JSON.stringify(res, null, 2);
+      log(`Instruction executed: ${instruction}`, res.error?'err':'ok');
     }
 
     (async function init(){
