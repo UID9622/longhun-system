@@ -45,6 +45,34 @@
         {"skill": "skill-6-mcp-builder", "action": "run", "payload": {"name": "longhun-mcp", "tools": [{"name": "echo", "description": "Echo tool", "parameters": {"msg": {"type": "string"}}}]}, "note": "构建 MCP 服务器"},
         {"skill": "skill-7-skill-creator", "action": "run", "payload": {"skill_id": "mcp-client", "name": "MCP Client", "category": "integration"}, "note": "创建配套技能"}
       ]
+    },
+    {
+      "id": "shield-audit-chain",
+      "name": "龍盾 → CNSH → 融合審計聯動",
+      "description": "入口檢查 → 代碼底座對齊 → 系統十維審計",
+      "steps": [
+        {"foundation": "shield.check", "payload": {"file": "shield_test_example.py"}, "note": "龍盾入口風險檢查"},
+        {"foundation": "cnsh.align", "payload": {"text": "def verify_dna():\n    return calculate_hash()", "context": "workflow"}, "note": "CNSH 對齊檢查"},
+        {"foundation": "audit.integrated", "payload": {"mode": "system"}, "note": "十維融合審計"}
+      ]
+    },
+    {
+      "id": "full-governance",
+      "name": "完整治理檢查",
+      "description": "腳本管理 + 龍盾驗證 + 審計",
+      "steps": [
+        {"foundation": "cnsh.script-manager", "payload": {}, "note": "全腳本掃描"},
+        {"foundation": "shield.validate", "payload": {"file": "shield_test_example.py"}, "note": "龍盾完整驗證"},
+        {"foundation": "audit.integrated", "payload": {"mode": "system"}, "note": "系統審計"}
+      ]
+    },
+    {
+      "id": "instruction-demo",
+      "name": "DNA 指令執行示範",
+      "description": "執行 @shield.check 等 DNA 指令",
+      "steps": [
+        {"foundation": "instruction.execute", "payload": {"instruction": "@shield.check shield_test_example.py"}, "note": "解析並執行 DNA 指令"}
+      ]
     }
   ]
 }
