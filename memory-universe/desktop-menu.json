@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "starry-memory-seed",
+      "label": "🌌 星辰记忆：添加示例",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py seed",
+      "description": "自動添加一世一双人、三生三世、星辰記憶三則示例",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-generate",
+      "label": "✨ 生成星辰记忆页面",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py generate && open {root}/memory-universe/index.md",
+      "description": "根據數據庫記憶自動生成 index.md 並打開",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-stats",
+      "label": "📊 星辰记忆统计",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py stats",
+      "description": "查看各分類記憶數量統計",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-readme",
+      "label": "📘 查看星辰记忆说明",
+      "type": "shell",
+      "command": "open {root}/memory-universe/README.md",
+      "description": "打開星辰記憶系統使用說明",
+      "confirm": false
+    }
+  ]
+}
