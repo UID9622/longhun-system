@@ -1,0 +1,480 @@
+{
+  "modules": [
+    {
+      "path": "03_compiler",
+      "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "03_知識圖譜",
+      "files": 3,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "agents",
+      "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "xpay_core_auto.py",
+        "longhun_notion_sync_auto.py",
+        "longhun_foundation_launcher_auto.py",
+        "task_executor_live_v1.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "android-auto",
+      "files": 2,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "termux-setup.sh"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "baobao-guardian",
+      "files": 3322,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "verify-structure.sh",
+        "start.sh",
+        "main.py",
+        "typing_extensions.py",
+        "tags.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "bin",
+      "files": 22,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "package-watcher.py",
+        "module_inventory.py",
+        "run-warehouse-audit.sh",
+        "integrate_private_shared_batch2.py",
+        "run-package-watcher.sh"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "brain",
+      "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "brain_notion_sync.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "cnsh-core",
+      "files": 1665,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "notion_task5_setup.py",
+        "audit_integration_v1.py",
+        "memory_pack_v3.py",
+        "parse_notion.py",
+        "core_system_launcher.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "cnsh.integrated",
+      "files": 53,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "v9_task_executor_adapter.py",
+        "task_executor_v9_integrated.py",
+        "v9_system_integration_bridge.py",
+        "persona_collaboration.py",
+        "dna_chain_tracer.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "control-panel",
+      "files": 11,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": false,
+      "entry_scripts": [
+        "launch.sh",
+        "main.py",
+        "skill_wrappers.py",
+        "foundation_wrappers.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "deployment",
+      "files": 9,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "demo_staging_deployment.py",
+        "production_deployment.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "docker",
+      "files": 3,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "docs",
+      "files": 860,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "DNA_生成器_v1.0.cnsh.py",
+        "alignment_v1.5_F19_F22.py",
+        "设置-cnsh文件关联.sh",
+        "编译运行.sh",
+        "sync-install.sh"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "executors",
+      "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun_kfpp_executor_v1.0.py",
+        "longhun_mvp_launcher_v1.0.py",
+        "longhun_foundation_runtime_v1.0.py",
+        "task_executor_live_v1.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "experiments",
+      "files": 2,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "extensions",
+      "files": 37,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "install.sh"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "integrated-modules",
+      "files": 55,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "longhun_standard_calculation_framework.py",
+        "longhun_skill_auto_completion_engine.py",
+        "longhun_startup_recovery_system.py",
+        "longhun_logging_versioning_tracing_core.py",
+        "sovereign_env.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "integrated_modules",
+      "files": 55,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "longhun_standard_calculation_framework.py",
+        "longhun_skill_auto_completion_engine.py",
+        "longhun_startup_recovery_system.py",
+        "longhun_logging_versioning_tracing_core.py",
+        "sovereign_env.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "integrations",
+      "files": 6,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "cnsh_mcp_server.py",
+        "v4_mcp_server.py",
+        "longhun_mvp_notion_integration_v1.0.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "kimi",
+      "files": 20,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "kimi_client.py",
+        "kimi_integration.py",
+        "kimi_gateway.py",
+        "test_kimi_integration.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "mobile-monitoring.integrated",
+      "files": 16,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "deploy-all.sh",
+        "deploy-all-mock.sh",
+        "monitoring_server_port9000.py",
+        "monitoring_server.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "monitoring",
+      "files": 9,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "datadog_monitoring_config.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "multicurrency",
+      "files": 34,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "exchange_rate_sources.py",
+        "multicurrency_service.py",
+        "health_check.sh",
+        "notion_multicurrency_sync.py",
+        "alert_system.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "mvp_config",
+      "files": 9,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "phase3",
+      "files": 15,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "launch-phase3.sh",
+        "main.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "protocols",
+      "files": 28,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "research",
+      "files": 24,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "riemann_three_talent_verification.py",
+        "riemann_numerical_verification_extended.py",
+        "riemann_perspective_B_proof.py",
+        "riemann_perspective_C_proof.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "rules-engine-v2.5",
+      "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "notion_sync_v2.5.py",
+        "batch_processor_v2.5.py",
+        "test_integration.py",
+        "report_generator_enhanced.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "scripts",
+      "files": 45,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": false,
+      "entry_scripts": [
+        "setup.sh",
+        "heaven_nonkill_audit.py",
+        "longhun_integrated_system.py",
+        "weekly_backup.sh",
+        "main.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "skill-standards.integrated",
+      "files": 6,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun-skill-auto-completion-engine.py",
+        "longhun-standard-calculation-framework.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "skills",
+      "files": 101,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "SKILL-LAUNCHER.sh",
+        "longhun_standard_calculation_framework.py",
+        "longhun-skill-auto-completion-engine.py",
+        "phase5_performance_benchmark.py",
+        "longhun-standard-calculation-framework.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "skills.backup",
+      "files": 33,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "phase5_performance_benchmark.py",
+        "phase6_cross_skill_integration.py",
+        "api.py",
+        "phase7_final_system_acceptance.py",
+        "fill_all_skills_specifications.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "software-dna",
+      "files": 6,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "secret_guard.py",
+        "dna_encryption.py",
+        "test_encryption.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "systems",
+      "files": 25,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "安全域审计协议_v3.0.py",
+        "DNA追溯链系统_v3.0.py",
+        "三色审计与10道闸系统_v3.0.py",
+        "人格矩阵路由系统_v3.0.py",
+        "五行融合决策引擎_v3.0.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "tests",
+      "files": 13,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "tools",
+      "files": 20,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "dragon_char_normalizer.py",
+        "gpg_sign_manager.py",
+        "cnsh.py",
+        "cnsh_gateway.py",
+        "sovereign_env_audit.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "web",
+      "files": 10,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [],
+      "status": "complete"
+    }
+  ],
+  "summary": {
+    "total": 37,
+    "complete": 16,
+    "needs_doc": 21
+  }
+}
