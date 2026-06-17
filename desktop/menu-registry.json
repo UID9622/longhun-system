@@ -3,6 +3,14 @@
   "description": "龍魂桌面主开关動態菜單註冊表。新增模塊時可在此追加項目，或在模塊根目錄放置 desktop-menu.json 自動掃描合併。",
   "items": [
     {
+      "id": "open-control-center",
+      "label": "🎛️ 打开龍魂控制中心（推薦）",
+      "type": "shell",
+      "command": "cd {root} && python3 desktop/龍魂控制中心.py >/dev/null 2>&1 &",
+      "description": "打開圖形化控制中心，所有按鈕帶說明，不用記命令",
+      "confirm": false
+    },
+    {
       "id": "start-control-panel",
       "label": "啟動龍魂操作台（:9622）",
       "type": "shell",
