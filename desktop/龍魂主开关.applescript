@@ -3,7 +3,7 @@
 -- DNA: #龍芯⚡️2026-06-17-LONGHUN-MASTER-SWITCH-v1.0
 
 property rootPath : "/Users/zuimeidedeyihan/longhun-system"
-property menuItems : {"啟動龍魂操作台（:9622）", "停止龍魂操作台", "開啟操作台網頁", "執行 CNSH 自檢", "執行每日審計", "開機自啟動 ▸ 安裝", "開機自啟動 ▸ 卸載", "查看系統狀態", "打開項目終端", "🔄 重新生成主开关菜單", "退出", "📘 查看 CNSH 說明文檔", "🔐 运行六层加密堆栈测试", "👁️ 运行 L6 灵魂层测试", "⚖️ 运行权重调谐器", "📊 查看三色审计报告", "📝 打开龍碼中文編輯器", "🔨 重新編譯龍碼編輯器 App", "🐉 運行底座啟動台自檢", "📋 運行腳本管理器報告", "❓ 運行 MVP 啟動器幫助", "💱 查看主權幣種", "💰 演示支付（CNY → UID1001）", "📊 XPay 交易統計", "📘 查看 XPay 設計說明"}
+property menuItems : {"啟動龍魂操作台（:9622）", "停止龍魂操作台", "開啟操作台網頁", "執行 CNSH 自檢", "執行每日審計", "開機自啟動 ▸ 安裝", "開機自啟動 ▸ 卸載", "查看系統狀態", "打開項目終端", "🔄 重新生成主开关菜單", "退出", "📘 查看 CNSH 說明文檔", "🖥️ 启动 CNSH 多语言终端 v5.0", "🌐 通心译：英→中示例", "✅ 运行 CNSH 四层检查", "📋 CNSH 終端審計報告", "🔐 运行六层加密堆栈测试", "👁️ 运行 L6 灵魂层测试", "⚖️ 运行权重调谐器", "📊 查看三色审计报告", "📝 打开龍碼中文編輯器", "🔨 重新編譯龍碼編輯器 App", "🐉 運行底座啟動台自檢", "📋 運行腳本管理器報告", "❓ 運行 MVP 啟動器幫助", "💱 查看主權幣種", "💰 演示支付（CNY → UID1001）", "📊 XPay 交易統計", "📘 查看 XPay 設計說明"}
 
 repeat
     set choice to choose from list menuItems with title "🐉 龍魂主开关" with prompt "選擇要執行的操作，不用記任何命令：" default items {item 1 of menuItems} OK button name "執行" cancel button name "退出"
@@ -56,6 +56,14 @@ on runMenu(selected)
         return do shell script "cd /Users/zuimeidedeyihan/longhun-system && bash bin/build-desktop-switch.sh 2>&1 && echo '主开关已更新，請關閉本窗口後重新打開龍魂主开关.app'"
     else if selected is "📘 查看 CNSH 說明文檔" then
         return do shell script "open /Users/zuimeidedeyihan/longhun-system/CNSH/README.md"
+    else if selected is "🖥️ 启动 CNSH 多语言终端 v5.0" then
+        return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py gui >/dev/null 2>&1 &"
+    else if selected is "🌐 通心译：英→中示例" then
+        return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py translate \"Prompt Engineering makes the Agent smarter\""
+    else if selected is "✅ 运行 CNSH 四层检查" then
+        return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py check test.cnsh"
+    else if selected is "📋 CNSH 終端審計報告" then
+        return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py audit"
     else if selected is "🔐 运行六层加密堆栈测试" then
         return do shell script "cd /Users/zuimeidedeyihan/longhun-system/crypto-stack/src && python3 stack_runner.py"
     else if selected is "👁️ 运行 L6 灵魂层测试" then

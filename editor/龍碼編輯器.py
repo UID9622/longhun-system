@@ -73,6 +73,14 @@ class 龍碼編輯器:
         運行.add_command(label="清空輸出", command=self._清空輸出)
         menubar.add_cascade(label="運行", menu=運行)
 
+        通心译 = tk.Menu(menubar, tearoff=0)
+        通心译.add_command(label="英→中", command=lambda: self._通心译翻譯("en2zh"), accelerator="F9")
+        通心译.add_command(label="中→英", command=lambda: self._通心译翻譯("zh2en"), accelerator="F10")
+        通心译.add_command(label="雙語", command=lambda: self._通心译翻譯("bilingual"), accelerator="F11")
+        通心译.add_command(label="加密選中內容", command=self._加密選中)
+        通心译.add_command(label="解密選中內容", command=self._解密選中)
+        menubar.add_cascade(label="通心译", menu=通心译)
+
         幫助 = tk.Menu(menubar, tearoff=0)
         幫助.add_command(label="關於龍碼", command=self._關於)
         menubar.add_cascade(label="幫助", menu=幫助)
@@ -84,6 +92,9 @@ class 龍碼編輯器:
         self.root.bind("<Command-o>", lambda e: self._打開文件())
         self.root.bind("<Command-s>", lambda e: self._保存文件())
         self.root.bind("<F5>", lambda e: self._運行Python())
+        self.root.bind("<F9>", lambda e: self._通心译翻譯("en2zh"))
+        self.root.bind("<F10>", lambda e: self._通心译翻譯("zh2en"))
+        self.root.bind("<F11>", lambda e: self._通心译翻譯("bilingual"))
 
     def _建立工具欄(self):
         toolbar = ttk.Frame(self.root)
@@ -94,6 +105,8 @@ class 龍碼編輯器:
             ("打開", self._打開文件),
             ("保存", self._保存文件),
             ("運行", self._運行Python),
+            ("英→中", lambda: self._通心译翻譯("en2zh")),
+            ("中→英", lambda: self._通心译翻譯("zh2en")),
             ("清空", self._清空輸出),
         ]
 
@@ -313,12 +326,82 @@ class 龍碼編輯器:
         except Exception as e:
             self._輸出(f"[Shell 錯誤] {e}")
 
+    def _通心译翻譯(self, mode: str):
+        """調用 CNSH 通心译引擎翻譯選中文字"""
+        if not self.編輯區.tag_ranges("sel"):
+            self._輸出("[通心译] 請先選中要翻譯的文字")
+            return
+
+        text = self.編輯區.get("sel.first", "sel.last").strip()
+        if not text:
+            self._輸出("[通心译] 選中內容為空")
+            return
+
+        root = Path(__file__).resolve().parent.parent
+        terminal = root / "cnsh-terminal" / "cnsh_terminal_v5.py"
+
+        self._輸出(f"[通心译] 模式: {mode} | 原文: {text[:60]}")
+        try:
+            result = subprocess.run(
+                [sys.executable, str(terminal), "translate", text],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            if result.stdout:
+                self._輸出(result.stdout)
+            if result.stderr:
+                self._輸出("[通心译 錯誤]\n" + result.stderr)
+        except Exception as e:
+            self._輸出(f"[通心译 錯誤] {e}")
+
+    def _加密選中(self):
+        """調用 CNSH 終端加密選中內容"""
+        if not self.編輯區.tag_ranges("sel"):
+            self._輸出("[加密] 請先選中要加密的文字")
+            return
+        text = self.編輯區.get("sel.first", "sel.last").strip()
+        root = Path(__file__).resolve().parent.parent
+        terminal = root / "cnsh-terminal" / "cnsh_terminal_v5.py"
+        self._輸出(f"[加密] 原文: {text[:60]}")
+        try:
+            result = subprocess.run(
+                [sys.executable, str(terminal), "encrypt", text],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            self._輸出(result.stdout + result.stderr)
+        except Exception as e:
+            self._輸出(f"[加密 錯誤] {e}")
+
+    def _解密選中(self):
+        """調用 CNSH 終端解密選中內容"""
+        if not self.編輯區.tag_ranges("sel"):
+            self._輸出("[解密] 請先選中要解密的密文")
+            return
+        text = self.編輯區.get("sel.first", "sel.last").strip()
+        root = Path(__file__).resolve().parent.parent
+        terminal = root / "cnsh-terminal" / "cnsh_terminal_v5.py"
+        self._輸出("[解密] 正在解密...")
+        try:
+            result = subprocess.run(
+                [sys.executable, str(terminal), "decrypt", text],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            self._輸出(result.stdout + result.stderr)
+        except Exception as e:
+            self._輸出(f"[解密 錯誤] {e}")
+
     def _關於(self):
         messagebox.showinfo(
             "關於龍碼",
             "龍碼中文編輯器 v1.0\n\n"
             "沒有黑箱，代碼全部公開。\n"
             "中文就是變量名，中文就是註釋，中文就是邏輯。\n\n"
+            "已接入通心译與 CNSH 加密通信。\n\n"
             "DNA: #龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-v1.0"
         )
 
