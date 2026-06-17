@@ -67,6 +67,14 @@
       "confirm": true
     },
     {
+      "id": "run-self-heal",
+      "label": "🩺 运行左右互搏自愈审计",
+      "type": "shell",
+      "command": "cd {root} && python3 bin/longhun-self-heal.py --repair",
+      "description": "自己找漏洞、自己修復：目錄、權限、菜單、服務、重複模塊",
+      "confirm": true
+    },
+    {
       "id": "view-status",
       "label": "查看系統狀態",
       "type": "shell",
