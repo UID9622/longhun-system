@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root}/project-memory && python3 龍魂編年史.py seed",
       "description": "從 Claude 記憶檔提取關鍵里程碑，轉為系統自有資產",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "cd {root}/project-memory && python3 龍魂編年史.py generate && open {root}/project-memory/index.md",
       "description": "根據里程碑與規範索引自動生成 index.md 並打開",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -22,6 +24,7 @@
       "type": "shell",
       "command": "cd {root}/project-memory && python3 龍魂編年史.py specs",
       "description": "列出 cnsh-core/規范 目錄下所有規範文件",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -30,6 +33,7 @@
       "type": "shell",
       "command": "open {root}/project-memory/README.md",
       "description": "打開龍魂編年史使用說明",
+      "mode": "viewer",
       "confirm": false
     }
   ]

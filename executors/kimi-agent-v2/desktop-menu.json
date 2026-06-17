@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_foundation_launcher_v2.0.py --auto 2>&1 | tail -n 40",
       "description": "運行龍魂底座啟動台 v2.0 自動系統檢查",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_script_manager_v2.0.py report 2>&1 | tail -n 30",
       "description": "生成龍魂腳本管理器 v2.0 報告",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -22,6 +24,7 @@
       "type": "shell",
       "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_mvp_launcher_v2.0.py --help",
       "description": "顯示龍魂 MVP 啟動器 v2.0 用法（不執行完整啟動）",
+      "mode": "oneshot",
       "confirm": false
     }
   ]

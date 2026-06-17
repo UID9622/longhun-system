@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "description": "龍魂桌面主开关動態菜單註冊表。新增模塊時可在此追加項目，或在模塊根目錄放置 desktop-menu.json 自動掃描合併。",
+  "version": "1.2",
+  "description": "龍魂桌面主开关動態菜單註冊表。新增模塊時可在此追加項目，或在模塊根目錄放置 desktop-menu.json 自動掃描合併。mode 欄位決定菜單標註：daemon=常駐，oneshot=點一次跑完，viewer=只看，setup=配置。",
   "items": [
     {
       "id": "open-control-center",
@@ -8,6 +8,7 @@
       "type": "shell",
       "command": "cd {root} && python3 desktop/龍魂控制中心.py >/dev/null 2>&1 &",
       "description": "打開圖形化控制中心，所有按鈕帶說明，不用記命令",
+      "mode": "daemon",
       "confirm": false
     },
     {
@@ -16,70 +17,7 @@
       "type": "shell",
       "command": "cd {root} && export PYTHONPATH={root} && mkdir -p logs && if ! lsof -ti:9622 >/dev/null 2>&1; then cd control-panel && nohup python3 main.py >> ../logs/control-panel.log 2>&1 & fi && echo '龍魂操作台已啟動或正在運行'",
       "description": "啟動後台統一 API 入口",
-      "confirm": false
-    },
-    {
-      "id": "stop-control-panel",
-      "label": "停止龍魂操作台",
-      "type": "shell",
-      "command": "cd {root} && (lsof -ti:9622 | xargs kill -9 2>/dev/null) || true && echo '龍魂操作台已停止'",
-      "description": "關閉後台操作台服務",
-      "confirm": true
-    },
-    {
-      "id": "open-dashboard",
-      "label": "開啟操作台網頁",
-      "type": "open_url",
-      "url": "http://127.0.0.1:9622",
-      "description": "在瀏覽器打開控制台",
-      "confirm": false
-    },
-    {
-      "id": "run-cnsh-check",
-      "label": "執行 CNSH 自檢",
-      "type": "shell",
-      "command": "cd {root} && export PYTHONPATH={root} && python3 CNSH/task_executor_v9_integrated.py 2>&1 | tail -n 12",
-      "description": "運行 CNSH 整合任務引擎自檢",
-      "confirm": false
-    },
-    {
-      "id": "run-daily-audit",
-      "label": "執行每日審計",
-      "type": "shell",
-      "command": "cd {root} && bash bin/longhun-daily-audit.sh 2>&1 | tail -n 18",
-      "description": "運行龍魂每日審計流程",
-      "confirm": false
-    },
-    {
-      "id": "install-autostart",
-      "label": "開機自啟動 ▸ 安裝",
-      "type": "shell",
-      "command": "cd {root} && bash bin/install-autostart.sh 2>&1",
-      "description": "註冊 macOS 開機自動執行",
-      "confirm": false
-    },
-    {
-      "id": "uninstall-autostart",
-      "label": "開機自啟動 ▸ 卸載",
-      "type": "shell",
-      "command": "cd {root} && launchctl unload ~/Library/LaunchAgents/com.uid9622.longhun.autostart.plist 2>/dev/null || true && echo '開機自啟動已卸載'",
-      "description": "移除開機自動執行",
-      "confirm": true
-    },
-    {
-      "id": "run-self-heal",
-      "label": "🩺 运行左右互搏自愈审计",
-      "type": "shell",
-      "command": "cd {root} && python3 bin/longhun-self-heal.py --repair",
-      "description": "自己找漏洞、自己修復：目錄、權限、菜單、服務、重複模塊",
-      "confirm": true
-    },
-    {
-      "id": "view-status",
-      "label": "查看系統狀態",
-      "type": "shell",
-      "command": "cd {root} && bash bin/longhun-status.sh 2>&1",
-      "description": "查看所有服務與自啟動狀態",
+      "mode": "daemon",
       "confirm": false
     },
     {
@@ -89,6 +27,79 @@
       "app": "Terminal",
       "path": "{root}",
       "description": "打開 Terminal 並進入項目根目錄",
+      "mode": "daemon",
+      "confirm": false
+    },
+    {
+      "id": "stop-control-panel",
+      "label": "停止龍魂操作台",
+      "type": "shell",
+      "command": "cd {root} && (lsof -ti:9622 | xargs kill -9 2>/dev/null) || true && echo '龍魂操作台已停止'",
+      "description": "關閉後台操作台服務",
+      "mode": "setup",
+      "confirm": true
+    },
+    {
+      "id": "install-autostart",
+      "label": "開機自啟動 ▸ 安裝",
+      "type": "shell",
+      "command": "cd {root} && bash bin/install-autostart.sh 2>&1",
+      "description": "註冊 macOS 開機自動執行",
+      "mode": "setup",
+      "confirm": false
+    },
+    {
+      "id": "uninstall-autostart",
+      "label": "開機自啟動 ▸ 卸載",
+      "type": "shell",
+      "command": "cd {root} && launchctl unload ~/Library/LaunchAgents/com.uid9622.longhun.autostart.plist 2>/dev/null || true && echo '開機自啟動已卸載'",
+      "description": "移除開機自動執行",
+      "mode": "setup",
+      "confirm": true
+    },
+    {
+      "id": "open-dashboard",
+      "label": "開啟操作台網頁",
+      "type": "open_url",
+      "url": "http://127.0.0.1:9622",
+      "description": "在瀏覽器打開控制台",
+      "mode": "viewer",
+      "confirm": false
+    },
+    {
+      "id": "run-cnsh-check",
+      "label": "執行 CNSH 自檢",
+      "type": "shell",
+      "command": "cd {root} && export PYTHONPATH={root} && python3 CNSH/task_executor_v9_integrated.py 2>&1 | tail -n 12",
+      "description": "運行 CNSH 整合任務引擎自檢",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-daily-audit",
+      "label": "執行每日審計",
+      "type": "shell",
+      "command": "cd {root} && bash bin/longhun-daily-audit.sh 2>&1 | tail -n 18",
+      "description": "運行龍魂每日審計流程",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-self-heal",
+      "label": "🩺 运行左右互搏自愈审计",
+      "type": "shell",
+      "command": "cd {root} && python3 bin/longhun-self-heal.py --repair",
+      "description": "自己找漏洞、自己修復：目錄、權限、菜單、服務、重複模塊",
+      "mode": "oneshot",
+      "confirm": true
+    },
+    {
+      "id": "view-status",
+      "label": "查看系統狀態",
+      "type": "shell",
+      "command": "cd {root} && bash bin/longhun-status.sh 2>&1",
+      "description": "查看所有服務與自啟動狀態",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -97,6 +108,7 @@
       "type": "shell",
       "command": "cd {root} && bash bin/build-desktop-switch.sh 2>&1 && echo '主开关已更新，請關閉本窗口後重新打開龍魂主开关.app'",
       "description": "掃描新模塊並重新編譯桌面菜單",
+      "mode": "oneshot",
       "confirm": false
     },
     {
