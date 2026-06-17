@@ -23,3 +23,15 @@ python3 longhun_shield_cli.py check shield_test_example.py
 python3 longhun_shield_cli.py analyze shield_test_example.py
 python3 longhun_shield_cli.py validate shield_test_example.py
 ```
+
+## 指令協議（DNA + 身份證 + 參數）
+
+- `longhun_shield_instruction_protocol.py`：基於 DNA 的永久指令解析與執行
+- `INSTRUCTION_QUICK_CARD.txt`：快速參考卡
+
+示例：
+
+```bash
+python3 -c "from longhun_shield_instruction_protocol import InstructionSyntax; print(InstructionSyntax.parse('@shield.check shield_test_example.py'))"
+```
+
