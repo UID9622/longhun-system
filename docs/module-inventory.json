@@ -85,6 +85,21 @@
       "status": "needs_doc"
     },
     {
+      "path": "cnsh",
+      "files": 55,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "launch.sh",
+        "v9_task_executor_adapter.py",
+        "task_executor_v9_integrated.py",
+        "v9_system_integration_bridge.py",
+        "persona_collaboration.py"
+      ],
+      "status": "complete"
+    },
+    {
       "path": "cnsh-core",
       "files": 1665,
       "has_readme": true,
@@ -101,16 +116,16 @@
     },
     {
       "path": "cnsh.integrated",
-      "files": 53,
+      "files": 55,
       "has_readme": true,
-      "has_main_entry": false,
+      "has_main_entry": true,
       "has_api": true,
       "entry_scripts": [
+        "launch.sh",
         "v9_task_executor_adapter.py",
         "task_executor_v9_integrated.py",
         "v9_system_integration_bridge.py",
-        "persona_collaboration.py",
-        "dna_chain_tracer.py"
+        "persona_collaboration.py"
       ],
       "status": "complete"
     },
@@ -473,8 +488,8 @@
     }
   ],
   "summary": {
-    "total": 37,
-    "complete": 16,
+    "total": 38,
+    "complete": 17,
     "needs_doc": 21
   }
 }
