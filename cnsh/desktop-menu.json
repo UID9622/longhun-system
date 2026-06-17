@@ -1,11 +1,12 @@
 {
   "items": [
     {
-      "id": "open-cnsh-readme",
-      "label": "📘 查看 CNSH 說明文檔",
+      "id": "open-cnsh-integrated-readme",
+      "label": "📘 查看 CNSH 整合說明文檔",
       "type": "shell",
-      "command": "open {root}/CNSH/README.md",
-      "description": "打開 CNSH 整合說明",
+      "command": "open {root}/cnsh.integrated/info.md",
+      "description": "打開 CNSH 整合模塊說明",
+      "mode": "viewer",
       "confirm": false
     }
   ]
