@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root} && python3 systems/kfpp/kfpp_executor_v1.0.py",
       "description": "演示龍魂知識流動純淨度協議：檢測、阻止、監控知識權力化污染",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "open {root}/systems/kfpp/README.md",
       "description": "打開知識流動純淨度協議說明",
+      "mode": "viewer",
       "confirm": false
     }
   ]

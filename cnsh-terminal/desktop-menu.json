@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py gui >/dev/null 2>&1 &",
       "description": "啟動中文編程語言編輯器終端（圖形界面）",
+      "mode": "daemon",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py translate \"Prompt Engineering makes the Agent smarter\"",
       "description": "演示通心译翻譯術語：Prompt→道令，Agent→灵使",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -22,6 +24,7 @@
       "type": "shell",
       "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py check test.cnsh",
       "description": "對 test.cnsh 運行 L1-L4 四層檢查",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -30,6 +33,7 @@
       "type": "shell",
       "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py audit",
       "description": "輸出 CNSH 終端審計報告",
+      "mode": "oneshot",
       "confirm": false
     }
   ]
