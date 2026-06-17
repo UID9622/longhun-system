@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "cnsh-terminal-gui",
+      "label": "🖥️ 启动 CNSH 多语言终端 v5.0",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py gui >/dev/null 2>&1 &",
+      "description": "啟動中文編程語言編輯器終端（圖形界面）",
+      "confirm": false
+    },
+    {
+      "id": "cnsh-translate-en2zh",
+      "label": "🌐 通心译：英→中示例",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py translate \"Prompt Engineering makes the Agent smarter\"",
+      "description": "演示通心译翻譯術語：Prompt→道令，Agent→灵使",
+      "confirm": false
+    },
+    {
+      "id": "cnsh-check",
+      "label": "✅ 运行 CNSH 四层检查",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py check test.cnsh",
+      "description": "對 test.cnsh 運行 L1-L4 四層檢查",
+      "confirm": false
+    },
+    {
+      "id": "cnsh-audit",
+      "label": "📋 CNSH 終端審計報告",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py audit",
+      "description": "輸出 CNSH 終端審計報告",
+      "confirm": false
+    }
+  ]
+}
