@@ -60,16 +60,16 @@
     },
     {
       "path": "bin",
-      "files": 22,
+      "files": 28,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
       "entry_scripts": [
         "package-watcher.py",
+        "refresh-longhun.sh",
         "module_inventory.py",
         "run-warehouse-audit.sh",
-        "integrate_private_shared_batch2.py",
-        "run-package-watcher.sh"
+        "integrate_private_shared_batch2.py"
       ],
       "status": "complete"
     },
@@ -86,7 +86,7 @@
     },
     {
       "path": "cnsh",
-      "files": 55,
+      "files": 56,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
@@ -116,7 +116,7 @@
     },
     {
       "path": "cnsh.integrated",
-      "files": 55,
+      "files": 56,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
@@ -144,6 +144,21 @@
       "status": "complete"
     },
     {
+      "path": "crypto-stack",
+      "files": 9,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "l6_soul.py",
+        "weight_tuner.py",
+        "l1_physical.py",
+        "stack_runner.py",
+        "l4_seven_factor.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "deployment",
       "files": 9,
       "has_readme": true,
@@ -153,6 +168,15 @@
         "demo_staging_deployment.py",
         "production_deployment.py"
       ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "desktop",
+      "files": 3,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
       "status": "needs_doc"
     },
     {
@@ -245,14 +269,15 @@
     },
     {
       "path": "integrations",
-      "files": 6,
+      "files": 7,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
       "entry_scripts": [
         "cnsh_mcp_server.py",
         "v4_mcp_server.py",
-        "longhun_mvp_notion_integration_v1.0.py"
+        "longhun_mvp_notion_integration_v1.0.py",
+        "philosophy_system_sync.py"
       ],
       "status": "needs_doc"
     },
@@ -397,7 +422,7 @@
     },
     {
       "path": "skills",
-      "files": 101,
+      "files": 113,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -488,8 +513,8 @@
     }
   ],
   "summary": {
-    "total": 38,
+    "total": 40,
     "complete": 17,
-    "needs_doc": 21
+    "needs_doc": 23
   }
 }
