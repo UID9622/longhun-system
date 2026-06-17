@@ -1,6 +1,6 @@
 # 龍魂系統 · 功能模塊盤點
 
-**統計**：共 37 個活躍模塊，16 個文檔/接口完整，21 個需要補充。
+**統計**：共 38 個活躍模塊，17 個文檔/接口完整，21 個需要補充。
 
 | 模塊路徑 | 文件數 | README | 主入口/API | 狀態 | 主要入口腳本 |
 |----------|--------|--------|-------------|------|--------------|
@@ -11,8 +11,9 @@
 | `baobao-guardian` | 3322 | ✅ | ✅ | 🟢 完整 | verify-structure.sh, start.sh, main.py, typing_extensions.py, tags.py |
 | `bin` | 22 | ✅ | ✅ | 🟢 完整 | package-watcher.py, module_inventory.py, run-warehouse-audit.sh, integrate_private_shared_batch2.py, run-package-watcher.sh |
 | `brain` | 5 | ✅ | ❌ | 🟡 需補充 | brain_notion_sync.py |
+| `cnsh` | 55 | ✅ | ✅ | 🟢 完整 | launch.sh, v9_task_executor_adapter.py, task_executor_v9_integrated.py, v9_system_integration_bridge.py, persona_collaboration.py |
 | `cnsh-core` | 1665 | ✅ | ✅ | 🟢 完整 | notion_task5_setup.py, audit_integration_v1.py, memory_pack_v3.py, parse_notion.py, core_system_launcher.py |
-| `cnsh.integrated` | 53 | ✅ | ✅ | 🟢 完整 | v9_task_executor_adapter.py, task_executor_v9_integrated.py, v9_system_integration_bridge.py, persona_collaboration.py, dna_chain_tracer.py |
+| `cnsh.integrated` | 55 | ✅ | ✅ | 🟢 完整 | launch.sh, v9_task_executor_adapter.py, task_executor_v9_integrated.py, v9_system_integration_bridge.py, persona_collaboration.py |
 | `control-panel` | 11 | ✅ | ✅ | 🟢 完整 | launch.sh, main.py, skill_wrappers.py, foundation_wrappers.py |
 | `deployment` | 9 | ✅ | ❌ | 🟡 需補充 | demo_staging_deployment.py, production_deployment.py |
 | `docker` | 3 | ✅ | ❌ | 🟡 需補充 | - |
