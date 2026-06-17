@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root} && python3 editor/龍碼編輯器.py >/dev/null 2>&1 &",
       "description": "啟動中文代碼編輯器，支持中文變量名與註釋",
+      "mode": "daemon",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "cd {root} && bash bin/build-chinese-editor.sh",
       "description": "重新生成桌面龍碼編輯器.app",
+      "mode": "setup",
       "confirm": false
     }
   ]
