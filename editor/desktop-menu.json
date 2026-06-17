@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "open-chinese-editor",
+      "label": "📝 打开龍碼中文編輯器",
+      "type": "shell",
+      "command": "cd {root} && python3 editor/龍碼編輯器.py >/dev/null 2>&1 &",
+      "description": "啟動中文代碼編輯器，支持中文變量名與註釋",
+      "confirm": false
+    },
+    {
+      "id": "build-chinese-editor-app",
+      "label": "🔨 重新編譯龍碼編輯器 App",
+      "type": "shell",
+      "command": "cd {root} && bash bin/build-chinese-editor.sh",
+      "description": "重新生成桌面龍碼編輯器.app",
+      "confirm": false
+    }
+  ]
+}
