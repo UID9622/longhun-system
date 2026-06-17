@@ -20,6 +20,8 @@
 | 🔗 [CNSH-SEMANTIC.md](./CNSH-SEMANTIC.md) | 语义接入规范·术语对照表·协作宣言·八条永恒铁律 | 中英双语 |
 
 > 阅读顺序建议：README → CNSH-PROTOCOL → CNSH-SEMANTIC
+>
+> **📊 完整模块清单**：见 [`docs/MODULE_INVENTORY.md`](./docs/MODULE_INVENTORY.md)
 
 ---
 
@@ -49,10 +51,13 @@
 
 ### 模块总览（25个核心模块）
 
+完整清单与文档/接口状态见 [`docs/MODULE_INVENTORY.md`](./docs/MODULE_INVENTORY.md)。
+
 | 分类 | 内容 |
 |------|------|
 | 📋 协议 | 治理规则、主权框架 |
-| 🛠️ 技能库 | 10项龙魂技能（艺术、设计、MCP、Slack、React...） |
+| 🛠️ 技能库 | 10项龙魂技能 + 龍盾 + CNSH對齊 + 融合審計 |
+| 🎛️ 操作台 | FastAPI 統一 API 與 Web UI，Skill/底座聯動 |
 | 📏 规则 | 执行约束、合规逻辑 |
 | 📂 执行记录 | 完整行动历史 |
 | 🧠 知识图谱 | 结构化智能知识库 |
@@ -66,9 +71,21 @@
 
 | 版本 | 亮点 |
 |------|------|
+| **v4.2** | 🎛️ 龍魂操作台 MVP v1.1 — 10 項 Skill + 底座能力（龍盾、CNSH、融合審計）統一 API 聯動 |
 | **v4.1.1** | 🔐 安全热修复 — 修复18+个Electron漏洞 |
 | **v4.0** | 📱 移动端监控 — 15层体系，4个应用监控，AES-256-GCM加密 |
 | **v3.1.0** | ⚡ 第三阶段 — 10项技能完整集成，API响应 < 100ms |
+
+### 快速啟動
+
+```bash
+# 啟動龍魂操作台（統一調度 10 技能 + 底座能力）
+cd control-panel
+./launch.sh
+
+# 打開 UI
+open http://127.0.0.1:9622/static/index.html
+```
 
 ---
 
