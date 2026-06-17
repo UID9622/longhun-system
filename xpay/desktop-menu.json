@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py currencies",
       "description": "列出支持的法幣/CBDC 與主權審計信息",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -14,6 +15,7 @@
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py pay 100.00 CNY UID1001 --memo \"桌面主开关演示\"",
       "description": "發起一筆數字人民幣演示支付並生成 DNA 存根",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -22,6 +24,7 @@
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py stats",
       "description": "查看交易筆數、總量與 DNA 維護費",
+      "mode": "oneshot",
       "confirm": false
     },
     {
@@ -30,6 +33,7 @@
       "type": "shell",
       "command": "open {root}/xpay/README.md",
       "description": "打开主權支付網關說明文檔",
+      "mode": "viewer",
       "confirm": false
     }
   ]
