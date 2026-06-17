@@ -1,0 +1,1 @@
+# xpay.src.adapters package
