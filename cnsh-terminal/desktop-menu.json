@@ -10,6 +10,24 @@
       "confirm": false
     },
     {
+      "id": "cnsh-multimodal-speak",
+      "label": "🗣️ 龍魂语音合成（文字转语音）",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 multimodal_cli.py speak \"你好，龍魂系統已就位\" --offline",
+      "description": "使用 macOS 系统语音把文字合成语音，输出到 ~/龍魂语音输出",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "cnsh-multimodal-ocr",
+      "label": "👁️ 图像文字识别（OCR）",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 multimodal_cli.py ocr {root}/cnsh-terminal/multimodal_demo.png",
+      "description": "演示图像文字识别（基于本地 Tesseract）",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
       "id": "cnsh-translate-en2zh",
       "label": "🌐 通心译：英→中示例",
       "type": "shell",
