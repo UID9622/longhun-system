@@ -111,3 +111,8 @@ logs/package-watcher.log
 ehthumbs.db
 Thumbs.db
 cnsh/Codex.dmg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
