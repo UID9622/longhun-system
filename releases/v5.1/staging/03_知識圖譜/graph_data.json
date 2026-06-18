@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-06-06T16:12:37.737460",
+  "nodes": {
+    "/kimi-webbridge": {
+      "node_id": "/kimi-webbridge",
+      "label": "Kimi WebBridge",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-v1.0",
+      "description": "讓AI控制真實瀏覽器",
+      "related_nodes": [
+        "/api-check",
+        "l0-core"
+      ]
+    },
+    "/code-audit": {
+      "node_id": "/code-audit",
+      "label": "三色代碼審計",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-06-CODE-AUDIT-v3.0",
+      "description": "審代碼安全+解釋+修復",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "/dna-gen": {
+      "node_id": "/dna-gen",
+      "label": "DNA 生成器",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-06-DNA-GEN-v2.0",
+      "description": "龍魂 DNA 追溯碼生成",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "/api-check": {
+      "node_id": "/api-check",
+      "label": "API 聯動檢測",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-06-API-CHECK-v1.0",
+      "description": "檢測龍魂系統所有 API 是否在線",
+      "related_nodes": [
+        "/kimi-webbridge",
+        "l1-storage"
+      ]
+    },
+    "l0-core": {
+      "node_id": "l0-core",
+      "label": "L0 核心層",
+      "type": "component",
+      "dna": "#龍芯⚡️2026-06-06-L0-CORE-v1.0",
+      "description": "龍魂系統核心",
+      "related_nodes": [
+        "/kimi-webbridge",
+        "/code-audit",
+        "/dna-gen"
+      ]
+    },
+    "l1-storage": {
+      "node_id": "l1-storage",
+      "label": "L1 數據存儲",
+      "type": "component",
+      "dna": "#龍芯⚡️2026-06-06-L1-STORAGE-v1.0",
+      "description": "Notion + Obsidian",
+      "related_nodes": [
+        "/api-check"
+      ]
+    },
+    "l5-monitor": {
+      "node_id": "l5-monitor",
+      "label": "L5 監控層",
+      "type": "component",
+      "dna": "#龍芯⚡️2026-06-06-L5-MONITOR-v1.0",
+      "description": "實時監控",
+      "related_nodes": []
+    }
+  },
+  "edges": [
+    {
+      "source": "/kimi-webbridge",
+      "target": "/api-check",
+      "relationship": "same_platform",
+      "strength": 0.5
+    },
+    {
+      "source": "l0-core",
+      "target": "/kimi-webbridge",
+      "relationship": "uses",
+      "strength": 0.8
+    },
+    {
+      "source": "l0-core",
+      "target": "/code-audit",
+      "relationship": "uses",
+      "strength": 0.9
+    },
+    {
+      "source": "l0-core",
+      "target": "/dna-gen",
+      "relationship": "uses",
+      "strength": 0.95
+    },
+    {
+      "source": "l1-storage",
+      "target": "/api-check",
+      "relationship": "depends_on",
+      "strength": 0.7
+    }
+  ],
+  "dna": "#龍芯⚡️2026-06-06-KNOWLEDGE-GRAPH-DATA-v1.0"
+}
