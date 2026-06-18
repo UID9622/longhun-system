@@ -10,12 +10,13 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 # 將專案根目錄加入路徑
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from api import skill_wrappers, foundation_wrappers
+from api import skill_wrappers, foundation_wrappers, system_monitor
 
 app = FastAPI(
     title="龍魂操作台 MVP v1.1",
@@ -217,6 +218,20 @@ async def instruction_execute(request: Request):
         pass
     instruction = payload.get("instruction", "")
     return foundation_wrappers.run_instruction(instruction)
+
+
+# ===== 生态实时仪表盘 API =====
+
+@app.get("/api/system/status")
+def system_status():
+    """返回本机资源、模块入口、生态拓扑。"""
+    return system_monitor.get_system_status()
+
+
+@app.get("/ecosystem-dashboard")
+def ecosystem_dashboard():
+    """跳转到生态仪表盘页面。"""
+    return RedirectResponse(url="/static/ecosystem-dashboard.html")
 
 
 if __name__ == "__main__":
