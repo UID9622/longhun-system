@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "run-crypto-stack",
+      "label": "🔐 运行六层加密堆栈测试",
+      "type": "shell",
+      "command": "cd {root}/crypto-stack/src && python3 stack_runner.py",
+      "description": "运行 L1 物理层 + L4 七因子全栈验证",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-l6-soul",
+      "label": "👁️ 运行 L6 灵魂层测试",
+      "type": "shell",
+      "command": "cd {root}/crypto-stack/src && python3 l6_soul.py",
+      "description": "运行死亡凝视与灵魂绑定数学测试",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-weight-tuner",
+      "label": "⚖️ 运行权重调谐器",
+      "type": "shell",
+      "command": "cd {root}/crypto-stack/src && python3 weight_tuner.py",
+      "description": "基于历史记录重新计算七因子权重",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "view-three-color-audit",
+      "label": "📊 查看三色审计报告",
+      "type": "shell",
+      "command": "open {root}/crypto-stack/audit_three_color.md",
+      "description": "打开红黄蓝三色审计文档",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ]
+}

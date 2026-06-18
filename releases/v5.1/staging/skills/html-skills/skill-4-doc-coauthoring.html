@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>📝 龍魂文档协作工具 v1.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+            background: #0a0e27;
+            color: #fff;
+            display: flex;
+            height: 100vh;
+        }
+        .editor-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 15px 20px;
+            background: #151a3f;
+            border-bottom: 2px solid #00d4ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            background: linear-gradient(90deg, #00d4ff, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5em;
+        }
+        .editor-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            flex: 1;
+            min-height: 0;
+        }
+        .editor-section, .preview-section {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #00d4ff;
+        }
+        .section-header {
+            padding: 10px 15px;
+            background: rgba(0,212,255,0.1);
+            border-bottom: 1px solid #00d4ff;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        #editor {
+            flex: 1;
+            padding: 20px;
+            background: #151a3f;
+            color: #00d4ff;
+            border: none;
+            resize: none;
+            font-family: 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        #preview {
+            flex: 1;
+            padding: 20px;
+            background: rgba(21,26,63,0.5);
+            overflow-y: auto;
+            line-height: 1.8;
+        }
+        #preview h1, #preview h2, #preview h3 {
+            color: #00d4ff;
+            margin: 20px 0 10px 0;
+        }
+        #preview h1 { font-size: 2em; }
+        #preview h2 { font-size: 1.6em; }
+        #preview h3 { font-size: 1.3em; }
+        #preview p { margin: 10px 0; color: #a0aec0; }
+        #preview code {
+            background: rgba(0,212,255,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00f5ff;
+        }
+        #preview pre {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 10px 0;
+            border-left: 3px solid #00d4ff;
+        }
+        #preview a { color: #00d4ff; text-decoration: underline; }
+        #preview ul, #preview ol {
+            margin-left: 20px;
+            margin: 10px 0;
+        }
+        #preview li { margin: 5px 0; }
+        .toolbar {
+            padding: 10px 20px;
+            background: #151a3f;
+            border-bottom: 1px solid #00d4ff;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: rgba(0,212,255,0.2);
+            box-shadow: 0 0 10px #00d4ff;
+        }
+        .sidebar {
+            width: 250px;
+            background: #151a3f;
+            border-left: 2px solid #00d4ff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00d4ff;
+            padding-bottom: 10px;
+        }
+        .version-item {
+            padding: 10px;
+            background: rgba(0,212,255,0.1);
+            border-radius: 4px;
+            margin: 8px 0;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .version-item:hover {
+            background: rgba(0,212,255,0.2);
+        }
+        .stats {
+            padding: 15px;
+            background: rgba(0,212,255,0.05);
+            border: 1px solid #00d4ff;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="header">
+            <h1>📝 龍魂文档协作工具</h1>
+            <div>
+                <button onclick="saveDocument()">💾 保存</button>
+                <button onclick="downloadDocument()">📥 导出</button>
+            </div>
+        </div>
+        
+        <div class="toolbar">
+            <button onclick="insertMarkdown('# ', '# 标题')">H1</button>
+            <button onclick="insertMarkdown('## ', '## 副标题')">H2</button>
+            <button onclick="insertMarkdown('**', '粗体**')">粗体</button>
+            <button onclick="insertMarkdown('_', '斜体_')">斜体</button>
+            <button onclick="insertMarkdown('[', '链接](url)')">链接</button>
+            <button onclick="insertMarkdown('- ', '列表项')">列表</button>
+            <button onclick="insertMarkdown('```\n', '\n```')">代码块</button>
+            <button onclick="insertMarkdown('> ', '引用')">引用</button>
+        </div>
+        
+        <div class="editor-wrapper">
+            <div class="editor-section">
+                <div class="section-header">✏️ 编辑器</div>
+                <textarea id="editor" placeholder="在这里编写 Markdown..."></textarea>
+            </div>
+            
+            <div class="preview-section">
+                <div class="section-header">👁️ 预览</div>
+                <div id="preview"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        <h3>📚 文档管理</h3>
+        
+        <div class="version-item" onclick="loadSample()">
+            📄 示例文档
+        </div>
+        <div class="version-item" onclick="clearEditor()">
+            🗑️ 清空文档
+        </div>
+        
+        <h3 style="margin-top: 30px;">📜 版本历史</h3>
+        <div id="versions" style="max-height: 250px; overflow-y: auto;"></div>
+        
+        <h3 style="margin-top: 30px;">📊 统计信息</h3>
+        <div class="stats">
+            <div class="stat-item">
+                <span>字数:</span>
+                <span id="wordCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span>行数:</span>
+                <span id="lineCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span>保存:</span>
+                <span id="saveTime">未保存</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const editor = document.getElementById('editor');
+        const preview = document.getElementById('preview');
+        const versions = document.getElementById('versions');
+        let versionHistory = [];
+        
+        // 编辑实时预览
+        editor.addEventListener('input', () => {
+            const markdown = editor.value;
+            preview.innerHTML = marked.parse(markdown);
+            updateStats();
+        });
+        
+        // 插入Markdown语法
+        function insertMarkdown(before, text) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const selected = editor.value.substring(start, end);
+            const newText = before + (selected || text);
+            
+            editor.value = editor.value.substring(0, start) + newText + editor.value.substring(end);
+            editor.focus();
+            editor.selectionStart = start + newText.length;
+        }
+        
+        // 保存文档
+        function saveDocument() {
+            const timestamp = new Date().toLocaleString('zh-CN');
+            versionHistory.unshift({
+                id: Date.now(),
+                content: editor.value,
+                time: timestamp,
+                wordCount: editor.value.split(/\s+/).length
+            });
+            
+            if (versionHistory.length > 10) versionHistory.pop();
+            updateVersions();
+            document.getElementById('saveTime').textContent = timestamp;
+            alert('✅ 文档已保存！');
+        }
+        
+        // 更新版本历史显示
+        function updateVersions() {
+            versions.innerHTML = versionHistory.map((v, i) => `
+                <div class="version-item" onclick="loadVersion(${v.id})">
+                    <div style="font-weight: bold;">版本 ${i + 1}</div>
+                    <div style="color: #a0aec0; font-size: 0.85em;">${v.time}</div>
+                    <div style="color: #a0aec0; font-size: 0.8em;">${v.wordCount} 字</div>
+                </div>
+            `).join('');
+        }
+        
+        // 加载版本
+        function loadVersion(id) {
+            const version = versionHistory.find(v => v.id === id);
+            if (version) {
+                editor.value = version.content;
+                editor.dispatchEvent(new Event('input'));
+            }
+        }
+        
+        // 下载文档
+        function downloadDocument() {
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/markdown;charset=utf-8,' + encodeURIComponent(editor.value));
+            element.setAttribute('download', 'document.md');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+        
+        // 更新统计
+        function updateStats() {
+            const text = editor.value;
+            document.getElementById('wordCount').textContent = text.split(/\s+/).filter(w => w).length;
+            document.getElementById('lineCount').textContent = text.split('\n').length;
+        }
+        
+        // 加载示例
+        function loadSample() {
+            editor.value = `# 龍魂系統文檔
+
+## 簡介
+
+這是龍魂系統的文檔協作工具。
+
+## 功能特性
+
+- ✅ 實時 Markdown 預覽
+- ✅ 版本歷史管理
+- ✅ 統計信息展示
+- ✅ 文檔導出
+
+## 代碼示例
+
+\`\`\`python
+def longhun_engine():
+    print("龍魂系統啟動")
+\`\`\`
+
+## 快速開始
+
+1. 編輯 Markdown 文本
+2. 實時預覽結果
+3. 保存文檔版本
+4. 導出為 Markdown 格式
+`;
+            editor.dispatchEvent(new Event('input'));
+        }
+        
+        // 清空编辑器
+        function clearEditor() {
+            if (confirm('確定要清空文檔嗎？')) {
+                editor.value = '';
+                editor.dispatchEvent(new Event('input'));
+            }
+        }
+        
+        // 初始化
+        updateStats();
+        loadSample();
+    </script>
+</body>
+</html>
