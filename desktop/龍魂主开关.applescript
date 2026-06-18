@@ -3,7 +3,7 @@
 -- DNA: #龍芯⚡️2026-06-18-LONGHUN-MASTER-SWITCH-v1.2
 
 property rootPath : "/Users/zuimeidedeyihan/longhun-system"
-property menuItems : {"🎛️ 打开龍魂控制中心（推薦）  🟢常駐", "啟動龍魂操作台（:9622）  🟢常駐", "打開項目終端  🟢常駐", "🖥️ 启动 CNSH 多语言终端 v5.0  🟢常駐", "📝 打开龍碼中文編輯器  🟢常駐", "停止龍魂操作台  ⚙️配置", "開機自啟動 ▸ 安裝  ⚙️配置", "開機自啟動 ▸ 卸載  ⚙️配置", "🔨 重新編譯龍碼編輯器 App  ⚙️配置", "執行 CNSH 自檢  ▶點一次", "執行每日審計  ▶點一次", "🩺 运行左右互搏自愈审计  ▶點一次", "查看系統狀態  ▶點一次", "🔄 重新生成主开关菜單  ▶點一次", "🗣️ 龍魂语音合成（文字转语音）  ▶點一次", "👁️ 图像文字识别（OCR）  ▶點一次", "🌐 通心译：英→中示例  ▶點一次", "✅ 运行 CNSH 四层检查  ▶點一次", "📋 CNSH 終端審計報告  ▶點一次", "🔐 运行六层加密堆栈测试  ▶點一次", "👁️ 运行 L6 灵魂层测试  ▶點一次", "⚖️ 运行权重调谐器  ▶點一次", "🐉 運行底座啟動台自檢  ▶點一次", "📋 運行腳本管理器報告  ▶點一次", "❓ 運行 MVP 啟動器幫助  ▶點一次", "🌌 星辰记忆：添加示例  ▶點一次", "✨ 生成星辰记忆页面  ▶點一次", "📊 星辰记忆统计  ▶點一次", "🐉 龍魂編年史：初始化里程碑  ▶點一次", "📜 生成龍魂編年史頁面  ▶點一次", "📚 查看 cnsh-core 規範索引  ▶點一次", "🛡️ 运行 KFPP 知识纯净度演示  ▶點一次", "💱 查看主權幣種  ▶點一次", "💰 演示支付（CNY → UID1001）  ▶點一次", "📊 XPay 交易統計  ▶點一次", "開啟操作台網頁  👁只看", "📘 查看 CNSH 整合說明文檔  👁只看", "📊 查看三色审计报告  👁只看", "📘 查看星辰记忆说明  👁只看", "📘 查看編年史說明  👁只看", "📘 查看 KFPP 说明  👁只看", "📘 查看 XPay 設計說明  👁只看", "退出"}
+property menuItems : {"🎛️ 打开龍魂控制中心（推薦）  🟢常駐", "啟動龍魂操作台（:9622）  🟢常駐", "打開項目終端  🟢常駐", "🖥️ 启动 CNSH 多语言终端 v5.0  🟢常駐", "📝 打开龍碼中文編輯器  🟢常駐", "停止龍魂操作台  ⚙️配置", "開機自啟動 ▸ 安裝  ⚙️配置", "開機自啟動 ▸ 卸載  ⚙️配置", "🔨 重新編譯龍碼編輯器 App  ⚙️配置", "執行 CNSH 自檢  ▶點一次", "執行每日審計  ▶點一次", "🩺 运行左右互搏自愈审计  ▶點一次", "查看系統狀態  ▶點一次", "🔄 重新生成主开关菜單  ▶點一次", "🗣️ 龍魂语音合成（文字转语音）  ▶點一次", "👁️ 图像文字识别（OCR）  ▶點一次", "🌐 通心译：英→中示例  ▶點一次", "✅ 运行 CNSH 四层检查  ▶點一次", "📋 CNSH 終端審計報告  ▶點一次", "📜 龍魂协议（大白话）  ▶點一次", "🔐 运行六层加密堆栈测试  ▶點一次", "👁️ 运行 L6 灵魂层测试  ▶點一次", "⚖️ 运行权重调谐器  ▶點一次", "🐉 運行底座啟動台自檢  ▶點一次", "📋 運行腳本管理器報告  ▶點一次", "❓ 運行 MVP 啟動器幫助  ▶點一次", "🌌 星辰记忆：添加示例  ▶點一次", "✨ 生成星辰记忆页面  ▶點一次", "📊 星辰记忆统计  ▶點一次", "🐉 龍魂編年史：初始化里程碑  ▶點一次", "📜 生成龍魂編年史頁面  ▶點一次", "📚 查看 cnsh-core 規範索引  ▶點一次", "🛡️ 运行 KFPP 知识纯净度演示  ▶點一次", "💱 查看主權幣種  ▶點一次", "💰 演示支付（CNY → UID1001）  ▶點一次", "📊 XPay 交易統計  ▶點一次", "開啟操作台網頁  👁只看", "📘 查看 CNSH 整合說明文檔  👁只看", "📊 查看三色审计报告  👁只看", "📘 查看星辰记忆说明  👁只看", "📘 查看編年史說明  👁只看", "📘 查看 KFPP 说明  👁只看", "📘 查看 XPay 設計說明  👁只看", "退出"}
 
 repeat
     set choice to choose from list menuItems with title "🐉 龍魂主开关" with prompt "選擇要執行的操作，不用記任何命令：🟢常駐=點一次長期運行；▶點一次=跑完就停；👁只看=只開文件/網頁；⚙️配置=改設定" default items {item 1 of menuItems} OK button name "執行" cancel button name "退出"
@@ -80,6 +80,8 @@ on runMenu(selected)
         return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py check test.cnsh"
     else if selected is "📋 CNSH 終端審計報告  ▶點一次" then
         return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py audit"
+    else if selected is "📜 龍魂协议（大白话）  ▶點一次" then
+        return do shell script "cd /Users/zuimeidedeyihan/longhun-system/cnsh-terminal && python3 cnsh_terminal_v5.py 协议"
     else if selected is "🔐 运行六层加密堆栈测试  ▶點一次" then
         return do shell script "cd /Users/zuimeidedeyihan/longhun-system/crypto-stack/src && python3 stack_runner.py"
     else if selected is "👁️ 运行 L6 灵魂层测试  ▶點一次" then

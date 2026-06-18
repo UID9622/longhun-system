@@ -21,6 +21,7 @@ CNSH多语言编辑器终端v5.0 主程序入口
     encrypt          启动加密模式
     audit            显示审计报告
     check [文件]     执行四层检查
+    协议             显示龍魂系统使用协议
     version          显示版本信息
     help             显示帮助
 
@@ -108,6 +109,7 @@ def 打印帮助信息():
     encrypt  <文本>              加密文本
     decrypt  <密文>              解密文本
     audit                        显示审计报告
+    协议                         显示龍魂系统使用协议（大白话）
     version                      显示版本信息
     help                         显示此帮助
 
@@ -356,6 +358,16 @@ def 命令_decrypt(参数):
         print(f"🔴 解密错误: {e}")
 
 
+def 命令_协议(参数):
+    """显示龍魂系统使用协议"""
+    协议路径 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "龍魂协议.txt")
+    try:
+        with open(协议路径, 'r', encoding='utf-8') as f:
+            print(f.read())
+    except Exception as e:
+        print(f"🔴 无法读取协议文件: {e}")
+
+
 def 命令_audit(参数):
     """显示审计报告"""
     报告 = 审计系统.生成报告()
@@ -403,7 +415,7 @@ CC BY-NC-SA 4.0 (君子协议)
     解析器.add_argument('命令', nargs='?',
                        choices=['gui', 'compile', 'lex', 'parse', 'check',
                                'translate', 'encrypt', 'decrypt', 'audit',
-                               'version', 'help'],
+                               '协议', 'version', 'help'],
                        default='gui',
                        help='要执行的命令')
     解析器.add_argument('文件', nargs='*', help='输入文件路径')
@@ -426,6 +438,7 @@ CC BY-NC-SA 4.0 (君子协议)
         'encrypt': 命令_encrypt,
         'decrypt': 命令_decrypt,
         'audit': 命令_audit,
+        '协议': 命令_协议,
         'version': 命令_version,
         'help': 命令_help,
     }
