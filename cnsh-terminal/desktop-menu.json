@@ -53,6 +53,15 @@
       "description": "輸出 CNSH 終端審計報告",
       "mode": "oneshot",
       "confirm": false
+    },
+    {
+      "id": "cnsh-agreement",
+      "label": "📜 龍魂协议（大白话）",
+      "type": "shell",
+      "command": "cd {root}/cnsh-terminal && python3 cnsh_terminal_v5.py 协议",
+      "description": "显示龍魂系统使用协议：透明、中文、不跪、普惠",
+      "mode": "oneshot",
+      "confirm": false
     }
   ]
 }
