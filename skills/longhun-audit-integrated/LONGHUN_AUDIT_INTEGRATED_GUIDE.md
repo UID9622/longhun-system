@@ -1,6 +1,6 @@
 # 龍魂完整审计系统 v2.0 · 融合指南
 
-**DNA:** `#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE1-v2.0-1`  
+**DNA:** `#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE1-FILE1-v2.0-1`  
 **类型:** CNSH对齐 + 10维系统审计融合版  
 **主权人:** UID9622 · 龍芯北辰
 
