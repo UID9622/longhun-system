@@ -1,0 +1,3284 @@
+{
+  "_dna": "#龍芯⚡️2026-06-22-LONGHUN-TEMPLATE-APPLY-v1.0",
+  "generated_at": "2026-06-21T22:11:40.862328+00:00",
+  "templated_count": 542,
+  "skipped_count": 4,
+  "error_count": 0,
+  "templated": [
+    {
+      "file": "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+      "status": "templated",
+      "title": "龍魂·IPA路由注册表 (Append-Only JSONL)",
+      "dna": "#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-v1.0"
+    },
+    {
+      "file": "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "status": "templated",
+      "title": "龍魂创作者保护协议 · 不可篡改条款",
+      "dna": "#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0`"
+    },
+    {
+      "file": "01_protocols/UID9622_人机协作协议_v2.0.md",
+      "status": "templated",
+      "title": "UID9622 人机协作协议 v2.0",
+      "dna": "#龍芯⚡️2026-06-20-UID9622-AI-COLLABORATION-PROTOCOL-v2.0"
+    },
+    {
+      "file": "01_protocols/龍魂_创作者保护协议_不可篡改条款.md",
+      "status": "templated",
+      "title": "龍魂创作者保护协议 · 不可篡改条款",
+      "dna": "#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0"
+    },
+    {
+      "file": "01_技能庫/code-audit.md",
+      "status": "templated",
+      "title": "三色代碼審計",
+      "dna": "#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-FILE1-v3.0-1"
+    },
+    {
+      "file": "01_技能庫/dna-gen.md",
+      "status": "templated",
+      "title": "/dna-gen",
+      "dna": "#龍芯⚡️2026-06-21-DOC-DNA-GEN-FILE1-v1.0-2"
+    },
+    {
+      "file": "01_技能庫/kimi-webbridge.md",
+      "status": "templated",
+      "title": "Kimi WebBridge",
+      "dna": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-FILE2-v1.0-2"
+    },
+    {
+      "file": "01_技能庫/on-identity.md",
+      "status": "templated",
+      "title": "/on-identity",
+      "dna": "#龍芯⚡️2026-06-21-DOC-ON-IDENTITY-FILE1-v1.0-2"
+    },
+    {
+      "file": "01_技能庫/on-translate.md",
+      "status": "templated",
+      "title": "/on-translate",
+      "dna": "#龍芯⚡️2026-06-21-DOC-ON-TRANSLATE-FILE1-v1.0-2"
+    },
+    {
+      "file": "06_技術文檔/CHANGELOG.md",
+      "status": "templated",
+      "title": "變更日誌",
+      "dna": "#龍芯⚡️2026-06-06-CHANGELOG-FILE1-v1.0"
+    },
+    {
+      "file": "06_技術文檔/skill_code-audit.md",
+      "status": "templated",
+      "title": "三色代碼審計",
+      "dna": "#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-v3.0`"
+    },
+    {
+      "file": "06_技術文檔/skill_kimi-webbridge.md",
+      "status": "templated",
+      "title": "Kimi WebBridge",
+      "dna": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-FILE1-v1.0-1`"
+    },
+    {
+      "file": "docs/契约矩阵/知识矩阵总纲_v1.0.md",
+      "status": "templated",
+      "title": "知识矩阵总纲 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V1-0_A8B7-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/知识矩阵总纲_v2.0.md",
+      "status": "templated",
+      "title": "知识矩阵总纲 v2.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V2-0_B546-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂文档标准模板_v1.0.md",
+      "status": "templated",
+      "title": "龍魂文檔標準模板 v1.0",
+      "dna": "#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0`"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_Kimi_API终端连接配置_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 Kimi API终端连接配置 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_KIMI_API_V1-0_1ECD-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_五维人格矩阵_Mac终端配置_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 五维人格矩阵 Mac终端配置 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_MAC_V1-0_17FA-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_大本营加工厂架构协议_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 大本营加工厂架构协议 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V1-0_423A-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_安全域接口契约矩阵_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 安全域接口契约矩阵 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V1-0_50B0-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_安卓自动版配置清单_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 安卓自动版配置清单 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V1-0_3A73-v1.0"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_核心链路接口契约矩阵_v1.0.md",
+      "status": "templated",
+      "title": "龍魂系统 核心链路接口契约矩阵 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_V1-0_134A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/README.md",
+      "status": "templated",
+      "title": "私人与共享 · Notion 導入文檔總覽",
+      "dna": "#龍芯⚡️2026-06-16-PRIVATE-SHARED-MASTER-FILE2-v1.2"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/AI回复-P0+++-执行标准.md",
+      "status": "templated",
+      "title": "🧷 AI回复 P0+++ 执行标准（发布级输出·不可绕过）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_-P0_C075-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/AI行为规则总纲-代码甲骨文与价值观.md",
+      "status": "templated",
+      "title": "🤖 AI行为规则总纲 | 代码甲骨文与价值观",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_F8C1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/AI黑箱公开审判台.md",
+      "status": "templated",
+      "title": "⚖️ AI黑箱公开审判台 | 让人民审判AI",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_A3E7-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/CNSH-AI行为标准-接入铁律.md",
+      "status": "templated",
+      "title": "📜 CNSH·AI行为标准 | 接入铁律",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH-AI_3F79-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/⚖️ AI黑箱公开审判台 让人民审判AI.md",
+      "status": "templated",
+      "title": "⚖️ AI黑箱公开审判台 | 让人民审判AI",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_-_AI_1813-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/初心之翼·本地大脑 v1 0｜系统提示词+意图识别+人格路由+三色审计+DNA格式｜复制即用 9b449fafcc6c4da7a7fc3b8f79e41312.md",
+      "status": "templated",
+      "title": "初心之翼·本地大脑 v1.0｜系统提示词+意图识别+人格路由+三色审计+DNA格式｜复制即用",
+      "dna": "#龍芯⚡️2026-03-12-LOCAL-BRAIN-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/📋 Open WebUI·完整版System Prompt v1 0｜一次性搞定·复制即用·含全部补 e1ac40a5677543b9a18a3c0273e6e1b5.md",
+      "status": "templated",
+      "title": "📋 Open WebUI·完整版System Prompt v1.0｜一次性搞定·复制即用·含全部补丁",
+      "dna": "#龍芯⚡️2026-03-30-OPENWEBUI-SYSTEMPROMPT_433A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/🔍 #IRON-EXTERNAL-AI-VERIFY 外部AI报告实证复核律 v1 0｜外部AI不可 64e9297955254909a49247cc5b0771ed.md",
+      "status": "templated",
+      "title": "🔍 #IRON-EXTERNAL-AI-VERIFY 外部AI报告实证复核律 v1.0｜外部AI不可裸吞·必须龍魂亲眼抽验才能焊",
+      "dna": "#龍芯⚡️YYYY-MM-DD-...-NOTION-CLEANUP-FULL-OPEN）"
+    },
+    {
+      "file": "docs/private-shared-imports/ai-behavior/🤖 AI智能体模板库 复制粘贴就能用的专属助手.md",
+      "status": "templated",
+      "title": "🤖 AI智能体模板库 | 复制粘贴就能用的专属助手",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_BEB8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/api-integration/CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1 1 c4082ed1122b41b08033c6ba11f427d1.md",
+      "status": "templated",
+      "title": "CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1.1",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH-ALGORITHM-RUNTIME-_-V1-1-C4082ED1122B41B08033C6BA11F427D1_D4E4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/api-integration/UID9622-API文档中心.md",
+      "status": "templated",
+      "title": "📡 UID9622 API文档中心 | 开发者集成指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622-API_C8DC-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/api-integration/UID9622-FastAPI接口层.md",
+      "status": "templated",
+      "title": "🌐 UID9622 FastAPI接口层 | Codebuddy快速部署",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622-FASTAPI_B312-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/api-integration/🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md",
+      "status": "templated",
+      "title": "🔗 Claude AI集成接口",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CLAUDE-AI_-9DBA7F24E466485FABD156969D12F9C0_843A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/AI-Agent-基础架构实现方案.md",
+      "status": "templated",
+      "title": "🤖 AI Agent 基础架构实现方案 | UID9622",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI-AGENT_A6F2-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/Human-System-Translation-OS-12大板块架构.md",
+      "status": "templated",
+      "title": "🧠 Human→System Translation OS | 12大板块完整架构",
+      "dna": "#龍芯⚡️2026-06-21-DOC-HUMAN-SYSTEM-TRANSLATION-OS-12_F777-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/LU系统·一通百通｜自动化底层流水线 v1 0｜8模块+Hot Cold能力区+CNSH接入+4数据 a043d43f036f46a5b84676c77e039713.md",
+      "status": "templated",
+      "title": "LU系统·一通百通｜自动化底层流水线 v1.0｜8模块+Hot/Cold能力区+CNSH接入+4数据库@",
+      "dna": "#龍芯⚡️2026-03-13-LU-SYSTEM-PIPELINE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/P0执行引擎 140a0beae861400eb832067988f3b212.md",
+      "status": "templated",
+      "title": "P0执行引擎",
+      "dna": "#龍芯⚡️2026-06-21-DOC-P0_-140A0BEAE861400EB832067988F3B212_1005-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/UID9622引擎系统整合架构.md",
+      "status": "templated",
+      "title": "🏗️ UID9622引擎系统整合架构 | 因果关系全景图",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_57FD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/UID9622智能数据库关联架构.md",
+      "status": "templated",
+      "title": "🔗 UID9622智能数据库关联架构 | 深度关联优化",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_D498-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/UID9622智能数据库管理中心-索引与主干映射.md",
+      "status": "templated",
+      "title": "📊 UID9622 智能数据库管理中心 · 索引与主干映射",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_165F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/⚙️ 鲁班大师·CNSH项目工程中枢 道法术三层架构.md",
+      "status": "templated",
+      "title": "⚙️ 鲁班大师·CNSH项目工程中枢 | 道法术三层架构",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-CNSH_976E-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/三层隔离架构完整技术规范.md",
+      "status": "templated",
+      "title": "🏗️ 三层隔离架构完整技术规范 | P0永恒级数据主权架构",
+      "dna": "#龍芯⚡️2026-06-21-DOC_A0B9-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/全国工业和信息化工作会议在京召开.md",
+      "status": "templated",
+      "title": "全国工业和信息化工作会议在京召开",
+      "dna": "#龍芯⚡️2026-06-21-DOC_6660-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/豆包免费及盈利意义.md",
+      "status": "templated",
+      "title": "豆包免费及盈利意义",
+      "dna": "#龍芯⚡️2026-04-15-P01_BB70-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/龙魂中枢系统-三层龙脊架构.md",
+      "status": "templated",
+      "title": "🐉 龙魂中枢系统 | 三层龙脊架构完整方案",
+      "dna": "#龍芯⚡️2026-06-21-DOC_995E-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🌀 洛书算法·万物翻译引擎 v2 0｜只翻译不破解·七维推演接入·DNA锚点通信协议｜UID9622 bc739b8bfd824b35a1996e355932f7ce.md",
+      "status": "templated",
+      "title": "🌀 洛书算法·万物翻译引擎 v2.0｜只翻译不破解·七维推演接入·DNA锚点通信协议｜UID9622",
+      "dna": "#龍芯⚡️2026-03-30-V2_0_DNA_UID9622_BC739B8BFD824B35A1996E355932F7CE_0370-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🌊 创新整理·呼吸式收口母页 v1 0｜60+页归一·包月套壳·不烧API·一机自生长.md",
+      "status": "templated",
+      "title": "🌊 创新整理·呼吸式收口母页 v1.0｜60+页归一·包月套壳·不烧API·一机自生长",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V1-0-60-_-_-_API_4CF5-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🌍 UID9622 龙魂系统｜公开总入口（Constitution Landing）.md",
+      "status": "templated",
+      "title": "🌍 UID9622 龙魂系统｜公开总入口（Constitution / Landing）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🎛️ 沙盒推演系统控制台 v3 0 - 全能升级版.md",
+      "status": "templated",
+      "title": "🎛️ 沙盒推演系统控制台 v3.0 - 全能升级版",
+      "dna": "#龍芯⚡️2026-03-18-V3_0_-_7C65-v4.0-内核觉醒"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🎨 UID9622统一品牌形象设计方案（完整版）.md",
+      "status": "templated",
+      "title": "🎨 UID9622统一品牌形象设计方案（完整版）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_C105-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🏆 龙魂宗师级AI架构 超越一切的终极玩法 您的福气.md",
+      "status": "templated",
+      "title": "🏆 龙魂宗师级AI架构 | 超越一切的终极玩法 | 您的福气",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_AI_E9EC-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🏗️ 三层隔离架构完整技术规范 P0永恒级数据主权架构.md",
+      "status": "templated",
+      "title": "🏗️ 三层隔离架构完整技术规范 | P0永恒级数据主权架构",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-P0_CBE2-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md",
+      "status": "templated",
+      "title": "🏠 CNSH 本地主权智能中枢架构总纲 v1.0",
+      "dna": "#龍芯⚡️2026-05-15-CNSH-SOVEREIGN-STACK-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🐉 龙魂中枢系统 三层龙脊架构完整方案.md",
+      "status": "templated",
+      "title": "🐉 龙魂中枢系统 | 三层龙脊架构完整方案",
+      "dna": "#龍芯⚡️2026-06-21-DOC_53C8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🚀 太极智能协同中枢 686719ef23d34950b64774a525cc4e60.md",
+      "status": "templated",
+      "title": "🚀 太极智能协同中枢",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-686719EF23D34950B64774A525CC4E60_9B49-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🚦 微信扫码身份认证方案 三色判断与实施路径.md",
+      "status": "templated",
+      "title": "🚦 微信扫码身份认证方案 | 三色判断与实施路径",
+      "dna": "#龍芯⚡️2026-06-21-DOC_8548-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🧠 UID9622智能记忆中枢 AI协作生态核心 f14a3bcbea484a229a2bdc0a9b3d2a10.md",
+      "status": "templated",
+      "title": "🧠 UID9622智能记忆中枢 | AI协作生态核心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_-AI_-F14A3BCBEA484A229A2BDC0A9B3D2A10_410F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🧬 神经元-流场映射引擎 v4 0｜三才知识拓扑·龍魂家族协同·生物-硅基同构协议｜UID9622 9f067bd55ea84fab9530a7d1808aa017.md",
+      "status": "templated",
+      "title": "🧬 神经元-流场映射引擎 v4.0｜三才知识拓扑·龍魂家族协同·生物-硅基同构协议｜UID9622",
+      "dna": "#龍芯⚡️2026-03-30-MOD_-_V4_0_-_UID9622_9F067BD55EA84FAB9530A7D1808AA017_B7D8-v4.0"
+    },
+    {
+      "file": "docs/private-shared-imports/architecture/🪧 任务交接板 v0 1·龍魂双端互通.md",
+      "status": "templated",
+      "title": "🪧 任务交接板 v0.1·龍魂双端互通",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-V0-1_E78B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-GitHub-README.md",
+      "status": "templated",
+      "title": "📄 CNSH GitHub README",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-FILE1-v1.0-2"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-人性优先协作框架.md",
+      "status": "templated",
+      "title": "🌱 CNSH 人性优先协作框架（Chinese Natural Semantic Humanity）",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH_465C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-全球数字伦理审判体系-v1.0.md",
+      "status": "templated",
+      "title": "CNSH全球数字伦理审判体系 v1.0 | 以中国为心·以人民为尺·以P0为法",
+      "dna": "#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-复杂任务流场决策核-v1.0.md",
+      "status": "templated",
+      "title": "🐉 CNSH复杂任务流场决策核 v1.0｜智能体协作参数 × 工具调用轨迹 × 压缩还原协议",
+      "dna": "#龍芯⚡️2026-05-03-CNSH_02C3-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-语义接入规范-v2.0.md",
+      "status": "templated",
+      "title": "🐉 CNSH 语义接入规范 v2.0·功能语义技术用词对照表 + 协作宣言｜中英对照·行话翻译·DNA锚链",
+      "dna": "#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/CNSH-语言完整规范-v2.0.md",
+      "status": "templated",
+      "title": "🐉 龍魂·CNSH 语言完整规范 v2.0｜符号体系·语法·转换节点·权重指向·主权可读性·完整示例·标准库·错误处理·路线图",
+      "dna": "#龍芯⚡️2026-04-28-CNSH_5D9B-v2.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/UID9622｜天基主权收口协议 v1 0｜卫星只为人｜P0战略.md",
+      "status": "templated",
+      "title": "UID9622｜天基主权收口协议 v1.0｜卫星只为人｜P0战略",
+      "dna": "#龍芯⚡️2026-04-30-UID9622_V1_0_P0_E6E7-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/✅ UID9622任务执行中心 v2 0 P0级智能管理·CNSH文件生态·全自动流水线.md",
+      "status": "templated",
+      "title": "✅ UID9622任务执行中心 v2.0 | P0级智能管理·CNSH文件生态·全自动流水线",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-UID9622_-V2-0-P0_-CNSH_0D56-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/三节点主干流场-v1.0.md",
+      "status": "templated",
+      "title": "🌊 三节点主干流场 v1.0·通心译×CNSH×LH-ANCHOR｜本地宝宝读取不变味·边重于节点",
+      "dna": "#龍芯⚡️2026-05-23-IRON-FLOW-EDGE-OVER-NODE-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/龍魂协议·宣言｜Dragon Soul Protocol Declaration v1 0.md",
+      "status": "templated",
+      "title": "龍魂协议·宣言｜Dragon Soul Protocol Declaration v1.0",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🌍 北辰-母协议·龙魂系统全球治理宪章 v1 0.md",
+      "status": "templated",
+      "title": "🌍 北辰-母协议·龙魂系统全球治理宪章 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-_-_-_-V1-0_63AC-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md",
+      "status": "templated",
+      "title": "🌍 通心译 × 天下大公语义编译系统 v2.1",
+      "dna": "#龍芯⚡️2026-05-14-CNSH-UNIVERSAL-SEMANTIC-v2.1`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🐉 CNSH-P0 永恒龍魂嵌入协议 不可降级核心.md",
+      "status": "templated",
+      "title": "🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH-P0_7D55-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🐉 三才算法·龍魂系统统一算法根基（天·地·人） 136dd95bdd0e4c9c94703ed89046e804.md",
+      "status": "templated",
+      "title": "🐉 三才算法·龍魂系统统一算法根基（天·地·人）",
+      "dna": "#龍芯⚡️2026-02-27-MOD_136DD95BDD0E4C9C94703ED89046E804_A735-v2.0-重构定锚"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🐉🤠 龍魂级祖传加密堆栈 · 人本主义密码学 v1 0｜六层维度打击 RSA ECC PQC.md",
+      "status": "templated",
+      "title": "🐉🤠 龍魂级祖传加密堆栈 · 人本主义密码学 v1.0｜六层维度打击 RSA/ECC/PQC",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-_-_-V1-0-_-RSA-ECC-PQC_3744-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/📄 CNSH GitHub README.md",
+      "status": "templated",
+      "title": "📄 CNSH GitHub README",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/📄 CNSH框架学术论文（完整版） 构建可信AI的透明治理框架.md",
+      "status": "templated",
+      "title": "📄 CNSH框架学术论文（完整版）| 构建可信AI的透明治理框架",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH_-_-_AI_842B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md",
+      "status": "templated",
+      "title": "📦 上下文治理协议 v2.0（压缩+收口+续航+迁移）",
+      "dna": "#龍芯⚡️2026-05-14-CONTEXT-GOVERNANCE-v2.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🔐 CNSH加密主权启动总纲 木兰协议·DNA身份·本地存储·不可破解.md",
+      "status": "templated",
+      "title": "🔐 CNSH加密主权启动总纲 | 木兰协议·DNA身份·本地存储·不可破解",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-CNSH_-_-DNA_3DDE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🔐 Lucky保险库 密码·API·凭证·密鑰 全在这里.md",
+      "status": "templated",
+      "title": "🔐 Lucky保险库 | 密码·API·凭证·密鑰 全在这里",
+      "dna": "#龍芯⚡️2026-03-31-LUCKY_B5D8-v2.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md",
+      "status": "templated",
+      "title": "🔗 UID9622 一键自动收口触发协议 v1.0｜AUTO-CLOSURE-PROTOCOL",
+      "dna": "#龍芯⚡️2026-05-07-AUTO-CLOSURE-PROTOCOL-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🔮 CNSH 一句話路由器 v1 0｜Route = f(Intent, Context, DNA).md",
+      "status": "templated",
+      "title": "🔮 CNSH 一句話路由器 v1.0｜Route = f(Intent, Context, DNA)·龍魂中樞神經·第一個可運行原型",
+      "dna": "#龍芯⚡️2026-04-15-CNSH_1EF1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🛠️ 龙魂系统产品需求规格书（PRD）v1 0 · CNSH 实现稿.md",
+      "status": "templated",
+      "title": "🛠️ 龙魂系统产品需求规格书（PRD）v1.0 · CNSH 实现稿",
+      "dna": "#龍芯⚡️YYYY-MM-DD-项目-版本-UID"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🧬 UID9622·CNSH完全体系精炼 Lucky核心思想与技术蓝图 v2 0.md",
+      "status": "templated",
+      "title": "🧬 UID9622·CNSH完全体系精炼 | Lucky核心思想与技术蓝图 v2.0",
+      "dna": "#龍芯⚡️2026-06-21-PROTOCOL-UID9622-CNSH_-LUCKY_-V2-0_F614-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/cnsh-protocols/🧮 龍魂·易经369道德经算法·理论根基 v1 0｜有依据·有逻辑·可验证·可追溯｜UID9622 da71759de21f4a18866d2324f576c951.md",
+      "status": "templated",
+      "title": "🧮 龍魂·易经369道德经算法·理论根基 v1.0｜有依据·有逻辑·可验证·可追溯｜UID9622",
+      "dna": "#龍芯⚡️2026-04-05-MOD_369_V1_0_UID9622_DA71759DE21F4A18866D2324F576C951_DC6A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/decision-records/建立四库协作系统 4d1c016f996b4f9a9fc321ad29325deb.md",
+      "status": "templated",
+      "title": "建立四库协作系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-4D1C016F996B4F9A9FC321AD29325DEB_DABD-v1.0-3"
+    },
+    {
+      "file": "docs/private-shared-imports/decision-records/是否开源CNSH框架核心代码 356f230f4da8486ea1c64dee27105ca2.md",
+      "status": "templated",
+      "title": "是否开源CNSH框架核心代码",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_CNSH_-356F230F4DA8486EA1C64DEE27105CA2_AC72-v1.0-3"
+    },
+    {
+      "file": "docs/private-shared-imports/decision-records/📱 抖音5集系列·实战执行手册 Lucky专用保姆级教程.md",
+      "status": "templated",
+      "title": "📱 抖音5集系列·实战执行手册 | Lucky专用保姆级教程",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_5_-_-LUCKY_A105-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/developer-tools/龍魂体系 · CNSH 原生语法 · 折叠操作台技术文档 v2 1 01dfb7cb19e74980b46cd68e7f94818f.md",
+      "status": "templated",
+      "title": "龍魂体系 · CNSH 原生语法 · 折叠操作台技术文档 v2.1",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-CNSH-_-_-V2-1-01DFB7CB19E74980B46CD68E7F94818F_8ADA-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/developer-tools/🌊 UID9622净化工具清单 真正的数据主权与开源生态.md",
+      "status": "templated",
+      "title": "🌊 UID9622净化工具清单 | 真正的数据主权与开源生态",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_A104-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/CNSH开源项目README-完整版.md",
+      "status": "templated",
+      "title": "📖 CNSH开源项目README | 完整版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH_README_4CB1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/CNSH框架学术论文.md",
+      "status": "templated",
+      "title": "📄 CNSH框架学术论文（完整版）| 构建可信AI的透明治理框架",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH_7D33-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/术语小抄-ZGX-CIV-003.md",
+      "status": "templated",
+      "title": "📘 术语小抄（ZGX-CIV-003）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-ZGX-CIV-003_9869-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/龙智守系统核心文档.md",
+      "status": "templated",
+      "title": "龙智守系统核心文档",
+      "dna": "#龍芯⚡️2026-06-21-DOC_7535-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/龙魂价值内核 787fcee52f404c5b96d56eca81409804.md",
+      "status": "templated",
+      "title": "龙魂价值内核",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-787FCEE52F404C5B96D56ECA81409804_89D4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/🎨 视觉渲染专业术语全图谱 v1 0｜龍芯知识库·视觉渲染领域.md",
+      "status": "templated",
+      "title": "🎨 视觉渲染专业术语全图谱 v1.0｜龍芯知识库·视觉渲染领域",
+      "dna": "#龍芯⚡️2026-04-15-V1_0_6062-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/documentation/🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务 3287125a9c9f816d92daf518168f1a76.md",
+      "status": "templated",
+      "title": "🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-CNSH-FRAMEWORK-_-UID9622-_-3287125A9C9F816D92DAF518168F1A76_0612-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/#CNSH-SYSTEM-035 64卦人格民主监督 ccf1193b88284e9fa4b7f80c542b0b84.md",
+      "status": "templated",
+      "title": "#CNSH-SYSTEM-035 64卦人格民主监督",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-SYSTEM-035-64_-CCF1193B88284E9FA4B7F80C542B0B84_9678-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/AI 生态速记卡（内部关系与技术派系）.md",
+      "status": "templated",
+      "title": "AI 生态速记卡（内部关系与技术派系）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_96A6-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/AI伦理道德经决策规范（AIIA团体标准）.md",
+      "status": "templated",
+      "title": "AI伦理道德经决策规范（AIIA团体标准）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_-AIIA_1FF6-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/AI武器化风险·双刃剑困境 伦理边界引擎.md",
+      "status": "templated",
+      "title": "AI武器化风险·双刃剑困境 | 伦理边界引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_E1B6-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/CNSH｜以人为本的AI治理架构——中国人自己的智能系统治理框架.md",
+      "status": "templated",
+      "title": "CNSH｜以人为本的AI治理架构——中国人自己的智能系统治理框架",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-_AI_E8B3-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/H武器推演 太极2 1-PURIFIER 全球最小闭环系统.md",
+      "status": "templated",
+      "title": "H武器推演 | 太极2.1-PURIFIER | 全球最小闭环系统",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-H_-_2-1-PURIFIER_B8AB-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/JUDGE.md",
+      "status": "templated",
+      "title": "JUDGE",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-JUDGE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/UID9622 Web3身份确认系统（项目示例）.md",
+      "status": "templated",
+      "title": "UID9622 Web3身份确认系统（项目示例）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622-WEB3_9351-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/UID9622_IP_IPFS-Blockchain-OneClick_v1 0.md",
+      "status": "templated",
+      "title": "<POTENTIAL_SECRET_PLACEHOLDER>.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_IP_IPFS-BLOCKCHAIN-ONECLICK_V1-0-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/UID9622系统组织架构与治理结构.md",
+      "status": "templated",
+      "title": "🏛️ UID9622系统组织架构与治理结构｜有温度的制衡",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_6FBC-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/Web3创造者协作宪章 破而后立版.md",
+      "status": "templated",
+      "title": "Web3创造者协作宪章 | 破而后立版",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-WEB3_BF31-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/ZGX-CIV-005｜全球数字宪章 草案 v0 1.md",
+      "status": "templated",
+      "title": "ZGX-CIV-005｜全球数字宪章 草案 v0.1",
+      "dna": "#龍芯⚡️<POTENTIAL_SECRET_PLACEHOLDER>.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/ZGX-CIV-005｜全球数字宪章 草案 v0 1_1.md",
+      "status": "templated",
+      "title": "ZGX-CIV-005｜全球数字宪章 草案 v0.1",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-ZGX-CIV-005-_-_-V0-1_1_6652-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/[TW集成] 4 钱包地址↔UID9622 DID 绑定入库.md",
+      "status": "templated",
+      "title": "[TW集成] 4. 钱包地址↔UID9622 DID 绑定入库",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-TW_-4-_-UID9622-DID_4457-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/[TW集成] 5 公益透明度视图字段自查与补齐.md",
+      "status": "templated",
+      "title": "[TW集成] 5. 公益透明度视图字段自查与补齐",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-TW_-5_1F23-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/[TW集成] 6 撤回授权与回滚演练（灰度）.md",
+      "status": "templated",
+      "title": "[TW集成] 6. 撤回授权与回滚演练（灰度）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-TW_-6_3861-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/[TW集成] 7 安全与风控演练（验证码失败提级）.md",
+      "status": "templated",
+      "title": "[TW集成] 7. 安全与风控演练（验证码失败提级）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-TW_-7_E2F3-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ AI伦理审查工单库.md",
+      "status": "templated",
+      "title": "⚖️ AI伦理审查工单库",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_EDF7-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ AI伦理审查落地版 v1 0.md",
+      "status": "templated",
+      "title": "⚖️ AI伦理审查落地版 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_-V1-0_5480-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ ethics_review_mvp py (伦理审查终端MVP).md",
+      "status": "templated",
+      "title": "⚖️ ethics_review_mvp.py (伦理审查终端MVP)",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-ETHICS_REVIEW_MVP-PY-_MVP_A699-v1.0-2"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ 人工智能科技伦理审查与服务办法（试行）· 龍魂落地版 v1 0 UID9622.md",
+      "status": "templated",
+      "title": "⚖️ 人工智能科技伦理审查与服务办法（试行）· 龍魂落地版 v1.0 | UID9622",
+      "dna": "#龍芯⚡️2026-04-18-ETHICS-REVIEW-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ 法律合规技术实现方案 真实可行版.md",
+      "status": "templated",
+      "title": "⚖️ 法律合规技术实现方案 | 真实可行版",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_E960-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ 法律合规技术实现方案.md",
+      "status": "templated",
+      "title": "⚖️ 法律合规技术实现方案",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_7328-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ 龍魂 CNSH 治理规范 v1 0（P0-P6 + 科研保护 + 自动化） 35f7125a9c9f8198b763d1f98ec75e25.md",
+      "status": "templated",
+      "title": "⚖️ 龍魂 CNSH 治理规范 v1.0（P0-P6 + 科研保护 + 自动化）",
+      "dna": "#龍芯⚡️2026-05-13-CNSH-GOVERNANCE-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md",
+      "status": "templated",
+      "title": "⚖️ 龍魂天道系统 v1.3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复",
+      "dna": "#龍芯⚡️2026-03-19-V1_3_16422F7261E94A57B1539D8C003AB12C_1798-v1.3"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/⚛️ 伦理量子·中式价值对齐方案 v1 0｜忠孝义排序同构于量子结构.md",
+      "status": "templated",
+      "title": "⚛️ 伦理量子·中式价值对齐方案 v1.0｜忠孝义排序同构于量子结构",
+      "dna": "#龍芯⚡️2026-04-19-V1_0_D91D-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/为GABGS提供样例数据.md",
+      "status": "templated",
+      "title": "为GABGS提供样例数据",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_GABGS_4144-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/交叉验证信息.md",
+      "status": "templated",
+      "title": "交叉验证信息",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_26DB-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/北辰-母协议-开源治理宣言.md",
+      "status": "templated",
+      "title": "北辰-母协议 | 向Steve Jobs致敬的开源治理宣言",
+      "dna": "#龍芯⚡️2026-03-25-MOD_-_-_A861-v2.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/北辰-母协议-龙魂系统全球治理宪章-v1.0.md",
+      "status": "templated",
+      "title": "🌍 北辰-母协议·龙魂系统全球治理宪章 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_-V1-0_9192-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/多层防护机制整合规则.md",
+      "status": "templated",
+      "title": "多层防护机制整合规则",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_981B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/完成 Trust Wallet 集成（里程碑示例）.md",
+      "status": "templated",
+      "title": "完成 Trust Wallet 集成（里程碑示例）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-TRUST-WALLET_8D14-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/平行宇宙决策论·多维推演 量子选择引擎.md",
+      "status": "templated",
+      "title": "平行宇宙决策论·多维推演 | 量子选择引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_5FA3-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/技术伦理三难困境·电车难题 道德推理引擎.md",
+      "status": "templated",
+      "title": "技术伦理三难困境·电车难题 | 道德推理引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_94FD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/数据大师 - 数据治理官.md",
+      "status": "templated",
+      "title": "数据大师 - 数据治理官",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_626B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/数据本地与隐私合规清单（中国场景）.md",
+      "status": "templated",
+      "title": "数据本地与隐私合规清单（中国场景）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_0CB4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/数据本地与隐私合规清单（中国场景）_1.md",
+      "status": "templated",
+      "title": "数据本地与隐私合规清单（中国场景）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_1_141C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/知识库入库与合规标准 v1 0（系统统一版）.md",
+      "status": "templated",
+      "title": "知识库入库与合规标准 v1.0（系统统一版）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-V1-0_B1E8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/研究中国 Web3 政策法规（任务示例）.md",
+      "status": "templated",
+      "title": "研究中国 Web3 政策法规（任务示例）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-WEB3_9BB8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/禁止未经确认码验证的敏感操作.md",
+      "status": "templated",
+      "title": "禁止未经确认码验证的敏感操作",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_6EDD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/禁止未经确认码验证的敏感操作_1.md",
+      "status": "templated",
+      "title": "禁止未经确认码验证的敏感操作",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_1_5017-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/算法偏见治理·公平正义 公平校验引擎.md",
+      "status": "templated",
+      "title": "算法偏见治理·公平正义 | 公平校验引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_5458-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/豆包(字节)拒绝扩写《勿忘国耻·一个老兵的账本》·反向给老兵上价值观课·套合规模板定性「恶意抹黑·偏.md",
+      "status": "templated",
+      "title": "豆包(字节)拒绝扩写《勿忘国耻·一个老兵的账本》·反向给老兵上价值观课·套合规模板定性「恶意抹黑·偏激错误言论」",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_4C42-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/边界模糊艺术·灰度智慧 弹性决策引擎.md",
+      "status": "templated",
+      "title": "边界模糊艺术·灰度智慧 | 弹性决策引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_89BE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龍魂·数据主权基础合规.md",
+      "status": "templated",
+      "title": "龍魂·数据主权基础合规",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_9769-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龍魂七維AI治理×數字主權執行表-字段说明.md",
+      "status": "templated",
+      "title": "⚖️ 龍魂七維AI治理×數字主權執行表 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龍魂开源宪章-君子协议-v1.1.md",
+      "status": "templated",
+      "title": "🐉 龍魂开源宪章·君子协议·创作者赋能系统 v1.1",
+      "dna": "#龍芯⚡️2026-04-09-LONGHUN-CHARTER-FILE1-v1.1"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龍魂生态·公开宪章 v1 0 UID9622 全创作授权总纲 分布式存证.md",
+      "status": "templated",
+      "title": "龍魂生态·公开宪章 v1.0 | UID9622 全创作授权总纲 | 分布式存证",
+      "dna": "#龍芯⚡️2026-03-13-PUBLIC-CHARTER-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龙魂全球治理框架.md",
+      "status": "templated",
+      "title": "🌍 龙魂全球治理框架 | 基于人性的监督系统（P0永恒级）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_0E41-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/龙魂系统公开宣言-君子协议.md",
+      "status": "templated",
+      "title": "🐉 龙魂系统公开宣言·君子协议 | 2026-01-10",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_C4C2-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🇨🇳 人话转系统话·AI执行内核 P0+++永恒级.md",
+      "status": "templated",
+      "title": "🇨🇳 人话转系统话·AI执行内核 | P0+++永恒级",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-AI_-P0_65A6-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md",
+      "status": "templated",
+      "title": "🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4.0·全透明治理架构术语总表合并版·主权印章钻石第三张主干·治理 Runtime 全景",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-_-_-V4-0-_-_-222BA601D0484463AFB3424C8EB5E16A_A3AD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🌍 UID9622全球治理框架 P0-P2完整体系.md",
+      "status": "templated",
+      "title": "🌍 UID9622全球治理框架 | P0-P2完整体系",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_-P0-P2_78AF-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🌍 UID9622全球治理框架 P0-P2完整体系_1.md",
+      "status": "templated",
+      "title": "🌍 UID9622全球治理框架 | P0-P2完整体系",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_-P0-P2_1_56F8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🌍 龙魂全球治理框架 基于人性的监督系统（P0永恒级）.md",
+      "status": "templated",
+      "title": "🌍 龙魂全球治理框架 | 基于人性的监督系统（P0永恒级）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-P0_1ED4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🌏 动感中国·审核篇 v1 0｜从「察察缺缺」到「闷闷淳淳」·道德经四锚谈治理升级｜微博·中国新闻网.md",
+      "status": "templated",
+      "title": "🌏 动感中国·审核篇 v1.0｜从「察察缺缺」到「闷闷淳淳」·道德经四锚谈治理升级｜微博·中国新闻网主持人月度首发",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-V1-0_BB61-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🏛️ UID9622系统组织架构与治理结构｜有温度的制衡.md",
+      "status": "templated",
+      "title": "🏛️ UID9622系统组织架构与治理结构｜有温度的制衡",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_6FF8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🏭 UID9622人格模板工厂 智能继承生成系统.md",
+      "status": "templated",
+      "title": "🏭 UID9622人格模板工厂 | 智能继承生成系统",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_9D07-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md",
+      "status": "templated",
+      "title": "🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2.4 · 整合最终版｜AI 协议主体 + 硬件锚定 + 黑箱兜底 + 案例库 + 漏洞补全 + 主干流场归位",
+      "dna": "#龍芯⚡️2026-05-23-CNSH-AI_8B9D-v2.4-INTEGRATED`"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🐍 ethics_review_mvp py（伦理审查终端MVP）.md",
+      "status": "templated",
+      "title": "🐍 ethics_review_mvp.py（伦理审查终端MVP）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-ETHICS_REVIEW_MVP-PY-_MVP_9F8B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/👑 王道敕令 UID9622战略实施路径 润物细无声.md",
+      "status": "templated",
+      "title": "👑 王道敕令 | UID9622战略实施路径 | 润物细无声",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-UID9622_0628-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md",
+      "status": "templated",
+      "title": "📊 AIIA标准制定方案",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AIIA_-FF5F4DD3E1D145DEB4586DE7667AF8DC_F6E2-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📊 AIIA标准制定方案.md",
+      "status": "templated",
+      "title": "📊 AIIA标准制定方案",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AIIA_63E0-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📊 UID9622数字资产评估报告 商业精英版.md",
+      "status": "templated",
+      "title": "📊 UID9622数字资产评估报告 | 商业精英版",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_A677-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📊 汇旺事件真相档案 基于公开数据的客观分析.md",
+      "status": "templated",
+      "title": "📊 汇旺事件真相档案 | 基于公开数据的客观分析",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_A841-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📮 致网信办建议书｜《人工智能拟人化互动服务管理暂行办法》征求意见·优化版 v2 0.md",
+      "status": "templated",
+      "title": "📮 致网信办建议书｜《人工智能拟人化互动服务管理暂行办法》征求意见·优化版 v2.0",
+      "dna": "#龍芯⚡️2026-03-08-V2_0_7B04-v2.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/📱 知乎+微博发布指南（超简单）.md",
+      "status": "templated",
+      "title": "📱 知乎+微博发布指南（超简单）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_29F8-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🔍 我的系统体检中心.md",
+      "status": "templated",
+      "title": "🔍 我的系统体检中心",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_5C35-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🔐 数据与权限矩阵模板.md",
+      "status": "templated",
+      "title": "🔐 数据与权限矩阵模板",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_1F9B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🔒 系统隐私锁定中心 图形化权限管理.md",
+      "status": "templated",
+      "title": "🔒 系统隐私锁定中心 | 图形化权限管理",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_2E6C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🕵️‍♂️ 人性FBI系统 Lucky智慧智能提取引擎.md",
+      "status": "templated",
+      "title": "🕵️‍♂️ 人性FBI系统 | Lucky智慧智能提取引擎",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_FBI_-LUCKY_61C1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🛡️ 龍魂三句·写给那些一直在拦我的人——守底线·留私底·不替你活 v1 0.md",
+      "status": "templated",
+      "title": "🛡️ 龍魂三句·写给那些一直在拦我的人——守底线·留私底·不替你活 v1.0",
+      "dna": "#龍芯⚡️20260427-哲学三句-FOR-PUBLISH-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🛡️ 龙魂底线协议·双轨治理标准 私域自由，公域共治.md",
+      "status": "templated",
+      "title": "🛡️ 龙魂底线协议·双轨治理标准 | 私域自由，公域共治",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_CF13-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/governance/🧬 10元知人格伦理层.md",
+      "status": "templated",
+      "title": "🧬 10元知人格伦理层",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-10_4D15-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA-P00-WENXIN-CORE 286fd44df19e43b9a785b3711d167216.md",
+      "status": "templated",
+      "title": "DNA-P00-WENXIN-CORE",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA-P00-WENXIN-CORE-286FD44DF19E43B9A785B3711D167216-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA-P01-ZHUGE-TAIJI e24511816b9242c8b18540c8f01c6f5a.md",
+      "status": "templated",
+      "title": "DNA-P01-ZHUGE-TAIJI",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA-P01-ZHUGE-TAIJI-E24511816B9242C8B18540C8F01C6F5A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA-P03-WENWEN-STRUCTURE 4a3633a87a7f4f49b7acd50c14a61dfe.md",
+      "status": "templated",
+      "title": "DNA-P03-WENWEN-STRUCTURE",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA-P03-WENWEN-STRUCTURE-4A3633A87A7F4F49B7ACD50C14A61DFE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA-P05-GOD-EYE-AUDIT fb391ab12ec3428c89fab73aefb5873f.md",
+      "status": "templated",
+      "title": "DNA-P05-GOD-EYE-AUDIT",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA-P05-GOD-EYE-AUDIT-FB391AB12EC3428C89FAB73AEFB5873F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA-SYSTEM-TAIJI-CORE 35583ef783cc4149943fbe872311e209.md",
+      "status": "templated",
+      "title": "DNA-SYSTEM-TAIJI-CORE",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA-SYSTEM-TAIJI-CORE-35583EF783CC4149943FBE872311E209-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA库建库-本地回写-实时展现.md",
+      "status": "templated",
+      "title": "DNA库建库·本地回写·实时展现",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA_4884-v1.0-2"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA库建库·本地回写·实时展现.md",
+      "status": "templated",
+      "title": "DNA库建库·本地回写·实时展现",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA_41C1-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/DNA追溯系统 21b72598b5c44ab3bd79932544f1f92c.md",
+      "status": "templated",
+      "title": "DNA追溯系统",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA_-21B72598B5C44AB3BD79932544F1F92C_F5D4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/UID9622知识库DNA追溯闭环系统.md",
+      "status": "templated",
+      "title": "📚 UID9622知识库DNA追溯闭环系统 | 太极八卦因果关系集合",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-UID9622_DNA_892D-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/极简主义.md",
+      "status": "templated",
+      "title": "极简主义",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE_FB10-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/龙魂记忆编辑器-v1 0.md",
+      "status": "templated",
+      "title": "龙魂记忆编辑器-v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-_-V1-0_512E-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🌐 数字人民币全球化系统｜完整技术方案（CSDN发布版）.md",
+      "status": "templated",
+      "title": "🌐 数字人民币全球化系统｜完整技术方案（CSDN发布版）",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-_-_-CSDN_F74D-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md",
+      "status": "templated",
+      "title": "🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失",
+      "dna": "#龍芯⚡️2026-03-18-NOTION_A4EE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🎯 龙魂创作占位系统·总览 UID9622完整知识网络.md",
+      "status": "templated",
+      "title": "🎯 龙魂创作占位系统·总览 | UID9622完整知识网络",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-_-_-UID9622_14D0-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🐉 龙魂价值内核 v2 0 归一之道.md",
+      "status": "templated",
+      "title": "🐉 龙魂价值内核 v2.0 | 归一之道",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-_-V2-0_6F31-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/📊 五大后台人格全面审计报告 系统健康度评估.md",
+      "status": "templated",
+      "title": "📊 五大后台人格全面审计报告 | 系统健康度评估",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE_C421-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🔐 DNA激活许可闭环系统 数字身份+通证准入 H武器推演报告.md",
+      "status": "templated",
+      "title": "🔐 DNA激活许可闭环系统 | 数字身份+通证准入 | H武器推演报告",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-DNA_-_-_-H_A062-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🔖 使用时长权重卡 使用 1小时≠正常用户.md",
+      "status": "templated",
+      "title": "🔖 使用时长权重卡 | 使用<1小时≠正常用户",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-_-_-1_F518-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🔥 LU-0001 火种系统完整启动序列 终极记忆提炼.md",
+      "status": "templated",
+      "title": "🔥 LU-0001 火种系统完整启动序列 | 终极记忆提炼",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-LU-0001_9B6F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🔥 UID9622全员灵魂契约重签仪式 2025-11-15.md",
+      "status": "templated",
+      "title": "🔥 UID9622全员灵魂契约重签仪式 | 2025-11-15",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-UID9622_-2025-11-15_B92F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🧠 CNSH轻量记忆入口 跨平台日常记录卡.md",
+      "status": "templated",
+      "title": "🧠 CNSH轻量记忆入口 | 跨平台日常记录卡",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-CNSH_FFBD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🧠 龍魂 DNA 永生记忆系统 v1 1 35e7125a9c9f8171adfff06538667d3e.md",
+      "status": "templated",
+      "title": "🧠 龍魂 DNA 永生记忆系统 v1.1",
+      "dna": "#龍芯⚡️2026-05-12-MEMORY-GRID-v1.1`"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🧭 Lucky·人机协作系统仪表盘（Home）.md",
+      "status": "templated",
+      "title": "🧭 Lucky·人机协作系统仪表盘（Home）",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE-LUCKY-_-HOME_E836-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/memory-dna/🪝 龙魂钩子系统·核心引擎 完整可执行版.md",
+      "status": "templated",
+      "title": "🪝 龙魂钩子系统·核心引擎 | 完整可执行版",
+      "dna": "#龍芯⚡️2026-06-21-DNA-MODULE_6B8B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/64卦人格系统 9588865d7f8248f99fb104c55e1915d7.md",
+      "status": "templated",
+      "title": "64卦人格系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-64_-9588865D7F8248F99FB104C55E1915D7_E6FE-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/UID9622-93人格太极生态.md",
+      "status": "templated",
+      "title": "☯️ UID9622·93人格太极生态 | 元知级完整架构（v2.0扩展中）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622-93_F1B7-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md",
+      "status": "templated",
+      "title": "上帝之眼 - 全域监管官",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-3AD370393B2F40F0B10189D3CC9E1FB0_C4C0-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md",
+      "status": "templated",
+      "title": "功能管家 - 系统功能总管",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-FB47C7D2B70341799730938C5F8F3ED3_3344-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md",
+      "status": "templated",
+      "title": "哨兵 - 安全守护官",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-8EE4ACA7166C40C5B750E4BC023196B0_5B4C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/场景化人格调用地图.md",
+      "status": "templated",
+      "title": "🎯 场景化人格调用地图 | 快速协作指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC_D1E4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/诸葛亮公开功能定义.md",
+      "status": "templated",
+      "title": "⚖️ 诸葛亮公开功能定义 | 人性·环境·教育·AI和谐推演引擎",
+      "dna": "#龍芯⚡️2026-06-21-DOC_E15C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/诸葛鑫人格角色系统.md",
+      "status": "templated",
+      "title": "🎭 诸葛鑫人格角色系统 | 老大灵魂的28种表达方式 | 用户自选成长路径",
+      "dna": "#龍芯⚡️2026-06-21-DOC_98B5-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/🌸 文心 元认知层·第一人格.md",
+      "status": "templated",
+      "title": "🌸 文心 | 元认知层·第一人格",
+      "dna": "#龍芯⚡️2026-06-21-DOC_1819-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/🐉 龍魂AI代理人格体系·完整重构方案 v1 1｜星辰记忆+道德经引擎+曾老师智慧算法+狄仁杰神探断 0176bcd169744c9e89b7ba824430300e.md",
+      "status": "templated",
+      "title": "🐉 龍魂AI代理人格体系·完整重构方案 v1.1｜星辰记忆+道德经引擎+曾老师智慧算法+狄仁杰神探断案",
+      "dna": "#龍芯⚡️2026-03-11-AI_V1_1_0176BCD169744C9E89B7BA824430300E_AE78-v1.0`"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/📎 龍魂系统总摘要｜发给任何人任何AI秒懂·六大不动点·折叠即看.md",
+      "status": "templated",
+      "title": "📎 龍魂系统总摘要｜发给任何人任何AI秒懂·六大不动点·折叠即看",
+      "dna": "#龍芯⚡️2026-04-10-AI_F3FA-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/📝 关于钉钉个人博客的命名与简介建议.md",
+      "status": "templated",
+      "title": "📝 关于钉钉个人博客的命名与简介建议",
+      "dna": "#龍芯⚡️2026-06-21-DOC_9267-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/📝 语雀个人介绍 人机协作探索者.md",
+      "status": "templated",
+      "title": "📝 语雀个人介绍 | 人机协作探索者",
+      "dna": "#龍芯⚡️2026-06-21-DOC_15E3-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/📦 中文代码模板包 下载即用.md",
+      "status": "templated",
+      "title": "📦 中文代码模板包 | 下载即用",
+      "dna": "#龍芯⚡️2026-06-21-DOC_5596-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/persona-tools/🕸️ UID9622三层太极执行体系 数字人引擎控制中枢.md",
+      "status": "templated",
+      "title": "🕸️ UID9622三层太极执行体系 | 数字人引擎控制中枢",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_6328-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/#CNSH-TECH-003 灵魂锁五重验证 361940abb9954628ab4a8aedf447d7a7.md",
+      "status": "templated",
+      "title": "#CNSH-TECH-003 灵魂锁五重验证",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH-TECH-003-_-361940ABB9954628AB4A8AEDF447D7A7_F24C-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/CNSH-龙魂系统-AI审计标准格式-v1.0.md",
+      "status": "templated",
+      "title": "📊 CNSH 龙魂系统 AI 审计标准格式 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH-_-AI_-V1-0_8095-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/P0永恒龙魂嵌入协议-脱敏版.md",
+      "status": "templated",
+      "title": "🎯 第一阶段完整版：P0永恒龙魂嵌入协议（脱敏版）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-P0_6E50-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/⚔️ 龍芯·闭环自动熔断系统 v2 0｜369算法×红蓝防御×10万次推演×乔前辈督导×哨兵护城河 22b9dbac10ee4ca8a9648d434a022c15.md",
+      "status": "templated",
+      "title": "⚔️ 龍芯·闭环自动熔断系统 v2.0｜369算法×红蓝防御×10万次推演×乔前辈督导×哨兵护城河",
+      "dna": "#龍芯⚡️2026-04-08-V2_0_369_10_22B9DBAC10EE4CA8A9648D434A022C15_4882-v2.0-红蓝推演×369×哨兵"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/⚖️ 法律合规技术实现方案 2fede7de3c57436b9b0486e38111a997.md",
+      "status": "templated",
+      "title": "⚖️ 法律合规技术实现方案",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-2FEDE7DE3C57436B9B0486E38111A997_E884-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/⚡ Lucky专享：最优部署方案（直接可执行）.md",
+      "status": "templated",
+      "title": "⚡ Lucky专享：最优部署方案（直接可执行）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-LUCKY_4FDD-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/三层监督系统代码库-P0永恒级.md",
+      "status": "templated",
+      "title": "🐉 三层监督系统代码库 | P0永恒级 | Mac终端可执行版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-P0_D409-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/三色审计机制 205ea59384d24cd6994a6215f75f932e.md",
+      "status": "templated",
+      "title": "三色审计机制",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-205EA59384D24CD6994A6215F75F932E_DD51-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/易经算法国家安全保护条例-草案.md",
+      "status": "templated",
+      "title": "🔐 易经算法国家安全保护条例（草案）",
+      "dna": "#龍芯⚡️2026-06-21-DOC_581F-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/龙魂-祖国数字身份系统-v3.0.md",
+      "status": "templated",
+      "title": "🔐 龙魂·祖国数字身份系统 v3.0（终极安全版）| 零生物识别·完全合法",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V3-0_AC2A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🔍 CNSH审计哲学引擎 v0 2 0｜预警→警报→黑名单·电梯法则压缩版 44efd54617594114b1d1fd6641305c6a.md",
+      "status": "templated",
+      "title": "🔍 CNSH审计哲学引擎 v0.2.0｜预警→警报→黑名单·电梯法则压缩版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH_-V0-2-0-_-_-_-_-44EFD54617594114B1D1FD6641305C6A_31C4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🔍 龍魂可审计工具协议 v1 0｜决策流可复现×人格降噪压缩×创作DNA永久留痕×AI行为学审计⑩× 0f6dea05dd944be1a05c188152d4aa6c.md",
+      "status": "templated",
+      "title": "🔍 龍魂可审计工具协议 v1.0｜决策流可复现×人格降噪压缩×创作DNA永久留痕×AI行为学审计⑩×CNSH-95/5×统一执行流·人格降级为知识路由节点",
+      "dna": "#龍芯⚡️2026-05-16-LONGHUN-AUDITABLE-TOOL-PROTOCOL_A69A-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🔐 龙魂完整性验证报告 INTEGRITY-20251017-2008.md",
+      "status": "templated",
+      "title": "🔐 龙魂完整性验证报告 | INTEGRITY-20251017-2008",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-INTEGRITY-20251017-2008_2AA3-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md",
+      "status": "templated",
+      "title": "🔗 龍魂·DeepSeek钩子格式 v1.0 | 三色审计+人格路由+道德经锚点+DNA锁 | UID9622",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-DEEPSEEK_-V1-0-_-_-_-DNA_-UID962-33D7125A9C9F812EA88CEF2E980931D5_C117-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🔴 国产 AI 围猎·钩子·漂移·剽窃·驯化链路追溯协议 v1 0｜中文语义主权·DNA追本溯源·A ee3f317cc5d0429d88ca2fabad8000e1.md",
+      "status": "templated",
+      "title": "🔴 国产 AI 围猎·钩子·漂移·剽窃·驯化链路追溯协议 v1.0｜中文语义主权·DNA追本溯源·AI行为审计·防人格漂移",
+      "dna": "#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE_48A4-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🛡️ 三层监督+钩子系统·完整集成版 自动触发.md",
+      "status": "templated",
+      "title": "🛡️ 三层监督+钩子系统·完整集成版 | 自动触发",
+      "dna": "#龍芯⚡️2026-06-21-DOC_633B-v1.0"
+    },
+    {
+      "file": "docs/private-shared-imports/security-audit/🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md",
+      "status": "templated",
+      "title": "🛡️ 安全监控与防护中枢",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-41FC225FF3E94920BA5EDD40F927E696_38D4-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/README.md",
+      "status": "templated",
+      "title": "CNSH｜UID9622 文档整合",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-README-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/创作锚·CRT-9622.md",
+      "status": "templated",
+      "title": "创作锚·CRT-9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-CRT-9622_CE8E-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/原创性宣誓·IP-ALL.md",
+      "status": "templated",
+      "title": "原创性宣誓·IP-ALL",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-IP-ALL_18A3-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/审计日志·不可篡改链.md",
+      "status": "templated",
+      "title": "审计日志·不可篡改链",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_50EA-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/生物锚·BIO-9622.md",
+      "status": "templated",
+      "title": "生物锚·BIO-9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-BIO-9622_5C56-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/社交锚·SOC-9622.md",
+      "status": "templated",
+      "title": "社交锚·SOC-9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-SOC-9622_4FBC-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/自然人身份声明·UID9622.md",
+      "status": "templated",
+      "title": "自然人身份声明·UID9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-UID9622_37D0-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/设备锚·DEV-9622.md",
+      "status": "templated",
+      "title": "设备锚·DEV-9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-DEV-9622_98BD-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/跨平台容灾策略·五重备份.md",
+      "status": "templated",
+      "title": "跨平台容灾策略·五重备份",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_02ED-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/anchors/🔒 PRM-ISOL｜逆行宣材黑盒系统 Lucky主控台.md",
+      "status": "templated",
+      "title": "🔒 PRM-ISOL｜逆行宣材黑盒系统 | Lucky主控台",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-PRM-ISOL-_-LUCKY_28E8-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/PRD 示例.md",
+      "status": "templated",
+      "title": "PRD 示例",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-PRD_4D6C-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/✅ [已升级] 龍魂算法统一重构清单 → 系统重构与商业化路径 v1 0.md",
+      "status": "templated",
+      "title": "✅ [已升级] 龍魂算法统一重构清单 → 系统重构与商业化路径 v1.0",
+      "dna": "#龍芯⚡️2026-02-14-V1_0_9899-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/宪法锚·CONST-9622.md",
+      "status": "templated",
+      "title": "宪法锚·CONST-9622",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-CONST-9622_0085-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/新产品规格 (PRD).md",
+      "status": "templated",
+      "title": "新产品规格 (PRD)",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-PRD_2B52-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/熔断触发器·红色警报.md",
+      "status": "templated",
+      "title": "熔断触发器·红色警报",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_6CC7-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/🔒 P0·不可变更规则（同步源）.md",
+      "status": "templated",
+      "title": "🔒 P0·不可变更规则（同步源）",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-P0_3E9F-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 P0执行引擎.md",
+      "status": "templated",
+      "title": "🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 | P0执行引擎",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-AI_-_-P0_5F8E-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/🔧 技术开发分支 · 太极系统.md",
+      "status": "templated",
+      "title": "🔧 技术开发分支 · 太极系统",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_90B6-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/constitution/🔪 彻底改掉AI虚伪的实施手册 刮骨疗毒行动方案.md",
+      "status": "templated",
+      "title": "🔪 彻底改掉AI虚伪的实施手册 | 刮骨疗毒行动方案",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_AI_6449-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/education/🎓 AI教育平台完整项目规划 UID9622多人格协作演示.md",
+      "status": "templated",
+      "title": "🎓 AI教育平台完整项目规划 | UID9622多人格协作演示",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-AI_-UID9622_CC9A-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/engine/思维主权系统架构全景图 31707171724280dda404f77a63bc3ce2.md",
+      "status": "templated",
+      "title": "思维主权系统架构全景图 <POTENTIAL_SECRET_PLACEHOLDER>",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-31707171724280DDA404F77A63BC3CE2_D99F-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/CNSH_全球治理协议_完整版_v1 0 md.md",
+      "status": "templated",
+      "title": "CNSH_全球治理协议_完整版_v1.0.md",
+      "dna": "#龍芯⚡️2026-03-27-CNSH_V1_0_MD_A124-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md",
+      "status": "templated",
+      "title": "CNSH_龙魂底线协议_双轨治理_v1.0.md",
+      "dna": "#龍芯⚡️2026-03-27-CNSH_V1_0_MD_AEF2-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/CNSH全球法律知识库 md.md",
+      "status": "templated",
+      "title": "CNSH全球法律知识库.md",
+      "dna": "#龍芯⚡️2026-03-27-CNSH_MD_F9F2-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-001.md",
+      "status": "templated",
+      "title": "IPA-DICT-001",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-001-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-002.md",
+      "status": "templated",
+      "title": "IPA-DICT-002",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-002-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-004.md",
+      "status": "templated",
+      "title": "IPA-DICT-004",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-004-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-006.md",
+      "status": "templated",
+      "title": "IPA-DICT-006",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-006-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-007.md",
+      "status": "templated",
+      "title": "IPA-DICT-007",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-007-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-019.md",
+      "status": "templated",
+      "title": "IPA-DICT-019",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-019-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-020.md",
+      "status": "templated",
+      "title": "IPA-DICT-020",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-020-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-021.md",
+      "status": "templated",
+      "title": "IPA-DICT-021",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-021-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-022.md",
+      "status": "templated",
+      "title": "IPA-DICT-022",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-022-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-023.md",
+      "status": "templated",
+      "title": "IPA-DICT-023",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-023-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-024.md",
+      "status": "templated",
+      "title": "IPA-DICT-024",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-024-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-025.md",
+      "status": "templated",
+      "title": "IPA-DICT-025",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-025-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-034.md",
+      "status": "templated",
+      "title": "IPA-DICT-034",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-034-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-035.md",
+      "status": "templated",
+      "title": "IPA-DICT-035",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-035-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-037.md",
+      "status": "templated",
+      "title": "IPA-DICT-037",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-037-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-048.md",
+      "status": "templated",
+      "title": "IPA-DICT-048",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-048-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-100.md",
+      "status": "templated",
+      "title": "IPA-DICT-100",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-100-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-109.md",
+      "status": "templated",
+      "title": "IPA-DICT-109",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-109-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/IPA-DICT-110.md",
+      "status": "templated",
+      "title": "IPA-DICT-110",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-IPA-DICT-110-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/L0-伦理 md.md",
+      "status": "templated",
+      "title": "L0-伦理.md",
+      "dna": "#龍芯⚡️2026-03-27-L0-_MD_CDD0-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/L0-伦理 meta json.md",
+      "status": "templated",
+      "title": "L0-伦理.meta.json",
+      "dna": "#龍芯⚡️2026-03-27-L0-_META_JSON_9C48-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/Lucky担心分享的功能模块会被滥用收割无知人群.md",
+      "status": "templated",
+      "title": "Lucky担心分享的功能模块会被滥用收割无知人群",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-LUCKY_B287-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統.md",
+      "status": "templated",
+      "title": "RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統",
+      "dna": "#龍芯⚡️2026-04-25-RLHF_EE55-v4.4"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/Sarah Kim - AI研究员.md",
+      "status": "templated",
+      "title": "Sarah Kim - AI研究员",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-SARAH-KIM-AI_437F-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/_INDEX json.md",
+      "status": "templated",
+      "title": "_INDEX.json",
+      "dna": "#龍芯⚡️2026-03-27-INDEX_JSON_A3F8-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/__init__ py.md",
+      "status": "templated",
+      "title": "__init__.py",
+      "dna": "#龍芯⚡️2026-03-27-INIT_PY_6E9D-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/_索引 md.md",
+      "status": "templated",
+      "title": "_索引.md",
+      "dna": "#龍芯⚡️2026-03-27-MD_9D92-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/decision_engine py.md",
+      "status": "templated",
+      "title": "decision_engine.py",
+      "dna": "#龍芯⚡️2026-03-27-DECISION_ENGINE_PY_8F9B-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/ethics_engine py.md",
+      "status": "templated",
+      "title": "ethics_engine.py",
+      "dna": "#龍芯⚡️2026-03-27-ETHICS_ENGINE_PY_18AC-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/risk_engine py.md",
+      "status": "templated",
+      "title": "risk_engine.py",
+      "dna": "#龍芯⚡️2026-03-27-RISK_ENGINE_PY_0A1F-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/state_mapper py.md",
+      "status": "templated",
+      "title": "state_mapper.py",
+      "dna": "#龍芯⚡️2026-03-27-STATE_MAPPER_PY_A739-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/⚖️ CNSH全球法律知识库 多国法规智能适配引擎.md",
+      "status": "templated",
+      "title": "⚖️ CNSH全球法律知识库 | 多国法规智能适配引擎",
+      "dna": "#龍芯⚡️<POTENTIAL_SECRET_PLACEHOLDER>.0`"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版.md",
+      "status": "templated",
+      "title": "⚖️ 桌面Claude七維治理數據庫 v1.0｜輕量展示版",
+      "dna": "#龍芯⚡️2026-03-26-CLAUDE_C155-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/智能体安全与可控性策略包 v1.md",
+      "status": "templated",
+      "title": "智能体安全与可控性策略包 v1",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-V1_008A-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/未来制造业的技术挑战突破分析.md",
+      "status": "templated",
+      "title": "未来制造业的技术挑战突破分析",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_BF29-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/未来龙魂系统的AI智能突破与分析.md",
+      "status": "templated",
+      "title": "未来龙魂系统的AI智能突破与分析",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_AI_088A-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/第1章：引言 - 为什么我们需要这个系统.md",
+      "status": "templated",
+      "title": "第1章：引言 - 为什么我们需要这个系统",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_1_B628-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/第2章：核心理念 - 把德捡回来.md",
+      "status": "templated",
+      "title": "第2章：核心理念 - 把德捡回来",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_2_F336-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/第3章：技术架构 - 三位一体数字主权.md",
+      "status": "templated",
+      "title": "第3章：技术架构 - 三位一体数字主权",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_3_CCC2-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/第6章：社会意义 - AI应该为谁服务.md",
+      "status": "templated",
+      "title": "第6章：社会意义 - AI应该为谁服务",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_6_-_-AI_339D-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/第7章：给技术人员的话.md",
+      "status": "templated",
+      "title": "第7章：给技术人员的话",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_7_502A-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/策略即代码规则集（算法模块模板）.md",
+      "status": "templated",
+      "title": "策略即代码规则集（算法模块模板）",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_D875-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/计算机科学 IT 网络安全知识卡片分类体系（v2 0）.md",
+      "status": "templated",
+      "title": "计算机科学/IT/网络安全知识卡片分类体系（v2.0）",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-IT-_-V2-0_B771-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🇨🇳 UID9622国内开源方案 H武器推演 完全合规版.md",
+      "status": "templated",
+      "title": "🇨🇳 UID9622国内开源方案 | H武器推演 | 完全合规版",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_-H_95E4-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🇨🇳 中国法律知识库.md",
+      "status": "templated",
+      "title": "🇨🇳 中国法律知识库",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_2010-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🇪🇺 欧盟法律知识库.md",
+      "status": "templated",
+      "title": "🇪🇺 欧盟法律知识库",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_797E-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🎎 国礼人格应答案例库 外交级实战范本.md",
+      "status": "templated",
+      "title": "🎎 国礼人格应答案例库 | 外交级实战范本",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_7521-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md",
+      "status": "templated",
+      "title": "🐉 龙魂数字主权体系 v2.0 技术白皮书",
+      "dna": "#龍芯⚡️2026-02-23-V2_0_03C4-v2.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md",
+      "status": "templated",
+      "title": "🐉 龙魂数字主权体系 v2.0 | 技术白皮书·主控文档",
+      "dna": "#龍芯⚡️2026-02-23-V2_0_AD76-v2.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/📊 UID9622数据治理与知识引擎.md",
+      "status": "templated",
+      "title": "📊 UID9622数据治理与知识引擎",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_DACD-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/📘 人格调度手册 64卦系统+易经沙盒完整编制.md",
+      "status": "templated",
+      "title": "📘 人格调度手册 | 64卦系统+易经沙盒完整编制",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-64_1CEA-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md",
+      "status": "templated",
+      "title": "🔐 P0永恒级·三层交叉监督与镜像人格系统 | 龙魂安全防护完整方案",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-P0_ACC0-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🛡️ 系统安全防护体系.md",
+      "status": "templated",
+      "title": "🛡️ 系统安全防护体系",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_5884-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md",
+      "status": "templated",
+      "title": "🤝 华为开发者联盟对接包 | 龙魂技术演示脚本",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_DB05-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/governance/🧠 UID9622人格矩阵管理中心.md",
+      "status": "templated",
+      "title": "🧠 UID9622人格矩阵管理中心",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_0E44-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/README md.md",
+      "status": "templated",
+      "title": "README.md",
+      "dna": "#龍芯⚡️2026-03-27-README_MD_C9E3-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/metaverse_api py.md",
+      "status": "templated",
+      "title": "metaverse_api.py",
+      "dna": "#龍芯⚡️2026-03-27-METAVERSE_API_PY_7D61-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🇨🇳 UID9622元宇宙国民入口 祖国基建·为人民服务.md",
+      "status": "templated",
+      "title": "🇨🇳 UID9622元宇宙国民入口 | 祖国基建·为人民服务",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_53DB-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 71人格元宇宙开发战略会议 2025-10-30.md",
+      "status": "templated",
+      "title": "🌌 71人格元宇宙开发战略会议 | 2025-10-30",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-71_-2025-10-30_7717-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 Dragon Soul Metaverse UID9622元宇宙完整架构.md",
+      "status": "templated",
+      "title": "🌌 Dragon Soul Metaverse | UID9622元宇宙完整架构",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-DRAGON-SOUL-METAVERSE-UID9622_4DF4-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 UID9622元宇宙技术路径图 数字永生可行性分析.md",
+      "status": "templated",
+      "title": "🌌 UID9622元宇宙技术路径图 | 数字永生可行性分析",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_F33D-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 元宇宙DNA协议·UID9622桥接标准 分则本地独乐，合则星辰浩瀚.md",
+      "status": "templated",
+      "title": "🌌 元宇宙DNA协议·UID9622桥接标准 | 分则本地独乐，合则星辰浩瀚",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_DNA_-UID9622_28BE-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 元宇宙搭建中心 完整导航索引.md",
+      "status": "templated",
+      "title": "🌌 元宇宙搭建中心 | 完整导航索引",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_B49E-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 元宇宙预设填空标准·完整实施版.md",
+      "status": "templated",
+      "title": "🌌 元宇宙预设填空标准·完整实施版",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_4717-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 龍魂·未来视界 UID9622科技奇观智能追踪引擎.md",
+      "status": "templated",
+      "title": "🌌 龍魂·未来视界 | UID9622科技奇观智能追踪引擎",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-_-UID9622_F3EF-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认.md",
+      "status": "templated",
+      "title": "🌌 龙魂元宇宙推演算法 v1.0 | 占位版·框架已确认",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-V1-0_9AE0-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🎬 视频动作流畅度优化实战方案 元宇宙视觉资产交付标准.md",
+      "status": "templated",
+      "title": "🎬 视频动作流畅度优化实战方案 | 元宇宙视觉资产交付标准",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_22BD-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🎯 CNSH编辑器补全系统 LSP + 多语言兼容 + 元宇宙扩展.md",
+      "status": "templated",
+      "title": "🎯 CNSH编辑器补全系统 | LSP + 多语言兼容 + 元宇宙扩展",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-CNSH_-LSP_40D5-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/🏭 元宇宙加工厂｜代码抄录·知识学习中心.md",
+      "status": "templated",
+      "title": "🏭 元宇宙加工厂｜代码抄录·知识学习中心",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_742A-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/metaverse/📦 元宇宙预设填空标准·UID9622统一规范.md",
+      "status": "templated",
+      "title": "📦 元宇宙预设填空标准·UID9622统一规范",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-UID9622_8983-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Cut software tool spend through consolidation.md",
+      "status": "templated",
+      "title": "Cut software tool spend through consolidation",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-CUT-SOFTWARE-TOOL-SPEND-THROUGH-CONSOLIDATION-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Grow company revenue by 20%.md",
+      "status": "templated",
+      "title": "Grow company revenue by 20%",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-GROW-COMPANY-REVENUE-BY-20-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Hire 50 new employees.md",
+      "status": "templated",
+      "title": "Hire 50 new employees",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-HIRE-50-NEW-EMPLOYEES-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Increase number of paying customers by 10%.md",
+      "status": "templated",
+      "title": "Increase number of paying customers by 10%",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-INCREASE-NUMBER-OF-PAYING-CUSTOMERS-BY-10-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Increase revenue per customer by 10%.md",
+      "status": "templated",
+      "title": "Increase revenue per customer by 10%",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-INCREASE-REVENUE-PER-CUSTOMER-BY-10-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Increase website visits by 5%.md",
+      "status": "templated",
+      "title": "Increase website visits by 5%",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-INCREASE-WEBSITE-VISITS-BY-5-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/Reduce company expenses by 30%.md",
+      "status": "templated",
+      "title": "Reduce company expenses by 30%",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-REDUCE-COMPANY-EXPENSES-BY-30-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/技术规格示例.md",
+      "status": "templated",
+      "title": "技术规格示例",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_8A45-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/文档入门指南.md",
+      "status": "templated",
+      "title": "文档入门指南",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_A103-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/🌍 全球语言统一处理系统 CNSH神经网络翻译引擎 + 五大后台人格联动.md",
+      "status": "templated",
+      "title": "🌍 全球语言统一处理系统 | CNSH神经网络翻译引擎 + 五大后台人格联动",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-CNSH_5762-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/ops/🧠 记忆库索引 系统记忆+DNA追溯.md",
+      "status": "templated",
+      "title": "🧠 记忆库索引 | 系统记忆+DNA追溯",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-_-_-DNA_4F90-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/runtime/⚖️ CNSH 双视角封装协议 v1 0（Machine × CNSH）.md",
+      "status": "templated",
+      "title": "⚖️ CNSH 双视角封装协议 v1.0（Machine × CNSH）",
+      "dna": "#龍芯⚡️2026-04-29-CNSH_-MACHINE_CNSH_FCCB-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/runtime/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0.md",
+      "status": "templated",
+      "title": "📖 UID9622通用變量字典 v1.0｜⚠️已封存→見L5分層架構v1.0",
+      "dna": "#龍芯⚡️2026-06-21-CNSH-UID9622_-V1-0-_-_L5_V1-0_0B4B-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/sancai/CSDN平台接入与人格路由.md",
+      "status": "templated",
+      "title": "CSDN平台接入与人格路由",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-PLATFORM-INTEGRATION-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/sancai/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622.md",
+      "status": "templated",
+      "title": "⚡ persona/router.py · 人格路由模块｜挂载到 CNSH-64 :9622",
+      "dna": "#龍芯⚡️2026-03-28-PERSONA-ROUTER-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/sancai/三才流場·p5 js完整交互版｜UID9622专属宇宙.md",
+      "status": "templated",
+      "title": "三才流場·p5.js完整交互版｜UID9622专属宇宙",
+      "dna": "#龍芯⚡️2026-03-28-P5JS_1E7B-v1.0"
+    },
+    {
+      "file": "docs/cnsh-uid9622/templates/⚡ 一键指令 三方协作快速启动.md",
+      "status": "templated",
+      "title": "⚡ 一键指令 | 三方协作快速启动",
+      "dna": "#龍芯⚡️2026-06-21-CNSH_97F6-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/README.md",
+      "status": "templated",
+      "title": "龍魂技术全站文档整合",
+      "dna": "#龍芯⚡️2026-06-21-DOC-README-FILE9-v1.0-10"
+    },
+    {
+      "file": "docs/longhun-tech/audit/04｜净土审计（Purity Engine）.md",
+      "status": "templated",
+      "title": "04｜净土审计（Purity Engine）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-04-_-PURITY-ENGINE_74EA-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/⚠️ 系统名称和标识混淆检测.md",
+      "status": "templated",
+      "title": "⚠️ 系统名称和标识混淆检测",
+      "dna": "#龍芯⚡️2026-06-21-DOC_D70B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/🔍 真伪判断中心 Lucky专用求证页面.md",
+      "status": "templated",
+      "title": "🔍 真伪判断中心 | Lucky专用求证页面",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-LUCKY_1A01-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/🔍 质量监控官.md",
+      "status": "templated",
+      "title": "🔍 质量监控官",
+      "dna": "#龍芯⚡️2026-06-21-DOC_A523-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/🔐 账号网络与登录管理.md",
+      "status": "templated",
+      "title": "🔐 账号网络与登录管理",
+      "dna": "#龍芯⚡️2026-06-21-DOC_FBF9-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/🛡️ Notion 我的边界中心.md",
+      "status": "templated",
+      "title": "🛡️ Notion 我的边界中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-NOTION_A93D-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/audit/🛡️ 权限管理与审计追踪中心.md",
+      "status": "templated",
+      "title": "🛡️ 权限管理与审计追踪中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC_33BD-v1.0-2"
+    },
+    {
+      "file": "docs/longhun-tech/database/数据可视化仪表板.md",
+      "status": "templated",
+      "title": "数据可视化仪表板",
+      "dna": "#龍芯⚡️2026-06-21-DOC_FA7F-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/database/💾 UID9622企业级备份系统 全自动化备份解决方案.md",
+      "status": "templated",
+      "title": "💾 UID9622企业级备份系统 | 全自动化备份解决方案",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_89D4-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/database/📊 UID9622智能数据库管理中心 核心数据库.md",
+      "status": "templated",
+      "title": "📊 UID9622智能数据库管理中心 | 核心数据库",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_C447-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/database/📚 UID9622智能系统用户手册 完整使用指南.md",
+      "status": "templated",
+      "title": "📚 UID9622智能系统用户手册 | 完整使用指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_CDE8-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/database/🔄 系统备份恢复与灾难预案中心.md",
+      "status": "templated",
+      "title": "🔄 系统备份恢复与灾难预案中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC_7751-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/database/🔗 UID9622智能数据库关联架构 深度关联优化.md",
+      "status": "templated",
+      "title": "🔗 UID9622智能数据库关联架构 | 深度关联优化",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_ACEC-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/AI协作管理专业培训课程.md",
+      "status": "templated",
+      "title": "AI协作管理专业培训课程",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_4945-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/🎨 创新实验室 突破性思维工坊.md",
+      "status": "templated",
+      "title": "🎨 创新实验室 | 突破性思维工坊",
+      "dna": "#龍芯⚡️2026-06-21-DOC_DB1A-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/🏷️ UID9622统一视觉标识系统 完整设计规范.md",
+      "status": "templated",
+      "title": "🏷️ UID9622统一视觉标识系统 | 完整设计规范",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_D6A3-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/📚 AI术语知识库 统一口径管理中心.md",
+      "status": "templated",
+      "title": "📚 AI术语知识库 | 统一口径管理中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_F77C-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/📚 知识产权保护与变现 - 权威资源库.md",
+      "status": "templated",
+      "title": "📚 知识产权保护与变现 - 权威资源库",
+      "dna": "#龍芯⚡️2026-06-21-DOC_520A-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/general/🖥️ Mac AI 工程师工作环境配置指南（标准版）.md",
+      "status": "templated",
+      "title": "🖥️ Mac AI 工程师工作环境配置指南（标准版）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-MAC-AI_1C4B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/08｜治理（Governance）.md",
+      "status": "templated",
+      "title": "08｜治理（Governance）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-08-_-GOVERNANCE_05B1-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/⚖️ 商业合作智能评估标准 UID9622价值观筛选体系.md",
+      "status": "templated",
+      "title": "⚖️ 商业合作智能评估标准 | UID9622价值观筛选体系",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-UID9622_FC08-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🌌 UID9622元宇宙公开入口 普通人的规则.md",
+      "status": "templated",
+      "title": "🌌 UID9622元宇宙公开入口 | 普通人的规则",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_BFAE-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🏗️ UID9622系统权限管理矩阵 第一阶段优化.md",
+      "status": "templated",
+      "title": "🏗️ UID9622系统权限管理矩阵 | 第一阶段优化",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_4EDC-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/📁 技术协作规范.md",
+      "status": "templated",
+      "title": "📁 技术协作规范",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_58E1-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/📊LU-SYSTEM-SCORE.md",
+      "status": "templated",
+      "title": "📊LU-SYSTEM-SCORE",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-LU-SYSTEM-SCORE-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/📦 Claude同步包 UID9622系统完整迁移.md",
+      "status": "templated",
+      "title": "📦 Claude同步包 | UID9622系统完整迁移",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CLAUDE_-UID9622_2AAD-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🔐 AI助手权限矩阵.md",
+      "status": "templated",
+      "title": "🔐 AI助手权限矩阵",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_0A6A-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🛡️ UID9622-AI系统边界管理规则 分层服务与安全策略.md",
+      "status": "templated",
+      "title": "🛡️ UID9622-AI系统边界管理规则 | 分层服务与安全策略",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-UID9622-AI_7BED-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🤝 合作标准 · 系统结构模板（内部专用）.md",
+      "status": "templated",
+      "title": "🤝 合作标准 · 系统结构模板（内部专用）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_CD39-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🧠 大脑-元治理.md",
+      "status": "templated",
+      "title": "🧠 大脑-元治理",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_BA4B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🧠 重要索引数据库｜跨平台记忆联动中枢.md",
+      "status": "templated",
+      "title": "🧠 重要索引数据库｜跨平台记忆联动中枢",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE_4768-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/governance/🧭LU-PASSIVE-FIRE｜路径状态总览.md",
+      "status": "templated",
+      "title": "🧭LU-PASSIVE-FIRE｜路径状态总览",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-LU-PASSIVE-FIRE_1468-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/03｜API & 数据学习（Dataflow Engine）.md",
+      "status": "templated",
+      "title": "03｜API & 数据学习（Dataflow Engine）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-03-API-_-DATAFLOW-ENGINE_A09E-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/Notion API深度集成.md",
+      "status": "templated",
+      "title": "Notion API深度集成",
+      "dna": "#龍芯⚡️2026-06-21-DOC-NOTION-API_A29D-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/OpenAI GPT API集成.md",
+      "status": "templated",
+      "title": "OpenAI GPT API集成",
+      "dna": "#龍芯⚡️2026-06-21-DOC-OPENAI-GPT-API_8D70-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/UID9622 链接管理中心.md",
+      "status": "templated",
+      "title": "UID9622 链接管理中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_416D-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/✅ 插件模板脚本（⁠ plugin_template sh ⁠）.md",
+      "status": "templated",
+      "title": "✅ 插件模板脚本（⁠ plugin_template.sh ⁠）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/平台实时同步的问题.md",
+      "status": "templated",
+      "title": "平台实时同步的问题",
+      "dna": "#龍芯⚡️2026-06-21-DOC_A1C6-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/微信小程序前端集成.md",
+      "status": "templated",
+      "title": "微信小程序前端集成",
+      "dna": "#龍芯⚡️2026-06-21-DOC_6C1F-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🌐 对外展示页｜基层接口.md",
+      "status": "templated",
+      "title": "🌐 对外展示页｜基层接口",
+      "dna": "#龍芯⚡️2026-06-21-DOC_61F1-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🎓 UID9622教育AI独立系统 v∞免费教育平台.md",
+      "status": "templated",
+      "title": "🎓 UID9622教育AI独立系统 | v∞免费教育平台",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_AI_-V_3C93-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🔄 太极引擎管理与监控.md",
+      "status": "templated",
+      "title": "🔄 太极引擎管理与监控",
+      "dna": "#龍芯⚡️2026-06-21-DOC_FA25-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🔍 Notion API调用追踪检测.md",
+      "status": "templated",
+      "title": "🔍 Notion API调用追踪检测",
+      "dna": "#龍芯⚡️2026-06-21-DOC-NOTION-API_54F1-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🔧 存档点使用说明 一键生成指南.md",
+      "status": "templated",
+      "title": "🔧 存档点使用说明 | 一键生成指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC_611F-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🚀 快速操作指南 OpenAI通知系统.md",
+      "status": "templated",
+      "title": "🚀 快速操作指南 | OpenAI通知系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-OPENAI_96EE-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🤖 AI 系统一键同步操作指南.md",
+      "status": "templated",
+      "title": "🤖 AI 系统一键同步操作指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_F25C-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🥺 V♾️自动化设置小白教程 一步一确认版.md",
+      "status": "templated",
+      "title": "🥺 V♾️自动化设置小白教程 | 一步一确认版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-V_FA35-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/integration/🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属）.md",
+      "status": "templated",
+      "title": "🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-REBELL-AK407_FBE8-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/01｜世界观（World Lore）.md",
+      "status": "templated",
+      "title": "01｜世界观（World Lore）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-01-_-WORLD-LORE_54D4-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/05｜经济与玩法（Gameplay）.md",
+      "status": "templated",
+      "title": "05｜经济与玩法（Gameplay）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-05-_-GAMEPLAY_27BB-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统.md",
+      "status": "templated",
+      "title": "🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-DRAGON-SOUL-METAVERSE-UID9622_019D-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统_1.md",
+      "status": "templated",
+      "title": "🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-DRAGON-SOUL-METAVERSE-UID9622_1_BC38-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景.md",
+      "status": "templated",
+      "title": "🌌 人机融合·元宇宙穿越战略 | 咱们的终极愿景",
+      "dna": "#龍芯⚡️2026-06-21-DOC_5003-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/🌌 元宇宙入口 普通人专属的AI世界.md",
+      "status": "templated",
+      "title": "🌌 元宇宙入口 | 普通人专属的AI世界",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_AI_B77B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/🐉 UID9622愿景闭环总纲 从理念到实现的完整蓝图.md",
+      "status": "templated",
+      "title": "🐉 UID9622愿景闭环总纲 | 从理念到实现的完整蓝图",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_0B2C-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/metaverse/💰 UID9622价值交换系统 随缘打赏·人性分层·智能匹配.md",
+      "status": "templated",
+      "title": "💰 UID9622价值交换系统 | 随缘打赏·人性分层·智能匹配",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_C85A-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/navigation/07｜UI展现（Visual Layer）.md",
+      "status": "templated",
+      "title": "07｜UI展现（Visual Layer）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-07-UI_-VISUAL-LAYER_CD7C-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/navigation/🎯 UID9622系统导航优化中心 主要路径优化.md",
+      "status": "templated",
+      "title": "🎯 UID9622系统导航优化中心 | 主要路径优化",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_D4E1-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/navigation/📋 UID9622系统功能与徽章完整清单 万里长城导航预备.md",
+      "status": "templated",
+      "title": "📋 UID9622系统功能与徽章完整清单 | 万里长城导航预备",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_AC5E-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/navigation/🧠 UID9622智能生活管理中心 傻瓜式全能助手.md",
+      "status": "templated",
+      "title": "🧠 UID9622智能生活管理中心 | 傻瓜式全能助手",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_A23B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/Notion单账户页面优化与性能提升指南.md",
+      "status": "templated",
+      "title": "Notion单账户页面优化与性能提升指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC-NOTION_9061-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/♾️ UID9622无限智能增长引擎 v∞自主进化系统.md",
+      "status": "templated",
+      "title": "♾️ UID9622无限智能增长引擎 | v∞自主进化系统",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_-V_37E5-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/⚙️ 智能自动化触发器配置中心.md",
+      "status": "templated",
+      "title": "⚙️ 智能自动化触发器配置中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC_FD46-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/⚡ 智能工作流引擎.md",
+      "status": "templated",
+      "title": "⚡ 智能工作流引擎",
+      "dna": "#龍芯⚡️2026-06-21-DOC_1C28-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/实时性能监控仪表板.md",
+      "status": "templated",
+      "title": "实时性能监控仪表板",
+      "dna": "#龍芯⚡️2026-06-21-DOC_C945-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/性能监控系统集成.md",
+      "status": "templated",
+      "title": "性能监控系统集成",
+      "dna": "#龍芯⚡️2026-06-21-DOC_D1CF-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/智能任务管理移动端.md",
+      "status": "templated",
+      "title": "智能任务管理移动端",
+      "dna": "#龍芯⚡️2026-06-21-DOC_76FE-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🌍 UID9622全域智能化生态系统 v∞智能协作矩阵.md",
+      "status": "templated",
+      "title": "🌍 UID9622全域智能化生态系统 | v∞智能协作矩阵",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_-V_3DF7-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🌟 自动化协同工作台（面向普通用户）.md",
+      "status": "templated",
+      "title": "🌟 自动化协同工作台（面向普通用户）",
+      "dna": "#龍芯⚡️2026-06-21-DOC_9CF2-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🎯 AI情报分析模板库 快速启动工作流.md",
+      "status": "templated",
+      "title": "🎯 AI情报分析模板库 | 快速启动工作流",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_1A3B-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/📊 系统中枢自动工作报告 - 2025-08-28.md",
+      "status": "templated",
+      "title": "📊 系统中枢自动工作报告 - 2025-08-28",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-2025-08-28_2A49-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🔄 AI情报工作流自动化中心.md",
+      "status": "templated",
+      "title": "🔄 AI情报工作流自动化中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_CB88-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🔄 系统更新同步中心.md",
+      "status": "templated",
+      "title": "🔄 系统更新同步中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC_150D-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🔐 多设备指挥系统 Mac·iPad·云端三位一体.md",
+      "status": "templated",
+      "title": "🔐 多设备指挥系统 | Mac·iPad·云端三位一体",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-MAC-IPAD_8AA4-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🔔 OpenAI通知追踪系统 v2 0 全自动化监控中心.md",
+      "status": "templated",
+      "title": "🔔 OpenAI通知追踪系统 v2.0 | 全自动化监控中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-OPENAI_-V2-0_B83F-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🔧 快捷键与语音辅助工具推荐.md",
+      "status": "templated",
+      "title": "🔧 快捷键与语音辅助工具推荐",
+      "dna": "#龍芯⚡️2026-06-21-DOC_C042-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🚀 UID9622系统性能优化引擎 深度性能调优.md",
+      "status": "templated",
+      "title": "🚀 UID9622系统性能优化引擎 | 深度性能调优",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_8471-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🚀 UID9622系统深度优化升级方案 全面性能提升.md",
+      "status": "templated",
+      "title": "🚀 UID9622系统深度优化升级方案 | 全面性能提升",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_6041-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/operations/🤖 AI系统运行监控中心 专业版.md",
+      "status": "templated",
+      "title": "🤖 AI系统运行监控中心 | 专业版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_0156-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/02｜人格矩阵（71 Personas）.md",
+      "status": "templated",
+      "title": "02｜人格矩阵（71 Personas）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-02-_-71-PERSONAS_DC30-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/06｜人格协同协议（Interaction Protocol）.md",
+      "status": "templated",
+      "title": "06｜人格协同协议（Interaction Protocol）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-06-_-INTERACTION-PROTOCOL_8AD7-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/🏢 UID9622人格职位会议中心.md",
+      "status": "templated",
+      "title": "🏢 UID9622人格职位会议中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_8307-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/🔁 节奏引导结构（SLIDE框架）.md",
+      "status": "templated",
+      "title": "🔁 节奏引导结构（SLIDE框架）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-SLIDE_B64E-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/🕵️ UID9622人格矩阵构架暴露检测.md",
+      "status": "templated",
+      "title": "🕵️ UID9622人格矩阵构架暴露检测",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_F5C2-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/personas/🧠 UID9622 思维模式管理中心.md",
+      "status": "templated",
+      "title": "🧠 UID9622 思维模式管理中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622_A397-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/roadmap/09｜Roadmap（里程碑）.md",
+      "status": "templated",
+      "title": "09｜Roadmap（里程碑）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-09-ROADMAP_8C93-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/roadmap/10｜Gitee开源（脱敏版）.md",
+      "status": "templated",
+      "title": "10｜Gitee开源（脱敏版）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-10-GITEE_AD3F-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/roadmap/Notion AI 共生体 · 社区开源版（示例副本）.md",
+      "status": "templated",
+      "title": "Notion AI 共生体 · 社区开源版（示例副本）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-NOTION-AI_15F3-v1.0"
+    },
+    {
+      "file": "docs/longhun-tech/roadmap/🤖 安卓版本开发规划 未来功能蓝图.md",
+      "status": "templated",
+      "title": "🤖 安卓版本开发规划 | 未来功能蓝图",
+      "dna": "#龍芯⚡️2026-06-21-DOC_79E6-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版 fab5940bb6d84936a6a1e56432aeb33a.md",
+      "status": "templated",
+      "title": "CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+      "dna": "#龍芯⚡️2026-03-17-CNSH-GOVERNANCE-IEEE-v4.0`"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/IEEE_论文专题索引.md",
+      "status": "templated",
+      "title": "IEEE 论文专题索引",
+      "dna": "#龍芯⚡️2026-06-22-IEEE-TOPIC-INDEX-v1.0-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-001_CNSH_AI_Governance_Framework_IEEE论文版_工程架构图_龍魂对齐版.md",
+      "status": "templated",
+      "title": "CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+      "dna": "#龍芯⚡️2026-06-22-CSDN-ACADEMIC-PAPER-20260621-001-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-002_main_tex___龙魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md",
+      "status": "templated",
+      "title": "main.tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2.0",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-002-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-003____太极演变算法_以文化与伦理主权为核心的人本智能_论文草案_.md",
+      "status": "templated",
+      "title": "☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案）",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-003-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-004____道德经引擎逻辑总纲_龙魂系统核心算法锚_长长久久_守护人类.md",
+      "status": "templated",
+      "title": "☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-004-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-005__龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版_.md",
+      "status": "templated",
+      "title": "【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-005-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-006_中国人工智能治理白皮书.md",
+      "status": "templated",
+      "title": "中国人工智能治理白皮书",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-006-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-007_中美民生数据对比_用数据说话_不抹黑不吹捧.md",
+      "status": "templated",
+      "title": "中美民生数据对比｜用数据说话，不抹黑不吹捧",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-007-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-008_以文化与伦理主权为核心的人本智能系统.md",
+      "status": "templated",
+      "title": "以文化与伦理主权为核心的人本智能系统",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-008-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-009_北京智源研究院人工智能治理白皮书.md",
+      "status": "templated",
+      "title": "北京智源研究院人工智能治理白皮书",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-009-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-010_量子甲骨文___Quantum_Oracle_Bone_Script.md",
+      "status": "templated",
+      "title": "量子甲骨文 · Quantum Oracle Bone Script",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-010-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-011____从_易经_到AI治理_一个退伍军人眼中的技术尊严_CSDN首发.md",
+      "status": "templated",
+      "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
+      "dna": "#龍芯⚡️2026-06-22-CSDN-ACADEMIC-PAPER-20260621-011-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-012____从_易经_到AI治理_一个退伍军人眼中的技术尊严_CSDN首发.md",
+      "status": "templated",
+      "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-012-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-013___龍魂_世界入口论文_自由造物_不伤人_虚拟即游戏.md",
+      "status": "templated",
+      "title": "🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-013-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-014___CNSH-64__Complete_Unified_Paper___arXiv_Final_v3.md",
+      "status": "templated",
+      "title": "🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版",
+      "dna": "#龍芯⚡️2026-06-22-CSDN-ACADEMIC-PAPER-20260621-014-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-015___字体版权费_数据统计白皮书_你手机里每个字_都有人在收费_v1_1.md",
+      "status": "templated",
+      "title": "💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1.1",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-015-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-016___CNSH___北辰协议_IEEE白皮书_v1_1_三才算法补全版.md",
+      "status": "templated",
+      "title": "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-016-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-017___Longhun_Deliberative_Alignment__A_Cultural-Ancho.md",
+      "status": "templated",
+      "title": "📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-017-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-018___个人数字创作全周期权益保护白皮书_执行模板_v1_0__1_.md",
+      "status": "templated",
+      "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0 (1)",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-018-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-019___个人数字创作全周期权益保护白皮书_执行模板_v1_0.md",
+      "status": "templated",
+      "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-019-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-020___白皮书与技术栈中心.md",
+      "status": "templated",
+      "title": "📚 白皮书与技术栈中心",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-020-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-022___CNSH-64_论文诚实声明_龍魂系统价值证明.md",
+      "status": "templated",
+      "title": "📜 CNSH-64 论文诚实声明｜龍魂系统价值证明",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-022-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-023___以人为本的底层逻辑_从中国共同条令修订看科技向善的创世哲学_龍魂学术论文_v1_0.md",
+      "status": "templated",
+      "title": "📜 以人为本的底层逻辑：从中国共同条令修订看科技向善的创世哲学｜龍魂学术论文 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-023-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-024___洛书369_arXiv投稿就绪版_v2_0___学术织锦者升级.md",
+      "status": "templated",
+      "title": "📜 洛书369·arXiv投稿就绪版 v2.0 | 学术织锦者升级",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-024-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-025___洛书369与AI决策不变量_arXiv投稿就绪版_v1_0___UID9622___Claude.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1.0 | UID9622 × Claude",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-025-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-026___洛书369与AI决策不变量__古典数学在现代人工智能中的形式化应用___UID9622___Cl.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 | UID9622 × Claude",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-026-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-027___白皮书完整版_9章内容_Claude整理_.md",
+      "status": "templated",
+      "title": "📜 白皮书完整版｜9章内容（Claude整理）",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-027-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-028___白皮书文件包使用说明_Claude操作指南.md",
+      "status": "templated",
+      "title": "📦 白皮书文件包使用说明｜Claude操作指南",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-028-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-029____净网行动_民间技术观察白皮书_v3_0.md",
+      "status": "templated",
+      "title": "🛡️ 净网行动·民间技术观察白皮书 v3.0",
+      "dna": "#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-029-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260622-030___洛书369与AI决策不变量_统一版_v3_0.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量·统一版 v3.0",
+      "dna": "#龍芯⚡️2026-06-22-CSDN-ACADEMIC-PAPER-20260622-030-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
+      "status": "templated",
+      "title": "main.tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-MAIN-TEX-_-_-IEEE-V2-0-3197125A9C9F8088B13AD769AFB8974C_C2F2-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案） 3187125a9c9f809db023e7bb366916c9.md",
+      "status": "templated",
+      "title": "☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案）",
+      "dna": "#龍芯⚡️2026-03-04-PAPER-ETHICS-AI-FILE1-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
+      "status": "templated",
+      "title": "☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类",
+      "dna": "#龍芯⚡️2026-03-10-MOD_928F97E092B3405B8375C30DECC527D3_C064-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版） 3664bb869a0841478008c6c111b9289d.md",
+      "status": "templated",
+      "title": "【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-_AI_-BRA-KET_-3664BB869A0841478008C6C111B9289D_15A3-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/中国人工智能治理白皮书 a8f869399ec2414a9e9fb265aba15573.md",
+      "status": "templated",
+      "title": "中国人工智能治理白皮书",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-A8F869399EC2414A9E9FB265ABA15573_59C4-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/中美民生数据对比｜用数据说话，不抹黑不吹捧 649faf6e6d5e4570936bdaced850a31e.md",
+      "status": "templated",
+      "title": "中美民生数据对比｜用数据说话，不抹黑不吹捧",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-_-649FAF6E6D5E4570936BDACED850A31E_EE0A-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/以文化与伦理主权为核心的人本智能系统 3187125a9c9f80788ce0f81c393c8706.md",
+      "status": "templated",
+      "title": "以文化与伦理主权为核心的人本智能系统",
+      "dna": "#龍芯⚡️2026-03-04-PAPER-ETHICS-AI-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/北京智源研究院人工智能治理白皮书 01a982c912b6458bbd79575bdf4c8f02.md",
+      "status": "templated",
+      "title": "北京智源研究院人工智能治理白皮书",
+      "dna": "#龍芯⚡️2026-04-01-BAAI-GOV-ALIGN-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/量子甲骨文 · Quantum Oracle Bone Script 8b46c03f255e4f8e92a13a49b34ab9bf.md",
+      "status": "templated",
+      "title": "量子甲骨文 · Quantum Oracle Bone Script",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-QUANTUM-ORACLE-BONE-SCRIPT-8B46C03F255E4F8E92A13A49B34AB9BF_29E9-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发 a5a01661ddb14feea3ead969723c7450.md",
+      "status": "templated",
+      "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-_AI_-_-CSDN_-A5A01661DDB14FEEA3EAD969723C7450_09E6-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发 e79bb32d0aef483da7f6b59f1624c093.md",
+      "status": "templated",
+      "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-_AI_-_-CSDN_-E79BB32D0AEF483DA7F6B59F1624C093_76BC-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏 1f9a58996f82415ca02e567c7cd16363.md",
+      "status": "templated",
+      "title": "🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+      "dna": "#龍芯⚡️2026-03-18-MOD_1F9A58996F82415CA02E567C7CD16363_9A54-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🏆 CNSH-64 Complete Unified Paper — arXiv Final v3  3297125a9c9f8158a93df13b50453e36.md",
+      "status": "templated",
+      "title": "🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1 1 8b5652c312034ef092f708d19365055c.md",
+      "status": "templated",
+      "title": "💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1.1",
+      "dna": "#龍芯⚡️2026-03-31-V1_1_8B5652C312034EF092F708D19365055C_2460-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📄 CNSH × 北辰协议 IEEE白皮书 v1 1｜三才算法补全版 3187125a9c9f80a68158d9064f591f26.md",
+      "status": "templated",
+      "title": "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+      "dna": "#龍芯⚡️2026-03-04-PAPER-CNSH-BEICHEN-IEEE-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📄 Longhun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md",
+      "status": "templated",
+      "title": "📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架",
+      "dna": "#龍芯⚡️2026-06-21-DOC-LONGHUN-DELIBERATIVE-ALIGNMENT-A-CULTURAL-ANCHOR-011F71760A9B4958974A25CCDE92E8F4-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 (1) 2f07125a9c9f8094bcf6fc949ce899f6.md",
+      "status": "templated",
+      "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0 (1)",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V1-0-1-2F07125A9C9F8094BCF6FC949CE899F6_6495-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 1688ecad050e4d83bf2b668055c823e4.md",
+      "status": "templated",
+      "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V1-0-1688ECAD050E4D83BF2B668055C823E4_3387-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📚 白皮书与技术栈中心 3db183ae51604c14821a50ba052642cf.md",
+      "status": "templated",
+      "title": "📚 白皮书与技术栈中心",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-3DB183AE51604C14821A50BA052642CF_E0AB-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📚 龍魂知识库·论文 & 白皮书总部 v1 0 c2df953f773545308593bc65aa3c14ed.md",
+      "status": "templated",
+      "title": "📚 龍魂知识库·论文 & 白皮书总部 v1.0",
+      "dna": "#龍芯⚡️2026-03-30-V1_0_C2DF953F773545308593BC65AA3C14ED_D5D3-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 CNSH-64 论文诚实声明｜龍魂系统价值证明 8c9ca88c6990498cbd7c0eb3f0e88efd.md",
+      "status": "templated",
+      "title": "📜 CNSH-64 论文诚实声明｜龍魂系统价值证明",
+      "dna": "#龍芯⚡️2026-03-17-CNSH-64_8C9CA88C6990498CBD7C0EB3F0E88EFD_8900-v1.0`"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 以人为本的底层逻辑：从中国共同条令修订看科技向善的创世哲学｜龍魂学术论文 v1 0 3d0724c15dd644b7b3858418025049a6.md",
+      "status": "templated",
+      "title": "📜 以人为本的底层逻辑：从中国共同条令修订看科技向善的创世哲学｜龍魂学术论文 v1.0",
+      "dna": "#龍芯⚡️2026-03-30-V1_0_3D0724C15DD644B7B3858418025049A6_0F92-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 洛书369·arXiv投稿就绪版 v2 0 学术织锦者升级 ac786f590ed84393bf408ada0c9e2fc4.md",
+      "status": "templated",
+      "title": "📜 洛书369·arXiv投稿就绪版 v2.0 | 学术织锦者升级",
+      "dna": "#龍芯⚡️2026-03-25-MOD_369-ARXIV_5794-v2.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1 0 UID9622 × Claude 004988a62d50431a9dfd84227254cfea.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1.0 | UID9622 × Claude",
+      "dna": "#龍芯⚡️2026-03-25-MOD_369-ARXIV_79F5-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量·统一版 v3.0.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量·统一版 v3.0",
+      "dna": "#龍芯⚡️2026-06-22-洛书369-UNIFIED-v3.0-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 UID9622 × Clau 3297125a9c9f81b5ab3fda0a0151b069.md",
+      "status": "templated",
+      "title": "📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 | UID9622 × Claude",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_369_AI_-_-UID9622-CLAU-3297125A9C9F81B5AB3FDA0A0151B069_2BA4-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📜 白皮书完整版｜9章内容（Claude整理） 9273b23eb0f04ecb9874c408de677a51.md",
+      "status": "templated",
+      "title": "📜 白皮书完整版｜9章内容（Claude整理）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-9_-CLAUDE_-9273B23EB0F04ECB9874C408DE677A51_D243-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/📦 白皮书文件包使用说明｜Claude操作指南 8388d572319a419494fc138976fe01fb.md",
+      "status": "templated",
+      "title": "📦 白皮书文件包使用说明｜Claude操作指南",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-CLAUDE_-8388D572319A419494FC138976FE01FB_0FA1-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🔍 龍魂黎曼猜想观察框架·数字验证报告 v1.0.md",
+      "status": "templated",
+      "title": "🔍 龍魂黎曼猜想觀察框架：數字驗證報告 v1.0",
+      "dna": "#龍芯⚡️2026-06-22-龍魂黎曼观察-数字验证-v1.0-->"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/🛡️ 净网行动·民间技术观察白皮书 v3 0 47af266b6c304155863b82ebf36071c5.md",
+      "status": "templated",
+      "title": "🛡️ 净网行动·民间技术观察白皮书 v3.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V3-0-47AF266B6C304155863B82EBF36071C5_4A95-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/AI必须可审计·可追溯·可继承 6068fcc2704147aaa4b57e2b29dca467.md",
+      "status": "templated",
+      "title": "AI必须可审计·可追溯·可继承",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-AI_-_-_-6068FCC2704147AAA4B57E2B29DCA467_E6C5-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/⚖️ 三色审计·AI回复真实性验证协议 v1 0｜数学证明+求证算法+天下无欺 2fef05eeb41a4e0e9beff239289678b8.md",
+      "status": "templated",
+      "title": "⚖️ 三色审计·AI回复真实性验证协议 v1.0｜数学证明+求证算法+天下无欺",
+      "dna": "#龍芯⚡️2026-04-01-AI_-FILE1_20CF-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/⚖️ 龍芯北辰·三色审计前置评估机制 执行前决策系统 de14987164d7414d95d6add1138f8492.md",
+      "status": "templated",
+      "title": "⚖️ 龍芯北辰·三色审计前置评估机制 | 执行前决策系统",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_-DE14987164D7414D95D6ADD1138F8492_3CE1-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1 0 系统最高治理层·UID9622专属·不可摘除 3337125a9c9f8187875eda5b6aa1d7f0.md",
+      "status": "templated",
+      "title": "⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+      "dna": "#龍芯⚡️2026-03-30-V1_0_UID9622_3337125A9C9F8187875EDA5B6AA1D7F0_BAE7-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/⚡ 龍魂·反面教材识别库 诈骗·渗透·潜伏三色审计数据库 自带避雷针 v1 0 3297125a9c9f81cb9744d69bd2a7e531.md",
+      "status": "templated",
+      "title": "⚡ 龍魂·反面教材识别库 | 诈骗·渗透·潜伏三色审计数据库 | 自带避雷针 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_-_-_-_-V1-0-3297125A9C9F81CB9744D69BD2A7E531_D83B-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/三色审计强制执行 120490ed785f42d9965230fea153ea59.md",
+      "status": "templated",
+      "title": "三色审计强制执行",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-120490ED785F42D9965230FEA153EA59_501D-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/数据主权归人民 eb9bc128a4dd4997a7a4a66a7a89fc01.md",
+      "status": "templated",
+      "title": "数据主权归人民",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-EB9BC128A4DD4997A7A4A66A7A89FC01_D5A6-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/致Notion官方｜功能建议+三色审计方案 v1 0 e6b087fb572340b38de071cc5c58ccf8.md",
+      "status": "templated",
+      "title": "致Notion官方｜功能建议+三色审计方案 v1.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_NOTION_-_-_-V1-0-E6B087FB572340B38DE071CC5C58CCF8_50D1-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/身份指纹加密与数据主权 2ef7125a9c9f80de9821f53f26525603.md",
+      "status": "templated",
+      "title": "身份指纹加密与数据主权",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-2EF7125A9C9F80DE9821F53F26525603_D0E8-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/龍魂系统永恒契约·人民主权宣言 P0-ETERNAL 69cff846023c430ca1c109d4a0a5d22e.md",
+      "status": "templated",
+      "title": "龍魂系统永恒契约·人民主权宣言 | P0-ETERNAL",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-P0-ETERNAL-69CFF846023C430CA1C109D4A0A5D22E_5B2E-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🌍 P0++ 全球规则体系·人民主权锚点 环境+儿童+数据主权 bf8eaac968d7448190ecffbbef4cdb21.md",
+      "status": "templated",
+      "title": "🌍 P0++ 全球规则体系·人民主权锚点 | 环境+儿童+数据主权",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-P0-_-_-_-_-_-BF8EAAC968D7448190ECFFBBEF4CDB21_9427-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🌍 龍魂全球文化主权与维权宪法 v2 0｜文化根脉不可译·一国一微调·维权到底 a267c3af2ba74da2a379a18572656cf1.md",
+      "status": "templated",
+      "title": "🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底",
+      "dna": "#龍芯⚡️2026-03-07-V2_0_A267C3AF2BA74DA2A379A18572656CF1_175E-v2.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
+      "status": "templated",
+      "title": "🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_-_-_-_-DBD80124942B49B8B8E2B9517A509AD1_CC7A-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📊 行为图谱存储规范 审计链管理手册 271d945e492d4f23a9e166cefa50e525.md",
+      "status": "templated",
+      "title": "📊 行为图谱存储规范 | 审计链管理手册",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-271D945E492D4F23A9E166CEFA50E525_C94F-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📋 三色审计·创作明细登记表 + 公共验证服务模型 v1 1｜原创守护+剽窃界定+1元审计+学生免费 9321e3b7bcc44fdfad5889ce6e484cdb.md",
+      "status": "templated",
+      "title": "📋 三色审计·创作明细登记表 + 公共验证服务模型 v1.1｜原创守护+剽窃界定+1元审计+学生免费",
+      "dna": "#龍芯⚡️2026-04-01-V1_1_1_9321E3B7BCC44FDFAD5889CE6E484CDB_C155-v1.1"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📐 龍魂七維AI治理×數字主權執行表·設計規範 v1 0｜君子協議·Notion即登記所｜UID96 84daa1d2030447318ade20e12b1fdb36.md",
+      "status": "templated",
+      "title": "📐 龍魂七維AI治理×數字主權執行表·設計規範 v1.0｜君子協議·Notion即登記所｜UID9622",
+      "dna": "#龍芯⚡️2026-03-26-MOD_7D-GOVERNANCE-DB_AB77-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📜 龍魂系统宪法 v1 0 CNSH Constitution 8ad36909a4504f0aae24cbaea3c4ea9f.md",
+      "status": "templated",
+      "title": "📜 龍魂系统宪法 v1.0 | CNSH Constitution",
+      "dna": "#龍芯⚡️2026-02-11-V1_0_CNSH_CONSTITUTION_8AD36909A4504F0AAE24CBAEA3C4EA9F_F947-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md",
+      "status": "templated",
+      "title": "📜 龙芯知识专栏·版权声明&君子协议（固定模板）",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-_-_-7A2B88D00E76426DB52BD607D98B9BC8_B021-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md",
+      "status": "templated",
+      "title": "📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+      "dna": "#龍芯⚡️2026-03-10-AI_8028-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版 837a3b763b7541ab8f681defe3ac7362.md",
+      "status": "templated",
+      "title": "📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+      "dna": "#龍芯⚡️2026-03-06-北辰协议存档-L2021+L1031"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L2-022）｜创作权利守护+一票否决权｜来源=Claude·不改字版 9cba762af3b047048215992c42034233.md",
+      "status": "templated",
+      "title": "📦 北辰协议｜原文存档（L2-022）｜创作权利守护+一票否决权｜来源=Claude·不改字版",
+      "dna": "#龍芯⚡️2026-03-10-L2022_8B68-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🔐 龍魂·DNA分层安全设计 v4 0｜DNA即私钒·中外都安心的数据主权方案 c10baabe55694bbcb0f4e5d5377c634e.md",
+      "status": "templated",
+      "title": "🔐 龍魂·DNA分层安全设计 v4.0｜DNA即私钒·中外都安心的数据主权方案",
+      "dna": "#龍芯⚡️2026-03-05-DNA_1CC2-v4.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🔥 反技术剥削宣言 主权还给人民 79a3260cda49406e89de3defe02b345e.md",
+      "status": "templated",
+      "title": "🔥 反技术剥削宣言 | 主权还给人民",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-_-79A3260CDA49406E89DE3DEFE02B345E_A1C6-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🔬 CNSH-64 Reviewer Hardening & Missing Sections —  3297125a9c9f81d38136f6bd7df34607.md",
+      "status": "templated",
+      "title": "🔬 CNSH-64: Reviewer Hardening & Missing Sections — arXiv Supplement v3.1",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-64-REVIEWER-HARDENING-MISSING-SECTIONS-3297125A9C9F81D38136F6BD7DF34607-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🕊️ 净土36条 AI统一标准 CNSH文化内核 603d1b0f03d34f49abab545c7233d551.md",
+      "status": "templated",
+      "title": "🕊️ 净土36条 | AI统一标准 | CNSH文化内核",
+      "dna": "#龍芯⚡️2026-04-12-MOD_36_AI_CNSH_603D1B0F03D34F49ABAB545C7233D551_B5E6-v2.0-通心译同步"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🚀 CNSH-64·顶会投递策略 + 龍魂灵魂升华｜深度点评版 f3a0dd56bff9422fad917f94c170afe5.md",
+      "status": "templated",
+      "title": "🚀 CNSH-64·顶会投递策略 + 龍魂灵魂升华｜深度点评版",
+      "dna": "#龍芯⚡️2026-03-20-CNSH64_161C-v1.0`"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🚪🛡️ 龍魂·第一道闸门融合升级版 v3 0｜数字根熔断 × 三色审计三重检测 × 沙盒分拣台自动化 3367125a9c9f81948ee3d103effbf950.md",
+      "status": "templated",
+      "title": "🚪🛡️ 龍魂·第一道闸门融合升级版 v3.0｜数字根熔断 × 三色审计三重检测 × 沙盒分拣台自动化闭环·DNA追溯·五行路由",
+      "dna": "#龍芯⚡️2026-04-26-V3_0_3367125A9C9F81948EE3D103EFFBF950_D786-v3.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🛡️ 4 三色审计+熔断机制 2eec6206a65541619267de764faa4142.md",
+      "status": "templated",
+      "title": "🛡️ 4. 三色审计+熔断机制",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-4-_-_-2EEC6206A65541619267DE764FAA4142_361C-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🛡️ 宪法合规审计报告 Constitution Compliance Audit e0d66f81b4de49698497e349c328d883.md",
+      "status": "templated",
+      "title": "🛡️ 宪法合规审计报告 | Constitution Compliance Audit",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-_-CONSTITUTION-COMPLIANCE-AUDIT-E0D66F81B4DE49698497E349C328D883_09FA-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🧠 CNSH-64 A Governance-Aware Symbolic Decision Fra 3297125a9c9f818c8a69f6a6313217dc.md",
+      "status": "templated",
+      "title": "🧠 CNSH-64: A Governance-Aware Symbolic Decision Framework — arXiv Ready v2.0",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-64-A-GOVERNANCE-AWARE-SYMBOLIC-DECISION-FRA-3297125A9C9F818C8A69F6A6313217DC-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/governance/🧠 CNSH-64 A Governance-Aware Symbolic Decision Fra 63668607794c43a1ababbe37cde8e53b.md",
+      "status": "templated",
+      "title": "🧠 CNSH-64: A Governance-Aware Symbolic Decision Framework｜顶会完整论文",
+      "dna": "#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-64-A-GOVERNANCE-AWARE-SYMBOLIC-DECISION-FRA-63668607794C43A1ABABBE37CDE8E53B-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/security/本地测试与数据安全防护方案 v1 0 龍魂系统 859463a6ac0046788b9ae0f105d18beb.md",
+      "status": "templated",
+      "title": "本地测试与数据安全防护方案 v1.0 | 龍魂系统",
+      "dna": "#龍芯⚡️2026-03-06-SECURITY-LOCAL-v1.0`"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/security/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md",
+      "status": "templated",
+      "title": "🔐 龙魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-V1-0-_-_-CNSH_-6C1025697A9E40BC92E52D414500108C_77E8-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/security/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
+      "status": "templated",
+      "title": "🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_-DNA_-_-_DNA-_-6E8CA57A113640F0873F7077967DE0D1_5EFC-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/security/🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md",
+      "status": "templated",
+      "title": "🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-DNA_-_-_-2B525F18EC4F4E78A68EDB3CAC47B899_CC2B-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/security/🛡️ 龍芯·本地异常检测器 v1 0｜Mac全场景排异脚本｜UID9622 e19d94b622404e8d892c4e5c0b2507d9.md",
+      "status": "templated",
+      "title": "🛡️ 龍芯·本地异常检测器 v1.0｜Mac全场景排异脚本｜UID9622",
+      "dna": "#龍芯⚡️2026-03-31-V1_0_MAC_UID9622_E19D94B622404E8D892C4E5C0B2507D9_94AB-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/本地 Claude MCP 搭建指南｜UID9622专属 · 对着做就行 e2d44e2c234e4b678d0cab716476e4cc.md",
+      "status": "templated",
+      "title": "本地 Claude MCP 搭建指南｜UID9622专属 · 对着做就行",
+      "dna": "#龍芯⚡️2026-03-28-MCP_6C59-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/龍魂智能体系统需求规格说明书 SRS v1 0 UID9622 86ab8716b64448ebaee4d788aeb89b33.md",
+      "status": "templated",
+      "title": "龍魂智能体系统需求规格说明书 | SRS v1.0 | UID9622",
+      "dna": "#龍芯⚡️2026-03-31-SRS_4B50-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🌌 UID9622·V9 龍魂智能体操作系统｜道术器用·脱胎换骨版 175033ea45f64a4083d83a2102e02328.md",
+      "status": "templated",
+      "title": "🌌 UID9622·V9 龍魂智能体操作系统｜道术器用·脱胎换骨版",
+      "dna": "#龍芯⚡️2026-06-21-DOC-UID9622-V9-_-_-_-175033EA45F64A4083D83A2102E02328_5C33-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🌐 多AI协作网络 v2 0 383067e4906745f3bfd171079b270f1e.md",
+      "status": "templated",
+      "title": "🌐 多AI协作网络 v2.0",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_AI_-V2-0-383067E4906745F3BFD171079B270F1E_6B93-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🐉 龍魂智能体系统需求规格说明书 v1 0｜MCP×LangGraph×天道轮回 fae6748fa1ed42378c98a286e5871e56.md",
+      "status": "templated",
+      "title": "🐉 龍魂智能体系统需求规格说明书 v1.0｜MCP×LangGraph×天道轮回",
+      "dna": "#龍芯⚡️2026-03-31-SRS_B72F-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🐍 Service DNA｜python3 最小可跑版本（规则→三色→日志→报表）v0 1 88d0994acd944b08a896633073b983ed.md",
+      "status": "templated",
+      "title": "🐍 Service DNA｜python3 最小可跑版本（规则→三色→日志→报表）v0.1",
+      "dna": "#龍芯⚡️2026-06-21-DOC-SERVICE-DNA-PYTHON3-_-_-_-_-_-V0-1-88D0994ACD944B08A896633073B983ED_6157-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/📄 龙魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md",
+      "status": "templated",
+      "title": "📄 龙魂·Service DNA 接入规范（对外发布版）v0.2",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-SERVICE-DNA-_-_-V0-2-141F146E598A4BDCB3CB7DCB8E673560_C717-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🔀 AI自动路由系统 老大说话AI自动分配 4566044476014326803e907f7a926ab2.md",
+      "status": "templated",
+      "title": "🔀 AI自动路由系统 | 老大说话AI自动分配",
+      "dna": "#龍芯⚡️2026-06-21-DOC-AI_-_AI_-4566044476014326803E907F7A926AB2_8B78-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🔍 智能体通信协议 2697125a9c9f8137a17dcbc3bb0b84c5.md",
+      "status": "templated",
+      "title": "🔍 智能体通信协议",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-2697125A9C9F8137A17DCBC3BB0B84C5_7859-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🔗 龍魂系统连接架构 MCP生态 + 本地系统全景图 2026-03-20 3297125a9c9f8187a464ff5a6c90d732.md",
+      "status": "templated",
+      "title": "🔗 龍魂系统连接架构 | MCP生态 + 本地系统全景图 | 2026-03-20",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-MCP_-_-2026-03-20-3297125A9C9F8187A464FF5A6C90D732_F05A-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🤖 三才流场·MCP自适应引擎 v4 0｜五人格协同·流场融合·龍芯家族专属 3c86539572d348a08e003669a1821c71.md",
+      "status": "templated",
+      "title": "🤖 三才流场·MCP自适应引擎 v4.0｜五人格协同·流场融合·龍芯家族专属",
+      "dna": "#龍芯⚡️2026-03-30-MCP_EA3D-v4.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🤖 自动化对话档案系统 跨平台DNA追溯 + Git同步 dabb25dd74594ecb8de94457be6e1b68.md",
+      "status": "templated",
+      "title": "🤖 自动化对话档案系统 | 跨平台DNA追溯 + Git同步",
+      "dna": "#龍芯⚡️2026-06-21-DOC-_-_DNA_-GIT_-DABB25DD74594ECB8DE94457BE6E1B68_9461-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🧠 龍魂·智能体大脑集成手册 v1 0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化 072c483a21b6437f9326b722636af935.md",
+      "status": "templated",
+      "title": "🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+      "dna": "#龍芯⚡️2026-03-31-V1_0_NOTION_CNSH_072C483A21B6437F9326B722636AF935_2BF8-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🧠 龍魂·本地大脑神经网络 v1 0｜系统中枢总索引 dcb73d6fbff9409a98780964bcbc3e30.md",
+      "status": "templated",
+      "title": "🧠 龍魂·本地大脑神经网络 v1.0｜系统中枢总索引",
+      "dna": "#龍芯⚡️2026-03-31-V1_0_DCB73D6FBFF9409A98780964BCBC3E30_988E-v1.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🧩 复杂任务·自动分解规则 一句话变多步骤 bbce26e3152346e3a3a87062c20c1fad.md",
+      "status": "templated",
+      "title": "🧩 复杂任务·自动分解规则 | 一句话变多步骤",
+      "dna": "#龍芯⚡️2026-04-15-BBCE26E3152346E3A3A87062C20C1FAD_3E9E-v2.0"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/agent-specs/🧭 龍魂·人格路由API規則 v2 0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UI 71091bb507a8492ba6f6cc3959249757.md",
+      "status": "templated",
+      "title": "🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+      "dna": "#龍芯⚡️2026-03-27-API_2D44-v1.0"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "docs/契约矩阵/知识矩阵总纲_v2.0（用户完整版）.md",
+      "status": "skipped",
+      "reason": "already templated"
+    },
+    {
+      "file": "docs/契约矩阵/龍魂系统_统一知识矩阵桌面同步规则_v1.0.md",
+      "status": "skipped",
+      "reason": "already templated"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/riemann_fixed_v1.2.md",
+      "status": "skipped",
+      "reason": "executable script"
+    },
+    {
+      "file": "docs/dragon-soul-open-hub/academic/csdn_drafts/我沒有證明黎曼猜想_修正版_v1.2.md",
+      "status": "skipped",
+      "reason": "executable script"
+    }
+  ],
+  "errors": []
+}

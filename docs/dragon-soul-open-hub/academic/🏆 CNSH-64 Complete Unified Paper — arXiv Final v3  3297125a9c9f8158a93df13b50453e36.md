@@ -1,3 +1,19 @@
+# 🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版
+
+> 本文檔按《龍魂文檔標準模板 v1.0》整理。
+> 性質：觀察性論文/技術博客 · 未經同行評審（如適用）
+> 版本：v1.0
+> 作者：UID9622 · 龍芯北辰
+> 協作者：（待補充，如無請刪除此行）
+> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 平台：本地
+> 審核狀態：草稿
+
+**DNA**: `#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0`  
+**CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+
+---
+
 <!--#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
@@ -67,6 +83,28 @@ The Longhun System was designed around seven principles that form the complete g
 | **Trust** | Decisions are verifiable by any third party | Deterministic mapping; GPG anchoring |
 | **Zero Barrier** | Non-specialists can understand and use the system | Natural language state semantics; Chinese-native |
 | **Global Inclusion** | Governance works across cultural contexts | I-Ching 64-hexagram cross-cultural mapping |
+
+### 1.2a Alignment with the EU HLEG Seven Requirements for Trustworthy AI
+
+The European Commission's High-Level Expert Group on AI (AI HLEG) published the *Ethics Guidelines for Trustworthy AI* in April 2019, defining seven key requirements: **human agency and oversight; technical robustness and safety; privacy and data governance; transparency; diversity, non-discrimination and fairness; societal and environmental well-being; and accountability** [14]. CNSH-64's seven properties were independently designed and map one-to-one to these requirements, as shown in Table 1.
+
+| EU HLEG Requirement (2019) | CNSH-64 Property | Formal Mechanism |
+| --- | --- | --- |
+| Human agency & oversight | **Zero Barrier** + **Protection** | Human-in-the-loop override; three-talent weight enforces 人 ≥ 34% (F10) |
+| Technical robustness & safety | **Security** | ∞-weight ethical fuse; formal verification (Z3/Coq) |
+| Privacy & data governance | **Memory** + **Trust** | DNA provenance chain; consent logic $\varphi_{\text{privacy}}$ |
+| Transparency | **Audit** + **Trust** | Tri-color audit; deterministic state mapping (Theorem 3.2) |
+| Diversity, non-discrimination & fairness | **Global Inclusion** | Cultural value incongruence $I(c)$; bias audit |
+| Societal & environmental well-being | **Protection** + **Global Inclusion** | Harm-potential constraint $\varphi_{\text{harm}}$; sustainability metrics |
+| Accountability | **Audit** + **Memory** | Append-only ledger; signer-timestamped DNA chain |
+
+This alignment is not post-hoc labeling. Each CNSH-64 property has a formal realization (Sections 3–5), enabling the framework to serve as a code-level implementation of the EU trustworthy-AI assessment list (ALTAI). The consolidated compliance score is given by **F11** in the formula comparison table:
+
+$$
+\text{CNSH-7F}(c) = \bigwedge_{j=1}^{7} \mathbb{I}\big[r_j(c) \geq \theta_j\big] \cdot \sum_j w_j r_j(c)
+$$
+
+where $r_j(c)$ is the satisfaction level of the $j$-th EU requirement for state $c$, $\theta_j$ is the per-requirement threshold, and $w_j$ are non-negative weights summing to one. A failure on any single requirement forces the total score into the red audit zone, reflecting the HLEG principle that all seven requirements are equally important and must hold throughout the system lifecycle.
 
 ## 1.3 Research Gaps
 
@@ -690,9 +728,10 @@ The system's seven guarantees — **Security, Audit, Protection, Memory, Trust, 
 11. Kant, I. (1785). *Groundwork of the Metaphysics of Morals*.
 12. Mill, J. S. (1863). *Utilitarianism*.
 13. IEEE Std 7000-2021. Model Process for Addressing Ethical Concerns During System Design.
-14. European Commission (2021). Proposal for a Regulation on Artificial Intelligence.
-15. Confucius (5th century BCE). *Analects* (论语).
-16. Laozi (6th century BCE). *Tao Te Ching* (道德经).
+14. European Commission's High-Level Expert Group on AI (2019). *Ethics Guidelines for Trustworthy AI*. Luxembourg: Publications Office of the European Union. https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai
+15. European Commission (2021). Proposal for a Regulation on Artificial Intelligence.
+16. Confucius (5th century BCE). *Analects* (论语).
+17. Laozi (6th century BCE). *Tao Te Ching* (道德经).
 
 ---
 
@@ -736,3 +775,45 @@ This paper demonstrates a human-AI collaboration model in which a non-specialist
 *Submission targets: AIES 2026 · AAAI 2026 · IEEE Transactions on Artificial Intelligence*
 
 *License: Open Access — CC BY 4.0*
+
+---
+
+## 摘要
+
+（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+
+## 關鍵詞
+
+（請列出 5–10 個關鍵詞，中英文對照優先。）
+
+## 引用與溯源
+
+- 本文檔引用或參考了以下來源：
+  - [1] （請填寫）
+- 相關龍魂系統文檔：
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+
+## 誠實局限
+
+1. （請列出本分析的第一條局限或不確定性。）
+2. （請列出第二條。）
+3. （請列出第三條。）
+
+## 修改記錄
+
+| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+|---|---|---|---|---|
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+
+## 分類標籤
+
+- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
+- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
+- 審計色：#黃色待審
+
+## DNA 簽名
+
+```
+#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0
+#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+```
