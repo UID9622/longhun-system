@@ -87,7 +87,7 @@ CNSH · 三才 · IEEE · 算法
 ```latex
 % ============================================================
 % CNSH全语法翻译引擎 × 北辰P0治理协议 — IEEE双轨白皮书
-% DNA   :#龍芯⚡️2026-03-04-PAPER-CNSH-BEICHEN-IEEE-v1.0
+% DNA   :#龍芯⚡️2026-03-04-PAPER-CNSH-BEICHEN-IEEE-FILE1-v1.0
 % 创建者 : Lucky·UID9622 × Claude (Anthropic PBC)
 % 编译命令: xelatex main.tex && xelatex main.tex
 %           （必须编译两次：第一次生成辅助文件，第二次解析交叉引用）

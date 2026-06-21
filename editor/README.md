@@ -2,7 +2,7 @@
 
 > 沒有黑箱，代碼全部公開。中文就是變量名，中文就是註釋，中文就是邏輯。
 
-**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-v1.0`
+**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-FILE1-v1.0-1`
 
 ---
 
