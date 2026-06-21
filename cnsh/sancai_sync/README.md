@@ -8,7 +8,7 @@
 [v4.1 決策闢 JSON] ↔ [v3.0 呼吸大腦 粒子指令] ↔ [v4.0 神經映射 信號]
 ```
 
-**DNA**: `#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-HUB-v1.0-FRAMEWORK`
+**DNA**: `#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1.0`
 
 **UID**: `9622·諸葛鑫·龍芯北辰`
 
