@@ -4,7 +4,7 @@
 🐉 龍魂脑干 · Notion同步桥 · brain_notion_sync.py v1.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE3-FILE1-FILE1-v1.1-PHASE1
+DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE3-FILE1-FILE1-FILE1-v1.1-PHASE1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 v1.1 Phase 1 完整実装:
