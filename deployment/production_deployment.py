@@ -7,7 +7,7 @@
 功能：完整的生產部署流程
      包括環境配置、安全檢查、數據庫遷移、藍綠部署、健康檢查、監控激活
 
-DNA: #龍芯⚡️2026-06-08-PRODUCTION-DEPLOYMENT-v1.0
+DNA:#龍芯⚡️2026-06-08-PRODUCTION-DEPLOYMENT-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

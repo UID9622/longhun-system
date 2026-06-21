@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-_-CONSTITUTION-COMPLIANCE-AUDIT-E0D66F81B4DE49698497E349C328D883_09FA-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🛡️ 宪法合规审计报告 | Constitution Compliance Audit
 
 # 🛡️ 宪法合规审计报告

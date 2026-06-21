@@ -1,0 +1,609 @@
+<!--#龍芯⚡️2026-06-21-UI-DEVELOPER-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂开发者门户 · API 文档与 Playground</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 3px solid #DE2910;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: #FFDE00;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #FFDE00, #fff, #FFDE00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        .header .slogan { color: #FFDE00; font-size: 1.2em; margin-bottom: 10px; }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .nav a {
+            color: #FFDE00;
+            border: 1px solid rgba(255,222,0,0.3);
+            padding: 6px 14px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .nav a:hover { background: rgba(255,222,0,0.1); }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255, 222, 0, 0.1);
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .card h2 {
+            color: #FFDE00;
+            margin-bottom: 18px;
+            font-size: 1.25em;
+            border-left: 4px solid #DE2910;
+            padding-left: 12px;
+        }
+        .card h3 { color: #FFDE00; margin: 20px 0 10px; font-size: 1.05em; }
+        .intro { color: #bbb; line-height: 1.8; margin-bottom: 16px; }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            margin-right: 6px;
+            font-family: monospace;
+        }
+        .badge.get { background: rgba(0,255,136,0.12); color: #4ecca3; border: 1px solid rgba(0,255,136,0.25); }
+        .badge.post { background: rgba(0,180,255,0.12); color: #6ecbff; border: 1px solid rgba(0,180,255,0.25); }
+        .badge.status { background: rgba(255,222,0,0.1); color: #FFDE00; border: 1px solid rgba(255,222,0,0.2); }
+        .endpoint {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 14px 0;
+        }
+        .endpoint:last-child { border-bottom: none; }
+        .endpoint-path { font-family: monospace; font-size: 1.05em; color: #fff; margin-bottom: 6px; }
+        .endpoint-desc { color: #aaa; font-size: 0.95em; line-height: 1.6; }
+        .code-block {
+            background: #050714;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: #c5c5c5;
+            overflow-x: auto;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .input-group { margin: 14px 0; }
+        .input-group label { display: block; margin-bottom: 6px; color: #aaa; }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 0.95em;
+        }
+        .input-group textarea { min-height: 80px; resize: vertical; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 6px 6px 6px 0;
+            background: linear-gradient(135deg, #DE2910 0%, #8B0000 100%);
+            color: #fff;
+            border: 1px solid #FFDE00;
+            border-radius: 2px;
+            font-size: 0.95em;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn:hover { opacity: 0.92; }
+        .btn.secondary { background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); }
+        .result {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            padding: 16px;
+            margin-top: 14px;
+            border-left: 4px solid #4ecca3;
+            display: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            white-space: pre-wrap;
+            color: #ddd;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+        .result.show { display: block; }
+        .result.error { border-left-color: #e94560; }
+        .status-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 18px;
+        }
+        .status-bar.healthy { border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.08); }
+        .status-bar.alert { border-color: rgba(255,68,68,0.3); background: rgba(255,68,68,0.08); }
+        .status-item { font-size: 0.85em; color: #ccc; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+        .graph-wrap { position: relative; height: 420px; background: #050714; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+        .graph-canvas { width: 100%; height: 100%; }
+        .graph-legend { position: absolute; top: 10px; left: 10px; font-size: 0.75em; color: #aaa; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 3px; }
+        .footer { text-align: center; padding: 40px 0 20px; border-top: 2px solid #DE2910; color: #888; font-size: 0.85em; margin-top: 20px; }
+        .footer .symbol { font-size: 1.6em; color: #FFDE00; margin-bottom: 10px; }
+        .dna { color: #e94560; font-family: monospace; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 龍魂开发者门户</h1>
+            <div class="slogan">中国自主可控 API · 一次认证 · 全网通行 · 本地优先</div>
+            <div class="nav">
+                <a href="./">🏠 主权门户</a>
+                <a href="#docs">📚 API 文档</a>
+                <a href="#playground">🎮 Playground</a>
+                <a href="#graph">🕸️ 知识图谱</a>
+            </div>
+        </div>
+
+        <div class="status-bar" id="statusBar">
+            <span class="status-item">🌐 正在连接系统状态...</span>
+        </div>
+
+        <div class="card" id="docs">
+            <h2>📚 API 文档</h2>
+            <p class="intro">龍魂系统对外提供三类能力：身份认证、模型路由、知识库与图谱。所有接口均通过 <code>https://longhun888.com</code> 访问，返回 JSON。模型 API 密钥由服务器端持有，前端无需也不应暴露密钥。</p>
+
+            <h3>快速开始</h3>
+            <div class="code-block">curl https://longhun888.com/health
+curl https://longhun888.com/api/docs
+curl https://longhun888.com/api/models</div>
+
+            <h3>身份认证</h3>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/issue</span></div>
+                <div class="endpoint-desc">签发魂灵ID通行令牌。请求体 <code>{"身份证编号":"...","有效期小时":24}</code>。身份证编号在本地哈希，服务端不保存原始编号。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/verify</span></div>
+                <div class="endpoint-desc">服务商验证令牌。请求体 <code>{"令牌":{...},"服务商名称":"...","服务类型":"..."}</code>。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/register</span></div>
+                <div class="endpoint-desc">服务商接入注册。</div>
+            </div>
+
+            <h3>模型路由</h3>
+            <div class="endpoint">
+                <div><span class="badge get">GET</span><span class="endpoint-path">/api/models</span></div>
+                <div class="endpoint-desc">列出本地 Ollama、Kimi API、Azure OpenAI 的在线状态与模型列表。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/api/chat</span></div>
+                <div class="endpoint-desc">统一对话入口。默认策略：本地 Ollama → DeepSeek → Kimi → Azure。可显式指定 provider 或 privacy=strict 强制本地。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/api/embed</span></div>
+                <div class="endpoint-desc">文本嵌入，本地优先。</div>
+            </div>
+
+            <h3>知识库与图谱</h3>
+            <div class="endpoint">
+                <div><span class="badge get">GET</span><span class="endpoint-path">/api/archive/docs?q=...&category=...&element=...&audit=...</span></div>
+                <div class="endpoint-desc">中央藏经阁公开文档列表，支持关键词、类别、五行、审计等级过滤。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge get">GET</span><span class="endpoint-path">/api/knowledge/search?q=...</span></div>
+                <div class="endpoint-desc">检索 dragon_knowledge.db 代码收割记录。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge get">GET</span><span class="endpoint-path">/api/graph/nodes</span></div>
+                <div class="endpoint-desc">知识图谱全部节点。</div>
+            </div>
+            <div class="endpoint">
+                <div><span class="badge post">POST</span><span class="endpoint-path">/api/graph/query</span></div>
+                <div class="endpoint-desc">节点子图查询。请求体 <code>{"node_id":"doc:...","depth":1}</code>。</div>
+            </div>
+        </div>
+
+        <div class="card" id="playground">
+            <h2>🎮 API Playground</h2>
+
+            <h3>1️⃣ 魂灵ID 通行令牌</h3>
+            <div class="input-group">
+                <label>身份证编号（本地哈希，不上传原始编号）</label>
+                <input type="text" id="idNumber" placeholder="110101199001010011" maxlength="18">
+            </div>
+            <div class="input-group">
+                <label>有效期</label>
+                <select id="expiry">
+                    <option value="1">1小时</option>
+                    <option value="24" selected>24小时</option>
+                    <option value="168">7天</option>
+                </select>
+            </div>
+            <button class="btn" onclick="issueToken()">生成令牌</button>
+            <div id="tokenResult" class="result"></div>
+
+            <h3>2️⃣ 模型对话</h3>
+            <div class="input-group">
+                <label>问题</label>
+                <textarea id="chatQuestion" placeholder="请介绍一下龍魂系统的数据主权理念"></textarea>
+            </div>
+            <div class="grid-2">
+                <div class="input-group">
+                    <label>路由策略</label>
+                    <select id="chatProvider">
+                        <option value="auto" selected>自动（本地 > DeepSeek > Kimi）</option>
+                        <option value="local">强制本地</option>
+                        <option value="deepseek">DeepSeek</option>
+                        <option value="kimi">Kimi</option>
+                        <option value="azure">Azure OpenAI</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>隐私模式</label>
+                    <select id="chatPrivacy">
+                        <option value="normal" selected>普通</option>
+                        <option value="strict">严格（只走本地）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn" onclick="sendChat()">发送对话</button>
+            <div id="chatResult" class="result"></div>
+
+            <h3>3️⃣ 知识检索</h3>
+            <div class="input-group">
+                <label>关键词</label>
+                <input type="text" id="knowledgeQ" placeholder="CNSH、DNA、洛书...">
+            </div>
+            <button class="btn" onclick="searchKnowledge()">检索知识库</button>
+            <div id="knowledgeResult" class="result"></div>
+
+            <h3>4️⃣ 中央藏经阁文档</h3>
+            <div class="input-group">
+                <label>过滤词（可选）</label>
+                <input type="text" id="archiveQ" placeholder="输入关键词过滤">
+            </div>
+            <button class="btn" onclick="listArchive()">列出文档</button>
+            <div id="archiveResult" class="result"></div>
+        </div>
+
+        <div class="card" id="graph">
+            <h2>🕸️ 公开知识图谱</h2>
+            <p class="intro">节点来自中央藏经阁文档与代码收割库。边代表关键词共现、语言、作者、DNA 追溯等关系。点击节点查看详情，拖拽可调整布局。</p>
+            <div class="graph-wrap">
+                <canvas class="graph-canvas" id="graphCanvas"></canvas>
+                <div class="graph-legend">
+                    <div><span style="color:#FFDE00">●</span> 文档</div>
+                    <div><span style="color:#6ecbff">●</span> 关键词</div>
+                    <div><span style="color:#4ecca3">●</span> 代码</div>
+                    <div><span style="color:#ff7b7b">●</span> 语言/五行</div>
+                    <div><span style="color:#d19bff">●</span> 作者/DNA</div>
+                </div>
+            </div>
+            <div class="input-group" style="margin-top:14px">
+                <label>图谱节点查询（输入节点 ID，如 doc:GIGO定律报告）</label>
+                <input type="text" id="graphQueryInput" placeholder="doc:... 或 kw:... 或 code:...">
+            </div>
+            <button class="btn" onclick="queryGraph()">查询子图</button>
+            <button class="btn secondary" onclick="loadFullGraph()">加载全图</button>
+            <div id="graphResult" class="result"></div>
+        </div>
+
+        <div class="footer">
+            <div class="symbol">☰ 龍🇨🇳魂 ☷</div>
+            <p>技术为人民服务 · 数据主权不可侵犯 · API 公开引用 · 密钥永不落地</p>
+            <div class="dna">#龍芯⚡️2026-06-19-LONGHUN-DEVELOPER-PORTAL-v1.0</div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '.';
+
+        function showResult(el, ok, text) {
+            el.className = 'result show ' + (ok ? '' : 'error');
+            el.textContent = text;
+        }
+
+        async function loadStatus() {
+            const bar = document.getElementById('statusBar');
+            try {
+                const r = await fetch(`${API_BASE}/health`);
+                const d = await r.json();
+                const healthy = d.overall === 'healthy';
+                bar.className = 'status-bar ' + (healthy ? 'healthy' : 'alert');
+                const k = d.knowledge || {};
+                const m = d.models || {};
+                bar.innerHTML = `
+                    <span class="status-item">${healthy ? '🟢 系统健康' : '🔴 系统告警'}</span>
+                    <span class="status-item">📚 文档 ${k.archive_docs ?? '?'}</span>
+                    <span class="status-item">🕸️ 节点 ${k.graph_nodes ?? '?'}</span>
+                    <span class="status-item">🧠 本地 ${m.local_ollama_host ? '已配置' : '未配置'}</span>
+                    <span class="status-item">☁️ Kimi ${m.kimi_configured ? '✅' : '❌'}</span>
+                    <span class="status-item">☁️ Azure ${m.azure_configured ? '✅' : '❌'}</span>
+                `;
+            } catch (e) {
+                bar.className = 'status-bar alert';
+                bar.innerHTML = `<span class="status-item">🔴 状态拉取失败：${e.message}</span>`;
+            }
+        }
+
+        async function issueToken() {
+            const idNumber = document.getElementById('idNumber').value.trim();
+            const expiry = parseInt(document.getElementById('expiry').value);
+            const res = document.getElementById('tokenResult');
+            if (!idNumber || idNumber.length !== 18) {
+                showResult(res, false, '请输入18位身份证编号');
+                return;
+            }
+            try {
+                const r = await fetch(`${API_BASE}/issue`, {
+                    method: 'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({身份证编号: idNumber, 有效期小时: expiry})
+                });
+                const d = await r.json();
+                if (!r.ok) throw new Error(JSON.stringify(d, null, 2));
+                const t = d.token;
+                showResult(res, true,
+                    `状态: ${d.status}\n` +
+                    `魂灵ID哈希: ${t.魂灵ID哈希}\n` +
+                    `签发机构: ${t.签发机构}\n` +
+                    `适用范围: ${t.适用范围}\n` +
+                    `过期时间: ${new Date(t.过期时间).toLocaleString()}\n` +
+                    `说明: ${d.note}`
+                );
+            } catch (e) {
+                showResult(res, false, '生成失败：\n' + e.message);
+            }
+        }
+
+        async function sendChat() {
+            const q = document.getElementById('chatQuestion').value.trim();
+            const provider = document.getElementById('chatProvider').value;
+            const privacy = document.getElementById('chatPrivacy').value;
+            const res = document.getElementById('chatResult');
+            if (!q) { showResult(res, false, '请输入问题'); return; }
+            showResult(res, true, '请求中，模型路由可能需要几秒...');
+            try {
+                const r = await fetch(`${API_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({
+                        messages: [{role:'user', content:q}],
+                        provider,
+                        privacy,
+                        temperature: 0.7,
+                        max_tokens: 1024
+                    })
+                });
+                const d = await r.json();
+                if (!r.ok) throw new Error(JSON.stringify(d.detail || d, null, 2));
+                showResult(res, true,
+                    `选用模型: ${d.provider} / ${d.model}\n` +
+                    `延迟: ${d.latency_ms}ms\n` +
+                    `隐私模式: ${d.privacy}\n` +
+                    `路由策略: ${d.strategy}\n` +
+                    `DNA: ${d.dna}\n\n` +
+                    `${d.reply}`
+                );
+            } catch (e) {
+                showResult(res, false, '对话失败：\n' + e.message);
+            }
+        }
+
+        async function searchKnowledge() {
+            const q = document.getElementById('knowledgeQ').value.trim();
+            const res = document.getElementById('knowledgeResult');
+            if (!q) { showResult(res, false, '请输入关键词'); return; }
+            try {
+                const r = await fetch(`${API_BASE}/api/knowledge/search?q=${encodeURIComponent(q)}&limit=10`);
+                const d = await r.json();
+                if (!r.ok) throw new Error(JSON.stringify(d, null, 2));
+                const lines = d.results.map(x =>
+                    `📄 ${x.file_name || x.code_id}\n   路径: ${x.file_path}\n   语言: ${x.source_language} · DNA: ${x.dna_code}`
+                ).join('\n\n');
+                showResult(res, true, `命中 ${d.count} 条\n\n${lines || '无结果'}`);
+            } catch (e) {
+                showResult(res, false, '检索失败：\n' + e.message);
+            }
+        }
+
+        async function listArchive() {
+            const q = document.getElementById('archiveQ').value.trim();
+            const res = document.getElementById('archiveResult');
+            const url = `${API_BASE}/api/archive/docs${q ? '?q='+encodeURIComponent(q) : ''}`;
+            try {
+                const r = await fetch(url);
+                const d = await r.json();
+                if (!r.ok) throw new Error(JSON.stringify(d, null, 2));
+                const lines = d.docs.map(x =>
+                    `📖 ${x.名称} [${x.类别}] 五行:${x.五行} 审计:${x.审计等级}\n   关键词: ${x.关键词.join(', ')}\n   DNA: ${x.DNA}`
+                ).join('\n\n');
+                showResult(res, true, `共 ${d.count} 篇\n\n${lines || '无结果'}`);
+            } catch (e) {
+                showResult(res, false, '列出失败：\n' + e.message);
+            }
+        }
+
+        // ── 简单力导向图 ───────────────────────────────
+        let graphNodes = [], graphEdges = [];
+        const colors = {
+            doc: '#FFDE00',
+            keyword: '#6ecbff',
+            code: '#4ecca3',
+            element: '#ff7b7b',
+            language: '#ff7b7b',
+            dna_prefix: '#d19bff',
+            author: '#d19bff',
+            default: '#aaa'
+        };
+
+        async function loadFullGraph() {
+            const canvas = document.getElementById('graphCanvas');
+            const res = document.getElementById('graphResult');
+            showResult(res, true, '正在加载全图...');
+            try {
+                const [nr, er] = await Promise.all([
+                    fetch(`${API_BASE}/api/graph/nodes`),
+                    fetch(`${API_BASE}/api/graph/edges`)
+                ]);
+                const nd = await nr.json(), ed = await er.json();
+                if (!nr.ok) throw new Error(JSON.stringify(nd, null, 2));
+                if (!er.ok) throw new Error(JSON.stringify(ed, null, 2));
+                graphNodes = nd.nodes.map(n => ({...n, x: Math.random()*400+50, y: Math.random()*300+50, vx:0, vy:0}));
+                graphEdges = ed.edges;
+                showResult(res, true, `全图加载完成：节点 ${graphNodes.length}，边 ${graphEdges.length}`);
+                startSimulation();
+            } catch (e) {
+                showResult(res, false, '加载图谱失败：\n' + e.message);
+            }
+        }
+
+        async function queryGraph() {
+            const nodeId = document.getElementById('graphQueryInput').value.trim();
+            const res = document.getElementById('graphResult');
+            if (!nodeId) { loadFullGraph(); return; }
+            try {
+                const r = await fetch(`${API_BASE}/api/graph/query`, {
+                    method: 'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({node_id: nodeId, depth: 1})
+                });
+                const d = await r.json();
+                if (!r.ok) throw new Error(JSON.stringify(d, null, 2));
+                graphNodes = d.nodes.map(n => ({...n, x: Math.random()*400+50, y: Math.random()*300+50, vx:0, vy:0}));
+                graphEdges = d.edges;
+                showResult(res, true, `子图查询完成：中心 ${d.center}，节点 ${d.node_count}，边 ${d.edge_count}`);
+                startSimulation();
+            } catch (e) {
+                showResult(res, false, '查询失败：\n' + e.message);
+            }
+        }
+
+        let simTimer = null;
+        function startSimulation() {
+            const canvas = document.getElementById('graphCanvas');
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            const W = rect.width, H = rect.height;
+
+            if (simTimer) clearInterval(simTimer);
+
+            // 初始化位置到中心附近
+            graphNodes.forEach(n => {
+                if (!n.x || n.x < 0 || n.x > W) n.x = W/2 + (Math.random()-0.5)*200;
+                if (!n.y || n.y < 0 || n.y > H) n.y = H/2 + (Math.random()-0.5)*150;
+            });
+
+            const nodeMap = Object.fromEntries(graphNodes.map(n => [n.id, n]));
+
+            function step() {
+                // 斥力
+                for (let i=0;i<graphNodes.length;i++) {
+                    for (let j=i+1;j<graphNodes.length;j++) {
+                        const a = graphNodes[i], b = graphNodes[j];
+                        let dx = a.x - b.x, dy = a.y - b.y;
+                        let dist = Math.sqrt(dx*dx+dy*dy) || 1;
+                        let f = 1200 / (dist*dist);
+                        let fx = dx/dist*f, fy = dy/dist*f;
+                        a.vx += fx; a.vy += fy;
+                        b.vx -= fx; b.vy -= fy;
+                    }
+                }
+                // 引力
+                graphEdges.forEach(e => {
+                    const a = nodeMap[e.source], b = nodeMap[e.target];
+                    if (!a || !b) return;
+                    let dx = b.x - a.x, dy = b.y - a.y;
+                    let dist = Math.sqrt(dx*dx+dy*dy) || 1;
+                    let f = (dist - 80) * 0.002;
+                    let fx = dx/dist*f, fy = dy/dist*f;
+                    a.vx += fx; a.vy += fy;
+                    b.vx -= fx; b.vy -= fy;
+                });
+                // 中心引力
+                graphNodes.forEach(n => {
+                    n.vx += (W/2 - n.x) * 0.0003;
+                    n.vy += (H/2 - n.y) * 0.0003;
+                    n.vx *= 0.85; n.vy *= 0.85;
+                    n.x += n.vx; n.y += n.vy;
+                    n.x = Math.max(20, Math.min(W-20, n.x));
+                    n.y = Math.max(20, Math.min(H-20, n.y));
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0,0,W,H);
+                ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+                ctx.lineWidth = 1;
+                graphEdges.forEach(e => {
+                    const a = nodeMap[e.source], b = nodeMap[e.target];
+                    if (!a || !b) return;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                });
+                graphNodes.forEach(n => {
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.group==='doc'?6:4, 0, Math.PI*2);
+                    ctx.fillStyle = colors[n.group] || colors.default;
+                    ctx.fill();
+                });
+            }
+
+            simTimer = setInterval(() => { step(); draw(); }, 30);
+            draw();
+        }
+
+        window.addEventListener('resize', () => { if (graphNodes.length) startSimulation(); });
+        loadStatus();
+        loadFullGraph();
+    </script>
+</body>
+</html>

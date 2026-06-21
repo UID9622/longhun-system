@@ -12,7 +12,7 @@
     python3 integrations/notion/philosophy_system_sync.py \
         --url "https://www.notion.so/uid9622/v1-0-DNA-095994fbc6c44138808e7d23c634e019"
 
-DNA: #龍芯⚡️2026-06-17-NOTION-PHILOSOPHY-SYNC-v1.0
+DNA:#龍芯⚡️2026-06-17-NOTION-PHILOSOPHY-SYNC-v1.0
 """
 
 import argparse

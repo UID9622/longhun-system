@@ -7,7 +7,7 @@
 ║  GPG签名·UID核实·身份三重验证                                    ║
 ║  创始人身份: UID9622 · 诸葛鑫 · 龍芯北辰                         ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-IDENTITY-VERIFICATION-v1.0             ║
+║  DNA:#龍芯⚡️2026-06-03-IDENTITY-VERIFICATION-FILE1-v1.0             ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-03-API-_-DATAFLOW-ENGINE_A09E-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 03｜API & 数据学习（Dataflow Engine）
 
 # 📊 API & 数据学习（Dataflow Engine）

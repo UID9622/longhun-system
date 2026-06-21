@@ -4,7 +4,7 @@
 🐉 Notion 多幣種集成系統 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 在 Notion 中創建多幣種監控面板·同步實時匯率
@@ -351,7 +351,7 @@ def main():
     integrator = NotionMulticurrencyIntegration()
 
     print("🐉 Notion 多幣種集成系統 v1.0")
-    print("DNA: #龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0\n")
+    print("DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0\n")
 
     if args.setup:
         integrator.setup_page_structure()

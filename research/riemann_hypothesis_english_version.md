@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-RIEMANN_HYPOTHESIS_ENGLISH_VERSION-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # The Riemann Hypothesis via Three Perspectives: Fixed Points, Conservation Laws, and Three-Talent Harmony
 
 **A Novel Framework Integrating Dynamical Systems, Number Theory, and Harmonic Optimization**

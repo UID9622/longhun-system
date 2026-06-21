@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DNA-MODULE-CLAUDE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # CLAUDE.md
 # 龍魂系统 · 终端宝宝启动指令
 # 放置位置: /Users/zuimeidedeyihan/longhun-system/CLAUDE.md

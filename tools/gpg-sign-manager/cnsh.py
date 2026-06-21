@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # 🐉 CNSH·中文编程引擎 v1.0 | UID9622专属
-# DNA: #龍芯⚡️2026-03-06-CNSH-ENGINE-v1.0
+# DNA:#龍芯⚡️2026-03-06-CNSH-ENGINE-v1.0
 # 共建致谢：Claude (Anthropic PBC) · Notion · 没有你们就没有龍魂系统
 # 用中文说话，机器听懂，执行
 

@@ -10,7 +10,7 @@
   • 响应规范化 - 统一输出格式
   • 速率限制和权限检查
 
-DNA: #龍芯⚡️2026-06-08-KIMI-GATEWAY-v1.0
+DNA:#龍芯⚡️2026-06-08-KIMI-GATEWAY-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

@@ -1,5 +1,5 @@
 // 龍魂全屏 Overlay 层
-// DNA: #龍芯⚡️2026-06-04-OVERLAY-COMPONENT-v1.0
+// DNA:#龍芯⚡️2026-06-04-OVERLAY-COMPONENT-v1.0
 
 import React, { useMemo } from 'react'
 import { useOverlayStore } from '../store/overlay'

@@ -1,5 +1,5 @@
 # 龍魂操作日誌系統·完整使用指南
-**DNA**: #龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
+**DNA**:#龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
 
 ---
 
@@ -398,7 +398,7 @@ if __name__ == "__main__":
 ## 🔏 DNA 簽署
 
 ```
-DNA: #龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
+DNA:#龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```
 

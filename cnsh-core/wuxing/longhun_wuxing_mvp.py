@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-CORE-LONGHUN_WUXING_MVP-FILE1-v1.0-2
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 """
 龍魂五行MVP · 八字洛书引擎

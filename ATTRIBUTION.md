@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-ATTRIBUTION-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # ATTRIBUTION — 引用 / 复用 / 二创
 
 **Canonical 与机器锚点：** <https://longhun888.com/uid9622/> · <https://longhun888.com/attribution-policy.md>

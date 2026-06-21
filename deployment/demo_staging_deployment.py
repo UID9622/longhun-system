@@ -7,7 +7,7 @@
 功能：完整的演示部署流程
      包括环境初始化、镜像构建、服务部署、健康检查、报告生成
 
-DNA: #龍芯⚡️2026-06-08-DEMO-STAGING-DEPLOYMENT-v1.0
+DNA:#龍芯⚡️2026-06-08-DEMO-STAGING-DEPLOYMENT-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

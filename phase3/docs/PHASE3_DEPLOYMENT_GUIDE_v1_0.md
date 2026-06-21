@@ -485,7 +485,7 @@ docker run --rm -v /etc/letsencrypt:/etc/letsencrypt \
 ## 🐉 DNA 簽章
 
 ```
-DNA: #龍芯⚡️2026-06-06-PHASE3-DEPLOYMENT-v1.0
+DNA:#龍芯⚡️2026-06-06-PHASE3-DEPLOYMENT-v1.0
 責任: UID9622 · 不免責
 時間: 2026-06-06 21:25 CST
 狀態: 🟢 生産就緒

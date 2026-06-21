@@ -1,6 +1,6 @@
 # 龍魂主權支付網關 v2.0 · 架構設計
 
-**DNA**: `#龍芯⚡️2026-06-17-XPAY-ARCHITECTURE-v2.0`
+**DNA**: `#龍芯⚡️2026-06-17-XPAY-ARCHITECTURE-FILE1-v2.0`
 
 ---
 

@@ -1,7 +1,7 @@
 # 龍魂系統·初始快照備份清單
 
 **時間**: 2026-06-07 21:59 CST
-**DNA**: #龍芯⚡️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0
+**DNA**:#龍芯⚡️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0
 **UID**: 9622
 
 ## 📋 快照清單
@@ -154,7 +154,7 @@ ls -la ~/.龍魂/backups/baseline_*/*/
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0
+**DNA**:#龍芯⚡️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0
 **狀態**: 🟢 完成·可恢復·已驗證
 **簽署**: UID9622·不免責
 

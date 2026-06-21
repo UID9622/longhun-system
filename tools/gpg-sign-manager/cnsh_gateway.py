@@ -4,7 +4,7 @@
 🌌 CNSH Gateway v2.0
 龍魂系统统一入口 · 升级版
 
-DNA追溯码: #龍芯⚡️2026-03-15-CNSH-GATEWAY-v2.0
+DNA追溯码:#龍芯⚡️2026-03-15-CNSH-GATEWAY-v2.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：

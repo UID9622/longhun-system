@@ -1,6 +1,6 @@
 # 龍魂治理層系統 (Governance Layer)
 
-**DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-v1.0`
+**DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-FILE1-v1.0`
 
 ## 核心願景
 

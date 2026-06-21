@@ -1,6 +1,6 @@
 # 龍魂系统 · 脚本完善执行看板
 
-**DNA:** `#龍芯⚡️2026-06-02-TASK-DASHBOARD-v1.0`  
+**DNA:** `#龍芯⚡️2026-06-02-TASK-DASHBOARD-FILE1-v1.0`  
 **更新时间:** 2026-06-02 18:00:00  
 **主权人:** UID9622 · 龍芯北辰
 
@@ -32,13 +32,13 @@
 
 | 任务 | 状态 | 文件 | DNA |
 |------|------|------|-----|
-| 任务拆分规划 | ✅ | longhun_task_decomposition.md | #龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0 |
-| CNSH对齐工具(L1-L4) | ✅ | cnsh_aligner.py | #龍芯⚡️2026-06-02-CNSH-ALIGNER-v1.0 |
-| 脚本管理器 | ✅ | script_manager.py | #龍芯⚡️2026-06-02-SCRIPT-MANAGER-v1.0 |
-| 操作手册 | ✅ | SCRIPT_COMPLETION_MANUAL.md | #龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0 |
-| 底座声明 | ✅ | longhun_foundation.md | #龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0 |
-| AI治理协议 | ✅ | longhun_ai_governance_protocol.html | #龍芯⚡️2026-06-02-AI-GOVERNANCE-PROTOCOL-v1.0 |
-| 本源论文 | ✅ | longhun_garbage_in_garbage_out.md | #龍芯⚡️2026-06-02-GARBAGE-IN-GARBAGE-OUT-v1.0 |
+| 任务拆分规划 | ✅ | longhun_task_decomposition.md |#龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0 |
+| CNSH对齐工具(L1-L4) | ✅ | cnsh_aligner.py |#龍芯⚡️2026-06-02-CNSH-ALIGNER-v1.0 |
+| 脚本管理器 | ✅ | script_manager.py |#龍芯⚡️2026-06-02-SCRIPT-MANAGER-v1.0 |
+| 操作手册 | ✅ | SCRIPT_COMPLETION_MANUAL.md |#龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0 |
+| 底座声明 | ✅ | longhun_foundation.md |#龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0 |
+| AI治理协议 | ✅ | longhun_ai_governance_protocol.html |#龍芯⚡️2026-06-02-AI-GOVERNANCE-PROTOCOL-v1.0 |
+| 本源论文 | ✅ | longhun_garbage_in_garbage_out.md |#龍芯⚡️2026-06-02-GARBAGE-IN-GARBAGE-OUT-v1.0 |
 
 ---
 
@@ -342,7 +342,7 @@ python3 script_manager.py | grep -A 5 "your_script"
   - 黑名单检查✓
   - 三色审计✓
 
-📝 DNA: #龍芯⚡️2026-06-02-DNA-VERIFY-v2.0-COMPLETE
+📝 DNA:#龍芯⚡️2026-06-02-DNA-VERIFY-v2.0-COMPLETE
 ```
 
 ---
@@ -357,7 +357,7 @@ python3 script_manager.py | grep -A 5 "your_script"
 ---
 
 ```
-DNA: #龍芯⚡️2026-06-02-TASK-DASHBOARD-v1.0
+DNA:#龍芯⚡️2026-06-02-TASK-DASHBOARD-v1.0
 主权人: UID9622 · 龍芯北辰
 性质: 实时任务看板·永久参考
 更新频率: 每个任务完成时刷新

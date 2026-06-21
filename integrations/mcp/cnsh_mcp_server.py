@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-CNSH_MCP_SERVER-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 import asyncio, json, os, httpx
 from mcp.server import Server

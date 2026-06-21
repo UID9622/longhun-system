@@ -3,8 +3,8 @@
 """
 龍魂·五行计算器 v3.2｜渲染优化版
 CNSH中文编程·天干地支·五行相生相克·终端彩色输出·表格美化
-DNA v3.2: #龍芯⚡️2026-05-07-五行计算器-v3.2-渲染层
-DNA P0:   #龍芯⚡️2026-06-07-ENGINE-WUXING-v1.0
+DNA v3.2:#龍芯⚡️2026-05-07-FILE1_8F7E-v3.2-渲染层
+DNA P0: #龍芯⚡️2026-06-07-ENGINE-WUXING-v1.0
 """
 import hashlib, json, sys, os
 from datetime import datetime
@@ -379,7 +379,7 @@ if __name__ == "__main__":
                 "timestamp": datetime.now().isoformat(),
                 "四柱结果": 四柱结果,
                 "节点": 节点,
-                "DNA": "#龍芯⚡️2026-05-07-五行计算器-v3.2-渲染层"
+                "DNA": "#龍芯⚡️2026-05-07-CALCULATOR-v3.2-渲染层"
             }, f, ensure_ascii=False, indent=2)
 
         print(f"\n{彩色.绿}✅ 完整报告已保存至 output_v3.2.json{彩色.重置}\n")

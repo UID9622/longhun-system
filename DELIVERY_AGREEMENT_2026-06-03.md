@@ -18,32 +18,32 @@
    位置: cnsh-core/governance/sovereignty_index.py
    行數: 410 行
    測試: 4/4 通過
-   DNA: #龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0
+   DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-FILE1-v1.0
 
 ✅ F1-F7 七因子驗證
    位置: cnsh-core/governance/f1_through_f7_verifier.py
    行數: 620 行
    測試: 3/3 通過
-   DNA: #龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
+   DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
 
 ✅ 認知DNA粒子系統
    位置: cnsh-core/memory/cognitive_dna_particles.py
    行數: 520 行
    測試: 4/4 通過
-   DNA: #龍芯⚡️2026-06-03-COGNITIVE-DNA-PARTICLES-v1.0
+   DNA:#龍芯⚡️2026-06-03-COGNITIVE-DNA-PARTICLES-v1.0
 
 ✅ 執行路由器
    位置: cnsh-core/router/execution_router.py
    行數: 480 行
    測試: 3/3 通過 + PersonaRouter集成
-   DNA: #龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
+   DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
 
 ✅ 人格路由系統 (PersonaRouter) - 新增
    位置: cnsh-core/router/persona_router.py
    行數: 550 行
    功能: 虛偽詞彙四分類 + F4因子生成
    測試: 8/8 通過
-   DNA: #龍芯⚡️2026-06-03-PERSONA-ROUTER-v1.0
+   DNA:#龍芯⚡️2026-06-03-PERSONA-ROUTER-v1.0
 
 總計: 2580 行 | 零外部依賴 | 23個集成測試全部通過
 ```

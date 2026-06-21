@@ -211,4 +211,4 @@ python3 notion_multicurrency_sync.py --status
 
 ---
 
-DNA: #龍芯⚡️2026-06-07-PHASE6-SYNC-GUIDE-v1.0
+DNA:#龍芯⚡️2026-06-07-PHASE6-SYNC-GUIDE-v1.0

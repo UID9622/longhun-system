@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-SKILL_WRAPPERS-FILE1-v1.0-2
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 """
 龍魂技能 API 封裝層
 將 skills/py-skills/ 下的腳本封裝為可調用函數，供 FastAPI 使用。

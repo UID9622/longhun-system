@@ -1,6 +1,6 @@
 # Claude Local Agent Mode Sessions · 目錄索引
 
-**DNA**: #龍芯⚡️2026-06-16-CLAUDE-SESSIONS-INDEX-v1.0  
+**DNA**:#龍芯⚡️2026-06-16-CLAUDE-SESSIONS-INDEX-v1.0  
 **來源路徑**: `/Users/zuimeidedeyihan/Library/Application Support/Claude/local-agent-mode-sessions`  
 **掃描時間**: 2026-06-15T20:01:05.742530+00:00  
 **責任**: UID9622·不免責

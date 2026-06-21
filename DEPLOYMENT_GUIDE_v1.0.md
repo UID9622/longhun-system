@@ -1,6 +1,6 @@
 # 🚀 三色审计·龍魂系统·部署指南 v1.0
 
-**DNA**: #龍芯⚡️2026-06-08-Deployment-Guide-v1.0
+**DNA**:#龍芯⚡️2026-06-08-DEPLOYMENT-GUIDE_585A-v1.0
 
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -905,7 +905,7 @@ python3 ~/longhun-system/verify_audit_system.py
 
 状态：🟢 可立即投入生产环境
 
-DNA: #龍芯⚡️2026-06-08-Deployment-Guide-Complete-v1.0
+DNA:#龍芯⚡️2026-06-08-DEPLOYMENT-GUIDE-COMPLETE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 

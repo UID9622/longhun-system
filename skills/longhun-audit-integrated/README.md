@@ -1,6 +1,6 @@
 # 龍魂融合審計系統 v2.0
 
-**DNA**: #龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-v2.0
+**DNA**:#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE5-v2.0
 
 將 CNSH 對齊與 10 維系統審計融為一體：
 - 腳本層（CNSH）錯了，無論系統多健康都拒絕。

@@ -3,7 +3,7 @@
 """
 longhun-wucai-coloring · 五色审计核心实现
 龍魂 v1.0 · UID9622 主控
-DNA: #龍芯⚡2026-05-18-WUCAI-FIVECOLOR-SKILL-v1.0
+DNA:#龍芯⚡2026-05-18-WUCAI-FIVECOLOR-SKILL-v1.0
 
 5 色: 🟢 绿 · 🟡 黄 · 🔴 红 · ⚫ 黑(影子) · 🟡金(主控)
 """

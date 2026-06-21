@@ -13,7 +13,7 @@
 <aside>
 🧬
 
-DNA：#龍芯⚡️2026-04-29-CNSH双视角封装协议-Machine×CNSH-v1.0
+DNA：#龍芯⚡️2026-04-29-CNSH_-MACHINE_CNSH_FCCB-v1.0
 
 CONFIRM：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -95,8 +95,8 @@ CNSH::#龍芯⚡️YYYY-MM-DD-主题-vX.Y
 示例：
 
 ```
-CNSH::#龍芯⚡️2026-04-29-CNSH双视角封装协议-v1.0
-CNSH::#龍芯⚡️2026-04-29-象数五行路由变量-v1.0
+CNSH::#龍芯⚡️2026-04-29-CNSH-v1.0
+CNSH::#龍芯⚡️2026-04-29-CNSH_V1_0_MACHINE_CNSH-v1.0
 ```
 
 ---
@@ -199,7 +199,7 @@ M:: {
 
 ```json
 CNSH:: {
-  "dna": "#龍芯⚡️2026-04-29-Notion入口已通-v1.0",
+  "dna": "#龍芯⚡️2026-04-29-NOTION-v1.0",
   "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
   "route": "IPA-DICTIONARY",

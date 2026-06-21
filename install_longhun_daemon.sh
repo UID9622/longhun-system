@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 龍魂 launchd 守护一键装载 · P13姜子牙装载 / P03雯雯复盘 / P05上帝之眼督
-# DNA: #龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0
+# DNA:#龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0
 set -euo pipefail
 
 GMAIL="baofuahao@gmail.com"
@@ -10,7 +10,7 @@ PLIST="$HOME/Library/LaunchAgents/com.longhun.dailyreview.plist"
 LABEL="com.longhun.dailyreview"
 
 echo "🐉 龍魂 launchd 守护一键装载"
-echo "DNA: #龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0"
+echo "DNA:#龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0"
 echo ""
 
 [ -f "$SCRIPT" ] || { echo "🔴 找不到 $SCRIPT,先把 daily_review.py 放好再跑"; exit 1; }
@@ -64,4 +64,4 @@ launchctl list | grep longhun || echo "🟡 没看到进程,查 launchd.err.log"
 echo ""
 echo "✅ 装完。去 proton 收件箱看自动邮件;以后每天 23:00 自动发,不靠你按任何键。"
 echo ""
-echo "DNS: #龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0"
+echo "DNS:#龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0"

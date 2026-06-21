@@ -153,7 +153,7 @@ cd "龍魂系統·本地完全導出"
     "algorithms": {
       "weight_algorithm": {
         "file": "算法庫/龍魂權重演算法_v3.1.md",
-        "dna": "#龍芯⚡️2026-03-04-龍魂權重演算法-v3.1",
+        "dna": "#龍芯⚡️2026-03-04-LOCAL_DEPLOYMENT_GUIDE-v3.1",
         "code_attachment": "code/longhun_weight_algorithm.py",
         "lines": 450,
         "verification_count": 100000,

@@ -1,6 +1,6 @@
 # 🐉 龍魂系統·團隊培訓計劃
 
-**DNA**: #龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
+**DNA**:#龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **目標讀者**: 運維團隊 / SRE 工程師 / DevOps 工程師
 **培訓時長**: 4 小時（分 4 節課）
@@ -707,7 +707,7 @@ PagerDuty:        longhun-deployment-oncall
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
+**DNA**:#龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
 **最後更新**: 2026-06-08
 **版本**: 1.0
 **準備者**: Tech Lead

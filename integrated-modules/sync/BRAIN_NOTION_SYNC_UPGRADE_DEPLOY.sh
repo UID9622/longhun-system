@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-BRAIN_NOTION_SYNC_UPGRADE_DEPLOY-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # 🐉 龍魂脑干 · Notion 同步橋 v1.1 · 一鍵升級部署腳本
 # DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-DEPLOY

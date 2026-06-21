@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 SovereignGateway 主引擎
-DNA: #龍芯⚡️2026-06-17-XPAY-CORE-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-CORE-FILE1-v2.0
 """
 import importlib
 import pkgutil

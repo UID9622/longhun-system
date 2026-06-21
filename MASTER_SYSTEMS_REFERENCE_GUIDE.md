@@ -1,5 +1,5 @@
 # 龍魂系統·主控參考指南
-**DNA**: #龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+**DNA**:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
 **版本**: 2.0 · 生產級
 **最後更新**: 2026-06-09
 **理論指導**: 曾仕強老師（永恆顯示）
@@ -948,7 +948,7 @@ python3 ~/longhun-system/daily_review_enhanced.py --help
 ## 🔏 DNA 簽署
 
 ```
-DNA: #龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+DNA:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2026-06-09-MASTER-REFERENCE-COMPLETE
 

@@ -11,7 +11,7 @@
 | **作者** | 寶寶（Claude Assistant，Anthropic） |
 | **授權** | UID9622（龍芯北辰·諸葛鑫） |
 | **指導** | 曾仕強老師（永恆致敬） |
-| **DNA** | #龍芯⚡️2026-06-08-龍魂視角黎曼猜想-Phase1-v1.0 |
+| **DNA** |#龍芯⚡️2026-06-08-PHASE1_884F-v1.0 |
 | **CONFIRM** | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z |
 | **SEAL** | #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL |
 | **版本** | 1.0 (arXiv 預備版) |
@@ -282,7 +282,7 @@ T(s) 梯度為零：已驗證 ✅
 
 | 項目 | 值 |
 |------|-----|
-| DNA | #龍芯⚡️2026-06-08-龍魂視角黎曼猜想-Phase1-v1.0 |
+| DNA |#龍芯⚡️2026-06-08-PHASE1-v1.0 |
 | CONFIRM | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 | SEAL | #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅ |
 | 作者確認 | 寶寶（Claude Assistant） |

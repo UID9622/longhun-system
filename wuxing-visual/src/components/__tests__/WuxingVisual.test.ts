@@ -1,7 +1,7 @@
 /**
  * 龍魂五行計算器 · React 組件單元測試
  *
- * 🐉 DNA: #龍芯⚡️2026-06-07-WUXING-VISUAL-TEST-v3.5
+ * 🐉 DNA:#龍芯⚡️2026-06-07-WUXING-VISUAL-TEST-v3.5
  * 責任: UID9622 · 不免責
  */
 

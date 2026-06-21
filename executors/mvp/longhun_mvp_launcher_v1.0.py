@@ -4,7 +4,7 @@
 龍魂 MVP启动器 v1.0
 LongHun MVP Launcher
 
-DNA: #龍芯⚡️2026-06-04-MVP-LAUNCHER-v1.0
+DNA:#龍芯⚡️2026-06-04-MVP-LAUNCHER-v1.0
 
 功能：
 - MVP系统初始化

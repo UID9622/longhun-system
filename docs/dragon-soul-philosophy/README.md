@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-README-FILE5-v1.0-6 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # docs/dragon-soul-philosophy
 
 本目录整合自 Notion 工作区 `宝宝这是我们的家`（导出目录 `Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa`），仅收录其中与龙魂系统技术、哲学与系统架构直接相关的内容。

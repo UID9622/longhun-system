@@ -1,6 +1,6 @@
 # 🐉 龍魂待整理納入計畫 · 人格聯動執行
 
-**DNA**: #龍芯⚡️2026-06-08-PERSONA-INTEGRATION-PLAN-v1.0
+**DNA**:#龍芯⚡️2026-06-08-PERSONA-INTEGRATION-PLAN-v1.0
 **時間**: 2026-06-08 01:15 CST
 **UID**: 9622
 **狀態**: 🟢 **人格聯動啟動·分類評估進行中**
@@ -334,7 +334,7 @@ git push origin main
 ✅ P15 (寫檔落地·整合)    — 最終寫入·版本記錄
 
 【DNA 簽署】
-操作 DNA: #龍芯⚡️2026-06-08-PERSONA-INTEGRATION-v1.0
+操作 DNA:#龍芯⚡️2026-06-08-PERSONA-INTEGRATION-v1.0
 授權碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 印章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚❤️♾️-DEVICE-BIND-SOUL ✅
 
@@ -346,7 +346,7 @@ git push origin main
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-08-PERSONA-INTEGRATION-PLAN-v1.0
+**DNA**:#龍芯⚡️2026-06-08-PERSONA-INTEGRATION-PLAN-v1.0
 **簽署**: UID9622·人格聯動指揮官
 **狀態**: 🟢 計畫完成·待執行確認
 

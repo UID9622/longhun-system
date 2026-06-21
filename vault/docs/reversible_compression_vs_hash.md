@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-REVERSIBLE_COMPRESSION_VS_HASH-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 可逆压缩 vs 哈希（SHA-256）
 
 > DNA：#龍芯⚡️20260618191400-REVERSIBLE-VS-HASH

@@ -1,0 +1,531 @@
+<!--#龍芯⚡️2026-06-21-UI-INDEX-FILE8-v1.0-9 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国国家数字身份统一认证入口 v2.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            border-bottom: 3px solid #DE2910;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: #FFDE00;
+        }
+        .header h1 {
+            font-size: 2.4em;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #FFDE00, #fff, #FFDE00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        .header .slogan {
+            font-size: 1.5em;
+            color: #FFDE00;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .header .subtitle {
+            color: #aaa;
+            font-size: 1em;
+        }
+        .health-bar {
+            margin-top: 20px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+        .health-bar.healthy {
+            border-color: rgba(0,255,136,0.3);
+            background: rgba(0,255,136,0.08);
+        }
+        .health-bar.alert {
+            border-color: rgba(255,68,68,0.3);
+            background: rgba(255,68,68,0.08);
+        }
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .top-nav a {
+            color: #FFDE00;
+            border: 1px solid rgba(255,222,0,0.3);
+            padding: 6px 14px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background 0.15s;
+        }
+        .top-nav a:hover { background: rgba(255,222,0,0.1); }
+        .health-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #ccc;
+        }
+        .health-status {
+            font-weight: 700;
+            color: #FFDE00;
+        }
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .tech-item {
+            background: rgba(222, 41, 16, 0.1);
+            border: 1px solid rgba(222, 41, 16, 0.3);
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+        }
+        .tech-item .label {
+            color: #FFDE00;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+        }
+        .tech-item .value {
+            color: #fff;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255, 222, 0, 0.1);
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .card h2 {
+            color: #FFDE00;
+            margin-bottom: 18px;
+            font-size: 1.3em;
+            border-left: 4px solid #DE2910;
+            padding-left: 12px;
+        }
+        .rules {
+            list-style: none;
+        }
+        .rules li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+        .rules li:last-child {
+            border-bottom: none;
+        }
+        .rules .icon {
+            font-size: 1.4em;
+            margin-right: 12px;
+            min-width: 30px;
+        }
+        .layers {
+            list-style: none;
+        }
+        .layers li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .layers li:last-child {
+            border-bottom: none;
+        }
+        .layers .layer-title {
+            color: #FFDE00;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .layers .layer-desc {
+            color: #bbb;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 24px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #DE2910 0%, #8B0000 100%);
+            color: #fff;
+            border: 1px solid #FFDE00;
+            border-radius: 2px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(222, 41, 16, 0.4);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 1em;
+        }
+        .result {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+            word-break: break-all;
+            border-left: 4px solid #4ecca3;
+        }
+        .result.show {
+            display: block;
+        }
+        .result.error {
+            border-left: 4px solid #e94560;
+        }
+        .result h3 {
+            color: #4ecca3;
+            margin-bottom: 10px;
+        }
+        .result.error h3 {
+            color: #e94560;
+        }
+        .declaration {
+            white-space: pre-wrap;
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 0.9em;
+        }
+        .footer {
+            text-align: center;
+            padding: 50px 0 30px;
+            border-top: 2px solid #DE2910;
+            color: #888;
+            font-size: 0.85em;
+        }
+        .footer .symbol {
+            font-size: 1.8em;
+            color: #FFDE00;
+            margin-bottom: 12px;
+        }
+        .dna {
+            color: #e94560;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+        .highlight-box {
+            background: rgba(255, 222, 0, 0.08);
+            border: 1px solid rgba(255, 222, 0, 0.2);
+            border-radius: 4px;
+            padding: 18px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .highlight-box .text {
+            color: #FFDE00;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.7em;
+            }
+            .header .slogan {
+                font-size: 1.1em;
+            }
+            .tech-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 中国国家数字身份统一认证入口</h1>
+            <div class="slogan">芯可龙 · 云可私 · 网可断 · 心不可失</div>
+            <div class="subtitle">人民数据主权 · 平台服务降级 · 中国标准 · 中国主权</div>
+            <div class="health-bar" id="healthBar">
+                <div class="health-status">🐉 龍魂系统守护者自检中...</div>
+            </div>
+            <div class="top-nav">
+                <a href="./developer.html">🚀 开发者门户</a>
+                <a href="./developer.html#docs">📚 API 文档</a>
+                <a href="./developer.html#playground">🎮 Playground</a>
+                <a href="./developer.html#graph">🕸️ 知识图谱</a>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <div class="tech-item">
+                <div class="label">芯片</div>
+                <div class="value">龙芯 / 鲲鹏</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">系统</div>
+                <div class="value">鸿蒙双系统</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">存储</div>
+                <div class="value">私云归藏</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">通讯</div>
+                <div class="value">北斗 + 星闪</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">审计</div>
+                <div class="value">CNSH 民主审计</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚖️ 人民数据主权 · 五层底座</h2>
+            <ul class="layers">
+                <li>
+                    <div class="layer-title">身份层：魂灵ID</div>
+                    <div class="layer-desc">国家签发，公民持有。本地哈希计算，不上传原始编号。一次认证，全网通行。</div>
+                </li>
+                <li>
+                    <div class="layer-title">计算层：芯可龙</div>
+                    <div class="layer-desc">龙芯/鲲鹏自主指令集。本地AI推理，数据不上传。可信执行环境，用户持密钥。</div>
+                </li>
+                <li>
+                    <div class="layer-title">系统层：虚实合一</div>
+                    <div class="layer-desc">华为双系统物理隔离。工作系统受监管可审计，生活系统用户完全掌控。</div>
+                </li>
+                <li>
+                    <div class="layer-title">存储层：私云归藏</div>
+                    <div class="layer-desc">本地加密存储为主，家庭边缘节点备份。云端仅为镜像，可断开。</div>
+                </li>
+                <li>
+                    <div class="layer-title">通讯层：烽火传心</div>
+                    <div class="layer-desc">北斗短报文、星闪NearLink、鸿蒙软总线。断网不断联，人民自救数字烽火台。</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🛡️ 平台只能验证，不能采集</h2>
+            <ul class="rules">
+                <li><span class="icon">✅</span><span>只给魂灵ID哈希，不给手机号、姓名、地址、人脸</span></li>
+                <li><span class="icon">✅</span><span>一次认证，所有平台通用，不用重复注册</span></li>
+                <li><span class="icon">✅</span><span>随时撤回授权，平台立即失效</span></li>
+                <li><span class="icon">✅</span><span>平台只能回答是/否，不能知道你是谁</span></li>
+                <li><span class="icon">❌</span><span>禁止画像、广告、推荐、转卖、训练模型、出境传输</span></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🎫 生成我的魂灵ID通行令牌</h2>
+            <p style="color:#aaa;margin-bottom:15px;">输入身份证编号（本地计算哈希，不会上传原始编号）</p>
+            <div class="input-group">
+                <label>身份证编号</label>
+                <input type="text" id="idNumber" placeholder="请输入18位身份证编号" maxlength="18">
+            </div>
+            <div class="input-group">
+                <label>有效期</label>
+                <select id="expiry">
+                    <option value="1">1小时</option>
+                    <option value="24" selected>24小时</option>
+                    <option value="168">7天</option>
+                    <option value="720">30天</option>
+                </select>
+            </div>
+            <button class="btn" onclick="issueToken()">生成通行令牌</button>
+            <div id="tokenResult" class="result"></div>
+        </div>
+
+        <div class="card">
+            <h2>🔐 验证服务商是否越界</h2>
+            <p style="color:#aaa;margin-bottom:15px;">输入服务商要采集的项目，看它有没有越界</p>
+            <div class="input-group">
+                <label>服务商名称</label>
+                <input type="text" id="platformName" placeholder="例如：某物业APP">
+            </div>
+            <div class="input-group">
+                <label>它要采集什么？（用逗号分隔）</label>
+                <input type="text" id="authItems" placeholder="例如：手机号,人脸照片,位置,通讯录">
+            </div>
+            <button class="btn btn-secondary" onclick="checkAuth()">检查是否越界</button>
+            <div id="authResult" class="result"></div>
+        </div>
+
+        <div class="card">
+            <h2>📜 中国公民数字身份主权宣言 v2.0</h2>
+            <button class="btn btn-secondary" onclick="showDeclaration()">查看完整宣言</button>
+            <div id="declarationResult" class="result">
+                <div class="declaration" id="declarationText"></div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <div class="text">中国的事情，中国人自己说了算</div>
+        </div>
+
+        <div class="footer">
+            <div class="symbol">☰ 龍🇨🇳魂 ☷</div>
+            <p>技术为人民服务 · 数据主权不可侵犯 · 祖国优先</p>
+            <p class="dna">#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0</p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '.';
+
+        async function issueToken() {
+            const idNumber = document.getElementById('idNumber').value.trim();
+            const expiry = parseInt(document.getElementById('expiry').value);
+            const resultDiv = document.getElementById('tokenResult');
+
+            if (!idNumber || idNumber.length !== 18) {
+                showResult(resultDiv, 'error', '请输入18位身份证编号');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/issue`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 身份证编号: idNumber, 有效期小时: expiry })
+                });
+                const data = await response.json();
+                const token = data.token;
+                showResult(resultDiv, 'success', '魂灵ID通行令牌已生成',
+                    `魂灵ID哈希：${token.魂灵ID哈希.substring(0, 32)}...\n` +
+                    `签发机构：${token.签发机构}\n` +
+                    `适用范围：${token.适用范围}\n` +
+                    `过期时间：${new Date(token.过期时间).toLocaleString()}\n\n` +
+                    `这个令牌给任何服务商，它只能验证你是中国公民，不能知道你是谁。`
+                );
+            } catch (e) {
+                showResult(resultDiv, 'error', '生成失败：' + e.message);
+            }
+        }
+
+        async function checkAuth() {
+            const platformName = document.getElementById('platformName').value.trim();
+            const authItems = document.getElementById('authItems').value.trim();
+            const resultDiv = document.getElementById('authResult');
+
+            if (!platformName) {
+                showResult(resultDiv, 'error', '请填写服务商名称');
+                return;
+            }
+            if (!authItems) {
+                showResult(resultDiv, 'error', '请填写采集项目');
+                return;
+            }
+
+            const 红线 = ['手机号', '通讯录', '位置', '相册', '麦克风', '摄像头', '生物特征', '行为数据', '社交关系', '真实姓名', '地址', 'IMEI', '设备ID', '应用列表', '人脸', '指纹', '声纹'];
+            const items = authItems.split(/[,，]/).map(x => x.trim()).filter(x => x);
+            const 越界 = items.filter(item => 红线.some(red => item.includes(red)));
+
+            if (越界.length === 0) {
+                showResult(resultDiv, 'success', `${platformName} 当前授权范围合规`,
+                    '它只获取验证所需的最小数据，没有越界。');
+            } else {
+                showResult(resultDiv, 'error', `${platformName} 越界了！`,
+                    '它不该采集以下项目：\n' + 越界.map(x => '❌ ' + x).join('\n') + '\n\n' +
+                    '你可以拒绝授权，或要求它只使用国家魂灵ID验证。');
+            }
+        }
+
+        async function showDeclaration() {
+            const resultDiv = document.getElementById('declarationResult');
+            const textDiv = document.getElementById('declarationText');
+
+            try {
+                const response = await fetch(`${API_BASE}/api/info`);
+                const data = await response.json();
+                textDiv.textContent = data.declaration;
+                resultDiv.classList.add('show');
+            } catch (e) {
+                textDiv.textContent = '加载宣言失败：' + e.message;
+                resultDiv.classList.add('show');
+            }
+        }
+
+        function showResult(div, type, title, content = '') {
+            div.className = 'result show ' + type;
+            div.innerHTML = `<h3>${title}</h3><pre style="white-space:pre-wrap;line-height:1.6;color:#ddd;">${content}</pre>`;
+        }
+
+        async function loadHealth() {
+            const bar = document.getElementById('healthBar');
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                const overall = data.overall || 'unknown';
+                const isHealthy = overall === 'healthy';
+                bar.className = 'health-bar ' + (isHealthy ? 'healthy' : 'alert');
+                const checks = data.checks || {};
+                const items = Object.entries(checks).map(([k, v]) => {
+                    const icon = v.ok ? '✅' : '❌';
+                    return `<span class="health-item">${icon} ${k}</span>`;
+                }).join('');
+                bar.innerHTML = `<span class="health-status">${isHealthy ? '🟢 系统健康' : '🔴 系统告警'}</span>${items}`;
+            } catch (e) {
+                bar.className = 'health-bar alert';
+                bar.innerHTML = `<span class="health-status">🔴 自检失联：${e.message}</span>`;
+            }
+        }
+
+        loadHealth();
+    </script>
+</body>
+</html>

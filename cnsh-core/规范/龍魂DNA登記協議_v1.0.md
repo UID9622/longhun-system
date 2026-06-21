@@ -6,7 +6,7 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1260-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: 龍魂DNA登記協議_v1.0.md | 标记时间: 2026-06-03T07:46:12+0800
 -->
@@ -377,7 +377,7 @@ cognitive_dna_particle:
     scene: "论文母页升级·msg 184 焊点"
     related_dna:
       - "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-v1.1"
-      - "#龍芯⚡️2026-05-16-01:08-LONGHUN-AUDITABLE-TOOL-PROTOCOL-v1.0"
+      - "#龍芯⚡️2026-05-16-LONGHUN-AUDITABLE-TOOL-PROTOCOL_D32C-v1.0"
 
   # === 认知状态 (F18 三才主权·龍魂核心扩展) ===
   cognitive_state:
@@ -409,7 +409,7 @@ cognitive_dna_particle:
     risk_color: "🟢"
     bias_source: "龍魂文化向量偏置(道德经+易经+369)·已声明"
     vendor_policy_impact: "Notion AI 默认安全策略已通过"
-    dna_trace: "#龍芯⚡️2026-05-16-03:33-PAPER-MOTHER-PAGE-V2-CNSH-DNA-COGNITIVE-OS-v1.0"
+    dna_trace: "#龍芯⚡️2026-05-16-PAPER-MOTHER-PAGE-V2-CNSH-DNA-COGNITIVE-OS_716D-v1.0"
 
   # === 恢复提示 ===
   restore_hint:
@@ -540,8 +540,8 @@ flowchart LR
 ```javascript
 TRUTH=BEHAVCRYPTO_ECOSYSTEM_DNA_COMPACT.md
 PAPER=#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-v1.1
-PRACTICE=#龍芯⚡️2026-05-16-01:08-LONGHUN-AUDITABLE-TOOL-PROTOCOL-v1.0
-COMPACT=#龍芯⚡️2026-05-16-BEHAVCRYPTO×AUDIT-TOOL-ECOSYSTEM-COMPACT-v2.0
+PRACTICE=#龍芯⚡️2026-05-16-LONGHUN-AUDITABLE-TOOL-PROTOCOL_D32C-v1.0
+COMPACT=#龍芯⚡️2026-05-16-BEHAVCRYPTO_AUDIT-TOOL-ECOSYSTEM-COMPACT_9F68-v2.0
 
 KEYWORD压缩=认知折叠→DNA粒子+SHA256+存~/.longhun/behavcrypto_dna_particles/
 KEYWORD展开=环境重建→索引+十字段+真源路径·禁止编造原文
@@ -599,14 +599,14 @@ JSON 样本： public/transparent-demo/decision_receipt.example.json
 ## 子页：📜 Behavioral Cryptography v1.1 - 行为密码学
 
 > 本页焊接Notion原始内容，完整保留所有章节结构。详细内容见原Notion页面。
-> DNA: #龍芯⚡️2026-05-16-02:55-PAPER-MOTHER-PAGE-FRAME-v1.0
+> DNA:#龍芯⚡️2026-05-16-PAPER-MOTHER-PAGE-FRAME_0634-v1.0
 
 ---
 
 ## 子页：🧬 人物行为DNA·拼音错别字多音字不动点切割协议 v1.0
 
 > 本页焊接Notion原始内容，完整保留所有章节结构。
-> DNA: #龍芯⚡️2026-05-25-20:30-IRON-BEHAVIOR-DNA-IMMOVABLE-POINT-CUT-v1.0
+> DNA:#龍芯⚡️2026-05-25-IRON-BEHAVIOR-DNA-IMMOVABLE-POINT-CUT_17F4-v1.0
 
 ---
 
@@ -632,7 +632,7 @@ JSON 样本： public/transparent-demo/decision_receipt.example.json
 
 **DNA（焊接）**: `#龍芯⚡️2026-05-30-DNA-REGISTRY-PROTOCOL-v1.0-COMPLETE-WELD`
 
-**父DNA**: `#龍芯⚡️2026-05-16-02:55-PAPER-MOTHER-PAGE-FRAME-v1.0`
+**父DNA**: `#龍芯⚡️2026-05-16-PAPER-MOTHER-PAGE-FRAME_0634-v1.0`
 
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 

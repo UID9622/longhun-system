@@ -1,6 +1,6 @@
 # 🐉 龍魂決策流場完整索引
 
-**DNA**: #龍芯⚡️2026-06-07-DECISION-FLOW-FIELD-INDEX-v1.0
+**DNA**:#龍芯⚡️2026-06-07-DECISION-FLOW-FIELD-INDEX-v1.0
 **時間**: 2026-06-07 22:42 CST
 **UID**: UID9622
 **狀態**: 🟢 完整部署就緒
@@ -100,6 +100,6 @@ tail -f ~/.龍魂/logs/longhun_*.log
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-DECISION-FLOW-FIELD-INDEX-v1.0
+**DNA**:#龍芯⚡️2026-06-07-DECISION-FLOW-FIELD-INDEX-v1.0
 **簽署**: UID9622·永恆守護
 **狀態**: 🟢 生產就緒

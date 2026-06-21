@@ -4,7 +4,7 @@
 🐉 龍魂多幣種·Notion 實時同步 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0
+DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 5 分鐘實時同步匯率到 Notion·自動更新色標籤·錯誤恢復
@@ -408,7 +408,7 @@ def main():
     manager = NotionMulticurrencySyncManager()
 
     print("🐉 龍魂多幣種·Notion 實時同步 v1.0")
-    print("DNA: #龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0\n")
+    print("DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0\n")
 
     if args.watch:
         print(f"⏱️  進入監視模式·每 {args.interval} 秒同步一次\n")

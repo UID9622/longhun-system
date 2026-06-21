@@ -6,7 +6,7 @@ Longhun Notion Sync Module v1.1 (Auto Mode)
 
 自動模式：無需手動配置，自動檢測和驗證
 
-DNA: #龍芯⚡️2026-06-05-NOTION-SYNC-AUTO-v1.1
+DNA:#龍芯⚡️2026-06-05-NOTION-SYNC-AUTO-FILE1-v1.1
 """
 
 import os

@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-TEST_PERSONA_API-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 
 # 龍魂人格 API 测试脚本

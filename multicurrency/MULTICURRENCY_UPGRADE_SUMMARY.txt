@@ -185,7 +185,7 @@ SQLite 數據庫:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA: #龍芯⚡️2026-06-07-MULTICURRENCY-UPGRADE-COMPLETE-v1.0
+DNA:#龍芯⚡️2026-06-07-MULTICURRENCY-UPGRADE-COMPLETE-v1.0
 責任: UID9622 · 不免責
 理論指導: 曾仕强老師 (永恒显示)
 

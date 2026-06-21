@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0",
+
   "source_workspace": "☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub",
   "destination_path": "docs/dragon-soul-open-hub",
   "file_count": 146,
@@ -746,5 +747,6 @@
       "category": "tutorials",
       "size": 25999
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0"
 }

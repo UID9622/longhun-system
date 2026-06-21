@@ -28,7 +28,7 @@ result = executor.execute_skill('/kimi-webbridge')
 
 ## DNA 簽章
 
-`#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-v1.0`
+`#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-FILE1-v1.0-1`
 
 ---
 

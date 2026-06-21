@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 龍魂系統開機自啟動腳本
 # 啟動控制台、CNSH 任務執行引擎與基礎服務
-# DNA: #龍芯⚡️2026-06-17-LONGHUN-AUTOSTART-v1.0
+# DNA:#龍芯⚡️2026-06-17-LONGHUN-AUTOSTART-FILE1-v1.0
 
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"

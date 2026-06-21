@@ -4,7 +4,7 @@
 龍魂流场·数字根计算模块（四源优先级）
 CNSH Flow - Digital Root Calculator (Four-Source Priority)
 
-DNA: #龍芯⚡️2026-05-03-CNSH-FLOW-DIGITAL-ROOT-v4.1
+DNA:#龍芯⚡️2026-05-03-CNSH-FLOW-DIGITAL-ROOT-FILE1-v4.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -24,7 +24,7 @@ class DigitalRootCalculator:
     def extract_dna_digits(dna: str) -> Optional[int]:
         """
         从DNA字符串提取数字
-        例: #龍芯⚡️2026-05-03-XXX-v4.1 → 2026050341 → dr
+        例:#龍芯⚡️2026-05-03-XXX-v4.1 → 2026050341 → dr
         """
         digits = ''.join(c for c in dna if c.isdigit())
         if not digits:

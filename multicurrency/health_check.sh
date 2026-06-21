@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 龍魂多币种·健康检查脚本
-# DNA: #龍芯⚡️2026-06-07-HEALTH-CHECK-v1.0
+# DNA:#龍芯⚡️2026-06-07-HEALTH-CHECK-v1.0
 
 set -e
 

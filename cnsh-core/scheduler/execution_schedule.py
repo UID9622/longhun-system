@@ -7,7 +7,7 @@
 ║  什么时候同步、什么时候触发、什么时候自动化                       ║
 ║  L0-L4分层的执行时间表和触发规则                                 ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-EXECUTION-SCHEDULE-v1.0                ║
+║  DNA:#龍芯⚡️2026-06-03-EXECUTION-SCHEDULE-FILE1-v1.0                ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 龍魂系统架构                                              ║

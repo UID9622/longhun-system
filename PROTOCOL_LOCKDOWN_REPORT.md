@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-PROTOCOL_LOCKDOWN_REPORT-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🔐 龍魂協議焊死報告
 
 **DNA**: #龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-COMPLETE  

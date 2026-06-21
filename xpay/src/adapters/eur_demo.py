@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 歐元（EUR）演示適配器
-DNA: #龍芯⚡️2026-06-17-XPAY-EUR-ADAPTER-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-EUR-ADAPTER-FILE1-v2.0
 
 聲明：本適配器為演示框架，等待歐洲央行數字歐元正式 API。
 """

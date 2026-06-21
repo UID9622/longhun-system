@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-PROTOCOL_UNIFICATION_PLAN-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🐉 龍魂协议·繁简体统一和清理计划
 # DNA: #龍芯⚇️2026-06-08-PROTOCOL-UNIFICATION-PLAN-v1.0
 

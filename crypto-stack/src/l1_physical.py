@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-L1_PHYSICAL-FILE1-v1.0-2
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 """
 L1 物理层 · 设备指纹绑定

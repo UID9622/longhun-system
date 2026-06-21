@@ -10,7 +10,7 @@
   3️⃣ 实时对话 - 用户直接交互
   4️⃣ Skill 引擎 - 特定 Skill 集成
 
-DNA: #龍芯⚡️2026-06-08-KIMI-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-08-KIMI-INTEGRATION-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

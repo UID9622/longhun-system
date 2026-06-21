@@ -1,5 +1,5 @@
 # 龍魂體系 · 待融入包監控容器
-# DNA: #龍芯⚡️2026-06-16-PACKAGE-WATCHER-CONTAINER-v1.0
+# DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-CONTAINER-v1.0
 
 FROM python:3.13-slim
 

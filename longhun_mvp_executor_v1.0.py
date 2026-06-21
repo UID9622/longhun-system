@@ -4,7 +4,7 @@
 龍魂 MVP执行引擎 v1.0
 LongHun MVP Execution Engine
 
-DNA: #龍芯⚡️2026-06-04-MVP-EXECUTOR-v1.0
+DNA:#龍芯⚡️2026-06-04-MVP-EXECUTOR-v1.0
 """
 
 import json

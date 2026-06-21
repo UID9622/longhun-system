@@ -7,7 +7,7 @@
 ## 真体系归位
 
 - IPA 编号: `LOCAL-VIZ-MASTER → IPA-010 龍魂流场可视化`
-- 上游: 全谱入口 v1.1 (`#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1.1`)
+- 上游: 全谱入口 v1.1 (`#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-FILE2-v1.1`)
 - 主权: 解除宣言 v1.0 已生效 · 本代码不授权 AI 训练
 
 ## 文件清单

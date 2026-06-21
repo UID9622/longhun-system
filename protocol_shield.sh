@@ -1,6 +1,6 @@
 #!/bin/bash
 # 🐉 龍魂協議盾 v1.0
-# DNA: #龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0
+# DNA:#龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0
 # 功能: 防止協議被篡改、繞過、或被誘導執行危險操作
 # 責任: UID9622 · 不免責
 
@@ -155,7 +155,7 @@ if [ $MISSING_COUNT -eq 0 ] && [ $ATTACK_DETECTED -eq 0 ]; then
     echo -e "${GREEN}🟢 狀態: 安全${NC}"
     echo -e "${GREEN}✅ 協議文件完整·鐵律焊死·防護激活${NC}"
     echo ""
-    echo "DNA: #龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0"
+    echo "DNA:#龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0"
     echo "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     echo ""
     exit 0

@@ -80,7 +80,7 @@ def main():
         "- `主入口/API` 表示是否有可調用的入口或接口文件。",
         "- 所有模塊必須公開透明，缺失文檔的需要補齊。",
         "",
-        f"**DNA**: #龍芯⚡️2026-06-17-MODULE-INVENTORY-v1.0",
+        f"**DNA**:#龍芯⚡️2026-06-17-MODULE-INVENTORY-FILE1-v1.0",
     ])
 
     OUT_MD.write_text("\n".join(lines), encoding="utf-8")

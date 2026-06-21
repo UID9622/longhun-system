@@ -1,7 +1,7 @@
 # 🐉 龍魂系統 · 10 Skill 統一標準規範 v1.0
 
 ```
-DNA: #龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 責任: UID9622 · 不免責
@@ -677,7 +677,7 @@ def validate_input(inputs):
 ✅ DNA簽章追溯每個版本
 ✅ 可驗證·不玄學·能復算
 
-DNA: #龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
 責任: UID9622 · 不免責
 ```
 

@@ -1,0 +1,297 @@
+#!/bin/bash
+# 🐉 龍魂 v6 统一入口
+# DNA: #龍芯⚡️2026-06-21-LH6-v1.0
+
+LH_ROOT="${LONGHUN_ROOT:-$HOME/longhun-system}"
+CNSH_TERMINAL="$LH_ROOT/cnsh-terminal/cnsh_terminal_v5.py"
+OPS_CONSOLE="$LH_ROOT/ops-console/index.html"
+PORTAL_URL="https://longhun888.com/"
+MEMORY_BOOTSTRAP="$HOME/.longhun/scripts/longhun_memory_bootstrap.py"
+KIMI_BIN="$HOME/.kimi-code/bin/kimi"
+
+cmd="${1:-help}"
+
+case "$cmd" in
+  status)
+    cd "$LH_ROOT" 2>/dev/null || true
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "未知")
+    last_commit=$(git log -1 --format='%h %s (%ci)' 2>/dev/null || echo "未知")
+    git_status=$(git diff --quiet 2>/dev/null && git diff --staged --quiet 2>/dev/null && echo "✅ 干净" || echo "📝 有未提交改动")
+
+    cat <<EOF
+🐉 龍魂 v6 · 完整状态面板
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📁 项目根目录: $LH_ROOT
+🌿 Git 分支:  $branch
+🕐 最近提交:  $last_commit
+📊 Git 状态:  $git_status
+
+🔧 核心组件状态
+EOF
+    [ -f "$OPS_CONSOLE" ]    && echo "   ✅ OPS 操作台    ($OPS_CONSOLE)"    || echo "   ❌ OPS 操作台"
+    [ -f "$CNSH_TERMINAL" ]  && echo "   ✅ CNSH 终端     ($CNSH_TERMINAL)"  || echo "   ❌ CNSH 终端"
+    [ -f "$MEMORY_BOOTSTRAP" ] && echo "   ✅ 记忆启动器    ($MEMORY_BOOTSTRAP)" || echo "   ❌ 记忆启动器"
+    [ -f "$KIMI_BIN" ]       && echo "   ✅ Kimi CLI      ($KIMI_BIN)"        || echo "   ❌ Kimi CLI"
+
+    # DNA / 权重 / 层级 注册表摘要
+    REGISTRY="$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    if [ -f "$REGISTRY" ]; then
+      echo ""
+      python3 - "$REGISTRY" <<'PY'
+import json, sys
+from pathlib import Path
+with open(sys.argv[1], encoding='utf-8') as f:
+    r = json.load(f)
+print("🧬 DNA·权重·层级 全局注册表")
+print(f"   扫描文件: {r['total_files']}  已注册: {r['registered_files']}  对齐率: {r['alignment_rate']}%")
+print(f"   有效 DNA: {r['valid_dna']}  无效: {r['invalid_dna']}  缺失: {r['no_dna']}")
+print("   层级分布:")
+for layer in ['L0_ETERNAL', 'L1_SEASONAL', 'L2_DECISION', 'L3_GENERATIONAL', 'L4_INSTANT']:
+    n = r['by_layer'].get(layer, 0)
+    if n:
+        bar = '█' * int(n / max(r['by_layer'].values()) * 20)
+        print(f"      {layer:<18} {n:>5} {bar}")
+print("   状态分布:")
+for status in ['🟢', '🟡', '🔴']:
+    n = r['by_status'].get(status, 0)
+    if n:
+        print(f"      {status} {n:>5}")
+print(f"   注册表文件: {sys.argv[1]}")
+PY
+    else
+      echo ""
+      echo "⚠️  DNA 注册表尚未生成，运行: lh6 registry"
+    fi
+
+    cat <<EOF
+
+🔗 快速链接
+   • OPS 操作台: file://$OPS_CONSOLE
+   • 开发者门户: file://$LH_ROOT/sovereignty/portal/static/developer.html
+   • 线上门户:   $PORTAL_URL
+
+📝 最近 5 条提交
+EOF
+    git log --oneline -5 2>/dev/null || echo "   (无法读取 git 日志)"
+    ;;
+
+  registry)
+    REGISTRY_BUILDER="$LH_ROOT/tools/dna_registry_builder.py"
+    if [ -f "$REGISTRY_BUILDER" ]; then
+      echo "🧬 正在重建 DNA·权重·层级 全局注册表..."
+      python3 "$REGISTRY_BUILDER" "$LH_ROOT" -o "$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    else
+      echo "❌ 注册表生成器未找到: $REGISTRY_BUILDER"
+      exit 1
+    fi
+    ;;
+
+  weight)
+    shift
+    if [ $# -eq 0 ]; then
+      echo "用法: lh6 weight <文件路径>"
+      echo "示例: lh6 weight cnsh-terminal/cnsh_terminal_v5.py"
+      exit 1
+    fi
+    target="$1"
+    REGISTRY="$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    if [ ! -f "$REGISTRY" ]; then
+      echo "❌ DNA 注册表不存在，请先运行: lh6 registry"
+      exit 1
+    fi
+    python3 - "$REGISTRY" "$target" "$LH_ROOT" <<'PY'
+import json, sys, os
+from pathlib import Path
+reg_path, target, root = sys.argv[1:4]
+with open(reg_path, encoding='utf-8') as f:
+    reg = json.load(f)
+# 尝试多种匹配方式
+for rel in [target, target.lstrip('./'), str(Path(target).relative_to(root)) if Path(target).is_absolute() else target]:
+    for e in reg['entries']:
+        if e['file'] == rel or e['file'].endswith('/' + rel) or rel.endswith(e['file']):
+            print(f"🧬 文件权重识别结果")
+            print(f"   文件: {e['file']}")
+            print(f"   DNA:  {e['dna']}")
+            print(f"   层级: {e['layer']}")
+            print(f"   状态: {e['status']}")
+            print(f"   优先级: {e['priority']}")
+            print(f"   权重: {e['weight']}")
+            print(f"   有效: {'✅' if e['valid'] else '❌'}")
+            sys.exit(0)
+print(f"⚠️  未在注册表中找到: {target}")
+print("   提示: 运行 lh6 registry 重建注册表，或确认文件带有 DNA 标记")
+PY
+    ;;
+
+  ops)
+    if [ -f "$OPS_CONSOLE" ]; then
+      echo "🖥️  正在打开本地 OPS 操作台..."
+      echo "   file://$OPS_CONSOLE"
+      open "$OPS_CONSOLE" 2>/dev/null || xdg-open "$OPS_CONSOLE" 2>/dev/null || echo "   ⚠️  请手动在浏览器中打开上述链接"
+    else
+      echo "❌ OPS 操作台未找到: $OPS_CONSOLE"
+      exit 1
+    fi
+    ;;
+
+  portal)
+    echo "🌐 正在打开龍魂门户..."
+    echo "   $PORTAL_URL"
+    open "$PORTAL_URL" 2>/dev/null || xdg-open "$PORTAL_URL" 2>/dev/null || echo "   ⚠️  请手动在浏览器中打开上述链接"
+    ;;
+
+  cnsh)
+    if [ -f "$CNSH_TERMINAL" ]; then
+      shift
+      echo "🀄 正在启动 CNSH 终端..."
+      python3 "$CNSH_TERMINAL" "$@"
+    else
+      echo "❌ CNSH 终端未找到: $CNSH_TERMINAL"
+      exit 1
+    fi
+    ;;
+
+  memory)
+    if [ -f "$MEMORY_BOOTSTRAP" ]; then
+      echo "🧠 正在运行记忆启动器..."
+      python3 "$MEMORY_BOOTSTRAP"
+    else
+      echo "❌ 记忆启动器未找到: $MEMORY_BOOTSTRAP"
+      exit 1
+    fi
+    ;;
+
+  gate)
+    TEST_SCRIPT="$LH_ROOT/cnsh-core/tests/test_dna_sovereignty_integration.py"
+    if [ -f "$TEST_SCRIPT" ]; then
+      python3 "$TEST_SCRIPT"
+    else
+      echo "❌ DNA 主权联动测试脚本未找到: $TEST_SCRIPT"
+      exit 1
+    fi
+    ;;
+
+  going)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tools/founder_trip.py" --list
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/founder_trip.py" "$@"
+    fi
+    ;;
+
+  rights)
+    TEST_SCRIPT="$LH_ROOT/cnsh-core/tests/test_people_rights_integration.py"
+    if [ -f "$TEST_SCRIPT" ]; then
+      python3 "$TEST_SCRIPT"
+    else
+      echo "❌ 人民权益测试脚本未找到: $TEST_SCRIPT"
+      exit 1
+    fi
+    ;;
+
+  export)
+    shift
+    user_id="${1:-UID9622}"
+    python3 "$LH_ROOT/cnsh-core/tools/export_user_data.py" "$user_id"
+    ;;
+
+  behavior)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tools/behavior_cli.py" --demo
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/behavior_cli.py" "$@"
+    fi
+    ;;
+
+  scope)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tests/test_skill_scope_integration.py"
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/skill_scope_cli.py" "$@"
+    fi
+    ;;
+
+  kimi)
+    shift
+    if [ $# -eq 0 ]; then
+      echo "🌙 Kimi 集成测试与健康检查"
+      cd "$LH_ROOT/kimi" && python3 kimi_gateway.py
+    else
+      subcmd="$1"
+      shift
+      case "$subcmd" in
+        health)
+          cd "$LH_ROOT/kimi" && python3 - <<'PY'
+from kimi_gateway import KimiGatewayLite
+print(KimiGatewayLite().handle_request("/health", "GET", {}))
+PY
+          ;;
+        chat)
+          prompt="${*:-你好，龍魂系统}"
+          cd "$LH_ROOT/kimi" && python3 - "$prompt" <<'PY'
+import sys
+from kimi_gateway import KimiGatewayLite
+result = KimiGatewayLite().handle_request("/kimi/backup-inference", "POST", {"prompt": sys.argv[1]})
+print(result)
+PY
+          ;;
+        skill)
+          skill_id="${1:-skill-3-canvas-design}"
+          shift || true
+          cd "$LH_ROOT/kimi" && python3 - "$skill_id" "$*" <<'PY'
+import sys
+from kimi_gateway import KimiGatewayLite
+result = KimiGatewayLite().handle_request("/kimi/skill", "POST", {"skill_id": sys.argv[1], "input": {"description": sys.argv[2]}})
+print(result)
+PY
+          ;;
+        *)
+          echo "用法: lh6 kimi [health|chat <提示词>|skill <skill_id>]"
+          ;;
+      esac
+    fi
+    ;;
+
+  help|--help|-h|""|*)
+    cat <<EOF
+🐉 龍魂 v6 统一入口
+
+用法: lh6 <子命令>
+
+子命令:
+   status    完整状态面板（含 DNA·权重·层级）
+   registry  重建 DNA→权重/层级/状态全局注册表
+   weight    查询指定文件的权重/层级/状态
+   gate      运行人民主权联动测试
+   rights    运行人民权益守门人测试（反收割·焊死）
+   export    一键导出用户数据（默认 UID9622）
+   behavior  人民行为引擎：一人一策，专练一项
+   scope     人民技能边界：赋能不是取代，越界审计
+   kimi      Kimi 集成：健康检查 / 对话 / Skill 引擎
+   going     创始人报备行程（你说去哪，系统随行）
+   ops       打开本地 OPS 操作台
+   portal    打开 https://longhun888.com/
+   cnsh      启动 CNSH 终端
+   memory    运行记忆启动器
+   help      显示本帮助
+
+示例:
+   lh6 status
+   lh6 gate
+   lh6 rights
+   lh6 export
+   lh6 behavior
+   lh6 scope
+   lh6 scope check 医生 医疗建议
+   lh6 kimi
+   lh6 kimi health
+   lh6 kimi chat 龍魂系统的核心是什么
+   lh6 going 北京
+   lh6 ops
+   lh6 portal
+EOF
+    ;;
+esac

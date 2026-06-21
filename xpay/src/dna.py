@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 DNA 存根生成與驗證
-DNA: #龍芯⚡️2026-06-17-XPAY-DNA-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-DNA-FILE1-v2.0
 """
 import hashlib
 import uuid
