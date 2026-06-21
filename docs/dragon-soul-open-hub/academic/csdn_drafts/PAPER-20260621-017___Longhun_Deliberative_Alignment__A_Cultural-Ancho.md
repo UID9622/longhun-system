@@ -87,7 +87,7 @@
 
 ## 正文
 
-<!--#龍芯⚡️2026-06-21-DOC-LONGHUN-DELIBERATIVE-ALIGNMENT-A-CULTURAL-ANCHOR-011F71760A9B4958974A25CCDE92E8F4-v1.0 -->
+<!--#龍芯⚡️2026-06-21-DOC-LONGHUN-DELIBERATIVE-ALIGNMENT-A-CULTURAL-ANCHOR-011F71760A9B4958974A25CCDE92E8F4-FILE1-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架

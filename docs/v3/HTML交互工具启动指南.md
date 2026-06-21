@@ -44,7 +44,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-1-algorithmic-art.html`
 - **文件大小**: 约 420 行 HTML/CSS/JavaScript
 - **外部依赖**: p5.js 1.4.0 (CDN: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js`)
-- **DNA标识**: `#龍芯⚡️2026-06-07-ALGORITHMIC-ART-FILE1-v1.0-1`
+- **DNA标识**: `#龍芯⚡️2026-06-07-ALGORITHMIC-ART-FILE1-FILE1-v1.0-1`
 
 ### 启动步骤
 
