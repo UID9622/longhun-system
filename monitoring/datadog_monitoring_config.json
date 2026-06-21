@@ -323,6 +323,6 @@
     "metric_collection_interval": "60s",
     "log_collection_enabled": true
   },
-  "dna": "#龍芯⚡️2026-06-08-DATADOG-MONITORING-COMPLETE-v1.0",
+  "dna":#龍芯⚡️2026-06-08-DATADOG-MONITORING-COMPLETE-FILE1-v1.0",
   "confirmation_code": "${LONGHUN_CONFIRM_CODE}"
 }

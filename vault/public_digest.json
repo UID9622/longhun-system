@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PUBLIC_DIGEST-v1.0",
+
   "updated_at": "2026-06-18T19:11:34+0800",
   "dna": "#龍芯⚡️1781781094122-VAULT-INIT",
   "vault_services": [
@@ -12,5 +13,6 @@
     "notion.age",
     "kimi.age"
   ],
-  "note": "Values are age-encrypted. Public repo may host *.age files only."
+  "note": "Values are age-encrypted. Public repo may host *.age files only.",
+  "_dna": "2026-06-21-CONFIG-PUBLIC_DIGEST-v1.0"
 }

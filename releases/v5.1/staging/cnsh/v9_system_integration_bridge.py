@@ -7,7 +7,7 @@ Three-Ring Integration Bridge v9.0
 將 v4.1 決策闢、v1.0 三合同步器、v3.0 呼吸大腦、v4.0 神經映射
 集成到統一的系統架構中。
 
-DNA: #龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.0
+DNA:#龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -406,7 +406,7 @@ class V9SystemIntegrationBridge:
 # ═══════════════════════════════════════════════════════════════════════════
 
 """
-DNA: #龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.0
+DNA:#龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622·諸葛鑫·龍芯北辰
 

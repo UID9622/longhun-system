@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DEMO_WMS-v1.0",
+
   "inventory_diff_rate": 0.0008,
   "scan_success_rate": 0.996,
   "daily_orders": 120000,
@@ -10,5 +11,6 @@
   "offline_supported": true,
   "failover_seconds": 45,
   "fire_safety_score": 94,
-  "5s_score": 90
+  "5s_score": 90,
+  "_dna": "2026-06-21-CONFIG-DEMO_WMS-v1.0-2"
 }

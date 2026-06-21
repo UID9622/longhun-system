@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂多币种·轻量级仪表板 (不依赖 Flask)
-DNA: #龍芯⚡️2026-06-07-DASHBOARD-LITE-v1.0
+DNA:#龍芯⚡️2026-06-07-DASHBOARD-LITE-v1.0
 """
 
 import json

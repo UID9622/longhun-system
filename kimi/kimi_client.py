@@ -10,7 +10,7 @@
   • 多模态请求支持（文本、图像、文件）
   • 故障转移和断路器
 
-DNA: #龍芯⚡️2026-06-08-KIMI-CLIENT-v1.0
+DNA:#龍芯⚡️2026-06-08-KIMI-CLIENT-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 理论指导：曾仕强老师（永恒显示）
@@ -80,7 +80,7 @@ class KimiClient:
     def chat_completion(
         self,
         messages: List[Dict[str, str]],
-        model: str = "moonshot-v1",
+        model: str = "moonshot-v1-8k",
         temperature: float = 0.7,
         max_tokens: int = 4096,
         metadata: Optional[Dict[str, Any]] = None
@@ -104,7 +104,7 @@ class KimiClient:
         text: str,
         images: Optional[List[str]] = None,
         files: Optional[List[str]] = None,
-        model: str = "moonshot-v1"
+        model: str = "moonshot-v1-8k"
     ) -> Dict[str, Any]:
         """处理多模态请求（文本 + 图像 + 文件）"""
 

@@ -4,7 +4,7 @@
 🐉 龍字規範化工具 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0
+DNA:#龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 統一龍字編碼 (簡體龙 U+9F99 → 繁體龍 U+9F8D)
@@ -273,7 +273,7 @@ def main():
     else:
         print("✅ 規範化完成")
     print("═" * 70)
-    print(f"\nDNA: #龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0")
+    print(f"\nDNA:#龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0")
     print("責任: UID9622 · 不免責\n")
 
 if __name__ == "__main__":

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-SKILL-LAUNCHER_493F-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # SKILL-LAUNCHER.sh 使用说明
 
 > **DNA签名**: `UID9622⚡️2026-06-16-SKILL-LAUNCHER-v3.0`

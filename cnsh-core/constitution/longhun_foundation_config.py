@@ -6,7 +6,7 @@
 ║                                                                  ║
 ║  从Notion宣言页面提取的机器可读配置，涵盖身份、权限、宣言、主权 ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-LONGHUN-FOUNDATION-CONFIG-v1.0          ║
+║  DNA:#龍芯⚡️2026-06-03-LONGHUN-FOUNDATION-CONFIG-FILE1-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓               ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║

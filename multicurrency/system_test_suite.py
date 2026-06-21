@@ -4,7 +4,7 @@
 🐉 龍魂多幣種·系統測試套件 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-SYSTEM-TEST-SUITE-v1.0
+DNA:#龍芯⚡️2026-06-07-SYSTEM-TEST-SUITE-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 端到端系統測試·性能測試·監控指標
@@ -417,7 +417,7 @@ def main():
     suite = SystemTestSuite()
 
     print("🐉 龍魂多幣種·系統測試套件 v1.0")
-    print("DNA: #龍芯⚡️2026-06-07-SYSTEM-TEST-SUITE-v1.0\n")
+    print("DNA:#龍芯⚡️2026-06-07-SYSTEM-TEST-SUITE-v1.0\n")
 
     if args.full:
         suite.run_full_tests()

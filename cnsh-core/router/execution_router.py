@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂執行路由器 (Execution Router)
-DNA: #龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
+DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-FILE1-v1.0
 
 本地完全自主執行系統的協調中樞
 
@@ -40,6 +40,53 @@ try:
 except ImportError:
     HAS_PERSONA_ROUTER = False
 
+# 人民主权守护集成
+try:
+    from ..dna_sovereignty_kernel import (
+        PeopleSovereigntyGuard, Context as GuardContext
+    )
+    HAS_GUARD = True
+except ImportError:
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from dna_sovereignty_kernel import (
+            PeopleSovereigntyGuard, Context as GuardContext
+        )
+        HAS_GUARD = True
+    except ImportError:
+        HAS_GUARD = False
+
+# 人民权益守门人集成
+try:
+    from ..people_rights_guard import PeopleRightsGuard
+    HAS_RIGHTS_GUARD = True
+except ImportError:
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from people_rights_guard import PeopleRightsGuard
+        HAS_RIGHTS_GUARD = True
+    except ImportError:
+        HAS_RIGHTS_GUARD = False
+
+# 人民技能边界守护集成
+try:
+    from ..people_skill_scope import (
+        SkillScopeGuard, get_skill_scope_guard
+    )
+    HAS_SKILL_SCOPE_GUARD = True
+except ImportError:
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from people_skill_scope import (
+            SkillScopeGuard, get_skill_scope_guard
+        )
+        HAS_SKILL_SCOPE_GUARD = True
+    except ImportError:
+        HAS_SKILL_SCOPE_GUARD = False
+
 
 class ExecutionPriority(Enum):
     """執行優先級"""
@@ -73,6 +120,12 @@ class TaskDefinition:
     required_si: float              # 所需最低SI
     required_f1f7: float            # 所需最低F1-F7置信度
     description: str                # 任務描述
+    source_file: Optional[str] = None  # 源文件路径，用于 DNA 主权内核
+    dna: Optional[str] = None          # DNA 追溯码，可选
+    provider_id: Optional[str] = None  # 服务商 ID，用于人民权益审查
+    skill_domain: Optional[str] = None  # 技能领域，用于人民技能边界审查
+    stated_intent: Optional[str] = None  # 用户表达的意图
+    profession: Optional[str] = None  # 用户职业/身份
 
     def to_dict(self) -> Dict:
         return asdict(self)
@@ -318,45 +371,114 @@ class ExecutionRouter:
             f"   DNA: {self.dna_marker}"
         )
 
+    def _to_guard_context(self, ctx: ExecutionContext) -> "GuardContext":
+        """把 ExecutionContext 转成人民主权上下文"""
+        return GuardContext(
+            who=ctx.executor_uid,
+            device=None,
+            network=None,
+            ip=None,
+            where=None,
+            is_platform=False,
+        )
+
     def authorize_task(
         self,
         task: TaskDefinition,
         executor_context: ExecutionContext
     ) -> Tuple[bool, ExecutionPriority, str]:
         """
-        授權任務執行
+        人民意志执行器：授权任务。
 
-        Returns:
-            (是否授權, 優先級, 原因)
+        简化后：
+        - 创始人 UID9622 说做，基本通过
+        - 改宪法/核心：问一句确认
+        - 平台：拒绝
+        - 其他人：按人民主权模型处理
         """
         if not self.system_ready:
             return False, ExecutionPriority.BLOCKED, "系統未初始化"
 
-        # 檢查1: SI 是否滿足
+        # 人民权益守门人：平台任务先审查
+        if HAS_RIGHTS_GUARD and task.provider_id:
+            try:
+                rights = PeopleRightsGuard()
+                if not rights.is_people_first(task.provider_id):
+                    return (
+                        False,
+                        ExecutionPriority.BLOCKED,
+                        f"🔴 {task.provider_id} 未通过人民权益审查，拒绝执行",
+                    )
+            except Exception:
+                pass
+
+        # 人民技能边界守护：任务涉及特定技能领域时先审查
+        if HAS_SKILL_SCOPE_GUARD and task.skill_domain:
+            try:
+                scope_guard = get_skill_scope_guard()
+                verdict = scope_guard.personalized_verdict(
+                    uid=executor_context.executor_uid,
+                    domain_name=task.skill_domain,
+                    stated_intent=task.stated_intent or "",
+                    profession=task.profession or "",
+                )
+                result = verdict["result"]
+                reason = verdict["reason"]
+                if result == "🔴 拒绝":
+                    return False, ExecutionPriority.BLOCKED, f"⛔ 技能边界: {reason}"
+                if result == "🟡 需确认":
+                    return False, ExecutionPriority.BLOCKED, f"🟡 技能边界确认: {reason}"
+            except Exception:
+                pass
+
+        # 人民主权守护
+        if HAS_GUARD and task.source_file:
+            try:
+                guard = PeopleSovereigntyGuard()
+                gctx = self._to_guard_context(executor_context)
+                verdict, reason, detail = guard.check(
+                    gctx, task.source_file, "execute"
+                )
+
+                if verdict.value.startswith("🔴"):
+                    return False, ExecutionPriority.BLOCKED, f"⛔ {reason}"
+
+                if verdict.value.startswith("🟡"):
+                    return False, ExecutionPriority.BLOCKED, f"🟡 请确认: {reason}"
+
+                # 守望也通过，但优先级按身份降一档
+                priority = self._legacy_priority(executor_context)
+                if verdict.value.startswith("🟠"):
+                    # 陌生场域守望：允许，但标记为普通优先级
+                    priority = ExecutionPriority.NORMAL
+
+                return True, priority, f"🧬 {reason}"
+            except Exception:
+                pass
+
+        # 传统 SI/F1-F7 兜底
         if executor_context.current_si < task.required_si:
             return False, ExecutionPriority.BLOCKED, (
                 f"主權不足: SI={executor_context.current_si:.4f} < 所需 {task.required_si}"
             )
-
-        # 檢查2: F1-F7 是否滿足
         if executor_context.current_f1f7_confidence < task.required_f1f7:
             return False, ExecutionPriority.BLOCKED, (
                 f"信任不足: F1-F7={executor_context.current_f1f7_confidence:.4f} < 所需 {task.required_f1f7}"
             )
 
-        # 決定優先級
-        if executor_context.current_si >= 0.95 and executor_context.current_f1f7_confidence >= 0.90:
-            priority = ExecutionPriority.CRITICAL
-        elif executor_context.current_si >= 0.80 and executor_context.current_f1f7_confidence >= 0.85:
-            priority = ExecutionPriority.HIGH
-        elif executor_context.current_si >= 0.34 and executor_context.current_f1f7_confidence >= 0.70:
-            priority = ExecutionPriority.NORMAL
+        priority = self._legacy_priority(executor_context)
+        return True, priority, f"✅ 授權: {priority.value}"
+
+    def _legacy_priority(self, ctx: ExecutionContext) -> ExecutionPriority:
+        """传统 SI/F1-F7 优先级"""
+        if ctx.current_si >= 0.95 and ctx.current_f1f7_confidence >= 0.90:
+            return ExecutionPriority.CRITICAL
+        elif ctx.current_si >= 0.80 and ctx.current_f1f7_confidence >= 0.85:
+            return ExecutionPriority.HIGH
+        elif ctx.current_si >= 0.34 and ctx.current_f1f7_confidence >= 0.70:
+            return ExecutionPriority.NORMAL
         else:
-            priority = ExecutionPriority.LOW
-
-        reason = f"✅ 授權: {priority.value}"
-
-        return True, priority, reason
+            return ExecutionPriority.LOW
 
     def execute_task(
         self,
@@ -520,7 +642,7 @@ class ExecutionRouter:
 
 if __name__ == '__main__':
     print("\n【龍魂執行路由器 v1.0】\n")
-    print("DNA: #龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0")
+    print("DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 

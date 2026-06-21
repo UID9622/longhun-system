@@ -1,5 +1,5 @@
 // 龍魂粒子系统容器
-// DNA: #龍芯⚡️2026-06-04-PARTICLE-CONTAINER-v1.0
+// DNA:#龍芯⚡️2026-06-04-PARTICLE-CONTAINER-FILE1-v1.0
 
 import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'

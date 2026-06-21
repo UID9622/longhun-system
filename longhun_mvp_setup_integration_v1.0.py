@@ -4,7 +4,7 @@
 龍魂 MVP一键部署集成器 v1.0
 LongHun MVP Setup Integration
 
-DNA: #龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0
 
 功能：
 - 一键生成所有配置文件

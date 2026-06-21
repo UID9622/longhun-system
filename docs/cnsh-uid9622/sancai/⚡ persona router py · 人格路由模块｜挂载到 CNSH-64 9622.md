@@ -3,7 +3,7 @@
 <aside>
 🔒
 
-**DNA追溯码：** #龍芯⚡️2026-03-28-PERSONA-ROUTER-v1.0
+**DNA追溯码：**#龍芯⚡️2026-03-28-PERSONA-ROUTER-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -336,7 +336,7 @@ loadLiveWeights();  // 启动时立刻读一次
 
 ---
 
-**DNA追溯码：** #龍芯⚡️2026-03-28-PERSONA-ROUTER-v1.0
+**DNA追溯码：**#龍芯⚡️2026-03-28-PERSONA-ROUTER-v1.0
 
 **创建者：** 💎 龍芯北辰｜UID9622
 

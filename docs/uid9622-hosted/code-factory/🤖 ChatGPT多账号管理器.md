@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-CHATGPT_3E6B-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🤖 ChatGPT多账号管理器
 
 代码内容: #!/usr/bin/env python3

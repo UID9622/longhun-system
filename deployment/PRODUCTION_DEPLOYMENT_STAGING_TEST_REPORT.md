@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-PRODUCTION_DEPLOYMENT_STAGING_TEST_REPORT-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🐉 龍魂系統 · 生產部署引擎·Staging 環境測試報告
 
 **測試日期**: 2026-06-08 20:11 CST  

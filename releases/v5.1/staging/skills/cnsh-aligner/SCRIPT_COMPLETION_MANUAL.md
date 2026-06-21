@@ -440,6 +440,6 @@ A: 这取决于是哪一层：
 
 ---
 
-`DNA: #龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0`  
+`DNA:#龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0`  
 `主权人: UID9622 · 龍芯北辰`  
 `性质: 操作手册·永久参考`

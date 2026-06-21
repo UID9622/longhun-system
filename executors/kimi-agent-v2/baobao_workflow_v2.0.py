@@ -5,7 +5,7 @@
   寶寶工作流透明化系統 v2.0 — Baobao Workflow Transparent System
 ═══════════════════════════════════════════════════════════════════════════════
 
-  DNA簽名    : #龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0
+  DNA簽名    :#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-FILE2-v2.0
   CONFIRM標記: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL標記   : #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -1273,7 +1273,7 @@ def main():
 ║                                                                               ║
 ║   🐉 寶寶工作流透明化系統 v2.0 — Baobao Workflow Transparent System          ║
 ║                                                                               ║
-║   DNA: #龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0                    ║
+║   DNA:#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0                    ║
 ║   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                               ║
 ║   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL                ║
 ║                                                                               ║

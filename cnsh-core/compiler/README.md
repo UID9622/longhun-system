@@ -1,6 +1,6 @@
 <!--
 龍魂CNSH编译器文档 · P1-3层级
-DNA: #龍芯⚡️2026-06-03-CNSH-COMPILER-README-v1.0
+DNA:#龍芯⚡️2026-06-03-CNSH-COMPILER-README-FILE1-v1.0
 作者: UID9622 · 诸葛鑫 · 龍芯北辰
 -->
 
@@ -434,7 +434,7 @@ task = CompileTask(
 
 ```python
 # 编译后
-result.dna  # "#龍芯⚡️2026-06-03-CNSH-COMPILE-c5a8f2-v1.0"
+result.dna  # "#龍芯⚡️2026-06-03-CNSH-COMPILE-C5A8F2-v1.0"
 
 # 包含信息:
 # - 源代码哈希
@@ -478,7 +478,7 @@ result.dr_value     # 0-9 (使用公式 F18 计算)
   "compile_time": 0.0042,
   "error_count": 0,
   "warning_count": 0,
-  "dna": "#龍芯⚡️2026-06-03-CNSH-COMPILE-c5a8f2-v1.0",
+  "dna": "#龍芯⚡️2026-06-03-CNSH-COMPILE-C5A8F2-v1.0",
   "dr_value": 6,
   "audit_color": "🟢"
 }

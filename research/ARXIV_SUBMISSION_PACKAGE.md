@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-ARXIV_SUBMISSION_PACKAGE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # arXiv Submission Package for Riemann Hypothesis via Three Perspectives
 
 **DNA**: #DragonCore⚡️2026-06-08-ARXIV-SUBMISSION-PACKAGE-v1.0

@@ -2,7 +2,7 @@
 
 > 把 Claude 記憶檔升級為龍魂系統自己的項目記憶宇宙。
 
-**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-CHRONICLE-v1.0`
+**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-CHRONICLE-FILE1-v1.0`
 
 ---
 

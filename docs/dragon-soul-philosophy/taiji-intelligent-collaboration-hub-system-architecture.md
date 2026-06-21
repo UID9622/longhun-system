@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-TAIJI-INTELLIGENT-COLLABORATION-HUB-SYSTEM-ARCHITECTURE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 太极智能协同中枢系统架构
 
 # 太极智能协同中枢系统架构详情

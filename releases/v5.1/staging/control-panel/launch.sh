@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 🐉 龍魂操作台 MVP v1.1 啟動腳本
-# DNA: #龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-LAUNCHER-v1.0
+# DNA:#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-LAUNCHER-v1.0
 
 set -e
 

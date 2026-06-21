@@ -1,6 +1,6 @@
 # 🐉 龍魂系統監控部署指南
 
-**DNA**: #龍芯⚡️2026-06-08-MONITORING-DEPLOYMENT-v1.0
+**DNA**:#龍芯⚡️2026-06-08-MONITORING-DEPLOYMENT-FILE1-v1.0
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ---
@@ -466,6 +466,6 @@ curl -H "Authorization: Bearer $DATADOG_API_KEY" \
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-08-MONITORING-DEPLOYMENT-GUIDE-v1.0
+**DNA**:#龍芯⚡️2026-06-08-MONITORING-DEPLOYMENT-GUIDE-v1.0
 **最後更新**: 2026-06-08
 **版本**: 1.0

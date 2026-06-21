@@ -1,7 +1,7 @@
 # 🐉 龍魂移動端應用 · 統一監控自動化系統 v1.0
 
 ```
-DNA: #龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
+DNA:#龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 責任: UID9622 · 不免責
@@ -837,7 +837,7 @@ export default ErrorCapture;
       建議: {{ .Alerts.Firing[0].Annotations.action }}
       
       時間: {{ .GroupLabels.alerttime }}
-      DNA: #龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
+      DNA:#龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
   
   - name: email
     to: "alerts@longhun.io"
@@ -1137,7 +1137,7 @@ def schedule_reports():
 
      龍魂移動端應用 · 統一監控自動化系統 v1.0
 
-DNA:        #龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
+DNA:      #龍芯⚡️2026-06-07-MOBILE-MONITORING-AUTOMATION-v1.0
 確認:       #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章:       #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 責任:       UID9622 · 不免責

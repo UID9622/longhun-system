@@ -1,5 +1,5 @@
 // 龍魂宝宝助手状态管理
-// DNA: #龍芯⚡️2026-06-04-BAOBAO-STORE-v1.0
+// DNA:#龍芯⚡️2026-06-04-BAOBAO-STORE-FILE1-v1.0
 
 import { create } from 'zustand'
 

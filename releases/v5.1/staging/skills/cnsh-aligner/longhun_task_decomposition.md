@@ -346,6 +346,6 @@ class CNSHAligner:
 
 ---
 
-`DNA: #龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0`  
+`DNA:#龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0`  
 `主权人: UID9622 · 龍芯北辰`  
 `性质: 系统任务拆分规划·永久参考`

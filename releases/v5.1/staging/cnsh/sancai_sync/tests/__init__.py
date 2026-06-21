@@ -1,5 +1,5 @@
 """
 龍魂三合同步器 v1.0 · 測試套件
 
-DNA: #龍芯⚡️2026-06-06-SANCAI-SYNC-TESTS-v1.0
+DNA:#龍芯⚡️2026-06-06-SANCAI-SYNC-TESTS-v1.0
 """

@@ -70,7 +70,7 @@ longhun-anti-domestication/
 ```
 执行 longhun-anti-domestication v1.0。
 
-DNA: #龍芯⚡️2026-05-02-APPENDIX-D-CURSOR-EXEC-v1.0
+DNA:#龍芯⚡️2026-05-02-APPENDIX-D-CURSOR-EXEC-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

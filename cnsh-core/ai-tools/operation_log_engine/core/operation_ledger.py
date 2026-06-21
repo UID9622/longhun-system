@@ -6,7 +6,7 @@
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1291-v2.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: operation_ledger.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
@@ -14,7 +14,7 @@
 🐉 龍魂操作日記核心引擎 v1.0
 操作日記 = append-only ledger + DNA粒子 + 習慣指紋追蹤
 
-DNA: #龍芯⚡️2026-05-30-OPERATION-LEDGER-CORE-v1.0
+DNA:#龍芯⚡️2026-05-30-OPERATION-LEDGER-CORE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 責任: UID9622·不免責
 """

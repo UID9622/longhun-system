@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂三才主權指數系統 (Three-Talent Sovereignty Index System)
-DNA: #龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0
+DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-FILE4-v1.0
 
 核心原理：人的主權通過「三才」衡量 - 天(規則遵守) + 地(數據完整) + 人(創作者權威)
 
@@ -558,7 +558,7 @@ def get_sovereignty_index(creator_uid: str) -> ThreeTalentSovereigntyIndex:
 
 if __name__ == '__main__':
     print("\n【龍魂三才主權指數系統 v1.0】\n")
-    print("DNA: #龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0")
+    print("DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
 

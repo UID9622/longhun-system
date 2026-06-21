@@ -7,7 +7,7 @@
 功能：为所有 10 个 Skills 执行性能基准测试
      包括吞吐量·延迟·内存·CPU 等指标
 
-DNA: #龍芯⚡️2026-06-08-PHASE5-PERFORMANCE-BENCHMARK-v1.0
+DNA:#龍芯⚡️2026-06-08-PHASE5-PERFORMANCE-BENCHMARK-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

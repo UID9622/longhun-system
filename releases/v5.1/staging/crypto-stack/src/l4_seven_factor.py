@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-L4_SEVEN_FACTOR-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 """
 L4 七因子签名层 · 直接复用 Behavioral Cryptography

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-64-A-GOVERNANCE-AWARE-SYMBOLIC-DECISION-FRA-3297125A9C9F818C8A69F6A6313217DC-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🧠 CNSH-64: A Governance-Aware Symbolic Decision Framework — arXiv Ready v2.0
 
 所有者: 💎 龍芯北辰｜UID9622

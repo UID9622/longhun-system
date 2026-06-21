@@ -1,6 +1,6 @@
 @echo off
 REM 龍魂宝宝守護助手 · 一鍵啟動腳本 (Windows)
-REM DNA: #龍芯⚡️2026-06-04-START-SCRIPT-WINDOWS-v1.0
+REM DNA:#龍芯⚡️2026-06-04-START-SCRIPT-WINDOWS-v1.0
 
 setlocal enabledelayedexpansion
 

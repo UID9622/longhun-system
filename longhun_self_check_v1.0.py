@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️2026-06-05-SELF-CHECK-v1.0  责任:UID9622·不免责
+# DNA:#龍芯⚡️2026-06-05-SELF-CHECK-v1.0  责任:UID9622·不免责
 import subprocess, sqlite3, json, time, hashlib, sys
 from pathlib import Path
 from datetime import datetime

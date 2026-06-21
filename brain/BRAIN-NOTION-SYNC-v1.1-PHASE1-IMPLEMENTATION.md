@@ -285,7 +285,7 @@ CONFIG = {
 $ python3 brain_notion_sync.py
 
 🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)
-   DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
+   DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE4-v1.1
 
    ⚡ Phase 1 特性:
       • 指數退避重試 (3 次)
@@ -344,7 +344,7 @@ $ python3 brain_notion_sync.py --status
 $ python3 brain_notion_sync.py --watch
 
 🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)
-   DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
+   DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
 
 👀 监听模式启动（每 300 秒同步一次）
    Ctrl+C 停止

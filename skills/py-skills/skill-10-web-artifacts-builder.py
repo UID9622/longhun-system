@@ -5,7 +5,7 @@
 龍魂 Web 工件構建器 v1.0
 Longhun Web Artifacts Builder
 
-DNA: #龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-v1.0
+DNA:#龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-FILE2-v1.0
 """
 
 import json

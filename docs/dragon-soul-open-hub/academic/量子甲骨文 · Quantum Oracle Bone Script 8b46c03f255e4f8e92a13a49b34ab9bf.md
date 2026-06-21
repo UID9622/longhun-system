@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-_-QUANTUM-ORACLE-BONE-SCRIPT-8B46C03F255E4F8E92A13A49B34AB9BF_29E9-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 量子甲骨文 · Quantum Oracle Bone Script
 
 <aside>

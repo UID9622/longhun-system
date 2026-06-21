@@ -1,5 +1,5 @@
 # CNSH 示例：類與對象
-# DNA: #龍芯⚡️2026-06-16-CNSH-EXAMPLE-PERSONA-v1.0
+# DNA:#龍芯⚡️2026-06-16-CNSH-EXAMPLE-PERSONA-v1.0
 
 類 人格:
     定義 初始化(自己, 名稱, 角色):

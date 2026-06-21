@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-UID9622-MASTER-CONTROL-INIT-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # /UID9622-MASTER-CONTROL-INIT
 
 功能描述: 主控系统初始化，启动所有核心模块

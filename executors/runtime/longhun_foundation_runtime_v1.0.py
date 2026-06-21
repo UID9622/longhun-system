@@ -15,7 +15,7 @@ LongHun System Foundation Runtime Code
   ✅ 版本控制（append-only log，never delete）
   ✅ 自动化（zero-manual intervention）
 
-DNA: #龍芯⚡️2026-06-05-LONGHUN-FOUNDATION-v1.0-RUNTIME
+DNA:#龍芯⚡️2026-06-05-LONGHUN-FOUNDATION-v1.0-RUNTIME
 作者: UID9622 (诸葛鑫)
 签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅

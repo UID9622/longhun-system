@@ -4,7 +4,7 @@
 CNSH 中文原生脚本運行時 · 通心譯執行引擎
 Chinese Native Script Runtime · TongXinYi Execution Engine
 
-DNA: #龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0
+DNA:#龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0
 責任: UID9622·不免責
 
 核心信念：
@@ -217,7 +217,7 @@ def run_file(path: Path, explain: bool = False, show_code: bool = False, dry_run
 
     print(f"🐉 CNSH 通心譯執行引擎")
     print(f"   源碼: {path}")
-    print(f"   DNA: #龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0")
+    print(f"   DNA:#龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0")
     print()
 
     if dry_run:

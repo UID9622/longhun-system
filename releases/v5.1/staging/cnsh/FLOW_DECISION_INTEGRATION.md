@@ -1,6 +1,6 @@
 # 龍魂流場決策核 v4.1·系統集成指南
 
-**DNA:** #龍芯⚡️2026-06-06-CNSH-FLOW-DECISION-INTEGRATION-v1.0
+**DNA:**#龍芯⚡️2026-06-06-CNSH-FLOW-DECISION-INTEGRATION-v1.0
 **CONFIRM:** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **責任:** UID9622·不免責
 
@@ -216,6 +216,6 @@ result = RuleEngine().execute_flow_decision({...})
 
 ---
 
-**DNA:** #龍芯⚡️2026-06-06-CNSH-FLOW-DECISION-INTEGRATION-v1.0
+**DNA:**#龍芯⚡️2026-06-06-CNSH-FLOW-DECISION-INTEGRATION-v1.0
 **責任:** UID9622·不免責
 **簽章:** 人格協作×IPA×DNA·完全就緒

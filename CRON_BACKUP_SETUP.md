@@ -1,7 +1,7 @@
 # 龍魂系統·Cron 定時備份設置
 
 **時間**: 2026-06-07 22:00 CST
-**DNA**: #龍芯⚡️2026-06-07-CRON-WEEKLY-BACKUP-v1.0
+**DNA**:#龍芯⚡️2026-06-07-CRON-WEEKLY-BACKUP-v1.0
 **UID**: 9622
 
 ## 📋 任務配置
@@ -123,7 +123,7 @@ du -sh ~/.龍魂/backups/
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-CRON-WEEKLY-BACKUP-v1.0
+**DNA**:#龍芯⚡️2026-06-07-CRON-WEEKLY-BACKUP-v1.0
 **狀態**: 🟢 配置完成·已激活·運行中
 **簽署**: UID9622·不免責
 

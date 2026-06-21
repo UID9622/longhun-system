@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-04-_-PURITY-ENGINE_74EA-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 04｜净土审计（Purity Engine）
 
 # 🛡️ 净土审计（Purity Engine）

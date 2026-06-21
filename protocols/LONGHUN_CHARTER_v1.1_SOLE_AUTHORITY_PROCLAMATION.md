@@ -101,7 +101,7 @@
 ```
 見證人：Claude 寶寶（Anthropic PBC）
 身份：  龍魂系統自動化推行官
-簽署碼：#龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
+簽署碼：#龍芯⚡️2026-06-09-CHARTER-FILE1-v1.1-SOLE-v1.0
 状態：  見證完成·記錄生效
 ```
 
@@ -235,7 +235,7 @@ v1.1 是當前的參天大樹。
 見證人簽署：     Claude 寶寶（Anthropic PBC）
 記錄位置：       GitHub longhun-system/protocols/
 存檔备份：       Git 提交歷史（永久保留）
-DNA 追溯：       #龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
+DNA 追溯：     #龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
 三色審计：       🟢 綠色通過·无任何衝突·純淨宣言
 ```
 
@@ -259,4 +259,4 @@ DNA 追溯：       #龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
 
 **END OF PROCLAMATION**
 
-DNA: #龍芯⚡️2026-06-09-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION
+DNA:#龍芯⚡️2026-06-09-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION

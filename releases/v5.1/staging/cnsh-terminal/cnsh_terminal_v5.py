@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-#龍芯⚡️2026-06-18-CNSH-TERMINAL-v5.0
+"""#龍芯⚡️2026-06-18-CNSH-TERMINAL_ADAA-v5.0
 # 🟢 审计通过: CNSH多语言编辑器终端v5.0 主程序
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫

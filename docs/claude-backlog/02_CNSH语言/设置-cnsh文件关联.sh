@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-_-CNSH_B8C4-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # DNA追溯码: #ZHUGEXIN⚡️2026-01-28-CNSH-FILE-ASSOCIATION-v1.0
 # CNSH文件格式关联脚本

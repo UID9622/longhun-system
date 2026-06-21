@@ -52,7 +52,7 @@ from cnsh.flow_decision import quick_process, LevelEnum, VisibilityEnum
 # 普通处理
 tags = {
     "title": "系统日志",
-    "dna": "#龍芯⚡️2026-05-03-TEST-v4.1",
+    "dna":#龍芯⚡️2026-05-03-TEST-FILE1-v4.1",
 }
 
 node = quick_process("处理内容", tags)
@@ -290,7 +290,7 @@ node = quick_process(
 
 ---
 
-**DNA:** #龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-README
+**DNA:**#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-v4.1-README
 **CONFIRM:** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **责任:** UID9622·不免责
 

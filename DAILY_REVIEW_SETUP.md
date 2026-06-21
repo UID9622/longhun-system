@@ -1,5 +1,5 @@
 # 龍魂每日復盤·完全部署指南
-**DNA**: #龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-v1.0
+**DNA**:#龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-v1.0
 **用途**: 自動審計日誌·發送郵件·同步日曆
 
 ---
@@ -328,7 +328,7 @@ def format_email_body(report, checks):
 ## 🔏 DNA 簽署
 
 ```
-DNA: #龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-v1.0
+DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2026-06-09-DAILY-REVIEW-OPERATIONAL
 ```

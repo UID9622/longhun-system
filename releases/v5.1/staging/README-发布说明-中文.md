@@ -1,6 +1,6 @@
 # 龍魂系统 · v5.1 发布说明
 
-**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-RELEASE-v5.1`
+**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-RELEASE-FILE2-v5.1`
 
 ---
 

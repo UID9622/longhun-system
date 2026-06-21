@@ -9,7 +9,7 @@
   - mode="viewer"   : 只打開文件/網頁/文檔，標註「👁只看」
   - mode="setup"    : 安裝/配置類，標註「⚙️配置」
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-GENERATE-DESKTOP-SWITCH-v1.2
+DNA:#龍芯⚡️2026-06-18-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
 """
 
 import json

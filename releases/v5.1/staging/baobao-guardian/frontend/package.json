@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PACKAGE_BD71-v1.0",
+
   "name": "baobao-guardian-frontend",
   "version": "1.0.0",
   "description": "宝宝守护助手 · 龍魂系统心脏应用",
@@ -60,5 +61,6 @@
       ],
       "category": "public.app-category.utilities"
     }
-  }
+  },
+  "_dna": "2026-06-21-CONFIG-PACKAGE-v1.0-2"
 }

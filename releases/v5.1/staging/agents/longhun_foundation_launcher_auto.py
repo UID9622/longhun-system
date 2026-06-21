@@ -7,7 +7,7 @@ LongHun System Foundation Launcher v1.1 (Auto Mode)
 所有系统的统一入口。
 非交互式，用于自動化任務執行。
 
-DNA: #龍芯⚡️2026-06-05-LONGHUN-FOUNDATION-LAUNCHER-AUTO-v1.1
+DNA:#龍芯⚡️2026-06-05-LONGHUN-FOUNDATION-LAUNCHER-AUTO-v1.1
 """
 
 import sys

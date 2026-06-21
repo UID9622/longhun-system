@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-UID9622-EMERGENCY-PROTOCOL-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # /UID9622-EMERGENCY-PROTOCOL
 
 功能描述: 紧急协议启动，系统保护机制

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-EXPRESS-MONGODB-_API_6578-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # Express + MongoDB 高并发API请求优化一体化实现
 
 使用说明: # README — Express + MongoDB 高并发 API 请求优化一体化实现

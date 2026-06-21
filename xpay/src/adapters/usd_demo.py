@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 美元（USD）演示適配器
-DNA: #龍芯⚡️2026-06-17-XPAY-USD-ADAPTER-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-USD-ADAPTER-FILE1-v2.0
 
 聲明：本適配器為演示框架，等待美聯儲 CBDC 或授權機構正式 API。
 """

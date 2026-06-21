@@ -18,7 +18,7 @@
   python3 multimodal_cli.py ocr ~/Desktop/screenshot.png
   python3 multimodal_cli.py perceive ~/Downloads/sample.mp3
 
-DNA: #龍芯⚡️2026-06-18-CNSH-MULTIMODAL-CLI-v1.0
+DNA:#龍芯⚡️2026-06-18-CNSH-MULTIMODAL-CLI-v1.0
 """
 
 import os

@@ -184,7 +184,7 @@ systemctl status longhun-multicurrency-sync
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-OPERATIONS-MANUAL-v1.0
+**DNA**:#龍芯⚡️2026-06-07-OPERATIONS-MANUAL-v1.0
 **版本**: 1.0
 **最后更新**: 2026-06-07
 

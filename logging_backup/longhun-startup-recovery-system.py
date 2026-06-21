@@ -5,7 +5,7 @@
 龍魂 启动初始化系统 v1.0
 Longhun Startup & Log Recovery System
 
-DNA: #龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0
+DNA:#龍芯⚡️2026-06-07-STARTUP-RECOVERY-FILE1-v1.0
 """
 
 import sqlite3
@@ -350,7 +350,7 @@ class StartupManager:
 
 if __name__ == "__main__":
     print("🐉 龍魂启动管理系统 v1.0")
-    print("DNA: #龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0\n")
+    print("DNA:#龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0\n")
     
     startup = StartupManager()
     result = startup.startup()

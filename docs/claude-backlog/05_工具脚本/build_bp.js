@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-ENGINE-BUILD_BP-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 const fs = require('fs');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,

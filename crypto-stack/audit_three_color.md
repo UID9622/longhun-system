@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-AUDIT_THREE_COLOR-FILE1-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 三色审计 · 龍魂密码学双系统
 
 ## 事件：Behavioral Cryptography + 祖传加密堆栈

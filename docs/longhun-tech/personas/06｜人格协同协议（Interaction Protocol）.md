@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-06-_-INTERACTION-PROTOCOL_8AD7-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 06｜人格协同协议（Interaction Protocol）
 
 # 🤝 人格协同协议（Interaction Protocol）

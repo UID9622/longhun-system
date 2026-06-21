@@ -18,7 +18,7 @@
 | **質量級別** | 🟢 production |
 | **測試覆蓋** | 95% |
 | **可靠性評分** | 95/100 |
-| **DNA簽章** | `#龍芯⚡️2026-06-08-SKILL-8-SLACK-GIF-CREATOR-v1.0` |
+| **DNA簽章** | `#龍芯⚡️2026-06-08-SKILL-8-SLACK-GIF-CREATOR-FILE2-v1.0` |
 
 ---
 
@@ -93,7 +93,7 @@
 {
   "status": "success",
   "result": {},
-  "dna": "#龍芯⚡️2026-06-08-skill-8-slack-gif-creator-EXECUTED-v1.0",
+  "dna": "#龍芯⚡️2026-06-08-SKILL-8-SLACK-GIF-CREATOR-EXECUTED-v1.0",
   "metadata": {"execution_time_ms": 123}
 }
 ```
@@ -509,7 +509,7 @@ def validate_input(inputs):
 ✅ DNA簽章追溯每個版本
 ✅ 可驗證·不玄學·能復算
 
-DNA: #龍芯⚡️2026-06-08-SKILL-8-SLACK-GIF-CREATOR-SPECIFICATION-COMPLETE-v1.0
+DNA:#龍芯⚡️2026-06-08-SKILL-8-SLACK-GIF-CREATOR-SPECIFICATION-COMPLETE-v1.0
 責任: UID9622·不免責
 ```
 

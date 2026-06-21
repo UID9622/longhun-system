@@ -4,7 +4,7 @@
 龍魂 Notion集成引擎 v1.0
 LongHun Notion Integration Engine
 
-DNA: #龍芯⚡️2026-06-04-NOTION-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-04-NOTION-INTEGRATION-v1.0
 
 功能：
 - Notion数据库同步（4个核心表）

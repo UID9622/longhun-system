@@ -13,7 +13,7 @@
 
 普通人只需：添加里程碑 → 系統自動歸檔 → 生成頁面。
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-CHRONICLE-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-CHRONICLE-v1.0
 """
 
 import argparse

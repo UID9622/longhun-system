@@ -5,7 +5,7 @@
 ║  文件名可以改，但指令永远有效                                    ║
 ║  因为指令基于 DNA，不基于文件名                                  ║
 ║                                                                    ║
-║  DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0            ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-FILE3-v1.0            ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL   ║
 ║                                                                    ║
@@ -26,17 +26,17 @@
 ┌─ 第一波：系统复盘 ─────────────────────────────────────┐
 │                                                         │
 │ 架构完整复盘                                           │
-│   DNA: #龍芯⚡️2026-06-02-LONGHUN-ARCHITECTURE-COMPLETE-v1.0
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-ARCHITECTURE-COMPLETE-v1.0
 │   当前文件: LONGHUN_ARCHITECTURE_COMPLETE_REVIEW.md   │
 │   改名后也能用: @arch.review                           │
 │                                                         │
 │ 15维度深层复盘                                         │
-│   DNA: #龍芯⚡️2026-06-02-LONGHUN-DEEP-REVIEW-15D-v1.0 │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-DEEP-REVIEW-15D-v1.0 │
 │   当前文件: LONGHUN_DEEP_REVIEW_15D.md               │
 │   改名后也能用: @arch.deepreview                       │
 │                                                         │
 │ 快速参考卡                                             │
-│   DNA: #龍芯⚡️2026-06-02-SUPPLEMENT-QUICK-REFERENCE-v1.0
+│   DNA:#龍芯⚡️2026-06-02-SUPPLEMENT-QUICK-REFERENCE-v1.0
 │   当前文件: SUPPLEMENT_QUICK_REFERENCE.md             │
 │   改名后也能用: @arch.reference                        │
 │                                                         │
@@ -45,12 +45,12 @@
 ┌─ 第二波：龍盾系统 ─────────────────────────────────────┐
 │                                                         │
 │ 龍盾核心系统                                           │
-│   DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0   │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0   │
 │   当前文件: longhun_shield_system.py                   │
 │   用法: 在代码中导入和使用 API                        │
 │                                                         │
 │ 龍盾 CLI 工具                                          │
-│   DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0      │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0      │
 │   当前文件: longhun_shield_cli.py                      │
 │   改名后也能用:                                        │
 │     @shield.check <file>                              │
@@ -58,11 +58,11 @@
 │     @shield.validate <file>                           │
 │                                                         │
 │ 龍盾使用指南                                           │
-│   DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-v1.0   │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-v1.0   │
 │   当前文件: LONGHUN_SHIELD_GUIDE.md                   │
 │                                                         │
 │ 龍盾测试示例                                           │
-│   DNA: #龍芯⚡️2026-06-02-SHIELD-TEST-EXAMPLE-v1.0     │
+│   DNA:#龍芯⚡️2026-06-02-SHIELD-TEST-EXAMPLE-v1.0     │
 │   当前文件: shield_test_example.py                     │
 │   改名后也能用: @shield.check <file>                   │
 │                                                         │
@@ -149,7 +149,7 @@
    永不改变
 
 2. DNA（灵魂）
-   #龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
+ #龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
    永不改变
 
 3. 文件名（衣服）
@@ -274,7 +274,7 @@ A: 每个指令都有唯一的 ID 和 DNA，不会冲突
 这就是"贴脑门"的含义：
   一次记住，永久有效。
 
-DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
+DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

@@ -4,7 +4,7 @@
 
 【项目日期】 2026-06-02
 【主权人】   UID9622 · 龍芯北辰 · 诸葛鑫
-【DNA】      #龍芯⚡️2026-06-02-PROJECT-COMPLETION-v1.0
+【DNA】    #龍芯⚡️2026-06-02-PROJECT-COMPLETION-v1.0
 【责任】     不免责·永久有效
 
 ───────────────────────────────────────────────────────────────
@@ -14,19 +14,19 @@
 【核心工具层】
   1. cnsh_aligner.py
      • 四层CNSH语法检查引擎（L1字符 L2关键字 L3语法 L4语义）
-     • DNA: #龍芯⚡️2026-06-02-CNSH-ALIGNER-v1.0
+     • DNA:#龍芯⚡️2026-06-02-CNSH-ALIGNER-v1.0
      • 用途：自动检查和矫正任何脚本的CNSH合规性
 
   2. script_manager.py
      • 全脚本扫描和管理系统
-     • DNA: #龍芯⚡️2026-06-02-SCRIPT-MANAGER-v1.0
+     • DNA:#龍芯⚡️2026-06-02-SCRIPT-MANAGER-v1.0
      • 用途：扫描所有脚本，生成详细的对齐报告
 
 【规划文档层】
   3. longhun_task_decomposition.md
      • 完整的任务分层和拆分
      • 9个任务分为3优先级（P1/P2/P3）
-     • DNA: #龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0
+     • DNA:#龍芯⚡️2026-06-02-TASK-DECOMPOSITION-v1.0
 
   4. CNSH对齐规范（内含在decomposition中）
      • 命名约定、输出格式、检查层级
@@ -38,19 +38,19 @@
      • 工具使用详解
      • 故障排查速查表
      • FAQ常见问题
-     • DNA: #龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0
+     • DNA:#龍芯⚡️2026-06-02-SCRIPT-COMPLETION-MANUAL-v1.0
 
   6. TASK_DASHBOARD.md
      • 实时任务看板
      • 进度跟踪和依赖关系图
      • 详细任务清单
-     • DNA: #龍芯⚡️2026-06-02-TASK-DASHBOARD-v1.0
+     • DNA:#龍芯⚡️2026-06-02-TASK-DASHBOARD-v1.0
 
 【系统基础层】
   7. longhun_foundation.md
      • 龍魂系统底座声明
      • 人永远是1·不蒸馏·不投机
-     • DNA: #龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0
+     • DNA:#龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0
 
   8. system_registry.json （已更新）
      • 追加了底座铁律
@@ -229,6 +229,6 @@ L4 语义检查（最严格）
 加油，老大。🐉
 
 ═══════════════════════════════════════════════════════════════
-DNA: #龍芯⚡️2026-06-02-PROJECT-COMPLETION-v1.0
+DNA:#龍芯⚡️2026-06-02-PROJECT-COMPLETION-v1.0
 責任: 不免責·永久有效
 ═══════════════════════════════════════════════════════════════

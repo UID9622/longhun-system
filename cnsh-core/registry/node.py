@@ -8,7 +8,7 @@
 ║  定义路由注册表中的节点结构                                     ║
 ║  支持O(1)查找·三色状态·DNA追溯                                  ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-ROUTE-NODE-MODEL-v1.0                 ║
+║  DNA:#龍芯⚡️2026-06-03-ROUTE-NODE-MODEL-FILE1-v1.0                 ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: IPA路由注册表设计规范                                    ║
@@ -46,9 +46,11 @@ class NodeType(str, Enum):
     PERSONA = "PERSONA"     # 人格路由 (P00-P72)
     DB = "DB"               # Notion数据库
     GATE = "GATE"           # 规则守门人 (本地)
+    GATEWAY = "GATEWAY"     # 综合网关
     LOCAL = "LOCAL"         # 本地引擎/模块
     TOOL = "TOOL"           # Chrome工具箱
     WIDGET = "WIDGET"       # 前端组件
+    ARCHIVAL = "ARCHIVAL"   # 归档节点
 
 
 # ═══════════════════════════════════════════════════════════════

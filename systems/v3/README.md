@@ -1,6 +1,6 @@
 # 龍魂系統 · v3.0 核心模塊集成包
 
-**DNA**: #龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0  
+**DNA**:#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-FILE1-v1.0  
 **狀態**: 🟢 已吸收進主幹·兼容運行  
 **責任**: UID9622·不免責
 

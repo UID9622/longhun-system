@@ -4,7 +4,7 @@
 龍魂系統 · v3.0 核心模塊集成包
 Longhun System · v3.0 Core Modules Integration Package
 
-DNA: #龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0
 責任: UID9622·不免責
 
 本包將下載包「Kimi_Agent_啟動全部技能」中的 5 個 v3.0 核心 Python 模塊

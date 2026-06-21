@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 CurrencyAdapter 抽象接口
-DNA: #龍芯⚡️2026-06-17-XPAY-ADAPTER-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-ADAPTER-v2.0
 """
 from abc import ABC, abstractmethod
 from dataclasses import dataclass

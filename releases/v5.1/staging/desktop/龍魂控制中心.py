@@ -6,7 +6,7 @@
 所有按鈕都有說明，不用靠腦子記。
 普通人也能用，點一下就知道幹什麼。
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-CONTROL-CENTER-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-CONTROL-CENTER-v1.0
 """
 
 import json

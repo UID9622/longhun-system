@@ -5,7 +5,7 @@
 龍魂 MCP 服務器構建工具 v1.0
 Longhun MCP Builder
 
-DNA: #龍芯⚡️2026-06-07-MCP-BUILDER-v1.0
+DNA:#龍芯⚡️2026-06-07-MCP-BUILDER-v1.0
 """
 
 import json

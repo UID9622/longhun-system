@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 XPay 主權網關單元測試
-DNA: #龍芯⚡️2026-06-17-XPAY-TESTS-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-TESTS-FILE1-v2.0
 """
 import sys
 import tempfile

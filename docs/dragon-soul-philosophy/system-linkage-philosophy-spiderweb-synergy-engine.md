@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-SYSTEM-LINKAGE-PHILOSOPHY-SPIDERWEB-SYNERGY-ENGINE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 系统联动哲学·蜘蛛网思维 | 全域协同引擎
 
 ## 🕸️ 核心原理

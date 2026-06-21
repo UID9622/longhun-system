@@ -4,7 +4,7 @@
 UID9622 - 天道不杀协议 v1.0
 HEAVEN-NONKILL-PROTOCOL - P0 底层刹车片
 
-DNA: #龍芯⚡️2026-06-03-HEAVEN-NONKILL-AUDIT-v1.0
+DNA:#龍芯⚡️2026-06-03-HEAVEN-NONKILL-AUDIT-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -348,7 +348,7 @@ if __name__ == '__main__':
     ]
 
     print("\n【天道不杀协议·v1.0】\n")
-    print("DNA: #龍芯⚡️2026-06-03-HEAVEN-NONKILL-AUDIT-v1.0")
+    print("DNA:#龍芯⚡️2026-06-03-HEAVEN-NONKILL-AUDIT-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
     print("\n" + "="*60 + "\n")

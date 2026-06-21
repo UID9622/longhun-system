@@ -1,6 +1,6 @@
 #!/bin/bash
 # 龍魂宝宝守护助手 · 一键启动脚本
-# DNA: #龍芯⚡️2026-06-04-START-SCRIPT-v1.0
+# DNA:#龍芯⚡️2026-06-04-START-SCRIPT-v1.0
 
 set -e
 

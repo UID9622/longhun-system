@@ -1,6 +1,6 @@
 # 龍魂系統 · 日志·版本·追溯系統 集成報告
 
-**DNA**: #龍芯⚡️2026-06-07-LOGGING-INTEGRATION-REPORT-v1.0
+**DNA**:#龍芯⚡️2026-06-07-LOGGING-INTEGRATION-REPORT-v1.0
 **時間**: 2026-06-07 03:30 CST
 **狀態**: 🟢 完成·生産就緒
 **責任**: UID9622·不免責
@@ -166,7 +166,7 @@ print(f'Session: {logger.session_id}')
 ## 🔐 DNA 簽章
 
 ```
-DNA: #龍芯⚡️2026-06-07-LOGGING-INTEGRATION-REPORT-v1.0
+DNA:#龍芯⚡️2026-06-07-LOGGING-INTEGRATION-REPORT-v1.0
 時間: 2026-06-07 03:30 CST
 狀態: 🟢 完成·生産就緒
 責任: UID9622·不免責

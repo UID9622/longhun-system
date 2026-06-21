@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-MOBILE-MONITORING_SERVER_PORT9000-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 import sys
 sys.argv = ['monitoring_server.py', '--port', '9000']

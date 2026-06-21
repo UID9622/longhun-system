@@ -7,7 +7,7 @@ LongHun Knowledge Flow Purity Protocol Executor
 自动检测、阻止、纠正知识权力化污染
 防止知识被权力捕获
 
-DNA: #龍芯⚡️2026-06-04-KFPP-EXECUTOR-v1.0
+DNA:#龍芯⚡️2026-06-04-KFPP-EXECUTOR-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

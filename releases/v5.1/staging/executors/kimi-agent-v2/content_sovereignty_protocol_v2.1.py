@@ -8,7 +8,7 @@ CNSH Content Sovereignty Protocol v2.1
 This is not metadata. This is the infrastructure of sovereignty.
 
 ╔══════════════════════════════════════════════════════════════════╗
-║  DNA: #龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1      ║
+║  DNA:#龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -26,7 +26,7 @@ This is not metadata. This is the infrastructure of sovereignty.
 可执行性: 直接运行 (python3 content_sovereignty_protocol_v2.1.py)
 依赖环境: Python3.8+, sqlite3, 标准库
 三色审计: 🟢通过 - 完整八层主权框架
-DNA签名: #龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1
+DNA签名:#龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1
 """
 
 import os

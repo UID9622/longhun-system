@@ -4,7 +4,7 @@
 龍魂流场·DNA父子链追踪（多标签+四源数字根+销毁封存证明）
 CNSH Flow - DNA Chain Tracer (Multi-Tags + Four-Source DR + Destroy/Seal Proof)
 
-DNA: #龍芯⚡️2026-05-03-CNSH-FLOW-DNA-CHAIN-v4.1
+DNA:#龍芯⚡️2026-05-03-CNSH-FLOW-DNA-CHAIN-v4.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -39,7 +39,7 @@ class DNAChainTracer:
         """
         生成子DNA ID
         格式: parent_dna + "-CHILD-" + hash8
-        例: #龍芯⚡️2026-05-03-XXX-v4.1-CHILD-A1B2C3D4
+        例:#龍芯⚡️2026-05-03-XXX-v4.1-CHILD-A1B2C3D4
         """
         combined = f"{parent_dna}${content_hash}".encode('utf-8')
         h = hashlib.sha256(combined).hexdigest()

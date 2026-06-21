@@ -87,7 +87,7 @@ def main():
         "- 私人對話、情感/家庭內容、加密密鑰、激活碼、DNA 身份檔案、個人主權綁定檔案一律不納入。",
         "- 如文件內出現真實 API Token / 密碼，已替換為佔位符。",
         "",
-        "**DNA**: #龍芯⚡️2026-06-16-PRIVATE-SHARED-MASTER-v1.2",
+        "**DNA**:#龍芯⚡️2026-06-16-PRIVATE-SHARED-MASTER-v1.2",
     ])
 
     README.write_text("\n".join(lines), encoding="utf-8")

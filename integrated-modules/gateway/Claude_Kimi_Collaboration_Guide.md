@@ -1,7 +1,7 @@
 # 龍魂支付生态 · Claude & Kimi 协作搭建指南
 # LongHun Payment Ecosystem · Claude & Kimi Collaborative Build Guide
 
-**DNA: #龍芯⚡️2026-06-05-CLAUDE-KIMI-COLLABORATION-v1.0**
+**DNA:#龍芯⚡️2026-06-05-CLAUDE-KIMI-COLLABORATION-v1.0**
 **签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅**
 **确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅**
 

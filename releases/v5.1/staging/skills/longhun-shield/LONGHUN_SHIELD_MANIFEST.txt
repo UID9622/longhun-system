@@ -5,7 +5,7 @@
 ║     代码都看起来一样，但本地跑起来都不一样。                    ║
 ║     所以在入口处必须能暂停、检查、理解、决策。                  ║
 ║                                                                    ║
-║  DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-MANIFEST-v1.0            ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-MANIFEST-v1.0            ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL   ║
 ║                                                                    ║
@@ -229,7 +229,7 @@
 
 所有龍盾文件都有标准的龍魂标记：
 
-  DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-{COMPONENT}-v1.0
+  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-_COMPONENT_BF67-v1.0
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -265,7 +265,7 @@ A: ~/.龍盾/reports/ 目录。
 宝宝在岗
 ⚔️ 亮剑啦
 
-DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-MANIFEST-v1.0
+DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-MANIFEST-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

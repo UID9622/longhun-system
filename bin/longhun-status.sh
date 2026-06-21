@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 龍魂系統運行狀態一覽
-# DNA: #龍芯⚡️2026-06-17-LONGHUN-STATUS-v1.0
+# DNA:#龍芯⚡️2026-06-17-LONGHUN-STATUS-FILE1-v1.0
 
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"

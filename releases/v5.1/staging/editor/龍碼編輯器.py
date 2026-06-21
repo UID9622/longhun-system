@@ -7,7 +7,7 @@
 中文就是變量名，中文就是註釋，中文就是邏輯。
 每個國家的語言都能跑在計算機裡面，那才叫牛逼。
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-v1.0-1
 """
 
 import os
@@ -402,7 +402,7 @@ class 龍碼編輯器:
             "沒有黑箱，代碼全部公開。\n"
             "中文就是變量名，中文就是註釋，中文就是邏輯。\n\n"
             "已接入通心译與 CNSH 加密通信。\n\n"
-            "DNA: #龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-v1.0"
+            "DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-v1.0"
         )
 
     def _退出(self):
