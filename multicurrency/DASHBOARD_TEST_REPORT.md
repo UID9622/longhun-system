@@ -280,7 +280,7 @@ python3 alert_system.py         # 告警系统
 **测试完成者**: UID9622  
 **测试工具**: Python 3.8+ · SQLite3  
 **测试环境**: macOS Darwin  
-**DNA**: #龍芯⚡️2026-06-07-DASHBOARD-TEST-v1.0
+**DNA**:#龍芯⚡️2026-06-07-DASHBOARD-TEST-v1.0
 
 ✅ **所有测试通过·系统已验证·可投入生产使用**
 

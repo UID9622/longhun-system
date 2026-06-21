@@ -1,28 +1,30 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-SYSTEM_INTEGRATION_TEST_RESULTS-v1.0",
+
   "timestamp": "2026-06-10T02:26:45.070919",
   "tests": {
     "CNSH Core Files": {
-      "status": "\u2705",
+      "status": "✅",
       "error": null
     },
     "Skills Files": {
-      "status": "\u2705",
+      "status": "✅",
       "error": null
     },
     "Skills Import": {
-      "status": "\u2705",
+      "status": "✅",
       "error": null
     },
     "Monitoring Files": {
-      "status": "\u2705",
+      "status": "✅",
       "error": null
     },
     "Monitoring Import": {
-      "status": "\u2705",
+      "status": "✅",
       "error": null
     }
   },
   "passed": 22,
   "failed": 0,
-  "warnings": 1
+  "warnings": 1,
+  "_dna": "2026-06-21-CONFIG-SYSTEM_INTEGRATION_TEST_RESULTS-v1.0"
 }

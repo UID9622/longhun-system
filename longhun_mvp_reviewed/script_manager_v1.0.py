@@ -1,7 +1,7 @@
 # 龍芯⚡️2026-06-18-SCRIPT-MANAGER-v1.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  脚本管理器 v1.0 —— Script Manager v1.0                      ║
-# ║  DNA追溯码: #龍芯⚡️2026-06-18-SCRIPT-MANAGER-v1.0              ║
+# ║  DNA追溯码:#龍芯⚡️2026-06-18-SCRIPT-MANAGER-v1.0              ║
 # ║  三层监督: [L1逻辑] ★ [L2价值观] ★ [L3技术]                      ║
 # ║  核心功能: 脚本加载/执行/监控，集成CNSH四层对齐检查              ║
 # ║           加载前审计 → CNSH对齐 → 铁律自审 → 执行监控            ║
@@ -634,7 +634,7 @@ CNSH_TERMINAL_HEADER = """
 # ║  本终端头是龍魂体系的身份标识，删除将导致来源链断裂            ║
 # ║  This terminal is the identity marker of the Dragon Soul     ║
 # ║  system. Deletion will break the source chain.               ║
-# ║  DNA: #龍芯⚡️2026-06-18-SCRIPT-MANAGER-v1.0                    ║
+# ║  DNA:#龍芯⚡️2026-06-18-SCRIPT-MANAGER-v1.0                    ║
 # ║  UID: 9622 | 创始人: 诸葛鑫 | 体系: 龍魂                         ║
 # ╚══════════════════════════════════════════════════════════════╝
 """

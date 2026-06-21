@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-UID9622-FRAGMENT-RECOVERY-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # /UID9622-FRAGMENT-RECOVERY
 
 功能描述: 碎片数据回收整合

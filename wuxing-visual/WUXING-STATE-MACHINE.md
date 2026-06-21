@@ -1,6 +1,6 @@
 # 🐉 龍魂五行計算器 · 交互狀態機
 
-**DNA**: #龍芯⚡️2026-06-07-WUXING-STATE-MACHINE-v3.5
+**DNA**:#龍芯⚡️2026-06-07-WUXING-STATE-MACHINE-v3.5
 **責任**: UID9622 · 不免責
 
 ---
@@ -140,4 +140,4 @@ onDanger={() => {
 
 ---
 
-**DNA 簽章**: #龍芯⚡️2026-06-07-WUXING-STATE-MACHINE-v3.5
+**DNA 簽章**:#龍芯⚡️2026-06-07-WUXING-STATE-MACHINE-v3.5

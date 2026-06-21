@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 安裝龍魂系統 macOS 開機自啟動（LaunchAgent）
-# DNA: #龍芯⚡️2026-06-17-LONGHUN-INSTALL-AUTOSTART-v1.0
+# DNA:#龍芯⚡️2026-06-17-LONGHUN-INSTALL-AUTOSTART-FILE1-v1.0
 
 PLIST_NAME="com.uid9622.longhun.autostart.plist"
 PLIST_PATH="$HOME/Library/LaunchAgents/$PLIST_NAME"

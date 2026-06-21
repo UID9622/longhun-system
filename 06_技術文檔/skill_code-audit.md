@@ -28,7 +28,7 @@ result = executor.execute_skill('/code-audit')
 
 ## DNA 簽章
 
-`#龍芯⚡️2026-06-06-CODE-AUDIT-v3.0`
+`#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-v3.0`
 
 ---
 

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-MULTI-API_PROTOCOL-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # API 协议文档 / API Protocol Documentation
 
 ## 中文

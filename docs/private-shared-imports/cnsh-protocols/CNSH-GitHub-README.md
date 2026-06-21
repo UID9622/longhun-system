@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-FILE1-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 📄 CNSH GitHub README
 
 # 🇨🇳 CNSH - 中文原生编程语言

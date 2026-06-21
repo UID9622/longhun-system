@@ -5,7 +5,7 @@
 龍魂視角下的黎曼猜想·視角 B：洛書守恒律驗證代碼
 Numerical Verification Code for Perspective B: Losu Conservation Law
 
-DNA: #龍芯⚡️2026-06-08-黎曼猜想視角B數值驗證-v1.0
+DNA:#龍芯⚡️2026-06-08-B_3C3D-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -344,7 +344,7 @@ if __name__ == "__main__":
 ║        龍魂視角下的黎曼猜想·視角 B：洛書守恒律驗證程序                      ║
 ║   Numerical Verification of Perspective B: Losu Conservation Law            ║
 ║                                                                             ║
-║  DNA: #龍芯⚡️2026-06-08-黎曼猜想視角B數值驗證-v1.0                        ║
+║  DNA:#龍芯⚡️2026-06-08-B_A23A-v1.0                        ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                          ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅       ║
 ║                                                                             ║

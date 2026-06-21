@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 龍魂系统 · 发布打包脚本
-# DNA: #龍芯⚡️2026-06-18-LONGHUN-RELEASE-BUILDER-v1.0
+# DNA:#龍芯⚡️2026-06-18-LONGHUN-RELEASE-BUILDER-FILE1-v1.0
 #
 # 用法：bash bin/build-release.sh [版本号]
 # 默认版本号：v5.1

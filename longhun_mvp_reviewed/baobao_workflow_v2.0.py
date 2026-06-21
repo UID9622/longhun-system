@@ -1,7 +1,7 @@
 # 龍芯⚡️2026-06-18-BAOBAO-WORKFLOW-v2.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  宝宝工作流透明化系统 v2.0 —— BAOBAO Workflow Transparent v2.0   ║
-# ║  DNA追溯码: #龍芯⚡️2026-06-18-BAOBAO-WORKFLOW-v2.0              ║
+# ║  DNA追溯码:#龍芯⚡️2026-06-18-BAOBAO-WORKFLOW-v2.0              ║
 # ║  三层监督: [L1逻辑] ★ [L2价值观] ★ [L3技术]                      ║
 # ║  核心创新: SourceChain六层来源链 | IronLawGate铁律自审闸        ║
 # ║           NotionKeywordRouter关键词自动路由                      ║
@@ -667,7 +667,7 @@ CNSH_TERMINAL_HEADER = """
 # ║  本终端头是龍魂体系的身份标识，删除将导致来源链断裂            ║
 # ║  This terminal is the identity marker of the Dragon Soul     ║
 # ║  system. Deletion will break the source chain.               ║
-# ║  DNA: #龍芯⚡️2026-06-18-BAOBAO-WORKFLOW-v2.0                   ║
+# ║  DNA:#龍芯⚡️2026-06-18-BAOBAO-WORKFLOW-v2.0                   ║
 # ║  UID: 9622 | 创始人: 诸葛鑫 | 体系: 龍魂                         ║
 # ╚══════════════════════════════════════════════════════════════╝
 """

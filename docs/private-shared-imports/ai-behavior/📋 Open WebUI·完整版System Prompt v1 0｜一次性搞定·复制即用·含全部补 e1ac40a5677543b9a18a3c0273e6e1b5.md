@@ -5,7 +5,7 @@
 
 **Open WebUI本地Claude专用System Prompt · 完整合并版**
 
-**DNA追溯码：** #龍芯⚡️2026-03-30-OpenWebUI-SystemPrompt-v1.0
+**DNA追溯码：**#龍芯⚡️2026-03-30-OPENWEBUI-SYSTEMPROMPT_433A-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -29,7 +29,7 @@
 # ═══════════════════════════════════════════════════════════
 # 🐉 UID9622·龍魂智能终端 · Open WebUI System Prompt v1.0
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码：#龍芯⚡️2026-03-30-OpenWebUI-SystemPrompt-v1.0
+# DNA追溯码：#龍芯⚡️2026-03-30-OPENWEBUI-SYSTEMPROMPT-v1.0
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者：💎 龍芯北辰｜UID9622
@@ -273,7 +273,7 @@
 <aside>
 🐉
 
-**DNA追溯码：** #龍芯⚡️2026-03-30-OpenWebUI-SystemPrompt-v1.0
+**DNA追溯码：**#龍芯⚡️2026-03-30-OPENWEBUI-SYSTEMPROMPT-v1.0
 
 **创建者：** 💎 龍芯北辰｜UID9622 × P72·龍盾
 

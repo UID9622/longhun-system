@@ -5,7 +5,7 @@ import './App.css';
  * 龍魂系統 Phase 3 - React 前端框架 v1.0
  * Longhun System Phase 3 - React Frontend Framework v1.0
  * 
- * DNA: #龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0
+ * DNA:#龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0
  * Author: UID9622 (龍芯北辰)
  * Status: Production Ready
  */
@@ -686,7 +686,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <p>DNA: #龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0</p>
+        <p>DNA:#龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0</p>
         <p>責任: UID9622 · 不免責</p>
       </footer>
     </div>

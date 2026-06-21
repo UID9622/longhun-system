@@ -9,7 +9,7 @@
 ║    文件名可以改，但指令永远有效                               ║
 ║    基于 DNA 识别，不基于文件路径                               ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0          ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-FILE2-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -506,7 +506,7 @@ def main():
     
     ═══════════════════════════════════════════════════════════
     
-    DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
+    DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
     CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     

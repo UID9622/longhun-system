@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-UID9622_IP_IPFS-BLOCKCHAIN-ONECLICK_V1-0-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # <POTENTIAL_SECRET_PLACEHOLDER>.0
 
 # IPFS / 区块链“一键”示例（可选）

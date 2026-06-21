@@ -35,7 +35,7 @@ git commit -m "🐉 feat(protocol): CNSH v3.0 融合版·雙語·L0-L9·13層內
 - L7 內容主權協議 13 層流場完整展開
 - L2-L6 治理·經濟·文化·技術·人權詳細規範
 
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-CHARTER
+DNA:#龍芯⚡️2026-06-07-CNSH-FILE11-v3.0-COMPLETE-CHARTER
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -177,7 +177,7 @@ git push origin main
 
 ### 簽署完成
 
-- [ ] DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE
+- [ ] DNA:#龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE
 - [ ] CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 - [ ] SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 
@@ -203,7 +203,7 @@ git add protocols/CNSH_v3.0_*.md
 
 git commit -m "🐉 feat(protocol): CNSH v3.0 融合版·雙語·L0-L9·13層內容主權·完整協議
 
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-CHARTER
+DNA:#龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-CHARTER
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 git push origin main
@@ -249,7 +249,7 @@ echo "   - CNSH_v3.0_COMPLETE_CHARTER.docx"
 echo "   - CNSH_v3.0_COMPLETE_CHARTER.html"
 echo ""
 echo "🌍 全球可見: https://github.com/UID9622/longhun-system/"
-echo "🔐 DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-CHARTER"
+echo "🔐 DNA:#龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-CHARTER"
 echo ""
 ```
 

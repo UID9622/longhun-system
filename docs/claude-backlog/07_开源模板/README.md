@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-README-FILE6-v1.0-7 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # Longhun System · 龍魂
 
 Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 諸葛鑫).

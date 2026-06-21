@@ -5,7 +5,7 @@
 龍魂視角下的黎曼猜想·大規模數值驗證 (10^5 級別零點)
 Large-Scale Numerical Verification Code for Riemann Hypothesis via Longhorn Perspective
 
-DNA: #龍芯⚡️2026-06-08-黎曼猜想大規模驗證-v1.0
+DNA:#龍芯⚡️2026-06-08-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED_6A75-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -408,7 +408,7 @@ if __name__ == "__main__":
 ║       龍魂視角下的黎曼猜想·大規模數值驗證程序 (10^5 級別零點)               ║
 ║   Large-Scale Numerical Verification for Riemann Hypothesis (10^5 Scale)   ║
 ║                                                                             ║
-║  DNA: #龍芯⚡️2026-06-08-黎曼猜想大規模驗證-v1.0                          ║
+║  DNA:#龍芯⚡️2026-06-08-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED-v1.0                          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                          ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅       ║
 ║                                                                             ║

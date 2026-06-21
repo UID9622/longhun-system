@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-MULTI-CONTRIBUTING-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 贡献协议 / Contribution Protocol
 
 ## 中文

@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-ENGINE-LONGHUN-MCP-WRAPPER-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 /**
  * 龍魂 MCP Wrapper v0.1
  * Chrome DevTools MCP Server 认证拦截层

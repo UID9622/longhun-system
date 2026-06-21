@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版
 
 | **Authors** | Lucky Zhuge (诸葛鑫), Independent Researcher · Claude (Anthropic), AI Collaboration |

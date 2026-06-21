@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # ✅ 插件模板脚本（⁠ plugin_template.sh ⁠）
 
 ```bash

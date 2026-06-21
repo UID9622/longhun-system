@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PACKAGE_AE30-v1.0",
+
   "name": "longhun-frontend",
   "version": "3.0.0",
   "description": "龍魂系統 Phase 3 React 前端",
@@ -36,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "_dna": "2026-06-21-CONFIG-PACKAGE-v1.0-3"
 }

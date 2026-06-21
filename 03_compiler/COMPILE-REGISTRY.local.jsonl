@@ -1,5 +1,5 @@
 # 龍魂·编译任务注册表 (Append-Only JSONL)
-# DNA: #龍芯⚡️2026-06-03-COMPILE-REGISTRY-LOCAL-v1.0
+# DNA:#龍芯⚡️2026-06-03-COMPILE-REGISTRY-LOCAL-v1.0
 # 格式: JSONL（JSON Lines）- 仅追加，不覆盖
 # 每行一条编译任务记录
 # 开始时间: 2026-06-03T18:45:00.000000

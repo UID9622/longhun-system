@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-CNSH-64-REVIEWER-HARDENING-MISSING-SECTIONS-3297125A9C9F81D38136F6BD7DF34607-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🔬 CNSH-64: Reviewer Hardening & Missing Sections — arXiv Supplement v3.1
 
 > **Purpose:** This page supplements the main CNSH-64 v3.0 paper with sections that are (a) standard requirements for top-venue submission, and (b) preemptive responses to the hardest anticipated reviewer challenges. Merge into the main PDF before submission.

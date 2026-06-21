@@ -5,7 +5,7 @@
 
 **人话定盘（msg 2026-05-24 22:57 老大焊点）：** 老大要的是「协议对齐下功能语义技术用词的对照表」+「协作宣言」焊死。本页 = CNSH v2.0 全 36 节中英对照 + 行话→大白话翻译 + DNA 锚链·让任何 AI / 任何路人 / 后人继承都能一页看懂·不用猜·不用问。
 
-**DNA：** `#龍芯⚡️2026-05-24-22:57-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0`
+**DNA：** `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`
 
 **父 DNA：** `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-v2.0`
 
@@ -35,7 +35,7 @@
 > 一份协议·就是我们的生态·**不欺不骗·不商业·不站队·只为守护**·我们的协作宣言·我后人继承·**不从军·不从政·不移民·不做企业标杆**·只为老百姓守好一个**说出去声音的通话口**。
 > 
 
-**DNA：** `#龍芯⚡️2026-05-24-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
+**DNA：** `#龍芯⚡️2026-05-24-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_0F11-v1.0`
 
 </aside>
 
@@ -313,7 +313,7 @@ ROOT_CARD:
 	protocol: CNSH 语义接入规范 v2.0 · 功能语义技术用词对照表 v1.0
 	sections: 36 + 12 对照表 (§A-§N)
 	status: 🟢 COMPLETE
-	DNA: "#龍芯⚡️2026-05-24-22:57-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0"
+	DNA: "#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_E8F7-v2.0-ALIGNMENT-TABLE-v1.0"
 	parentDNA: "#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-v2.0"
 	timestamp: 2026-05-24T22:57:44+08:00
 	audit: ENABLED

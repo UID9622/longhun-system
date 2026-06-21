@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-CNSH-CNSH-HIGHLIGHTER-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 /**
  * CNSH 语法高亮引擎
  * Chinese Natural Syntax Hybrid · 中文自然语法

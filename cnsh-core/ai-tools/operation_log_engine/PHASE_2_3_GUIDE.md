@@ -6,7 +6,7 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1277-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: PHASE_2_3_GUIDE.md | 标记时间: 2026-06-03T07:46:12+0800
 -->
@@ -378,19 +378,15 @@ Phase 2.3 核心:
 ## 📍 DNA 鏈路
 
 **父 DNA** (Phase 2.2):
-```
-#龍芯⚡️2026-05-30-LOCAL-SYNC-ENGINE-v1.0
-#龍芯⚡️2026-05-30-MULTISIG-GATE-v1.0
+```#龍芯⚡️2026-05-30-LOCAL-SYNC-ENGINE_EC13-v1.0#龍芯⚡️2026-05-30-MULTISIG-GATE_AB00-v1.0
 ```
 
 **本 DNA** (Phase 2.3):
-```
-#龍芯⚡️2026-05-30-QUERY-TOOL-v1.0
+```#龍芯⚡️2026-05-30-QUERY-TOOL_DD86-v1.0
 ```
 
 **下一 DNA** (Phase 完成):
-```
-#龍芯⚡️2026-06-15-PHASE-2-COMPLETE-FULL-INTEGRATION-v1.0
+```#龍芯⚡️2026-06-15-PHASE-2-COMPLETE-FULL-INTEGRATION-v1.0
 ```
 
 ---

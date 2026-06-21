@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-QUICK_DNA_STATUS-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # 龍魂 DNA 對齐狀態快速查看工具
 

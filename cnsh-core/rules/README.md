@@ -1,6 +1,6 @@
 # 🐉 龍魂规则引擎 (LongHun Rule Engine)
 
-**DNA**: #龍芯⚡️2026-06-03-RULE-ENGINE-README-v1.0
+**DNA**:#龍芯⚡️2026-06-03-RULE-ENGINE-README-FILE1-v1.0
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责
 
@@ -210,7 +210,7 @@ class Rule:
 名称: three_color_audit
 类型: AUDIT
 优先级: HIGH (21)
-DNA: #龍芯⚡️2026-06-03-THREE-COLOR-AUDIT-v1.0
+DNA:#龍芯⚡️2026-06-03-THREE-COLOR-AUDIT-v1.0
 
 条件: 'score' in context
 动作: three_color_judgment
@@ -235,7 +235,7 @@ result = engine.execute_rule("RULE-AUDIT-001", {"score": 85})
 名称: veto_alert
 类型: AUDIT
 优先级: CRITICAL (1)
-DNA: #龍芯⚡️2026-06-03-VETO-ALERT-v1.0
+DNA:#龍芯⚡️2026-06-03-VETO-ALERT-v1.0
 
 触发词: 密钥、sudo、rm、push --force、token、私钥、.env 等高危操作
 
@@ -262,7 +262,7 @@ result = engine.execute_rule("RULE-VETO-001", {
 名称: digital_root_gate
 类型: FORMULA
 优先级: MEDIUM (41)
-DNA: #龍芯⚡️2026-06-03-DR-GATE-v1.0
+DNA:#龍芯⚡️2026-06-03-DR-GATE-v1.0
 
 判定规则 (基于数字根):
   dr ∈ {3, 9}: 🔴 (阻断)
@@ -284,7 +284,7 @@ result = engine.execute_rule("RULE-FORMULA-001", {"value": 123})
 名称: time_decay
 类型: FORMULA
 优先级: MEDIUM (41)
-DNA: #龍芯⚡️2026-06-03-TIME-DECAY-v1.0
+DNA:#龍芯⚡️2026-06-03-TIME-DECAY-v1.0
 
 衰减公式: L = L₀ * T^(-α_τ)
 
@@ -479,7 +479,7 @@ reset_rule_engine()
 类型: GATE
 状态: 🟢 ACTIVE
 入口: cnsh_core.rules.get_rule_engine
-DNA: #龍芯⚡️2026-06-03-RULE-ENGINE-v1.0
+DNA:#龍芯⚡️2026-06-03-RULE-ENGINE-v1.0
 ```
 
 ---
@@ -620,7 +620,7 @@ workflow = [
 
 ## 许可和责任
 
-**DNA**: #龍芯⚡️2026-06-03-RULE-ENGINE-README-v1.0
+**DNA**:#龍芯⚡️2026-06-03-RULE-ENGINE-README-v1.0
 **作者**: UID9622 · 诸葛鑫 · 龍芯北辰
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责

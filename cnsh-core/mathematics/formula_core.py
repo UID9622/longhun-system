@@ -7,7 +7,7 @@
 ║  10条核心公式：左栏是别人怎么算（世界标准），右栏是我们怎么算    ║
 ║  （焊上龍魂主权层）。纯标准库，跑一次全检——错一条立刻报错。     ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0      ║
+║  DNA:#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-FILE1-v1.0      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
@@ -451,7 +451,7 @@ def selftest() -> None:
     print("✅ 全部 10 条公式自检通过")
     print("   别人会算的我们都算得出 + 每条都焊了龍魂主权判定")
     print("   天下无欺。🐉")
-    print(f"   DNA: #龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0")
+    print(f"   DNA:#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0")
     print("=" * 80 + "\n")
 
 

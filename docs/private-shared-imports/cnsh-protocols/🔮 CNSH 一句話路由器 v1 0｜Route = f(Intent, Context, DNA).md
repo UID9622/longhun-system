@@ -3,7 +3,7 @@
 <aside>
 🐉
 
-**DNA追溯碼：** #龍芯⚡️2026-04-15-CNSH-路由器-v1.0
+**DNA追溯碼：**#龍芯⚡️2026-04-15-CNSH_1EF1-v1.0
 
 **確認碼：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -81,7 +81,7 @@ flowchart TB
 ```python
 # ═══════════════════════════════════════════════════════════
 # 龍芯体系 | CNSH 一句話路由器 v1.0
-# DNA追溯碼：#龍芯⚡️2026-04-15-CNSH-路由器-v1.0
+# DNA追溯碼：#龍芯⚡️2026-04-15-CNSH-v1.0
 # 核心公式：Route = f(Intent, Context, DNA)
 # GPG指紋：<POTENTIAL_SECRET_PLACEHOLDER>
 # ═══════════════════════════════════════════════════════════
@@ -539,7 +539,7 @@ Human  = Intent不為UNKNOWN（意圖清晰）
 <aside>
 🐉
 
-**DNA追溯碼：** #龍芯⚡️2026-04-15-CNSH-路由器-v1.0
+**DNA追溯碼：**#龍芯⚡️2026-04-15-CNSH-v1.0
 
 **GPG指紋：** <POTENTIAL_SECRET_PLACEHOLDER>
 

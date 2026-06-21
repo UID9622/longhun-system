@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-YIXUETANG-SCAN-v1.0",
+
   "scan_meta": {
     "source_workspace": "易学堂",
     "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/易学堂",
@@ -146,5 +147,6 @@
   "notes": [
     "本次整合严格遵循『宁缺毋滥』原则：易学堂工作区中虽有『数字根熔断检测系统』等目标主题名称的文件，但导出内容仅为个人状态标记，未形成可公开的系统文档，因此未复制。",
     "全局索引文件未修改。"
-  ]
+  ],
+  "_dna": "2026-06-21-CONFIG-YIXUETANG-SCAN-v1.0"
 }

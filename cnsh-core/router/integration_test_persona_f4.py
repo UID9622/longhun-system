@@ -8,8 +8,7 @@ PersonaRouter + F4因子·完整集成测试
 验证PersonaRouter与F4·人格路由因子的无缝集成
 测试虚伪词汇检测、人格权重、F4验证得分的完整流程
 
-【DNA】
-#龍芯⚡️2026-06-03-PERSONA-ROUTER-F4-INTEGRATION-TEST-v1.0
+【DNA】#龍芯⚡️2026-06-03-PERSONA-ROUTER-F4-INTEGRATION-TEST-FILE1-v1.0
 """
 
 import json

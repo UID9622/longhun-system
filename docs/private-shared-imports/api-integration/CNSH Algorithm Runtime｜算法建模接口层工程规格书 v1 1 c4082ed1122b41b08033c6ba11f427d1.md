@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-CNSH-ALGORITHM-RUNTIME-_-V1-1-C4082ED1122B41B08033C6BA11F427D1_D4E4-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1.1
 
 <aside>

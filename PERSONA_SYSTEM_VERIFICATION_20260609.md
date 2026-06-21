@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-PERSONA_SYSTEM_VERIFICATION_20260609-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 龍魂人格系统·验证报告 (2026-06-09)
 
 DNA: #龍芯⚇️2026-06-09-PERSONA-SYSTEM-VERIFICATION-v1.0

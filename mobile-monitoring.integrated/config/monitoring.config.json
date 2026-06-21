@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-MONITORING_CONFIG-v1.0",
+
   "version": "4.1",
   "monitoring": {
     "enabled": true,
@@ -14,27 +15,44 @@
     "app_realtime_dashboard": {
       "name": "實時性能監控儀表板",
       "priority": "P10",
-      "platforms": ["h5", "pwa", "miniprogram"],
+      "platforms": [
+        "h5",
+        "pwa",
+        "miniprogram"
+      ],
       "status": "published"
     },
     "app_data_visualization": {
       "name": "數據可視化儀表板",
       "priority": "P8",
-      "platforms": ["android", "h5", "ios"],
+      "platforms": [
+        "android",
+        "h5",
+        "ios"
+      ],
       "status": "designing"
     },
     "app_mobile_auth": {
       "name": "移動端身份驗證系統",
       "priority": "P10",
-      "platforms": ["android", "ios", "miniprogram"],
+      "platforms": [
+        "android",
+        "ios",
+        "miniprogram"
+      ],
       "status": "published"
     },
     "app_task_management": {
       "name": "智能任務管理移動端",
       "priority": "P9",
-      "platforms": ["h5", "pwa", "miniprogram"],
+      "platforms": [
+        "h5",
+        "pwa",
+        "miniprogram"
+      ],
       "status": "developing"
     }
   },
-  "dna": "#龍芯⚡️2026-06-07-MOBILE-MONITORING-CONFIG"
+  "dna": "#龍芯⚡️2026-06-07-MOBILE-MONITORING-CONFIG",
+  "_dna": "2026-06-21-MOBILE-MONITORING-CONFIG-v1.0"
 }

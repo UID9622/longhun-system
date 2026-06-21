@@ -4,7 +4,7 @@
 龍魂體系 · 待融入包自動收集與分類器
 Longhun System · Pending Integration Package Watcher & Classifier
 
-DNA: #龍芯⚡️2026-06-16-PACKAGE-WATCHER-v1.0
+DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-FILE1-v1.0
 責任: UID9622·不免責
 
 功能：
@@ -274,7 +274,7 @@ class PackageWatcher:
         lines = [
             "# 龍魂體系 · 待融入包監控報告",
             "",
-            f"**DNA**: #龍芯⚡️2026-06-16-PACKAGE-WATCHER-v1.0  ",
+            f"**DNA**:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-v1.0  ",
             f"**掃描時間**: {now}  ",
             "**責任**: UID9622·不免責",
             "",

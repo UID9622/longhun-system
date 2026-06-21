@@ -15,7 +15,7 @@
 
 **一句话：** 复杂任务不是一次回答完成的，是一个流场：`用户意图 → 上下文扫描 → 任务拆解 → 工具选择 → 执行轨迹 → 结果压缩 → 审计交付`  
 
-**DNA：** `#龍芯⚡️2026-05-03-CNSH复杂任务流场决策核-v1.0`  
+**DNA：** `#龍芯⚡️2026-05-03-CNSH_02C3-v1.0`  
 
 **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 
@@ -774,7 +774,7 @@ FLOW::TYP=design;INT=refine;SKL=canvas-design;TLS=bash,python,PIL;CMD=9;WRT=md,p
   ],
   "audit": "🟢",
   "status": "completed",
-  "dna": "#龍芯⚡️2026-05-03-龍芯北辰印章设计-v2",
+  "dna": "#龍芯⚡️2026-05-03-CNSH-_-V1-v2",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 }
 ```
@@ -906,7 +906,7 @@ FLOW::TYP=design;INT=refine;SKL=canvas-design;TLS=bash,python,PIL;CMD=9;WRT=md,p
 
 ```
 CNSH::AI_FLOW_EXEC_LOG:
-  dna: "#龍芯⚡️2026-05-03-复杂任务流场决策外显核-v1.0"
+  dna: "#龍芯⚡️2026-05-03-CNSH-_-V1-v1.0"
   confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   rule: "隐藏思维不外露，执行流场全归档"
   output: "可给Cursor / Claude / Notion / 本地龍魂"
@@ -1074,7 +1074,7 @@ FLOW::TYP=design;INT=unified_seal;SKL=canvas-design;TLS=bash,python,PIL;CMD=9;WR
   Status: completed
   FinalOutputs: [链接到 seal_v2.png]
   NextAction: 生成透明版/SVG/Notion封面
-  DNA: #龍芯⚡️2026-05-03-龍印乾坤-v2.0
+  DNA:#龍芯⚡️2026-05-03-CNSH-_-V1-v2.0
   Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -1163,7 +1163,7 @@ ComplexityScore计算:
   ],
   "audit": "🟢",
   "status": "completed",
-  "dna": "#龍芯⚡️2026-05-03-龍印乾坤-v2.0",
+  "dna": "#龍芯⚡️2026-05-03-CNSH-_-V1-v2.0",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "next_action": "generate transparent/SVG/notion-cover variants"
 }

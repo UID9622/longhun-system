@@ -48,4 +48,4 @@ const monitor = new LonghunMonitor({
 14. 調試工具
 15. 監控監控
 
-DNA: #龍芯⚡️2026-06-07-MOBILE-MONITORING-COMPLETE-v4.1
+DNA:#龍芯⚡️2026-06-07-MOBILE-MONITORING-COMPLETE-v4.1

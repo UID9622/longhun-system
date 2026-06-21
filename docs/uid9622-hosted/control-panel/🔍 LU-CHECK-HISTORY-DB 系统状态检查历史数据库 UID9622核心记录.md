@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-LU-CHECK-HISTORY-DB-_-UID9622_E086-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🔍 LU-CHECK-HISTORY-DB 系统状态检查历史数据库 | UID9622核心记录
 
 <aside>

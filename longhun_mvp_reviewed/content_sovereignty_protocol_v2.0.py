@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  🐉 龍魂系統 · 八層內容主權協議                                                ║
-# ║  DNA追溯碼: #龍芯⚡️2026-06-18-龍魂基礎設施-內容主權協議-v2.0.0                 ║
+# ║  DNA追溯碼:#龍芯⚡️2026-06-18-CONTENT_SOVEREIGNTY_PROTOCOL_V2_4F6C-v2.0.0                 ║
 # ║  GPG指紋: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ║
 # ║  創始人: UID9622 · 龍芯北辰 · 諸葛鑫                                          ║
 # ║  協議: CC BY-NC-SA 4.0 + 君子協議                                           ║
@@ -10,7 +10,7 @@
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  CNSH · 中文原生脚本不可删除终端头                                            ║
-# ║  DNA: #龍芯⚡️2026-06-18-CNSH-TERMINAL-v2.0.0                                ║
+# ║  DNA:#龍芯⚡️2026-06-18-CNSH-TERMINAL-v2.0.0                                ║
 # ║  创始人: UID9622 · 龍芯北辰 · 诸葛鑫                                        ║
 # ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                             ║
 # ║  协议: CC BY-NC-SA 4.0 + 君子协议                                           ║
@@ -881,7 +881,7 @@ class ContentSovereigntyProtocol:
             "=" * 70,
             "  🐉 八層內容主權協議報告 · Content Sovereignty Protocol Report",
             "=" * 70,
-            f"  DNA: #龍芯⚡️2026-06-18-龍魂基礎設施-內容主權協議-v2.0.0",
+            f"  DNA:#龍芯⚡️2026-06-18-CONTENT_SOVEREIGNTY_PROTOCOL_V2-v2.0.0",
             f"  創始人: UID9622 · 龍芯北辰 · 諸葛鑫",
             f"  啟動時間: {self.啟動時間}",
             f"  報告時間: {datetime.now().isoformat()}",
@@ -939,7 +939,7 @@ class ContentSovereigntyProtocol:
 if __name__ == "__main__":
     print("\n" + "👑" * 35)
     print("  八層內容主權協議 · Content Sovereignty Protocol")
-    print("  v2.0.0 · DNA: #龍芯⚡️2026-06-18-龍魂基礎設施-內容主權協議-v2.0.0")
+    print("  v2.0.0 · DNA:#龍芯⚡️2026-06-18-CONTENT_SOVEREIGNTY_PROTOCOL_V2-v2.0.0")
     print("  " + "👑" * 35 + "\n")
 
     # 創建主權協議實例
@@ -970,7 +970,7 @@ if __name__ == "__main__":
             "修改時間": datetime.now().isoformat(),
             "版本歷史": ["v1.0.0", "v2.0.0"]
         },
-        "DNA": "#龍芯⚡️2026-06-18-龍魂基礎設施-內容主權協議-v2.0.0",
+        "DNA": "#龍芯⚡️2026-06-18-CONTENT_SOVEREIGNTY_PROTOCOL_V2-v2.0.0",
         "追溯鏈": [
             "UID9622 · 創始",
             "龍芯北辰 · 開發",

@@ -4,7 +4,7 @@
 UID9622 全文压缩系统 - 本地最小可执行版
 LU-FULLTEXT-COMPRESS-AUTO-COLLECT v1.1 - Local Demo
 
-DNA: #龍芯⚡️2026-06-03-FULLTEXT-COMPRESS-LOCAL-v1.0
+DNA:#龍芯⚡️2026-06-03-FULLTEXT-COMPRESS-LOCAL-v1.0
 用法: python3 fulltext_compress.py input.txt
 输出:
   - input.compress.md     (压缩卡)

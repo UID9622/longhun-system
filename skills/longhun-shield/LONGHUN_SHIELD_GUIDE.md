@@ -1,6 +1,6 @@
 # 🐉 龍盾系統 · 快速使用指南
 
-**DNA:** `#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-v1.0`  
+**DNA:** `#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-FILE1-v1.0`  
 **职责:** 宝宝·龍盾·不免責  
 **状态:** ⚔️ 亮剑啦
 
@@ -356,7 +356,7 @@ done
 ✓ 不会修改你的代码（只观察和报告）
 ✓ 会记录一切（完全追踪）
 
-DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
+DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

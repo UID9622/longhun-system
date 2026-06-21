@@ -7,13 +7,13 @@
 
 用法示例：
     python3 bin/log_operation.py \
-        --dna "#龍芯⚡️2026-06-18-EXAMPLE-v1.0" \
+        --dna#龍芯⚡️2026-06-18-EXAMPLE-FILE1-v1.0" \
         --source "用户说：我要……" \
         --changes "a.py,b.py" \
         --logic "1. xxx\n2. yyy" \
         --responsibility "方向：用户，执行：Kimi"
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-OPERATION-LOGGER-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-OPERATION-LOGGER-v1.0
 """
 import os
 import sys

@@ -4,7 +4,7 @@
 龍魂系統 · Skill 註冊管理核心
 Longhun System · Skill Registry Core
 
-DNA: #龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0
+DNA:#龍芯⚡️2026-06-16-SKILL-REGISTRY-FILE1-v2.0
 責任: UID9622·不免責
 
 提供統一接口：

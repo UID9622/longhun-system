@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-DRAGON-SOUL-METAVERSE-UID9622_1_BC38-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🌌 Dragon-Soul Metaverse｜UID9622元宇宙系统
 
 # 🎯 欢迎进入龙魂元宇宙

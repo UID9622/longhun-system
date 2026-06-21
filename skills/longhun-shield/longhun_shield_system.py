@@ -12,7 +12,7 @@
 ║    代碼都看起來一樣，但本地跑起來都不一樣                    ║
 ║    所以我們必須在入口處能夠暫停、檢查、真正轉譯              ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0          ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-FILE1-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -650,7 +650,7 @@ def main():
     代碼都看起來一樣，但本地跑起來都不一樣。
     所以宝宝必須在入口處能夠暫停、檢查、轉譯。
     
-    DNA: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0
+    DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0
     CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     

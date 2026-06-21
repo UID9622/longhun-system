@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-BOUNDARY-CN-001-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # BOUNDARY-CN-001
 
 DNA追溯码: #ZHUGEXIN⚡️2025-BOUNDARY-CN-001

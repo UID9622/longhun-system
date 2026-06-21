@@ -10,7 +10,7 @@ LongHun File Foundation Auto-Audit System v2.0
 永不重复计算。
 
 ╔══════════════════════════════════════════════════════════════════╗
-║  DNA: #龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0     ║
+║  DNA:#龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-FILE2-v2.0     ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -28,7 +28,7 @@ LongHun File Foundation Auto-Audit System v2.0
 可执行性: 直接运行 (python3 longhun_file_audit_foundation_v2.0.py)
 依赖环境: Python3.8+, sqlite3, 标准库
 三色审计: 🟢通过 - 完整触发式审计引擎
-DNA签名: #龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0
+DNA签名:#龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0
 
 核心特性：
 1. 缓存系统 - 用DNA签证做唯一性检查，已审计的永不重算

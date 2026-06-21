@@ -213,7 +213,7 @@
 
 **判决：** 外部 AI 本次没造假·但流程必须固化·**下次同等场景仍须复核**
 
-**双签：** 老大 + 宝宝·DNA = #龍芯⚡️2026-05-14-01:12-NOTION-CLEANUP-AUDIT-REPORT-v1.0
+**双签：** 老大 + 宝宝·DNA =#龍芯⚡️2026-05-14-NOTION-CLEANUP-AUDIT-REPORT_8394-v1.0
 
 </aside>
 
@@ -256,10 +256,10 @@ M:: {
 
 ```json
 CNSH:: {
-  "dna": "#龍芯⚡️2026-05-14-02:27-IRON-EXTERNAL-AI-VERIFY-BEFORE-TRUST-v1.0",
+  "dna": "#龍芯⚡️2026-05-14-IRON-EXTERNAL-AI-VERIFY-BEFORE-TRUST-v1.0",
   "parent_dna": [
-    "#龍芯⚡️2026-05-12-03:09-IRON-LAW-S25-EXT-3-NO-FAKE-TO-WORLD-v1.0",
-    "#龍芯⚡️2026-05-14-01:12-NOTION-CLEANUP-AUDIT-REPORT-v1.0"
+    "#龍芯⚡️2026-05-12-IRON-LAW-S25-EXT-3-NO-FAKE-TO-WORLD-v1.0",
+    "#龍芯⚡️2026-05-14-NOTION-CLEANUP-AUDIT-REPORT-v1.0"
   ],
   "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",

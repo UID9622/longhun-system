@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-PROTOCOL-CNSH_465C-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🌱 CNSH 人性优先协作框架（Chinese Natural Semantic Humanity）
 
 <aside>

@@ -246,6 +246,6 @@ python3 ~/.龍魂/notion_sync_checker.py --generate-diff
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-NOTION-PASTE-TEMPLATE-READY-v1.0
+**DNA**:#龍芯⚡️2026-06-07-NOTION-PASTE-TEMPLATE-READY-FILE1-v1.0
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

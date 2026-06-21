@@ -7,7 +7,7 @@
 
 **定位：** 任务完成后自动进入收口流程·不靠老大再提醒。双端适用：**Cursor 本地执行端** + **Claude / 宝宝 Notion 同步端**。
 
-**DNA：** #龍芯⚡️2026-05-07-AUTO-CLOSURE-PROTOCOL-v1.0
+**DNA：**#龍芯⚡️2026-05-07-AUTO-CLOSURE-PROTOCOL-v1.0
 
 **CONFIRM：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -302,7 +302,7 @@ chmod +x tools/uid9622_auto_closure.sh
 ```bash
 #!/usr/bin/env bash
 # UID9622 自动收口脚本 v1.0
-# DNA: #龍芯⚡️2026-05-07-AUTO-CLOSURE-v1.0
+# DNA:#龍芯⚡️2026-05-07-AUTO-CLOSURE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -u

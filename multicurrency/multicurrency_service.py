@@ -4,7 +4,7 @@
 🐉 龍魂多幣種直達系統 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0
+DNA:#龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 提供實時匯率查詢·三色標籤·幣種轉換
@@ -328,7 +328,7 @@ def main():
     hub = MultiCurrencyHub()
 
     print("🐉 龍魂多幣種直達系統 v1.0")
-    print("DNA: #龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0\n")
+    print("DNA:#龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0\n")
 
     if args.query:
         print(f"查詢幣種: {', '.join(args.query)}\n")

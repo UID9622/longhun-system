@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PRIVATE-SHARED-BATCH2-SCAN-v1.0",
+
   "source_workspace": "私人与共享",
   "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/私人与共享",
   "destination_path": "/Users/zuimeidedeyihan/longhun-system/docs/private-shared-imports",
@@ -943,5 +944,6 @@
       "source": "🧬 量子模板引擎 94fbe8c6f1c645c0b885fb329d4bc9fd.csv",
       "reason": "CSV 未命中核心技术分类"
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CONFIG-PRIVATE-SHARED-BATCH2-SCAN-v1.0"
 }

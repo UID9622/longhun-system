@@ -1,5 +1,5 @@
 # 🐉 龍魂系統 Prometheus 告警規則
-# DNA: #龍芯⚡️2026-06-08-PROMETHEUS-RULES-v1.0
+# DNA:#龍芯⚡️2026-06-08-PROMETHEUS-RULES-FILE1-v1.0
 
 groups:
   - name: longhun_production

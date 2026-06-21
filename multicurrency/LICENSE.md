@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-MULTI-LICENSE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 龍魂多币种系统 · 许可证协议 / Longhun Multicurrency System License
 
 ## 中文 / Chinese

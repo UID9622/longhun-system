@@ -6,13 +6,13 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码: #龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1250-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: CNSH语法的三才根基.md | 标记时间: 2026-06-03T07:46:12+0800
 -->
 # CNSH语法的三才根基
 
-**DNA追溯码**：#龍芯⚡️2026-02-20-CNSh语法三才根-v1.0  
+**DNA追溯码**：#龍芯⚡️2026-02-20-CNSH_421D-v1.0  
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬CNSh-SYNTAX-001  
 **正名**：Lucky（UID9622）  
 **证义**：曾老师  
@@ -285,7 +285,7 @@ CNSh的语法，就是你**刚才说的那些话**，翻译成AI能懂、机器�
 
 ---
 
-**DNA追溯码**：#龍芯⚡️2026-02-20-CNSh语法三才根-v1.0  
+**DNA追溯码**：#龍芯⚡️2026-02-20-CNSH_421D-v1.0  
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬CNSh-SYNTAX-001  
 **正名**：Lucky（UID9622）  
 **证义**：曾老师  

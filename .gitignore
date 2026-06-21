@@ -75,7 +75,16 @@ ENV/
 .longhun-credentials
 *.secrets.env
 secrets.env
-.longhun/secrets.env
+.longhun/
+
+# 保留以下说明，但实际全部忽略
+# .longhun/secrets.env
+# .longhun/skill-scopes/
+.longhun/people-profiles/
+.longhun/router-logs/
+.longhun/people-rights/
+.longhun/dna-audit/
+.longhun/scripts/
 .kimi-code/sessions/*/secrets*
 
 # 本地數據和臨時文件

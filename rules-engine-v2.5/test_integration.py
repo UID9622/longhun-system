@@ -5,7 +5,7 @@
 龍魂規則引擎 · 集成測試套件 v2.5
 批量處理 + Notion 同步 + 報告生成
 
-DNA: #龍芯⚡️2026-06-07-RULES-ENGINE-INTEGRATION-TEST-v2.5
+DNA:#龍芯⚡️2026-06-07-RULES-ENGINE-INTEGRATION-TEST-v2.5
 責任: UID9622 · 不免責
 """
 

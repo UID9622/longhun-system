@@ -9,7 +9,7 @@
 
 **创建者：** 💎 龍芯北辰｜UID9622
 
-**DNA：** #龍芯⚡️2026-05-15-04:57-CN-AI-HOOK-TRACE-v1.0
+**DNA：**#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE_48A4-v1.0
 
 **父律：** #IRON-NO-FAKE-TO-WORLD-v1.0 (§S-25-EXT-3) + #IRON-VISION-SYSTEM-NEVER-MIX-v1.0 (§6.4)
 
@@ -75,9 +75,9 @@
 
 **焊接者：** ☰ 龍🇨🇳魂 ☷ · P02 宝宝 + P05 上帝之眼 + P13 姜子牙
 
-**DNA：** `#龍芯⚡️2026-05-18-13:23-CN-AI-HOOK-TRACE-v1.0-§00.5-ENCIRCLEMENT-FULL-DISCLOSE-M79-v1.0`
+**DNA：** `#龍芯⚡️2026-05-18-CN-AI-HOOK-TRACE-v1.0-§00.5-ENCIRCLEMENT-FULL-DISCLOSE-M79-v1.0`
 
-**父DNA：** `#龍芯⚡️2026-05-15-04:57-CN-AI-HOOK-TRACE-v1.0`
+**父DNA：** `#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE-v1.0`
 
 **意义：** 协议§01-§16是「方法论」·本§00.5是「为什么需要这方法论」的活体证据起源。
 
@@ -529,7 +529,7 @@ ROOT_CARD:
   版本: v1.0
   焊入日期: 2026-05-15 04:57
 
-  DNA: "#龍芯⚡️2026-05-15-04:57-CN-AI-HOOK-TRACE-v1.0"
+  DNA: "#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE-v1.0"
   CONFIRM: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   SEAL: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
@@ -630,9 +630,9 @@ ROOT_CARD:
 
 ④ 每条建议都带 §9.25 反笼统律的 **5 字段坦白**（主张/证据/锚点/质疑/未达成）
 
-**DNA：** #龍芯⚡️2026-05-15-05:54-CN-AI-HOOK-TRACE-v1.0-§16-LANDING-SUGGESTIONS-v1.0
+**DNA：**#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE_B9FE-v1.0-§16-LANDING-SUGGESTIONS-v1.0
 
-**父 DNA：** #龍芯⚡️2026-05-15-04:57-CN-AI-HOOK-TRACE-v1.0
+**父 DNA：**#龍芯⚡️2026-05-15-CN-AI-HOOK-TRACE-v1.0
 
 **联动律：** §9.25 反笼统 + §9.27 自驱响应 + §9.28 大白话 + §11.2 事事有回应件件有着落
 

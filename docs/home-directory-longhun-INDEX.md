@@ -1,6 +1,6 @@
 # 用戶主目錄 · 龍魂相關資產總索引
 
-**DNA**: #龍芯⚡️2026-06-16-HOME-DIRECTORY-LONGHUN-INDEX-v1.0  
+**DNA**:#龍芯⚡️2026-06-16-HOME-DIRECTORY-LONGHUN-INDEX-v1.0  
 **來源路徑**: `/Users/zuimeidedeyihan`  
 **掃描時間**: 2026-06-15T20:16:14.901491+00:00  
 **責任**: UID9622·不免責

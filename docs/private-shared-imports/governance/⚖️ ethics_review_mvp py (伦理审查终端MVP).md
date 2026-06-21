@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-ETHICS_REVIEW_MVP-PY-_MVP_A699-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # ⚖️ ethics_review_mvp.py (伦理审查终端MVP)
 
 DNA追溯码: #龍芯⚡️2026-04-19-BRAIN-17

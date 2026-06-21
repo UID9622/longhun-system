@@ -30,7 +30,7 @@
 
 **状态：** 🟢 MAIN · 可公开
 
-**DNA：** #龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1
+**DNA：**#龍芯⚡️2026-04-09-LONGHUN-CHARTER-FILE2-v1.1
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -51,7 +51,7 @@
 - DNA追溯完整性验证
 - 三色审计确认
 
-**DNA：** #龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1
+**DNA：**#龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1
 **状态：** 🟢 READY FOR DEPLOYMENT
 
 ---

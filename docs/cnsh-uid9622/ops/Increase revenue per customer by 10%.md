@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-CNSH-INCREASE-REVENUE-PER-CUSTOMER-BY-10-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # Increase revenue per customer by 10%
 
 Child Goals: Launch a new premium product line (Launch%20a%20new%20premium%20product%20line%<POTENTIAL_SECRET_PLACEHOLDER>.md), Increase order frequency to once a week (Increase%20order%20frequency%20to%20once%20a%20week%<POTENTIAL_SECRET_PLACEHOLDER>.md)

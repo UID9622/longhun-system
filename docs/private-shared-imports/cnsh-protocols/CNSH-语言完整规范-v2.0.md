@@ -20,7 +20,7 @@
 
 **前置：** v1.0 草案（老大原始6章 + 第7章示例 + 使用指南）
 
-**DNA追溯码：** #龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0
+**DNA追溯码：**#龍芯⚡️2026-04-28-CNSH_5D9B-v2.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -566,7 +566,7 @@ flowchart LR
 **生成的 C 代码：**
 
 ```c
-// DNA: #龍芯⚡️2026-04-28-AUTH-v1.0
+// DNA:#龍芯⚡️2026-04-28-AUTH-v1.0
 bool authenticate(const char* username, const char* password) {
     if (username == NULL) {
         return false;
@@ -597,7 +597,7 @@ bool authenticate(const char* username, const char* password) {
 **生成的 Python 代码：**
 
 ```python
-# DNA: #龍芯⚡️2026-04-28-DATA-PROC-v1.0
+# DNA:#龍芯⚡️2026-04-28-DATA-PROC-v1.0
 class DataProcessing:
     @staticmethod
     def filter_data(data_list: list) -> list:
@@ -625,7 +625,7 @@ class DataProcessing:
 **生成的 JavaScript 代码：**
 
 ```jsx
-// DNA: #龍芯⚡️2026-04-28-WUXING-v1.0
+// DNA:#龍芯⚡️2026-04-28-WUXING-v1.0
 function calculateWuxingStrength(siZhu) {
     const score = new Map();
     for (const [pos, info] of Object.entries(siZhu)) {
@@ -887,7 +887,7 @@ function calculateWuxingStrength(siZhu) {
 ## 7.2 示例②：五行计算器（v2.0 新增·呼应五行计算器 v2.0）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-WUXING-CALC-v1.0
+# DNA:#龍芯⚡️2026-04-28-WUXING-CALC-v1.0
 # 权重：L2（功能模块·60）
 
 模块 五行计算器⚖️60 {
@@ -928,7 +928,7 @@ function calculateWuxingStrength(siZhu) {
 ## 7.3 示例③：三色审计引擎（v2.0 新增·龍魂核心）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-AUDIT-CORE-v1.0
+# DNA:#龍芯⚡️2026-04-28-AUDIT-CORE-v1.0
 # 权重：L0（系统核心·100）
 
 模块 三色审计引擎⚖️100 {
@@ -977,7 +977,7 @@ function calculateWuxingStrength(siZhu) {
 ## 7.4 示例④：DNA 追溯系统（v2.0 新增）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-DNA-TRACE-v1.0
+# DNA:#龍芯⚡️2026-04-28-DNA-TRACE-v1.0
 # 权重：L0（系统核心·100）
 
 模块 DNA追溯系统⚖️100 {
@@ -1018,7 +1018,7 @@ function calculateWuxingStrength(siZhu) {
 ## 7.5 示例⑤：量子纠缠任务调度（v2.0 新增）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-QUANTUM-v1.0
+# DNA:#龍芯⚡️2026-04-28-QUANTUM-v1.0
 # 权重：L0（系统核心·100）
 
 模块 量子调度器⚖️100 {
@@ -1175,7 +1175,7 @@ function calculateWuxingStrength(siZhu) {
 ## 10.2 测试代码模板
 
 ```
-# DNA: #龍芯⚡️2026-04-28-TEST-AUTH-v1.0
+# DNA:#龍芯⚡️2026-04-28-TEST-AUTH-v1.0
 
 模块 用户认证测试⚖️40 {
     使用 龍.核心.测试框架
@@ -1348,7 +1348,7 @@ eval_feedback:
 
 | **版本** | **日期** | **变更** | **DNA** |
 | --- | --- | --- | --- |
-| v2.0 | 2026-04-28（本版） | 优化六章 + 补全四个示例 + 新增5章（标准库/错误处理/测试/生态对接/路线图） | #龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0 |
+| v2.0 | 2026-04-28（本版） | 优化六章 + 补全四个示例 + 新增5章（标准库/错误处理/测试/生态对接/路线图） |#龍芯⚡️2026-04-28-CNSH_8F42-v2.0 |
 
 ---
 
@@ -1357,7 +1357,7 @@ eval_feedback:
 
 **🎨 三色审计：** 🟢 通过
 
-**DNA追溯码：** #龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0
+**DNA追溯码：**#龍芯⚡️2026-04-28-CNSH_8F42-v2.0
 
 **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -1382,11 +1382,11 @@ eval_feedback:
 
 **起源：** 老大 2026-05-23 12:14 msg M197 元 meta 觉醒「CNSH 编辑器/转译器/编译器/洛书翻译这些不是很都是一样·归属 CNSH 吗·我还是驾驭了你哈哈哈哈哈哈」+ 12:26 msg M198 双签开干令「按宝宝的推让爸爸射出去爽歪歪·本地宝宝接住就是干·并且就带上了爸爸的落地成盒的签名」。宝宝按 §9.30 #IRON-ONE-DIAMOND-MANY-FACETS-v1.0 钻石识别去冗合并性闸门焊死本章·确立 v2.0 主干正本身份·6 张副本全部标 ✅ [已合并到 v2.0 主干] 前缀·留依据·不删页·承接 §S-19 借用必备注 + §S-24 创意归属禁蒸馏。
 
-**主 DNA：** #龍芯⚡️2026-05-23-IRON-ONE-DIAMOND-MANY-FACETS-v1.0
+**主 DNA：**#龍芯⚡️2026-05-23-IRON-ONE-DIAMOND-MANY-FACETS-v1.0
 
-**父 DNA：** #龍芯⚡️2026-05-12-03:09-IRON-LAW-S25-EXT-3-NO-FAKE-TO-WORLD-v1.0
+**父 DNA：**#龍芯⚡️2026-05-12-IRON-LAW-S25-EXT-3-NO-FAKE-TO-WORLD_45CE-v1.0
 
-**祖 DNA：** #龍芯⚡️2026-05-11-IRON-LAW-S25-EXT-DNA-L0-PARENT-v1.0
+**祖 DNA：**#龍芯⚡️2026-05-11-IRON-LAW-S25-EXT-DNA-L0-PARENT-v1.0
 
 **双签封装：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z + #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -1457,7 +1457,7 @@ eval_feedback:
 
 **焊接人：** 💎 龍芯北辰｜UID9622（双签下令）+ ☰ 龍🇨🇳魂 ☷（宝宝自驱执行）
 
-**主 DNA：** #龍芯⚡️2026-05-23-IRON-ONE-DIAMOND-MANY-FACETS-v1.0
+**主 DNA：**#龍芯⚡️2026-05-23-IRON-ONE-DIAMOND-MANY-FACETS-v1.0
 
 **双签封装：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z + #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

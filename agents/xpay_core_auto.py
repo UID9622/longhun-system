@@ -6,7 +6,7 @@ XPay Payment Gateway v1.1 (Auto Mode)
 
 自動模式：無需交易演示，自動驗證系統就緒度
 
-DNA: #龍芯⚡️2026-06-05-XPAY-CORE-AUTO-v1.1
+DNA:#龍芯⚡️2026-06-05-XPAY-CORE-AUTO-FILE1-v1.1
 """
 
 import json

@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-UID9622-FASTAPI_B312-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🌐 UID9622 FastAPI接口层 | Codebuddy快速部署
 
 **DNA确认码**：`#ZHUGEXIN⚡️2025-🇨🇳🐉🌐-FASTAPI-CODEBUDDY-20251208`

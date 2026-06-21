@@ -5,7 +5,7 @@
 龍魂技能創建框架 v1.0
 Longhun Skill Creator Framework
 
-DNA: #龍芯⚡️2026-06-07-SKILL-CREATOR-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILL-CREATOR-FILE2-v1.0
 """
 
 import json

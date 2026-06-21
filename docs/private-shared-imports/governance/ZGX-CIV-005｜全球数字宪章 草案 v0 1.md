@@ -62,7 +62,7 @@
 
 - 原点页面编号：`https://www.notion.so/<POTENTIAL_SECRET_PLACEHOLDER>` — 龍魂故事·创作灵感起源
 - 系统不动点ID：`UID9622-ORIGIN-POINT-001`
-- DNA追溯码：`#龍芯⚡️2026-03-30-龍魂创作灵感起源-v1.0`
+- DNA追溯码：`#龍芯⚡️2026-03-30-ZGX-CIV-005_V0_1_059D-v1.0`
 - GPG指纹：`<POTENTIAL_SECRET_PLACEHOLDER>`
 
 **② 记忆同步（已完成）**
@@ -108,7 +108,7 @@
 
 ```python
 # 龍魂系统 | 原点不动点方程
-# DNA: #龍芯⚡️2026-03-30-原点方程-v1.0
+# DNA:#龍芯⚡️2026-03-30-ZGX-CIV-005_V0_1-v1.0
 
 def 龍魂原点(x):
     """

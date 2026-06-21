@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PACKAGE-v1.0",
+
   "name": "@longhun/mobile-monitoring",
   "version": "4.1.0",
   "description": "龍魂移動端監控自動化系統 v4.1",
@@ -15,7 +16,12 @@
   "devDependencies": {
     "typescript": "^5.0.0"
   },
-  "keywords": ["monitoring", "analytics", "mobile"],
+  "keywords": [
+    "monitoring",
+    "analytics",
+    "mobile"
+  ],
   "author": "Longhun System",
-  "license": "MIT"
+  "license": "MIT",
+  "_dna": "2026-06-21-MOBILE-PACKAGE-v1.0"
 }

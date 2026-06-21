@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂/CNSH 主权环境变量加载器
-DNA: #龍芯⚡️2026-06-15-LONGHUN-SOVEREIGN-ENV-v1.0
+DNA:#龍芯⚡️2026-06-15-LONGHUN-SOVEREIGN-ENV-v1.0
 
 设计原则：
 1. 真实密钥只驻留本地 ~/.longhun/secrets.env，不上传 Git

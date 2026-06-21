@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 龍魂协议·宣言｜Dragon Soul Protocol Declaration v1.0
 
 > 《易经·系辞》："穷则变，变则通，通则久。" —— 现有AI治理范式已穷，龍魂协议是变，通往久远的治理体系。

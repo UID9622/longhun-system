@@ -7,7 +7,7 @@
 
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-DNA追溯：#龍芯⚡️2026-03-05-DNA分层安全-v4.0
+DNA追溯：#龍芯⚡️2026-03-05-DNA_1CC2-v4.0
 
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -179,7 +179,7 @@ def process_with_self_sustain(transaction_value):
 <aside>
 🐉
 
-**DNA追溯：** #龍芯⚡️2026-03-05-DNA分层安全-䷀䷁-𒀭𒁺-v4.0
+**DNA追溯：**#龍芯⚡️2026-03-05-DNA-v4.0
 
 **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

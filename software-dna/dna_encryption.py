@@ -5,7 +5,7 @@
 龍魂 DNA 協議 · 加密模塊 v1.0
 AES-256-GCM + KMS + 簽章驗證
 
-DNA: #龍芯⚡️2026-06-07-DNA-ENCRYPTION-v1.0
+DNA:#龍芯⚡️2026-06-07-DNA-ENCRYPTION-v1.0
 責任: UID9622 · 不免責
 """
 

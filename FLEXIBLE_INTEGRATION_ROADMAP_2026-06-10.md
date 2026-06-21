@@ -1,6 +1,6 @@
 # 🐉 龍魂系統·靈活分階段整合路線圖
 # 日期: 2026-06-10 CST
-# DNA: #龍芯⚡️2026-06-10-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
+# DNA:#龍芯⚡️2026-06-10-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
 
 ---
 
@@ -378,6 +378,6 @@ find cnsh-core -newer cnsh-core.backup -type f -delete
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-10-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
+**DNA**:#龍芯⚡️2026-06-10-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
 **確認碼**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0 (靈活版)

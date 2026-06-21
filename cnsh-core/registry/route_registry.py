@@ -8,7 +8,7 @@
 ║  中央路由注册表实现                                             ║
 ║  O(1)查找·三色状态·DNA追溯·append-only持久化                   ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-ROUTE-REGISTRY-v1.0                   ║
+║  DNA:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-FILE1-v1.0                   ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: IPA路由注册表架构规范                                    ║
@@ -36,6 +36,32 @@ except ImportError:
         HAS_LOGGING = True
     except ImportError:
         HAS_LOGGING = False
+
+# 人民主权守护集成
+try:
+    from ..dna_sovereignty_kernel import PeopleSovereigntyGuard
+    HAS_DNA_KERNEL = True
+except ImportError:
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from dna_sovereignty_kernel import PeopleSovereigntyGuard
+        HAS_DNA_KERNEL = True
+    except ImportError:
+        HAS_DNA_KERNEL = False
+
+# 人民权益守门人集成
+try:
+    from ..people_rights_guard import PeopleRightsGuard
+    HAS_RIGHTS_GUARD = True
+except ImportError:
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from people_rights_guard import PeopleRightsGuard
+        HAS_RIGHTS_GUARD = True
+    except ImportError:
+        HAS_RIGHTS_GUARD = False
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -294,6 +320,7 @@ class RouteRegistry:
             }
 
         issues = []
+        lock_level = None
 
         # 检查local_path是否可达
         reachable = True
@@ -304,9 +331,65 @@ class RouteRegistry:
                 reachable = False
                 issues.append(f"本地路径不可达: {node.local_path}")
 
-        # 检查DNA格式
-        if not node.dna.startswith("#龍芯⚡️"):
-            issues.append("DNA格式错误")
+        # 检查DNA格式（接入内核严格校验）
+        if HAS_DNA_KERNEL:
+            try:
+                kernel = PeopleSovereigntyGuard()
+                entry = kernel.lookup_by_dna(node.dna)
+                if entry:
+                    if not entry.valid:
+                        issues.append(f"DNA格式无效: {node.dna}")
+                    # 额外校验：注册表里的 layer 与节点声明的 layer 是否一致
+                    if entry.layer != node.layer:
+                        issues.append(
+                            f"层级不一致: 节点声明 {node.layer} ≠ 注册表 {entry.layer}"
+                        )
+                    lock_level = kernel.lock_level(entry).value
+                else:
+                    # 节点DNA不在文件注册表：用严格格式校验 + 基于节点声明计算紧锁
+                    import re
+                    strict_re = re.compile(
+                        r'^#龍芯[\u26a1\ufe0f]*\d{4}-\d{2}-\d{2}-[A-Z][A-Z0-9_-]*-v[\d.]+$'
+                    )
+                    if not strict_re.match(node.dna or ""):
+                        issues.append(f"DNA格式无效: {node.dna}")
+                    synthetic = kernel.lookup_by_dna.__self__.entries
+                    # 用节点自身信息构造 synthetic entry
+                    synthetic_entry = type("DNAEntry", (), {
+                        "file": node.local_path or node.name,
+                        "dna": node.dna,
+                        "date": "",
+                        "module": node.name.upper(),
+                        "version": "",
+                        "valid": bool(strict_re.match(node.dna or "")),
+                        "layer": node.layer or "L3_GENERATIONAL",
+                        "status": node.status.value if node.status else "🟢",
+                        "priority": {"L0_ETERNAL":5,"L1_SEASONAL":20,"L2_DECISION":40,"L3_GENERATIONAL":65,"L4_INSTANT":90}.get(node.layer, 65),
+                        "weight": 50.0,
+                        "size": 0,
+                        "mtime": 0.0,
+                    })()
+                    lock_level = kernel.lock_level(synthetic_entry).value
+            except Exception:
+                # 内核不可用则回退到简单前缀检查
+                if not node.dna.startswith("#龍芯⚡️"):
+                    issues.append("DNA格式错误")
+        else:
+            if not node.dna.startswith("#龍芯⚡️"):
+                issues.append("DNA格式错误")
+
+        # 人民权益守门人：检查节点是否代表资本平台
+        if HAS_RIGHTS_GUARD:
+            try:
+                rights = PeopleRightsGuard()
+                text = f"{node.name} {node.description} {' '.join(node.tags)}".lower()
+                is_platform_like = any(k in text for k in ("platform", "merchant", "app", "支付", "电商", "广告", "数据"))
+                if is_platform_like:
+                    provider_id = node.node_id
+                    if not rights.is_people_first(provider_id):
+                        issues.append(f"节点 {node.node_id} 代表平台/商户，未通过人民权益审查")
+            except Exception:
+                pass
 
         return {
             "node_id": node_id,
@@ -315,6 +398,7 @@ class RouteRegistry:
             "reachable": reachable,
             "last_checked": datetime.now().isoformat(),
             "issues": issues,
+            "lock_level": lock_level,
         }
 
     # ═════════════════════════════════════════════════════════
@@ -347,7 +431,7 @@ class RouteRegistry:
     def _create_empty_registry(self) -> None:
         """创建空注册表文件"""
         header = """# 龍魂·IPA路由注册表 (Append-Only JSONL)
-# DNA: #龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-v1.0
+# DNA:#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-v1.0
 # 格式: JSONL（JSON Lines）- 仅追加，不覆盖
 # 每行一条节点记录
 # 开始时间: 2026-06-03T{0}
@@ -472,10 +556,23 @@ class RouteRegistry:
                 except ImportError:
                     errors.append(f"节点 {node_id} 路径不可达: {node.local_path}")
 
-        # 检查3: DNA格式验证
-        for node_id, node in self.nodes.items():
-            if not node.dna.startswith("#龍芯⚡️"):
-                errors.append(f"节点 {node_id} DNA格式错误: {node.dna}")
+        # 检查3: DNA格式验证（接入内核严格校验）
+        if HAS_DNA_KERNEL:
+            try:
+                kernel = PeopleSovereigntyGuard()
+                for node_id, node in self.nodes.items():
+                    entry = kernel.lookup_by_dna(node.dna)
+                    if not entry or not entry.valid:
+                        errors.append(f"节点 {node_id} DNA无效: {node.dna}")
+            except Exception:
+                # 回退
+                for node_id, node in self.nodes.items():
+                    if not node.dna.startswith("#龍芯⚡️"):
+                        errors.append(f"节点 {node_id} DNA格式错误: {node.dna}")
+        else:
+            for node_id, node in self.nodes.items():
+                if not node.dna.startswith("#龍芯⚡️"):
+                    errors.append(f"节点 {node_id} DNA格式错误: {node.dna}")
 
         # 检查4: 节点ID规范性
         for node_id in self.nodes.keys():

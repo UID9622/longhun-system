@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-MVP_TASKS-v1.0",
+
   "P1-A": {
     "name": "Notion数据库初始化",
     "personas": [
@@ -88,5 +89,6 @@
     "difficulty": 2,
     "estimated_hours": 3,
     "phase": "Phase 3"
-  }
+  },
+  "_dna": "2026-06-21-CONFIG-MVP_TASKS-v1.0"
 }

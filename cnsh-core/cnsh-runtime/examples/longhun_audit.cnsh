@@ -1,5 +1,5 @@
 # CNSH 示例：龍魂三色審計簡化版
-# DNA: #龍芯⚡️2026-06-16-CNSH-EXAMPLE-AUDIT-v1.0
+# DNA:#龍芯⚡️2026-06-16-CNSH-EXAMPLE-AUDIT-v1.0
 
 定義 閘控檢查(請求, 風險閾值):
     # 評估請求風險

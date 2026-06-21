@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """龍魂操作日誌記錄器 · 全系統審計
-DNA: #龍芯⚡️2026-06-09-ACTION-LOGGER-v1.0
+DNA:#龍芯⚡️2026-06-09-ACTION-LOGGER-v1.0
 
 用途: 在任何操作前後記錄到 action_log.jsonl
 支持: 完整操作跟蹤·性能分析·每日審計

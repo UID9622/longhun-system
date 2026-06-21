@@ -20,7 +20,7 @@
 文件: cnsh-core/governance/sovereignty_index.py (410行)
 功能: 人/地/天·主权度量·激活/削弱/失锚判定
 测试: 4/4通过 ✅
-DNA: #龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0
+DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-FILE2-v1.0
 ```
 
 ### ✅ 2. F1-F7七因子验证系统
@@ -28,7 +28,7 @@ DNA: #龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0
 文件: cnsh-core/governance/f1_through_f7_verifier.py (620行)
 功能: 行为密码学·7因子独立验证·乘积置信度模型
 测试: 3/3通过 ✅
-DNA: #龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
+DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
 ```
 
 ### ✅ 3. 认知DNA粒子系统
@@ -36,7 +36,7 @@ DNA: #龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
 文件: cnsh-core/memory/cognitive_dna_particles.py (520行)
 功能: 认知状态压缩/恢复·SI条件激活·情感摺叠·Append-only档案
 测试: 4/4通过 ✅
-DNA: #龍芯⚡️2026-06-03-COGNITIVE-DNA-PARTICLES-v1.0
+DNA:#龍芯⚡️2026-06-03-COGNITIVE-DNA-PARTICLES-v1.0
 ```
 
 ### ✅ 4. 执行路由器系统
@@ -45,7 +45,7 @@ DNA: #龍芯⚡️2026-06-03-COGNITIVE-DNA-PARTICLES-v1.0
 功能: 本地协调中枢·manifest.json识别·权限检查·DNA追踪
 测试: 3/3通过 ✅
 已集成: PersonaRouter虚伪词汇前置检查
-DNA: #龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
+DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
 ```
 
 ### ✅ 5. 人格路由系统 (PersonaRouter)
@@ -54,7 +54,7 @@ DNA: #龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0
 功能: 虚伪词汇4分类检测·加权人格决策·F4因子生成·Append-only审计
 测试: 8/8通过 ✅
 已集成: ExecutionRouter·F4PersonaRouting
-DNA: #龍芯⚡️2026-06-03-PERSONA-ROUTER-v1.0
+DNA:#龍芯⚡️2026-06-03-PERSONA-ROUTER-v1.0
 ```
 
 ---

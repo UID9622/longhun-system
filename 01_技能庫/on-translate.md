@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-ON-TRANSLATE-FILE1-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 ---
 skill_id: /on-translate
 synced_at: 2026-06-06T14:40:25.518239

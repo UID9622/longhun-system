@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 交易數據結構與持久化
-DNA: #龍芯⚡️2026-06-17-XPAY-TRANSACTION-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-TRANSACTION-FILE1-v2.0
 """
 import json
 import sqlite3

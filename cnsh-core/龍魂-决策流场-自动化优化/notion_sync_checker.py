@@ -4,7 +4,7 @@
 🔄 龍魂 Notion 主控↔父页同步检查器 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-05-17-NOTION-SYNC-CHECKER-v1.0
+DNA:#龍芯⚡️2026-05-17-NOTION-SYNC-CHECKER-FILE1-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 自动检测主控页↔父页是否保持同步，给出变更报告
@@ -123,7 +123,7 @@ class NotionSyncChecker:
         """生成自动修复脚本"""
         script = """
 # 龍魂主控↔父页自动同步脚本
-# DNA: #龍芯⚡️2026-05-17-NOTION-AUTO-SYNC-FIX-v1.0
+# DNA:#龍芯⚡️2026-05-17-NOTION-AUTO-SYNC-FIX-v1.0
 
 ## 步骤 1: 更新所有父页的版本信息
 - [ ] 灵魂档案页顶部添加: "此页关联主控页 v2.7.36"
@@ -143,7 +143,7 @@ class NotionSyncChecker:
 ## 步骤 4: 更新同步日志
 - [ ] 记录本次同步时间: {timestamp}
 - [ ] 标记同步状态: ✅ 已同步
-- [ ] 生成同步证明: DNA #龍芯⚡️2026-05-17-NOTION-AUTO-SYNC-v1.0
+- [ ] 生成同步证明: DNA#龍芯⚡️2026-05-17-NOTION-AUTO-SYNC-v1.0
 """
         return script.format(timestamp=datetime.now().isoformat())
 

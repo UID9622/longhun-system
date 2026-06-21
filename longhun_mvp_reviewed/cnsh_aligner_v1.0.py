@@ -1,7 +1,7 @@
 # 龍芯⚡️2026-06-18-CNSH-ALIGNER-v1.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  CNSH自动对齐矫正系统 v1.0 —— CNSH Auto Alignment System v1.0  ║
-# ║  DNA追溯码: #龍芯⚡️2026-06-18-CNSH-ALIGNER-v1.0                ║
+# ║  DNA追溯码:#龍芯⚡️2026-06-18-CNSH-ALIGNER-v1.0                ║
 # ║  三层监督: [L1逻辑] ★ [L2价值观] ★ [L3技术]                      ║
 # ║  核心功能: 四层检查（L1字符/L2关键字/L3语法/L4语义）              ║
 # ║           AuditColor三色审计 | 铁律自审闸 | CNSH命名规范          ║
@@ -866,7 +866,7 @@ CNSH_TERMINAL_HEADER = """
 # ║  本终端头是龍魂体系的身份标识，删除将导致来源链断裂            ║
 # ║  This terminal is the identity marker of the Dragon Soul     ║
 # ║  system. Deletion will break the source chain.               ║
-# ║  DNA: #龍芯⚡️2026-06-18-CNSH-ALIGNER-v1.0                      ║
+# ║  DNA:#龍芯⚡️2026-06-18-CNSH-ALIGNER-v1.0                      ║
 # ║  UID: 9622 | 创始人: 诸葛鑫 | 体系: 龍魂                         ║
 # ╚══════════════════════════════════════════════════════════════╝
 """

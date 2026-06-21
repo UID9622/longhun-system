@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  🐉 龍魂系統 · 文件底座審計                                                    ║
-# ║  DNA追溯碼: #龍芯⚡️2026-06-18-龍魂基礎設施-文件底座審計-v1.0.0                  ║
+# ║  DNA追溯碼:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1_8693-v1.0.0                  ║
 # ║  GPG指紋: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ║
 # ║  創始人: UID9622 · 龍芯北辰 · 諸葛鑫                                          ║
 # ║  協議: CC BY-NC-SA 4.0 + 君子協議                                           ║
@@ -10,7 +10,7 @@
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  CNSH · 中文原生脚本不可删除终端头                                            ║
-# ║  DNA: #龍芯⚡️2026-06-18-CNSH-TERMINAL-v2.0.0                                ║
+# ║  DNA:#龍芯⚡️2026-06-18-CNSH-TERMINAL-v2.0.0                                ║
 # ║  创始人: UID9622 · 龍芯北辰 · 诸葛鑫                                        ║
 # ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                             ║
 # ║  协议: CC BY-NC-SA 4.0 + 君子协议                                           ║
@@ -632,7 +632,7 @@ class 文件審計底座:
             "=" * 70,
             "  🐉 龍魂文件審計報告 · LongHun File Audit Report",
             "=" * 70,
-            f"  DNA: #龍芯⚡️2026-06-18-龍魂基礎設施-文件底座審計-v1.0.0",
+            f"  DNA:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
             f"  監控目錄: {self.監控目錄}",
             f"  啟動時間: {self.啟動時間}",
             f"  報告時間: {datetime.now().isoformat()}",
@@ -712,7 +712,7 @@ class 文件審計底座:
             日誌路徑 = os.path.join(self.監控目錄, f"audit_log_{timestamp}.json")
 
         log_data = {
-            "DNA": "#龍芯⚡️2026-06-18-龍魂基礎設施-文件底座審計-v1.0.0",
+            "DNA": "#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
             "創始人": "UID9622 · 龍芯北辰 · 諸葛鑫",
             "監控目錄": self.監控目錄,
             "啟動時間": self.啟動時間,
@@ -769,7 +769,7 @@ class 文件審計底座:
 
         with open(基線文件, 'w', encoding='utf-8') as f:
             json.dump({
-                "DNA": "#龍芯⚡️2026-06-18-龍魂基礎設施-文件底座審計-v1.0.0",
+                "DNA": "#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
                 "當前哈希表": self.文件哈希表,
                 "保存時間": datetime.now().isoformat()
             }, f, ensure_ascii=False, indent=2)
@@ -815,7 +815,7 @@ class 文件審計底座:
 if __name__ == "__main__":
     print("\n" + "📁" * 35)
     print("  龍魂文件底座審計 · LongHun File Audit Foundation")
-    print("  v1.0.0 · DNA: #龍芯⚡️2026-06-18-龍魂基礎設施-文件底座審計-v1.0.0")
+    print("  v1.0.0 · DNA:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0")
     print("  " + "📁" * 35 + "\n")
 
     # 使用當前目錄作為監控目錄

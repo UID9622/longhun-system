@@ -58,8 +58,8 @@
   #龍芯⚡️YYYY-MM-DD-MODULE-VERSION
   
 示例：
-  #龍芯⚡️2026-02-21-UI-RENDER-v1.0
-  #龍芯⚡️2026-02-21-SEC-CORE-v2.3
+#龍芯⚡️2026-02-21-UI-RENDER-v1.0
+#龍芯⚡️2026-02-21-SEC-CORE-v2.3
   
 组成部分：
   # → 井号开头（标识符）
@@ -599,7 +599,7 @@ CNSH代码：
   }
 
 转换后的C代码：
-  // DNA: #龍芯⚡️2026-02-21-AUTH-v1.0
+  // DNA:#龍芯⚡️2026-02-21-AUTH-v1.0
   bool authenticate(const char* username, const char* password) {
       if (username == NULL) {
           return false;
@@ -628,7 +628,7 @@ CNSH代码：
   }
 
 转换后的Python代码：
-  # DNA: #龍芯⚡️2026-02-21-DATA-PROC-v1.0
+  # DNA:#龍芯⚡️2026-02-21-DATA-PROC-v1.0
   class DataProcessing:
       @staticmethod
       def filter_data(data_list: list) -> list:
@@ -1046,7 +1046,7 @@ L4 - 扩展模块级（权重：20）：
 入口 主程序 {
     
     输出 "龙魂用户认证模块启动"
-    输出 "DNA: #龍芯⚡️2026-02-21-USER-AUTH-v1.0"
+    输出 "DNA:#龍芯⚡️2026-02-21-USER-AUTH-v1.0"
     
     # 测试认证
     结果 = 调用 用户认证模块.用户登录("测试用户", "测试密码")
@@ -1065,7 +1065,7 @@ L4 - 扩展模块级（权重：20）：
 // ═══════════════════════════════════════════
 // Longhun System | CNSH Compiled to C
 // ═══════════════════════════════════════════
-// DNA Trace: #龍芯⚡️2026-02-21-USER-AUTH-v1.0
+// DNA Trace:#龍芯⚡️2026-02-21-USER-AUTH-v1.0
 // Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬AUTH-001
 // Weight Level: L1 (Core Module, Weight 80)
 // ═══════════════════════════════════════════
@@ -1157,7 +1157,7 @@ AuthResult user_login(const char* username, const char* password) {
 // Entry Point
 int main() {
     printf("Longhun User Authentication Module Started\n");
-    printf("DNA: #龍芯⚡️2026-02-21-USER-AUTH-v1.0\n");
+    printf("DNA:#龍芯⚡️2026-02-21-USER-AUTH-v1.0\n");
     
     // Test authentication
     AuthResult result = user_login("test_user", "test_password");
