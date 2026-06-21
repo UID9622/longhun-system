@@ -1,3 +1,17 @@
+> 本文檔按《龍魂文檔標準模板 v1.0》整理。
+> 性質：協議 · 未經同行評審（如適用）
+> 版本：v1.0
+> 作者：UID9622 · 龍芯北辰
+> 協作者：（待補充，如無請刪除此行）
+> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 平台：本地
+> 審核狀態：草稿
+
+**DNA**: `#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-v1.0`  
+**CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+
+---
+
 # 龍魂·IPA路由注册表 (Append-Only JSONL)
 # DNA:#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-v1.0
 # 格式: JSONL（JSON Lines）- 仅追加，不覆盖
@@ -25,3 +39,49 @@
 {"node_id": "IPA-L2-FLOW-SANDBOX-BUCKET-009", "name": "sandbox_bucket", "node_type": "GATE", "status": "🟢", "local_path": "cnsh.flow_decision.cnsh_flow_decision_core", "notion_url": null, "entry_point": "CNSHFlowDecisionCore._gate_sandbox", "dna": "#龍芯⚡️2026-06-06-CNSH-FLOW-SANDBOX-v4.1", "layer": "L2_DECISION", "description": "沙盒分拣·🔴熔断·📝消化·🔒封存·🟢通过·🟡待审", "tags": ["L2", "gate", "sandbox"], "dependencies": ["IPA-L2-FLOW-CORE-001"], "created_at": "2026-06-06T00:32:00.000000", "updated_at": "2026-06-06T00:32:00.000000", "metadata": {"gate_num": 9, "main_persona": "P03", "buckets": 5}}
 {"node_id": "IPA-L2-FLOW-DNA-CHAIN-010", "name": "dna_chain_archival", "node_type": "ARCHIVAL", "status": "🟢", "local_path": "cnsh.flow_decision.dna_chain_tracer", "notion_url": null, "entry_point": "DNAChainTracer.validate_dna_chain", "dna": "#龍芯⚡️2026-06-06-CNSH-FLOW-DNA-CHAIN-v4.1", "layer": "L2_DECISION", "description": "父子鏈落檔·DNA追溯·多標籤·銷毀/封存證明·硬闸4-5", "tags": ["L2", "archival", "dna", "chain"], "dependencies": ["IPA-L0-004", "IPA-L0-005", "IPA-L2-FLOW-CORE-001"], "created_at": "2026-06-06T00:32:00.000000", "updated_at": "2026-06-06T00:32:00.000000", "metadata": {"gate_num": 10, "main_persona": "P15", "hardlaws": [4, 5], "proof_types": ["burn", "sealed"]}}
 {"node_id": "IPA-L0-007", "name": "secret_vault", "node_type": "LOCAL", "status": "🟢", "local_path": "longhun.vault", "notion_url": null, "entry_point": "get_secret_vault", "dna": "#龍芯⚡️20260618-VAULT-IPA-v1.0", "layer": "L0_ETERNAL", "description": "age加密密钥库·API Key/Token统一托管·公开可审计·私钥本地持有", "tags": ["L0", "security", "vault", "age", "secret"], "dependencies": ["IPA-L0-001", "IPA-L0-002", "IPA-L0-004"], "created_at": "2026-06-18T19:41:59.238109", "updated_at": "2026-06-18T19:41:59.238109", "metadata": {"public_repo_ready": true, "encryption": "age", "private_key_path": "~/.cnsh/age.key"}}
+{"node_id": "IPA-L0-008", "name": "cnsh_runtime_v9", "node_type": "LOCAL", "status": "🟢", "local_path": "cnsh.task_executor_v9_integrated", "notion_url": null, "entry_point": "main", "dna": "#龍芯⚡️2026-06-17-CNSH-MAIN-v1.0", "layer": "L0_ETERNAL", "description": "CNSH中文原生指令系统v9整合运行时（flow_decision + sancai_sync + task_executor）", "tags": ["L0", "cnsh", "runtime", "v9"], "dependencies": ["IPA-L0-001", "IPA-L0-004", "IPA-L0-005", "IPA-L2-FLOW-CORE-001"], "created_at": "2026-06-21T22:16:43.015005", "updated_at": "2026-06-21T22:16:43.015005", "metadata": {"source_path": "CNSH/", "launch_script": "CNSH/launch.sh"}}
+{"node_id": "IPA-L1-004", "name": "longhun_v5_unified_launcher", "node_type": "LOCAL", "status": "🟢", "local_path": "bin.龍魂体系v5-一键启动", "notion_url": null, "entry_point": "main", "dna": "#龍芯⚡️2026-06-19-LONGHUN-v5-UNIFIED-LAUNCHER-v1.0", "layer": "L1_SEASONAL", "description": "龍魂体系v5一键启动入口：按依赖顺序启动全部服务", "tags": ["L1", "launcher", "automation"], "dependencies": ["IPA-L0-007", "IPA-L1-002", "IPA-L1-003", "IPA-L0-008"], "created_at": "2026-06-21T22:16:43.015005", "updated_at": "2026-06-21T22:16:43.015005", "metadata": {"script": "bin/龍魂体系v5-一键启动.py"}}
+{"node_id": "IPA-L1-005", "name": "longhun_web_console_v2", "node_type": "LOCAL", "status": "🟢", "local_path": "web.龍魂操作台v2.0", "notion_url": null, "entry_point": "browser_open", "dna": "#龍芯⚡️2026-06-20-CONSOLE-v2.0", "layer": "L1_SEASONAL", "description": "龍魂操作台v2.0 · Web控制台HTML入口", "tags": ["L1", "web", "console", "ui"], "dependencies": ["IPA-L0-001"], "created_at": "2026-06-21T22:16:43.015005", "updated_at": "2026-06-21T22:16:43.015005", "metadata": {"file": "web/龍魂操作台v2.0.html"}}
+
+
+---
+
+## 摘要
+
+（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+
+## 關鍵詞
+
+（請列出 5–10 個關鍵詞，中英文對照優先。）
+
+## 引用與溯源
+
+- 本文檔引用或參考了以下來源：
+  - [1] （請填寫）
+- 相關龍魂系統文檔：
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+
+## 誠實局限
+
+1. （請列出本分析的第一條局限或不確定性。）
+2. （請列出第二條。）
+3. （請列出第三條。）
+
+## 修改記錄
+
+| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+|---|---|---|---|---|
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+
+## 分類標籤
+
+- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
+- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
+- 審計色：#黃色待審
+
+## DNA 簽名
+
+```
+#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-v1.0
+#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+```
