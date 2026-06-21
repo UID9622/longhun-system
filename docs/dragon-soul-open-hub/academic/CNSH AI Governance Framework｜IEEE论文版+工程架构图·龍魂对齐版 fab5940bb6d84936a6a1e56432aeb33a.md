@@ -1,3 +1,17 @@
+> 本文檔按《龍魂文檔標準模板 v1.0》整理。
+> 性質：觀察性論文/技術博客 · 未經同行評審（如適用）
+> 版本：v4.0
+> 作者：UID9622 · 龍芯北辰
+> 協作者：（待補充，如無請刪除此行）
+> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 平台：本地
+> 審核狀態：草稿
+
+**DNA**: `#龍芯⚡️2026-03-17-CNSH-GOVERNANCE-IEEE-v4.0``  
+**CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+
+---
+
 # CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版
 
 <aside>
@@ -108,6 +122,22 @@ Technology serves people rather than replacing human judgment.
 ### Knowledge Continuity
 
 Knowledge must remain understandable and maintainable over long time periods.
+
+### 2.1 Mapping to the EU HLEG Seven Requirements for Trustworthy AI
+
+The five design principles above directly address the seven key requirements published by the European Commission's High-Level Expert Group on AI (AI HLEG, 2019): **human agency and oversight; technical robustness and safety; privacy and data governance; transparency; diversity, non-discrimination and fairness; societal and environmental well-being; and accountability** [1].
+
+| EU HLEG Requirement (2019) | CNSH Principle / Mechanism |
+| --- | --- |
+| Human agency & oversight | **Human Priority** — human-in-the-loop decision-state model; 人 ≥ 34% three-talent weight |
+| Technical robustness & safety | **Ethical Alignment** — tri-color constraint engine; block/conditional/execute classification |
+| Privacy & data governance | **Transparency + Responsibility** — structured knowledge cards with provenance and access logs |
+| Transparency | **Transparency + Responsibility** — every action traceable to operator, timestamp, and result |
+| Diversity, non-discrimination & fairness | **Ethical Alignment** — cross-cultural state semantics and boundary checks |
+| Societal & environmental well-being | **Human Priority + Ethical Alignment** — harm-aware constraints and social-impact evaluation |
+| Accountability | **Responsibility** — every automated action has a verifiable origin and immutable audit record |
+
+By grounding governance in symbolic decision states and auditable constraints, CNSH provides an operational path from high-level trustworthy-AI principles to deployable engineering controls.
 
 ---
 
@@ -241,6 +271,12 @@ CNSH proposes a human-centered architecture for AI governance and knowledge mana
 By combining symbolic reasoning models, ethical constraints, and transparent audit systems, CNSH aims to create AI systems that remain accountable, interpretable, and aligned with human values.
 
 Future work will explore distributed deployment, integration with local AI models, and open-source collaboration.
+
+## References
+
+1. European Commission's High-Level Expert Group on AI (2019). *Ethics Guidelines for Trustworthy AI*. Luxembourg: Publications Office of the European Union. https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai
+2. IEEE Std 7000-2021. Model Process for Addressing Ethical Concerns During System Design.
+3. Jobin, A., et al. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence*, 1(9), 389–399.
 
 ---
 
@@ -1143,3 +1179,45 @@ DNA: `#龍芯⚡️2026-03-16-CNSH-GOVERNANCE-IEEE-v2.0`
 [🗣️ 宝宝说教 vs 人话对照表｜UID9622专属语言系统](CNSH%20AI%20Governance%20Framework%EF%BD%9CIEEE%E8%AE%BA%E6%96%87%E7%89%88+%E5%B7%A5%E7%A8%8B%E6%9E%B6%E6%9E%84%E5%9B%BE%C2%B7%E9%BE%8D%E9%AD%82%E5%AF%B9%E9%BD%90%E7%89%88/%F0%9F%97%A3%EF%B8%8F%20%E5%AE%9D%E5%AE%9D%E8%AF%B4%E6%95%99%20vs%20%E4%BA%BA%E8%AF%9D%E5%AF%B9%E7%85%A7%E8%A1%A8%EF%BD%9CUID9622%E4%B8%93%E5%B1%9E%E8%AF%AD%E8%A8%80%E7%B3%BB%E7%BB%9F%20111ebf9194a64cf4aa74abf76e23c7e5.md)
 
 [📜 CNSH-64 论文诚实声明｜龍魂系统价值证明](CNSH%20AI%20Governance%20Framework%EF%BD%9CIEEE%E8%AE%BA%E6%96%87%E7%89%88+%E5%B7%A5%E7%A8%8B%E6%9E%B6%E6%9E%84%E5%9B%BE%C2%B7%E9%BE%8D%E9%AD%82%E5%AF%B9%E9%BD%90%E7%89%88/%F0%9F%93%9C%20CNSH-64%20%E8%AE%BA%E6%96%87%E8%AF%9A%E5%AE%9E%E5%A3%B0%E6%98%8E%EF%BD%9C%E9%BE%8D%E9%AD%82%E7%B3%BB%E7%BB%9F%E4%BB%B7%E5%80%BC%E8%AF%81%E6%98%8E%208c9ca88c6990498cbd7c0eb3f0e88efd.md)
+
+---
+
+## 摘要
+
+（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+
+## 關鍵詞
+
+（請列出 5–10 個關鍵詞，中英文對照優先。）
+
+## 引用與溯源
+
+- 本文檔引用或參考了以下來源：
+  - [1] （請填寫）
+- 相關龍魂系統文檔：
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+
+## 誠實局限
+
+1. （請列出本分析的第一條局限或不確定性。）
+2. （請列出第二條。）
+3. （請列出第三條。）
+
+## 修改記錄
+
+| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+|---|---|---|---|---|
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+
+## 分類標籤
+
+- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
+- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
+- 審計色：#黃色待審
+
+## DNA 簽名
+
+```
+#龍芯⚡️2026-03-17-CNSH-GOVERNANCE-IEEE-v4.0`
+#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+```
