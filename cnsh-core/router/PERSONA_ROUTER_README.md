@@ -1,6 +1,6 @@
 # PersonaRouter·人格路由系统
 
-**DNA**: `#龍芯⚡️2026-06-03-PERSONA-ROUTER-FILE1-FILE1-v1.0-1`
+**DNA**: `#龍芯⚡️2026-06-03-PERSONA-ROUTER-FILE1-FILE1-FILE1-v1.0-1`
 **层级**: L1·季节性路由
 **责任**: UID9622·不免责
 
