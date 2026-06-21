@@ -1,7 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂系統開機啟動檢查腳本
 # ═══════════════════════════════════════════════════════════════
-# DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0
+# DNA:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0
 # 功能: 檢查所有龍魂系統組件的啟動狀態
 # 用法: bash longhun_system_startup_check.sh
 # ═══════════════════════════════════════════════════════════════
@@ -408,7 +408,7 @@ LOGFILE="$LONGHUN_DIR/LONGHUN_STARTUP_CHECK_$(date +%Y%m%d_%H%M%S).log"
 cat > "$LOGFILE" << EOF
 🐉 龍魂系統啟動檢查報告
 生成時間: $(date '+%Y-%m-%d %H:%M:%S')
-DNS: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0
+DNS:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0
 
 檢查統計:
   總項目: $TOTAL_CHECKS
@@ -428,6 +428,6 @@ echo ""
 echo "════════════════════════════════════════════════════════════"
 echo "🐉 龍魂系統啟動檢查完成"
 echo "════════════════════════════════════════════════════════════"
-echo "DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0"
+echo "DNA:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0"
 echo "天下無欺。"
 echo ""

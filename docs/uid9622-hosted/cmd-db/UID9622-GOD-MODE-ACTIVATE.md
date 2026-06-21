@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-UID9622-GOD-MODE-ACTIVATE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # /UID9622-GOD-MODE-ACTIVATE
 
 功能描述: 上帝模式激活 - 最高权限指令

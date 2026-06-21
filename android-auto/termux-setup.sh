@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # 龍魂 · Termux 安卓自動版環境初始化
-# DNA: #龍芯⚡️2026-06-16-LONGHUN-ANDROID-AUTO-v1.0
+# DNA:#龍芯⚡️2026-06-16-LONGHUN-ANDROID-AUTO-v1.0
 
 set -e
 

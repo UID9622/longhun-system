@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂/CNSH 主权变量审计脚本
-DNA: #龍芯⚡️2026-06-15-LONGHUN-SOVEREIGN-ENV-AUDIT-v1.0
+DNA:#龍芯⚡️2026-06-15-LONGHUN-SOVEREIGN-ENV-AUDIT-v1.0
 
 用途：扫描项目文件，检查是否还有硬编码密钥或非标准变量名残留。
 不修改文件，只输出报告。

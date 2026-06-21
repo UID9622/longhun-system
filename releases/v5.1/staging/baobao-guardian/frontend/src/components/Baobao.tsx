@@ -1,5 +1,5 @@
 // 龍魂宝宝助手组件
-// DNA: #龍芯⚡️2026-06-04-BAOBAO-COMPONENT-v1.0
+// DNA:#龍芯⚡️2026-06-04-BAOBAO-COMPONENT-FILE1-v1.0
 
 import React, { useMemo } from 'react'
 import { useBaobaoStore } from '../store/baobao'

@@ -5,7 +5,7 @@
   龍魂系統底座啟動台 v2.0 — LongHun Foundation Launcher
 ═══════════════════════════════════════════════════════════════════════════════
 
-  DNA簽名    : #龍芯⚡️2026-06-17-FOUNDATION-LAUNCHER-v2.0
+  DNA簽名    :#龍芯⚡️2026-06-17-FOUNDATION-LAUNCHER-v2.0
   CONFIRM標記: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL標記   : #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

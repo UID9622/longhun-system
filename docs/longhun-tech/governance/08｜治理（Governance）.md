@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-08-_-GOVERNANCE_05B1-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 08｜治理（Governance）
 
 # ⚖️ 治理（Governance）

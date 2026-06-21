@@ -9,7 +9,7 @@
 升級類型: 功能增強 + 穩定性提升
 執行者: 寶寶 (寶寶人格)
 
-DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-v1.1
+DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-v1.1
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章: UID9622 · 不免責
 ════════════════════════════════════════════════════════════════
@@ -322,7 +322,7 @@ Phase 3 計劃 (後續):
   ✅ 回滾方案就緒
   ✅ 所有交付物已簽名
 
-DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-v1.1
+DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-v1.1
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章: UID9622 · 不免責
 

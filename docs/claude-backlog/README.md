@@ -1,6 +1,6 @@
 # Claude 搭建待整理 · 升級歸檔
 
-**DNA**: #龍芯⚡️2026-05-19-CLAUDE待整理-INDEX-v1.0
+**DNA**:#龍芯⚡️2026-05-19-CLAUDE_-INDEX_9CA0-v1.0
 
 本目錄收錄 `/Users/zuimeidedeyihan/claude搭建待整理` 中的非敏感技術資料，作為主幹升級補充。
 

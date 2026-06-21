@@ -1,6 +1,6 @@
 #!/bin/bash
 # 龍魂每日復盤·一鍵配置腳本
-# DNA: #龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-v1.0
+# DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-FILE1-v1.0
 
 set -e
 

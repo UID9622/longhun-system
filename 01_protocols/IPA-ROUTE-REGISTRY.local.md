@@ -1,5 +1,5 @@
 # 龍魂·IPA路由注册表 (Append-Only JSONL)
-# DNA: #龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-v1.0
+# DNA:#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-v1.0
 # 格式: JSONL（JSON Lines）- 仅追加，不覆盖
 # 每行一条节点记录
 # 开始时间: 2026-06-03T2026-06-03T15:03:09.562407

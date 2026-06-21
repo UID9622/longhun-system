@@ -5,7 +5,7 @@
 龍魂 日志·版本·追溯系统 v1.0
 Longhun Logging · Versioning · Tracing System
 
-DNA: #龍芯⚡️2026-06-07-LOGGING-VERSIONING-TRACING-v1.0
+DNA:#龍芯⚡️2026-06-07-LOGGING-VERSIONING-TRACING-v1.0
 核心逻辑: 每次运行→记录日志→成功压缩→失败保留→版本演变一清二楚
 """
 
@@ -623,4 +623,4 @@ if __name__ == "__main__":
     print(f"   存储节省: {evolution['storage']['storage_saved_kb']:.2f} KB")
     
     print("\n✅ 系统运行完成！")
-    print(f"🔐 DNA: #龍芯⚡️2026-06-07-LOGGING-VERSIONING-TRACING-v1.0")
+    print(f"🔐 DNA:#龍芯⚡️2026-06-07-LOGGING-VERSIONING-TRACING-v1.0")

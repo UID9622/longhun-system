@@ -5,7 +5,7 @@
 龍魂主題工廠 v1.0
 Longhun Theme Factory
 
-DNA: #龍芯⚡️2026-06-07-THEME-FACTORY-v1.0
+DNA:#龍芯⚡️2026-06-07-THEME-FACTORY-v1.0
 """
 
 import json

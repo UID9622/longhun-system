@@ -8,7 +8,7 @@
 ║  导出路由系统的公共接口                                         ║
 ║  O(1)查找·三色状态·DNA追溯                                      ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-06-03-ROUTE-REGISTRY-INIT-v1.0              ║
+║  DNA:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-INIT-FILE1-v1.0              ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: IPA路由注册表架构规范                                    ║

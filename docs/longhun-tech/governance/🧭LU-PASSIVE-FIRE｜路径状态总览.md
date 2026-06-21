@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-GOVERNANCE-LU-PASSIVE-FIRE_1468-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🧭LU-PASSIVE-FIRE｜路径状态总览
 
 - 📌 路径代号：LU-PF-ROOT-001

@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-INSTALL-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # 龍魂 MCP 认证桥接 · 一键安装脚本 v0.1
 # DNA: #龍芯⚡️20260525|MCP-INSTALL|v0.1|e5c407ec

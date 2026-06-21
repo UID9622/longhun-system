@@ -345,5 +345,5 @@ sqlite3 ~/.龍魂/multicurrency.db "PRAGMA journal_mode=WAL;"
 
 ---
 
-DNA: #龍芯⚡️2026-06-07-PHASE7-DEPLOYMENT-v1.0
+DNA:#龍芯⚡️2026-06-07-PHASE7-DEPLOYMENT-v1.0
 責任: UID9622 · 不免責

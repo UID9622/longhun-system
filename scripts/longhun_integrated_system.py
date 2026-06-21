@@ -4,7 +4,7 @@
 龍魂系統完整集成框架 v1.0
 LONGHUN INTEGRATED SYSTEM - Complete Ecosystem v1.0
 
-DNA: #龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0
+DNA:#龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -166,7 +166,7 @@ class LongHunEcosystem:
         self.dna_chain: List[str] = []
 
         print(f"\n【{self.lang_pack['title']}·生態閉環系統】")
-        print(f"DNA: #龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0")
+        print(f"DNA:#龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0")
         print(f"CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
         print(f"SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
         print("\n" + "="*60 + "\n")

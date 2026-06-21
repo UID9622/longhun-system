@@ -1,6 +1,6 @@
 # 龍盾系統 v1.0
 
-**DNA**: #龍芯⚡️2026-06-02-LONGHUN-SHIELD-v1.0
+**DNA**:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-v1.0
 
 龍盾是龍魂系統的入口檢查器：
 - 暫停閘（Pause Gate）

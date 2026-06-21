@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU_FE7C-v1.0",
+
   "items": [
     {
       "id": "open-cnsh-integrated-readme",
@@ -9,5 +10,6 @@
       "mode": "viewer",
       "confirm": false
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CNSH-DESKTOP-MENU-v1.0-3"
 }

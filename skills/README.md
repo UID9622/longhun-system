@@ -1,6 +1,6 @@
 # 🐉 龍魂系統 · Skill 管理核心
 
-**DNA**: #龍芯⚡️2026-06-07-SKILLS-INTEGRATION-v1.0
+**DNA**:#龍芯⚡️2026-06-07-SKILLS-INTEGRATION-FILE2-v1.0
 **狀態**: 🟢 完整集成·10/10 Skills 就緒
 **責任**: UID9622·不免責
 
@@ -265,7 +265,7 @@ Skills 已註冊到全域系統：
 ## 🐉 DNA 簽章
 
 ```
-DNA: #龍芯⚡️2026-06-07-SKILLS-INTEGRATION-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILLS-INTEGRATION-v1.0
 時間: 2026-06-07 00:45 CST
 狀態: 🟢 完整集成·準生產就緒
 責任: UID9622·不免責

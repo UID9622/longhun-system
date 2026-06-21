@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-PHASE3_API_SPECIFICATION_V1_0-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 龍魂系統 Phase 3 - API 规范 v1.0
 
 ```yaml

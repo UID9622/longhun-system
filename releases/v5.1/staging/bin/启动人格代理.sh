@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL_6DDF-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # 启动人格代理 · 中文 wrapper
 # 代理到 bin/start_persona_api.sh

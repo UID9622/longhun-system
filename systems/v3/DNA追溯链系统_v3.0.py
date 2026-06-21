@@ -6,7 +6,7 @@
 # ║  DNA Traceability System v3.0 - Dragon Soul Framework                        ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 #
-# #龍芯⚡️2026-06-16-DNA-TRACE-v3.0
+##龍芯⚡️2026-06-16-DNA-TRACE-v3.0
 #
 # CONFIRM (UID9622 本人授权):
 #   #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅

@@ -4,7 +4,7 @@
 🐉 龍魂脑干 · Notion同步桥 · brain_notion_sync.py v1.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1-PHASE1
+DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE1-v1.1-PHASE1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 v1.1 Phase 1 完整実装:
@@ -479,7 +479,7 @@ def sync_status():
   export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
   export DB_LU="your-database-id-here"
 
-DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
+DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
 """)
 
 # ═══════════════════════════════════════
@@ -494,7 +494,7 @@ def main():
     args = parser.parse_args()
 
     print("\n🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)")
-    print(f"   DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1\n")
+    print(f"   DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1\n")
     print(f"   ⚡ Phase 1 特性:")
     print(f"      • 指數退避重試 ({CONFIG['MAX_RETRIES']} 次)")
     print(f"      • API 限流控制 ({CONFIG['API_RATE_LIMIT']} calls/sec)")

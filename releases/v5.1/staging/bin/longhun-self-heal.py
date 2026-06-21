@@ -6,7 +6,7 @@
 自己尋找漏洞，自己修復，自己疊送。
 複雜留給 AI，簡單留給人。
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-SELF-HEAL-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-SELF-HEAL-v1.0
 """
 
 import argparse

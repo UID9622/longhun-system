@@ -60,8 +60,7 @@ IPA 回執        ↓ (ipa_to_particle)
 驗證           → verify_sync()
 ✅ 三環無死鎖·系統就緒
 
-DNA 生成       → generate_dna()
-#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-v1.0-2278fd7f
+DNA 生成       → generate_dna()#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC_ACDA-v1.0-2278fd7f
 ```
 
 ---

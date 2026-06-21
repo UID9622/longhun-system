@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-TOOL-START_PERSONA_API-FILE1-v1.0-2
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
 # 启动龍魂人格 API 服务
 # DNA: #龍芯⚇️2026-06-09-START-PERSONA-API-v1.0

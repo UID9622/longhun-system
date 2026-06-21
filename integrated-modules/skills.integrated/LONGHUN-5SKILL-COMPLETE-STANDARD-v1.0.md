@@ -1,7 +1,7 @@
 # 🐉 龍魂 5 Skill 完整標準化規範 v1.0
 
 ```
-DNA: #龍芯⚡️2026-06-07-5SKILL-COMPLETE-STANDARD-v1.0
+DNA:#龍芯⚡️2026-06-07-MOD_5SKILL-COMPLETE-STANDARD-FILE1_3209-v1.0
 簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 責任: UID9622 · 不免責
 狀態: 🟢 完整·可驗證·生產級別
@@ -27,7 +27,7 @@ DNA: #龍芯⚡️2026-06-07-5SKILL-COMPLETE-STANDARD-v1.0
 | **質量級別** | production |
 | **測試覆蓋** | 95% |
 | **可靠性評分** | 98/100 |
-| **DNA簽章** | `#龍芯⚡️2026-06-07-skill-001-algorithmic-art-v1.0` |
+| **DNA簽章** | `#龍芯⚡️2026-06-07-SKILL-001-ALGORITHMIC-ART_4711-v1.0` |
 
 ## [2] 🧮 計算規範 (Calculation Specification) ✅
 
@@ -303,7 +303,7 @@ v2.0.0 (Q1 2027)
 | 執行流程 | ✅ | `✅🧮` |
 | 性能評估 | ✅ | `✅🧮` |
 | 質量保證 | ✅ | `✅🧮` |
-| **整體** | ✅ | `#龍芯⚡️2026-06-07-skill-001-COMPLETE-v1.0` |
+| **整體** | ✅ | `#龍芯⚡️2026-06-07-SKILL-001-COMPLETE_BE8B-v1.0` |
 
 **完整性: 12/12 (100%)**
 
@@ -317,7 +317,7 @@ v2.0.0 (Q1 2027)
 - Skill ID: `skill-002-brand-guidelines`
 - 名稱: Brand Guidelines Designer
 - 質量級別: production (98/100 reliability)
-- DNA簽章: `#龍芯⚡️2026-06-07-skill-002-brand-guidelines-v1.0`
+- DNA簽章: `#龍芯⚡️2026-06-07-SKILL-002-BRAND-GUIDELINES_A10F-v1.0`
 
 ## [2] 計算規範 🟡
 **算法**: CSS Variable Generation + Design Token Management
@@ -360,7 +360,7 @@ v2.0.0 (Q1 2027)
 - Skill ID: `skill-004-doc-coauthoring`
 - 質量級別: production (88/100 reliability)
 - 特殊: CRDT 算法確保最終一致性
-- DNA簽章: `#龍芯⚡️2026-06-07-skill-004-doc-coauthoring-v1.0`
+- DNA簽章: `#龍芯⚡️2026-06-07-SKILL-004-DOC-COAUTHORING_BD87-v1.0`
 
 ## [2] 計算規範 ✅
 **算法**: CRDT (Conflict-free Replicated Data Type)
@@ -388,7 +388,7 @@ v2.0.0 (Q1 2027)
 ## [1] 元數據 ✅
 - Skill ID: `skill-005-internal-comms`
 - 質量級別: production (85/100 reliability)
-- DNA簽章: `#龍芯⚡️2026-06-07-skill-005-internal-comms-v1.0`
+- DNA簽章: `#龍芯⚡️2026-06-07-SKILL-005-INTERNAL-COMMS_EA1E-v1.0`
 
 ## [2] 計算規範 🟡
 **算法**: State Machine + Event Queue

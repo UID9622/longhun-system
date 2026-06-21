@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-LONGHUN-MONITORING-QUICKSTART-DEPLOYMENT-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🐉 龍魂移動端監控自動化 · 部署 Quick Start
 
 ```

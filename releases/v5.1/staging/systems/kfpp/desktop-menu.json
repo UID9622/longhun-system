@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU_60E1-v1.0",
+
   "items": [
     {
       "id": "kfpp-demo",
@@ -18,5 +19,6 @@
       "mode": "viewer",
       "confirm": false
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-5"
 }

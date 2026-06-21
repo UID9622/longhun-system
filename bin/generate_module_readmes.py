@@ -61,7 +61,7 @@ def generate(module: dict) -> str:
         "- 運行前請確認依賴已安裝。",
         "- 建議先閱讀源碼註釋，了解每個腳本的副作用。",
         "",
-        f"**DNA**: #龍芯⚡️2026-06-17-{name.upper().replace('-','_').replace('.','_')}-README-v1.0",
+        f"**DNA**:#龍芯⚡️2026-06-17-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-v1.0",
     ])
     return "\n".join(lines)
 

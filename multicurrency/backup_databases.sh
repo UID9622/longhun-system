@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 龍魂多币种·备份脚本
-# DNA: #龍芯⚡️2026-06-07-BACKUP-v1.0
+# DNA:#龍芯⚡️2026-06-07-BACKUP-v1.0
 
 BACKUP_DIR="$HOME/.龍魂/backups"
 TIMESTAMP=$(date '+%Y%m%d_%H%M%S')

@@ -167,6 +167,6 @@ ls -lh ~/.龍魂/backups/
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-PRODUCTION-DEPLOYMENT-v1.0
+**DNA**:#龍芯⚡️2026-06-07-PRODUCTION-DEPLOYMENT-v1.0
 **作者**: UID9622
 **更新**: 2026-06-07

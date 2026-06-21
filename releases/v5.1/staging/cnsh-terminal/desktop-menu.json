@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU_E5D9-v1.0",
+
   "items": [
     {
       "id": "cnsh-terminal-gui",
@@ -63,5 +64,6 @@
       "mode": "oneshot",
       "confirm": false
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CNSH-DESKTOP-MENU-v1.0-2"
 }

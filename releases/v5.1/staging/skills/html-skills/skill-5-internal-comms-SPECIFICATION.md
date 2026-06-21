@@ -93,7 +93,7 @@
 {
   "status": "success",
   "result": {},
-  "dna": "#龍芯⚡️2026-06-08-skill-5-internal-comms-EXECUTED-v1.0",
+  "dna": "#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-EXECUTED_777F-v1.0",
   "metadata": {"execution_time_ms": 123}
 }
 ```
@@ -509,7 +509,7 @@ def validate_input(inputs):
 ✅ DNA簽章追溯每個版本
 ✅ 可驗證·不玄學·能復算
 
-DNA: #龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-SPECIFICATION-COMPLETE-v1.0
+DNA:#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-SPECIFICATION-COMPLETE-v1.0
 責任: UID9622·不免責
 ```
 

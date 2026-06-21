@@ -5,7 +5,7 @@
 ==================
 采集本地资源消耗、模块健康状态、可运行入口，返回给生态仪表盘。
 
-DNA: #龍芯⚡️2026-06-18-LONGHUN-SYSTEM-MONITOR-v1.0
+DNA:#龍芯⚡️2026-06-18-LONGHUN-SYSTEM-MONITOR-v1.0
 """
 import os
 import json

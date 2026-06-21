@@ -1,6 +1,6 @@
 # 🚀 龍魂五行計算器 · 性能優化指南
 
-**DNA**: #龍芯⚡️2026-06-07-WUXING-PERFORMANCE-GUIDE-v3.5
+**DNA**:#龍芯⚡️2026-06-07-WUXING-PERFORMANCE-GUIDE-v3.5
 **責任**: UID9622 · 不免責
 
 ---
@@ -357,4 +357,4 @@ getTTFB(console.log); // Time to First Byte
 
 ---
 
-**DNA 簽章**: #龍芯⚡️2026-06-07-WUXING-PERFORMANCE-GUIDE-v3.5
+**DNA 簽章**:#龍芯⚡️2026-06-07-WUXING-PERFORMANCE-GUIDE-v3.5

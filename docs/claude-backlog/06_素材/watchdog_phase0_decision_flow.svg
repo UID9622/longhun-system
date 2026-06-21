@@ -1,3 +1,6 @@
+# #龍芯⚡️2026-06-21-MODULE-WATCHDOG_PHASE0_DECISION_FLOW-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 <svg width="100%" viewBox="0 0 680 660" role="img" style="" xmlns="http://www.w3.org/2000/svg">
 <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Watchdog Phase 0 决策流程</title>
 <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">sanity_check.py 的执行流程图：从 START 经过 8 项测试循环（try/except 三路分支），最终判断 failed 是否为空，输出 exit(0) 进 Phase 1 或 exit(1) 阻塞。</desc>

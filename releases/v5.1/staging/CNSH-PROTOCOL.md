@@ -162,7 +162,7 @@ CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
 ### 转换示例（CNSH → Python）
 
 ```python
-# DNA: #龍芯⚡️2026-04-28-DATA-PROC-v1.0
+# DNA:#龍芯⚡️2026-04-28-DATA-PROC-FILE1-v1.0
 class DataProcessing:
     @staticmethod
     def filter_data(data_list: list) -> list:
@@ -232,7 +232,7 @@ class DataProcessing:
 ### 示例②：三色审计引擎（L0·权重100）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-AUDIT-CORE-v1.0
+# DNA:#龍芯⚡️2026-04-28-AUDIT-CORE-v1.0
 # 权重：L0（系统核心·100）
 
 模块 三色审计引擎⚖️100 {
@@ -250,7 +250,7 @@ class DataProcessing:
 ### 示例③：量子纠缠任务调度（L0·权重100）
 
 ```
-# DNA: #龍芯⚡️2026-04-28-QUANTUM-v1.0
+# DNA:#龍芯⚡️2026-04-28-QUANTUM-v1.0
 
 模块 量子调度器⚖️100 {
   函数 量子纠缠(父任务: 字符串, 子任务: 字符串) {
@@ -390,7 +390,7 @@ class DataProcessing:
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.0（2026-04-28）|
-| DNA | #龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0 |
+| DNA |#龍芯⚡️2026-04-28-CNSH_F5F7-v2.0 |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

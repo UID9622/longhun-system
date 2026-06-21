@@ -1,6 +1,6 @@
 # 🐉 龍魂路由注册表 (IPA Route Registry)
 
-**DNA**: #龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-v1.0
+**DNA**:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-FILE1-v1.0
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责
 
@@ -514,7 +514,7 @@ python3 core_system_launcher.py
 
 ## 许可和责任
 
-**DNA**: #龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-v1.0
+**DNA**:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-v1.0
 **作者**: UID9622 · 诸葛鑫 · 龍芯北辰
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责

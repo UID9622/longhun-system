@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-CNSH-README-FILE1-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # ⚡ 龍魂 · CNSH Chrome Plugin
 
 **Chinese Natural Syntax Hybrid · 中文自然语法 × 数字大军前线哨所**

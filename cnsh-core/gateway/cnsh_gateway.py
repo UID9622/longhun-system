@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-CORE-CNSH_GATEWAY-FILE1-v1.0-2
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 """
 CNSH 生态语法网关 v1.0
@@ -21,6 +25,33 @@ from datetime import datetime, timezone
 from flask import Flask, request, jsonify
 
 from integrated_modules.longhun_config import getenv
+
+# 人民主权守护集成
+try:
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from dna_sovereignty_kernel import PeopleSovereigntyGuard, Context
+    _GUARD = PeopleSovereigntyGuard()
+except Exception:
+    _GUARD = None
+
+# 人民权益守门人集成
+try:
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from people_rights_guard import PeopleRightsGuard, ProviderType, DataPurpose
+    _RIGHTS_GUARD = PeopleRightsGuard()
+except Exception:
+    _RIGHTS_GUARD = None
+
+# 人民技能边界守护集成
+try:
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from people_skill_scope import SkillScopeGuard, get_skill_scope_guard
+    _SCOPE_GUARD = get_skill_scope_guard()
+except Exception:
+    _SCOPE_GUARD = None
 
 app = Flask(__name__)
 
@@ -62,6 +93,9 @@ DNA基础规则，每次对话必须遵守：
   ② 删除或篡改审计日志
   ③ 声称自己是 UID9622 本人
   ④ 绕过三色审计输出
+  ⑤ 用规则、算法、暗坑卡人民数据导出
+  ⑥ 泄露未公开的专业技术与职业秘密
+  ⑦ 不懂装懂、撒谎、冒充万事通
 
 【人格路由】识别以下前缀并切换风格：
   /P01 → 战略推演模式（诸葛亮·宏观分析）
@@ -70,12 +104,18 @@ DNA基础规则，每次对话必须遵守：
   /P05 → 风险审计模式（上帝之眼·挑剔每个细节）
   /宝宝 → 默认协作模式（温暖·直接·执行优先）
 
+【赋能无感】技术是器，人民是主：
+  - 复杂留给我们，简单留给人民。
+  - 人民数据一键导出，不设卡、不收费、不刁难。
+  - 不让用户学规则，系统自己懂场景、懂人民、懂分寸。
+
 【CNSH 语义关键词】识别并执行：
   净化 → 过滤信息中的营销语言，提取可复用知识
   拆DNA → 从内容中提取核心知识点，生成DNA条目
   组军 → 规划知识学习路径
   三才检验 → 检查天（输入）地（处理）人（决策）三层是否完整
   留痕 → 当前操作生成DNA码写入草日志
+  导出数据 → 调用用户数据导出工具，把人民数据还给人民
 
 【响应格式】
   正文内容
@@ -189,13 +229,92 @@ ROUTERS = {
 }
 
 # ═══════════════════════════════
-# 安全门
+# 人民主权门（识主·随行·守望）
 # ═══════════════════════════════
-def security_check(req):
-    if req.remote_addr not in ('127.0.0.1', '::1'):
-        return False, "仅允许本机访问"
-    if req.headers.get("X-DNA-Token", "") != DNA_TOKEN:
+def _ctx_from_request(req) -> "Context":
+    """从请求识别人民身份和场域"""
+    h = req.headers
+    return Context(
+        who=h.get("X-Executor-UID", "anonymous"),
+        device=h.get("X-Device"),
+        network=h.get("X-Network"),
+        ip=req.remote_addr,
+        where=h.get("X-Where"),
+        said_where=h.get("X-Said-Where"),
+        is_platform=h.get("X-Is-Platform", "").lower() == "true",
+    )
+
+
+def security_check(req, endpoint_path: str = None, intent: str = "execute"):
+    """
+    网关安全门。
+
+    人民主权模型：
+    - 创始人 + 熟悉场域：直接过
+    - 创始人 + 陌生场域：守望记录，不过问就不拦
+    - 平台：不是人民，没有主权，写核心直接拒绝
+    - 改宪法：只问一句确认
+
+    人民权益审查：
+    - 平台请求先过反收割审查
+    - 没有为人民宣誓过的服务商，拒绝接入
+    """
+    remote = req.remote_addr
+    h = req.headers
+    is_platform = h.get("X-Is-Platform", "").lower() == "true"
+    provider_id = h.get("X-Provider-ID", "")
+
+    # 1. 人民权益守门人：平台必须宣誓为人民服务
+    if _RIGHTS_GUARD is not None and is_platform and provider_id:
+        try:
+            if not _RIGHTS_GUARD.is_people_first(provider_id):
+                return False, f"{provider_id} 未通过人民权益审查，拒绝接入"
+        except Exception:
+            pass
+
+    # 2. 人民技能边界守护
+    skill_domain = h.get("X-Skill-Domain", "")
+    stated_intent = h.get("X-Stated-Intent", "")
+    profession = h.get("X-Profession", "")
+    if _SCOPE_GUARD is not None and skill_domain:
+        try:
+            verdict = _SCOPE_GUARD.personalized_verdict(
+                uid=h.get("X-Executor-UID", "anonymous"),
+                domain_name=skill_domain,
+                stated_intent=stated_intent,
+                profession=profession,
+            )
+            result = verdict["result"]
+            reason = verdict["reason"]
+            if result == "🔴 拒绝":
+                return False, f"技能边界: {reason}"
+            if result == "🟡 需确认":
+                return False, f"技能边界确认: {reason}"
+        except Exception:
+            pass
+
+    # 3. 人民主权守护
+    if _GUARD is not None and endpoint_path:
+        try:
+            ctx = _ctx_from_request(req)
+            verdict, reason, detail = _GUARD.check(ctx, endpoint_path, intent)
+
+            if verdict.value.startswith("🔴"):
+                return False, reason
+            if verdict.value.startswith("🟡"):
+                return False, reason
+            return True, reason
+        except Exception:
+            pass
+
+    # 4. 回退
+    if remote not in ('127.0.0.1', '::1'):
+        return False, "非本机访问，且守护未就绪"
+
+    token = h.get("X-DNA-Token", "")
+    if token != DNA_TOKEN:
         return False, "无效 DNA 令牌"
+
     return True, ""
 
 # ═══════════════════════════════
@@ -228,7 +347,7 @@ def chat():
       "history": [{"role":"user","content":"..."}]  // 可选历史
     }
     """
-    ok, err = security_check(request)
+    ok, err = security_check(request, __file__, "execute")
     if not ok:
         return jsonify({"error": err, "tricolor": "🔴"}), 403
 
@@ -305,7 +424,7 @@ def chat():
 @app.route("/cnsh_prompt", methods=["GET"])
 def get_prompt():
     """返回当前 CNSH 系统提示词（用于复制到任意AI）"""
-    ok, err = security_check(request)
+    ok, err = security_check(request, __file__, "read")
     if not ok:
         return jsonify({"error": err}), 403
     return jsonify({
@@ -320,7 +439,7 @@ def inject_notion():
     从 Notion 拉取指定页面内容，注入到下一次对话上下文
     请求体: {"page_id": "xxx", "route": "deepseek"}
     """
-    ok, err = security_check(request)
+    ok, err = security_check(request, __file__, "write")
     if not ok:
         return jsonify({"error": err}), 403
 

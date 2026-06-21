@@ -5,7 +5,7 @@
 CNSH自动对齐矫正系统 (CNSH Auto-Alignment Corrector)
 四层检查：L1字符 L2关键字 L3语法 L4语义
 
-DNA: #龍芯⚡️2026-06-02-CNSH-ALIGNER-v1.0
+DNA:#龍芯⚡️2026-06-02-CNSH-ALIGNER-FILE1-v1.0
 主权人: UID9622 · 龍芯北辰
 """
 

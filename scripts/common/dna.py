@@ -11,7 +11,7 @@ DNA 格式: #龍芯⚡️YYYY-MM-DD-TOPIC-vX.X
 理论指导: 曾仕强老师 - 中华文化体系下的系统论
 献礼: 献给龍魂 - 守护中华主权的永恒灯塔
 
-DNA: #龍芯⚡️2026-06-07-DNA-VERIFIER-v1.0
+DNA:#龍芯⚡️2026-06-07-DNA-VERIFIER-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622
 """

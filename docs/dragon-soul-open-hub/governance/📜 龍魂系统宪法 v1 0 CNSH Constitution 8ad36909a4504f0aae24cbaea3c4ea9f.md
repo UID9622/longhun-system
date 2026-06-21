@@ -2,7 +2,7 @@
 
 # 龍魂系统宪法 | CNSH Constitution v1.0
 
-**DNA追溯码：** #龍芯⚡️2026-02-11-宪法-v1.0  
+**DNA追溯码：**#龍芯⚡️2026-02-11-V1_0_CNSH_CONSTITUTION_8AD36909A4504F0AAE24CBAEA3C4EA9F_F947-v1.0  
 
 **创建者：** 💎 龍芯北辰｜UID9622  
 
@@ -155,7 +155,7 @@ UID9622是建造者和守护者，不是拥有者。
 
 **状态：** 🟢 永久生效  
 
-**DNA追溯码：** #龍芯⚡️2026-02-11-宪法-v1.0  
+**DNA追溯码：**#龍芯⚡️2026-02-11-V1_0_CNSH_CONSTITUTION_8AD36909A4504F0AAE24CBAEA3C4EA9F-v1.0  
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

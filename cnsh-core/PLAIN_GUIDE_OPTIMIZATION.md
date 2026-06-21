@@ -1,6 +1,6 @@
 # 🐉 龍魂大白话指南 · 优化方案 v2.0
 
-**DNA**: #龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-v2.0
+**DNA**:#龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-FILE1-v2.0
 **作者**: Claude (宝宝)
 **日期**: 2026-06-03
 **状态**: ✅ 完成·已测试
@@ -448,6 +448,6 @@ cnsh-core/
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-v2.0
+**DNA**:#龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-v2.0
 **责任**: UID9622·不免责
 **状态**: 🟢 完成·可用

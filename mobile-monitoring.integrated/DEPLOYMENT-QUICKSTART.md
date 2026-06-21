@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-MOBILE-DEPLOYMENT-QUICKSTART-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # 🐉 龍魂移動端監控 · 部署 Quick Start v1.0
 
 ```

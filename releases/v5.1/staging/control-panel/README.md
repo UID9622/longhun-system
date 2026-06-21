@@ -1,6 +1,6 @@
 # 🐉 龍魂操作台 MVP v1.1 · UID9622
 
-**DNA**: #龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-v1.1
+**DNA**:#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-v1.1
 
 龍魂操作台是 10 個 Skill 的統一調度入口，把原本分散的 HTML 工具與 Python 腳本封裝成可互相調用的 API，並提供可視化工作流。
 
@@ -89,4 +89,4 @@ control-panel/
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-v1.1
+**DNA**:#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-v1.1

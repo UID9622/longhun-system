@@ -1,7 +1,7 @@
 """
 龍魂系統·三合同步器 v1.0 · 完整核心實裝
 
-DNA: #龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-HUB-v1.0-FRAMEWORK
+DNA:#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-HUB-FILE1-v1.0-1-FRAMEWORK
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -266,7 +266,7 @@ class SancaiSyncHub:
 
             # DNA 父子鏈
             parent_dna = knowledge_graph.get('parent_dna', '')
-            current_dna = f"#龍芯⚡️2026-06-06-PALACE-{palace_name}-v1.0"
+            current_dna = f"#龍芯⚡️2026-06-06-PALACE-_PALACE_NAME-v1.0"
 
             palace = PalaceNode(
                 palace_name=palace_name,
@@ -372,7 +372,7 @@ class SancaiSyncHub:
 # ═══════════════════════════════════════════════════════════════════════════
 
 """
-DNA: #龍芯⚡️2026-06-06-SANCAI-SYNC-HUB-v1.0-COMPLETE
+DNA:#龍芯⚡️2026-06-06-SANCAI-SYNC-HUB-v1.0-COMPLETE
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622·諸葛鑫·龍芯北辰
 

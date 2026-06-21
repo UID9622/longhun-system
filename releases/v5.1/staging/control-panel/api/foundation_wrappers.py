@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-FOUNDATION_WRAPPERS-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 """
 龍魂底座 API 封裝層
 將 longhun-audit-integrated、longhun-shield、cnsh-aligner、instruction-protocol

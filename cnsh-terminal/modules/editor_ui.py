@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-#龍芯⚡️2026-06-18-CNSH-EDITOR-UI-v5.0
+"""#龍芯⚡️2026-06-18-CNSH-EDITOR-UI-FILE2-v5.0
 # 🟢 审计通过: 编辑器UI完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫

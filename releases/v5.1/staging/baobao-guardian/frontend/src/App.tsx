@@ -1,5 +1,5 @@
 // 龍魂宝宝守护助手 · 主应用
-// DNA: #龍芯⚡️2026-06-04-BAOBAO-APP-v1.0
+// DNA:#龍芯⚡️2026-06-04-BAOBAO-APP-FILE1-v1.0
 
 import React, { useEffect } from 'react'
 import { Overlay } from './components/Overlay'

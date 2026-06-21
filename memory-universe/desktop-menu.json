@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU-v1.0",
+
   "items": [
     {
       "id": "starry-memory-seed",
@@ -36,5 +37,6 @@
       "mode": "viewer",
       "confirm": false
     }
-  ]
+  ],
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-8"
 }

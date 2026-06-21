@@ -3,7 +3,7 @@
 """
 龍魂·五行计算器API入口 v3.2
 FastAPI统一路由·连接五行计算器核心
-DNA: #龍芯⚡️2026-06-04-API-WUXING-v3.2
+DNA:#龍芯⚡️2026-06-04-API-WUXING-FILE1-v3.2
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware

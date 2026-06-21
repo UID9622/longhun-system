@@ -3,7 +3,7 @@
 """
 龍魂 v9.0 系統集成測試
 
-DNA: #龍芯⚡️2026-06-06-V9-INTEGRATION-TEST-v1.0
+DNA:#龍芯⚡️2026-06-06-V9-INTEGRATION-TEST-v1.0
 """
 
 import pytest

@@ -1,6 +1,6 @@
 # 龍魂系統·生產部署指南 (Production Deployment Guide)
 # 日期: 2026-06-10 CST
-# DNA: #龍芯⚡️2026-06-10-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
+# DNA:#龍芯⚡️2026-06-10-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
 
 ---
 
@@ -841,6 +841,6 @@ CPU 使用率: < 50%
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-10-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
+**DNA**:#龍芯⚡️2026-06-10-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
 **簽核狀态**: ⏳ 待生產环境簽核
 **有效期**: 永久 (生產级部署指南)

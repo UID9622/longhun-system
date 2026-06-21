@@ -5,7 +5,7 @@
 龍魂系統 · Skill API 服務
 Longhun System · Skill API Service
 
-DNA: #龍芯⚡️2026-06-07-SKILL-API-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILL-API-FILE2-v1.0
 責任: UID9622·不免責
 """
 

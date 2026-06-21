@@ -6,7 +6,7 @@
 ║  龍魂完整审计系统 v2.0 (Integrated)                         ║
 ║  CNSH对齐检查 + 10维系统审计 融合版                         ║
 ║                                                             ║
-║  DNA: #龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-v2.0   ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE3-v2.0   ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F             ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z              ║
 ╚══════════════════════════════════════════════════════════════╝

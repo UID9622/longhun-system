@@ -2,7 +2,7 @@
 # 🐉 Governance, Economy, Culture, Technology & Rights Layers · Complete Edition
 
 ```
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-L2-L6-COMPLETE
+DNA:#龍芯⚡️2026-06-07-CNSH-FILE6-v3.0-L2-L6-COMPLETE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
 L2-L6 層完整展開 · Governance · Economy · Culture · Technology · Rights
@@ -805,7 +805,7 @@ No favoritism. Only truth.
 ## 🔐 **L2-L6 層完整簽署 / Complete L2-L6 Signature**
 
 ```
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-L2-L6-COMPLETE
+DNA:#龍芯⚡️2026-06-07-CNSH-v3.0-L2-L6-COMPLETE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 

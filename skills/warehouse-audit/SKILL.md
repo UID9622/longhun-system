@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-SKILL-FILE1-v1.0-2 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 ---
 name: longhun-warehouse-audit
 description: >

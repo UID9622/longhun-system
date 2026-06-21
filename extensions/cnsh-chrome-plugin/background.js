@@ -1,3 +1,6 @@
+##龍芯⚡️2026-06-21-CNSH-BACKGROUND-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 /**
  * 龍魂 CNSH · Service Worker
  * 职责: 右键菜单 · 快捷键 · 消息中继 · Notion 写入

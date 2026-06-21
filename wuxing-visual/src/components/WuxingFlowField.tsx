@@ -1,7 +1,7 @@
 /**
  * 龍魂五行計算器 · Three.js 流場動畫
  *
- * 🐉 DNA: #龍芯⚡️2026-06-07-WUXING-FLOW-FIELD-v3.5
+ * 🐉 DNA:#龍芯⚡️2026-06-07-WUXING-FLOW-FIELD-v3.5
  * 責任: UID9622 · 不免責
  */
 

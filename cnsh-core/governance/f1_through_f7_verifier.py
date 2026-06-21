@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂F1-F7七因子驗證系統 (Seven-Factor Verification Framework)
-DNA: #龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0
+DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-FILE1-v1.0
 
 行為密碼學 (Behavioral Cryptography) - 完整實裝
 
@@ -529,7 +529,7 @@ class SevenFactorVerifier:
 
 if __name__ == '__main__':
     print("\n【龍魂F1-F7七因子驗證系統 v1.0】\n")
-    print("DNA: #龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0")
+    print("DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 

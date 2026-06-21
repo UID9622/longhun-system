@@ -7,7 +7,7 @@ LongHun Six-Layer Lineage Auto-Verification System v2.0
 此脚本执行CNSH协议下的六层来源链完整性验证，
 确保每一行代码都可追溯到其哲学、精神、设备、技术、系统和生命源头。
 
-DNA: #龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0
+DNA:#龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -728,7 +728,7 @@ class LineageVerificationEngine:
         report_lines.append("  LongHun Six-Layer Lineage Verification Report")
         report_lines.append("=" * 70)
         report_lines.append(f"  生成时间: {datetime.now().isoformat()}")
-        report_lines.append(f"  DNA: #龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0")
+        report_lines.append(f"  DNA:#龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0")
         report_lines.append(f"  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
         report_lines.append(f"  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
         report_lines.append("")
@@ -1012,7 +1012,7 @@ def main():
 ║     🐉 龍魂 · 六层来源链自动验证系统 v2.0 🐉                    ║
 ║     LongHun Six-Layer Lineage Auto-Verification System            ║
 ║                                                                    ║
-║  DNA: #龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0               ║
+║  DNA:#龍芯⚡️2026-06-17-LINEAGE-VERIFICATION-v2.0               ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                    ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL    ║
 ║                                                                    ║

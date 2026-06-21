@@ -1,3 +1,6 @@
+<!--#龍芯⚡️2026-06-21-DOC-LU-SYSTEM-OPTIMIZE-EXPAND-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # /LU-SYSTEM-OPTIMIZE-EXPAND
 
 功能描述: 启动平台升级任务，系统性能优化

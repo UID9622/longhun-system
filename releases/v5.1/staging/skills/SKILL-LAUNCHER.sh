@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 龍魂系統 Skill 啟動器 v1.0
-# DNA: #龍芯⚡️2026-06-07-SKILL-LAUNCHER-v1.0
+# DNA:#龍芯⚡️2026-06-07-SKILL-LAUNCHER-v1.0
 
 set -e
 
@@ -74,7 +74,7 @@ echo "📍 位置: /mnt/user-data/outputs/"
 echo "🔬 验证: 每个 Skill 都包含完整的注释和文档"
 echo "📊 生产级别: 代码质量 ≥ 95%"
 echo ""
-echo "🐉 DNA: #龍芯⚡️2026-06-07-SKILL-LAUNCHER-v1.0"
+echo "🐉 DNA:#龍芯⚡️2026-06-07-SKILL-LAUNCHER-v1.0"
 echo "👤 责任方: UID9622 · 不免責"
 echo "📅 交付时间: $(date +'%Y-%m-%d %H:%M:%S')"
 echo ""

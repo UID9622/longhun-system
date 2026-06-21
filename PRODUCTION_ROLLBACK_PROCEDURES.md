@@ -1,6 +1,6 @@
 # 龍魂系統·生產回滾程序 (Production Rollback Procedures)
 # 日期: 2026-06-10 CST
-# DNA: #龍芯⚡️2026-06-10-PRODUCTION-ROLLBACK-PROCEDURES-v1.0
+# DNA:#龍芯⚡️2026-06-10-PRODUCTION-ROLLBACK-PROCEDURES-v1.0
 
 ---
 
@@ -520,6 +520,6 @@ redis-cli LLEN longhun:jobs:pending || echo "Redis 不可用"'
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-10-PRODUCTION-ROLLBACK-PROCEDURES-v1.0
+**DNA**:#龍芯⚡️2026-06-10-PRODUCTION-ROLLBACK-PROCEDURES-v1.0
 **版本**: 1.0 (完整版)
 **有效期**: 永久 (生產级回滾程序)

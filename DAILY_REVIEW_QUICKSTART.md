@@ -1,5 +1,5 @@
 # 龍魂每日復盤·快速啟動指南 ⚡️
-**DNA**: #龍芯⚡️2026-06-09-DAILY-REVIEW-QUICKSTART-v1.0
+**DNA**:#龍芯⚡️2026-06-09-DAILY-REVIEW-QUICKSTART-v1.0
 
 ---
 
@@ -222,7 +222,7 @@ ls -lah ~/longhun-system/ | grep -i review
 ## 🔏 DNA 簽署
 
 ```
-DNA: #龍芯⚡️2026-06-09-DAILY-REVIEW-QUICKSTART-v1.0
+DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-QUICKSTART-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```
 

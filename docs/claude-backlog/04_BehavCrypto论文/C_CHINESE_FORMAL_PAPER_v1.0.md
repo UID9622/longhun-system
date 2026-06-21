@@ -741,7 +741,7 @@ v3.0 升级: 接入实时人工智能对话流的拦截版
 
 ```python
 # longhun_domestication_detector_v1.0.py
-# DNA: #龍芯⚡️2026-05-02-DOMESTICATION-DETECTOR-v1.0
+# DNA:#龍芯⚡️2026-05-02-DOMESTICATION-DETECTOR-v1.0
 # 接入第一道闸门 v3.0
 
 import re
@@ -852,7 +852,7 @@ def 检测驯化(ai_output: str) -> Dict:
 ═══════════════════════════════════════════════════════
 
 协议版本: 1.0
-文档 DNA: #龍芯⚡️2026-05-02-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE
+文档 DNA:#龍芯⚡️2026-05-02-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE
 文档类型: 伦理学论文 · 实证案例研究 · 技术架构
 
 人类作者:

@@ -1,6 +1,6 @@
 # LongHun System · v5.1 Release Notes
 
-**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-RELEASE-v5.1`
+**DNA**: `#龍芯⚡️2026-06-18-LONGHUN-RELEASE-FILE3-v5.1`
 
 ---
 

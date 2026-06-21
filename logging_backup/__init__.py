@@ -5,7 +5,7 @@
 龍魂 日志·版本·追溯系统 模块
 Longhun Logging · Versioning · Tracing Module
 
-DNA: #龍芯⚡️2026-06-07-LOGGING-MODULE-INIT-v1.0
+DNA:#龍芯⚡️2026-06-07-LOGGING-MODULE-INIT-v1.0
 """
 
 import sys

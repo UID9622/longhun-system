@@ -69,4 +69,4 @@ print(result["kimi_output"])
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-08-KIMI-QUICK-START-v1.0
+**DNA**:#龍芯⚡️2026-06-08-KIMI-QUICK-START-v1.0

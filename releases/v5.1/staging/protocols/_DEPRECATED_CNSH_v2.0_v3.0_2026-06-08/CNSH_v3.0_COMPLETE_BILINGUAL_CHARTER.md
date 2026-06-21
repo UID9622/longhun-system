@@ -2,7 +2,7 @@
 # 🐉 DragonSoul System Complete Charter · CNSH v3.0
 
 ```
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-BILINGUAL-CHARTER
+DNA:#龍芯⚡️2026-06-07-CNSH-FILE2-v3.0-COMPLETE-BILINGUAL-CHARTER
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 
@@ -170,7 +170,7 @@ DNA traceability, raw logs, tricolor audit, append-only — not individual disci
 **Root 5: Each 1 Is Complete**
 Not an average. Not a data point. A living person.
 
-**DNA**: #龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0
+**DNA**:#龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0
 
 ---
 
@@ -190,8 +190,7 @@ DNA is not biological code — it's the unique identity anchor, the origin of tr
 人類可讀格式 (Human-Readable):
 #龍芯⚡️{YYYY-MM-DD}-{MODULE}-{VERSION}-{HASH}
 
-例 / Example:
-#龍芯⚡️2026-06-07-CNSH-v3.0-BILINGUAL-CHARTER
+例 / Example:#龍芯⚡️2026-06-07-CNSH_F829-v3.0-BILINGUAL-CHARTER
 ```
 
 ```
@@ -659,7 +658,7 @@ From "39-clause technical protocol" to "9-layer full-stack ecosystem protocol"
 ## 🔐 **最終簽署 / Final Signature**
 
 ```
-DNA: #龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-BILINGUAL-CHARTER
+DNA:#龍芯⚡️2026-06-07-CNSH-v3.0-COMPLETE-BILINGUAL-CHARTER
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 

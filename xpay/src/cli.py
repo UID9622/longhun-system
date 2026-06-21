@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 XPay 主權網關 CLI 演示
-DNA: #龍芯⚡️2026-06-17-XPAY-CLI-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-CLI-FILE1-v2.0
 """
 import argparse
 import json

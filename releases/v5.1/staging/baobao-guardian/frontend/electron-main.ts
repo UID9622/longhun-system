@@ -2,7 +2,7 @@
 // ║     宝宝守护助手 · Electron主进程                                ║
 // ║     UID9622 · 龍魂系统核心                                       ║
 // ╚══════════════════════════════════════════════════════════════════╝
-// DNA: #龍芯⚡️2026-06-04-BAOBAO-ELECTRON-v1.0
+// DNA:#龍芯⚡️2026-06-04-BAOBAO-ELECTRON-FILE1-v1.0
 
 import { app, BrowserWindow, Menu, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';

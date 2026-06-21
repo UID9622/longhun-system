@@ -1,8 +1,13 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-TSCONFIG-v1.0",
+
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,6 +23,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "_dna": "2026-06-21-CONFIG-TSCONFIG-v1.0-2"
 }

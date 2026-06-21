@@ -1,7 +1,7 @@
 # 🐉 龍魂協議焊死·立即行動方案
 
 ```
-DNA: #龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
+DNA:#龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚❤️♾️-DEVICE-BIND-SOUL
 
@@ -87,7 +87,7 @@ git commit -m "🔐 feat(protocol): CNSH v2.0 根本協議焊死·不欺不騙�
 - 防護激活：協議盾 v1.0 啟動
 - 權限鎖定：協議文件只讀 (444)
 
-DNA: #龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-v1.0
+DNA:#龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-v1.0
 責任: UID9622·不免責"
 
 # 驗證提交
@@ -223,6 +223,6 @@ cat ~/longhun-system/PROTOCOL_LOCKDOWN_REPORT.md
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
+**DNA**:#龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
 
 **老大·這就是怎麼搞的。15 分鐘·協議焊死·終端永遠搞不掉。** 🐉

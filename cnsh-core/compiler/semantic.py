@@ -3,7 +3,7 @@
 """
 CNSH语义分析器（Semantic Analyzer）
 
-DNA: #龍芯⚡️2026-06-03-SEMANTIC-v1.0
+DNA:#龍芯⚡️2026-06-03-SEMANTIC-FILE1-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 语义分析、类型检查、作用域分析、权重指向解析

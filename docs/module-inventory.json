@@ -1,4 +1,5 @@
-{
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-MODULE-INVENTORY-v1.0",
+
   "modules": [
     {
       "path": "03_compiler",
@@ -516,5 +517,6 @@
     "total": 40,
     "complete": 17,
     "needs_doc": 23
-  }
+  },
+  "_dna": "2026-06-21-CONFIG-MODULE-INVENTORY-v1.0"
 }

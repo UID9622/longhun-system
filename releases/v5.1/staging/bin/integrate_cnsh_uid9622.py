@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+##龍芯⚡️2026-06-21-ENGINE-INTEGRATE_CNSH_UID9622-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/usr/bin/env python3
 """
 整理 Notion 导出工作区 `龍魂技术全站` 到 docs/longhun-tech/。

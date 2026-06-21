@@ -38,7 +38,7 @@ class TestFlowDecisionCore:
         """测试1：普通流程应该通过（🟢 ENTER）"""
         tags = {
             "title": "normal_test",
-            "dna": "#龍芯⚡️2026-05-03-TEST-NORMAL-v4.1",
+            "dna":#龍芯⚡️2026-05-03-TEST-NORMAL-FILE1-v4.1",
             "visibility": VisibilityEnum.INTERNAL,
             "trace_mode": TraceModeEnum.CHAIN,
             "operator": "UID9622",

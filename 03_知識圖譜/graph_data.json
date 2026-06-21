@@ -5,7 +5,7 @@
       "node_id": "/kimi-webbridge",
       "label": "Kimi WebBridge",
       "type": "skill",
-      "dna": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-v1.0",
+      "dna":#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-v1.0",
       "description": "讓AI控制真實瀏覽器",
       "related_nodes": [
         "/api-check",

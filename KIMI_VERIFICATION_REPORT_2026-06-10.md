@@ -1,6 +1,6 @@
 # 🧪 Kimi 集成验证报告
 # 日期: 2026-06-10 (周二)
-# DNA: #龍芯⚡️2026-06-10-KIMI-VERIFICATION-REPORT-v1.0
+# DNA:#龍芯⚡️2026-06-10-KIMI-VERIFICATION-REPORT-v1.0
 
 ---
 
@@ -240,7 +240,7 @@ API 层验收: 🟡 待 API Key 配置
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-10-KIMI-VERIFICATION-REPORT-v1.0
+**DNA**:#龍芯⚡️2026-06-10-KIMI-VERIFICATION-REPORT-v1.0
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0
 **有效期**: 7 天 (至 2026-06-17)

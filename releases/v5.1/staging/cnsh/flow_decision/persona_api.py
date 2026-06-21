@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂人格 API 路由系统
-DNA: #龍芯⚡️2026-06-09-PERSONA-API-v1.0
+DNA:#龍芯⚡️2026-06-09-PERSONA-API-v1.0
 """
 
 from fastapi import FastAPI, HTTPException, Query

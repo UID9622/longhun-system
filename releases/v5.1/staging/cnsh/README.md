@@ -1,6 +1,6 @@
 # CNSH · 龍魂中文原生指令系統
 
-**DNA**: #龍芯⚡️2026-06-17-CNSH-MAIN-v1.0
+**DNA**:#龍芯⚡️2026-06-17-CNSH-MAIN-v1.0
 
 CNSH（Chinese Native Shell）是龍魂系統的中文原生指令與決策執行層。
 本目錄為 `/Users/zuimeidedeyihan/CNSH` 的實體主幹，包含：
@@ -40,4 +40,4 @@ bash launch.sh
 
 ---
 
-**DNA**: #龍芯⚡️2026-06-17-CNSH-MAIN-v1.0
+**DNA**:#龍芯⚡️2026-06-17-CNSH-MAIN-v1.0

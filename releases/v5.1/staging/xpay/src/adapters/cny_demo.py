@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 數字人民幣（CNY）演示適配器
-DNA: #龍芯⚡️2026-06-17-XPAY-CNY-ADAPTER-v2.0
+DNA:#龍芯⚡️2026-06-17-XPAY-CNY-ADAPTER-v2.0
 
 聲明：本適配器為演示框架，不連接真實的數字人民幣 SDK 或央行 API。
 """

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """龍魂每日复盘 · P03雯雯主理 / P04鲁班安全 / P05上帝之眼裁决
-DNA: #龍芯⚡️2026-06-05-DAILY-REVIEW-v1.0
+DNA:#龍芯⚡️2026-06-05-DAILY-REVIEW-v1.0
 """
 import os, sys, json, smtplib, subprocess, datetime, sqlite3
 from email.mime.text import MIMEText

@@ -5,7 +5,7 @@
 龍魂 Slack GIF 創建工具 v1.0
 Longhun Slack GIF Creator
 
-DNA: #龍芯⚡️2026-06-07-SLACK-GIF-CREATOR-v1.0
+DNA:#龍芯⚡️2026-06-07-SLACK-GIF-CREATOR-FILE2-v1.0
 """
 
 from PIL import Image, ImageDraw, ImageSequence

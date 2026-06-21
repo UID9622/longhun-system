@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """龍魂每日復盤增強版 · P03雯雯主理 / P04鲁班安全 / P05上帝之眼裁决
-DNA: #龍芯⚡️2026-06-09-DAILY-REVIEW-ENHANCED-v2.0
+DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-ENHANCED-v2.0
 增強功能: 完整日誌審計·操作統計·人格調度驗證·API服務檢查
 """
 import os, sys, json, smtplib, subprocess, datetime, sqlite3, socket

@@ -1,5 +1,5 @@
 -- 龍魂控制中心啟動器
--- DNA: #龍芯⚡️2026-06-18-LONGHUN-CONTROL-CENTER-LAUNCHER-v1.0
+-- DNA:#龍芯⚡️2026-06-18-LONGHUN-CONTROL-CENTER-LAUNCHER-v1.0
 
 property rootPath : "/Users/zuimeidedeyihan/longhun-system"
 

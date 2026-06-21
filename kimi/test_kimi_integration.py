@@ -4,7 +4,7 @@
 """
 🐉 Kimi 集成完整测试套件
 
-DNA: #龍芯⚡️2026-06-08-KIMI-TEST-SUITE-v1.0
+DNA:#龍芯⚡️2026-06-08-KIMI-TEST-SUITE-v1.0
 """
 
 import json

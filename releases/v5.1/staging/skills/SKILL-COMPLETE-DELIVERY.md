@@ -1,6 +1,6 @@
 # 🐉 龍魂系統 · 10個 Skill 完整交付清單
 
-**DNA**: #龍芯⚡️2026-06-07-SKILL-COMPLETE-DELIVERY-v1.0  
+**DNA**:#龍芯⚡️2026-06-07-SKILL-COMPLETE-DELIVERY-v1.0  
 **交付時間**: 2026-06-07T00:30:00Z  
 **責任方**: UID9622 (龍芯北辰) · 不免責  
 **狀態**: 🟢 生產就緒 · 可直接運行
@@ -378,7 +378,7 @@ python skill-10-web-artifacts-builder.py
 ## 🐉 簽名和確認
 
 ```
-DNA: #龍芯⚡️2026-06-07-SKILL-COMPLETE-DELIVERY-v1.0
+DNA:#龍芯⚡️2026-06-07-SKILL-COMPLETE-DELIVERY-v1.0
 責任方: UID9622 (龍芯北辰) · 不免責
 交付狀態: 🟢 完成 · 生產就緒
 驗收狀態: ✅ 通過 · 100% 完成度

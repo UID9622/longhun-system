@@ -5,7 +5,7 @@
 #  龍魂系統 Phase 3 - 一鍵啟動腳本 v1.0
 #  Longhun System Phase 3 - One-Click Launch Script v1.0
 #
-#  DNA: #龍芯⚡️2026-06-06-PHASE3-LAUNCH-SCRIPT-v1.0
+#  DNA:#龍芯⚡️2026-06-06-PHASE3-LAUNCH-SCRIPT-v1.0
 #  使用方式: bash launch-phase3.sh
 #
 ################################################################################
@@ -29,7 +29,7 @@ print_logo() {
     echo "║           🐉 龍魂系統 Phase 3 · 一鍵啟動                      ║"
     echo "║    Longhun System Phase 3 - One-Click Launch Script v1.0     ║"
     echo "║                                                                ║"
-    echo "║         DNA: #龍芯⚡️2026-06-06-PHASE3-LAUNCH-v1.0             ║"
+    echo "║         DNA:#龍芯⚡️2026-06-06-PHASE3-LAUNCH-v1.0             ║"
     echo "║         責任: UID9622 · 不免責                                ║"
     echo "║                                                                ║"
     echo "╚════════════════════════════════════════════════════════════════╝"

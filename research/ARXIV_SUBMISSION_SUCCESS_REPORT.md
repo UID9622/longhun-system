@@ -1,6 +1,6 @@
 # 🎉 龍魂·黎曼猜想 arXiv 投稿·成功完成報告
 
-**DNA**: #龍芯⚡️2026-06-08-ARXIV-SUBMISSION-SUCCESS-v1.0
+**DNA**:#龍芯⚡️2026-06-08-ARXIV-SUBMISSION-SUCCESS-v1.0
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 **SEAL**: #ZHUGEXIN⚇️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 
@@ -424,7 +424,7 @@ Google Scholar:    待索引 (通常 24-48 小時)
 
 | 項目 | 值 |
 |------|-----|
-| **DNA** | #龍芯⚡️2026-06-08-ARXIV-SUBMISSION-SUCCESS-v1.0 |
+| **DNA** |#龍芯⚡️2026-06-08-ARXIV-SUBMISSION-SUCCESS-v1.0 |
 | **CONFIRM** | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 | **SEAL** | #ZHUGEXIN⚇️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅ |
 | **arXiv ID** | 2402.12459 |

@@ -3,7 +3,7 @@
 <aside>
 🐉
 
-**DNA追溯码：** #龍芯⚡️2026-03-28-MCP搭建指南-v1.0
+**DNA追溯码：**#龍芯⚡️2026-03-28-MCP_6C59-v1.0
 
 **创建者：** 💎 龍芯北辰｜UID9622
 
@@ -123,6 +123,6 @@ open ~/Library/Application\ Support/Claude/
 ```yaml
 版本: v1.0
 创建: 2026-03-28 北京时间
-DNA: #龍芯⚡️2026-03-28-MCP搭建指南-v1.0
+DNA:#龍芯⚡️2026-03-28-MCP-v1.0
 适用: Claude Desktop macOS + Notion MCP
 ```
