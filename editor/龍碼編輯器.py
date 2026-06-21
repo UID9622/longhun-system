@@ -7,7 +7,7 @@
 中文就是變量名，中文就是註釋，中文就是邏輯。
 每個國家的語言都能跑在計算機裡面，那才叫牛逼。
 
-DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-FILE1-v1.0-1
+DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-FILE1-FILE1-v1.0-1
 """
 
 import os

@@ -15,7 +15,7 @@
 普通人只需：添加记忆 → 系统自动归档 → 生成页面。
 复杂留给 AI，浪漫留给人类。
 
-DNA:#龍芯⚡️2026-06-18-STARRY-MEMORY-FILE1-FILE1-v1.0-1
+DNA:#龍芯⚡️2026-06-18-STARRY-MEMORY-FILE1-FILE1-FILE1-v1.0-1
 """
 
 import argparse
