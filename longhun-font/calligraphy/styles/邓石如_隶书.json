@@ -1,0 +1,28 @@
+{
+  "name": "邓石如-隶书",
+  "code": "DSR-LS",
+  "category": "隶书",
+  "category_code": "LS",
+  "artist": "邓石如",
+  "artist_code": "DSR",
+  "era": "清代",
+  "description": "隶书典范，蚕头燕尾，波磔分明",
+  "dna": "#龍芯⚡️2026-06-23-LONGHUN-FONT-STYLE-DSR-LS-v1.0",
+  "parameters": {
+    "font_size": 230,
+    "stroke_width": 26,
+    "slant": 0.0,
+    "ink_pressure": 0.9,
+    "tip_style": "wave",
+    "spacing_x": 1.3,
+    "spacing_y": 1.3,
+    "randomness": 0.03,
+    "background": "仿古宣纸",
+    "ink_color": "#1f1f1f"
+  },
+  "source_works": [
+    "《崔子玉座右铭》",
+    "《隶书册》"
+  ],
+  "fallback_font": "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/a304e3396d019087ab67af77f5e398977529007d.asset/AssetData/Libian.ttc"
+}
