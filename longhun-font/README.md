@@ -46,6 +46,7 @@
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
 | 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
+| v3.0 书法轮廓原型 | `output/LonghunFont-Regular-v3.otf`（可变宽度笔锋，试验版） |
 | 字元库文件 | `glyphs/龍魂字元库_v0019_龍纹书法版.json` |
 | SVG 样张 | `output/sample_v0019.html` |
 | 五彩石演示 | `wuwu_demo.html` |
@@ -178,6 +179,13 @@ make demo-color
 # 每个字被纵向分为红/黄/青/白/黑 5 个色带，COLR/CPAL 标准兼容 Windows/macOS/iOS/Android
 ```
 
+### 2.6 构建 v3.0 书法轮廓原型
+```bash
+make build-v3
+# 输出：output/LonghunFont-Regular-v3.otf
+# 把每条笔画转换成可变宽度闭合轮廓，带起收笔 taper，横粗竖细
+```
+
 ### 3. 字元库校验
 ```bash
 make check
@@ -277,6 +285,7 @@ python3 scripts/subset_font.py \
 - [x] 中文字符扩展至 10000，覆盖全部 BMP CJK 统一表意文字
 - [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
 - [x] 书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视
+- [x] v3.0 书法轮廓原型：可变宽度笔画 + 起收笔 taper + 横粗竖细（`LonghunFont-Regular-v3.otf`）
 - [x] 女娲五彩石跨平台渲染：Web/HarmonyOS/iOS/Android 统一五色石色卡
 - [x] 五彩石彩色字体原型 `LonghunFont-WuwuColor.otf`：COLR/CPAL 规范，每个字自动分五色带
 - [x] Wuwu 渲染器 npm / 微信小程序包 `@longhun/wuwu-renderer`（发布需 npm token，见 `scripts/publish_wuwu.sh`）
