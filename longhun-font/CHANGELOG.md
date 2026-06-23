@@ -46,7 +46,7 @@
   - 清理结构集合污染，优化左右/上下/包围/半包围/品字形/镶嵌透视与笔锋。
   - 主笔画两端普遍加 brush tip，强化手写气韵。
 - 新增 `packages/wuwu-renderer/`：
-  - `@longhun/wuwu-renderer` npm 包，含 `renderWuwu()`、五色石色卡、CSS。
+  - `@uid9622/wuwu-renderer` npm 包，含 `renderWuwu()`、五色石色卡、CSS。
   - 微信小程序组件 `miniprogram/`（wxml/wxss/js/json）。
   - `dist/wuwu.min.js` / `dist/wuwu.min.css` 可直接引用。
 - 保留 v0017 的女娲五彩石渲染与龍纹水印：全部 10865 个字形右下角嵌入 U+E200 龙纹标识。

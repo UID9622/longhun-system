@@ -2,7 +2,7 @@
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-PUBLISH-WUWU-v1.0
 #
-# 发布 @longhun/wuwu-renderer 到 npm
+# 发布 @uid9622/wuwu-renderer 到 npm
 # 用法:
 #   export NPM_TOKEN=your_npm_access_token
 #   ./scripts/publish_wuwu.sh [dry-run]
@@ -14,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PKG_DIR="$(cd "${SCRIPT_DIR}/../packages/wuwu-renderer" && pwd)"
 
 echo "============================================================"
-echo "📦 发布 @longhun/wuwu-renderer 到 npm"
+echo "📦 发布 @uid9622/wuwu-renderer 到 npm"
 echo "DNA: ${DNA}"
 echo "包目录: ${PKG_DIR}"
 echo "============================================================"
@@ -47,6 +47,6 @@ fi
 
 echo
 echo "============================================================"
-echo "✅ @longhun/wuwu-renderer 发布流程完成"
+echo "✅ @uid9622/wuwu-renderer 发布流程完成"
 echo "DNA: ${DNA}"
 echo "============================================================"

@@ -311,7 +311,7 @@ python3 scripts/subset_font.py \
 - [x] 书法渲染与作品编号系统：7 种名家书体、印章、龙纹水印、作品编号 `LH-CAL-...`
 - [x] 女娲五彩石跨平台渲染：Web/HarmonyOS/iOS/Android 统一五色石色卡
 - [x] 五彩石彩色字体原型 `LonghunFont-WuwuColor.otf`：COLR/CPAL 规范，每个字自动分五色带
-- [x] Wuwu 渲染器 npm / 微信小程序包 `@longhun/wuwu-renderer`（发布需 npm token，见 `scripts/publish_wuwu.sh`）
+- [x] Wuwu 渲染器 npm / 微信小程序包 `@uid9622/wuwu-renderer`（发布需 npm token，见 `scripts/publish_wuwu.sh`）
 - [x] Windows 安装脚本 `install_windows.bat`
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
