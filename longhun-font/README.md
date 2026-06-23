@@ -186,6 +186,28 @@ make build-v3
 # 把每条笔画转换成可变宽度闭合轮廓，带起收笔 taper，横粗竖细
 ```
 
+### 2.7 书法渲染与作品编号
+```bash
+# 列出可用样式
+python3 -m calligraphy.cli --list
+
+# 渲染一幅颜真卿楷书《易经》句
+python3 -m calligraphy.cli \
+  --text "自强不息" \
+  --style YZQ-KA \
+  --classic YIJING \
+  --seal 龍魂
+
+# 竖排王羲之《道德经》句
+python3 -m calligraphy.cli \
+  --text "道法自然" \
+  --style WXZ-XS \
+  --layout vertical \
+  --classic DAODEJING \
+  --seal 龍魂
+```
+输出：`output/calligraphy/LH-CAL-...-.png`，自带印章、龙纹可见水印、频域隐写水印。
+
 ### 3. 字元库校验
 ```bash
 make check
@@ -286,6 +308,7 @@ python3 scripts/subset_font.py \
 - [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
 - [x] 书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视
 - [x] v3.0 书法轮廓原型：可变宽度笔画 + 起收笔 taper + 横粗竖细（`LonghunFont-Regular-v3.otf`）
+- [x] 书法渲染与作品编号系统：7 种名家书体、印章、龙纹水印、作品编号 `LH-CAL-...`
 - [x] 女娲五彩石跨平台渲染：Web/HarmonyOS/iOS/Android 统一五色石色卡
 - [x] 五彩石彩色字体原型 `LonghunFont-WuwuColor.otf`：COLR/CPAL 规范，每个字自动分五色带
 - [x] Wuwu 渲染器 npm / 微信小程序包 `@longhun/wuwu-renderer`（发布需 npm token，见 `scripts/publish_wuwu.sh`）
