@@ -1,4 +1,4 @@
-name: Publish @longhun/wuwu-renderer to npm
+name: Publish @uid9622/wuwu-renderer to npm
 
 on:
   release:
