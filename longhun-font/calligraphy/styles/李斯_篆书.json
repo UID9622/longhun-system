@@ -1,0 +1,28 @@
+{
+  "name": "李斯-篆书",
+  "code": "LS-ZS",
+  "category": "篆书",
+  "category_code": "ZS",
+  "artist": "李斯",
+  "artist_code": "LS",
+  "era": "秦代",
+  "description": "小篆鼻祖，线条匀净，结构修长",
+  "dna": "#龍芯⚡️2026-06-23-LONGHUN-FONT-STYLE-LS-ZS-v1.0",
+  "parameters": {
+    "font_size": 240,
+    "stroke_width": 22,
+    "slant": 0.0,
+    "ink_pressure": 0.98,
+    "tip_style": "uniform",
+    "spacing_x": 1.4,
+    "spacing_y": 1.4,
+    "randomness": 0.01,
+    "background": "绢本浅黄",
+    "ink_color": "#222222"
+  },
+  "source_works": [
+    "《峄山刻石》",
+    "《泰山刻石》"
+  ],
+  "fallback_font": "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/88d6cc32a907955efa1d014207889413890573be.asset/AssetData/Kaiti.ttc"
+}
