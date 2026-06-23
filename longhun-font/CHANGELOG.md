@@ -18,6 +18,13 @@
 - 保留 v0018 的女娲五彩石渲染层与龍纹水印：全部 28956 个字形右下角嵌入 U+E200 龙纹标识。
 - `release.sh`、`Makefile` 默认指向 v0019，并在发布时附带 `LonghunFont-WuwuColor.otf`。
 
+## v3.0 书法轮廓原型（试验版）— 28957 字元
+
+- 新增 `scripts/build_font_v3.py`：把骨架笔画转换为可变宽度闭合轮廓。
+- 起笔/收笔做 tapered brush tip，模拟毛笔锋颖；横画略粗、竖画略细、斜画中粗。
+- 输出 `output/LonghunFont-Regular-v3.otf`，与单色版并行存在，供艺术场景预览。
+- 该版本不替换默认 `LonghunFont-Regular.otf`，待精修确认后再升级为主版本。
+
 ## v0018（龍纹书法版 · 一万中文 · 曲线骨架 · Wuwu 包）— 10866 字元
 
 - 汉字扩展至 **10000** 个，覆盖全部 **BMP CJK 统一表意文字**（U+4E00~U+9FFF），总字符数达 **10866**。
