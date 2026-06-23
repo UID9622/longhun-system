@@ -1,0 +1,3 @@
+<view class="wuwu-container">
+  <text wx:for="{{chars}}" wx:key="index" class="wuwu-char {{item.cls}}">{{item.char}}</text>
+</view>
