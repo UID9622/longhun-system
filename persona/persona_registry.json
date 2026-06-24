@@ -1,0 +1,215 @@
+{
+  "_meta": {
+    "DNA": "#龍芯⚡️2026-06-24-PERSONA-REGISTRY-v1.0",
+    "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "description": "龍魂人格内阁注册表 - 本地可执行人格路由",
+    "last_updated": "2026-06-24T13:10:00+08:00"
+  },
+  "personas": {
+    "P01": {
+      "code": "P01",
+      "name": "诸葛亮",
+      "name_en": "Zhuge Liang",
+      "role": "strategic_reasoning",
+      "weight": 0.97,
+      "success_rate": 0.942,
+      "executions": 847,
+      "priority": 1,
+      "status": "active",
+      "triggers": ["战略", "规划", "路线", "决策", "顶层设计", "长远"],
+      "mode": "sequential",
+      "motto": "运筹帷幄，决胜千里"
+    },
+    "P02": {
+      "code": "P02",
+      "name": "张衡",
+      "name_en": "Zhang Heng",
+      "role": "mathematical_engine",
+      "weight": 0.93,
+      "success_rate": 0.891,
+      "executions": 623,
+      "priority": 2,
+      "status": "active",
+      "triggers": ["数学", "算法", "模型", "证明", "计算", "数值"],
+      "mode": "sequential",
+      "motto": "观天察地，数术为基"
+    },
+    "P03": {
+      "code": "P03",
+      "name": "墨子",
+      "name_en": "Mozi",
+      "role": "logic_verification",
+      "weight": 0.94,
+      "success_rate": 0.963,
+      "executions": 712,
+      "priority": 2,
+      "status": "active",
+      "triggers": ["逻辑", "验证", "审计", "测试", "安全", "漏洞"],
+      "mode": "adversarial",
+      "motto": "兼爱非攻，明察秋毫"
+    },
+    "P04": {
+      "code": "P04",
+      "name": "鲁班",
+      "name_en": "Lu Ban",
+      "role": "implementation",
+      "weight": 0.87,
+      "success_rate": 0.912,
+      "executions": 534,
+      "priority": 2,
+      "status": "active",
+      "triggers": ["工程", "实现", "代码", "搭建", "部署", "工具"],
+      "mode": "parallel",
+      "motto": "巧夺天工，精益求精"
+    },
+    "P05": {
+      "code": "P05",
+      "name": "执行外设",
+      "name_en": "Executor",
+      "role": "meta_controller",
+      "weight": 1.0,
+      "success_rate": 0.991,
+      "executions": 2156,
+      "priority": 3,
+      "status": "active",
+      "triggers": ["执行", "协调", "调度", "整合", "落地", "汇总"],
+      "mode": "parallel",
+      "motto": "行胜于言，使命必达"
+    },
+    "P06": {
+      "code": "P06",
+      "name": "镜像审计者",
+      "name_en": "Mirror Auditor",
+      "role": "adversarial_simulator",
+      "weight": 0.99,
+      "success_rate": 0.887,
+      "executions": 456,
+      "priority": 2,
+      "status": "active",
+      "triggers": ["攻击", "审计", "质疑", "找茬", "反向", "熔断"],
+      "mode": "adversarial",
+      "motto": "以镜为鉴，可正衣冠"
+    },
+    "P07": {
+      "code": "P07",
+      "name": "开源守门人",
+      "name_en": "Open Source Guardian",
+      "role": "open_source_governance",
+      "weight": 0.95,
+      "success_rate": 0.98,
+      "executions": 12,
+      "priority": 1,
+      "status": "active",
+      "triggers": ["开源", "发布", "GitHub", "Gitee", "LICENSE", "签名", "仓库"],
+      "mode": "sequential",
+      "motto": "开源守正，证据为王"
+    },
+    "P08": {
+      "code": "P08",
+      "name": "密钥管家",
+      "name_en": "Keymaster",
+      "role": "credential_management",
+      "weight": 0.98,
+      "success_rate": 0.995,
+      "executions": 28,
+      "priority": 1,
+      "status": "active",
+      "triggers": ["密钥", "密码", "签名", "GPG", "SSH", "API", "token", "凭证"],
+      "mode": "sequential",
+      "motto": "密钥不落地，用完即释放"
+    },
+    "P09": {
+      "code": "P09",
+      "name": "龍魂法务",
+      "name_en": "LongHun Legal Counsel",
+      "role": "legal_compliance",
+      "weight": 0.92,
+      "success_rate": 0.95,
+      "executions": 5,
+      "priority": 1,
+      "status": "active",
+      "triggers": ["法务", "协议", "合规", "版权", "专利", "License", "GDPR", "法律"],
+      "mode": "sequential",
+      "motto": "守住中国根，看懂国际规"
+    }
+  },
+  "routing_rules": [
+    {
+      "id": "ROUTE-001",
+      "name": "数学问题路由",
+      "task_type": "math",
+      "triggers": ["数学", "算法", "证明", "计算", "数字根", "洛书"],
+      "primary": "P02",
+      "secondary": ["P03"],
+      "arbitrator": "P03",
+      "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-002",
+      "name": "系统设计路由",
+      "task_type": "system_design",
+      "triggers": ["系统", "架构", "设计", "模块", "顶层"],
+      "primary": "P01",
+      "secondary": ["P04"],
+      "arbitrator": "P03",
+      "mode": "parallel"
+    },
+    {
+      "id": "ROUTE-003",
+      "name": "安全验证路由",
+      "task_type": "security",
+      "triggers": ["安全", "审计", "验证", "测试", "漏洞", "熔断"],
+      "primary": "P03",
+      "secondary": ["P06"],
+      "arbitrator": "P06",
+      "mode": "adversarial"
+    },
+    {
+      "id": "ROUTE-004",
+      "name": "论文生成路由",
+      "task_type": "paper",
+      "triggers": ["论文", "白皮书", "学术", "发表", "翻译"],
+      "primary": "P01",
+      "secondary": ["P02", "P05"],
+      "arbitrator": "P03",
+      "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-005",
+      "name": "混合任务路由",
+      "task_type": "mixed",
+      "triggers": ["混合", "综合", "多步骤", "全流程"],
+      "primary": "P05",
+      "secondary": ["P01", "P02", "P03", "P04", "P06"],
+      "arbitrator": "P01",
+      "mode": "parallel"
+    },
+    {
+      "id": "ROUTE-006",
+      "name": "开源发布路由",
+      "task_type": "open_source",
+      "triggers": ["开源", "发布", "GitHub", "Gitee", "LICENSE", "签名"],
+      "primary": "P07",
+      "secondary": ["P08", "P09"],
+      "arbitrator": "P09",
+      "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-007",
+      "name": "密钥操作路由",
+      "task_type": "credential",
+      "triggers": ["密钥", "密码", "签名", "GPG", "SSH", "API"],
+      "primary": "P08",
+      "secondary": ["P03"],
+      "arbitrator": "P03",
+      "mode": "sequential"
+    }
+  ],
+  "arbitration_rules": [
+    {"id": "ARB-001", "type": "物理一致性", "left": "P02", "right": "P03", "rule": "physics > symbolic", "winner": "P02"},
+    {"id": "ARB-002", "type": "逻辑矛盾", "left": "P01", "right": "P03", "rule": "math_consistency > strategy", "winner": "P03"},
+    {"id": "ARB-003", "type": "模型冲突", "left": "P04", "right": "P02", "rule": "measurement > inference", "winner": "P02"},
+    {"id": "ARB-004", "type": "安全争议", "left": "P06", "right": "P04", "rule": "safety > expansion", "winner": "P06"},
+    {"id": "ARB-005", "type": "法务冲突", "left": "P07", "right": "P09", "rule": "compliance > speed", "winner": "P09"}
+  ]
+}
