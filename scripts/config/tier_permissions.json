@@ -1,0 +1,40 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-TIER_PERMISSIONS-v1.0",
+
+  "L0": {
+    "watchdog": true,
+    "abort": true,
+    "lockdown": true,
+    "modify_core": false,
+    "skip_audit": true
+  },
+  "L1": {
+    "enforce": true,
+    "shield": true,
+    "verify": true,
+    "modify_core": false,
+    "skip_audit": false
+  },
+  "L2": {
+    "audit": true,
+    "verify": true,
+    "calculate": true,
+    "monitor": true,
+    "modify_core": false,
+    "skip_audit": false
+  },
+  "L3": {
+    "resolve": true,
+    "process": true,
+    "control": true,
+    "modify_core": false,
+    "skip_audit": false
+  },
+  "L4": {
+    "publish": true,
+    "recover": true,
+    "modify_core": false,
+    "skip_audit": false
+  },
+  "description": "五层权限矩阵 - 越上层权限越大，L0永远不能关闭",
+  "_dna": "2026-06-21-SCRIPT-TIER_PERMISSIONS-v1.0"
+}

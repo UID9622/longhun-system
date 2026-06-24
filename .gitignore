@@ -1,9 +1,11 @@
-# Obsidian 緩存
-.obsidian/cache/
-.obsidian/workspace.json
+# Obsidian 本地配置（个人笔记软件，无需开源）
+.obsidian/
 
 # 归档与备份（可能含敏感记忆/密钥）
 _archive/
+_archive*/
+_backup/
+_backup*/
 
 # macOS
 .DS_Store
@@ -13,12 +15,12 @@ _archive/
 .obsidian/plugins/
 .obsidian/snippets/
 
-# 臨時文件
+# 临时文件
 *.swp
 *.swo
 *~
 
-# Python 構建和緩存
+# Python 构建和缓存
 __pycache__/
 *.py[cod]
 *$py.class
@@ -53,7 +55,7 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 
-# 環境配置（敏感信息）
+# 环境配置（敏感信息）
 .env
 .env.*
 !.env.example
@@ -61,7 +63,7 @@ package-lock.json
 env/
 ENV/
 
-# IDE 和編輯器
+# IDE 和编辑器
 .vscode/
 .idea/
 *.swp
@@ -87,7 +89,7 @@ secrets.env
 .longhun/scripts/
 .kimi-code/sessions/*/secrets*
 
-# 本地數據和臨時文件
+# 本地数据和临时文件
 .claude/
 *.log
 *.tmp
@@ -96,22 +98,23 @@ secrets.env
 .local/
 *.pid
 
-# v3.0 核心模塊運行時產生的審計日誌
+# v3.0 核心模块运行时产生的审计日志
 systems/v3/audit_logs/
 
-# 倉儲審計技能運行時產生的報告
+# 仓储审计技能运行时产生的报告
 skills/warehouse-audit/reports/
 
-# 包監視器運行日誌
+# 本地运行日志（全部不上传）
+logs/
 logs/package-watcher.log
 
-# 備份和歷史文件
+# 备份和历史文件
 *.backup
 *.old
 *~.md
 .backup/
 
-# 系統相關
+# 系统相关
 .AppleDouble
 .LSOverride
 ._*
@@ -125,3 +128,58 @@ cnsh/Codex.dmg
 .venv/
 venv/
 ENV/
+
+# 外部导入/下载的临时副本（可能含重复或敏感内容）
+downloads-imports/
+*/downloads-imports/
+*/*/downloads-imports/
+.playwright-mcp/
+
+# 网络请求/响应抓包文件（敏感）
+*.network-request
+*.network-response
+saveArticle_*
+
+# 本地发布临时文件（含 API 密钥，绝不上传）
+publish_fn.js
+publish_article.js
+publish_article.json
+
+# CSDN / GitCode 同步临时文件（含 cookies、注入脚本、截图）
+csdn_cookies.txt
+*.cookies.txt
+csdn_sync/
+csdn_wechat_qr*.png
+csdn_editor_screenshot_*.png
+gitcode-settings.png
+gitcode-repo.png
+
+# 本地凭证注册表（绝不上传）
+config/
+!config/README.md
+
+# 私有导入/共享文档（可能含个人思考、系统提示词）
+docs/private-shared-imports/
+*/private-shared-imports/
+
+# MVP 评审副本与审计日志（可能含敏感操作记录）
+longhun_mvp_reviewed/
+
+# 发布 zip 包（二进制产物，保留 README 即可）
+releases/*.zip
+releases/*/*.zip
+
+# 本地大脑数据文件（含个人记忆与知识图谱向量）
+brain/*.db
+brain/*.pkl
+brain/*.npz
+brain/*.corrupted.*
+
+# 知识图谱中由本地导入/会话生成的临时索引
+03_知識圖譜/downloads_*
+03_知識圖譜/claude_sessions_*
+03_知識圖譜/*_report.json
+03_知識圖譜/compress_*.py
+03_知識圖譜/generate_*.py
+03_知識圖譜/migrate_*.py
+03_知識圖譜/build_*.py
