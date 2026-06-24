@@ -62,8 +62,13 @@ class 龍魂终端:
                 return {**info, "_name": cmd_name}
         return None
 
+    def _resolve_path(self, script: str) -> Path:
+        if script.startswith("~/"):
+            return Path.home() / script[2:]
+        return self.root / script
+
     def _run_script(self, script: str, args: List[str]):
-        path = self.root / script
+        path = self._resolve_path(script)
         if not path.exists():
             print(f"❌ 脚本未找到: {path}")
             return 1
@@ -200,7 +205,8 @@ class 龍魂终端:
         commands = self.registry.get("commands", {})
         for name, info in commands.items():
             aliases = ", ".join(info.get("aliases", []))
-            print(f"  {name:12s} [{aliases:20s}] {info.get('desc', '')}")
+            cat = info.get("category", "其他")
+            print(f"  {name:12s} [{cat:6s}] [{aliases:20s}] {info.get('desc', '')}")
         print("=" * 60)
         print("\n💡 示例:")
         print("  lh 状态")
@@ -208,6 +214,29 @@ class 龍魂终端:
         print("  lh 技能")
         print("  lh cnsh hello.cnsh")
         print("  lh 追溯 longhun_persona_hub")
+        print("  lh 分类 启动")
+        print("")
+
+    def 分类列表(self, category: Optional[str] = None):
+        commands = self.registry.get("commands", {})
+        by_cat: Dict[str, List[Tuple[str, Dict]]] = {}
+        for name, info in commands.items():
+            cat = info.get("category", "其他")
+            by_cat.setdefault(cat, []).append((name, info))
+        if category:
+            print(f"\n📂 分类: {category}")
+            print("-" * 60)
+            for name, info in by_cat.get(category, []):
+                aliases = ", ".join(info.get("aliases", []))
+                print(f"  {name:12s} [{aliases:20s}] {info.get('desc', '')}")
+        else:
+            print("\n📂 命令分类")
+            print("=" * 60)
+            for cat, items in sorted(by_cat.items()):
+                print(f"\n【{cat}】({len(items)} 个)")
+                for name, info in items:
+                    aliases = ", ".join(info.get("aliases", []))
+                    print(f"  {name:12s} [{aliases:20s}] {info.get('desc', '')}")
         print("")
 
     def 执行命令(self, cmd_name: str, args: List[str]) -> int:
@@ -225,6 +254,10 @@ class 龍魂终端:
 
         if cmd_type == "list":
             self.列出命令()
+            return 0
+
+        if cmd_type == "category":
+            self.分类列表(args[0] if args else None)
             return 0
 
         if cmd_type == "script":
