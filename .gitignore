@@ -183,3 +183,36 @@ brain/*.corrupted.*
 03_知識圖譜/generate_*.py
 03_知識圖譜/migrate_*.py
 03_知識圖譜/build_*.py
+
+# Git 备份目录（绝不上传）
+.git.bak-*/
+
+# 龍魂字体大文件（JSON 字元库、生成字体、SVG 输出产物）
+longhun-font/glyphs/
+longhun-font/output/
+longhun-font/scripts/data/
+longhun-font/assets/
+longhun-font/calligraphy/seals/
+longhun-font/examples/
+!longhun-font/glyphs/.gitkeep
+!longhun-font/output/.gitkeep
+
+# 手册 PDF（大文件，单独分发）
+docs/manuals/
+
+# 归档二进制产物
+*.zip
+*.tar.gz
+*.dmg
+*.dylib
+*.so
+*.dll
+*.exe
+*.bin
+
+# 字体二进制输出
+*.otf
+*.ttf
+*.woff
+*.woff2
+*.eot
