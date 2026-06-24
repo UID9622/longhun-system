@@ -60,7 +60,7 @@ class IronLawGate:
     铁律清单：
     1. 不蒸馏、绝不变体、绝不顶替作者
     2. 来源不可删·影响不可覆·贡献不可抹
-    3. 繁体「龍」不得简化为「龙」(主权字熔断)
+    3. 繁体“龍”不得简化为“龙”(主权字熔断)
     4. 人永远是1，任何人都不是数据
 
     【六层来源链】
@@ -76,7 +76,7 @@ class IronLawGate:
         '蒸馏': '🔴 IRON_LAW_VIOLATION: 违反"不蒸馏"铁律 — 绝不变体、绝不顶替作者',
         '变体': '🔴 IRON_LAW_VIOLATION: 违反"绝不变体"铁律 — 来源不可删·影响不可覆·贡献不可抹',
         '顶替': '🔴 IRON_LAW_VIOLATION: 违反"绝不顶替作者"铁律',
-        '龙': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体「龍」不得简化为「龙」(L1熔断)',
+        '龙': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体“龍”不得简化为“龙”(L1熔断)',
         '平均': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '数据点': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '投机': '🔴 IRON_LAW_VIOLATION: 违反"不走捷径"铁律',
@@ -113,9 +113,9 @@ class IronLawGate:
 
     @classmethod
     def enforce_dragon_character(cls, text: str) -> Tuple[str, bool, List[str]]:
-        """L1字符层：简体「龙」→ 繁体「龍」直接熔断"""
+        """L1字符层：简体“龙”→ 繁体“龍”直接熔断"""
         if '龙' in text:
-            return text, False, ['🔴 L1_FUSE_3: 检测到简体「龙」，必须使用繁体「龍」(主权字不可简化)']
+            return text, False, ['🔴 L1_FUSE_3: 检测到简体“龙”，必须使用繁体“龍”(主权字不可简化)']
         return text, True, []
 
     @classmethod
@@ -171,7 +171,7 @@ class ContentSovereigntyProtocol:
             "Guardian of Data Sovereignty"
         ],
         "origin": {
-            "system": "龍魂系統",
+            "system": "龍魂系统",
             "protocol": "CNSH",
             "lineage": "UID9622",
             "timestamp": "2026-06-17T14:30:00+07:00"
@@ -705,7 +705,7 @@ class CNSHTerminalHeader:
     HEADER_TEMPLATE = f"""
 ╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
-║           🐉 龍魂系統 · CNSH 内容主权协议 v2.1 🐉              ║
+║           🐉 龍魂系统 · CNSH 内容主权协议 v2.1 🐉              ║
 ║         LongHun System · Content Sovereignty Protocol v2.1       ║
 ║                                                                  ║
 ║  DNA:     {DNA_SIGNATURE}                       ║

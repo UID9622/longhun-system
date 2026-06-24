@@ -1,0 +1,26 @@
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-GITIGNORE-v1.0
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Don't ignore output OTF/HTML/SVG (they are release artifacts)
+# If SVG dirs become too large, uncomment below:
+# output/all_glyphs_v*/

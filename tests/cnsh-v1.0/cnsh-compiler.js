@@ -1,5 +1,5 @@
 ##龍芯⚡️2026-06-21-CNSH-CNSH-COMPILER-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env node
 
@@ -202,8 +202,8 @@ class Lexer {
     const ch = this.source[this.pos];
 
     // 字符串
-    if (ch === '"' || ch === "'" || ch === '「' || ch === '『') {
-      const closeQuote = ch === '「' ? '」' : (ch === '『' ? '』' : ch);
+    if (ch === '"' || ch === "'" || ch === '“' || ch === '‘') {
+      const closeQuote = ch === '“' ? '”' : (ch === '‘' ? '’' : ch);
       const value = this.readString(closeQuote);
       return { type: 'STRING', value, line: this.line, column: this.column };
     }
@@ -400,10 +400,10 @@ class Parser {
     if (token.type === 'IDENTIFIER') {
       // 检查是否是标准库函数调用（打印、提示、报错等）
       if (['打印', '提示', '报错', '熔断', '转文本', '拼接', '包含', '当前时间', '记录日志', '生成追溯', '输入文本', '确认'].includes(token.value)) {
-        // 检查是否是语法糖形式：函数名「参数」（省略括号）
+        // 检查是否是语法糖形式：函数名“参数”（省略括号）
         const nextToken = this.peek();
         if (nextToken && nextToken.type === 'STRING') {
-          // 语法糖：函数名「参数」 → 函数名(参数)
+          // 语法糖：函数名“参数” → 函数名(参数)
           const funcName = token.value;
           this.advance(); // 消费函数名token
           const argToken = this.current(); // 获取字符串token

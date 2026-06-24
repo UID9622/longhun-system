@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂規則引擎 · Notion 集成 v2.5
-雙向同步·衝突檢測·實時更新
+龍魂规则引擎 · Notion 集成 v2.5
+双向同步·冲突检测·实时更新
 
 DNA:#龍芯⚡️2026-06-07-NOTION-SYNC-v2.5
-責任: UID9622 · 不免責
+责任: UID9622 · 不免责
 """
 
 import os
@@ -23,11 +23,11 @@ try:
     REQUESTS_AVAILABLE = True
 except ImportError:
     REQUESTS_AVAILABLE = False
-    logging.warning("requests 未安裝，Notion 集成將在離線模式運行")
+    logging.warning("requests 未安装，Notion 集成将在离线模式运行")
 
 
 # ============================================================================
-# [日誌配置]
+# [日志配置]
 # ============================================================================
 
 logging.basicConfig(
@@ -38,21 +38,21 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================================
-# [數據結構]
+# [数据结构]
 # ============================================================================
 
 class SyncStatus(Enum):
-    """同步狀態"""
+    """同步状态"""
     SYNCED = "synced"           # 已同步
-    LOCAL_ONLY = "local_only"   # 僅本地
-    REMOTE_ONLY = "remote_only" # 僅遠程
-    CONFLICTED = "conflicted"   # 衝突
+    LOCAL_ONLY = "local_only"   # 仅本地
+    REMOTE_ONLY = "remote_only" # 仅远程
+    CONFLICTED = "conflicted"   # 冲突
     PENDING = "pending"         # 待同步
 
 
 @dataclass
 class NotionPage:
-    """Notion 頁面"""
+    """Notion 页面"""
     id: str
     title: str
     status: str
@@ -61,7 +61,7 @@ class NotionPage:
     content_hash: str = None
 
     def compute_hash(self) -> str:
-        """計算內容哈希"""
+        """计算内容哈希"""
         content = json.dumps(self.properties, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(content.encode()).hexdigest()
 
@@ -72,7 +72,7 @@ class NotionPage:
 
 @dataclass
 class SyncRecord:
-    """同步記錄"""
+    """同步记录"""
     local_id: str
     remote_id: str
     local_hash: str
@@ -87,11 +87,11 @@ class SyncRecord:
 
 
 # ============================================================================
-# [Notion API 客戶端]
+# [Notion API 客户端]
 # ============================================================================
 
 class NotionClient:
-    """Notion API 客戶端"""
+    """Notion API 客户端"""
 
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv('NOTION_TOKEN')
@@ -103,10 +103,10 @@ class NotionClient:
         }
 
         if not self.api_key:
-            logger.warning("未設置 NOTION_TOKEN，Notion 集成將在離線模式運行")
+            logger.warning("未设置 NOTION_TOKEN，Notion 集成将在离线模式运行")
 
     def is_connected(self) -> bool:
-        """檢查連接狀態"""
+        """检查连接状态"""
         if not self.api_key or not REQUESTS_AVAILABLE:
             return False
 
@@ -118,13 +118,13 @@ class NotionClient:
             )
             return response.status_code == 200
         except Exception as e:
-            logger.error(f"連接檢查失敗: {e}")
+            logger.error(f"连接检查失败: {e}")
             return False
 
     def query_database(self, database_id: str, filter_dict: Optional[Dict] = None) -> List[Dict]:
-        """查詢數據庫"""
+        """查询数据库"""
         if not REQUESTS_AVAILABLE or not self.api_key:
-            logger.warning("無法連接 Notion，返回空結果")
+            logger.warning("无法连接 Notion，返回空结果")
             return []
 
         try:
@@ -141,19 +141,19 @@ class NotionClient:
             )
 
             if response.status_code != 200:
-                logger.error(f"查詢失敗: {response.status_code} {response.text}")
+                logger.error(f"查询失败: {response.status_code} {response.text}")
                 return []
 
             return response.json().get('results', [])
 
         except Exception as e:
-            logger.error(f"查詢異常: {e}")
+            logger.error(f"查询异常: {e}")
             return []
 
     def update_page(self, page_id: str, properties: Dict) -> bool:
-        """更新頁面"""
+        """更新页面"""
         if not REQUESTS_AVAILABLE or not self.api_key:
-            logger.warning("無法連接 Notion，模擬更新成功")
+            logger.warning("无法连接 Notion，模拟更新成功")
             return True
 
         try:
@@ -167,20 +167,20 @@ class NotionClient:
             )
 
             if response.status_code != 200:
-                logger.error(f"更新失敗: {response.status_code}")
+                logger.error(f"更新失败: {response.status_code}")
                 return False
 
-            logger.info(f"已更新頁面: {page_id}")
+            logger.info(f"已更新页面: {page_id}")
             return True
 
         except Exception as e:
-            logger.error(f"更新異常: {e}")
+            logger.error(f"更新异常: {e}")
             return False
 
     def create_page(self, database_id: str, properties: Dict) -> Optional[str]:
-        """創建頁面"""
+        """创建页面"""
         if not REQUESTS_AVAILABLE or not self.api_key:
-            logger.warning("無法連接 Notion，模擬創建成功")
+            logger.warning("无法连接 Notion，模拟创建成功")
             return hashlib.md5(json.dumps(properties).encode()).hexdigest()
 
         try:
@@ -197,15 +197,15 @@ class NotionClient:
             )
 
             if response.status_code != 200:
-                logger.error(f"創建失敗: {response.status_code}")
+                logger.error(f"创建失败: {response.status_code}")
                 return None
 
             page_id = response.json().get('id')
-            logger.info(f"已創建頁面: {page_id}")
+            logger.info(f"已创建页面: {page_id}")
             return page_id
 
         except Exception as e:
-            logger.error(f"創建異常: {e}")
+            logger.error(f"创建异常: {e}")
             return None
 
 
@@ -214,7 +214,7 @@ class NotionClient:
 # ============================================================================
 
 class NotionSyncManager:
-    """Notion 雙向同步管理器"""
+    """Notion 双向同步管理器"""
 
     def __init__(
         self,
@@ -227,7 +227,7 @@ class NotionSyncManager:
         self.load_sync_state()
 
     def load_sync_state(self) -> None:
-        """加載同步狀態"""
+        """加载同步状态"""
         try:
             if os.path.exists(self.sync_state_file):
                 with open(self.sync_state_file, 'r', encoding='utf-8') as f:
@@ -242,12 +242,12 @@ class NotionSyncManager:
                             conflict_details=record.get('conflict_details'),
                             last_sync=record.get('last_sync')
                         )
-                logger.info(f"加載 {len(self.sync_records)} 條同步記錄")
+                logger.info(f"加载 {len(self.sync_records)} 条同步记录")
         except Exception as e:
-            logger.error(f"加載同步狀態失敗: {e}")
+            logger.error(f"加载同步状态失败: {e}")
 
     def save_sync_state(self) -> None:
-        """保存同步狀態"""
+        """保存同步状态"""
         try:
             data = {
                 key: {
@@ -266,10 +266,10 @@ class NotionSyncManager:
             with open(self.sync_state_file, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
 
-            logger.info("已保存同步狀態")
+            logger.info("已保存同步状态")
 
         except Exception as e:
-            logger.error(f"保存同步狀態失敗: {e}")
+            logger.error(f"保存同步状态失败: {e}")
 
     def sync_item(
         self,
@@ -278,12 +278,12 @@ class NotionSyncManager:
         remote_id: Optional[str] = None
     ) -> bool:
         """
-        同步單個項目
+        同步单个项目
 
         Args:
             local_id: 本地 ID
-            local_data: 本地數據
-            remote_id: 遠程 ID (可選)
+            local_data: 本地数据
+            remote_id: 远程 ID (可选)
 
         Returns:
             是否同步成功
@@ -294,19 +294,19 @@ class NotionSyncManager:
 
         key = f"{local_id}_{remote_id or 'new'}"
 
-        # 檢查是否存在記錄
+        # 检查是否存在记录
         if key in self.sync_records:
             record = self.sync_records[key]
 
-            # 檢測衝突
+            # 检测冲突
             if record.local_hash != local_hash and record.remote_hash:
-                logger.warning(f"發現衝突: {key}")
+                logger.warning(f"发现冲突: {key}")
                 record.status = SyncStatus.CONFLICTED
-                record.conflict_details = f"本地於 {datetime.now().isoformat()} 修改"
+                record.conflict_details = f"本地于 {datetime.now().isoformat()} 修改"
                 self.save_sync_state()
                 return False
 
-            # 更新遠程
+            # 更新远程
             if local_hash != record.local_hash:
                 logger.info(f"同步更新: {key}")
                 success = self.client.update_page(
@@ -321,14 +321,14 @@ class NotionSyncManager:
                 return success
 
         else:
-            # 新建記錄
+            # 新建记录
             new_remote_id = remote_id or self.client.create_page(
-                '',  # 實際應傳入 database_id
+                '',  # 实际应传入 database_id
                 local_data
             )
 
             if not new_remote_id:
-                logger.error(f"創建遠程記錄失敗: {local_id}")
+                logger.error(f"创建远程记录失败: {local_id}")
                 return False
 
             self.sync_records[key] = SyncRecord(
@@ -339,45 +339,45 @@ class NotionSyncManager:
                 status=SyncStatus.SYNCED
             )
             self.save_sync_state()
-            logger.info(f"創建新記錄: {key}")
+            logger.info(f"创建新记录: {key}")
             return True
 
         return True
 
     def detect_conflicts(self) -> List[str]:
-        """檢測衝突"""
+        """检测冲突"""
         conflicts = [
             key for key, record in self.sync_records.items()
             if record.status == SyncStatus.CONFLICTED
         ]
-        logger.info(f"檢測到 {len(conflicts)} 個衝突")
+        logger.info(f"检测到 {len(conflicts)} 个冲突")
         return conflicts
 
     def resolve_conflict(self, key: str, prefer_local: bool = True) -> bool:
         """
-        解決衝突
+        解决冲突
 
         Args:
-            key: 記錄鍵
-            prefer_local: 是否優先使用本地數據
+            key: 记录键
+            prefer_local: 是否优先使用本地数据
 
         Returns:
-            是否解決成功
+            是否解决成功
         """
         if key not in self.sync_records:
-            logger.error(f"記錄不存在: {key}")
+            logger.error(f"记录不存在: {key}")
             return False
 
         record = self.sync_records[key]
 
         if prefer_local:
-            # 用本地數據覆蓋遠程
+            # 用本地数据覆盖远程
             record.remote_hash = record.local_hash
-            logger.info(f"已用本地數據覆蓋遠程: {key}")
+            logger.info(f"已用本地数据覆盖远程: {key}")
         else:
-            # 用遠程數據覆蓋本地
+            # 用远程数据覆盖本地
             record.local_hash = record.remote_hash
-            logger.info(f"已用遠程數據覆蓋本地: {key}")
+            logger.info(f"已用远程数据覆盖本地: {key}")
 
         record.status = SyncStatus.SYNCED
         record.conflict_details = None
@@ -387,7 +387,7 @@ class NotionSyncManager:
         return True
 
     def get_sync_status(self) -> Dict[str, Any]:
-        """獲取同步狀態摘要"""
+        """获取同步状态摘要"""
         total = len(self.sync_records)
         synced = sum(1 for r in self.sync_records.values() if r.status == SyncStatus.SYNCED)
         conflicted = sum(1 for r in self.sync_records.values() if r.status == SyncStatus.CONFLICTED)
@@ -409,36 +409,36 @@ class NotionSyncManager:
 
 def main():
     """命令行示例"""
-    # 初始化客戶端
+    # 初始化客户端
     notion_client = NotionClient()
     sync_manager = NotionSyncManager(notion_client)
 
-    # 檢查連接
+    # 检查连接
     if sync_manager.client.is_connected():
-        print("✅ 已連接 Notion")
+        print("✅ 已连接 Notion")
     else:
-        print("⚠️  無法連接 Notion，使用離線模式")
+        print("⚠️  无法连接 Notion，使用离线模式")
 
     # 同步示例
     local_data = {
-        "title": {"title": [{"text": {"content": "測試案件"}}]},
-        "status": {"select": {"name": "進行中"}},
+        "title": {"title": [{"text": {"content": "测试案件"}}]},
+        "status": {"select": {"name": "进行中"}},
         "priority": {"select": {"name": "高"}},
     }
 
     success = sync_manager.sync_item("case_001", local_data)
-    print(f"同步結果: {'成功' if success else '失敗'}")
+    print(f"同步结果: {'成功' if success else '失败'}")
 
-    # 檢查衝突
+    # 检查冲突
     conflicts = sync_manager.detect_conflicts()
     if conflicts:
-        print(f"發現 {len(conflicts)} 個衝突，解決方式: 優先本地")
+        print(f"发现 {len(conflicts)} 个冲突，解决方式: 优先本地")
         for conflict_key in conflicts:
             sync_manager.resolve_conflict(conflict_key, prefer_local=True)
 
-    # 顯示同步狀態
+    # 显示同步状态
     status = sync_manager.get_sync_status()
-    print("\n📊 同步狀態摘要:")
+    print("\n📊 同步状态摘要:")
     for key, value in status.items():
         print(f"  {key}: {value}")
 

@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-PROTOCOL-CNSH_V3-0_COMPLETE_FULL_NO_EMOJI-FILE1-v1.0-2 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 #   · CNSH v3.0
 #  DragonSoul System Complete Charter · CNSH v3.0

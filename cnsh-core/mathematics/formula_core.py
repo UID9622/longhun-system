@@ -430,7 +430,7 @@ def selftest() -> None:
     assert len(chain) == 3 and len(set(chain)) == 3, "链长应该 3 且全不同"
     print(f"    事件链: {' → '.join(events)}")
     print(f"    DNA 哈希链: {chain[0][:16]}… → {chain[1][:16]}… → {chain[2][:16]}…")
-    print(f"    验证: 改一个字(审計 vs 审计) → 全链改变 ✅")
+    print(f"    验证: 改一个字(审计 vs 审计) → 全链改变 ✅")
 
     signer_events = [("创建", "admin"), ("审计", "auditor"), ("发布", "release")]
     dna_with_sig = dna_chain_with_signer(signer_events)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂基礎回歸測試
+龍魂基础回归测试
 DNA: #龍芯⚡️2026-06-21-LONGHUN-BASIC-TESTS-v1.0
 """
 

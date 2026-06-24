@@ -1,29 +1,29 @@
-# 🐉 龍魂系統 生產部署指南 v1.0
+# 🐉 龍魂系统 生产部署指南 v1.0
 
 ## 概述
 
-本指南詳述如何使用 `production_deployment.py` 將龍魂系統部署至生產環境。
+本指南详述如何使用 `production_deployment.py` 将龍魂系统部署至生产环境。
 
 **DNA**: `#龍芯⚡️2026-06-08-PRODUCTION-DEPLOYMENT-GUIDE-v1.0`
 
 ---
 
-## 系統需求
+## 系统需求
 
-### 基礎設施
-- **計算**: 最少 4 核 CPU、8GB RAM （推薦 8 核、16GB）
-- **存儲**: 最少 100GB 可用磁盤空間
-- **網絡**: 穩定的互聯網連接、HTTPS 支持
+### 基础设施
+- **计算**: 最少 4 核 CPU、8GB RAM （推荐 8 核、16GB）
+- **存储**: 最少 100GB 可用磁盘空间
+- **网络**: 稳定的互联网连接、HTTPS 支持
 - **容器化**: Docker 20.10+ 或 Kubernetes 1.24+
 
-### 外部服務
-- **數據庫**: PostgreSQL 12+ 或 MySQL 8.0+
-- **緩存**: Redis 6.0+ 或 Memcached
-- **監控**: Datadog/New Relic/Prometheus
-- **日誌**: Elasticsearch/Splunk/Cloudwatch
-- **密鑰管理**: HashiCorp Vault 或 AWS Secrets Manager
+### 外部服务
+- **数据库**: PostgreSQL 12+ 或 MySQL 8.0+
+- **缓存**: Redis 6.0+ 或 Memcached
+- **监控**: Datadog/New Relic/Prometheus
+- **日志**: Elasticsearch/Splunk/Cloudwatch
+- **密钥管理**: HashiCorp Vault 或 AWS Secrets Manager
 
-### 軟件依賴
+### 软件依赖
 ```bash
 Python 3.11+
 Docker 20.10+
@@ -33,44 +33,44 @@ git 2.30+
 
 ---
 
-## 部署前準備清單
+## 部署前准备清单
 
-### 1. 配置準備
+### 1. 配置准备
 
-- [ ] 準備生產數據庫憑證
-- [ ] 配置 Redis/Memcached 端點
-- [ ] 獲取有效的 SSL/TLS 證書
-- [ ] 配置監控和日誌聚合服務
-- [ ] 設置 API 密鑰和認證密鑰
-- [ ] 準備備份和恢復計劃
+- [ ] 准备生产数据库凭证
+- [ ] 配置 Redis/Memcached 端点
+- [ ] 获取有效的 SSL/TLS 证书
+- [ ] 配置监控和日志聚合服务
+- [ ] 设置 API 密钥和认证密钥
+- [ ] 准备备份和恢复计划
 
-### 2. 環境準備
+### 2. 环境准备
 
-- [ ] 配置防火牆規則
-- [ ] 設置負載均衡器
-- [ ] 配置 DNS 記錄
-- [ ] 準備藍綠環境（兩套獨立的生產環境）
-- [ ] 驗證網絡連接和延遲
+- [ ] 配置防火墙规则
+- [ ] 设置负载均衡器
+- [ ] 配置 DNS 记录
+- [ ] 准备蓝绿环境（两套独立的生产环境）
+- [ ] 验证网络连接和延迟
 
-### 3. 安全檢查
+### 3. 安全检查
 
-- [ ] 進行安全掃描（OWASP Top 10）
-- [ ] 驗證 SSL/TLS 配置
-- [ ] 測試認證和授權機制
-- [ ] 配置日誌審計
-- [ ] 準備應急事件響應計劃
+- [ ] 进行安全扫描（OWASP Top 10）
+- [ ] 验证 SSL/TLS 配置
+- [ ] 测试认证和授权机制
+- [ ] 配置日志审计
+- [ ] 准备应急事件响应计划
 
-### 4. 測試準備
+### 4. 测试准备
 
-- [ ] 準備煙霧測試清單
-- [ ] 配置健康檢查端點
-- [ ] 準備回滾計劃
-- [ ] 進行壓力測試
-- [ ] 驗證監控和告警
+- [ ] 准备烟雾测试清单
+- [ ] 配置健康检查端点
+- [ ] 准备回滚计划
+- [ ] 进行压力测试
+- [ ] 验证监控和告警
 
 ---
 
-## 生產配置
+## 生产配置
 
 ### 配置模板
 
@@ -81,18 +81,18 @@ prod_config = {
     "api_host": "api.longhun.example.com",
     "api_port": 8443,
 
-    # 數據庫配置
+    # 数据库配置
     "db_host": "prod-postgresql.example.com",
     "db_port": 5432,
     "db_name": "longhun_production",
     "db_user": "longhun_app",
     "db_password": "***",  # 使用 Vault 注入
 
-    # 緩存配置
+    # 缓存配置
     "redis_host": "prod-redis.example.com",
     "redis_port": 6379,
 
-    # 監控和日誌
+    # 监控和日志
     "monitoring_service": "datadog",        # 或 new-relic, prometheus
     "log_aggregation": "elasticsearch",     # 或 splunk, cloudwatch
 
@@ -100,12 +100,12 @@ prod_config = {
     "ssl_cert_path": "/etc/ssl/certs/longhun-prod.crt",
     "ssl_key_path": "/etc/ssl/private/longhun-prod.key",
 
-    # 備份配置
+    # 备份配置
     "backup_location": "/var/backups/longhun",
 
     # 部署配置
     "deployment_strategy": "blue-green",    # 或 rolling, canary
-    "canary_percentage": 5,                 # 金絲雀部署比例
+    "canary_percentage": 5,                 # 金丝雀部署比例
     "max_concurrent_connections": 10000,
 
     # Skills 配置
@@ -113,7 +113,7 @@ prod_config = {
 }
 ```
 
-### 環境變量
+### 环境变量
 
 ```bash
 export LONGHUN_ENV=production
@@ -132,294 +132,294 @@ export LONGHUN_LOG_AGGREGATION=elasticsearch
 
 ---
 
-## 部署步驟
+## 部署步骤
 
-### 第一階段：部署前準備 (15-30 分鐘)
+### 第一阶段：部署前准备 (15-30 分钟)
 
 ```bash
-# 1. 克隆倉庫
+# 1. 克隆仓库
 git clone https://github.com/UID9622/longhun-system.git
 cd longhun-system
 
-# 2. 檢查部署前條件
+# 2. 检查部署前条件
 python3 deployment/production_deployment.py --pre-check
 
-# 3. 備份現有環境
+# 3. 备份现有环境
 ./deployment/backup.sh
 
-# 4. 驗證配置
+# 4. 验证配置
 python3 deployment/production_deployment.py --validate-config
 ```
 
-### 第二階段：藍綠部署 (30-60 分鐘)
+### 第二阶段：蓝绿部署 (30-60 分钟)
 
 ```bash
-# 1. 啟動部署
+# 1. 启动部署
 python3 deployment/production_deployment.py \
   --config=prod_config.json \
   --strategy=blue-green
 
-# 2. 監控部署進度
+# 2. 监控部署进度
 tail -f /var/log/longhun/deployment.log
 
-# 3. 驗證綠色環境
+# 3. 验证绿色环境
 curl -k https://api.longhun.example.com:8443/health
 
-# 4. 執行煙霧測試
+# 4. 执行烟雾测试
 bash deployment/smoke_tests.sh
 
-# 5. 逐步遷移流量
+# 5. 逐步迁移流量
 # 10% → 25% → 50% → 75% → 100%
 ```
 
-### 第三階段：驗證和監控 (24 小時)
+### 第三阶段：验证和监控 (24 小时)
 
 ```bash
-# 1. 監控指標
-# 打開 Grafana/Datadog 儀表板
+# 1. 监控指标
+# 打开 Grafana/Datadog 仪表板
 
-# 2. 檢查日誌
+# 2. 检查日志
 curl https://elasticsearch.example.com/longhun/_search
 
-# 3. 驗證所有端點
+# 3. 验证所有端点
 bash deployment/endpoint_verification.sh
 
-# 4. 檢查性能基準
+# 4. 检查性能基准
 curl https://api.longhun.example.com:8443/api/v1/metrics
 ```
 
 ---
 
-## 部署流程詳解
+## 部署流程详解
 
-### 步驟 1: 部署前檢查 (3-5 分鐘)
+### 步骤 1: 部署前检查 (3-5 分钟)
 ```
-✅ 配置驗證 - 檢查所有必要參數
-✅ SSL 證書驗證 - 驗證證書有效性和有效期
-✅ 密鑰管理檢查 - 確保所有密鑰已安全配置
-✅ 檔案權限檢查 - 驗證所有文件權限正確
-```
-
-### 步驟 2: 數據庫遷移 (5-10 分鐘)
-```
-✅ 數據庫備份 - 完整備份現有數據
-✅ 數據庫連接 - 驗證連接和權限
-✅ 執行遷移 - 運行所有數據庫遷移指令碼
-✅ 數據驗證 - 驗證數據完整性和一致性
+✅ 配置验证 - 检查所有必要参数
+✅ SSL 证书验证 - 验证证书有效性和有效期
+✅ 密钥管理检查 - 确保所有密钥已安全配置
+✅ 档案权限检查 - 验证所有文件权限正确
 ```
 
-### 步驟 3: 安全加固 (5-10 分鐘)
+### 步骤 2: 数据库迁移 (5-10 分钟)
 ```
-✅ 防火牆規則 - 配置入站和出站規則
-✅ CORS 配置 - 限制允許的源
+✅ 数据库备份 - 完整备份现有数据
+✅ 数据库连接 - 验证连接和权限
+✅ 执行迁移 - 运行所有数据库迁移指令码
+✅ 数据验证 - 验证数据完整性和一致性
+```
+
+### 步骤 3: 安全加固 (5-10 分钟)
+```
+✅ 防火墙规则 - 配置入站和出站规则
+✅ CORS 配置 - 限制允许的源
 ✅ 速率限制 - 配置 API 速率限制
-✅ 審計日誌 - 啟用所有 API 調用日誌
+✅ 审计日志 - 启用所有 API 调用日志
 ```
 
-### 步驟 4: 藍綠部署 (10-20 分鐘)
+### 步骤 4: 蓝绿部署 (10-20 分钟)
 ```
-✅ 構建綠色環境 - 構建新 Docker 鏡像
-✅ 啟動綠色實例 - 啟動 3 個綠色環境實例
-✅ 烟霧測試 - 運行基本功能測試
-✅ 流量遷移 - 逐步將流量轉移至綠色
-✅ 藍色待命 - 保持藍色環境以備回滾
-```
-
-### 步驟 5: 健康驗證 (5-10 分鐘)
-```
-✅ 性能檢查 - 驗證響應時間、吞吐量、延遲
-✅ 端點驗證 - 測試所有主要 API 端點
-✅ 數據庫檢查 - 驗證數據庫連接和性能
-✅ 快取檢查 - 驗證 Redis/Memcached 正常運行
+✅ 构建绿色环境 - 构建新 Docker 镜像
+✅ 启动绿色实例 - 启动 3 个绿色环境实例
+✅ 烟雾测试 - 运行基本功能测试
+✅ 流量迁移 - 逐步将流量转移至绿色
+✅ 蓝色待命 - 保持蓝色环境以备回滚
 ```
 
-### 步驟 6: 監控激活 (5-10 分鐘)
+### 步骤 5: 健康验证 (5-10 分钟)
 ```
-✅ 監控服務集成 - 連接 Datadog/Prometheus
-✅ 告警規則配置 - 配置 6 個關鍵告警
-✅ 日誌聚合 - 配置 Elasticsearch/Splunk
-✅ 分布式追踪 - 啟用 APM (Jaeger)
-✅ 實時儀表板 - 部署 Grafana 儀表板
+✅ 性能检查 - 验证响应时间、吞吐量、延迟
+✅ 端点验证 - 测试所有主要 API 端点
+✅ 数据库检查 - 验证数据库连接和性能
+✅ 快取检查 - 验证 Redis/Memcached 正常运行
 ```
 
-### 步驟 7: 部署後處理 (5-10 分鐘)
+### 步骤 6: 监控激活 (5-10 分钟)
 ```
-✅ 部署記錄 - 記錄部署詳情和指標
-✅ 通知利益相關者 - 發送 Slack 通知、更新 JIRA
-✅ 文檔更新 - 更新 runbook 和文檔
+✅ 监控服务集成 - 连接 Datadog/Prometheus
+✅ 告警规则配置 - 配置 6 个关键告警
+✅ 日志聚合 - 配置 Elasticsearch/Splunk
+✅ 分布式追踪 - 启用 APM (Jaeger)
+✅ 实时仪表板 - 部署 Grafana 仪表板
+```
+
+### 步骤 7: 部署后处理 (5-10 分钟)
+```
+✅ 部署记录 - 记录部署详情和指标
+✅ 通知利益相关者 - 发送 Slack 通知、更新 JIRA
+✅ 文档更新 - 更新 runbook 和文档
 ```
 
 ---
 
 ## 性能期望
 
-### 部署指標
-| 指標 | 值 | 目標 |
+### 部署指标
+| 指标 | 值 | 目标 |
 | --- | --- | --- |
-| 部署耗時 | 30-60 分鐘 | <90 分鐘 |
-| 健康檢查通過率 | 100% | ≥95% |
-| API 響應時間 | 15-20ms | <100ms |
+| 部署耗时 | 30-60 分钟 | <90 分钟 |
+| 健康检查通过率 | 100% | ≥95% |
+| API 响应时间 | 15-20ms | <100ms |
 | API 吞吐 | 77.8 req/s | ≥50 req/s |
 | 可用性 | 99.95% | ≥99.9% |
 
-### 資源消耗
-| 資源 | 消耗 | 限制 |
+### 资源消耗
+| 资源 | 消耗 | 限制 |
 | --- | --- | --- |
 | CPU | 8-10% | <50% |
-| 內存 | 35-40% | <80% |
-| 磁盤 I/O | 低 | <70% |
-| 網絡帶寬 | 低 | <50% |
+| 内存 | 35-40% | <80% |
+| 磁盘 I/O | 低 | <70% |
+| 网络带宽 | 低 | <50% |
 
 ---
 
-## 回滾程序
+## 回滚程序
 
-### 快速回滾（<5 分鐘）
+### 快速回滚（<5 分钟）
 ```bash
-# 方法 1: Kubernetes 回滾
+# 方法 1: Kubernetes 回滚
 kubectl rollout undo deployment/longhun-prod
 
-# 方法 2: 藍綠回滾
-# 將流量從綠色環境轉回藍色環境
+# 方法 2: 蓝绿回滚
+# 将流量从绿色环境转回蓝色环境
 ./deployment/switch_traffic_to_blue.sh
 
-# 方法 3: 檢查回滾狀態
+# 方法 3: 检查回滚状态
 kubectl rollout status deployment/longhun-prod
 ```
 
-### 完全回滾（數據庫）
+### 完全回滚（数据库）
 ```bash
-# 1. 停止應用
+# 1. 停止应用
 kubectl scale deployment/longhun-prod --replicas=0
 
-# 2. 恢復數據庫備份
+# 2. 恢复数据库备份
 mysql longhun_production < /var/backups/longhun/backup_2026-06-08.sql
 
-# 3. 重啟應用
+# 3. 重启应用
 kubectl scale deployment/longhun-prod --replicas=3
 
-# 4. 驗證
+# 4. 验证
 curl -k https://api.longhun.example.com:8443/health
 ```
 
 ---
 
-## 監控和告警
+## 监控和告警
 
-### Grafana 儀表板
+### Grafana 仪表板
 ```
 https://grafana.longhun.example.com/d/prod-overview
 ```
 
-### 關鍵指標
-- **API 響應時間** - P95 <100ms
-- **錯誤率** - <1%
-- **數據庫連接** - <80%
+### 关键指标
+- **API 响应时间** - P95 <100ms
+- **错误率** - <1%
+- **数据库连接** - <80%
 - **CPU 使用** - <50%
-- **內存使用** - <80%
-- **磁盤空間** - >10% 可用
+- **内存使用** - <80%
+- **磁盘空间** - >10% 可用
 
-### 告警規則
-| 告警 | 閾值 | 動作 |
+### 告警规则
+| 告警 | 阈值 | 动作 |
 | --- | --- | --- |
-| 錯誤率 | >1% | 立即通知運維 |
-| 響應時間 | P95 >500ms | 通知 SRE 團隊 |
-| DB 連接 | >80% | 警告 |
-| 磁盤空間 | <10% | 警告 |
-| SSL 證書 | 30 天內過期 | 通知 |
+| 错误率 | >1% | 立即通知运维 |
+| 响应时间 | P95 >500ms | 通知 SRE 团队 |
+| DB 连接 | >80% | 警告 |
+| 磁盘空间 | <10% | 警告 |
+| SSL 证书 | 30 天内过期 | 通知 |
 
 ---
 
 ## 故障排查
 
-### 部署失敗
+### 部署失败
 ```bash
-# 1. 檢查日誌
+# 1. 检查日志
 tail -f /var/log/longhun/deployment.log
 
-# 2. 驗證配置
+# 2. 验证配置
 python3 -c "import json; json.load(open('prod_config.json'))"
 
-# 3. 檢查先決條件
+# 3. 检查先决条件
 ping prod-postgresql.example.com
 redis-cli -h prod-redis.example.com ping
 
-# 4. 回滾
+# 4. 回滚
 kubectl rollout undo deployment/longhun-prod
 ```
 
-### 高錯誤率
+### 高错误率
 ```bash
-# 1. 檢查應用日誌
+# 1. 检查应用日志
 kubectl logs -f deployment/longhun-prod
 
-# 2. 檢查數據庫連接
+# 2. 检查数据库连接
 mysql -h prod-postgresql.example.com -u longhun_app -p
 
-# 3. 檢查快取
+# 3. 检查快取
 redis-cli -h prod-redis.example.com INFO stats
 
-# 4. 如需要，進行回滾
+# 4. 如需要，进行回滚
 kubectl rollout undo deployment/longhun-prod
 ```
 
 ### 性能下降
 ```bash
-# 1. 檢查 CPU/內存使用
+# 1. 检查 CPU/内存使用
 kubectl top pods -l app=longhun-prod
 
-# 2. 檢查數據庫性能
+# 2. 检查数据库性能
 EXPLAIN SELECT ...;
 
-# 3. 檢查快取命中率
+# 3. 检查快取命中率
 redis-cli -h prod-redis.example.com INFO stats
 
-# 4. 水平擴展
+# 4. 水平扩展
 kubectl scale deployment/longhun-prod --replicas=5
 ```
 
 ---
 
-## 最佳實踐
+## 最佳实践
 
 ### 部署前
-- ✅ 在 Staging 環境中完全測試部署流程
-- ✅ 準備詳細的回滾計劃
-- ✅ 通知所有利益相關者
-- ✅ 安排在低流量時段進行部署
+- ✅ 在 Staging 环境中完全测试部署流程
+- ✅ 准备详细的回滚计划
+- ✅ 通知所有利益相关者
+- ✅ 安排在低流量时段进行部署
 
-### 部署期間
-- ✅ 持續監控關鍵指標
-- ✅ 準備好立即回滾
-- ✅ 與團隊保持溝通
-- ✅ 遵循部署檢查清單
+### 部署期间
+- ✅ 持续监控关键指标
+- ✅ 准备好立即回滚
+- ✅ 与团队保持沟通
+- ✅ 遵循部署检查清单
 
-### 部署後
-- ✅ 監控 24 小時
-- ✅ 驗證所有功能
-- ✅ 收集性能數據
-- ✅ 更新文檔和 runbook
-
----
-
-## 聯繫和支援
-
-- **部署問題**: 聯繫 SRE 團隊
-- **應用問題**: 聯繫開發團隊
-- **安全問題**: 聯繫安全團隊
-- **監控問題**: 聯繫運維團隊
+### 部署后
+- ✅ 监控 24 小时
+- ✅ 验证所有功能
+- ✅ 收集性能数据
+- ✅ 更新文档和 runbook
 
 ---
 
-## 相關文件
+## 联系和支援
+
+- **部署问题**: 联系 SRE 团队
+- **应用问题**: 联系开发团队
+- **安全问题**: 联系安全团队
+- **监控问题**: 联系运维团队
+
+---
+
+## 相关文件
 
 - `demo_staging_deployment.py` - Staging 部署引擎
-- `production_deployment.py` - 生產部署引擎
-- `backup.sh` - 備份指令碼
-- `smoke_tests.sh` - 烟霧測試
-- `endpoint_verification.sh` - 端點驗證
+- `production_deployment.py` - 生产部署引擎
+- `backup.sh` - 备份指令码
+- `smoke_tests.sh` - 烟雾测试
+- `endpoint_verification.sh` - 端点验证
 
 ---
 
 **DNA**: `#龍芯⚡️2026-06-08-PRODUCTION-DEPLOYMENT-GUIDE-v1.0`
-**確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+**确认**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`

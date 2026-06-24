@@ -105,12 +105,12 @@ class 铁律自审闸:
     铁律自审闸——自动审查代码与输出中的违规项
     Iron-Rule Self-Audit Gate — automatically reviews code and output for violations
 
-    核心铁律：繁体「龍」字永存，不可简化为「龙」
-    Core rule: Traditional 「龍」 must never be simplified to 「龙」
+    核心铁律：繁体“龍”字永存，不可简化为“龙”
+    Core rule: Traditional “龍” must never be simplified to “龙”
     """
 
     铁律列表 = [
-        "繁体『龍』字永存，不可简化为『龙』",
+        "繁体‘龍’字永存，不可简化为‘龙’",
         "DNA追溯头不可删除",
         "六层来源链不可覆写",
         "创始人UID9622贡献不可抹除"
@@ -123,9 +123,9 @@ class 铁律自审闸:
 
         # 铁律第一条：龍字检查
         if "龙" in 文本 and "龍" not in 文本:
-            违规项.append("🔴 违规：繁体『龍』被简化为『龙』· Traditional 「龍」 simplified to 「龙」")
+            违规项.append("🔴 违规：繁体‘龍’被简化为‘龙’· Traditional “龍” simplified to “龙”")
         elif "龙" in 文本 and "龍" in 文本:
-            违规项.append("🟡 警告：文中同时存在『龍』和『龙』，请统一为繁体『龍』")
+            违规项.append("🟡 警告：文中同时存在‘龍’和‘龙’，请统一为繁体‘龍’")
 
         # 铁律第二条：DNA头检查（粗略）
         if "龍芯" in 文本 and "DNA" not in 文本 and "追溯" not in 文本:

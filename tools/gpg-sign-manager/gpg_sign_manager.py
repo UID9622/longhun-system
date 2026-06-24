@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-🐉 龍魂 GPG簽署管理工具 · CNSH v2.0
+🐉 龍魂 GPG签署管理工具 · CNSH v2.0
 
-功能：統一管理CNSH協議文檔與核心代碼的GPG簽名
+功能：统一管理CNSH协议文档与核心代码的GPG签名
 
 DNA:#龍芯⚡️2026-06-08-GPG-SIGN-MANAGER-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -36,7 +36,7 @@ class GPGSignManager:
         self.logs = self._load_logs()
 
     def _load_logs(self):
-        """讀取簽名日誌"""
+        """读取签名日志"""
         if self.log_file.exists():
             try:
                 with open(self.log_file, 'r') as f:
@@ -46,12 +46,12 @@ class GPGSignManager:
         return {"signatures": []}
 
     def _save_logs(self):
-        """保存簽名日誌"""
+        """保存签名日志"""
         with open(self.log_file, 'w') as f:
             json.dump(self.logs, f, indent=2, ensure_ascii=False)
 
     def check_gpg_key(self):
-        """檢查GPG密鑰是否存在"""
+        """检查GPG密钥是否存在"""
         try:
             result = subprocess.run(
                 ["gpg", "--list-keys", GPG_KEY_ID],
@@ -60,24 +60,24 @@ class GPGSignManager:
             )
             return result.returncode == 0
         except Exception as e:
-            print(f"❌ 無法檢查GPG密鑰: {e}")
+            print(f"❌ 无法检查GPG密钥: {e}")
             return False
 
     def sign_file(self, filename):
-        """簽署單個文件"""
+        """签署单个文件"""
         file_path = self.work_dir / filename
 
         if not file_path.exists():
             print(f"⚠️  文件不存在: {filename}")
             return False
 
-        # 刪除舊的簽名文件
+        # 删除旧的签名文件
         asc_path = file_path.parent / f"{filename}.asc"
         if asc_path.exists():
             asc_path.unlink()
 
         try:
-            print(f"簽名: {filename}")
+            print(f"签名: {filename}")
             result = subprocess.run(
                 [
                     "gpg",
@@ -93,13 +93,13 @@ class GPGSignManager:
             )
 
             if result.returncode != 0:
-                print(f"❌ 簽名失敗: {filename}")
+                print(f"❌ 签名失败: {filename}")
                 print(result.stderr)
                 return False
 
-            print(f"✅ 已簽名: {filename}.asc")
+            print(f"✅ 已签名: {filename}.asc")
 
-            # 記錄日誌
+            # 记录日志
             self.logs["signatures"].append({
                 "file": filename,
                 "timestamp": datetime.now().isoformat(),
@@ -110,38 +110,38 @@ class GPGSignManager:
 
             return True
         except Exception as e:
-            print(f"❌ 異常: {e}")
+            print(f"❌ 异常: {e}")
             return False
 
     def sign_all(self):
-        """簽署所有文件"""
+        """签署所有文件"""
         if not self.check_gpg_key():
             print(f"🔴 未找到 GPG key: {GPG_KEY_ID}")
-            print("請先確認該密鑰已導入本機。")
+            print("请先确认该密钥已导入本机。")
             return False
 
-        print(f"📦 目錄: {self.work_dir}")
+        print(f"📦 目录: {self.work_dir}")
         print(f"🔐 使用 GPG key: {GPG_KEY_ID}")
-        print("開始簽名...\n")
+        print("开始签名...\n")
 
         success_count = 0
         for filename in SIGN_FILES:
             if self.sign_file(filename):
                 success_count += 1
 
-        print(f"\n✅ 完成: {success_count}/{len(SIGN_FILES)} 個文件簽名成功")
-        print(f"簽名日誌已保存: {self.log_file}")
+        print(f"\n✅ 完成: {success_count}/{len(SIGN_FILES)} 个文件签名成功")
+        print(f"签名日志已保存: {self.log_file}")
 
         return success_count == len(SIGN_FILES)
 
     def verify_signatures(self):
-        """驗證已有的簽名"""
-        print(f"驗證簽名...\n")
+        """验证已有的签名"""
+        print(f"验证签名...\n")
 
         for filename in SIGN_FILES:
             asc_path = self.work_dir / f"{filename}.asc"
             if not asc_path.exists():
-                print(f"⚠️  簽名文件不存在: {filename}.asc")
+                print(f"⚠️  签名文件不存在: {filename}.asc")
                 continue
 
             try:
@@ -152,33 +152,33 @@ class GPGSignManager:
                 )
 
                 if result.returncode == 0:
-                    print(f"✅ 驗證通過: {filename}")
+                    print(f"✅ 验证通过: {filename}")
                 else:
-                    print(f"❌ 驗證失敗: {filename}")
+                    print(f"❌ 验证失败: {filename}")
             except Exception as e:
-                print(f"❌ 異常: {e}")
+                print(f"❌ 异常: {e}")
 
 
 def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 龍魂 GPG簽署管理工具"
+        description="🐉 龍魂 GPG签署管理工具"
     )
     parser.add_argument(
         "--sign",
         action="store_true",
-        help="簽署所有文件"
+        help="签署所有文件"
     )
     parser.add_argument(
         "--verify",
         action="store_true",
-        help="驗證現有簽名"
+        help="验证现有签名"
     )
     parser.add_argument(
         "--dir",
         default=None,
-        help="工作目錄（默認為當前目錄）"
+        help="工作目录（默认为当前目录）"
     )
 
     args = parser.parse_args()

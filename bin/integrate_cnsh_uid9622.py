@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-INTEGRATE_CNSH_UID9622-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 """
@@ -24,9 +24,9 @@ DEST_DIR.mkdir(parents=True, exist_ok=True)
 CATEGORY_RULES = [
     ("constitution", ["宪法", "constitution", "宪章", "宣言", "北辰", "母协议", "CNSH共建", "共创宪章", "原创性宣誓", "熔断触发器"]),
     ("anchors", ["锚点", "自然人身份", "设备锚", "生物锚", "社交锚", "创作锚", "审计日志", "跨平台容灾", "原创性"]),
-    ("governance", ["治理", "governance", "七維", "七维", "AI治理", "數字主權", "数字主权", "执行表", "全球法律", "伦理", "合规", "权限管理", "权限矩阵"]),
-    ("sancai", ["三才", "流場", "流场", "p5", "persona router", "人格路由", "router"]),
-    ("runtime", ["runtime", "运行时", "编译器", "compiler", "CNSH语言", "LU指令", "字典", "dictionary", "语法", "一句話路由", "一句话路由", "指令集", "語義"]),
+    ("governance", ["治理", "governance", "七维", "七维", "AI治理", "数字主权", "数字主权", "执行表", "全球法律", "伦理", "合规", "权限管理", "权限矩阵"]),
+    ("sancai", ["三才", "流场", "流场", "p5", "persona router", "人格路由", "router"]),
+    ("runtime", ["runtime", "运行时", "编译器", "compiler", "CNSH语言", "LU指令", "字典", "dictionary", "语法", "一句话路由", "一句话路由", "指令集", "语义"]),
     ("templates", ["智能回复", "回复模板", "template", "prompt", "提示词"]),
     ("education", ["AI教育", "教程", "课程", "训练营", "学习路径"]),
     ("metaverse", ["元宇宙", "metaverse", "国民入口", "全能引擎"]),
@@ -74,10 +74,10 @@ EXCLUDE_NAME_PATTERNS = [
     r"成长记录",
     r"账号.*整理",
     r"测试.*csv",
-    r"測試.*csv",
+    r"测试.*csv",
     r"整理.*app",
     r"想法收集",
-    r"嘗試設計",
+    r"尝试设计",
     r"Stay Updated",
     r"OpenAI News",
     r"Teamspace Home",

@@ -220,5 +220,5 @@ let the system burn itself to ashes.
 This is the price of serving humanity's hope.
 ```
 
-🐉 龍魂系統 · CNSH v2.0 · 人民的工具
+🐉 龍魂系统 · CNSH v2.0 · 人民的工具
 

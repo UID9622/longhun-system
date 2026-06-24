@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂系統 · v3.0 核心模塊集成包
+龍魂系统 · v3.0 核心模块集成包
 Longhun System · v3.0 Core Modules Integration Package
 
 DNA:#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-本包將下載包「Kimi_Agent_啟動全部技能」中的 5 個 v3.0 核心 Python 模塊
-吸收進 longhun-system 主幹，並透過英文別名提供兼容導入，不干擾既有主干函數。
+本包将下载包“Kimi_Agent_启动全部技能”中的 5 个 v3.0 核心 Python 模块
+吸收进 longhun-system 主干，并透过英文别名提供兼容导入，不干扰既有主干函数。
 
-原始檔案保留於本目錄（中文檔名），作為存檔與直接執行入口。
+原始档案保留于本目录（中文档名），作为存档与直接执行入口。
 """
 
 import os
@@ -28,7 +28,7 @@ __all__ = [
     "load_v3_modules",
 ]
 
-# 原始中文檔名 → 英文別名
+# 原始中文档名 → 英文别名
 _V3_MODULE_MAP = {
     "wuxing_decision_engine": "五行融合决策引擎_v3.0.py",
     "persona_matrix_engine": "人格矩阵路由系统_v3.0.py",
@@ -37,28 +37,28 @@ _V3_MODULE_MAP = {
     "tricolor_audit_engine": "三色审计与10道闸系统_v3.0.py",
 }
 
-# 延遲加載快取
+# 延迟加载快取
 _loaded_modules: dict = {}
 
 
 def _load_module(alias: str, filename: str):
-    """使用 importlib 從本包目錄載入指定中文名稱的模塊。"""
+    """使用 importlib 从本包目录载入指定中文名称的模块。"""
     if alias in _loaded_modules:
         return _loaded_modules[alias]
 
     package_dir = Path(__file__).parent.resolve()
     file_path = package_dir / filename
     if not file_path.exists():
-        raise FileNotFoundError(f"v3 模塊檔案不存在: {file_path}")
+        raise FileNotFoundError(f"v3 模块档案不存在: {file_path}")
 
-    # 使用完整限定名稱作為 spec name，確保 dataclass 能正確解析 sys.modules
+    # 使用完整限定名称作为 spec name，确保 dataclass 能正确解析 sys.modules
     full_name = f"{__name__}.{alias}"
     spec = importlib.util.spec_from_file_location(full_name, str(file_path))
     if spec is None or spec.loader is None:
-        raise ImportError(f"無法建立模組規格: {file_path}")
+        raise ImportError(f"无法建立模组规格: {file_path}")
 
     module = importlib.util.module_from_spec(spec)
-    # 註冊到 sys.modules 避免重複載入與 dataclass 查找失敗
+    # 注册到 sys.modules 避免重复载入与 dataclass 查找失败
     sys.modules[full_name] = module
     spec.loader.exec_module(module)
     _loaded_modules[alias] = module
@@ -66,13 +66,13 @@ def _load_module(alias: str, filename: str):
 
 
 def load_v3_modules():
-    """預載全部 v3.0 核心模塊，返回別名到模塊物件的對照表。"""
+    """预载全部 v3.0 核心模块，返回别名到模块物件的对照表。"""
     for alias, filename in _V3_MODULE_MAP.items():
         _load_module(alias, filename)
     return _loaded_modules.copy()
 
 
-# ---- 屬性式延遲導出 ----
+# ---- 属性式延迟导出 ----
 def __getattr__(name: str):
     alias_map = {
         "WuxingDecisionEngine": ("wuxing_decision_engine", "WuxingDecisionEngine"),
@@ -91,10 +91,10 @@ def __getattr__(name: str):
         return getattr(module, cls_name)
     except AttributeError as exc:
         raise AttributeError(
-            f"v3 模塊 {filename!r} 中找不到類別 {cls_name!r}"
+            f"v3 模块 {filename!r} 中找不到类别 {cls_name!r}"
         ) from exc
 
 
-# 包級元信息
+# 包级元信息
 __version__ = "1.0.0"
 __dna__ = "#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0"

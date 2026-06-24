@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-INTEGRATE_PRIVATE_SHARED_BATCH2-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 """
@@ -20,14 +20,14 @@ DEST_DIR = Path("/Users/zuimeidedeyihan/longhun-system/docs/private-shared-impor
 
 DEST_DIR.mkdir(parents=True, exist_ok=True)
 
-# 分类规则：按关键词匹配文件名+内容（優先級從上到下，governance 放最後作兜底）
+# 分类规则：按关键词匹配文件名+内容（优先级从上到下，governance 放最后作兜底）
 CATEGORY_RULES = [
     ("ai-behavior", ["AI行为", "AI 行为", "回复", "执行标准", "强制执行", "智能回复", "prompt", "人格召唤", "意图识别"]),
-    ("cnsh-protocols", ["CNSH", "协议", "路由", "语言规范", "语义", "任务流场", "流場", "一句話", "北辰", "母协议", "通心譯", "共建宪章"]),
+    ("cnsh-protocols", ["CNSH", "协议", "路由", "语言规范", "语义", "任务流场", "流场", "一句话", "北辰", "母协议", "通心译", "共建宪章"]),
     ("architecture", ["架构", "系统架构", "三层隔离", "龙魂OS", "OS", "元宇宙", "Metaverse", "入口", "网关", "中台", "协同中枢"]),
     ("persona-tools", ["人格", "persona", "personas", "诸葛亮", "93人格", "人格库", "思维模式", "职位会议", "人格职位", "人格协同"]),
     ("api-integration", ["FastAPI", "Webhook", "文档中心", "一键同步"]),
-    ("memory-dna", ["DNA", "记忆", "追溯", "归集", "归檔", "归集引擎", "归檔引擎"]),
+    ("memory-dna", ["DNA", "记忆", "追溯", "归集", "归档", "归集引擎", "归档引擎"]),
     ("security-audit", ["审计", "audit", "净土", "安全防护", "数字身份", "熔断", "监督", "指纹检测", "清理中心", "质量监控", "真伪判断", "边界中心"]),
     ("documentation", ["README", "术语", "白皮书", "龙智守", "使用说明", "操作指南", "知识库总索引", "文档中心"]),
     ("decision-records", ["DECISION", "决策日志", "选择记录", "决定"]),
@@ -79,12 +79,12 @@ EXCLUDE_NAME_PATTERNS = [
     r"成长记录",
     r"账号.*整理",
     r"测试.*csv",
-    r"測試.*csv",
+    r"测试.*csv",
     r"整理.*app",
     r"从移动端开始",
     r"邮箱.*颜色",
     r"想法收集",
-    r"嘗試設計",
+    r"尝试设计",
     r"Stay Updated",
     r"OpenAI News",
     r"思维分类待办",

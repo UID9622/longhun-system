@@ -131,7 +131,7 @@ def 列出文件():
 # ============ 主循环 ============
 def 主程序():
     print("🐉 CNSH·中文编程引擎 v1.0 已启动 | CNSH Engine v1.0 Running")
-    print("  输入「帮助」查看所有指令 | Type 「帮助」for commands\n")
+    print("  输入“帮助”查看所有指令 | Type “帮助”for commands\n")
 
     # 启动时检查连接
     r = requests.get(f"{BASE}/users/me", headers=HEADERS)
@@ -179,7 +179,7 @@ def 主程序():
         elif 命令 == "运行" and len(部分) >= 2:
             os.system(f"python3 ~/longhun-system/{部分[1]}")
         else:
-            print("  不认识这个指令 | Unknown command，输入「帮助」看看有什么能用的 | Type 「帮助」for help")
+            print("  不认识这个指令 | Unknown command，输入“帮助”看看有什么能用的 | Type “帮助”for help")
 
 if __name__ == "__main__":
     主程序()

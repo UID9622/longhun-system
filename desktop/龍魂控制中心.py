@@ -3,8 +3,8 @@
 """
 龍魂控制中心 v1.0
 
-所有按鈕都有說明，不用靠腦子記。
-普通人也能用，點一下就知道幹什麼。
+所有按钮都有说明，不用靠脑子记。
+普通人也能用，点一下就知道干什么。
 
 DNA:#龍芯⚡️2026-06-18-LONGHUN-CONTROL-CENTER-FILE1-v1.0
 """
@@ -24,26 +24,26 @@ REGISTRY = ROOT / "desktop" / "menu-registry.json"
 CATEGORY_NAMES = {
     "desktop": "🐉 龍魂核心",
     "crypto-stack": "🔐 加密堆栈",
-    "editor": "📝 編輯器",
-    "cnsh-terminal": "🖥️ 終端與翻譯",
-    "xpay": "💱 主權支付",
+    "editor": "📝 编辑器",
+    "cnsh-terminal": "🖥️ 终端与翻译",
+    "xpay": "💱 主权支付",
     "executors/kimi-agent-v2": "🤖 Kimi Agent v2",
     "cnsh": "📚 CNSH 底座",
 }
 
 
 def load_items():
-    """讀取總註冊表與所有模塊 desktop-menu.json"""
+    """读取总注册表与所有模块 desktop-menu.json"""
     items = []
 
-    # 總表
+    # 总表
     if REGISTRY.exists():
         data = json.loads(REGISTRY.read_text(encoding="utf-8"))
         for item in data.get("items", []):
             item["source"] = "desktop"
             items.append(item)
 
-    # 掃描模塊菜單
+    # 扫描模块菜单
     exclude = {".git", "__pycache__", ".pytest_cache", "node_modules", "venv", ".venv"}
     for path in ROOT.rglob("desktop-menu.json"):
         if any(part in exclude for part in path.parts):
@@ -72,7 +72,7 @@ def replace_root(cmd):
 
 
 class Tooltip:
-    """簡單懸浮提示"""
+    """简单悬浮提示"""
     def __init__(self, widget, text):
         self.widget = widget
         self.text = text
@@ -109,20 +109,20 @@ class Tooltip:
 class 龍魂控制中心:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("龍魂控制中心 v1.0 · 點一下就懂")
+        self.root.title("龍魂控制中心 v1.0 · 点一下就懂")
         self.root.geometry("1400x900")
         self.root.configure(bg="#f5f5f5")
 
-        self._建立標題()
-        self._建立主區域()
-        self._建立輸出區()
+        self._建立标题()
+        self._建立主区域()
+        self._建立输出区()
 
-    def _建立標題(self):
+    def _建立标题(self):
         header = tk.Frame(self.root, bg="#1a1a2e", height=60)
         header.pack(side=tk.TOP, fill=tk.X)
         tk.Label(
             header,
-            text="🐉 龍魂控制中心 · 所有按鈕都有說明",
+            text="🐉 龍魂控制中心 · 所有按钮都有说明",
             fg="white",
             bg="#1a1a2e",
             font=("PingFang SC", 20, "bold"),
@@ -130,23 +130,23 @@ class 龍魂控制中心:
 
         ttk.Button(
             header,
-            text="🔄 刷新菜單",
-            command=self._刷新菜單,
+            text="🔄 刷新菜单",
+            command=self._刷新菜单,
         ).pack(side=tk.RIGHT, padx=10, pady=10)
 
-    def _建立主區域(self):
+    def _建立主区域(self):
         container = tk.Frame(self.root, bg="#f5f5f5")
         container.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=10, pady=10)
 
         canvas = tk.Canvas(container, bg="#f5f5f5", highlightthickness=0)
         scrollbar = ttk.Scrollbar(container, orient=tk.VERTICAL, command=canvas.yview)
-        self.滾動框架 = tk.Frame(canvas, bg="#f5f5f5")
+        self.滚动框架 = tk.Frame(canvas, bg="#f5f5f5")
 
-        self.滾動框架.bind(
+        self.滚动框架.bind(
             "<Configure>",
             lambda e: canvas.configure(scrollregion=canvas.bbox("all")),
         )
-        canvas.create_window((0, 0), window=self.滾動框架, anchor="nw", width=1360)
+        canvas.create_window((0, 0), window=self.滚动框架, anchor="nw", width=1360)
         canvas.configure(yscrollcommand=scrollbar.set)
 
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
@@ -155,8 +155,8 @@ class 龍魂控制中心:
         self._填充卡片()
 
     def _填充卡片(self):
-        # 清空舊卡片
-        for widget in self.滾動框架.winfo_children():
+        # 清空旧卡片
+        for widget in self.滚动框架.winfo_children():
             widget.destroy()
 
         items = load_items()
@@ -167,9 +167,9 @@ class 龍魂控制中心:
             group_items_list = groups[source]
             title = CATEGORY_NAMES.get(source, source)
 
-            # 分類標題
+            # 分类标题
             tk.Label(
-                self.滾動框架,
+                self.滚动框架,
                 text=title,
                 bg="#f5f5f5",
                 fg="#1a1a2e",
@@ -182,7 +182,7 @@ class 龍魂控制中心:
             for item in group_items_list:
                 if item.get("type") == "quit":
                     continue
-                card = self._建立卡片(self.滾動框架, item)
+                card = self._建立卡片(self.滚动框架, item)
                 card.grid(row=row, column=col, padx=10, pady=10, sticky="nw")
                 col += 1
                 if col >= 4:
@@ -233,8 +233,8 @@ class 龍魂控制中心:
 
         btn = ttk.Button(
             frame,
-            text="▶ 執行",
-            command=lambda it=item: self._執行(it),
+            text="▶ 执行",
+            command=lambda it=item: self._执行(it),
         )
         btn.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
 
@@ -242,26 +242,26 @@ class 龍魂控制中心:
 
         return frame
 
-    def _執行(self, item):
+    def _执行(self, item):
         item_type = item.get("type", "shell")
         label = item.get("label", "未命名")
-        self._輸出(f"\n>>> 正在執行：{label}")
+        self._输出(f"\n>>> 正在执行：{label}")
 
         if item_type == "shell":
             cmd = replace_root(item.get("command", ""))
-            self._運行(cmd, shell=True)
+            self._运行(cmd, shell=True)
         elif item_type == "open_url":
             url = item.get("url", "")
-            self._運行(f"open '{url}'", shell=True)
+            self._运行(f"open '{url}'", shell=True)
         elif item_type == "open_app":
             app = item.get("app", "Terminal")
             path = replace_root(item.get("path", ""))
-            self._運行(f"open -a '{app}' '{path}'", shell=True)
+            self._运行(f"open -a '{app}' '{path}'", shell=True)
         else:
-            self._輸出(f"未支持的類型：{item_type}")
+            self._输出(f"未支持的类型：{item_type}")
 
-    def _運行(self, cmd, shell=False):
-        self._輸出(f"$ {cmd}")
+    def _运行(self, cmd, shell=False):
+        self._输出(f"$ {cmd}")
         try:
             proc = subprocess.Popen(
                 cmd if shell else cmd.split(),
@@ -272,23 +272,23 @@ class 龍魂控制中心:
                 cwd=ROOT,
             )
             for line in proc.stdout:
-                self._輸出(line.rstrip())
+                self._输出(line.rstrip())
             proc.wait()
-            self._輸出(f"[退出碼: {proc.returncode}]")
+            self._输出(f"[退出码: {proc.returncode}]")
         except Exception as e:
-            self._輸出(f"[錯誤] {e}")
+            self._输出(f"[错误] {e}")
 
-    def _建立輸出區(self):
+    def _建立输出区(self):
         tk.Label(
             self.root,
-            text="📋 執行輸出",
+            text="📋 执行输出",
             bg="#f5f5f5",
             fg="#333",
             font=("PingFang SC", 12, "bold"),
             anchor="w",
         ).pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 0))
 
-        self.輸出區 = scrolledtext.ScrolledText(
+        self.输出区 = scrolledtext.ScrolledText(
             self.root,
             height=10,
             wrap=tk.WORD,
@@ -297,16 +297,16 @@ class 龍魂控制中心:
             font=("PingFang SC", 12),
             state=tk.NORMAL,
         )
-        self.輸出區.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
+        self.输出区.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
 
-    def _輸出(self, text):
-        self.輸出區.configure(state=tk.NORMAL)
-        self.輸出區.insert(tk.END, text + "\n")
-        self.輸出區.see(tk.END)
-        self.輸出區.configure(state=tk.DISABLED)
+    def _输出(self, text):
+        self.输出区.configure(state=tk.NORMAL)
+        self.输出区.insert(tk.END, text + "\n")
+        self.输出区.see(tk.END)
+        self.输出区.configure(state=tk.DISABLED)
 
-    def _刷新菜單(self):
-        self._輸出("🔄 正在刷新菜單...")
+    def _刷新菜单(self):
+        self._输出("🔄 正在刷新菜单...")
         try:
             subprocess.run(
                 ["bash", str(ROOT / "bin" / "build-desktop-switch.sh")],
@@ -314,9 +314,9 @@ class 龍魂控制中心:
                 check=True,
             )
             self._填充卡片()
-            self._輸出("✅ 菜單刷新完成")
+            self._输出("✅ 菜单刷新完成")
         except Exception as e:
-            self._輸出(f"[刷新失敗] {e}")
+            self._输出(f"[刷新失败] {e}")
 
 
 def main():

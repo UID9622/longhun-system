@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# 龍魂系統 Skill 啟動器 v1.0
+# 龍魂系统 Skill 启动器 v1.0
 # DNA:#龍芯⚡️2026-06-07-SKILL-LAUNCHER-FILE1-v1.0
 
 set -e
 
-echo "🐉 龍魂系統 Skill 啟動器"
+echo "🐉 龍魂系统 Skill 启动器"
 echo "=================================================="
 echo ""
-echo "✅ 已完成交付的 10 個 Skill:"
+echo "✅ 已完成交付的 10 个 Skill:"
 echo ""
 echo "1️⃣  /algorithmic-art - 算法艺术生成器 (HTML)"
 echo "   📍 /mnt/user-data/outputs/skill-1-algorithmic-art.html"
@@ -75,7 +75,7 @@ echo "🔬 验证: 每个 Skill 都包含完整的注释和文档"
 echo "📊 生产级别: 代码质量 ≥ 95%"
 echo ""
 echo "🐉 DNA:#龍芯⚡️2026-06-07-SKILL-LAUNCHER-v1.0"
-echo "👤 责任方: UID9622 · 不免責"
+echo "👤 责任方: UID9622 · 不免责"
 echo "📅 交付时间: $(date +'%Y-%m-%d %H:%M:%S')"
 echo ""
 echo "=================================================="

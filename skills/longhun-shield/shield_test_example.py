@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-SHIELD_TEST_EXAMPLE-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -110,7 +110,7 @@ def longhun_compliant_function(data):
         'output': sum(data) if data else 0,
     }
     
-    # 第三步：完整的来源鏈
+    # 第三步：完整的来源链
     result['lineage'] = {
         'original': data,
         'validated': True,

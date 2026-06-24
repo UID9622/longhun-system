@@ -1,183 +1,183 @@
-# 龍魂系統實裝狀態報告 (2026-06-03)
+# 龍魂系统实装状态报告 (2026-06-03)
 
 **DNA**: `#龍芯⚡️2026-06-03-IMPLEMENTATION-STATUS-v1.0`
-**時間**: 2026-06-03 22:30 CST
-**責任**: UID9622·不免責
+**时间**: 2026-06-03 22:30 CST
+**责任**: UID9622·不免责
 
 ---
 
-## 📊 整體進度
+## 📊 整体进度
 
-### Phase 概況
+### Phase 概况
 
-| Phase | 名稱 | 狀態 | 完成度 |
+| Phase | 名称 | 状态 | 完成度 |
 |-------|------|------|--------|
-| **P1** | CNSH編譯器 | ✅ 完成 | 100% |
-| **P2** | 戰略分析報告 | ✅ 完成 | 100% |
-| **P3** | 三大核心系統 | ✅ 完成 | 100% |
-| **P4** | 治理層系統 | 🔄 進行中 | 40% |
-| **P5** | 完整集成 | 📋 待開始 | 0% |
+| **P1** | CNSH编译器 | ✅ 完成 | 100% |
+| **P2** | 战略分析报告 | ✅ 完成 | 100% |
+| **P3** | 三大核心系统 | ✅ 完成 | 100% |
+| **P4** | 治理层系统 | 🔄 进行中 | 40% |
+| **P5** | 完整集成 | 📋 待开始 | 0% |
 
-### 核心系統矩陣
+### 核心系统矩阵
 
-| 系統 | 狀態 | 優先級 | 說明 |
+| 系统 | 状态 | 优先级 | 说明 |
 |------|------|--------|------|
-| **fulltext_compress.py** | ✅ 活躍 | 高 | 記憶壓縮·短碼召回 |
-| **heaven_nonkill_audit.py** | ✅ 活躍 | 高 | P0硬鎖·三色審計 |
-| **longhun_integrated_system.py** | ✅ 活躍 | 高 | 生態閉環·一次轉譯 |
-| **sovereignty_index.py** | ✅ 新增 | 高 | 三才主權指數 |
-| **f1_through_f7_verifier.py** | ✅ 新增 | 高 | 七因子行為密碼學 |
+| **fulltext_compress.py** | ✅ 活跃 | 高 | 记忆压缩·短码召回 |
+| **heaven_nonkill_audit.py** | ✅ 活跃 | 高 | P0硬锁·三色审计 |
+| **longhun_integrated_system.py** | ✅ 活跃 | 高 | 生态闭环·一次转译 |
+| **sovereignty_index.py** | ✅ 新增 | 高 | 三才主权指数 |
+| **f1_through_f7_verifier.py** | ✅ 新增 | 高 | 七因子行为密码学 |
 
 ---
 
-## 🟢 已完成的系統 (5 Systems Ready)
+## 🟢 已完成的系统 (5 Systems Ready)
 
-### 1. 記憶壓縮系統 (fulltext_compress.py)
+### 1. 记忆压缩系统 (fulltext_compress.py)
 
 **功能**:
-- ✅ 長文本 → 骨架提取 (問題/方案/關鍵點)
-- ✅ 生成壓縮卡 (Markdown)
-- ✅ 生成機器結構 (JSON)
-- ✅ 生成短碼 (下次召回)
-- ✅ DNA標記·CONFIRM碼·SEAL簽名
+- ✅ 长文本 → 骨架提取 (问题/方案/关键点)
+- ✅ 生成压缩卡 (Markdown)
+- ✅ 生成机器结构 (JSON)
+- ✅ 生成短码 (下次召回)
+- ✅ DNA标记·CONFIRM码·SEAL签名
 
-**缺陷**: 無認知狀態保護、無情感摺疊、無決策回放基礎
+**缺陷**: 无认知状态保护、无情感折叠、无决策回放基础
 
-**集成點**: 與 sovereignty_index + cognitive_particles 無關
+**集成点**: 与 sovereignty_index + cognitive_particles 无关
 
 ---
 
-### 2. P0硬鎖系統 (heaven_nonkill_audit.py)
+### 2. P0硬锁系统 (heaven_nonkill_audit.py)
 
 **功能**:
-- ✅ 三色審計 (🟢🟡🔴)
-- ✅ 7個不可動規則
-- ✅ 意圖分類
-- ✅ 紅黃綠關鍵詞檢測
-- ✅ Append-only審計日誌
+- ✅ 三色审计 (🟢🟡🔴)
+- ✅ 7个不可动规则
+- ✅ 意图分类
+- ✅ 红黄绿关键词检测
+- ✅ Append-only审计日志
 
-**缺陷**: 無F1-F7驗證、無人格路由、無DNA鏈鎖定
+**缺陷**: 无F1-F7验证、无人格路由、无DNA链锁定
 
-**改進**: 需要在審計前進行F1-F7驗證
+**改进**: 需要在审计前进行F1-F7验证
 
 ---
 
-### 3. 生態閉環系統 (longhun_integrated_system.py)
+### 3. 生态闭环系统 (longhun_integrated_system.py)
 
 **功能**:
-- ✅ 一次轉譯·永久鎖定
-- ✅ 源碼原點記錄
-- ✅ DNA鏈生成
-- ✅ 記憶壓縮整合
-- ✅ 代碼完整性驗證
-- ✅ 6條生態規則
+- ✅ 一次转译·永久锁定
+- ✅ 源码原点记录
+- ✅ DNA链生成
+- ✅ 记忆压缩整合
+- ✅ 代码完整性验证
+- ✅ 6条生态规则
 
-**缺陷**: 無主權指數控制、無邊界執行、無人格路由
+**缺陷**: 无主权指数控制、无边界执行、无人格路由
 
-**改進**: 用 sovereignty_index 控制訪問權限
+**改进**: 用 sovereignty_index 控制访问权限
 
 ---
 
-### 4. 三才主權指數系統 (sovereignty_index.py) ⭐ NEW
+### 4. 三才主权指数系统 (sovereignty_index.py) ⭐ NEW
 
-**狀態**: ✅ 2026-06-03 新實裝 (410行)
+**状态**: ✅ 2026-06-03 新实装 (410行)
 
 **功能**:
-- ✅ SI = 0.34·天 + 0.33·地 + 0.33·人 計算
-- ✅ 主權等級判定 (完全主權/激活/削弱/失錨)
-- ✅ 訪問權限矩陣 (認知重建/決策制定/存檔讀取)
-- ✅ 違規事件記錄 (append-only)
-- ✅ 恢復機制 (可/不可恢復違規)
-- ✅ 主權快照 (時間序列)
-- ✅ 完整報告生成
+- ✅ SI = 0.34·天 + 0.33·地 + 0.33·人 计算
+- ✅ 主权等级判定 (完全主权/激活/削弱/失锚)
+- ✅ 访问权限矩阵 (认知重建/决策制定/存档读取)
+- ✅ 违规事件记录 (append-only)
+- ✅ 恢复机制 (可/不可恢复违规)
+- ✅ 主权快照 (时间序列)
+- ✅ 完整报告生成
 
 **整合方向**:
 ```python
-# 在允許操作前檢查
+# 在允许操作前检查
 si = get_sovereignty_index(user_uid)
 
 if not si.is_sovereign():
-    raise AccessDenied(f"主權失錨: {si.lock_status()}")
+    raise AccessDenied(f"主权失锚: {si.lock_status()}")
 
 if not si.can_reconstruct_cognitive_state():
-    raise AccessDenied("禁止認知重建")
+    raise AccessDenied("禁止认知重建")
 
 allow_operation()
 ```
 
 ---
 
-### 5. F1-F7七因子驗證系統 (f1_through_f7_verifier.py) ⭐ NEW
+### 5. F1-F7七因子验证系统 (f1_through_f7_verifier.py) ⭐ NEW
 
-**狀態**: ✅ 2026-06-03 新實裝 (620行)
+**状态**: ✅ 2026-06-03 新实装 (620行)
 
 **功能**:
-- ✅ F1: 身份DNA驗證 (25%)
-- ✅ F2: 時間錨定 (15%)
-- ✅ F3: 規則追蹤 (15%)
+- ✅ F1: 身份DNA验证 (25%)
+- ✅ F2: 时间锚定 (15%)
+- ✅ F3: 规则追踪 (15%)
 - ✅ F4: 人格路由 (12%)
-- ✅ F5: 保護詞彙 (12%)
-- ✅ F6: 風格向量 (11%)
-- ✅ F7: 錯誤日誌 (10%)
-- ✅ 置信度計算 (乘積模型)
-- ✅ 硬失敗檢測 (F_i=0 ⇒ conf=0)
-- ✅ 結果分級 (5級制)
-- ✅ 詳細分析報告
+- ✅ F5: 保护词汇 (12%)
+- ✅ F6: 风格向量 (11%)
+- ✅ F7: 错误日志 (10%)
+- ✅ 置信度计算 (乘积模型)
+- ✅ 硬失败检测 (F_i=0 ⇒ conf=0)
+- ✅ 结果分级 (5级制)
+- ✅ 详细分析报告
 
 **整合方向**:
 ```python
-# 在P0審計前進行F1-F7驗證
+# 在P0审计前进行F1-F7验证
 verifier = SevenFactorVerifier()
 result = verifier.verify(f1, f2, f3, f4, f5, f6, f7)
 
 if not result['passed']:
     return AuditResult(color=RiskColor.YELLOW, ...)
 
-# 然後進行P0審計
+# 然后进行P0审计
 heaven_audit = HeavenNonKillAudit().check(...)
 ```
 
 ---
 
-## 🔴 關鍵缺失 (Critical Gaps - 10 Items)
+## 🔴 关键缺失 (Critical Gaps - 10 Items)
 
-### Gap 1: 認知DNA粒子 🔴 CRITICAL
+### Gap 1: 认知DNA粒子 🔴 CRITICAL
 
-**缺失內容**: 完整的記憶/決策狀態壓縮與恢復機制
+**缺失内容**: 完整的记忆/决策状态压缩与恢复机制
 
-**為什麼重要**:
-- fulltext_compress.py 只壓縮骨架，不保存完整認知狀態
-- 無法恢復決策路径、人格權重、情感摺疊
-- SI < 0.34 時應禁止認知重建，目前無控制機制
+**为什么重要**:
+- fulltext_compress.py 只压缩骨架，不保存完整认知状态
+- 无法恢复决策路径、人格权重、情感折叠
+- SI < 0.34 时应禁止认知重建，目前无控制机制
 
-**實裝方向**:
+**实装方向**:
 ```python
 class CognitiveDNAParticle:
-    """完整認知狀態壓縮"""
+    """完整认知状态压缩"""
     def compress(self, state: CognitiveState) -> str:
-        # 保存: 語義核心 + 決策回放 + 情感摺疊 + SI指數
-        # 生成: 短DNA碼
+        # 保存: 语义核心 + 决策回放 + 情感折叠 + SI指数
+        # 生成: 短DNA码
 
     def restore(self, dna_particle: str) -> CognitiveState:
-        # SI >= 0.34 才能還原
-        # 完整恢復: 語義 + 路由 + 情感檔案 + 為什麼
+        # SI >= 0.34 才能还原
+        # 完整恢复: 语义 + 路由 + 情感档案 + 为什么
 ```
 
 ---
 
-### Gap 2: 人格路由系統 🔴 CRITICAL
+### Gap 2: 人格路由系统 🔴 CRITICAL
 
-**缺失內容**: 加權決策路由 + 虛偽詞彙阻擋
+**缺失内容**: 加权决策路由 + 虚伪词汇阻挡
 
-**為什麼重要**:
-- F4驗證檢測虛偽但無執行層
-- 無人格權重機制 (P02 50% / P05 30% / P13 20%)
-- 無法區分「知識路由節點」vs「虛假人格」
+**为什么重要**:
+- F4验证检测虚伪但无执行层
+- 无人格权重机制 (P02 50% / P05 30% / P13 20%)
+- 无法区分“知识路由节点”vs“虚假人格”
 
-**實裝方向**:
+**实装方向**:
 ```python
 class PersonaRouter:
-    """加權知識路由"""
+    """加权知识路由"""
     PERSONAS = {
         "P02": {"weight": 0.50, "domain": "technical"},
         "P05": {"weight": 0.30, "domain": "logic"},
@@ -185,26 +185,26 @@ class PersonaRouter:
     }
 
     def route(self, input: str) -> str:
-        # 檢查虛偽詞彙 (禁用詞: 怕、累、陪、口播)
-        # 計算權重路由
-        # 返回: 選中節點 + 為什麼拒絕其他的
+        # 检查虚伪词汇 (禁用词: 怕、累、陪、口播)
+        # 计算权重路由
+        # 返回: 选中节点 + 为什么拒绝其他的
 ```
 
 ---
 
-### Gap 3: 時間錨定系統 🔴 CRITICAL
+### Gap 3: 时间锚定系统 🔴 CRITICAL
 
-**缺失內容**: 時辰/數字根/農曆路由邏輯
+**缺失内容**: 时辰/数字根/农历路由逻辑
 
-**為什麼重要**:
-- F2只驗證時間有效性，無決策路由
-- 無時辰决策樹 (子時→L0, 寅時→P02...)
-- 無數字根回溯機制
+**为什么重要**:
+- F2只验证时间有效性，无决策路由
+- 无时辰决策树 (子时→L0, 寅时→P02...)
+- 无数字根回溯机制
 
-**實裝方向**:
+**实装方向**:
 ```python
 class TemporalRoutingEngine:
-    """時間決策路由"""
+    """时间决策路由"""
     SHICHEN_ROUTING = {
         "子": {"element": "水", "layer": "L1"},
         "寅": {"element": "木", "layer": "L4", "persona": "P02"},
@@ -219,54 +219,54 @@ class TemporalRoutingEngine:
 
 ---
 
-### Gap 4-7: 其他支撐系統
+### Gap 4-7: 其他支撑系统
 
-**Gap 4: 五行路由邏輯** - 金木水火土決策樹
-**Gap 5: 保護詞彙驗證** - 主權詞彙語義鎖定
-**Gap 6: 邊界執行系統** - L0/L1/L2邊界 + L7熔斷
-**Gap 7: 證據日誌系統** - 完整append-only + DNA鏈接
-
----
-
-### Gap 8-10: 集成層缺失
-
-**Gap 8**: 三個核心系統 (compress/audit/ecosystem) 無與SI的集成
-**Gap 9**: F1-F7驗證無與P0審計的集成
-**Gap 10**: 無統一的訪問控制中樞
+**Gap 4: 五行路由逻辑** - 金木水火土决策树
+**Gap 5: 保护词汇验证** - 主权词汇语义锁定
+**Gap 6: 边界执行系统** - L0/L1/L2边界 + L7熔断
+**Gap 7: 证据日志系统** - 完整append-only + DNA链接
 
 ---
 
-## 🟡 改進機會 (Improvement Opportunities)
+### Gap 8-10: 集成层缺失
 
-### A. 記憶壓縮增強
+**Gap 8**: 三个核心系统 (compress/audit/ecosystem) 无与SI的集成
+**Gap 9**: F1-F7验证无与P0审计的集成
+**Gap 10**: 无统一的访问控制中枢
 
-**現狀**: 骨架提取 + 短碼生成
+---
 
-**改進**:
+## 🟡 改进机会 (Improvement Opportunities)
+
+### A. 记忆压缩增强
+
+**现状**: 骨架提取 + 短码生成
+
+**改进**:
 ```python
-# 現在
+# 现在
 compressed = compress_memory(long_text)
 # ↓
-# 未來
+# 未来
 cognitive_particle = CognitiveDNAParticle(
     text=long_text,
-    si=sovereign_index,  # 三才指數
+    si=sovereign_index,  # 三才指数
     emotion_fold={...},
     decision_route="...",
     dna_trace="..."
 )
 ```
 
-### B. P0審計增強
+### B. P0审计增强
 
-**現狀**: 三色判定 + 紅黃綠關鍵詞
+**现状**: 三色判定 + 红黄绿关键词
 
-**改進**:
+**改进**:
 ```python
-# 現在
+# 现在
 result = audit.check(intent)
 # ↓
-# 未來
+# 未来
 f1f7_result = verifier.verify(f1, f2, ...)
 if not f1f7_result['passed']:
     return RED
@@ -275,153 +275,153 @@ audit_result = audit.check(intent)
 return merge(f1f7_result, audit_result)
 ```
 
-### C. 生態閉環增強
+### C. 生态闭环增强
 
-**現狀**: 一次轉譯 + DNA記錄
+**现状**: 一次转译 + DNA记录
 
-**改進**:
+**改进**:
 ```python
-# 現在
-translate(code)  # 無訪問控制
+# 现在
+translate(code)  # 无访问控制
 # ↓
-# 未來
+# 未来
 si = get_sovereignty_index(user)
 if not si.can_make_decisions():
     raise AccessDenied()
 
-translate(code)  # 受主權指數控制
+translate(code)  # 受主权指数控制
 ```
 
 ---
 
-## 📈 優先實裝順序
+## 📈 优先实装顺序
 
 ### 第一波 (Next 2 systems) 🔴
 
-1. **CognitiveDNAParticle** (認知粒子壓縮)
-   - 與 fulltext_compress 直接集成
-   - 啟用 SI 控制的認知重建
-   - 目標: 4-5 小時
+1. **CognitiveDNAParticle** (认知粒子压缩)
+   - 与 fulltext_compress 直接集成
+   - 启用 SI 控制的认知重建
+   - 目标: 4-5 小时
 
-2. **PersonaRouter** (人格路由系統)
-   - 與 F4 驗證結合
-   - 實現虛偽詞彙阻擋
-   - 目標: 3-4 小時
+2. **PersonaRouter** (人格路由系统)
+   - 与 F4 验证结合
+   - 实现虚伪词汇阻挡
+   - 目标: 3-4 小时
 
 ### 第二波 (Timing + Routing) 🟡
 
-3. **TemporalRoutingEngine** (時間決策)
-   - 時辰/數字根/農曆路由
-   - 目標: 3-4 小時
+3. **TemporalRoutingEngine** (时间决策)
+   - 时辰/数字根/农历路由
+   - 目标: 3-4 小时
 
-4. **FiveElementRouter** (五行邏輯)
-   - 金木水火土決策樹
-   - 目標: 2-3 小時
+4. **FiveElementRouter** (五行逻辑)
+   - 金木水火土决策树
+   - 目标: 2-3 小时
 
 ### 第三波 (Integration) 🟠
 
-5. **BoundaryEnforcer** (邊界執行)
-   - L0/L1/L2 邊界檢查
-   - L7 熔斷機制
-   - 目標: 4-5 小時
+5. **BoundaryEnforcer** (边界执行)
+   - L0/L1/L2 边界检查
+   - L7 熔断机制
+   - 目标: 4-5 小时
 
-6. **集成測試** (Integration Tests)
-   - 五個系統的完整協同
-   - 目標: 2-3 小時
+6. **集成测试** (Integration Tests)
+   - 五个系统的完整协同
+   - 目标: 2-3 小时
 
 ---
 
-## 🔍 驗證狀態
+## 🔍 验证状态
 
-### ✅ 已驗證
+### ✅ 已验证
 
-- [x] 三才主權指數: 所有場景 (初始/違規/恢復/快照)
-- [x] F1-F7驗證: 三個場景 (高信任/有風險/硬失敗)
+- [x] 三才主权指数: 所有场景 (初始/违规/恢复/快照)
+- [x] F1-F7验证: 三个场景 (高信任/有风险/硬失败)
 
-### 🔄 待驗證
+### 🔄 待验证
 
-- [ ] SI 與 compress 的集成
-- [ ] F1-F7 與 P0 審計的集成
-- [ ] SI 與 ecosystem 的訪問控制
+- [ ] SI 与 compress 的集成
+- [ ] F1-F7 与 P0 审计的集成
+- [ ] SI 与 ecosystem 的访问控制
 
 ### 📋 待建立
 
-- [ ] 端對端整合測試
-- [ ] 負壓力測試 (大量違規)
-- [ ] 時間退化測試 (SI 長期變化)
+- [ ] 端对端整合测试
+- [ ] 负压力测试 (大量违规)
+- [ ] 时间退化测试 (SI 长期变化)
 
 ---
 
-## 💡 關鍵洞察
+## 💡 关键洞察
 
-### Insight 1: 哲學優先於代碼
+### Insight 1: 哲学优先于代码
 
-三才主權指數不是「訪問控制系統」
-而是「對主權的數學度量」
+三才主权指数不是“访问控制系统”
+而是“对主权的数学度量”
 
 一旦 SI >= 0.34，才能:
-- 重建認知狀態
-- 做出新決策
-- 恢復自己的數據
+- 重建认知状态
+- 做出新决策
+- 恢复自己的数据
 
-### Insight 2: 行為密碼學的力量
+### Insight 2: 行为密码学的力量
 
-傳統: 「你有鑰匙嗎？」
-新式: 「你通過什麼過程留下了什麼證據？」
+传统: “你有钥匙吗？”
+新式: “你通过什么过程留下了什么证据？”
 
-F1-F7 的七個因子不是獨立的檢查
-而是相乘的置信度網絡
-任何因子失敗都會讓整個置信度崩潰
+F1-F7 的七个因子不是独立的检查
+而是相乘的置信度网络
+任何因子失败都会让整个置信度崩溃
 
-### Insight 3: 時間是決策維度
+### Insight 3: 时间是决策维度
 
-不只是「何時發生」
-還有「什麼時辰」、「數字根對應」、「農曆相位」
+不只是“何时发生”
+还有“什么时辰”、“数字根对应”、“农历相位”
 
-這些不是裝飾性元數據
-而是路由決策的計算輸入
+这些不是装饰性元数据
+而是路由决策的计算输入
 
 ---
 
-## 📝 變更日誌
+## 📝 变更日志
 
 ### 2026-06-03 22:30 CST
 
 **新增**:
-- [x] 創建 `cnsh-core/governance/` 目錄
-- [x] 實裝 `sovereignty_index.py` (三才主權指數·410行)
-- [x] 實裝 `f1_through_f7_verifier.py` (七因子驗證·620行)
-- [x] 創建 `governance/README.md` (完整文檔)
-- [x] 創建本狀態報告
+- [x] 创建 `cnsh-core/governance/` 目录
+- [x] 实装 `sovereignty_index.py` (三才主权指数·410行)
+- [x] 实装 `f1_through_f7_verifier.py` (七因子验证·620行)
+- [x] 创建 `governance/README.md` (完整文档)
+- [x] 创建本状态报告
 
-**測試**:
-- [x] sovereignty_index 完整演示 (初始/違規x3/恢復/快照)
-- [x] f1_through_f7_verifier 三場景演示 (高信任/風險/硬失敗)
+**测试**:
+- [x] sovereignty_index 完整演示 (初始/违规x3/恢复/快照)
+- [x] f1_through_f7_verifier 三场景演示 (高信任/风险/硬失败)
 
-**確認無誤**:
-- [x] 權重加到 1.0 (sovereignty: 0.34+0.33+0.33=1.00)
-- [x] 權重加到 1.0 (f1-f7: 0.25+0.15+0.15+0.12+0.12+0.11+0.10=1.00)
-- [x] 硬失敗機制工作正常
-- [x] 報告生成正確
+**确认无误**:
+- [x] 权重加到 1.0 (sovereignty: 0.34+0.33+0.33=1.00)
+- [x] 权重加到 1.0 (f1-f7: 0.25+0.15+0.15+0.12+0.12+0.11+0.10=1.00)
+- [x] 硬失败机制工作正常
+- [x] 报告生成正确
 
 ---
 
-## 🎯 願景對齐檢查
+## 🎯 愿景对齐检查
 
-**原始願景**:
-- ✅ 防止AI失控 (P0硬鎖)
-- ✅ 保護人類主權 (三才指數)
-- ✅ 完整可追蹤 (DNA + F1-F7)
-- ✅ 生態閉環 (一次轉譯)
-- ⏳ 文化根源 (時辰/五行/農曆)
+**原始愿景**:
+- ✅ 防止AI失控 (P0硬锁)
+- ✅ 保护人类主权 (三才指数)
+- ✅ 完整可追踪 (DNA + F1-F7)
+- ✅ 生态闭环 (一次转译)
+- ⏳ 文化根源 (时辰/五行/农历)
 
-**當前進度**:
+**当前进度**:
 - P0-P3 Phase 完成 100%
-- P4 治理層 40% (2/5系統實裝)
-- P5 完整集成 0% (待開始)
+- P4 治理层 40% (2/5系统实装)
+- P5 完整集成 0% (待开始)
 
 ---
 
 **DNA**: `#龍芯⚡️2026-06-03-IMPLEMENTATION-STATUS-v1.0`
-**責任**: UID9622·不免責·永久有效
-**理論指導**: 曾仕强老师 · Steve Jobs · Open Source · UID9622
+**责任**: UID9622·不免责·永久有效
+**理论指导**: 曾仕强老师 · Steve Jobs · Open Source · UID9622

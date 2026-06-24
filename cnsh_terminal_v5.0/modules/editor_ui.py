@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-18-CNSH-EDITOR-UI-FILE1-v5.0
+"""
+#龍芯⚡️2026-06-18-CNSH-EDITOR-UI-v5.0
 # 🟢 审计通过: 编辑器UI完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫
@@ -13,8 +14,18 @@ import re
 import json
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox, filedialog, simpledialog
+from tkinter import font as tkfont
 from typing import Dict, List, Optional, Callable
 from datetime import datetime
+
+# ═══════════════════════════════════════════════════════════
+# LonghunFont 字体主权配置
+# 将 longhun-font/output/LonghunFont-Regular.otf 安装到系统后，
+# CNSH 终端编辑器将优先使用自主字体。
+# ═══════════════════════════════════════════════════════════
+系统字体列表 = tkfont.families()
+编辑器字体族 = "LonghunFont" if "LonghunFont" in 系统字体列表 else "编辑器字体族"
+print(f"[LonghunFont] 系统已安装: {'是' if 'LonghunFont' in 系统字体列表 else '否'} · 当前终端字体: {编辑器字体族}")
 
 # 尝试导入各模块
 try:
@@ -52,16 +63,16 @@ class 编辑器文本区(tk.Text):
     def _配置语法高亮标签(self):
         """配置语法高亮颜色标签"""
         self.tag_configure("keyword", foreground=高亮颜色映射.get(TokenType.KEYWORD, "#FF6B6B"),
-                          font=("Consolas", 12, "bold"))
+                          font=("编辑器字体族", 12, "bold"))
         self.tag_configure("type", foreground=高亮颜色映射.get(TokenType.TYPE, "#4ECDC4"),
-                          font=("Consolas", 12, "bold"))
+                          font=("编辑器字体族", 12, "bold"))
         self.tag_configure("boolean", foreground=高亮颜色映射.get(TokenType.BOOLEAN, "#45B7D1"))
         self.tag_configure("null", foreground=高亮颜色映射.get(TokenType.NULL, "#96CEB4"))
         self.tag_configure("identifier", foreground=高亮颜色映射.get(TokenType.IDENTIFIER, "#E8D5B7"))
         self.tag_configure("number", foreground=高亮颜色映射.get(TokenType.NUMBER, "#DDA0DD"))
         self.tag_configure("string", foreground=高亮颜色映射.get(TokenType.STRING, "#98FB98"))
         self.tag_configure("comment", foreground=高亮颜色映射.get(TokenType.COMMENT, "#808080"),
-                          font=("Consolas", 12, "italic"))
+                          font=("编辑器字体族", 12, "italic"))
         self.tag_configure("operator", foreground="#FFD700")
         self.tag_configure("separator", foreground="#D3D3D3")
         self.tag_configure("error", foreground="#FF0000", underline=True)
@@ -70,7 +81,7 @@ class 编辑器文本区(tk.Text):
 
         # 龍字特殊高亮
         self.tag_configure("龍字", foreground="#FFD700", background="#8B0000",
-                          font=("Consolas", 12, "bold"))
+                          font=("编辑器字体族", 12, "bold"))
 
     def _按键释放处理(self, 事件=None):
         """按键释放时触发语法高亮"""
@@ -175,7 +186,7 @@ class 行号画布(tk.Canvas):
             y = self.文本区.dlineinfo(f"{i}.0")
             if y:
                 self.create_text(25, y[1], text=str(i), anchor="nw",
-                                fill="#858585", font=("Consolas", 11))
+                                fill="#858585", font=("编辑器字体族", 11))
 
 
 class 编辑器标签页(ttk.Frame):
@@ -190,7 +201,7 @@ class 编辑器标签页(ttk.Frame):
         # 创建文本区和滚动条
         self.行号 = 行号画布(self, None, width=50)
         self.文本区 = 编辑器文本区(self, wrap=tk.NONE, undo=True,
-                                     font=("Consolas", 12),
+                                     font=("编辑器字体族", 12),
                                      bg="#1E1E1E", fg="#D4D4D4",
                                      insertbackground="#FFFFFF",
                                      selectbackground="#264F78",
@@ -415,7 +426,7 @@ class CNSH编辑器(tk.Tk):
         # 输出区域
         self.输出区域 = scrolledtext.ScrolledText(
             self.右侧面板, wrap=tk.WORD,
-            font=("Consolas", 10), bg="#1E1E1E", fg="#D4D4D4",
+            font=("编辑器字体族", 10), bg="#1E1E1E", fg="#D4D4D4",
             insertbackground="#FFFFFF",
             height=15
         )
@@ -426,7 +437,7 @@ class CNSH编辑器(tk.Tk):
                  foreground="#D4D4D4").pack(fill=tk.X, padx=2)
         self.审计区域 = scrolledtext.ScrolledText(
             self.右侧面板, wrap=tk.WORD,
-            font=("Consolas", 9), bg="#1E1E1E", fg="#D4D4D4",
+            font=("编辑器字体族", 9), bg="#1E1E1E", fg="#D4D4D4",
             insertbackground="#FFFFFF",
             height=10
         )

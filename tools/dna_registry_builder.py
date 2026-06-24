@@ -181,11 +181,11 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='DNA 全局注册表生成器')
     parser.add_argument('root', default='.', nargs='?', help='项目根目录')
-    parser.add_argument('-o', '--輸出', default='.longhun/dna-audit/dna_registry.json', help='输出 JSON 路径')
+    parser.add_argument('-o', '--输出', default='.longhun/dna-audit/dna_registry.json', help='输出 JSON 路径')
     args = parser.parse_args()
 
-    reg = build_registry(args.root, args.輸出)
-    print(f'🐉 DNA 全局注册表已生成: {args.輸出}')
+    reg = build_registry(args.root, args.输出)
+    print(f'🐉 DNA 全局注册表已生成: {args.输出}')
     print(f'   扫描文件: {reg["total_files"]}')
     print(f'   已注册:   {reg["registered_files"]}')
     print(f'   有效 DNA: {reg["valid_dna"]}')

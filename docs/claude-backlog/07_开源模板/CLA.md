@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-CLA-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # CLA · 贡献许可（轻量版）
 
@@ -22,4 +22,4 @@
 
 **GPG：** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
-**Maintainer：** [UID9622](https://github.com/UID9622) · **諸葛鑫（Zhuge Xin）** · **Lucky·UID9622** · **龍芯北辰**（署名脉络一致即可）
+**Maintainer：** [UID9622](https://github.com/UID9622) · **诸葛鑫（Zhuge Xin）** · **Lucky·UID9622** · **龍芯北辰**（署名脉络一致即可）

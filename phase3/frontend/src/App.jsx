@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 /**
- * 龍魂系統 Phase 3 - React 前端框架 v1.0
+ * 龍魂系统 Phase 3 - React 前端框架 v1.0
  * Longhun System Phase 3 - React Frontend Framework v1.0
  * 
  * DNA:#龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0
@@ -197,11 +197,11 @@ const DashboardPage = () => {
 
   return (
     <div className="dashboard-page">
-      <h2>龍魂系統儀表板</h2>
+      <h2>龍魂系统仪表板</h2>
 
       {/* 核心指标 */}
       <section className="metrics-section">
-        <h3>系統指標</h3>
+        <h3>系统指标</h3>
         <div className="metrics-grid">
           <MetricCard title="CPU 使用率" value={metrics?.cpu} unit="%" color="cpu" />
           <MetricCard title="内存使用率" value={metrics?.memory} unit="%" color="memory" />
@@ -506,7 +506,7 @@ const LonghunSkillsPage = () => {
 
   return (
     <div className="longhun-skills-page">
-      <h2>🐉 龍魂 Skills 系統</h2>
+      <h2>🐉 龍魂 Skills 系统</h2>
       
       <div className="skills-tabs">
         <button
@@ -648,8 +648,8 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="logo">
-          <h1>🐉 龍魂系統 Phase 3</h1>
-          <p>AI 行為治理框架·三層監督·生產級別</p>
+          <h1>🐉 龍魂系统 Phase 3</h1>
+          <p>AI 行为治理框架·三层监督·生产级别</p>
         </div>
       </header>
 
@@ -658,7 +658,7 @@ export default function App() {
           className={currentPage === 'dashboard' ? 'active' : ''}
           onClick={() => setCurrentPage('dashboard')}
         >
-          📊 儀表板
+          📊 仪表板
         </button>
         <button
           className={currentPage === 'skills' ? 'active' : ''}
@@ -670,7 +670,7 @@ export default function App() {
           className={currentPage === 'alerts' ? 'active' : ''}
           onClick={() => setCurrentPage('alerts')}
         >
-          🚨 告警系統
+          🚨 告警系统
         </button>
         <button
           className={currentPage === 'longhun-skills' ? 'active' : ''}
@@ -687,7 +687,7 @@ export default function App() {
 
       <footer className="app-footer">
         <p>DNA:#龍芯⚡️2026-06-06-PHASE3-REACT-FRONTEND-v1.0</p>
-        <p>責任: UID9622 · 不免責</p>
+        <p>责任: UID9622 · 不免责</p>
       </footer>
     </div>
   );

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂系統 · 任務執行引擎 (實時路由驗證版)
+🐉 龍魂系统 · 任务执行引擎 (实时路由验证版)
 Task Executor with Live Routing Verification
 
 DNA:#龍芯⚡️2026-06-05-TASK-EXECUTOR-LIVE-FILE2-v1.0
@@ -18,7 +18,7 @@ HOME = Path.home()
 TASK_QUEUE = HOME / ".龍魂/task_queue.jsonl"
 AGENT_LOG = HOME / ".龍魂/orchestrator/execution_live.log"
 
-# 智能體命令映射（使用實際存在的文件）
+# 智能体命令映射（使用实际存在的文件）
 AGENT_COMMANDS = {
     "AGENT-001": ["python3", str(HOME / "local_assessment_engine.py")],
     "AGENT-002": ["bash", str(HOME / "check_longhun_assessment.sh")],
@@ -33,7 +33,7 @@ AGENT_COMMANDS = {
 }
 
 class LiveTaskExecutor:
-    """實時任務執行與路由驗證"""
+    """实时任务执行与路由验证"""
 
     def __init__(self):
         self.agent_log = AGENT_LOG
@@ -42,7 +42,7 @@ class LiveTaskExecutor:
         self.routing_decisions = []
 
     def load_tasks(self) -> List[Dict]:
-        """載入待辦任務"""
+        """载入待办任务"""
         tasks = []
         if TASK_QUEUE.exists():
             with open(TASK_QUEUE, 'r', encoding='utf-8') as f:
@@ -54,8 +54,8 @@ class LiveTaskExecutor:
         return tasks
 
     def route_task(self, task: Dict) -> Tuple[List[str], str]:
-        """路由任務並返回決策理由"""
-        # 【優先級 1】標籤精確匹配
+        """路由任务并返回决策理由"""
+        # 【优先级 1】标签精确匹配
         tag_agent_map = {
             "assess": ["AGENT-001", "AGENT-002"],
             "foundation": ["AGENT-007"],
@@ -67,13 +67,13 @@ class LiveTaskExecutor:
         for label in labels:
             if label in tag_agent_map:
                 agents = tag_agent_map[label]
-                reason = f"L1 標籤精確匹配: '{label}'"
+                reason = f"L1 标签精确匹配: '{label}'"
                 return agents, reason
 
-        # 【優先級 2】標題關鍵詞
+        # 【优先级 2】标题关键词
         title = task.get("title", "").lower()
         keyword_map = {
-            "評估": ["AGENT-001", "AGENT-002"],
+            "评估": ["AGENT-001", "AGENT-002"],
             "foundation": ["AGENT-007"],
             "xpay": ["AGENT-013"],
             "notion": ["AGENT-011"],
@@ -81,27 +81,27 @@ class LiveTaskExecutor:
 
         for keyword, agents in keyword_map.items():
             if keyword in title.lower():
-                reason = f"L2 標題關鍵詞: '{keyword}'"
+                reason = f"L2 标题关键词: '{keyword}'"
                 return agents, reason
 
-        # 【優先級 3】預設路由
+        # 【优先级 3】预设路由
         priority = task.get("priority", 3)
         if priority >= 5:
             agents = ["AGENT-004"]
-            reason = "L3 優先級預設(≥5)"
+            reason = "L3 优先级预设(≥5)"
         else:
             agents = ["AGENT-002"]
-            reason = "L3 優先級預設(<5)"
+            reason = "L3 优先级预设(<5)"
 
         return agents, reason
 
     def execute_agent(self, agent_id: str) -> Dict:
-        """執行單個智能體"""
+        """执行单个智能体"""
         if agent_id not in AGENT_COMMANDS:
             return {
                 "agent_id": agent_id,
                 "status": "skipped",
-                "reason": "無可執行命令"
+                "reason": "无可执行命令"
             }
 
         cmd = AGENT_COMMANDS[agent_id]
@@ -124,7 +124,7 @@ class LiveTaskExecutor:
             return {
                 "agent_id": agent_id,
                 "status": "timeout",
-                "reason": "執行超過 30 秒"
+                "reason": "执行超过 30 秒"
             }
         except Exception as e:
             return {
@@ -134,35 +134,35 @@ class LiveTaskExecutor:
             }
 
     def execute_queue(self):
-        """執行任務隊列 (實時路由驗證)"""
+        """执行任务队列 (实时路由验证)"""
         tasks = self.load_tasks()
 
         if not tasks:
-            print("✓ 無待辦任務")
+            print("✓ 无待办任务")
             return
 
-        print(f"\n【任務執行引擎 · 實時路由驗證】")
+        print(f"\n【任务执行引擎 · 实时路由验证】")
         print(f"{'='*60}")
-        print(f"時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print(f"待執行: {len(tasks)} 個任務\n")
+        print(f"时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"待执行: {len(tasks)} 个任务\n")
 
         for idx, task in enumerate(tasks, 1):
             task_id = task.get("task_id")
             title = task.get("title", "未命名")
             labels = task.get("labels", [])
 
-            # 路由決策
+            # 路由决策
             agents, reason = self.route_task(task)
 
-            print(f"\n【任務 {idx}/{len(tasks)}】")
+            print(f"\n【任务 {idx}/{len(tasks)}】")
             print(f"  ID: {task_id}")
-            print(f"  標題: {title}")
-            print(f"  標籤: {labels}")
-            print(f"  優先級: {task.get('priority', 3)}")
-            print(f"  → 路由決策: {agents}")
+            print(f"  标题: {title}")
+            print(f"  标签: {labels}")
+            print(f"  优先级: {task.get('priority', 3)}")
+            print(f"  → 路由决策: {agents}")
             print(f"    理由: {reason}")
 
-            # 記錄路由決策
+            # 记录路由决策
             routing_record = {
                 "task_id": task_id,
                 "title": title,
@@ -173,11 +173,11 @@ class LiveTaskExecutor:
             }
             self.routing_decisions.append(routing_record)
 
-            # 執行分配的智能體
-            print(f"\n  【執行階段】")
+            # 执行分配的智能体
+            print(f"\n  【执行阶段】")
             agent_results = []
             for agent_id in agents:
-                print(f"    執行 {agent_id}...", end=" ", flush=True)
+                print(f"    执行 {agent_id}...", end=" ", flush=True)
                 result = self.execute_agent(agent_id)
                 agent_results.append(result)
 
@@ -191,7 +191,7 @@ class LiveTaskExecutor:
 
                 print(f"{status_icon} {result.get('status')}")
 
-            # 記錄執行結果
+            # 记录执行结果
             execution_record = {
                 "task_id": task_id,
                 "agents_executed": agent_results,
@@ -199,51 +199,51 @@ class LiveTaskExecutor:
             }
             self.execution_results.append(execution_record)
 
-        # 生成驗證報告
+        # 生成验证报告
         self.generate_verification_report(tasks)
 
     def generate_verification_report(self, tasks: List[Dict]):
-        """生成實時路由驗證報告"""
+        """生成实时路由验证报告"""
         report_path = HOME / ".龍魂/TASK_EXECUTION_LIVE_REPORT.md"
 
-        report = f"""# 🐉 任務執行實時驗證報告
+        report = f"""# 🐉 任务执行实时验证报告
 
-**執行時間**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**执行时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 **DNA**:#龍芯⚡️2026-06-05-TASK-EXECUTOR-LIVE-v1.0
-**待執行任務**: {len(tasks)}
+**待执行任务**: {len(tasks)}
 
 ---
 
-## 路由決策驗證
+## 路由决策验证
 
 """
 
         for idx, task in enumerate(tasks, 1):
-            # 找到對應的路由決策
+            # 找到对应的路由决策
             routing = next((r for r in self.routing_decisions if r["task_id"] == task.get("task_id")), None)
             execution = next((e for e in self.execution_results if e["task_id"] == task.get("task_id")), None)
 
             if routing:
-                report += f"### 任務 {idx}: {task.get('title')}\n\n"
+                report += f"### 任务 {idx}: {task.get('title')}\n\n"
                 report += f"- **ID**: `{routing['task_id']}`\n"
-                report += f"- **標籤**: {routing['labels']}\n"
-                report += f"- **分配智能體**: {routing['assigned_agents']}\n"
+                report += f"- **标签**: {routing['labels']}\n"
+                report += f"- **分配智能体**: {routing['assigned_agents']}\n"
                 report += f"- **路由理由**: {routing['routing_reason']}\n"
 
                 if execution:
-                    report += f"- **執行結果**:\n"
+                    report += f"- **执行结果**:\n"
                     for agent_result in execution['agents_executed']:
                         status = agent_result.get('status', 'unknown')
                         agent_id = agent_result.get('agent_id')
                         report += f"  - {agent_id}: `{status}`"
                         if agent_result.get('return_code') == 0:
-                            report += f" ({agent_result.get('output_lines', 0)} 行輸出)\n"
+                            report += f" ({agent_result.get('output_lines', 0)} 行输出)\n"
                         else:
                             report += f"\n"
 
                 report += "\n"
 
-        # 統計摘要
+        # 统计摘要
         success_count = sum(
             1 for r in self.execution_results
             if all(a.get('status') == 'success' for a in r.get('agents_executed', []))
@@ -251,40 +251,40 @@ class LiveTaskExecutor:
 
         report += f"""---
 
-## 執行統計
+## 执行统计
 
-| 指標 | 數值 |
+| 指标 | 数值 |
 |------|------|
-| 總任務數 | {len(tasks)} |
-| 成功執行 | {success_count}/{len(tasks)} |
-| 路由精確度 | 100% (標籤匹配) |
+| 总任务数 | {len(tasks)} |
+| 成功执行 | {success_count}/{len(tasks)} |
+| 路由精确度 | 100% (标签匹配) |
 
 ---
 
-## 系統狀態
+## 系统状态
 
-✅ 所有任務已分派並執行
-✅ 路由決策使用 L1 標籤精確匹配
-✅ 智能體協調系統運作正常
+✅ 所有任务已分派并执行
+✅ 路由决策使用 L1 标签精确匹配
+✅ 智能体协调系统运作正常
 
 ---
 
-**報告生成**: {datetime.now().isoformat()}
-**責任**: UID9622·不免責
+**报告生成**: {datetime.now().isoformat()}
+**责任**: UID9622·不免责
 """
 
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(report)
 
         print(f"\n{'='*60}")
-        print(f"✅ 驗證報告已生成: {report_path}")
+        print(f"✅ 验证报告已生成: {report_path}")
         print(f"{'='*60}\n")
 
         # 打印摘要
-        print(f"【執行摘要】")
-        print(f"  成功執行: {success_count}/{len(tasks)}")
-        print(f"  路由精確度: 100%")
-        print(f"  系統狀態: ✅ 正常\n")
+        print(f"【执行摘要】")
+        print(f"  成功执行: {success_count}/{len(tasks)}")
+        print(f"  路由精确度: 100%")
+        print(f"  系统状态: ✅ 正常\n")
 
 if __name__ == "__main__":
     executor = LiveTaskExecutor()

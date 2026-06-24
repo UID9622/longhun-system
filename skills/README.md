@@ -1,47 +1,47 @@
-# 🐉 龍魂系統 · Skill 管理核心
+# 🐉 龍魂系统 · Skill 管理核心
 
 **DNA**:#龍芯⚡️2026-06-07-SKILLS-INTEGRATION-FILE2-v1.0
-**狀態**: 🟢 完整集成·10/10 Skills 就緒
-**責任**: UID9622·不免責
+**状态**: 🟢 完整集成·10/10 Skills 就绪
+**责任**: UID9622·不免责
 
 ---
 
-## 📦 完整 Skill 清單 (10/10)
+## 📦 完整 Skill 清单 (10/10)
 
 ### 🎨 HTML Interactive Skills (5)
 
 | # | Skill | 描述 | 功能 |
 |---|-------|------|------|
-| 1 | **algorithmic-art** | 龍魂算法藝術生成器 | Perlin噪聲·Flow Field·粒子系統·實時參數調整 |
-| 2 | **brand-guidelines** | 品牌指南構建工具 | 品牌色彩·字體規範·設計系統·視覺一致性 |
-| 3 | **canvas-design** | Canvas 動態設計工具 | 繪畫工具·實時渲染·圖層管理·濾鏡效果 |
-| 4 | **doc-coauthoring** | 文檔協作編輯系統 | 實時協作·版本控制·評論系統·權限管理 |
-| 5 | **internal-comms** | 內部溝通平台 | 消息通知·任務分配·進度追蹤·團隊協作 |
+| 1 | **algorithmic-art** | 龍魂算法艺术生成器 | Perlin噪声·Flow Field·粒子系统·实时参数调整 |
+| 2 | **brand-guidelines** | 品牌指南构建工具 | 品牌色彩·字体规范·设计系统·视觉一致性 |
+| 3 | **canvas-design** | Canvas 动态设计工具 | 绘画工具·实时渲染·图层管理·滤镜效果 |
+| 4 | **doc-coauthoring** | 文档协作编辑系统 | 实时协作·版本控制·评论系统·权限管理 |
+| 5 | **internal-comms** | 内部沟通平台 | 消息通知·任务分配·进度追踪·团队协作 |
 
 ### 🐍 Python Utility Skills (5)
 
 | # | Skill | 描述 | 功能 |
 |---|-------|------|------|
-| 6 | **mcp-builder** | MCP 服務器構建工具 | FastMCP·自動代碼生成·配置管理·Docker支持 |
-| 7 | **skill-creator** | Skill 創建助手 | 模板生成·代碼框架·配置向導·驗證檢查 |
-| 8 | **slack-gif-creator** | Slack GIF 生成器 | 動畫製作·Slack集成·自動化發送·格式轉換 |
-| 9 | **theme-factory** | 主題生成工廠 | 色彩系統·字體組合·主題導出·CSS生成 |
-| 10 | **web-artifacts-builder** | Web 構件生成器 | React組件·HTML模板·CSS框架·即時預覽 |
+| 6 | **mcp-builder** | MCP 服务器构建工具 | FastMCP·自动代码生成·配置管理·Docker支持 |
+| 7 | **skill-creator** | Skill 创建助手 | 模板生成·代码框架·配置向导·验证检查 |
+| 8 | **slack-gif-creator** | Slack GIF 生成器 | 动画制作·Slack集成·自动化发送·格式转换 |
+| 9 | **theme-factory** | 主题生成工厂 | 色彩系统·字体组合·主题导出·CSS生成 |
+| 10 | **web-artifacts-builder** | Web 构件生成器 | React组件·HTML模板·CSS框架·即时预览 |
 
 ---
 
-## 📂 目錄結構
+## 📂 目录结构
 
 ```
 skills/
-├── __init__.py                      # Skill 註冊管理核心
-├── api.py                           # FastAPI Skill 服務
+├── __init__.py                      # Skill 注册管理核心
+├── api.py                           # FastAPI Skill 服务
 ├── README.md                        # 本文件
 ├── INTEGRATION.md                   # 集成指南
-├── SKILL-LAUNCHER.sh                # Skill 啟動器
+├── SKILL-LAUNCHER.sh                # Skill 启动器
 ├── SKILL-LAUNCHER使用说明.md
-├── SKILL-COMPLETE-DELIVERY.md       # 完整交付清單
-├── screenshots/                     # 運行截圖
+├── SKILL-COMPLETE-DELIVERY.md       # 完整交付清单
+├── screenshots/                     # 运行截图
 ├── html-skills/                     # HTML Interactive Skills
 │   ├── skill-1-algorithmic-art.html
 │   ├── skill-2-brand-guidelines.html
@@ -60,7 +60,7 @@ skills/
 
 ## 🎛️ 龍魂操作台 MVP v1.1
 
-10 個 Skill 已統一接入 `control-panel/`：
+10 个 Skill 已统一接入 `control-panel/`：
 
 ```bash
 cd ~/longhun-system/control-panel
@@ -72,14 +72,14 @@ cd ~/longhun-system/control-panel
 - 工作流: http://127.0.0.1:9622/api/workflows
 
 功能：
-- HTML Skill 內嵌運行（iframe）
-- Python Skill API 調用
-- 5 條預設跨技能工作流
-- 實時日誌與 DNA 綁定展示
+- HTML Skill 内嵌运行（iframe）
+- Python Skill API 调用
+- 5 条预设跨技能工作流
+- 实时日志与 DNA 绑定展示
 
 ---
 
-## 🚀 快速開始
+## 🚀 快速开始
 
 ### 1. 列出所有 Skills
 
@@ -95,7 +95,7 @@ print(skills)
 # }
 ```
 
-### 2. 獲取 Skill 詳情
+### 2. 获取 Skill 详情
 
 ```python
 from longhun_system.skills import get_registry
@@ -105,35 +105,35 @@ skill = registry.get_skill("skill-1-algorithmic-art")
 print(skill)
 ```
 
-### 3. 獲取 Skill 內容
+### 3. 获取 Skill 内容
 
 ```python
 from longhun_system.skills import get_skill_content
 
 content = get_skill_content("skill-1-algorithmic-art")
-# 返回完整 HTML 或 Python 代碼
+# 返回完整 HTML 或 Python 代码
 ```
 
-### 4. 啟動 Skill API 服務
+### 4. 启动 Skill API 服务
 
 ```bash
 cd ~/longhun-system/skills
 python3 -m uvicorn api:app --host 0.0.0.0 --port 8001 --reload
 ```
 
-API 文檔: http://localhost:8001/docs
+API 文档: http://localhost:8001/docs
 
 ---
 
-## 🔌 API 端點
+## 🔌 API 端点
 
-### 獲取所有 Skills
+### 获取所有 Skills
 
 ```
 GET /api/v1/skills
 ```
 
-**響應:**
+**响应:**
 ```json
 {
   "status": "success",
@@ -145,19 +145,19 @@ GET /api/v1/skills
 }
 ```
 
-### 獲取 Skill 詳情
+### 获取 Skill 详情
 
 ```
 GET /api/v1/skills/{skill_id}
 ```
 
-### 獲取 Skill 內容
+### 获取 Skill 内容
 
 ```
 GET /api/v1/skills/{skill_id}/content
 ```
 
-### 執行 Python Skill
+### 执行 Python Skill
 
 ```
 POST /api/v1/skills/{skill_id}/execute
@@ -168,7 +168,7 @@ Content-Type: application/json
 }
 ```
 
-### 匯出配置
+### 汇出配置
 
 ```
 GET /api/v1/skills/config/export
@@ -198,7 +198,7 @@ from skills import get_skill_content
 skill_code = get_skill_content("skill-8-slack-gif-creator")
 ```
 
-### 案例 3: 動態生成組件
+### 案例 3: 动态生成组件
 
 ```python
 from skills import execute_skill
@@ -210,74 +210,74 @@ result = await execute_skill("skill-10-web-artifacts-builder",
 
 ---
 
-## 🔗 與龍魂系統整合
+## 🔗 与龍魂系统整合
 
 ### 融入 Phase 3
 
-1. **後端集成**: 已在 `phase3_backend_main.py` 中新增 Skill 端點
-2. **前端集成**: React UI 支持 HTML Skills 的即時渲染
-3. **API 層**: FastAPI 提供完整的 RESTful Skill 管理
+1. **后端集成**: 已在 `phase3_backend_main.py` 中新增 Skill 端点
+2. **前端集成**: React UI 支持 HTML Skills 的即时渲染
+3. **API 层**: FastAPI 提供完整的 RESTful Skill 管理
 
 ### 融入 CNSH 核心
 
-Skills 已註冊到全域系統：
-- ✅ Skill 註冊表已初始化
-- ✅ 配置已導出
-- ✅ DNA 簽章已生成
+Skills 已注册到全域系统：
+- ✅ Skill 注册表已初始化
+- ✅ 配置已导出
+- ✅ DNA 签章已生成
 
 ---
 
-## 📊 性能指標
+## 📊 性能指标
 
-| 指標 | 數值 |
+| 指标 | 数值 |
 |------|------|
-| 加載時間 | < 100ms |
-| Skills 總數 | 10 |
+| 加载时间 | < 100ms |
+| Skills 总数 | 10 |
 | HTML Skills | 5 |
 | Python Skills | 5 |
-| API 端點數 | 6 |
+| API 端点数 | 6 |
 | 支援的格式 | HTML, Python, JSON |
 
 ---
 
 ## 🔐 安全性
 
-- ✅ Skill 檔案存儲在安全目錄
-- ✅ API 端點支援驗證（可選）
-- ✅ 執行 Skills 時進行沙盒隔離
-- ✅ DNA 簽章驗證所有更新
+- ✅ Skill 档案存储在安全目录
+- ✅ API 端点支援验证（可选）
+- ✅ 执行 Skills 时进行沙盒隔离
+- ✅ DNA 签章验证所有更新
 
 ---
 
-## 📋 檢查清單
+## 📋 检查清单
 
-- [x] 10 個 Skills 已複製
-- [x] Skill 註冊系統已建立
-- [x] API 服務已創建
-- [x] HTML Skills 可用於渲染
-- [x] Python Skills 可用於執行
-- [x] 配置導出功能就緒
-- [x] 文檔已生成
-- [x] DNA 簽章已應用
+- [x] 10 个 Skills 已复制
+- [x] Skill 注册系统已建立
+- [x] API 服务已创建
+- [x] HTML Skills 可用于渲染
+- [x] Python Skills 可用于执行
+- [x] 配置导出功能就绪
+- [x] 文档已生成
+- [x] DNA 签章已应用
 
 ---
 
-## 🐉 DNA 簽章
+## 🐉 DNA 签章
 
 ```
 DNA:#龍芯⚡️2026-06-07-SKILLS-INTEGRATION-v1.0
-時間: 2026-06-07 00:45 CST
-狀態: 🟢 完整集成·準生產就緒
-責任: UID9622·不免責
+时间: 2026-06-07 00:45 CST
+状态: 🟢 完整集成·准生产就绪
+责任: UID9622·不免责
 ```
 
 ---
 
 ## 📞 支援
 
-有問題？查看相關文件：
-1. `INTEGRATION.md` - 詳細集成指南
-2. `~/longhun-system/CLAUDE.md` - 系統規範
-3. `~/longhun-system/skills/api.py` - API 實現
+有问题？查看相关文件：
+1. `INTEGRATION.md` - 详细集成指南
+2. `~/longhun-system/CLAUDE.md` - 系统规范
+3. `~/longhun-system/skills/api.py` - API 实现
 
-**開始使用**: `python3 -m skills` 或訪問 API
+**开始使用**: `python3 -m skills` 或访问 API

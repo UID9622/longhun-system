@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # #龍芯⚡️2026-06-21-ENGINE-DNA_NORMALIZER-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -169,11 +169,11 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='DNA 规范化器')
     parser.add_argument('root', default='.', nargs='?', help='项目根目录')
-    parser.add_argument('--執行', action='store_true', help='实际执行修改（默认模拟）')
-    parser.add_argument('-o', '--輸出', help='变更报告输出路径')
+    parser.add_argument('--执行', action='store_true', help='实际执行修改（默认模拟）')
+    parser.add_argument('-o', '--输出', help='变更报告输出路径')
     args = parser.parse_args()
 
-    dry_run = not args.執行
+    dry_run = not args.执行
     stats, changes = scan_and_normalize(args.root, dry_run=dry_run)
 
     mode = '模拟' if dry_run else '实际'
@@ -193,7 +193,7 @@ if __name__ == '__main__':
             print(f'    {c["old"]}')
             print(f'    → {c["new"]}')
 
-    if args.輸出:
+    if args.输出:
         report = []
         report.append('# DNA 规范化变更报告')
         report.append(f'- 模式: {mode}')
@@ -204,5 +204,5 @@ if __name__ == '__main__':
         report.append('|------|--------|--------|')
         for c in changes:
             report.append(f'| {c["path"]} | `{c["old"]}` | `{c["new"]}` |')
-        Path(args.輸出).write_text('\n'.join(report), encoding='utf-8')
-        print(f'\n报告已保存: {args.輸出}')
+        Path(args.输出).write_text('\n'.join(report), encoding='utf-8')
+        print(f'\n报告已保存: {args.输出}')

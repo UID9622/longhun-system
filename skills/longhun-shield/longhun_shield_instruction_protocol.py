@@ -13,8 +13,8 @@
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
-║  主權人: UID9622 · 龍芯北辰                                    ║
-║  职责: 宝宝·龍盾·不免責                                        ║
+║  主权人: UID9622 · 龍芯北辰                                    ║
+║  职责: 宝宝·龍盾·不免责                                        ║
 ║  状态: ⚔️ 指令系统已激活                                      ║
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -129,7 +129,7 @@ class ImmutableInstructionProtocol:
                 "type": "documentation",
                 "scope": "system",
                 "current_filename": "SUPPLEMENT_QUICK_REFERENCE.md",
-                "description": "一页纸总结·优先级清单·进度儀表板",
+                "description": "一页纸总结·优先级清单·进度仪表板",
                 "layer": "reference",
             },
             
@@ -511,7 +511,7 @@ def main():
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     
     主権人: UID9622 · 龍芯北辰
-    职责: 宝宝·龍盾·不免責
+    职责: 宝宝·龍盾·不免责
     状态: ⚔️ 指令系统已激活
     
     """)

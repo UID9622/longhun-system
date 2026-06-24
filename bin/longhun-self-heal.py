@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂左右互搏 · 自愈審計引擎 v1.0
+龍魂左右互搏 · 自愈审计引擎 v1.0
 
-自己尋找漏洞，自己修復，自己疊送。
-複雜留給 AI，簡單留給人。
+自己寻找漏洞，自己修复，自己叠送。
+复杂留给 AI，简单留给人。
 
 DNA:#龍芯⚡️2026-06-18-LONGHUN-SELF-HEAL-FILE1-v1.0
 """
@@ -32,7 +32,7 @@ class Issue:
 
 
 class SelfHealEngine:
-    """龍魂系統自愈引擎"""
+    """龍魂系统自愈引擎"""
 
     DNA = "#龍芯⚡️2026-06-18-LONGHUN-SELF-HEAL-v1.0"
 
@@ -54,7 +54,7 @@ class SelfHealEngine:
         self.check_file_permissions()
         return self.issues
 
-    # ─────────────────────────────── 檢查項 ───────────────────────────────
+    # ─────────────────────────────── 检查项 ───────────────────────────────
 
     def check_required_directories(self):
         required = ["logs", "var", "var/kimi-agent-v2", "var/xpay"]
@@ -62,9 +62,9 @@ class SelfHealEngine:
             path = self.root / name
             if not path.exists():
                 self.issues.append(Issue(
-                    category="目錄結構",
+                    category="目录结构",
                     severity="warning",
-                    message=f"缺少必要目錄: {name}",
+                    message=f"缺少必要目录: {name}",
                     path=path,
                     fix=lambda p=path: p.mkdir(parents=True, exist_ok=True) or True
                 ))
@@ -86,22 +86,22 @@ class SelfHealEngine:
                 continue
             if not os.access(path, os.X_OK):
                 self.issues.append(Issue(
-                    category="腳本權限",
+                    category="脚本权限",
                     severity="warning",
-                    message=f"腳本未設置可執行: {rel}",
+                    message=f"脚本未设置可执行: {rel}",
                     path=path,
                     fix=lambda p=path: (p.chmod(p.stat().st_mode | 0o111), True)[1]
                 ))
 
     def check_pycache_pollution(self):
         pycaches = list(self.root.rglob("__pycache__"))
-        # 只處理 .git 未忽略的（簡單判斷：不在 _archive 或 .venv 下）
+        # 只处理 .git 未忽略的（简单判断：不在 _archive 或 .venv 下）
         dirty = [p for p in pycaches if not any(x in p.parts for x in [".venv", "venv", "_archive"])]
         if dirty:
             self.issues.append(Issue(
-                category="環境清潔",
+                category="环境清洁",
                 severity="info",
-                message=f"發現 {len(dirty)} 個 __pycache__ 目錄",
+                message=f"发现 {len(dirty)} 个 __pycache__ 目录",
                 fix=lambda dirs=dirty: all(self._rm_tree(d) for d in dirs)
             ))
 
@@ -113,9 +113,9 @@ class SelfHealEngine:
             reg_mtime = registry.stat().st_mtime
             if reg_mtime > src_mtime:
                 self.issues.append(Issue(
-                    category="桌面菜單",
+                    category="桌面菜单",
                     severity="warning",
-                    message="菜單註冊表比桌面 App 新，需要重新生成",
+                    message="菜单注册表比桌面 App 新，需要重新生成",
                     fix=lambda: self._run(["bash", str(self.root / "bin" / "build-desktop-switch.sh")])
                 ))
 
@@ -131,16 +131,16 @@ class SelfHealEngine:
             if result.stdout.strip():
                 lines = result.stdout.strip().splitlines()
                 self.issues.append(Issue(
-                    category="Git 狀態",
+                    category="Git 状态",
                     severity="info",
-                    message=f"工作區有 {len(lines)} 處未提交變更",
-                    fix=None  # 不自動提交，只報告
+                    message=f"工作区有 {len(lines)} 处未提交变更",
+                    fix=None  # 不自动提交，只报告
                 ))
         except Exception as e:
-            self.issues.append(Issue("Git 狀態", "error", f"無法檢查 Git: {e}"))
+            self.issues.append(Issue("Git 状态", "error", f"无法检查 Git: {e}"))
 
     def check_duplicate_skills(self):
-        """掃描重複的技能文件名"""
+        """扫描重复的技能文件名"""
         names = {}
         for path in self.root.rglob("longhun_*_engine.py"):
             if any(x in path.parts for x in [".git", "__pycache__"]):
@@ -149,9 +149,9 @@ class SelfHealEngine:
         for name, paths in names.items():
             if len(paths) > 1:
                 self.issues.append(Issue(
-                    category="重複模塊",
+                    category="重复模块",
                     severity="warning",
-                    message=f"技能文件重複: {name} 出現在 {len(paths)} 處",
+                    message=f"技能文件重复: {name} 出现在 {len(paths)} 处",
                     fix=None
                 ))
 
@@ -165,9 +165,9 @@ class SelfHealEngine:
             )
             if not result.stdout.strip():
                 self.issues.append(Issue(
-                    category="服務健康",
+                    category="服务健康",
                     severity="warning",
-                    message="龍魂操作台 (:9622) 未運行",
+                    message="龍魂操作台 (:9622) 未运行",
                     fix=lambda: self._run([
                         "bash", "-c",
                         f"cd {self.root} && export PYTHONPATH={self.root} && mkdir -p logs && "
@@ -175,10 +175,10 @@ class SelfHealEngine:
                     ])
                 ))
         except Exception as e:
-            self.issues.append(Issue("服務健康", "error", f"無法檢查端口: {e}"))
+            self.issues.append(Issue("服务健康", "error", f"无法检查端口: {e}"))
 
     def check_file_permissions(self):
-        """檢查關鍵數據文件權限是否過寬"""
+        """检查关键数据文件权限是否过宽"""
         sensitive = [
             self.root / "xpay" / "var" / "xpay.db",
         ]
@@ -187,14 +187,14 @@ class SelfHealEngine:
                 mode = path.stat().st_mode & 0o777
                 if mode & 0o077:
                     self.issues.append(Issue(
-                        category="文件權限",
+                        category="文件权限",
                         severity="warning",
-                        message=f"敏感文件權限過寬: {path} ({oct(mode)})",
+                        message=f"敏感文件权限过宽: {path} ({oct(mode)})",
                         path=path,
                         fix=lambda p=path: (p.chmod(0o600), True)[1]
                     ))
 
-    # ─────────────────────────────── 修復工具 ───────────────────────────────
+    # ─────────────────────────────── 修复工具 ───────────────────────────────
 
     def _rm_tree(self, path: Path) -> bool:
         try:
@@ -211,7 +211,7 @@ class SelfHealEngine:
         except Exception:
             return False
 
-    # ─────────────────────────────── 執行修復 ───────────────────────────────
+    # ─────────────────────────────── 执行修复 ───────────────────────────────
 
     def repair(self, issue: Issue) -> bool:
         if issue.fix is None:
@@ -220,10 +220,10 @@ class SelfHealEngine:
             result = issue.fix()
             return bool(result)
         except Exception as e:
-            print(f"  修復失敗: {e}")
+            print(f"  修复失败: {e}")
             return False
 
-    # ─────────────────────────────── 報告 ───────────────────────────────
+    # ─────────────────────────────── 报告 ───────────────────────────────
 
     def report(self) -> dict:
         by_category = {}
@@ -251,35 +251,35 @@ class SelfHealEngine:
 
     def print_report(self):
         print("\n" + "=" * 60)
-        print("  🐉 龍魂左右互搏 · 自愈審計報告")
+        print("  🐉 龍魂左右互搏 · 自愈审计报告")
         print("=" * 60)
         print(f"  DNA: {self.DNA}")
-        print(f"  發現問題: {len(self.issues)}")
-        print(f"  可自動修復: {sum(1 for i in self.issues if i.fix is not None)}")
-        print(f"  已修復: {self.fixed}")
-        print(f"  修復失敗: {self.failed}")
+        print(f"  发现问题: {len(self.issues)}")
+        print(f"  可自动修复: {sum(1 for i in self.issues if i.fix is not None)}")
+        print(f"  已修复: {self.fixed}")
+        print(f"  修复失败: {self.failed}")
         print("-" * 60)
         for issue in self.issues:
             icon = {"info": "ℹ️", "warning": "⚠️", "error": "❌"}.get(issue.severity, "•")
-            fixable = " [可自動修復]" if issue.fix else ""
+            fixable = " [可自动修复]" if issue.fix else ""
             print(f"  {icon} [{issue.category}] {issue.message}{fixable}")
         print("=" * 60)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="龍魂左右互搏自愈審計")
-    parser.add_argument("--repair", action="store_true", help="自動修復可修復的問題")
-    parser.add_argument("--json", action="store_true", help="輸出 JSON 報告")
+    parser = argparse.ArgumentParser(description="龍魂左右互搏自愈审计")
+    parser.add_argument("--repair", action="store_true", help="自动修复可修复的问题")
+    parser.add_argument("--json", action="store_true", help="输出 JSON 报告")
     args = parser.parse_args()
 
     engine = SelfHealEngine(ROOT)
     engine.run_all_checks()
 
     if args.repair:
-        print("🐉 開始左右互搏自愈修復...")
+        print("🐉 开始左右互搏自愈修复...")
         for issue in engine.issues:
             if issue.fix:
-                print(f"  修復中: {issue.message}")
+                print(f"  修复中: {issue.message}")
                 if engine.repair(issue):
                     engine.fixed += 1
                 else:
@@ -290,7 +290,7 @@ def main():
     else:
         engine.print_report()
 
-    # 非嚴重錯誤不視為失敗
+    # 非严重错误不视为失败
     sys.exit(0)
 
 

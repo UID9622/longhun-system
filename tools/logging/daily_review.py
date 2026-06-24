@@ -115,7 +115,7 @@ end tell'''
         subprocess.run(["osascript", "-e", script], timeout=30, check=True)
         print("🟢 已写 macOS 日历")
     except Exception as e:
-        print(f"🟡 日历写入跳过(先在日历建『龍魂』日历):{e}")
+        print(f"🟡 日历写入跳过(先在日历建‘龍魂’日历):{e}")
 
 if __name__ == "__main__":
     overall, report = build_report()

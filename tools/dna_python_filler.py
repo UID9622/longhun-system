@@ -122,12 +122,12 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Python 脚本 DNA 填充器')
     parser.add_argument('root', default='.', nargs='?', help='项目根目录')
-    parser.add_argument('--執行', action='store_true', help='实际执行')
+    parser.add_argument('--执行', action='store_true', help='实际执行')
     parser.add_argument('--最大数量', type=int, default=0, help='最大填充数量 (0=无限制)')
-    parser.add_argument('-o', '--輸出', help='变更报告输出路径')
+    parser.add_argument('-o', '--输出', help='变更报告输出路径')
     args = parser.parse_args()
 
-    dry_run = not args.執行
+    dry_run = not args.执行
     stats, changes = add_dna_to_python(args.root, dry_run=dry_run, max_files=args.最大数量)
 
     mode = '模拟' if dry_run else '实际'
@@ -143,11 +143,11 @@ if __name__ == '__main__':
         for c in changes[:20]:
             print(f'  {c["path"]} -> {c["dna"]}')
 
-    if args.輸出:
+    if args.输出:
         lines = [f'# Python DNA 填充报告 ({mode})', f'扫描: {stats["scanned"]}', f'已有: {stats["has_dna"]}', f'填充: {stats["added"]}', '']
         lines.append('| 文件 | DNA |')
         lines.append('|------|-----|')
         for c in changes:
             lines.append(f'| {c["path"]} | `{c["dna"]}` |')
-        Path(args.輸出).write_text('\n'.join(lines), encoding='utf-8')
-        print(f'\n报告已保存: {args.輸出}')
+        Path(args.输出).write_text('\n'.join(lines), encoding='utf-8')
+        print(f'\n报告已保存: {args.输出}')

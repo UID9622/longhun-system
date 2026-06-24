@@ -2,7 +2,7 @@
 
 ## 一句话
 
-五个本地 HTML 文件的统一切换入口 · 不删原文件 · 不假融合 · 不假联动。
+五个本地 HTML 文件的统一切换入口 · 已升级接驳天道系统 v3.0 · 不删原文件 · 不假融合 · 不假联动。
 
 ## 真体系归位
 
@@ -17,11 +17,42 @@
 | 新建 | flow-field-index.json |
 | 新建 | longhun-master-control.html |
 | 新建 | README_LONGHUN_FLOW.md |
+| 天道系统 v3.0 | heaven-dashboard.html（规划中） |
+| 天道系统 v3.0 | ../../scheduler/heaven_duty_engine.py |
+| 天道系统 v3.0 | ../../scheduler/heaven_cli.py |
+| 天道系统 v3.0 | ../../scheduler/reports/star_behavior_heatmap.png |
 | 已有·勿动 | longhun-28mansions-v1.html |
 | 已有·勿动 | longhun-unified-v9.html |
 | 已有·勿动 | longhun-flow-field-v9.html |
 | 已有·勿动 | current.html |
 | 已有·勿动 | dragon_soul_9622.html |
+
+### 天道系统 CLI 用法
+
+```bash
+# 查看当前节气、星宿、离火运、冲突状态
+python3 ../../scheduler/heaven_cli.py --system-load 0.6 --user-activity 0.8 status
+
+# 生成 reflection_report.json
+python3 ../../scheduler/heaven_cli.py reflect
+
+# 预测未来 12 小时火势（含节气）
+python3 ../../scheduler/heaven_cli.py predict --hours 12
+
+# 模拟指定时辰
+python3 ../../scheduler/heaven_cli.py simulate --datetime "2026-06-24 09:00"
+
+# 检测星宿冲突
+python3 ../../scheduler/heaven_cli.py conflict
+
+# 生成二十八星宿行为矩阵热力图
+python3 ../../scheduler/heaven_cli.py heatmap
+
+# 记录主权豁免
+python3 ../../scheduler/heaven_cli.py override \
+  --action "执行亮剑任务" \
+  --justification "夏至午时，火势烈焰，亢金龙主场"
+```
 
 ## 启动
 

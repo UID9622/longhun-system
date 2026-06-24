@@ -1,18 +1,18 @@
-> 本文檔按《龍魂文檔標準模板 v1.0》整理。
-> 性質：技術文檔 · 未經同行評審（如適用）
+> 本文档按《龍魂文档标准模板 v1.0》整理。
+> 性质：技术文档 · 未经同行评审（如适用）
 > 版本：v1.0
 > 作者：UID9622 · 龍芯北辰
-> 協作者：（待補充，如無請刪除此行）
-> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 协作者：（待补充，如无请删除此行）
+> 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国
 > 平台：本地
-> 審核狀態：草稿
+> 审核状态：草稿
 
 **DNA**: `#龍芯⚡️2026-03-28-P5JS_1E7B-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-# 三才流場·p5.js完整交互版｜UID9622专属宇宙
+# 三才流场·p5.js完整交互版｜UID9622专属宇宙
 
 <aside>
 🔒
@@ -63,7 +63,7 @@
 ## 🚀 使用说明
 
 1. **复制下方完整HTML代码**
-2. **保存为 `.html` 文件**（如 `三才流場_UID9622.html`）
+2. **保存为 `.html` 文件**（如 `三才流场_UID9622.html`）
 3. **浏览器双击打开**，即可运行
 4. **侧边栏实时调参**，所见即所得
 5. **种子9622 = 老大专属宇宙**，换种子换天地
@@ -71,11 +71,11 @@
 <aside>
 💾
 
-**保存PNG：** 点击侧边栏「💾 保存PNG」按钮，自动命名为 `三才流場_seed9622_UID9622.png`
+**保存PNG：** 点击侧边栏“💾 保存PNG”按钮，自动命名为 `三才流场_seed9622_UID9622.png`
 
-**重置：** 点击「重置」按钮恢复所有默认值
+**重置：** 点击“重置”按钮恢复所有默认值
 
-**随机探索：** 点击「随机」按钮，探索无穷宇宙
+**随机探索：** 点击“随机”按钮，探索无穷宇宙
 
 </aside>
 
@@ -89,7 +89,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>三才流場 · San Cai Flow Field · UID9622</title>
+<title>三才流场 · San Cai Flow Field · UID9622</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -124,7 +124,7 @@ input[type=number]{width:72px;border:1px solid #ddd;border-radius:4px;padding:3p
 </head>
 <body>
 <div id="sidebar">
-  <h1>☰☷☱ 三才流場</h1>
+  <h1>☰☷☱ 三才流场</h1>
   <div class="subtitle">San Cai Flow Field · UID9622</div>
 
   <div class="section">
@@ -348,7 +348,7 @@ function jumpSeed(){params.seed=parseInt(document.getElementById('seedInput').va
 function applySeed(){document.getElementById('seedDisplay').textContent=params.seed;document.getElementById('seedInput').value=params.seed;restartSketch();}
 function restartSketch(){if(myp5)myp5.remove();myp5=new p5(sketch);}
 function resetAll(){params={seed:9622,numP:2000,nFreq:0.003,step:1.8,life:120,alpha:18,wH:35,wE:15,wP:50,cH:[74,144,217],cE:[124,184,124],cP:[230,126,34],cBg:[10,10,15]};document.getElementById('wH').value=35;document.getElementById('wE').value=15;document.getElementById('wP').value=50;document.getElementById('nFreq').value=3;document.getElementById('step').value=18;document.getElementById('life').value=120;document.getElementById('alpha').value=18;document.getElementById('numP').value=2000;document.getElementById('cH').value='#4a90d9';document.getElementById('cE').value='#7cb87c';document.getElementById('cP').value='#e67e22';document.getElementById('cBg').value='#0a0a0f';updateWeights();applySeed();}
-function downloadPNG(){if(myp5)myp5.saveCanvas('三才流場_seed'+params.seed+'_UID9622','png');}
+function downloadPNG(){if(myp5)myp5.saveCanvas('三才流场_seed'+params.seed+'_UID9622','png');}
 
 myp5 = new p5(sketch);
 
@@ -411,7 +411,7 @@ graph TD
 
 **第一步：Notion手机表单（现在就能做）**
 
-- 在知乎主库或新建一个「输入收集」数据库
+- 在知乎主库或新建一个“输入收集”数据库
 - 加字段：内容、类型（问题/功能/bug）、状态
 - 手机Notion填一条 → 数据进库 → 等本地捡
 
@@ -462,7 +462,7 @@ setInterval(loadNotionWeights, 60000);
 > 三才流场的粒子亮度 = 注意力权重（Attention Weight）
 > 
 
-> 你看到的流动，就是AI在做决策时「最关注的地方」
+> 你看到的流动，就是AI在做决策时“最关注的地方”
 > 
 
 | **流场元素** | **对应AI概念** | **接通Notion后的含义** |
@@ -479,7 +479,7 @@ setInterval(loadNotionWeights, 60000);
 
 德者永生殿里的人格是**文本页面**，不是真正可调用的API端点。
 
-要让「自动触发人格」变成现实，需要：
+要让“自动触发人格”变成现实，需要：
 
 1. 本地 :9622 服务实现 `/persona-router` 端点
 2. 按内容关键词识别→调用不同处理逻辑
@@ -525,38 +525,38 @@ setInterval(loadNotionWeights, 60000);
 
 ## 摘要
 
-（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+（请在此用不超过 256 字说明本文档的核心内容、性质与局限。）
 
-## 關鍵詞
+## 关键词
 
-（請列出 5–10 個關鍵詞，中英文對照優先。）
+（请列出 5–10 个关键词，中英文对照优先。）
 
-## 引用與溯源
+## 引用与溯源
 
-- 本文檔引用或參考了以下來源：
-  - [1] （請填寫）
-- 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+- 本文档引用或参考了以下来源：
+  - [1] （请填写）
+- 相关龍魂系统文档：
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
-## 誠實局限
+## 诚实局限
 
-1. （請列出本分析的第一條局限或不確定性。）
-2. （請列出第二條。）
-3. （請列出第三條。）
+1. （请列出本分析的第一条局限或不确定性。）
+2. （请列出第二条。）
+3. （请列出第三条。）
 
-## 修改記錄
+## 修改记录
 
-| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+| 日期 | 版本 | 修改人 | 修改内容 | 审核状态 |
 |---|---|---|---|---|
-| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文档标准模板 v1.0》整理 | 草稿 |
 
-## 分類標籤
+## 分类标签
 
-- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
-- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
-- 審計色：#黃色待審
+- 总纲模块：（请勾选，例如 #知识矩阵 #安全域）
+- 对外状态：（请勾选，例如 #Gitee #GitHub #CSDN）
+- 审计色：#黄色待审
 
-## DNA 簽名
+## DNA 签名
 
 ```
 #龍芯⚡️2026-03-28-P5JS_1E7B-v1.0

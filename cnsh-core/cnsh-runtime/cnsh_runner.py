@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CNSH 中文原生脚本運行時 · 通心譯執行引擎
+CNSH 中文原生脚本运行时 · 通心译执行引擎
 Chinese Native Script Runtime · TongXinYi Execution Engine
 
 DNA:#龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0
-責任: UID9622·不免責
+责任: UID9622·不免责
 
 核心信念：
-  英文不是唯一計算機執行的指令。
-  CNSH 用中文語法承載意圖，運行時透過通心譯將其解釋為可執行代碼，
-  支持 Python 作為首選目標語言，並保留中文語義之心。
+  英文不是唯一计算机执行的指令。
+  CNSH 用中文语法承载意图，运行时透过通心译将其解释为可执行代码，
+  支持 Python 作为首选目标语言，并保留中文语义之心。
 
 用法：
   python3 cnsh_runner.py examples/hello.cnsh
@@ -29,14 +29,14 @@ from typing import Dict, List, Optional, Tuple
 
 
 class CNSHRuntimeError(Exception):
-    """CNSH 運行時錯誤"""
+    """CNSH 运行时错误"""
     pass
 
 
 class TongXinYiTranslator:
     """
-    通心譯雙語轉換器
-    負責將 CNSH 中文關鍵字/標點解釋為目標語言符號，同時保留中文意圖註釋。
+    通心译双语转换器
+    负责将 CNSH 中文关键字/标点解释为目标语言符号，同时保留中文意图注释。
     """
 
     def __init__(self, dict_path: Optional[Path] = None):
@@ -57,30 +57,30 @@ class TongXinYiTranslator:
             with open(self.dict_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError) as exc:
-            raise CNSHRuntimeError(f"無法載入 CNSH 字典: {self.dict_path}: {exc}")
+            raise CNSHRuntimeError(f"无法载入 CNSH 字典: {self.dict_path}: {exc}")
 
     def explain_line(self, line: str) -> str:
         """
-        對單行代碼進行通心譯解釋：保留中文心，輸出外殼含義。
-        返回一行註釋形式的解釋。
+        对单行代码进行通心译解释：保留中文心，输出外壳含义。
+        返回一行注释形式的解释。
         """
         parts = []
-        # 檢測通心譯專屬術語
+        # 检测通心译专属术语
         for cn, en in self.tongxinyi_terms.items():
             if cn in line:
                 parts.append(f"{cn}→{en}")
-        # 檢測關鍵字映射
+        # 检测关键字映射
         for cn, py in self.keywords.items():
             if re.search(rf"\b{re.escape(cn)}\b", line) and cn not in self.tongxinyi_terms:
                 parts.append(f"{cn}→{py}")
         if not parts:
-            return "# 語句保持原意執行"
-        return "# 通心譯: " + "; ".join(parts[:5])
+            return "# 语句保持原意执行"
+        return "# 通心译: " + "; ".join(parts[:5])
 
 
 class CNSHInterpreter:
     """
-    CNSH 解釋器：將 .cnsh 源代碼轉譯為 Python 並執行。
+    CNSH 解释器：将 .cnsh 源代码转译为 Python 并执行。
     """
 
     def __init__(self, translator: Optional[TongXinYiTranslator] = None):
@@ -90,7 +90,7 @@ class CNSHInterpreter:
 
     def translate(self, source: str, add_explanations: bool = False) -> str:
         """
-        將 CNSH 源碼轉譯為 Python。
+        将 CNSH 源码转译为 Python。
         """
         self.source_lines = source.splitlines()
         self.translated_lines = []
@@ -101,7 +101,7 @@ class CNSHInterpreter:
                 self.translated_lines.append("")
                 continue
 
-            # 跳過純註釋行（保留）
+            # 跳过纯注释行（保留）
             if line.strip().startswith("#"):
                 self.translated_lines.append(line)
                 continue
@@ -117,8 +117,8 @@ class CNSHInterpreter:
         return "\n".join(self.translated_lines)
 
     def _translate_line(self, line: str) -> str:
-        """逐行轉譯：保護字符串，轉譯關鍵字、標點、內建函數、方法。"""
-        # 提取並保護字符串字面量
+        """逐行转译：保护字符串，转译关键字、标点、内建函数、方法。"""
+        # 提取并保护字符串字面量
         string_placeholders: Dict[str, str] = {}
         placeholder_idx = 0
 
@@ -129,20 +129,20 @@ class CNSHInterpreter:
             placeholder_idx += 1
             return key
 
-        # 匹配單引號或雙引號字符串（非 f-string）
-        # 保護：plain / raw / byte / unicode 字符串的字面量
-        # 不保護：f-string，因為其內含可執行表達式需要轉譯
+        # 匹配单引号或双引号字符串（非 f-string）
+        # 保护：plain / raw / byte / unicode 字符串的字面量
+        # 不保护：f-string，因为其内含可执行表达式需要转译
         string_pattern = (
-            r"(?:[rRbBuU]+'[^'\\]*(?:\\.[^'\\]*)*')"          # raw/byte/unicode 單引號
-            r"|(?:[rRbBuU]+\"[^\"\\]*(?:\\.[^\"\\]*)*\")"    # raw/byte/unicode 雙引號
-            r"|(?<![fFrRbBuU])'[^'\\]*(?:\\.[^'\\]*)*'"        # plain 單引號（前面無 f/r/b/u 前綴）
-            r"|(?<![fFrRbBuU])\"[^\"\\]*(?:\\.[^\"\\]*)*\""    # plain 雙引號
+            r"(?:[rRbBuU]+'[^'\\]*(?:\\.[^'\\]*)*')"          # raw/byte/unicode 单引号
+            r"|(?:[rRbBuU]+\"[^\"\\]*(?:\\.[^\"\\]*)*\")"    # raw/byte/unicode 双引号
+            r"|(?<![fFrRbBuU])'[^'\\]*(?:\\.[^'\\]*)*'"        # plain 单引号（前面无 f/r/b/u 前缀）
+            r"|(?<![fFrRbBuU])\"[^\"\\]*(?:\\.[^\"\\]*)*\""    # plain 双引号
         )
         line = re.sub(string_pattern, protect_string, line)
 
         result = line
 
-        # 1. 轉譯關鍵字
+        # 1. 转译关键字
         multi_char = sorted(
             [kv for kv in self.translator.keywords.items() if len(kv[0]) >= 2],
             key=lambda x: -len(x[0])
@@ -154,42 +154,42 @@ class CNSHInterpreter:
         for cn, py in single_char:
             result = re.sub(rf"(?<![\u4e00-\u9fa5]){re.escape(cn)}(?![\u4e00-\u9fa5])", py, result)
 
-        # 2. 轉譯標點
+        # 2. 转译标点
         for cn_punct, py_punct in self.translator.punct.items():
             result = result.replace(cn_punct, py_punct)
 
-        # 3. 轉譯內建函數調用（後面接左括號）
+        # 3. 转译内建函数调用（后面接左括号）
         for cn, py in sorted(self.translator.builtins.items(), key=lambda x: -len(x[0])):
             result = re.sub(rf"(?<![\u4e00-\u9fa5]){re.escape(cn)}(?=\s*\()", py, result)
 
-        # 4. 轉譯方法調用（.方法()）
+        # 4. 转译方法调用（.方法()）
         for cn, py in sorted(self.translator.methods.items(), key=lambda x: -len(x[0])):
             result = re.sub(rf"\.{re.escape(cn)}(?=\s*\()", f".{py}", result)
 
-        # 恢復字符串字面量
+        # 恢复字符串字面量
         for key, original in string_placeholders.items():
             result = result.replace(key, original)
 
         return result
 
     def validate(self, code: str) -> None:
-        """用 AST 檢查轉譯後代碼語法是否合法。"""
+        """用 AST 检查转译后代码语法是否合法。"""
         try:
             ast.parse(code)
         except SyntaxError as exc:
             raise CNSHRuntimeError(
-                f"轉譯後 Python 語法錯誤 (行 {exc.lineno}): {exc.msg}\n"
+                f"转译后 Python 语法错误 (行 {exc.lineno}): {exc.msg}\n"
                 f"{exc.text}"
             )
 
     def execute(self, source: str, add_explanations: bool = False, globals_dict: Optional[Dict] = None) -> Dict:
         """
-        執行 CNSH 源碼：轉譯、驗證、運行。
+        执行 CNSH 源码：转译、验证、运行。
         """
         python_code = self.translate(source, add_explanations=add_explanations)
         self.validate(python_code)
 
-        # 沙盒執行環境
+        # 沙盒执行环境
         safe_globals = globals_dict or {
             "__name__": "__cnsh__",
             "__file__": "<cnsh>",
@@ -199,7 +199,7 @@ class CNSHInterpreter:
         try:
             exec(python_code, safe_globals)
         except Exception as exc:
-            raise CNSHRuntimeError(f"CNSH 執行錯誤: {type(exc).__name__}: {exc}")
+            raise CNSHRuntimeError(f"CNSH 执行错误: {type(exc).__name__}: {exc}")
 
         return {
             "translated_code": python_code,
@@ -208,39 +208,39 @@ class CNSHInterpreter:
 
 
 def run_file(path: Path, explain: bool = False, show_code: bool = False, dry_run: bool = False) -> None:
-    """運行單個 .cnsh 文件。"""
+    """运行单个 .cnsh 文件。"""
     if not path.exists():
         raise CNSHRuntimeError(f"文件不存在: {path}")
 
     source = path.read_text(encoding="utf-8")
     interpreter = CNSHInterpreter()
 
-    print(f"🐉 CNSH 通心譯執行引擎")
-    print(f"   源碼: {path}")
+    print(f"🐉 CNSH 通心译执行引擎")
+    print(f"   源码: {path}")
     print(f"   DNA:#龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0")
     print()
 
     if dry_run:
         python_code = interpreter.translate(source, add_explanations=explain)
-        print("=== 轉譯後的 Python 代碼（不干運行）===")
+        print("=== 转译后的 Python 代码（不干运行）===")
         print(python_code)
         return
 
     result = interpreter.execute(source, add_explanations=explain)
 
     if show_code or explain:
-        print("=== 轉譯後的 Python 代碼 ===")
+        print("=== 转译后的 Python 代码 ===")
         print(result["translated_code"])
         print()
 
-    print("✅ 執行完成")
+    print("✅ 执行完成")
 
 
 def run_repl() -> None:
-    """CNSH 交互式解釋器（簡易 REPL）。"""
+    """CNSH 交互式解释器（简易 REPL）。"""
     interpreter = CNSHInterpreter()
-    print("🐉 CNSH 交互式通心譯解釋器")
-    print("   輸入 '退出' 或 'exit' 結束")
+    print("🐉 CNSH 交互式通心译解释器")
+    print("   输入 '退出' 或 'exit' 结束")
     print()
 
     buffer: List[str] = []
@@ -258,7 +258,7 @@ def run_repl() -> None:
         buffer.append(line)
         source = "\n".join(buffer)
 
-        # 嘗試執行，若語法不完整則繼續讀入
+        # 尝试执行，若语法不完整则继续读入
         try:
             python_code = interpreter.translate(source)
             ast.parse(python_code)
@@ -267,16 +267,16 @@ def run_repl() -> None:
         except (SyntaxError, CNSHRuntimeError):
             continue
 
-    print("👋 再會")
+    print("👋 再会")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="CNSH 中文原生脚本運行時")
-    parser.add_argument("file", nargs="?", type=Path, help="要執行的 .cnsh 文件")
-    parser.add_argument("--explain", action="store_true", help="輸出通心譯解釋註釋")
-    parser.add_argument("--show-code", action="store_true", help="顯示轉譯後的 Python 代碼")
-    parser.add_argument("--dry-run", action="store_true", help="僅轉譯不執行")
-    parser.add_argument("--repl", action="store_true", help="進入交互式模式")
+    parser = argparse.ArgumentParser(description="CNSH 中文原生脚本运行时")
+    parser.add_argument("file", nargs="?", type=Path, help="要执行的 .cnsh 文件")
+    parser.add_argument("--explain", action="store_true", help="输出通心译解释注释")
+    parser.add_argument("--show-code", action="store_true", help="显示转译后的 Python 代码")
+    parser.add_argument("--dry-run", action="store_true", help="仅转译不执行")
+    parser.add_argument("--repl", action="store_true", help="进入交互式模式")
     args = parser.parse_args()
 
     if args.repl:

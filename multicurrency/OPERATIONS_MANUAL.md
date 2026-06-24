@@ -31,7 +31,7 @@ journalctl -u longhun-multicurrency-sync --since today
 journalctl -u longhun-multicurrency-sync | grep -i error
 
 # 统计同步成功/失败
-journalctl -u longhun-multicurrency-sync | grep "同步成功\|同步失敗" | wc -l
+journalctl -u longhun-multicurrency-sync | grep "同步成功\|同步失败" | wc -l
 ```
 
 ### 性能监控

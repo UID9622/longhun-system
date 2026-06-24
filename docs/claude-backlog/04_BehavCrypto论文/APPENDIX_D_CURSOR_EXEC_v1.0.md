@@ -4,7 +4,7 @@
 **DNA**: `#龍芯⚡️2026-05-02-APPENDIX-D-CURSOR-EXEC-v1.0`  
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
-**作者**: UID9622·龍芯北辰·諸葛鑫  
+**作者**: UID9622·龍芯北辰·诸葛鑫  
 **用途**: Cursor 直接执行,不需要老大解释  
 
 ---

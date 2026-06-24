@@ -1,0 +1,14 @@
+{
+  "_dna": "2026-06-21-CNSH-DESKTOP-MENU-v1.0",
+  "items": [
+    {
+      "id": "open-cnsh-integrated-readme",
+      "label": "📘 查看 CNSH 整合说明文档",
+      "type": "shell",
+      "command": "open {root}/cnsh.integrated/info.md",
+      "description": "打开 CNSH 整合模块说明",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ]
+}

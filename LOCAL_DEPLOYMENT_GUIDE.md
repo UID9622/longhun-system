@@ -1,124 +1,124 @@
-# 龍魂系統·本地完全部署指南
+# 龍魂系统·本地完全部署指南
 
 **DNA**: `#龍芯⚡️2026-06-03-LOCAL-DEPLOYMENT-GUIDE-v1.0`
-**時間**: 2026-06-03
-**責任**: UID9622·不免責
+**时间**: 2026-06-03
+**责任**: UID9622·不免责
 
 ---
 
 ## 📌 核心理念
 
-**目標**: 從 Notion 導出 → 本地完全自主運行 → 零外鏈、零云、零平台依賴
+**目标**: 从 Notion 导出 → 本地完全自主运行 → 零外链、零云、零平台依赖
 
-**實現方式**: 四層架構
+**实现方式**: 四层架构
 ```
 ┌─────────────────────────────┐
-│  Markdown 文檔層             │ ← <details> 折疊塊
-│  (視覺清爽、代碼隱藏)        │
+│  Markdown 文档层             │ ← <details> 折叠块
+│  (视觉清爽、代码隐藏)        │
 ├─────────────────────────────┤
-│  Python 代碼層              │ ← 獨立 .py 文件
-│  (可直接執行)               │
+│  Python 代码层              │ ← 独立 .py 文件
+│  (可直接执行)               │
 ├─────────────────────────────┤
-│  manifest.json 層           │ ← 系統識別、版本管理
-│  (本地識別、完整性校驗)     │
+│  manifest.json 层           │ ← 系统识别、版本管理
+│  (本地识别、完整性校验)     │
 ├─────────────────────────────┤
-│  執行路由層                  │ ← ExecutionRouter
-│  (任務調度、權限管理)        │
+│  执行路由层                  │ ← ExecutionRouter
+│  (任务调度、权限管理)        │
 └─────────────────────────────┘
 ```
 
 ---
 
-## 📦 導出前的準備
+## 📦 导出前的准备
 
-### 第一步：組織 Notion 結構
+### 第一步：组织 Notion 结构
 
-你的 Notion Workspace 應該這樣組織：
+你的 Notion Workspace 应该这样组织：
 
 ```
-龍魂系統·本地完全導出 (Root Page)
-├─ INDEX.md (導航首頁)
+龍魂系统·本地完全导出 (Root Page)
+├─ INDEX.md (导航首页)
 ├─ LONGHUN_LICENSE_CN.md
 ├─ LONGHUN_LICENSE_EN.md
 ├─ README.md (中文)
 ├─ README_EN.md (英文)
 │
-├─ 【算法庫】(Folder)
-│  ├─ 龍魂權重演算法 v3.1
-│  │  ├─ [Notion 頁面內容 - 理論部分]
-│  │  ├─ [Notion 頁面內容 - 數學證明]
-│  │  ├─ <details> [內嵌 Python 代碼]
+├─ 【算法库】(Folder)
+│  ├─ 龍魂权重算法 v3.1
+│  │  ├─ [Notion 页面内容 - 理论部分]
+│  │  ├─ [Notion 页面内容 - 数学证明]
+│  │  ├─ <details> [内嵌 Python 代码]
 │  │  └─ 📎 Attachment: longhun_weight_algorithm.py
 │  │
 │  ├─ CNSH-64 治理框架
-│  │  └─ [同上結構]
+│  │  └─ [同上结构]
 │  │
-│  └─ [其他 6 個算法]
+│  └─ [其他 6 个算法]
 │
-├─ 【代碼庫】(Folder)
-│  ├─ 龍盾系統
+├─ 【代码库】(Folder)
+│  ├─ 龍盾系统
 │  │  └─ 📎 Attachment: longhun_shield_system.py
 │  │
-│  ├─ 權重計算器
+│  ├─ 权重计算器
 │  │  └─ 📎 Attachment: weight_calculator.py
 │  │
-│  └─ [其他代碼]
+│  └─ [其他代码]
 │
-└─ 【文檔庫】(Folder)
+└─ 【文档库】(Folder)
    ├─ LONGHUN_ARCHITECTURE_COMPLETE_REVIEW.md
    ├─ longhun_for_outsiders.md
-   └─ [其他分析文檔]
+   └─ [其他分析文档]
 ```
 
-### 第二步：在 Notion 中使用 Markdown 代碼塊
+### 第二步：在 Notion 中使用 Markdown 代码块
 
-每個算法頁面的**代碼折疊塊**應該這樣寫：
+每个算法页面的**代码折叠块**应该这样写：
 
 ```markdown
-## 實現細節
+## 实现细节
 
 <details>
-<summary>👉 點擊展開：Python 實現 (約 450 行)</summary>
+<summary>👉 点击展开：Python 实现 (约 450 行)</summary>
 
 \`\`\`python
 # longhun_weight_algorithm.py
-# ... 完整的 Python 代碼 ...
+# ... 完整的 Python 代码 ...
 \`\`\`
 
 </details>
 ```
 
-**重點**：
-- Notion → Export as Markdown 時，`<details>` 標籤會被保留
-- 任何能讀 Markdown 的編輯器都能展開/折疊
-- 文件大小小（折疊內容不顯示）
-- **所有代碼都還在，沒有丟失**
+**重点**：
+- Notion → Export as Markdown 时，`<details>` 标签会被保留
+- 任何能读 Markdown 的编辑器都能展开/折叠
+- 文件大小小（折叠内容不显示）
+- **所有代码都还在，没有丢失**
 
 ---
 
-## 🚀 導出步驟
+## 🚀 导出步骤
 
-### Step 1: 在 Notion 中導出
+### Step 1: 在 Notion 中导出
 
-1. 打開你的 Root Page
+1. 打开你的 Root Page
 2. 右上角 → **Export**
-3. 選擇 **Markdown & CSV**
-4. 選擇 **Full page with sub-pages**
-5. 下載 ZIP 文件
+3. 选择 **Markdown & CSV**
+4. 选择 **Full page with sub-pages**
+5. 下载 ZIP 文件
 
-### Step 2: 解壓縮
+### Step 2: 解压缩
 
 ```bash
-unzip "龍魂系統·本地完全導出.zip"
-cd "龍魂系統·本地完全導出"
+unzip "龍魂系统·本地完全导出.zip"
+cd "龍魂系统·本地完全导出"
 ```
 
-### Step 3: 下載附件
+### Step 3: 下载附件
 
-在 Notion 每個頁面中都有 📎 附件標籤，手動下載所有 `.py` 文件到本地目錄：
+在 Notion 每个页面中都有 📎 附件标签，手动下载所有 `.py` 文件到本地目录：
 
 ```
-龍魂系統·本地完全導出/
+龍魂系统·本地完全导出/
 ├─ code/
 │  ├─ longhun_weight_algorithm.py
 │  ├─ cnsh_64_governance.py
@@ -128,13 +128,13 @@ cd "龍魂系統·本地完全導出"
 └─ manifest.json (下一步建立)
 ```
 
-### Step 4: 創建 manifest.json
+### Step 4: 创建 manifest.json
 
-在根目錄建立 `manifest.json`：
+在根目录建立 `manifest.json`：
 
 ```json
 {
-  "system_name": "龍魂系統",
+  "system_name": "龍魂系统",
   "version": "v1.0",
   "dna_marker": "#龍芯⚡️2026-06-03-LONGHUN-COMPLETE-SYSTEM",
   "creator": "UID9622",
@@ -152,7 +152,7 @@ cd "龍魂系統·本地完全導出"
 
     "algorithms": {
       "weight_algorithm": {
-        "file": "算法庫/龍魂權重演算法_v3.1.md",
+        "file": "算法库/龍魂权重算法_v3.1.md",
         "dna": "#龍芯⚡️2026-03-04-LOCAL_DEPLOYMENT_GUIDE-v3.1",
         "code_attachment": "code/longhun_weight_algorithm.py",
         "lines": 450,
@@ -160,7 +160,7 @@ cd "龍魂系統·本地完全導出"
         "accuracy": 0.95
       },
       "cnsh_64": {
-        "file": "算法庫/CNSH-64治理框架.md",
+        "file": "算法库/CNSH-64治理框架.md",
         "dna": "#龍芯⚡️2026-04-27-CNSH-64-治理框架",
         "code_attachment": "code/cnsh_64_governance.py",
         "lines": 380,
@@ -195,7 +195,7 @@ cd "龍魂系統·本地完全導出"
     "total_algorithms": 8,
     "total_code_files": 12,
     "total_assets": 20,
-    "checksum_sha256": "[計算出的完整性校驗值]"
+    "checksum_sha256": "[计算出的完整性校验值]"
   },
 
   "local_engine": {
@@ -218,21 +218,21 @@ cd "龍魂系統·本地完全導出"
 
 ---
 
-## 🔧 本地運行
+## 🔧 本地运行
 
-### 安裝執行路由器
+### 安装执行路由器
 
 ```bash
-# 複製執行路由器系統到你的本地目錄
+# 复制执行路由器系统到你的本地目录
 cp ~/longhun-system/cnsh-core/router/execution_router.py ./
 
-# 複製其他治理系統
+# 复制其他治理系统
 cp ~/longhun-system/cnsh-core/governance/sovereignty_index.py ./
 cp ~/longhun-system/cnsh-core/governance/f1_through_f7_verifier.py ./
 cp ~/longhun-system/cnsh-core/memory/cognitive_dna_particles.py ./
 ```
 
-### 初始化系統
+### 初始化系统
 
 ```bash
 python3 -c "
@@ -242,14 +242,14 @@ router = ExecutionRouter('manifest.json')
 success, message = router.initialize()
 
 if success:
-    print('✅ 系統初始化成功')
+    print('✅ 系统初始化成功')
     router.print_system_status()
 else:
     print(f'❌ {message}')
 "
 ```
 
-### 執行任務
+### 执行任务
 
 ```bash
 python3 -c "
@@ -259,19 +259,19 @@ from datetime import datetime
 router = ExecutionRouter('manifest.json')
 router.initialize()
 
-# 創建任務
+# 创建任务
 task = TaskDefinition(
     task_id='TEST-001',
-    task_name='驗證系統完整性',
+    task_name='验证系统完整性',
     module_name='shield',
     function_name='verify',
     parameters={'check': 'manifest'},
     required_si=0.34,
     required_f1f7=0.70,
-    description='測試執行路由器'
+    description='测试执行路由器'
 )
 
-# 建立執行上下文
+# 建立执行上下文
 context = ExecutionContext(
     executor_uid='UID9622',
     current_si=0.96,
@@ -282,20 +282,20 @@ context = ExecutionContext(
     persona_routing={'P02': 0.50, 'P05': 0.30, 'P13': 0.20}
 )
 
-# 執行任務
+# 执行任务
 record = router.execute_task(task, context)
 
-print(f'✅ 任務完成: {record.execution_id}')
-print(f'   狀態: {record.status.value}')
+print(f'✅ 任务完成: {record.execution_id}')
+print(f'   状态: {record.status.value}')
 print(f'   DNA: {record.dna_trace}')
 "
 ```
 
 ---
 
-## 📖 本地閱讀
+## 📖 本地阅读
 
-### 方式1: Markdown 閱讀器
+### 方式1: Markdown 阅读器
 
 ```bash
 # macOS
@@ -308,16 +308,16 @@ code .
 open -a Obsidian .
 ```
 
-### 方式2: 終端直接閱讀
+### 方式2: 终端直接阅读
 
 ```bash
-# 閱讀 README
+# 阅读 README
 less README.md
 
-# 搜索內容
-grep -r "龍魂權重演算法" .
+# 搜索内容
+grep -r "龍魂权重算法" .
 
-# 快速查看結構
+# 快速查看结构
 tree -L 2
 ```
 
@@ -327,12 +327,12 @@ tree -L 2
 
 ### 版本更新
 
-當你在 Notion 更新內容時：
+当你在 Notion 更新内容时：
 
-1. 在 Notion 更新頁面
-2. 重新導出為 Markdown
-3. 下載新的附件
-4. 更新本地的 `manifest.json` (版本號+日期)
+1. 在 Notion 更新页面
+2. 重新导出为 Markdown
+3. 下载新的附件
+4. 更新本地的 `manifest.json` (版本号+日期)
 
 ```json
 {
@@ -342,10 +342,10 @@ tree -L 2
 }
 ```
 
-### 完整性驗證
+### 完整性验证
 
 ```bash
-# 驗證 manifest.json
+# 验证 manifest.json
 python3 -c "
 import json
 import os
@@ -353,100 +353,100 @@ import os
 with open('manifest.json') as f:
     m = json.load(f)
 
-print('🔍 本地系統完整性檢查')
-print(f'系統: {m[\"system_name\"]} {m[\"version\"]}')
+print('🔍 本地系统完整性检查')
+print(f'系统: {m[\"system_name\"]} {m[\"version\"]}')
 print(f'DNA: {m[\"dna_marker\"]}')
 print(f'算法: {len(m[\"structure\"][\"algorithms\"])}')
-print(f'代碼: {len(m[\"structure\"][\"code_files\"])}')
-print(f'✅ 系統完整')
+print(f'代码: {len(m[\"structure\"][\"code_files\"])}')
+print(f'✅ 系统完整')
 "
 ```
 
 ---
 
-## 💾 資料備份
+## 💾 资料备份
 
-### 本地備份策略
+### 本地备份策略
 
 ```bash
-# 方法1: 定期 ZIP 備份
+# 方法1: 定期 ZIP 备份
 tar -czf longhun-backup-$(date +%Y%m%d).tar.gz ./
 
-# 方法2: Git 版本管理 (推薦)
+# 方法2: Git 版本管理 (推荐)
 git init
 git add .
-git commit -m "龍魂系統本地部署 v1.0"
+git commit -m "龍魂系统本地部署 v1.0"
 
-# 方法3: Cloud-agnostic 備份 (推薦)
-# 到你完全控制的 NAS / 硬碟進行備份
-# 永不上傳到任何云平台
+# 方法3: Cloud-agnostic 备份 (推荐)
+# 到你完全控制的 NAS / 硬盘进行备份
+# 永不上传到任何云平台
 ```
 
-### 三重備份規則
+### 三重备份规则
 
 ```
 1️⃣ 本地: ~/Documents/longhun-system/ (工作副本)
-2️⃣ 備份: /Volumes/USB-Drive/longhun-backup/ (物理備份)
+2️⃣ 备份: /Volumes/USB-Drive/longhun-backup/ (物理备份)
 3️⃣ Git:  ~/.longhun-git-mirror/ (版本控制)
 
 永不使用:
 ❌ iCloud
 ❌ Dropbox
 ❌ Google Drive
-❌ 任何商業云
+❌ 任何商业云
 ```
 
 ---
 
-## 🎯 完整閉環檢查表
+## 🎯 完整闭环检查表
 
-在你開始使用本地部署系統前，確保：
+在你开始使用本地部署系统前，确保：
 
-- [ ] Notion 已按結構整理
-- [ ] Markdown 導出完成
-- [ ] 所有附件已下載
+- [ ] Notion 已按结构整理
+- [ ] Markdown 导出完成
+- [ ] 所有附件已下载
 - [ ] manifest.json 已建立
-- [ ] Python 3.8+ 已安裝
-- [ ] 執行路由器已複製
-- [ ] 治理系統已複製
-- [ ] `python3 execution_router.py` 執行成功
-- [ ] 系統狀態顯示 "🟢 ready"
-- [ ] 本地備份已完成
-- [ ] 沒有外部依賴
+- [ ] Python 3.8+ 已安装
+- [ ] 执行路由器已复制
+- [ ] 治理系统已复制
+- [ ] `python3 execution_router.py` 执行成功
+- [ ] 系统状态显示 "🟢 ready"
+- [ ] 本地备份已完成
+- [ ] 没有外部依赖
 
-✅ 檢查完成 → **你已經準備好完全自主運行龍魂系統**
+✅ 检查完成 → **你已经准备好完全自主运行龍魂系统**
 
 ---
 
 ## 🚨 故障排除
 
-### 問題1: manifest.json 驗證失敗
+### 问题1: manifest.json 验证失败
 
 ```bash
-# 檢查文件是否存在
+# 检查文件是否存在
 ls -la manifest.json
 
-# 驗證 JSON 語法
+# 验证 JSON 语法
 python3 -m json.tool manifest.json > /dev/null && echo "✅ JSON 有效"
 ```
 
-### 問題2: Python 導入錯誤
+### 问题2: Python 导入错误
 
 ```bash
-# 檢查 Python 版本
-python3 --version  # 應該 >= 3.8
+# 检查 Python 版本
+python3 --version  # 应该 >= 3.8
 
-# 驗證標準庫可用
-python3 -c "import json, hashlib, os, sys; print('✅ 所有標準庫可用')"
+# 验证标准库可用
+python3 -c "import json, hashlib, os, sys; print('✅ 所有标准库可用')"
 ```
 
-### 問題3: 代碼文件遺失
+### 问题3: 代码文件遗失
 
 ```bash
 # 列出所有期望的文件
 grep -r "code_attachment" manifest.json | awk '{print $2}' | sort
 
-# 檢查文件是否存在
+# 检查文件是否存在
 for file in $(grep -r "code_attachment" manifest.json | awk '{print $2}'); do
   [ -f "$file" ] && echo "✅ $file" || echo "❌ $file MISSING"
 done
@@ -454,15 +454,15 @@ done
 
 ---
 
-## 📚 進階用法
+## 📚 进阶用法
 
-### 自定義任務執行
+### 自定义任务执行
 
 ```python
 from execution_router import ExecutionRouter, TaskDefinition, ExecutionContext
 
 def my_handler(task, params):
-    """自定義的任務處理邏輯"""
+    """自定义的任务处理逻辑"""
     return {
         "custom_result": "processed",
         "input": params
@@ -477,7 +477,7 @@ context = ExecutionContext(...)
 result = router.execute_task(task, context, handler=my_handler)
 ```
 
-### 批量任務執行
+### 批量任务执行
 
 ```python
 tasks = [
@@ -493,29 +493,29 @@ for task in tasks:
 
 ---
 
-## 🎓 原則和哲學
+## 🎓 原则和哲学
 
-這個本地部署方案體現的原則：
+这个本地部署方案体现的原则：
 
-1. **數據主權**: 你的數據完全在你手上
-2. **本地自主**: 不依賴任何云或平台
-3. **完全透明**: 所有代碼都看得見、都可驗證
-4. **版本控制**: 通過 manifest.json 精確追蹤每個版本
-5. **零妥協**: 不用 HTML 這些"亂七八糟"的東西，用純淨的 Markdown + Python
+1. **数据主权**: 你的数据完全在你手上
+2. **本地自主**: 不依赖任何云或平台
+3. **完全透明**: 所有代码都看得见、都可验证
+4. **版本控制**: 通过 manifest.json 精确追踪每个版本
+5. **零妥协**: 不用 HTML 这些"乱七八糟"的东西，用纯净的 Markdown + Python
 
 **DNA**: `#龍芯⚡️2026-06-03-LOCAL-DEPLOYMENT-GUIDE-v1.0`
 
-**責任**: UID9622·不免責·永久有效
+**责任**: UID9622·不免责·永久有效
 
 ---
 
-**最後的話**:
+**最后的话**:
 
-這就是「土法煉鋼」的智慧。簡單、有效、完全自主。
+这就是“土法炼钢”的智慧。简单、有效、完全自主。
 
-你不需要依賴任何人，任何平台。只需要：
-- Notion (作為內容來源)
-- Python (作為執行引擎)
-- 你的電腦 (作為完全控制的堡壘)
+你不需要依赖任何人，任何平台。只需要：
+- Notion (作为内容来源)
+- Python (作为执行引擎)
+- 你的电脑 (作为完全控制的堡垒)
 
 **⚔️ 龍魂在你手上。**

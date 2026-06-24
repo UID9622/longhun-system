@@ -809,7 +809,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--neon);bo
           <div style="display:flex;justify-content:space-around;margin-top:10px">
             <div style="text-align:center"><span style="font-size:24px">☰</span><div style="font-size:8px;color:rgba(200,168,75,0.4);margin-top:2px">UPPER·坤</div></div>
             <div style="color:rgba(200,168,75,0.2);font-size:18px;line-height:2.8">↕</div>
-            <div style="text-align:center"><span style="font-size:24px">☷</span><div style="font-size:8px;color:rgba(200,168,75,0.4);margin-top:2px">LOWER·乾</div></div>
+            <div style="text-align:center"><span style="font-size:24px">☷</span><div style="font-size:8px;color:rgba(200,168,75,0.4);margin-top:2px">LOWER·干</div></div>
           </div>
         </div>
         <!-- 熵值 -->
@@ -1131,7 +1131,7 @@ else    → "暂停"</div><div class="f-note">基于熵值自动分配</div></di
     <div class="lang-bar" id="truthLangBar">
       <button class="lang-btn active" onclick="truthSetLang('zh',this)">中文</button>
       <button class="lang-btn" onclick="truthSetLang('en',this)">English</button>
-      <button class="lang-btn" onclick="truthSetLang('ja',this)">日本語</button>
+      <button class="lang-btn" onclick="truthSetLang('ja',this)">日本语</button>
       <button class="lang-btn" onclick="truthSetLang('ko',this)">한국어</button>
       <button class="lang-btn" onclick="truthSetLang('es',this)">Español</button>
       <button class="lang-btn" onclick="truthSetLang('ar',this)">العربية</button>
@@ -1357,7 +1357,7 @@ const nowDate=()=>new Date().toISOString().slice(0,10).replace(/-/g,'');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function simpleHash(s){let h=0;for(let i=0;i<s.length;i++)h=(Math.imul(31,h)+s.charCodeAt(i))|0;return Math.abs(h);}
 const STOP=new Set('的了在是我有和就不人都一个上也很到说要去你会着没有看好自己这那'.split(''));
-function extractKw(text,n=8){const f={};text.split(/[\s，。！？；：、【】「」''""()\[\]]+/).filter(w=>w.length>1).forEach(w=>{if([...w].every(c=>STOP.has(c)))return;f[w]=(f[w]||0)+1;});return Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([w])=>w);}
+function extractKw(text,n=8){const f={};text.split(/[\s，。！？；：、【】“”''""()\[\]]+/).filter(w=>w.length>1).forEach(w=>{if([...w].every(c=>STOP.has(c)))return;f[w]=(f[w]||0)+1;});return Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([w])=>w);}
 function analyzeEmotion(t){const p=['开心','快乐','成功','棒','好','感谢','坚持','胜利'],ng=['难过','失败','崩了','完了','错','烦','压力'];let ps=0,ns=0;p.forEach(w=>{if(t.includes(w))ps++;});ng.forEach(w=>{if(t.includes(w))ns++;});return ps>ns?'积极🟢':ns>ps?'消极🔴':'平静🟡';}
 
 // ─────────────────────────────────────────
@@ -1548,7 +1548,7 @@ document.addEventListener('keydown',e=>{
 // 三色审计算法
 // ─────────────────────────────────────────
 const HEXAGRAMS=[
-  {n:'乾',sym:'☰',h:[11,13],sc:90,desc:'刚健进取·适合创建决策'},
+  {n:'干',sym:'☰',h:[11,13],sc:90,desc:'刚健进取·适合创建决策'},
   {n:'坤',sym:'☷',h:[1,3],sc:72,desc:'包容守护·适合归档整理'},
   {n:'坎',sym:'☵',h:[23,25],sc:58,desc:'险中求进·需谨慎行事'},
   {n:'离',sym:'☲',h:[9,11],sc:82,desc:'光明文明·适合创作发布'},
@@ -1614,7 +1614,7 @@ function multiDimAudit(text,cat='auto'){
     const s=[];
     if(rh.level==='red'){s.push('🔴 人和维度违规：移除红线内容');} 
     if(dl.score<55&&/千问|Qwen|DeepSeek|文心|ChatGPT/i.test(text)){s.push('⚠️ 外源内容：提取核心事实，去除价值观框架');}
-    if(ts.score<55){s.push(`⏰ 时机不佳（${ts.hexagram.sym}${ts.hexagram.n}）：可等待乾☰或离☲时辰再执行`);}
+    if(ts.score<55){s.push(`⏰ 时机不佳（${ts.hexagram.sym}${ts.hexagram.n}）：可等待干☰或离☲时辰再执行`);}
     minLoss=s.join('\n')||'核心内容可保留，建议精简后重新提交';
   }
   return{tianShi:ts,diLi:dl,renHe:rh,avgScore:avg,minScore:min,color,badge,minLoss,category:cat};
@@ -1880,7 +1880,7 @@ document.getElementById('btnRefreshSbHist').addEventListener('click',loadSandbox
 // ─────────────────────────────────────────
 // LU 时间引擎
 // ─────────────────────────────────────────
-const HEX_NAMES=['乾','坤','屯','蒙','需','讼','师','比','小畜','履','泰','否','同人','大有','谦','豫','随','蛊','临','观','噬嗑','贲','剥','复','无妄','大畜','颐','大过','坎','离','咸','恒','遁','大壮','晋','明夷','家人','睽','蹇','解','损','益','夬','姤','萃','升','困','井','革','鼎','震','艮','渐','归妹','丰','旅','巽','兑','涣','节','中孚','小过','既济','未济'];
+const HEX_NAMES=['干','坤','屯','蒙','需','讼','师','比','小畜','履','泰','否','同人','大有','谦','豫','随','蛊','临','观','噬嗑','贲','剥','复','无妄','大畜','颐','大过','坎','离','咸','恒','遁','大壮','晋','明夷','家人','睽','蹇','解','损','益','夬','姤','萃','升','困','井','革','鼎','震','艮','渐','归妹','丰','旅','巽','兑','涣','节','中孚','小过','既济','未济'];
 function luInit(){
   const grid=document.getElementById('luHexGrid');if(!grid)return;
   for(let i=0;i<64;i++){const d=document.createElement('div');d.className='hm'+(i===10?' act':'');d.textContent=String.fromCodePoint(0x4DC0+i);d.title=HEX_NAMES[i]+' #'+(i+1);grid.appendChild(d);}
@@ -2085,7 +2085,7 @@ function idDownloadCard(){
 // ─────────────────────────────────────────
 // 天下无欺·真相受理台
 // ─────────────────────────────────────────
-const truthI18n={zh:{country:'国家 / 地区',type:'事件类型',severity:'严重程度',desc:'发生了什么',party:'涉事方',evidence:'证据',contact:'联系方式（可选）'},en:{country:'Country',type:'Type',severity:'Severity',desc:'What happened',party:'Who did it',evidence:'Evidence',contact:'Contact (opt)'},ja:{country:'国/地域',type:'種類',severity:'深刻度',desc:'何が起きたか',party:'関係者',evidence:'証拠',contact:'連絡先(任意)'},ko:{country:'국가',type:'유형',severity:'심각도',desc:'무슨 일',party:'관련자',evidence:'증거',contact:'연락처(선택)'},es:{country:'País',type:'Tipo',severity:'Gravedad',desc:'Qué pasó',party:'Quién',evidence:'Evidencia',contact:'Contacto (opc)'},ar:{country:'البلد',type:'النوع',severity:'الخطورة',desc:'ماذا حدث',party:'من',evidence:'الأدلة',contact:'اتصال (اختياري)'}};
+const truthI18n={zh:{country:'国家 / 地区',type:'事件类型',severity:'严重程度',desc:'发生了什么',party:'涉事方',evidence:'证据',contact:'联系方式（可选）'},en:{country:'Country',type:'Type',severity:'Severity',desc:'What happened',party:'Who did it',evidence:'Evidence',contact:'Contact (opt)'},ja:{country:'国/地域',type:'种类',severity:'深刻度',desc:'何が起きたか',party:'関系者',evidence:'证拠',contact:'连络先(任意)'},ko:{country:'국가',type:'유형',severity:'심각도',desc:'무슨 일',party:'관련자',evidence:'증거',contact:'연락처(선택)'},es:{country:'País',type:'Tipo',severity:'Gravedad',desc:'Qué pasó',party:'Quién',evidence:'Evidencia',contact:'Contacto (opc)'},ar:{country:'البلد',type:'النوع',severity:'الخطورة',desc:'ماذا حدث',party:'من',evidence:'الأدلة',contact:'اتصال (اختياري)'}};
 function truthSetLang(lang,btn){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
   const t=truthI18n[lang]||truthI18n.zh;

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-18-CNSH-CIRCUIT-BREAKER-FILE1-v5.0
+"""
+#龍芯⚡️2026-06-18-CNSH-CIRCUIT-BREAKER-v5.0
 # 🟢 审计通过: 熔断机制v2.0完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫

@@ -1,5 +1,5 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0",
-
+{
+  "_dna": "2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0",
   "source_workspace": "☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub",
   "destination_path": "docs/dragon-soul-open-hub",
   "file_count": 146,
@@ -243,7 +243,7 @@
       "size": 6262
     },
     {
-      "path": "agent-specs/🧭 龍魂·人格路由API規則 v2 0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UI 71091bb507a8492ba6f6cc3959249757.md",
+      "path": "agent-specs/🧭 龍魂·人格路由API规则 v2 0｜触发条件·联动逻辑·数据来源·回复时间戳规范·性能基准｜UI 71091bb507a8492ba6f6cc3959249757.md",
       "category": "agent-specs",
       "size": 20266
     },
@@ -368,7 +368,7 @@
       "size": 26618
     },
     {
-      "path": "governance/📐 龍魂七維AI治理×數字主權執行表·設計規範 v1 0｜君子協議·Notion即登記所｜UID96 84daa1d2030447318ade20e12b1fdb36.md",
+      "path": "governance/📐 龍魂七维AI治理×数字主权执行表·设计规范 v1 0｜君子协议·Notion即登记所｜UID96 84daa1d2030447318ade20e12b1fdb36.md",
       "category": "governance",
       "size": 14810
     },
@@ -498,7 +498,7 @@
       "size": 1543
     },
     {
-      "path": "ipa-alignment/🐉 龍芯家族·人格與工具管理中心 神經網絡架構圖 7b33c2072eb44df2ad15f3015d0f17b8.md",
+      "path": "ipa-alignment/🐉 龍芯家族·人格与工具管理中心 神经网络架构图 7b33c2072eb44df2ad15f3015d0f17b8.md",
       "category": "ipa-alignment",
       "size": 16963
     },
@@ -598,7 +598,7 @@
       "size": 20671
     },
     {
-      "path": "ops/📡 龍魂系統·已發布內容歸類總覽 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md",
+      "path": "ops/📡 龍魂系统·已发布内容归类总览 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md",
       "category": "ops",
       "size": 11565
     },
@@ -743,10 +743,9 @@
       "size": 28605
     },
     {
-      "path": "tutorials/🦞 OpenClaw「龙虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md",
+      "path": "tutorials/🦞 OpenClaw“龙虾”安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md",
       "category": "tutorials",
       "size": 25999
     }
-  ],
-  "_dna": "2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0"
+  ]
 }

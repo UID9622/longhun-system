@@ -1,3 +1,4 @@
+# #龍芯⚡️20260624010825161-AUTO-DNA-F7607809 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
@@ -332,7 +333,7 @@ def _找内核脑父页(指定ID="") -> dict:
         if item.get("object") == "page":
             父ID = item["id"]
             父标题 = _提取标题(item) or "(无标题)"
-            print(f"  父页: 自动选取「{父标题[:30]}」({父ID[:8]}...)")
+            print(f"  父页: 自动选取“{父标题[:30]}”({父ID[:8]}...)")
             return {"type": "page_id", "page_id": 父ID}
         if item.get("object") == "database":
             父ID = item["id"]
@@ -928,7 +929,7 @@ def main():
 
     if args.classify:
         结果 = 自动分类(args.classify)
-        print(f"「{args.classify}」→ 分类 | Category: {结果}")
+        print(f"“{args.classify}”→ 分类 | Category: {结果}")
         return
 
     执行同步(增量=args.delta, 只检查=args.check, 模式=args.mode)

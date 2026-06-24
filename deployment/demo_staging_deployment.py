@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-🐉 龍魂系統 Demo/Staging 部署引擎 v1.0
+🐉 龍魂系统 Demo/Staging 部署引擎 v1.0
 
 功能：完整的演示部署流程
      包括环境初始化、镜像构建、服务部署、健康检查、报告生成
 
 DNA:#龍芯⚡️2026-06-08-DEMO-STAGING-DEPLOYMENT-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
 import json
@@ -43,7 +43,7 @@ class DemoStagingDeploymentEngine:
 
     def step_1_environment_setup(self) -> bool:
         """[1] 环境设置"""
-        print("\n[1] 🔧 環境設置")
+        print("\n[1] 🔧 环境设置")
         print("─" * 60)
 
         try:
@@ -141,7 +141,7 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
 
     def step_3_services_deployment(self) -> bool:
         """[3] 服务部署"""
-        print("\n[3] 🚀 服務部署")
+        print("\n[3] 🚀 服务部署")
         print("─" * 60)
 
         try:
@@ -185,7 +185,7 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
 
     def step_4_health_checks(self) -> bool:
         """[4] 健康检查"""
-        print("\n[4] ✅ 健康檢查")
+        print("\n[4] ✅ 健康检查")
         print("─" * 60)
 
         try:
@@ -227,7 +227,7 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
 
     def step_5_monitoring_activation(self) -> bool:
         """[5] 监控激活"""
-        print("\n[5] 📊 監控啟動")
+        print("\n[5] 📊 监控启动")
         print("─" * 60)
 
         try:
@@ -310,7 +310,7 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
         print("║" + " " * 78 + "║")
         print(
             "║"
-            + "🐉 龍魂系統 Demo/Staging 部署 - 完整執行".center(78)
+            + "🐉 龍魂系统 Demo/Staging 部署 - 完整执行".center(78)
             + "║"
         )
         print("║" + " " * 78 + "║")
@@ -318,8 +318,8 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
         print()
 
         print(f"部署 ID: {self.deployment_id}")
-        print(f"環境: {self.environment}")
-        print(f"開始時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S CST')}")
+        print(f"环境: {self.environment}")
+        print(f"开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S CST')}")
         print()
 
         # 执行所有步骤
@@ -332,7 +332,7 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
 
         # 生成报告
         print("\n" + "=" * 80)
-        print("📋 生成部署報告")
+        print("📋 生成部署报告")
         print("=" * 80)
 
         report = self.generate_deployment_report()
@@ -340,19 +340,19 @@ CMD ["uvicorn", "cnsh-core.api:app", "--host", "0.0.0.0", "--port", "8002"]
 
         # 显示总结
         print("\n" + "=" * 80)
-        print("🎉 部署完成總結")
+        print("🎉 部署完成总结")
         print("=" * 80)
         print()
-        print(f"狀態: {report['status']}")
-        print(f"耗時: {report['duration_seconds']:.2f} 秒")
-        print(f"步驟完成: {report['steps_passed']}/{report['steps_completed']}")
+        print(f"状态: {report['status']}")
+        print(f"耗时: {report['duration_seconds']:.2f} 秒")
+        print(f"步骤完成: {report['steps_passed']}/{report['steps_completed']}")
         print()
-        print("📌 關鍵信息:")
+        print("📌 关键信息:")
         print(f"  • API URL: {report['deployment_details']['api_url']}")
         print(f"  • Skills 已部署: {report['deployment_details']['skills_deployed']}/10")
-        print(f"  • 環境類型: {report['deployment_details']['environment_type']}")
+        print(f"  • 环境类型: {report['deployment_details']['environment_type']}")
         print()
-        print("🔄 回滾命令:")
+        print("🔄 回滚命令:")
         print(f"  {report['rollback_procedure']}")
         print()
         print("📚 下一步:")
@@ -372,6 +372,6 @@ if __name__ == "__main__":
     print()
     if success:
         print("✅ Demo/Staging 部署成功!")
-        print("   系統已準備好進行測試和驗證")
+        print("   系统已准备好进行测试和验证")
     else:
-        print("❌ 部署遇到問題，請檢查上面的錯誤")
+        print("❌ 部署遇到问题，请检查上面的错误")

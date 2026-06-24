@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-CONTRIBUTING-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # CONTRIBUTING · 怎么改才不踩雷
 
@@ -8,7 +8,7 @@
 ## 先读这三样
 
 1. [`README.md`](README.md) — 树形与分支（当前主干：**`release-snapshot`**）。  
-2. [`longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md) — **谁有权改「canonical」定义**。  
+2. [`longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md) — **谁有权改“canonical”定义**。  
 3. [`longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256`](longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256) + [`longhun-system/scripts/canonical-sha256/`](longhun-system/scripts/canonical-sha256/) — 母稿指纹怎么更新、怎么验。
 
 ## Hooks（本仓库布局）
@@ -19,7 +19,7 @@
 git config core.hooksPath longhun-system/scripts/githooks
 ```
 
-若你克隆的是「仅 `longhun-system/` 为根」的变体，则按该树里的 `CANONICAL_LOCK.md` 改为 `scripts/githooks`。
+若你克隆的是“仅 `longhun-system/` 为根”的变体，则按该树里的 `CANONICAL_LOCK.md` 改为 `scripts/githooks`。
 
 ## 母稿 vs 派生
 
@@ -41,7 +41,7 @@ git config core.hooksPath longhun-system/scripts/githooks
 
 ## 人格与称呼
 
-讨论与 PR 描述中请保持对 **UID9622 / 諸葛鑫（Zhuge Xin）/ Lucky·UID9622 / 龍芯北辰** 的署名一致；**不要把「龍」写成「龙」**（除非原文如此）。
+讨论与 PR 描述中请保持对 **UID9622 / 诸葛鑫（Zhuge Xin）/ Lucky·UID9622 / 龍芯北辰** 的署名一致；**不要把“龍”写成“龙”**（除非原文如此）。
 
 ## 提交前自检
 

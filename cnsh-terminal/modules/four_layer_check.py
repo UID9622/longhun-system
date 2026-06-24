@@ -72,7 +72,7 @@ class CNSH四层检查:
         全部关键字.update(_关键字们)
 
     # 龍字检查正则
-    龍字正则 = re.compile(r'[龍龖龘龗龕]')
+    龍字正则 = re.compile(r'[龍龖龘龗龛]')
 
     # 非法字符正则
     非法字符正则 = re.compile(

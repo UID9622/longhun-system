@@ -128,7 +128,7 @@ API Key: [REDACTED] (包月版)
 ### 配置位置
 ```
 ✅ ~/longhun-system/kimi/.env
-✅ ~/Downloads/Kimi_Agent_龍魂根協議自動化/.env
+✅ ~/Downloads/Kimi_Agent_龍魂根协议自动化/.env
 ```
 
 ---
@@ -141,7 +141,7 @@ API Key: [REDACTED] (包月版)
 | API 连接时间 | <100ms | <500ms | ✅ 优异 |
 | 网关响应时间 | <50ms | <100ms | ✅ 优异 |
 | 断路器反应时间 | <10ms | <50ms | ✅ 优异 |
-| 故障转移延遲 | ~1-2s | <5s | ✅ 正常 |
+| 故障转移延迟 | ~1-2s | <5s | ✅ 正常 |
 | 内存占用 | <100MB | <500MB | ✅ 正常 |
 
 ---

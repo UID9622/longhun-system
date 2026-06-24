@@ -15,7 +15,7 @@ app = FastAPI(title="龍魂人格 API", version="1.0")
 # 14 个人格定义
 PERSONAS = {
     "P00": {"name": "文心", "role": "战略核心", "trigram": "巽☴", "layer": "L0"},
-    "P01": {"name": "诸葛亮", "role": "战略推演", "trigram": "乾☰", "layer": "L1"},
+    "P01": {"name": "诸葛亮", "role": "战略推演", "trigram": "干☰", "layer": "L1"},
     "P02": {"name": "龍芯", "role": "执行核心", "trigram": "震☳", "layer": "L1"},
     "P03": {"name": "雯雯", "role": "隐私卫士", "trigram": "坤☷", "layer": "L2"},
     "P05": {"name": "上帝之眼", "role": "监管审计", "trigram": "坎☵", "layer": "L2"},
@@ -23,6 +23,7 @@ PERSONAS = {
     "P13": {"name": "姜子牙", "role": "九宫派位", "trigram": "离☲", "layer": "L3"},
     "P14": {"name": "吕蒙", "role": "辅助执行", "trigram": "兑☱", "layer": "L3"},
     "P15": {"name": "乔前辈", "role": "档案管理", "trigram": "巽☴", "layer": "L3"},
+    "P16": {"name": "平台运营官", "role": "跨平台账号与内容运营", "trigram": "坤☷", "layer": "L3"},
     "P72": {"name": "龍盾", "role": "安全防护", "trigram": "坎☵", "layer": "L4"},
     # 五大本地人格
     "K01": {"name": "雯雯", "role": "承载包容·文档整理师", "trigram": "坤☷", "layer": "本地"},

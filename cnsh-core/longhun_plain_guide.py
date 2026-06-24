@@ -13,7 +13,7 @@
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
-║  主權人: UID9622 · 龍芯北辰                                    ║
+║  主权人: UID9622 · 龍芯北辰                                    ║
 ║  职责: 宝宝·翻译官·让人都能懂                                 ║
 ║  原则: 复杂的理论，简单的话                                    ║
 ║                                                                  ║
@@ -668,7 +668,7 @@ class PlainGuideSystem:
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
-║  主權人: UID9622 · 龍芯北辰                                    ║
+║  主权人: UID9622 · 龍芯北辰                                    ║
 ║  职责: 宝宝·翻译官·让人都能懂                                 ║
 ║  原则: 复杂的理论，简单的话                                    ║
 ║                                                                  ║

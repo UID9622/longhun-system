@@ -12,24 +12,24 @@
 # -*- coding: utf-8 -*-
 """
 🔄 本地同步引擎 v1.0
-USB離線同步 + Git版本控制 + 衝突檢測 + 自動合併
+USB离线同步 + Git版本控制 + 冲突检测 + 自动合并
 
 DNA:#龍芯⚡️2026-05-30-LOCAL-SYNC-ENGINE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-核心邏輯:
-  本地同步策略 = 純本地(USB·推薦) + Git本地倉庫(進階)
+核心逻辑:
+  本地同步策略 = 纯本地(USB·推荐) + Git本地仓库(进阶)
 
-  衝突檢測:
-    1. hash鏈對齐 (parent_hash一致性)
-    2. 時間戳遞增 (無時光倒流)
-    3. 操作ID唯一性 (無重複)
+  冲突检测:
+    1. hash链对齐 (parent_hash一致性)
+    2. 时间戳递增 (无时光倒流)
+    3. 操作ID唯一性 (无重复)
 
   同步模式:
-    - overwrite: 新版本覆蓋舊版本 (可信設備)
-    - merge: 交集保留·差集合併 (需慎重)
-    - manual: 衝突暫停·等待人工決策
+    - overwrite: 新版本覆盖旧版本 (可信设备)
+    - merge: 交集保留·差集合并 (需慎重)
+    - manual: 冲突暂停·等待人工决策
 """
 
 import json
@@ -44,7 +44,7 @@ import subprocess
 
 @dataclass
 class SyncConflict:
-    """同步衝突信息"""
+    """同步冲突信息"""
     conflict_type: str  # hash_mismatch, timestamp_anomaly, duplicate_id
     affected_op_id: str
     local_hash: str
@@ -59,14 +59,14 @@ class SyncEngine:
     本地同步引擎
 
     功能:
-      - USB離線同步 (純本地·推薦)
-      - Git本地倉庫同步 (版本控制·進階)
-      - 衝突檢測 (hash鏈·時間戳·ID唯一性)
-      - 自動合併策略 (overwrite/merge/manual)
-      - 同步進度追蹤 + 回滾機制
+      - USB离线同步 (纯本地·推荐)
+      - Git本地仓库同步 (版本控制·进阶)
+      - 冲突检测 (hash链·时间戳·ID唯一性)
+      - 自动合并策略 (overwrite/merge/manual)
+      - 同步进度追踪 + 回滚机制
     """
 
-    def __init__(self, log_dir: str = "~/.龍魂/操作日記"):
+    def __init__(self, log_dir: str = "~/.龍魂/操作日记"):
         self.log_dir = Path(log_dir).expanduser()
         self.ledger_file = self.log_dir / "operation_ledger.jsonl"
         self.sync_dir = self.log_dir / "sync_records"
@@ -77,7 +77,7 @@ class SyncEngine:
         self.conflict_log_file = self.sync_dir / "conflicts.jsonl"
 
     def read_ledger(self) -> List[Dict[str, Any]]:
-        """讀取本地操作日記"""
+        """读取本地操作日记"""
         if not self.ledger_file.exists():
             return []
 
@@ -90,15 +90,15 @@ class SyncEngine:
 
     def read_remote_ledger(self, remote_path: str) -> List[Dict[str, Any]]:
         """
-        讀取遠端(USB)操作日記
+        读取远端(USB)操作日记
 
-        remote_path: /media/usb-drive/龍魂_備份/
+        remote_path: /media/usb-drive/龍魂_备份/
         """
 
-        remote_file = Path(remote_path).expanduser() / "操作日記" / "operation_ledger.jsonl"
+        remote_file = Path(remote_path).expanduser() / "操作日记" / "operation_ledger.jsonl"
 
         if not remote_file.exists():
-            raise FileNotFoundError(f"遠端日記不存在: {remote_file}")
+            raise FileNotFoundError(f"远端日记不存在: {remote_file}")
 
         operations = []
         with open(remote_file, 'r', encoding='utf-8') as f:
@@ -109,9 +109,9 @@ class SyncEngine:
 
     def compute_ledger_hash(self, operations: List[Dict[str, Any]]) -> str:
         """
-        計算整個日記的SHA-256哈希
+        计算整个日记的SHA-256哈希
 
-        用於快速判斷是否有差異
+        用于快速判断是否有差异
         """
 
         content = json.dumps(operations, sort_keys=True, ensure_ascii=False)
@@ -121,12 +121,12 @@ class SyncEngine:
                         local_ops: List[Dict[str, Any]],
                         remote_ops: List[Dict[str, Any]]) -> List[SyncConflict]:
         """
-        檢測本地與遠端之間的衝突
+        检测本地与远端之间的冲突
 
-        衝突類型:
+        冲突类型:
           1. hash_mismatch: 同一操作的哈希不同
-          2. timestamp_anomaly: 時間戳非遞增
-          3. duplicate_id: 操作ID重複
+          2. timestamp_anomaly: 时间戳非递增
+          3. duplicate_id: 操作ID重复
         """
 
         conflicts = []
@@ -135,7 +135,7 @@ class SyncEngine:
         local_map = {op['operation_id']: op for op in local_ops}
         remote_map = {op['operation_id']: op for op in remote_ops}
 
-        # ========== 衝突1: Hash不匹配 ==========
+        # ========== 冲突1: Hash不匹配 ==========
         for op_id, local_op in local_map.items():
             if op_id in remote_map:
                 remote_op = remote_map[op_id]
@@ -154,7 +154,7 @@ class SyncEngine:
                         resolution='pending'
                     ))
 
-        # ========== 衝突2: 時間戳遞增異常 ==========
+        # ========== 冲突2: 时间戳递增异常 ==========
         local_timestamps = [
             (op['operation_id'], op.get('timestamp', ''))
             for op in local_ops
@@ -175,7 +175,7 @@ class SyncEngine:
                     resolution='pending'
                 ))
 
-        # ========== 衝突3: 操作ID重複 ==========
+        # ========== 冲突3: 操作ID重复 ==========
         all_ids = [op['operation_id'] for op in local_ops + remote_ops]
         seen = set()
         for op_id in all_ids:
@@ -198,31 +198,31 @@ class SyncEngine:
                         remote_ops: List[Dict[str, Any]],
                         strategy: str = "merge") -> List[Dict[str, Any]]:
         """
-        合併本地與遠端操作記錄
+        合并本地与远端操作记录
 
         策略:
-          - overwrite: 遠端版本完全覆蓋本地 (高風險·可信設備)
-          - merge: 以時間戳為序·交集去重·差集合併
-          - manual: 返回衝突列表·等待人工決策
+          - overwrite: 远端版本完全覆盖本地 (高风险·可信设备)
+          - merge: 以时间戳为序·交集去重·差集合并
+          - manual: 返回冲突列表·等待人工决策
         """
 
         if strategy == "overwrite":
-            # 遠端版本完全覆蓋本地
+            # 远端版本完全覆盖本地
             return remote_ops
 
         elif strategy == "merge":
-            # 時間戳排序合併
+            # 时间戳排序合并
             merged_map = {}
 
             # 先加入本地操作
             for op in local_ops:
                 merged_map[op['operation_id']] = op
 
-            # 再加入遠端操作 (相同ID會覆蓋)
+            # 再加入远端操作 (相同ID会覆盖)
             for op in remote_ops:
                 merged_map[op['operation_id']] = op
 
-            # 按時間戳排序
+            # 按时间戳排序
             merged_ops = sorted(
                 merged_map.values(),
                 key=lambda x: x.get('timestamp', '')
@@ -231,24 +231,24 @@ class SyncEngine:
             return merged_ops
 
         elif strategy == "manual":
-            # 衝突時返回空列表·需人工決策
+            # 冲突时返回空列表·需人工决策
             return []
 
         else:
-            raise ValueError(f"未知的合併策略: {strategy}")
+            raise ValueError(f"未知的合并策略: {strategy}")
 
     def write_ledger(self, operations: List[Dict[str, Any]]) -> str:
         """
-        寫入操作日記 (覆蓋)
+        写入操作日记 (覆盖)
 
-        警告: 此操作是破壞性的·應與衝突檢測一起使用
+        警告: 此操作是破坏性的·应与冲突检测一起使用
         """
 
         with open(self.ledger_file, 'w', encoding='utf-8') as f:
             for op in operations:
                 f.write(json.dumps(op, ensure_ascii=False) + '\n')
 
-        print(f"✅ 日記已寫入: {len(operations)} 條操作")
+        print(f"✅ 日记已写入: {len(operations)} 条操作")
         return str(self.ledger_file)
 
     def sync_from_usb(self,
@@ -256,12 +256,12 @@ class SyncEngine:
                       strategy: str = "merge",
                       backup_before_sync: bool = True) -> Dict[str, Any]:
         """
-        從USB同步
+        从USB同步
 
-        參數:
-          usb_path: USB掛載點路徑 (e.g., /media/usb-drive)
+        参数:
+          usb_path: USB挂载点路径 (e.g., /media/usb-drive)
           strategy: overwrite / merge / manual
-          backup_before_sync: 同步前自動備份
+          backup_before_sync: 同步前自动备份
         """
 
         result = {
@@ -277,19 +277,19 @@ class SyncEngine:
         }
 
         try:
-            # 步驟1: 備份本地日記
+            # 步骤1: 备份本地日记
             if backup_before_sync:
                 backup_path = self._backup_ledger()
                 result['backup_path'] = backup_path
 
-            # 步驟2: 讀取本地和遠端操作
+            # 步骤2: 读取本地和远端操作
             local_ops = self.read_ledger()
             remote_ops = self.read_remote_ledger(usb_path)
 
             result['local_ops_count'] = len(local_ops)
             result['remote_ops_count'] = len(remote_ops)
 
-            # 步驟3: 檢測衝突
+            # 步骤3: 检测冲突
             conflicts = self.detect_conflicts(local_ops, remote_ops)
 
             if conflicts:
@@ -307,17 +307,17 @@ class SyncEngine:
                     self._log_conflicts(conflicts)
                     return result
 
-                print(f"⚠️ 檢測到 {len(conflicts)} 個衝突")
+                print(f"⚠️ 检测到 {len(conflicts)} 个冲突")
 
-            # 步驟4: 合併操作
+            # 步骤4: 合并操作
             merged_ops = self.merge_operations(local_ops, remote_ops, strategy)
             result['merged_ops_count'] = len(merged_ops)
 
-            # 步驟5: 寫入新的日記
+            # 步骤5: 写入新的日记
             if merged_ops:
                 self.write_ledger(merged_ops)
 
-            # 步驟6: 同步其他目錄 (DNA粒子、習慣指紋)
+            # 步骤6: 同步其他目录 (DNA粒子、习惯指纹)
             self._sync_auxiliary_files(usb_path)
 
             result['status'] = 'success'
@@ -326,43 +326,43 @@ class SyncEngine:
         except Exception as e:
             result['status'] = 'failed'
             result['error'] = str(e)
-            print(f"🔴 同步失敗: {e}")
+            print(f"🔴 同步失败: {e}")
 
         return result
 
     def _backup_ledger(self) -> str:
-        """備份當前日記"""
+        """备份当前日记"""
 
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         backup_file = self.sync_dir / f"backup_{timestamp}_ledger.jsonl"
 
         if self.ledger_file.exists():
             shutil.copy2(self.ledger_file, backup_file)
-            print(f"✅ 備份已建立: {backup_file}")
+            print(f"✅ 备份已建立: {backup_file}")
 
         return str(backup_file)
 
     def _sync_auxiliary_files(self, usb_path: str) -> None:
-        """同步輔助文件 (DNA粒子、習慣指紋等)"""
+        """同步辅助文件 (DNA粒子、习惯指纹等)"""
 
-        usb_root = Path(usb_path).expanduser() / "龍魂_備份"
+        usb_root = Path(usb_path).expanduser() / "龍魂_备份"
         auxiliary_dirs = [
             ("dna_particles", self.log_dir / "dna_particles"),
             ("habit_fingerprints", self.log_dir / "habit_fingerprints"),
         ]
 
         for remote_name, local_path in auxiliary_dirs:
-            remote_path = usb_root / "操作日記" / remote_name
+            remote_path = usb_root / "操作日记" / remote_name
 
             if remote_path.exists():
-                # 簡化: 完全覆蓋本地
+                # 简化: 完全覆盖本地
                 if local_path.exists():
                     shutil.rmtree(local_path)
                 shutil.copytree(remote_path, local_path)
                 print(f"✅ 已同步: {remote_name}")
 
     def _log_conflicts(self, conflicts: List[SyncConflict]) -> None:
-        """記錄衝突到日誌"""
+        """记录冲突到日志"""
 
         with open(self.conflict_log_file, 'a', encoding='utf-8') as f:
             for conflict in conflicts:
@@ -377,13 +377,13 @@ class SyncEngine:
                 f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
     def _log_sync_operation(self, result: Dict[str, Any]) -> None:
-        """記錄同步操作"""
+        """记录同步操作"""
 
         with open(self.sync_log_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(result, ensure_ascii=False) + '\n')
 
     def verify_sync_integrity(self) -> bool:
-        """驗證同步後的日記完整性 (hash鏈)"""
+        """验证同步后的日记完整性 (hash链)"""
 
         ops = self.read_ledger()
 
@@ -398,14 +398,14 @@ class SyncEngine:
             expected_hash = ops[i - 1].get('hash_sha256')
 
             if parent_hash != expected_hash:
-                print(f"🔴 同步後鏈斷裂在操作 {i}: {op['operation_id']}")
+                print(f"🔴 同步后链断裂在操作 {i}: {op['operation_id']}")
                 return False
 
-        print(f"✅ 同步後完整性驗證通過 ({len(ops)} 條記錄)")
+        print(f"✅ 同步后完整性验证通过 ({len(ops)} 条记录)")
         return True
 
     def get_sync_history(self, limit: int = 10) -> List[Dict[str, Any]]:
-        """獲取同步歷史"""
+        """获取同步历史"""
 
         if not self.sync_log_file.exists():
             return []
@@ -418,20 +418,20 @@ class SyncEngine:
         return history[-limit:]
 
     def rollback_to_backup(self, backup_file: str) -> bool:
-        """回滾到指定備份"""
+        """回滚到指定备份"""
 
         backup_path = Path(backup_file)
 
         if not backup_path.exists():
-            print(f"🔴 備份不存在: {backup_file}")
+            print(f"🔴 备份不存在: {backup_file}")
             return False
 
         try:
             shutil.copy2(backup_path, self.ledger_file)
-            print(f"✅ 已回滾到備份: {backup_file}")
+            print(f"✅ 已回滚到备份: {backup_file}")
             return True
         except Exception as e:
-            print(f"🔴 回滾失敗: {e}")
+            print(f"🔴 回滚失败: {e}")
             return False
 
 
@@ -442,13 +442,13 @@ if __name__ == "__main__":
     print("🔄 本地同步引擎 CLI")
     print("=" * 50)
 
-    # 示例1: 讀取本地日記
-    print("\n1️⃣ 讀取本地日記:")
+    # 示例1: 读取本地日记
+    print("\n1️⃣ 读取本地日记:")
     local_ops = engine.read_ledger()
-    print(f"   找到 {len(local_ops)} 條本地操作")
+    print(f"   找到 {len(local_ops)} 条本地操作")
 
-    # 示例2: 模擬衝突檢測
-    print("\n2️⃣ 衝突檢測 (模擬):")
+    # 示例2: 模拟冲突检测
+    print("\n2️⃣ 冲突检测 (模拟):")
     sample_remote = [
         {
             "operation_id": "OP-20260530-051000-abc111",
@@ -466,24 +466,24 @@ if __name__ == "__main__":
 
     if len(local_ops) >= 2:
         conflicts = engine.detect_conflicts(local_ops[:2], sample_remote)
-        print(f"   檢測到 {len(conflicts)} 個衝突")
+        print(f"   检测到 {len(conflicts)} 个冲突")
         for conflict in conflicts:
             print(f"     - {conflict.conflict_type}: {conflict.affected_op_id}")
 
-    # 示例3: 合併策略
-    print("\n3️⃣ 合併策略演示:")
+    # 示例3: 合并策略
+    print("\n3️⃣ 合并策略演示:")
     if local_ops and sample_remote:
         merged = engine.merge_operations(local_ops[:2], sample_remote, strategy="merge")
-        print(f"   合併後: {len(merged)} 條操作")
+        print(f"   合并后: {len(merged)} 条操作")
 
-    # 示例4: 同步歷史
-    print("\n4️⃣ 同步歷史:")
+    # 示例4: 同步历史
+    print("\n4️⃣ 同步历史:")
     history = engine.get_sync_history(limit=3)
     for sync in history:
         print(f"   {sync['timestamp']}: {sync['status']}")
 
-    # 示例5: 完整性驗證
-    print("\n5️⃣ 完整性驗證:")
+    # 示例5: 完整性验证
+    print("\n5️⃣ 完整性验证:")
     is_valid = engine.verify_sync_integrity()
-    print(f"   {'✅ 通過' if is_valid else '🔴 失敗'}")
+    print(f"   {'✅ 通过' if is_valid else '🔴 失败'}")
 

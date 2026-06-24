@@ -481,7 +481,7 @@ def main():
 
     elif args.recall:
         results = recall(args.recall, args.wuxing, 20)
-        print(f"\n🔍 搜索「{args.recall}」→ 找到 {len(results)} 条\n")
+        print(f"\n🔍 搜索“{args.recall}”→ 找到 {len(results)} 条\n")
         for i, m in enumerate(results):
             print_memory(m, i+1)
         print()

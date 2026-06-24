@@ -141,7 +141,7 @@ class LongHunInstructionExecutor:
 
 2️⃣  六层来源链验证系统 (Lineage Verification)
     路径: ~/.龍魂/longhun_lineage_verification_engine.py
-    用途: 检查六层来源完整性（道統/精神/設備/技術/系統/生命）
+    用途: 检查六层来源完整性（道统/精神/设备/技术/系统/生命）
     特性: 三色分类、完整性评分、自动标注
 
 3️⃣  内容主权协议 (Content Sovereignty Protocol v2.0)
@@ -191,7 +191,7 @@ class LongHunInstructionExecutor:
 
 DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 理论指导: 曾仕强老师（永恒显示）
-创作者: UID9622 · 諸葛鑫 · 龍芯北辰
+创作者: UID9622 · 诸葛鑫 · 龍芯北辰
 """
         self._log("INFO", "✅ @arch.review 执行完成")
         return report
@@ -231,12 +231,12 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
    • 后续查询零计算
 
 6️⃣  时间序列维度 - 六层完整性
-   • 道統層: 哲学基础（曾仕强）
-   • 精神層: 精神指导（工匠精神）
-   • 設備層: 物理载体（Apple macOS）
-   • 技術層: 技术土壤（Python+Git）
-   • 系統層: 原创贡献（UID9622）
-   • 生命層: 语言表达（龍魂系统）
+   • 道统层: 哲学基础（曾仕强）
+   • 精神层: 精神指导（工匠精神）
+   • 设备层: 物理载体（Apple macOS）
+   • 技术层: 技术土壤（Python+Git）
+   • 系统层: 原创贡献（UID9622）
+   • 生命层: 语言表达（龍魂系统）
 
 7️⃣  权限隔离维度 - 身份三重验证
    • GPG 签名认证
@@ -286,7 +286,7 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
-理論指導: 曾仕強老師（永恆顯示）
+理论指导: 曾仕强老师（永恒显示）
 """
         self._log("INFO", "✅ @arch.deepreview 执行完成")
         return report

@@ -1,8 +1,8 @@
 /**
- * 龍魂五行計算器 · React 組件單元測試
+ * 龍魂五行计算器 · React 组件单元测试
  *
  * 🐉 DNA:#龍芯⚡️2026-06-07-WUXING-VISUAL-TEST-v3.5
- * 責任: UID9622 · 不免責
+ * 责任: UID9622 · 不免责
  */
 
 import { describe, it, expect, beforeEach, afterEach } from '@jest/globals';
@@ -11,7 +11,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { WuxingVisualSystem } from '../WuxingVisual';
 
 // ============================================================================
-// [測試數據]
+// [测试数据]
 // ============================================================================
 
 const mockWuxingData = {
@@ -25,27 +25,27 @@ const mockWuxingData = {
       name: '金 · 西方',
       wuxing: 'metal' as const,
       color: '#FFD700',
-      description: '肅殺·收斂·秋季之氣',
+      description: '肃杀·收敛·秋季之气',
     },
     {
       id: 'river-wood',
-      name: '木 · 東方',
+      name: '木 · 东方',
       wuxing: 'wood' as const,
       color: '#90EE90',
-      description: '生長·展開·春季之氣',
+      description: '生长·展开·春季之气',
     },
     {
       id: 'river-water',
       name: '水 · 北方',
       wuxing: 'water' as const,
       color: '#87CEEB',
-      description: '潤澤·下行·冬季之氣',
+      description: '润泽·下行·冬季之气',
     },
   ],
   nodes: [
     {
       id: 'node-001',
-      label: 'DNA 簽章驗證',
+      label: 'DNA 签章验证',
       riverId: 'river-metal',
       layer: 2,
       children: [],
@@ -53,7 +53,7 @@ const mockWuxingData = {
     },
     {
       id: 'node-002',
-      label: '規則引擎',
+      label: '规则引擎',
       riverId: 'river-wood',
       layer: 2,
       children: [],
@@ -64,10 +64,10 @@ const mockWuxingData = {
 };
 
 // ============================================================================
-// [組件測試套件]
+// [组件测试套件]
 // ============================================================================
 
-describe('WuxingVisualSystem 組件', () => {
+describe('WuxingVisualSystem 组件', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
@@ -82,10 +82,10 @@ describe('WuxingVisualSystem 組件', () => {
   });
 
   // ========================================================================
-  // [渲染測試]
+  // [渲染测试]
   // ========================================================================
 
-  it('應該正確渲染主容器', () => {
+  it('应该正确渲染主容器', () => {
     const { container: testContainer } = render(
       <WuxingVisualSystem data={mockWuxingData} />,
       { container }
@@ -94,7 +94,7 @@ describe('WuxingVisualSystem 組件', () => {
     expect(testContainer.querySelector('.wuxing-visual-container')).toBeTruthy();
   });
 
-  it('應該顯示中心節點 (北辰不動點)', () => {
+  it('应该显示中心节点 (北辰不动点)', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const centerNode = container.querySelector('.center-node');
@@ -102,79 +102,79 @@ describe('WuxingVisualSystem 組件', () => {
     expect(centerNode?.textContent).toContain('UID9622');
   });
 
-  it('應該渲染所有五行河道', () => {
+  it('应该渲染所有五行河道', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const riverButtons = container.querySelectorAll('[class*="river"]');
-    // 應該有 3 個河道按鈕
+    // 应该有 3 个河道按钮
     expect(riverButtons.length).toBeGreaterThanOrEqual(3);
   });
 
   // ========================================================================
-  // [交互測試]
+  // [交互测试]
   // ========================================================================
 
-  it('點擊河道應該選擇該河道', async () => {
+  it('点击河道应该选择该河道', async () => {
     const { rerender } = render(
       <WuxingVisualSystem data={mockWuxingData} />,
       { container }
     );
 
-    // 找到第一個河道按鈕
+    // 找到第一个河道按钮
     const riverButtons = container.querySelectorAll('button');
     const firstRiver = riverButtons[0];
 
-    // 點擊河道
+    // 点击河道
     fireEvent.click(firstRiver);
 
-    // 等待狀態更新
+    // 等待状态更新
     await waitFor(() => {
-      // 河道應該被選中 (視覺效果: scale-125)
+      // 河道应该被选中 (视觉效果: scale-125)
       const styles = window.getComputedStyle(firstRiver);
       expect(firstRiver.classList.contains('scale-125') ||
              styles.transform.includes('scale')).toBeTruthy();
     }, { timeout: 500 });
   });
 
-  it('重複點擊同一河道應該取消選擇', async () => {
+  it('重复点击同一河道应该取消选择', async () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const riverButtons = container.querySelectorAll('button');
     const firstRiver = riverButtons[0];
 
-    // 第一次點擊: 選擇
+    // 第一次点击: 选择
     fireEvent.click(firstRiver);
     await waitFor(() => {
       expect(firstRiver).toHaveClass('scale-125');
     }, { timeout: 300 });
 
-    // 第二次點擊: 取消選擇
+    // 第二次点击: 取消选择
     fireEvent.click(firstRiver);
     await waitFor(() => {
       expect(firstRiver).not.toHaveClass('scale-125');
     }, { timeout: 300 });
   });
 
-  it('應該顯示審計面板', () => {
+  it('应该显示审计面板', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const auditPanel = container.querySelector('.audit-panel');
     expect(auditPanel).toBeTruthy();
-    expect(auditPanel?.textContent).toContain('三色審計');
+    expect(auditPanel?.textContent).toContain('三色审计');
   });
 
   // ========================================================================
-  // [Layer 組件測試]
+  // [Layer 组件测试]
   // ========================================================================
 
-  it('Layer0 應該顯示正確的中心標籤', () => {
+  it('Layer0 应该显示正确的中心标签', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const centerNode = container.querySelector('.layer-0');
     expect(centerNode?.textContent).toContain('UID9622');
   });
 
-  it('Layer1 應該顯示所有河道', () => {
+  it('Layer1 应该显示所有河道', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const layer1 = container.querySelector('.layer-1');
@@ -183,35 +183,35 @@ describe('WuxingVisualSystem 組件', () => {
     expect(riverElements?.length).toBe(mockWuxingData.rivers.length);
   });
 
-  it('Layer56 應該顯示外圈歸檔信息', () => {
+  it('Layer56 应该显示外圈归档信息', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const layer56 = container.querySelector('.layer-56');
-    expect(layer56?.textContent).toContain('DNA 審計門');
-    expect(layer56?.textContent).toContain('待審外圈');
-    expect(layer56?.textContent).toContain('熔斷隔離');
+    expect(layer56?.textContent).toContain('DNA 审计门');
+    expect(layer56?.textContent).toContain('待审外圈');
+    expect(layer56?.textContent).toContain('熔断隔离');
   });
 
   // ========================================================================
-  // [數據綁定測試]
+  // [数据绑定测试]
   // ========================================================================
 
-  it('河道顏色應該正確綁定', () => {
+  it('河道颜色应该正确绑定', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const riverButtons = container.querySelectorAll('[style*="background"]');
-    // 應該有河道按鈕帶顏色
+    // 应该有河道按钮带颜色
     expect(riverButtons.length).toBeGreaterThan(0);
   });
 
-  it('節點狀態應該影響顏色', () => {
+  it('节点状态应该影响颜色', () => {
     const dataWithMixedStatus = {
       ...mockWuxingData,
       nodes: [
         ...mockWuxingData.nodes,
         {
           id: 'node-003',
-          label: '待審節點',
+          label: '待审节点',
           riverId: 'river-water',
           layer: 2,
           children: [],
@@ -222,37 +222,37 @@ describe('WuxingVisualSystem 組件', () => {
 
     render(<WuxingVisualSystem data={dataWithMixedStatus} />, { container });
 
-    // 應該有不同顏色的節點
+    // 应该有不同颜色的节点
     const styledNodes = container.querySelectorAll('[style*="background"]');
     expect(styledNodes.length).toBeGreaterThan(mockWuxingData.nodes.length);
   });
 
   // ========================================================================
-  // [無障礙測試]
+  // [无障碍测试]
   // ========================================================================
 
-  it('河道按鈕應該有 title 屬性用於無障礙', () => {
+  it('河道按钮应该有 title 属性用于无障碍', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const riverButtons = container.querySelectorAll('button[title]');
     expect(riverButtons.length).toBeGreaterThan(0);
   });
 
-  it('應該支持鍵盤導航 (可點擊的按鈕)', () => {
+  it('应该支持键盘导航 (可点击的按钮)', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
     const buttons = container.querySelectorAll('button');
     buttons.forEach(button => {
-      // 所有按鈕應該是可聚焦的
+      // 所有按钮应该是可聚焦的
       expect(button.tabIndex).toBeGreaterThanOrEqual(-1);
     });
   });
 
   // ========================================================================
-  // [性能測試]
+  // [性能测试]
   // ========================================================================
 
-  it('應該在 1 秒內完成初始渲染', async () => {
+  it('应该在 1 秒内完成初始渲染', async () => {
     const startTime = performance.now();
 
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
@@ -263,12 +263,12 @@ describe('WuxingVisualSystem 組件', () => {
     expect(renderTime).toBeLessThan(1000);
   });
 
-  it('應該支持大型數據集 (1000+ 節點)', () => {
+  it('应该支持大型数据集 (1000+ 节点)', () => {
     const largeData = {
       ...mockWuxingData,
       nodes: Array.from({ length: 1000 }, (_, i) => ({
         id: `node-${i}`,
-        label: `節點 ${i}`,
+        label: `节点 ${i}`,
         riverId: mockWuxingData.rivers[i % mockWuxingData.rivers.length].id,
         layer: 2 + (i % 4),
         children: [],
@@ -280,14 +280,14 @@ describe('WuxingVisualSystem 組件', () => {
     render(<WuxingVisualSystem data={largeData} />, { container });
     const endTime = performance.now();
 
-    expect(endTime - startTime).toBeLessThan(3000); // 3秒內
+    expect(endTime - startTime).toBeLessThan(3000); // 3秒内
   });
 
   // ========================================================================
-  // [邊界情況測試]
+  // [边界情况测试]
   // ========================================================================
 
-  it('應該處理空河道列表', () => {
+  it('应该处理空河道列表', () => {
     const emptyData = {
       ...mockWuxingData,
       rivers: [],
@@ -298,7 +298,7 @@ describe('WuxingVisualSystem 組件', () => {
     }).not.toThrow();
   });
 
-  it('應該處理空節點列表', () => {
+  it('应该处理空节点列表', () => {
     const emptyData = {
       ...mockWuxingData,
       nodes: [],
@@ -309,16 +309,16 @@ describe('WuxingVisualSystem 組件', () => {
     }).not.toThrow();
   });
 
-  it('應該處理未定義的 children', () => {
+  it('应该处理未定义的 children', () => {
     const dataWithoutChildren = {
       ...mockWuxingData,
       nodes: [
         {
           id: 'node-test',
-          label: '測試節點',
+          label: '测试节点',
           riverId: 'river-metal',
           layer: 2,
-          // children 未定義
+          // children 未定义
           dnaStatus: 'verified' as const,
         } as any,
       ],
@@ -331,10 +331,10 @@ describe('WuxingVisualSystem 組件', () => {
 });
 
 // ============================================================================
-// [集成測試]
+// [集成测试]
 // ============================================================================
 
-describe('WuxingVisualSystem 集成測試', () => {
+describe('WuxingVisualSystem 集成测试', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
@@ -348,13 +348,13 @@ describe('WuxingVisualSystem 集成測試', () => {
     }
   });
 
-  it('完整的用戶交互流程', async () => {
+  it('完整的用户交互流程', async () => {
     render(<WuxingVisualSystem data={mockWuxingData} />, { container });
 
-    // 1. 驗證初始渲染
+    // 1. 验证初始渲染
     expect(container.querySelector('.center-node')).toBeTruthy();
 
-    // 2. 點擊河道
+    // 2. 点击河道
     const riverButtons = container.querySelectorAll('button');
     fireEvent.click(riverButtons[0]);
 
@@ -362,11 +362,11 @@ describe('WuxingVisualSystem 集成測試', () => {
       expect(riverButtons[0]).toHaveClass('scale-125');
     }, { timeout: 300 });
 
-    // 3. 驗證審計面板更新
+    // 3. 验证审计面板更新
     const auditPanel = container.querySelector('.audit-panel');
-    expect(auditPanel?.textContent).toContain('綠色');
+    expect(auditPanel?.textContent).toContain('绿色');
 
-    // 4. 點擊另一個河道
+    // 4. 点击另一个河道
     fireEvent.click(riverButtons[1]);
 
     await waitFor(() => {
@@ -374,7 +374,7 @@ describe('WuxingVisualSystem 集成測試', () => {
     }, { timeout: 300 });
   });
 
-  it('應該正確管理展開/摺疊狀態', async () => {
+  it('应该正确管理展开/折叠状态', async () => {
     const dataWithChildren = {
       ...mockWuxingData,
       nodes: [
@@ -383,7 +383,7 @@ describe('WuxingVisualSystem 集成測試', () => {
           children: [
             {
               id: 'node-001-1',
-              label: '子節點 1',
+              label: '子节点 1',
               riverId: 'river-metal',
               layer: 3,
               children: [],
@@ -396,19 +396,19 @@ describe('WuxingVisualSystem 集成測試', () => {
 
     render(<WuxingVisualSystem data={dataWithChildren} />, { container });
 
-    // 應該支持節點展開狀態
+    // 应该支持节点展开状态
     const expandedElements = container.querySelectorAll('[class*="expand"]');
-    // 可能沒有展開，但不應該出錯
+    // 可能没有展开，但不应该出错
     expect(container.querySelector('.wuxing-visual-container')).toBeTruthy();
   });
 });
 
 // ============================================================================
-// [快照測試]
+// [快照测试]
 // ============================================================================
 
-describe('WuxingVisualSystem 快照測試', () => {
-  it('應該與快照匹配', () => {
+describe('WuxingVisualSystem 快照测试', () => {
+  it('应该与快照匹配', () => {
     const { container } = render(
       <WuxingVisualSystem data={mockWuxingData} />
     );
@@ -427,11 +427,11 @@ describe('WuxingVisualSystem 性能基准', () => {
     render(<WuxingVisualSystem data={mockWuxingData} />);
     const end = performance.now();
 
-    console.log(`✅ 初始化耗時: ${(end - start).toFixed(2)}ms`);
+    console.log(`✅ 初始化耗时: ${(end - start).toFixed(2)}ms`);
     expect(end - start).toBeLessThan(500);
   });
 
-  it('交互性能: 河道切換 < 100ms', async () => {
+  it('交互性能: 河道切换 < 100ms', async () => {
     const { container } = render(
       <WuxingVisualSystem data={mockWuxingData} />
     );
@@ -441,7 +441,7 @@ describe('WuxingVisualSystem 性能基准', () => {
     fireEvent.click(button!);
     const end = performance.now();
 
-    console.log(`✅ 河道切換耗時: ${(end - start).toFixed(2)}ms`);
+    console.log(`✅ 河道切换耗时: ${(end - start).toFixed(2)}ms`);
     expect(end - start).toBeLessThan(100);
   });
 });

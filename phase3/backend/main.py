@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂系統 Phase 3 - FastAPI 後端框架 v1.0
+龍魂系统 Phase 3 - FastAPI 后端框架 v1.0
 Longhun System Phase 3 - FastAPI Backend Framework v1.0
 
 DNA:#龍芯⚡️2026-06-06-PHASE3-FASTAPI-BACKEND-v1.0
@@ -21,7 +21,7 @@ import asyncio
 from pathlib import Path
 import sys
 
-# 龍魂 Skill 系統集成
+# 龍魂 Skill 系统集成
 try:
     from pathlib import Path
     import sys
@@ -32,7 +32,7 @@ try:
     SKILLS_AVAILABLE = True
 except Exception as e:
     logger = logging.getLogger(__name__)
-    logger.warning(f"⚠️ Skill 系統加載失敗: {e}")
+    logger.warning(f"⚠️ Skill 系统加载失败: {e}")
     SKILLS_AVAILABLE = False
     get_skill_registry = None
 
@@ -41,17 +41,17 @@ except Exception as e:
 # 第一部·配置与初始化
 # ═══════════════════════════════════════════════════════════════════════════
 
-# 日誌配置
+# 日志配置
 logging.basicConfig(
     level=logging.INFO,
     format='[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s'
 )
 logger = logging.getLogger(__name__)
 
-# FastAPI 應用
+# FastAPI 应用
 app = FastAPI(
-    title="龍魂系統 API",
-    description="龍魂系統完整 API·實時仪表板·技能管理·告警系統",
+    title="龍魂系统 API",
+    description="龍魂系统完整 API·实时仪表板·技能管理·告警系统",
     version="3.0.0",
     docs_url="/api/docs",
     openapi_url="/api/openapi.json"
@@ -66,7 +66,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 全局變數
+# 全局变数
 SKILL_REGISTRY = {}
 EXECUTION_HISTORY = []
 ALERT_QUEUE = []
@@ -74,7 +74,7 @@ ACTIVE_CONNECTIONS: List[WebSocket] = []
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 第二部·數據模型
+# 第二部·数据模型
 # ═══════════════════════════════════════════════════════════════════════════
 
 class Skill(BaseModel):
@@ -92,7 +92,7 @@ class Skill(BaseModel):
 
 
 class SkillInput(BaseModel):
-    """技能輸入模型"""
+    """技能输入模型"""
     id: str
     name: str
     platform: str
@@ -101,7 +101,7 @@ class SkillInput(BaseModel):
 
 
 class Execution(BaseModel):
-    """執行記錄模型"""
+    """执行记录模型"""
     id: str
     skill_id: str
     status: str
@@ -125,7 +125,7 @@ class Alert(BaseModel):
 
 
 class Log(BaseModel):
-    """日誌模型"""
+    """日志模型"""
     id: str
     level: str
     message: str
@@ -135,7 +135,7 @@ class Log(BaseModel):
 
 
 class Settings(BaseModel):
-    """設置模型"""
+    """设置模型"""
     alert_email: Optional[str] = None
     alert_webhook: Optional[str] = None
     log_retention_days: int = 30
@@ -144,7 +144,7 @@ class Settings(BaseModel):
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 第三部·業務邏輯層
+# 第三部·业务逻辑层
 # ═══════════════════════════════════════════════════════════════════════════
 
 class SkillManager:
@@ -152,7 +152,7 @@ class SkillManager:
     
     @staticmethod
     def register_skill(skill_input: SkillInput) -> Skill:
-        """註冊新技能"""
+        """注册新技能"""
         skill = Skill(
             id=skill_input.id,
             name=skill_input.name,
@@ -162,12 +162,12 @@ class SkillManager:
             dna=f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-SKILL-{skill_input.id}"
         )
         SKILL_REGISTRY[skill.id] = skill
-        logger.info(f"✅ 技能已註冊: {skill.id}")
+        logger.info(f"✅ 技能已注册: {skill.id}")
         return skill
     
     @staticmethod
     def get_skill(skill_id: str) -> Optional[Skill]:
-        """獲取技能"""
+        """获取技能"""
         return SKILL_REGISTRY.get(skill_id)
     
     @staticmethod
@@ -182,7 +182,7 @@ class SkillManager:
     
     @staticmethod
     def execute_skill(skill_id: str, args: Dict[str, Any] = None) -> Execution:
-        """執行技能"""
+        """执行技能"""
         import uuid
         
         skill = SKILL_REGISTRY.get(skill_id)
@@ -199,29 +199,29 @@ class SkillManager:
         
         EXECUTION_HISTORY.append(execution)
         
-        # 模擬執行（實際應該調用真實的技能）
+        # 模拟执行（实际应该调用真实的技能）
         asyncio.create_task(SkillManager._simulate_execution(execution, skill))
         
-        logger.info(f"✅ 技能執行已提交: {execution.id}")
+        logger.info(f"✅ 技能执行已提交: {execution.id}")
         return execution
     
     @staticmethod
     async def _simulate_execution(execution: Execution, skill: Skill):
-        """模擬技能執行"""
-        await asyncio.sleep(1)  # 模擬執行時間
+        """模拟技能执行"""
+        await asyncio.sleep(1)  # 模拟执行时间
         
         execution.status = "completed"
         execution.end_time = datetime.now()
         execution.duration_ms = int((execution.end_time - execution.start_time).total_seconds() * 1000)
-        execution.result = {"output": f"技能 {skill.name} 執行成功"}
+        execution.result = {"output": f"技能 {skill.name} 执行成功"}
         
-        # 更新技能統計
+        # 更新技能统计
         skill.last_executed = datetime.now()
         skill.execution_count += 1
         skill.success_rate = (skill.execution_count - 1) / skill.execution_count * skill.success_rate + \
                             1 / skill.execution_count * 100
         
-        logger.info(f"✅ 技能執行完成: {execution.id}")
+        logger.info(f"✅ 技能执行完成: {execution.id}")
 
 
 class AlertManager:
@@ -229,7 +229,7 @@ class AlertManager:
     
     @staticmethod
     def create_alert(level: str, message: str, source: str) -> Alert:
-        """創建告警"""
+        """创建告警"""
         import uuid
         
         alert = Alert(
@@ -246,7 +246,7 @@ class AlertManager:
     
     @staticmethod
     def get_alerts(level: Optional[str] = None, status: Optional[str] = None) -> List[Alert]:
-        """獲取告警"""
+        """获取告警"""
         alerts = ALERT_QUEUE.copy()
         if level:
             alerts = [a for a in alerts if a.level == level]
@@ -256,31 +256,31 @@ class AlertManager:
     
     @staticmethod
     def acknowledge_alert(alert_id: str) -> Alert:
-        """確認告警"""
+        """确认告警"""
         for alert in ALERT_QUEUE:
             if alert.id == alert_id:
                 alert.status = "acknowledged"
                 alert.acknowledged_at = datetime.now()
-                logger.info(f"✅ 告警已確認: {alert_id}")
+                logger.info(f"✅ 告警已确认: {alert_id}")
                 return alert
         raise HTTPException(status_code=404, detail="告警不存在")
 
 
 class SystemMonitor:
-    """系統監控器"""
+    """系统监控器"""
     
     @staticmethod
     def get_health() -> Dict[str, Any]:
-        """獲取系統健康狀態"""
+        """获取系统健康状态"""
         import os
         import psutil
         
-        # 獲取系統指標
+        # 获取系统指标
         cpu_percent = psutil.cpu_percent(interval=1)
         memory = psutil.virtual_memory()
         disk = psutil.disk_usage('/')
         
-        # 計算執行成功率
+        # 计算执行成功率
         if EXECUTION_HISTORY:
             successful = sum(1 for e in EXECUTION_HISTORY if e.status == "completed")
             success_rate = (successful / len(EXECUTION_HISTORY)) * 100
@@ -301,7 +301,7 @@ class SystemMonitor:
     
     @staticmethod
     def get_dashboard() -> Dict[str, Any]:
-        """獲取儀表板數據"""
+        """获取仪表板数据"""
         recent_executions = sorted(EXECUTION_HISTORY, key=lambda x: x.start_time, reverse=True)[:10]
         active_alerts = AlertManager.get_alerts(status="active")
         
@@ -335,13 +335,13 @@ class SystemMonitor:
 
 @app.get("/api/v1/health")
 async def health_check():
-    """系統健康檢查"""
+    """系统健康检查"""
     return SystemMonitor.get_health()
 
 
 @app.get("/api/v1/dashboard")
 async def get_dashboard(time_range: str = "24h"):
-    """獲取儀表板數據"""
+    """获取仪表板数据"""
     return SystemMonitor.get_dashboard()
 
 
@@ -357,14 +357,14 @@ async def list_skills(
 
 @app.post("/api/v1/skills")
 async def create_skill(skill_input: SkillInput):
-    """創建新技能"""
+    """创建新技能"""
     skill = SkillManager.register_skill(skill_input)
     return skill.dict()
 
 
 @app.get("/api/v1/skills/{skill_id}")
 async def get_skill(skill_id: str):
-    """獲取技能詳情"""
+    """获取技能详情"""
     skill = SkillManager.get_skill(skill_id)
     if not skill:
         raise HTTPException(status_code=404, detail="技能不存在")
@@ -373,7 +373,7 @@ async def get_skill(skill_id: str):
 
 @app.post("/api/v1/skills/{skill_id}/execute")
 async def execute_skill(skill_id: str, body: Dict[str, Any] = None):
-    """執行技能"""
+    """执行技能"""
     execution = SkillManager.execute_skill(skill_id, args=body)
     return {
         "execution_id": execution.id,
@@ -384,11 +384,11 @@ async def execute_skill(skill_id: str, body: Dict[str, Any] = None):
 
 @app.get("/api/v1/executions/{execution_id}")
 async def get_execution(execution_id: str):
-    """獲取執行狀態"""
+    """获取执行状态"""
     for execution in EXECUTION_HISTORY:
         if execution.id == execution_id:
             return execution.dict()
-    raise HTTPException(status_code=404, detail="執行不存在")
+    raise HTTPException(status_code=404, detail="执行不存在")
 
 
 @app.get("/api/v1/alerts")
@@ -403,7 +403,7 @@ async def list_alerts(
 
 @app.post("/api/v1/alerts/{alert_id}/acknowledge")
 async def acknowledge_alert(alert_id: str):
-    """確認告警"""
+    """确认告警"""
     alert = AlertManager.acknowledge_alert(alert_id)
     return {"status": "acknowledged", "alert_id": alert_id}
 
@@ -414,8 +414,8 @@ async def query_logs(
     level: Optional[str] = Query(None),
     limit: int = Query(100)
 ):
-    """查詢日誌"""
-    # 從執行歷史中提取日誌
+    """查询日志"""
+    # 从执行历史中提取日志
     logs = []
     for execution in EXECUTION_HISTORY[-limit:]:
         logs.append({
@@ -431,7 +431,7 @@ async def query_logs(
 
 @app.post("/api/v1/export/csv")
 async def export_csv(body: Dict[str, Any]):
-    """導出為 CSV"""
+    """导出为 CSV"""
     import csv
     from io import StringIO
     
@@ -449,7 +449,7 @@ async def export_csv(body: Dict[str, Any]):
 
 @app.post("/api/v1/export/json")
 async def export_json(body: Dict[str, Any]):
-    """導出為 JSON"""
+    """导出为 JSON"""
     data_type = body.get("data_type", "executions")
     
     if data_type == "executions":
@@ -463,19 +463,19 @@ async def export_json(body: Dict[str, Any]):
             "count": len(ALERT_QUEUE)
         }
     else:
-        raise HTTPException(status_code=400, detail="不支援的資料類型")
+        raise HTTPException(status_code=400, detail="不支援的资料类型")
 
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 龍魂 Skill 集成 API 端點
+# 龍魂 Skill 集成 API 端点
 # ═══════════════════════════════════════════════════════════════════════════
 
 @app.get("/api/v1/longhun-skills")
 async def list_longhun_skills():
     """列出所有龍魂 Skills"""
     if not SKILLS_AVAILABLE:
-        return {"error": "Skills 系統未可用", "skills": []}
+        return {"error": "Skills 系统未可用", "skills": []}
     
     try:
         skill_registry = get_skill_registry()
@@ -488,15 +488,15 @@ async def list_longhun_skills():
             "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
         }
     except Exception as e:
-        logger.error(f"❌ 獲取 Skills 失敗: {e}")
+        logger.error(f"❌ 获取 Skills 失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/v1/longhun-skills/{skill_id}")
 async def get_longhun_skill(skill_id: str):
-    """獲取龍魂 Skill 詳情"""
+    """获取龍魂 Skill 详情"""
     if not SKILLS_AVAILABLE:
-        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+        raise HTTPException(status_code=503, detail="Skills 系统未可用")
     
     try:
         skill_registry = get_skill_registry()
@@ -511,21 +511,21 @@ async def get_longhun_skill(skill_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"❌ 獲取 Skill 失敗: {e}")
+        logger.error(f"❌ 获取 Skill 失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/v1/longhun-skills/{skill_id}/content")
 async def get_longhun_skill_content(skill_id: str):
-    """獲取龍魂 Skill 完整內容"""
+    """获取龍魂 Skill 完整内容"""
     if not SKILLS_AVAILABLE:
-        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+        raise HTTPException(status_code=503, detail="Skills 系统未可用")
     
     try:
         skill_registry = get_skill_registry()
         content = skill_registry.get_skill_content(skill_id)
         if not content:
-            raise HTTPException(status_code=404, detail=f"Skill '{skill_id}' 內容不可用")
+            raise HTTPException(status_code=404, detail=f"Skill '{skill_id}' 内容不可用")
         
         skill = skill_registry.get_skill(skill_id)
         return {
@@ -538,15 +538,15 @@ async def get_longhun_skill_content(skill_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"❌ 獲取 Skill 內容失敗: {e}")
+        logger.error(f"❌ 获取 Skill 内容失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/api/v1/longhun-skills/{skill_id}/execute")
 async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):
-    """執行龍魂 Skill"""
+    """执行龍魂 Skill"""
     if not SKILLS_AVAILABLE:
-        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+        raise HTTPException(status_code=503, detail="Skills 系统未可用")
     
     try:
         skill_registry = get_skill_registry()
@@ -557,13 +557,13 @@ async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):
         import uuid
         execution_id = str(uuid.uuid4())
         
-        # 如果是 Python Skill，執行它
+        # 如果是 Python Skill，执行它
         if skill["type"] == "python":
-            # 實際執行邏輯（這裡簡化處理）
+            # 实际执行逻辑（这里简化处理）
             result = {"status": "queued", "execution_id": execution_id}
         else:
             # HTML Skill 只能在前端渲染
-            result = {"status": "info", "message": "HTML Skill 需要在瀏覽器中渲染"}
+            result = {"status": "info", "message": "HTML Skill 需要在浏览器中渲染"}
         
         return {
             "status": "success",
@@ -575,15 +575,15 @@ async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"❌ 執行 Skill 失敗: {e}")
+        logger.error(f"❌ 执行 Skill 失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/v1/longhun-skills/config/export")
 async def export_longhun_skills_config():
-    """匯出龍魂 Skills 配置"""
+    """汇出龍魂 Skills 配置"""
     if not SKILLS_AVAILABLE:
-        raise HTTPException(status_code=503, detail="Skills 系統未可用")
+        raise HTTPException(status_code=503, detail="Skills 系统未可用")
     
     try:
         skill_registry = get_skill_registry()
@@ -594,13 +594,13 @@ async def export_longhun_skills_config():
             "dna": "#龍芯⚡️2026-06-07-PHASE3-SKILLS-API-v1.0"
         }
     except Exception as e:
-        logger.error(f"❌ 匯出配置失敗: {e}")
+        logger.error(f"❌ 汇出配置失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/api/v1/settings")
 async def get_settings():
-    """獲取系統設置"""
+    """获取系统设置"""
     return {
         "alert_email": "admin@longhun-system.com",
         "log_retention_days": 30,
@@ -611,24 +611,24 @@ async def get_settings():
 
 @app.put("/api/v1/settings")
 async def update_settings(settings: Settings):
-    """更新系統設置"""
-    logger.info(f"✅ 設置已更新")
+    """更新系统设置"""
+    logger.info(f"✅ 设置已更新")
     return {"status": "updated", "settings": settings.dict()}
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 第五部·WebSocket 實時連接
+# 第五部·WebSocket 实时连接
 # ═══════════════════════════════════════════════════════════════════════════
 
 @app.websocket("/ws/v1/stream")
 async def websocket_stream(websocket: WebSocket):
-    """WebSocket 實時數據流"""
+    """WebSocket 实时数据流"""
     await websocket.accept()
     ACTIVE_CONNECTIONS.append(websocket)
     
     try:
         while True:
-            # 每秒發送一次健康檢查數據
+            # 每秒发送一次健康检查数据
             data = SystemMonitor.get_health()
             await websocket.send_json({
                 "type": "health",
@@ -636,36 +636,36 @@ async def websocket_stream(websocket: WebSocket):
             })
             await asyncio.sleep(1)
     except Exception as e:
-        logger.error(f"WebSocket 錯誤: {e}")
+        logger.error(f"WebSocket 错误: {e}")
     finally:
         ACTIVE_CONNECTIONS.remove(websocket)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 第六部·初始化與啟動
+# 第六部·初始化与启动
 # ═══════════════════════════════════════════════════════════════════════════
 
 @app.on_event("startup")
 async def startup_event():
-    """應用啟動事件"""
-    logger.info("🚀 龍魂系統 Phase 3 後端已啟動")
+    """应用启动事件"""
+    logger.info("🚀 龍魂系统 Phase 3 后端已启动")
 
-    # 初始化龍魂 Skill 系統
+    # 初始化龍魂 Skill 系统
     if SKILLS_AVAILABLE:
         try:
             skill_registry = get_skill_registry()
             skills_list = skill_registry.list_skills()
-            logger.info(f"✅ 已加載 {skills_list['total']} 個龍魂 Skills")
+            logger.info(f"✅ 已加载 {skills_list['total']} 个龍魂 Skills")
             logger.info(f"   HTML Skills: {len(skills_list['html'])}")
             logger.info(f"   Python Skills: {len(skills_list['python'])}")
         except Exception as e:
-            logger.error(f"❌ Skill 系統加載失敗: {e}")
+            logger.error(f"❌ Skill 系统加载失败: {e}")
     
     # 初始化示例技能
     sample_skills = [
-        SkillInput(id="/health-check", name="健康檢查", platform="longhun", category="monitoring", priority=10),
-        SkillInput(id="/api-check", name="API 檢測", platform="kimi", category="monitoring", priority=9),
-        SkillInput(id="/backup", name="自動備份", platform="longhun", category="system", priority=8),
+        SkillInput(id="/health-check", name="健康检查", platform="longhun", category="monitoring", priority=10),
+        SkillInput(id="/api-check", name="API 检测", platform="kimi", category="monitoring", priority=9),
+        SkillInput(id="/backup", name="自动备份", platform="longhun", category="system", priority=8),
     ]
     
     for skill in sample_skills:
@@ -674,13 +674,13 @@ async def startup_event():
         except:
             pass
     
-    logger.info(f"✅ 已註冊 {len(SKILL_REGISTRY)} 個技能")
+    logger.info(f"✅ 已注册 {len(SKILL_REGISTRY)} 个技能")
 
 
 @app.on_event("shutdown")
 async def shutdown_event():
-    """應用關閉事件"""
-    logger.info("👋 龍魂系統 Phase 3 後端已關閉")
+    """应用关闭事件"""
+    logger.info("👋 龍魂系统 Phase 3 后端已关闭")
 
 
 if __name__ == "__main__":

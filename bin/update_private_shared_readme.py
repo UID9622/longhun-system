@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-根據 docs/private-shared-imports/ 下現有分類目錄，重新生成 README.md。
+根据 docs/private-shared-imports/ 下现有分类目录，重新生成 README.md。
 """
 import json
 from pathlib import Path
@@ -24,17 +24,17 @@ CATEGORY_ORDER = [
 ]
 
 CATEGORY_TITLES = {
-    "ai-behavior": "AI 行為與回覆標準",
-    "cnsh-protocols": "CNSH 協議與語言規範",
-    "architecture": "系統架構",
-    "governance": "治理與憲章",
-    "security-audit": "安全與審計",
-    "persona-tools": "人格與工具",
-    "api-integration": "API 與整合",
-    "memory-dna": "記憶與 DNA",
-    "documentation": "文檔與說明",
-    "decision-records": "決策記錄",
-    "developer-tools": "開發者工具",
+    "ai-behavior": "AI 行为与回复标准",
+    "cnsh-protocols": "CNSH 协议与语言规范",
+    "architecture": "系统架构",
+    "governance": "治理与宪章",
+    "security-audit": "安全与审计",
+    "persona-tools": "人格与工具",
+    "api-integration": "API 与整合",
+    "memory-dna": "记忆与 DNA",
+    "documentation": "文档与说明",
+    "decision-records": "决策记录",
+    "developer-tools": "开发者工具",
 }
 
 
@@ -51,14 +51,14 @@ def main():
     total = sum(stats.values())
 
     lines = [
-        "# 私人与共享 · Notion 導入文檔總覽",
+        "# 私人与共享 · Notion 导入文档总览",
         "",
-        "本目錄收錄從 Notion 工作區 `私人与共享` 篩選後融入主幹的非敏感核心文檔。",
+        "本目录收录从 Notion 工作区 `私人与共享` 筛选后融入主干的非敏感核心文档。",
         "",
-        f"- **總文件數**：{total}",
-        f"- **最後更新**：2026-06-16",
+        f"- **总文件数**：{total}",
+        f"- **最后更新**：2026-06-16",
         "",
-        "## 分類目錄",
+        "## 分类目录",
         "",
     ]
 
@@ -67,25 +67,25 @@ def main():
         if count == 0:
             continue
         title = CATEGORY_TITLES.get(cat, cat)
-        lines.append(f"### {title}（{count} 個文件）— `{cat}/`")
+        lines.append(f"### {title}（{count} 个文件）— `{cat}/`")
         lines.append("")
         for fn in files_by_cat[cat][:20]:
             lines.append(f"- `{fn}`")
         if count > 20:
-            lines.append(f"- ... 與另外 {count - 20} 個文件")
+            lines.append(f"- ... 与另外 {count - 20} 个文件")
         lines.append("")
 
     lines.extend([
-        "## 掃描與審計記錄",
+        "## 扫描与审计记录",
         "",
-        "- `private-shared-scan.json`：頂層掃描元數據",
-        "- `private-shared-scan-subfolders.json`：子文件夾掃描元數據",
-        "- `private-shared-batch2-scan.json`：第二批自動化補充掃描",
+        "- `private-shared-scan.json`：顶层扫描元数据",
+        "- `private-shared-scan-subfolders.json`：子文件夹扫描元数据",
+        "- `private-shared-batch2-scan.json`：第二批自动化补充扫描",
         "",
-        "## 敏感內容排除原則",
+        "## 敏感内容排除原则",
         "",
-        "- 私人對話、情感/家庭內容、加密密鑰、激活碼、DNA 身份檔案、個人主權綁定檔案一律不納入。",
-        "- 如文件內出現真實 API Token / 密碼，已替換為佔位符。",
+        "- 私人对话、情感/家庭内容、加密密钥、激活码、DNA 身份档案、个人主权绑定档案一律不纳入。",
+        "- 如文件内出现真实 API Token / 密码，已替换为占位符。",
         "",
         "**DNA**:#龍芯⚡️2026-06-16-PRIVATE-SHARED-MASTER-FILE1-v1.2",
     ])

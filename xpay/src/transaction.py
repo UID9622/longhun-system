@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-交易數據結構與持久化
+交易数据结构与持久化
 DNA:#龍芯⚡️2026-06-17-XPAY-TRANSACTION-FILE1-v2.0
 """
 import json
@@ -31,7 +31,7 @@ class Transaction:
 
 
 class TransactionStore:
-    """SQLite 交易存儲，append-only"""
+    """SQLite 交易存储，append-only"""
 
     def __init__(self, db_path: Optional[Path] = None):
         if db_path is None:
@@ -114,7 +114,7 @@ class TransactionStore:
         }
 
     def migrate_json(self, json_path: Path):
-        """從舊版 transactions.json 遷移數據"""
+        """从旧版 transactions.json 迁移数据"""
         if not json_path.exists():
             return 0
         data = json.loads(json_path.read_text(encoding="utf-8"))

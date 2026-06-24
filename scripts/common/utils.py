@@ -119,7 +119,7 @@ def date_now() -> str:
 
 
 if __name__ == "__main__":
-    text = "龍魂系統"
+    text = "龍魂系统"
     dr = calculate_dr(text)
     wuxing = map_to_wuxing(dr)
     print(f"文本: {text}")

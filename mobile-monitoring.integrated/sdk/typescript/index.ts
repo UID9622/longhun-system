@@ -1,9 +1,9 @@
 ##龍芯⚡️2026-06-21-MOBILE-INDEX-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 /**
- * 龍魂移動端監控 SDK v4.1
- * TypeScript 核心實現
+ * 龍魂移动端监控 SDK v4.1
+ * TypeScript 核心实现
  * DNA: #龍芯⚡️2026-06-07-MOBILE-MONITORING-SDK
  */
 
@@ -59,12 +59,12 @@ export class LonghunMonitor {
   }
 
   private init(): void {
-    console.log('🐉 龍魂監控 SDK 初始化中...');
+    console.log('🐉 龍魂监控 SDK 初始化中...');
     this.setupErrorHandlers();
     this.setupPerformanceTracking();
     this.setupBehaviorTracking();
     this.startBatchReporter();
-    console.log('✅ 龍魂監控 SDK 初始化完成');
+    console.log('✅ 龍魂监控 SDK 初始化完成');
   }
 
   private setupErrorHandlers(): void {
@@ -147,9 +147,9 @@ export class LonghunMonitor {
         ? this.encrypt(JSON.stringify(payload))
         : JSON.stringify(payload);
 
-      console.log(`✅ 已上報 ${batch.length} 個事件`);
+      console.log(`✅ 已上报 ${batch.length} 个事件`);
     } catch (error) {
-      console.error('❌ 上報失敗:', error);
+      console.error('❌ 上报失败:', error);
       this.queue.unshift(...batch);
     }
   }
