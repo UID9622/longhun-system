@@ -1,18 +1,51 @@
 {
   "_meta": {
-    "DNA": "#龍芯⚡️2026-06-24-LONGHUN-COMMAND-REGISTRY-v1.0",
+    "DNA": "#龍芯⚡️2026-06-24-LONGHUN-COMMAND-REGISTRY-v2.0",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-    "description": "龍魂终端统一命令注册表：中文别名 → 实际脚本/动作"
+    "description": "龍魂终端统一命令注册表 v2.0：按功能（不按标题）纳管全系统沉睡脚本",
+    "categories": {
+      "启动": "启动与编排",
+      "状态": "状态与体检",
+      "记忆": "记忆与日志归集",
+      "评估": "系统评估",
+      "审计": "审计与治理",
+      "签名": "GPG 签名与证据",
+      "安全": "龍盾与安全",
+      "人格": "人格与 API",
+      "技能": "技能工具集",
+      "cnsh": "CNSH 中文原生",
+      "同步": "同步与集成",
+      "文档": "文档与报告",
+      "字体": "LonghunFont",
+      "部署": "部署与安装",
+      "维护": "清理与自愈"
+    }
   },
   "commands": {
     "状态": {
       "aliases": ["status", "state"],
+      "category": "状态",
       "desc": "查看龍魂系统运行状态（端口/自启动/日志）",
       "type": "script",
       "script": "bin/longhun-status.sh"
     },
+    "体检": {
+      "aliases": ["check", "health"],
+      "category": "状态",
+      "desc": "龍魂系统体检",
+      "type": "script",
+      "script": "bin/longhun-check"
+    },
+    "启动检查": {
+      "aliases": ["startup-check"],
+      "category": "状态",
+      "desc": "10 部分启动前检查",
+      "type": "script",
+      "script": "longhun_system_startup_check.sh"
+    },
     "启动": {
       "aliases": ["start", "begin"],
+      "category": "启动",
       "desc": "启动龍魂核心服务",
       "type": "script",
       "script": "bin/longhun-launcher.py",
@@ -20,6 +53,7 @@
     },
     "停止": {
       "aliases": ["stop", "end"],
+      "category": "启动",
       "desc": "停止龍魂核心服务",
       "type": "script",
       "script": "bin/longhun-launcher.py",
@@ -27,111 +61,362 @@
     },
     "重启": {
       "aliases": ["restart", "reload"],
+      "category": "启动",
       "desc": "重启龍魂核心服务",
       "type": "script",
       "script": "bin/longhun-launcher.py",
       "args": ["restart"]
     },
-    "体检": {
-      "aliases": ["check", "health"],
-      "desc": "龍魂系统体检",
-      "type": "script",
-      "script": "bin/longhun-check"
-    },
-    "人格": {
-      "aliases": ["persona", "agent"],
-      "desc": "启动龍魂人格 API 服务",
-      "type": "script",
-      "script": "bin/start_persona_api.sh"
-    },
-    "技能": {
-      "aliases": ["skills", "skill"],
-      "desc": "一键启动 10 个 HTML/Python 技能工具",
-      "type": "script",
-      "script": "bin/skill-launcher-v3.sh"
-    },
-    "cnsh": {
-      "aliases": ["cnshell", "中文脚本"],
-      "desc": "CNSH 中文原生脚本运行入口",
-      "type": "script",
-      "script": "bin/run-cnsh.sh"
-    },
-    "审计": {
-      "aliases": ["audit", "self-audit"],
-      "desc": "运行龍魂自检审计",
-      "type": "script",
-      "script": "bin/longhun-self-audit.sh"
-    },
-    "仓库审计": {
-      "aliases": ["warehouse", "repo-audit"],
-      "desc": "运行仓库审计",
-      "type": "script",
-      "script": "bin/run-warehouse-audit.sh"
-    },
-    "每日复盘": {
-      "aliases": ["daily", "review"],
-      "desc": "运行每日复盘审计",
-      "type": "script",
-      "script": "bin/longhun-daily-audit.sh"
-    },
     "自启动": {
       "aliases": ["autostart", "boot"],
+      "category": "启动",
       "desc": "运行开机自启动任务",
       "type": "script",
       "script": "bin/longhun-autostart.sh"
     },
     "安装自启动": {
       "aliases": ["install-autostart"],
-      "desc": "安装开机自启动项",
+      "category": "启动",
+      "desc": "安装 launchd 开机自启动",
       "type": "script",
       "script": "bin/install-autostart.sh"
     },
-    "刷新": {
-      "aliases": ["refresh"],
-      "desc": "刷新龍魂状态/缓存",
+    "v5启动": {
+      "aliases": ["v5"],
+      "category": "启动",
+      "desc": "v5 统一启动器（加载 14 个技能）",
       "type": "script",
-      "script": "bin/refresh-longhun.sh"
+      "script": "龍魂体系v5-一键启动.py"
     },
-    "签名": {
-      "aliases": ["sign", "gpg"],
-      "desc": "签名保护创作者文件",
+    "v7启动": {
+      "aliases": ["v7"],
+      "category": "启动",
+      "desc": "v7 总控启动器",
       "type": "script",
-      "script": "tools/sign_creator_protection.sh"
+      "script": "~/Downloads/Kimi_Agent_终端升级与结构优化 7/longhun-v7-launcher.py"
     },
-    "操作台": {
-      "aliases": ["ops", "console"],
-      "desc": "打开本地 OPS 操作台",
-      "type": "open",
-      "target": "ops-console/index.html"
-    },
-    "门户": {
-      "aliases": ["portal", "网站"],
-      "desc": "打开龍魂数字身份门户",
-      "type": "open",
-      "target": "https://longhun888.com/"
-    },
-    "控制中心": {
-      "aliases": ["control", "center"],
-      "desc": "打开龍魂控制中心",
+    "启动全部": {
+      "aliases": ["start-all"],
+      "category": "启动",
+      "desc": "Legacy 一键启动所有服务",
       "type": "script",
-      "script": "desktop/龍魂控制中心.py"
+      "script": "longhun_system_start_all.sh"
     },
-    "卦象": {
-      "aliases": ["hexagram", "gua"],
-      "desc": "显示当前易经卦象",
+    "守护": {
+      "aliases": ["daemon", "守护进程"],
+      "category": "启动",
+      "desc": "守护进程管理器",
       "type": "script",
-      "script": "longhun_persona_hub.py",
-      "args": ["--hexagram"]
+      "script": "bin/守护进程管理器_逐行注释版.py"
+    },
+    "人格": {
+      "aliases": ["persona", "agent"],
+      "category": "人格",
+      "desc": "启动龍魂人格 API 服务",
+      "type": "script",
+      "script": "bin/start_persona_api.sh"
+    },
+    "人格代理": {
+      "aliases": ["persona-agent"],
+      "category": "人格",
+      "desc": "人格代理启动（中文 wrapper）",
+      "type": "script",
+      "script": "bin/启动人格代理.sh"
+    },
+    "部署人格": {
+      "aliases": ["deploy-persona"],
+      "category": "人格",
+      "desc": "生产部署人格 API",
+      "type": "script",
+      "script": "deploy_persona_api.sh"
     },
     "人格内阁": {
       "aliases": ["personas", "cabinet"],
+      "category": "人格",
       "desc": "列出人格内阁",
       "type": "script",
       "script": "longhun_persona_hub.py",
       "args": ["--list"]
     },
+    "路由": {
+      "aliases": ["route"],
+      "category": "人格",
+      "desc": "人格路由测试（需任务描述）",
+      "type": "script",
+      "script": "longhun_persona_hub.py",
+      "args": ["--task"],
+      "need_arg": true
+    },
+    "卦象": {
+      "aliases": ["hexagram", "gua"],
+      "category": "人格",
+      "desc": "显示当前易经卦象",
+      "type": "script",
+      "script": "longhun_persona_hub.py",
+      "args": ["--hexagram"]
+    },
+    "技能": {
+      "aliases": ["skills", "skill"],
+      "category": "技能",
+      "desc": "一键启动 10 个 HTML/Python 技能工具",
+      "type": "script",
+      "script": "bin/skill-launcher-v3.sh"
+    },
+    "注册中心": {
+      "aliases": ["registry"],
+      "category": "技能",
+      "desc": "查看技能注册中心",
+      "type": "script",
+      "script": "~/.kimi-code/skills/registry/技能注册中心.py"
+    },
+    "记忆": {
+      "aliases": ["memory", "bootstrap"],
+      "category": "记忆",
+      "desc": "运行记忆启动器，归集多平台日志",
+      "type": "script",
+      "script": "~/.longhun/scripts/longhun_memory_bootstrap.py"
+    },
+    "记忆守护": {
+      "aliases": ["memory-daemon"],
+      "category": "记忆",
+      "desc": "记忆启动器守护版",
+      "type": "script",
+      "script": "~/.longhun/scripts/memory_bootstrap_daemon.py"
+    },
+    "评估": {
+      "aliases": ["assess"],
+      "category": "评估",
+      "desc": "本地六维系统评估",
+      "type": "script",
+      "script": "~/local_assessment_engine.py"
+    },
+    "看评估": {
+      "aliases": ["check-assess"],
+      "category": "评估",
+      "desc": "快速查看最新评估报告",
+      "type": "script",
+      "script": "~/check_longhun_assessment.sh"
+    },
+    "审计": {
+      "aliases": ["audit", "self-audit"],
+      "category": "审计",
+      "desc": "运行龍魂自检审计",
+      "type": "script",
+      "script": "bin/longhun-self-audit.sh"
+    },
+    "仓库审计": {
+      "aliases": ["warehouse", "repo-audit"],
+      "category": "审计",
+      "desc": "运行仓库审计",
+      "type": "script",
+      "script": "bin/run-warehouse-audit.sh"
+    },
+    "每日复盘": {
+      "aliases": ["daily", "review"],
+      "category": "审计",
+      "desc": "运行每日复盘审计",
+      "type": "script",
+      "script": "bin/longhun-daily-audit.sh"
+    },
+    "DNA状态": {
+      "aliases": ["dna-status"],
+      "category": "审计",
+      "desc": "快速查看 DNA 对齐状态",
+      "type": "script",
+      "script": "QUICK_DNA_STATUS.sh"
+    },
+    "协议盾": {
+      "aliases": ["shield", "protocol-shield"],
+      "category": "审计",
+      "desc": "校验 CNSH 根协议完整性",
+      "type": "script",
+      "script": "protocol_shield.sh"
+    },
+    "自愈": {
+      "aliases": ["heal", "self-heal"],
+      "category": "审计",
+      "desc": "系统自愈引擎",
+      "type": "script",
+      "script": "bin/longhun-self-heal.py"
+    },
+    "签名": {
+      "aliases": ["sign"],
+      "category": "签名",
+      "desc": "签名保护创作者文件",
+      "type": "script",
+      "script": "tools/sign_creator_protection.sh"
+    },
+    "签名智能体": {
+      "aliases": ["sign-agents"],
+      "category": "签名",
+      "desc": "批量签名 persona JSON 智能体文件",
+      "type": "script",
+      "script": "~/Desktop/签名智能体家族.command"
+    },
+    "签名OPS": {
+      "aliases": ["sign-ops"],
+      "category": "签名",
+      "desc": "签名 CNSH Notion 快照",
+      "type": "script",
+      "script": "~/Desktop/签名OPS文档.command"
+    },
+    "签名Commit": {
+      "aliases": ["sign-commit"],
+      "category": "签名",
+      "desc": "签名最新 Git commit",
+      "type": "script",
+      "script": "~/Desktop/龍魂簽名中心-20260616/01-簽名最新Commit.command"
+    },
+    "签名变更": {
+      "aliases": ["sign-changes"],
+      "category": "签名",
+      "desc": "签名本次变更文件",
+      "type": "script",
+      "script": "~/Desktop/龍魂簽名中心-20260616/02-簽名本次變更文件.command"
+    },
+    "验证签名": {
+      "aliases": ["verify-sign"],
+      "category": "签名",
+      "desc": "验证 GPG 签名",
+      "type": "script",
+      "script": "~/Desktop/龍魂簽名中心-20260616/03-驗證簽名.command"
+    },
+    "论文审计": {
+      "aliases": ["paper-audit"],
+      "category": "签名",
+      "desc": "本地论文审计清单",
+      "type": "script",
+      "script": "~/Desktop/论文审计.command"
+    },
+    "发射DNA": {
+      "aliases": ["fire-dna"],
+      "category": "签名",
+      "desc": "发射主权底线五彩 DNA",
+      "type": "script",
+      "script": "~/Desktop/龍魂发射DNA.command"
+    },
+    "龍盾": {
+      "aliases": ["longhun-shield"],
+      "category": "安全",
+      "desc": "龍盾系统 CLI",
+      "type": "script",
+      "script": "~/龍盾宝宝/longhun_shield_cli.py"
+    },
+    "指令盾": {
+      "aliases": ["instruction-shield"],
+      "category": "安全",
+      "desc": "指令盾牌协议",
+      "type": "script",
+      "script": "~/指令 = DNA + 身份证 + 参数/longhun_shield_instruction_protocol.py"
+    },
+    "cnsh": {
+      "aliases": ["cnshell", "中文脚本"],
+      "category": "cnsh",
+      "desc": "CNSH 中文原生脚本运行入口",
+      "type": "script",
+      "script": "bin/run-cnsh.sh"
+    },
+    "cnsh终端": {
+      "aliases": ["cnsh-terminal"],
+      "category": "cnsh",
+      "desc": "CNSH 交互终端 v5",
+      "type": "script",
+      "script": "cnsh-terminal/cnsh_terminal_v5.py"
+    },
+    "cnsh编辑器": {
+      "aliases": ["cnsh-editor"],
+      "category": "cnsh",
+      "desc": "CNSH 编辑器引擎",
+      "type": "script",
+      "script": "~/Downloads/Kimi_Agent_终端升级/cnsh_editor_engine_v2.0.py"
+    },
+    "cnsh翻译": {
+      "aliases": ["cnsh-translate"],
+      "category": "cnsh",
+      "desc": "通心译翻译引擎",
+      "type": "script",
+      "script": "~/Downloads/Kimi_Agent_终端升级/cnsh_translator_engine_v2.0.py"
+    },
+    "cnsh对齐": {
+      "aliases": ["cnsh-align"],
+      "category": "cnsh",
+      "desc": "CNSH 四层对齐矫正",
+      "type": "script",
+      "script": "~/终端底座/cnsh_aligner.py"
+    },
+    "notion同步": {
+      "aliases": ["notion-sync"],
+      "category": "同步",
+      "desc": "脑干 Notion 同步桥",
+      "type": "script",
+      "script": "~/Desktop/brain_notion_sync.py"
+    },
+    "notion检查": {
+      "aliases": ["notion-check"],
+      "category": "同步",
+      "desc": "Notion 同步检查器",
+      "type": "script",
+      "script": "~/.龍魂/notion_sync_checker.py"
+    },
+    "跨设备同步": {
+      "aliases": ["cross-sync"],
+      "category": "同步",
+      "desc": "跨设备同步",
+      "type": "script",
+      "script": "~/.龍魂/cross_device_sync.py"
+    },
+    "字体检查": {
+      "aliases": ["font-check"],
+      "category": "字体",
+      "desc": "LonghunFont 字元库校验",
+      "type": "script",
+      "script": "~/LonghunFont/scripts/check_font.py"
+    },
+    "字体安装": {
+      "aliases": ["font-install"],
+      "category": "字体",
+      "desc": "安装 LonghunFont 到 macOS",
+      "type": "script",
+      "script": "~/LonghunFont/install_macos.sh"
+    },
+    "字体发布": {
+      "aliases": ["font-release"],
+      "category": "字体",
+      "desc": "字体双推发布",
+      "type": "script",
+      "script": "~/LonghunFont/push_both.sh"
+    },
+    "知识库": {
+      "aliases": ["kb"],
+      "category": "文档",
+      "desc": "LongHun 知识库",
+      "type": "script",
+      "script": "scripts/longhun_kb.py"
+    },
+    "知识图谱": {
+      "aliases": ["kg"],
+      "category": "文档",
+      "desc": "统一知识图谱构建",
+      "type": "script",
+      "script": "scripts/kg_unified.py"
+    },
+    "模块清单": {
+      "aliases": ["inventory"],
+      "category": "文档",
+      "desc": "生成模块清单",
+      "type": "script",
+      "script": "bin/module_inventory.py"
+    },
+    "生成README": {
+      "aliases": ["gen-readme"],
+      "category": "文档",
+      "desc": "自动生成模块 README",
+      "type": "script",
+      "script": "bin/generate_module_readmes.py"
+    },
     "压缩": {
       "aliases": ["compress", "zip"],
+      "category": "维护",
       "desc": "超强压缩测试（需跟文件路径）",
       "type": "script",
       "script": "persona/compression_engine.py",
@@ -140,21 +425,72 @@
     },
     "追溯": {
       "aliases": ["trace", "dna"],
+      "category": "维护",
       "desc": "DNA 模块溯源（需跟模块名）",
       "type": "script",
       "script": "persona/dna_tracer.py",
       "args": ["--module"],
       "need_arg": true
     },
+    "刷新": {
+      "aliases": ["refresh"],
+      "category": "维护",
+      "desc": "刷新龍魂状态/缓存",
+      "type": "script",
+      "script": "bin/refresh-longhun.sh"
+    },
+    "安装守护": {
+      "aliases": ["install-daemon"],
+      "category": "部署",
+      "desc": "安装 launchd 守护（每日复盘）",
+      "type": "script",
+      "script": "install_longhun_daemon.sh"
+    },
+    "安装终端": {
+      "aliases": ["install-terminal"],
+      "category": "部署",
+      "desc": "安装龍魂终端到 .zshrc/.bashrc",
+      "type": "script",
+      "script": "install-terminal.sh"
+    },
+    "构建发布": {
+      "aliases": ["build-release"],
+      "category": "部署",
+      "desc": "打包 LongHun 发布 zip",
+      "type": "script",
+      "script": "bin/build-release.sh"
+    },
+    "操作台": {
+      "aliases": ["ops", "console"],
+      "category": "部署",
+      "desc": "打开本地 OPS 操作台",
+      "type": "open",
+      "target": "ops-console/index.html"
+    },
+    "门户": {
+      "aliases": ["portal", "网站"],
+      "category": "部署",
+      "desc": "打开龍魂数字身份门户",
+      "type": "open",
+      "target": "https://longhun888.com/"
+    },
     "帮助": {
       "aliases": ["help", "?", "h"],
+      "category": "维护",
       "desc": "显示帮助",
       "type": "help"
     },
     "命令": {
       "aliases": ["commands", "cmds", "list"],
+      "category": "维护",
       "desc": "列出所有可用命令",
       "type": "list"
+    },
+    "分类": {
+      "aliases": ["category", "cat"],
+      "category": "维护",
+      "desc": "按分类列出命令",
+      "type": "category"
     }
   }
 }
