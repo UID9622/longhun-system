@@ -1,0 +1,160 @@
+{
+  "_meta": {
+    "DNA": "#龍芯⚡️2026-06-24-LONGHUN-COMMAND-REGISTRY-v1.0",
+    "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "description": "龍魂终端统一命令注册表：中文别名 → 实际脚本/动作"
+  },
+  "commands": {
+    "状态": {
+      "aliases": ["status", "state"],
+      "desc": "查看龍魂系统运行状态（端口/自启动/日志）",
+      "type": "script",
+      "script": "bin/longhun-status.sh"
+    },
+    "启动": {
+      "aliases": ["start", "begin"],
+      "desc": "启动龍魂核心服务",
+      "type": "script",
+      "script": "bin/longhun-launcher.py",
+      "args": ["start"]
+    },
+    "停止": {
+      "aliases": ["stop", "end"],
+      "desc": "停止龍魂核心服务",
+      "type": "script",
+      "script": "bin/longhun-launcher.py",
+      "args": ["stop"]
+    },
+    "重启": {
+      "aliases": ["restart", "reload"],
+      "desc": "重启龍魂核心服务",
+      "type": "script",
+      "script": "bin/longhun-launcher.py",
+      "args": ["restart"]
+    },
+    "体检": {
+      "aliases": ["check", "health"],
+      "desc": "龍魂系统体检",
+      "type": "script",
+      "script": "bin/longhun-check"
+    },
+    "人格": {
+      "aliases": ["persona", "agent"],
+      "desc": "启动龍魂人格 API 服务",
+      "type": "script",
+      "script": "bin/start_persona_api.sh"
+    },
+    "技能": {
+      "aliases": ["skills", "skill"],
+      "desc": "一键启动 10 个 HTML/Python 技能工具",
+      "type": "script",
+      "script": "bin/skill-launcher-v3.sh"
+    },
+    "cnsh": {
+      "aliases": ["cnshell", "中文脚本"],
+      "desc": "CNSH 中文原生脚本运行入口",
+      "type": "script",
+      "script": "bin/run-cnsh.sh"
+    },
+    "审计": {
+      "aliases": ["audit", "self-audit"],
+      "desc": "运行龍魂自检审计",
+      "type": "script",
+      "script": "bin/longhun-self-audit.sh"
+    },
+    "仓库审计": {
+      "aliases": ["warehouse", "repo-audit"],
+      "desc": "运行仓库审计",
+      "type": "script",
+      "script": "bin/run-warehouse-audit.sh"
+    },
+    "每日复盘": {
+      "aliases": ["daily", "review"],
+      "desc": "运行每日复盘审计",
+      "type": "script",
+      "script": "bin/longhun-daily-audit.sh"
+    },
+    "自启动": {
+      "aliases": ["autostart", "boot"],
+      "desc": "运行开机自启动任务",
+      "type": "script",
+      "script": "bin/longhun-autostart.sh"
+    },
+    "安装自启动": {
+      "aliases": ["install-autostart"],
+      "desc": "安装开机自启动项",
+      "type": "script",
+      "script": "bin/install-autostart.sh"
+    },
+    "刷新": {
+      "aliases": ["refresh"],
+      "desc": "刷新龍魂状态/缓存",
+      "type": "script",
+      "script": "bin/refresh-longhun.sh"
+    },
+    "签名": {
+      "aliases": ["sign", "gpg"],
+      "desc": "签名保护创作者文件",
+      "type": "script",
+      "script": "tools/sign_creator_protection.sh"
+    },
+    "操作台": {
+      "aliases": ["ops", "console"],
+      "desc": "打开本地 OPS 操作台",
+      "type": "open",
+      "target": "ops-console/index.html"
+    },
+    "门户": {
+      "aliases": ["portal", "网站"],
+      "desc": "打开龍魂数字身份门户",
+      "type": "open",
+      "target": "https://longhun888.com/"
+    },
+    "控制中心": {
+      "aliases": ["control", "center"],
+      "desc": "打开龍魂控制中心",
+      "type": "script",
+      "script": "desktop/龍魂控制中心.py"
+    },
+    "卦象": {
+      "aliases": ["hexagram", "gua"],
+      "desc": "显示当前易经卦象",
+      "type": "script",
+      "script": "longhun_persona_hub.py",
+      "args": ["--hexagram"]
+    },
+    "人格内阁": {
+      "aliases": ["personas", "cabinet"],
+      "desc": "列出人格内阁",
+      "type": "script",
+      "script": "longhun_persona_hub.py",
+      "args": ["--list"]
+    },
+    "压缩": {
+      "aliases": ["compress", "zip"],
+      "desc": "超强压缩测试（需跟文件路径）",
+      "type": "script",
+      "script": "persona/compression_engine.py",
+      "args": ["benchmark"],
+      "need_arg": true
+    },
+    "追溯": {
+      "aliases": ["trace", "dna"],
+      "desc": "DNA 模块溯源（需跟模块名）",
+      "type": "script",
+      "script": "persona/dna_tracer.py",
+      "args": ["--module"],
+      "need_arg": true
+    },
+    "帮助": {
+      "aliases": ["help", "?", "h"],
+      "desc": "显示帮助",
+      "type": "help"
+    },
+    "命令": {
+      "aliases": ["commands", "cmds", "list"],
+      "desc": "列出所有可用命令",
+      "type": "list"
+    }
+  }
+}
