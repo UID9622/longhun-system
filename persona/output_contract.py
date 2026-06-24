@@ -26,6 +26,8 @@ class 龍魂输出契约:
     VALID_OPS = {
         "scan", "write", "sync", "model_upgrade", "incident_fix",
         "deploy", "audit", "compress", "sign", "check",
+        "daily_review", "autostart", "heal", "status", "memory",
+        "persona", "skill", "cnsh", "review", "cleanup",
     }
 
     EVIDENCE_KEYS = {
