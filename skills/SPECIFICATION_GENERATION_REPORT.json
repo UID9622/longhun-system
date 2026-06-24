@@ -6,43 +6,43 @@
   "skills": [
     {
       "id": "skill-1-algorithmic-art",
-      "name": "龍魂算法藝術生成器",
+      "name": "龍魂算法艺术生成器",
       "completion": 95,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-2-brand-guidelines",
-      "name": "品牌指南構建工具",
+      "name": "品牌指南构建工具",
       "completion": 90,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-3-canvas-design",
-      "name": "Canvas 動態設計工具",
+      "name": "Canvas 动态设计工具",
       "completion": 92,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-4-doc-coauthoring",
-      "name": "文檔協作編輯系統",
+      "name": "文档协作编辑系统",
       "completion": 88,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-5-internal-comms",
-      "name": "內部溝通平台",
+      "name": "内部沟通平台",
       "completion": 85,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-6-mcp-builder",
-      "name": "MCP 服務器構建工具",
+      "name": "MCP 服务器构建工具",
       "completion": 100,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-7-skill-creator",
-      "name": "Skill 創建助手",
+      "name": "Skill 创建助手",
       "completion": 100,
       "status": "✅ COMPLETE"
     },
@@ -54,13 +54,13 @@
     },
     {
       "id": "skill-9-theme-factory",
-      "name": "主題生成工廠",
+      "name": "主题生成工厂",
       "completion": 98,
       "status": "✅ COMPLETE"
     },
     {
       "id": "skill-10-web-artifacts-builder",
-      "name": "Web 構件生成器",
+      "name": "Web 构件生成器",
       "completion": 100,
       "status": "✅ COMPLETE"
     }

@@ -14,6 +14,7 @@ DNA:#龍芯⚡️2026-06-19-LONGHUN-KNOWLEDGE-GRAPH-v1.0
 import json
 import os
 import sqlite3
+import sys
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,7 +23,23 @@ from typing import Dict, List, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
+# 引入统一知识中枢
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+_SCRIPTS_DIR = _PROJECT_ROOT / "scripts"
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+import kg_unified
+
 router = APIRouter(prefix="/api", tags=["knowledge"])
+
+_unified_conn = None
+
+
+def _get_unified_conn():
+    global _unified_conn
+    if _unified_conn is None:
+        _unified_conn = kg_unified.init_db()
+    return _unified_conn
 
 
 def _dna(prefix: str) -> str:
@@ -366,4 +383,83 @@ def graph_stats():
         "node_count": len(g["nodes"]),
         "edge_count": len(g["edges"]),
         "groups": groups,
+    }
+
+
+# ═══════════════════════════════════════════════════════════
+# 统一知识中枢接口（KG + Vector + DB 联动）
+# ═══════════════════════════════════════════════════════════
+
+class UnifiedSearch(BaseModel):
+    q: str = Field(..., min_length=1)
+    top_k: int = Field(10, ge=1, le=100)
+
+
+class UnifiedGraphQuery(BaseModel):
+    node_id: str
+    depth: int = Field(1, ge=1, le=3)
+
+
+@router.get("/unified/search")
+def unified_search_get(q: str, top_k: int = 10):
+    """统一检索：全文 + 向量语义召回"""
+    conn = _get_unified_conn()
+    return kg_unified.unified_search(conn, q, top_k)
+
+
+@router.post("/unified/search")
+def unified_search_post(req: UnifiedSearch):
+    """统一检索 POST 版"""
+    conn = _get_unified_conn()
+    return kg_unified.unified_search(conn, req.q, req.top_k)
+
+
+@router.get("/unified/graph")
+def unified_graph_get(node_id: str, depth: int = 1):
+    """从指定节点出发查询统一图谱子图"""
+    conn = _get_unified_conn()
+    return kg_unified.graph_expand(conn, node_id, depth)
+
+
+@router.post("/unified/graph")
+def unified_graph_post(req: UnifiedGraphQuery):
+    """统一图谱扩展 POST 版"""
+    conn = _get_unified_conn()
+    return kg_unified.graph_expand(conn, req.node_id, req.depth)
+
+
+@router.get("/unified/vector")
+def unified_vector_search_get(q: str, top_k: int = 10):
+    """纯向量语义检索"""
+    conn = _get_unified_conn()
+    results = kg_unified.vector_search(conn, q, top_k)
+    return {
+        "dna": _dna("UNIFIED-VECTOR"),
+        "timestamp": _now(),
+        "query": q,
+        "count": len(results),
+        "results": results,
+    }
+
+
+@router.get("/unified/stats")
+def unified_stats():
+    """统一知识中枢统计"""
+    conn = _get_unified_conn()
+    return kg_unified.get_stats(conn)
+
+
+@router.get("/unified/sources")
+def unified_sources():
+    """统一知识中枢数据来源列表"""
+    conn = _get_unified_conn()
+    rows = [
+        {"id": r[0], "name": r[1], "description": r[2], "record_count": r[3], "last_synced_at": r[4]}
+        for r in conn.execute("SELECT id, name, description, record_count, last_synced_at FROM sources ORDER BY id")
+    ]
+    return {
+        "dna": _dna("UNIFIED-SOURCES"),
+        "timestamp": _now(),
+        "count": len(rows),
+        "sources": rows,
     }

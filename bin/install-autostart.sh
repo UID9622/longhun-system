@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 安裝龍魂系統 macOS 開機自啟動（LaunchAgent）
+# 安装龍魂系统 macOS 开机自启动（LaunchAgent）
 # DNA:#龍芯⚡️2026-06-17-LONGHUN-INSTALL-AUTOSTART-FILE1-v1.0
 
 PLIST_NAME="com.uid9622.longhun.autostart.plist"
@@ -35,9 +35,9 @@ EOF
 launchctl unload "$PLIST_PATH" 2>/dev/null || true
 launchctl load -w "$PLIST_PATH"
 
-echo "✅ 開機自啟動已安裝"
+echo "✅ 开机自启动已安装"
 echo "   Plist: $PLIST_PATH"
-echo "   啟動腳本: $ROOT/bin/longhun-autostart.sh"
+echo "   启动脚本: $ROOT/bin/longhun-autostart.sh"
 echo ""
-echo "測試立即執行："
+echo "测试立即执行："
 echo "   bash $ROOT/bin/longhun-autostart.sh"

@@ -5,11 +5,10 @@
     "timestamp": "2026-06-10T16:00:00Z",
     "DNA": "#龍芯⚡️2026-06-10-PROD-MONITORING-ALERTS-v1.0"
   },
-
   "alert_rules": {
     "api_performance": {
-      "name": "API 響应时間異常",
-      "description": "P95 響应时間超过閾值",
+      "name": "API 响应时间异常",
+      "description": "P95 响应时间超过阈值",
       "condition": "avg:longhun.api.response_time{env:prod}",
       "threshold": 100,
       "unit": "milliseconds",
@@ -22,10 +21,9 @@
         "email:ops@longhun.example.com"
       ]
     },
-
     "api_error_rate": {
-      "name": "API 錯误率升高",
-      "description": "API 端点錯误率超过 0.5%",
+      "name": "API 错误率升高",
+      "description": "API 端点错误率超过 0.5%",
       "condition": "avg:longhun.api.error_rate{env:prod}",
       "threshold": 0.005,
       "unit": "percentage",
@@ -43,10 +41,9 @@
         "action": "trigger_rollback_l1"
       }
     },
-
     "skill_execution_failure": {
-      "name": "Skill 执行失敗率",
-      "description": "Skill 执行失敗率超过 5%",
+      "name": "Skill 执行失败率",
+      "description": "Skill 执行失败率超过 5%",
       "condition": "avg:longhun.skill.execution_failure_rate{env:prod}",
       "threshold": 0.05,
       "unit": "percentage",
@@ -58,10 +55,9 @@
         "email:ops@longhun.example.com"
       ]
     },
-
     "database_latency": {
-      "name": "数据庫延遲过高",
-      "description": "数据庫查詢延遲超过 100ms",
+      "name": "数据库延迟过高",
+      "description": "数据库查询延迟超过 100ms",
       "condition": "avg:longhun.database.query_latency{env:prod}",
       "threshold": 100,
       "unit": "milliseconds",
@@ -73,10 +69,9 @@
         "email:dba@longhun.example.com"
       ]
     },
-
     "database_connection_pool_exhausted": {
-      "name": "数据庫連接池耗盡",
-      "description": "数据庫連接池已用完",
+      "name": "数据库连接池耗尽",
+      "description": "数据库连接池已用完",
       "condition": "avg:longhun.database.connection_pool_usage{env:prod}",
       "threshold": 95,
       "unit": "percentage",
@@ -89,10 +84,9 @@
         "email:dba@longhun.example.com"
       ]
     },
-
     "memory_usage": {
-      "name": "內存使用过高",
-      "description": "应用內存使用率超过 80%",
+      "name": "内存使用过高",
+      "description": "应用内存使用率超过 80%",
       "condition": "avg:system.memory.usage{env:prod,service:longhun}",
       "threshold": 80,
       "unit": "percentage",
@@ -108,7 +102,6 @@
         "action": "trigger_gc_and_restart_workers"
       }
     },
-
     "cpu_usage": {
       "name": "CPU 使用过高",
       "description": "CPU 使用率超过 70%",
@@ -123,10 +116,9 @@
         "email:ops@longhun.example.com"
       ]
     },
-
     "disk_space": {
-      "name": "磁盤空間不足",
-      "description": "磁盤可用空間少於 10GB",
+      "name": "磁盘空间不足",
+      "description": "磁盘可用空间少于 10GB",
       "condition": "avg:system.disk.free{env:prod,path:/}",
       "threshold": 10737418240,
       "unit": "bytes",
@@ -140,10 +132,9 @@
         "email:ops@longhun.example.com"
       ]
     },
-
     "ssl_certificate_expiration": {
-      "name": "SSL 證書即將过期",
-      "description": "SSL 證書在 30 天內將过期",
+      "name": "SSL 证书即将过期",
+      "description": "SSL 证书在 30 天内将过期",
       "condition": "avg:system.ssl.days_until_expiration{env:prod}",
       "threshold": 30,
       "unit": "days",
@@ -156,10 +147,9 @@
         "email:ops@longhun.example.com"
       ]
     },
-
     "deployment_health": {
-      "name": "部署环境健康檢查失敗",
-      "description": "藍綠环境之一健康檢查失敗",
+      "name": "部署环境健康检查失败",
+      "description": "蓝绿环境之一健康检查失败",
       "condition": "avg:longhun.deployment.health_check_failures{env:prod}",
       "threshold": 0,
       "evaluation_window": "1m",
@@ -176,7 +166,6 @@
       }
     }
   },
-
   "slo_definitions": {
     "api_availability": {
       "target": 99.95,
@@ -184,14 +173,12 @@
       "window": "rolling_month",
       "description": "API 可用性 99.95%"
     },
-
     "api_latency_p95": {
       "target": 100,
       "unit": "milliseconds",
       "window": "rolling_day",
-      "description": "P95 延遲 < 100ms"
+      "description": "P95 延迟 < 100ms"
     },
-
     "skill_execution_success": {
       "target": 99.5,
       "unit": "percentage",
@@ -199,14 +186,13 @@
       "description": "Skill 执行成功率 99.5%"
     }
   },
-
   "dashboard_definitions": {
     "api_performance_dashboard": {
       "name": "API 性能监控",
       "widgets": [
         {
           "type": "timeseries",
-          "title": "API 響应时間",
+          "title": "API 响应时间",
           "queries": [
             "avg:longhun.api.response_time{env:prod}",
             "max:longhun.api.response_time{env:prod}",
@@ -222,20 +208,19 @@
         },
         {
           "type": "timeseries",
-          "title": "API 錯误率",
+          "title": "API 错误率",
           "queries": [
             "avg:longhun.api.error_rate{env:prod}"
           ]
         }
       ]
     },
-
     "skill_execution_dashboard": {
       "name": "Skill 执行监控",
       "widgets": [
         {
           "type": "timeseries",
-          "title": "Skill 执行时間分佈",
+          "title": "Skill 执行时间分布",
           "queries": [
             "avg:longhun.skill.execution_time{env:prod}",
             "pct_95:longhun.skill.execution_time{env:prod}",
@@ -251,16 +236,15 @@
         },
         {
           "type": "heatmap",
-          "title": "Skill 执行熱力圖",
+          "title": "Skill 执行热力图",
           "queries": [
             "longhun.skill.execution_time{env:prod} by {skill_name}"
           ]
         }
       ]
     },
-
     "infrastructure_dashboard": {
-      "name": "基礎设施监控",
+      "name": "基础设施监控",
       "widgets": [
         {
           "type": "timeseries",
@@ -271,21 +255,21 @@
         },
         {
           "type": "timeseries",
-          "title": "內存使用率",
+          "title": "内存使用率",
           "queries": [
             "avg:system.memory.usage{env:prod,service:longhun}"
           ]
         },
         {
           "type": "timeseries",
-          "title": "磁盤使用率",
+          "title": "磁盘使用率",
           "queries": [
             "avg:system.disk.usage{env:prod,path:/}"
           ]
         },
         {
           "type": "timeseries",
-          "title": "網絡 I/O",
+          "title": "网络 I/O",
           "queries": [
             "avg:system.network.in{env:prod,service:longhun}",
             "avg:system.network.out{env:prod,service:longhun}"
@@ -293,13 +277,12 @@
         }
       ]
     },
-
     "database_dashboard": {
-      "name": "数据庫监控",
+      "name": "数据库监控",
       "widgets": [
         {
           "type": "timeseries",
-          "title": "查詢延遲",
+          "title": "查询延迟",
           "queries": [
             "avg:longhun.database.query_latency{env:prod}",
             "pct_95:longhun.database.query_latency{env:prod}"
@@ -307,32 +290,31 @@
         },
         {
           "type": "timeseries",
-          "title": "連接池使用",
+          "title": "连接池使用",
           "queries": [
             "avg:longhun.database.connection_pool_usage{env:prod}"
           ]
         },
         {
           "type": "timeseries",
-          "title": "慢查詢数量",
+          "title": "慢查询数量",
           "queries": [
             "sum:longhun.database.slow_queries{env:prod}"
           ]
         }
       ]
     },
-
     "deployment_dashboard": {
-      "name": "部署狀态监控",
+      "name": "部署状态监控",
       "widgets": [
         {
           "type": "gauge",
-          "title": "藍色环境健康",
+          "title": "蓝色环境健康",
           "query": "avg:longhun.deployment.health{env:prod,version:blue}"
         },
         {
           "type": "gauge",
-          "title": "綠色环境健康",
+          "title": "绿色环境健康",
           "query": "avg:longhun.deployment.health{env:prod,version:green}"
         },
         {
@@ -346,24 +328,24 @@
       ]
     }
   },
-
   "log_aggregation": {
     "provider": "elasticsearch",
     "config": {
-      "hosts": ["PROD_ELASTICSEARCH_HOST:9200"],
+      "hosts": [
+        "PROD_ELASTICSEARCH_HOST:9200"
+      ],
       "username": "PROD_ES_USER",
       "password": "PROD_ES_PASSWORD_FROM_VAULT",
       "index_prefix": "longhun-prod",
       "retention_days": 30
     },
     "log_levels": {
-      "ERROR": "紅色",
-      "WARNING": "黃色",
-      "INFO": "綠色",
+      "ERROR": "红色",
+      "WARNING": "黄色",
+      "INFO": "绿色",
       "DEBUG": "灰色"
     }
   },
-
   "distributed_tracing": {
     "provider": "jaeger",
     "config": {
@@ -377,7 +359,6 @@
       }
     }
   },
-
   "audit_logging": {
     "enabled": true,
     "log_all_api_calls": true,

@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-ARXIV_SUBMISSION_PACKAGE-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # arXiv Submission Package for Riemann Hypothesis via Three Perspectives
 
@@ -234,7 +234,7 @@ Affiliation: Anthropic
 Email: (Use institutional contact)
 
 Authorization: UID9622 (Zhu Ge Xin / 龍芯北辰)
-Advisory: Zeng Shiqiang (曾仕強老師)
+Advisory: Zeng Shiqiang (曾仕强老师)
 ```
 
 ### 3.3 Category Selection

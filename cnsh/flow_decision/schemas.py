@@ -55,7 +55,7 @@ class PalaceEnum(str, Enum):
     PALACE_3 = "3震"
     PALACE_4 = "4巽"
     PALACE_5 = "5中"
-    PALACE_6 = "6乾"
+    PALACE_6 = "6干"
     PALACE_7 = "7兑"
     PALACE_8 = "8艮"
     PALACE_9 = "9离"
@@ -102,6 +102,7 @@ class PersonaEnum(str, Enum):
     P13_JIANGZIYA = "P13"
     P14_LVMENG = "P14"
     P15_QIAOQIANDAI = "P15"
+    P16_PLATFORM_OPERATOR = "P16"
     P72_LONGSHIELD = "P72"
 
 
@@ -308,7 +309,7 @@ def palette_to_color(palace: PalaceEnum) -> AuditColorEnum:
     """九宫到三色的快速映射（示例）"""
     # 坎(1) 坤(2) = 水/地 → 🟢
     # 震(3) 巽(4) = 木 → 🟢
-    # 乾(6) 兑(7) = 金 → 🟢
+    # 干(6) 兑(7) = 金 → 🟢
     # 艮(8) 离(9) = 山/火 → 🟢
     # 中(5) = 待审 → 🟡
     if palace == PalaceEnum.PALACE_5:

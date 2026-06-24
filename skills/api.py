@@ -2,26 +2,26 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂系統 · Skill API 服務
+龍魂系统 · Skill API 服务
 Longhun System · Skill API Service
 
 DNA:#龍芯⚡️2026-06-07-SKILL-API-FILE2-v1.0
-責任: UID9622·不免責
+责任: UID9622·不免责
 """
 
 from fastapi import FastAPI, HTTPException
 from . import get_registry, list_skills, get_skill_content
 
-# 建立 FastAPI 應用
+# 建立 FastAPI 应用
 app = FastAPI(
     title="🐉 龍魂 Skill API",
-    description="Skill 管理和執行 API",
+    description="Skill 管理和执行 API",
     version="1.0.0"
 )
 
 @app.get("/api/v1/skills")
 async def get_all_skills():
-    """獲取所有可用的 Skills"""
+    """获取所有可用的 Skills"""
     return {
         "status": "success",
         "data": list_skills(),
@@ -30,7 +30,7 @@ async def get_all_skills():
 
 @app.get("/api/v1/skills/{skill_id}")
 async def get_skill_details(skill_id: str):
-    """獲取指定 Skill 的詳細信息"""
+    """获取指定 Skill 的详细信息"""
     registry = get_registry()
     skill = registry.get_skill(skill_id)
 
@@ -45,7 +45,7 @@ async def get_skill_details(skill_id: str):
 
 @app.get("/api/v1/skills/{skill_id}/content")
 async def get_skill_full_content(skill_id: str):
-    """獲取 Skill 的完整內容"""
+    """获取 Skill 的完整内容"""
     registry = get_registry()
     skill = registry.get_skill(skill_id)
 
@@ -67,7 +67,7 @@ async def get_skill_full_content(skill_id: str):
 
 @app.post("/api/v1/skills/{skill_id}/execute")
 async def execute_skill(skill_id: str, params: dict = None):
-    """執行 Python Skill"""
+    """执行 Python Skill"""
     registry = get_registry()
     skill = registry.get_skill(skill_id)
 
@@ -86,7 +86,7 @@ async def execute_skill(skill_id: str, params: dict = None):
 
 @app.get("/api/v1/skills/config/export")
 async def export_skills_config():
-    """匯出所有 Skills 配置"""
+    """汇出所有 Skills 配置"""
     registry = get_registry()
     return {
         "status": "success",
@@ -96,7 +96,7 @@ async def export_skills_config():
 
 @app.get("/health")
 async def health_check():
-    """健康檢查"""
+    """健康检查"""
     registry = get_registry()
     skills_count = len(registry.skills)
 

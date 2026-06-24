@@ -1,12 +1,12 @@
 ##龍芯⚡️2026-06-21-ENGINE-SIDEPANEL-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 /**
  * 龍魂 SidePanel 主控逻辑 v1.1
  * + MCP 认证桥接面板
  */
 
-// ===== Web Crypto HMAC-SHA256（MCP L0 簽到用）=====
+// ===== Web Crypto HMAC-SHA256（MCP L0 签到用）=====
 async function hmacSHA256(key, message) {
   const enc = new TextEncoder();
   const cryptoKey = await crypto.subtle.importKey(

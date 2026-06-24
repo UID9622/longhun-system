@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-CSDN_EXPORT_MD-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 · CC BY-NC-SA 4.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 · CC BY-NC-SA 4.0 -->
 <!-- 来源: CSDN · 用户: UID9622 -->
 
 # CSDN 内容导出标准格式
@@ -25,7 +25,7 @@
 
 ```markdown
 <!--#龍芯⚡️YYYY-MM-DD-PROJECT-MODULE-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 · CC BY-NC-SA 4.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 · CC BY-NC-SA 4.0 -->
 <!-- 来源: CSDN · 用户: UID9622 · 生成时间: YYYY-MM-DDTHH:MM:SS -->
 
 # CSDN {消息类型} 导出

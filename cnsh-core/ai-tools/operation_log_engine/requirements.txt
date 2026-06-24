@@ -8,20 +8,20 @@
 # DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1274-v2.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: requirements.txt | 标记时间: 2026-06-03T07:46:12+0800
-# 龍魂操作日記引擎依賴清單
+# 龍魂操作日记引擎依赖清单
 # DNA:#龍芯⚡️2026-05-30-REQUIREMENTS-v1.0
 
-# 核心依賴
+# 核心依赖
 click>=8.0.0,<9.0.0
 rich>=10.0.0,<13.0.0
 
-# 開發和測試依賴
+# 开发和测试依赖
 pytest>=7.0.0,<8.0.0
 pytest-cov>=4.0.0,<5.0.0
 
 # Python 版本要求
 # python >= 3.10
 
-# 可選依賴 (用於增強功能)
-# httpx >= 0.23.0  # 異步 HTTP (Phase 3.4)
-# pydantic >= 2.0.0  # 數據驗證 (Phase 3.3)
+# 可选依赖 (用于增强功能)
+# httpx >= 0.23.0  # 异步 HTTP (Phase 3.4)
+# pydantic >= 2.0.0  # 数据验证 (Phase 3.3)

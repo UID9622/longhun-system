@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂主題工廠 v1.0
+龍魂主题工厂 v1.0
 Longhun Theme Factory
 
 DNA:#龍芯⚡️2026-06-07-THEME-FACTORY-FILE2-v1.0
@@ -14,7 +14,7 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class ThemeColor:
-    """主題顏色"""
+    """主题颜色"""
     primary: str
     secondary: str
     accent: str
@@ -28,7 +28,7 @@ class ThemeColor:
     text_secondary: str
 
 class Theme:
-    """主題類"""
+    """主题类"""
     
     def __init__(self, name: str, colors: ThemeColor, description: str = ""):
         self.name = name
@@ -36,7 +36,7 @@ class Theme:
         self.description = description
     
     def generate_css_variables(self) -> str:
-        """生成 CSS 變數"""
+        """生成 CSS 变数"""
         css = ":root {\n"
         for key, value in asdict(self.colors).items():
             css_key = key.replace('_', '-')
@@ -45,7 +45,7 @@ class Theme:
         return css
     
     def generate_css_classes(self) -> str:
-        """生成 CSS 類"""
+        """生成 CSS 类"""
         return f"""
 .theme-{self.name.lower()} {{
   --primary: {self.colors.primary};
@@ -74,7 +74,7 @@ class Theme:
 """
     
     def export_config(self) -> Dict:
-        """導出配置"""
+        """导出配置"""
         return {
             "name": self.name,
             "description": self.description,
@@ -82,12 +82,12 @@ class Theme:
         }
     
     def to_json(self) -> str:
-        """轉為 JSON"""
+        """转为 JSON"""
         return json.dumps(self.export_config(), indent=2, ensure_ascii=False)
 
 
 class ThemeFactory:
-    """主題工廠"""
+    """主题工厂"""
     
     PRESETS = {
         "longhun-cyber": ThemeColor(
@@ -224,12 +224,12 @@ class ThemeFactory:
     
     @staticmethod
     def create_theme(name: str, colors: ThemeColor, description: str = "") -> Theme:
-        """創建自定義主題"""
+        """创建自定义主题"""
         return Theme(name, colors, description)
     
     @staticmethod
     def get_preset(preset_name: str) -> Theme:
-        """獲取預設主題"""
+        """获取预设主题"""
         if preset_name not in ThemeFactory.PRESETS:
             raise ValueError(f"Unknown preset: {preset_name}")
         
@@ -238,17 +238,17 @@ class ThemeFactory:
     
     @staticmethod
     def list_presets() -> List[str]:
-        """列出所有預設主題"""
+        """列出所有预设主题"""
         return list(ThemeFactory.PRESETS.keys())
     
     @staticmethod
     def export_all_css(output_file: str = None) -> str:
-        """導出所有主題的 CSS"""
-        css = "/* 龍魂主題工廠 - 所有主題 */\n\n"
+        """导出所有主题的 CSS"""
+        css = "/* 龍魂主题工厂 - 所有主题 */\n\n"
         
         for preset_name in ThemeFactory.list_presets():
             theme = ThemeFactory.get_preset(preset_name)
-            css += f"/* {theme.name} 主題 */\n"
+            css += f"/* {theme.name} 主题 */\n"
             css += theme.generate_css_variables()
             css += theme.generate_css_classes()
             css += "\n"
@@ -261,7 +261,7 @@ class ThemeFactory:
     
     @staticmethod
     def export_all_json(output_file: str = None) -> str:
-        """導出所有主題的 JSON"""
+        """导出所有主题的 JSON"""
         themes = {}
         for preset_name in ThemeFactory.list_presets():
             theme = ThemeFactory.get_preset(preset_name)
@@ -278,16 +278,16 @@ class ThemeFactory:
 
 # 示例使用
 if __name__ == "__main__":
-    print("🐉 龍魂主題工廠 v1.0")
+    print("🐉 龍魂主题工厂 v1.0")
     print("=" * 50)
     
-    # 列出所有預設主題
-    print("\n📋 可用的預設主題:")
+    # 列出所有预设主题
+    print("\n📋 可用的预设主题:")
     for i, preset in enumerate(ThemeFactory.list_presets(), 1):
         print(f"  {i}. {preset}")
     
-    # 創建自定義主題
-    print("\n🎨 創建自定義主題...")
+    # 创建自定义主题
+    print("\n🎨 创建自定义主题...")
     custom_colors = ThemeColor(
         primary="#ff0080",
         secondary="#ff6eb4",
@@ -301,24 +301,24 @@ if __name__ == "__main__":
         text="#e0e0e0",
         text_secondary="#999999"
     )
-    custom_theme = ThemeFactory.create_theme("custom-pink", custom_colors, "自定義粉紅主題")
+    custom_theme = ThemeFactory.create_theme("custom-pink", custom_colors, "自定义粉红主题")
     
-    print(f"✅ 主題已創建: {custom_theme.name}")
-    print("\n主題配置:")
+    print(f"✅ 主题已创建: {custom_theme.name}")
+    print("\n主题配置:")
     print(custom_theme.to_json())
     
-    # 獲取預設主題
-    print("\n\n📌 獲取預設主題: longhun-cyber")
+    # 获取预设主题
+    print("\n\n📌 获取预设主题: longhun-cyber")
     cyber_theme = ThemeFactory.get_preset("longhun-cyber")
     print(cyber_theme.generate_css_variables())
     
-    # 導出所有 CSS
-    print("\n💾 導出所有主題 CSS...")
+    # 导出所有 CSS
+    print("\n💾 导出所有主题 CSS...")
     ThemeFactory.export_all_css("/mnt/user-data/outputs/themes.css")
     print("✅ CSS 已保存: /mnt/user-data/outputs/themes.css")
     
-    # 導出所有 JSON
-    print("\n💾 導出所有主題 JSON...")
+    # 导出所有 JSON
+    print("\n💾 导出所有主题 JSON...")
     ThemeFactory.export_all_json("/mnt/user-data/outputs/themes.json")
     print("✅ JSON 已保存: /mnt/user-data/outputs/themes.json")
     

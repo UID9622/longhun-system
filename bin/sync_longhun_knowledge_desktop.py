@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂系統 · 統一知識矩陣桌面同步腳本
+龍魂系统 · 统一知识矩阵桌面同步脚本
 DNA: #龍芯⚡️2026-06-22-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0
 
 功能：
-1. 把龍魂系統的協議、規則、論文、技能、報告等核心文件，
-   按照《知識矩陣總綱 v2.0》的分類架構同步到桌面。
-2. 生成總索引與 sync_index.json（自適應鎖狀態）。
-3. 再次運行即可增量更新，新增/修改/刪除都會被記錄。
+1. 把龍魂系统的协议、规则、论文、技能、报告等核心文件，
+   按照《知识矩阵总纲 v2.0》的分类架构同步到桌面。
+2. 生成总索引与 sync_index.json（自适应锁状态）。
+3. 再次运行即可增量更新，新增/修改/删除都会被记录。
 """
 
 import json
@@ -22,22 +22,22 @@ from datetime import datetime, timezone
 # 配置
 # ─────────────────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path('/Users/zuimeidedeyihan/longhun-system')
-DESKTOP_ROOT = Path.home() / 'Desktop' / '龍魂系統·統一知識矩陣'
+DESKTOP_ROOT = Path.home() / 'Desktop' / '龍魂系统·统一知识矩阵'
 SCRIPT_PATH = Path(__file__).resolve()
 
-# 要掃描的來源目錄：Glob 模式（相對於 PROJECT_ROOT 或絕對路徑）
+# 要扫描的来源目录：Glob 模式（相对于 PROJECT_ROOT 或绝对路径）
 SOURCE_PATTERNS = [
     '*.md',
     '01_protocols/*',
-    '01_技能庫/*.md',
+    '01_技能库/*.md',
     '02_rules/*',
-    '02_執行記錄/*.md',
-    '03_知識圖譜/*',
+    '02_执行记录/*.md',
+    '03_知识图谱/*',
     '03_compiler/*',
-    '04_決策日誌/*.md',
-    '04_決策日誌/decision-records/*',
-    '05_系統報告/*.md',
-    '06_技術文檔/*.md',
+    '04_决策日志/*.md',
+    '04_决策日志/decision-records/*',
+    '05_系统报告/*.md',
+    '06_技术文档/*.md',
     'docs/契约矩阵/*.md',
     'docs/private-shared-imports/**/*.md',
     'docs/v3/*.md',
@@ -50,7 +50,7 @@ SOURCE_PATTERNS = [
     'skills/warehouse-audit/SKILL.md',
 ]
 
-# 用戶級技能（絕對路徑）
+# 用户级技能（绝对路径）
 USER_SKILL_PATTERNS = [
     Path.home() / '.kimi-code' / 'skills' / 'china-digital-identity' / 'SKILL.md',
     Path.home() / '.kimi-code' / 'skills' / 'CNSH-PROTOCOL' / 'SKILL.md',
@@ -61,57 +61,57 @@ USER_SKILL_DIRS = [
     Path.home() / '.kimi-code' / 'skills',
 ]
 
-# 檔案後綴允許清單
+# 档案后缀允许清单
 ALLOWED_SUFFIXES = {'.md', '.json', '.jsonl', '.asc', '.sha256', '.csv', '.py', '.txt', '.sh'}
 
-# 忽略檔名
+# 忽略档名
 IGNORE_NAMES = {'.ds_store', 'thumbs.db', '.gitignore'}
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 分類規則：依檔名與路徑關鍵字判定所屬類別
+# 分类规则：依档名与路径关键字判定所属类别
 # ─────────────────────────────────────────────────────────────────────────────
 CATEGORIES = [
-    ('00_總綱與身份', lambda p, n:
+    ('00_总纲与身份', lambda p, n:
         '知识矩阵总纲' in n or 'kfpp' in n or 'attribution' in n or
         '人机协作协议' in n or '流场总控' in n or
         n in ('readme.md', 'readme-v4.0.md')),
 
-    ('01_主權與協議', lambda p, n:
+    ('01_主权与协议', lambda p, n:
         'creator' in n or '创作者保护' in n or 'ipa-route' in n or
         '灵魂契约' in n or '永恒契约' in n or '主权' in n or
         'protocol_lockdown' in n or 'protocol_unification' in n or
         'longhun-creator' in n or '01_protocols' in p),
 
-    ('02_洛書九宮底座', lambda p, n:
+    ('02_洛书九宫底座', lambda p, n:
         '洛书' in n or '河图' in n or '九宫' in n or
         ('369' in n and '归根' not in n and 'semantic' not in n) or
-        '骨架' in n or '全域智能化生态' in n or '洛書' in n),
+        '骨架' in n or '全域智能化生态' in n or '洛书' in n),
 
-    ('03_三才流場與人格路由', lambda p, n:
+    ('03_三才流场与人格路由', lambda p, n:
         '人格' in n or 'persona' in n or '路由' in n or '五维' in n or
         '元知' in n or '三才' in n or 'sancai' in n or
         '流场' in n or 'flow' in n or 'decision' in n and 'decision-records' not in p),
 
-    ('04_三色審計與決策', lambda p, n:
+    ('04_三色审计与决策', lambda p, n:
         '审计' in n or 'audit' in n or '决策' in n or 'decision' in n or
         'rule-registry' in n or 'rule' in n or 'behavioral_crypto' in n or
         'left_right_audit' in n or 'system_guardian' in n or
         'decision-records' in p),
 
-    ('05_貪心有度與95極限', lambda p, n:
+    ('05_贪心有度与95极限', lambda p, n:
         '贪心' in n or '权限' in n or 'hotfix' in n or
         '权限矩阵' in n or '数据与权限' in n or
         'safety' in n or 'rollback' in n),
 
-    ('06_道德經錨層', lambda p, n:
+    ('06_道德经锚层', lambda p, n:
         '道德' in n or '道德经' in n or '太极' in n or '易经' in n or
         'dao' in n or 'yi-jing' in n),
 
-    ('07_369歸根與語義規範', lambda p, n:
+    ('07_369归根与语义规范', lambda p, n:
         'cnsh' in n or 'cnsv' in n or 'semantic' in n or 'protocol' in n and 'unification' not in n or
         '369归根' in n or '数字根' in n or '归根' in n),
 
-    ('09_核心鏈路', lambda p, n:
+    ('09_核心链路', lambda p, n:
         'api' in n or '核心链路' in n or 'architecture' in n or
         'cnsh_v' in n or '接口契约' in n or '知识域' in n or
         '执行域' in n or '反馈域' in n or 'complete-api' in n or
@@ -123,43 +123,43 @@ CATEGORIES = [
         'security' in n or 'privacy' in n or '安全防护' in n or
         '安全风险' in n or '安全策略' in n),
 
-    ('11_大本營加工廠架構', lambda p, n:
+    ('11_大本营加工厂架构', lambda p, n:
         '大本营' in n or '加工厂' in n or '部署' in n or 'deploy' in n or
         'production' in n or 'android-auto' in p or 'ops' in p or
         'rollback' in n or 'runbook' in n or ' DEPLOYMENT' in n.upper()),
 
-    ('12_學術論文與CSDN草稿', lambda p, n:
+    ('12_学术论文与CSDN草稿', lambda p, n:
         'academic' in p or 'csdn_drafts' in p or '论文' in n or
         'paper' in n or '白皮书' in n or 'riemann' in n or
         '洛书369与AI决策' in n),
 
-    ('13_技能庫與對外接口', lambda p, n:
+    ('13_技能库与对外接口', lambda p, n:
         'skill' in n or '技能' in n or 'longhun-' in n or
         'dragon-soul-agent' in n or 'china-digital-identity' in n or
         'cnsh-protocol' in n or 'cnsh-semantic' in n or
         'kimi-webbridge' in n or 'webbridge' in n or
-        '01_技能庫' in p or 'skills/warehouse' in p),
+        '01_技能库' in p or 'skills/warehouse' in p),
 
-    ('14_執行記錄與系統報告', lambda p, n:
-        '執行記錄' in p or '系統報告' in p or 'report' in n or
+    ('14_执行记录与系统报告', lambda p, n:
+        '执行记录' in p or '系统报告' in p or 'report' in n or
         'summary' in n or 'completion' in n or 'verification' in n or
         'execution' in n or 'integration' in n or '日志' in n or
         'log' in n or 'changelog' in n or 'operation' in n),
 
-    ('15_知識圖譜與編譯器', lambda p, n:
-        '知識圖譜' in p or 'graph' in n or '03_compiler' in p or
+    ('15_知识图谱与编译器', lambda p, n:
+        '知识图谱' in p or 'graph' in n or '03_compiler' in p or
         'compile' in n or 'compiler' in n or 'mappings' in p),
 
-    ('16_技術文檔與CHANGELOG', lambda p, n:
-        '06_技術文檔' in p or 'changelog' in n or 'guide' in n or
+    ('16_技术文档与CHANGELOG', lambda p, n:
+        '06_技术文档' in p or 'changelog' in n or 'guide' in n or
         'usage' in n or 'quickstart' in n or 'setup' in n),
 
-    ('17_代理與自動化', lambda p, n:
+    ('17_代理与自动化', lambda p, n:
         'agents' in p or 'agent' in n or 'task_executor' in n or
         'notion_sync' in n or 'xpay' in n or 'longhun_notion' in n),
 ]
 
-FALLBACK_CATEGORY = '14_執行記錄與系統報告'
+FALLBACK_CATEGORY = '14_执行记录与系统报告'
 
 
 def categorize(rel_path: str, filename: str) -> str:
@@ -190,7 +190,7 @@ def collect_source_files() -> list:
     collected = []
     seen = set()
 
-    # 項目內模式（支持 ** 遞迴）
+    # 项目内模式（支持 ** 递回）
     for pattern in SOURCE_PATTERNS:
         abs_pattern = PROJECT_ROOT / pattern
         for path_str in sorted(glob.glob(str(abs_pattern), recursive=True)):
@@ -210,7 +210,7 @@ def collect_source_files() -> list:
                 rel = path.name
             collected.append((path, str(rel)))
 
-    # 用戶技能目錄中的 longhun / cnsh / dragon / china
+    # 用户技能目录中的 longhun / cnsh / dragon / china
     for skill_root in USER_SKILL_DIRS:
         if not skill_root.exists():
             continue
@@ -228,7 +228,7 @@ def collect_source_files() -> list:
                 seen.add(skill_file)
                 collected.append((skill_file, f"~/.kimi-code/skills/{sub.name}/SKILL.md"))
 
-    # 額外指定的用戶技能
+    # 额外指定的用户技能
     for skill_file in USER_SKILL_PATTERNS:
         if skill_file.exists() and skill_file not in seen:
             seen.add(skill_file)
@@ -255,22 +255,22 @@ def safe_name(path: Path, used_names: set) -> str:
 
 
 def main():
-    print(f"[龍魂知識矩陣] 同步開始: {datetime.now(timezone.utc).isoformat()}")
-    print(f"來源根目錄: {PROJECT_ROOT}")
-    print(f"桌面目標: {DESKTOP_ROOT}")
+    print(f"[龍魂知识矩阵] 同步开始: {datetime.now(timezone.utc).isoformat()}")
+    print(f"来源根目录: {PROJECT_ROOT}")
+    print(f"桌面目标: {DESKTOP_ROOT}")
 
-    # 清理舊目標並重建骨架
+    # 清理旧目标并重建骨架
     if DESKTOP_ROOT.exists():
         shutil.rmtree(DESKTOP_ROOT)
     DESKTOP_ROOT.mkdir(parents=True)
 
-    # 建立分類文件夾
+    # 建立分类文件夹
     categories = sorted({cat for cat, _ in CATEGORIES})
     for cat in categories:
         (DESKTOP_ROOT / cat).mkdir()
-    (DESKTOP_ROOT / '99_索引與自適應鎖').mkdir()
+    (DESKTOP_ROOT / '99_索引与自适应锁').mkdir()
 
-    # 收集與複製
+    # 收集与复制
     source_files = collect_source_files()
     index_entries = []
     sync_index = {
@@ -283,11 +283,11 @@ def main():
     for src_path, label in source_files:
         cat = categorize(label, src_path.name)
         used = set()
-        dest_name = safe_name(src_path, used)  # 注意：這裡要按目錄獨立計數
+        dest_name = safe_name(src_path, used)  # 注意：这里要按目录独立计数
         dest_dir = DESKTOP_ROOT / cat
         dest_path = dest_dir / dest_name
 
-        # 重新計算安全名稱（按目錄）
+        # 重新计算安全名称（按目录）
         used_names = set(p.name for p in dest_dir.iterdir()) if dest_dir.exists() else set()
         dest_name = safe_name(src_path, used_names)
         dest_path = dest_dir / dest_name
@@ -295,7 +295,7 @@ def main():
         try:
             shutil.copy2(src_path, dest_path)
         except Exception as e:
-            print(f"  ⚠️ 複製失敗 {src_path}: {e}")
+            print(f"  ⚠️ 复制失败 {src_path}: {e}")
             continue
 
         chksum = file_checksum(src_path)
@@ -310,17 +310,17 @@ def main():
         index_entries.append(entry)
         sync_index.setdefault('categories', {}).setdefault(cat, []).append(entry)
 
-    # 複製本腳本到桌面，方便將來一鍵同步
-    shutil.copy2(SCRIPT_PATH, DESKTOP_ROOT / '99_索引與自適應鎖' / 'sync_longhun_knowledge_desktop.py')
+    # 复制本脚本到桌面，方便将来一键同步
+    shutil.copy2(SCRIPT_PATH, DESKTOP_ROOT / '99_索引与自适应锁' / 'sync_longhun_knowledge_desktop.py')
 
-    # 寫入 sync_index.json
-    (DESKTOP_ROOT / '99_索引與自適應鎖' / 'sync_index.json').write_text(
+    # 写入 sync_index.json
+    (DESKTOP_ROOT / '99_索引与自适应锁' / 'sync_index.json').write_text(
         json.dumps(sync_index, ensure_ascii=False, indent=2), encoding='utf-8')
 
-    # 生成總索引 README.md
+    # 生成总索引 README.md
     generate_readme(index_entries)
 
-    print(f"[龍魂知識矩陣] 同步完成，共 {len(index_entries)} 個文件")
+    print(f"[龍魂知识矩阵] 同步完成，共 {len(index_entries)} 个文件")
     for cat in categories:
         count = len(sync_index['categories'].get(cat, []))
         if count:
@@ -329,41 +329,41 @@ def main():
 
 def generate_readme(entries):
     lines = []
-    lines.append('# 龍魂系統 · 統一知識矩陣')
+    lines.append('# 龍魂系统 · 统一知识矩阵')
     lines.append('')
-    lines.append(f'生成時間：{datetime.now(timezone.utc).isoformat()}')
+    lines.append(f'生成时间：{datetime.now(timezone.utc).isoformat()}')
     lines.append('')
-    lines.append('> 本資料夾是 `~/longhun-system` 的「桌面可複製粘貼版」，按《知識矩陣總綱 v2.0》的架構分類。')
-    lines.append('> 所有文件均已本地複製，無需點擊外部鏈接即可查看、複製、粘貼。')
-    lines.append('> 再次運行 `99_索引與自適應鎖/sync_longhun_knowledge_desktop.py` 即可增量更新。')
+    lines.append('> 本资料夹是 `~/longhun-system` 的“桌面可复制粘贴版”，按《知识矩阵总纲 v2.0》的架构分类。')
+    lines.append('> 所有文件均已本地复制，无需点击外部链接即可查看、复制、粘贴。')
+    lines.append('> 再次运行 `99_索引与自适应锁/sync_longhun_knowledge_desktop.py` 即可增量更新。')
     lines.append('')
 
-    # 總綱說明
-    lines.append('## 架構對照（知識矩陣總綱 v2.0）')
+    # 总纲说明
+    lines.append('## 架构对照（知识矩阵总纲 v2.0）')
     lines.append('')
-    lines.append('| 資料夾 | 對應總綱模塊 |')
+    lines.append('| 资料夹 | 对应总纲模块 |')
     lines.append('|---|---|')
-    lines.append('| 00_總綱與身份 | 系統身份、DNA、主權聲明 |')
-    lines.append('| 01_主權與協議 | 創作者保護協議、IPA 路由、永恆契約 |')
-    lines.append('| 02_洛書九宮底座 | 洛書、河圖、369、骨架流場 |')
-    lines.append('| 03_三才流場與人格路由 | 忠孝義排序、人格矩陣、路由系統 |')
-    lines.append('| 04_三色審計與決策 | 三色審計、決策日誌、規則庫 |')
-    lines.append('| 05_貪心有度與95極限 | 權限矩陣、安全熱修、95極限 |')
-    lines.append('| 06_道德經錨層 | 道德經、太極、易經錨定 |')
-    lines.append('| 07_369歸根與語義規範 | CNSH 語義規範、數字根、歸根 |')
-    lines.append('| 09_核心鏈路 | API、核心鏈路、編譯器 |')
-    lines.append('| 10_安全域 | 安全域契約、數據安全、個人信息保護 |')
-    lines.append('| 11_大本營加工廠架構 | 部署、運維、回滾、安卓自動化 |')
-    lines.append('| 12_學術論文與CSDN草稿 | 論文、白皮書、CSDN 草稿 |')
-    lines.append('| 13_技能庫與對外接口 | 龍魂技能、CNSH 技能、對外接口 |')
-    lines.append('| 14_執行記錄與系統報告 | 執行日誌、系統報告、驗證報告 |')
-    lines.append('| 15_知識圖譜與編譯器 | 知識圖譜、編譯器註冊表 |')
-    lines.append('| 16_技術文檔與CHANGELOG | 技術文檔、變更日誌 |')
-    lines.append('| 17_代理與自動化 | agents、自動化腳本、大腦同步 |')
-    lines.append('| 99_索引與自適應鎖 | 總索引、同步腳本、聯動規則 |')
+    lines.append('| 00_总纲与身份 | 系统身份、DNA、主权声明 |')
+    lines.append('| 01_主权与协议 | 创作者保护协议、IPA 路由、永恒契约 |')
+    lines.append('| 02_洛书九宫底座 | 洛书、河图、369、骨架流场 |')
+    lines.append('| 03_三才流场与人格路由 | 忠孝义排序、人格矩阵、路由系统 |')
+    lines.append('| 04_三色审计与决策 | 三色审计、决策日志、规则库 |')
+    lines.append('| 05_贪心有度与95极限 | 权限矩阵、安全热修、95极限 |')
+    lines.append('| 06_道德经锚层 | 道德经、太极、易经锚定 |')
+    lines.append('| 07_369归根与语义规范 | CNSH 语义规范、数字根、归根 |')
+    lines.append('| 09_核心链路 | API、核心链路、编译器 |')
+    lines.append('| 10_安全域 | 安全域契约、数据安全、个人信息保护 |')
+    lines.append('| 11_大本营加工厂架构 | 部署、运维、回滚、安卓自动化 |')
+    lines.append('| 12_学术论文与CSDN草稿 | 论文、白皮书、CSDN 草稿 |')
+    lines.append('| 13_技能库与对外接口 | 龍魂技能、CNSH 技能、对外接口 |')
+    lines.append('| 14_执行记录与系统报告 | 执行日志、系统报告、验证报告 |')
+    lines.append('| 15_知识图谱与编译器 | 知识图谱、编译器注册表 |')
+    lines.append('| 16_技术文档与CHANGELOG | 技术文档、变更日志 |')
+    lines.append('| 17_代理与自动化 | agents、自动化脚本、大脑同步 |')
+    lines.append('| 99_索引与自适应锁 | 总索引、同步脚本、联动规则 |')
     lines.append('')
 
-    # 按分類列出文件
+    # 按分类列出文件
     from collections import OrderedDict
     by_cat = OrderedDict()
     for e in entries:
@@ -380,15 +380,15 @@ def generate_readme(entries):
             lines.append(f"- `{fname}` ← `{src}`")
         lines.append('')
 
-    # 自適應鎖說明
-    lines.append('## 自適應鎖與聯動規則')
+    # 自适应锁说明
+    lines.append('## 自适应锁与联动规则')
     lines.append('')
-    lines.append('1. **索引即鎖**：`sync_index.json` 記錄每個文件的來源路徑與 MD5 校驗和。')
-    lines.append('2. **增量同步**：再次運行同步腳本時，只會複製新增或校驗和變化的文件。')
-    lines.append('3. **無孤立文件**：任何被同步的文件都會出現在 `sync_index.json` 與本索引中。')
-    lines.append('4. **分類聯動**：若某文件的內容涉及多個模塊，請在項目源文件中用 `#分類:` 標註，')
-    lines.append('   後續可升級本腳本的關鍵字規則實現更精細路由。')
-    lines.append('5. **DNA 追溯**：所有核心文檔應在文末保留 `#龍芯⚡️...` 簽名，確保來源不可抵賴。')
+    lines.append('1. **索引即锁**：`sync_index.json` 记录每个文件的来源路径与 MD5 校验和。')
+    lines.append('2. **增量同步**：再次运行同步脚本时，只会复制新增或校验和变化的文件。')
+    lines.append('3. **无孤立文件**：任何被同步的文件都会出现在 `sync_index.json` 与本索引中。')
+    lines.append('4. **分类联动**：若某文件的内容涉及多个模块，请在项目源文件中用 `#分类:` 标注，')
+    lines.append('   后续可升级本脚本的关键字规则实现更精细路由。')
+    lines.append('5. **DNA 追溯**：所有核心文档应在文末保留 `#龍芯⚡️...` 签名，确保来源不可抵赖。')
     lines.append('')
     lines.append('---')
     lines.append('')

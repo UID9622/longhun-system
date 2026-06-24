@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂 v9.0 系統集成測試
+龍魂 v9.0 系统集成测试
 
 DNA:#龍芯⚡️2026-06-06-V9-INTEGRATION-TEST-FILE1-v1.0
 """
@@ -17,22 +17,22 @@ from cnsh.v9_system_integration_bridge import (
 
 
 class TestV9SystemIntegrationBridge:
-    """v9.0 系統集成測試"""
+    """v9.0 系统集成测试"""
 
     @pytest.fixture
     def bridge(self):
-        """創建集成橋實例"""
+        """创建集成桥实例"""
         return V9SystemIntegrationBridge(seed=9622)
 
     def test_bridge_initialization(self, bridge):
-        """測試橋初始化"""
+        """测试桥初始化"""
         assert bridge.seed == 9622
         assert len(bridge.task_queue) == 0
         assert len(bridge.execution_history) == 0
         assert len(bridge.system_dna_chain) == 0
 
     def test_task_registration(self, bridge):
-        """測試任務註冊"""
+        """测试任务注册"""
         task = SystemIntegrationTask(
             task_id="TEST-001",
             task_type=TaskType.SANCAI_SYNC,
@@ -45,7 +45,7 @@ class TestV9SystemIntegrationBridge:
         assert len(bridge.task_queue) == 1
 
     def test_task_auto_id_generation(self, bridge):
-        """測試任務自動 ID 生成"""
+        """测试任务自动 ID 生成"""
         task = SystemIntegrationTask(
             task_id="",
             task_type=TaskType.FLOW_DECISION,
@@ -58,7 +58,7 @@ class TestV9SystemIntegrationBridge:
         assert len(task_id) > 20
 
     def test_task_routing_flow_decision(self, bridge):
-        """測試流程決策任務路由"""
+        """测试流程决策任务路由"""
         task = SystemIntegrationTask(
             task_id="ROUTE-001",
             task_type=TaskType.FLOW_DECISION,
@@ -68,10 +68,10 @@ class TestV9SystemIntegrationBridge:
 
         module, reason = bridge.route_task(task)
         assert module == ModuleLayer.V4_1_FLOW_DECISION
-        assert "精確匹配" in reason
+        assert "精确匹配" in reason
 
     def test_task_routing_sancai_sync(self, bridge):
-        """測試三合同步器任務路由"""
+        """测试三合同步器任务路由"""
         task = SystemIntegrationTask(
             task_id="ROUTE-002",
             task_type=TaskType.SANCAI_SYNC,
@@ -81,10 +81,10 @@ class TestV9SystemIntegrationBridge:
 
         module, reason = bridge.route_task(task)
         assert module == ModuleLayer.V1_0_SANCAI_SYNC
-        assert "精確匹配" in reason
+        assert "精确匹配" in reason
 
     def test_task_routing_priority(self, bridge):
-        """測試優先級路由"""
+        """测试优先级路由"""
         task_high = SystemIntegrationTask(
             task_id="ROUTE-003",
             task_type=TaskType.SYSTEM_CHECK,
@@ -95,10 +95,10 @@ class TestV9SystemIntegrationBridge:
 
         module, reason = bridge.route_task(task_high)
         assert module == ModuleLayer.V4_1_FLOW_DECISION
-        assert "優先級" in reason
+        assert "优先级" in reason
 
     def test_sancai_sync_execution(self, bridge):
-        """測試三合同步器執行"""
+        """测试三合同步器执行"""
         task = SystemIntegrationTask(
             task_id="EXEC-001",
             task_type=TaskType.SANCAI_SYNC,
@@ -137,7 +137,7 @@ class TestV9SystemIntegrationBridge:
         assert "palaces_count" in result.output_data
 
     def test_system_health_check(self, bridge):
-        """測試系統健康檢查"""
+        """测试系统健康检查"""
         health = bridge.system_health_check()
 
         assert "timestamp" in health
@@ -149,8 +149,8 @@ class TestV9SystemIntegrationBridge:
         assert "v4.0_neural_map" in health["modules"]
 
     def test_execute_queue(self, bridge):
-        """測試隊列執行"""
-        # 創建多個任務
+        """测试队列执行"""
+        # 创建多个任务
         for i in range(3):
             task = SystemIntegrationTask(
                 task_id=f"QUEUE-{i:03d}",
@@ -171,7 +171,7 @@ class TestV9SystemIntegrationBridge:
         assert all(r.status in ["success", "failed"] for r in results)
 
     def test_dna_chain_generation(self, bridge):
-        """測試 DNA 鏈生成"""
+        """测试 DNA 链生成"""
         task = SystemIntegrationTask(
             task_id="DNA-001",
             task_type=TaskType.SANCAI_SYNC,
@@ -191,14 +191,14 @@ class TestV9SystemIntegrationBridge:
         assert len(bridge.system_dna_chain) > 0
 
     def test_json_export(self, bridge):
-        """測試 JSON 導出"""
+        """测试 JSON 导出"""
         json_str = bridge.to_json()
         assert isinstance(json_str, str)
         assert "v9_integration_bridge" in json_str
         assert "system_dna_chain" in json_str
 
     def test_success_rate_calculation(self, bridge):
-        """測試成功率計算"""
+        """测试成功率计算"""
         assert bridge._calculate_success_rate() == 0.0
 
         task = SystemIntegrationTask(
@@ -220,13 +220,13 @@ class TestV9SystemIntegrationBridge:
 
 
 class TestV9Integration:
-    """v9.0 整體集成測試"""
+    """v9.0 整体集成测试"""
 
     def test_three_ring_integration(self):
-        """測試三環集成"""
+        """测试三环集成"""
         bridge = V9SystemIntegrationBridge()
 
-        # 創建三環任務
+        # 创建三环任务
         task = SystemIntegrationTask(
             task_id="THREE-RING-001",
             task_type=TaskType.SANCAI_SYNC,
@@ -259,7 +259,7 @@ class TestV9Integration:
         bridge.register_task(task)
         result = bridge.execute_task(task)
 
-        # 驗證執行結果
+        # 验证执行结果
         assert result.status == "success"
         assert "particles_count" in result.output_data
         assert "signals_count" in result.output_data
@@ -268,7 +268,7 @@ class TestV9Integration:
         assert result.output_data["verify_status"] == "🟢"
 
     def test_system_readiness(self):
-        """測試系統準備就緒"""
+        """测试系统准备就绪"""
         bridge = V9SystemIntegrationBridge()
         health = bridge.system_health_check()
 

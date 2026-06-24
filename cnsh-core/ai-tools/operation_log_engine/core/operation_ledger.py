@@ -11,12 +11,12 @@
 # 文件: operation_ledger.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂操作日記核心引擎 v1.0
-操作日記 = append-only ledger + DNA粒子 + 習慣指紋追蹤
+🐉 龍魂操作日记核心引擎 v1.0
+操作日记 = append-only ledger + DNA粒子 + 习惯指纹追踪
 
 DNA:#龍芯⚡️2026-05-30-OPERATION-LEDGER-CORE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 """
 
 import json
@@ -30,28 +30,28 @@ import re
 
 class OperationLedger:
     """
-    操作日記核心引擎
+    操作日记核心引擎
 
     特性:
       - append-only: 每次操作追加·不可修改
-      - SHA-256鏈: 每操作記錄parent_hash·無斷裂
-      - DNA粒子: 自動生成身份證
-      - 習慣追蹤: 自動提取拼音錯別字·口頭禪
+      - SHA-256链: 每操作记录parent_hash·无断裂
+      - DNA粒子: 自动生成身份证
+      - 习惯追踪: 自动提取拼音错别字·口头禅
     """
 
-    def __init__(self, log_dir: str = "~/.龍魂/操作日記"):
+    def __init__(self, log_dir: str = "~/.龍魂/操作日记"):
         self.log_dir = Path(log_dir).expanduser()
         self.ledger_file = self.log_dir / "operation_ledger.jsonl"
         self.dna_dir = self.log_dir / "dna_particles"
         self.habit_dir = self.log_dir / "habit_fingerprints"
 
-        # 確保目錄存在
+        # 确保目录存在
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self.dna_dir.mkdir(parents=True, exist_ok=True)
         self.habit_dir.mkdir(parents=True, exist_ok=True)
 
     def _get_last_hash(self) -> Optional[str]:
-        """獲取上一個操作的hash (用於鏈接)"""
+        """获取上一个操作的hash (用于链接)"""
         if not self.ledger_file.exists():
             return None
 
@@ -63,19 +63,19 @@ class OperationLedger:
                 last_record = json.loads(lines[-1])
                 return last_record.get('hash_sha256')
         except Exception as e:
-            print(f"⚠️ 讀取最後hash失敗: {e}")
+            print(f"⚠️ 读取最后hash失败: {e}")
             return None
 
     def _compute_hash(self, data: Dict[str, Any]) -> str:
-        """計算記錄的SHA-256 hash"""
-        # 去掉hash和parent_hash本身·計算內容hash
+        """计算记录的SHA-256 hash"""
+        # 去掉hash和parent_hash本身·计算内容hash
         hash_data = {k: v for k, v in data.items()
                      if k not in ['hash_sha256', 'parent_hash']}
         json_str = json.dumps(hash_data, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(json_str.encode('utf-8')).hexdigest()
 
     def _extract_habits(self, text: str) -> Dict[str, Any]:
-        """從操作描述中提取習慣特徵"""
+        """从操作描述中提取习惯特征"""
         habits = {
             'typos': {},
             'catchphrases': [],
@@ -83,7 +83,7 @@ class OperationLedger:
             'punctuation_patterns': []
         }
 
-        # 常見拼音錯別字檢測
+        # 常见拼音错别字检测
         typo_map = {
             '得': ['的'],
             '哪': ['那'],
@@ -96,7 +96,7 @@ class OperationLedger:
                 if variant in text:
                     habits['typos'][correct] = variant
 
-        # 口頭禪檢測
+        # 口头禅检测
         catchphrases_list = ['嘿嘿', '焊死', '宝宝', ',,,', '。。。', '...']
         for phrase in catchphrases_list:
             count = text.count(phrase)
@@ -106,7 +106,7 @@ class OperationLedger:
                     'count': count
                 })
 
-        # 逗號連點習慣
+        # 逗号连点习惯
         comma_runs = re.findall(r',{2,}', text)
         if comma_runs:
             habits['punctuation_patterns'].append({
@@ -118,26 +118,26 @@ class OperationLedger:
         return habits
 
     def _get_shichen(self) -> str:
-        """獲取當前時辰"""
+        """获取当前时辰"""
         shichen_map = {
-            23: '子時', 0: '子時',
-            1: '丑時', 2: '丑時',
-            3: '寅時', 4: '寅時',
-            5: '卯時', 6: '卯時',
-            7: '辰時', 8: '辰時',
-            9: '巳時', 10: '巳時',
-            11: '午時', 12: '午時',
-            13: '未時', 14: '未時',
-            15: '申時', 16: '申時',
-            17: '酉時', 18: '酉時',
-            19: '戌時', 20: '戌時',
-            21: '亥時', 22: '亥時',
+            23: '子时', 0: '子时',
+            1: '丑时', 2: '丑时',
+            3: '寅时', 4: '寅时',
+            5: '卯时', 6: '卯时',
+            7: '辰时', 8: '辰时',
+            9: '巳时', 10: '巳时',
+            11: '午时', 12: '午时',
+            13: '未时', 14: '未时',
+            15: '申时', 16: '申时',
+            17: '酉时', 18: '酉时',
+            19: '戌时', 20: '戌时',
+            21: '亥时', 22: '亥时',
         }
         hour = datetime.now().hour
-        return shichen_map.get(hour, '未知時')
+        return shichen_map.get(hour, '未知时')
 
     def _get_digital_root(self) -> int:
-        """計算當前日期的數字根 (1-9)"""
+        """计算当前日期的数字根 (1-9)"""
         date_str = datetime.now().strftime('%Y%m%d')
         total = sum(int(d) for d in date_str)
         while total >= 10:
@@ -156,28 +156,28 @@ class OperationLedger:
                         persona_weight: float = 0.50,
                         notes: str = "") -> Dict[str, Any]:
         """
-        追加一個操作到日記
+        追加一个操作到日记
 
         Args:
-            operation_type: 操作類型 (焊接|工程|審計|壓縮)
-            operation_name: 操作名稱 (如 L5-F8-implementation)
-            device_id: 設備ID (如 MacBook-M4-Max-UID9622)
+            operation_type: 操作类型 (焊接|工程|审计|压缩)
+            operation_name: 操作名称 (如 L5-F8-implementation)
+            device_id: 设备ID (如 MacBook-M4-Max-UID9622)
             agent_type: AI代理 (Claude Haiku 4.5)
-            input_text: 輸入文本
-            output_text: 輸出文本
-            rules_triggered: 觸發的規則列表
-            persona_active: 當前人格 (P02/P05/P13等)
-            persona_weight: 人格權重
-            notes: 備註
+            input_text: 输入文本
+            output_text: 输出文本
+            rules_triggered: 触发的规则列表
+            persona_active: 当前人格 (P02/P05/P13等)
+            persona_weight: 人格权重
+            notes: 备注
 
         Returns:
-            操作記錄dict
+            操作记录dict
         """
 
         # 生成操作ID
         op_id = f"OP-{datetime.now().strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:6]}"
 
-        # 時間信息
+        # 时间信息
         now = datetime.now(timezone.utc).astimezone(timezone(
             datetime.now().astimezone().utcoffset()
         ))
@@ -185,14 +185,14 @@ class OperationLedger:
         shichen = self._get_shichen()
         digital_root = self._get_digital_root()
 
-        # 習慣提取
+        # 习惯提取
         full_text = f"{input_text}\n{output_text}\n{notes}"
         habits = self._extract_habits(full_text)
 
-        # 習慣匹配度 (暫時硬編碼)
-        habit_match = 0.98  # TODO: 實現F8匹配引擎
+        # 习惯匹配度 (暂时硬编码)
+        habit_match = 0.98  # TODO: 实现F8匹配引擎
 
-        # 構造記錄
+        # 构造记录
         record = {
             "operation_id": op_id,
             "timestamp": timestamp,
@@ -210,14 +210,14 @@ class OperationLedger:
             "rule_triggered": rules_triggered or [],
             "persona_active": persona_active,
             "persona_weight": persona_weight,
-            "risk_color": "🟢",  # 默認綠線
-            "execution_time_ms": 245,  # TODO: 實際測量
+            "risk_color": "🟢",  # 默认绿线
+            "execution_time_ms": 245,  # TODO: 实际测量
             "status": "success",
             "dna": f"#龍芯⚡️{datetime.now().strftime('%Y%m%d-%H%M%S')}-OP-{operation_type}-{operation_name}-v1.0",
             "notes": notes
         }
 
-        # 計算hash並添加鏈接
+        # 计算hash并添加链接
         record['hash_sha256'] = self._compute_hash(record)
         last_hash = self._get_last_hash()
         if last_hash:
@@ -227,14 +227,14 @@ class OperationLedger:
         with open(self.ledger_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
-        print(f"✅ 操作已記錄: {op_id}")
+        print(f"✅ 操作已记录: {op_id}")
         print(f"   DNA: {record['dna']}")
         print(f"   Hash: {record['hash_sha256'][:16]}...")
 
         return record
 
     def get_last_n_operations(self, n: int = 10) -> List[Dict[str, Any]]:
-        """獲取最後N個操作"""
+        """获取最后N个操作"""
         if not self.ledger_file.exists():
             return []
 
@@ -246,7 +246,7 @@ class OperationLedger:
         return operations[-n:]
 
     def verify_chain_integrity(self) -> bool:
-        """驗證SHA-256鏈的完整性 (無斷裂)"""
+        """验证SHA-256链的完整性 (无断裂)"""
         if not self.ledger_file.exists():
             return True
 
@@ -257,19 +257,19 @@ class OperationLedger:
 
         for i, op in enumerate(operations):
             if i == 0:
-                # 第一條記錄不需要parent
+                # 第一条记录不需要parent
                 continue
 
             parent_hash = op.get('parent_hash')
             if parent_hash != operations[i-1]['hash_sha256']:
-                print(f"🔴 鏈斷裂在操作 {i}: {op['operation_id']}")
+                print(f"🔴 链断裂在操作 {i}: {op['operation_id']}")
                 return False
 
-        print(f"✅ 鏈完整性驗證通過 ({len(operations)}條記錄)")
+        print(f"✅ 链完整性验证通过 ({len(operations)}条记录)")
         return True
 
     def get_stats(self) -> Dict[str, Any]:
-        """獲取統計數據"""
+        """获取统计数据"""
         if not self.ledger_file.exists():
             return {
                 'total_operations': 0,
@@ -294,30 +294,30 @@ class OperationLedger:
 if __name__ == "__main__":
     ledger = OperationLedger()
 
-    # 追加測試操作
+    # 追加测试操作
     record = ledger.append_operation(
         operation_type="工程",
         operation_name="L5-F8-implementation",
         device_id="MacBook-M4-Max-UID9622",
         agent_type="Claude Haiku 4.5",
         input_text="嘿嘿,,,帮我设计操作日记,,,我想同步本地",
-        output_text="收到! 這是跨設備身份識別系統...",
+        output_text="收到! 这是跨设备身份识别系统...",
         rules_triggered=["§9.27", "§11.2"],
         persona_active="P02",
         persona_weight=0.50,
-        notes="操作日記系統Phase 2.1啟動"
+        notes="操作日记系统Phase 2.1启动"
     )
 
-    # 驗證鏈
+    # 验证链
     ledger.verify_chain_integrity()
 
-    # 統計
-    print("\n📊 統計數據:")
+    # 统计
+    print("\n📊 统计数据:")
     stats = ledger.get_stats()
     for key, value in stats.items():
         print(f"  {key}: {value}")
 
     # 查看最近操作
-    print("\n📋 最近5個操作:")
+    print("\n📋 最近5个操作:")
     for op in ledger.get_last_n_operations(5):
         print(f"  - {op['operation_id']}: {op['operation_name']}")

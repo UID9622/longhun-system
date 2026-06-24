@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-COMPILER-CNSH-RUNTIME-ARCHITECTURE-SPECIFICATION-V1-0-32D7125A9C9F8134BD8DE1596A5CFD49-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # ⚙️ CNSH Runtime Architecture Specification v1.0
 

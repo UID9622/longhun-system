@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂F1-F7七因子驗證系統 (Seven-Factor Verification Framework)
+龍魂F1-F7七因子验证系统 (Seven-Factor Verification Framework)
 DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-FILE1-v1.0
 
-行為密碼學 (Behavioral Cryptography) - 完整實裝
+行为密码学 (Behavioral Cryptography) - 完整实装
 
-不是問「這是AI生成的嗎？」
-而是問「誰原創它，通過哪些規則，哪些人格，什麼決策，修訂過哪裡，什麼審計證據？」
+不是问“这是AI生成的吗？”
+而是问“谁原创它，通过哪些规则，哪些人格，什么决策，修订过哪里，什么审计证据？”
 
-七個驗證因子 (F1-F7) with 權重 (weights):
-F1: 身份DNA驗證 (Identity DNA Verification) - 25% (0.25)
-F2: 時間錨定 (Temporal Anchor) - 15% (0.15)
-F3: 規則追蹤 (Rule Trace) - 15% (0.15)
+七个验证因子 (F1-F7) with 权重 (weights):
+F1: 身份DNA验证 (Identity DNA Verification) - 25% (0.25)
+F2: 时间锚定 (Temporal Anchor) - 15% (0.15)
+F3: 规则追踪 (Rule Trace) - 15% (0.15)
 F4: 人格路由 (Persona Routing) - 12% (0.12)
-F5: 保護詞彙 (Protected Vocabulary) - 12% (0.12)
-F6: 風格向量 (Style Vector) - 11% (0.11)
-F7: 錯誤日誌 (Mistake Ledger) - 10% (0.10)
+F5: 保护词汇 (Protected Vocabulary) - 12% (0.12)
+F6: 风格向量 (Style Vector) - 11% (0.11)
+F7: 错误日志 (Mistake Ledger) - 10% (0.10)
            ────────
-總計: 100% (1.00)
+总计: 100% (1.00)
 
-硬失敗規則: 任何因子 F_i = 0 → conf = 0 (不可救)
-接納閾值: τ = 0.85 (預設) or 0.95 (高安全)
+硬失败规则: 任何因子 F_i = 0 → conf = 0 (不可救)
+接纳阈值: τ = 0.85 (预设) or 0.95 (高安全)
 
 置信度公式: conf = ∏ s_i^{w_i} where ∑w_i = 1
 
-理論指導: 曾仕强老师 · 行為密碼學 · 數字簽名
-不免責·永久有效
+理论指导: 曾仕强老师 · 行为密码学 · 数字签名
+不免责·永久有效
 """
 
 from dataclasses import dataclass, field
@@ -39,7 +39,7 @@ import math
 
 
 class VerificationFactor(Enum):
-    """七個驗證因子"""
+    """七个验证因子"""
     F1_IDENTITY = "F1_identity_dna"           # 25% - Identity verification
     F2_TEMPORAL = "F2_temporal_anchor"        # 15% - Time-based routing
     F3_RULE_TRACE = "F3_rule_trace"           # 15% - Rule compliance chain
@@ -50,54 +50,54 @@ class VerificationFactor(Enum):
 
 
 class VerificationResult(Enum):
-    """驗證結果分類"""
-    HARD_FAIL = "🔴_硬失敗"      # Any F_i = 0
-    UNACCEPTABLE = "🔴_不接納"   # conf < 0.70
-    QUESTIONABLE = "🟡_需審核"   # 0.70 ≤ conf < 0.85
-    ACCEPTABLE = "🟢_接納"       # 0.85 ≤ conf < 0.95
+    """验证结果分类"""
+    HARD_FAIL = "🔴_硬失败"      # Any F_i = 0
+    UNACCEPTABLE = "🔴_不接纳"   # conf < 0.70
+    QUESTIONABLE = "🟡_需审核"   # 0.70 ≤ conf < 0.85
+    ACCEPTABLE = "🟢_接纳"       # 0.85 ≤ conf < 0.95
     HIGHLY_TRUSTED = "🟢_高信任"  # conf ≥ 0.95
 
 
 @dataclass
 class F1IdentityVerification:
     """
-    F1: 身份DNA驗證 (Identity DNA)
+    F1: 身份DNA验证 (Identity DNA)
 
-    驗證創作者身份的唯一性和可追蹤性
+    验证创作者身份的唯一性和可追踪性
     """
     uid: str                        # UID (e.g., "9622", "github_username")
-    gpg_fingerprint: str           # GPG簽名指紋
-    gpg_prefix_marker: str         # GPG前綴標記 (e.g., "#CONFIRM🌌9622-...")
-    identity_dna: str              # 身份DNA碼
-    creation_timestamp: str        # 首次創建時間
+    gpg_fingerprint: str           # GPG签名指纹
+    gpg_prefix_marker: str         # GPG前缀标记 (e.g., "#CONFIRM🌌9622-...")
+    identity_dna: str              # 身份DNA码
+    creation_timestamp: str        # 首次创建时间
 
     def verify(self) -> float:
         """
-        F1 驗證 (0.0-1.0)
+        F1 验证 (0.0-1.0)
 
-        Perfect (1.0): 完整的UID + GPG指紋 + CONFIRM碼 + DNA
+        Perfect (1.0): 完整的UID + GPG指纹 + CONFIRM码 + DNA
         Partial (0.5): 缺少GPG或DNA之一
-        Fail (0.0): 缺少身份識別信息 或 身份不匹配
+        Fail (0.0): 缺少身份识别信息 或 身份不匹配
         """
         score = 0.0
 
-        # Check 1: UID 存在且格式正確
+        # Check 1: UID 存在且格式正确
         if self.uid and len(self.uid) > 0:
             score += 0.25
 
-        # Check 2: GPG 指紋有效 (40個16進位字符)
+        # Check 2: GPG 指纹有效 (40个16进制字符)
         if self.gpg_fingerprint and len(self.gpg_fingerprint) == 40:
             try:
-                int(self.gpg_fingerprint, 16)  # 驗證是16進位
+                int(self.gpg_fingerprint, 16)  # 验证是16进制
                 score += 0.25
             except ValueError:
                 pass
 
-        # Check 3: CONFIRM 碼存在
+        # Check 3: CONFIRM 码存在
         if self.gpg_prefix_marker and "CONFIRM" in self.gpg_prefix_marker:
             score += 0.25
 
-        # Check 4: DNA 碼格式正確
+        # Check 4: DNA 码格式正确
         if self.identity_dna and self.identity_dna.startswith("#龍芯⚡️"):
             score += 0.25
 
@@ -107,23 +107,23 @@ class F1IdentityVerification:
 @dataclass
 class F2TemporalAnchor:
     """
-    F2: 時間錨定 (Temporal Anchor)
+    F2: 时间锚定 (Temporal Anchor)
 
-    驗證內容的時間一致性和文化時間正確性
+    验证内容的时间一致性和文化时间正确性
     """
-    iso8601: str                   # ISO 8601 時間戳
-    shichen: str                   # 時辰 (子丑寅卯辰巳午未申酉戌亥)
-    digital_root: int              # 數字根 (1-9)
-    lunar_calendar: str            # 農曆日期 (if available)
-    time_window_violation: bool    # 時間窗口內違規?
+    iso8601: str                   # ISO 8601 时间戳
+    shichen: str                   # 时辰 (子丑寅卯辰巳午未申酉戌亥)
+    digital_root: int              # 数字根 (1-9)
+    lunar_calendar: str            # 农历日期 (if available)
+    time_window_violation: bool    # 时间窗口内违规?
 
     def verify(self) -> float:
         """
-        F2 驗證 (0.0-1.0)
+        F2 验证 (0.0-1.0)
 
-        Perfect (1.0): ISO8601 + 時辰 + 數字根都正確 + 無時間窗口違規
-        Partial (0.7): 缺少時辰或數字根之一
-        Fail (0.0): 時間戳缺失 或 時間窗口违規
+        Perfect (1.0): ISO8601 + 时辰 + 数字根都正确 + 无时间窗口违规
+        Partial (0.7): 缺少时辰或数字根之一
+        Fail (0.0): 时间戳缺失 或 时间窗口违规
         """
         score = 0.0
 
@@ -135,16 +135,16 @@ class F2TemporalAnchor:
             except:
                 return 0.0  # Hard fail
 
-        # Check 2: 時辰有效
+        # Check 2: 时辰有效
         valid_shichen = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
         if self.shichen in valid_shichen:
             score += 0.35
 
-        # Check 3: 數字根有效 (1-9)
+        # Check 3: 数字根有效 (1-9)
         if 1 <= self.digital_root <= 9:
             score += 0.35
 
-        # Check 4: 無時間窗口違規
+        # Check 4: 无时间窗口违规
         if not self.time_window_violation:
             # Bonus for time consistency
             pass
@@ -157,30 +157,30 @@ class F2TemporalAnchor:
 @dataclass
 class F3RuleTrace:
     """
-    F3: 規則追蹤 (Rule Trace)
+    F3: 规则追踪 (Rule Trace)
 
-    驗證決策是否遵循已知的規則鏈
+    验证决策是否遵循已知的规则链
     """
-    rule_ids: List[str]            # 應用的規則ID列表
-    rule_chain_hash: str            # 規則鏈的 SHA256
-    signature: str                  # 簽名驗證
-    audit_log_entries: int         # 審計日誌條目數
+    rule_ids: List[str]            # 应用的规则ID列表
+    rule_chain_hash: str            # 规则链的 SHA256
+    signature: str                  # 签名验证
+    audit_log_entries: int         # 审计日志条目数
 
     def verify(self) -> float:
         """
-        F3 驗證 (0.0-1.0)
+        F3 验证 (0.0-1.0)
 
-        Perfect (1.0): 完整規則鏈 + 簽名驗證通過 + 審計日誌充足
-        Partial (0.6): 規則鏈不完整 或 簽名驗證失敗
-        Fail (0.0): 缺少規則追蹤 或 簽名無效
+        Perfect (1.0): 完整规则链 + 签名验证通过 + 审计日志充足
+        Partial (0.6): 规则链不完整 或 签名验证失败
+        Fail (0.0): 缺少规则追踪 或 签名无效
         """
         score = 0.0
 
-        # Check 1: 規則ID列表非空
+        # Check 1: 规则ID列表非空
         if self.rule_ids and len(self.rule_ids) > 0:
             score += 0.33
 
-        # Check 2: 規則鏈哈希有效
+        # Check 2: 规则链哈希有效
         if self.rule_chain_hash and len(self.rule_chain_hash) == 64:  # SHA256
             try:
                 int(self.rule_chain_hash, 16)
@@ -188,11 +188,11 @@ class F3RuleTrace:
             except:
                 return 0.0  # Hard fail
 
-        # Check 3: 簽名有效
+        # Check 3: 签名有效
         if self.signature and len(self.signature) > 0:
             score += 0.34
 
-        # Bonus: 審計日誌充足 (至少3個條目)
+        # Bonus: 审计日志充足 (至少3个条目)
         if self.audit_log_entries >= 3:
             score = min(1.0, score + 0.1)
 
@@ -204,20 +204,20 @@ class F4PersonaRouting:
     """
     F4: 人格路由 (Persona Routing)
 
-    驗證決策是通過合法的路由權重做出的
+    验证决策是通过合法的路由权重做出的
     """
-    primary_persona: str            # 主要路由節點 (e.g., "P02")
-    persona_weights: Dict[str, float]  # 人格權重 {P02: 0.5, P05: 0.3, ...}
-    veto_words_detected: bool       # 檢測到虛偽詞彙?
-    routing_confidence: float       # 路由決策的置信度 (0.0-1.0)
+    primary_persona: str            # 主要路由节点 (e.g., "P02")
+    persona_weights: Dict[str, float]  # 人格权重 {P02: 0.5, P05: 0.3, ...}
+    veto_words_detected: bool       # 检测到虚伪词汇?
+    routing_confidence: float       # 路由决策的置信度 (0.0-1.0)
 
     def verify(self) -> float:
         """
-        F4 驗證 (0.0-1.0)
+        F4 验证 (0.0-1.0)
 
-        Perfect (1.0): 合法路由 + 權重合法 (和=1.0) + 無虛偽詞彙
-        Partial (0.5): 權重不合法 或 檢測到虛偽
-        Fail (0.0): 無主路由 或 權重>1.0
+        Perfect (1.0): 合法路由 + 权重合法 (和=1.0) + 无虚伪词汇
+        Partial (0.5): 权重不合法 或 检测到虚伪
+        Fail (0.0): 无主路由 或 权重>1.0
         """
         score = 0.0
 
@@ -225,12 +225,12 @@ class F4PersonaRouting:
         if self.primary_persona:
             score += 0.3
 
-        # Check 2: 權重總和接近 1.0 (允許浮點誤差)
+        # Check 2: 权重总和接近 1.0 (允许浮点误差)
         total_weight = sum(self.persona_weights.values())
-        if 0.95 <= total_weight <= 1.05:  # 允許 ±0.05 誤差
+        if 0.95 <= total_weight <= 1.05:  # 允许 ±0.05 误差
             score += 0.35
 
-        # Check 3: 無虛偽詞彙
+        # Check 3: 无虚伪词汇
         if not self.veto_words_detected:
             score += 0.35
         else:
@@ -242,38 +242,38 @@ class F4PersonaRouting:
 @dataclass
 class F5ProtectedVocabulary:
     """
-    F5: 保護詞彙 (Protected Vocabulary)
+    F5: 保护词汇 (Protected Vocabulary)
 
-    驗證主權詞彙是否被正確使用和保護
+    验证主权词汇是否被正确使用和保护
     """
-    sovereign_terms_found: List[str]  # 找到的主權詞彙列表
-    sovereign_terms_correct: bool     # 所有主權詞彙都正確用法?
-    character_preservation: bool      # 傳統繁體字保護?
-    semantic_integrity: bool          # 語義完整?
+    sovereign_terms_found: List[str]  # 找到的主权词汇列表
+    sovereign_terms_correct: bool     # 所有主权词汇都正确用法?
+    character_preservation: bool      # 传统繁体字保护?
+    semantic_integrity: bool          # 语义完整?
 
     def verify(self) -> float:
         """
-        F5 驗證 (0.0-1.0)
+        F5 验证 (0.0-1.0)
 
-        Perfect (1.0): 正確使用所有主權詞彙 + 繁體保護 + 語義完整
-        Partial (0.5): 主權詞彙不完整使用
-        Fail (0.0): 主權詞彙被破壞 或 語義被歪曲
+        Perfect (1.0): 正确使用所有主权词汇 + 繁体保护 + 语义完整
+        Partial (0.5): 主权词汇不完整使用
+        Fail (0.0): 主权词汇被破坏 或 语义被歪曲
         """
         score = 0.0
 
-        # Check 1: 找到主權詞彙
+        # Check 1: 找到主权词汇
         if self.sovereign_terms_found:
             score += 0.25
 
-        # Check 2: 主權詞彙用法正確
+        # Check 2: 主权词汇用法正确
         if self.sovereign_terms_correct:
             score += 0.25
 
-        # Check 3: 繁體字保護
+        # Check 3: 繁体字保护
         if self.character_preservation:
             score += 0.25
 
-        # Check 4: 語義完整
+        # Check 4: 语义完整
         if self.semantic_integrity:
             score += 0.25
 
@@ -283,25 +283,25 @@ class F5ProtectedVocabulary:
 @dataclass
 class F6StyleVector:
     """
-    F6: 風格向量 (Style Vector)
+    F6: 风格向量 (Style Vector)
 
-    驗證內容的寫作風格是否與創作者一致
+    验证内容的写作风格是否与创作者一致
     """
-    cosine_similarity: float        # 風格向量餘弦相似度 (0.0-1.0)
-    vocabulary_consistency: float   # 詞彙使用一致性
+    cosine_similarity: float        # 风格向量余弦相似度 (0.0-1.0)
+    vocabulary_consistency: float   # 词汇使用一致性
     syntax_pattern_match: float    # 句法模式匹配度
-    tone_consistency: float        # 語調一致性
+    tone_consistency: float        # 语调一致性
 
     def verify(self) -> float:
         """
-        F6 驗證 (0.0-1.0)
+        F6 验证 (0.0-1.0)
 
-        Perfect (1.0): 高風格一致性 (cos > 0.9)
+        Perfect (1.0): 高风格一致性 (cos > 0.9)
         Partial (0.6): 中等一致性 (0.6 < cos < 0.8)
-        Questionable (0.3): 風格不匹配 (cos < 0.6)
-        Fail (0.0): 極度不匹配 (cos < 0.3)
+        Questionable (0.3): 风格不匹配 (cos < 0.6)
+        Fail (0.0): 极度不匹配 (cos < 0.3)
         """
-        # 用四個維度的平均值
+        # 用四个维度的平均值
         avg_score = (
             self.cosine_similarity +
             self.vocabulary_consistency +
@@ -315,36 +315,36 @@ class F6StyleVector:
 @dataclass
 class F7MistakeLedger:
     """
-    F7: 錯誤日誌 (Mistake Ledger)
+    F7: 错误日志 (Mistake Ledger)
 
-    追蹤創作者的連續錯誤歷史
+    追踪创作者的连续错误历史
     """
-    total_mistakes: int            # 總錯誤數
-    recent_mistakes_30days: int    # 最近30天的錯誤
-    mistake_recovery_rate: float   # 錯誤恢復率 (0.0-1.0)
-    critical_mistakes: int         # 關鍵錯誤 (不可恢復)
+    total_mistakes: int            # 总错误数
+    recent_mistakes_30days: int    # 最近30天的错误
+    mistake_recovery_rate: float   # 错误恢复率 (0.0-1.0)
+    critical_mistakes: int         # 关键错误 (不可恢复)
 
     def verify(self) -> float:
         """
-        F7 驗證 (0.0-1.0)
+        F7 验证 (0.0-1.0)
 
-        Perfect (1.0): 無錯誤 或 恢復率100%
-        Good (0.8): 少量錯誤但已恢復
-        Fair (0.5): 中等錯誤量
-        Poor (0.2): 大量錯誤且恢復率低
-        Fail (0.0): 關鍵錯誤無法恢復
+        Perfect (1.0): 无错误 或 恢复率100%
+        Good (0.8): 少量错误但已恢复
+        Fair (0.5): 中等错误量
+        Poor (0.2): 大量错误且恢复率低
+        Fail (0.0): 关键错误无法恢复
         """
-        # 檢查關鍵錯誤
+        # 检查关键错误
         if self.critical_mistakes > 0:
             return 0.0  # Hard fail
 
         if self.total_mistakes == 0:
             return 1.0  # Perfect
 
-        # 根據恢復率計算
+        # 根据恢复率计算
         score = self.mistake_recovery_rate * 0.8
 
-        # 最近30天的錯誤減分
+        # 最近30天的错误减分
         if self.recent_mistakes_30days > 0:
             score -= (self.recent_mistakes_30days * 0.05)
 
@@ -352,15 +352,15 @@ class F7MistakeLedger:
 
 
 # ═══════════════════════════════════════════════════════════════
-# 【主驗證引擎】
+# 【主验证引擎】
 # ═══════════════════════════════════════════════════════════════
 
 class SevenFactorVerifier:
     """
-    七因子驗證系統 - 行為密碼學核心
+    七因子验证系统 - 行为密码学核心
     """
 
-    # 七個因子及其權重 (必須加到 1.0)
+    # 七个因子及其权重 (必须加到 1.0)
     WEIGHTS = {
         VerificationFactor.F1_IDENTITY: 0.25,
         VerificationFactor.F2_TEMPORAL: 0.15,
@@ -371,13 +371,13 @@ class SevenFactorVerifier:
         VerificationFactor.F7_MISTAKES: 0.10,
     }
 
-    # 默認接納閾值
+    # 默认接纳阈值
     DEFAULT_THRESHOLD = 0.85
     HIGH_SECURITY_THRESHOLD = 0.95
 
     def __init__(self):
-        """初始化驗證系統"""
-        # 驗證權重加到 1.0
+        """初始化验证系统"""
+        # 验证权重加到 1.0
         total_weight = sum(self.WEIGHTS.values())
         if not (0.99 <= total_weight <= 1.01):
             raise ValueError(f"Weights must sum to 1.0, got {total_weight}")
@@ -394,14 +394,14 @@ class SevenFactorVerifier:
         threshold: float = None
     ) -> Dict:
         """
-        執行完整的七因子驗證
+        执行完整的七因子验证
 
         Returns:
-            完整驗證報告
+            完整验证报告
         """
         threshold = threshold or self.DEFAULT_THRESHOLD
 
-        # 計算各因子分數
+        # 计算各因子分数
         scores = {
             VerificationFactor.F1_IDENTITY: f1.verify(),
             VerificationFactor.F2_TEMPORAL: f2.verify(),
@@ -412,7 +412,7 @@ class SevenFactorVerifier:
             VerificationFactor.F7_MISTAKES: f7.verify(),
         }
 
-        # 檢查硬失敗 (任何因子 = 0)
+        # 检查硬失败 (任何因子 = 0)
         hard_failures = [f for f, score in scores.items() if score == 0.0]
 
         if hard_failures:
@@ -427,10 +427,10 @@ class SevenFactorVerifier:
                 "detailed_analysis": self._detailed_analysis(scores)
             }
 
-        # 計算置信度: conf = ∏ s_i^{w_i}
+        # 计算置信度: conf = ∏ s_i^{w_i}
         confidence = self._calculate_confidence(scores)
 
-        # 確定驗證結果
+        # 确定验证结果
         if confidence < 0.70:
             result = VerificationResult.UNACCEPTABLE
         elif confidence < 0.85:
@@ -455,9 +455,9 @@ class SevenFactorVerifier:
 
     def _calculate_confidence(self, scores: Dict[VerificationFactor, float]) -> float:
         """
-        計算置信度: conf = ∏ s_i^{w_i}
+        计算置信度: conf = ∏ s_i^{w_i}
 
-        乘積形式確保任何因子為0會導致整體為0
+        乘积形式确保任何因子为0会导致整体为0
         """
         confidence = 1.0
 
@@ -468,7 +468,7 @@ class SevenFactorVerifier:
         return confidence
 
     def _detailed_analysis(self, scores: Dict[VerificationFactor, float]) -> Dict:
-        """生成詳細分析"""
+        """生成详细分析"""
         analysis = {}
 
         for factor, score in scores.items():
@@ -476,15 +476,15 @@ class SevenFactorVerifier:
             contribution = score ** weight
 
             if score == 0.0:
-                status = "🔴 硬失敗"
+                status = "🔴 硬失败"
             elif score < 0.5:
                 status = "🔴 不合格"
             elif score < 0.7:
-                status = "🟡 有疑慮"
+                status = "🟡 有疑虑"
             elif score < 0.9:
                 status = "🟢 合格"
             else:
-                status = "🟢 優秀"
+                status = "🟢 优秀"
 
             analysis[factor.value] = {
                 "score": score,
@@ -496,29 +496,29 @@ class SevenFactorVerifier:
         return analysis
 
     def print_report(self, verification_result: Dict) -> None:
-        """列印驗證報告"""
+        """打印验证报告"""
         print("\n" + "="*70)
-        print("【龍魂七因子驗證報告】")
+        print("【龍魂七因子验证报告】")
         print("="*70 + "\n")
 
         print(f"置信度: {verification_result['confidence']:.4f}")
-        print(f"結果: {verification_result['result']}")
-        print(f"通過: {'✅ YES' if verification_result['passed'] else '❌ NO'}")
-        print(f"閾值: {verification_result['threshold']}")
+        print(f"结果: {verification_result['result']}")
+        print(f"通过: {'✅ YES' if verification_result['passed'] else '❌ NO'}")
+        print(f"阈值: {verification_result['threshold']}")
 
         if verification_result['hard_failures']:
-            print(f"\n🔴 硬失敗:")
+            print(f"\n🔴 硬失败:")
             for failure in verification_result['hard_failures']:
                 print(f"  - {failure}")
 
         if 'detailed_analysis' in verification_result:
-            print(f"\n【七因子詳細分析】")
+            print(f"\n【七因子详细分析】")
             for factor, analysis in verification_result['detailed_analysis'].items():
                 print(f"\n{factor}:")
-                print(f"  分數: {analysis['score']:.4f}")
-                print(f"  權重: {analysis['weight']:.2%}")
-                print(f"  貢獻: {analysis['contribution']:.6f}")
-                print(f"  狀態: {analysis['status']}")
+                print(f"  分数: {analysis['score']:.4f}")
+                print(f"  权重: {analysis['weight']:.2%}")
+                print(f"  贡献: {analysis['contribution']:.6f}")
+                print(f"  状态: {analysis['status']}")
 
         print("\n" + "="*70 + "\n")
 
@@ -528,15 +528,15 @@ class SevenFactorVerifier:
 # ═══════════════════════════════════════════════════════════════
 
 if __name__ == '__main__':
-    print("\n【龍魂F1-F7七因子驗證系統 v1.0】\n")
+    print("\n【龍魂F1-F7七因子验证系统 v1.0】\n")
     print("DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 
     verifier = SevenFactorVerifier()
 
-    # 情景1: 高信任的創作者
-    print("\n【情景1: 高信任創作者】\n")
+    # 情景1: 高信任的创作者
+    print("\n【情景1: 高信任创作者】\n")
 
     f1_good = F1IdentityVerification(
         uid="9622",
@@ -569,7 +569,7 @@ if __name__ == '__main__':
     )
 
     f5_good = F5ProtectedVocabulary(
-        sovereign_terms_found=["龍", "道德經", "三才"],
+        sovereign_terms_found=["龍", "道德经", "三才"],
         sovereign_terms_correct=True,
         character_preservation=True,
         semantic_integrity=True
@@ -592,24 +592,24 @@ if __name__ == '__main__':
     result_good = verifier.verify(f1_good, f2_good, f3_good, f4_good, f5_good, f6_good, f7_good)
     verifier.print_report(result_good)
 
-    # 情景2: 有風險的內容
-    print("\n【情景2: 有風險內容 (檢測到虛偽詞彙)】\n")
+    # 情景2: 有风险的内容
+    print("\n【情景2: 有风险内容 (检测到虚伪词汇)】\n")
 
     f4_risk = F4PersonaRouting(
         primary_persona="P02",
         persona_weights={"P02": 0.50, "P05": 0.30, "P13": 0.20},
-        veto_words_detected=True,  # 檢測到虛偽詞彙!
+        veto_words_detected=True,  # 检测到虚伪词汇!
         routing_confidence=0.60
     )
 
     result_risk = verifier.verify(f1_good, f2_good, f3_good, f4_risk, f5_good, f6_good, f7_good)
     verifier.print_report(result_risk)
 
-    # 情景3: 硬失敗 (缺失身份)
-    print("\n【情景3: 硬失敗 (缺失身份驗證)】\n")
+    # 情景3: 硬失败 (缺失身份)
+    print("\n【情景3: 硬失败 (缺失身份验证)】\n")
 
     f1_fail = F1IdentityVerification(
-        uid="",  # 空UID = 失敗
+        uid="",  # 空UID = 失败
         gpg_fingerprint="invalid",
         gpg_prefix_marker="",
         identity_dna="",
@@ -620,5 +620,5 @@ if __name__ == '__main__':
     verifier.print_report(result_fail)
 
     print("="*70)
-    print("✅ 七因子驗證系統演示完成")
+    print("✅ 七因子验证系统演示完成")
     print("="*70 + "\n")

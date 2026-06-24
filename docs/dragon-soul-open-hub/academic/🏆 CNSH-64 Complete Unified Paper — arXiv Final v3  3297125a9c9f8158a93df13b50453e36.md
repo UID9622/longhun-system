@@ -1,13 +1,13 @@
 # 🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版
 
-> 本文檔按《龍魂文檔標準模板 v1.0》整理。
-> 性質：觀察性論文/技術博客 · 未經同行評審（如適用）
+> 本文档按《龍魂文档标准模板 v1.0》整理。
+> 性质：观察性论文/技术博客 · 未经同行评审（如适用）
 > 版本：v1.0
 > 作者：UID9622 · 龍芯北辰
-> 協作者：（待補充，如無請刪除此行）
-> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 协作者：（待补充，如无请删除此行）
+> 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国
 > 平台：本地
-> 審核狀態：草稿
+> 审核状态：草稿
 
 **DNA**: `#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
@@ -15,7 +15,7 @@
 ---
 
 <!--#龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版
 
@@ -402,13 +402,13 @@ Ledger record structure per entry:
 | (Foundation, Foundation) | ䷁ | 坤 Kun | Receptive earth — stable governance base |
 | (Initiation, Cooperation) | ䷊ | 泰 Tai | Heaven-earth in harmony — system flourishing |
 | (Risk, Boundary) | ䷦ | 蹇 Jian | Obstruction requiring caution — escalate review |
-| (Awareness, Awareness) | ䷝ | 離 Li | Double clarity — full transparency achieved |
+| (Awareness, Awareness) | ䷝ | 离 Li | Double clarity — full transparency achieved |
 | (Trigger, Propagation) | ䷟ | 恒 Heng | Sustained propagation — consistent execution |
 | (Cooperation, Cooperation) | ䷿ | 未済 Weiji | Not yet complete — continue forward |
 
 ## 7.3 Multi-Tradition Mappings
 
-**East Asian (Confucian):** Actions evaluated against 仁義禮智信 — Benevolence, Righteousness, Propriety, Wisdom, Trust.
+**East Asian (Confucian):** Actions evaluated against 仁义礼智信 — Benevolence, Righteousness, Propriety, Wisdom, Trust.
 
 **Taoist:** $\text{Eth}(a,c) = 1 \iff a$ follows 无为 (non-coercive action that aligns with natural order).
 
@@ -705,7 +705,7 @@ CNSH-64 demonstrates that AI governance can be simultaneously formalized, cross-
 
 The system's seven guarantees — **Security, Audit, Protection, Memory, Trust, Zero Barrier, Global Inclusion** — address the full lifecycle of AI governance concerns identified in the literature and in documented real-world AI failures.
 
-> 《易经·系辞》：「穷则变，变则通，通则久。」
+> 《易经·系辞》：“穷则变，变则通，通则久。”
 > 
 
 > *When existing approaches reach their limits, structural change occurs. Through structural change, continuity is achieved. CNSH-64 is that change.*
@@ -739,7 +739,7 @@ The system's seven guarantees — **Security, Audit, Protection, Memory, Trust, 
 
 | ID | CNSH-64 State | Hexagram | Name | Semantic |
 | --- | --- | --- | --- | --- |
-| 01 | (Initiation, Initiation) | ䷀ | 乾 | 天行健，自强不息 |
+| 01 | (Initiation, Initiation) | ䷀ | 干 | 天行健，自强不息 |
 | 02 | (Foundation, Foundation) | ䷁ | 坤 | 地势坤，厚德载物 |
 | 03 | (Trigger, Foundation) | ䷂ | 屯 | 初始困难，勿轻举 |
 | 04 | (Foundation, Awareness) | ䷃ | 蒙 | 启蒙教育，求知 |
@@ -780,38 +780,38 @@ This paper demonstrates a human-AI collaboration model in which a non-specialist
 
 ## 摘要
 
-（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+（请在此用不超过 256 字说明本文档的核心内容、性质与局限。）
 
-## 關鍵詞
+## 关键词
 
-（請列出 5–10 個關鍵詞，中英文對照優先。）
+（请列出 5–10 个关键词，中英文对照优先。）
 
-## 引用與溯源
+## 引用与溯源
 
-- 本文檔引用或參考了以下來源：
-  - [1] （請填寫）
-- 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+- 本文档引用或参考了以下来源：
+  - [1] （请填写）
+- 相关龍魂系统文档：
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
-## 誠實局限
+## 诚实局限
 
-1. （請列出本分析的第一條局限或不確定性。）
-2. （請列出第二條。）
-3. （請列出第三條。）
+1. （请列出本分析的第一条局限或不确定性。）
+2. （请列出第二条。）
+3. （请列出第三条。）
 
-## 修改記錄
+## 修改记录
 
-| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+| 日期 | 版本 | 修改人 | 修改内容 | 审核状态 |
 |---|---|---|---|---|
-| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文档标准模板 v1.0》整理 | 草稿 |
 
-## 分類標籤
+## 分类标签
 
-- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
-- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
-- 審計色：#黃色待審
+- 总纲模块：（请勾选，例如 #知识矩阵 #安全域）
+- 对外状态：（请勾选，例如 #Gitee #GitHub #CSDN）
+- 审计色：#黄色待审
 
-## DNA 簽名
+## DNA 签名
 
 ```
 #龍芯⚡️2026-06-21-DOC-CNSH-64-COMPLETE-UNIFIED-PAPER-ARXIV-FINAL-V3-3297125A9C9F8158A93DF13B50453E36-v1.0

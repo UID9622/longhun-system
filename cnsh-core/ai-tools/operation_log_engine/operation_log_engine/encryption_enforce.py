@@ -15,8 +15,8 @@
 
 DNA: #龍芯⚇️2026-05-30-ENCRYPTION-ENFORCE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-主權人: UID9622 · 龍芯北辰 · 诸葛鑫
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+主权人: UID9622 · 龍芯北辰 · 诸葛鑫
 
 强制规则:
   1. 输出必签：DNA + CONFIRM + 主权人
@@ -47,7 +47,7 @@ GPG_KEY_ID = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 # ==================== 日志系统 ====================
 
 def setup_violation_logger():
-    """設置違規日誌"""
+    """设置违规日志"""
     Path.home().joinpath(".龍魂_config").mkdir(parents=True, exist_ok=True)
 
     logger = logging.getLogger("encryption_violations")
@@ -129,9 +129,9 @@ class EncryptionEnforcer:
         output += "=" * 80 + "\n"
         output += f"DNA:    {signature['dna']}\n"
         output += f"CONFIRM: {signature['confirm']}\n"
-        output += f"主權人:  {signature['sovereignty']}\n"
+        output += f"主权人:  {signature['sovereignty']}\n"
         output += f"GPG:    {signature['gpg_key_id']}\n"
-        output += f"時間:   {signature['timestamp']}\n"
+        output += f"时间:   {signature['timestamp']}\n"
         output += "=" * 80 + "\n"
 
         return output

@@ -1,10 +1,10 @@
 ##龍芯⚡️2026-06-21-TOOL-SKILL-LAUNCHER-V3-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  UID9622⚡️2026-06-16-SKILL-LAUNCHER-v3.0-longhun                              ║
-# ║  龍芯北辰·诸葛鑫 — 龍魂工具库一键启动脚本（已適配 longhun-system 主幹）           ║
+# ║  龍芯北辰·诸葛鑫 — 龍魂工具库一键启动脚本（已适配 longhun-system 主干）           ║
 # ║  忠(0.5) > 孝(0.3) > 义(0.2) 排序铁律                                          ║
 # ║  确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                                     ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
@@ -19,7 +19,7 @@ UID_TAG="UID9622"
 DNA_SIGNATURE="${UID_TAG}⚡️${SCRIPT_DATE}-SKILL-LAUNCHER-v${SCRIPT_VERSION}"
 CONFIRM_CODE="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
-# 自動定位 longhun-system 根目錄：本腳本位於 bin/ 下
+# 自动定位 longhun-system 根目录：本脚本位于 bin/ 下
 LAUNCHER_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [[ "$(basename "$LAUNCHER_DIR")" == "bin" ]]; then
     LONGHUN_DIR="$(cd "$LAUNCHER_DIR/.." && pwd)"

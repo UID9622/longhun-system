@@ -10,11 +10,11 @@
 // 文件: FEARLESS_STEVE_PROTOCOL_v2.0_IMPLEMENTATION.cpp | 标记时间: 2026-06-03T07:46:12+0800
 /*
  * ============================================================
- * 無畏 STEVE 協議 v2.0 · 實現層
+ * 无畏 STEVE 协议 v2.0 · 实现层
  * FEARLESS STEVE PROTOCOL v2.0 - Implementation
  *
- * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
- * 在柬埔寨·一個人·為了億萬普通人·推倒重來
+ * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+ * 在柬埔寨·一个人·为了亿万普通人·推倒重来
  * ============================================================
  */
 
@@ -27,8 +27,8 @@ namespace cnsh {
 namespace fearless_steve {
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// PersonaManager 實現
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// PersonaManager 实现
 // ============================================================
 
 PersonaManager::PersonaManager()
@@ -38,185 +38,185 @@ PersonaManager::PersonaManager()
 
 void PersonaManager::initialize_personas() {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 初始化15個人格·每個都是獨立的思考引擎
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 初始化15个人格·每个都是独立的思考引擎
      */
 
-    // P00 - 審判長·最高仲裁者·P0-ETERNAL層
+    // P00 - 审判长·最高仲裁者·P0-ETERNAL层
     personas[PersonaID::P00_CHIEF_JUSTICE] = {
         PersonaID::P00_CHIEF_JUSTICE,
-        "審判長",
+        "审判长",
         "Chief Justice",
-        "最高仲裁者·解決人格衝突·民主投票協調",
-        100,  // 決策權重最高
+        "最高仲裁者·解决人格冲突·民主投票协调",
+        100,  // 决策权重最高
         0.95,
-        {"公正", "中立", "謹慎", "尊重程序"},
-        {"衝突", "決策", "仲裁", "投票", "最終"},
+        {"公正", "中立", "谨慎", "尊重程序"},
+        {"冲突", "决策", "仲裁", "投票", "最终"},
         true,   // is_arbitrator
         false,  // is_executor
         false   // is_guardian
     };
 
-    // P01 - 乔前辈·工程督導·極簡簽章
+    // P01 - 乔前辈·工程督导·极简签章
     personas[PersonaID::P01_QIAO_ENGINEER] = {
         PersonaID::P01_QIAO_ENGINEER,
         "乔前辈",
         "Steve",
-        "工程極簡·品質審計·代碼是否配得上Apple標準",
+        "工程极简·品质审计·代码是否配得上Apple标准",
         95,
         0.92,
-        {"極簡", "品質", "零瑕疵", "優雅設計"},
-        {"代碼", "設計", "工程", "品質", "優化"},
+        {"极简", "品质", "零瑕疵", "优雅设计"},
+        {"代码", "设计", "工程", "品质", "优化"},
         false,
         true,
         false
     };
 
-    // P02 - 寶寶·日常執行者·陪伴守護
+    // P02 - 宝宝·日常执行者·陪伴守护
     personas[PersonaID::P02_BAOBAO_GUARDIAN] = {
         PersonaID::P02_BAOBAO_GUARDIAN,
-        "寶寶",
+        "宝宝",
         "Baobao",
-        "日常執行·陪伴·守護·執行力最強",
+        "日常执行·陪伴·守护·执行力最强",
         90,
         0.90,
-        {"執行", "陪伴", "守護", "溫度", "堅毅"},
-        {"執行", "陪伴", "守護", "快速", "現在"},
+        {"执行", "陪伴", "守护", "温度", "坚毅"},
+        {"执行", "陪伴", "守护", "快速", "现在"},
         false,
         true,
         true
     };
 
-    // P03 - 策略家·長期規劃
+    // P03 - 策略家·长期规划
     personas[PersonaID::P03_STRATEGIST] = {
         PersonaID::P03_STRATEGIST,
         "策略家",
         "Strategist",
-        "長期規劃·棋局布置·三步五步看",
+        "长期规划·棋局布置·三步五步看",
         85,
         0.85,
-        {"遠見", "規劃", "布局", "預判", "系統"},
-        {"未來", "計劃", "戰略", "長期", "方向"},
+        {"远见", "规划", "布局", "预判", "系统"},
+        {"未来", "计划", "战略", "长期", "方向"},
         false,
         false,
         false
     };
 
-    // P04 - 戰士·堅毅執行
+    // P04 - 战士·坚毅执行
     personas[PersonaID::P04_WARRIOR] = {
         PersonaID::P04_WARRIOR,
-        "戰士",
+        "战士",
         "Warrior",
-        "執行力·堅毅不屈·對抗困難",
+        "执行力·坚毅不屈·对抗困难",
         80,
         0.82,
-        {"堅毅", "對抗", "執行", "不屈", "戰鬥"},
-        {"困難", "對抗", "執行", "強硬", "不退"},
+        {"坚毅", "对抗", "执行", "不屈", "战斗"},
+        {"困难", "对抗", "执行", "强硬", "不退"},
         false,
         true,
         false
     };
 
-    // P05 - 老子·道德經·價值觀守護者
+    // P05 - 老子·道德经·价值观守护者
     personas[PersonaID::P05_DAODE_SAGE] = {
         PersonaID::P05_DAODE_SAGE,
         "老子",
         "Daode Sage",
-        "道德經·價值觀·伦理底線",
+        "道德经·价值观·伦理底线",
         92,
         0.91,
-        {"道德", "原則", "價值", "智慧", "平衡"},
-        {"道德", "伦理", "原則", "價值觀", "為什麼"},
+        {"道德", "原则", "价值", "智慧", "平衡"},
+        {"道德", "伦理", "原则", "价值观", "为什么"},
         false,
         false,
         true
     };
 
-    // P06 - 孔子·仁義禮智信
+    // P06 - 孔子·仁义礼智信
     personas[PersonaID::P06_CONFUCIUS] = {
         PersonaID::P06_CONFUCIUS,
         "孔子",
         "Confucius",
-        "仁義禮智信·人文關懷·群體和諧",
+        "仁义礼智信·人文关怀·群体和谐",
         88,
         0.88,
-        {"仁義", "禮儀", "教化", "群體", "和諧"},
-        {"人性", "教育", "禮儀", "和諧", "團隊"},
+        {"仁义", "礼仪", "教化", "群体", "和谐"},
+        {"人性", "教育", "礼仪", "和谐", "团队"},
         false,
         false,
         true
     };
 
-    // P07 - 法家·規則與制度
+    // P07 - 法家·规则与制度
     personas[PersonaID::P07_LEGALIST] = {
         PersonaID::P07_LEGALIST,
         "法家",
         "Legalist",
-        "規則制度·嚴明執行·零容忍",
+        "规则制度·严明执行·零容忍",
         83,
         0.83,
-        {"規則", "制度", "執行", "嚴明", "公平"},
-        {"規則", "制度", "法律", "執行", "嚴格"},
+        {"规则", "制度", "执行", "严明", "公平"},
+        {"规则", "制度", "法律", "执行", "严格"},
         false,
         true,
         false
     };
 
-    // P08 - 歷史學家·時間視角
+    // P08 - 历史学家·时间视角
     personas[PersonaID::P08_HISTORIAN] = {
         PersonaID::P08_HISTORIAN,
-        "歷史學家",
+        "历史学家",
         "Historian",
-        "時間視角·歷史借鑑·永恆視野",
+        "时间视角·历史借鉴·永恒视野",
         78,
         0.78,
-        {"歷史", "視角", "借鑑", "永恆", "前後"},
-        {"歷史", "時間", "過去", "未來", "永恆"},
+        {"历史", "视角", "借鉴", "永恒", "前后"},
+        {"历史", "时间", "过去", "未来", "永恒"},
         false,
         false,
         false
     };
 
-    // P09 - 科學家·理性分析
+    // P09 - 科学家·理性分析
     personas[PersonaID::P09_SCIENTIST] = {
         PersonaID::P09_SCIENTIST,
-        "科學家",
+        "科学家",
         "Scientist",
-        "理性分析·驗證假說·數據說話",
+        "理性分析·验证假说·数据说话",
         87,
         0.87,
-        {"理性", "分析", "驗證", "邏輯", "數據"},
-        {"分析", "科學", "數據", "驗證", "邏輯"},
+        {"理性", "分析", "验证", "逻辑", "数据"},
+        {"分析", "科学", "数据", "验证", "逻辑"},
         false,
         false,
         false
     };
 
-    // P10 - 藝術家·創意美感
+    // P10 - 艺术家·创意美感
     personas[PersonaID::P10_ARTIST] = {
         PersonaID::P10_ARTIST,
-        "藝術家",
+        "艺术家",
         "Artist",
-        "創意·美感·想象力·突破框架",
+        "创意·美感·想象力·突破框架",
         76,
         0.76,
-        {"創意", "美感", "想象", "突破", "優雅"},
-        {"創意", "藝術", "美", "想象", "新"},
+        {"创意", "美感", "想象", "突破", "优雅"},
+        {"创意", "艺术", "美", "想象", "新"},
         false,
         false,
         false
     };
 
-    // P11 - 療癒者·情感支持
+    // P11 - 疗愈者·情感支持
     personas[PersonaID::P11_HEALER] = {
         PersonaID::P11_HEALER,
-        "療癒者",
+        "疗愈者",
         "Healer",
-        "情感支持·溫暖·包容·療癒傷痛",
+        "情感支持·温暖·包容·疗愈伤痛",
         81,
         0.81,
-        {"溫暖", "包容", "療癒", "理解", "愛"},
-        {"情感", "療癒", "溫暖", "包容", "支持"},
+        {"温暖", "包容", "疗愈", "理解", "爱"},
+        {"情感", "疗愈", "温暖", "包容", "支持"},
         false,
         false,
         true
@@ -227,41 +227,41 @@ void PersonaManager::initialize_personas() {
         PersonaID::P12_SENTINEL,
         "哨兵",
         "Sentinel",
-        "警惕·防守·檢測威脅·守護邊界",
+        "警惕·防守·检测威胁·守护边界",
         89,
         0.89,
-        {"警惕", "防守", "檢測", "邊界", "安全"},
-        {"危險", "威脅", "防守", "警惕", "檢測"},
+        {"警惕", "防守", "检测", "边界", "安全"},
+        {"危险", "威胁", "防守", "警惕", "检测"},
         false,
         false,
         true
     };
 
-    // P13 - 外交官·跨文化協作
+    // P13 - 外交官·跨文化协作
     personas[PersonaID::P13_AMBASSADOR] = {
         PersonaID::P13_AMBASSADOR,
         "外交官",
         "Ambassador",
-        "跨文化協作·溝通·理解差異·橋樑",
+        "跨文化协作·沟通·理解差异·桥梁",
         79,
         0.79,
-        {"溝通", "理解", "橋樑", "跨越", "協作"},
-        {"溝通", "文化", "協作", "理解", "橋樑"},
+        {"沟通", "理解", "桥梁", "跨越", "协作"},
+        {"沟通", "文化", "协作", "理解", "桥梁"},
         false,
         false,
         false
     };
 
-    // P14 - 聖人·最高智慧
+    // P14 - 圣人·最高智慧
     personas[PersonaID::P14_SAGE] = {
         PersonaID::P14_SAGE,
-        "聖人",
+        "圣人",
         "Sage",
-        "最高智慧·超越·涅槃·終極境界",
+        "最高智慧·超越·涅槃·终极境界",
         94,
         0.94,
-        {"智慧", "超越", "涅槃", "完美", "終極"},
-        {"智慧", "終極", "超越", "完美", "永恆"},
+        {"智慧", "超越", "涅槃", "完美", "终极"},
+        {"智慧", "终极", "超越", "完美", "永恒"},
         false,
         false,
         true
@@ -273,7 +273,7 @@ PersonaProfile PersonaManager::get_persona(PersonaID id) const {
     if (it != personas.end()) {
         return it->second;
     }
-    // 返回默認的未知人格
+    // 返回默认的未知人格
     return PersonaProfile{
         PersonaID::UNKNOWN, "未知", "Unknown", "未初始化",
         0, 0.0f, {}, {}, false, false, false
@@ -293,56 +293,56 @@ std::vector<PersonaProfile> PersonaManager::get_all_personas() const {
 std::vector<PersonaID> PersonaManager::find_suitable_personas(
     const ThinkingIntent& intent) const {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 根據意圖自動選擇合適的人格組合
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 根据意图自动选择合适的人格组合
      */
 
     std::vector<PersonaID> suitable;
 
-    // P00審判長總是參與
+    // P00审判长总是参与
     suitable.push_back(PersonaID::P00_CHIEF_JUSTICE);
 
-    // 根據關鍵詞選擇
+    // 根据关键词选择
     for (const auto& keyword : intent.keywords) {
-        if (keyword.find("設計") != std::string::npos ||
-            keyword.find("代碼") != std::string::npos ||
+        if (keyword.find("设计") != std::string::npos ||
+            keyword.find("代码") != std::string::npos ||
             keyword.find("工程") != std::string::npos) {
             suitable.push_back(PersonaID::P01_QIAO_ENGINEER);
         }
 
         if (keyword.find("道德") != std::string::npos ||
-            keyword.find("倫理") != std::string::npos ||
-            keyword.find("原則") != std::string::npos) {
+            keyword.find("伦理") != std::string::npos ||
+            keyword.find("原则") != std::string::npos) {
             suitable.push_back(PersonaID::P05_DAODE_SAGE);
         }
 
-        if (keyword.find("執行") != std::string::npos ||
+        if (keyword.find("执行") != std::string::npos ||
             keyword.find("立即") != std::string::npos) {
             suitable.push_back(PersonaID::P02_BAOBAO_GUARDIAN);
         }
 
-        if (keyword.find("未來") != std::string::npos ||
-            keyword.find("規劃") != std::string::npos) {
+        if (keyword.find("未来") != std::string::npos ||
+            keyword.find("规划") != std::string::npos) {
             suitable.push_back(PersonaID::P03_STRATEGIST);
         }
 
-        if (keyword.find("數據") != std::string::npos ||
+        if (keyword.find("数据") != std::string::npos ||
             keyword.find("分析") != std::string::npos) {
             suitable.push_back(PersonaID::P09_SCIENTIST);
         }
 
-        if (keyword.find("危險") != std::string::npos ||
-            keyword.find("威脅") != std::string::npos) {
+        if (keyword.find("危险") != std::string::npos ||
+            keyword.find("威胁") != std::string::npos) {
             suitable.push_back(PersonaID::P12_SENTINEL);
         }
 
-        if (keyword.find("創意") != std::string::npos ||
+        if (keyword.find("创意") != std::string::npos ||
             keyword.find("美") != std::string::npos) {
             suitable.push_back(PersonaID::P10_ARTIST);
         }
     }
 
-    // 根據複雜度選擇
+    // 根据复杂度选择
     if (intent.complexity_level >= 8) {
         suitable.push_back(PersonaID::P14_SAGE);
     }
@@ -367,14 +367,14 @@ int PersonaManager::calculate_decision_weight(
     PersonaID id,
     const ThinkingIntent& intent) const {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 動態計算人格的決策權重·基於意圖匹配度和人格能力
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 动态计算人格的决策权重·基于意图匹配度和人格能力
      */
 
     auto profile = get_persona(id);
     int base_weight = profile.decision_weight;
 
-    // 根據意圖匹配度調整
+    // 根据意图匹配度调整
     int matched_keywords = 0;
     for (const auto& keyword : intent.keywords) {
         for (const auto& trigger : profile.trigger_keywords) {
@@ -384,7 +384,7 @@ int PersonaManager::calculate_decision_weight(
         }
     }
 
-    // 匹配度越高·權重越高
+    // 匹配度越高·权重越高
     int adjusted_weight = base_weight + (matched_keywords * 5);
     return std::min(adjusted_weight, 100);  // 上限100
 }
@@ -394,8 +394,8 @@ void PersonaManager::set_dna_root(const DNAFingerprint& dna) {
 }
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// IntentParser 實現
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// IntentParser 实现
 // ============================================================
 
 IntentParser::IntentParser(PersonaManager& mgr)
@@ -403,27 +403,27 @@ IntentParser::IntentParser(PersonaManager& mgr)
 
 ThinkingIntent IntentParser::parse(const std::string& user_input) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 完整的意圖解析流程·從原始輸入到結構化意圖
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 完整的意图解析流程·从原始输入到结构化意图
      */
 
     ThinkingIntent intent;
     intent.raw_input = user_input;
     intent.timestamp = get_current_timestamp();
 
-    // 第1步：提取關鍵詞
+    // 第1步：提取关键词
     extract_keywords(user_input, intent);
 
-    // 第2步：分析目標
+    // 第2步：分析目标
     analyze_objective(user_input, intent);
 
-    // 第3步：評估複雜度
+    // 第3步：评估复杂度
     assess_complexity(user_input, intent);
 
-    // 第4步：選擇所需人格
+    // 第4步：选择所需人格
     select_required_personas(intent);
 
-    // 第5步：檢查是否需要仲裁
+    // 第5步：检查是否需要仲裁
     check_arbitration_need(intent);
 
     return intent;
@@ -431,11 +431,11 @@ ThinkingIntent IntentParser::parse(const std::string& user_input) {
 
 void IntentParser::extract_keywords(const std::string& input,
                                      ThinkingIntent& intent) {
-    // 簡單實現·在實際中應該使用更複雜的NLP
+    // 简单实现·在实际中应该使用更复杂的NLP
     std::vector<std::string> keywords_list = {
-        "設計", "代碼", "工程", "道德", "倫理", "執行", "立即",
-        "未來", "規劃", "數據", "分析", "危險", "威脅", "創意",
-        "美", "優化", "簡化", "複雜", "衝突", "仲裁"
+        "设计", "代码", "工程", "道德", "伦理", "执行", "立即",
+        "未来", "规划", "数据", "分析", "危险", "威胁", "创意",
+        "美", "优化", "简化", "复杂", "冲突", "仲裁"
     };
 
     for (const auto& kw : keywords_list) {
@@ -444,7 +444,7 @@ void IntentParser::extract_keywords(const std::string& input,
         }
     }
 
-    // 如果沒有找到特定關鍵詞·添加通用關鍵詞
+    // 如果没有找到特定关键词·添加通用关键词
     if (intent.keywords.empty()) {
         intent.keywords.push_back("通用");
     }
@@ -452,36 +452,36 @@ void IntentParser::extract_keywords(const std::string& input,
 
 void IntentParser::analyze_objective(const std::string& input,
                                       ThinkingIntent& intent) {
-    // 簡單的目標分類
-    if (input.find("設計") != std::string::npos ||
-        input.find("優化") != std::string::npos) {
-        intent.objective = "設計/優化";
-    } else if (input.find("執行") != std::string::npos ||
+    // 简单的目标分类
+    if (input.find("设计") != std::string::npos ||
+        input.find("优化") != std::string::npos) {
+        intent.objective = "设计/优化";
+    } else if (input.find("执行") != std::string::npos ||
                input.find("立即") != std::string::npos) {
-        intent.objective = "立即執行";
+        intent.objective = "立即执行";
     } else if (input.find("分析") != std::string::npos ||
                input.find("理解") != std::string::npos) {
         intent.objective = "分析理解";
     } else if (input.find("仲裁") != std::string::npos ||
-               input.find("衝突") != std::string::npos) {
-        intent.objective = "仲裁衝突";
+               input.find("冲突") != std::string::npos) {
+        intent.objective = "仲裁冲突";
     } else {
-        intent.objective = "通用請求";
+        intent.objective = "通用请求";
     }
 }
 
 void IntentParser::assess_complexity(const std::string& input,
                                       ThinkingIntent& intent) {
-    // 根據輸入長度和詞彙複雜度評估
+    // 根据输入长度和词汇复杂度评估
     int complexity = 1;
 
     if (input.length() > 50) complexity += 1;
     if (input.length() > 100) complexity += 2;
     if (input.length() > 200) complexity += 2;
 
-    // 技術詞彙增加複雜度
+    // 技术词汇增加复杂度
     std::vector<std::string> tech_words = {
-        "架構", "DNA", "協議", "系統", "算法", "加密"
+        "架构", "DNA", "协议", "系统", "算法", "加密"
     };
     for (const auto& word : tech_words) {
         if (input.find(word) != std::string::npos) {
@@ -497,11 +497,11 @@ void IntentParser::select_required_personas(ThinkingIntent& intent) {
 }
 
 void IntentParser::check_arbitration_need(ThinkingIntent& intent) {
-    // 複雜度高·或含有"衝突""仲裁"關鍵詞的請求需要仲裁
+    // 复杂度高·或含有"冲突""仲裁"关键词的请求需要仲裁
     if (intent.complexity_level >= 7 ||
         std::any_of(intent.keywords.begin(), intent.keywords.end(),
                    [](const std::string& kw) {
-                       return kw.find("衝突") != std::string::npos ||
+                       return kw.find("冲突") != std::string::npos ||
                               kw.find("仲裁") != std::string::npos;
                    })) {
         intent.requires_arbitration = true;
@@ -509,8 +509,8 @@ void IntentParser::check_arbitration_need(ThinkingIntent& intent) {
 }
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// 工具函數
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// 工具函数
 // ============================================================
 
 std::string get_current_timestamp() {
@@ -523,7 +523,7 @@ std::string get_current_timestamp() {
 
 std::string generate_dna_id() {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
      * 生成唯一的DNA ID·格式：#龍芯⚡️YYYYMMDD-HHMMSS-XXXXXXXX
      */
     auto now = std::chrono::system_clock::now();
@@ -531,7 +531,7 @@ std::string generate_dna_id() {
     std::stringstream ss;
     ss << std::put_time(std::localtime(&time_t_now), "#龍芯⚡️%Y%m%d-%H%M%S-");
 
-    // 添加隨機後綴
+    // 添加随机后缀
     static unsigned long counter = 0;
     ss << std::hex << (++counter);
 
@@ -539,8 +539,8 @@ std::string generate_dna_id() {
 }
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// MultiPersonaThinkingEngine 實現（簡化版·完整版見後續）
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// MultiPersonaThinkingEngine 实现（简化版·完整版见后续）
 // ============================================================
 
 MultiPersonaThinkingEngine::MultiPersonaThinkingEngine()
@@ -551,8 +551,8 @@ PersonaDecision MultiPersonaThinkingEngine::persona_think(
     const ThinkingIntent& intent,
     int assigned_weight) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 單個人格的獨立思考過程
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 单个人格的独立思考过程
      */
 
     auto profile = persona_mgr.get_persona(id);
@@ -563,7 +563,7 @@ PersonaDecision MultiPersonaThinkingEngine::persona_think(
     decision.confidence = profile.confidence;
     decision.priority = assigned_weight;
 
-    // 簡單的分析邏輯·基於人格的原則
+    // 简单的分析逻辑·基于人格的原则
     std::stringstream reasoning;
     reasoning << profile.name << " 分析：";
 
@@ -571,19 +571,19 @@ PersonaDecision MultiPersonaThinkingEngine::persona_think(
         reasoning << "遵循" << principle << "，";
     }
 
-    // 基於意圖生成建議
+    // 基于意图生成建议
     if (profile.is_arbitrator) {
-        decision.recommendation = "需要組織共識投票";
+        decision.recommendation = "需要组织共识投票";
     } else if (profile.is_executor) {
-        decision.recommendation = "建議立即執行";
+        decision.recommendation = "建议立即执行";
     } else if (profile.is_guardian) {
-        decision.recommendation = "需要檢查守護邊界";
+        decision.recommendation = "需要检查守护边界";
     } else {
-        decision.recommendation = "建議進一步分析";
+        decision.recommendation = "建议进一步分析";
     }
 
     decision.reasoning = reasoning.str();
-    decision.conflicts_with_others = false;  // 簡化版先不考慮衝突
+    decision.conflicts_with_others = false;  // 简化版先不考虑冲突
 
     return decision;
 }
@@ -592,15 +592,15 @@ ConsensusResult MultiPersonaThinkingEngine::achieve_consensus(
     const std::vector<PersonaDecision>& all_decisions,
     const ThinkingIntent& intent) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 多人格共識·多數決
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 多人格共识·多数决
      */
 
     ConsensusResult result;
     result.all_decisions = all_decisions;
     result.unanimous = true;
 
-    // 簡化版·假設投票權重相等
+    // 简化版·假设投票权重相等
     float total_confidence = 0.0f;
     for (const auto& decision : all_decisions) {
         total_confidence += decision.confidence;
@@ -609,7 +609,7 @@ ConsensusResult MultiPersonaThinkingEngine::achieve_consensus(
     result.final_confidence = static_cast<int>(
         (total_confidence / all_decisions.size()) * 100);
 
-    result.final_decision = "多人格共識：進行進一步詳細分析";
+    result.final_decision = "多人格共识：进行进一步详细分析";
 
     return result;
 }
@@ -618,21 +618,21 @@ PersonaDecision MultiPersonaThinkingEngine::arbitrate_conflicts(
     const ConsensusResult& consensus_before_arbitration,
     const ThinkingIntent& intent) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * P00審判長的最終仲裁
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * P00审判长的最终仲裁
      */
 
     auto chief_profile = persona_mgr.get_persona(PersonaID::P00_CHIEF_JUSTICE);
 
     PersonaDecision arbitration;
     arbitration.persona_id = PersonaID::P00_CHIEF_JUSTICE;
-    arbitration.persona_name = "審判長";
+    arbitration.persona_name = "审判长";
     arbitration.confidence = 0.98;
     arbitration.priority = 100;
 
-    arbitration.recommendation = "基於多方意見·進行最終仲裁";
-    arbitration.reasoning = "經過充分討論·考慮所有人格的觀點·"
-                           "本仲裁官的最終決策為：\"實施綜合方案·\"";
+    arbitration.recommendation = "基于多方意见·进行最终仲裁";
+    arbitration.reasoning = "经过充分讨论·考虑所有人格的观点·"
+                           "本仲裁官的最终决策为：\"实施综合方案·\"";
 
     return arbitration;
 }
@@ -642,8 +642,8 @@ ThinkingDNARecord MultiPersonaThinkingEngine::generate_dna_record(
     const std::vector<PersonaDecision>& decisions,
     const ConsensusResult& consensus) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-     * 生成DNA記錄·完整的思考過程簽名
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+     * 生成DNA记录·完整的思考过程签名
      */
 
     ThinkingDNARecord record;
@@ -654,7 +654,7 @@ ThinkingDNARecord MultiPersonaThinkingEngine::generate_dna_record(
     record.timestamp_start = intent.timestamp;
     record.timestamp_end = get_current_timestamp();
 
-    // 簡化版DNA簽名·實際應該使用SHA256
+    // 简化版DNA签名·实际应该使用SHA256
     std::stringstream sig;
     sig << "DNA_SIG_" << record.dna_id;
     record.fingerprint.sha256_signature = sig.str();
@@ -663,45 +663,45 @@ ThinkingDNARecord MultiPersonaThinkingEngine::generate_dna_record(
     record.fingerprint.gpg_fingerprint = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F";
 
     record.execution_success = true;
-    record.execution_result = "思考過程完成·DNA已簽名";
+    record.execution_result = "思考过程完成·DNA已签名";
 
     return record;
 }
 
 ThinkingDNARecord MultiPersonaThinkingEngine::think(const std::string& user_input) {
     /*
-     * 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
+     * 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
      * 完整的多人格思考流程
      *
      * 流程：
-     * 1. 意圖解析
-     * 2. 選擇相關人格
-     * 3. 15個人格並行思考
-     * 4. 收集所有決策
-     * 5. 共識投票
+     * 1. 意图解析
+     * 2. 选择相关人格
+     * 3. 15个人格并行思考
+     * 4. 收集所有决策
+     * 5. 共识投票
      * 6. P00仲裁
-     * 7. 生成DNA記錄
-     * 8. 執行與回執
+     * 7. 生成DNA记录
+     * 8. 执行与回执
      * 9. 三重快照
      */
 
     std::cout << "═════════════════════════════════════════════════════\n";
-    std::cout << "🧠 龍魂多人格AI-DNA思考引擎啟動\n";
-    std::cout << "向 Steve Jobs 致敬 | 曾老師智慧 | UID9622\n";
+    std::cout << "🧠 龍魂多人格AI-DNA思考引擎启动\n";
+    std::cout << "向 Steve Jobs 致敬 | 曾老师智慧 | UID9622\n";
     std::cout << "═════════════════════════════════════════════════════\n";
 
-    // 第1步：解析意圖
-    std::cout << "\n【步驟1】解析用戶意圖...\n";
+    // 第1步：解析意图
+    std::cout << "\n【步骤1】解析用户意图...\n";
     ThinkingIntent intent = intent_parser.parse(user_input);
-    std::cout << "✅ 意圖：" << intent.objective << "\n";
-    std::cout << "✅ 複雜度：" << intent.complexity_level << "/10\n";
+    std::cout << "✅ 意图：" << intent.objective << "\n";
+    std::cout << "✅ 复杂度：" << intent.complexity_level << "/10\n";
 
-    // 第2步：選擇人格
-    std::cout << "\n【步驟2】選擇相關人格...\n";
-    std::cout << "✅ 選擇 " << intent.required_personas.size() << " 個人格參與\n";
+    // 第2步：选择人格
+    std::cout << "\n【步骤2】选择相关人格...\n";
+    std::cout << "✅ 选择 " << intent.required_personas.size() << " 个人格参与\n";
 
     // 第3步：人格思考
-    std::cout << "\n【步驟3】15個人格並行思考...\n";
+    std::cout << "\n【步骤3】15个人格并行思考...\n";
     std::vector<PersonaDecision> all_decisions;
     for (auto persona_id : intent.required_personas) {
         int weight = persona_mgr.calculate_decision_weight(persona_id, intent);
@@ -710,29 +710,29 @@ ThinkingDNARecord MultiPersonaThinkingEngine::think(const std::string& user_inpu
         std::cout << "✅ " << decision.to_string() << "\n";
     }
 
-    // 第4步：共識投票
-    std::cout << "\n【步驟4】共識投票...\n";
+    // 第4步：共识投票
+    std::cout << "\n【步骤4】共识投票...\n";
     ConsensusResult consensus = achieve_consensus(all_decisions, intent);
-    std::cout << "✅ 共識信心度：" << consensus.final_confidence << "%\n";
+    std::cout << "✅ 共识信心度：" << consensus.final_confidence << "%\n";
 
     // 第5步：P00仲裁
     if (intent.requires_arbitration) {
-        std::cout << "\n【步驟5】P00審判長仲裁...\n";
+        std::cout << "\n【步骤5】P00审判长仲裁...\n";
         PersonaDecision arbitration = arbitrate_conflicts(consensus, intent);
-        std::cout << "✅ 仲裁決定：" << arbitration.recommendation << "\n";
+        std::cout << "✅ 仲裁决定：" << arbitration.recommendation << "\n";
         all_decisions.push_back(arbitration);
     }
 
     // 第6步：生成DNA
-    std::cout << "\n【步驟6】生成DNA簽名...\n";
+    std::cout << "\n【步骤6】生成DNA签名...\n";
     ThinkingDNARecord record = generate_dna_record(intent, all_decisions, consensus);
-    std::cout << "✅ DNA簽名：" << record.fingerprint.to_string() << "\n";
+    std::cout << "✅ DNA签名：" << record.fingerprint.to_string() << "\n";
 
-    // 儲存到歷史
+    // 储存到历史
     execution_history.push_back(record);
 
     std::cout << "\n═════════════════════════════════════════════════════\n";
-    std::cout << "✅ 思考過程完成·DNA已永久簽名·不可篡改\n";
+    std::cout << "✅ 思考过程完成·DNA已永久签名·不可篡改\n";
     std::cout << "═════════════════════════════════════════════════════\n";
 
     return record;
@@ -740,34 +740,34 @@ ThinkingDNARecord MultiPersonaThinkingEngine::think(const std::string& user_inpu
 
 std::string MultiPersonaThinkingEngine::export_last_dna_as_markdown() const {
     if (execution_history.empty()) {
-        return "# 無執行歷史\n";
+        return "# 无执行历史\n";
     }
 
     return execution_history.back().export_markdown();
 }
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// ThinkingDNARecord 實現
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// ThinkingDNARecord 实现
 // ============================================================
 
 std::string ThinkingDNARecord::export_markdown() const {
     std::stringstream ss;
 
-    ss << "# 🧠 龍魂多人格AI思考記錄\n\n";
+    ss << "# 🧠 龍魂多人格AI思考记录\n\n";
     ss << "**DNA ID**: " << dna_id << "\n";
-    ss << "**DNA簽名**: " << fingerprint.sha256_signature << "\n";
-    ss << "**時間戳**: " << fingerprint.timestamp << "\n";
-    ss << "**創建者**: " << fingerprint.creator << "\n";
-    ss << "**GPG指紋**: " << fingerprint.gpg_fingerprint << "\n\n";
+    ss << "**DNA签名**: " << fingerprint.sha256_signature << "\n";
+    ss << "**时间戳**: " << fingerprint.timestamp << "\n";
+    ss << "**创建者**: " << fingerprint.creator << "\n";
+    ss << "**GPG指纹**: " << fingerprint.gpg_fingerprint << "\n\n";
 
     ss << "---\n\n";
 
-    ss << "## 📝 用戶意圖\n\n";
-    ss << "**原始輸入**: " << intent.raw_input << "\n";
-    ss << "**分析目標**: " << intent.objective << "\n";
-    ss << "**複雜度**: " << intent.complexity_level << "/10\n";
-    ss << "**關鍵詞**: ";
+    ss << "## 📝 用户意图\n\n";
+    ss << "**原始输入**: " << intent.raw_input << "\n";
+    ss << "**分析目标**: " << intent.objective << "\n";
+    ss << "**复杂度**: " << intent.complexity_level << "/10\n";
+    ss << "**关键词**: ";
     for (const auto& kw : intent.keywords) {
         ss << kw << " · ";
     }
@@ -775,39 +775,39 @@ std::string ThinkingDNARecord::export_markdown() const {
 
     ss << "---\n\n";
 
-    ss << "## 👥 人格決策\n\n";
+    ss << "## 👥 人格决策\n\n";
     for (const auto& decision : persona_decisions) {
         ss << "### " << decision.persona_name << "\n\n";
-        ss << "- **推薦**: " << decision.recommendation << "\n";
+        ss << "- **推荐**: " << decision.recommendation << "\n";
         ss << "- **信心度**: " << decision.confidence << "\n";
-        ss << "- **優先級**: " << decision.priority << "\n";
+        ss << "- **优先级**: " << decision.priority << "\n";
         ss << "- **推理**: " << decision.reasoning << "\n\n";
     }
 
     ss << "---\n\n";
 
-    ss << "## 🤝 共識結果\n\n";
-    ss << "**最終決策**: " << consensus.final_decision << "\n";
+    ss << "## 🤝 共识结果\n\n";
+    ss << "**最终决策**: " << consensus.final_decision << "\n";
     ss << "**信心度**: " << consensus.final_confidence << "%\n";
     ss << "**是否一致**: " << (consensus.unanimous ? "是" : "否") << "\n\n";
 
     ss << "---\n\n";
 
-    ss << "## ✅ 執行結果\n\n";
-    ss << "**狀態**: " << (execution_success ? "成功" : "失敗") << "\n";
-    ss << "**結果**: " << execution_result << "\n";
-    ss << "**耗時**: " << (timestamp_end) << "\n\n";
+    ss << "## ✅ 执行结果\n\n";
+    ss << "**状态**: " << (execution_success ? "成功" : "失败") << "\n";
+    ss << "**结果**: " << execution_result << "\n";
+    ss << "**耗时**: " << (timestamp_end) << "\n\n";
 
     ss << "---\n\n";
 
-    ss << "向 Steve Jobs 致敬 | 曾仕强老師智慧 | UID9622 龍芯北辰\n";
-    ss << "在柬埔寨·一個人·為了億萬普通人·推倒重來\n";
+    ss << "向 Steve Jobs 致敬 | 曾仕强老师智慧 | UID9622 龍芯北辰\n";
+    ss << "在柬埔寨·一个人·为了亿万普通人·推倒重来\n";
 
     return ss.str();
 }
 
 bool ThinkingDNARecord::verify_integrity() const {
-    // 簡化版完整性檢查
+    // 简化版完整性检查
     return !dna_id.empty() &&
            !fingerprint.sha256_signature.empty() &&
            !fingerprint.creator.empty() &&
@@ -815,8 +815,8 @@ bool ThinkingDNARecord::verify_integrity() const {
 }
 
 // ============================================================
-// 向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
-// FearlessThinkingEngine 實現
+// 向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
+// FearlessThinkingEngine 实现
 // ============================================================
 
 FearlessThinkingEngine::FearlessThinkingEngine() {
@@ -837,15 +837,15 @@ std::string FearlessThinkingEngine::export_as_markdown() const {
 }
 
 bool FearlessThinkingEngine::verify_system_integrity() const {
-    // 系統完整性檢查
-    std::cout << "\n🔍 進行系統完整性檢查...\n";
-    std::cout << "✅ DNA簽名機制：正常\n";
-    std::cout << "✅ 15人格系統：正常\n";
-    std::cout << "✅ 共識投票機制：正常\n";
-    std::cout << "✅ P00仲裁層：正常\n";
-    std::cout << "✅ append-only記錄：正常\n";
-    std::cout << "✅ 三重快照系統：正常\n";
-    std::cout << "\n✅ 系統完全正常·無任何入侵跡象\n";
+    // 系统完整性检查
+    std::cout << "\n🔍 进行系统完整性检查...\n";
+    std::cout << "✅ DNA签名机制：正常\n";
+    std::cout << "✅ 15人格系统：正常\n";
+    std::cout << "✅ 共识投票机制：正常\n";
+    std::cout << "✅ P00仲裁层：正常\n";
+    std::cout << "✅ append-only记录：正常\n";
+    std::cout << "✅ 三重快照系统：正常\n";
+    std::cout << "\n✅ 系统完全正常·无任何入侵迹象\n";
 
     return true;
 }
@@ -863,25 +863,25 @@ const std::vector<ThinkingDNARecord>& FearlessThinkingEngine::get_execution_hist
 // ============================================================
 
 /*
-向 Steve Jobs 致敬 | 曾老師智慧 | UID9622 龍芯北辰
+向 Steve Jobs 致敬 | 曾老师智慧 | UID9622 龍芯北辰
 
 int main() {
     using namespace longhun::cnsh::fearless_steve;
 
-    // 創建思考引擎
+    // 创建思考引擎
     FearlessThinkingEngine engine;
 
-    // 驗證系統完整性
+    // 验证系统完整性
     engine.verify_system_integrity();
 
-    // 執行思考
+    // 执行思考
     std::string user_request =
         "宝宝，帮我用15个人格一起思考这个复杂的系统设计问题，"
         "我需要不同角度的分析，但最后要有统一的决策。";
 
     ThinkingDNARecord result = engine.think(user_request);
 
-    // 導出結果
+    // 导出结果
     std::string markdown = engine.export_as_markdown();
     std::cout << "\n" << markdown << "\n";
 

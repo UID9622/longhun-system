@@ -123,7 +123,7 @@ router.print_report(decision)
 
 **参数:**
 - `text` - 待路由的文本内容
-- `override_weights` - 可选的权重覆盖（用于特殊场景）
+- `override_weights` - 可选的权重复盖（用于特殊场景）
 
 **返回:**
 - `PersonaRoutingDecision` 对象，包含：

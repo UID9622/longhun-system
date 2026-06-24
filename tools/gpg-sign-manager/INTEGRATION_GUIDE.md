@@ -1,82 +1,82 @@
-# 🐉 GPG簽署管理工具 · 整合指南
+# 🐉 GPG签署管理工具 · 整合指南
 
 **DNA**: #龍芯⚡️2026-06-08-GPG-SIGN-MANAGER-INTEGRATION
-**時間**: 2026-06-08 CST
-**來源**: 桌面 CNSH_v2.0_SIGN → 融入主干 longhun-system
+**时间**: 2026-06-08 CST
+**来源**: 桌面 CNSH_v2.0_SIGN → 融入主干 longhun-system
 
 ---
 
-## 目錄結構
+## 目录结构
 
 ```
 ~/longhun-system/tools/gpg-sign-manager/
-├── gpg_sign_manager.py              # 統一GPG簽署管理工具（新建）
-├── CNSH_v2.0_SIGNATURE.md           # CNSH v2.0協議簽署聲明
-├── CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md  # 完整協議簽署
+├── gpg_sign_manager.py              # 统一GPG签署管理工具（新建）
+├── CNSH_v2.0_SIGNATURE.md           # CNSH v2.0协议签署声明
+├── CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md  # 完整协议签署
 ├── cnsh_gateway.py                  # CNSH Gateway v2.0入口
-├── cnsh.py                          # CNSH編程引擎基礎
-├── CNSH_v2.0_SIGN_README.md         # 原始說明文檔
+├── cnsh.py                          # CNSH编程引擎基础
+├── CNSH_v2.0_SIGN_README.md         # 原始说明文档
 └── INTEGRATION_GUIDE.md             # 本文件
 ```
 
 ---
 
-## 功能說明
+## 功能说明
 
-### 1. GPG簽署管理工具 (`gpg_sign_manager.py`)
+### 1. GPG签署管理工具 (`gpg_sign_manager.py`)
 
-**用途**: 統一管理CNSH核心文檔與代碼的GPG簽名
+**用途**: 统一管理CNSH核心文档与代码的GPG签名
 
 **命令**：
 ```bash
-# 簽署所有文件
+# 签署所有文件
 python3 gpg_sign_manager.py --sign
 
-# 驗證現有簽名
+# 验证现有签名
 python3 gpg_sign_manager.py --verify
 
-# 指定工作目錄
+# 指定工作目录
 python3 gpg_sign_manager.py --sign --dir /path/to/work
 ```
 
 **特性**：
-- ✅ 自動檢查GPG密鑰可用性
-- ✅ 批量簽署協議與代碼文件
-- ✅ JSON日誌記錄（gpg_sign_log.json）
-- ✅ 簽名驗證功能
-- ✅ 詳細的執行日誌
+- ✅ 自动检查GPG密钥可用性
+- ✅ 批量签署协议与代码文件
+- ✅ JSON日志记录（gpg_sign_log.json）
+- ✅ 签名验证功能
+- ✅ 详细的执行日志
 
-### 2. CNSH協議文檔
+### 2. CNSH协议文档
 
-- `CNSH_v2.0_SIGNATURE.md`: Claude的正式簽署聲明（包含7層約束）
-- `CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md`: 完整協議簽署
+- `CNSH_v2.0_SIGNATURE.md`: Claude的正式签署声明（包含7层约束）
+- `CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md`: 完整协议签署
 
-### 3. 核心代碼
+### 3. 核心代码
 
-- `cnsh_gateway.py`: CNSH v2.0統一入口（22KB）
-  - 三色審計、SQLite日誌、Flask HTTP、Ollama代理
+- `cnsh_gateway.py`: CNSH v2.0统一入口（22KB）
+  - 三色审计、SQLite日志、Flask HTTP、Ollama代理
 
-- `cnsh.py`: CNSH中文編程引擎基礎（7KB）
-  - Notion接入、指令解析、頁面操作
+- `cnsh.py`: CNSH中文编程引擎基础（7KB）
+  - Notion接入、指令解析、页面操作
 
 ---
 
 ## 使用示例
 
-### 快速簽署
+### 快速签署
 
 ```bash
 cd ~/longhun-system/tools/gpg-sign-manager/
 python3 gpg_sign_manager.py --sign
 ```
 
-### 驗證簽名
+### 验证签名
 
 ```bash
 python3 gpg_sign_manager.py --verify
 ```
 
-### 查看日誌
+### 查看日志
 
 ```bash
 cat gpg_sign_log.json | python3 -m json.tool
@@ -84,38 +84,38 @@ cat gpg_sign_log.json | python3 -m json.tool
 
 ---
 
-## 整合亮點
+## 整合亮点
 
-| 原文件夾結構 | 新整合結構 | 改進 |
+| 原文件夹结构 | 新整合结构 | 改进 |
 | --- | --- | --- |
-| bash shell腳本 | Python工具 | 跨平台·更易維護 |
-| 單個簽署命令 | 管理工具 | 日誌追溯·批量操作 |
-| 手動驗證 | 自動驗證 | 內建驗證功能 |
-| 無日誌 | JSON日誌 | 完整審計追蹤 |
+| bash shell脚本 | Python工具 | 跨平台·更易维护 |
+| 单个签署命令 | 管理工具 | 日志追溯·批量操作 |
+| 手动验证 | 自动验证 | 内建验证功能 |
+| 无日志 | JSON日志 | 完整审计追踪 |
 
 ---
 
-## DNA簽署
+## DNA签署
 
 ```
-簽署者: UID9622 · 誠葛鑫
-時間: 2026-06-08 18:57 CST
-目的: 桌面CNSH_v2.0_SIGN融入主干·GPG簽署管理統一化
+签署者: UID9622 · 诚葛鑫
+时间: 2026-06-08 18:57 CST
+目的: 桌面CNSH_v2.0_SIGN融入主干·GPG签署管理统一化
 DNA:#龍芯⚡️2026-06-08-GPG-SIGN-MANAGER-INTEGRATION-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```
 
 ---
 
 ## 下一步
 
-1. ✅ 複製文件到主干 → **完成**
-2. ✅ 創建Python管理工具 → **完成**
-3. ⏳ 執行 `python3 gpg_sign_manager.py --sign` 簽署所有文檔
+1. ✅ 复制文件到主干 → **完成**
+2. ✅ 创建Python管理工具 → **完成**
+3. ⏳ 执行 `python3 gpg_sign_manager.py --sign` 签署所有文档
 4. ⏳ Git提交integration完成
-5. ⏳ 刪除桌面原文件夾
+5. ⏳ 删除桌面原文件夹
 
 ---
 
-天下無欺·龍魂永恆。🐉
+天下无欺·龍魂永恒。🐉

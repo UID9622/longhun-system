@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🐉 龙魂系统 · LongHun System
 
@@ -59,8 +59,8 @@
 | 分类 | 内容 |
 |------|------|
 | 📋 协议 | 治理规则、主权框架 |
-| 🛠️ 技能库 | 10项龙魂技能 + 龍盾 + CNSH對齊 + 融合審計 |
-| 🎛️ 操作台 | FastAPI 統一 API 與 Web UI，Skill/底座聯動 |
+| 🛠️ 技能库 | 10项龙魂技能 + 龍盾 + CNSH对齐 + 融合审计 |
+| 🎛️ 操作台 | FastAPI 统一 API 与 Web UI，Skill/底座联动 |
 | 📏 规则 | 执行约束、合规逻辑 |
 | 📂 执行记录 | 完整行动历史 |
 | 🧠 知识图谱 | 结构化智能知识库 |
@@ -74,20 +74,60 @@
 
 | 版本 | 亮点 |
 |------|------|
-| **v4.2** | 🎛️ 龍魂操作台 MVP v1.1 — 10 項 Skill + 底座能力（龍盾、CNSH、融合審計）統一 API 聯動 |
+| **v4.2** | 🎛️ 龍魂操作台 MVP v1.1 — 10 项 Skill + 底座能力（龍盾、CNSH、融合审计）统一 API 联动 |
 | **v4.1.1** | 🔐 安全热修复 — 修复18+个Electron漏洞 |
 | **v4.0** | 📱 移动端监控 — 15层体系，4个应用监控，AES-256-GCM加密 |
 | **v3.1.0** | ⚡ 第三阶段 — 10项技能完整集成，API响应 < 100ms |
 
-### 快速啟動
+### 快速启动
+
+**推荐：用统一启动器一键管理（开机自动也走这个）**
 
 ```bash
-# 啟動龍魂操作台（統一調度 10 技能 + 底座能力）
-cd control-panel
-./launch.sh
+# 查看状态
+python3 bin/longhun-status.py
 
-# 打開 UI
-open http://127.0.0.1:9622/static/index.html
+# 启动全部常驻服务
+python3 bin/longhun-launcher.py start
+
+# 或双击桌面：龍魂状态与启动.command
+```
+
+常驻服务会自动按依赖顺序启动：
+- 龍魂脑干 `:9625`
+- 国家数字身份认证入口 `:8444`
+- 龍魂操作台 `:9622`
+
+**打开终端自动显示状态**：配置已写入 `.bash_profile` / `.bashrc` / `.zshrc`，每次打开 Terminal 都会看到当前服务状态。
+
+快捷别名：
+- `龍魂状态` / `lh-sys` — 显示状态
+- `龍魂启动` / `lh-start` — 启动服务
+- `龍魂停止` / `lh-stop` — 停止服务
+- `龍魂重启` / `lh-restart` — 重启服务
+
+开机自动由 `~/Library/LaunchAgents/com.uid9622.longhun.autostart.plist` 管理，登录后自动运行。
+
+详细报告：
+- [`docs/unified-knowledge/龍魂开机自动启动升级报告_v1.0.md`](./docs/unified-knowledge/龍魂开机自动启动升级报告_v1.0.md)
+- [`docs/unified-knowledge/龍魂认知压缩引擎报告_v1.0.md`](./docs/unified-knowledge/龍魂认知压缩引擎报告_v1.0.md)
+
+### 认知压缩
+
+把长文本（技能文档、上下文对话）压缩成可召回的"认知粒子"：
+
+```bash
+# 压缩所有技能为一个编号+向量库
+python3 scripts/longhun_compression_engine.py --compress-all-skills
+
+# 压缩一段上下文
+python3 scripts/longhun_compression_engine.py --compress-context "几百万字的上下文..."
+
+# 通过短码召回
+python3 scripts/longhun_compression_engine.py --recall SKILL-longhun-dna-alig-7C0801
+
+# 向量语义搜索
+python3 scripts/longhun_compression_engine.py --search "数据库损坏" --top-k 3
 ```
 
 ---

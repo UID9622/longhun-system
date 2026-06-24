@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-美元（USD）演示適配器
+美元（USD）演示适配器
 DNA:#龍芯⚡️2026-06-17-XPAY-USD-ADAPTER-FILE1-v2.0
 
-聲明：本適配器為演示框架，等待美聯儲 CBDC 或授權機構正式 API。
+声明：本适配器为演示框架，等待美联储 CBDC 或授权机构正式 API。
 """
 import uuid
 from datetime import datetime
@@ -14,8 +14,8 @@ from xpay.src.adapter import CurrencyAdapter, ExecutionResult, SovereignInfo
 
 class USDAdapter(CurrencyAdapter):
     """
-    美元適配器（演示）。
-    待美聯儲 Digital Dollar 上線後，替換為真實 API 調用。
+    美元适配器（演示）。
+    待美联储 Digital Dollar 上线后，替换为真实 API 调用。
     """
 
     def _sovereign_info(self) -> SovereignInfo:
@@ -51,12 +51,12 @@ class USDAdapter(CurrencyAdapter):
         return ExecutionResult(
             success=True,
             settlement_ref=ref,
-            message="美元演示結算成功（未發生真實轉帳）",
+            message="美元演示结算成功（未发生真实转账）",
             details={
                 "channel": "FedNow simulated",
                 "settled_at": datetime.now().isoformat(),
                 "amount": amount,
-                "note": "等待 FedNow / Digital Dollar 正式授權"
+                "note": "等待 FedNow / Digital Dollar 正式授权"
             }
         )
 
@@ -67,6 +67,6 @@ class USDAdapter(CurrencyAdapter):
         return ExecutionResult(
             success=True,
             settlement_ref=settlement_ref,
-            message="演示回滾完成",
+            message="演示回滚完成",
             details={"rolled_back_at": datetime.now().isoformat()}
         )

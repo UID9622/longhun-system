@@ -1,8 +1,6 @@
 {
-  "_comment": "生產部署引擎·Staging 環境測試配置",
-
+  "_comment": "生产部署引擎·Staging 环境测试配置",
   "environment": "staging-prod-test",
-
   "api_configuration": {
     "api_host": "localhost",
     "api_port": 8443,
@@ -11,7 +9,6 @@
     "request_timeout_seconds": 30,
     "keepalive_timeout_seconds": 60
   },
-
   "database_configuration": {
     "db_type": "sqlite",
     "db_host": "localhost",
@@ -24,7 +21,6 @@
     "db_backup_retention_days": 7,
     "db_replication_enabled": false
   },
-
   "cache_configuration": {
     "cache_type": "memory",
     "redis_host": "localhost",
@@ -35,7 +31,6 @@
     "cache_ttl_seconds": 1800,
     "cache_eviction_policy": "allkeys-lru"
   },
-
   "security_configuration": {
     "ssl_enabled": true,
     "ssl_cert_path": "/tmp/longhun-staging/certs/staging.crt",
@@ -55,7 +50,6 @@
     "audit_log_location": "/tmp/longhun-staging/logs/audit.log",
     "firewall_enabled": false
   },
-
   "monitoring_configuration": {
     "monitoring_service": "prometheus",
     "monitoring_enabled": true,
@@ -66,7 +60,6 @@
       "api_error_rate"
     ]
   },
-
   "logging_configuration": {
     "log_aggregation_service": "file",
     "log_level": "INFO",
@@ -76,7 +69,6 @@
     "log_rotation_size_mb": 50,
     "log_rotation_max_backups": 5
   },
-
   "alerting_configuration": {
     "alerting_enabled": true,
     "alert_channels": [
@@ -95,7 +87,6 @@
       }
     ]
   },
-
   "deployment_configuration": {
     "deployment_strategy": "blue-green",
     "blue_environment": "staging-blue",
@@ -106,7 +97,6 @@
     "readiness_probe_path": "/health",
     "liveness_probe_path": "/health"
   },
-
   "skills_configuration": {
     "skills_enabled": 10,
     "skills_list": [
@@ -122,14 +112,12 @@
       "skill-10-web-artifacts-builder"
     ]
   },
-
   "backup_configuration": {
     "backup_enabled": true,
     "backup_frequency": "manual",
     "backup_location": "/tmp/longhun-staging/backups",
     "backup_retention_days": 7
   },
-
   "feature_flags": {
     "enable_canary_deployment": false,
     "enable_auto_scaling": false,
@@ -137,7 +125,6 @@
     "enable_caching": true,
     "enable_compression": true
   },
-
   "dna": "#龍芯⚡️2026-06-08-STAGING-PROD-TEST-CONFIG-v1.0",
   "confirmation_code": "${LONGHUN_CONFIRM_CODE}"
 }

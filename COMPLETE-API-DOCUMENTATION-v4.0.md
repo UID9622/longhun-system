@@ -1,53 +1,53 @@
 <!--#龍芯⚡️2026-06-21-DOC-COMPLETE-API-DOCUMENTATION-V4-0-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 🐉 龍魂三核心系統 · 完整 API 文檔 v4.0
+# 🐉 龍魂三核心系统 · 完整 API 文档 v4.0
 
 **版本**: 4.0.0
 **DNA**: #龍芯⚇️2026-06-07-API-DOCUMENTATION-v4.0
-**責任**: UID9622 · 不免責
+**责任**: UID9622 · 不免责
 
 ---
 
-## 📚 目錄
+## 📚 目录
 
-1. [五行計算器 API](#五行計算器-api)
-2. [規則引擎 API](#規則引擎-api)
-3. [DNA 協議 API](#dna協議-api)
+1. [五行计算器 API](#五行计算器-api)
+2. [规则引擎 API](#规则引擎-api)
+3. [DNA 协议 API](#dna协议-api)
 4. [使用示例](#使用示例)
 5. [故障排除](#故障排除)
 
 ---
 
-## 🎯 五行計算器 API
+## 🎯 五行计算器 API
 
 ### 概述
 
-五行計算器提供了完整的視覺化五行系統 API，支持實時數據獲取、計算和驗證。
+五行计算器提供了完整的视觉化五行系统 API，支持实时数据获取、计算和验证。
 
 ### 基本配置
 
 ```typescript
 import { getWuxingAPI, WuxingAPI } from './api/wuxing-api';
 
-// 使用 Mock API (開發環境)
+// 使用 Mock API (开发环境)
 const api = getWuxingAPI(true);
 
-// 使用真實 API (生產環境)
+// 使用真实 API (生产环境)
 const api = getWuxingAPI(false);
 
-// 或直接創建
+// 或直接创建
 const api = new WuxingAPI('http://localhost:8000/api');
 ```
 
-### API 端點
+### API 端点
 
-#### 1. 獲取完整五行樹
+#### 1. 获取完整五行树
 
 ```typescript
 /**
- * 獲取完整的五行樹數據結構
- * @returns {Promise<WuxingTreeResponse>} 五行樹數據
+ * 获取完整的五行树数据结构
+ * @returns {Promise<WuxingTreeResponse>} 五行树数据
  */
 async getWuxingTree(): Promise<WuxingTreeResponse>
 ```
@@ -55,12 +55,12 @@ async getWuxingTree(): Promise<WuxingTreeResponse>
 **示例**:
 ```typescript
 const treeData = await api.getWuxingTree();
-console.log(treeData.center);    // 中心節點
-console.log(treeData.rivers);    // 5 個河道
-console.log(treeData.nodes);     // 所有節點
+console.log(treeData.center);    // 中心节点
+console.log(treeData.rivers);    // 5 个河道
+console.log(treeData.nodes);     // 所有节点
 ```
 
-**響應結構**:
+**响应结构**:
 ```json
 {
   "center": {
@@ -73,7 +73,7 @@ console.log(treeData.nodes);     // 所有節點
       "name": "金 · 西方",
       "wuxing": "metal",
       "color": "#FFD700",
-      "description": "肅殺·收斂·秋季之氣"
+      "description": "肃杀·收敛·秋季之气"
     }
   ],
   "nodes": [],
@@ -81,13 +81,13 @@ console.log(treeData.nodes);     // 所有節點
 }
 ```
 
-#### 2. 獲取單個河道
+#### 2. 获取单个河道
 
 ```typescript
 /**
- * 獲取特定河道的詳細信息
+ * 获取特定河道的详细信息
  * @param {string} riverId - 河道 ID
- * @returns {Promise<River>} 河道數據
+ * @returns {Promise<River>} 河道数据
  */
 async getRiver(riverId: string): Promise<River>
 ```
@@ -98,55 +98,55 @@ const metalRiver = await api.getRiver('river-metal');
 console.log(metalRiver.name);  // "金 · 西方"
 ```
 
-#### 3. 獲取節點詳情
+#### 3. 获取节点详情
 
 ```typescript
 /**
- * 獲取特定節點的詳細信息
- * @param {string} nodeId - 節點 ID
- * @returns {Promise<Node>} 節點數據
+ * 获取特定节点的详细信息
+ * @param {string} nodeId - 节点 ID
+ * @returns {Promise<Node>} 节点数据
  */
 async getNode(nodeId: string): Promise<Node>
 ```
 
-#### 4. 執行五行計算
+#### 4. 执行五行计算
 
 ```typescript
 /**
- * 執行五行計算
- * @param {CalculateRequest} request - 計算請求
- * @returns {Promise<CalculateResponse>} 計算結果
+ * 执行五行计算
+ * @param {CalculateRequest} request - 计算请求
+ * @returns {Promise<CalculateResponse>} 计算结果
  */
 async calculate(request: CalculateRequest): Promise<CalculateResponse>
 ```
 
-**請求結構**:
+**请求结构**:
 ```typescript
 interface CalculateRequest {
-  input: string;          // 輸入文本
-  riverIds?: string[];    // 指定河道 (可選)
+  input: string;          // 输入文本
+  riverIds?: string[];    // 指定河道 (可选)
 }
 ```
 
 **示例**:
 ```typescript
 const result = await api.calculate({
-  input: "龍魂系統",
+  input: "龍魂系统",
   riverIds: ["river-water"]
 });
 
-console.log(result.result.dnaSignature);  // DNA 簽章
-console.log(result.result.wuxing);        // 五行分類
-console.log(result.result.strength);      // 強度 (0-1)
+console.log(result.result.dnaSignature);  // DNA 签章
+console.log(result.result.wuxing);        // 五行分类
+console.log(result.result.strength);      // 强度 (0-1)
 ```
 
-#### 5. 獲取三色審計狀態
+#### 5. 获取三色审计状态
 
 ```typescript
 /**
- * 獲取節點的三色審計狀態
- * @param {string} nodeId - 節點 ID
- * @returns {Promise<AuditStatus>} 審計狀態
+ * 获取节点的三色审计状态
+ * @param {string} nodeId - 节点 ID
+ * @returns {Promise<AuditStatus>} 审计状态
  */
 async getAuditStatus(nodeId: string): Promise<{
   status: 'verified' | 'pending' | 'rejected';
@@ -159,11 +159,11 @@ async getAuditStatus(nodeId: string): Promise<{
 const status = await api.getAuditStatus('node-001');
 
 if (status.status === 'verified') {
-  console.log('✅ 通過驗證');
+  console.log('✅ 通过验证');
 } else if (status.status === 'pending') {
-  console.log('🟡 待審');
+  console.log('🟡 待审');
 } else {
-  console.log('🔴 拒絕');
+  console.log('🔴 拒绝');
 }
 ```
 
@@ -174,8 +174,8 @@ if (status.status === 'verified') {
 ```typescript
 const { data, loading, error } = useWuxingTree();
 
-if (loading) return <div>加載中...</div>;
-if (error) return <div>錯誤: {error.message}</div>;
+if (loading) return <div>加载中...</div>;
+if (error) return <div>错误: {error.message}</div>;
 
 return <WuxingVisualSystem data={data} />;
 ```
@@ -191,21 +191,21 @@ const handleCalculate = async () => {
 
 return (
   <div>
-    <button onClick={handleCalculate}>計算</button>
-    {result && <div>結果: {result.result.wuxing}</div>}
+    <button onClick={handleCalculate}>计算</button>
+    {result && <div>结果: {result.result.wuxing}</div>}
   </div>
 );
 ```
 
 ---
 
-## ⚙️ 規則引擎 API
+## ⚙️ 规则引擎 API
 
 ### 概述
 
-規則引擎提供批量處理、Notion 同步和報告生成的完整 API。
+规则引擎提供批量处理、Notion 同步和报告生成的完整 API。
 
-### 批量處理 API
+### 批量处理 API
 
 #### RulesEngineBatchProcessorV25
 
@@ -215,22 +215,22 @@ from batch_processor_v2.5 import RulesEngineBatchProcessorV25, Case
 # 初始化
 processor = RulesEngineBatchProcessorV25(max_workers=4)
 
-# 定義案件
+# 定义案件
 cases = [
-    Case(id="case_001", content="案件內容", metadata={"type": "A"}),
-    Case(id="case_002", content="另一個案件", metadata={"type": "B"}),
+    Case(id="case_001", content="案件内容", metadata={"type": "A"}),
+    Case(id="case_002", content="另一个案件", metadata={"type": "B"}),
 ]
 
-# 批量處理
+# 批量处理
 report = processor.process_batch(cases)
 
-# 訪問結果
+# 访问结果
 print(f"成功: {report['statistics']['success']}")
-print(f"失敗: {report['statistics']['errors']}")
+print(f"失败: {report['statistics']['errors']}")
 print(f"成功率: {report['statistics']['success_rate']}")
 ```
 
-#### 從文件處理
+#### 从文件处理
 
 ```python
 from pathlib import Path
@@ -249,26 +249,26 @@ report = processor.process_batch_from_file(input_file, output_file)
 from notion_sync_v2.5 import NotionSyncManager, NotionClient
 
 # 初始化
-client = NotionClient()  # 使用 NOTION_TOKEN 環境變量
+client = NotionClient()  # 使用 NOTION_TOKEN 环境变量
 sync_manager = NotionSyncManager(client)
 
-# 同步項目
-local_data = {"title": "案件標題", "status": "進行中"}
+# 同步项目
+local_data = {"title": "案件标题", "status": "进行中"}
 success = sync_manager.sync_item("case_001", local_data)
 
-# 檢測衝突
+# 检测冲突
 conflicts = sync_manager.detect_conflicts()
 
-# 解決衝突 (優先本地)
+# 解决冲突 (优先本地)
 for conflict_key in conflicts:
     sync_manager.resolve_conflict(conflict_key, prefer_local=True)
 
-# 獲取同步狀態
+# 获取同步状态
 status = sync_manager.get_sync_status()
 print(f"同步率: {status['sync_rate']}")
 ```
 
-### 報告生成 API
+### 报告生成 API
 
 #### EnhancedReportGenerator
 
@@ -278,13 +278,13 @@ from pathlib import Path
 
 generator = EnhancedReportGenerator(Path('/tmp/reports'))
 
-# 生成 HTML 報告
+# 生成 HTML 报告
 html_file = generator.generate_html_report(results, statistics)
 
-# 生成統計圖表 (需要 matplotlib)
+# 生成统计图表 (需要 matplotlib)
 chart_file = generator.generate_statistics_chart(results)
 
-# 檢測異常
+# 检测异常
 alerts = generator.detect_anomalies(results)
 for alert in alerts:
     print(f"[{alert.level.value}] {alert.title}")
@@ -293,11 +293,11 @@ for alert in alerts:
 
 ---
 
-## 🔐 DNA 協議 API
+## 🔐 DNA 协议 API
 
 ### 概述
 
-DNA 協議提供 AES-256-GCM 加密、KMS 密鑰管理和簽章驗證。
+DNA 协议提供 AES-256-GCM 加密、KMS 密钥管理和签章验证。
 
 ### 加密引擎 API
 
@@ -307,33 +307,33 @@ DNA 協議提供 AES-256-GCM 加密、KMS 密鑰管理和簽章驗證。
 from dna_encryption import DNAEncryptionEngine, EncryptionAlgorithm
 import os
 
-# 初始化 (使用環境變量或生成臨時密鑰)
+# 初始化 (使用环境变量或生成临时密钥)
 engine = DNAEncryptionEngine()
 
-# 或指定主密鑰
+# 或指定主密钥
 master_key = os.urandom(32)
 engine = DNAEncryptionEngine(master_key)
 ```
 
-#### 密鑰生成
+#### 密钥生成
 
 ```python
-# 生成 AES-256-GCM 密鑰
+# 生成 AES-256-GCM 密钥
 key = engine.generate_key(
     key_id="dna-key-001",
     algorithm=EncryptionAlgorithm.AES_256_GCM,
     expires_in_days=90
 )
 
-print(f"密鑰 ID: {key.key_id}")
-print(f"已創建: {key.created_at}")
-print(f"過期: {key.expires_at}")
+print(f"密钥 ID: {key.key_id}")
+print(f"已创建: {key.created_at}")
+print(f"过期: {key.expires_at}")
 ```
 
-#### 加密數據
+#### 加密数据
 
 ```python
-plaintext = "龍魂系統·敏感數據"
+plaintext = "龍魂系统·敏感数据"
 associated_data = {
     "device_id": "device-9622",
     "timestamp": "2026-06-07T05:00:00"
@@ -346,34 +346,34 @@ print(f"Nonce: {cipher_blob.nonce}")
 print(f"Tag: {cipher_blob.tag}")
 ```
 
-#### 解密數據
+#### 解密数据
 
 ```python
 # 解密
 decrypted = engine.decrypt(cipher_blob, "dna-key-001")
 print(f"明文: {decrypted}")
 
-# 驗證完整性 (自動驗證 GCM tag)
+# 验证完整性 (自动验证 GCM tag)
 assert decrypted == plaintext
 ```
 
-#### 簽署和驗證
+#### 签署和验证
 
 ```python
-# 簽署
+# 签署
 signature = engine.sign(plaintext)
 
-# 驗證
+# 验证
 is_valid = engine.verify(plaintext, signature)
-print(f"簽章有效: {is_valid}")
+print(f"签章有效: {is_valid}")
 
-# 篡改檢測
-tampered = "篡改的數據"
+# 篡改检测
+tampered = "篡改的数据"
 is_valid = engine.verify(tampered, signature)
-print(f"篡改檢測: {is_valid}")  # False
+print(f"篡改检测: {is_valid}")  # False
 ```
 
-### KMS 密鑰管理 API
+### KMS 密钥管理 API
 
 #### KMSService
 
@@ -384,23 +384,23 @@ from pathlib import Path
 # 初始化 KMS
 kms = KMSService(str(Path('/tmp/dna_kms')))
 
-# 生成並存儲密鑰
+# 生成并存储密钥
 key = kms.engine.generate_key("kms-key-001")
 kms.store_key(key)
 
-# 加載密鑰
+# 加载密钥
 loaded_key = kms.load_key("kms-key-001")
 
-# 輪轉密鑰 (自動生成新密鑰)
+# 轮转密钥 (自动生成新密钥)
 new_key = kms.rotate_key("kms-key-001")
-print(f"新密鑰版本: {new_key.rotation_count}")
+print(f"新密钥版本: {new_key.rotation_count}")
 ```
 
 ---
 
 ## 💡 使用示例
 
-### 示例 1: 完整的五行可視化工作流
+### 示例 1: 完整的五行可视化工作流
 
 ```typescript
 import React, { useState } from 'react';
@@ -416,27 +416,27 @@ export const WuxingApp = () => {
     await calculate(input);
   };
 
-  if (loading) return <div>加載中...</div>;
-  if (!data) return <div>無數據</div>;
+  if (loading) return <div>加载中...</div>;
+  if (!data) return <div>无数据</div>;
 
   return (
     <div>
-      {/* 五行可視化 */}
+      {/* 五行可视化 */}
       <WuxingVisualSystem data={data} />
 
-      {/* 計算面板 */}
+      {/* 计算面板 */}
       <div style={{ padding: '20px' }}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="輸入文本..."
+          placeholder="输入文本..."
         />
-        <button onClick={handleCalculate}>計算</button>
+        <button onClick={handleCalculate}>计算</button>
 
         {result && (
           <div>
             <p>五行: {result.result.wuxing}</p>
-            <p>強度: {result.result.strength}</p>
+            <p>强度: {result.result.strength}</p>
             <p>DNA: {result.result.dnaSignature}</p>
           </div>
         )}
@@ -446,7 +446,7 @@ export const WuxingApp = () => {
 };
 ```
 
-### 示例 2: 批量處理 + Notion 同步 + 報告生成
+### 示例 2: 批量处理 + Notion 同步 + 报告生成
 
 ```python
 from batch_processor_v2.5 import RulesEngineBatchProcessorV25, Case
@@ -454,10 +454,10 @@ from notion_sync_v2.5 import NotionSyncManager, NotionClient
 from report_generator_enhanced import EnhancedReportGenerator
 from pathlib import Path
 
-# [1] 批量處理
+# [1] 批量处理
 processor = RulesEngineBatchProcessorV25()
 cases = [
-    Case(id=f"case_{i:04d}", content=f"案件內容 {i}" * 5, metadata={})
+    Case(id=f"case_{i:04d}", content=f"案件内容 {i}" * 5, metadata={})
     for i in range(100)
 ]
 report = processor.process_batch(cases)
@@ -473,15 +473,15 @@ for result in report['results']:
     }
     sync_manager.sync_item(result['case_id'], sync_data)
 
-# [3] 報告生成
+# [3] 报告生成
 generator = EnhancedReportGenerator(Path('/tmp/reports'))
 html_file = generator.generate_html_report(report['results'], report['statistics'])
 chart_file = generator.generate_statistics_chart(report['results'])
 
-print(f"HTML 報告: {html_file}")
-print(f"圖表: {chart_file}")
+print(f"HTML 报告: {html_file}")
+print(f"图表: {chart_file}")
 
-# [4] 檢測異常
+# [4] 检测异常
 alerts = generator.detect_anomalies(report['results'])
 for alert in alerts:
     print(f"⚠️  {alert.title}: {alert.description}")
@@ -498,29 +498,29 @@ import json
 engine = DNAEncryptionEngine()
 kms = KMSService(str(Path('/tmp/dna_kms')))
 
-# [2] 生成並存儲密鑰
+# [2] 生成并存储密钥
 key = engine.generate_key("workflow-key")
 kms.store_key(key)
 
-# [3] 加密敏感數據
-plaintext = "龍魂系統·敏感信息"
+# [3] 加密敏感数据
+plaintext = "龍魂系统·敏感信息"
 associated_data = {"device_id": "device-9622"}
 
 cipher_blob = engine.encrypt(plaintext, "workflow-key", associated_data)
 
-# [4] 簽署
+# [4] 签署
 signature = engine.sign(cipher_blob.to_json())
 
-# [5] 傳輸 (模擬)
+# [5] 传输 (模拟)
 transmitted = {
     "cipher": cipher_blob.to_dict(),
     "signature": signature,
 }
 
-# [6] 接收端驗證和解密
+# [6] 接收端验证和解密
 receiver_engine = DNAEncryptionEngine(engine.master_key)
 
-# 驗證簽章
+# 验证签章
 json_str = json.dumps(transmitted['cipher'], ensure_ascii=False)
 is_valid = receiver_engine.verify(json_str, transmitted['signature'])
 
@@ -531,63 +531,63 @@ if is_valid:
     decrypted = receiver_engine.decrypt(cipher, "workflow-key")
     print(f"✅ 解密成功: {decrypted}")
 else:
-    print("❌ 簽章驗證失敗")
+    print("❌ 签章验证失败")
 ```
 
 ---
 
 ## 🐛 故障排除 (FAQ)
 
-### Q1: 五行計算器無法連接到後端
+### Q1: 五行计算器无法连接到后端
 
-**症狀**: `Error: HTTP 500: Internal Server Error`
+**症状**: `Error: HTTP 500: Internal Server Error`
 
-**解決**:
-1. 檢查後端服務是否運行: `curl http://localhost:8000/api/wuxing/tree`
-2. 檢查 CORS 設置
-3. 在開發環境使用 Mock API: `getWuxingAPI(true)`
+**解决**:
+1. 检查后端服务是否运行: `curl http://localhost:8000/api/wuxing/tree`
+2. 检查 CORS 设置
+3. 在开发环境使用 Mock API: `getWuxingAPI(true)`
 
-### Q2: Notion 同步失敗 - NOTION_TOKEN 未設置
+### Q2: Notion 同步失败 - NOTION_TOKEN 未设置
 
-**症狀**: `WARNING: 未設置 NOTION_TOKEN，Notion 集成將在離線模式運行`
+**症状**: `WARNING: 未设置 NOTION_TOKEN，Notion 集成将在离线模式运行`
 
-**解決**:
+**解决**:
 ```bash
-# 設置環境變量
+# 设置环境变量
 export NOTION_TOKEN='your_notion_api_key'
 
-# 驗證連接
+# 验证连接
 python3 -c "from notion_sync_v2.5 import NotionClient; print(NotionClient().is_connected())"
 ```
 
-### Q3: 加密失敗 - cryptography 庫未安裝
+### Q3: 加密失败 - cryptography 库未安装
 
-**症狀**: `ImportError: No module named 'cryptography'`
+**症状**: `ImportError: No module named 'cryptography'`
 
-**解決**:
+**解决**:
 ```bash
 pip install cryptography
 ```
 
-### Q4: 性能問題 - 1000 個節點渲染緩慢
+### Q4: 性能问题 - 1000 个节点渲染缓慢
 
-**症狀**: 初始化耗時 > 1s
+**症状**: 初始化耗时 > 1s
 
-**解決**:
-1. 啟用虛擬滾動
-2. 使用 useMemo 最佳化計算
-3. 檢查瀏覽器開發工具中的性能分析
+**解决**:
+1. 启用虚拟滚动
+2. 使用 useMemo 最佳化计算
+3. 检查浏览器开发工具中的性能分析
 
-### Q5: 測試失敗 - pytest 找不到測試文件
+### Q5: 测试失败 - pytest 找不到测试文件
 
-**症狀**: `ERROR collecting test_integration.py`
+**症状**: `ERROR collecting test_integration.py`
 
-**解決**:
+**解决**:
 ```bash
-# 安裝測試依賴
+# 安装测试依赖
 pip install pytest pytest-cov
 
-# 運行測試
+# 运行测试
 pytest rules-engine-v2.5/test_integration.py -v
 ```
 
@@ -595,23 +595,23 @@ pytest rules-engine-v2.5/test_integration.py -v
 
 ## 📊 性能基准
 
-| 操作 | 目標 | 實際 | 狀態 |
+| 操作 | 目标 | 实际 | 状态 |
 |------|------|------|------|
-| 五行樹初始化 | < 500ms | 125ms | ✅ |
-| 河道切換 | < 100ms | 45ms | ✅ |
-| 100 案件處理 | < 5s | 2.45s | ✅ |
-| 1000 節點渲染 | < 3s | 280ms | ✅ |
+| 五行树初始化 | < 500ms | 125ms | ✅ |
+| 河道切换 | < 100ms | 45ms | ✅ |
+| 100 案件处理 | < 5s | 2.45s | ✅ |
+| 1000 节点渲染 | < 3s | 280ms | ✅ |
 | 1MB 加密 | < 1s | 285ms | ✅ |
 | 1MB 解密 | < 1s | 310ms | ✅ |
 
 ---
 
-## 🔗 相關資源
+## 🔗 相关资源
 
 - [GitHub Repository](https://github.com/UID9622/longhun-system)
-- [完整源代碼](../../)
+- [完整源代码](../../)
 - [测试覆盖报告](./TEST-COVERAGE.md)
 
 ---
 
-**DNA 簽章**: #龍芯⚇️2026-06-07-API-DOCUMENTATION-v4.0
+**DNA 签章**: #龍芯⚇️2026-06-07-API-DOCUMENTATION-v4.0

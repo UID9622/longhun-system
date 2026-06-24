@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-REF-_-_-V2-0-_-UID9622_E1BD-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 <!DOCTYPE html>
 <!-- saved from url=(0326)file:///Users/zuimeidedeyihan/Library/Application%20Support/Claude/local-agent-mode-sessions/a89d76ba-6216-42b3-ba33-e18194ebb230/b84aa772-13a2-4c76-ae42-f31f0ff2ce57/local_c5c9a828-a7ca-4c68-9bd8-c7efadcac685/outputs/%E9%BE%8D%E9%AD%82%E5%AD%A6%E4%B9%A0%E5%85%AC%E5%BC%8F%E4%BD%93%E7%B3%BB_%E5%8D%87%E7%BA%A7%E7%89%88_v2.html -->
@@ -232,9 +232,9 @@ code{font:12px/1.9 'JetBrains Mono','Fira Code',monospace;color:#c8d0f8;display:
   <div class="callout-title">🔍 审查报告 · 自动补全说明</div>
   发现并修复了以下问题，共补全 <b>4</b> 项结构缺失：<br>
   <span style="color:var(--red)">① 第三篇内容重复</span> → 已去重，保留完整版本<br>
-  <span style="color:var(--yel)">② 第二篇完全缺失</span> → 已补全「五行映射算法」（数字根→五行→宫位）<br>
+  <span style="color:var(--yel)">② 第二篇完全缺失</span> → 已补全“五行映射算法”（数字根→五行→宫位）<br>
   <span style="color:var(--yel)">③ 第五篇 DNA 生成代码不完整</span> → 已补全验证函数+链式哈希<br>
-  <span style="color:var(--grn)">④ 缺少集成实战篇</span> → 已新增第六篇「六公式闭环自动化」<br>
+  <span style="color:var(--grn)">④ 缺少集成实战篇</span> → 已新增第六篇“六公式闭环自动化”<br>
   <span style="color:var(--grn)">⑤ 缺少互操作性图</span> → 已补全公式关系 SVG 图<br>
   <span style="color:var(--grn)">⑥ 缺少完整 Python 封装类</span> → 已补全 LonghunEngine 完整类<br>
   <span style="color:var(--grn)">⑦ 缺少自动化流程图</span> → 已补全决策闭环管道图
@@ -457,7 +457,7 @@ for n in [9622, 5, 3, 15, 37]:
 
   <div class="h2">一、为什么需要五行映射？</div>
   <div class="callout grn">
-    数字根给了我们「稳不稳」，但不告诉我们「是什么角色」。<br>
+    数字根给了我们“稳不稳”，但不告诉我们“是什么角色”。<br>
     五行映射是那把钥匙：把 <b>数字</b> 翻译成 <b>系统行为模式</b>。<br>
     有了五行，洛书宫位才有意义，决策评分才有权重来源。
   </div>
@@ -483,7 +483,7 @@ for n in [9622, 5, 3, 15, 37]:
     <div class="callout-title">生克铁律</div>
     <b>相生</b>（允许流转）：水生木 → 木生火 → 火生土 → 土生金 → 金生水<br>
     <b>相克</b>（触发审计）：水克火 → 火克金 → 金克木 → 木克土 → 土克水<br>
-    <b>熔断条件</b>：当新操作的五行与当前状态五行形成「相克」关系 → 触发🟡待审
+    <b>熔断条件</b>：当新操作的五行与当前状态五行形成“相克”关系 → 触发🟡待审
   </div>
   <table class="tbl">
     <thead><tr><th>当前五行</th><th>下一操作五行</th><th>关系</th><th>动作</th></tr></thead>
@@ -617,11 +617,11 @@ info = map_wuxing(9622)
   <div class="h2">二、15守恒定理·完整证明</div>
   <div class="callout gold">
     <div class="callout-title">关键洞察：15不是目的，不动点才是</div>
-    <b>dr(15) = 6（待审态）</b>：守恒和本身处于「待审」，说明系统不以某一行为最终态，而以中宫（5·不动点）为锚。<br>
-    <b>中宫 = 5（土·不动点）</b>：无论旋转、镜像、加减，中宫永远保持。这是系统的「主权中枢」。<br>
+    <b>dr(15) = 6（待审态）</b>：守恒和本身处于“待审”，说明系统不以某一行为最终态，而以中宫（5·不动点）为锚。<br>
+    <b>中宫 = 5（土·不动点）</b>：无论旋转、镜像、加减，中宫永远保持。这是系统的“主权中枢”。<br>
     <b>偶数角 {4,2,6,8} → 和=20 → dr(20)=2（木）</b>：角力量趋向生长。<br>
     <b>奇数边 {9,3,7,1} → 和=20 → dr(20)=2（木）</b>：边力量同样趋向生长。<br>
-    <b>结论</b>：角边对称，中宫不动，整体是「旋转不动点」。
+    <b>结论</b>：角边对称，中宫不动，整体是“旋转不动点”。
   </div>
 
   <div class="h2">三、旋转不变性·数学意义</div>
@@ -888,7 +888,7 @@ print(e["tricolor"])  <span class="cnsh-comment"># <span class="cnsh-audit-green
   <div class="h2">三、DNA五行属性查询</div>
   <div class="callout pur">
     SHA-256前8位（十六进制）转十进制后取模10000+1，再算数字根 → 得到五行。<br>
-    这意味着每条DNA天然携带「五行属性」，可用于决策评分中的宫位权重计算。
+    这意味着每条DNA天然携带“五行属性”，可用于决策评分中的宫位权重计算。
   </div>
 
   <div class="art-footer">
@@ -983,7 +983,7 @@ print(e["tricolor"])  <span class="cnsh-comment"># <span class="cnsh-audit-green
   <div class="h2">三、完整演示：三个典型场景</div>
 <pre data-lang="PYTHON"><code class="cnsh-highlighted" data-cnsh-done="1">engine = LonghunEngine()
 
-<span class="cnsh-comment"># 场景1：UID9622 自身分析</span>
+<span class="cnsh-comment"># 场景1：UID9622 自身份析</span>
 r1 = engine.analyze(9622, "UID9622系统自检")
 print(f"UID9622: dr={r1['dr']} {r1['wuxing']} {r1['palace']} {r1['tricolor']} D={r1['decision_score']}")
 print(f"动作: {r1['auto_action']}")

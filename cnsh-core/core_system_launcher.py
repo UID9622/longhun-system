@@ -8,7 +8,7 @@
 ║  完整的系统初始化和运行                                           ║
 ║                                                                  ║
 ║  DNA v1.0:#龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-FILE1-v1.0         ║
-║  DNA v1.1: #龍芯⚡️2026-06-07-LAUNCHER-CORE-v1.0 (P0 對齐)      ║
+║  DNA v1.1: #龍芯⚡️2026-06-07-LAUNCHER-CORE-v1.0 (P0 对齐)      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 五个Notion核心宣言                                        ║
@@ -605,7 +605,7 @@ def main():
     print("\n")
     print("╔" + "=" * 78 + "╗")
     print("║" + " " * 78 + "║")
-    print("║" + "🐉 龍魂核心系統啟動".center(78) + "║")
+    print("║" + "🐉 龍魂核心系统启动".center(78) + "║")
     print("║" + " " * 78 + "║")
     print("╚" + "=" * 78 + "╝")
     print()
@@ -632,7 +632,7 @@ def main():
 
         print("\n")
         print("=" * 80)
-        print("✅ 龍魂核心系統已就绪")
+        print("✅ 龍魂核心系统已就绪")
         print("=" * 80)
         print("""
 配置文件位置:

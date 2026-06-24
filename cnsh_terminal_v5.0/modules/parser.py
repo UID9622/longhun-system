@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-18-CNSH-PARSER-FILE1-v5.0
+"""
+#龍芯⚡️2026-06-18-CNSH-PARSER-v5.0
 # 🟢 审计通过: 语法分析器完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫
@@ -131,7 +132,7 @@ class Parser:
         self.记录("警告", f"未预期的Token: {标记}")
         return None
 
-    def 解析变量声明(self, 消费分号: bool = True) -> 变量声明:
+    def 解析变量声明(self) -> 变量声明:
         """解析变量声明"""
         行号 = self.当前标记().行号
         列号 = self.当前标记().列号
@@ -153,8 +154,8 @@ class Parser:
             self.消费(TokenType.ASSIGN)
             初始值 = self.解析表达式()
 
-        # 可选的分号（循环初始化时不消费，留给调用方处理）
-        if 消费分号 and self.匹配(TokenType.SEMICOLON):
+        # 可选的分号
+        if self.匹配(TokenType.SEMICOLON):
             self.消费(TokenType.SEMICOLON)
 
         self.记录("成功", f"变量声明: {数据类型} {变量名}")
@@ -349,7 +350,7 @@ class Parser:
 
         # 检查是否是C风格循环: 循环 类型 变量 = 初值; 条件; 增量
         if self.匹配(TokenType.TYPE):
-            初始化 = self.解析变量声明(消费分号=False)
+            初始化 = self.解析变量声明()
 
             if self.匹配(TokenType.SEMICOLON):
                 self.消费(TokenType.SEMICOLON)

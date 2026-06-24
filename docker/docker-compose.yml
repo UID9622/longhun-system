@@ -1,4 +1,4 @@
-# 龍魂體系 · 待融入包監控容器編排
+# 龍魂体系 · 待融入包监控容器编排
 # DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-COMPOSE-v1.0
 #
 # 用法：
@@ -16,19 +16,19 @@ services:
     image: longhun/package-watcher:v1.0
     restart: unless-stopped
     volumes:
-      # 掛載用戶主目錄（只讀）用於發現待融入包
+      # 挂载用户主目录（只读）用于发现待融入包
       - /Users/zuimeidedeyihan:/host/home:ro
-      # 掛載 Downloads（只讀）
+      # 挂载 Downloads（只读）
       - /Users/zuimeidedeyihan/Downloads:/host/Downloads:ro
-      # 掛載 longhun-system 的 docs 目錄（讀寫）用於輸出隊列與報告
+      # 挂载 longhun-system 的 docs 目录（读写）用于输出队列与报告
       - /Users/zuimeidedeyihan/longhun-system/docs:/app/output
-      # 持久化日誌
+      # 持久化日志
       - /Users/zuimeidedeyihan/longhun-system/logs:/app/logs
     environment:
-      # 可選：限制掃描深度或路徑
+      # 可选：限制扫描深度或路径
       - PYTHONUNBUFFERED=1
       - TZ=Asia/Shanghai
-    # 也可以改為一次性運行後退出，再由外部 cron 調度
+    # 也可以改为一次性运行后退出，再由外部 cron 调度
     # command: ["python3", "/app/package-watcher.py", "--once", "--prune"]
     logging:
       driver: "json-file"

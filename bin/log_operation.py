@@ -21,7 +21,7 @@ import argparse
 from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG_PATH = os.path.join(ROOT, "02_執行記錄", "龍魂操作日志.md")
+LOG_PATH = os.path.join(ROOT, "02_执行记录", "龍魂操作日志.md")
 
 
 def 读取最新序号():

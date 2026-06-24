@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""龍魂每日復盤增強版 · P03雯雯主理 / P04鲁班安全 / P05上帝之眼裁决
+"""龍魂每日复盘增强版 · P03雯雯主理 / P04鲁班安全 / P05上帝之眼裁决
 DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-ENHANCED-v2.0
-增強功能: 完整日誌審計·操作統計·人格調度驗證·API服務檢查
+增强功能: 完整日志审计·操作统计·人格调度验证·API服务检查
 """
 import os, sys, json, smtplib, subprocess, datetime, sqlite3, socket
 from email.mime.text import MIMEText
@@ -90,11 +90,11 @@ def check_action_logs():
 
         if count > 0:
             tools_str = f" ({len(tools_used)}工具)" if tools_used else ""
-            return ("🟢", f"今日操作 {count} 筆{tools_str}")
+            return ("🟢", f"今日操作 {count} 笔{tools_str}")
         else:
-            return ("🟡", "今日無操作記錄")
+            return ("🟡", "今日无操作记录")
     except Exception as e:
-        return ("🟡", f"日誌審計失敗:{str(e)[:50]}")
+        return ("🟡", f"日志审计失败:{str(e)[:50]}")
 
 def check_persona_scheduler():
     """验证人格调度执行 ⭐ 新增"""
@@ -224,7 +224,7 @@ end tell'''
         subprocess.run(["osascript", "-e", script], timeout=30, check=True)
         print("🟢 已写 macOS 日历")
     except Exception as e:
-        print(f"🟡 日历写入跳过(先在日历建『龍魂』日历):{e}")
+        print(f"🟡 日历写入跳过(先在日历建‘龍魂’日历):{e}")
 
 if __name__ == "__main__":
     overall, checks, report = build_report()

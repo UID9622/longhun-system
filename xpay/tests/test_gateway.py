@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-XPay 主權網關單元測試
+XPay 主权网关单元测试
 DNA:#龍芯⚡️2026-06-17-XPAY-TESTS-FILE1-v2.0
 """
 import sys
@@ -18,7 +18,7 @@ def test_cny_pay():
         db = Path(tmp) / "xpay_test.db"
         gw = SovereignGateway(db_path=db)
 
-        result = gw.pay(amount=100.0, currency="CNY", recipient="UID1001", memo="測試")
+        result = gw.pay(amount=100.0, currency="CNY", recipient="UID1001", memo="测试")
         assert result["success"] is True
         assert result["currency"] == "CNY"
         assert result["fees"]["processing"] == 0.0
@@ -28,7 +28,7 @@ def test_cny_pay():
         tx = gw.query(result["tx_id"])
         assert tx is not None
         assert tx["recipient_id"] == "UID1001"
-        print("✅ CNY 支付測試通過")
+        print("✅ CNY 支付测试通过")
 
 
 def test_usd_pay():
@@ -40,7 +40,7 @@ def test_usd_pay():
         assert result["success"] is True
         assert result["fees"]["processing"] == 0.5
         assert result["fees"]["dna"] == 0.01
-        print("✅ USD 支付測試通過")
+        print("✅ USD 支付测试通过")
 
 
 def test_unsupported_currency():
@@ -50,8 +50,8 @@ def test_unsupported_currency():
 
         result = gw.pay(amount=10.0, currency="BTC", recipient="UID1003")
         assert result["success"] is False
-        assert "不支持的幣種" in result["error"]
-        print("✅ 不支持的幣種測試通過")
+        assert "不支持的币种" in result["error"]
+        print("✅ 不支持的币种测试通过")
 
 
 def test_stats():
@@ -63,7 +63,7 @@ def test_stats():
         stats = gw.stats()
         assert stats["transaction_count"] == 2
         assert stats["total_volume"] == 30.0
-        print("✅ 統計測試通過")
+        print("✅ 统计测试通过")
 
 
 if __name__ == "__main__":
@@ -71,4 +71,4 @@ if __name__ == "__main__":
     test_usd_pay()
     test_unsupported_currency()
     test_stats()
-    print("\n🐉 所有 XPay 主權網關測試通過")
+    print("\n🐉 所有 XPay 主权网关测试通过")

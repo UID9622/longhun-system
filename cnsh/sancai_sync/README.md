@@ -1,32 +1,32 @@
-# 龍魂系統·三合同步器 v1.0
+# 龍魂系统·三合同步器 v1.0
 
-## 簡介
+## 简介
 
-龍魂三合同步器是一個完整的三環無死鎖轉換系統，實現 v4.1/v3.0/v4.0 多模塊的互聯互通。
+龍魂三合同步器是一个完整的三环无死锁转换系统，实现 v4.1/v3.0/v4.0 多模块的互联互通。
 
 ```
-[v4.1 決策闢 JSON] ↔ [v3.0 呼吸大腦 粒子指令] ↔ [v4.0 神經映射 信號]
+[v4.1 决策辟 JSON] ↔ [v3.0 呼吸大脑 粒子指令] ↔ [v4.0 神经映射 信号]
 ```
 
 **DNA**: `#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1.0`
 
-**UID**: `9622·諸葛鑫·龍芯北辰`
+**UID**: `9622·诸葛鑫·龍芯北辰`
 
-**責任**: `UID9622·不免責`
+**责任**: `UID9622·不免责`
 
 ---
 
-## 核心職責
+## 核心职责
 
-### 1. IPA 回執 → 粒子指令 (ipa_to_particle)
+### 1. IPA 回执 → 粒子指令 (ipa_to_particle)
 
-將 v4.1 決策闢的 IPA 回執轉換為 v3.0 呼吸大腦的粒子指令。
+将 v4.1 决策辟的 IPA 回执转换为 v3.0 呼吸大脑的粒子指令。
 
-**轉換邏輯**：
-- IPA 信號強度 (pass/hold/fuse) → 粒子生存週期
-- IPA 節點深度 → 粒子初始能量
+**转换逻辑**：
+- IPA 信号强度 (pass/hold/fuse) → 粒子生存周期
+- IPA 节点深度 → 粒子初始能量
 - IPA 人格 → 粒子可塑性
-- IPA 時間戳 → 粒子種子
+- IPA 时间戳 → 粒子种子
 
 **示例**：
 ```python
@@ -47,18 +47,18 @@ ipa = IPAReceipt(
 )
 
 particles = hub.ipa_to_particle(ipa, particle_count=50)
-# → 50 個粒子指令，可直接餵給 v3.0
+# → 50 个粒子指令，可直接喂给 v3.0
 ```
 
-### 2. 年輪記憶 → 神經信號 (ring_to_neural)
+### 2. 年轮记忆 → 神经信号 (ring_to_neural)
 
-將 v3.0 年輪記憶轉換為 v4.0 神經激活信號。
+将 v3.0 年轮记忆转换为 v4.0 神经激活信号。
 
-**轉換邏輯**：
-- 年輪年齡 (age) → 神經激活強度
-- 年輪半徑 (radius) → 突觸權重
-- 年輪強度 (strength) → 放電速率
-- 年輪位置 (x,y) → 空間定位
+**转换逻辑**：
+- 年轮年龄 (age) → 神经激活强度
+- 年轮半径 (radius) → 突触权重
+- 年轮强度 (strength) → 放电速率
+- 年轮位置 (x,y) → 空间定位
 
 **示例**：
 ```python
@@ -71,18 +71,18 @@ ring_data = {
 }
 
 signals = hub.ring_to_neural(ring_data)
-# → 神經信號列表，反映記憶的神經激活狀態
+# → 神经信号列表，反映记忆的神经激活状态
 ```
 
-### 3. 知識圖 → 九宮派位 (knowledge_to_palace)
+### 3. 知识图 → 九宫派位 (knowledge_to_palace)
 
-將 v4.0 知識拓撲轉換為 v4.1 九宮派位。
+将 v4.0 知识拓扑转换为 v4.1 九宫派位。
 
-**轉換邏輯**：
-- 圖的節點 → 宮位
-- 圖的邊權重 → 派位置信度
-- 圖的中心性 → 人格分配優先級
-- 圖的社群 → 宮位聚類
+**转换逻辑**：
+- 图的节点 → 宫位
+- 图的边权重 → 派位置信度
+- 图的中心性 → 人格分配优先级
+- 图的社群 → 宫位聚类
 
 **示例**：
 ```python
@@ -96,32 +96,32 @@ knowledge_graph = {
 }
 
 palaces = hub.knowledge_to_palace(knowledge_graph)
-# → 九宮派位節點列表
+# → 九宫派位节点列表
 ```
 
 ---
 
-## 驗證與DNA
+## 验证与DNA
 
-### 驗證無死鎖 (verify_sync)
+### 验证无死锁 (verify_sync)
 
-檢查三環轉換的完整性和一致性。
+检查三环转换的完整性和一致性。
 
 ```python
 ok, msg = hub.verify_sync()
-# → (True, "✅ 三環無死鎖·系統就緒") 或 (False, "錯誤信息")
+# → (True, "✅ 三环无死锁·系统就绪") 或 (False, "错误信息")
 ```
 
-**檢查項**：
-1. 粒子數量 ≥ 1
-2. 神經信號數量 ≥ 1
-3. 宮位數量 ≤ 9
-4. 神經-粒子比例合理
-5. DNA 鏈完整
+**检查项**：
+1. 粒子数量 ≥ 1
+2. 神经信号数量 ≥ 1
+3. 宫位数量 ≤ 9
+4. 神经-粒子比例合理
+5. DNA 链完整
 
 ### DNA 生成 (generate_dna)
 
-生成全鏈 DNA 簽章，支持父子鏈追溯。
+生成全链 DNA 签章，支持父子链追溯。
 
 ```python
 dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1.0")
@@ -130,7 +130,7 @@ dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1
 
 ---
 
-## 數據結構
+## 数据结构
 
 ### IPAReceipt
 ```python
@@ -141,8 +141,8 @@ class IPAReceipt:
     main_persona: str       # "P03" 等
     input_node_id: str      # "FLOW-9622-20260503-A1B2C3D4"
     output_signal: str      # "pass" | "hold" | "fuse"
-    next_ipa: str           # 下個節點
-    dna: str                # DNA 簽章
+    next_ipa: str           # 下个节点
+    dna: str                # DNA 签章
     timestamp: str          # ISO 8601
 ```
 
@@ -153,35 +153,35 @@ class ParticleInstruction:
     id: int                 # 粒子 ID
     x, y: float             # 位置
     vx, vy: float           # 速度
-    synaptic: float         # 0.0-1.0 突觸權重
+    synaptic: float         # 0.0-1.0 突触权重
     plasticity: float       # 0.2-1.0 可塑性
     seed_bias: float        # 方向偏置
-    trail: List[Tuple]      # 軌跡
-    life: int               # 剩餘生命週期
+    trail: List[Tuple]      # 轨迹
+    life: int               # 剩余生命周期
 ```
 
 ### NeuralSignal
 ```python
 @dataclass
 class NeuralSignal:
-    neuron_id: str          # 神經元編碼
-    activation: float       # 0.0-1.0 激活強度
-    firing_rate: float      # 0.0-1.0 放電速率
-    synapse_weight: float   # -1.0~1.0 突觸權重
-    temporal_context: str   # 時間背景
-    spatial_location: Tuple # 空間位置 (x, y)
+    neuron_id: str          # 神经元编码
+    activation: float       # 0.0-1.0 激活强度
+    firing_rate: float      # 0.0-1.0 放电速率
+    synapse_weight: float   # -1.0~1.0 突触权重
+    temporal_context: str   # 时间背景
+    spatial_location: Tuple # 空间位置 (x, y)
 ```
 
 ### PalaceNode
 ```python
 @dataclass
 class PalaceNode:
-    palace_name: str        # "艮宮" "坤宮" 等
+    palace_name: str        # "艮宫" "坤宫" 等
     element: str            # "金" "木" "水" "火" "土"
     persona_assigned: str   # "P01" 等
-    contribution: float     # 0-10 貢獻值
+    contribution: float     # 0-10 贡献值
     confidence: float       # 0.0-1.0 置信度
-    dna_chain: str          # DNA 父子鏈
+    dna_chain: str          # DNA 父子链
 ```
 
 ---
@@ -192,10 +192,10 @@ class PalaceNode:
 from cnsh.sancai_sync import SancaiSyncHub, IPAReceipt
 from datetime import datetime
 
-# 步驟 1：初始化 Hub
+# 步骤 1：初始化 Hub
 hub = SancaiSyncHub(seed=9622)
 
-# 步驟 2：創建 IPA 回執
+# 步骤 2：创建 IPA 回执
 ipa = IPAReceipt(
     ipa_node="IPA-FLOW-GATE-PRIVACY",
     ipa_address="/flow/gate/privacy",
@@ -207,11 +207,11 @@ ipa = IPAReceipt(
     timestamp=datetime.now().isoformat()
 )
 
-# 步驟 3：轉換 IPA → 粒子
+# 步骤 3：转换 IPA → 粒子
 particles = hub.ipa_to_particle(ipa, particle_count=30)
-print(f"✅ 粒子生成: {len(particles)} 個")
+print(f"✅ 粒子生成: {len(particles)} 个")
 
-# 步驟 4：創建年輪數據
+# 步骤 4：创建年轮数据
 ring_data = {
     'age': 150,
     'radius': 120.0,
@@ -220,11 +220,11 @@ ring_data = {
     'y': 300.0
 }
 
-# 步驟 5：轉換年輪 → 神經信號
+# 步骤 5：转换年轮 → 神经信号
 signals = hub.ring_to_neural(ring_data)
-print(f"✅ 神經信號生成: {len(signals)} 個")
+print(f"✅ 神经信号生成: {len(signals)} 个")
 
-# 步驟 6：創建知識圖
+# 步骤 6：创建知识图
 knowledge_graph = {
     'nodes': [
         {'weight': 0.9, 'edges': [1, 2, 3]},
@@ -234,91 +234,91 @@ knowledge_graph = {
     'parent_dna': '#龍芯⚡️2026-06-06-KNOWLEDGE-GRAPH-v1.0'
 }
 
-# 步驟 7：轉換知識圖 → 宮位
+# 步骤 7：转换知识图 → 宫位
 palaces = hub.knowledge_to_palace(knowledge_graph)
-print(f"✅ 宮位生成: {len(palaces)} 個")
+print(f"✅ 宫位生成: {len(palaces)} 个")
 
-# 步驟 8：驗證無死鎖
+# 步骤 8：验证无死锁
 ok, msg = hub.verify_sync()
-print(f"✅ 驗證結果: {msg}")
+print(f"✅ 验证结果: {msg}")
 
-# 步驟 9：生成 DNA
+# 步骤 9：生成 DNA
 dna = hub.generate_dna(parent_dna="#龍芯⚡️2026-06-06-PARENT-v1.0")
 print(f"✅ DNA 生成: {dna}")
 
-# 步驟 10：導出 JSON
+# 步骤 10：导出 JSON
 json_str = hub.to_json()
-print(f"✅ JSON 導出完成: {len(json_str)} 字符")
+print(f"✅ JSON 导出完成: {len(json_str)} 字符")
 ```
 
 ---
 
-## 測試
+## 测试
 
-完整的單元測試和集成測試覆蓋：
+完整的单元测试和集成测试覆盖：
 
 ```bash
 pytest cnsh/sancai_sync/tests/test_sancai_sync_hub.py -v
 ```
 
-**測試覆蓋**：
-- ✅ 數據結構創建（4 個類）
-- ✅ 三個轉換函數
-- ✅ 驗證函數
+**测试覆盖**：
+- ✅ 数据结构创建（4 个类）
+- ✅ 三个转换函数
+- ✅ 验证函数
 - ✅ DNA 生成
-- ✅ 邊界情況（空數據、極端值、大數據量）
+- ✅ 边界情况（空数据、极端值、大数据量）
 - ✅ 人格路由
 - ✅ 完整集成流程
 
 ---
 
-## 驗收清單
+## 验收清单
 
 ### ✅ 框架部分（已完成）
-- ☑ 數據結構定義
-- ☑ SancaiSyncHub 核心類
-- ☑ 三個轉換函數實現
-- ☑ 驗證函數
-- ☑ DNA 生成函數
-- ☑ JSON 導出函數
-- ☑ 完整測試套件（30+ 測試用例）
+- ☑ 数据结构定义
+- ☑ SancaiSyncHub 核心类
+- ☑ 三个转换函数实现
+- ☑ 验证函数
+- ☑ DNA 生成函数
+- ☑ JSON 导出函数
+- ☑ 完整测试套件（30+ 测试用例）
 
-### ✅ 驗收標準
-- ✅ 雙向轉換無損: v4.1 → v3.0 → v4.1 字段完整
-- ✅ 三環無死鎖: verify_sync() 通過
-- ✅ DNA 可追溯: 父子鏈完整·不可篡改
-- ✅ 全代碼路徑覆蓋: 100% 單元測試
-- ✅ 集成測試: 三環完整流程通過
+### ✅ 验收标准
+- ✅ 双向转换无损: v4.1 → v3.0 → v4.1 字段完整
+- ✅ 三环无死锁: verify_sync() 通过
+- ✅ DNA 可追溯: 父子链完整·不可篡改
+- ✅ 全代码路径覆盖: 100% 单元测试
+- ✅ 集成测试: 三环完整流程通过
 
 ---
 
-## 文件結構
+## 文件结构
 
 ```
 cnsh/sancai_sync/
 ├── __init__.py                  # 包入口
-├── sancai_sync_hub.py           # 核心類與函數（~550 行）
-├── README.md                    # 此文檔
-├── DELIVERY_RECEIPT.md          # 交付回執
+├── sancai_sync_hub.py           # 核心类与函数（~550 行）
+├── README.md                    # 此文档
+├── DELIVERY_RECEIPT.md          # 交付回执
 └── tests/
     ├── __init__.py
-    └── test_sancai_sync_hub.py  # 完整測試套件（~400 行）
+    └── test_sancai_sync_hub.py  # 完整测试套件（~400 行）
 ```
 
 ---
 
-## 相關模塊
+## 相关模块
 
-- **v4.1 決策闢**: `cnsh/flow_decision/`
-- **v3.0 呼吸大腦**: 外部模塊
-- **v4.0 神經映射**: 外部模塊
+- **v4.1 决策辟**: `cnsh/flow_decision/`
+- **v3.0 呼吸大脑**: 外部模块
+- **v4.0 神经映射**: 外部模块
 
 ---
 
-## 聯繫與反饋
+## 联系与反馈
 
-**作者**: UID9622·諸葛鑫·龍芯北辰
+**作者**: UID9622·诸葛鑫·龍芯北辰
 
-**責任**: UID9622·不免責
+**责任**: UID9622·不免责
 
 **DNA**: `#龍芯⚡️2026-06-06-SANCAI-SYNC-README-v1.0`

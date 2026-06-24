@@ -88,7 +88,7 @@ class 六层来源链:
         "系统层": "龍魂多模态感知系统·图像识别模块——本模块的功能定位",
         "生命层": "诸葛鑫真人签名——每个产出物都有UID9622真人确认"
     }
-    DNA =#龍芯⚡️2026-06-18-LONGHUN-VISION-ENGINE-FILE1-v1.0"
+    DNA = "#龍芯⚡️2026-06-18-LONGHUN-VISION-ENGINE-v1.0"
 
     @classmethod
     def 盖章(cls, 模块路径: str = "") -> Dict[str, Any]:

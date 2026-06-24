@@ -15,7 +15,7 @@
 
 </aside>
 
-> 《道德经》第九章：「为学日益，为道日损。」—— 执行引擎不负责想，只负责做。想这件事是路由层的工作。
+> 《道德经》第九章：“为学日益，为道日损。”—— 执行引擎不负责想，只负责做。想这件事是路由层的工作。
 > 
 
 ---
@@ -83,7 +83,7 @@
 | 🧠 Memory Manager | 记忆 | 原始记录 / DNA库 / 知识存档 | 分析意图 |
 | 🔁 Router Core | 判断该不该做 / 去哪 | 意图分类 / 执行器判定 | 具体执行 |
 | 📝 Task Planner | 想步骤 | 任务拆解 / 子任务生成 / 依赖分析 | 安全判断 |
-| 🛡️ Safety Guard | 踩刹车 | 越界检查 / 熱断判定 / 人工确认 | 执行操作 |
+| 🛡️ Safety Guard | 踩刹车 | 越界检查 / 热断判定 / 人工确认 | 执行操作 |
 | ⚙️ Executor Pool | 手和脚 | Claude/Notion/MCP/Script/Code/Render | 结果判断 |
 | 📦 Result Collector | 收拾结果 | 汇总成功/失败 / 确认项 | 审计轨迹 |
 | 🔍 Audit Spine | 留档记账追责 | DNA+日志+状态+错误全部留下来 | 执行任务 |
@@ -97,7 +97,7 @@
 
 **1. Claude 本地执行器**
 
-写代码 / 改文件 / 跡测试 / 生成结构 / 验证逻辑
+写代码 / 改文件 / 迹测试 / 生成结构 / 验证逻辑
 
 你现在最常用的手和脚
 
@@ -176,7 +176,7 @@ Step 3: 安全检查
   - 直接执行  → 继续
   - 暂停确认  → 等主控确认
   - 冻结      → 不执行+说明原因
-  - 熱断      → 全面锁死
+  - 热断      → 全面锁死
 
 Step 4: 选择执行器
   Executor = select(task_type, constraints, safety_level)
@@ -259,7 +259,7 @@ Step 8: 回单格式
 | **公式名** | **公式** | **意思** |
 | --- | --- | --- |
 | 🔁 路由到执行 | `Executor = select(task_type, constraints, safety_level)` | 根据任务类型+约束+安全等级选执行器 |
-| ✅ 执行成功条件 | `SUCCESS = task_done ∧ audit_pass ∧ ¬fuse` | 任务完 + 审计过 + 无熱断 |
+| ✅ 执行成功条件 | `SUCCESS = task_done ∧ audit_pass ∧ ¬fuse` | 任务完 + 审计过 + 无热断 |
 | 🙋 需要人工确认 | `CONFIRM = high_risk ∨ strategic_change ∨ public_output` | 高风险 OR 战略变动 OR 公开输出 |
 | 📜 回单生成 | `RECEIPT = summarize(result, route, executor, status)` | 结果+路由+执行器+状态 要同时附在回单里 |
 
@@ -289,7 +289,7 @@ flowchart TD
     H["💎 主控 Human<br>目标 / 确认 / 否决"] --> R["🔁 CNSH Router路由层<br>类型 / 意图 / 去向判定"]
     R --> E["⚙️ CNSH Execution Engine执行引擎"]
     E --> TP["📝 Task Planner任务规划器<br>拆展 / 顺序 / 依赖"]
-    E --> SG["🛡️ Safety Guard安全守卫<br>越界 / 熱断 / 确认"]
+    E --> SG["🛡️ Safety Guard安全守卫<br>越界 / 热断 / 确认"]
     TP --> EP["⚙️ Executor Pool执行器池"]
     SG --> EP
     EP --> E1["🐈 Claude本地"]
@@ -302,7 +302,7 @@ flowchart TD
     RC --> AS["🔍 Audit Spine审计脊柱<br>DNA / 日志 / 回单"]
     AS --> OUT["💭 输出层<br>Human / Notion / Public"]
     AS -.->|"学习回路"| R
-    SG -->|"熱断"| FUSE["🔴 熱断处理<br>锁死+说明+等指令"]
+    SG -->|"热断"| FUSE["🔴 热断处理<br>锁死+说明+等指令"]
 ```
 
 ---

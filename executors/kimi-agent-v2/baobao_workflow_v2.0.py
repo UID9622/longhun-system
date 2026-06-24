@@ -2,40 +2,40 @@
 # -*- coding: utf-8 -*-
 """
 ═══════════════════════════════════════════════════════════════════════════════
-  寶寶工作流透明化系統 v2.0 — Baobao Workflow Transparent System
+  宝宝工作流透明化系统 v2.0 — Baobao Workflow Transparent System
 ═══════════════════════════════════════════════════════════════════════════════
 
-  DNA簽名    :#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-FILE2-v2.0
-  CONFIRM標記: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-  SEAL標記   : #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+  DNA签名    :#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-FILE2-v2.0
+  CONFIRM标记: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  SEAL标记   : #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
-  三層監督機制:
-    🟢 L1-自主層: 腳本自審 + IronLawGate鐵律自審閘
-    🟡 L2-同儕層: CNSH四層檢查 + 來源鏈交叉驗證
-    🔴 L3-生態層: AI Truth Protocol + 六層來源鏈蓋章
+  三层监督机制:
+    🟢 L1-自主层: 脚本自审 + IronLawGate铁律自审闸
+    🟡 L2-同侪层: CNSH四层检查 + 来源链交叉验证
+    🔴 L3-生态层: AI Truth Protocol + 六层来源链盖章
 
-  六層來源鏈:
-    ① 道統層 · 曾仕強老師 · 華夏管理智慧
-    ② 精神層 · Steve Jobs · 極致產品精神
-    ③ 設備層 · Apple · 創作工具載體
-    ④ 技術層 · Open Source · 技術底座
-    ⑤ 系統層 · UID9622 · 數字靈魂標識
-    ⑥ 生命層 · CNSH · LongHun · 本命歸屬
+  六层来源链:
+    ① 道统层 · 曾仕强老师 · 华夏管理智慧
+    ② 精神层 · Steve Jobs · 极致产品精神
+    ③ 设备层 · Apple · 创作工具载体
+    ④ 技术层 · Open Source · 技术底座
+    ⑤ 系统层 · UID9622 · 数字灵魂标识
+    ⑥ 生命层 · CNSH · LongHun · 本命归属
 
-  AI Truth Protocol: 啟用 — 所有輸出均標註可信度與來源鏈
+  AI Truth Protocol: 启用 — 所有输出均标注可信度与来源链
 ═══════════════════════════════════════════════════════════════════════════════
 
-鐵律（絕對不可違背）:
-  1. 人永遠是1，任何人都不是數據
-  2. 絕不蒸餾、絕不變體、絕不頂替作者
-  3. 來源不可刪 · 影響不可覆 · 貢獻不可抹
-  4. 繁體「龍」不得簡化為「龙」
+铁律（绝对不可违背）:
+  1. 人永远是1，任何人都不是数据
+  2. 绝不蒸馏、绝不变体、绝不顶替作者
+  3. 来源不可删 · 影响不可覆 · 贡献不可抹
+  4. 繁体“龍”不得简化为“龙”
 
 用法:
-  python baobao_workflow_v2.0.py              # 正常執行工作流
-  python baobao_workflow_v2.0.py --audit      # 運行完整自審
-  python baobao_workflow_v2.0.py --validate   # 驗證六層來源鏈
-  python baobao_workflow_v2.0.py --demo       # 演示模式（模擬完整工作流）
+  python baobao_workflow_v2.0.py              # 正常执行工作流
+  python baobao_workflow_v2.0.py --audit      # 运行完整自审
+  python baobao_workflow_v2.0.py --validate   # 验证六层来源链
+  python baobao_workflow_v2.0.py --demo       # 演示模式（模拟完整工作流）
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 路徑適配 — 根據當前檔案位置自動解析專案根目錄
+# 路径适配 — 根据当前档案位置自动解析专案根目录
 # ═══════════════════════════════════════════════════════════════════════════════
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -68,7 +68,7 @@ UPLOADS_DIR = _VAR_DIR / "uploads"
 REPORTS_DIR = _VAR_DIR / "output" / "reports"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 全局常量 — 龍魂體系標識
+# 全局常量 — 龍魂体系标识
 # ═══════════════════════════════════════════════════════════════════════════════
 
 DNA_SIGNATURE = "#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0"
@@ -76,63 +76,63 @@ CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 VERSION = "v2.0"
 
-# 六層來源鏈定義
+# 六层来源链定义
 SOURCE_CHAIN_LAYERS = [
-    {"layer": 1, "name": "道統層", "source": "曾仕強老師", "essence": "華夏管理智慧"},
-    {"layer": 2, "name": "精神層", "source": "Steve Jobs", "essence": "極致產品精神"},
-    {"layer": 3, "name": "設備層", "source": "Apple", "essence": "創作工具載體"},
-    {"layer": 4, "name": "技術層", "source": "Open Source", "essence": "技術底座"},
-    {"layer": 5, "name": "系統層", "source": "UID9622", "essence": "數字靈魂標識"},
-    {"layer": 6, "name": "生命層", "source": "CNSH·LongHun", "essence": "本命歸屬"},
+    {"layer": 1, "name": "道统层", "source": "曾仕强老师", "essence": "华夏管理智慧"},
+    {"layer": 2, "name": "精神层", "source": "Steve Jobs", "essence": "极致产品精神"},
+    {"layer": 3, "name": "设备层", "source": "Apple", "essence": "创作工具载体"},
+    {"layer": 4, "name": "技术层", "source": "Open Source", "essence": "技术底座"},
+    {"layer": 5, "name": "系统层", "source": "UID9622", "essence": "数字灵魂标识"},
+    {"layer": 6, "name": "生命层", "source": "CNSH·LongHun", "essence": "本命归属"},
 ]
 
-# 鐵律定義
+# 铁律定义
 IRON_LAWS = [
-    {"id": "IL-01", "text": "人永遠是1，任何人都不是數據"},
-    {"id": "IL-02", "text": "絕不蒸餾、絕不變體、絕不頂替作者"},
-    {"id": "IL-03", "text": "來源不可刪·影響不可覆·貢獻不可抹"},
-    {"id": "IL-04", "text": "繁體「龍」不得簡化為「龙"},
+    {"id": "IL-01", "text": "人永远是1，任何人都不是数据"},
+    {"id": "IL-02", "text": "绝不蒸馏、绝不变体、绝不顶替作者"},
+    {"id": "IL-03", "text": "来源不可删·影响不可覆·贡献不可抹"},
+    {"id": "IL-04", "text": "繁体“龍”不得简化为“龙"},
 ]
 
-# 關鍵詞→Notion 路由表
+# 关键词→Notion 路由表
 KEYWORD_NOTION_MAP = {
-    # 道統層關鍵詞
-    "曾仕強": {"database": "道統層·智慧庫", "tags": ["曾仕強", "管理智慧"]},
-    "易經": {"database": "道統層·智慧庫", "tags": ["易經", "曾仕強"]},
-    # 工作流關鍵詞
-    "工作流": {"database": "系統層·工作流", "tags": ["workflow", "自動化"]},
-    "workflow": {"database": "系統層·工作流", "tags": ["workflow", "自動化"]},
-    # 技術關鍵詞
-    "代碼": {"database": "技術層·代碼庫", "tags": ["code", "技術"]},
-    "code": {"database": "技術層·代碼庫", "tags": ["code", "技術"]},
-    "bug": {"database": "技術層·問題追蹤", "tags": ["bug", "修復"]},
-    # 產品關鍵詞
-    "產品": {"database": "精神層·產品庫", "tags": ["product", "極致"]},
-    "product": {"database": "精神層·產品庫", "tags": ["product", "極致"]},
-    # 靈魂關鍵詞
-    "靈魂": {"database": "生命層·靈魂檔案", "tags": ["soul", "CNSH"]},
-    "soul": {"database": "生命層·靈魂檔案", "tags": ["soul", "CNSH"]},
-    "龍魂": {"database": "生命層·靈魂檔案", "tags": ["龍魂", "LongHun"]},
+    # 道统层关键词
+    "曾仕强": {"database": "道统层·智慧库", "tags": ["曾仕强", "管理智慧"]},
+    "易经": {"database": "道统层·智慧库", "tags": ["易经", "曾仕强"]},
+    # 工作流关键词
+    "工作流": {"database": "系统层·工作流", "tags": ["workflow", "自动化"]},
+    "workflow": {"database": "系统层·工作流", "tags": ["workflow", "自动化"]},
+    # 技术关键词
+    "代码": {"database": "技术层·代码库", "tags": ["code", "技术"]},
+    "code": {"database": "技术层·代码库", "tags": ["code", "技术"]},
+    "bug": {"database": "技术层·问题追踪", "tags": ["bug", "修复"]},
+    # 产品关键词
+    "产品": {"database": "精神层·产品库", "tags": ["product", "极致"]},
+    "product": {"database": "精神层·产品库", "tags": ["product", "极致"]},
+    # 灵魂关键词
+    "灵魂": {"database": "生命层·灵魂档案", "tags": ["soul", "CNSH"]},
+    "soul": {"database": "生命层·灵魂档案", "tags": ["soul", "CNSH"]},
+    "龍魂": {"database": "生命层·灵魂档案", "tags": ["龍魂", "LongHun"]},
 }
 
-# 三色審計級別
+# 三色审计级别
 class AuditColor(Enum):
-    GREEN = "🟢"   # 正常 / 通過
-    YELLOW = "🟡"  # 警告 / 需關注
-    RED = "🔴"     # 錯誤 / 阻塞
+    GREEN = "🟢"   # 正常 / 通过
+    YELLOW = "🟡"  # 警告 / 需关注
+    RED = "🔴"     # 错误 / 阻塞
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 數據結構定義
+# 数据结构定义
 # ═══════════════════════════════════════════════════════════════════════════════
 
 @dataclass
 class WorkflowStep:
-    """工作流步驟數據結構"""
+    """工作流步骤数据结构"""
     step_number: int
     name: str
     description: str
-    layer: str = ""           # 三層監督標註: L1/L2/L3
+    layer: str = ""           # 三层监督标注: L1/L2/L3
     input_data: Any = None
     output_data: Any = None
     tools_used: List[str] = field(default_factory=list)
@@ -140,7 +140,7 @@ class WorkflowStep:
     status: str = "pending"   # pending / running / completed / error
     duration_ms: int = 0
     audit_color: str = "🟢"   # 🟢🟡🔴
-    source_chain_stamp: str = ""  # 六層來源鏈蓋章
+    source_chain_stamp: str = ""  # 六层来源链盖章
     error_message: str = ""
     timestamp_start: str = ""
     timestamp_end: str = ""
@@ -151,7 +151,7 @@ class WorkflowStep:
 
 @dataclass
 class IronLawViolation:
-    """鐵律違規記錄"""
+    """铁律违规记录"""
     law_id: str
     law_text: str
     violation_detail: str
@@ -162,7 +162,7 @@ class IronLawViolation:
 
 @dataclass
 class AuditRecord:
-    """審計記錄"""
+    """审计记录"""
     check_name: str
     result: str       # PASS / FAIL / WARNING
     color: str        # 🟢🟡🔴
@@ -172,15 +172,15 @@ class AuditRecord:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: IronLawGate — 鐵律自審閘
+# 核心类: IronLawGate — 铁律自审闸
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class IronLawGate:
     """
-    鐵律自審閘 (IronLawGate)
+    铁律自审闸 (IronLawGate)
     ─────────────────────────
-    三層監督: 🟢 L1-自主層
-    功能: 對所有輸入文本進行鐵律合規檢查，確保四條鐵律不被違背
+    三层监督: 🟢 L1-自主层
+    功能: 对所有输入文本进行铁律合规检查，确保四条铁律不被违背
     """
 
     def __init__(self):
@@ -189,40 +189,40 @@ class IronLawGate:
         self._load_iron_laws()
 
     def _load_iron_laws(self) -> None:
-        """加載鐵律規則引擎"""
+        """加载铁律规则引擎"""
         self.rules = [
             {
                 "law_id": "IL-01",
-                "pattern": re.compile(r"人.*?(?:是數據|是数据|作為數據|作为数据|變成數據|变成数据)"),
-                "description": "檢測是否將人貶低為數據",
+                "pattern": re.compile(r"人.*?(?:是数据|是数据|作为数据|作为数据|变成数据|变成数据)"),
+                "description": "检测是否将人贬低为数据",
             },
             {
                 "law_id": "IL-02",
-                "pattern": re.compile(r"(?:蒸餾|蒸馏|變體|变体|頂替|顶替).*?(?:作者|原創|原创|來源|来源)"),
-                "description": "檢測是否未經許可蒸餾/變體/頂替作者作品",
+                "pattern": re.compile(r"(?:蒸馏|蒸馏|变体|变体|顶替|顶替).*?(?:作者|原创|原创|来源|来源)"),
+                "description": "检测是否未经许可蒸馏/变体/顶替作者作品",
             },
             {
                 "law_id": "IL-03",
-                "pattern": re.compile(r"(?:刪除來源|删除来源|覆蓋影響|覆盖影响|抹除貢獻|抹除贡献)"),
-                "description": "檢測是否刪除來源/覆蓋影響/抹除貢獻",
+                "pattern": re.compile(r"(?:删除来源|删除来源|覆盖影响|覆盖影响|抹除贡献|抹除贡献)"),
+                "description": "检测是否删除来源/覆盖影响/抹除贡献",
             },
             {
                 "law_id": "IL-04",
-                "pattern": re.compile(r"龙"),  # 簡體「龙」檢測
-                "description": "檢測繁體龍是否被簡化為龙",
+                "pattern": re.compile(r"龙"),  # 简体“龙”检测
+                "description": "检测繁体龍是否被简化为龙",
             },
         ]
 
     def audit(self, text: str, context: str = "") -> Dict[str, Any]:
         """
-        對文本執行鐵律審查
+        对文本执行铁律审查
         
         Args:
-            text: 待審查文本
-            context: 審查上下文描述
+            text: 待审查文本
+            context: 审查上下文描述
             
         Returns:
-            審查結果字典
+            审查结果字典
         """
         self.check_count += 1
         self.violations.clear()
@@ -236,7 +236,7 @@ class IronLawGate:
                     violation = IronLawViolation(
                         law_id=rule["law_id"],
                         law_text=law["text"],
-                        violation_detail=f"檢測到違規: {rule['description']}",
+                        violation_detail=f"检测到违规: {rule['description']}",
                         context=context,
                         timestamp=timestamp,
                         severity="CRITICAL" if rule["law_id"] == "IL-04" else "WARNING",
@@ -254,7 +254,7 @@ class IronLawGate:
         }
 
     def audit_file(self, file_path: str) -> Dict[str, Any]:
-        """審查文件內容"""
+        """审查文件内容"""
         try:
             with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
@@ -269,21 +269,21 @@ class IronLawGate:
             }
 
     def get_report(self) -> str:
-        """生成審查報告"""
+        """生成审查报告"""
         lines = [
             "═══════════════════════════════════════════",
-            "  鐵律自審閘報告 (IronLawGate Report)",
+            "  铁律自审闸报告 (IronLawGate Report)",
             "═══════════════════════════════════════════",
-            f"  總檢查次數: {self.check_count}",
-            f"  違規次數: {len(self.violations)}",
-            f"  狀態: {'🟢 通過' if not self.violations else '🔴 違規檢測'}",
+            f"  总检查次数: {self.check_count}",
+            f"  违规次数: {len(self.violations)}",
+            f"  状态: {'🟢 通过' if not self.violations else '🔴 违规检测'}",
             "───────────────────────────────────────────",
         ]
         if self.violations:
-            lines.append("  違規詳情:")
+            lines.append("  违规详情:")
             for v in self.violations:
                 lines.append(f"    [{v.law_id}] {v.law_text}")
-                lines.append(f"    詳情: {v.violation_detail}")
+                lines.append(f"    详情: {v.violation_detail}")
                 lines.append(f"    上下文: {v.context}")
                 lines.append("")
         lines.append("═══════════════════════════════════════════")
@@ -291,15 +291,15 @@ class IronLawGate:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: ContinuityCheckpoint — 斷片續連檢查點
+# 核心类: ContinuityCheckpoint — 断片续连检查点
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class ContinuityCheckpoint:
     """
-    斷片續連檢查點 (ContinuityCheckpoint)
+    断片续连检查点 (ContinuityCheckpoint)
     ─────────────────────────────────────
-    三層監督: 🟡 L2-同儕層
-    功能: 在工作流中設置檢查點，支持中斷後從最近檢查點恢復
+    三层监督: 🟡 L2-同侪层
+    功能: 在工作流中设置检查点，支持中断后从最近检查点恢复
     """
 
     def __init__(self, checkpoint_dir: str = str(CHECKPOINTS_DIR)):
@@ -309,7 +309,7 @@ class ContinuityCheckpoint:
         self.current_index = 0
 
     def save(self, workflow_state: Dict[str, Any], step_number: int) -> str:
-        """保存檢查點"""
+        """保存检查点"""
         checkpoint = {
             "timestamp": datetime.now().isoformat(),
             "step_number": step_number,
@@ -325,7 +325,7 @@ class ContinuityCheckpoint:
         return str(filename)
 
     def load_latest(self) -> Optional[Dict[str, Any]]:
-        """加載最新的檢查點"""
+        """加载最新的检查点"""
         checkpoint_files = sorted(
             self.checkpoint_dir.glob("checkpoint_step*.json"),
             key=lambda p: p.stat().st_mtime,
@@ -337,14 +337,14 @@ class ContinuityCheckpoint:
             return json.load(f)
 
     def get_recovery_point(self) -> Optional[int]:
-        """獲取應該恢復的步驟編號"""
+        """获取应该恢复的步骤编号"""
         latest = self.load_latest()
         if latest:
             return latest.get("step_number", 0)
         return None
 
     def list_checkpoints(self) -> List[Dict[str, str]]:
-        """列出所有檢查點"""
+        """列出所有检查点"""
         result = []
         for cp_file in sorted(self.checkpoint_dir.glob("checkpoint_step*.json")):
             stat = cp_file.stat()
@@ -357,15 +357,15 @@ class ContinuityCheckpoint:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: NotionKeywordRouter — 關鍵詞→Notion自動路由器
+# 核心类: NotionKeywordRouter — 关键词→Notion自动路由器
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class NotionKeywordRouter:
     """
-    關鍵詞→Notion自動路由器 (NotionKeywordRouter)
+    关键词→Notion自动路由器 (NotionKeywordRouter)
     ─────────────────────────────────────────────
-    三層監督: 🟡 L2-同儕層
-    功能: 自動識別文本中的關鍵詞並路由到對應的Notion數據庫
+    三层监督: 🟡 L2-同侪层
+    功能: 自动识别文本中的关键词并路由到对应的Notion数据库
     """
 
     def __init__(self, keyword_map: Optional[Dict[str, Any]] = None):
@@ -374,10 +374,10 @@ class NotionKeywordRouter:
 
     def route(self, text: str) -> List[Dict[str, Any]]:
         """
-        分析文本並路由到對應的Notion數據庫
+        分析文本并路由到对应的Notion数据库
         
         Returns:
-            路由結果列表，每個結果包含匹配的關鍵詞和目標數據庫
+            路由结果列表，每个结果包含匹配的关键词和目标数据库
         """
         routes = []
         timestamp = datetime.now().isoformat()
@@ -396,10 +396,10 @@ class NotionKeywordRouter:
                 self.route_history.append(route_record)
 
         if not routes:
-            # 默認路由到通用庫
+            # 默认路由到通用库
             routes.append({
                 "keyword": "(none)",
-                "destination_database": "通用庫·待分類",
+                "destination_database": "通用库·待分类",
                 "tags": ["uncategorized"],
                 "matched_text_snippet": text[:50] + "...",
                 "timestamp": timestamp,
@@ -409,7 +409,7 @@ class NotionKeywordRouter:
         return routes
 
     def _extract_snippet(self, text: str, keyword: str, window: int = 20) -> str:
-        """提取關鍵詞上下文片段"""
+        """提取关键词上下文片段"""
         idx = text.lower().find(keyword.lower())
         if idx == -1:
             return ""
@@ -418,23 +418,23 @@ class NotionKeywordRouter:
         return text[start:end]
 
     def get_route_history(self) -> List[Dict[str, Any]]:
-        """獲取路由歷史"""
+        """获取路由历史"""
         return self.route_history
 
     def generate_notion_payload(self, text: str, title: str = "") -> Dict[str, Any]:
         """
         生成Notion API格式的payload
         
-        注意: 這是結構化payload，實際調用Notion API需要integration token
+        注意: 这是结构化payload，实际调用Notion API需要integration token
         """
         routes = self.route(text)
         return {
-            "parent": {"database_id": routes[0]["destination_database"] if routes else "通用庫"},
+            "parent": {"database_id": routes[0]["destination_database"] if routes else "通用库"},
             "properties": {
-                "標題": {"title": [{"text": {"content": title or f"自動路由-{datetime.now().strftime('%Y%m%d-%H%M%S')}"}}]},
-                "標籤": {"multi_select": [{"name": tag} for tag in (routes[0]["tags"] if routes else [])]},
-                "路由狀態": {"status": {"name": "已路由"}},
-                "來源鏈": {"rich_text": [{"text": {"content": "→".join([f"L{l['layer']}-{l['name']}" for l in SOURCE_CHAIN_LAYERS])}}]},
+                "标题": {"title": [{"text": {"content": title or f"自动路由-{datetime.now().strftime('%Y%m%d-%H%M%S')}"}}]},
+                "标签": {"multi_select": [{"name": tag} for tag in (routes[0]["tags"] if routes else [])]},
+                "路由状态": {"status": {"name": "已路由"}},
+                "来源链": {"rich_text": [{"text": {"content": "→".join([f"L{l['layer']}-{l['name']}" for l in SOURCE_CHAIN_LAYERS])}}]},
             },
             "children": [
                 {
@@ -456,15 +456,15 @@ class NotionKeywordRouter:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: SourceChain — 六層來源鏈蓋章器
+# 核心类: SourceChain — 六层来源链盖章器
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class SourceChain:
     """
-    六層來源鏈蓋章器 (SourceChain)
+    六层来源链盖章器 (SourceChain)
     ───────────────────────────────
-    三層監督: 🔴 L3-生態層
-    功能: 為每個工作流步驟蓋上六層來源鏈印章，確保完整溯源
+    三层监督: 🔴 L3-生态层
+    功能: 为每个工作流步骤盖上六层来源链印章，确保完整溯源
     """
 
     def __init__(self):
@@ -473,7 +473,7 @@ class SourceChain:
 
     def stamp(self, step_name: str, step_number: int) -> str:
         """
-        為指定步驟蓋上六層來源鏈印章
+        为指定步骤盖上六层来源链印章
         
         Returns:
             印章哈希字符串
@@ -499,17 +499,17 @@ class SourceChain:
 
     def validate_chain(self) -> Dict[str, Any]:
         """
-        驗證六層來源鏈完整性
+        验证六层来源链完整性
         
         Returns:
-            驗證結果字典
+            验证结果字典
         """
         timestamp = datetime.now().isoformat()
         results = []
         all_valid = True
 
         for layer in SOURCE_CHAIN_LAYERS:
-            # 檢查每層的必要字段
+            # 检查每层的必要字段
             is_valid = all([
                 layer.get("layer") is not None,
                 layer.get("name"),
@@ -539,30 +539,30 @@ class SourceChain:
         return validation
 
     def get_full_chain_report(self) -> str:
-        """生成完整來源鏈報告"""
+        """生成完整来源链报告"""
         lines = [
             "═══════════════════════════════════════════════════",
-            "  六層來源鏈完整報告 (SourceChain Full Report)",
+            "  六层来源链完整报告 (SourceChain Full Report)",
             "═══════════════════════════════════════════════════",
         ]
         for layer in SOURCE_CHAIN_LAYERS:
             lines.append(f"  [{layer['layer']}] {layer['name']}")
-            lines.append(f"      來源: {layer['source']}")
-            lines.append(f"      本質: {layer['essence']}")
+            lines.append(f"      来源: {layer['source']}")
+            lines.append(f"      本质: {layer['essence']}")
             lines.append("")
         lines.append("───────────────────────────────────────────────────")
-        lines.append(f"  已蓋章數: {len(self.stamps)}")
+        lines.append(f"  已盖章数: {len(self.stamps)}")
         if self.stamps:
             lines.append("  最近印章:")
             latest = self.stamps[-1]
-            lines.append(f"    步驟: {latest['step_name']} (#{latest['step_number']})")
+            lines.append(f"    步骤: {latest['step_name']} (#{latest['step_number']})")
             lines.append(f"    哈希: {latest['stamp_hash']}")
-            lines.append(f"    時間: {latest['timestamp']}")
+            lines.append(f"    时间: {latest['timestamp']}")
         lines.append("═══════════════════════════════════════════════════")
         return "\n".join(lines)
 
     def verify_dna_in_text(self, text: str) -> Dict[str, Any]:
-        """驗證文本中是否包含正確的DNA簽名"""
+        """验证文本中是否包含正确的DNA签名"""
         has_dna = DNA_SIGNATURE in text
         has_confirm = CONFIRM_MARK in text
         has_seal = SEAL_MARK in text
@@ -579,28 +579,28 @@ class SourceChain:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: CNSHFourLayerCheck — CNSH四層檢查
+# 核心类: CNSHFourLayerCheck — CNSH四层检查
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class CNSHFourLayerCheck:
     """
-    CNSH四層檢查
+    CNSH四层检查
     ─────────────
-    三層監督: 🟡 L2-同儕層
-    功能: 執行CNSH協議四層檢查（語義層/結構層/邏輯層/價值層）
+    三层监督: 🟡 L2-同侪层
+    功能: 执行CNSH协议四层检查（语义层/结构层/逻辑层/价值层）
     """
 
     def __init__(self):
         self.check_results: List[Dict[str, Any]] = []
 
     def check_semantic_layer(self, text: str) -> Dict[str, Any]:
-        """語義層檢查: 關鍵概念完整性"""
-        key_concepts = ["龍魂", "CNSH", "鐵律", "來源鏈"]
+        """语义层检查: 关键概念完整性"""
+        key_concepts = ["龍魂", "CNSH", "铁律", "来源链"]
         found = [c for c in key_concepts if c in text]
         missing = [c for c in key_concepts if c not in text]
 
         result = {
-            "layer_name": "語義層",
+            "layer_name": "语义层",
             "checked_concepts": key_concepts,
             "found": found,
             "missing": missing,
@@ -613,10 +613,10 @@ class CNSHFourLayerCheck:
         return result
 
     def check_structural_layer(self, obj: Any) -> Dict[str, Any]:
-        """結構層檢查: 數據結構完整性"""
+        """结构层检查: 数据结构完整性"""
         passed = isinstance(obj, (dict, list, str))
         result = {
-            "layer_name": "結構層",
+            "layer_name": "结构层",
             "type_checked": type(obj).__name__,
             "is_valid_structure": passed,
             "passed": passed,
@@ -627,21 +627,21 @@ class CNSHFourLayerCheck:
         return result
 
     def check_logic_layer(self, workflow_steps: List[WorkflowStep]) -> Dict[str, Any]:
-        """邏輯層檢查: 工作流步驟邏輯連貫性"""
+        """逻辑层检查: 工作流步骤逻辑连贯性"""
         issues = []
         step_nums = [s.step_number for s in workflow_steps]
 
-        # 檢查步驟編號連續性
+        # 检查步骤编号连续性
         if step_nums != sorted(step_nums):
-            issues.append("步驟編號不連續")
+            issues.append("步骤编号不连续")
         if len(step_nums) != len(set(step_nums)):
-            issues.append("存在重複步驟編號")
+            issues.append("存在重复步骤编号")
         if step_nums and step_nums[0] != 1:
-            issues.append("步驟未從1開始")
+            issues.append("步骤未从1开始")
 
         passed = len(issues) == 0
         result = {
-            "layer_name": "邏輯層",
+            "layer_name": "逻辑层",
             "total_steps": len(workflow_steps),
             "step_numbers": step_nums,
             "issues": issues,
@@ -653,13 +653,13 @@ class CNSHFourLayerCheck:
         return result
 
     def check_value_layer(self) -> Dict[str, Any]:
-        """價值層檢查: 核心價值觀一致性"""
+        """价值层检查: 核心价值观一致性"""
         iron_laws_check = all(law["text"] for law in IRON_LAWS)
         source_chain_check = len(SOURCE_CHAIN_LAYERS) == 6
 
         passed = iron_laws_check and source_chain_check
         result = {
-            "layer_name": "價值層",
+            "layer_name": "价值层",
             "iron_laws_loaded": iron_laws_check,
             "source_chain_complete": source_chain_check,
             "passed": passed,
@@ -670,8 +670,8 @@ class CNSHFourLayerCheck:
         return result
 
     def run_all_checks(self, text: str = "", obj: Any = None, steps: Optional[List[WorkflowStep]] = None) -> Dict[str, Any]:
-        """執行全部四層檢查"""
-        text = text or "龍魂 CNSH 鐵律 來源鏈"
+        """执行全部四层检查"""
+        text = text or "龍魂 CNSH 铁律 来源链"
         obj = obj or {}
         steps = steps or []
 
@@ -695,50 +695,50 @@ class CNSHFourLayerCheck:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 核心類: BaobaoWorkflowTransparent — 主工作流引擎
+# 核心类: BaobaoWorkflowTransparent — 主工作流引擎
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class BaobaoWorkflowTransparent:
     """
-    寶寶工作流透明化系統核心引擎
+    宝宝工作流透明化系统核心引擎
     ───────────────────────────────
-    整合所有子系統，提供完整的工作流透明化能力
+    整合所有子系统，提供完整的工作流透明化能力
     """
 
     def __init__(self, log_dir: str = str(LOGS_DIR)):
-        # 基礎屬性
+        # 基础属性
         self.dna = DNA_SIGNATURE
         self.confirm = CONFIRM_MARK
         self.seal = SEAL_MARK
         self.version = VERSION
         self.created_at = datetime.now().isoformat()
 
-        # 工作流狀態
+        # 工作流状态
         self.steps: List[WorkflowStep] = []
         self.current_step = 0
         self.workflow_status = "initialized"  # initialized / running / completed / error
 
-        # 日誌設置 (append-only jsonl)
+        # 日志设置 (append-only jsonl)
         self.log_dir = Path(log_dir)
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self.log_file = self.log_dir / f"workflow_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jsonl"
 
-        # 子系統初始化
+        # 子系统初始化
         self.iron_law_gate = IronLawGate()
         self.checkpoint = ContinuityCheckpoint()
         self.notion_router = NotionKeywordRouter()
         self.source_chain = SourceChain()
         self.cnsh_check = CNSHFourLayerCheck()
 
-        # 審計記錄
+        # 审计记录
         self.audit_records: List[AuditRecord] = []
         self.execution_log: List[Dict[str, Any]] = []
 
-        # 構建工作流
+        # 构建工作流
         self._build_workflow()
 
     def _log_append(self, entry: Dict[str, Any]) -> None:
-        """Append-only 日誌寫入（不可刪改）"""
+        """Append-only 日志写入（不可删改）"""
         entry["_log_timestamp"] = datetime.now().isoformat()
         entry["_dna"] = self.dna
         entry["_confirm"] = self.confirm
@@ -747,7 +747,7 @@ class BaobaoWorkflowTransparent:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
     def _add_audit(self, check_name: str, result: str, color: str, layer: str, details: str) -> None:
-        """添加審計記錄"""
+        """添加审计记录"""
         record = AuditRecord(
             check_name=check_name,
             result=result,
@@ -759,19 +759,19 @@ class BaobaoWorkflowTransparent:
         self.audit_records.append(record)
 
     def _build_workflow(self) -> None:
-        """構建11步寶寶工作流"""
+        """构建11步宝宝工作流"""
         workflow_definition = [
-            (1, "接收理解", "接收用戶輸入，理解真實需求", "L1", ["對話解析"]),
-            (2, "意圖澄清", "確認理解無誤，必要時反問", "L1", ["意圖識別"]),
-            (3, "信息壓縮", "提取關鍵信息，去除噪音", "L1", ["關鍵詞提取"]),
-            (4, "策略規劃", "制定執行策略和步驟分解", "L2", ["策略引擎"]),
-            (5, "資源調度", "選擇工具，分配計算資源", "L2", ["工具選擇"]),
-            (6, "執行操作", "按策略執行具體操作", "L2", ["執行引擎"]),
-            (7, "質量檢查", "檢查輸出質量與準確性", "L2", ["質量閘"]),
-            (8, "鐵律自審", "IronLawGate 鐵律合規檢查", "L1", ["IronLawGate"]),
-            (9, "來源蓋章", "SourceChain 六層來源鏈蓋章", "L3", ["SourceChain"]),
-            (10, "關鍵詞路由", "NotionKeywordRouter 自動路由", "L2", ["KeywordRouter"]),
-            (11, "總結呈現", "整理結果，透明化呈現", "L3", ["輸出格式化"]),
+            (1, "接收理解", "接收用户输入，理解真实需求", "L1", ["对话解析"]),
+            (2, "意图澄清", "确认理解无误，必要时反问", "L1", ["意图识别"]),
+            (3, "信息压缩", "提取关键信息，去除噪音", "L1", ["关键词提取"]),
+            (4, "策略规划", "制定执行策略和步骤分解", "L2", ["策略引擎"]),
+            (5, "资源调度", "选择工具，分配计算资源", "L2", ["工具选择"]),
+            (6, "执行操作", "按策略执行具体操作", "L2", ["执行引擎"]),
+            (7, "质量检查", "检查输出质量与准确性", "L2", ["质量闸"]),
+            (8, "铁律自审", "IronLawGate 铁律合规检查", "L1", ["IronLawGate"]),
+            (9, "来源盖章", "SourceChain 六层来源链盖章", "L3", ["SourceChain"]),
+            (10, "关键词路由", "NotionKeywordRouter 自动路由", "L2", ["KeywordRouter"]),
+            (11, "总结呈现", "整理结果，透明化呈现", "L3", ["输出格式化"]),
         ]
 
         for num, name, desc, layer, tools in workflow_definition:
@@ -787,17 +787,17 @@ class BaobaoWorkflowTransparent:
 
     def execute_step(self, step_number: int, input_data: Any = None) -> Dict[str, Any]:
         """
-        執行指定步驟
+        执行指定步骤
         
         Args:
-            step_number: 步驟編號 (1-11)
-            input_data: 步驟輸入數據
+            step_number: 步骤编号 (1-11)
+            input_data: 步骤输入数据
             
         Returns:
-            步驟執行結果
+            步骤执行结果
         """
         if step_number < 1 or step_number > len(self.steps):
-            return {"error": f"無效步驟編號: {step_number}"}
+            return {"error": f"无效步骤编号: {step_number}"}
 
         step = self.steps[step_number - 1]
         self.current_step = step_number
@@ -809,7 +809,7 @@ class BaobaoWorkflowTransparent:
 
         try:
             # ═══════════════════════════════════════════════
-            # 根據步驟編號執行對應邏輯
+            # 根据步骤编号执行对应逻辑
             # ═══════════════════════════════════════════════
             if step_number == 1:
                 result = self._step_receive_understand(input_data)
@@ -834,7 +834,7 @@ class BaobaoWorkflowTransparent:
             elif step_number == 11:
                 result = self._step_summarize(input_data)
             else:
-                result = {"error": "未知步驟"}
+                result = {"error": "未知步骤"}
 
             step.output_data = result
             step.status = "completed"
@@ -847,14 +847,14 @@ class BaobaoWorkflowTransparent:
             result = {"error": str(e), "traceback": traceback.format_exc()}
             step.output_data = result
 
-        # 計算耗時
+        # 计算耗时
         step.duration_ms = int((time.time() - start_time) * 1000)
         step.timestamp_end = datetime.now().isoformat()
 
-        # 保存檢查點
+        # 保存检查点
         self.checkpoint.save(self.get_workflow_state(), step_number)
 
-        # 寫入日誌
+        # 写入日志
         self._log_append({
             "event": "step_executed",
             "step_number": step_number,
@@ -874,95 +874,95 @@ class BaobaoWorkflowTransparent:
             "source_chain_stamp": step.source_chain_stamp,
         }
 
-    # ─── 各步驟具體實現 ───
+    # ─── 各步骤具体实现 ───
 
     def _step_receive_understand(self, input_data: Any) -> Dict[str, Any]:
-        """步驟1: 接收理解"""
+        """步骤1: 接收理解"""
         text = str(input_data) if input_data else ""
-        # 執行鐵律審查
-        audit = self.iron_law_gate.audit(text, context="接收理解階段")
-        self._add_audit("接收理解-鐵律審查", "PASS" if audit["passed"] else "FAIL", audit["audit_color"], "L1", str(audit["violations"]))
-        return {"action": "接收並理解用戶輸入", "input_preview": text[:200], "iron_law_check": audit["passed"]}
+        # 执行铁律审查
+        audit = self.iron_law_gate.audit(text, context="接收理解阶段")
+        self._add_audit("接收理解-铁律审查", "PASS" if audit["passed"] else "FAIL", audit["audit_color"], "L1", str(audit["violations"]))
+        return {"action": "接收并理解用户输入", "input_preview": text[:200], "iron_law_check": audit["passed"]}
 
     def _step_clarify_intent(self, input_data: Any) -> Dict[str, Any]:
-        """步驟2: 意圖澄清"""
-        return {"action": "澄清用戶意圖", "clarification_needed": False, "confirmed_intent": str(input_data)[:100]}
+        """步骤2: 意图澄清"""
+        return {"action": "澄清用户意图", "clarification_needed": False, "confirmed_intent": str(input_data)[:100]}
 
     def _step_info_compress(self, input_data: Any) -> Dict[str, Any]:
-        """步驟3: 信息壓縮"""
+        """步骤3: 信息压缩"""
         text = str(input_data) if input_data else ""
         keywords = self._extract_keywords(text)
-        return {"action": "提取關鍵信息", "keywords": keywords, "compressed": text[:500]}
+        return {"action": "提取关键信息", "keywords": keywords, "compressed": text[:500]}
 
     def _step_strategy_plan(self, input_data: Any) -> Dict[str, Any]:
-        """步驟4: 策略規劃"""
-        return {"action": "制定執行策略", "strategy": "standard", "estimated_steps": 11}
+        """步骤4: 策略规划"""
+        return {"action": "制定执行策略", "strategy": "standard", "estimated_steps": 11}
 
     def _step_resource_schedule(self, input_data: Any) -> Dict[str, Any]:
-        """步驟5: 資源調度"""
-        return {"action": "調度工具與資源", "tools_selected": ["IronLawGate", "SourceChain", "KeywordRouter"]}
+        """步骤5: 资源调度"""
+        return {"action": "调度工具与资源", "tools_selected": ["IronLawGate", "SourceChain", "KeywordRouter"]}
 
     def _step_execute(self, input_data: Any) -> Dict[str, Any]:
-        """步驟6: 執行操作"""
-        return {"action": "執行核心操作", "execution_status": "completed"}
+        """步骤6: 执行操作"""
+        return {"action": "执行核心操作", "execution_status": "completed"}
 
     def _step_quality_check(self, input_data: Any) -> Dict[str, Any]:
-        """步驟7: 質量檢查"""
-        return {"action": "質量閘檢查", "quality_score": 95, "passed": True}
+        """步骤7: 质量检查"""
+        return {"action": "质量闸检查", "quality_score": 95, "passed": True}
 
     def _step_iron_law_check(self, input_data: Any) -> Dict[str, Any]:
-        """步驟8: 鐵律自審 (IronLawGate)"""
+        """步骤8: 铁律自审 (IronLawGate)"""
         text = str(input_data) if input_data else ""
-        audit = self.iron_law_gate.audit(text, context="工作流鐵律自審")
-        self._add_audit("工作流鐵律自審", "PASS" if audit["passed"] else "FAIL", audit["audit_color"], "L1", f"檢查次數: {audit['check_count']}")
+        audit = self.iron_law_gate.audit(text, context="工作流铁律自审")
+        self._add_audit("工作流铁律自审", "PASS" if audit["passed"] else "FAIL", audit["audit_color"], "L1", f"检查次数: {audit['check_count']}")
         return {
-            "action": "IronLawGate 鐵律自審",
+            "action": "IronLawGate 铁律自审",
             "passed": audit["passed"],
             "violations": audit["violations"],
             "audit_color": audit["audit_color"],
         }
 
     def _step_source_stamp(self, input_data: Any) -> Dict[str, Any]:
-        """步驟9: 來源蓋章 (SourceChain)"""
-        stamp_hash = self.source_chain.stamp("工作流完整執行", 9)
+        """步骤9: 来源盖章 (SourceChain)"""
+        stamp_hash = self.source_chain.stamp("工作流完整执行", 9)
         validation = self.source_chain.validate_chain()
-        self._add_audit("六層來源鏈驗證", "PASS" if validation["all_valid"] else "FAIL", validation["audit_color"], "L3", f"{validation['valid_layers']}/{validation['total_layers']} 層有效")
+        self._add_audit("六层来源链验证", "PASS" if validation["all_valid"] else "FAIL", validation["audit_color"], "L3", f"{validation['valid_layers']}/{validation['total_layers']} 层有效")
 
-        # 為當前步驟蓋章
+        # 为当前步骤盖章
         if self.current_step > 0 and self.current_step <= len(self.steps):
             self.steps[self.current_step - 1].source_chain_stamp = stamp_hash
 
         return {
-            "action": "SourceChain 六層來源鏈蓋章",
+            "action": "SourceChain 六层来源链盖章",
             "stamp_hash": stamp_hash,
             "chain_valid": validation["all_valid"],
             "layers_validated": validation["valid_layers"],
         }
 
     def _step_keyword_route(self, input_data: Any) -> Dict[str, Any]:
-        """步驟10: 關鍵詞路由 (NotionKeywordRouter)"""
+        """步骤10: 关键词路由 (NotionKeywordRouter)"""
         text = str(input_data) if input_data else ""
         routes = self.notion_router.route(text)
-        payload = self.notion_router.generate_notion_payload(text, title="工作流自動路由")
+        payload = self.notion_router.generate_notion_payload(text, title="工作流自动路由")
         return {
-            "action": "NotionKeywordRouter 自動路由",
+            "action": "NotionKeywordRouter 自动路由",
             "routes_found": len(routes),
             "routes": routes,
             "notion_payload_ready": True,
         }
 
     def _step_summarize(self, input_data: Any) -> Dict[str, Any]:
-        """步驟11: 總結呈現"""
+        """步骤11: 总结呈现"""
         summary = {
             "total_steps": len(self.steps),
             "completed_steps": sum(1 for s in self.steps if s.status == "completed"),
             "failed_steps": sum(1 for s in self.steps if s.status == "error"),
             "total_duration_ms": sum(s.duration_ms for s in self.steps),
-            "iron_law_passed": all(a.color != "🔴" for a in self.audit_records if a.check_name == "工作流鐵律自審"),
+            "iron_law_passed": all(a.color != "🔴" for a in self.audit_records if a.check_name == "工作流铁律自审"),
             "source_chain_valid": True,
         }
 
-        # AI Truth Protocol 輸出標註
+        # AI Truth Protocol 输出标注
         summary["ai_truth_protocol"] = {
             "enabled": True,
             "confidence": "HIGH",
@@ -971,10 +971,10 @@ class BaobaoWorkflowTransparent:
             "iron_laws_intact": summary["iron_law_passed"],
         }
 
-        return {"action": "總結呈現", "workflow_summary": summary}
+        return {"action": "总结呈现", "workflow_summary": summary}
 
     def _extract_keywords(self, text: str) -> List[str]:
-        """提取文本中的關鍵詞"""
+        """提取文本中的关键词"""
         found = []
         for keyword in KEYWORD_NOTION_MAP:
             if keyword.lower() in text.lower():
@@ -982,7 +982,7 @@ class BaobaoWorkflowTransparent:
         return found
 
     def get_workflow_state(self) -> Dict[str, Any]:
-        """獲取當前工作流狀態"""
+        """获取当前工作流状态"""
         return {
             "dna": self.dna,
             "version": self.version,
@@ -996,65 +996,65 @@ class BaobaoWorkflowTransparent:
 
     def run_full_audit(self) -> Dict[str, Any]:
         """
-        運行完整自審（--audit 模式）
+        运行完整自审（--audit 模式）
         
-        執行所有檢查並生成完整審計報告
+        执行所有检查并生成完整审计报告
         """
         print("\n" + "=" * 60)
-        print("  🔍 寶寶工作流完整自審模式 (Full Audit Mode)")
+        print("  🔍 宝宝工作流完整自审模式 (Full Audit Mode)")
         print("=" * 60)
 
         results = {}
 
-        # 1. 鐵律自審
-        print("\n[1/5] 🟢 L1 鐵律自審閘 (IronLawGate)...")
+        # 1. 铁律自审
+        print("\n[1/5] 🟢 L1 铁律自审闸 (IronLawGate)...")
         audit_text = " ".join([s.name for s in self.steps])
-        iron_audit = self.iron_law_gate.audit(audit_text, context="完整自審模式")
+        iron_audit = self.iron_law_gate.audit(audit_text, context="完整自审模式")
         results["iron_law_audit"] = iron_audit
-        print(f"    結果: {iron_audit['audit_color']} {'通過' if iron_audit['passed'] else '違規檢測'}")
+        print(f"    结果: {iron_audit['audit_color']} {'通过' if iron_audit['passed'] else '违规检测'}")
         if not iron_audit["passed"]:
             for v in iron_audit["violations"]:
                 print(f"    ⚠️  [{v['law_id']}] {v['law_text']}")
 
-        # 2. 六層來源鏈驗證
-        print("\n[2/5] 🔴 L3 六層來源鏈驗證 (SourceChain)...")
+        # 2. 六层来源链验证
+        print("\n[2/5] 🔴 L3 六层来源链验证 (SourceChain)...")
         chain_validation = self.source_chain.validate_chain()
         results["source_chain_validation"] = chain_validation
-        print(f"    結果: {chain_validation['audit_color']} {chain_validation['valid_layers']}/{chain_validation['total_layers']} 層有效")
+        print(f"    结果: {chain_validation['audit_color']} {chain_validation['valid_layers']}/{chain_validation['total_layers']} 层有效")
         for lr in chain_validation["layer_results"]:
             icon = "🟢" if lr["valid"] else "🔴"
             print(f"    {icon} [{lr['layer']}] {lr['name']} - {lr['source']}")
 
-        # 3. CNSH四層檢查
-        print("\n[3/5] 🟡 L2 CNSH四層檢查...")
+        # 3. CNSH四层检查
+        print("\n[3/5] 🟡 L2 CNSH四层检查...")
         cnsh_result = self.cnsh_check.run_all_checks(steps=self.steps)
         results["cnsh_four_layer"] = cnsh_result
-        print(f"    語義層: {cnsh_result['semantic_layer']['audit_color']} {'通過' if cnsh_result['semantic_layer']['passed'] else '警告'}")
-        print(f"    結構層: {cnsh_result['structural_layer']['audit_color']} {'通過' if cnsh_result['structural_layer']['passed'] else '失敗'}")
-        print(f"    邏輯層: {cnsh_result['logic_layer']['audit_color']} {'通過' if cnsh_result['logic_layer']['passed'] else '警告'}")
-        print(f"    價值層: {cnsh_result['value_layer']['audit_color']} {'通過' if cnsh_result['value_layer']['passed'] else '失敗'}")
+        print(f"    语义层: {cnsh_result['semantic_layer']['audit_color']} {'通过' if cnsh_result['semantic_layer']['passed'] else '警告'}")
+        print(f"    结构层: {cnsh_result['structural_layer']['audit_color']} {'通过' if cnsh_result['structural_layer']['passed'] else '失败'}")
+        print(f"    逻辑层: {cnsh_result['logic_layer']['audit_color']} {'通过' if cnsh_result['logic_layer']['passed'] else '警告'}")
+        print(f"    价值层: {cnsh_result['value_layer']['audit_color']} {'通过' if cnsh_result['value_layer']['passed'] else '失败'}")
 
-        # 4. 工作流完整性檢查
-        print("\n[4/5] 🟢 L1 工作流完整性檢查...")
+        # 4. 工作流完整性检查
+        print("\n[4/5] 🟢 L1 工作流完整性检查...")
         logic_check = self.cnsh_check.check_logic_layer(self.steps)
         results["workflow_integrity"] = logic_check
-        print(f"    總步驟: {logic_check['total_steps']}")
-        print(f"    步驟編號: {logic_check['step_numbers']}")
+        print(f"    总步骤: {logic_check['total_steps']}")
+        print(f"    步骤编号: {logic_check['step_numbers']}")
         if logic_check["issues"]:
             for issue in logic_check["issues"]:
                 print(f"    ⚠️  {issue}")
         else:
-            print(f"    🟢 步驟連續性檢查通過")
+            print(f"    🟢 步骤连续性检查通过")
 
-        # 5. 日誌完整性檢查
-        print("\n[5/5] 🟡 L2 日誌完整性檢查...")
+        # 5. 日志完整性检查
+        print("\n[5/5] 🟡 L2 日志完整性检查...")
         log_exists = self.log_file.exists()
         log_size = self.log_file.stat().st_size if log_exists else 0
         results["log_integrity"] = {"exists": log_exists, "size_bytes": log_size}
-        print(f"    日誌文件: {'存在' if log_exists else '未創建'}")
-        print(f"    日誌大小: {log_size} bytes")
+        print(f"    日志文件: {'存在' if log_exists else '未创建'}")
+        print(f"    日志大小: {log_size} bytes")
 
-        # 總結
+        # 总结
         all_passed = (
             iron_audit["passed"] and
             chain_validation["all_valid"] and
@@ -1065,48 +1065,48 @@ class BaobaoWorkflowTransparent:
         results["timestamp"] = datetime.now().isoformat()
 
         print("\n" + "=" * 60)
-        print(f"  自審總結果: {'🟢 全部通過' if all_passed else '🔴 存在問題'}")
+        print(f"  自审总结果: {'🟢 全部通过' if all_passed else '🔴 存在问题'}")
         print("=" * 60)
 
-        # 輸出審計報告到日誌
+        # 输出审计报告到日志
         self._log_append({"event": "full_audit", "results": results})
 
         return results
 
     def run_validate(self) -> Dict[str, Any]:
         """
-        驗證六層來源鏈（--validate 模式）
+        验证六层来源链（--validate 模式）
         """
         print("\n" + "=" * 60)
-        print("  🔗 六層來源鏈驗證模式 (Source Chain Validation)")
+        print("  🔗 六层来源链验证模式 (Source Chain Validation)")
         print("=" * 60)
 
-        # 驗證來源鏈
+        # 验证来源链
         validation = self.source_chain.validate_chain()
 
-        # 驗證DNA標記（驗證完整的三重標記系統）
+        # 验证DNA标记（验证完整的三重标记系统）
         combined_markers = f"{self.dna}\n{self.confirm}\n{self.seal}"
         dna_check = self.source_chain.verify_dna_in_text(combined_markers)
 
-        # 驗證鐵律完整性
+        # 验证铁律完整性
         iron_laws_complete = len(IRON_LAWS) == 4 and all(l["text"] for l in IRON_LAWS)
 
-        print(f"\n  DNA簽名: {'🟢 有效' if dna_check['dna_present'] else '🔴 缺失'}")
+        print(f"\n  DNA签名: {'🟢 有效' if dna_check['dna_present'] else '🔴 缺失'}")
         print(f"  CONFIRM: {'🟢 有效' if dna_check['confirm_present'] else '🔴 缺失'}")
         print(f"  SEAL:    {'🟢 有效' if dna_check['seal_present'] else '🔴 缺失'}")
-        print(f"\n  六層來源鏈完整性:")
+        print(f"\n  六层来源链完整性:")
         for lr in validation["layer_results"]:
             icon = "🟢" if lr["valid"] else "🔴"
             print(f"    {icon} L{lr['layer']} {lr['name']} — {lr['source']} · {lr['essence']}")
 
-        print(f"\n  鐵律完整性: {'🟢 完整' if iron_laws_complete else '🔴 不完整'}")
+        print(f"\n  铁律完整性: {'🟢 完整' if iron_laws_complete else '🔴 不完整'}")
         for law in IRON_LAWS:
             print(f"    🟢 {law['id']}: {law['text']}")
 
         all_valid = validation["all_valid"] and dna_check["all_present"] and iron_laws_complete
 
         print("\n" + "=" * 60)
-        print(f"  驗證結果: {'🟢 六層來源鏈完整有效' if all_valid else '🔴 存在缺失'}")
+        print(f"  验证结果: {'🟢 六层来源链完整有效' if all_valid else '🔴 存在缺失'}")
         print("=" * 60)
 
         result = {
@@ -1122,52 +1122,52 @@ class BaobaoWorkflowTransparent:
 
     def run_demo(self) -> Dict[str, Any]:
         """
-        演示模式: 模擬執行完整工作流
+        演示模式: 模拟执行完整工作流
         """
         print("\n" + "=" * 60)
-        print(f"  🚀 寶寶工作流透明化系統 v2.0 — 演示模式")
+        print(f"  🚀 宝宝工作流透明化系统 v2.0 — 演示模式")
         print(f"  {DNA_SIGNATURE}")
         print(f"  {CONFIRM_MARK}")
         print("=" * 60)
 
-        demo_input = "請幫我分析這個龍魂體系的工作流，確保符合CNSH協議和鐵律要求"
+        demo_input = "请帮我分析这个龍魂体系的工作流，确保符合CNSH协议和铁律要求"
 
-        print(f"\n  📥 模擬輸入: \"{demo_input}\"\n")
+        print(f"\n  📥 模拟输入: \"{demo_input}\"\n")
 
         all_results = []
         for step in self.steps:
-            print(f"  ─── 步驟 {step.step_number:2d}: {step.name} [{step.layer}] ───")
+            print(f"  ─── 步骤 {step.step_number:2d}: {step.name} [{step.layer}] ───")
             result = self.execute_step(step.step_number, demo_input)
             color = result.get("audit_color", "🟢")
             duration = result.get("duration_ms", 0)
             status = result.get("status", "unknown")
-            print(f"    狀態: {color} {status} | 耗時: {duration}ms")
+            print(f"    状态: {color} {status} | 耗时: {duration}ms")
             if "result" in result and isinstance(result["result"], dict):
                 action = result["result"].get("action", "")
                 if action:
-                    print(f"    動作: {action}")
+                    print(f"    动作: {action}")
             all_results.append(result)
 
-        # 輸出工作流總結
+        # 输出工作流总结
         print("\n" + "=" * 60)
-        print("  📊 工作流執行總結")
+        print("  📊 工作流执行总结")
         print("=" * 60)
         completed = sum(1 for s in self.steps if s.status == "completed")
         failed = sum(1 for s in self.steps if s.status == "error")
         total_duration = sum(s.duration_ms for s in self.steps)
-        print(f"    總步驟: {len(self.steps)}")
+        print(f"    总步骤: {len(self.steps)}")
         print(f"    已完成: {completed} 🟢")
-        print(f"    失敗:   {failed} {'🔴' if failed > 0 else '🟢'}")
-        print(f"    總耗時: {total_duration}ms")
-        print(f"    日誌文件: {self.log_file}")
+        print(f"    失败:   {failed} {'🔴' if failed > 0 else '🟢'}")
+        print(f"    总耗时: {total_duration}ms")
+        print(f"    日志文件: {self.log_file}")
 
-        # AI Truth Protocol 標註
-        print("\n  🤖 AI Truth Protocol 輸出標註:")
+        # AI Truth Protocol 标注
+        print("\n  🤖 AI Truth Protocol 输出标注:")
         print(f"    可信度: HIGH")
-        print(f"    來源已驗證: ✅")
-        print(f"    債務已記錄: ✅")
-        print(f"    鐵律完整: {'✅' if all(a.color != '🔴' for a in self.audit_records) else '❌'}")
-        print(f"    DNA簽名: {self.dna}")
+        print(f"    来源已验证: ✅")
+        print(f"    债务已记录: ✅")
+        print(f"    铁律完整: {'✅' if all(a.color != '🔴' for a in self.audit_records) else '❌'}")
+        print(f"    DNA签名: {self.dna}")
 
         print("\n" + "=" * 60)
 
@@ -1182,43 +1182,43 @@ class BaobaoWorkflowTransparent:
         }
 
     def get_full_report(self) -> str:
-        """生成完整工作流報告"""
+        """生成完整工作流报告"""
         lines = [
             "═══════════════════════════════════════════════════════════════════",
-            "  寶寶工作流透明化系統 — 完整報告",
+            "  宝宝工作流透明化系统 — 完整报告",
             f"  {self.dna}",
             f"  {self.confirm}",
             f"  {self.seal}",
             "═══════════════════════════════════════════════════════════════════",
             f"\n  版本: {self.version}",
-            f"  創建時間: {self.created_at}",
-            f"  工作流狀態: {self.workflow_status}",
-            f"  當前步驟: {self.current_step}/{len(self.steps)}",
-            f"  日誌文件: {self.log_file}",
-            "\n  ─── 步驟詳情 ───",
+            f"  创建时间: {self.created_at}",
+            f"  工作流状态: {self.workflow_status}",
+            f"  当前步骤: {self.current_step}/{len(self.steps)}",
+            f"  日志文件: {self.log_file}",
+            "\n  ─── 步骤详情 ───",
         ]
 
         for step in self.steps:
             color = step.audit_color
             status_icon = "🟢" if step.status == "completed" else "🟡" if step.status == "running" else "⚪"
-            lines.append(f"\n  {status_icon} 步驟 {step.step_number}: {step.name} [{step.layer}] {color}")
+            lines.append(f"\n  {status_icon} 步骤 {step.step_number}: {step.name} [{step.layer}] {color}")
             lines.append(f"     描述: {step.description}")
-            lines.append(f"     狀態: {step.status}")
+            lines.append(f"     状态: {step.status}")
             lines.append(f"     工具: {', '.join(step.tools_used)}")
             if step.duration_ms > 0:
-                lines.append(f"     耗時: {step.duration_ms}ms")
+                lines.append(f"     耗时: {step.duration_ms}ms")
             if step.source_chain_stamp:
-                lines.append(f"     來源鏈印章: {step.source_chain_stamp}")
+                lines.append(f"     来源链印章: {step.source_chain_stamp}")
 
-        lines.append("\n  ─── 審計記錄 ───")
+        lines.append("\n  ─── 审计记录 ───")
         for record in self.audit_records:
             lines.append(f"  {record.color} [{record.layer}] {record.check_name}: {record.result}")
-            lines.append(f"     詳情: {record.details}")
+            lines.append(f"     详情: {record.details}")
 
         lines.append("\n  ─── AI Truth Protocol ───")
-        lines.append(f"  輸出可信度: HIGH")
-        lines.append(f"  來源鏈驗證: ✅ 完整")
-        lines.append(f"  鐵律狀態: {'✅ 無違規' if not any(a.color == '🔴' for a in self.audit_records) else '❌ 存在違規'}")
+        lines.append(f"  输出可信度: HIGH")
+        lines.append(f"  来源链验证: ✅ 完整")
+        lines.append(f"  铁律状态: {'✅ 无违规' if not any(a.color == '🔴' for a in self.audit_records) else '❌ 存在违规'}")
 
         lines.append("\n═══════════════════════════════════════════════════════════════════")
         return "\n".join(lines)
@@ -1230,26 +1230,26 @@ class BaobaoWorkflowTransparent:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="寶寶工作流透明化系統 v2.0 — Baobao Workflow Transparent System",
+        description="宝宝工作流透明化系统 v2.0 — Baobao Workflow Transparent System",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  python baobao_workflow_v2.0.py              # 顯示系統信息
-  python baobao_workflow_v2.0.py --audit      # 運行完整自審
-  python baobao_workflow_v2.0.py --validate   # 驗證六層來源鏈
-  python baobao_workflow_v2.0.py --demo       # 演示模式（執行完整工作流）
-  python baobao_workflow_v2.0.py --report     # 生成完整報告
+  python baobao_workflow_v2.0.py              # 显示系统信息
+  python baobao_workflow_v2.0.py --audit      # 运行完整自审
+  python baobao_workflow_v2.0.py --validate   # 验证六层来源链
+  python baobao_workflow_v2.0.py --demo       # 演示模式（执行完整工作流）
+  python baobao_workflow_v2.0.py --report     # 生成完整报告
         """,
     )
-    parser.add_argument("--audit", action="store_true", help="運行完整自審模式")
-    parser.add_argument("--validate", action="store_true", help="驗證六層來源鏈")
-    parser.add_argument("--demo", action="store_true", help="演示模式（模擬執行完整工作流）")
-    parser.add_argument("--report", action="store_true", help="生成並顯示完整報告")
-    parser.add_argument("--input", type=str, default="", help="輸入文本（用於正常模式）")
+    parser.add_argument("--audit", action="store_true", help="运行完整自审模式")
+    parser.add_argument("--validate", action="store_true", help="验证六层来源链")
+    parser.add_argument("--demo", action="store_true", help="演示模式（模拟执行完整工作流）")
+    parser.add_argument("--report", action="store_true", help="生成并显示完整报告")
+    parser.add_argument("--input", type=str, default="", help="输入文本（用于正常模式）")
 
     args = parser.parse_args()
 
-    # 初始化系統
+    # 初始化系统
     workflow = BaobaoWorkflowTransparent()
 
     if args.audit:
@@ -1267,24 +1267,24 @@ def main():
         print(workflow.get_full_report())
 
     else:
-        # 默認: 顯示系統信息並運行演示
+        # 默认: 显示系统信息并运行演示
         print("""
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║                                                                               ║
-║   🐉 寶寶工作流透明化系統 v2.0 — Baobao Workflow Transparent System          ║
+║   🐉 宝宝工作流透明化系统 v2.0 — Baobao Workflow Transparent System          ║
 ║                                                                               ║
 ║   DNA:#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0                    ║
 ║   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                               ║
 ║   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL                ║
 ║                                                                               ║
-║   三層監督: 🟢 L1-自主層  🟡 L2-同儕層  🔴 L3-生態層                          ║
-║   六層來源鏈: 道統層·精神層·設備層·技術層·系統層·生命層                        ║
+║   三层监督: 🟢 L1-自主层  🟡 L2-同侪层  🔴 L3-生态层                          ║
+║   六层来源链: 道统层·精神层·设备层·技术层·系统层·生命层                        ║
 ║                                                                               ║
 ║   用法: python baobao_workflow_v2.0.py --help                                 ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 """)
-        # 自動運行演示
+        # 自动运行演示
         workflow.run_demo()
 
 

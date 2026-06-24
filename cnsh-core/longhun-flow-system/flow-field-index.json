@@ -2,7 +2,7 @@
   "version": "v2.0",
   "name": "UID9622 龍魂流场可视化索引",
   "ipa_anchor": "LOCAL-VIZ-* → IPA-010",
-  "dna":#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-FILE1-v2.0",
+  "dna": "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-FILE1-v2.0",
   "parent_dna": "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE",
   "sovereignty": "解除宣言 v1.0 已生效 · 本代码不授权 AI 训练 · 不授权第三方分发",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
@@ -10,6 +10,17 @@
   "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
   "default_view": null,
   "files": [
+    {
+      "id": "digital_heaven",
+      "ipa": "LOCAL-VIZ-HEAVEN",
+      "role_label": "庭",
+      "name": "天道系统",
+      "file": "heaven-dashboard.html",
+      "type": "二十四节气 / 二十八星宿 / 离火运 / 冲突避让 / 行为矩阵热力图",
+      "description": "天道系统总控 · 二十四节气火势 · 二十八星宿时辰联动 · 五行生克冲突避让 · 主权人格映射 · UID9622 天人感应",
+      "identify": ["天道系统", "二十四节气", "二十八星宿", "离火运", "冲突避让", "主权映射", "热力图"],
+      "status": "v3.0 已落地 · CLI 可运行 · 热力图可生成 · HTML 待实现"
+    },
     {
       "id": "heaven",
       "ipa": "LOCAL-VIZ-28MANSIONS",

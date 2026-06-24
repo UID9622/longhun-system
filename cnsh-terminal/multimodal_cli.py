@@ -14,7 +14,7 @@
   - stt     : 语音转文字
 
 用法示例：
-  python3 multimodal_cli.py speak "你好，龍魂系統"
+  python3 multimodal_cli.py speak "你好，龍魂系统"
   python3 multimodal_cli.py ocr ~/Desktop/screenshot.png
   python3 multimodal_cli.py perceive ~/Downloads/sample.mp3
 
@@ -27,14 +27,14 @@ import asyncio
 import argparse
 from pathlib import Path
 
-# 讓 Python 找得到中文名稱的多模态模塊
+# 让 Python 找得到中文名称的多模态模块
 _MODULE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "modules", "multimodal")
 if _MODULE_DIR not in sys.path:
     sys.path.insert(0, _MODULE_DIR)
 
 
 def _hub():
-    """懶加載感知中樞，避免一啟動 CLI 就載入所有子引擎。"""
+    """懒加载感知中枢，避免一启动 CLI 就载入所有子引擎。"""
     from 龍魂多模态感知中枢 import 龍魂多模态感知中枢
     return 龍魂多模态感知中枢()
 
@@ -42,7 +42,7 @@ def _hub():
 def cmd_speak(args):
     文本 = args.text
     if not 文本:
-        return "❌ 請提供要合成的文字"
+        return "❌ 请提供要合成的文字"
 
     输出路径 = args.output or os.path.expanduser(
         f"~/龍魂语音输出/龍魂语音_{os.getpid()}.mp3"

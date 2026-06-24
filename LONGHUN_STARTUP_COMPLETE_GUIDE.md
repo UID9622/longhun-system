@@ -1,102 +1,102 @@
 <!--#龍芯⚡️2026-06-21-DOC-LONGHUN_STARTUP_COMPLETE_GUIDE-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 🐉 龍魂系統開機啟動完整指南
+# 🐉 龍魂系统开机启动完整指南
 
 ```
 DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
-時間: 2026-06-07
+时间: 2026-06-07
 版本: v1.0
 ```
 
 ---
 
-## 📋 **快速開始 (推薦方式)**
+## 📋 **快速开始 (推荐方式)**
 
-### **方式 1: 使用一鍵啟動腳本 (最簡單)**
+### **方式 1: 使用一键启动脚本 (最简单)**
 
 ```bash
-# 1. 進入龍魂系統目錄
+# 1. 进入龍魂系统目录
 cd ~/longhun-system
 
-# 2. 複製啟動腳本
+# 2. 复制启动脚本
 cp /mnt/user-data/outputs/longhun_system_start_all.sh ./
 
-# 3. 給予執行權限
+# 3. 给予执行权限
 chmod +x longhun_system_start_all.sh
 
-# 4. 運行啟動腳本
+# 4. 运行启动脚本
 ./longhun_system_start_all.sh
 ```
 
-**預期輸出:**
+**预期输出:**
 ```
 ════════════════════════════════════════════════════════════
-🐉 龍魂系統一鍵啟動腳本
+🐉 龍魂系统一键启动脚本
 ════════════════════════════════════════════════════════════
 
-Part 1: 環境檢查
-  ✅ 龍魂系統目錄: ~/longhun-system
+Part 1: 环境检查
+  ✅ 龍魂系统目录: ~/longhun-system
 
-Part 2: 啟動 brain_notion_sync
-  ⏳ 正在啟動 brain_notion_sync (持續監聽)... ✅ 成功 (PID: 12345)
+Part 2: 启动 brain_notion_sync
+  ⏳ 正在启动 brain_notion_sync (持续监听)... ✅ 成功 (PID: 12345)
 
-Part 3: 啟動監控服務器
-  ⏳ 正在啟動 監控服務器 (localhost:9000)... ✅ 成功 (PID: 12346)
+Part 3: 启动监控服务器
+  ⏳ 正在启动 监控服务器 (localhost:9000)... ✅ 成功 (PID: 12346)
 
-Part 5: 驗證服務狀態
+Part 5: 验证服务状态
   ✅ brain_notion_sync (PID: 12345)
   ✅ monitoring_server (PID: 12346)
   ✅ localhost:9000 (正常)
 
-🎉 啟動完成
+🎉 启动完成
 ```
 
 ---
 
-### **方式 2: 手動啟動服務**
+### **方式 2: 手动启动服务**
 
 ```bash
 cd ~/longhun-system
 
-# 1. 啟動 brain_notion_sync (Notion 同步)
+# 1. 启动 brain_notion_sync (Notion 同步)
 nohup python3 brain_notion_sync.py --watch > logs/brain_notion_sync.log 2>&1 &
 
-# 2. 啟動監控服務器
+# 2. 启动监控服务器
 cd mobile-monitoring/backend/python
 nohup python3 monitoring_server.py > ~/longhun-system/logs/monitoring_server.log 2>&1 &
 
-# 3. 驗證
+# 3. 验证
 ps aux | grep -E 'brain_notion_sync|monitoring_server'
 ```
 
 ---
 
-## 🖥️ **開機自啟配置**
+## 🖥️ **开机自启配置**
 
-### **方法 A: 使用 systemd (推薦，Linux/macOS)**
+### **方法 A: 使用 systemd (推荐，Linux/macOS)**
 
 ```bash
-# 1. 複製 systemd 服務文件
+# 1. 复制 systemd 服务文件
 sudo cp /mnt/user-data/outputs/longhun-brain-sync.service \
         /etc/systemd/system/
 
-# 2. 重新加載 systemd
+# 2. 重新加载 systemd
 sudo systemctl daemon-reload
 
-# 3. 啟用開機自啟
+# 3. 启用开机自启
 sudo systemctl enable longhun-brain-sync
 
-# 4. 啟動服務
+# 4. 启动服务
 sudo systemctl start longhun-brain-sync
 
-# 5. 檢查狀態
+# 5. 检查状态
 sudo systemctl status longhun-brain-sync
 ```
 
-**預期輸出:**
+**预期输出:**
 ```
-● longhun-brain-sync.service - 龍魂脑干 · Notion 同步服務
+● longhun-brain-sync.service - 龍魂脑干 · Notion 同步服务
    Loaded: loaded (/etc/systemd/system/longhun-brain-sync.service; enabled)
    Active: active (running) since ...
    Main PID: 12345
@@ -104,26 +104,26 @@ sudo systemctl status longhun-brain-sync
 
 ---
 
-### **方法 B: 使用 cron (備選方案)**
+### **方法 B: 使用 cron (备选方案)**
 
 ```bash
-# 編輯 crontab
+# 编辑 crontab
 crontab -e
 
-# 添加以下行 (開機時運行啟動腳本):
+# 添加以下行 (开机时运行启动脚本):
 @reboot cd ~/longhun-system && ./longhun_system_start_all.sh
 
-# 或每分鐘檢查一次服務是否運行:
+# 或每分钟检查一次服务是否运行:
 * * * * * ~/longhun-system/longhun_system_keep_alive.sh > /dev/null 2>&1
 ```
 
 ---
 
-### **方法 C: 使用開機腳本 (macOS/Linux)**
+### **方法 C: 使用开机脚本 (macOS/Linux)**
 
 **macOS:**
 ```bash
-# 創建 LaunchAgent
+# 创建 LaunchAgent
 cat > ~/Library/LaunchAgents/com.longhun.sync.plist << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
@@ -145,241 +145,241 @@ cat > ~/Library/LaunchAgents/com.longhun.sync.plist << 'EOF'
 </plist>
 EOF
 
-# 加載服務
+# 加载服务
 launchctl load ~/Library/LaunchAgents/com.longhun.sync.plist
 ```
 
 **Linux (systemd):**
-參考上方的 systemd 方法
+参考上方的 systemd 方法
 
 ---
 
-## 🧪 **驗證啟動成功**
+## 🧪 **验证启动成功**
 
-### **Step 1: 運行檢查腳本**
+### **Step 1: 运行检查脚本**
 
 ```bash
-# 複製檢查腳本
+# 复制检查脚本
 cp /mnt/user-data/outputs/longhun_system_startup_check.sh ~/longhun-system/
 
-# 給予執行權限
+# 给予执行权限
 chmod +x ~/longhun-system/longhun_system_startup_check.sh
 
-# 運行檢查
+# 运行检查
 ./longhun_system_startup_check.sh
 ```
 
-**應該看到:**
+**应该看到:**
 ```
-✅ Part 1: 環境檢查
-   ✅ 龍魂系統目錄存在
-   ✅ Python 已安裝
-   ✅ Git 已安裝
+✅ Part 1: 环境检查
+   ✅ 龍魂系统目录存在
+   ✅ Python 已安装
+   ✅ Git 已安装
 
-✅ Part 2: 龍魂系統文件檢查
+✅ Part 2: 龍魂系统文件检查
    ✅ brain/memories.db (大小: XXX)
    ✅ brain_notion_sync.py
    ✅ longhun_brain.py
 
-✅ Part 3: brain_notion_sync.py 服務檢查
+✅ Part 3: brain_notion_sync.py 服务检查
    ✅ brain_notion_sync 版本: v1.1
-   ✅ brain_notion_sync.py 語法正確
-   ✅ 重試機制已實現
-   ✅ 限流控制器已實現
+   ✅ brain_notion_sync.py 语法正确
+   ✅ 重试机制已实现
+   ✅ 限流控制器已实现
 
-✅ Part 7: 進程檢查
-   ✅ brain_notion_sync 正在運行 (PID: XXXXX)
-   ✅ monitoring_server 正在運行 (PID: XXXXX)
+✅ Part 7: 进程检查
+   ✅ brain_notion_sync 正在运行 (PID: XXXXX)
+   ✅ monitoring_server 正在运行 (PID: XXXXX)
 
-✅ 通過率: 95%
+✅ 通过率: 95%
 ```
 
 ---
 
-### **Step 2: 檢查運行進程**
+### **Step 2: 检查运行进程**
 
 ```bash
-# 查看所有龍魂系統進程
+# 查看所有龍魂系统进程
 ps aux | grep -E 'brain_notion_sync|monitoring_server'
 
-# 應該看到類似:
+# 应该看到类似:
 # root  12345  0.5  0.3  ...  python3 brain_notion_sync.py --watch
 # root  12346  0.2  0.4  ...  python3 monitoring_server.py
 ```
 
 ---
 
-### **Step 3: 檢查服務可達性**
+### **Step 3: 检查服务可达性**
 
 ```bash
-# 檢查 Notion 同步服務日誌
+# 检查 Notion 同步服务日志
 tail -f ~/longhun-system/logs/brain_notion_sync.log
 
-# 應該看到:
-# 🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 升級版)
+# 应该看到:
+# 🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 升级版)
 # 👀 监听模式启动（每 300 秒同步一次）
 
-# 檢查監控服務器
+# 检查监控服务器
 curl http://localhost:9000/api/v1/monitor/health
 
-# 應該看到:
+# 应该看到:
 # {"status":"healthy","version":"4.1"}
 ```
 
 ---
 
-## 📊 **監控和管理**
+## 📊 **监控和管理**
 
-### **查看服務日誌**
+### **查看服务日志**
 
 ```bash
-# 實時查看 Notion 同步日誌
+# 实时查看 Notion 同步日志
 tail -f ~/longhun-system/logs/brain_notion_sync.log
 
-# 實時查看監控服務器日誌
+# 实时查看监控服务器日志
 tail -f ~/longhun-system/logs/monitoring_server.log
 
-# 查看歷史日誌 (最後 100 行)
+# 查看历史日志 (最后 100 行)
 tail -100 ~/longhun-system/logs/brain_notion_sync.log
 ```
 
 ---
 
-### **管理服務**
+### **管理服务**
 
 ```bash
 # 使用 systemd 管理 (如果配置了):
 
-# 查看狀態
+# 查看状态
 sudo systemctl status longhun-brain-sync
 
-# 重啟服務
+# 重启服务
 sudo systemctl restart longhun-brain-sync
 
-# 停止服務
+# 停止服务
 sudo systemctl stop longhun-brain-sync
 
-# 查看日誌
+# 查看日志
 sudo journalctl -u longhun-brain-sync -f
 ```
 
 ---
 
-### **手動管理進程**
+### **手动管理进程**
 
 ```bash
-# 查找進程 PID
+# 查找进程 PID
 pgrep -f 'brain_notion_sync.py --watch'
 
-# 停止指定進程
+# 停止指定进程
 kill -9 <PID>
 
-# 重啟服務 (使用一鍵腳本)
+# 重启服务 (使用一键脚本)
 cd ~/longhun-system
 ./longhun_system_start_all.sh
 ```
 
 ---
 
-## ⚠️ **常見問題和解決方案**
+## ⚠️ **常见问题和解决方案**
 
-### **問題 1: 服務無法啟動**
+### **问题 1: 服务无法启动**
 
-**症狀:**
+**症状:**
 ```
-❌ brain_notion_sync 未運行
+❌ brain_notion_sync 未运行
 ```
 
-**解決步驟:**
+**解决步骤:**
 ```bash
-# 1. 檢查 Python 語法
+# 1. 检查 Python 语法
 python3 -m py_compile ~/longhun-system/brain_notion_sync.py
 
-# 2. 手動運行檢查錯誤
+# 2. 手动运行检查错误
 cd ~/longhun-system
 python3 brain_notion_sync.py --status
 
-# 3. 查看詳細錯誤
+# 3. 查看详细错误
 python3 brain_notion_sync.py --once
 ```
 
 ---
 
-### **問題 2: 監控服務器無法連接**
+### **问题 2: 监控服务器无法连接**
 
-**症狀:**
+**症状:**
 ```
-❌ localhost:9000 不可達
+❌ localhost:9000 不可达
 ```
 
-**解決步驟:**
+**解决步骤:**
 ```bash
-# 1. 檢查端口是否被占用
+# 1. 检查端口是否被占用
 lsof -i :9000
 
-# 2. 殺死佔用進程
+# 2. 杀死占用进程
 kill -9 <PID>
 
-# 3. 重新啟動服務
+# 3. 重新启动服务
 cd ~/longhun-system/mobile-monitoring/backend/python
 python3 monitoring_server.py
 ```
 
 ---
 
-### **問題 3: 磁盤空間不足**
+### **问题 3: 磁盘空间不足**
 
-**症狀:**
+**症状:**
 ```
-⚠️  磁盤空間即將不足
+⚠️  磁盘空间即将不足
 ```
 
-**解決步驟:**
+**解决步骤:**
 ```bash
-# 1. 查看磁盤使用情況
+# 1. 查看磁盘使用情况
 du -sh ~/longhun-system/*
 
-# 2. 清理舊日誌
+# 2. 清理旧日志
 rm ~/longhun-system/logs/LONGHUN_STARTUP_CHECK_20260601*.log
 
-# 3. 壓縮舊日誌
+# 3. 压缩旧日志
 gzip ~/longhun-system/logs/*.log
 ```
 
 ---
 
-### **問題 4: Notion 同步失敗**
+### **问题 4: Notion 同步失败**
 
-**症狀:**
+**症状:**
 ```
-❌ 推送失敗
+❌ 推送失败
 ```
 
-**解決步驟:**
+**解决步骤:**
 ```bash
-# 1. 檢查環境變量
+# 1. 检查环境变量
 echo $NOTION_TOKEN
 echo $NOTION_BRAIN_DB
 
-# 2. 設置環境變量 (如未設置)
+# 2. 设置环境变量 (如未设置)
 export NOTION_TOKEN="secret_xxxxx"
 export NOTION_BRAIN_DB="xxxxx"
 
-# 3. 檢查同步狀態
+# 3. 检查同步状态
 python3 ~/longhun-system/brain_notion_sync.py --status
 
-# 4. 手動執行同步
+# 4. 手动执行同步
 python3 ~/longhun-system/brain_notion_sync.py --once
 ```
 
 ---
 
-## 🚀 **最佳實踐**
+## 🚀 **最佳实践**
 
-### **1. 定期檢查系統狀態**
+### **1. 定期检查系统状态**
 
 ```bash
-# 設置每天早上 8 點自動檢查
+# 设置每天早上 8 点自动检查
 crontab -e
 
 # 添加:
@@ -389,13 +389,13 @@ crontab -e
 
 ---
 
-### **2. 設置日誌輪轉**
+### **2. 设置日志轮转**
 
 ```bash
-# 防止日誌文件過大
+# 防止日志文件过大
 sudo apt-get install logrotate (Linux)
 
-# 創建 logrotate 配置
+# 创建 logrotate 配置
 sudo cat > /etc/logrotate.d/longhun << 'EOF'
 /root/longhun-system/logs/*.log {
     daily
@@ -409,105 +409,105 @@ EOF
 
 ---
 
-### **3. 設置監控告警**
+### **3. 设置监控告警**
 
 ```bash
-# 創建監控腳本
+# 创建监控脚本
 cat > ~/longhun-system/longhun_system_keep_alive.sh << 'EOF'
 #!/bin/bash
-# 每分鐘檢查一次，如果服務宕機自動重啟
+# 每分钟检查一次，如果服务宕机自动重启
 
 if ! pgrep -f 'brain_notion_sync.py --watch' > /dev/null; then
     cd ~/longhun-system
     nohup python3 brain_notion_sync.py --watch > \
           logs/brain_notion_sync.log 2>&1 &
-    echo "$(date) - brain_notion_sync 已自動重啟" >> logs/keep_alive.log
+    echo "$(date) - brain_notion_sync 已自动重启" >> logs/keep_alive.log
 fi
 
 if ! pgrep -f 'monitoring_server.py' > /dev/null; then
     cd ~/longhun-system/mobile-monitoring/backend/python
     nohup python3 monitoring_server.py > \
           ~/longhun-system/logs/monitoring_server.log 2>&1 &
-    echo "$(date) - monitoring_server 已自動重啟" >> \
+    echo "$(date) - monitoring_server 已自动重启" >> \
           ~/longhun-system/logs/keep_alive.log
 fi
 EOF
 
 chmod +x ~/longhun-system/longhun_system_keep_alive.sh
 
-# 在 crontab 中設置每分鐘運行
+# 在 crontab 中设置每分钟运行
 crontab -e
 # 添加: * * * * * ~/longhun-system/longhun_system_keep_alive.sh
 ```
 
 ---
 
-## 📞 **技術支援**
+## 📞 **技术支援**
 
-### **獲取詳細信息:**
+### **获取详细信息:**
 
 ```bash
-# 查看系統日誌
+# 查看系统日志
 journalctl -xe
 
-# 查看進程信息
+# 查看进程信息
 ps aux | grep longhun
 
-# 查看網絡連接
+# 查看网络连接
 netstat -an | grep 9000
 
-# 查看資源使用
+# 查看资源使用
 top -p $(pgrep -f 'brain_notion_sync.py --watch')
 ```
 
 ---
 
-## ✨ **快速命令參考**
+## ✨ **快速命令参考**
 
 ```bash
-# 啟動所有服務
+# 启动所有服务
 cd ~/longhun-system && ./longhun_system_start_all.sh
 
-# 檢查系統狀態
+# 检查系统状态
 ./longhun_system_startup_check.sh
 
-# 查看 Notion 同步狀態
+# 查看 Notion 同步状态
 python3 brain_notion_sync.py --status
 
-# 手動執行一次同步
+# 手动执行一次同步
 python3 brain_notion_sync.py --once
 
-# 查看運行進程
+# 查看运行进程
 ps aux | grep -E 'brain_notion_sync|monitoring_server'
 
-# 查看日誌
+# 查看日志
 tail -f logs/brain_notion_sync.log
 
-# 停止所有服務
+# 停止所有服务
 pkill -f 'brain_notion_sync.py --watch'
 pkill -f 'monitoring_server.py'
 ```
 
 ---
 
-## 🎯 **總結**
+## 🎯 **总结**
 
 ```
 ════════════════════════════════════════════════════════════
-🐉 龍魂系統開機啟動完成指南
+🐉 龍魂系统开机启动完成指南
 ════════════════════════════════════════════════════════════
 
-快速開始:
+快速开始:
   1. bash ~/longhun-system/longhun_system_start_all.sh
 
-開機自啟:
+开机自启:
   sudo systemctl enable longhun-brain-sync
   sudo systemctl start longhun-brain-sync
 
-驗證:
+验证:
   bash ~/longhun-system/longhun_system_startup_check.sh
 
 DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
-天下無欺。🐉
+天下无欺。🐉
 ════════════════════════════════════════════════════════════
 ```

@@ -1,3 +1,4 @@
+# #龍芯⚡️20260624010825157-AUTO-DNA-F43722E7 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-RENDERER-v1.0
@@ -253,7 +254,8 @@ def _background(name: str, size: tuple) -> Image.Image:
 def render(text: str, style_code: str = "YZQ-KA",
            layout: str = "horizontal", seal_text: Optional[str] = None,
            classic: str = "GENERAL", output_name: Optional[str] = None,
-           size: Optional[tuple] = None) -> dict:
+           size: Optional[tuple] = None,
+           font_size: Optional[int] = None) -> dict:
     """
     渲染书法作品。
 
@@ -265,11 +267,12 @@ def render(text: str, style_code: str = "YZQ-KA",
         classic: 典籍代码，用于作品编号
         output_name: 输出文件名（不含扩展名）
         size: 画布尺寸 (宽, 高)，默认自动
+        font_size: 强制字号，覆盖样式默认值
     """
     style = load_style(style_code)
     params = style["parameters"]
 
-    font_size = params.get("font_size", 220)
+    font_size = font_size or params.get("font_size", 220)
     slant = params.get("slant", 0.0)
     randomness = params.get("randomness", 0.02)
     spacing_x = params.get("spacing_x", 1.1)

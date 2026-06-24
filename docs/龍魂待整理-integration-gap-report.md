@@ -1,60 +1,61 @@
-# 龍魂待整理 · 主幹融入差距與執行報告
+<!-- #龍芯⚡️20260624010825179-AUTO-DNA-930738EA 自动注入·分层治理自愈引擎 · 来源可查 -->
+# 龍魂待整理 · 主干融入差距与执行报告
 
 **DNA**:#龍芯⚡️2026-06-16-INTEGRATION-GAP-REPORT_A139-v1.0  
-**來源**: `/Users/zuimeidedeyihan/龍魂待整理`  
-**主幹**: `/Users/zuimeidedeyihan/longhun-system`  
-**責任**: UID9622·不免責
+**来源**: `/Users/zuimeidedeyihan/龍魂待整理`  
+**主干**: `/Users/zuimeidedeyihan/longhun-system`  
+**责任**: UID9622·不免责
 
 ---
 
-## 執行摘要
+## 执行摘要
 
-`/Users/zuimeidedeyihan/龍魂待整理` 是 **Notion 全站導出 + 歷史獨立文件/腳本/HTML/PDF** 的混合歸檔包，共 **8,226 個文件、約 1.46 GB**。本次審查將其視為「AI 協作容器」進行結構化拆解，識別出大量尚未融入 `longhun-system` 主幹的知識、技能與記憶。
+`/Users/zuimeidedeyihan/龍魂待整理` 是 **Notion 全站导出 + 历史独立文件/脚本/HTML/PDF** 的混合归档包，共 **8,226 个文件、约 1.46 GB**。本次审查将其视为“AI 协作容器”进行结构化拆解，识别出大量尚未融入 `longhun-system` 主干的知识、技能与记忆。
 
-**本次行動**：
-- ✅ 完成全量目錄掃描與差距分析
-- ✅ 融入 P0 級核心缺失項（控制台、流場、P0 協議文件、AI 執行規則）
-- ✅ 建立分類與優先級路線圖
-- ⚠️ 標記敏感/私人內容，建議不直接公開融入
+**本次行动**：
+- ✅ 完成全量目录扫描与差距分析
+- ✅ 融入 P0 级核心缺失项（控制台、流场、P0 协议文件、AI 执行规则）
+- ✅ 建立分类与优先级路线图
+- ⚠️ 标记敏感/私人内容，建议不直接公开融入
 
 ---
 
-## 資產規模
+## 资产规模
 
-| 指標 | 數值 |
+| 指标 | 数值 |
 |------|------|
-| 總文件數 | 8,226 |
-| 總大小 | ~1.46 GB |
-| 頂層獨立文件 | 112 |
-| 頂層獨立目錄 | 12 |
-| Notion 導出文件 | 8,031 |
+| 总文件数 | 8,226 |
+| 总大小 | ~1.46 GB |
+| 顶层独立文件 | 112 |
+| 顶层独立目录 | 12 |
+| Notion 导出文件 | 8,031 |
 | Notion `.md` | 7,352 |
 | Notion 非 `.md` | 681 |
 
-### Notion 導出 7 大工作區
+### Notion 导出 7 大工作区
 
-| 工作區 | 文件數 | 主要內容 |
+| 工作区 | 文件数 | 主要内容 |
 |--------|--------|---------|
-| `私人与共享` | 4,344 | 治理、DNA、IP、任務、審計、決策、個人檔案 |
-| `CNSH｜UID9622` | 1,945 | 協議、標準、AI 教育、P0 不可變規則、執行引擎 |
-| `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | 1,014 | 公開入口、IPA 人格對齊、MCP 規範、教程 |
-| `龍魂技术全站` | 383 | 元宇宙、數據庫、技術藍圖 |
-| `UID9622·托管区` | 299 | 主控台、人格矩陣、安全、起源理論 |
-| `易学堂` | 29 | 教育課程、DNA 註冊表、個人主權檔案 |
-| `宝宝这是我们的家` | 13 | 家庭/私人哲學、系統聯動、媒體庫 |
+| `私人与共享` | 4,344 | 治理、DNA、IP、任务、审计、决策、个人档案 |
+| `CNSH｜UID9622` | 1,945 | 协议、标准、AI 教育、P0 不可变规则、执行引擎 |
+| `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | 1,014 | 公开入口、IPA 人格对齐、MCP 规范、教程 |
+| `龍魂技术全站` | 383 | 元宇宙、数据库、技术蓝图 |
+| `UID9622·托管区` | 299 | 主控台、人格矩阵、安全、起源理论 |
+| `易学堂` | 29 | 教育课程、DNA 注册表、个人主权档案 |
+| `宝宝这是我们的家` | 13 | 家庭/私人哲学、系统联动、媒体库 |
 
 ---
 
-## 已融入主幹的內容
+## 已融入主干的内容
 
-| 來源 | 主幹位置 | 狀態 |
+| 来源 | 主干位置 | 状态 |
 |------|---------|------|
-| `UID9622_龍魂流场总控_v2.0.md` | 根目錄 | ✅ |
+| `UID9622_龍魂流场总控_v2.0.md` | 根目录 | ✅ |
 | `LH-CDNA-v1.2-需求文档.md` | `docs/references/` | ✅ |
-| `ATTRIBUTION.md` | 根目錄 | ✅ |
-| `audit_engine.py` | `cnsh-core/engines/`、`skills/warehouse-audit/scripts/` | ✅ 需權威路徑歸一 |
-| `cnsh_gateway.py` | `cnsh-core/gateway/`、`tools/gpg-sign-manager/` | ✅ 需權威路徑歸一 |
-| `longhun_brain.py` | `cnsh-core/brain/` | ✅ 建議遷至 `brain/` |
+| `ATTRIBUTION.md` | 根目录 | ✅ |
+| `audit_engine.py` | `cnsh-core/engines/`、`skills/warehouse-audit/scripts/` | ✅ 需权威路径归一 |
+| `cnsh_gateway.py` | `cnsh-core/gateway/`、`tools/gpg-sign-manager/` | ✅ 需权威路径归一 |
+| `longhun_brain.py` | `cnsh-core/brain/` | ✅ 建议迁至 `brain/` |
 | `longhun_wuxing_mvp.py` | `cnsh-core/wuxing/` | ✅ |
 | `longhun-flow-system/` | `cnsh-core/longhun-flow-system/` | ✅ |
 | `dragon-terminal-v2.html` | `docs/references/` | ✅ |
@@ -63,219 +64,219 @@
 
 ---
 
-## 本次新融入的 P0 項
+## 本次新融入的 P0 项
 
-| 來源 | 主幹目標 | 說明 |
+| 来源 | 主干目标 | 说明 |
 |------|---------|------|
 | `main-console.html` | `web/p0-controls/` | 核心控制台 |
-| `sancai-flow-v8.html` | `web/p0-controls/` | 三才流場 v8 |
-| `sancai-flow-v8.1.html` | `web/p0-controls/` | 三才流場 v8.1 |
-| `memory-editor.html` | `web/p0-controls/` | 記憶編輯器 |
-| `longhun_hub.html` | `web/p0-controls/` | 龍魂中樞 |
-| `✅ UID9622任务执行中心 v2 0 ...` | `docs/p0-imports/` | 任務執行中心 v2.0 |
-| `🐉 CNSH Local Sovereign AgentOS v2 0 ...` | `docs/p0-imports/` | 本地主權 AgentOS |
-| `🏠 CNSH净土系统·P0基石家园` | `docs/p0-imports/` | 淨土系統 P0 基石 |
-| `🪨🐉 底层协议·主权绝对回收 v1 0 ...` | `docs/p0-imports/` | 主權絕對回收協議 |
-| `🔒 已归档·AI回复前强制执行规则...` 目錄 | `cnsh-core/rules-engine/ai-response-enforcement-rules/` | AI 回覆前強制執行規則與算法 |
+| `sancai-flow-v8.html` | `web/p0-controls/` | 三才流场 v8 |
+| `sancai-flow-v8.1.html` | `web/p0-controls/` | 三才流场 v8.1 |
+| `memory-editor.html` | `web/p0-controls/` | 记忆编辑器 |
+| `longhun_hub.html` | `web/p0-controls/` | 龍魂中枢 |
+| `✅ UID9622任务执行中心 v2 0 ...` | `docs/p0-imports/` | 任务执行中心 v2.0 |
+| `🐉 CNSH Local Sovereign AgentOS v2 0 ...` | `docs/p0-imports/` | 本地主权 AgentOS |
+| `🏠 CNSH净土系统·P0基石家园` | `docs/p0-imports/` | 净土系统 P0 基石 |
+| `🪨🐉 底层协议·主权绝对回收 v1 0 ...` | `docs/p0-imports/` | 主权绝对回收协议 |
+| `🔒 已归档·AI回复前强制执行规则...` 目录 | `cnsh-core/rules-engine/ai-response-enforcement-rules/` | AI 回复前强制执行规则与算法 |
 
 ### 第二批 P0 融入
 
-| 來源 | 主幹目標 | 說明 |
+| 来源 | 主干目标 | 说明 |
 |------|---------|------|
-| `🔍 UID9622系统核心审计中心` | `cnsh-core/audit/audit-center/` | 審計中心平台 |
-| `📝 Decision Records - 决策库` | `04_決策日誌/decision-records/` | 決策記錄庫 |
-| `⚖️ CNSH全球法律知识库` | `cnsh-core/legal/global-legal-library/` | 全球法律知識庫 |
-| `🌌 Dragon-Soul Metaverse` | `systems/metaverse/dragon-soul-metaverse/` | 元宇宙系統 |
-| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | CNSH v1.0 測試套件 |
-| `龍魂API/` | `cnsh-core/api/longhun-api/` | 龍魂 API 實現與文檔 |
+| `🔍 UID9622系统核心审计中心` | `cnsh-core/audit/audit-center/` | 审计中心平台 |
+| `📝 Decision Records - 决策库` | `04_决策日志/decision-records/` | 决策记录库 |
+| `⚖️ CNSH全球法律知识库` | `cnsh-core/legal/global-legal-library/` | 全球法律知识库 |
+| `🌌 Dragon-Soul Metaverse` | `systems/metaverse/dragon-soul-metaverse/` | 元宇宙系统 |
+| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | CNSH v1.0 测试套件 |
+| `龍魂API/` | `cnsh-core/api/longhun-api/` | 龍魂 API 实现与文档 |
 
 ---
 
-## 剩餘關鍵差距（按優先級）
+## 剩余关键差距（按优先级）
 
-### P0 · 必須盡快融入
+### P0 · 必须尽快融入
 
-| 來源 | 建議目標 | 狀態 | 備註 |
+| 来源 | 建议目标 | 状态 | 备注 |
 |------|---------|------|------|
-| `私人与共享/🔍 UID9622系统核心审计中心` | `cnsh-core/audit/` | ✅ 已融入 | 含審計歷史庫與操作日誌 README |
-| `私人与共享/📝 Decision Records - 决策库` | `04_決策日誌/` | ✅ 已融入 | 2 條決策記錄 |
-| `私人与共享/📜 龍魂操作草日志` | `logs/audit-trail/` | ⚠️ 暫緩 | 內容涉密，僅保留 `audit-trail/README.md` 規範 |
-| `CNSH｜UID9622/⚖️ CNSH全球法律知识库` | `cnsh-core/legal/` | ✅ 已融入 | 中/美/歐/阿聯酋/國際法 + 隱私框架 |
-| `CNSH｜UID9622/🐉 龍魂七維AI治理×數字主權執行表` | `docs/private-shared-imports/governance/` | ✅ 已融入 | 已定位 CSV 並複製；新增字段說明文件 |
-| `龍魂技术全站/🌌 Dragon-Soul Metaverse` | `systems/metaverse/` | ✅ 已融入 | 10 篇元宇宙系統文檔 |
-| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `docs/private-shared-imports/architecture/` | ✅ 已融入 | 已定位核心數據庫頁面；新增索引/映射文件與關聯架構文件 |
-| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | ✅ 已融入 | 12 個測試文件/腳本/HTML |
-| `龍魂API/` | `cnsh-core/api/` | ✅ 已融入 | API 實現 + 部署指令 + 使用說明 |
+| `私人与共享/🔍 UID9622系统核心审计中心` | `cnsh-core/audit/` | ✅ 已融入 | 含审计历史库与操作日志 README |
+| `私人与共享/📝 Decision Records - 决策库` | `04_决策日志/` | ✅ 已融入 | 2 条决策记录 |
+| `私人与共享/📜 龍魂操作草日志` | `logs/audit-trail/` | ⚠️ 暂缓 | 内容涉密，仅保留 `audit-trail/README.md` 规范 |
+| `CNSH｜UID9622/⚖️ CNSH全球法律知识库` | `cnsh-core/legal/` | ✅ 已融入 | 中/美/欧/阿联酋/国际法 + 隐私框架 |
+| `CNSH｜UID9622/🐉 龍魂七维AI治理×数字主权执行表` | `docs/private-shared-imports/governance/` | ✅ 已融入 | 已定位 CSV 并复制；新增字段说明文件 |
+| `龍魂技术全站/🌌 Dragon-Soul Metaverse` | `systems/metaverse/` | ✅ 已融入 | 10 篇元宇宙系统文档 |
+| `龍魂技术全站/📊 UID9622智能数据库管理中心` | `docs/private-shared-imports/architecture/` | ✅ 已融入 | 已定位核心数据库页面；新增索引/映射文件与关联架构文件 |
+| `CNSH-v1.0-测试/` | `tests/cnsh-v1.0/` | ✅ 已融入 | 12 个测试文件/脚本/HTML |
+| `龍魂API/` | `cnsh-core/api/` | ✅ 已融入 | API 实现 + 部署指令 + 使用说明 |
 
 ### 第三批：私人与共享批量融入
 
-從 Notion `私人与共享` 工作區頂層 413 個 `.md` 文件中：
-- 篩出 **34 個敏感文件**（私人對話、加密、密鑰、DNA 身份、激活碼等）**排除**
-- 融入 **44 個非敏感核心文檔**至 `docs/private-shared-imports/`
+从 Notion `私人与共享` 工作区顶层 413 个 `.md` 文件中：
+- 筛出 **34 个敏感文件**（私人对话、加密、密钥、DNA 身份、激活码等）**排除**
+- 融入 **44 个非敏感核心文档**至 `docs/private-shared-imports/`
 
-| 類別 | 數量 | 主幹位置 |
+| 类别 | 数量 | 主干位置 |
 |------|------|---------|
-| AI 行為規則 | 4 | `docs/private-shared-imports/ai-behavior/` |
-| CNSH 協議 | 7 | `docs/private-shared-imports/cnsh-protocols/` |
-| 系統架構 | 7 | `docs/private-shared-imports/architecture/` |
-| 治理與君子協議 | 8 | `docs/private-shared-imports/governance/` |
-| 安全與審計 | 5 | `docs/private-shared-imports/security-audit/` |
-| 人格與工具 | 4 | `docs/private-shared-imports/persona-tools/` |
-| API 與集成 | 2 | `docs/private-shared-imports/api-integration/` |
-| 記憶與 DNA | 3 | `docs/private-shared-imports/memory-dna/` |
-| 綜合文檔 | 4 | `docs/private-shared-imports/documentation/` |
+| AI 行为规则 | 4 | `docs/private-shared-imports/ai-behavior/` |
+| CNSH 协议 | 7 | `docs/private-shared-imports/cnsh-protocols/` |
+| 系统架构 | 7 | `docs/private-shared-imports/architecture/` |
+| 治理与君子协议 | 8 | `docs/private-shared-imports/governance/` |
+| 安全与审计 | 5 | `docs/private-shared-imports/security-audit/` |
+| 人格与工具 | 4 | `docs/private-shared-imports/persona-tools/` |
+| API 与集成 | 2 | `docs/private-shared-imports/api-integration/` |
+| 记忆与 DNA | 3 | `docs/private-shared-imports/memory-dna/` |
+| 综合文档 | 4 | `docs/private-shared-imports/documentation/` |
 
-詳見 `docs/private-shared-imports/README.md` 與 `docs/private-shared-scan.json`。
+详见 `docs/private-shared-imports/README.md` 与 `docs/private-shared-scan.json`。
 
-### 第四批：子文件夾掃描批次
+### 第四批：子文件夹扫描批次
 
-進一步遞迴掃描 `私人与共享` 下所有子文件夾，從 4,251 個 `.md/.csv/.json` 文件中：
+进一步递回扫描 `私人与共享` 下所有子文件夹，从 4,251 个 `.md/.csv/.json` 文件中：
 
-- **排除**：約 628 個涉私人對話、密鑰、激活碼、DNA 身份、家庭內容、封存備份等敏感/重複文件
-- **融入**：精選 **50** 個 P0/P1 級核心文檔至 `docs/private-shared-imports/`
+- **排除**：约 628 个涉私人对话、密钥、激活码、DNA 身份、家庭内容、封存备份等敏感/重复文件
+- **融入**：精选 **50** 个 P0/P1 级核心文档至 `docs/private-shared-imports/`
 
-| 類別 | 本批數量 | 累計位置 |
+| 类别 | 本批数量 | 累计位置 |
 |------|----------|----------|
-| 安全與審計 | 9 | `docs/private-shared-imports/security-audit/` |
-| 記憶與 DNA | 8 | `docs/private-shared-imports/memory-dna/` |
-| 系統架構 | 7 | `docs/private-shared-imports/architecture/` |
-| 治理與君子協議 | 6 | `docs/private-shared-imports/governance/` |
-| 人格與工具 | 5 | `docs/private-shared-imports/persona-tools/` |
-| CNSH 協議 | 5 | `docs/private-shared-imports/cnsh-protocols/` |
-| AI 行為規則 | 3 | `docs/private-shared-imports/ai-behavior/` |
-| 綜合文檔 | 2 | `docs/private-shared-imports/documentation/` |
-| API 與集成 | 2 | `docs/private-shared-imports/api-integration/` |
-| 決策記錄 | 2 | `docs/private-shared-imports/decision-records/` |
-| 開發者工具與技術棧 | 1 | `docs/private-shared-imports/developer-tools/` |
-| **本批合計** | **50** | — |
+| 安全与审计 | 9 | `docs/private-shared-imports/security-audit/` |
+| 记忆与 DNA | 8 | `docs/private-shared-imports/memory-dna/` |
+| 系统架构 | 7 | `docs/private-shared-imports/architecture/` |
+| 治理与君子协议 | 6 | `docs/private-shared-imports/governance/` |
+| 人格与工具 | 5 | `docs/private-shared-imports/persona-tools/` |
+| CNSH 协议 | 5 | `docs/private-shared-imports/cnsh-protocols/` |
+| AI 行为规则 | 3 | `docs/private-shared-imports/ai-behavior/` |
+| 综合文档 | 2 | `docs/private-shared-imports/documentation/` |
+| API 与集成 | 2 | `docs/private-shared-imports/api-integration/` |
+| 决策记录 | 2 | `docs/private-shared-imports/decision-records/` |
+| 开发者工具与技术栈 | 1 | `docs/private-shared-imports/developer-tools/` |
+| **本批合计** | **50** | — |
 
-詳見 `docs/private-shared-imports/README.md` 與 `docs/private-shared-scan-subfolders.json`。
+详见 `docs/private-shared-imports/README.md` 与 `docs/private-shared-scan-subfolders.json`。
 
-### P1 · 建議融入
+### P1 · 建议融入
 
-| 來源 | 建議目標 |
+| 来源 | 建议目标 |
 |------|---------|
-| `龍魂移動端監控自動化 · 部署 Quick Start` | `mobile-monitoring.integrated/` |
+| `龍魂移动端监控自动化 · 部署 Quick Start` | `mobile-monitoring.integrated/` |
 | `Kimi_Agent_龍魂根协议自动化` | `systems/` 或 `protocols/` |
-| `龍魂 10 Skill 標準化完成` | `skills/`（需與現有對比） |
-| `CNSH v3.0 · 完整交付清單` | `cnsh-core/` |
+| `龍魂 10 Skill 标准化完成` | `skills/`（需与现有对比） |
+| `CNSH v3.0 · 完整交付清单` | `cnsh-core/` |
 | `CNSH Runtime Governance Mathematics` | `cnsh-core/` |
-| `龍魂系統 · CNSH 語義接入規範 v2.0` | `cnsh-core/` |
-| `龍魂系統 Phase 3 · 完整交付` | `phase3/` |
-| `龍魂協議焊死·立即行動方案` | `protocols/` |
+| `龍魂系统 · CNSH 语义接入规范 v2.0` | `cnsh-core/` |
+| `龍魂系统 Phase 3 · 完整交付` | `phase3/` |
+| `龍魂协议焊死·立即行动方案` | `protocols/` |
 | `龍魂协议双语版` | `protocols/` |
 | `longhun-forensic-toolkit-v1.0` | `tools/forensics/` |
 | `龍魂网关` | `integrated-modules/gateway/` |
 
-### P2 · 有選擇融入
+### P2 · 有选择融入
 
-| 來源 | 建議目標 |
+| 来源 | 建议目标 |
 |------|---------|
-| `longhun_core_memory.md`（28.8 MB） | `03_知識圖譜/`（需結構化提取） |
-| `longhun_scan_result.json`（11.1 MB） | `docs/references/`（分析後） |
+| `longhun_core_memory.md`（28.8 MB） | `03_知识图谱/`（需结构化提取） |
+| `longhun_scan_result.json`（11.1 MB） | `docs/references/`（分析后） |
 | `龍魂系统初始化宣言_P0底线焊死版.html` | `docs/references/` |
 | `龍魂数学公式体系 · 升级版 v2.0.html` | `docs/references/` |
 | `AI智能体术语对照表-龍魂版.html` | `docs/references/` |
 | `CNSH-64 数学形式化完整版.html` | `docs/references/` |
-| `longhun_launcher_scan.py` | `bin/`（評估後） |
-| `longhun_daily_assessment.sh` | `bin/`（與新腳本整合） |
+| `longhun_launcher_scan.py` | `bin/`（评估后） |
+| `longhun_daily_assessment.sh` | `bin/`（与新脚本整合） |
 
-### P3 · 暫緩/歸檔
+### P3 · 暂缓/归档
 
-| 來源 | 處理建議 |
+| 来源 | 处理建议 |
 |------|---------|
-| `longhun-system-backup-2026-06-01-bfg/` | 保留備份，不融入 |
-| `longhun-archive/` | 已為歸檔，維持現狀 |
-| `Kimi_Agent_长恨888网站搭建/` | 按需融入 `web/` 或歸檔 |
-| `浏览器字体包/`、`css/` | 資源文件，按需引用 |
-| `龍魂万年历.widgetkitsim/` | 小組件，可歸檔 |
-| `Claude/` | 本地會話配置，不公開融入 |
+| `longhun-system-backup-2026-06-01-bfg/` | 保留备份，不融入 |
+| `longhun-archive/` | 已为归档，维持现状 |
+| `Kimi_Agent_长恨888网站搭建/` | 按需融入 `web/` 或归档 |
+| `浏览器字体包/`、`css/` | 资源文件，按需引用 |
+| `龍魂万年历.widgetkitsim/` | 小组件，可归档 |
+| `Claude/` | 本地会话配置，不公开融入 |
 
 ---
 
-## 敏感內容清單（不建議公開融入）
+## 敏感内容清单（不建议公开融入）
 
-以下內容涉及個人身份、密鑰、私密對話或第三方信息，**應先脫敏、加密或嚴格控制訪問權限**後再決定是否融入：
+以下内容涉及个人身份、密钥、私密对话或第三方信息，**应先脱敏、加密或严格控制访问权限**后再决定是否融入：
 
-| 區域 | 風險 |
+| 区域 | 风险 |
 |------|------|
-| `kimi-webbridge-extension.pem` | 瀏覽器擴展私鑰 |
-| `GPG公钥指纹验证与导入指南-*.json` | GPG 指紋/密鑰元數據 |
-| `私人与共享/🔒 Lucky的私密创意金库` | 私人創意與配置 |
-| `私人与共享/🔐 UID9622密钥管理中心` | 激活碼、確認碼、身份密鑰 |
+| `kimi-webbridge-extension.pem` | 浏览器扩展私钥 |
+| `GPG公钥指纹验证与导入指南-*.json` | GPG 指纹/密钥元数据 |
+| `私人与共享/🔒 Lucky的私密创意金库` | 私人创意与配置 |
+| `私人与共享/🔐 UID9622密钥管理中心` | 激活码、确认码、身份密钥 |
 | `私人与共享/🧬 龍魂DNA库` / `灵魂密钥DNA追溯系统` | 高敏感身份 DNA |
-| `私人与共享/📋 UID9622对话证据保全中心` | 私人對話證據 |
-| `私人与共享/📜 龍魂操作草日志` | 操作日誌 |
-| `私人与共享/💬 UID9622·真实支持者共鸣墙` | 第三方個人信息 |
-| `宝宝这是我们的家/` | 家庭私人內容 |
-| `🔒 核心系统保护区 最高机密` | 明確標記最高機密 |
+| `私人与共享/📋 UID9622对话证据保全中心` | 私人对话证据 |
+| `私人与共享/📜 龍魂操作草日志` | 操作日志 |
+| `私人与共享/💬 UID9622·真实支持者共鸣墙` | 第三方个人信息 |
+| `宝宝这是我们的家/` | 家庭私人内容 |
+| `🔒 核心系统保护区 最高机密` | 明确标记最高机密 |
 
-> **原則**：先分類、再脫敏、後融入；不確定是否涉密的一律按涉密處理。
+> **原则**：先分类、再脱敏、后融入；不确定是否涉密的一律按涉密处理。
 
 ---
 
-## 已融入 P0 項的使用方式
+## 已融入 P0 项的使用方式
 
 ```bash
-# 查看新融入的 P0 控制台與流場
+# 查看新融入的 P0 控制台与流场
 ls -la ~/longhun-system/web/p0-controls/
 
-# 查看新融入的 P0 文檔
+# 查看新融入的 P0 文档
 ls -la ~/longhun-system/docs/p0-imports/
 
-# 查看 AI 執行規則
+# 查看 AI 执行规则
 ls -la ~/longhun-system/cnsh-core/rules-engine/ai-response-enforcement-rules/
 ```
 
 ---
 
-## 後續行動建議
+## 后续行动建议
 
-1. **路徑歸一化**：確認 `audit_engine.py`、`cnsh_gateway.py`、`longhun_brain.py` 的權威路徑，清理 `cnsh-core.backup/` 中的重複副本。
-2. **P0 持續融入**：按本報告 P0 列表逐項融入核心審計、決策庫、操作日誌、法律庫、治理表、元宇宙、數據庫、API、測試套件。
-3. **敏感區掃描**：對 `私人与共享` 全量進行敏感掃描，建立 `.sensitive-ignore` 清單。
-4. **Export 目錄結構化**：將 7 大工作區按主題拆分到 `systems/`、`cnsh-core/`、`docs/`、`protocols/`。
-5. **自動化**：使用 `bin/package-watcher.py` 持續監控 `龍魂待整理` 的更新，發現新 P0 項時觸發提醒。
-
----
-
-> 🐉 龍魂永世，文化傳承，數字主權，科技自主創新不可讓渡！
+1. **路径归一化**：确认 `audit_engine.py`、`cnsh_gateway.py`、`longhun_brain.py` 的权威路径，清理 `cnsh-core.backup/` 中的重复副本。
+2. **P0 持续融入**：按本报告 P0 列表逐项融入核心审计、决策库、操作日志、法律库、治理表、元宇宙、数据库、API、测试套件。
+3. **敏感区扫描**：对 `私人与共享` 全量进行敏感扫描，建立 `.sensitive-ignore` 清单。
+4. **Export 目录结构化**：将 7 大工作区按主题拆分到 `systems/`、`cnsh-core/`、`docs/`、`protocols/`。
+5. **自动化**：使用 `bin/package-watcher.py` 持续监控 `龍魂待整理` 的更新，发现新 P0 项时触发提醒。
 
 ---
 
-## 第五批：Export 全量工作區結構化融入（2026-06-16）
+> 🐉 龍魂永世，文化传承，数字主权，科技自主创新不可让渡！
 
-本次對 `/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa` 下的 7 大工作區進行掃描、分類、脫敏與融入。
+---
 
-### 工作區清單與融入狀態
+## 第五批：Export 全量工作区结构化融入（2026-06-16）
 
-| 工作區 | 風險等級 | 掃描文件數 | 融入文件數 | 目標目錄 | 狀態 |
+本次对 `/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa` 下的 7 大工作区进行扫描、分类、脱敏与融入。
+
+### 工作区清单与融入状态
+
+| 工作区 | 风险等级 | 扫描文件数 | 融入文件数 | 目标目录 | 状态 |
 |--------|----------|------------|------------|----------|------|
 | `龍魂技术全站` | low | 383 | 101 | `docs/longhun-tech/` | ✅ 已融入 |
 | `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | low | 998 | 146 | `docs/dragon-soul-open-hub/` | ✅ 已融入 |
 | `UID9622·托管区` | high | 292 | 108 | `docs/uid9622-hosted/` | ✅ 已融入 |
-| `宝宝这是我们的家` | high | 11 | 4 | `docs/dragon-soul-philosophy/` | ✅ 已融入（僅技術/哲學檔案） |
-| `易学堂` | high | 29 | 2 | `docs/yixuetang/` | ✅ 已融入（僅公開教學/架構） |
+| `宝宝这是我们的家` | high | 11 | 4 | `docs/dragon-soul-philosophy/` | ✅ 已融入（仅技术/哲学档案） |
+| `易学堂` | high | 29 | 2 | `docs/yixuetang/` | ✅ 已融入（仅公开教学/架构） |
 | `CNSH｜UID9622` | high | 1,940 | 120 | `docs/cnsh-uid9622/` | ✅ 已融入 |
-| `私人与共享` | high | 4,344 | 214（累計） | `docs/private-shared-imports/` | ✅ 頂層 + 子文件夾 + 第二批補充 |
+| `私人与共享` | high | 4,344 | 214（累计） | `docs/private-shared-imports/` | ✅ 顶层 + 子文件夹 + 第二批补充 |
 
-### 新增輔助腳本
+### 新增辅助脚本
 
-- `bin/organize_longhun_tech.py`：龍魂技术全站自動分類與融入
-- `bin/integrate_cnsh_uid9622.py`：CNSH｜UID9622 自動分類與融入
-- `bin/integrate_private_shared_batch2.py`：私人与共享第二批補充
-- `bin/generate_workspace_metadata.py`：為已融入目錄生成 README 與 scan JSON
-- `bin/update_private_shared_readme.py`：更新私人与共享總覽 README
+- `bin/organize_longhun_tech.py`：龍魂技术全站自动分类与融入
+- `bin/integrate_cnsh_uid9622.py`：CNSH｜UID9622 自动分类与融入
+- `bin/integrate_private_shared_batch2.py`：私人与共享第二批补充
+- `bin/generate_workspace_metadata.py`：为已融入目录生成 README 与 scan JSON
+- `bin/update_private_shared_readme.py`：更新私人与共享总览 README
 
-### 敏感內容處理
+### 敏感内容处理
 
-- 已排除：私人對話、家庭/情感內容、加密密鑰、激活碼、DNA 身份檔案、個人主權綁定檔案。
-- 已脫敏：UID9622 等公開標識保留；真實姓名、GPG 指紋、確認碼、個人聯繫方式已替換或刪除。
-- 已過濾空文件、無標題殘留、明顯碎片化的待辦/記錄。
+- 已排除：私人对话、家庭/情感内容、加密密钥、激活码、DNA 身份档案、个人主权绑定档案。
+- 已脱敏：UID9622 等公开标识保留；真实姓名、GPG 指纹、确认码、个人联系方式已替换或删除。
+- 已过滤空文件、无标题残留、明显碎片化的待办/记录。
 
-### 後續建議
+### 后续建议
 
-1. 對 `docs/private-shared-imports/` 第二批自動化結果進行人工抽樣審查。
-2. 建立 `.sensitive-ignore` 清單，將本次排除的目錄與檔案模式化。
-3. 將 `docs/cnsh-uid9622/` 中的 CNSH 語言規範與 `cnsh-core/` 現有運行時對接。
-4. 將 `docs/dragon-soul-open-hub/` 中的開源模板與學術論文模板發布到 `templates/`。
+1. 对 `docs/private-shared-imports/` 第二批自动化结果进行人工抽样审查。
+2. 建立 `.sensitive-ignore` 清单，将本次排除的目录与档案模式化。
+3. 将 `docs/cnsh-uid9622/` 中的 CNSH 语言规范与 `cnsh-core/` 现有运行时对接。
+4. 将 `docs/dragon-soul-open-hub/` 中的开源模板与学术论文模板发布到 `templates/`。

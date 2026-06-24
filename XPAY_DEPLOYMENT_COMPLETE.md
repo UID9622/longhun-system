@@ -1,106 +1,106 @@
-# XPay 龍魂支付系統 · 部署完成驗收 v1.0
+# XPay 龍魂支付系统 · 部署完成验收 v1.0
 
-**時間**: 2026-06-05 17:33 CST
-**狀態**: 🟢 **完全就緒·驗收通過**
+**时间**: 2026-06-05 17:33 CST
+**状态**: 🟢 **完全就绪·验收通过**
 **DNA**:#龍芯⚡️2026-06-05-XPAY-COMPLETE-v1.0
-**驗收者**: UID9622 (Claude Code)
+**验收者**: UID9622 (Claude Code)
 
 ---
 
-## 部署路徑
+## 部署路径
 
 ```
-核心系統:
-  ~/.龍魂/xpay/                      (支付系統本體)
+核心系统:
+  ~/.龍魂/xpay/                      (支付系统本体)
     ├── xpay_core.py                (核心引擎 30K)
-    ├── xpay_cli.py                 (CLI工具 · 已修復)
+    ├── xpay_cli.py                 (CLI工具 · 已修复)
     ├── xpay_server.py              (Flask API)
-    ├── startup.sh                  (互動菜單)
-    ├── longhun_welding_automation.sh (自動化焊接)
-    ├── transactions.json            (交易數據)
-    └── logs/                        (審計日誌)
+    ├── startup.sh                  (互动菜单)
+    ├── longhun_welding_automation.sh (自动化焊接)
+    ├── transactions.json            (交易数据)
+    └── logs/                        (审计日志)
 
-自動化啟動:
-  /Users/zuimeidedeyihan/Downloads/龍魂自动化启動/
-    ├── longhun_launcher.sh         (啟動菜單 · 已修復)
-    ├── setup_longhun_alias.sh      (別名設定 · 已執行)
-    └── SUPER_SIMPLE_START.md       (使用說明)
+自动化启动:
+  /Users/zuimeidedeyihan/Downloads/龍魂自动化启动/
+    ├── longhun_launcher.sh         (启动菜单 · 已修复)
+    ├── setup_longhun_alias.sh      (别名设定 · 已执行)
+    └── SUPER_SIMPLE_START.md       (使用说明)
 ```
 
 ---
 
-## 修復清單
+## 修复清单
 
-### ✅ 修復 1: XPay CLI NoneType 錯誤 (xpay_cli_fixed.py)
+### ✅ 修复 1: XPay CLI NoneType 错误 (xpay_cli_fixed.py)
 
-**症狀**: `transaction query` 和 `stats` 命令崩潰
-- Line 81: `{tx.get('amount') - tx.get('fee')}` → NoneType 減 NoneType
-- cmd_stats(): 呼叫已破壞的 xpay_api.get_stats()
+**症状**: `transaction query` 和 `stats` 命令崩溃
+- Line 81: `{tx.get('amount') - tx.get('fee')}` → NoneType 减 NoneType
+- cmd_stats(): 呼叫已破坏的 xpay_api.get_stats()
 
-**修復**: 直接讀取 transactions.json，添加 None 檢查
+**修复**: 直接读取 transactions.json，添加 None 检查
 ```python
 amount = tx.get('amount') or 0
 fee = tx.get('fee') or 0
 net_amount = amount - fee
 ```
 
-**驗證**: ✅ Query / Stats / History 全部正常
+**验证**: ✅ Query / Stats / History 全部正常
 
 ---
 
-### ✅ 修復 2: 龍魂自動化啟動 · 路徑問題 (longhun_launcher.sh)
+### ✅ 修复 2: 龍魂自动化启动 · 路径问题 (longhun_launcher.sh)
 
-**症狀**: Exit code 127，路徑解析失敗
+**症状**: Exit code 127，路径解析失败
 - Line 58: 使用 `./LongHun_AutomatedWeldingScript.sh`（不存在）
-- Lines 51,66,76...: 嘗試從 `~/.龍魂/xpay/longhun_launcher.sh` 遞迴呼叫
+- Lines 51,66,76...: 尝试从 `~/.龍魂/xpay/longhun_launcher.sh` 递回呼叫
 
-**修復**:
-1. 定義 `LAUNCHER_PATH` 變數指向正確位置
-2. 修正腳本名稱為 `longhun_welding_automation.sh`
-3. 統一所有遞迴呼叫使用 `"$LAUNCHER_PATH"`
+**修复**:
+1. 定义 `LAUNCHER_PATH` 变数指向正确位置
+2. 修正脚本名称为 `longhun_welding_automation.sh`
+3. 统一所有递回呼叫使用 `"$LAUNCHER_PATH"`
 
-**驗證**: ✅ 菜單選項 2,3,8 測試通過
+**验证**: ✅ 菜单选项 2,3,8 测试通过
 
 ---
 
-## 完全驗收報告
+## 完全验收报告
 
-### 🎯 階段執行
+### 🎯 阶段执行
 
-| # | 名稱 | 交易 | 狀態 |
+| # | 名称 | 交易 | 状态 |
 |---|------|------|------|
-| 1️⃣ | 基礎焊接 | 7筆 | ✅ |
-| 2️⃣ | 統計驗證 | - | ✅ |
-| 3️⃣ | DNA導出 | - | ✅ |
-| 4️⃣ | 錯誤檢查 | - | ✅ |
-| 5️⃣ | DNA簽證 | - | ✅ |
+| 1️⃣ | 基础焊接 | 7笔 | ✅ |
+| 2️⃣ | 统计验证 | - | ✅ |
+| 3️⃣ | DNA导出 | - | ✅ |
+| 4️⃣ | 错误检查 | - | ✅ |
+| 5️⃣ | DNA签证 | - | ✅ |
 
-### 💰 交易驗證
+### 💰 交易验证
 
-**總額**: ¥50,276.0
-**筆數**: 8筆 (新增7筆+舊1筆)
+**总额**: ¥50,276.0
+**笔数**: 8笔 (新增7笔+旧1笔)
 **平均**: ¥6,284.50
-**手續費**: ¥0.0
+**手续费**: ¥0.0
 
 ```
-TXN-20260605164108  │  100.0 CNY   │ 基礎測試
-TXN-20260605164109  │ 50000.0 CNY  │ 大額支付
+TXN-20260605164108  │  100.0 CNY   │ 基础测试
+TXN-20260605164109  │ 50000.0 CNY  │ 大额支付
 TXN-BATCH3          │   25.0 CNY   │ 批量交易
 TXN-BATCH4          │   30.0 CNY   │ 批量交易
 TXN-BATCH5          │   35.0 CNY   │ 批量交易
 TXN-BATCH6          │   40.0 CNY   │ 批量交易
 TXN-BATCH7          │   45.0 CNY   │ 批量交易
-TXN-20260605164529  │    1.0 CNY   │ 手動測試
+TXN-20260605164529  │    1.0 CNY   │ 手动测试
                     ├─────────────┤
                     │ 50,276.0 CNY │
 ```
 
-### 🔐 DNA簽証
+### 🔐 DNA签证
 
-✅ 所有交易帶簽証: `#龍芯⚡️{timestamp}-XPAY-TXN{dr}-{hash}`
-✅ 會話簽証: `#龍芯⚡️20260605173301-WELDING-SESSION-7a72e06e`
+✅ 所有交易带签证: `#龍芯⚡️{timestamp}-XPAY-TXN{dr}-{hash}`
+✅ 会话签证: `#龍芯⚡️20260605173301-WELDING-SESSION-7a72e06e`
 
-### 📁 輸出檔案
+### 📁 输出档案
 
 ```
 ✅ logs/welding_20260605_173301.log
@@ -111,76 +111,76 @@ TXN-20260605164529  │    1.0 CNY   │ 手動測試
 
 ---
 
-## 可用啟動方式
+## 可用启动方式
 
-### 方式 A: 直接路徑
+### 方式 A: 直接路径
 ```bash
-bash /Users/zuimeidedeyihan/Downloads/龍魂自动化启動/longhun_launcher.sh
+bash /Users/zuimeidedeyihan/Downloads/龍魂自动化启动/longhun_launcher.sh
 ```
 
-### 方式 B: 別名 (已設定)
+### 方式 B: 别名 (已设定)
 ```bash
-longhun              # 主菜單
-lh                   # 簡寫
+longhun              # 主菜单
+lh                   # 简写
 lh-welding           # 直接焊接
-lh-stats             # 直接統計
+lh-stats             # 直接统计
 lh-cli               # CLI 工具
 lh-api               # Flask API
 ```
 
-### 方式 C: 直接執行
+### 方式 C: 直接执行
 ```bash
 cd ~/.龍魂/xpay
 bash longhun_welding_automation.sh    # 焊接
-python3 xpay_cli.py stats             # 統計
+python3 xpay_cli.py stats             # 统计
 python3 xpay_server.py                # API
 ```
 
 ---
 
-## 系統功能驗收表
+## 系统功能验收表
 
-| 功能 | 預期 | 實際 | 驗證 |
+| 功能 | 预期 | 实际 | 验证 |
 |------|------|------|------|
-| 交易創建 | 成功 | 7筆成功 | ✅ |
-| 數據持久化 | ¥50,276 | ¥50,276 | ✅ |
-| DNA簽証 | 16 char | 16 char | ✅ |
-| 系統統計 | 8筆 | 8筆 | ✅ |
-| 歷史查詢 | 完整 | 完整 | ✅ |
-| 日誌記錄 | 5 個檔案 | 5 個檔案 | ✅ |
-| 菜單執行 | 8 選項 | 通過測試 | ✅ |
+| 交易创建 | 成功 | 7笔成功 | ✅ |
+| 数据持久化 | ¥50,276 | ¥50,276 | ✅ |
+| DNA签证 | 16 char | 16 char | ✅ |
+| 系统统计 | 8笔 | 8笔 | ✅ |
+| 历史查询 | 完整 | 完整 | ✅ |
+| 日志记录 | 5 个档案 | 5 个档案 | ✅ |
+| 菜单执行 | 8 选项 | 通过测试 | ✅ |
 | CLI 工具 | 正常 | 正常 | ✅ |
 
 ---
 
-## 邊界條件聲明
+## 边界条件声明
 
-### ✅ 支持場景
-- 菜單選擇執行
-- 直接腳本執行
-- 別名啟動
-- 統計查詢
-- 交易歷史
+### ✅ 支持场景
+- 菜单选择执行
+- 直接脚本执行
+- 别名启动
+- 统计查询
+- 交易历史
 
 ### ⚠️ 已知限制
 - Flask API (需 pip3 install flask)
-- 交易驗證 API 端點 (需補齊)
-- 分布式備份 (需配置)
+- 交易验证 API 端点 (需补齐)
+- 分布式备份 (需配置)
 
 ---
 
-## 下一步計劃
+## 下一步计划
 
 1. **Web UI** - 前端管理界面
-2. **數據庫遷移** - JSON → SQLite/PostgreSQL
-3. **國際化** - 多貨幣支持
-4. **分布式存儲** - IPFS/Arweave 備份
-5. **實時監控** - 交易告警系統
+2. **数据库迁移** - JSON → SQLite/PostgreSQL
+3. **国际化** - 多货币支持
+4. **分布式存储** - IPFS/Arweave 备份
+5. **实时监控** - 交易告警系统
 
 ---
 
-**驗收決定**: 🟢 **通過·可投入運營**
+**验收决定**: 🟢 **通过·可投入运营**
 
-**責任**: UID9622 · 不免責
-**時間**: 2026-06-05 17:33 CST
-**簽証**:#龍芯⚡️2026-06-05-XPAY-COMPLETE-v1.0
+**责任**: UID9622 · 不免责
+**时间**: 2026-06-05 17:33 CST
+**签证**:#龍芯⚡️2026-06-05-XPAY-COMPLETE-v1.0

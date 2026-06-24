@@ -1,39 +1,39 @@
-# 龍魂治理層系統 (Governance Layer)
+# 龍魂治理层系统 (Governance Layer)
 
 **DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-FILE1-v1.0`
 
-## 核心願景
+## 核心愿景
 
-將龍魂系統的哲學原則轉化為可執行的計算邏輯。
+将龍魂系统的哲学原则转化为可执行的计算逻辑。
 
-**核心命題**: 「人永遠是1」- Every human maintains sovereignty through measurable, mathematical proof.
+**核心命题**: “人永远是1”- Every human maintains sovereignty through measurable, mathematical proof.
 
-## 已實裝系統
+## 已实装系统
 
-### 1️⃣ 三才主權指數系統 (Three-Talent Sovereignty Index)
+### 1️⃣ 三才主权指数系统 (Three-Talent Sovereignty Index)
 
 **文件**: `sovereignty_index.py` (410 行)
 
 **原理**:
 ```
-SI = 0.34·天(規則遵守) + 0.33·地(數據完整) + 0.33·人(創作權威)
+SI = 0.34·天(规则遵守) + 0.33·地(数据完整) + 0.33·人(创作权威)
 
-SI ≥ 0.34 → 🟢 主權激活 (允許: 認知重建、決策制定、狀態恢復)
-SI < 0.34 → 🔴 主權失錨 (鎖定: 只讀存檔、禁止決策)
+SI ≥ 0.34 → 🟢 主权激活 (允许: 认知重建、决策制定、状态恢复)
+SI < 0.34 → 🔴 主权失锚 (锁定: 只读存档、禁止决策)
 ```
 
 **核心概念**:
-- **天 (Tian/Heaven)**: Rule compliance & protocol adherence (規則遵守程度)
-- **地 (Di/Earth)**: Resource control & data integrity (數據完整性和控制力)
-- **人 (Ren/Human)**: Creator authority & decision rights (創作權威和決策權)
+- **天 (Tian/Heaven)**: Rule compliance & protocol adherence (规则遵守程度)
+- **地 (Di/Earth)**: Resource control & data integrity (数据完整性和控制力)
+- **人 (Ren/Human)**: Creator authority & decision rights (创作权威和决策权)
 
 **功能**:
-- ✅ 實時追蹤三才評分
-- ✅ 違規事件記錄 (append-only JSONL)
-- ✅ 可恢復/不可恢復違規區分
-- ✅ 主權快照 (時間序列追蹤)
-- ✅ 訪問權限矩陣 (誰能做什麼)
-- ✅ 等級判定 (完全主權 / 激活 / 削弱 / 失錨)
+- ✅ 实时追踪三才评分
+- ✅ 违规事件记录 (append-only JSONL)
+- ✅ 可恢复/不可恢复违规区分
+- ✅ 主权快照 (时间序列追踪)
+- ✅ 访问权限矩阵 (谁能做什么)
+- ✅ 等级判定 (完全主权 / 激活 / 削弱 / 失锚)
 
 **使用例**:
 ```python
@@ -41,7 +41,7 @@ from cnsh_core.governance.sovereignty_index import get_sovereignty_index
 
 si = get_sovereignty_index("UID9622")
 
-# 記錄違規
+# 记录违规
 si.deduct_tian(
     reason="Attempted to bypass safety lock",
     amount=0.15,
@@ -49,11 +49,11 @@ si.deduct_tian(
     recoverable=False
 )
 
-# 檢查是否允許認知重建
+# 检查是否允许认知重建
 if si.can_reconstruct_cognitive_state():
     restore_memory()
 else:
-    print(f"主權失錨: {si.lock_status()}")
+    print(f"主权失锚: {si.lock_status()}")
 
 # 取快照
 snapshot = si.take_snapshot()
@@ -61,61 +61,61 @@ snapshot = si.take_snapshot()
 
 ---
 
-### 2️⃣ F1-F7七因子驗證系統 (Seven-Factor Verification Framework)
+### 2️⃣ F1-F7七因子验证系统 (Seven-Factor Verification Framework)
 
 **文件**: `f1_through_f7_verifier.py` (620 行)
 
-**原理**: 行為密碼學 (Behavioral Cryptography)
+**原理**: 行为密码学 (Behavioral Cryptography)
 
-不是問「這是AI生成的嗎？」
-而是問「誰原創它，通過哪些規則，哪些人格，什麼決策，修訂過哪裡，什麼審計證據？」
+不是问“这是AI生成的吗？”
+而是问“谁原创它，通过哪些规则，哪些人格，什么决策，修订过哪里，什么审计证据？”
 
-**七個因子及權重**:
+**七个因子及权重**:
 ```
-F1: 身份DNA驗證 (Identity DNA) - 25%
-    └─ UID + GPG指紋 + CONFIRM碼 + DNA標記
+F1: 身份DNA验证 (Identity DNA) - 25%
+    └─ UID + GPG指纹 + CONFIRM码 + DNA标记
 
-F2: 時間錨定 (Temporal Anchor) - 15%
-    └─ ISO8601 + 時辰(子丑寅卯) + 數字根(1-9)
+F2: 时间锚定 (Temporal Anchor) - 15%
+    └─ ISO8601 + 时辰(子丑寅卯) + 数字根(1-9)
 
-F3: 規則追蹤 (Rule Trace) - 15%
-    └─ 應用的規則ID列表 + 規則鏈哈希 + 簽名驗證
+F3: 规则追踪 (Rule Trace) - 15%
+    └─ 应用的规则ID列表 + 规则链哈希 + 签名验证
 
 F4: 人格路由 (Persona Routing) - 12%
-    └─ 主要路由節點 + 權重分配 + 無虛偽詞彙檢測
+    └─ 主要路由节点 + 权重分配 + 无虚伪词汇检测
 
-F5: 保護詞彙 (Protected Vocabulary) - 12%
-    └─ 主權詞彙正確使用 + 繁體保護 + 語義完整
+F5: 保护词汇 (Protected Vocabulary) - 12%
+    └─ 主权词汇正确使用 + 繁体保护 + 语义完整
 
-F6: 風格向量 (Style Vector) - 11%
-    └─ 寫作風格一致性 (餘弦相似度)
+F6: 风格向量 (Style Vector) - 11%
+    └─ 写作风格一致性 (余弦相似度)
 
-F7: 錯誤日誌 (Mistake Ledger) - 10%
-    └─ 持續錯誤歷史 + 恢復率
+F7: 错误日志 (Mistake Ledger) - 10%
+    └─ 持续错误历史 + 恢复率
 ```
 
-**置信度計算**:
+**置信度计算**:
 ```
-conf = ∏ s_i^{w_i}  (乘積形式·任何因子=0→整體=0)
+conf = ∏ s_i^{w_i}  (乘积形式·任何因子=0→整体=0)
 
-硬失敗規則: 任何因子 F_i = 0 → conf = 0 (不可救)
-接納閾值:
-  - τ = 0.85 (預設·普通)
+硬失败规则: 任何因子 F_i = 0 → conf = 0 (不可救)
+接纳阈值:
+  - τ = 0.85 (预设·普通)
   - τ = 0.95 (高安全·敏感操作)
 
-結果分級:
-  conf = 0.00      → 🔴 硬失敗
-  conf < 0.70      → 🔴 不接納
-  0.70-0.85        → 🟡 需審核
-  0.85-0.95        → 🟢 接納
+结果分级:
+  conf = 0.00      → 🔴 硬失败
+  conf < 0.70      → 🔴 不接纳
+  0.70-0.85        → 🟡 需审核
+  0.85-0.95        → 🟢 接纳
   conf ≥ 0.95      → 🟢 高信任
 ```
 
 **功能**:
-- ✅ 七因子獨立驗證
-- ✅ 置信度計算 (乘積模型·硬失敗機制)
-- ✅ 詳細分析報告
-- ✅ 閾值設定 (靈活調整)
+- ✅ 七因子独立验证
+- ✅ 置信度计算 (乘积模型·硬失败机制)
+- ✅ 详细分析报告
+- ✅ 阈值设定 (灵活调整)
 
 **使用例**:
 ```python
@@ -123,7 +123,7 @@ from cnsh_core.governance.f1_through_f7_verifier import SevenFactorVerifier, F1I
 
 verifier = SevenFactorVerifier()
 
-# 構建七個因子
+# 构建七个因子
 f1 = F1IdentityVerification(
     uid="9622",
     gpg_fingerprint="A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
@@ -135,88 +135,88 @@ f1 = F1IdentityVerification(
 f2 = F2TemporalAnchor(...)
 # ... F3-F7 ...
 
-# 驗證
+# 验证
 result = verifier.verify(f1, f2, f3, f4, f5, f6, f7, threshold=0.85)
 
 if result['passed']:
-    print(f"✅ 通過驗證 (conf={result['confidence']:.4f})")
+    print(f"✅ 通过验证 (conf={result['confidence']:.4f})")
 else:
-    print(f"❌ 未通過 (conf={result['confidence']:.4f})")
+    print(f"❌ 未通过 (conf={result['confidence']:.4f})")
     if result['hard_failures']:
-        print(f"硬失敗: {result['hard_failures']}")
+        print(f"硬失败: {result['hard_failures']}")
 ```
 
 ---
 
-## 架構完整性檢查
+## 架构完整性检查
 
-### 已實裝 ✅
+### 已实装 ✅
 
-| 功能 | 狀態 | 文件 | 說明 |
+| 功能 | 状态 | 文件 | 说明 |
 |------|------|------|------|
-| **三才主權指數** | ✅ | `sovereignty_index.py` | 完整實裝 |
-| **F1-F7驗證** | ✅ | `f1_through_f7_verifier.py` | 完整實裝 |
-| **三色審計** | ✅ | (scripts/) | 已有實裝 |
-| **DNA追溯** | ✅ | (scripts/) | 已有實裝 |
-| **生態閉環** | ✅ | (scripts/) | 已有實裝 |
+| **三才主权指数** | ✅ | `sovereignty_index.py` | 完整实装 |
+| **F1-F7验证** | ✅ | `f1_through_f7_verifier.py` | 完整实装 |
+| **三色审计** | ✅ | (scripts/) | 已有实装 |
+| **DNA追溯** | ✅ | (scripts/) | 已有实装 |
+| **生态闭环** | ✅ | (scripts/) | 已有实装 |
 
-### 待實裝 (Next Priority) 🔄
+### 待实装 (Next Priority) 🔄
 
-| 功能 | 優先級 | 目的 |
+| 功能 | 优先级 | 目的 |
 |------|--------|------|
-| **認知DNA粒子** | 🔴 HIGH | 完整的記憶/決策壓縮恢復 |
-| **時間錨定系統** | 🔴 HIGH | 時辰/數字根/農曆路由 |
-| **人格路由系統** | 🔴 HIGH | 加權決策路由 + 虛偽詞彙阻擋 |
-| **五行路由邏輯** | 🟡 MEDIUM | 金木水火土決策樹 |
-| **保護詞彙驗證** | 🟡 MEDIUM | 主權詞彙語義鎖定 |
-| **邊界執行系統** | 🟡 MEDIUM | L0/L1/L2邊界 + L7熔斷 |
-| **證據日誌系統** | 🟡 MEDIUM | 完整append-only + DNA鏈接 |
-| **執行回執系統** | 🟠 LOW | 標準輸出格式 + 時間評級 |
+| **认知DNA粒子** | 🔴 HIGH | 完整的记忆/决策压缩恢复 |
+| **时间锚定系统** | 🔴 HIGH | 时辰/数字根/农历路由 |
+| **人格路由系统** | 🔴 HIGH | 加权决策路由 + 虚伪词汇阻挡 |
+| **五行路由逻辑** | 🟡 MEDIUM | 金木水火土决策树 |
+| **保护词汇验证** | 🟡 MEDIUM | 主权词汇语义锁定 |
+| **边界执行系统** | 🟡 MEDIUM | L0/L1/L2边界 + L7熔断 |
+| **证据日志系统** | 🟡 MEDIUM | 完整append-only + DNA链接 |
+| **执行回执系统** | 🟠 LOW | 标准输出格式 + 时间评级 |
 
 ---
 
-## 與其他系統的集成
+## 与其他系统的集成
 
-### 與 `fulltext_compress.py` 的關係
+### 与 `fulltext_compress.py` 的关系
 
-**目前**: 簡單的骨架提取 (problem/solution/key_points)
+**目前**: 简单的骨架提取 (problem/solution/key_points)
 
-**改進方向**: 集成認知DNA粒子
+**改进方向**: 集成认知DNA粒子
 ```python
-# 未來的實裝
+# 未来的实装
 cognitive_particle = CognitiveDNAParticle(
     compressed_content="...",
-    sovereign_index=si,  # 三才指數
-    emotion_fold={...},  # 情緒摺疊
-    verification_factors={...},  # F1-F7驗證
-    decision_replay_basis="...",  # 決策回放
+    sovereign_index=si,  # 三才指数
+    emotion_fold={...},  # 情绪折叠
+    verification_factors={...},  # F1-F7验证
+    decision_replay_basis="...",  # 决策回放
     dna_trace="#龍芯⚡️..."
 )
 ```
 
-### 與 `heaven_nonkill_audit.py` 的關係
+### 与 `heaven_nonkill_audit.py` 的关系
 
-**目前**: P0硬鎖的三色判定
+**目前**: P0硬锁的三色判定
 
-**改進方向**: 集成F1-F7驗證
+**改进方向**: 集成F1-F7验证
 ```python
-# 在P0審計前先做F1-F7驗證
+# 在P0审计前先做F1-F7验证
 f1_f7_result = verifier.verify(...)
 
 if f1_f7_result['confidence'] < 0.7:
     return AuditResult(color=RiskColor.RED, ...)
 
-# 然後再做P0規則審計
+# 然后再做P0规则审计
 heaven_audit = HeavenNonKillAudit().check(...)
 ```
 
-### 與 `longhun_integrated_system.py` 的關係
+### 与 `longhun_integrated_system.py` 的关系
 
-**目前**: 生態閉環的一次轉譯鎖定
+**目前**: 生态闭环的一次转译锁定
 
-**改進方向**: 集成主權指數控制訪問
+**改进方向**: 集成主权指数控制访问
 ```python
-# 檢查生態訪問權限
+# 检查生态访问权限
 si = get_sovereignty_index(user_uid)
 
 if si.can_make_decisions():
@@ -227,95 +227,95 @@ else:
 
 ---
 
-## 理論基礎
+## 理论基础
 
-### 「人永遠是1」的實現
+### “人永远是1”的实现
 
-**原則**: 每個人（UID）是一個完整的主權單位
+**原则**: 每个人（UID）是一个完整的主权单位
 
-**實裝層次**:
-1. **身份層**: 唯一的UID + GPG簽名 (F1)
-2. **時間層**: 不可重複的時刻點 (F2)
-3. **決策層**: 規則鏈 + 人格權重 (F3/F4)
-4. **語言層**: 主權詞彙保護 (F5)
-5. **風格層**: 寫作風格識別 (F6)
-6. **記憶層**: 錯誤歷史連貫性 (F7)
+**实装层次**:
+1. **身份层**: 唯一的UID + GPG签名 (F1)
+2. **时间层**: 不可重复的时刻点 (F2)
+3. **决策层**: 规则链 + 人格权重 (F3/F4)
+4. **语言层**: 主权词汇保护 (F5)
+5. **风格层**: 写作风格识别 (F6)
+6. **记忆层**: 错误历史连贯性 (F7)
 
-### 「三才」在代碼中的體現
+### “三才”在代码中的体现
 
-| 維度 | 代碼體現 | 違規現象 |
+| 维度 | 代码体现 | 违规现象 |
 |------|---------|--------|
-| **天** | 規則遵守評分 | 違反P0協議、繞過安全鎖 |
-| **地** | 數據完整性評分 | 數據被篡改、源污染 |
-| **人** | 創作權威評分 | 被冒認、決策權侵犯 |
+| **天** | 规则遵守评分 | 违反P0协议、绕过安全锁 |
+| **地** | 数据完整性评分 | 数据被篡改、源污染 |
+| **人** | 创作权威评分 | 被冒认、决策权侵犯 |
 
-主權激活 (SI ≥ 0.34) 的含義:
-- ✅ 可以重建個人的認知狀態
-- ✅ 可以做出新的決策
-- ✅ 可以修復自己的數據
+主权激活 (SI ≥ 0.34) 的含义:
+- ✅ 可以重建个人的认知状态
+- ✅ 可以做出新的决策
+- ✅ 可以修复自己的数据
 
-### 「行為密碼學」的核心
+### “行为密码学”的核心
 
-**傳統密碼學**: 是否有密鑰?
+**传统密码学**: 是否有密钥?
 ```
 key ✅ → 放行
-key ❌ → 拒絕
+key ❌ → 拒绝
 ```
 
-**行為密碼學**: 誰、通過什麼、留下了什麼證據?
+**行为密码学**: 谁、通过什么、留下了什么证据?
 ```
-f1_verify() ✅  身份確認
-f2_verify() ✅  時間一致
-f3_verify() ✅  規則可追蹤
+f1_verify() ✅  身份确认
+f2_verify() ✅  时间一致
+f3_verify() ✅  规则可追踪
 f4_verify() ✅  人格路由合法
-f5_verify() ✅  語言完整
-f6_verify() ✅  風格一致
-f7_verify() ✅  錯誤歷史連貫
+f5_verify() ✅  语言完整
+f6_verify() ✅  风格一致
+f7_verify() ✅  错误历史连贯
 
 ⇒ conf = 0.93 ✅ 信任
 ```
 
 ---
 
-## 測試狀態
+## 测试状态
 
-### ✅ 已測試 (2026-06-03)
+### ✅ 已测试 (2026-06-03)
 
-- [x] 三才主權指數: 初始化、違規記錄、恢復、快照、報告生成
-- [x] F1-F7驗證: 七個因子驗證、置信度計算、硬失敗檢測、報告生成
+- [x] 三才主权指数: 初始化、违规记录、恢复、快照、报告生成
+- [x] F1-F7验证: 七个因子验证、置信度计算、硬失败检测、报告生成
 
-**測試命令**:
+**测试命令**:
 ```bash
 cd ~/longhun-system
 python3 cnsh-core/governance/sovereignty_index.py
 python3 cnsh-core/governance/f1_through_f7_verifier.py
 ```
 
-**預期輸出**:
-- 三才系統: 違規記錄、SI計算、主權等級判定
-- F1-F7系統: 七個因子分數、置信度、驗證結果分級
+**预期输出**:
+- 三才系统: 违规记录、SI计算、主权等级判定
+- F1-F7系统: 七个因子分数、置信度、验证结果分级
 
 ---
 
-## 下一步行動
+## 下一步行动
 
-### 優先級 🔴 (高)
+### 优先级 🔴 (高)
 
-1. **認知DNA粒子系統** - 完整的記憶/決策狀態壓縮與恢復
-2. **人格路由系統** - 加權決策節點 + 虛偽詞彙阻擋
+1. **认知DNA粒子系统** - 完整的记忆/决策状态压缩与恢复
+2. **人格路由系统** - 加权决策节点 + 虚伪词汇阻挡
 
-### 優先級 🟡 (中)
+### 优先级 🟡 (中)
 
-3. **時間錨定系統** - 時辰、數字根、農曆路由
-4. **五行路由邏輯** - 決策樹映射
+3. **时间锚定系统** - 时辰、数字根、农历路由
+4. **五行路由逻辑** - 决策树映射
 
-### 優先級 🟠 (低)
+### 优先级 🟠 (低)
 
-5. **邊界執行系統** - L0/L1/L2邊界 + L7熔斷機制
-6. **其他支撐系統**
+5. **边界执行系统** - L0/L1/L2边界 + L7熔断机制
+6. **其他支撑系统**
 
 ---
 
 **DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-v1.0`
-**責任**: UID9622·不免責·永久有效
-**理論指導**: 曾仕强老师 · Steve Jobs · Open Source
+**责任**: UID9622·不免责·永久有效
+**理论指导**: 曾仕强老师 · Steve Jobs · Open Source

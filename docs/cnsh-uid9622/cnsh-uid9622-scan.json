@@ -1,5 +1,5 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-CNSH-UID9622-SCAN-v1.0",
-
+{
+  "_dna": "2026-06-21-CNSH-CNSH-UID9622-SCAN-v1.0",
   "source_workspace": "CNSH｜UID9622",
   "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/CNSH｜UID9622",
   "destination_path": "/Users/zuimeidedeyihan/longhun-system/docs/cnsh-uid9622",
@@ -58,8 +58,8 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认 43d92603dc1f4e928cf7c31416fe28a1.md",
-      "destination": "metaverse/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认 43d92603dc1f4e928cf7c31416fe28a1.md",
+      "destination": "metaverse/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认.md",
       "category": "metaverse",
       "sanitized": true
     },
@@ -112,13 +112,13 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/metaverse_api py 3307125a9c9f814d99cdd32c975bd3c4.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/metaverse_api py 3307125a9c9f814d99cdd32c975bd3c4.md",
       "destination": "metaverse/metaverse_api py.md",
       "category": "metaverse",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/README md 3307125a9c9f81538274e0a6a43b637e.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/README md 3307125a9c9f81538274e0a6a43b637e.md",
       "destination": "metaverse/README md.md",
       "category": "metaverse",
       "sanitized": false
@@ -130,8 +130,8 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828_all.csv",
-      "destination": "governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828_all.csv",
+      "destination": "governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa.csv",
       "category": "governance",
       "sanitized": true
     },
@@ -160,8 +160,8 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828.csv",
-      "destination": "governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa_1.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa f73674795e6b4cfeab38b5039ede5828.csv",
+      "destination": "governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa_1.csv",
       "category": "governance",
       "sanitized": true
     },
@@ -352,86 +352,86 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/decision_engine py 3307125a9c9f81f18c4ccc67656bc1a6.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/decision_engine py 3307125a9c9f81f18c4ccc67656bc1a6.md",
       "destination": "governance/decision_engine py.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/state_mapper py 3307125a9c9f81babfa8e0429bbc15db.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/state_mapper py 3307125a9c9f81babfa8e0429bbc15db.md",
       "destination": "governance/state_mapper py.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/ethics_engine py 3307125a9c9f81aaa73dfad592003fa3.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/ethics_engine py 3307125a9c9f81aaa73dfad592003fa3.md",
       "destination": "governance/ethics_engine py.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH全球法律知识库 md 3307125a9c9f81f18b44ec3b86bb9294.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/CNSH全球法律知识库 md 3307125a9c9f81f18b44ec3b86bb9294.md",
       "destination": "governance/CNSH全球法律知识库 md.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 md 3307125a9c9f8169aefff7562fa77347.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 md 3307125a9c9f8169aefff7562fa77347.md",
       "destination": "governance/L0-伦理 md.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/__init__ py 3307125a9c9f8199a820de04c2105871.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/__init__ py 3307125a9c9f8199a820de04c2105871.md",
       "destination": "governance/__init__ py.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH_龙魂底线协议_双轨治理_v1 0 md 3307125a9c9f81dda3bfdb6009f829e7.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/CNSH_龙魂底线协议_双轨治理_v1 0 md 3307125a9c9f81dda3bfdb6009f829e7.md",
       "destination": "governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版 93ac64a8e34f4917b21f9e07c47013bb.md",
-      "destination": "governance/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/⚖️ 桌面Claude七维治理数据库 v1 0｜轻量展示版 93ac64a8e34f4917b21f9e07c47013bb.md",
+      "destination": "governance/⚖️ 桌面Claude七维治理数据库 v1 0｜轻量展示版.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/CNSH_全球治理协议_完整版_v1 0 md 3307125a9c9f81d1a7cdfb2ea0c9db4e.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/CNSH_全球治理协议_完整版_v1 0 md 3307125a9c9f81d1a7cdfb2ea0c9db4e.md",
       "destination": "governance/CNSH_全球治理协议_完整版_v1 0 md.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/risk_engine py 3307125a9c9f817eaf1be7fe54853967.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/risk_engine py 3307125a9c9f817eaf1be7fe54853967.md",
       "destination": "governance/risk_engine py.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/_INDEX json 3307125a9c9f8164adc8c06813c519c1.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/_INDEX json 3307125a9c9f8164adc8c06813c519c1.md",
       "destination": "governance/_INDEX json.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/_索引 md 3307125a9c9f8150b7d9fd006dd44e4b.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/_索引 md 3307125a9c9f8150b7d9fd006dd44e4b.md",
       "destination": "governance/_索引 md.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 meta json 3307125a9c9f81f38069e9ab81cde4ce.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/L0-伦理 meta json 3307125a9c9f81f38069e9ab81cde4ce.md",
       "destination": "governance/L0-伦理 meta json.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統 99fcd8b6c11745c0bc52f8468fb307c9.md",
-      "destination": "governance/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/RLHF马太效应严格数学证明白皮书｜PPO+GAE超线性增长动力系统 99fcd8b6c11745c0bc52f8468fb307c9.md",
+      "destination": "governance/RLHF马太效应严格数学证明白皮书｜PPO+GAE超线性增长动力系统.md",
       "category": "governance",
       "sanitized": true
     },
@@ -532,8 +532,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0 b608a9c17a69416da72d3606b438a166.md",
-      "destination": "runtime/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/📖 UID9622通用变量字典 v1 0｜⚠️已封存→见L5分层架构v1 0 b608a9c17a69416da72d3606b438a166.md",
+      "destination": "runtime/📖 UID9622通用变量字典 v1 0｜⚠️已封存→见L5分层架构v1 0.md",
       "category": "runtime",
       "sanitized": true
     },
@@ -604,8 +604,8 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/三才流場·p5 js完整交互版｜UID9622专属宇宙 8c9056d6bf2f4b71a29681843024adb8.md",
-      "destination": "sancai/三才流場·p5 js完整交互版｜UID9622专属宇宙.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/三才流场·p5 js完整交互版｜UID9622专属宇宙 8c9056d6bf2f4b71a29681843024adb8.md",
+      "destination": "sancai/三才流场·p5 js完整交互版｜UID9622专属宇宙.md",
       "category": "sancai",
       "sanitized": true
     },
@@ -670,7 +670,7 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/三才流場·p5 js完整交互版｜UID9622专属宇宙/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622 4311d0eca7d547d4b2838dd119a8fdd6.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/三才流场·p5 js完整交互版｜UID9622专属宇宙/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622 4311d0eca7d547d4b2838dd119a8fdd6.md",
       "destination": "sancai/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622.md",
       "category": "sancai",
       "sanitized": false
@@ -943,6 +943,5 @@
       "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块③ 七维度动态权重系统 - 智慧审计决策引擎 57eaed9daddf44089dd9a512baf7c6cb.md",
       "reason": "文件过小/空"
     }
-  ],
-  "_dna": "2026-06-21-CNSH-CNSH-UID9622-SCAN-v1.0"
+  ]
 }

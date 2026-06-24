@@ -1,14 +1,14 @@
 <!--#龍芯⚡️2026-06-21-DOC-PHASE3_API_SPECIFICATION_V1_0-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 龍魂系統 Phase 3 - API 规范 v1.0
+# 龍魂系统 Phase 3 - API 规范 v1.0
 
 ```yaml
 openapi: 3.0.0
 info:
-  title: 龍魂系統 API
+  title: 龍魂系统 API
   description: |
-    龍魂系統完整 API 规范
+    龍魂系统完整 API 规范
     - 实时仪表板数据
     - 技能管理与执行
     - 告警系统

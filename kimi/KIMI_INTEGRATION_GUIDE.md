@@ -336,7 +336,7 @@ python3 ~/longhun-system/deployment/production_deployment.py
 # 1. 启动监控
 tail -f /tmp/longhun-kimi/logs/*.log
 
-# 2. 运行烟霧测试
+# 2. 运行烟雾测试
 curl http://localhost:5000/health
 
 # 3. 验证所有端点

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-RULE-REPORT_GENERATOR_ENHANCED-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
-龍魂規則引擎 · 增強報告生成 v2.5
-HTML + PDF + 統計圖表 + 異常預警
+龍魂规则引擎 · 增强报告生成 v2.5
+HTML + PDF + 统计图表 + 异常预警
 
 DNA: #龍芯⚇️2026-06-07-REPORT-GENERATOR-ENHANCED-v2.5
-責任: UID9622 · 不免責
+责任: UID9622 · 不免责
 """
 
 import json
@@ -30,14 +30,14 @@ except ImportError:
 try:
     import matplotlib.pyplot as plt
     import matplotlib
-    matplotlib.use('Agg')  # 非圖形後端
+    matplotlib.use('Agg')  # 非图形后端
     MATPLOTLIB_AVAILABLE = True
 except ImportError:
     MATPLOTLIB_AVAILABLE = False
 
 
 # ============================================================================
-# [日誌配置]
+# [日志配置]
 # ============================================================================
 
 logging.basicConfig(level=logging.INFO)
@@ -45,11 +45,11 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================================
-# [報告元數據]
+# [报告元数据]
 # ============================================================================
 
 class AnomalyLevel(Enum):
-    """異常級別"""
+    """异常级别"""
     CRITICAL = "critical"
     HIGH = "high"
     MEDIUM = "medium"
@@ -58,7 +58,7 @@ class AnomalyLevel(Enum):
 
 @dataclass
 class AnomalyAlert:
-    """異常預警"""
+    """异常预警"""
     level: AnomalyLevel
     title: str
     description: str
@@ -67,11 +67,11 @@ class AnomalyAlert:
 
 
 # ============================================================================
-# [報告生成器]
+# [报告生成器]
 # ============================================================================
 
 class EnhancedReportGenerator:
-    """增強報告生成器"""
+    """增强报告生成器"""
 
     def __init__(self, output_dir: Path = Path('/tmp/reports')):
         self.output_dir = output_dir
@@ -84,19 +84,19 @@ class EnhancedReportGenerator:
         output_file: Path = None
     ) -> Path:
         """
-        生成 HTML 報告
+        生成 HTML 报告
 
         Args:
-            results: 處理結果列表
-            statistics: 統計信息
-            output_file: 輸出文件
+            results: 处理结果列表
+            statistics: 统计信息
+            output_file: 输出文件
 
         Returns:
-            輸出文件路徑
+            输出文件路径
         """
         output_file = output_file or self.output_dir / f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
 
-        # 計算統計
+        # 计算统计
         total = len(results)
         success = sum(1 for r in results if r['status'] == 'success')
         errors = total - success
@@ -109,7 +109,7 @@ class EnhancedReportGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>龍魂規則引擎 · 批量處理報告</title>
+    <title>龍魂规则引擎 · 批量处理报告</title>
     <style>
         * {{
             margin: 0;
@@ -280,13 +280,13 @@ class EnhancedReportGenerator:
 <body>
     <div class="container">
         <header>
-            <h1>🐉 龍魂規則引擎 · 批量處理報告</h1>
-            <p class="timestamp">生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} CST</p>
+            <h1>🐉 龍魂规则引擎 · 批量处理报告</h1>
+            <p class="timestamp">生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} CST</p>
         </header>
 
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-label">📊 總計</div>
+                <div class="stat-label">📊 总计</div>
                 <div class="stat-value">{total}</div>
             </div>
             <div class="stat-card">
@@ -297,7 +297,7 @@ class EnhancedReportGenerator:
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">❌ 失敗</div>
+                <div class="stat-label">❌ 失败</div>
                 <div class="stat-value" style="color: #ef4444;">{errors}</div>
             </div>
             <div class="stat-card">
@@ -307,23 +307,23 @@ class EnhancedReportGenerator:
         </div>
 
         <div class="section">
-            <h2>📋 詳細結果</h2>
+            <h2>📋 详细结果</h2>
             <table>
                 <thead>
                     <tr>
                         <th>案件 ID</th>
-                        <th>狀態</th>
-                        <th>處理時間 (ms)</th>
-                        <th>備註</th>
+                        <th>状态</th>
+                        <th>处理时间 (ms)</th>
+                        <th>备注</th>
                     </tr>
                 </thead>
                 <tbody>
         """
 
-        # 添加結果行
-        for result in results[:50]:  # 限制顯示前 50 條
+        # 添加结果行
+        for result in results[:50]:  # 限制显示前 50 条
             status_class = "status-success" if result['status'] == 'success' else "status-error"
-            status_text = "✅ 成功" if result['status'] == 'success' else "❌ 失敗"
+            status_text = "✅ 成功" if result['status'] == 'success' else "❌ 失败"
 
             html_content += f"""
                     <tr>
@@ -340,16 +340,16 @@ class EnhancedReportGenerator:
         </div>
 
         <div class="section">
-            <h2>🔐 DNA 簽章</h2>
+            <h2>🔐 DNA 签章</h2>
             <div class="dna-signature">
                 DNA: #龍芯⚇️{timestamp}-REPORT-GENERATOR-ENHANCED-v2.5<br>
-                確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z<br>
-                責任: UID9622 · 不免責
+                确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z<br>
+                责任: UID9622 · 不免责
             </div>
         </div>
 
         <footer>
-            <p>龍魂系統 · 規則引擎 v2.5 · 增強報告生成</p>
+            <p>龍魂系统 · 规则引擎 v2.5 · 增强报告生成</p>
         </footer>
     </div>
 </body>
@@ -361,7 +361,7 @@ class EnhancedReportGenerator:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(html_content)
 
-        logger.info(f"✅ HTML 報告已生成: {output_file}")
+        logger.info(f"✅ HTML 报告已生成: {output_file}")
         return output_file
 
     def generate_statistics_chart(
@@ -370,50 +370,50 @@ class EnhancedReportGenerator:
         output_file: Path = None
     ) -> Path:
         """
-        生成統計圖表
+        生成统计图表
 
         Args:
-            results: 處理結果
-            output_file: 輸出文件
+            results: 处理结果
+            output_file: 输出文件
 
         Returns:
-            輸出文件路徑
+            输出文件路径
         """
         if not MATPLOTLIB_AVAILABLE:
-            logger.warning("matplotlib 未安裝，跳過圖表生成")
+            logger.warning("matplotlib 未安装，跳过图表生成")
             return None
 
         output_file = output_file or self.output_dir / f"chart_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
 
-        # 計算統計數據
+        # 计算统计数据
         success_count = sum(1 for r in results if r['status'] == 'success')
         error_count = len(results) - success_count
 
-        # 創建圖表
+        # 创建图表
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(12, 10))
         fig.patch.set_facecolor('#0f172a')
 
-        # [1] 成功/失敗比例 (餅圖)
+        # [1] 成功/失败比例 (饼图)
         ax1.pie(
             [success_count, error_count],
-            labels=['成功', '失敗'],
+            labels=['成功', '失败'],
             colors=['#4ade80', '#ef4444'],
             autopct='%1.1f%%',
             startangle=90
         )
-        ax1.set_title('處理結果分佈', color='#00d4ff', fontsize=12, pad=20)
+        ax1.set_title('处理结果分布', color='#00d4ff', fontsize=12, pad=20)
         ax1.set_facecolor('#1e293b')
 
-        # [2] 處理時間分佈 (直方圖)
+        # [2] 处理时间分布 (直方图)
         times = [r.get('processing_time_ms', 0) for r in results]
         ax2.hist(times, bins=20, color='#00d4ff', alpha=0.7, edgecolor='#0ea5e9')
-        ax2.set_xlabel('處理時間 (ms)', color='#94a3b8')
-        ax2.set_ylabel('案件數', color='#94a3b8')
-        ax2.set_title('處理時間分佈', color='#00d4ff', fontsize=12, pad=20)
+        ax2.set_xlabel('处理时间 (ms)', color='#94a3b8')
+        ax2.set_ylabel('案件数', color='#94a3b8')
+        ax2.set_title('处理时间分布', color='#00d4ff', fontsize=12, pad=20)
         ax2.set_facecolor('#1e293b')
         ax2.tick_params(colors='#94a3b8')
 
-        # [3] 累積成功率 (折線圖)
+        # [3] 累积成功率 (折线图)
         cumulative_success = []
         cumulative_rate = []
         success_so_far = 0
@@ -426,28 +426,28 @@ class EnhancedReportGenerator:
 
         ax3.plot(cumulative_rate[:100], color='#4ade80', linewidth=2)
         ax3.fill_between(range(len(cumulative_rate[:100])), cumulative_rate[:100], alpha=0.3, color='#4ade80')
-        ax3.set_xlabel('案件序號', color='#94a3b8')
-        ax3.set_ylabel('累積成功率 (%)', color='#94a3b8')
-        ax3.set_title('累積成功率趨勢', color='#00d4ff', fontsize=12, pad=20)
+        ax3.set_xlabel('案件序号', color='#94a3b8')
+        ax3.set_ylabel('累积成功率 (%)', color='#94a3b8')
+        ax3.set_title('累积成功率趋势', color='#00d4ff', fontsize=12, pad=20)
         ax3.set_facecolor('#1e293b')
         ax3.tick_params(colors='#94a3b8')
         ax3.grid(True, alpha=0.2, color='#334155')
 
-        # [4] 統計摘要 (文本)
+        # [4] 统计摘要 (文本)
         ax4.axis('off')
         summary_text = f"""
-統計摘要
+统计摘要
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 
-總計:        {len(results)} 個案件
-成功:        {success_count} 個 ({success_count/len(results)*100:.1f}%)
-失敗:        {error_count} 個 ({error_count/len(results)*100:.1f}%)
+总计:        {len(results)} 个案件
+成功:        {success_count} 个 ({success_count/len(results)*100:.1f}%)
+失败:        {error_count} 个 ({error_count/len(results)*100:.1f}%)
 
-平均時間:    {sum(times)/len(times):.2f} ms
+平均时间:    {sum(times)/len(times):.2f} ms
 最快:        {min(times):.2f} ms
 最慢:        {max(times):.2f} ms
 
-生成時間:    {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+生成时间:    {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 DNA:         #龍芯⚇️v2.5
         """
         ax4.text(0.1, 0.5, summary_text, fontsize=10, color='#94a3b8',
@@ -458,35 +458,35 @@ DNA:         #龍芯⚇️v2.5
         plt.savefig(output_file, facecolor='#0f172a', dpi=100)
         plt.close()
 
-        logger.info(f"✅ 統計圖表已生成: {output_file}")
+        logger.info(f"✅ 统计图表已生成: {output_file}")
         return output_file
 
     def detect_anomalies(self, results: List[Dict]) -> List[AnomalyAlert]:
         """
-        檢測異常
+        检测异常
 
         Args:
-            results: 處理結果
+            results: 处理结果
 
         Returns:
-            異常預警列表
+            异常预警列表
         """
         alerts = []
 
-        # [1] 高錯誤率
+        # [1] 高错误率
         error_count = sum(1 for r in results if r['status'] == 'error')
         error_rate = (error_count / len(results) * 100) if results else 0
 
         if error_rate > 10:
             alerts.append(AnomalyAlert(
                 level=AnomalyLevel.HIGH,
-                title="高錯誤率",
-                description=f"錯誤率達 {error_rate:.1f}%，超過閾值 10%",
-                recommendation="檢查規則邏輯，查看失敗案件的具體錯誤信息",
+                title="高错误率",
+                description=f"错误率达 {error_rate:.1f}%，超过阈值 10%",
+                recommendation="检查规则逻辑，查看失败案件的具体错误信息",
                 affected_items=error_count
             ))
 
-        # [2] 異常長的處理時間
+        # [2] 异常长的处理时间
         times = [r.get('processing_time_ms', 0) for r in results if r['status'] == 'success']
         if times:
             avg_time = sum(times) / len(times)
@@ -495,13 +495,13 @@ DNA:         #龍芯⚇️v2.5
             if slow_items > len(times) * 0.1:
                 alerts.append(AnomalyAlert(
                     level=AnomalyLevel.MEDIUM,
-                    title="處理延遲",
-                    description=f"{slow_items} 個案件的處理時間超過平均值 3 倍",
-                    recommendation="優化規則邏輯或增加處理線程",
+                    title="处理延迟",
+                    description=f"{slow_items} 个案件的处理时间超过平均值 3 倍",
+                    recommendation="优化规则逻辑或增加处理线程",
                     affected_items=slow_items
                 ))
 
-        # [3] 特定類型的失敗
+        # [3] 特定类型的失败
         error_types = {}
         for result in results:
             if result['status'] == 'error':
@@ -512,9 +512,9 @@ DNA:         #龍芯⚇️v2.5
             if count > len(results) * 0.05:
                 alerts.append(AnomalyAlert(
                     level=AnomalyLevel.MEDIUM,
-                    title="重複錯誤",
-                    description=f"錯誤類型 '{error_type}' 重複出現 {count} 次",
-                    recommendation="修復該錯誤，可能是共同的根本原因",
+                    title="重复错误",
+                    description=f"错误类型 '{error_type}' 重复出现 {count} 次",
+                    recommendation="修复该错误，可能是共同的根本原因",
                     affected_items=count
                 ))
 
@@ -529,28 +529,28 @@ def main():
     """示例用法"""
     from batch_processor_v2.5 import ProcessResult
 
-    # 模擬結果
+    # 模拟结果
     results = [
         {'case_id': f'case_{i:04d}', 'status': 'success' if i % 10 != 0 else 'error',
          'processing_time_ms': 50 + i % 100, 'error': None if i % 10 != 0 else 'timeout'}
         for i in range(100)
     ]
 
-    # 生成報告
+    # 生成报告
     generator = EnhancedReportGenerator()
 
-    # HTML 報告
+    # HTML 报告
     html_file = generator.generate_html_report(results, {})
-    print(f"✅ HTML 報告: {html_file}")
+    print(f"✅ HTML 报告: {html_file}")
 
-    # 統計圖表
+    # 统计图表
     chart_file = generator.generate_statistics_chart(results)
     if chart_file:
-        print(f"✅ 統計圖表: {chart_file}")
+        print(f"✅ 统计图表: {chart_file}")
 
-    # 異常預警
+    # 异常预警
     alerts = generator.detect_anomalies(results)
-    print(f"\n⚠️  異常預警 ({len(alerts)} 個):")
+    print(f"\n⚠️  异常预警 ({len(alerts)} 个):")
     for alert in alerts:
         print(f"  [{alert.level.value.upper()}] {alert.title}")
         print(f"    {alert.description}")

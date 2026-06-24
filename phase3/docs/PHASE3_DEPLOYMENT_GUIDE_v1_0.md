@@ -1,4 +1,4 @@
-# 龍魂系統 Phase 3 - 完整部署配置
+# 龍魂系统 Phase 3 - 完整部署配置
 # Longhun System Phase 3 - Complete Deployment Configuration
 
 ## 📁 项目结构
@@ -37,7 +37,7 @@ longhun-phase3/
 version: '3.8'
 
 services:
-  # 後端服務
+  # 后端服务
   backend:
     build:
       context: ./backend
@@ -64,7 +64,7 @@ services:
     depends_on:
       - db
 
-  # 前端服務
+  # 前端服务
   frontend:
     build:
       context: ./frontend
@@ -89,7 +89,7 @@ services:
       timeout: 5s
       retries: 3
 
-  # 數據庫服務
+  # 数据库服务
   db:
     image: sqlite:3.44
     container_name: longhun-db
@@ -127,7 +127,7 @@ networks:
 
 ---
 
-## 🐳 後端 Dockerfile
+## 🐳 后端 Dockerfile
 
 ```dockerfile
 # Dockerfile (backend)
@@ -136,19 +136,19 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# 安裝系統依賴
+# 安装系统依赖
 RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# 複製依賴
+# 复制依赖
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 複製應用代碼
+# 复制应用代码
 COPY . .
 
-# 健康檢查
+# 健康检查
 HEALTHCHECK --interval=10s --timeout=5s --retries=3 \
     CMD curl -f http://localhost:8000/api/v1/health || exit 1
 
@@ -178,10 +178,10 @@ RUN npm run build
 # 运行阶段
 FROM nginx:alpine
 
-# 複製 Nginx 配置
+# 复制 Nginx 配置
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# 複製構建結果
+# 复制构建结果
 COPY --from=builder /app/build /usr/share/nginx/html
 
 EXPOSE 3000
@@ -191,7 +191,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ---
 
-## 📝 後端 requirements.txt
+## 📝 后端 requirements.txt
 
 ```
 # FastAPI 和 Web 框架
@@ -200,11 +200,11 @@ uvicorn[standard]==0.24.0
 pydantic==2.5.0
 pydantic-settings==2.1.0
 
-# 數據庫
+# 数据库
 sqlalchemy==2.0.23
 sqlite3 (built-in)
 
-# 認證與安全
+# 认证与安全
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 python-multipart==0.0.6
@@ -217,21 +217,21 @@ python-dateutil==2.8.2
 requests==2.31.0
 httpx==0.25.2
 
-# 監控與日誌
+# 监控与日志
 prometheus-client==0.19.0
 python-json-logger==2.0.7
 
-# 數據分析（用於趨勢分析）
+# 数据分析（用于趋势分析）
 numpy==1.26.2
 pandas==2.1.3
 scikit-learn==1.3.2
 
-# 導出與文檔
+# 导出与文档
 python-docx==0.8.11
 openpyxl==3.11.0
 reportlab==4.0.8
 
-# 開發工具
+# 开发工具
 pytest==7.4.3
 pytest-asyncio==0.21.1
 pytest-cov==4.1.0
@@ -239,7 +239,7 @@ black==23.12.0
 flake8==6.1.0
 mypy==1.7.1
 
-# 環境管理
+# 环境管理
 python-dotenv==1.0.0
 ```
 
@@ -251,7 +251,7 @@ python-dotenv==1.0.0
 {
   "name": "longhun-frontend",
   "version": "3.0.0",
-  "description": "龍魂系統 Phase 3 React 前端",
+  "description": "龍魂系统 Phase 3 React 前端",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
@@ -300,104 +300,104 @@ python-dotenv==1.0.0
 
 ---
 
-## 🚀 快速開始指南
+## 🚀 快速开始指南
 
-### 方法 1: 使用 Docker Compose（推薦）
+### 方法 1: 使用 Docker Compose（推荐）
 
 ```bash
-# 1. 克隆倉庫
+# 1. 克隆仓库
 git clone https://github.com/UID9622/longhun-system.git
 cd longhun-system/phase3
 
-# 2. 構建並啟動所有服務
+# 2. 构建并启动所有服务
 docker-compose up -d
 
-# 3. 查看日誌
+# 3. 查看日志
 docker-compose logs -f backend
 docker-compose logs -f frontend
 
-# 4. 訪問應用
-# 後端 API: http://localhost:8000
-# API 文檔: http://localhost:8000/api/docs
+# 4. 访问应用
+# 后端 API: http://localhost:8000
+# API 文档: http://localhost:8000/api/docs
 # 前端: http://localhost:3000
 
-# 5. 停止服務
+# 5. 停止服务
 docker-compose down
 ```
 
-### 方法 2: 本地開發（無 Docker）
+### 方法 2: 本地开发（无 Docker）
 
-#### 後端設置
+#### 后端设置
 
 ```bash
-# 1. 進入後端目錄
+# 1. 进入后端目录
 cd backend
 
-# 2. 創建虛擬環境
+# 2. 创建虚拟环境
 python -m venv venv
 source venv/bin/activate  # macOS/Linux
 # 或
 venv\Scripts\activate  # Windows
 
-# 3. 安裝依賴
+# 3. 安装依赖
 pip install -r requirements.txt
 
-# 4. 運行伺服器
+# 4. 运行服务器
 uvicorn main:app --reload
-# 訪問: http://localhost:8000/api/docs
+# 访问: http://localhost:8000/api/docs
 ```
 
-#### 前端設置
+#### 前端设置
 
 ```bash
-# 1. 進入前端目錄
+# 1. 进入前端目录
 cd frontend
 
-# 2. 安裝依賴
+# 2. 安装依赖
 npm install
 
-# 3. 啟動開發伺服器
+# 3. 启动开发服务器
 npm start
-# 自動打開: http://localhost:3000
+# 自动打开: http://localhost:3000
 ```
 
 ---
 
-## 📊 系統要求
+## 📊 系统要求
 
 ### 最小配置
 - CPU: 2 cores
 - RAM: 2GB
-- 磁盤: 2GB
-- 操作系統: Linux/macOS/Windows
+- 磁盘: 2GB
+- 操作系统: Linux/macOS/Windows
 
-### 推薦配置
+### 推荐配置
 - CPU: 4+ cores
 - RAM: 4GB+
-- 磁盤: 10GB+
-- 操作系統: Ubuntu 20.04+ / macOS 10.15+ / Windows 10+
+- 磁盘: 10GB+
+- 操作系统: Ubuntu 20.04+ / macOS 10.15+ / Windows 10+
 
 ---
 
-## 🔧 常見命令
+## 🔧 常见命令
 
 ```bash
-# 查看所有容器狀態
+# 查看所有容器状态
 docker-compose ps
 
-# 進入後端容器
+# 进入后端容器
 docker-compose exec backend bash
 
-# 進入前端容器
+# 进入前端容器
 docker-compose exec frontend sh
 
-# 查看後端日誌
+# 查看后端日志
 docker-compose logs backend -f
 
-# 重新構建鏡像
+# 重新构建镜像
 docker-compose build --no-cache
 
-# 清理所有數據
+# 清理所有数据
 docker-compose down -v
 
 # 重启特定服务
@@ -406,12 +406,12 @@ docker-compose restart backend
 
 ---
 
-## 📈 生産部署
+## 📈 生产部署
 
 ### 使用 production profile
 
 ```bash
-# 啟動包含 Nginx 的生産配置
+# 启动包含 Nginx 的生产配置
 docker-compose --profile production up -d
 
 # Nginx 配置（nginx.conf）
@@ -436,61 +436,61 @@ server {
 ### SSL/TLS 配置
 
 ```bash
-# 生成自簽名證書（開發用）
+# 生成自签名证书（开发用）
 openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
 
-# 複製到 ssl/ 目錄
+# 复制到 ssl/ 目录
 mkdir -p ssl
 cp cert.pem key.pem ssl/
 
-# 使用 Let's Encrypt（生産用）
+# 使用 Let's Encrypt（生产用）
 docker run --rm -v /etc/letsencrypt:/etc/letsencrypt \
   certbot/certbot certonly --standalone -d api.longhun-system.com
 ```
 
 ---
 
-## ✅ 驗收檢查清單
+## ✅ 验收检查清单
 
-部署後請檢查以下項目：
+部署后请检查以下项目：
 
 ```
-[ ] 後端 API 健康檢查通過
+[ ] 后端 API 健康检查通过
     curl http://localhost:8000/api/v1/health
 
-[ ] API 文檔可訪問
+[ ] API 文档可访问
     http://localhost:8000/api/docs
 
-[ ] 前端頁面能加載
+[ ] 前端页面能加载
     http://localhost:3000
 
-[ ] WebSocket 連接正常
-    查看瀏覽器控制台是否有連接日誌
+[ ] WebSocket 连接正常
+    查看浏览器控制台是否有连接日志
 
-[ ] 可以創建技能
-    在前端技能管理頁面測試
+[ ] 可以创建技能
+    在前端技能管理页面测试
 
 [ ] 可以查看仪表板
-    查看實時監控數據
+    查看实时监控数据
 
-[ ] 日誌輸出正常
+[ ] 日志输出正常
     docker-compose logs backend
 
-[ ] 所有容器健康狀態正常
+[ ] 所有容器健康状态正常
     docker-compose ps
 ```
 
 ---
 
-## 🐉 DNA 簽章
+## 🐉 DNA 签章
 
 ```
 DNA:#龍芯⚡️2026-06-06-PHASE3-DEPLOYMENT-v1.0
-責任: UID9622 · 不免責
-時間: 2026-06-06 21:25 CST
-狀態: 🟢 生産就緒
+责任: UID9622 · 不免责
+时间: 2026-06-06 21:25 CST
+状态: 🟢 生产就绪
 ```
 
 ---
 
-**現在可以部署 Phase 3 了！** 🚀
+**现在可以部署 Phase 3 了！** 🚀

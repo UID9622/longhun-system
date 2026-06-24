@@ -8,7 +8,7 @@
 
 ## 📚 文档导航（按用途分类）
 
-### 🟢 「我想快速上手」(5 分钟)
+### 🟢 “我想快速上手”(5 分钟)
 
 👉 **NOTION_UPDATE_QUICKSTART.md**
 - 目的: 快速在 Notion 中应用优化
@@ -25,7 +25,7 @@ cat ~/.龍魂/NOTION_UPDATE_QUICKSTART.md
 
 ---
 
-### 🟡 「我想看完整模板」(参考用)
+### 🟡 “我想看完整模板”(参考用)
 
 👉 **NOTION_TEMPLATE_READY_TO_PASTE.md**
 - 目的: 所有优化块的完整粘贴源
@@ -44,7 +44,7 @@ vim ~/.龍魂/NOTION_TEMPLATE_READY_TO_PASTE.md
 
 ---
 
-### 🔵 「我想了解为什么这样做」(深度理解)
+### 🔵 “我想了解为什么这样做”(深度理解)
 
 👉 **DECISION_PAGE_OPTIMIZATION_REPORT.md**
 - 目的: 完整的诊断报告和解决方案
@@ -63,7 +63,7 @@ cat ~/.龍魂/DECISION_PAGE_OPTIMIZATION_REPORT.md
 
 ---
 
-### 🎯 「我想看总结和后续」(规划用)
+### 🎯 “我想看总结和后续”(规划用)
 
 👉 **OPTIMIZATION_FINAL_SUMMARY.md**
 - 目的: 项目总结 + 成果指标 + 后续工作流
@@ -203,7 +203,7 @@ python3 -m json.tool ~/.龍魂/decision_page_config.json
 
 ## 🚀 常见场景
 
-### 场景 1: 「我需要在 Notion 中应用这些优化」
+### 场景 1: “我需要在 Notion 中应用这些优化”
 
 ```bash
 # 1. 打开快速指南
@@ -218,7 +218,7 @@ cat ~/.龍魂/NOTION_UPDATE_QUICKSTART.md
 
 ---
 
-### 场景 2: 「我想验证主控页的当前状态」
+### 场景 2: “我想验证主控页的当前状态”
 
 ```bash
 # 运行同步检查器
@@ -232,7 +232,7 @@ python3 ~/.龍魂/notion_sync_checker.py
 
 ---
 
-### 场景 3: 「我想为新焊点校验 DNA」
+### 场景 3: “我想为新焊点校验 DNA”
 
 ```bash
 # 校验 DNA 格式
@@ -246,7 +246,7 @@ python3 ~/.龍魂/dna_validator.py
 
 ---
 
-### 场景 4: 「我想生成外人版本的文档」
+### 场景 4: “我想生成外人版本的文档”
 
 ```bash
 # 转换为外人语境
@@ -259,7 +259,7 @@ python3 ~/.龍魂/term_translator.py --mode external \
 
 ---
 
-### 场景 5: 「我想为新父页生成反向链接」
+### 场景 5: “我想为新父页生成反向链接”
 
 ```bash
 # 生成索引树和反向链接

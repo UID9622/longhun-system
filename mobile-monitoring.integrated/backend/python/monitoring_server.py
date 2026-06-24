@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-MOBILE-MONITORING_SERVER-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂移動端監控後端 v4.1
-Python FastAPI 實現
+龍魂移动端监控后端 v4.1
+Python FastAPI 实现
 DNA: #龍芯⚡️2026-06-07-MOBILE-MONITORING-BACKEND
 """
 
@@ -17,13 +17,13 @@ try:
     from datetime import datetime
     import logging
 
-    # 日誌配置
+    # 日志配置
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
     app = FastAPI(title="Longhun Mobile Monitoring Backend v4.1")
 
-    # 數據模型
+    # 数据模型
     class Event(BaseModel):
         type: str
         data: Dict[str, Any]
@@ -36,13 +36,13 @@ try:
         timestamp: int
         events: List[Event]
 
-    # 存儲
+    # 存储
     events_store = {}
     alerts_store = {}
 
     @app.post("/api/v1/monitor/events")
     async def receive_events(payload: MonitoringPayload) -> Dict[str, str]:
-        """接收監控事件"""
+        """接收监控事件"""
         logger.info(f"📨 接收事件: appId={payload.appId}, events={len(payload.events)}")
 
         if payload.appId not in events_store:
@@ -57,7 +57,7 @@ try:
                 'receivedAt': datetime.now().isoformat()
             })
 
-        logger.info(f"✅ 已存儲 {len(payload.events)} 個事件")
+        logger.info(f"✅ 已存储 {len(payload.events)} 个事件")
 
         return {
             "status": "success",
@@ -66,7 +66,7 @@ try:
 
     @app.get("/api/v1/monitor/health")
     async def health_check() -> Dict[str, str]:
-        """健康檢查"""
+        """健康检查"""
         return {
             "status": "healthy",
             "timestamp": datetime.now().isoformat(),

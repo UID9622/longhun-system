@@ -124,7 +124,7 @@ class DigitalRootCalculator:
             3: WuxingEnum.WOOD,       # 震
             4: WuxingEnum.FIRE,       # 离
             5: WuxingEnum.FIRE,       # 中（变）
-            6: WuxingEnum.METAL,      # 乾
+            6: WuxingEnum.METAL,      # 干
             7: WuxingEnum.METAL,      # 兑
             8: WuxingEnum.METAL,      # 艮
             9: WuxingEnum.WATER,      # 坎（变）

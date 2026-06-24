@@ -155,8 +155,8 @@ class Lexer:
         line = self.line
 
         # 字符串（支持中文引号）
-        if ch in ('"', "'", '「', '『'):
-            close_quote = '」' if ch == '「' else ('』' if ch == '『' else ch)
+        if ch in ('"', "'", '“', '‘'):
+            close_quote = '”' if ch == '“' else ('’' if ch == '‘' else ch)
             value = self.read_string(close_quote)
             return Token(
                 type='STRING',

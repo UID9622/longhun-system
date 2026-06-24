@@ -1,12 +1,12 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU_E54A-v1.0",
-
+{
+  "_dna": "#龍芯⚡️20260624013232250-AUTO-DNA-735D7139",
   "items": [
     {
       "id": "xpay-currencies",
-      "label": "💱 查看主權幣種",
+      "label": "💱 查看主权币种",
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py currencies",
-      "description": "列出支持的法幣/CBDC 與主權審計信息",
+      "description": "列出支持的法币/CBDC 与主权审计信息",
       "mode": "oneshot",
       "confirm": false
     },
@@ -15,28 +15,29 @@
       "label": "💰 演示支付（CNY → UID1001）",
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py pay 100.00 CNY UID1001 --memo \"桌面主开关演示\"",
-      "description": "發起一筆數字人民幣演示支付並生成 DNA 存根",
+      "description": "发起一笔数字人民币演示支付并生成 DNA 存根",
       "mode": "oneshot",
       "confirm": false
     },
     {
       "id": "xpay-stats",
-      "label": "📊 XPay 交易統計",
+      "label": "📊 XPay 交易统计",
       "type": "shell",
       "command": "cd {root} && python3 xpay/src/cli.py stats",
-      "description": "查看交易筆數、總量與 DNA 維護費",
+      "description": "查看交易笔数、总量与 DNA 维护费",
       "mode": "oneshot",
       "confirm": false
     },
     {
       "id": "xpay-readme",
-      "label": "📘 查看 XPay 設計說明",
+      "label": "📘 查看 XPay 设计说明",
       "type": "shell",
       "command": "open {root}/xpay/README.md",
-      "description": "打开主權支付網關說明文檔",
+      "description": "打开主权支付网关说明文档",
       "mode": "viewer",
       "confirm": false
     }
   ],
-  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-10"
+  "_dna_note": "自动注入·分层治理自愈引擎·来源可查",
+  "_longhun_identity": "龍魂 · UID9622 · 中国自主可控"
 }

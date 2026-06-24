@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-龍魂系統 · 功能模塊盤點器
-掃描主幹目錄，生成公開透明的模塊清單、接口狀態與文檔覆蓋率。
+龍魂系统 · 功能模块盘点器
+扫描主干目录，生成公开透明的模块清单、接口状态与文档覆盖率。
 """
 import json
 from pathlib import Path
@@ -11,14 +11,14 @@ ROOT = Path("/Users/zuimeidedeyihan/longhun-system")
 OUT_MD = ROOT / "docs" / "MODULE_INVENTORY.md"
 OUT_JSON = ROOT / "docs" / "module-inventory.json"
 
-# 忽略目錄
+# 忽略目录
 IGNORE_DIRS = {
     ".git", "__pycache__", ".pytest_cache", "node_modules", ".venv", "venv",
     ".backups", "logs", "_archive", ".claude", ".obsidian", ".github",
     "cnsh-core.backup", "monitoring.backup", "logging_backup",
 }
 
-# 判斷是否為活躍模塊：包含代碼或腳本文件
+# 判断是否为活跃模块：包含代码或脚本文件
 CODE_EXTS = {".py", ".sh", ".js", ".html", ".command", ".yaml", ".yml", ".json"}
 
 
@@ -57,28 +57,28 @@ def main():
     needs = len(modules) - complete
 
     lines = [
-        "# 龍魂系統 · 功能模塊盤點",
+        "# 龍魂系统 · 功能模块盘点",
         "",
-        f"**統計**：共 {len(modules)} 個活躍模塊，{complete} 個文檔/接口完整，{needs} 個需要補充。",
+        f"**统计**：共 {len(modules)} 个活跃模块，{complete} 个文档/接口完整，{needs} 个需要补充。",
         "",
-        "| 模塊路徑 | 文件數 | README | 主入口/API | 狀態 | 主要入口腳本 |",
+        "| 模块路径 | 文件数 | README | 主入口/API | 状态 | 主要入口脚本 |",
         "|----------|--------|--------|-------------|------|--------------|",
     ]
     for m in modules:
         readme = "✅" if m["has_readme"] else "❌"
         entry = "✅" if m["has_main_entry"] or m["has_api"] else "❌"
-        status = "🟢 完整" if m["status"] == "complete" else "🟡 需補充"
+        status = "🟢 完整" if m["status"] == "complete" else "🟡 需补充"
         scripts = ", ".join(m["entry_scripts"]) or "-"
         lines.append(f"| `{m['path']}` | {m['files']} | {readme} | {entry} | {status} | {scripts} |")
 
     lines.extend([
         "",
-        "## 說明",
+        "## 说明",
         "",
-        "- 本清單由 `bin/module_inventory.py` 自動生成。",
-        "- `README` 表示該模塊是否有說明文件。",
-        "- `主入口/API` 表示是否有可調用的入口或接口文件。",
-        "- 所有模塊必須公開透明，缺失文檔的需要補齊。",
+        "- 本清单由 `bin/module_inventory.py` 自动生成。",
+        "- `README` 表示该模块是否有说明文件。",
+        "- `主入口/API` 表示是否有可调用的入口或接口文件。",
+        "- 所有模块必须公开透明，缺失文档的需要补齐。",
         "",
         f"**DNA**:#龍芯⚡️2026-06-17-MODULE-INVENTORY-FILE1-v1.0",
     ])

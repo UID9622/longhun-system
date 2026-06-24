@@ -1,35 +1,35 @@
 # rules-engine-v2.5
 
-**路徑**：`rules-engine-v2.5`
+**路径**：`rules-engine-v2.5`
 
-## 狀態
+## 状态
 
-🟡 本 README 由 `bin/generate_module_readmes.py` 自動生成，用於提高倉庫透明度。
-具體用法請結合源碼與實際場景調整。
+🟡 本 README 由 `bin/generate_module_readmes.py` 自动生成，用于提高仓库透明度。
+具体用法请结合源码与实际场景调整。
 
 ## 功能概述
 
-該模塊包含 4 個文件，主要提供 `rules-engine-v2.5` 相關能力。
+该模块包含 4 个文件，主要提供 `rules-engine-v2.5` 相关能力。
 
-## 入口腳本
+## 入口脚本
 
 - `notion_sync_v2.5.py`
-  - 嘗試用法：`python3 notion_sync_v2.5.py --help`
+  - 尝试用法：`python3 notion_sync_v2.5.py --help`
 - `batch_processor_v2.5.py`
-  - 嘗試用法：`python3 batch_processor_v2.5.py --help`
+  - 尝试用法：`python3 batch_processor_v2.5.py --help`
 - `test_integration.py`
-  - 嘗試用法：`python3 test_integration.py --help`
+  - 尝试用法：`python3 test_integration.py --help`
 - `report_generator_enhanced.py`
-  - 嘗試用法：`python3 report_generator_enhanced.py --help`
+  - 尝试用法：`python3 report_generator_enhanced.py --help`
 
-## 接口說明
+## 接口说明
 
-- 若該模塊提供 API，請在源碼中查找 `api/`、`router/`、`main.py` 等入口。
-- 若為腳本工具，可直接調用上述入口腳本。
+- 若该模块提供 API，请在源码中查找 `api/`、`router/`、`main.py` 等入口。
+- 若为脚本工具，可直接调用上述入口脚本。
 
-## 注意事項
+## 注意事项
 
-- 運行前請確認依賴已安裝。
-- 建議先閱讀源碼註釋，了解每個腳本的副作用。
+- 运行前请确认依赖已安装。
+- 建议先阅读源码注释，了解每个脚本的副作用。
 
 **DNA**:#龍芯⚡️2026-06-17-RULES_ENGINE_V2_5-README-v1.0

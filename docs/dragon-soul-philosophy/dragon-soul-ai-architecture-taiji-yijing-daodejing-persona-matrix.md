@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-DRAGON-SOUL-AI-ARCHITECTURE-TAIJI-YIJING-DAODEJING-PERSONA-MATRIX-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 龙魂AI架构原理 | 太极×易经×道德经×人格矩阵
 
