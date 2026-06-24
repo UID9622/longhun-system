@@ -1008,39 +1008,39 @@ SEAL: {SEAL_MARK}
 
 
 def print_usage_guide():
-    """打印使用說明"""
+    """打印使用说明"""
     print(f"""
 ╔════════════════════════════════════════════════════════════╗
-║       🐉 龍魂MVP啟動器 v2.0 🐉                        ║
+║       🐉 龍魂MVP启动器 v2.0 🐉                        ║
 ║     LongHun MVP Launcher v2.0                             ║
 ║                                                           ║
 ║  用法:                                                    ║
 ║    python longhun_mvp_launcher_v2.0.py --help            ║
 ║    python longhun_mvp_launcher_v2.0.py --demo            ║
 ║                                                           ║
-║  ⚡ 真實模組導入 (無Mock)                                 ║
+║  ⚡ 真实模组导入 (无Mock)                                 ║
 ║  ⚡ SQLite持久化                                          ║
-║  ⚡ 自動審計系統                                          ║
-║  ⚡ 三層監督 + 六層來源鏈                                 ║
+║  ⚡ 自动审计系统                                          ║
+║  ⚡ 三层监督 + 六层来源链                                 ║
 ╚════════════════════════════════════════════════════════════╝
 """)
 
 
 # ========== 主程序 ==========
 def main():
-    """主程序 - MVP啟動器 v2.0"""
+    """主程序 - MVP启动器 v2.0"""
     parser = argparse.ArgumentParser(
-        description="龍魂MVP啟動器 v2.0 — LongHun MVP Launcher",
+        description="龍魂MVP启动器 v2.0 — LongHun MVP Launcher",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
         "--demo",
         action="store_true",
-        help="運行完整MVP演示（需使用者確認，預設行為）",
+        help="运行完整MVP演示（需使用者确认，预设行为）",
     )
     args = parser.parse_args()
 
-    # 若無參數，維持原本的演示行為
+    # 若无参数，维持原本的演示行为
     if not args.demo and len(sys.argv) <= 1:
         args.demo = True
 
@@ -1053,18 +1053,18 @@ def main():
     print(launcher.get_usage_guide())
 
     if not args.demo:
-        # --help 已由 argparse 處理並退出；此分支保留給未來擴充
+        # --help 已由 argparse 处理并退出；此分支保留给未来扩充
         return
 
     # 初始化
     print("\n1️⃣  初始化MVP...")
     launcher.initialize_mvp()
 
-    # 啟動 (不自動同步，因為 Notion 未配置)
-    print("\n2️⃣  啟動MVP...")
+    # 启动 (不自动同步，因为 Notion 未配置)
+    print("\n2️⃣  启动MVP...")
     launcher.launch_mvp(auto_sync=False)
 
-    print("\n✅ MVP啟動器 v2.0 演示完成\n")
+    print("\n✅ MVP启动器 v2.0 演示完成\n")
     print(f"  {AITruthProtocol.tag_output('launcher', 0.97, True)}")
 
 

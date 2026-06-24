@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂 DNA 協議 · Secret Guard v1.0
-敏感信息檢測與脫敏系統
+龍魂 DNA 协议 · Secret Guard v1.0
+敏感信息检测与脱敏系统
 
 DNA:#龍芯⚡️2026-06-07-SECRET-GUARD-v1.0
-責任: UID9622 · 不免責
+责任: UID9622 · 不免责
 """
 
 import re
@@ -25,7 +25,7 @@ except ImportError:
 
 
 # ============================================================================
-# [日誌配置]
+# [日志配置]
 # ============================================================================
 
 logging.basicConfig(
@@ -36,11 +36,11 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================================
-# [敏感信息類型]
+# [敏感信息类型]
 # ============================================================================
 
 class SecretType(Enum):
-    """敏感信息類型枚舉"""
+    """敏感信息类型枚举"""
     API_KEY = "api_key"
     AWS_KEY = "aws_key"
     GITHUB_TOKEN = "github_token"
@@ -54,7 +54,7 @@ class SecretType(Enum):
 
 
 # ============================================================================
-# [敏感信息檢測模式]
+# [敏感信息检测模式]
 # ============================================================================
 
 DETECTION_PATTERNS = {
@@ -92,12 +92,12 @@ DETECTION_PATTERNS = {
 
 
 # ============================================================================
-# [數據結構]
+# [数据结构]
 # ============================================================================
 
 @dataclass
 class SecretFinding:
-    """敏感信息發現記錄"""
+    """敏感信息发现记录"""
     file_path: str
     line_number: int
     secret_type: SecretType
@@ -111,7 +111,7 @@ class SecretFinding:
             'file_path': self.file_path,
             'line_number': self.line_number,
             'secret_type': self.secret_type.value,
-            'found_value': '***REDACTED***',  # 不保存實際值
+            'found_value': '***REDACTED***',  # 不保存实际值
             'redacted_value': self.redacted_value,
             'severity': self.severity,
             'context': self.context
@@ -119,13 +119,13 @@ class SecretFinding:
 
 
 # ============================================================================
-# [Secret Guard 實現]
+# [Secret Guard 实现]
 # ============================================================================
 
 class SecretGuard:
-    """敏感信息檢測和脫敏系統"""
+    """敏感信息检测和脱敏系统"""
 
-    # 需要跳過的文件/目錄
+    # 需要跳过的文件/目录
     SKIP_PATTERNS = {
         '.git',
         '.env',
@@ -146,7 +146,7 @@ class SecretGuard:
         'Thumbs.db'
     }
 
-    # 信任的文件擴展名 (這些文件中的匹配可能是誤報)
+    # 信任的文件扩展名 (这些文件中的匹配可能是误报)
     TRUSTED_EXTENSIONS = {
         '.md',
         '.txt',
@@ -159,16 +159,16 @@ class SecretGuard:
     @staticmethod
     def redact(text: str, keep_chars: int = 4) -> str:
         """
-        脫敏敏感信息
+        脱敏敏感信息
 
-        保留首尾若干字符，中間用 *** 替代
+        保留首尾若干字符，中间用 *** 替代
 
         Args:
-            text: 要脫敏的文本
-            keep_chars: 保留的首尾字符數
+            text: 要脱敏的文本
+            keep_chars: 保留的首尾字符数
 
         Returns:
-            脫敏後的文本
+            脱敏后的文本
         """
         if len(text) <= keep_chars * 2:
             return '***REDACTED***'
@@ -178,20 +178,20 @@ class SecretGuard:
     @staticmethod
     def should_skip(filepath: Path) -> bool:
         """
-        判斷是否應該跳過文件
+        判断是否应该跳过文件
 
         Args:
-            filepath: 文件路徑
+            filepath: 文件路径
 
         Returns:
-            是否跳過
+            是否跳过
         """
-        # 檢查目錄名
+        # 检查目录名
         for skip_pattern in SecretGuard.SKIP_PATTERNS:
             if skip_pattern.replace('*', '') in filepath.parts:
                 return True
 
-        # 檢查文件擴展名
+        # 检查文件扩展名
         if filepath.suffix in SecretGuard.TRUSTED_EXTENSIONS:
             return True
 
@@ -200,25 +200,25 @@ class SecretGuard:
     @classmethod
     def scan_file(cls, filepath: Path) -> List[SecretFinding]:
         """
-        掃描單個文件中的敏感信息
+        扫描单个文件中的敏感信息
 
         Args:
-            filepath: 文件路徑
+            filepath: 文件路径
 
         Returns:
-            發現列表
+            发现列表
         """
         findings: List[SecretFinding] = []
 
         try:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
                 for line_no, line in enumerate(f, 1):
-                    # 跳過註釋行
+                    # 跳过注释行
                     stripped_line = line.strip()
                     if stripped_line.startswith('#') or stripped_line.startswith('//'):
                         continue
 
-                    # 檢查每個模式
+                    # 检查每个模式
                     for secret_type, pattern in DETECTION_PATTERNS.items():
                         matches = pattern.finditer(line)
 
@@ -226,7 +226,7 @@ class SecretGuard:
                             found_value = match.group()
                             redacted_value = cls.redact(found_value)
 
-                            # 提取上下文 (前後各 20 個字符)
+                            # 提取上下文 (前后各 20 个字符)
                             start = max(0, match.start() - 20)
                             end = min(len(line), match.end() + 20)
                             context = line[start:end].strip()
@@ -241,7 +241,7 @@ class SecretGuard:
                             ))
 
         except Exception as e:
-            logger.error(f"掃描文件 {filepath} 時發生錯誤: {e}")
+            logger.error(f"扫描文件 {filepath} 时发生错误: {e}")
             findings.append(SecretFinding(
                 file_path=str(filepath),
                 line_number=0,
@@ -262,17 +262,17 @@ class SecretGuard:
         show_progress: bool = True
     ) -> List[SecretFinding]:
         """
-        遞歸掃描目錄
+        递归扫描目录
 
         Args:
-            root_path: 根目錄路徑
-            max_workers: 最大線程數
-            show_progress: 是否顯示進度條
+            root_path: 根目录路径
+            max_workers: 最大线程数
+            show_progress: 是否显示进度条
 
         Returns:
-            所有發現
+            所有发现
         """
-        logger.info(f"開始掃描目錄: {root_path}")
+        logger.info(f"开始扫描目录: {root_path}")
 
         # 收集所有文件
         all_files = []
@@ -280,32 +280,32 @@ class SecretGuard:
             if filepath.is_file() and not cls.should_skip(filepath):
                 all_files.append(filepath)
 
-        logger.info(f"找到 {len(all_files)} 個文件待掃描")
+        logger.info(f"找到 {len(all_files)} 个文件待扫描")
 
         all_findings: List[SecretFinding] = []
 
-        # 並行掃描文件
+        # 并行扫描文件
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
                 executor.submit(cls.scan_file, filepath): filepath
                 for filepath in all_files
             }
 
-            # 進度條
+            # 进度条
             iterator = as_completed(futures)
             if show_progress:
-                iterator = tqdm(iterator, total=len(all_files), desc="掃描進度")
+                iterator = tqdm(iterator, total=len(all_files), desc="扫描进度")
 
-            # 收集結果
+            # 收集结果
             for future in iterator:
                 try:
                     findings = future.result()
                     all_findings.extend(findings)
                 except Exception as e:
                     filepath = futures[future]
-                    logger.error(f"掃描文件 {filepath} 時發生異常: {e}")
+                    logger.error(f"扫描文件 {filepath} 时发生异常: {e}")
 
-        logger.info(f"掃描完成，發現 {len(all_findings)} 個敏感信息")
+        logger.info(f"扫描完成，发现 {len(all_findings)} 个敏感信息")
 
         return all_findings
 
@@ -316,26 +316,26 @@ class SecretGuard:
         output_file: Optional[Path] = None
     ) -> Dict:
         """
-        生成掃描報告
+        生成扫描报告
 
         Args:
-            findings: 發現列表
-            output_file: 輸出文件路徑 (可選)
+            findings: 发现列表
+            output_file: 输出文件路径 (可选)
 
         Returns:
-            報告字典
+            报告字典
         """
-        # 統計
+        # 统计
         total = len(findings)
         by_type = {}
         by_severity = {}
 
         for finding in findings:
-            # 按類型統計
+            # 按类型统计
             type_key = finding.secret_type.value
             by_type[type_key] = by_type.get(type_key, 0) + 1
 
-            # 按嚴重性統計
+            # 按严重性统计
             severity = finding.severity
             by_severity[severity] = by_severity.get(severity, 0) + 1
 
@@ -349,27 +349,27 @@ class SecretGuard:
             'risk_level': cls._assess_risk(total, by_severity)
         }
 
-        # 保存報告
+        # 保存报告
         if output_file:
             import json
             output_file.parent.mkdir(parents=True, exist_ok=True)
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(report, f, indent=2, ensure_ascii=False)
-            logger.info(f"報告已保存: {output_file}")
+            logger.info(f"报告已保存: {output_file}")
 
         return report
 
     @staticmethod
     def _assess_risk(total: int, by_severity: Dict[str, int]) -> str:
         """
-        評估風險級別
+        评估风险级别
 
         Args:
-            total: 總發現數
-            by_severity: 按嚴重性分組
+            total: 总发现数
+            by_severity: 按严重性分组
 
         Returns:
-            風險級別 ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'NONE')
+            风险级别 ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'NONE')
         """
         if by_severity.get('HIGH', 0) > 5 or by_severity.get('CRITICAL', 0) > 0:
             return 'CRITICAL'
@@ -393,62 +393,62 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='龍魂 DNA 協議 · Secret Guard - 敏感信息檢測'
+        description='龍魂 DNA 协议 · Secret Guard - 敏感信息检测'
     )
-    parser.add_argument('path', help='要掃描的文件或目錄')
-    parser.add_argument('-o', '--output', help='輸出報告文件')
-    parser.add_argument('-w', '--workers', type=int, default=4, help='並行線程數')
-    parser.add_argument('--no-progress', action='store_true', help='隱藏進度條')
+    parser.add_argument('path', help='要扫描的文件或目录')
+    parser.add_argument('-o', '--output', help='输出报告文件')
+    parser.add_argument('-w', '--workers', type=int, default=4, help='并行线程数')
+    parser.add_argument('--no-progress', action='store_true', help='隐藏进度条')
 
     args = parser.parse_args()
 
     scan_path = Path(args.path)
 
     if not scan_path.exists():
-        print(f"❌ 路徑不存在: {scan_path}")
+        print(f"❌ 路径不存在: {scan_path}")
         sys.exit(1)
 
-    # 執行掃描
+    # 执行扫描
     output_file = Path(args.output) if args.output else None
 
     if scan_path.is_file():
-        # 掃描單個文件
+        # 扫描单个文件
         findings = SecretGuard.scan_file(scan_path)
     else:
-        # 掃描整個目錄
+        # 扫描整个目录
         findings = SecretGuard.scan_directory(
             scan_path,
             max_workers=args.workers,
             show_progress=not args.no_progress
         )
 
-    # 生成報告
+    # 生成报告
     report = SecretGuard.generate_report(findings, output_file)
 
     # 打印摘要
     print("\n" + "=" * 70)
-    print("🔐 Secret Guard 掃描完成")
+    print("🔐 Secret Guard 扫描完成")
     print("=" * 70)
-    print(f"📊 統計信息:")
-    print(f"  總發現數:  {report['summary']['total_findings']}")
-    print(f"  風險級別:  {report['risk_level']}")
+    print(f"📊 统计信息:")
+    print(f"  总发现数:  {report['summary']['total_findings']}")
+    print(f"  风险级别:  {report['risk_level']}")
 
     if report['summary']['by_type']:
-        print(f"\n  按類型分組:")
+        print(f"\n  按类型分组:")
         for secret_type, count in report['summary']['by_type'].items():
             print(f"    - {secret_type}: {count}")
 
     if report['summary']['by_severity']:
-        print(f"\n  按嚴重性分組:")
+        print(f"\n  按严重性分组:")
         for severity, count in report['summary']['by_severity'].items():
             print(f"    - {severity}: {count}")
 
     if output_file:
-        print(f"\n💾 報告已保存: {output_file}")
+        print(f"\n💾 报告已保存: {output_file}")
 
     print("=" * 70)
 
-    # 如果有發現，返回非零退出碼
+    # 如果有发现，返回非零退出码
     sys.exit(0 if report['summary']['total_findings'] == 0 else 1)
 
 

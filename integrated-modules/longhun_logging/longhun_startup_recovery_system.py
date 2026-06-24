@@ -26,7 +26,7 @@ class StartupManager:
     def startup(self) -> Dict:
         """完整启动流程"""
         print("\n" + "=" * 70)
-        print("🐉 龍魂系統启动")
+        print("🐉 龍魂系统启动")
         print("=" * 70)
         
         result = {
@@ -70,7 +70,7 @@ class StartupManager:
         result["status"] = "ready"
         
         print("\n" + "=" * 70)
-        print("🟢 龍魂系統已就绪！")
+        print("🟢 龍魂系统已就绪！")
         print("=" * 70)
         print(f"运行ID: {report['session_id']}")
         print(f"系统健康: {report['system_health']:.1f}%")

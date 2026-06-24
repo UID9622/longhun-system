@@ -1,17 +1,17 @@
-# 龍魂融合審計系統 v2.0
+# 龍魂融合审计系统 v2.0
 
 **DNA**:#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE5-v2.0
 
-將 CNSH 對齊與 10 維系統審計融為一體：
-- 腳本層（CNSH）錯了，無論系統多健康都拒絕。
-- 系統不健康，腳本也不能執行。
-- 單一 DNA 追溯，統一置信度計算。
+将 CNSH 对齐与 10 维系统审计融为一体：
+- 脚本层（CNSH）错了，无论系统多健康都拒绝。
+- 系统不健康，脚本也不能执行。
+- 单一 DNA 追溯，统一置信度计算。
 
 ## 文件
 
 - `longhun_audit_integrated.py`：主入口
 - `LONGHUN_AUDIT_INTEGRATED_GUIDE.md`：使用指南
-- `INTEGRATED_SYSTEM_SUMMARY.txt`：升級總結
+- `INTEGRATED_SYSTEM_SUMMARY.txt`：升级总结
 
 ## 快速使用
 

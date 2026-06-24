@@ -1,0 +1,528 @@
+{
+  "timestamp": "2026-06-08T19:43:49.734373",
+  "total_skills": 10,
+  "benchmarks": [
+    {
+      "skill_id": "skill-1-algorithmic-art",
+      "skill_name": "龍魂算法艺术生成器",
+      "test_time": "2026-06-08T19:43:45.212533",
+      "sample_size": 20,
+      "duration_seconds": 0.50829937501112,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 76.84370771408518,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.999937491258606,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.953750021755695,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.953750021755695,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0046875,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.09375,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.28,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-2-brand-guidelines",
+      "skill_name": "品牌指南构建工具",
+      "test_time": "2026-06-08T19:43:45.731373",
+      "sample_size": 20,
+      "duration_seconds": 0.5187889160006307,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 72.4895179042502,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 13.807458512019366,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 15.122291981242597,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 15.122291981242597,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.31,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-3-canvas-design",
+      "skill_name": "Canvas 动态设计工具",
+      "test_time": "2026-06-08T19:43:46.250724",
+      "sample_size": 20,
+      "duration_seconds": 0.5193203340168111,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 73.32287606860743,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 13.6491454904899,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 17.771624960005283,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 17.771624960005283,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.34500000000000003,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-4-doc-coauthoring",
+      "skill_name": "文档协作编辑系统",
+      "test_time": "2026-06-08T19:43:46.738658",
+      "sample_size": 20,
+      "duration_seconds": 0.48785529198357835,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 81.59934751524976,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.594436993822455,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.219459040556103,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.219459040556103,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.405,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-5-internal-comms",
+      "skill_name": "内部沟通平台",
+      "test_time": "2026-06-08T19:43:47.223419",
+      "sample_size": 20,
+      "duration_seconds": 0.4846930840285495,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 81.15417400354444,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.80024999869056,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.062999991234392,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.062999991234392,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.405,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-6-mcp-builder",
+      "skill_name": "MCP 服务器构建工具",
+      "test_time": "2026-06-08T19:43:47.725128",
+      "sample_size": 20,
+      "duration_seconds": 0.501628250000067,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 77.50989148004248,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.916062492877245,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.737125031184405,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.737125031184405,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.355,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-7-skill-creator",
+      "skill_name": "Skill 创建助手",
+      "test_time": "2026-06-08T19:43:48.230774",
+      "sample_size": 20,
+      "duration_seconds": 0.5055919170263223,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 77.40381110027357,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 13.135583518305793,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.694624998606741,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.694624998606741,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.295,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-8-slack-gif-creator",
+      "skill_name": "Slack GIF 生成器",
+      "test_time": "2026-06-08T19:43:48.727479",
+      "sample_size": 20,
+      "duration_seconds": 0.49665862502297387,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 79.04307825263876,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.795104004908353,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.373542053159326,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.373542053159326,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.00234375,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.03125,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.35,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-9-theme-factory",
+      "skill_name": "主题生成工厂",
+      "test_time": "2026-06-08T19:43:49.223769",
+      "sample_size": 20,
+      "duration_seconds": 0.4962264999630861,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 79.5801355099152,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.984437518753111,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.390582986176014,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.390582986176014,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.36,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    },
+    {
+      "skill_id": "skill-10-web-artifacts-builder",
+      "skill_name": "Web 构件生成器",
+      "test_time": "2026-06-08T19:43:49.734083",
+      "sample_size": 20,
+      "duration_seconds": 0.5102512500016019,
+      "metrics": {
+        "throughput": {
+          "name": "吞吐量",
+          "unit": "req/s",
+          "value": 77.827447105217,
+          "status": "🟢"
+        },
+        "p50_latency": {
+          "name": "P50 延迟",
+          "unit": "ms",
+          "value": 12.874145497335121,
+          "status": "🟢"
+        },
+        "p95_latency": {
+          "name": "P95 延迟",
+          "unit": "ms",
+          "value": 13.617416960187256,
+          "status": "🟢"
+        },
+        "p99_latency": {
+          "name": "P99 延迟",
+          "unit": "ms",
+          "value": 13.617416960187256,
+          "status": "🟢"
+        },
+        "avg_memory": {
+          "name": "平均内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "max_memory": {
+          "name": "最大内存",
+          "unit": "MB",
+          "value": 0.0,
+          "status": "🟢"
+        },
+        "avg_cpu": {
+          "name": "平均 CPU",
+          "unit": "%",
+          "value": 0.28,
+          "status": "🟢"
+        }
+      },
+      "status": "🟢"
+    }
+  ],
+  "dna": "#龍芯⚡️2026-06-08-PHASE5-BENCHMARK-COMPLETE-v1.0",
+  "_dna": "2026-06-22-CONFIG-PHASE5_PERFORMANCE_BENCHMARK_REPORT-v1.0"
+}

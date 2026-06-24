@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂技能創建框架 v1.0
+龍魂技能创建框架 v1.0
 Longhun Skill Creator Framework
 
 DNA:#龍芯⚡️2026-06-07-SKILL-CREATOR-FILE2-v1.0
@@ -16,7 +16,7 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class SkillMetadata:
-    """技能元數據"""
+    """技能元数据"""
     id: str
     name: str
     version: str
@@ -33,7 +33,7 @@ class SkillMetadata:
 
 
 class Skill:
-    """基礎技能類"""
+    """基础技能类"""
     
     def __init__(
         self,
@@ -58,28 +58,28 @@ class Skill:
         self.tests: List[Dict] = []
     
     def set_executor(self, func: Callable) -> None:
-        """設置執行函數"""
+        """设置执行函数"""
         self.execute_func = func
-        print(f"✅ 執行器已設置: {func.__name__}")
+        print(f"✅ 执行器已设置: {func.__name__}")
     
     def add_validator(self, func: Callable) -> None:
-        """添加驗證器"""
+        """添加验证器"""
         self.validators.append(func)
-        print(f"✅ 驗證器已添加: {func.__name__}")
+        print(f"✅ 验证器已添加: {func.__name__}")
     
     def add_test(self, input_data: Dict, expected_output: Any) -> None:
-        """添加測試用例"""
+        """添加测试用例"""
         self.tests.append({
             "input": input_data,
             "expected_output": expected_output,
             "created_at": datetime.now().isoformat()
         })
-        print(f"✅ 測試用例已添加")
+        print(f"✅ 测试用例已添加")
     
     async def execute(self, **kwargs) -> Dict[str, Any]:
-        """執行技能"""
+        """执行技能"""
         try:
-            # 驗證輸入
+            # 验证输入
             for validator in self.validators:
                 is_valid, error = validator(kwargs)
                 if not is_valid:
@@ -89,7 +89,7 @@ class Skill:
                         "skill_id": self.metadata.id
                     }
             
-            # 執行
+            # 执行
             if self.execute_func:
                 result = self.execute_func(**kwargs)
             else:
@@ -109,7 +109,7 @@ class Skill:
             }
     
     def run_tests(self) -> Dict[str, Any]:
-        """運行所有測試"""
+        """运行所有测试"""
         results = {
             "total": len(self.tests),
             "passed": 0,
@@ -119,7 +119,7 @@ class Skill:
         
         for i, test in enumerate(self.tests):
             try:
-                # 同步執行以簡化測試
+                # 同步执行以简化测试
                 if self.execute_func:
                     output = self.execute_func(**test["input"])
                 else:
@@ -150,7 +150,7 @@ class Skill:
         return results
     
     def export_config(self) -> Dict[str, Any]:
-        """導出技能配置"""
+        """导出技能配置"""
         return {
             "metadata": asdict(self.metadata),
             "validators_count": len(self.validators),
@@ -160,54 +160,54 @@ class Skill:
         }
     
     def save_to_json(self, filepath: str) -> None:
-        """保存為 JSON"""
+        """保存为 JSON"""
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(self.export_config(), f, indent=2, ensure_ascii=False)
         print(f"✅ 技能配置已保存: {filepath}")
 
 
 class SkillBuilder:
-    """技能構建器·流式 API"""
+    """技能构建器·流式 API"""
     
     def __init__(self, skill_id: str, name: str, description: str):
         self.skill = Skill(skill_id, name, description)
     
     def with_executor(self, func: Callable) -> "SkillBuilder":
-        """設置執行器"""
+        """设置执行器"""
         self.skill.set_executor(func)
         return self
     
     def with_validator(self, func: Callable) -> "SkillBuilder":
-        """添加驗證器"""
+        """添加验证器"""
         self.skill.add_validator(func)
         return self
     
     def with_test(self, input_data: Dict, expected_output: Any) -> "SkillBuilder":
-        """添加測試"""
+        """添加测试"""
         self.skill.add_test(input_data, expected_output)
         return self
     
     def with_metadata(self, **kwargs) -> "SkillBuilder":
-        """設置元數據"""
+        """设置元数据"""
         for key, value in kwargs.items():
             if hasattr(self.skill.metadata, key):
                 setattr(self.skill.metadata, key, value)
         return self
     
     def build(self) -> Skill:
-        """構建技能"""
-        print(f"✅ 技能已構建: {self.skill.metadata.name}")
+        """构建技能"""
+        print(f"✅ 技能已构建: {self.skill.metadata.name}")
         return self.skill
 
 
 # 示例使用
 if __name__ == "__main__":
-    print("🐉 龍魂技能創建框架 v1.0")
+    print("🐉 龍魂技能创建框架 v1.0")
     print("=" * 50)
     
-    # 創建數據處理技能
+    # 创建数据处理技能
     def process_data(data: str) -> Dict:
-        """處理數據"""
+        """处理数据"""
         return {
             "input": data,
             "processed": data.upper(),
@@ -215,16 +215,16 @@ if __name__ == "__main__":
         }
     
     def validate_input(kwargs: Dict) -> tuple:
-        """驗證輸入"""
+        """验证输入"""
         if "data" not in kwargs:
             return False, "Missing 'data' parameter"
         if not isinstance(kwargs["data"], str):
             return False, "'data' must be string"
         return True, ""
     
-    # 使用構建器創建技能
+    # 使用构建器创建技能
     skill = (
-        SkillBuilder("skill-001", "數據處理", "處理和轉換數據")
+        SkillBuilder("skill-001", "数据处理", "处理和转换数据")
         .with_executor(process_data)
         .with_validator(validate_input)
         .with_test(
@@ -239,23 +239,23 @@ if __name__ == "__main__":
         .build()
     )
     
-    # 顯示配置
+    # 显示配置
     print("\n📋 技能配置:")
     config = skill.export_config()
     print(json.dumps(config, indent=2, ensure_ascii=False))
     
-    # 運行測試
-    print("\n🧪 運行測試:")
+    # 运行测试
+    print("\n🧪 运行测试:")
     test_results = skill.run_tests()
-    print(f"✅ 通過: {test_results['passed']}/{test_results['total']}")
+    print(f"✅ 通过: {test_results['passed']}/{test_results['total']}")
     if test_results['failed'] > 0:
-        print(f"❌ 失敗: {test_results['failed']}/{test_results['total']}")
+        print(f"❌ 失败: {test_results['failed']}/{test_results['total']}")
     
     # 保存技能
     print("\n💾 保存技能:")
     skill.save_to_json("skill_config.json")
     
-    print("\n✅ 技能創建完成！")
+    print("\n✅ 技能创建完成！")
     print(f"🆔 技能 ID: {skill.metadata.id}")
-    print(f"📝 技能名稱: {skill.metadata.name}")
-    print(f"🏷️ 分類: {skill.metadata.category}")
+    print(f"📝 技能名称: {skill.metadata.name}")
+    print(f"🏷️ 分类: {skill.metadata.category}")

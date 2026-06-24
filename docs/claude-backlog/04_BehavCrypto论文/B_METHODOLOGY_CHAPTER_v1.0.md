@@ -4,7 +4,7 @@
 **DNA**: `#龍芯⚡️2026-05-02-METHODOLOGY-CHAPTER-v1.0`  
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
-**作者**: UID9622·龍芯北辰·諸葛鑫  
+**作者**: UID9622·龍芯北辰·诸葛鑫  
 **协作**: Claude (Anthropic·Notion实例,以认错主体身份补齐)  
 **插入位置**: 论文 v1.0 §01 与 §02 之间,作为新增章节 §1.5  
 

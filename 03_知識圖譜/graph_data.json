@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-06T16:12:37.737460",
+  "timestamp": "2026-06-22T14:28:24.100463",
   "nodes": {
     "/kimi-webbridge": {
       "node_id": "/kimi-webbridge",
       "label": "Kimi WebBridge",
       "type": "skill",
-      "dna":#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-FILE1-v1.0-1",
-      "description": "讓AI控制真實瀏覽器",
+      "dna": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-FILE1-v1.0-1",
+      "description": "让AI控制真实浏览器",
       "related_nodes": [
         "/api-check",
         "l0-core"
@@ -14,10 +14,10 @@
     },
     "/code-audit": {
       "node_id": "/code-audit",
-      "label": "三色代碼審計",
+      "label": "三色代码审计",
       "type": "skill",
       "dna": "#龍芯⚡️2026-06-06-CODE-AUDIT-v3.0",
-      "description": "審代碼安全+解釋+修復",
+      "description": "审代码安全+解释+修复",
       "related_nodes": [
         "l0-core"
       ]
@@ -27,17 +27,17 @@
       "label": "DNA 生成器",
       "type": "skill",
       "dna": "#龍芯⚡️2026-06-06-DNA-GEN-v2.0",
-      "description": "龍魂 DNA 追溯碼生成",
+      "description": "龍魂 DNA 追溯码生成",
       "related_nodes": [
         "l0-core"
       ]
     },
     "/api-check": {
       "node_id": "/api-check",
-      "label": "API 聯動檢測",
+      "label": "API 联动检测",
       "type": "skill",
       "dna": "#龍芯⚡️2026-06-06-API-CHECK-v1.0",
-      "description": "檢測龍魂系統所有 API 是否在線",
+      "description": "检测龍魂系统所有 API 是否在线",
       "related_nodes": [
         "/kimi-webbridge",
         "l1-storage"
@@ -45,10 +45,10 @@
     },
     "l0-core": {
       "node_id": "l0-core",
-      "label": "L0 核心層",
+      "label": "L0 核心层",
       "type": "component",
       "dna": "#龍芯⚡️2026-06-06-L0-CORE-v1.0",
-      "description": "龍魂系統核心",
+      "description": "龍魂系统核心",
       "related_nodes": [
         "/kimi-webbridge",
         "/code-audit",
@@ -57,7 +57,7 @@
     },
     "l1-storage": {
       "node_id": "l1-storage",
-      "label": "L1 數據存儲",
+      "label": "L1 数据存储",
       "type": "component",
       "dna": "#龍芯⚡️2026-06-06-L1-STORAGE-v1.0",
       "description": "Notion + Obsidian",
@@ -67,11 +67,1636 @@
     },
     "l5-monitor": {
       "node_id": "l5-monitor",
-      "label": "L5 監控層",
+      "label": "L5 监控层",
       "type": "component",
       "dna": "#龍芯⚡️2026-06-06-L5-MONITOR-v1.0",
-      "description": "實時監控",
+      "description": "实时监控",
       "related_nodes": []
+    },
+    "downloads/inbox": {
+      "node_id": "downloads/inbox",
+      "label": "Downloads 主干收件箱",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-INBOX-v1.0",
+      "description": "~/Downloads 顶层未录入龍魂主干的交付物集合",
+      "related_nodes": [
+        "downloads/10-个-skill",
+        "downloads/cnsh-v3-0-完整交付清單",
+        "downloads/龍魂系統-phase-3-完整交付-立即可用",
+        "downloads/龍魂系統-cnsh-語義接入規範-v2-0",
+        "downloads/cnsh-runtime-governance-mathematics-完整版-v3-0",
+        "downloads/kimi_agent_启动全部技能",
+        "downloads/kimi_agent_终端升级",
+        "downloads/kimi_agent_终端升级与结构优-化-3",
+        "downloads/kimi_agent_终端升级与结构优化",
+        "downloads/kimi_agent_终端升级与结构优化-2",
+        "downloads/kimi_agent_终端升级与结构优化-3",
+        "downloads/kimi_agent_终端升级与结构优化-6",
+        "downloads/kimi_agent_终端升级与结构优化-7",
+        "downloads/kimi_agent_终端升级与结构优化-8",
+        "downloads/kimi_agent_终端升级与结构优化5",
+        "downloads/kimi_agent_脚本升级请求",
+        "downloads/kimi_agent_龍魂体系技能检查",
+        "downloads/kimi_agent_龍魂協議自動化完成",
+        "downloads/kimi_agent_龍魂审计改进",
+        "downloads/kimi_agent_龍魂根协议自动化",
+        "downloads/notion-导出",
+        "downloads/longhun-forensic-toolkit-v1-0",
+        "downloads/z-s",
+        "downloads/z-s-2",
+        "downloads/升級-brain_notion_sync-py-phase-1-完整實現",
+        "downloads/发布协议和申请条件",
+        "downloads/完整的龍魂系統標準化-3-核心系統優化升級",
+        "downloads/开机自动化",
+        "downloads/新视觉计算公式",
+        "downloads/日志-版本-追溯系统-完整交付",
+        "downloads/计算公式",
+        "downloads/论文",
+        "downloads/论文-1",
+        "downloads/证据",
+        "downloads/龍魂-10-skill-標準化完成",
+        "downloads/龍魂协议双语版",
+        "downloads/龍魂協議焊死-立即行動方案",
+        "downloads/龍魂移動端監控自動化-部署-quick-start",
+        "downloads/龍魂网关",
+        "downloads/龍魂自动化启动",
+        "downloads/migration_log_2026-06-01-md",
+        "downloads/529-1-txt",
+        "downloads/img_1260-png",
+        "downloads/img_1263-png",
+        "downloads/img_1264-png",
+        "downloads/img_1265-png",
+        "downloads/img_1266-png",
+        "downloads/img_1267-png",
+        "downloads/img_1268-png",
+        "downloads/img_1269-png",
+        "downloads/img_1302-heic",
+        "downloads/longhun-mobile-monitoring-automation-complete-md",
+        "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md",
+        "downloads/kimi_3-0-3-dmg",
+        "downloads/longhun-forensic-toolkit-v1-0-tar-gz",
+        "downloads/天窗-mp3",
+        "downloads/查看uid9622仓库-docx",
+        "downloads/灵魂传承-pdf",
+        "downloads/算力税-mp3",
+        "downloads/终端保存的输出-5282-txt",
+        "downloads/钢印-mp3",
+        "downloads/龍魂根协议自动化-zip",
+        "downloads/龍魂流水线使用说明-md",
+        "downloads/龍魂系统_知识矩阵总纲_v2-0-md",
+        "downloads/龙脊-mp3"
+      ]
+    },
+    "downloads/10-个-skill": {
+      "node_id": "downloads/10-个-skill",
+      "label": "10 个 skill",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-10-个-SKILL-v1.0",
+      "description": "skill · 35.19 KB · 归宿: 01_技能库/ 或 ~/.kimi-code/skills/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/cnsh-v3-0-完整交付清單": {
+      "node_id": "downloads/cnsh-v3-0-完整交付清單",
+      "label": "CNSH v3.0 · 完整交付清單",
+      "type": "cnsh",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-CNSH-V3-0-完整交付清單-v1.0",
+      "description": "cnsh · 37.29 KB · 归宿: cnsh-core/ 或 cnsh/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/龍魂系統-phase-3-完整交付-立即可用": {
+      "node_id": "downloads/龍魂系統-phase-3-完整交付-立即可用",
+      "label": "龍魂系統 Phase 3 · 完整交付 · 立即可用",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系統-PHASE-3-完整交付-立即-v1.0",
+      "description": "inbox · 30.75 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂系統-cnsh-語義接入規範-v2-0": {
+      "node_id": "downloads/龍魂系統-cnsh-語義接入規範-v2-0",
+      "label": "龍魂系統 · CNSH 語義接入規範 v2.0",
+      "type": "cnsh",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系統-CNSH-語義接入規範-V2--v1.0",
+      "description": "cnsh · 29.61 KB · 归宿: cnsh-core/ 或 cnsh/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/cnsh-runtime-governance-mathematics-完整版-v3-0": {
+      "node_id": "downloads/cnsh-runtime-governance-mathematics-完整版-v3-0",
+      "label": "CNSH Runtime Governance Mathematics - 完整版 v3.0",
+      "type": "cnsh",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-CNSH-RUNTIME-GOVERNA-v1.0",
+      "description": "cnsh · 26.68 KB · 归宿: cnsh-core/ 或 cnsh/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_启动全部技能": {
+      "node_id": "downloads/kimi_agent_启动全部技能",
+      "label": "Kimi_Agent_启动全部技能",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_启动全部技能-v1.0",
+      "description": "skill · 12.91 MB · 归宿: 01_技能库/ 或 ~/.kimi-code/skills/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/kimi_agent_终端升级": {
+      "node_id": "downloads/kimi_agent_终端升级",
+      "label": "Kimi_Agent_终端升级",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级-v1.0",
+      "description": "terminal · 1.65 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优-化-3": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优-化-3",
+      "label": "Kimi_Agent_终端升级与结构优 化 3",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优--v1.0",
+      "description": "terminal · 2.06 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化",
+      "label": "Kimi_Agent_终端升级与结构优化",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 4.13 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化-2": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-2",
+      "label": "Kimi_Agent_终端升级与结构优化 2",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 960 B · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化-3": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-3",
+      "label": "Kimi_Agent_终端升级与结构优化 3",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 2.53 KB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化-6": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-6",
+      "label": "Kimi_Agent_终端升级与结构优化 6",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 4.08 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化-7": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-7",
+      "label": "Kimi_Agent_终端升级与结构优化 7",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 4.09 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化-8": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-8",
+      "label": "Kimi_Agent_终端升级与结构优化 8",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 4.10 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_终端升级与结构优化5": {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化5",
+      "label": "Kimi_Agent_终端升级与结构优化5",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "description": "terminal · 3.84 MB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/kimi_agent_脚本升级请求": {
+      "node_id": "downloads/kimi_agent_脚本升级请求",
+      "label": "Kimi_Agent_脚本升级请求",
+      "type": "agent_session",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_脚本升级请求-v1.0",
+      "description": "agent_session · 382.84 KB · 归宿: _archive/agent-sessions/ 或对应模块",
+      "related_nodes": [
+        "/kimi-webbridge"
+      ]
+    },
+    "downloads/kimi_agent_龍魂体系技能检查": {
+      "node_id": "downloads/kimi_agent_龍魂体系技能检查",
+      "label": "Kimi_Agent_龍魂体系技能检查",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂体系技能检查-v1.0",
+      "description": "skill · 12.96 MB · 归宿: 01_技能库/ 或 ~/.kimi-code/skills/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/kimi_agent_龍魂協議自動化完成": {
+      "node_id": "downloads/kimi_agent_龍魂協議自動化完成",
+      "label": "Kimi_Agent_龍魂協議自動化完成",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂協議自動化完成-v1.0",
+      "description": "protocol · 568.83 KB · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/kimi_agent_龍魂审计改进": {
+      "node_id": "downloads/kimi_agent_龍魂审计改进",
+      "label": "Kimi_Agent_龍魂审计改进",
+      "type": "audit",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂审计改进-v1.0",
+      "description": "audit · 105.82 KB · 归宿: audit/",
+      "related_nodes": [
+        "/code-audit"
+      ]
+    },
+    "downloads/kimi_agent_龍魂根协议自动化": {
+      "node_id": "downloads/kimi_agent_龍魂根协议自动化",
+      "label": "Kimi_Agent_龍魂根协议自动化",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂根协议自动化-v1.0",
+      "description": "protocol · 480 B · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/notion-导出": {
+      "node_id": "downloads/notion-导出",
+      "label": "Notion 导出",
+      "type": "notion_export",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-NOTION-导出-v1.0",
+      "description": "notion_export · 352 B · 归宿: _archive/notion-exports/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/longhun-forensic-toolkit-v1-0": {
+      "node_id": "downloads/longhun-forensic-toolkit-v1-0",
+      "label": "longhun-forensic-toolkit-v1.0",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-FORENSIC-TOO-v1.0",
+      "description": "inbox · 224 B · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/z-s": {
+      "node_id": "downloads/z-s",
+      "label": "z s",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-Z-S-v1.0",
+      "description": "inbox · 5.97 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/z-s-2": {
+      "node_id": "downloads/z-s-2",
+      "label": "z s 2",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-Z-S-2-v1.0",
+      "description": "inbox · 12.53 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/升級-brain_notion_sync-py-phase-1-完整實現": {
+      "node_id": "downloads/升級-brain_notion_sync-py-phase-1-完整實現",
+      "label": "升級 brain_notion_sync.py · Phase 1 完整實現",
+      "type": "notion_export",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-升級-BRAIN_NOTION_SYNC-v1.0",
+      "description": "notion_export · 19.20 KB · 归宿: _archive/notion-exports/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/发布协议和申请条件": {
+      "node_id": "downloads/发布协议和申请条件",
+      "label": "发布协议和申请条件",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-发布协议和申请条件-v1.0",
+      "description": "protocol · 10.83 KB · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/完整的龍魂系統標準化-3-核心系統優化升級": {
+      "node_id": "downloads/完整的龍魂系統標準化-3-核心系統優化升級",
+      "label": "完整的龍魂系統標準化 + 3 核心系統優化升級",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-完整的龍魂系統標準化-3-核心系統優化升-v1.0",
+      "description": "inbox · 13.68 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/开机自动化": {
+      "node_id": "downloads/开机自动化",
+      "label": "开机自动化",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-开机自动化-v1.0",
+      "description": "inbox · 10.33 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/新视觉计算公式": {
+      "node_id": "downloads/新视觉计算公式",
+      "label": "新视觉计算公式",
+      "type": "formula",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-新视觉计算公式-v1.0",
+      "description": "formula · 96 B · 归宿: cnsh-core/龍魂-决策流场-自动化优化/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/日志-版本-追溯系统-完整交付": {
+      "node_id": "downloads/日志-版本-追溯系统-完整交付",
+      "label": "日志·版本·追溯系统 完整交付",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-日志-版本-追溯系统-完整交付-v1.0",
+      "description": "inbox · 17.60 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/计算公式": {
+      "node_id": "downloads/计算公式",
+      "label": "计算公式",
+      "type": "formula",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-计算公式-v1.0",
+      "description": "formula · 832 B · 归宿: cnsh-core/龍魂-决策流场-自动化优化/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/论文": {
+      "node_id": "downloads/论文",
+      "label": "论文",
+      "type": "paper",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-v1.0",
+      "description": "paper · 42.45 KB · 归宿: _archive/papers/ 或 03_知識圖譜/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/论文-1": {
+      "node_id": "downloads/论文-1",
+      "label": "论文 1",
+      "type": "paper",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-1-v1.0",
+      "description": "paper · 30.14 KB · 归宿: _archive/papers/ 或 03_知識圖譜/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/证据": {
+      "node_id": "downloads/证据",
+      "label": "证据",
+      "type": "evidence",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-证据-v1.0",
+      "description": "evidence · 6.47 KB · 归宿: _archive/evidence/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂-10-skill-標準化完成": {
+      "node_id": "downloads/龍魂-10-skill-標準化完成",
+      "label": "龍魂 10 Skill 標準化完成",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂-10-SKILL-標準化完成-v1.0",
+      "description": "skill · 28.83 KB · 归宿: 01_技能库/ 或 ~/.kimi-code/skills/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂协议双语版": {
+      "node_id": "downloads/龍魂协议双语版",
+      "label": "龍魂协议双语版",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂协议双语版-v1.0",
+      "description": "protocol · 28.28 KB · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂協議焊死-立即行動方案": {
+      "node_id": "downloads/龍魂協議焊死-立即行動方案",
+      "label": "龍魂協議焊死·立即行動方案",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂協議焊死-立即行動方案-v1.0",
+      "description": "protocol · 15.28 KB · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂移動端監控自動化-部署-quick-start": {
+      "node_id": "downloads/龍魂移動端監控自動化-部署-quick-start",
+      "label": "龍魂移動端監控自動化 · 部署 Quick Start",
+      "type": "monitoring",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂移動端監控自動化-部署-QUICK--v1.0",
+      "description": "monitoring · 20.85 KB · 归宿: longhun-monitoring skill / baobao-guardian/",
+      "related_nodes": [
+        "l5-monitor"
+      ]
+    },
+    "downloads/龍魂网关": {
+      "node_id": "downloads/龍魂网关",
+      "label": "龍魂网关",
+      "type": "gateway",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂网关-v1.0",
+      "description": "gateway · 320 B · 归宿: cnsh-core/api/ 或 agents/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂自动化启动": {
+      "node_id": "downloads/龍魂自动化启动",
+      "label": "龍魂自动化启动",
+      "type": "launcher",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂自动化启动-v1.0",
+      "description": "launcher · 4.54 KB · 归宿: agents/ 或 bin/",
+      "related_nodes": [
+        "IPA-L1-004"
+      ]
+    },
+    "downloads/migration_log_2026-06-01-md": {
+      "node_id": "downloads/migration_log_2026-06-01-md",
+      "label": ".MIGRATION_LOG_2026-06-01.md",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-MIGRATION_LOG_2026-0-v1.0",
+      "description": "inbox · 2.33 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/529-1-txt": {
+      "node_id": "downloads/529-1-txt",
+      "label": "529-1.txt",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-529-1-TXT-v1.0",
+      "description": "inbox · 1.91 MB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/img_1260-png": {
+      "node_id": "downloads/img_1260-png",
+      "label": "IMG_1260.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1260-PNG-v1.0",
+      "description": "media · 796.39 KB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1263-png": {
+      "node_id": "downloads/img_1263-png",
+      "label": "IMG_1263.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1263-PNG-v1.0",
+      "description": "media · 1.21 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1264-png": {
+      "node_id": "downloads/img_1264-png",
+      "label": "IMG_1264.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1264-PNG-v1.0",
+      "description": "media · 1.40 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1265-png": {
+      "node_id": "downloads/img_1265-png",
+      "label": "IMG_1265.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1265-PNG-v1.0",
+      "description": "media · 1.93 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1266-png": {
+      "node_id": "downloads/img_1266-png",
+      "label": "IMG_1266.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1266-PNG-v1.0",
+      "description": "media · 1.78 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1267-png": {
+      "node_id": "downloads/img_1267-png",
+      "label": "IMG_1267.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1267-PNG-v1.0",
+      "description": "media · 1.86 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1268-png": {
+      "node_id": "downloads/img_1268-png",
+      "label": "IMG_1268.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1268-PNG-v1.0",
+      "description": "media · 2.05 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1269-png": {
+      "node_id": "downloads/img_1269-png",
+      "label": "IMG_1269.PNG",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1269-PNG-v1.0",
+      "description": "media · 1.27 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/img_1302-heic": {
+      "node_id": "downloads/img_1302-heic",
+      "label": "IMG_1302.HEIC",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1302-HEIC-v1.0",
+      "description": "media · 2.27 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/longhun-mobile-monitoring-automation-complete-md": {
+      "node_id": "downloads/longhun-mobile-monitoring-automation-complete-md",
+      "label": "LONGHUN-MOBILE-MONITORING-AUTOMATION-COMPLETE.md",
+      "type": "monitoring",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-MOBILE-MONIT-v1.0",
+      "description": "monitoring · 35.64 KB · 归宿: longhun-monitoring skill / baobao-guardian/",
+      "related_nodes": [
+        "l5-monitor"
+      ]
+    },
+    "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md": {
+      "node_id": "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md",
+      "label": "LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+      "type": "monitoring",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-MOBILE-MONIT-v1.0",
+      "description": "monitoring · 29.00 KB · 归宿: longhun-monitoring skill / baobao-guardian/",
+      "related_nodes": [
+        "l5-monitor"
+      ]
+    },
+    "downloads/kimi_3-0-3-dmg": {
+      "node_id": "downloads/kimi_3-0-3-dmg",
+      "label": "kimi_3.0.3.dmg",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_3-0-3-DMG-v1.0",
+      "description": "media · 258.20 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/longhun-forensic-toolkit-v1-0-tar-gz": {
+      "node_id": "downloads/longhun-forensic-toolkit-v1-0-tar-gz",
+      "label": "longhun-forensic-toolkit-v1.0.tar.gz",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-FORENSIC-TOO-v1.0",
+      "description": "inbox · 5.73 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/天窗-mp3": {
+      "node_id": "downloads/天窗-mp3",
+      "label": "天窗.mp3",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-天窗-MP3-v1.0",
+      "description": "media · 7.67 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/查看uid9622仓库-docx": {
+      "node_id": "downloads/查看uid9622仓库-docx",
+      "label": "查看UID9622仓库.docx",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-查看UID9622仓库-DOCX-v1.0",
+      "description": "media · 43.94 KB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/灵魂传承-pdf": {
+      "node_id": "downloads/灵魂传承-pdf",
+      "label": "灵魂传承.pdf",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-灵魂传承-PDF-v1.0",
+      "description": "media · 5.42 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/算力税-mp3": {
+      "node_id": "downloads/算力税-mp3",
+      "label": "算力税.mp3",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-算力税-MP3-v1.0",
+      "description": "media · 5.74 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/终端保存的输出-5282-txt": {
+      "node_id": "downloads/终端保存的输出-5282-txt",
+      "label": "终端保存的输出 528——2.txt",
+      "type": "terminal",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-终端保存的输出-5282-TXT-v1.0",
+      "description": "terminal · 14.47 KB · 归宿: cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "related_nodes": [
+        "IPA-L0-008"
+      ]
+    },
+    "downloads/钢印-mp3": {
+      "node_id": "downloads/钢印-mp3",
+      "label": "钢印.mp3",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-钢印-MP3-v1.0",
+      "description": "media · 5.39 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "downloads/龍魂根协议自动化-zip": {
+      "node_id": "downloads/龍魂根协议自动化-zip",
+      "label": "龍魂根协议自动化.zip",
+      "type": "protocol",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂根协议自动化-ZIP-v1.0",
+      "description": "protocol · 250.72 KB · 归宿: 01_protocols/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂流水线使用说明-md": {
+      "node_id": "downloads/龍魂流水线使用说明-md",
+      "label": "龍魂流水线使用说明.md",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂流水线使用说明-MD-v1.0",
+      "description": "inbox · 3.56 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龍魂系统_知识矩阵总纲_v2-0-md": {
+      "node_id": "downloads/龍魂系统_知识矩阵总纲_v2-0-md",
+      "label": "龍魂系统_知识矩阵总纲_v2.0.md",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系统_知识矩阵总纲_V2-0-MD-v1.0",
+      "description": "inbox · 20.62 KB · 归宿: 待分类 / _archive/inbox/",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "downloads/龙脊-mp3": {
+      "node_id": "downloads/龙脊-mp3",
+      "label": "龙脊.mp3",
+      "type": "media",
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龙脊-MP3-v1.0",
+      "description": "media · 5.42 MB · 归宿: _archive/media/ 或 _archive/deliverables/",
+      "related_nodes": [
+        "l1-storage"
+      ]
+    },
+    "cnsh-editor": {
+      "node_id": "cnsh-editor",
+      "label": "CNSH Editor 统一编辑器模块",
+      "type": "component",
+      "dna": "#龍芯⚡️2026-06-22-CNSH-EDITOR-v1.0",
+      "description": "龍魂中文编辑器统一模块，整合引擎/UI/关键字/平台编辑器/文档",
+      "related_nodes": [
+        "l0-core",
+        "/kimi-webbridge",
+        "downloads/inbox"
+      ]
+    },
+    "claude-local-sessions": {
+      "node_id": "claude-local-sessions",
+      "label": "Claude Local Agent Sessions",
+      "type": "inbox",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0",
+      "description": "Claude 本地代理会话目录盘点 · 268.66 MB · 2069 个文件",
+      "related_nodes": []
+    },
+    "claude-local-sessions/skills": {
+      "node_id": "claude-local-sessions/skills",
+      "label": "Skills",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SKILLS",
+      "description": "Skills 分类 · 共 21 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/plugins": {
+      "node_id": "claude-local-sessions/plugins",
+      "label": "Plugins",
+      "type": "plugin",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-PLUGINS",
+      "description": "Plugins 分类 · 共 2 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/extensions": {
+      "node_id": "claude-local-sessions/extensions",
+      "label": "Extensions",
+      "type": "extension",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-EXTENSIONS",
+      "description": "Extensions 分类 · 共 1 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/sessions": {
+      "node_id": "claude-local-sessions/sessions",
+      "label": "Sessions",
+      "type": "session",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SESSIONS",
+      "description": "Sessions 分类 · 共 11 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/modules": {
+      "node_id": "claude-local-sessions/modules",
+      "label": "Modules",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-MODULES",
+      "description": "Modules 分类 · 共 361 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/html_tools": {
+      "node_id": "claude-local-sessions/html_tools",
+      "label": "HTML Tools",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-HTML_TOOLS",
+      "description": "HTML Tools 分类 · 共 66 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/uploads": {
+      "node_id": "claude-local-sessions/uploads",
+      "label": "Uploads",
+      "type": "upload",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-UPLOADS",
+      "description": "Uploads 分类 · 共 48 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/outputs": {
+      "node_id": "claude-local-sessions/outputs",
+      "label": "Outputs",
+      "type": "output",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-OUTPUTS",
+      "description": "Outputs 分类 · 共 5 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-local-sessions/audits": {
+      "node_id": "claude-local-sessions/audits",
+      "label": "Audits",
+      "type": "audit",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-AUDITS",
+      "description": "Audits 分类 · 共 11 项",
+      "related_nodes": [
+        "claude-local-sessions"
+      ]
+    },
+    "claude-skill/algorithmic-art": {
+      "node_id": "claude-skill/algorithmic-art",
+      "label": "algorithmic-art",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-ALGORITHMIC-ART",
+      "description": "Creating algorithmic art using p5.js with seeded randomness ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/brand-guidelines": {
+      "node_id": "claude-skill/brand-guidelines",
+      "label": "brand-guidelines",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-BRAND-GUIDELINES",
+      "description": "Applies Anthropic's official brand colors and typography to ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/canvas-design": {
+      "node_id": "claude-skill/canvas-design",
+      "label": "canvas-design",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CANVAS-DESIGN",
+      "description": "Create beautiful visual art in .png and .pdf documents using",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/consolidate-memory": {
+      "node_id": "claude-skill/consolidate-memory",
+      "label": "consolidate-memory",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CONSOLIDATE-MEMORY",
+      "description": "Reflective pass over your memory files — merge duplicates, f",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/doc-coauthoring": {
+      "node_id": "claude-skill/doc-coauthoring",
+      "label": "doc-coauthoring",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DOC-COAUTHORING",
+      "description": "Guide users through a structured workflow for co-authoring d",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/docx": {
+      "node_id": "claude-skill/docx",
+      "label": "docx",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DOCX",
+      "description": "Use this skill whenever the user wants to create, read, edit",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/internal-comms": {
+      "node_id": "claude-skill/internal-comms",
+      "label": "internal-comms",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-INTERNAL-COMMS",
+      "description": "A set of resources to help me write all kinds of internal co",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/mcp-builder": {
+      "node_id": "claude-skill/mcp-builder",
+      "label": "mcp-builder",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-MCP-BUILDER",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol)",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/pdf": {
+      "node_id": "claude-skill/pdf",
+      "label": "pdf",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-PDF",
+      "description": "**PDF Processing**: Comprehensive PDF manipulation toolkit f",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/pptx": {
+      "node_id": "claude-skill/pptx",
+      "label": "pptx",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-PPTX",
+      "description": "Use this skill any time a .pptx file is involved in any way ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/schedule": {
+      "node_id": "claude-skill/schedule",
+      "label": "schedule",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SCHEDULE",
+      "description": "Create a scheduled task that can be run on demand or automat",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/setup-cowork": {
+      "node_id": "claude-skill/setup-cowork",
+      "label": "setup-cowork",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SETUP-COWORK",
+      "description": "Guided Cowork setup — install role-matched plugins, connect ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/skill-creator": {
+      "node_id": "claude-skill/skill-creator",
+      "label": "skill-creator",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SKILL-CREATOR",
+      "description": "Create new skills, modify and improve existing skills, and m",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/slack-gif-creator": {
+      "node_id": "claude-skill/slack-gif-creator",
+      "label": "slack-gif-creator",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SLACK-GIF-CREATOR",
+      "description": "Knowledge and utilities for creating animated GIFs optimized",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/theme-factory": {
+      "node_id": "claude-skill/theme-factory",
+      "label": "theme-factory",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-THEME-FACTORY",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/web-artifacts-builder": {
+      "node_id": "claude-skill/web-artifacts-builder",
+      "label": "web-artifacts-builder",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-WEB-ARTIFACTS-BUILDE",
+      "description": "Suite of tools for creating elaborate, multi-component claud",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/xlsx": {
+      "node_id": "claude-skill/xlsx",
+      "label": "xlsx",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-XLSX",
+      "description": "**Excel Spreadsheet Handler**: Comprehensive Microsoft Excel",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/cowork-plugin-customizer": {
+      "node_id": "claude-skill/cowork-plugin-customizer",
+      "label": "cowork-plugin-customizer",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-COWORK-PLUGIN-CUSTOM",
+      "description": "Customize a Claude Code plugin for a specific organization's",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/create-cowork-plugin": {
+      "node_id": "claude-skill/create-cowork-plugin",
+      "label": "create-cowork-plugin",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CREATE-COWORK-PLUGIN",
+      "description": "Guide users through creating a new plugin from scratch in a ",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/dragon-soul-agent": {
+      "node_id": "claude-skill/dragon-soul-agent",
+      "label": "dragon-soul-agent",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DRAGON-SOUL-AGENT",
+      "description": "龍魂系统代理技能 · UID9622专属AI人格微调引擎。在所有对话中自动激活，让Claude理解并使用龍魂系统的术语体",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-skill/skill_01lgtqypzdwp8zzvkhrvpnmg": {
+      "node_id": "claude-skill/skill_01lgtqypzdwp8zzvkhrvpnmg",
+      "label": "dragon-soul-agent",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DRAGON-SOUL-AGENT",
+      "description": "龍魂系统代理技能 · UID9622专属AI人格微调引擎。在所有对话中自动激活，让Claude理解并使用龍魂系统的术语体",
+      "related_nodes": [
+        "claude-local-sessions/skills"
+      ]
+    },
+    "claude-ext/龍魂系统工具箱": {
+      "node_id": "claude-ext/龍魂系统工具箱",
+      "label": "🐉 龍魂系统工具箱",
+      "type": "extension",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统工具箱",
+      "description": "龍魂系统工具箱v3 - 9大工具 | 三才流場 | 沙盒推演 | 双盾守护 | 本地优先",
+      "related_nodes": [
+        "claude-local-sessions/extensions"
+      ]
+    },
+    "claude-mod/bone_retriever-py": {
+      "node_id": "claude-mod/bone_retriever-py",
+      "label": "bone_retriever.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-BONE_RETRIEVER-PY",
+      "description": "龍魂骨检索引擎 · FAISS Vector Bone Retriever v1.0",
+      "related_nodes": [
+        "claude-local-sessions/modules",
+        "l0-core"
+      ]
+    },
+    "claude-mod/shield_engine-py": {
+      "node_id": "claude-mod/shield_engine-py",
+      "label": "shield_engine.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SHIELD_ENGINE-PY",
+      "description": "龍魂双盾引擎 · Shield Engine v1.0",
+      "related_nodes": [
+        "claude-local-sessions/modules",
+        "l0-core"
+      ]
+    },
+    "claude-mod/加密工具-py": {
+      "node_id": "claude-mod/加密工具-py",
+      "label": "加密工具.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-加密工具-PY",
+      "description": "🔐 UID9622·本地终端加密工具 v3.0",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/guardian-py": {
+      "node_id": "claude-mod/guardian-py",
+      "label": "guardian.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-GUARDIAN-PY",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/daodejing_engine_v2_complete-py": {
+      "node_id": "claude-mod/daodejing_engine_v2_complete-py",
+      "label": "daodejing_engine_v2_complete.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DAODEJING_ENGINE_V2_",
+      "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/gua_classifier-py": {
+      "node_id": "claude-mod/gua_classifier-py",
+      "label": "gua_classifier.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-GUA_CLASSIFIER-PY",
+      "description": "龍魂卦分类器 · Trainable Hexagram Classifier v1.0",
+      "related_nodes": [
+        "claude-local-sessions/modules",
+        "l0-core"
+      ]
+    },
+    "claude-mod/dragon-soul-agent": {
+      "node_id": "claude-mod/dragon-soul-agent",
+      "label": "dragon-soul-agent",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DRAGON-SOUL-AGENT",
+      "description": "已打包的 skill 二进制文件（需解压读取）",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/memory-compressor-js": {
+      "node_id": "claude-mod/memory-compressor-js",
+      "label": "memory-compressor.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-MEMORY-COMPRESSOR-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/storage-manager-js": {
+      "node_id": "claude-mod/storage-manager-js",
+      "label": "storage-manager.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-STORAGE-MANAGER-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/dna-generator-js": {
+      "node_id": "claude-mod/dna-generator-js",
+      "label": "dna-generator.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DNA-GENERATOR-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/asset-scanner-js": {
+      "node_id": "claude-mod/asset-scanner-js",
+      "label": "asset-scanner.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-ASSET-SCANNER-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/taiji-extractor-js": {
+      "node_id": "claude-mod/taiji-extractor-js",
+      "label": "taiji-extractor.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-TAIJI-EXTRACTOR-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/memory-restorer-js": {
+      "node_id": "claude-mod/memory-restorer-js",
+      "label": "memory-restorer.js",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-MEMORY-RESTORER-JS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/recalc-py": {
+      "node_id": "claude-mod/recalc-py",
+      "label": "recalc.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-RECALC-PY",
+      "description": "Excel Formula Recalculation Script",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/pack-py": {
+      "node_id": "claude-mod/pack-py",
+      "label": "pack.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-PACK-PY",
+      "description": "Pack a directory into a DOCX, PPTX, or XLSX file.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/validate-py": {
+      "node_id": "claude-mod/validate-py",
+      "label": "validate.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-VALIDATE-PY",
+      "description": "Command line tool to validate Office document XML files against XSD schemas and tracked changes.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/unpack-py": {
+      "node_id": "claude-mod/unpack-py",
+      "label": "unpack.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-UNPACK-PY",
+      "description": "Unpack Office files (DOCX, PPTX, XLSX) for editing.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/soffice-py": {
+      "node_id": "claude-mod/soffice-py",
+      "label": "soffice.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SOFFICE-PY",
+      "description": "Helper for running LibreOffice (soffice) in environments where AF_UNIX",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/docx-py": {
+      "node_id": "claude-mod/docx-py",
+      "label": "docx.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-DOCX-PY",
+      "description": "Validator for Word document XML files against XSD schemas.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/__init__-py": {
+      "node_id": "claude-mod/__init__-py",
+      "label": "__init__.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-__INIT__-PY",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/redlining-py": {
+      "node_id": "claude-mod/redlining-py",
+      "label": "redlining.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-REDLINING-PY",
+      "description": "Validator for tracked changes in Word documents.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/pptx-py": {
+      "node_id": "claude-mod/pptx-py",
+      "label": "pptx.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-PPTX-PY",
+      "description": "Validator for PowerPoint presentation XML files against XSD schemas.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/base-py": {
+      "node_id": "claude-mod/base-py",
+      "label": "base.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-BASE-PY",
+      "description": "Base validator with common validation logic for document files.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/simplify_redlines-py": {
+      "node_id": "claude-mod/simplify_redlines-py",
+      "label": "simplify_redlines.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-SIMPLIFY_REDLINES-PY",
+      "description": "Simplify tracked changes by merging adjacent w:ins or w:del elements.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/merge_runs-py": {
+      "node_id": "claude-mod/merge_runs-py",
+      "label": "merge_runs.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-MERGE_RUNS-PY",
+      "description": "Merge adjacent runs with identical formatting in DOCX.",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-mod/fill_fillable_fields-py": {
+      "node_id": "claude-mod/fill_fillable_fields-py",
+      "label": "fill_fillable_fields.py",
+      "type": "module",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-FILL_FILLABLE_FIELDS",
+      "description": "",
+      "related_nodes": [
+        "claude-local-sessions/modules"
+      ]
+    },
+    "claude-html/龍魂操作台_mvp_v1-html": {
+      "node_id": "claude-html/龍魂操作台_mvp_v1-html",
+      "label": "🐉 龍魂操作台 MVP v1.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂操作台-MVP-V1-0-UID96",
+      "description": "龍魂操作台_MVP_v1.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/龍魂学习公式体系_升级版_v2-html": {
+      "node_id": "claude-html/龍魂学习公式体系_升级版_v2-html",
+      "label": "龍魂数学公式体系 · 升级版 v2.0 | UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂数学公式体系-升级版-V2-0-UI",
+      "description": "龍魂学习公式体系_升级版_v2.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/龍魂主计划总纲_最终版_v3-html": {
+      "node_id": "claude-html/龍魂主计划总纲_最终版_v3-html",
+      "label": "龍魂主计划总纲 · 最终版 v3.0 | UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂主计划总纲-最终版-V3-0-UID",
+      "description": "龍魂主计划总纲_最终版_v3.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/ai智能体术语对照表-龍魂版-html": {
+      "node_id": "claude-html/ai智能体术语对照表-龍魂版-html",
+      "label": "AI智能体专业术语 vs 大白话 vs 龍魂映射 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-AI智能体专业术语-VS-大白话-VS-",
+      "description": "AI智能体术语对照表-龍魂版.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/思维主权系统-术语对照表-html": {
+      "node_id": "claude-html/思维主权系统-术语对照表-html",
+      "label": "思维主权系统 · 术语对照表 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-思维主权系统-术语对照表-UID9622",
+      "description": "思维主权系统-术语对照表.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/龍魂系统-主计划总纲-v1-0-html": {
+      "node_id": "claude-html/龍魂系统-主计划总纲-v1-0-html",
+      "label": "龍魂系统 · 主计划总纲 v1.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统-主计划总纲-V1-0-UID9",
+      "description": "龍魂系统-主计划总纲-v1.0.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/sancai-flow-v8-1-html": {
+      "node_id": "claude-html/sancai-flow-v8-1-html",
+      "label": "🐲 三才流场 v8.1 · 忠孝义排序·智能活体仪表盘 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-三才流场-V8-1-忠孝义排序-智能活体",
+      "description": "sancai-flow-v8.1.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/cnsh数学骨架与量子层-术语对照表-html": {
+      "node_id": "claude-html/cnsh数学骨架与量子层-术语对照表-html",
+      "label": "CNSH 数学骨架 + 量子层 · 术语对照表 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CNSH-数学骨架-量子层-术语对照表-",
+      "description": "CNSH数学骨架与量子层-术语对照表.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/龍魂dna身份系统-功能规格书-html": {
+      "node_id": "claude-html/龍魂dna身份系统-功能规格书-html",
+      "label": "龍魂DNA身份系统 · 功能规格书 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂DNA身份系统-功能规格书-UID9",
+      "description": "龍魂DNA身份系统-功能规格书.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/longhun-flow-field-v10-html": {
+      "node_id": "claude-html/longhun-flow-field-v10-html",
+      "label": "🐉 龍魂流場 · 不動點透視圖 v10 · CNSH v1.1 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂流場-不動點透視圖-V10-CNSH",
+      "description": "longhun-flow-field-v10.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/cnsh执行引擎与系统闭环-术语对照表-html": {
+      "node_id": "claude-html/cnsh执行引擎与系统闭环-术语对照表-html",
+      "label": "CNSH 执行引擎 + 路由 + 闭环 + 权限 + 状态机 · 术语对照表 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CNSH-执行引擎-路由-闭环-权限-状",
+      "description": "CNSH执行引擎与系统闭环-术语对照表.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/cnsh指令协议与可执行架构-术语对照表-html": {
+      "node_id": "claude-html/cnsh指令协议与可执行架构-术语对照表-html",
+      "label": "CNSH 指令协议 + 可执行架构 + 运维闭环 · 术语对照表 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CNSH-指令协议-可执行架构-运维闭环",
+      "description": "CNSH指令协议与可执行架构-术语对照表.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/longhun-unified-v10-html": {
+      "node_id": "claude-html/longhun-unified-v10-html",
+      "label": "🐲 龍魂統一流場 v10 · LH-CDNA v1.2 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂統一流場-V10-LH-CDNA-V",
+      "description": "longhun-unified-v10.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/longhunwidget浏览器插件-功能规格书-html": {
+      "node_id": "claude-html/longhunwidget浏览器插件-功能规格书-html",
+      "label": "LongHunWidget 浏览器插件 · 功能规格书 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-LONGHUNWIDGET-浏览器插件-",
+      "description": "LongHunWidget浏览器插件-功能规格书.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/cnsh-alignment-standard-v1-html": {
+      "node_id": "claude-html/cnsh-alignment-standard-v1-html",
+      "label": "CNSH · 通心译 · 对齐标准 v2.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-CNSH-通心译-对齐标准-V2-0-U",
+      "description": "cnsh-alignment-standard-v1.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/stats_dashboard-html": {
+      "node_id": "claude-html/stats_dashboard-html",
+      "label": "📊 龍魂系统统计看板 · 事事有回应",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统统计看板-事事有回应",
+      "description": "stats_dashboard.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/truth_report-html": {
+      "node_id": "claude-html/truth_report-html",
+      "label": "天下无欺 · 真相受理台 · AI Truth Protocol",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-天下无欺-真相受理台-AI-TRUTH-",
+      "description": "truth_report.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/三才流場_v6_优化版-html": {
+      "node_id": "claude-html/三才流場_v6_优化版-html",
+      "label": "三才流场 v6优化版 · 龍盾呼吸接入 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-三才流场-V6优化版-龍盾呼吸接入-UI",
+      "description": "三才流場_v6_优化版.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/mvp_workbench_v6-1-html": {
+      "node_id": "claude-html/mvp_workbench_v6-1-html",
+      "label": "🐉 龍魂·造物主MVP工作台 v6.1",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂-造物主MVP工作台-V6-1",
+      "description": "mvp_workbench_v6.1.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/sandbox_dashboard-html": {
+      "node_id": "claude-html/sandbox_dashboard-html",
+      "label": "🐉 龍魂沙盒推演面板 v3.0",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂沙盒推演面板-V3-0",
+      "description": "sandbox_dashboard.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/lu_time_engine-html": {
+      "node_id": "claude-html/lu_time_engine-html",
+      "label": "LU-TIME ENGINE · 时间推演系统",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-LU-TIME-ENGINE-时间推演系",
+      "description": "LU_Time_Engine.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/龍魂知识导航页-html": {
+      "node_id": "claude-html/龍魂知识导航页-html",
+      "label": "龍魂系统 · 知识导航 v2.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统-知识导航-V2-0-UID96",
+      "description": "龍魂知识导航页.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/龍魂知识导航页_v2-0-1-html": {
+      "node_id": "claude-html/龍魂知识导航页_v2-0-1-html",
+      "label": "龍魂系统 · 知识导航 v2.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统-知识导航-V2-0-UID96",
+      "description": "龍魂知识导航页_v2.0-1.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/龍魂知识导航页_v2-0-html": {
+      "node_id": "claude-html/龍魂知识导航页_v2-0-html",
+      "label": "龍魂系统 · 知识导航 v2.0 · UID9622",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统-知识导航-V2-0-UID96",
+      "description": "龍魂知识导航页_v2.0.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/popup-html": {
+      "node_id": "claude-html/popup-html",
+      "label": "🐉 龍魂工具箱 v3",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂工具箱-V3",
+      "description": "popup.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/lu-time-engine-html": {
+      "node_id": "claude-html/lu-time-engine-html",
+      "label": "LU-TIME ENGINE · 时间推演系统",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-LU-TIME-ENGINE-时间推演系",
+      "description": "lu-time-engine.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools"
+      ]
+    },
+    "claude-html/main-console-html": {
+      "node_id": "claude-html/main-console-html",
+      "label": "🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统主控台-技术主权-数据主权-中国",
+      "description": "main-console.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/memory-editor-html": {
+      "node_id": "claude-html/memory-editor-html",
+      "label": "🐉 龍魂记忆编辑器 v2.0 - 扩展集成版",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂记忆编辑器-V2-0-扩展集成版",
+      "description": "memory-editor.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
+    },
+    "claude-html/sandbox-dashboard-html": {
+      "node_id": "claude-html/sandbox-dashboard-html",
+      "label": "🐉 龍魂沙盒推演面板 v3.0",
+      "type": "html_tool",
+      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂沙盒推演面板-V3-0",
+      "description": "sandbox-dashboard.html",
+      "related_nodes": [
+        "claude-local-sessions/html_tools",
+        "l0-core"
+      ]
     }
   },
   "edges": [
@@ -104,6 +1729,1362 @@
       "target": "/api-check",
       "relationship": "depends_on",
       "strength": 0.7
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/10-个-skill",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/10-个-skill",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/cnsh-v3-0-完整交付清單",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂系統-phase-3-完整交付-立即可用",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂系統-phase-3-完整交付-立即可用",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂系統-cnsh-語義接入規範-v2-0",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/cnsh-runtime-governance-mathematics-完整版-v3-0",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_启动全部技能",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_启动全部技能",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优-化-3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化-2",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化-3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化-6",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化-7",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化-8",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_终端升级与结构优化5",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_脚本升级请求",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_脚本升级请求",
+      "target": "/kimi-webbridge",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_龍魂体系技能检查",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_龍魂体系技能检查",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_龍魂協議自動化完成",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_龍魂協議自動化完成",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_龍魂审计改进",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_龍魂审计改进",
+      "target": "/code-audit",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_agent_龍魂根协议自动化",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_agent_龍魂根协议自动化",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/notion-导出",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/notion-导出",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/longhun-forensic-toolkit-v1-0",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/longhun-forensic-toolkit-v1-0",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/z-s",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/z-s",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/z-s-2",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/z-s-2",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/升級-brain_notion_sync-py-phase-1-完整實現",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/升級-brain_notion_sync-py-phase-1-完整實現",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/发布协议和申请条件",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/发布协议和申请条件",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/完整的龍魂系統標準化-3-核心系統優化升級",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/完整的龍魂系統標準化-3-核心系統優化升級",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/开机自动化",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/开机自动化",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/新视觉计算公式",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/新视觉计算公式",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/日志-版本-追溯系统-完整交付",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/日志-版本-追溯系统-完整交付",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/计算公式",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/计算公式",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/论文",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/论文",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/论文-1",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/论文-1",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/证据",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/证据",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂-10-skill-標準化完成",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂-10-skill-標準化完成",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂协议双语版",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂协议双语版",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂協議焊死-立即行動方案",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂協議焊死-立即行動方案",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂移動端監控自動化-部署-quick-start",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂移動端監控自動化-部署-quick-start",
+      "target": "l5-monitor",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂网关",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂网关",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂自动化启动",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/migration_log_2026-06-01-md",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/migration_log_2026-06-01-md",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/529-1-txt",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/529-1-txt",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1260-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1260-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1263-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1263-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1264-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1264-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1265-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1265-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1266-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1266-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1267-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1267-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1268-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1268-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1269-png",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1269-png",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/img_1302-heic",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/img_1302-heic",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/longhun-mobile-monitoring-automation-complete-md",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/longhun-mobile-monitoring-automation-complete-md",
+      "target": "l5-monitor",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md",
+      "target": "l5-monitor",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/kimi_3-0-3-dmg",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/kimi_3-0-3-dmg",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/longhun-forensic-toolkit-v1-0-tar-gz",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/longhun-forensic-toolkit-v1-0-tar-gz",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/天窗-mp3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/天窗-mp3",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/查看uid9622仓库-docx",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/查看uid9622仓库-docx",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/灵魂传承-pdf",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/灵魂传承-pdf",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/算力税-mp3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/算力税-mp3",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/终端保存的输出-5282-txt",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/钢印-mp3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/钢印-mp3",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂根协议自动化-zip",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂根协议自动化-zip",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂流水线使用说明-md",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂流水线使用说明-md",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龍魂系统_知识矩阵总纲_v2-0-md",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龍魂系统_知识矩阵总纲_v2-0-md",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "downloads/inbox",
+      "target": "downloads/龙脊-mp3",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "downloads/龙脊-mp3",
+      "target": "l1-storage",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "cnsh-editor",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.9
+    },
+    {
+      "source": "cnsh-editor",
+      "target": "/kimi-webbridge",
+      "relationship": "relates_to",
+      "strength": 0.7
+    },
+    {
+      "source": "cnsh-editor",
+      "target": "downloads/inbox",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/skills",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/plugins",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/extensions",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/sessions",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/modules",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/html_tools",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/uploads",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/outputs",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions",
+      "target": "claude-local-sessions/audits",
+      "relationship": "contains",
+      "strength": 0.9
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/algorithmic-art",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/brand-guidelines",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/canvas-design",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/consolidate-memory",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/doc-coauthoring",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/docx",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/internal-comms",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/mcp-builder",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/pdf",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/pptx",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/schedule",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/setup-cowork",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/skill-creator",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/slack-gif-creator",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/theme-factory",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/web-artifacts-builder",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/xlsx",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/cowork-plugin-customizer",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/create-cowork-plugin",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/dragon-soul-agent",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/skills",
+      "target": "claude-skill/skill_01lgtqypzdwp8zzvkhrvpnmg",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/extensions",
+      "target": "claude-ext/龍魂系统工具箱",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/bone_retriever-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-mod/bone_retriever-py",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/shield_engine-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-mod/shield_engine-py",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/加密工具-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/guardian-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/daodejing_engine_v2_complete-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/gua_classifier-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-mod/gua_classifier-py",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/dragon-soul-agent",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/memory-compressor-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/storage-manager-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/dna-generator-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/asset-scanner-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/taiji-extractor-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/memory-restorer-js",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/recalc-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/pack-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/validate-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/unpack-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/soffice-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/docx-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/__init__-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/redlining-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/pptx-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/base-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/simplify_redlines-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/merge_runs-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/modules",
+      "target": "claude-mod/fill_fillable_fields-py",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂操作台_mvp_v1-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂操作台_mvp_v1-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂学习公式体系_升级版_v2-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂学习公式体系_升级版_v2-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂主计划总纲_最终版_v3-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂主计划总纲_最终版_v3-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/ai智能体术语对照表-龍魂版-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/ai智能体术语对照表-龍魂版-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/思维主权系统-术语对照表-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂系统-主计划总纲-v1-0-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂系统-主计划总纲-v1-0-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/sancai-flow-v8-1-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/cnsh数学骨架与量子层-术语对照表-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂dna身份系统-功能规格书-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂dna身份系统-功能规格书-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/longhun-flow-field-v10-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/longhun-flow-field-v10-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/cnsh执行引擎与系统闭环-术语对照表-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/cnsh指令协议与可执行架构-术语对照表-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/longhun-unified-v10-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/longhun-unified-v10-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/longhunwidget浏览器插件-功能规格书-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/cnsh-alignment-standard-v1-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/stats_dashboard-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/stats_dashboard-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/truth_report-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/三才流場_v6_优化版-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/mvp_workbench_v6-1-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/mvp_workbench_v6-1-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/sandbox_dashboard-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/sandbox_dashboard-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/lu_time_engine-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂知识导航页-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂知识导航页-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂知识导航页_v2-0-1-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂知识导航页_v2-0-1-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/龍魂知识导航页_v2-0-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/龍魂知识导航页_v2-0-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/popup-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/popup-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/lu-time-engine-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/main-console-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/main-console-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/memory-editor-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/memory-editor-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
+    },
+    {
+      "source": "claude-local-sessions/html_tools",
+      "target": "claude-html/sandbox-dashboard-html",
+      "relationship": "contains",
+      "strength": 0.85
+    },
+    {
+      "source": "claude-html/sandbox-dashboard-html",
+      "target": "l0-core",
+      "relationship": "relates_to",
+      "strength": 0.6
     }
   ],
   "dna": "#龍芯⚡️2026-06-06-KNOWLEDGE-GRAPH-DATA-v1.0"

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-_10_V3-0_0592-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -30,7 +30,7 @@ from collections import deque
 import threading
 import copy
 
-# 適配 longhun-system 主幹：審計日誌目錄可透過環境變數覆蓋，預設位於模塊同級 audit_logs/
+# 适配 longhun-system 主干：审计日志目录可透过环境变数覆盖，预设位于模块同级 audit_logs/
 V3_AUDIT_LOG_DIR = os.environ.get(
     "LONGHUN_V3_AUDIT_LOGS",
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "audit_logs")

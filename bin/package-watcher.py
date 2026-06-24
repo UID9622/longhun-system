@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂體系 · 待融入包自動收集與分類器
+龍魂体系 · 待融入包自动收集与分类器
 Longhun System · Pending Integration Package Watcher & Classifier
 
 DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-FILE1-v1.0
-責任: UID9622·不免責
+责任: UID9622·不免责
 
 功能：
-  1. 掃描指定監控路徑（默認 ~/Downloads 與 ~）
-  2. 識別龍魂/CNSH/Kimi 相關新增/更新包
-  3. 按規則自動分類到 skills/systems/protocols/monitoring/cnsh/docs/forensics/gateway/audit/archive
-  4. 維護待融入隊列 docs/package-integration-queue.json
-  5. 生成審查報告 docs/package-watcher-report.md
+  1. 扫描指定监控路径（默认 ~/Downloads 与 ~）
+  2. 识别龍魂/CNSH/Kimi 相关新增/更新包
+  3. 按规则自动分类到 skills/systems/protocols/monitoring/cnsh/docs/forensics/gateway/audit/archive
+  4. 维护待融入队列 docs/package-integration-queue.json
+  5. 生成审查报告 docs/package-watcher-report.md
 
 用法：
   python3 bin/package-watcher.py [--watch-dir /path/to/watch] [--output-dir /path/to/output]
@@ -30,21 +30,21 @@ from typing import Dict, List, Optional, Tuple
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 分類規則：按關鍵字匹配（優先級從高到低）
+# 分类规则：按关键字匹配（优先级从高到低）
 # ═══════════════════════════════════════════════════════════════════════════════
 CLASSIFICATION_RULES: List[Tuple[str, List[str]]] = [
     ("multi_content_archive", ["龍魂待整理", "待整理"]),
-    ("warehouse_audit", ["技能检查", "warehouse", "audit", "審計改進", "审计改进"]),
+    ("warehouse_audit", ["技能检查", "warehouse", "audit", "审计改进", "审计改进"]),
     ("skills",          ["skill", "技能", "Skill"]),
-    ("cnsh",            ["CNSH", "cnsh", "Runtime Governance", "語義接入", "语义接入"]),
-    ("monitoring",      ["監控", "监控", "monitoring", "移動端", "移动端"]),
-    ("protocols",       ["協議", "协议", "protocol", "根協議", "根协议"]),
-    ("gateway",         ["網關", "网关", "gateway"]),
-    ("forensics",       ["forensic", "取證", "取证"]),
+    ("cnsh",            ["CNSH", "cnsh", "Runtime Governance", "语义接入", "语义接入"]),
+    ("monitoring",      ["监控", "监控", "monitoring", "移动端", "移动端"]),
+    ("protocols",       ["协议", "协议", "protocol", "根协议", "根协议"]),
+    ("gateway",         ["网关", "网关", "gateway"]),
+    ("forensics",       ["forensic", "取证", "取证"]),
     ("phase3",          ["Phase 3", "phase3", "Phase3"]),
-    ("systems",         ["核心系統", "核心系统", "系統優化", "系统优化", "標準化", "标准化", "啟動", "启动"]),
-    ("docs",            ["知識矩陣", "知识矩阵", "計算公式", "计算公式", "流水線", "流水线", "使用說明", "使用说明"]),
-    ("archive",         ["backup", "備份", "备份", "archive", "歸檔", "归档"]),
+    ("systems",         ["核心系统", "核心系统", "系统优化", "系统优化", "标准化", "标准化", "启动", "启动"]),
+    ("docs",            ["知识矩阵", "知识矩阵", "计算公式", "计算公式", "流水线", "流水线", "使用说明", "使用说明"]),
+    ("archive",         ["backup", "备份", "备份", "archive", "归档", "归档"]),
 ]
 
 KNOWN_INTEGRATED = {
@@ -54,7 +54,7 @@ KNOWN_INTEGRATED = {
     "Kimi_Agent_龍魂体系技能检查.zip",
 }
 
-# 不應納入待融入隊列的項目（主幹本身、敏感目錄、備份等）
+# 不应纳入待融入队列的项目（主干本身、敏感目录、备份等）
 EXCLUDED_NAMES = {
     "longhun-system",
     ".longhun",
@@ -65,24 +65,24 @@ EXCLUDED_NAMES = {
     "longhun_dna_final_backup.json",
 }
 
-# 備份/歸檔類關鍵字
-ARCHIVE_KEYWORDS = ["backup", "備份", "backup-", "-bfg", "archive", "歸檔", "待整理"]
+# 备份/归档类关键字
+ARCHIVE_KEYWORDS = ["backup", "备份", "backup-", "-bfg", "archive", "归档", "待整理"]
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 工具函數
+# 工具函数
 # ═══════════════════════════════════════════════════════════════════════════════
 def is_longhun_related(name: str) -> bool:
-    """判斷文件名是否與龍魂體系相關。"""
+    """判断文件名是否与龍魂体系相关。"""
     lowered = name.lower()
     keywords = ["longhun", "龍魂", "Kimi_Agent", "CNSH", "龍芯", "龙魂", "UID9622"]
     return any(k.lower() in lowered for k in keywords) or any(k in name for k in keywords[1:])
 
 
 def classify(name: str) -> str:
-    """根據文件名關鍵字分類。"""
+    """根据文件名关键字分类。"""
     lowered = name.lower()
-    # 優先判斷是否為備份/歸檔
+    # 优先判断是否为备份/归档
     if any(k.lower() in lowered for k in ARCHIVE_KEYWORDS):
         return "archive"
     for category, patterns in CLASSIFICATION_RULES:
@@ -93,7 +93,7 @@ def classify(name: str) -> str:
 
 
 def compute_file_hash(path: Path) -> str:
-    """計算文件 SHA-256（用於追蹤變更）。"""
+    """计算文件 SHA-256（用于追踪变更）。"""
     h = hashlib.sha256()
     try:
         with open(path, "rb") as f:
@@ -105,12 +105,12 @@ def compute_file_hash(path: Path) -> str:
 
 
 def package_id(path: Path) -> str:
-    """生成包的穩定 ID。"""
+    """生成包的稳定 ID。"""
     return f"{path.name}_{path.stat().st_mtime:.0f}"
 
 
 def priority_for(category: str) -> str:
-    """根據分類給出優先級建議。"""
+    """根据分类给出优先级建议。"""
     pmap = {
         "multi_content_archive": "P0",
         "systems": "P0",
@@ -131,7 +131,7 @@ def priority_for(category: str) -> str:
 
 
 def suggested_target(category: str) -> str:
-    """建議融入主幹的目標目錄。"""
+    """建议融入主干的目标目录。"""
     tmap = {
         "multi_content_archive": "按 docs/龍魂待整理-integration-gap-report.md 分 P0-P3 逐步融入",
         "systems": "systems/ 或新增 systems/{name}/",
@@ -141,18 +141,18 @@ def suggested_target(category: str) -> str:
         "monitoring": "mobile-monitoring.integrated/",
         "gateway": "integrated-modules/gateway/",
         "skills": "skills/ 或 skills/{category}/",
-        "warehouse_audit": "skills/warehouse-audit/ 擴展",
+        "warehouse_audit": "skills/warehouse-audit/ 扩展",
         "audit": "skills/warehouse-audit/ 或新增 systems/audit/",
         "forensics": "tools/forensics/",
         "docs": "docs/references/ 或 docs/v3/",
         "archive": "_archive/ 或 longhun-archive/",
-        "unknown": "待人工分類",
+        "unknown": "待人工分类",
     }
-    return tmap.get(category, "待人工分類")
+    return tmap.get(category, "待人工分类")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# 掃描邏輯
+# 扫描逻辑
 # ═══════════════════════════════════════════════════════════════════════════════
 class PackageWatcher:
     def __init__(self, watch_dirs: List[Path], output_dir: Path):
@@ -163,7 +163,7 @@ class PackageWatcher:
         self.log_file = output_dir / "package-watcher.log"
 
     def load_queue(self) -> Dict:
-        """載入現有隊列。"""
+        """载入现有队列。"""
         if self.queue_file.exists():
             try:
                 return json.loads(self.queue_file.read_text(encoding="utf-8"))
@@ -176,15 +176,15 @@ class PackageWatcher:
         }
 
     def save_queue(self, queue: Dict):
-        """保存隊列。"""
+        """保存队列。"""
         self.queue_file.write_text(json.dumps(queue, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def scan(self) -> List[Dict]:
-        """掃描監控路徑，返回發現的包列表。"""
+        """扫描监控路径，返回发现的包列表。"""
         found = []
         for watch_dir in self.watch_dirs:
             if not watch_dir.exists():
-                self.log(f"⚠️ 監控路徑不存在: {watch_dir}")
+                self.log(f"⚠️ 监控路径不存在: {watch_dir}")
                 continue
 
             for item in watch_dir.iterdir():
@@ -213,13 +213,13 @@ class PackageWatcher:
                     "priority": priority_for(classify(item.name)),
                     "suggested_target": suggested_target(classify(item.name)),
                     "status": "integrated" if item.name in KNOWN_INTEGRATED else "pending",
-                    "notes": "已融入主幹" if item.name in KNOWN_INTEGRATED else "",
+                    "notes": "已融入主干" if item.name in KNOWN_INTEGRATED else "",
                 }
                 found.append(pkg)
         return found
 
     def update_queue(self, found: List[Dict]) -> Tuple[int, int, int]:
-        """更新隊列，返回新增/更新/未變更數量。"""
+        """更新队列，返回新增/更新/未变更数量。"""
         queue = self.load_queue()
         packages = queue.setdefault("packages", {})
 
@@ -231,11 +231,11 @@ class PackageWatcher:
             pid = f"{pkg['name']}"
             if pid in packages:
                 existing = packages[pid]
-                # 若狀態需要根據已知融入列表修正
+                # 若状态需要根据已知融入列表修正
                 if pkg["name"] in KNOWN_INTEGRATED and existing.get("status") not in ("integrated",):
                     existing.update(pkg)
                     existing["status"] = "integrated"
-                    existing["notes"] = "已融入主幹"
+                    existing["notes"] = "已融入主干"
                     existing["last_seen"] = datetime.now(timezone.utc).isoformat()
                     updated += 1
                 elif existing.get("sha256") != pkg["sha256"] or existing.get("modified_utc") != pkg["modified_utc"]:
@@ -251,7 +251,7 @@ class PackageWatcher:
                 packages[pid] = pkg
                 added += 1
 
-        # 清理本次未掃描到的過期條目（可選，由 --prune 控制）
+        # 清理本次未扫描到的过期条目（可选，由 --prune 控制）
         if getattr(self, "prune", False):
             found_names = {f["name"] for f in found}
             stale = [pid for pid in packages if pid not in found_names]
@@ -267,38 +267,38 @@ class PackageWatcher:
         return added, updated, unchanged
 
     def generate_report(self, found: List[Dict], added: int, updated: int, unchanged: int):
-        """生成 Markdown 報告。"""
+        """生成 Markdown 报告。"""
         queue = self.load_queue()
         now = datetime.now(timezone.utc).isoformat()
 
         lines = [
-            "# 龍魂體系 · 待融入包監控報告",
+            "# 龍魂体系 · 待融入包监控报告",
             "",
             f"**DNA**:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-v1.0  ",
-            f"**掃描時間**: {now}  ",
-            "**責任**: UID9622·不免責",
+            f"**扫描时间**: {now}  ",
+            "**责任**: UID9622·不免责",
             "",
             "---",
             "",
-            "## 掃描摘要",
+            "## 扫描摘要",
             "",
-            f"| 指標 | 數值 |",
+            f"| 指标 | 数值 |",
             f"|------|------|",
-            f"| 監控路徑 | {', '.join(str(d) for d in self.watch_dirs)} |",
-            f"| 本次發現包 | {len(found)} |",
+            f"| 监控路径 | {', '.join(str(d) for d in self.watch_dirs)} |",
+            f"| 本次发现包 | {len(found)} |",
             f"| 新增 | {added} |",
             f"| 更新 | {updated} |",
-            f"| 未變更 | {unchanged} |",
-            f"| 隊列總數 | {queue.get('total_packages', 0)} |",
+            f"| 未变更 | {unchanged} |",
+            f"| 队列总数 | {queue.get('total_packages', 0)} |",
             f"| 待融入 | {queue.get('pending_count', 0)} |",
-            f"| 已更新待審 | {queue.get('updated_count', 0)} |",
+            f"| 已更新待审 | {queue.get('updated_count', 0)} |",
             f"| 已融入 | {queue.get('integrated_count', 0)} | ",
             "",
             "---",
             "",
-            "## 分類統計",
+            "## 分类统计",
             "",
-            "| 分類 | 數量 | 優先級 | 建議目標 |",
+            "| 分类 | 数量 | 优先级 | 建议目标 |",
             "|------|------|--------|---------|",
         ]
 
@@ -316,9 +316,9 @@ class PackageWatcher:
             "",
             "---",
             "",
-            "## 待融入隊列詳情",
+            "## 待融入队列详情",
             "",
-            "| 包名 | 類型 | 分類 | 優先級 | 大小 | 狀態 | 建議目標 |",
+            "| 包名 | 类型 | 分类 | 优先级 | 大小 | 状态 | 建议目标 |",
             "|------|------|------|--------|------|------|---------|",
         ])
 
@@ -337,28 +337,28 @@ class PackageWatcher:
             "",
             "---",
             "",
-            "## 自動化命令",
+            "## 自动化命令",
             "",
             "```bash",
-            "# 查看隊列",
+            "# 查看队列",
             "jq '.packages' docs/package-integration-queue.json",
             "",
             "# 列出 P0 待融入包",
             'jq \'.packages | to_entries[] | select(.value.priority == "P0") | .value.name\' docs/package-integration-queue.json',
             "",
-            "# 運行監控器（容器內）",
+            "# 运行监控器（容器内）",
             "python3 /app/package-watcher.py",
             "```",
             "",
             "---",
             "",
-            "> 🐉 龍魂永世，文化傳承，數字主權，科技自主創新不可讓渡！",
+            "> 🐉 龍魂永世，文化传承，数字主权，科技自主创新不可让渡！",
         ])
 
         self.report_file.write_text("\n".join(lines), encoding="utf-8")
 
     def log(self, message: str):
-        """記錄日誌。"""
+        """记录日志。"""
         ts = datetime.now(timezone.utc).isoformat()
         line = f"[{ts}] {message}"
         print(line)
@@ -374,51 +374,51 @@ class PackageWatcher:
         return f"{size_bytes:.1f} TB"
 
     def run(self):
-        """主運行入口。"""
+        """主运行入口。"""
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.log("🐉 龍魂待融入包監控器啟動")
+        self.log("🐉 龍魂待融入包监控器启动")
 
         found = self.scan()
         added, updated, unchanged = self.update_queue(found)
         self.generate_report(found, added, updated, unchanged)
 
-        self.log(f"✅ 掃描完成：新增 {added}，更新 {updated}，未變更 {unchanged}，隊列總數 {added+updated+unchanged}")
-        self.log(f"📄 報告：{self.report_file}")
-        self.log(f"📋 隊列：{self.queue_file}")
+        self.log(f"✅ 扫描完成：新增 {added}，更新 {updated}，未变更 {unchanged}，队列总数 {added+updated+unchanged}")
+        self.log(f"📄 报告：{self.report_file}")
+        self.log(f"📋 队列：{self.queue_file}")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # 命令行入口
 # ═══════════════════════════════════════════════════════════════════════════════
 def main():
-    parser = argparse.ArgumentParser(description="龍魂待融入包自動收集與分類器")
+    parser = argparse.ArgumentParser(description="龍魂待融入包自动收集与分类器")
     parser.add_argument(
         "--watch-dir",
         action="append",
         type=Path,
-        help="監控路徑（可多次指定，默認 ~/Downloads 與 ~）",
+        help="监控路径（可多次指定，默认 ~/Downloads 与 ~）",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("docs"),
-        help="輸出目錄（默認 docs/）",
+        help="输出目录（默认 docs/）",
     )
     parser.add_argument(
         "--once",
         action="store_true",
-        help="僅運行一次（默認）",
+        help="仅运行一次（默认）",
     )
     parser.add_argument(
         "--interval",
         type=int,
         default=300,
-        help="循環監控間隔秒數（默認 300）",
+        help="循环监控间隔秒数（默认 300）",
     )
     parser.add_argument(
         "--prune",
         action="store_true",
-        help="清理本次未掃描到的過期隊列條目",
+        help="清理本次未扫描到的过期队列条目",
     )
     args = parser.parse_args()
 

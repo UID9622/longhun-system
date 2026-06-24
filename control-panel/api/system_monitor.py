@@ -44,7 +44,7 @@ def _module_nodes():
         {"id": "user", "label": "你", "group": "human", "title": "一句话改变整套逻辑"},
         {"id": "control-panel", "label": "龍魂操作台", "group": "core", "title": "统一调度中心"},
         {"id": "cnsh-terminal", "label": "CNSH 终端", "group": "core", "title": "中文编程终端"},
-        {"id": "editor", "label": "龍碼编辑器", "group": "tool", "title": "中文代码编辑器"},
+        {"id": "editor", "label": "龍码编辑器", "group": "tool", "title": "中文代码编辑器"},
         {"id": "brain", "label": "龍魂大脑", "group": "brain", "title": "记忆与推理"},
         {"id": "memory-universe", "label": "星辰记忆", "group": "brain", "title": "本地记忆库"},
         {"id": "xpay", "label": "XPay 支付", "group": "service", "title": "主权货币支付"},

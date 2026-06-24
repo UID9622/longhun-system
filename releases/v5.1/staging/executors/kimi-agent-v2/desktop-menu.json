@@ -1,0 +1,32 @@
+{
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-4",
+  "items": [
+    {
+      "id": "run-kimi-agent-v2-foundation-auto",
+      "label": "🐉 运行底座启动台自检",
+      "type": "shell",
+      "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_foundation_launcher_v2.0.py --auto 2>&1 | tail -n 40",
+      "description": "运行龍魂底座启动台 v2.0 自动系统检查",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-kimi-agent-v2-script-manager-report",
+      "label": "📋 运行脚本管理器报告",
+      "type": "shell",
+      "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_script_manager_v2.0.py report 2>&1 | tail -n 30",
+      "description": "生成龍魂脚本管理器 v2.0 报告",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "run-kimi-agent-v2-mvp-launcher-help",
+      "label": "❓ 运行 MVP 启动器帮助",
+      "type": "shell",
+      "command": "cd {root} && python3 executors/kimi-agent-v2/longhun_mvp_launcher_v2.0.py --help",
+      "description": "显示龍魂 MVP 启动器 v2.0 用法（不执行完整启动）",
+      "mode": "oneshot",
+      "confirm": false
+    }
+  ]
+}

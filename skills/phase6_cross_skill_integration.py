@@ -8,7 +8,7 @@
      建立 Skill 生态·跨域调用支持·联动工作流
 
 DNA:#龍芯⚡️2026-06-08-PHASE6-CROSS-SKILL-INTEGRATION-FILE2-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
 import json
@@ -74,37 +74,37 @@ class CrossSkillIntegrationEngine:
     def __init__(self):
         self.skills = {
             "skill-1-algorithmic-art": {
-                "name": "龍魂算法藝術生成器",
+                "name": "龍魂算法艺术生成器",
                 "category": SkillCategory.VISUALIZATION,
                 "outputs": ["image", "metadata"],
             },
             "skill-2-brand-guidelines": {
-                "name": "品牌指南構建工具",
+                "name": "品牌指南构建工具",
                 "category": SkillCategory.VISUALIZATION,
                 "outputs": ["design-tokens", "css-variables"],
             },
             "skill-3-canvas-design": {
-                "name": "Canvas 動態設計工具",
+                "name": "Canvas 动态设计工具",
                 "category": SkillCategory.VISUALIZATION,
                 "outputs": ["canvas-data", "image"],
             },
             "skill-4-doc-coauthoring": {
-                "name": "文檔協作編輯系統",
+                "name": "文档协作编辑系统",
                 "category": SkillCategory.COLLABORATION,
                 "outputs": ["document", "metadata"],
             },
             "skill-5-internal-comms": {
-                "name": "內部溝通平台",
+                "name": "内部沟通平台",
                 "category": SkillCategory.MANAGEMENT,
                 "outputs": ["message", "task"],
             },
             "skill-6-mcp-builder": {
-                "name": "MCP 服務器構建工具",
+                "name": "MCP 服务器构建工具",
                 "category": SkillCategory.CODE_GENERATION,
                 "outputs": ["service-code", "config"],
             },
             "skill-7-skill-creator": {
-                "name": "Skill 創建助手",
+                "name": "Skill 创建助手",
                 "category": SkillCategory.CODE_GENERATION,
                 "outputs": ["skill-scaffold", "metadata"],
             },
@@ -114,12 +114,12 @@ class CrossSkillIntegrationEngine:
                 "outputs": ["gif", "metadata"],
             },
             "skill-9-theme-factory": {
-                "name": "主題生成工廠",
+                "name": "主题生成工厂",
                 "category": SkillCategory.UTILITY,
                 "outputs": ["theme", "css"],
             },
             "skill-10-web-artifacts-builder": {
-                "name": "Web 構件生成器",
+                "name": "Web 构件生成器",
                 "category": SkillCategory.CODE_GENERATION,
                 "outputs": ["component", "artifact"],
             },

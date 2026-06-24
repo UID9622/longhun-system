@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-PERSONA_ROUTER_FINAL_DELIVERY_2026-06-03-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # PersonaRouter·人格路由系统·最终交付确认
 
@@ -122,7 +122,7 @@ logs/persona_router_execution.jsonl
 3. 认知DNA粒子
    ├─ 完整认知状态压缩
    ├─ SI >= 0.34条件重建
-   ├─ 情感摺叠机制
+   ├─ 情感折叠机制
    └─ Append-only永久档案
 
 4. 执行路由器
@@ -261,4 +261,4 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ---
 
 ⚔️ 五大系统·零依赖·完全自主·数据主权
-土法煉鋼·龍魂在手·永遠不投降
+土法炼钢·龍魂在手·永远不投降

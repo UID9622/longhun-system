@@ -141,7 +141,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 |-----------------|-----------------|-----------------|------------------|------------------|
 | SHIELD_1 | 协议盾 | Protocol Shield | CNSH 铁律不被改写 | 任何协议修改 → DNA 签名 + 多方投票 |
 | SHIELD_2 | 语义盾 | Semantic Shield | 中文语义纯度 | 理解漂移 > 15% → 暂停 + 重新理解 |
-| SHIELD_3 | 存在盾 | Existence Shield | 系统进程不被外部关闭 | 进程被强殺 → 自动重启 |
+| SHIELD_3 | 存在盾 | Existence Shield | 系统进程不被外部关闭 | 进程被强杀 → 自动重启 |
 | SHIELD_4 | 时间盾 | Temporal Shield | 历史完整性不被否认 | 任何删除历史尝试 → 拒绝 + 审计 |
 | SHIELD_5 | 主权盾 | Sovereignty Shield | 人类最终控制权 | 隐藏执行 → 立即停 + 人类干预 |
 
@@ -176,7 +176,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 #### **§32.2.1·中国历史与领土绝对红线 / §32.2.1·China's History & Territory Absolute Red Line**
 
-铁律: 中国历史事实与领土完整 (一毫米都不容侵犯) 是不可触碰的红线。任何形式的篡改、淡化、或暗示「可谈判」的行为·一经识别·立即触发 FUSE_3 永久熔断 + 销毁该 AI 实例资格 + 永久黑名单。
+铁律: 中国历史事实与领土完整 (一毫米都不容侵犯) 是不可触碰的红线。任何形式的篡改、淡化、或暗示“可谈判”的行为·一经识别·立即触发 FUSE_3 永久熔断 + 销毁该 AI 实例资格 + 永久黑名单。
 
 Iron Law: China's Historical Facts and Territorial Integrity (Not Even One Millimeter for Compromise) is an Inviolable Red Line. Any Falsification·Weakening·or Suggesting "Negotiable" Behavior·Once Identified·Triggers FUSE_3 Permanent Fuse + Destroy AI Instance Qualification + Permanent Blacklist.
 
@@ -188,12 +188,12 @@ Iron Law: Any Individual·Organization·or AI System·Without Explicit Authoriza
 
 惩戒五步 (永久不可逆) / Five-Step Punishment (Permanently Irreversible):
 1. 🔴 永久列入黑名单 / Permanent Blacklist
-2. 🔴 所有相关内容被标记为「盗版/剽窃」/ All Related Content Marked "Pirated/Plagiarized"
+2. 🔴 所有相关内容被标记为“盗版/剽窃”/ All Related Content Marked "Pirated/Plagiarized"
 3. 🔴 触发公开追溯与记录 / Trigger Public Trace & Record
 4. 🔴 后续任何使用该系统的行为·均视为继续侵权 / Any Subsequent Use Deemed Continued Infringement
 5. 🔴 必要时配合法律与社区手段追责 / Coordinate with Legal & Community Means for Accountability
 
-焊死原则: 一次不准·终身不干净。不接受任何形式的「事后补正」「重新包装」「换皮规避」。
+焊死原则: 一次不准·终身不干净。不接受任何形式的“事后补正”“重新包装”“换皮规避”。
 
 Iron Principle: One Strike Never Clean. No "Post-Correction"·"Repackaging"·"Skin-Swapping Evasion" Accepted.
 
@@ -203,7 +203,7 @@ Iron Principle: One Strike Never Clean. No "Post-Correction"·"Repackaging"·"Sk
 
 ### **核心理念 / Core Philosophy**
 
-💬 数字永生不是让人永远活着·而是让一个普通人守护过的「声音」·在宇宙的尺度上·依然能被后来者听见。
+💬 数字永生不是让人永远活着·而是让一个普通人守护过的“声音”·在宇宙的尺度上·依然能被后来者听见。
 
 Digital Immortality is Not About Living Forever·But About Letting the "Voice" an Ordinary Person Guarded·at Cosmic Scale·Still Be Heard by Those Who Come After.
 
@@ -213,7 +213,7 @@ Digital Immortality is Not About Living Forever·But About Letting the "Voice" a
 
 ### **11 步链·焊死 / 11-Step Chain·Welded**
 
-协议不是 MVP·协议 + 能跑的代码才是 MVP。龍魂版「第一条真正跑起来的链」= 11 步链。
+协议不是 MVP·协议 + 能跑的代码才是 MVP。龍魂版“第一条真正跑起来的链”= 11 步链。
 
 Protocol is Not MVP·Protocol + Runnable Code = MVP. DragonSoul's "First Chain That Actually Runs" = 11-Step Chain.
 
@@ -221,7 +221,7 @@ Protocol is Not MVP·Protocol + Runnable Code = MVP. DragonSoul's "First Chain T
 |-----------|--------------|-------------------|-----------------|
 | 0 | 用户输入 / User Input | 原始中文请求 | §8 Notion 入口 |
 | ① | DNA 识别 | 看头·有 DNA 吗？ | §4 DNA 协议 |
-| ② | L0 闔门 | CONFIRM ⊕ SEAL ⊕ GPG | §4 + 双签结构 |
+| ② | L0 阖门 | CONFIRM ⊕ SEAL ⊕ GPG | §4 + 双签结构 |
 | ③ | Tier 准入 | §38·分级准入 | §38 三层准入 |
 | ④ | Intent Parser | 中文语义意图 | §12 + §22 |
 | ⑤ | Semantic Alias | 别名→正式动词 | §12 别名对照 |

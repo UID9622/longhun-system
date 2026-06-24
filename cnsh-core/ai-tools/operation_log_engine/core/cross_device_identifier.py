@@ -11,23 +11,23 @@
 # 文件: cross_device_identifier.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🌐 跨設備識別器 v1.0
-F8習慣引擎 + 設備信任管理 + 自動同步門
+🌐 跨设备识别器 v1.0
+F8习惯引擎 + 设备信任管理 + 自动同步门
 
 DNA:#龍芯⚡️2026-05-30-CROSS-DEVICE-IDENTIFIER-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-核心邏輯 (自動識別流程):
-  1. USB插入 → 掃描操作日記 (operation_ledger.jsonl)
-  2. 提取DNA粒子基線 (dna_particles/*.dna.json)
-  3. 運行F8引擎 (習慣匹配)
-  4. SI >= 0.85 → ✅ 確認: 這是諸葛鑫
-  5. 自動同步: ~/.龍魂/ 完整恢復
-  6. 設備信任綁定 (hardware_seal)
+核心逻辑 (自动识别流程):
+  1. USB插入 → 扫描操作日记 (operation_ledger.jsonl)
+  2. 提取DNA粒子基线 (dna_particles/*.dna.json)
+  3. 运行F8引擎 (习惯匹配)
+  4. SI >= 0.85 → ✅ 确认: 这是诸葛鑫
+  5. 自动同步: ~/.龍魂/ 完整恢复
+  6. 设备信任绑定 (hardware_seal)
 
-不是「登錄」·而是「我回來了」
-習慣會說話·DNA會認人·任何設備都知道是我
+不是“登录”·而是“我回来了”
+习惯会说话·DNA会认人·任何设备都知道是我
 """
 
 import json
@@ -39,17 +39,17 @@ from datetime import datetime, timezone
 
 class CrossDeviceIdentifier:
     """
-    跨設備識別器
+    跨设备识别器
 
     功能:
-      - 從USB加載習慣基線
-      - 掃描當前設備操作記錄
-      - 運行F8習慣匹配引擎
-      - 設備信任綁定與管理
-      - 自動同步決策
+      - 从USB加载习惯基线
+      - 扫描当前设备操作记录
+      - 运行F8习惯匹配引擎
+      - 设备信任绑定与管理
+      - 自动同步决策
     """
 
-    def __init__(self, log_dir: str = "~/.龍魂/操作日記"):
+    def __init__(self, log_dir: str = "~/.龍魂/操作日记"):
         self.log_dir = Path(log_dir).expanduser()
         self.device_trust_dir = self.log_dir / "device_trust"
         self.device_trust_dir.mkdir(parents=True, exist_ok=True)
@@ -59,39 +59,39 @@ class CrossDeviceIdentifier:
 
     def load_baseline_from_usb(self, usb_path: str) -> Dict[str, Any]:
         """
-        從USB加載習慣基線
+        从USB加载习惯基线
 
-        USB結構預期:
+        USB结构预期:
           /media/usb-drive/
-            └── 龍魂_備份/
+            └── 龍魂_备份/
                 ├── habit_fingerprints/
                 │   └── baseline_snapshot.json
                 └── operation_ledger.jsonl
         """
 
         usb_root = Path(usb_path).expanduser()
-        baseline_path = usb_root / "龍魂_備份" / "habit_fingerprints" / "baseline_snapshot.json"
+        baseline_path = usb_root / "龍魂_备份" / "habit_fingerprints" / "baseline_snapshot.json"
 
         if not baseline_path.exists():
-            raise FileNotFoundError(f"USB基線不存在: {baseline_path}")
+            raise FileNotFoundError(f"USB基线不存在: {baseline_path}")
 
         with open(baseline_path, 'r', encoding='utf-8') as f:
             baseline = json.load(f)
 
-        print(f"✅ 從USB加載基線: {baseline_path}")
+        print(f"✅ 从USB加载基线: {baseline_path}")
         return baseline
 
     def scan_local_operations(self, limit: int = 100) -> List[Dict[str, Any]]:
         """
-        掃描本地操作日記
+        扫描本地操作日记
 
-        返回最近N條操作記錄供習慣分析
+        返回最近N条操作记录供习惯分析
         """
 
         ledger_file = self.log_dir / "operation_ledger.jsonl"
 
         if not ledger_file.exists():
-            print("⚠️ 本地操作日記不存在")
+            print("⚠️ 本地操作日记不存在")
             return []
 
         operations = []
@@ -103,17 +103,17 @@ class CrossDeviceIdentifier:
 
     def get_device_id(self) -> str:
         """
-        獲取當前設備ID
+        获取当前设备ID
 
         格式: {hostname}-{uid}-{platform}-{serial}
-        簡化版本: MacBook-M4-Max-UID9622
+        简化版本: MacBook-M4-Max-UID9622
         """
 
         import platform
         import socket
 
         hostname = socket.gethostname()
-        uid = "UID9622"  # 硬編碼用戶ID
+        uid = "UID9622"  # 硬编码用户ID
         system = platform.system()
 
         device_id = f"{hostname}-{system}-{uid}"
@@ -121,9 +121,9 @@ class CrossDeviceIdentifier:
 
     def compute_device_seal(self, device_id: str) -> str:
         """
-        生成設備封印 (不可偽造的設備綁定)
+        生成设备封印 (不可伪造的设备绑定)
 
-        Hash組成: device_id + timestamp + uuid
+        Hash组成: device_id + timestamp + uuid
         """
 
         content = f"{device_id}#{datetime.now().isoformat()}#{device_id[::-1]}"
@@ -132,7 +132,7 @@ class CrossDeviceIdentifier:
 
     def register_device(self, device_id: str = None) -> Dict[str, Any]:
         """
-        註冊新設備到信任列表
+        注册新设备到信任列表
 
         返回:
           {
@@ -153,7 +153,7 @@ class CrossDeviceIdentifier:
             'device_seal': self.compute_device_seal(device_id),
             'first_seen': datetime.now(timezone.utc).isoformat(),
             'last_sync': datetime.now(timezone.utc).isoformat(),
-            'trust_level': 'pending',  # 待確認階段
+            'trust_level': 'pending',  # 待确认阶段
             'si_history': [],
             'sync_count': 0,
             'metadata': {
@@ -165,7 +165,7 @@ class CrossDeviceIdentifier:
         return device_record
 
     def load_device_registry(self) -> Dict[str, Any]:
-        """加載設備信任註冊表"""
+        """加载设备信任注册表"""
 
         if not self.device_registry_file.exists():
             return {}
@@ -174,12 +174,12 @@ class CrossDeviceIdentifier:
             return json.load(f)
 
     def save_device_registry(self, registry: Dict[str, Any]) -> str:
-        """保存設備信任註冊表"""
+        """保存设备信任注册表"""
 
         with open(self.device_registry_file, 'w', encoding='utf-8') as f:
             json.dump(registry, f, ensure_ascii=False, indent=2)
 
-        print(f"✅ 設備註冊表已保存: {self.device_registry_file}")
+        print(f"✅ 设备注册表已保存: {self.device_registry_file}")
         return str(self.device_registry_file)
 
     def verify_device_trust(self,
@@ -187,7 +187,7 @@ class CrossDeviceIdentifier:
                            si_score: float,
                            threshold: float = 0.85) -> Tuple[str, bool]:
         """
-        驗證設備信任狀態
+        验证设备信任状态
 
         返回:
           (trust_level, is_trusted)
@@ -197,7 +197,7 @@ class CrossDeviceIdentifier:
         registry = self.load_device_registry()
 
         if device_id not in registry:
-            # 新設備
+            # 新设备
             if si_score >= threshold:
                 return "trusted", True
             else:
@@ -206,7 +206,7 @@ class CrossDeviceIdentifier:
         device_record = registry[device_id]
         current_trust = device_record.get('trust_level', 'pending')
 
-        if current_trust == "trusted" and si_score >= 0.75:  # 可信設備的門檻更低
+        if current_trust == "trusted" and si_score >= 0.75:  # 可信设备的门槛更低
             return "trusted", True
         elif si_score >= threshold:
             return "trusted", True
@@ -220,7 +220,7 @@ class CrossDeviceIdentifier:
                           si_score: float,
                           trust_level: str) -> Dict[str, Any]:
         """
-        自動同步決策
+        自动同步决策
 
         返回:
           {
@@ -258,7 +258,7 @@ class CrossDeviceIdentifier:
 
         elif si_score >= 0.85 and trust_level == "pending":
             decision['should_sync'] = True
-            decision['sync_direction'] = 'usb_to_local'  # 只讀取
+            decision['sync_direction'] = 'usb_to_local'  # 只读取
             decision['reason'] = "High SI - first sync"
             decision['conflict_mode'] = 'merge'
             decision['post_sync_actions'] = [
@@ -280,24 +280,24 @@ class CrossDeviceIdentifier:
                      local_operations: List[Dict[str, Any]],
                      device_id: str = None) -> Dict[str, Any]:
         """
-        完整的用戶識別流程 (F8習慣引擎)
+        完整的用户识别流程 (F8习惯引擎)
 
-        返回識別結果及同步決策
+        返回识别结果及同步决策
         """
 
         if device_id is None:
             device_id = self.get_device_id()
 
-        # 合併本地操作文本
+        # 合并本地操作文本
         full_text = ""
         for op in local_operations:
             full_text += f"{op.get('notes', '')}\n"
             full_text += f"{op.get('operation_name', '')}\n"
 
-        # 簡化習慣匹配 (使用基線信息)
-        # 實際應使用 HabitFingerprintManager.compute_habit_match()
+        # 简化习惯匹配 (使用基线信息)
+        # 实际应使用 HabitFingerprintManager.compute_habit_match()
         baseline_si = baseline.get('confidence_metrics', {}).get('overall_si', 0.0)
-        estimated_si = baseline_si * 0.95  # 保守估計
+        estimated_si = baseline_si * 0.95  # 保守估计
 
         result = {
             'device_id': device_id,
@@ -323,7 +323,7 @@ class CrossDeviceIdentifier:
         return result
 
     def log_sync_operation(self, result: Dict[str, Any]) -> str:
-        """記錄同步操作到日誌"""
+        """记录同步操作到日志"""
 
         sync_record = {
             'timestamp': result['timestamp'],
@@ -338,12 +338,12 @@ class CrossDeviceIdentifier:
         with open(self.sync_log_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(sync_record, ensure_ascii=False) + '\n')
 
-        print(f"✅ 同步操作已記錄: {self.sync_log_file}")
+        print(f"✅ 同步操作已记录: {self.sync_log_file}")
         return str(self.sync_log_file)
 
     def grant_device_access(self, device_id: str, access_level: str = "full") -> Dict[str, Any]:
         """
-        授予設備訪問權限
+        授予设备访问权限
 
         access_level: "full" | "read_only" | "none"
         """
@@ -359,11 +359,11 @@ class CrossDeviceIdentifier:
 
         self.save_device_registry(registry)
 
-        print(f"✅ 設備已授權: {device_id} ({access_level})")
+        print(f"✅ 设备已授权: {device_id} ({access_level})")
         return registry[device_id]
 
     def get_trusted_devices(self) -> List[str]:
-        """獲取所有可信設備列表"""
+        """获取所有可信设备列表"""
 
         registry = self.load_device_registry()
         return [
@@ -376,25 +376,25 @@ class CrossDeviceIdentifier:
 if __name__ == "__main__":
     identifier = CrossDeviceIdentifier()
 
-    print("🌐 跨設備識別器 CLI")
+    print("🌐 跨设备识别器 CLI")
     print("=" * 50)
 
-    # 示例1: 獲取當前設備ID
-    print("\n1️⃣ 當前設備信息:")
+    # 示例1: 获取当前设备ID
+    print("\n1️⃣ 当前设备信息:")
     device_id = identifier.get_device_id()
     device_seal = identifier.compute_device_seal(device_id)
-    print(f"   設備ID: {device_id}")
-    print(f"   設備封印: {device_seal}")
+    print(f"   设备ID: {device_id}")
+    print(f"   设备封印: {device_seal}")
 
-    # 示例2: 掃描本地操作
-    print("\n2️⃣ 掃描本地操作:")
+    # 示例2: 扫描本地操作
+    print("\n2️⃣ 扫描本地操作:")
     operations = identifier.scan_local_operations(limit=5)
-    print(f"   找到 {len(operations)} 條本地操作")
+    print(f"   找到 {len(operations)} 条本地操作")
     for op in operations[:2]:
         print(f"     - {op.get('operation_id', 'unknown')}")
 
-    # 示例3: 模擬習慣基線
-    print("\n3️⃣ 創建習慣基線:")
+    # 示例3: 模拟习惯基线
+    print("\n3️⃣ 创建习惯基线:")
     sample_baseline = {
         'typos': {'得': 0.15, '哪': 0.08},
         'catchphrases': {'嘿嘿': 0.45, '焊死': 0.32},
@@ -406,28 +406,28 @@ if __name__ == "__main__":
             'overall_si': 0.92
         }
     }
-    print(f"   基線SI: {sample_baseline['confidence_metrics']['overall_si']:.2%}")
+    print(f"   基线SI: {sample_baseline['confidence_metrics']['overall_si']:.2%}")
 
-    # 示例4: 完整識別流程
-    print("\n4️⃣ 完整識別流程:")
+    # 示例4: 完整识别流程
+    print("\n4️⃣ 完整识别流程:")
     result = identifier.identify_user(sample_baseline, operations, device_id)
 
-    print(f"\n   設備: {result['device_id']}")
+    print(f"\n   设备: {result['device_id']}")
     print(f"   {result['identification']['message']}")
-    print(f"   信任等級: {result['trust']['trust_level']}")
-    print(f"   同步決策: {result['sync_decision']['sync_direction']}")
+    print(f"   信任等级: {result['trust']['trust_level']}")
+    print(f"   同步决策: {result['sync_decision']['sync_direction']}")
 
-    # 示例5: 授予訪問權限
-    print("\n5️⃣ 設備授權:")
+    # 示例5: 授予访问权限
+    print("\n5️⃣ 设备授权:")
     if result['identification']['verified']:
         device_record = identifier.grant_device_access(device_id, "full")
-        print(f"   ✅ 已授權: {device_id}")
-        print(f"   同步計數: {device_record.get('sync_count', 0)}")
+        print(f"   ✅ 已授权: {device_id}")
+        print(f"   同步计数: {device_record.get('sync_count', 0)}")
 
-    # 示例6: 信任設備列表
-    print("\n6️⃣ 可信設備列表:")
+    # 示例6: 信任设备列表
+    print("\n6️⃣ 可信设备列表:")
     trusted = identifier.get_trusted_devices()
-    print(f"   {len(trusted)} 個可信設備")
+    print(f"   {len(trusted)} 个可信设备")
     for dev in trusted:
         print(f"     - {dev}")
 

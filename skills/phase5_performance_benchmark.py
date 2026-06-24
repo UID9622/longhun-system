@@ -8,7 +8,7 @@
      包括吞吐量·延迟·内存·CPU 等指标
 
 DNA:#龍芯⚡️2026-06-08-PHASE5-PERFORMANCE-BENCHMARK-FILE2-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
 import time
@@ -57,16 +57,16 @@ class PerformanceBenchmarkEngine:
 
     def __init__(self):
         self.skills = {
-            "skill-1-algorithmic-art": "龍魂算法藝術生成器",
-            "skill-2-brand-guidelines": "品牌指南構建工具",
-            "skill-3-canvas-design": "Canvas 動態設計工具",
-            "skill-4-doc-coauthoring": "文檔協作編輯系統",
-            "skill-5-internal-comms": "內部溝通平台",
-            "skill-6-mcp-builder": "MCP 服務器構建工具",
-            "skill-7-skill-creator": "Skill 創建助手",
+            "skill-1-algorithmic-art": "龍魂算法艺术生成器",
+            "skill-2-brand-guidelines": "品牌指南构建工具",
+            "skill-3-canvas-design": "Canvas 动态设计工具",
+            "skill-4-doc-coauthoring": "文档协作编辑系统",
+            "skill-5-internal-comms": "内部沟通平台",
+            "skill-6-mcp-builder": "MCP 服务器构建工具",
+            "skill-7-skill-creator": "Skill 创建助手",
             "skill-8-slack-gif-creator": "Slack GIF 生成器",
-            "skill-9-theme-factory": "主題生成工廠",
-            "skill-10-web-artifacts-builder": "Web 構件生成器",
+            "skill-9-theme-factory": "主题生成工厂",
+            "skill-10-web-artifacts-builder": "Web 构件生成器",
         }
         self.benchmarks: List[SkillBenchmark] = []
         self.process = psutil.Process()
@@ -212,7 +212,7 @@ class PerformanceBenchmarkEngine:
         lines.append("")
 
         # 总体统计
-        lines.append("📊 整體統計")
+        lines.append("📊 整体统计")
         lines.append(f"  • 测试时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S CST')}")
         lines.append(f"  • Skills 总数: {len(self.benchmarks)}")
         lines.append(f"  • 样本大小: 20 次/Skill")
@@ -239,7 +239,7 @@ class PerformanceBenchmarkEngine:
         lines.append("=" * 80)
 
         # 详细指标
-        lines.append("📋 詳細指標")
+        lines.append("📋 详细指标")
         for benchmark in self.benchmarks:
             lines.append(f"\n{benchmark.skill_name}")
             for metric_name, metric in benchmark.metrics.items():

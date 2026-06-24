@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂 Web 工件構建器 v1.0
+龍魂 Web 工件构建器 v1.0
 Longhun Web Artifacts Builder
 
 DNA:#龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-FILE2-v1.0
@@ -16,7 +16,7 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class ArtifactMetadata:
-    """工件元數據"""
+    """工件元数据"""
     id: str
     name: str
     type: str  # html, react, svg, component
@@ -33,7 +33,7 @@ class ArtifactMetadata:
 
 
 class WebArtifact:
-    """Web 工件基礎類"""
+    """Web 工件基础类"""
     
     def __init__(
         self,
@@ -57,16 +57,16 @@ class WebArtifact:
         self.assets: Dict[str, str] = {}
     
     def add_dependency(self, dependency: str) -> None:
-        """添加依賴"""
+        """添加依赖"""
         if dependency not in self.dependencies:
             self.dependencies.append(dependency)
     
     def add_asset(self, name: str, content: str) -> None:
-        """添加資源"""
+        """添加资源"""
         self.assets[name] = content
     
     def export_metadata(self) -> Dict:
-        """導出元數據"""
+        """导出元数据"""
         return {
             "metadata": asdict(self.metadata),
             "dependencies": self.dependencies,
@@ -78,18 +78,18 @@ class WebArtifact:
         """保存工件"""
         os.makedirs(output_dir, exist_ok=True)
         
-        # 保存代碼
+        # 保存代码
         ext = self._get_file_extension()
         code_file = f"{output_dir}/{self.metadata.id}.{ext}"
         with open(code_file, 'w', encoding='utf-8') as f:
             f.write(self.code)
         
-        # 保存元數據
+        # 保存元数据
         metadata_file = f"{output_dir}/{self.metadata.id}.meta.json"
         with open(metadata_file, 'w', encoding='utf-8') as f:
             json.dump(self.export_metadata(), f, indent=2, ensure_ascii=False)
         
-        # 保存資源
+        # 保存资源
         for asset_name, asset_content in self.assets.items():
             asset_file = f"{output_dir}/{asset_name}"
             with open(asset_file, 'w', encoding='utf-8') as f:
@@ -104,7 +104,7 @@ class WebArtifact:
         }
     
     def _get_file_extension(self) -> str:
-        """獲取文件擴展名"""
+        """获取文件扩展名"""
         extensions = {
             "html": "html",
             "react": "jsx",
@@ -140,7 +140,7 @@ class SVGArtifact(WebArtifact):
 
 
 class ArtifactBuilder:
-    """工件構建器"""
+    """工件构建器"""
     
     def __init__(self):
         self.artifacts: Dict[str, WebArtifact] = {}
@@ -153,11 +153,11 @@ class ArtifactBuilder:
         code: str,
         description: str = ""
     ) -> HTMLArtifact:
-        """創建 HTML 工件"""
+        """创建 HTML 工件"""
         artifact = HTMLArtifact(artifact_id, name, code)
         artifact.metadata.description = description
         self.artifacts[artifact_id] = artifact
-        self._log(f"✅ HTML 工件已創建: {name}")
+        self._log(f"✅ HTML 工件已创建: {name}")
         return artifact
     
     def create_react_artifact(
@@ -167,11 +167,11 @@ class ArtifactBuilder:
         code: str,
         description: str = ""
     ) -> ReactArtifact:
-        """創建 React 工件"""
+        """创建 React 工件"""
         artifact = ReactArtifact(artifact_id, name, code)
         artifact.metadata.description = description
         self.artifacts[artifact_id] = artifact
-        self._log(f"✅ React 工件已創建: {name}")
+        self._log(f"✅ React 工件已创建: {name}")
         return artifact
     
     def create_svg_artifact(
@@ -181,15 +181,15 @@ class ArtifactBuilder:
         code: str,
         description: str = ""
     ) -> SVGArtifact:
-        """創建 SVG 工件"""
+        """创建 SVG 工件"""
         artifact = SVGArtifact(artifact_id, name, code)
         artifact.metadata.description = description
         self.artifacts[artifact_id] = artifact
-        self._log(f"✅ SVG 工件已創建: {name}")
+        self._log(f"✅ SVG 工件已创建: {name}")
         return artifact
     
     def get_artifact(self, artifact_id: str) -> Optional[WebArtifact]:
-        """獲取工件"""
+        """获取工件"""
         return self.artifacts.get(artifact_id)
     
     def list_artifacts(self) -> List[Dict]:
@@ -205,7 +205,7 @@ class ArtifactBuilder:
         ]
     
     def build_bundle(self, output_dir: str = ".") -> Dict:
-        """構建包含所有工件的包"""
+        """构建包含所有工件的包"""
         os.makedirs(output_dir, exist_ok=True)
         
         bundle_info = {
@@ -219,12 +219,12 @@ class ArtifactBuilder:
             save_result = artifact.save(output_dir)
             bundle_info["artifacts"].append(save_result)
         
-        # 保存包元數據
+        # 保存包元数据
         bundle_file = f"{output_dir}/bundle.json"
         with open(bundle_file, 'w', encoding='utf-8') as f:
             json.dump(bundle_info, f, indent=2, ensure_ascii=False)
         
-        self._log(f"✅ 工件包已構建: {bundle_file}")
+        self._log(f"✅ 工件包已构建: {bundle_file}")
         
         return bundle_info
     
@@ -303,8 +303,8 @@ class ArtifactBuilder:
                 <div class="artifact-name">{artifact.metadata.name}</div>
                 <p style="color: #a0aec0; font-size: 0.9em;">{artifact.metadata.description}</p>
                 <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #00d4ff; font-size: 0.85em; color: #a0aec0;">
-                    代碼長度: {len(artifact.code)} 字符<br>
-                    依賴: {', '.join(artifact.dependencies)}
+                    代码长度: {len(artifact.code)} 字符<br>
+                    依赖: {', '.join(artifact.dependencies)}
                 </div>
             </div>
             """
@@ -318,46 +318,46 @@ class ArtifactBuilder:
         return index_file
     
     def _log(self, message: str) -> None:
-        """記錄日誌"""
+        """记录日志"""
         self.build_log.append(message)
         print(message)
     
     def get_build_log(self) -> List[str]:
-        """獲取構建日誌"""
+        """获取构建日志"""
         return self.build_log
 
 
 # 示例使用
 if __name__ == "__main__":
-    print("🐉 龍魂 Web 工件構建器 v1.0")
+    print("🐉 龍魂 Web 工件构建器 v1.0")
     print("=" * 50)
     
     builder = ArtifactBuilder()
     
-    # 創建 HTML 工件
-    print("\n📝 創建 HTML 工件...")
+    # 创建 HTML 工件
+    print("\n📝 创建 HTML 工件...")
     html_code = """<div style="text-align: center; padding: 50px;">
-    <h1 style="color: #00d4ff;">龍魂系統</h1>
-    <p style="color: #a0aec0;">Web 工件構建演示</p>
+    <h1 style="color: #00d4ff;">龍魂系统</h1>
+    <p style="color: #a0aec0;">Web 工件构建演示</p>
 </div>"""
     
     html_artifact = builder.create_html_artifact(
         "artifact-001",
         "HTML 演示",
         html_code,
-        "簡單的 HTML 演示頁面"
+        "简单的 HTML 演示页面"
     )
     
-    # 創建 React 工件
-    print("\n⚛️ 創建 React 工件...")
+    # 创建 React 工件
+    print("\n⚛️ 创建 React 工件...")
     react_code = """import React from 'react';
 
 export default function App() {
     return (
         <div style={{ textAlign: 'center', padding: '50px' }}>
-            <h1 style={{ color: '#00d4ff' }}>龍魂反應式組件</h1>
+            <h1 style={{ color: '#00d4ff' }}>龍魂反应式组件</h1>
             <button style={{ padding: '10px 20px', background: '#00d4ff', color: '#0a0e27' }}>
-                點擊我
+                点击我
             </button>
         </div>
     );
@@ -365,13 +365,13 @@ export default function App() {
     
     react_artifact = builder.create_react_artifact(
         "artifact-002",
-        "React 組件",
+        "React 组件",
         react_code,
-        "交互式 React 組件"
+        "交互式 React 组件"
     )
     
-    # 創建 SVG 工件
-    print("\n🎨 創建 SVG 工件...")
+    # 创建 SVG 工件
+    print("\n🎨 创建 SVG 工件...")
     svg_code = """<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="80" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="2"/>
     <text x="100" y="110" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">龍魂</text>
@@ -379,9 +379,9 @@ export default function App() {
     
     svg_artifact = builder.create_svg_artifact(
         "artifact-003",
-        "SVG 圖形",
+        "SVG 图形",
         svg_code,
-        "龍魂 SVG 標誌"
+        "龍魂 SVG 标志"
     )
     
     # 列出工件
@@ -389,19 +389,19 @@ export default function App() {
     for artifact in builder.list_artifacts():
         print(f"  - {artifact['name']} ({artifact['type']})")
     
-    # 構建包
-    print("\n📦 構建工件包...")
+    # 构建包
+    print("\n📦 构建工件包...")
     bundle = builder.build_bundle("/mnt/user-data/outputs/longhun-artifacts")
-    print(f"✅ 工件數量: {bundle['artifact_count']}")
+    print(f"✅ 工件数量: {bundle['artifact_count']}")
     
     # 生成索引
-    print("\n📑 生成索引頁面...")
+    print("\n📑 生成索引页面...")
     index_file = builder.generate_index_html("/mnt/user-data/outputs/longhun-artifacts")
     print(f"✅ 索引已生成: {index_file}")
     
-    # 顯示構建日誌
-    print("\n📊 構建日誌:")
+    # 显示构建日志
+    print("\n📊 构建日志:")
     for log in builder.get_build_log():
         print(log)
     
-    print("\n✅ Web 工件構建完成！")
+    print("\n✅ Web 工件构建完成！")

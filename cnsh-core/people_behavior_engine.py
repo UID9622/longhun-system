@@ -206,7 +206,7 @@ class PeopleBehaviorEngine:
             "current_stage": assessment["life_stage"],
             "core_gifts": ", ".join(gifts),
             "current_focus": focus,
-            "why": f"因为你正在经历「{pain_type}」，而你的「{gifts[0] if gifts else '真实'}」最有力量",
+            "why": f"因为你正在经历“{pain_type}”，而你的“{gifts[0] if gifts else '真实'}”最有力量",
             "next_step": self._next_step(focus, assessment["language"]),
             "language": assessment["language"],
             "time_advice": "每天 20 分钟，专练这一项，别贪多",
@@ -287,8 +287,8 @@ class PeopleBehaviorEngine:
         ))
         return (
             f"我听到你说：'{text[:40]}...'\n"
-            f"这像是「{pain_type}」。\n"
-            f"你现在可能处在「{code}」这个位置。\n"
+            f"这像是“{pain_type}”。\n"
+            f"你现在可能处在“{code}”这个位置。\n"
             f"我不给你改，只照出来。你想怎么处理，我都在。"
         )
 

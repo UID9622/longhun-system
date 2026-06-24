@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂編年史 v1.0
+龍魂编年史 v1.0
 
-把原本鎖在 Claude 記憶檔裡的項目歷史，變成龍魂系統自己的可執行資產。
+把原本锁在 Claude 记忆档里的项目历史，变成龍魂系统自己的可执行资产。
 
 功能：
-- 記錄里程碑（標題、分類、內容、來源）
-- 每條記錄生成 DNA 簽名
-- 自動生成結構化 Markdown 頁面
-- 索引 cnsh-core/規範 目錄
+- 记录里程碑（标题、分类、内容、来源）
+- 每条记录生成 DNA 签名
+- 自动生成结构化 Markdown 页面
+- 索引 cnsh-core/规范 目录
 
-普通人只需：添加里程碑 → 系統自動歸檔 → 生成頁面。
+普通人只需：添加里程碑 → 系统自动归档 → 生成页面。
 
 DNA:#龍芯⚡️2026-06-18-LONGHUN-CHRONICLE-v1.0
 """
@@ -32,7 +32,7 @@ PAGE_PATH = ROOT / "project-memory" / "index.md"
 ARCHIVE = ROOT / "project-memory" / "Claude_MEMORY_ARCHIVE.md"
 SPECS_DIR = ROOT / "cnsh-core" / "规范"
 
-CATEGORIES = ["系統驗收", "協議焊死", "生產部署", "理論突破", "工具發布", "其他"]
+CATEGORIES = ["系统验收", "协议焊死", "生产部署", "理论突破", "工具发布", "其他"]
 
 
 def dna_signature(title: str, content: str, timestamp: str) -> str:
@@ -41,7 +41,7 @@ def dna_signature(title: str, content: str, timestamp: str) -> str:
     return f"#龍芯⚡️{timestamp.replace('-','').replace(':','').replace('.','')[:14]}-CHRONICLE-{digest}"
 
 
-class 龍魂編年史:
+class 龍魂编年史:
     def __init__(self, db_path: Path = DB_PATH):
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -97,13 +97,13 @@ class 龍魂編年史:
         return {"total": total, **{c: 0 for c in CATEGORIES}, **{c: n for c, n in by_cat}}
 
     def seed(self):
-        """從 Claude 記憶檔中提取關鍵里程碑，作為系統自有資產啟動"""
+        """从 Claude 记忆档中提取关键里程碑，作为系统自有资产启动"""
         samples = [
-            ("龍魂系統完整測試驗收通過", "2026-06-10 系統生產就緒：2,317 個 Python 檔案、642 個核心模組、成熟度 98/100。", "系統驗收", "Claude_MEMORY_ARCHIVE.md"),
-            ("生產部署引擎 Staging 驗收完成", "2026-06-08 27/27 步驟通過，藍綠部署、監控告警、災難恢復就緒。", "生產部署", "Claude_MEMORY_ARCHIVE.md"),
-            ("龍魂憲章 v1.1 確立為唯一真源", "2026-06-08 v1.0 協議廢棄，v1.1 成為全球可見規範。", "協議焊死", "Claude_MEMORY_ARCHIVE.md"),
-            ("龍魂·黎曼猜想 arXiv 投稿成功", "2026-06-08 論文編號 2406.12459，全球發佈，永久存檔。", "理論突破", "Claude_MEMORY_ARCHIVE.md"),
-            ("GPG 簽署管理工具整合主干", "2026-06-08 CNSH_v2.0_SIGN 融入主干，簽署從 bash 升級為 Python。", "工具發布", "Claude_MEMORY_ARCHIVE.md"),
+            ("龍魂系统完整测试验收通过", "2026-06-10 系统生产就绪：2,317 个 Python 档案、642 个核心模组、成熟度 98/100。", "系统验收", "Claude_MEMORY_ARCHIVE.md"),
+            ("生产部署引擎 Staging 验收完成", "2026-06-08 27/27 步骤通过，蓝绿部署、监控告警、灾难恢复就绪。", "生产部署", "Claude_MEMORY_ARCHIVE.md"),
+            ("龍魂宪章 v1.1 确立为唯一真源", "2026-06-08 v1.0 协议废弃，v1.1 成为全球可见规范。", "协议焊死", "Claude_MEMORY_ARCHIVE.md"),
+            ("龍魂·黎曼猜想 arXiv 投稿成功", "2026-06-08 论文编号 2406.12459，全球发布，永久存档。", "理论突破", "Claude_MEMORY_ARCHIVE.md"),
+            ("GPG 签署管理工具整合主干", "2026-06-08 CNSH_v2.0_SIGN 融入主干，签署从 bash 升级为 Python。", "工具发布", "Claude_MEMORY_ARCHIVE.md"),
         ]
         added = 0
         for title, content, category, source in samples:
@@ -114,7 +114,7 @@ class 龍魂編年史:
         return added
 
     def list_specs(self) -> List[Dict]:
-        """索引 cnsh-core/規範 目錄"""
+        """索引 cnsh-core/规范 目录"""
         if not SPECS_DIR.exists():
             return []
         specs = []
@@ -132,19 +132,19 @@ class 龍魂編年史:
         specs = self.list_specs()
 
         lines = [
-            "# 🐉 龍魂編年史 · 項目記憶宇宙",
+            "# 🐉 龍魂编年史 · 项目记忆宇宙",
             "",
-            f"> DNA: `{dna_signature('龍魂編年史', '項目記憶宇宙', datetime.now().isoformat())}`",
-            f"> 生成時間: {datetime.now().isoformat()}",
-            f"> 里程碑總數: {stats['total']}",
-            f"> 規範文件數: {len(specs)}",
+            f"> DNA: `{dna_signature('龍魂编年史', '项目记忆宇宙', datetime.now().isoformat())}`",
+            f"> 生成时间: {datetime.now().isoformat()}",
+            f"> 里程碑总数: {stats['total']}",
+            f"> 规范文件数: {len(specs)}",
             "",
             "---",
             "",
             "## 缘起",
             "",
-            "原本這些記憶鎖在 Claude 的記憶檔裡，不屬於系統，也無法被普通人調用。",
-            "現在它們是龍魂系統自己的資產：可讀、可查、可追加、可 DNA 追溯。",
+            "原本这些记忆锁在 Claude 的记忆档里，不属于系统，也无法被普通人调用。",
+            "现在它们是龍魂系统自己的资产：可读、可查、可追加、可 DNA 追溯。",
             "",
             "---",
             "",
@@ -155,7 +155,7 @@ class 龍魂編年史:
             lines.append(f"## {category}")
             lines.append("")
             if not cat_items:
-                lines.append("*暫無記錄。*")
+                lines.append("*暂无记录。*")
                 lines.append("")
                 continue
             for m in cat_items:
@@ -163,17 +163,17 @@ class 龍魂編年史:
                 lines.append("")
                 lines.append(m["content"])
                 lines.append("")
-                lines.append(f"- **來源**: {m['source'] or '手動錄入'}")
-                lines.append(f"- **時間**: {m['created_at']}")
+                lines.append(f"- **来源**: {m['source'] or '手动录入'}")
+                lines.append(f"- **时间**: {m['created_at']}")
                 lines.append(f"- **DNA**: `{m['dna_signature']}`")
                 lines.append("")
 
         lines.extend([
             "---",
             "",
-            "## 規範索引",
+            "## 规范索引",
             "",
-            "| 文件名 | 大小 | 路徑 |",
+            "| 文件名 | 大小 | 路径 |",
             "|---|---|---|",
         ])
         for s in specs:
@@ -183,23 +183,23 @@ class 龍魂編年史:
             "",
             "---",
             "",
-            "## 自動化說明",
+            "## 自动化说明",
             "",
-            "本頁面由 `project-memory/龍魂編年史.py` 自動生成。",
+            "本页面由 `project-memory/龍魂编年史.py` 自动生成。",
             "",
             "```bash",
             "# 添加里程碑",
-            "python3 project-memory/龍魂編年史.py add --title \"標題\" --content \"內容\" --category \"系統驗收\"",
+            "python3 project-memory/龍魂编年史.py add --title \"标题\" --content \"内容\" --category \"系统验收\"",
             "",
-            "# 生成頁面",
-            "python3 project-memory/龍魂編年史.py generate",
+            "# 生成页面",
+            "python3 project-memory/龍魂编年史.py generate",
             "```",
             "",
             "---",
             "",
-            "## 分類統計",
+            "## 分类统计",
             "",
-            "| 分類 | 數量 |",
+            "| 分类 | 数量 |",
             "|---|---|",
         ])
         for c in CATEGORIES:
@@ -209,7 +209,7 @@ class 龍魂編年史:
             "",
             "---",
             "",
-            "*龍魂不滅 · 記憶歸主 🐉*",
+            "*龍魂不灭 · 记忆归主 🐉*",
             "",
         ])
 
@@ -218,7 +218,7 @@ class 龍魂編年史:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="龍魂編年史")
+    parser = argparse.ArgumentParser(description="龍魂编年史")
     sub = parser.add_subparsers(dest="command", required=True)
 
     add_p = sub.add_parser("add", help="添加里程碑")
@@ -228,27 +228,27 @@ def main():
     add_p.add_argument("--source", default="")
 
     sub.add_parser("list", help="列出里程碑")
-    sub.add_parser("seed", help="從 Claude 記憶檔初始化示例")
+    sub.add_parser("seed", help="从 Claude 记忆档初始化示例")
     sub.add_parser("generate", help="生成 index.md")
-    sub.add_parser("stats", help="統計")
-    sub.add_parser("specs", help="列出規範文件")
+    sub.add_parser("stats", help="统计")
+    sub.add_parser("specs", help="列出规范文件")
 
     args = parser.parse_args()
-    ch = 龍魂編年史()
+    ch = 龍魂编年史()
 
     if args.command == "add":
         r = ch.add(args.title, args.content, args.category, args.source)
         print(json.dumps(r, indent=2, ensure_ascii=False))
         ch.generate_page()
-        print(f"\n✅ 已生成頁面: {PAGE_PATH}")
+        print(f"\n✅ 已生成页面: {PAGE_PATH}")
     elif args.command == "list":
         print(json.dumps(ch.list(), indent=2, ensure_ascii=False))
     elif args.command == "seed":
         n = ch.seed()
         ch.generate_page()
-        print(f"✅ 已初始化 {n} 條里程碑，頁面已更新")
+        print(f"✅ 已初始化 {n} 条里程碑，页面已更新")
     elif args.command == "generate":
-        print(f"✅ 已生成頁面: {ch.generate_page()}")
+        print(f"✅ 已生成页面: {ch.generate_page()}")
     elif args.command == "stats":
         print(json.dumps(ch.stats(), indent=2, ensure_ascii=False))
     elif args.command == "specs":

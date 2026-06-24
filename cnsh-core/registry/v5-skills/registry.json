@@ -1,0 +1,268 @@
+{
+  "版本": "v5.0",
+  "DNA": "#龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.0",
+  "时间": "2026-06-19T18:31:47.209275",
+  "技能数量": 14,
+  "本地技能": {
+    "longhun-governance": {
+      "名称": "龍魂治理",
+      "英文名": "LongHun Governance",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "三层监督+三色审计+DNA追溯+君子协议 — 所有技能的基础治理框架",
+      "模块": [
+        "三层监督器",
+        "三色审计器",
+        "DNA追溯器",
+        "君子协议",
+        "AI真相协议",
+        "通心译协议"
+      ],
+      "路径": "local/longhun-governance/",
+      "依赖": [],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-ocr": {
+      "名称": "龍瞳OCR",
+      "英文名": "LongTeng OCR",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "中文优先图像识别引擎 — 龍字检测+甲骨文分类+OCR",
+      "模块": [
+        "图像识别引擎"
+      ],
+      "路径": "local/longhun-ocr/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-nlp": {
+      "名称": "龍文NLP",
+      "英文名": "LongWen NLP",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "中文优先文字识别引擎 — CNSH术语+通心译+分词",
+      "模块": [
+        "文字识别引擎"
+      ],
+      "路径": "local/longhun-nlp/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-asr": {
+      "名称": "龍音ASR",
+      "英文名": "LongYin ASR",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "中文优先语音识别引擎 — 拼音对齐+声调识别+语音转代码",
+      "模块": [
+        "语音识别引擎"
+      ],
+      "路径": "local/longhun-asr/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-finance": {
+      "名称": "龍魂金融",
+      "英文名": "LongHun Finance",
+      "版本": "v9.0.0",
+      "类型": "本地",
+      "描述": "Web3-DNA交易系统 — 五行决策+64卦审计+双轨数字人+e-CNY",
+      "模块": [
+        "金融交易引擎"
+      ],
+      "路径": "local/longhun-finance/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-archive": {
+      "名称": "中央藏经阁",
+      "英文名": "Central Archive",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "29部核心文档统一索引 — 五行分类+全文检索+DNA追溯",
+      "模块": [
+        "中央藏经阁"
+      ],
+      "路径": "local/longhun-archive/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-monitoring": {
+      "名称": "龍魂监控",
+      "英文名": "LongHun Monitoring",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "15层移动端监控体系 — 4应用覆盖+AES-256-GCM加密",
+      "模块": [
+        "监控核心",
+        "告警系统",
+        "仪表板",
+        "故障恢复"
+      ],
+      "路径": "local/longhun-monitoring/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-cnsh": {
+      "名称": "CNSH运行时",
+      "英文名": "CNSH Runtime",
+      "版本": "v3.0.0",
+      "类型": "本地",
+      "描述": "中文原生脚本运行时 — L1-L7层级+编译器+标准库",
+      "模块": [
+        "CNSH编译器",
+        "语法分析器",
+        "语义引擎",
+        "标准库"
+      ],
+      "路径": "local/longhun-cnsh/",
+      "依赖": [
+        "longhun-governance",
+        "longhun-nlp"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-CNSH-RUNTIME-v3.0",
+      "状态": "🟢 生产就绪"
+    },
+    "longhun-riemann": {
+      "名称": "黎曼框架",
+      "英文名": "Riemann Framework",
+      "版本": "v5.0.0",
+      "类型": "本地",
+      "描述": "黎曼猜想研究框架 — 不动点理论+对称类比+加权结构",
+      "模块": [
+        "黎曼核心",
+        "数值验证",
+        "观察框架"
+      ],
+      "路径": "local/longhun-riemann/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0",
+      "状态": "🟡 研究阶段"
+    }
+  },
+  "云端技能": {
+    "longhun-cloud-panel": {
+      "名称": "龍魂操作台",
+      "英文名": "LongHun Control Panel",
+      "版本": "v5.0.0",
+      "类型": "云端",
+      "描述": "统一操作台 — FastAPI+Web UI+10项Skill联动+底座能力",
+      "模块": [
+        "API网关",
+        "Web UI",
+        "Skill联动",
+        "底座接口"
+      ],
+      "路径": "cloud/longhun-cloud-panel/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0",
+      "状态": "🟢 生产就绪",
+      "端点": "http://api:8443/panel/"
+    },
+    "longhun-cloud-deploy": {
+      "名称": "龍魂部署",
+      "英文名": "LongHun Deploy",
+      "版本": "v5.0.0",
+      "类型": "云端",
+      "描述": "部署与DevOps — 27步蓝绿部署+自动化+回滚",
+      "模块": [
+        "部署引擎",
+        "蓝绿切换",
+        "健康检查",
+        "回滚系统"
+      ],
+      "路径": "cloud/longhun-cloud-deploy/",
+      "依赖": [
+        "longhun-governance",
+        "longhun-cloud-panel"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0",
+      "状态": "🟢 生产就绪",
+      "端点": "http://api:8443/deploy/"
+    },
+    "longhun-cloud-mcp": {
+      "名称": "龍魂MCP",
+      "英文名": "LongHun MCP",
+      "版本": "v5.0.0",
+      "类型": "云端",
+      "描述": "MCP服务集成 — FastMCP+工具定义+Docker自动生成",
+      "模块": [
+        "MCP服务器",
+        "工具注册",
+        "配置管理",
+        "Docker构建"
+      ],
+      "路径": "cloud/longhun-cloud-mcp/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0",
+      "状态": "🟢 生产就绪",
+      "端点": "http://api:8443/mcp/"
+    },
+    "longhun-cloud-notion": {
+      "名称": "龍魂Notion",
+      "英文名": "LongHun Notion",
+      "版本": "v5.0.0",
+      "类型": "云端",
+      "描述": "Notion同步集成 — 双向同步+自动化周报+DNA校验",
+      "模块": [
+        "Notion连接器",
+        "同步引擎",
+        "周报生成",
+        "校验系统"
+      ],
+      "路径": "cloud/longhun-cloud-notion/",
+      "依赖": [
+        "longhun-governance"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0",
+      "状态": "🟢 生产就绪",
+      "端点": "http://api:8443/notion/"
+    },
+    "longhun-cloud-kimi": {
+      "名称": "龍魂Kimi",
+      "英文名": "LongHun Kimi",
+      "版本": "v5.0.0",
+      "类型": "云端",
+      "描述": "Kimi AI集成 — API接入+故障转移+断路器+本地备份推理",
+      "模块": [
+        "API客户端",
+        "断路器",
+        "故障转移",
+        "本地推理"
+      ],
+      "路径": "cloud/longhun-cloud-kimi/",
+      "依赖": [
+        "longhun-governance",
+        "longhun-cloud-panel"
+      ],
+      "DNA": "#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0",
+      "状态": "🟢 生产就绪",
+      "端点": "http://api:8443/kimi/"
+    }
+  }
+}

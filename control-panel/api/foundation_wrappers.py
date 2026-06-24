@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-FOUNDATION_WRAPPERS-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 """
-龍魂底座 API 封裝層
-將 longhun-audit-integrated、longhun-shield、cnsh-aligner、instruction-protocol
-封裝為 control-panel 可調用的 API。
+龍魂底座 API 封装层
+将 longhun-audit-integrated、longhun-shield、cnsh-aligner、instruction-protocol
+封装为 control-panel 可调用的 API。
 """
 import json
 import re
@@ -43,9 +43,9 @@ def _run(cmd: List[str], cwd: Path = None, input_text: str = None, timeout: int 
 
 
 def _extract_json(text: str) -> Any:
-    """從 stdout 中提取最後一個 JSON 對象"""
+    """从 stdout 中提取最后一个 JSON 对象"""
     try:
-        # 找最後一個 `{` 開始的區塊
+        # 找最后一个 `{` 开始的区块
         matches = list(re.finditer(r'\{', text))
         for m in reversed(matches):
             try:
@@ -58,7 +58,7 @@ def _extract_json(text: str) -> Any:
 
 
 def run_integrated_audit(mode: str = "system", target_file: str = None) -> Dict[str, Any]:
-    """調用 longhun_audit_integrated.py"""
+    """调用 longhun_audit_integrated.py"""
     cwd = ROOT / "skills" / "longhun-audit-integrated"
     cmd = [sys.executable, "longhun_audit_integrated.py", f"--{mode}"]
     if target_file and mode == "script":
@@ -74,7 +74,7 @@ def run_integrated_audit(mode: str = "system", target_file: str = None) -> Dict[
 
 
 def run_shield(action: str, file_name: str, options: List[str] = None) -> Dict[str, Any]:
-    """調用 longhun_shield_cli.py"""
+    """调用 longhun_shield_cli.py"""
     cwd = ROOT / "skills" / "longhun-shield"
     cmd = [sys.executable, "longhun_shield_cli.py", action, file_name]
     if options:
@@ -89,7 +89,7 @@ def run_shield(action: str, file_name: str, options: List[str] = None) -> Dict[s
 
 
 def run_cnsh_align(input_text: str, context: str = "stdin") -> Dict[str, Any]:
-    """調用 cnsh_aligner.py"""
+    """调用 cnsh_aligner.py"""
     cwd = ROOT / "skills" / "cnsh-aligner"
     result = _run([sys.executable, "cnsh_aligner.py"], cwd=cwd, input_text=input_text)
     return {
@@ -100,7 +100,7 @@ def run_cnsh_align(input_text: str, context: str = "stdin") -> Dict[str, Any]:
 
 
 def run_script_manager() -> Dict[str, Any]:
-    """調用 script_manager.py"""
+    """调用 script_manager.py"""
     cwd = ROOT / "skills" / "cnsh-aligner"
     result = _run([sys.executable, "script_manager.py"], cwd=cwd)
     return {
@@ -110,7 +110,7 @@ def run_script_manager() -> Dict[str, Any]:
 
 
 def run_foundation(action: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-    """統一調度所有底座能力"""
+    """统一调度所有底座能力"""
     try:
         if action == "shield.check":
             return run_shield("check", payload.get("file", "shield_test_example.py"), payload.get("options", []))
@@ -132,7 +132,7 @@ def run_foundation(action: str, payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def run_instruction(instruction: str) -> Dict[str, Any]:
-    """解析並執行 @shield.check file 類指令"""
+    """解析并执行 @shield.check file 类指令"""
     from longhun_shield_instruction_protocol import InstructionSyntax
 
     try:

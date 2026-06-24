@@ -70,7 +70,7 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 | Meaning | Text（卦义） | PhaseType | Select（执行/调整/观察） |
 | SuggestedAction | Text（建议行动） |  |  |
 
-**八卦映射**：乾1 兑2 离3 震4 巽5 坎6 艮7 坤8
+**八卦映射**：干1 兑2 离3 震4 巽5 坎6 艮7 坤8
 
 **计算公式**：`HexagramID = (Upper - 1) × 8 + Lower`
 

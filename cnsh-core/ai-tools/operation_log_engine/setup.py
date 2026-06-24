@@ -11,27 +11,27 @@
 # 文件: setup.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🧬 龍魂操作日記引擎 · setup.py
+🧬 龍魂操作日记引擎 · setup.py
 
 DNA:#龍芯⚡️2026-05-30-SETUP-CONFIG-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-安裝配置文件，使龍魂系統可通過 pip install 安裝。
+安装配置文件，使龍魂系统可通过 pip install 安装。
 """
 
 from setuptools import setup, find_packages
 from pathlib import Path
 
-# 讀取 README
+# 读取 README
 readme_file = Path(__file__).parent / "README.md"
 long_description = ""
 if readme_file.exists():
     long_description = readme_file.read_text(encoding="utf-8")
 else:
-    long_description = "龍魂操作日記引擎 - 完整的本地去中心化身份系統"
+    long_description = "龍魂操作日记引擎 - 完整的本地去中心化身份系统"
 
-# 讀取 requirements
+# 读取 requirements
 requirements_file = Path(__file__).parent / "requirements.txt"
 install_requires = []
 if requirements_file.exists():
@@ -46,7 +46,7 @@ setup(
     version="1.0.0",
     author="UID9622",
     author_email="uid9622@longhun.dev",
-    description="龍魂系統：本地去中心化身份系統 - DNA認人·習慣識別·本地主權",
+    description="龍魂系统：本地去中心化身份系统 - DNA认人·习惯识别·本地主权",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/UID9622/longhun-system",

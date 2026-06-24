@@ -314,7 +314,7 @@ class MultiCurrencyHub:
 
 ---
 
-**理论指导**: 曾仕强老师（永恆顯示）
+**理论指导**: 曾仕强老师（永恒显示）
 **创作者**: UID9622 · 诸葛鑫 · 龍芯北辰
 **DNA**:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **状态**: 待审批 · 等点头

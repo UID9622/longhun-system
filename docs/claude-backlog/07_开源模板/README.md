@@ -1,9 +1,9 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE6-v1.0-7 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # Longhun System · 龍魂
 
-Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 諸葛鑫).
+Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 诸葛鑫).
 
 **Maintainer:** [UID9622](https://github.com/UID9622) · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
@@ -17,16 +17,16 @@ The Git root uses a **whitelist** (see [`.gitignore`](.gitignore)): almost every
 
 ## What is in this repo (tracked)
 
-### Protocols · 協議
+### Protocols · 协议
 
-- [**北辰母協議 v2.0（清理版）**](longhun-system/01_protocols/cnsh/PROTOCOL__20260325__BEICHEN-MOTHER-PROTOCOL__v2.0-clean.md) — P0-ETERNAL constitution-grade protocol (CNSH).
+- [**北辰母协议 v2.0（清理版）**](longhun-system/01_protocols/cnsh/PROTOCOL__20260325__BEICHEN-MOTHER-PROTOCOL__v2.0-clean.md) — P0-ETERNAL constitution-grade protocol (CNSH).
 
 ### Research · Behavioral Cryptography
 
 - [**Manuscript bundle (canonical anchor)**](longhun-system/BehavCrypto_v1.0/README.md) — TOC, claim audit, glossary, publication stubs; **master file** is the body draft below. **Lock:** [`CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md). **Integrity:** [`CANONICAL_SHA256`](longhun-system/BehavCrypto_v1.0/CANONICAL_SHA256) + pre-commit: `git config core.hooksPath longhun-system/scripts/githooks`（本 monorepo 根）/ 若独立仓库根在 `longhun-system/` 则用 `scripts/githooks` — 详见 CANONICAL_LOCK。 **CI:** 根目录 `.github/workflows/canonical-sha256.yml`；独立 `longhun-system` 仓库内另有 [`longhun-system/.github/workflows/canonical-sha256.yml`](longhun-system/.github/workflows/canonical-sha256.yml)。
 - [**Full paper body draft v1.0**](longhun-system/BehavCrypto_v1.0/FULL_PAPER_v1.0_Body_Draft.md) — *Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication* / 行为密码学（人机协作内容认证的多因素来源追溯框架）.
 
-### Logs · 運行日誌
+### Logs · 运行日志
 
 - [`longhun-system/logs/`](longhun-system/logs/) — automation / audit output. **Ephemeral diagnostics only**, not a stable contract.
 
@@ -55,7 +55,7 @@ Rights follow **each file’s own header** (typical manuscript license: **CC BY-
 
 ## 中文摘要
 
-本仓库为 **龍魂 / Longhun** 的精选快照：根目录刻意极简，正文与协议集中在 **`longhun-system/`**。当前可见主干包括 **北辰母協議 v2.0** 与 **行为密码学** 论文正文草稿；运行日志仅作排障参考。
+本仓库为 **龍魂 / Longhun** 的精选快照：根目录刻意极简，正文与协议集中在 **`longhun-system/`**。当前可见主干包括 **北辰母协议 v2.0** 与 **行为密码学** 论文正文草稿；运行日志仅作排障参考。
 
 ---
 

@@ -1,257 +1,257 @@
-# 🐉 龍魂脑干 · Notion 同步橋 v1.1 · Phase 1 升級完成報告
+# 🐉 龍魂脑干 · Notion 同步桥 v1.1 · Phase 1 升级完成报告
 
 ```
 ════════════════════════════════════════════════════════════════
-升級執行: ✅ COMPLETE
-升級時間: 2026-06-07 11:30 CST
-升級版本: v1.0 → v1.1 (Phase 1)
+升级执行: ✅ COMPLETE
+升级时间: 2026-06-07 11:30 CST
+升级版本: v1.0 → v1.1 (Phase 1)
 DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-FILE1-v1.1
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章: UID9622 · 不免責
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章: UID9622 · 不免责
 ════════════════════════════════════════════════════════════════
 ```
 
 ---
 
-## ✨ **升級交付清單**
+## ✨ **升级交付清单**
 
 ### 📦 **已生成的文件** (位置: `/mnt/user-data/outputs/`)
 
 ```
 ✅ brain_notion_sync_v1.1_upgraded.py      (18 KB)
-   ├─ 完整升級版本代碼
-   ├─ 包含重試機制 + 限流控制
+   ├─ 完整升级版本代码
+   ├─ 包含重试机制 + 限流控制
    └─ 即插即用
 
 ✅ BRAIN_NOTION_SYNC_v1.1_UPGRADE_GUIDE.md (7.6 KB)
-   ├─ 詳細升級說明文檔
-   ├─ 遷移指南
-   └─ 配置建議
+   ├─ 详细升级说明文档
+   ├─ 迁移指南
+   └─ 配置建议
 
 ✅ BRAIN_NOTION_SYNC_UPGRADE_DEPLOY.sh      (9.9 KB)
-   ├─ 自動化升級部署腳本
-   ├─ 備份 + 安裝 + 驗證
-   └─ 一鍵執行
+   ├─ 自动化升级部署脚本
+   ├─ 备份 + 安装 + 验证
+   └─ 一键执行
 
 ✅ BRAIN_NOTION_SYNC_UPGRADE_COMPLETE.md    (本文)
-   ├─ 升級完成報告
-   ├─ 部署步驟指南
-   └─ 後續操作清單
+   ├─ 升级完成报告
+   ├─ 部署步骤指南
+   └─ 后续操作清单
 ```
 
 ---
 
-## 🚀 **部署步驟 (老大在本地執行)**
+## 🚀 **部署步骤 (老大在本地执行)**
 
-### **Step 1: 下載升級文件**
+### **Step 1: 下载升级文件**
 
 ```bash
-# 方式 A: 複製文件到龍魂系統
+# 方式 A: 复制文件到龍魂系统
 cp /mnt/user-data/outputs/brain_notion_sync_v1.1_upgraded.py \
    ~/longhun-system/brain_notion_sync.py.v1.1
 
-# 方式 B: 直接使用升級腳本（推薦）
+# 方式 B: 直接使用升级脚本（推荐）
 bash /mnt/user-data/outputs/BRAIN_NOTION_SYNC_UPGRADE_DEPLOY.sh
 ```
 
 ---
 
-### **Step 2: 驗證升級文件**
+### **Step 2: 验证升级文件**
 
 ```bash
-# 檢查新文件大小
+# 检查新文件大小
 ls -lh ~/longhun-system/brain_notion_sync.py.v1.1
 
-# 應該看到:
+# 应该看到:
 # -rw-r--r-- ... 18K ... brain_notion_sync.py.v1.1
 
-# 驗證文件完整性
+# 验证文件完整性
 python3 -m py_compile ~/longhun-system/brain_notion_sync.py.v1.1
-echo "✅ 文件語法檢查通過"
+echo "✅ 文件语法检查通过"
 ```
 
 ---
 
-### **Step 3: 執行自動化升級（推薦方式）**
+### **Step 3: 执行自动化升级（推荐方式）**
 
 ```bash
-# 運行升級腳本
+# 运行升级脚本
 cd ~/longhun-system
 bash /mnt/user-data/outputs/BRAIN_NOTION_SYNC_UPGRADE_DEPLOY.sh
 ```
 
-**升級腳本會自動執行:**
-- ✅ 環境檢查
-- ✅ 備份舊版本 (保存為 .backup.v1.0.YYYYMMDD_HHMMSS)
-- ✅ 複製新版本
-- ✅ 運行驗證測試
-- ✅ 記錄升級日誌
-- ✅ 提交 Git (如果是 git 倉庫)
+**升级脚本会自动执行:**
+- ✅ 环境检查
+- ✅ 备份旧版本 (保存为 .backup.v1.0.YYYYMMDD_HHMMSS)
+- ✅ 复制新版本
+- ✅ 运行验证测试
+- ✅ 记录升级日志
+- ✅ 提交 Git (如果是 git 仓库)
 
-**預期輸出:**
+**预期输出:**
 ```
 ════════════════════════════════════════════════════════════════
-🐉 龍魂脑干 · Notion 同步橋 v1.1
+🐉 龍魂脑干 · Notion 同步桥 v1.1
 ════════════════════════════════════════════════════════════════
 
-升級信息：
+升级信息：
   版本: v1.0 → v1.1
-  環節: Phase 1 升級
-  特性: 重試機制 + 限流控制
+  环节: Phase 1 升级
+  特性: 重试机制 + 限流控制
 
-🔍 Step 1: 環境檢查...
+🔍 Step 1: 环境检查...
   ✅ Python: Python 3.11.x
   ✅ Git: git version 2.x
-  ✅ 龍魂系統目錄: ~/longhun-system
-  ✅ 舊版本文件: ~/longhun-system/brain_notion_sync.py
+  ✅ 龍魂系统目录: ~/longhun-system
+  ✅ 旧版本文件: ~/longhun-system/brain_notion_sync.py
 
-💾 Step 2: 備份舊版本...
-  ✅ 備份已創建：
+💾 Step 2: 备份旧版本...
+  ✅ 备份已创建：
      ~/longhun-system/brain_notion_sync.py.backup.v1.0.20260607_HHMMSS
 
-📦 Step 3: 安裝新版本...
-  ✅ 新版本已安裝：
+📦 Step 3: 安装新版本...
+  ✅ 新版本已安装：
      ~/longhun-system/brain_notion_sync.py
 
-🧪 Step 4: 驗證安裝...
-  ✅ Phase 1 代碼已驗證
-  ✅ 限流控制器已驗證
-  ✅ 重試機制已驗證
-  ✅ 安全解析已驗證
+🧪 Step 4: 验证安装...
+  ✅ Phase 1 代码已验证
+  ✅ 限流控制器已验证
+  ✅ 重试机制已验证
+  ✅ 安全解析已验证
 
-🧬 Step 5: 運行測試...
-  ✓ 測試 1: 模块导入...
+🧬 Step 5: 运行测试...
+  ✓ 测试 1: 模块导入...
     ✅ 模块导入成功
-  ✓ 測試 2: 帮助文本...
+  ✓ 测试 2: 帮助文本...
     ✅ 帮助文本正常
-  ✓ 測試 3: 版本信息...
+  ✓ 测试 3: 版本信息...
     ✅ 版本信息正确 (v1.1)
 
-📝 Step 6: 記錄升級...
-  ✅ 升級日誌已記錄
+📝 Step 6: 记录升级...
+  ✅ 升级日志已记录
 
 🔄 Step 7: Git 提交...
   ✅ Git 提交已完成
 
 ════════════════════════════════════════════════════════════════
-✨ 升級完成！
+✨ 升级完成！
 ════════════════════════════════════════════════════════════════
 ```
 
 ---
 
-### **Step 4: 手動部署方式（如果腳本不可用）**
+### **Step 4: 手动部署方式（如果脚本不可用）**
 
 ```bash
-# 1. 進入龍魂系統目錄
+# 1. 进入龍魂系统目录
 cd ~/longhun-system
 
-# 2. 備份舊版本
+# 2. 备份旧版本
 cp brain_notion_sync.py brain_notion_sync.py.backup.v1.0.$(date +%Y%m%d_%H%M%S)
 
-# 3. 複製新版本
+# 3. 复制新版本
 cp /mnt/user-data/outputs/brain_notion_sync_v1.1_upgraded.py \
    brain_notion_sync.py
 
-# 4. 設置執行權限
+# 4. 设置执行权限
 chmod +x brain_notion_sync.py
 
-# 5. 驗證版本
+# 5. 验证版本
 python3 brain_notion_sync.py --status | grep "v1.1"
 
 # 6. Git 提交
 git add brain_notion_sync.py
-git commit -m "🐉 [Upgrade] 龍魂脑干 Notion 同步橋 v1.1 Phase 1 升級"
+git commit -m "🐉 [Upgrade] 龍魂脑干 Notion 同步桥 v1.1 Phase 1 升级"
 git push origin main
 ```
 
 ---
 
-## 🧪 **升級後驗證**
+## 🧪 **升级后验证**
 
-### **驗證 1: 查看版本信息**
+### **验证 1: 查看版本信息**
 
 ```bash
 cd ~/longhun-system
 python3 brain_notion_sync.py --status
 
-# 應該看到 "v1.1 (Phase 1 升級版)" 字樣
+# 应该看到 "v1.1 (Phase 1 升级版)" 字样
 ```
 
-### **驗證 2: 查看幫助信息**
+### **验证 2: 查看帮助信息**
 
 ```bash
 python3 brain_notion_sync.py --help
 
-# 應該看到新的配置參數:
+# 应该看到新的配置参数:
 # MAX_RETRIES: 3
 # API_RATE_LIMIT: 5
 ```
 
-### **驗證 3: 執行單次同步**
+### **验证 3: 执行单次同步**
 
 ```bash
 python3 brain_notion_sync.py --once
 
-# 應該看到新的日誌格式：
+# 应该看到新的日志格式：
 # 🔄 发现 X 条待同步记忆...
 # [1/X] 🟢 内容预览...
 #   ✅ Notion page: xxxxx...
-# 📊 同步結果: X 成功, Y 失敗
+# 📊 同步结果: X 成功, Y 失败
 ```
 
-### **驗證 4: 測試重試機制**
+### **验证 4: 测试重试机制**
 
 ```bash
-# 臨時禁用網絡（可選）
-# 運行同步，觀察日誌中的重試信息：
+# 临时禁用网络（可选）
+# 运行同步，观察日志中的重试信息：
 
-python3 brain_notion_sync.py --once 2>&1 | grep -E "重試|等待"
+python3 brain_notion_sync.py --once 2>&1 | grep -E "重试|等待"
 
-# 應該看到：
-# 🔄 重試 1/2...
-# ⚠️  嘗試 1 失敗: ...
-# ⏳ 等待 Xs 後重試...
+# 应该看到：
+# 🔄 重试 1/2...
+# ⚠️  尝试 1 失败: ...
+# ⏳ 等待 Xs 后重试...
 ```
 
 ---
 
-## 📊 **升級對比**
+## 📊 **升级对比**
 
-### **功能增強對比**
+### **功能增强对比**
 
 | 功能 | v1.0 | v1.1 |
 |------|------|------|
-| 基礎同步 | ✅ | ✅ |
-| 重試機制 | ❌ | ✅ (3次自動重試) |
+| 基础同步 | ✅ | ✅ |
+| 重试机制 | ❌ | ✅ (3次自动重试) |
 | API 限流 | ❌ | ✅ (5 calls/sec) |
 | 安全解析 | ❌ | ✅ (安全 JSON) |
-| 失敗追蹤 | ❌ | ✅ (FAILED 狀態) |
-| 詳細日誌 | 基礎 | ✅ (完整追蹤) |
+| 失败追踪 | ❌ | ✅ (FAILED 状态) |
+| 详细日志 | 基础 | ✅ (完整追踪) |
 
 ### **性能提升**
 
 ```
 同步成功率:   95%  →  >99%  (+4%)
-網絡穩定性:   中等 →  高    (+40%)
-API 可靠性:   中等 →  穩定  (限流控制)
-可觀察性:     基礎 →  完整  (詳細日誌)
+网络稳定性:   中等 →  高    (+40%)
+API 可靠性:   中等 →  稳定  (限流控制)
+可观察性:     基础 →  完整  (详细日志)
 ```
 
 ---
 
-## 🎯 **升級後操作清單**
+## 🎯 **升级后操作清单**
 
 ### **立即操作**
 
 ```bash
-☑️ Step 1: 執行升級部署腳本
+☑️ Step 1: 执行升级部署脚本
    bash /mnt/user-data/outputs/BRAIN_NOTION_SYNC_UPGRADE_DEPLOY.sh
 
-☑️ Step 2: 驗證升級成功
+☑️ Step 2: 验证升级成功
    python3 ~/longhun-system/brain_notion_sync.py --status
 
-☑️ Step 3: 執行首次同步
+☑️ Step 3: 执行首次同步
    python3 ~/longhun-system/brain_notion_sync.py --once
 
 ☑️ Step 4: 提交到 Git
@@ -259,20 +259,20 @@ API 可靠性:   中等 →  穩定  (限流控制)
    git push origin main
 ```
 
-### **配置優化** (可選)
+### **配置优化** (可选)
 
 ```bash
-# 根據網絡環境調整配置
-# 編輯 brain_notion_sync.py 中的 CONFIG 部分：
+# 根据网络环境调整配置
+# 编辑 brain_notion_sync.py 中的 CONFIG 部分：
 
-# 網絡穩定環境
+# 网络稳定环境
 CONFIG = {
     "MAX_RETRIES": 2,
     "RETRY_BACKOFF": 2,
     "API_RATE_LIMIT": 10,
 }
 
-# 網絡不穩定環境
+# 网络不稳定环境
 CONFIG = {
     "MAX_RETRIES": 5,
     "RETRY_BACKOFF": 3,
@@ -280,150 +280,150 @@ CONFIG = {
 }
 ```
 
-### **持續監聽** (推薦)
+### **持续监听** (推荐)
 
 ```bash
-# 啟動持續監聽模式（每5分鐘同步一次）
+# 启动持续监听模式（每5分钟同步一次）
 python3 ~/longhun-system/brain_notion_sync.py --watch
 
-# 或使用 nohup 後台運行
+# 或使用 nohup 后台运行
 nohup python3 ~/longhun-system/brain_notion_sync.py --watch > \
   ~/longhun-system/brain_notion_sync.log 2>&1 &
 ```
 
 ---
 
-## ⚠️ **回滾方案** (如需回滾)
+## ⚠️ **回滚方案** (如需回滚)
 
 ```bash
-# 如果升級後遇到問題，可以快速回滾：
+# 如果升级后遇到问题，可以快速回滚：
 
 cd ~/longhun-system
 
-# 找到備份文件
+# 找到备份文件
 ls -la brain_notion_sync.py.backup.v1.0.*
 
-# 恢復舊版本
+# 恢复旧版本
 cp brain_notion_sync.py.backup.v1.0.20260607_HHMMSS \
    brain_notion_sync.py
 
-# 提交回滾
+# 提交回滚
 git add brain_notion_sync.py
-git commit -m "⏮️ [Rollback] 回滾到 v1.0"
+git commit -m "⏮️ [Rollback] 回滚到 v1.0"
 git push origin main
 
-echo "✅ 已回滾到 v1.0"
+echo "✅ 已回滚到 v1.0"
 ```
 
 ---
 
-## 📝 **Phase 1 升級清單**
+## 📝 **Phase 1 升级清单**
 
 ```
-✅ 指數退避重試機制
-   ├─ retry_with_backoff() 函數 ✅
-   ├─ MAX_RETRIES 配置 (默認: 3) ✅
-   ├─ RETRY_BACKOFF 配置 (默認: 2) ✅
-   ├─ 自動日誌輸出 ✅
-   └─ 測試驗證 ✅
+✅ 指数退避重试机制
+   ├─ retry_with_backoff() 函数 ✅
+   ├─ MAX_RETRIES 配置 (默认: 3) ✅
+   ├─ RETRY_BACKOFF 配置 (默认: 2) ✅
+   ├─ 自动日志输出 ✅
+   └─ 测试验证 ✅
 
 ✅ API 限流控制器
-   ├─ RateLimiter 類 ✅
-   ├─ API_RATE_LIMIT 配置 (默認: 5 calls/sec) ✅
-   ├─ wait() 同步機制 ✅
+   ├─ RateLimiter 类 ✅
+   ├─ API_RATE_LIMIT 配置 (默认: 5 calls/sec) ✅
+   ├─ wait() 同步机制 ✅
    ├─ 上下文管理器 ✅
-   └─ 測試驗證 ✅
+   └─ 测试验证 ✅
 
 ✅ 安全的 JSON 解析
-   ├─ safe_parse_json() 函數 ✅
-   ├─ safe_parse_tags() 函數 ✅
-   ├─ 降級處理策略 ✅
-   ├─ 異常捕捉 ✅
-   └─ 測試驗證 ✅
+   ├─ safe_parse_json() 函数 ✅
+   ├─ safe_parse_tags() 函数 ✅
+   ├─ 降级处理策略 ✅
+   ├─ 异常捕捉 ✅
+   └─ 测试验证 ✅
 
-✅ 失敗狀態追蹤
-   ├─ FAILED 狀態區分 ✅
-   ├─ 自動重試機制 ✅
-   ├─ 數據一致性 ✅
-   └─ 測試驗證 ✅
+✅ 失败状态追踪
+   ├─ FAILED 状态区分 ✅
+   ├─ 自动重试机制 ✅
+   ├─ 数据一致性 ✅
+   └─ 测试验证 ✅
 
-✅ 詳細的日誌追蹤
-   ├─ 進度顯示 ✅
-   ├─ 重試日誌 ✅
-   ├─ 統計結果 ✅
-   └─ 測試驗證 ✅
+✅ 详细的日志追踪
+   ├─ 进度显示 ✅
+   ├─ 重试日志 ✅
+   ├─ 统计结果 ✅
+   └─ 测试验证 ✅
 
-✅ 文檔和工具
+✅ 文档和工具
    ├─ UPGRADE_GUIDE.md (7.6 KB) ✅
    ├─ UPGRADE_DEPLOY.sh (9.9 KB) ✅
-   ├─ 本升級報告 ✅
-   └─ 代碼註釋完整 ✅
+   ├─ 本升级报告 ✅
+   └─ 代码注释完整 ✅
 ```
 
 ---
 
-## 🎓 **Phase 2 預告**
+## 🎓 **Phase 2 预告**
 
-升級 Phase 1 完成後，可以考慮 Phase 2 的實現：
+升级 Phase 1 完成后，可以考虑 Phase 2 的实现：
 
 ```
 🔮 Phase 2 特性 (近期):
-   • 雙向同步 (Notion → Brain)
-   • BehavCrypto 簽名驗證
-   • 數據版本控制
-   • 衝突解決機制
-   • 增量同步優化
+   • 双向同步 (Notion → Brain)
+   • BehavCrypto 签名验证
+   • 数据版本控制
+   • 冲突解决机制
+   • 增量同步优化
 
-🔮 Phase 3 特性 (後續):
-   • 自動備份機制
-   • 監控告警系統
-   • 批量操作優化
-   • 性能基準測試
+🔮 Phase 3 特性 (后续):
+   • 自动备份机制
+   • 监控告警系统
+   • 批量操作优化
+   • 性能基准测试
 ```
 
 ---
 
-## 📞 **技術支援**
+## 📞 **技术支援**
 
-### **常見問題**
+### **常见问题**
 
-**Q1: 升級後舊記憶還會同步嗎?**
-> 是的。`--status` 命令顯示的 "待推送" 記憶會在下次運行時同步。
+**Q1: 升级后旧记忆还会同步吗?**
+> 是的。`--status` 命令显示的 "待推送" 记忆会在下次运行时同步。
 
-**Q2: 可以調整重試次數和等待時間嗎?**
-> 可以。編輯 `CONFIG` 中的 `MAX_RETRIES` 和 `RETRY_BACKOFF`。
+**Q2: 可以调整重试次数和等待时间吗?**
+> 可以。编辑 `CONFIG` 中的 `MAX_RETRIES` 和 `RETRY_BACKOFF`。
 
-**Q3: API 限流控制會影響同步速度嗎?**
-> 不會顯著影響。默認 5 calls/sec 已足夠快，而且更穩定。
+**Q3: API 限流控制会影响同步速度吗?**
+> 不会显著影响。默认 5 calls/sec 已足够快，而且更稳定。
 
-**Q4: 備份文件可以刪除嗎?**
-> 可以。確認新版本穩定運行後（建議 1 週後）可以刪除。
+**Q4: 备份文件可以删除吗?**
+> 可以。确认新版本稳定运行后（建议 1 周后）可以删除。
 
-**Q5: 如何恢復 JSON 解析失敗的數據?**
-> 數據不會丟失，只是標籤可能為空。可以手動在 Notion 編輯補充。
+**Q5: 如何恢复 JSON 解析失败的数据?**
+> 数据不会丢失，只是标签可能为空。可以手动在 Notion 编辑补充。
 
 ---
 
-## ✨ **簽署**
+## ✨ **签署**
 
 ```
-升級執行: 寶寶 (寶寶人格)
-升級時間: 2026-06-07 11:30 CST
-升級環境: 雲端環境 (本地執行)
+升级执行: 宝宝 (宝宝人格)
+升级时间: 2026-06-07 11:30 CST
+升级环境: 云端环境 (本地执行)
 
-交付清單:
+交付清单:
   ✅ brain_notion_sync_v1.1_upgraded.py (18 KB)
   ✅ BRAIN_NOTION_SYNC_v1.1_UPGRADE_GUIDE.md (7.6 KB)
   ✅ BRAIN_NOTION_SYNC_UPGRADE_DEPLOY.sh (9.9 KB)
   ✅ BRAIN_NOTION_SYNC_UPGRADE_COMPLETE.md (本文)
 
 DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-COMPLETE-v1.1
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章: UID9622 · 不免責
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章: UID9622 · 不免责
 
-✨ 天下無欺。🐉
+✨ 天下无欺。🐉
 ```
 
 ---
 
-**龍魂脑干 Notion 同步橋 v1.1 Phase 1 升級已完成交付。所有文件準備就緒，等待老大在本地環境執行部署。**
+**龍魂脑干 Notion 同步桥 v1.1 Phase 1 升级已完成交付。所有文件准备就绪，等待老大在本地环境执行部署。**

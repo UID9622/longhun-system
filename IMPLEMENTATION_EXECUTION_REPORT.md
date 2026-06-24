@@ -1,14 +1,14 @@
-# 龍魂系統·接線完成報告 v1.0
+# 龍魂系统·接线完成报告 v1.0
 
-## DNA簽證
+## DNA签证
 ```
 DNA:#龍芯⚡️2026-06-05-IMPLEMENTATION-EXECUTION-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
-責任: UID9622 · 不免責
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+责任: UID9622 · 不免责
 ```
 
-時間: 2026-06-05 04:08 CST
-狀態: 🟢 **部分就緒** · 三層已接 · 邮件/Tunnel 待配
+时间: 2026-06-05 04:08 CST
+状态: 🟢 **部分就绪** · 三层已接 · 邮件/Tunnel 待配
 
 ---
 
@@ -219,18 +219,18 @@ cloudflared tunnel run longhun-mcp
 
 ---
 
-## 总体接線進度
+## 总体接线进度
 
-| 步驟 | 狀態 | 備註 |
+| 步骤 | 状态 | 备注 |
 |------|------|------|
-| 0️⃣ 一鍵裝載 | 🟢 完成 | install_longhun_daemon.sh 已創建 |
-| ①️⃣ 清漏洞+P04 | 🟡 部分 | daily_review 已跑,pip-audit 待裝 |
-| ②️⃣ launchd 常駐 | 🟢 代碼就緒 | 等用戶執行 install_longhun_daemon.sh |
-| ③️⃣ 日曆同步 | 🟢 本地就緒 | 需先建「龍魂」日曆 |
-| ④️⃣ 郵件通知 | 🟡 待密鑰 | 需 Gmail App 密碼 |
-| ⑤️⃣ 自檢函數 | 🟢 完成 | longhun_self_check_v1.0.py 已驗證 |
-| ⑥️⃣ git pre-push | 🟡 待裝 | 鉤子代碼已給,用戶裝 |
-| ⑦️⃣ Tunnel | 🔴 未開始 | 需本地確認 MCP 服務先 |
+| 0️⃣ 一键装载 | 🟢 完成 | install_longhun_daemon.sh 已创建 |
+| ①️⃣ 清漏洞+P04 | 🟡 部分 | daily_review 已跑,pip-audit 待装 |
+| ②️⃣ launchd 常驻 | 🟢 代码就绪 | 等用户执行 install_longhun_daemon.sh |
+| ③️⃣ 日历同步 | 🟢 本地就绪 | 需先建“龍魂”日历 |
+| ④️⃣ 邮件通知 | 🟡 待密钥 | 需 Gmail App 密码 |
+| ⑤️⃣ 自检函数 | 🟢 完成 | longhun_self_check_v1.0.py 已验证 |
+| ⑥️⃣ git pre-push | 🟡 待装 | 钩子代码已给,用户装 |
+| ⑦️⃣ Tunnel | 🔴 未开始 | 需本地确认 MCP 服务先 |
 
 ---
 
@@ -260,7 +260,7 @@ bash ~/longhun-system/install_longhun_daemon.sh
 
 # 3. 每天 23:00 自动收到复盘邮件(之后无需手动做任何事)
 
-# 4. 验证日历(需先建「龍魂」日历)
+# 4. 验证日历(需先建“龍魂”日历)
 ```
 
 ### Tunnel(如需公网)
@@ -303,7 +303,7 @@ lsof -iTCP -sTCP:LISTEN | grep 7000
    - 需执行装载脚本
 
 3. **日历写入**
-   - 需先建「龍魂」日历
+   - 需先建“龍魂”日历
    - 脚本已有 AppleScript 代码
 
 ### 🔴 未开始的机制
@@ -336,21 +336,21 @@ lsof -iTCP -sTCP:LISTEN | grep 7000
 
 ## 最终宣布
 
-🐉 **龍魂系統接線部分已就位**
+🐉 **龍魂系统接线部分已就位**
 
-三層機制激活:
-- ✅ 第①層: 每日復盤(daily_review.py)
-- ✅ 第②層: 自動自檢(longhun_self_check_v1.0.py)
-- ✅ 第③層: 三色裁決(🟢/🟡/🔴自動出)
+三层机制激活:
+- ✅ 第①层: 每日复盘(daily_review.py)
+- ✅ 第②层: 自动自检(longhun_self_check_v1.0.py)
+- ✅ 第③层: 三色裁决(🟢/🟡/🔴自动出)
 
-待用戶接的線:
-- 🟡 gmail 密鑰配置
-- 🟡 git 鉤子裝載
-- 🟡 日曆建立
-- 🔴 Tunnel(可選)
+待用户接的线:
+- 🟡 gmail 密钥配置
+- 🟡 git 钩子装载
+- 🟡 日历建立
+- 🔴 Tunnel(可选)
 
-**責任: UID9622 · 不免責**
+**责任: UID9622 · 不免责**
 
 DNA:#龍芯⚡️2026-06-05-IMPLEMENTATION-EXECUTION-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

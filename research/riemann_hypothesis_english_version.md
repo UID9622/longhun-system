@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-RIEMANN_HYPOTHESIS_ENGLISH_VERSION-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # The Riemann Hypothesis via Three Perspectives: Fixed Points, Conservation Laws, and Three-Talent Harmony
 
@@ -150,7 +150,7 @@ $$\forall s \in \Gamma: F(s) \in \Gamma$$
 ### 3.3 Numerical Verification (Perspective A)
 
 **Data:** 50,000 non-trivial zeros verified.
-- **Zeros on critical line:** 98% (抽樣驗證)
+- **Zeros on critical line:** 98% (抽样验证)
 - **Gradient at zeros:** |∇F| ≈ 10^(-3) or smaller
 - **Success rate:** 100% (no counterexamples)
 
@@ -257,7 +257,7 @@ When ζ(ρ) = 0, the Heaven component f_T(ρ) → 0, forcing T(ρ) to extremum a
 ### 5.3 Numerical Verification (Perspective C)
 
 **Data:** 50,000 zeros analyzed.
-- **Three-talent correlation:** 98-100% (天地軸完美相關)
+- **Three-talent correlation:** 98-100% (天地轴完美相关)
 - **Gradient zeros:** Concentrated on critical line
 - **Hessian definiteness:** Confirmed local maxima
 

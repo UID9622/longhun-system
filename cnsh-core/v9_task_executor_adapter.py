@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂 v9.0 · 任務執行器適配層
+龍魂 v9.0 · 任务执行器适配层
 Task Executor Integration Adapter
 
-將 task_executor_live_v1.py 與 v9.0 統一集成層連接
+将 task_executor_live_v1.py 与 v9.0 统一集成层连接
 
 DNA:#龍芯⚡️2026-06-06-V9-TASK-EXECUTOR-ADAPTER-FILE2-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-UID9622 · 諸葛鑫 · 龍芯北辰
-責任: UID9622·不免責
+UID9622 · 诸葛鑫 · 龍芯北辰
+责任: UID9622·不免责
 """
 
 import json
@@ -30,52 +30,52 @@ from cnsh.v9_system_integration_bridge import (
 
 
 class V9AgentType(Enum):
-    """v9.0 系統智能體類型"""
-    FLOW_DECISION = "v9_flow_decision"      # v4.1 決策闢
+    """v9.0 系统智能体类型"""
+    FLOW_DECISION = "v9_flow_decision"      # v4.1 决策辟
     SANCAI_SYNC = "v9_sancai_sync"          # v1.0 三合同步器
-    NEURAL_ROUTING = "v9_neural_routing"    # v4.0 神經映射
-    SYSTEM_CHECK = "v9_system_check"        # 系統檢查
+    NEURAL_ROUTING = "v9_neural_routing"    # v4.0 神经映射
+    SYSTEM_CHECK = "v9_system_check"        # 系统检查
 
 
 class V9TaskExecutorAdapter:
     """
-    v9.0 任務執行器適配層
+    v9.0 任务执行器适配层
 
     功能：
-    1. 攔截 task_executor_live 的任務
-    2. 判斷是否為 v9 任務
-    3. 路由到 v9 系統執行
-    4. 返回統一的執行結果
-    5. 維持與現有 AGENT 的相容性
+    1. 拦截 task_executor_live 的任务
+    2. 判断是否为 v9 任务
+    3. 路由到 v9 系统执行
+    4. 返回统一的执行结果
+    5. 维持与现有 AGENT 的相容性
     """
 
     def __init__(self):
         self.bridge = V9SystemIntegrationBridge(seed=9622)
         self.execution_log: List[Dict[str, Any]] = []
 
-        # v9 任務標籤映射
+        # v9 任务标签映射
         self.v9_label_map = {
             "flow_decision": V9AgentType.FLOW_DECISION,
             "sancai_sync": V9AgentType.SANCAI_SYNC,
             "neural_routing": V9AgentType.NEURAL_ROUTING,
             "system_check": V9AgentType.SYSTEM_CHECK,
-            "決策": V9AgentType.FLOW_DECISION,
+            "决策": V9AgentType.FLOW_DECISION,
             "同步": V9AgentType.SANCAI_SYNC,
             "路由": V9AgentType.NEURAL_ROUTING,
-            "檢查": V9AgentType.SYSTEM_CHECK,
+            "检查": V9AgentType.SYSTEM_CHECK,
         }
 
     def is_v9_task(self, task: Dict) -> bool:
-        """判斷任務是否為 v9 系統任務"""
-        # 檢查標籤
+        """判断任务是否为 v9 系统任务"""
+        # 检查标签
         labels = task.get("labels", [])
         for label in labels:
             if label in self.v9_label_map:
                 return True
 
-        # 檢查標題
+        # 检查标题
         title = task.get("title", "").lower()
-        v9_keywords = ["v9", "決策", "同步", "三環", "集成", "統一"]
+        v9_keywords = ["v9", "决策", "同步", "三环", "集成", "统一"]
         for keyword in v9_keywords:
             if keyword in title:
                 return True
@@ -83,23 +83,23 @@ class V9TaskExecutorAdapter:
         return False
 
     def convert_to_v9_task(self, task: Dict) -> SystemIntegrationTask:
-        """將 task_executor 任務轉換為 v9 任務"""
-        # 確定任務類型
+        """将 task_executor 任务转换为 v9 任务"""
+        # 确定任务类型
         task_type = self._detect_task_type(task)
 
-        # 確定模塊層
+        # 确定模块层
         module_layer = self._detect_module_layer(task_type)
 
-        # 構建輸入數據
+        # 构建输入数据
         input_data = {
             "original_task": task,
             "title": task.get("title", ""),
             "labels": task.get("labels", []),
             "priority": task.get("priority", 3),
-            # 根據任務類型添加特定數據
+            # 根据任务类型添加特定数据
         }
 
-        # 添加 v9 特定的輸入
+        # 添加 v9 特定的输入
         if task_type == TaskType.SANCAI_SYNC:
             input_data.update({
                 "ipa": {
@@ -120,7 +120,7 @@ class V9TaskExecutorAdapter:
                 }
             })
 
-        # 創建 v9 任務
+        # 创建 v9 任务
         v9_task = SystemIntegrationTask(
             task_id=task.get("task_id", f"TASK-{datetime.now().timestamp()}"),
             task_type=task_type,
@@ -133,7 +133,7 @@ class V9TaskExecutorAdapter:
         return v9_task
 
     def _detect_task_type(self, task: Dict) -> TaskType:
-        """檢測任務類型"""
+        """检测任务类型"""
         labels = task.get("labels", [])
 
         for label in labels:
@@ -148,11 +148,11 @@ class V9TaskExecutorAdapter:
                 elif agent_type == V9AgentType.SYSTEM_CHECK:
                     return TaskType.SYSTEM_CHECK
 
-        # 預設類型
+        # 预设类型
         return TaskType.SANCAI_SYNC
 
     def _detect_module_layer(self, task_type: TaskType) -> ModuleLayer:
-        """檢測模塊層"""
+        """检测模块层"""
         type_map = {
             TaskType.FLOW_DECISION: ModuleLayer.V4_1_FLOW_DECISION,
             TaskType.SANCAI_SYNC: ModuleLayer.V1_0_SANCAI_SYNC,
@@ -162,17 +162,17 @@ class V9TaskExecutorAdapter:
         return type_map.get(task_type, ModuleLayer.V1_0_SANCAI_SYNC)
 
     def execute_v9_task(self, task: Dict) -> Dict[str, Any]:
-        """執行 v9 任務"""
-        # 轉換任務
+        """执行 v9 任务"""
+        # 转换任务
         v9_task = self.convert_to_v9_task(task)
 
-        # 註冊到 v9 系統
+        # 注册到 v9 系统
         self.bridge.register_task(v9_task)
 
-        # 執行任務
+        # 执行任务
         result = self.bridge.execute_task(v9_task)
 
-        # 轉換回 task_executor 格式
+        # 转换回 task_executor 格式
         executor_result = {
             "task_id": task.get("task_id"),
             "status": "success" if result.status == "success" else "failed",
@@ -184,14 +184,14 @@ class V9TaskExecutorAdapter:
             "timestamp": datetime.now().isoformat()
         }
 
-        # 記錄執行日誌
+        # 记录执行日志
         self.execution_log.append(executor_result)
 
         return executor_result
 
     def get_v9_agent_mapping(self) -> Dict[str, str]:
         """
-        獲取 v9 任務適配器的智能體映射
+        获取 v9 任务适配器的智能体映射
 
         可添加到 task_executor_live_v1.py 的 AGENT_COMMANDS
         """
@@ -203,7 +203,7 @@ class V9TaskExecutorAdapter:
         }
 
     def system_health_check(self) -> Dict[str, Any]:
-        """進行系統健康檢查"""
+        """进行系统健康检查"""
         health = self.bridge.system_health_check()
         return {
             "adapter": "v9_task_executor_adapter",
@@ -214,19 +214,19 @@ class V9TaskExecutorAdapter:
         }
 
     def generate_execution_report(self) -> str:
-        """生成執行報告"""
-        report = f"""# v9.0 任務執行器適配層報告
+        """生成执行报告"""
+        report = f"""# v9.0 任务执行器适配层报告
 
-**生成時間**: {datetime.now().isoformat()}
+**生成时间**: {datetime.now().isoformat()}
 **DNA**: #龍芯⚡️2026-06-06-V9-TASK-EXECUTOR-ADAPTER-REPORT
 
-## 執行統計
+## 执行统计
 
-- 總任務數: {len(self.execution_log)}
+- 总任务数: {len(self.execution_log)}
 - 成功: {sum(1 for r in self.execution_log if r['status'] == 'success')}
-- 失敗: {sum(1 for r in self.execution_log if r['status'] == 'failed')}
+- 失败: {sum(1 for r in self.execution_log if r['status'] == 'failed')}
 
-## 系統狀態
+## 系统状态
 
 """
         health = self.system_health_check()
@@ -237,18 +237,18 @@ class V9TaskExecutorAdapter:
 
 def create_v9_executor_wrapper():
     """
-    創建一個包裝器，集成 task_executor_live_v1 和 v9.0 系統
+    创建一个包装器，集成 task_executor_live_v1 和 v9.0 系统
 
     使用方式：
-    1. 在 task_executor_live_v1.py 中導入此模塊
-    2. 在 LiveTaskExecutor.route_task() 中檢查 v9 標籤
-    3. 如果是 v9 任務，委派給 V9TaskExecutorAdapter
+    1. 在 task_executor_live_v1.py 中导入此模块
+    2. 在 LiveTaskExecutor.route_task() 中检查 v9 标签
+    3. 如果是 v9 任务，委派给 V9TaskExecutorAdapter
     """
     return V9TaskExecutorAdapter()
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 示例集成代碼（供參考，可添加到 task_executor_live_v1.py）
+# 示例集成代码（供参考，可添加到 task_executor_live_v1.py）
 # ═══════════════════════════════════════════════════════════════════════════
 
 INTEGRATION_EXAMPLE = """
@@ -257,53 +257,53 @@ INTEGRATION_EXAMPLE = """
 from cnsh.v9_task_executor_adapter import V9TaskExecutorAdapter
 
 class LiveTaskExecutorWithV9(LiveTaskExecutor):
-    \"\"\"整合 v9.0 系統的任務執行器\"\"\"
+    \"\"\"整合 v9.0 系统的任务执行器\"\"\"
 
     def __init__(self):
         super().__init__()
         self.v9_adapter = V9TaskExecutorAdapter()
 
     def route_task(self, task: Dict) -> Tuple[List[str], str]:
-        \"\"\"路由任務（整合 v9）\"\"\"
+        \"\"\"路由任务（整合 v9）\"\"\"
 
-        # 檢查是否為 v9 任務
+        # 检查是否为 v9 任务
         if self.v9_adapter.is_v9_task(task):
-            return ["V9-SYSTEM"], "v9.0 系統路由"
+            return ["V9-SYSTEM"], "v9.0 系统路由"
 
-        # 否則使用原有邏輯
+        # 否则使用原有逻辑
         return super().route_task(task)
 
     def execute_agent(self, agent_id: str) -> Dict:
-        \"\"\"執行智能體（整合 v9）\"\"\"
+        \"\"\"执行智能体（整合 v9）\"\"\"
 
-        # v9 系統代理
+        # v9 系统代理
         if agent_id.startswith("V9-"):
             return {
                 "agent_id": agent_id,
                 "status": "success",
-                "message": "v9 系統執行"
+                "message": "v9 系统执行"
             }
 
-        # 原有邏輯
+        # 原有逻辑
         return super().execute_agent(agent_id)
 """
 
 
 if __name__ == "__main__":
-    # 測試適配器
+    # 测试适配器
     adapter = V9TaskExecutorAdapter()
 
-    # 模擬任務
+    # 模拟任务
     test_task = {
         "task_id": "TEST-V9-001",
-        "title": "三環同步測試",
+        "title": "三环同步测试",
         "labels": ["sancai_sync"],
         "priority": 5
     }
 
-    # 執行
-    print("【v9.0 任務執行器適配層】")
-    print(f"是否為 v9 任務: {adapter.is_v9_task(test_task)}")
+    # 执行
+    print("【v9.0 任务执行器适配层】")
+    print(f"是否为 v9 任务: {adapter.is_v9_task(test_task)}")
     result = adapter.execute_v9_task(test_task)
-    print(f"執行結果: {json.dumps(result, indent=2, ensure_ascii=False)}")
-    print(f"\n系統健康檢查: {json.dumps(adapter.system_health_check(), indent=2, ensure_ascii=False)}")
+    print(f"执行结果: {json.dumps(result, indent=2, ensure_ascii=False)}")
+    print(f"\n系统健康检查: {json.dumps(adapter.system_health_check(), indent=2, ensure_ascii=False)}")

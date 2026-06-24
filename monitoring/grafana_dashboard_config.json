@@ -1,7 +1,7 @@
 {
-  "_comment": "龍魂系統生產監控儀表板配置",
+  "_comment": "龍魂系统生产监控仪表板配置",
   "dashboard": {
-    "title": "🐉 龍魂系統生產監控",
+    "title": "🐉 龍魂系统生产监控",
     "tags": ["longhun", "production", "realtime"],
     "timezone": "Asia/Shanghai",
     "refresh": "30s",
@@ -9,7 +9,7 @@
     "panels": [
       {
         "id": 1,
-        "title": "API 響應時間 (P50/P95/P99)",
+        "title": "API 响应时间 (P50/P95/P99)",
         "type": "graph",
         "metrics": [
           "api_response_time_p50",
@@ -31,14 +31,14 @@
       },
       {
         "id": 3,
-        "title": "錯誤率 (%)",
+        "title": "错误率 (%)",
         "type": "stat",
         "metric": "api_error_rate",
         "alert_threshold": "1%"
       },
       {
         "id": 4,
-        "title": "數據庫連接池使用率",
+        "title": "数据库连接池使用率",
         "type": "gauge",
         "metric": "db_pool_usage",
         "max": 20,
@@ -54,7 +54,7 @@
       },
       {
         "id": 6,
-        "title": "服務器資源使用",
+        "title": "服务器资源使用",
         "type": "multi_stat",
         "metrics": {
           "cpu_usage": {"unit": "%", "alert": "80%"},
@@ -64,7 +64,7 @@
       },
       {
         "id": 7,
-        "title": "10 個 Skill 執行狀態",
+        "title": "10 个 Skill 执行状态",
         "type": "table",
         "skills": [
           "skill-1-algorithmic-art",
@@ -78,11 +78,11 @@
           "skill-9-theme-factory",
           "skill-10-web-artifacts-builder"
         ],
-        "columns": ["Skill 名稱", "狀態", "平均耗時", "失敗率"]
+        "columns": ["Skill 名称", "状态", "平均耗时", "失败率"]
       },
       {
         "id": 8,
-        "title": "Kimi AI 集成狀態",
+        "title": "Kimi AI 集成状态",
         "type": "stat_card",
         "metrics": {
           "kimi_api_status": "connected/disconnected",
@@ -93,13 +93,13 @@
       },
       {
         "id": 9,
-        "title": "部署歷史",
+        "title": "部署历史",
         "type": "table",
-        "columns": ["部署 ID", "時間", "環境", "狀態", "耗時"]
+        "columns": ["部署 ID", "时间", "环境", "状态", "耗时"]
       },
       {
         "id": 10,
-        "title": "告警活動",
+        "title": "告警活动",
         "type": "alert_list",
         "alert_rules": [
           "High Error Rate (> 1%)",

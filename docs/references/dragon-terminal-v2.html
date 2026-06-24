@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-REF-DRAGON-TERMINAL-V2-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -778,7 +778,7 @@ async function sendChat() {
         const data = await resp.json();
         out.textContent = data.error ? '❌ ' + data.error : data.response;
     } catch(e) {
-        out.textContent = `🐱 宝宝本地模式回复：\n\n老大！宝宝收到：「${input}」\n\n宝宝理解为：老大想要${input.length > 10 ? input.substring(0,10) + '...' : input}\n\n宝宝建议：连接本地Ollama后可以获得完整AI回复\n启动命令：ollama serve\n\n龍魂现世！🐉`;
+        out.textContent = `🐱 宝宝本地模式回复：\n\n老大！宝宝收到：“${input}”\n\n宝宝理解为：老大想要${input.length > 10 ? input.substring(0,10) + '...' : input}\n\n宝宝建议：连接本地Ollama后可以获得完整AI回复\n启动命令：ollama serve\n\n龍魂现世！🐉`;
     }
 }
 function clearChat() {
@@ -876,7 +876,7 @@ async function searchNotion() {
         });
         alert('搜索结果已返回');
     } catch(e) {
-        alert('📋 本地模式：请在Notion中搜索「' + q + '」');
+        alert('📋 本地模式：请在Notion中搜索“' + q + '”');
     }
 }
 

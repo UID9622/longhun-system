@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-UI-SKILL-4-DOC-COAUTHORING-FILE2-v1.0-3 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 <!DOCTYPE html>
 <html lang="zh-Hans">
@@ -306,39 +306,39 @@
         
         // 加载示例
         function loadSample() {
-            editor.value = `# 龍魂系統文檔
+            editor.value = `# 龍魂系统文档
 
-## 簡介
+## 简介
 
-這是龍魂系統的文檔協作工具。
+这是龍魂系统的文档协作工具。
 
 ## 功能特性
 
-- ✅ 實時 Markdown 預覽
-- ✅ 版本歷史管理
-- ✅ 統計信息展示
-- ✅ 文檔導出
+- ✅ 实时 Markdown 预览
+- ✅ 版本历史管理
+- ✅ 统计信息展示
+- ✅ 文档导出
 
-## 代碼示例
+## 代码示例
 
 \`\`\`python
 def longhun_engine():
-    print("龍魂系統啟動")
+    print("龍魂系统启动")
 \`\`\`
 
-## 快速開始
+## 快速开始
 
-1. 編輯 Markdown 文本
-2. 實時預覽結果
-3. 保存文檔版本
-4. 導出為 Markdown 格式
+1. 编辑 Markdown 文本
+2. 实时预览结果
+3. 保存文档版本
+4. 导出为 Markdown 格式
 `;
             editor.dispatchEvent(new Event('input'));
         }
         
         // 清空编辑器
         function clearEditor() {
-            if (confirm('確定要清空文檔嗎？')) {
+            if (confirm('确定要清空文档吗？')) {
                 editor.value = '';
                 editor.dispatchEvent(new Event('input'));
             }

@@ -1,37 +1,37 @@
-# 🐉 龍魂脑干 · Notion同步桥 v1.1 · Phase 1 完整實現
+# 🐉 龍魂脑干 · Notion同步桥 v1.1 · Phase 1 完整实现
 
 ```
 日期: 2026-06-07
-時間: 14:30 CST
+时间: 14:30 CST
 DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-PHASE1-COMPLETE
-責任: UID9622 · 不免責
+责任: UID9622 · 不免责
 完成度: 🟢 100%
 ```
 
 ---
 
-## 📋 實現概述
+## 📋 实现概述
 
-**目標**: 升級 `brain_notion_sync.py` 為 Phase 1 完整實現版本·包含指數退避重試、API限流、安全JSON解析、詳細日誌、失敗恢復機制等核心特性
+**目标**: 升级 `brain_notion_sync.py` 为 Phase 1 完整实现版本·包含指数退避重试、API限流、安全JSON解析、详细日志、失败恢复机制等核心特性
 
-**結果**: ✅ **完全實現** (7/7 Phase 1 特性)
+**结果**: ✅ **完全实现** (7/7 Phase 1 特性)
 
-**覆蓋範圍**:
-- 指數退避重試機制 (max_retries=3)
+**覆盖范围**:
+- 指数退避重试机制 (max_retries=3)
 - API 速率限制器 (5 calls/sec)
-- 安全的 JSON 解析 (降級處理)
-- 詳細的錯誤日誌系統
-- 失敗恢復機制 (PENDING/FAILED 狀態)
-- 環境變量安全管理
+- 安全的 JSON 解析 (降级处理)
+- 详细的错误日志系统
+- 失败恢复机制 (PENDING/FAILED 状态)
+- 环境变量安全管理
 - 完整的 CLI 命令行界面
 
 ---
 
-## ✅ Phase 1 特性實現清單
+## ✅ Phase 1 特性实现清单
 
-### 1️⃣ 指數退避重試機制 ✅
+### 1️⃣ 指数退避重试机制 ✅
 
-**實現位置**: `retry_with_backoff()` 函數 (第 130-195 行)
+**实现位置**: `retry_with_backoff()` 函数 (第 130-195 行)
 
 ```python
 def retry_with_backoff(
@@ -42,40 +42,40 @@ def retry_with_backoff(
     verbose: bool = True,
     **kwargs
 ):
-    """指數退避重試機制 (1s, 2s, 4s...)"""
-    # 自動計算等待時間: wait_time = backoff_base ^ attempt
+    """指数退避重试机制 (1s, 2s, 4s...)"""
+    # 自动计算等待时间: wait_time = backoff_base ^ attempt
 ```
 
 **特性**:
-- ✅ 最多 3 次重試
-- ✅ 指數退避算法 (base=2)
-- ✅ 可識別的 RetryableException (服務器 5xx 錯誤)
-- ✅ 詳細的日誌輸出
-- ✅ 優雅降級 (客户端 4xx 不重試)
+- ✅ 最多 3 次重试
+- ✅ 指数退避算法 (base=2)
+- ✅ 可识别的 RetryableException (服务器 5xx 错误)
+- ✅ 详细的日志输出
+- ✅ 优雅降级 (客户端 4xx 不重试)
 
-**驗證**:
-- HTTP 500-599 → 自動重試
-- HTTP 400-499 → 立即失敗
-- 網絡超時 → 自動重試
+**验证**:
+- HTTP 500-599 → 自动重试
+- HTTP 400-499 → 立即失败
+- 网络超时 → 自动重试
 
 ---
 
 ### 2️⃣ API 速率限制器 ✅
 
-**實現位置**: `RateLimiter` 類 (第 71-105 行)
+**实现位置**: `RateLimiter` 类 (第 71-105 行)
 
 ```python
 class RateLimiter:
-    """API 速率限制器 - 避免觸發 Notion API 限流"""
+    """API 速率限制器 - 避免触发 Notion API 限流"""
     def __init__(self, calls_per_second: float = 5):
         self.min_interval = 1.0 / calls_per_second
 ```
 
 **特性**:
-- ✅ 可配置的速率限制 (預設 5 calls/sec)
-- ✅ 精確的時間控制 (毫秒級)
+- ✅ 可配置的速率限制 (预设 5 calls/sec)
+- ✅ 精确的时间控制 (毫秒级)
 - ✅ Context Manager 支持
-- ✅ 自動計算等待時間
+- ✅ 自动计算等待时间
 
 **使用**:
 ```python
@@ -83,98 +83,98 @@ rate_limiter = RateLimiter(calls_per_second=CONFIG["API_RATE_LIMIT"])
 rate_limiter.wait()  # 或使用 with rate_limiter:
 ```
 
-**驗證**:
-- Notion API 限流閾值: 3 req/sec
-- 配置限制: 5 calls/sec (安全邊界)
-- 實際延遲: < 0.2s/call
+**验证**:
+- Notion API 限流阈值: 3 req/sec
+- 配置限制: 5 calls/sec (安全边界)
+- 实际延迟: < 0.2s/call
 
 ---
 
 ### 3️⃣ 安全的 JSON 解析 ✅
 
-**實現位置**: `safe_parse_json()` 函數 (第 197-210 行)
+**实现位置**: `safe_parse_json()` 函数 (第 197-210 行)
 
 ```python
 def safe_parse_json(json_str, default=None):
-    """安全的 JSON 解析 + 降級處理"""
-    # 自動處理: list/dict → 直接返回
-    #          str → 嘗試解析，失敗返回 default
+    """安全的 JSON 解析 + 降级处理"""
+    # 自动处理: list/dict → 直接返回
+    #          str → 尝试解析，失败返回 default
 ```
 
 **特性**:
-- ✅ 類型檢查 (list/dict 直接返回)
-- ✅ 異常處理 (JSONDecodeError, ValueError)
-- ✅ 降級默認值
-- ✅ 防止解析崩潰
+- ✅ 类型检查 (list/dict 直接返回)
+- ✅ 异常处理 (JSONDecodeError, ValueError)
+- ✅ 降级默认值
+- ✅ 防止解析崩溃
 
-**驗證場景**:
+**验证场景**:
 - 正常 JSON: ✅ 解析成功
-- 畸形 JSON: ✅ 返回預設值
-- None/空值: ✅ 安全處理
-- 嵌套結構: ✅ 遞歸處理
+- 畸形 JSON: ✅ 返回预设值
+- None/空值: ✅ 安全处理
+- 嵌套结构: ✅ 递归处理
 
 ---
 
-### 4️⃣ 詳細的錯誤日誌 ✅
+### 4️⃣ 详细的错误日志 ✅
 
-**實現位置**: `sync_once()` 函數 (第 321-400 行)
+**实现位置**: `sync_once()` 函数 (第 321-400 行)
 
-**日誌層級**:
-1. 🔄 「發現 N 條待同步記忆」
-2. 📝 「[i/N] 三色 內容」
-3. 🔄 「重試 1/2」
-4. ⚠️ 「嘗試 1 失敗: 具體錯誤」
-5. ⏳ 「等待 Ns 後重試」
-6. ✅ 「第 N 次重試成功」
-7. ❌ 「所有 3 次重試都失敗」
-8. 📊 「同步結果: X 成功, Y 失敗」
+**日志层级**:
+1. 🔄 “发现 N 条待同步记忆”
+2. 📝 “[i/N] 三色 内容”
+3. 🔄 “重试 1/2”
+4. ⚠️ “尝试 1 失败: 具体错误”
+5. ⏳ “等待 Ns 后重试”
+6. ✅ “第 N 次重试成功”
+7. ❌ “所有 3 次重试都失败”
+8. 📊 “同步结果: X 成功, Y 失败”
 
-**輸出範例**:
+**输出范例**:
 ```
 🔄 发现 5 条待同步记忆...
-  [1/5] 🟢 這是一段很長的記憶內容前 40 個字...
+  [1/5] 🟢 这是一段很长的记忆内容前 40 个字...
        ✅ Notion page: 3a9b2c...
-  [2/5] 🟡 另一段記憶...
-    ⚠️  嘗試 1 失敗: Notion API 服務器錯誤 (503)
-    ⏳ 等待 1s 後重試...
-    🔄 重試 1/2...
-    ✅ 第 2 次重試成功
+  [2/5] 🟡 另一段记忆...
+    ⚠️  尝试 1 失败: Notion API 服务器错误 (503)
+    ⏳ 等待 1s 后重试...
+    🔄 重试 1/2...
+    ✅ 第 2 次重试成功
 ```
 
 ---
 
-### 5️⃣ 失敗恢復機制 ✅
+### 5️⃣ 失败恢复机制 ✅
 
-**實現位置**: `update_notion_id()` 和 `sync_once()` 中
+**实现位置**: `update_notion_id()` 和 `sync_once()` 中
 
-**狀態機**:
+**状态机**:
 ```
-未同步 (無 notion_map 記錄)
+未同步 (无 notion_map 记录)
   ↓
-PENDING  (無 Token，暫時未推送)
+PENDING  (无 Token，暂时未推送)
   ↓
-FAILED   (推送失敗，等待重試)
+FAILED   (推送失败，等待重试)
   ↓
-page_id  (同步成功，得到真實 ID)
+page_id  (同步成功，得到真实 ID)
 ```
 
-**恢復流程**:
-1. 掃描所有 `notion_map` 記錄
-2. 篩選 `notion_id NOT IN ('PENDING', 'FAILED')`
-3. 下次同步時重新選擇失敗的記錄
-4. 自動標記為待定或失敗
+**恢复流程**:
+1. 扫描所有 `notion_map` 记录
+2. 筛选 `notion_id NOT IN ('PENDING', 'FAILED')`
+3. 下次同步时重新选择失败的记录
+4. 自动标记为待定或失败
 
-**驗證**:
-- PENDING 記錄可重試: ✅
-- FAILED 記錄可重試: ✅
-- 無重複上傳: ✅
-- 狀態持久化: ✅
+**验证**:
+- PENDING 记录可重试: ✅
+- FAILED 记录可重试: ✅
+- 无重复上传: ✅
+- 状态持久化: ✅
 
 ---
 
-### 6️⃣ 環境變量安全管理 ✅
+### 6️⃣ 环境变量安全管理 ✅
 
-**實現位置**: `CONFIG` 字典 (第 54-69 行)
+**实现位置**: `CONFIG` 字典 (第 54-69 行)
 
 ```python
 from integrated_modules.longhun_config import getenv
@@ -187,12 +187,12 @@ CONFIG = {
 ```
 
 **特性**:
-- ✅ 環境變量優先 (os.environ)
-- ✅ 預設值保護 (不硬編碼 token)
-- ✅ 配置驗證 (sync_status 檢查)
-- ✅ 敏感信息保護 (不在日誌中輸出 token)
+- ✅ 环境变量优先 (os.environ)
+- ✅ 预设值保护 (不硬编码 token)
+- ✅ 配置验证 (sync_status 检查)
+- ✅ 敏感信息保护 (不在日志中输出 token)
 
-**安全檢查**:
+**安全检查**:
 ```python
 if not CONFIG["NOTION_TOKEN"] or not CONFIG["DATABASE_ID"]:
     print("    ⚠️  Notion Token 或 Database ID 未配置")
@@ -203,58 +203,58 @@ if not CONFIG["NOTION_TOKEN"] or not CONFIG["DATABASE_ID"]:
 
 ### 7️⃣ 完整的 CLI 命令行界面 ✅
 
-**實現位置**: `main()` 函數 (第 414-460 行)
+**实现位置**: `main()` 函数 (第 414-460 行)
 
 **命令**:
 
 ```bash
-# 單次同步 (默認)
+# 单次同步 (默认)
 python3 brain_notion_sync.py
 
-# 持續監聽 (5 分鐘間隔)
+# 持续监听 (5 分钟间隔)
 python3 brain_notion_sync.py --watch
 
-# 查看同步狀態
+# 查看同步状态
 python3 brain_notion_sync.py --status
 
-# 顯示幫助
+# 显示帮助
 python3 brain_notion_sync.py --help
 ```
 
-**CLI 輸出**:
-- 啟動 Banner (含 DNA)
+**CLI 输出**:
+- 启动 Banner (含 DNA)
 - Phase 1 特性列表
-- 進度指示器
-- 實時日誌
-- 完成統計
+- 进度指示器
+- 实时日志
+- 完成统计
 
 ---
 
-## 📊 技術指標
+## 📊 技术指标
 
-### 代碼量
-- 總行數: 460+ 行
-- 核心邏輯: 380+ 行
-- 註釋和文檔: 80+ 行
-- 測試覆蓋: 100% (功能驗證)
+### 代码量
+- 总行数: 460+ 行
+- 核心逻辑: 380+ 行
+- 注释和文档: 80+ 行
+- 测试覆盖: 100% (功能验证)
 
-### 性能指標
-- 單次 API 調用: < 100ms
-- 重試延遲: 1s + 2s + 4s = 7s (最壞情況)
-- 限流開銷: < 1ms/call
+### 性能指标
+- 单次 API 调用: < 100ms
+- 重试延迟: 1s + 2s + 4s = 7s (最坏情况)
+- 限流开销: < 1ms/call
 - JSON 解析: < 5ms
 
 ### 可靠性
-- 重試成功率: 95%+ (假設瞬時故障)
-- 限流命中率: 0% (配置足夠安全)
-- 降級成功率: 100% (JSON 解析)
-- 恢復機制: 100% (狀態追踪)
+- 重试成功率: 95%+ (假设瞬时故障)
+- 限流命中率: 0% (配置足够安全)
+- 降级成功率: 100% (JSON 解析)
+- 恢复机制: 100% (状态追踪)
 
 ---
 
 ## 🔧 配置指南
 
-### 環境變量設置
+### 环境变量设置
 
 ```bash
 # 在 ~/.zshrc 或 ~/.bash_profile 中加入:
@@ -262,16 +262,16 @@ export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
 export NOTION_BRAIN_DB="your-32-char-database-id"
 ```
 
-### 配置參數調整
+### 配置参数调整
 
 ```python
 # 修改 brain_notion_sync.py 中的 CONFIG:
 CONFIG = {
-    "MAX_RETRIES": 3,           # 最多重試 3 次
-    "RETRY_BACKOFF": 2,         # 指數退避底數 (1s, 2s, 4s)
-    "API_RATE_LIMIT": 5,        # 每秒 5 個 API 呼叫
-    "NOTION_TIMEOUT": 15,       # API 超時 15 秒
-    "INTERVAL": 300,            # 監聽間隔 5 分鐘
+    "MAX_RETRIES": 3,           # 最多重试 3 次
+    "RETRY_BACKOFF": 2,         # 指数退避底数 (1s, 2s, 4s)
+    "API_RATE_LIMIT": 5,        # 每秒 5 个 API 呼叫
+    "NOTION_TIMEOUT": 15,       # API 超时 15 秒
+    "INTERVAL": 300,            # 监听间隔 5 分钟
 }
 ```
 
@@ -279,20 +279,20 @@ CONFIG = {
 
 ## 🚀 使用示例
 
-### 示例 1: 單次同步
+### 示例 1: 单次同步
 
 ```bash
 $ python3 brain_notion_sync.py
 
-🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)
+🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整实现)
    DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE4-v1.1
 
    ⚡ Phase 1 特性:
-      • 指數退避重試 (3 次)
+      • 指数退避重试 (3 次)
       • API 限流控制 (5 calls/sec)
       • 安全 JSON 解析
-      • 失敗恢復機制
-      • 環境變量安全管理
+      • 失败恢复机制
+      • 环境变量安全管理
 
 🔄 发现 3 条待同步记忆...
   [1/3] 🟢 这是第一条记忆...
@@ -300,17 +300,17 @@ $ python3 brain_notion_sync.py
   [2/3] 🟡 第二条记忆...
        ✅ Notion page: 5f6d8e...
   [3/3] 🔥 第三条记忆...
-    ⚠️  嘗試 1 失敗: Notion API 服務器錯誤 (503)
-    ⏳ 等待 1s 後重試...
-    🔄 重試 1/2...
-    ✅ 第 2 次重試成功
+    ⚠️  尝试 1 失败: Notion API 服务器错误 (503)
+    ⏳ 等待 1s 后重试...
+    🔄 重试 1/2...
+    ✅ 第 2 次重试成功
 
-  📊 同步結果: 3 成功, 0 失敗
+  📊 同步结果: 3 成功, 0 失败
 
 ✅ 同步完成
 ```
 
-### 示例 2: 查看狀態
+### 示例 2: 查看状态
 
 ```bash
 $ python3 brain_notion_sync.py --status
@@ -325,25 +325,25 @@ $ python3 brain_notion_sync.py --status
   总记忆数        : 42 条
   已同步 Notion   : 38 条  ✅
   待推送（无Token）: 2 条  🟡
-  推送失敗（重試中）: 1 条  🔴
+  推送失败（重试中）: 1 条  🔴
   未处理          : 1 条  ⏳
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔧 Phase 1 升級特性:
-  ✅ 指數退避重試機制 (最多 3 次)
+🔧 Phase 1 升级特性:
+  ✅ 指数退避重试机制 (最多 3 次)
   ✅ API 限流控制 (5 calls/sec)
   ✅ 安全的 JSON 解析
-  ✅ 詳細的錯誤日誌
-  ✅ 失敗恢復機制
-  ✅ 環境變量安全管理
+  ✅ 详细的错误日志
+  ✅ 失败恢复机制
+  ✅ 环境变量安全管理
 ```
 
-### 示例 3: 持續監聽
+### 示例 3: 持续监听
 
 ```bash
 $ python3 brain_notion_sync.py --watch
 
-🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)
+🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整实现)
    DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
 
 👀 监听模式启动（每 300 秒同步一次）
@@ -356,19 +356,19 @@ $ python3 brain_notion_sync.py --watch
 
 ---
 
-## 🎯 驗收項目清單
+## 🎯 验收项目清单
 
-| 項目 | 預期 | 實際 | 狀態 |
+| 项目 | 预期 | 实际 | 状态 |
 |------|------|------|------|
-| 指數退避重試 | ✅ 3次，1s/2s/4s | ✅ 實現完整 | **通過** |
-| API 速率限制 | ✅ 5 calls/sec | ✅ RateLimiter 類實現 | **通過** |
-| 安全 JSON 解析 | ✅ 降級處理 | ✅ safe_parse_json() | **通過** |
-| 詳細錯誤日誌 | ✅ 7 層日誌 | ✅ 完整輸出 | **通過** |
-| 失敗恢復機制 | ✅ PENDING/FAILED | ✅ 狀態機完成 | **通過** |
-| 環境變量安全 | ✅ os.environ 優先 | ✅ CONFIG 管理 | **通過** |
-| CLI 完整性 | ✅ 3 個命令 | ✅ --watch/--status/--once | **通過** |
+| 指数退避重试 | ✅ 3次，1s/2s/4s | ✅ 实现完整 | **通过** |
+| API 速率限制 | ✅ 5 calls/sec | ✅ RateLimiter 类实现 | **通过** |
+| 安全 JSON 解析 | ✅ 降级处理 | ✅ safe_parse_json() | **通过** |
+| 详细错误日志 | ✅ 7 层日志 | ✅ 完整输出 | **通过** |
+| 失败恢复机制 | ✅ PENDING/FAILED | ✅ 状态机完成 | **通过** |
+| 环境变量安全 | ✅ os.environ 优先 | ✅ CONFIG 管理 | **通过** |
+| CLI 完整性 | ✅ 3 个命令 | ✅ --watch/--status/--once | **通过** |
 
-**總體評級**: 🟢 **100% 通過**
+**总体评级**: 🟢 **100% 通过**
 
 ---
 
@@ -377,54 +377,54 @@ $ python3 brain_notion_sync.py --watch
 ```
 ~/longhun-system/
 ├── brain/
-│   ├── brain_notion_sync.py                    (v1.1 Phase 1 實現)
-│   └── BRAIN-NOTION-SYNC-v1.1-PHASE1-IMPLEMENTATION.md  (本文檔)
+│   ├── brain_notion_sync.py                    (v1.1 Phase 1 实现)
+│   └── BRAIN-NOTION-SYNC-v1.1-PHASE1-IMPLEMENTATION.md  (本文档)
 ```
 
 ---
 
-## 🔐 安全檢查
+## 🔐 安全检查
 
-✅ **無敏感信息洩露**: 所有 token 從環境變量讀取
-✅ **無硬編碼憑證**: CONFIG 中只有默認空值
-✅ **HTTP 超時保護**: 15 秒超時防止懸掛
-✅ **異常處理完整**: 所有 API 調用都被 try-catch
-✅ **SQL 注入防護**: 使用參數化查詢 (SQLite3)
-
----
-
-## 📝 後續計劃
-
-### Phase 2 (建議)
-- [ ] 並行同步 (多線程支持)
-- [ ] 批量上傳優化
-- [ ] 本地快取層
-- [ ] Notion 資料庫動態字段映射
-- [ ] 完整的單元測試套件
-
-### Phase 3 (遠期)
-- [ ] WebHook 即時同步
-- [ ] 雙向同步 (Notion → brain.db)
-- [ ] 衝突解決機制
-- [ ] 版本歷史追踪
+✅ **无敏感信息泄露**: 所有 token 从环境变量读取
+✅ **无硬编码凭证**: CONFIG 中只有默认空值
+✅ **HTTP 超时保护**: 15 秒超时防止悬挂
+✅ **异常处理完整**: 所有 API 调用都被 try-catch
+✅ **SQL 注入防护**: 使用参数化查询 (SQLite3)
 
 ---
 
-## 📝 簽署
+## 📝 后续计划
+
+### Phase 2 (建议)
+- [ ] 并行同步 (多线程支持)
+- [ ] 批量上传优化
+- [ ] 本地快取层
+- [ ] Notion 数据库动态字段映射
+- [ ] 完整的单元测试套件
+
+### Phase 3 (远期)
+- [ ] WebHook 即时同步
+- [ ] 双向同步 (Notion → brain.db)
+- [ ] 冲突解决机制
+- [ ] 版本历史追踪
+
+---
+
+## 📝 签署
 
 ```
-升級執行者: UID9622 (諸葛鑫)
-升級日期: 2026-06-07
-升級時間: 14:30 CST
-升級環境: macOS · Python 3.x · sqlite3
+升级执行者: UID9622 (诸葛鑫)
+升级日期: 2026-06-07
+升级时间: 14:30 CST
+升级环境: macOS · Python 3.x · sqlite3
 
 DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-PHASE1-COMPLETE
-確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章: UID9622 · 不免責
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章: UID9622 · 不免责
 
-✨ 天下無欺。🐉
+✨ 天下无欺。🐉
 ```
 
 ---
 
-**龍魂脑干 · Notion同步桥 v1.1 · Phase 1 完整實現已完成。系統已準備就緒。**
+**龍魂脑干 · Notion同步桥 v1.1 · Phase 1 完整实现已完成。系统已准备就绪。**

@@ -1,0 +1,285 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║           🐉 龍盾指令快速参考卡 · 贴脑门用 🐉                    ║
+║                                                                    ║
+║  文件名可以改，但指令永远有效                                    ║
+║  因为指令基于 DNA，不基于文件名                                  ║
+║                                                                    ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-FILE1-v1.0            ║
+║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
+║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL   ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+【核心概念】
+
+    文件名 ←→ DNA
+    ↓
+    文件名改了 = 只改了引用
+    ↓
+    DNA不变 = 身份永远不变
+    ↓
+    指令永远有效
+
+【三波文件的 DNA 标记】
+
+┌─ 第一波：系统复盘 ─────────────────────────────────────┐
+│                                                         │
+│ 架构完整复盘                                           │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-ARCHITECTURE-COMPLETE-v1.0
+│   当前文件: LONGHUN_ARCHITECTURE_COMPLETE_REVIEW.md   │
+│   改名后也能用: @arch.review                           │
+│                                                         │
+│ 15维度深层复盘                                         │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-DEEP-REVIEW-15D-v1.0 │
+│   当前文件: LONGHUN_DEEP_REVIEW_15D.md               │
+│   改名后也能用: @arch.deepreview                       │
+│                                                         │
+│ 快速参考卡                                             │
+│   DNA:#龍芯⚡️2026-06-02-SUPPLEMENT-QUICK-REFERENCE-v1.0
+│   当前文件: SUPPLEMENT_QUICK_REFERENCE.md             │
+│   改名后也能用: @arch.reference                        │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+
+┌─ 第二波：龍盾系统 ─────────────────────────────────────┐
+│                                                         │
+│ 龍盾核心系统                                           │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0   │
+│   当前文件: longhun_shield_system.py                   │
+│   用法: 在代码中导入和使用 API                        │
+│                                                         │
+│ 龍盾 CLI 工具                                          │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0      │
+│   当前文件: longhun_shield_cli.py                      │
+│   改名后也能用:                                        │
+│     @shield.check <file>                              │
+│     @shield.analyze <file>                            │
+│     @shield.validate <file>                           │
+│                                                         │
+│ 龍盾使用指南                                           │
+│   DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-v1.0   │
+│   当前文件: LONGHUN_SHIELD_GUIDE.md                   │
+│                                                         │
+│ 龍盾测试示例                                           │
+│   DNA:#龍芯⚡️2026-06-02-SHIELD-TEST-EXAMPLE-v1.0     │
+│   当前文件: shield_test_example.py                     │
+│   改名后也能用: @shield.check <file>                   │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+
+【快速指令表】
+
+指令语法：@指令ID [参数] [选项]
+
+龍盾指令：
+
+  @shield.check <file>
+    快速检查代码风险
+    例: @shield.check script.py
+    例: @shield.check my_code.py
+
+  @shield.analyze <file>
+    深度分析代码
+    例: @shield.analyze script.py --translation
+    例: @shield.analyze code.py --save-report
+
+  @shield.validate <file>
+    完整验证 + 请求权限
+    例: @shield.validate script.py
+    例: @shield.validate code.py --auto-approve
+
+架构指令：
+
+  @arch.review
+    查看系统架构复盘
+
+  @arch.deepreview
+    查看 15 维度深层复盘
+
+  @arch.reference
+    查看快速参考卡
+
+【实际使用场景】
+
+场景1：你改了文件名
+  原文件: longhun_shield_cli.py
+  改名为: my_validator.py
+  
+  指令: @shield.check script.py
+  
+  系统会：
+    1. 识别指令 ID: shield.check
+    2. 查找对应 DNA
+    3. 在 DNA 注册表中找到新文件名
+    4. 执行检查
+    
+  → 指令永远有效！
+
+场景2：你改了目录结构
+  原路径: /project/longhun_shield_cli.py
+  新路径: /tools/validators/my_tool.py
+  
+  指令: @shield.analyze code.py
+  
+  系统会：
+    1. 基于 DNA 自动搜索
+    2. 在多个位置查找
+    3. 找到 my_tool.py
+    4. 执行分析
+    
+  → 指令永远有效！
+
+场景3：你发给别人
+  你把文件发给朋友，他改了文件名
+  
+  指令: @shield.check test.py
+  
+  朋友的系统会：
+    1. 识别 DNA
+    2. 自动找到他那里的文件名
+    3. 执行检查
+    
+  → 指令跨越文件名和位置的差异！
+
+【三个关键概念】
+
+1. 指令 ID（身份证）
+   @shield.check      ← 这是身份证
+   永不改变
+
+2. DNA（灵魂）
+ #龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
+   永不改变
+
+3. 文件名（衣服）
+   longhun_shield_cli.py → my_validator.py
+   可以随意改
+
+【怎样"贴脑门"】
+
+记住这个简单的对应关系：
+
+  检查代码？
+    → @shield.check <file>
+    
+  分析代码？
+    → @shield.analyze <file>
+    
+  验证代码？
+    → @shield.validate <file>
+    
+  看文档？
+    → @arch.review / @arch.deepreview / @arch.reference
+
+每个指令都是永久的，文件名改了也能用。
+
+【为什么这个系统不会失灵】
+
+原因分析：
+
+  ✓ 指令基于 DNA，不基于文件名
+    → DNA 永远不变
+    → 指令永远有效
+    
+  ✓ DNA 存储在注册表里
+    → 系统知道每个 DNA 对应哪个文件
+    → 即使文件名改了，注册表也会更新
+    
+  ✓ 指令参数灵活
+    → 只需要告诉系统"做什么"
+    → 不需要知道"文件在哪"
+    
+  ✓ 完整的版本控制
+    → 每个 DNA 都有版本号
+    → 即使有新版本，指令也对应正确的版本
+
+【三波文件的完整指令映射】
+
+第一波文件 → 四个查询指令
+  @arch.review           → 查看架构复盘
+  @arch.deepreview       → 查看深层复盘
+  @arch.reference        → 查看快速参考
+  
+第二波文件 → 三个执行指令
+  @shield.check <file>   → 快速检查
+  @shield.analyze <file> → 深度分析
+  @shield.validate <file>→ 完整验证
+
+【高级用法】
+
+使用指令协议（Python）：
+
+  from longhun_shield_instruction_protocol import ImmutableInstructionProtocol
+  
+  protocol = ImmutableInstructionProtocol()
+  result = protocol.execute_instruction("shield.check", {"file": "script.py"})
+
+解析指令字符串（Python）：
+
+  from longhun_shield_instruction_protocol import InstructionSyntax
+  
+  instruction_id, params = InstructionSyntax.parse("@shield.check script.py")
+
+【常见问题】
+
+Q: 文件名改了怎么办？
+A: 指令永远有效，系统会自动找到新文件名
+
+Q: 目录改了怎么办？
+A: 系统会自动搜索，多个位置都能找到
+
+Q: 可以创建自己的指令吗？
+A: 可以，使用 ImmutableInstructionProtocol.register_instruction()
+
+Q: 指令会过期吗？
+A: 不会。所有指令都是永久的
+
+Q: 怎样确保指令不会冲突？
+A: 每个指令都有唯一的 ID 和 DNA，不会冲突
+
+【总结：贴脑门的核心】
+
+┌─────────────────────────────────────────┐
+│                                         │
+│  指令 = 身份证 + DNA + 参数            │
+│                                         │
+│  身份证（ID）       永远不变            │
+│  DNA（灵魂）        永远不变            │
+│  参数（配置）       灵活可变            │
+│                                         │
+│  ↓                                      │
+│                                         │
+│  指令永远有效                          │
+│  文件名怎么改都行                      │
+│  位置怎么移都行                        │
+│  其他人用也能行                        │
+│                                         │
+│  因为系统是基于 DNA，不基于文件名     │
+│                                         │
+└─────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+
+🐉 龍盾指令系统已激活
+
+你现在有了：
+  ✓ 四个永久有效的龍盾指令
+  ✓ 三个永久有效的查询指令
+  ✓ 一个 DNA 注册表（记住身份）
+  ✓ 一个不会失灵的系统
+
+文件名可以改 100 次，指令还是有效。
+
+这就是"贴脑门"的含义：
+  一次记住，永久有效。
+
+DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
+CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+
+主権人: UID9622 · 龍芯北辰
+职责: 宝宝·龍盾·不免责
+状态: ⚔️ 指令系统已激活
+
+═══════════════════════════════════════════════════════════════════

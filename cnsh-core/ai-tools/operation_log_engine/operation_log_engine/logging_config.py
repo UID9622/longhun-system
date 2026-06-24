@@ -11,13 +11,13 @@
 # 文件: logging_config.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🧬 龍魂操作日記引擎 · logging_config.py
+🧬 龍魂操作日记引擎 · logging_config.py
 
 DNA:#龍芯⚡️2026-05-30-LOGGING-CONFIG-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-日誌系統配置。統一的日誌記錄和管理。
+日志系统配置。统一的日志记录和管理。
 """
 
 import logging
@@ -35,24 +35,24 @@ def setup_logger(
     level: str = "INFO",
 ) -> logging.Logger:
     """
-    設置一個特定的 logger。
+    设置一个特定的 logger。
 
     Args:
-        name: logger 名稱
-        log_file: 日誌文件路徑 (如為 None，則不寫入文件)
-        level: 日誌級別
+        name: logger 名称
+        log_file: 日志文件路径 (如为 None，则不写入文件)
+        level: 日志级别
 
     Returns:
-        配置好的 logger 對象
+        配置好的 logger 对象
     """
     logger = logging.getLogger(name)
     logger.setLevel(level.upper())
 
-    # 如果已有 handlers，不重複添加
+    # 如果已有 handlers，不重复添加
     if logger.hasHandlers():
         return logger
 
-    # 日誌格式
+    # 日志格式
     formatter = logging.Formatter(
         "[%(asctime)s] %(name)-20s [%(levelname)-8s] %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
@@ -64,14 +64,14 @@ def setup_logger(
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
-    # 文件 handler (如果指定了日誌文件)
+    # 文件 handler (如果指定了日志文件)
     if log_file:
         log_file.parent.mkdir(parents=True, exist_ok=True)
 
-        # 使用輪轉日誌處理器
+        # 使用轮转日志处理器
         file_handler = logging.handlers.RotatingFileHandler(
             log_file,
-            maxBytes=Config.LOG_MAX_SIZE * 1024 * 1024,  # 轉換為 bytes
+            maxBytes=Config.LOG_MAX_SIZE * 1024 * 1024,  # 转换为 bytes
             backupCount=Config.LOG_BACKUP_COUNT,
             encoding="utf-8"
         )
@@ -82,16 +82,16 @@ def setup_logger(
     return logger
 
 
-# ==================== 核心 Logger 實例 ====================
+# ==================== 核心 Logger 实例 ====================
 
-# 主日誌
+# 主日志
 logger_main = setup_logger(
     "operation_log_engine",
     Config.LOG_FILE,
     Config.LOG_LEVEL
 )
 
-# 各個模組的 logger
+# 各个模组的 logger
 logger_ledger = setup_logger(
     "operation_log_engine.ledger",
     Config.OPERATION_LOG,
@@ -140,7 +140,7 @@ logger_error = setup_logger(
     "ERROR"
 )
 
-# CLI 日誌
+# CLI 日志
 logger_cli = setup_logger(
     "operation_log_engine.cli",
     Config.LOG_FILE,
@@ -150,26 +150,26 @@ logger_cli = setup_logger(
 
 def get_logger(name: str) -> logging.Logger:
     """
-    獲取指定名稱的 logger。
+    获取指定名称的 logger。
 
     Args:
-        name: logger 名稱
+        name: logger 名称
 
     Returns:
-        logger 對象
+        logger 对象
     """
     return logging.getLogger(f"operation_log_engine.{name}")
 
 
 def log_operation(operation_id: str, operation_type: str, message: str, level: str = "INFO") -> None:
     """
-    記錄操作日誌。
+    记录操作日志。
 
     Args:
         operation_id: 操作 ID
-        operation_type: 操作類型
-        message: 日誌消息
-        level: 日誌級別
+        operation_type: 操作类型
+        message: 日志消息
+        level: 日志级别
     """
     log_msg = f"{operation_id} [{operation_type}] {message}"
     getattr(logger_main, level.lower())(log_msg)
@@ -177,11 +177,11 @@ def log_operation(operation_id: str, operation_type: str, message: str, level: s
 
 def log_sync_event(event_type: str, status: str, message: str) -> None:
     """
-    記錄同步事件。
+    记录同步事件。
 
     Args:
-        event_type: 事件類型 (sync_start, sync_complete, conflict 等)
-        status: 狀態 (success, failed, warning)
+        event_type: 事件类型 (sync_start, sync_complete, conflict 等)
+        status: 状态 (success, failed, warning)
         message: 事件消息
     """
     log_msg = f"[{event_type}] [{status}] {message}"
@@ -195,12 +195,12 @@ def log_sync_event(event_type: str, status: str, message: str) -> None:
 
 def log_verification(operation_id: str, verdict: str, layers_status: dict) -> None:
     """
-    記錄驗證結果。
+    记录验证结果。
 
     Args:
         operation_id: 操作 ID
-        verdict: 驗證結果 (approved/rejected)
-        layers_status: 各層驗證狀態字典
+        verdict: 验证结果 (approved/rejected)
+        layers_status: 各层验证状态字典
     """
     layers_str = " | ".join(
         f"{layer}: {status}"
@@ -213,20 +213,20 @@ def log_verification(operation_id: str, verdict: str, layers_status: dict) -> No
         logger_multisig.info(log_msg)
 
 
-# 初始化檢查
+# 初始化检查
 def verify_logging_setup() -> bool:
-    """驗證日誌系統是否正確設置"""
+    """验证日志系统是否正确设置"""
     try:
-        # 檢查日誌目錄是否可寫
+        # 检查日志目录是否可写
         Config.LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-        # 測試日誌寫入
-        logger_main.info("🟢 日誌系統初始化完成")
+        # 测试日志写入
+        logger_main.info("🟢 日志系统初始化完成")
         return True
     except Exception as e:
-        print(f"❌ 日誌系統初始化失敗: {e}")
+        print(f"❌ 日志系统初始化失败: {e}")
         return False
 
 
-# 自動初始化
+# 自动初始化
 verify_logging_setup()

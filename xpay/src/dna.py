@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DNA 存根生成與驗證
+DNA 存根生成与验证
 DNA:#龍芯⚡️2026-06-17-XPAY-DNA-FILE1-v2.0
 """
 import hashlib
@@ -20,8 +20,8 @@ def generate_tx_id() -> str:
 def generate_dna_signature(tx_id: str, amount: float, currency: str,
                            sender: str, recipient: str, timestamp: str) -> str:
     """
-    生成交易 DNA 簽名：所有關鍵字段的 SHA256 哈希前 16 位。
-    這是交易在宇宙中留下的不可刪除指紋。
+    生成交易 DNA 签名：所有关键字段的 SHA256 哈希前 16 位。
+    这是交易在宇宙中留下的不可删除指纹。
     """
     payload = "|".join([
         tx_id,
@@ -36,7 +36,7 @@ def generate_dna_signature(tx_id: str, amount: float, currency: str,
 
 
 def verify_dna_signature(tx: Dict, signature: str) -> bool:
-    """驗證 DNA 簽名是否與交易字段匹配"""
+    """验证 DNA 签名是否与交易字段匹配"""
     expected = generate_dna_signature(
         tx_id=tx.get("tx_id", ""),
         amount=float(tx.get("amount", 0)),

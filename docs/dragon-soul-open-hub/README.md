@@ -1,15 +1,15 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE4-v1.0-5 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # ☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub
 
-本目錄收錄自 Notion 工作區「☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub」的公開中樞文檔，涵蓋 CNSH-64 治理感知決策框架、IPA×人格對齊、意圖識別、龍魂元宇宙與智能體系統規格、開源模板與學術論文。已過濾明顯私人存檔與碎片文件。
+本目录收录自 Notion 工作区“☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub”的公开中枢文档，涵盖 CNSH-64 治理感知决策框架、IPA×人格对齐、意图识别、龍魂元宇宙与智能体系统规格、开源模板与学术论文。已过滤明显私人存档与碎片文件。
 
-- 本目錄文件數：146
+- 本目录文件数：146
 
-## 分類目錄
+## 分类目录
 
-### academic/（29 個文件）
+### academic/（29 个文件）
 
 - `academic/CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版 fab5940bb6d84936a6a1e56432aeb33a.md`
 - `academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md`
@@ -37,11 +37,13 @@
 - `academic/📜 洛书369·arXiv投稿就绪版 v2 0 学术织锦者升级 ac786f590ed84393bf408ada0c9e2fc4.md`
 - `academic/📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1 0 UID9622 × Claude 004988a62d50431a9dfd84227254cfea.md`
 - `academic/📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 UID9622 × Clau 3297125a9c9f81b5ab3fda0a0151b069.md`
+- `academic/📜 洛书369与AI决策不变量·统一版 v3.0.md`（CSDN已发布：https://blog.csdn.net/UID9622/article/details/162186655）
+- `academic/IEEE_论文专题索引.md`（IEEE 论文专题索引与发布状态总览）
 - `academic/📜 白皮书完整版｜9章内容（Claude整理） 9273b23eb0f04ecb9874c408de677a51.md`
 - `academic/📦 白皮书文件包使用说明｜Claude操作指南 8388d572319a419494fc138976fe01fb.md`
 - `academic/🛡️ 净网行动·民间技术观察白皮书 v3 0 47af266b6c304155863b82ebf36071c5.md`
 
-### agent-specs/（17 個文件）
+### agent-specs/（17 个文件）
 
 - `agent-specs/本地 Claude MCP 搭建指南｜UID9622专属 · 对着做就行 e2d44e2c234e4b678d0cab716476e4cc.md`
 - `agent-specs/龍魂智能体系统需求规格说明书 SRS v1 0 UID9622 86ab8716b64448ebaee4d788aeb89b33.md`
@@ -59,9 +61,9 @@
 - `agent-specs/🧠 龍魂·智能体大脑集成手册 v1 0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化 072c483a21b6437f9326b722636af935.md`
 - `agent-specs/🧠 龍魂·本地大脑神经网络 v1 0｜系统中枢总索引 dcb73d6fbff9409a98780964bcbc3e30.md`
 - `agent-specs/🧩 复杂任务·自动分解规则 一句话变多步骤 bbce26e3152346e3a3a87062c20c1fad.md`
-- `agent-specs/🧭 龍魂·人格路由API規則 v2 0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UI 71091bb507a8492ba6f6cc3959249757.md`
+- `agent-specs/🧭 龍魂·人格路由API规则 v2 0｜触发条件·联动逻辑·数据来源·回复时间戳规范·性能基准｜UI 71091bb507a8492ba6f6cc3959249757.md`
 
-### compiler/（9 個文件）
+### compiler/（9 个文件）
 
 - `compiler/⚙️ CNSH Runtime Architecture Specification v1 0 32d7125a9c9f8134bd8de1596a5cfd49.md`
 - `compiler/✅ [已合并到 v2 0 主干] 🌌 CNSH 中文语法规范 v1｜关键词表·模块结构·执行模板 41275b3dee604035b4394845f56e5583.md`
@@ -73,7 +75,7 @@
 - `compiler/🐉 CNSH全通型中文编码助手·总控中心 v1 0 78fd9f85ce04469cada7369bc36a2aca.md`
 - `compiler/🛠️ CNSH工具集本地网页模板 DNA验证+工具解锁系统 16399c8440fa4d1aad5cad3aa8cb5ffe.md`
 
-### governance/（31 個文件）
+### governance/（31 个文件）
 
 - `governance/AI必须可审计·可追溯·可继承 6068fcc2704147aaa4b57e2b29dca467.md`
 - `governance/⚖️ 三色审计·AI回复真实性验证协议 v1 0｜数学证明+求证算法+天下无欺 2fef05eeb41a4e0e9beff239289678b8.md`
@@ -90,7 +92,7 @@
 - `governance/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md`
 - `governance/📊 行为图谱存储规范 审计链管理手册 271d945e492d4f23a9e166cefa50e525.md`
 - `governance/📋 三色审计·创作明细登记表 + 公共验证服务模型 v1 1｜原创守护+剽窃界定+1元审计+学生免费 9321e3b7bcc44fdfad5889ce6e484cdb.md`
-- `governance/📐 龍魂七維AI治理×數字主權執行表·設計規範 v1 0｜君子協議·Notion即登記所｜UID96 84daa1d2030447318ade20e12b1fdb36.md`
+- `governance/📐 龍魂七维AI治理×数字主权执行表·设计规范 v1 0｜君子协议·Notion即登记所｜UID96 84daa1d2030447318ade20e12b1fdb36.md`
 - `governance/📜 龍魂系统宪法 v1 0 CNSH Constitution 8ad36909a4504f0aae24cbaea3c4ea9f.md`
 - `governance/📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md`
 - `governance/📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md`
@@ -107,7 +109,7 @@
 - `governance/🧠 CNSH-64 A Governance-Aware Symbolic Decision Fra 3297125a9c9f818c8a69f6a6313217dc.md`
 - `governance/🧠 CNSH-64 A Governance-Aware Symbolic Decision Fra 63668607794c43a1ababbe37cde8e53b.md`
 
-### intent-recognition/（8 個文件）
+### intent-recognition/（8 个文件）
 
 - `intent-recognition/① Agent Instructions · 龍慧通心译 P14 v1 0 34d7125a9c9f81b1a34fcff91c4598d7.md`
 - `intent-recognition/⚡ Human→System Translation OS v1 1｜龍魂回复触发引擎·12层处理· 5b78e744c8c54d18b56719e5d14a51c6.md`
@@ -118,11 +120,11 @@
 - `intent-recognition/🤖 通心译系统文档集 v1 0 34d7125a9c9f8152b264e89a85edc282.md`
 - `intent-recognition/🧠 老大常说的话·意图识别库 7c79a7e5b1af47ae9048a7762e8c6d04.csv`
 
-### ipa-alignment/（10 個文件）
+### ipa-alignment/（10 个文件）
 
 - `ipa-alignment/五大后台人格激活指令 2f97125a9c9f807a8ed0c3d1ebb86126.md`
 - `ipa-alignment/🎯 人格召唤·快捷卡 8c130b9fa63b460d84c78e5d06782b02.csv`
-- `ipa-alignment/🐉 龍芯家族·人格與工具管理中心 神經網絡架構圖 7b33c2072eb44df2ad15f3015d0f17b8.md`
+- `ipa-alignment/🐉 龍芯家族·人格与工具管理中心 神经网络架构图 7b33c2072eb44df2ad15f3015d0f17b8.md`
 - `ipa-alignment/🐉 龍魂AI人格体系·93人格完整合集 v3 0 龍芯马甲统一规范 772a491289314b0f903671d691ccc6ea.md`
 - `ipa-alignment/👥 同道者名录｜UID9622龙魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md`
 - `ipa-alignment/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md`
@@ -131,7 +133,7 @@
 - `ipa-alignment/🧑‍💼 人格库（Persona DB） 4534467871234f0aae39a854cfbaeb58.csv`
 - `ipa-alignment/🧠 三才算法流场 v3 0｜会呼吸的大脑·自适应成长版｜UID9622 50df45a641bf4d01a9c022b6d3045a6d.md`
 
-### metaverse/（10 個文件）
+### metaverse/（10 个文件）
 
 - `metaverse/龍魂终端 v3 0｜全新创意互动入口 6f24328aabf54ec78787efbe1b5a2f23.md`
 - `metaverse/🌌 龍魂元世界入口×L5时间轴×加密知识库｜找感觉版·每次升级折叠存档 a584070f1f9b45649d8add9c39109442.md`
@@ -144,18 +146,18 @@
 - `metaverse/🚀 龍魂终端 v6 0 · 星际宇航·全息交互版 c77a0992bc2f466ca752d76071f6bce9.md`
 - `metaverse/🚪 龍魂哨兵·传送门技术架构 v1 0 743267877f4749a390c96a48d34f54e9.md`
 
-### ops/（8 個文件）
+### ops/（8 个文件）
 
 - `ops/龙魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md`
 - `ops/🏭 UID9622数据流工厂模型 v1 0 输入→加工→输出→循环 fe6b8bedcf4d40e6a5439cc8ce09b76d.md`
-- `ops/📡 龍魂系統·已發布內容歸類總覽 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md`
+- `ops/📡 龍魂系统·已发布内容归类总览 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md`
 - `ops/🔌 龍魂·Notion API 全景文档｜系统集成索引 v1 0 3c8bf63e3d3b49dc84d01407ceeaa3d2.md`
 - `ops/🗂️ 龍魂系统·页面标题分类结构｜给本地Claude的整理指南 208c015de3a44b88b4329ee4b727a8c8.md`
 - `ops/🗺️ 龙魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md`
 - `ops/🚀 龙魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md`
 - `ops/🛠️ 系统规范区 执行标准仓库 40b8b274726f44de96a453d238a76cba.md`
 
-### security/（5 個文件）
+### security/（5 个文件）
 
 - `security/本地测试与数据安全防护方案 v1 0 龍魂系统 859463a6ac0046788b9ae0f105d18beb.md`
 - `security/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md`
@@ -163,12 +165,12 @@
 - `security/🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md`
 - `security/🛡️ 龍芯·本地异常检测器 v1 0｜Mac全场景排异脚本｜UID9622 e19d94b622404e8d892c4e5c0b2507d9.md`
 
-### templates/（2 個文件）
+### templates/（2 个文件）
 
 - `templates/📁 开源文件模板系统 CNSH-Editor v1 0 e3d22f7e5d854dbf8c138e72274afd23.md`
 - `templates/🗣️ 龍魂·直言模板库｜开箱即用·填入即出·署名即担当 7e9597078fd34510870a5646b1aa73b2.md`
 
-### tutorials/（17 個文件）
+### tutorials/（17 个文件）
 
 - `tutorials/CSDN问答｜C++多线程单例与全局结构体并发安全方案 1d52ff7293c0407b9d6a42e2a503f33b.md`
 - `tutorials/知乎文章发布前检查模板｜龍芯出品·发出去不丢人 40f6660f1242439285847d83749b9d69.md`
@@ -186,4 +188,4 @@
 - `tutorials/📦 README极简模板｜仓库说明·一眼看懂 1a59dad93a8340adb046804f51bd6132.md`
 - `tutorials/🚀 Gitee春节献礼·一键推送脚本 v1 0 a594093133bb49a9b8b56f57f6e0a272.md`
 - `tutorials/🚀 Gitee春节献礼·一键推送脚本 v1 0 d553146303e94dd7b9efbe11649fedc8.md`
-- `tutorials/🦞 OpenClaw「龙虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md`
+- `tutorials/🦞 OpenClaw“龙虾”安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md`

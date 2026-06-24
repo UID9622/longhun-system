@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-ORGANIZE_LONGHUN_TECH-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 """
@@ -86,12 +86,12 @@ EXCLUDE_NAME_PATTERNS = [
     r"成长记录",
     r"账号.*整理",
     r"测试.*csv",
-    r"測試.*csv",
+    r"测试.*csv",
     r"整理.*app",
     r"从移动端开始",
     r"邮箱.*颜色",
     r"想法收集",
-    r"嘗試設計",
+    r"尝试设计",
     r"Stay Updated",
     r"OpenAI News",
     r"思维分类待办",

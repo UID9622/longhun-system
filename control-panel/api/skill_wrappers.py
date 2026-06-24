@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-SKILL_WRAPPERS-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 """
-龍魂技能 API 封裝層
-將 skills/py-skills/ 下的腳本封裝為可調用函數，供 FastAPI 使用。
+龍魂技能 API 封装层
+将 skills/py-skills/ 下的脚本封装为可调用函数，供 FastAPI 使用。
 """
 import base64
 import inspect
@@ -16,7 +16,7 @@ import traceback
 from pathlib import Path
 from typing import Any, Dict
 
-# 確保 skills/py-skills 在路徑中
+# 确保 skills/py-skills 在路径中
 SKILLS_DIR = Path(__file__).resolve().parents[2] / "skills" / "py-skills"
 sys.path.insert(0, str(SKILLS_DIR))
 
@@ -38,7 +38,7 @@ web_mod = _load_module("web_artifacts_builder", "skill-10-web-artifacts-builder.
 
 
 def run_mcp_builder(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """Skill-6: MCP 服務器構建工具"""
+    """Skill-6: MCP 服务器构建工具"""
     name = payload.get("name", "longhun-mcp-service")
     version = payload.get("version", "1.0.0")
     tools = payload.get("tools", [])
@@ -52,7 +52,7 @@ def run_mcp_builder(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
-        # 手動保存項目文件（規避原 skill 中 generate_server_code 的 f-string 嵌套 bug）
+        # 手动保存项目文件（规避原 skill 中 generate_server_code 的 f-string 嵌套 bug）
         config = builder.generate_config()
         (tmp_path / "mcp_config.json").write_text(json.dumps(config, indent=2, ensure_ascii=False), encoding="utf-8")
         (tmp_path / "requirements.txt").write_text(builder.generate_requirements(), encoding="utf-8")
@@ -64,7 +64,7 @@ def run_mcp_builder(payload: Dict[str, Any]) -> Dict[str, Any]:
             "".join(f"- **{r['uri']}**: {r['name']}\n" for r in builder.resources),
             encoding="utf-8"
         )
-        # 構建可執行的 server.py，避免在 Python 字符串中再嵌套 f-string
+        # 构建可执行的 server.py，避免在 Python 字符串中再嵌套 f-string
         tool_code = "\n".join(
             f'''@server.call_tool("{t['name']}")
 async def tool_{t['name'].replace('-', '_')}(request):
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 
 async def run_skill_creator(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """Skill-7: 技能創建框架"""
+    """Skill-7: 技能创建框架"""
     skill_id = payload.get("skill_id", "demo-skill")
     name = payload.get("name", "Demo Skill")
     description = payload.get("description", "Auto-created skill")
@@ -127,7 +127,7 @@ async def run_skill_creator(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def run_slack_gif_creator(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """Skill-8: Slack GIF 創建工具"""
+    """Skill-8: Slack GIF 创建工具"""
     width = payload.get("width", 512)
     height = payload.get("height", 512)
     gif_type = payload.get("type", "loading_spinner")
@@ -162,7 +162,7 @@ def run_slack_gif_creator(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def run_theme_factory(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """Skill-9: 主題工廠"""
+    """Skill-9: 主题工厂"""
     base = payload.get("base", "longhun-cyber")
     name = payload.get("name", base)
 
@@ -184,7 +184,7 @@ def run_theme_factory(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def run_web_artifacts_builder(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """Skill-10: Web 工件構建器"""
+    """Skill-10: Web 工件构建器"""
     artifact_id = payload.get("artifact_id", "demo-page")
     name = payload.get("name", "Demo Page")
     artifact_type = payload.get("type", "html")

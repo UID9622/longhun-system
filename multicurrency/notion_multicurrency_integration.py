@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 Notion 多幣種集成系統 v1.0
+🐉 Notion 多币种集成系统 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
 DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-功能: 在 Notion 中創建多幣種監控面板·同步實時匯率
+功能: 在 Notion 中创建多币种监控面板·同步实时汇率
 
 用法:
   python3 notion_multicurrency_integration.py --setup
@@ -40,46 +40,46 @@ class NotionConfig:
         self.api_version = '2022-06-28'
 
     def is_configured(self) -> bool:
-        """檢查是否已配置"""
+        """检查是否已配置"""
         return bool(self.token) and bool(self.parent_page_id)
 
     def report(self):
-        """輸出配置狀態"""
-        print("Notion 配置狀態:")
+        """输出配置状态"""
+        print("Notion 配置状态:")
         print(f"  Token:      {'✅ 已配置' if self.token else '❌ 未配置'}")
         print(f"  Parent:     {'✅ 已配置' if self.parent_page_id else '❌ 未配置'}")
         print(f"  Database:   {'✅ 已配置' if self.database_id else '❌ 未配置'}")
 
 # ═══════════════════════════════════════════════════════════════
-# 頁面設計定義
+# 页面设计定义
 # ═══════════════════════════════════════════════════════════════
 
 MULTICURRENCY_PAGE_TEMPLATE = {
-    "title": "💰 龍魂·多幣種行情中心",
-    "description": "實時匯率查詢·三色標籤·幣種轉換",
+    "title": "💰 龍魂·多币种行情中心",
+    "description": "实时汇率查询·三色标签·币种转换",
     "emoji": "💰",
     "sections": [
         {
-            "title": "🟢 主流幣種快覽",
-            "description": "7 個主流幣種實時匯率 (基準: USD)",
+            "title": "🟢 主流币种快览",
+            "description": "7 个主流币种实时汇率 (基准: USD)",
             "currencies": ["CNY", "EUR", "GBP", "JPY", "BTC", "ETH"],
             "type": "table"
         },
         {
-            "title": "🔄 幣種轉換器",
-            "description": "快速幣種轉換·計算器模式",
-            "features": ["快速計算", "支持所有幣種", "實時匯率"],
+            "title": "🔄 币种转换器",
+            "description": "快速币种转换·计算器模式",
+            "features": ["快速计算", "支持所有币种", "实时汇率"],
             "type": "calculator"
         },
         {
-            "title": "📈 匯率走勢",
-            "description": "7日 / 30日 匯率變化圖表",
+            "title": "📈 汇率走势",
+            "description": "7日 / 30日 汇率变化图表",
             "timeframes": ["7天", "30天", "90天"],
             "type": "chart"
         },
         {
-            "title": "⚙️ 更新日誌",
-            "description": "更新時間戳·數據源驗證·異常告警",
+            "title": "⚙️ 更新日志",
+            "description": "更新时间戳·数据源验证·异常告警",
             "fields": ["timestamp", "source", "deviation", "status"],
             "type": "log"
         }
@@ -87,34 +87,34 @@ MULTICURRENCY_PAGE_TEMPLATE = {
 }
 
 # ═══════════════════════════════════════════════════════════════
-# 數據庫架構
+# 数据库架构
 # ═══════════════════════════════════════════════════════════════
 
 MULTICURRENCY_DATABASE_SCHEMA = {
-    "title": "🪙 實時匯率數據庫",
-    "description": "多幣種實時匯率·三色標籤·歷史記錄",
+    "title": "🪙 实时汇率数据库",
+    "description": "多币种实时汇率·三色标签·历史记录",
     "properties": {
-        "幣種對": {
+        "币种对": {
             "type": "title",
-            "description": "匯率對 (e.g., USD/CNY)"
+            "description": "汇率对 (e.g., USD/CNY)"
         },
-        "匯率": {
+        "汇率": {
             "type": "number",
-            "description": "當前匯率",
+            "description": "当前汇率",
             "number": {"format": "number"}
         },
-        "基礎幣": {
+        "基础币": {
             "type": "select",
-            "description": "基礎貨幣",
+            "description": "基础货币",
             "options": [
                 {"name": "USD", "color": "blue"},
                 {"name": "CNY", "color": "red"},
                 {"name": "EUR", "color": "green"},
             ]
         },
-        "目標幣": {
+        "目标币": {
             "type": "select",
-            "description": "目標貨幣",
+            "description": "目标货币",
             "options": [
                 {"name": "CNY", "color": "red"},
                 {"name": "USD", "color": "blue"},
@@ -125,36 +125,36 @@ MULTICURRENCY_DATABASE_SCHEMA = {
                 {"name": "ETH", "color": "purple"},
             ]
         },
-        "狀態": {
+        "状态": {
             "type": "select",
-            "description": "三色標籤 (正常/波動/異常)",
+            "description": "三色标签 (正常/波动/异常)",
             "options": [
                 {"name": "🟢 正常", "color": "green"},
-                {"name": "🟡 波動", "color": "yellow"},
-                {"name": "🔴 異常", "color": "red"},
+                {"name": "🟡 波动", "color": "yellow"},
+                {"name": "🔴 异常", "color": "red"},
             ]
         },
-        "偏離%": {
+        "偏离%": {
             "type": "number",
-            "description": "偏離百分比",
+            "description": "偏离百分比",
             "number": {"format": "percent"}
         },
-        "數據源": {
+        "数据源": {
             "type": "select",
-            "description": "數據來源",
+            "description": "数据来源",
             "options": [
                 {"name": "CoinGecko", "color": "blue"},
                 {"name": "Fixer.io", "color": "green"},
                 {"name": "Mock", "color": "gray"},
             ]
         },
-        "更新時間": {
+        "更新时间": {
             "type": "date",
-            "description": "最後更新時間"
+            "description": "最后更新时间"
         },
-        "備註": {
+        "备注": {
             "type": "rich_text",
-            "description": "備註信息"
+            "description": "备注信息"
         }
     }
 }
@@ -164,7 +164,7 @@ MULTICURRENCY_DATABASE_SCHEMA = {
 # ═══════════════════════════════════════════════════════════════
 
 class NotionMulticurrencyIntegration:
-    """Notion 多幣種集成管理器"""
+    """Notion 多币种集成管理器"""
 
     def __init__(self):
         self.config = NotionConfig()
@@ -172,13 +172,13 @@ class NotionMulticurrencyIntegration:
         self._init_db()
 
     def _init_db(self):
-        """初始化本地數據庫"""
+        """初始化本地数据库"""
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
 
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
-        # 同步記錄表
+        # 同步记录表
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS sync_records (
                 id INTEGER PRIMARY KEY,
@@ -190,7 +190,7 @@ class NotionMulticurrencyIntegration:
             )
         ''')
 
-        # 幣種映射表
+        # 币种映射表
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS currency_mappings (
                 id INTEGER PRIMARY KEY,
@@ -205,40 +205,40 @@ class NotionMulticurrencyIntegration:
         conn.close()
 
     def setup_page_structure(self):
-        """設置 Notion 頁面結構"""
+        """设置 Notion 页面结构"""
         print("\n" + "═" * 70)
-        print("🔧 設置 Notion 多幣種頁面結構")
+        print("🔧 设置 Notion 多币种页面结构")
         print("═" * 70)
 
         if not self.config.is_configured():
-            print("❌ Notion 未配置·請設置環境變量:")
+            print("❌ Notion 未配置·请设置环境变量:")
             print("   export NOTION_TOKEN='your_token'")
             print("   export DB_PUB='parent_page_id'")
             return False
 
-        print("\n📋 頁面設計:")
-        print(f"  標題: {MULTICURRENCY_PAGE_TEMPLATE['title']}")
+        print("\n📋 页面设计:")
+        print(f"  标题: {MULTICURRENCY_PAGE_TEMPLATE['title']}")
         print(f"  表情: {MULTICURRENCY_PAGE_TEMPLATE['emoji']}")
         print(f"  描述: {MULTICURRENCY_PAGE_TEMPLATE['description']}")
 
-        print("\n📑 子頁面結構:")
+        print("\n📑 子页面结构:")
         for i, section in enumerate(MULTICURRENCY_PAGE_TEMPLATE['sections'], 1):
             print(f"\n  {i}. {section['title']}")
             print(f"     描述: {section['description']}")
             if section['type'] == 'table':
-                print(f"     幣種: {', '.join(section['currencies'])}")
+                print(f"     币种: {', '.join(section['currencies'])}")
             elif section['type'] == 'chart':
-                print(f"     時間框: {', '.join(section['timeframes'])}")
+                print(f"     时间框: {', '.join(section['timeframes'])}")
 
-        print("\n💾 數據庫架構:")
-        print(f"  名稱: {MULTICURRENCY_DATABASE_SCHEMA['title']}")
-        print(f"  欄位數: {len(MULTICURRENCY_DATABASE_SCHEMA['properties'])}")
+        print("\n💾 数据库架构:")
+        print(f"  名称: {MULTICURRENCY_DATABASE_SCHEMA['title']}")
+        print(f"  字段数: {len(MULTICURRENCY_DATABASE_SCHEMA['properties'])}")
 
         for field_name, field_config in MULTICURRENCY_DATABASE_SCHEMA['properties'].items():
             print(f"    • {field_name} ({field_config['type']})")
 
-        print("\n✅ 頁面結構設計完成")
-        print("📌 下一步: 通過 Notion API 或手動在 Notion 中創建頁面")
+        print("\n✅ 页面结构设计完成")
+        print("📌 下一步: 通过 Notion API 或手动在 Notion 中创建页面")
         return True
 
     def generate_sync_config(self) -> Dict:
@@ -252,7 +252,7 @@ class NotionMulticurrencyIntegration:
             },
             "sync": {
                 "enabled": True,
-                "interval_seconds": 300,  # 5 分鐘
+                "interval_seconds": 300,  # 5 分钟
                 "max_retries": 3,
                 "timeout": 15
             },
@@ -261,12 +261,12 @@ class NotionMulticurrencyIntegration:
                 "crypto": ["BTC", "ETH"]
             },
             "color_tags": {
-                "green": {"min": 0, "max": 2},      # < 2% 偏離
-                "yellow": {"min": 2, "max": 5},    # 2-5% 偏離
-                "red": {"min": 5, "max": 100}      # > 5% 偏離
+                "green": {"min": 0, "max": 2},      # < 2% 偏离
+                "yellow": {"min": 2, "max": 5},    # 2-5% 偏离
+                "red": {"min": 5, "max": 100}      # > 5% 偏离
             },
             "data_sources": {
-                "primary": "fixer.io",      # 法幣
+                "primary": "fixer.io",      # 法币
                 "secondary": "coingecko",   # 加密
                 "fallback": "mock"
             },
@@ -293,14 +293,14 @@ class NotionMulticurrencyIntegration:
         return config_path
 
     def show_status(self):
-        """顯示集成狀態"""
+        """显示集成状态"""
         print("\n" + "═" * 70)
-        print("📊 Notion 多幣種集成狀態")
+        print("📊 Notion 多币种集成状态")
         print("═" * 70)
 
         self.config.report()
 
-        # 檢查本地數據庫
+        # 检查本地数据库
         if os.path.exists(self.db_path):
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
@@ -313,16 +313,16 @@ class NotionMulticurrencyIntegration:
 
             conn.close()
 
-            print(f"\n本地數據庫:")
-            print(f"  同步記錄: {sync_count} 條")
-            print(f"  幣種映射: {mapping_count} 條")
+            print(f"\n本地数据库:")
+            print(f"  同步记录: {sync_count} 条")
+            print(f"  币种映射: {mapping_count} 条")
 
-        print("\n功能清單:")
-        print("  ✅ 頁面結構設計")
-        print("  ✅ 數據庫架構定義")
+        print("\n功能清单:")
+        print("  ✅ 页面结构设计")
+        print("  ✅ 数据库架构定义")
         print("  ✅ 同步配置生成")
         print("  ⏳ API 集成 (Phase 4)")
-        print("  ⏳ 實時同步 (Phase 6)")
+        print("  ⏳ 实时同步 (Phase 6)")
 
 # ═══════════════════════════════════════════════════════════════
 # CLI
@@ -332,33 +332,33 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 Notion 多幣種集成系統 v1.0"
+        description="🐉 Notion 多币种集成系统 v1.0"
     )
 
     parser.add_argument('--setup', action='store_true',
-                        help='設置 Notion 頁面結構')
+                        help='设置 Notion 页面结构')
     parser.add_argument('--sync', action='store_true',
-                        help='同步數據到 Notion')
+                        help='同步数据到 Notion')
     parser.add_argument('--status', action='store_true',
-                        help='顯示集成狀態')
+                        help='显示集成状态')
     parser.add_argument('--save-config', action='store_true',
                         help='保存同步配置文件')
     parser.add_argument('--config-path', type=str,
-                        help='配置文件路徑')
+                        help='配置文件路径')
 
     args = parser.parse_args()
 
     integrator = NotionMulticurrencyIntegration()
 
-    print("🐉 Notion 多幣種集成系統 v1.0")
+    print("🐉 Notion 多币种集成系统 v1.0")
     print("DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-INTEGRATION-v1.0\n")
 
     if args.setup:
         integrator.setup_page_structure()
 
     elif args.sync:
-        print("⏳ 同步功能在 Phase 6 實現")
-        print("   敬請期待...")
+        print("⏳ 同步功能在 Phase 6 实现")
+        print("   敬请期待...")
 
     elif args.status:
         integrator.show_status()
@@ -368,11 +368,11 @@ def main():
 
     else:
         print("用法: python3 notion_multicurrency_integration.py [OPTIONS]")
-        print("  --setup              設置 Notion 頁面結構")
-        print("  --sync               同步數據到 Notion")
-        print("  --status             顯示集成狀態")
+        print("  --setup              设置 Notion 页面结构")
+        print("  --sync               同步数据到 Notion")
+        print("  --status             显示集成状态")
         print("  --save-config        保存同步配置")
-        print("  --config-path PATH   指定配置文件路徑")
+        print("  --config-path PATH   指定配置文件路径")
 
 if __name__ == '__main__':
     main()

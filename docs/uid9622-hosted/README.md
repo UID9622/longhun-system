@@ -1,19 +1,19 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE7-v1.0-8 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # UID9622·托管区
 
-本目錄收錄自 Notion 工作區「UID9622·托管区」的技術架構與系統模組文檔，涵蓋主控操作台、終極防護系統、本地系統統一管理、太極智能協同中樞、自動化執行引擎、安全防護網關與三色審計。已對涉及個人 DNA 綁定與私人對話的內容進行脫敏或排除。
+本目录收录自 Notion 工作区“UID9622·托管区”的技术架构与系统模组文档，涵盖主控操作台、终极防护系统、本地系统统一管理、太极智能协同中枢、自动化执行引擎、安全防护网关与三色审计。已对涉及个人 DNA 绑定与私人对话的内容进行脱敏或排除。
 
-- 本目錄文件數：108
+- 本目录文件数：108
 
-## 分類目錄
+## 分类目录
 
-### audit/（1 個文件）
+### audit/（1 个文件）
 
 - `audit/🛡️ 三色审计第一道门槛·三重自动检测系统 规则·虚伪·数据守护.md`
 
-### cmd-db/（12 個文件）
+### cmd-db/（12 个文件）
 
 - `cmd-db/GLOBAL-MERGE-ALL.md`
 - `cmd-db/LU-SYSTEM-OPTIMIZE-EXPAND.md`
@@ -28,7 +28,7 @@
 - `cmd-db/🔍 CMD - 智能指令系统数据库 v1 0 e4d891b1beea421fb90fedaf9bd4e7c9_all.csv`
 - `cmd-db/🔍 CMD - 智能指令系统数据库 v1 0.csv`
 
-### code-factory/（15 個文件）
+### code-factory/（15 个文件）
 
 - `code-factory/CNSH多语言编辑器终端 v4 0.md`
 - `code-factory/Express + MongoDB 高并发API请求优化一体化实现.md`
@@ -46,7 +46,7 @@
 - `code-factory/🔧 多账号批量管理工具.md`
 - `code-factory/🤖 ChatGPT多账号管理器.md`
 
-### control-panel/（30 個文件）
+### control-panel/（30 个文件）
 
 - `control-panel/AI大模型Prompt工程集成.md`
 - `control-panel/AI训练数据集成保护.md`
@@ -79,7 +79,7 @@
 - `control-panel/🤝 UID9622人性化公平服务宪章 为普通人而生的AI协作原则.md`
 - `control-panel/🧬 CNSH 数学骨架图 v1 0｜计算骨架·驱动全系统.md`
 
-### defense/（9 個文件）
+### defense/（9 个文件）
 
 - `defense/BOUNDARY-CN-001.md`
 - `defense/BOUNDARY-CN-002.md`
@@ -91,18 +91,18 @@
 - `defense/🗂️ 边界限制卡库 全球AI治理规则压缩存储.csv`
 - `defense/🛡️ UID9622 终极防护系统 攻防一体化.md`
 
-### local-system/（3 個文件）
+### local-system/（3 个文件）
 
 - `local-system/🏠 UID9622本地保密数据处理环境 v2 1.md`
 - `local-system/🏠 UID9622本地保密数据处理环境.md`
 - `local-system/💻 UID9622本地系统 统一管理中心.md`
 
-### optimization/（2 個文件）
+### optimization/（2 个文件）
 
 - `optimization/♾️ 循环触发与五行流转｜IPA-DICT-101~111决策链·启动条件·三色行动标准.md`
 - `optimization/♾️ 无限循环优化机制·编号对齐总表｜IPA×路由×人格 v1 0.md`
 
-### taiji/（31 個文件）
+### taiji/（31 个文件）
 
 - `taiji/⚙️ CNSH 执行引擎图 v1 0｜路由决定去哪·引擎决定怎么做.md`
 - `taiji/⚡ 自动化执行引擎.md`
@@ -136,16 +136,16 @@
 - `taiji/🧠 认知引擎模块.md`
 - `taiji/🧠 认知理解引擎.md`
 
-### templates/（1 個文件）
+### templates/（1 个文件）
 
 - `templates/🎨 UID9622美化模板库 一键复制美化工具箱.md`
 
-### translation/（2 個文件）
+### translation/（2 个文件）
 
 - `translation/🌍 UID9622自适应翻译系统 人群自动适配.md`
 - `translation/🗣️ UID9622个性化指令翻译器 自然语言→AI执行.md`
 
-### voice/（2 個文件）
+### voice/（2 个文件）
 
 - `voice/🎤 UID9622语音终端系统 DNA量子链接自动化.md`
 - `voice/🎤 智能语音处理中心 UID9622专用.md`

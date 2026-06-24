@@ -17,9 +17,9 @@ from xpay.src.transaction import Transaction, TransactionStore
 
 class SovereignGateway:
     """
-    龍魂主權支付網關。
-    只負責：選擇幣種適配器 -> 調用官方 API -> 生成 DNA 存根。
-    不持有資金，不當中間商。
+    龍魂主权支付网关。
+    只负责：选择币种适配器 -> 调用官方 API -> 生成 DNA 存根。
+    不持有资金，不当中间商。
     """
 
     DNA_SIGNATURE = "#龍芯⚡️2026-06-17-XPAY-CORE-v2.0"
@@ -30,7 +30,7 @@ class SovereignGateway:
         self._register_builtin_adapters()
 
     def _register_builtin_adapters(self):
-        """自動掃描並註冊 xpay.src.adapters 下的所有適配器"""
+        """自动扫描并注册 xpay.src.adapters 下的所有适配器"""
         from xpay.src import adapters
         for _, name, _ in pkgutil.iter_modules(adapters.__path__):
             try:
@@ -41,58 +41,58 @@ class SovereignGateway:
                         adapter = obj()
                         self.register_adapter(adapter)
             except Exception as e:
-                print(f"⚠️  加載適配器 {name} 失敗: {e}")
+                print(f"⚠️  加载适配器 {name} 失败: {e}")
 
     def register_adapter(self, adapter: CurrencyAdapter):
-        """手動註冊一個貨幣適配器"""
+        """手动注册一个货币适配器"""
         code = adapter.info.currency_code.upper()
         self.adapters[code] = adapter
 
     def supported_currencies(self) -> List[str]:
-        """返回已註冊的幣種列表"""
+        """返回已注册的币种列表"""
         return sorted(self.adapters.keys())
 
     def sovereign_info(self, currency: str) -> Optional[SovereignInfo]:
-        """查詢某幣種的主權信息"""
+        """查询某币种的主权信息"""
         adapter = self.adapters.get(currency.upper())
         return adapter.info if adapter else None
 
     def pay(self, amount: float, currency: str, recipient: str,
             sender: str = "UID9622", memo: str = "") -> Dict:
         """
-        用戶級最簡 API：發起一筆支付。
-        所有複雜邏輯封裝在適配器內部。
+        用户级最简 API：发起一笔支付。
+        所有复杂逻辑封装在适配器内部。
         """
         currency = currency.upper()
         adapter = self.adapters.get(currency)
         if not adapter:
             return {
                 "success": False,
-                "error": f"不支持的幣種：{currency}",
+                "error": f"不支持的币种：{currency}",
                 "supported": self.supported_currencies()
             }
 
-        # 參數驗證
+        # 参数验证
         if not adapter.validate(amount, recipient, memo):
             return {
                 "success": False,
-                "error": "交易參數未通過適配器驗證"
+                "error": "交易参数未通过适配器验证"
             }
 
-        # 計算費用
+        # 计算费用
         fee_breakdown = adapter.calculate_fee(amount)
         processing_fee = fee_breakdown.get("processing", 0.0)
         dna_fee = fee_breakdown.get("dna", 0.0)
         total_fee = fee_breakdown.get("total", processing_fee + dna_fee)
 
-        # 生成交易 ID 與 DNA
+        # 生成交易 ID 与 DNA
         tx_id = generate_tx_id()
         created_at = datetime.now().isoformat()
         dna_signature = generate_dna_signature(
             tx_id, amount, currency, sender, recipient, created_at
         )
 
-        # 調用國家適配器執行清結算（演示模式）
+        # 调用国家适配器执行清结算（演示模式）
         result: ExecutionResult = adapter.execute(amount, recipient, memo)
 
         tx = Transaction(
@@ -128,17 +128,17 @@ class SovereignGateway:
         }
 
     def query(self, tx_id: str) -> Optional[Dict]:
-        """查詢交易詳情"""
+        """查询交易详情"""
         tx = self.store.get(tx_id)
         if not tx:
             return None
         return tx.__dict__
 
     def stats(self) -> Dict:
-        """統計所有交易"""
+        """统计所有交易"""
         return self.store.stats()
 
     def migrate_legacy(self, legacy_json: Path = Path.home() / ".龍魂" / "xpay" / "transactions.json"):
-        """遷移舊版 XPay 交易數據"""
+        """迁移旧版 XPay 交易数据"""
         count = self.store.migrate_json(legacy_json)
         return {"migrated": count}

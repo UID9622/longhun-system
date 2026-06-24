@@ -883,15 +883,15 @@ class CulturalAdapter:
     通心译 · 文化适配器
 
     负责处理文化差异和主权字保护:
-        - 繁体「龍」/简体「龙」智能处理（主权字保护）
+        - 繁体“龍”/简体“龙”智能处理（主权字保护）
         - CNSH命名规范检查
         - 文化敏感度筛查
         - 龍魂体系标记保护
 
     主权字保护规则:
-        1. 「龍」为繁体主权字，用于正式/神圣语境
-        2. 「龙」为简体常用字，用于日常语境
-        3. 龍魂体系标记中的「龍」不可替换
+        1. “龍”为繁体主权字，用于正式/神圣语境
+        2. “龙”为简体常用字，用于日常语境
+        3. 龍魂体系标记中的“龍”不可替换
         4. 用户可自定义主权字偏好
     """
 
@@ -899,9 +899,9 @@ class CulturalAdapter:
         self._sovereign_chars = {
             "龍": {"variant": "龙", "protection_level": "maximum",
                    "context": "formal/sacred"},
-            "國": {"variant": "国", "protection_level": "high",
+            "国": {"variant": "国", "protection_level": "high",
                    "context": "formal/sacred"},
-            "華": {"variant": "华", "protection_level": "high",
+            "华": {"variant": "华", "protection_level": "high",
                    "context": "formal/sacred"},
         }
         self._cnsh_naming_rules = [
@@ -1137,7 +1137,7 @@ class QualityAuditor:
 
         # 检查主权字保护
         if "龍" in source and "龙" in target:
-            issues.append("主权字「龍」被不当简化为「龙」")
+            issues.append("主权字“龍”被不当简化为“龙”")
 
         # 检查文化尊重
         disrespect_patterns = [
@@ -1625,7 +1625,7 @@ def print_banner():
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-  「五大铁律」
+  “五大铁律”
     ① 中文活着，英文也活着 — 不是镜像，各自重新写
     ② 不是镜像，是共鸣 — 比喻可以不同，精神必须对上
     ③ 比喻优先于公式 — 0公式，追求"啊！我懂了"的时刻

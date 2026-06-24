@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE5-v1.0-6 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # docs/dragon-soul-philosophy
 

@@ -11,26 +11,26 @@
 # 文件: __init__.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🧬 龍魂操作日記引擎 v1.0 · 本地DNA系統
+🧬 龍魂操作日记引擎 v1.0 · 本地DNA系统
 
 DNA:#龍芯⚡️2026-05-30-OPERATION-LOG-ENGINE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-核心模組:
-  - operation_ledger: append-only 操作日記 + SHA-256鏈式驗證
-  - dna_particle_generator: DNA粒子生成 + 身份証體系
-  - habit_fingerprint_manager: F8習慣提取 + 基線建立 + SI匹配
-  - cross_device_identifier: 跨設備識別 + 設備信任 + 自動同步
+核心模组:
+  - operation_ledger: append-only 操作日记 + SHA-256链式验证
+  - dna_particle_generator: DNA粒子生成 + 身份证体系
+  - habit_fingerprint_manager: F8习惯提取 + 基线建立 + SI匹配
+  - cross_device_identifier: 跨设备识别 + 设备信任 + 自动同步
 
 完整流程:
-  1. 操作發生 → operation_ledger.append_operation()
+  1. 操作发生 → operation_ledger.append_operation()
   2. DNA粒子生成 → dna_particle_generator.generate_from_record()
-  3. 習慣自動提取 → habit_fingerprint_manager.extract_habit_features()
-  4. 跨設備識別 → cross_device_identifier.identify_user()
-  5. 自動同步決策 → auto_sync_decision()
+  3. 习惯自动提取 → habit_fingerprint_manager.extract_habit_features()
+  4. 跨设备识别 → cross_device_identifier.identify_user()
+  5. 自动同步决策 → auto_sync_decision()
 
-結果: 任何設備都知道是我 · 習慣認人 · DNA認話
+结果: 任何设备都知道是我 · 习惯认人 · DNA认话
 """
 
 __version__ = "1.0"

@@ -1,41 +1,42 @@
-# 龍魂系統 · 對接關係矩陣
+<!-- #龍芯⚡️20260624010825169-AUTO-DNA-E1C8CA07 自动注入·分层治理自愈引擎 · 来源可查 -->
+# 龍魂系统 · 对接关系矩阵
 
 **DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE2-v1.0
 
-本矩陣列出龍魂系統主要模塊之間的對接關係，用於快速理解各板塊如何互通。
+本矩阵列出龍魂系统主要模块之间的对接关系，用于快速理解各板块如何互通。
 
-## 模塊清單
+## 模块清单
 
-| 模塊 | 類型 | 文件數 | 直接對接 |
+| 模块 | 类型 | 文件数 | 直接对接 |
 |------|------|--------|----------|
 | **control-panel** | API/UI | 9 | skills、docs |
-| **skills** | Skill 庫 | 79 | control-panel、baobao-guardian |
-| **baobao-guardian** | 守護應用 | 3322 | skills、docs |
-| **extensions** | 瀏覽器擴展 | 37 | control-panel、skills |
+| **skills** | Skill 库 | 79 | control-panel、baobao-guardian |
+| **baobao-guardian** | 守护应用 | 3322 | skills、docs |
+| **extensions** | 浏览器扩展 | 37 | control-panel、skills |
 | **cnsh-core** | CNSH 核心 | 1665 | docs、integrated-modules |
-| **docs** | 知識庫 | 795 | control-panel、cnsh-core |
-| **bin** | 工具腳本 | 19 | skills、docs |
-| **integrated-modules** | 集成模塊 | 54 | cnsh-core、bin |
+| **docs** | 知识库 | 795 | control-panel、cnsh-core |
+| **bin** | 工具脚本 | 19 | skills、docs |
+| **integrated-modules** | 集成模块 | 54 | cnsh-core、bin |
 
-## 對接關係矩陣
+## 对接关系矩阵
 
-| 模塊 | 
-| 模塊 | control-panel | skills | baobao-guardian | extensions | cnsh-core | docs | bin | integrated-modules |
+| 模块 | 
+| 模块 | control-panel | skills | baobao-guardian | extensions | cnsh-core | docs | bin | integrated-modules |
 |---|---|---|---|---|---|---|---|---|
-| **control-panel** | — | ✅ 對接 |  | ↩️ 被對接 |  | ✅ 對接 |  |  |
-| **skills** | ✅ 對接 | — | ✅ 對接 | ↩️ 被對接 |  |  | ↩️ 被對接 |  |
-| **baobao-guardian** |  | ✅ 對接 | — |  |  | ✅ 對接 |  |  |
-| **extensions** | ✅ 對接 | ✅ 對接 |  | — |  |  |  |  |
-| **cnsh-core** |  |  |  |  | — | ✅ 對接 |  | ✅ 對接 |
-| **docs** | ✅ 對接 |  | ↩️ 被對接 |  | ✅ 對接 | — | ↩️ 被對接 |  |
-| **bin** |  | ✅ 對接 |  |  |  | ✅ 對接 | — | ↩️ 被對接 |
-| **integrated-modules** |  |  |  |  | ✅ 對接 |  | ✅ 對接 | — |
+| **control-panel** | — | ✅ 对接 |  | ↩️ 被对接 |  | ✅ 对接 |  |  |
+| **skills** | ✅ 对接 | — | ✅ 对接 | ↩️ 被对接 |  |  | ↩️ 被对接 |  |
+| **baobao-guardian** |  | ✅ 对接 | — |  |  | ✅ 对接 |  |  |
+| **extensions** | ✅ 对接 | ✅ 对接 |  | — |  |  |  |  |
+| **cnsh-core** |  |  |  |  | — | ✅ 对接 |  | ✅ 对接 |
+| **docs** | ✅ 对接 |  | ↩️ 被对接 |  | ✅ 对接 | — | ↩️ 被对接 |  |
+| **bin** |  | ✅ 对接 |  |  |  | ✅ 对接 | — | ↩️ 被对接 |
+| **integrated-modules** |  |  |  |  | ✅ 对接 |  | ✅ 对接 | — |
 
-## 說明
+## 说明
 
-- **✅ 對接**：該行模塊主動調用/依賴該列模塊。
-- **↩️ 被對接**：該列模塊主動調用/依賴該行模塊。
-- 矩陣基於目錄結構與人工定義的依賴關係生成，後續可結合 import 分析自動細化。
+- **✅ 对接**：该行模块主动调用/依赖该列模块。
+- **↩️ 被对接**：该列模块主动调用/依赖该行模块。
+- 矩阵基于目录结构与人工定义的依赖关系生成，后续可结合 import 分析自动细化。
 
 ---
 

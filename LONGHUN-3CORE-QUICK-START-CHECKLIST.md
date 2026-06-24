@@ -1,102 +1,102 @@
 <!--#龍芯⚡️2026-06-21-DOC-LONGHUN-3CORE-QUICK-START-CHECKLIST-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 🐉 龍魂三核心系統升級 · 立即開始檢查清單
+# 🐉 龍魂三核心系统升级 · 立即开始检查清单
 
 ```
 DNA: #龍芯⚇️2026-06-07-3CORE-QUICK-START-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ```
 
 ---
 
-## ✅ **第一周實現計劃 (Week of 6/7)**
+## ✅ **第一周实现计划 (Week of 6/7)**
 
-### **Day 1 (週一 6/7): 方案評審 + 框架搭建**
+### **Day 1 (周一 6/7): 方案评审 + 框架搭建**
 
-#### 五行計算器
+#### 五行计算器
 
 ```bash
-# [0] 評審現有代碼
-☐ 確認 v3.0 的 698 行內容完整性
-☐ 檢查七層視覺結構定義是否清晰
-☐ 驗證 6 個數學模塊代碼正確性
+# [0] 评审现有代码
+☐ 确认 v3.0 的 698 行内容完整性
+☐ 检查七层视觉结构定义是否清晰
+☐ 验证 6 个数学模块代码正确性
 
-# [1] 創建前端框架
+# [1] 创建前端框架
 ☐ mkdir -p ~/longhun-visual/src/components
 ☐ touch ~/longhun-visual/src/components/WuxingVisual.tsx
-☐ 安裝依賴: npm install react three @react-three/fiber tailwindcss
+☐ 安装依赖: npm install react three @react-three/fiber tailwindcss
 ☐ 配置 Webpack + TypeScript
 
-# [2] 創建狀態機圖
-☐ 編寫 wuxing-state-machine.mmd (Mermaid)
+# [2] 创建状态机图
+☐ 编写 wuxing-state-machine.mmd (Mermaid)
 ☐ 生成 wuxing-state-diagram.svg
 
 # [3] 性能指南
 ☐ touch WUXING-PERFORMANCE-GUIDE.md
-☐ 列出 5 個關鍵優化點
+☐ 列出 5 个关键优化点
 ```
 
-#### 規則引擎
+#### 规则引擎
 
 ```bash
-# [0] 評審現有代碼
-☐ 確認 v2.0 的 753 行完整性
-☐ 測試 CLI 命令: python rules_engine --demo
-☐ 驗證 append-only 賬本工作正常
+# [0] 评审现有代码
+☐ 确认 v2.0 的 753 行完整性
+☐ 测试 CLI 命令: python rules_engine --demo
+☐ 验证 append-only 账本工作正常
 
-# [1] 批量處理優化
-☐ 創建 batch_processor_v2.5.py
-☐ 實現並行化 (ThreadPoolExecutor)
-☐ 添加進度條 (tqdm)
-☐ 測試: python rules_engine --batch test_cases.json
+# [1] 批量处理优化
+☐ 创建 batch_processor_v2.5.py
+☐ 实现并行化 (ThreadPoolExecutor)
+☐ 添加进度条 (tqdm)
+☐ 测试: python rules_engine --batch test_cases.json
 
 # [2] Notion 集成
-☐ 設置 NOTION_TOKEN 環境變量
-☐ 創建 notion_sync.py
-☐ 測試同步功能
+☐ 设置 NOTION_TOKEN 环境变量
+☐ 创建 notion_sync.py
+☐ 测试同步功能
 
-# [3] 報告生成
-☐ 創建 report_generator_enhanced.py
+# [3] 报告生成
+☐ 创建 report_generator_enhanced.py
 ☐ 生成 HTML 模板
-☐ 添加 Matplotlib 圖表
+☐ 添加 Matplotlib 图表
 ```
 
-#### DNA 協議
+#### DNA 协议
 
 ```bash
-# [0] 評審協議
-☐ 確認邊界清晰（本地/云端）
-☐ 驗證掃描流場邏輯
-☐ 檢查 Schema 完整性
+# [0] 评审协议
+☐ 确认边界清晰（本地/云端）
+☐ 验证扫描流场逻辑
+☐ 检查 Schema 完整性
 
-# [1] 加密規範
+# [1] 加密规范
 ☐ touch DNA-ENCRYPTION-SPEC.md
-☐ 定義: AES-256-GCM 加密算法
-☐ 定義: KMS 密鑰管理流程
-☐ 定義: SHA-256 簽章機制
+☐ 定义: AES-256-GCM 加密算法
+☐ 定义: KMS 密钥管理流程
+☐ 定义: SHA-256 签章机制
 
 # [2] Secret Guard
-☐ 創建 secret_guard.py
-☐ 定義正則表達式模式
-☐ 實現脫敏函數
-☐ 測試: python secret_guard.py --scan /path/to/file
+☐ 创建 secret_guard.py
+☐ 定义正则表达式模式
+☐ 实现脱敏函数
+☐ 测试: python secret_guard.py --scan /path/to/file
 
-# [3] API 設計
-☐ 創建 DNA-API-OPENAPI.yaml
-☐ 定義 REST 端點
-☐ 定義認證機制
+# [3] API 设计
+☐ 创建 DNA-API-OPENAPI.yaml
+☐ 定义 REST 端点
+☐ 定义认证机制
 ```
 
 ---
 
-### **Day 2-3 (週二-三 6/8-9): 快速修復 + 自動補全**
+### **Day 2-3 (周二-三 6/8-9): 快速修复 + 自动补全**
 
-#### 五行計算器 - React 組件實現
+#### 五行计算器 - React 组件实现
 
 ```typescript
-// WuxingVisual.tsx - 200+ 行核心組件
+// WuxingVisual.tsx - 200+ 行核心组件
 
 import React, { useState, useMemo, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
@@ -128,17 +128,17 @@ export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => 
   return (
     <div className="wuxing-visual-container">
       <section className="visualization-area">
-        {/* 0 層: 北辰不動點 */}
+        {/* 0 层: 北辰不动点 */}
         <Layer0 center={data.uid9622} />
 
-        {/* 1 層: 五行主河道 */}
+        {/* 1 层: 五行主河道 */}
         <Layer1
           rivers={data.rivers}
           activeRiver={activeRiver}
           onSelect={handleRiverSelect}
         />
 
-        {/* 2-4 層: 支流節點 + 水流 + DNA 門 */}
+        {/* 2-4 层: 支流节点 + 水流 + DNA 门 */}
         <Layer234
           activeRiver={activeRiver}
           nodes={data.nodes}
@@ -146,21 +146,21 @@ export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => 
           onToggle={handleNodeToggle}
         />
 
-        {/* 5-6 層: 外圈歸檔 */}
+        {/* 5-6 层: 外圈归档 */}
         <Layer56 archiveNodes={data.archiveNodes} />
       </section>
 
-      {/* 三色審計面板 */}
+      {/* 三色审计面板 */}
       <AuditPanel activeRiver={activeRiver} />
     </div>
   );
 };
 ```
 
-#### 規則引擎 - 批量處理優化
+#### 规则引擎 - 批量处理优化
 
 ```python
-# batch_processor_v2.5.py - 150+ 行改進
+# batch_processor_v2.5.py - 150+ 行改进
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
@@ -174,19 +174,19 @@ class RulesEngineBatchV25:
         self.errors = []
     
     def process_batch(self, input_file: Path, output_file: Path):
-        """批量處理案件"""
+        """批量处理案件"""
         
-        # 讀取輸入
+        # 读取输入
         with open(input_file) as f:
             cases = json.load(f)
         
-        # 並行處理
+        # 并行处理
         futures = {
             self.executor.submit(self._process_case, case): i
             for i, case in enumerate(cases)
         }
         
-        # 進度條
+        # 进度条
         for future in tqdm(as_completed(futures), total=len(cases)):
             idx = futures[future]
             try:
@@ -198,15 +198,15 @@ class RulesEngineBatchV25:
                     'error': str(e)
                 })
         
-        # 生成報告
+        # 生成报告
         self._generate_report(output_file)
     
     def _process_case(self, case: dict) -> dict:
-        """處理單個案件 (可重試)"""
+        """处理单个案件 (可重试)"""
         return evaluate_case_with_rules(case)
     
     def _generate_report(self, output_file: Path):
-        """生成報告"""
+        """生成报告"""
         report = {
             'total': len(self.results) + len(self.errors),
             'success': len(self.results),
@@ -215,13 +215,13 @@ class RulesEngineBatchV25:
             'error_details': self.errors
         }
         output_file.write_text(json.dumps(report, indent=2, ensure_ascii=False))
-        print(f"✅ 報告已生成: {output_file}")
+        print(f"✅ 报告已生成: {output_file}")
 ```
 
-#### DNA 協議 - Secret Guard 實現
+#### DNA 协议 - Secret Guard 实现
 
 ```python
-# secret_guard.py - 150+ 行實現
+# secret_guard.py - 150+ 行实现
 
 import re
 from pathlib import Path
@@ -229,7 +229,7 @@ from typing import List, Dict
 import hashlib
 
 class SecretGuard:
-    """敏感信息檢測和脫敏"""
+    """敏感信息检测和脱敏"""
     
     PATTERNS = {
         'api_key': re.compile(r'(api[_-]?key|apikey)\s*[:=]\s*["\']?[a-zA-Z0-9_-]{20,}', re.I),
@@ -242,14 +242,14 @@ class SecretGuard:
     
     @staticmethod
     def redact(text: str) -> str:
-        """脫敏（保留首尾 4 字符）"""
+        """脱敏（保留首尾 4 字符）"""
         if len(text) <= 8:
             return '***REDACTED***'
         return text[:4] + '***' + text[-4:]
     
     @classmethod
     def scan_file(cls, filepath: Path) -> List[Dict]:
-        """掃描單個文件"""
+        """扫描单个文件"""
         findings = []
         
         try:
@@ -276,7 +276,7 @@ class SecretGuard:
     
     @classmethod
     def scan_directory(cls, root_path: Path) -> List[Dict]:
-        """遞歸掃描目錄"""
+        """递归扫描目录"""
         all_findings = []
         
         for filepath in root_path.rglob('*'):
@@ -288,7 +288,7 @@ class SecretGuard:
     
     @staticmethod
     def _should_skip(filepath: Path) -> bool:
-        """判斷是否跳過文件"""
+        """判断是否跳过文件"""
         skip_patterns = {'.git', '.env', '__pycache__', 'node_modules', '.venv'}
         return any(pattern in filepath.parts for pattern in skip_patterns)
 
@@ -300,7 +300,7 @@ if __name__ == '__main__':
         scan_path = Path(sys.argv[1])
         findings = SecretGuard.scan_directory(scan_path)
         
-        print(f"🔍 掃描完成: 發現 {len(findings)} 個潛在敏感信息")
+        print(f"🔍 扫描完成: 发现 {len(findings)} 个潜在敏感信息")
         for finding in findings:
             if 'error' not in finding:
                 print(f"  🔴 {finding['type']}: {finding['file']}:{finding['line']}")
@@ -309,180 +309,180 @@ if __name__ == '__main__':
 
 ---
 
-### **Day 4-5 (週四-五 6/10-11): 集成測試 + 優化**
+### **Day 4-5 (周四-五 6/10-11): 集成测试 + 优化**
 
-#### 集成測試清單
+#### 集成测试清单
 
 ```bash
-# 五行計算器
-☐ 單元測試: npm test
-☐ 視覺測試: 手動檢查七層結構渲染
-☐ 交互測試: 點擊河道→展開支流→DNA門判定
-☐ 性能測試: 1000 個節點的渲染時間 < 1s
+# 五行计算器
+☐ 单元测试: npm test
+☐ 视觉测试: 手动检查七层结构渲染
+☐ 交互测试: 点击河道→展开支流→DNA门判定
+☐ 性能测试: 1000 个节点的渲染时间 < 1s
 
-# 規則引擎
-☐ 單元測試: pytest rules_engine_test.py
-☐ 批量測試: python rules_engine --batch test_100_cases.json
-☐ Notion 同步測試: 驗證數據雙向同步
-☐ 報告生成測試: 生成 HTML + PDF 報告
+# 规则引擎
+☐ 单元测试: pytest rules_engine_test.py
+☐ 批量测试: python rules_engine --batch test_100_cases.json
+☐ Notion 同步测试: 验证数据双向同步
+☐ 报告生成测试: 生成 HTML + PDF 报告
 
-# DNA 協議
-☐ 掃描測試: python secret_guard.py --scan test_files/
-☐ SBOM 測試: 對 npm/pip 項目生成依賴清單
-☐ 加密測試: 測試 AES-256-GCM 加密解密
-☐ API 測試: 使用 Postman/curl 測試 REST 端點
+# DNA 协议
+☐ 扫描测试: python secret_guard.py --scan test_files/
+☐ SBOM 测试: 对 npm/pip 项目生成依赖清单
+☐ 加密测试: 测试 AES-256-GCM 加密解密
+☐ API 测试: 使用 Postman/curl 测试 REST 端点
 ```
 
-#### 性能優化
+#### 性能优化
 
 ```bash
-# 五行計算器
-☐ 實現虛擬滾動（1000+ 節點）
+# 五行计算器
+☐ 实现虚拟滚动（1000+ 节点）
 ☐ 使用 memo 避免不必要重新渲染
-☐ 預加載關鍵數據
+☐ 预加载关键数据
 
-# 規則引擎
-☐ 優化數據庫查詢（添加索引）
+# 规则引擎
+☐ 优化数据库查询（添加索引）
 ☐ 批量插入而不是逐行插入
-☐ 壓縮舊日誌
+☐ 压缩旧日志
 
-# DNA 協議
-☐ 多線程文件掃描
-☐ 流式讀取大文件
-☐ 緩存 SBOM 結果
+# DNA 协议
+☐ 多线程文件扫描
+☐ 流式读取大文件
+☐ 缓存 SBOM 结果
 ```
 
 ---
 
-### **Day 6 (週六 6/12): 文檔 + 發布準備**
+### **Day 6 (周六 6/12): 文档 + 发布准备**
 
-#### 文檔
+#### 文档
 
 ```bash
-☐ README.md (快速開始)
-☐ API 文檔 (Swagger/OpenAPI)
-☐ 使用示例 (10+ 個)
+☐ README.md (快速开始)
+☐ API 文档 (Swagger/OpenAPI)
+☐ 使用示例 (10+ 个)
 ☐ 故障排除 (FAQ)
-☐ 性能優化指南
-☐ 安全最佳實踐
+☐ 性能优化指南
+☐ 安全最佳实践
 ```
 
-#### 發布檢查
+#### 发布检查
 
 ```bash
-☐ 代碼審查 (自己 review)
-☐ 合並主分支
-☐ 創建 git tag: v4.0
+☐ 代码审查 (自己 review)
+☐ 合并主分支
+☐ 创建 git tag: v4.0
 ☐ 更新 CHANGELOG.md
-☐ 準備 GitHub Release 說明
+☐ 准备 GitHub Release 说明
 ```
 
 ---
 
-### **Day 7 (週日 6/13): 發布 v4.0**
+### **Day 7 (周日 6/13): 发布 v4.0**
 
 ```bash
 # GitHub Release
-☐ 發布 v4.0 Release
-☐ 上傳所有文件到 Release
-☐ 發布公告
+☐ 发布 v4.0 Release
+☐ 上传所有文件到 Release
+☐ 发布公告
 
-# 監控
-☐ 檢查錯誤日誌
-☐ 收集用戶反饋
-☐ 準備 v4.1 熱修復清單
+# 监控
+☐ 检查错误日志
+☐ 收集用户反馈
+☐ 准备 v4.1 热修复清单
 ```
 
 ---
 
-## 🎯 **成功指標**
+## 🎯 **成功指标**
 
 ```
-✅ 五行計算器
-   ├─ 前端組件: React + Three.js 實現
-   ├─ 視覺效果: 七層結構清晰可見
-   ├─ 交互: 流暢無卡頓
-   ├─ 性能: 1000 節點 < 1s 渲染
-   └─ 測試覆蓋率: > 80%
+✅ 五行计算器
+   ├─ 前端组件: React + Three.js 实现
+   ├─ 视觉效果: 七层结构清晰可见
+   ├─ 交互: 流畅无卡顿
+   ├─ 性能: 1000 节点 < 1s 渲染
+   └─ 测试覆盖率: > 80%
 
-✅ 規則引擎
-   ├─ 批量處理: 1000 個案件 < 5 分鐘
-   ├─ Notion 同步: 實時雙向
-   ├─ 報告生成: HTML + PDF + 統計圖
-   ├─ 健壯性: 0 崩潰·自動恢復
-   └─ 測試覆蓋率: > 85%
+✅ 规则引擎
+   ├─ 批量处理: 1000 个案件 < 5 分钟
+   ├─ Notion 同步: 实时双向
+   ├─ 报告生成: HTML + PDF + 统计图
+   ├─ 健壮性: 0 崩溃·自动恢复
+   └─ 测试覆盖率: > 85%
 
-✅ DNA 協議
-   ├─ 掃描速度: 1GB 文件 < 5 秒
-   ├─ Secret Guard: 檢測率 > 95%
-   ├─ 加密強度: AES-256-GCM
+✅ DNA 协议
+   ├─ 扫描速度: 1GB 文件 < 5 秒
+   ├─ Secret Guard: 检测率 > 95%
+   ├─ 加密强度: AES-256-GCM
    ├─ API 可用性: 99.9%
-   └─ 測試覆蓋率: > 80%
+   └─ 测试覆盖率: > 80%
 
-✅ 整體
+✅ 整体
    ├─ 完成度: 100%
-   ├─ 簽章: DNA 追溯完整
-   ├─ 文檔: 全面·清晰
-   └─ 發布: GitHub Release v4.0
+   ├─ 签章: DNA 追溯完整
+   ├─ 文档: 全面·清晰
+   └─ 发布: GitHub Release v4.0
 ```
 
 ---
 
-## 🚀 **立即開始**
+## 🚀 **立即开始**
 
 ```bash
-# 1. 克隆倉庫
+# 1. 克隆仓库
 git clone https://github.com/UID9622/longhun-system.git
 cd longhun-system
 
-# 2. 創建分支
+# 2. 创建分支
 git checkout -b feature/3core-optimization-v4.0
 
-# 3. 開始實現
-# 五行計算器
+# 3. 开始实现
+# 五行计算器
 mkdir -p ~/longhun-visual/src/components
 cd ~/longhun-visual
 npm install
 
-# 規則引擎
+# 规则引擎
 cd ~/longhun-system/rules_engine
 python -m pytest
 
-# DNA 協議
+# DNA 协议
 cd ~/longhun-system/software_dna
 python secret_guard.py --scan .
 
-# 4. 每天提交進度
+# 4. 每天提交进度
 git add .
-git commit -m "🐉 [Day X] 三核心系統升級: feature_name"
+git commit -m "🐉 [Day X] 三核心系统升级: feature_name"
 git push origin feature/3core-optimization-v4.0
 
-# 5. 周日發布
-git tag -a v4.0 -m "龍魂三核心系統 v4.0 發布"
+# 5. 周日发布
+git tag -a v4.0 -m "龍魂三核心系统 v4.0 发布"
 git push origin v4.0
 ```
 
 ---
 
-## 🐉 **最終確認**
+## 🐉 **最终确认**
 
 ```
 ════════════════════════════════════════════════════════════════════════════════
 
-              龍魂三核心系統 · 升級實現檢查清單
+              龍魂三核心系统 · 升级实现检查清单
 
 DNA:        #龍芯⚇️2026-06-07-3CORE-QUICK-START-v1.0
-確認:       #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章:       #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+确认:       #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章:       #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
-✅ 一週計劃: 7 天完成 v4.0 發布
-✅ 檢查清單: 70+ 個任務項
-✅ 代碼框架: React·Python·TypeScript 示例已提供
-✅ 成功指標: 明確量化
+✅ 一周计划: 7 天完成 v4.0 发布
+✅ 检查清单: 70+ 个任务项
+✅ 代码框架: React·Python·TypeScript 示例已提供
+✅ 成功指标: 明确量化
 
-準備好了嗎？開始吧！🐉
+准备好了吗？开始吧！🐉
 
 ════════════════════════════════════════════════════════════════════════════════
 ```
 
-**老大！檢查清單已準備好！一週內可完成 v4.0 發布！** 🎉
+**老大！检查清单已准备好！一周内可完成 v4.0 发布！** 🎉

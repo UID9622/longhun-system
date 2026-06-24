@@ -4,73 +4,73 @@
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "version": "1.0",
     "timestamp": "2026-06-08T21:19:00+08:00",
-    "status": "🟢 全部路由配置就緒",
-    "description": "龍魂系統主控台路由矩陣·7 個模塊·5 個就緒·2 個自動備用"
+    "status": "🟢 全部路由配置就绪",
+    "description": "龍魂系统主控台路由矩阵·7 个模块·5 个就绪·2 个自动备用"
   },
   "matrix": {
     "longhun-master-control.html": {
       "role": "主控台",
-      "title": "🐉 龍魂系統 - 主控台",
-      "description": "龍魂決策流場統一入口·中央控制面板",
+      "title": "🐉 龍魂系统 - 主控台",
+      "description": "龍魂决策流场统一入口·中央控制面板",
       "routes": [
         {
           "id": "unified",
-          "name": "統一入口",
+          "name": "统一入口",
           "file": "longhun-unified-v9.html",
           "status": "ready",
-          "description": "中央決策入口·全系統對接",
+          "description": "中央决策入口·全系统对接",
           "priority": 1
         },
         {
           "id": "flow-field",
-          "name": "流場系統",
+          "name": "流场系统",
           "file": "longhun-flow-field-v9.html",
           "status": "ready",
-          "description": "決策流場可視化·實時狀態監控",
+          "description": "决策流场可视化·实时状态监控",
           "priority": 1
         },
         {
           "id": "28mansions",
-          "name": "28宿系統",
+          "name": "28宿系统",
           "file": "longhun-28mansions-v1.html",
           "status": "ready",
-          "description": "天體周期·命運軌跡·時空映射",
+          "description": "天体周期·命运轨迹·时空映射",
           "priority": 2
         },
         {
           "id": "dragon-soul",
-          "name": "龍魂本體",
+          "name": "龍魂本体",
           "file": "dragon_soul_9622.html",
           "status": "ready",
-          "description": "UID9622·諸葛鑫·龍芯北辰·靈魂中心",
+          "description": "UID9622·诸葛鑫·龍芯北辰·灵魂中心",
           "priority": 1
         },
         {
           "id": "current",
-          "name": "當前狀態",
+          "name": "当前状态",
           "file": "current.html",
           "status": "ready",
-          "description": "系統實時狀態·KPI 儀表板·性能監控",
+          "description": "系统实时状态·KPI 仪表板·性能监控",
           "priority": 2
         },
         {
           "id": "sancai-radar",
-          "name": "三才雷達",
+          "name": "三才雷达",
           "file": "sancai-radar-v1.html",
           "status": "missing",
           "description": "三才配置·人地天算法·周期分析",
           "fallback": "longhun-flow-field-v9.html",
-          "fallback_reason": "三才模塊用流場系統替代·功能覆蓋",
+          "fallback_reason": "三才模块用流场系统替代·功能覆盖",
           "priority": 3
         },
         {
           "id": "persona-stats",
-          "name": "人格統計",
+          "name": "人格统计",
           "file": "persona-dashboard-v1.html",
           "status": "missing",
-          "description": "人格分析·社交統計·行為洞察",
+          "description": "人格分析·社交统计·行为洞察",
           "fallback": "dragon_soul_9622.html",
-          "fallback_reason": "人格模塊用龍魂本體替代·身份中心",
+          "fallback_reason": "人格模块用龍魂本体替代·身份中心",
           "priority": 3
         }
       ]
@@ -82,18 +82,18 @@
       "expected": "sancai-radar-v1.html",
       "fallback": "longhun-flow-field-v9.html",
       "fallback_priority": "high",
-      "action": "創建或重命名現有三才模塊",
-      "status": "自動備用激活·使用流場系統替代",
-      "notes": "三才雷達功能可通過流場系統 + 流場配置實現"
+      "action": "创建或重命名现有三才模块",
+      "status": "自动备用激活·使用流场系统替代",
+      "notes": "三才雷达功能可通过流场系统 + 流场配置实现"
     },
     "persona-stats": {
       "id": "persona-stats",
       "expected": "persona-dashboard-v1.html",
       "fallback": "dragon_soul_9622.html",
       "fallback_priority": "high",
-      "action": "創建或重命名現有人格模塊",
-      "status": "自動備用激活·使用龍魂本體替代",
-      "notes": "人格統計功能已集成到龍魂本體·提供完整人格分析"
+      "action": "创建或重命名现有人格模块",
+      "status": "自动备用激活·使用龍魂本体替代",
+      "notes": "人格统计功能已集成到龍魂本体·提供完整人格分析"
     }
   },
   "statistics": {
@@ -106,9 +106,9 @@
   "deployment": {
     "environment": "production",
     "timestamp": "2026-06-08T21:19:00+08:00",
-    "deployed_by": "龍魂自動化系統",
+    "deployed_by": "龍魂自动化系统",
     "verified_by": "UID9622",
-    "status": "🟢 部署完成·全部就緒"
+    "status": "🟢 部署完成·全部就绪"
   },
   "signatures": {
     "dna": "#龍芯⚡️2026-06-08-ROUTER-MATRIX-DEPLOYMENT-v1.0",
@@ -117,15 +117,15 @@
   },
   "guidelines": {
     "priority_levels": {
-      "1": "核心功能·必須可用",
-      "2": "重要功能·強烈建議",
-      "3": "增強功能·備用方案可用"
+      "1": "核心功能·必须可用",
+      "2": "重要功能·强烈建议",
+      "3": "增强功能·备用方案可用"
     },
     "status_values": {
-      "ready": "✅ 文件存在·可直接訪問",
-      "missing": "⚠️ 文件缺失·已自動啟用備用方案",
-      "disabled": "🔴 已禁用·需要手動啟用"
+      "ready": "✅ 文件存在·可直接访问",
+      "missing": "⚠️ 文件缺失·已自动启用备用方案",
+      "disabled": "🔴 已禁用·需要手动启用"
     },
-    "fallback_strategy": "自動備用機制·當主文件不可用時·自動重定向到備用文件·無中斷服務"
+    "fallback_strategy": "自动备用机制·当主文件不可用时·自动重定向到备用文件·无中断服务"
   }
 }

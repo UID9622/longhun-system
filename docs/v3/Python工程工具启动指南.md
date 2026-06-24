@@ -1,7 +1,7 @@
 <!--#龍芯⚡️2026-06-21-DOC-PYTHON_F159-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 龍魂系統 · Python工程工具启动指南
+# 龍魂系统 · Python工程工具启动指南
 
 ---
 
@@ -109,7 +109,7 @@ builder = MCPBuilder("longhun-mcp-service", "1.0.0")
 # 添加工具
 builder.add_tool(
     "execute-skill",
-    "執行龍魂技能",
+    "执行龍魂技能",
     {"skill_id": {"type": "string"}, "params": {"type": "object"}}
 )
 
@@ -123,17 +123,17 @@ builder.save_project("./output-service")
 ### 3.4 验证结果
 
 ```
-🐉 龍魂 MCP 服務器構建工具 v1.0
+🐉 龍魂 MCP 服务器构建工具 v1.0
 ==================================================
 ✅ 工具已添加: execute-skill
 ✅ 工具已添加: query-dna
 ✅ 工具已添加: get-status
-✅ 資源已添加: dna://chain
-✅ 資源已添加: skills://list
+✅ 资源已添加: dna://chain
+✅ 资源已添加: skills://list
 📋 MCP 配置: JSON输出正常
-📝 服務器代碼預覽: 正常
-💾 保存項目: 正常
-✅ 項目創建完成！
+📝 服务器代码预览: 正常
+💾 保存项目: 正常
+✅ 项目创建完成！
 ```
 
 ### 3.5 生成文件
@@ -178,7 +178,7 @@ from skill_7_skill_creator import SkillBuilder
 
 # 流式API创建技能
 skill = (
-    SkillBuilder("skill-001", "數據處理", "處理和轉換數據")
+    SkillBuilder("skill-001", "数据处理", "处理和转换数据")
     .with_executor(process_data)
     .with_validator(validate_input)
     .with_test({"data": "hello"}, {"processed": "HELLO"})
@@ -188,7 +188,7 @@ skill = (
 
 # 运行测试
 test_results = skill.run_tests()
-print(f"通過: {test_results['passed']}/{test_results['total']}")
+print(f"通过: {test_results['passed']}/{test_results['total']}")
 
 # 保存配置
 skill.save_to_json("skill_config.json")
@@ -197,16 +197,16 @@ skill.save_to_json("skill_config.json")
 ### 4.4 验证结果
 
 ```
-🐉 龍魂技能創建框架 v1.0
+🐉 龍魂技能创建框架 v1.0
 ==================================================
-✅ 執行器已設置: process_data
-✅ 驗證器已添加: validate_input
-✅ 測試用例已添加
-✅ 技能已構建: 數據處理
+✅ 执行器已设置: process_data
+✅ 验证器已添加: validate_input
+✅ 测试用例已添加
+✅ 技能已构建: 数据处理
 📋 技能配置: JSON输出正常
-🧪 運行測試: ✅ 通過: 1/1
+🧪 运行测试: ✅ 通过: 1/1
 💾 保存技能: 正常
-✅ 技能創建完成！
+✅ 技能创建完成！
 ```
 
 ---
@@ -242,7 +242,7 @@ creator = SlackGIFCreator(width=512, height=512, duration=100)
 # 创建加载动画
 creator.create_loading_spinner()
 result = creator.save("loading.gif")
-print(f"幀數: {result['frame_count']}, 大小: {result['size_mb']}MB")
+print(f"帧数: {result['frame_count']}, 大小: {result['size_mb']}MB")
 
 # 检查Slack兼容性
 print(f"Slack兼容: {result['slack_compatible']}")
@@ -344,13 +344,13 @@ ThemeFactory.export_all_json("themes.json")
 ### 6.5 验证结果
 
 ```
-🐉 龍魂主題工廠 v1.0
+🐉 龍魂主题工厂 v1.0
 ==================================================
-📋 可用的預設主題: 10/10 全部正常
-🎨 創建自定義主題: ✅ 正常
-📌 獲取預設主題: ✅ CSS变量生成正常
-💾 導出所有主題CSS: ✅ 正常
-💾 導出所有主題JSON: ✅ 正常
+📋 可用的预设主题: 10/10 全部正常
+🎨 创建自定义主题: ✅ 正常
+📌 获取预设主题: ✅ CSS变量生成正常
+💾 导出所有主题CSS: ✅ 正常
+💾 导出所有主题JSON: ✅ 正常
 ✅ 所有操作已完成！
 ```
 
@@ -392,24 +392,24 @@ builder = ArtifactBuilder()
 html_artifact = builder.create_html_artifact(
     "artifact-001",
     "HTML演示",
-    "<h1>龍魂系統</h1>",
-    "HTML演示頁面"
+    "<h1>龍魂系统</h1>",
+    "HTML演示页面"
 )
 
 # 创建React工件
 react_artifact = builder.create_react_artifact(
     "artifact-002",
-    "React組件",
+    "React组件",
     "export default function App() {...}",
-    "交互式組件"
+    "交互式组件"
 )
 
 # 创建SVG工件
 svg_artifact = builder.create_svg_artifact(
     "artifact-003",
-    "SVG圖形",
+    "SVG图形",
     '<svg>...</svg>',
-    "矢量圖形"
+    "矢量图形"
 )
 
 # 打包

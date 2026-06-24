@@ -1,7 +1,7 @@
 ##龍芯⚡️2026-06-21-MODULE-LONGHUN-BRAIN-SYNC-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
-# 🐉 龍魂系統 systemd 服務配置
+# 🐉 龍魂系统 systemd 服务配置
 # DNA: #龍芯⚡️2026-06-07-LONGHUN-SYSTEMD-SERVICE
 # 用法: 
 #   1. sudo cp longhun-brain-sync.service /etc/systemd/system/
@@ -10,7 +10,7 @@
 #   4. sudo systemctl start longhun-brain-sync
 
 [Unit]
-Description=龍魂脑干 · Notion 同步服務 (Dragon Soul Brain Notion Sync)
+Description=龍魂脑干 · Notion 同步服务 (Dragon Soul Brain Notion Sync)
 After=network.target
 
 [Service]
@@ -19,16 +19,16 @@ User=root
 WorkingDirectory=/root/longhun-system
 ExecStart=/usr/bin/python3 /root/longhun-system/brain_notion_sync.py --watch
 
-# 重啟策略
+# 重启策略
 Restart=on-failure
 RestartSec=10
 
-# 日誌
+# 日志
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=longhun-brain-sync
 
-# 環境變量（如需要，取消註釋）
+# 环境变量（如需要，取消注释）
 # Environment="NOTION_TOKEN=your-token-here"
 # Environment="NOTION_BRAIN_DB=your-db-id-here"
 

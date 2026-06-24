@@ -684,7 +684,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
       <button class="btn btn-primary" onclick="verifyP0()">🔐 立即验证</button>
       <button class="btn" onclick="exportP0()">📋 导出铁律摘要</button>
     </div>
-    <div id="p0Result" style="font-family:monospace;font-size:11px;color:var(--green);background:var(--bg);padding:12px;border-radius:var(--r2);min-height:60px">点击「立即验证」执行P0完整性检查…</div>
+    <div id="p0Result" style="font-family:monospace;font-size:11px;color:var(--green);background:var(--bg);padding:12px;border-radius:var(--r2);min-height:60px">点击“立即验证”执行P0完整性检查…</div>
   </div>
 </div>
 
@@ -796,7 +796,7 @@ kbd{display:inline-block;padding:2px 7px;background:var(--bg3);border:1px solid 
         <li>宪章升级 v1.0 → v1.1</li>
         <li>新增 PART ZERO · DNA回单自动签发规范</li>
         <li>新增 PART ELEVEN · 分布式DNA · 一个变千万个</li>
-        <li>动态时间戳替代静态「永恒显示」</li>
+        <li>动态时间戳替代静态“永恒显示”</li>
         <li>Notion 52页归档整理至7个文件夹</li>
         <li>总导航页全部链接完善</li>
       </ul>
@@ -958,7 +958,7 @@ async function sha256(msg){
 
 // 易经64卦数据（按日期取模）
 const HEXAGRAMS=[
-  {ch:'䷀',name:'乾',num:'01',meaning:'天行健·君子当自强不息'},
+  {ch:'䷀',name:'干',num:'01',meaning:'天行健·君子当自强不息'},
   {ch:'䷁',name:'坤',num:'02',meaning:'地势坤·君子以厚德载物'},
   {ch:'䷂',name:'屯',num:'03',meaning:'云雷屯·万物始生之艰难'},
   {ch:'䷃',name:'蒙',num:'04',meaning:'山水蒙·蒙昧需师启迪'},
@@ -1039,7 +1039,7 @@ async function init(){
 
   // 道德经
   const qi=today.getDate()%DAO_QUOTES.length;
-  document.getElementById('daoQuote').textContent='「'+DAO_QUOTES[qi].q+'」';
+  document.getElementById('daoQuote').textContent='“'+DAO_QUOTES[qi].q+'”';
   document.getElementById('daoTrans').textContent='→ '+DAO_QUOTES[qi].t;
 
   // 卦象
@@ -1264,7 +1264,7 @@ function routeIntent(){
   else if(input.match(/dna|签发|hash|确认码|乔|前辈|代码|脚本/)) { persona='🍎 乔前辈';reason='触发词：DNA/代码/签发'; }
   else if(input.match(/宝宝|协作|帮我|怎么|怎样|能不能/)) { persona='🐉 龍芯·宝宝';reason='触发词：宝宝/协作/帮我'; }
   else if(input.match(/隐私|数据|主权|泄露|安全/)) { persona='🔐 P09 守门人';reason='触发词：隐私/数据/主权'; }
-  document.getElementById('intentResult').innerHTML=`<span style="color:var(--gold)">路由结果：${persona}</span><br><span style="color:var(--muted)">识别依据：${reason}</span><br><span style="color:var(--sub)">输入：「${input}」</span>`;
+  document.getElementById('intentResult').innerHTML=`<span style="color:var(--gold)">路由结果：${persona}</span><br><span style="color:var(--muted)">识别依据：${reason}</span><br><span style="color:var(--sub)">输入：“${input}”</span>`;
 }
 
 // ══════════════════════════════════════

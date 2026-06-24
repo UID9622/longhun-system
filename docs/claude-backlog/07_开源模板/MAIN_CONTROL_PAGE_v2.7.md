@@ -10,7 +10,7 @@
 
 - `longhun-system/00_main_control/RUNTIME_INDEX_v2.7.md`
 - `longhun-system/00_main_control/MAIN_CONTROL_v2.7.md`
-- `longhun-system/00_main_control/ORIGINAL_FLOWFIELD_MOTHER_MAP_v3.1.md`（原始流場母圖 · 決策之前總河道）
+- `longhun-system/00_main_control/ORIGINAL_FLOWFIELD_MOTHER_MAP_v3.1.md`（原始流场母图 · 决策之前总河道）
 
 ## 固定锚点（勿删改）
 

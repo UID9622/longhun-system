@@ -1,100 +1,100 @@
-# 龍魂操作日誌系統·完整使用指南
+# 龍魂操作日志系统·完整使用指南
 **DNA**:#龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
 
 ---
 
 ## 📋 概述
 
-`action_log.jsonl` 是龍魂系統的全局審計日誌，記錄每天所有操作的：
-- ✅ 執行時間
-- ✅ 工具名稱
-- ✅ 操作狀態
-- ✅ 執行人格
-- ✅ 執行時長
-- ✅ DNA 簽署
+`action_log.jsonl` 是龍魂系统的全局审计日志，记录每天所有操作的：
+- ✅ 执行时间
+- ✅ 工具名称
+- ✅ 操作状态
+- ✅ 执行人格
+- ✅ 执行时长
+- ✅ DNA 签署
 
 ---
 
-## 🚀 快速開始
+## 🚀 快速开始
 
-### 1️⃣ 查看今天的操作統計
+### 1️⃣ 查看今天的操作统计
 
 ```bash
 python3 ~/longhun-system/action_logger.py stats
 ```
 
-**輸出示例**:
+**输出示例**:
 ```
 ╔════════════════════════════════════════════════════════════╗
-║          龍魂每日操作統計 · Action Log Stats                ║
+║          龍魂每日操作统计 · Action Log Stats                ║
 ╚════════════════════════════════════════════════════════════╝
 
-📊 總體統計
-  • 今日操作: 20 筆
-  • 總耗時: 28.5 秒
-  • 成功: 20 筆
-  • 失敗: 0 筆
-  • 警告: 0 筆
+📊 总体统计
+  • 今日操作: 20 笔
+  • 总耗时: 28.5 秒
+  • 成功: 20 笔
+  • 失败: 0 笔
+  • 警告: 0 笔
 
-🔧 工具分布 (8 個)
-  • daily_review: 7 筆
-  • master_console: 2 筆
-  • persona_api: 3 筆
+🔧 工具分布 (8 个)
+  • daily_review: 7 笔
+  • master_console: 2 笔
+  • persona_api: 3 笔
   ...
 
-👥 人格分布 (5 個)
-  • P03雯雯: 7 筆
-  • P05上帝之眼: 5 筆
+👥 人格分布 (5 个)
+  • P03雯雯: 7 笔
+  • P05上帝之眼: 5 笔
   ...
 ```
 
-### 2️⃣ 生成完整報告
+### 2️⃣ 生成完整报告
 
 ```bash
 python3 ~/longhun-system/action_logger.py report
 ```
 
-### 3️⃣ 手動記錄操作
+### 3️⃣ 手动记录操作
 
 ```bash
-python3 ~/longhun-system/action_logger.py log "發布功能" "deploy" "P02龍芯"
+python3 ~/longhun-system/action_logger.py log "发布功能" "deploy" "P02龍芯"
 ```
 
 ---
 
-## 💻 在 Python 代碼中使用
+## 💻 在 Python 代码中使用
 
-### 方式 1: 簡單記錄
+### 方式 1: 简单记录
 
 ```python
 from action_logger import ActionLogger
 
-# 記錄操作
+# 记录操作
 ActionLogger.log(
-    action="執行任務",
+    action="执行任务",
     tool="my_tool",
     status="success",
-    persona="P01諸葛亮",
+    persona="P01诸葛亮",
     result="100% 完成",
     duration=5.2,
     dna="#龍芯⚡️2026-06-09-TASK"
 )
 ```
 
-### 方式 2: 自動計時（推薦）
+### 方式 2: 自动计时（推荐）
 
 ```python
 from action_logger import log_operation
 
-# 自動記錄執行時間
-with log_operation("數據處理", "data_processor", persona="P05上帝之眼"):
-    # 執行代碼
+# 自动记录执行时间
+with log_operation("数据处理", "data_processor", persona="P05上帝之眼"):
+    # 执行代码
     for i in range(1000):
         process_item(i)
-    # 完成時自動計時並記錄
+    # 完成时自动计时并记录
 ```
 
-### 方式 3: 在日常腳本中集成
+### 方式 3: 在日常脚本中集成
 
 ```python
 #!/usr/bin/env python3
@@ -102,13 +102,13 @@ import sys
 from action_logger import ActionLogger, log_operation
 
 def main():
-    with log_operation("系統初始化", "system_init", persona="P02龍芯"):
-        # 初始化系統
+    with log_operation("系统初始化", "system_init", persona="P02龍芯"):
+        # 初始化系统
         setup_database()
         load_config()
 
-    with log_operation("數據同步", "data_sync", persona="P05上帝之眼"):
-        # 同步數據
+    with log_operation("数据同步", "data_sync", persona="P05上帝之眼"):
+        # 同步数据
         sync_from_remote()
 
     # 查看今天的操作
@@ -122,169 +122,169 @@ if __name__ == "__main__":
 
 ## 📊 action_log.jsonl 格式
 
-每行都是有效的 JSON 對象：
+每行都是有效的 JSON 对象：
 
 ```json
 {
-  "date": "2026-06-09T07:15:00",           // ISO 8601 時間戳
-  "time": "2026-06-09 07:15:00",          // 可讀時間戳
-  "action": "每日復盤執行",                // 操作名稱
-  "tool": "daily_review",                  // 工具/模塊名稱
+  "date": "2026-06-09T07:15:00",           // ISO 8601 时间戳
+  "time": "2026-06-09 07:15:00",          // 可读时间戳
+  "action": "每日复盘执行",                // 操作名称
+  "tool": "daily_review",                  // 工具/模块名称
   "status": "success",                     // success|failed|warning
-  "persona": "P03雯雯",                    // 執行人格（可選）
-  "duration": 2.1,                         // 執行時長（秒，可選）
-  "result": "7個檢查項全部通過",           // 執行結果（可選）
-  "dna": "#龍芯⚡️2026-06-09-DAILY-REVIEW" // DNA 簽署（可選）
+  "persona": "P03雯雯",                    // 执行人格（可选）
+  "duration": 2.1,                         // 执行时长（秒，可选）
+  "result": "7个检查项全部通过",           // 执行结果（可选）
+  "dna": "#龍芯⚡️2026-06-09-DAILY-REVIEW" // DNA 签署（可选）
 }
 ```
 
-### 字段說明
+### 字段说明
 
-| 字段 | 類型 | 必須 | 說明 |
+| 字段 | 类型 | 必须 | 说明 |
 |------|------|------|------|
-| date | string | ✅ | ISO 8601 時間戳 (UTC+8) |
-| time | string | ✅ | 可讀時間 (YYYY-MM-DD HH:MM:SS) |
-| action | string | ✅ | 操作描述 (例: "系統掃描") |
-| tool | string | ✅ | 工具名稱 (例: "system_scan") |
-| status | string | ✅ | 狀態 (success/failed/warning) |
-| persona | string | ❌ | 執行人格 (例: "P01諸葛亮") |
-| duration | float | ❌ | 執行時長（秒） |
-| result | string | ❌ | 執行結果 |
-| dna | string | ❌ | DNA 簽署碼 |
-| 自定義字段 | any | ❌ | 任何其他信息 |
+| date | string | ✅ | ISO 8601 时间戳 (UTC+8) |
+| time | string | ✅ | 可读时间 (YYYY-MM-DD HH:MM:SS) |
+| action | string | ✅ | 操作描述 (例: "系统扫描") |
+| tool | string | ✅ | 工具名称 (例: "system_scan") |
+| status | string | ✅ | 状态 (success/failed/warning) |
+| persona | string | ❌ | 执行人格 (例: "P01诸葛亮") |
+| duration | float | ❌ | 执行时长（秒） |
+| result | string | ❌ | 执行结果 |
+| dna | string | ❌ | DNA 签署码 |
+| 自定义字段 | any | ❌ | 任何其他信息 |
 
 ---
 
-## 🔧 高級用法
+## 🔧 高级用法
 
-### 查詢特定日期的日誌
+### 查询特定日期的日志
 
 ```bash
-# 生成某日報告
+# 生成某日报告
 python3 ~/longhun-system/action_logger.py report 2026-06-08
 ```
 
-### 在 Shell 腳本中記錄
+### 在 Shell 脚本中记录
 
 ```bash
 #!/bin/bash
 
-# 記錄操作開始
-python3 ~/longhun-system/action_logger.py log "備份開始" "backup_tool" "P02龍芯"
+# 记录操作开始
+python3 ~/longhun-system/action_logger.py log "备份开始" "backup_tool" "P02龍芯"
 
-# 執行備份
+# 执行备份
 tar czf backup.tar.gz /important/data
 
-# 記錄操作完成
+# 记录操作完成
 if [ $? -eq 0 ]; then
-    python3 ~/longhun-system/action_logger.py log "備份完成" "backup_tool" "P02龍芯"
+    python3 ~/longhun-system/action_logger.py log "备份完成" "backup_tool" "P02龍芯"
 else
-    python3 ~/longhun-system/action_logger.py log "備份失敗" "backup_tool" "P02龍芯"
+    python3 ~/longhun-system/action_logger.py log "备份失败" "backup_tool" "P02龍芯"
 fi
 ```
 
-### 獲取統計數據（編程方式）
+### 获取统计数据（编程方式）
 
 ```python
 from action_logger import ActionLogger
 
-# 獲取今天的所有日誌
+# 获取今天的所有日志
 logs = ActionLogger.get_today_logs()
-print(f"今天 {len(logs)} 筆操作")
+print(f"今天 {len(logs)} 笔操作")
 
-# 獲取統計信息
+# 获取统计信息
 stats = ActionLogger.get_stats(logs)
 print(f"成功率: {100.0 * stats['status']['success'] / stats['total']:.1f}%")
-print(f"總耗時: {stats['total_duration']:.2f} 秒")
+print(f"总耗时: {stats['total_duration']:.2f} 秒")
 
-# 按工具分類
+# 按工具分类
 for tool, count in stats['tools'].items():
-    print(f"  {tool}: {count} 筆")
+    print(f"  {tool}: {count} 笔")
 ```
 
 ---
 
-## 📈 與 daily_review.py 的集成
+## 📈 与 daily_review.py 的集成
 
-daily_review_enhanced.py 會自動讀取 action_log.jsonl：
+daily_review_enhanced.py 会自动读取 action_log.jsonl：
 
 ```python
 def check_action_logs():
-    """審計 action_log.jsonl 中今天的所有操作"""
+    """审计 action_log.jsonl 中今天的所有操作"""
     logs = ActionLogger.get_today_logs()
     count = len(logs)
 
     if count > 0:
         stats = ActionLogger.get_stats(logs)
         tools = len(stats['tools'])
-        return ("🟢", f"今日操作 {count} 筆 ({tools}工具)")
+        return ("🟢", f"今日操作 {count} 笔 ({tools}工具)")
     else:
-        return ("🟡", "今日無操作記錄")
+        return ("🟡", "今日无操作记录")
 ```
 
 ---
 
-## 🎯 使用場景
+## 🎯 使用场景
 
-### 場景 1: 自動化腳本審計
+### 场景 1: 自动化脚本审计
 
 ```python
-# 在每個自動化腳本的入口點添加
+# 在每个自动化脚本的入口点添加
 from action_logger import log_operation
 
 def scheduled_job():
-    with log_operation("定時備份", "scheduler", persona="P02龍芯"):
+    with log_operation("定时备份", "scheduler", persona="P02龍芯"):
         perform_backup()
 
-    with log_operation("數據驗證", "scheduler", persona="P05上帝之眼"):
+    with log_operation("数据验证", "scheduler", persona="P05上帝之眼"):
         validate_data()
 
-    # 自動記錄完成時間和狀態
+    # 自动记录完成时间和状态
 ```
 
-### 場景 2: 每日工作日誌
+### 场景 2: 每日工作日志
 
 ```python
-# 在工作開始時記錄
-ActionLogger.log("開始工作", "daily_work", persona="P03雯雯")
+# 在工作开始时记录
+ActionLogger.log("开始工作", "daily_work", persona="P03雯雯")
 
-# 在完成各項任務時記錄
-ActionLogger.log("完成報告編寫", "report_gen", duration=120)
+# 在完成各项任务时记录
+ActionLogger.log("完成报告编写", "report_gen", duration=120)
 
-# 在工作結束時查看統計
+# 在工作结束时查看统计
 ActionLogger.print_stats()
 ```
 
-### 場景 3: 故障排查
+### 场景 3: 故障排查
 
 ```bash
-# 查找失敗的操作
+# 查找失败的操作
 grep '"status": "failed"' ~/longhun-system/logs/action_log.jsonl
 
 # 查看特定工具的操作
 grep '"tool": "api_server"' ~/longhun-system/logs/action_log.jsonl
 
-# 統計耗時最長的操作
+# 统计耗时最长的操作
 cat ~/longhun-system/logs/action_log.jsonl | \
   jq '.duration' | sort -nr | head -10
 ```
 
 ---
 
-## 📚 API 參考
+## 📚 API 参考
 
 ### ActionLogger.log()
 
 ```python
 ActionLogger.log(
-    action: str,              # 必須：操作名稱
-    tool: str,                # 必須：工具名稱
-    status: str = "success",  # 可選：success|failed|warning
-    persona: str = None,      # 可選：人格名稱
-    result: str = None,       # 可選：執行結果
-    duration: float = None,   # 可選：執行時長
-    dna: str = None,          # 可選：DNA 簽署
-    **kwargs                  # 可選：其他字段
+    action: str,              # 必须：操作名称
+    tool: str,                # 必须：工具名称
+    status: str = "success",  # 可选：success|failed|warning
+    persona: str = None,      # 可选：人格名称
+    result: str = None,       # 可选：执行结果
+    duration: float = None,   # 可选：执行时长
+    dna: str = None,          # 可选：DNA 签署
+    **kwargs                  # 可选：其他字段
 )
 ```
 
@@ -292,7 +292,7 @@ ActionLogger.log(
 
 ```python
 logs = ActionLogger.get_today_logs()
-# 返回: list[dict] - 今天的所有日誌記錄
+# 返回: list[dict] - 今天的所有日志记录
 ```
 
 ### ActionLogger.get_stats()
@@ -300,18 +300,18 @@ logs = ActionLogger.get_today_logs()
 ```python
 stats = ActionLogger.get_stats(logs)
 # 返回: dict 包含:
-#   - total: 總數
-#   - tools: {工具名: 計數}
-#   - personas: {人格: 計數}
-#   - status: {狀態: 計數}
-#   - total_duration: 總耗時
+#   - total: 总数
+#   - tools: {工具名: 计数}
+#   - personas: {人格: 计数}
+#   - status: {状态: 计数}
+#   - total_duration: 总耗时
 ```
 
 ### log_operation (上下文管理器)
 
 ```python
 with log_operation(action, tool, persona=None, dna=None):
-    # 自動計時並記錄
+    # 自动计时并记录
     do_something()
 ```
 
@@ -319,45 +319,45 @@ with log_operation(action, tool, persona=None, dna=None):
 
 ## 🔍 故障排查
 
-### 日誌寫入失敗
+### 日志写入失败
 
 ```bash
-# 檢查目錄是否存在
+# 检查目录是否存在
 ls -la ~/longhun-system/logs/
 
-# 檢查文件權限
+# 检查文件权限
 ls -la ~/longhun-system/logs/action_log.jsonl
 
-# 檢查磁盤空間
+# 检查磁盘空间
 df -h ~/longhun-system/
 ```
 
-### 日誌無法讀取
+### 日志无法读取
 
 ```bash
-# 驗證 JSON 格式
+# 验证 JSON 格式
 python3 -m json.tool < ~/longhun-system/logs/action_log.jsonl | head -20
 
-# 查找格式錯誤的行
+# 查找格式错误的行
 python3 << 'EOF'
 with open("~/longhun-system/logs/action_log.jsonl") as f:
     for i, line in enumerate(f, 1):
         try:
             json.loads(line)
         except:
-            print(f"第 {i} 行格式錯誤")
+            print(f"第 {i} 行格式错误")
 EOF
 ```
 
 ---
 
-## 🔏 最佳實踐
+## 🔏 最佳实践
 
-1. **始終包含 DNA 簽署** - 便於追蹤和驗證
-2. **記錄執行時長** - 用於性能分析
-3. **指定執行人格** - 用於職責追踪
-4. **使用上下文管理器** - 自動計時和錯誤處理
-5. **定期檢查統計** - 通過 print_stats() 監控系統
+1. **始终包含 DNA 签署** - 便于追踪和验证
+2. **记录执行时长** - 用于性能分析
+3. **指定执行人格** - 用于职责追踪
+4. **使用上下文管理器** - 自动计时和错误处理
+5. **定期检查统计** - 通过 print_stats() 监控系统
 
 ---
 
@@ -368,24 +368,24 @@ EOF
 from action_logger import ActionLogger, log_operation
 
 def main():
-    # 模擬一天的操作
+    # 模拟一天的操作
     operations = [
-        ("系統啟動", "system", "P02龍芯"),
-        ("數據同步", "sync", "P05上帝之眼"),
-        ("報告生成", "report", "P03雯雯"),
-        ("安全掃描", "security", "P04鲁班"),
+        ("系统启动", "system", "P02龍芯"),
+        ("数据同步", "sync", "P05上帝之眼"),
+        ("报告生成", "report", "P03雯雯"),
+        ("安全扫描", "security", "P04鲁班"),
     ]
 
     for action, tool, persona in operations:
         with log_operation(action, tool, persona=persona):
-            # 模擬執行時間
+            # 模拟执行时间
             import time
             time.sleep(0.5)
 
-    # 顯示統計
+    # 显示统计
     ActionLogger.print_stats()
 
-    # 導出報告
+    # 导出报告
     report = ActionLogger.export_report()
     print(report)
 
@@ -395,11 +395,11 @@ if __name__ == "__main__":
 
 ---
 
-## 🔏 DNA 簽署
+## 🔏 DNA 签署
 
 ```
 DNA:#龍芯⚡️2026-06-09-ACTION-LOG-GUIDE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```
 
-**立即開始**: `python3 ~/longhun-system/action_logger.py stats`
+**立即开始**: `python3 ~/longhun-system/action_logger.py stats`

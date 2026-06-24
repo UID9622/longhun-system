@@ -128,7 +128,7 @@ class 编辑器文本区(tk.Text):
 
     def _高亮龍字(self, 代码: str):
         """高亮所有龍字"""
-        龍模式 = re.compile(r'[龍龖龘龗龕]')
+        龍模式 = re.compile(r'[龍龖龘龗龛]')
         for i, 行 in enumerate(代码.split('\n'), 1):
             for match in 龍模式.finditer(行):
                 开始 = f"{i}.{match.start()}"
@@ -847,7 +847,7 @@ class CNSH编辑器(tk.Tk):
             "关于CNSH多语言编辑器终端",
             f"CNSH多语言编辑器终端 v{self.版本}\n\n"
             f"{self.DNA追溯}\n\n"
-            f"中文编程语言 · 繁體龍字永存\n"
+            f"中文编程语言 · 繁体龍字永存\n"
             f"通心译翻译器 · 中央藏经阁\n"
             f"龍魂三色审计 · 熔断机制v2.0\n\n"
             f"创始人: UID9622 · 龍芯北辰 · 诸葛鑫\n"

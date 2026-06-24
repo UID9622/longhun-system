@@ -2,17 +2,17 @@
 # -*- coding: utf-8 -*-
 
 """
-🐉 龍魂系統 Datadog 監控配置引擎
+🐉 龍魂系统 Datadog 监控配置引擎
 
 功能：
-  • 自動配置 Datadog 監控規則
-  • SLO 和 SLA 定義
-  • 告警規則生成
-  • 儀表板創建
-  • 集成驗證
+  • 自动配置 Datadog 监控规则
+  • SLO 和 SLA 定义
+  • 告警规则生成
+  • 仪表板创建
+  • 集成验证
 
 DNA:#龍芯⚡️2026-06-08-DATADOG-MONITORING-FILE1-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
 import json
@@ -21,7 +21,7 @@ from typing import Dict, List, Any
 
 
 class DatadogMonitoringConfig:
-    """Datadog 監控配置"""
+    """Datadog 监控配置"""
 
     def __init__(self, environment: str = "production"):
         self.environment = environment
@@ -30,11 +30,11 @@ class DatadogMonitoringConfig:
         self.timestamp = datetime.now().isoformat()
 
     # ════════════════════════════════════════════════════════════
-    # 核心指標定義
+    # 核心指标定义
     # ════════════════════════════════════════════════════════════
 
     def get_core_metrics(self) -> Dict[str, Any]:
-        """8 個核心監控指標"""
+        """8 个核心监控指标"""
         return {
             "1_api_response_time": {
                 "metric": "api.response_time",
@@ -97,28 +97,28 @@ class DatadogMonitoringConfig:
         }
 
     # ════════════════════════════════════════════════════════════
-    # SLO 定義 (99.95% 可用性)
+    # SLO 定义 (99.95% 可用性)
     # ════════════════════════════════════════════════════════════
 
     def get_slo_config(self) -> Dict[str, Any]:
         """SLO 和 SLA 配置"""
         return {
             "availability_slo": {
-                "name": "龍魂系統整體可用性",
+                "name": "龍魂系统整体可用性",
                 "target": 99.95,
                 "unit": "percent",
                 "window": "rolling_30_days",
-                "description": "系統 99.95% 時間可用"
+                "description": "系统 99.95% 时间可用"
             },
             "latency_slo": {
-                "name": "API 響應時間 SLO",
+                "name": "API 响应时间 SLO",
                 "metric": "api.response_time_p95",
                 "target": 500,
                 "unit": "milliseconds",
                 "window": "rolling_7_days"
             },
             "error_rate_slo": {
-                "name": "API 錯誤率 SLO",
+                "name": "API 错误率 SLO",
                 "metric": "api.error_rate",
                 "target": 0.1,
                 "unit": "percent",
@@ -134,11 +134,11 @@ class DatadogMonitoringConfig:
         }
 
     # ════════════════════════════════════════════════════════════
-    # 告警規則生成
+    # 告警规则生成
     # ════════════════════════════════════════════════════════════
 
     def get_alert_rules(self) -> List[Dict[str, Any]]:
-        """自動生成告警規則"""
+        """自动生成告警规则"""
         return [
             # 🔴 Critical Alerts
             {
@@ -147,7 +147,7 @@ class DatadogMonitoringConfig:
                 "duration": "5m",
                 "severity": "critical",
                 "notify_channels": ["slack", "pagerduty"],
-                "description": "API 錯誤率超過 1%，需要立即處理"
+                "description": "API 错误率超过 1%，需要立即处理"
             },
             {
                 "name": "Database Pool Exhausted",
@@ -155,7 +155,7 @@ class DatadogMonitoringConfig:
                 "duration": "2m",
                 "severity": "critical",
                 "notify_channels": ["slack", "pagerduty"],
-                "description": "數據庫連接池使用率超過 90%"
+                "description": "数据库连接池使用率超过 90%"
             },
             {
                 "name": "Disk Space Critical",
@@ -163,7 +163,7 @@ class DatadogMonitoringConfig:
                 "duration": "1m",
                 "severity": "critical",
                 "notify_channels": ["slack", "pagerduty"],
-                "description": "磁盤可用空間低於 10%"
+                "description": "磁盘可用空间低于 10%"
             },
 
             # 🟡 Warning Alerts
@@ -173,7 +173,7 @@ class DatadogMonitoringConfig:
                 "duration": "10m",
                 "severity": "warning",
                 "notify_channels": ["slack"],
-                "description": "API P95 延遲超過 500ms"
+                "description": "API P95 延迟超过 500ms"
             },
             {
                 "name": "Memory Usage High",
@@ -181,7 +181,7 @@ class DatadogMonitoringConfig:
                 "duration": "10m",
                 "severity": "warning",
                 "notify_channels": ["slack"],
-                "description": "內存可用率低於 20%"
+                "description": "内存可用率低于 20%"
             },
             {
                 "name": "CPU Usage High",
@@ -189,7 +189,7 @@ class DatadogMonitoringConfig:
                 "duration": "10m",
                 "severity": "warning",
                 "notify_channels": ["slack"],
-                "description": "CPU 使用率超過 80%"
+                "description": "CPU 使用率超过 80%"
             },
             {
                 "name": "Cache Hit Rate Low",
@@ -197,7 +197,7 @@ class DatadogMonitoringConfig:
                 "duration": "10m",
                 "severity": "warning",
                 "notify_channels": ["slack"],
-                "description": "快取命中率低於 80%"
+                "description": "快取命中率低于 80%"
             },
             {
                 "name": "Kimi API Latency High",
@@ -205,7 +205,7 @@ class DatadogMonitoringConfig:
                 "duration": "5m",
                 "severity": "warning",
                 "notify_channels": ["slack"],
-                "description": "Kimi API 響應時間超過 5 秒"
+                "description": "Kimi API 响应时间超过 5 秒"
             }
         ]
 
@@ -241,11 +241,11 @@ class DatadogMonitoringConfig:
         }
 
     # ════════════════════════════════════════════════════════════
-    # Skill 監控
+    # Skill 监控
     # ════════════════════════════════════════════════════════════
 
     def get_skill_monitoring(self) -> Dict[str, Any]:
-        """10 個 Skill 的監控配置"""
+        """10 个 Skill 的监控配置"""
         skills = [
             "skill-1-algorithmic-art",
             "skill-2-brand-guidelines",
@@ -267,7 +267,7 @@ class DatadogMonitoringConfig:
                 "failure_count": "count",
                 "alert_threshold": {
                     "execution_time": 5000,  # 5 秒
-                    "failure_rate": 5        # 5% 失敗率
+                    "failure_rate": 5        # 5% 失败率
                 }
             }
 
@@ -281,11 +281,11 @@ class DatadogMonitoringConfig:
         }
 
     # ════════════════════════════════════════════════════════════
-    # 報告生成
+    # 报告生成
     # ════════════════════════════════════════════════════════════
 
     def generate_config(self) -> Dict[str, Any]:
-        """生成完整監控配置"""
+        """生成完整监控配置"""
         return {
             "organization": self.organization,
             "service": self.service,
@@ -299,7 +299,7 @@ class DatadogMonitoringConfig:
             "skill_monitoring": self.get_skill_monitoring(),
 
             "dashboard": {
-                "name": "🐉 龍魂系統生產監控",
+                "name": "🐉 龍魂系统生产监控",
                 "refresh_interval": "30s",
                 "default_time_range": "last_6h",
                 "panels_count": 10
@@ -321,27 +321,27 @@ class DatadogMonitoringConfig:
 
 
 if __name__ == "__main__":
-    # 生成監控配置
+    # 生成监控配置
     config = DatadogMonitoringConfig()
     full_config = config.generate_config()
 
-    print("🎯 龍魂系統 Datadog 監控配置生成\n")
+    print("🎯 龍魂系统 Datadog 监控配置生成\n")
     print("=" * 80)
-    print(f"組織: {full_config['organization']}")
-    print(f"服務: {full_config['service']}")
-    print(f"環境: {full_config['environment']}")
-    print(f"生成時間: {full_config['timestamp']}")
+    print(f"组织: {full_config['organization']}")
+    print(f"服务: {full_config['service']}")
+    print(f"环境: {full_config['environment']}")
+    print(f"生成时间: {full_config['timestamp']}")
     print("=" * 80)
 
-    print("\n📊 核心指標 (8 個)")
+    print("\n📊 核心指标 (8 个)")
     for name, metric in full_config['core_metrics'].items():
         print(f"  {name}: {metric['unit']}")
 
-    print("\n🎯 SLO 目標 (4 個)")
+    print("\n🎯 SLO 目标 (4 个)")
     for name, slo in full_config['slo_config'].items():
         print(f"  {name}: {slo.get('target')} {slo.get('unit', '')}")
 
-    print("\n🚨 告警規則 (8 個)")
+    print("\n🚨 告警规则 (8 个)")
     for alert in full_config['alert_rules']:
         print(f"  [{alert['severity'].upper()}] {alert['name']}")
 
@@ -350,14 +350,14 @@ if __name__ == "__main__":
     print(f"  • PagerDuty")
     print(f"  • Email")
 
-    print("\n🧠 Skill 監控 (10 個)")
+    print("\n🧠 Skill 监控 (10 个)")
     skill_count = len(full_config['skill_monitoring']['skills'])
-    print(f"  • {skill_count} 個 Skills 實時監控")
+    print(f"  • {skill_count} 个 Skills 实时监控")
 
     print("\n✅ 配置完成")
     print(f"\nDNA: {full_config['dna']}\n")
 
-    # 保存為 JSON
+    # 保存为 JSON
     import os
     output_dir = os.path.dirname(__file__)
     output_file = os.path.join(output_dir, "datadog_monitoring_config.json")

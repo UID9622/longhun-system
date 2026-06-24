@@ -8,21 +8,21 @@ DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE3-FILE1-FILE1-FILE1-FILE1-FILE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 v1.1 Phase 1 完整実装:
-  ✅ 指数退避重試機制 (最多3次重試)
-  ✅ 限流控制器 (避免觸發 API 限流)
-  ✅ 更完善的錯誤處理
+  ✅ 指数退避重试机制 (最多3次重试)
+  ✅ 限流控制器 (避免触发 API 限流)
+  ✅ 更完善的错误处理
   ✅ 安全的 JSON 解析
-  ✅ 詳細的日誌追蹤
-  ✅ 失敗恢復機制
-  ✅ 環境變量安全管理
+  ✅ 详细的日志追踪
+  ✅ 失败恢复机制
+  ✅ 环境变量安全管理
 
 功能：
   - 把 longhun_brain.py 的新记忆自动推送到 Notion
   - Notion 记忆页写回 brain DB（notion_id字段）
   - 定时轮询（每5分钟）
-  - 🆕 自動重試失敗的上傳
-  - 🆕 限流控制防止 API 觸發限制
-  - 🆕 安全的環境變量管理
+  - 🆕 自动重试失败的上传
+  - 🆕 限流控制防止 API 触发限制
+  - 🆕 安全的环境变量管理
 
 配置（首次运行前设置环境变量）：
   export NOTION_TOKEN="your_integration_token"
@@ -42,7 +42,7 @@ from typing import Optional, Dict, List, Tuple
 from integrated_modules.longhun_config import getenv
 
 # ═══════════════════════════════════════
-# ⚙️ 配置区（環境變量优先）
+# ⚙️ 配置区（环境变量优先）
 # ═══════════════════════════════════════
 
 CONFIG = {
@@ -60,10 +60,10 @@ CONFIG = {
     "INTERVAL": 300,
 
     # Phase 1 新增配置
-    "MAX_RETRIES": 3,              # 最大重試次數
+    "MAX_RETRIES": 3,              # 最大重试次数
     "RETRY_BACKOFF": 2,            # 指数退避底数 (1s, 2s, 4s...)
     "API_RATE_LIMIT": 5,           # API 呼叫限制 (calls/second)
-    "NOTION_TIMEOUT": 15,          # Notion API 超時時間 (秒)
+    "NOTION_TIMEOUT": 15,          # Notion API 超时时间 (秒)
 }
 
 WUXING_EMOJI = {"水":"💧","木":"🌿","火":"🔥","金":"⚡","土":"🌍"}
@@ -73,7 +73,7 @@ WUXING_EMOJI = {"水":"💧","木":"🌿","火":"🔥","金":"⚡","土":"🌍"}
 # ═══════════════════════════════════════
 
 class RateLimiter:
-    """API 速率限制器 - 避免觸發 Notion API 限流"""
+    """API 速率限制器 - 避免触发 Notion API 限流"""
 
     def __init__(self, calls_per_second: float = 5):
         self.calls_per_second = calls_per_second
@@ -81,7 +81,7 @@ class RateLimiter:
         self.last_call_time = 0
 
     def wait(self):
-        """等待直到可以進行下一次 API 呼叫"""
+        """等待直到可以进行下一次 API 呼叫"""
         now = time.time()
         elapsed = now - self.last_call_time
 
@@ -99,11 +99,11 @@ class RateLimiter:
         pass
 
 # ═══════════════════════════════════════
-# 🔄 Phase 1: 重試機制 (Retry Logic)
+# 🔄 Phase 1: 重试机制 (Retry Logic)
 # ═══════════════════════════════════════
 
 class RetryableException(Exception):
-    """可重試的異常"""
+    """可重试的异常"""
     pass
 
 def retry_with_backoff(
@@ -115,31 +115,31 @@ def retry_with_backoff(
     **kwargs
 ):
     """
-    指數退避重試機制
+    指数退避重试机制
 
     Args:
-        func: 要執行的函數
-        max_retries: 最大重試次數
-        backoff_base: 指數退避底數
-        verbose: 是否輸出日誌
+        func: 要执行的函数
+        max_retries: 最大重试次数
+        backoff_base: 指数退避底数
+        verbose: 是否输出日志
 
     Returns:
-        函數執行結果
+        函数执行结果
 
     Raises:
-        Exception: 所有重試都失敗時拋出最後一個異常
+        Exception: 所有重试都失败时抛出最后一个异常
     """
     last_exception = None
 
     for attempt in range(max_retries):
         try:
             if verbose and attempt > 0:
-                print(f"    🔄 重試 {attempt}/{max_retries-1}...")
+                print(f"    🔄 重试 {attempt}/{max_retries-1}...")
 
             result = func(*args, **kwargs)
 
             if verbose and attempt > 0:
-                print(f"    ✅ 第 {attempt+1} 次重試成功")
+                print(f"    ✅ 第 {attempt+1} 次重试成功")
 
             return result
 
@@ -147,22 +147,22 @@ def retry_with_backoff(
             last_exception = e
 
             if attempt < max_retries - 1:
-                # 計算等待時間 (exponential backoff)
+                # 计算等待时间 (exponential backoff)
                 wait_time = backoff_base ** attempt
 
                 if verbose:
-                    print(f"    ⚠️  嘗試 {attempt+1} 失敗: {str(e)[:60]}")
-                    print(f"    ⏳ 等待 {wait_time}s 後重試...")
+                    print(f"    ⚠️  尝试 {attempt+1} 失败: {str(e)[:60]}")
+                    print(f"    ⏳ 等待 {wait_time}s 后重试...")
 
                 time.sleep(wait_time)
             else:
                 if verbose:
-                    print(f"    ❌ 所有 {max_retries} 次重試都失敗")
+                    print(f"    ❌ 所有 {max_retries} 次重试都失败")
 
     raise last_exception
 
 # ═══════════════════════════════════════
-# Notion API 封装 (升級版)
+# Notion API 封装 (升级版)
 # ═══════════════════════════════════════
 
 def notion_headers() -> Dict[str, str]:
@@ -183,15 +183,15 @@ def safe_parse_json(json_str, default=None):
             parsed = json.loads(json_str)
             return parsed
         except (json.JSONDecodeError, ValueError) as e:
-            # JSON 解析失敗，嘗試降級處理
+            # JSON 解析失败，尝试降级处理
             return default if default is not None else [json_str]
 
     return default if default is not None else []
 
 def safe_parse_tags(tags) -> List[str]:
-    """安全的標籤解析"""
+    """安全的标签解析"""
     if isinstance(tags, list):
-        return tags[:5]  # 最多 5 個標籤
+        return tags[:5]  # 最多 5 个标签
 
     parsed = safe_parse_json(tags, default=None)
     if isinstance(parsed, list):
@@ -206,7 +206,7 @@ def notion_create_page(memory: dict, rate_limiter: Optional[RateLimiter] = None)
     """
     把一条记忆写到 Notion 数据库，返回 page_id
 
-    v1.1: 添加速率限制和更好的錯誤處理
+    v1.1: 添加速率限制和更好的错误处理
     """
     try:
         import urllib.request, urllib.error
@@ -295,19 +295,19 @@ def notion_create_page(memory: dict, rate_limiter: Optional[RateLimiter] = None)
                 result = json.loads(resp.read())
                 return result.get("id", "")
         except urllib.error.HTTPError as e:
-            # HTTP 錯誤 (4xx, 5xx)
+            # HTTP 错误 (4xx, 5xx)
             if 500 <= e.code < 600:
-                # 服務器錯誤，可重試
-                raise RetryableException(f"Notion API 服務器錯誤 ({e.code})")
+                # 服务器错误，可重试
+                raise RetryableException(f"Notion API 服务器错误 ({e.code})")
             else:
-                # 客戶端錯誤 (4xx)，不重試
+                # 客户端错误 (4xx)，不重试
                 error_body = e.read().decode('utf-8')
-                raise Exception(f"Notion API 客戶端錯誤 ({e.code}): {error_body}")
+                raise Exception(f"Notion API 客户端错误 ({e.code}): {error_body}")
         except (urllib.error.URLError, TimeoutError) as e:
-            # 網絡錯誤，可重試
-            raise RetryableException(f"網絡錯誤: {str(e)}")
+            # 网络错误，可重试
+            raise RetryableException(f"网络错误: {str(e)}")
 
-    # 使用重試機制調用
+    # 使用重试机制调用
     return retry_with_backoff(
         _make_request,
         max_retries=CONFIG["MAX_RETRIES"],
@@ -363,9 +363,9 @@ def get_unsynced(db_path: Path) -> List[Dict]:
 
 def sync_once(verbose: bool = True) -> int:
     """
-    執行一次同步
+    执行一次同步
 
-    v1.1: 添加限流控制和更詳細的日誌
+    v1.1: 添加限流控制和更详细的日志
     """
     db_path = CONFIG["DB_PATH"]
     if not db_path.exists():
@@ -400,13 +400,13 @@ def sync_once(verbose: bool = True) -> int:
                     if verbose:
                         print(f"\n       ✅ Notion page: {notion_id[:8]}...")
                 else:
-                    print("\n       ⏭️  無 page_id 返回，標記為待定")
+                    print("\n       ⏭️  无 page_id 返回，标记为待定")
                     update_notion_id(db_path, m["id"], "PENDING")
                     synced += 1
             except Exception as e:
                 failed += 1
-                print(f"\n       ❌ 最終失敗: {str(e)[:50]}")
-                # 仍然標記為待定，下次重試
+                print(f"\n       ❌ 最终失败: {str(e)[:50]}")
+                # 仍然标记为待定，下次重试
                 update_notion_id(db_path, m["id"], "FAILED")
         else:
             # 没配置 Token 就先标记为 PENDING，不报错
@@ -415,7 +415,7 @@ def sync_once(verbose: bool = True) -> int:
 
     if verbose:
         print("")
-        print(f"  📊 同步結果: {synced} 成功, {failed} 失敗")
+        print(f"  📊 同步结果: {synced} 成功, {failed} 失败")
 
     return synced
 
@@ -423,7 +423,7 @@ def sync_status():
     """
     显示同步状态
 
-    v1.1: 添加更詳細的統計信息
+    v1.1: 添加更详细的统计信息
     """
     db_path = CONFIG["DB_PATH"]
     if not db_path.exists():
@@ -463,17 +463,17 @@ def sync_status():
   总记忆数        : {total} 条
   已同步 Notion   : {synced} 条  ✅
   待推送（无Token）: {pending} 条  🟡
-  推送失敗（重試中）: {failed} 条  🔴
+  推送失败（重试中）: {failed} 条  🔴
   未处理          : {unsynced} 条  ⏳
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔧 Phase 1 升級特性:
-  ✅ 指數退避重試機制 (最多 {CONFIG['MAX_RETRIES']} 次)
+🔧 Phase 1 升级特性:
+  ✅ 指数退避重试机制 (最多 {CONFIG['MAX_RETRIES']} 次)
   ✅ API 限流控制 ({CONFIG['API_RATE_LIMIT']} calls/sec)
   ✅ 安全的 JSON 解析
-  ✅ 詳細的錯誤日誌
-  ✅ 失敗恢復機制
-  ✅ 環境變量安全管理
+  ✅ 详细的错误日志
+  ✅ 失败恢复机制
+  ✅ 环境变量安全管理
 
 📋 配置方法（写入 ~/.longhun/secrets.env）：
   export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
@@ -493,14 +493,14 @@ def main():
     parser.add_argument("--once",   action="store_true", help="单次同步（默认）")
     args = parser.parse_args()
 
-    print("\n🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整實現)")
+    print("\n🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整实现)")
     print(f"   DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1\n")
     print(f"   ⚡ Phase 1 特性:")
-    print(f"      • 指數退避重試 ({CONFIG['MAX_RETRIES']} 次)")
+    print(f"      • 指数退避重试 ({CONFIG['MAX_RETRIES']} 次)")
     print(f"      • API 限流控制 ({CONFIG['API_RATE_LIMIT']} calls/sec)")
     print(f"      • 安全 JSON 解析")
-    print(f"      • 失敗恢復機制")
-    print(f"      • 環境變量安全管理\n")
+    print(f"      • 失败恢复机制")
+    print(f"      • 环境变量安全管理\n")
 
     if args.status:
         sync_status()

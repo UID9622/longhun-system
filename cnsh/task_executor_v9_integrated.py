@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂系統 · 整合版任務執行引擎 (task_executor_live_v1 + v9.0)
+龍魂系统 · 整合版任务执行引擎 (task_executor_live_v1 + v9.0)
 Integrated Task Executor with v9.0 System Bridge
 
 DNA:#龍芯⚡️2026-06-06-TASK-EXECUTOR-V9-INTEGRATED-FILE1-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-UID9622 · 諸葛鑫 · 龍芯北辰
-責任: UID9622·不免責
+UID9622 · 诸葛鑫 · 龍芯北辰
+责任: UID9622·不免责
 """
 
 import json
@@ -24,7 +24,7 @@ HOME = Path.home()
 TASK_QUEUE = HOME / ".龍魂/task_queue.jsonl"
 AGENT_LOG = HOME / ".龍魂/orchestrator/execution_live.log"
 
-# 原有智能體命令映射
+# 原有智能体命令映射
 AGENT_COMMANDS = {
     "AGENT-001": ["python3", str(HOME / "local_assessment_engine.py")],
     "AGENT-002": ["bash", str(HOME / "check_longhun_assessment.sh")],
@@ -36,20 +36,20 @@ AGENT_COMMANDS = {
     "AGENT-012": ["python3", str(HOME / ".龍魂/baobao_workflow_transparent.py")],
     "AGENT-013": ["python3", str(HOME / ".龍魂/xpay/xpay_cli.py"), "stats"],
     "AGENT-014": ["python3", str(HOME / ".龍魂/xpay/xpay_core.py")],
-    # v9.0 系統代理（新增）
+    # v9.0 系统代理（新增）
     "V9-SYSTEM": "v9_integrated_system",
 }
 
 
 class IntegratedTaskExecutor:
     """
-    整合版任務執行器
+    整合版任务执行器
 
     功能：
     1. 支援原有的 AGENT-001 到 AGENT-014
-    2. 新增 V9-SYSTEM 代理（路由 v9.0 系統任務）
-    3. 智能路由決策
-    4. 統一的執行和報告
+    2. 新增 V9-SYSTEM 代理（路由 v9.0 系统任务）
+    3. 智能路由决策
+    4. 统一的执行和报告
     """
 
     def __init__(self):
@@ -58,11 +58,11 @@ class IntegratedTaskExecutor:
         self.execution_results = []
         self.routing_decisions = []
 
-        # 初始化 v9 適配器
+        # 初始化 v9 适配器
         self.v9_adapter = V9TaskExecutorAdapter()
 
     def load_tasks(self) -> List[Dict]:
-        """載入待辦任務"""
+        """载入待办任务"""
         tasks = []
         if TASK_QUEUE.exists():
             with open(TASK_QUEUE, 'r', encoding='utf-8') as f:
@@ -75,20 +75,20 @@ class IntegratedTaskExecutor:
 
     def route_task(self, task: Dict) -> Tuple[List[str], str]:
         """
-        智能路由任務
+        智能路由任务
 
-        優先級：
-        1. v9 標籤檢測 (新增)
-        2. 標籤精確匹配
-        3. 標題關鍵詞匹配
-        4. 優先級預設
+        优先级：
+        1. v9 标签检测 (新增)
+        2. 标签精确匹配
+        3. 标题关键词匹配
+        4. 优先级预设
         """
 
-        # 【優先級 0】v9.0 系統檢測 (新增)
+        # 【优先级 0】v9.0 系统检测 (新增)
         if self.v9_adapter.is_v9_task(task):
-            return ["V9-SYSTEM"], "L0 v9.0 系統任務檢測"
+            return ["V9-SYSTEM"], "L0 v9.0 系统任务检测"
 
-        # 【優先級 1】標籤精確匹配 (原有)
+        # 【优先级 1】标签精确匹配 (原有)
         tag_agent_map = {
             "assess": ["AGENT-001", "AGENT-002"],
             "foundation": ["AGENT-007"],
@@ -100,13 +100,13 @@ class IntegratedTaskExecutor:
         for label in labels:
             if label in tag_agent_map:
                 agents = tag_agent_map[label]
-                reason = f"L1 標籤精確匹配: '{label}'"
+                reason = f"L1 标签精确匹配: '{label}'"
                 return agents, reason
 
-        # 【優先級 2】標題關鍵詞 (原有)
+        # 【优先级 2】标题关键词 (原有)
         title = task.get("title", "").lower()
         keyword_map = {
-            "評估": ["AGENT-001", "AGENT-002"],
+            "评估": ["AGENT-001", "AGENT-002"],
             "foundation": ["AGENT-007"],
             "xpay": ["AGENT-013"],
             "notion": ["AGENT-011"],
@@ -114,43 +114,43 @@ class IntegratedTaskExecutor:
 
         for keyword, agents in keyword_map.items():
             if keyword in title.lower():
-                reason = f"L2 標題關鍵詞: '{keyword}'"
+                reason = f"L2 标题关键词: '{keyword}'"
                 return agents, reason
 
-        # 【優先級 3】預設路由 (原有)
+        # 【优先级 3】预设路由 (原有)
         priority = task.get("priority", 3)
         if priority >= 5:
             agents = ["AGENT-004"]
-            reason = "L3 優先級預設(≥5)"
+            reason = "L3 优先级预设(≥5)"
         else:
             agents = ["AGENT-002"]
-            reason = "L3 優先級預設(<5)"
+            reason = "L3 优先级预设(<5)"
 
         return agents, reason
 
     def execute_agent(self, agent_id: str) -> Dict:
         """
-        執行智能體
+        执行智能体
 
         支援：
         - AGENT-001 到 AGENT-014 (原有)
-        - V9-SYSTEM (新增，v9.0 系統)
+        - V9-SYSTEM (新增，v9.0 系统)
         """
 
-        # v9 系統執行 (新增)
+        # v9 系统执行 (新增)
         if agent_id == "V9-SYSTEM":
             return {
                 "agent_id": agent_id,
                 "status": "routed",
-                "message": "任務已路由到 v9.0 系統"
+                "message": "任务已路由到 v9.0 系统"
             }
 
-        # 原有邏輯
+        # 原有逻辑
         if agent_id not in AGENT_COMMANDS:
             return {
                 "agent_id": agent_id,
                 "status": "skipped",
-                "reason": "無可執行命令"
+                "reason": "无可执行命令"
             }
 
         cmd = AGENT_COMMANDS[agent_id]
@@ -173,7 +173,7 @@ class IntegratedTaskExecutor:
             return {
                 "agent_id": agent_id,
                 "status": "timeout",
-                "reason": "執行超過 30 秒"
+                "reason": "执行超过 30 秒"
             }
         except Exception as e:
             return {
@@ -184,9 +184,9 @@ class IntegratedTaskExecutor:
 
     def execute_v9_task(self, task: Dict) -> Dict:
         """
-        執行 v9.0 系統任務（新增）
+        执行 v9.0 系统任务（新增）
 
-        通過 v9 適配器執行
+        通过 v9 适配器执行
         """
         try:
             result = self.v9_adapter.execute_v9_task(task)
@@ -203,36 +203,36 @@ class IntegratedTaskExecutor:
             }
 
     def execute_queue(self):
-        """執行任務隊列（整合版）"""
+        """执行任务队列（整合版）"""
         tasks = self.load_tasks()
 
         if not tasks:
-            print("✓ 無待辦任務")
+            print("✓ 无待办任务")
             return
 
-        print(f"\n【整合版任務執行引擎】")
+        print(f"\n【整合版任务执行引擎】")
         print(f"{'='*70}")
-        print(f"時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print(f"待執行: {len(tasks)} 個任務")
-        print(f"包含 v9.0 系統任務支援\n")
+        print(f"时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"待执行: {len(tasks)} 个任务")
+        print(f"包含 v9.0 系统任务支援\n")
 
         for idx, task in enumerate(tasks, 1):
             task_id = task.get("task_id")
             title = task.get("title", "未命名")
             labels = task.get("labels", [])
 
-            # 路由決策
+            # 路由决策
             agents, reason = self.route_task(task)
 
-            print(f"\n【任務 {idx}/{len(tasks)}】")
+            print(f"\n【任务 {idx}/{len(tasks)}】")
             print(f"  ID: {task_id}")
-            print(f"  標題: {title}")
-            print(f"  標籤: {labels}")
-            print(f"  優先級: {task.get('priority', 3)}")
-            print(f"  → 路由決策: {agents}")
+            print(f"  标题: {title}")
+            print(f"  标签: {labels}")
+            print(f"  优先级: {task.get('priority', 3)}")
+            print(f"  → 路由决策: {agents}")
             print(f"    理由: {reason}")
 
-            # 記錄路由決策
+            # 记录路由决策
             routing_record = {
                 "task_id": task_id,
                 "title": title,
@@ -243,13 +243,13 @@ class IntegratedTaskExecutor:
             }
             self.routing_decisions.append(routing_record)
 
-            # 執行分配的智能體
-            print(f"\n  【執行階段】")
+            # 执行分配的智能体
+            print(f"\n  【执行阶段】")
             agent_results = []
             for agent_id in agents:
-                print(f"    執行 {agent_id}...", end=" ", flush=True)
+                print(f"    执行 {agent_id}...", end=" ", flush=True)
 
-                # v9 系統特殊處理
+                # v9 系统特殊处理
                 if agent_id == "V9-SYSTEM":
                     result = self.execute_v9_task(task)
                 else:
@@ -270,7 +270,7 @@ class IntegratedTaskExecutor:
 
                 print(f"{icon} {status}")
 
-            # 記錄執行結果
+            # 记录执行结果
             execution_record = {
                 "task_id": task_id,
                 "agents_executed": agent_results,
@@ -278,22 +278,22 @@ class IntegratedTaskExecutor:
             }
             self.execution_results.append(execution_record)
 
-        # 生成報告
+        # 生成报告
         self.generate_report(tasks)
 
     def generate_report(self, tasks: List[Dict]):
-        """生成執行報告"""
+        """生成执行报告"""
         report_path = HOME / ".龍魂/TASK_EXECUTION_INTEGRATED_REPORT.md"
 
-        report = f"""# 龍魂整合版任務執行報告
+        report = f"""# 龍魂整合版任务执行报告
 
-**執行時間**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**执行时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 **DNA**:#龍芯⚡️2026-06-06-TASK-EXECUTOR-V9-INTEGRATED-v1.0
-**待執行任務**: {len(tasks)}
+**待执行任务**: {len(tasks)}
 
 ---
 
-## 路由決策驗證
+## 路由决策验证
 
 """
 
@@ -302,20 +302,20 @@ class IntegratedTaskExecutor:
             execution = next((e for e in self.execution_results if e["task_id"] == task.get("task_id")), None)
 
             if routing:
-                report += f"### 任務 {idx}: {task.get('title')}\n\n"
+                report += f"### 任务 {idx}: {task.get('title')}\n\n"
                 report += f"- **ID**: `{routing['task_id']}`\n"
-                report += f"- **標籤**: {routing['labels']}\n"
-                report += f"- **分配智能體**: {routing['assigned_agents']}\n"
+                report += f"- **标签**: {routing['labels']}\n"
+                report += f"- **分配智能体**: {routing['assigned_agents']}\n"
                 report += f"- **路由理由**: {routing['routing_reason']}\n"
 
                 if execution:
-                    report += f"- **執行結果**:\n"
+                    report += f"- **执行结果**:\n"
                     for agent_result in execution['agents_executed']:
                         status = agent_result.get('status', 'unknown')
                         agent_id = agent_result.get('agent_id')
                         report += f"  - {agent_id}: `{status}`"
                         if agent_result.get('return_code') == 0:
-                            report += f" ({agent_result.get('output_lines', 0)} 行輸出)\n"
+                            report += f" ({agent_result.get('output_lines', 0)} 行输出)\n"
                         elif agent_id == "V9-SYSTEM":
                             if status == "success":
                                 v9_result = agent_result.get('v9_result', {})
@@ -327,7 +327,7 @@ class IntegratedTaskExecutor:
 
                 report += "\n"
 
-        # 統計摘要
+        # 统计摘要
         success_count = sum(
             1 for r in self.execution_results
             if all(a.get('status') in ['success', 'routed'] for a in r.get('agents_executed', []))
@@ -340,37 +340,37 @@ class IntegratedTaskExecutor:
 
         report += f"""---
 
-## 執行統計
+## 执行统计
 
-| 指標 | 數值 |
+| 指标 | 数值 |
 |------|------|
-| 總任務數 | {len(tasks)} |
-| 成功執行 | {success_count}/{len(tasks)} |
-| v9.0 任務 | {v9_count}/{len(tasks)} |
-| 路由精確度 | 100% (智能路由) |
+| 总任务数 | {len(tasks)} |
+| 成功执行 | {success_count}/{len(tasks)} |
+| v9.0 任务 | {v9_count}/{len(tasks)} |
+| 路由精确度 | 100% (智能路由) |
 
 ---
 
-## 系統狀態
+## 系统状态
 
-✅ 所有任務已分派並執行
-✅ v9.0 系統集成完整
-✅ 路由決策使用 L0-L3 分層
-✅ 智能體協調系統運作正常
-
----
-
-## v9.0 系統集成驗證
-
-✅ v9 任務檢測: 正常
-✅ v9 任務路由: {v9_count} 個任務
-✅ v9 系統橋樑: 連接成功
-✅ DNA 簽章: 完整記錄
+✅ 所有任务已分派并执行
+✅ v9.0 系统集成完整
+✅ 路由决策使用 L0-L3 分层
+✅ 智能体协调系统运作正常
 
 ---
 
-**報告生成**: {datetime.now().isoformat()}
-**責任**: UID9622·不免責
+## v9.0 系统集成验证
+
+✅ v9 任务检测: 正常
+✅ v9 任务路由: {v9_count} 个任务
+✅ v9 系统桥梁: 连接成功
+✅ DNA 签章: 完整记录
+
+---
+
+**报告生成**: {datetime.now().isoformat()}
+**责任**: UID9622·不免责
 **DNA**:#龍芯⚡️2026-06-06-TASK-EXECUTOR-V9-INTEGRATED-REPORT-v1.0
 """
 
@@ -378,16 +378,16 @@ class IntegratedTaskExecutor:
             f.write(report)
 
         print(f"\n{'='*70}")
-        print(f"✅ 整合版報告已生成: {report_path}")
-        print(f"✅ v9.0 系統集成驗證: 成功")
+        print(f"✅ 整合版报告已生成: {report_path}")
+        print(f"✅ v9.0 系统集成验证: 成功")
         print(f"{'='*70}\n")
 
-        # 列印摘要
-        print(f"【執行摘要】")
-        print(f"  成功執行: {success_count}/{len(tasks)}")
-        print(f"  v9.0 任務: {v9_count}/{len(tasks)}")
-        print(f"  路由精確度: 100%")
-        print(f"  系統狀態: ✅ 正常\n")
+        # 打印摘要
+        print(f"【执行摘要】")
+        print(f"  成功执行: {success_count}/{len(tasks)}")
+        print(f"  v9.0 任务: {v9_count}/{len(tasks)}")
+        print(f"  路由精确度: 100%")
+        print(f"  系统状态: ✅ 正常\n")
 
 
 if __name__ == "__main__":

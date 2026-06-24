@@ -1,5 +1,5 @@
 <!--#龍芯⚡️2026-06-21-DOC-AI-THINKING-HUB-INTELLIGENT-DECISION-ENGINE-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🧠 AI思维中枢 | 智能决策引擎
 

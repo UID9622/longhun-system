@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂 · Notion资产同步模块 v1.1 (自動版)
+龍魂 · Notion资产同步模块 v1.1 (自动版)
 Longhun Notion Sync Module v1.1 (Auto Mode)
 
-自動模式：無需手動配置，自動檢測和驗證
+自动模式：无需手动配置，自动检测和验证
 
 DNA:#龍芯⚡️2026-06-05-NOTION-SYNC-AUTO-FILE1-v1.1
 """
@@ -26,7 +26,7 @@ logger = logging.getLogger('龍魂Notion同步Auto')
 
 
 class NotionSyncAutoManager:
-    """Notion同步自動管理器 (無需外部依賴)"""
+    """Notion同步自动管理器 (无需外部依赖)"""
 
     def __init__(self):
         self.home_dir = Path.home() / '.龍魂'
@@ -35,8 +35,8 @@ class NotionSyncAutoManager:
         self.token_available = bool(os.environ.get('NOTION_TOKEN'))
 
     def verify_configuration(self) -> Dict:
-        """驗證Notion同步配置"""
-        print("\n📊 Notion同步配置驗證")
+        """验证Notion同步配置"""
+        print("\n📊 Notion同步配置验证")
         print("=" * 70)
 
         checks = {
@@ -51,7 +51,7 @@ class NotionSyncAutoManager:
             status = "✅" if is_ok else "⚠️"
             print(f"{status} {check_name}")
             if check_name == 'Notion Token' and not is_ok:
-                print("   💡 提示: 設置 NOTION_TOKEN 環境變量以啟用同步")
+                print("   💡 提示: 设置 NOTION_TOKEN 环境变量以启用同步")
             if not is_ok and check_name != 'Notion Token':
                 all_ok = False
 
@@ -63,35 +63,35 @@ class NotionSyncAutoManager:
         }
 
     def health_check(self) -> Dict:
-        """執行健康檢查"""
-        print("\n🔧 Notion系統健康檢查")
+        """执行健康检查"""
+        print("\n🔧 Notion系统健康检查")
         print("=" * 70)
 
         verification = self.verify_configuration()
 
-        # 檢查同步日誌
+        # 检查同步日志
         log_entries = 0
         if self.sync_log.exists():
             with open(self.sync_log, 'r', encoding='utf-8') as f:
                 log_entries = sum(1 for _ in f)
 
-        # 檢查DNA登記
+        # 检查DNA登记
         dna_entries = 0
         if self.dna_registry.exists():
             with open(self.dna_registry, 'r', encoding='utf-8') as f:
                 dna_entries = sum(1 for _ in f)
 
-        print(f"\n同步日誌:")
-        print(f"  📝 條目數: {log_entries}")
+        print(f"\n同步日志:")
+        print(f"  📝 条目数: {log_entries}")
 
-        print(f"\nDNA登記簿:")
-        print(f"  🧬 條目數: {dna_entries}")
+        print(f"\nDNA登记簿:")
+        print(f"  🧬 条目数: {dna_entries}")
 
-        print(f"\n配置狀態:")
+        print(f"\n配置状态:")
         if self.token_available:
             print("  ✅ Notion Token: 已配置")
         else:
-            print("  ⚠️  Notion Token: 未配置 (可選)")
+            print("  ⚠️  Notion Token: 未配置 (可选)")
 
         print("\n" + "=" * 70)
 
@@ -104,14 +104,14 @@ class NotionSyncAutoManager:
         }
 
     def generate_status_report(self) -> Dict:
-        """生成狀態報告"""
+        """生成状态报告"""
         health = self.health_check()
 
         report = {
             'module': 'Notion Sync',
             'version': 'v1.1 (Auto)',
             'timestamp': datetime.datetime.now().isoformat(),
-            'status': '🟢 就緒',
+            'status': '🟢 就绪',
             'configuration': {
                 'token_available': health['token_available'],
                 'sync_log_path': str(self.sync_log),
@@ -133,7 +133,7 @@ class NotionSyncAutoManager:
         return report
 
     def save_report(self, report: Dict) -> Path:
-        """保存報告"""
+        """保存报告"""
         report_path = self.home_dir / 'notion_sync_auto_report.json'
 
         with open(report_path, 'w', encoding='utf-8') as f:
@@ -143,39 +143,39 @@ class NotionSyncAutoManager:
 
 
 def main():
-    """自動模式主程序"""
+    """自动模式主程序"""
     print("\n" + "="*70)
-    print("🐉 龍魂 Notion同步 · 自動驗證模式 (v1.1)")
+    print("🐉 龍魂 Notion同步 · 自动验证模式 (v1.1)")
     print("="*70)
 
     manager = NotionSyncAutoManager()
 
-    # 生成報告
+    # 生成报告
     report = manager.generate_status_report()
 
-    # 保存報告
+    # 保存报告
     report_path = manager.save_report(report)
 
-    # 輸出摘要
-    print(f"\n📋 狀態摘要")
+    # 输出摘要
+    print(f"\n📋 状态摘要")
     print("=" * 70)
-    print(f"模組: {report['module']}")
+    print(f"模组: {report['module']}")
     print(f"版本: {report['version']}")
-    print(f"狀態: {report['status']}")
+    print(f"状态: {report['status']}")
     print(f"健康度: {report['health_status']}")
     print()
-    print(f"同步日誌條目: {report['statistics']['sync_entries']}")
-    print(f"DNA登記: {report['statistics']['dna_entries']}")
+    print(f"同步日志条目: {report['statistics']['sync_entries']}")
+    print(f"DNA登记: {report['statistics']['dna_entries']}")
     print()
     if report['configuration']['token_available']:
-        print("✅ Notion連接已就緒")
+        print("✅ Notion连接已就绪")
     else:
-        print("⚠️  未設置 NOTION_TOKEN (可選)")
+        print("⚠️  未设置 NOTION_TOKEN (可选)")
     print()
-    print(f"詳細報告: {report_path}")
+    print(f"详细报告: {report_path}")
     print("=" * 70)
 
-    # 返回適當的退出碼 (🟢健康 或 🟡可用 都視為成功)
+    # 返回适当的退出码 (🟢健康 或 🟡可用 都视为成功)
     return 0 if report['health_status'] in ['🟢 健康', '🟡 可用'] else 1
 
 

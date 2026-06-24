@@ -1,13 +1,13 @@
 # CNSH｜UID9622 文档整合
 
-> 本文檔按《龍魂文檔標準模板 v1.0》整理。
-> 性質：技術文檔 · 未經同行評審（如適用）
+> 本文档按《龍魂文档标准模板 v1.0》整理。
+> 性质：技术文档 · 未经同行评审（如适用）
 > 版本：v1.0
 > 作者：UID9622 · 龍芯北辰
-> 協作者：（待補充，如無請刪除此行）
-> 授權：CC BY-NC-SA 4.0 · 科技主權歸屬 UID9622 · 中華人民共和國
+> 协作者：（待补充，如无请删除此行）
+> 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国
 > 平台：本地
-> 審核狀態：草稿
+> 审核状态：草稿
 
 **DNA**: `#龍芯⚡️2026-06-21-CNSH-README-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
@@ -15,7 +15,7 @@
 ---
 
 <!--#龍芯⚡️2026-06-21-CNSH-README-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # CNSH｜UID9622 文档整合
 
@@ -64,12 +64,12 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 ### governance/（67 个文件）
 
 - `governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md`
-- `governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa.csv`
+- `governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa.csv`
 - `governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA.csv`
 - `governance/⚖️ CNSH全球法律知识库 多国法规智能适配引擎.md`
 - `governance/🇨🇳 UID9622国内开源方案 H武器推演 完全合规版.md`
 - `governance/🎎 国礼人格应答案例库 外交级实战范本.md`
-- `governance/🐉 龍魂七維AI治理×數字主權執行表 v1 0｜Seven-Dimension AI Governa_1.csv`
+- `governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa_1.csv`
 - `governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA_1.csv`
 - `governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md`
 - `governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md`
@@ -108,13 +108,13 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `governance/L0-伦理 md.md`
 - `governance/__init__ py.md`
 - `governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md`
-- `governance/⚖️ 桌面Claude七維治理數據庫 v1 0｜輕量展示版.md`
+- `governance/⚖️ 桌面Claude七维治理数据库 v1 0｜轻量展示版.md`
 - `governance/CNSH_全球治理协议_完整版_v1 0 md.md`
 - `governance/risk_engine py.md`
 - `governance/_INDEX json.md`
 - `governance/_索引 md.md`
 - `governance/L0-伦理 meta json.md`
-- `governance/RLHF馬太效應嚴格數學證明白皮書｜PPO+GAE超線性增長動力系統.md`
+- `governance/RLHF马太效应严格数学证明白皮书｜PPO+GAE超线性增长动力系统.md`
 - `governance/龙魂白皮书章节导航.csv`
 - `governance/龙魂白皮书章节导航_1.csv`
 - `governance/龙魂核心模块清单.csv`
@@ -139,7 +139,7 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `metaverse/🎬 视频动作流畅度优化实战方案 元宇宙视觉资产交付标准.md`
 - `metaverse/📦 元宇宙预设填空标准·UID9622统一规范.md`
 - `metaverse/🎯 CNSH编辑器补全系统 LSP + 多语言兼容 + 元宇宙扩展.md`
-- `metaverse/🌌 龙魂元宇宙推演算法 v1 0 占位版·框架已确认.md`
+- `metaverse/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认.md`
 - `metaverse/🌌 UID9622元宇宙技术路径图 数字永生可行性分析.md`
 - `metaverse/龙魂元字全能引擎_1.csv`
 - `metaverse/🌌 元宇宙DNA协议·UID9622桥接标准 分则本地独乐，合则星辰浩瀚.md`
@@ -167,12 +167,12 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 
 ### runtime/（2 个文件）
 
-- `runtime/📖 UID9622通用變量字典 v1 0｜⚠️已封存→見L5分層架構v1 0.md`
+- `runtime/📖 UID9622通用变量字典 v1 0｜⚠️已封存→见L5分层架构v1 0.md`
 - `runtime/⚖️ CNSH 双视角封装协议 v1 0（Machine × CNSH）.md`
 
 ### sancai/（2 个文件）
 
-- `sancai/三才流場·p5 js完整交互版｜UID9622专属宇宙.md`
+- `sancai/三才流场·p5 js完整交互版｜UID9622专属宇宙.md`
 - `sancai/⚡ persona router py · 人格路由模块｜挂载到 CNSH-64 9622.md`
 
 ### templates/（1 个文件）
@@ -204,38 +204,38 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 
 ## 摘要
 
-（請在此用不超過 256 字說明本文檔的核心內容、性質與局限。）
+（请在此用不超过 256 字说明本文档的核心内容、性质与局限。）
 
-## 關鍵詞
+## 关键词
 
-（請列出 5–10 個關鍵詞，中英文對照優先。）
+（请列出 5–10 个关键词，中英文对照优先。）
 
-## 引用與溯源
+## 引用与溯源
 
-- 本文檔引用或參考了以下來源：
-  - [1] （請填寫）
-- 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+- 本文档引用或参考了以下来源：
+  - [1] （请填写）
+- 相关龍魂系统文档：
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
-## 誠實局限
+## 诚实局限
 
-1. （請列出本分析的第一條局限或不確定性。）
-2. （請列出第二條。）
-3. （請列出第三條。）
+1. （请列出本分析的第一条局限或不确定性。）
+2. （请列出第二条。）
+3. （请列出第三条。）
 
-## 修改記錄
+## 修改记录
 
-| 日期 | 版本 | 修改人 | 修改內容 | 審核狀態 |
+| 日期 | 版本 | 修改人 | 修改内容 | 审核状态 |
 |---|---|---|---|---|
-| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文檔標準模板 v1.0》整理 | 草稿 |
+| 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文档标准模板 v1.0》整理 | 草稿 |
 
-## 分類標籤
+## 分类标签
 
-- 總綱模塊：（請勾選，例如 #知識矩陣 #安全域）
-- 對外狀態：（請勾選，例如 #Gitee #GitHub #CSDN）
-- 審計色：#黃色待審
+- 总纲模块：（请勾选，例如 #知识矩阵 #安全域）
+- 对外状态：（请勾选，例如 #Gitee #GitHub #CSDN）
+- 审计色：#黄色待审
 
-## DNA 簽名
+## DNA 签名
 
 ```
 #龍芯⚡️2026-06-21-CNSH-README-v1.0

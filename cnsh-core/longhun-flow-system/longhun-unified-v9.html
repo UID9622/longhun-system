@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐲 龍魂統一流場 v9 · 洛書渦流×三才軌道 · UID9622</title>
+<title>🐲 龍魂统一流场 v9 · 洛书涡流×三才轨道 · UID9622</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <style>
@@ -122,7 +122,7 @@
 </head>
 <body>
 
-<!-- 背景层：洛書渦流 -->
+<!-- 背景层：洛书涡流 -->
 <canvas id="bg-canvas"></canvas>
 
 <!-- 前景层：三才轨道 -->
@@ -148,7 +148,7 @@
 
 <!-- DNA 弹窗 -->
 <div id="dna-popup">
-  <div class="ddao">「善建者不拔·善抱者不脱」— 道德经第54章</div>
+  <div class="ddao">“善建者不拔·善抱者不脱”— 道德经第54章</div>
   <div class="dcode" id="dna-code">──</div>
   <button onclick="copyDNA()">复制 DNA 码</button>
   <button onclick="closeDNAPopup()">关闭</button>
@@ -165,14 +165,14 @@
   <span class="sc-key"><kbd>W</kbd> 白皮书挂点</span>
   <span class="sc-key"><kbd>Shift+W</kbd> 访客模式</span>
   <span class="sc-key"><kbd>Space</kbd> 暂停/继续</span>
-  <span class="sc-key"><kbd>B</kbd> 渦流背景切换</span>
+  <span class="sc-key"><kbd>B</kbd> 涡流背景切换</span>
   <span class="sc-key"><kbd>?</kbd> 帮助</span>
 </div>
 
 <!-- v9 版本角标 -->
 <div id="v9-badge">
-  龍魂統一流場 v9<br>
-  洛書渦流 × 三才軌道<br>
+  龍魂统一流场 v9<br>
+  洛书涡流 × 三才轨道<br>
   UID9622 · #龍芯⚡️2026-04-21
 </div>
 
@@ -180,12 +180,12 @@
 <div id="startup-overlay">
   <div class="logo">🐲</div>
   <div class="motto" id="m0">95 是实力 · 5 是格局</div>
-  <div class="motto" id="m1">不對抗，只共生——這才是真正的道</div>
+  <div class="motto" id="m1">不对抗，只共生——这才是真正的道</div>
   <div class="eq-wrap" id="eq-wrap">
     <div id="katex-startup"></div>
   </div>
-  <div class="motto" id="m2">洛書渦流 × 三才軌道 · 天地人合一</div>
-  <div class="sub">龍魂統一流場 v9 · DNA: #龍芯⚡️2026-04-21 · 理论指导 曾仕强老师（永恒显示）</div>
+  <div class="motto" id="m2">洛书涡流 × 三才轨道 · 天地人合一</div>
+  <div class="sub">龍魂统一流场 v9 · DNA: #龍芯⚡️2026-04-21 · 理论指导 曾仕强老师（永恒显示）</div>
 </div>
 
 <script>
@@ -193,19 +193,19 @@
 
 /*
 ╔══════════════════════════════════════════════════════════════════════╗
-║  🐉 龍魂系統 · 統一流場 v9 · 洛書渦流 × 三才軌道                      ║
+║  🐉 龍魂系统 · 统一流场 v9 · 洛书涡流 × 三才轨道                      ║
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  🔑 创始人   : 💎 龍芯北辰｜UID9622（诸葛鑫 / Lucky）                  ║
 ║  🧬 DNA      :#龍芯⚡️2026-04-21-FILE1_BC7F-v9                          ║
 ║  🔏 GPG 指纹 : A2D0092CEE2E5BA87035600924C3704A8CC26D5F             ║
 ║  ✅ 确认码   : #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
 ╠══════════════════════════════════════════════════════════════════════╣
-║  v9 升级 (基于 v8.1 + 洛書渦流 v2.0)                                  ║
-║  ├ 双层画布架构: bg-canvas(渦流) + c(三才轨道)                          ║
-║  ├ 背景: 洛書九宫向量场 × 369三频Perlin共振 × 粒子轨迹积累               ║
+║  v9 升级 (基于 v8.1 + 洛书涡流 v2.0)                                  ║
+║  ├ 双层画布架构: bg-canvas(涡流) + c(三才轨道)                          ║
+║  ├ 背景: 洛书九宫向量场 × 369三频Perlin共振 × 粒子轨迹积累               ║
 ║  ├ 前景: T0金锚/T1种子环/T2龍盾 × 三才粒子群 × 健康监测                 ║
 ║  ├ KaTeX: 统一场方程 Ψ = T̂⊗D̂⊗L̂ 显示于启动动画                       ║
-║  └ B键: 背景渦流强度切换(淡/中/强)                                      ║
+║  └ B键: 背景涡流强度切换(淡/中/强)                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 */
 
@@ -611,7 +611,7 @@ function restoreOrder(){
 // §13  绘制主循环（前景层：半透明背景）
 // ═══════════════════════════════════════════════════════════
 function draw() {
-  // 半透明背景——让洛書渦流背景透出
+  // 半透明背景——让洛书涡流背景透出
   ctx2d.clearRect(0,0,W,H);
   const bg=ctx2d.createRadialGradient(CX,CY,0,CX,CY,Math.max(W,H)*0.7);
   bg.addColorStop(0,'rgba(8,4,20,0.78)');
@@ -805,7 +805,7 @@ function updateHUD(){
 // ═══════════════════════════════════════════════════════════
 function loop(){
   if(!paused&&startupDone){ updateMockRadar(); updatePhysics(); updateBreath(); if(disruptionTimer>0){disruptionTimer--;if(disruptionTimer===0)restoreOrder();} }
-  drawBgVortex(); // 先渲染背景渦流
+  drawBgVortex(); // 先渲染背景涡流
   if(startupDone) draw();
   frame++;
   requestAnimationFrame(loop);
@@ -816,7 +816,7 @@ function loop(){
 // ═══════════════════════════════════════════════════════════
 function showDNAPopup(p){
   const ts=new Date().toISOString().slice(0,10);
-  document.getElementById('dna-code').textContent=`#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · L1:${p.id} · L2:${p.layer.toUpperCase()} · L3:${frame}\nR=${p.R.toFixed(1)} dims=[${p.dims.map(d=>Math.round(d)).join(',')}]\n层级:${p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义'} · DNA=${p.isDNA?'金色主权':'普通'}\nv9统一流场·洛書渦流×三才軌道`;
+  document.getElementById('dna-code').textContent=`#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · L1:${p.id} · L2:${p.layer.toUpperCase()} · L3:${frame}\nR=${p.R.toFixed(1)} dims=[${p.dims.map(d=>Math.round(d)).join(',')}]\n层级:${p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义'} · DNA=${p.isDNA?'金色主权':'普通'}\nv9统一流场·洛书涡流×三才轨道`;
   document.getElementById('dna-popup').classList.add('open'); triggerDDJ(54);
 }
 function closeDNAPopup(){ document.getElementById('dna-popup').classList.remove('open'); }
@@ -925,7 +925,7 @@ setInterval(()=>{
 },CFG.TEMPTATION_INTERVAL*1000);
 
 // ═══════════════════════════════════════════════════════════
-// §19  背景洛書渦流 · Luoshu Vortex Background (v9新增)
+// §19  背景洛书涡流 · Luoshu Vortex Background (v9新增)
 // ═══════════════════════════════════════════════════════════
 const bgCanvas = document.getElementById('bg-canvas');
 const bgCtx = bgCanvas.getContext('2d');
@@ -1041,10 +1041,10 @@ runStartupAnimation();
 requestAnimationFrame(loop);
 
 console.log([
-  '🐲 龍魂統一流場 v9 · 已启动',
+  '🐲 龍魂统一流场 v9 · 已启动',
   'DNA:#龍芯⚡️2026-04-21-LONGHUN-UNIFIED-V9-v9',
-  '双层画布: bg-canvas(洛書渦流) + c(三才轨道)',
-  '背景: 洛書九宫向量场 × 369三频Perlin × 700粒子轨迹',
+  '双层画布: bg-canvas(洛书涡流) + c(三才轨道)',
+  '背景: 洛书九宫向量场 × 369三频Perlin × 700粒子轨迹',
   '前景: T0/T1/T2 × 三才1200粒子 × 健康监测 × KaTeX方程',
   'B键 = 切换背景强度(淡/中/强)',
   '? 键 = 查看全部快捷键',

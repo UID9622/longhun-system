@@ -1,135 +1,135 @@
-# 🐉 龍魂系統 · 10 Skill 統一標準規範 v1.0
+# 🐉 龍魂系统 · 10 Skill 统一标准规范 v1.0
 
 ```
 DNA:#龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
-確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-責任: UID9622 · 不免責
+确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+签章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+责任: UID9622 · 不免责
 ```
 
 ---
 
-## 📋 **龍魂 Skill 統一結構標準**
+## 📋 **龍魂 Skill 统一结构标准**
 
-### **一個完整 Skill 必須包含的 12 個區塊**
+### **一个完整 Skill 必须包含的 12 个区块**
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  龍魂 Skill 完整結構 (12 個區塊)                        │
+│  龍魂 Skill 完整结构 (12 个区块)                        │
 ├─────────────────────────────────────────────────────────┤
 │                                                         │
-│  [1] 📋 元數據 (Metadata)                              │
-│      └─ Skill ID·版本·分類·DNA簽章·質量指標           │
+│  [1] 📋 元数据 (Metadata)                              │
+│      └─ Skill ID·版本·分类·DNA签章·质量指标           │
 │                                                         │
-│  [2] 🧮 計算規範 (Calculation Spec)                   │
-│      └─ 算法·公式·複雜度·計算方式                     │
+│  [2] 🧮 计算规范 (Calculation Spec)                   │
+│      └─ 算法·公式·复杂度·计算方式                     │
 │                                                         │
-│  [3] 📥 輸入輸出規範 (I/O Schema)                      │
-│      └─ 參數定義·類型·約束·示例                       │
+│  [3] 📥 输入输出规范 (I/O Schema)                      │
+│      └─ 参数定义·类型·约束·示例                       │
 │                                                         │
-│  [4] 🔄 執行流程 (Execution Flow)                     │
-│      └─ 步驟分解·流程圖·關鍵決策點                    │
+│  [4] 🔄 执行流程 (Execution Flow)                     │
+│      └─ 步骤分解·流程图·关键决策点                    │
 │                                                         │
 │  [5] 🌐 集成接口 (Integration)                         │
-│      └─ API 端點·調用方式·依賴管理·認証               │
+│      └─ API 端点·调用方式·依赖管理·认证               │
 │                                                         │
-│  [6] ⚡ 性能評估 (Performance)                         │
-│      └─ 基准·吞吐·延遲·內存·優化建议                  │
+│  [6] ⚡ 性能评估 (Performance)                         │
+│      └─ 基准·吞吐·延迟·内存·优化建议                  │
 │                                                         │
-│  [7] ✅ 質量保證 (Quality Assurance)                   │
-│      └─ 測試覆蓋·驗證規則·已知問題·危險等級           │
+│  [7] ✅ 质量保证 (Quality Assurance)                   │
+│      └─ 测试覆盖·验证规则·已知问题·危险等级           │
 │                                                         │
-│  [8] 📚 文檔和示例 (Documentation)                     │
-│      └─ 詳細說明·代碼示例·常見問題·最佳實踐           │
+│  [8] 📚 文档和示例 (Documentation)                     │
+│      └─ 详细说明·代码示例·常见问题·最佳实践           │
 │                                                         │
-│  [9] 📦 版本和維護 (Versioning)                        │
-│      └─ 版本歷史·更新日誌·支持狀態·棄用政策           │
+│  [9] 📦 版本和维护 (Versioning)                        │
+│      └─ 版本历史·更新日志·支持状态·弃用政策           │
 │                                                         │
-│  [10] 🔐 安全和合規 (Security & Compliance)            │
-│       └─ 數據隱私·輸入驗證·安全漏洞·遵循標準           │
+│  [10] 🔐 安全和合规 (Security & Compliance)            │
+│       └─ 数据隐私·输入验证·安全漏洞·遵循标准           │
 │                                                         │
-│  [11] 🎯 限制和邊界 (Constraints & Limitations)       │
-│       └─ 使用限制·已知限制·不支持的場景·建議替代      │
+│  [11] 🎯 限制和边界 (Constraints & Limitations)       │
+│       └─ 使用限制·已知限制·不支持的场景·建议替代      │
 │                                                         │
-│  [12] 🌍 擴展和集成 (Extensions & Ecosystem)          │
-│       └─ 相關 Skill·插件·第三方集成·拓展可能           │
+│  [12] 🌍 扩展和集成 (Extensions & Ecosystem)          │
+│       └─ 相关 Skill·插件·第三方集成·拓展可能           │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ✅ **數學簽章和驗證標準**
+## ✅ **数学签章和验证标准**
 
-### **三級簽章系統**
+### **三级签章系统**
 
 ```
-✅ 數學可驗證簽章 (Math-Verifiable)
-   ├─ 條件: 有可計算公式 + 有可運行代碼 + 有出處引用
+✅ 数学可验证签章 (Math-Verifiable)
+   ├─ 条件: 有可计算公式 + 有可运行代码 + 有出处引用
    ├─ 表示: ✅🧮 #MATH-PROVEN-龍芯⚡️
-   └─ 意義: 所有關鍵指標都能復算·錯一條就報錯
+   └─ 意义: 所有关键指标都能复算·错一条就报错
 
-🟡 有公式·結果待驗證 (Formula-OK-Result-TBV)
-   ├─ 條件: 公式可計算但實驗數據未復現
+🟡 有公式·结果待验证 (Formula-OK-Result-TBV)
+   ├─ 条件: 公式可计算但实验数据未复现
    ├─ 表示: 🟡📊 #TBV-RESULT-PENDING
-   └─ 意義: 公式沒問題·但數據還要跑
+   └─ 意义: 公式没问题·但数据还要跑
 
-🔖 概念框架·待補公式 (Concept-Formula-TBD)
-   ├─ 條件: 還沒有可計算的數學公式
+🔖 概念框架·待补公式 (Concept-Formula-TBD)
+   ├─ 条件: 还没有可计算的数学公式
    ├─ 表示: 🔖📝 #FORMULA-TODO
-   └─ 意義: 邏輯清楚·公式待補·不混進可驗證
+   └─ 意义: 逻辑清楚·公式待补·不混进可验证
 ```
 
 ---
 
-## 📊 **Skill 分類和計算方式標準**
+## 📊 **Skill 分类和计算方式标准**
 
-### **5 種 Skill 類型**
+### **5 种 Skill 类型**
 
-| 類型 | 計算方式 | 驗證方式 | 簽章 |
+| 类型 | 计算方式 | 验证方式 | 签章 |
 |------|----------|----------|------|
-| **1. 可視化生成** (HTML·Canvas·WebGL) | 確定性渲染 + 參數化 | 視覺對比 + 像素校驗 | 🟡 |
-| **2. 數據轉換** (Python·算法) | 閉式公式/遞歸/迭代 | 單元測試 + 邊界檢驗 | ✅ |
-| **3. 代碼生成** (Scaffold·Builder) | 模板 + 參數替換 | 語法驗證 + 可運行檢查 | ✅ |
-| **4. 協作管理** (Sync·CRDT) | 向量時鐘 + 衝突合並 | 一致性檢驗 + 日誌回放 | ✅ |
-| **5. 系統工具** (CLI·Integration) | 主流程 + 分支邏輯 | 冒煙測試 + 端到端 | 🟡 |
+| **1. 可视化生成** (HTML·Canvas·WebGL) | 确定性渲染 + 参数化 | 视觉对比 + 像素校验 | 🟡 |
+| **2. 数据转换** (Python·算法) | 闭式公式/递归/迭代 | 单元测试 + 边界检验 | ✅ |
+| **3. 代码生成** (Scaffold·Builder) | 模板 + 参数替换 | 语法验证 + 可运行检查 | ✅ |
+| **4. 协作管理** (Sync·CRDT) | 向量时钟 + 冲突合并 | 一致性检验 + 日志回放 | ✅ |
+| **5. 系统工具** (CLI·Integration) | 主流程 + 分支逻辑 | 冒烟测试 + 端到端 | 🟡 |
 
 ---
 
-## 🎨 **10 Skill 快速對照表**
+## 🎨 **10 Skill 快速对照表**
 
-| # | Skill | 分類 | 計算方式 | 簽章 | 完成度 |
+| # | Skill | 分类 | 计算方式 | 签章 | 完成度 |
 |---|-------|------|----------|------|--------|
-| 1 | `/algorithmic-art` | 可視化 | Perlin + 粒子系統 | 🟡 | 95% |
-| 2 | `/brand-guidelines` | 設計系統 | CSS 變量 + 排版規範 | 🟡 | 90% |
-| 3 | `/canvas-design` | 可視化 | Canvas 繪圖 + 濾鏡 | 🟡 | 92% |
-| 4 | `/doc-coauthoring` | 協作 | CRDT + Markdown | ✅ | 88% |
-| 5 | `/internal-comms` | 管理 | 消息隊列 + 狀態機 | 🟡 | 85% |
-| 6 | `/mcp-builder` | 代碼生成 | 模板引擎 + FastMCP | ✅ | 100% |
-| 7 | `/skill-creator` | 代碼生成 | Skill 框架模板 | ✅ | 100% |
+| 1 | `/algorithmic-art` | 可视化 | Perlin + 粒子系统 | 🟡 | 95% |
+| 2 | `/brand-guidelines` | 设计系统 | CSS 变量 + 排版规范 | 🟡 | 90% |
+| 3 | `/canvas-design` | 可视化 | Canvas 绘图 + 滤镜 | 🟡 | 92% |
+| 4 | `/doc-coauthoring` | 协作 | CRDT + Markdown | ✅ | 88% |
+| 5 | `/internal-comms` | 管理 | 消息队列 + 状态机 | 🟡 | 85% |
+| 6 | `/mcp-builder` | 代码生成 | 模板引擎 + FastMCP | ✅ | 100% |
+| 7 | `/skill-creator` | 代码生成 | Skill 框架模板 | ✅ | 100% |
 | 8 | `/slack-gif-creator` | 工具 | PIL 影像序列 + Slack API | ✅ | 95% |
-| 9 | `/theme-factory` | 工具 | CSS 變量生成 | ✅ | 98% |
-| 10 | `/web-artifacts-builder` | 代碼生成 | React 組件模板 | ✅ | 100% |
+| 9 | `/theme-factory` | 工具 | CSS 变量生成 | ✅ | 98% |
+| 10 | `/web-artifacts-builder` | 代码生成 | React 组件模板 | ✅ | 100% |
 
 ---
 
-## 🔧 **自動補全標準 (Auto-Fill Rules)**
+## 🔧 **自动补全标准 (Auto-Fill Rules)**
 
-### **如果缺少，自動補全規則：**
+### **如果缺少，自动补全规则：**
 
 ```python
-# 如果缺少 [計算規範] → 自動補全:
+# 如果缺少 [计算规范] → 自动补全:
 if not skill.calculation_spec:
     skill.calculation_spec = {
-        "type": skill.category,  # 根據分類推斷
+        "type": skill.category,  # 根据分类推断
         "formula": f"TBD for {skill.name}",
         "complexity_time": "TBD",
         "complexity_space": "TBD",
         "typical_duration_ms": 0,
-        "benchmark": 🔖  # 標記待驗證
+        "benchmark": 🔖  # 标记待验证
     }
 
-# 如果缺少 [I/O 規範] → 自動補全:
+# 如果缺少 [I/O 规范] → 自动补全:
 if not skill.io_schema:
     skill.io_schema = {
         "inputs": {},  # 空·待填
@@ -137,20 +137,20 @@ if not skill.io_schema:
         "example_input": {},
         "example_output": {},
         "constraints": [],
-        "mark": 🔖  # 標記待完善
+        "mark": 🔖  # 标记待完善
     }
 
-# 如果缺少 [執行流程] → 自動補全:
+# 如果缺少 [执行流程] → 自动补全:
 if not skill.execution_flow:
     skill.execution_flow = {
-        "stage_1_init": "初始化資源",
-        "stage_2_process": "主要邏輯",
-        "stage_3_output": "輸出結果",
-        "error_handling": "異常捕獲",
-        "mark": 🔖  # 標記待詳細
+        "stage_1_init": "初始化资源",
+        "stage_2_process": "主要逻辑",
+        "stage_3_output": "输出结果",
+        "error_handling": "异常捕获",
+        "mark": 🔖  # 标记待详细
     }
 
-# 如果缺少 [性能評估] → 自動補全:
+# 如果缺少 [性能评估] → 自动补全:
 if not skill.performance:
     skill.performance = {
         "typical_throughput": "TBD",
@@ -158,10 +158,10 @@ if not skill.performance:
         "p99_latency_ms": 0,
         "memory_usage_mb": 0.0,
         "optimization_hints": [],
-        "mark": 🟡  # 標記待實測
+        "mark": 🟡  # 标记待实测
     }
 
-# 如果缺少 [質量保證] → 自動補全:
+# 如果缺少 [质量保证] → 自动补全:
 if not skill.quality_assurance:
     skill.quality_assurance = {
         "test_coverage": 0,
@@ -169,10 +169,10 @@ if not skill.quality_assurance:
         "integration_tests": [],
         "known_issues": [],
         "risk_level": "MEDIUM",
-        "mark": 🟡  # 標記待測試
+        "mark": 🟡  # 标记待测试
     }
 
-# 所有缺失的 → 自動標記 🔖 或 🟡
+# 所有缺失的 → 自动标记 🔖 或 🟡
 for block in skill.all_blocks:
     if not block.content:
         block.mark = 🔖 if block.type in ["calculation", "io"]
@@ -182,86 +182,86 @@ for block in skill.all_blocks:
 
 ---
 
-## 📄 **完整 Skill 規範範本**
+## 📄 **完整 Skill 规范范本**
 
 ```markdown
 # 🐉 Skill: {SKILL_NAME}
 
-## [1] 📋 元數據 (Metadata)
+## [1] 📋 元数据 (Metadata)
 
-| 屬性 | 值 |
+| 属性 | 值 |
 |------|-----|
 | **Skill ID** | `skill-XXX-{name}` |
-| **名稱** | {full_name} |
+| **名称** | {full_name} |
 | **版本** | 1.0.0 |
-| **分類** | {category: interactive_html / python_utility / ...} |
+| **分类** | {category: interactive_html / python_utility / ...} |
 | **描述** | {short_description < 100字} |
-| **標籤** | {tags: list} |
-| **創建日期** | YYYY-MM-DD |
-| **最後更新** | YYYY-MM-DD |
+| **标签** | {tags: list} |
+| **创建日期** | YYYY-MM-DD |
+| **最后更新** | YYYY-MM-DD |
 | **作者** | Longhun |
-| **質量級別** | {production / stable / beta / experimental} |
-| **測試覆蓋** | {X}% |
-| **可靠性評分** | {X/100} |
-| **DNA簽章** | `#龍芯⚡️YYYY-MM-DD-{SKILL}-v1.0` |
+| **质量级别** | {production / stable / beta / experimental} |
+| **测试覆盖** | {X}% |
+| **可靠性评分** | {X/100} |
+| **DNA签章** | `#龍芯⚡️YYYY-MM-DD-{SKILL}-v1.0` |
 
 ---
 
-## [2] 🧮 計算規範 (Calculation Specification)
+## [2] 🧮 计算规范 (Calculation Specification)
 
-### 算法名稱
-{算法官方名稱}
+### 算法名称
+{算法官方名称}
 
-### 計算方式
-{世界標準公式 vs 龍魂主權層 雙軌對照}
+### 计算方式
+{世界标准公式 vs 龍魂主权层 双轨对照}
 
-**世界標準:**
+**世界标准:**
 ```
-{數學公式 / 偽代碼}
-出處: {論文 / 標準 / 教科書}
-複雜度: 時間 O(...) 空間 O(...)
-```
-
-**龍魂主權層:**
-```
-{我們加的什麼 - 三色闸 / 熔斷 / DNA簽章 / ...}
-簽章: ✅ / 🟡 / 🔖
+{数学公式 / 伪代码}
+出处: {论文 / 标准 / 教科书}
+复杂度: 时间 O(...) 空间 O(...)
 ```
 
-### 可驗證性
-- [ ] 有可運行代碼 (Python / JavaScript)
-- [ ] 有單元測試
-- [ ] 有基准數據
-- [ ] 簽章: `{✅🧮 or 🟡 or 🔖}`
+**龍魂主权层:**
+```
+{我们加的什么 - 三色闸 / 熔断 / DNA签章 / ...}
+签章: ✅ / 🟡 / 🔖
+```
+
+### 可验证性
+- [ ] 有可运行代码 (Python / JavaScript)
+- [ ] 有单元测试
+- [ ] 有基准数据
+- [ ] 签章: `{✅🧮 or 🟡 or 🔖}`
 
 ---
 
-## [3] 📥 輸入輸出規範 (I/O Schema)
+## [3] 📥 输入输出规范 (I/O Schema)
 
-### 輸入參數
+### 输入参数
 
-| 參數 | 類型 | 必需 | 默認值 | 約束 | 說明 |
+| 参数 | 类型 | 必需 | 默认值 | 约束 | 说明 |
 |------|------|------|--------|------|------|
 | {param1} | {type} | {yes/no} | {default} | {min..max} | {description} |
 | {param2} | {type} | {yes/no} | {default} | {constraint} | {description} |
 
-### 輸出結果
+### 输出结果
 
-| 輸出 | 類型 | 範圍 | 說明 |
+| 输出 | 类型 | 范围 | 说明 |
 |------|------|------|------|
 | {output1} | {type} | {range} | {description} |
 | {output2} | {type} | {range} | {description} |
 
-### 錯誤處理
+### 错误处理
 
-| 錯誤代碼 | 觸發條件 | 恢復方案 |
+| 错误代码 | 触发条件 | 恢复方案 |
 |---------|---------|---------|
 | `ERR_001` | {condition} | {recovery} |
 | `ERR_002` | {condition} | {recovery} |
 
 ### 示例
 
-**輸入:**
+**输入:**
 ```json
 {
   "param1": value,
@@ -269,7 +269,7 @@ for block in skill.all_blocks:
 }
 ```
 
-**輸出:**
+**输出:**
 ```json
 {
   "output1": result,
@@ -279,70 +279,70 @@ for block in skill.all_blocks:
 
 ---
 
-## [4] 🔄 執行流程 (Execution Flow)
+## [4] 🔄 执行流程 (Execution Flow)
 
 ```
 ┌─────────────────┐
-│   輸入參數驗證   │
+│   输入参数验证   │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  初始化資源      │
+│  初始化资源      │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  主計算邏輯      │
+│  主计算逻辑      │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  後處理·格式化   │
+│  后处理·格式化   │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  驗證·簽章·輸出  │
+│  验证·签章·输出  │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  返回結果        │
+│  返回结果        │
 └─────────────────┘
 ```
 
-### 關鍵步驟
+### 关键步骤
 
-1. **驗證 (Validation)**
-   - 參數類型檢查
-   - 範圍約束驗證
-   - 前置條件驗證
+1. **验证 (Validation)**
+   - 参数类型检查
+   - 范围约束验证
+   - 前置条件验证
 
 2. **初始化 (Initialization)**
-   - 資源申請
-   - 狀態設置
-   - 環境準備
+   - 资源申请
+   - 状态设置
+   - 环境准备
 
-3. **計算 (Computation)**
-   - {主邏輯描述}
-   - {關鍵決策點}
+3. **计算 (Computation)**
+   - {主逻辑描述}
+   - {关键决策点}
 
-4. **後處理 (Post-processing)**
-   - 數據整理
+4. **后处理 (Post-processing)**
+   - 数据整理
    - 格式化
-   - 優化
+   - 优化
 
-5. **簽章驗證 (Signature & Verification)**
-   - DNA簽章生成
-   - 結果驗證
-   - 質量檢查
+5. **签章验证 (Signature & Verification)**
+   - DNA签章生成
+   - 结果验证
+   - 质量检查
 
 ---
 
 ## [5] 🌐 集成接口 (Integration)
 
-### API 端點
+### API 端点
 
 ```
 GET  /api/v1/{skill_id}
@@ -351,7 +351,7 @@ GET  /api/v1/{skill_id}/config
 GET  /api/v1/{skill_id}/status
 ```
 
-### 調用示例
+### 调用示例
 
 ```python
 import requests
@@ -368,109 +368,109 @@ response = requests.post(
 print(response.json())
 ```
 
-### 依賴管理
+### 依赖管理
 
-| 依賴 | 版本 | 用途 |
+| 依赖 | 版本 | 用途 |
 |------|------|------|
 | {package} | {version} | {purpose} |
 
-### 認證和授權
+### 认证和授权
 
 ```
-認證方式: JWT Token
-授權級別: user / admin / system
+认证方式: JWT Token
+授权级别: user / admin / system
 速率限制: 100 req/min
-超時設置: 30s
+超时设置: 30s
 ```
 
 ---
 
-## [6] ⚡ 性能評估 (Performance)
+## [6] ⚡ 性能评估 (Performance)
 
-### 基准數據
+### 基准数据
 
-| 指標 | 值 | 單位 | 測試環境 |
+| 指标 | 值 | 单位 | 测试环境 |
 |------|-----|------|---------|
 | 吞吐量 (Throughput) | {X} | req/s | {env} |
-| P95 延遲 | {X} | ms | {env} |
-| P99 延遲 | {X} | ms | {env} |
-| 平均內存 | {X} | MB | {env} |
-| 最大內存 | {X} | MB | {env} |
+| P95 延迟 | {X} | ms | {env} |
+| P99 延迟 | {X} | ms | {env} |
+| 平均内存 | {X} | MB | {env} |
+| 最大内存 | {X} | MB | {env} |
 
-### 性能優化建議
+### 性能优化建议
 
-- [ ] 並行化計算 (parallelization)
-- [ ] 結果緩存 (caching)
-- [ ] 批處理優化 (batching)
-- [ ] 算法改進 (algorithm improvement)
+- [ ] 并行化计算 (parallelization)
+- [ ] 结果缓存 (caching)
+- [ ] 批处理优化 (batching)
+- [ ] 算法改进 (algorithm improvement)
 
-### 瓶頸分析
+### 瓶颈分析
 
 ```
-主要耗時: {X}%
-  ├─ 輸入驗證: {X}%
-  ├─ 主計算: {X}%
-  └─ 輸出格式化: {X}%
+主要耗时: {X}%
+  ├─ 输入验证: {X}%
+  ├─ 主计算: {X}%
+  └─ 输出格式化: {X}%
 ```
 
 ---
 
-## [7] ✅ 質量保證 (Quality Assurance)
+## [7] ✅ 质量保证 (Quality Assurance)
 
-### 測試覆蓋
+### 测试覆盖
 
 ```
-整體覆蓋: {X}%
-  ├─ 單元測試: {X}%
-  ├─ 集成測試: {X}%
-  └─ 端到端測試: {X}%
+整体覆盖: {X}%
+  ├─ 单元测试: {X}%
+  ├─ 集成测试: {X}%
+  └─ 端到端测试: {X}%
 ```
 
-### 驗證規則
+### 验证规则
 
-- [ ] 輸入類型驗證
-- [ ] 輸入範圍驗證
-- [ ] 輸出範圍檢查
-- [ ] 邊界情況測試
-- [ ] 錯誤恢復測試
+- [ ] 输入类型验证
+- [ ] 输入范围验证
+- [ ] 输出范围检查
+- [ ] 边界情况测试
+- [ ] 错误恢复测试
 
-### 已知問題和限制
+### 已知问题和限制
 
-| 問題 | 嚴重級別 | 狀態 | 計劃修復 |
+| 问题 | 严重级别 | 状态 | 计划修复 |
 |------|---------|------|---------|
 | {issue} | {critical/high/medium/low} | {open/closed} | v{version} |
 
-### 危險等級評估
+### 危险等级评估
 
-**等級: {CRITICAL / HIGH / MEDIUM / LOW}**
+**等级: {CRITICAL / HIGH / MEDIUM / LOW}**
 
-- 數據丟失風險: {X}%
-- 安全漏洞風險: {X}%
-- 性能惡化風險: {X}%
-- 使用錯誤風險: {X}%
+- 数据丢失风险: {X}%
+- 安全漏洞风险: {X}%
+- 性能恶化风险: {X}%
+- 使用错误风险: {X}%
 
 ---
 
-## [8] 📚 文檔和示例 (Documentation)
+## [8] 📚 文档和示例 (Documentation)
 
-### 詳細說明
+### 详细说明
 
-{完整的使用說明文檔}
+{完整的使用说明文档}
 
-### 代碼示例
+### 代码示例
 
 ```python
-# 例 1: 基礎使用
+# 例 1: 基础使用
 result = {skill_name}(param1=value1, param2=value2)
 print(result)
 
-# 例 2: 錯誤處理
+# 例 2: 错误处理
 try:
     result = {skill_name}(param1=value1)
 except Exception as e:
-    print(f"錯誤: {e}")
+    print(f"错误: {e}")
 
-# 例 3: 進階用法
+# 例 3: 进阶用法
 result = {skill_name}(
     param1=value1,
     param2=value2,
@@ -478,75 +478,75 @@ result = {skill_name}(
 )
 ```
 
-### 常見問題 (FAQ)
+### 常见问题 (FAQ)
 
-**Q: 什麼時候應該使用此 Skill？**
-A: {使用場景}
+**Q: 什么时候应该使用此 Skill？**
+A: {使用场景}
 
-**Q: 如何處理大規模輸入？**
-A: {建議}
+**Q: 如何处理大规模输入？**
+A: {建议}
 
-**Q: 如何自定義輸出格式？**
+**Q: 如何自定义输出格式？**
 A: {方法}
 
-### 最佳實踐
+### 最佳实践
 
-1. {實踐 1}
-2. {實踐 2}
-3. {實踐 3}
+1. {实践 1}
+2. {实践 2}
+3. {实践 3}
 
 ---
 
-## [9] 📦 版本和維護 (Versioning)
+## [9] 📦 版本和维护 (Versioning)
 
-### 版本歷史
+### 版本历史
 
-| 版本 | 發布日期 | 主要變更 | 狀態 |
+| 版本 | 发布日期 | 主要变更 | 状态 |
 |------|---------|---------|------|
-| 1.0.0 | YYYY-MM-DD | 初始發布 | ✅ active |
+| 1.0.0 | YYYY-MM-DD | 初始发布 | ✅ active |
 | {version} | {date} | {changes} | {status} |
 
-### 更新日誌
+### 更新日志
 
 ```
 v1.0.0 (YYYY-MM-DD)
   ✨ 新功能
     - {feature 1}
     - {feature 2}
-  🐛 Bug 修復
+  🐛 Bug 修复
     - {bug 1}
-  ⚡ 性能改進
+  ⚡ 性能改进
     - {improvement 1}
-  ⚠️ 棄用警告
+  ⚠️ 弃用警告
     - {deprecation 1}
 ```
 
-### 支持狀態和棄用政策
+### 支持状态和弃用政策
 
 ```
-當前版本: 1.0.0 (LTS - Long Term Support)
+当前版本: 1.0.0 (LTS - Long Term Support)
   ├─ 支持期限: YYYY-MM-DD 到 YYYY-MM-DD
-  ├─ 安全補丁: 持續提供
-  └─ 功能更新: 僅關鍵功能
+  ├─ 安全补丁: 持续提供
+  └─ 功能更新: 仅关键功能
 
-舊版本: 0.9.0 (Deprecated)
-  └─ 棄用日期: YYYY-MM-DD
+旧版本: 0.9.0 (Deprecated)
+  └─ 弃用日期: YYYY-MM-DD
 ```
 
 ---
 
-## [10] 🔐 安全和合規 (Security & Compliance)
+## [10] 🔐 安全和合规 (Security & Compliance)
 
-### 數據隱私
+### 数据隐私
 
-- 輸入數據: {是否保存 / 是否加密 / 保留期}
-- 輸出數據: {訪問控制 / 審計日誌}
-- 個人信息: {GDPR / CCPA 合規}
+- 输入数据: {是否保存 / 是否加密 / 保留期}
+- 输出数据: {访问控制 / 审计日志}
+- 个人信息: {GDPR / CCPA 合规}
 
-### 輸入驗證
+### 输入验证
 
 ```python
-# 所有輸入必須經過驗證
+# 所有输入必须经过验证
 validators = {
     "param1": lambda x: isinstance(x, int) and 0 < x < 10000,
     "param2": lambda x: len(x) <= 1000,
@@ -560,26 +560,26 @@ def validate_input(inputs):
 
 ### 安全漏洞
 
-| 漏洞 | 嚴重級別 | 狀態 | 修復版本 |
+| 漏洞 | 严重级别 | 状态 | 修复版本 |
 |------|---------|------|---------|
 | {vulnerability} | {critical/high} | {fixed/open} | v{version} |
 
-### 遵循標準
+### 遵循标准
 
 - [ ] OWASP Top 10
 - [ ] CWE Top 25
 - [ ] SANS Top 25
-- [ ] 行業特定標準
+- [ ] 行业特定标准
 
 ---
 
-## [11] 🎯 限制和邊界 (Constraints & Limitations)
+## [11] 🎯 限制和边界 (Constraints & Limitations)
 
 ### 使用限制
 
-- 最大輸入大小: {X} MB
-- 最大執行時間: {X} seconds
-- 最大並發請求: {X} 
+- 最大输入大小: {X} MB
+- 最大执行时间: {X} seconds
+- 最大并发请求: {X} 
 - 速率限制: {X} req/min
 
 ### 已知限制
@@ -588,31 +588,31 @@ def validate_input(inputs):
 2. {限制 2}
 3. {限制 3}
 
-### 不支持的場景
+### 不支持的场景
 
-- ❌ {場景 1}
-- ❌ {場景 2}
-- ❌ {場景 3}
+- ❌ {场景 1}
+- ❌ {场景 2}
+- ❌ {场景 3}
 
-### 建議替代方案
+### 建议替代方案
 
-| 場景 | 推薦 Skill | 原因 |
+| 场景 | 推荐 Skill | 原因 |
 |------|-----------|------|
 | {scenario} | {skill} | {reason} |
 
 ---
 
-## [12] 🌍 擴展和集成 (Extensions & Ecosystem)
+## [12] 🌍 扩展和集成 (Extensions & Ecosystem)
 
-### 相關 Skill
+### 相关 Skill
 
-- 🔗 {Skill 1} (互補功能)
-- 🔗 {Skill 2} (上游依賴)
-- 🔗 {Skill 3} (下游依賴)
+- 🔗 {Skill 1} (互补功能)
+- 🔗 {Skill 2} (上游依赖)
+- 🔗 {Skill 3} (下游依赖)
 
-### 插件和擴展
+### 插件和扩展
 
-| 插件 | 功能 | 安裝 |
+| 插件 | 功能 | 安装 |
 |------|------|------|
 | {plugin} | {feature} | `pip install {package}` |
 
@@ -622,10 +622,10 @@ def validate_input(inputs):
 - 🔌 GitHub 集成
 - 🔌 Notion 集成
 
-### 生態拓展可能
+### 生态拓展可能
 
 ```
-未來 Roadmap:
+未来 Roadmap:
   v1.1.0 (Q3 2026)
     └─ {feature}
   v1.2.0 (Q4 2026)
@@ -636,53 +636,53 @@ def validate_input(inputs):
 
 ---
 
-## 🔬 **簽章驗證**
+## 🔬 **签章验证**
 
-| 項目 | 狀態 | 簽章 |
+| 项目 | 状态 | 签章 |
 |------|------|------|
-| 計算規範 | ✅ / 🟡 / 🔖 | {signature} |
-| I/O 規範 | ✅ / 🟡 / 🔖 | {signature} |
-| 執行流程 | ✅ / 🟡 / 🔖 | {signature} |
-| 性能評估 | ✅ / 🟡 / 🔖 | {signature} |
-| 質量保證 | ✅ / 🟡 / 🔖 | {signature} |
-| **整體** | ✅ / 🟡 / 🔖 | `#龍芯⚡️YYYY-MM-DD-{SKILL}-COMPLETE-v1.0` |
+| 计算规范 | ✅ / 🟡 / 🔖 | {signature} |
+| I/O 规范 | ✅ / 🟡 / 🔖 | {signature} |
+| 执行流程 | ✅ / 🟡 / 🔖 | {signature} |
+| 性能评估 | ✅ / 🟡 / 🔖 | {signature} |
+| 质量保证 | ✅ / 🟡 / 🔖 | {signature} |
+| **整体** | ✅ / 🟡 / 🔖 | `#龍芯⚡️YYYY-MM-DD-{SKILL}-COMPLETE-v1.0` |
 
 ---
 
-## 📊 **完整性檢查清單**
+## 📊 **完整性检查清单**
 
-- [ ] [1] 元數據 - 完整
-- [ ] [2] 計算規範 - 有公式·可驗證
-- [ ] [3] I/O 規範 - 有示例·有約束
-- [ ] [4] 執行流程 - 有流程圖·有決策點
+- [ ] [1] 元数据 - 完整
+- [ ] [2] 计算规范 - 有公式·可验证
+- [ ] [3] I/O 规范 - 有示例·有约束
+- [ ] [4] 执行流程 - 有流程图·有决策点
 - [ ] [5] 集成接口 - 有 API·有示例
-- [ ] [6] 性能評估 - 有基准·有優化建議
-- [ ] [7] 質量保證 - 有測試·有覆蓋率
-- [ ] [8] 文檔示例 - 有代碼·有最佳實踐
-- [ ] [9] 版本維護 - 有歷史·有支持狀態
-- [ ] [10] 安全合規 - 有驗證·有標準
-- [ ] [11] 限制邊界 - 有列表·有替代方案
-- [ ] [12] 擴展生態 - 有集成·有 Roadmap
+- [ ] [6] 性能评估 - 有基准·有优化建议
+- [ ] [7] 质量保证 - 有测试·有覆盖率
+- [ ] [8] 文档示例 - 有代码·有最佳实践
+- [ ] [9] 版本维护 - 有历史·有支持状态
+- [ ] [10] 安全合规 - 有验证·有标准
+- [ ] [11] 限制边界 - 有列表·有替代方案
+- [ ] [12] 扩展生态 - 有集成·有 Roadmap
 
-**總完整性: {X/12}**
+**总完整性: {X/12}**
 
 ---
 
-## 🐉 **龍魂承諾**
+## 🐉 **龍魂承诺**
 
 ```
-✅ 每個 Skill 都遵循此標準
-✅ 缺失區塊自動補全 (🔖 或 🟡)
-✅ 所有公式雙軌對照（世界標準 vs 龍魂主權）
-✅ DNA簽章追溯每個版本
-✅ 可驗證·不玄學·能復算
+✅ 每个 Skill 都遵循此标准
+✅ 缺失区块自动补全 (🔖 或 🟡)
+✅ 所有公式双轨对照（世界标准 vs 龍魂主权）
+✅ DNA签章追溯每个版本
+✅ 可验证·不玄学·能复算
 
 DNA:#龍芯⚡️2026-06-07-SKILL-STANDARD-UNIFIED-FRAMEWORK-v1.0
-責任: UID9622 · 不免責
+责任: UID9622 · 不免责
 ```
 
 ---
 
-**現在，每個 Skill 都有完整的 12 區塊框架。缺失自動補全（🔖 待補·🟡 待驗），完整性一清二楚。**
+**现在，每个 Skill 都有完整的 12 区块框架。缺失自动补全（🔖 待补·🟡 待验），完整性一清二楚。**
 
-**下一步：為 10 個 Skill 逐個生成完整規範頁面。**
+**下一步：为 10 个 Skill 逐个生成完整规范页面。**

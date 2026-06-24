@@ -1,15 +1,14 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DESKTOP-MENU_FE7C-v1.0",
-
+{
+  "_dna": "2026-06-21-CNSH-DESKTOP-MENU-v1.0-3",
   "items": [
     {
       "id": "open-cnsh-integrated-readme",
-      "label": "📘 查看 CNSH 整合說明文檔",
+      "label": "📘 查看 CNSH 整合说明文档",
       "type": "shell",
       "command": "open {root}/cnsh.integrated/info.md",
-      "description": "打開 CNSH 整合模塊說明",
+      "description": "打开 CNSH 整合模块说明",
       "mode": "viewer",
       "confirm": false
     }
-  ],
-  "_dna": "2026-06-21-CNSH-DESKTOP-MENU-v1.0-3"
+  ]
 }

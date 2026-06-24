@@ -1,350 +1,350 @@
-# 🐉 龍魂系統·全面統一整合計劃
+# 🐉 龍魂系统·全面统一整合计划
 # 日期: 2026-06-10 CST
 # DNA:#龍芯⚡️2026-06-10-SYSTEM-UNIFICATION-PLAN-v1.0
 
 ---
 
-## 📊 現狀分析
+## 📊 现状分析
 
-### 系統規模
+### 系统规模
 ```
-總計: 2,337 個 Python 文件 · 92.3 萬行代碼
-分佈: 40+ 個子目錄 · 超 50 個孤立頂級文件
-狀態: 🔴 高度分散·需要統一整合
+总计: 2,337 个 Python 文件 · 92.3 万行代码
+分布: 40+ 个子目录 · 超 50 个孤立顶级文件
+状态: 🔴 高度分散·需要统一整合
 ```
 
 ---
 
-## 🔍 發現的 3 類問題
+## 🔍 发现的 3 类问题
 
-### 第一類：孤立頂級文件 (18 個)
+### 第一类：孤立顶级文件 (18 个)
 
-❌ **未被導入的孤立脚本:**
+❌ **未被导入的孤立脚本:**
 ```
-action_logger.py              (9.0K·日誌工具)
-daily_review.py              (5.2K·日常復盤)
-daily_review_enhanced.py      (8.5K·增強版復盤)
-dragon_char_normalizer.py     (11K·龍字標準化)
-init_directories.py           (493B·目錄初始化)
-longhun_foundation_runtime_v1.0.py    (30K·基礎運行時)
-longhun_kfpp_executor_v1.0.py         (17K·執行引擎)
-longhun_mvp_launcher_v1.0.py          (8.9K·啟動器)
+action_logger.py              (9.0K·日志工具)
+daily_review.py              (5.2K·日常复盘)
+daily_review_enhanced.py      (8.5K·增强版复盘)
+dragon_char_normalizer.py     (11K·龍字标准化)
+init_directories.py           (493B·目录初始化)
+longhun_foundation_runtime_v1.0.py    (30K·基础运行时)
+longhun_kfpp_executor_v1.0.py         (17K·执行引擎)
+longhun_mvp_launcher_v1.0.py          (8.9K·启动器)
 longhun_mvp_notion_integration_v1.0.py (11K·Notion同步)
-longhun_mvp_setup_integration_v1.0.py  (16K·設置集成)
-longhun_self_check_v1.0.py    (3.6K·自檢)
-riemann_hypothesis_dragonhood_perspective.py (16K·哲學論文)
-task_executor_live_v1.py      (9.8K·任務執行)
-test_audit_integration_v1.py   (26K·審計測試)
-cnsh_mcp_server.py            (2.4K·MCP服務)
+longhun_mvp_setup_integration_v1.0.py  (16K·设置集成)
+longhun_self_check_v1.0.py    (3.6K·自检)
+riemann_hypothesis_dragonhood_perspective.py (16K·哲学论文)
+task_executor_live_v1.py      (9.8K·任务执行)
+test_audit_integration_v1.py   (26K·审计测试)
+cnsh_mcp_server.py            (2.4K·MCP服务)
 v4_mcp_server.py              (2.6K·MCP v4)
 brain_notion_sync.py          (同名文件存在)
 ```
 
-### 第二類：重複模塊
+### 第二类：重复模块
 
-🔀 **CNSH 相關 (3 個)**:
-- `cnsh-core/` (622 .py · 23M) - 主模塊 ✅
-- `cnsh/` (21 .py · 708K) - 副模塊
-- `cnsh_mcp_server.py` - MCP 包裝
+🔀 **CNSH 相关 (3 个)**:
+- `cnsh-core/` (622 .py · 23M) - 主模块 ✅
+- `cnsh/` (21 .py · 708K) - 副模块
+- `cnsh_mcp_server.py` - MCP 包装
 
-🔀 **Skill 相關 (3 個)**:
-- `skills/` (11 .py · 388K) - 主模塊 ✅
-- `skill-standards/` (2 .py · 92K) - 標準化
-- `integrated-modules/skills/` (3 .py · 92K) - 重複整合
+🔀 **Skill 相关 (3 个)**:
+- `skills/` (11 .py · 388K) - 主模块 ✅
+- `skill-standards/` (2 .py · 92K) - 标准化
+- `integrated-modules/skills/` (3 .py · 92K) - 重复整合
 
-🔀 **監控相關 (2 個)**:
+🔀 **监控相关 (2 个)**:
 - `monitoring/` (1 .py · 60K)
 - `mobile-monitoring/` (2 .py · 96K)
 
-### 第三類：孤立目錄 (28 個)
+### 第三类：孤立目录 (28 个)
 
-**包含 Python 代碼:**
+**包含 Python 代码:**
 ```
-agents/              (4 .py)   - 智能體
-bin/                 (3 .py)   - 二進制工具
-brain/               (1 .py)   - 大腦模塊
-deployment/          (2 .py)   - 部署腳本
-logging_backup/      (3 .py)   - 日誌備份
+agents/              (4 .py)   - 智能体
+bin/                 (3 .py)   - 二进制工具
+brain/               (1 .py)   - 大脑模块
+deployment/          (2 .py)   - 部署脚本
+logging_backup/      (3 .py)   - 日志备份
 phase3/              (1 .py)   - Phase 3
 research/            (4 .py)   - 研究
-rules-engine-v2.5/   (4 .py)   - 規則引擎 v2.5
-scripts/             (20 .py)  - 腳本集合
+rules-engine-v2.5/   (4 .py)   - 规则引擎 v2.5
+scripts/             (20 .py)  - 脚本集合
 ```
 
-**不含代碼(文檔/配置):**
+**不含代码(文档/配置):**
 ```
-01_protocols/        - 協議文檔
-01_技能庫/          - 技能庫
-02_rules/           - 規則
-04_決策日誌/        - 決策日誌
-docs/               - 文檔 (83M)
-_archive/           - 歸檔 (688M)
-...還有很多
+01_protocols/        - 协议文档
+01_技能库/          - 技能库
+02_rules/           - 规则
+04_决策日志/        - 决策日志
+docs/               - 文档 (83M)
+_archive/           - 归档 (688M)
+...还有很多
 ```
 
 ---
 
-## 🎯 整合目標
+## 🎯 整合目标
 
-### 統一的目錄結構
+### 统一的目录结构
 
 ```
 ~/longhun-system/
-├── 🐉 core/                    (核心系統)
-│   ├── cnsh/                   (統一 CNSH)
-│   ├── skills/                 (統一 Skill)
-│   ├── monitoring/             (統一監控)
+├── 🐉 core/                    (核心系统)
+│   ├── cnsh/                   (统一 CNSH)
+│   ├── skills/                 (统一 Skill)
+│   ├── monitoring/             (统一监控)
 │   ├── kimi/                   (Kimi AI)
-│   └── multicurrency/          (多幣種)
+│   └── multicurrency/          (多币种)
 │
 ├── 🔧 tools/                   (工具集)
-│   ├── agents/                 (智能體)
-│   ├── action_logger.py        (日誌工具)
-│   ├── daily_review.py         (復盤)
-│   ├── dragon_char_normalizer.py (字符規範化)
+│   ├── agents/                 (智能体)
+│   ├── action_logger.py        (日志工具)
+│   ├── daily_review.py         (复盘)
+│   ├── dragon_char_normalizer.py (字符规范化)
 │   └── ...其他工具
 │
-├── 📦 integrations/            (集成層)
-│   ├── mcp/                    (MCP 服務)
+├── 📦 integrations/            (集成层)
+│   ├── mcp/                    (MCP 服务)
 │   ├── notion/                 (Notion 同步)
 │   ├── deployment/             (部署)
-│   └── brain/                  (大腦同步)
+│   └── brain/                  (大脑同步)
 │
-├── 🚀 executors/               (執行引擎)
-│   ├── runtime/                (基礎運行時)
-│   ├── kfpp/                   (KFPP 執行)
-│   ├── mvp/                    (MVP 啟動)
-│   └── task/                   (任務執行)
+├── 🚀 executors/               (执行引擎)
+│   ├── runtime/                (基础运行时)
+│   ├── kfpp/                   (KFPP 执行)
+│   ├── mvp/                    (MVP 启动)
+│   └── task/                   (任务执行)
 │
-├── 📊 rules-engine/            (規則引擎)
+├── 📊 rules-engine/            (规则引擎)
 │   └── v2.5/
 │
 ├── 🧠 research/                (研究)
 │   ├── riemann/
 │   └── ...
 │
-├── 📚 docs/                    (文檔)
-├── 🗂️ archive/                (歸檔)
-└── 📋 scripts/                (腳本)
+├── 📚 docs/                    (文档)
+├── 🗂️ archive/                (归档)
+└── 📋 scripts/                (脚本)
 ```
 
 ---
 
-## 🔧 立即執行的整合步驟
+## 🔧 立即执行的整合步骤
 
-### Step 1: 統一 CNSH 模塊
+### Step 1: 统一 CNSH 模块
 
 ```bash
-# 1. 將 cnsh/ 整合到 cnsh-core/
+# 1. 将 cnsh/ 整合到 cnsh-core/
 cp cnsh/*.py cnsh-core/
 
-# 2. 創建統一的 __init__.py
+# 2. 创建统一的 __init__.py
 cat > cnsh-core/__init__.py << 'EOF'
-# CNSH 核心模塊 (統一入口)
+# CNSH 核心模块 (统一入口)
 from .cnsh_core_engine import *
 from .cnsh_api_server import *
-# ... 導入所有核心組件
+# ... 导入所有核心组件
 EOF
 
-# 3. 刪除重複的 cnsh/
+# 3. 删除重复的 cnsh/
 # rm -rf cnsh/
 ```
 
-### Step 2: 統一 Skill 模塊
+### Step 2: 统一 Skill 模块
 
 ```bash
-# 1. 合併 skills/、skill-standards/、integrated-modules/skills/
+# 1. 合并 skills/、skill-standards/、integrated-modules/skills/
 cp skill-standards/*.py skills/
 cp integrated-modules/skills/*.py skills/
 
-# 2. 統一標準化
+# 2. 统一标准化
 cat > skills/__init__.py << 'EOF'
-# Skill 統一模塊 (10+技能)
+# Skill 统一模块 (10+技能)
 from .longhun_skill_auto_completion_engine import *
 from .longhun_standard_calculation_framework import *
 EOF
 
-# 3. 清理重複目錄
+# 3. 清理重复目录
 # rm -rf skill-standards/ integrated-modules/skills/
 ```
 
-### Step 3: 統一監控模塊
+### Step 3: 统一监控模块
 
 ```bash
-# 1. 合併 monitoring/ 和 mobile-monitoring/
+# 1. 合并 monitoring/ 和 mobile-monitoring/
 mkdir -p monitoring/mobile
 cp mobile-monitoring/*.py monitoring/mobile/
 
-# 2. 創建統一入口
+# 2. 创建统一入口
 cat > monitoring/__init__.py << 'EOF'
-# 監控模塊 (包含移動端監控)
+# 监控模块 (包含移动端监控)
 from .monitoring_core import *
 from .mobile import *
 EOF
 
-# 3. 清理舊目錄
+# 3. 清理旧目录
 # rm -rf mobile-monitoring/
 ```
 
-### Step 4: 組織孤立頂級文件
+### Step 4: 组织孤立顶级文件
 
 ```bash
 mkdir -p tools integrations executors
 
-# 日誌工具
+# 日志工具
 mv action_logger.py tools/
 mv daily_review.py tools/
 mv daily_review_enhanced.py tools/
 
-# 集成層
+# 集成层
 mv cnsh_mcp_server.py integrations/mcp/
 mv v4_mcp_server.py integrations/mcp/
 mv longhun_mvp_notion_integration_v1.0.py integrations/notion/
 
-# 執行引擎
+# 执行引擎
 mv longhun_foundation_runtime_v1.0.py executors/runtime/
 mv longhun_kfpp_executor_v1.0.py executors/kfpp/
 mv longhun_mvp_launcher_v1.0.py executors/mvp/
 mv task_executor_live_v1.py executors/task/
 
-# 規範化工具
+# 规范化工具
 mkdir -p tools/normalizers
 mv dragon_char_normalizer.py tools/normalizers/
 
-# 自檢
+# 自检
 mv longhun_self_check_v1.0.py tools/
 ```
 
-### Step 5: 組織孤立目錄
+### Step 5: 组织孤立目录
 
 ```bash
-# 既有目錄重新分類
+# 既有目录重新分类
 mkdir -p core/integrations core/rules
 
-# 移動規則引擎
+# 移动规则引擎
 mv rules-engine-v2.5 core/rules/
 
-# 移動 agents
+# 移动 agents
 mv agents core/integrations/
 
-# 移動研究
+# 移动研究
 mkdir -p research
 # (已有，只需确认)
 
-# 移動腳本
+# 移动脚本
 mv scripts/* tools/scripts/ (如果有相同的)
 # 或保留在 tools/scripts/
 ```
 
-### Step 6: 創建統一的 core/__init__.py
+### Step 6: 创建统一的 core/__init__.py
 
 ```python
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂系統·核心模塊統一入口
+🐉 龍魂系统·核心模块统一入口
 DNA:#龍芯⚡️2026-06-10-SYSTEM-UNIFICATION-v1.0
 """
 
-# 核心系統
+# 核心系统
 from .cnsh import *
 from .skills import *
 from .monitoring import *
 from .kimi import *
 from .multicurrency import *
 
-# 規則引擎
+# 规则引擎
 from .rules import *
 
-# 工具層
+# 工具层
 from .tools import *
 
-# 集成層
+# 集成层
 from .integrations import *
 
-# 執行引擎
+# 执行引擎
 from .executors import *
 
 __all__ = [
-    'cnsh',      # CNSH 核心語義運行時
+    'cnsh',      # CNSH 核心语义运行时
     'skills',    # Skill 技能引擎
-    'monitoring', # 監控系統
+    'monitoring', # 监控系统
     'kimi',      # Kimi AI 集成
-    'multicurrency', # 多幣種
+    'multicurrency', # 多币种
 ]
 ```
 
 ---
 
-## 📋 整合檢查清單
+## 📋 整合检查清单
 
-### 立即執行 (1-2 小時)
+### 立即执行 (1-2 小时)
 
 ```
-□ Step 1: 統一 CNSH
-  □ 合併 cnsh/ → cnsh-core/
+□ Step 1: 统一 CNSH
+  □ 合并 cnsh/ → cnsh-core/
   □ 更新 __init__.py
-  □ 驗證導入
+  □ 验证导入
 
-□ Step 2: 統一 Skill
-  □ 合併 skill-standards/ → skills/
-  □ 合併 integrated-modules/skills/ → skills/
-  □ 驗證所有 11 個 Skill 可導入
+□ Step 2: 统一 Skill
+  □ 合并 skill-standards/ → skills/
+  □ 合并 integrated-modules/skills/ → skills/
+  □ 验证所有 11 个 Skill 可导入
 
-□ Step 3: 統一監控
-  □ 合併 mobile-monitoring/ → monitoring/
-  □ 更新導入路徑
+□ Step 3: 统一监控
+  □ 合并 mobile-monitoring/ → monitoring/
+  □ 更新导入路径
 
-□ Step 4: 組織孤立文件
-  □ 創建 tools/、integrations/、executors/ 目錄
-  □ 移動 18 個孤立文件
-  □ 更新導入路徑
+□ Step 4: 组织孤立文件
+  □ 创建 tools/、integrations/、executors/ 目录
+  □ 移动 18 个孤立文件
+  □ 更新导入路径
 
-□ Step 5: 組織孤立目錄
-  □ 移動 agents/、research/ 等
-  □ 檢查依賴
+□ Step 5: 组织孤立目录
+  □ 移动 agents/、research/ 等
+  □ 检查依赖
 
-□ Step 6: 創建統一入口
+□ Step 6: 创建统一入口
   □ 生成 core/__init__.py
-  □ 驗證所有模塊可導入
+  □ 验证所有模块可导入
 ```
 
-### 後續優化 (可選)
+### 后续优化 (可选)
 
 ```
-□ Step 7: 移除重複
-  □ 刪除 _archive/ 中的舊版本
-  □ 清理備份目錄
-  □ 驗證 Git 歷史
+□ Step 7: 移除重复
+  □ 删除 _archive/ 中的旧版本
+  □ 清理备份目录
+  □ 验证 Git 历史
 
-□ Step 8: 文檔統一
+□ Step 8: 文档统一
   □ 整合 docs/
-  □ 創建统一的 README
+  □ 创建统一的 README
 
-□ Step 9: 歸檔整理
+□ Step 9: 归档整理
   □ 清理 phase3/
   □ 整合 logging_backup/
 ```
 
 ---
 
-## 📊 整合後的系統規模
+## 📊 整合后的系统规模
 
-### 現在 (分散)
+### 现在 (分散)
 ```
 核心: cnsh-core (23M) + baobao-guardian (343M) = 366M
-孤立: 18 個文件 + 28 個目錄
-結構: 複雜·難以導航
+孤立: 18 个文件 + 28 个目录
+结构: 复杂·难以导航
 ```
 
-### 整合後 (統一)
+### 整合后 (统一)
 ```
 core/
-  ├── cnsh/ (統一 CNSH·622 + 21 .py)
-  ├── skills/ (統一 Skill·11 + 2 + 3 .py)
-  ├── monitoring/ (統一監控·1 + 2 .py)
+  ├── cnsh/ (统一 CNSH·622 + 21 .py)
+  ├── skills/ (统一 Skill·11 + 2 + 3 .py)
+  ├── monitoring/ (统一监控·1 + 2 .py)
   ├── kimi/ (5 .py)
   ├── multicurrency/ (10 .py)
-  └── rules/ (規則引擎·4 .py)
+  └── rules/ (规则引擎·4 .py)
 
 tools/
   ├── action_logger.py
@@ -364,90 +364,90 @@ executors/
   ├── mvp/ (1 .py)
   └── task/ (1 .py)
 
-結構: 清晰·易於導航·完全統一
+结构: 清晰·易于导航·完全统一
 ```
 
 ---
 
-## 🎯 統一後的好處
+## 🎯 统一后的好处
 
 ```
 ✅ 消除孤立
-   - 所有文件都有明確的位置
-   - 無遺漏的模塊
+   - 所有文件都有明确的位置
+   - 无遗漏的模块
 
-✅ 減少重複
-   - 18 個孤立文件整合
-   - 3 套 CNSH 合併為 1 套
-   - 3 套 Skill 合併為 1 套
+✅ 减少重复
+   - 18 个孤立文件整合
+   - 3 套 CNSH 合并为 1 套
+   - 3 套 Skill 合并为 1 套
 
-✅ 清晰的層級
-   - core/        (核心系統)
+✅ 清晰的层级
+   - core/        (核心系统)
    - tools/       (工具)
    - integrations/ (集成)
-   - executors/   (執行)
+   - executors/   (执行)
 
-✅ 統一導入
+✅ 统一导入
    from longhun_system.core import *
    from longhun_system.tools import *
    from longhun_system.integrations import *
    from longhun_system.executors import *
 
-✅ 易於維護
-   - 2337 個文件變成有序的樹形結構
-   - 92 萬行代碼邏輯清晰
-   - 新增功能有明確的位置
+✅ 易于维护
+   - 2337 个文件变成有序的树形结构
+   - 92 万行代码逻辑清晰
+   - 新增功能有明确的位置
 ```
 
 ---
 
-## 🚀 建議執行方案
+## 🚀 建议执行方案
 
-### 方案 A: 快速整合 (2-3 小時)
-1. 執行 Step 1-6
-2. 驗證所有導入正常
-3. 保留原目錄（不刪除）
-4. 可逐步遷移
+### 方案 A: 快速整合 (2-3 小时)
+1. 执行 Step 1-6
+2. 验证所有导入正常
+3. 保留原目录（不删除）
+4. 可逐步迁移
 
-### 方案 B: 徹底整合 (4-6 小時)
-1. 執行 Step 1-9
-2. 包括清理歸檔、文檔統一
-3. 刪除所有重複
-4. 完全統一結構
+### 方案 B: 彻底整合 (4-6 小时)
+1. 执行 Step 1-9
+2. 包括清理归档、文档统一
+3. 删除所有重复
+4. 完全统一结构
 
-### 方案 C: 保守整合 (1 小時)
-1. 只執行 Step 1-3 (核心模塊統一)
+### 方案 C: 保守整合 (1 小时)
+1. 只执行 Step 1-3 (核心模块统一)
 2. 孤立文件保留在原位
-3. 創建 core/__init__.py 導入所有內容
-4. 最小化改動·最大化相容性
+3. 创建 core/__init__.py 导入所有内容
+4. 最小化改动·最大化相容性
 
 ---
 
-## ✅ 簽署與確認
+## ✅ 签署与确认
 
 ```
-分析者: AI Agent (自動化系統)
-分析時間: 2026-06-10 CST
-分析規模: 2,337 個文件·92 萬行代碼·40+ 目錄
+分析者: AI Agent (自动化系统)
+分析时间: 2026-06-10 CST
+分析规模: 2,337 个文件·92 万行代码·40+ 目录
 
-發現:
-  ❌ 18 個孤立頂級文件
-  ❌ 28 個孤立目錄
-  ❌ 3 套重複 CNSH
-  ❌ 3 套重複 Skill
-  ❌ 2 套重複監控
+发现:
+  ❌ 18 个孤立顶级文件
+  ❌ 28 个孤立目录
+  ❌ 3 套重复 CNSH
+  ❌ 3 套重复 Skill
+  ❌ 2 套重复监控
 
-狀態: 🔴 高度分散·急需統一
+状态: 🔴 高度分散·急需统一
 
-建議: 執行「方案 C: 保守整合」
+建议: 执行“方案 C: 保守整合”
   - 快速·安全·相容性好
-  - 1 小時內完成
-  - 可逐步優化
+  - 1 小时内完成
+  - 可逐步优化
 ```
 
 ---
 
 **DNA**:#龍芯⚡️2026-06-10-SYSTEM-UNIFICATION-PLAN-v1.0
-**確認碼**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0 (完整分析版)
-**有效期**: 永久 (架構性建議)
+**有效期**: 永久 (架构性建议)

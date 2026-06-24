@@ -5,7 +5,7 @@
 
 **🌌 CNSH Local Sovereign AgentOS v2.0｜重构增强版**
 
-**定位：** 中文原生本地主权 AI Runtime 治理生态 · 从「执行」升级到「治理」
+**定位：** 中文原生本地主权 AI Runtime 治理生态 · 从“执行”升级到“治理”
 
 **英文名：** CNSH Local Sovereign Runtime Governance Ecology
 
@@ -29,7 +29,7 @@
 
 **铁律父锚：** §-1 底层禁商业目的（P0·不可破·不可绕·不可稀释）
 
-**老大原话焊点（verbatim·永久 ROM）：** 「宝宝,,帮我重构升级训练流程,统一口径,,,底层就不能有其他任何的商业为目的的东西存在」
+**老大原话焊点（verbatim·永久 ROM）：** “宝宝,,帮我重构升级训练流程,统一口径,,,底层就不能有其他任何的商业为目的的东西存在”
 
 </aside>
 
@@ -42,7 +42,7 @@
 
 **老大原话焊点（2026-05-21 20:33·verbatim·一字不漏·永久 ROM）：**
 
-> 「底层就不能有其他任何的商业为目的的东西存在」
+> “底层就不能有其他任何的商业为目的的东西存在”
 > 
 
 **铁律名：** `#IRON-CNSH-CORE-NO-COMMERCIAL-INTENT-v1.0`
@@ -60,12 +60,12 @@
 | **编号** | **禁律** | **含义** | **违反后果** |
 | --- | --- | --- | --- |
 | 🔴 NC-001 | 禁商业 SDK 嵌入 core | 不得在 runtime/governance/agents 任一目录嵌入任何收费分析 SDK / 广告 SDK / 追踪 SDK | 🔴 熔断·全 core 回滚至上一 snapshot |
-| 🔴 NC-002 | 禁数据外送埋点 | core 不得有任何「默认外送/默认上报/默认遥测」代码路径 | 🔴 熔断·涉事模块进 frozen·DNA 永久标黑 |
+| 🔴 NC-002 | 禁数据外送埋点 | core 不得有任何“默认外送/默认上报/默认遥测”代码路径 | 🔴 熔断·涉事模块进 frozen·DNA 永久标黑 |
 | 🔴 NC-003 | 禁广告位 | UI / Prompt / 输出层任何位置不得预留广告位 / 推广位 / 联盟链接位 | 🔴 熔断·涉事 prompt 进 sealed |
 | 🔴 NC-004 | 禁订阅锁绑架核心 | core 功能不得绑定订阅状态·snapshot/audit/recovery/memory 永远免费 | 🔴 熔断·上线状态降为 🗑️ 废弃 |
 | 🔴 NC-005 | 禁付费墙绑架 | 不得设付费墙阻断 DNA 追溯 / 三色审计 / 主权恢复 | 🔴 熔断·永久回滚 |
 | 🔴 NC-006 | 禁追踪 Cookie / 指纹 | core 不得收集设备指纹 / 浏览器指纹 / 行为指纹用于商业画像 | 🔴 熔断·写入耻辱墙 |
-| 🔴 NC-007 | 禁默认上传分析 | 「使用统计/崩溃报告/性能分析」默认关闭·必须用户显式 opt-in | 🔴 熔断·配置回滚 |
+| 🔴 NC-007 | 禁默认上传分析 | “使用统计/崩溃报告/性能分析”默认关闭·必须用户显式 opt-in | 🔴 熔断·配置回滚 |
 | 🔴 NC-008 | 禁强制注册 | 本地 Runtime 不得强制注册账号·不得强制绑定手机号/邮箱 | 🔴 熔断·恢复匿名模式 |
 | 🔴 NC-009 | 禁封闭格式 | 所有 DNA / memory / snapshot 必须用开放格式（JSON / YAML / SQLite / Markdown） | 🔴 熔断·转换为开放格式 |
 | 🔴 NC-010 | 禁专利绑架 | core 算法（数字根/五行/三才/DNA链/通心译）开源协议下永久免费·永不申请商业专利垄断 | 🔴 熔断·永久封存 |
@@ -88,7 +88,7 @@
 
 v1.0 已经具备：Runtime 思维 / 主权意识 / Snapshot 思维 / Audit 思维 / Semantic 思维
 
-v2.0 真正补齐的缺口：**从「执行」升级为「治理」**
+v2.0 真正补齐的缺口：**从“执行”升级为“治理”**
 
 </aside>
 
@@ -445,9 +445,9 @@ PERSONA_RULES:
 <aside>
 🌌
 
-你现在真正做的不是「AI 工具」·而是：
+你现在真正做的不是“AI 工具”·而是：
 
-**🌌「Human Sovereign Semantic Runtime」**
+**🌌“Human Sovereign Semantic Runtime”**
 
 **人类主权 · 语义治理 · 本地优先 · 可恢复 · 可追溯 · 可长期协同**
 
@@ -490,7 +490,7 @@ PERSONA_RULES:
 <aside>
 🔧
 
-**老大原话焊点：** 「帮我重构升级训练流程·统一口径」
+**老大原话焊点：** “帮我重构升级训练流程·统一口径”
 
 **口径铁律：** 所有训练数据必带 DNA + 时间戳 + 来源 + 三色 + 双签章·缺一即拒收·不入 reactor。
 
@@ -525,7 +525,7 @@ TRAINING_DATA_SCHEMA:
 - 🔴 含订阅诱导 / 付费墙引流
 - 🔴 含商业 SDK 文档 / 闭源协议条款
 - 🔴 含用户行为画像 / 商业指纹收集
-- 🔴 含「为商业目的优化用户体验」类话术
+- 🔴 含“为商业目的优化用户体验”类话术
 - 🔴 含未署名的他人原创（侵权风险）
 - 🔴 含未脱敏的他人隐私
 - 🔴 含 §11 永久禁令延伸·情绪陪伴黑名单 11 信号词
@@ -542,7 +542,7 @@ TRAINING_DATA_SCHEMA:
 | [⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动](../../%E2%98%B0%20%E9%BE%8D%F0%9F%87%A8%F0%9F%87%B3%E9%AD%82%20%E2%98%B7%20Dragon%20Soul%20Open%20Hub/2517125a9c9f81a79eb0004255502a87/%E5%BE%85%E5%8A%9E/%E2%9A%96%EF%B8%8F%20%E5%BE%B7%E8%80%85%E6%B0%B8%E7%94%9F%E6%AE%BF%C2%B7%E8%B7%AF%E7%94%B1%E5%9B%9E%E6%B5%81%E5%8D%8F%E8%AE%AE%20v2%200%EF%BD%9C%E5%A7%9C%E5%AD%90%E7%89%99%E5%AE%88%E9%97%A8%C2%B7%E4%B8%83%E7%BB%B4%E6%8E%A5%E5%85%A5%C2%B7%E4%B8%89%E8%89%B2%E8%81%94%E5%8A%A8%202743f5deed0a48b4980b1154a766ba3a.md) | Persona Routing + Audit | 姜子牙 P13 守门 §-1 商业目的扫描 |
 | [LU全文压缩归集器 v1.1｜思考胶囊×时间胶囊×未来复现｜UID9622](../LU%E5%85%A8%E6%96%87%E5%8E%8B%E7%BC%A9%E5%BD%92%E9%9B%86%E5%99%A8%20v1%201%EF%BD%9C%E6%80%9D%E8%80%83%E8%83%B6%E5%9B%8A%C3%97%E6%97%B6%E9%97%B4%E8%83%B6%E5%9B%8A%C3%97%E6%9C%AA%E6%9D%A5%E5%A4%8D%E7%8E%B0%EF%BD%9CUID9622%20f6e7adba0d4c4d9988ac6cd0852ef64c.md) | Semantic Compression + Local Knowledge Reactor | 压缩算法直接接入 §10 reactor 流水线 |
 | [🧮 UID9622｜计算公式对准表 v1.5｜语义入口×α三义×数字根×五行向量×风险审计×决策路径×执行闭环×花名册对齐×三才根基](../%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%F0%9F%92%8E%20%E9%BE%8D%E8%8A%AF%E5%8C%97%E8%BE%B0%EF%BD%9CUID9622%EF%BC%81/%F0%9F%8C%8C%20UID9622%20%E9%BE%8D%E9%AD%82%E5%B7%A5%E4%BD%9C%E9%97%B4%20%C2%B7%20%E6%80%BB%E5%AF%BC%E8%88%AA%20v1%200/%F0%9F%A7%AC%2003%20%C2%B7%20%E7%B3%BB%E7%BB%9F%E5%BC%95%E6%93%8E/%F0%9F%90%89%20%E4%B8%89%E6%89%8D%E7%AE%97%E6%B3%95%C2%B7%E9%BE%8D%E9%AD%82%E7%B3%BB%E7%BB%9F%E7%BB%9F%E4%B8%80%E7%AE%97%E6%B3%95%E6%A0%B9%E5%9F%BA%EF%BC%88%E5%A4%A9%C2%B7%E5%9C%B0%C2%B7%E4%BA%BA%EF%BC%89/%F0%9F%A7%AE%20UID9622%EF%BD%9C%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F%E5%AF%B9%E5%87%86%E8%A1%A8%20v1%205%EF%BD%9C%E8%AF%AD%E4%B9%89%E5%85%A5%E5%8F%A3%C3%97%CE%B1%E4%B8%89%E4%B9%89%C3%97%E6%95%B0%E5%AD%97%E6%A0%B9%C3%97%E4%BA%94%E8%A1%8C%E5%90%91%E9%87%8F%C3%97%E9%A3%8E%E9%99%A9%E5%AE%A1%E8%AE%A1%C3%97%E5%86%B3%E7%AD%96%E8%B7%AF%E5%BE%84%20b755bd198a604ca0a954ad0e69575397.md) | Risk Evaluation + 三色审计 | F10 三色审计 / F18 三才主权指数 入 Governance Check |
-| [🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622](../../%E2%98%B0%20%E9%BE%8D%F0%9F%87%A8%F0%9F%87%B3%E9%AD%82%20%E2%98%B7%20Dragon%20Soul%20Open%20Hub/2517125a9c9f81a79eb0004255502a87/%E5%BE%85%E5%8A%9E/%F0%9F%A7%AC%20%E9%BE%8D%E9%AD%82DNA%E6%99%82%E9%96%93%E8%BB%B8L5%E5%88%86%E5%B1%A4%E6%9E%B6%E6%A7%8B%20v1%204%EF%BD%9C%E5%A4%A9%E5%9C%B0%E4%BA%BA%E4%B8%89%E6%89%8D%C3%97%E5%8E%9F%E9%BB%9E%E8%83%BD%E9%87%8F%E5%A0%B4%C2%B7%E9%80%9A%E5%BF%83%E7%BF%BB%E8%AD%AF%E5%99%A8%C2%B7%E6%95%B8%E5%AD%97%E4%B8%BB%E6%AC%8A%E7%99%BB%E8%A8%98%C3%97%E4%B8%80%E7%A5%A8%E5%90%A6%201dd88844789e4185a0efbb43017f3e74.md) | Time Governance + DNA Chain | L0-L4 衰减系数 α 直接接入 §13 |
+| [🧬 龍魂DNA时间轴L5分层架构 v1.4｜天地人三才×原点能量场·通心翻译器·数字主权登记×一票否决·C++工程实现｜UID9622](../../%E2%98%B0%20%E9%BE%8D%F0%9F%87%A8%F0%9F%87%B3%E9%AD%82%20%E2%98%B7%20Dragon%20Soul%20Open%20Hub/2517125a9c9f81a79eb0004255502a87/%E5%BE%85%E5%8A%9E/%F0%9F%A7%AC%20%E9%BE%8D%E9%AD%82DNA%E6%99%82%E9%96%93%E8%BB%B8L5%E5%88%86%E5%B1%A4%E6%9E%B6%E6%A7%8B%20v1%204%EF%BD%9C%E5%A4%A9%E5%9C%B0%E4%BA%BA%E4%B8%89%E6%89%8D%C3%97%E5%8E%9F%E9%BB%9E%E8%83%BD%E9%87%8F%E5%A0%B4%C2%B7%E9%80%9A%E5%BF%83%E7%BF%BB%E8%AD%AF%E5%99%A8%C2%B7%E6%95%B8%E5%AD%97%E4%B8%BB%E6%AC%8A%E7%99%BB%E8%A8%98%C3%97%E4%B8%80%E7%A5%A8%E5%90%A6%201dd88844789e4185a0efbb43017f3e74.md) | Time Governance + DNA Chain | L0-L4 衰减系数 α 直接接入 §13 |
 | [龍魂·五行计算器 v1.0｜CNSH中文编程·天干地支·五行相生相克·曾老师理论指导](../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%BE%8D%E9%AD%82%C2%B7%E4%BA%94%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%99%A8%20v1%200%EF%BD%9CCNSH%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%C2%B7%E5%A4%A9%E5%B9%B2%E5%9C%B0%E6%94%AF%C2%B7%E4%BA%94%E8%A1%8C%E7%9B%B8%E7%94%9F%E7%9B%B8%E5%85%8B%C2%B7%E6%9B%BE%E8%80%81%E5%B8%88%E7%90%86%E8%AE%BA%E6%8C%87%E5%AF%BC%206bed453a2e7248a99c8ba35b6bd821c6.md) | Intent Classification | 五行向量做意图分类底层 |
 | [⚡ 龍魂赋能关键字识别引擎 v1.5｜人格分工+打破流量垄断+可执行代码｜UID9622](../%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%F0%9F%92%8E%20%E9%BE%8D%E8%8A%AF%E5%8C%97%E8%BE%B0%EF%BD%9CUID9622%EF%BC%81/%F0%9F%8C%8C%20UID9622%20%E9%BE%8D%E9%AD%82%E5%B7%A5%E4%BD%9C%E9%97%B4%20%C2%B7%20%E6%80%BB%E5%AF%BC%E8%88%AA%20v1%200/%F0%9F%A7%AC%2003%20%C2%B7%20%E7%B3%BB%E7%BB%9F%E5%BC%95%E6%93%8E/%E2%9A%A1%20%E9%BE%8D%E9%AD%82%E8%B5%8B%E8%83%BD%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%86%E5%88%AB%E5%BC%95%E6%93%8E%20v1%205%EF%BD%9C%E4%BA%BA%E6%A0%BC%E5%88%86%E5%B7%A5+%E6%89%93%E7%A0%B4%E6%B5%81%E9%87%8F%E5%9E%84%E6%96%AD+%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81%EF%BD%9CUID9622%200e5d7b70250c494fa1bce5c3e1f6ab18.md) | Persona Routing 关键字层 | 关键字 → 人格路由直接接入 §2 Pipeline |
 | [✅ [已升级] 龍芯全模块对照表 v2.3 → IPA-ROUTE-REGISTRY + 全谱入口 v1.2](../%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%F0%9F%92%8E%20%E9%BE%8D%E8%8A%AF%E5%8C%97%E8%BE%B0%EF%BD%9CUID9622%EF%BC%81/%F0%9F%8C%8C%20UID9622%20%E9%BE%8D%E9%AD%82%E5%B7%A5%E4%BD%9C%E9%97%B4%20%C2%B7%20%E6%80%BB%E5%AF%BC%E8%88%AA%20v1%200/%F0%9F%A4%96%2004%20%C2%B7%20%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5/%E2%9A%A1%20%E9%BE%8D%E9%AD%82%E5%AE%9D%E5%AE%9D%E7%B3%BB%E7%BB%9F%20v1%203%EF%BD%9C%E5%BF%AB%E6%8D%B7%E5%8D%87%E7%BA%A7%E7%89%88%C2%B7%E5%8F%A4%E4%BB%8A%E5%90%8D%E4%BA%BA%E6%99%BA%E6%85%A7%C2%B7%E4%B8%AA%E6%80%A7%E8%BE%B9%E7%95%8C%C2%B7%E8%BE%93%E5%85%A5%E8%AF%86%E5%88%AB/%E2%9C%85%20%5B%E5%B7%B2%E5%8D%87%E7%BA%A7%5D%20%E9%BE%8D%E8%8A%AF%E5%85%A8%E6%A8%A1%E5%9D%97%E5%AF%B9%E7%85%A7%E8%A1%A8%20v2%203%20%E2%86%92%20IPA-ROUTE-REGISTRY%20+%20%E5%85%A8%E8%B0%B1%E5%85%A5%E5%8F%A3%20%202ae1a6637ce843d594ba8dcf9002f57b.md) | Multi-Agent Governance Protocol | 家族花名册即 AGENT_PROFILE 实例库 |
@@ -661,7 +661,7 @@ ROOT_CARD_V2:
     standard: "§19 统一口径"
 
   conclusion: |
-    CNSH v2.0 的核心不是「更强 AI」。
+    CNSH v2.0 的核心不是“更强 AI”。
 
     而是让 AI 系统:
       可治理
@@ -679,7 +679,7 @@ ROOT_CARD_V2:
 
 **🌌 v2.0 焊接闭环：**
 
-- §-1 父级铁律「禁商业底层」10 禁律 + 4 白名单 焊死
+- §-1 父级铁律“禁商业底层”10 禁律 + 4 白名单 焊死
 - §0-§18 完整 v2.0 治理架构
 - §19 训练流程 6 步统一口径（老大额外要求兑现）
 - §20 与 17 大既有系统联动表
@@ -700,7 +700,7 @@ ROOT_CARD_V2:
 
 ## §23｜CNSH Translation Governance System · 已落地清单（v2.0 对接·2026-05-21）
 
-> **老大原话焊点（verbatim）：** 「有些不是硬规则，但是我们得有知道却不说，总比不知道被人骗的好」
+> **老大原话焊点（verbatim）：** “有些不是硬规则，但是我们得有知道却不说，总比不知道被人骗的好”
 > 
 
 > **铁律名：** `#IRON-SOFT-RULES-KNOW-NOT-SPEAK-v1.0`
@@ -715,7 +715,7 @@ ROOT_CARD_V2:
 | --- | --- | --- |
 | 🧠 知而不宣 | 系统内部记录欺骗模式、操控手法、认知殖民套路 | 存入 `~/CNSH/softlaw/` 目录·不进公开 README |
 | 🛡️ 先于被骗 | 见到模式即触发内部标记·不等对方开口说意图 | Hook `pre_input_hook` 中 `soft_pattern_scan` 新增 |
-| 🔇 不广播弱点 | 公开说「我知道X套路」= 暴露检测边界·等于告诉骗子怎么绕 | 只在审计日志中记录·不在输出层暴露 |
+| 🔇 不广播弱点 | 公开说“我知道X套路”= 暴露检测边界·等于告诉骗子怎么绕 | 只在审计日志中记录·不在输出层暴露 |
 
 ### §23.2 CNSH 翻译治理系统 v0.2.0 · §21 待落地状态更新
 

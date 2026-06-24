@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-歐元（EUR）演示適配器
+欧元（EUR）演示适配器
 DNA:#龍芯⚡️2026-06-17-XPAY-EUR-ADAPTER-FILE1-v2.0
 
-聲明：本適配器為演示框架，等待歐洲央行數字歐元正式 API。
+声明：本适配器为演示框架，等待欧洲央行数字欧元正式 API。
 """
 import uuid
 from datetime import datetime
@@ -14,8 +14,8 @@ from xpay.src.adapter import CurrencyAdapter, ExecutionResult, SovereignInfo
 
 class EURAdapter(CurrencyAdapter):
     """
-    歐元適配器（演示）。
-    待數字歐元（Digital Euro）上線後，替換為真實 API 調用。
+    欧元适配器（演示）。
+    待数字欧元（Digital Euro）上线后，替换为真实 API 调用。
     """
 
     def _sovereign_info(self) -> SovereignInfo:
@@ -47,7 +47,7 @@ class EURAdapter(CurrencyAdapter):
         return ExecutionResult(
             success=True,
             settlement_ref=ref,
-            message="歐元演示結算成功（未發生真實轉帳）",
+            message="欧元演示结算成功（未发生真实转账）",
             details={
                 "channel": "Digital Euro simulated",
                 "settled_at": datetime.now().isoformat()
@@ -61,6 +61,6 @@ class EURAdapter(CurrencyAdapter):
         return ExecutionResult(
             success=True,
             settlement_ref=settlement_ref,
-            message="演示回滾完成",
+            message="演示回滚完成",
             details={"rolled_back_at": datetime.now().isoformat()}
         )

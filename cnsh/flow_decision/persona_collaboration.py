@@ -139,6 +139,13 @@ class PersonaCollaborationFramework:
             assist_personas=[PersonaEnum.P05_GODSEYE],
             hard_rule_ids=[4, 5]
         ),
+        11: GateCollaboration(
+            gate_number=11,
+            gate_name="平台闸",
+            main_persona=PersonaEnum.P16_PLATFORM_OPERATOR,
+            assist_personas=[PersonaEnum.P05_GODSEYE, PersonaEnum.P72_LONGSHIELD],
+            hard_rule_ids=[]
+        ),
     }
 
     # 熔断权配置

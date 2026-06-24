@@ -4,7 +4,7 @@
   "benchmarks": [
     {
       "skill_id": "skill-1-algorithmic-art",
-      "skill_name": "龍魂算法藝術生成器",
+      "skill_name": "龍魂算法艺术生成器",
       "test_time": "2026-06-08T19:43:45.212533",
       "sample_size": 20,
       "duration_seconds": 0.50829937501112,
@@ -56,7 +56,7 @@
     },
     {
       "skill_id": "skill-2-brand-guidelines",
-      "skill_name": "品牌指南構建工具",
+      "skill_name": "品牌指南构建工具",
       "test_time": "2026-06-08T19:43:45.731373",
       "sample_size": 20,
       "duration_seconds": 0.5187889160006307,
@@ -108,7 +108,7 @@
     },
     {
       "skill_id": "skill-3-canvas-design",
-      "skill_name": "Canvas 動態設計工具",
+      "skill_name": "Canvas 动态设计工具",
       "test_time": "2026-06-08T19:43:46.250724",
       "sample_size": 20,
       "duration_seconds": 0.5193203340168111,
@@ -160,7 +160,7 @@
     },
     {
       "skill_id": "skill-4-doc-coauthoring",
-      "skill_name": "文檔協作編輯系統",
+      "skill_name": "文档协作编辑系统",
       "test_time": "2026-06-08T19:43:46.738658",
       "sample_size": 20,
       "duration_seconds": 0.48785529198357835,
@@ -212,7 +212,7 @@
     },
     {
       "skill_id": "skill-5-internal-comms",
-      "skill_name": "內部溝通平台",
+      "skill_name": "内部沟通平台",
       "test_time": "2026-06-08T19:43:47.223419",
       "sample_size": 20,
       "duration_seconds": 0.4846930840285495,
@@ -264,7 +264,7 @@
     },
     {
       "skill_id": "skill-6-mcp-builder",
-      "skill_name": "MCP 服務器構建工具",
+      "skill_name": "MCP 服务器构建工具",
       "test_time": "2026-06-08T19:43:47.725128",
       "sample_size": 20,
       "duration_seconds": 0.501628250000067,
@@ -316,7 +316,7 @@
     },
     {
       "skill_id": "skill-7-skill-creator",
-      "skill_name": "Skill 創建助手",
+      "skill_name": "Skill 创建助手",
       "test_time": "2026-06-08T19:43:48.230774",
       "sample_size": 20,
       "duration_seconds": 0.5055919170263223,
@@ -420,7 +420,7 @@
     },
     {
       "skill_id": "skill-9-theme-factory",
-      "skill_name": "主題生成工廠",
+      "skill_name": "主题生成工厂",
       "test_time": "2026-06-08T19:43:49.223769",
       "sample_size": 20,
       "duration_seconds": 0.4962264999630861,
@@ -472,7 +472,7 @@
     },
     {
       "skill_id": "skill-10-web-artifacts-builder",
-      "skill_name": "Web 構件生成器",
+      "skill_name": "Web 构件生成器",
       "test_time": "2026-06-08T19:43:49.734083",
       "sample_size": 20,
       "duration_seconds": 0.5102512500016019,
@@ -524,5 +524,5 @@
     }
   ],
   "dna": "#龍芯⚡️2026-06-08-PHASE5-BENCHMARK-COMPLETE-v1.0",
-  "_dna": "2026-06-21-CONFIG-PHASE5_PERFORMANCE_BENCHMARK_REPORT-v1.0-3"
+  "_dna": "2026-06-22-CONFIG-PHASE5_PERFORMANCE_BENCHMARK_REPORT-v1.0-3"
 }

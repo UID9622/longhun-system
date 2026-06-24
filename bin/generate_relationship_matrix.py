@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-生成龍魂系統對接關係矩陣 Markdown。
-掃描關鍵目錄與依賴文件，輸出 docs/relationship-matrix.md。
+生成龍魂系统对接关系矩阵 Markdown。
+扫描关键目录与依赖文件，输出 docs/relationship-matrix.md。
 """
 import json
 from pathlib import Path
@@ -10,16 +10,16 @@ from collections import defaultdict
 ROOT = Path("/Users/zuimeidedeyihan/longhun-system")
 OUT = ROOT / "docs" / "relationship-matrix.md"
 
-# 定義主要模塊與其路徑/文件匹配規則
+# 定义主要模块与其路径/文件匹配规则
 MODULES = {
     "control-panel": {"path": "control-panel", "type": "API/UI", "deps": ["skills", "docs"]},
-    "skills": {"path": "skills", "type": "Skill 庫", "deps": ["control-panel", "baobao-guardian"]},
-    "baobao-guardian": {"path": "baobao-guardian", "type": "守護應用", "deps": ["skills", "docs"]},
-    "extensions": {"path": "extensions", "type": "瀏覽器擴展", "deps": ["control-panel", "skills"]},
+    "skills": {"path": "skills", "type": "Skill 库", "deps": ["control-panel", "baobao-guardian"]},
+    "baobao-guardian": {"path": "baobao-guardian", "type": "守护应用", "deps": ["skills", "docs"]},
+    "extensions": {"path": "extensions", "type": "浏览器扩展", "deps": ["control-panel", "skills"]},
     "cnsh-core": {"path": "cnsh-core", "type": "CNSH 核心", "deps": ["docs", "integrated-modules"]},
-    "docs": {"path": "docs", "type": "知識庫", "deps": ["control-panel", "cnsh-core"]},
-    "bin": {"path": "bin", "type": "工具腳本", "deps": ["skills", "docs"]},
-    "integrated-modules": {"path": "integrated-modules", "type": "集成模塊", "deps": ["cnsh-core", "bin"]},
+    "docs": {"path": "docs", "type": "知识库", "deps": ["control-panel", "cnsh-core"]},
+    "bin": {"path": "bin", "type": "工具脚本", "deps": ["skills", "docs"]},
+    "integrated-modules": {"path": "integrated-modules", "type": "集成模块", "deps": ["cnsh-core", "bin"]},
 }
 
 
@@ -32,15 +32,15 @@ def count_files(module_path: str) -> int:
 
 def main():
     lines = [
-        "# 龍魂系統 · 對接關係矩陣",
+        "# 龍魂系统 · 对接关系矩阵",
         "",
         "**DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE1-v1.0",
         "",
-        "本矩陣列出龍魂系統主要模塊之間的對接關係，用於快速理解各板塊如何互通。",
+        "本矩阵列出龍魂系统主要模块之间的对接关系，用于快速理解各板块如何互通。",
         "",
-        "## 模塊清單",
+        "## 模块清单",
         "",
-        "| 模塊 | 類型 | 文件數 | 直接對接 |",
+        "| 模块 | 类型 | 文件数 | 直接对接 |",
         "|------|------|--------|----------|",
     ]
 
@@ -51,13 +51,13 @@ def main():
 
     lines.extend([
         "",
-        "## 對接關係矩陣",
+        "## 对接关系矩阵",
         "",
-        "| 模塊 | ",
+        "| 模块 | ",
     ])
 
     names = list(MODULES.keys())
-    header = "| 模塊 | " + " | ".join(names) + " |"
+    header = "| 模块 | " + " | ".join(names) + " |"
     sep = "|" + "---|" * (len(names) + 1)
     lines.append(header)
     lines.append(sep)
@@ -69,20 +69,20 @@ def main():
             if row_name == col_name:
                 cells.append("—")
             elif col_name in row_deps:
-                cells.append("✅ 對接")
+                cells.append("✅ 对接")
             elif row_name in MODULES[col_name]["deps"]:
-                cells.append("↩️ 被對接")
+                cells.append("↩️ 被对接")
             else:
                 cells.append("")
         lines.append(f"| **{row_name}** | " + " | ".join(cells) + " |")
 
     lines.extend([
         "",
-        "## 說明",
+        "## 说明",
         "",
-        "- **✅ 對接**：該行模塊主動調用/依賴該列模塊。",
-        "- **↩️ 被對接**：該列模塊主動調用/依賴該行模塊。",
-        "- 矩陣基於目錄結構與人工定義的依賴關係生成，後續可結合 import 分析自動細化。",
+        "- **✅ 对接**：该行模块主动调用/依赖该列模块。",
+        "- **↩️ 被对接**：该列模块主动调用/依赖该行模块。",
+        "- 矩阵基于目录结构与人工定义的依赖关系生成，后续可结合 import 分析自动细化。",
         "",
         "---",
         "",

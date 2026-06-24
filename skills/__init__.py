@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂系統 · Skill 註冊管理核心
+龍魂系统 · Skill 注册管理核心
 Longhun System · Skill Registry Core
 
 DNA:#龍芯⚡️2026-06-16-SKILL-REGISTRY-FILE1-v2.0
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-提供統一接口：
-- get_registry()   取得 SkillRegistry 單例
-- list_skills()    列出所有已註冊 Skills（分 html / python）
-- get_skill_content(skill_id) 讀取 Skill 原始內容
-- execute_skill(skill_id, params) 執行 Python Skill（沙盒隊列）
+提供统一接口：
+- get_registry()   取得 SkillRegistry 单例
+- list_skills()    列出所有已注册 Skills（分 html / python）
+- get_skill_content(skill_id) 读取 Skill 原始内容
+- execute_skill(skill_id, params) 执行 Python Skill（沙盒队列）
 """
 
 import os
@@ -30,7 +30,7 @@ __all__ = [
 
 
 class SkillRegistry:
-    """Skill 註冊表：自動掃描 html-skills/ 與 py-skills/ 目錄。"""
+    """Skill 注册表：自动扫描 html-skills/ 与 py-skills/ 目录。"""
 
     def __init__(self, base_dir: Optional[Path] = None):
         self.base_dir = Path(base_dir) if base_dir else Path(__file__).parent.resolve()
@@ -38,10 +38,10 @@ class SkillRegistry:
         self._scan_skills()
 
     def _scan_skills(self):
-        """掃描 html-skills 與 py-skills 目錄並建立註冊表。"""
-        # 目錄對應的類型與名稱前綴
+        """扫描 html-skills 与 py-skills 目录并建立注册表。"""
+        # 目录对应的类型与名称前缀
         skill_dirs = [
-            (self.base_dir / "html-skills", "html", "HTML 互動工具"),
+            (self.base_dir / "html-skills", "html", "HTML 互动工具"),
             (self.base_dir / "py-skills", "python", "Python 工程工具"),
         ]
 
@@ -57,7 +57,7 @@ class SkillRegistry:
                     continue
 
                 skill_id = filepath.stem
-                # 從檔名提取編號與名稱，例如 skill-1-algorithmic-art
+                # 从档名提取编号与名称，例如 skill-1-algorithmic-art
                 parts = skill_id.split("-", 2)
                 number = parts[1] if len(parts) > 1 else ""
                 name = parts[2] if len(parts) > 2 else skill_id
@@ -74,11 +74,11 @@ class SkillRegistry:
                 }
 
     def get_skill(self, skill_id: str) -> Optional[Dict[str, Any]]:
-        """根據 ID 取得 Skill 元數據。"""
+        """根据 ID 取得 Skill 元数据。"""
         return self.skills.get(skill_id)
 
     def get_skill_content(self, skill_id: str) -> Optional[str]:
-        """讀取指定 Skill 的完整原始內容。"""
+        """读取指定 Skill 的完整原始内容。"""
         skill = self.get_skill(skill_id)
         if not skill:
             return None
@@ -89,7 +89,7 @@ class SkillRegistry:
             return None
 
     def export_config(self) -> Dict[str, Any]:
-        """匯出所有 Skills 配置。"""
+        """汇出所有 Skills 配置。"""
         return {
             "total": len(self.skills),
             "skills": list(self.skills.values()),
@@ -97,12 +97,12 @@ class SkillRegistry:
         }
 
 
-# 單例快取
+# 单例快取
 _registry_instance: Optional[SkillRegistry] = None
 
 
 def get_registry() -> SkillRegistry:
-    """取得 SkillRegistry 單例。"""
+    """取得 SkillRegistry 单例。"""
     global _registry_instance
     if _registry_instance is None:
         _registry_instance = SkillRegistry()
@@ -110,7 +110,7 @@ def get_registry() -> SkillRegistry:
 
 
 def list_skills() -> Dict[str, Any]:
-    """列出所有 Skills，按 html / python 分類。"""
+    """列出所有 Skills，按 html / python 分类。"""
     registry = get_registry()
     html = [s for s in registry.skills.values() if s["type"] == "html"]
     python = [s for s in registry.skills.values() if s["type"] == "python"]
@@ -122,14 +122,14 @@ def list_skills() -> Dict[str, Any]:
 
 
 def get_skill_content(skill_id: str) -> Optional[str]:
-    """取得指定 Skill 的完整內容。"""
+    """取得指定 Skill 的完整内容。"""
     return get_registry().get_skill_content(skill_id)
 
 
 def execute_skill(skill_id: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """
-    執行 Python Skill。目前採用子進程方式啟動，避免影響主進程。
-    未來可擴展為真正的沙盒執行環境。
+    执行 Python Skill。目前采用子进程方式启动，避免影响主进程。
+    未来可扩展为真正的沙盒执行环境。
     """
     registry = get_registry()
     skill = registry.get_skill(skill_id)

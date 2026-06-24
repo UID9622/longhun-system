@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-GENERATE_WORKSPACE_METADATA-FILE1-v1.0-2
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 """
-為已複製到 docs/<workspace>/ 的 Notion 導出文件生成 README.md 與 scan.json。
+为已复制到 docs/<workspace>/ 的 Notion 导出文件生成 README.md 与 scan.json。
 """
 import json
 import sys
@@ -32,13 +32,13 @@ def main(target_dir: Path, source_workspace: str, description: str):
         "",
         description,
         "",
-        f"- 本目錄文件數：{len(files)}",
+        f"- 本目录文件数：{len(files)}",
         "",
-        "## 分類目錄",
+        "## 分类目录",
         "",
     ]
     for cat in sorted(category_counter.keys()):
-        lines.append(f"### {cat}/（{category_counter[cat]} 個文件）")
+        lines.append(f"### {cat}/（{category_counter[cat]} 个文件）")
         lines.append("")
         for item in file_list:
             if item["category"] == cat:

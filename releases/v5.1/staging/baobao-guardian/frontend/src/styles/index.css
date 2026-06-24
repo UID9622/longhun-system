@@ -1,0 +1,163 @@
+/* 龍魂宝宝守护助手 · 全局样式 */
+/* DNA:#龍芯⚡️2026-06-04-GLOBAL-STYLES-FILE1-v1.0 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  color: #fff;
+  -webkit-app-region: drag;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* Overlay 层 */
+/* ═══════════════════════════════════════════════════════════ */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.overlay-safe {
+  border-color: #00ff00;
+}
+
+.overlay-warning {
+  border-color: #ffa500;
+}
+
+.overlay-danger {
+  border-color: #ff0000;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 宝宝容器 */
+/* ═══════════════════════════════════════════════════════════ */
+
+.baobao-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999998;
+}
+
+.baobao {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+.baobao-idle {
+  /* 保持默认样式 */
+}
+
+.baobao-happy {
+  filter: brightness(1.2) saturate(1.3);
+}
+
+.baobao-warning {
+  filter: hue-rotate(30deg) brightness(1.1);
+}
+
+.baobao-sad {
+  filter: saturate(0.7) brightness(0.9);
+}
+
+.baobao-thinking {
+  filter: brightness(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 状态指示器 */
+/* ═══════════════════════════════════════════════════════════ */
+
+.status-indicator {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #999;
+  z-index: 999998;
+  -webkit-app-region: no-drag;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.status-dot.online {
+  background: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+  animation: pulse 1.5s infinite;
+}
+
+.status-dot.offline {
+  background: #ff0000;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* 响应式 */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .baobao-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .baobao {
+    width: 60px;
+    height: 60px;
+  }
+}

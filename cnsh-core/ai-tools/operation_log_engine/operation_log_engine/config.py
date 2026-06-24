@@ -11,13 +11,13 @@
 # 文件: config.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
 """
-🧬 龍魂操作日記引擎 · config.py
+🧬 龍魂操作日记引擎 · config.py
 
 DNA:#龍芯⚡️2026-05-30-CONFIG-MANAGER-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-責任: UID9622·不免責
+责任: UID9622·不免责
 
-統一配置管理系統。所有路徑、設置通過此模組集中管理。
+统一配置管理系统。所有路径、设置通过此模组集中管理。
 """
 
 import os
@@ -26,9 +26,9 @@ from pathlib import Path
 from typing import Optional
 
 
-# 在模組加載前，先加載 .env 文件
+# 在模组加载前，先加载 .env 文件
 def _load_env_file():
-    """加載 .env 文件到環境變數"""
+    """加载 .env 文件到环境变数"""
     env_file = Path(__file__).parent / ".env"
     if env_file.exists():
         try:
@@ -41,65 +41,65 @@ def _load_env_file():
                         key, value = line.split("=", 1)
                         key = key.strip()
                         value = value.strip()
-                        # 強制設置環境變數
+                        # 强制设置环境变数
                         os.environ[key] = value
         except Exception as e:
-            print(f"⚠️  警告: 無法加載 .env 文件: {e}")
+            print(f"⚠️  警告: 无法加载 .env 文件: {e}")
 
 
 _load_env_file()
 
 
 class Config:
-    """龍魂系統統一配置管理"""
+    """龍魂系统统一配置管理"""
 
-    # ==================== 路徑配置 ====================
+    # ==================== 路径配置 ====================
 
-    # 龍魂根目錄
+    # 龍魂根目录
     LONGHUN_ROOT = Path(os.getenv(
         "LONGHUN_ROOT",
         str(Path.home() / "longhun-system")
     )).expanduser().resolve()
 
-    # 引擎根目錄
+    # 引擎根目录
     ENGINE_ROOT = LONGHUN_ROOT / "cnsh-core/ai-tools/operation_log_engine"
 
-    # 數據目錄
+    # 数据目录
     DATA_DIR = ENGINE_ROOT / ".data"
     BACKUP_DIR = ENGINE_ROOT / ".backup"
     LOG_DIR = ENGINE_ROOT / ".logs"
 
-    # ==================== 核心數據文件 ====================
+    # ==================== 核心数据文件 ====================
 
-    # 操作日記
+    # 操作日记
     LEDGER_FILE = DATA_DIR / "ledger.jsonl"
 
     # DNA 粒子
     DNA_DIR = DATA_DIR / "dna_particles"
     DNA_INDEX_FILE = DATA_DIR / "dna_index.json"
 
-    # 習慣指紋
+    # 习惯指纹
     BASELINE_FILE = DATA_DIR / "baseline_snapshot.json"
     HABITS_STATS_FILE = DATA_DIR / "habits_stats.json"
 
-    # 設備信息
+    # 设备信息
     DEVICE_SEALS_FILE = DATA_DIR / "device_seals.jsonl"
 
     # ==================== 同步配置 ====================
 
-    # 同步日誌
+    # 同步日志
     SYNC_LOG_FILE = DATA_DIR / "sync_operations.jsonl"
     CONFLICT_LOG = DATA_DIR / "conflicts.jsonl"
 
-    # USB 同步路徑 (默認)
+    # USB 同步路径 (默认)
     USB_MOUNT_PATH = Path(os.getenv(
         "USB_MOUNT_PATH",
         "/Volumes/LONGHUN_USB"  # macOS
     )).expanduser()
 
-    # ==================== 驗證配置 ====================
+    # ==================== 验证配置 ====================
 
-    # 驗證日誌
+    # 验证日志
     VERIFICATION_LOG = DATA_DIR / "verifications.jsonl"
     ALERTS_LOG = DATA_DIR / "alerts.jsonl"
 
@@ -108,41 +108,41 @@ class Config:
     # 批量操作大小
     BATCH_SIZE = int(os.getenv("BATCH_SIZE", "1000"))
 
-    # 緩存 TTL (秒)
+    # 缓存 TTL (秒)
     CACHE_TTL = int(os.getenv("CACHE_TTL", "3600"))
 
-    # 操作超時 (秒)
+    # 操作超时 (秒)
     TIMEOUT = int(os.getenv("TIMEOUT", "30"))
 
-    # 最大查詢結果
+    # 最大查询结果
     MAX_QUERY_LIMIT = int(os.getenv("MAX_QUERY_LIMIT", "10000"))
 
-    # ==================== 日誌配置 ====================
+    # ==================== 日志配置 ====================
 
-    # 日誌等級: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    # 日志等级: DEBUG, INFO, WARNING, ERROR, CRITICAL
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
-    # 主日誌文件
+    # 主日志文件
     LOG_FILE = LOG_DIR / "engine.log"
 
-    # 分類日誌
+    # 分类日志
     OPERATION_LOG = LOG_DIR / "operations.log"
     SYNC_LOG = LOG_DIR / "sync.log"
     VERIFICATION_LOG_FILE = LOG_DIR / "verification.log"
     ERROR_LOG = LOG_DIR / "errors.log"
 
-    # 日誌輪轉 (MB)
+    # 日志轮转 (MB)
     LOG_MAX_SIZE = int(os.getenv("LOG_MAX_SIZE", "10"))
 
-    # 保留日誌數
+    # 保留日志数
     LOG_BACKUP_COUNT = int(os.getenv("LOG_BACKUP_COUNT", "5"))
 
-    # ==================== 應用配置 ====================
+    # ==================== 应用配置 ====================
 
-    # 應用模式: development, production, testing
+    # 应用模式: development, production, testing
     APP_MODE = os.getenv("APP_MODE", "production")
 
-    # 調試模式
+    # 调试模式
     DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 
     # 版本
@@ -150,71 +150,71 @@ class Config:
 
     # ==================== 敏感操作配置 ====================
 
-    # 需要 3/3 驗證的操作列表
+    # 需要 3/3 验证的操作列表
     SENSITIVE_OPERATIONS = [
         "焊接",           # 工程操作
-        "規則更新",       # 系統規則變更
-        "策略變更",       # 安全策略變更
-        "權限授予",       # 權限操作
-        "設備綁定",       # 設備管理
-        "同步啟動",       # 同步操作
+        "规则更新",       # 系统规则变更
+        "策略变更",       # 安全策略变更
+        "权限授予",       # 权限操作
+        "设备绑定",       # 设备管理
+        "同步启动",       # 同步操作
     ]
 
-    # ==================== 驗證配置 ====================
+    # ==================== 验证配置 ====================
 
-    # UID9622 的硬編碼值 (用於驗證)
+    # UID9622 的硬编码值 (用于验证)
     UID_EXPECTED = "UID9622"
 
-    # GPG 公鑰指紋 (用於驗證)
+    # GPG 公钥指纹 (用于验证)
     GPG_KEY_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
-    # ==================== 類方法 ====================
+    # ==================== 类方法 ====================
 
     @classmethod
     def validate(cls) -> bool:
-        """驗證配置的合法性和完整性"""
+        """验证配置的合法性和完整性"""
         errors = []
 
-        # 檢查龍魂根目錄
+        # 检查龍魂根目录
         if not cls.LONGHUN_ROOT.exists():
-            errors.append(f"龍魂根目錄不存在: {cls.LONGHUN_ROOT}")
+            errors.append(f"龍魂根目录不存在: {cls.LONGHUN_ROOT}")
 
-        # 檢查引擎根目錄
+        # 检查引擎根目录
         if not cls.ENGINE_ROOT.exists():
-            errors.append(f"引擎目錄不存在: {cls.ENGINE_ROOT}")
+            errors.append(f"引擎目录不存在: {cls.ENGINE_ROOT}")
 
-        # 如果有錯誤，返回 False
+        # 如果有错误，返回 False
         if errors:
             for error in errors:
-                print(f"❌ 配置錯誤: {error}")
+                print(f"❌ 配置错误: {error}")
             return False
 
         return True
 
     @classmethod
     def init_directories(cls) -> bool:
-        """初始化所有必要的目錄"""
+        """初始化所有必要的目录"""
         try:
-            # 創建數據目錄
+            # 创建数据目录
             cls.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-            # 創建備份目錄
+            # 创建备份目录
             cls.BACKUP_DIR.mkdir(parents=True, exist_ok=True)
 
-            # 創建日誌目錄
+            # 创建日志目录
             cls.LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-            # 創建 DNA 粒子目錄
+            # 创建 DNA 粒子目录
             cls.DNA_DIR.mkdir(parents=True, exist_ok=True)
 
             return True
         except Exception as e:
-            print(f"❌ 無法創建目錄: {e}")
+            print(f"❌ 无法创建目录: {e}")
             return False
 
     @classmethod
     def get_config_dict(cls) -> dict:
-        """獲取配置字典"""
+        """获取配置字典"""
         return {
             "paths": {
                 "longhun_root": str(cls.LONGHUN_ROOT),
@@ -247,16 +247,16 @@ class Config:
         import json
         config_dict = cls.get_config_dict()
         print("\n" + "=" * 60)
-        print("龍魂系統配置")
+        print("龍魂系统配置")
         print("=" * 60)
         print(json.dumps(config_dict, indent=2, ensure_ascii=False))
         print("=" * 60 + "\n")
 
 
-# 驗證配置
+# 验证配置
 if not Config.validate():
-    print("⚠️  警告: 配置驗證失敗，某些功能可能無法正常工作")
+    print("⚠️  警告: 配置验证失败，某些功能可能无法正常工作")
 
-# 初始化目錄
+# 初始化目录
 if not Config.init_directories():
-    print("⚠️  警告: 無法初始化目錄，某些功能可能無法正常工作")
+    print("⚠️  警告: 无法初始化目录，某些功能可能无法正常工作")

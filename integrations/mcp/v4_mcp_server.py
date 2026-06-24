@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-V4_MCP_SERVER-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+# 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
 import json, os
@@ -19,7 +19,7 @@ VERSION = "4.0.0"
 }
 
 路由 = {
-    'L0': {'名': '乾·主权层', '目录': '~/longhun-lu/'},
+    'L0': {'名': '干·主权层', '目录': '~/longhun-lu/'},
     'L1': {'名': '离·继承层', '目录': '~/longhun-jq/'},
     'L2': {'名': '震·战友层', '目录': '~/longhun-al/'},
     'L3': {'名': '巽·公开层', '目录': '~/longhun-pub/'},

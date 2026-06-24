@@ -409,7 +409,7 @@ class SkillScopeGuard:
             if result == self.RESULT_BLOCK:
                 reason = (
                     f"{reason}\n"
-                    f"从你的状态看，你现在更适合先把「{assessment['core_gifts'][0] if assessment['core_gifts'] else '本职'}」练到顶尖，"
+                    f"从你的状态看，你现在更适合先把“{assessment['core_gifts'][0] if assessment['core_gifts'] else '本职'}”练到顶尖，"
                     f"再碰这个领域。{language}"
                 )
             elif result == self.RESULT_CONFIRM:

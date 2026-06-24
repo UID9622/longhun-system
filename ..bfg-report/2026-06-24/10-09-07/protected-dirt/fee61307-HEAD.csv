@@ -1,0 +1,6 @@
+f48040e6de7d4fbd3a34a8fe8da1bcdaefd7c944,DELETE,regular-file,mobile-monitoring.integrated/config/alert_rules.json,677,
+c9c9e3314a896d69b4aae9582358bf3a6998912c,DELETE,regular-file,mobile-monitoring.integrated/config/monitoring.config.json,1327,
+c976f9a00d7c680ecf3052f9958be22b6bf6de70,DELETE,regular-file,scripts/config/fuse_thresholds.json,369,
+b3afcd779122e5c89ff7658c5f9c6e418c550623,DELETE,regular-file,scripts/config/protocol_weights.json,265,
+545bfe4aac57a3dff0ecfa59911bc3896bc245c6,DELETE,regular-file,scripts/config/shield_rules.json,773,
+545169ac23569b7a13a695a774f7cfbe00ba5794,DELETE,regular-file,scripts/config/tier_permissions.json,841,

@@ -1,103 +1,103 @@
-# 🐉 龍魂系統·團隊培訓計劃
+# 🐉 龍魂系统·团队培训计划
 
 **DNA**:#龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
-**確認**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-**目標讀者**: 運維團隊 / SRE 工程師 / DevOps 工程師
-**培訓時長**: 4 小時（分 4 節課）
+**确认**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**目标读者**: 运维团队 / SRE 工程师 / DevOps 工程师
+**培训时长**: 4 小时（分 4 节课）
 
 ---
 
-## 📋 課程大綱
+## 📋 课程大纲
 
-| 課程 | 時長 | 講師 | 目標 |
+| 课程 | 时长 | 讲师 | 目标 |
 |------|------|------|------|
-| 🎯 第 1 課：系統架構和部署概述 | 45 分鐘 | Tech Lead | 全面了解系統設計 |
-| 🚀 第 2 課：生產部署演練 | 60 分鐘 | DevOps Lead | 掌握 27 步部署流程 |
-| 📊 第 3 課：監控和告警運維 | 45 分鐘 | SRE Lead | 使用監控儀表板 |
-| 🔧 第 4 課：故障排查和應急 | 30 分鐘 | Support Lead | 應對常見問題 |
+| 🎯 第 1 课：系统架构和部署概述 | 45 分钟 | Tech Lead | 全面了解系统设计 |
+| 🚀 第 2 课：生产部署演练 | 60 分钟 | DevOps Lead | 掌握 27 步部署流程 |
+| 📊 第 3 课：监控和告警运维 | 45 分钟 | SRE Lead | 使用监控仪表板 |
+| 🔧 第 4 课：故障排查和应急 | 30 分钟 | Support Lead | 应对常见问题 |
 
 ---
 
-## 🎯 第 1 課：系統架構和部署概述（45 分鐘）
+## 🎯 第 1 课：系统架构和部署概述（45 分钟）
 
-### 課程目標
-- 理解龍魂系統的核心組件
-- 了解 10 個 Skills 的功能
-- 掌握藍綠部署策略
+### 课程目标
+- 理解龍魂系统的核心组件
+- 了解 10 个 Skills 的功能
+- 掌握蓝绿部署策略
 
-### 課程內容
+### 课程内容
 
-#### 1.1 系統架構概覽（15 分鐘）
+#### 1.1 系统架构概览（15 分钟）
 
 ```
-龍魂系統架構圖
+龍魂系统架构图
 ═══════════════════════════════════════════════════════════════
 
-  用戶界面層
+  用户界面层
   ┌──────────────────────────────────────────────────────────┐
   │  Web UI / API Gateway / Kimi AI 集成                      │
   └──────────────────────────────────────────────────────────┘
                               ↓
-  應用層 (10 Skills)
+  应用层 (10 Skills)
   ┌─────────────┬─────────────┬─────────────┬─────────────┐
   │ Skill-1     │ Skill-2     │ Skill-3     │ Skill-4     │
-  │ 算法藝術    │ 品牌指南    │ Canvas設計  │ 文檔協作    │
+  │ 算法艺术    │ 品牌指南    │ Canvas设计  │ 文档协作    │
   ├─────────────┼─────────────┼─────────────┼─────────────┤
   │ Skill-5     │ Skill-6     │ Skill-7     │ Skill-8     │
-  │ 內部溝通    │ MCP Builder │ Skill 創建  │ GIF 生成    │
+  │ 内部沟通    │ MCP Builder │ Skill 创建  │ GIF 生成    │
   ├─────────────┼─────────────┼─────────────┼─────────────┤
   │ Skill-9     │ Skill-10    │             │             │
-  │ 主題工廠    │ Web 構件    │             │             │
+  │ 主题工厂    │ Web 构件    │             │             │
   └─────────────┴─────────────┴─────────────┴─────────────┘
                               ↓
-  服務層
+  服务层
   ┌──────────────┬──────────────┬──────────────┬──────────────┐
-  │ API 服務     │ 認證服務     │ 日誌服務     │ 監控服務     │
+  │ API 服务     │ 认证服务     │ 日志服务     │ 监控服务     │
   └──────────────┴──────────────┴──────────────┴──────────────┘
                               ↓
-  基礎設施層
+  基础设施层
   ┌──────────────┬──────────────┬──────────────┬──────────────┐
   │ PostgreSQL   │ Redis Cache  │ Elasticsearch│ Prometheus   │
-  │ (持久化)     │ (加速)       │ (日誌)       │ (監控)       │
+  │ (持久化)     │ (加速)       │ (日志)       │ (监控)       │
   └──────────────┴──────────────┴──────────────┴──────────────┘
                               ↓
   特殊集成
   ┌──────────────┬──────────────┐
   │ Kimi AI      │ HashiCorp    │
-  │ (推理)       │ Vault (密鑰) │
+  │ (推理)       │ Vault (密钥) │
   └──────────────┴──────────────┘
 ```
 
-**關鍵數字**:
-- 10 個 Skills（120 個規格塊）
-- 8 個核心監控指標
-- 27 個部署步驟
-- 4 個集成模式（Kimi）
+**关键数字**:
+- 10 个 Skills（120 个规格块）
+- 8 个核心监控指标
+- 27 个部署步骤
+- 4 个集成模式（Kimi）
 - 99.95% 可用性 SLO
 
-#### 1.2 部署策略（15 分鐘）
+#### 1.2 部署策略（15 分钟）
 
-**藍綠部署流程**:
+**蓝绿部署流程**:
 
 ```
-步驟 1: 準備綠色環境
+步骤 1: 准备绿色环境
   ┌─────────────────────────────────────────┐
-  │ 構建新的 Docker 鏡像                     │
+  │ 构建新的 Docker 镜像                     │
   │ longhun:prod-2026-06-08-v1.0            │
   └─────────────────────────────────────────┘
                       ↓
-步驟 2: 啟動綠色實例
+步骤 2: 启动绿色实例
   ┌──────────┬──────────┬──────────┐
-  │Green-1  │Green-2   │Green-3   │ (3 個副本)
+  │Green-1  │Green-2   │Green-3   │ (3 个副本)
   └──────────┴──────────┴──────────┘
                       ↓
-步驟 3: 烟霧測試
+步骤 3: 烟雾测试
   ✓ GET /health
   ✓ GET /api/v1/skills
   ✓ POST /api/v1/skills/1/execute
                       ↓
-步驟 4: 流量遷移 (零停機)
-  時間   藍色流量    綠色流量
+步骤 4: 流量迁移 (零停机)
+  时间   蓝色流量    绿色流量
   ─────────────────────────
   T+0     100%        0%
   T+2     90%         10%
@@ -106,22 +106,22 @@
   T+8     25%         75%
   T+10    0%          100%
                       ↓
-步驟 5: 藍色待命
+步骤 5: 蓝色待命
   ┌──────────┬──────────┬──────────┐
-  │ Blue-1   │ Blue-2   │ Blue-3   │ (隨時回滾)
+  │ Blue-1   │ Blue-2   │ Blue-3   │ (随时回滚)
   └──────────┴──────────┴──────────┘
 ```
 
-**優勢**:
-- ✅ 零停機時間
-- ✅ 快速回滾（1-2 分鐘）
-- ✅ A/B 測試可能性
-- ✅ 資源效率高
+**优势**:
+- ✅ 零停机时间
+- ✅ 快速回滚（1-2 分钟）
+- ✅ A/B 测试可能性
+- ✅ 资源效率高
 
-#### 1.3 關鍵配置（15 分鐘）
+#### 1.3 关键配置（15 分钟）
 
 ```bash
-# 生產配置關鍵參數
+# 生产配置关键参数
 
 ## API 配置
 API_HOST=api.longhun.example.com
@@ -129,7 +129,7 @@ API_PORT=8443
 MAX_CONCURRENT_CONNECTIONS=10000
 REQUEST_TIMEOUT=30s
 
-## 數據庫配置
+## 数据库配置
 DB_TYPE=postgresql
 DB_HOST=prod-postgresql.example.com
 DB_PORT=5432
@@ -143,180 +143,180 @@ REDIS_PORT=6379
 REDIS_POOL_SIZE=50
 CACHE_TTL=3600s
 
-## 監控配置
+## 监控配置
 MONITORING_SERVICE=datadog
 LOG_AGGREGATION=elasticsearch
 APM_SERVICE=jaeger
 
 ## Kimi AI 集成
-KIMI_API_KEY=${KIMI_API_KEY}  # 環境變數方式
+KIMI_API_KEY=${KIMI_API_KEY}  # 环境变数方式
 KIMI_TIMEOUT=30s
 KIMI_MAX_RETRIES=3
 ```
 
-### 練習題
-1. 藍綠部署的流量遷移順序是什麼？
-2. 如何在 10 秒內完成流量遷移？
-3. 回滾時需要做什麼？
+### 练习题
+1. 蓝绿部署的流量迁移顺序是什么？
+2. 如何在 10 秒内完成流量迁移？
+3. 回滚时需要做什么？
 
 ---
 
-## 🚀 第 2 課：生產部署演練（60 分鐘）
+## 🚀 第 2 课：生产部署演练（60 分钟）
 
-### 課程目標
-- 執行完整的 27 步部署流程
-- 理解每個步驟的目的和檢查點
-- 學會從日誌中識別問題
+### 课程目标
+- 执行完整的 27 步部署流程
+- 理解每个步骤的目的和检查点
+- 学会从日志中识别问题
 
-### 課程內容
+### 课程内容
 
-#### 2.1 部署準備（10 分鐘）
+#### 2.1 部署准备（10 分钟）
 
-**部署前檢查清單**:
+**部署前检查清单**:
 
 ```
-□ T-72h: 計劃階段
-  □ 選擇部署窗口（低流量時段）
-  □ 組建部署團隊（4 個角色）
-  □ 審查變更內容
-  □ 準備回滾計劃
+□ T-72h: 计划阶段
+  □ 选择部署窗口（低流量时段）
+  □ 组建部署团队（4 个角色）
+  □ 审查变更内容
+  □ 准备回滚计划
 
-□ T-24h: 準備階段
-  □ 驗證配置
-  □ 檢查 SSL 證書
-  □ 驗證備份系統
-  □ 通知相關人員
+□ T-24h: 准备阶段
+  □ 验证配置
+  □ 检查 SSL 证书
+  □ 验证备份系统
+  □ 通知相关人员
 
-□ T-0: 部署階段
-  □ 最後確認所有檢查
-  □ 啟動監控儀表板
-  □ 準備快速通信渠道 (Slack)
-  □ 宣布部署開始
+□ T-0: 部署阶段
+  □ 最后确认所有检查
+  □ 启动监控仪表板
+  □ 准备快速通信渠道 (Slack)
+  □ 宣布部署开始
 ```
 
-#### 2.2 27 步部署流程（40 分鐘）
+#### 2.2 27 步部署流程（40 分钟）
 
-**分為 7 個階段，每個階段 3-4 個步驟**:
+**分为 7 个阶段，每个阶段 3-4 个步骤**:
 
-**階段 1: 部署前檢查（4 步）**
+**阶段 1: 部署前检查（4 步）**
 ```
-✅ 步驟 1: 配置驗證
-   檢查: 所有必要配置是否存在
-   通過: 10/10 配置項 ✓
+✅ 步骤 1: 配置验证
+   检查: 所有必要配置是否存在
+   通过: 10/10 配置项 ✓
 
-✅ 步驟 2: SSL 證書驗證
-   檢查: 證書有效期
-   通過: 證書有效直到 2027 年 ✓
+✅ 步骤 2: SSL 证书验证
+   检查: 证书有效期
+   通过: 证书有效直到 2027 年 ✓
 
-✅ 步驟 3: 密鑰管理檢查
-   檢查: 密鑰是否已配置
-   通過: HashiCorp Vault 中 ✓
+✅ 步骤 3: 密钥管理检查
+   检查: 密钥是否已配置
+   通过: HashiCorp Vault 中 ✓
 
-✅ 步驟 4: 文件權限檢查
-   檢查: 所有路徑的權限
-   通過: 所有路徑權限正確 ✓
+✅ 步骤 4: 文件权限检查
+   检查: 所有路径的权限
+   通过: 所有路径权限正确 ✓
 ```
 
-**階段 2: 數據庫遷移（4 步）**
+**阶段 2: 数据库迁移（4 步）**
 ```
-✅ 步驟 5: 數據庫備份
-   操作: 創建完整備份
-   結果: /var/backups/longhun/longhun_prod_20260608_204930.sql
+✅ 步骤 5: 数据库备份
+   操作: 创建完整备份
+   结果: /var/backups/longhun/longhun_prod_20260608_204930.sql
 
-✅ 步驟 6: 數據庫連接
-   檢查: 連接到生產數據庫
-   結果: 已連接到 longhun_app@prod-postgresql.example.com:5432
+✅ 步骤 6: 数据库连接
+   检查: 连接到生产数据库
+   结果: 已连接到 longhun_app@prod-postgresql.example.com:5432
 
-✅ 步驟 7: 執行遷移
-   操作: 5 個遷移步驟
+✅ 步骤 7: 执行迁移
+   操作: 5 个迁移步骤
    ✓ 初始化 Skills 表
-   ✓ 創建性能指標表
-   ✓ 創建審計日誌表
-   ✓ 添加索引優化
-   ✓ 啟用複製和高可用
+   ✓ 创建性能指标表
+   ✓ 创建审计日志表
+   ✓ 添加索引优化
+   ✓ 启用复制和高可用
 
-✅ 步驟 8: 數據完整性檢查
-   檢查: 所有表和索引
-   結果: 完整性驗證通過 ✓
+✅ 步骤 8: 数据完整性检查
+   检查: 所有表和索引
+   结果: 完整性验证通过 ✓
 ```
 
-**階段 3: 安全加固（4 步）**
+**阶段 3: 安全加固（4 步）**
 ```
-✅ 步驟 9: 防火牆規則配置
+✅ 步骤 9: 防火墙规则配置
    ✓ HTTP 80 → 重定向到 HTTPS
    ✓ HTTPS 443 → 主要 API 端口
-   ✓ SSH 22 → 限制於特定 IP
+   ✓ SSH 22 → 限制于特定 IP
    ✓ 禁止其他入站
-   ✓ 允許出站到監控服務
+   ✓ 允许出站到监控服务
 
-✅ 步驟 10: CORS 配置
-   設置: 只允許 https://longhun.example.com
+✅ 步骤 10: CORS 配置
+   设置: 只允许 https://longhun.example.com
 
-✅ 步驟 11: 速率限制配置
+✅ 步骤 11: 速率限制配置
    ✓ API: 1000 req/min per IP
    ✓ 登入: 10 attempts/15min
    ✓ Skill: 100 req/min per API key
 
-✅ 步驟 12: 審計日誌啟用
-   配置: 所有 API 調用都被記錄
+✅ 步骤 12: 审计日志启用
+   配置: 所有 API 调用都被记录
 ```
 
-**階段 4: 藍綠部署（5 步）**
+**阶段 4: 蓝绿部署（5 步）**
 ```
-✅ 步驟 13: 構建綠色環境
-   構建: Docker 鏡像 longhun:prod-2026-06-08-v1.0
-   結果: 鏡像構建完成 (100%)
+✅ 步骤 13: 构建绿色环境
+   构建: Docker 镜像 longhun:prod-2026-06-08-v1.0
+   结果: 镜像构建完成 (100%)
 
-✅ 步驟 14: 啟動綠色實例
-   啟動: 3 個副本 (prod-green-1, green-2, green-3)
-   結果: 所有 3 個實例已啟動 ✓
+✅ 步骤 14: 启动绿色实例
+   启动: 3 个副本 (prod-green-1, green-2, green-3)
+   结果: 所有 3 个实例已启动 ✓
 
-✅ 步驟 15: 烟霧測試
-   測試:
+✅ 步骤 15: 烟雾测试
+   测试:
    ✓ GET /health → 200 OK
    ✓ GET /api/v1/skills → 200 OK
    ✓ POST /api/v1/skills/1/execute → 202 Accepted
 
-✅ 步驟 16: 流量遷移
-   進度: 10% → 25% → 50% → 75% → 100%
-   結果: 完全切換到綠色環境 (耗時 ~10 秒)
+✅ 步骤 16: 流量迁移
+   进度: 10% → 25% → 50% → 75% → 100%
+   结果: 完全切换到绿色环境 (耗时 ~10 秒)
 
-✅ 步驟 17: 藍色待命
-   狀態: 舊環境保持運行，隨時可回滾
+✅ 步骤 17: 蓝色待命
+   状态: 旧环境保持运行，随时可回滚
 ```
 
-**階段 5: 健康驗證（2 步）**
+**阶段 5: 健康验证（2 步）**
 ```
-✅ 步驟 18: 執行健康檢查
-   檢查:
-   ✓ API 響應性 (avg 15.2ms)
-   ✓ 數據庫連接 (10/10)
+✅ 步骤 18: 执行健康检查
+   检查:
+   ✓ API 响应性 (avg 15.2ms)
+   ✓ 数据库连接 (10/10)
    ✓ Redis 快取 (hit rate 92%)
    ✓ 所有 10 Skills (10/10)
-   ✓ SSL/TLS 證書 (valid until 2027)
-   ✓ 磁盤空間 (85% available)
-   ✓ 內存使用 (<40%)
+   ✓ SSL/TLS 证书 (valid until 2027)
+   ✓ 磁盘空间 (85% available)
+   ✓ 内存使用 (<40%)
    ✓ CPU 使用 (<8%)
-   結果: 8/8 檢查通過 ✓
+   结果: 8/8 检查通过 ✓
 
-✅ 步驟 19: 端點驗證
-   驗證:
+✅ 步骤 19: 端点验证
+   验证:
    ✓ GET /health → 200
    ✓ GET /api/v1/skills → 200
    ✓ GET /api/v1/skills/1 → 200
    ✓ POST /api/v1/skills/1/execute → 202
    ✓ GET /api/v1/metrics → 200
-   結果: 5/5 端點響應正常 ✓
+   结果: 5/5 端点响应正常 ✓
 ```
 
-**階段 6: 監控啟動（4 步）**
+**阶段 6: 监控启动（4 步）**
 ```
-✅ 步驟 20: 監控服務集成
-   連接: Datadog
-   狀態: 已連接 ✓
+✅ 步骤 20: 监控服务集成
+   连接: Datadog
+   状态: 已连接 ✓
 
-✅ 步驟 21: 告警規則配置
-   啟用:
+✅ 步骤 21: 告警规则配置
+   启用:
    ✓ Error Rate > 1%
    ✓ Response Time P95 > 500ms
    ✓ Database Connection Pool Exhausted
@@ -324,66 +324,66 @@ KIMI_MAX_RETRIES=3
    ✓ Disk Space < 10%
    ✓ SSL Certificate Expiring
 
-✅ 步驟 22: 日誌聚合
-   連接: Elasticsearch
-   狀態: 已連接 ✓
+✅ 步骤 22: 日志聚合
+   连接: Elasticsearch
+   状态: 已连接 ✓
 
-✅ 步驟 23: 分布式追踪
-   啟用: Jaeger APM
-   狀態: 已啟用 ✓
+✅ 步骤 23: 分布式追踪
+   启用: Jaeger APM
+   状态: 已启用 ✓
 
-✅ 步驟 24: 實時儀表板
+✅ 步骤 24: 实时仪表板
    工具: Grafana
-   狀態: 已部署 ✓
+   状态: 已部署 ✓
 ```
 
-**階段 7: 部署後處理（3 步）**
+**阶段 7: 部署后处理（3 步）**
 ```
-✅ 步驟 25: 部署記錄
-   記錄: 部署詳情已記錄
+✅ 步骤 25: 部署记录
+   记录: 部署详情已记录
 
-✅ 步驟 26: 通知利益相關者
+✅ 步骤 26: 通知利益相关者
    ✓ Slack 通知 (#deployments)
-   ✓ JIRA 狀態更新
-   ✓ 報告發送至運營團隊
+   ✓ JIRA 状态更新
+   ✓ 报告发送至运营团队
 
-✅ 步驟 27: 文檔更新
-   更新: 部署文檔已更新
+✅ 步骤 27: 文档更新
+   更新: 部署文档已更新
 ```
 
-#### 2.3 實際演練（10 分鐘）
+#### 2.3 实际演练（10 分钟）
 
 ```bash
-# 運行完整部署演練
+# 运行完整部署演练
 cd ~/longhun-system
 python3 deployment/production_deployment.py
 
-# 預期結果:
-# ✅ 27/27 步驟通過
-# ✅ 8/8 健康檢查通過
-# ✅ 部署耗時: ~8 秒 (演示模式)
-# ✅ 部署報告已生成
+# 预期结果:
+# ✅ 27/27 步骤通过
+# ✅ 8/8 健康检查通过
+# ✅ 部署耗时: ~8 秒 (演示模式)
+# ✅ 部署报告已生成
 ```
 
-### 練習題
-1. 如果步驟 15（烟霧測試）失敗怎麼辦？
-2. 流量遷移耗時多久？
-3. 回滾命令是什麼？
+### 练习题
+1. 如果步骤 15（烟雾测试）失败怎么办？
+2. 流量迁移耗时多久？
+3. 回滚命令是什么？
 
 ---
 
-## 📊 第 3 課：監控和告警運維（45 分鐘）
+## 📊 第 3 课：监控和告警运维（45 分钟）
 
-### 課程目標
-- 使用 Grafana 和 Datadog 監控系統
-- 理解 8 個核心指標
-- 响應告警並檢查系統狀態
+### 课程目标
+- 使用 Grafana 和 Datadog 监控系统
+- 理解 8 个核心指标
+- 响应告警并检查系统状态
 
-### 課程內容
+### 课程内容
 
-#### 3.1 監控儀表板使用（20 分鐘）
+#### 3.1 监控仪表板使用（20 分钟）
 
-**訪問儀表板**:
+**访问仪表板**:
 
 ```
 Prometheus: http://prometheus:9090
@@ -391,232 +391,232 @@ Grafana:    http://grafana:3000 (admin / password)
 Datadog:    https://app.datadoghq.com (SSO)
 ```
 
-**儀表板上的 10 個面板**:
+**仪表板上的 10 个面板**:
 
-| # | 面板名稱 | 類型 | 目標 |
+| # | 面板名称 | 类型 | 目标 |
 |---|---------|------|------|
-| 1 | API 響應時間 (P50/95/99) | Graph | P95 < 500ms |
+| 1 | API 响应时间 (P50/95/99) | Graph | P95 < 500ms |
 | 2 | API 吞吐量 (req/s) | Gauge | 77.8 req/s |
-| 3 | 錯誤率 (%) | Stat | < 0.1% |
-| 4 | DB 連接池使用 | Gauge | < 90% |
+| 3 | 错误率 (%) | Stat | < 0.1% |
+| 4 | DB 连接池使用 | Gauge | < 90% |
 | 5 | Redis 快取命中率 | Stat | > 92% |
-| 6 | 服務器資源 (CPU/MEM/DISK) | Multi-Stat | < 80% |
-| 7 | 10 個 Skills 狀態 | Table | 全部 OK |
-| 8 | Kimi AI 集成狀態 | Card | Connected |
-| 9 | 部署歷史 | Table | 最新 3 個 |
-| 10 | 告警活動 | Alert List | 實時 |
+| 6 | 服务器资源 (CPU/MEM/DISK) | Multi-Stat | < 80% |
+| 7 | 10 个 Skills 状态 | Table | 全部 OK |
+| 8 | Kimi AI 集成状态 | Card | Connected |
+| 9 | 部署历史 | Table | 最新 3 个 |
+| 10 | 告警活动 | Alert List | 实时 |
 
-#### 3.2 8 個核心指標詳解（15 分鐘）
+#### 3.2 8 个核心指标详解（15 分钟）
 
-**指標 1: API 響應時間**
+**指标 1: API 响应时间**
 ```
-查詢: histogram_quantile(0.95, api_response_time)
-目標: P95 < 500ms
-警告: P95 > 500ms (10 分鐘)
-臨界: P95 > 1000ms (5 分鐘)
-行動: 檢查慢查詢，優化代碼
+查询: histogram_quantile(0.95, api_response_time)
+目标: P95 < 500ms
+警告: P95 > 500ms (10 分钟)
+临界: P95 > 1000ms (5 分钟)
+行动: 检查慢查询，优化代码
 ```
 
-**指標 2: API 吞吐量**
+**指标 2: API 吞吐量**
 ```
-查詢: rate(http_requests_total[5m])
-基線: 77.8 req/s
+查询: rate(http_requests_total[5m])
+基线: 77.8 req/s
 警告: < 50 或 > 150 req/s
-行動: 檢查異常流量或服務故障
+行动: 检查异常流量或服务故障
 ```
 
-**指標 3-8: 其他指標**
-(類似的格式，涵蓋 DB、Cache、CPU、Memory、Disk、Kimi)
+**指标 3-8: 其他指标**
+(类似的格式，涵盖 DB、Cache、CPU、Memory、Disk、Kimi)
 
-#### 3.3 告警響應流程（10 分鐘）
+#### 3.3 告警响应流程（10 分钟）
 
-**當告警觸發時的操作**:
+**当告警触发时的操作**:
 
 ```
-告警觸發
+告警触发
   ↓
 收到 Slack 通知
   ↓
-打開儀表板 (Grafana 或 Datadog)
+打开仪表板 (Grafana 或 Datadog)
   ↓
-識別問題類型:
+识别问题类型:
   │
-  ├─ 🔴 Critical (需要立即行動)
-  │   └─ 高錯誤率 → 檢查應用日誌
-  │   └─ DB 連接池滿 → 檢查連接洩漏
-  │   └─ 磁盤滿 → 清理日誌，擴展磁盤
+  ├─ 🔴 Critical (需要立即行动)
+  │   └─ 高错误率 → 检查应用日志
+  │   └─ DB 连接池满 → 检查连接泄漏
+  │   └─ 磁盘满 → 清理日志，扩展磁盘
   │
-  └─ 🟡 Warning (監控並計劃修復)
-      └─ 高延遲 → 優化查詢
-      └─ 高內存使用 → 檢查洩漏
+  └─ 🟡 Warning (监控并计划修复)
+      └─ 高延迟 → 优化查询
+      └─ 高内存使用 → 检查泄漏
       └─ 快取命中率低 → 增加快取
   ↓
-查詢日誌和追踪:
+查询日志和追踪:
   kubectl logs -n longhun-prod <pod-name>
   Jaeger: http://jaeger:16686
   ↓
-執行修復:
-  - 若需要緊急回滾: kubectl rollout undo
-  - 若需要重啟: kubectl delete pod <pod-name>
-  - 若需要調整配置: kubectl edit deployment
+执行修复:
+  - 若需要紧急回滚: kubectl rollout undo
+  - 若需要重启: kubectl delete pod <pod-name>
+  - 若需要调整配置: kubectl edit deployment
   ↓
-確認恢復:
+确认恢复:
   - 告警清除
-  - 指標恢復正常
-  - 發送恢復通知
+  - 指标恢复正常
+  - 发送恢复通知
 ```
 
-### 練習題
-1. 如何打開 Grafana 儀表板？
-2. 當 P95 延遲超過 500ms 時應該檢查什麼？
-3. Kimi API 延遲高時的回退策略是什麼？
+### 练习题
+1. 如何打开 Grafana 仪表板？
+2. 当 P95 延迟超过 500ms 时应该检查什么？
+3. Kimi API 延迟高时的回退策略是什么？
 
 ---
 
-## 🔧 第 4 課：故障排查和應急（30 分鐘）
+## 🔧 第 4 课：故障排查和应急（30 分钟）
 
-### 課程目標
-- 快速診斷常見問題
-- 執行應急操作
-- 進行快速回滾
+### 课程目标
+- 快速诊断常见问题
+- 执行应急操作
+- 进行快速回滚
 
-### 課程內容
+### 课程内容
 
-#### 4.1 常見故障和診斷（15 分鐘）
+#### 4.1 常见故障和诊断（15 分钟）
 
-**問題 1: 部署後 API 無響應**
+**问题 1: 部署后 API 无响应**
 
 ```
-症狀: GET /health → 連接超時
+症状: GET /health → 连接超时
 
-診斷步驟:
-1. 檢查 Pod 狀態
+诊断步骤:
+1. 检查 Pod 状态
    kubectl get pods -n longhun-prod
-   結果: 檢查是否都是 Running 且 Ready
+   结果: 检查是否都是 Running 且 Ready
 
-2. 查看 Pod 日誌
+2. 查看 Pod 日志
    kubectl logs -n longhun-prod <pod-name> --tail=100
    查找: panic, error, exception
 
-3. 檢查資源限制
+3. 检查资源限制
    kubectl describe pod <pod-name>
    查找: OOMKilled, CrashLoopBackOff
 
-4. 檢查網絡連接
+4. 检查网络连接
    kubectl exec -it <pod-name> -- curl localhost:8443/health
 
-修復方案:
-  Option A: 重啟 Pod
+修复方案:
+  Option A: 重启 Pod
     kubectl delete pod <pod-name>
-  Option B: 回滾部署
+  Option B: 回滚部署
     kubectl rollout undo deployment/longhun-prod
 ```
 
-**問題 2: 數據庫連接失敗**
+**问题 2: 数据库连接失败**
 
 ```
-症狀: error: "failed to connect to database"
+症状: error: "failed to connect to database"
 
-診斷步驟:
-1. 檢查數據庫服務狀態
+诊断步骤:
+1. 检查数据库服务状态
    psql -h $DB_HOST -U $DB_USER -d $DB_NAME -c "SELECT 1;"
 
-2. 檢查連接池設置
+2. 检查连接池设置
    SELECT count(*) FROM pg_stat_activity;
-   (檢查是否達到 max_connections)
+   (检查是否达到 max_connections)
 
-3. 檢查防火牆規則
+3. 检查防火墙规则
    nc -zv $DB_HOST 5432
 
-修復方案:
-  Option A: 增加連接池大小
+修复方案:
+  Option A: 增加连接池大小
     kubectl set env deployment/longhun-prod DB_POOL_SIZE=30
-  Option B: 重啟 DB 連接
+  Option B: 重启 DB 连接
     kubectl delete pod <db-pod-name>
 ```
 
-**問題 3: 內存使用率突增**
+**问题 3: 内存使用率突增**
 
 ```
-症狀: 內存使用 > 80%，應用變慢
+症状: 内存使用 > 80%，应用变慢
 
-診斷步驟:
-1. 使用 Prometheus 查詢
+诊断步骤:
+1. 使用 Prometheus 查询
    node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes
 
-2. 檢查 Pod 內存使用
+2. 检查 Pod 内存使用
    kubectl top pods -n longhun-prod --sort-by=memory
 
-3. 查看內存分配情況
+3. 查看内存分配情况
    kubectl exec <pod-name> -- ps aux
 
-修復方案:
-  Option A: 重啟消耗內存的 Pod
+修复方案:
+  Option A: 重启消耗内存的 Pod
     kubectl delete pod <pod-name>
-  Option B: 增加內存限制
+  Option B: 增加内存限制
     kubectl set resources deployment/longhun-prod \
       --limits=memory=8Gi
 ```
 
-#### 4.2 應急回滾程序（15 分鐘）
+#### 4.2 应急回滚程序（15 分钟）
 
-**場景: 部署 5 分鐘後發現嚴重問題**
+**场景: 部署 5 分钟后发现严重问题**
 
 ```
-步驟 1: 決策 (< 1 分鐘)
-  確認問題的嚴重性
-  檢查告警儀表板
-  與團隊確認是否需要回滾
+步骤 1: 决策 (< 1 分钟)
+  确认问题的严重性
+  检查告警仪表板
+  与团队确认是否需要回滚
 
-步驟 2: 執行回滾 (< 2 分鐘)
+步骤 2: 执行回滚 (< 2 分钟)
   命令: kubectl rollout undo deployment/longhun-prod
-  驗證: kubectl rollout status deployment/longhun-prod
+  验证: kubectl rollout status deployment/longhun-prod
 
-步驟 3: 驗證恢復 (< 2 分鐘)
-  檢查: GET /health → 200 OK
-  檢查: 所有 Pod 處於 Running 狀態
-  檢查: 指標恢復正常
+步骤 3: 验证恢复 (< 2 分钟)
+  检查: GET /health → 200 OK
+  检查: 所有 Pod 处于 Running 状态
+  检查: 指标恢复正常
 
-步驟 4: 通知和分析 (< 5 分鐘)
-  發送回滾通知至 Slack
-  記錄回滾原因
-  安排事後分析會議
+步骤 4: 通知和分析 (< 5 分钟)
+  发送回滚通知至 Slack
+  记录回滚原因
+  安排事后分析会议
 
-總耗時: < 10 分鐘
+总耗时: < 10 分钟
 ```
 
-**快速回滾命令參考**:
+**快速回滚命令参考**:
 
 ```bash
-# 查看部署歷史
+# 查看部署历史
 kubectl rollout history deployment/longhun-prod
 
-# 回滾到上一個版本
+# 回滚到上一个版本
 kubectl rollout undo deployment/longhun-prod
 
-# 回滾到特定版本
+# 回滚到特定版本
 kubectl rollout undo deployment/longhun-prod --to-revision=3
 
-# 暫停部署以進行調查
+# 暂停部署以进行调查
 kubectl rollout pause deployment/longhun-prod
 
-# 恢復部署
+# 恢复部署
 kubectl rollout resume deployment/longhun-prod
 
-# 監控回滾進度
+# 监控回滚进度
 kubectl rollout status deployment/longhun-prod --watch
 ```
 
-### 練習題
-1. 如果 Pod 處於 CrashLoopBackOff 狀態怎麼辦？
-2. 如何快速回滾到上一個工作版本？
-3. 回滾需要多久時間？
+### 练习题
+1. 如果 Pod 处于 CrashLoopBackOff 状态怎么办？
+2. 如何快速回滚到上一个工作版本？
+3. 回滚需要多久时间？
 
 ---
 
-## 📚 附錄：快速參考
+## 📚 附录：快速参考
 
-### A. 關鍵命令
+### A. 关键命令
 
 ```bash
 # 部署管理
@@ -629,7 +629,7 @@ kubectl get pods -n longhun-prod
 kubectl logs -n longhun-prod <pod-name>
 kubectl exec -it <pod-name> -n longhun-prod -- /bin/bash
 
-# 監控
+# 监控
 kubectl top nodes
 kubectl top pods -n longhun-prod
 
@@ -638,19 +638,19 @@ kubectl describe pod <pod-name> -n longhun-prod
 kubectl get events -n longhun-prod --sort-by='.lastTimestamp'
 ```
 
-### B. 關鍵聯繫方式
+### B. 关键联系方式
 
 ```
-Deployment Lead:  [名稱] [電話] [Slack]
-Monitoring Lead:  [名稱] [電話] [Slack]
-Database Lead:    [名稱] [電話] [Slack]
-Support Lead:     [名稱] [電話] [Slack]
+Deployment Lead:  [名称] [电话] [Slack]
+Monitoring Lead:  [名称] [电话] [Slack]
+Database Lead:    [名称] [电话] [Slack]
+Support Lead:     [名称] [电话] [Slack]
 
 Slack Channel:    #deployment-live
 PagerDuty:        longhun-deployment-oncall
 ```
 
-### C. 重要文檔
+### C. 重要文档
 
 - DEPLOYMENT_RUNBOOK_FOR_TEAM.md (1,238 行)
 - PRODUCTION_DEPLOYMENT_GUIDE.md
@@ -659,55 +659,55 @@ PagerDuty:        longhun-deployment-oncall
 
 ---
 
-## 📋 評估和認證
+## 📋 评估和认证
 
-### 培訓評估 (40 分)
+### 培训评估 (40 分)
 
 ```
-第 1 課 (10 分): 系統架構理解
-  □ 能描述 10 個 Skills
-  □ 理解藍綠部署策略
+第 1 课 (10 分): 系统架构理解
+  □ 能描述 10 个 Skills
+  □ 理解蓝绿部署策略
   □ 知道 27 步部署流程
 
-第 2 課 (15 分): 部署演練
-  □ 能執行完整部署
-  □ 理解每個階段的檢查點
-  □ 知道如何驗證部署結果
+第 2 课 (15 分): 部署演练
+  □ 能执行完整部署
+  □ 理解每个阶段的检查点
+  □ 知道如何验证部署结果
 
-第 3 課 (10 分): 監控運維
-  □ 能讀懂 Grafana 儀表板
-  □ 理解 8 個核心指標
-  □ 能響應告警
+第 3 课 (10 分): 监控运维
+  □ 能读懂 Grafana 仪表板
+  □ 理解 8 个核心指标
+  □ 能响应告警
 
-第 4 課 (5 分):  故障排查
-  □ 能診斷常見問題
-  □ 知道回滾流程
+第 4 课 (5 分):  故障排查
+  □ 能诊断常见问题
+  □ 知道回滚流程
 ```
 
-### 認證資格
+### 认证资格
 
 ```
-及格分數: 32/40 (80%)
+及格分数: 32/40 (80%)
 
-通過後可獲得:
-  ✅ 龍魂系統部署認證
-  ✅ 可獨立執行部署操作
-  ✅ 可作為部署團隊成員參與生產部署
+通过后可获得:
+  ✅ 龍魂系统部署认证
+  ✅ 可独立执行部署操作
+  ✅ 可作为部署团队成员参与生产部署
 ```
 
 ---
 
-## 後續學習
+## 后续学习
 
-- Kubernetes 進階管理
-- Prometheus/Grafana 自定義配置
-- Disaster Recovery 演練
-- 性能優化深度課程
-- Kimi AI 集成進階
+- Kubernetes 进阶管理
+- Prometheus/Grafana 自定义配置
+- Disaster Recovery 演练
+- 性能优化深度课程
+- Kimi AI 集成进阶
 
 ---
 
 **DNA**:#龍芯⚡️2026-06-08-TEAM-TRAINING-v1.0
-**最後更新**: 2026-06-08
+**最后更新**: 2026-06-08
 **版本**: 1.0
-**準備者**: Tech Lead
+**准备者**: Tech Lead

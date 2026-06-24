@@ -1,12 +1,12 @@
 <!--#龍芯⚡️2026-06-21-UI-SANCAI-FLOW-V8-v1.0 -->
-<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐲 三才流場 v8 · 忠孝义排序·智能活体仪表盘 · UID9622</title>
+<title>🐲 三才流场 v8 · 忠孝义排序·智能活体仪表盘 · UID9622</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#000; overflow:hidden; font-family:'PingFang SC','Microsoft YaHei',sans-serif; }
@@ -137,7 +137,7 @@
 
 <!-- ── DNA 弹窗 ── -->
 <div id="dna-popup">
-  <div class="ddao">「善建者不拔·善抱者不脱」— 道德经第54章</div>
+  <div class="ddao">“善建者不拔·善抱者不脱”— 道德经第54章</div>
   <div class="dcode" id="dna-code">──</div>
   <button onclick="copyDNA()">复制 DNA 码</button>
   <button onclick="closeDNAPopup()">关闭</button>
@@ -167,7 +167,7 @@
   <div class="motto" id="m0">95 是实力 · 5 是格局</div>
   <div class="motto" id="m1">太极永不封顶 · 留白处方见天机</div>
   <div class="motto" id="m2">忠孝义有先后 · 情与理·不愚是底</div>
-  <div class="sub">三才流場 v8 · 忠孝义排序·智能活体仪表盘 · DNA: #龍芯⚡️2026-04-19</div>
+  <div class="sub">三才流场 v8 · 忠孝义排序·智能活体仪表盘 · DNA: #龍芯⚡️2026-04-19</div>
 </div>
 
 <script>
@@ -366,7 +366,7 @@ function initWebSocket() {
   const WS_URL = 'ws://localhost:9622/sancai-radar'; // 本地 shield_engine
   try {
     const ws = new WebSocket(WS_URL);
-    ws.onopen = () => { wsConnected = true; console.log('[三才流場] WebSocket connected'); };
+    ws.onopen = () => { wsConnected = true; console.log('[三才流场] WebSocket connected'); };
     ws.onmessage = (e) => {
       try {
         const d = JSON.parse(e.data);
@@ -693,7 +693,7 @@ function updatePhysics() {
       const d2 = Math.sqrt((p.x-CX)**2+(p.y-CY)**2);
       if (d2 < CFG.T2.ringR + 30) {
         p.dying = true;
-        triggerDDJ(78); // 「柔弱胜刚强」
+        triggerDDJ(78); // “柔弱胜刚强”
         // 记录歪路
         recordDeviation(p, '红线触碰：R<60·T2龍盾吸走');
       }
@@ -732,7 +732,7 @@ function onBreathEnd(dr, k) {
     play369(dr);
     if (dr === 9) {
       verifyFixedPoint();
-      triggerDDJ(16); // 「归根曰静，是谓复命」
+      triggerDDJ(16); // “归根曰静，是谓复命”
     }
   }
 }
@@ -748,7 +748,7 @@ function verifyFixedPoint() {
     // 偏了 → 强制回正
     orderWeights = { loyalty:0.5, filial:0.3, righteous:0.2 };
     orderDisrupted = false;
-    console.log('[三才流場] f(x)=x 验算：权重偏移·已回正');
+    console.log('[三才流场] f(x)=x 验算：权重偏移·已回正');
   }
 }
 
@@ -873,14 +873,14 @@ function simulateTemptation() {
   // 义>忠 顺序错乱
   orderWeights = { loyalty:0.2, filial:0.3, righteous:0.5 };
   flashRed = Math.floor(0.3 * 60); // 闪红 0.3s@60fps
-  triggerDDJ(40); // 「反者道之动」
+  triggerDDJ(40); // “反者道之动”
   disruptionTimer = 180; // 3s 后自动回正
 }
 
 function restoreOrder() {
   orderDisrupted = false;
   orderWeights = { loyalty:0.5, filial:0.3, righteous:0.2 };
-  triggerDDJ(16); // 「归根曰静，是谓复命」
+  triggerDDJ(16); // “归根曰静，是谓复命”
   particles.forEach(p => { p.deviating=false; p.shake=false; });
 }
 
@@ -1345,7 +1345,7 @@ function showDNAPopup(p) {
   const code = `#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · 粒子序号:${p.id} · 三才层:${lay} · 帧:${frame}\nR值=${p.R.toFixed(1)} · 六维=[${p.dims.map(d=>Math.round(d)).join(',')}]\n层级:${lay} · 粒子类型:${p.isDNA?'金色主权':'普通'}`;
   document.getElementById('dna-code').textContent = code;
   document.getElementById('dna-popup').classList.add('open');
-  triggerDDJ(54); // 「善建者不拔·善抱者不脱」
+  triggerDDJ(54); // “善建者不拔·善抱者不脱”
 }
 function closeDNAPopup() {
   document.getElementById('dna-popup').classList.remove('open');
@@ -1456,7 +1456,7 @@ function setMode(m) {
     badge.textContent = '🐲 创始人'; badge.className = 'founder';
   } else {
     badge.textContent = '👁️ 访客'; badge.className = 'visitor';
-    triggerDDJ(8); // 「上善若水」
+    triggerDDJ(8); // “上善若水”
   }
 }
 
@@ -1498,11 +1498,11 @@ function showPriorityOverride() {
 function triggerInfinityFreeze() {
   frozenInfinity = true;
   flashRed = 60;
-  triggerDDJ(78); // 「柔弱胜刚强」
+  triggerDDJ(78); // “柔弱胜刚强”
   play369(9);
   // 5s 后提示用户手动解冻
   setTimeout(() => {
-    console.log('[三才流場] ∞冻结激活·等待老大解除');
+    console.log('[三才流场] ∞冻结激活·等待老大解除');
   }, 5000);
 }
 
@@ -1570,7 +1570,7 @@ runStartupAnimation();
 requestAnimationFrame(loop);
 
 console.log([
-  '🐲 三才流場 v8 · 已启动',
+  '🐲 三才流场 v8 · 已启动',
   `DNA:#龍芯⚡️2026-04-20-SANCAI-FLOW-V8-v8+洛书369+五行`,
   `确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`,
   `T0 坐标: (${W/2}, ${H/2}) r=16px glow=38px`,

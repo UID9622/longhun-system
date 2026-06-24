@@ -1,8 +1,8 @@
 /**
- * 龍魂五行計算器 · 視覺化系統
+ * 龍魂五行计算器 · 视觉化系统
  *
  * 🐉 DNA:#龍芯⚡️2026-06-07-WUXING-VISUAL-v3.5
- * 責任: UID9622 · 不免責
+ * 责任: UID9622 · 不免责
  */
 
 import React, { useState, useMemo, useCallback } from 'react';
@@ -10,7 +10,7 @@ import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 
 // ============================================================================
-// [接口定義]
+// [接口定义]
 // ============================================================================
 
 interface River {
@@ -41,7 +41,7 @@ interface WuxingData {
 }
 
 // ============================================================================
-// [Layer 0: 北辰不動點 · 中心節點]
+// [Layer 0: 北辰不动点 · 中心节点]
 // ============================================================================
 
 const Layer0: React.FC<{ center: WuxingData['center'] }> = ({ center }) => {
@@ -66,11 +66,11 @@ const Layer1: React.FC<{
   onSelect: (riverId: string) => void;
 }> = ({ rivers, activeRiver, onSelect }) => {
   const riverPositions = [
-    { angle: 0, name: '東方' },
-    { angle: 72, name: '東南' },
+    { angle: 0, name: '东方' },
+    { angle: 72, name: '东南' },
     { angle: 144, name: '西南' },
     { angle: 216, name: '西北' },
-    { angle: 288, name: '東北' },
+    { angle: 288, name: '东北' },
   ];
 
   return (
@@ -105,7 +105,7 @@ const Layer1: React.FC<{
 };
 
 // ============================================================================
-// [Layer 2-4: 支流展開 + 水流流向 + DNA 門]
+// [Layer 2-4: 支流展开 + 水流流向 + DNA 门]
 // ============================================================================
 
 const Layer234: React.FC<{
@@ -120,7 +120,7 @@ const Layer234: React.FC<{
     <div className="layer-234 relative w-full h-full">
       {filteredNodes.map((node) => (
         <div key={node.id} className="node-group">
-          {/* 節點圓圈 */}
+          {/* 节点圆圈 */}
           <div
             className="absolute w-16 h-16 rounded-full cursor-pointer transition-all duration-200 flex items-center justify-center"
             onClick={() => onToggle(node.id)}
@@ -142,7 +142,7 @@ const Layer234: React.FC<{
             <span className="text-white font-semibold text-center text-xs">{node.label}</span>
           </div>
 
-          {/* 展開指示器 */}
+          {/* 展开指示器 */}
           {node.children.length > 0 && expandedNodes.has(node.id) && (
             <div className="text-xs text-gray-400 absolute ml-20">
               ↳ {node.children.length} children
@@ -155,31 +155,31 @@ const Layer234: React.FC<{
 };
 
 // ============================================================================
-// [Layer 5-6: 外圈歸檔 + DNA 審計門]
+// [Layer 5-6: 外圈归档 + DNA 审计门]
 // ============================================================================
 
 const Layer56: React.FC<{ archiveNodes: Node[] }> = ({ archiveNodes }) => {
   return (
     <div className="layer-56 absolute bottom-10 left-10 right-10">
       <div className="flex gap-4">
-        {/* DNA 審計門 */}
+        {/* DNA 审计门 */}
         <div className="audit-gate flex-1 p-4 rounded-lg border-2 border-cyan-400 bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-          <h4 className="text-cyan-300 font-semibold text-sm mb-2">🔐 DNA 審計門</h4>
+          <h4 className="text-cyan-300 font-semibold text-sm mb-2">🔐 DNA 审计门</h4>
           <p className="text-gray-300 text-xs">
-            已驗證: <span className="text-green-400">{archiveNodes.length}</span>
+            已验证: <span className="text-green-400">{archiveNodes.length}</span>
           </p>
         </div>
 
-        {/* 待審外圈 */}
+        {/* 待审外圈 */}
         <div className="archive-ring flex-1 p-4 rounded-lg border-2 border-yellow-400 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
-          <h4 className="text-yellow-300 font-semibold text-sm mb-2">📦 待審外圈</h4>
-          <p className="text-gray-300 text-xs">等待復核中...</p>
+          <h4 className="text-yellow-300 font-semibold text-sm mb-2">📦 待审外圈</h4>
+          <p className="text-gray-300 text-xs">等待复核中...</p>
         </div>
 
-        {/* 熔斷隔離 */}
+        {/* 熔断隔离 */}
         <div className="fusion-break flex-1 p-4 rounded-lg border-2 border-red-400 bg-gradient-to-br from-red-500/10 to-pink-500/10">
-          <h4 className="text-red-300 font-semibold text-sm mb-2">🔴 熔斷隔離</h4>
-          <p className="text-gray-300 text-xs">安全風險隔離</p>
+          <h4 className="text-red-300 font-semibold text-sm mb-2">🔴 熔断隔离</h4>
+          <p className="text-gray-300 text-xs">安全风险隔离</p>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@ const Layer56: React.FC<{ archiveNodes: Node[] }> = ({ archiveNodes }) => {
 };
 
 // ============================================================================
-// [三色審計面板]
+// [三色审计面板]
 // ============================================================================
 
 const AuditPanel: React.FC<{ activeRiver: string | null }> = ({ activeRiver }) => {
@@ -195,7 +195,7 @@ const AuditPanel: React.FC<{ activeRiver: string | null }> = ({ activeRiver }) =
 
   return (
     <div className="audit-panel absolute top-10 right-10 w-80 p-4 rounded-lg border border-gray-600 bg-gradient-to-br from-gray-900 to-gray-800">
-      <h3 className="text-lg font-bold text-white mb-4">🎯 三色審計</h3>
+      <h3 className="text-lg font-bold text-white mb-4">🎯 三色审计</h3>
 
       <div className="space-y-2">
         <div
@@ -203,18 +203,18 @@ const AuditPanel: React.FC<{ activeRiver: string | null }> = ({ activeRiver }) =
             auditStatus === 'verified' ? 'bg-green-500/20 border border-green-400' : 'bg-gray-700/50'
           }`}
         >
-          <span className="text-green-300 font-semibold">✅ 綠色 · 通行</span>
-          <p className="text-gray-300 text-xs mt-1">系統狀態良好，可繼續執行</p>
+          <span className="text-green-300 font-semibold">✅ 绿色 · 通行</span>
+          <p className="text-gray-300 text-xs mt-1">系统状态良好，可继续执行</p>
         </div>
 
         <div className="p-3 rounded-lg bg-gray-700/50 border border-gray-600">
-          <span className="text-yellow-300 font-semibold">🟡 黃色 · 待審</span>
-          <p className="text-gray-300 text-xs mt-1">需要進一步確認</p>
+          <span className="text-yellow-300 font-semibold">🟡 黄色 · 待审</span>
+          <p className="text-gray-300 text-xs mt-1">需要进一步确认</p>
         </div>
 
         <div className="p-3 rounded-lg bg-gray-700/50 border border-gray-600">
-          <span className="text-red-300 font-semibold">🔴 紅色 · 熔斷</span>
-          <p className="text-gray-300 text-xs mt-1">安全隔離，禁止通行</p>
+          <span className="text-red-300 font-semibold">🔴 红色 · 熔断</span>
+          <p className="text-gray-300 text-xs mt-1">安全隔离，禁止通行</p>
         </div>
       </div>
     </div>
@@ -222,7 +222,7 @@ const AuditPanel: React.FC<{ activeRiver: string | null }> = ({ activeRiver }) =
 };
 
 // ============================================================================
-// [主組件]
+// [主组件]
 // ============================================================================
 
 export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => {
@@ -243,7 +243,7 @@ export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => 
 
   return (
     <div className="wuxing-visual-container relative w-full h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 overflow-hidden">
-      {/* 背景網格 */}
+      {/* 背景网格 */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -252,7 +252,7 @@ export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => 
         }}
       ></div>
 
-      {/* 層級容器 */}
+      {/* 层级容器 */}
       <div className="absolute inset-0">
         <Layer0 center={data.center} />
         <Layer1 rivers={data.rivers} activeRiver={activeRiver} onSelect={handleRiverSelect} />
@@ -265,14 +265,14 @@ export const WuxingVisualSystem: React.FC<{ data: WuxingData }> = ({ data }) => 
         <Layer56 archiveNodes={data.archiveNodes} />
       </div>
 
-      {/* 審計面板 */}
+      {/* 审计面板 */}
       <AuditPanel activeRiver={activeRiver} />
 
-      {/* 頂部信息欄 */}
+      {/* 顶部信息栏 */}
       <div className="absolute top-4 left-4 text-white font-mono text-sm">
-        <p>🐉 龍魂五行計算器 v3.5</p>
+        <p>🐉 龍魂五行计算器 v3.5</p>
         <p className="text-cyan-400 text-xs mt-1">
-          {activeRiver ? `當前河道: ${data.rivers.find((r) => r.id === activeRiver)?.name}` : '選擇河道開始'}
+          {activeRiver ? `当前河道: ${data.rivers.find((r) => r.id === activeRiver)?.name}` : '选择河道开始'}
         </p>
       </div>
     </div>
