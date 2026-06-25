@@ -56,6 +56,14 @@ class 协议图书馆员:
         "事件": ["07_enterprise/L6_INCIDENT_RESPONSE_PROTOCOL.md"],
         "开源": ["02_charters/L2_OPEN_SOURCE_GENTLEMAN_CHARTER.md"],
         "君子": ["02_charters/L2_OPEN_SOURCE_GENTLEMAN_CHARTER.md"],
+        "人民科技": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md"],
+        "普通人": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md"],
+        "自然语言": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md", "04_agents/L3_AI_COLLABORATION_PROTOCOL.md"],
+        "赋能": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md"],
+        "祖国": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md", "CONSTITUTION.md"],
+        "军魂": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md"],
+        "透明": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md", "03_governance/L3_THREE_COLOR_AUDIT_PROTOCOL.md"],
+        "黑箱": ["02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md", "09_copyright/L8_COPYRIGHT_AND_ANTI_HARVESTING_PROTOCOL.md"],
     }
 
     def __init__(self):

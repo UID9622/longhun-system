@@ -35,6 +35,7 @@
 | `02_charters/L2_CREATOR_PROTECTION_IRREVOCABLE_CLAUSES.md` | L2 | 创作者、使用者 | 创作者保护不可篡改条款 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CREATOR-PROTECTION-IRREVOCABLE-v1.0` |
 | `02_charters/L2_OPEN_SOURCE_GENTLEMAN_CHARTER.md` | L2 | 开源社区、合作者 | 开源君子协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-OPEN-SOURCE-GENTLEMAN-CHARTER-v1.0` |
 | `02_charters/L2_ECOSYSTEM_PUBLIC_CHARTER.md` | L2 | 公众、平台、合作方 | 生态公开宪章 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-ECOSYSTEM-PUBLIC-CHARTER-v1.0` |
+| `02_charters/L2_PEOPLE_TECHNOLOGY_MANIFESTO.md` | L2 | 所有人 | 龍魂人民科技宣言 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-PEOPLE-TECHNOLOGY-MANIFESTO-v1.0` |
 | `03_governance/L2_CONFLICT_RESOLUTION_PROTOCOL.md` | L2 | 治理层、AI、仲裁者 | 协议冲突解决 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CONFLICT-RESOLUTION-v1.0` |
 | `03_governance/L2_CNSH_GOVERNANCE_SPEC.md` | L2 | 治理层、开发者 | CNSH 治理规范 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CNSH-GOVERNANCE-v1.0` |
 | `03_governance/L2_DATA_SOVEREIGNTY_AND_AI_ETHICS.md` | L2 | 治理层、AI、用户 | 数据主权与 AI 伦理 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-DATA-SOVEREIGNTY-AI-ETHICS-v1.0` |
