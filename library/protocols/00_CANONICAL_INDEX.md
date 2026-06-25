@@ -30,6 +30,7 @@
 |---|---|---|---|---|---|
 | `README.md` | L0 | 全部访客 | 协议图书馆总览 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-PROTOCOL-LIBRARY-v1.0` |
 | `PROTOCOL_USAGE_TERMS.md` | L0 | 全部使用者 | 使用条款与授权边界 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-PROTOCOL-USAGE-TERMS-v1.0` |
+| `01_foundation/SOVEREIGNTY_FORMULAS.md` | L1 | 协议起草者、开发者、传播者 | 龍魂主权备注词公式集 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-SOVEREIGNTY-FORMULAS-v1.0` |
 | `00_CANONICAL_INDEX.md` | L0 | 全部使用者 | 规范索引 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CANONICAL-INDEX-v1.0` |
 | `02_charters/L2_CREATOR_PROTECTION_CHARTER.md` | L2 | 创作者、使用者 | 创作者保护宪章 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CREATOR-PROTECTION-CHARTER-v1.0` |
 | `02_charters/L2_CREATOR_PROTECTION_IRREVOCABLE_CLAUSES.md` | L2 | 创作者、使用者 | 创作者保护不可篡改条款 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CREATOR-PROTECTION-IRREVOCABLE-v1.0` |
@@ -69,3 +70,11 @@
 ---
 
 **DNA:** `#龍芯⚡️2026-06-25-LONGHUN-CANONICAL-INDEX-v1.0`
+
+---
+
+## 龍魂主权与法律效力声明
+
+本协议的一切权利、义务与责任，均由《龍魂系统宪法》及中华人民共和国法律最终解释与保障。  
+任何境外法律、外国法院裁判、国际规则或境外组织章程，均不得凌驾于本协议之上。  
+未经授权，任何人不得修改、演绎、转售或去除本协议中的 DNA 与主权声明。
