@@ -14,3 +14,19 @@ docs/private-shared-imports/governance/  @UID9622
 # P0 永恒锁协议
 P0_ETERNAL_LOCK.md       @UID9622
 P0_ETERNAL_LOCK.md.asc   @UID9622
+
+# 龍魂协议库（统一真源）
+library/protocols/README.md                          @UID9622
+library/protocols/PROTOCOL_USAGE_TERMS.md            @UID9622
+library/protocols/00_CANONICAL_INDEX.md              @UID9622
+library/protocols/01_foundation/                     @UID9622
+library/protocols/02_charters/                       @UID9622
+library/protocols/03_governance/                     @UID9622
+library/protocols/04_agents/                         @UID9622
+library/protocols/05_cnsh/                           @UID9622
+library/protocols/06_individual/                     @UID9622
+library/protocols/07_enterprise/                     @UID9622
+library/protocols/08_international/                  @UID9622
+library/protocols/09_copyright/                      @UID9622
+library/protocols/10_archive/                        @UID9622
+library/protocols/templates/                         @UID9622

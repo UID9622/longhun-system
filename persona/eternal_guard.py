@@ -43,6 +43,7 @@ class 龍魂永恒锁守卫:
     # L0 神圣目录
     SACRED_DIRS = {
         "01_protocols/",
+        "library/protocols/",
         "persona/persona_registry.json",
         "persona/yijing_hexagrams.json",
         "persona/relation_graph.json",

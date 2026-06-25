@@ -791,6 +791,28 @@
       "args": [
         "--list"
       ]
+    },
+    "协议库": {
+      "aliases": [
+        "protocol-library",
+        "xieyiku",
+        "library"
+      ],
+      "category": "其他",
+      "desc": "显示龍魂协议库 README 与使用条款",
+      "type": "script",
+      "script": "bin/show-protocol-library.sh"
+    },
+    "协议清单": {
+      "aliases": [
+        "protocol-list",
+        "xieyi",
+        "protocols"
+      ],
+      "category": "其他",
+      "desc": "列出协议库中所有协议文件及其 DNA",
+      "type": "script",
+      "script": "bin/list-protocols.sh"
     }
   }
 }
