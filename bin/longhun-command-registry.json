@@ -791,6 +791,51 @@
       "args": [
         "--list"
       ]
+    },
+    "协议库": {
+      "aliases": [
+        "protocol-library",
+        "xieyiku",
+        "library"
+      ],
+      "category": "其他",
+      "desc": "显示龍魂协议库 README 与使用条款",
+      "type": "script",
+      "script": "bin/show-protocol-library.sh"
+    },
+    "协议清单": {
+      "aliases": [
+        "protocol-list",
+        "xieyi",
+        "protocols"
+      ],
+      "category": "其他",
+      "desc": "列出协议库中所有协议文件及其 DNA",
+      "type": "script",
+      "script": "bin/list-protocols.sh"
+    },
+    "问协议": {
+      "aliases": [
+        "ask-protocol",
+        "wenxieyi",
+        "协议问答"
+      ],
+      "category": "其他",
+      "desc": "自然语言提问，协议图书馆员用人话回答并指出依据文件",
+      "type": "script",
+      "script": "persona/protocol_librarian.py",
+      "need_arg": true
+    },
+    "协议摘要": {
+      "aliases": [
+        "protocol-summary",
+        "zhaiyao"
+      ],
+      "category": "其他",
+      "desc": "显示某份协议的一句话摘要（需指定文件路径或关键词）",
+      "type": "script",
+      "script": "persona/protocol_librarian.py",
+      "need_arg": true
     }
   }
 }
