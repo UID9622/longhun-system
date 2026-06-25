@@ -733,6 +733,16 @@
       "desc": "打开网页版系统状态看板",
       "type": "open",
       "target": "ops-console/status.html"
+    },
+    "宪法": {
+      "aliases": [
+        "constitution",
+        "xianfa"
+      ],
+      "category": "其他",
+      "desc": "显示龍魂系统宪法 CONSTITUTION.md",
+      "type": "script",
+      "script": "bin/show-constitution.sh"
     }
   }
 }
