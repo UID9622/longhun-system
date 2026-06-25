@@ -753,6 +753,44 @@
       "desc": "显示龍魂产出标准 STANDARD.md",
       "type": "script",
       "script": "bin/show-standard.sh"
+    },
+    "神圣锁": {
+      "aliases": [
+        "eternal-lock",
+        "shensuo",
+        "lock"
+      ],
+      "category": "其他",
+      "desc": "显示 P0 永恒锁协议与行为密码学保护",
+      "type": "script",
+      "script": "bin/show-eternal-lock.sh"
+    },
+    "检查锁定": {
+      "aliases": [
+        "check-lock",
+        "jiasuo"
+      ],
+      "category": "其他",
+      "desc": "检查文件/命令是否触碰 P0 永恒锁",
+      "type": "script",
+      "script": "persona/eternal_guard.py",
+      "args": [
+        "--verify-command"
+      ],
+      "need_arg": true
+    },
+    "锁定清单": {
+      "aliases": [
+        "lock-list",
+        "suodan"
+      ],
+      "category": "其他",
+      "desc": "列出所有 P0 永恒锁定的文件、目录、口令、红线",
+      "type": "script",
+      "script": "persona/eternal_guard.py",
+      "args": [
+        "--list"
+      ]
     }
   }
 }
