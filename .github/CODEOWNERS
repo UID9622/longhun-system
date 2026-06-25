@@ -4,6 +4,8 @@
 # 宪法文件只能由创始人 UID9622 修改
 CONSTITUTION.md       @UID9622
 CONSTITUTION.md.asc   @UID9622
+STANDARD.md           @UID9622
+STANDARD.md.asc       @UID9622
 
 # 核心协议与治理文件需要创始人审核
 01_protocols/         @UID9622

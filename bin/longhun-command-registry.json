@@ -743,6 +743,16 @@
       "desc": "显示龍魂系统宪法 CONSTITUTION.md",
       "type": "script",
       "script": "bin/show-constitution.sh"
+    },
+    "标准": {
+      "aliases": [
+        "standard",
+        "biaozhun"
+      ],
+      "category": "其他",
+      "desc": "显示龍魂产出标准 STANDARD.md",
+      "type": "script",
+      "script": "bin/show-standard.sh"
     }
   }
 }
