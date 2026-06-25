@@ -23,7 +23,7 @@
 
 | 文件名 | 简称 | 层级 | 目标受众 | 主题 | 状态 | DNA |
 |---|---|---|---|---|---|---|
-| `CONSTITUTION.md` | 宪法 | L0 | 全体成员、AI、合作方 | 龍魂系统宪法 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CONSTITUTION-v1.2` |
+| `CONSTITUTION.md` | 宪法 | L0 | 全体成员、AI、合作方 | 龍魂系统宪法 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CONSTITUTION-v1.3` |
 | `P0_ETERNAL_LOCK.md` | 永恒锁 | L0+ | 系统核心、守护者 | P0 永恒锁协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-P0-ETERNAL-LOCK-v1.1` |
 | `STANDARD.md` | 产出标准 | L0 | 全部产出方 | 龍魂产出标准 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-OUTPUT-STANDARD-v1.0` |
 
@@ -45,8 +45,8 @@
 | `02_charters/L2_LONGHUN_PHILOSOPHICAL_LOGIC.md` | 对话哲学 | L2 | AI、人格内阁、研究者 | 龍魂对话哲学逻辑 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-PHILOSOPHICAL-LOGIC-v1.0` |
 | `03_governance/L2_CONFLICT_RESOLUTION_PROTOCOL.md` | 冲突解决协议 | L2 | 治理层、AI、仲裁者 | 协议冲突解决 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CONFLICT-RESOLUTION-v1.0` |
 | `03_governance/L2_CNSH_GOVERNANCE_SPEC.md` | CNSH治理规范 | L2 | 治理层、开发者 | CNSH 治理规范 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CNSH-GOVERNANCE-v1.0` |
-| `03_governance/L2_DATA_SOVEREIGNTY_AND_AI_ETHICS.md` | 数据主权与AI伦理 | L2 | 治理层、AI、用户 | 数据主权与 AI 伦理 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-DATA-SOVEREIGNTY-AI-ETHICS-v1.0` |
-| `03_governance/L3_THREE_COLOR_AUDIT_PROTOCOL.md` | 三色审计协议 | L3 | 审计层、AI | 三色审计协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-THREE-COLOR-AUDIT-v1.0` |
+| `03_governance/L2_DATA_SOVEREIGNTY_AND_AI_ETHICS.md` | 数据主权与AI伦理 | L2 | 治理层、AI、用户 | 数据主权与 AI 伦理 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-DATA-SOVEREIGNTY-AI-ETHICS-v1.1` |
+| `03_governance/L3_THREE_COLOR_AUDIT_PROTOCOL.md` | 三色审计协议 | L3 | 审计层、AI | 三色审计协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-THREE-COLOR-AUDIT-v1.1` |
 | `03_governance/L3_AUDITABLE_TOOLS_PROTOCOL.md` | 可审计工具协议 | L3 | 工具开发者、AI | 可审计工具协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-AUDITABLE-TOOLS-v1.0` |
 | `04_agents/L3_AI_COLLABORATION_PROTOCOL.md` | AI协作协议 | L3 | AI、用户、守护者 | 人机协作协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-AI-COLLABORATION-v1.0` |
 | `04_agents/L3_AGENT_COMMUNICATION_PROTOCOL.md` | Agent通信协议 | L3 | AI 智能体 | 智能体通信协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-AGENT-COMMUNICATION-v1.0` |
@@ -60,7 +60,7 @@
 | `07_enterprise/L6_SERVICE_LEVEL_AGREEMENT.md` | SLA | L6 | 企业、服务提供方 | 服务等级协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-SERVICE-LEVEL-v1.0` |
 | `07_enterprise/L6_INCIDENT_RESPONSE_PROTOCOL.md` | 事件响应 | L6 | 企业、运维、安全 | 事件响应协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-INCIDENT-RESPONSE-v1.0` |
 | `08_international/L7_CROSS_BORDER_DATA_HANDLING.md` | 跨境数据 | L7 | 跨境使用者 | 跨境数据处理 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CROSS-BORDER-DATA-v1.0` |
-| `08_international/L7_INTERNATIONAL_COMPLIANCE_STATEMENT.md` | 国际合规声明 | L7 | 国际用户、合作方 | 国际合规声明 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-INTERNATIONAL-COMPLIANCE-v1.0` |
+| `08_international/L7_INTERNATIONAL_COMPLIANCE_STATEMENT.md` | 国际合规声明 | L7 | 国际用户、合作方 | 国际合规声明 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-INTERNATIONAL-COMPLIANCE-v1.1` |
 | `08_international/L7_DISPUTE_RESOLUTION_POLICY.md` | 争端解决 | L7 | 国际用户、合作方 | 争议解决政策 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-DISPUTE-RESOLUTION-v1.0` |
 | `09_copyright/L8_COPYRIGHT_AND_ANTI_HARVESTING_PROTOCOL.md` | 版权反收割 | L8 | 创作者、平台、用户 | 版权与反收割 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-COPYRIGHT-ANTI-HARVESTING-v1.0` |
 | `templates/protocol_document_template.md` | 协议模板 | — | 协议起草者 | 协议文档模板 | 生效中 | `#龍芯⚡️YYYY-MM-DD-LONGHUN-PROTOCOL-NAME-v1.0` |
