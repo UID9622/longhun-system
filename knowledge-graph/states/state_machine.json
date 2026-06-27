@@ -1,0 +1,59 @@
+{
+  "states": ["active", "pending", "suspended", "terminated", "overridden", "merged"],
+  "transitions": {
+    "active": ["pending", "suspended", "terminated", "overridden"],
+    "pending": ["active", "suspended", "terminated"],
+    "suspended": ["active", "pending", "terminated"],
+    "terminated": [],
+    "overridden": ["active", "terminated"],
+    "merged": []
+  },
+  "cascade_rules": {
+    "suspended": {
+      "child_action": "set_pending",
+      "description": "父节点暂停时，子节点变为待生效"
+    },
+    "terminated": {
+      "child_action": "set_suspended",
+      "description": "父节点终止时，子节点暂停"
+    },
+    "active": {
+      "child_action": "restore",
+      "description": "父节点恢复时，子节点恢复"
+    }
+  },
+  "penetration_rules": [
+    {
+      "rule_id": "penetration_001",
+      "trigger_layer": "sovereignty",
+      "trigger_state": "suspended",
+      "target_layer": "governance",
+      "target_action": "set_pending",
+      "priority": "critical",
+      "description": "主权层暂停时，治理层全部变为待生效"
+    },
+    {
+      "rule_id": "penetration_002",
+      "trigger_layer": "governance",
+      "trigger_state": "terminated",
+      "target_layer": "mechanism",
+      "target_action": "set_suspended",
+      "priority": "high",
+      "description": "治理层终止时，关联机制层暂停"
+    },
+    {
+      "rule_id": "penetration_003",
+      "trigger_layer": "sovereignty",
+      "trigger_state": "active",
+      "target_layer": "governance",
+      "target_action": "restore_active",
+      "priority": "high",
+      "description": "主权层恢复时，治理层恢复生效"
+    }
+  ],
+  "metadata": {
+    "version": "v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-STATES-v1.0"
+  }
+}
