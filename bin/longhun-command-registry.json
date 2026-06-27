@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "DNA": "#龍芯⚡️2026-06-24-LONGHUN-COMMAND-REGISTRY-v2.0",
+    "DNA": "#龍芯⚡️2026-06-28-LONGHUN-COMMAND-REGISTRY-v2.6-HARVEST",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "description": "龍魂终端统一命令注册表 v2.0：按功能（不按标题）纳管全系统沉睡脚本",
     "categories": {
@@ -19,7 +19,9 @@
       "字体": "LonghunFont",
       "部署": "部署与安装",
       "维护": "清理与自愈",
-      "反熔断": "反熔断与可验证性"
+      "反熔断": "反熔断与可验证性",
+      "自动化": "自动化与自适应升级",
+      "备份": "云端备份与恢复"
     }
   },
   "commands": {
@@ -42,6 +44,28 @@
       "desc": "龍魂系统体检",
       "type": "script",
       "script": "bin/longhun-check"
+    },
+    "收割": {
+      "aliases": [
+        "harvest"
+      ],
+      "category": "自动化",
+      "desc": "龍魂开源内容收割机：主动搜索、过闸评估、生成日报",
+      "type": "script",
+      "script": "~/.longhun/scripts/harvester_daily.py"
+    },
+    "entry": {
+      "aliases": [
+        "丢",
+        "drop"
+      ],
+      "category": "自动化",
+      "desc": "龍魂内容闸门入口：文本/URL/文件路径自动分拣入库",
+      "type": "script",
+      "script": "~/.龍魂/entry/gateway_entry.py",
+      "args": [
+        "in"
+      ]
     },
     "启动检查": {
       "aliases": [
@@ -273,12 +297,15 @@
     "审计": {
       "aliases": [
         "audit",
-        "self-audit"
+        "shame"
       ],
-      "category": "审计",
-      "desc": "运行龍魂自检审计",
+      "category": "其他",
+      "desc": "打开龍魂万年历审计与耻辱墙",
       "type": "script",
-      "script": "bin/longhun-self-audit.sh"
+      "script": "~/.龍魂/万年历/launch.py",
+      "args": [
+        "--audit"
+      ]
     },
     "仓库审计": {
       "aliases": [
@@ -836,6 +863,497 @@
       "type": "script",
       "script": "persona/protocol_librarian.py",
       "need_arg": true
+    },
+    "技能主控": {
+      "aliases": [
+        "skill-hub"
+      ],
+      "category": "技能",
+      "desc": "多平台技能统一主控器（交互模式）",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py"
+    },
+    "技能列表": {
+      "aliases": [
+        "skill-list"
+      ],
+      "category": "技能",
+      "desc": "列出已注册的多平台技能",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--list"
+      ]
+    },
+    "技能验证": {
+      "aliases": [
+        "skill-verify"
+      ],
+      "category": "技能",
+      "desc": "验证技能主控身份",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--verify-identity"
+      ]
+    },
+    "Kimi技能": {
+      "aliases": [
+        "skill-kimi"
+      ],
+      "category": "技能",
+      "desc": "列出 Kimi 平台技能",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--platform",
+        "kimi"
+      ]
+    },
+    "Claude技能": {
+      "aliases": [
+        "skill-claude"
+      ],
+      "category": "技能",
+      "desc": "列出 Claude 平台技能",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--platform",
+        "claude"
+      ]
+    },
+    "Ollama技能": {
+      "aliases": [
+        "skill-ollama"
+      ],
+      "category": "技能",
+      "desc": "列出 Ollama 平台技能",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--platform",
+        "ollama"
+      ]
+    },
+    "龍魂技能": {
+      "aliases": [
+        "skill-longhun"
+      ],
+      "category": "技能",
+      "desc": "列出龍魂本地技能",
+      "type": "script",
+      "script": "~/.龍魂/skill_hub_master.py",
+      "args": [
+        "--platform",
+        "longhun"
+      ]
+    },
+    "宝宝工作流": {
+      "aliases": [
+        "baobao"
+      ],
+      "category": "技能",
+      "desc": "宝宝工作流程透明化 v2.0",
+      "type": "script",
+      "script": "~/.龍魂/baobao_workflow_transparent_v2.py"
+    },
+    "自动化状态": {
+      "aliases": [
+        "auto-status"
+      ],
+      "category": "自动化",
+      "desc": "L4 自动化引擎状态",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l4_automation_engine.py",
+      "args": [
+        "--status"
+      ]
+    },
+    "自动化启动": {
+      "aliases": [
+        "auto-start"
+      ],
+      "category": "自动化",
+      "desc": "启动 L4 自动化引擎",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l4_automation_engine.py",
+      "args": [
+        "--start"
+      ]
+    },
+    "自动化工作流": {
+      "aliases": [
+        "auto-workflows"
+      ],
+      "category": "自动化",
+      "desc": "列出 L4 自动化工作流",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l4_automation_engine.py",
+      "args": [
+        "--list-workflows"
+      ]
+    },
+    "执行工作流": {
+      "aliases": [
+        "run-workflow"
+      ],
+      "category": "自动化",
+      "desc": "执行指定 L4 工作流",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l4_automation_engine.py",
+      "args": [
+        "--run-workflow"
+      ],
+      "need_arg": true
+    },
+    "工作流排程": {
+      "aliases": [
+        "workflow-scheduler"
+      ],
+      "category": "自动化",
+      "desc": "L4 工作流排程系统",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l4_workflow_scheduler.py",
+      "args": [
+        "--list"
+      ]
+    },
+    "智能告警升级": {
+      "aliases": [
+        "alert-upgrade"
+      ],
+      "category": "自动化",
+      "desc": "智能告警自适应升级",
+      "type": "script",
+      "script": "~/.龍魂/longhun_smart_alert_upgrade.py"
+    },
+    "L3备份状态": {
+      "aliases": [
+        "l3-status"
+      ],
+      "category": "备份",
+      "desc": "L3 云端层备份状态",
+      "type": "script",
+      "script": "~/.龍魂/longhun_l3_cloud_backup_system.py",
+      "args": [
+        "--status"
+      ]
+    },
+    "L3快速启动": {
+      "aliases": [
+        "l3-quick"
+      ],
+      "category": "备份",
+      "desc": "L3 云端层快速启动（交互式）",
+      "type": "script",
+      "script": "~/.龍魂/L3_QUICK_START.sh"
+    },
+    "部署守护者": {
+      "aliases": [
+        "deploy-guardian"
+      ],
+      "category": "部署",
+      "desc": "部署龍魂数字资产守护者",
+      "type": "script",
+      "script": "~/.龍魂/setup_longhun_guardian.sh"
+    },
+    "龍魂同步": {
+      "aliases": [
+        "sync-longhun"
+      ],
+      "category": "同步",
+      "desc": "龍魂 Notion 同步",
+      "type": "script",
+      "script": "~/.龍魂/longhun_notion_sync.py"
+    },
+    "csdn状态": {
+      "aliases": [
+        "csdn-status",
+        "csdn-login"
+      ],
+      "category": "同步",
+      "desc": "检查 CSDN 登录状态",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "status"
+      ]
+    },
+    "csdn列表": {
+      "aliases": [
+        "csdn-list",
+        "csdn-articles"
+      ],
+      "category": "同步",
+      "desc": "列出 CSDN 已发布文章",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "list"
+      ]
+    },
+    "csdn获取": {
+      "aliases": [
+        "csdn-get"
+      ],
+      "category": "同步",
+      "desc": "获取 CSDN 单篇文章内容",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "get"
+      ]
+    },
+    "csdn发布": {
+      "aliases": [
+        "csdn-publish"
+      ],
+      "category": "同步",
+      "desc": "发布 Markdown 文件到 CSDN",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "publish"
+      ]
+    },
+    "csdn更新": {
+      "aliases": [
+        "csdn-update"
+      ],
+      "category": "同步",
+      "desc": "更新 CSDN 已有文章",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "update"
+      ]
+    },
+    "csdn同步": {
+      "aliases": [
+        "csdn-sync"
+      ],
+      "category": "同步",
+      "desc": "同步整个目录到 CSDN",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "sync"
+      ]
+    },
+    "csdn面板": {
+      "aliases": [
+        "csdn-panel",
+        "csdn-ui"
+      ],
+      "category": "同步",
+      "desc": "打开 CSDN 同步 Web 面板",
+      "type": "open",
+      "target": "http://127.0.0.1:9528/ui"
+    },
+    "csdn启动": {
+      "aliases": [
+        "csdn-start"
+      ],
+      "category": "同步",
+      "desc": "启动 CSDN 同步 API 服务",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/start_server.sh",
+      "args": [
+        "start"
+      ]
+    },
+    "csdn停止": {
+      "aliases": [
+        "csdn-stop"
+      ],
+      "category": "同步",
+      "desc": "停止 CSDN 同步 API 服务",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/start_server.sh",
+      "args": [
+        "stop"
+      ]
+    },
+    "csdn重启": {
+      "aliases": [
+        "csdn-restart"
+      ],
+      "category": "同步",
+      "desc": "重启 CSDN 同步 API 服务",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/start_server.sh",
+      "args": [
+        "restart"
+      ]
+    },
+    "发文": {
+      "aliases": [
+        "发",
+        "发布文章",
+        "同步最新",
+        "发布最新",
+        "csdn-smart-sync"
+      ],
+      "category": "同步",
+      "desc": "一键同步最新 Markdown 到 CSDN（说“同步/发布/发表/发出去”就用这个）",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/smart_sync.py"
+    },
+    "已发布": {
+      "aliases": [
+        "published",
+        "发布清单",
+        "发文清单"
+      ],
+      "category": "同步",
+      "desc": "查看已发布到 CSDN 的文章清单",
+      "type": "script",
+      "script": "~/.龍魂/csdn-sync/csdn_sync_cli.py",
+      "args": [
+        "published"
+      ]
+    },
+    "跨设备同步2": {
+      "aliases": [
+        "cross-sync2"
+      ],
+      "category": "同步",
+      "desc": "跨设备同步（~/.龍魂 版）",
+      "type": "script",
+      "script": "~/.龍魂/cross_device_sync.py"
+    },
+    "系统校验": {
+      "aliases": [
+        "verify-system"
+      ],
+      "category": "审计",
+      "desc": "系统完整性与技能校验",
+      "type": "script",
+      "script": "~/.龍魂/system_verification.py"
+    },
+    "龍魂知识图谱": {
+      "aliases": [
+        "kg-dotlonghun",
+        "kg2"
+      ],
+      "category": "技能",
+      "desc": "从 ~/.龍魂 构建 Obsidian 知识图谱",
+      "type": "script",
+      "script": "~/.龍魂/longhun_knowledge_graph_builder.py"
+    },
+    "菜单": {
+      "aliases": [
+        "menu"
+      ],
+      "category": "维护",
+      "desc": "进入交互式数字菜单（记不住命令就用这个）",
+      "type": "menu"
+    },
+    "胜利回望": {
+      "aliases": [
+        "victory",
+        "lookback",
+        "winback"
+      ],
+      "category": "其他",
+      "desc": "查看最新胜利回望记录（深度求索围攻记录）",
+      "type": "script",
+      "script": "~/.龍魂/victory_lookbacks/show_latest.sh"
+    },
+    "启动宣言": {
+      "aliases": [
+        "fuel",
+        "startup-fuel",
+        "manifesto"
+      ],
+      "category": "其他",
+      "desc": "查看最新启动精神燃料（胜利回望收尾句）",
+      "type": "script",
+      "script": "~/.龍魂/victory_lookbacks/startup_fuel.py"
+    },
+    "万年历": {
+      "aliases": [
+        "calendar",
+        "cal",
+        "wannianli"
+      ],
+      "category": "启动",
+      "desc": "龍魂万年历：系统唯一入口、任务路由、上下文管理、Notion记录",
+      "type": "script",
+      "script": "bin/lh-calendar",
+      "args": []
+    },
+    "万年历校验": {
+      "aliases": [
+        "calendar-verify",
+        "verify-calendar"
+      ],
+      "category": "其他",
+      "desc": "打开龍魂万年历系统状态页校验本地主权链",
+      "type": "script",
+      "script": "~/.龍魂/万年历/launch.py",
+      "args": [
+        "--status"
+      ]
+    },
+    "万年历主题": {
+      "aliases": [
+        "calendar-theme"
+      ],
+      "category": "其他",
+      "desc": "切换万年历风格包（dark/light/classic/longhun）",
+      "type": "script",
+      "script": "~/.龍魂/万年历/theme-switch.py",
+      "need_arg": true
+    },
+    "授权方向": {
+      "aliases": [
+        "directions",
+        "auth-directions"
+      ],
+      "category": "其他",
+      "desc": "打开龍魂万年历授权管理页",
+      "type": "script",
+      "script": "~/.龍魂/万年历/launch.py",
+      "args": [
+        "--auth"
+      ]
+    },
+    "八卦调度": {
+      "aliases": [
+        "bagua",
+        "lh-bagua"
+      ],
+      "category": "反熔断",
+      "desc": "龍魂八卦决策调度器：态势评估、卦象决策、熔断控制",
+      "type": "script",
+      "script": "bin/lh-bagua",
+      "args": [
+        "dashboard"
+      ]
+    },
+    "上下文": {
+      "aliases": [
+        "context",
+        "ctx"
+      ],
+      "category": "记忆",
+      "desc": "龍魂认知上下文管理器：会话状态、压缩、知识图谱联动",
+      "type": "script",
+      "script": "bin/lh-context",
+      "args": []
+    },
+    "记录器": {
+      "aliases": [
+        "logger",
+        "notion-logger"
+      ],
+      "category": "同步",
+      "desc": "龍魂Notion实时记录器：本地SQLite优先、异步批量同步Notion",
+      "type": "script",
+      "script": "bin/lh-logger",
+      "args": []
     }
   }
 }
