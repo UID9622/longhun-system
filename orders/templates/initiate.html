@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}发起龍魂令{% endblock %}
+{% block content %}
+<section class="initiate">
+  <h1>发起龍魂令</h1>
+  <p class="warn">⚠️ 此入口仅对 UID9622 开放，需验证发起密钥。</p>
+
+  <form method="post" action="/orders/initiate">
+    <label>
+      发起密钥
+      <input type="password" name="initiate_key" required placeholder="X-LongHun-Key">
+    </label>
+
+    <label>
+      令级
+      <select name="level" required>
+        {% for lv in levels %}
+        <option value="{{ lv.id }}">{{ lv.icon }} {{ lv.name }} — {{ lv.tone }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      标题
+      <input type="text" name="title" required placeholder="简短有力的令名">
+    </label>
+
+    <label>
+      令文 / 说明
+      <textarea name="description" rows="4" placeholder="事实、依据、裁决对象..."></textarea>
+    </label>
+
+    <label>
+      证据链摘要
+      <textarea name="evidence_summary" rows="4" placeholder="截图、签名、时间戳、哈希链..."></textarea>
+    </label>
+
+    <label>
+      发起人UID
+      <input type="text" name="issuer_uid" value="UID9622">
+    </label>
+
+    <label class="inline">
+      <input type="checkbox" name="make_public" checked>
+      锚定后立即公示
+    </label>
+
+    <button type="submit">锚定并签发</button>
+  </form>
+</section>
+{% endblock %}
