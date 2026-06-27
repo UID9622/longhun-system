@@ -58,7 +58,6 @@ app = Flask(__name__)
 # ═══════════════════════════════
 # 配置 — 全部从环境变量读取
 # ═══════════════════════════════
-CLAUDE_API_KEY   = getenv("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY = getenv("DEEPSEEK_API_KEY", "")
 OLLAMA_HOST      = getenv("OLLAMA_HOST", "http://localhost:11434")
 NOTION_TOKEN     = getenv("NOTION_TOKEN", "")
@@ -173,26 +172,6 @@ def log_notion(entry: dict):
 # ═══════════════════════════════
 # AI 路由器
 # ═══════════════════════════════
-def call_claude(messages: list, model: str = "claude-sonnet-4-6") -> str:
-    if not CLAUDE_API_KEY:
-        return "[错误] ANTHROPIC_API_KEY 未配置"
-    resp = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": CLAUDE_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json"
-        },
-        json={
-            "model": model,
-            "max_tokens": 4096,
-            "system": CNSH_SYSTEM_PROMPT,
-            "messages": messages
-        }, timeout=60
-    )
-    resp.raise_for_status()
-    return resp.json()["content"][0]["text"]
-
 def call_deepseek(messages: list, model: str = "deepseek-chat") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
@@ -222,7 +201,6 @@ def call_ollama(messages: list, model: str = "qwen2.5:7b") -> str:
     return resp.json()["message"]["content"]
 
 ROUTERS = {
-    "claude":   call_claude,
     "deepseek": call_deepseek,
     "ollama":   call_ollama,
     "local":    call_ollama,   # 别名
@@ -323,12 +301,11 @@ def security_check(req, endpoint_path: str = None, intent: str = "execute"):
 @app.route("/health")
 def health():
     available = []
-    if CLAUDE_API_KEY:   available.append("claude")
     if DEEPSEEK_API_KEY: available.append("deepseek")
     available.append("ollama(本地)")
     return jsonify({
         "status": "🟢",
-        "service": "CNSH网关 v1.0",
+        "service": "CNSH网关 v1.0 · DeepSeek唯一监管",
         "port": 8765,
         "available_routes": available,
         "dna": make_dna("SYS", "health")
@@ -356,6 +333,12 @@ def chat():
     route    = data.get("route", "deepseek").lower()
     model    = data.get("model", "")
     history  = data.get("history", [])
+
+    if route not in ROUTERS:
+        return jsonify({
+            "error": f"route '{route}' 已被禁用，当前仅支持 {list(ROUTERS.keys())}",
+            "tricolor": "🔴"
+        }), 403
 
     if not message:
         return jsonify({"error": "message 不能为空", "tricolor": "🔴"}), 400
@@ -488,7 +471,7 @@ if __name__ == "__main__":
 ║  POST /inject_notion — Notion内容注入AI      ║
 ║  GET  /health        — 健康检查              ║
 ╠══════════════════════════════════════════════╣
-║  路由: claude / deepseek / ollama            ║
+║  路由: deepseek / ollama                    ║
 ║  默认: deepseek（省钱·快·中文强）           ║
 ╚══════════════════════════════════════════════╝
     """)

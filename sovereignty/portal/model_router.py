@@ -22,14 +22,8 @@ from pydantic import BaseModel, Field
 router = APIRouter(prefix="/api", tags=["models"])
 
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-KIMI_API_KEY = os.getenv("KIMI_API_KEY", "")
-KIMI_BASE_URL = os.getenv("KIMI_BASE_URL", "https://api.moonshot.cn/v1")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1")
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY", "")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "")
-AZURE_OPENAI_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "")
-AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-06-01")
 
 DEFAULT_LOCAL_MODEL = os.getenv("OLLAMA_DEFAULT_MODEL", "qwen2.5")
 
@@ -46,7 +40,7 @@ def _now() -> str:
 
 class ChatRequest(BaseModel):
     messages: List[Dict[str, str]] = Field(..., min_length=1)
-    provider: str = "auto"  # auto | local | deepseek | kimi | azure
+    provider: str = "auto"  # auto | local | deepseek
     model: Optional[str] = None
     privacy: str = "normal"  # normal | strict
     temperature: float = 0.7
@@ -55,7 +49,7 @@ class ChatRequest(BaseModel):
 
 class EmbedRequest(BaseModel):
     input: str
-    provider: str = "auto"
+    provider: str = "auto"  # auto | local
     model: Optional[str] = None
 
 
@@ -83,48 +77,6 @@ def probe_ollama() -> Dict:
             "latency_ms": None,
             "models": [DEFAULT_LOCAL_MODEL],
             "privacy": "local",
-            "error": str(e)[:120],
-        }
-
-
-def probe_kimi() -> Dict:
-    if not KIMI_API_KEY:
-        return {
-            "name": "Kimi API (Moonshot)",
-            "provider": "kimi",
-            "status": "offline",
-            "latency_ms": None,
-            "models": ["moonshot-v1-8k", "moonshot-v1-32k", "moonshot-v1-128k"],
-            "privacy": "cloud",
-            "error": "KIMI_API_KEY not configured",
-        }
-    start = time.time()
-    try:
-        r = requests.get(
-            f"{KIMI_BASE_URL}/models",
-            headers={"Authorization": f"Bearer {KIMI_API_KEY}"},
-            timeout=8,
-        )
-        r.raise_for_status()
-        data = r.json()
-        models = [m.get("id") for m in data.get("data", [])]
-        latency = int((time.time() - start) * 1000)
-        return {
-            "name": "Kimi API (Moonshot)",
-            "provider": "kimi",
-            "status": "online",
-            "latency_ms": latency,
-            "models": models or ["moonshot-v1-8k"],
-            "privacy": "cloud",
-        }
-    except Exception as e:
-        return {
-            "name": "Kimi API (Moonshot)",
-            "provider": "kimi",
-            "status": "offline",
-            "latency_ms": None,
-            "models": ["moonshot-v1-8k"],
-            "privacy": "cloud",
             "error": str(e)[:120],
         }
 
@@ -171,50 +123,6 @@ def probe_deepseek() -> Dict:
         }
 
 
-def probe_azure() -> Dict:
-    if not (AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_DEPLOYMENT):
-        return {
-            "name": "Azure OpenAI",
-            "provider": "azure",
-            "status": "offline",
-            "latency_ms": None,
-            "models": [AZURE_OPENAI_DEPLOYMENT or "gpt-4o"],
-            "privacy": "cloud",
-            "error": "Azure OpenAI env not configured",
-        }
-    start = time.time()
-    url = (
-        f"{AZURE_OPENAI_ENDPOINT.rstrip('/')}/openai/deployments"
-        f"?api-version={AZURE_OPENAI_API_VERSION}"
-    )
-    try:
-        r = requests.get(
-            url,
-            headers={"api-key": AZURE_OPENAI_API_KEY},
-            timeout=8,
-        )
-        r.raise_for_status()
-        latency = int((time.time() - start) * 1000)
-        return {
-            "name": "Azure OpenAI",
-            "provider": "azure",
-            "status": "online",
-            "latency_ms": latency,
-            "models": [AZURE_OPENAI_DEPLOYMENT],
-            "privacy": "cloud",
-        }
-    except Exception as e:
-        return {
-            "name": "Azure OpenAI",
-            "provider": "azure",
-            "status": "offline",
-            "latency_ms": None,
-            "models": [AZURE_OPENAI_DEPLOYMENT],
-            "privacy": "cloud",
-            "error": str(e)[:120],
-        }
-
-
 def _ollama_default_model() -> str:
     try:
         r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
@@ -240,29 +148,6 @@ def chat_ollama(messages: List[Dict[str, str]], model: Optional[str], temperatur
     return {"provider": "local", "model": model, "reply": reply}
 
 
-def chat_kimi(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict:
-    model = model or "moonshot-v1-8k"
-    body = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }
-    r = requests.post(
-        f"{KIMI_BASE_URL}/chat/completions",
-        headers={
-            "Authorization": f"Bearer {KIMI_API_KEY}",
-            "Content-Type": "application/json",
-        },
-        json=body,
-        timeout=120,
-    )
-    r.raise_for_status()
-    data = r.json()
-    reply = data["choices"][0]["message"]["content"]
-    return {"provider": "kimi", "model": model, "reply": reply}
-
-
 def chat_deepseek(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict:
     model = model or "deepseek-chat"
     body = {
@@ -286,36 +171,13 @@ def chat_deepseek(messages: List[Dict[str, str]], model: Optional[str], temperat
     return {"provider": "deepseek", "model": model, "reply": reply}
 
 
-def chat_azure(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict:
-    deployment = AZURE_OPENAI_DEPLOYMENT
-    url = (
-        f"{AZURE_OPENAI_ENDPOINT.rstrip('/')}/openai/deployments/{deployment}"
-        f"/chat/completions?api-version={AZURE_OPENAI_API_VERSION}"
-    )
-    body = {
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }
-    r = requests.post(
-        url,
-        headers={"api-key": AZURE_OPENAI_API_KEY, "Content-Type": "application/json"},
-        json=body,
-        timeout=120,
-    )
-    r.raise_for_status()
-    data = r.json()
-    reply = data["choices"][0]["message"]["content"]
-    return {"provider": "azure", "model": deployment, "reply": reply}
-
-
 @router.get("/models")
 def list_models():
     """列出所有可用模型及其状态"""
     return {
         "dna": _dna("MODELS"),
         "timestamp": _now(),
-        "providers": [probe_ollama(), probe_deepseek(), probe_kimi(), probe_azure()],
+        "providers": [probe_ollama(), probe_deepseek()],
     }
 
 
@@ -325,7 +187,7 @@ def models_status():
     return {
         "dna": _dna("MODEL-STATUS"),
         "timestamp": _now(),
-        "providers": [probe_ollama(), probe_deepseek(), probe_kimi(), probe_azure()],
+        "providers": [probe_ollama(), probe_deepseek()],
     }
 
 
@@ -337,18 +199,23 @@ def chat(req: ChatRequest):
 
     local_status = probe_ollama()
     deepseek_status = probe_deepseek()
-    kimi_status = probe_kimi()
-    azure_status = probe_azure()
+
+    if req.provider not in ("auto", "local", "deepseek"):
+        raise HTTPException(
+            status_code=403,
+            detail={
+                "status": "error",
+                "dna": dna,
+                "timestamp": _now(),
+                "message": f"provider '{req.provider}' 已被禁用，当前仅支持 auto/local/deepseek",
+            },
+        )
 
     order = []
     if req.provider == "local":
         order = [("local", local_status)]
     elif req.provider == "deepseek":
         order = [("deepseek", deepseek_status)]
-    elif req.provider == "kimi":
-        order = [("kimi", kimi_status)]
-    elif req.provider == "azure":
-        order = [("azure", azure_status)]
     else:  # auto
         if req.privacy == "strict":
             # 隐私严格模式：只用本地
@@ -357,8 +224,6 @@ def chat(req: ChatRequest):
             order = [
                 ("local", local_status),
                 ("deepseek", deepseek_status),
-                ("kimi", kimi_status),
-                ("azure", azure_status),
             ]
 
     errors = []
@@ -371,10 +236,6 @@ def chat(req: ChatRequest):
                 result = chat_ollama(req.messages, req.model, req.temperature, req.max_tokens)
             elif name == "deepseek":
                 result = chat_deepseek(req.messages, req.model, req.temperature, req.max_tokens)
-            elif name == "kimi":
-                result = chat_kimi(req.messages, req.model, req.temperature, req.max_tokens)
-            else:
-                result = chat_azure(req.messages, req.model, req.temperature, req.max_tokens)
             result["latency_ms"] = int((time.time() - start) * 1000)
             result["dna"] = dna
             result["timestamp"] = _now()
@@ -424,57 +285,6 @@ def embed(req: EmbedRequest):
             }
         except Exception as e:
             pass  # fall through
-
-    # 云端降级：优先 Kimi，再 Azure
-    if KIMI_API_KEY:
-        try:
-            r = requests.post(
-                f"{KIMI_BASE_URL}/embeddings",
-                headers={"Authorization": f"Bearer {KIMI_API_KEY}"},
-                json={"model": "text-embedding-3-small", "input": req.input},
-                timeout=60,
-            )
-            r.raise_for_status()
-            data = r.json()
-            vec = data["data"][0]["embedding"]
-            return {
-                "status": "ok",
-                "provider": "kimi",
-                "model": "text-embedding-3-small",
-                "embedding": vec,
-                "latency_ms": int((time.time() - start) * 1000),
-                "dna": dna,
-                "timestamp": _now(),
-            }
-        except Exception:
-            pass
-
-    if AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_DEPLOYMENT:
-        try:
-            url = (
-                f"{AZURE_OPENAI_ENDPOINT.rstrip('/')}/openai/deployments/{AZURE_OPENAI_DEPLOYMENT}"
-                f"/embeddings?api-version={AZURE_OPENAI_API_VERSION}"
-            )
-            r = requests.post(
-                url,
-                headers={"api-key": AZURE_OPENAI_API_KEY},
-                json={"input": req.input},
-                timeout=60,
-            )
-            r.raise_for_status()
-            data = r.json()
-            vec = data["data"][0]["embedding"]
-            return {
-                "status": "ok",
-                "provider": "azure",
-                "model": AZURE_OPENAI_DEPLOYMENT,
-                "embedding": vec,
-                "latency_ms": int((time.time() - start) * 1000),
-                "dna": dna,
-                "timestamp": _now(),
-            }
-        except Exception:
-            pass
 
     raise HTTPException(
         status_code=503,

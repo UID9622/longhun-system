@@ -8,6 +8,8 @@ import os
 import shlex
 import subprocess
 import sys
+import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -25,11 +27,41 @@ from api import skill_wrappers, foundation_wrappers, system_monitor, behavior_wr
 from skills.registry import LonghunSkillRegistry, CLOUD_SKILL_IDS, CLOUD_DEFAULT_PORTS
 from tongxinyi_gate import TongxinyiGate
 
+from sovereignty.portal import model_router
+from sovereignty.portal.longhun_crypto import (
+    LonghunCryptoError,
+    NonceCache,
+    make_envelope,
+    open_envelope,
+)
+
+LONGHUN_EXECUTOR_SECRET = os.getenv("LONGHUN_EXECUTOR_SECRET", "")
+_SECURE_NONCE_CACHE = NonceCache()
+_LOCAL_GATEWAY_LOG = Path.home() / "cnsh" / "logs"
+
 # 统一技能注册表
 _SKILL_REGISTRY = LonghunSkillRegistry()
 
 def _get_registry():
     return _SKILL_REGISTRY
+
+
+def _secure_log(entry: dict):
+    _LOCAL_GATEWAY_LOG.mkdir(parents=True, exist_ok=True)
+    path = _LOCAL_GATEWAY_LOG / f"longhun_secure_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl"
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def _dna(prefix: str) -> str:
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")[:-3]
+    h = uuid.uuid4().hex[:12].upper()
+    return f"#龍芯⚡️{ts}-{prefix}-{h}"
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
 
 app = FastAPI(
     title="龍魂操作台 MVP v1.1",
@@ -39,9 +71,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=os.getenv(
+        "LONGHUN_CORS_ORIGINS",
+        "https://longhun888.com,http://localhost:3000,http://127.0.0.1:3000",
+    ).split(","),
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-DNA-Token", "X-Executor-UID"],
 )
 
 # 静态资源：操作台 UI + 技能文件
@@ -92,6 +127,90 @@ def index():
 @app.get("/api/health")
 def health():
     return {"状态": "ok", "uid": "9622", "panel_version": "1.1.0"}
+
+
+@app.get("/api/secure/health")
+def secure_health():
+    """执行器健康检查：确认安全解密通道就绪。"""
+    return {
+        "状态": "ok",
+        "channel": "secure",
+        "secret_configured": bool(LONGHUN_EXECUTOR_SECRET),
+        "dna": _dna("SECURE-HEALTH"),
+    }
+
+
+@app.post("/api/secure/execute")
+async def secure_execute(request: Request):
+    """
+    仅接受来自 DeepSeek 执行器的加密请求。
+    解密后按 route 派发：chat / skill / echo
+    """
+    dna = _dna("SECURE-EXECUTE")
+    client_host = request.client.host if request.client else "unknown"
+
+    if not LONGHUN_EXECUTOR_SECRET:
+        _secure_log({"ts": _now(), "dna": dna, "event": "secret_missing", "tricolor": "🔴"})
+        raise HTTPException(status_code=503, detail="执行器密钥未配置")
+
+    try:
+        envelope = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400, detail="请求体不是有效 JSON")
+
+    # 解密 + 校验 HMAC / 时间戳 / 重放
+    try:
+        plain = open_envelope(envelope, LONGHUN_EXECUTOR_SECRET, _SECURE_NONCE_CACHE, ttl=300)
+    except LonghunCryptoError as e:
+        _secure_log({
+            "ts": _now(), "dna": dna, "event": "envelope_verify_failed",
+            "client": client_host, "error": str(e), "tricolor": "🔴",
+        })
+        raise HTTPException(status_code=403, detail=f"信封校验失败: {e}")
+
+    route = plain.get("route", "")
+    payload = plain.get("payload", {})
+    meta = plain.get("meta", {})
+
+    result = {}
+    tricolor = "🟢"
+
+    try:
+        if route == "echo":
+            result = {"echo": payload}
+
+        elif route == "chat":
+            chat_req = model_router.ChatRequest(**payload)
+            result = model_router.chat(chat_req)
+
+        elif route == "skill":
+            skill_id = payload.get("skill_id")
+            if not skill_id or skill_id not in SKILL_METADATA:
+                raise ValueError(f"无效或未知的 skill_id: {skill_id}")
+            skill_payload = payload.get("payload", {})
+            result = await skill_wrappers.run_skill(skill_id, skill_payload)
+
+        else:
+            raise ValueError(f"未知 route: {route}")
+    except Exception as e:
+        tricolor = "🔴"
+        result = {"error": str(e)}
+
+    _secure_log({
+        "ts": _now(), "dna": dna, "event": "secure_execute",
+        "client": client_host, "route": route,
+        "executor_dna": meta.get("executor_dna"),
+        "tricolor": tricolor,
+    })
+
+    response_payload = {
+        "status": "ok" if tricolor == "🟢" else "error",
+        "route": route,
+        "result": result,
+        "dna": dna,
+        "ts": _now(),
+    }
+    return make_envelope(response_payload, LONGHUN_EXECUTOR_SECRET)
 
 
 @app.get("/api/skills")

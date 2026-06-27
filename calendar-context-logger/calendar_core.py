@@ -2495,21 +2495,21 @@ def demo():
     # 9. AI网关
     print("\n【9】AI网关调度")
     
-    # 注册模拟模型
-    calendar.register_ai_model("gpt-4", {
-        "name": "GPT-4",
-        "endpoint": "https://api.openai.com/v1",
+    # 注册模拟模型（仅示例，龙魂系统禁止直连外部 AI）
+    calendar.register_ai_model("local-demo", {
+        "name": "Local-Demo",
+        "endpoint": "http://127.0.0.1:11434",
         "weight": 1,
         "enabled": True,
-        "callback": lambda p, c: f"[GPT-4处理结果] 输入: {p[:30]}...",
+        "callback": lambda p, c: f"[本地模型处理结果] 输入: {p[:30]}...",
     })
-    
-    calendar.register_ai_model("gpt-3.5", {
-        "name": "GPT-3.5",
-        "endpoint": "https://api.openai.com/v1",
+
+    calendar.register_ai_model("deepseek-demo", {
+        "name": "DeepSeek-Demo",
+        "endpoint": "https://api.deepseek.com/v1",
         "weight": 2,
         "enabled": True,
-        "callback": lambda p, c: f"[GPT-3.5快速回复] 收到: {p[:20]}...",
+        "callback": lambda p, c: f"[DeepSeek处理结果] 收到: {p[:20]}...",
     })
     
     ai_result = calendar.ai_route("code", "写一个快速排序算法")

@@ -17,64 +17,67 @@ DNA:#龍芯⚡️2026-06-08-KIMI-CLIENT-v1.0
 """
 
 import os
-import json
+import sys
 import time
-import requests
+from pathlib import Path
 from typing import Dict, Any, Optional, List
-from datetime import datetime
+
+# 引入龙魂模型路由，禁止直连 Moonshot
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from sovereignty.portal import model_router
 
 
 class KimiClient:
     """Kimi API 客户端"""
 
     def __init__(self, api_key: Optional[str] = None, timeout: int = 30):
-        self.api_key = api_key or os.getenv("KIMI_API_KEY")
-        if not self.api_key:
-            raise ValueError("KIMI_API_KEY 未设置，请设置环境变量或传入 api_key")
-
-        self.base_url = "https://api.moonshot.cn/v1"
+        # 龙魂系统不再使用 KIMI_API_KEY；保留参数仅兼容旧接口
+        self.api_key = api_key or os.getenv("KIMI_API_KEY") or "longhun-local"
         self.timeout = timeout
-        self.session = requests.Session()
-        self.session.headers.update({
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        })
         self.max_retries = 3
         self.retry_delay = 1.0
 
     def _make_request(self, method: str, endpoint: str, data: Dict[str, Any] = None) -> Dict[str, Any]:
-        """发送 API 请求，带重试机制"""
-        url = f"{self.base_url}{endpoint}"
+        """已迁移：统一调用龙魂模型路由（DeepSeek / 本地 Ollama）。"""
+        if method != "POST" or endpoint != "/chat/completions":
+            raise ValueError(f"当前仅支持本地 /chat/completions 代理: {method} {endpoint}")
+
+        messages = (data or {}).get("messages", [])
+        temperature = (data or {}).get("temperature", 0.7)
+        max_tokens = (data or {}).get("max_tokens", 4096)
+        model = (data or {}).get("model")
 
         for attempt in range(self.max_retries):
             try:
-                if method == "POST":
-                    response = self.session.post(url, json=data, timeout=self.timeout)
-                elif method == "GET":
-                    response = self.session.get(url, timeout=self.timeout)
-                else:
-                    raise ValueError(f"不支持的 HTTP 方法: {method}")
-
-                response.raise_for_status()
-                return response.json()
-
-            except requests.exceptions.Timeout:
+                req = model_router.ChatRequest(
+                    messages=messages,
+                    provider="auto",
+                    model=model,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                )
+                result = model_router.chat(req)
+                # 包装成 OpenAI 兼容格式
+                return {
+                    "choices": [
+                        {
+                            "message": {
+                                "role": "assistant",
+                                "content": result.get("reply", ""),
+                            },
+                            "finish_reason": "stop",
+                            "index": 0,
+                        }
+                    ],
+                    "model": result.get("model", "deepseek-chat"),
+                    "provider": result.get("provider", "deepseek"),
+                    "dna": result.get("dna"),
+                }
+            except Exception:
                 if attempt < self.max_retries - 1:
                     time.sleep(self.retry_delay * (attempt + 1))
                     continue
-                raise
-
-            except requests.exceptions.ConnectionError:
-                if attempt < self.max_retries - 1:
-                    time.sleep(self.retry_delay * (attempt + 1))
-                    continue
-                raise
-
-            except requests.exceptions.HTTPError as e:
-                if response.status_code == 429:  # Rate limit
-                    if attempt < self.max_retries - 1:
-                        time.sleep(self.retry_delay * (attempt + 2))
-                        continue
                 raise
 
     def chat_completion(
@@ -133,16 +136,16 @@ class KimiClient:
         return self.chat_completion(messages, model=model)
 
     def get_models(self) -> Dict[str, Any]:
-        """获取可用模型列表"""
-        return self._make_request("GET", "/models")
+        """获取可用模型列表（本地路由）"""
+        return model_router.list_models()
 
     def health_check(self) -> bool:
-        """检查 API 连接状态"""
+        """检查本地模型路由状态"""
         try:
-            response = self._make_request("GET", "/models")
-            return response.get("data") is not None
+            status = model_router.models_status()
+            return any(p["status"] == "online" for p in status.get("providers", []))
         except Exception as e:
-            print(f"❌ Kimi API 连接失败: {e}")
+            print(f"❌ 本地模型路由连接失败: {e}")
             return False
 
     def extract_response_text(self, response: Dict[str, Any]) -> str:

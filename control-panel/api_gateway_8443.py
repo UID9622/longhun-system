@@ -78,9 +78,11 @@ class GatewayHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 8443), GatewayHandler)
-    print("🐉 龍魂 API 网关已启动: http://0.0.0.0:8443")
+    # 仅监听本地环回，禁止公网直接访问；外部流量必须通过 Nginx → DeepSeek 执行器 → 本网关
+    server = HTTPServer(("127.0.0.1", 8443), GatewayHandler)
+    print("🐉 龍魂 API 网关已启动: http://127.0.0.1:8443")
     print(f"   上游: http://{TARGET_HOST}:{TARGET_PORT}")
+    print("   外部入口: /executor/ → DeepSeek 执行器 → 本网关")
     print("   DNA:#龍芯⚡️2026-06-19-LONGHUN-API-GATEWAY-8443-v1.0")
     try:
         server.serve_forever()
