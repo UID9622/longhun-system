@@ -8,4 +8,4 @@ python-dotenv==1.2.2
 pydantic==2.5.3
 sqlalchemy==2.0.25
 python-multipart==0.0.32
-aiofiles==23.2.1
+aiofiles==25.1.0
