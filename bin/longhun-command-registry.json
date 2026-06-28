@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "DNA": "#龍芯⚡️2026-06-28-LONGHUN-COMMAND-REGISTRY-v2.6-HARVEST",
+    "DNA": "#龍芯⚡️2026-06-28-LONGHUN-COMMAND-REGISTRY-v2.8-SOVEREIGN",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "description": "龍魂终端统一命令注册表 v2.0：按功能（不按标题）纳管全系统沉睡脚本",
     "categories": {
@@ -12,6 +12,8 @@
       "签名": "GPG 签名与证据",
       "安全": "龍盾与安全",
       "人格": "人格与 API",
+      "声纹": "声纹DNA锚定链",
+      "主权": "UID9622主权身份注册",
       "技能": "技能工具集",
       "cnsh": "CNSH 中文原生",
       "同步": "同步与集成",
@@ -34,6 +36,18 @@
       "desc": "查看龍魂系统运行状态（端口/自启动/日志）",
       "type": "script",
       "script": "bin/longhun-status.sh"
+    },
+    "全局索引": {
+      "aliases": [
+        "index",
+        "global-index",
+        "gi",
+        "lh-index"
+      ],
+      "category": "状态",
+      "desc": "全局实时索引查询：status/search/daily",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-index"
     },
     "体检": {
       "aliases": [
@@ -494,12 +508,15 @@
     },
     "notion同步": {
       "aliases": [
-        "notion-sync"
+        "notion-sync",
+        "notion",
+        "同步notion",
+        "nsync"
       ],
       "category": "同步",
-      "desc": "脑干 Notion 同步桥",
+      "desc": "龍魂 Notion 母页持续同步：导出 Markdown + 重载公式向量 + 重建知识图谱 + 过闸分拣",
       "type": "script",
-      "script": "~/Desktop/brain_notion_sync.py"
+      "script": "~/.龍魂/bin/lh-notion-sync"
     },
     "notion检查": {
       "aliases": [
@@ -563,6 +580,30 @@
       "desc": "统一知识图谱构建",
       "type": "script",
       "script": "scripts/kg_unified.py"
+    },
+    "公式对准表": {
+      "aliases": [
+        "formula",
+        "公式",
+        "对准",
+        "formulas"
+      ],
+      "category": "技能",
+      "desc": "公式对准表 v1.6 向量语义检索（主干向量库）",
+      "type": "script",
+      "script": "~/.龍魂/bin/lh-formula"
+    },
+    "主干自我迭代": {
+      "aliases": [
+        "self-update",
+        "selfupdate",
+        "迭代",
+        "su"
+      ],
+      "category": "技能",
+      "desc": "龍魂主干自我迭代：检测公式对准表变化→重建向量→刷新KG→DNA追溯→支持回滚",
+      "type": "script",
+      "script": "~/.龍魂/bin/lh-self-update"
     },
     "模块清单": {
       "aliases": [
@@ -1354,6 +1395,205 @@
       "type": "script",
       "script": "bin/lh-logger",
       "args": []
+    },
+    "声纹": {
+      "aliases": [
+        "voice",
+        "voice-dna"
+      ],
+      "category": "声纹",
+      "desc": "龍魂声纹DNA锚定链入口（anchor/register/verify/list/export/backup/serve）",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": []
+    },
+    "声纹锚定": {
+      "aliases": [
+        "voice-anchor"
+      ],
+      "category": "声纹",
+      "desc": "录入声纹并生成DNA锚定链",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "anchor"
+      ],
+      "need_arg": true
+    },
+    "声纹注册": {
+      "aliases": [
+        "voice-register",
+        "register-voice"
+      ],
+      "category": "声纹",
+      "desc": "用户声纹注册（需 user_id）",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "register"
+      ],
+      "need_arg": true
+    },
+    "声纹验证": {
+      "aliases": [
+        "voice-verify"
+      ],
+      "category": "声纹",
+      "desc": "验证数字人身份声纹",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "verify"
+      ],
+      "need_arg": true
+    },
+    "声纹列表": {
+      "aliases": [
+        "voice-list"
+      ],
+      "category": "声纹",
+      "desc": "列出所有已锚定的数字人身份",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "list"
+      ]
+    },
+    "声纹用户": {
+      "aliases": [
+        "voice-personas"
+      ],
+      "category": "声纹",
+      "desc": "列出某用户的数字人身份",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "personas"
+      ],
+      "need_arg": true
+    },
+    "声纹导出": {
+      "aliases": [
+        "voice-export"
+      ],
+      "category": "声纹",
+      "desc": "导出用户声纹DNA加密包",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "export"
+      ],
+      "need_arg": true
+    },
+    "声纹备份": {
+      "aliases": [
+        "voice-backup"
+      ],
+      "category": "声纹",
+      "desc": "执行声纹锚定本地备份",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "backup"
+      ]
+    },
+    "声纹快照": {
+      "aliases": [
+        "voice-snapshot"
+      ],
+      "category": "声纹",
+      "desc": "创建声纹锚定完整快照",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "snapshot"
+      ]
+    },
+    "声纹审计": {
+      "aliases": [
+        "voice-audit"
+      ],
+      "category": "声纹",
+      "desc": "查看声纹锚定审计日志",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "audit"
+      ]
+    },
+    "声纹服务": {
+      "aliases": [
+        "voice-serve",
+        "voice-api"
+      ],
+      "category": "声纹",
+      "desc": "启动官网声纹注册 API 服务",
+      "type": "script",
+      "script": "voice-dna/cli.py",
+      "args": [
+        "serve"
+      ]
+    },
+    "主权": {
+      "aliases": [
+        "sovereign"
+      ],
+      "category": "主权",
+      "desc": "UID9622 主权身份注册入口",
+      "type": "script",
+      "script": "sovereign-registry/cli.py",
+      "args": []
+    },
+    "主权注册": {
+      "aliases": [
+        "sovereign-register"
+      ],
+      "category": "主权",
+      "desc": "注册 UID9622 主权身份",
+      "type": "script",
+      "script": "sovereign-registry/cli.py",
+      "args": [
+        "register"
+      ],
+      "need_arg": true
+    },
+    "主权验证": {
+      "aliases": [
+        "sovereign-verify"
+      ],
+      "category": "主权",
+      "desc": "验证 UID9622 主权身份",
+      "type": "script",
+      "script": "sovereign-registry/cli.py",
+      "args": [
+        "verify"
+      ],
+      "need_arg": true
+    },
+    "主权列表": {
+      "aliases": [
+        "sovereign-list"
+      ],
+      "category": "主权",
+      "desc": "列出 UID9622 主权身份",
+      "type": "script",
+      "script": "sovereign-registry/cli.py",
+      "args": [
+        "list"
+      ]
+    },
+    "主权身份卡": {
+      "aliases": [
+        "sovereign-card"
+      ],
+      "category": "主权",
+      "desc": "生成 UID9622 主权身份卡",
+      "type": "script",
+      "script": "sovereign-registry/cli.py",
+      "args": [
+        "card"
+      ],
+      "need_arg": true
     }
   }
 }

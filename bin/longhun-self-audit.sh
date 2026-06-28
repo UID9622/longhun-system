@@ -94,6 +94,42 @@ else
     add_check "仓储审计引擎可运行" "FAIL" 10 0 "引擎运行失败"
 fi
 
+# 8. 全局索引服务状态
+INDEX_PID=$(launchctl list 2>/dev/null | awk '/com.longhun.global-index/ {print $1}')
+if [[ -n "$INDEX_PID" && "$INDEX_PID" != "-" ]]; then
+    INDEX_COUNT=$(python3 - "$HOME/.longhun/global_index/global_index.db" <<'PY'
+import sqlite3, sys
+conn = sqlite3.connect(sys.argv[1])
+print(conn.execute("SELECT COUNT(*) FROM files WHERE accessible=1").fetchone()[0])
+PY
+)
+    add_check "全局索引服务运行中" "PASS" 10 10 "PID $INDEX_PID | 索引 $INDEX_COUNT 个文件"
+else
+    add_check "全局索引服务运行中" "WARN" 10 0 "服务未运行"
+fi
+
+# 9. 知识图谱公开接口服务
+KG_API_PID=$(launchctl list 2>/dev/null | awk '/com.longhun.kg-api/ {print $1}')
+if [[ -n "$KG_API_PID" && "$KG_API_PID" != "-" ]]; then
+    if curl -s --max-time 3 http://127.0.0.1:8088/api/health >/dev/null 2>&1; then
+        add_check "知识图谱公开接口" "PASS" 10 10 "PID $KG_API_PID | http://127.0.0.1:8088"
+    else
+        add_check "知识图谱公开接口" "WARN" 10 5 "服务运行但接口未响应"
+    fi
+else
+    add_check "知识图谱公开接口" "WARN" 10 0 "服务未运行"
+fi
+
+# 10. 主干自我迭代检查
+SELF_UPDATE_CHECK=$(~/.龍魂/bin/lh-self-update 2>&1 || true)
+if echo "$SELF_UPDATE_CHECK" | grep -q "主干无变化"; then
+    add_check "主干自我迭代检查" "PASS" 10 10 "raw.md 无变化，向量库已是最新"
+elif echo "$SELF_UPDATE_CHECK" | grep -q "主干自我迭代完成"; then
+    add_check "主干自我迭代检查" "PASS" 10 10 "检测到变化并已自动重建向量库"
+else
+    add_check "主干自我迭代检查" "WARN" 10 5 "自我更新检查异常，需排查 lh-self-update"
+fi
+
 # 生成 Markdown 报告
 RATE=$(awk "BEGIN {printf \"%.0f\", $SCORE/$TOTAL*100}")
 if [[ "$RATE" -ge 90 ]]; then RANK="🟢 卓越"; elif [[ "$RATE" -ge 75 ]]; then RANK="🟢 良好"; elif [[ "$RATE" -ge 60 ]]; then RANK="🟡 合格"; elif [[ "$RATE" -ge 40 ]]; then RANK="🟡 待改进"; else RANK="🔴 不合格"; fi
@@ -114,6 +150,19 @@ cat > "$REPORT_FILE" << EOF
 | 总分 | $SCORE / $TOTAL |
 | 得分率 | $RATE% |
 | 评级 | $RANK |
+
+## 全局索引日报
+
+EOF
+
+DAILY_FILE="$HOME/.longhun/global_index/daily/$(date +%Y-%m-%d).md"
+if [[ -f "$DAILY_FILE" ]]; then
+    cat "$DAILY_FILE" >> "$REPORT_FILE"
+else
+    echo "未生成今日摘要，路径: $DAILY_FILE" >> "$REPORT_FILE"
+fi
+
+cat >> "$REPORT_FILE" << EOF
 
 ## 检查项明细
 

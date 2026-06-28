@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂通心译闸门 | Tongxinyi Gate v1.0
+🐉 龍魂通心译闸门 | Tongxinyi Gate v1.1
 
 所有用户输入进入 control-panel 技能执行前，先经过此闸门：
   L0 原话保留 → L1 情绪净化 → L2 意图骨架 → L3 SAST → L4 三色审计 → L5 适配输出
 
-DNA: #龍芯⚡️2026-06-23-TONGXINYI-GATE-v1.0
+v1.1 升级：接入计算公式对准表 v1.6 补全补丁
+  - §Z4 200+ 词五行词典
+  - §H3-H6 人性偏置量表
+  - 五行向量与人性偏置进入 SAST / 三色审计
+
+DNA: #龍芯⚡️2026-06-28-TONGXINYI-GATE-v1.1
 """
 
 import hashlib
@@ -17,6 +22,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 DRAWERS_PATH = Path(__file__).with_name("tongxinyi_drawers.json")
+WUXING_DICT_PATH = Path(__file__).with_name("tongxinyi_wuxing_dict.json")
 
 
 class TongxinyiGate:
@@ -25,6 +31,7 @@ class TongxinyiGate:
     def __init__(self, skill_metadata: Optional[Dict[str, Any]] = None):
         self.skill_metadata = skill_metadata or {}
         self.drawers = self._load_drawers()
+        self.wuxing_dict = self._load_wuxing_dict()
 
     def _load_drawers(self) -> List[Dict[str, Any]]:
         if DRAWERS_PATH.exists():
@@ -34,6 +41,14 @@ class TongxinyiGate:
             except Exception:
                 pass
         return []
+
+    def _load_wuxing_dict(self) -> Dict[str, Any]:
+        if WUXING_DICT_PATH.exists():
+            try:
+                return json.loads(WUXING_DICT_PATH.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        return {"五行": {}, "人性偏置关键词": {}}
 
     def translate(self, raw_input: str, uid: str = "UID9622") -> Dict[str, Any]:
         """执行六层翻译，返回结构化结果。"""
@@ -45,6 +60,8 @@ class TongxinyiGate:
         l0 = self._layer0_raw(raw_input, input_hash, ts)
         l1 = self._layer1_emotion(raw_input)
         l2 = self._layer2_intent(raw_input, uid)
+        l2["wuxing"] = self._compute_wuxing(raw_input)
+        l2["human_bias"] = self._compute_human_bias(raw_input)
         l3 = self._layer3_sast(raw_input, l2)
         l4 = self._layer4_audit(raw_input, l2)
         l5 = self._layer5_adapter(raw_input, l2, l4)
@@ -57,6 +74,60 @@ class TongxinyiGate:
             "L3_SAST": l3,
             "L4_三色审计": l4,
             "L5_适配输出": l5,
+        }
+
+    # ═══════════════════════════════════════════════════════════
+    # 五行向量与人性偏置（v1.6 补丁新增）
+    # ═══════════════════════════════════════════════════════════
+    def _compute_wuxing(self, text: str) -> Dict[str, Any]:
+        """计算输入文本的五行向量。"""
+        counts = {"金": 0, "木": 0, "水": 0, "火": 0, "土": 0}
+        matched_terms = []
+        wx_map = self.wuxing_dict.get("五行", {})
+        for element, groups in wx_map.items():
+            for core_word, synonyms in groups.items():
+                candidates = [core_word] + synonyms
+                for word in candidates:
+                    if word in text:
+                        counts[element] += 1
+                        matched_terms.append((element, word))
+                        break
+        total = sum(counts.values()) or 1
+        vector = {k: round(v / total, 3) for k, v in counts.items()}
+        dominant = max(counts, key=counts.get) if total > 0 else "土"
+        return {
+            "vector": vector,
+            "dominant": dominant,
+            "matched": matched_terms[:10],
+            "note": "基于 §Z4 200+ 词五行词典",
+        }
+
+    def _compute_human_bias(self, text: str) -> Dict[str, Any]:
+        """计算人性偏置 H = 欲望 × 损失规避 × 即时偏好。"""
+        bias_kw = self.wuxing_dict.get("人性偏置关键词", {})
+
+        def score_category(cat_map: Dict[str, List[str]]) -> int:
+            for score in range(5, -1, -1):
+                for kw in cat_map.get(str(score), []):
+                    if kw in text:
+                        return score
+            return 0
+
+        desire = score_category(bias_kw.get("欲望强度", {}))
+        loss = score_category(bias_kw.get("损失规避", {}))
+        immediacy = score_category(bias_kw.get("即时偏好", {}))
+        h_base = desire * loss * immediacy
+
+        # 修正系数：默认 1.0
+        adjustment = 1.0
+        return {
+            "desire": desire,
+            "loss_aversion": loss,
+            "immediacy": immediacy,
+            "H_base": h_base,
+            "H_adj": round(h_base * adjustment, 2),
+            "adjustment": adjustment,
+            "note": "基于 §H3 人性偏置量表",
         }
 
     # ═══════════════════════════════════════════════════════════
@@ -163,15 +234,20 @@ class TongxinyiGate:
     # L3 SAST 语义抽象语法树
     # ═══════════════════════════════════════════════════════════
     def _layer3_sast(self, text: str, skeleton: Dict[str, Any]) -> Dict[str, Any]:
+        nodes = [
+            {"type": "subject", "value": skeleton["subject"], "layer": "L2"},
+            {"type": "action", "value": skeleton["action"], "layer": "L2"},
+            {"type": "target", "value": skeleton["target"] or "未指定", "layer": "L2"},
+            {"type": "priority", "value": skeleton["priority"], "layer": "L2"},
+        ]
+        if "wuxing" in skeleton:
+            nodes.append({"type": "wuxing", "value": skeleton["wuxing"], "layer": "L2-v1.6-patch"})
+        if "human_bias" in skeleton:
+            nodes.append({"type": "human_bias", "value": skeleton["human_bias"], "layer": "L2-v1.6-patch"})
         return {
             "root_type": skeleton["action"],
-            "nodes": [
-                {"type": "subject", "value": skeleton["subject"], "layer": "L2"},
-                {"type": "action", "value": skeleton["action"], "layer": "L2"},
-                {"type": "target", "value": skeleton["target"] or "未指定", "layer": "L2"},
-                {"type": "priority", "value": skeleton["priority"], "layer": "L2"},
-            ],
-            "note": "把人话变成结构化的「这是什么操作」",
+            "nodes": nodes,
+            "note": "把人话变成结构化的「这是什么操作」，v1.6 补丁新增五行与人性偏置节点",
         }
 
     # ═══════════════════════════════════════════════════════════
@@ -187,12 +263,24 @@ class TongxinyiGate:
                 "预判": "高风险操作，可能涉及数据安全或破坏性命令",
             }
 
-        if skeleton["action"] in ("delete", "backup") or skeleton.get("priority", 0) >= 8:
+        human_bias = skeleton.get("human_bias", {})
+        h_adj = human_bias.get("H_adj", 0)
+
+        # 人性偏置高 → 待审
+        if h_adj >= 30:
+            return {
+                "color": "🔴",
+                "label": "人性偏置阻断",
+                "action": "H 极高，强制冷却并等待 UID9622 确认",
+                "预判": f"人性偏置 H_adj={h_adj}，欲望/损失/即时至少有一项达到极高",
+            }
+
+        if skeleton["action"] in ("delete", "backup") or skeleton.get("priority", 0) >= 8 or h_adj >= 8:
             return {
                 "color": "🟡",
                 "label": "待审",
                 "action": "追问边界/来源/影响范围，5 分钟超时降级",
-                "预判": "操作影响较大，需要补充确认",
+                "预判": "操作影响较大或人性偏置偏高，需要补充确认",
             }
 
         return {
@@ -216,18 +304,24 @@ class TongxinyiGate:
         else:
             confirm_msg = "已通过通心译闸门，可继续执行"
 
+        receipt = {
+            "理解": f"识别为「{skeleton['action']}」意图",
+            "补全": skeleton.get("missing") or "无",
+            "预判": audit.get("预判", "继续执行"),
+            "路径": top_ids,
+            "确认": confirm_msg,
+        }
+        if "wuxing" in skeleton:
+            receipt["五行"] = f"主导：{skeleton['wuxing']['dominant']}，向量：{skeleton['wuxing']['vector']}"
+        if "human_bias" in skeleton:
+            receipt["人性偏置"] = f"H_adj={skeleton['human_bias']['H_adj']} (欲望{skeleton['human_bias']['desire']}/损失{skeleton['human_bias']['loss_aversion']}/即时{skeleton['human_bias']['immediacy']})"
+
         return {
             "style": "Kimi 主控",
             "output_format": "executable_struct",
             "recommended_skills": recommendations,
             "recommended_drawers": self._recommend_drawers(text, skeleton),
-            "five_part_receipt": {
-                "理解": f"识别为「{skeleton['action']}」意图",
-                "补全": skeleton.get("missing") or "无",
-                "预判": audit.get("预判", "继续执行"),
-                "路径": top_ids,
-                "确认": confirm_msg,
-            },
+            "five_part_receipt": receipt,
         }
 
     def _recommend_skills(self, text: str, skeleton: Dict[str, Any]) -> List[Dict[str, Any]]:
