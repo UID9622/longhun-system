@@ -89,6 +89,15 @@ def _git_commit_papers(target_dir: Path, category: str) -> Optional[str]:
         print(f"🟡 git add 警告: {e.stderr}", file=sys.stderr)
         return None
 
+    # 检查是否有 staged 变更；没有则无需提交
+    no_staged = subprocess.run(
+        ["git", "diff", "--cached", "--quiet"],
+        cwd=repo_root,
+        capture_output=True,
+    )
+    if no_staged.returncode == 0:
+        return "no-changes"
+
     commit_msg = (
         f"docs(papers/{category}): 提交论文并入库知识图谱\n\n"
         f"通过 longhun-kg-paper-index 技能自动入库与验证。\n"
@@ -98,7 +107,7 @@ def _git_commit_papers(target_dir: Path, category: str) -> Optional[str]:
     # 优先正常提交；若 GPG pinentry 不可用则回退 --no-gpg-sign
     for extra in ([], ["--no-gpg-sign"]):
         try:
-            result = subprocess.run(
+            subprocess.run(
                 ["git", "commit", "-m", commit_msg, *extra],
                 cwd=repo_root,
                 check=True,
@@ -114,9 +123,18 @@ def _git_commit_papers(target_dir: Path, category: str) -> Optional[str]:
             )
             return show.stdout.strip()
         except subprocess.CalledProcessError as e:
-            if "gpg" in e.stderr.lower() or "pinentry" in e.stderr.lower() or "gpg failed" in e.stderr.lower():
+            err = (e.stderr or "") + (e.stdout or "")
+            if "gpg" in err.lower() or "pinentry" in err.lower() or "gpg failed" in err.lower():
                 continue
-            if "nothing to commit" in e.stdout.lower() or "nothing to commit" in e.stderr.lower():
+            no_change_hints = [
+                "nothing to commit",
+                "没有要提交的",
+                "没有要commit",
+                "no changes added",
+                "working tree clean",
+                "工作区干净",
+            ]
+            if any(h in err.lower() for h in no_change_hints):
                 return "no-changes"
             print(f"🟡 git commit 警告: {e.stderr}", file=sys.stderr)
             return None
