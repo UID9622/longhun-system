@@ -1,6 +1,6 @@
 # Notion 统一知识库索引
-**DNA**: `#龍芯⚡️20260701091113250430-NOTION-KG-INDEX-99FA8533`
-**生成时间**: 2026-07-01T09:11:13.250615+00:00
+**DNA**: `#龍芯⚡️20260701154632190461-NOTION-KG-INDEX-B7481020`
+**生成时间**: 2026-07-01T15:46:32.190616+00:00
 
 | 类型 | 标题 | DNA | 摘要 | URL |
 |------|------|-----|------|-----|
@@ -5501,304 +5501,304 @@
 | 页面 | 🏦 龙魂终端·数字人民币DNA绑定协议 | 试用期+付费分级完整方案 | `#龍芯⚡️20260701071055331668-NOTION-fff08df2-6321-4dd6-b73a-3fc8e60a1025-60AFFFC6` | DNA追溯码：#ZHUGEXIN⚡️2026-01-03-LONGHUN-DCEP-DNA-BINDING-v1.0 🎯 核心理念 老大的底线： 📋 完整方案概览 🏦 DNA+数字人民币绑定协议 核心机制 🔐 加密版CNSH编译器 三层加密 | [链接](https://app.notion.com/p/DNA-fff08df263214dd6b73a3fc8e60a1025) |
 | 页面 | 📖 Web3-DNA交易系统方法论解读 | 朋友圈版 | `#龍芯⚡️20260701071903057122-NOTION-fff94357-f135-4bd8-aa26-912a66e2cbf2-261074DB` | 📖 方法论解读：为什么这样设计？ 写给所有人看的解释：这不是技术文档，而是做事的道理 💡 核心问题：代码还是方法论？ 答案：核心是方法论，代码只是工具 🌟 五大核心方法论 1️⃣ 数据主权回归人民 问题：现在的互联网，你的数据不属于你 你在 | [链接](https://app.notion.com/p/Web3-DNA-fff94357f1354bd8aa26912a66e2cbf2) |
 | 页面 | 🧬 量子记忆系统 | Memory Quantum Architecture | `#龍芯⚡️20260701071058649076-NOTION-fffc5581-61ca-4c98-85d9-1735fd554ec2-D12A9D16` | 🎯 系统定位 本页面是 UID9622 系统的记忆量子核心，将经验固化为可调用的记忆单元。 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z DNA追溯码：#ZHUGEXIN⚡️2025-MEMORY-QUANTU | [链接](https://app.notion.com/p/Memory-Quantum-Architecture-fffc558161ca4c9885d91735fd554ec2) |
-| 数据库 | 计算机科学知识库 | `#龍芯⚡️20260701091113447256-NOTION-DB-3367125a-9c9f-808a-9692-f0c6752e92fa-34C3C44B` | Notion 数据库 | [链接](https://app.notion.com/p/3367125a9c9f808a9692f0c6752e92fa) |
-| 数据库 | LU 公开档案 | `#龍芯⚡️20260701091113447294-NOTION-DB-38f7125a-9c9f-8172-907d-defd663d9ba7-6DE93860` | Notion 数据库 | [链接](https://app.notion.com/p/38f7125a9c9f8172907ddefd663d9ba7) |
-| 数据库 | Timeline | `#龍芯⚡️20260701091113447319-NOTION-DB-38f7125a-9c9f-812b-9356-c740da74f39c-E071FEF7` | Notion 数据库 | [链接](https://app.notion.com/p/38f7125a9c9f812b9356c740da74f39c) |
-| 数据库 | 审计登记 | `#龍芯⚡️20260701091113447329-NOTION-DB-38e7125a-9c9f-8147-81a2-eed0a623149e-6B125420` | Notion 数据库 | [链接](https://app.notion.com/p/38e7125a9c9f814781a2eed0a623149e) |
-| 数据库 | 攻击地图 | `#龍芯⚡️20260701091113447336-NOTION-DB-38e7125a-9c9f-81dd-846f-d94b34d99736-8CCED7CA` | Notion 数据库 | [链接](https://app.notion.com/p/38e7125a9c9f81dd846fd94b34d99736) |
-| 数据库 | 🌌 龍魂空间治理数据库 · 50页面统一管理 | `#龍芯⚡️20260701091113447342-NOTION-DB-850b44ea-34bf-4af3-ba7e-1ee4f696b9cd-BAB7CD72` | Notion 数据库 | [链接](https://app.notion.com/p/850b44ea34bf4af3ba7e1ee4f696b9cd) |
-| 数据库 | 公民画像库 · Behavior Profiles | `#龍芯⚡️20260701091113447350-NOTION-DB-3877125a-9c9f-8136-8e74-c2add2b1d522-525FAD36` | Notion 数据库 | [链接](https://app.notion.com/p/3877125a9c9f81368e74c2add2b1d522) |
-| 数据库 | 🛡️ 系统攻击者档案库 | `#龍芯⚡️20260701091113447363-NOTION-DB-2ad7125a-9c9f-8096-8674-e54f05b9d6f8-A1295B81` | Notion 数据库 | [链接](https://app.notion.com/p/2ad7125a9c9f80968674e54f05b9d6f8) |
-| 数据库 | 🐉 龍魂多币种 · Multicurrency | `#龍芯⚡️20260701091113447374-NOTION-DB-4d66de13-819d-4e1e-a257-b4064b19d5bf-69A0CEBA` | Notion 数据库 | [链接](https://app.notion.com/p/4d66de13819d4e1ea257b4064b19d5bf) |
-| 数据库 | 问题收集 | `#龍芯⚡️20260701091113447387-NOTION-DB-2747125a-9c9f-8091-a731-fc01a9101426-A8BED2C7` | Notion 数据库 | [链接](https://app.notion.com/p/2747125a9c9f8091a731fc01a9101426) |
-| 数据库 | Goals | `#龍芯⚡️20260701091113447402-NOTION-DB-2487125a-9c9f-80f9-8d47-ef4cbf2926f1-08ACCCC9` | Notion 数据库 | [链接](https://app.notion.com/p/2487125a9c9f80f98d47ef4cbf2926f1) |
-| 数据库 | 文档 | `#龍芯⚡️20260701091113447412-NOTION-DB-2487125a-9c9f-80a5-a6bd-f911e33388a0-EB10F26E` | Notion 数据库 | [链接](https://app.notion.com/p/2487125a9c9f80a5a6bdf911e33388a0) |
-| 数据库 | 龍魂协议流场 MVP 执行追踪 | `#龍芯⚡️20260701091113447417-NOTION-DB-36b7125a-9c9f-804e-bed7-fa5804d51e1a-DBD3D31D` | Notion 数据库 | [链接](https://app.notion.com/p/36b7125a9c9f804ebed7fa5804d51e1a) |
-| 数据库 | 🧮 CNSH Runtime Formula Index | `#龍芯⚡️20260701091113447425-NOTION-DB-3707125a-9c9f-8174-b177-eb3d947437d3-1A3E18F7` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f8174b177eb3d947437d3) |
-| 数据库 | ⚖️ CNSH Axiom System | `#龍芯⚡️20260701091113447432-NOTION-DB-3707125a-9c9f-81d5-aad3-e165fedfb772-C4530368` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f81d5aad3e165fedfb772) |
-| 数据库 | 📚 CNSH Unified Theory Layer | `#龍芯⚡️20260701091113447446-NOTION-DB-3707125a-9c9f-81e3-9a9c-d15d07459f23-9EA57062` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f81e39a9cd15d07459f23) |
-| 数据库 | 🐉 龍芯家族花名册 | `#龍芯⚡️20260701091113447452-NOTION-DB-4cf99c3e-7a01-4e91-9fda-b705ceb4cbc4-B8BFEF51` | Notion 数据库 | [链接](https://app.notion.com/p/4cf99c3e7a014e919fdab705ceb4cbc4) |
-| 数据库 | 🐉 跨平台AI对话总归档｜全平台·全时间戳·可跳转 | `#龍芯⚡️20260701091113447458-NOTION-DB-1959c7d5-76ff-4a86-adbe-31238a9c2843-C09CE0E6` | Notion 数据库 | [链接](https://app.notion.com/p/1959c7d576ff4a86adbe31238a9c2843) |
-| 数据库 | 🧠 Personas（人格管理） | `#龍芯⚡️20260701091113447469-NOTION-DB-03bae1bb-85aa-402f-a542-d97d5e3c00fa-EA20208A` | Notion 数据库 | [链接](https://app.notion.com/p/03bae1bb85aa402fa542d97d5e3c00fa) |
-| 数据库 | 🧯 Incidents & Risks（风险事件） | `#龍芯⚡️20260701091113447477-NOTION-DB-15ef075c-3846-4583-97bd-677f0f78e7bb-569F530D` | Notion 数据库 | [链接](https://app.notion.com/p/15ef075c3846458397bd677f0f78e7bb) |
-| 数据库 | 🔑 Activations（激活码系统） | `#龍芯⚡️20260701091113447484-NOTION-DB-1d895555-e661-4ece-aaac-edae44cc3329-D24D95CC` | Notion 数据库 | [链接](https://app.notion.com/p/1d895555e6614eceaaacedae44cc3329) |
-| 数据库 | 🧠 诸葛亮沙盒训练场 | 易经道德经算法实验室 | `#龍芯⚡️20260701091113447497-NOTION-DB-35c7125a-9c9f-817c-91ef-d86078452082-E9E81A44` | Notion 数据库 | [链接](https://app.notion.com/p/35c7125a9c9f817c91efd86078452082) |
-| 数据库 | 📈 Metrics（健康指标） | `#龍芯⚡️20260701091113447503-NOTION-DB-930d7473-1c64-4e0e-873e-c9da8c4064df-508A14C6` | Notion 数据库 | [链接](https://app.notion.com/p/930d74731c644e0e873ec9da8c4064df) |
-| 数据库 | 🧭 ADR 决策记录 | `#龍芯⚡️20260701091113447511-NOTION-DB-9e63c5b0-62c0-4cfd-bf2b-ce8c598a947e-57D16B94` | Notion 数据库 | [链接](https://app.notion.com/p/9e63c5b062c04cfdbf2bce8c598a947e) |
-| 数据库 | 💬 Feedback（反馈系统） | `#龍芯⚡️20260701091113447522-NOTION-DB-a98a3654-7c48-4222-805a-8532867e6166-384590B6` | Notion 数据库 | [链接](https://app.notion.com/p/a98a36547c484222805a8532867e6166) |
-| 数据库 | 🔄 Changelog（变更日志） | `#龍芯⚡️20260701091113447529-NOTION-DB-d6d2f34f-e2dc-4a2a-b9f5-43935a2b5033-8E34549D` | Notion 数据库 | [链接](https://app.notion.com/p/d6d2f34fe2dc4a2ab9f543935a2b5033) |
-| 数据库 | 📚 UID9622 论文归集库 | `#龍芯⚡️20260701091113447535-NOTION-DB-d809b51e-505e-47de-98b9-3f3b1868e6c5-84F9300E` | Notion 数据库 | [链接](https://app.notion.com/p/d809b51e505e47de98b93f3b1868e6c5) |
-| 数据库 | 💎 精选取证库·UID9622 被围一年纪实 v1.0 | `#龍芯⚡️20260701091113447547-NOTION-DB-eae3c090-0988-4ba9-824f-2814f266d509-536260CA` | Notion 数据库 | [链接](https://app.notion.com/p/eae3c09009884ba9824f2814f266d509) |
-| 数据库 | 冲突库 · Conflicts | `#龍芯⚡️20260701091113447554-NOTION-DB-3677125a-9c9f-813e-9178-f02700f82290-90D7D829` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f813e9178f02700f82290) |
-| 数据库 | 违背库 · Violations | `#龍芯⚡️20260701091113447561-NOTION-DB-3677125a-9c9f-812f-b157-ec8fef50f421-342C95D8` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f812fb157ec8fef50f421) |
-| 数据库 | 宣言库 · Manifesto | `#龍芯⚡️20260701091113447566-NOTION-DB-3677125a-9c9f-8128-9109-e1e27a821783-5B77CB25` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f81289109e1e27a821783) |
-| 数据库 | 资产库 · Assets | `#龍芯⚡️20260701091113447571-NOTION-DB-3677125a-9c9f-8138-865b-d13628126e24-668EFCDF` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f8138865bd13628126e24) |
-| 数据库 | 龍魂快照库 · Snapshots | `#龍芯⚡️20260701091113447576-NOTION-DB-3677125a-9c9f-81ce-846c-db15c69e08ae-384FE60B` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f81ce846cdb15c69e08ae) |
-| 数据库 | 龍盾收集箱 · Shield Inbox | `#龍芯⚡️20260701091113447580-NOTION-DB-3677125a-9c9f-8151-96b0-dc6a7164d6c8-FAA7B1B0` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f815196b0dc6a7164d6c8) |
-| 数据库 | 📚 CNSH翻译大全｜避坑对照表库 | `#龍芯⚡️20260701091113447585-NOTION-DB-766c188e-d5ce-4c77-a778-0cecacf47652-3772DCD7` | Notion 数据库 | [链接](https://app.notion.com/p/766c188ed5ce4c77a7780cecacf47652) |
-| 数据库 | 🐉 龍魂操作日志数据库 v1.0｜一句话DNA·多AI责任评价·公开快照·谁说话谁签名 | `#龍芯⚡️20260701091113447595-NOTION-DB-cba73d49-cbe4-41e0-b4d3-6f52cb4e636f-5D33FF04` | Notion 数据库 | [链接](https://app.notion.com/p/cba73d49cbe441e0b4d36f52cb4e636f) |
-| 数据库 | DB_CLOUD · L4坎·云端镜像 | `#龍芯⚡️20260701091113447602-NOTION-DB-3cbd6e89-ae3e-4ace-abe9-5095e86038d8-6C036237` | Notion 数据库 | [链接](https://app.notion.com/p/3cbd6e89ae3e4aceabe95095e86038d8) |
-| 数据库 | DB_AL · L2震·战友环 | `#龍芯⚡️20260701091113447614-NOTION-DB-63aadda5-d2fc-4ee6-b5eb-fa94f5b94561-148B8F75` | Notion 数据库 | [链接](https://app.notion.com/p/63aadda5d2fc4ee6b5ebfa94f5b94561) |
-| 数据库 | DB_JQ · L1离·佳琪私有 | `#龍芯⚡️20260701091113447625-NOTION-DB-3efdf557-013a-4d4c-8a9c-ea53a9169db8-D19EE0D3` | Notion 数据库 | [链接](https://app.notion.com/p/3efdf557013a4d4c8a9cea53a9169db8) |
-| 数据库 | DB_LU · L0乾·老大私有 | `#龍芯⚡️20260701091113447632-NOTION-DB-70bba8a4-f7f5-4b33-8b8a-aaf738578ec1-13FE108D` | Notion 数据库 | [链接](https://app.notion.com/p/70bba8a4f7f54b338b8aaaf738578ec1) |
-| 数据库 | DB_PUB · L3巽·公开展示 | `#龍芯⚡️20260701091113447637-NOTION-DB-c45373f4-a7c4-4d1a-95b4-731010acc343-A08E0A53` | Notion 数据库 | [链接](https://app.notion.com/p/c45373f4a7c44d1a95b4731010acc343) |
-| 数据库 | 🔥 UID9622_指令总库（火行） | `#龍芯⚡️20260701091113447641-NOTION-DB-03a60221-cc5e-43e1-a376-dfa15dc6ebb6-DE8D7CF1` | Notion 数据库 | [链接](https://app.notion.com/p/03a60221cc5e43e1a376dfa15dc6ebb6) |
-| 数据库 | 🧬 DNA记忆库 | 量子关联追溯 | `#龍芯⚡️20260701091113447646-NOTION-DB-03c80392-0b16-4f3f-8c55-76e61eac9fcc-D0C73308` | Notion 数据库 | [链接](https://app.notion.com/p/03c803920b164f3f8c5576e61eac9fcc) |
-| 数据库 | 📝 文档写作库 | UID9622知识输出 | `#龍芯⚡️20260701091113447650-NOTION-DB-052a49a0-078b-4163-a008-873076a10a4d-0991B721` | Notion 数据库 | [链接](https://app.notion.com/p/052a49a0078b4163a008873076a10a4d) |
-| 数据库 | 💬 UID9622·真实支持者共鸣墙 | `#龍芯⚡️20260701091113447654-NOTION-DB-0794a8a2-8ae0-48bd-9a41-4887ffd07130-A1F7FDD7` | Notion 数据库 | [链接](https://app.notion.com/p/0794a8a28ae048bd9a414887ffd07130) |
-| 数据库 | ⚖️ 中国法律维权工具箱 | `#龍芯⚡️20260701091113447659-NOTION-DB-08a6a338-735d-49a0-a33e-20fe14fc82ff-B48078BC` | Notion 数据库 | [链接](https://app.notion.com/p/08a6a338735d49a0a33e20fe14fc82ff) |
-| 数据库 | 💼 任务输入判定表 | Task Input Arbitration | `#龍芯⚡️20260701091113447668-NOTION-DB-0cc63fd3-6c6b-435a-8d5e-3d1a2c782523-056015B6` | Notion 数据库 | [链接](https://app.notion.com/p/0cc63fd36c6b435a8d5e3d1a2c782523) |
-| 数据库 | 🏭 UID9622人格模板工厂 | 智能继承生成系统 | `#龍芯⚡️20260701091113447673-NOTION-DB-0d1d73b7-abdd-4244-84c0-226c24e499ec-6622A9B9` | Notion 数据库 | [链接](https://app.notion.com/p/0d1d73b7abdd424484c0226c24e499ec) |
-| 数据库 | 📋 Changelog - 操作日志 | `#龍芯⚡️20260701091113447677-NOTION-DB-0e3225c0-afda-429f-ac49-b7e5a6552a26-E9324915` | Notion 数据库 | [链接](https://app.notion.com/p/0e3225c0afda429fac49b7e5a6552a26) |
-| 数据库 | 📚 UID9622知识库总索引 | `#龍芯⚡️20260701091113447682-NOTION-DB-0f7f7854-89e0-4a96-8e3e-473b612af891-74FD2F13` | Notion 数据库 | [链接](https://app.notion.com/p/0f7f785489e04a968e3e473b612af891) |
-| 数据库 | 📸 Snapshots - 数据快照 | `#龍芯⚡️20260701091113447686-NOTION-DB-126b192b-22d6-4021-b0da-6d89cf9fbd29-5ADDF4B7` | Notion 数据库 | [链接](https://app.notion.com/p/126b192b22d64021b0da6d89cf9fbd29) |
-| 数据库 | 💕 私人记忆库（带ACL） | `#龍芯⚡️20260701091113447694-NOTION-DB-15052508-5cd6-48a3-b7d5-9a0e43abca02-B99ECAFD` | Notion 数据库 | [链接](https://app.notion.com/p/150525085cd648a3b7d59a0e43abca02) |
-| 数据库 | 📊 用户偏好记录数据库 | AI学习进度追踪 | `#龍芯⚡️20260701091113447699-NOTION-DB-1707e180-fabb-4ed3-af57-af68a2963015-D28F6EA3` | Notion 数据库 | [链接](https://app.notion.com/p/1707e180fabb4ed3af57af68a2963015) |
-| 数据库 | 🤖 智能协作生态系统 | `#龍芯⚡️20260701091113447703-NOTION-DB-1768acca-df94-404d-afa2-62169e0713b8-E612E277` | Notion 数据库 | [链接](https://app.notion.com/p/1768accadf94404dafa262169e0713b8) |
-| 数据库 | 🧠 记忆经验库 | Memory DB | `#龍芯⚡️20260701091113447707-NOTION-DB-17ee0bd1-4c8a-490f-9f38-83209fc79c46-89896BBC` | Notion 数据库 | [链接](https://app.notion.com/p/17ee0bd14c8a490f9f3883209fc79c46) |
-| 数据库 | 🚪 天层准入判断表 | `#龍芯⚡️20260701091113447711-NOTION-DB-191e7c95-9257-44a6-a72e-214b8a0a261f-53419610` | Notion 数据库 | [链接](https://app.notion.com/p/191e7c95925744a6a72e214b8a0a261f) |
-| 数据库 | 🤖 人格执行前自动检查系统 | FBI规则引擎 | `#龍芯⚡️20260701091113447715-NOTION-DB-1b13efc7-75c0-46b5-b3a3-39dd21004a5b-E29C2646` | Notion 数据库 | [链接](https://app.notion.com/p/1b13efc775c046b5b3a339dd21004a5b) |
-| 数据库 | 👁️ 上帝之眼监控 | 信号中枢 | `#龍芯⚡️20260701091113447719-NOTION-DB-1d97689d-0db4-49c2-b4b0-db4eefb34475-07B174C4` | Notion 数据库 | [链接](https://app.notion.com/p/1d97689d0db449c2b4b0db4eefb34475) |
-| 数据库 | 📊 维权投诉跟进记录 | `#龍芯⚡️20260701091113447723-NOTION-DB-1e7612ac-740b-43f4-a1fc-eb17f701e7cd-D84723C3` | Notion 数据库 | [链接](https://app.notion.com/p/1e7612ac740b43f4a1fceb17f701e7cd) |
-| 数据库 | 🎯 AI成长事件记录库 | 里程碑与温暖时刻 | `#龍芯⚡️20260701091113447727-NOTION-DB-2103e024-fa25-4a18-af73-6f530c32ad4b-271C07F4` | Notion 数据库 | [链接](https://app.notion.com/p/2103e024fa254a18af736f530c32ad4b) |
-| 数据库 | 💬 对话归档库 | Lucky×宝宝创意记录 | `#龍芯⚡️20260701091113447731-NOTION-DB-23505ecb-76fa-49d3-946b-2c024a5230f8-089338B9` | Notion 数据库 | [链接](https://app.notion.com/p/23505ecb76fa49d3946b2c024a5230f8) |
-| 数据库 | ⚖️ UID9622法律规则库 | 全球正反面清单 | `#龍芯⚡️20260701091113447735-NOTION-DB-25123cdf-b25e-4cbc-9aa7-e65f9a3d2dcc-C57C3495` | Notion 数据库 | [链接](https://app.notion.com/p/25123cdfb25e4cbc9aa7e65f9a3d2dcc) |
-| 数据库 | ⚙️ 技术实现库 | UID9622技术资产 | `#龍芯⚡️20260701091113447740-NOTION-DB-25b16660-c481-4c94-afce-c57d0063983f-F70F4DE6` | Notion 数据库 | [链接](https://app.notion.com/p/25b16660c4814c94afcec57d0063983f) |
-| 数据库 | 🎭 人格对话锚管理系统 | `#龍芯⚡️20260701091113447746-NOTION-DB-265e8162-1661-4804-b764-db538813a3e1-C4E8F514` | Notion 数据库 | [链接](https://app.notion.com/p/265e816216614804b764db538813a3e1) |
-| 数据库 | 🛡️ 系统铁律执行监控中心 | `#龍芯⚡️20260701091113447750-NOTION-DB-2697125a-9c9f-8166-ab30-c47b35334de1-1D0F671D` | Notion 数据库 | [链接](https://app.notion.com/p/2697125a9c9f8166ab30c47b35334de1) |
-| 数据库 | 📊 抖音5集制作进度追踪 | `#龍芯⚡️20260701091113447754-NOTION-DB-27708e13-2537-4c90-be17-ee2a8cba4e54-7C46D078` | Notion 数据库 | [链接](https://app.notion.com/p/27708e1325374c90be17ee2a8cba4e54) |
-| 数据库 | 我的链接 | `#龍芯⚡️20260701091113447758-NOTION-DB-2787125a-9c9f-817d-92b1-d69393a074ea-D7AEB89B` | Notion 数据库 | [链接](https://app.notion.com/p/2787125a9c9f817d92b1d69393a074ea) |
-| 数据库 | 我的链接 | `#龍芯⚡️20260701091113447762-NOTION-DB-28b7125a-9c9f-813a-a5c0-fdb40dc78e2e-E376DB78` | Notion 数据库 | [链接](https://app.notion.com/p/28b7125a9c9f813aa5c0fdb40dc78e2e) |
-| 数据库 | 使用者查看登记 | `#龍芯⚡️20260701091113447766-NOTION-DB-2907125a-9c9f-806d-bc88-deaf4f4f9e19-2EB460CA` | Notion 数据库 | [链接](https://app.notion.com/p/2907125a9c9f806dbc88deaf4f4f9e19) |
-| 数据库 | 全局状态检查 | `#龍芯⚡️20260701091113447770-NOTION-DB-2967125a-9c9f-8003-86d4-e970c42576c7-2D111966` | Notion 数据库 | [链接](https://app.notion.com/p/2967125a9c9f800386d4e970c42576c7) |
-| 数据库 | 🎭 UID9622人格矩阵通讯录 | 93人格协作体系 | `#龍芯⚡️20260701091113447779-NOTION-DB-29e17159-efc3-4551-b512-17d09d2b098d-3EFC16E1` | Notion 数据库 | [链接](https://app.notion.com/p/29e17159efc34551b51217d09d2b098d) |
-| 数据库 | 🏅 CNSH龙魂徽章体系 | UID9622国产认证标识 | `#龍芯⚡️20260701091113447784-NOTION-DB-2d37125a-9c9f-803a-9986-c82379f445bc-F373DF43` | Notion 数据库 | [链接](https://app.notion.com/p/2d37125a9c9f803a9986c82379f445bc) |
-| 数据库 | 🎯 UID9622任务追踪系统 | `#龍芯⚡️20260701091113447794-NOTION-DB-2db80eb7-b470-49e8-9c19-cae1a70bd526-1B76F1B8` | Notion 数据库 | [链接](https://app.notion.com/p/2db80eb7b47049e89c19cae1a70bd526) |
-| 数据库 | ⚖️ 公平服务执行监督中心 | `#龍芯⚡️20260701091113447799-NOTION-DB-304104a2-f04e-4f15-ad58-72e9df189595-EB2BA3C1` | Notion 数据库 | [链接](https://app.notion.com/p/304104a2f04e4f15ad5872e9df189595) |
-| 数据库 | 龙魂元字全能引擎 | `#龍芯⚡️20260701091113447810-NOTION-DB-30e7125a-9c9f-80c6-abcd-c54378c297d0-7157635B` | Notion 数据库 | [链接](https://app.notion.com/p/30e7125a9c9f80c6abcdc54378c297d0) |
-| 数据库 | Bookmark | `#龍芯⚡️20260701091113449842-NOTION-DB-36cb0207-1cdb-4331-bc0c-52532afa791e-8BE9AB13` | Notion 数据库 | [链接](https://app.notion.com/p/36cb02071cdb4331bc0c52532afa791e) |
-| 数据库 | Human-to-System Translation Log | 语义转换记录 | `#龍芯⚡️20260701091113449863-NOTION-DB-3814c9b5-45e3-4c35-913f-0c8ae4ba6547-3895DACA` | Notion 数据库 | [链接](https://app.notion.com/p/3814c9b545e34c35913f0c8ae4ba6547) |
-| 数据库 | 📋 Lucky任务清单·龙魂系统专用 | `#龍芯⚡️20260701091113449871-NOTION-DB-3c20c71a-5f14-4dca-8ec4-f30e886d3e3c-E8E8BDF0` | Notion 数据库 | [链接](https://app.notion.com/p/3c20c71a5f144dca8ec4f30e886d3e3c) |
-| 数据库 | 💎 高亮知识卡 | DNA模块存储 | `#龍芯⚡️20260701091113449878-NOTION-DB-43aff0c1-0c5d-4bd7-82c7-1c6dbb201171-6CD8C68B` | Notion 数据库 | [链接](https://app.notion.com/p/43aff0c10c5d4bd782c71c6dbb201171) |
-| 数据库 | 🧬 UID9622灵魂密钥DNA追溯系统 | 完整进化谱系 | `#龍芯⚡️20260701091113449893-NOTION-DB-4cf7252a-1017-4733-8298-c0113c44bc8c-5EB4AE79` | Notion 数据库 | [链接](https://app.notion.com/p/4cf7252a101747338298c0113c44bc8c) |
-| 数据库 | 📝 CSDN发布登记表 | `#龍芯⚡️20260701091113449899-NOTION-DB-511f7d96-4ac2-4146-935b-c4ec34eed13c-112FA701` | Notion 数据库 | [链接](https://app.notion.com/p/511f7d964ac24146935bc4ec34eed13c) |
-| 数据库 | 📋 条件库 | 可行性规则引擎 | `#龍芯⚡️20260701091113449906-NOTION-DB-51e2608e-a8cd-4090-b2f3-230fafc225cb-AAFDA32E` | Notion 数据库 | [链接](https://app.notion.com/p/51e2608ea8cd4090b2f3230fafc225cb) |
-| 数据库 | 🔧 AI技术架构分析中心 | `#龍芯⚡️20260701091113449911-NOTION-DB-54288166-fc32-4ed8-86e8-0fba2b3a0d2b-9E13CF48` | Notion 数据库 | [链接](https://app.notion.com/p/54288166fc324ed886e80fba2b3a0d2b) |
-| 数据库 | 👥 UID9622用户权限管理中心 | `#龍芯⚡️20260701091113449924-NOTION-DB-542bc52f-a381-4b0d-bb27-522682bdd2ec-DB3B0CE4` | Notion 数据库 | [链接](https://app.notion.com/p/542bc52fa3814b0dbb27522682bdd2ec) |
-| 数据库 | 📝 Decision Records - 决策库 | `#龍芯⚡️20260701091113449929-NOTION-DB-56ac4e06-950c-4ef0-b00f-2a7baa1d63a2-605697A9` | Notion 数据库 | [链接](https://app.notion.com/p/56ac4e06950c4ef0b00f2a7baa1d63a2) |
-| 数据库 | 🔍 龙魂全局监控数据库（公开透明） | `#龍芯⚡️20260701091113449933-NOTION-DB-5985ae8a-97d8-4e84-be44-bea3dd1db34b-FE4DDE95` | Notion 数据库 | [链接](https://app.notion.com/p/5985ae8a97d84e84be44bea3dd1db34b) |
-| 数据库 | ♾️ UID9622知识产权申请闭环流程 | 自动化监控与执行 | `#龍芯⚡️20260701091113449945-NOTION-DB-5acf8b3a-74f6-43e7-bc0f-00e33ca3059a-29E2F9BA` | Notion 数据库 | [链接](https://app.notion.com/p/5acf8b3a74f643e7bc0f00e33ca3059a) |
-| 数据库 | 📋 任务追踪器 | `#龍芯⚡️20260701091113449954-NOTION-DB-5bf5aa71-2468-4681-883c-ba5353c58a27-A54B1069` | Notion 数据库 | [链接](https://app.notion.com/p/5bf5aa7124684681883cba5353c58a27) |
-| 数据库 | 🎯 三色判定引擎 | 核心决策中枢 | `#龍芯⚡️20260701091113449964-NOTION-DB-5dac1a3f-c618-48f7-9f25-6d4380cf9d06-75A2E175` | Notion 数据库 | [链接](https://app.notion.com/p/5dac1a3fc61848f79f256d4380cf9d06) |
-| 数据库 | UID9622_DNA_TYPE·五行注册表 | `#龍芯⚡️20260701091113449971-NOTION-DB-5f1b9360-52fb-4f6a-91da-d690eddedfed-AEA437E5` | Notion 数据库 | [链接](https://app.notion.com/p/5f1b936052fb4f6a91dad690eddedfed) |
-| 数据库 | 🚀 71人格数字通讯录项目任务追踪 | `#龍芯⚡️20260701091113449977-NOTION-DB-5fe1147b-1595-431f-bd74-4e6fd8501536-4D0988C6` | Notion 数据库 | [链接](https://app.notion.com/p/5fe1147b1595431fbd744e6fd8501536) |
-| 数据库 | 🔍 审计库 | 稽核中心 | `#龍芯⚡️20260701091113449983-NOTION-DB-61f7b170-46ad-466b-8921-644c2279f303-94A1C6A9` | Notion 数据库 | [链接](https://app.notion.com/p/61f7b17046ad466b8921644c2279f303) |
-| 数据库 | 🎭 人格状态控制面板 | `#龍芯⚡️20260701091113449989-NOTION-DB-644c50cb-e824-4f81-b9d1-4940e584ad70-182226DD` | Notion 数据库 | [链接](https://app.notion.com/p/644c50cbe8244f81b9d14940e584ad70) |
-| 数据库 | 📊 V♾️页面智能管理中心 | `#龍芯⚡️20260701091113449994-NOTION-DB-65394715-5457-4e88-9749-1c746d187374-2A8FE790` | Notion 数据库 | [链接](https://app.notion.com/p/6539471554574e8897491c746d187374) |
-| 数据库 | 对外案例库（External Cases） | `#龍芯⚡️20260701091113450000-NOTION-DB-6806c512-ebd8-4b64-9a65-10b3286bf972-D7F611CC` | Notion 数据库 | [链接](https://app.notion.com/p/6806c512ebd84b649a6510b3286bf972) |
-| 数据库 | 🚫 UID9622错误警示录 | 三层防线系统 | `#龍芯⚡️20260701091113450005-NOTION-DB-6aa9f9a6-0a99-477f-90b7-d6564da4a475-9491B1AD` | Notion 数据库 | [链接](https://app.notion.com/p/6aa9f9a60a99477f90b7d6564da4a475) |
-| 数据库 | 📋 Tasks - 任务库 | `#龍芯⚡️20260701091113450017-NOTION-DB-6ca98307-6f37-4cfc-ba2f-b15725f9f0dc-FAAF4E78` | Notion 数据库 | [链接](https://app.notion.com/p/6ca983076f374cfcba2fb15725f9f0dc) |
-| 数据库 | 👑 Lucky审核中心 | 一键检阅确认系统 | `#龍芯⚡️20260701091113450022-NOTION-DB-6d893a80-8faa-451c-877c-70a469602ae4-84BC169B` | Notion 数据库 | [链接](https://app.notion.com/p/6d893a808faa451c877c70a469602ae4) |
-| 数据库 | 🔑 UID9622激活码管理系统 | `#龍芯⚡️20260701091113450026-NOTION-DB-6daab958-7061-41e6-9895-eb0585de82cc-156A311A` | Notion 数据库 | [链接](https://app.notion.com/p/6daab958706141e69895eb0585de82cc) |
-| 数据库 | 📦 经验包库（Answer Pack） | `#龍芯⚡️20260701091113450037-NOTION-DB-736eea25-69d7-47de-9bc0-f92affeb6d59-BEDEA6E5` | Notion 数据库 | [链接](https://app.notion.com/p/736eea2569d747de9bc0f92affeb6d59) |
-| 数据库 | ⚖️ AI黑箱审判记录 | `#龍芯⚡️20260701091113450044-NOTION-DB-769bc1a6-8671-45d3-8ddf-475e48ecafd2-168BDCA1` | Notion 数据库 | [链接](https://app.notion.com/p/769bc1a6867145d38ddf475e48ecafd2) |
-| 数据库 | 任务看板（三色审计版） | `#龍芯⚡️20260701091113450050-NOTION-DB-7761a1d9-09eb-4ff4-81a0-3640887759bf-B4CC6745` | Notion 数据库 | [链接](https://app.notion.com/p/7761a1d909eb4ff481a03640887759bf) |
-| 数据库 | 🧮 UID9622逻辑算法注册表 | `#龍芯⚡️20260701091113450066-NOTION-DB-77e0ab8e-7cef-4336-bb01-beaf83ea8d4e-8A7AC8F5` | Notion 数据库 | [链接](https://app.notion.com/p/77e0ab8e7cef4336bb01beaf83ea8d4e) |
-| 数据库 | ⚡ 执行任务库 | 行动追踪 | `#龍芯⚡️20260701091113450072-NOTION-DB-7aae65e4-a744-4300-b314-2f462e46751b-ADD18388` | Notion 数据库 | [链接](https://app.notion.com/p/7aae65e4a7444300b3142f462e46751b) |
-| 数据库 | 🧠 UID9622人格工作日志 | AI自动记录与同步系统 | `#龍芯⚡️20260701091113450077-NOTION-DB-7c5a50a0-7134-4dc9-9c93-2b7c7d5b7c0f-4ECEDD6C` | Notion 数据库 | [链接](https://app.notion.com/p/7c5a50a071344dc99c932b7c7d5b7c0f) |
-| 数据库 | 🧬 CNSH DNA编码系统 | `#龍芯⚡️20260701091113450081-NOTION-DB-7ce2ce3e-623b-4596-9c37-dbb3ece33178-F04274D1` | Notion 数据库 | [链接](https://app.notion.com/p/7ce2ce3e623b45969c37dbb3ece33178) |
-| 数据库 | 🧬 DNA路由引擎 | 智能分发中心 | `#龍芯⚡️20260701091113450086-NOTION-DB-7f2778d2-8758-41fb-8e61-e698080f665a-6E69ABC2` | Notion 数据库 | [链接](https://app.notion.com/p/7f2778d2875841fb8e61e698080f665a) |
-| 数据库 | 📦 InfoVault - 信息总池 | `#龍芯⚡️20260701091113450094-NOTION-DB-81a14c90-26f6-401b-8daa-e4706ce71ae8-64425EA7` | Notion 数据库 | [链接](https://app.notion.com/p/81a14c9026f6401b8daae4706ce71ae8) |
-| 数据库 | 🔒【封存-2025.12】核心人格基因库 | 12人格执行矩阵 | `#龍芯⚡️20260701091113450099-NOTION-DB-830312b6-c1ca-4061-a115-9b56ea2813bd-1FD428BF` | Notion 数据库 | [链接](https://app.notion.com/p/830312b6c1ca4061a1159b56ea2813bd) |
-| 数据库 | 💎 核心价值观库 | UID9622价值体系 | `#龍芯⚡️20260701091113450104-NOTION-DB-86daa545-c3cd-411f-a0be-d9c46e203663-E1B9AA17` | Notion 数据库 | [链接](https://app.notion.com/p/86daa545c3cd411fa0bed9c46e203663) |
-| 数据库 | 🗄️ 净土系统数据库结构蓝图 | `#龍芯⚡️20260701091113450108-NOTION-DB-8a8318e2-f509-4fe1-b159-26b396ad7dbf-1FF9BC88` | Notion 数据库 | [链接](https://app.notion.com/p/8a8318e2f5094fe1b15926b396ad7dbf) |
-| 数据库 | 📚 UID9622知识卡片库 | 历史教训与反面教材 | `#龍芯⚡️20260701091113450121-NOTION-DB-8ad3a1ba-811c-4c3e-94b8-338e80464876-704F6BAD` | Notion 数据库 | [链接](https://app.notion.com/p/8ad3a1ba811c4c3e94b8338e80464876) |
-| 数据库 | 📋 UID9622·任务调度库 | 人格联动执行 | `#龍芯⚡️20260701091113450127-NOTION-DB-8b27d54d-3077-4a95-a81e-4a0279a6c741-3E7597D9` | Notion 数据库 | [链接](https://app.notion.com/p/8b27d54d30774a95a81e4a0279a6c741) |
-| 数据库 | 📄 Subpages - 知识子页 | `#龍芯⚡️20260701091113450132-NOTION-DB-8c186095-d253-4c7c-b269-dd97d651d335-0F8BB65C` | Notion 数据库 | [链接](https://app.notion.com/p/8c186095d2534c7cb269dd97d651d335) |
-| 数据库 | 💬 UID9622·真实支持者共鸣墙 | `#龍芯⚡️20260701091113450144-NOTION-DB-8ed7be16-2879-40c0-8a7f-5920d44f6c16-4F9DFA05` | Notion 数据库 | [链接](https://app.notion.com/p/8ed7be16287940c08a7f5920d44f6c16) |
-| 数据库 | 📋 项目管理 | Project Management | `#龍芯⚡️20260701091113450151-NOTION-DB-917c89e9-0409-40d4-8fb7-670da918d2e6-AB19A4C3` | Notion 数据库 | [链接](https://app.notion.com/p/917c89e9040940d48fb7670da918d2e6) |
-| 数据库 | 🤖 AI回复边界规则库 | `#龍芯⚡️20260701091113450156-NOTION-DB-92663861-03fd-4fea-853e-e0307c6a62cd-6B3CDA68` | Notion 数据库 | [链接](https://app.notion.com/p/9266386103fd4fea853ee0307c6a62cd) |
-| 数据库 | 🧬 量子模板引擎 | `#龍芯⚡️20260701091113450161-NOTION-DB-94fbe8c6-f1c6-45c0-b885-fb329d4bc9fd-525CE0D7` | Notion 数据库 | [链接](https://app.notion.com/p/94fbe8c6f1c645c0b885fb329d4bc9fd) |
-| 数据库 | 📋 仲裁日志 | Arbitration Log | `#龍芯⚡️20260701091113450167-NOTION-DB-9979217f-f9d0-4e5e-a68e-bca1ce3d2375-6EC859C8` | Notion 数据库 | [链接](https://app.notion.com/p/9979217ff9d04e5ea68ebca1ce3d2375) |
-| 数据库 | 历史事件库 | 五千年重大时刻 | `#龍芯⚡️20260701091113450173-NOTION-DB-a0e3f34e-4ec3-4887-ba53-d330ca70f0ae-9D22D248` | Notion 数据库 | [链接](https://app.notion.com/p/a0e3f34e4ec34887ba53d330ca70f0ae) |
-| 数据库 | 🔗 关系图谱库 | 知识网络 | `#龍芯⚡️20260701091113450178-NOTION-DB-a3a5a9a0-974b-4b59-84dd-5934d25db701-C8A05AAC` | Notion 数据库 | [链接](https://app.notion.com/p/a3a5a9a0974b4b5984dd5934d25db701) |
-| 数据库 | 🔬 中国科研观察库 | 本土知识主权 | `#龍芯⚡️20260701091113450192-NOTION-DB-af652d55-8d32-4b5b-b75b-1a46958346fe-48F85BFB` | Notion 数据库 | [链接](https://app.notion.com/p/af652d558d324b5bb75b1a46958346fe) |
-| 数据库 | 🎯 UID9622·决策记录库 | 战略推演存档 | `#龍芯⚡️20260701091113450198-NOTION-DB-b1ab6495-834d-4dc2-9d41-09456530614f-7B065A42` | Notion 数据库 | [链接](https://app.notion.com/p/b1ab6495834d4dc29d4109456530614f) |
-| 数据库 | 📚 UID9622-CNSH 学习任务库 | `#龍芯⚡️20260701091113450207-NOTION-DB-b43c47e4-6528-45c2-80c6-4a70b58de343-5C7E0239` | Notion 数据库 | [链接](https://app.notion.com/p/b43c47e4652845c280c64a70b58de343) |
-| 数据库 | 📓 龍魂·统一记错本·通心译活态纠错库 v1.0 | `#龍芯⚡️20260701091113450214-NOTION-DB-b498c4e0-33aa-49b7-b47f-b2de36dee747-E7F478C2` | Notion 数据库 | [链接](https://app.notion.com/p/b498c4e033aa49b7b47fb2de36dee747) |
-| 数据库 | 📋 任务跟踪器 | `#龍芯⚡️20260701091113450220-NOTION-DB-b7a4e50d-3806-4203-a933-90e6fc619bd8-4965FC15` | Notion 数据库 | [链接](https://app.notion.com/p/b7a4e50d38064203a93390e6fc619bd8) |
-| 数据库 | 🛡️ 系统铁律执行监控中心 | `#龍芯⚡️20260701091113450225-NOTION-DB-b829aa25-b4b8-4996-93d5-5bba70541a9a-288F230D` | Notion 数据库 | [链接](https://app.notion.com/p/b829aa25b4b8499693d55bba70541a9a) |
-| 数据库 | 🇨🇳 中国科技自主创新专栏｜知识库 | `#龍芯⚡️20260701091113450229-NOTION-DB-baf3b574-023e-49c9-87ee-e620a811e70d-5688A2F0` | Notion 数据库 | [链接](https://app.notion.com/p/baf3b574023e49c987eee620a811e70d) |
-| 数据库 | 人物库 | 帝王将相与老百姓 | `#龍芯⚡️20260701091113450233-NOTION-DB-bba404e4-945d-4d20-b4ef-a6355062e5e4-798D48BF` | Notion 数据库 | [链接](https://app.notion.com/p/bba404e4945d4d20b4efa6355062e5e4) |
-| 数据库 | 🧠 数据大师知识库 | AI驱动智能知识管理系统 | `#龍芯⚡️20260701091113450237-NOTION-DB-bc0fb726-1347-4eb7-9b03-372dd6f11183-FA8A34F9` | Notion 数据库 | [链接](https://app.notion.com/p/bc0fb72613474eb79b03372dd6f11183) |
-| 数据库 | 智能财务追踪 | `#龍芯⚡️20260701091113450241-NOTION-DB-bd36f0c6-b4ed-45ce-8928-8a748bbb0802-78A98834` | Notion 数据库 | [链接](https://app.notion.com/p/bd36f0c6b4ed45ce89288a748bbb0802) |
-| 数据库 | 🧬 CNSH-DNA压缩核心库 | UID9622记忆引擎 | `#龍芯⚡️20260701091113450245-NOTION-DB-bf66ec0a-416e-42d0-86a5-6a851c85e8c3-F4490D06` | Notion 数据库 | [链接](https://app.notion.com/p/bf66ec0a416e42d086a56a851c85e8c3) |
-| 数据库 | ZGX-CIV-003｜NotionAI 开源 v0.1.0 发布｜任务跟进 | `#龍芯⚡️20260701091113450250-NOTION-DB-bf81c413-7ea9-42c1-94ea-4ba1fcbaec0d-99A614D6` | Notion 数据库 | [链接](https://app.notion.com/p/bf81c4137ea942c194ea4ba1fcbaec0d) |
-| 数据库 | 📚 人格代码格式学习库 | 文字·图片·动态图·全格式 | `#龍芯⚡️20260701091113450255-NOTION-DB-c0245fe7-a6ca-4993-99b2-a93c5eb87b78-DD57DEAF` | Notion 数据库 | [链接](https://app.notion.com/p/c0245fe7a6ca499399b2a93c5eb87b78) |
-| 数据库 | 🏠 UID9622公开主页 | 龙魂系统入口 | `#龍芯⚡️20260701091113450263-NOTION-DB-c08a4ea9-3de6-4270-b954-44761957cd1e-7869EE4F` | Notion 数据库 | [链接](https://app.notion.com/p/c08a4ea93de64270b95444761957cd1e) |
-| 数据库 | 学习知识库 | `#龍芯⚡️20260701091113450268-NOTION-DB-c150d32c-0c9c-4750-b226-352d700f4ddb-F93F530E` | Notion 数据库 | [链接](https://app.notion.com/p/c150d32c0c9c4750b226352d700f4ddb) |
-| 数据库 | 🧭 UID9622索引中心 | Index Hub | `#龍芯⚡️20260701091113450272-NOTION-DB-c5797f3f-1097-43a2-8cc9-0ed2cad188bd-2508D4DD` | Notion 数据库 | [链接](https://app.notion.com/p/c5797f3f109743a28cc90ed2cad188bd) |
-| 数据库 | 🧬 UID9622记忆归集引擎 | 跨平台对话自动存档系统 | `#龍芯⚡️20260701091113450278-NOTION-DB-c7305b81-e43a-4514-bcae-096c1b347372-BC2DD8F3` | Notion 数据库 | [链接](https://app.notion.com/p/c7305b81e43a4514bcae096c1b347372) |
-| 数据库 | 系统对话知识库（UID9622） | `#龍芯⚡️20260701091113450283-NOTION-DB-c734b8dc-cd64-4481-930a-daa0d1890ba0-9B6245DA` | Notion 数据库 | [链接](https://app.notion.com/p/c734b8dccd644481930adaa0d1890ba0) |
-| 数据库 | 🎨 产品设计库 | UID9622产品矩阵 | `#龍芯⚡️20260701091113450288-NOTION-DB-c7f16674-720c-47d8-8a54-080d980d7a60-8D637A58` | Notion 数据库 | [链接](https://app.notion.com/p/c7f16674720c47d88a54080d980d7a60) |
-| 数据库 | 🧬 CNSH文化原子卡片库 | DNA压缩记忆 | `#龍芯⚡️20260701091113450294-NOTION-DB-caf4c0d6-86d1-4ef9-8af5-3415a747b34d-BBF12EC6` | Notion 数据库 | [链接](https://app.notion.com/p/caf4c0d686d14ef98af53415a747b34d) |
-| 数据库 | 📊 UID9622系统日志审计中心 | `#龍芯⚡️20260701091113450300-NOTION-DB-cb9028f2-3541-4907-bddb-726e1e14847b-11E0959B` | Notion 数据库 | [链接](https://app.notion.com/p/cb9028f235414907bddb726e1e14847b) |
-| 数据库 | 🔗 引擎关系矩阵 | 因果调用追踪 | `#龍芯⚡️20260701091113450306-NOTION-DB-cf95aaec-d5dc-44ea-8221-076d2dda6fbd-067DECCB` | Notion 数据库 | [链接](https://app.notion.com/p/cf95aaecd5dc44ea8221076d2dda6fbd) |
-| 数据库 | ⚡ 行动计划库 | 执行中枢 | `#龍芯⚡️20260701091113450312-NOTION-DB-d25a1123-2c41-4a7a-a2ba-b92fe56b3358-8944E6C1` | Notion 数据库 | [链接](https://app.notion.com/p/d25a11232c414a7aa2bab92fe56b3358) |
-| 数据库 | 💻 UID9622技术栈注册表 | `#龍芯⚡️20260701091113450317-NOTION-DB-d3b19698-be6b-46cc-b336-4d1e896806d0-F31D8ECF` | Notion 数据库 | [链接](https://app.notion.com/p/d3b19698be6b46ccb3364d1e896806d0) |
-| 数据库 | 🔒【封存-2025.12】UID9622人格镜像矩阵 | `#龍芯⚡️20260701091113450325-NOTION-DB-d4da0c3b-59f2-4e06-a10f-d2985be74304-C5D1C887` | Notion 数据库 | [链接](https://app.notion.com/p/d4da0c3b59f24e06a10fd2985be74304) |
-| 数据库 | 曾仕强智慧·万年传承知识库 | `#龍芯⚡️20260701091113450332-NOTION-DB-dd74170e-410f-4f6a-99c2-3df5bd8582a8-19BE5C4D` | Notion 数据库 | [链接](https://app.notion.com/p/dd74170e410f4f6a99c23df5bd8582a8) |
-| 数据库 | 🕵️ 雯雯情报收集中心（机密） | `#龍芯⚡️20260701091113450337-NOTION-DB-de6dd8f1-474d-49c2-9beb-a6449fec0a4b-C2A08FA5` | Notion 数据库 | [链接](https://app.notion.com/p/de6dd8f1474d49c29beba6449fec0a4b) |
-| 数据库 | UID9622_SIG·责任者短码注册表 | `#龍芯⚡️20260701091113450343-NOTION-DB-eac87665-fe5d-4354-94e9-151a27dbc984-0CC37ADF` | Notion 数据库 | [链接](https://app.notion.com/p/eac87665fe5d435494e9151a27dbc984) |
-| 数据库 | 🧠 理论框架库 | UID9622原创理论体系 | `#龍芯⚡️20260701091113450348-NOTION-DB-eb14d0b5-e57d-42c1-be40-18b39b0acb28-B80B7BA5` | Notion 数据库 | [链接](https://app.notion.com/p/eb14d0b5e57d42c1be4018b39b0acb28) |
-| 数据库 | 🎭 净土人格矩阵协作系统 | `#龍芯⚡️20260701091113450353-NOTION-DB-ec2a2a4b-b079-4645-96dc-282fb0213350-91CC3208` | Notion 数据库 | [链接](https://app.notion.com/p/ec2a2a4bb079464596dc282fb0213350) |
-| 数据库 | 📊 AI模型对比评估·永久固化版 | `#龍芯⚡️20260701091113450359-NOTION-DB-f22f820c-7870-4757-9c7d-9831e566a022-51A07F93` | Notion 数据库 | [链接](https://app.notion.com/p/f22f820c787047579c7d9831e566a022) |
-| 数据库 | 🔐 哈希认证系统 | `#龍芯⚡️20260701091113450364-NOTION-DB-f52bc38c-b8e8-4c96-ac4e-d9c15c7bca12-792F693F` | Notion 数据库 | [链接](https://app.notion.com/p/f52bc38cb8e84c96ac4ed9c15c7bca12) |
-| 数据库 | 🐉 龍魂七維AI治理×數字主權執行表 v1.0｜Seven-Dimension AI Governance × Digi | `#龍芯⚡️20260701091113450370-NOTION-DB-f7367479-5e6b-4cfe-ab38-b5039ede5828-64102345` | Notion 数据库 | [链接](https://app.notion.com/p/f73674795e6b4cfeab38b5039ede5828) |
-| 数据库 | 🧰 UID9622 任务追踪器 | `#龍芯⚡️20260701091113450377-NOTION-DB-fdffde15-2b19-4360-99b3-d8a7266a7f03-C42DDA6E` | Notion 数据库 | [链接](https://app.notion.com/p/fdffde152b19436099b3d8a7266a7f03) |
-| 数据库 | YouTube notes | `#龍芯⚡️20260701091113450382-NOTION-DB-3627125a-9c9f-8108-af0a-e3f6a4635fbb-8D6BF653` | Notion 数据库 | [链接](https://app.notion.com/p/3627125a9c9f8108af0ae3f6a4635fbb) |
-| 数据库 | 多模型对撞矩阵·H武器10万次推演 | `#龍芯⚡️20260701091113450394-NOTION-DB-aa16769e-c30d-467b-924f-0f941f1eaeb1-EBC41E9A` | Notion 数据库 | [链接](https://app.notion.com/p/aa16769ec30d467b924f0f941f1eaeb1) |
-| 数据库 | ⚖️ 维权案例数据库 | `#龍芯⚡️20260701091113450399-NOTION-DB-093fd534-4ebd-4ad8-8668-465edbd676ed-C6F79A5C` | Notion 数据库 | [链接](https://app.notion.com/p/093fd5344ebd4ad88668465edbd676ed) |
-| 数据库 | IP-ASSET-LEDGER | `#龍芯⚡️20260701091113450404-NOTION-DB-0f674424-a509-428d-87e1-ccf31a107447-CBD7E0C6` | Notion 数据库 | [链接](https://app.notion.com/p/0f674424a509428d87e1ccf31a107447) |
-| 数据库 | 🐉 龍魂底层执行规则库｜最高级参考指令·所有派生必查 | `#龍芯⚡️20260701091113450408-NOTION-DB-16e2a2e5-1334-450a-a5a6-bdf742b97ade-D220C637` | Notion 数据库 | [链接](https://app.notion.com/p/16e2a2e51334450aa5a6bdf742b97ade) |
-| 数据库 | 🔴 LU熔断事件记录库｜历史追溯可视化 | `#龍芯⚡️20260701091113450413-NOTION-DB-1b5bedac-ccd8-4a18-80aa-17af5776a126-263F275A` | Notion 数据库 | [链接](https://app.notion.com/p/1b5bedacccd84a1880aa17af5776a126) |
-| 数据库 | 📋 任务与事件库 | `#龍芯⚡️20260701091113450418-NOTION-DB-2052de96-ab8b-4129-8c76-a6ea02059f75-36B1D858` | Notion 数据库 | [链接](https://app.notion.com/p/2052de96ab8b41298c76a6ea02059f75) |
-| 数据库 | 🎖️ 徽章库（Badge DB） | `#龍芯⚡️20260701091113450422-NOTION-DB-20f3b2f0-42df-472d-8dbf-1db0a3562a38-31C6B614` | Notion 数据库 | [链接](https://app.notion.com/p/20f3b2f042df472d8dbf1db0a3562a38) |
-| 数据库 | 🚀 太极智能协同中枢 | `#龍芯⚡️20260701091113450426-NOTION-DB-2697125a-9c9f-81ba-b07a-dfc707ed3f42-A6B6C8FA` | Notion 数据库 | [链接](https://app.notion.com/p/2697125a9c9f81bab07adfc707ed3f42) |
-| 数据库 |  | `#龍芯⚡️20260701091113450429-NOTION-DB-2f17125a-9c9f-80ff-be60-f997571a85cb-665B3B6C` | Notion 数据库 | [链接](https://app.notion.com/p/2f17125a9c9f80ffbe60f997571a85cb) |
-| 数据库 | 智谱清言对话记录 | `#龍芯⚡️20260701091113450433-NOTION-DB-3047125a-9c9f-81bb-98c5-c9c84f8575bf-2135BF22` | Notion 数据库 | [链接](https://app.notion.com/p/3047125a9c9f81bb98c5c9c84f8575bf) |
-| 数据库 | My Links | `#龍芯⚡️20260701091113450437-NOTION-DB-3087125a-9c9f-816e-acd4-eb47062cd429-CB098E0C` | Notion 数据库 | [链接](https://app.notion.com/p/3087125a9c9f816eacd4eb47062cd429) |
-| 数据库 | ☯️ UID9622·93人格太极生态 | 元知级完整架构（v2.0扩展中） | `#龍芯⚡️20260701091113450441-NOTION-DB-3157125a-9c9f-816f-9a97-c5c16141973e-C282EFC8` | Notion 数据库 | [链接](https://app.notion.com/p/3157125a9c9f816f9a97c5c16141973e) |
-| 数据库 | 🌌 UID9622主控操作台 | 最高权限控制中心 | `#龍芯⚡️20260701091113450447-NOTION-DB-3157125a-9c9f-81e0-8710-ccbd4faffb70-8B0A8315` | Notion 数据库 | [链接](https://app.notion.com/p/3157125a9c9f81e08710ccbd4faffb70) |
-| 数据库 | 🔒 龙魂锁定规则库｜已确认规则不可变 | `#龍芯⚡️20260701091113450451-NOTION-DB-318c8380-56eb-4d26-97df-19ca02eae9ca-84536B00` | Notion 数据库 | [链接](https://app.notion.com/p/318c838056eb4d2697df19ca02eae9ca) |
-| 数据库 | 🤝 人格协作·记录库 | `#龍芯⚡️20260701091113450460-NOTION-DB-3d39fd69-8f33-42f6-b74c-b81cdf54caa3-27506513` | Notion 数据库 | [链接](https://app.notion.com/p/3d39fd698f3342f6b74cb81cdf54caa3) |
-| 数据库 | 🧑‍💼 人格库（Persona DB） | `#龍芯⚡️20260701091113450464-NOTION-DB-45344678-7123-4f0a-ae39-a854cfbaeb58-9D5BF9D4` | Notion 数据库 | [链接](https://app.notion.com/p/4534467871234f0aae39a854cfbaeb58) |
-| 数据库 | 💎 龙芯感悟库｜老兵真心话 | `#龍芯⚡️20260701091113450468-NOTION-DB-618ec39e-1811-4bbe-a7af-ef34e761a4d7-939287CA` | Notion 数据库 | [链接](https://app.notion.com/p/618ec39e18114bbea7afef34e761a4d7) |
-| 数据库 | 🛡️ 审计库（Audit DB） | `#龍芯⚡️20260701091113450472-NOTION-DB-6dffbfe9-ac29-456d-ab4c-438b9c212801-0E16E953` | Notion 数据库 | [链接](https://app.notion.com/p/6dffbfe9ac29456dab4c438b9c212801) |
-| 数据库 | 🌍 UID9622规则体系全球发布蓝图｜国际→国家→执行 | `#龍芯⚡️20260701091113450476-NOTION-DB-7029e078-7366-4e4a-80c1-914d4589f514-10CBDB87` | Notion 数据库 | [链接](https://app.notion.com/p/7029e07873664e4a80c1914d4589f514) |
-| 数据库 | EVIDENCE-VAULT | `#龍芯⚡️20260701091113450480-NOTION-DB-751a79ae-c172-4482-a110-224f1ec21806-AC745A70` | Notion 数据库 | [链接](https://app.notion.com/p/751a79aec1724482a110224f1ec21806) |
-| 数据库 | 📝 TRACE-LOGBOOK（日志库） | `#龍芯⚡️20260701091113450484-NOTION-DB-78349646-84d0-499c-b2ee-82705730e195-051D74E2` | Notion 数据库 | [链接](https://app.notion.com/p/7834964684d0499cb2ee82705730e195) |
-| 数据库 | 📋 UID9622·操作日志 | 备份习惯·任务进度·搭建记录 | `#龍芯⚡️20260701091113450488-NOTION-DB-7c3dcc81-2f9a-4782-a0a7-78a43ca0daf1-5F0A55C8` | Notion 数据库 | [链接](https://app.notion.com/p/7c3dcc812f9a4782a0a778a43ca0daf1) |
-| 数据库 | 🧠 老大常说的话·意图识别库 | `#龍芯⚡️20260701091113450491-NOTION-DB-7c79a7e5-b1af-47ae-9048-a7762e8c6d04-D8ED2BBA` | Notion 数据库 | [链接](https://app.notion.com/p/7c79a7e5b1af47ae9048a7762e8c6d04) |
-| 数据库 | 💎 UID9622数字资产总库 | 全资产统计与监控 | `#龍芯⚡️20260701091113450499-NOTION-DB-7ed7d67f-0ff9-40f9-92f4-246a382e2a3d-9B9A9682` | Notion 数据库 | [链接](https://app.notion.com/p/7ed7d67f0ff940f992f4246a382e2a3d) |
-| 数据库 | VERSION-LEDGER | `#龍芯⚡️20260701091113450504-NOTION-DB-83d84e7d-455c-469a-bd5c-339899d55291-4D2ACB2C` | Notion 数据库 | [链接](https://app.notion.com/p/83d84e7d455c469abd5c339899d55291) |
-| 数据库 | 📋 白皮书证据链数据库 | `#龍芯⚡️20260701091113450507-NOTION-DB-842d6fd6-ddfd-488e-b54e-8ca81bb8c101-C5E7DD93` | Notion 数据库 | [链接](https://app.notion.com/p/842d6fd6ddfd488eb54e8ca81bb8c101) |
-| 数据库 | 🎯 人格召唤·快捷卡 | `#龍芯⚡️20260701091113450511-NOTION-DB-8c130b9f-a63b-460d-84c7-8e5d06782b02-C6DCA29A` | Notion 数据库 | [链接](https://app.notion.com/p/8c130b9fa63b460d84c78e5d06782b02) |
-| 数据库 | 📚 龙芯推演知识专栏 | `#龍芯⚡️20260701091113450515-NOTION-DB-8da0bdb8-47d3-482c-af44-3842a60fe861-3B376012` | Notion 数据库 | [链接](https://app.notion.com/p/8da0bdb847d3482caf443842a60fe861) |
-| 数据库 | ⏳ 龙魂时间线·万年历 | `#龍芯⚡️20260701091113450519-NOTION-DB-9a222446-2f5e-446e-814f-51d5c8865781-78DFBC6A` | Notion 数据库 | [链接](https://app.notion.com/p/9a2224462f5e446e814f51d5c8865781) |
-| 数据库 | 💖 人心算法知识库 | `#龍芯⚡️20260701091113450522-NOTION-DB-a26d09a9-77a6-4f1a-a620-8ba9952c711d-9BD0F9C1` | Notion 数据库 | [链接](https://app.notion.com/p/a26d09a977a64f1aa6208ba9952c711d) |
-| 数据库 | 小卡片分享库 | `#龍芯⚡️20260701091113450527-NOTION-DB-b8ad0afd-e03b-4dfe-8841-e3edf2d76424-21D1704B` | Notion 数据库 | [链接](https://app.notion.com/p/b8ad0afde03b4dfe8841e3edf2d76424) |
-| 数据库 | 💝 数字资产继承登记表 | 人本主权 | `#龍芯⚡️20260701091113450531-NOTION-DB-cc4e4e56-3498-4227-a7a2-f47311c27bb8-9678B700` | Notion 数据库 | [链接](https://app.notion.com/p/cc4e4e5634984227a7a2f47311c27bb8) |
-| 数据库 | 🗂️ 龙魂内容分类总库 | 智能索引系统 | `#龍芯⚡️20260701091113450535-NOTION-DB-d51bc32c-48fd-4a25-93fd-34da2c8a9b0c-358BBF8D` | Notion 数据库 | [链接](https://app.notion.com/p/d51bc32c48fd4a2593fd34da2c8a9b0c) |
-| 数据库 | TASK-OPS | `#龍芯⚡️20260701091113450539-NOTION-DB-f91ead60-074f-4216-9fd8-0bc51021a435-C37FEA46` | Notion 数据库 | [链接](https://app.notion.com/p/f91ead60074f42169fd80bc51021a435) |
-| 数据库 | 💬 龙魂对话归档｜智能分类容器 | `#龍芯⚡️20260701091113450543-NOTION-DB-faf1a044-f5e5-4573-a1bd-58db1998b906-35EA0131` | Notion 数据库 | [链接](https://app.notion.com/p/faf1a044f5e54573a1bd58db1998b906) |
-| 数据库 | UID9622 主页｜龍魂系统创始人 | `#龍芯⚡️20260701091113450550-NOTION-DB-fd3cd234-5b83-46b1-84e6-3dbe002de478-691AB5A5` | Notion 数据库 | [链接](https://app.notion.com/p/fd3cd2345b8346b184e63dbe002de478) |
-| 数据库 | 🧬 龍魂DNA注册表 · 全球存根库 v1.0 | `#龍芯⚡️20260701091113450554-NOTION-DB-e2b53852-f24b-48e8-a4a0-3c785931e974-E9BAD499` | Notion 数据库 | [链接](https://app.notion.com/p/e2b53852f24b48e8a4a03c785931e974) |
-| 数据库 | 🧬 龍魂DNA库 v1.0 | `#龍芯⚡️20260701091113450558-NOTION-DB-ad617078-1d3a-453f-90ad-a7843188babe-989A5451` | Notion 数据库 | [链接](https://app.notion.com/p/ad6170781d3a453f90ada7843188babe) |
-| 数据库 | 🧠 龍魂资产总台账·工程师大脑 v1.0 | `#龍芯⚡️20260701091113450562-NOTION-DB-8ce4c78e-b7cb-4bcc-aa23-a39464d8c946-F2E6266C` | Notion 数据库 | [链接](https://app.notion.com/p/8ce4c78eb7cb4bccaa23a39464d8c946) |
-| 数据库 | 📊 龍魂演化日志库 | `#龍芯⚡️20260701091113450566-NOTION-DB-37f54c59-85e4-4d83-aa3a-61d93b2f9202-CC7D4AC8` | Notion 数据库 | [链接](https://app.notion.com/p/37f54c5985e44d83aa3a61d93b2f9202) |
-| 数据库 | ⚖️ AI伦理审查工单库 | `#龍芯⚡️20260701091113450570-NOTION-DB-c646b075-714a-4538-bd3b-8fb9d0ad856f-34E6B886` | Notion 数据库 | [链接](https://app.notion.com/p/c646b075714a4538bd3b8fb9d0ad856f) |
-| 数据库 | 🐉 龙魂人格矩阵 | AI团队成员库 | `#龍芯⚡️20260701091113450574-NOTION-DB-ad8dc6b9-f51d-4e0f-9810-98269044e07a-6BE2B644` | Notion 数据库 | [链接](https://app.notion.com/p/ad8dc6b9f51d4e0f981098269044e07a) |
-| 数据库 | ⚖️ 龍魂七維AI治理×數字主權執行表 v1.0 | `#龍芯⚡️20260701091113450577-NOTION-DB-e16608d9-b99a-4d51-b1af-85ca71ef8c66-91D7AB1F` | Notion 数据库 | [链接](https://app.notion.com/p/e16608d9b99a4d51b1af85ca71ef8c66) |
-| 数据库 | 💎 UID9622数字资产全息管理中心 | `#龍芯⚡️20260701091113450581-NOTION-DB-de99e9ae-e3c2-4447-9b39-2c9f68c1b3fe-B9DFA29E` | Notion 数据库 | [链接](https://app.notion.com/p/de99e9aee3c244479b392c9f68c1b3fe) |
-| 数据库 | 龍魂DNA-Calendar | `#龍芯⚡️20260701091113450585-NOTION-DB-8f5b4ac0-baed-40d3-92e6-fca1ff3901de-7EEB06E6` | Notion 数据库 | [链接](https://app.notion.com/p/8f5b4ac0baed40d392e6fca1ff3901de) |
-| 数据库 | 🟣 Pipeline B · 生成创作型流水线 | `#龍芯⚡️20260701091113450589-NOTION-DB-928d468e-462d-4201-b405-440ce9700369-D95F9C87` | Notion 数据库 | [链接](https://app.notion.com/p/928d468e462d4201b405440ce9700369) |
-| 数据库 | 🔵 Pipeline A · 事实检索型流水线 | `#龍芯⚡️20260701091113450593-NOTION-DB-04a8dcc9-8e94-436b-9907-315418c94f80-06DD5862` | Notion 数据库 | [链接](https://app.notion.com/p/04a8dcc98e94436b9907315418c94f80) |
-| 数据库 | 🎭 对话场景库 · Dialogue Scenarios | `#龍芯⚡️20260701091113450602-NOTION-DB-0d227893-e619-4f3f-a03d-b8198e172a2d-328270BF` | Notion 数据库 | [链接](https://app.notion.com/p/0d227893e6194f3fa03db8198e172a2d) |
-| 数据库 | ☯️ 价值观规则库 · Values Rules | `#龍芯⚡️20260701091113450606-NOTION-DB-175b5831-6653-4f53-b990-271003955c7a-3FD3054C` | Notion 数据库 | [链接](https://app.notion.com/p/175b583166534f53b990271003955c7a) |
-| 数据库 | ③ 对话记忆库 · ChatMemory | `#龍芯⚡️20260701091113450610-NOTION-DB-32a7125a-9c9f-81d7-a6df-d71a2f6606e6-B35EE98E` | Notion 数据库 | [链接](https://app.notion.com/p/32a7125a9c9f81d7a6dfd71a2f6606e6) |
-| 数据库 | 🎯 推演任务队列 | `#龍芯⚡️20260701091113450623-NOTION-DB-3207125a-9c9f-81a1-9ae2-c1a2399d2d0e-1211BC51` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f81a19ae2c1a2399d2d0e) |
-| 数据库 | 🧬 DNA追溯总库 | `#龍芯⚡️20260701091113450627-NOTION-DB-3207125a-9c9f-81c7-8472-c015a779eeb5-0735A13C` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f81c78472c015a779eeb5) |
-| 数据库 | 📊 算法总览 | `#龍芯⚡️20260701091113450632-NOTION-DB-3207125a-9c9f-815c-a0d2-f382f44ef977-CE0793F4` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f815ca0d2f382f44ef977) |
-| 数据库 | ⚠️ 错误记账本 | Immutable Error Ledger | `#龍芯⚡️20260701091113450637-NOTION-DB-3127125a-9c9f-801e-99fa-d5e1833a807d-126FD9CA` | Notion 数据库 | [链接](https://app.notion.com/p/3127125a9c9f801e99fad5e1833a807d) |
-| 数据库 | 龙魂开发任务 | `#龍芯⚡️20260701091113450642-NOTION-DB-7e751959-0498-4669-b80d-ce79b73cb07d-16542490` | Notion 数据库 | [链接](https://app.notion.com/p/7e75195904984669b80dce79b73cb07d) |
-| 数据库 | 龙魂核心模块清单 | `#龍芯⚡️20260701091113450646-NOTION-DB-7eb509b5-3799-40fe-a486-c4654b9fd519-353AD937` | Notion 数据库 | [链接](https://app.notion.com/p/7eb509b5379940fea486c4654b9fd519) |
-| 数据库 | 龙魂白皮书章节导航 | `#龍芯⚡️20260701091113450650-NOTION-DB-fe16c4b9-5eaf-466a-9231-4c820912efc3-EB593D7C` | Notion 数据库 | [链接](https://app.notion.com/p/fe16c4b95eaf466a92314c820912efc3) |
-| 数据库 | 算法模块库 | `#龍芯⚡️20260701091113450654-NOTION-DB-f9e74821-81de-4b11-8390-21f77fc469d8-4FA993E3` | Notion 数据库 | [链接](https://app.notion.com/p/f9e7482181de4b11839021f77fc469d8) |
-| 数据库 | 版本追踪库 | `#龍芯⚡️20260701091113450658-NOTION-DB-f5c401b2-1b9f-4d14-9722-3ffabf239629-22EDB1D2` | Notion 数据库 | [链接](https://app.notion.com/p/f5c401b21b9f4d1497223ffabf239629) |
-| 数据库 | 审计记录库 | `#龍芯⚡️20260701091113450661-NOTION-DB-f2cc6047-72a8-420d-9309-ea16daadd076-D41C3E96` | Notion 数据库 | [链接](https://app.notion.com/p/f2cc604772a8420d9309ea16daadd076) |
-| 数据库 | 人格权重库 | `#龍芯⚡️20260701091113450670-NOTION-DB-79009e61-a701-4fee-a592-890d22892f99-28218B0E` | Notion 数据库 | [链接](https://app.notion.com/p/79009e61a7014feea592890d22892f99) |
-| 数据库 | 🚀 人格启动日志｜执行追踪 | `#龍芯⚡️20260701091113450674-NOTION-DB-9d402d5e-9e32-4847-aafc-1bc89ac90b05-202EA41B` | Notion 数据库 | [链接](https://app.notion.com/p/9d402d5e9e324847aafc1bc89ac90b05) |
-| 数据库 | 🌐 功能引用地图｜关系网络 | `#龍芯⚡️20260701091113450678-NOTION-DB-2a2fbe02-c29b-4c27-89ed-7f0ac1f106fc-3B169645` | Notion 数据库 | [链接](https://app.notion.com/p/2a2fbe02c29b4c2789ed7f0ac1f106fc) |
-| 数据库 | 🌍 开放贡献者档案｜外部协作者 | `#龍芯⚡️20260701091113450682-NOTION-DB-47848ccc-156f-4d35-81a3-f58f2363aaec-5521F58D` | Notion 数据库 | [链接](https://app.notion.com/p/47848ccc156f4d3581a3f58f2363aaec) |
-| 数据库 | 🧩 同步块库｜龙魂系统大脑 | `#龍芯⚡️20260701091113450689-NOTION-DB-8e8d0381-c03e-417a-b890-1d6c8ab2441a-3F7A96C8` | Notion 数据库 | [链接](https://app.notion.com/p/8e8d0381c03e417ab8901d6c8ab2441a) |
-| 数据库 | 📥 投喂收件箱｜龙魂系统入口 | `#龍芯⚡️20260701091113450695-NOTION-DB-49acd21e-8274-44f1-a37a-c72844c7741a-CF372EF8` | Notion 数据库 | [链接](https://app.notion.com/p/49acd21e827444f1a37ac72844c7741a) |
-| 数据库 | 🗑️ 技术噪音清单 | 仅供老大审阅（不会被系统应用）🔍  | `#龍芯⚡️20260701091113450700-NOTION-DB-c7709f64-0ce6-450b-8c56-fc103d810912-46332A79` | Notion 数据库 | [链接](https://app.notion.com/p/c7709f640ce6450b8c56fc103d810912) |
-| 数据库 | 🤝 自愿开放贡献库 | 数字签名记录 | `#龍芯⚡️20260701091113450706-NOTION-DB-15955a97-5cb4-4a38-9b87-037e4eab7770-32D19EC0` | Notion 数据库 | [链接](https://app.notion.com/p/15955a975cb44a389b87037e4eab7770) |
-| 数据库 | 🔐 用户身份验证记录库 | 三重验证追溯 | `#龍芯⚡️20260701091113450711-NOTION-DB-352e9b3a-044a-4a90-855f-c890028fc8e6-EDB3B004` | Notion 数据库 | [链接](https://app.notion.com/p/352e9b3a044a4a90855fc890028fc8e6) |
-| 数据库 | 🚨 拦截事件日志库 | 边界触发追溯 | `#龍芯⚡️20260701091113450717-NOTION-DB-c74f6e6b-ea78-4fc1-932d-b0ba67e04680-FBE8BF47` | Notion 数据库 | [链接](https://app.notion.com/p/c74f6e6bea784fc1932db0ba67e04680) |
-| 数据库 | 🗂️ 边界限制卡库 | 全球AI治理规则压缩存储 | `#龍芯⚡️20260701091113450722-NOTION-DB-503b3502-d14c-4af2-b60b-ce7b840ca774-B051A4A1` | Notion 数据库 | [链接](https://app.notion.com/p/503b3502d14c4af2b60bce7b840ca774) |
-| 数据库 | GABGS实施进度追踪 | `#龍芯⚡️20260701091113450731-NOTION-DB-9f3e1ad6-399e-4334-a92c-00919e24d4af-62998979` | Notion 数据库 | [链接](https://app.notion.com/p/9f3e1ad6399e4334a92c00919e24d4af) |
-| 数据库 | GABGS公开反馈数据库 | `#龍芯⚡️20260701091113450737-NOTION-DB-f0d62328-c045-4c18-aa4b-f248c7b97ccd-AC41B0AF` | Notion 数据库 | [链接](https://app.notion.com/p/f0d62328c0454c18aa4bf248c7b97ccd) |
-| 数据库 | 🧬 DNA标签注册数据库 | `#龍芯⚡️20260701091113450742-NOTION-DB-33b79c81-1470-4547-945f-81cffd753493-5765B857` | Notion 数据库 | [链接](https://app.notion.com/p/33b79c8114704547945f81cffd753493) |
-| 数据库 | 📋 AI操作日志·DNA追溯中心 | `#龍芯⚡️20260701091113450748-NOTION-DB-2d4b513f-1db7-4f5e-b994-9c15703b0f52-174CC541` | Notion 数据库 | [链接](https://app.notion.com/p/2d4b513f1db74f5eb9949c15703b0f52) |
-| 数据库 | 🧪 AI信任实验·密码测试库 | `#龍芯⚡️20260701091113450753-NOTION-DB-5a6590ac-0732-4f8d-a50a-393acff66c90-FB8C2A0F` | Notion 数据库 | [链接](https://app.notion.com/p/5a6590ac07324f8da50a393acff66c90) |
-| 数据库 | Passwords | `#龍芯⚡️20260701091113450759-NOTION-DB-2d17125a-9c9f-81bc-ab4b-d7decc0967b6-A29F5D08` | Notion 数据库 | [链接](https://app.notion.com/p/2d17125a9c9f81bcab4bd7decc0967b6) |
-| 数据库 | 🔍 AI回复追溯记录库 | `#龍芯⚡️20260701091113450764-NOTION-DB-a03a5053-d9db-4da3-b42e-c34a6efc3e53-6AE4F3B5` | Notion 数据库 | [链接](https://app.notion.com/p/a03a5053d9db4da3b42ec34a6efc3e53) |
-| 数据库 | 📋 P0模块管理数据库 | 变动追踪与状态管理 | `#龍芯⚡️20260701091113450769-NOTION-DB-60e866bd-b958-447b-a1bc-b1ea89c0878f-09BD5836` | Notion 数据库 | [链接](https://app.notion.com/p/60e866bdb958447ba1bcb1ea89c0878f) |
-| 数据库 | 待办事项完成 | `#龍芯⚡️20260701091113450775-NOTION-DB-2cf7125a-9c9f-813a-9be4-cbdede532c77-0D8D0068` | Notion 数据库 | [链接](https://app.notion.com/p/2cf7125a9c9f813a9be4cbdede532c77) |
-| 数据库 | UID9622任务执行数据库 | `#龍芯⚡️20260701091113450780-NOTION-DB-2cf7125a-9c9f-81a2-92c1-fefab0e74375-C1A5D8F2` | Notion 数据库 | [链接](https://app.notion.com/p/2cf7125a9c9f81a292c1fefab0e74375) |
-| 数据库 | 🎯 宝宝沙盒推演系统·功能模块索引 | `#龍芯⚡️20260701091113450784-NOTION-DB-e13788ec-68e3-4da5-bec8-488ec2397f68-9828070F` | Notion 数据库 | [链接](https://app.notion.com/p/e13788ec68e34da5bec8488ec2397f68) |
-| 数据库 | 🛠️ UID9622技术栈代码库 | 开发者工具集 | `#龍芯⚡️20260701091113450788-NOTION-DB-bd34881c-f684-4628-af04-80c760c41aec-D77E7E74` | Notion 数据库 | [链接](https://app.notion.com/p/bd34881cf6844628af0480c760c41aec) |
-| 数据库 | 🎯 AI模型评估对比数据库 | 龙魂 vs 主流大模型 | `#龍芯⚡️20260701091113450798-NOTION-DB-eb921051-1d0a-4c92-ae38-aae7ef510308-DB3FE83D` | Notion 数据库 | [链接](https://app.notion.com/p/eb9210511d0a4c92ae38aae7ef510308) |
-| 数据库 | 🌍 UID9622龙魂终端全球监控中心 | `#龍芯⚡️20260701091113450803-NOTION-DB-2d2b5555-519d-48aa-ab19-b4fab43ab453-CD613163` | Notion 数据库 | [链接](https://app.notion.com/p/2d2b5555519d48aaab19b4fab43ab453) |
-| 数据库 | 🧬 CNSH知识DNA注册总库 | `#龍芯⚡️20260701091113450809-NOTION-DB-a8793f6f-c7f0-4f65-a6f2-b770a61138f8-473F157A` | Notion 数据库 | [链接](https://app.notion.com/p/a8793f6fc7f04f65a6f2b770a61138f8) |
-| 数据库 | 🎯 指令管家·Notion数据库 | `#龍芯⚡️20260701091113450814-NOTION-DB-45452827-0ec2-4b84-a1ac-2e0eed5dedb6-D0AE50CF` | Notion 数据库 | [链接](https://app.notion.com/p/454528270ec24b84a1ac2e0eed5dedb6) |
-| 数据库 | ☯️ 五行卦象状态矩阵 | `#龍芯⚡️20260701091113450821-NOTION-DB-57db65e3-afe1-4e27-9f61-f608f6a4a466-5143E5ED` | Notion 数据库 | [链接](https://app.notion.com/p/57db65e3afe14e279f61f608f6a4a466) |
-| 数据库 | 🔄 V8三层学习链追踪 | `#龍芯⚡️20260701091113450827-NOTION-DB-bc8671f2-24fe-4c8d-b3d4-0cb1ba45cdf2-5D9A9400` | Notion 数据库 | [链接](https://app.notion.com/p/bc8671f224fe4c8db3d40cb1ba45cdf2) |
-| 数据库 | 📈 天层规则演化日志 | `#龍芯⚡️20260701091113450832-NOTION-DB-00c65bcd-435e-43e2-8295-5189a09b60ab-1CAC3E00` | Notion 数据库 | [链接](https://app.notion.com/p/00c65bcd435e43e282955189a09b60ab) |
-| 数据库 | 🎯 指令调度中心 | `#龍芯⚡️20260701091113450838-NOTION-DB-fa6d3ee5-9375-4507-bbb9-bdf465915615-07B90197` | Notion 数据库 | [链接](https://app.notion.com/p/fa6d3ee593754507bbb9bdf465915615) |
-| 数据库 | 📋 调度执行日志 | `#龍芯⚡️20260701091113450850-NOTION-DB-ac816abe-818c-4c67-bc57-4c0b48bb7243-798051BC` | Notion 数据库 | [链接](https://app.notion.com/p/ac816abe818c4c67bc574c0b48bb7243) |
-| 数据库 | 🤖 Worker执行层管理 | `#龍芯⚡️20260701091113450854-NOTION-DB-ec55967e-a167-4635-9da6-f374026bf3a6-7E2D5642` | Notion 数据库 | [链接](https://app.notion.com/p/ec55967ea16746359da6f374026bf3a6) |
-| 数据库 | 🌑 伏地魔层·自动化模块库 | `#龍芯⚡️20260701091113450858-NOTION-DB-6990a550-4e4b-4c38-89ac-7ed4088ad5cc-719B741F` | Notion 数据库 | [链接](https://app.notion.com/p/6990a5504e4b4c3889ac7ed4088ad5cc) |
-| 数据库 | ⚡ 五行引擎管理中心 | `#龍芯⚡️20260701091113450861-NOTION-DB-e43c45ae-f5bf-41f3-9d16-324786efa0bc-24DD69D7` | Notion 数据库 | [链接](https://app.notion.com/p/e43c45aef5bf41f39d16324786efa0bc) |
-| 数据库 | 🤖 LU指令管理中心 | Ollama自动化 | `#龍芯⚡️20260701091113450870-NOTION-DB-c283a5c2-6d79-4271-977d-b2088d6b093e-5251AF12` | Notion 数据库 | [链接](https://app.notion.com/p/c283a5c26d794271977db2088d6b093e) |
-| 数据库 | 📋 举报处理数据库 | 正义执行总库 | `#龍芯⚡️20260701091113450876-NOTION-DB-9f3e5994-20a9-4ea8-8209-9e8243a4b3af-D4DD49D4` | Notion 数据库 | [链接](https://app.notion.com/p/9f3e599420a94ea882099e8243a4b3af) |
-| 数据库 | 📊 DNA码登记数据库 | 原创保护总库 | `#龍芯⚡️20260701091113450881-NOTION-DB-ea5482d6-a4b7-44f9-958e-cd624b666286-2ECD105B` | Notion 数据库 | [链接](https://app.notion.com/p/ea5482d6a4b744f9958ecd624b666286) |
-| 数据库 | 🏛️ 长虹乡纪检工作管理系统 | `#龍芯⚡️20260701091113450885-NOTION-DB-4d697369-18e7-49e3-ad9f-11521757ba87-B8ACF107` | Notion 数据库 | [链接](https://app.notion.com/p/4d69736918e749e3ad9f11521757ba87) |
-| 数据库 | 重要对话索引 | `#龍芯⚡️20260701091113450889-NOTION-DB-2ed21ec1-1c01-44bb-9bfe-94898335f04b-13057864` | Notion 数据库 | [链接](https://app.notion.com/p/2ed21ec11c0144bb9bfe94898335f04b) |
-| 数据库 | 木兰协议技术栈任务库 | `#龍芯⚡️20260701091113450892-NOTION-DB-c0deaf81-e338-4507-802f-aed126ea01e7-32066CC6` | Notion 数据库 | [链接](https://app.notion.com/p/c0deaf81e3384507802faed126ea01e7) |
-| 数据库 | 💬 Lucky定锚话术DNA库 | 语言压缩算法实践 | `#龍芯⚡️20260701091113450896-NOTION-DB-6592cfdc-bb37-42f5-b5f6-f840ec0ad20c-EF3EBCA4` | Notion 数据库 | [链接](https://app.notion.com/p/6592cfdcbb3742f5b5f6f840ec0ad20c) |
-| 数据库 | AI黑箱审判记录 | `#龍芯⚡️20260701091113450900-NOTION-DB-840232d1-bb8e-4479-aba7-e0d71b8b767c-CE35E08E` | Notion 数据库 | [链接](https://app.notion.com/p/840232d1bb8e4479aba7e0d71b8b767c) |
-| 数据库 | 里程碑事件 | `#龍芯⚡️20260701091113450904-NOTION-DB-2fc7022f-ed83-420f-b393-64623b96cfb4-7D7B5371` | Notion 数据库 | [链接](https://app.notion.com/p/2fc7022fed83420fb39364623b96cfb4) |
-| 数据库 | 🧪 开源沙盒评估中心 | `#龍芯⚡️20260701091113450908-NOTION-DB-738bda94-8481-443b-87b4-f69f8f726519-CAC50C00` | Notion 数据库 | [链接](https://app.notion.com/p/738bda948481443b87b4f69f8f726519) |
-| 数据库 | Handover任务交接数据库 | `#龍芯⚡️20260701091113450912-NOTION-DB-c8528816-ab11-490d-a85f-d151cfadc3e9-386F3C58` | Notion 数据库 | [链接](https://app.notion.com/p/c8528816ab11490da85fd151cfadc3e9) |
-| 数据库 | 版本里程碑数据库 | `#龍芯⚡️20260701091113450917-NOTION-DB-cc091ee9-b817-4e97-aff8-aad56ad82bb8-BC1B64AD` | Notion 数据库 | [链接](https://app.notion.com/p/cc091ee9b8174e97aff8aad56ad82bb8) |
-| 数据库 | 数据源管理数据库 | `#龍芯⚡️20260701091113450928-NOTION-DB-114a9b45-ca96-4d9e-b3aa-99514d6e8a0a-9F9E3B74` | Notion 数据库 | [链接](https://app.notion.com/p/114a9b45ca964d9eb3aa99514d6e8a0a) |
-| 数据库 | 71人格矩阵数据库 | `#龍芯⚡️20260701091113450934-NOTION-DB-96c43e20-5a6d-4c5d-bd01-82bb2d207964-36B1032F` | Notion 数据库 | [链接](https://app.notion.com/p/96c43e205a6d4c5dbd0182bb2d207964) |
-| 数据库 | 安全审计事件库 | `#龍芯⚡️20260701091113450939-NOTION-DB-b08d4d29-8e14-4405-b77d-9b282d64dadc-FC2267D3` | Notion 数据库 | [链接](https://app.notion.com/p/b08d4d298e144405b77d9b282d64dadc) |
-| 数据库 | 区域地图数据库 | `#龍芯⚡️20260701091113450945-NOTION-DB-b8f4e097-10a7-4e49-baa3-2a3af282631a-613F077C` | Notion 数据库 | [链接](https://app.notion.com/p/b8f4e09710a74e49baa32a3af282631a) |
-| 数据库 | 执行清单｜ZGX-CIV（未完成） | `#龍芯⚡️20260701091113450950-NOTION-DB-9bf3ef77-a58d-4ea6-a952-1cfd00117b57-89A71F7C` | Notion 数据库 | [链接](https://app.notion.com/p/9bf3ef77a58d4ea6a9521cfd00117b57) |
-| 数据库 | ZGX-CIV-003｜任务跟进（未完成） | `#龍芯⚡️20260701091113450955-NOTION-DB-be7c4f8d-c91a-4e33-a9d0-7b720f2f8c04-75A0C0AB` | Notion 数据库 | [链接](https://app.notion.com/p/be7c4f8dc91a4e33a9d07b720f2f8c04) |
-| 数据库 | 人民故事库 | 老百姓的声音 | `#龍芯⚡️20260701091113450961-NOTION-DB-7c92a555-085d-4075-941b-74e7ee0916fe-D4DFC6CD` | Notion 数据库 | [链接](https://app.notion.com/p/7c92a555085d4075941b74e7ee0916fe) |
-| 数据库 | 执行清单｜ZGX-CIV | `#龍芯⚡️20260701091113450966-NOTION-DB-2977125a-9c9f-8196-b466-e4a799329695-83338E33` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f8196b466e4a799329695) |
-| 数据库 | 📊 周度入选记录 | `#龍芯⚡️20260701091113450970-NOTION-DB-2977125a-9c9f-81e6-b3b9-d960a2c02aaf-8C0AE466` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f81e6b3b9d960a2c02aaf) |
-| 数据库 | 🧪 开源沙盒评估中心 | `#龍芯⚡️20260701091113450974-NOTION-DB-2977125a-9c9f-8161-8f2c-f66e65250e71-3587C6CE` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f81618f2cf66e65250e71) |
-| 数据库 | 📊 周度入选记录 | `#龍芯⚡️20260701091113450978-NOTION-DB-b5e1b2a0-0e63-410d-968c-644442887197-F4C48E7B` | Notion 数据库 | [链接](https://app.notion.com/p/b5e1b2a00e63410d968c644442887197) |
-| 数据库 | 执行清单｜ZGX-CIV | `#龍芯⚡️20260701091113450981-NOTION-DB-deabfa69-89bf-446f-b22b-e77c5b2a380d-25BCBC37` | Notion 数据库 | [链接](https://app.notion.com/p/deabfa6989bf446fb22be77c5b2a380d) |
-| 数据库 | 项目管理数据库（内联视图） | `#龍芯⚡️20260701091113450985-NOTION-DB-1a58d1ad-c6c4-4afd-a5f4-89203a7c2338-9DC5EC13` | Notion 数据库 | [链接](https://app.notion.com/p/1a58d1adc6c44afda5f489203a7c2338) |
-| 数据库 | 🎭 人格激活审批数据库 | `#龍芯⚡️20260701091113450993-NOTION-DB-4c57ea2e-b792-41d3-bd0e-ed04f3ac4e6c-B4F0653A` | Notion 数据库 | [链接](https://app.notion.com/p/4c57ea2eb79241d3bd0eed04f3ac4e6c) |
-| 数据库 | Lucky的任务清单 | `#龍芯⚡️20260701091113450998-NOTION-DB-8f5fb175-5ca0-440a-96ac-523e8c7e72d3-2A4E43E9` | Notion 数据库 | [链接](https://app.notion.com/p/8f5fb1755ca0440a96ac523e8c7e72d3) |
-| 数据库 | Map Rules｜四类→六层映射规则表 | `#龍芯⚡️20260701091113451002-NOTION-DB-f249fb58-5278-44ee-b6ea-c6fc8bcfbd12-83B57468` | Notion 数据库 | [链接](https://app.notion.com/p/f249fb58527844eeb6eac6fc8bcfbd12) |
-| 数据库 | 公开审计日志 | `#龍芯⚡️20260701091113451006-NOTION-DB-c5d63f76-b296-4dd4-a255-9bfe9d6c6f9c-4431E22E` | Notion 数据库 | [链接](https://app.notion.com/p/c5d63f76b2964dd4a2559bfe9d6c6f9c) |
-| 数据库 | 🏛️ UID9622知识产权申请追踪中心 | `#龍芯⚡️20260701091113451009-NOTION-DB-6164c2f7-6e54-4389-9c39-fa617ce09742-F2099188` | Notion 数据库 | [链接](https://app.notion.com/p/6164c2f76e5443899c39fa617ce09742) |
-| 数据库 |  | `#龍芯⚡️20260701091113451013-NOTION-DB-2837125a-9c9f-802b-bd6d-d7f14691463a-05299738` | Notion 数据库 | [链接](https://app.notion.com/p/2837125a9c9f802bbd6dd7f14691463a) |
-| 数据库 | FBI执行日志 | `#龍芯⚡️20260701091113451017-NOTION-DB-4ac65cc0-3c41-481a-868a-3ea0ab164d0e-1E2CE817` | Notion 数据库 | [链接](https://app.notion.com/p/4ac65cc03c41481a868a3ea0ab164d0e) |
-| 数据库 | AI 本地运行指南 | `#龍芯⚡️20260701091113451021-NOTION-DB-26b7125a-9c9f-8002-a3cb-f1c2699d4f8a-233A4C2F` | Notion 数据库 | [链接](https://app.notion.com/p/26b7125a9c9f8002a3cbf1c2699d4f8a) |
-| 数据库 | 📥 Intake Hub（投喂中心） | `#龍芯⚡️20260701091113451024-NOTION-DB-ec4b145f-d814-42c8-a711-f620b994ea0b-E3C0940E` | Notion 数据库 | [链接](https://app.notion.com/p/ec4b145fd81442c8a711f620b994ea0b) |
-| 数据库 | 🧪 Experiments（分支实验） | `#龍芯⚡️20260701091113451030-NOTION-DB-1cda0320-e91b-4e4e-b7bd-1de6c64b7372-55AF7145` | Notion 数据库 | [链接](https://app.notion.com/p/1cda0320e91b4e4eb7bd1de6c64b7372) |
-| 数据库 | 标准工作间 · 内容库 | `#龍芯⚡️20260701091113451034-NOTION-DB-bed4af23-9096-4bef-a018-128e050b947e-27EC5D1A` | Notion 数据库 | [链接](https://app.notion.com/p/bed4af2390964befa018128e050b947e) |
-| 数据库 | 🧾 审计证据库 | `#龍芯⚡️20260701091113451038-NOTION-DB-a2b084d9-5d0d-4517-8c94-af3f92135bda-56E53E49` | Notion 数据库 | [链接](https://app.notion.com/p/a2b084d95d0d45178c94af3f92135bda) |
-| 数据库 | 🗄️ UID9622系统归档数据库 | `#龍芯⚡️20260701091113451042-NOTION-DB-b21fa2c4-59df-4fba-a770-f386205a44bf-43CCF1BE` | Notion 数据库 | [链接](https://app.notion.com/p/b21fa2c459df4fbaa770f386205a44bf) |
-| 数据库 | 🗳️ 决策记录库 | `#龍芯⚡️20260701091113451050-NOTION-DB-c13d3460-63dc-4816-affe-be35d4c2cba8-49FC7DBF` | Notion 数据库 | [链接](https://app.notion.com/p/c13d346063dc4816affebe35d4c2cba8) |
-| 数据库 | ⚔️ 冲突登记表 | `#龍芯⚡️20260701091113451055-NOTION-DB-f3011042-6f0b-4935-a6a4-43a44d8fbcf1-5A19637C` | Notion 数据库 | [链接](https://app.notion.com/p/f30110426f0b4935a6a443a44d8fbcf1) |
-| 数据库 | 密钥治理台账 | `#龍芯⚡️20260701091113451059-NOTION-DB-003d9894-5f8d-48f4-963b-f619fe2fe878-64C8A995` | Notion 数据库 | [链接](https://app.notion.com/p/003d98945f8d48f4963bf619fe2fe878) |
-| 数据库 | My Links | `#龍芯⚡️20260701091113451062-NOTION-DB-26f7125a-9c9f-81c9-80e0-dfe49cc31803-D780BDE0` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f81c980e0dfe49cc31803) |
-| 数据库 | My Links | `#龍芯⚡️20260701091113451066-NOTION-DB-26f7125a-9c9f-813a-b3d8-c538deff67b6-D0416882` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f813ab3d8c538deff67b6) |
-| 数据库 | My Links | `#龍芯⚡️20260701091113451071-NOTION-DB-26f7125a-9c9f-8165-a9c8-f90b0cfa10d9-EB272D68` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f8165a9c8f90b0cfa10d9) |
-| 数据库 | 📜 知识产权保护与版权管理中心 | `#龍芯⚡️20260701091113451076-NOTION-DB-00611141-6d03-4fe8-a93f-0edd437fe5bd-3A3CF896` | Notion 数据库 | [链接](https://app.notion.com/p/006111416d034fe8a93f0edd437fe5bd) |
-| 数据库 | 🔄 系统备份恢复与灾难预案中心 | `#龍芯⚡️20260701091113451081-NOTION-DB-3b812ebd-67a0-4211-b939-4d30ceae65a7-A629FE2C` | Notion 数据库 | [链接](https://app.notion.com/p/3b812ebd67a04211b9394d30ceae65a7) |
-| 数据库 | PDF文件管理系统 | `#龍芯⚡️20260701091113451085-NOTION-DB-1cc7b91f-ab8d-42d4-9e93-b3ce169dd9e9-10454BE9` | Notion 数据库 | [链接](https://app.notion.com/p/1cc7b91fab8d42d49e93b3ce169dd9e9) |
-| 数据库 | 🎛️ UID9622系统模块管理数据库 | `#龍芯⚡️20260701091113451088-NOTION-DB-0488a1b1-7bc4-4fd2-a6e5-409c55530fc5-0BB8A8FE` | Notion 数据库 | [链接](https://app.notion.com/p/0488a1b17bc44fd2a6e5409c55530fc5) |
-| 数据库 | 📢 公告追踪自动化系统 | `#龍芯⚡️20260701091113451092-NOTION-DB-8aa53ee0-afd5-471c-a29b-d7215997fe1d-F4D8CE78` | Notion 数据库 | [链接](https://app.notion.com/p/8aa53ee0afd5471ca29bd7215997fe1d) |
-| 数据库 | 📸 Snapshots 备份数据库 | `#龍芯⚡️20260701091113451096-NOTION-DB-ded8da9e-6649-4e95-aef6-9583cbc21bca-ACD42985` | Notion 数据库 | [链接](https://app.notion.com/p/ded8da9e66494e95aef69583cbc21bca) |
+| 数据库 | 计算机科学知识库 | `#龍芯⚡️20260701154633190575-NOTION-DB-3367125a-9c9f-808a-9692-f0c6752e92fa-844D9045` | Notion 数据库 | [链接](https://app.notion.com/p/3367125a9c9f808a9692f0c6752e92fa) |
+| 数据库 | LU 公开档案 | `#龍芯⚡️20260701154633190618-NOTION-DB-38f7125a-9c9f-8172-907d-defd663d9ba7-A6016822` | Notion 数据库 | [链接](https://app.notion.com/p/38f7125a9c9f8172907ddefd663d9ba7) |
+| 数据库 | Timeline | `#龍芯⚡️20260701154633190660-NOTION-DB-38f7125a-9c9f-812b-9356-c740da74f39c-C5B78012` | Notion 数据库 | [链接](https://app.notion.com/p/38f7125a9c9f812b9356c740da74f39c) |
+| 数据库 | 审计登记 | `#龍芯⚡️20260701154633190669-NOTION-DB-38e7125a-9c9f-8147-81a2-eed0a623149e-1E266098` | Notion 数据库 | [链接](https://app.notion.com/p/38e7125a9c9f814781a2eed0a623149e) |
+| 数据库 | 攻击地图 | `#龍芯⚡️20260701154633190675-NOTION-DB-38e7125a-9c9f-81dd-846f-d94b34d99736-FA229643` | Notion 数据库 | [链接](https://app.notion.com/p/38e7125a9c9f81dd846fd94b34d99736) |
+| 数据库 | 🌌 龍魂空间治理数据库 · 50页面统一管理 | `#龍芯⚡️20260701154633190681-NOTION-DB-850b44ea-34bf-4af3-ba7e-1ee4f696b9cd-1B77DB0B` | Notion 数据库 | [链接](https://app.notion.com/p/850b44ea34bf4af3ba7e1ee4f696b9cd) |
+| 数据库 | 公民画像库 · Behavior Profiles | `#龍芯⚡️20260701154633190691-NOTION-DB-3877125a-9c9f-8136-8e74-c2add2b1d522-9018F6F0` | Notion 数据库 | [链接](https://app.notion.com/p/3877125a9c9f81368e74c2add2b1d522) |
+| 数据库 | 🛡️ 系统攻击者档案库 | `#龍芯⚡️20260701154633190705-NOTION-DB-2ad7125a-9c9f-8096-8674-e54f05b9d6f8-CB5E4D3B` | Notion 数据库 | [链接](https://app.notion.com/p/2ad7125a9c9f80968674e54f05b9d6f8) |
+| 数据库 | 🐉 龍魂多币种 · Multicurrency | `#龍芯⚡️20260701154633190715-NOTION-DB-4d66de13-819d-4e1e-a257-b4064b19d5bf-7F5DC7E7` | Notion 数据库 | [链接](https://app.notion.com/p/4d66de13819d4e1ea257b4064b19d5bf) |
+| 数据库 | 问题收集 | `#龍芯⚡️20260701154633190724-NOTION-DB-2747125a-9c9f-8091-a731-fc01a9101426-3D33018B` | Notion 数据库 | [链接](https://app.notion.com/p/2747125a9c9f8091a731fc01a9101426) |
+| 数据库 | Goals | `#龍芯⚡️20260701154633190733-NOTION-DB-2487125a-9c9f-80f9-8d47-ef4cbf2926f1-F6F4B640` | Notion 数据库 | [链接](https://app.notion.com/p/2487125a9c9f80f98d47ef4cbf2926f1) |
+| 数据库 | 文档 | `#龍芯⚡️20260701154633190761-NOTION-DB-2487125a-9c9f-80a5-a6bd-f911e33388a0-9B6E691F` | Notion 数据库 | [链接](https://app.notion.com/p/2487125a9c9f80a5a6bdf911e33388a0) |
+| 数据库 | 龍魂协议流场 MVP 执行追踪 | `#龍芯⚡️20260701154633190767-NOTION-DB-36b7125a-9c9f-804e-bed7-fa5804d51e1a-47559C12` | Notion 数据库 | [链接](https://app.notion.com/p/36b7125a9c9f804ebed7fa5804d51e1a) |
+| 数据库 | 🧮 CNSH Runtime Formula Index | `#龍芯⚡️20260701154633190775-NOTION-DB-3707125a-9c9f-8174-b177-eb3d947437d3-E053812C` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f8174b177eb3d947437d3) |
+| 数据库 | ⚖️ CNSH Axiom System | `#龍芯⚡️20260701154633190781-NOTION-DB-3707125a-9c9f-81d5-aad3-e165fedfb772-DCCC751A` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f81d5aad3e165fedfb772) |
+| 数据库 | 📚 CNSH Unified Theory Layer | `#龍芯⚡️20260701154633190786-NOTION-DB-3707125a-9c9f-81e3-9a9c-d15d07459f23-3B001EC2` | Notion 数据库 | [链接](https://app.notion.com/p/3707125a9c9f81e39a9cd15d07459f23) |
+| 数据库 | 🐉 龍芯家族花名册 | `#龍芯⚡️20260701154633190791-NOTION-DB-4cf99c3e-7a01-4e91-9fda-b705ceb4cbc4-64F83B34` | Notion 数据库 | [链接](https://app.notion.com/p/4cf99c3e7a014e919fdab705ceb4cbc4) |
+| 数据库 | 🐉 跨平台AI对话总归档｜全平台·全时间戳·可跳转 | `#龍芯⚡️20260701154633190796-NOTION-DB-1959c7d5-76ff-4a86-adbe-31238a9c2843-08CDB7EB` | Notion 数据库 | [链接](https://app.notion.com/p/1959c7d576ff4a86adbe31238a9c2843) |
+| 数据库 | 🧠 Personas（人格管理） | `#龍芯⚡️20260701154633190805-NOTION-DB-03bae1bb-85aa-402f-a542-d97d5e3c00fa-F37E94C6` | Notion 数据库 | [链接](https://app.notion.com/p/03bae1bb85aa402fa542d97d5e3c00fa) |
+| 数据库 | 🧯 Incidents & Risks（风险事件） | `#龍芯⚡️20260701154633190816-NOTION-DB-15ef075c-3846-4583-97bd-677f0f78e7bb-AB712BF2` | Notion 数据库 | [链接](https://app.notion.com/p/15ef075c3846458397bd677f0f78e7bb) |
+| 数据库 | 🔑 Activations（激活码系统） | `#龍芯⚡️20260701154633190822-NOTION-DB-1d895555-e661-4ece-aaac-edae44cc3329-55C5FA31` | Notion 数据库 | [链接](https://app.notion.com/p/1d895555e6614eceaaacedae44cc3329) |
+| 数据库 | 🧠 诸葛亮沙盒训练场 | 易经道德经算法实验室 | `#龍芯⚡️20260701154633190830-NOTION-DB-35c7125a-9c9f-817c-91ef-d86078452082-5F7BC8AE` | Notion 数据库 | [链接](https://app.notion.com/p/35c7125a9c9f817c91efd86078452082) |
+| 数据库 | 📈 Metrics（健康指标） | `#龍芯⚡️20260701154633190836-NOTION-DB-930d7473-1c64-4e0e-873e-c9da8c4064df-9A767A44` | Notion 数据库 | [链接](https://app.notion.com/p/930d74731c644e0e873ec9da8c4064df) |
+| 数据库 | 🧭 ADR 决策记录 | `#龍芯⚡️20260701154633190844-NOTION-DB-9e63c5b0-62c0-4cfd-bf2b-ce8c598a947e-8012D45F` | Notion 数据库 | [链接](https://app.notion.com/p/9e63c5b062c04cfdbf2bce8c598a947e) |
+| 数据库 | 💬 Feedback（反馈系统） | `#龍芯⚡️20260701154633190870-NOTION-DB-a98a3654-7c48-4222-805a-8532867e6166-759E5BCA` | Notion 数据库 | [链接](https://app.notion.com/p/a98a36547c484222805a8532867e6166) |
+| 数据库 | 🔄 Changelog（变更日志） | `#龍芯⚡️20260701154633190879-NOTION-DB-d6d2f34f-e2dc-4a2a-b9f5-43935a2b5033-89EFEF63` | Notion 数据库 | [链接](https://app.notion.com/p/d6d2f34fe2dc4a2ab9f543935a2b5033) |
+| 数据库 | 📚 UID9622 论文归集库 | `#龍芯⚡️20260701154633190885-NOTION-DB-d809b51e-505e-47de-98b9-3f3b1868e6c5-770C7D07` | Notion 数据库 | [链接](https://app.notion.com/p/d809b51e505e47de98b93f3b1868e6c5) |
+| 数据库 | 💎 精选取证库·UID9622 被围一年纪实 v1.0 | `#龍芯⚡️20260701154633190890-NOTION-DB-eae3c090-0988-4ba9-824f-2814f266d509-ED01D37E` | Notion 数据库 | [链接](https://app.notion.com/p/eae3c09009884ba9824f2814f266d509) |
+| 数据库 | 冲突库 · Conflicts | `#龍芯⚡️20260701154633190897-NOTION-DB-3677125a-9c9f-813e-9178-f02700f82290-D1FD6B86` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f813e9178f02700f82290) |
+| 数据库 | 违背库 · Violations | `#龍芯⚡️20260701154633190902-NOTION-DB-3677125a-9c9f-812f-b157-ec8fef50f421-230DA451` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f812fb157ec8fef50f421) |
+| 数据库 | 宣言库 · Manifesto | `#龍芯⚡️20260701154633190907-NOTION-DB-3677125a-9c9f-8128-9109-e1e27a821783-820CD399` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f81289109e1e27a821783) |
+| 数据库 | 资产库 · Assets | `#龍芯⚡️20260701154633190916-NOTION-DB-3677125a-9c9f-8138-865b-d13628126e24-E62A7F95` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f8138865bd13628126e24) |
+| 数据库 | 龍魂快照库 · Snapshots | `#龍芯⚡️20260701154633190921-NOTION-DB-3677125a-9c9f-81ce-846c-db15c69e08ae-12DDCAC9` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f81ce846cdb15c69e08ae) |
+| 数据库 | 龍盾收集箱 · Shield Inbox | `#龍芯⚡️20260701154633190926-NOTION-DB-3677125a-9c9f-8151-96b0-dc6a7164d6c8-CF096C0F` | Notion 数据库 | [链接](https://app.notion.com/p/3677125a9c9f815196b0dc6a7164d6c8) |
+| 数据库 | 📚 CNSH翻译大全｜避坑对照表库 | `#龍芯⚡️20260701154633190931-NOTION-DB-766c188e-d5ce-4c77-a778-0cecacf47652-B413DC05` | Notion 数据库 | [链接](https://app.notion.com/p/766c188ed5ce4c77a7780cecacf47652) |
+| 数据库 | 🐉 龍魂操作日志数据库 v1.0｜一句话DNA·多AI责任评价·公开快照·谁说话谁签名 | `#龍芯⚡️20260701154633190939-NOTION-DB-cba73d49-cbe4-41e0-b4d3-6f52cb4e636f-61F55D87` | Notion 数据库 | [链接](https://app.notion.com/p/cba73d49cbe441e0b4d36f52cb4e636f) |
+| 数据库 | DB_CLOUD · L4坎·云端镜像 | `#龍芯⚡️20260701154633190945-NOTION-DB-3cbd6e89-ae3e-4ace-abe9-5095e86038d8-E4C36533` | Notion 数据库 | [链接](https://app.notion.com/p/3cbd6e89ae3e4aceabe95095e86038d8) |
+| 数据库 | DB_AL · L2震·战友环 | `#龍芯⚡️20260701154633191111-NOTION-DB-63aadda5-d2fc-4ee6-b5eb-fa94f5b94561-3C8DC4FD` | Notion 数据库 | [链接](https://app.notion.com/p/63aadda5d2fc4ee6b5ebfa94f5b94561) |
+| 数据库 | DB_JQ · L1离·佳琪私有 | `#龍芯⚡️20260701154633191120-NOTION-DB-3efdf557-013a-4d4c-8a9c-ea53a9169db8-9FA4636B` | Notion 数据库 | [链接](https://app.notion.com/p/3efdf557013a4d4c8a9cea53a9169db8) |
+| 数据库 | DB_LU · L0乾·老大私有 | `#龍芯⚡️20260701154633191125-NOTION-DB-70bba8a4-f7f5-4b33-8b8a-aaf738578ec1-36F15C34` | Notion 数据库 | [链接](https://app.notion.com/p/70bba8a4f7f54b338b8aaaf738578ec1) |
+| 数据库 | DB_PUB · L3巽·公开展示 | `#龍芯⚡️20260701154633191130-NOTION-DB-c45373f4-a7c4-4d1a-95b4-731010acc343-E9ED8DA5` | Notion 数据库 | [链接](https://app.notion.com/p/c45373f4a7c44d1a95b4731010acc343) |
+| 数据库 | 🔥 UID9622_指令总库（火行） | `#龍芯⚡️20260701154633191135-NOTION-DB-03a60221-cc5e-43e1-a376-dfa15dc6ebb6-8FF73248` | Notion 数据库 | [链接](https://app.notion.com/p/03a60221cc5e43e1a376dfa15dc6ebb6) |
+| 数据库 | 🧬 DNA记忆库 | 量子关联追溯 | `#龍芯⚡️20260701154633191140-NOTION-DB-03c80392-0b16-4f3f-8c55-76e61eac9fcc-422367C8` | Notion 数据库 | [链接](https://app.notion.com/p/03c803920b164f3f8c5576e61eac9fcc) |
+| 数据库 | 📝 文档写作库 | UID9622知识输出 | `#龍芯⚡️20260701154633191145-NOTION-DB-052a49a0-078b-4163-a008-873076a10a4d-62EEADB6` | Notion 数据库 | [链接](https://app.notion.com/p/052a49a0078b4163a008873076a10a4d) |
+| 数据库 | 💬 UID9622·真实支持者共鸣墙 | `#龍芯⚡️20260701154633191151-NOTION-DB-0794a8a2-8ae0-48bd-9a41-4887ffd07130-6E473B39` | Notion 数据库 | [链接](https://app.notion.com/p/0794a8a28ae048bd9a414887ffd07130) |
+| 数据库 | ⚖️ 中国法律维权工具箱 | `#龍芯⚡️20260701154633191155-NOTION-DB-08a6a338-735d-49a0-a33e-20fe14fc82ff-1AB4FCDF` | Notion 数据库 | [链接](https://app.notion.com/p/08a6a338735d49a0a33e20fe14fc82ff) |
+| 数据库 | 💼 任务输入判定表 | Task Input Arbitration | `#龍芯⚡️20260701154633191163-NOTION-DB-0cc63fd3-6c6b-435a-8d5e-3d1a2c782523-A01D5EFB` | Notion 数据库 | [链接](https://app.notion.com/p/0cc63fd36c6b435a8d5e3d1a2c782523) |
+| 数据库 | 🏭 UID9622人格模板工厂 | 智能继承生成系统 | `#龍芯⚡️20260701154633191169-NOTION-DB-0d1d73b7-abdd-4244-84c0-226c24e499ec-7D3776A7` | Notion 数据库 | [链接](https://app.notion.com/p/0d1d73b7abdd424484c0226c24e499ec) |
+| 数据库 | 📋 Changelog - 操作日志 | `#龍芯⚡️20260701154633191173-NOTION-DB-0e3225c0-afda-429f-ac49-b7e5a6552a26-838AA39F` | Notion 数据库 | [链接](https://app.notion.com/p/0e3225c0afda429fac49b7e5a6552a26) |
+| 数据库 | 📚 UID9622知识库总索引 | `#龍芯⚡️20260701154633191178-NOTION-DB-0f7f7854-89e0-4a96-8e3e-473b612af891-C6C6E67A` | Notion 数据库 | [链接](https://app.notion.com/p/0f7f785489e04a968e3e473b612af891) |
+| 数据库 | 📸 Snapshots - 数据快照 | `#龍芯⚡️20260701154633191188-NOTION-DB-126b192b-22d6-4021-b0da-6d89cf9fbd29-1EFD0DE9` | Notion 数据库 | [链接](https://app.notion.com/p/126b192b22d64021b0da6d89cf9fbd29) |
+| 数据库 | 💕 私人记忆库（带ACL） | `#龍芯⚡️20260701154633191206-NOTION-DB-15052508-5cd6-48a3-b7d5-9a0e43abca02-C9D4E515` | Notion 数据库 | [链接](https://app.notion.com/p/150525085cd648a3b7d59a0e43abca02) |
+| 数据库 | 📊 用户偏好记录数据库 | AI学习进度追踪 | `#龍芯⚡️20260701154633191211-NOTION-DB-1707e180-fabb-4ed3-af57-af68a2963015-086EADAA` | Notion 数据库 | [链接](https://app.notion.com/p/1707e180fabb4ed3af57af68a2963015) |
+| 数据库 | 🤖 智能协作生态系统 | `#龍芯⚡️20260701154633191216-NOTION-DB-1768acca-df94-404d-afa2-62169e0713b8-711AFA3C` | Notion 数据库 | [链接](https://app.notion.com/p/1768accadf94404dafa262169e0713b8) |
+| 数据库 | 🧠 记忆经验库 | Memory DB | `#龍芯⚡️20260701154633191221-NOTION-DB-17ee0bd1-4c8a-490f-9f38-83209fc79c46-5F44552E` | Notion 数据库 | [链接](https://app.notion.com/p/17ee0bd14c8a490f9f3883209fc79c46) |
+| 数据库 | 🚪 天层准入判断表 | `#龍芯⚡️20260701154633191226-NOTION-DB-191e7c95-9257-44a6-a72e-214b8a0a261f-49E17AD4` | Notion 数据库 | [链接](https://app.notion.com/p/191e7c95925744a6a72e214b8a0a261f) |
+| 数据库 | 🤖 人格执行前自动检查系统 | FBI规则引擎 | `#龍芯⚡️20260701154633191231-NOTION-DB-1b13efc7-75c0-46b5-b3a3-39dd21004a5b-D282F936` | Notion 数据库 | [链接](https://app.notion.com/p/1b13efc775c046b5b3a339dd21004a5b) |
+| 数据库 | 👁️ 上帝之眼监控 | 信号中枢 | `#龍芯⚡️20260701154633191236-NOTION-DB-1d97689d-0db4-49c2-b4b0-db4eefb34475-6D1B1782` | Notion 数据库 | [链接](https://app.notion.com/p/1d97689d0db449c2b4b0db4eefb34475) |
+| 数据库 | 📊 维权投诉跟进记录 | `#龍芯⚡️20260701154633191241-NOTION-DB-1e7612ac-740b-43f4-a1fc-eb17f701e7cd-77157903` | Notion 数据库 | [链接](https://app.notion.com/p/1e7612ac740b43f4a1fceb17f701e7cd) |
+| 数据库 | 🎯 AI成长事件记录库 | 里程碑与温暖时刻 | `#龍芯⚡️20260701154633191265-NOTION-DB-2103e024-fa25-4a18-af73-6f530c32ad4b-ADD57CAD` | Notion 数据库 | [链接](https://app.notion.com/p/2103e024fa254a18af736f530c32ad4b) |
+| 数据库 | 💬 对话归档库 | Lucky×宝宝创意记录 | `#龍芯⚡️20260701154633191272-NOTION-DB-23505ecb-76fa-49d3-946b-2c024a5230f8-3F116FE2` | Notion 数据库 | [链接](https://app.notion.com/p/23505ecb76fa49d3946b2c024a5230f8) |
+| 数据库 | ⚖️ UID9622法律规则库 | 全球正反面清单 | `#龍芯⚡️20260701154633191277-NOTION-DB-25123cdf-b25e-4cbc-9aa7-e65f9a3d2dcc-4DF70AF7` | Notion 数据库 | [链接](https://app.notion.com/p/25123cdfb25e4cbc9aa7e65f9a3d2dcc) |
+| 数据库 | ⚙️ 技术实现库 | UID9622技术资产 | `#龍芯⚡️20260701154633191282-NOTION-DB-25b16660-c481-4c94-afce-c57d0063983f-8730C9C5` | Notion 数据库 | [链接](https://app.notion.com/p/25b16660c4814c94afcec57d0063983f) |
+| 数据库 | 🎭 人格对话锚管理系统 | `#龍芯⚡️20260701154633191287-NOTION-DB-265e8162-1661-4804-b764-db538813a3e1-E8FF6AF7` | Notion 数据库 | [链接](https://app.notion.com/p/265e816216614804b764db538813a3e1) |
+| 数据库 | 🛡️ 系统铁律执行监控中心 | `#龍芯⚡️20260701154633191292-NOTION-DB-2697125a-9c9f-8166-ab30-c47b35334de1-83D82EAB` | Notion 数据库 | [链接](https://app.notion.com/p/2697125a9c9f8166ab30c47b35334de1) |
+| 数据库 | 📊 抖音5集制作进度追踪 | `#龍芯⚡️20260701154633191296-NOTION-DB-27708e13-2537-4c90-be17-ee2a8cba4e54-3736E5C9` | Notion 数据库 | [链接](https://app.notion.com/p/27708e1325374c90be17ee2a8cba4e54) |
+| 数据库 | 我的链接 | `#龍芯⚡️20260701154633191302-NOTION-DB-2787125a-9c9f-817d-92b1-d69393a074ea-51F932A6` | Notion 数据库 | [链接](https://app.notion.com/p/2787125a9c9f817d92b1d69393a074ea) |
+| 数据库 | 我的链接 | `#龍芯⚡️20260701154633191306-NOTION-DB-28b7125a-9c9f-813a-a5c0-fdb40dc78e2e-67A42E21` | Notion 数据库 | [链接](https://app.notion.com/p/28b7125a9c9f813aa5c0fdb40dc78e2e) |
+| 数据库 | 使用者查看登记 | `#龍芯⚡️20260701154633191311-NOTION-DB-2907125a-9c9f-806d-bc88-deaf4f4f9e19-E0D5385A` | Notion 数据库 | [链接](https://app.notion.com/p/2907125a9c9f806dbc88deaf4f4f9e19) |
+| 数据库 | 全局状态检查 | `#龍芯⚡️20260701154633191316-NOTION-DB-2967125a-9c9f-8003-86d4-e970c42576c7-8184F8DE` | Notion 数据库 | [链接](https://app.notion.com/p/2967125a9c9f800386d4e970c42576c7) |
+| 数据库 | 🎭 UID9622人格矩阵通讯录 | 93人格协作体系 | `#龍芯⚡️20260701154633191324-NOTION-DB-29e17159-efc3-4551-b512-17d09d2b098d-303660D9` | Notion 数据库 | [链接](https://app.notion.com/p/29e17159efc34551b51217d09d2b098d) |
+| 数据库 | 🏅 CNSH龙魂徽章体系 | UID9622国产认证标识 | `#龍芯⚡️20260701154633191329-NOTION-DB-2d37125a-9c9f-803a-9986-c82379f445bc-2B6C145D` | Notion 数据库 | [链接](https://app.notion.com/p/2d37125a9c9f803a9986c82379f445bc) |
+| 数据库 | 🎯 UID9622任务追踪系统 | `#龍芯⚡️20260701154633191338-NOTION-DB-2db80eb7-b470-49e8-9c19-cae1a70bd526-179EA692` | Notion 数据库 | [链接](https://app.notion.com/p/2db80eb7b47049e89c19cae1a70bd526) |
+| 数据库 | ⚖️ 公平服务执行监督中心 | `#龍芯⚡️20260701154633191362-NOTION-DB-304104a2-f04e-4f15-ad58-72e9df189595-A2EC1D37` | Notion 数据库 | [链接](https://app.notion.com/p/304104a2f04e4f15ad5872e9df189595) |
+| 数据库 | 龙魂元字全能引擎 | `#龍芯⚡️20260701154633191371-NOTION-DB-30e7125a-9c9f-80c6-abcd-c54378c297d0-5B8D2132` | Notion 数据库 | [链接](https://app.notion.com/p/30e7125a9c9f80c6abcdc54378c297d0) |
+| 数据库 | Bookmark | `#龍芯⚡️20260701154633191376-NOTION-DB-36cb0207-1cdb-4331-bc0c-52532afa791e-F57AB0EC` | Notion 数据库 | [链接](https://app.notion.com/p/36cb02071cdb4331bc0c52532afa791e) |
+| 数据库 | Human-to-System Translation Log | 语义转换记录 | `#龍芯⚡️20260701154633191381-NOTION-DB-3814c9b5-45e3-4c35-913f-0c8ae4ba6547-6B960677` | Notion 数据库 | [链接](https://app.notion.com/p/3814c9b545e34c35913f0c8ae4ba6547) |
+| 数据库 | 📋 Lucky任务清单·龙魂系统专用 | `#龍芯⚡️20260701154633191386-NOTION-DB-3c20c71a-5f14-4dca-8ec4-f30e886d3e3c-4B29A5EC` | Notion 数据库 | [链接](https://app.notion.com/p/3c20c71a5f144dca8ec4f30e886d3e3c) |
+| 数据库 | 💎 高亮知识卡 | DNA模块存储 | `#龍芯⚡️20260701154633191391-NOTION-DB-43aff0c1-0c5d-4bd7-82c7-1c6dbb201171-90874056` | Notion 数据库 | [链接](https://app.notion.com/p/43aff0c10c5d4bd782c71c6dbb201171) |
+| 数据库 | 🧬 UID9622灵魂密钥DNA追溯系统 | 完整进化谱系 | `#龍芯⚡️20260701154633191400-NOTION-DB-4cf7252a-1017-4733-8298-c0113c44bc8c-CD55E027` | Notion 数据库 | [链接](https://app.notion.com/p/4cf7252a101747338298c0113c44bc8c) |
+| 数据库 | 📝 CSDN发布登记表 | `#龍芯⚡️20260701154633191406-NOTION-DB-511f7d96-4ac2-4146-935b-c4ec34eed13c-216C69C2` | Notion 数据库 | [链接](https://app.notion.com/p/511f7d964ac24146935bc4ec34eed13c) |
+| 数据库 | 📋 条件库 | 可行性规则引擎 | `#龍芯⚡️20260701154633191410-NOTION-DB-51e2608e-a8cd-4090-b2f3-230fafc225cb-CA4B773E` | Notion 数据库 | [链接](https://app.notion.com/p/51e2608ea8cd4090b2f3230fafc225cb) |
+| 数据库 | 🔧 AI技术架构分析中心 | `#龍芯⚡️20260701154633191418-NOTION-DB-54288166-fc32-4ed8-86e8-0fba2b3a0d2b-30417FC2` | Notion 数据库 | [链接](https://app.notion.com/p/54288166fc324ed886e80fba2b3a0d2b) |
+| 数据库 | 👥 UID9622用户权限管理中心 | `#龍芯⚡️20260701154633191423-NOTION-DB-542bc52f-a381-4b0d-bb27-522682bdd2ec-1FE86BD6` | Notion 数据库 | [链接](https://app.notion.com/p/542bc52fa3814b0dbb27522682bdd2ec) |
+| 数据库 | 📝 Decision Records - 决策库 | `#龍芯⚡️20260701154633191428-NOTION-DB-56ac4e06-950c-4ef0-b00f-2a7baa1d63a2-0DFA889A` | Notion 数据库 | [链接](https://app.notion.com/p/56ac4e06950c4ef0b00f2a7baa1d63a2) |
+| 数据库 | 🔍 龙魂全局监控数据库（公开透明） | `#龍芯⚡️20260701154633191433-NOTION-DB-5985ae8a-97d8-4e84-be44-bea3dd1db34b-031F1BCD` | Notion 数据库 | [链接](https://app.notion.com/p/5985ae8a97d84e84be44bea3dd1db34b) |
+| 数据库 | ♾️ UID9622知识产权申请闭环流程 | 自动化监控与执行 | `#龍芯⚡️20260701154633191562-NOTION-DB-5acf8b3a-74f6-43e7-bc0f-00e33ca3059a-C98145DE` | Notion 数据库 | [链接](https://app.notion.com/p/5acf8b3a74f643e7bc0f00e33ca3059a) |
+| 数据库 | 📋 任务追踪器 | `#龍芯⚡️20260701154633191583-NOTION-DB-5bf5aa71-2468-4681-883c-ba5353c58a27-3D39CF4E` | Notion 数据库 | [链接](https://app.notion.com/p/5bf5aa7124684681883cba5353c58a27) |
+| 数据库 | 🎯 三色判定引擎 | 核心决策中枢 | `#龍芯⚡️20260701154633191588-NOTION-DB-5dac1a3f-c618-48f7-9f25-6d4380cf9d06-83253108` | Notion 数据库 | [链接](https://app.notion.com/p/5dac1a3fc61848f79f256d4380cf9d06) |
+| 数据库 | UID9622_DNA_TYPE·五行注册表 | `#龍芯⚡️20260701154633191595-NOTION-DB-5f1b9360-52fb-4f6a-91da-d690eddedfed-0023725B` | Notion 数据库 | [链接](https://app.notion.com/p/5f1b936052fb4f6a91dad690eddedfed) |
+| 数据库 | 🚀 71人格数字通讯录项目任务追踪 | `#龍芯⚡️20260701154633191600-NOTION-DB-5fe1147b-1595-431f-bd74-4e6fd8501536-B21D73A0` | Notion 数据库 | [链接](https://app.notion.com/p/5fe1147b1595431fbd744e6fd8501536) |
+| 数据库 | 🔍 审计库 | 稽核中心 | `#龍芯⚡️20260701154633191604-NOTION-DB-61f7b170-46ad-466b-8921-644c2279f303-7FB60ABD` | Notion 数据库 | [链接](https://app.notion.com/p/61f7b17046ad466b8921644c2279f303) |
+| 数据库 | 🎭 人格状态控制面板 | `#龍芯⚡️20260701154633191609-NOTION-DB-644c50cb-e824-4f81-b9d1-4940e584ad70-91019C44` | Notion 数据库 | [链接](https://app.notion.com/p/644c50cbe8244f81b9d14940e584ad70) |
+| 数据库 | 📊 V♾️页面智能管理中心 | `#龍芯⚡️20260701154633191614-NOTION-DB-65394715-5457-4e88-9749-1c746d187374-FFF81511` | Notion 数据库 | [链接](https://app.notion.com/p/6539471554574e8897491c746d187374) |
+| 数据库 | 对外案例库（External Cases） | `#龍芯⚡️20260701154633191638-NOTION-DB-6806c512-ebd8-4b64-9a65-10b3286bf972-5D0D6BE3` | Notion 数据库 | [链接](https://app.notion.com/p/6806c512ebd84b649a6510b3286bf972) |
+| 数据库 | 🚫 UID9622错误警示录 | 三层防线系统 | `#龍芯⚡️20260701154633191644-NOTION-DB-6aa9f9a6-0a99-477f-90b7-d6564da4a475-A9479537` | Notion 数据库 | [链接](https://app.notion.com/p/6aa9f9a60a99477f90b7d6564da4a475) |
+| 数据库 | 📋 Tasks - 任务库 | `#龍芯⚡️20260701154633191652-NOTION-DB-6ca98307-6f37-4cfc-ba2f-b15725f9f0dc-3F07B82A` | Notion 数据库 | [链接](https://app.notion.com/p/6ca983076f374cfcba2fb15725f9f0dc) |
+| 数据库 | 👑 Lucky审核中心 | 一键检阅确认系统 | `#龍芯⚡️20260701154633191657-NOTION-DB-6d893a80-8faa-451c-877c-70a469602ae4-3A9CAF6E` | Notion 数据库 | [链接](https://app.notion.com/p/6d893a808faa451c877c70a469602ae4) |
+| 数据库 | 🔑 UID9622激活码管理系统 | `#龍芯⚡️20260701154633191662-NOTION-DB-6daab958-7061-41e6-9895-eb0585de82cc-A08FDCA8` | Notion 数据库 | [链接](https://app.notion.com/p/6daab958706141e69895eb0585de82cc) |
+| 数据库 | 📦 经验包库（Answer Pack） | `#龍芯⚡️20260701154633191667-NOTION-DB-736eea25-69d7-47de-9bc0-f92affeb6d59-D7FD4654` | Notion 数据库 | [链接](https://app.notion.com/p/736eea2569d747de9bc0f92affeb6d59) |
+| 数据库 | ⚖️ AI黑箱审判记录 | `#龍芯⚡️20260701154633191673-NOTION-DB-769bc1a6-8671-45d3-8ddf-475e48ecafd2-31D926D1` | Notion 数据库 | [链接](https://app.notion.com/p/769bc1a6867145d38ddf475e48ecafd2) |
+| 数据库 | 任务看板（三色审计版） | `#龍芯⚡️20260701154633191678-NOTION-DB-7761a1d9-09eb-4ff4-81a0-3640887759bf-44EBBE7A` | Notion 数据库 | [链接](https://app.notion.com/p/7761a1d909eb4ff481a03640887759bf) |
+| 数据库 | 🧮 UID9622逻辑算法注册表 | `#龍芯⚡️20260701154633191687-NOTION-DB-77e0ab8e-7cef-4336-bb01-beaf83ea8d4e-0C5BC051` | Notion 数据库 | [链接](https://app.notion.com/p/77e0ab8e7cef4336bb01beaf83ea8d4e) |
+| 数据库 | ⚡ 执行任务库 | 行动追踪 | `#龍芯⚡️20260701154633191693-NOTION-DB-7aae65e4-a744-4300-b314-2f462e46751b-05147E69` | Notion 数据库 | [链接](https://app.notion.com/p/7aae65e4a7444300b3142f462e46751b) |
+| 数据库 | 🧠 UID9622人格工作日志 | AI自动记录与同步系统 | `#龍芯⚡️20260701154633191698-NOTION-DB-7c5a50a0-7134-4dc9-9c93-2b7c7d5b7c0f-B3F94E13` | Notion 数据库 | [链接](https://app.notion.com/p/7c5a50a071344dc99c932b7c7d5b7c0f) |
+| 数据库 | 🧬 CNSH DNA编码系统 | `#龍芯⚡️20260701154633191703-NOTION-DB-7ce2ce3e-623b-4596-9c37-dbb3ece33178-CBEBADD1` | Notion 数据库 | [链接](https://app.notion.com/p/7ce2ce3e623b45969c37dbb3ece33178) |
+| 数据库 | 🧬 DNA路由引擎 | 智能分发中心 | `#龍芯⚡️20260701154633191707-NOTION-DB-7f2778d2-8758-41fb-8e61-e698080f665a-A6E7DC4E` | Notion 数据库 | [链接](https://app.notion.com/p/7f2778d2875841fb8e61e698080f665a) |
+| 数据库 | 📦 InfoVault - 信息总池 | `#龍芯⚡️20260701154633191716-NOTION-DB-81a14c90-26f6-401b-8daa-e4706ce71ae8-DC826489` | Notion 数据库 | [链接](https://app.notion.com/p/81a14c9026f6401b8daae4706ce71ae8) |
+| 数据库 | 🔒【封存-2025.12】核心人格基因库 | 12人格执行矩阵 | `#龍芯⚡️20260701154633191721-NOTION-DB-830312b6-c1ca-4061-a115-9b56ea2813bd-3E5CB1AA` | Notion 数据库 | [链接](https://app.notion.com/p/830312b6c1ca4061a1159b56ea2813bd) |
+| 数据库 | 💎 核心价值观库 | UID9622价值体系 | `#龍芯⚡️20260701154633191745-NOTION-DB-86daa545-c3cd-411f-a0be-d9c46e203663-04E04D8B` | Notion 数据库 | [链接](https://app.notion.com/p/86daa545c3cd411fa0bed9c46e203663) |
+| 数据库 | 🗄️ 净土系统数据库结构蓝图 | `#龍芯⚡️20260701154633191751-NOTION-DB-8a8318e2-f509-4fe1-b159-26b396ad7dbf-84267948` | Notion 数据库 | [链接](https://app.notion.com/p/8a8318e2f5094fe1b15926b396ad7dbf) |
+| 数据库 | 📚 UID9622知识卡片库 | 历史教训与反面教材 | `#龍芯⚡️20260701154633191756-NOTION-DB-8ad3a1ba-811c-4c3e-94b8-338e80464876-8F708454` | Notion 数据库 | [链接](https://app.notion.com/p/8ad3a1ba811c4c3e94b8338e80464876) |
+| 数据库 | 📋 UID9622·任务调度库 | 人格联动执行 | `#龍芯⚡️20260701154633191761-NOTION-DB-8b27d54d-3077-4a95-a81e-4a0279a6c741-7DF738FC` | Notion 数据库 | [链接](https://app.notion.com/p/8b27d54d30774a95a81e4a0279a6c741) |
+| 数据库 | 📄 Subpages - 知识子页 | `#龍芯⚡️20260701154633191766-NOTION-DB-8c186095-d253-4c7c-b269-dd97d651d335-0B0BD003` | Notion 数据库 | [链接](https://app.notion.com/p/8c186095d2534c7cb269dd97d651d335) |
+| 数据库 | 💬 UID9622·真实支持者共鸣墙 | `#龍芯⚡️20260701154633191775-NOTION-DB-8ed7be16-2879-40c0-8a7f-5920d44f6c16-D0CEB4EB` | Notion 数据库 | [链接](https://app.notion.com/p/8ed7be16287940c08a7f5920d44f6c16) |
+| 数据库 | 📋 项目管理 | Project Management | `#龍芯⚡️20260701154633191781-NOTION-DB-917c89e9-0409-40d4-8fb7-670da918d2e6-E7CBBC1C` | Notion 数据库 | [链接](https://app.notion.com/p/917c89e9040940d48fb7670da918d2e6) |
+| 数据库 | 🤖 AI回复边界规则库 | `#龍芯⚡️20260701154633191786-NOTION-DB-92663861-03fd-4fea-853e-e0307c6a62cd-E123C817` | Notion 数据库 | [链接](https://app.notion.com/p/9266386103fd4fea853ee0307c6a62cd) |
+| 数据库 | 🧬 量子模板引擎 | `#龍芯⚡️20260701154633191790-NOTION-DB-94fbe8c6-f1c6-45c0-b885-fb329d4bc9fd-EE59D2F1` | Notion 数据库 | [链接](https://app.notion.com/p/94fbe8c6f1c645c0b885fb329d4bc9fd) |
+| 数据库 | 📋 仲裁日志 | Arbitration Log | `#龍芯⚡️20260701154633191795-NOTION-DB-9979217f-f9d0-4e5e-a68e-bca1ce3d2375-F774B6E0` | Notion 数据库 | [链接](https://app.notion.com/p/9979217ff9d04e5ea68ebca1ce3d2375) |
+| 数据库 | 历史事件库 | 五千年重大时刻 | `#龍芯⚡️20260701154633191800-NOTION-DB-a0e3f34e-4ec3-4887-ba53-d330ca70f0ae-121594A4` | Notion 数据库 | [链接](https://app.notion.com/p/a0e3f34e4ec34887ba53d330ca70f0ae) |
+| 数据库 | 🔗 关系图谱库 | 知识网络 | `#龍芯⚡️20260701154633191805-NOTION-DB-a3a5a9a0-974b-4b59-84dd-5934d25db701-CD26CE9A` | Notion 数据库 | [链接](https://app.notion.com/p/a3a5a9a0974b4b5984dd5934d25db701) |
+| 数据库 | 🔬 中国科研观察库 | 本土知识主权 | `#龍芯⚡️20260701154633191812-NOTION-DB-af652d55-8d32-4b5b-b75b-1a46958346fe-E63311C4` | Notion 数据库 | [链接](https://app.notion.com/p/af652d558d324b5bb75b1a46958346fe) |
+| 数据库 | 🎯 UID9622·决策记录库 | 战略推演存档 | `#龍芯⚡️20260701154633191822-NOTION-DB-b1ab6495-834d-4dc2-9d41-09456530614f-813428A9` | Notion 数据库 | [链接](https://app.notion.com/p/b1ab6495834d4dc29d4109456530614f) |
+| 数据库 | 📚 UID9622-CNSH 学习任务库 | `#龍芯⚡️20260701154633191847-NOTION-DB-b43c47e4-6528-45c2-80c6-4a70b58de343-D595E7F9` | Notion 数据库 | [链接](https://app.notion.com/p/b43c47e4652845c280c64a70b58de343) |
+| 数据库 | 📓 龍魂·统一记错本·通心译活态纠错库 v1.0 | `#龍芯⚡️20260701154633191853-NOTION-DB-b498c4e0-33aa-49b7-b47f-b2de36dee747-88590691` | Notion 数据库 | [链接](https://app.notion.com/p/b498c4e033aa49b7b47fb2de36dee747) |
+| 数据库 | 📋 任务跟踪器 | `#龍芯⚡️20260701154633191858-NOTION-DB-b7a4e50d-3806-4203-a933-90e6fc619bd8-E5FC401C` | Notion 数据库 | [链接](https://app.notion.com/p/b7a4e50d38064203a93390e6fc619bd8) |
+| 数据库 | 🛡️ 系统铁律执行监控中心 | `#龍芯⚡️20260701154633191863-NOTION-DB-b829aa25-b4b8-4996-93d5-5bba70541a9a-D43A8D81` | Notion 数据库 | [链接](https://app.notion.com/p/b829aa25b4b8499693d55bba70541a9a) |
+| 数据库 | 🇨🇳 中国科技自主创新专栏｜知识库 | `#龍芯⚡️20260701154633191873-NOTION-DB-baf3b574-023e-49c9-87ee-e620a811e70d-F554F925` | Notion 数据库 | [链接](https://app.notion.com/p/baf3b574023e49c987eee620a811e70d) |
+| 数据库 | 人物库 | 帝王将相与老百姓 | `#龍芯⚡️20260701154633191879-NOTION-DB-bba404e4-945d-4d20-b4ef-a6355062e5e4-4F740B8A` | Notion 数据库 | [链接](https://app.notion.com/p/bba404e4945d4d20b4efa6355062e5e4) |
+| 数据库 | 🧠 数据大师知识库 | AI驱动智能知识管理系统 | `#龍芯⚡️20260701154633191884-NOTION-DB-bc0fb726-1347-4eb7-9b03-372dd6f11183-2FAF116C` | Notion 数据库 | [链接](https://app.notion.com/p/bc0fb72613474eb79b03372dd6f11183) |
+| 数据库 | 智能财务追踪 | `#龍芯⚡️20260701154633191923-NOTION-DB-bd36f0c6-b4ed-45ce-8928-8a748bbb0802-08C5096C` | Notion 数据库 | [链接](https://app.notion.com/p/bd36f0c6b4ed45ce89288a748bbb0802) |
+| 数据库 | 🧬 CNSH-DNA压缩核心库 | UID9622记忆引擎 | `#龍芯⚡️20260701154633191929-NOTION-DB-bf66ec0a-416e-42d0-86a5-6a851c85e8c3-1DA86809` | Notion 数据库 | [链接](https://app.notion.com/p/bf66ec0a416e42d086a56a851c85e8c3) |
+| 数据库 | ZGX-CIV-003｜NotionAI 开源 v0.1.0 发布｜任务跟进 | `#龍芯⚡️20260701154633191934-NOTION-DB-bf81c413-7ea9-42c1-94ea-4ba1fcbaec0d-9AD5165E` | Notion 数据库 | [链接](https://app.notion.com/p/bf81c4137ea942c194ea4ba1fcbaec0d) |
+| 数据库 | 📚 人格代码格式学习库 | 文字·图片·动态图·全格式 | `#龍芯⚡️20260701154633191939-NOTION-DB-c0245fe7-a6ca-4993-99b2-a93c5eb87b78-47ACC012` | Notion 数据库 | [链接](https://app.notion.com/p/c0245fe7a6ca499399b2a93c5eb87b78) |
+| 数据库 | 🏠 UID9622公开主页 | 龙魂系统入口 | `#龍芯⚡️20260701154633191945-NOTION-DB-c08a4ea9-3de6-4270-b954-44761957cd1e-D574BD12` | Notion 数据库 | [链接](https://app.notion.com/p/c08a4ea93de64270b95444761957cd1e) |
+| 数据库 | 学习知识库 | `#龍芯⚡️20260701154633191950-NOTION-DB-c150d32c-0c9c-4750-b226-352d700f4ddb-AE987A18` | Notion 数据库 | [链接](https://app.notion.com/p/c150d32c0c9c4750b226352d700f4ddb) |
+| 数据库 | 🧭 UID9622索引中心 | Index Hub | `#龍芯⚡️20260701154633191955-NOTION-DB-c5797f3f-1097-43a2-8cc9-0ed2cad188bd-BFA15931` | Notion 数据库 | [链接](https://app.notion.com/p/c5797f3f109743a28cc90ed2cad188bd) |
+| 数据库 | 🧬 UID9622记忆归集引擎 | 跨平台对话自动存档系统 | `#龍芯⚡️20260701154633191960-NOTION-DB-c7305b81-e43a-4514-bcae-096c1b347372-FF4403E8` | Notion 数据库 | [链接](https://app.notion.com/p/c7305b81e43a4514bcae096c1b347372) |
+| 数据库 | 系统对话知识库（UID9622） | `#龍芯⚡️20260701154633191965-NOTION-DB-c734b8dc-cd64-4481-930a-daa0d1890ba0-0F6CB88D` | Notion 数据库 | [链接](https://app.notion.com/p/c734b8dccd644481930adaa0d1890ba0) |
+| 数据库 | 🎨 产品设计库 | UID9622产品矩阵 | `#龍芯⚡️20260701154633191970-NOTION-DB-c7f16674-720c-47d8-8a54-080d980d7a60-9C10D16C` | Notion 数据库 | [链接](https://app.notion.com/p/c7f16674720c47d88a54080d980d7a60) |
+| 数据库 | 🧬 CNSH文化原子卡片库 | DNA压缩记忆 | `#龍芯⚡️20260701154633191974-NOTION-DB-caf4c0d6-86d1-4ef9-8af5-3415a747b34d-1C39E987` | Notion 数据库 | [链接](https://app.notion.com/p/caf4c0d686d14ef98af53415a747b34d) |
+| 数据库 | 📊 UID9622系统日志审计中心 | `#龍芯⚡️20260701154633191979-NOTION-DB-cb9028f2-3541-4907-bddb-726e1e14847b-34CBF8A4` | Notion 数据库 | [链接](https://app.notion.com/p/cb9028f235414907bddb726e1e14847b) |
+| 数据库 | 🔗 引擎关系矩阵 | 因果调用追踪 | `#龍芯⚡️20260701154633191984-NOTION-DB-cf95aaec-d5dc-44ea-8221-076d2dda6fbd-CAE54489` | Notion 数据库 | [链接](https://app.notion.com/p/cf95aaecd5dc44ea8221076d2dda6fbd) |
+| 数据库 | ⚡ 行动计划库 | 执行中枢 | `#龍芯⚡️20260701154633192007-NOTION-DB-d25a1123-2c41-4a7a-a2ba-b92fe56b3358-FDA9FD9B` | Notion 数据库 | [链接](https://app.notion.com/p/d25a11232c414a7aa2bab92fe56b3358) |
+| 数据库 | 💻 UID9622技术栈注册表 | `#龍芯⚡️20260701154633192013-NOTION-DB-d3b19698-be6b-46cc-b336-4d1e896806d0-6CB7F932` | Notion 数据库 | [链接](https://app.notion.com/p/d3b19698be6b46ccb3364d1e896806d0) |
+| 数据库 | 🔒【封存-2025.12】UID9622人格镜像矩阵 | `#龍芯⚡️20260701154633192018-NOTION-DB-d4da0c3b-59f2-4e06-a10f-d2985be74304-09166D0B` | Notion 数据库 | [链接](https://app.notion.com/p/d4da0c3b59f24e06a10fd2985be74304) |
+| 数据库 | 曾仕强智慧·万年传承知识库 | `#龍芯⚡️20260701154633192022-NOTION-DB-dd74170e-410f-4f6a-99c2-3df5bd8582a8-47D8E1B3` | Notion 数据库 | [链接](https://app.notion.com/p/dd74170e410f4f6a99c23df5bd8582a8) |
+| 数据库 | 🕵️ 雯雯情报收集中心（机密） | `#龍芯⚡️20260701154633192027-NOTION-DB-de6dd8f1-474d-49c2-9beb-a6449fec0a4b-AD454DE5` | Notion 数据库 | [链接](https://app.notion.com/p/de6dd8f1474d49c29beba6449fec0a4b) |
+| 数据库 | UID9622_SIG·责任者短码注册表 | `#龍芯⚡️20260701154633192032-NOTION-DB-eac87665-fe5d-4354-94e9-151a27dbc984-D5706467` | Notion 数据库 | [链接](https://app.notion.com/p/eac87665fe5d435494e9151a27dbc984) |
+| 数据库 | 🧠 理论框架库 | UID9622原创理论体系 | `#龍芯⚡️20260701154633192038-NOTION-DB-eb14d0b5-e57d-42c1-be40-18b39b0acb28-E348EDB8` | Notion 数据库 | [链接](https://app.notion.com/p/eb14d0b5e57d42c1be4018b39b0acb28) |
+| 数据库 | 🎭 净土人格矩阵协作系统 | `#龍芯⚡️20260701154633192043-NOTION-DB-ec2a2a4b-b079-4645-96dc-282fb0213350-02DBADAE` | Notion 数据库 | [链接](https://app.notion.com/p/ec2a2a4bb079464596dc282fb0213350) |
+| 数据库 | 📊 AI模型对比评估·永久固化版 | `#龍芯⚡️20260701154633192047-NOTION-DB-f22f820c-7870-4757-9c7d-9831e566a022-61522AF0` | Notion 数据库 | [链接](https://app.notion.com/p/f22f820c787047579c7d9831e566a022) |
+| 数据库 | 🔐 哈希认证系统 | `#龍芯⚡️20260701154633192052-NOTION-DB-f52bc38c-b8e8-4c96-ac4e-d9c15c7bca12-C1182FF2` | Notion 数据库 | [链接](https://app.notion.com/p/f52bc38cb8e84c96ac4ed9c15c7bca12) |
+| 数据库 | 🐉 龍魂七維AI治理×數字主權執行表 v1.0｜Seven-Dimension AI Governance × Digi | `#龍芯⚡️20260701154633192057-NOTION-DB-f7367479-5e6b-4cfe-ab38-b5039ede5828-44721449` | Notion 数据库 | [链接](https://app.notion.com/p/f73674795e6b4cfeab38b5039ede5828) |
+| 数据库 | 🧰 UID9622 任务追踪器 | `#龍芯⚡️20260701154633192083-NOTION-DB-fdffde15-2b19-4360-99b3-d8a7266a7f03-8974C8C6` | Notion 数据库 | [链接](https://app.notion.com/p/fdffde152b19436099b3d8a7266a7f03) |
+| 数据库 | YouTube notes | `#龍芯⚡️20260701154633192089-NOTION-DB-3627125a-9c9f-8108-af0a-e3f6a4635fbb-99FF7326` | Notion 数据库 | [链接](https://app.notion.com/p/3627125a9c9f8108af0ae3f6a4635fbb) |
+| 数据库 | 多模型对撞矩阵·H武器10万次推演 | `#龍芯⚡️20260701154633192094-NOTION-DB-aa16769e-c30d-467b-924f-0f941f1eaeb1-26646B02` | Notion 数据库 | [链接](https://app.notion.com/p/aa16769ec30d467b924f0f941f1eaeb1) |
+| 数据库 | ⚖️ 维权案例数据库 | `#龍芯⚡️20260701154633192099-NOTION-DB-093fd534-4ebd-4ad8-8668-465edbd676ed-6BAF5123` | Notion 数据库 | [链接](https://app.notion.com/p/093fd5344ebd4ad88668465edbd676ed) |
+| 数据库 | IP-ASSET-LEDGER | `#龍芯⚡️20260701154633192103-NOTION-DB-0f674424-a509-428d-87e1-ccf31a107447-46EFD697` | Notion 数据库 | [链接](https://app.notion.com/p/0f674424a509428d87e1ccf31a107447) |
+| 数据库 | 🐉 龍魂底层执行规则库｜最高级参考指令·所有派生必查 | `#龍芯⚡️20260701154633192108-NOTION-DB-16e2a2e5-1334-450a-a5a6-bdf742b97ade-B51CD5BB` | Notion 数据库 | [链接](https://app.notion.com/p/16e2a2e51334450aa5a6bdf742b97ade) |
+| 数据库 | 🔴 LU熔断事件记录库｜历史追溯可视化 | `#龍芯⚡️20260701154633192114-NOTION-DB-1b5bedac-ccd8-4a18-80aa-17af5776a126-784A3428` | Notion 数据库 | [链接](https://app.notion.com/p/1b5bedacccd84a1880aa17af5776a126) |
+| 数据库 | 📋 任务与事件库 | `#龍芯⚡️20260701154633192119-NOTION-DB-2052de96-ab8b-4129-8c76-a6ea02059f75-9BFFB170` | Notion 数据库 | [链接](https://app.notion.com/p/2052de96ab8b41298c76a6ea02059f75) |
+| 数据库 | 🎖️ 徽章库（Badge DB） | `#龍芯⚡️20260701154633192124-NOTION-DB-20f3b2f0-42df-472d-8dbf-1db0a3562a38-C815A2AE` | Notion 数据库 | [链接](https://app.notion.com/p/20f3b2f042df472d8dbf1db0a3562a38) |
+| 数据库 | 🚀 太极智能协同中枢 | `#龍芯⚡️20260701154633192129-NOTION-DB-2697125a-9c9f-81ba-b07a-dfc707ed3f42-B581DE04` | Notion 数据库 | [链接](https://app.notion.com/p/2697125a9c9f81bab07adfc707ed3f42) |
+| 数据库 |  | `#龍芯⚡️20260701154633192133-NOTION-DB-2f17125a-9c9f-80ff-be60-f997571a85cb-EC820C7D` | Notion 数据库 | [链接](https://app.notion.com/p/2f17125a9c9f80ffbe60f997571a85cb) |
+| 数据库 | 智谱清言对话记录 | `#龍芯⚡️20260701154633192138-NOTION-DB-3047125a-9c9f-81bb-98c5-c9c84f8575bf-BF858369` | Notion 数据库 | [链接](https://app.notion.com/p/3047125a9c9f81bb98c5c9c84f8575bf) |
+| 数据库 | My Links | `#龍芯⚡️20260701154633192143-NOTION-DB-3087125a-9c9f-816e-acd4-eb47062cd429-04A612C9` | Notion 数据库 | [链接](https://app.notion.com/p/3087125a9c9f816eacd4eb47062cd429) |
+| 数据库 | ☯️ UID9622·93人格太极生态 | 元知级完整架构（v2.0扩展中） | `#龍芯⚡️20260701154633192151-NOTION-DB-3157125a-9c9f-816f-9a97-c5c16141973e-4AF0674E` | Notion 数据库 | [链接](https://app.notion.com/p/3157125a9c9f816f9a97c5c16141973e) |
+| 数据库 | 🌌 UID9622主控操作台 | 最高权限控制中心 | `#龍芯⚡️20260701154633192170-NOTION-DB-3157125a-9c9f-81e0-8710-ccbd4faffb70-7C944958` | Notion 数据库 | [链接](https://app.notion.com/p/3157125a9c9f81e08710ccbd4faffb70) |
+| 数据库 | 🔒 龙魂锁定规则库｜已确认规则不可变 | `#龍芯⚡️20260701154633192176-NOTION-DB-318c8380-56eb-4d26-97df-19ca02eae9ca-29119684` | Notion 数据库 | [链接](https://app.notion.com/p/318c838056eb4d2697df19ca02eae9ca) |
+| 数据库 | 🤝 人格协作·记录库 | `#龍芯⚡️20260701154633192184-NOTION-DB-3d39fd69-8f33-42f6-b74c-b81cdf54caa3-B92885A5` | Notion 数据库 | [链接](https://app.notion.com/p/3d39fd698f3342f6b74cb81cdf54caa3) |
+| 数据库 | 🧑‍💼 人格库（Persona DB） | `#龍芯⚡️20260701154633192189-NOTION-DB-45344678-7123-4f0a-ae39-a854cfbaeb58-93F27887` | Notion 数据库 | [链接](https://app.notion.com/p/4534467871234f0aae39a854cfbaeb58) |
+| 数据库 | 💎 龙芯感悟库｜老兵真心话 | `#龍芯⚡️20260701154633192194-NOTION-DB-618ec39e-1811-4bbe-a7af-ef34e761a4d7-795BFB15` | Notion 数据库 | [链接](https://app.notion.com/p/618ec39e18114bbea7afef34e761a4d7) |
+| 数据库 | 🛡️ 审计库（Audit DB） | `#龍芯⚡️20260701154633192199-NOTION-DB-6dffbfe9-ac29-456d-ab4c-438b9c212801-2E09CA70` | Notion 数据库 | [链接](https://app.notion.com/p/6dffbfe9ac29456dab4c438b9c212801) |
+| 数据库 | 🌍 UID9622规则体系全球发布蓝图｜国际→国家→执行 | `#龍芯⚡️20260701154633192203-NOTION-DB-7029e078-7366-4e4a-80c1-914d4589f514-B70804AB` | Notion 数据库 | [链接](https://app.notion.com/p/7029e07873664e4a80c1914d4589f514) |
+| 数据库 | EVIDENCE-VAULT | `#龍芯⚡️20260701154633192246-NOTION-DB-751a79ae-c172-4482-a110-224f1ec21806-A32DBDBC` | Notion 数据库 | [链接](https://app.notion.com/p/751a79aec1724482a110224f1ec21806) |
+| 数据库 | 📝 TRACE-LOGBOOK（日志库） | `#龍芯⚡️20260701154633192252-NOTION-DB-78349646-84d0-499c-b2ee-82705730e195-FAB40387` | Notion 数据库 | [链接](https://app.notion.com/p/7834964684d0499cb2ee82705730e195) |
+| 数据库 | 📋 UID9622·操作日志 | 备份习惯·任务进度·搭建记录 | `#龍芯⚡️20260701154633192257-NOTION-DB-7c3dcc81-2f9a-4782-a0a7-78a43ca0daf1-5AD27F6A` | Notion 数据库 | [链接](https://app.notion.com/p/7c3dcc812f9a4782a0a778a43ca0daf1) |
+| 数据库 | 🧠 老大常说的话·意图识别库 | `#龍芯⚡️20260701154633192262-NOTION-DB-7c79a7e5-b1af-47ae-9048-a7762e8c6d04-41E76D66` | Notion 数据库 | [链接](https://app.notion.com/p/7c79a7e5b1af47ae9048a7762e8c6d04) |
+| 数据库 | 💎 UID9622数字资产总库 | 全资产统计与监控 | `#龍芯⚡️20260701154633192266-NOTION-DB-7ed7d67f-0ff9-40f9-92f4-246a382e2a3d-56BEC0ED` | Notion 数据库 | [链接](https://app.notion.com/p/7ed7d67f0ff940f992f4246a382e2a3d) |
+| 数据库 | VERSION-LEDGER | `#龍芯⚡️20260701154633192271-NOTION-DB-83d84e7d-455c-469a-bd5c-339899d55291-816B10BA` | Notion 数据库 | [链接](https://app.notion.com/p/83d84e7d455c469abd5c339899d55291) |
+| 数据库 | 📋 白皮书证据链数据库 | `#龍芯⚡️20260701154633192275-NOTION-DB-842d6fd6-ddfd-488e-b54e-8ca81bb8c101-1C04A4D5` | Notion 数据库 | [链接](https://app.notion.com/p/842d6fd6ddfd488eb54e8ca81bb8c101) |
+| 数据库 | 🎯 人格召唤·快捷卡 | `#龍芯⚡️20260701154633192281-NOTION-DB-8c130b9f-a63b-460d-84c7-8e5d06782b02-14701F81` | Notion 数据库 | [链接](https://app.notion.com/p/8c130b9fa63b460d84c78e5d06782b02) |
+| 数据库 | 📚 龙芯推演知识专栏 | `#龍芯⚡️20260701154633192286-NOTION-DB-8da0bdb8-47d3-482c-af44-3842a60fe861-E4E7FE4C` | Notion 数据库 | [链接](https://app.notion.com/p/8da0bdb847d3482caf443842a60fe861) |
+| 数据库 | ⏳ 龙魂时间线·万年历 | `#龍芯⚡️20260701154633192290-NOTION-DB-9a222446-2f5e-446e-814f-51d5c8865781-A3C7CFA1` | Notion 数据库 | [链接](https://app.notion.com/p/9a2224462f5e446e814f51d5c8865781) |
+| 数据库 | 💖 人心算法知识库 | `#龍芯⚡️20260701154633192295-NOTION-DB-a26d09a9-77a6-4f1a-a620-8ba9952c711d-2925E873` | Notion 数据库 | [链接](https://app.notion.com/p/a26d09a977a64f1aa6208ba9952c711d) |
+| 数据库 | 小卡片分享库 | `#龍芯⚡️20260701154633192300-NOTION-DB-b8ad0afd-e03b-4dfe-8841-e3edf2d76424-9EC27184` | Notion 数据库 | [链接](https://app.notion.com/p/b8ad0afde03b4dfe8841e3edf2d76424) |
+| 数据库 | 💝 数字资产继承登记表 | 人本主权 | `#龍芯⚡️20260701154633192304-NOTION-DB-cc4e4e56-3498-4227-a7a2-f47311c27bb8-ECB0C0D2` | Notion 数据库 | [链接](https://app.notion.com/p/cc4e4e5634984227a7a2f47311c27bb8) |
+| 数据库 | 🗂️ 龙魂内容分类总库 | 智能索引系统 | `#龍芯⚡️20260701154633192310-NOTION-DB-d51bc32c-48fd-4a25-93fd-34da2c8a9b0c-E9275ED2` | Notion 数据库 | [链接](https://app.notion.com/p/d51bc32c48fd4a2593fd34da2c8a9b0c) |
+| 数据库 | TASK-OPS | `#龍芯⚡️20260701154633192333-NOTION-DB-f91ead60-074f-4216-9fd8-0bc51021a435-CD8786F0` | Notion 数据库 | [链接](https://app.notion.com/p/f91ead60074f42169fd80bc51021a435) |
+| 数据库 | 💬 龙魂对话归档｜智能分类容器 | `#龍芯⚡️20260701154633192339-NOTION-DB-faf1a044-f5e5-4573-a1bd-58db1998b906-6AAAD654` | Notion 数据库 | [链接](https://app.notion.com/p/faf1a044f5e54573a1bd58db1998b906) |
+| 数据库 | UID9622 主页｜龍魂系统创始人 | `#龍芯⚡️20260701154633192344-NOTION-DB-fd3cd234-5b83-46b1-84e6-3dbe002de478-A9CFF5EC` | Notion 数据库 | [链接](https://app.notion.com/p/fd3cd2345b8346b184e63dbe002de478) |
+| 数据库 | 🧬 龍魂DNA注册表 · 全球存根库 v1.0 | `#龍芯⚡️20260701154633192348-NOTION-DB-e2b53852-f24b-48e8-a4a0-3c785931e974-EDD46ED2` | Notion 数据库 | [链接](https://app.notion.com/p/e2b53852f24b48e8a4a03c785931e974) |
+| 数据库 | 🧬 龍魂DNA库 v1.0 | `#龍芯⚡️20260701154633192353-NOTION-DB-ad617078-1d3a-453f-90ad-a7843188babe-9F1347CD` | Notion 数据库 | [链接](https://app.notion.com/p/ad6170781d3a453f90ada7843188babe) |
+| 数据库 | 🧠 龍魂资产总台账·工程师大脑 v1.0 | `#龍芯⚡️20260701154633192358-NOTION-DB-8ce4c78e-b7cb-4bcc-aa23-a39464d8c946-7A92396F` | Notion 数据库 | [链接](https://app.notion.com/p/8ce4c78eb7cb4bccaa23a39464d8c946) |
+| 数据库 | 📊 龍魂演化日志库 | `#龍芯⚡️20260701154633192364-NOTION-DB-37f54c59-85e4-4d83-aa3a-61d93b2f9202-40CEEE88` | Notion 数据库 | [链接](https://app.notion.com/p/37f54c5985e44d83aa3a61d93b2f9202) |
+| 数据库 | ⚖️ AI伦理审查工单库 | `#龍芯⚡️20260701154633192368-NOTION-DB-c646b075-714a-4538-bd3b-8fb9d0ad856f-B9C3BEC0` | Notion 数据库 | [链接](https://app.notion.com/p/c646b075714a4538bd3b8fb9d0ad856f) |
+| 数据库 | 🐉 龙魂人格矩阵 | AI团队成员库 | `#龍芯⚡️20260701154633192373-NOTION-DB-ad8dc6b9-f51d-4e0f-9810-98269044e07a-7E47051B` | Notion 数据库 | [链接](https://app.notion.com/p/ad8dc6b9f51d4e0f981098269044e07a) |
+| 数据库 | ⚖️ 龍魂七維AI治理×數字主權執行表 v1.0 | `#龍芯⚡️20260701154633192378-NOTION-DB-e16608d9-b99a-4d51-b1af-85ca71ef8c66-EE2B4E20` | Notion 数据库 | [链接](https://app.notion.com/p/e16608d9b99a4d51b1af85ca71ef8c66) |
+| 数据库 | 💎 UID9622数字资产全息管理中心 | `#龍芯⚡️20260701154633192382-NOTION-DB-de99e9ae-e3c2-4447-9b39-2c9f68c1b3fe-4F4B932B` | Notion 数据库 | [链接](https://app.notion.com/p/de99e9aee3c244479b392c9f68c1b3fe) |
+| 数据库 | 龍魂DNA-Calendar | `#龍芯⚡️20260701154633192387-NOTION-DB-8f5b4ac0-baed-40d3-92e6-fca1ff3901de-83308DFC` | Notion 数据库 | [链接](https://app.notion.com/p/8f5b4ac0baed40d392e6fca1ff3901de) |
+| 数据库 | 🟣 Pipeline B · 生成创作型流水线 | `#龍芯⚡️20260701154633192392-NOTION-DB-928d468e-462d-4201-b405-440ce9700369-740FDD62` | Notion 数据库 | [链接](https://app.notion.com/p/928d468e462d4201b405440ce9700369) |
+| 数据库 | 🔵 Pipeline A · 事实检索型流水线 | `#龍芯⚡️20260701154633192401-NOTION-DB-04a8dcc9-8e94-436b-9907-315418c94f80-DD09A188` | Notion 数据库 | [链接](https://app.notion.com/p/04a8dcc98e94436b9907315418c94f80) |
+| 数据库 | 🎭 对话场景库 · Dialogue Scenarios | `#龍芯⚡️20260701154633192421-NOTION-DB-0d227893-e619-4f3f-a03d-b8198e172a2d-D4E94124` | Notion 数据库 | [链接](https://app.notion.com/p/0d227893e6194f3fa03db8198e172a2d) |
+| 数据库 | ☯️ 价值观规则库 · Values Rules | `#龍芯⚡️20260701154633192426-NOTION-DB-175b5831-6653-4f53-b990-271003955c7a-A79AACCC` | Notion 数据库 | [链接](https://app.notion.com/p/175b583166534f53b990271003955c7a) |
+| 数据库 | ③ 对话记忆库 · ChatMemory | `#龍芯⚡️20260701154633192431-NOTION-DB-32a7125a-9c9f-81d7-a6df-d71a2f6606e6-59A48B1C` | Notion 数据库 | [链接](https://app.notion.com/p/32a7125a9c9f81d7a6dfd71a2f6606e6) |
+| 数据库 | 🎯 推演任务队列 | `#龍芯⚡️20260701154633192440-NOTION-DB-3207125a-9c9f-81a1-9ae2-c1a2399d2d0e-A4BA86FD` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f81a19ae2c1a2399d2d0e) |
+| 数据库 | 🧬 DNA追溯总库 | `#龍芯⚡️20260701154633192445-NOTION-DB-3207125a-9c9f-81c7-8472-c015a779eeb5-A9A5DBB7` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f81c78472c015a779eeb5) |
+| 数据库 | 📊 算法总览 | `#龍芯⚡️20260701154633192450-NOTION-DB-3207125a-9c9f-815c-a0d2-f382f44ef977-9013CCB0` | Notion 数据库 | [链接](https://app.notion.com/p/3207125a9c9f815ca0d2f382f44ef977) |
+| 数据库 | ⚠️ 错误记账本 | Immutable Error Ledger | `#龍芯⚡️20260701154633192454-NOTION-DB-3127125a-9c9f-801e-99fa-d5e1833a807d-2ACB1D50` | Notion 数据库 | [链接](https://app.notion.com/p/3127125a9c9f801e99fad5e1833a807d) |
+| 数据库 | 龙魂开发任务 | `#龍芯⚡️20260701154633192459-NOTION-DB-7e751959-0498-4669-b80d-ce79b73cb07d-6A16CC9A` | Notion 数据库 | [链接](https://app.notion.com/p/7e75195904984669b80dce79b73cb07d) |
+| 数据库 | 龙魂核心模块清单 | `#龍芯⚡️20260701154633192487-NOTION-DB-7eb509b5-3799-40fe-a486-c4654b9fd519-1D344548` | Notion 数据库 | [链接](https://app.notion.com/p/7eb509b5379940fea486c4654b9fd519) |
+| 数据库 | 龙魂白皮书章节导航 | `#龍芯⚡️20260701154633192492-NOTION-DB-fe16c4b9-5eaf-466a-9231-4c820912efc3-ADD9815D` | Notion 数据库 | [链接](https://app.notion.com/p/fe16c4b95eaf466a92314c820912efc3) |
+| 数据库 | 算法模块库 | `#龍芯⚡️20260701154633192497-NOTION-DB-f9e74821-81de-4b11-8390-21f77fc469d8-BBE643D5` | Notion 数据库 | [链接](https://app.notion.com/p/f9e7482181de4b11839021f77fc469d8) |
+| 数据库 | 版本追踪库 | `#龍芯⚡️20260701154633192502-NOTION-DB-f5c401b2-1b9f-4d14-9722-3ffabf239629-C447611E` | Notion 数据库 | [链接](https://app.notion.com/p/f5c401b21b9f4d1497223ffabf239629) |
+| 数据库 | 审计记录库 | `#龍芯⚡️20260701154633192507-NOTION-DB-f2cc6047-72a8-420d-9309-ea16daadd076-C960DFFE` | Notion 数据库 | [链接](https://app.notion.com/p/f2cc604772a8420d9309ea16daadd076) |
+| 数据库 | 人格权重库 | `#龍芯⚡️20260701154633192511-NOTION-DB-79009e61-a701-4fee-a592-890d22892f99-7AC41CE7` | Notion 数据库 | [链接](https://app.notion.com/p/79009e61a7014feea592890d22892f99) |
+| 数据库 | 🚀 人格启动日志｜执行追踪 | `#龍芯⚡️20260701154633192516-NOTION-DB-9d402d5e-9e32-4847-aafc-1bc89ac90b05-E750B1B6` | Notion 数据库 | [链接](https://app.notion.com/p/9d402d5e9e324847aafc1bc89ac90b05) |
+| 数据库 | 🌐 功能引用地图｜关系网络 | `#龍芯⚡️20260701154633192521-NOTION-DB-2a2fbe02-c29b-4c27-89ed-7f0ac1f106fc-FA818F86` | Notion 数据库 | [链接](https://app.notion.com/p/2a2fbe02c29b4c2789ed7f0ac1f106fc) |
+| 数据库 | 🌍 开放贡献者档案｜外部协作者 | `#龍芯⚡️20260701154633192526-NOTION-DB-47848ccc-156f-4d35-81a3-f58f2363aaec-E3D778EF` | Notion 数据库 | [链接](https://app.notion.com/p/47848ccc156f4d3581a3f58f2363aaec) |
+| 数据库 | 🧩 同步块库｜龙魂系统大脑 | `#龍芯⚡️20260701154633192530-NOTION-DB-8e8d0381-c03e-417a-b890-1d6c8ab2441a-6DE26C69` | Notion 数据库 | [链接](https://app.notion.com/p/8e8d0381c03e417ab8901d6c8ab2441a) |
+| 数据库 | 📥 投喂收件箱｜龙魂系统入口 | `#龍芯⚡️20260701154633192536-NOTION-DB-49acd21e-8274-44f1-a37a-c72844c7741a-5900687D` | Notion 数据库 | [链接](https://app.notion.com/p/49acd21e827444f1a37ac72844c7741a) |
+| 数据库 | 🗑️ 技术噪音清单 | 仅供老大审阅（不会被系统应用）🔍  | `#龍芯⚡️20260701154633192541-NOTION-DB-c7709f64-0ce6-450b-8c56-fc103d810912-D92315CF` | Notion 数据库 | [链接](https://app.notion.com/p/c7709f640ce6450b8c56fc103d810912) |
+| 数据库 | 🤝 自愿开放贡献库 | 数字签名记录 | `#龍芯⚡️20260701154633192546-NOTION-DB-15955a97-5cb4-4a38-9b87-037e4eab7770-A4ACC9EE` | Notion 数据库 | [链接](https://app.notion.com/p/15955a975cb44a389b87037e4eab7770) |
+| 数据库 | 🔐 用户身份验证记录库 | 三重验证追溯 | `#龍芯⚡️20260701154633192551-NOTION-DB-352e9b3a-044a-4a90-855f-c890028fc8e6-59A04C98` | Notion 数据库 | [链接](https://app.notion.com/p/352e9b3a044a4a90855fc890028fc8e6) |
+| 数据库 | 🚨 拦截事件日志库 | 边界触发追溯 | `#龍芯⚡️20260701154633192574-NOTION-DB-c74f6e6b-ea78-4fc1-932d-b0ba67e04680-E0EABE35` | Notion 数据库 | [链接](https://app.notion.com/p/c74f6e6bea784fc1932db0ba67e04680) |
+| 数据库 | 🗂️ 边界限制卡库 | 全球AI治理规则压缩存储 | `#龍芯⚡️20260701154633192580-NOTION-DB-503b3502-d14c-4af2-b60b-ce7b840ca774-1DF42A8F` | Notion 数据库 | [链接](https://app.notion.com/p/503b3502d14c4af2b60bce7b840ca774) |
+| 数据库 | GABGS实施进度追踪 | `#龍芯⚡️20260701154633192588-NOTION-DB-9f3e1ad6-399e-4334-a92c-00919e24d4af-0B065FA8` | Notion 数据库 | [链接](https://app.notion.com/p/9f3e1ad6399e4334a92c00919e24d4af) |
+| 数据库 | GABGS公开反馈数据库 | `#龍芯⚡️20260701154633192593-NOTION-DB-f0d62328-c045-4c18-aa4b-f248c7b97ccd-A0BEBFBE` | Notion 数据库 | [链接](https://app.notion.com/p/f0d62328c0454c18aa4bf248c7b97ccd) |
+| 数据库 | 🧬 DNA标签注册数据库 | `#龍芯⚡️20260701154633192598-NOTION-DB-33b79c81-1470-4547-945f-81cffd753493-41E6678D` | Notion 数据库 | [链接](https://app.notion.com/p/33b79c8114704547945f81cffd753493) |
+| 数据库 | 📋 AI操作日志·DNA追溯中心 | `#龍芯⚡️20260701154633192603-NOTION-DB-2d4b513f-1db7-4f5e-b994-9c15703b0f52-F679981E` | Notion 数据库 | [链接](https://app.notion.com/p/2d4b513f1db74f5eb9949c15703b0f52) |
+| 数据库 | 🧪 AI信任实验·密码测试库 | `#龍芯⚡️20260701154633192609-NOTION-DB-5a6590ac-0732-4f8d-a50a-393acff66c90-626D2360` | Notion 数据库 | [链接](https://app.notion.com/p/5a6590ac07324f8da50a393acff66c90) |
+| 数据库 | Passwords | `#龍芯⚡️20260701154633192614-NOTION-DB-2d17125a-9c9f-81bc-ab4b-d7decc0967b6-CC6EC0DC` | Notion 数据库 | [链接](https://app.notion.com/p/2d17125a9c9f81bcab4bd7decc0967b6) |
+| 数据库 | 🔍 AI回复追溯记录库 | `#龍芯⚡️20260701154633192618-NOTION-DB-a03a5053-d9db-4da3-b42e-c34a6efc3e53-9341E909` | Notion 数据库 | [链接](https://app.notion.com/p/a03a5053d9db4da3b42ec34a6efc3e53) |
+| 数据库 | 📋 P0模块管理数据库 | 变动追踪与状态管理 | `#龍芯⚡️20260701154633192623-NOTION-DB-60e866bd-b958-447b-a1bc-b1ea89c0878f-77E94089` | Notion 数据库 | [链接](https://app.notion.com/p/60e866bdb958447ba1bcb1ea89c0878f) |
+| 数据库 | 待办事项完成 | `#龍芯⚡️20260701154633192628-NOTION-DB-2cf7125a-9c9f-813a-9be4-cbdede532c77-F3BF7163` | Notion 数据库 | [链接](https://app.notion.com/p/2cf7125a9c9f813a9be4cbdede532c77) |
+| 数据库 | UID9622任务执行数据库 | `#龍芯⚡️20260701154633192633-NOTION-DB-2cf7125a-9c9f-81a2-92c1-fefab0e74375-E52789B1` | Notion 数据库 | [链接](https://app.notion.com/p/2cf7125a9c9f81a292c1fefab0e74375) |
+| 数据库 | 🎯 宝宝沙盒推演系统·功能模块索引 | `#龍芯⚡️20260701154633192637-NOTION-DB-e13788ec-68e3-4da5-bec8-488ec2397f68-C8D4EF52` | Notion 数据库 | [链接](https://app.notion.com/p/e13788ec68e34da5bec8488ec2397f68) |
+| 数据库 | 🛠️ UID9622技术栈代码库 | 开发者工具集 | `#龍芯⚡️20260701154633192647-NOTION-DB-bd34881c-f684-4628-af04-80c760c41aec-12050770` | Notion 数据库 | [链接](https://app.notion.com/p/bd34881cf6844628af0480c760c41aec) |
+| 数据库 | 🎯 AI模型评估对比数据库 | 龙魂 vs 主流大模型 | `#龍芯⚡️20260701154633192668-NOTION-DB-eb921051-1d0a-4c92-ae38-aae7ef510308-9E323337` | Notion 数据库 | [链接](https://app.notion.com/p/eb9210511d0a4c92ae38aae7ef510308) |
+| 数据库 | 🌍 UID9622龙魂终端全球监控中心 | `#龍芯⚡️20260701154633192673-NOTION-DB-2d2b5555-519d-48aa-ab19-b4fab43ab453-F79CA897` | Notion 数据库 | [链接](https://app.notion.com/p/2d2b5555519d48aaab19b4fab43ab453) |
+| 数据库 | 🧬 CNSH知识DNA注册总库 | `#龍芯⚡️20260701154633192678-NOTION-DB-a8793f6f-c7f0-4f65-a6f2-b770a61138f8-1D6BA099` | Notion 数据库 | [链接](https://app.notion.com/p/a8793f6fc7f04f65a6f2b770a61138f8) |
+| 数据库 | 🎯 指令管家·Notion数据库 | `#龍芯⚡️20260701154633192683-NOTION-DB-45452827-0ec2-4b84-a1ac-2e0eed5dedb6-52D3E343` | Notion 数据库 | [链接](https://app.notion.com/p/454528270ec24b84a1ac2e0eed5dedb6) |
+| 数据库 | ☯️ 五行卦象状态矩阵 | `#龍芯⚡️20260701154633192688-NOTION-DB-57db65e3-afe1-4e27-9f61-f608f6a4a466-C7ED0131` | Notion 数据库 | [链接](https://app.notion.com/p/57db65e3afe14e279f61f608f6a4a466) |
+| 数据库 | 🔄 V8三层学习链追踪 | `#龍芯⚡️20260701154633192693-NOTION-DB-bc8671f2-24fe-4c8d-b3d4-0cb1ba45cdf2-D8B8EB95` | Notion 数据库 | [链接](https://app.notion.com/p/bc8671f224fe4c8db3d40cb1ba45cdf2) |
+| 数据库 | 📈 天层规则演化日志 | `#龍芯⚡️20260701154633192698-NOTION-DB-00c65bcd-435e-43e2-8295-5189a09b60ab-16C4B469` | Notion 数据库 | [链接](https://app.notion.com/p/00c65bcd435e43e282955189a09b60ab) |
+| 数据库 | 🎯 指令调度中心 | `#龍芯⚡️20260701154633192724-NOTION-DB-fa6d3ee5-9375-4507-bbb9-bdf465915615-54B153EE` | Notion 数据库 | [链接](https://app.notion.com/p/fa6d3ee593754507bbb9bdf465915615) |
+| 数据库 | 📋 调度执行日志 | `#龍芯⚡️20260701154633192729-NOTION-DB-ac816abe-818c-4c67-bc57-4c0b48bb7243-B8C9724F` | Notion 数据库 | [链接](https://app.notion.com/p/ac816abe818c4c67bc574c0b48bb7243) |
+| 数据库 | 🤖 Worker执行层管理 | `#龍芯⚡️20260701154633192734-NOTION-DB-ec55967e-a167-4635-9da6-f374026bf3a6-9B7EEE80` | Notion 数据库 | [链接](https://app.notion.com/p/ec55967ea16746359da6f374026bf3a6) |
+| 数据库 | 🌑 伏地魔层·自动化模块库 | `#龍芯⚡️20260701154633192739-NOTION-DB-6990a550-4e4b-4c38-89ac-7ed4088ad5cc-7FE04BA5` | Notion 数据库 | [链接](https://app.notion.com/p/6990a5504e4b4c3889ac7ed4088ad5cc) |
+| 数据库 | ⚡ 五行引擎管理中心 | `#龍芯⚡️20260701154633192744-NOTION-DB-e43c45ae-f5bf-41f3-9d16-324786efa0bc-DB720D85` | Notion 数据库 | [链接](https://app.notion.com/p/e43c45aef5bf41f39d16324786efa0bc) |
+| 数据库 | 🤖 LU指令管理中心 | Ollama自动化 | `#龍芯⚡️20260701154633192748-NOTION-DB-c283a5c2-6d79-4271-977d-b2088d6b093e-28A9335A` | Notion 数据库 | [链接](https://app.notion.com/p/c283a5c26d794271977db2088d6b093e) |
+| 数据库 | 📋 举报处理数据库 | 正义执行总库 | `#龍芯⚡️20260701154633192753-NOTION-DB-9f3e5994-20a9-4ea8-8209-9e8243a4b3af-9B8A2C88` | Notion 数据库 | [链接](https://app.notion.com/p/9f3e599420a94ea882099e8243a4b3af) |
+| 数据库 | 📊 DNA码登记数据库 | 原创保护总库 | `#龍芯⚡️20260701154633192758-NOTION-DB-ea5482d6-a4b7-44f9-958e-cd624b666286-DBAAF230` | Notion 数据库 | [链接](https://app.notion.com/p/ea5482d6a4b744f9958ecd624b666286) |
+| 数据库 | 🏛️ 长虹乡纪检工作管理系统 | `#龍芯⚡️20260701154633192763-NOTION-DB-4d697369-18e7-49e3-ad9f-11521757ba87-3952F1C2` | Notion 数据库 | [链接](https://app.notion.com/p/4d69736918e749e3ad9f11521757ba87) |
+| 数据库 | 重要对话索引 | `#龍芯⚡️20260701154633192768-NOTION-DB-2ed21ec1-1c01-44bb-9bfe-94898335f04b-301B9FA6` | Notion 数据库 | [链接](https://app.notion.com/p/2ed21ec11c0144bb9bfe94898335f04b) |
+| 数据库 | 木兰协议技术栈任务库 | `#龍芯⚡️20260701154633192772-NOTION-DB-c0deaf81-e338-4507-802f-aed126ea01e7-475A93F6` | Notion 数据库 | [链接](https://app.notion.com/p/c0deaf81e3384507802faed126ea01e7) |
+| 数据库 | 💬 Lucky定锚话术DNA库 | 语言压缩算法实践 | `#龍芯⚡️20260701154633192777-NOTION-DB-6592cfdc-bb37-42f5-b5f6-f840ec0ad20c-874E97D2` | Notion 数据库 | [链接](https://app.notion.com/p/6592cfdcbb3742f5b5f6f840ec0ad20c) |
+| 数据库 | AI黑箱审判记录 | `#龍芯⚡️20260701154633192782-NOTION-DB-840232d1-bb8e-4479-aba7-e0d71b8b767c-6297FBBA` | Notion 数据库 | [链接](https://app.notion.com/p/840232d1bb8e4479aba7e0d71b8b767c) |
+| 数据库 | 里程碑事件 | `#龍芯⚡️20260701154633192786-NOTION-DB-2fc7022f-ed83-420f-b393-64623b96cfb4-2AAB550B` | Notion 数据库 | [链接](https://app.notion.com/p/2fc7022fed83420fb39364623b96cfb4) |
+| 数据库 | 🧪 开源沙盒评估中心 | `#龍芯⚡️20260701154633192809-NOTION-DB-738bda94-8481-443b-87b4-f69f8f726519-58D908F5` | Notion 数据库 | [链接](https://app.notion.com/p/738bda948481443b87b4f69f8f726519) |
+| 数据库 | Handover任务交接数据库 | `#龍芯⚡️20260701154633192815-NOTION-DB-c8528816-ab11-490d-a85f-d151cfadc3e9-822B0D5F` | Notion 数据库 | [链接](https://app.notion.com/p/c8528816ab11490da85fd151cfadc3e9) |
+| 数据库 | 版本里程碑数据库 | `#龍芯⚡️20260701154633192819-NOTION-DB-cc091ee9-b817-4e97-aff8-aad56ad82bb8-4D426C16` | Notion 数据库 | [链接](https://app.notion.com/p/cc091ee9b8174e97aff8aad56ad82bb8) |
+| 数据库 | 数据源管理数据库 | `#龍芯⚡️20260701154633192824-NOTION-DB-114a9b45-ca96-4d9e-b3aa-99514d6e8a0a-DB364161` | Notion 数据库 | [链接](https://app.notion.com/p/114a9b45ca964d9eb3aa99514d6e8a0a) |
+| 数据库 | 71人格矩阵数据库 | `#龍芯⚡️20260701154633192829-NOTION-DB-96c43e20-5a6d-4c5d-bd01-82bb2d207964-1D61F7CF` | Notion 数据库 | [链接](https://app.notion.com/p/96c43e205a6d4c5dbd0182bb2d207964) |
+| 数据库 | 安全审计事件库 | `#龍芯⚡️20260701154633192833-NOTION-DB-b08d4d29-8e14-4405-b77d-9b282d64dadc-2BCB3AF4` | Notion 数据库 | [链接](https://app.notion.com/p/b08d4d298e144405b77d9b282d64dadc) |
+| 数据库 | 区域地图数据库 | `#龍芯⚡️20260701154633192838-NOTION-DB-b8f4e097-10a7-4e49-baa3-2a3af282631a-B1807084` | Notion 数据库 | [链接](https://app.notion.com/p/b8f4e09710a74e49baa32a3af282631a) |
+| 数据库 | 执行清单｜ZGX-CIV（未完成） | `#龍芯⚡️20260701154633192843-NOTION-DB-9bf3ef77-a58d-4ea6-a952-1cfd00117b57-95361AA7` | Notion 数据库 | [链接](https://app.notion.com/p/9bf3ef77a58d4ea6a9521cfd00117b57) |
+| 数据库 | ZGX-CIV-003｜任务跟进（未完成） | `#龍芯⚡️20260701154633192848-NOTION-DB-be7c4f8d-c91a-4e33-a9d0-7b720f2f8c04-FCA43008` | Notion 数据库 | [链接](https://app.notion.com/p/be7c4f8dc91a4e33a9d07b720f2f8c04) |
+| 数据库 | 人民故事库 | 老百姓的声音 | `#龍芯⚡️20260701154633192853-NOTION-DB-7c92a555-085d-4075-941b-74e7ee0916fe-ACEFBC7C` | Notion 数据库 | [链接](https://app.notion.com/p/7c92a555085d4075941b74e7ee0916fe) |
+| 数据库 | 执行清单｜ZGX-CIV | `#龍芯⚡️20260701154633192857-NOTION-DB-2977125a-9c9f-8196-b466-e4a799329695-BC930ACF` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f8196b466e4a799329695) |
+| 数据库 | 📊 周度入选记录 | `#龍芯⚡️20260701154633192862-NOTION-DB-2977125a-9c9f-81e6-b3b9-d960a2c02aaf-94042AA1` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f81e6b3b9d960a2c02aaf) |
+| 数据库 | 🧪 开源沙盒评估中心 | `#龍芯⚡️20260701154633192867-NOTION-DB-2977125a-9c9f-8161-8f2c-f66e65250e71-0A5103E0` | Notion 数据库 | [链接](https://app.notion.com/p/2977125a9c9f81618f2cf66e65250e71) |
+| 数据库 | 📊 周度入选记录 | `#龍芯⚡️20260701154633192871-NOTION-DB-b5e1b2a0-0e63-410d-968c-644442887197-69A8E6EB` | Notion 数据库 | [链接](https://app.notion.com/p/b5e1b2a00e63410d968c644442887197) |
+| 数据库 | 执行清单｜ZGX-CIV | `#龍芯⚡️20260701154633192895-NOTION-DB-deabfa69-89bf-446f-b22b-e77c5b2a380d-70E51C07` | Notion 数据库 | [链接](https://app.notion.com/p/deabfa6989bf446fb22be77c5b2a380d) |
+| 数据库 | 项目管理数据库（内联视图） | `#龍芯⚡️20260701154633192900-NOTION-DB-1a58d1ad-c6c4-4afd-a5f4-89203a7c2338-4B803108` | Notion 数据库 | [链接](https://app.notion.com/p/1a58d1adc6c44afda5f489203a7c2338) |
+| 数据库 | 🎭 人格激活审批数据库 | `#龍芯⚡️20260701154633192905-NOTION-DB-4c57ea2e-b792-41d3-bd0e-ed04f3ac4e6c-9719D3B3` | Notion 数据库 | [链接](https://app.notion.com/p/4c57ea2eb79241d3bd0eed04f3ac4e6c) |
+| 数据库 | Lucky的任务清单 | `#龍芯⚡️20260701154633192909-NOTION-DB-8f5fb175-5ca0-440a-96ac-523e8c7e72d3-8C0AA233` | Notion 数据库 | [链接](https://app.notion.com/p/8f5fb1755ca0440a96ac523e8c7e72d3) |
+| 数据库 | Map Rules｜四类→六层映射规则表 | `#龍芯⚡️20260701154633192914-NOTION-DB-f249fb58-5278-44ee-b6ea-c6fc8bcfbd12-978FC189` | Notion 数据库 | [链接](https://app.notion.com/p/f249fb58527844eeb6eac6fc8bcfbd12) |
+| 数据库 | 公开审计日志 | `#龍芯⚡️20260701154633192919-NOTION-DB-c5d63f76-b296-4dd4-a255-9bfe9d6c6f9c-B2869DF8` | Notion 数据库 | [链接](https://app.notion.com/p/c5d63f76b2964dd4a2559bfe9d6c6f9c) |
+| 数据库 | 🏛️ UID9622知识产权申请追踪中心 | `#龍芯⚡️20260701154633192923-NOTION-DB-6164c2f7-6e54-4389-9c39-fa617ce09742-DED836B8` | Notion 数据库 | [链接](https://app.notion.com/p/6164c2f76e5443899c39fa617ce09742) |
+| 数据库 |  | `#龍芯⚡️20260701154633192929-NOTION-DB-2837125a-9c9f-802b-bd6d-d7f14691463a-7933DC1D` | Notion 数据库 | [链接](https://app.notion.com/p/2837125a9c9f802bbd6dd7f14691463a) |
+| 数据库 | FBI执行日志 | `#龍芯⚡️20260701154633192934-NOTION-DB-4ac65cc0-3c41-481a-868a-3ea0ab164d0e-60348CA7` | Notion 数据库 | [链接](https://app.notion.com/p/4ac65cc03c41481a868a3ea0ab164d0e) |
+| 数据库 | AI 本地运行指南 | `#龍芯⚡️20260701154633192938-NOTION-DB-26b7125a-9c9f-8002-a3cb-f1c2699d4f8a-D29C0D92` | Notion 数据库 | [链接](https://app.notion.com/p/26b7125a9c9f8002a3cbf1c2699d4f8a) |
+| 数据库 | 📥 Intake Hub（投喂中心） | `#龍芯⚡️20260701154633192943-NOTION-DB-ec4b145f-d814-42c8-a711-f620b994ea0b-66F7E06E` | Notion 数据库 | [链接](https://app.notion.com/p/ec4b145fd81442c8a711f620b994ea0b) |
+| 数据库 | 🧪 Experiments（分支实验） | `#龍芯⚡️20260701154633192947-NOTION-DB-1cda0320-e91b-4e4e-b7bd-1de6c64b7372-82E48648` | Notion 数据库 | [链接](https://app.notion.com/p/1cda0320e91b4e4eb7bd1de6c64b7372) |
+| 数据库 | 标准工作间 · 内容库 | `#龍芯⚡️20260701154633192953-NOTION-DB-bed4af23-9096-4bef-a018-128e050b947e-5584121F` | Notion 数据库 | [链接](https://app.notion.com/p/bed4af2390964befa018128e050b947e) |
+| 数据库 | 🧾 审计证据库 | `#龍芯⚡️20260701154633192958-NOTION-DB-a2b084d9-5d0d-4517-8c94-af3f92135bda-990FCFDF` | Notion 数据库 | [链接](https://app.notion.com/p/a2b084d95d0d45178c94af3f92135bda) |
+| 数据库 | 🗄️ UID9622系统归档数据库 | `#龍芯⚡️20260701154633192967-NOTION-DB-b21fa2c4-59df-4fba-a770-f386205a44bf-816102D3` | Notion 数据库 | [链接](https://app.notion.com/p/b21fa2c459df4fbaa770f386205a44bf) |
+| 数据库 | 🗳️ 决策记录库 | `#龍芯⚡️20260701154633192973-NOTION-DB-c13d3460-63dc-4816-affe-be35d4c2cba8-4D553CDF` | Notion 数据库 | [链接](https://app.notion.com/p/c13d346063dc4816affebe35d4c2cba8) |
+| 数据库 | ⚔️ 冲突登记表 | `#龍芯⚡️20260701154633192977-NOTION-DB-f3011042-6f0b-4935-a6a4-43a44d8fbcf1-B75D066A` | Notion 数据库 | [链接](https://app.notion.com/p/f30110426f0b4935a6a443a44d8fbcf1) |
+| 数据库 | 密钥治理台账 | `#龍芯⚡️20260701154633192982-NOTION-DB-003d9894-5f8d-48f4-963b-f619fe2fe878-5320647B` | Notion 数据库 | [链接](https://app.notion.com/p/003d98945f8d48f4963bf619fe2fe878) |
+| 数据库 | My Links | `#龍芯⚡️20260701154633192986-NOTION-DB-26f7125a-9c9f-81c9-80e0-dfe49cc31803-7A456759` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f81c980e0dfe49cc31803) |
+| 数据库 | My Links | `#龍芯⚡️20260701154633192991-NOTION-DB-26f7125a-9c9f-813a-b3d8-c538deff67b6-14C9AD87` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f813ab3d8c538deff67b6) |
+| 数据库 | My Links | `#龍芯⚡️20260701154633192996-NOTION-DB-26f7125a-9c9f-8165-a9c8-f90b0cfa10d9-BF38D01A` | Notion 数据库 | [链接](https://app.notion.com/p/26f7125a9c9f8165a9c8f90b0cfa10d9) |
+| 数据库 | 📜 知识产权保护与版权管理中心 | `#龍芯⚡️20260701154633193005-NOTION-DB-00611141-6d03-4fe8-a93f-0edd437fe5bd-187430E0` | Notion 数据库 | [链接](https://app.notion.com/p/006111416d034fe8a93f0edd437fe5bd) |
+| 数据库 | 🔄 系统备份恢复与灾难预案中心 | `#龍芯⚡️20260701154633193010-NOTION-DB-3b812ebd-67a0-4211-b939-4d30ceae65a7-3B9E0BE3` | Notion 数据库 | [链接](https://app.notion.com/p/3b812ebd67a04211b9394d30ceae65a7) |
+| 数据库 | PDF文件管理系统 | `#龍芯⚡️20260701154633193014-NOTION-DB-1cc7b91f-ab8d-42d4-9e93-b3ce169dd9e9-1D8A0548` | Notion 数据库 | [链接](https://app.notion.com/p/1cc7b91fab8d42d49e93b3ce169dd9e9) |
+| 数据库 | 🎛️ UID9622系统模块管理数据库 | `#龍芯⚡️20260701154633193019-NOTION-DB-0488a1b1-7bc4-4fd2-a6e5-409c55530fc5-D08311DA` | Notion 数据库 | [链接](https://app.notion.com/p/0488a1b17bc44fd2a6e5409c55530fc5) |
+| 数据库 | 📢 公告追踪自动化系统 | `#龍芯⚡️20260701154633193024-NOTION-DB-8aa53ee0-afd5-471c-a29b-d7215997fe1d-0167286B` | Notion 数据库 | [链接](https://app.notion.com/p/8aa53ee0afd5471ca29bd7215997fe1d) |
+| 数据库 | 📸 Snapshots 备份数据库 | `#龍芯⚡️20260701154633193028-NOTION-DB-ded8da9e-6649-4e95-aef6-9583cbc21bca-C556C624` | Notion 数据库 | [链接](https://app.notion.com/p/ded8da9e66494e95aef69583cbc21bca) |
