@@ -13,6 +13,7 @@ metadata:
   dna: "#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.0"
   category: internal
   status: active
+  entry: "python3 /Users/zuimeidedeyihan/longhun-system/skills/longhun-tags/scripts/longhun_tags.py"
   trigger:
     keywords:
       - 标签

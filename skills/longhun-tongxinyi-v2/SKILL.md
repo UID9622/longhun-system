@@ -13,6 +13,7 @@ metadata:
   dna: "#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0"
   category: internal
   status: active
+  entry: "python3 /Users/zuimeidedeyihan/longhun-system/skills/longhun-tongxinyi-v2/scripts/tongxin_gate.py"
   trigger:
     keywords:
       - 通心译

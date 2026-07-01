@@ -173,10 +173,14 @@ class 龍魂技能内核:
                         when = front.get("when") or ""
                         triggers.extend(re.findall(r"['\"]([^'\"]+)['\"]", when + " " + desc))
                         meta["关键词"] = [t.strip() for t in triggers if len(t.strip()) > 1]
-                        # 自动提取入口命令（描述里提到的 .py 脚本）
-                        cmd_match = re.search(r"([~/][^\s\"]+\.py)", desc)
-                        if cmd_match:
-                            meta["入口"] = f"python3 {cmd_match.group(1)}"
+                        # 入口命令：优先 metadata.entry，其次从 description 提取 .py 路径
+                        entry = md.get("entry")
+                        if entry and isinstance(entry, str):
+                            meta["入口"] = entry
+                        else:
+                            cmd_match = re.search(r"([~/][^\s\"]+\.py)", desc)
+                            if cmd_match:
+                                meta["入口"] = f"python3 {cmd_match.group(1)}"
             except Exception:
                 pass
 
