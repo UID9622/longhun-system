@@ -102,6 +102,7 @@ class 龍魂技能内核:
                     "来源": str(base.name),
                     "关键词": meta.get("关键词", []),
                     "入口": meta.get("入口", ""),
+                    "优先级": meta.get("优先级", 50),
                     "状态": "已注册",
                     "评分": 50.0,
                     "使用次数": 0,
@@ -167,6 +168,7 @@ class 龍魂技能内核:
                             trigger = md.get("trigger") or {}
                             if isinstance(trigger, dict):
                                 triggers.extend(trigger.get("keywords", []))
+                                meta["优先级"] = trigger.get("priority", 50)
                         desc = str(front.get("description", ""))
                         when = front.get("when") or ""
                         triggers.extend(re.findall(r"['\"]([^'\"]+)['\"]", when + " " + desc))
@@ -220,10 +222,25 @@ class 龍魂技能内核:
             if score > 0:
                 # 加上技能本身评分作为质量权重
                 score += skill.get("评分", 50.0) / 100.0
+                # 加上 YAML 中声明的优先级（高优先级技能优先）
+                score += skill.get("优先级", 50) / 1000.0
                 candidates.append((score, skill))
         if not candidates:
             return None
-        candidates.sort(key=lambda x: x[0], reverse=True)
+
+        def _version_value(skill: Dict[str, Any]) -> float:
+            m = re.search(r"v?(\d+)\.(\d+)(?:\.(\d+))?", str(skill.get("版本", "v1.0")))
+            if not m:
+                return 1.0
+            major, minor, patch = m.groups()
+            patch = patch or "0"
+            return float(f"{major}.{minor}{patch.zfill(3)}")
+
+        # 按分数降序；分数相同按版本号降序、优先级降序
+        candidates.sort(
+            key=lambda x: (x[0], _version_value(x[1]), x[1].get("优先级", 50)),
+            reverse=True,
+        )
         return candidates[0][1]
 
     # ========== 3. 回调执行 ==========
