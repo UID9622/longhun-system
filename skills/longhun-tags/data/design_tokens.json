@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "schema_version": "longhun-design-tokens-v1.0",
+    "description": "龍魂标签体系设计令牌（Design Tokens），供 CSS/渲染层消费",
+    "dna": "#龍芯⚡️2026-07-01-LONGHUN-DESIGN-TOKENS-v1.0",
+    "last_updated": "2026-07-01T01:19:08Z"
+  },
+  "tokens": {
+    "--lh-gold-base": { "value": "#FFD700", "usage": "金元素主色、乾/兑八卦、核心王者" },
+    "--lh-gold-peak": { "value": "#FFD700", "usage": "金旺态、性能峰值" },
+    "--lh-gold-rest": { "value": "#C0C0C0", "usage": "金休态、资源回收" },
+    "--lh-gold-trap": { "value": "#808080", "usage": "金囚态、权限受限" },
+    "--lh-gold-light": { "value": "#FFF8DC", "usage": "金生态、新功能萌芽" },
+
+    "--lh-wood-base": { "value": "#228B22", "usage": "木元素主色、震/巽八卦" },
+    "--lh-wood-peak": { "value": "#006400", "usage": "木旺态、生态繁茂" },
+    "--lh-wood-rest": { "value": "#8FBC8F", "usage": "木休态、版本归档" },
+    "--lh-wood-trap": { "value": "#556B2F", "usage": "木囚态、技术债务" },
+    "--lh-wood-light": { "value": "#90EE90", "usage": "木生态、项目立项" },
+
+    "--lh-water-base": { "value": "#1E90FF", "usage": "水元素主色、坎八卦" },
+    "--lh-water-peak": { "value": "#00008B", "usage": "水旺态、高并发洪流" },
+    "--lh-water-rest": { "value": "#4682B4", "usage": "水休态、连接池休眠" },
+    "--lh-water-trap": { "value": "#191970", "usage": "水囚态、访问冰封" },
+    "--lh-water-light": { "value": "#87CEEB", "usage": "水生态、数据接入" },
+
+    "--lh-fire-base": { "value": "#DC143C", "usage": "火元素主色、离八卦" },
+    "--lh-fire-peak": { "value": "#8B0000", "usage": "火旺态、系统过载" },
+    "--lh-fire-rest": { "value": "#CD5C5C", "usage": "火休态、维护模式" },
+    "--lh-fire-trap": { "value": "#800000", "usage": "火囚态、服务宕机" },
+    "--lh-fire-light": { "value": "#FF6347", "usage": "火生态、告警触发" },
+
+    "--lh-earth-base": { "value": "#8B4513", "usage": "土元素主色、坤/艮八卦" },
+    "--lh-earth-peak": { "value": "#8B4513", "usage": "土旺态、核心稳定" },
+    "--lh-earth-rest": { "value": "#A0522D", "usage": "土休态、日志沉淀" },
+    "--lh-earth-trap": { "value": "#654321", "usage": "土囚态、基础设施故障" },
+    "--lh-earth-light": { "value": "#D2B48C", "usage": "土生态、基础设施部署" },
+
+    "--lh-radius-sm": { "value": "4px", "usage": "标签圆角" },
+    "--lh-radius-md": { "value": "8px", "usage": "卡片圆角" },
+    "--lh-spacing-xs": { "value": "4px", "usage": "标签内边距" },
+    "--lh-spacing-sm": { "value": "8px", "usage": "组件间距" },
+    "--lh-font-mono": { "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", "usage": "代码/DNA 等宽字体" }
+  }
+}
