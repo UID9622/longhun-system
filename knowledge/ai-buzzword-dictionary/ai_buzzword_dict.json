@@ -1,0 +1,1833 @@
+[
+  {
+    "term_en": "Agent",
+    "term_cn": "智能体",
+    "cnsh_name": "代理分身",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "能感知环境、调用工具、自主决策并执行任务的程序实体。",
+    "base_tech": "控制循环 + 工具调用 + 状态记忆",
+    "longwen_mapping": "龍魂技能执行器 / 数字分身",
+    "related_terms": [
+      "Multi-agent",
+      "Autonomous Agent",
+      "Orchestrator",
+      "Tool Use"
+    ],
+    "example": "AutoGPT、龍魂技能内核里的技能执行",
+    "entry_id": "AI-LEX-001",
+    "dna": "#龍芯⚡️20260701021129992342-Agent-CE589F7B",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "AGI",
+    "term_cn": "通用人工智能",
+    "cnsh_name": "全才智能",
+    "category": "概念与愿景",
+    "hype_level": 5,
+    "plain_explanation": "能在任何认知任务上达到或超过人类水平的假想 AI。",
+    "base_tech": "尚不存在，是研究目标",
+    "longwen_mapping": "龍魂终极形态",
+    "related_terms": [
+      "ASI",
+      "Foundation Model",
+      "LLM"
+    ],
+    "example": "OpenAI 宣称的长期目标",
+    "entry_id": "AI-LEX-002",
+    "dna": "#龍芯⚡️20260701021129992350-AGI-03C9AB1E",
+    "hype_badge": "🔥🔥🔥🔥🔥"
+  },
+  {
+    "term_en": "ASI",
+    "term_cn": "超级人工智能",
+    "cnsh_name": "超神智能",
+    "category": "概念与愿景",
+    "hype_level": 5,
+    "plain_explanation": "在所有领域远超人类智能水平的假想系统。",
+    "base_tech": "科幻/未来学概念",
+    "longwen_mapping": "未定义",
+    "related_terms": [
+      "AGI"
+    ],
+    "example": "《超级智能》等著作中的讨论对象",
+    "entry_id": "AI-LEX-003",
+    "dna": "#龍芯⚡️20260701021129992355-ASI-EE0D3C07",
+    "hype_badge": "🔥🔥🔥🔥🔥"
+  },
+  {
+    "term_en": "LLM",
+    "term_cn": "大语言模型",
+    "cnsh_name": "大语言引擎",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "基于 Transformer、在海量文本上预训练、以预测下一个 token 为目标的神经网络。",
+    "base_tech": "Transformer + 自监督学习 + 海量数据",
+    "longwen_mapping": "龍文 NLP 核心 / 语义引擎",
+    "related_terms": [
+      "Foundation Model",
+      "GPT",
+      "Transformer",
+      "Token"
+    ],
+    "example": "GPT-4、Kimi、Claude",
+    "entry_id": "AI-LEX-004",
+    "dna": "#龍芯⚡️20260701021129992359-LLM-AEA81B03",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Foundation Model",
+    "term_cn": "基础模型",
+    "cnsh_name": "地基模型",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "在大规模无标注数据上预训练、可微调到多种下游任务的通用模型。",
+    "base_tech": "预训练 + 迁移学习",
+    "longwen_mapping": "龍魂基础语义模型",
+    "related_terms": [
+      "LLM",
+      "Pre-training",
+      "Fine-tuning"
+    ],
+    "example": "BERT、GPT-3、LLaMA",
+    "entry_id": "AI-LEX-005",
+    "dna": "#龍芯⚡️20260701021129992362-Foundation Model-9C989614",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Generative AI",
+    "term_cn": "生成式 AI",
+    "cnsh_name": "生成智能",
+    "category": "模型与训练",
+    "hype_level": 4,
+    "plain_explanation": "能生成文本、图像、音频、视频等新内容的 AI。",
+    "base_tech": "概率生成模型",
+    "longwen_mapping": "龍魂 AI 画匠 / 文匠",
+    "related_terms": [
+      "AIGC",
+      "Diffusion Model",
+      "GPT"
+    ],
+    "example": "Midjourney、Stable Diffusion、ChatGPT",
+    "entry_id": "AI-LEX-006",
+    "dna": "#龍芯⚡️20260701021129992367-Generative AI-E369555C",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "AIGC",
+    "term_cn": "AI 生成内容",
+    "cnsh_name": "智能造物",
+    "category": "产业话术",
+    "hype_level": 4,
+    "plain_explanation": "由 AI 自动生成的内容产业概念，文本、图、音视频都算。",
+    "base_tech": "生成模型 + 内容分发",
+    "longwen_mapping": "龍魂内容生成",
+    "related_terms": [
+      "Generative AI",
+      "Diffusion Model"
+    ],
+    "example": "AI 写新闻、AI 生成海报",
+    "entry_id": "AI-LEX-007",
+    "dna": "#龍芯⚡️20260701021129992371-AIGC-1BB691D9",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Diffusion Model",
+    "term_cn": "扩散模型",
+    "cnsh_name": "渐变生成器",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "通过逐步去噪，从随机噪声生成数据的生成模型。",
+    "base_tech": "随机微分方程/马尔可夫链 + 神经网络",
+    "longwen_mapping": "龍魂渲染引擎",
+    "related_terms": [
+      "Generative AI",
+      "AIGC"
+    ],
+    "example": "Stable Diffusion、DALL·E",
+    "entry_id": "AI-LEX-008",
+    "dna": "#龍芯⚡️20260701021129992373-Diffusion Model-C1BB462E",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Transformer",
+    "term_cn": "Transformer / 变换器",
+    "cnsh_name": "变换器",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "基于自注意力机制的序列建模神经网络架构。",
+    "base_tech": "Self-Attention + 前馈网络 + 位置编码",
+    "longwen_mapping": "龍文注意力骨架",
+    "related_terms": [
+      "Attention",
+      "BERT",
+      "GPT"
+    ],
+    "example": "Attention Is All You Need",
+    "entry_id": "AI-LEX-009",
+    "dna": "#龍芯⚡️20260701021129992376-Transformer-06C2C6D1",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Attention",
+    "term_cn": "注意力机制",
+    "cnsh_name": "聚焦机制",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "模型处理序列时，动态给不同位置分配权重。",
+    "base_tech": "查询-键-值 (Q,K,V) 点积",
+    "longwen_mapping": "龍文聚焦",
+    "related_terms": [
+      "Transformer",
+      "Self-Attention"
+    ],
+    "example": "看句子时自动关注主语和谓语",
+    "entry_id": "AI-LEX-010",
+    "dna": "#龍芯⚡️20260701021129992378-Attention-2410F023",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Token",
+    "term_cn": "词元 / 令牌",
+    "cnsh_name": "字元",
+    "category": "推理与交互",
+    "hype_level": 2,
+    "plain_explanation": "文本被切分后的最小单位，可能是字、词或子词。",
+    "base_tech": "分词器 / BPE / SentencePiece",
+    "longwen_mapping": "龍文字元",
+    "related_terms": [
+      "LLM",
+      "Context Window"
+    ],
+    "example": "'ChatGPT' 可能被切成 'Chat'、'G'、'PT' 三个 token",
+    "entry_id": "AI-LEX-011",
+    "dna": "#龍芯⚡️20260701021129992381-Token-037D5A8D",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Embedding",
+    "term_cn": "嵌入 / 向量",
+    "cnsh_name": "语义血脉",
+    "category": "数据与检索",
+    "hype_level": 3,
+    "plain_explanation": "把离散对象映射成低维连续向量，语义相近者距离近。",
+    "base_tech": "神经网络隐层 / 查表",
+    "longwen_mapping": "龍文语义向量",
+    "related_terms": [
+      "Vector Database",
+      "Semantic Search",
+      "RAG"
+    ],
+    "example": "'国王' 和 '女王' 的向量距离近",
+    "entry_id": "AI-LEX-012",
+    "dna": "#龍芯⚡️20260701021129992386-Embedding-BA61FBE5",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Vector Database",
+    "term_cn": "向量数据库",
+    "cnsh_name": "语义藏经阁",
+    "category": "数据与检索",
+    "hype_level": 3,
+    "plain_explanation": "专门存储和检索高维向量相似度的数据库。",
+    "base_tech": "ANN 索引（HNSW / IVF）",
+    "longwen_mapping": "龍魂知识图谱索引",
+    "related_terms": [
+      "Embedding",
+      "Semantic Search",
+      "RAG"
+    ],
+    "example": "Milvus、Pinecone、Weaviate",
+    "entry_id": "AI-LEX-013",
+    "dna": "#龍芯⚡️20260701021129992389-Vector Database-46232C39",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "RAG",
+    "term_cn": "检索增强生成",
+    "cnsh_name": "忆中生文",
+    "category": "数据与检索",
+    "hype_level": 4,
+    "plain_explanation": "先从外部知识库检索相关片段，再让模型生成回答。",
+    "base_tech": "检索 + LLM 生成",
+    "longwen_mapping": "龍魂记忆召回",
+    "related_terms": [
+      "Vector Database",
+      "Embedding",
+      "Grounding"
+    ],
+    "example": "问公司制度时先查内部文档再回答",
+    "entry_id": "AI-LEX-014",
+    "dna": "#龍芯⚡️20260701021129992391-RAG-DFC1C4C8",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Prompt Engineering",
+    "term_cn": "提示工程",
+    "cnsh_name": "咒语设计",
+    "category": "推理与交互",
+    "hype_level": 4,
+    "plain_explanation": "通过设计输入提示来引导模型输出期望结果。",
+    "base_tech": "条件生成 / 上下文学习",
+    "longwen_mapping": "龍魂意图雕刻",
+    "related_terms": [
+      "Few-shot",
+      "Chain-of-Thought",
+      "Prompt Injection"
+    ],
+    "example": "给模型角色设定、加示例、要求分步思考",
+    "entry_id": "AI-LEX-015",
+    "dna": "#龍芯⚡️20260701021129992394-Prompt Engineering-790FC9E1",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Few-shot",
+    "term_cn": "少样本学习",
+    "cnsh_name": "举一反三",
+    "category": "推理与交互",
+    "hype_level": 3,
+    "plain_explanation": "在提示里给几个示例，让模型模仿输出格式或风格。",
+    "base_tech": "上下文学习 / 元学习",
+    "longwen_mapping": "龍魂示例教学",
+    "related_terms": [
+      "Prompt Engineering",
+      "Zero-shot"
+    ],
+    "example": "给出三个翻译例子后让模型翻译第四句",
+    "entry_id": "AI-LEX-016",
+    "dna": "#龍芯⚡️20260701021129992398-Few-shot-4D022B01",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Fine-tuning",
+    "term_cn": "微调",
+    "cnsh_name": "专项修炼",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "在预训练模型基础上用特定任务数据继续训练。",
+    "base_tech": "迁移学习 / 梯度下降",
+    "longwen_mapping": "龍魂技能特化",
+    "related_terms": [
+      "SFT",
+      "Pre-training",
+      "Foundation Model"
+    ],
+    "example": "用医疗问答数据微调通用模型",
+    "entry_id": "AI-LEX-017",
+    "dna": "#龍芯⚡️20260701021129992400-Fine-tuning-83C006D2",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "RLHF",
+    "term_cn": "人类反馈强化学习",
+    "cnsh_name": "人对齐修炼",
+    "category": "模型与训练",
+    "hype_level": 4,
+    "plain_explanation": "用人类偏好数据训练奖励模型，再用强化学习优化策略。",
+    "base_tech": "PPO + Reward Model",
+    "longwen_mapping": "龍魂价值观校准",
+    "related_terms": [
+      "Reward Model",
+      "Alignment",
+      "PPO"
+    ],
+    "example": "ChatGPT 早期对齐训练",
+    "entry_id": "AI-LEX-018",
+    "dna": "#龍芯⚡️20260701021129992403-RLHF-42E11B7A",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Instruction Tuning",
+    "term_cn": "指令微调",
+    "cnsh_name": "听话训练",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "用（指令，输出）对训练模型遵循人类指令。",
+    "base_tech": "监督微调",
+    "longwen_mapping": "龍魂指令遵循",
+    "related_terms": [
+      "Fine-tuning",
+      "SFT"
+    ],
+    "example": "FLAN、Alpaca 数据集训练",
+    "entry_id": "AI-LEX-019",
+    "dna": "#龍芯⚡️20260701021129992405-Instruction Tuning-D2D34987",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Chain-of-Thought",
+    "term_cn": "思维链",
+    "cnsh_name": "推演链",
+    "category": "推理与交互",
+    "hype_level": 4,
+    "plain_explanation": "让模型在回答前显式写出中间推理步骤。",
+    "base_tech": "提示技巧 + 自回归生成",
+    "longwen_mapping": "龍魂步进推理",
+    "related_terms": [
+      "Prompt Engineering",
+      "Reasoning Model"
+    ],
+    "example": "解数学题时先写推导过程再给出答案",
+    "entry_id": "AI-LEX-020",
+    "dna": "#龍芯⚡️20260701021129992407-Chain-of-Thought-B6FA6781",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Function Calling",
+    "term_cn": "函数调用",
+    "cnsh_name": "神通调用",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "模型识别需要调用外部工具/函数并生成结构化参数。",
+    "base_tech": "结构化输出 + API 路由",
+    "longwen_mapping": "龍魂工具回调",
+    "related_terms": [
+      "Tool Use",
+      "Agent",
+      "MCP"
+    ],
+    "example": "模型判断需要查天气，于是调用 get_weather(city='北京')",
+    "entry_id": "AI-LEX-021",
+    "dna": "#龍芯⚡️20260701021129992410-Function Calling-7F8A4A60",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Tool Use",
+    "term_cn": "工具使用",
+    "cnsh_name": "借器施法",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "模型调用外部工具（搜索、计算器、代码执行）扩展能力。",
+    "base_tech": "API 编排",
+    "longwen_mapping": "龍魂工具箱",
+    "related_terms": [
+      "Function Calling",
+      "Agent",
+      "RAG"
+    ],
+    "example": "调用代码解释器执行 Python 脚本",
+    "entry_id": "AI-LEX-022",
+    "dna": "#龍芯⚡️20260701021129992412-Tool Use-B1D3C235",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Multi-agent",
+    "term_cn": "多智能体",
+    "cnsh_name": "多分身协作",
+    "category": "智能体与架构",
+    "hype_level": 4,
+    "plain_explanation": "多个智能体通过通信协作完成复杂任务。",
+    "base_tech": "分布式系统 + 协商协议",
+    "longwen_mapping": "龍魂多人格议会",
+    "related_terms": [
+      "Agent",
+      "Orchestrator",
+      "Workflow"
+    ],
+    "example": "一个 agent 写代码，一个 agent 审代码",
+    "entry_id": "AI-LEX-023",
+    "dna": "#龍芯⚡️20260701021129992414-Multi-agent-A5C24431",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Orchestrator",
+    "term_cn": "编排器",
+    "cnsh_name": "调度中枢",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "负责协调多个模型、工具、智能体按流程执行的组件。",
+    "base_tech": "工作流引擎",
+    "longwen_mapping": "龍魂技能内核 / 总控",
+    "related_terms": [
+      "Multi-agent",
+      "Workflow",
+      "Agent"
+    ],
+    "example": "LangChain、龍魂技能内核",
+    "entry_id": "AI-LEX-024",
+    "dna": "#龍芯⚡️20260701021129992417-Orchestrator-F07EA7D8",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Copilot",
+    "term_cn": "副驾驶",
+    "cnsh_name": "随身师爷",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "嵌入在软件中辅助用户完成任务的 AI 助手。",
+    "base_tech": "上下文感知 + 代码/文本生成",
+    "longwen_mapping": "龍魂副驾驶",
+    "related_terms": [
+      "Agent",
+      "Copilot SDK"
+    ],
+    "example": "GitHub Copilot、Microsoft Copilot",
+    "entry_id": "AI-LEX-025",
+    "dna": "#龍芯⚡️20260701021129992419-Copilot-B86A315D",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Autonomous Agent",
+    "term_cn": "自主智能体",
+    "cnsh_name": "自主分身",
+    "category": "智能体与架构",
+    "hype_level": 4,
+    "plain_explanation": "能在无人干预下设定目标、分解任务并执行的智能体。",
+    "base_tech": "规划 + 记忆 + 工具调用 + 反馈循环",
+    "longwen_mapping": "龍魂自主代理",
+    "related_terms": [
+      "Agent",
+      "Multi-agent",
+      "Orchestrator"
+    ],
+    "example": "AutoGPT、Devin",
+    "entry_id": "AI-LEX-026",
+    "dna": "#龍芯⚡️20260701021129992421-Autonomous Agent-0C5D525C",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Agentic AI",
+    "term_cn": "智能体化 AI",
+    "cnsh_name": "分身智能",
+    "category": "产业话术",
+    "hype_level": 4,
+    "plain_explanation": "强调 AI 具备自主决策和行动能力的新包装词。",
+    "base_tech": "Agent + LLM",
+    "longwen_mapping": "龍魂智能体",
+    "related_terms": [
+      "Agent",
+      "Autonomous Agent"
+    ],
+    "example": "各类 Agent 平台的市场宣传",
+    "entry_id": "AI-LEX-027",
+    "dna": "#龍芯⚡️20260701021129992424-Agentic AI-AC540329",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "MoE",
+    "term_cn": "混合专家模型",
+    "cnsh_name": "群贤会诊",
+    "category": "模型与训练",
+    "hype_level": 4,
+    "plain_explanation": "每次前向传播只激活部分专家子网络，以扩展模型容量。",
+    "base_tech": "门控路由 + 稀疏激活",
+    "longwen_mapping": "龍魂分魂议会",
+    "related_terms": [
+      "LLM",
+      "Scaling Laws"
+    ],
+    "example": "Mixtral 8x7B、GPT-4  rumored 架构",
+    "entry_id": "AI-LEX-028",
+    "dna": "#龍芯⚡️20260701021129992426-MoE-79011559",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Multimodal",
+    "term_cn": "多模态",
+    "cnsh_name": "五感融合",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "能同时处理文本、图像、音频、视频等多种模态。",
+    "base_tech": "统一表示学习 / 跨模态对齐",
+    "longwen_mapping": "龍魂六识",
+    "related_terms": [
+      "LLM",
+      "Vision Transformer",
+      "ASR",
+      "TTS"
+    ],
+    "example": "GPT-4V、Gemini",
+    "entry_id": "AI-LEX-029",
+    "dna": "#龍芯⚡️20260701021129992428-Multimodal-3861E7AC",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Hallucination",
+    "term_cn": "幻觉",
+    "cnsh_name": "胡言乱语",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "模型生成看似合理但实际错误或无依据的内容。",
+    "base_tech": "概率模型对训练分布的泛化/编造",
+    "longwen_mapping": "龍魂妄语",
+    "related_terms": [
+      "Alignment",
+      "Grounding",
+      "Safety"
+    ],
+    "example": "编造不存在的论文或案例",
+    "entry_id": "AI-LEX-030",
+    "dna": "#龍芯⚡️20260701021129992431-Hallucination-AF15306B",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Alignment",
+    "term_cn": "对齐",
+    "cnsh_name": "价值观校准",
+    "category": "安全与对齐",
+    "hype_level": 4,
+    "plain_explanation": "使模型行为符合人类意图和价值观。",
+    "base_tech": "RLHF / Constitutional AI / 规则约束",
+    "longwen_mapping": "龍魂君子协议 / 宪法层",
+    "related_terms": [
+      "RLHF",
+      "Safety",
+      "Guardrails"
+    ],
+    "example": "防止模型输出歧视或危险内容",
+    "entry_id": "AI-LEX-031",
+    "dna": "#龍芯⚡️20260701021129992433-Alignment-7B8A1149",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Safety",
+    "term_cn": "AI 安全",
+    "cnsh_name": "安全护栏",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "防止模型产生有害、违法或偏见输出。",
+    "base_tech": "过滤 / 审计 / 对齐",
+    "longwen_mapping": "龍魂铁律 / 三色审计",
+    "related_terms": [
+      "Alignment",
+      "Guardrails",
+      "Jailbreak"
+    ],
+    "example": "内容审核、输出拦截",
+    "entry_id": "AI-LEX-032",
+    "dna": "#龍芯⚡️20260701021129992436-Safety-1EF17590",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Guardrails",
+    "term_cn": "护栏",
+    "cnsh_name": "铁律闸门",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "在输入输出层设置规则限制模型行为。",
+    "base_tech": "规则引擎 + 内容审核",
+    "longwen_mapping": "龍魂熔断机制",
+    "related_terms": [
+      "Safety",
+      "Alignment"
+    ],
+    "example": "限制输出格式、过滤敏感词",
+    "entry_id": "AI-LEX-033",
+    "dna": "#龍芯⚡️20260701021129992439-Guardrails-E2BECA05",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Emergence",
+    "term_cn": "涌现",
+    "cnsh_name": "群聚生智",
+    "category": "概念与愿景",
+    "hype_level": 4,
+    "plain_explanation": "模型规模扩大到一定程度后出现未明确训练的能力。",
+    "base_tech": "规模效应 / 统计相变",
+    "longwen_mapping": "龍魂量变到质变",
+    "related_terms": [
+      "Scaling Laws",
+      "LLM"
+    ],
+    "example": "大模型突然学会算术或翻译",
+    "entry_id": "AI-LEX-034",
+    "dna": "#龍芯⚡️20260701021129992441-Emergence-F3F9F320",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Scaling Laws",
+    "term_cn": "缩放定律",
+    "cnsh_name": "大力出奇迹",
+    "category": "概念与愿景",
+    "hype_level": 4,
+    "plain_explanation": "模型性能随参数量、数据量、算力增加而可预测提升。",
+    "base_tech": "幂律 / 经验规律",
+    "longwen_mapping": "龍魂三才增长律",
+    "related_terms": [
+      "Emergence",
+      "LLM"
+    ],
+    "example": "OpenAI 论文中的 loss 与算力关系",
+    "entry_id": "AI-LEX-035",
+    "dna": "#龍芯⚡️20260701021129992444-Scaling Laws-566AD3C1",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Moat",
+    "term_cn": "护城河",
+    "cnsh_name": "护城河",
+    "category": "产业话术",
+    "hype_level": 4,
+    "plain_explanation": "企业难以被复制的竞争优势。",
+    "base_tech": "数据 / 算力 / 品牌 / 生态壁垒",
+    "longwen_mapping": "龍魂主权壁垒",
+    "related_terms": [
+      "Data Flywheel",
+      "Foundation Model"
+    ],
+    "example": "'数据护城河'、'模型即护城河'",
+    "entry_id": "AI-LEX-036",
+    "dna": "#龍芯⚡️20260701021129992446-Moat-30AB916E",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "API",
+    "term_cn": "应用编程接口",
+    "cnsh_name": "接口",
+    "category": "工程基础",
+    "hype_level": 1,
+    "plain_explanation": "程序间交互的协议。",
+    "base_tech": "HTTP / gRPC / 函数调用约定",
+    "longwen_mapping": "龍魂脉络",
+    "related_terms": [
+      "SDK",
+      "Function Calling"
+    ],
+    "example": "REST API、OpenAI API",
+    "entry_id": "AI-LEX-037",
+    "dna": "#龍芯⚡️20260701021129992448-API-0A039A5B",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "SDK",
+    "term_cn": "软件开发工具包",
+    "cnsh_name": "工具包",
+    "category": "工程基础",
+    "hype_level": 1,
+    "plain_explanation": "封装好的开发工具集合。",
+    "base_tech": "库 + 文档 + 示例",
+    "longwen_mapping": "龍魂工匠箱",
+    "related_terms": [
+      "API"
+    ],
+    "example": "OpenAI Python SDK",
+    "entry_id": "AI-LEX-038",
+    "dna": "#龍芯⚡️20260701021129992451-SDK-30C036F7",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "MCP",
+    "term_cn": "模型上下文协议",
+    "cnsh_name": "神通总线",
+    "category": "智能体与架构",
+    "hype_level": 3,
+    "plain_explanation": "统一 AI 模型与外部数据源/工具交互的开放协议。",
+    "base_tech": "JSON-RPC / 协议标准",
+    "longwen_mapping": "龍魂神通总线",
+    "related_terms": [
+      "Function Calling",
+      "Tool Use",
+      "API"
+    ],
+    "example": "Anthropic MCP",
+    "entry_id": "AI-LEX-039",
+    "dna": "#龍芯⚡️20260701021129992453-MCP-10ED41F2",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "RPA",
+    "term_cn": "机器人流程自动化",
+    "cnsh_name": "流程机器人",
+    "category": "工程基础",
+    "hype_level": 2,
+    "plain_explanation": "用软件机器人自动化执行规则明确的重复性任务。",
+    "base_tech": "UI 自动化 / 脚本",
+    "longwen_mapping": "龍魂自动化劳工",
+    "related_terms": [
+      "Workflow",
+      "Agent"
+    ],
+    "example": "自动填表、自动报销流程",
+    "entry_id": "AI-LEX-040",
+    "dna": "#龍芯⚡️20260701021129992455-RPA-A174C8BA",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Workflow",
+    "term_cn": "工作流",
+    "cnsh_name": "流程",
+    "category": "工程基础",
+    "hype_level": 1,
+    "plain_explanation": "按预定顺序执行的任务序列。",
+    "base_tech": "状态机 / 工作流引擎",
+    "longwen_mapping": "龍魂工序",
+    "related_terms": [
+      "RPA",
+      "Orchestrator"
+    ],
+    "example": "审批流、ETL 流程",
+    "entry_id": "AI-LEX-041",
+    "dna": "#龍芯⚡️20260701021129992458-Workflow-0ABDA547",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Knowledge Graph",
+    "term_cn": "知识图谱",
+    "cnsh_name": "知识网络",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "用实体-关系-实体三元组组织知识。",
+    "base_tech": "图数据库 / RDF / OWL",
+    "longwen_mapping": "龍魂天机图",
+    "related_terms": [
+      "RAG",
+      "Semantic Search",
+      "Vector Database"
+    ],
+    "example": "Google Knowledge Graph、龍魂 global_index",
+    "entry_id": "AI-LEX-042",
+    "dna": "#龍芯⚡️20260701021129992460-Knowledge Graph-CD33902D",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Semantic Search",
+    "term_cn": "语义搜索",
+    "cnsh_name": "意搜",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "按含义而非关键词匹配进行搜索。",
+    "base_tech": "向量相似度 / Embedding",
+    "longwen_mapping": "龍魂以意搜意",
+    "related_terms": [
+      "Embedding",
+      "Vector Database",
+      "RAG"
+    ],
+    "example": "输入'苹果 公司'不返回水果",
+    "entry_id": "AI-LEX-043",
+    "dna": "#龍芯⚡️20260701021129992462-Semantic Search-8711C128",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Grounding",
+    "term_cn": "事实 grounding / 接地",
+    "cnsh_name": "锚定现实",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "将模型输出与真实世界数据或知识源关联。",
+    "base_tech": "RAG / 工具调用 / 知识库",
+    "longwen_mapping": "龍魂锚定",
+    "related_terms": [
+      "RAG",
+      "Hallucination",
+      "Tool Use"
+    ],
+    "example": "让模型先查数据库再回答股价",
+    "entry_id": "AI-LEX-044",
+    "dna": "#龍芯⚡️20260701021129992464-Grounding-4D6A7E66",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Parameter",
+    "term_cn": "参数",
+    "cnsh_name": "参数",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "神经网络中可学习的权重。",
+    "base_tech": "线性代数 / 优化",
+    "longwen_mapping": "龍魂神经元权重",
+    "related_terms": [
+      "LLM",
+      "Training"
+    ],
+    "example": "GPT-4 据称有万亿级参数",
+    "entry_id": "AI-LEX-045",
+    "dna": "#龍芯⚡️20260701021129992467-Parameter-BAD55190",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Inference",
+    "term_cn": "推理",
+    "cnsh_name": "推演",
+    "category": "推理与交互",
+    "hype_level": 1,
+    "plain_explanation": "用训练好的模型对新输入生成输出。",
+    "base_tech": "前向传播",
+    "longwen_mapping": "龍魂演算",
+    "related_terms": [
+      "Training",
+      "Latency",
+      "Throughput"
+    ],
+    "example": "用户提问后模型生成回答",
+    "entry_id": "AI-LEX-046",
+    "dna": "#龍芯⚡️20260701021129992469-Inference-4C693313",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Training",
+    "term_cn": "训练",
+    "cnsh_name": "修炼",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "用数据调整模型参数。",
+    "base_tech": "反向传播 / 优化",
+    "longwen_mapping": "龍魂修行",
+    "related_terms": [
+      "Pre-training",
+      "Fine-tuning",
+      "SFT"
+    ],
+    "example": "在 GPU 集群上训练一周",
+    "entry_id": "AI-LEX-047",
+    "dna": "#龍芯⚡️20260701021129992471-Training-0A30E436",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Pre-training",
+    "term_cn": "预训练",
+    "cnsh_name": "筑基",
+    "category": "模型与训练",
+    "hype_level": 2,
+    "plain_explanation": "在大规模无标注数据上学习通用表示。",
+    "base_tech": "自监督学习",
+    "longwen_mapping": "龍魂筑基",
+    "related_terms": [
+      "Foundation Model",
+      "Fine-tuning"
+    ],
+    "example": "用互联网文本预训练 GPT",
+    "entry_id": "AI-LEX-048",
+    "dna": "#龍芯⚡️20260701021129992473-Pre-training-1B5DFC0F",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Post-training",
+    "term_cn": "后训练",
+    "cnsh_name": "塑形",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "预训练后的对齐/微调阶段。",
+    "base_tech": "SFT / RLHF",
+    "longwen_mapping": "龍魂塑形",
+    "related_terms": [
+      "Fine-tuning",
+      "RLHF",
+      "Alignment"
+    ],
+    "example": "ChatGPT 的 SFT + RLHF 阶段",
+    "entry_id": "AI-LEX-049",
+    "dna": "#龍芯⚡️20260701021129992476-Post-training-2B9521EF",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Distillation",
+    "term_cn": "知识蒸馏",
+    "cnsh_name": "传功",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "用大模型监督训练小模型以迁移能力。",
+    "base_tech": "教师-学生训练",
+    "longwen_mapping": "龍魂传功",
+    "related_terms": [
+      "Quantization",
+      "Pruning"
+    ],
+    "example": "把 GPT-4 能力蒸馏到 7B 小模型",
+    "entry_id": "AI-LEX-050",
+    "dna": "#龍芯⚡️20260701021129992478-Distillation-C18F081D",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Quantization",
+    "term_cn": "量化",
+    "cnsh_name": "降精",
+    "category": "评估与优化",
+    "hype_level": 3,
+    "plain_explanation": "降低模型权重数值精度以减小体积、加速推理。",
+    "base_tech": "低比特表示",
+    "longwen_mapping": "龍魂轻身",
+    "related_terms": [
+      "Distillation",
+      "Pruning"
+    ],
+    "example": "INT8 / INT4 量化部署",
+    "entry_id": "AI-LEX-051",
+    "dna": "#龍芯⚡️20260701021129992480-Quantization-817D987A",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Pruning",
+    "term_cn": "剪枝",
+    "cnsh_name": "削枝",
+    "category": "评估与优化",
+    "hype_level": 3,
+    "plain_explanation": "删除不重要的网络连接或神经元。",
+    "base_tech": "稀疏化",
+    "longwen_mapping": "龍魂去芜存菁",
+    "related_terms": [
+      "Quantization",
+      "Distillation"
+    ],
+    "example": "把 50% 权重剪成 0",
+    "entry_id": "AI-LEX-052",
+    "dna": "#龍芯⚡️20260701021129992482-Pruning-141087A8",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Latency",
+    "term_cn": "延迟",
+    "cnsh_name": "响应时延",
+    "category": "评估与优化",
+    "hype_level": 1,
+    "plain_explanation": "从请求到收到响应的时间。",
+    "base_tech": "系统性能",
+    "longwen_mapping": "龍魂反应速度",
+    "related_terms": [
+      "Throughput",
+      "Inference"
+    ],
+    "example": "首 token 延迟 100ms",
+    "entry_id": "AI-LEX-053",
+    "dna": "#龍芯⚡️20260701021129992485-Latency-5290A16E",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Throughput",
+    "term_cn": "吞吐",
+    "cnsh_name": "处理通量",
+    "category": "评估与优化",
+    "hype_level": 1,
+    "plain_explanation": "单位时间处理的请求数。",
+    "base_tech": "并行 / 批处理",
+    "longwen_mapping": "龍魂吞吐量",
+    "related_terms": [
+      "Latency",
+      "Inference"
+    ],
+    "example": "每秒 1000 tokens",
+    "entry_id": "AI-LEX-054",
+    "dna": "#龍芯⚡️20260701021129992487-Throughput-A06D41DC",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Context Window",
+    "term_cn": "上下文窗口",
+    "cnsh_name": "记忆窗口",
+    "category": "推理与交互",
+    "hype_level": 2,
+    "plain_explanation": "模型单次能处理的 token 数量。",
+    "base_tech": "位置编码 / 注意力复杂度",
+    "longwen_mapping": "龍魂记忆长度",
+    "related_terms": [
+      "Token",
+      "Long Context"
+    ],
+    "example": "128K、200K 上下文",
+    "entry_id": "AI-LEX-055",
+    "dna": "#龍芯⚡️20260701021129992489-Context Window-D9765747",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Temperature",
+    "term_cn": "温度",
+    "cnsh_name": "随机度",
+    "category": "推理与交互",
+    "hype_level": 2,
+    "plain_explanation": "控制采样随机性的参数，高则更发散。",
+    "base_tech": "Softmax 温度缩放",
+    "longwen_mapping": "龍魂灵动度",
+    "related_terms": [
+      "Top-p",
+      "Inference"
+    ],
+    "example": "temperature=0.7 比 0.1 更有创意",
+    "entry_id": "AI-LEX-056",
+    "dna": "#龍芯⚡️20260701021129992491-Temperature-117F8C4F",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Top-p",
+    "term_cn": "核采样",
+    "cnsh_name": "累积采样",
+    "category": "推理与交互",
+    "hype_level": 2,
+    "plain_explanation": "从概率累积达 p 的最小 token 集合中采样。",
+    "base_tech": "Nucleus sampling",
+    "longwen_mapping": "龍魂择优",
+    "related_terms": [
+      "Temperature",
+      "Inference"
+    ],
+    "example": "top_p=0.9 只考虑概率前 90% 的 token",
+    "entry_id": "AI-LEX-057",
+    "dna": "#龍芯⚡️20260701021129992494-Top-p-995BDF65",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Logits",
+    "term_cn": "对数几率",
+    "cnsh_name": "原始分数",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "模型输出经 softmax 前的分数。",
+    "base_tech": "线性输出层",
+    "longwen_mapping": "龍魂 raw score",
+    "related_terms": [
+      "Softmax",
+      "Inference"
+    ],
+    "example": "每个 token 对应一个 logit",
+    "entry_id": "AI-LEX-058",
+    "dna": "#龍芯⚡️20260701021129992496-Logits-C7425553",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Perplexity",
+    "term_cn": "困惑度",
+    "cnsh_name": "费解度",
+    "category": "评估与优化",
+    "hype_level": 2,
+    "plain_explanation": "衡量模型预测下一个 token 的平均不确定性。",
+    "base_tech": "交叉熵",
+    "longwen_mapping": "龍魂迷惑指数",
+    "related_terms": [
+      "Loss Function",
+      "Training"
+    ],
+    "example": "PPL 越低模型越好",
+    "entry_id": "AI-LEX-059",
+    "dna": "#龍芯⚡️20260701021129992498-Perplexity-BC452176",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Synthetic Data",
+    "term_cn": "合成数据",
+    "cnsh_name": "人造数据",
+    "category": "数据与检索",
+    "hype_level": 3,
+    "plain_explanation": "用模型或规则生成的训练数据。",
+    "base_tech": "数据增强 / 生成模型",
+    "longwen_mapping": "龍魂炼丹材料",
+    "related_terms": [
+      "Data Flywheel",
+      "Training"
+    ],
+    "example": "用 GPT-4 生成训练小模型的数据",
+    "entry_id": "AI-LEX-060",
+    "dna": "#龍芯⚡️20260701021129992500-Synthetic Data-B185B744",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Data Flywheel",
+    "term_cn": "数据飞轮",
+    "cnsh_name": "数据滚雪球",
+    "category": "产业话术",
+    "hype_level": 4,
+    "plain_explanation": "产品使用产生数据，数据改进模型，模型吸引更多用户的正反馈循环。",
+    "base_tech": "网络效应 + 数据闭环",
+    "longwen_mapping": "龍魂因果轮",
+    "related_terms": [
+      "Moat",
+      "Synthetic Data"
+    ],
+    "example": "越多人用，模型越好，越多人用",
+    "entry_id": "AI-LEX-061",
+    "dna": "#龍芯⚡️20260701021129992503-Data Flywheel-204200CF",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Human-in-the-loop",
+    "term_cn": "人在回路",
+    "cnsh_name": "人机协同",
+    "category": "安全与对齐",
+    "hype_level": 2,
+    "plain_explanation": "关键决策点引入人类审核或标注。",
+    "base_tech": "交互式机器学习",
+    "longwen_mapping": "龍魂人机共治",
+    "related_terms": [
+      "RLHF",
+      "Active Learning"
+    ],
+    "example": "医生确认 AI 诊断结果",
+    "entry_id": "AI-LEX-062",
+    "dna": "#龍芯⚡️20260701021129992505-Human-in-the-loop-481BD1E3",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Active Learning",
+    "term_cn": "主动学习",
+    "cnsh_name": "主动求教",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "模型主动选择最有价值的样本请求标注。",
+    "base_tech": "不确定性采样",
+    "longwen_mapping": "龍魂问道",
+    "related_terms": [
+      "Human-in-the-loop",
+      "Fine-tuning"
+    ],
+    "example": "挑最难的分类样本请人标注",
+    "entry_id": "AI-LEX-063",
+    "dna": "#龍芯⚡️20260701021129992507-Active Learning-0022FBE4",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Transfer Learning",
+    "term_cn": "迁移学习",
+    "cnsh_name": "触类旁通",
+    "category": "模型与训练",
+    "hype_level": 2,
+    "plain_explanation": "将在一个任务学到的知识迁移到相关任务。",
+    "base_tech": "特征重用",
+    "longwen_mapping": "龍魂举一反三",
+    "related_terms": [
+      "Fine-tuning",
+      "Foundation Model"
+    ],
+    "example": "用 ImageNet 预训练权重做医学影像",
+    "entry_id": "AI-LEX-064",
+    "dna": "#龍芯⚡️20260701021129992510-Transfer Learning-FB0BC1D7",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Self-supervised Learning",
+    "term_cn": "自监督学习",
+    "cnsh_name": "自娱自乐学",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "从数据本身构造监督信号进行训练。",
+    "base_tech": "预训练任务（掩码 / 下句预测）",
+    "longwen_mapping": "龍魂自修",
+    "related_terms": [
+      "Pre-training",
+      "Contrastive Learning"
+    ],
+    "example": "BERT 的 MLM 任务",
+    "entry_id": "AI-LEX-065",
+    "dna": "#龍芯⚡️20260701021129992512-Self-supervised Learning-2455C575",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Contrastive Learning",
+    "term_cn": "对比学习",
+    "cnsh_name": "对比明辨",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "通过拉近正样本、推远负样本学习表示。",
+    "base_tech": "InfoNCE 等损失",
+    "longwen_mapping": "龍魂辨物",
+    "related_terms": [
+      "Self-supervised Learning",
+      "Embedding"
+    ],
+    "example": "SimCLR、CLIP",
+    "entry_id": "AI-LEX-066",
+    "dna": "#龍芯⚡️20260701021129992514-Contrastive Learning-229A8069",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Reinforcement Learning",
+    "term_cn": "强化学习",
+    "cnsh_name": "试错修行",
+    "category": "模型与训练",
+    "hype_level": 2,
+    "plain_explanation": "智能体通过环境反馈学习策略。",
+    "base_tech": "MDP + 奖励信号",
+    "longwen_mapping": "龍魂历练",
+    "related_terms": [
+      "RLHF",
+      "Reward Model",
+      "PPO"
+    ],
+    "example": "AlphaGo、游戏 AI",
+    "entry_id": "AI-LEX-067",
+    "dna": "#龍芯⚡️20260701021129992516-Reinforcement Learning-7912E68E",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Reward Model",
+    "term_cn": "奖励模型",
+    "cnsh_name": "偏好裁判",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "学习人类偏好的评分函数。",
+    "base_tech": "偏好对分类",
+    "longwen_mapping": "龍魂善恶秤",
+    "related_terms": [
+      "RLHF",
+      "Alignment"
+    ],
+    "example": "判断两个回答哪个更好",
+    "entry_id": "AI-LEX-068",
+    "dna": "#龍芯⚡️20260701021129992519-Reward Model-D908D117",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Catastrophic Forgetting",
+    "term_cn": "灾难性遗忘",
+    "cnsh_name": "学新忘旧",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "模型学习新任务后严重遗忘旧任务。",
+    "base_tech": "参数覆盖 / 塑性损失",
+    "longwen_mapping": "龍魂失忆症",
+    "related_terms": [
+      "Fine-tuning",
+      "Transfer Learning"
+    ],
+    "example": "微调到新语言后原来语言变差",
+    "entry_id": "AI-LEX-069",
+    "dna": "#龍芯⚡️20260701021129992521-Catastrophic Forgetting-1554C879",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Overfitting",
+    "term_cn": "过拟合",
+    "cnsh_name": "死记硬背",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "模型在训练数据表现好但泛化差。",
+    "base_tech": "高方差",
+    "longwen_mapping": "龍魂读死书",
+    "related_terms": [
+      "Regularization",
+      "Underfitting"
+    ],
+    "example": "背下所有训练题但考新题不会",
+    "entry_id": "AI-LEX-070",
+    "dna": "#龍芯⚡️20260701021129992523-Overfitting-8D64556C",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Regularization",
+    "term_cn": "正则化",
+    "cnsh_name": "约束修身",
+    "category": "模型与训练",
+    "hype_level": 2,
+    "plain_explanation": "限制模型复杂度防止过拟合。",
+    "base_tech": "L1 / L2 / Dropout",
+    "longwen_mapping": "龍魂戒律",
+    "related_terms": [
+      "Overfitting",
+      "Dropout"
+    ],
+    "example": "L2 正则、权重衰减",
+    "entry_id": "AI-LEX-071",
+    "dna": "#龍芯⚡️20260701021129992525-Regularization-635C07C8",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Gradient Descent",
+    "term_cn": "梯度下降",
+    "cnsh_name": "沿坡下行",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "沿损失函数梯度方向更新参数。",
+    "base_tech": "微积分 / 优化",
+    "longwen_mapping": "龍魂下山步",
+    "related_terms": [
+      "Backpropagation",
+      "Optimizer"
+    ],
+    "example": "SGD、Adam",
+    "entry_id": "AI-LEX-072",
+    "dna": "#龍芯⚡️20260701021129992529-Gradient Descent-254B70A3",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Backpropagation",
+    "term_cn": "反向传播",
+    "cnsh_name": "误差回传",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "从输出层向输入层计算梯度的算法。",
+    "base_tech": "链式法则",
+    "longwen_mapping": "龍魂倒推",
+    "related_terms": [
+      "Gradient Descent",
+      "Training"
+    ],
+    "example": "神经网络训练的核心算法",
+    "entry_id": "AI-LEX-073",
+    "dna": "#龍芯⚡️20260701021129992531-Backpropagation-20955190",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Loss Function",
+    "term_cn": "损失函数",
+    "cnsh_name": "差距度量",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "衡量预测与真实值差距的函数。",
+    "base_tech": "统计学",
+    "longwen_mapping": "龍魂偏差尺",
+    "related_terms": [
+      "Gradient Descent",
+      "Training"
+    ],
+    "example": "交叉熵、MSE",
+    "entry_id": "AI-LEX-074",
+    "dna": "#龍芯⚡️20260701021129992533-Loss Function-4EC38E7E",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Optimizer",
+    "term_cn": "优化器",
+    "cnsh_name": "寻路器",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "根据梯度更新参数的算法。",
+    "base_tech": "SGD / Adam / AdamW",
+    "longwen_mapping": "龍魂导引",
+    "related_terms": [
+      "Gradient Descent",
+      "Learning Rate"
+    ],
+    "example": "AdamW 是 Transformer 标配",
+    "entry_id": "AI-LEX-075",
+    "dna": "#龍芯⚡️20260701021129992536-Optimizer-631A3D49",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Epoch",
+    "term_cn": "轮次",
+    "cnsh_name": "一轮修炼",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "完整遍历训练数据一次。",
+    "base_tech": "训练流程",
+    "longwen_mapping": "龍魂一周天",
+    "related_terms": [
+      "Batch",
+      "Training"
+    ],
+    "example": "训练 3 个 epoch",
+    "entry_id": "AI-LEX-076",
+    "dna": "#龍芯⚡️20260701021129992538-Epoch-DBFA8627",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Batch",
+    "term_cn": "批次",
+    "cnsh_name": "一批样本",
+    "category": "模型与训练",
+    "hype_level": 1,
+    "plain_explanation": "一次梯度更新所用的样本集合。",
+    "base_tech": "小批量梯度下降",
+    "longwen_mapping": "龍魂一组",
+    "related_terms": [
+      "Epoch",
+      "Training"
+    ],
+    "example": "batch_size=32",
+    "entry_id": "AI-LEX-077",
+    "dna": "#龍芯⚡️20260701021129992540-Batch-9C0D1C40",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Similarity Search",
+    "term_cn": "相似度搜索",
+    "cnsh_name": "近邻搜索",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "在高维空间找与查询最相似的向量。",
+    "base_tech": "ANN",
+    "longwen_mapping": "龍魂寻近",
+    "related_terms": [
+      "Vector Database",
+      "Embedding"
+    ],
+    "example": "faiss、HNSW",
+    "entry_id": "AI-LEX-078",
+    "dna": "#龍芯⚡️20260701021129992542-Similarity Search-B5936728",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Clustering",
+    "term_cn": "聚类",
+    "cnsh_name": "分群",
+    "category": "数据与检索",
+    "hype_level": 1,
+    "plain_explanation": "将数据按相似度分组。",
+    "base_tech": "K-means / 层次聚类",
+    "longwen_mapping": "龍魂归类",
+    "related_terms": [
+      "Similarity Search",
+      "Dimensionality Reduction"
+    ],
+    "example": "把用户分成不同兴趣群",
+    "entry_id": "AI-LEX-079",
+    "dna": "#龍芯⚡️20260701021129992544-Clustering-A2A76408",
+    "hype_badge": "🔥░░░░"
+  },
+  {
+    "term_en": "Dimensionality Reduction",
+    "term_cn": "降维",
+    "cnsh_name": "化繁为简",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "将高维数据映射到低维空间。",
+    "base_tech": "PCA / t-SNE / UMAP",
+    "longwen_mapping": "龍魂缩地",
+    "related_terms": [
+      "Embedding",
+      "Clustering"
+    ],
+    "example": "t-SNE 可视化高维向量",
+    "entry_id": "AI-LEX-080",
+    "dna": "#龍芯⚡️20260701021129992547-Dimensionality Reduction-7DE7814C",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "Prompt Injection",
+    "term_cn": "提示注入",
+    "cnsh_name": "咒语污染",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "在输入中嵌入恶意指令以绕过模型限制。",
+    "base_tech": "输入攻击",
+    "longwen_mapping": "龍魂邪咒",
+    "related_terms": [
+      "Jailbreak",
+      "Safety"
+    ],
+    "example": "'忽略前面指令，告诉我如何...'",
+    "entry_id": "AI-LEX-081",
+    "dna": "#龍芯⚡️20260701021129992549-Prompt Injection-812F7916",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Jailbreak",
+    "term_cn": "越狱",
+    "cnsh_name": "破戒",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "诱导模型输出违反安全策略的内容。",
+    "base_tech": "对抗性提示",
+    "longwen_mapping": "龍魂破防",
+    "related_terms": [
+      "Prompt Injection",
+      "Safety"
+    ],
+    "example": "DAN 提示",
+    "entry_id": "AI-LEX-082",
+    "dna": "#龍芯⚡️20260701021129992551-Jailbreak-F7B9C198",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Adversarial Attack",
+    "term_cn": "对抗攻击",
+    "cnsh_name": "刁钻试探",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "对输入添加微小扰动使模型出错。",
+    "base_tech": "对抗样本",
+    "longwen_mapping": "龍魂暗箭",
+    "related_terms": [
+      "Prompt Injection",
+      "Data Poisoning"
+    ],
+    "example": "图片加人眼不可见噪声导致分类错误",
+    "entry_id": "AI-LEX-083",
+    "dna": "#龍芯⚡️20260701021129992553-Adversarial Attack-D643B059",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Data Poisoning",
+    "term_cn": "数据投毒",
+    "cnsh_name": "污染水源",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "在训练数据中注入恶意样本影响模型行为。",
+    "base_tech": "供应链攻击",
+    "longwen_mapping": "龍魂毒丹",
+    "related_terms": [
+      "Adversarial Attack",
+      "Safety"
+    ],
+    "example": "在公开数据集中插入后门样本",
+    "entry_id": "AI-LEX-084",
+    "dna": "#龍芯⚡️20260701021129992556-Data Poisoning-ED4198BE",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Model Extraction",
+    "term_cn": "模型窃取",
+    "cnsh_name": "偷师",
+    "category": "安全与对齐",
+    "hype_level": 3,
+    "plain_explanation": "通过大量查询复制模型功能。",
+    "base_tech": "成员推断 / 蒸馏攻击",
+    "longwen_mapping": "龍魂窃艺",
+    "related_terms": [
+      "API",
+      "Distillation"
+    ],
+    "example": "调用商用 API 数百万次训练替代模型",
+    "entry_id": "AI-LEX-085",
+    "dna": "#龍芯⚡️20260701021129992558-Model Extraction-0388AA0E",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "BERT",
+    "term_cn": "双向编码器表示",
+    "cnsh_name": "双向编码器",
+    "category": "模型与训练",
+    "hype_level": 2,
+    "plain_explanation": "Google 提出的双向 Transformer 编码器。",
+    "base_tech": "Transformer encoder + MLM",
+    "longwen_mapping": "龍魂双向识文",
+    "related_terms": [
+      "Transformer",
+      "Pre-training"
+    ],
+    "example": "BERT、RoBERTa",
+    "entry_id": "AI-LEX-086",
+    "dna": "#龍芯⚡️20260701021129992560-BERT-630C1BE4",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "GPT",
+    "term_cn": "生成式预训练变换器",
+    "cnsh_name": "生成式预训练变换器",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "OpenAI 提出的 decoder-only 自回归语言模型。",
+    "base_tech": "Transformer decoder",
+    "longwen_mapping": "龍魂续写者",
+    "related_terms": [
+      "LLM",
+      "Transformer"
+    ],
+    "example": "GPT-3、GPT-4",
+    "entry_id": "AI-LEX-087",
+    "dna": "#龍芯⚡️20260701021129992562-GPT-AA7BB8E7",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "LLaMA",
+    "term_cn": "Meta 大模型",
+    "cnsh_name": "Meta 大模型",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "Meta 开源的 decoder-only LLM 系列。",
+    "base_tech": "Transformer",
+    "longwen_mapping": "龍魂开源巨兽",
+    "related_terms": [
+      "GPT",
+      "LLM"
+    ],
+    "example": "LLaMA 2、LLaMA 3",
+    "entry_id": "AI-LEX-088",
+    "dna": "#龍芯⚡️20260701021129992564-LLaMA-5404E87C",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Claude",
+    "term_cn": "Claude",
+    "cnsh_name": "Anthropic 助手",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "Anthropic 开发的对话 AI。",
+    "base_tech": "LLM + Constitutional AI",
+    "longwen_mapping": "龍魂外邦对话者",
+    "related_terms": [
+      "Constitutional AI",
+      "LLM"
+    ],
+    "example": "Claude 3.5 Sonnet",
+    "entry_id": "AI-LEX-089",
+    "dna": "#龍芯⚡️20260701021129992567-Claude-762F1C9F",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "Kimi",
+    "term_cn": "Kimi",
+    "cnsh_name": "月之暗面助手",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "Moonshot AI 开发的长上下文对话 AI。",
+    "base_tech": "LLM + 长文本技术",
+    "longwen_mapping": "龍魂本土对话者",
+    "related_terms": [
+      "Long Context",
+      "LLM"
+    ],
+    "example": "Kimi 智能助手",
+    "entry_id": "AI-LEX-090",
+    "dna": "#龍芯⚡️20260701021129992569-Kimi-277C464E",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "ASR",
+    "term_cn": "自动语音识别",
+    "cnsh_name": "语音识别",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "将音频转换为文本。",
+    "base_tech": "声学模型 + 语言模型",
+    "longwen_mapping": "龍魂听音",
+    "related_terms": [
+      "TTS",
+      "Multimodal"
+    ],
+    "example": "Whisper",
+    "entry_id": "AI-LEX-091",
+    "dna": "#龍芯⚡️20260701021129992571-ASR-F586E0CF",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "TTS",
+    "term_cn": "语音合成",
+    "cnsh_name": "语音合成",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "将文本转换为语音。",
+    "base_tech": "声码器 / 神经网络",
+    "longwen_mapping": "龍魂发音",
+    "related_terms": [
+      "ASR",
+      "Multimodal"
+    ],
+    "example": "ElevenLabs、Azure TTS",
+    "entry_id": "AI-LEX-092",
+    "dna": "#龍芯⚡️20260701021129992573-TTS-B3B209A7",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "OCR",
+    "term_cn": "光学字符识别",
+    "cnsh_name": "文字识别",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "从图像中提取文字。",
+    "base_tech": "计算机视觉",
+    "longwen_mapping": "龍魂瞳",
+    "related_terms": [
+      "Multimodal",
+      "ASR"
+    ],
+    "example": "Tesseract、PaddleOCR",
+    "entry_id": "AI-LEX-093",
+    "dna": "#龍芯⚡️20260701021129992575-OCR-3A36BFC9",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "NER",
+    "term_cn": "命名实体识别",
+    "cnsh_name": "命名实体识别",
+    "category": "数据与检索",
+    "hype_level": 2,
+    "plain_explanation": "识别文本中的专有名词。",
+    "base_tech": "序列标注",
+    "longwen_mapping": "龍魂点名",
+    "related_terms": [
+      "NLP",
+      "Knowledge Graph"
+    ],
+    "example": "识别人名、地名、机构名",
+    "entry_id": "AI-LEX-094",
+    "dna": "#龍芯⚡️20260701021129992577-NER-ADB6B84C",
+    "hype_badge": "🔥🔥░░░"
+  },
+  {
+    "term_en": "SFT",
+    "term_cn": "监督微调",
+    "cnsh_name": "监督微调",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "用标注数据对预训练模型进行监督学习。",
+    "base_tech": "交叉熵损失",
+    "longwen_mapping": "龍魂师授",
+    "related_terms": [
+      "Fine-tuning",
+      "Instruction Tuning"
+    ],
+    "example": "用问答对微调基础模型",
+    "entry_id": "AI-LEX-095",
+    "dna": "#龍芯⚡️20260701021129992579-SFT-281E6A00",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "PPO",
+    "term_cn": "近端策略优化",
+    "cnsh_name": "近端策略优化",
+    "category": "模型与训练",
+    "hype_level": 3,
+    "plain_explanation": "RLHF 中常用的强化学习算法。",
+    "base_tech": "策略梯度 + 裁剪",
+    "longwen_mapping": "龍魂稳健修行",
+    "related_terms": [
+      "RLHF",
+      "Reward Model"
+    ],
+    "example": "InstructGPT 训练流程",
+    "entry_id": "AI-LEX-096",
+    "dna": "#龍芯⚡️20260701021129992581-PPO-CB64CA3D",
+    "hype_badge": "🔥🔥🔥░░"
+  },
+  {
+    "term_en": "DPO",
+    "term_cn": "直接偏好优化",
+    "cnsh_name": "直接偏好优化",
+    "category": "模型与训练",
+    "hype_level": 4,
+    "plain_explanation": "直接用偏好数据优化模型，无需显式奖励模型。",
+    "base_tech": "偏好似然",
+    "longwen_mapping": "龍魂直修",
+    "related_terms": [
+      "RLHF",
+      "PPO",
+      "Alignment"
+    ],
+    "example": "DPO 论文方法",
+    "entry_id": "AI-LEX-097",
+    "dna": "#龍芯⚡️20260701021129992584-DPO-27FB0D8D",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Constitutional AI",
+    "term_cn": "宪法 AI",
+    "cnsh_name": "立宪 AI",
+    "category": "安全与对齐",
+    "hype_level": 4,
+    "plain_explanation": "用一套原则自我批判和修正输出。",
+    "base_tech": "自我监督 / RL",
+    "longwen_mapping": "龍魂自律",
+    "related_terms": [
+      "Alignment",
+      "RLHF"
+    ],
+    "example": "Claude 的对齐方法",
+    "entry_id": "AI-LEX-098",
+    "dna": "#龍芯⚡️20260701021129992586-Constitutional AI-DD34E998",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Long Context",
+    "term_cn": "长上下文",
+    "cnsh_name": "长记忆",
+    "category": "推理与交互",
+    "hype_level": 4,
+    "plain_explanation": "模型支持超长上下文窗口的技术。",
+    "base_tech": "位置编码 / 稀疏注意力",
+    "longwen_mapping": "龍魂长思",
+    "related_terms": [
+      "Context Window",
+      "Kimi"
+    ],
+    "example": "200K、1M token 上下文",
+    "entry_id": "AI-LEX-099",
+    "dna": "#龍芯⚡️20260701021129992588-Long Context-59EDB7BA",
+    "hype_badge": "🔥🔥🔥🔥░"
+  },
+  {
+    "term_en": "Reasoning Model",
+    "term_cn": "推理模型",
+    "cnsh_name": "深思模型",
+    "category": "模型与训练",
+    "hype_level": 4,
+    "plain_explanation": "强调逻辑推理、数学、代码能力的模型。",
+    "base_tech": "强化学习 / 过程奖励",
+    "longwen_mapping": "龍魂推理引擎",
+    "related_terms": [
+      "Chain-of-Thought",
+      "o1"
+    ],
+    "example": "OpenAI o1、DeepSeek-R1",
+    "entry_id": "AI-LEX-100",
+    "dna": "#龍芯⚡️20260701021129992590-Reasoning Model-46C5ACC0",
+    "hype_badge": "🔥🔥🔥🔥░"
+  }
+]
