@@ -103,5 +103,22 @@ else
     echo "⚠️  龍魂 v10.0 API 服务器未找到: $V10_API_SERVER" >> "$LOG_FILE"
 fi
 
+# 12) 启动龍魂共生体知识矩阵服务器（端口 9627）
+SYMBIOTE_SERVER="$ROOT/tools/longhun_symbiote_server.py"
+if [ -f "$SYMBIOTE_SERVER" ]; then
+    echo "▶ 启动龍魂共生体知识矩阵服务器" >> "$LOG_FILE"
+    /usr/sbin/lsof -ti:9627 2>/dev/null | xargs kill -9 2>/dev/null || true
+    sleep 1
+    nohup /usr/bin/python3 "$SYMBIOTE_SERVER" >> "$LOG_DIR/symbiote_server.log" 2>&1 &
+    sleep 2
+    if lsof -Pi :9627 -sTCP:LISTEN -t >/dev/null 2>&1; then
+        echo "✅ 龍魂共生体知识矩阵已启动（:9627）" >> "$LOG_FILE"
+    else
+        echo "🔴 龍魂共生体知识矩阵启动失败" >> "$LOG_FILE"
+    fi
+else
+    echo "⚠️  龍魂共生体服务器未找到: $SYMBIOTE_SERVER" >> "$LOG_FILE"
+fi
+
 echo "✅ 开机自启动流程结束 · $(date)" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"

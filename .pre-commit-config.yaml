@@ -1,0 +1,75 @@
+# ═══════════════════════════════════════════════════════════════════
+# 龍魂系统 · Pre-commit 钩子配置
+# DNA: #龍芯⚡️2026-07-06-PRECOMMIT-CREATE-v1.0-F7A2D1B9
+# 用途: 提交前自动拦截密钥泄露、代码质量问题和格式问题
+# 安装: pip install pre-commit && pre-commit install
+# ═══════════════════════════════════════════════════════════════════
+
+repos:
+  # ── 通用检查：行尾空格、文件结尾换行、合并冲突标记等 ──
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=500]
+      - id: detect-private-key
+        # 检测硬编码的 SSH/PGP 私钥
+      - id: detect-aws-credentials
+        # 检测 AWS 密钥
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  # ── 敏感信息泄露拦截（密钥、Token、密码模式） ──
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - --exclude-files
+          - 'package-lock.json|\.asc$|\.min\.js$|\.svg$'
+          - --exclude-lines
+          - '(^# 注意.*\.asc.*|^> DNA:|^# 龍芯⚡️)'
+
+  # ── Python 代码质量（ruff linter + formatter） ──
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.0
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
+  # ── CNSH 规范检查：龍字繁体验证 ──
+  - repo: local
+    hooks:
+      - id: cnsh-dragoncheck
+        name: "CNSH: 龍字繁体验证"
+        entry: python3 -c "
+import sys, os;
+errors = 0;
+for root, dirs, files in os.walk('.'):
+  dirs[:] = [d for d in dirs if d not in {'.git','_archive','node_modules','__pycache__','.venv','venv'} and not d.startswith('.venv')];
+  for f in files:
+    if f.endswith('.md') or f.endswith('.py') or f.endswith('.sh'):
+      fp = os.path.join(root, f);
+      try:
+        with open(fp,'r',encoding='utf-8',errors='ignore') as fh:
+          content = fh.read();
+        # 检测 '龙魂' 而非 '龍魂' (排除 龙芯 匹配)
+        import re;
+        bad = re.findall(r'(?<!CNSH.*)(?<![#>\- ])龙(?=魂|系统)', content);
+        if bad:
+          print(f'🔴 CNSH违规: {fp} — 发现简体龙字，应为「龍」', file=sys.stderr);
+          errors += 1;
+      except: pass;
+sys.exit(min(errors, 1));
+"
+        language: system
+        pass_filenames: false
+        always_run: true
+        verbose: false

@@ -27,6 +27,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
+.pytest_cache/
 build/
 develop-eggs/
 dist/
@@ -174,6 +175,16 @@ releases/*/*.zip
 
 # ── 2026-07-06 安全加固新增 ──
 
+# SM2 国密密钥对（绝不上传，已 git rm --cached）
+data/sm2/
+
+# DNA 主密钥及其他 schema 密钥文件
+schemas/*.key
+schemas/*.pem
+
+# 私有微信密钥（已 git rm --cached）
+private.*.key
+
 # 熔断与安全控制文件（绝不上传，本地主权控制）
 .longhun/
 
@@ -192,13 +203,13 @@ releases/*/*.zip
 !*.example.pem
 !*.example.key
 
-# GPG 密钥和签名
+# GPG 私钥材料（绝不上传；.asc 签名是公共验证文件，必须追踪）
 *.gpg
-*.asc
 secring.gpg
 pubring.gpg
 trustdb.gpg
 random_seed
+# 注意：*.asc 已从 gitignore 移除 —— GPG detached 签名是只读验证文件，不包含私钥
 
 # SSH 密钥
 id_rsa
@@ -275,6 +286,8 @@ nessus_*
 nmap_*
 burp_*
 zap_*
+# Bandit 基线文件（含软件/版本路径）
+.bandit-baseline.json
 
 # 内存镜像和进程快照
 *.mem
@@ -350,9 +363,10 @@ voice-twin/tts_outputs/
 voice-twin/raw/
 
 # Notion 导入临时文件（含外部同步数据）
-cnsh/notion/
+# (2026-07-06 归一后路径更新)
+_archive/legacy/cnsh-legacy/notion/
+_archive/notion_absorb/
 docs/notion_mirror/
-notion_absorb/
 
 # 训练数据（大文件）
 train/data/
@@ -393,9 +407,9 @@ voice-twin/video_remixer.py
 voice-twin/video_script_generator.py
 voice-twin/sage_dialogue.py
 
-# 隔离和外部导入
-_quarantine/
-notion_absorb/
+# 隔离和外部导入 (2026-07-06 归一归入 _archive/)
+_archive/quarantine-legacy/
+_archive/notion_absorb/
 tmp/
 
 # 私有目录
@@ -411,3 +425,33 @@ backups/sovereign/
 # releases 中未跟踪的残余文件
 releases/
 !releases/*.zip
+
+# === 2026-07-06 架构归一新增 ===
+
+# 归档层（已废弃/旧版/备份，仅本地保留）
+_archive/
+
+# 已迁移至新层级的旧目录（备份）
+_archive/legacy/cnsh-legacy/
+_archive/legacy/cnsh-terminal-legacy/
+_archive/legacy/cnsh-runtime-v1/
+_archive/legacy/cnsh-core.backup/
+_archive/legacy/cnsh_terminal_v5.0/
+_archive/legacy/cnsh_editor/
+_archive/deprecated/01_技能库/
+_archive/deprecated/skills.backup/
+_archive/deprecated/monitoring.backup/
+_archive/deprecated/second-brain/
+_archive/deprecated/second_brain/
+
+# 已移动的临时目录
+_archive/csdn_sync/
+_archive/longhun_mvp_reviewed/
+
+# mobile-monitoring.integrated（可能含敏感移动端数据）
+mobile-monitoring.integrated/
+
+# 多版本备份（全部在 archive 中）
+software_dna/
+software-dna/
+cnsh-repo-push/

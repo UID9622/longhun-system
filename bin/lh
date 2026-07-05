@@ -1,7 +1,111 @@
-# #龍芯⚡️2026-07-03-MODULE-LH-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
-
 #!/bin/bash
-# 🐉 龍魂统一交互入口 · LH 看板（系统级代理）
-# DNA: #龍芯⚡️20260629-LONGHUN-LH-PROXY-v2.0
-exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  龍魂快捷入口 · lh alias                                    ║
+# ║  DNA: #龍芯⚡️2026-07-06-LH-ALIAS-v1.0-9B2E7F1A              ║
+# ║                                                            ║
+# ║  lh 是 lh6 的快捷别名，优先匹配中文命令。                     ║
+# ║  用于日常快速操作，记不住英文命令就用 lh 中文命令。            ║
+# ║                                                            ║
+# ║  哲学锚: 河图洛书中五不动点 → lh 为"令行"之简                     ║
+# ╚══════════════════════════════════════════════════════════════╝
+#
+# 用法:
+#   lh 编辑器           # → lh6 editor
+#   lh 熔断             # → lh6 fuse
+#   lh 状态             # → lh6 status
+#   lh 审计变量         # → lh6 audit-vars
+#   lh 验证plist        # → lh6 validate plist
+#   lh 共生体           # → lh6 symbiote
+#   lh 令牌             # → lh6 token
+#   lh 语义 "检查状态"   # → lh6 semantic "检查状态"
+#
+
+LH6="$HOME/longhun-system/bin/lh6"
+
+# ── 中文命令→lh6命令映射表 ──
+# 格式: "中文命令=子命令 后续参数"
+declare -A CN_MAP
+CN_MAP=(
+    # ── 传统命令 ──
+    ["编辑器"]="editor"
+    ["编辑"]="editor"
+    ["edit"]="editor"
+    ["状态"]="status"
+    ["status"]="status"
+    ["熔断"]="fuse"
+    ["fuse"]="fuse"
+    ["令牌"]="token"
+    ["token"]="token"
+    ["语义"]="semantic"
+    ["parse"]="semantic"
+    ["解析"]="semantic"
+    ["身份"]="auth"
+    ["auth"]="auth"
+    ["验证"]="auth verify"
+    ["加密"]="privacy encrypt"
+    ["解密"]="privacy decrypt"
+    ["隐私"]="privacy"
+    ["privacy"]="privacy"
+    ["错误"]="error"
+    ["err"]="error"
+    ["审计变量"]="audit-vars"
+    ["audit-vars"]="audit-vars"
+    ["av"]="audit-vars"
+    ["验证plist"]="validate plist"
+    ["校验plist"]="validate plist"
+    ["validate"]="validate"
+    ["共生体"]="symbiote"
+    ["symbiote"]="symbiote"
+    ["共生"]="symbiote"
+    ["审计插件"]="audit-plugin"
+    ["ap"]="audit-plugin"
+    ["插件"]="audit-plugin"
+    ["帮助"]="help"
+    ["help"]="help"
+    ["h"]="help"
+    ["?"]="help"
+
+    # ── 三大引擎 ──
+    ["河图DNA"]="dna-gen"
+    ["DNA生成"]="dna-gen"
+    ["dna-gen"]="dna-gen"
+    ["八卦"]="bagua"
+    ["卦象"]="bagua"
+    ["bagua"]="bagua"
+    ["gua"]="bagua"
+    ["五行"]="wuxing"
+    ["5xing"]="wuxing"
+    ["wuxing"]="wuxing"
+
+    # ── 八卦直连（中文命名） ──
+    ["乾"]="乾"
+    ["坤"]="坤"
+    ["震"]="震"
+    ["巽"]="巽"
+    ["坎"]="坎"
+    ["离"]="离"
+    ["艮"]="艮"
+    ["兑"]="兑"
+)
+
+cmd="${1:-help}"
+shift 2>/dev/null || true
+
+# 查找映射
+mapped="${CN_MAP[$cmd]}"
+if [ -n "$mapped" ]; then
+    # 映射到 lh6 子命令
+    subcmd="${mapped%% *}"
+    rest="${mapped#$subcmd}"
+    rest="${rest# }"
+    if [ -n "$rest" ]; then
+        exec bash "$LH6" "$subcmd" "$rest" "$@"
+    elif [ $# -gt 0 ]; then
+        exec bash "$LH6" "$subcmd" "$@"
+    else
+        exec bash "$LH6" "$subcmd"
+    fi
+else
+    # 未匹配，直接传给 lh6（可能是自然语言等）
+    exec bash "$LH6" "$cmd" "$@"
+fi

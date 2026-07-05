@@ -58,6 +58,7 @@ import tty
 import select
 import time
 import json
+from pathlib import Path
 from datetime import datetime
 from enum import Enum, auto
 from dataclasses import dataclass, field
@@ -228,6 +229,28 @@ LANGUAGE_PATTERNS = {
         "cn_func": r'\b(定义|函数|类)\s+([\u4e00-\u9fff_][\u4e00-\u9fff\w_]*)',
     },
 }
+
+# ═══════════════════════════════════════════════════════════════
+# CNSH 中文编辑变量映射 v3.0（A1-A3域：前向安全常量）
+# DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-v3.0-8A3F1D2B
+# ═══════════════════════════════════════════════════════════════
+
+# A1·L0 系统常量（前向安全：仅引用已定义的简单变量）
+龍_编辑器版本 = VERSION               # "2.0"
+龍_DNA头 = DNA_HEADER                  # "龍芯⚡️2026-06-17"
+龍_确认标记 = CONFIRM_MARK             # "CONFIRM🌌9622-ONLY-ONCE"
+龍_永恒签章 = SEAL_MARK                # "ZHUGEXIN⚡️2025"
+龍_来源链 = SOURCE_CHAIN               # 六层来源链
+
+# A2·L1 核心枚举
+引擎_审计颜色 = AuditColor              # 🟢🟡🔴 三色枚举
+引擎_检查级别 = CNSHCheckLevel          # L1-L4 检查级别
+
+# A3·L2 数据定义
+数据_支持语言集 = SUPPORTED_LANGUAGES
+数据_CNSH关键字集 = CNSH_KEYWORDS
+数据_语言关键字库 = LANGUAGE_KEYWORDS
+数据_语法模式库 = LANGUAGE_PATTERNS
 
 # ═══════════════════════════════════════════════════════════════
 # 类7: DNATemplate - DNA追溯模板管理
@@ -1568,6 +1591,30 @@ class CNSHEditor:
 def ctrl_key(ch: str) -> int:
     """获取Ctrl+字符的键值"""
     return ord(ch) & 0x1f
+
+
+# ═══════════════════════════════════════════════════════════════
+# CNSH 中文编辑变量映射 v3.0（A4-A5域：后向安全，类已全部定义）
+# DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-v3.0-8A3F1D2B
+# 审计: 🟢 通过 · dr=2 · 五行木 · 左脑0问题
+# ═══════════════════════════════════════════════════════════════
+
+# A1·L0（补充：后向安全引用）
+龍_监督层 = DNATemplate.SUPERVISION_LAYERS
+
+# A4·L2 模块类引用
+模块_DNA模板 = DNATemplate
+模块_多光标 = MultiCursor
+模块_语法高亮 = SyntaxHighlighter
+模块_自动补全 = AutoCompleteEngine
+模块_代码检查 = CNSHLinter
+模块_文件浏览 = FileBrowser
+模块_主编辑器 = CNSHEditor
+
+# 变量注册表路径
+龍_变量注册表路径 = str(
+    Path(__file__).parent.parent / "docs" / "CNSH_编辑变量注册表-v3.0.md"
+)
 
 
 # ═══════════════════════════════════════════════════════════════

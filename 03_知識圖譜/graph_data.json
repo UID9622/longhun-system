@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-22T14:28:24.100463",
+  "timestamp": "2026-07-05T18:12:27.476312+00:00",
   "nodes": {
     "/kimi-webbridge": {
       "node_id": "/kimi-webbridge",
@@ -1697,6 +1697,99 @@
         "claude-local-sessions/html_tools",
         "l0-core"
       ]
+    },
+    "/audit-plugin": {
+      "node_id": "/audit-plugin",
+      "label": "B4审计插件基类",
+      "type": "engine",
+      "dna": "#龍芯⚡️2026-07-06-AUDIT-PLUGIN-v1.0-5A3F8C1D",
+      "description": "可插拔审计架构: DNA验证+命名规范审计+插件注册表",
+      "related_nodes": [
+        "l0-core",
+        "/code-audit",
+        "/dna-gen"
+      ]
+    },
+    "/bagua-router": {
+      "node_id": "/bagua-router",
+      "label": "六十四卦路由引擎",
+      "type": "engine",
+      "dna": "#龍芯⚡️2026-07-06-BAGUA-ROUTER-v1.0-B64GUA",
+      "description": "lh6八卦路由中枢: 乾坤震巽坎离艮兑·八卦相重为六十四卦",
+      "related_nodes": [
+        "l0-core",
+        "/dna-gen",
+        "/wuxing-guard"
+      ]
+    },
+    "/wuxing-guard": {
+      "node_id": "/wuxing-guard",
+      "label": "五行权限校验层",
+      "type": "engine",
+      "dna": "#龍芯⚡️2026-07-06-WUXING-GUARD-v1.0-5XELMT",
+      "description": "金水木火土五步校验: 身份→权限→域隔离→审计预检→DNA追溯",
+      "related_nodes": [
+        "l0-core",
+        "/dna-gen",
+        "/bagua-router"
+      ]
+    },
+    "/skill-extension": {
+      "node_id": "/skill-extension",
+      "label": "离卦技能扩展层",
+      "type": "engine",
+      "dna": "#龍芯⚡️2026-07-06-SKILL-EXTENSION-v1.0-LIFIRE",
+      "description": "技能注册中心+算法库: lh6 离 skill/algo · 五行校验前置",
+      "related_nodes": [
+        "l0-core",
+        "/wuxing-guard",
+        "/dna-gen"
+      ]
+    },
+    "/sovereign-privacy": {
+      "node_id": "/sovereign-privacy",
+      "label": "主权隐私引擎",
+      "type": "engine",
+      "dna": "#龍芯⚡️2026-07-06-SOVEREIGN-PRIVACY-v1.0-SOVPRV",
+      "description": "SHA-256身份脱敏+AES-256-GCM加密+macOS Keychain密钥管理",
+      "related_nodes": [
+        "l0-core",
+        "/on-identity"
+      ]
+    },
+    "/error-translator": {
+      "node_id": "/error-translator",
+      "label": "错误翻译器",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0-ERRTRN",
+      "description": "系统错误→中文提示: Python异常+Socket+launchctl+Git四大类50+映射",
+      "related_nodes": [
+        "l0-core",
+        "/plist-validator"
+      ]
+    },
+    "/plist-validator": {
+      "node_id": "/plist-validator",
+      "label": "plist文件校验器",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0-PLSTVL",
+      "description": "macOS plist七步校验: XML/必填字段/路径/权限·中文错误提示",
+      "related_nodes": [
+        "l0-core",
+        "/error-translator"
+      ]
+    },
+    "/semantic-parser": {
+      "node_id": "/semantic-parser",
+      "label": "语义解析引擎",
+      "type": "skill",
+      "dna": "#龍芯⚡️2026-07-06-SEMANTIC-PARSER-v1.0-SEMPAR",
+      "description": "自然语言→lh6命令: 精确匹配→模糊正则→缓存→Kimi API·回显确认",
+      "related_nodes": [
+        "l0-core",
+        "/kimi-webbridge",
+        "/bagua-router"
+      ]
     }
   },
   "edges": [
@@ -3085,6 +3178,126 @@
       "target": "l0-core",
       "relationship": "relates_to",
       "strength": 0.6
+    },
+    {
+      "source": "l0-core",
+      "target": "/audit-plugin",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/audit-plugin",
+      "target": "/code-audit",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "/audit-plugin",
+      "target": "/dna-gen",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/bagua-router",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/bagua-router",
+      "target": "/dna-gen",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "/bagua-router",
+      "target": "/wuxing-guard",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/wuxing-guard",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/wuxing-guard",
+      "target": "/dna-gen",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "/wuxing-guard",
+      "target": "/bagua-router",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/skill-extension",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/skill-extension",
+      "target": "/wuxing-guard",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "/skill-extension",
+      "target": "/dna-gen",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/sovereign-privacy",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "l0-core",
+      "target": "/error-translator",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/error-translator",
+      "target": "/plist-validator",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/plist-validator",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/plist-validator",
+      "target": "/error-translator",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "l0-core",
+      "target": "/semantic-parser",
+      "relationship": "uses",
+      "strength": 0.85
+    },
+    {
+      "source": "/semantic-parser",
+      "target": "/kimi-webbridge",
+      "relationship": "depends_on",
+      "strength": 0.75
+    },
+    {
+      "source": "/semantic-parser",
+      "target": "/bagua-router",
+      "relationship": "depends_on",
+      "strength": 0.75
     }
   ],
   "dna": "#龍芯⚡️2026-06-06-KNOWLEDGE-GRAPH-DATA-v1.0"

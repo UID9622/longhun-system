@@ -1,18 +1,24 @@
-# 龍魂系统 · 统一子系统收口总表 v2.0
+# 龍魂系统 · 统一子系统收口总表 v3.0
 
-> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v2.0`
-> 收口人: CodeBuddy (首次) → 整理完成
+> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v3.0`
+> 收口人: CodeBuddy
 > 审计: 🟢 通过
 > 原则: 一个仓库，一份总表，不可有未注册的子系统
 >
 > **关联文档:**
+> - 归一架构: [`docs/ARCHITECTURE_NORMALIZATION_v1.0.md`](./docs/ARCHITECTURE_NORMALIZATION_v1.0.md)
 > - 引擎去重: [`ENGINE_DEDUP_MANIFEST.md`](./ENGINE_DEDUP_MANIFEST.md)
 > - 技能去重: [`SKILLS_DEDUP_MANIFEST.md`](./SKILLS_DEDUP_MANIFEST.md)
-> - 插件主权: [`CODEBUDDY_插件主权清单_v1.0.md`](./CODEBUDDY_插件主权清单_v1.0.md)
-> - 交接文档: [`HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md`](./HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md)
+> - 插件主权: [`agents/CODEBUDDY_插件主权清单_v1.0.md`](./agents/CODEBUDDY_插件主权清单_v1.0.md)
+> - 交接文档: [`L8_治理层/governance/HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md`](./L8_治理层/governance/HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md)
 >
-> **本次收口操作 (2026-07-06):**
-> - Git 索引: 81,274 → 1,568 staged (unstage 16 个敏感/大目录)
+> **2026-07-06 架构归一操作:**
+> - CNSH内核: 5个冗余目录→ `_archive/legacy/`（仅保留`cnsh-core/`为权威源）
+> - 重复引擎: 权威引擎→ `L1_内核层/kernel/engines/`，副本已标注DUPLICATE_COPY
+> - Web操作台: `web/` `portal/` `control-panel/` → `L5_服务层/services/`
+> - 技能目录: `01_技能库/`(简中)→归档，`01_技能庫/`(正体)保留
+> - 根目录: 143个散落文件→归入L1-L9层级目录，根目录仅保留24个核心文件
+> - 归档统一: `_archive/` 集中管理所有废弃/备份/检疫内容
 > - .gitignore: 新增 brain/voice-twin/train/outputs/.snapshots 规则
 > - 引擎: 标记 8 个副本文件，确定 11 组权威源
 > - 技能: 确认 skills.backup 为独立历史分支（全部 32 文件不同）

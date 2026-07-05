@@ -1812,6 +1812,365 @@
       "type": "script",
       "script": "/Users/zuimeidedeyihan/longhun-system/人民维权助手/rights_assistant.py",
       "need_arg": true
+    },
+    "共生体": {
+      "aliases": [
+        "symbiote",
+        "共生",
+        "matrix"
+      ],
+      "category": "启动",
+      "desc": "启动/查看共生体知识矩阵服务器（神经网络+知识图谱+生长引擎）",
+      "type": "script",
+      "script": "bin/start_symbiote.sh"
+    },
+    "共生仪表盘": {
+      "aliases": [
+        "symbiote-dash",
+        "sym-dash",
+        "matrix-ui"
+      ],
+      "category": "启动",
+      "desc": "打开共生体知识矩阵 3D 可视仪表盘",
+      "type": "open",
+      "target": "http://127.0.0.1:9627/symbiote"
+    },
+    "共生3D": {
+      "aliases": [
+        "symbiote-3d",
+        "network3d"
+      ],
+      "category": "启动",
+      "desc": "打开共生体 3D 神经网络全景视图",
+      "type": "open",
+      "target": "http://127.0.0.1:9627/"
+    },
+    "共生体状态": {
+      "aliases": [
+        "symbiote-status",
+        "sym-status",
+        "matrix-status"
+      ],
+      "category": "状态",
+      "desc": "查看共生体生长日志、神经网络健康、知识图谱统计",
+      "type": "script",
+      "script": "~/.龍魂/bin/lh-symbiote-status",
+      "args": []
+    },
+    "编辑器": {
+      "aliases": [
+        "editor",
+        "edit",
+        "CNSH编辑器"
+      ],
+      "category": "启动",
+      "desc": "启动 CNSH 中文代码编辑器（已注入龍_/引擎_/数据_/模块_ CNSH 变量）",
+      "type": "script",
+      "script": "cnsh-editor/cnsh_editor_engine_v2.0.py"
+    },
+    "变量审计": {
+      "aliases": [
+        "audit-vars",
+        "av",
+        "var-audit"
+      ],
+      "category": "审计",
+      "desc": "运行 CNSH 编辑变量·左右互搏审计（左脑挑错+右脑补充+共识收敛）",
+      "type": "script",
+      "script": "cnsh-editor/core/cnsh_editor_var_auditor.py"
+    },
+    "plist校验": {
+      "aliases": [
+        "validate",
+        "validate-plist",
+        "check-plist",
+        "校验plist"
+      ],
+      "category": "部署",
+      "desc": "校验 plist 文件XML格式·权限·路径正确性，输出中文错误提示",
+      "type": "script",
+      "script": "bin/plist_validator.py"
+    },
+    "共生体管理": {
+      "aliases": [
+        "symbiote",
+        "symbiote-service",
+        "共生体"
+      ],
+      "category": "启动",
+      "desc": "共生体服务管理: start/stop/restart/status，含PID·端口·内存·CPU",
+      "type": "bash",
+      "script": "bin/start_symbiote.sh"
+    },
+    "熔断控制": {
+      "aliases": [
+        "fuse",
+        "熔断",
+        "fuse-control"
+      ],
+      "category": "安全",
+      "desc": "多协议熔断(WARN/SOFT/HARD) + block/unblock/override + 令牌管理",
+      "type": "script",
+      "script": "bin/fuse_control.py"
+    },
+    "令牌管理": {
+      "aliases": [
+        "token",
+        "令牌",
+        "token-status",
+        "token-renew"
+      ],
+      "category": "安全",
+      "desc": "主权令牌状态查看与续期(gitcode/gitee)",
+      "type": "script",
+      "script": "bin/fuse_control.py",
+      "args": [
+        "token"
+      ]
+    },
+    "语义解析": {
+      "aliases": [
+        "semantic",
+        "parse",
+        "语义",
+        "自然语言"
+      ],
+      "category": "技能",
+      "desc": "自然语言→lh6命令映射(本地匹配表+Kimi API fallback)+语义回显确认",
+      "type": "script",
+      "script": "bin/semantic_parser.py"
+    },
+    "身份验证": {
+      "aliases": [
+        "auth",
+        "身份",
+        "verify",
+        "whoami",
+        "主权人"
+      ],
+      "category": "主权",
+      "desc": "主权人身份哈希验证+脱敏映射+密钥管理",
+      "type": "script",
+      "script": "bin/sovereign_privacy.py"
+    },
+    "隐私加密": {
+      "aliases": [
+        "privacy",
+        "加密",
+        "解密",
+        "encrypt",
+        "decrypt"
+      ],
+      "category": "安全",
+      "desc": "AES-256-GCM审计日志加密/解密(HMAC认证)",
+      "type": "script",
+      "script": "bin/sovereign_privacy.py"
+    },
+    "错误翻译": {
+      "aliases": [
+        "error",
+        "err",
+        "错误",
+        "翻译",
+        "translate-error"
+      ],
+      "category": "审计",
+      "desc": "系统错误→中文提示翻译(I/O error/socket timeout/launchctl等)",
+      "type": "script",
+      "script": "bin/error_translator.py"
+    },
+    "审计插件": {
+      "aliases": [
+        "audit-plugin",
+        "ap",
+        "plugin-audit",
+        "审计层",
+        "B4审计"
+      ],
+      "category": "审计",
+      "desc": "B4可插拔审计插件系统: list(列出插件)/dna(验证DNA)/naming(命名规范)/audit(全量审计)",
+      "type": "script",
+      "script": "bin/audit_plugin_base.py"
+    },
+    "DNA验证": {
+      "aliases": [
+        "dna-verify",
+        "dna-check",
+        "DNA检查",
+        "verify-dna"
+      ],
+      "category": "审计",
+      "desc": "B4 DNA追溯验证审计插件: 检查龍字繁体/全角下划线/DNA格式规范",
+      "type": "script",
+      "script": "bin/audit_plugin_base.py",
+      "args": [
+        "dna"
+      ]
+    },
+    "命名规范审计": {
+      "aliases": [
+        "naming-audit",
+        "命名检查",
+        "naming-check",
+        "命名规范"
+      ],
+      "category": "审计",
+      "desc": "B4 CNSH命名规范审计插件: 检查命名空间前缀/驼峰混用/全角下划线",
+      "type": "script",
+      "script": "bin/audit_plugin_base.py",
+      "args": [
+        "naming"
+      ]
+    },
+    "lh入口": {
+      "aliases": [
+        "lh",
+        "快捷入口",
+        "quick",
+        "中文命令"
+      ],
+      "category": "部署",
+      "desc": "龍魂快捷入口(中文命令优先): lh 编辑器/lh 熔断/lh 状态... 是lh6的别名",
+      "type": "bash",
+      "script": "bin/lh"
+    },
+    "河图DNA引擎": {
+      "aliases": [
+        "dna-gen",
+        "河图DNA",
+        "hetu",
+        "dna-engine",
+        "DNA生成"
+      ],
+      "category": "审计",
+      "desc": "河图洛书不动点DNA生成/验证: gen(生成DNA)/verify(验证)/dr(数字根)/bagua(八卦)/constants(L0常量)",
+      "type": "script",
+      "script": "bin/hetu_luoshu_dna.py"
+    },
+    "六十四卦路由": {
+      "aliases": [
+        "bagua",
+        "八卦",
+        "gua",
+        "hexagram",
+        "卦象"
+      ],
+      "category": "审计",
+      "desc": "六十四卦路由表: list(列出)/show(查看卦类)/route(查询路由)",
+      "type": "script",
+      "script": "bin/bagua_router.py"
+    },
+    "五行校验": {
+      "aliases": [
+        "wuxing",
+        "五行",
+        "wu-xing",
+        "5xing"
+      ],
+      "category": "安全",
+      "desc": "五行权限校验层(金木水火土): check(校验)/demo(演示)",
+      "type": "script",
+      "script": "bin/wuxing_guard.py"
+    },
+    "技能扩展": {
+      "aliases": [
+        "skill-ext",
+        "离-skill",
+        "li-skill"
+      ],
+      "category": "技能",
+      "desc": "离卦·技能扩展层: skill add/list/run + algo list/run",
+      "type": "script",
+      "script": "bin/skill_extension.py"
+    },
+    "乾-启动": {
+      "aliases": [
+        "qian",
+        "乾卦",
+        "qian-start",
+        "start"
+      ],
+      "category": "启动",
+      "desc": "六十四卦路由·乾卦入口: lh6 乾 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "坤-状态": {
+      "aliases": [
+        "kun",
+        "坤卦",
+        "kun-status"
+      ],
+      "category": "状态",
+      "desc": "六十四卦路由·坤卦入口: lh6 坤 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "震-审计": {
+      "aliases": [
+        "zhen",
+        "震卦",
+        "zhen-audit"
+      ],
+      "category": "审计",
+      "desc": "六十四卦路由·震卦入口: lh6 震 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "巽-安全": {
+      "aliases": [
+        "xun",
+        "巽卦",
+        "xun-secure"
+      ],
+      "category": "安全",
+      "desc": "六十四卦路由·巽卦入口: lh6 巽 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "坎-主权": {
+      "aliases": [
+        "kan",
+        "坎卦",
+        "kan-domain"
+      ],
+      "category": "主权",
+      "desc": "六十四卦路由·坎卦入口: lh6 坎 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "离-技能": {
+      "aliases": [
+        "li",
+        "离卦",
+        "li-skill"
+      ],
+      "category": "技能",
+      "desc": "六十四卦路由·离卦入口: lh6 离 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "艮-同步": {
+      "aliases": [
+        "gen",
+        "艮卦",
+        "gen-sync"
+      ],
+      "category": "同步",
+      "desc": "六十四卦路由·艮卦入口: lh6 艮 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
+    },
+    "兑-部署": {
+      "aliases": [
+        "dui",
+        "兑卦",
+        "dui-deploy"
+      ],
+      "category": "部署",
+      "desc": "六十四卦路由·兑卦入口: lh6 兑 <动作>",
+      "type": "bash",
+      "script": "bin/lh6"
     }
   }
 }
