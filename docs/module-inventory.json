@@ -1,6 +1,62 @@
 {
-  "_dna": "#龍芯⚡️20260624010825168-AUTO-DNA-3AE83D77",
   "modules": [
+    {
+      "path": ".longhun",
+      "files": 70,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": ".playwright-mcp",
+      "files": 18,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": ".龍魂_config",
+      "files": 2,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "01_protocols",
+      "files": 61,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "protocol_shield.sh",
+        "一键安装.sh",
+        "启动人格代理.py",
+        "规则导出工具.py",
+        "漂移词修正器.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "01_技能库",
+      "files": 76,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun-skill-auto-completion-engine.py",
+        "longhun-standard-calculation-framework.py",
+        "skill-6-mcp-builder.py",
+        "skill-7-skill-creator.py",
+        "SKILL-LAUNCHER.sh"
+      ],
+      "status": "needs_doc"
+    },
     {
       "path": "03_compiler",
       "files": 5,
@@ -11,25 +67,62 @@
       "status": "needs_doc"
     },
     {
-      "path": "03_知识图谱",
-      "files": 3,
-      "has_readme": true,
-      "has_main_entry": false,
-      "has_api": false,
-      "entry_scripts": [],
-      "status": "needs_doc"
-    },
-    {
-      "path": "agents",
-      "files": 5,
+      "path": "03_知識圖譜",
+      "files": 21,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
       "entry_scripts": [
+        "migrate_downloads_inbox.py",
+        "build_cnsh_editor_module.py",
+        "compress_downloads_imports.py",
+        "generate_claude_sessions_inventory.py",
+        "generate_downloads_inbox.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "_backup",
+      "files": 332,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "refresh-longhun.sh",
+        "run-package-watcher.sh",
+        "longhun-autostart.sh",
+        "build-desktop-switch.sh",
+        "generate_workspace_metadata.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "_quarantine",
+      "files": 20,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "v4_adaptive_executor.py",
+        "cnsh_persona_system.py",
+        "cnsh_main.py",
+        "cnsh_api_server.py",
+        "v4_flow_field_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "agents",
+      "files": 115,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "agent_status_reporter.py",
         "xpay_core_auto.py",
         "longhun_notion_sync_auto.py",
         "longhun_foundation_launcher_auto.py",
-        "task_executor_live_v1.py"
+        "orchestrator.py"
       ],
       "status": "needs_doc"
     },
@@ -45,8 +138,23 @@
       "status": "needs_doc"
     },
     {
+      "path": "audit",
+      "files": 34,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "longhun_lineage_verification_v2.0.py",
+        "audit_api.py",
+        "behavioral_crypto.py",
+        "left_right_audit.py",
+        "gua_audit_daemon.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "baobao-guardian",
-      "files": 3322,
+      "files": 3288,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
@@ -61,92 +169,204 @@
     },
     {
       "path": "bin",
-      "files": 28,
+      "files": 71,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
       "entry_scripts": [
         "package-watcher.py",
+        "session_end.sh",
         "refresh-longhun.sh",
         "module_inventory.py",
-        "run-warehouse-audit.sh",
-        "integrate_private_shared_batch2.py"
+        "run-warehouse-audit.sh"
       ],
       "status": "complete"
     },
     {
       "path": "brain",
-      "files": 5,
+      "files": 14,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
       "entry_scripts": [
-        "brain_notion_sync.py"
+        "brain_notion_sync.py",
+        "longhun_mvp_notion_integration_v2.0.py",
+        "behavior_notion_sync.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "calendar-context-logger",
+      "files": 9,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "context_manager.py",
+        "calendar_core.py",
+        "notion_logger.py",
+        "cli.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "capabilities",
+      "files": 42,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "persona_matrix.py",
+        "dispatcher.py",
+        "train_pipeline.py",
+        "config.py",
+        "registry.py"
       ],
       "status": "needs_doc"
     },
     {
       "path": "cnsh",
-      "files": 56,
+      "files": 221,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
       "entry_scripts": [
+        "终端启动.py",
+        "cnsh_redlines.py",
         "launch.sh",
-        "v9_task_executor_adapter.py",
-        "task_executor_v9_integrated.py",
-        "v9_system_integration_bridge.py",
-        "persona_collaboration.py"
+        "cnsh_redline_client.py",
+        "DNA授权执行引擎.py"
       ],
       "status": "complete"
     },
     {
       "path": "cnsh-core",
-      "files": 1665,
+      "files": 10509,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
       "entry_scripts": [
+        "people_rights_guard.py",
         "notion_task5_setup.py",
         "audit_integration_v1.py",
-        "memory_pack_v3.py",
-        "parse_notion.py",
-        "core_system_launcher.py"
+        "people_behavior_engine.py",
+        "people_skill_scope.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "cnsh-editor",
+      "files": 20,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "cnsh_editor_engine_v2.0.py",
+        "cnsh_aligner_v2.0.py",
+        "cnsh_translator_engine_v2.0.py",
+        "editor_ui.py",
+        "cnsh_editor_engine_v2.0.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "cnsh-repo-push",
+      "files": 74,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "cnsh_compiler.py",
+        "dna-ecny-activation.py",
+        "V9-GameTheory-compile.sh",
+        "用户留痕核心.py",
+        "IW-ECB-Western-Ethics-compile.sh"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "cnsh-terminal",
+      "files": 1219,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "cnsh_terminal_v5.py",
+        "multimodal_cli.py",
+        "cnsh_editor_engine_v2.0.py",
+        "cnsh_translator_engine_v2.0.py",
+        "encryption.py"
       ],
       "status": "complete"
     },
     {
       "path": "cnsh.integrated",
-      "files": 56,
+      "files": 221,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "终端启动.py",
+        "cnsh_redlines.py",
+        "launch.sh",
+        "cnsh_redline_client.py",
+        "DNA授权执行引擎.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "cnsh_terminal_v5.0",
+      "files": 25,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "cnsh_terminal_v5.py",
+        "encryption.py",
+        "four_layer_check.py",
+        "ai_timestamp.py",
+        "parser.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "config",
+      "files": 2,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "control-panel",
+      "files": 30,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
       "entry_scripts": [
         "launch.sh",
-        "v9_task_executor_adapter.py",
-        "task_executor_v9_integrated.py",
-        "v9_system_integration_bridge.py",
-        "persona_collaboration.py"
+        "api_gateway_8443.py",
+        "tongxinyi_gate.py",
+        "main.py",
+        "system_monitor.py"
       ],
       "status": "complete"
     },
     {
-      "path": "control-panel",
-      "files": 11,
+      "path": "core-services",
+      "files": 3,
       "has_readme": true,
-      "has_main_entry": true,
+      "has_main_entry": false,
       "has_api": false,
       "entry_scripts": [
-        "launch.sh",
-        "main.py",
-        "skill_wrappers.py",
-        "foundation_wrappers.py"
+        "longhun-calendar-v1.0.py"
       ],
-      "status": "complete"
+      "status": "needs_doc"
     },
     {
       "path": "crypto-stack",
-      "files": 9,
+      "files": 12,
       "has_readme": false,
       "has_main_entry": false,
       "has_api": false,
@@ -160,8 +380,21 @@
       "status": "needs_doc"
     },
     {
+      "path": "csdn_sync",
+      "files": 70,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "enhance_drafts.py",
+        "sanitize.py",
+        "publish_remaining.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "deployment",
-      "files": 9,
+      "files": 11,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -173,12 +406,29 @@
     },
     {
       "path": "desktop",
-      "files": 3,
+      "files": 6,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
-      "entry_scripts": [],
+      "entry_scripts": [
+        "龍魂控制中心.py"
+      ],
       "status": "needs_doc"
+    },
+    {
+      "path": "dev-env",
+      "files": 82,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "test_errors.py",
+        "test_runtime.py",
+        "test_compiler.py",
+        "test_api.py",
+        "setup-dev-env.sh"
+      ],
+      "status": "complete"
     },
     {
       "path": "docker",
@@ -191,7 +441,7 @@
     },
     {
       "path": "docs",
-      "files": 860,
+      "files": 907,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -205,8 +455,30 @@
       "status": "complete"
     },
     {
-      "path": "executors",
+      "path": "editor",
       "files": 5,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "龍碼編輯器.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "engines",
+      "files": 1,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "audit_engine.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "executors",
+      "files": 32,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -214,7 +486,8 @@
         "longhun_kfpp_executor_v1.0.py",
         "longhun_mvp_launcher_v1.0.py",
         "longhun_foundation_runtime_v1.0.py",
-        "task_executor_live_v1.py"
+        "content_sovereignty_protocol_v2.1.py",
+        "longhun_lineage_verification_v2.0.py"
       ],
       "status": "needs_doc"
     },
@@ -229,7 +502,7 @@
     },
     {
       "path": "extensions",
-      "files": 37,
+      "files": 38,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -239,8 +512,38 @@
       "status": "complete"
     },
     {
+      "path": "governance",
+      "files": 32,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "test_trust.py",
+        "config.py",
+        "core.py",
+        "api.py",
+        "cli.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "imports",
+      "files": 26,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun_lineage_verification_v2.0.py",
+        "baobao_workflow_v2.0.py",
+        "longhun_mvp_launcher_v2.0.py",
+        "longhun_mvp_executor_v2.0.py",
+        "longhun_mvp_notion_integration_v2.0.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "integrated-modules",
-      "files": 55,
+      "files": 62,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -255,7 +558,7 @@
     },
     {
       "path": "integrated_modules",
-      "files": 55,
+      "files": 62,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -270,21 +573,33 @@
     },
     {
       "path": "integrations",
-      "files": 7,
+      "files": 135542,
       "has_readme": true,
-      "has_main_entry": false,
-      "has_api": false,
+      "has_main_entry": true,
+      "has_api": true,
       "entry_scripts": [
-        "cnsh_mcp_server.py",
-        "v4_mcp_server.py",
-        "longhun_mvp_notion_integration_v1.0.py",
-        "philosophy_system_sync.py"
+        "setup.sh",
+        "config.py",
+        "cli.py",
+        "setup_credentials.py",
+        "web_ui.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "kg-api",
+      "files": 2,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "kg_api.py"
       ],
       "status": "needs_doc"
     },
     {
       "path": "kimi",
-      "files": 20,
+      "files": 19,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -297,8 +612,62 @@
       "status": "needs_doc"
     },
     {
+      "path": "knowledge-graph",
+      "files": 13,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun_kg.py",
+        "install.sh",
+        "run_kg.sh"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "longhun-font",
+      "files": 143,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "install_macos.sh",
+        "editor.py",
+        "cnsh_font_engine_uid9622.py",
+        "cnsh_font_engine_uid9622_current.py",
+        "cnsh_font_engine.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "longhun_mvp_reviewed",
+      "files": 24,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "longhun_file_audit_foundation_v1.0.py",
+        "cnsh_aligner_v1.0.py",
+        "content_sovereignty_protocol_v2.0.py",
+        "baobao_workflow_v2.0.py",
+        "longhun_foundation_launcher_v1.0.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "memory-universe",
+      "files": 7,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "星辰记忆系统.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "mobile-monitoring.integrated",
-      "files": 16,
+      "files": 19,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -323,7 +692,7 @@
     },
     {
       "path": "multicurrency",
-      "files": 34,
+      "files": 37,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -346,8 +715,50 @@
       "status": "needs_doc"
     },
     {
+      "path": "ops-console",
+      "files": 2,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "orders",
+      "files": 8,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "outputs",
+      "files": 16,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "persona",
+      "files": 32,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "output_contract.py",
+        "overload_guard.py",
+        "system_status_panel.py",
+        "protocol_librarian.py",
+        "德者永生殿_v2.0.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "phase3",
-      "files": 15,
+      "files": 16,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": true,
@@ -358,8 +769,19 @@
       "status": "complete"
     },
     {
+      "path": "project-memory",
+      "files": 7,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "龍魂編年史.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
       "path": "protocols",
-      "files": 28,
+      "files": 29,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -367,8 +789,23 @@
       "status": "needs_doc"
     },
     {
+      "path": "releases",
+      "files": 2362,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "verify-structure.sh",
+        "start.sh",
+        "星辰记忆系统.py",
+        "package-watcher.py",
+        "refresh-longhun.sh"
+      ],
+      "status": "complete"
+    },
+    {
       "path": "research",
-      "files": 24,
+      "files": 33,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -376,13 +813,14 @@
         "riemann_three_talent_verification.py",
         "riemann_numerical_verification_extended.py",
         "riemann_perspective_B_proof.py",
-        "riemann_perspective_C_proof.py"
+        "riemann_perspective_C_proof.py",
+        "cnsh_euv_model.py"
       ],
       "status": "needs_doc"
     },
     {
       "path": "rules-engine-v2.5",
-      "files": 5,
+      "files": 13,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -396,22 +834,22 @@
     },
     {
       "path": "scripts",
-      "files": 45,
+      "files": 93,
       "has_readme": true,
       "has_main_entry": true,
       "has_api": false,
       "entry_scripts": [
         "setup.sh",
+        "software_dna_scan.py",
         "heaven_nonkill_audit.py",
-        "longhun_integrated_system.py",
-        "weekly_backup.sh",
-        "main.py"
+        "kg_subgraphs.py",
+        "module_self_assessment.py"
       ],
       "status": "complete"
     },
     {
       "path": "skill-standards.integrated",
-      "files": 6,
+      "files": 8,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -423,22 +861,22 @@
     },
     {
       "path": "skills",
-      "files": 113,
+      "files": 171,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
       "entry_scripts": [
+        "registry.py",
         "SKILL-LAUNCHER.sh",
         "longhun_standard_calculation_framework.py",
         "longhun-skill-auto-completion-engine.py",
-        "phase5_performance_benchmark.py",
-        "longhun-standard-calculation-framework.py"
+        "phase5_performance_benchmark.py"
       ],
       "status": "complete"
     },
     {
       "path": "skills.backup",
-      "files": 33,
+      "files": 43,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
@@ -465,23 +903,113 @@
       "status": "needs_doc"
     },
     {
-      "path": "systems",
-      "files": 25,
+      "path": "software_dna",
+      "files": 15,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "sovereign-registry",
+      "files": 11,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
       "entry_scripts": [
+        "test_sovereign.py",
+        "audit.py",
+        "registry.py",
+        "api_routes.py",
+        "card.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "sovereignty",
+      "files": 36,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "digital_identity.py",
+        "templates.py",
+        "cli.py",
+        "knowledge_api.py",
+        "local_secure_gateway.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "systems",
+      "files": 29,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "kfpp_executor_v1.0.py",
         "安全域审计协议_v3.0.py",
         "DNA追溯链系统_v3.0.py",
         "三色审计与10道闸系统_v3.0.py",
-        "人格矩阵路由系统_v3.0.py",
-        "五行融合决策引擎_v3.0.py"
+        "人格矩阵路由系统_v3.0.py"
       ],
       "status": "complete"
     },
     {
       "path": "tests",
-      "files": 13,
+      "files": 23,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "test_deepseek_executor.py",
+        "test_longhun_basic.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "tools",
+      "files": 47,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "v7_upgrade_orchestrator.py",
+        "longhun_orphan_indexer.py",
+        "dna_normalizer.py",
+        "longhun_orphan_classifier.py",
+        "dna_registry_builder.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "train",
+      "files": 123,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": true,
+      "entry_scripts": [
+        "train.sh",
+        "config.py",
+        "collect_corpus.py",
+        "model.py",
+        "dataset.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "path": "var",
+      "files": 8,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [],
+      "status": "needs_doc"
+    },
+    {
+      "path": "vault",
+      "files": 7,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": false,
@@ -489,34 +1017,123 @@
       "status": "needs_doc"
     },
     {
-      "path": "tools",
-      "files": 20,
+      "path": "voice-dna",
+      "files": 18,
       "has_readme": true,
       "has_main_entry": false,
-      "has_api": false,
+      "has_api": true,
       "entry_scripts": [
-        "dragon_char_normalizer.py",
-        "gpg_sign_manager.py",
-        "cnsh.py",
-        "cnsh_gateway.py",
-        "sovereign_env_audit.py"
+        "backup.py",
+        "web_api.py",
+        "register.py",
+        "crypto.py",
+        "cli.py"
       ],
-      "status": "needs_doc"
+      "status": "complete"
+    },
+    {
+      "path": "voice-twin",
+      "files": 18724,
+      "has_readme": true,
+      "has_main_entry": true,
+      "has_api": true,
+      "entry_scripts": [
+        "military_memory_generator.py",
+        "sage_dialogue.py",
+        "wechat_video_exporter.py",
+        "video_remixer.py",
+        "voice_twin_server.py"
+      ],
+      "status": "complete"
     },
     {
       "path": "web",
-      "files": 10,
+      "files": 11,
       "has_readme": true,
       "has_main_entry": false,
       "has_api": true,
       "entry_scripts": [],
       "status": "complete"
+    },
+    {
+      "path": "widgets",
+      "files": 15,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "build-font.py",
+        "build.sh"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "xpay",
+      "files": 33,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "test_gateway.py",
+        "adapter.py",
+        "transaction.py",
+        "core.py",
+        "dna.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "zeng-extraction",
+      "files": 10,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "人格管理系统.py",
+        "数字人主控.py",
+        "存在性验证.py",
+        "启动数字人.py",
+        "航标灯系统.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "字体",
+      "files": 143,
+      "has_readme": true,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "install_macos.sh",
+        "editor.py",
+        "cnsh_font_engine_uid9622.py",
+        "cnsh_font_engine_uid9622_current.py",
+        "cnsh_font_engine.py"
+      ],
+      "status": "needs_doc"
+    },
+    {
+      "path": "龍魂洛书369引擎",
+      "files": 13,
+      "has_readme": false,
+      "has_main_entry": false,
+      "has_api": false,
+      "entry_scripts": [
+        "启动器.py",
+        "太极递归与五行图论.py",
+        "统一验证器.py",
+        "洛书矩阵.py",
+        "六十四卦编码.py"
+      ],
+      "status": "needs_doc"
     }
   ],
   "summary": {
-    "total": 40,
-    "complete": 17,
-    "needs_doc": 23
+    "total": 86,
+    "complete": 28,
+    "needs_doc": 58
   },
-  "_dna_note": "自动注入·分层治理自愈引擎·来源可查"
+  "_dna": "2026-07-03-CONFIG-MODULE-INVENTORY-v1.0",
+  "_dna_note": "自动注入·分层治理自愈引擎·来源可查",
+  "_longhun_identity": "龍魂 · UID9622 · 中国自主可控"
 }

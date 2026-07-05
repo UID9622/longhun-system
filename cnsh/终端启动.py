@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-#龍芯⚡️2026-06-19-CNSH-TERMINAL-LAUNCHER-v1.0
+# -*- coding: utf-8 -*-#龍芯⚡️2026-06-19-CNSH-TERMINAL-LAUNCHER-FILE1-v1.0
 """
 通心译 | TongXinYi: CNSH Terminal Launcher
 龍魂体系·中国生态DNA授权终端 — 一体化命令行操作界面

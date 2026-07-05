@@ -87,7 +87,7 @@ class 三色审计状态(Enum):
 
 ```python
 class DragonIDGenerator:            pass  # 英文
-class 龙芯处理器:                   pass  # 简化字“龙”
+class 龍芯处理器:                   pass  # 简化字“龙”
 class LYIDGen:                      pass  # 缩写
 class User用户管理:                 pass  # 中英混杂
 def 处理数据(self, d1, d2):         pass  # 无意义参数

@@ -25,6 +25,11 @@ from typing import List, Dict, Tuple
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════════
+# Notion DB3367 公式扩展注册
+# ═══════════════════════════════════════════════════════════════
+import db3367_extensions
+
+# ═══════════════════════════════════════════════════════════════
 # 【三色枚举】龍魂主权判定
 # ═══════════════════════════════════════════════════════════════
 
@@ -446,6 +451,10 @@ def selftest() -> None:
     assert check["magic_ok"] and check["center_ok"], "洛书双检应该通过"
     print(f"    中宫值: {check['center_value']} (不动点 = 主权锚)")
     print(f"    龍魂判定: {check['color']} ✅\n")
+
+    # 9 Notion DB3367 扩展公式自检
+    print("[9] Notion DB3367 扩展公式库")
+    db3367_extensions.selftest()
 
     print("=" * 80)
     print("✅ 全部 10 条公式自检通过")

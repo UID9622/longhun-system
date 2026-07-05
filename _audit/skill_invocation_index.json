@@ -1,0 +1,30 @@
+{
+  "其他": {
+    "孤立文件数": 73237,
+    "推荐技能": [
+      "longhun-dna-align"
+    ],
+    "CNSH调用示例": "调用 longhun-dna-align 对 其他 执行 DNA补全 + 结构审查",
+    "自动化建议": "批量注入DNA → 重跑对齐审计 → 更新注册表 → 编入技能调用链"
+  },
+  "配置/数据": {
+    "孤立文件数": 27609,
+    "推荐技能": [
+      "longhun-backup",
+      "longhun-data-hub"
+    ],
+    "CNSH调用示例": "调用 longhun-backup 对 配置/数据 执行 DNA补全 + 结构审查",
+    "自动化建议": "批量注入DNA → 重跑对齐审计 → 更新注册表 → 编入技能调用链"
+  },
+  "技能/Skill": {
+    "孤立文件数": 981,
+    "推荐技能": [
+      "longhun-dna-align",
+      "longhun-audit",
+      "longhun-archive",
+      "longhun-integration"
+    ],
+    "CNSH调用示例": "调用 longhun-dna-align 对 技能/Skill 执行 DNA补全 + 结构审查",
+    "自动化建议": "批量注入DNA → 重跑对齐审计 → 更新注册表 → 编入技能调用链"
+  }
+}

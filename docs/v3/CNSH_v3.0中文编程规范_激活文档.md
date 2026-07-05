@@ -286,7 +286,7 @@ class DragonIDGenerator:
         pass
 
 # ❌ 错误 — 简化字“龙”（违反繁体龍字铁律）
-class 龙芯处理器:
+class 龍芯处理器:
     def 初始化龙脉(self):
         pass
 

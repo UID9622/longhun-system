@@ -1,0 +1,1527 @@
+{
+  "DNA": "#龍芯⚡️2026-06-26-P03-MOZI-IMPORT-FAILED-FINAL",
+  "total": 188,
+  "summary": {
+    "__init__.py 单独导入（需作为包导入）": 80,
+    "导入错误（需上下文/包结构）": 63,
+    "属性错误": 12,
+    "缺少依赖: xpay": 8,
+    "缺少依赖: cnsh": 5,
+    "缺少依赖: config": 4,
+    "缺少依赖: operation_log_engine": 3,
+    "网络请求失败": 3,
+    "运行时文件缺失": 3,
+    "执行超时": 2,
+    "缺少依赖: chromadb": 1,
+    "缺少依赖: runtime": 1,
+    "缺少依赖: audit_engine_v1_1": 1,
+    "缺少依赖: cnsh_gateway_v1_1": 1,
+    "缺少依赖: integrated_modules": 1
+  },
+  "details": [
+    {
+      "entry_id": "DOR-bff37db9eb81dafc-690e4b36",
+      "path": "/Users/zuimeidedeyihan/LonghunFont/calligraphy/__init__.py",
+      "name": "__init__.py",
+      "project": "LonghunFont",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-13306420d8564573-bc1981ab",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-99616dea10f2226a-14607a00",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-b7eadf60dcd477d7-8ed2094e",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/cnsh_compiler.py",
+      "name": "cnsh_compiler.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_compiler', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/cnsh_compiler.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-121a54e67f3ccc9d-f6fdc865",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/codegen.py",
+      "name": "codegen.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('codegen', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/codegen.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                        ~"
+    },
+    {
+      "entry_id": "DOR-32df726ce5520e2c-1d1d19a8",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/lexer.py",
+      "name": "lexer.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('lexer', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/lexer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                    ~~~~~~~~~"
+    },
+    {
+      "entry_id": "DOR-71d78628951be522-89beabd9",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/optimizer.py",
+      "name": "optimizer.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('optimizer', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/optimizer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-842029b00b1f44a6-b1638975",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/parser.py",
+      "name": "parser.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~~~~~"
+    },
+    {
+      "entry_id": "DOR-dc2a5732a532d24c-c5b30d6d",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/semantic.py",
+      "name": "semantic.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('semantic', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/compiler/semantic.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                       "
+    },
+    {
+      "entry_id": "DOR-f4cb83221bd801e6-9d64d6d6",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/constitution/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-656b400e78ccfe8a-f2026b4c",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/dna/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-e4ab30bc4a9e2eb3-2ef48486",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/identity/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-14476ddbf06d9c0c-96c0ede3",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/logging/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-3ca3be8e9b47c7d4-19877a6a",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/mathematics/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-6abf92ba965042de-d6e9de6d",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/permissions/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-39dc2f84f805df3c-dd586b5d",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/registry/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-1eca73122c889476-30439ce9",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/rules/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-3041fa5952a4f3f8-648eab11",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/rules/rule_engine.py",
+      "name": "rule_engine.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_engine', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/rules/rule_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                    "
+    },
+    {
+      "entry_id": "DOR-7344a6e3c3f77638-c1729967",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/rules/rule_executor.py",
+      "name": "rule_executor.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_executor', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/rules/rule_executor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                "
+    },
+    {
+      "entry_id": "DOR-74178f11b619f410-e6ed84a3",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh-core/scheduler/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-a6b5478eee97678a-d0a6aa67",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-dc92f5d8036585ba-57bf8592",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/cnsh_flow_decision_core.py",
+      "name": "cnsh_flow_decision_core.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_flow_decision_core', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/cnsh_flow_decision_core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                         "
+    },
+    {
+      "entry_id": "DOR-387e01d4849b5e83-137e330a",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/digital_root.py",
+      "name": "digital_root.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('digital_root', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/digital_root.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-838e477e251f286e-32285123",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/dna_chain_tracer.py",
+      "name": "dna_chain_tracer.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('dna_chain_tracer', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/dna_chain_tracer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                       "
+    },
+    {
+      "entry_id": "DOR-e6beaf9baed17d93-a1d168dc",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/ipa_route_registry.py",
+      "name": "ipa_route_registry.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('ipa_route_registry', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/ipa_route_registry.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-73c9553e6597a5e6-5e039b8f",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/persona_collaboration.py",
+      "name": "persona_collaboration.py",
+      "project": "Obsidian笔记",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_collaboration', '/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/flow_decision/persona_collaboration.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-fc90b76a0bb24e96-97570bdb",
+      "path": "/Users/zuimeidedeyihan/Obsidian/龍魂系統/cnsh/sancai_sync/__init__.py",
+      "name": "__init__.py",
+      "project": "Obsidian笔记",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-a1bf13fbece06963-fcd99f3c",
+      "path": "/Users/zuimeidedeyihan/cnsh-runtime/src/cnsh_runtime/cnsh/voice/__init__.py",
+      "name": "__init__.py",
+      "project": "cnsh-runtime",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-df7169d62645dabf-376f3819",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul_terminal/__init__.py",
+      "name": "__init__.py",
+      "project": "下载文件",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-09bf8f23d78546cb-eff03409",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul_terminal/backend/__init__.py",
+      "name": "__init__.py",
+      "project": "下载文件",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-852dec9f03e38c57-49555db7",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/security_core/__init__.py",
+      "name": "__init__.py",
+      "project": "下载文件",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-cb85b884e1b214a0-8427c59f",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/corrector.py",
+      "name": "corrector.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('corrector', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/corrector.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-db91d0d6a1fead65-5f6628d1",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/innovation.py",
+      "name": "innovation.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('innovation', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/innovation.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                         "
+    },
+    {
+      "entry_id": "DOR-394f58d7804a09e6-684c72ab",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/inventory.py",
+      "name": "inventory.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('inventory', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/inventory.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-7351286d604df94a-075501be",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/persona_router.py",
+      "name": "persona_router.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_router', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/persona_router.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-2dc4d30345a8afb4-9b87c567",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/reflection.py",
+      "name": "reflection.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('reflection', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/reflection.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                         "
+    },
+    {
+      "entry_id": "DOR-3f1f8b87599e2c9a-c14fb172",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/resource_library.py",
+      "name": "resource_library.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('resource_library', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/resource_library.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-a2f5971f9358a6d7-659f12ed",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/self_monitor.py",
+      "name": "self_monitor.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('self_monitor', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/self_monitor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-33871b198f3b5a37-07c7e240",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/standards.py",
+      "name": "standards.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('standards', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/standards.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-4929fae2eb847e38-e2011456",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/upgrader.py",
+      "name": "upgrader.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('upgrader', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/upgrader.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-fbe0fa15a6ead1ae-d8a138e9",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/utils.py",
+      "name": "utils.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('utils', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢/core/utils.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-fa7c881cbbd02312-82b862d9",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_算法美学_流场/core/presets.py",
+      "name": "presets.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('presets', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_算法美学_流场/core/presets.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                            "
+    },
+    {
+      "entry_id": "DOR-7bbdee7df9766fbb-fb64136a",
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_算法美学_流场/core/renderer.py",
+      "name": "renderer.py",
+      "project": "下载文件",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('renderer', '/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_算法美学_流场/core/renderer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-13ec295a8968ef8b-e6ba7451",
+      "path": "/Users/zuimeidedeyihan/龍魂/核心/决策追溯引擎.py",
+      "name": "决策追溯引擎.py",
+      "project": "龍魂",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('决策追溯引擎', '/Users/zuimeidedeyihan/龍魂/核心/决策追溯引擎.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"<frozen im"
+    },
+    {
+      "entry_id": "DOR-cbee5f3d8a1f47f9-489c34e9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ea402b202f639115-531737c2",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/algorithms/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-80eae98948d707ea-85e3ec9e",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/algorithms/sancai.py",
+      "name": "sancai.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('sancai', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/algorithms/sancai.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                       "
+    },
+    {
+      "entry_id": "DOR-773e9019de1b8fa1-d58323b3",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-714ac052e77fd6e5-8f61e4e8",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/batch_auditor.py",
+      "name": "batch_auditor.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('batch_auditor', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/batch_auditor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-2b50ac3493f99464-f353c296",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/hook_scanner.py",
+      "name": "hook_scanner.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('hook_scanner', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/hook_scanner.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-311bbeb4fc93555b-dc3dc8c2",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/system_tricolor.py",
+      "name": "system_tricolor.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('system_tricolor', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/system_tricolor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-60bf14a4de57215b-a667cef7",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-dac4dc91eb9bf4a9-6a7f7777",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/chain_hash.py",
+      "name": "chain_hash.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('chain_hash', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/chain_hash.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-e1f78cfe0c062690-ead4f10b",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/chain_store.py",
+      "name": "chain_store.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('chain_store', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/chain_store.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-a5ce3394fd6a6b70-f9827fae",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/compress.py",
+      "name": "compress.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('compress', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/compress.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-bef2ee63f8d3f2a8-e45fa4e0",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/huangli.py",
+      "name": "huangli.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('huangli', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/huangli.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-05ec26698ba06af8-79f7dccd",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/particle.py",
+      "name": "particle.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('particle', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/particle.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-9aca1b6d79e4d308-3e6a30e0",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/restore.py",
+      "name": "restore.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('restore', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/restore.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-55e635b57c2d7742-c0b8529e",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-0d364a898d8fcbe6-740f54d3",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/cnsh_flow_decision_core.py",
+      "name": "cnsh_flow_decision_core.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_flow_decision_core', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/cnsh_flow_decision_core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-0aa61e14e679beee-03b0706b",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/dna_tag_policy.py",
+      "name": "dna_tag_policy.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('dna_tag_policy', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/dna_tag_policy.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                    "
+    },
+    {
+      "entry_id": "DOR-6fd2bf06951f0d6d-bba29728",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/examples.py",
+      "name": "examples.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('examples', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/examples.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                "
+    },
+    {
+      "entry_id": "DOR-1060e9aa796f89f4-9661841f",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/ipa_route_registry.py",
+      "name": "ipa_route_registry.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('ipa_route_registry', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/ipa_route_registry.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                            "
+    },
+    {
+      "entry_id": "DOR-38b8fa4d4d3800e3-01514568",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/persona_collaboration.py",
+      "name": "persona_collaboration.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_collaboration', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/persona_collaboration.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                      "
+    },
+    {
+      "entry_id": "DOR-0626873f00d0202d-66c376d2",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/sancai_weight.py",
+      "name": "sancai_weight.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('sancai_weight', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/sancai_weight.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                      "
+    },
+    {
+      "entry_id": "DOR-43524ccf23aa94c6-8ce18406",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/schemas.py",
+      "name": "schemas.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('schemas', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/schemas.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-8a48e0a6ff4d06ee-6da123db",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_field/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-081cd1ae120f9433-7b85dfe9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_field/port.py",
+      "name": "port.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('port', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_field/port.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-26e0c324ba2f4fa1-a85269d9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-2c9e171e9d435f2b-8cda3ca4",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/engine.py",
+      "name": "engine.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-d854078d07a62a4f-1ca9efdd",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/ledger.py",
+      "name": "ledger.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('ledger', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/ledger.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-04aceed6e6d75fdc-aa8b1f86",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/notify.py",
+      "name": "notify.py",
+      "project": "龍魂备份",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('notify', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/notify.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-8b033a1ca379bdbb-41b86321",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/root_ratio/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-917b06848c405423-30b534f8",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/sovereign/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-7bb2cd8ec33b596c-6834e402",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-92c516a374bad2b4-82176e9e",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/compress/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-6ebe92054a41c351-463ad3f9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-1782f872bef93968-5799b609",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/crypto/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-2b8f21a86a5cd8ea-55e288a2",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/scheduler/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-b928338ba6f254fc-f5121e43",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/engines/engine/memory-packing/storage/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-6a45eae58220b148-3050d387",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/tools/tools/h_weapon_100k/core/sancai_kernel.py",
+      "name": "sancai_kernel.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('sancai_kernel', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/tools/tools/h_weapon_100k/core/sancai_kernel.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                    "
+    },
+    {
+      "entry_id": "DOR-16c0afa41095b2a6-39e031d8",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/tools/vector_store.py",
+      "name": "vector_store.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: chromadb",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('vector_store', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/tools/vector_store.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-49e92a685887421b-6721c7d9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-050790018cd31cd0-1f9941a5",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/operation_log_engine/logging_config.py",
+      "name": "logging_config.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: operation_log_engine",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('logging_config', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/operation_log_engine/logging_config.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-11e75a148416d5cd-f5a10233",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "name": "setup.py",
+      "project": "龍魂备份",
+      "root_cause": "网络请求失败",
+      "error": "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.\n!!\n\n        ********************************************************************************\n        Please consider removing the following classifiers in favor of a SPDX license expression:\n\n        License :: OSI Approved :: MIT License\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license "
+    },
+    {
+      "entry_id": "DOR-02679fe820b3b139-e27ee819",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh/web3_dna/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-fc6e2e9263baf0e1-aefce588",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh/web3_dna/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-6b42e11b43ef1a4c-9600a0e9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh/web3_dna/mvp/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-2ee0e18d9300f2b8-107fbb83",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh_notion_importer.py",
+      "name": "cnsh_notion_importer.py",
+      "project": "龍魂备份",
+      "root_cause": "执行超时",
+      "error": "导入执行超过10秒"
+    },
+    {
+      "entry_id": "DOR-4d43cecd576ffad5-81d13999",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/create_cnsh_theory_dbs.py",
+      "name": "create_cnsh_theory_dbs.py",
+      "project": "龍魂备份",
+      "root_cause": "执行超时",
+      "error": "导入执行超过10秒"
+    },
+    {
+      "entry_id": "DOR-80900b5b34482db8-57483467",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/core/event_bus/event_bus.py",
+      "name": "event_bus.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('event_bus', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/core/event_bus/event_bus.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-da72da1c62714fa6-f8eb7b21",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/cnsh_core_engine.py",
+      "name": "cnsh_core_engine.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: runtime",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_core_engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/cnsh_core_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                          "
+    },
+    {
+      "entry_id": "DOR-ae7f8dba55c69a96-14b59289",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/fixed_points.py",
+      "name": "fixed_points.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('fixed_points', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/fixed_points.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-94e7d3e1bc2fe845-2f8b64e5",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/tongxinyi_core.py",
+      "name": "tongxinyi_core.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('tongxinyi_core', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/tongxinyi_core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                              "
+    },
+    {
+      "entry_id": "DOR-882d26b1ae146068-f6a6549a",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/web3_dna/web3_dna_engine.py",
+      "name": "web3_dna_engine.py",
+      "project": "龍魂备份",
+      "root_cause": "属性错误",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('web3_dna_engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/web3_dna/web3_dna_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                    "
+    },
+    {
+      "entry_id": "DOR-4d3fdcdc2ce90e81-7f3af249",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/modules/code_transform/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-f3583219decf05b6-618ebfc4",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/modules/param_tuner/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-1f7a09e3807b7a0f-10fdfd51",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/modules/pipeline/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-b97f6b30c4a04551-a26a6a94",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/modules/source_harvest/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂备份",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-9240ff8de2b3a09f-15983bd9",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/tests/test_audit_engine.py",
+      "name": "test_audit_engine.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: audit_engine_v1_1",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('test_audit_engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/tests/test_audit_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-d5ec67b49fea6547-4799b08d",
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/tests/test_cnsh_gateway.py",
+      "name": "test_cnsh_gateway.py",
+      "project": "龍魂备份",
+      "root_cause": "缺少依赖: cnsh_gateway_v1_1",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('test_cnsh_gateway', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/tests/test_cnsh_gateway.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                           "
+    },
+    {
+      "entry_id": "DOR-b67620902229776e-109a5a49",
+      "path": "/Users/zuimeidedeyihan/龍魂待整理/parse_notion.py",
+      "name": "parse_notion.py",
+      "project": "龍魂待整理",
+      "root_cause": "运行时文件缺失",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/龍魂待整理/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  Fil"
+    },
+    {
+      "entry_id": "DOR-3eecf9ae5ddce3d5-57e3dd1c",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-6b094d9dd1556ad7-679cc2cd",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-9bc9c367f6b0f6dd-011d2d75",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/operation_log_engine/logging_config.py",
+      "name": "logging_config.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: operation_log_engine",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('logging_config', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/operation_log_engine/logging_config.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                         "
+    },
+    {
+      "entry_id": "DOR-6919272ea0eb8759-4d95d880",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/setup.py",
+      "name": "setup.py",
+      "project": "龍魂系统",
+      "root_cause": "网络请求失败",
+      "error": "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.\n!!\n\n        ********************************************************************************\n        Please consider removing the following classifiers in favor of a SPDX license expression:\n\n        License :: OSI Approved :: MIT License\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license "
+    },
+    {
+      "entry_id": "DOR-56f0f24753d74c41-5b321977",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c05c9fba0d70f499-c0708c92",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/cnsh_compiler.py",
+      "name": "cnsh_compiler.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_compiler', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/cnsh_compiler.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-ff260c56b48acbd4-0cdeaf9e",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/codegen.py",
+      "name": "codegen.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('codegen', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/codegen.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-0c1a9cc1fb1952c1-90046b6d",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/lexer.py",
+      "name": "lexer.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('lexer', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/lexer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                     "
+    },
+    {
+      "entry_id": "DOR-45fd9ad820ea72c6-4215f3f0",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/optimizer.py",
+      "name": "optimizer.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('optimizer', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/optimizer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                             "
+    },
+    {
+      "entry_id": "DOR-6d1abd856342b170-b32c2014",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/parser.py",
+      "name": "parser.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-dad2a78142182482-54fb9771",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/semantic.py",
+      "name": "semantic.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('semantic', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/compiler/semantic.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-3117e49bf3983c79-890057fd",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/constitution/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-a7148f5e27994557-51d641bf",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/dna/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c7d91481229d4909-055f08b4",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/identity/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c7df7082615c56a9-4bc3c446",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/logging/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-d8d9766dec2f70c1-03e39140",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/mathematics/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-468e8773a75d6891-f0348094",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/parse_notion.py",
+      "name": "parse_notion.py",
+      "project": "龍魂系统",
+      "root_cause": "运行时文件缺失",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                "
+    },
+    {
+      "entry_id": "DOR-4e569e9506899f05-7427dd4f",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/permissions/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-644d684f29996ee8-6003d5df",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/registry/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-d9d7a5d106d4cb73-1fbb02ac",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/rules/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-3ee26e2c021fab47-c8c5eadf",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/rules/rule_engine.py",
+      "name": "rule_engine.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_engine', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/rules/rule_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                            "
+    },
+    {
+      "entry_id": "DOR-40c4b813b623cfdb-72a54f29",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/rules/rule_executor.py",
+      "name": "rule_executor.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_executor', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/rules/rule_executor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                        "
+    },
+    {
+      "entry_id": "DOR-660bdf67e55e6113-0e0b0bb8",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/scheduler/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ecf00bc85f60e4f1-889608d1",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/wuxing_calculator/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-26988227a9a2a70d-3d536a6c",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/ai-tools/operation_log_engine/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-4b1a7f3adea3f47f-7f10ac1b",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/ai-tools/operation_log_engine/operation_log_engine/logging_config.py",
+      "name": "logging_config.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: operation_log_engine",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('logging_config', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/ai-tools/operation_log_engine/operation_log_engine/logging_config.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                "
+    },
+    {
+      "entry_id": "DOR-dfc4eb222ddfa8e8-0beeba51",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "name": "setup.py",
+      "project": "龍魂系统",
+      "root_cause": "网络请求失败",
+      "error": "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.\n!!\n\n        ********************************************************************************\n        Please consider removing the following classifiers in favor of a SPDX license expression:\n\n        License :: OSI Approved :: MIT License\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license "
+    },
+    {
+      "entry_id": "DOR-7b4ed156e985e455-80c9bb6c",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-11b959d627f2340c-16755f49",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/cnsh_compiler.py",
+      "name": "cnsh_compiler.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_compiler', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/cnsh_compiler.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                            "
+    },
+    {
+      "entry_id": "DOR-3fdf48d51f3be136-9bcb3a1e",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/codegen.py",
+      "name": "codegen.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('codegen', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/codegen.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                     ~~~"
+    },
+    {
+      "entry_id": "DOR-29dd12b5fca69941-e213b17b",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/lexer.py",
+      "name": "lexer.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('lexer', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/lexer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                 ~~~~~~~~~~~"
+    },
+    {
+      "entry_id": "DOR-b47b60f7d6c75211-b35109d8",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/optimizer.py",
+      "name": "optimizer.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('optimizer', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/optimizer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                    "
+    },
+    {
+      "entry_id": "DOR-a2655dd9bfcd2a76-a7c9ebcb",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/parser.py",
+      "name": "parser.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                   ~~~~~~~"
+    },
+    {
+      "entry_id": "DOR-3f8623090eded3f8-64a21f00",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/semantic.py",
+      "name": "semantic.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('semantic', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/compiler/semantic.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      "
+    },
+    {
+      "entry_id": "DOR-ee6dc4f9b39e43b1-d2ef5283",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/constitution/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-410ba6fddb751381-738ac088",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/dna/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-0dfc04fda452d92f-b36f9dbb",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/identity/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c9e99158d58b0a31-1828c0c5",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/longhun_logging/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-63bf149bfe0ba0b6-27b91c37",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/mathematics/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-3d1e8814cb4731a8-ea508d5d",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/parse_notion.py",
+      "name": "parse_notion.py",
+      "project": "龍魂系统",
+      "root_cause": "运行时文件缺失",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~"
+    },
+    {
+      "entry_id": "DOR-cc582c97fb86aa03-e83e7955",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/permissions/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c03ef9b1f877738c-53975593",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/registry/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ca46c0ae02dd4cd3-194907b1",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/rules/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-5246b54e40ba14c0-0b1fa154",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/rules/rule_engine.py",
+      "name": "rule_engine.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_engine', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/rules/rule_engine.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-48a3e1ba35a664fb-e58082ac",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/rules/rule_executor.py",
+      "name": "rule_executor.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('rule_executor', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/rules/rule_executor.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-3f89a3444abf41b5-72d7cb37",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/scheduler/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-4d47f4fe77295fc1-d1b37e97",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/wuxing_calculator/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-bea9c58081d50ea1-225d3cde",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/cnsh_terminal_v5.0/modules/parser.py",
+      "name": "parser.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/cnsh_terminal_v5.0/modules/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-c477cb87b46cd2cf-39e8e258",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/cnsh_terminal_v5.0/modules/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-f8eff4498d8d0d3a-cf8a0b55",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/CNSH/runtime/主权工具/sovereignty/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-d42a34d1fb7bfc90-4daa1eb2",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/modules/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ebaa6d71a18fbad9-ff3f63ca",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/modules/code_generator.py",
+      "name": "code_generator.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('code_generator', '/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/modules/code_generator.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                       "
+    },
+    {
+      "entry_id": "DOR-af66e55908c40351-2fdce615",
+      "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/modules/parser.py",
+      "name": "parser.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/longhun-system/cnsh-terminal/modules/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~"
+    },
+    {
+      "entry_id": "DOR-947d35d067fa5238-3995f278",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrated-modules/longhun_config/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-f71bd8cf2498f1a8-10b0d931",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/config/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-8506274dddda81d3-3b46f18d",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-cf5022799a674d85-9f107800",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/article_manager.py",
+      "name": "article_manager.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('article_manager', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/article_manager.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-2fe7a5d2ca7a1ee3-aa12525a",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/media_manager.py",
+      "name": "media_manager.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('media_manager', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/media_manager.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                       "
+    },
+    {
+      "entry_id": "DOR-5d1d2e8dabe64aec-a833fde5",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/wechat_client.py",
+      "name": "wechat_client.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: config",
+      "error": "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.1)/charset_normalizer (3.4.4) doesn't match a supported version!\n  warnings.warn(\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('wechat_client', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/wechat_clien"
+    },
+    {
+      "entry_id": "DOR-737c4444f52db097-dfa69f9a",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ca0bd6538abe614a-a2070db5",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/image_service.py",
+      "name": "image_service.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: config",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('image_service', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/image_service.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-9235142970f99deb-bf9097fe",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/persona_service.py",
+      "name": "persona_service.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: config",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_service', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/persona_service.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                               "
+    },
+    {
+      "entry_id": "DOR-3e55b5922d70906a-ec5a7b0c",
+      "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/voice_service.py",
+      "name": "voice_service.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: config",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('voice_service', '/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/voice_service.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                   "
+    },
+    {
+      "entry_id": "DOR-1f249e436ef93573-14fcf597",
+      "path": "/Users/zuimeidedeyihan/longhun-system/kimi/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-dd2564c072a40422-35004e65",
+      "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/calligraphy/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-0eb06aee383b5704-697af646",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh-terminal/modules/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-2fbfab3df9dfc1ab-3b3502bc",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh-terminal/modules/code_generator.py",
+      "name": "code_generator.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('code_generator', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh-terminal/modules/code_generator.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-2aea79fbf760f671-dafde7f8",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh-terminal/modules/parser.py",
+      "name": "parser.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parser', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh-terminal/modules/parser.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-b61452498bf7f91f-43e282e5",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ca063954d8d6bd93-fc091d22",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/cnsh_flow_decision_core.py",
+      "name": "cnsh_flow_decision_core.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cnsh_flow_decision_core', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/cnsh_flow_decision_core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-1a2d053b53d7c3dc-7787efe1",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/digital_root.py",
+      "name": "digital_root.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('digital_root', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/digital_root.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                        "
+    },
+    {
+      "entry_id": "DOR-0e490252e7e33d42-200fbdba",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/dna_chain_tracer.py",
+      "name": "dna_chain_tracer.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('dna_chain_tracer', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/dna_chain_tracer.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                "
+    },
+    {
+      "entry_id": "DOR-f964d46fc5b31e6c-7071f437",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/ipa_route_registry.py",
+      "name": "ipa_route_registry.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('ipa_route_registry', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/ipa_route_registry.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                            "
+    },
+    {
+      "entry_id": "DOR-f1187e66d7fd260d-22d7b0c5",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/persona_collaboration.py",
+      "name": "persona_collaboration.py",
+      "project": "龍魂系统",
+      "root_cause": "导入错误（需上下文/包结构）",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_collaboration', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/persona_collaboration.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                      "
+    },
+    {
+      "entry_id": "DOR-f652213227699c5f-be292ec0",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/schemas.py",
+      "name": "schemas.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: integrated_modules",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('schemas', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/flow_decision/schemas.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-c7e776c27c183340-12d3b1a1",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/cnsh/sancai_sync/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-ab1c16ac79a5dfe8-2602f250",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/cny_demo.py",
+      "name": "cny_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cny_demo', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/cny_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-92fe49715dc304a2-8a475408",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/eur_demo.py",
+      "name": "eur_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('eur_demo', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/eur_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-9874a2ae2dad0646-98fbeaaf",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/usd_demo.py",
+      "name": "usd_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('usd_demo', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/adapters/usd_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                 "
+    },
+    {
+      "entry_id": "DOR-376bb05be2402706-5c56b81d",
+      "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/core.py",
+      "name": "core.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('core', '/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                  "
+    },
+    {
+      "entry_id": "DOR-da0f8e30d892f175-e8057676",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/wucai_coloring/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-3627cad4cf4fe2b8-cdf064fe",
+      "path": "/Users/zuimeidedeyihan/longhun-system/sovereignty/__init__.py",
+      "name": "__init__.py",
+      "project": "龍魂系统",
+      "root_cause": "__init__.py 单独导入（需作为包导入）",
+      "error": ""
+    },
+    {
+      "entry_id": "DOR-c90d91cd6cdb69ba-43a778dc",
+      "path": "/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/cny_demo.py",
+      "name": "cny_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('cny_demo', '/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/cny_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~"
+    },
+    {
+      "entry_id": "DOR-50d3a31c3c66021c-358cfdbd",
+      "path": "/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/eur_demo.py",
+      "name": "eur_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('eur_demo', '/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/eur_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~"
+    },
+    {
+      "entry_id": "DOR-de50efc69145c4be-d202fd0f",
+      "path": "/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/usd_demo.py",
+      "name": "usd_demo.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('usd_demo', '/Users/zuimeidedeyihan/longhun-system/xpay/src/adapters/usd_demo.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                                      ~"
+    },
+    {
+      "entry_id": "DOR-e186aa8fa193731f-0fa04232",
+      "path": "/Users/zuimeidedeyihan/longhun-system/xpay/src/core.py",
+      "name": "core.py",
+      "project": "龍魂系统",
+      "root_cause": "缺少依赖: xpay",
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('core', '/Users/zuimeidedeyihan/longhun-system/xpay/src/core.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                                                                                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 
 ---
 
-# CNSH_龙魂底线协议_双轨治理_v1.0.md
+# CNSH_龍魂底线协议_双轨治理_v1.0.md
 
 DNA追溯码:#龍芯⚡️2026-03-27-CNSH_V1_0_MD_AEF2-v1.0
 三色审计: 🟢 通过
@@ -23,7 +23,7 @@ DNA追溯码:#龍芯⚡️2026-03-27-CNSH_V1_0_MD_AEF2-v1.0
 已否决: No
 平台/来源: 🟢 本机设备
 最后编辑: 2026年3月27日 15:56
-本机路径: /Users/zuimeidedeyihan/longhun-system/docs/CNSH_龙魂底线协议_双轨治理_v1.0.md
+本机路径: /Users/zuimeidedeyihan/longhun-system/docs/CNSH_龍魂底线协议_双轨治理_v1.0.md
 熔断级别: 🟢 正常
 版本号: v1.0
 红线触碰: No

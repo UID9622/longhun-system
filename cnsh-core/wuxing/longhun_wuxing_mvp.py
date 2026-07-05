@@ -25,6 +25,11 @@ DNA: #龍芯⚡️20260426-CODE-WX01
 import sys
 import hashlib
 from datetime import datetime
+from pathlib import Path
+
+# 引入计算优化模块
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wuxing_calc_optimizations import robust_digital_root
 
 # ═══════════════════════════════
 # 五行基础数据
@@ -82,13 +87,12 @@ LOSHU_PALACE = {
 # 工具函数
 # ═══════════════════════════════
 
-def digital_root(n: int) -> int:
-    """计算数字根（反复对各位数字求和直到个位）"""
-    if n == 0:
-        return 0
-    while n >= 10:
-        n = sum(int(d) for d in str(n))
-    return n
+def digital_root(n) -> int:
+    """
+    计算数字根（反复对各位数字求和直到个位）。
+    已接入鲁棒数字根：支持全角数字、中文数字、负数、小数。
+    """
+    return robust_digital_root(n)
 
 def sha8(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:8].upper()
@@ -148,9 +152,9 @@ def analyze_number(n: int) -> dict:
     }
 
 def analyze_uid(uid_str: str) -> dict:
-    """分析UID字符串的五行属性"""
-    digits = sum(int(c) for c in uid_str if c.isdigit())
-    return analyze_number(digits)
+    """分析UID字符串的五行属性（已接入鲁棒数字根）"""
+    dr = robust_digital_root(uid_str)
+    return analyze_number(dr)
 
 # ═══════════════════════════════
 # 八字简化推算

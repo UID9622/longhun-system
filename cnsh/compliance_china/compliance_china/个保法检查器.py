@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
-║  DNA: #龍芯⚡️2026-06-19-CNSH-CHINA-COMPLIANCE-v1.0              ║
+║  DNA:#龍芯⚡️2026-06-19-CNSH-CHINA-COMPLIANCE-FILE1-v1.0-1              ║
 ║  《个人信息保护法》检查器 — 个保法合规引擎                          ║
 ║  PIPL (Personal Information Protection Law) Compliance Checker      ║
 ╚══════════════════════════════════════════════════════════════════════╝

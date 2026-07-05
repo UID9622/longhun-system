@@ -12,10 +12,24 @@ from .longhun_foundation_config import (
     get_system_config,
     validate_config,
 )
+from .sancai_protocol import (
+    SancaiProtocol,
+    SancaiProtocolTamperedError,
+    SANCAI,
+    get_protocol,
+    validate_alignment,
+    verify_protocol_integrity,
+)
 
 __all__ = [
     'CreatorIdentity',
     'SystemMission',
     'get_system_config',
     'validate_config',
+    'SancaiProtocol',
+    'SancaiProtocolTamperedError',
+    'SANCAI',
+    'get_protocol',
+    'validate_alignment',
+    'verify_protocol_integrity',
 ]

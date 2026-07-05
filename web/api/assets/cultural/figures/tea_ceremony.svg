@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#f7f3e8"/>
+  <g>
+    <ellipse cx="200" cy="380" rx="100" ry="25" fill="#d4c4a8" opacity="0.5"/>
+    <path d="M140 380 Q200 340 260 380 L260 420 Q200 450 140 420 Z" fill="#2f5544"/>
+    <path d="M170 330 L170 250" stroke="#5a3e1e" stroke-width="4"/>
+    <ellipse cx="170" cy="240" rx="35" ry="15" fill="#8b6f3e"/>
+    <path d="M190 360 Q220 340 240 360" stroke="#d4af37" stroke-width="2" fill="none"/>
+  </g>
+  <text x="200" y="470" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">茶道 · 茶禅一味占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实公开版权图像</text>
+</svg>

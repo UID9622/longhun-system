@@ -33,5 +33,75 @@ $GUARD --op check --evidence '{"artifact_path":"bin/longhun-status.py"}' -- pyth
 # 5) 每日复盘
 $GUARD --op daily_review --evidence '{"artifact_path":"daily_review.py"}' -- python3 "$ROOT/daily_review.py" >> "$LOG_FILE" 2>&1 || true
 
+# 6) 启动龍魂移动端监控常驻守护进程
+MONITORING_DAEMON="$HOME/.龍魂/monitoring/daemon.sh"
+if [ -f "$MONITORING_DAEMON" ]; then
+    $GUARD --op monitoring --evidence "{\"artifact_path\":\"$MONITORING_DAEMON\",\"mode\":\"autostart\"}" -- bash "$MONITORING_DAEMON" start >> "$LOG_FILE" 2>&1 || true
+else
+    echo "⚠️  移动端监控守护进程未安装: $MONITORING_DAEMON" >> "$LOG_FILE"
+fi
+
+# 7) 启动龍魂·主动观察记录协议（若 30 分钟内未扫描）
+OBSERVER_HOOK="$HOME/.龍魂/observer/hooks/session-start.sh"
+if [ -f "$OBSERVER_HOOK" ]; then
+    $GUARD --op observer --evidence "{\"artifact_path\":\"$OBSERVER_HOOK\",\"mode\":\"autostart\"}" -- bash "$OBSERVER_HOOK" >> "$LOG_FILE" 2>&1 || true
+else
+    echo "⚠️  主动观察协议未安装: $OBSERVER_HOOK" >> "$LOG_FILE"
+fi
+
+# 8) 启动老百姓维权助手 + 本地法律引擎
+RIGHTS_ASSISTANT="$ROOT/人民维权助手/启动维权助手.sh"
+LEGAL_ENGINE="$ROOT/法律引擎/启动法律引擎.sh"
+if [ -f "$RIGHTS_ASSISTANT" ]; then
+    bash "$RIGHTS_ASSISTANT" >> "$LOG_FILE" 2>&1 || true
+    echo "✅ 维权助手已启动" >> "$LOG_FILE"
+else
+    echo "⚠️ 维权助手启动脚本未找到: $RIGHTS_ASSISTANT" >> "$LOG_FILE"
+fi
+if [ -f "$LEGAL_ENGINE" ]; then
+    bash "$LEGAL_ENGINE" >> "$LOG_FILE" 2>&1 || true
+    echo "✅ 本地法律引擎已启动" >> "$LOG_FILE"
+else
+    echo "⚠️ 本地法律引擎启动脚本未找到: $LEGAL_ENGINE" >> "$LOG_FILE"
+fi
+
+# 9) 启动龍魂核心服务（Phase3 / 宝宝守护 / 操作台）
+CORE_SERVICES="$HOME/.龍魂/services/service-manager.sh"
+if [ -f "$CORE_SERVICES" ]; then
+    $GUARD --op autostart --evidence "{\"artifact_path\":\"$CORE_SERVICES\",\"mode\":\"core-services\"}" -- bash "$CORE_SERVICES" start >> "$LOG_FILE" 2>&1 || true
+else
+    echo "⚠️  核心服务管理器未安装: $CORE_SERVICES" >> "$LOG_FILE"
+fi
+
+# 10) 启动 longhun888.com 门户相关服务（CNSH Editor API :18000 + 门户服务器 :8777 + Cloudflare Tunnel）
+PORTAL_FIX="$ROOT/tools/补全服务.sh"
+if [ -f "$PORTAL_FIX" ]; then
+    echo "▶ 启动 longhun888.com 门户服务" >> "$LOG_FILE"
+    bash "$PORTAL_FIX" >> "$LOG_FILE" 2>&1 || true
+else
+    echo "⚠️  门户补全脚本未找到: $PORTAL_FIX" >> "$LOG_FILE"
+fi
+
+# 11) 启动龍魂 v10.0 API 演示服务器（端口 18100）
+V10_API_SERVER="$ROOT/notion_absorb/v10_api_skill/longhun_v10_api_server.py"
+if [ -f "$V10_API_SERVER" ]; then
+    echo "▶ 启动龍魂 v10.0 API 服务器" >> "$LOG_FILE"
+    pkill -f "longhun_v10_api_server.py" 2>/dev/null || true
+    sleep 1
+    PY3="/opt/homebrew/bin/python3.12"
+    if [ ! -x "$PY3" ]; then
+        PY3="python3"
+    fi
+    nohup "$PY3" "$V10_API_SERVER" >> "$LOG_DIR/longhun_v10_api_server.out.log" 2>&1 &
+    sleep 2
+    if lsof -Pi :18100 -sTCP:LISTEN -t >/dev/null 2>&1; then
+        echo "✅ 龍魂 v10.0 API 服务器已启动（:18100）" >> "$LOG_FILE"
+    else
+        echo "🔴 龍魂 v10.0 API 服务器启动失败" >> "$LOG_FILE"
+    fi
+else
+    echo "⚠️  龍魂 v10.0 API 服务器未找到: $V10_API_SERVER" >> "$LOG_FILE"
+fi
+
 echo "✅ 开机自启动流程结束 · $(date)" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"

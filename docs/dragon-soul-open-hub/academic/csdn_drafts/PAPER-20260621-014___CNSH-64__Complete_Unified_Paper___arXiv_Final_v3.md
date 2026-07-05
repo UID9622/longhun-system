@@ -95,7 +95,7 @@ CNSH · 龍魂 · 易经 · IEEE · arXiv
 
 | **Authors** | Lucky Zhuge (诸葛鑫), Independent Researcher · Claude (Anthropic), AI Collaboration |
 | --- | --- |
-| **Affiliation** | Longhun System (龙魂系统), Independent Research Initiative |
+| **Affiliation** | Longhun System (龍魂系统), Independent Research Initiative |
 | **Date** | March 2026 |
 | **Target Venues** | AIES 2026 · AAAI 2026 · IEEE Transactions on AI |
 | **Contact** | [fireroot.lad@outlook.com](mailto:fireroot.lad@outlook.com) |

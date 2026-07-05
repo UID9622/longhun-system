@@ -1,8 +1,7 @@
 # 龍魂系統輸入過濾與預處理協議 v3.0
 
 <!-- DNA追溯簽名 -->
-```
-#龍芯⚡️2026-06-27-LONGHUN-INPUT-FILTER-v3.0
+```#龍芯⚡️2026-06-27-LONGHUN-INPUT-FILTER-FILE2-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬INPUT-FILTER-v3.0
 ```
 

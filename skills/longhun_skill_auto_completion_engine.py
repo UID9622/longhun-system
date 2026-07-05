@@ -1,3 +1,8 @@
+# ⚠️ DUPLICATE_COPY — 非权威源，仅供参考
+# 权威源: skills/core/longhun_skill_auto_completion_engine.py
+# 标记时间: 2026-07-06 (CodeBuddy 收口)
+# 详见: ENGINE_DEDUP_MANIFEST.md
+#
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 

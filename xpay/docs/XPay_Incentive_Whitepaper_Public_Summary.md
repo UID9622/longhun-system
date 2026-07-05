@@ -1,3 +1,6 @@
+<!-- #龍芯⚡️2026-07-03-DOC-XPAY_INCENTIVE_WHITEPAPER_PUBLIC_SUMMARY-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
 # XPay Sovereign Incentive Model — Public Summary
 
 **Version**: 1.0  

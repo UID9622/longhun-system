@@ -69,6 +69,7 @@ class Service:
     autostart: bool = True
     env: Dict[str, str] = field(default_factory=dict)
     startup_delay: float = 2.0
+    startup_timeout: float = 15.0
 
     def to_dict(self):
         d = asdict(self)
@@ -97,6 +98,7 @@ SERVICES: List[Service] = [
         health_path="/api/info",
         autostart=True,
         startup_delay=3.0,
+        startup_timeout=30.0,
     ),
     Service(
         id="control-panel",
@@ -209,8 +211,19 @@ def start_service(svc: Service) -> Dict:
         start_new_session=True,
     )
 
-    # 等待服务启动
-    time.sleep(svc.startup_delay)
+    # 轮询等待服务启动（重服务导入慢，不能只看一次）
+    deadline = time.time() + svc.startup_timeout
+    # 先给最小启动时间
+    time.sleep(min(svc.startup_delay, svc.startup_timeout))
+    while time.time() < deadline:
+        status = get_service_status(svc)
+        if status["running"] and status["healthy"]:
+            status["action"] = "started"
+            status["pid_after_start"] = proc.pid
+            return status
+        time.sleep(1.0)
+
+    # 超时后最终状态
     status = get_service_status(svc)
     status["action"] = "started" if status["running"] else "start_failed"
     status["pid_after_start"] = proc.pid

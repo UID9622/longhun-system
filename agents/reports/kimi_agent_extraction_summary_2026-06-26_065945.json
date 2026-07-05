@@ -1,0 +1,259 @@
+{
+  "generated_at": "2026-06-26T06:59:45.147318+08:00",
+  "dna": "#龍芯⚡️2026-06-26-KIMI-AGENT-EXTRACTION-2026-06-26_065945",
+  "total_entries": 237,
+  "modules": [
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "name": "longhun-cn-innovation-knowledge-base",
+      "version": "1.0.0",
+      "dna_code": "#龍芯⚡️2026-06-26-CN-INNO-KB-v1.0",
+      "description": "🇨🇳 中国科技自主创新专栏知识库 — 融合中国科技创新全景、龍魂系统里程碑、顶刊论文规划、三才哲学与人性洞察的综合知识管理系统。45条专栏文章，含7篇顶刊投稿规划。",
+      "entry_count": 45,
+      "triggers": ""
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "name": "longhun-cs-knowledge-base",
+      "version": "1.5",
+      "dna_code": "#龍芯⚡️2026-06-26-CS-KB-v1.5",
+      "description": "龍魂计算机科学知识库 - 融合计算机科学理论与龍魂主权体系的综合知识管理系统",
+      "entry_count": 142,
+      "triggers": ""
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "name": "longhun-notion-portal",
+      "version": "2.0",
+      "dna_code": "#龍芯⚡️2026-06-26-NOTION-PORTAL-v2.0",
+      "description": "龍魂Notion空间统一入口导航——自动扫描50个页面，按8大类归档（系统核心/数字人/知识库/算法引擎/数据库工具/法律规范/顶刊论文/技术文档），提供本地JSON索引+Markdown导航+Notion入口页面。",
+      "entry_count": 50,
+      "triggers": ""
+    }
+  ],
+  "category_stats": [
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "人工智能",
+      "cnt": 8
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "三才哲学·人性洞察",
+      "cnt": 6
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "综合总览",
+      "cnt": 4
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "算法与代码突破",
+      "cnt": 4
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "数字基础设施",
+      "cnt": 4
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "龍魂系统里程碑",
+      "cnt": 3
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "",
+      "cnt": 3
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "芯片",
+      "cnt": 2
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "政策与体制",
+      "cnt": 2
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "半导体与芯片",
+      "cnt": 2
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "航空航天",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "航天",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "生物医药",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "新能源",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "基础软件",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "国防科技",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "category": "IEEE方法论",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "数据与人工智能",
+      "cnt": 43
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "前瞻交叉与主权技术",
+      "cnt": 28
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "新兴领域与未来方向",
+      "cnt": 23
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "基础理论",
+      "cnt": 21
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "编程与开发",
+      "cnt": 8
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "系统与网络",
+      "cnt": 7
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "安全与防护",
+      "cnt": 7
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "category": "工具与实践",
+      "cnt": 5
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "系统核心",
+      "cnt": 8
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "算法引擎",
+      "cnt": 7
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "知识库",
+      "cnt": 7
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "数据库工具",
+      "cnt": 7
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "法律规范",
+      "cnt": 5
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "数字人",
+      "cnt": 5
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "技术文档",
+      "cnt": 5
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "顶刊论文",
+      "cnt": 3
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "category": "其他",
+      "cnt": 3
+    }
+  ],
+  "status_stats": [
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "status": "已完成",
+      "cnt": 27
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "status": "编撰中",
+      "cnt": 11
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "status": "待补充",
+      "cnt": 6
+    },
+    {
+      "module_id": "longhun-cn-innovation-knowledge-base",
+      "status": "审查中",
+      "cnt": 1
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "status": "未开始",
+      "cnt": 72
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "status": "已完成",
+      "cnt": 62
+    },
+    {
+      "module_id": "longhun-cs-knowledge-base",
+      "status": "学习中",
+      "cnt": 8
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "status": "🔴 核心",
+      "cnt": 28
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "status": "🟡 重要",
+      "cnt": 19
+    },
+    {
+      "module_id": "longhun-notion-portal",
+      "status": "🟢 补充",
+      "cnt": 3
+    }
+  ],
+  "report_path": "/Users/zuimeidedeyihan/longhun-system/agents/reports/kimi_agent_extraction_report_2026-06-26_065945.md"
+}

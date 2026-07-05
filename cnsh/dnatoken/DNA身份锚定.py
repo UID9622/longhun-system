@@ -1,4 +1,4 @@
-#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-v1.0
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-FILE1-v1.0
 """
 通心译 | TongXinYi: DNA Identity Anchor
 龍魂体系·DNA身份锚定 — 国密SM3哈希 + SM2椭圆曲线签名 + 六十四卦 + 甲骨文编码

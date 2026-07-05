@@ -1,8 +1,7 @@
+# #龍芯⚡️2026-07-03-MODULE-LH-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
 #!/bin/bash
-# 🐉 龍魂指挥台入口
-# DNA: #龍芯⚡️2026-06-24-LONGHUN-TERMINAL-v1.0
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LH_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-
-exec python3 "$LH_ROOT/bin/longhun-terminal.py" "$@"
+# 🐉 龍魂统一交互入口 · LH 看板（系统级代理）
+# DNA: #龍芯⚡️20260629-LONGHUN-LH-PROXY-v2.0
+exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"

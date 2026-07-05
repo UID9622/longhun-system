@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# DNA: #龍芯⚡️2026-06-24-LONGHUN-TERMINAL-v2.0
+# DNA:#龍芯⚡️2026-06-24-LONGHUN-TERMINAL-FILE1-v2.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 """
@@ -72,7 +72,13 @@ class 龍魂终端:
         if not path.exists():
             print(f"❌ 脚本未找到: {path}")
             return 1
-        cmd = [str(path)] + args
+        # 根据扩展名选择解释器，确保 .py/.sh 都能直接跑
+        if str(path).endswith('.py'):
+            cmd = [sys.executable, str(path)] + args
+        elif str(path).endswith('.sh'):
+            cmd = ['bash', str(path)] + args
+        else:
+            cmd = [str(path)] + args
         try:
             return subprocess.call(cmd, cwd=str(self.root))
         except Exception as e:
@@ -119,8 +125,9 @@ class 龍魂终端:
         print(f"{C['cyan']}║{C['nc']}  {C['yellow']}📍{C['nc']} {pwd}{padding}{C['cyan']}║{C['nc']}")
         print(f"{C['cyan']}╠═══════════════════════════════════════════════════════╣{C['nc']}")
         print(f"{C['cyan']}║{C['nc']}  {C['magenta']}💡 快捷指令:{C['nc']}  lh | longhun-check | cd-lh            {C['cyan']}║{C['nc']}")
-        print(f"{C['cyan']}║{C['nc']}  {C['magenta']}🔧 常用命令:{C['nc']}  状态 启动 停止 人格 技能 cnsh       {C['cyan']}║{C['nc']}")
-        print(f"{C['cyan']}║{C['nc']}            审计 签名 每日复盘 操作台 门户        {C['cyan']}║{C['nc']}")
+        print(f"{C['cyan']}║{C['nc']}  {C['magenta']}🍱 记不住命令:{C['nc']} lh --menu 或 lh 菜单（数字选）     {C['cyan']}║{C['nc']}")
+        print(f"{C['cyan']}║{C['nc']}  {C['magenta']}🔧 常用命令:{C['nc']}  状态 启动 停止 技能主控 自动化状态  {C['cyan']}║{C['nc']}")
+        print(f"{C['cyan']}║{C['nc']}            人格 审计 签名 万年历 每日复盘 操作台  {C['cyan']}║{C['nc']}")
         print(f"{C['cyan']}╚═══════════════════════════════════════════════════════╝{C['nc']}")
         print("")
 
@@ -239,6 +246,61 @@ class 龍魂终端:
                     print(f"  {name:12s} [{aliases:20s}] {info.get('desc', '')}")
         print("")
 
+    def 交互菜单(self):
+        """交互式数字菜单：适合记不住命令的老大"""
+        C = {
+            "cyan": self._color("0;36"),
+            "green": self._color("0;32"),
+            "yellow": self._color("1;33"),
+            "blue": self._color("0;34"),
+            "nc": self._color("0"),
+        }
+        commands = self.registry.get("commands", {})
+        # 只展示常用分类，按推荐顺序
+        priority = ["启动", "状态", "技能", "自动化", "记忆", "同步", "审计", "备份", "部署", "安全", "cnsh", "文档", "签名", "维护", "人格", "反熔断", "其他"]
+        by_cat: Dict[str, List[Tuple[str, Dict]]] = {}
+        for name, info in commands.items():
+            cat = info.get("category", "其他")
+            by_cat.setdefault(cat, []).append((name, info))
+
+        while True:
+            print(f"\n{C['cyan']}╔═══════════════════════════════════════════════════════╗{C['nc']}")
+            print(f"{C['cyan']}║{C['nc']}  {C['green']}🐉 龍魂交互菜单 · 输入编号执行{C['nc']}                     {C['cyan']}║{C['nc']}")
+            print(f"{C['cyan']}╠═══════════════════════════════════════════════════════╣{C['nc']}")
+            idx = 1
+            index_map = {}
+            for cat in priority:
+                items = by_cat.get(cat, [])
+                if not items:
+                    continue
+                print(f"{C['cyan']}║{C['nc']}  {C['yellow']}【{cat}】{C['nc']}")
+                for name, info in sorted(items, key=lambda x: x[0]):
+                    aliases = "/".join(info.get("aliases", [])[:2])
+                    line = f"{idx:>2}. {name:<12s} {aliases:<16s} {info.get('desc', '')}"[:49]
+                    print(f"{C['cyan']}║{C['nc']}  {C['blue']}{line}{C['nc']}")
+                    index_map[str(idx)] = (name, info)
+                    idx += 1
+            print(f"{C['cyan']}║{C['nc']}  {C['yellow']} 0. 退出菜单{C['nc']}")
+            print(f"{C['cyan']}╚═══════════════════════════════════════════════════════╝{C['nc']}")
+            try:
+                choice = input(f"{C['green']}>>> 请输入编号 (或直接输入命令):{C['nc']} ").strip()
+            except (EOFError, KeyboardInterrupt):
+                print("\n👋 退出菜单")
+                return 0
+            if choice == "0" or choice.lower() in ("q", "quit", "exit"):
+                print("👋 退出菜单")
+                return 0
+            if choice in index_map:
+                name, info = index_map[choice]
+                print(f"\n🚀 执行: {name}")
+                self.执行命令(name, [])
+            elif choice:
+                # 直接当命令跑
+                parts = choice.split()
+                self.执行命令(parts[0], parts[1:])
+            else:
+                continue
+
     def 执行命令(self, cmd_name: str, args: List[str]) -> int:
         info = self._查找命令(cmd_name)
         if not info:
@@ -260,6 +322,9 @@ class 龍魂终端:
             self.分类列表(args[0] if args else None)
             return 0
 
+        if cmd_type == "menu":
+            return self.交互菜单()
+
         if cmd_type == "script":
             script = info.get("script", "")
             script_args = list(info.get("args", []))
@@ -274,7 +339,7 @@ class 龍魂终端:
             if target.startswith("http"):
                 webbrowser.open(target)
             else:
-                full = self.root / target
+                full = self._resolve_path(target)
                 if full.exists():
                     webbrowser.open(f"file://{full}")
                 else:
@@ -292,27 +357,51 @@ class 龍魂终端:
         if not argv:
             self.欢迎板()
             print(self.状态面板())
+            print("\n💡 提示: 输入 `lh --menu` 或 `lh 菜单` 进入交互式数字菜单")
+            # 启动精神燃料
+            fuel_script = Path.home() / '.龍魂' / 'victory_lookbacks' / 'startup_fuel.py'
+            if fuel_script.exists():
+                try:
+                    result = subprocess.run([sys.executable, str(fuel_script)], capture_output=True, text=True, timeout=10)
+                    if result.stdout:
+                        print(result.stdout.rstrip())
+                except Exception:
+                    pass
             return 0
 
-        # 内建英文子命令（保持兼容）
+        # 交互菜单入口
+        if argv[0] in ("--menu", "-m", "menu"):
+            self.欢迎板()
+            return self.交互菜单()
+
+        # 注册表命令优先（支持双字中文命令，如 人格 列表 / 能力 状态）
+        if len(argv) >= 2:
+            combined = argv[0] + argv[1]
+            if self._查找命令(combined):
+                return self.执行命令(combined, argv[2:])
+
+        if self._查找命令(argv[0]):
+            return self.执行命令(argv[0], argv[1:])
+
+        # 内建英文子命令（兼容旧版）
         legacy_map = {
             "dashboard": self._legacy_dashboard,
             "status": self._legacy_status,
             "check": self._legacy_check,
-            "persona": self._legacy_persona,
             "hexagram": self._legacy_hexagram,
             "compress": self._legacy_compress,
             "trace": self._legacy_trace,
             "ops": self._legacy_ops,
             "help": self._legacy_help,
+            "voice": self._legacy_voice,
+            "sovereign": self._legacy_sovereign,
         }
+        if argv[0] in legacy_map:
+            return legacy_map[argv[0]](argv[1:])
 
-        first = argv[0]
-        if first in legacy_map:
-            return legacy_map[first](argv[1:])
-
-        # 注册表命令（中文 + 别名）
-        return self.执行命令(first, argv[1:])
+        print(f"❌ 未知命令: {argv[0]}")
+        print("   运行 `lh 命令` 查看可用命令")
+        return 1
 
     # ---- 兼容旧子命令 ----
     def _legacy_dashboard(self, args):
@@ -357,6 +446,30 @@ class 龍魂终端:
     def _legacy_help(self, args):
         self.列出命令()
         return 0
+
+    def _legacy_voice(self, args):
+        """龍魂声纹 DNA 锚定链入口。"""
+        script = self.root / "voice-dna" / "cli.py"
+        if not script.exists():
+            print("❌ 声纹 DNA 锚定链模块未找到: {script}")
+            return 1
+        try:
+            return subprocess.call([sys.executable, str(script)] + args, cwd=str(self.root))
+        except Exception as e:
+            print(f"❌ 声纹模块运行失败: {e}")
+            return 1
+
+    def _legacy_sovereign(self, args):
+        """龍魂 UID9622 主权身份注册入口。"""
+        script = self.root / "sovereign-registry" / "cli.py"
+        if not script.exists():
+            print("❌ 主权身份注册模块未找到: {script}")
+            return 1
+        try:
+            return subprocess.call([sys.executable, str(script)] + args, cwd=str(self.root))
+        except Exception as e:
+            print(f"❌ 主权身份模块运行失败: {e}")
+            return 1
 
 
 def main():

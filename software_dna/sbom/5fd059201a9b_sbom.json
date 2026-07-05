@@ -1,0 +1,13 @@
+{
+  "filename": "test_risky_script.sh",
+  "size_bytes": 130,
+  "sha256": "7a5f882e89514eb51c2509b36e5d5e12bf54495aa30133f5869bc1ff8926a897",
+  "file_type": {
+    "type": "shell_script",
+    "description": "Shell 脚本"
+  },
+  "created": "2026-06-26T20:21:36.171057+00:00",
+  "modified": "2026-06-26T20:21:36.171057+00:00",
+  "scanner": "software_dna_scan.py",
+  "scanner_version": "v1.0"
+}

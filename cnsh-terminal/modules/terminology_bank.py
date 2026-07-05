@@ -168,22 +168,37 @@ class 中央藏经阁:
             raise
 
     def _初始化Chroma(self) -> None:
-        """初始化Chroma向量库"""
-        self.chroma客户端 = chromadb.Client(Settings(
-            chroma_db_impl="duckdb+parquet",
-            persist_directory=self.chroma路径
-        ))
+        """初始化Chroma向量库（兼容新旧客户端API）"""
+        try:
+            # 新客户端 API（Chroma >=0.4）
+            self.chroma客户端 = chromadb.PersistentClient(path=self.chroma路径)
+        except Exception as e:
+            self.记录("警告", f"PersistentClient 不可用: {e}，尝试旧版 Client")
+            try:
+                self.chroma客户端 = chromadb.Client(Settings(
+                    chroma_db_impl="duckdb+parquet",
+                    persist_directory=self.chroma路径
+                ))
+            except Exception as e2:
+                self.记录("警告", f"旧版 Client 也失败: {e2}")
+                self.chroma客户端 = None
 
-        # 获取或创建集合
-        self.chroma集合 = self.chroma客户端.get_or_create_collection(
-            name="ai术语",
-            metadata={"描述": "CNSH AI术语向量库", "版本": "5.0"}
-        )
+        # 获取或创建集合（Chroma 集合名只允许 ASCII [a-zA-Z0-9._-]）
+        if self.chroma客户端:
+            try:
+                self.chroma集合 = self.chroma客户端.get_or_create_collection(
+                    name="cnsg_ai_terms",
+                    metadata={"描述": "CNSH AI术语向量库", "版本": "5.0", "hnsw:space": "cosine"}
+                )
+            except Exception as e:
+                self.记录("警告", f"Chroma集合创建失败: {e}")
+                self.chroma集合 = None
 
         # 初始化嵌入模型
         try:
             self.嵌入模型 = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-        except:
+        except Exception as e:
+            self.记录("警告", f"嵌入模型加载失败: {e}")
             self.嵌入模型 = None
 
     def _加载术语到缓存(self) -> None:
@@ -537,6 +552,40 @@ class 中央藏经阁:
 def 创建藏经阁() -> 中央藏经阁:
     """创建中央藏经阁实例"""
     return 中央藏经阁()
+
+
+# 数学公式层术语种子（与 🧮 数学公式术语与变量总表对齐）
+数学公式术语种子 = {
+    "digital_root": ("数字根", "数学公式核心", "dr(n)=1+((n-1) mod 9)，把整数压缩到1-9"),
+    "dr_gate": ("数字根三色闸", "数学公式核心", "dr∈{3,9}→🔴 · dr=6→🟡 · 其余→🟢"),
+    "alpha_tau": ("时间衰减指数", "α三义", "α_τ，只用于 T^(-α_τ)，不归一化"),
+    "alpha_amp": ("人格振幅", "α三义", "α_a，人格叠加向量，平方和=1"),
+    "alpha_weight": ("目标权重", "α三义", "α_w，凸组合，和=1"),
+    "wuxing_vector": ("五行向量", "向量", "W(x)=[金,木,水,火,土]，Σ=1"),
+    "sancai_vector": ("三才向量", "向量", "[天,地,人]，天轴不可让渡"),
+    "sovereignty_index": ("三才主权指数", "数学公式核心", "SI=0.34·天+0.33·地+0.33·人"),
+    "conservation_score": ("守恒分数", "数学公式核心", "S=主控+任务+边界+留痕+验收，0-15分"),
+    "decision_chain": ("根治理决策链", "数学公式核心", "dr→W→Risk→S→D→Action"),
+    "fixed_point": ("不动点", "不动点", "f(x*)=x*；UID9622/中宫5/T0"),
+    "hash_chain": ("DNA哈希链", "数学公式核心", "child_hash=SHA256(parent_hash‖payload)"),
+    "truth_score": ("真实度评分", "数学公式核心", "T=0.4M+0.3V+0.3F，F=0一票否决"),
+    "soul_score": ("七维SOUL评分", "数学公式核心", "技0.20/语0.15/文0.20/数0.15/决0.15/知0.10/身0.05"),
+    "tri_color_audit": ("三色审计", "治理", "🟢通过·🟡复核·🔴熔断"),
+    "circuit_breaker": ("熔断", "治理", "发现问题立即停止并回滚"),
+    "veto": ("一票否决", "治理", "任一红线条件触发整体归零"),
+    "math_verifiable_seal": ("数学可证实签章", "治理", "可计算·可复算·有出处三闸全过"),
+    "cnsh_dual_perspective": ("CNSH双视角封装", "CNSH协议", "M:: + CNSH:: 两段输出"),
+}
+
+
+def 导入数学公式术语(藏经阁: 中央藏经阁 = None) -> Dict[str, bool]:
+    """把数学公式层术语批量写入中央藏经阁"""
+    if 藏经阁 is None:
+        藏经阁 = 中央藏经阁()
+    结果 = {}
+    for 英文, (中文, 分类, 说明) in 数学公式术语种子.items():
+        结果[英文] = 藏经阁.存储术语(英文, 中文, "数学公式层", 分类, 说明)
+    return 结果
 
 
 # 自检

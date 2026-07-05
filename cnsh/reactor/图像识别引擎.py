@@ -5,7 +5,7 @@
 ║  🐉 龍瞳OCR — 中文優先圖像識別引擎 / LONGTENG OCR Engine              ║
 ║  Dragon Pupil OCR — Chinese-First Image Recognition Engine           ║
 ╠══════════════════════════════════════════════════════════════════════╣
-║  DNA追溯 / DNA Trace: #龍芯⚡️2026-06-18-LONGTENG-OCR-v1.0          ║
+║  DNA追溯 / DNA Trace:#龍芯⚡️2026-06-18-LONGTENG-OCR-FILE1-v1.0          ║
 ║  龍魂體系核心模塊 / Dragon Soul System Core Module                   ║
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  君子協議 / Gentleman's Agreement:                                   ║

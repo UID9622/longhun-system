@@ -1,0 +1,27 @@
+{
+  "DNA": "#龍芯⚡️20260626013123-A-CLASS-FINAL-REPORT",
+  "active_scripts_status": {
+    "HAS_MAIN": 840,
+    "HELP_OK": 280,
+    "IMPORT_OK": 209,
+    "MAIN_NO_HELP": 17,
+    "NEED_DEP_INSTALL": 1,
+    "NEED_MODULE_SIDE_EFFECT": 1,
+    "QUARANTINED": 5,
+    "RETEST_AS_PACKAGE": 100,
+    "REVIEWED_SAFE": 7,
+    "SYNTAX_ERROR": 23,
+    "SYNTAX_OK": 97
+  },
+  "a_class_final": {
+    "original_total": 25,
+    "reviewed_safe": 7,
+    "import_ok": 250,
+    "need_dep_install": 1,
+    "need_module_side_effect": 1
+  },
+  "remaining": {
+    "NEED_DEP_INSTALL": "vector_store.py 需要安装 chromadb 且有强副作用",
+    "NEED_MODULE_SIDE_EFFECT": "test_cnsh_gateway.py 被测模块需 API key"
+  }
+}

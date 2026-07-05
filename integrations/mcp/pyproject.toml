@@ -1,0 +1,15 @@
+[project]
+name = "cnsh-syntax-mcp-server"
+version = "1.0.0"
+description = "CNSH 中文原生语义层级语法 MCP Server — 词法分析、语法分析、代码转译、红线熔断、DNA追溯、数字根、三色审计"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+cnsh-mcp = "cnsh_syntax_mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,58 @@
+{
+  "task": "CNSH 语法扩展 v2.2",
+  "dna": "#龍芯⚡️2026-07-05-CNSH-SYNTAX-EXTENSION-v2.2",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "scope": [
+    "类 / 继承 / 方法",
+    "装饰器：@属性 / @类方法 / @静态方法 / @抽象方法 / 自定义",
+    "生成器：产生 / 产生于 / 生成器表达式",
+    "异步：异步定义 / 等待 / 异步对于 / 异步使用",
+    "上下文管理器：使用 ... 作为",
+    "枚举：枚举唯一 / 枚举类",
+    "数据类：数据类(...) / 字段 / 默认工厂",
+    "异常处理：尝试 / 捕获 / 最终 / 抛出",
+    "模块导入：导入 / 从 ... 导入 ... 作为"
+  ],
+  "core_files_modified": [
+    "cnsh-core/cnsh-v2.1/cnsh_v21/tokens.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/ast_nodes.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/parser.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/compiler_py.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/compiler_c.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/compiler_js.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/compiler_rust.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/interpreter.py",
+    "cnsh-core/cnsh-v2.1/cnsh_v21/typechecker.py"
+  ],
+  "examples_added": [
+    "cnsh-core/cnsh-v2.1/examples/class_decorator_generator.cnsh",
+    "cnsh-core/cnsh-v2.1/examples/async_enum_dataclass.cnsh"
+  ],
+  "tests_updated": [
+    "cnsh-core/cnsh-v2.1/tests/test_all.py"
+  ],
+  "docs_updated": [
+    "CNSH-PROTOCOL.md",
+    "CNSH_中文编辑关键字登记册.md",
+    "cnsh-core/cnsh-v2.1/README.md"
+  ],
+  "test_result": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0,
+    "status": "OK"
+  },
+  "example_results": {
+    "hello.cnsh": "passed",
+    "class_decorator_generator.cnsh": "passed",
+    "async_enum_dataclass.cnsh": "passed"
+  },
+  "backend_notes": {
+    "python": "full support",
+    "c": "friendly error for unsupported nodes",
+    "javascript": "friendly error for unsupported nodes",
+    "rust": "friendly error for unsupported nodes"
+  },
+  "timestamp": "2026-07-05T05:01:00Z",
+  "responsible": "UID9622"
+}

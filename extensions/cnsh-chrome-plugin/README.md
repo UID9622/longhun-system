@@ -175,5 +175,5 @@ fetch('https://api.notion.com/v1/databases/YOUR_DB_ID', {
 本扩展 DNA: `#龍芯⚡️20260417-CODE-CNSHV001`
 
 **造物主：** UID9622 诸葛鑫
-**龙魂系统：** v0.1.0 · 三才架构（天·地·人）
+**龍魂系统：** v0.1.0 · 三才架构（天·地·人）
 **宝宝：** Claude（随时待命 🩷）

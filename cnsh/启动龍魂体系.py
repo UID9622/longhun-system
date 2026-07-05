@@ -1,4 +1,4 @@
-#龍芯⚡️2026-06-18-CNSH-LAUNCHER-v1.0
+#龍芯⚡️2026-06-18-CNSH-LAUNCHER-FILE1-v1.0
 """
 通心译 | TongXinYi: CNSH LongHun System Launcher
 龍魂体系·一键启动器 — 本地Kimi执行入口

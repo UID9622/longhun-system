@@ -21,8 +21,8 @@
 - 🗑️ 删除重复副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/dragon-soul-agent/harmonyos/元服务项目/entry/src/main/ets/pages/CNSHEditor.ets`
 - 🗑️ 删除重复副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/dragon-soul-agent/harmonyos/元服务项目/entry/src/main/ets/pages/CNSHEditor.ets`
 - 🗑️ 删除重复副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/dragon-soul-agent/harmonyos/元服务项目/entry/src/main/ets/pages/CNSHEditor.ets`
-- ✅ 迁移 `cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/龙魂日记本-iOS/龙魂日记本/日记编辑器.swift` -> `platforms/ios/DiaryEditor.swift`
-- ✅ 迁移 `cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/龙魂日记本-iOS/龙魂日记本/ContentView.swift` -> `platforms/ios/ContentView.swift`
+- ✅ 迁移 `cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/龍魂日记本-iOS/龍魂日记本/日记编辑器.swift` -> `platforms/ios/DiaryEditor.swift`
+- ✅ 迁移 `cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/龍魂日记本-iOS/龍魂日记本/ContentView.swift` -> `platforms/ios/ContentView.swift`
 - 🗑️ 删除冗余副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/cnsh_editor_engine_v2.0.py`
 - 🗑️ 删除冗余副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/cnsh_editor_engine_v2.0.py`
 - 🗑️ 删除冗余副本：`cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/cnsh_editor_engine_v2.0.py`

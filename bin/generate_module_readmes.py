@@ -61,7 +61,7 @@ def generate(module: dict) -> str:
         "- 运行前请确认依赖已安装。",
         "- 建议先阅读源码注释，了解每个脚本的副作用。",
         "",
-        f"**DNA**:#龍芯⚡️2026-06-17-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-v1.0",
+        f"**DNA**:#龍芯⚡️2026-06-17-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-FILE1-v1.0",
     ])
     return "\n".join(lines)
 

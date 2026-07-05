@@ -7,8 +7,8 @@
 功能：综合验证所有 Phases·质量门槛检查·生产就绪评估·最终交付签署
      系统完整性检验·性能达标认证·集成架构确认·文档合规验证
 
-DNA:#龍芯⚡️2026-06-08-PHASE7-FINAL-SYSTEM-ACCEPTANCE-FILE2-v1.0
-确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+DNA:#龍芯⚡️2026-06-08-PHASE7-FINAL-SYSTEM-ACCEPTANCE-FILE2-FILE1-v1.0
+确认: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 """
 
 import json
@@ -380,7 +380,7 @@ class FinalSystemAcceptanceEngine:
         lines.append("签署人: UID9622 · 龍芯北辰")
         lines.append(f"签署日期: {datetime.now().strftime('%Y-%m-%d %H:%M:%S CST')}")
         lines.append(f"DNA签章: #龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-PHASE7-FINAL-ACCEPTANCE-v1.0")
-        lines.append("确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅")
+        lines.append("确认码: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX" ✅")
         lines.append("")
 
         lines.append("=" * 80)

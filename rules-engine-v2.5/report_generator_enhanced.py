@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-RULE-REPORT_GENERATOR_ENHANCED-v1.0
+##龍芯⚡️2026-06-21-RULE-REPORT_GENERATOR_ENHANCED-FILE2-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
@@ -527,7 +527,7 @@ DNA:         #龍芯⚇️v2.5
 
 def main():
     """示例用法"""
-    from batch_processor_v2.5 import ProcessResult
+    from batch_processor_v2_5 import ProcessResult
 
     # 模拟结果
     results = [

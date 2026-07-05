@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/cnsw/hook_scanner.py",
+    "verdict": "FALSE_POSITIVE",
+    "note": "hook_scanner 名中含 hook，被正则误报为键盘钩子。实际代码是文本主权钩子扫描器，无键盘/网络/执行类恶意代码。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_field/port.py",
+    "verdict": "FALSE_POSITIVE",
+    "note": "命中 self_replicate 是因为代码中含 __file__ / sys.path 操作，用于把 cnsh-core 加入路径。实际为流场海关闸门，无自我复制/恶意外联。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/core/wechat_client.py",
+    "verdict": "LEGITIMATE_BUSINESS",
+    "note": "微信公众号 API 客户端，必须调用微信 API。token_file.unlink() 是清理缓存的正常操作。非恶意。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/image_service.py",
+    "verdict": "LEGITIMATE_BUSINESS",
+    "note": "调用 OpenAI DALL-E API 生成图片（可选）+ 本地 senses_cli 调用。subprocess.run 调用本地脚本，非 shell=True。非恶意。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system/integrations/wechat_public_account/services/persona_service.py",
+    "verdict": "LEGITIMATE_BUSINESS",
+    "note": "调用 Kimi API 生成人格内容。网络外联是业务必需。非恶意。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system/releases/v5.1/staging/xpay/src/core.py",
+    "verdict": "FALSE_POSITIVE",
+    "note": "importlib.import_module 用于动态加载 xpay.src.adapters 下的币种适配器，是正常插件机制，非隐藏后门。",
+    "malicious": false
+  },
+  {
+    "path": "/Users/zuimeidedeyihan/longhun-system/xpay/src/core.py",
+    "verdict": "FALSE_POSITIVE",
+    "note": "与 staging 版本一致，importlib 动态加载适配器，正常插件机制。",
+    "malicious": false
+  }
+]

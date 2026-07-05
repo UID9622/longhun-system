@@ -12,7 +12,7 @@
   - 权限等级决定 AI 能做什么、对谁做、做到什么程度
   - 所有行为写入本地审计链，不上传第三方
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-BEHAVIORAL-CRYPTO-v1.0
+DNA:#龍芯⚡️2026-06-20-LONGHUN-BEHAVIORAL-CRYPTO-FILE1-v1.0
 """
 
 import hashlib

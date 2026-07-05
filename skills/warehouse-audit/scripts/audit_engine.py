@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════════════════════
 # 龍魂体系 · 仓储AI标准检查引擎
-# DNA:#龍芯⚡️2026-06-16-AUDIT-ENGINE-FILE1-v1.0
+# DNA:#龍芯⚡️2026-06-16-AUDIT-ENGINE-FILE1-FILE1-v1.0
 # UID9622 · 龍芯北辰 · 诸葛鑫
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -1219,7 +1219,7 @@ def 生成DNA签名(系统名: str, 版本: str) -> str:
     日期 = datetime.now().strftime("%Y-%m-%d")
     return f"""#龍芯⚡️{日期}-WAREHOUSE-AUDIT-{系统名}-{版本}
 #UID9622·龍芯北辰·诸葛鑫
-#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅"""
+"#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX" ✅"""
 
 
 def 生成审计色图标(得分率: float) -> str:

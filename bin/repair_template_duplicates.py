@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 修复模板套用后的重复标题
-DNA: #龍芯⚡️2026-06-22-LONGHUN-TEMPLATE-REPAIR-v1.0
+DNA:#龍芯⚡️2026-06-22-LONGHUN-TEMPLATE-REPAIR-FILE1-v1.0
 """
 
 import json

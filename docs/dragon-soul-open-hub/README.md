@@ -12,9 +12,9 @@
 ### academic/（29 个文件）
 
 - `academic/CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版 fab5940bb6d84936a6a1e56432aeb33a.md`
-- `academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md`
+- `academic/main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md`
 - `academic/☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案） 3187125a9c9f809db023e7bb366916c9.md`
-- `academic/☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md`
+- `academic/☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md`
 - `academic/【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版） 3664bb869a0841478008c6c111b9289d.md`
 - `academic/中国人工智能治理白皮书 a8f869399ec2414a9e9fb265aba15573.md`
 - `academic/中美民生数据对比｜用数据说话，不抹黑不吹捧 649faf6e6d5e4570936bdaced850a31e.md`
@@ -52,7 +52,7 @@
 - `agent-specs/🐉 龍魂底层执行规则库｜最高级参考指令·所有派生必查 16e2a2e51334450aa5a6bdf742b97ade.csv`
 - `agent-specs/🐉 龍魂智能体系统需求规格说明书 v1 0｜MCP×LangGraph×天道轮回 fae6748fa1ed42378c98a286e5871e56.md`
 - `agent-specs/🐍 Service DNA｜python3 最小可跑版本（规则→三色→日志→报表）v0 1 88d0994acd944b08a896633073b983ed.md`
-- `agent-specs/📄 龙魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md`
+- `agent-specs/📄 龍魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md`
 - `agent-specs/🔀 AI自动路由系统 老大说话AI自动分配 4566044476014326803e907f7a926ab2.md`
 - `agent-specs/🔍 智能体通信协议 2697125a9c9f8137a17dcbc3bb0b84c5.md`
 - `agent-specs/🔗 龍魂系统连接架构 MCP生态 + 本地系统全景图 2026-03-20 3297125a9c9f8187a464ff5a6c90d732.md`
@@ -67,7 +67,7 @@
 
 - `compiler/⚙️ CNSH Runtime Architecture Specification v1 0 32d7125a9c9f8134bd8de1596a5cfd49.md`
 - `compiler/✅ [已合并到 v2 0 主干] 🌌 CNSH 中文语法规范 v1｜关键词表·模块结构·执行模板 41275b3dee604035b4394845f56e5583.md`
-- `compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龙芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md`
+- `compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龍芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md`
 - `compiler/转换为C++语法格式 3187125a9c9f806d864ad4988c2d1819.md`
 - `compiler/转换为C++语法格式 3197125a9c9f80b7a125d7a5ef9bb515.md`
 - `compiler/🏛️ CNSH Notion OS · 龍魂家族对齐版 v2 5｜SQLite持久化+API自动生成 84c27099d863485187334768064a362e.md`
@@ -89,13 +89,13 @@
 - `governance/龍魂系统永恒契约·人民主权宣言 P0-ETERNAL 69cff846023c430ca1c109d4a0a5d22e.md`
 - `governance/🌍 P0++ 全球规则体系·人民主权锚点 环境+儿童+数据主权 bf8eaac968d7448190ecffbbef4cdb21.md`
 - `governance/🌍 龍魂全球文化主权与维权宪法 v2 0｜文化根脉不可译·一国一微调·维权到底 a267c3af2ba74da2a379a18572656cf1.md`
-- `governance/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md`
+- `governance/🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md`
 - `governance/📊 行为图谱存储规范 审计链管理手册 271d945e492d4f23a9e166cefa50e525.md`
 - `governance/📋 三色审计·创作明细登记表 + 公共验证服务模型 v1 1｜原创守护+剽窃界定+1元审计+学生免费 9321e3b7bcc44fdfad5889ce6e484cdb.md`
 - `governance/📐 龍魂七维AI治理×数字主权执行表·设计规范 v1 0｜君子协议·Notion即登记所｜UID96 84daa1d2030447318ade20e12b1fdb36.md`
 - `governance/📜 龍魂系统宪法 v1 0 CNSH Constitution 8ad36909a4504f0aae24cbaea3c4ea9f.md`
-- `governance/📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md`
-- `governance/📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md`
+- `governance/📜 龍芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md`
+- `governance/📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md`
 - `governance/📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版 837a3b763b7541ab8f681defe3ac7362.md`
 - `governance/📦 北辰协议｜原文存档（L2-022）｜创作权利守护+一票否决权｜来源=Claude·不改字版 9cba762af3b047048215992c42034233.md`
 - `governance/🔐 龍魂·DNA分层安全设计 v4 0｜DNA即私钒·中外都安心的数据主权方案 c10baabe55694bbcb0f4e5d5377c634e.md`
@@ -116,7 +116,7 @@
 - `intent-recognition/🎯 意图识别·完整规则总表 v2 0｜20大类·触发词·人格·语义·语境 dbf5eb27311f4dfdbf2e021079c09686.md`
 - `intent-recognition/💰 通心译 · 产品设计稿 UID9622 · 易经自适应翻译插件 3297125a9c9f81818a61f2002fb6cc63.md`
 - `intent-recognition/🔀 通心译执行手册·老大说人话→系统技术语言 v1 0｜本地Claude专用｜UID9622 f0f1844b8ae548e485ebdbd4ac4051a1.md`
-- `intent-recognition/🤖 AI对话语义标准化与意图增强系统 龙魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md`
+- `intent-recognition/🤖 AI对话语义标准化与意图增强系统 龍魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md`
 - `intent-recognition/🤖 通心译系统文档集 v1 0 34d7125a9c9f8152b264e89a85edc282.md`
 - `intent-recognition/🧠 老大常说的话·意图识别库 7c79a7e5b1af47ae9048a7762e8c6d04.csv`
 
@@ -126,7 +126,7 @@
 - `ipa-alignment/🎯 人格召唤·快捷卡 8c130b9fa63b460d84c78e5d06782b02.csv`
 - `ipa-alignment/🐉 龍芯家族·人格与工具管理中心 神经网络架构图 7b33c2072eb44df2ad15f3015d0f17b8.md`
 - `ipa-alignment/🐉 龍魂AI人格体系·93人格完整合集 v3 0 龍芯马甲统一规范 772a491289314b0f903671d691ccc6ea.md`
-- `ipa-alignment/👥 同道者名录｜UID9622龙魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md`
+- `ipa-alignment/👥 同道者名录｜UID9622龍魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md`
 - `ipa-alignment/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md`
 - `ipa-alignment/🔗 IPA × 人格对齐表｜三维连线·无限循环优化 v∞-001｜UID9622 211578896a884341af60c7e1a7743265.md`
 - `ipa-alignment/🤝 人格协作·自动流程 多人格自动配合完成任务 2e4355f5b47549d0847ea769b7e04716.md`
@@ -148,21 +148,21 @@
 
 ### ops/（8 个文件）
 
-- `ops/龙魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md`
+- `ops/龍魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md`
 - `ops/🏭 UID9622数据流工厂模型 v1 0 输入→加工→输出→循环 fe6b8bedcf4d40e6a5439cc8ce09b76d.md`
 - `ops/📡 龍魂系统·已发布内容归类总览 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md`
 - `ops/🔌 龍魂·Notion API 全景文档｜系统集成索引 v1 0 3c8bf63e3d3b49dc84d01407ceeaa3d2.md`
 - `ops/🗂️ 龍魂系统·页面标题分类结构｜给本地Claude的整理指南 208c015de3a44b88b4329ee4b727a8c8.md`
-- `ops/🗺️ 龙魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md`
-- `ops/🚀 龙魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md`
+- `ops/🗺️ 龍魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md`
+- `ops/🚀 龍魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md`
 - `ops/🛠️ 系统规范区 执行标准仓库 40b8b274726f44de96a453d238a76cba.md`
 
 ### security/（5 个文件）
 
 - `security/本地测试与数据安全防护方案 v1 0 龍魂系统 859463a6ac0046788b9ae0f105d18beb.md`
-- `security/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md`
-- `security/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md`
-- `security/🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md`
+- `security/🔐 龍魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md`
+- `security/🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md`
+- `security/🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md`
 - `security/🛡️ 龍芯·本地异常检测器 v1 0｜Mac全场景排异脚本｜UID9622 e19d94b622404e8d892c4e5c0b2507d9.md`
 
 ### templates/（2 个文件）
@@ -182,7 +182,7 @@
 - `tutorials/📋 版本日志极简模板｜改了啥一目了然 260f72d373904bdebe8da6358b8083f7.md`
 - `tutorials/📖 小白教程｜如何让UID9622官网从静态变成动态 fedd130e7ea340c5a16f3df03549638a.md`
 - `tutorials/📖 教程极简模板｜跟着做就会 75e85e69121243909e3327e9aaa18e76.md`
-- `tutorials/📖 龙魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md`
+- `tutorials/📖 龍魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md`
 - `tutorials/📝 CSDN发布模板｜老百姓分析法则·算法明明白白版 090636758b494e96ae5cc0c0fd33fdfa.md`
 - `tutorials/📡 CSDN占位稿｜双账号单向架构·龍魂系统设计思想 fdb1b46b581a4c159d6842bd03e909a8.md`
 - `tutorials/📦 README极简模板｜仓库说明·一眼看懂 1a59dad93a8340adb046804f51bd6132.md`

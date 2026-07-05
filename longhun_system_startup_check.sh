@@ -1,7 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂系统开机启动检查脚本
 # ═══════════════════════════════════════════════════════════════
-# DNA:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0
+# DNA:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-FILE2-v1.0
 # 功能: 检查所有龍魂系统组件的启动状态
 # 用法: bash longhun_system_startup_check.sh
 # ═══════════════════════════════════════════════════════════════
@@ -27,20 +27,20 @@ WARNING_CHECKS=0
 
 log_pass() {
     echo -e "${GREEN}✅${NC} $1"
-    ((PASSED_CHECKS++))
-    ((TOTAL_CHECKS++))
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
 }
 
 log_fail() {
     echo -e "${RED}❌${NC} $1"
-    ((FAILED_CHECKS++))
-    ((TOTAL_CHECKS++))
+    FAILED_CHECKS=$((FAILED_CHECKS + 1))
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
 }
 
 log_warn() {
     echo -e "${YELLOW}⚠️ ${NC} $1"
-    ((WARNING_CHECKS++))
-    ((TOTAL_CHECKS++))
+    WARNING_CHECKS=$((WARNING_CHECKS + 1))
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
 }
 
 log_info() {
@@ -182,31 +182,45 @@ else
 fi
 
 # ═══════════════════════════════════════════════════════════════
-# 部分 4: 监控服务器检查
+# 部分 4: 移动端监控守护进程检查
 # ═══════════════════════════════════════════════════════════════
 
-log_title "Part 4: 监控服务器检查"
+log_title "Part 4: 移动端监控守护进程检查"
 
-MONITORING_SERVER="$LONGHUN_DIR/mobile-monitoring/backend/python/monitoring_server.py"
+MONITORING_DAEMON="$HOME/.龍魂/monitoring/daemon.sh"
+MONITORING_STATUS_DIR="$HOME/.龍魂/monitoring/status"
 
-if [ -f "$MONITORING_SERVER" ]; then
-    log_pass "监控服务器文件存在"
+if [ -f "$MONITORING_DAEMON" ]; then
+    log_pass "移动端监控守护进程控制器存在"
     
     # 检查是否运行
-    if curl -s http://localhost:9000/api/v1/monitor/health > /dev/null 2>&1; then
-        log_pass "监控服务器正在运行 (localhost:9000)"
-        
-        # 获取服务状态
-        HEALTH=$(curl -s http://localhost:9000/api/v1/monitor/health 2>/dev/null || echo "")
-        if echo "$HEALTH" | grep -q "healthy"; then
-            log_pass "监控服务器健康状态: 正常"
+    MONITORING_PID_FILE="$HOME/.龍魂/monitoring/pid/monitor.pid"
+    if [ -f "$MONITORING_PID_FILE" ]; then
+        MONITORING_PID=$(cat "$MONITORING_PID_FILE")
+        if ps -p "$MONITORING_PID" > /dev/null 2>&1; then
+            log_pass "移动端监控守护进程正在运行 (PID: $MONITORING_PID)"
+            
+            # 检查全局状态灯
+            if [ -f "$MONITORING_STATUS_DIR/GLOBAL.status" ]; then
+                GLOBAL_STATUS=$(cat "$MONITORING_STATUS_DIR/GLOBAL.status")
+                if echo "$GLOBAL_STATUS" | grep -q "🟢"; then
+                    log_pass "移动端监控全局状态: 正常 ($GLOBAL_STATUS)"
+                elif echo "$GLOBAL_STATUS" | grep -q "🟡"; then
+                    log_warn "移动端监控全局状态: 降级 ($GLOBAL_STATUS)"
+                else
+                    log_warn "移动端监控全局状态: 异常 ($GLOBAL_STATUS)"
+                fi
+            fi
+        else
+            log_warn "移动端监控守护进程未运行 (PID 文件过期)"
+            log_info "启动方式: bash $MONITORING_DAEMON start"
         fi
     else
-        log_warn "监控服务器未运行 (localhost:9000)"
-        log_info "启动方式: python3 $MONITORING_SERVER"
+        log_warn "移动端监控守护进程未运行"
+        log_info "启动方式: bash $MONITORING_DAEMON start"
     fi
 else
-    log_warn "监控服务器文件不存在 (可选)"
+    log_warn "移动端监控守护进程控制器不存在 (可选)"
 fi
 
 # ═══════════════════════════════════════════════════════════════
@@ -276,13 +290,13 @@ else
     log_info "启动方式: python3 $SYNC_FILE --watch"
 fi
 
-# 检查 monitoring_server 是否运行
-if pgrep -f "monitoring_server.py" > /dev/null; then
-    PID=$(pgrep -f "monitoring_server.py")
-    log_pass "monitoring_server 正在运行 (PID: $PID)"
+# 检查龍魂移动端监控守护进程是否运行
+if pgrep -f "$HOME/.龍魂/monitoring/monitor.py" > /dev/null; then
+    PID=$(pgrep -f "$HOME/.龍魂/monitoring/monitor.py")
+    log_pass "移动端监控守护进程正在运行 (PID: $PID)"
 else
-    log_warn "monitoring_server 未运行"
-    log_info "启动方式: python3 $MONITORING_SERVER"
+    log_warn "移动端监控守护进程未运行"
+    log_info "启动方式: bash $MONITORING_DAEMON start"
 fi
 
 # ═══════════════════════════════════════════════════════════════
@@ -392,10 +406,9 @@ if ! pgrep -f "brain_notion_sync.py --watch" > /dev/null; then
     echo ""
 fi
 
-if ! curl -s http://localhost:9000/api/v1/monitor/health > /dev/null 2>&1; then
-    echo "📌 启动监控服务器:"
-    echo "   cd ~/longhun-system/mobile-monitoring/backend/python"
-    echo "   python3 monitoring_server.py"
+if ! pgrep -f "$HOME/.龍魂/monitoring/monitor.py" > /dev/null; then
+    echo "📌 启动移动端监控守护进程:"
+    echo "   bash $MONITORING_DAEMON start"
     echo ""
 fi
 

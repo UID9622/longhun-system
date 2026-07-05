@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-#龍芯⚡️2026-06-19-LONGHUN-v5-UNIFIED-LAUNCHER-v1.0
+# -*- coding: utf-8 -*-#龍芯⚡️2026-06-19-LONGHUN-FILE2-v5-UNIFIED-LAUNCHER-v1.0
 """
 ═══════════════════════════════════════════════════════════════════════
   🐉 龍魂体系 v5.0 · 统一启动器

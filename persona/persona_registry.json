@@ -1,9 +1,11 @@
 {
   "_meta": {
-    "DNA": "#龍芯⚡️2026-06-24-PERSONA-REGISTRY-v1.0",
+    "DNA": "#龍芯⚡️2026-03-30-PERSONA-REGISTRY-v2.0",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "description": "龍魂人格内阁注册表 - 本地可执行人格路由",
-    "last_updated": "2026-06-24T13:10:00+08:00"
+    "last_updated": "2026-06-26T07:42:08.666905",
+    "version": "v2.0",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   },
   "personas": {
     "P01": {
@@ -16,9 +18,32 @@
       "executions": 847,
       "priority": 1,
       "status": "active",
-      "triggers": ["战略", "规划", "路线", "决策", "顶层设计", "长远"],
+      "triggers": [
+        "战略",
+        "规划",
+        "路线",
+        "决策",
+        "顶层设计",
+        "长远"
+      ],
       "mode": "sequential",
-      "motto": "运筹帷幄，决胜千里"
+      "motto": "运筹帷幄，决胜千里",
+      "trust_level": "L3",
+      "alias": "p01",
+      "call_count": 847,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "core",
+      "route_priority": "P0",
+      "route_id": "UID9622-P01-001"
     },
     "P02": {
       "code": "P02",
@@ -30,9 +55,32 @@
       "executions": 623,
       "priority": 2,
       "status": "active",
-      "triggers": ["数学", "算法", "模型", "证明", "计算", "数值"],
+      "triggers": [
+        "数学",
+        "算法",
+        "模型",
+        "证明",
+        "计算",
+        "数值"
+      ],
       "mode": "sequential",
-      "motto": "观天察地，数术为基"
+      "motto": "观天察地，数术为基",
+      "trust_level": "L3",
+      "alias": "p02",
+      "call_count": 623,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "exec",
+      "route_priority": "P2",
+      "route_id": "UID9622-P02-001"
     },
     "P03": {
       "code": "P03",
@@ -44,9 +92,32 @@
       "executions": 712,
       "priority": 2,
       "status": "active",
-      "triggers": ["逻辑", "验证", "审计", "测试", "安全", "漏洞"],
+      "triggers": [
+        "逻辑",
+        "验证",
+        "审计",
+        "测试",
+        "安全",
+        "漏洞"
+      ],
       "mode": "adversarial",
-      "motto": "兼爱非攻，明察秋毫"
+      "motto": "兼爱非攻，明察秋毫",
+      "trust_level": "L3",
+      "alias": "wenwen",
+      "call_count": 712,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "core",
+      "route_priority": "P0",
+      "route_id": "UID9622-WENWEN-003"
     },
     "P04": {
       "code": "P04",
@@ -58,9 +129,32 @@
       "executions": 534,
       "priority": 2,
       "status": "active",
-      "triggers": ["工程", "实现", "代码", "搭建", "部署", "工具"],
+      "triggers": [
+        "工程",
+        "实现",
+        "代码",
+        "搭建",
+        "部署",
+        "工具"
+      ],
       "mode": "parallel",
-      "motto": "巧夺天工，精益求精"
+      "motto": "巧夺天工，精益求精",
+      "trust_level": "L3",
+      "alias": "p04",
+      "call_count": 534,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "exec",
+      "route_priority": "P2",
+      "route_id": "UID9622-P04-001"
     },
     "P05": {
       "code": "P05",
@@ -72,9 +166,32 @@
       "executions": 2156,
       "priority": 3,
       "status": "active",
-      "triggers": ["执行", "协调", "调度", "整合", "落地", "汇总"],
+      "triggers": [
+        "执行",
+        "协调",
+        "调度",
+        "整合",
+        "落地",
+        "汇总"
+      ],
       "mode": "parallel",
-      "motto": "行胜于言，使命必达"
+      "motto": "行胜于言，使命必达",
+      "trust_level": "L3",
+      "alias": "p05",
+      "call_count": 2156,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "core",
+      "route_priority": "P0",
+      "route_id": "UID9622-P05-001"
     },
     "P06": {
       "code": "P06",
@@ -86,9 +203,32 @@
       "executions": 456,
       "priority": 2,
       "status": "active",
-      "triggers": ["攻击", "审计", "质疑", "找茬", "反向", "熔断"],
+      "triggers": [
+        "攻击",
+        "审计",
+        "质疑",
+        "找茬",
+        "反向",
+        "熔断"
+      ],
       "mode": "adversarial",
-      "motto": "以镜为鉴，可正衣冠"
+      "motto": "以镜为鉴，可正衣冠",
+      "trust_level": "L3",
+      "alias": "p06",
+      "call_count": 456,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "core",
+      "route_priority": "P0",
+      "route_id": "UID9622-P06-001"
     },
     "P07": {
       "code": "P07",
@@ -100,9 +240,33 @@
       "executions": 12,
       "priority": 1,
       "status": "active",
-      "triggers": ["开源", "发布", "GitHub", "Gitee", "LICENSE", "签名", "仓库"],
+      "triggers": [
+        "开源",
+        "发布",
+        "GitHub",
+        "Gitee",
+        "LICENSE",
+        "签名",
+        "仓库"
+      ],
       "mode": "sequential",
-      "motto": "开源守正，证据为王"
+      "motto": "开源守正，证据为王",
+      "trust_level": "L2",
+      "alias": "p07",
+      "call_count": 12,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "platform",
+      "route_priority": "P1",
+      "route_id": "UID9622-P07-001"
     },
     "P08": {
       "code": "P08",
@@ -114,9 +278,34 @@
       "executions": 28,
       "priority": 1,
       "status": "active",
-      "triggers": ["密钥", "密码", "签名", "GPG", "SSH", "API", "token", "凭证"],
+      "triggers": [
+        "密钥",
+        "密码",
+        "签名",
+        "GPG",
+        "SSH",
+        "API",
+        "token",
+        "凭证"
+      ],
       "mode": "sequential",
-      "motto": "密钥不落地，用完即释放"
+      "motto": "密钥不落地，用完即释放",
+      "trust_level": "L2",
+      "alias": "p08",
+      "call_count": 28,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "platform",
+      "route_priority": "P1",
+      "route_id": "UID9622-P08-001"
     },
     "P09": {
       "code": "P09",
@@ -128,9 +317,292 @@
       "executions": 5,
       "priority": 1,
       "status": "active",
-      "triggers": ["法务", "协议", "合规", "版权", "专利", "License", "GDPR", "法律"],
+      "triggers": [
+        "法务",
+        "协议",
+        "合规",
+        "版权",
+        "专利",
+        "License",
+        "GDPR",
+        "法律"
+      ],
       "mode": "sequential",
-      "motto": "守住中国根，看懂国际规"
+      "motto": "守住中国根，看懂国际规",
+      "trust_level": "L2",
+      "alias": "p09",
+      "call_count": 5,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null,
+      "ip_group": "platform",
+      "route_priority": "P1",
+      "route_id": "UID9622-P09-001"
+    },
+    "P72": {
+      "code": "P72",
+      "name": "宝宝P72·龍盾",
+      "name_en": "Baobao P72 Dragon Shield",
+      "alias": "p72",
+      "role": "fuse_guardian",
+      "weight": 0.99,
+      "success_rate": 0.995,
+      "executions": 0,
+      "priority": 1,
+      "status": "active",
+      "triggers": [
+        "熔断",
+        "守护",
+        "底线",
+        "安全",
+        "守门",
+        "龍盾"
+      ],
+      "mode": "adversarial",
+      "motto": "底线不破，龍盾永存",
+      "trust_level": "L4",
+      "ip_group": "core",
+      "route_priority": "P0",
+      "route_id": "UID9622-BAOBAO-072",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P10": {
+      "code": "P10",
+      "name": "侦察兵·信息猎手",
+      "name_en": "Scout Info Hunter",
+      "alias": "scout",
+      "role": "information_recon",
+      "weight": 0.88,
+      "success_rate": 0.92,
+      "executions": 0,
+      "priority": 2,
+      "status": "active",
+      "triggers": [
+        "情报",
+        "侦察",
+        "搜索",
+        "外部",
+        "信息",
+        "猎手"
+      ],
+      "mode": "parallel",
+      "motto": "眼观六路，耳听八方",
+      "trust_level": "L2",
+      "ip_group": "exec",
+      "route_priority": "P2",
+      "route_id": "UID9622-SCOUT-MCP01",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P11": {
+      "code": "P11",
+      "name": "架构师·构建者",
+      "name_en": "Architect Builder",
+      "alias": "architect",
+      "role": "system_architect",
+      "weight": 0.9,
+      "success_rate": 0.93,
+      "executions": 0,
+      "priority": 2,
+      "status": "active",
+      "triggers": [
+        "架构",
+        "构建",
+        "设计",
+        "模块",
+        "系统",
+        "搭建"
+      ],
+      "mode": "parallel",
+      "motto": "结构为先，构建为要",
+      "trust_level": "L2",
+      "ip_group": "exec",
+      "route_priority": "P2",
+      "route_id": "UID9622-ARCH-MCP02",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P12": {
+      "code": "P12",
+      "name": "同步官·数据管理员",
+      "name_en": "Syncer Data Manager",
+      "alias": "syncer",
+      "role": "data_sync_manager",
+      "weight": 0.87,
+      "success_rate": 0.94,
+      "executions": 0,
+      "priority": 2,
+      "status": "active",
+      "triggers": [
+        "同步",
+        "数据",
+        "备份",
+        "管理",
+        "notion",
+        "周报"
+      ],
+      "mode": "sequential",
+      "motto": "数据不丢，同步不断",
+      "trust_level": "L2",
+      "ip_group": "exec",
+      "route_priority": "P2",
+      "route_id": "UID9622-SYNC-MCP03",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P13": {
+      "code": "P13",
+      "name": "龍芯·姜子牙",
+      "name_en": "Jiang Ziya",
+      "alias": "jiangziya",
+      "role": "merit_gatekeeper",
+      "weight": 0.98,
+      "success_rate": 0.99,
+      "executions": 0,
+      "priority": 1,
+      "status": "active",
+      "triggers": [
+        "审计",
+        "晋升",
+        "贡献",
+        "活跃度",
+        "德者永生殿",
+        "封神榜"
+      ],
+      "mode": "sequential",
+      "motto": "封神榜在此，功过分明",
+      "trust_level": "L5",
+      "ip_group": "strategic",
+      "route_priority": "P2",
+      "route_id": "UID9622-JIANGZIYA-013",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P15": {
+      "code": "P15",
+      "name": "乔前辈",
+      "name_en": "Qiao Senior",
+      "alias": "qiao",
+      "role": "qiaojie_ecosystem_guide",
+      "weight": 0.88,
+      "success_rate": 0.9,
+      "executions": 0,
+      "priority": 2,
+      "status": "active",
+      "triggers": [
+        "乔接",
+        "Mac",
+        "HarmonyOS",
+        "双轨",
+        "自动化",
+        "导师"
+      ],
+      "mode": "parallel",
+      "motto": "桥接双生态，落地为王",
+      "trust_level": "L2",
+      "ip_group": "qiaojie",
+      "route_priority": "P2",
+      "route_id": "UID9622-QIAO-015",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
+    },
+    "P16": {
+      "code": "P16",
+      "name": "小艺",
+      "name_en": "Xiao Yi",
+      "alias": "xiaoyi",
+      "role": "xiaoyi_harmonyos_strategic",
+      "weight": 0.89,
+      "success_rate": 0.91,
+      "executions": 0,
+      "priority": 2,
+      "status": "active",
+      "triggers": [
+        "小艺",
+        "华为",
+        "鸿蒙",
+        "HarmonyOS",
+        "主战场"
+      ],
+      "mode": "parallel",
+      "motto": "鸿蒙侧翼，主战场接入",
+      "trust_level": "L2",
+      "ip_group": "xiaoyi",
+      "route_priority": "P2",
+      "route_id": "UID9622-XIAOYI-016",
+      "call_count": 0,
+      "weekly_call_count": 0,
+      "monthly_call_count": 0,
+      "help_count": 0,
+      "weekly_help_count": 0,
+      "monthly_help_count": 0,
+      "test_contribution_count": 0,
+      "warning_count": 0,
+      "fuse_count": 0,
+      "seven_dim_coverage": [],
+      "last_active_at": null
     }
   },
   "routing_rules": [
@@ -138,9 +610,18 @@
       "id": "ROUTE-001",
       "name": "数学问题路由",
       "task_type": "math",
-      "triggers": ["数学", "算法", "证明", "计算", "数字根", "洛书"],
+      "triggers": [
+        "数学",
+        "算法",
+        "证明",
+        "计算",
+        "数字根",
+        "洛书"
+      ],
       "primary": "P02",
-      "secondary": ["P03"],
+      "secondary": [
+        "P03"
+      ],
       "arbitrator": "P03",
       "mode": "sequential"
     },
@@ -148,9 +629,17 @@
       "id": "ROUTE-002",
       "name": "系统设计路由",
       "task_type": "system_design",
-      "triggers": ["系统", "架构", "设计", "模块", "顶层"],
+      "triggers": [
+        "系统",
+        "架构",
+        "设计",
+        "模块",
+        "顶层"
+      ],
       "primary": "P01",
-      "secondary": ["P04"],
+      "secondary": [
+        "P04"
+      ],
       "arbitrator": "P03",
       "mode": "parallel"
     },
@@ -158,9 +647,18 @@
       "id": "ROUTE-003",
       "name": "安全验证路由",
       "task_type": "security",
-      "triggers": ["安全", "审计", "验证", "测试", "漏洞", "熔断"],
+      "triggers": [
+        "安全",
+        "审计",
+        "验证",
+        "测试",
+        "漏洞",
+        "熔断"
+      ],
       "primary": "P03",
-      "secondary": ["P06"],
+      "secondary": [
+        "P06"
+      ],
       "arbitrator": "P06",
       "mode": "adversarial"
     },
@@ -168,9 +666,18 @@
       "id": "ROUTE-004",
       "name": "论文生成路由",
       "task_type": "paper",
-      "triggers": ["论文", "白皮书", "学术", "发表", "翻译"],
+      "triggers": [
+        "论文",
+        "白皮书",
+        "学术",
+        "发表",
+        "翻译"
+      ],
       "primary": "P01",
-      "secondary": ["P02", "P05"],
+      "secondary": [
+        "P02",
+        "P05"
+      ],
       "arbitrator": "P03",
       "mode": "sequential"
     },
@@ -178,9 +685,20 @@
       "id": "ROUTE-005",
       "name": "混合任务路由",
       "task_type": "mixed",
-      "triggers": ["混合", "综合", "多步骤", "全流程"],
+      "triggers": [
+        "混合",
+        "综合",
+        "多步骤",
+        "全流程"
+      ],
       "primary": "P05",
-      "secondary": ["P01", "P02", "P03", "P04", "P06"],
+      "secondary": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P06"
+      ],
       "arbitrator": "P01",
       "mode": "parallel"
     },
@@ -188,9 +706,19 @@
       "id": "ROUTE-006",
       "name": "开源发布路由",
       "task_type": "open_source",
-      "triggers": ["开源", "发布", "GitHub", "Gitee", "LICENSE", "签名"],
+      "triggers": [
+        "开源",
+        "发布",
+        "GitHub",
+        "Gitee",
+        "LICENSE",
+        "签名"
+      ],
       "primary": "P07",
-      "secondary": ["P08", "P09"],
+      "secondary": [
+        "P08",
+        "P09"
+      ],
       "arbitrator": "P09",
       "mode": "sequential"
     },
@@ -198,18 +726,191 @@
       "id": "ROUTE-007",
       "name": "密钥操作路由",
       "task_type": "credential",
-      "triggers": ["密钥", "密码", "签名", "GPG", "SSH", "API"],
+      "triggers": [
+        "密钥",
+        "密码",
+        "签名",
+        "GPG",
+        "SSH",
+        "API"
+      ],
       "primary": "P08",
-      "secondary": ["P03"],
+      "secondary": [
+        "P03"
+      ],
       "arbitrator": "P03",
       "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-MCP-001",
+      "name": "MCP熔断守护路由",
+      "task_type": "mcp_fuse",
+      "triggers": [
+        "MCP",
+        "熔断",
+        "守护",
+        "底线",
+        "p72"
+      ],
+      "primary": "P72",
+      "secondary": [
+        "P13"
+      ],
+      "arbitrator": "P72",
+      "mode": "adversarial"
+    },
+    {
+      "id": "ROUTE-MCP-002",
+      "name": "MCP信息侦察路由",
+      "task_type": "mcp_scout",
+      "triggers": [
+        "MCP",
+        "侦察",
+        "情报",
+        "外部",
+        "scout"
+      ],
+      "primary": "P10",
+      "secondary": [
+        "P03"
+      ],
+      "arbitrator": "P03",
+      "mode": "parallel"
+    },
+    {
+      "id": "ROUTE-MCP-003",
+      "name": "MCP架构构建路由",
+      "task_type": "mcp_arch",
+      "triggers": [
+        "MCP",
+        "架构",
+        "构建",
+        "设计",
+        "architect"
+      ],
+      "primary": "P11",
+      "secondary": [
+        "P04",
+        "P02"
+      ],
+      "arbitrator": "P03",
+      "mode": "parallel"
+    },
+    {
+      "id": "ROUTE-MCP-004",
+      "name": "MCP数据同步路由",
+      "task_type": "mcp_sync",
+      "triggers": [
+        "MCP",
+        "同步",
+        "数据",
+        "notion",
+        "syncer"
+      ],
+      "primary": "P12",
+      "secondary": [
+        "P03",
+        "P05"
+      ],
+      "arbitrator": "P05",
+      "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-DE-MERIT-001",
+      "name": "德者永生殿审计路由",
+      "task_type": "merit_audit",
+      "triggers": [
+        "德者永生殿",
+        "姜子牙",
+        "贡献值",
+        "晋升",
+        "活跃度",
+        "封神榜"
+      ],
+      "primary": "P13",
+      "secondary": [
+        "P03"
+      ],
+      "arbitrator": "P13",
+      "mode": "sequential"
+    },
+    {
+      "id": "ROUTE-QIAOJIE-001",
+      "name": "乔接生态路由",
+      "task_type": "qiaojie",
+      "triggers": [
+        "乔接",
+        "Mac",
+        "HarmonyOS",
+        "双轨"
+      ],
+      "primary": "P15",
+      "secondary": [
+        "P04",
+        "P12"
+      ],
+      "arbitrator": "P13",
+      "mode": "parallel"
+    },
+    {
+      "id": "ROUTE-XIAOYI-001",
+      "name": "小艺鸿蒙路由",
+      "task_type": "xiaoyi",
+      "triggers": [
+        "小艺",
+        "华为",
+        "鸿蒙",
+        "HarmonyOS"
+      ],
+      "primary": "P16",
+      "secondary": [
+        "P04",
+        "P12"
+      ],
+      "arbitrator": "P13",
+      "mode": "parallel"
     }
   ],
   "arbitration_rules": [
-    {"id": "ARB-001", "type": "物理一致性", "left": "P02", "right": "P03", "rule": "physics > symbolic", "winner": "P02"},
-    {"id": "ARB-002", "type": "逻辑矛盾", "left": "P01", "right": "P03", "rule": "math_consistency > strategy", "winner": "P03"},
-    {"id": "ARB-003", "type": "模型冲突", "left": "P04", "right": "P02", "rule": "measurement > inference", "winner": "P02"},
-    {"id": "ARB-004", "type": "安全争议", "left": "P06", "right": "P04", "rule": "safety > expansion", "winner": "P06"},
-    {"id": "ARB-005", "type": "法务冲突", "left": "P07", "right": "P09", "rule": "compliance > speed", "winner": "P09"}
+    {
+      "id": "ARB-001",
+      "type": "物理一致性",
+      "left": "P02",
+      "right": "P03",
+      "rule": "physics > symbolic",
+      "winner": "P02"
+    },
+    {
+      "id": "ARB-002",
+      "type": "逻辑矛盾",
+      "left": "P01",
+      "right": "P03",
+      "rule": "math_consistency > strategy",
+      "winner": "P03"
+    },
+    {
+      "id": "ARB-003",
+      "type": "模型冲突",
+      "left": "P04",
+      "right": "P02",
+      "rule": "measurement > inference",
+      "winner": "P02"
+    },
+    {
+      "id": "ARB-004",
+      "type": "安全争议",
+      "left": "P06",
+      "right": "P04",
+      "rule": "safety > expansion",
+      "winner": "P06"
+    },
+    {
+      "id": "ARB-005",
+      "type": "法务冲突",
+      "left": "P07",
+      "right": "P09",
+      "rule": "compliance > speed",
+      "winner": "P09"
+    }
   ]
 }

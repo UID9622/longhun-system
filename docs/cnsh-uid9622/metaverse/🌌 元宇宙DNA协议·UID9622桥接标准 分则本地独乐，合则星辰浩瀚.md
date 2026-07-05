@@ -361,7 +361,7 @@ UID[4-6位数字]
 #☰鑫⚡GPG:LOCAL000⋄SHA256:A1B2C3D4⋄CN⋄20251228T152000⋄UID9622⋄记忆存储⋄001
 ```
 
-### 模式2：龙芯北辰（星辰联动）
+### 模式2：龍芯北辰（星辰联动）
 
 ```yaml
 全球模式:
@@ -379,7 +379,7 @@ UID[4-6位数字]
     - ⚠️ 跨境传输需遵守GDPR/数据安全法
 ```
 
-**龙芯北辰DNA示例**（中文原生）：
+**龍芯北辰DNA示例**（中文原生）：
 
 ```jsx
 #☰鑫⚡GPG:A1B2C3D4⋄SHA256:BEICHEN01⋄CN⋄20251228T152000+0800⋄UID9622⋄桥接协议⋄001
@@ -408,7 +408,7 @@ class DNAMode:
     def _beichen_dna(self, event_data):
         # 使用真实GPG指纹
         gpg_fingerprint = get_real_gpg_fingerprint()
-        # 选择性上传到龙芯北辰节点
+        # 选择性上传到龍芯北辰节点
         upload_to_beichen = True
         return format_dna(event_data, gpg_fingerprint, upload_to_beichen)
 ```
@@ -557,13 +557,13 @@ $ python3 metaverse_dna_
 
 ---
 
-## 🌟 龙芯北辰索引（星辰联动）
+## 🌟 龍芯北辰索引（星辰联动）
 
 ### 架构设计
 
 ```jsx
 ┌─────────────────────────────────────────┐
-│         🌍 龙芯北辰（去中心化）         │
+│         🌍 龍芯北辰（去中心化）         │
 ├─────────────────────────────────────────┤
 │  节点1（中国）                          │
 │  - 存储：CN开头的DNA索引                │
@@ -699,7 +699,7 @@ pip3 install pytz
 curl -o metaverse_
 ```
 
-### 开发者（龙芯北辰模式）
+### 开发者（龍芯北辰模式）
 
 ```bash
 # 1. 安装GPG
@@ -712,7 +712,7 @@ gpg --full-generate-key
 # 3. 上传公钥到服务器（可选）
 gpg --send-keys YOUR_KEY_ID
 
-# 4. 启用龙芯北辰模式
+# 4. 启用龍芯北辰模式
 python3 metaverse_dna_
 ```
 
@@ -758,7 +758,7 @@ python3 metaverse_dna_
 
 **创建者**：宝宝·构建师 #PERSONA-BAOBAO-001
 
-**审核人**：上帝之眼·守护者 + 龙魂价值内核
+**审核人**：上帝之眼·守护者 + 龍魂价值内核
 
 **永恒确认**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -799,8 +799,8 @@ python3 metaverse_dna_
 
 - [数字血统UID体系·永恒烙印 | 身份主权引擎](../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E6%9B%BE%E4%BB%95%E5%BC%BA%E6%99%BA%E6%85%A7%C2%B7%E4%B8%87%E5%B9%B4%E4%BC%A0%E6%89%BF%E7%9F%A5%E8%AF%86%E5%BA%93/%E6%95%B0%E5%AD%97%E8%A1%80%E7%BB%9FUID%E4%BD%93%E7%B3%BB%C2%B7%E6%B0%B8%E6%81%92%E7%83%99%E5%8D%B0%20%E8%BA%AB%E4%BB%BD%E4%B8%BB%E6%9D%83%E5%BC%95%E6%93%8E%<POTENTIAL_SECRET_PLACEHOLDER>.md)
 - [🔐 UID9622密钥管理中心 | 统一身份·激活码·确认码总库](../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%F0%9F%94%90%20UID9622%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83%20%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%C2%B7%E6%BF%80%E6%B4%BB%E7%A0%81%C2%B7%E7%A1%AE%E8%AE%A4%E7%A0%81%E6%80%BB%E5%BA%93%<POTENTIAL_SECRET_PLACEHOLDER>.md)
-- [🔐 P0永恒级·三层交叉监督与镜像人格系统 | 龙魂安全防护完整方案](%F0%9F%94%90%20P0%E6%B0%B8%E6%81%92%E7%BA%A7%C2%B7%E4%B8%89%E5%B1%82%E4%BA%A4%E5%8F%89%E7%9B%91%E7%9D%A3%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BA%BA%E6%A0%BC%E7%B3%BB%E7%BB%9F%20%E9%BE%99%E9%AD%82%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88%<POTENTIAL_SECRET_PLACEHOLDER>.md)
-- [📦 龙魂公益版·一键部署包 | 本地AI零门槛安装](../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%99%EF%B8%8F%20%E9%BE%8D%E8%8A%AF%C2%B7%E4%BA%94%E5%A4%A7%E5%90%8E%E5%8F%B0%E8%87%AA%E8%BF%90%E8%A1%8C%E4%BA%BA%E6%A0%BC%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%20v3%200%EF%BD%9C%E5%AF%B9%E9%BD%90%E8%92%99%E5%8D%A6%E4%BA%BA%E6%A0%BCIP%C2%B7%E9%BE%8D%E8%8A%AF%E5%89%8D%E7%BC%80%C2%B7%E8%A2%AB%E5%8A%A8%E5%9E%8B%E4%BA%94%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5/%F0%9F%93%A6%20%E9%BE%99%E9%AD%82%E5%85%AC%E7%9B%8A%E7%89%88%C2%B7%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E5%8C%85%20%E6%9C%AC%E5%9C%B0AI%E9%9B%B6%E9%97%A8%E6%A7%9B%E5%AE%89%E8%A3%85%<POTENTIAL_SECRET_PLACEHOLDER>.md)
+- [🔐 P0永恒级·三层交叉监督与镜像人格系统 | 龍魂安全防护完整方案](%F0%9F%94%90%20P0%E6%B0%B8%E6%81%92%E7%BA%A7%C2%B7%E4%B8%89%E5%B1%82%E4%BA%A4%E5%8F%89%E7%9B%91%E7%9D%A3%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BA%BA%E6%A0%BC%E7%B3%BB%E7%BB%9F%20%E9%BE%99%E9%AD%82%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88%<POTENTIAL_SECRET_PLACEHOLDER>.md)
+- [📦 龍魂公益版·一键部署包 | 本地AI零门槛安装](../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E2%9A%99%EF%B8%8F%20%E9%BE%8D%E8%8A%AF%C2%B7%E4%BA%94%E5%A4%A7%E5%90%8E%E5%8F%B0%E8%87%AA%E8%BF%90%E8%A1%8C%E4%BA%BA%E6%A0%BC%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%20v3%200%EF%BD%9C%E5%AF%B9%E9%BD%90%E8%92%99%E5%8D%A6%E4%BA%BA%E6%A0%BCIP%C2%B7%E9%BE%8D%E8%8A%AF%E5%89%8D%E7%BC%80%C2%B7%E8%A2%AB%E5%8A%A8%E5%9E%8B%E4%BA%94%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5/%F0%9F%93%A6%20%E9%BE%99%E9%AD%82%E5%85%AC%E7%9B%8A%E7%89%88%C2%B7%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E5%8C%85%20%E6%9C%AC%E5%9C%B0AI%E9%9B%B6%E9%97%A8%E6%A7%9B%E5%AE%89%E8%A3%85%<POTENTIAL_SECRET_PLACEHOLDER>.md)
 
 ---
 

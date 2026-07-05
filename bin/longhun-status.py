@@ -108,6 +108,17 @@ def main():
     print("  治理巡检:    python3 bin/longhun-governance.py status")
     print("  治理自愈:    python3 bin/longhun-governance.py heal")
 
+    # 启动精神燃料
+    fuel_script = pathlib.Path.home() / '.龍魂' / 'victory_lookbacks' / 'startup_fuel.py'
+    if fuel_script.exists():
+        try:
+            import subprocess as _sp
+            out = _sp.run([sys.executable, str(fuel_script)], capture_output=True, text=True, timeout=10)
+            if out.stdout:
+                print(out.stdout.rstrip())
+        except Exception:
+            pass
+
 
 if __name__ == "__main__":
     main()

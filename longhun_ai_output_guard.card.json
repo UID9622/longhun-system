@@ -1,0 +1,34 @@
+{
+  "M::": {
+    "type": "ai_output_guard",
+    "status": "pass",
+    "payload": {
+      "title": "龍魂 AI 输出熔断器 v1.0",
+      "source_file": "longhun_ai_output_guard.py",
+      "checks": [
+        "overall_semantic",
+        "code_block_extraction",
+        "static_pattern_scan",
+        "auto_quarantine"
+      ],
+      "api_endpoint": "POST /api/ai-scan",
+      "input": 2026062911,
+      "digital_root": 2,
+      "wuxing": "土",
+      "color": "🟢",
+      "decision": "PASS",
+      "action": "放行·执行",
+      "self_check": "5/5 单元测试通过",
+      "note": "AI 生成内容整体语义 + 代码块提取 + 静态扫描 + 自动隔离；已接入龍魂护盾与国密耻辱墙"
+    }
+  },
+  "CNSH::": {
+    "dna": "#龍芯⚡️2026-06-29-LONGHUN-AI-OUTPUT-GUARD-CARD-v1.0",
+    "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "audit": "🟢",
+    "wuxing": "土",
+    "policy": "pass",
+    "trace_hash": "7e8f603a8cf4dbff"
+  }
+}

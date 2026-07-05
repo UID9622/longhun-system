@@ -7,7 +7,7 @@
 看到颜色就知道要做什么。
 
 DNA: #龍芯⚡️2026-06-23-WUCAI-AUDIT-v1.0
-CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 """
 from __future__ import annotations
 
@@ -136,7 +136,7 @@ def _check_black(ctx: Dict[str, Any]) -> Optional[str]:
 def _check_gold(ctx: Dict[str, Any]) -> Optional[str]:
     """金色：必须含 CONFIRM 徽记 + 至少一条触发条件。"""
     token = ctx.get("master_confirm_token")
-    expected = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+    expected = ""#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX""
     if token != expected and token != "#CONFIRM_9622-ONLY-ONCE_LK9X-772Z":
         return None
     gold_conditions = [
@@ -220,7 +220,7 @@ def main() -> None:
             "factors": {"sharpness": 0.5, "long_term": 0.5, "density": 0.5, "absence": 0.0, "pleasing": 0.0},
             "context": {
                 "involves_minor": True,
-                "master_confirm_token": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+                "master_confirm_token": ""#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"",
             },
         },
     ]

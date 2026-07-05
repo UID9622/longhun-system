@@ -1,8 +1,8 @@
 {
-  "total": 57,
-  "healthy": 14,
-  "warning": 35,
-  "critical": 8,
+  "total": 63,
+  "healthy": 18,
+  "warning": 41,
+  "critical": 4,
   "skills": [
     {
       "id": "longhun-cloud-deploy",
@@ -24,6 +24,19 @@
       "type": "python",
       "version": "5.3",
       "scripts_count": 8,
+      "score": 100,
+      "health": "🟢 健康",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": []
+    },
+    {
+      "id": "longhun-cs-knowledge-base",
+      "name": "longhun-cs-knowledge-base",
+      "source": "external",
+      "type": "python",
+      "version": "1.5",
+      "scripts_count": 3,
       "score": 100,
       "health": "🟢 健康",
       "loneliness": "低",
@@ -57,12 +70,38 @@
       "notes": []
     },
     {
+      "id": "longhun-empower-engine",
+      "name": "longhun-empower-engine",
+      "source": "external",
+      "type": "mixed",
+      "version": "1.5",
+      "scripts_count": 4,
+      "score": 100,
+      "health": "🟢 健康",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": []
+    },
+    {
       "id": "longhun-governance",
       "name": "longhun-governance",
       "source": "external",
       "type": "python",
       "version": "5.0.0",
       "scripts_count": 6,
+      "score": 100,
+      "health": "🟢 健康",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": []
+    },
+    {
+      "id": "longhun-kg-upgrade",
+      "name": "longhun-kg-upgrade",
+      "source": "external",
+      "type": "mixed",
+      "version": "1.0.0",
+      "scripts_count": 8,
       "score": 100,
       "health": "🟢 健康",
       "loneliness": "低",
@@ -87,7 +126,7 @@
       "name": "longhun-zeng-digital-human",
       "source": "external",
       "type": "python",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "scripts_count": 7,
       "score": 100,
       "health": "🟢 健康",
@@ -126,7 +165,7 @@
       "name": "longhun-backup",
       "source": "external",
       "type": "python",
-      "version": "5.1",
+      "version": "1.0",
       "scripts_count": 2,
       "score": 90,
       "health": "🟢 健康",
@@ -179,6 +218,19 @@
       "source": "external",
       "type": "python",
       "version": "5.2.0",
+      "scripts_count": 2,
+      "score": 90,
+      "health": "🟢 健康",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": []
+    },
+    {
+      "id": "longhun-riemann",
+      "name": "longhun-riemann",
+      "source": "external",
+      "type": "python",
+      "version": "5.0",
       "scripts_count": 2,
       "score": 90,
       "health": "🟢 健康",
@@ -252,6 +304,21 @@
       "notes": []
     },
     {
+      "id": "longhun-agent-eco",
+      "name": "longhun-agent-eco",
+      "source": "external",
+      "type": "python",
+      "version": "1.0",
+      "scripts_count": 3,
+      "score": 80,
+      "health": "🟡 可用但需补全",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": [
+        "描述缺失"
+      ]
+    },
+    {
       "id": "longhun-archive",
       "name": "longhun-archive",
       "source": "external",
@@ -283,6 +350,19 @@
       "source": "external",
       "type": "python",
       "version": "5.1",
+      "scripts_count": 1,
+      "score": 80,
+      "health": "🟡 可用但需补全",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": []
+    },
+    {
+      "id": "longhun-behavior-engine",
+      "name": "longhun-behavior-engine",
+      "source": "external",
+      "type": "python",
+      "version": "1.0",
       "scripts_count": 1,
       "score": 80,
       "health": "🟡 可用但需补全",
@@ -334,7 +414,7 @@
       "name": "longhun-cloud-panel",
       "source": "external",
       "type": "python",
-      "version": "5.0",
+      "version": "1.0",
       "scripts_count": 1,
       "score": 80,
       "health": "🟡 可用但需补全",
@@ -421,19 +501,6 @@
       "notes": []
     },
     {
-      "id": "longhun-riemann",
-      "name": "longhun-riemann",
-      "source": "external",
-      "type": "python",
-      "version": "5.0",
-      "scripts_count": 1,
-      "score": 80,
-      "health": "🟡 可用但需补全",
-      "loneliness": "低",
-      "recommendation": "状态良好，保持使用并定期反馈",
-      "notes": []
-    },
-    {
       "id": "skill-1-algorithmic-art",
       "name": "algorithmic-art",
       "source": "internal",
@@ -503,7 +570,7 @@
       "name": "cnsh-protocol-v2-0",
       "source": "external",
       "type": "doc",
-      "version": "2.0",
+      "version": "1.0",
       "scripts_count": 0,
       "score": 60,
       "health": "🟡 可用但需补全",
@@ -518,7 +585,7 @@
       "name": "cnsh-semantic-v2-0",
       "source": "external",
       "type": "doc",
-      "version": "2.0",
+      "version": "1.0",
       "scripts_count": 0,
       "score": 60,
       "health": "🟡 可用但需补全",
@@ -544,34 +611,33 @@
       ]
     },
     {
-      "id": "longhun-agent-eco",
-      "name": "longhun-agent-eco",
+      "id": "dragon-soul-agent",
+      "name": "dragon-soul-agent",
       "source": "external",
-      "type": "python",
-      "version": "unknown",
-      "scripts_count": 3,
+      "type": "doc",
+      "version": "1.0",
+      "scripts_count": 0,
       "score": 60,
       "health": "🟡 可用但需补全",
-      "loneliness": "低",
-      "recommendation": "状态良好，保持使用并定期反馈",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
       "notes": [
-        "描述缺失",
-        "版本未声明"
+        "无可执行脚本（纯文档/语义技能）"
       ]
     },
     {
-      "id": "longhun-behavior-engine",
-      "name": "longhun-behavior-engine",
+      "id": "longhun-cn-innovation-knowledge-base",
+      "name": "longhun-cn-innovation-knowledge-base",
       "source": "external",
-      "type": "python",
-      "version": "unknown",
-      "scripts_count": 1,
+      "type": "doc",
+      "version": "1.0.0",
+      "scripts_count": 0,
       "score": 60,
       "health": "🟡 可用但需补全",
-      "loneliness": "低",
-      "recommendation": "状态良好，保持使用并定期反馈",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
       "notes": [
-        "版本未声明"
+        "无可执行脚本（纯文档/语义技能）"
       ]
     },
     {
@@ -580,6 +646,21 @@
       "source": "external",
       "type": "doc",
       "version": "5.2.0",
+      "scripts_count": 0,
+      "score": 60,
+      "health": "🟡 可用但需补全",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
+      "notes": [
+        "无可执行脚本（纯文档/语义技能）"
+      ]
+    },
+    {
+      "id": "longhun-forensic-toolkit",
+      "name": "longhun-forensic-toolkit",
+      "source": "external",
+      "type": "doc",
+      "version": "1.0",
       "scripts_count": 0,
       "score": 60,
       "health": "🟡 可用但需补全",
@@ -650,6 +731,66 @@
       ]
     },
     {
+      "id": "longhun-memory-bootstrap",
+      "name": "longhun-memory-bootstrap",
+      "source": "external",
+      "type": "doc",
+      "version": "1.0",
+      "scripts_count": 0,
+      "score": 60,
+      "health": "🟡 可用但需补全",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
+      "notes": [
+        "无可执行脚本（纯文档/语义技能）"
+      ]
+    },
+    {
+      "id": "longhun-notion-portal",
+      "name": "longhun-notion-portal",
+      "source": "external",
+      "type": "doc",
+      "version": "2.0",
+      "scripts_count": 0,
+      "score": 60,
+      "health": "🟡 可用但需补全",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
+      "notes": [
+        "无可执行脚本（纯文档/语义技能）"
+      ]
+    },
+    {
+      "id": "longhun-tongxinyi",
+      "name": "longhun-tongxinyi",
+      "source": "external",
+      "type": "doc",
+      "version": "1.0",
+      "scripts_count": 0,
+      "score": 60,
+      "health": "🟡 可用但需补全",
+      "loneliness": "高",
+      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
+      "notes": [
+        "无可执行脚本（纯文档/语义技能）"
+      ]
+    },
+    {
+      "id": "longhun-warehouse-audit",
+      "name": "longhun-warehouse-audit",
+      "source": "external",
+      "type": "python",
+      "version": "unknown",
+      "scripts_count": 1,
+      "score": 60,
+      "health": "🟡 可用但需补全",
+      "loneliness": "低",
+      "recommendation": "状态良好，保持使用并定期反馈",
+      "notes": [
+        "版本未声明"
+      ]
+    },
+    {
       "id": "longhun-workflow-transparent",
       "name": "longhun-workflow-transparent",
       "source": "external",
@@ -681,41 +822,24 @@
       ]
     },
     {
-      "id": "dragon-soul-agent",
-      "name": "dragon-soul-agent",
+      "id": "longhun-priority-sort",
+      "name": "longhun-priority-sort",
       "source": "external",
       "type": "doc",
-      "version": "unknown",
+      "version": "1.0",
       "scripts_count": 0,
       "score": 40,
       "health": "🔴 需关注",
       "loneliness": "高",
       "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
       "notes": [
-        "版本未声明",
+        "描述缺失",
         "无可执行脚本（纯文档/语义技能）"
       ]
     },
     {
-      "id": "longhun-memory-bootstrap",
-      "name": "longhun-memory-bootstrap",
-      "source": "external",
-      "type": "doc",
-      "version": "unknown",
-      "scripts_count": 0,
-      "score": 20,
-      "health": "🔴 需关注",
-      "loneliness": "高",
-      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
-      "notes": [
-        "版本未声明",
-        "DNA 未提取",
-        "无可执行脚本（纯文档/语义技能）"
-      ]
-    },
-    {
-      "id": "longhun-priority-sort",
-      "name": "longhun-priority-sort",
+      "id": "longhun-merit-hall",
+      "name": "longhun-merit-hall",
       "source": "external",
       "type": "doc",
       "version": "unknown",
@@ -731,76 +855,23 @@
       ]
     },
     {
-      "id": "CNSH-PROTOCOL",
-      "name": "═══════════════════════════════════════════",
-      "source": "external-json",
+      "id": "longhun-trust-protocol",
+      "name": "longhun-trust-protocol",
+      "source": "external",
       "type": "doc",
-      "version": "",
+      "version": "unknown",
       "scripts_count": 0,
       "score": 20,
       "health": "🔴 需关注",
-      "loneliness": "中",
-      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
-      "notes": [
-        "版本未声明",
-        "DNA 未提取",
-        "无可执行脚本（纯文档/语义技能）"
-      ]
-    },
-    {
-      "id": "digital-identity-sovereignty",
-      "name": "龍魂数字身份主权协议 v2.0",
-      "source": "external-json",
-      "type": "doc",
-      "version": "",
-      "scripts_count": 0,
-      "score": 20,
-      "health": "🔴 需关注",
-      "loneliness": "中",
-      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
-      "notes": [
-        "版本未声明",
-        "DNA 未提取",
-        "无可执行脚本（纯文档/语义技能）"
-      ]
-    },
-    {
-      "id": "kimi-webbridge",
-      "name": "Kimi WebBridge",
-      "source": "external-json",
-      "type": "doc",
-      "version": "",
-      "scripts_count": 0,
-      "score": 20,
-      "health": "🔴 需关注",
-      "loneliness": "中",
-      "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
-      "notes": [
-        "版本未声明",
-        "DNA 未提取",
-        "无可执行脚本（纯文档/语义技能）"
-      ]
-    },
-    {
-      "id": "CNSH-SEMANTIC",
-      "name": "CNSH-SEMANTIC",
-      "source": "external-json",
-      "type": "doc",
-      "version": "",
-      "scripts_count": 0,
-      "score": 0,
-      "health": "🔴 需关注",
-      "loneliness": "中",
+      "loneliness": "高",
       "recommendation": "建议补充 CLI/API 入口，或接入语义调度层避免被冷落",
       "notes": [
         "描述缺失",
         "版本未声明",
-        "DNA 未提取",
         "无可执行脚本（纯文档/语义技能）"
       ]
     }
   ],
   "dna": "#龍芯⚡️2026-06-23-LONGHUN-MODULE-SELF-ASSESSMENT-v1.0",
-  "_dna": "#龍芯⚡️20260624013023088-AUTO-DNA-026E4CFD",
-  "_dna_note": "自动注入·分层治理自愈引擎·来源可查"
+  "_dna": "2026-07-03-CONFIG-MODULE-SELF-ASSESSMENT-v1.0"
 }

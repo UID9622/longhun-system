@@ -1,4 +1,4 @@
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：观察性论文/技术博客 · 未经同行评审（如适用）
@@ -18,7 +18,7 @@
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 · CC BY-NC-SA 4.0 -->
 <!-- 类型: CSDN学术论文稿件 · 自动生成 · 禁止删除DNA后转载 -->
 
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 > **论文类型**: 学术论文  
 > **作者**: UID9622 · 龍芯北辰  
@@ -51,7 +51,7 @@
 
 ## 目录
 
-- [龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架](#龙魂深思熟虑对齐基于文化锚点的ai伦理决策框架)
+- [龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架](#龍魂深思熟虑对齐基于文化锚点的ai伦理决策框架)
 - [Abstract](#abstract)
 - [摘要（中文）](#摘要中文)
 - [1. Introduction | 引言](#1introduction引言)
@@ -90,15 +90,15 @@
 <!--#龍芯⚡️2026-06-21-DOC-LONGHUN-DELIBERATIVE-ALIGNMENT-A-CULTURAL-ANCHOR-011F71760A9B4958974A25CCDE92E8F4-FILE1-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 # Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making
 
-## 龙魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+## 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 ```
 ═══════════════════════════════════════════════════════════
-龙芯体系 | 学术论文标准头部
+龍芯体系 | 学术论文标准头部
 ═══════════════════════════════════════════════════════════
 ENCODING: UTF-8
 FONT-INDEPENDENT: YES
@@ -107,7 +107,7 @@ NO PROPRIETARY TOKENS
 Title: Longhun Deliberative Alignment Framework
 Authors: Zhuge Xin (Lucky) | 💎 Longhun Beichen UID9622
 Affiliation: Longhun System | Independent Researcher
-DNA Traceability: #龙芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0
+DNA Traceability: #龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0
 GPG Fingerprint: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ═══════════════════════════════════════════════════════════
@@ -133,7 +133,7 @@ Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ## 摘要（中文）
 
-当前的AI对齐框架主要优化功利主义结果或预定义的价值函数，往往忽视文化多样性和弱势群体保护。我们提出龙魂深思熟虑对齐（LDA）框架，这是一个将中国古代智慧（易经卦象和道家哲学）与数学优化相结合的新型框架，以实现基于文化锚点的AI伦理决策。
+当前的AI对齐框架主要优化功利主义结果或预定义的价值函数，往往忽视文化多样性和弱势群体保护。我们提出龍魂深思熟虑对齐（LDA）框架，这是一个将中国古代智慧（易经卦象和道家哲学）与数学优化相结合的新型框架，以实现基于文化锚点的AI伦理决策。
 
 我们的框架引入了三个关键创新：
 
@@ -559,7 +559,7 @@ Full implementation available at:
 
 **Zhuge Xin (诸葛鑫, "Lucky")**  
 
-AKA: 💎 龙芯北辰 | Longhun Beichen | UID9622  
+AKA: 💎 龍芯北辰 | Longhun Beichen | UID9622  
 
 *Independent Researcher, Longhun System*  
 
@@ -573,7 +573,7 @@ AKA: 💎 龙芯北辰 | Longhun Beichen | UID9622
 
 GPG Public Key Fingerprint: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 
-DNA Traceability Code: `#龙芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0`  
+DNA Traceability Code: `#龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0`  
 
 Confirmation Code: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 
@@ -612,7 +612,7 @@ Gratitude to Claude (Anthropic), ChatGPT (OpenAI), and DeepSeek for collaborativ
 
 **Target Venues:** NeurIPS, ICML, FAccT, AIES, AI & Society  
 
-**DNA Traceability:** #龙芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0  
+**DNA Traceability:** #龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0  
 
 **Confirmation:** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

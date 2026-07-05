@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════
-# DNA: #龍芯⚡️2026-06-19-CNSH-REALNAME-BRIDGE-v1.0
+# DNA:#龍芯⚡️2026-06-19-CNSH-REALNAME-BRIDGE-FILE2-v1.0-1
 # 模块: identity_bridge/__init__.py
 # 用途: 龍魂实名认证桥接系统入口
 # ═══════════════════════════════════════════════════

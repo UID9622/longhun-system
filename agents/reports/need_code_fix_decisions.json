@@ -1,0 +1,167 @@
+[
+  {
+    "entry_id": "DOR-b67620902229776e-109a5a49",
+    "path": "/Users/zuimeidedeyihan/龍魂待整理/parse_notion.py",
+    "name": "parse_notion.py",
+    "project": "龍魂待整理",
+    "reason": "HARDCODED_PATH",
+    "fix_strategy": "REPLACE_HARDCODED_PATH",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/龍魂待整理/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                  ",
+    "recommended_action": "REPLACE_HARDCODED_WITH_ARGPARSE",
+    "note": "硬编码 Claude hostloop 临时路径，改为 argparse 从命令行接收"
+  },
+  {
+    "entry_id": "DOR-882d26b1ae146068-f6a6549a",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/web3_dna/web3_dna_engine.py",
+    "name": "web3_dna_engine.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('web3_dna_engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/web3_dna/web3_dna_engine.py'); mod=importlib.util.m",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-ae7f8dba55c69a96-14b59289",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/fixed_points.py",
+    "name": "fixed_points.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('fixed_points', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/fixed_points.py'); mod=importlib.util",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-94e7d3e1bc2fe845-2f8b64e5",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/tongxinyi_core.py",
+    "name": "tongxinyi_core.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('tongxinyi_core', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/runtime/cnsh_fixed_point/tongxinyi_core.py'); mod=importlib.",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-05ec26698ba06af8-79f7dccd",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/particle.py",
+    "name": "particle.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('particle', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/dna_memory/particle.py'); mod=importlib.util.module_from_spec",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-38b8fa4d4d3800e3-01514568",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/persona_collaboration.py",
+    "name": "persona_collaboration.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('persona_collaboration', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/persona_collaboration.py'); mod=im",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-0aa61e14e679beee-03b0706b",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/dna_tag_policy.py",
+    "name": "dna_tag_policy.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('dna_tag_policy', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/dna_tag_policy.py'); mod=importlib.util.m",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-43524ccf23aa94c6-8ce18406",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/schemas.py",
+    "name": "schemas.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('schemas', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/schemas.py'); mod=importlib.util.module_from_spe",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-1060e9aa796f89f4-9661841f",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/ipa_route_registry.py",
+    "name": "ipa_route_registry.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('ipa_route_registry', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/flow_decision/ipa_route_registry.py'); mod=importli",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-80eae98948d707ea-85e3ec9e",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/algorithms/sancai.py",
+    "name": "sancai.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('sancai', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/algorithms/sancai.py'); mod=importlib.util.module_from_spec(spe",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-2c9e171e9d435f2b-8cda3ca4",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/engine.py",
+    "name": "engine.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('engine', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/cnsh-v2.0/cnsh/gate_v3/engine.py'); mod=importlib.util.module_from_spec(spec);",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-13ec295a8968ef8b-e6ba7451",
+    "path": "/Users/zuimeidedeyihan/龍魂/核心/决策追溯引擎.py",
+    "name": "决策追溯引擎.py",
+    "project": "龍魂",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('决策追溯引擎', '/Users/zuimeidedeyihan/龍魂/核心/决策追溯引擎.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)\n                              ",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  },
+  {
+    "entry_id": "DOR-468e8773a75d6891-f0348094",
+    "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/parse_notion.py",
+    "name": "parse_notion.py",
+    "project": "龍魂系统",
+    "reason": "HARDCODED_PATH",
+    "fix_strategy": "REPLACE_HARDCODED_PATH",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_modu",
+    "recommended_action": "REPLACE_HARDCODED_WITH_ARGPARSE",
+    "note": "硬编码 Claude hostloop 临时路径，改为 argparse 从命令行接收"
+  },
+  {
+    "entry_id": "DOR-3d1e8814cb4731a8-ea508d5d",
+    "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/parse_notion.py",
+    "name": "parse_notion.py",
+    "project": "龍魂系统",
+    "reason": "HARDCODED_PATH",
+    "fix_strategy": "REPLACE_HARDCODED_PATH",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('parse_notion', '/Users/zuimeidedeyihan/longhun-system/cnsh-core/parse_notion.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)",
+    "recommended_action": "REPLACE_HARDCODED_WITH_ARGPARSE",
+    "note": "硬编码 Claude hostloop 临时路径，改为 argparse 从命令行接收"
+  },
+  {
+    "entry_id": "DOR-80900b5b34482db8-57483467",
+    "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/core/event_bus/event_bus.py",
+    "name": "event_bus.py",
+    "project": "龍魂备份",
+    "reason": "DATACLASS_ERROR",
+    "fix_strategy": "FIX_DATACLASS",
+    "error_preview": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import importlib.util; spec=importlib.util.spec_from_file_location('event_bus', '/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/longhun-runtime/core/event_bus/event_bus.py'); mod=importlib.util.module_from_spe",
+    "recommended_action": "RETEST_AS_PACKAGE",
+    "note": "Python 3.14 importlib 单文件加载 dataclass 的 __module__ 兼容问题，应在包上下文重测"
+  }
+]

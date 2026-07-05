@@ -20,12 +20,189 @@ DNA:#龍芯⚡️2026-06-16-CNSH-RUNTIME-v1.0
 
 import argparse
 import ast
+import importlib.util
+import inspect
 import json
 import os
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+
+# ═══════════════════════════════════════════════════════════════
+# 龍魂数学公式核心 · DB3367 扩展库自动注入
+# ═══════════════════════════════════════════════════════════════
+def _load_db3367_extensions() -> Dict[str, Any]:
+    """
+    动态加载 cnsh-core/mathematics/db3367_extensions.py，
+    将其公开函数与类注入 CNSH 运行时全局命名空间。
+    """
+    runtime_dir = Path(__file__).parent.resolve()
+    ext_path = runtime_dir.parent / "mathematics" / "db3367_extensions.py"
+    namespace: Dict[str, Any] = {}
+    if not ext_path.exists():
+        return namespace
+    try:
+        spec = importlib.util.spec_from_file_location("db3367_extensions", ext_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        for name, obj in inspect.getmembers(module):
+            if name.startswith("_"):
+                continue
+            if inspect.isfunction(obj) or inspect.isclass(obj) or inspect.ismodule(obj):
+                namespace[name] = obj
+    except Exception:
+        # 扩展库加载失败不应阻塞 CNSH 主运行时
+        pass
+    return namespace
+
+
+# ═══════════════════════════════════════════════════════════════
+# 龍魂 · CNSH ↔ Notion 数据库桥自动注入
+# ═══════════════════════════════════════════════════════════════
+def _load_cns_notion_bridge() -> Dict[str, Any]:
+    """
+    动态加载 cnsh-core/notion/cnsh_notion_bridge.py，
+    让 CNSH 脚本直接用中文函数名读写 Notion 数据库。
+    """
+    runtime_dir = Path(__file__).parent.resolve()
+    bridge_path = runtime_dir.parent / "notion" / "cnsh_notion_bridge.py"
+    namespace: Dict[str, Any] = {}
+    if not bridge_path.exists():
+        return namespace
+    try:
+        spec = importlib.util.spec_from_file_location("cns_notion_bridge", bridge_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        for name, obj in inspect.getmembers(module):
+            if name.startswith("_"):
+                continue
+            if inspect.isfunction(obj) or inspect.isclass(obj):
+                namespace[name] = obj
+    except Exception:
+        pass
+    return namespace
+
+
+_DB3367_EXTENSIONS = _load_db3367_extensions()
+_CNSH_NOTION_BRIDGE = _load_cns_notion_bridge()
+
+
+# ═══════════════════════════════════════════════════════════════
+# 龍魂 · CNSH 标准库模块注入
+# ═══════════════════════════════════════════════════════════════
+def _load_stdlib_injections() -> Dict[str, Any]:
+    """
+    把 Python 常用标准库模块/函数注入 CNSH 运行时，
+    让 json.loads / math.sin / random.random 等中文别名可用。
+    """
+    namespace: Dict[str, Any] = {}
+    try:
+        import json
+        namespace["json"] = json
+    except Exception:
+        pass
+    try:
+        import math
+        namespace["math"] = math
+        namespace["圆周率"] = math.pi
+        namespace["自然底数"] = math.e
+    except Exception:
+        pass
+    try:
+        import random
+        namespace["random"] = random
+    except Exception:
+        pass
+    try:
+        import os
+        namespace["os"] = os
+    except Exception:
+        pass
+    try:
+        import sys
+        namespace["sys"] = sys
+    except Exception:
+        pass
+    try:
+        import re
+        namespace["re"] = re
+    except Exception:
+        pass
+    try:
+        import datetime
+        namespace["datetime"] = datetime
+    except Exception:
+        pass
+    try:
+        import time
+        namespace["time"] = time
+    except Exception:
+        pass
+    try:
+        import pathlib
+        namespace["pathlib"] = pathlib
+    except Exception:
+        pass
+    try:
+        import copy
+        namespace["copy"] = copy
+    except Exception:
+        pass
+    try:
+        import collections
+        namespace["collections"] = collections
+    except Exception:
+        pass
+    try:
+        import abc
+        namespace["abc"] = abc
+        namespace["abstractmethod"] = abc.abstractmethod
+        namespace["ABC"] = abc.ABC
+    except Exception:
+        pass
+    try:
+        import functools
+        namespace["functools"] = functools
+        namespace["cached_property"] = functools.cached_property
+        namespace["偏函数"] = functools.partial
+    except Exception:
+        pass
+    try:
+        import itertools
+        namespace["itertools"] = itertools
+    except Exception:
+        pass
+    try:
+        import typing
+        namespace["typing"] = typing
+    except Exception:
+        pass
+    try:
+        import inspect
+        namespace["inspect"] = inspect
+    except Exception:
+        pass
+    try:
+        import contextlib
+        namespace["contextlib"] = contextlib
+    except Exception:
+        pass
+    try:
+        import enum
+        namespace["enum"] = enum
+    except Exception:
+        pass
+    try:
+        import dataclasses
+        namespace["dataclasses"] = dataclasses
+    except Exception:
+        pass
+    return namespace
+
+
+_STDLIB_INJECTIONS = _load_stdlib_injections()
 
 
 class CNSHRuntimeError(Exception):
@@ -142,13 +319,13 @@ class CNSHInterpreter:
 
         result = line
 
-        # 1. 转译关键字
+        # 1. 转译关键字（使用整词边界，避免复合词被部分替换，如“全局变量”不应被“全局”切开）
         multi_char = sorted(
             [kv for kv in self.translator.keywords.items() if len(kv[0]) >= 2],
             key=lambda x: -len(x[0])
         )
         for cn, py in multi_char:
-            result = result.replace(cn, py)
+            result = re.sub(rf"(?<![\u4e00-\u9fa5_a-zA-Z0-9]){re.escape(cn)}(?![\u4e00-\u9fa5_a-zA-Z0-9])", py, result)
 
         single_char = [kv for kv in self.translator.keywords.items() if len(kv[0]) == 1]
         for cn, py in single_char:
@@ -158,9 +335,9 @@ class CNSHInterpreter:
         for cn_punct, py_punct in self.translator.punct.items():
             result = result.replace(cn_punct, py_punct)
 
-        # 3. 转译内建函数调用（后面接左括号）
+        # 3. 转译内建函数/类型/对象（整词替换）
         for cn, py in sorted(self.translator.builtins.items(), key=lambda x: -len(x[0])):
-            result = re.sub(rf"(?<![\u4e00-\u9fa5]){re.escape(cn)}(?=\s*\()", py, result)
+            result = re.sub(rf"(?<![\u4e00-\u9fa5_a-zA-Z0-9]){re.escape(cn)}(?![\u4e00-\u9fa5_a-zA-Z0-9])", py, result)
 
         # 4. 转译方法调用（.方法()）
         for cn, py in sorted(self.translator.methods.items(), key=lambda x: -len(x[0])):
@@ -195,6 +372,17 @@ class CNSHInterpreter:
             "__file__": "<cnsh>",
         }
         safe_globals["__builtins__"] = __builtins__
+
+        # 注入龍魂数学公式核心（DB3367 扩展库）
+        if _DB3367_EXTENSIONS:
+            safe_globals.update(_DB3367_EXTENSIONS)
+
+        # 注入 CNSH ↔ Notion 数据库桥
+        if _CNSH_NOTION_BRIDGE:
+            safe_globals.update(_CNSH_NOTION_BRIDGE)
+
+        # 注入常用标准库模块
+        safe_globals.update(_STDLIB_INJECTIONS)
 
         try:
             exec(python_code, safe_globals)

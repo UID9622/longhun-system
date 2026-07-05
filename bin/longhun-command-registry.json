@@ -23,10 +23,187 @@
       "维护": "清理与自愈",
       "反熔断": "反熔断与可验证性",
       "自动化": "自动化与自适应升级",
-      "备份": "云端备份与恢复"
+      "备份": "云端备份与恢复",
+      "能力": "能力统一调度与训练迭代"
     }
   },
   "commands": {
+    "能力列表": {
+      "aliases": [
+        "cap-list",
+        "capability-list",
+        "caps"
+      ],
+      "category": "能力",
+      "desc": "列出所有已收编的龍魂能力",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "list"
+      ]
+    },
+    "能力状态": {
+      "aliases": [
+        "cap-status",
+        "capability-status"
+      ],
+      "category": "能力",
+      "desc": "查看能力系统状态与规则覆盖统计",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "status"
+      ]
+    },
+    "能力覆盖": {
+      "aliases": [
+        "cap-override",
+        "capability-override"
+      ],
+      "category": "能力",
+      "desc": "手动触发指定能力的龍魂规则覆盖",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "override"
+      ],
+      "need_arg": true
+    },
+    "能力统计": {
+      "aliases": [
+        "cap-stats",
+        "capability-stats"
+      ],
+      "category": "能力",
+      "desc": "查看能力调用与覆盖统计",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "stats"
+      ]
+    },
+    "能力追踪": {
+      "aliases": [
+        "cap-trace",
+        "capability-trace"
+      ],
+      "category": "能力",
+      "desc": "按 DNA 追溯码查看能力调用链路",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "trace"
+      ],
+      "need_arg": true
+    },
+    "训练状态": {
+      "aliases": [
+        "train-status"
+      ],
+      "category": "能力",
+      "desc": "查看训练引擎状态",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "train",
+        "status"
+      ]
+    },
+    "训练触发": {
+      "aliases": [
+        "train-trigger",
+        "train-run"
+      ],
+      "category": "能力",
+      "desc": "手动触发一次训练→测试→评估→上线管线",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "train",
+        "trigger"
+      ]
+    },
+    "训练日志": {
+      "aliases": [
+        "train-logs"
+      ],
+      "category": "能力",
+      "desc": "查看最近训练日志",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "train",
+        "logs"
+      ]
+    },
+    "训练上线": {
+      "aliases": [
+        "train-deploy"
+      ],
+      "category": "能力",
+      "desc": "手动上线当前训练结果",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "train",
+        "deploy"
+      ]
+    },
+    "训练回滚": {
+      "aliases": [
+        "train-rollback"
+      ],
+      "category": "能力",
+      "desc": "回滚到上一个模型版本",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "train",
+        "rollback"
+      ]
+    },
+    "人格列表": {
+      "aliases": [
+        "persona-list",
+        "personas"
+      ],
+      "category": "能力",
+      "desc": "列出所有已注册人格",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "persona",
+        "list"
+      ]
+    },
+    "人格路由": {
+      "aliases": [
+        "persona-route"
+      ],
+      "category": "能力",
+      "desc": "根据任务自动匹配最适合的人格组合",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "persona",
+        "route"
+      ],
+      "need_arg": true
+    },
+    "人格运行": {
+      "aliases": [
+        "persona-run",
+        "人格工作流"
+      ],
+      "category": "能力",
+      "desc": "运行人格组合工作流（如 tech-doc）",
+      "type": "script",
+      "script": "~/.longhun/bin/lh-capability",
+      "args": [
+        "persona",
+        "run"
+      ]
+    },
     "状态": {
       "aliases": [
         "status",
@@ -1593,6 +1770,47 @@
       "args": [
         "card"
       ],
+      "need_arg": true
+    },
+    "调度": {
+      "aliases": [
+        "dispatch",
+        "diao"
+      ],
+      "category": "能力",
+      "desc": "龍魂指挥调度中心（前置64卦审计层）",
+      "type": "script",
+      "script": "~/.龍魂/bin/lh-调度",
+      "need_arg": true
+    },
+    "维权助手": {
+      "aliases": [
+        "rights",
+        "weiquan"
+      ],
+      "category": "主权",
+      "desc": "启动老百姓维权助手网页服务",
+      "type": "script",
+      "script": "/Users/zuimeidedeyihan/longhun-system/人民维权助手/启动维权助手.sh"
+    },
+    "法律引擎": {
+      "aliases": [
+        "legal",
+        "falv"
+      ],
+      "category": "主权",
+      "desc": "启动本地法律引擎 API 服务",
+      "type": "script",
+      "script": "/Users/zuimeidedeyihan/longhun-system/法律引擎/启动法律引擎.sh"
+    },
+    "维权": {
+      "aliases": [
+        "wq"
+      ],
+      "category": "主权",
+      "desc": "命令行生成维权报告（输入遭遇）",
+      "type": "script",
+      "script": "/Users/zuimeidedeyihan/longhun-system/人民维权助手/rights_assistant.py",
       "need_arg": true
     }
   }

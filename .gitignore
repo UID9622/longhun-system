@@ -216,3 +216,77 @@ docs/manuals/
 *.woff
 *.woff2
 *.eot
+
+# === 2026-07-06 CodeBuddy 收口新增 ===
+
+# 记忆转储（含个人记忆与外来会话导出）
+brain/editor_memory_archive/
+brain/claude_archive/
+
+# 语音训练数据 / 生成产物（大文件 / 含个人信息）
+voice-twin/voice_dataset/
+voice-twin/tts_outputs/
+voice-twin/raw/
+
+# Notion 导入临时文件（含外部同步数据）
+cnsh/notion/
+docs/notion_mirror/
+notion_absorb/
+
+# 训练数据（大文件）
+train/data/
+data/training/
+data-hub/raw/
+
+# 开发环境临时文件
+dev-env/chinese-editor/
+
+# 构建/运行输出（含会话产物）
+outputs/
+
+# Snapshots 目录
+.snapshots/
+
+# 个人语音数据（含真声克隆、个人对话、语音输出 .wav/.aiff）
+voice-twin/static/
+voice-twin/*.wav
+voice-twin/*.aiff
+voice-twin/caption_*
+voice-twin/draft_*
+voice-twin/reading_*
+voice-twin/sage_dialogue_*
+voice-twin/tts_preview_*
+voice-twin/voice_clone_test_*
+voice-twin/video_*
+voice-twin/*.json
+voice-twin/*.md
+voice-twin/sage_kb/
+voice-twin/voice_twin_server.py
+voice-twin/voice_clone_trainer.py
+voice-twin/style_extractor.py
+voice-twin/wechat_video_exporter.py
+voice-twin/military_memory_generator.py
+voice-twin/reading_generator.py
+voice-twin/all-transcripts.txt
+voice-twin/video_remixer.py
+voice-twin/video_script_generator.py
+voice-twin/sage_dialogue.py
+
+# 隔离和外部导入
+_quarantine/
+notion_absorb/
+tmp/
+
+# 私有目录
+_private/
+
+# 虚拟环境目录
+.venv_longhun_math/
+voice-twin/.venv-tts/
+
+# 备份中的主权数据
+backups/sovereign/
+
+# releases 中未跟踪的残余文件
+releases/
+!releases/*.zip

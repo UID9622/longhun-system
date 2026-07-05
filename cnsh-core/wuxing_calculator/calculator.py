@@ -8,6 +8,15 @@ DNA P0: #龍芯⚡️2026-06-07-ENGINE-WUXING-v1.0
 """
 import hashlib, json, sys, os
 from datetime import datetime
+from pathlib import Path
+
+# 引入五行计算优化模块（鲁棒数字根 / CV 均衡 / 权重自学习）
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wuxing"))
+from wuxing_calc_optimizations import (
+    robust_digital_root,
+    cv_balance_score,
+    compute_hedge_index_h,
+)
 
 # ========== ANSI 彩色码 ==========
 class 彩色:
@@ -211,12 +220,8 @@ def 渲染节点(节点):
 
 # ========== 核心计算函数 ==========
 def 计算数字根(文本):
-    digits = [int(c) for c in str(文本) if c.isdigit()]
-    if not digits: return 0
-    n = sum(digits)
-    while n >= 10:
-        n = sum(int(c) for c in str(n))
-    return n
+    """鲁棒数字根：支持全角、中文数字、负数、小数"""
+    return robust_digital_root(文本)
 
 def 三色审计(dr):
     if dr in [3,9]: return "🔴"
@@ -231,17 +236,33 @@ def 计算五行强度(四柱):
             得分[天干五行表[干支["天干"]]] += 权重["天干"]
         if 干支["地支"] in 地支五行表:
             得分[地支五行表[干支["地支"]]] += 权重["地支"]
-    总分 = sum(得分.values())
-    均值 = 总分 / 5
-    方差 = sum((v - 均值)**2 for v in 得分.values()) / 5
-    均衡指数 = max(0.0, round(1.0 - (方差**0.5) / (均值 + 0.001), 3))
+    # 使用 CV 变异系数均衡指数（无量纲、对 0 分更稳健）
+    均衡指数 = cv_balance_score(得分)
     缺失 = [k for k, v in 得分.items() if v == 0.0]
+
+    # 计算五行对冲指数 H（自学习权重）
+    总分 = sum(得分.values()) + 0.001
+    克制衡分 = 1.0 - (max(得分.values()) / 总分)  # 越不极端越好
+    疏导分 = sum(1.0 for k in 五行相生 if 得分.get(五行相生[k], 0) > 0) / 5.0
+    补益分 = (5 - len(缺失)) / 5.0
+    链路健康分 = 完整链路分析(得分)["链路健康度"] / 100.0
+    对冲指数 = compute_hedge_index_h(
+        restraint_score=克制衡分,
+        relief_score=疏导分,
+        supplement_score=补益分,
+        balance_score=均衡指数,
+        health_score=链路健康分,
+    )
+
     return {
         "五行得分": 得分,
         "最强": max(得分, key=得分.get),
         "最弱": min(得分, key=得分.get),
         "均衡指数": 均衡指数,
-        "缺失五行": 缺失
+        "缺失五行": 缺失,
+        "对冲指数H": 对冲指数["对冲指数H"],
+        "对冲三色": 对冲指数["三色"],
+        "对冲权重": 对冲指数["权重"],
     }
 
 def 完整链路分析(得分):

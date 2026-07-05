@@ -37,6 +37,7 @@
 | `PROTOCOL_USAGE_TERMS.md` | 使用条款 | L0 | 全部使用者 | 使用条款与授权边界 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-PROTOCOL-USAGE-TERMS-v1.0` |
 | `00_CANONICAL_INDEX.md` | 规范索引 | L0 | 全部使用者 | 规范索引 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CANONICAL-INDEX-v1.0` |
 | `01_foundation/SOVEREIGNTY_FORMULAS.md` | 主权公式 | L1 | 协议起草者、开发者、传播者 | 龍魂主权备注词公式集 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-SOVEREIGNTY-FORMULAS-v1.0` |
+| `../../cnsh-core/constitution/三才算法统一协议_天地人_v1.0.md` | 三才算法协议 | L0 | 系统内核、AI、治理层 | 三才算法宪法层算法协议（天·地·人·369不动点） | 已锚定 | `#龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0` |
 | `02_charters/L2_CREATOR_PROTECTION_CHARTER.md` | 创作者宪章 | L2 | 创作者、使用者 | 创作者保护宪章 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CREATOR-PROTECTION-CHARTER-v1.0` |
 | `02_charters/L2_CREATOR_PROTECTION_IRREVOCABLE_CLAUSES.md` | 创作者不可篡改条款 | L2 | 创作者、使用者 | 创作者保护不可篡改条款 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-CREATOR-PROTECTION-IRREVOCABLE-v1.0` |
 | `02_charters/L2_OPEN_SOURCE_GENTLEMAN_CHARTER.md` | 开源君子协议 | L2 | 开源社区、合作者 | 开源君子协议 | 生效中 | `#龍芯⚡️2026-06-25-LONGHUN-OPEN-SOURCE-GENTLEMAN-CHARTER-v1.0` |

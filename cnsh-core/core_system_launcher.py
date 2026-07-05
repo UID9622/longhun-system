@@ -39,7 +39,7 @@ try:
     from cnsh_core.dna.dna_system import (
         get_dna_generator, DNA, DNAStatus
     )
-    from cnsh_core.logging.append_only_logging import (
+    from cnsh_core.longhun_logging.append_only_logging import (
         get_system_log, log_operation, LogEventType, LogLevel
     )
     from cnsh_core.scheduler.execution_schedule import (
@@ -72,7 +72,7 @@ except ImportError as e:
         from dna.dna_system import (
             get_dna_generator, DNA, DNAStatus
         )
-        from logging.append_only_logging import (
+        from longhun_logging.append_only_logging import (
             get_system_log, log_operation, LogEventType, LogLevel
         )
         from scheduler.execution_schedule import (

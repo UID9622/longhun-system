@@ -22,6 +22,12 @@ from enum import Enum
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
 import math
+import sys
+from pathlib import Path
+
+# 引入五行计算优化模块
+sys.path.insert(0, str(Path(__file__).resolve().parent / "wuxing"))
+from wuxing_calc_optimizations import cv_balance_score
 
 
 class WuXing(Enum):
@@ -53,18 +59,16 @@ class WuXingScore:
         ]
 
     def balance_score(self) -> float:
-        """计算平衡度 (0-100·100最平衡)"""
-        scores = [self.mu, self.huo, self.tu, self.jin, self.shui]
-        mean = sum(scores) / len(scores)
-
-        # 方差越小·平衡度越高
-        variance = sum((s - mean) ** 2 for s in scores) / len(scores)
-        std_dev = math.sqrt(variance)
-
-        # 转换为 0-100 的平衡指数
-        # std_dev 越小·平衡指数越高
-        balance = max(0, 100 - std_dev * 10)
-        return min(100, balance)
+        """
+        计算平衡度 (0-100·100最平衡)。
+        已接入 CV 变异系数：无量纲，对 0 分更稳健。
+        """
+        scores = {
+            "木": self.mu, "火": self.huo, "土": self.tu,
+            "金": self.jin, "水": self.shui
+        }
+        # cv_balance_score 返回 0.0~1.0，转换为 0~100
+        return round(cv_balance_score(scores) * 100, 2)
 
 
 class WuXingCalculator:

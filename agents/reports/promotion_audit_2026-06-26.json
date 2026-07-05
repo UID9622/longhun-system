@@ -1,0 +1,177 @@
+{
+  "DNA": "#龍芯⚡️2026-06-26-PROMOTION-AUDIT-v2.0",
+  "checked_at": "2026-06-26T08:01:32.725639",
+  "authorized_by": "UID9622",
+  "results": [
+    {
+      "code": "P72",
+      "name": "宝宝P72·龍盾",
+      "current_level": "L4",
+      "contribution": 66.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P72",
+        "current_level": "L4",
+        "next_level": "L5",
+        "eligible": false,
+        "contribution": 66.9,
+        "required_contribution": 1000,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": false
+        },
+        "message": "条件未满足"
+      }
+    },
+    {
+      "code": "P13",
+      "name": "龍芯·姜子牙",
+      "current_level": "L5",
+      "contribution": 72.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "",
+      "details": {
+        "persona_code": "P13",
+        "eligible": false,
+        "reason": "已是最高等级"
+      }
+    },
+    {
+      "code": "P10",
+      "name": "侦察兵·信息猎手",
+      "current_level": "L2",
+      "contribution": 54.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P10",
+        "current_level": "L2",
+        "next_level": "L3",
+        "eligible": false,
+        "contribution": 54.9,
+        "required_contribution": 150,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": true
+        },
+        "message": "条件未满足"
+      }
+    },
+    {
+      "code": "P11",
+      "name": "架构师·构建者",
+      "current_level": "L2",
+      "contribution": 54.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P11",
+        "current_level": "L2",
+        "next_level": "L3",
+        "eligible": false,
+        "contribution": 54.9,
+        "required_contribution": 150,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": true
+        },
+        "message": "条件未满足"
+      }
+    },
+    {
+      "code": "P12",
+      "name": "同步官·数据管理员",
+      "current_level": "L2",
+      "contribution": 54.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P12",
+        "current_level": "L2",
+        "next_level": "L3",
+        "eligible": false,
+        "contribution": 54.9,
+        "required_contribution": 150,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": true
+        },
+        "message": "条件未满足"
+      }
+    },
+    {
+      "code": "P15",
+      "name": "乔前辈",
+      "current_level": "L2",
+      "contribution": 54.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P15",
+        "current_level": "L2",
+        "next_level": "L3",
+        "eligible": false,
+        "contribution": 54.9,
+        "required_contribution": 150,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": true
+        },
+        "message": "条件未满足"
+      }
+    },
+    {
+      "code": "P16",
+      "name": "小艺",
+      "current_level": "L2",
+      "contribution": 54.9,
+      "activity": "🔥 高频",
+      "eligible": false,
+      "message": "条件未满足",
+      "details": {
+        "persona_code": "P16",
+        "current_level": "L2",
+        "next_level": "L3",
+        "eligible": false,
+        "contribution": 54.9,
+        "required_contribution": 150,
+        "checks": {
+          "contribution_enough": false,
+          "no_warning": true,
+          "no_fuse": true,
+          "boss_recognition": true,
+          "seven_dim_ok": true,
+          "boss_appoint": true
+        },
+        "message": "条件未满足"
+      }
+    }
+  ]
+}

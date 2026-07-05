@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#f7f3e8"/>
+  <g fill="#111" opacity="0.85">
+    <path d="M150 120 Q180 110 200 140 Q210 180 180 200 Q140 210 130 180 Q120 150 150 120" />
+    <path d="M250 100 Q280 90 300 130 L290 250 Q250 260 240 220 Z" />
+    <path d="M350 110 Q390 100 410 150 L400 240 Q360 250 340 200 Z" />
+    <path d="M450 130 Q490 120 510 170 L500 260 Q460 270 440 220 Z" />
+  </g>
+  <text x="300" y="340" text-anchor="middle" font-family="serif" font-size="22" fill="#4a0000">龍魂 · 书法占位</text>
+  <text x="300" y="370" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实书法作品公开版权图像</text>
+</svg>

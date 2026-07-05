@@ -5,7 +5,7 @@
 把单条公式串成一条可审的治理流水线：
 输入 → 数字根/五行 → 三色闸 → 归一权重 → 加权风险 → 综合分 → 决策 → 行动
 依赖 formula_core.py（同目录）。纯标准库。
-DNA: #龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0
+DNA:#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-FILE1-v1.0-1
 主权人: UID9622 · 龍芯北辰
 """
 from __future__ import annotations

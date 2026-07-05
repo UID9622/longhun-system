@@ -21,10 +21,18 @@ from calculator import (
     完整链路分析, 生成补益建议
 )
 
+# 引入五行计算优化模块
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'wuxing'))
+from wuxing_calc_optimizations import (
+    robust_digital_root,
+    compute_hedge_index_h,
+    cv_balance_score,
+)
+
 app = FastAPI(
     title="龍魂·五行计算器 API",
     description="CNSH中文编程·五行相生相克分析",
-    version="3.2"
+    version="3.3"
 )
 
 # 跨域配置
@@ -106,12 +114,12 @@ async def 生成流场节点(输入: 文本输入):
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"生成错误: {str(e)}")
 
-# 数字根分析端点
+# 数字根分析端点（鲁棒数字根）
 @app.get("/analyze/digital-root/{文本}")
 async def 数字根分析(文本: str):
-    """分析数字根和对应五行"""
+    """分析数字根和对应五行（支持全角/中文数字/负数/小数）"""
     try:
-        dr = 计算数字根(文本)
+        dr = robust_digital_root(文本)
         五行映射 = {1:"水",2:"火",3:"木",4:"金",5:"土",6:"水",7:"火",8:"木",9:"金",0:"土"}
         五行 = 五行映射[dr]
 
@@ -128,7 +136,7 @@ async def 数字根分析(文本: str):
             "数字根": dr,
             "五行": 五行,
             "审计": 审计,
-            "说明": "数字根→五行映射·三色审计判定"
+            "说明": "鲁棒数字根→五行映射·三色审计判定"
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"分析错误: {str(e)}")
@@ -163,6 +171,39 @@ async def 链路分析(得分数据: dict):
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"分析错误: {str(e)}")
 
+# 五行对冲指数 H 端点
+@app.post("/analyze/hedge")
+async def 对冲指数分析(得分数据: dict):
+    """计算五行对冲指数 H（自学习权重）"""
+    try:
+        scores = 得分数据.get("scores", {})
+        # 补齐默认分量
+        restraint = scores.get("克制衡分", 0.5)
+        relief = scores.get("疏导分", 0.5)
+        supplement = scores.get("补益分", 0.5)
+        balance = scores.get("均衡指数", cv_balance_score(得分数据.get("五行得分", scores)))
+        health = scores.get("链路健康度", 0.5)
+
+        result = compute_hedge_index_h(
+            restraint_score=restraint,
+            relief_score=relief,
+            supplement_score=supplement,
+            balance_score=balance,
+            health_score=health,
+        )
+        return {
+            "状态": "🟢 成功",
+            "对冲指数H": result["对冲指数H"],
+            "三色": result["三色"],
+            "action": result["action"],
+            "分项": result["分项"],
+            "权重": result["权重"],
+            "时间戳": datetime.now().isoformat(),
+            "DNA": "#龍芯⚡️2026-06-26-API-HEDGE-v3.3",
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"计算错误: {str(e)}")
+
 # API文档自定义
 @app.get("/")
 async def 文档():
@@ -174,12 +215,13 @@ async def 文档():
             "GET /health": "系统健康检查",
             "POST /calculate/sizu": "四柱五行分析",
             "POST /generate/node": "生成流场节点",
-            "GET /analyze/digital-root/{文本}": "数字根分析",
+            "GET /analyze/digital-root/{文本}": "数字根分析（鲁棒）",
             "GET /query/relations/{五行}": "五行关系查询",
-            "POST /analyze/circuit": "链路分析"
+            "POST /analyze/circuit": "链路分析",
+            "POST /analyze/hedge": "五行对冲指数 H（自学习权重）"
         },
-        "DNA": "#龍芯⚡️2026-06-04-API-WUXING-v3.2",
-        "版本": "3.2"
+        "DNA": "#龍芯⚡️2026-06-26-API-WUXING-v3.3",
+        "版本": "3.3"
     }
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-FILE1-v1.0
 """Generate a Markdown coverage report for the LonghunFont glyph library."""
 
 import json

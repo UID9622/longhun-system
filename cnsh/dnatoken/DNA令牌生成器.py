@@ -1,4 +1,4 @@
-#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-FILE2-v1.0
 """
 通心译 | TongXinYi: DNA Token Generator
 龍魂体系·DNA令牌生成器 — 核心令牌生成 + 驗證 + 撤銷

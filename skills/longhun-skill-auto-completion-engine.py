@@ -4,7 +4,7 @@
 🐉 龍魂 10 Skill 自动化补全引擎（统一入口 shim）
 Canonical 实现位于 skills/core/longhun_skill_auto_completion_engine.py
 
-DNA:#龍芯⚡️2026-06-23-SKILL-AUTO-COMPLETION-ENGINE-SHIM-v1.0
+DNA:#龍芯⚡️2026-06-23-SKILL-AUTO-COMPLETION-ENGINE-SHIM-FILE2-v1.0
 """
 import sys
 from pathlib import Path

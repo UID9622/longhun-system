@@ -1,0 +1,46 @@
+════════════════════════════════════════
+龍魂指纹快照 · 20260626 · 09:02:59 +0800
+DNA:#龍芯⚡️2026-05-19-FINGERPRINT-SNAPSHOT-FILE5-v1.0
+════════════════════════════════════════
+
+【网络 · 公网出口】
+2409:8a28:3692:8d70:6846:8f00:8a64:5969 ← ifconfig.me
+
+【时区 / 语言环境】
+TZ=/var/db/timezone/zoneinfo/Asia/Shanghai
+2026年 6月26日 星期五 09时03分00秒 CST
+LANG=zh_CN.UTF-8
+
+【browserleaks 探测】(HTML 摘要·完整请浏览器开 browserleaks.com/webrtc)
+Country, State, City, ISP/ASN, and Local Lime, Whois Lookup, TCP/IP OS fingerprinting, WebRTC Leak Test, DNS Leak Test, and IPv6 Leak Test.">
+Country, State, City, ISP/ASN, and Local Lime, Whois Lookup, TCP/IP OS fingerprinting, WebRTC Leak Test, DNS Leak Test, and IPv6 Leak Test.">
+Country
+ISP
+ISP – This is used by a number of residential users (at least 50) over a standard access tech like DSL, DOCSIS, or PON">DSL
+Timezone
+IPv6 Leak Test
+IPv6 Address
+
+【本机硬件 · system_profiler】
+      Model Name: MacBook Pro
+      Chip: Apple M4 Max
+      Memory: 64 GB
+      Serial Number (system): KVQQ7KLF76
+Graphics/Displays:
+      Chipset Model: Apple M4 Max
+      Metal Support: Metal 4
+
+【网卡 MAC · 活跃接口】
+anpi1: c6:a8:ab:1f:97:3f
+anpi2: c6:a8:ab:1f:97:40
+anpi0: c6:a8:ab:1f:97:3e
+en4: c6:a8:ab:1f:97:1e
+en5: c6:a8:ab:1f:97:1f
+en6: c6:a8:ab:1f:97:20
+en1: 36:07:79:be:a7:00
+en2: 36:07:79:be:a7:04
+
+【主机名】
+✨最美的的遗憾🤩’s MacBook Pro
+
+── 完 · 日志: /Users/zuimeidedeyihan/longhun-system/日志/指纹快照_20260626.txt

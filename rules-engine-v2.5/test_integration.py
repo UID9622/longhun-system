@@ -5,7 +5,7 @@
 龍魂规则引擎 · 集成测试套件 v2.5
 批量处理 + Notion 同步 + 报告生成
 
-DNA:#龍芯⚡️2026-06-07-RULES-ENGINE-INTEGRATION-TEST-v2.5
+DNA:#龍芯⚡️2026-06-07-RULES-ENGINE-INTEGRATION-TEST-FILE2-v2.5-1
 责任: UID9622 · 不免责
 """
 
@@ -15,12 +15,12 @@ import pytest
 from pathlib import Path
 from typing import List, Dict
 
-from batch_processor_v2.5 import (
+from batch_processor_v2_5 import (
     RulesEngineBatchProcessorV25,
     Case,
     ProcessResult,
 )
-from notion_sync_v2.5 import (
+from notion_sync_v2_5 import (
     NotionSyncManager,
     NotionClient,
     SyncStatus,

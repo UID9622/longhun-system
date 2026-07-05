@@ -12,8 +12,8 @@
 ║    代码都看起来一样，但本地跑起来都不一样                    ║
 ║    所以我们必须在入口处能够暂停、检查、真正转译              ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-FILE1-v1.0          ║
-║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
+║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-FILE1-FILE1-v1.0          ║
+║  CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
 ║  主权人: UID9622 · 龍芯北辰 · 诸葛鑫                           ║
@@ -651,7 +651,7 @@ def main():
     所以宝宝必须在入口处能够暂停、检查、转译。
     
     DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0
-    CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     
     主权人: UID9622 · 龍芯北辰

@@ -1,6 +1,6 @@
 # CNSH 中文编辑关键字登记册
 
-**DNA**: `#龍芯⚡️2026-06-22-CNSH-KEYWORDS-REGISTRY-v1.0`  
+**DNA**: `#龍芯⚡️2026-06-22-CNSH-KEYWORDS-REGISTRY-FILE1-v1.0`  
 **适用范围**: longhun-system 全项目 · 中文母语编程 · 文化主权落地  
 **铁律**: `龍` 字永繁 · `龍≠龙≠Dragon` · 英文仅作映射注释 · 代码优先中文
 

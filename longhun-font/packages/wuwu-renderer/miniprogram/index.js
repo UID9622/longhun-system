@@ -1,4 +1,4 @@
-/* DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-RENDERER-v1.0 */
+/* DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-RENDERER-FILE3-v1.0 */
 
 const { renderWuwu } = require('../src/wuwu.js');
 

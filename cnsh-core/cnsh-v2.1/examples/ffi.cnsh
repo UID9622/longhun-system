@@ -1,0 +1,11 @@
+# DNA: #龍芯⚡️2026-06-29-CNSH-FFI-EXAMPLE-v2.1
+
+# Python FFI：直接调用 Python 标准库
+导入 Python.math
+导入 Python.datetime
+
+变量 r = math.sqrt(1764)
+输出("√1764 = " + 字符串(r))
+
+变量 now = datetime.datetime.now()
+输出("Python 当前时间: " + 字符串(now))

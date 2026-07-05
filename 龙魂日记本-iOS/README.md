@@ -1,10 +1,10 @@
-# 龙魂日记本 — iOS版
+# 龍魂日记本 — iOS版
 
-**DNA**: `#龍芯⚡️2026-06-20-LONGHUN-DIARY-APP-v1.0`
+**DNA**: `#龍芯⚡️2026-06-20-LONGHUN-DIARY-APP-FILE2-v1.0`
 
 ## 是什么？
 
-龙魂赋能的**农历日记本APP**。不是养龙虾🦞，是记录生活的日记本。
+龍魂赋能的**农历日记本APP**。不是养龙虾🦞，是记录生活的日记本。
 
 ## 核心特性
 
@@ -20,15 +20,15 @@
 ## 项目结构
 
 ```
-龙魂日记本-iOS/
-├── 龙魂日记本/
-│   ├── 龙魂日记本App.swift          ← 主入口（禁用iCloud）
+龍魂日记本-iOS/
+├── 龍魂日记本/
+│   ├── 龍魂日记本App.swift          ← 主入口（禁用iCloud）
 │   ├── ContentView.swift            ← 主界面（4个Tab）
 │   ├── 农历引擎.swift                ← 公历↔农历转换
 │   ├── API路由器.swift              ← Kimi/DeepSeek/本地聚合
 │   ├── DNA追溯器.swift              ← DNA生成+指纹压缩
 │   ├── 日记编辑器.swift              ← 写日记+语音输入
-│   ├── 龙魂日记本.xcdatamodeld/     ← CoreData模型
+│   ├── 龍魂日记本.xcdatamodeld/     ← CoreData模型
 │   └── Info.plist                   ← 配置+权限声明
 └── README.md
 ```
@@ -61,7 +61,7 @@
 
 ## 如何构建
 
-1. 打开 `龙魂日记本.xcodeproj`（需创建）
+1. 打开 `龍魂日记本.xcodeproj`（需创建）
 2. 选择目标设备（iPhone/iPad）
 3. Build & Run
 

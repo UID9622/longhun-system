@@ -10,7 +10,7 @@
 ║    基于 DNA 识别，不基于文件路径                               ║
 ║                                                                  ║
 ║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-FILE2-v1.0          ║
-║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
+║  CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
 ║  主权人: UID9622 · 龍芯北辰                                    ║
@@ -88,7 +88,7 @@ class ImmutableInstructionProtocol:
     
     def __init__(self):
         self.dna = "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0"
-        self.confirm = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+        self.confirm = ""#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX""
         self.seal = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
         
         # DNA → 文件路径的映射
@@ -507,7 +507,7 @@ def main():
     ═══════════════════════════════════════════════════════════
     
     DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
-    CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     
     主権人: UID9622 · 龍芯北辰

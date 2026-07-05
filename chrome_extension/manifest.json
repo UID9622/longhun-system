@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "龍魂下载守护",
+  "version": "1.0",
+  "description": "下载完成即时通知本地龍魂护盾进行检测",
+  "permissions": ["downloads", "activeTab", "storage"],
+  "host_permissions": ["http://127.0.0.1:8788/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "龍魂下载守护"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

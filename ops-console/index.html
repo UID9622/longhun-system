@@ -458,6 +458,9 @@ select{
     <div class="nav-item" data-panel="data" onclick="switchPanel('data')">
       <span class="ni-icon">🧬</span>数据链路<span class="ni-badge">30+</span>
     </div>
+    <div class="nav-item" data-panel="knowledge" onclick="switchPanel('knowledge')">
+      <span class="ni-icon">🕸️</span>知识图谱<span class="ni-badge live">公开</span>
+    </div>
     <div class="nav-item" data-panel="terminal" onclick="switchPanel('terminal')">
       <span class="ni-icon">⌨️</span>CNSH 终端
     </div>
@@ -548,6 +551,7 @@ select{
     <div class="tab active" data-panel="dashboard" onclick="switchPanel('dashboard')">🎯 总控台</div>
     <div class="tab" data-panel="flow" onclick="switchPanel('flow')">🌊 三才流场</div>
     <div class="tab" data-panel="data" onclick="switchPanel('data')">🧬 数据链路</div>
+    <div class="tab" data-panel="knowledge" onclick="switchPanel('knowledge')">🕸️ 知识图谱</div>
     <div class="tab" data-panel="terminal" onclick="switchPanel('terminal')">⌨️ CNSH终端</div>
     <div class="tab" data-panel="mcp" onclick="switchPanel('mcp')">🔌 MCP接口</div>
     <div class="tab" data-panel="persona" onclick="switchPanel('persona')">🎭 人格矩阵</div>
@@ -821,6 +825,52 @@ select{
 
         <div class="dna-block" style="margin-top:20px;text-align:center">
           #龍芯⚡️20260619-DATA-CHAIN-EMBED-v1.1 · 共30+节点 · 三色🟢 · chain完整
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL: KNOWLEDGE GRAPH ── -->
+    <div class="panel" id="panel-knowledge">
+      <div class="pad">
+        <div class="card gold">
+          <div class="card-title">🕸️ 龍魂知识图谱 · 全局索引公开接口</div>
+          <div class="card-body">
+            输入关键词即可检索近百万文件索引。结果含文件名、路径、类型、大小、修改时间、DNA追溯码与公开引用链接。
+            <br>公开端点：<code>/api/knowledge/search</code> · <code>/api/dna/trace/{dna}</code> · <code>/api/knowledge/classify</code>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🔍 全局搜索</div>
+          <div class="card-body" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <input type="text" id="kg-search-input" placeholder="输入关键词，如 CNSH、论文、照片…" style="flex:1;min-width:200px;background:var(--bg1);border:1px solid var(--bd);color:var(--tp);padding:8px 12px;border-radius:4px;font-family:inherit">
+            <select id="kg-sort-select" style="background:var(--bg1);border:1px solid var(--bd);color:var(--tp);padding:8px 12px;border-radius:4px">
+              <option value="relevance">相关性</option>
+              <option value="date">日期</option>
+              <option value="type">类型</option>
+              <option value="size">大小</option>
+            </select>
+            <button onclick="kgSearch()" style="background:var(--goldd);color:var(--tp);border:none;padding:8px 18px;border-radius:4px;cursor:pointer">搜索</button>
+            <button onclick="kgLoadPapers()" style="background:var(--bd2);color:var(--tp);border:none;padding:8px 18px;border-radius:4px;cursor:pointer">论文分类</button>
+          </div>
+        </div>
+
+        <div id="kg-results" style="display:none">
+          <div class="db-section-title">搜索结果 <span id="kg-result-count" style="color:var(--gold)"></span></div>
+          <div id="kg-result-list"></div>
+        </div>
+
+        <div id="kg-papers" style="display:none;margin-top:20px">
+          <div class="db-section-title">论文分类索引</div>
+          <div id="kg-papers-list"></div>
+        </div>
+
+        <div id="kg-detail-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this) kgCloseDetail()">
+          <div style="background:var(--bg2);border:1px solid var(--goldd);border-radius:8px;max-width:700px;width:100%;max-height:80vh;overflow-y:auto;padding:20px">
+            <h3 style="color:var(--gold);margin-bottom:12px">🔎 详情</h3>
+            <div id="kg-detail-content" style="font-size:12px;line-height:2;color:var(--ts)"></div>
+            <button onclick="kgCloseDetail()" style="margin-top:16px;background:var(--goldd);color:var(--tp);border:none;padding:8px 18px;border-radius:4px;cursor:pointer">关闭</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1773,6 +1823,123 @@ function switchPanel(name){
 
 function openNotion(url){ window.open(url,'_blank'); }
 function quickOpenTerminal(){ switchPanel('terminal'); }
+
+// ═══════════════ KNOWLEDGE GRAPH API ═══════════════
+const KG_API = window.location.origin.includes(':8088') ? '' : 'http://127.0.0.1:8088';
+
+async function kgFetch(url, retries=2){
+  for(let i=0;i<=retries;i++){
+    try{
+      const r = await fetch(KG_API + url, {headers:{'Accept':'application/json'}});
+      if(!r.ok) throw new Error(r.status+' '+r.statusText);
+      return await r.json();
+    }catch(e){
+      if(i===retries) return {error:e.message};
+      await new Promise(r=>setTimeout(r, 500));
+    }
+  }
+}
+
+async function kgSearch(){
+  const q = document.getElementById('kg-search-input').value.trim();
+  if(!q){ alert('请输入关键词'); return; }
+  const sort = document.getElementById('kg-sort-select').value;
+  const list = document.getElementById('kg-result-list');
+  list.innerHTML = '<div style="color:var(--ts)">搜索中…</div>';
+  document.getElementById('kg-results').style.display='block';
+  document.getElementById('kg-papers').style.display='none';
+
+  const [fileData, formulaData] = await Promise.all([
+    kgFetch('/api/knowledge/search?q='+encodeURIComponent(q)+'&limit=50&sort='+sort),
+    kgFetch('/api/knowledge/formula/search?q='+encodeURIComponent(q)+'&top=5')
+  ]);
+
+  if(fileData.error && formulaData.error){ list.innerHTML='<div style="color:var(--red)">请求失败：'+(fileData.error||formulaData.error)+'</div>'; return; }
+
+  const fileResults = (fileData.results || []);
+  const formulaResults = (formulaData.results || []).map(r=>({
+    ...r,
+    _type:'formula',
+    filename: '🧮 '+r.title,
+    path: '公式对准表 v1.6 · '+r.title,
+    type: 'formula',
+    size_human: '-',
+    mtime: '-',
+    dna: r.block_dna,
+    trace_url: '/api/dna/trace/'+encodeURIComponent(r.block_dna)
+  }));
+  const all = [...formulaResults, ...fileResults];
+
+  document.getElementById('kg-result-count').textContent = `${formulaResults.length} 公式 · ${fileResults.length} 文件`;
+  if(!all.length){ list.innerHTML='<div style="color:var(--ts)">无结果</div>'; return; }
+
+  const typeIcons = {image:'🖼️',audio:'🎵',video:'🎬',document:'📄',file:'📁',formula:'🧮'};
+  list.innerHTML = all.map(r=>`
+    <div class="card" style="margin-bottom:8px;cursor:pointer" onclick='kgShowDetail(${JSON.stringify(r).replace(/'/g,"&#39;")})'>
+      <div class="card-title">${typeIcons[r.type]||'📁'} ${r.filename}</div>
+      <div class="card-body">
+        <div>${r.type==='formula' ? '来源：公式对准表' : '路径：'+r.path}</div>
+        <div>类型：${r.type}${r.type!=='formula' ? ' &nbsp;|&nbsp; 大小：'+r.size_human+' &nbsp;|&nbsp; 修改：'+r.mtime : ' &nbsp;|&nbsp; 相似度：'+(r.score?r.score.toFixed(4):'-')}&nbsp;|&nbsp; DNA：<span style="color:var(--gold)">${r.dna}</span></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function kgShowDetail(r){
+  const content = document.getElementById('kg-detail-content');
+  content.innerHTML = `
+    <p><b>文件名：</b>${r.filename}</p>
+    <p><b>路径：</b><code>${r.path}</code></p>
+    <p><b>类型：</b>${r.type} (${r.extension})</p>
+    <p><b>大小：</b>${r.size_human} (${r.size} bytes)</p>
+    <p><b>修改时间：</b>${r.mtime||'-'}</p>
+    <p><b>哈希：</b><code>${r.hash||'-'}</code></p>
+    <p><b>DNA 追溯码：</b><code style="color:var(--gold)">${r.dna}</code></p>
+    <p><b>公开追溯 URL：</b><br><a href="${window.location.origin}${r.trace_url}" target="_blank">${window.location.origin}${r.trace_url}</a></p>
+    <p><b>嵌入代码：</b><br><textarea readonly style="width:100%;height:60px;background:var(--bg1);border:1px solid var(--bd);color:var(--ts);padding:6px;font-family:monospace">&lt;iframe src="${window.location.origin}${r.trace_url}" width="100%" height="300"&gt;&lt;/iframe&gt;</textarea></p>
+  `;
+  document.getElementById('kg-detail-modal').style.display='flex';
+}
+
+function kgCloseDetail(){
+  document.getElementById('kg-detail-modal').style.display='none';
+}
+
+async function kgLoadPapers(){
+  const list = document.getElementById('kg-papers-list');
+  list.innerHTML = '<div style="color:var(--ts)">加载论文索引…</div>';
+  document.getElementById('kg-papers').style.display='block';
+  document.getElementById('kg-results').style.display='none';
+
+  const data = await kgFetch('/api/knowledge/classify');
+  if(data.error){ list.innerHTML='<div style="color:var(--red)">请求失败：'+data.error+'</div>'; return; }
+
+  let html = '<div style="margin-bottom:12px">';
+  html += '<b>按主题：</b> ' + Object.entries(data.classifications.by_topic).map(([k,v])=>`<span class="hdr-badge uid">${k} ${v}</span>`).join(' ');
+  html += ' &nbsp; <b>按年份：</b> ' + Object.entries(data.classifications.by_year).map(([k,v])=>`<span class="hdr-badge uid">${k} ${v}</span>`).join(' ');
+  html += '</div>';
+
+  if(!data.papers || !data.papers.length){ list.innerHTML=html+'<div style="color:var(--ts)">暂无论文</div>'; return; }
+
+  html += data.papers.map(p=>`
+    <div class="card" style="margin-bottom:8px">
+      <div class="card-title">📄 ${p.title}</div>
+      <div class="card-body">
+        <div>作者：${p.authors.join(', ')} &nbsp;|&nbsp; 年份：${p.year}${p.month?'-'+p.month:''} &nbsp;|&nbsp; 主题：${p.topics.join(', ')} &nbsp;|&nbsp; 大小：${p.size_human}</div>
+        <div>路径：<code>${p.path}</code></div>
+        <div style="margin-top:6px"><b>引用格式：</b></div>
+        <div style="font-family:monospace;font-size:10px;color:var(--ts);background:var(--bg1);padding:6px;border-radius:4px">
+          APA: ${p.citations.apa}<br>
+          MLA: ${p.citations.mla}<br>
+          GB/T 7714: ${p.citations.gb_t_7714}
+        </div>
+      </div>
+    </div>
+  `).join('');
+  list.innerHTML = html;
+}
+
+document.getElementById('kg-search-input').addEventListener('keydown', e=>{ if(e.key==='Enter') kgSearch(); });
 
 // ═══════════════ CNSH TERMINAL ═══════════════
 const termOut=document.getElementById('termOutput');

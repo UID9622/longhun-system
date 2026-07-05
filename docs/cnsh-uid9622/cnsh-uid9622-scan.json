@@ -1,5 +1,5 @@
 {
-  "_dna": "2026-06-21-CNSH-CNSH-UID9622-SCAN-v1.0",
+  "_dna": "2026-07-03-CNSH-CNSH-UID9622-SCAN-v1.0",
   "source_workspace": "CNSH｜UID9622",
   "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/CNSH｜UID9622",
   "destination_path": "/Users/zuimeidedeyihan/longhun-system/docs/cnsh-uid9622",
@@ -34,8 +34,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/龙魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0.csv",
-      "destination": "metaverse/龙魂元字全能引擎.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/龍魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0.csv",
+      "destination": "metaverse/龍魂元字全能引擎.csv",
       "category": "metaverse",
       "sanitized": false
     },
@@ -58,8 +58,8 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认 43d92603dc1f4e928cf7c31416fe28a1.md",
-      "destination": "metaverse/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🌌 龍魂元宇宙推算法 v1 0 占位版·框架已确认 43d92603dc1f4e928cf7c31416fe28a1.md",
+      "destination": "metaverse/🌌 龍魂元宇宙推算法 v1 0 占位版·框架已确认.md",
       "category": "metaverse",
       "sanitized": true
     },
@@ -70,8 +70,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/龙魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0_all.csv",
-      "destination": "metaverse/龙魂元字全能引擎_1.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/龍魂元字全能引擎 30e7125a9c9f80c6abcdc54378c297d0_all.csv",
+      "destination": "metaverse/龍魂元字全能引擎_1.csv",
       "category": "metaverse",
       "sanitized": false
     },
@@ -124,8 +124,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案 bc2b63656471452d80b9c7ed09811960.md",
-      "destination": "governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🔐 P0永恒级·三层交叉监督与镜像人格系统 龍魂安全防护完整方案 bc2b63656471452d80b9c7ed09811960.md",
+      "destination": "governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龍魂安全防护完整方案.md",
       "category": "governance",
       "sanitized": true
     },
@@ -172,20 +172,20 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/🤝 华为开发者联盟对接包 龙魂技术演示脚本 6ba21e287d2c433db6fe8a0f8b1043e8.md",
-      "destination": "governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文件转发管理/🤝 华为开发者联盟对接包 龍魂技术演示脚本 6ba21e287d2c433db6fe8a0f8b1043e8.md",
+      "destination": "governance/🤝 华为开发者联盟对接包 龍魂技术演示脚本.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书 26f04eb62bf24a11adc01d2445e0ba17.md",
-      "destination": "governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书 26f04eb62bf24a11adc01d2445e0ba17.md",
+      "destination": "governance/🐉 龍魂数字主权体系 v2 0 技术白皮书.md",
       "category": "governance",
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档 9e532261d9c2494e912bff717302652b.md",
-      "destination": "governance/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书·主控文档 9e532261d9c2494e912bff717302652b.md",
+      "destination": "governance/🐉 龍魂数字主权体系 v2 0 技术白皮书·主控文档.md",
       "category": "governance",
       "sanitized": true
     },
@@ -316,8 +316,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库/未来龙魂系统的AI智能突破与分析 2bd7125a9c9f8013b9a5d0cbca886bf6.md",
-      "destination": "governance/未来龙魂系统的AI智能突破与分析.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/易经预测系统数据库/未来龍魂系统的AI智能突破与分析 2bd7125a9c9f8013b9a5d0cbca886bf6.md",
+      "destination": "governance/未来龍魂系统的AI智能突破与分析.md",
       "category": "governance",
       "sanitized": false
     },
@@ -388,8 +388,8 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/CNSH_龙魂底线协议_双轨治理_v1 0 md 3307125a9c9f81dda3bfdb6009f829e7.md",
-      "destination": "governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa/CNSH_龍魂底线协议_双轨治理_v1 0 md 3307125a9c9f81dda3bfdb6009f829e7.md",
+      "destination": "governance/CNSH_龍魂底线协议_双轨治理_v1 0 md.md",
       "category": "governance",
       "sanitized": false
     },
@@ -436,26 +436,26 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3.csv",
-      "destination": "governance/龙魂白皮书章节导航.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3.csv",
+      "destination": "governance/龍魂白皮书章节导航.csv",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3_all.csv",
-      "destination": "governance/龙魂白皮书章节导航_1.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航 fe16c4b95eaf466a92314c820912efc3_all.csv",
+      "destination": "governance/龍魂白皮书章节导航_1.csv",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单 7eb509b5379940fea486c4654b9fd519_all.csv",
-      "destination": "governance/龙魂核心模块清单.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单 7eb509b5379940fea486c4654b9fd519_all.csv",
+      "destination": "governance/龍魂核心模块清单.csv",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单 7eb509b5379940fea486c4654b9fd519.csv",
-      "destination": "governance/龙魂核心模块清单_1.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单 7eb509b5379940fea486c4654b9fd519.csv",
+      "destination": "governance/龍魂核心模块清单_1.csv",
       "category": "governance",
       "sanitized": false
     },
@@ -490,31 +490,31 @@
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第1章：引言 - 为什么我们需要这个系统 b60b561af3c24142ae13bb4f93b080ca.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航/第1章：引言 - 为什么我们需要这个系统 b60b561af3c24142ae13bb4f93b080ca.md",
       "destination": "governance/第1章：引言 - 为什么我们需要这个系统.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第6章：社会意义 - AI应该为谁服务 900a508d335e4bc89b81329079310296.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航/第6章：社会意义 - AI应该为谁服务 900a508d335e4bc89b81329079310296.md",
       "destination": "governance/第6章：社会意义 - AI应该为谁服务.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第7章：给技术人员的话 225783ede0714602971e17bc53a17cfe.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航/第7章：给技术人员的话 225783ede0714602971e17bc53a17cfe.md",
       "destination": "governance/第7章：给技术人员的话.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第3章：技术架构 - 三位一体数字主权 ccaa01371c544ee6a735ae83de8b304d.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航/第3章：技术架构 - 三位一体数字主权 ccaa01371c544ee6a735ae83de8b304d.md",
       "destination": "governance/第3章：技术架构 - 三位一体数字主权.md",
       "category": "governance",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂白皮书章节导航/第2章：核心理念 - 把德捡回来 67969d6738eb4893b98f348a525c7381.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂白皮书章节导航/第2章：核心理念 - 把德捡回来 67969d6738eb4893b98f348a525c7381.md",
       "destination": "governance/第2章：核心理念 - 把德捡回来.md",
       "category": "governance",
       "sanitized": false
@@ -610,61 +610,61 @@
       "sanitized": true
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/自然人身份声明·UID9622 3167125a9c9f80deb8b1ce9c77cb89fa.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/自然人身份声明·UID9622 3167125a9c9f80deb8b1ce9c77cb89fa.md",
       "destination": "anchors/自然人身份声明·UID9622.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/宪法锚·CONST-9622 3167125a9c9f8056a1d6c7919253500c.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/宪法锚·CONST-9622 3167125a9c9f8056a1d6c7919253500c.md",
       "destination": "constitution/宪法锚·CONST-9622.md",
       "category": "constitution",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/跨平台容灾策略·五重备份 3167125a9c9f804c8cb6c9be7b440234.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/跨平台容灾策略·五重备份 3167125a9c9f804c8cb6c9be7b440234.md",
       "destination": "anchors/跨平台容灾策略·五重备份.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/设备锚·DEV-9622 3167125a9c9f807d98ddef7f237cc0de.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/设备锚·DEV-9622 3167125a9c9f807d98ddef7f237cc0de.md",
       "destination": "anchors/设备锚·DEV-9622.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/原创性宣誓·IP-ALL 3167125a9c9f808aa5ced9b88d78c9f3.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/原创性宣誓·IP-ALL 3167125a9c9f808aa5ced9b88d78c9f3.md",
       "destination": "anchors/原创性宣誓·IP-ALL.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/熔断触发器·红色警报 3167125a9c9f8083b962f06128c9e7e1.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/熔断触发器·红色警报 3167125a9c9f8083b962f06128c9e7e1.md",
       "destination": "constitution/熔断触发器·红色警报.md",
       "category": "constitution",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/创作锚·CRT-9622 3167125a9c9f80289e5ac657a7829f0a.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/创作锚·CRT-9622 3167125a9c9f80289e5ac657a7829f0a.md",
       "destination": "anchors/创作锚·CRT-9622.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/社交锚·SOC-9622 3167125a9c9f808c9fd3d831278c7af0.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/社交锚·SOC-9622 3167125a9c9f808c9fd3d831278c7af0.md",
       "destination": "anchors/社交锚·SOC-9622.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/生物锚·BIO-9622 3167125a9c9f80f58f35f21a1b6d5825.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/生物锚·BIO-9622 3167125a9c9f80f58f35f21a1b6d5825.md",
       "destination": "anchors/生物锚·BIO-9622.md",
       "category": "anchors",
       "sanitized": false
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录/审计日志·不可篡改链 3167125a9c9f80c9af39ed17415415e9.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录/审计日志·不可篡改链 3167125a9c9f80c9af39ed17415415e9.md",
       "destination": "anchors/审计日志·不可篡改链.md",
       "category": "anchors",
       "sanitized": false
@@ -768,7 +768,7 @@
       "reason": "CSV 未命中核心技术分类"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录 3167125a9c9f809bb4fefa47702ae762.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录 3167125a9c9f809bb4fefa47702ae762.csv",
       "reason": "CSV 未命中核心技术分类"
     },
     {
@@ -808,7 +808,7 @@
       "reason": "CSV 未命中核心技术分类"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录 3167125a9c9f809bb4fefa47702ae762_all.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录 3167125a9c9f809bb4fefa47702ae762_all.csv",
       "reason": "CSV 未命中核心技术分类"
     },
     {
@@ -832,7 +832,7 @@
       "reason": "CSV 未命中核心技术分类"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/🏅 CNSH龙魂徽章体系 UID9622国产认证标识 2d37125a9c9f803a9986c82379f445bc.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/🏅 CNSH龍魂徽章体系 UID9622国产认证标识 2d37125a9c9f803a9986c82379f445bc.md",
       "reason": "未命中任何核心分类"
     },
     {
@@ -916,31 +916,31 @@
       "reason": "匹配排除规则: 情感"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂开发任务 7e75195904984669b80dce79b73cb07d.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂开发任务 7e75195904984669b80dce79b73cb07d.csv",
       "reason": "未命中任何核心分类"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂开发任务 7e75195904984669b80dce79b73cb07d_all.csv",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂开发任务 7e75195904984669b80dce79b73cb07d_all.csv",
       "reason": "未命中任何核心分类"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块① Bra-Ket人格叠加态 - 28人格AI协作矩阵 a5ba5e4db48d4c2a83f1b3a1d3cf3d98.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单/模块① Bra-Ket人格叠加态 - 28人格AI协作矩阵 a5ba5e4db48d4c2a83f1b3a1d3cf3d98.md",
       "reason": "文件过小/空"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块④ 文字避坑量子检测 - 文化守护系统 81e05d3dbd8b4a299d4131819ba2446e.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单/模块④ 文字避坑量子检测 - 文化守护系统 81e05d3dbd8b4a299d4131819ba2446e.md",
       "reason": "文件过小/空"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块⑥ 视频引擎时空追溯 - 深度伪造克星 7856ac9d54d749c5addd3b052c0e98a5.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单/模块⑥ 视频引擎时空追溯 - 深度伪造克星 7856ac9d54d749c5addd3b052c0e98a5.md",
       "reason": "文件过小/空"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块② CNSH中文原生编译器 - 语言主权与技术平权 7f005f4f8ee54f818968bcc98125e5bc.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单/模块② CNSH中文原生编译器 - 语言主权与技术平权 7f005f4f8ee54f818968bcc98125e5bc.md",
       "reason": "文件过小/空"
     },
     {
-      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龙魂数字主权体系 v2 0 技术白皮书/龙魂核心模块清单/模块③ 七维度动态权重系统 - 智慧审计决策引擎 57eaed9daddf44089dd9a512baf7c6cb.md",
+      "source": "2487125a9c9f810d88750042c80bc4d8/文档/🐉 龍魂数字主权体系 v2 0 技术白皮书/龍魂核心模块清单/模块③ 七维度动态权重系统 - 智慧审计决策引擎 57eaed9daddf44089dd9a512baf7c6cb.md",
       "reason": "文件过小/空"
     }
   ]

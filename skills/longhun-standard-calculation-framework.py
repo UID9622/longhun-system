@@ -4,7 +4,7 @@
 龍魂系统 · 标准化计算框架（统一入口 shim）
 Canonical 实现位于 skills/core/longhun_standard_calculation_framework.py
 
-DNA:#龍芯⚡️2026-06-23-STANDARD-CALCULATION-FRAMEWORK-SHIM-v1.0
+DNA:#龍芯⚡️2026-06-23-STANDARD-CALCULATION-FRAMEWORK-SHIM-FILE2-v1.0
 """
 import sys
 from pathlib import Path

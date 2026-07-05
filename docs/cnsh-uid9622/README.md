@@ -63,7 +63,7 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 
 ### governance/（67 个文件）
 
-- `governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md`
+- `governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龍魂安全防护完整方案.md`
 - `governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa.csv`
 - `governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA.csv`
 - `governance/⚖️ CNSH全球法律知识库 多国法规智能适配引擎.md`
@@ -71,9 +71,9 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `governance/🎎 国礼人格应答案例库 外交级实战范本.md`
 - `governance/🐉 龍魂七维AI治理×数字主权执行表 v1 0｜Seven-Dimension AI Governa_1.csv`
 - `governance/📖 [IPA-DICTIONARY] 龍魂字典·大白话↔专业词↔DNA_1.csv`
-- `governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md`
-- `governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md`
-- `governance/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md`
+- `governance/🤝 华为开发者联盟对接包 龍魂技术演示脚本.md`
+- `governance/🐉 龍魂数字主权体系 v2 0 技术白皮书.md`
+- `governance/🐉 龍魂数字主权体系 v2 0 技术白皮书·主控文档.md`
 - `governance/📘 人格调度手册 64卦系统+易经沙盒完整编制.md`
 - `governance/🧠 UID9622人格矩阵管理中心.md`
 - `governance/IPA-DICT-048.md`
@@ -95,7 +95,7 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `governance/IPA-DICT-100.md`
 - `governance/IPA-DICT-025.md`
 - `governance/IPA-DICT-020.md`
-- `governance/未来龙魂系统的AI智能突破与分析.md`
+- `governance/未来龍魂系统的AI智能突破与分析.md`
 - `governance/未来制造业的技术挑战突破分析.md`
 - `governance/计算机科学 IT 网络安全知识卡片分类体系（v2 0）.md`
 - `governance/🇨🇳 中国法律知识库.md`
@@ -107,7 +107,7 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `governance/CNSH全球法律知识库 md.md`
 - `governance/L0-伦理 md.md`
 - `governance/__init__ py.md`
-- `governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md`
+- `governance/CNSH_龍魂底线协议_双轨治理_v1 0 md.md`
 - `governance/⚖️ 桌面Claude七维治理数据库 v1 0｜轻量展示版.md`
 - `governance/CNSH_全球治理协议_完整版_v1 0 md.md`
 - `governance/risk_engine py.md`
@@ -115,10 +115,10 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `governance/_索引 md.md`
 - `governance/L0-伦理 meta json.md`
 - `governance/RLHF马太效应严格数学证明白皮书｜PPO+GAE超线性增长动力系统.md`
-- `governance/龙魂白皮书章节导航.csv`
-- `governance/龙魂白皮书章节导航_1.csv`
-- `governance/龙魂核心模块清单.csv`
-- `governance/龙魂核心模块清单_1.csv`
+- `governance/龍魂白皮书章节导航.csv`
+- `governance/龍魂白皮书章节导航_1.csv`
+- `governance/龍魂核心模块清单.csv`
+- `governance/龍魂核心模块清单_1.csv`
 - `governance/📊 UID9622数据治理与知识引擎.md`
 - `governance/🛡️ 系统安全防护体系.md`
 - `governance/智能体安全与可控性策略包 v1.md`
@@ -135,13 +135,13 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 
 - `metaverse/🇨🇳 UID9622元宇宙国民入口 祖国基建·为人民服务.md`
 - `metaverse/🏭 元宇宙加工厂｜代码抄录·知识学习中心.md`
-- `metaverse/龙魂元字全能引擎.csv`
+- `metaverse/龍魂元字全能引擎.csv`
 - `metaverse/🎬 视频动作流畅度优化实战方案 元宇宙视觉资产交付标准.md`
 - `metaverse/📦 元宇宙预设填空标准·UID9622统一规范.md`
 - `metaverse/🎯 CNSH编辑器补全系统 LSP + 多语言兼容 + 元宇宙扩展.md`
-- `metaverse/🌌 龙魂元宇宙推算法 v1 0 占位版·框架已确认.md`
+- `metaverse/🌌 龍魂元宇宙推算法 v1 0 占位版·框架已确认.md`
 - `metaverse/🌌 UID9622元宇宙技术路径图 数字永生可行性分析.md`
-- `metaverse/龙魂元字全能引擎_1.csv`
+- `metaverse/龍魂元字全能引擎_1.csv`
 - `metaverse/🌌 元宇宙DNA协议·UID9622桥接标准 分则本地独乐，合则星辰浩瀚.md`
 - `metaverse/🌌 元宇宙预设填空标准·完整实施版.md`
 - `metaverse/🌌 71人格元宇宙开发战略会议 2025-10-30.md`
@@ -189,7 +189,7 @@ AI 治理、智能回复模板、元宇宙国民入口等核心资料。
 - `2487125a9c9f810d88750042c80bc4d8/Goals 2487125a9c9f80f98d47ef4cbf2926f1.csv` → CSV 未命中核心技术分类
 - `2487125a9c9f810d88750042c80bc4d8/问题收集 2747125a9c9f8091a731fc01a9101426.csv` → CSV 未命中核心技术分类
 - `2487125a9c9f810d88750042c80bc4d8/💬 智能回复模板库 94654959088a492d9f50998c155a15d4.csv` → CSV 未命中核心技术分类
-- `2487125a9c9f810d88750042c80bc4d8/⚓ 龙魂锚点总目录 3167125a9c9f809bb4fefa47702ae762.csv` → CSV 未命中核心技术分类
+- `2487125a9c9f810d88750042c80bc4d8/⚓ 龍魂锚点总目录 3167125a9c9f809bb4fefa47702ae762.csv` → CSV 未命中核心技术分类
 - `2487125a9c9f810d88750042c80bc4d8/🌌 UID9622统一同步视图中心 全系统实时整合面板 e2858c563a0c4cc78014558de0791b1b_系统内容同步表 a925a2ed10c44fcbb49b2228044b851d_all.csv` → CSV 未命中核心技术分类
 - `2487125a9c9f810d88750042c80bc4d8/⚔️ 易经+人性+数学·三位一体终极博弈｜算法裁判·话语权殖民·三色审计逻辑链闭环 v2 0｜UID 00d9040b1f0243b7bd0ea736e73ee82d.md` → 未命中任何核心分类
 - `2487125a9c9f810d88750042c80bc4d8/文件转发管理 2dd7125a9c9f80008137d554e25d7cd8.csv` → CSV 未命中核心技术分类

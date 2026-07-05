@@ -28,14 +28,10 @@ from .node import RouteNode, NodeStatus, NodeType, normalize_node_id
 
 # 日志集成（可选）
 try:
-    from cnsh_core.logging.append_only_logging import log_operation, LogEventType
+    from longhun_logging.append_only_logging import log_operation, LogEventType
     HAS_LOGGING = True
 except ImportError:
-    try:
-        from logging.append_only_logging import log_operation, LogEventType
-        HAS_LOGGING = True
-    except ImportError:
-        HAS_LOGGING = False
+    HAS_LOGGING = False
 
 # 人民主权守护集成
 try:

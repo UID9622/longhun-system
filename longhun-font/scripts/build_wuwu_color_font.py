@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-COLOR-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-COLOR-FILE1-v1.0
 """
 LonghunFont 女娲五彩石彩色字体原型
 

@@ -1,0 +1,379 @@
+/*
+ * 龍魂万年历样式
+ * DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-CSS-v1.1
+ * 字体：LonghunFont 全站独占，无系统字体兜底
+ */
+
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('LonghunFont-Regular.woff2') format('woff2'),
+       url('LonghunFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --bg: #0a0a12;
+  --bg-card: #12121f;
+  --bg-hover: #1a1a2e;
+  --border: rgba(0, 212, 255, 0.18);
+  --blue: #00d4ff;
+  --gold: #ffd700;
+  --purple: #c39bd3;
+  --green: #00ff88;
+  --yellow: #f5c518;
+  --red: #ff6b6b;
+  --text: #e8ecf1;
+  --muted: #8b95a7;
+  --shadow: 0 8px 32px rgba(0, 212, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'LonghunFont';
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.longhun-font {
+  font-family: 'LonghunFont';
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 顶部栏 */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  border-radius: 12px;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  font-family: 'LonghunFont';
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--gold), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.sovereignty {
+  text-align: right;
+}
+
+.dna {
+  font-size: 9px;
+  color: var(--purple);
+  font-family: 'LonghunFont';
+  max-width: 180px;
+  word-break: break-all;
+}
+
+.badge {
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--green);
+}
+
+/* 主内容 */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.solar-date, .lunar-hero, .yi-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.year {
+  font-size: 14px;
+  color: var(--muted);
+  font-family: 'LonghunFont';
+}
+
+.month-day {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'LonghunFont';
+}
+
+.weekday {
+  font-size: 14px;
+  color: var(--gold);
+}
+
+.lunar-big {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: 'LonghunFont';
+}
+
+.lunar-line {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.term {
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.gua {
+  font-size: 12px;
+  color: var(--purple);
+}
+
+.tricolor {
+  font-size: 18px;
+}
+
+/* 日历卡片 */
+.calendar-card {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.month-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--blue);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: var(--blue);
+  color: var(--bg);
+}
+
+.calendar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'LonghunFont';
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.weekdays span {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.day-cell:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+}
+
+.day-cell.today {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: var(--blue);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.day-cell.selected {
+  background: rgba(255, 215, 0, 0.12);
+  border-color: var(--gold);
+}
+
+.day-cell.other-month {
+  opacity: 0.35;
+}
+
+.day-number {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'LonghunFont';
+}
+
+.day-lunar {
+  font-size: 9px;
+  color: var(--muted);
+  transform: scale(0.92);
+}
+
+.day-term {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 8px;
+  color: var(--green);
+  transform: scale(0.85);
+}
+
+.day-dna {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.65);
+  font-size: 7px;
+  color: var(--purple);
+  font-family: 'LonghunFont';
+  opacity: 0.7;
+}
+
+/* 详情卡片 */
+.detail-card {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.detail-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.detail-content {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* 底部 */
+.footer {
+  margin-top: 16px;
+  padding: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+#chain-hash {
+  font-family: 'LonghunFont';
+  font-size: 9px;
+  margin-top: 4px;
+  color: var(--purple);
+  word-break: break-all;
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .month-day {
+    font-size: 36px;
+  }
+  .lunar-big {
+    font-size: 24px;
+  }
+}

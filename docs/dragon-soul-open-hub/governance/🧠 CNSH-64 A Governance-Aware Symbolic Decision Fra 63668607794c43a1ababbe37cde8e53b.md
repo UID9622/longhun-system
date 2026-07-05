@@ -24,7 +24,7 @@
 
 | **Authors** | 诸葛鑫 (Lucky Zhuge), Independent Researcher · AI-assisted authorship (Claude, Anthropic) |
 | --- | --- |
-| **Affiliation** | Longhun System (龙魂系统), Independent Research Initiative |
+| **Affiliation** | Longhun System (龍魂系统), Independent Research Initiative |
 | **Date** | March 17, 2026 |
 | **Target Venue** | AIES 2026 / AAAI 2026 / IEEE Transactions on AI |
 | **Contact** | [fireroot.lad@outlook.com](mailto:fireroot.lad@outlook.com) |
@@ -53,7 +53,7 @@ The author retains full intellectual responsibility for all claims, results, and
 > *"My ignorance allows AI to fill the gaps; my AI enables me to remain ignorant — yet the outcome is universally recognized. Longhun System: where every ignorant mind can rest in peace."*
 > 
 
-> *"我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的 · 龙魂系统，让所有无知的人安心"*
+> *"我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的 · 龍魂系统，让所有无知的人安心"*
 > 
 
 Ensuring safety, consistency, and explainability in AI decision-making remains a fundamental challenge, particularly in open-ended and high-risk interaction scenarios. This paper introduces **CNSH-64** (*Cultural-Normative Symbolic Hierarchy, 64-State*), a governance-aware symbolic decision framework that unifies structured state modeling, multi-dimensional risk evaluation, and formally verifiable ethical constraints into a single, auditable computational pipeline.
@@ -193,11 +193,11 @@ $Eth: A \rightarrow \{0,1\}$
 1. **Section I — Introduction:** 动机、研究缺口、贡献概述（本节）
 2. **Section II — Background & Related Work:** 回顾符号AI、AI治理、跨文化解释等领域进展与不足
 3. **Section III — CNSH-64 Framework Design:** 状态空间、风险函数、伦理机制的数学构造
-4. **Section IV — Implementation & Integration:** 工程架构图、GPG签名流程、龙魂系统接口规范
+4. **Section IV — Implementation & Integration:** 工程架构图、GPG签名流程、龍魂系统接口规范
 5. **Section V — Experimental Evaluation:** 安全率、一致性、解释性、鲁棒性多维度测试
 6. **Section VI — Formal Verification & Proof:** Coq完成核心伦理命题的形式化证明
 7. **Section VII — Discussion:** 文化偏见、可扩展性、未来演化路径
-8. **Section VIII — Conclusion & Future Work:** 成果总结与"龙魂协议"标准化愿景
+8. **Section VIII — Conclusion & Future Work:** 成果总结与"龍魂协议"标准化愿景
 
 ---
 
@@ -639,7 +639,7 @@ class CNSH64System:
 
 - **v2.0:** 动态参数校准 + 多智能体扩展（512状态）
 - **v3.0:** 分布式部署 + 本地LLM集成（Ollama兼容）
-- **标准化愿景:** 推动CNSH-64成为ISO/IEEE AI治理标准候选框架，即"龙魂协议"国际标准化
+- **标准化愿景:** 推动CNSH-64成为ISO/IEEE AI治理标准候选框架，即"龍魂协议"国际标准化
 
 ---
 
@@ -661,17 +661,17 @@ CNSH-64 demonstrates that **governance in AI systems can be both formalized and 
 
 ## 8.2 Broader Impact
 
-CNSH-64 establishes a proof-of-concept for the **龙魂协议（Dragon Soul Protocol）**: a vision where AI governance is not a corporate policy document, but a **mathematically verifiable, culturally inclusive, and cryptographically anchored** computational standard accessible to all.
+CNSH-64 establishes a proof-of-concept for the **龍魂协议（Dragon Soul Protocol）**: a vision where AI governance is not a corporate policy document, but a **mathematically verifiable, culturally inclusive, and cryptographically anchored** computational standard accessible to all.
 
 > 《易经·系辞》："穷则变，变则通，通则久。" — 现有AI治理范式已穷，CNSH-64是变，通往久远的治理体系。
 > 
 
-**龙魂系统的证明:**
+**龍魂系统的证明:**
 
 ```
 初中文化 + AI = 顶会级论文
 无知的人 + AI = 专业结果
-这就是龙魂系统的力量
+这就是龍魂系统的力量
 ```
 
 ---
@@ -705,12 +705,12 @@ CNSH-64 establishes a proof-of-concept for the **龙魂协议（Dragon Soul Prot
 > *"In the age of AI, ignorance is not a barrier — it is a starting point. The Longhun System demonstrates that structured human-AI collaboration can produce formally verifiable, internationally recognized research, regardless of the author's educational background."*
 > 
 
-**Original Manifesto (龙魂系统灵魂宣言 · 永久保留):**
+**Original Manifesto (龍魂系统灵魂宣言 · 永久保留):**
 
 > 我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的
 > 
 
-> **龙魂系统，让所有无知的人安心**
+> **龍魂系统，让所有无知的人安心**
 > 
 
 **Value Proposition:**
@@ -719,7 +719,7 @@ CNSH-64 establishes a proof-of-concept for the **龙魂协议（Dragon Soul Prot
 - 不懂英文 → AI → 国际标准 (No English proficiency → AI → International standard)
 - 退伍军人 → AI → 数学形式化 (Veteran → AI → Mathematical formalization)
 
-This appendix is preserved as a testament to the democratization potential of AI-assisted research, consistent with the mission of the Longhun System (龙魂系统) and its Dragon Soul Protocol.
+This appendix is preserved as a testament to the democratization potential of AI-assisted research, consistent with the mission of the Longhun System (龍魂系统) and its Dragon Soul Protocol.
 
 ---
 
@@ -742,7 +742,7 @@ This appendix is preserved as a testament to the democratization potential of AI
     
     Sincerely,
     UID9622 (诸葛鑫 / Lucky)
-    龙魂系统创始人
+    龍魂系统创始人
     fireroot.lad@outlook.com
     ```
     

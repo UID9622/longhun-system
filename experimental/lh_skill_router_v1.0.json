@@ -1,0 +1,3413 @@
+{
+  "schema": "lh-skill-router/v1.0",
+  "version": "1.0",
+  "status": "experimental",
+  "dna": "#龍芯⚡️2026-07-04-LH-SKILL-ROUTER-v1.0",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "created_at": "2026-07-04T14:34:42.543150+00:00",
+  "operator": "UID9622",
+  "privacy_sovereignty": {
+    "declaration": "本路由表保护每个人的隐私主权。任何技能在自动触发前必须声明数据作用域。本地技能数据不出境，外部技能默认不自动触发。",
+    "local_data_stays_local": true,
+    "auto_trigger_requires_consent": true,
+    "external_skills_opt_in": true
+  },
+  "routing_rules": {
+    "command_prefix": "lh",
+    "trigger_mode": [
+      "exact",
+      "prefix",
+      "keyword"
+    ],
+    "conflict_resolution": "scope_priority_project_user_extra_builtin",
+    "fallback": "longhun-tongxinyi",
+    "new_skill_onboarding": "所有新增技能必须在此注册表补充 lh_commands、scenes、privacy_level，方可进入实验区。"
+  },
+  "stats": {
+    "total": 119,
+    "local": 67,
+    "cloud": 16,
+    "protocol": 4,
+    "extra": 32
+  },
+  "skills": [
+    {
+      "index": "C001",
+      "id": "longhun-audit",
+      "name_zh": "龍魂审计修复",
+      "name_en": "longhun-audit",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-audit",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂审计修复",
+        "lh longhun-audit",
+        "lh 龍魂 审计修复",
+        "lh 审计",
+        "lh 修复审计"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "审计修复"
+      ],
+      "keywords": [
+        "龍魂審計修復",
+        "系統",
+        "修復追踪",
+        "根因分析引擎",
+        "修復驗證流程",
+        "歸檔評估系統",
+        "追踪",
+        "修復記錄"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C002",
+      "id": "longhun-automation",
+      "name_zh": "自动化评估",
+      "name_en": "longhun-automation",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-automation",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 自动化评估",
+        "lh longhun-automation"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "隐私安全"
+      ],
+      "keywords": [
+        "龍魂自動化日",
+        "評估引擎",
+        "維度系統健康",
+        "檢查",
+        "定時任務",
+        "自動化周報生",
+        "支持環境",
+        "代碼"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C003",
+      "id": "longhun-cloud-deploy",
+      "name_zh": "龍魂部署",
+      "name_en": "longhun-cloud-deploy",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-deploy",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂部署",
+        "lh longhun-cloud-deploy",
+        "lh 龍魂 部署",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "系统部署"
+      ],
+      "keywords": [
+        "自動化",
+        "龍魂部署引擎",
+        "步藍綠部署",
+        "零停機切換",
+        "回滾",
+        "支持",
+        "環境驗證",
+        "健康檢查"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C004",
+      "id": "longhun-cloud-kimi",
+      "name_zh": "龍魂Kimi",
+      "name_en": "longhun-cloud-kimi",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-kimi",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂Kimi",
+        "lh longhun-cloud-kimi",
+        "lh 龍魂 Kimi"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "备份恢复",
+        "系统监控"
+      ],
+      "keywords": [
+        "故障转移",
+        "龍魂",
+        "集成",
+        "接入",
+        "断路器",
+        "本地备份推理",
+        "个集成模式全",
+        "部正常工作"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C005",
+      "id": "longhun-cloud-mcp",
+      "name_zh": "龍魂MCP",
+      "name_en": "longhun-cloud-mcp",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-mcp",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂MCP",
+        "lh longhun-cloud-mcp",
+        "lh 龍魂 MCP"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "服務",
+        "工具定義",
+        "龍魂",
+        "集成",
+        "自動生成",
+        "配置管理",
+        "支持龍魂體系",
+        "個技能的"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C006",
+      "id": "longhun-cloud-notion",
+      "name_zh": "龍魂Notion",
+      "name_en": "longhun-cloud-notion",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-notion",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂Notion",
+        "lh longhun-cloud-notion",
+        "lh 龍魂 Notion"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "Notion 同步"
+      ],
+      "keywords": [
+        "校驗",
+        "龍魂",
+        "集成",
+        "雙向同步",
+        "自動化週報",
+        "訓練進度",
+        "支持周檢查自",
+        "動化"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C007",
+      "id": "longhun-cloud-panel",
+      "name_zh": "龍魂操作台",
+      "name_en": "longhun-cloud-panel",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-panel",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂操作台",
+        "lh longhun-cloud-panel",
+        "lh 龍魂 操作台"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "系统监控"
+      ],
+      "keywords": [
+        "龍魂操作台",
+        "统一",
+        "底座能力联动",
+        "本地技能与云",
+        "端技能的统一",
+        "入口",
+        "请求路由分发",
+        "监控"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C008",
+      "id": "longhun-deployment-ready",
+      "name_zh": "部署就绪",
+      "name_en": "longhun-deployment-ready",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deployment-ready",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 部署就绪",
+        "lh longhun-deployment-ready",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "系统部署"
+      ],
+      "keywords": [
+        "龍魂部署就绪",
+        "系统",
+        "全链路部署自",
+        "动化框架",
+        "提供",
+        "项部署就绪检",
+        "分阶段自动部",
+        "署执行"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C009",
+      "id": "longhun-integration",
+      "name_zh": "系统集成",
+      "name_en": "longhun-integration",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-integration",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 系统集成",
+        "lh longhun-integration"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "龍魂系统集成",
+        "测试引擎",
+        "端到端自动化",
+        "测试",
+        "模块兼容性检",
+        "连通性测试",
+        "数据一致性验",
+        "性能回归测试"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C010",
+      "id": "longhun-multicurrency",
+      "name_zh": "多币种直达",
+      "name_en": "longhun-multicurrency",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-multicurrency",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 多币种直达",
+        "lh longhun-multicurrency"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "龍魂多币种直",
+        "达系统",
+        "支持",
+        "种货币实时行",
+        "汇率转换",
+        "跨境支付",
+        "龍字规范化"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C011",
+      "id": "longhun-review",
+      "name_zh": "龍魂每日复盘",
+      "name_en": "longhun-review",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-review",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂每日复盘",
+        "lh longhun-review",
+        "lh 龍魂 每日复盘"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "隐私安全"
+      ],
+      "keywords": [
+        "龍魂每日復盤",
+        "引擎",
+        "三色審計體系",
+        "支持郵件發送",
+        "和日曆記錄",
+        "包含歷史趨勢",
+        "追蹤和改進建",
+        "議生成"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C012",
+      "id": "龍魂Kimi",
+      "name_zh": "龍魂Kimi",
+      "name_en": "龍魂Kimi",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂Kimi/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 Kimi"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "龍魂"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C013",
+      "id": "龍魂MCP",
+      "name_zh": "龍魂MCP",
+      "name_en": "龍魂MCP",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂MCP/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 MCP"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "龍魂"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C014",
+      "id": "龍魂Notion",
+      "name_zh": "龍魂Notion",
+      "name_en": "龍魂Notion",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂Notion/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 Notion"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "Notion 同步"
+      ],
+      "keywords": [
+        "龍魂"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C015",
+      "id": "龍魂操作台",
+      "name_zh": "龍魂操作台",
+      "name_en": "龍魂操作台",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂操作台/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 操作台"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用"
+      ],
+      "keywords": [
+        "龍魂操作台"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "C016",
+      "id": "龍魂部署",
+      "name_zh": "龍魂部署",
+      "name_en": "龍魂部署",
+      "scope": "云端技能",
+      "category": "cloud",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂部署/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 部署",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "云端服务",
+        "API 调用",
+        "系统部署"
+      ],
+      "keywords": [
+        "龍魂部署"
+      ],
+      "privacy_level": "mixed",
+      "data_scope": "云端",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E001",
+      "id": "airunway-aks-setup",
+      "name_zh": "AI Runway AKS 部署",
+      "name_en": "airunway-aks-setup",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/airunway-aks-setup/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh AI Runway AKS 部署",
+        "lh airunway-aks-setup",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "部署"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E002",
+      "id": "appinsights-instrumentation",
+      "name_zh": "Application Insights 接入",
+      "name_en": "appinsights-instrumentation",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/appinsights-instrumentation/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Application Insights 接入",
+        "lh appinsights-instrumentation"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "接入"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E003",
+      "id": "azure-ai",
+      "name_zh": "Azure AI 服务",
+      "name_en": "azure-ai",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-ai/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure AI 服务",
+        "lh azure-ai",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "服务"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E004",
+      "id": "azure-aigateway",
+      "name_zh": "Azure AI 网关",
+      "name_en": "azure-aigateway",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-aigateway/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure AI 网关",
+        "lh azure-aigateway",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "网关"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E005",
+      "id": "azure-cloud-migrate",
+      "name_zh": "Azure 云迁移",
+      "name_en": "azure-cloud-migrate",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-cloud-migrate/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 云迁移",
+        "lh azure-cloud-migrate",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "云迁移"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E006",
+      "id": "azure-compliance",
+      "name_zh": "Azure 合规审计",
+      "name_en": "azure-compliance",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-compliance/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 合规审计",
+        "lh azure-compliance",
+        "lh Azure",
+        "lh 审计",
+        "lh 修复审计"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "审计修复"
+      ],
+      "keywords": [
+        "合规审计"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E007",
+      "id": "azure-compute",
+      "name_zh": "Azure 计算",
+      "name_en": "azure-compute",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-compute/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 计算",
+        "lh azure-compute",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "计算"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E008",
+      "id": "azure-cost",
+      "name_zh": "Azure 成本管理",
+      "name_en": "azure-cost",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-cost/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 成本管理",
+        "lh azure-cost",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "成本管理"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E009",
+      "id": "azure-deploy",
+      "name_zh": "Azure 部署",
+      "name_en": "azure-deploy",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-deploy/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 部署",
+        "lh azure-deploy",
+        "lh Azure",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "部署"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E010",
+      "id": "azure-diagnostics",
+      "name_zh": "Azure 诊断",
+      "name_en": "azure-diagnostics",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-diagnostics/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 诊断",
+        "lh azure-diagnostics",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "诊断"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E011",
+      "id": "azure-enterprise-infra-planner",
+      "name_zh": "Azure 企业架构规划",
+      "name_en": "azure-enterprise-infra-planner",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-enterprise-infra-planner/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 企业架构规划",
+        "lh azure-enterprise-infra-planner",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "企业架构规划"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E012",
+      "id": "azure-hosted-copilot-sdk",
+      "name_zh": "Azure Copilot SDK",
+      "name_en": "azure-hosted-copilot-sdk",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-hosted-copilot-sdk/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure Copilot SDK",
+        "lh azure-hosted-copilot-sdk",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E013",
+      "id": "azure-kubernetes",
+      "name_zh": "Azure Kubernetes",
+      "name_en": "azure-kubernetes",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-kubernetes/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure Kubernetes",
+        "lh azure-kubernetes",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E014",
+      "id": "azure-kubernetes/azure-kubernetes-automatic-readiness",
+      "name_zh": "AKS 自动就绪",
+      "name_en": "azure-kubernetes/azure-kubernetes-automatic-readiness",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh AKS 自动就绪",
+        "lh azure-kubernetes/azure-kubernetes-automatic-readiness"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "自动就绪"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E015",
+      "id": "azure-kusto",
+      "name_zh": "Azure Kusto",
+      "name_en": "azure-kusto",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-kusto/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure Kusto",
+        "lh azure-kusto",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E016",
+      "id": "azure-messaging",
+      "name_zh": "Azure 消息服务",
+      "name_en": "azure-messaging",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-messaging/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 消息服务",
+        "lh azure-messaging",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "消息服务"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E017",
+      "id": "azure-prepare",
+      "name_zh": "Azure 应用准备",
+      "name_en": "azure-prepare",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-prepare/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 应用准备",
+        "lh azure-prepare",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "应用准备"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E018",
+      "id": "azure-quotas",
+      "name_zh": "Azure 配额管理",
+      "name_en": "azure-quotas",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-quotas/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 配额管理",
+        "lh azure-quotas",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "配额管理"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E019",
+      "id": "azure-rbac",
+      "name_zh": "Azure RBAC",
+      "name_en": "azure-rbac",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-rbac/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure RBAC",
+        "lh azure-rbac",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E020",
+      "id": "azure-reliability",
+      "name_zh": "Azure 可靠性",
+      "name_en": "azure-reliability",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-reliability/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 可靠性",
+        "lh azure-reliability",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "可靠性"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E021",
+      "id": "azure-resource-lookup",
+      "name_zh": "Azure 资源查找",
+      "name_en": "azure-resource-lookup",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-resource-lookup/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 资源查找",
+        "lh azure-resource-lookup",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "资源查找"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E022",
+      "id": "azure-resource-visualizer",
+      "name_zh": "Azure 资源可视化",
+      "name_en": "azure-resource-visualizer",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-resource-visualizer/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 资源可视化",
+        "lh azure-resource-visualizer",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "资源可视化"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E023",
+      "id": "azure-storage",
+      "name_zh": "Azure 存储",
+      "name_en": "azure-storage",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-storage/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 存储",
+        "lh azure-storage",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "存储"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E024",
+      "id": "azure-upgrade",
+      "name_zh": "Azure 升级",
+      "name_en": "azure-upgrade",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-upgrade/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 升级",
+        "lh azure-upgrade",
+        "lh Azure"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "升级"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E025",
+      "id": "azure-validate",
+      "name_zh": "Azure 部署验证",
+      "name_en": "azure-validate",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-validate/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Azure 部署验证",
+        "lh azure-validate",
+        "lh Azure",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "部署验证"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E026",
+      "id": "entra-agent-id",
+      "name_zh": "Entra Agent ID",
+      "name_en": "entra-agent-id",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/entra-agent-id/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Entra Agent ID",
+        "lh entra-agent-id",
+        "lh Entra"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E027",
+      "id": "entra-app-registration",
+      "name_zh": "Entra 应用注册",
+      "name_en": "entra-app-registration",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/entra-app-registration/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Entra 应用注册",
+        "lh entra-app-registration",
+        "lh Entra"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "应用注册"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E028",
+      "id": "microsoft-foundry",
+      "name_zh": "Microsoft Foundry",
+      "name_en": "microsoft-foundry",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Microsoft Foundry",
+        "lh microsoft-foundry",
+        "lh Foundry",
+        "lh Microsoft"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E029",
+      "id": "microsoft-foundry/models/deploy-model",
+      "name_zh": "Foundry 部署模型",
+      "name_en": "microsoft-foundry/models/deploy-model",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/models/deploy-model/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Foundry 部署模型",
+        "lh microsoft-foundry/models/deploy-model",
+        "lh Foundry",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "部署模型"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E030",
+      "id": "microsoft-foundry/models/deploy-model/capacity",
+      "name_zh": "Foundry 容量规划",
+      "name_en": "microsoft-foundry/models/deploy-model/capacity",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Foundry 容量规划",
+        "lh microsoft-foundry/models/deploy-model/capacity",
+        "lh Foundry"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft"
+      ],
+      "keywords": [
+        "容量规划"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E031",
+      "id": "microsoft-foundry/models/deploy-model/customize",
+      "name_zh": "Foundry 自定义部署",
+      "name_en": "microsoft-foundry/models/deploy-model/customize",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/models/deploy-model/customize/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Foundry 自定义部署",
+        "lh microsoft-foundry/models/deploy-model/customize",
+        "lh Foundry",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "自定义部署"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "E032",
+      "id": "microsoft-foundry/models/deploy-model/preset",
+      "name_zh": "Foundry 预设部署",
+      "name_en": "microsoft-foundry/models/deploy-model/preset",
+      "scope": "extra 技能",
+      "category": "extra",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/models/deploy-model/preset/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Foundry 预设部署",
+        "lh microsoft-foundry/models/deploy-model/preset",
+        "lh Foundry",
+        "lh 部署",
+        "lh 上线"
+      ],
+      "scenes": [
+        "外部服务",
+        "Azure / Microsoft",
+        "系统部署"
+      ],
+      "keywords": [
+        "预设部署"
+      ],
+      "privacy_level": "external",
+      "data_scope": "外部",
+      "auto_trigger": false,
+      "notes": ""
+    },
+    {
+      "index": "L001",
+      "id": "CNSH-PROTOCOL",
+      "name_zh": "CNSH语言规范",
+      "name_en": "cnsh-protocol-v2-0",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-PROTOCOL",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh CNSH语言规范",
+        "lh cnsh-protocol-v2-0",
+        "lh CNSH",
+        "lh CNSH 规范"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "语言完整规范",
+        "中文母语关键",
+        "龍魂专属符号",
+        "强制追溯",
+        "三色审计强制",
+        "权重指向焊死",
+        "多目标语言转",
+        "换器"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L002",
+      "id": "CNSH-SEMANTIC",
+      "name_zh": "CNSH语义规范",
+      "name_en": "cnsh-semantic-v2-0",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-SEMANTIC",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh CNSH语义规范",
+        "lh cnsh-semantic-v2-0",
+        "lh CNSH",
+        "lh CNSH 规范"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "语义接入规范",
+        "功能语义",
+        "技术用词对照",
+        "协作宣言",
+        "八条永恒铁律",
+        "中英对照",
+        "行话翻译",
+        "锚链"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L003",
+      "id": "china-digital-identity",
+      "name_zh": "数字身份主权协议",
+      "name_en": "china-digital-identity",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/china-digital-identity",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 数字身份主权协议",
+        "lh china-digital-identity"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍芯",
+        "龍魂数字身份",
+        "主权协议",
+        "技能",
+        "主动布局",
+        "不用等用户说",
+        "关键词",
+        "当对话中出现"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L004",
+      "id": "cnsh-copilot",
+      "name_zh": "CNSH代码副驾驶",
+      "name_en": "cnsh-copilot",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/cnsh-copilot/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh CNSH代码副驾驶",
+        "lh cnsh-copilot",
+        "lh CNSH",
+        "lh CNSH 副驾驶"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "代码副驾驶"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L005",
+      "id": "digital-identity-sovereignty",
+      "name_zh": "数字身份主权协议",
+      "name_en": "china-digital-identity",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/digital-identity-sovereignty",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 数字身份主权协议",
+        "lh china-digital-identity"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍芯",
+        "龍魂数字身份",
+        "主权协议",
+        "技能",
+        "主动布局",
+        "不用等用户说",
+        "关键词",
+        "当对话中出现"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L006",
+      "id": "dragon-soul-agent",
+      "name_zh": "龍魂智能体",
+      "name_en": "dragon-soul-agent",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/dragon-soul-agent",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂智能体",
+        "lh dragon-soul-agent",
+        "lh 龍魂 智能体"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "中文命名规范",
+        "追溯",
+        "当用户提及",
+        "龍魂",
+        "中文编程",
+        "通心译",
+        "三色审计",
+        "龍芯"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L007",
+      "id": "kimi-webbridge",
+      "name_zh": "Kimi WebBridge",
+      "name_en": "kimi-webbridge",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/kimi-webbridge",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Kimi WebBridge",
+        "lh kimi-webbridge"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L008",
+      "id": "longhun-3core-opt",
+      "name_zh": "3核心优化",
+      "name_en": "longhun-3core-opt",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-3core-opt",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 3核心优化",
+        "lh longhun-3core-opt"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L009",
+      "id": "longhun-agent-eco",
+      "name_zh": "Agent生态",
+      "name_en": "longhun-agent-eco",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-agent-eco",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh Agent生态",
+        "lh longhun-agent-eco"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L010",
+      "id": "longhun-ai-lexicon",
+      "name_zh": "龍文AI术语词典",
+      "name_en": "longhun-ai-lexicon",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ai-lexicon/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍文AI术语词典",
+        "lh longhun-ai-lexicon"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍文",
+        "术语词典"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L011",
+      "id": "longhun-archive",
+      "name_zh": "中央藏经阁",
+      "name_en": "longhun-archive",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-archive",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 中央藏经阁",
+        "lh longhun-archive"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "中央藏经阁",
+        "龍魂体系",
+        "部核心文档的",
+        "统一索引和检",
+        "索系统",
+        "五行分类法",
+        "金木水火土",
+        "关键词检索"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L012",
+      "id": "longhun-asr",
+      "name_zh": "longhun-asr",
+      "name_en": "longhun-asr",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-asr",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "语音识别"
+      ],
+      "keywords": [
+        "君子协议",
+        "追溯"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L013",
+      "id": "longhun-backup",
+      "name_zh": "龍魂备份恢复",
+      "name_en": "longhun-backup",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-backup",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂备份恢复",
+        "lh longhun-backup",
+        "lh 龍魂 备份恢复",
+        "lh 备份",
+        "lh 恢复"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "备份恢复"
+      ],
+      "keywords": [
+        "龍魂备份恢复",
+        "系统",
+        "提供三层分级",
+        "备份策略",
+        "协议文件",
+        "五层脚本",
+        "配置文件",
+        "全量备份"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L014",
+      "id": "longhun-behavior-engine",
+      "name_zh": "龍魂民生行为密码学",
+      "name_en": "longhun-behavior-engine",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-behavior-engine",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂民生行为密码学",
+        "lh longhun-behavior-engine",
+        "lh 龍魂 民生行为密码学"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂公民画像",
+        "引擎",
+        "真实行为",
+        "真诚评估",
+        "自主亮灯",
+        "六大维度",
+        "环保贡献",
+        "信誉分"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L015",
+      "id": "longhun-benchmark",
+      "name_zh": "龍魂性能基准",
+      "name_en": "longhun-benchmark",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-benchmark",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂性能基准",
+        "lh longhun-benchmark",
+        "lh 龍魂 性能基准"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L016",
+      "id": "longhun-cn-innovation-kb",
+      "name_zh": "中国科技创新知识库",
+      "name_en": "longhun-cn-innovation-kb",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cn-innovation-kb/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 中国科技创新知识库",
+        "lh longhun-cn-innovation-kb"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "知识检索"
+      ],
+      "keywords": [
+        "中国科技创新",
+        "知识库"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L017",
+      "id": "longhun-cnsh",
+      "name_zh": "CNSH运行时",
+      "name_en": "longhun-cnsh",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cnsh",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh CNSH运行时",
+        "lh longhun-cnsh",
+        "lh CNSH",
+        "lh CNSH 运行时"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "字元创作",
+        "中文原生脚本",
+        "运行时",
+        "层级完整实现",
+        "画匠",
+        "中文编程",
+        "文化主权",
+        "繁体龍字永存"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L018",
+      "id": "longhun-creator",
+      "name_zh": "创作者主权调度",
+      "name_en": "longhun-creator",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-creator",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 创作者主权调度",
+        "lh longhun-creator"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "记忆归集",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍魂创作者主",
+        "权调度技能",
+        "用自然语言表",
+        "达意图时",
+        "自动识别",
+        "自动路由",
+        "自动调动已安",
+        "装的"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L019",
+      "id": "longhun-cross-platform",
+      "name_zh": "龍魂跨平台互通",
+      "name_en": "longhun-cross-platform",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cross-platform",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂跨平台互通",
+        "lh longhun-cross-platform",
+        "lh 龍魂 跨平台互通"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍魂跨平台互",
+        "通技能",
+        "与华为鸿蒙设",
+        "备间本地网络",
+        "直连数据同步",
+        "使用国密",
+        "加密信封",
+        "密钥协商"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L020",
+      "id": "longhun-cs-kb",
+      "name_zh": "计算机科学知识库",
+      "name_en": "longhun-cs-kb",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cs-kb/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 计算机科学知识库",
+        "lh longhun-cs-kb"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "知识检索"
+      ],
+      "keywords": [
+        "计算机科学知",
+        "识库"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L021",
+      "id": "longhun-daemon",
+      "name_zh": "龍魂系统守护",
+      "name_en": "longhun-daemon",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-daemon",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂系统守护",
+        "lh longhun-daemon",
+        "lh 龍魂 系统守护"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂系統守護",
+        "進程",
+        "安裝",
+        "啟動",
+        "停止",
+        "重啟龍魂服務",
+        "一鍵啟動全部",
+        "服務"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L022",
+      "id": "longhun-data-hub",
+      "name_zh": "龍魂本地数据中台",
+      "name_en": "longhun-data-hub",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-data-hub/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂本地数据中台",
+        "lh longhun-data-hub",
+        "lh 龍魂 本地数据中台"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂本地数据",
+        "中台"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L023",
+      "id": "longhun-device-ecosystem",
+      "name_zh": "龍魂设备生态",
+      "name_en": "longhun-device-ecosystem",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-device-ecosystem/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂设备生态",
+        "lh longhun-device-ecosystem",
+        "lh 龍魂 设备生态"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂设备生态"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L024",
+      "id": "longhun-dna-align",
+      "name_zh": "DNA对齐审计",
+      "name_en": "longhun-dna-align",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dna-align",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh DNA对齐审计",
+        "lh longhun-dna-align",
+        "lh 审计",
+        "lh 修复审计"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "龍魂",
+        "對齊審計系統",
+        "全系統",
+        "掃描",
+        "對齊率計算",
+        "重複檢測",
+        "自動修復",
+        "完整性驗證"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L025",
+      "id": "longhun-empower-engine",
+      "name_zh": "龍魂赋能引擎",
+      "name_en": "longhun-empower-engine",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-empower-engine",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂赋能引擎",
+        "lh longhun-empower-engine",
+        "lh 龍魂 赋能引擎"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "系统部署"
+      ],
+      "keywords": [
+        "龍魂赋能关键",
+        "字识别引擎",
+        "不是打标签",
+        "是让水流到该",
+        "去的地方",
+        "识别用户真实",
+        "需求",
+        "路由到对应人"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L026",
+      "id": "longhun-finance",
+      "name_zh": "龍魂金融",
+      "name_en": "longhun-finance",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-finance",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂金融",
+        "lh longhun-finance",
+        "lh 龍魂 金融"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复",
+        "金融交易"
+      ],
+      "keywords": [
+        "交易系统",
+        "量子态不动点",
+        "双轨数字人",
+        "虚拟代体",
+        "实体原型",
+        "五行决策引擎",
+        "金木水火土相",
+        "生相克"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L027",
+      "id": "longhun-flow-viz",
+      "name_zh": "龍魂流场可视化引擎",
+      "name_en": "longhun-flow-viz",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-flow-viz/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂流场可视化引擎",
+        "lh longhun-flow-viz",
+        "lh 龍魂 流场可视化引擎"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂流场可视",
+        "化引擎"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L028",
+      "id": "longhun-forensic-toolkit",
+      "name_zh": "龍魂取证工具包",
+      "name_en": "longhun-forensic-toolkit",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-forensic-toolkit",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂取证工具包",
+        "lh longhun-forensic-toolkit",
+        "lh 龍魂 取证工具包"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍魂取证工具",
+        "张截图",
+        "签名链",
+        "不可篡改的数",
+        "字主权证据矩",
+        "用于对平台限",
+        "隐藏",
+        "拉黑"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L029",
+      "id": "longhun-formula-opt",
+      "name_zh": "公式链优化",
+      "name_en": "longhun-formula-opt",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-formula-opt",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 公式链优化",
+        "lh longhun-formula-opt"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂體系",
+        "公式鏈優化系",
+        "包含增量哈希",
+        "驗證",
+        "權重緩存",
+        "緩存",
+        "快速熔斷",
+        "性能對比分析"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L030",
+      "id": "longhun-governance",
+      "name_zh": "龍魂治理",
+      "name_en": "longhun-governance",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-governance",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂治理",
+        "lh longhun-governance",
+        "lh 龍魂 治理"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "龍魂体系治理",
+        "层技能",
+        "包含三层监督",
+        "机制",
+        "三色审计体系",
+        "全链路追溯",
+        "君子协议开源",
+        "宪章"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L031",
+      "id": "longhun-harmonyos",
+      "name_zh": "龍魂鸿蒙端",
+      "name_en": "longhun-harmonyos",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-harmonyos",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂鸿蒙端",
+        "lh longhun-harmonyos",
+        "lh 龍魂 鸿蒙端"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私安全"
+      ],
+      "keywords": [
+        "龍魂体系鸿蒙",
+        "端技能",
+        "数据根留在中",
+        "安全级别锁死",
+        "云端出境",
+        "国密端侧加密",
+        "毫秒级监听"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L032",
+      "id": "longhun-innovation",
+      "name_zh": "龍魂穷则变创新引擎",
+      "name_en": "longhun-innovation",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-innovation/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂穷则变创新引擎",
+        "lh longhun-innovation",
+        "lh 龍魂 穷则变创新引擎"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂穷则变创",
+        "新引擎"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L033",
+      "id": "longhun-ios",
+      "name_zh": "龍魂iOS端",
+      "name_en": "longhun-ios",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ios",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂iOS端",
+        "lh longhun-ios",
+        "lh 龍魂 iOS端"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "端本地数据治",
+        "理技能",
+        "本地存储",
+        "端侧加密",
+        "硬件保护",
+        "数据根留中国",
+        "禁用",
+        "同步"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L034",
+      "id": "longhun-kg-upgrade",
+      "name_zh": "知识图谱升级",
+      "name_en": "longhun-kg-upgrade",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-kg-upgrade",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 知识图谱升级",
+        "lh longhun-kg-upgrade"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂知识图谱",
+        "正规化升级方",
+        "引入图数据库",
+        "标准化本体",
+        "实体消歧",
+        "推理引擎",
+        "社区发现",
+        "规则推理"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L035",
+      "id": "longhun-math-formula-core",
+      "name_zh": "数学公式核心",
+      "name_en": "longhun-math-formula-core",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-math-formula-core",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 数学公式核心",
+        "lh longhun-math-formula-core"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍魂数学公式",
+        "算法核心技能",
+        "当对话涉及数",
+        "字根",
+        "三色闸",
+        "信息熵",
+        "余弦相似度",
+        "权重归一化"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L036",
+      "id": "longhun-memory-bootstrap",
+      "name_zh": "龍魂记忆启动器",
+      "name_en": "longhun-memory-bootstrap",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-memory-bootstrap",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂记忆启动器",
+        "lh longhun-memory-bootstrap",
+        "lh 龍魂 记忆启动器",
+        "lh 启动记忆",
+        "lh 读取记忆",
+        "lh 加载日志"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "记忆归集",
+        "数据压缩"
+      ],
+      "keywords": [
+        "龍魂记忆启动",
+        "中国自主可控",
+        "的多平台记忆",
+        "归集压缩技能",
+        "当用户启动",
+        "或说",
+        "启动记忆",
+        "读取记忆"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L037",
+      "id": "longhun-merit-hall",
+      "name_zh": "龍魂功德堂",
+      "name_en": "longhun-merit-hall",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-merit-hall/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂功德堂",
+        "lh longhun-merit-hall",
+        "lh 龍魂 功德堂"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂功德堂"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L038",
+      "id": "longhun-monitoring",
+      "name_zh": "longhun-monitoring",
+      "name_en": "longhun-monitoring",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-monitoring",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "系统部署",
+        "隐私安全"
+      ],
+      "keywords": [
+        "龍魂移動端監",
+        "層完整監控體",
+        "應用無死角覆",
+        "基礎層",
+        "指標",
+        "日誌",
+        "告警",
+        "報告"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L039",
+      "id": "longhun-nlp",
+      "name_zh": "longhun-nlp",
+      "name_en": "longhun-nlp",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-nlp",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "语义分析"
+      ],
+      "keywords": [
+        "龍文",
+        "中文优先文字",
+        "识别引擎",
+        "术语引擎",
+        "通心译双语映",
+        "中文分词",
+        "情感分析",
+        "代码语义分析"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L040",
+      "id": "longhun-notion-portal",
+      "name_zh": "Notion空间入口",
+      "name_en": "longhun-notion-portal",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-notion-portal/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh Notion空间入口",
+        "lh longhun-notion-portal"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "Notion 同步"
+      ],
+      "keywords": [
+        "空间入口"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L041",
+      "id": "longhun-ocr",
+      "name_zh": "longhun-ocr",
+      "name_en": "longhun-ocr",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ocr",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "图像识别"
+      ],
+      "keywords": [
+        "龍瞳",
+        "中文优先图像",
+        "识别引擎",
+        "核心策略",
+        "能中文替代的",
+        "中文实现",
+        "不能的用国际",
+        "标准库兜底"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L042",
+      "id": "longhun-persona-router",
+      "name_zh": "龍魂人格路由系统",
+      "name_en": "longhun-persona-router",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-persona-router/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂人格路由系统",
+        "lh longhun-persona-router",
+        "lh 龍魂 人格路由系统"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂人格路由",
+        "系统"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L043",
+      "id": "longhun-priority-sort",
+      "name_zh": "龍魂优先级排序",
+      "name_en": "longhun-priority-sort",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-priority-sort",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 龍魂优先级排序",
+        "lh longhun-priority-sort",
+        "lh 龍魂 优先级排序"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L044",
+      "id": "longhun-riemann",
+      "name_zh": "longhun-riemann",
+      "name_en": "longhun-riemann",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-riemann",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂視角下的",
+        "黎曼猜想研究",
+        "框架",
+        "不動點理論",
+        "對稱類比",
+        "加權結構三個",
+        "觀察視角",
+        "觀察性框架"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L045",
+      "id": "longhun-tongxinyi",
+      "name_zh": "龍魂通心译",
+      "name_en": "longhun-tongxinyi",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-tongxinyi",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂通心译",
+        "lh longhun-tongxinyi",
+        "lh 龍魂 通心译"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "龍魂前置翻译",
+        "技能",
+        "通心译",
+        "主干",
+        "先翻译再执行",
+        "贴身常驻",
+        "钻石主干合并",
+        "焊点"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L046",
+      "id": "longhun-trust-protocol",
+      "name_zh": "龍魂信任协议",
+      "name_en": "longhun-trust-protocol",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-trust-protocol/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂信任协议",
+        "lh longhun-trust-protocol",
+        "lh 龍魂 信任协议"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "龍魂信任协议"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L047",
+      "id": "longhun-warehouse-audit",
+      "name_zh": "仓储AI标准检查",
+      "name_en": "longhun-warehouse-audit",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-warehouse-audit",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 仓储AI标准检查",
+        "lh longhun-warehouse-audit"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "仓储",
+        "温州电商仓储",
+        "检查",
+        "龍魂体系",
+        "标准检查技能",
+        "用于对电商仓",
+        "储管理系统进",
+        "行全链路标准"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L048",
+      "id": "longhun-workflow-transparent",
+      "name_zh": "龍魂工作流透明",
+      "name_en": "longhun-workflow-transparent",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-workflow-transparent",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂工作流透明",
+        "lh longhun-workflow-transparent",
+        "lh 龍魂 工作流透明"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "审计修复"
+      ],
+      "keywords": [
+        "关键词路由",
+        "龍魂宝宝工作",
+        "流程透明化技",
+        "当用户要求",
+        "解释",
+        "你怎么处理的",
+        "要求拆解决策",
+        "过程"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L049",
+      "id": "longhun-zeng-digital-human",
+      "name_zh": "曾老师数字人",
+      "name_en": "longhun-zeng-digital-human",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-zeng-digital-human",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh 曾老师数字人",
+        "lh longhun-zeng-digital-human"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "曾老师数字人",
+        "哲学",
+        "逻辑",
+        "代码完整技能",
+        "从曾老师数字",
+        "人对话中提取",
+        "的四大维度",
+        "哲学框架"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L050",
+      "id": "skill-1-algorithmic-art",
+      "name_zh": "algorithmic-art",
+      "name_en": "algorithmic-art",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-1-algorithmic-art.html",
+      "skill_type": "html",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L051",
+      "id": "skill-10-web-artifacts-builder",
+      "name_zh": "web-artifacts-builder",
+      "name_en": "web-artifacts-builder",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-10-web-artifacts-builder.py",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L052",
+      "id": "skill-2-brand-guidelines",
+      "name_zh": "brand-guidelines",
+      "name_en": "brand-guidelines",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-2-brand-guidelines.html",
+      "skill_type": "html",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L053",
+      "id": "skill-3-canvas-design",
+      "name_zh": "canvas-design",
+      "name_en": "canvas-design",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-3-canvas-design.html",
+      "skill_type": "html",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L054",
+      "id": "skill-4-doc-coauthoring",
+      "name_zh": "doc-coauthoring",
+      "name_en": "doc-coauthoring",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-4-doc-coauthoring.html",
+      "skill_type": "html",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L055",
+      "id": "skill-5-internal-comms",
+      "name_zh": "internal-comms",
+      "name_en": "internal-comms",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-5-internal-comms.html",
+      "skill_type": "html",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L056",
+      "id": "skill-6-mcp-builder",
+      "name_zh": "mcp-builder",
+      "name_en": "mcp-builder",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-6-mcp-builder.py",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L057",
+      "id": "skill-7-skill-creator",
+      "name_zh": "skill-creator",
+      "name_en": "skill-creator",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-7-skill-creator.py",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L058",
+      "id": "skill-8-slack-gif-creator",
+      "name_zh": "slack-gif-creator",
+      "name_en": "slack-gif-creator",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-8-slack-gif-creator.py",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L059",
+      "id": "skill-9-theme-factory",
+      "name_zh": "theme-factory",
+      "name_en": "theme-factory",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-9-theme-factory.py",
+      "skill_type": "python",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "内置",
+        "技能"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L060",
+      "id": "wuxing-calc-optimizations",
+      "name_zh": "五行计算优化",
+      "name_en": "wuxing-calc-optimizations",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/wuxing-calc-optimizations/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 五行计算优化",
+        "lh wuxing-calc-optimizations"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "五行计算优化"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L061",
+      "id": "中央藏经阁",
+      "name_zh": "中央藏经阁",
+      "name_en": "中央藏经阁",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/中央藏经阁/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "中央藏经阁"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L062",
+      "id": "黎曼框架",
+      "name_zh": "黎曼框架",
+      "name_en": "黎曼框架",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/黎曼框架/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [],
+      "scenes": [
+        "本地治理",
+        "龍魂系统"
+      ],
+      "keywords": [
+        "黎曼框架"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L063",
+      "id": "龍文NLP",
+      "name_zh": "龍文NLP",
+      "name_en": "龍文NLP",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍文NLP/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh NLP",
+        "lh 语义分析"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "语义分析"
+      ],
+      "keywords": [
+        "龍文"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L064",
+      "id": "龍瞳OCR",
+      "name_zh": "龍瞳OCR",
+      "name_en": "龍瞳OCR",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍瞳OCR/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh OCR",
+        "lh 识别文字"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "图像识别"
+      ],
+      "keywords": [
+        "龍瞳"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L065",
+      "id": "龍音ASR",
+      "name_zh": "龍音ASR",
+      "name_en": "龍音ASR",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍音ASR/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 语音识别",
+        "lh 语音输入"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "语音识别"
+      ],
+      "keywords": [
+        "龍音"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L066",
+      "id": "龍魂监控",
+      "name_zh": "龍魂监控",
+      "name_en": "龍魂监控",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂监控/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 监控",
+        "lh 监控",
+        "lh 告警"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "系统监控"
+      ],
+      "keywords": [
+        "龍魂监控"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "L067",
+      "id": "龍魂金融",
+      "name_zh": "龍魂金融",
+      "name_en": "龍魂金融",
+      "scope": "本地技能",
+      "category": "local",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/龍魂金融/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂 金融"
+      ],
+      "scenes": [
+        "本地治理",
+        "龍魂系统",
+        "金融交易"
+      ],
+      "keywords": [
+        "龍魂金融"
+      ],
+      "privacy_level": "sovereign",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "P001",
+      "id": "CNSH语义规范",
+      "name_zh": "CNSH语义规范",
+      "name_en": "CNSH语义规范",
+      "scope": "协议",
+      "category": "protocol",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH语义规范/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh CNSH",
+        "lh CNSH 规范"
+      ],
+      "scenes": [
+        "协议查询",
+        "规范对照"
+      ],
+      "keywords": [
+        "语义规范"
+      ],
+      "privacy_level": "public",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "P002",
+      "id": "CNSH语言规范",
+      "name_zh": "CNSH语言规范",
+      "name_en": "CNSH语言规范",
+      "scope": "协议",
+      "category": "protocol",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH语言规范/SKILL.md",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh CNSH",
+        "lh CNSH 规范"
+      ],
+      "scenes": [
+        "协议查询",
+        "规范对照"
+      ],
+      "keywords": [
+        "语言规范"
+      ],
+      "privacy_level": "public",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "P003",
+      "id": "content_sovereignty_protocol_v2.1",
+      "name_zh": "CNSH内容主权协议",
+      "name_en": "content_sovereignty_protocol_v2.1",
+      "scope": "协议",
+      "category": "protocol",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/content_sovereignty_protocol_v2.1",
+      "skill_type": "python",
+      "lh_commands": [
+        "lh CNSH内容主权协议",
+        "lh content_sovereignty_protocol_v2.1",
+        "lh CNSH",
+        "lh CNSH 内容主权协议"
+      ],
+      "scenes": [
+        "协议查询",
+        "规范对照",
+        "隐私主权"
+      ],
+      "keywords": [
+        "价值观校验",
+        "龍魂",
+        "内容主权协议",
+        "不是元数据",
+        "是主权的基础",
+        "设施",
+        "提供八层主权",
+        "框架"
+      ],
+      "privacy_level": "public",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    },
+    {
+      "index": "P004",
+      "id": "longhun-iron-laws",
+      "name_zh": "龍魂铁律总览",
+      "name_en": "longhun-iron-laws",
+      "scope": "协议",
+      "category": "protocol",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-iron-laws",
+      "skill_type": "doc",
+      "lh_commands": [
+        "lh 龍魂铁律总览",
+        "lh longhun-iron-laws",
+        "lh 龍魂 铁律总览"
+      ],
+      "scenes": [
+        "协议查询",
+        "规范对照",
+        "审计修复",
+        "隐私主权"
+      ],
+      "keywords": [
+        "龍魂铁律总览",
+        "技能",
+        "当对话涉及",
+        "主权底线",
+        "行为约束",
+        "追溯",
+        "三色审计",
+        "创作者守护"
+      ],
+      "privacy_level": "public",
+      "data_scope": "本地",
+      "auto_trigger": true,
+      "notes": ""
+    }
+  ]
+}

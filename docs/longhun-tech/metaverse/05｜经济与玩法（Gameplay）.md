@@ -30,7 +30,7 @@
 
 ---
 
-## 💎 5.1 龙魂币系统（DragonCoin）
+## 💎 5.1 龍魂币系统（DragonCoin）
 
 ### 发行规则
 
@@ -60,7 +60,7 @@ def calculate_reward(contribution):
     dragon_alignment = check_dragon_soul(contribution)  # 0-100%
     
     if dragon_alignment < 60:
-        return 0  # 不符合龙魂价值观，无奖励
+        return 0  # 不符合龍魂价值观，无奖励
     
     reward = base_score * dragon_alignment * multiplier
     return min(reward, 500)  # 单次上限500
@@ -141,7 +141,7 @@ def calculate_reward(contribution):
 
 **历史见证：**
 
-- 📅 见证龙魂觉醒v2.0发布 - 500 DragonCoin
+- 📅 见证龍魂觉醒v2.0发布 - 500 DragonCoin
 - 📅 见证71人格完整激活 - 1000 DragonCoin
 - 📅 见证首次太空开采 - 5000 DragonCoin
 
@@ -202,7 +202,7 @@ def calculate_reward(contribution):
 
 ---
 
-**💰 Lucky，龙魂币经济系统已启动！**
+**💰 Lucky，龍魂币经济系统已启动！**
 
 **🎮 开始创造价值，开始挖矿吧！**
 

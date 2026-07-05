@@ -1,0 +1,844 @@
+{
+  "metadata": {
+    "system": "龍魂知识矩阵 · 中国文化沉浸式章节",
+    "uid": "9622",
+    "version": "v2.0",
+    "created_at": "2026-07-04T00:00:00Z",
+    "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHINESE-CULTURE-CHAPTERS-v2.0",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "license": "CC BY-NC-SA 4.0 · 君子協議",
+    "updated_at": "2026-07-04T16:11:23+0800",
+    "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+    "visual_chapters_count": 15,
+    "placeholder_assets_count": 27,
+    "real_assets_count": 0
+  },
+  "chapters": [
+    {
+      "id": "sancai-369",
+      "title": "三六九 · 天地人合一",
+      "subtitle": "三才定位，六爻成卦，九宮運化",
+      "keywords": [
+        "三才",
+        "六合",
+        "九宫",
+        "天地人",
+        "369",
+        "三六九"
+      ],
+      "classical_text": "天地人三才立，日月星三光行；上中下三方位，精气神三宝凝。六爻者，阴阳之交错也；九宫者，洛书之布列也。三为根，六为变，九为极，循环往复，万物生焉。",
+      "modern_text": "三六九不是迷信数字，而是中国人对系统结构的抽象：三才定位目标，六合描述关系，九宫推演演化。龍魂系统把这套结构转化为可计算的决策路径。",
+      "voice_script": "三才者，天地人。三光者，日月星。三六九，是中国文化的系统骨架。三为根，定其位；六为变，观其交；九为极，穷其化。龍魂以此为本，织就知识矩阵，通天地，贯古今。",
+      "linked_nodes": [
+        "root_001",
+        "term_001",
+        "term_002"
+      ],
+      "era": "上古·先秦",
+      "era_en": "Ancient China / Pre-Qin",
+      "visual_theme": "河图洛书·九宫数理",
+      "figure_image": {
+        "asset_key": "hetu_luoshu",
+        "local": "assets/cultural/backgrounds/hetu_luoshu.svg",
+        "status": "placeholder",
+        "alt": "河图洛书配图"
+      },
+      "background_image": {
+        "asset_key": "hetu_luoshu",
+        "local": "assets/cultural/backgrounds/hetu_luoshu.svg",
+        "status": "placeholder",
+        "alt": "九宫数理背景"
+      },
+      "seal_text": "三才",
+      "font_family": "方正清刻本悦宋 / Noto Serif SC",
+      "color_primary": "#4a0000",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《周易·说卦传》《黄帝内经》。占位图待替换为公开版权古籍图像。",
+      "immutable_points": [
+        "三才=天地人，不可替换为其他三分法",
+        "配图使用河图洛书九宫格，不得使用西方几何图案",
+        "印章文字固定为「三才」，篆书风格",
+        "主色调：暗红（朱砂）+ 金（正色）"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-SANCAI-369-52E123E5D083",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 sancai-369 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "hetu-luoshu",
+      "title": "河图洛书 · 数象之源",
+      "subtitle": "河出图，洛出书，圣人则之",
+      "keywords": [
+        "河图",
+        "洛书",
+        "九宫",
+        "数象",
+        "阴阳",
+        "五行"
+      ],
+      "classical_text": "伏羲氏之王天下也，龙马负图出于河，遂则其文以画八卦；大禹治水，神龟载书出于洛，乃陈其数以定九畴。河图十数，生成五行；洛书九宫，纵横皆十五。",
+      "modern_text": "河图洛书是中国最早的数学矩阵与数据结构。河图标示生成之数，洛书展示平衡之阵。龍魂算法中的洛书九宫、权重矩阵均源于此。",
+      "voice_script": "上古之时，龙马负图而出河，神龟载书而出洛。河图洛书，是中华文明的数象之根。河图为体，生成五行；洛书为用，九宫平衡。龍魂借其数理，铸算法之魂。",
+      "linked_nodes": [
+        "root_001",
+        "term_004"
+      ],
+      "era": "上古",
+      "era_en": "Legendary Ancient",
+      "visual_theme": "龙马负图·神龟载书",
+      "figure_image": {
+        "asset_key": "hetu_luoshu",
+        "local": "assets/cultural/backgrounds/hetu_luoshu.svg",
+        "status": "placeholder",
+        "alt": "龙马负图配图"
+      },
+      "background_image": {
+        "asset_key": "hetu_luoshu",
+        "local": "assets/cultural/backgrounds/hetu_luoshu.svg",
+        "status": "placeholder",
+        "alt": "神龟载书背景"
+      },
+      "seal_text": "洛书",
+      "font_family": "方正小篆体 / Noto Serif SC",
+      "color_primary": "#2b0a0a",
+      "color_secondary": "#c7bca5",
+      "attribution": "概念来源：《周易·系辞上》。占位图待替换为公开版权河图洛书图像。",
+      "immutable_points": [
+        "河图为体，洛书为用，二者不可混为一谈",
+        "洛书九宫纵横和必须等于15",
+        "配图须保留黑白点阵/数字矩阵结构",
+        "印章文字固定为「洛书」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-HETU-LUOSHU-6EF37DD587D9",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 hetu-luoshu 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "taiji",
+      "title": "太极 · 阴阳互根",
+      "subtitle": "无极而太极，太极动而生阳",
+      "keywords": [
+        "太极",
+        "阴阳",
+        "互根",
+        "无极",
+        "两仪",
+        "四象"
+      ],
+      "classical_text": "无极而太极。太极动而生阳，动极而静，静而生阴，静极复动。一动一静，互为其根。分阴分阳，两仪立焉。阳变阴合，而生水火木金土。",
+      "modern_text": "太极图是世界上最简洁的系统模型：任何复杂系统都包含对立统一的两个要素，并在动态中相互转化。龍魂的熔断机制、三色审计都体现着阴阳平衡。",
+      "voice_script": "无极而太极，太极生两仪。阴阳互根，动静相生。这是中国最古老的系统论。龍魂以此观照世界：绿为生发，黄为戒备，红为熔断；一进一退，皆合太极之道。",
+      "linked_nodes": [
+        "term_009",
+        "term_010"
+      ],
+      "era": "先秦",
+      "era_en": "Pre-Qin",
+      "visual_theme": "太极图·阴阳鱼",
+      "figure_image": {
+        "asset_key": "taiji_bg",
+        "local": "assets/cultural/backgrounds/taiji_bg.svg",
+        "status": "placeholder",
+        "alt": "太极图配图"
+      },
+      "background_image": {
+        "asset_key": "taiji_bg",
+        "local": "assets/cultural/backgrounds/taiji_bg.svg",
+        "status": "placeholder",
+        "alt": "阴阳鱼背景"
+      },
+      "seal_text": "太极",
+      "font_family": "方正隶变 / Noto Serif SC",
+      "color_primary": "#1a1a1a",
+      "color_secondary": "#f7f3e8",
+      "attribution": "概念来源：《周易·系辞上》《太极图说》。占位图待替换为公开版权太极图图像。",
+      "immutable_points": [
+        "太极图必须为阴阳鱼标准形态，黑白各半",
+        "阴阳眼位置不可调换（白鱼黑眼，黑鱼白眼）",
+        "禁止将太极图美化为动漫风格",
+        "印章文字固定为「太极」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-TAIJI-9EDA9F4245D1",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 taiji 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "yijing",
+      "title": "易经 · 穷变通久",
+      "subtitle": "易有太极，是生两仪，两仪生四象，四象生八卦",
+      "keywords": [
+        "易经",
+        "六十四卦",
+        "八卦",
+        "变易",
+        "不易",
+        "简易"
+      ],
+      "classical_text": "生生之谓易。穷则变，变则通，通则久。是故《易》有太极，是生两仪，两仪生四象，四象生八卦，八卦定吉凶，吉凶生大业。",
+      "modern_text": "易经不是算命书，而是变化规律的符号系统。六十四卦可视为六十四种情境模式，指导人在不确定中做决策。龍魂的决策路由与情景推演深受其启发。",
+      "voice_script": "生生之谓易。穷则变，变则通，通则久。易经六十四卦，是六十四种人生情境的密码。龍魂取其变通之道，于复杂世界中寻找决策之路。",
+      "linked_nodes": [
+        "root_001",
+        "term_003"
+      ],
+      "era": "周·先秦",
+      "era_en": "Zhou / Pre-Qin",
+      "visual_theme": "六爻卦象·伏羲画卦",
+      "figure_image": {
+        "asset_key": "fuxi",
+        "local": "assets/cultural/figures/fuxi.svg",
+        "status": "placeholder",
+        "alt": "六爻卦象配图"
+      },
+      "background_image": {
+        "asset_key": "i_ching",
+        "local": "assets/cultural/backgrounds/i_ching.svg",
+        "status": "placeholder",
+        "alt": "伏羲画卦背景"
+      },
+      "seal_text": "易",
+      "font_family": "方正金文大篆 / Noto Serif SC",
+      "color_primary": "#2b0a0a",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《周易》经文、伏羲画卦传说。占位图待替换为公开版权卦象/画像。",
+      "immutable_points": [
+        "六爻必须从下往上排列",
+        "阳爻为不间断横线，阴爻为中间断开的两短横",
+        "配图须使用中国传统卦象图式",
+        "印章文字固定为「易」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-YIJING-9D48FCD7CD12",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 yijing 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "daodejing",
+      "title": "道德经 · 无为而治",
+      "subtitle": "人法地，地法天，天法道，道法自然",
+      "keywords": [
+        "道德经",
+        "道",
+        "德",
+        "无为",
+        "自然",
+        "上善若水"
+      ],
+      "classical_text": "道可道，非常道；名可名，非常名。无名，天地之始；有名，万物之母。人法地，地法天，天法道，道法自然。上善若水，水善利万物而不争。",
+      "modern_text": "道德经讲的是系统底层规律与治理智慧。无为不是不作为，而是顺应规律、减少干预，让系统自组织。龍魂治理层强调君子协议与社区自治，正是无为而治的技术表达。",
+      "voice_script": "道可道，非常道。名可名，非常名。道德经，是中国最深邃的系统哲学。上善若水，不争而利万物；无为而治，不扰而顺其性。龍魂治理，以此为魂。",
+      "linked_nodes": [
+        "term_005",
+        "term_006"
+      ],
+      "era": "春秋战国",
+      "era_en": "Spring and Autumn / Warring States",
+      "visual_theme": "老子像·道德经卷轴",
+      "figure_image": {
+        "asset_key": "laozi",
+        "local": "assets/cultural/figures/laozi.svg",
+        "status": "placeholder",
+        "alt": "老子像配图"
+      },
+      "background_image": {
+        "asset_key": "tao_te_ching",
+        "local": "assets/cultural/backgrounds/tao_te_ching.svg",
+        "status": "placeholder",
+        "alt": "道德经卷轴背景"
+      },
+      "seal_text": "道德",
+      "font_family": "方正清刻本悦宋 / Noto Serif SC",
+      "color_primary": "#2f5544",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《道德经》（老子）。占位图待替换为公开版权老子画像/敦煌写本图像。",
+      "immutable_points": [
+        "人物图须为传统老子形象（长须、宽袍、持简或骑牛），不可西化/动漫化",
+        "背景使用绢本/竹简质感，不得使用现代几何背景",
+        "核心章句使用竖排右至左排列",
+        "印章文字固定为「道德」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-DAODEJING-8E9C52994285",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 daodejing 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "shanhaijing",
+      "title": "山海经 · 神话地理",
+      "subtitle": "上古山川，神异志怪，文明想象的源头",
+      "keywords": [
+        "山海经",
+        "神话",
+        "地理",
+        "志怪",
+        "上古",
+        "异兽"
+      ],
+      "classical_text": "地之所载，六合之间，四海之内，照之以日月，经之以星辰，纪之以四时，要之以太岁。神灵所生，其物异形，或夭或寿，唯圣人能通其道。",
+      "modern_text": "山海经不只是神话志怪，更是中国人对地理、生态与文明边界的早期建模。异兽、神山、异国，本质上是把未知世界编码成可讲述的知识图谱。",
+      "voice_script": "山海经，地之所载，六合之间，四海之内。它记录了上古的山川、神异与远方。那不是荒诞，而是中国人对未知世界的第一次知识建模。龍魂借其结构，编织跨时空的知识矩阵。",
+      "linked_nodes": [
+        "term_011",
+        "term_012"
+      ],
+      "era": "先秦",
+      "era_en": "Pre-Qin",
+      "visual_theme": "山海经·神话地理图",
+      "figure_image": {
+        "asset_key": "shanhai_bg",
+        "local": "assets/cultural/backgrounds/shanhai_bg.svg",
+        "status": "placeholder",
+        "alt": "山海经配图"
+      },
+      "background_image": {
+        "asset_key": "shanhai_bg",
+        "local": "assets/cultural/backgrounds/shanhai_bg.svg",
+        "status": "placeholder",
+        "alt": "神话地理图背景"
+      },
+      "seal_text": "山海",
+      "font_family": "方正隶变 / Noto Serif SC",
+      "color_primary": "#5a3a1a",
+      "color_secondary": "#c4a76a",
+      "attribution": "概念来源：《山海经》。占位图待替换为公开版权古代山海经图绘。",
+      "immutable_points": [
+        "配图须保留中国传统志怪图绘风格",
+        "不得使用日本浮世绘或西方奇幻风格替代",
+        "地理方位须符合《山海经》原文记述",
+        "印章文字固定为「山海」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-SHANHAIJING-88A361F53349",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 shanhaijing 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "huangdineijing",
+      "title": "黄帝内经 · 阴阳五行医道",
+      "subtitle": "不治已病治未病，天人相应",
+      "keywords": [
+        "黄帝内经",
+        "阴阳",
+        "五行",
+        "经络",
+        "治未病",
+        "养生"
+      ],
+      "classical_text": "阴阳者，天地之道也，万物之纲纪，变化之父母，生杀之本始，神明之府也。上古之人，其知道者，法于阴阳，和于术数，食饮有节，起居有常。",
+      "modern_text": "黄帝内经把人体看作动态系统：阴阳是状态变量，五行是相互作用，经络是信息通道，治未病是预测性维护。这与复杂系统监控、健康预警工程的思路完全一致。",
+      "voice_script": "黄帝内经讲阴阳，讲五行，讲治未病。它把人体视为一个动态系统：阴阳是状态，五行是关系，经络是通道。龍魂取其系统观，用于健康监控与预警工程。",
+      "linked_nodes": [
+        "term_013",
+        "term_014"
+      ],
+      "era": "先秦至汉",
+      "era_en": "Pre-Qin to Han",
+      "visual_theme": "黄帝·阴阳五行医道",
+      "figure_image": {
+        "asset_key": "huangdi",
+        "local": "assets/cultural/figures/huangdi.svg",
+        "status": "placeholder",
+        "alt": "黄帝配图"
+      },
+      "background_image": {
+        "asset_key": "medical_bg",
+        "local": "assets/cultural/backgrounds/medical_bg.svg",
+        "status": "placeholder",
+        "alt": "阴阳五行医道背景"
+      },
+      "seal_text": "内经",
+      "font_family": "方正宋刻本秀楷 / Noto Serif SC",
+      "color_primary": "#4a0000",
+      "color_secondary": "#7fbfa3",
+      "attribution": "概念来源：《黄帝内经》。占位图待替换为公开版权黄帝画像/医书图像。",
+      "immutable_points": [
+        "黄帝形象须为华夏人文始祖传统造型",
+        "阴阳图须为标准太极阴阳，不可简化",
+        "五行配五色固定：木青、火赤、土黄、金白、水黑",
+        "印章文字固定为「内经」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-HUANGDINEIJING-34854C43A84A",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 huangdineijing 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "zhuangzi",
+      "title": "庄子 · 逍遥齐物",
+      "subtitle": "天地与我并生，万物与我为一",
+      "keywords": [
+        "庄子",
+        "逍遥游",
+        "齐物论",
+        "无为",
+        "自由",
+        "相对"
+      ],
+      "classical_text": "北冥有鱼，其名为鲲。鲲之大，不知其几千里也。化而为鸟，其名为鹏。鹏之背，不知其几千里也。天地与我并生，而万物与我为一。",
+      "modern_text": "庄子提供的是认知弹性训练：不执着于单一视角，承认尺度的相对性，在变化中保持心的自由。对 AI 系统而言，这是避免过度拟合、保持认知开放的思想资源。",
+      "voice_script": "庄子说，北冥有鱼，其名为鲲；化而为鸟，其名为鹏。他教我们不执着于一个视角，在变化中保持心的自由。龍魂以此保持认知弹性，避免系统僵化。",
+      "linked_nodes": [
+        "term_015",
+        "term_016"
+      ],
+      "era": "战国",
+      "era_en": "Warring States",
+      "visual_theme": "庄子·逍遥游·鲲鹏",
+      "figure_image": {
+        "asset_key": "zhuangzi",
+        "local": "assets/cultural/figures/zhuangzi.svg",
+        "status": "placeholder",
+        "alt": "庄子配图"
+      },
+      "background_image": {
+        "asset_key": "ink_wash",
+        "local": "assets/cultural/backgrounds/ink_wash.svg",
+        "status": "placeholder",
+        "alt": "鲲鹏背景"
+      },
+      "seal_text": "逍遥",
+      "font_family": "方正草書 / Noto Serif SC",
+      "color_primary": "#2f3a4a",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《庄子》（庄周）。占位图待替换为公开版权庄子画像/水墨鲲鹏图。",
+      "immutable_points": [
+        "人物图为庄子传统形象，不得替换为现代人物",
+        "鲲鹏意象可用水墨表现，但须为中国画风",
+        "强调「逍遥」而非「自由」的西化翻译",
+        "印章文字固定为「逍遥」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ZHUANGZI-913ECB570606",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 zhuangzi 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "sunzibingfa",
+      "title": "孙子兵法 · 奇正相生",
+      "subtitle": "上兵伐谋，其次伐交，其次伐兵",
+      "keywords": [
+        "孙子兵法",
+        "谋略",
+        "奇正",
+        "虚实",
+        "不战而屈人之兵",
+        "战略"
+      ],
+      "classical_text": "兵者，国之大事，死生之地，存亡之道，不可不察也。上兵伐谋，其次伐交，其次伐兵，其下攻城。夫未战而庙算胜者，得算多也。",
+      "modern_text": "孙子兵法是最早的竞争策略学：强调信息优势、成本计算、非对称博弈与最小代价达成目标。龍魂的安全策略、资源调度与对抗性审计都受其启发。",
+      "voice_script": "孙子兵法，兵者国之大事。上兵伐谋，其次伐交，其下攻城。它讲的是以最小代价达成目标。龍魂的安全策略与资源调度，正取其庙算与奇正相生。",
+      "linked_nodes": [
+        "term_017",
+        "term_018"
+      ],
+      "era": "春秋",
+      "era_en": "Spring and Autumn",
+      "visual_theme": "孙子·兵法竹简",
+      "figure_image": {
+        "asset_key": "sunzi",
+        "local": "assets/cultural/figures/sunzi.svg",
+        "status": "placeholder",
+        "alt": "孙子配图"
+      },
+      "background_image": {
+        "asset_key": "bamboo_slip",
+        "local": "assets/cultural/artifacts/bamboo_slip.svg",
+        "status": "placeholder",
+        "alt": "兵法竹简背景"
+      },
+      "seal_text": "兵法",
+      "font_family": "方正秦小篆 / Noto Serif SC",
+      "color_primary": "#4a3a2a",
+      "color_secondary": "#c4a76a",
+      "attribution": "概念来源：《孙子兵法》（孙武）。占位图待替换为公开版权孙子画像/竹简图像。",
+      "immutable_points": [
+        "人物图为孙武传统形象，着春秋战袍",
+        "背景使用竹简或帛书质感",
+        "核心章句「上兵伐谋」等不得改写",
+        "印章文字固定为「兵法」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-SUNZIBINGFA-6B8BCC9A9138",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 sunzibingfa 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "zengshiqiang",
+      "title": "曾仕强 · 中国式管理智慧",
+      "subtitle": "圆通而非圆滑，合理而非合法",
+      "keywords": [
+        "曾仕强",
+        "中国式管理",
+        "圆通",
+        "人情",
+        "关系",
+        "中庸"
+      ],
+      "classical_text": "管理就是做人做事的道理。中国人讲究圆通，圆通不是圆滑，而是圆满通达。凡事要合理，合理比合法更重要，因为法是死的，理是活的。",
+      "modern_text": "曾仕强老师把中国文化与管理实践结合，提出圆通、情理法、中国式领导等框架。龍魂的人格路由、社区治理与创作者主权调度都深受其启发。",
+      "voice_script": "曾仕强老师讲中国式管理：圆通不是圆滑，合理胜于合法。龍魂的人格路由、社区治理与创作者主权，皆以他的智慧为重要理论来源。",
+      "linked_nodes": [
+        "term_019",
+        "term_020"
+      ],
+      "era": "当代",
+      "era_en": "Contemporary",
+      "visual_theme": "曾仕强·中国式管理",
+      "figure_image": {
+        "asset_key": "zengshiqiang",
+        "local": "assets/cultural/figures/zengshiqiang.svg",
+        "status": "placeholder",
+        "alt": "曾仕强配图"
+      },
+      "background_image": {
+        "asset_key": "modern_bg",
+        "local": "assets/cultural/backgrounds/modern_bg.svg",
+        "status": "placeholder",
+        "alt": "中国式管理背景"
+      },
+      "seal_text": "圆通",
+      "font_family": "方正楷体 / Noto Serif SC",
+      "color_primary": "#2f3a4a",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：曾仕强教授《中国式管理》《易经的奥秘》等。占位图待替换为公开版权照片。",
+      "immutable_points": [
+        "人物图须为曾仕强教授真实肖像（待替换）",
+        "视觉风格保持现代中式，不混入日韩元素",
+        "核心术语「圆通」须与「圆滑」严格区分",
+        "印章文字固定为「圆通」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ZENGSHIQIANG-E5B5E413B6EA",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 zengshiqiang 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "liushisigua",
+      "title": "六十四卦 · 变易之书",
+      "subtitle": "八卦相重，六十四种情境模式",
+      "keywords": [
+        "六十四卦",
+        "八卦",
+        "变易",
+        "爻辞",
+        "情境",
+        "决策"
+      ],
+      "classical_text": "易有太极，是生两仪，两仪生四象，四象生八卦，八卦定吉凶，吉凶生大业。六十四卦者，穷理尽性以至于命也。观乎天文，以察时变；观乎人文，以化成天下。",
+      "modern_text": "六十四卦可视为六十四种元情境，每一卦的六爻描述情境演化的六个阶段。对 AI 决策系统而言，这是最早的情景树与决策矩阵，比现代决策树更早两千年。",
+      "voice_script": "六十四卦，是六十四种情境的密码。每一卦六爻，描述一个情境的演化阶段。龍魂把它当作最早的情景决策树，用于复杂决策与风险推演。",
+      "linked_nodes": [
+        "root_001",
+        "term_003"
+      ],
+      "era": "周·先秦",
+      "era_en": "Zhou / Pre-Qin",
+      "visual_theme": "六十四卦·伏羲文王",
+      "figure_image": {
+        "asset_key": "fuxi",
+        "local": "assets/cultural/figures/fuxi.svg",
+        "status": "placeholder",
+        "alt": "六十四卦配图"
+      },
+      "background_image": {
+        "asset_key": "i_ching",
+        "local": "assets/cultural/backgrounds/i_ching.svg",
+        "status": "placeholder",
+        "alt": "伏羲文王背景"
+      },
+      "seal_text": "六十四卦",
+      "font_family": "方正金文大篆 / Noto Serif SC",
+      "color_primary": "#2b0a0a",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《周易》六十四卦。占位图待替换为公开版权卦象图/画像。",
+      "immutable_points": [
+        "六十四卦排列须符合传统卦序（如文王卦序或先天卦序，页面须注明）",
+        "每卦六爻绘制规范同易经章节",
+        "不得随意改动卦名与卦象对应关系",
+        "印章文字固定为「六十四卦」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-LIUSHISIGUA-40ED9BCBC437",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 liushisigua 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "chanzong",
+      "title": "禅宗 · 明心见性",
+      "subtitle": "不立文字，教外别传，直指人心",
+      "keywords": [
+        "禅宗",
+        "明心见性",
+        "顿悟",
+        "公案",
+        "禅",
+        "心性"
+      ],
+      "classical_text": "菩提本无树，明镜亦非台。本来无一物，何处惹尘埃。不立文字，教外别传，直指人心，见性成佛。",
+      "modern_text": "禅宗强调直接体验而非概念堆砌。对 AI 系统而言，这是一种提醒：不要把指标、标签、参数当作真实，真正的理解来自于与具体情境的当下相遇。",
+      "voice_script": "禅宗说，不立文字，直指人心。它提醒我们，不要被概念和指标束缚。龍魂在审计与决策中，亦重视当下的真实情境，而非僵化的标签。",
+      "linked_nodes": [
+        "term_021",
+        "term_022"
+      ],
+      "era": "南北朝至隋唐",
+      "era_en": "Northern and Southern Dynasties to Tang",
+      "visual_theme": "达摩·禅宗·不立文字",
+      "figure_image": {
+        "asset_key": "chan_figure",
+        "local": "assets/cultural/figures/chan_figure.svg",
+        "status": "placeholder",
+        "alt": "达摩配图"
+      },
+      "background_image": {
+        "asset_key": "chan_bg",
+        "local": "assets/cultural/backgrounds/chan_bg.svg",
+        "status": "placeholder",
+        "alt": "不立文字背景"
+      },
+      "seal_text": "禅",
+      "font_family": "方正行書 / Noto Serif SC",
+      "color_primary": "#4a3a2a",
+      "color_secondary": "#f4f1ea",
+      "attribution": "概念来源：禅宗经典与公案。占位图待替换为公开版权达摩/禅宗图像。",
+      "immutable_points": [
+        "禅宗配图须为中国禅画风格，不得混入日本禅（Zen）商业符号",
+        "达摩形象须为传统壁观/一苇渡江造型",
+        "强调「不立文字」的宗风",
+        "印章文字固定为「禅」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-CHANZONG-863F04BD03D3",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 chanzong 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "shufa",
+      "title": "书法 · 笔墨心法",
+      "subtitle": "字如其人，笔法即心法",
+      "keywords": [
+        "书法",
+        "笔墨",
+        "楷书",
+        "行书",
+        "草书",
+        "心法"
+      ],
+      "classical_text": "书者，散也。欲书先散怀抱，任情恣性，然后书之。用笔在心，心正则笔正。字如其人，如其学，如其才，如其志。",
+      "modern_text": "书法是中国人的视觉编码系统：笔画顺序、间架结构、行气章法，既是信息载体也是人格表达。龍魂字体设计、界面排版与文化渲染都取法于此。",
+      "voice_script": "书法，字如其人。一笔一画，既是信息，也是人格。龍魂字体与文化渲染，取法书法的间架与行气，让数字界面也有中国笔意。",
+      "linked_nodes": [
+        "term_023",
+        "term_024"
+      ],
+      "era": "全朝代（商周至今）",
+      "era_en": "All Dynasties",
+      "visual_theme": "书法·笔墨心法",
+      "figure_image": {
+        "asset_key": "calligraphy",
+        "local": "assets/cultural/calligraphy/calligraphy.svg",
+        "status": "placeholder",
+        "alt": "书法配图"
+      },
+      "background_image": {
+        "asset_key": "ink_wash",
+        "local": "assets/cultural/backgrounds/ink_wash.svg",
+        "status": "placeholder",
+        "alt": "笔墨心法背景"
+      },
+      "seal_text": "書法",
+      "font_family": "方正顏體 / 书体坊颜体",
+      "color_primary": "#1a1a1a",
+      "color_secondary": "#f7f3e8",
+      "attribution": "概念来源：中国书法史（篆隶楷行草）。占位图待替换为公开版权书法作品图像。",
+      "immutable_points": [
+        "书法示例须使用真实书体，不得用艺术字冒充",
+        "五种书体排序：篆、隶、楷、行、草",
+        "强调「字如其人」的传统书论",
+        "印章文字固定为「書法」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-SHUFA-A7697603FC9E",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 shufa 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "jieqi",
+      "title": "节气 · 天人合一历法",
+      "subtitle": "春雨惊春清谷天，夏满芒夏暑相连",
+      "keywords": [
+        "节气",
+        "二十四节气",
+        "立春",
+        "冬至",
+        "历法",
+        "农时"
+      ],
+      "classical_text": "二十四节气，所以纪天地之气，而节宣之也。春分秋分，昼夜平分；夏至冬至，阴阳之极。顺时而动，则事半功倍；逆时而行，则劳而无功。",
+      "modern_text": "二十四节气是太阳历与物候学的结合，把一年切成 24 个可感知的阶段。龍魂系统用它做时间纹理分析、任务调度节律与农耕/养生提示。",
+      "voice_script": "二十四节气，是中国人对时间的细腻感知。春生夏长，秋收冬藏。龍魂用它做时间纹理分析，让任务调度也顺应天地节律。",
+      "linked_nodes": [
+        "term_025",
+        "term_026"
+      ],
+      "era": "先秦定型·沿用至今",
+      "era_en": "Pre-Qin codified, used ever since",
+      "visual_theme": "二十四节气·太阳历",
+      "figure_image": {
+        "asset_key": "seasons_bg",
+        "local": "assets/cultural/backgrounds/seasons_bg.svg",
+        "status": "placeholder",
+        "alt": "二十四节气配图"
+      },
+      "background_image": {
+        "asset_key": "seasons_bg",
+        "local": "assets/cultural/backgrounds/seasons_bg.svg",
+        "status": "placeholder",
+        "alt": "太阳历背景"
+      },
+      "seal_text": "节气",
+      "font_family": "方正清刻本悦宋 / Noto Serif SC",
+      "color_primary": "#3a5a2a",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：《淮南子·时则训》《礼记·月令》。占位图待替换为公开版权节气图像。",
+      "immutable_points": [
+        "二十四节气顺序固定，不可调换",
+        "节气与公历日期对照须准确",
+        "不得用西方四季划分替代中国节气",
+        "印章文字固定为「节气」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-JIEQI-0932E42B5241",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 jieqi 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    },
+    {
+      "id": "chachan",
+      "title": "茶禅一味 · 生活美学",
+      "subtitle": "一期一会，和敬清寂",
+      "keywords": [
+        "茶",
+        "茶道",
+        "禅",
+        "一期一会",
+        "和敬清寂",
+        "生活美学"
+      ],
+      "classical_text": "茶之为饮，发乎神农氏。茶禅一味，和敬清寂。一期一会，难得一面，世当珍惜。饮茶洗心，非关口舌，而在观照。",
+      "modern_text": "茶道把日常行为升华为审美与修行。对龍魂而言，这是提醒：技术最终要回到人的生活现场，界面、交互、语音都应有一种不打扰的敬意。",
+      "voice_script": "茶禅一味，和敬清寂。饮茶不在口舌，而在观照。龍魂做技术，也做交互，最终要回到人的生活现场，带一份不打扰的敬意。",
+      "linked_nodes": [
+        "term_027",
+        "term_028"
+      ],
+      "era": "唐·宋",
+      "era_en": "Tang / Song",
+      "visual_theme": "茶道·茶禅一味",
+      "figure_image": {
+        "asset_key": "tea_ceremony",
+        "local": "assets/cultural/figures/tea_ceremony.svg",
+        "status": "placeholder",
+        "alt": "茶道配图"
+      },
+      "background_image": {
+        "asset_key": "ink_wash",
+        "local": "assets/cultural/backgrounds/ink_wash.svg",
+        "status": "placeholder",
+        "alt": "茶禅一味背景"
+      },
+      "seal_text": "茶禪",
+      "font_family": "方正楷体 / Noto Serif SC",
+      "color_primary": "#2f5544",
+      "color_secondary": "#d4af37",
+      "attribution": "概念来源：中国茶文化、禅宗公案。占位图待替换为公开版权茶道图像。",
+      "immutable_points": [
+        "茶道须呈现中国茶法（唐煎茶/宋点茶/明清泡茶），不得用日本茶道替代",
+        "核心术语「和敬清寂」须注明中国源流",
+        "人物服饰须符合唐宋风格",
+        "印章文字固定为「茶禪」"
+      ],
+      "visual_anchor_dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-CHACHAN-5331CC9B2F9E",
+      "change_log": [
+        {
+          "timestamp": "2026-07-04T16:11:23+0800",
+          "action": "注入视觉不动点字段",
+          "dna": "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-ANCHORS-v1.0",
+          "note": "为 chachan 配置 era、visual_theme、figure_image、background_image、seal_text 等字段"
+        }
+      ]
+    }
+  ]
+}

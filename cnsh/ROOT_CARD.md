@@ -1,7 +1,7 @@
 # 龍魂CNSH体系 | LongHun CNSH System
 
 ```
-DNA: #龍芯⚡️2026-06-18-CNSH-ROOT-CARD-v2.0
+DNA:#龍芯⚡️2026-06-18-CNSH-ROOT-CARD-FILE2-v2.0
 ```
 
 > 🟢 **君子协议** | **JunZi Protocol**: CC BY-NC-SA 4.0

@@ -1,5 +1,5 @@
 {
-  "_dna": "2026-06-21-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0",
+  "_dna": "2026-07-03-CONFIG-DRAGON-SOUL-OPEN-HUB-SCAN-v1.0",
   "source_workspace": "☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub",
   "destination_path": "docs/dragon-soul-open-hub",
   "file_count": 146,
@@ -23,7 +23,7 @@
       "size": 29510
     },
     {
-      "path": "academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
+      "path": "academic/main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
       "category": "academic",
       "size": 71163
     },
@@ -33,7 +33,7 @@
       "size": 56256
     },
     {
-      "path": "academic/☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
+      "path": "academic/☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
       "category": "academic",
       "size": 8891
     },
@@ -198,7 +198,7 @@
       "size": 5321
     },
     {
-      "path": "agent-specs/📄 龙魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md",
+      "path": "agent-specs/📄 龍魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md",
       "category": "agent-specs",
       "size": 5656
     },
@@ -258,7 +258,7 @@
       "size": 18853
     },
     {
-      "path": "compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龙芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md",
+      "path": "compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龍芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md",
       "category": "compiler",
       "size": 15057
     },
@@ -353,7 +353,7 @@
       "size": 28222
     },
     {
-      "path": "governance/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
+      "path": "governance/🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
       "category": "governance",
       "size": 2390
     },
@@ -378,12 +378,12 @@
       "size": 4010
     },
     {
-      "path": "governance/📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md",
+      "path": "governance/📜 龍芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md",
       "category": "governance",
       "size": 9600
     },
     {
-      "path": "governance/📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md",
+      "path": "governance/📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md",
       "category": "governance",
       "size": 6887
     },
@@ -473,7 +473,7 @@
       "size": 9885
     },
     {
-      "path": "intent-recognition/🤖 AI对话语义标准化与意图增强系统 龙魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md",
+      "path": "intent-recognition/🤖 AI对话语义标准化与意图增强系统 龍魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md",
       "category": "intent-recognition",
       "size": 47984
     },
@@ -508,7 +508,7 @@
       "size": 13519
     },
     {
-      "path": "ipa-alignment/👥 同道者名录｜UID9622龙魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md",
+      "path": "ipa-alignment/👥 同道者名录｜UID9622龍魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md",
       "category": "ipa-alignment",
       "size": 5851
     },
@@ -588,7 +588,7 @@
       "size": 13033
     },
     {
-      "path": "ops/龙魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md",
+      "path": "ops/龍魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md",
       "category": "ops",
       "size": 8469
     },
@@ -613,12 +613,12 @@
       "size": 4626
     },
     {
-      "path": "ops/🗺️ 龙魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md",
+      "path": "ops/🗺️ 龍魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md",
       "category": "ops",
       "size": 16162
     },
     {
-      "path": "ops/🚀 龙魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md",
+      "path": "ops/🚀 龍魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md",
       "category": "ops",
       "size": 3798
     },
@@ -633,17 +633,17 @@
       "size": 3373
     },
     {
-      "path": "security/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md",
+      "path": "security/🔐 龍魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md",
       "category": "security",
       "size": 37238
     },
     {
-      "path": "security/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
+      "path": "security/🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
       "category": "security",
       "size": 1363
     },
     {
-      "path": "security/🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md",
+      "path": "security/🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md",
       "category": "security",
       "size": 5843
     },
@@ -713,7 +713,7 @@
       "size": 2186
     },
     {
-      "path": "tutorials/📖 龙魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md",
+      "path": "tutorials/📖 龍魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md",
       "category": "tutorials",
       "size": 9111
     },

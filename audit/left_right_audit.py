@@ -14,7 +14,7 @@
   - 配置变更前红队审查
   - AI 输出结果的对抗验证
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-LEFT-RIGHT-AUDIT-v1.0
+DNA:#龍芯⚡️2026-06-20-LONGHUN-LEFT-RIGHT-AUDIT-FILE1-v1.0
 """
 
 import difflib

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f4efe6"/>
+  <g opacity="0.2" fill="#4a2c0f">
+    <path d="M100 450 Q250 350 400 420 T700 400 V600 H0 Z"/>
+    <ellipse cx="200" cy="280" rx="60" ry="80"/>
+    <ellipse cx="600" cy="240" rx="90" ry="50"/>
+  </g>
+  <text x="400" y="300" text-anchor="middle" font-family="serif" font-size="72" fill="#5a3a1a" opacity="0.6">山海</text>
+  <text x="400" y="560" text-anchor="middle" font-family="serif" font-size="16" fill="#555">山海经神话地理占位 · 待替换</text>
+</svg>

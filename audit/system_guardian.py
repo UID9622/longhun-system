@@ -13,7 +13,7 @@
 发现异常则写入 `~/.longhun/audit/system_guardian.jsonl`，
 可扩展为短信/邮件告警。
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-SYSTEM-GUARDIAN-v1.0
+DNA:#龍芯⚡️2026-06-20-LONGHUN-SYSTEM-GUARDIAN-FILE1-v1.0
 """
 
 import json

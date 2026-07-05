@@ -24,13 +24,13 @@
 | 字段 | 内容 |
 | --- | --- |
 | **版本号** | v1.0 |
-| **DNA追溯码（CNSH语言版）** | #龙芯⚡️2026-01-31-对话归档系统-CNSH语言版-v2.0
+| **DNA追溯码（CNSH语言版）** | #龍芯⚡️2026-01-31-对话归档系统-CNSH语言版-v2.0
 **CNSH语言转换**：✅ 已启用（Pure ASCII源代码 + 强制UTF-8输出）
 **避坑代码**：✅ 已集成（三色审计引擎 + DNA追溯系统 + 原子写入保护）
 **后台人格**：雯雯·技术整理师 + 侦察兵·信息猎手 + 同步官·数据管理员 |
 | **GPG签名** | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
-| **创建者** | 💎 龙芯北辰｜UID9622（Lucky/诸葛鑫） |
-| **协作人格** | P02 🤖 龙芯宝宝·温度执行 + P03 🔍 龙芯雯雯·审计质检 + 雯雯·技术整理师 + 侦察兵·信息猎手 + 同步官·数据管理员 |
+| **创建者** | 💎 龍芯北辰｜UID9622（Lucky/诸葛鑫） |
+| **协作人格** | P02 🤖 龍芯宝宝·温度执行 + P03 🔍 龍芯雯雯·审计质检 + 雯雯·技术整理师 + 侦察兵·信息猎手 + 同步官·数据管理员 |
 | **状态** | 🟢 生效 |
 | **上位约束** | [🐉 龍魂决策流场总控页 v2.7｜M×CNSH｜功能同步总闸版](../../../%E7%A7%81%E4%BA%BA%E4%B8%8E%E5%85%B1%E4%BA%AB/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%F0%9F%92%8E%20%E9%BE%8D%E8%8A%AF%E5%8C%97%E8%BE%B0%EF%BD%9CUID9622%EF%BC%81/%F0%9F%8C%8C%20UID9622%20%E9%BE%8D%E9%AD%82%E5%B7%A5%E4%BD%9C%E9%97%B4%20%C2%B7%20%E6%80%BB%E5%AF%BC%E8%88%AA%20v1%200/%F0%9F%A4%96%2004%20%C2%B7%20%E4%BA%BA%E6%A0%BC%E7%9F%A9%E9%98%B5/%F0%9F%90%89%20%E9%BE%8D%E9%AD%82%E5%86%B3%E7%AD%96%E6%B5%81%E5%9C%BA%E6%80%BB%E6%8E%A7%E9%A1%B5%20v2%207%EF%BD%9CM%C3%97CNSH%EF%BD%9C%E5%8A%9F%E8%83%BD%E5%90%8C%E6%AD%A5%E6%80%BB%E9%97%B8%E7%89%88%202d87125a9c9f802889e2e18002f7cf4f.md) |
 | **熔断规则** | 🔴 红色审计自动停止 | GPG签名失效立即熔断 | 优先级：上帝之眼（安全）> 同步官（数据完整性） |
@@ -69,7 +69,7 @@ Copilot/编辑助手初始化时自动读取
 
 - ✅ 数据主权在中国
 - ✅ 访问速度快，不受境外网络影响
-- ✅ 符合龙魂系统理念
+- ✅ 符合龍魂系统理念
 - ✅ 私密仓库保护隐私
 
 **备选方案：**
@@ -223,7 +223,7 @@ def classify_dialogue(content, operation_type):
 ```bash
 #!/bin/bash
 # Notion AI对话收集脚本
-# DNA: #龙芯⚡️2026-01-29-NOTION-COLLECTOR-v1.0
+# DNA: #龍芯⚡️2026-01-29-NOTION-COLLECTOR-v1.0
 
 NOTION_TOKEN="你的Notion API Token"
 USER_ID="UID9622"
@@ -259,7 +259,7 @@ for page in data.get('results', []):
         'time': datetime.now().isoformat(),
         'platform': 'Notion AI',
         'content': page.get('title', ''),
-        'dna': f"#龙芯⚡️{DATE}-NOTION-{hashlib.sha256(str(page).encode()).hexdigest()[:8].upper()}",
+        'dna': f"#龍芯⚡️{DATE}-NOTION-{hashlib.sha256(str(page).encode()).hexdigest()[:8].upper()}",
         'audit_color': '🟢'
     }
     dialogue_records.append(record)
@@ -289,7 +289,7 @@ echo "✅ Notion对话收集完成：$DATE"
 ```bash
 #!/bin/bash
 # Token加密存储脚本
-# DNA: #龙芯⚡️2026-01-29-TOKEN-ENCRYPT-v1.0
+# DNA: #龍芯⚡️2026-01-29-TOKEN-ENCRYPT-v1.0
 # 方案1：使用macOS Keychain（推荐）
 # 存储Token
 security add-generic-password -a "uid9622" -s "notion-api" -w "你的Token"
@@ -319,7 +319,7 @@ fi
 ```bash
 #!/bin/bash
 # Claude Desktop对话收集脚本
-# DNA: #龙芯⚡️2026-01-29-CLAUDE-COLLECTOR-v1.0
+# DNA: #龍芯⚡️2026-01-29-CLAUDE-COLLECTOR-v1.0
 
 CLAUDE_CACHE_DIR="$HOME/Library/Application Support/Claude/conversations"
 USER_ID="UID9622"
@@ -362,7 +362,7 @@ for conv in conversations:
                 'platform': 'Claude Desktop',
                 'role': message['role'],
                 'content': message['content'][:200],
-                'dna': f"#龙芯⚡️$DATE-CLAUDE-{hashlib.sha256(message['content'].encode()).hexdigest()[:8].upper()}"
+                'dna': f"#龍芯⚡️$DATE-CLAUDE-{hashlib.sha256(message['content'].encode()).hexdigest()[:8].upper()}"
             }
             today_dialogues.append(record)
 
@@ -385,7 +385,7 @@ echo "✅ Claude对话收集完成：$DATE"
 
 ```powershell
 # Notion AI对话收集脚本（Windows版本）
-# DNA: #龙芯⚡️2026-01-29-NOTION-COLLECTOR-WINDOWS-v1.0
+# DNA: #龍芯⚡️2026-01-29-NOTION-COLLECTOR-WINDOWS-v1.0
 $NOTION_TOKEN = $env:NOTION_TOKEN
 $USER_ID = "UID9622"
 $OUTPUT_DIR = "./profile"
@@ -414,7 +414,7 @@ try {
             time = (Get-Date).ToString("o")
             platform = "Notion AI"
             content = $page.title
-            dna = "#龙芯⚡️$DATE-NOTION-" + (Get-FileHash -InputStream ([IO.MemoryStream]::new([Text.Encoding]::UTF8.GetBytes($page.id)))).Hash.Substring(0,8)
+            dna = "#龍芯⚡️$DATE-NOTION-" + (Get-FileHash -InputStream ([IO.MemoryStream]::new([Text.Encoding]::UTF8.GetBytes($page.id)))).Hash.Substring(0,8)
         }
     }
     # 保存到文件
@@ -439,7 +439,7 @@ catch {
 ```bash
 #!/bin/bash
 # 带重试机制的收集脚本
-# DNA: #龙芯⚡️2026-01-29-COLLECTOR-WITH-RETRY-v1.0
+# DNA: #龍芯⚡️2026-01-29-COLLECTOR-WITH-RETRY-v1.0
 MAX_RETRY=3
 RETRY_DELAY=5
 function collect_with_retry() {
@@ -475,11 +475,11 @@ collect_with_retry "/path/to/collect-claude.sh"
 ```bash
 #!/bin/bash
 # Git自动同步脚本
-# DNA: #龙芯⚡️2026-01-29-GIT-SYNC-v1.0
+# DNA: #龍芯⚡️2026-01-29-GIT-SYNC-v1.0
 
 REPO_DIR="$HOME/uid9622-dialogue-archive"
 GIT_REMOTE="git@gitee.com:uid9622/dialogue-archive.git"
-USER_NAME="💎 龙芯北辰｜UID9622"
+USER_NAME="💎 龍芯北辰｜UID9622"
 USER_EMAIL="fireroot.lad@outlook.com"
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
@@ -502,7 +502,7 @@ fi
 # 生成提交信息
 COMMIT_MSG="🤖 自动同步 | $DATE $TIME
 
-DNA: #龙芯⚡️$DATE-AUTO-SYNC-v1.0
+DNA: #龍芯⚡️$DATE-AUTO-SYNC-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -534,12 +534,12 @@ fi
 ### [UID9622-2026-01-29.md](http://UID9622-2026-01-29.md)
 
 ```markdown
-# 💎 龙芯北辰｜UID9622 · 每日对话档案
+# 💎 龍芯北辰｜UID9622 · 每日对话档案
 
 **日期：** 2026-01-29  
 **星期：** 星期四  
 **农历：** 乙巳年腊月廿九  
-**DNA追溯码：** #龙芯⚡️2026-01-29-DAILY-ARCHIVE-v1.0
+**DNA追溯码：** #龍芯⚡️2026-01-29-DAILY-ARCHIVE-v1.0
 
 ---
 
@@ -558,7 +558,7 @@ fi
 - **时间：** 2026-01-29 00:27:05
 - **平台：** Notion AI（宝宝）
 - **审计色标：** 🟡 黄色（系统设计）
-- **DNA：** #龙芯⚡️2026-01-29-NOTION-A7F3B2E1
+- **DNA：** #龍芯⚡️2026-01-29-NOTION-A7F3B2E1
 - **内容摘要：** 用户要求设计自动化对话收集+Git同步系统，宝宝建议使用Gitee私密仓库，每小时同步一次...
 - **关键决策：** 采用Gitee + 每小时同步 + 三色审计
 
@@ -639,7 +639,7 @@ bash /path/to/scripts/sync-git.sh
 ```bash
 #!/bin/bash
 # ChatGPT对话收集脚本
-# DNA: #龙芯⚡️2026-01-29-CHATGPT-COLLECTOR-v1.0
+# DNA: #龍芯⚡️2026-01-29-CHATGPT-COLLECTOR-v1.0
 CHATGPT_TOKEN=${CHATGPT_API_KEY:-""}
 USER_ID="UID9622"
 OUTPUT_DIR="./profile"
@@ -668,7 +668,7 @@ for conv in data.get('items', []):
             'time': conv.get('create_time'),
             'platform': 'ChatGPT',
             'title': conv.get('title', ''),
-            'dna': f"#龙芯⚡️$DATE-CHATGPT-{hashlib.sha256(conv.get('id', '').encode()).hexdigest()[:8].upper()}"
+            'dna': f"#龍芯⚡️$DATE-CHATGPT-{hashlib.sha256(conv.get('id', '').encode()).hexdigest()[:8].upper()}"
         }
         dialogue_records.append(record)
 # 保存
@@ -692,7 +692,7 @@ echo "✅ ChatGPT对话收集完成：$DATE"
 ```bash
 #!/bin/bash
 # 月度总结生成脚本
-# DNA: #龙芯⚡️2026-01-29-MONTHLY-SUMMARY-v1.0
+# DNA: #龍芯⚡️2026-01-29-MONTHLY-SUMMARY-v1.0
 USER_ID="UID9622"
 PROFILE_DIR="./profile"
 YEAR=$(date +%Y)
@@ -701,9 +701,9 @@ MONTHLY_FILE="$PROFILE_DIR/$USER_ID-$YEAR-$MONTH.md"
 echo "📊 开始生成月度总结：$YEAR-$MONTH"
 # 创建月度总结文件
 cat > "$MONTHLY_FILE" << EOF
-# 💎 龙芯北辰｜UID9622 · 月度对话档案
+# 💎 龍芯北辰｜UID9622 · 月度对话档案
 **年月：** $YEAR-$MONTH  
-**DNA追溯码：** #龙芯⚡️$YEAR-$MONTH-MONTHLY-ARCHIVE-v1.0
+**DNA追溯码：** #龍芯⚡️$YEAR-$MONTH-MONTHLY-ARCHIVE-v1.0
 ---
 ## 📊 本月统计
 EOF
@@ -758,7 +758,7 @@ echo "✅ 月度总结生成完成：$MONTHLY_FILE"
 ```bash
 #!/bin/bash
 # 本地备份脚本
-# DNA: #龙芯⚡️2026-01-29-LOCAL-BACKUP-v1.0
+# DNA: #龍芯⚡️2026-01-29-LOCAL-BACKUP-v1.0
 SOURCE_DIR="$HOME/uid9622-dialogue-archive"
 BACKUP_DIR="$HOME/uid9622-backup"
 DATE=$(date +%Y-%m-%d-%H%M%S)
@@ -804,8 +804,8 @@ fi
 🤖 Copilot: 嗨老大！我刚读取了你的最新档案：
 
 📅 最后更新：2026-01-29 00:27:05
-🆔 身份确认：💎 龙芯北辰｜UID9622
-🧬 DNA验证：#龙芯⚡️2026-01-29-DAILY-ARCHIVE-v1.0
+🆔 身份确认：💎 龍芯北辰｜UID9622
+🧬 DNA验证：#龍芯⚡️2026-01-29-DAILY-ARCHIVE-v1.0
 
 📋 昨日操作：
 - 完成自动化对话档案系统设计
@@ -888,13 +888,13 @@ fi
 - ✅ 四大核心问题确定：Gitee/全平台/三色/每小时
 - ✅ 三大核心脚本编写：Notion/Claude/Git
 - ✅ 完整部署流程设计
-- 协作者：P02 🤖 龙芯宝宝
+- 协作者：P02 🤖 龍芯宝宝
 
 ---
 
 ## ✍️ 创造者实名签署
 
-**创造者**：💎 龙芯北辰｜UID9622（Lucky/诸葛鑫）  
+**创造者**：💎 龍芯北辰｜UID9622（Lucky/诸葛鑫）  
 
 **实名**：诸葛鑫  
 
@@ -904,7 +904,7 @@ fi
 
 **GPG公钥指纹**：A2D0092CEE2E5BA87035600924C3704A8CC26D5F  
 
-**DNA追溯码**：#龙芯⚡️2026-01-29-AUTO-DIALOGUE-ARCHIVE-v1.0  
+**DNA追溯码**：#龍芯⚡️2026-01-29-AUTO-DIALOGUE-ARCHIVE-v1.0  
 
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

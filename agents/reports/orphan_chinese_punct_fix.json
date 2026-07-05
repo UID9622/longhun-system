@@ -1,0 +1,37 @@
+{
+  "DNA": "#龍芯⚡️2026-06-26-P04-LUBAN-CHINESE-PUNCT-FIX",
+  "total": 5,
+  "fixed": 1,
+  "failed": 4,
+  "results": [
+    {
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul-terminal/backend/main.py",
+      "status": "FAILED",
+      "error": "  File \"/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul-terminal/backend/main.py\", line 51\n    ╔══════════════════════════════════════════════",
+      "backup": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul-terminal/backend/main.py.bak.20260626"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul_terminal/backend/main.py",
+      "status": "FAILED",
+      "error": "  File \"/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul_terminal/backend/main.py\", line 51\n    ╔══════════════════════════════════════════════",
+      "backup": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/CNSH 军人的编辑器/本地备份/历史项目/CNSH-DragonSoul-Complete/dragonsoul_terminal/backend/main.py.bak.20260626"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/dragon-soul-system/star.py",
+      "status": "FAILED",
+      "error": "  File \"/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/dragon-soul-system/star.py\", line 8\n    \"\"\"\n    ^\nSyntaxError: unterminated triple-quoted string literal (detected at line 362)\n",
+      "backup": "/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/dragon-soul-system/star.py.bak.20260626"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/notion-sync/sync-standard.py",
+      "status": "FAILED",
+      "error": "  File \"/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/notion-sync/sync-standard.py\", line 202\n    共建致谢：\n        ^\nSyntaxError: invalid character '：' (U+FF1A)\n",
+      "backup": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/_work/notion-sync/sync-standard.py.bak.20260626"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/终端底座/cnsh_aligner.py",
+      "status": "FIXED",
+      "backup": "/Users/zuimeidedeyihan/终端底座/cnsh_aligner.py.bak.20260626"
+    }
+  ]
+}

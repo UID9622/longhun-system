@@ -13,7 +13,7 @@ China National Digital Identity Unified Authentication Portal v2.0 API
 
 监听：0.0.0.0:8444
 
-DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0
+DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-FILE1-v2.0
 """
 
 import sys

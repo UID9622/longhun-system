@@ -18,9 +18,20 @@ import math
 import json
 import hashlib
 import datetime
+import sys
+from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Optional, Callable, Any
 from enum import Enum
+
+# 引入五行计算优化模块（鲁棒数字根 / CV均衡 / 权重自学习）
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "cnsh-core" / "wuxing"))
+from wuxing_calc_optimizations import (
+    robust_digital_root,
+    compute_hedge_index_h,
+    update_wuxing_weights,
+    load_wuxing_weights,
+)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # 0. 全局常量与DNA签名
@@ -1093,6 +1104,27 @@ class WuxingDecisionEngine:
         composite_score = decision_result["composite_score"]
         confidence = decision_result["confidence"]
 
+        # ── 步骤5.5: 五行对冲指数 H（接入自学习权重）──
+        # 用现有指标近似五项分量
+        energies = self.five_core.energies if self.five_core else {}
+        energy_values = {elem.value: energies.get(elem, 0.0) for elem in FiveElement}
+        total_energy = sum(energy_values.values()) + 1e-9
+        max_energy = max(energy_values.values()) if energy_values else 0
+
+        restraint_score = max(0.0, 1.0 - restraint_intensity)  # 相克强度越低越好
+        relief_score = min(1.0, max(0.0, avg_net_strength))    # 相生/疏导能力
+        supplement_score = sum(1.0 for v in energy_values.values() if v > 0) / 5.0
+        balance_norm = max(0.0, min(1.0, balance_index / 100.0))
+        health_score = max(0.0, min(1.0, sancai_coefficient))
+
+        hedge_result = compute_hedge_index_h(
+            restraint_score=restraint_score,
+            relief_score=relief_score,
+            supplement_score=supplement_score,
+            balance_score=balance_norm,
+            health_score=health_score,
+        )
+
         # ── 步骤6: 价值观校验 ──
         value_check = self.value_validator.validate(decision_values)
         value_alignment = self.value_validator.check_decision_alignment(decision_values)
@@ -1142,6 +1174,14 @@ class WuxingDecisionEngine:
                     "scores": {"heaven": heaven_score, "earth": earth_score, "human": human_score},
                 },
                 "D_composite": decision_result,
+                "E_hedge_index": {
+                    "value": hedge_result["对冲指数H"],
+                    "color": hedge_result["三色"],
+                    "action": hedge_result["action"],
+                    "weights": hedge_result["权重"],
+                    "components": hedge_result["分项"],
+                    "dna": hedge_result["DNA追溯"],
+                },
             },
             "fuse_check": fuse_result,
             "audit": audit_result.to_dict(),
@@ -1182,6 +1222,40 @@ class WuxingDecisionEngine:
     def __repr__(self) -> str:
         status = "✅ 已初始化" if self.initialized else "❌ 未初始化"
         return f"WuxingDecisionEngine({self.uid}, {status}, 决策次数={len(self.decision_history)})"
+
+    def feedback(self, decision_signature: str, human_judgment: str) -> Dict[str, Any]:
+        """
+        人工反馈：根据对决策结果的判定，自学习更新五行对冲指数 H 的权重。
+
+        human_judgment: "通过" / "待补" / "熔断"
+        """
+        if human_judgment not in ("通过", "待补", "熔断"):
+            return {"error": "人工判定必须是：通过 / 待补 / 熔断"}
+
+        # 从历史记录中找到对应决策（支持传入完整签名字典或签名字符串）
+        decision = next((d for d in self.decision_history
+                        if d.get("signature") == decision_signature
+                        or d.get("signature", {}).get("signature") == decision_signature), None)
+        if decision is None:
+            return {"error": f"未找到签名: {decision_signature}"}
+
+        hedge = decision.get("formulas", {}).get("E_hedge_index", {})
+        components = hedge.get("components", {})
+        current_h = hedge.get("value", 0.0)
+
+        new_weights = update_wuxing_weights(
+            scores=components,
+            current_h=current_h,
+            human_judgment=human_judgment,
+        )
+
+        return {
+            "decision_signature": decision_signature,
+            "human_judgment": human_judgment,
+            "previous_h": current_h,
+            "updated_weights": new_weights,
+            "dna": "#龍芯⚡️2026-06-26-WUXING-FEEDBACK-v1.0",
+        }
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

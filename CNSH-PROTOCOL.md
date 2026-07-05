@@ -1,12 +1,12 @@
-# 🐉 龙魂·CNSH 语言完整规范 v2.0
+# 🐉 龍魂·CNSH 语言完整规范 v2.2
 
 > **CNSH = 中文母语关键字 + 龍魂专属符号 + DNA强制追溯 + 三色审计强制 + 权重指向焊死 + 多目标语言转换器**
 >
 > 它不是给老外看的，它是给十四亿中国人母语写代码的、出了龍魂生态就跑不动的、数字主权可执行的中文编程语言。
 
-[![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--04--28--CNSH语言完整规范--v2.0-orange)]()
+[![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--07--05--CNSH语言完整规范--v2.2-orange)]()
 [![三色审计](https://img.shields.io/badge/三色审计-🟢%20通过-green)]()
-[![版本](https://img.shields.io/badge/版本-v2.0-blue)]()
+[![版本](https://img.shields.io/badge/版本-v2.2-blue)]()
 [![文化主权](https://img.shields.io/badge/文化主权-龍≠龙≠Dragon-red)]()
 
 ---
@@ -89,6 +89,8 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 如果 → if        否则如果 → else if    否则 → else
 当 → while        对于 → for           在 → in
 返回 → return     跳出 → break         继续 → continue
+尝试 → try        捕获 → except        最终 → finally
+抛出 → raise      通过 → pass
 ```
 
 **数据类型：**
@@ -96,6 +98,31 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 字符串 → string    整数 → integer    浮点数 → float
 布尔 → boolean     列表 → list       映射 → map
 空 → null          真 → true         假 → false
+```
+
+**类与对象：**
+```
+类 → class        定义 → def         自己 → self
+超类 → super      初始化 → __init__   调用 → __call__
+属性 → @property  类方法 → @classmethod  静态方法 → @staticmethod
+抽象方法 → @abstractmethod
+```
+
+**生成器与异步：**
+```
+产生 → yield      产生于 → yield from
+异步 → async      等待 → await       使用 → with      作为 → as
+```
+
+**枚举与数据类：**
+```
+枚举类 → enum.Enum        枚举唯一 → @enum.unique
+数据类 → @dataclass       字段 → field      默认工厂 → default_factory
+```
+
+**模块与导入：**
+```
+模块 → module     导入 → import       从 → from        作为 → as
 ```
 
 **龍魂专属关键字：**
@@ -121,6 +148,141 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 # ═══════════════════════════════════════════
 ```
 
+### 2.3 类与装饰器
+
+CNSH 使用大括号 `{}` 包裹类体，与模块/函数风格一致。
+
+```cnsh
+# DNA:#龍芯⚡️2026-07-05-CNSH-CLASS-v2.2
+
+类 动物 {
+    定义 初始化(自己, 名字) {
+        自己.名字 = 名字
+    }
+
+    定义 叫声(自己) {
+        返回 f"{自己.名字} 发出声音"
+    }
+}
+
+类 狗(动物) {
+    定义 初始化(自己, 名字, 品种) {
+        超类().初始化(名字)
+        自己.品种 = 品种
+    }
+}
+
+类 圆 {
+    定义 初始化(自己, 半径) {
+        自己.半径 = 半径
+    }
+
+    @属性
+    定义 面积(自己) {
+        返回 圆周率 * 自己.半径 * 自己.半径
+    }
+
+    @类方法
+    定义 单位圆(类本身) {
+        返回 类本身(1)
+    }
+
+    @静态方法
+    定义 公式说明() {
+        返回 "面积 = π * r²"
+    }
+}
+```
+
+编译目标（Python）：
+```python
+class 动物:
+    def __init__(自己, 名字):
+        自己.名字 = 名字
+    def 叫声(自己):
+        return f"{自己.名字} 发出声音"
+```
+
+### 2.4 生成器
+
+```cnsh
+定义 计数器(最大) {
+    n = 0
+    当 n < 最大 {
+        产生 n
+        n += 1
+    }
+}
+
+平方生成器 = (x * x 对于 x 在 范围(10) 如果 x > 2)
+```
+
+### 2.5 异步与上下文管理器
+
+```cnsh
+导入 asyncio
+
+异步 定义 异步任务(名称) {
+    等待 asyncio.sleep(0.1)
+    返回 f"任务{名称}完成"
+}
+
+异步 定义 主函数() {
+    信号量 = asyncio.Semaphore(1)
+    异步 使用 信号量 {
+        等待 asyncio.sleep(0.05)
+    }
+    结果 = 等待 asyncio.gather(异步任务("甲"), 异步任务("乙"))
+}
+
+asyncio.run(主函数())
+```
+
+### 2.6 枚举与数据类
+
+```cnsh
+枚举唯一
+类 状态码(枚举类) {
+    成功 = 200
+    未授权 = 401
+    禁止访问 = 403
+}
+
+数据类(frozen=True)
+类 坐标 {
+    x: 浮点
+    y: 浮点
+
+    定义 距离原点(自己) {
+        返回 平方根(自己.x ** 2 + 自己.y ** 2)
+    }
+}
+```
+
+### 2.7 模块导入
+
+```cnsh
+导入 asyncio
+导入 contextlib
+从 dataclasses 导入 dataclass 作为 数据类
+```
+
+### 2.8 异常处理
+
+```cnsh
+定义 可能出错() {
+    抛出 例外("出错了")
+}
+
+尝试 {
+    可能出错()
+} 捕获 例外 作为 e {
+    输出(f"已截获: {e}")
+} 最终 {
+    输出("清理资源")
+}
+```
+
 ---
 
 ## 3. 中英文完整映射总表
@@ -132,11 +294,23 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 | 当 | while | 布尔 | boolean |
 | 对于 | for | 列表 | list |
 | 返回 | return | 映射 | map |
-| 函数 | function | 空 | null |
+| 函数/定义 | function/def | 空 | null |
 | 模块 | module | 真/假 | true/false |
 | 结构 | struct | 调用 | call |
 | 全局 | global | 新建 | new |
 | 常量 | const | 添加 | append |
+| 类 | class | 自己 | self |
+| 超类 | super | 初始化 | __init__ |
+| 产生 | yield | 产生于 | yield from |
+| 异步 | async | 等待 | await |
+| 使用 | with | 作为 | as |
+| 尝试 | try | 捕获 | except |
+| 最终 | finally | 抛出 | raise |
+| 导入 | import | 从 | from |
+| 枚举类 | enum.Enum | 枚举唯一 | @enum.unique |
+| 数据类 | @dataclass | 字段 | field |
+| 属性 | @property | 类方法 | @classmethod |
+| 静态方法 | @staticmethod | 抽象方法 | @abstractmethod |
 | 三色审计 | tri_color_audit | DNA追溯 | dna_trace |
 | 量子纠缠 | quantum_entangle | 熔断 | abort |
 | 🟢通过 | PASS | 🟡警告 | WARNING |
@@ -389,8 +563,8 @@ class DataProcessing:
 
 | 字段 | 内容 |
 |------|------|
-| 版本 | v2.0（2026-04-28）|
-| DNA |#龍芯⚡️2026-04-28-CNSH-v2.0 |
+| 版本 | v2.2（2026-07-05）|
+| DNA |#龍芯⚡️2026-07-05-CNSH语言完整规范-v2.2 |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

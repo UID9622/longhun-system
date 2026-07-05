@@ -353,7 +353,7 @@ print(f"分拣: {node.route.bucket.value}")
 
 ---
 
-**DNA:**#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-FILE7-v4.1-DELIVERY
+**DNA:**#龍芯⚡️2026-05-03-CNSH-FLOW-DECISION-CORE-FILE7-FILE2-v4.1-DELIVERY
 **CONFIRM:** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **三色审计:** 🟢 通过
 **责任:** UID9622·不免责

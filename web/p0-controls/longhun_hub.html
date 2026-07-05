@@ -257,7 +257,9 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
   <div class="header-badges">
     <span class="svc-badge" id="badge9622">⚫ 审计后端(9622)</span>
     <span class="svc-badge" id="badge8765">⚫ 主服务(8765)</span>
+    <span class="svc-badge" id="badge8766">⚫ 声影桥(8766)</span>
     <span class="svc-badge" id="badge11434">⚫ Ollama(11434)</span>
+    <a href="../CNSH_龍魂操作台v4.0.html" target="_blank" class="svc-badge" style="text-decoration:none;color:inherit">🚀 操作台 v4.0</a>
     <span id="headerClock">--:--:--</span>
   </div>
 </div>
@@ -290,7 +292,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
     <div class="chat-area" id="chatArea">
       <div class="chat-msg ai">
         <div class="msg-meta">🐉 龍魂 · 系统初始化</div>
-        <div>您好，UID9622！我是龍魂AI助手，已加载诸葛亮沙盒人格。三维审计在线，可随时与您对话。请先在上方选择Ollama模型。</div>
+        <div>您好，UID9622！我是龍魂AI助手，已加载诸葛亮沙盒人格。三维审计在线，可随时与您对话。请先在上方选择模型（Ollama 本地模型 或 DeepSeek Bridge）。</div>
       </div>
     </div>
     <div class="chat-input-row">
@@ -459,7 +461,22 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
         <button class="btn btn-warn" id="btnRunSandbox">🐉 启动推演</button>
         <button class="btn btn-ghost" id="btnClearSandbox">清空</button>
         <a href="sandbox_dashboard.html" target="_blank" class="btn btn-ghost">📊 可视化面板</a>
+        <a href="龍魂知识矩阵-沉浸式AI播音员.html" target="_blank" class="btn btn-ghost">🎙️ 沉浸式 AI 播音员</a>
+        <a href="龍魂知识矩阵-沉浸式AI播音员.html?focus=daodejing" target="_blank" class="btn btn-ghost">📜 道德经</a>
+        <a href="龍魂-yijing.html" target="_blank" class="btn btn-ghost">☯ 易经</a>
       </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📚 中国文化章节矩阵</div>
+      <div style="font-size:12px;color:#94a3b8;margin-bottom:12px">真实视觉不动点 · 15 章 · 独立页 + 矩阵覆盖层</div>
+      <div class="btn-group" id="chapter-links">
+        <a href="龍魂知识矩阵-沉浸式AI播音员.html" target="_blank" class="btn btn-ghost">🌌 进入矩阵</a>
+      </div>
+      <div class="btn-group" style="margin-top:10px">
+        <button class="btn btn-warn" onclick="notionPull()">🔄 Notion 拉取</button>
+        <button class="btn btn-success" onclick="notionPush('daodejing', true)">📤 Notion 推送（演练）</button>
+      </div>
+      <div id="notion-result" class="result-box" style="margin-top:12px;display:none"></div>
     </div>
     <div class="card" id="sbResultCard" style="display:none">
       <div class="card-title">📊 推演结果</div>
@@ -547,6 +564,11 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
       <div id="svc8765Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
     </div>
     <div class="svc-card">
+      <div class="svc-name">🎙️ 声影桥 (8766)</div>
+      <div id="svc8766Status"><span class="svc-dot offline"></span><span style="font-size:12px;color:#888">检测中…</span></div>
+      <div id="svc8766Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
+    </div>
+    <div class="svc-card">
       <div class="svc-name">🦙 Ollama (11434)</div>
       <div id="svc11434Status"><span class="svc-dot offline"></span><span style="font-size:12px;color:#888">检测中…</span></div>
       <div id="svc11434Info" style="font-size:12px;color:#b0b8d1;margin-top:8px"></div>
@@ -598,12 +620,14 @@ ollama serve
 const GPG = 'A2D0092CEE2E5BA87035600924C3704A8CC26D5F';
 const UID = 'UID9622';
 const CONFIRM = '#CONFIRM\uD83C\uDF0C9622-ONLY-ONCE\uD83E\uDDEC\u{1F9EC}LK9X-772Z';
-const DNA_HUB = '#\u9F99\u82AF\u26A1\uFE0F2026-03-12-\u9F99\u9B42\u667A\u80FD\u4E2D\u67A2-v4.0';
+const DNA_HUB = '#\u9F99\u82AF\u26A1\uFE0F2026-07-04-\u9F99\u9B42\u667A\u80FD\u4E2D\u67A2-v4.1-DEEPSEEK-BRIDGE';
 
 // ── endpoints ──────────────────────────────────
 const EP_AUDITOR = 'http://127.0.0.1:9622';
 const EP_MAIN    = 'http://127.0.0.1:8765';
+const EP_VOICE   = 'http://127.0.0.1:8766'; // 声影桥
 const EP_OLLAMA  = 'http://localhost:11434';
+const EP_DEEPSEEK_BRIDGE = 'http://127.0.0.1:8788'; // M266 DeepSeek 桥
 
 // ── DB ──────────────────────────────────────────
 const DB_NAME = '龍魂v4', DB_VER = 1;
@@ -898,6 +922,20 @@ async function checkServices() {
     setSvcBadge('badge8765', false, '主服务(8765)');
     setSvcCard('svc8765Status', 'svc8765Info', false, '');
   }
+  // 8766 声影桥
+  try {
+    const r = await fetch(EP_VOICE + '/health', { signal: AbortSignal.timeout(3000) });
+    if (r.ok) {
+      const d = await r.json();
+      svcStatus.s8766 = true;
+      setSvcBadge('badge8766', true, '声影桥(8766)');
+      setSvcCard('svc8766Status', 'svc8766Info', true, `章节: ${d.chapters || 0}`);
+    } else { throw new Error('not ok'); }
+  } catch {
+    svcStatus.s8766 = false;
+    setSvcBadge('badge8766', false, '声影桥(8766)');
+    setSvcCard('svc8766Status', 'svc8766Info', false, '');
+  }
   // 11434
   try {
     const r = await fetch(EP_OLLAMA + '/api/tags', { signal: AbortSignal.timeout(3000) });
@@ -937,10 +975,11 @@ function loadOllamaModels(models) {
   const sel = document.getElementById('chatModel');
   if (!sel) return;
   const prev = sel.value;
-  sel.innerHTML = models.length
+  const bridgeOpt = '<option value="deepseek-bridge">🌉 DeepSeek Bridge (M266)</option>';
+  sel.innerHTML = bridgeOpt + (models.length
     ? models.map(m => `<option value="${escHtml(m)}">${escHtml(m)}</option>`).join('')
-    : '<option value="">无可用模型</option>';
-  if (prev && models.includes(prev)) sel.value = prev;
+    : '<option value="">无可用Ollama模型</option>');
+  if (prev && (models.includes(prev) || prev === 'deepseek-bridge')) sel.value = prev;
 }
 
 // ── clock ───────────────────────────────────────
@@ -976,7 +1015,7 @@ async function sendChat() {
   if (!msg) return;
 
   const model = document.getElementById('chatModel').value;
-  if (!model) { appendChat('system', '请先选择Ollama模型'); return; }
+  if (!model) { appendChat('system', '请先选择模型'); return; }
 
   const preAudit = document.getElementById('chatPreAudit').checked;
   input.value = '';
@@ -998,16 +1037,48 @@ async function sendChat() {
   btn.disabled = true; btn.textContent = '发送中…';
 
   try {
-    const prompt = SYSTEM_PROMPT + '\n\n用户：' + msg;
-    const res = await fetch(EP_OLLAMA + '/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model, prompt, stream: false }),
-      signal: AbortSignal.timeout(60000)
-    });
-    if (!res.ok) throw new Error('Ollama返回错误: ' + res.status);
-    const data = await res.json();
-    const reply = data.response || '';
+    let reply = '';
+
+    if (model === 'deepseek-bridge') {
+      // M266 DeepSeek 桥：Anthropic Messages API 格式
+      const res = await fetch(EP_DEEPSEEK_BRIDGE + '/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'sk-anthropic-dummy',
+          'anthropic-version': '2023-06-01'
+        },
+        body: JSON.stringify({
+          model: 'claude-3-5-sonnet-20241022',
+          max_tokens: 1024,
+          system: SYSTEM_PROMPT,
+          messages: chatHistory.filter(m => m.role === 'user' || m.role === 'assistant').map(m => ({
+            role: m.role,
+            content: m.content
+          })).concat([{ role: 'user', content: msg }]),
+          stream: false
+        }),
+        signal: AbortSignal.timeout(60000)
+      });
+      if (!res.ok) {
+        const err = await res.text().catch(() => res.statusText);
+        throw new Error('DeepSeek Bridge 返回错误: ' + res.status + ' ' + err);
+      }
+      const data = await res.json();
+      reply = (data.content || []).map(c => c.text || '').join('');
+    } else {
+      // Ollama 本地模型
+      const prompt = SYSTEM_PROMPT + '\n\n用户：' + msg;
+      const res = await fetch(EP_OLLAMA + '/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, prompt, stream: false }),
+        signal: AbortSignal.timeout(60000)
+      });
+      if (!res.ok) throw new Error('Ollama返回错误: ' + res.status);
+      const data = await res.json();
+      reply = data.response || '';
+    }
 
     // auto quick audit on AI response
     let replyColor = null, replyBadge = null;
@@ -1451,7 +1522,11 @@ async function runSandbox() {
       };
     }
 
+    result.time = new Date().toLocaleString();
     renderSandboxResult(result);
+    const history = JSON.parse(localStorage.getItem('longhun_sandbox_results') || '[]');
+    history.push(result);
+    localStorage.setItem('longhun_sandbox_results', JSON.stringify(history.slice(-50)));
     await logAudit('blue', '沙盒推演', `task:${taskType}`);
     await loadSandboxHistory();
   } catch (err) {
@@ -1662,6 +1737,44 @@ function bindUI() {
   window.delMem = delMem;
 }
 
+// ── 中国文化章节矩阵 ─────────────────────────────
+async function loadChapterLinks(){
+  try{
+    const r = await fetch(`${EP_VOICE}/chapters`);
+    const data = await r.json();
+    const container = document.getElementById('chapter-links');
+    if(!container || !data.chapters) return;
+    data.chapters.slice(0,8).forEach(c=>{
+      const a = document.createElement('a');
+      a.href = `龍魂-${c.id}.html`;
+      a.target = '_blank';
+      a.className = 'btn btn-ghost';
+      a.textContent = c.seal_text || c.title;
+      container.appendChild(a);
+    });
+  }catch(e){ console.error('加载章节链接失败', e); }
+}
+async function notionPull(){
+  const box = document.getElementById('notion-result');
+  box.style.display = 'block';
+  box.textContent = '正在从 Notion 拉取…';
+  try{
+    const r = await fetch(`${EP_VOICE}/notion/pull`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({query:'龍魂 章节', page_size:5})});
+    const data = await r.json();
+    box.textContent = JSON.stringify(data, null, 2);
+  }catch(e){ box.textContent = '拉取失败: '+e.message; }
+}
+async function notionPush(chapterId, dryRun){
+  const box = document.getElementById('notion-result');
+  box.style.display = 'block';
+  box.textContent = dryRun ? '正在演练推送…' : '正在推送至 Notion…';
+  try{
+    const r = await fetch(`${EP_VOICE}/notion/push`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({chapter_id:chapterId, dry_run:dryRun})});
+    const data = await r.json();
+    box.textContent = JSON.stringify(data, null, 2);
+  }catch(e){ box.textContent = '推送失败: '+e.message; }
+}
+
 // ── init ────────────────────────────────────────
 (async () => {
   try {
@@ -1675,6 +1788,9 @@ function bindUI() {
 
     // hex display
     updateHexDisplay();
+
+    // chapter links
+    await loadChapterLinks();
 
     // initial data load
     await refreshAll();

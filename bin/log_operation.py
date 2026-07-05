@@ -7,7 +7,7 @@
 
 用法示例：
     python3 bin/log_operation.py \
-        --dna#龍芯⚡️2026-06-18-EXAMPLE-FILE1-v1.0" \
+        --dna#龍芯⚡️2026-06-18-EXAMPLE-FILE1-FILE1-v1.0" \
         --source "用户说：我要……" \
         --changes "a.py,b.py" \
         --logic "1. xxx\n2. yyy" \

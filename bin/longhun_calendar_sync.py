@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂日历同步 · iCloud 日历集成 v1.0
-DNA:#龍芯⚡️2026-06-09-CALENDAR-SYNC-FILE1-v1.0
+DNA:#龍芯⚡️2026-06-09-CALENDAR-SYNC-FILE1-FILE1-v1.0
 
 功能:
   • 任务自动写入 iCloud 日历
