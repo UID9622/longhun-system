@@ -111,6 +111,8 @@ logs/package-watcher.log
 
 # 备份和历史文件
 *.backup
+!skills.backup/
+!monitoring.backup/
 *.old
 *~.md
 .backup/
