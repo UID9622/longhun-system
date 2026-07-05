@@ -4,6 +4,7 @@
 # 归档与备份（可能含敏感记忆/密钥）
 _archive/
 _archive*/
+!_archived_reports/
 _backup/
 _backup*/
 

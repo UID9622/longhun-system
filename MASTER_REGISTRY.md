@@ -1,9 +1,21 @@
-# 龍魂系统 · 统一子系统收口总表 v1.0
+# 龍魂系统 · 统一子系统收口总表 v2.0
 
-> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v1.0`
-> 收口人: CodeBuddy
+> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v2.0`
+> 收口人: CodeBuddy (首次) → 整理完成
 > 审计: 🟢 通过
 > 原则: 一个仓库，一份总表，不可有未注册的子系统
+>
+> **关联文档:**
+> - 引擎去重: [`ENGINE_DEDUP_MANIFEST.md`](./ENGINE_DEDUP_MANIFEST.md)
+> - 技能去重: [`SKILLS_DEDUP_MANIFEST.md`](./SKILLS_DEDUP_MANIFEST.md)
+> - 插件主权: [`CODEBUDDY_插件主权清单_v1.0.md`](./CODEBUDDY_插件主权清单_v1.0.md)
+> - 交接文档: [`HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md`](./HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md)
+>
+> **本次收口操作 (2026-07-06):**
+> - Git 索引: 81,274 → 1,568 staged (unstage 16 个敏感/大目录)
+> - .gitignore: 新增 brain/voice-twin/train/outputs/.snapshots 规则
+> - 引擎: 标记 8 个副本文件，确定 11 组权威源
+> - 技能: 确认 skills.backup 为独立历史分支（全部 32 文件不同）
 
 ---
 
