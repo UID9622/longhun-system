@@ -172,6 +172,124 @@ longhun_mvp_reviewed/
 releases/*.zip
 releases/*/*.zip
 
+# ── 2026-07-06 安全加固新增 ──
+
+# 熔断与安全控制文件（绝不上传，本地主权控制）
+.longhun/
+
+# 证书和密钥文件（任何格式）
+*.crt
+*.cer
+*.der
+*.pfx
+*.p12
+*.pem
+*.key
+*.jks
+*.keystore
+*.keytab
+*.keychain
+!*.example.pem
+!*.example.key
+
+# GPG 密钥和签名
+*.gpg
+*.asc
+secring.gpg
+pubring.gpg
+trustdb.gpg
+random_seed
+
+# SSH 密钥
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+id_ecdsa
+id_ecdsa.pub
+id_dsa
+id_dsa.pub
+authorized_keys
+known_hosts
+
+# 数据库导出和备份（可能含数据）
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+*.mdb
+*.accdb
+*.dmp
+*.dump
+*.bson
+!*.example.sql
+
+# 日志文件（可能含敏感路径/用户信息）
+*.log
+*.log.*
+!logs/.gitkeep
+
+# 核心转储和调试文件
+core
+core.*
+*.core
+*.dmp
+*.minidump
+*.heapsnapshot
+
+# 配置文件（可能含敏感设置，.env 已在上面覆盖）
+*.conf
+*.config
+*.cfg
+*.ini
+*.toml
+*.yaml
+*.yml
+!*.example.yaml
+!*.example.yml
+!*.example.toml
+!*.example.ini
+!cnsh*.toml
+!CNSH*.toml
+!pyproject.toml
+!.pre-commit-config.yaml
+
+# 审计日志和会话记录（含操作记录）
+audit_trail/
+fuse_events.jsonl
+push_audit.log
+*.audit.jsonl
+
+# 网页抓取和爬虫产物（可能含第三方数据）
+*.har
+*.warc
+crawls/
+scraped/
+
+# 安全扫描报告（含系统漏洞详情）
+*_vuln_report.*
+*_pentest_*
+*_security_scan_*
+nessus_*
+nmap_*
+burp_*
+zap_*
+
+# 内存镜像和进程快照
+*.mem
+*.vmem
+*.vmss
+*.vmsn
+
+# 加密卷和保险箱
+*.dmg
+*.sparseimage
+*.sparsebundle
+*.vault
+*.tc
+*.hc
+
 # 本地大脑数据文件（含个人记忆与知识图谱向量）
 brain/*.db
 brain/*.pkl
