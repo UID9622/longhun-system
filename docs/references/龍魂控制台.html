@@ -12,19 +12,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>龍魂控制台 · UID9622</title>
+<title>龍魂控制台 · 女娲石 · UID9622</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:"LonghunFont";src:url("../../longhun-font/output/LonghunFont-Regular.otf") format("opentype");font-weight:normal;font-style:normal;font-display:swap}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d0d18;--bg2:#13132a;--bg3:#1a1a35;
-  --accent:#c39bd3;--gold:#f5c518;--green:#52d68a;
-  --red:#e05c5c;--orange:#e67e22;--blue:#4a90d9;
-  --text:#e8e4f0;--muted:#888;--border:rgba(195,155,211,0.15);
+  --bg:#0a0a0a;--bg2:#111118;--bg3:#1a1a28;
+  --accent:#FF0000;--gold:#FFFF00;--green:#00cc44;
+  --red:#FF0000;--orange:#ff6600;--blue:#00FFFF;
+  --text:#ddd;--muted:#777;--border:rgba(255,255,0,0.12);
 }
 body{
   background:var(--bg);color:var(--text);
-  font-family:'Poppins',sans-serif;
+  font-family:'LonghunFont','Poppins',sans-serif;
   min-height:100vh;padding:0;
 }
 
@@ -38,8 +39,9 @@ header{
 .logo{
   font-family:'Noto Sans SC',sans-serif;
   font-size:20px;font-weight:500;
-  background:linear-gradient(90deg,#c39bd3,#7b68ee,#4a90d9);
+  background:linear-gradient(90deg,#FF0000,#FFFF00,#00FFFF);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip: text;
   letter-spacing:2px;
 }
 .logo-sub{font-size:11px;color:var(--muted);font-family:'Noto Sans SC',sans-serif;margin-top:2px}
@@ -52,7 +54,7 @@ header{
   font-size:11px;cursor:pointer;
   transition:all .2s;
 }
-.svc:hover{background:rgba(195,155,211,0.1);border-color:var(--accent)}
+.svc:hover{background:rgba(255,0,0,0.08);border-color:var(--accent)}
 .dot{width:7px;height:7px;border-radius:50%;background:#444;flex-shrink:0}
 .dot.green{background:var(--green);box-shadow:0 0 6px var(--green)}
 .dot.red{background:var(--red)}
@@ -85,7 +87,7 @@ main{padding:28px 32px;max-width:1200px;margin:0 auto}
   opacity:0;transition:opacity .2s;
 }
 .card:hover{
-  border-color:rgba(195,155,211,0.4);
+  border-color:rgba(255,255,0,0.3);
   transform:translateY(-2px);
   box-shadow:0 8px 24px rgba(0,0,0,0.4);
 }
@@ -95,13 +97,13 @@ main{padding:28px 32px;max-width:1200px;margin:0 auto}
 .card-desc{font-size:11px;color:var(--muted);font-family:'Noto Sans SC',sans-serif;line-height:1.5}
 .card-tag{
   font-size:9px;padding:2px 7px;border-radius:10px;
-  background:rgba(195,155,211,0.12);color:var(--accent);
+  background:rgba(255,0,0,0.1);color:var(--accent);
   width:fit-content;margin-top:auto;
 }
 .card.notion .card-tag{background:rgba(74,144,217,0.15);color:var(--blue)}
 .card.local  .card-tag{background:rgba(82,214,138,0.12);color:var(--green)}
 .card.repo   .card-tag{background:rgba(245,197,24,0.12);color:var(--gold)}
-.card.model  .card-tag{background:rgba(195,155,211,0.15);color:var(--accent)}
+.card.model  .card-tag{background:rgba(255,0,0,0.1);color:var(--accent)}
 .card.service .card-tag{background:rgba(230,126,34,0.15);color:var(--orange)}
 
 /* ── Ollama 模型区 ── */
@@ -112,7 +114,7 @@ main{padding:28px 32px;max-width:1200px;margin:0 auto}
   cursor:pointer;transition:all .2s;
   display:flex;align-items:center;gap:10px;
 }
-.model-card:hover{border-color:var(--accent);background:rgba(195,155,211,0.06)}
+.model-card:hover{border-color:var(--accent);background:rgba(255,0,0,0.06)}
 .model-icon{font-size:20px;flex-shrink:0}
 .model-info{flex:1;min-width:0}
 .model-name{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -127,22 +129,22 @@ main{padding:28px 32px;max-width:1200px;margin:0 auto}
 .route-input{
   flex:1;background:var(--bg3);border:1px solid var(--border);
   border-radius:8px;padding:10px 14px;
-  color:var(--text);font-size:13px;font-family:'Poppins',sans-serif;
+  color:var(--text);font-size:13px;font-family:'LonghunFont','Poppins',sans-serif;
   outline:none;transition:border-color .2s;
 }
 .route-input:focus{border-color:var(--accent)}
 .route-input::placeholder{color:#555}
 .btn{
   padding:10px 18px;border:none;border-radius:8px;
-  font-size:12px;font-family:'Poppins',sans-serif;
+  font-size:12px;font-family:'LonghunFont','Poppins',sans-serif;
   cursor:pointer;transition:all .2s;font-weight:500;
 }
-.btn-primary{background:linear-gradient(135deg,#7b68ee,#c39bd3);color:#fff}
+.btn-primary{background:linear-gradient(135deg,#FF0000,#FF6600);color:#fff}
 .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
 .route-result{
   margin-top:10px;padding:10px 14px;
-  background:rgba(195,155,211,0.06);border-radius:8px;
-  font-size:12px;color:var(--accent);
+  background:rgba(255,0,0,0.06);border-radius:8px;
+  font-size:12px;color:#FF0000;
   font-family:'Noto Sans SC',sans-serif;min-height:36px;
   display:flex;align-items:center;
 }

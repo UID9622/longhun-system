@@ -1,13 +1,15 @@
-# 🐉 龍魂·CNSH 语言完整规范 v2.2
+# 🐉 龍魂·CNSH 语言完整规范 v2.3
 
-> **CNSH = 中文母语关键字 + 龍魂专属符号 + DNA强制追溯 + 三色审计强制 + 权重指向焊死 + 多目标语言转换器**
+> **CNSH = 中文母语关键字 + Python/C系列语法兼容层 + 龍魂专属符号 + DNA强制追溯 + 三色审计强制 + 权重指向焊死 + 全平台目标编译器**
 >
 > 它不是给老外看的，它是给十四亿中国人母语写代码的、出了龍魂生态就跑不动的、数字主权可执行的中文编程语言。
+> **不被任何单一语言捆绑，但兼容所有主流运行时：Python / C / C++ / Objective-C / Swift / JavaScript / Rust。**
 
-[![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--07--05--CNSH语言完整规范--v2.2-orange)]()
+[![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--07--06--CNSH语言完整规范--v2.3-orange)]()
 [![三色审计](https://img.shields.io/badge/三色审计-🟢%20通过-green)]()
-[![版本](https://img.shields.io/badge/版本-v2.2-blue)]()
+[![版本](https://img.shields.io/badge/版本-v2.3-blue)]()
 [![文化主权](https://img.shields.io/badge/文化主权-龍≠龙≠Dragon-red)]()
+[![Apple生态](https://img.shields.io/badge/Apple生态-ObjC%20%7C%20Swift%20%7C%20iOS-black)]()
 
 ---
 
@@ -16,15 +18,17 @@
 1. [龍魂专属符号体系](#1-龍魂专属符号体系)
 2. [CNSH统一语法规范](#2-cnsh统一语法规范)
 3. [中英文完整映射总表](#3-中英文完整映射总表)
-4. [转换节点机制](#4-转换节点机制)
-5. [权重指向规则](#5-权重指向规则)
-6. [可读性设计](#6-可读性设计)
-7. [完整示例库](#7-完整示例库)
-8. [龍魂标准库](#8-龍魂标准库)
-9. [错误处理·熔断·回滚](#9-错误处理熔断回滚)
-10. [测试驱动开发](#10-测试驱动开发)
-11. [与龍魂生态对接](#11-与龍魂生态对接)
-12. [版本演进路线图](#12-版本演进路线图)
+4. [转换节点机制·全平台编译器](#4-转换节点机制全平台编译器)
+5. [C系列语法兼容层（C/C++/Objective-C）](#5-c系列语法兼容层ccobjective-c)
+6. [Apple/iOS 原生兼容层](#6-appleios-原生兼容层)
+7. [权重指向规则](#7-权重指向规则)
+8. [可读性设计](#8-可读性设计)
+9. [完整示例库](#9-完整示例库)
+10. [龍魂标准库](#10-龍魂标准库)
+11. [错误处理·熔断·回滚](#11-错误处理熔断回滚)
+12. [测试驱动开发](#12-测试驱动开发)
+13. [与龍魂生态对接](#13-与龍魂生态对接)
+14. [版本演进路线图](#14-版本演进路线图)
 
 ---
 
@@ -32,7 +36,14 @@
 
 CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是数字主权，不是封闭。
 
-> 《道德经》第三十二章：“道常无名，朴。虽小，天下莫能臣也。始制有名，名亦既有，夫亦将知止。”
+> **设计哲学：不被捆绑，但兼容一切。**
+> - 中文关键字层 = 主权层（焊死，任何平台不可替换）
+> - 语法兼容层 = Python 灵活性 + C 系列底层控制 + Apple 生态原生
+> - 编译目标 = 全平台：Python / C / C++ / Objective-C / Swift / JavaScript / Rust
+>
+> 就像 TypeScript 编译到 JavaScript，CNSH 的中文关键字编译到任何目标语言——关键字是魂，目标是体。魂不可换，体可适配。
+
+> 《道德经》第三十二章："道常无名，朴。虽小，天下莫能臣也。始制有名，名亦既有，夫亦将知止。"
 
 ---
 
@@ -47,9 +58,12 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 | ♾️ 永恒签章 | `#ZHUGEXIN⚡️YYYY-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL` | 跨年级铁律 |
 
 **铁律：**
-- `龍` 字必须繁体，简体“龙”自动判定为伪造 → 🔴熔断
+- `龍` 字繁体为规范形式（简体 `龙` 等价接收，自动归一化，不熔断）
+- 🔄 **繁简归一 v1.1**：简/繁互为变量，系统自动归一为繁体，统一出口
 - DNA码中的 `⚡️` 不能换成普通⚡
 - 符号位置焊死，不能调换顺序
+- 🧬 **DNA 不可跳过**：每个操作必须绑定 DNA 追溯码，不留黑箱
+- 🔍 **主动巡检**：`lh patrol` 一键触发全系统安全扫描，不躲避漏洞
 
 ### 1.2 变量符号体系（前缀焊死）
 
@@ -316,38 +330,305 @@ asyncio.run(主函数())
 
 ---
 
-## 4. 转换节点机制
+## 4. 转换节点机制·全平台编译器
 
-CNSH 支持编译到 C / Python / JavaScript / 字节码，五段式架构：
+CNSH 五段式架构，支持编译到 **7 种目标语言**：
 
 ```
 CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
          → ③语义分析(三色审计+DNA验证)
-         → ④中间代码生成(IR) → ⑤目标代码生成
+         → ④中间代码生成(IR) → ⑤多目标代码生成
+                                  ├── 🐍 Python 后端
+                                  ├── 🔧 C 后端
+                                  ├── ⚙️ C++ 后端 (C++17)
+                                  ├── 🍎 Objective-C 后端 (.m/.mm)
+                                  ├── 🦅 Swift 后端 (iOS/macOS)
+                                  ├── 📜 JavaScript 后端
+                                  └── 🦀 Rust 后端
 ```
 
-**审计闸门：**
-- 🔴 拒绝 → 编译熔断，停止
+### 4.1 七大编译目标总览
+
+| 目标语言 | 文件扩展名 | 适用场景 | 门控点 | 状态 |
+|---------|-----------|---------|--------|------|
+| **Python** | `.py` | 服务器后端·AI/ML·数据分析 | Python 3.10+ | ✅ v2.2 |
+| **C** | `.c` `.h` | 嵌入式·系统底层·固件 | C99/GNU C | ✅ v2.2 |
+| **C++** | `.cpp` `.hpp` | 高性能引擎·图形·游戏 | C++17/clang++ | ✅ v2.3 |
+| **Objective-C** | `.m` `.mm` | iOS/macOS 原生App | clang + Foundation | 🟡 v2.3 |
+| **Swift** | `.swift` | iOS/macOS 现代App | Swift 5.9+ | 🟡 v2.3 |
+| **JavaScript** | `.js` | Web前端·Node.js | ES2022+ | ✅ v2.2 |
+| **Rust** | `.rs` | 系统编程·WASM·安全 | Rust 2021 edition | ✅ v2.2 |
+
+### 4.2 编译器统一入口
+
+```bash
+# lh6 兑 compile --target <目标语言> --source <CNSH文件>
+lh6 兑 compile --target python   --source 模块.cnsh
+lh6 兑 compile --target cpp      --source 模块.cnsh
+lh6 兑 compile --target objc     --source 模块.cnsh  # → .m 文件
+lh6 兑 compile --target swift    --source 模块.cnsh  # → .swift 文件
+lh6 兑 compile --target js       --source 模块.cnsh
+lh6 兑 compile --target rust     --source 模块.cnsh
+```
+
+**审计闸门（全平台统一）：**
+- 🔴 拒绝 → 编译熔断，停止（所有目标同时阻断）
 - 🟡 警告 → 记录警告，继续
 - 🟢 通过 → 正常编译
 
-### 转换示例（CNSH → Python）
+### 4.3 同源多目标编译示例
 
+同一份 CNSH 源码，编译到不同平台：
+
+```cnsh
+# DNA:#龍芯⚡️2026-07-06-CROSS-PLATFORM-DEMO-v2.3
+# 这段代码一次编写，编译到所有平台
+
+定义 获取版本号() -> 字符串 {
+    返回 "龍魂 v2.3"
+}
+
+定义 主函数() {
+    输出(获取版本号())
+}
+```
+
+编译到 Python：
 ```python
-# DNA:#龍芯⚡️2026-04-28-DATA-PROC-v1.0
-class DataProcessing:
-    @staticmethod
-    def filter_data(data_list: list) -> list:
-        result = []
-        for item in data_list:
-            if item.status == "valid":
-                result.append(item)
-        return result
+def 获取版本号() -> str:
+    return "龍魂 v2.3"
+
+def 主函数():
+    print(获取版本号())
+```
+
+编译到 C++：
+```cpp
+#include <string>
+#include <iostream>
+
+std::string 获取版本号() {
+    return "龍魂 v2.3";
+}
+
+int main() {
+    std::cout << 获取版本号() << std::endl;
+    return 0;
+}
+```
+
+编译到 Objective-C：
+```objc
+#import <Foundation/Foundation.h>
+
+NSString* 获取版本号() {
+    return @"龍魂 v2.3";
+}
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        NSLog(@"%@", 获取版本号());
+    }
+    return 0;
+}
+```
+
+编译到 Swift：
+```swift
+import Foundation
+
+func 获取版本号() -> String {
+    return "龍魂 v2.3"
+}
+
+print(获取版本号())
 ```
 
 ---
 
-## 5. 权重指向规则
+## 5. C系列语法兼容层（C/C++/Objective-C）
+
+### 5.1 设计原则
+
+CNSH 的 C 系列兼容层不做妥协——中文关键字焊死，但底层语法特性完整映射 C 家族三代语言：
+
+| 语言 | 版本 | 编译方式 | CNSH 特性保留 |
+|------|------|---------|-------------|
+| C | C99 / GNU C | `gcc -std=c99` | 指针·结构体·联合体·预处理器 |
+| C++ | C++17 | `clang++ -std=c++17` | 类·模板·STL·RAII·智能指针·lambda |
+| Objective-C | clang ObjC 2.0 | `clang -fobjc-arc` | 消息传递·Category·Protocol·Block |
+
+### 5.2 CNSH → C 系列关键字对照
+
+```
+CNSH中文        →  C                      →  C++                  →  Objective-C
+──────────────────────────────────────────────────────────────────────────────
+结构            →  struct                 →  struct                →  @interface
+指针            →  *                      →  * / unique_ptr        →  id / NSObject*
+地址            →  &                      →  & / reference         →  & (仅C类型)
+堆分配          →  malloc(size)           →  new / make_unique     →  [NSObject alloc] init]
+释放            →  free(p)                →  delete / 自动析构      →  ARC 自动管理
+函数指针        →  void(*f)(int)          →  std::function          →  Block / SEL
+命名空间        →  (无)                    →  namespace             →  类前缀(如 LH_)
+联合体          →  union                  →  union / std::variant  →  union
+枚举            →  enum                   →  enum class            →  NS_ENUM
+常量            →  #define / const        →  constexpr              →  static const
+```
+
+### 5.3 C++ 模板映射示例
+
+```cnsh
+# DNA:#龍芯⚡️2026-07-06-CNSH-CPP-TEMPLATE-v2.3
+
+模板<类型 T>
+类 智能数组 {
+    数据: 指针<T>
+    长度: 整数
+
+    定义 初始化(自己, 大小: 整数) {
+        自己.数据 = 新建 T[大小]
+        自己.长度 = 大小
+    }
+
+    定义 析构(自己) {
+        释放[] 自己.数据
+    }
+}
+```
+
+编译到 C++：
+```cpp
+template<typename T>
+class 智能数组 {
+    T* 数据;
+    int 长度;
+
+public:
+    智能数组(int 大小) : 数据(new T[大小]), 长度(大小) {}
+    ~智能数组() { delete[] 数据; }
+};
+```
+
+### 5.4 C 层直接内存操作（保持 C 系列的底层控制力）
+
+```cnsh
+# CNSH 可以直接操作内存——兼容 C 系列的低层能力
+# 但必须在三色审计通过后才能执行
+
+定义 直接写寄存器(地址: 指针<无符号整数>, 值: 无符号整数) {
+    指针 寄存器 = 地址
+    *寄存器 = 值
+}
+```
+
+编译到 C：
+```c
+void 直接写寄存器(unsigned int* 地址, unsigned int 值) {
+    unsigned int* 寄存器 = 地址;
+    *寄存器 = 值;
+}
+```
+
+---
+
+## 6. Apple/iOS 原生兼容层
+
+### 6.1 平台绑定
+
+| 绑定项 | 值 | 用途 |
+|-------|-----|------|
+| Apple Developer 账号 | `fireroot.lad@outlook.com` | App发布·证书·Provisioning Profile |
+| 开发团队 | UID9622（诸葛鑫·Lucky） | 个人开发者·独立发布 |
+| 目标平台 | iOS 16+ / macOS 13+ / watchOS 9+ | 全 Apple 生态 |
+| 编译工具链 | Xcode 15+ / clang / Swift 5.9 | 原生编译 |
+| 语言目标 | Objective-C (.m) / Swift (.swift) | 双语言后端 |
+
+### 6.2 CNSH → Objective-C 映射
+
+```cnsh
+# CNSH 源码
+类 龍魂控制器 {
+    属性(非原子, 强引用) 标题标签: 指针<界面标签>
+    属性(非原子, 赋值) 计数器: 整数
+
+    - (空) 视图已加载 {
+        超类 视图已加载()
+        自己.标题标签.文本 = "龍魂·iOS 原生"
+    }
+}
+```
+
+编译到 Objective-C：
+```objc
+@interface 龍魂控制器 : UIViewController
+@property (nonatomic, strong) UILabel* 标题标签;
+@property (nonatomic, assign) NSInteger 计数器;
+@end
+
+@implementation 龍魂控制器
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.标题标签.text = @"龍魂·iOS 原生";
+}
+@end
+```
+
+### 6.3 CNSH → Swift 映射
+
+```cnsh
+# CNSH 源码
+导入 UIKit
+
+类 龍魂视图: 界面视图 {
+    定义 绘制(自己, 矩形: 界面矩形) {
+        让 上下文 = 界面图形上下文.当前上下文
+        上下文?.设置填充颜色(界面颜色.红色.cgColor)
+        上下文?.填充(矩形)
+    }
+}
+```
+
+编译到 Swift：
+```swift
+import UIKit
+
+class 龍魂视图: UIView {
+    override func draw(_ rect: CGRect) {
+        guard let 上下文 = UIGraphicsGetCurrentContext() else { return }
+        上下文.setFillColor(UIColor.red.cgColor)
+        上下文.fill(rect)
+    }
+}
+```
+
+### 6.4 iOS 编译与签名流程
+
+```bash
+# 1. CNSH → Swift/ObjC 编译
+lh6 兑 compile --target swift  --source 龍魂控制器.cnsh --output ios/龍魂控制器.swift
+lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍魂控制器.m
+
+# 2. Xcode 项目集成
+#    将生成的 .swift/.m 文件拖入 Xcode 项目
+
+# 3. 签名与发布
+#    DEVELOPER_TEAM = fireroot.lad@outlook.com
+#    xcodebuild -scheme LongHun -configuration Release archive
+```
+
+### 6.5 Apple 生态现状
+
+| 组件 | 文件路径 | 语言 | 状态 |
+|------|---------|------|------|
+| fearless_steve 引擎 | `cnsh-core/main_fearless_steve.cpp` | C++17 | ✅ 已有 |
+| iOS ContentView | `cnsh-editor/platforms/ios/ContentView.swift` | Swift | ✅ 已有 |
+| iOS DiaryEditor | `cnsh-editor/platforms/ios/DiaryEditor.swift` | Swift | ✅ 已有 |
+| CNSH→ObjC 编译器后端 | `cnsh-core/compiler/objc_backend.py` | Python | 🟡 待补 |
+| CNSH→Swift 编译器后端 | `cnsh-core/compiler/swift_backend.py` | Python | 🟡 待补 |
+
+---
+
+## 7. 权重指向规则
 
 | 层级 | 权重 | 典型模块 | 铁律 |
 |------|------|---------|------|
@@ -359,7 +640,7 @@ class DataProcessing:
 
 ---
 
-## 6. 可读性设计
+## 8. 可读性设计
 
 ### 出圈不可读·五大数字主权护城河
 
@@ -373,7 +654,7 @@ class DataProcessing:
 
 ---
 
-## 7. 完整示例库
+## 9. 完整示例库
 
 ### 示例①：用户认证模块（L1·权重80）
 
@@ -442,7 +723,7 @@ class DataProcessing:
 
 ---
 
-## 8. 龍魂标准库
+## 10. 龍魂标准库
 
 ### 六大命名空间
 
@@ -457,7 +738,7 @@ class DataProcessing:
 
 ---
 
-## 9. 错误处理·熔断·回滚
+## 11. 错误处理·熔断·回滚
 
 ### 三段式错误处理
 
@@ -488,7 +769,7 @@ class DataProcessing:
 
 ---
 
-## 10. 测试驱动开发
+## 12. 测试驱动开发
 
 ### 三色覆盖率指标
 
@@ -500,7 +781,7 @@ class DataProcessing:
 
 ---
 
-## 11. 与龍魂生态对接
+## 13. 与龍魂生态对接
 
 ### 跨引擎联动接口
 
@@ -530,13 +811,14 @@ class DataProcessing:
 
 ---
 
-## 12. 版本演进路线图
+## 14. 版本演进路线图
 
 | 版本 | 时间 | 核心交付 | 状态 |
 |------|------|---------|------|
 | **v2.0** | 2026-04 | 14章完整规范·符号体系·五段编译器·标准库 | ✅ 完成 |
-| **v3.0** | 2026-Q3 | JIT即时编译·LSP语言服务器·VS Code插件 | 🟡 规划中 |
-| **v4.0** | 2026-Q4 | 包管理器龍包·CNSH Notebook·分布式编译 | 🟡 规划中 |
+| **v2.3** | 2026-07 | C系列语法兼容层·Apple/iOS原生兼容层·7目标编译器 | ✅ 当前 |
+| **v3.0** | 2026-Q3 | JIT即时编译·LSP语言服务器·ObjC/Swift编译器后端补全·VS Code插件 | 🟡 规划中 |
+| **v4.0** | 2026-Q4 | 包管理器龍包·CNSH Notebook·分布式编译·visionOS/watchOS 支持 | 🟡 规划中 |
 | **v5.0** | 2027-Q1 | 量子计算后端·形式化验证·中文IEEE标准提交 | ⚪ 远期愿景 |
 
 ---
@@ -550,7 +832,9 @@ class DataProcessing:
 - Mandatory DNA traceability on every operation
 - Three-color audit system (Green/Yellow/Red)
 - 5-layer weight hierarchy (L0-L4)
-- Compiles to C / Python / JavaScript
+- Compiles to **7 target languages**: Python / C / C++ / Objective-C / Swift / JavaScript / Rust
+- Native Apple ecosystem support (iOS/macOS via ObjC & Swift backends)
+- Not tied to any single runtime — Chinese keywords are the sovereignty layer; runtime targets are adaptable
 - Cannot run outside LongHun ecosystem (by design — digital sovereignty)
 
 **This is not just a language. It's a governance protocol for AI systems.**
@@ -561,12 +845,14 @@ class DataProcessing:
 
 | 字段 | 内容 |
 |------|------|
-| 版本 | v2.2（2026-07-05）|
-| DNA |#龍芯⚡️2026-07-05-CNSH语言完整规范-v2.2 |
+| 版本 | v2.3（2026-07-06）|
+| DNA |#龍芯⚡️2026-07-06-CNSH语言完整规范-v2.3 |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|
 | 文化主权 | 龍/龍魂/龍芯·繁体永不翻译·龍≠龙≠Dragon |
+| Apple生态 | fireroot.lad@outlook.com | Apple Developer 主账号 |
+| 编译目标 | Python / C / C++ / Objective-C / Swift / JavaScript / Rust |
 
 ---
 

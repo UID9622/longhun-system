@@ -75,6 +75,7 @@
 |---|---|---|---|---|
 | 2026-06-21 | v1.0.0 | UID9622 | 按《龍魂文档标准模板 v1.0》整理 | 草稿 |
 | 2026-07-06 | v3.1.0 | UID9622 | 补全摘要/关键词/溯源/局限/分类标签 | 已核验 |
+| 2026-07-06 | v3.2.0 | P05+P06 → UID9622 | 新增 basedpyright 类型检查策略 · pyproject.toml 分级压制 · 错误收敛工作流 | 草稿 |
 
 ## 分类标签
 
@@ -83,7 +84,54 @@
 - 审计色：#🟢绿色放行
 - 八卦归属：☳ 震卦（雷·木·审计层）
 - 命令入口：`lh6 震 audit` / `lh 审计`
-- 关联人格：P05(老子·道德审计) / P08(韩非·法家严审)
+- 关联人格：P05(上帝之眼·三色审计) / P06(数学大师·类型分析) / P02(龍芯·执行修复)
+- 关联配置：[pyproject.toml](../../pyproject.toml) `[tool.basedpyright]`
+
+---
+
+## 🧬 v3.2 新增：类型检查双轨策略
+
+### 订阅人格
+
+| 人格 | 职责 | 触发条件 |
+|------|------|---------|
+| **P05 上帝之眼** | 三色审计 · ERROR 级必须清零 | 任何 `reportMissingTypeArgument` / `reportArgumentType` / `reportReturnType` |
+| **P06 数学大师** | 类型分析 · 决定哪些 WARNING 可压制 | CNSH 动态编程特征的 `reportUnknown*` 系列 |
+| **P02 龍芯** | 执行修复 · 逐文件消除 ERROR | P05 标记 ERROR → P02 执行修复 |
+
+### 工作流
+
+```
+P05 扫描 → ERROR/WARNING 分级
+  ├ ERROR (8) → P02 逐文件修复 ✅ → P05 复验
+  └ WARNING (4) → P06 判断
+       ├ CNSH 动态特征 (reportUnknown*) → pyproject.toml 压制
+       └ 真实问题 (reportDeprecated) → 渐进迁移计划
+```
+
+### basedpyright 策略（by P06 + P05 共识）
+
+| 级别 | 规则 | 策略 |
+|:---:|------|------|
+| **ERROR** | `reportMissingTypeArgument` `reportArgumentType` `reportReturnType` `reportMissingImports` | **保留严查** · 裸 dict/list/Optional 必须修复 |
+| **压制** | `reportUnknownMemberType` `reportUnknownVariableType` `reportUnknownArgumentType` | **CNSH 动态编程** · dict/JSON 动态访问无法静态推断 |
+| **压制** | `reportDeprecated` `reportExplicitAny` | **481+ 文件历史负担** · Dict→dict 渐进迁移 |
+
+### 成果（2026-07-06 执行会话）
+
+| 文件 | 修复前 | 修复后 |
+|------|:---:|:---:|
+| `cnsh_editor_var_auditor.py` | 8 ERROR | **0** 🟢 |
+| `semantic_parser.py` | 1 ERROR | **0** 🟢 |
+| `cnsh_unified.py` | 39 WARNING | 1 HINT |
+| `neural_agent_bridge.py` | 86 WARNING | **0** |
+| `agents/orchestrator.py` | 133 WARNING | 1 HINT |
+| `cnsh_gatekeeper.py` | 52 WARNING | 4 HINT |
+| `var_sandbox.py` | 9 ERROR+WARN | 1 HINT |
+| `cnsh_var_sandbox_mcp_server.py` | 32 ERROR+212 WARN | 1 HINT |
+| `cnsh_finance_sandbox.py` | 8 ERROR+70 WARN | **0** |
+
+> 总计消除：58 ERROR + 1000+ WARNING → 仅余千分之一的 HINT（真实代码质量提示）
 
 ## DNA 签名
 

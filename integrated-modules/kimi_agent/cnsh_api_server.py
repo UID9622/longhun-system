@@ -631,13 +631,13 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# CORS中间件
+# CORS中间件（🛡️ P77修复：白名单替代通配符）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE", "X-CNSH-CONFIRM"],
 )
 
 
@@ -649,7 +649,7 @@ app.add_middleware(
 @app.middleware("http")
 async def 审计中间件(request: Request, call_next):
     """
-    审计中间件 - 每个请求自动记录审计日志
+    审计中间件 - 每个请求自动记录审计日志 + 🛡️ P77 安全头部注入
 
     记录:
     - 请求DNA (唯一标识)
@@ -657,6 +657,12 @@ async def 审计中间件(request: Request, call_next):
     - 三色审计结果
     - 处理时间
     - 客户端IP
+
+    安全头部:
+    - CSP: 限制脚本/样式来源
+    - X-Content-Type-Options: 防MIME嗅探
+    - X-Frame-Options: 防点击劫持
+    - X-XSS-Protection: 浏览器XSS过滤
     """
     开始时间 = time.time()
     请求dna = f"REQ-{uuid.uuid4().hex[:12].upper()}"
@@ -687,6 +693,20 @@ async def 审计中间件(request: Request, call_next):
         response.headers["X-CNSH-Request-DNA"] = 请求dna
         response.headers["X-CNSH-Process-Time"] = f"{处理时间:.2f}ms"
         response.headers["X-CNSH-Audit-Color"] = 审计条目["audit_color"]
+
+        # 🛡️ P77 安全加固：CSP + 安全头部
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline'; "
+            "style-src 'self' 'unsafe-inline'; "
+            "img-src 'self' data: blob:; "
+            "connect-src 'self' http://localhost:* http://127.0.0.1:*; "
+            "frame-ancestors 'none'"
+        )
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
 
         日志记录器.info(
             f"[审计中间件] {请求dna} | {请求方法} {请求路径} | "
@@ -1152,7 +1172,7 @@ if __name__ == "__main__":
 
     uvicorn.run(
         app,
-        host="0.0.0.0",
+        host="127.0.0.1",
         port=9622,
         log_level="info",
         access_log=True,

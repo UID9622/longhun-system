@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂三色审计系统 + DNA追溯
+龍魂三色审计系统 + DNA追溯
 
 DNA:#龍芯⚡️2026-06-03-AUDIT-FILE1-v1.0-FROM-JS
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

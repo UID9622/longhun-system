@@ -68,6 +68,8 @@ body{background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line
 .footer{text-align:center;font-size:11px;color:var(--text-dim);padding:20px;border-top:1px solid var(--border);margin-top:8px;}
 .tag-pill{font-size:10px;padding:2px 7px;border-radius:99px;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);}
 </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -386,7 +388,7 @@ async function refresh(){
       }
       html += renderCard(item, status);
     }
-    grid.innerHTML = html;
+    grid.innerHTML = escHtml(html);
   }
   $('running-count').textContent = running;
   $('total-count').textContent = total;

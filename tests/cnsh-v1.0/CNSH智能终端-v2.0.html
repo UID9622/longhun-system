@@ -6,12 +6,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🖥️ CNSH智能终端 v2.0</title>
+    <title>🐉 CNSH智能终端 v2.0 · 女娲石版</title>
     <style>
+        /* ── 龙魂字体 ── */
+        @font-face {
+            font-family: 'LonghunFont';
+            src: url('../../longhun-font/output/LonghunFont-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        /* ── 女娲五彩石 · 祖传色卡 ── */
+        :root {
+            --wuwa-red: #FF0000;
+            --wuwa-yellow: #FFFF00;
+            --wuwa-cyan: #00FFFF;
+            --wuwa-white: #FFFFFF;
+            --wuwa-black: #000000;
+            --wuwa-bg: #0a0a0a;
+            --wuwa-card: #111118;
+            --wuwa-border: #222233;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            background: #0d1117;
+            font-family: 'LonghunFont', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            background: var(--wuwa-bg);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -27,33 +46,51 @@
             width: 100%;
         }
         
+        /* ── 女娲五彩石跑马灯 Banner ── */
         .banner {
-            background: linear-gradient(90deg, #ff0080, #8000ff, #0080ff, #00ff80, #ffff00);
-            background-size: 400% 400%;
-            animation: rainbow 3s ease infinite;
+            position: relative;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
-            animation: glow 2s ease-in-out infinite alternate;
+            background: var(--wuwa-black);
+            overflow: hidden;
+            border: 2px solid #222;
         }
-        
-        @keyframes rainbow {
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(90deg,
+                var(--wuwa-red) 0%,
+                var(--wuwa-yellow) 20%,
+                var(--wuwa-cyan) 40%,
+                var(--wuwa-white) 60%,
+                var(--wuwa-black) 80%,
+                var(--wuwa-red) 100%
+            );
+            background-size: 500% 100%;
+            border-radius: 9px;
+            z-index: -1;
+            animation: wuwaMarquee 4s linear infinite;
+        }
+        @keyframes wuwaMarquee {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes glow {
-            from { box-shadow: 0 0 5px rgba(255, 0, 128, 0.3); }
-            to { box-shadow: 0 0 20px rgba(255, 0, 128, 0.6); }
+            100% { background-position: 500% 50%; }
         }
         
         .banner-content {
-            color: white;
+            color: #ddd;
             font-size: 12px;
             line-height: 1.8;
             white-space: pre;
+            text-shadow: 0 0 6px rgba(255,255,255,0.1);
         }
+        /* 五彩石逐字渲染覆盖 banner 内中文 */
+        .banner-content .w0 { color: var(--wuwa-red); }
+        .banner-content .w1 { color: var(--wuwa-yellow); }
+        .banner-content .w2 { color: var(--wuwa-cyan); }
+        .banner-content .w3 { color: var(--wuwa-white); }
+        .banner-content .w4 { color: var(--wuwa-black); text-shadow: 0 0 1px rgba(255,255,255,0.4); }
         
         .main-terminal {
             flex: 1;
@@ -64,8 +101,8 @@
         }
         
         .terminal-output {
-            background: #161b22;
-            border: 2px solid #1f2937;
+            background: var(--wuwa-card);
+            border: 2px solid var(--wuwa-border);
             border-radius: 8px;
             padding: 15px;
             overflow-y: auto;
@@ -74,10 +111,10 @@
         }
         
         .output-header {
-            color: #58a6ff;
+            color: var(--wuwa-cyan);
             font-size: 14px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid #333;
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
@@ -86,7 +123,7 @@
         
         .output-content {
             flex: 1;
-            color: #d1d5db;
+            color: #ddd;
             font-size: 13px;
             line-height: 1.6;
             white-space: pre-wrap;
@@ -94,11 +131,11 @@
         }
         
         .output-line { margin-bottom: 8px; }
-        .output-line.error { color: #f87171; }
-        .output-line.success { color: #50fa7b; }
-        .output-line.info { color: #74c7ec; }
-        .output-line.system { color: #ff79c6; }
-        .output-line.prompt { color: #8be9fd; }
+        .output-line.error { color: var(--wuwa-red); }
+        .output-line.success { color: #00ff66; }
+        .output-line.info { color: var(--wuwa-cyan); }
+        .output-line.system { color: var(--wuwa-yellow); }
+        .output-line.prompt { color: #88ccff; }
         
         .sidebar {
             display: flex;
@@ -107,36 +144,37 @@
         }
         
         .sidebar-section {
-            background: #1f2937;
+            background: var(--wuwa-card);
             border-radius: 8px;
             padding: 15px;
-            border: 1px solid #374151;
+            border: 1px solid var(--wuwa-border);
         }
         
         .sidebar-title {
-            color: #58a6ff;
+            color: var(--wuwa-cyan);
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid #333;
         }
         
         .command-input {
-            background: #161b22;
-            border: 2px solid #374151;
+            background: #0d0d14;
+            border: 2px solid #333;
             border-radius: 6px;
             padding: 12px;
-            color: #d1d5db;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            color: #ddd;
+            font-family: 'LonghunFont', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             font-size: 13px;
             width: 100%;
         }
         
         .command-input:focus {
             outline: none;
-            border-color: #58a6ff;
-            background: #0d1117;
+            border-color: var(--wuwa-cyan);
+            background: #0a0a0a;
+            box-shadow: 0 0 8px rgba(0,255,255,0.15);
         }
         
         .command-list {
@@ -147,18 +185,18 @@
         
         .command-item {
             padding: 10px;
-            background: #161b22;
-            border: 1px solid #374151;
+            background: #0d0d14;
+            border: 1px solid #333;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s;
-            color: #d1d5db;
+            color: #ddd;
             font-size: 12px;
         }
         
         .command-item:hover {
-            background: #374151;
-            border-color: #58a6ff;
+            background: #1a1a28;
+            border-color: var(--wuwa-cyan);
         }
         
         .btn {
@@ -172,28 +210,28 @@
         }
         
         .btn-primary {
-            background: #58a6ff;
-            color: #0d1117;
+            background: var(--wuwa-red);
+            color: #fff;
         }
         
         .btn-primary:hover {
-            background: #74c7ec;
+            background: #cc0000;
             transform: translateY(-2px);
         }
         
         .btn-secondary {
-            background: #6c757d;
-            color: white;
+            background: #444;
+            color: #ddd;
         }
         
         .btn-danger {
-            background: #f87171;
-            color: white;
+            background: var(--wuwa-red);
+            color: #fff;
         }
         
         .btn-success {
-            background: #50fa7b;
-            color: #0d1117;
+            background: #00cc44;
+            color: #000;
         }
         
         .model-selector {
@@ -204,8 +242,8 @@
         
         .model-option {
             padding: 10px;
-            background: #161b22;
-            border: 2px solid #374151;
+            background: #0d0d14;
+            border: 2px solid #333;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s;
@@ -215,13 +253,13 @@
         }
         
         .model-option:hover {
-            border-color: #58a6ff;
-            background: #1f2937;
+            border-color: var(--wuwa-cyan);
+            background: #1a1a28;
         }
         
         .model-option.selected {
-            border-color: #50fa7b;
-            background: #0d3d1e;
+            border-color: var(--wuwa-yellow);
+            background: rgba(255,255,0,0.08);
         }
         
         .model-icon {
@@ -229,13 +267,13 @@
         }
         
         .model-name {
-            color: #d1d5db;
+            color: #ddd;
             font-size: 12px;
         }
         
         .status-bar {
-            background: #1f2937;
-            border: 1px solid #374151;
+            background: var(--wuwa-card);
+            border: 1px solid var(--wuwa-border);
             border-radius: 6px;
             padding: 12px;
             margin-top: 15px;
@@ -243,16 +281,16 @@
         }
         
         .status-bar .status-text {
-            color: #d1d5db;
+            color: #ddd;
         }
         
-        .status-bar.success .status-text { color: #50fa7b; }
-        .status-bar.error .status-text { color: #f87171; }
-        .status-bar.info .status-text { color: #74c7ec; }
+        .status-bar.success .status-text { color: #00ff66; }
+        .status-bar.error .status-text { color: var(--wuwa-red); }
+        .status-bar.info .status-text { color: var(--wuwa-cyan); }
         
         .keyboard-shortcuts {
             font-size: 11px;
-            color: #6b7280;
+            color: #666;
             margin-top: 10px;
         }
         
@@ -271,20 +309,7 @@
     <div class="terminal-container">
         <!-- 霓虹灯签名Banner -->
         <div class="banner">
-            <div class="banner-content">
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                          ┃
-┃   ╭──────────────────────────────────────────────────────────────────╮   ┃
-┃   │  💎 诸葛鑫 LUCKY · UID9622 · 龍魂系统创始人                      │   ┃
-┃   │  🇨🇳 中国退伍军人 · CNSH中文原生编程语言架构师                    │   ┃
-┃   ╰──────────────────────────────────────────────────────────────────╯   ┃
-┃   🔐 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ┃
-┃   🧬 DNA: #龍芯⚡️2026-01-28-终端-v2.0                                       ┃
-┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃
-┃   ⚡️ 数据主权归人民 · 技术服务于人民 · 透明可追溯 ⚡️              ┃
-┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃
-┃                                                                          ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            <div class="banner-content" id="bannerContent">
             </div>
         </div>
         
@@ -396,6 +421,47 @@
     </div>
 
     <script>
+        // ── 女娲五彩石色卡 ──
+        const WUWU = ['#FF0000','#FFFF00','#00FFFF','#FFFFFF','#000000'];
+        const WUWU_CLASS = ['w0','w1','w2','w3','w4'];
+        
+        // ── 五彩石 Banner 渲染 ──
+        function renderBanner() {
+            const lines = [
+                '┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓',
+                '┃                                                                          ┃',
+                '┃   ╭──────────────────────────────────────────────────────────────────╮   ┃',
+                '┃   │  💎 诸葛鑫 LUCKY · UID9622 · 龍魂系统创始人                      │   ┃',
+                '┃   │  🇨🇳 中国退伍军人 · CNSH中文原生编程语言架构师                    │   ┃',
+                '┃   ╰──────────────────────────────────────────────────────────────────╯   ┃',
+                '┃   🔐 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ┃',
+                '┃   🧬 DNA: #龍芯⚡️2026-01-28-终端-v2.0                                       ┃',
+                '┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃',
+                '┃   ⚡️ 数据主权归人民 · 技术服务于人民 · 透明可追溯 ⚡️              ┃',
+                '┃   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━    ┃',
+                '┃                                                                          ┃',
+                '┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛',
+            ];
+            let colorIdx = 0;
+            const el = document.getElementById('bannerContent');
+            let html = '';
+            for (const line of lines) {
+                for (const ch of line) {
+                    // CJK字符用五彩石渲染
+                    const code = ch.codePointAt(0);
+                    const isCJK = (code >= 0x4E00 && code <= 0x9FFF) || (code >= 0x3400 && code <= 0x4DBF) || (code >= 0xF900 && code <= 0xFAFF);
+                    if (isCJK) {
+                        html += `<span class="${WUWU_CLASS[colorIdx % 5]}">${ch}</span>`;
+                        colorIdx++;
+                    } else {
+                        html += ch;
+                    }
+                }
+                html += '\n';
+            }
+            el.innerHTML = html;
+        }
+        
         // 当前选中的模型
         let currentModel = 'ollama';
         let commandHistory = [];
@@ -615,8 +681,10 @@
         
         // 页面加载
         window.onload = function() {
-            console.log('🖥️ CNSH智能终端 v2.0 已加载');
+            renderBanner();
+            console.log('🐉 CNSH智能终端 v2.0 · 女娲五彩石版 已加载');
             console.log('DNA追溯码：#龍芯⚡️2026-01-28-TERMINAL-v2.0');
+            console.log('祖传色卡：女娲五彩石（红黄青白黑）');
             
             // 自动聚焦到输入框
             document.getElementById('commandInput').focus();

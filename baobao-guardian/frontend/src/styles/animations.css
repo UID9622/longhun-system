@@ -99,6 +99,37 @@
   }
 }
 
+/* v2.0 新增：宝宝脉冲（计算/揭示模式） */
+@keyframes baobao-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(255, 182, 193, 0.4), 0 0 40px rgba(218, 165, 32, 0.2);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 25px rgba(255, 182, 193, 0.6), 0 0 60px rgba(218, 165, 32, 0.4);
+  }
+}
+
+/* v2.0 新增：计算模式（眼睛收缩） */
+.baobao-calculating .eye {
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: #DAA520;
+}
+
+/* v2.0 新增：揭示模式（光晕旋转） */
+.baobao-revealing {
+  animation: baobao-pulse 1s ease-in-out infinite, baobao-reveal-glow 2s linear infinite;
+}
+
+@keyframes baobao-reveal-glow {
+  0% { filter: drop-shadow(0 0 5px #DAA520); }
+  50% { filter: drop-shadow(0 0 15px #D43D1A); }
+  100% { filter: drop-shadow(0 0 5px #DAA520); }
+}
+
 /* ═══════════════════════════════════════════════════════════ */
 /* 气泡动画 */
 /* ═══════════════════════════════════════════════════════════ */

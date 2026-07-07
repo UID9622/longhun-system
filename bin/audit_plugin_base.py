@@ -26,7 +26,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional, Callable
+from typing import Any
+from collections.abc import Callable
 from pathlib import Path
 
 
@@ -67,9 +68,9 @@ class AuditResult:
     dna: str
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     status: AuditStatus = AuditStatus.GREEN
-    findings: List[AuditFinding] = field(default_factory=list)
-    summary: Dict[str, int] = field(default_factory=dict)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    findings: list[AuditFinding] = field(default_factory=list)
+    summary: dict[str, int] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def add_finding(self, finding: AuditFinding):
         """添加审计发现并自动更新状态"""
@@ -86,7 +87,7 @@ class AuditResult:
             if f.level in self.summary:
                 self.summary[f.level] += 1
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict[str, object]:
         return {
             "plugin": self.plugin_name,
             "version": self.plugin_version,
@@ -194,9 +195,9 @@ class AuditPluginRegistry:
     """
 
     def __init__(self):
-        self._plugins: Dict[str, AuditPlugin] = {}
+        self._plugins: dict[str, AuditPlugin] = {}
 
-    def register(self, plugin: AuditPlugin, aliases: List[str] = None):
+    def register(self, plugin: AuditPlugin, aliases: list[str] | None = None) -> None:
         """注册审计插件"""
         self._plugins[plugin.name] = plugin
         for alias in (aliases or []):
@@ -209,11 +210,11 @@ class AuditPluginRegistry:
             return True
         return False
 
-    def get(self, name: str) -> Optional[AuditPlugin]:
+    def get(self, name: str) -> AuditPlugin | None:
         """获取指定插件"""
         return self._plugins.get(name)
 
-    def list_all(self) -> List[Dict]:
+    def list_all(self) -> list[dict[str, object]]:
         """列出所有已注册插件"""
         return [
             {
@@ -225,7 +226,7 @@ class AuditPluginRegistry:
             for p in set(self._plugins.values())
         ]
 
-    def audit_all(self, target: Any = None) -> List[AuditResult]:
+    def audit_all(self, target: Any = None) -> list[AuditResult]:
         """运行所有注册的审计插件"""
         results = []
         for plugin in set(self._plugins.values()):
@@ -242,7 +243,7 @@ class AuditPluginRegistry:
                 results.append(err_result)
         return results
 
-    def get_summary_report(self, results: List[AuditResult] = None) -> str:
+    def get_summary_report(self, results: list[AuditResult] | None = None) -> str:
         """生成汇总审计报告"""
         if results is None:
             results = self.audit_all()
@@ -277,10 +278,10 @@ class AuditPluginRegistry:
 class ShortcutCommand:
     """B3 快捷命令定义"""
     name: str           # 中文命令名（如 "编辑器"）
-    handler: Callable   # 处理函数
+    handler: Callable[..., object]   # 处理函数
     description: str    # 命令描述
     category: str       # 八卦分类（启动/审计/安全/主权/技能/状态/同步/部署）
-    aliases: List[str] = field(default_factory=list)
+    aliases: list[str] = field(default_factory=list)
     need_arg: bool = False
 
 
@@ -293,7 +294,7 @@ class ShortcutRegistry:
     """
 
     def __init__(self):
-        self._shortcuts: Dict[str, ShortcutCommand] = {}
+        self._shortcuts: dict[str, ShortcutCommand] = {}
 
     def register(self, cmd: ShortcutCommand):
         """注册快捷命令"""
@@ -302,17 +303,17 @@ class ShortcutRegistry:
             if alias not in self._shortcuts:
                 self._shortcuts[alias] = cmd
 
-    def get(self, name: str) -> Optional[ShortcutCommand]:
+    def get(self, name: str) -> ShortcutCommand | None:
         """查找快捷命令"""
         return self._shortcuts.get(name)
 
-    def list_by_category(self, category: str) -> List[ShortcutCommand]:
+    def list_by_category(self, category: str) -> list[ShortcutCommand]:
         """按分类列出命令"""
         return [c for c in set(self._shortcuts.values()) if c.category == category]
 
-    def list_all(self) -> List[Dict]:
+    def list_all(self) -> list[dict[str, object]]:
         """列出所有注册的快捷命令"""
-        seen = set()
+        seen: set[str] = set()
         result = []
         for cmd in self._shortcuts.values():
             if cmd.name not in seen:

@@ -31,8 +31,6 @@ import base64
 import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import Optional, Tuple
-import struct
 
 DNA = "#龍芯⚡️2026-07-06-SOVEREIGN-PRIVACY-v1.0"
 HOME = Path.home()
@@ -54,7 +52,7 @@ def sovereign_hash(text: str) -> str:
     h = hashlib.sha256(f"{text}@UID9622@LONGHUN".encode()).hexdigest()[:12]
     return f"0x{h}"
 
-def sovereign_verify(hash_val: str) -> Optional[dict]:
+def sovereign_verify(hash_val: str) -> dict[str, str | list[str]] | None:
     """通过哈希验证身份（仅 UID9622 可查看原文）"""
     # 去掉 0x 前缀
     h = hash_val.lower().replace("0x", "")
@@ -66,7 +64,7 @@ def sovereign_verify(hash_val: str) -> Optional[dict]:
 
 # ── AES-256-GCM 加密（使用 cryptography 库或纯 Python 实现）──
 
-def _get_key() -> Optional[bytes]:
+def _get_key() -> bytes | None:
     """获取加密密钥（macOS Keychain → 加密文件 → 生成）"""
     # 1. 尝试 macOS Keychain
     try:
@@ -100,7 +98,7 @@ def _store_key(key: bytes) -> bool:
 
     # macOS Keychain
     try:
-        subprocess.run(
+        _ = subprocess.run(
             ["security", "add-generic-password", "-s", KEYCHAIN_SERVICE,
              "-a", KEYCHAIN_ACCOUNT, "-w", key_b64, "-U"],
             capture_output=True, timeout=5, check=True,
@@ -112,8 +110,8 @@ def _store_key(key: bytes) -> bool:
     # 降级：加密文件
     try:
         with open(KEY_FILE, "w") as f:
-            f.write(key_b64)
-        os.chmod(str(KEY_FILE), 0o600)
+            _ = f.write(key_b64)
+        _ = os.chmod(str(KEY_FILE), 0o600)
         return True
     except Exception:
         return False
@@ -124,7 +122,7 @@ def generate_key() -> bytes:
     return os.urandom(32)
 
 
-def encrypt_data(plaintext: str, key: bytes = None) -> Optional[str]:
+def encrypt_data(plaintext: str, key: bytes | None = None) -> str | None:
     """AES-256-GCM 加密"""
     if key is None:
         key = _get_key()
@@ -133,7 +131,7 @@ def encrypt_data(plaintext: str, key: bytes = None) -> Optional[str]:
         return None
 
     try:
-        from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+        from cryptography.hazmat.primitives.ciphers.aead import AESGCM  # pyright: ignore[reportMissingTypeStubs]
         aesgcm = AESGCM(key)
         nonce = os.urandom(12)
         ct = aesgcm.encrypt(nonce, plaintext.encode("utf-8"), None)
@@ -144,7 +142,7 @@ def encrypt_data(plaintext: str, key: bytes = None) -> Optional[str]:
         return _pure_py_encrypt(plaintext, key)
 
 
-def decrypt_data(ciphertext_b64: str, key: bytes = None) -> Optional[str]:
+def decrypt_data(ciphertext_b64: str, key: bytes | None = None) -> str | None:
     """AES-256-GCM 解密"""
     if key is None:
         key = _get_key()
@@ -153,7 +151,7 @@ def decrypt_data(ciphertext_b64: str, key: bytes = None) -> Optional[str]:
         return None
 
     try:
-        from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+        from cryptography.hazmat.primitives.ciphers.aead import AESGCM  # pyright: ignore[reportMissingTypeStubs]
         aesgcm = AESGCM(key)
         raw = base64.b64decode(ciphertext_b64)
         nonce = raw[:12]
@@ -188,7 +186,7 @@ def _pure_py_encrypt(plaintext: str, key: bytes) -> str:
     return base64.b64encode(result).decode("ascii")
 
 
-def _pure_py_decrypt(ciphertext_b64: str, key: bytes) -> Optional[str]:
+def _pure_py_decrypt(ciphertext_b64: str, key: bytes) -> str | None:
     """纯 Python 解密"""
     import hmac
 
@@ -219,7 +217,7 @@ def _pure_py_decrypt(ciphertext_b64: str, key: bytes) -> Optional[str]:
         return None
 
 
-def encrypt_log_file(file_path: str, output_path: str = None) -> bool:
+def encrypt_log_file(file_path: str, output_path: str | None = None) -> bool:
     """加密审计日志文件"""
     fpath = Path(file_path)
     if not fpath.exists():
@@ -257,7 +255,7 @@ def encrypt_log_file(file_path: str, output_path: str = None) -> bool:
     return True
 
 
-def decrypt_log_file(file_path: str, output_path: str = None) -> bool:
+def decrypt_log_file(file_path: str, output_path: str | None = None) -> bool:
     """解密审计日志文件"""
     fpath = Path(file_path)
     if not fpath.exists():
@@ -265,16 +263,16 @@ def decrypt_log_file(file_path: str, output_path: str = None) -> bool:
         return False
 
     with open(fpath, "r") as f:
-        enc_data = json.load(f)
+        enc_data: dict[str, object] = json.load(f)  # pyright: ignore[reportAny]
 
-    encrypted = enc_data.get("data", "")
+    encrypted = str(enc_data.get("data", ""))
     decrypted = decrypt_data(encrypted)
     if decrypted is None:
         return False
 
     out = output_path or (str(fpath).replace(".enc", ".decrypted"))
     with open(out, "w") as f:
-        f.write(decrypted)
+        _ = f.write(decrypted)
     print(f"🔓 已解密: {file_path} → {out}")
     return True
 
@@ -305,13 +303,15 @@ def main():
             sys.exit(1)
         h = sys.argv[2]
         result = sovereign_verify(h)
-        if result:
+        if result is not None:
+            roles_raw = result['roles']
+            roles_str = ' · '.join(roles_raw) if isinstance(roles_raw, list) else str(roles_raw)
             print(f"""
 ╔═══════════════════════════════════════════════════════════╗
 ║  🔐 身份验证通过 · UID9622 主权确认                       ║
 ║  名称: {result['name']: <46}║
 ║  UID:  {result['uid']: <46}║
-║  角色: {' · '.join(result['roles']): <46}║
+║  角色: {roles_str: <46}║
 ╚═══════════════════════════════════════════════════════════╝
 """)
         else:
@@ -322,14 +322,14 @@ def main():
             print("❌ 用法: python3 bin/sovereign_privacy.py encrypt <文件路径> [输出路径]")
             sys.exit(1)
         out = sys.argv[3] if len(sys.argv) > 3 else None
-        encrypt_log_file(sys.argv[2], out)
+        _ = encrypt_log_file(sys.argv[2], out)
 
     elif cmd == "decrypt":
         if len(sys.argv) < 3:
             print("❌ 用法: python3 bin/sovereign_privacy.py decrypt <加密文件路径> [输出路径]")
             sys.exit(1)
         out = sys.argv[3] if len(sys.argv) > 3 else None
-        decrypt_log_file(sys.argv[2], out)
+        _ = decrypt_log_file(sys.argv[2], out)
 
     elif cmd == "keygen":
         key = generate_key()

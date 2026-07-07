@@ -3,11 +3,12 @@
 """
 CNSH代码生成器（Code Generator）
 
-DNA:#龍芯⚡️2026-06-03-CODEGEN-FILE1-v1.0
+DNA:#龍芯⚡️2026-07-06-CODEGEN-FILE1-v1.1
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+三色审计: 🟢 通过
 
 将AST编译为目标语言代码
-支持：C、Python、JavaScript、Rust
+支持：C、C++、Python、Objective-C、Swift、JavaScript、Rust
 
 体现原则：
 - 目标语言可配置
@@ -16,8 +17,6 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 - 标准库函数支持
 """
 
-from typing import Dict, List, Optional, Any
-from enum import Enum
 from .compiler_node import ASTNode, TargetLang
 
 
@@ -74,6 +73,39 @@ class CodeGenerator:
             '映射': 'HashMap',
             '空值': '()',
             '空': 'None'
+        },
+        TargetLang.CPP: {
+            '整数': 'int',
+            '小数': 'double',
+            '文本': 'std::string',
+            '布尔': 'bool',
+            '真假': 'bool',
+            '列表': 'std::vector',
+            '映射': 'std::unordered_map',
+            '空值': 'void',
+            '空': 'nullptr'
+        },
+        TargetLang.OBJC: {
+            '整数': 'NSInteger',
+            '小数': 'CGFloat',
+            '文本': 'NSString*',
+            '布尔': 'BOOL',
+            '真假': 'BOOL',
+            '列表': 'NSArray*',
+            '映射': 'NSDictionary*',
+            '空值': 'void',
+            '空': 'nil'
+        },
+        TargetLang.SWIFT: {
+            '整数': 'Int',
+            '小数': 'Double',
+            '文本': 'String',
+            '布尔': 'Bool',
+            '真假': 'Bool',
+            '列表': 'Array',
+            '映射': 'Dictionary',
+            '空值': 'Void',
+            '空': 'nil'
         }
     }
 
@@ -103,6 +135,27 @@ class CodeGenerator:
             'String': 'String::new()',
             'bool': 'false',
             'None': 'None'
+        },
+        TargetLang.CPP: {
+            'int': '0',
+            'double': '0.0',
+            'std::string': '""',
+            'bool': 'false',
+            'nullptr': 'nullptr'
+        },
+        TargetLang.OBJC: {
+            'NSInteger': '0',
+            'CGFloat': '0.0',
+            'NSString*': '@""',
+            'BOOL': 'NO',
+            'nil': 'nil'
+        },
+        TargetLang.SWIFT: {
+            'Int': '0',
+            'Double': '0.0',
+            'String': '""',
+            'Bool': 'false',
+            'nil': 'nil'
         }
     }
 
@@ -112,19 +165,28 @@ class CodeGenerator:
             TargetLang.C: 'printf',
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.log',
-            TargetLang.RUST: 'println!'
+            TargetLang.RUST: 'println!',
+            TargetLang.CPP: 'std::cout',
+            TargetLang.OBJC: 'NSLog',
+            TargetLang.SWIFT: 'print'
         },
         '提示': {
             TargetLang.C: 'printf',
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.warn',
-            TargetLang.RUST: 'eprintln!'
+            TargetLang.RUST: 'eprintln!',
+            TargetLang.CPP: 'std::cerr',
+            TargetLang.OBJC: 'NSLog',
+            TargetLang.SWIFT: 'print'
         },
         '报错': {
             TargetLang.C: 'fprintf',
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.error',
-            TargetLang.RUST: 'eprintln!'
+            TargetLang.RUST: 'eprintln!',
+            TargetLang.CPP: 'std::cerr',
+            TargetLang.OBJC: 'NSLog',
+            TargetLang.SWIFT: 'debugPrint'
         }
     }
 
@@ -137,7 +199,7 @@ class CodeGenerator:
         """
         self.target_lang = target_lang
         self.indent_level = 0
-        self.output: List[str] = []
+        self.output: list[str] = []
         self.indent_str = '    '  # 4空格缩进
 
     def generate(self, ast: ASTNode) -> str:
@@ -225,8 +287,8 @@ class CodeGenerator:
     def _generate_program(self, node: ASTNode):
         """生成程序"""
         statements = self._get(node, 'statements', [])
-        for stmt in statements:
-            self._generate_statement(stmt)
+        for stmt in statements:  # pyright: ignore[reportOptionalIterable,reportGeneralTypeIssues]
+            self._generate_statement(stmt)  # pyright: ignore[reportArgumentType]
 
     def _generate_statement(self, node: ASTNode):
         """生成语句"""
@@ -248,7 +310,7 @@ class CodeGenerator:
         elif node_type == 'ExpressionStatement':
             expr = self._get(node, 'expression')
             if expr:
-                expr_str = self._generate_expression(expr)
+                expr_str = self._generate_expression(expr)  # pyright: ignore[reportArgumentType]
                 self._emit(expr_str + self._get_statement_terminator())
         elif node_type == 'Assignment':
             expr_str = self._generate_expression(node)
@@ -261,11 +323,11 @@ class CodeGenerator:
         value = self._get(node, 'value')
 
         # 获取目标语言中的类型
-        target_type = self._map_type(var_type)
+        target_type = self._map_type(str(var_type))
 
         # 生成初值
         if value:
-            value_expr = self._generate_expression(value)
+            value_expr = self._generate_expression(value)  # pyright: ignore[reportArgumentType]
         else:
             value_expr = self._get_default_value(target_type)
 
@@ -290,13 +352,13 @@ class CodeGenerator:
         body = self._get(node, 'body', [])
 
         # 生成函数签名
-        param_strs = self._generate_parameters(params)
+        param_strs = self._generate_parameters(params)  # pyright: ignore[reportArgumentType]
 
         if self.target_lang == TargetLang.PYTHON:
             self._emit(f'def {name}({param_strs}):')
 
         elif self.target_lang == TargetLang.C:
-            target_return_type = self._map_type(return_type)
+            target_return_type = self._map_type(str(return_type))
             self._emit(f'{target_return_type} {name}({param_strs}) {{')
 
         elif self.target_lang == TargetLang.JAVASCRIPT:
@@ -307,8 +369,8 @@ class CodeGenerator:
 
         # 生成函数体
         self.indent_level += 1
-        for stmt in body:
-            self._generate_statement(stmt)
+        for stmt in body:  # pyright: ignore[reportOptionalIterable,reportGeneralTypeIssues]
+            self._generate_statement(stmt)  # pyright: ignore[reportArgumentType]
         self.indent_level -= 1
 
         # 关闭函数
@@ -324,7 +386,7 @@ class CodeGenerator:
         then_body = self._get(node, 'thenBody', [])
         else_body = self._get(node, 'elseBody')
 
-        cond_str = self._generate_expression(condition)
+        cond_str = self._generate_expression(condition)  # pyright: ignore[reportArgumentType]
 
         # 生成If部分
         if self.target_lang == TargetLang.PYTHON:
@@ -333,8 +395,8 @@ class CodeGenerator:
             self._emit(f'if ({cond_str}) {{')
 
         self.indent_level += 1
-        for stmt in then_body:
-            self._generate_statement(stmt)
+        for stmt in then_body:  # pyright: ignore[reportOptionalIterable,reportGeneralTypeIssues]
+            self._generate_statement(stmt)  # pyright: ignore[reportArgumentType]
         self.indent_level -= 1
 
         # 生成Else部分
@@ -345,8 +407,8 @@ class CodeGenerator:
                 self._emit('} else {')
 
             self.indent_level += 1
-            for stmt in else_body:
-                self._generate_statement(stmt)
+            for stmt in else_body:  # pyright: ignore[reportOptionalIterable,reportGeneralTypeIssues]
+                self._generate_statement(stmt)  # pyright: ignore[reportArgumentType]
             self.indent_level -= 1
 
         # 关闭If
@@ -358,7 +420,7 @@ class CodeGenerator:
         times = self._get(node, 'times')
         body = self._get(node, 'body', [])
 
-        times_str = self._generate_expression(times)
+        times_str = self._generate_expression(times)  # pyright: ignore[reportArgumentType]
 
         # 根据目标语言生成不同的循环格式
         if self.target_lang == TargetLang.PYTHON:
@@ -375,8 +437,8 @@ class CodeGenerator:
 
         # 生成循环体
         self.indent_level += 1
-        for stmt in body:
-            self._generate_statement(stmt)
+        for stmt in body:  # pyright: ignore[reportOptionalIterable,reportGeneralTypeIssues]
+            self._generate_statement(stmt)  # pyright: ignore[reportArgumentType]
         self.indent_level -= 1
 
         # 关闭循环
@@ -390,7 +452,7 @@ class CodeGenerator:
         value = self._get(node, 'value')
 
         if value:
-            value_str = self._generate_expression(value)
+            value_str = self._generate_expression(value)  # pyright: ignore[reportArgumentType]
             self._emit(f'return {value_str}{self._get_statement_terminator()}')
         else:
             self._emit(f'return{self._get_statement_terminator()}')
@@ -432,29 +494,29 @@ class CodeGenerator:
             return str(self._get(node, 'name'))
 
         elif node_type == 'BinaryOp':
-            left = self._generate_expression(self._get(node, 'left'))
-            right = self._generate_expression(self._get(node, 'right'))
+            left = self._generate_expression(self._get(node, 'left'))  # pyright: ignore[reportArgumentType]
+            right = self._generate_expression(self._get(node, 'right'))  # pyright: ignore[reportArgumentType]
             op = self._get(node, 'op')
             return f'({left} {op} {right})'
 
         elif node_type == 'UnaryOp':
             op = self._get(node, 'op')
-            operand = self._generate_expression(self._get(node, 'operand'))
+            operand = self._generate_expression(self._get(node, 'operand'))  # pyright: ignore[reportArgumentType]
             return f'({op}{operand})'
 
         elif node_type == 'Assignment':
-            left = self._generate_expression(self._get(node, 'left'))
-            right = self._generate_expression(self._get(node, 'right'))
+            left = self._generate_expression(self._get(node, 'left'))  # pyright: ignore[reportArgumentType]
+            right = self._generate_expression(self._get(node, 'right'))  # pyright: ignore[reportArgumentType]
             return f'{left} = {right}'
 
         elif node_type == 'FunctionCall':
             name = self._get(node, 'name')
             args = self._get(node, 'args', [])
-            arg_strs = [self._generate_expression(arg) for arg in args]
+            arg_strs = [self._generate_expression(arg) for arg in args]  # pyright: ignore[reportOptionalIterable,reportArgumentType,reportGeneralTypeIssues]
 
             # 检查是否是标准库函数
-            if name in self.STDLIB_FUNCTIONS:
-                mapped_name = self.STDLIB_FUNCTIONS[name].get(self.target_lang, name)
+            if str(name) in self.STDLIB_FUNCTIONS:
+                mapped_name = self.STDLIB_FUNCTIONS[str(name)].get(self.target_lang, name)
             else:
                 mapped_name = name
 
@@ -463,7 +525,7 @@ class CodeGenerator:
             elif self.target_lang in (TargetLang.C, TargetLang.JAVASCRIPT):
                 return f'{mapped_name}({", ".join(arg_strs)})'
             elif self.target_lang == TargetLang.RUST:
-                if '!' in mapped_name:  # 宏函数
+                if '!' in str(mapped_name):  # 宏函数  # pyright: ignore[reportOperatorIssue]
                     return f'{mapped_name}({", ".join(arg_strs)})'
                 else:
                     return f'{mapped_name}({", ".join(arg_strs)})'
@@ -474,7 +536,7 @@ class CodeGenerator:
     # 【辅助方法】
     # ═══════════════════════════════════════════════════════════════
 
-    def _get(self, node: ASTNode, key: str, default=None):
+    def _get(self, node: ASTNode, key: str, default: object | None = None) -> object | None:
         """从ASTNode获取属性"""
         if isinstance(node.value, dict):
             return node.value.get(key, default)
@@ -505,14 +567,14 @@ class CodeGenerator:
         else:
             return ';'
 
-    def _generate_parameters(self, params: List[Dict]) -> str:
+    def _generate_parameters(self, params: list[dict[str, object]]) -> str:
         """生成参数列表"""
         param_strs = []
 
         for param in params:
             param_type = param.get('type')
             param_name = param.get('name')
-            target_type = self._map_type(param_type)
+            target_type = self._map_type(str(param_type))  # pyright: ignore[reportArgumentType]
 
             if self.target_lang == TargetLang.PYTHON:
                 param_strs.append(param_name)

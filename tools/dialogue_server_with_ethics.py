@@ -32,9 +32,9 @@ from pydantic import BaseModel, Field
 app = FastAPI(title="龍魂對話系統 · L0 倫理錨定包裝器", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE"],
 )
 
 ETHICS_API = os.environ.get("LONGHUN_ETHICS_API", "http://127.0.0.1:9630/check")

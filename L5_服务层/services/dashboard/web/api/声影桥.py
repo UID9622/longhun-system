@@ -78,10 +78,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE"],
 )
 
 # 静态资源：cache 目录暴露为 /media
@@ -552,4 +552,4 @@ if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("SHENGYING_PORT", "8766"))
     audit("绿", "声影桥启动", {"port": port})
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="127.0.0.1", port=port)

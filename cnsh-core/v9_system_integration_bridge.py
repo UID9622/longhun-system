@@ -7,7 +7,7 @@ Three-Ring Integration Bridge v9.0
 将 v4.1 决策辟、v1.0 三合同步器、v3.0 呼吸大脑、v4.0 神经映射
 集成到统一的系统架构中。
 
-DNA:#龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-FILE2-v1.0
+DNA:#龍芯⚡️2026-07-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.1-NEURAL-ACTIVATED
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -17,8 +17,8 @@ UID9622 · 诸葛鑫 · 龍芯北辰
 
 import json
 import hashlib
-from typing import Dict, List, Tuple, Any, Optional
-from dataclasses import dataclass, asdict
+from typing import Any
+from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 
@@ -45,11 +45,11 @@ class SystemIntegrationTask:
     task_id: str                      # 任务ID
     task_type: TaskType               # 任务类型
     module_layer: ModuleLayer         # 目标模块层
-    input_data: Dict[str, Any]        # 输入数据
+    input_data: dict[str, Any]        # 输入数据
     priority: int = 3                 # 优先级 (1-10)
-    labels: List[str] = None
-    created_at: str = None
-    dna: str = None
+    labels: list[str] | None = None
+    created_at: str | None = None
+    dna: str | None = None
 
 
 @dataclass
@@ -58,10 +58,10 @@ class SystemIntegrationResult:
     task_id: str
     status: str                       # "success" | "pending" | "failed"
     module_layer: ModuleLayer
-    output_data: Dict[str, Any]
+    output_data: dict[str, Any]
     execution_time_ms: float
     dna_chain: str
-    errors: List[str] = None
+    errors: list[str] | None = None
 
 
 class V9SystemIntegrationBridge:
@@ -78,10 +78,10 @@ class V9SystemIntegrationBridge:
 
     def __init__(self, seed: int = 9622):
         self.seed = seed
-        self.task_queue: List[SystemIntegrationTask] = []
-        self.execution_history: List[SystemIntegrationResult] = []
-        self.system_dna_chain: List[str] = []
-        self.module_status: Dict[str, str] = {
+        self.task_queue: list[SystemIntegrationTask] = []
+        self.execution_history: list[SystemIntegrationResult] = []
+        self.system_dna_chain: list[str] = []
+        self.module_status: dict[str, str] = {
             "v4.1": "ready",
             "v1.0": "ready",
             "v3.0": "ready",
@@ -100,7 +100,7 @@ class V9SystemIntegrationBridge:
         self.task_queue.append(task)
         return task.task_id
 
-    def route_task(self, task: SystemIntegrationTask) -> Tuple[ModuleLayer, str]:
+    def route_task(self, task: SystemIntegrationTask) -> tuple[ModuleLayer, str]:
         """
         【路由层】根据任务类型路由到正确的模块层
 
@@ -129,13 +129,13 @@ class V9SystemIntegrationBridge:
             else:
                 return ModuleLayer.V1_0_SANCAI_SYNC, "L3 优先级预设(低)"
 
-    def execute_v4_1_flow_decision(self, task: SystemIntegrationTask) -> Dict[str, Any]:
+    def execute_v4_1_flow_decision(self, task: SystemIntegrationTask) -> dict[str, Any]:
         """
         【v4.1 决策辟执行层】
         执行 10 道闸的决策流程
         """
         try:
-            from cnsh.flow_decision import quick_process
+            from cnsh.flow_decision import quick_process  # pyright: ignore[reportMissingImports]
 
             input_content = task.input_data.get("content", "")
             config = task.input_data.get("config", {})
@@ -159,13 +159,13 @@ class V9SystemIntegrationBridge:
                 "execution_ms": 0
             }
 
-    def execute_v1_0_sancai_sync(self, task: SystemIntegrationTask) -> Dict[str, Any]:
+    def execute_v1_0_sancai_sync(self, task: SystemIntegrationTask) -> dict[str, Any]:
         """
         【v1.0 三合同步器执行层】
         执行三环转换：IPA → 粒子 → 神经 → 宫位
         """
         try:
-            from cnsh.sancai_sync import SancaiSyncHub, IPAReceipt
+            from cnsh.sancai_sync import SancaiSyncHub, IPAReceipt  # pyright: ignore[reportMissingImports]
 
             hub = SancaiSyncHub(seed=self.seed)
 
@@ -225,35 +225,74 @@ class V9SystemIntegrationBridge:
                 "execution_ms": 0
             }
 
-    def execute_v4_0_neural_map(self, task: SystemIntegrationTask) -> Dict[str, Any]:
+    def execute_v4_0_neural_map(self, task: SystemIntegrationTask) -> dict[str, Any]:
         """
-        【v4.0 神经映射执行层】
-        执行神经激活和信号路由
+        【v4.0 神经映射执行层 · v2.0 实装】
+        通过 neural_agent_bridge 真实路由，不再模拟。
+
+        流程：
+        1. 拉取实时神经网络状态
+        2. 基于五行+拓扑路由agent
+        3. 返回可执行的agent路由方案
         """
         try:
-            # 模拟 v4.0 神经映射执行
-            neuron_config = task.input_data.get("neurons", {})
-            activation_threshold = task.input_data.get("threshold", 0.5)
+            from cnsh.neural_agent_bridge import NeuralAgentBridge  # pyright: ignore[reportMissingImports]
 
-            neuron_count = neuron_config.get("count", 10)
-            active_neurons = int(neuron_count * 0.7)  # 70% 激活
+            bridge = NeuralAgentBridge()
+            content = task.input_data.get("content", "")
+            if not content:
+                # 尝试从 labels 构造
+                content = " ".join(task.labels or [])
+
+            if not content:
+                return {
+                    "status": "failed",
+                    "module": "v4.0_neural_map",
+                    "error": "无输入内容",
+                    "execution_ms": 0
+                }
+
+            # 执行真实路由
+            route_result = bridge.route(content)
+
+            # 提取神经网络状态
+            neural = bridge.fetch_neural_state()
+
+            neurons_active = (
+                len(neural.active_nodes) if neural else 0
+            )
+            neurons_total = len(neural.nodes) if neural else 0
 
             return {
                 "status": "success",
                 "module": "v4.0_neural_map",
-                "total_neurons": neuron_count,
-                "active_neurons": active_neurons,
-                "activation_rate": active_neurons / neuron_count if neuron_count > 0 else 0,
-                "threshold": activation_threshold,
-                "routing_signal": "ready",
-                "execution_ms": 0
+                "neural_online": route_result.neural_status == "online",
+                "total_neurons": neurons_total,
+                "active_neurons": neurons_active,
+                "activation_rate": (
+                    neurons_active / max(neurons_total, 1)
+                ),
+                "routing_signal": "routed" if route_result.primary_agent else "fallback",
+                "primary_agent": route_result.primary_agent,
+                "routing_path": route_result.routing_path,
+                "wuxing_flow": route_result.wuxing_flow,
+                "constitution_ok": route_result.constitution_ok,
+                "advice": route_result.advice,
+                "execution_ms": route_result.processing_ms,
+            }
+        except ImportError:
+            return {
+                "status": "pending",
+                "module": "v4.0_neural_map",
+                "error": "neural_agent_bridge 模块不可用，请先确保 cnsh-core/neural_agent_bridge.py 已部署",
+                "execution_ms": 0,
             }
         except Exception as e:
             return {
                 "status": "failed",
                 "module": "v4.0_neural_map",
                 "error": str(e),
-                "execution_ms": 0
+                "execution_ms": 0,
             }
 
     def execute_task(self, task: SystemIntegrationTask) -> SystemIntegrationResult:
@@ -270,9 +309,10 @@ class V9SystemIntegrationBridge:
         start_time = datetime.now()
 
         # 路由
-        module_layer, routing_reason = self.route_task(task)
+        module_layer, _routing_reason = self.route_task(task)
 
         # 执行
+        execution_result: dict[str, Any]
         if module_layer == ModuleLayer.V4_1_FLOW_DECISION:
             execution_result = self.execute_v4_1_flow_decision(task)
         elif module_layer == ModuleLayer.V1_0_SANCAI_SYNC:
@@ -294,28 +334,33 @@ class V9SystemIntegrationBridge:
         self.system_dna_chain.append(system_dna)
 
         # 构建结果
+        error_val = execution_result.get("error")
+        errors_list: list[str] | None = None
+        if "error" in execution_result and error_val is not None:
+            errors_list = [str(error_val)]
+
         result = SystemIntegrationResult(
             task_id=task.task_id,
-            status=execution_result.get("status", "unknown"),
+            status=str(execution_result.get("status", "unknown")),
             module_layer=module_layer,
             output_data=execution_result,
             execution_time_ms=execution_time_ms,
             dna_chain=system_dna,
-            errors=[execution_result.get("error")] if "error" in execution_result else None
+            errors=errors_list,
         )
 
         self.execution_history.append(result)
         return result
 
-    def execute_queue(self) -> List[SystemIntegrationResult]:
+    def execute_queue(self) -> list[SystemIntegrationResult]:
         """执行队列中的所有任务"""
-        results = []
+        results: list[SystemIntegrationResult] = []
         for task in self.task_queue:
             result = self.execute_task(task)
             results.append(result)
         return results
 
-    def system_health_check(self) -> Dict[str, Any]:
+    def system_health_check(self) -> dict[str, Any]:
         """
         【系统检查层】检查所有模块的健康状态
         """
@@ -337,31 +382,56 @@ class V9SystemIntegrationBridge:
             "success_rate": self._calculate_success_rate()
         }
 
-    def _check_v4_1(self) -> Dict[str, Any]:
+    def _check_v4_1(self) -> dict[str, Any]:
         """检查 v4.1 决策辟"""
         try:
-            from cnsh.flow_decision import quick_process
+            from cnsh.flow_decision import quick_process  # pyright: ignore[reportMissingImports, reportUnusedImport]
             return {"status": "healthy", "version": "4.1", "message": "决策辟正常"}
         except Exception as e:
             return {"status": "unhealthy", "version": "4.1", "error": str(e)}
 
-    def _check_v1_0(self) -> Dict[str, Any]:
+    def _check_v1_0(self) -> dict[str, Any]:
         """检查 v1.0 三合同步器"""
         try:
-            from cnsh.sancai_sync import SancaiSyncHub
+            from cnsh.sancai_sync import SancaiSyncHub  # pyright: ignore[reportMissingImports]
             hub = SancaiSyncHub()
-            ok, msg = hub.verify_sync()
+            _ok, msg = hub.verify_sync()
             return {"status": "healthy", "version": "1.0", "message": msg}
         except Exception as e:
             return {"status": "unhealthy", "version": "1.0", "error": str(e)}
 
-    def _check_v3_0(self) -> Dict[str, Any]:
+    def _check_v3_0(self) -> dict[str, Any]:
         """检查 v3.0 呼吸大脑 (外部模块)"""
         return {"status": "ready", "version": "3.0", "message": "呼吸大脑待集成"}
 
-    def _check_v4_0(self) -> Dict[str, Any]:
-        """检查 v4.0 神经映射 (外部模块)"""
-        return {"status": "ready", "version": "4.0", "message": "神经映射待集成"}
+    def _check_v4_0(self) -> dict[str, Any]:
+        """检查 v4.0 神经映射 · v2.0 实装"""
+        try:
+            from cnsh.neural_agent_bridge import NeuralAgentBridge  # pyright: ignore[reportMissingImports]
+            bridge = NeuralAgentBridge()
+            online = bridge.is_neural_online()
+            neural = bridge.fetch_neural_state(force=True)
+            if online and neural:
+                return {
+                    "status": "healthy",
+                    "version": "4.0",
+                    "message": f"🟢 神经映射已激活 · {neural.stats.get('health_rate', 0)}% 健康 · {len(neural.nodes)} 节点",
+                    "nodes": len(neural.nodes),
+                    "health_rate": neural.stats.get("health_rate", 0),
+                    "constitution_ok": neural.healthy,
+                }
+            else:
+                return {
+                    "status": "ready",
+                    "version": "4.0",
+                    "message": "🟡 神经映射模块就绪，但 symbiote_server (:9627) 离线",
+                }
+        except ImportError:
+            return {
+                "status": "ready",
+                "version": "4.0",
+                "message": "🟡 neural_agent_bridge 模块未安装",
+            }
 
     def _calculate_success_rate(self) -> float:
         """计算成功率"""
@@ -406,7 +476,7 @@ class V9SystemIntegrationBridge:
 # ═══════════════════════════════════════════════════════════════════════════
 
 """
-DNA:#龍芯⚡️2026-06-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.0
+DNA:#龍芯⚡️2026-07-06-V9-SYSTEM-INTEGRATION-BRIDGE-v1.1
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622·诸葛鑫·龍芯北辰
 
@@ -420,9 +490,8 @@ UID: 9622·诸葛鑫·龍芯北辰
 - DNA 链维护
 - JSON 导出
 
-下一步：
-✅ 与任务系统集成（task_executor_live_v1.py）
-✅ 添加到 CNSH 包
-✅ 系统级别测试
-✅ 生产部署
+v1.1 更新（2026-07-06）：
+✅ v4.0 神经映射已从模拟升级为真实路由（neural_agent_bridge）
+✅ _check_v4_0() 实时查询 symbiote_server 状态
+✅ execute_v4_0_neural_map() 调用真实神经网络路由
 """

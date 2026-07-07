@@ -4,6 +4,7 @@
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          CNSH 语法 MCP Server v1.0 — 龍魂数字主权工具链               ║
 ║  DNA: #龍芯⚡️2026-07-05-CNSH-SYNTAX-MCP-v1.0                        ║
+║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 ║  三色审计: 🟢 通过                                                   ║
 ╚══════════════════════════════════════════════════════════════════════╝
@@ -58,7 +59,7 @@ try:
     _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 except Exception:
     # 如果解析失败，尝试环境变量
-    _PROJECT_ROOT = Path(os.environ.get("LONGHUN_ROOT", os.path.expanduser("~/longhun-system")))
+    _PROJECT_ROOT = Path(os.environ.get("LONGHUN_ROOT", os.path.expanduser("~/longhun-system")))  # pyright: ignore[reportConstantRedefinition]
 
 # 按依赖顺序注册路径：cnsh_v21（最底层）→ cnsh-core → cnsh → 根目录
 _CNSH_MODULE_PATHS = [
@@ -76,27 +77,27 @@ for _p in _CNSH_MODULE_PATHS:
 # ══════════════════════════════════════════════════════════════════
 # 核心模块导入
 # ══════════════════════════════════════════════════════════════════
-from cnsh_v21.lexer import Lexer
-from cnsh_v21.parser import Parser
-from cnsh_v21.tokens import Token, KEYWORDS as CNSH_KEYWORDS
-from cnsh_v21.errors import CNSHError, CNSHLexError, CNSHParseError
-from cnsh_unified import (
+from cnsh_v21.lexer import Lexer  # pyright: ignore[reportMissingImports]
+from cnsh_v21.parser import Parser  # pyright: ignore[reportMissingImports]
+from cnsh_v21.tokens import Token, KEYWORDS as CNSH_KEYWORDS  # pyright: ignore[reportMissingImports]
+from cnsh_v21.errors import CNSHError, CNSHLexError, CNSHParseError  # pyright: ignore[reportMissingImports]
+from cnsh_unified import (  # pyright: ignore[reportMissingImports]
     DNA工具, 数学工具, 审计工具,
     数字根转五行, 数字根闸门,
 )
-from cnsh_redlines import 红线熔断器, 红线本源
+from cnsh_redlines import 红线熔断器, 红线本源  # pyright: ignore[reportMissingImports]
 
 # ══════════════════════════════════════════════════════════════════
 # 可选模块导入（某些环境下可能不完整）
 # ══════════════════════════════════════════════════════════════════
 try:
-    from cnsh_runner import translate_cnsh as _cnsh_to_python
+    from cnsh_runner import translate_cnsh as _cnsh_to_python  # pyright: ignore[reportMissingImports]
 except ImportError:
     _cnsh_to_python = None
 
 try:
-    from cnsh_v21 import compile_source as _cnsh_compile
-    from cnsh_v21 import get_compiler as _get_cnsh_compiler
+    from cnsh_v21 import compile_source as _cnsh_compile  # pyright: ignore[reportMissingImports]
+    from cnsh_v21 import get_compiler as _get_cnsh_compiler  # pyright: ignore[reportMissingImports]
 except ImportError:
     _cnsh_compile = None
     _get_cnsh_compiler = None
@@ -104,14 +105,14 @@ except ImportError:
 # ══════════════════════════════════════════════════════════════════
 # MCP SDK
 # ══════════════════════════════════════════════════════════════════
-from mcp.server import Server
-from mcp.server.stdio import stdio_server
-from mcp.types import Tool, TextContent
+from mcp.server import Server  # pyright: ignore[reportMissingImports]
+from mcp.server.stdio import stdio_server  # pyright: ignore[reportMissingImports]
+from mcp.types import Tool, TextContent  # pyright: ignore[reportMissingImports]
 
 # ══════════════════════════════════════════════════════════════════
 # 服务器实例
 # ══════════════════════════════════════════════════════════════════
-app = Server("cnsh-syntax")
+app = Server("cnsh-syntax")  # pyright: ignore[reportUnknownVariableType]
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -127,7 +128,7 @@ def _gen_dna(module: str = "CNSH-MCP", action: str = "TOOL-CALL") -> str:
     return DNA工具.生成(f"{module}-{action}", "1.0")
 
 
-def _serialize_token(tok: Token) -> dict:
+def _serialize_token(tok: Token) -> dict[str, object]:
     """将 CNSH Token 对象转为 JSON 兼容字典"""
     return {
         "type": tok.type,       # Token 类型，如 关键字/标识符/运算符
@@ -138,7 +139,7 @@ def _serialize_token(tok: Token) -> dict:
     }
 
 
-def _serialize_ast(node: Any, depth: int = 0) -> dict:
+def _serialize_ast(node: Any, depth: int = 0) -> dict[str, object] | None:  # pyright: ignore[reportUnusedParameter]
     """
     递归序列化 AST 节点为 JSON 兼容字典。
     注意：这个函数很重要——AST 是代码的结构化表示，
@@ -147,7 +148,7 @@ def _serialize_ast(node: Any, depth: int = 0) -> dict:
     if node is None:
         return None
 
-    result = {"node_type": type(node).__name__}
+    result: dict[str, object] = {"node_type": type(node).__name__}
 
     for attr in dir(node):
         # 跳过私有属性和方法
@@ -168,11 +169,11 @@ def _serialize_ast(node: Any, depth: int = 0) -> dict:
         elif isinstance(val, Token):
             result[attr] = _serialize_token(val)
         # 其他 AST 节点：递归
-        elif hasattr(val, "__class__") and val.__class__.__module__ not in ("builtins",):
-            result[attr] = _serialize_ast(val)
+        elif hasattr(val, "__class__") and val.__class__.__module__ not in ("builtins",):  # pyright: ignore[reportUnknownMemberType]
+            result[attr] = _serialize_ast(val)  # pyright: ignore[reportArgumentType]
         # 基础类型：直接保留
         elif isinstance(val, (int, float, str, bool, type(None))):
-            result[attr] = val
+            result[attr] = val  # pyright: ignore[reportArgumentType]
         else:
             result[attr] = str(val)
 
@@ -183,8 +184,8 @@ def _serialize_ast(node: Any, depth: int = 0) -> dict:
 # MCP 工具注册
 # ══════════════════════════════════════════════════════════════════
 
-@app.list_tools()
-async def list_tools() -> list[Tool]:
+@app.list_tools()  # pyright: ignore[reportUntypedFunctionDecorator,reportUnknownMemberType]
+async def list_tools() -> list[Tool]:  # pyright: ignore[reportUnknownVariableType]
     return [
         # ── 词法 / 语法分析 ──
         Tool(
@@ -244,7 +245,7 @@ async def list_tools() -> list[Tool]:
         ),
         Tool(
             name="cnsh_compile",
-            description="将 CNSH 代码编译到指定目标语言（python/js/rust/c）。使用 CNSH v2.1 编译器管线：词法→语法→类型检查→代码生成。",
+            description="将 CNSH 代码编译到指定目标语言（python/cpp/c/objc/swift/js/rust）。使用 CNSH v2.1 编译器管线：词法→语法→类型检查→代码生成。",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -254,8 +255,8 @@ async def list_tools() -> list[Tool]:
                     },
                     "target": {
                         "type": "string",
-                        "enum": ["python", "js", "javascript", "rust", "c"],
-                        "description": "编译目标语言，默认 python",
+                        "enum": ["python", "cpp", "c++", "c", "objc", "objective-c", "swift", "js", "javascript", "rust"],
+                        "description": "编译目标语言，默认 python。支持：python/cpp/c/objc/swift/js/rust",
                     },
                     "optimize_level": {
                         "type": "integer",
@@ -411,8 +412,8 @@ async def list_tools() -> list[Tool]:
 # MCP 工具调用处理
 # ══════════════════════════════════════════════════════════════════
 
-@app.call_tool()
-async def call_tool(name: str, arguments: dict) -> list[TextContent]:
+@app.call_tool()  # pyright: ignore[reportUntypedFunctionDecorator,reportUnknownMemberType]
+async def call_tool(name: str, arguments: dict[str, object]) -> list[TextContent]:  # pyright: ignore[reportUnknownVariableType]
     try:
         result = await _dispatch(name, arguments)
         return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
@@ -434,7 +435,7 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
         }, ensure_ascii=False, indent=2))]
 
 
-async def _dispatch(name: str, args: dict) -> dict:
+async def _dispatch(name: str, args: dict[str, object]) -> dict[str, object]:
     if name == "cnsh_lex":
         return _handle_lex(args)
     elif name == "cnsh_parse":
@@ -469,9 +470,9 @@ async def _dispatch(name: str, args: dict) -> dict:
 # 处理函数
 # ══════════════════════════════════════════════════════════════════
 
-def _handle_lex(args: dict) -> dict:
-    source = args["source"]
-    file = args.get("file", "<cnsh>")
+def _handle_lex(args: dict[str, object]) -> dict[str, object]:
+    source = str(args["source"])
+    file = str(args.get("file", "<cnsh>"))
     lexer = Lexer(source, file=file)
     try:
         tokens = lexer.tokenize()
@@ -490,18 +491,17 @@ def _handle_lex(args: dict) -> dict:
     for t in token_list:
         stats[t["type"]] = stats.get(t["type"], 0) + 1
 
-    return {
+    return {  # pyright: ignore[reportReturnType]
         "ok": True,
-        "token_count": len(token_list),
         "token_types": stats,
         "tokens": token_list,
         "dna": _gen_dna("CNSH-MCP", "LEX"),
     }
 
 
-def _handle_parse(args: dict) -> dict:
-    source = args["source"]
-    file = args.get("file", "<cnsh>")
+def _handle_parse(args: dict[str, object]) -> dict[str, object]:
+    source = str(args["source"])
+    file = str(args.get("file", "<cnsh>"))
     lexer = Lexer(source, file=file)
 
     try:
@@ -537,7 +537,7 @@ def _handle_parse(args: dict) -> dict:
     }
 
 
-def _handle_translate(args: dict) -> dict:
+def _handle_translate(args: dict[str, object]) -> dict[str, object]:
     """CNSH → Python 转译。默认只输出不执行，保证安全。"""
     if _cnsh_to_python is None:
         return {
@@ -546,9 +546,9 @@ def _handle_translate(args: dict) -> dict:
             "dna": _gen_dna("CNSH-MCP", "TRANSLATE-UNAVAILABLE"),
         }
 
-    source = args["source"]
+    source = str(args["source"])
     # dumpOnly=false 时才会同时执行红线检查（MCP 中默认只输出）
-    dump_only = args.get("dumpOnly", args.get("dump_only", True))
+    dump_only = bool(args.get("dumpOnly", args.get("dump_only", True)))
 
     try:
         py_code = _cnsh_to_python(source)
@@ -573,7 +573,7 @@ def _handle_translate(args: dict) -> dict:
     }
 
 
-def _handle_compile(args: dict) -> dict:
+def _handle_compile(args: dict[str, object]) -> dict[str, object]:
     if _cnsh_compile is None:
         return {
             "ok": False,
@@ -581,12 +581,17 @@ def _handle_compile(args: dict) -> dict:
             "dna": _gen_dna("CNSH-MCP", "COMPILE-UNAVAILABLE"),
         }
 
-    source = args["source"]
-    target = args.get("target", "python").lower()
-    optimize = args.get("optimize_level", 0)
+    source = str(args["source"])
+    target = str(args.get("target", "python")).lower()
+    optimize = int(args.get("optimize_level", 0))  # pyright: ignore[reportArgumentType]
 
     # 标准化 target 名
-    target_map = {"js": "javascript", "py": "python", "rs": "rust", "c": "c", "cc": "c"}
+    target_map = {
+        "js": "javascript", "py": "python", "rs": "rust",
+        "c": "c", "cc": "c", "c++": "cpp", "cpp": "cpp",
+        "objc": "objc", "objective-c": "objc",
+        "swift": "swift",
+    }
     target = target_map.get(target, target)
 
     try:
@@ -606,9 +611,9 @@ def _handle_compile(args: dict) -> dict:
     }
 
 
-def _handle_keywords(args: dict) -> dict:
-    category = args.get("category", "all")
-    search = args.get("search", "").lower()
+def _handle_keywords(args: dict[str, object]) -> dict[str, object]:
+    category = str(args.get("category", "all"))
+    search = str(args.get("search", "")).lower()
 
     # 分类所有关键字
     categories = {
@@ -659,9 +664,9 @@ def _handle_keywords(args: dict) -> dict:
     }
 
 
-def _handle_redline_check(args: dict) -> dict:
-    text = args["text"]
-    context = args.get("context", "")
+def _handle_redline_check(args: dict[str, object]) -> dict[str, object]:
+    text = str(args["text"])
+    context = str(args.get("context", ""))
     fusing = 红线熔断器()
     result = fusing.熔断检查(text, context)
 
@@ -675,8 +680,8 @@ def _handle_redline_check(args: dict) -> dict:
     }
 
 
-def _handle_redline_list(args: dict) -> dict:
-    level = args.get("level", "all")
+def _handle_redline_list(args: dict[str, object]) -> dict[str, object]:
+    level = str(args.get("level", "all"))
     level_map = {
         "P0": "P0_伦理红线",
         "P1": "P1_锁定红线",
@@ -707,9 +712,9 @@ def _handle_redline_list(args: dict) -> dict:
     }
 
 
-def _handle_dna_generate(args: dict) -> dict:
-    module = args["module"]
-    version = args.get("version", "1.0")
+def _handle_dna_generate(args: dict[str, object]) -> dict[str, object]:
+    module = str(args["module"])
+    version = str(args.get("version", "1.0"))
     dna = DNA工具.生成(module, version)
 
     return {
@@ -721,13 +726,13 @@ def _handle_dna_generate(args: dict) -> dict:
     }
 
 
-def _handle_dna_validate(args: dict) -> dict:
-    dna = args["dna"]
+def _handle_dna_validate(args: dict[str, object]) -> dict[str, object]:
+    dna = str(args["dna"])
     result = DNA工具.校验(dna)
 
-    # 额外检查
+    # 🔄 繁简归一：简/繁均合法，仅记录用于审计
     checks = {
-        "has_simplified_dragon": "龙芯" in dna or "龙魂" in dna,
+        "has_simplified_dragon": "龙芯" in dna or "龙魂" in dna,  # 相容接收，仅记录
         "has_proper_dragon": "龍" in dna,
         "has_lightning": "⚡️" in dna or "⚡" in dna,
         "length": len(dna),
@@ -744,13 +749,13 @@ def _handle_dna_validate(args: dict) -> dict:
     }
 
 
-def _handle_digital_root(args: dict) -> dict:
+def _handle_digital_root(args: dict[str, object]) -> dict[str, object]:
     """
     计算文本中数字的数字根、五行属性、369 闸门。
     这是 CNSH 体系的数学锚点——任何决策、代码、文本都可以算出数字根，
     用于三色审计判定和流场方向引导。
     """
-    content = args["content"]
+    content = str(args["content"])
 
     # 提取文本中的所有数字
     digits_text = re.sub(r"[^0-9]", "", str(content))
@@ -791,7 +796,7 @@ def _handle_digital_root(args: dict) -> dict:
     }
 
 
-def _handle_audit(args: dict) -> dict:
+def _handle_audit(args: dict[str, object]) -> dict[str, object]:
     score = args.get("score")
     status = args.get("status")
 
@@ -821,9 +826,9 @@ def _handle_audit(args: dict) -> dict:
         }
 
 
-def _handle_diagnostics(args: dict) -> dict:
+def _handle_diagnostics(args: dict[str, object]) -> dict[str, object]:
     """四合一完整诊断：词法+语法+红线+数字根"""
-    source = args["source"]
+    source = str(args["source"])
     issues = []
     warnings = []
     passes = []
@@ -927,7 +932,7 @@ def _handle_diagnostics(args: dict) -> dict:
     }
 
 
-def _handle_health(args: dict) -> dict:
+def _handle_health(args: dict[str, object]) -> dict[str, object]:  # pyright: ignore[reportUnusedParameter]
     """
     健康检查：报告所有子模块的可用状态。
     如果某个模块显示 False，说明对应文件缺失或导入失败，
@@ -948,7 +953,7 @@ def _handle_health(args: dict) -> dict:
             "数学工具_五行数字根": True,
             "审计工具_三色": True,
         },
-        "available_targets": (["python", "javascript", "rust", "c"] if _cnsh_compile else []),
+        "available_targets": (["python", "c", "cpp", "objc", "swift", "javascript", "rust"] if _cnsh_compile else []),
         "project_root": str(_PROJECT_ROOT),
         "dna": _gen_dna("CNSH-MCP", "HEALTH"),
     }

@@ -96,6 +96,7 @@ html, body {
   font-weight: 700;
   background: linear-gradient(90deg, var(--gold), var(--blue));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -160,6 +161,7 @@ html, body {
   line-height: 1;
   background: linear-gradient(90deg, var(--blue), var(--gold));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'LonghunFont';
 }

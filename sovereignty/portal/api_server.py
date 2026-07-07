@@ -241,6 +241,6 @@ def 验证身份(请求: 验证请求):
 if __name__ == "__main__":
     import uvicorn
     print("🐉 中国国家数字身份统一认证入口 v2.0 启动")
-    print("   地址: http://0.0.0.0:8444")
+    print("   地址: http://127.0.0.1:8444")
     print("   DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0")
-    uvicorn.run(app, host="0.0.0.0", port=8444)
+    uvicorn.run(app, host="127.0.0.1", port=8444)

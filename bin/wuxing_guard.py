@@ -31,6 +31,10 @@ from enum import Enum
 from typing import Any, Callable, Dict, List, Optional, Tuple
 from bin.hetu_luoshu_dna import 河图洛书_DNA生成, 河图洛书_数字根
 
+# 河图经典映射：数字根→五行（与 CNSH-FLOW-CORE-v3.0 对齐）
+# 一六北水·二七南火·三八东木·四九西金·五十中土
+数字根五行 = {1: "水", 2: "火", 3: "木", 4: "金", 5: "土", 6: "水", 7: "火", 8: "木", 9: "金", 0: "土"}
+
 
 # ═══════════════════════════════════════════════════════════
 # 五行定义
@@ -104,7 +108,7 @@ class 五行护卫:
 
     def __init__(self, 密钥目录: str = "/etc/lh6/keys/"):
         self.密钥目录 = 密钥目录
-        self._校验器: Dict[五行, Callable] = {
+        self._校验器: Dict[五行, Callable[[权限上下文, str], 五行校验报告]] = {
             五行.金: self._金_身份认证,
             五行.木: self._木_权限检查,
             五行.水: self._水_域隔离,

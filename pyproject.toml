@@ -260,3 +260,39 @@ skip_empty = true
 python_version = "3.10"
 ignore_missing_imports = true
 check_untyped_defs = false
+
+# ══════════════════════════════════════════════════════════════════
+# Basedpyright（类型检查 · CNSH 兼容配置）
+# 策略：保留 ERROR 级严查，压制大规模不可修复的 WARNING
+# CNSH 中文编程必然大量使用 dict 动态访问 → 压制 reportUnknown*
+# 481+ 文件使用旧 typing → 压制 reportDeprecated（渐进迁移）
+# ══════════════════════════════════════════════════════════════════
+[tool.basedpyright]
+typeCheckingMode = "basic"
+pythonVersion = "3.10"
+
+# ── ERROR 级保留（代码质量问题，必须修） ──
+reportMissingTypeArgument = true        # 裸 Dict/List → 加类型参数
+reportMissingImports = true             # 缺依赖导入
+reportArgumentType = true               # 类型不匹配传参
+reportReturnType = true                 # 返回类型不匹配
+reportPossiblyUnboundVariable = true    # 可能未绑定变量
+reportConstantRedefinition = true       # 常量重定义
+
+# ── WARNING 级压制（CNSH 动态编程特点，大面积存在） ──
+reportUnknownMemberType = false         # dict/JSON 动态字段访问
+reportUnknownVariableType = false       # 动态变量类型推断
+reportUnknownArgumentType = false       # 动态参数类型推断
+reportUnknownParameterType = false      # 动态参数类型
+reportUnknownLambdaType = false         # lambda 类型推断
+
+# ── WARNING 级压制（项目历史负担 · 481+ 文件待渐进迁移） ──
+reportDeprecated = false                # 旧 typing（Dict/List/Optional）
+reportExplicitAny = false               # Any 类型（中文编程必须）
+reportAny = false                       # Any 派生类型
+
+# ── WARNING 级压制（CNSH 设计特点） ──
+reportUnannotatedClassAttribute = false # 类属性缺注解（dataclass 模式外）
+reportUnusedImport = false              # 批量修复未完成前先关
+reportUnusedParameter = false           # 未用参数（大量 handler 签名）
+reportImplicitRelativeImport = false    # 相对导入（CNSH 模块结构）

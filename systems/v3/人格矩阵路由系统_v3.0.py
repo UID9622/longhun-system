@@ -636,15 +636,20 @@ class ValueCalibrator:
     """
     价值校准器 - 龍魂体系伦理校准层
     基于五大价值（忠孝义信和）对元知权重进行伦理校准
+
+    v2.0 升级 (2026-07-07):
+    - 联动五大价值观统一引擎 (five_values_unified_engine.py)
+    - 运作价值（忠孝义信和）↔ 核心价值观（根魂信爱传）自动映射
+    - 数字人价值观身份桥接
     """
 
-    # 价值校准规则
+    # 价值校准规则（运作层 → 元知）
     CALIBRATION_RULES: Dict[str, Tuple[MetaCognition, float]] = {
-        "忠": (MetaCognition.MIL, 1.2),   # 忠 → MIL×1.2
-        "孝": (MetaCognition.HIS, 1.1),   # 孝 → HIS×1.1
-        "义": (MetaCognition.PHI, 1.3),   # 义 → PHI×1.3
-        "信": (MetaCognition.ECO, 1.2),   # 信 → ECO×1.2
-        "和": (MetaCognition.POL, 1.3),   # 和 → POL×1.3
+        "忠": (MetaCognition.MIL, 1.2),   # 忠 → MIL×1.2 → 核心价值观「魂」
+        "孝": (MetaCognition.HIS, 1.1),   # 孝 → HIS×1.1 → 核心价值观「根」
+        "义": (MetaCognition.PHI, 1.3),   # 义 → PHI×1.3 → 核心价值观「信」
+        "信": (MetaCognition.ECO, 1.2),   # 信 → ECO×1.2 → 核心价值观「信」
+        "和": (MetaCognition.POL, 1.3),   # 和 → POL×1.3 → 核心价值观「爱」
     }
 
     # 价值优先级权重
@@ -656,10 +661,22 @@ class ValueCalibrator:
         "和": 0.15,
     }
 
-    def __init__(self, active_values: Optional[List[str]] = None):
+    # v2.0: 运作价值 → 统一核心价值观 标签映射
+    OP_TO_UNIFIED_LABEL: Dict[str, str] = {
+        "忠": "魂",    # 为人民服务
+        "孝": "根",    # 中华文化根源
+        "义": "信",    # 真实诚信
+        "信": "信",    # 真实诚信
+        "和": "爱",    # 爱与陪伴
+    }
+
+    def __init__(self, active_values: Optional[List[str]] = None,
+                 unified_engine=None):
         # 默认激活所有价值
         self.active_values = active_values or list(self.VALUE_PRIORITY.keys())
         self._calibration_history: deque = deque(maxlen=100)
+        # v2.0: 可注入统一价值观引擎
+        self._unified_engine = unified_engine
 
     def calibrate(self, weights: Dict[MetaCognition, float],
                   value_override: Optional[Dict[str, float]] = None) -> Tuple[Dict[MetaCognition, float], Dict[str, float]]:
@@ -723,10 +740,36 @@ class ValueCalibrator:
             },
             "value_priority": self.VALUE_PRIORITY,
             "history_count": len(self._calibration_history),
+            # v2.0: 统一价值观映射
+            "unified_value_mapping": {
+                op: self.OP_TO_UNIFIED_LABEL.get(op, "N/A")
+                for op in self.active_values
+            },
         }
 
+    def get_unified_value_weights(self) -> Dict[str, float]:
+        """
+        v2.0: 从运作价值推导统一核心价值观权重
+        返回: {"根": 0.30, "魂": 0.50, "信": 0.35, "爱": 0.15}
+        """
+        unified = {"根": 0.0, "魂": 0.0, "信": 0.0, "爱": 0.0, "传": 0.0}
 
-# ═══════════════════════════════════════════════════════════════════════════════
+        for op_name in self.active_values:
+            label = self.OP_TO_UNIFIED_LABEL.get(op_name)
+            if label and label in unified:
+                unified[label] += self.VALUE_PRIORITY.get(op_name, 0.1)
+
+        # 归一化
+        total = sum(unified.values())
+        if total > 0:
+            unified = {k: round(v / total, 4) for k, v in unified.items()}
+
+        return unified
+
+    def get_primary_unified_value(self) -> str:
+        """v2.0: 获取当前首要核心价值观标签"""
+        unified = self.get_unified_value_weights()
+        return max(unified, key=unified.get) if unified else "魂"# ═══════════════════════════════════════════════════════════════════════════════
 # 6. 资源约束检查器
 # ═══════════════════════════════════════════════════════════════════════════════
 

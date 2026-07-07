@@ -657,7 +657,7 @@ if __name__ == "__main__":
         print(f"         /api/timeline /api/templates /api/models")
         print(f"   DNA：{dna()}")
         print(f"{'='*56}\n")
-        app.run(host="0.0.0.0", port=PORT, debug=False)
+        app.run(host="127.0.0.1", port=PORT, debug=False)
     else:
         print("纯CLI模式 | Pure CLI Mode（Flask未安装 | Flask not installed）")
         run_tests()

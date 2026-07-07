@@ -87,6 +87,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0a0f;color:#e4e4e
 /* Root card footer */
 #root-card{position:fixed;bottom:10px;left:14px;z-index:10;font-size:9px;color:#64748b;max-width:420px;line-height:1.4}
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 <div id="loader">
@@ -456,7 +458,7 @@ function showDetail(node) {
   });
   html += `</div></div>`;
 
-  content.innerHTML = html;
+  content.innerHTML = escHtml(html);
   panel.classList.add('open');
 }
 

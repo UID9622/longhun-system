@@ -259,28 +259,30 @@
             border-radius: 5px;
         }
     </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🐉 龍魂系统 - 主控台</h1>
-            <p>Longhun Master Control Panel - 龍魂决策流场统一入口</p>
+            <p>Longhun Master Control Panel v2.0 — 唯一路由入口·主控体系统一规范</p>
         </header>
 
         <div class="meta-info">
-            <div><span class="meta-label">DNA:</span>#龍芯⚡️2026-06-08-ROUTER-MATRIX-FILE1-v1.0</div>
+            <div><span class="meta-label">DNA:</span>#龍芯⚡️2026-07-07-ROUTER-MATRIX-v2.0</div>
             <div><span class="meta-label">CONFIRM:</span> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
-            <div><span class="meta-label">版本:</span> 1.0 (2026-06-08)</div>
-            <div><span class="meta-label">状态:</span> 🟢 全部路由就绪 · 无僵尸按钮</div>
+            <div><span class="meta-label">版本:</span> 2.0 (2026-07-07) — 主控体系统一规范</div>
+            <div><span class="meta-label">状态:</span> 🟢 全部路由就绪 · 主控台(入口)≠操作台(工具)≠流场总控(仪表盘)</div>
         </div>
 
         <div class="stats">
             <div class="stat-item">
-                <div class="stat-number">8</div>
+                <div class="stat-number">9</div>
                 <div class="stat-label">总路由数</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">8</div>
+                <div class="stat-number">9</div>
                 <div class="stat-label">已就绪</div>
             </div>
             <div class="stat-item">
@@ -347,6 +349,17 @@
                 <div style="font-size: 0.9em; color: #a0a0a0; margin-top: 10px;">系统实时状态·KPI 仪表板</div>
             </a>
 
+            <!-- 操作台（深度工具） -->
+            <a href="./p0-controls/main-console.html" class="route-card ready">
+                <div class="route-header">
+                    <div class="route-name">操作台</div>
+                    <div class="status-badge ready">就绪</div>
+                </div>
+                <div class="route-id">ID: ops-console</div>
+                <div class="route-file">./p0-controls/main-console.html</div>
+                <div style="font-size: 0.9em; color: #a0a0a0; margin-top: 10px;">记忆压缩·DNA存证·资产扫描·统计分析</div>
+            </a>
+
             <!-- Bra-Ket 人格协作 -->
             <a href="./p0-controls/longhun-braket.html" class="route-card ready">
                 <div class="route-header">
@@ -382,15 +395,17 @@
         </div>
 
         <div class="dna-display">
-            DNA:#龍芯⚡️2026-06-08-ROUTER-MATRIX-MASTER-CONTROL-v1.0
+            DNA:#龍芯⚡️2026-07-07-ROUTER-MATRIX-MASTER-CONTROL-v2.0
             <br>
             CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
             <br>
-            SEAL: #ZHUGEXIN⚡️2026-06🐉-MASTER-CONTROL-READY
+            SEAL: #ZHUGEXIN⚡️2026-07🐉-MASTER-CONTROL-v2.0-UNIFIED
+            <br>
+            🎯 主控体系统一规范：主控台(唯一入口)≠操作台(深度工具)≠流场总控(专用仪表盘)
         </div>
 
         <footer>
-            <p>龍魂系统 · 主控台 v1.0 · 2026-06-08 21:19 CST</p>
+            <p>龍魂系统 · 主控台 v2.0 · 2026-07-07 CST · 主控体系统一规范</p>
             <p>“龍魂在，决策流场不灭。”</p>
         </footer>
     </div>
@@ -399,12 +414,13 @@
         // 路由矩阵配置
         const routerMatrix = {
             "_meta": {
-                "dna": "#龍芯⚡️2026-06-08-ROUTER-MATRIX-v1.0",
+                "dna": "#龍芯⚡️2026-07-07-ROUTER-MATRIX-v2.0",
                 "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-                "version": "1.0",
-                "timestamp": "2026-06-08T21:19:00+08:00"
+                "version": "2.0",
+                "timestamp": "2026-07-07T07:38:00+08:00",
+                "规范": "主控体系统一：主控台≠操作台≠流场总控·三者不再混用"
             },
-            "status": "🟢 全部路由就绪 · 无僵尸按钮"
+            "status": "🟢 全部路由就绪 · 主控台(入口) · 操作台(工具) · 流场总控(仪表盘)"
         };
 
         // 日志记录

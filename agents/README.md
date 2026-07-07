@@ -29,7 +29,9 @@ python3 agent_daemon.py once       # 手动跑一轮（调试用）
 | 文件 | 作用 |
 |---|---|
 | `AGENT_ORCHESTRATION_SPEC.md` | 正式架构规范：三层模型、五大人格×五大逻辑、扩展机制 |
-| `manifest.json` | 智能体注册表，新增智能体只需在这里追加 |
+| `manifest.json` | **纯智能体注册表**（201条：L1常驻8 + L2技能91 + L3人格102） |
+| `device_orphan_registry.json` | 设备孤儿文件注册表（16,989条，非Agent，仅设备溯源） |
+| `knowledge_file_registry.json` | 知识文件注册表（336条，非Agent，仅知识库索引） |
 | `orchestrator.py` | 编排器核心：读取注册表、关键词匹配、语义兜底、写审计日志 |
 | `agent_daemon.py` | L1 常驻五大人格守护进程（雯雯/侦察兵/上帝之眼/宝宝/文心） |
 | `agent_eco_adapter.py` | `longhun-agent-eco` 动态调度适配器 |
@@ -48,10 +50,11 @@ L3 人格智能体  ──►  曾老师 71 人格矩阵（ZENG-01~ZENG-71）
                    + Empower-Engine 9 人格（P01~P15）
                    + 本地十五大人格（P15-P00 ~ P15-K05）
                    + 五维思维人格（P5D-MIL/HIS/PHI/ECO/POL）
+                   + 共 102 人格
 L2 按需智能体  ──►  全部 91 个技能（龍魂技能 + Azure/Entra/Microsoft 技能）
 L1 常驻智能体  ──►  雯雯 / 侦察兵 / 上帝之眼 / 宝宝 / 文心
-                   + 十五大人格本地层（P15-K01~K05）
                    / task_executor / foundation_launcher / notion_sync
+                   + 共 8 常驻
 ```
 
 > **缠尾**：所有 `.kimi-code/skills/` 与 `.agents/skills/` 下的技能、以及 `cnsh/flow_decision/persona_api.py` 中的十五大人格，都已注册进 `manifest.json`，不再是死文档。
@@ -138,8 +141,8 @@ L1 常驻智能体  ──►  雯雯 / 侦察兵 / 上帝之眼 / 宝宝 / 文�
 ## DNA
 
 - **编排器 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1`
-- **注册表 DNA**：`#龍芯⚡️2026-06-26-AGENT-MANIFEST-v1.9`
-- **规范 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATION-SPEC-v1.0`
+- **注册表 DNA**：`#龍芯⚡️2026-07-06-AGENT-MANIFEST-v1.10-CLEAN`
+- **规范 DNA**：`#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7`
 - **守护进程 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0`
 - **eco 适配器 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-ECO-ADAPTER-v1.0`
 - **状态报告 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-STATUS-REPORTER-v1.0`

@@ -98,6 +98,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 #loader .status{font-size:11px;color:#94a3b8;margin-top:8px}
 @keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
 </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 <div id="loader">
@@ -714,7 +716,7 @@ function showDetail(node) {
     <div id="control-result" style="margin-top:8px;font-size:11px;color:#94a3b8"></div>
   ` : '<div style="margin-top:10px;font-size:11px;color:#64748b">该节点为逻辑层/不可控</div>';
 
-  content.innerHTML = `
+  content.innerHTML = escHtml(`)
     <span class="tag">${CATEGORY[node.category]?.name || node.category}</span>
     <span class="tag" style="background:${statusColor}20;color:${statusColor};border-color:${statusColor}40">${STATUS[node.status].name}</span>
     <span class="tag" style="background:${wuxingColor}20;color:${wuxingColor};border-color:${wuxingColor}40">${WUXING[node.wuxing].icon} 五行·${WUXING[node.wuxing].name}</span>

@@ -22,13 +22,13 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS for mini program and web clients
+# CORS for mini program and web clients（🛡️ P77修复：白名单替代通配符）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE"],
 )
 
 # Static and templates

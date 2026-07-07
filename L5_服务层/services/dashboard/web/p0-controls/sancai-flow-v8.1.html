@@ -101,6 +101,7 @@
     font-size:18px; font-weight:700; color:transparent;
     background:linear-gradient(135deg,#FFD700,#ef4444,#8b5cf6);
     -webkit-background-clip:text; background-clip:text;
+    background-clip: text;
     opacity:0; transition:opacity 0.6s; letter-spacing:.08em;
   }
   #startup-overlay .sub {
@@ -109,6 +110,8 @@
   }
   #startup-overlay .logo { font-size:48px; opacity:0; transition:opacity .8s; }
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 
@@ -874,7 +877,7 @@ function recordDeviation(p, trigger) {
 
 function renderTraceList() {
   const list = document.getElementById('trace-list');
-  list.innerHTML = deviationLog.slice(0,10).map((e,i) => `
+  list.innerHTML = escHtml(deviationLog.slice(0,10).map((e,i) => `)
     <div class="trace-item" onclick="replayTrace(${i})">
       <div class="tid">${e.trace_id}</div>
       <div>${e.trigger}</div>
@@ -1531,7 +1534,7 @@ function exportDDJLog() {
     `L${ch}: ${DAODEJING[ch]?.text||''} | 最后触发: ${new Date(ts).toISOString()}`
   ).join('\n');
   navigator.clipboard?.writeText(lines);
-  alert('道德经触发日志已复制到剪贴板');
+  showToast('道德经触发日志已复制到剪贴板');
 }
 
 function exportWhitepaperLog() {
@@ -1539,12 +1542,12 @@ function exportWhitepaperLog() {
     exported: new Date().toISOString(),
     anchors: WHITEPAPER_ANCHORS.map(a => a.label)
   }, null, 2));
-  alert('白皮书访问日志已复制');
+  showToast('白皮书访问日志已复制');
 }
 
 function showPriorityOverride() {
   const overrideParticles = particles.filter(p => p.layer !== 'loyalty' && p.deviating);
-  alert(`优先级复盘：${overrideParticles.length} 个义/孝粒子曾为忠让路\nAlt+R 标记详见右侧歪路面板`);
+  showToast(`优先级复盘：${overrideParticles.length} 个义/孝粒子曾为忠让路\nAlt+R 标记详见右侧歪路面板`);
 }
 
 function triggerInfinityFreeze() {

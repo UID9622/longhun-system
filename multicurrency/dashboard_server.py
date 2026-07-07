@@ -337,5 +337,5 @@ if __name__ == '__main__':
     print("📍 访问地址: http://localhost:5000")
     print("📊 API 文档: http://localhost:5000/api/v1/health")
     
-    app.run(debug=True, port=5000, host='127.0.0.1')
+    app.run(debug=False, port=5000, host='127.0.0.1')
 

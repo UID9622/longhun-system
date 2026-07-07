@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     uvicorn.run(
         "cnsh.flow_decision.persona_api:app",
-        host="0.0.0.0",
+        host="127.0.0.1",
         port=9001,
         reload=True,
         log_level="info"

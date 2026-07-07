@@ -77,7 +77,7 @@ try:
         import uvicorn
         import os
         port = int(os.environ.get("MONITORING_PORT", "8000"))
-        uvicorn.run(app, host='0.0.0.0', port=port, log_level='info')
+        uvicorn.run(app, host='127.0.0.1', port=port, log_level='info')
 
 except ImportError as e:
     print(f"⚠️  FastAPI not installed: {e}")

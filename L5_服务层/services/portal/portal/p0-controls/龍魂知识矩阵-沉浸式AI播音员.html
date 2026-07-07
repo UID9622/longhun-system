@@ -219,6 +219,8 @@ body.a11y-high-contrast #chapter-panel{background:#000;border-color:#fff}
 body.a11y-high-contrast #detail{background:#000;border-color:#fff}
 body.a11y-high-contrast #avatar-face{box-shadow:0 0 20px #fff;border-color:#fff}
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 <div id="loader">
@@ -661,7 +663,7 @@ function showDetail(node) {
   });
   html += `</div></div>`;
 
-  content.innerHTML = html;
+  content.innerHTML = escHtml(html);
   panel.classList.add('open');
 }
 
@@ -777,7 +779,7 @@ function openChapterOverlay(cid){
   document.getElementById('co-attribution').textContent = c.attribution || '暂无来源标注';
   document.getElementById('co-dna').textContent = '不动点 DNA：' + (c.visual_anchor_dna || '-') + '\n系统 DNA：#龍芯⚡️2026-07-04-LONGHUN-CHINESE-CULTURE-CHAPTERS-v1.1';
   const immList = document.getElementById('co-immutable-list');
-  immList.innerHTML = (c.immutable_points || []).map(p=>'<li><span style="color:#d4af37;margin-right:6px">◆</span>'+p+'</li>').join('');
+  immList.innerHTML = escHtml((c.immutable_points || []).map(p=>'<li><span style="color:#d4af37;margin-right:6px">◆</span>'+p+'</li>').join(''));
   const overlay = document.getElementById('chapter-overlay');
   overlay.classList.add('open');
   overlay.style.display = 'flex';
@@ -899,7 +901,7 @@ function renderChapters(){
       data.chapters.forEach(c=>{
         const div = document.createElement('div');
         div.className = 'chapter-item';
-        div.innerHTML = `<div class="c-title">${c.title}</div><div class="c-sub">${c.subtitle}</div>`;
+        div.innerHTML = escHtml(`<div class="c-title">${c.title}</div><div class="c-sub">${c.subtitle}</div>`);
         div.onclick = ()=> openChapterOverlay(c.id);
         list.appendChild(div);
       });
@@ -928,7 +930,7 @@ function showFloatingInfo(title, desc){
   const panel = document.getElementById('detail');
   const content = document.getElementById('detail-content');
   document.getElementById('detail-title').textContent = title;
-  content.innerHTML = `<span class="tag">AI 讲解</span><div class="field"><div class="field-label">文稿</div><div class="field-value">${desc}</div></div>`;
+  content.innerHTML = escHtml(`<span class="tag">AI 讲解</span><div class="field"><div class="field-label">文稿</div><div class="field-value">${desc}</div></div>`);
   panel.classList.add('open');
 }
 
@@ -998,7 +1000,7 @@ showDetail = function(node){
   const content = document.getElementById('detail-content');
   const actions = document.createElement('div');
   actions.className = 'detail-actions';
-  actions.innerHTML = `
+  actions.innerHTML = escHtml(`)
     <button onclick="speakNode()">🔊 朗读节点</button>
     <button onclick="generateNodeVideo()">🎬 生成视频</button>
   `;
@@ -1028,7 +1030,7 @@ function generateNodeVideo(){
 
 function recordCanvasVideo(audioUrl, seconds){
   const canvas = document.querySelector('canvas');
-  if(!canvas){ alert('未找到矩阵画布'); return; }
+  if(!canvas){ showToast('未找到矩阵画布'); return; }
   const stream = canvas.captureStream(30);
   const recorder = new MediaRecorder(stream, {mimeType:'video/webm;codecs=vp9'});
   const chunks = [];
@@ -1311,7 +1313,7 @@ function updateLegend(mode){
   const rootIcon = shapeIcon[cfg.root.shape] || '●';
   const rootLabel = cfg.cultural ? cfg.root.symbol : '北辰·太极';
   html += `<div class="legend-item" title="北辰节点"><span class="legend-dot" style="background:#${cfg.root.color.toString(16).padStart(6,'0')};color:#${cfg.root.color.toString(16).padStart(6,'0')}">${rootIcon}</span>${rootLabel}<small style="color:#94a3b8;margin-left:4px">${rootIcon}</small></div>`;
-  legend.innerHTML = html;
+  legend.innerHTML = escHtml(html);
 }
 
 function applyLargeText(on){

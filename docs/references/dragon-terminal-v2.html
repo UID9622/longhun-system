@@ -6,35 +6,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐉 龍魂终端 v2.0 | UID9622</title>
+    <title>🐉 龍魂终端 v2.0 · 女娲石 | UID9622</title>
     <style>
+        /* ── 龙魂字体 ── */
+        @font-face {
+            font-family: 'LonghunFont';
+            src: url('../../longhun-font/output/LonghunFont-Regular.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #0a0a12;
-            --sidebar: #12121e;
-            --card: #1a1a2e;
-            --card-hover: #222240;
-            --border: rgba(120,80,255,0.15);
-            --text: #e8e8f0;
-            --sub: #7a7a9a;
-            --accent: #7c5cff;
-            --accent2: #ff6b6b;
-            --green: #00d4aa;
-            --gold: #ffd700;
-            --glow: rgba(124,92,255,0.3);
+            --bg: #0a0a0a;
+            --sidebar: #0d0d14;
+            --card: #111118;
+            --card-hover: #1a1a28;
+            --border: rgba(255,255,0,0.12);
+            --text: #ddd;
+            --sub: #777;
+            --accent: var(--w0);    /* 红 */
+            --accent2: var(--w0);   /* 红 */
+            --green: #00cc44;
+            --gold: var(--w1);      /* 黄 */
+            --glow: rgba(255,0,0,0.15);
+            --w0: #FF0000; --w1: #FFFF00; --w2: #00FFFF;
+            --w3: #FFFFFF; --w4: #000000;
         }
         .light-mode {
             --bg: #f0f0f5;
             --sidebar: #ffffff;
             --card: #ffffff;
             --card-hover: #f5f5ff;
-            --border: rgba(120,80,255,0.12);
+            --border: rgba(255,0,0,0.1);
             --text: #1c1c2e;
-            --sub: #8888aa;
-            --glow: rgba(124,92,255,0.15);
+            --sub: #888;
+            --glow: rgba(255,0,0,0.08);
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+            font-family: 'LonghunFont', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
             background: var(--bg);
             color: var(--text);
             height: 100vh;
@@ -67,8 +75,9 @@
         }
         .logo h1 {
             font-size: 18px;
-            background: linear-gradient(135deg, var(--accent), var(--gold));
+            background: linear-gradient(135deg, var(--w0), var(--w1), var(--w2));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .logo p { font-size: 11px; color: var(--sub); margin-top: 4px; }
@@ -87,9 +96,9 @@
         }
         .nav-item:hover { background: var(--card-hover); }
         .nav-item.active {
-            background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(124,92,255,0.05));
-            color: var(--accent);
-            box-shadow: inset 0 0 20px rgba(124,92,255,0.1);
+            background: linear-gradient(135deg, rgba(255,0,0,0.12), rgba(255,255,0,0.05));
+            color: var(--w1);
+            box-shadow: inset 0 0 20px rgba(255,0,0,0.06);
         }
         .nav-item .icon { font-size: 16px; width: 24px; text-align: center; }
         .dot { width: 6px; height: 6px; border-radius: 50%; margin-left: auto; }
@@ -154,6 +163,7 @@
             font-size: 28px; font-weight: 700;
             background: linear-gradient(135deg, var(--accent), var(--gold));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .stat-label { font-size: 11px; color: var(--sub); margin-top: 4px; }

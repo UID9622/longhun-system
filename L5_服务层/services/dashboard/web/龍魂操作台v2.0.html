@@ -99,6 +99,8 @@
   .fill-yellow{background:linear-gradient(90deg,var(--yellow-dim),var(--yellow));}
   .fill-red{background:linear-gradient(90deg,var(--red-dim),var(--red));}
 </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -137,7 +139,7 @@
     <div class="card-row"><span class="label">当前版本</span><span>v2.0</span></div>
     <div class="card-row"><span class="label">下一版本</span><span style="color:var(--yellow)">v2.1（待定）</span></div>
     <div class="card-row"><span class="label">更新时间</span><span>2026-06-20</span></div>
-    <button class="card-btn" onclick="alert('暂无新公告')">📋 展开公告</button>
+    <button class="card-btn" onclick="showToast('暂无新公告')">📋 展开公告</button>
   </div>
   <div class="card">
     <div class="card-title">❓ 帮助指引</div>
@@ -162,12 +164,12 @@
   <div class="card">
     <div class="card-title">🧭 功能导航面板</div>
     <div class="func-grid">
-      <div class="func-btn" onclick="alert('魂灵ID生成器')">👤<span class="icon">🆔</span>魂灵ID生成</div>
-      <div class="func-btn" onclick="alert('授权检查')">🔑<span class="icon">✅</span>授权检查</div>
-      <div class="func-btn" onclick="alert('宣言确认')">📜<span class="icon">🖊️</span>宣言确认</div>
-      <div class="func-btn" onclick="alert('通心译引擎')">🌐<span class="icon">🔄</span>通心译引擎</div>
-      <div class="func-btn" onclick="alert('代码透明')">💻<span class="icon">📂</span>代码透明</div>
-      <div class="func-btn" onclick="alert('节点矩阵')">🌐<span class="icon">🔗</span>节点矩阵</div>
+      <div class="func-btn" onclick="showToast('魂灵ID生成器')">👤<span class="icon">🆔</span>魂灵ID生成</div>
+      <div class="func-btn" onclick="showToast('授权检查')">🔑<span class="icon">✅</span>授权检查</div>
+      <div class="func-btn" onclick="showToast('宣言确认')">📜<span class="icon">🖊️</span>宣言确认</div>
+      <div class="func-btn" onclick="showToast('通心译引擎')">🌐<span class="icon">🔄</span>通心译引擎</div>
+      <div class="func-btn" onclick="showToast('代码透明')">💻<span class="icon">📂</span>代码透明</div>
+      <div class="func-btn" onclick="showToast('节点矩阵')">🌐<span class="icon">🔗</span>节点矩阵</div>
     </div>
     <div class="func-status">状态指示灯: <span id="indicator">6/6 🟢</span></div>
   </div>
@@ -243,7 +245,7 @@ let auditLogs=[
 // 渲染健康条
 function renderHealth(){
   const c=document.getElementById('health-container');
-  c.innerHTML=healthData.map(h=>{
+  c.innerHTML=escHtml(healthData.map(h=>{)
     const color=h.pct>=80?'green':h.pct>=50?'yellow':'red';
     const fillClass=`fill-${color}`;
     const dotClass=`status-${color}`;
@@ -259,7 +261,7 @@ function renderHealth(){
 // 渲染节点
 function renderNodes(){
   const c=document.getElementById('node-rows');
-  c.innerHTML=nodeData.map(n=>{
+  c.innerHTML=escHtml(nodeData.map(n=>{)
     const dot=n.status==='green'?'🟢':n.status==='yellow'?'🟡':'🔴';
     return `<div class="node-row">
       <div class="node-name">${dot} ${n.name}</div>
@@ -271,7 +273,7 @@ function renderNodes(){
 // 渲染审计日志
 function renderAudit(){
   const c=document.getElementById('audit-entries');
-  c.innerHTML=auditLogs.map(l=>{
+  c.innerHTML=escHtml(auditLogs.map(l=>{)
     const color=l.color==='green'?'var(--green)':l.color==='yellow'?'var(--yellow)':l.color==='red'?'var(--red)':'var(--blue)';
     return `<div class="log-entry"><span class="log-time">${l.time}</span><span style="color:${color}">${l.color==='green'?'🟢':l.color==='yellow'?'🟡':l.color==='red'?'🔴':'🔵'}</span><span class="log-msg">${l.msg}</span></div>`;
   }).join('');

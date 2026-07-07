@@ -1667,10 +1667,10 @@
     },
     "claude-html/main-console-html": {
       "node_id": "claude-html/main-console-html",
-      "label": "🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜",
+      "label": "🐉 龍魂系统操作台 — 记忆压缩·DNA存证·资产扫描",
       "type": "html_tool",
-      "dna": "#龍芯⚡️2026-06-22-CLAUDE-LOCAL-SESSIONS-v1.0-龍魂系统主控台-技术主权-数据主权-中国",
-      "description": "main-console.html",
+      "dna": "#龍芯⚡️2026-07-07-MAIN-CONSOLE-v2.0-操作台-深度工具",
+      "description": "main-console.html — 操作台（原名主控台·v2.0主控体系统一后改名）",
       "related_nodes": [
         "claude-local-sessions/html_tools",
         "l0-core"

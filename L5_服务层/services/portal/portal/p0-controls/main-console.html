@@ -384,6 +384,8 @@
             }
         }
     </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
     <div class="container">
@@ -700,7 +702,7 @@
             const input = document.getElementById('memoryInput').value.trim();
             
             if (!input) {
-                alert('请输入记忆内容！');
+                showToast('请输入记忆内容！');
                 return;
             }
             
@@ -744,7 +746,7 @@
 
         async function saveMemory() {
             if (!currentMemory) {
-                alert('请先处理记忆！');
+                showToast('请先处理记忆！');
                 return;
             }
             
@@ -760,16 +762,16 @@
                     console.log('✅ 记忆已保存');
                     updateMemoryList();
                     updateMemoryStats();
-                    alert('✅ 记忆已保存到系统！');
+                    showToast('✅ 记忆已保存到系统！');
                 };
                 
                 request.onerror = () => {
                     console.error('保存失败：', request.error);
-                    alert('保存失败：' + request.error.message);
+                    showToast('保存失败：' + request.error.message);
                 };
             } catch (error) {
                 console.error('保存失败：', error);
-                alert('保存失败：' + error.message);
+                showToast('保存失败：' + error.message);
             }
         }
 
@@ -855,12 +857,12 @@
                 const container = document.getElementById('memoryList');
                 
                 if (memories.length === 0) {
-                    container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>';
+                    container.innerHTML = escHtml('<div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>');
                     document.getElementById('memoryCount').textContent = '0';
                     return;
                 }
                 
-                container.innerHTML = memories.map(memory => `
+                container.innerHTML = escHtml(memories.map(memory => `)
                     <div class="list-item">
                         <div class="list-item-header">
                             <div class="list-item-title">${memory.DNA}</div>
@@ -928,7 +930,7 @@
             tx.oncomplete = () => {
                 updateMemoryList();
                 updateMemoryStats();
-                alert('✅ 记忆已删除');
+                showToast('✅ 记忆已删除');
             };
         }
 
@@ -952,7 +954,7 @@
             const content = document.getElementById('dnaContent').value.trim();
             
             if (!creatorId || !projectName || !content) {
-                alert('请填写完整信息！');
+                showToast('请填写完整信息！');
                 return;
             }
             
@@ -1002,10 +1004,10 @@
                 document.getElementById('dnaResult').textContent = result;
                 currentDNA = evidence;
                 
-                alert('✅ DNA 存证已成功创建！');
+                showToast('✅ DNA 存证已成功创建！');
             } catch (error) {
                 console.error('生成失败：', error);
-                alert('生成失败：' + error.message);
+                showToast('生成失败：' + error.message);
             }
         }
 
@@ -1020,7 +1022,7 @@
 
         async function exportDNA() {
             if (!currentDNA) {
-                alert('请先生成 DNA 存证！');
+                showToast('请先生成 DNA 存证！');
                 return;
             }
             
@@ -1033,14 +1035,14 @@
             a.click();
             URL.revokeObjectURL(url);
             
-            alert('✅ 存证文件已下载！');
+            showToast('✅ 存证文件已下载！');
         }
 
         async function verifyDNA() {
             const dnaCode = document.getElementById('dnaCodeInput').value.trim();
             
             if (!dnaCode) {
-                alert('请输入 DNA 追溯码！');
+                showToast('请输入 DNA 追溯码！');
                 return;
             }
             
@@ -1118,18 +1120,18 @@
             dnaEvidences = results;
             updateDNAList();
             
-            alert(`✅ 已加载 ${results.length} 条存证记录`);
+            showToast(`✅ 已加载 ${results.length} 条存证记录`);
         }
 
         function updateDNAList() {
             const container = document.getElementById('dnaList');
             
             if (dnaEvidences.length === 0) {
-                container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>';
+                container.innerHTML = escHtml('<div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>');
                 return;
             }
             
-            container.innerHTML = dnaEvidences.map(evidence => `
+            container.innerHTML = escHtml(dnaEvidences.map(evidence => `)
                 <div class="list-item">
                     <div class="list-item-header">
                         <div class="list-item-title">${evidence.dnaCode}</div>
@@ -1177,13 +1179,13 @@
             tx.oncomplete = () => {
                 dnaEvidences = dnaEvidences.filter(e => e.dnaCode !== dnaCode);
                 updateDNAList();
-                alert('✅ 存证已删除');
+                showToast('✅ 存证已删除');
             };
         }
 
         async function exportAllDNA() {
             if (dnaEvidences.length === 0) {
-                alert('没有存证记录可导出！');
+                showToast('没有存证记录可导出！');
                 return;
             }
             
@@ -1196,7 +1198,7 @@
             a.click();
             URL.revokeObjectURL(url);
             
-            alert(`✅ 已导出 ${dnaEvidences.length} 条存证记录！`);
+            showToast(`✅ 已导出 ${dnaEvidences.length} 条存证记录！`);
         }
 
         async function clearAllDNA() {
@@ -1221,7 +1223,7 @@
             tx.oncomplete = () => {
                 dnaEvidences = [];
                 updateDNAList();
-                alert('✅ 所有存证记录已清空');
+                showToast('✅ 所有存证记录已清空');
             };
         }
 
@@ -1314,7 +1316,7 @@
             updateAssetStats();
             updateAssetResults();
             
-            alert(`✅ 扫描完成！\n\n核心原创：${assetScanResults.filter(r => r.类型 === '✅ 核心原创').length} 个\n其他原创：${assetScanResults.filter(r => r.类型 === '🟢 原创').length} 个\n总计：${assetScanResults.length} 个`);
+            showToast(`✅ 扫描完成！\n\n核心原创：${assetScanResults.filter(r => r.类型 === '✅ 核心原创').length} 个\n其他原创：${assetScanResults.filter(r => r.类型 === '🟢 原创').length} 个\n总计：${assetScanResults.length} 个`);
         }
 
         function readFile(file) {
@@ -1338,11 +1340,11 @@
             const container = document.getElementById('assetResults');
             
             if (assetScanResults.length === 0) {
-                container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>';
+                container.innerHTML = escHtml('<div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>');
                 return;
             }
             
-            container.innerHTML = assetScanResults.map(item => `
+            container.innerHTML = escHtml(assetScanResults.map(item => `)
                 <div class="list-item">
                     <div class="list-item-header">
                         <div class="list-item-title">${item.文件}</div>
@@ -1371,7 +1373,7 @@
         function scanAssets() {
             const files = assetFileInput.files;
             if (files.length === 0) {
-                alert('请先选择文件！');
+                showToast('请先选择文件！');
                 return;
             }
             
@@ -1380,7 +1382,7 @@
 
         function exportAssetReport() {
             if (assetScanResults.length === 0) {
-                alert('没有扫描结果可导出！');
+                showToast('没有扫描结果可导出！');
                 return;
             }
             
@@ -1414,7 +1416,7 @@
             a.click();
             URL.revokeObjectURL(url);
             
-            alert(`✅ 报告已导出！`);
+            showToast(`✅ 报告已导出！`);
         }
 
         function clearAssetResults() {

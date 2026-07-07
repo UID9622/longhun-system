@@ -120,5 +120,14 @@ else
     echo "⚠️  龍魂共生体服务器未找到: $SYMBIOTE_SERVER" >> "$LOG_FILE"
 fi
 
+# 13) 启动龍智守飞书机器人服务（端口 5001）
+LONGZHISHOU_START="$ROOT/bin/start_longzhishou.sh"
+if [ -f "$LONGZHISHOU_START" ]; then
+    echo "▶ 启动龍智守飞书机器人" >> "$LOG_FILE"
+    bash "$LONGZHISHOU_START" >> "$LOG_FILE" 2>&1 || true
+else
+    echo "⚠️  龍智守启动脚本未找到: $LONGZHISHOU_START" >> "$LOG_FILE"
+fi
+
 echo "✅ 开机自启动流程结束 · $(date)" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"

@@ -23,7 +23,7 @@ from typing import Optional
 DNA = "#龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0"
 
 # ── 错误翻译映射 ──
-ERROR_TRANSLATIONS: dict = {
+ERROR_TRANSLATIONS: dict[str, str] = {
     # I/O 错误
     "I/O error": "输入/输出错误：文件或设备读写失败，请检查磁盘空间和文件权限",
     "Permission denied": "权限不足：当前用户无权访问该文件或端口，请使用 sudo 或检查文件权限",

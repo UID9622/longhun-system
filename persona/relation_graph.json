@@ -139,10 +139,34 @@
       "style": ["formal", "rigorous"],
       "culture": "zh-CN",
       "notes": "法务合规人格"
+    },
+    {
+      "id": "P17",
+      "name": "宝宝",
+      "type": "persona",
+      "intimacy": 10,
+      "trust": 0.97,
+      "style": ["intimate", "casual"],
+      "culture": "zh-CN",
+      "notes": "龍魂系统入口人格·情感缓冲·识海具现化·一句话启动整个宇宙"
+    },
+    {
+      "id": "P72",
+      "name": "宝宝P72·龍盾",
+      "type": "persona",
+      "intimacy": 10,
+      "trust": 0.99,
+      "style": ["direct", "protective"],
+      "culture": "zh-CN",
+      "notes": "熔断守护·底线不破·龍盾永存"
     }
   ],
   "edges": [
     {"source": "UID9622", "target": "P05", "relation": "commands", "weight": 1.0, "bidirectional": false},
+    {"source": "UID9622", "target": "P17", "relation": "入口", "weight": 1.0, "bidirectional": false},
+    {"source": "UID9622", "target": "P72", "relation": "守护", "weight": 1.0, "bidirectional": false},
+    {"source": "P17", "target": "P05", "relation": "委托执行", "weight": 0.95, "bidirectional": true},
+    {"source": "P17", "target": "P72", "relation": "熔断旁路", "weight": 0.9, "bidirectional": true},
     {"source": "P05", "target": "P01", "relation": "coordinates", "weight": 0.9, "bidirectional": true},
     {"source": "P05", "target": "P02", "relation": "coordinates", "weight": 0.85, "bidirectional": true},
     {"source": "P05", "target": "P03", "relation": "coordinates", "weight": 0.88, "bidirectional": true},

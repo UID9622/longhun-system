@@ -246,6 +246,8 @@
             }
         }
     </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
     <div class="container">
@@ -572,7 +574,7 @@ DNA追溯码：${memory.DNA}
             const input = document.getElementById('inputText').value.trim();
 
             if (!input) {
-                alert('请输入记忆内容！');
+                showToast('请输入记忆内容！');
                 return;
             }
 
@@ -612,7 +614,7 @@ DNA追溯码：${memory.DNA}
             const input = document.getElementById('inputText').value.trim();
 
             if (!input) {
-                alert('请输入记忆内容！');
+                showToast('请输入记忆内容！');
                 return;
             }
 
@@ -635,7 +637,7 @@ DNA追溯码：${memory.DNA}
         // 保存到系统
         async function saveToSystem() {
             if (!window.currentMemory) {
-                alert('请先处理记忆！');
+                showToast('请先处理记忆！');
                 return;
             }
 
@@ -665,10 +667,10 @@ DNA追溯码：${memory.DNA}
                 // 清空输入
                 document.getElementById('inputText').value = '';
 
-                alert('✅ 记忆已成功保存到系统！');
+                showToast('✅ 记忆已成功保存到系统！');
             } catch (error) {
                 console.error('保存失败：', error);
-                alert('保存失败：' + error.message);
+                showToast('保存失败：' + error.message);
             }
         }
 
@@ -679,12 +681,12 @@ DNA追溯码：${memory.DNA}
             const container = document.getElementById('memoryLibrary');
 
             if (memories.length === 0) {
-                container.innerHTML = '<div style="color: #999; text-align: center; padding: 40px;">暂无保存的记忆<br><small>（本地 + iCloud + Notion）</small></div>';
+                container.innerHTML = escHtml('<div style="color: #999; text-align: center; padding: 40px;">暂无保存的记忆<br><small>（本地 + iCloud + Notion）</small></div>');
                 document.getElementById('memoryCount').textContent = '0';
                 return;
             }
 
-            container.innerHTML = memories.map((memory, index) => `
+            container.innerHTML = escHtml(memories.map((memory, index) => `)
                 <div class="memory-card">
                     <div class="memory-header">
                         <div class="memory-dna">${memory.DNA}</div>
@@ -732,7 +734,7 @@ DNA追溯码：${memory.DNA}
 
                 transaction.oncomplete = () => {
                     loadMemoriesFromDB();
-                    alert('✅ 记忆已删除');
+                    showToast('✅ 记忆已删除');
                 };
             }
         }

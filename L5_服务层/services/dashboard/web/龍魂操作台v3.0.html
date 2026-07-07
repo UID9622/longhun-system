@@ -67,6 +67,8 @@
 
   .footer{text-align:center;font-size:11px;color:var(--text-dim);padding:20px;border-top:1px solid var(--border);margin-top:8px;}
 </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -238,7 +240,7 @@ async function refresh(){
       }
       html += renderCard(item, status);
     }
-    grid.innerHTML = html;
+    grid.innerHTML = escHtml(html);
   }
   $('running-count').textContent = running;
   $('total-count').textContent = total;

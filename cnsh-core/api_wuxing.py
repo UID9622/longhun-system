@@ -35,13 +35,13 @@ app = FastAPI(
     version="3.3"
 )
 
-# 跨域配置
+# 跨域配置（🛡️ P77修复：白名单替代通配符）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE"],
 )
 
 # 数据模型
@@ -226,4 +226,4 @@ async def 文档():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    uvicorn.run(app, host="127.0.0.1", port=8001)

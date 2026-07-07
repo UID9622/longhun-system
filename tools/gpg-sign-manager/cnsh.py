@@ -5,7 +5,7 @@
 # 用中文说话，机器听懂，执行
 
 import os, sys, json, subprocess
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # pyright: ignore[reportMissingImports,reportAttributeAccessIssue]
 import requests
 
 load_dotenv(dotenv_path=os.path.expanduser("~/longhun-system/.env"))
@@ -52,7 +52,7 @@ def notion_搜索(关键词):
         链接 = 项.get("url","")
         props = 项.get("properties",{})
         标题 = ""
-        for k,v in props.items():
+        for _k, v in props.items():
             if v.get("type") == "title":
                 标题 = "".join([x.get("plain_text","") for x in v.get("title",[])])
                 break
@@ -65,7 +65,7 @@ def notion_新建页面(标题, 内容=""):
         "properties": {"title":{"title":[{"text":{"content":标题}}]}}
     }
     if 内容:
-        payload["children"] = [{"object":"block","type":"paragraph",
+        payload["children"] = [{"object":"block","type":"paragraph",  # pyright: ignore[reportArgumentType]
             "paragraph":{"rich_text":[{"text":{"content":内容}}]}}]
     r = requests.post(f"{BASE}/pages", headers=HEADERS, json=payload)
     if r.status_code == 200:
@@ -102,7 +102,7 @@ def notion_查数据库(db_id):
     结果 = r.json().get("results",[])
     for 项 in 结果:
         props = 项.get("properties",{})
-        for k,v in props.items():
+        for _k, v in props.items():
             if v.get("type") == "title":
                 标题 = "".join([x.get("plain_text","") for x in v.get("title",[])])
                 print(f"  · {标题}")
@@ -177,7 +177,21 @@ def 主程序():
         elif 命令 == "查数据库" and len(部分) >= 2:
             notion_查数据库(部分[1])
         elif 命令 == "运行" and len(部分) >= 2:
-            os.system(f"python3 ~/longhun-system/{部分[1]}")
+            # 🛡️ 安全白名單 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-cnsh-v1.0
+            # 只允許 ~/longhun-system/skills/ 下已註冊的腳本
+            import pathlib
+            _ALLOWED = {"audit", "backup", "health", "status", "agents", "sym"}
+            脚本名 = 部分[1].split("/")[-1].replace(".py", "")
+            if 脚本名 not in _ALLOWED:
+                print(f"  🛡️ 安全攔截：'{部分[1]}' 不在運行白名單中")
+                print(f"  允許的腳本: {', '.join(sorted(_ALLOWED))}")
+            else:
+                完整路径 = pathlib.Path.home() / "longhun-system" / "skills" / f"{脚本名}.py"
+                if 完整路径.exists():
+                    import subprocess as _sp
+                    _sp.run(["python3", str(完整路径)], timeout=60)
+                else:
+                    print(f"  ❌ 腳本不存在: {完整路径}")
         else:
             print("  不认识这个指令 | Unknown command，输入“帮助”看看有什么能用的 | Type “帮助”for help")
 

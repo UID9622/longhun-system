@@ -1,111 +1,690 @@
-#!/bin/bash
-# ╔══════════════════════════════════════════════════════════════╗
-# ║  龍魂快捷入口 · lh alias                                    ║
-# ║  DNA: #龍芯⚡️2026-07-06-LH-ALIAS-v1.0-9B2E7F1A              ║
-# ║                                                            ║
-# ║  lh 是 lh6 的快捷别名，优先匹配中文命令。                     ║
-# ║  用于日常快速操作，记不住英文命令就用 lh 中文命令。            ║
-# ║                                                            ║
-# ║  哲学锚: 河图洛书中五不动点 → lh 为"令行"之简                     ║
-# ╚══════════════════════════════════════════════════════════════╝
-#
-# 用法:
-#   lh 编辑器           # → lh6 editor
-#   lh 熔断             # → lh6 fuse
-#   lh 状态             # → lh6 status
-#   lh 审计变量         # → lh6 audit-vars
-#   lh 验证plist        # → lh6 validate plist
-#   lh 共生体           # → lh6 symbiote
-#   lh 令牌             # → lh6 token
-#   lh 语义 "检查状态"   # → lh6 semantic "检查状态"
-#
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+╔══════════════════════════════════════════════════════════════╗
+║  🐉 龍魂統一入口 · lh v2.0                                  ║
+║  DNA: #龍芯⚡️2026-07-06-LH-v2.0-UNIFIED-AUTO-ROUTE         ║
+║                                                            ║
+║  一個命令，統攝一切。                                        ║
+║                                                            ║
+║  用法:                                                      ║
+║    lh "你的需求"      → 自動路由到正確的人格/工具             ║
+║    lh                 → 交互模式（持續對話）                  ║
+║    lh status          → 系統狀態面板                         ║
+║    lh health          → 神經網絡+Agents健康全景               ║
+║    lh shell           → 共生體交互模式                       ║
+║    lh help            → 幫助                                 ║
+║                                                            ║
+║  哲學錨: 河圖洛書中五不動點 → lh 為"令行"之簡                  ║
+║  設計原則: 你不記命令，系統讀你的意圖                          ║
+╚══════════════════════════════════════════════════════════════╝
+"""
 
-LH6="$HOME/longhun-system/bin/lh6"
+import json
+import os
+import subprocess
+import sys
+import time
+import webbrowser
+from pathlib import Path
+from typing import Optional
 
-# ── 中文命令→lh6命令映射表 ──
-# 格式: "中文命令=子命令 后续参数"
-declare -A CN_MAP
-CN_MAP=(
-    # ── 传统命令 ──
-    ["编辑器"]="editor"
-    ["编辑"]="editor"
-    ["edit"]="editor"
-    ["状态"]="status"
-    ["status"]="status"
-    ["熔断"]="fuse"
-    ["fuse"]="fuse"
-    ["令牌"]="token"
-    ["token"]="token"
-    ["语义"]="semantic"
-    ["parse"]="semantic"
-    ["解析"]="semantic"
-    ["身份"]="auth"
-    ["auth"]="auth"
-    ["验证"]="auth verify"
-    ["加密"]="privacy encrypt"
-    ["解密"]="privacy decrypt"
-    ["隐私"]="privacy"
-    ["privacy"]="privacy"
-    ["错误"]="error"
-    ["err"]="error"
-    ["审计变量"]="audit-vars"
-    ["audit-vars"]="audit-vars"
-    ["av"]="audit-vars"
-    ["验证plist"]="validate plist"
-    ["校验plist"]="validate plist"
-    ["validate"]="validate"
-    ["共生体"]="symbiote"
-    ["symbiote"]="symbiote"
-    ["共生"]="symbiote"
-    ["审计插件"]="audit-plugin"
-    ["ap"]="audit-plugin"
-    ["插件"]="audit-plugin"
-    ["帮助"]="help"
-    ["help"]="help"
-    ["h"]="help"
-    ["?"]="help"
+# ── 常量 ──
+DNA = "#龍芯⚡️2026-07-06-LH-v2.0-UNIFIED-AUTO-ROUTE"
+LH_ROOT = Path(os.environ.get("LONGHUN_ROOT", Path.home() / "longhun-system"))
+OPS_CONSOLE = LH_ROOT / "ops-console" / "index.html"
+PORTAL_URL = "https://longhun888.com/"
+VERSION = "v2.0"
 
-    # ── 三大引擎 ──
-    ["河图DNA"]="dna-gen"
-    ["DNA生成"]="dna-gen"
-    ["dna-gen"]="dna-gen"
-    ["八卦"]="bagua"
-    ["卦象"]="bagua"
-    ["bagua"]="bagua"
-    ["gua"]="bagua"
-    ["五行"]="wuxing"
-    ["5xing"]="wuxing"
-    ["wuxing"]="wuxing"
+# ── 路徑注入 ──
+AGENTS_DIR = LH_ROOT / "agents"
+CNSH_CORE = LH_ROOT / "cnsh-core"
+sys.path.insert(0, str(AGENTS_DIR))
+sys.path.insert(0, str(CNSH_CORE))
 
-    # ── 八卦直连（中文命名） ──
-    ["乾"]="乾"
-    ["坤"]="坤"
-    ["震"]="震"
-    ["巽"]="巽"
-    ["坎"]="坎"
-    ["离"]="离"
-    ["艮"]="艮"
-    ["兑"]="兑"
-)
+# ── 子命令→lh6 bash 舊命令的橋接映射（向後兼容） ──
+# 這些子命令直接轉發給舊的 lh6 bash 腳本
+LH6_DELEGATE = {
+    "editor", "edit", "cnsh", "memory", "gate", "rights",
+    "export", "behavior", "scope", "going", "kimi",
+    "validate", "audit-vars", "av", "audit-plugin", "ap",
+    "error", "err", "auth", "privacy", "clap",
+    "registry", "weight", "ops", "portal",
+    "dna-gen", "hetu", "dna-engine", "河图dna",
+    "bagua", "八卦", "gua", "hexagram",
+    "wuxing", "五行", "5xing",
+    "乾", "坤", "震", "巽", "坎", "离", "艮", "兑",
+    "semantic", "parse", "token",
+}
 
-cmd="${1:-help}"
-shift 2>/dev/null || true
+# 這些子命令由新版 lh 自己處理
+LH_NATIVE = {
+    "status", "st", "健康", "health", "h",
+    "shell", "sh", "交互",
+    "symbiote", "共生体", "共生", "sym",
+    "fuse", "熔断",
+    "help", "--help", "-h", "?", "帮助",
+    "version", "v", "-v", "--version",
+    "agents", "a", "agent", "人格", "角色",
+    "patrol", "p", "巡檢", "巡检", "安全掃描", "安全扫描",
+}
 
-# 查找映射
-mapped="${CN_MAP[$cmd]}"
-if [ -n "$mapped" ]; then
-    # 映射到 lh6 子命令
-    subcmd="${mapped%% *}"
-    rest="${mapped#$subcmd}"
-    rest="${rest# }"
-    if [ -n "$rest" ]; then
-        exec bash "$LH6" "$subcmd" "$rest" "$@"
-    elif [ $# -gt 0 ]; then
-        exec bash "$LH6" "$subcmd" "$@"
-    else
-        exec bash "$LH6" "$subcmd"
-    fi
-else
-    # 未匹配，直接传给 lh6（可能是自然语言等）
-    exec bash "$LH6" "$cmd" "$@"
-fi
+
+# ═══════════════════════════════════════════════════════════
+# 核心：自動路由引擎
+# ═══════════════════════════════════════════════════════════
+
+def load_orchestrator():
+    """延遲加載 orchestrator（只在需要時加載，加快子命令響應）。"""
+    try:
+        from orchestrator import AgentOrchestrator
+        return AgentOrchestrator()
+    except Exception as e:
+        return None
+
+
+def load_neural_bridge():
+    """延遲加載神經網絡橋接器。"""
+    try:
+        from neural_agent_bridge import NeuralAgentBridge
+        return NeuralAgentBridge()
+    except Exception:
+        return None
+
+
+def auto_route(text: str):
+    """
+    自動路由：輸入任何自然語言 → 找到最合適的人格/工具。
+    
+    四層路由：
+    1. orchestrator 關鍵詞匹配
+    2. empower-engine 語義兜底
+    3. agent-eco 生態路由
+    4. 神經網絡橋接器
+    """
+    orch = load_orchestrator()
+    neural = load_neural_bridge()
+    
+    if not orch:
+        # 降級：只用神經網絡
+        if neural:
+            result = neural.execute(text)
+            _print_neural_result(result)
+            return
+        print("❌ 路由引擎未加載，請確認 agents/orchestrator.py 存在")
+        return
+    
+    result = orch.route(text)
+    _print_route_result(result, neural)
+
+
+def _print_route_result(result: dict, neural):
+    """美化打印路由結果。"""
+    primary = result.get("primary_agent", {})
+    mode = result.get("routing_mode", "unknown")
+    matches = result.get("matches", [])
+    
+    # 模式圖標
+    mode_icons = {
+        "keyword": "🔑", "empower": "🧠", "agent-eco": "🌐",
+        "neural": "🧬", "fallback": "⬇️",
+    }
+    icon = mode_icons.get(mode, "→")
+    
+    print(f"\n  {icon} 路由模式: {mode}")
+    
+    # 匹配到的 Agent 列表
+    if matches:
+        if len(matches) == 1:
+            m = matches[0]
+            print(f"  🎯 {m['name']} [{m['layer']}] · {m.get('logic', '')}")
+        else:
+            print(f"  🎯 主: {primary.get('name', '?')} [{primary.get('layer', '?')}]")
+            for i, m in enumerate(matches[1:4], 1):
+                print(f"     {i}. {m['name']} [{m['layer']}] · {m.get('logic', '')}")
+    
+    # 關鍵詞匹配詳情
+    if mode == "keyword" and matches:
+        kws = matches[0].get("matched_keywords", [])
+        if kws:
+            print(f"  🔗 命中: {', '.join(kws[:5])}")
+    
+    # 路由建議
+    advice = result.get("routing_advice", "")
+    if advice:
+        print(f"  💡 {advice}")
+    
+    print(f"  ⚡ {result.get('processing_time_ms', 0)}ms · {result.get('dna', DNA)}\n")
+
+
+def _print_neural_result(result: dict):
+    """打印神經網絡路由結果（降級路徑）。"""
+    primary = result.get("primary_agent", {})
+    routing = result.get("routing", {})
+    
+    status = routing.get("neural_status", "offline")
+    emoji = "🟢" if status == "online" else "🔴"
+    
+    print(f"\n  🧬 神經路由 · {emoji} {status}")
+    print(f"  🎯 {primary.get('name', '?')} [{primary.get('layer', '?')}]")
+    if routing.get("wuxing_flow"):
+        print(f"  🌊 五行流: {routing['wuxing_flow']}")
+    print(f"  💡 {result.get('advice', '')}")
+    print(f"  ⚡ {result.get('processing_ms', 0)}ms\n")
+
+
+# ═══════════════════════════════════════════════════════════
+# 子命令處理
+# ═══════════════════════════════════════════════════════════
+
+def cmd_status():
+    """系統狀態面板。"""
+    os.chdir(LH_ROOT)
+    
+    # Git 資訊
+    try:
+        branch = subprocess.run(
+            ["git", "symbolic-ref", "--short", "HEAD"],
+            capture_output=True, text=True
+        ).stdout.strip() or "未知"
+        last_commit = subprocess.run(
+            ["git", "log", "-1", "--format=%h %s (%ci)"],
+            capture_output=True, text=True
+        ).stdout.strip() or "未知"
+        diff = subprocess.run(["git", "diff", "--quiet"], capture_output=True)
+        staged = subprocess.run(["git", "diff", "--staged", "--quiet"], capture_output=True)
+        git_status = "✅ 乾淨" if (diff.returncode == 0 and staged.returncode == 0) else "📝 有未提交改動"
+    except Exception:
+        branch, last_commit, git_status = "?", "?", "?"
+
+    print(f"""
+🐉 龍魂 {VERSION} · 完整狀態面板
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📁 項目根目錄: {LH_ROOT}
+🌿 Git 分支:  {branch}
+🕐 最近提交:  {last_commit}
+📊 Git 狀態:  {git_status}
+""")
+
+    # 核心組件檢查
+    checks = [
+        ("OPS 操作台", OPS_CONSOLE),
+        ("CNSH 終端", LH_ROOT / "cnsh-terminal" / "cnsh_terminal_v5.py"),
+        ("CNSH 編輯器", LH_ROOT / "cnsh-editor" / "cnsh_editor_engine_v2.0.py"),
+        ("共生體服務", LH_ROOT / "tools" / "longhun_symbiote_server.py"),
+        ("神經網絡橋接", CNSH_CORE / "neural_agent_bridge.py"),
+        ("智能體編排器", AGENTS_DIR / "orchestrator.py"),
+    ]
+    for name, path in checks:
+        ok = "✅" if path.exists() else "❌"
+        print(f"   {ok} {name}")
+
+    # Agents 統計
+    orch = load_orchestrator()
+    if orch:
+        agents = orch.list_agents()
+        layers = {}
+        for a in agents:
+            l = a.get("layer", "?")
+            layers[l] = layers.get(l, 0) + 1
+        print(f"\n🧬 Agents: {len(agents)} 個已註冊")
+        for l in ["L1", "L2", "L3"]:
+            if l in layers:
+                print(f"   {l}: {layers[l]} 個")
+    
+    # 共生體服務狀態
+    try:
+        pid = subprocess.run(
+            ["lsof", "-ti:9627"], capture_output=True, text=True
+        ).stdout.strip()
+        if pid:
+            print(f"\n🧬 共生體服務: 🟢 運行中 (PID: {pid})")
+            print(f"   🌐 http://127.0.0.1:9627/symbiote")
+        else:
+            print(f"\n🧬 共生體服務: 🔴 未運行 · lh sym start 啟動")
+    except Exception:
+        pass
+
+    # 最近提交
+    print(f"\n📝 最近 5 條提交:")
+    try:
+        log = subprocess.run(
+            ["git", "log", "--oneline", "-5"],
+            capture_output=True, text=True
+        ).stdout
+        for line in log.strip().split("\n"):
+            if line:
+                print(f"   {line}")
+    except Exception:
+        print("   (無法讀取)")
+    
+    print()
+
+
+def cmd_health():
+    """健康全景：神經網絡 + Agents。"""
+    neural = load_neural_bridge()
+    
+    print(f"\n🧬 龍魂共生體 · 健康全景")
+    print(f"{'─' * 50}")
+    
+    if neural:
+        pano = neural.health_panorama()
+        
+        # 神經網絡
+        nn = pano.get("neural", {})
+        online = pano.get("neural_online", False)
+        print(f"  神經網絡: {'🟢 在線' if online else '🔴 離線'}")
+        if nn:
+            print(f"  節點: {nn.get('nodes_total', 0)} · "
+                  f"健康: {nn.get('healthy', 0)} · "
+                  f"待啟: {nn.get('standby', 0)} · "
+                  f"異常: {nn.get('error', 0)}")
+            print(f"  健康率: {nn.get('health_rate', 0)}% · "
+                  f"憲法層: {'🟢' if nn.get('constitution_ok') else '🔴'}")
+            
+            wx = nn.get("wuxing_health", {})
+            if wx:
+                print(f"  五行分布:")
+                for wx_name, stats in wx.items():
+                    bar = "█" * int(stats['rate'] / 10) + "░" * (10 - int(stats['rate'] / 10))
+                    print(f"    {wx_name:6s} {bar} {stats['rate']}% "
+                          f"({stats['healthy']}/{stats['total']})")
+        
+        # Agents
+        print(f"\n  Agents: {pano.get('agents_total', 0)} 個")
+        layers = pano.get("agents_layers", {})
+        print(f"    L1: {layers.get('L1', 0)} · "
+              f"L2: {layers.get('L2', 0)} · "
+              f"L3: {layers.get('L3', 0)}")
+        print(f"  憲法層: {'🟢 穩固' if pano.get('constitution_ok') else '🔴 異常'}")
+    else:
+        # 降級：只用 orchestrator
+        orch = load_orchestrator()
+        if orch:
+            agents = orch.list_agents()
+            print(f"  神經網絡: 🟡 未加載")
+            print(f"  Agents: {len(agents)} 個")
+        else:
+            print("  ❌ 無可用路由引擎")
+    
+    # Dashboard 語法巡檢（記錯本 JS-SYNTAX-001/002）— 全項目掃描
+    print(f"\n  📋 JS 語法巡檢（記錯本 JS-SYNTAX）:")
+    try:
+        import glob as _glob
+        html_files = []
+        for pattern in ['web/**/*.html', 'L5_服务层/**/*.html', 'L5_服务层/**/p0-controls/*.html', 'L5_服务层/**/portal/*.html', 'L5_服务层/**/portal/**/*.html']:
+            html_files.extend(_glob.glob(str(LH_ROOT / pattern), recursive=True))
+        html_files = sorted(set(html_files))
+        
+        # 快速過濾：只掃包含 escHtml 的文件（增大預讀窗口覆蓋大型 HTML）
+        target_files = []
+        for fpath in html_files:
+            try:
+                with open(fpath) as f:
+                    if 'escHtml' in f.read(65536):
+                        target_files.append(fpath)
+            except Exception:
+                pass
+        
+        all_issues = {}
+        for fpath in target_files:
+            try:
+                content = open(fpath).read()
+                lines = content.split('\n')
+                issues = []
+                for i, line in enumerate(lines):
+                    s = line.strip()
+                    if 'escHtml(`' in s:
+                        found_close = False
+                        for j in range(i, min(i+30, len(lines))):
+                            closing = lines[j].rstrip()
+                            if '`);' in closing or closing.endswith('`)') or closing.endswith('`);'):
+                                found_close = True
+                                break
+                        if not found_close:
+                            issues.append(f'    L{i+1}: escHtml(`) 缺收口')
+                    if 'escHtml(' in s and '.map(' in s and '=> {' in s:
+                        issues.append(f'    L{i+1}: escHtml + map 嵌套風險')
+                if issues:
+                    rel = fpath.replace(str(LH_ROOT)+'/', '')
+                    all_issues[rel] = issues
+            except Exception:
+                pass
+        
+        if all_issues:
+            print(f"  🔴 發現 {sum(len(v) for v in all_issues.values())} 個語法問題 ({len(all_issues)} 文件):")
+            for fname, iss in sorted(all_issues.items()):
+                print(f"  📄 {fname}:")
+                for i in iss:
+                    print(i)
+            print(f"  📋 參見: L8_治理层/记错本.md → JS-SYNTAX-001/002")
+        else:
+            print(f"  🟢 全項目語法正常 (掃描 {len(target_files)}/{len(html_files)} 個 HTML)")
+    except Exception as e:
+        print(f"  ⚠️ 語法掃描失敗: {e}")
+
+    print(f"{'─' * 50}\n")
+
+
+def cmd_symbiote(action: str = "status"):
+    """共生體服務管理。"""
+    symbiote_path = LH_ROOT / "tools" / "longhun_symbiote_server.py"
+    
+    if action in ("status", ""):
+        try:
+            result = subprocess.run(
+                ["lsof", "-ti:9627"], capture_output=True, text=True
+            )
+            pid = result.stdout.strip()
+            if pid:
+                print(f"🧬 共生體服務: 🟢 運行中 (PID: {pid})")
+                print(f"   🌐 http://127.0.0.1:9627/symbiote")
+                # 健康檢查
+                import urllib.request
+                try:
+                    req = urllib.request.Request("http://127.0.0.1:9627/api/health")
+                    with urllib.request.urlopen(req, timeout=3) as resp:
+                        if resp.status == 200:
+                            print(f"   ✅ API 健康檢查通過")
+                except Exception:
+                    print(f"   🟡 API 端口可達但健康檢查失敗")
+            else:
+                print(f"🧬 共生體服務: 🔴 未運行")
+                print(f"   啟動: lh sym start")
+        except Exception as e:
+            print(f"❌ 檢查失敗: {e}")
+    
+    elif action == "start":
+        if not symbiote_path.exists():
+            print(f"❌ 共生體服務腳本未找到: {symbiote_path}")
+            return
+        print("🧬 啟動共生體服務...")
+        subprocess.Popen(
+            [sys.executable, str(symbiote_path)],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        time.sleep(2)
+        cmd_symbiote("status")
+    
+    elif action == "stop":
+        print("🧹 停止共生體服務...")
+        subprocess.run(["lsof", "-ti:9627"], capture_output=True, text=True)
+        result = subprocess.run(
+            ["lsof", "-ti:9627"], capture_output=True, text=True
+        )
+        for pid in result.stdout.strip().split("\n"):
+            if pid:
+                subprocess.run(["kill", "-9", pid], capture_output=True)
+        print("🟢 已停止")
+    
+    elif action == "restart":
+        cmd_symbiote("stop")
+        time.sleep(1)
+        cmd_symbiote("start")
+    
+    else:
+        print("用法: lh sym [status|start|stop|restart]")
+
+
+def cmd_fuse(args: list):
+    """熔斷控制。"""
+    fuse_path = LH_ROOT / "bin" / "fuse_control.py"
+    if fuse_path.exists():
+        subprocess.run([sys.executable, str(fuse_path)] + args)
+    else:
+        print(f"❌ 熔斷控制器未找到: {fuse_path}")
+
+
+def cmd_agents_list():
+    """列出所有已注册 Agent。"""
+    orch = load_orchestrator()
+    if not orch:
+        print("❌ 無法加載 Agent 編排器")
+        return
+    
+    agents = orch.list_agents()
+    print(f"\n🧬 龍魂 Agents · 共 {len(agents)} 個\n")
+    
+    # 按層級分組
+    for layer in ["L1", "L2", "L3"]:
+        layer_agents = [a for a in agents if a.get("layer") == layer]
+        if not layer_agents:
+            continue
+        icons = {"L1": "🟢", "L2": "🔵", "L3": "🟣"}
+        print(f"  {icons.get(layer, '⚪')} {layer} 層 ({len(layer_agents)} 個):")
+        for a in layer_agents:
+            name = a.get("name", "?")
+            logic = a.get("logic", "")
+            kws = a.get("keywords", [])[:3]
+            kw_str = ", ".join(kws) if kws else ""
+            print(f"     {a.get('id', '?'):20s} {name:12s} {logic:20s}")
+            if kw_str:
+                print(f"     {'':20s} {'':12s} 🔗 {kw_str}")
+        print()
+    print()
+
+
+def cmd_shell():
+    """交互模式：持續對話，自動路由。"""
+    print("╔══════════════════════════════════════════════════════════╗")
+    print("║  🧬 龍魂共生體 · 交互模式                                ║")
+    print("║  說出你的需求，系統自動路由到正確的人格/工具               ║")
+    print("║  命令: h=健康 | a=Agents | st=狀態 | q=退出               ║")
+    print("╚══════════════════════════════════════════════════════════╝")
+    
+    while True:
+        try:
+            text = input("\n🐉 >> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n共生體待命。")
+            break
+        
+        if not text:
+            continue
+        if text.lower() in ("q", "quit", "exit", "退出"):
+            print("共生體待命。")
+            break
+        if text.lower() in ("h", "health", "健康"):
+            cmd_health()
+            continue
+        if text.lower() in ("a", "agents", "agent", "人格", "角色"):
+            cmd_agents_list()
+            continue
+        if text.lower() in ("st", "status", "狀態", "状态"):
+            cmd_status()
+            continue
+        if text.lower() in ("sym", "共生体", "共生體"):
+            cmd_symbiote("status")
+            continue
+        
+        auto_route(text)
+
+
+def cmd_patrol(args: list):
+    """🛡️ 安全巡檢 — 主動測邊界，不躲避漏洞。"""
+    patrol_script = LH_ROOT / "bin" / "patrol_security.py"
+    if not patrol_script.exists():
+        print("❌ 巡檢腳本未找到:", patrol_script)
+        return
+
+    快速 = any(a in ("--quick", "-q") for a in args)
+    仅报告 = any(a in ("--report", "-r") for a in args)
+    extra = [a for a in args if not a.startswith("-")]
+
+    cmd = ["python3", str(patrol_script)]
+    if 快速:
+        cmd.append("--quick")
+    if 仅报告:
+        cmd.append("--report")
+
+    subprocess.run(cmd)
+
+
+def cmd_hub(args: list):
+    """🧠 哲学落地总调度器 — 把「文章」文件夹里的哲学全变成可执行代码。"""
+    hub_script = LH_ROOT / "scripts" / "round1" / "philosophy_hub.py"
+    if not hub_script.exists():
+        print("❌ 哲学调度器未找到:", hub_script)
+        return
+
+    # 如果有输入内容，传入处理
+    if args:
+        text = " ".join(args)
+        # 快速模式：直接传入文本审计
+        cmd = ["python3", str(hub_script)]
+        subprocess.run(cmd)
+    else:
+        # 无参数：运行自测
+        subprocess.run(["python3", str(hub_script)])
+
+
+def cmd_version():
+    """版本信息。"""
+    print(f"""
+🐉 龍魂統一入口 · lh {VERSION}
+DNA: {DNA}
+項目: {LH_ROOT}
+
+共生體宣言:
+  神經網絡不是 3D 裝飾品——它是你的路由引擎。
+  每一次查詢都在神經網絡拓撲中留下痕跡。
+  使用即學習、查詢即反饋、異常即進化。
+""")
+
+
+def print_help():
+    """幫助信息。"""
+    print(f"""
+🐉 龍魂統一入口 · lh {VERSION}
+
+一個命令，統攝一切。
+
+═══ 用法 ═══
+
+  lh "你的需求"      自動路由到正確的人格/工具
+  lh                 交互模式（持續對話）
+  lh shell           共生體交互模式（同上）
+
+═══ 常用命令 ═══
+
+  lh status          系統狀態面板（Git + 組件 + Agents）
+  lh health          神經網絡 + Agents 健康全景
+  lh agents          列出所有已註冊 Agent/人格
+  lh sym [start|stop|restart|status]  共生體服務管理
+  lh patrol          安全巡檢（主動測邊界·掃P0/P1/P2漏洞）
+  lh patrol --quick  快速巡檢（僅掃P0）
+  lh hub             哲學落地總調度（歸源→三才→七因子→倫理→生態→審計）
+  lh fuse            熔斷控制
+  lh editor          打開 CNSH 編輯器
+  lh v               版本信息
+
+═══ 傳統命令（向後兼容 lh6） ═══
+
+  lh 編輯器 / edit          CNSH 中文編輯器
+  lh 熔斷 / fuse            熔斷控制
+  lh 令牌 / token           主權令牌管理
+  lh 八卦 / bagua           六十四卦路由查詢
+  lh 五行 / wuxing          五行權限校驗
+  lh DNA生成 / dna-gen      河圖洛書 DNA 生成
+  lh 驗證 / auth            主權身份驗證
+  lh 加密 / privacy          審計日誌加密
+  lh 錯誤 / error           系統錯誤翻譯
+  lh 審計變量 / av           CNSH 變量審計
+  lh 審計插件 / ap           可插拔審計
+  lh 資本審計 / clap         資本愛之審計
+  lh 語義 / semantic        自然語言→命令解析
+  lh 狀態 / status          完整狀態面板
+  lh 共生體 / symbiote      共生體服務管理
+  lh 出口 / export          導出用戶數據
+  lh 行為 / behavior        人民行為引擎
+  lh 範圍 / scope           人民技能邊界
+  lh 行程 / going           創始人報備行程
+  lh ops                    打開 OPS 操作台
+  lh portal                 打開線上門戶
+  lh help                   顯示此幫助
+
+═══ 設計原則 ═══
+
+  不記命令 → 系統讀你的意圖
+  人格自動觸發 → 不需要手動選擇
+  一個入口 → lh 即是全部
+
+DNA: {DNA}
+""")
+
+
+# ═══════════════════════════════════════════════════════════
+# 主入口
+# ═══════════════════════════════════════════════════════════
+
+def main():
+    args = sys.argv[1:]
+    
+    # 無參數 → 交互模式
+    if not args:
+        cmd_shell()
+        return
+    
+    cmd = args[0].lower()
+    rest = args[1:]
+    
+    # ── lh 原生命令 ──
+    if cmd in ("status", "st", "狀態", "状态"):
+        cmd_status()
+        return
+    
+    if cmd in ("health", "h", "健康"):
+        cmd_health()
+        return
+    
+    if cmd in ("shell", "sh", "交互"):
+        cmd_shell()
+        return
+    
+    if cmd in ("symbiote", "sym", "共生体", "共生體", "共生"):
+        action = rest[0] if rest else "status"
+        cmd_symbiote(action)
+        return
+    
+    if cmd == "fuse" or cmd == "熔断" or cmd == "熔斷":
+        cmd_fuse(rest)
+        return
+    
+    if cmd in ("agents", "a", "agent", "人格", "角色"):
+        cmd_agents_list()
+        return
+
+    if cmd in ("patrol", "p", "巡檢", "巡检", "安全掃描", "安全扫描"):
+        cmd_patrol(rest)
+        return
+
+    if cmd in ("hub", "哲学", "哲學", "落地"):
+        cmd_hub(rest)
+        return
+
+    if cmd in ("version", "v", "-v", "--version"):
+        cmd_version()
+        return
+    
+    if cmd in ("help", "--help", "-h", "?", "帮助", "幫助"):
+        print_help()
+        return
+    
+    # ── 向後兼容：轉發給舊 lh6 bash 腳本 ──
+    if cmd in LH6_DELEGATE:
+        lh6_path = LH_ROOT / "bin" / "lh6"
+        if lh6_path.exists():
+            # 重建完整參數列表（原樣傳遞）
+            os.execv(str(lh6_path), ["lh6", cmd] + rest)
+        else:
+            print(f"❌ lh6 腳本未找到: {lh6_path}")
+        return
+    
+    # ── 默認模式：自然語言自動路由 ──
+    text = " ".join(args)
+    auto_route(text)
+
+
+if __name__ == "__main__":
+    main()

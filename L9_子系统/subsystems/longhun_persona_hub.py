@@ -5,26 +5,31 @@
 # ║  DNA追溯头（不可删除 · 删除即断链）                                       ║
 # ║  DNA Trace Header (DO NOT DELETE · deletion breaks the chain)            ║
 # ╚═══════════════════════════════════════════════════════════════════════════╝
-# 龍芯⚡️2026-06-24-LONGHUN-PERSONA-HUB-v1.0
+# 龍芯⚡️2026-07-06-LONGHUN-PERSONA-HUB-v2.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
+# 精修: 2026-07-06 — 数据路径断裂修复·宝宝P17人格·仲裁展示·系统信息
 
 """
-龍魂人格中枢 · LongHun Persona Hub v1.0
+龍魂人格中枢 · LongHun Persona Hub v2.0
 
 本地可执行的人格路由中枢：
-- 读取 persona/persona_registry.json 人格注册表
+- 读取 persona/persona_registry.json 人格注册表（17人格）
 - 读取 persona/relation_graph.json 关系图谱
 - 读取 persona/yijing_hexagrams.json 易经六十四卦
 - 根据任务类型自动路由人格
 - 根据关系亲密度调整响应策略
 - 根据数字根/时间计算当前卦象
 - 输出人格内阁建议
+- 🆕 宝宝P17入口人格 · 一键激活（--宝宝 / --baby）
 
 用法:
-    python3 longhun_persona_hub.py --task "我要发布XPay白皮书到GitHub和Gitee"
-    python3 longhun_persona_hub.py --task "帮我检查这个代码有没有安全漏洞" --relation P03
-    python3 longhun_persona_hub.py --hexagram
+    python3 longhun_persona_hub.py --task "帮我检查安全漏洞"
+    python3 longhun_persona_hub.py --宝宝              # 激活宝宝入口
+    python3 longhun_persona_hub.py --list              # 人格内阁
+    python3 longhun_persona_hub.py --info              # 系统信息
+    python3 longhun_persona_hub.py --arb               # 仲裁规则
+    python3 longhun_persona_hub.py --hexagram          # 当前卦象
 """
 
 import json
@@ -39,11 +44,24 @@ from typing import Dict, List, Optional, Tuple, Any
 class 龍魂人格中枢:
     """本地人格路由中枢"""
 
-    DNA = "#龍芯⚡️2026-06-24-LONGHUN-PERSONA-HUB-v1.0"
+    DNA = "#龍芯⚡️2026-07-06-LONGHUN-PERSONA-HUB-v2.0"
+    人格中枢版本 = "v2.0"
 
     def __init__(self, base_dir: Optional[str] = None):
         self.base_dir = Path(base_dir) if base_dir else Path(__file__).parent
-        self.persona_dir = self.base_dir / "persona"
+        # 智能查找 persona 数据目录：先找本地，再找项目根
+        local_persona = self.base_dir / "persona"
+        root_persona = Path(__file__).resolve().parent.parent.parent / "persona"
+        if local_persona.exists() and (local_persona / "persona_registry.json").exists():
+            self.persona_dir = local_persona
+        elif root_persona.exists() and (root_persona / "persona_registry.json").exists():
+            self.persona_dir = root_persona
+        else:
+            # 尝试项目根下的 persona
+            项目根 = Path.cwd()
+            候选 = [local_persona, root_persona, 项目根 / "persona"]
+            self.persona_dir = next((p for p in 候选 if (p / "persona_registry.json").exists()), local_persona)
+
         self.registry = self._加载_json("persona_registry.json")
         self.relations = self._加载_json("relation_graph.json")
         self.yijing = self._加载_json("yijing_hexagrams.json")
@@ -51,8 +69,9 @@ class 龍魂人格中枢:
         self.rules = self.registry.get("routing_rules", [])
         self.arbitrations = self.registry.get("arbitration_rules", [])
         self.hexagrams = self.yijing.get("hexagrams", {})
+        self._数据源路径 = str(self.persona_dir)
 
-    def _加载_json(self, filename: str) -> Dict:
+    def _加载_json(self, filename: str) -> Dict[str, Any]:
         path = self.persona_dir / filename
         if not path.exists():
             return {}
@@ -109,7 +128,7 @@ class 龍魂人格中枢:
         best = scores[0]
         return self._组装路由结果(best[1], best[2], task)
 
-    def _组装路由结果(self, rule: Dict, matched: List[str], task: str) -> Dict[str, Any]:
+    def _组装路由结果(self, rule: Dict[str, Any], matched: List[str], task: str) -> Dict[str, Any]:
         primary_id = rule.get("primary", "P05")
         secondary_ids = rule.get("secondary", [])
         primary = self.personas.get(primary_id, {})
@@ -196,7 +215,7 @@ class 龍魂人格中枢:
             "策略建议": strategy,
         }
 
-    def _卦象策略(self, hexagram: Dict) -> str:
+    def _卦象策略(self, hexagram: Dict[str, Any]) -> str:
         """根据卦象属性给出策略"""
         prop = hexagram.get("属性", "")
         strategies = {
@@ -213,7 +232,7 @@ class 龍魂人格中枢:
         }
         return strategies.get(prop, f"当前卦象为{hexagram.get('卦名', '')}，{hexagram.get('含义', '宜审慎决策')}。")
 
-    def 列出人格(self) -> List[Dict]:
+    def 列出人格(self) -> List[Dict[str, Any]]:
         """列出所有人格"""
         return [
             {
@@ -223,9 +242,36 @@ class 龍魂人格中枢:
                 "权重": p.get("weight", 0),
                 "成功率": p.get("success_rate", 0),
                 "状态": p.get("status", ""),
+                "路由优先级": p.get("route_priority", ""),
             }
             for pid, p in self.personas.items()
         ]
+
+    def 仲裁规则(self) -> List[Dict[str, Any]]:
+        """列出所有仲裁规则"""
+        return [
+            {
+                "编号": a.get("id", ""),
+                "类型": a.get("type", a.get("condition", "")),
+                "左": a.get("left", ""),
+                "右": a.get("right", ""),
+                "规则": a.get("rule", a.get("action", "")),
+                "胜出": a.get("winner", ""),
+            }
+            for a in self.arbitrations
+        ]
+
+    def 系统信息(self) -> Dict[str, Any]:
+        """返回系统元信息"""
+        return {
+            "版本": self.人格中枢版本,
+            "DNA": self.DNA,
+            "数据源": self._数据源路径,
+            "人格数": len(self.personas),
+            "路由规则数": len(self.rules),
+            "仲裁规则数": len(self.arbitrations),
+            "卦象数": len(self.hexagrams),
+        }
 
 
 def main():
@@ -234,13 +280,22 @@ def main():
     parser.add_argument("--relation", "-r", type=str, default="UID9622", help="关系视角节点ID，默认UID9622")
     parser.add_argument("--hexagram", "-g", action="store_true", help="仅显示当前卦象")
     parser.add_argument("--list", "-l", action="store_true", help="列出所有人格")
+    parser.add_argument("--info", "-i", action="store_true", help="显示系统信息")
+    parser.add_argument("--arb", "-a", action="store_true", help="列出仲裁规则")
+    parser.add_argument("--宝宝", "--baby", "-b", action="store_true", help="一键激活宝宝入口")
     parser.add_argument("--json", "-j", action="store_true", help="以JSON格式输出")
     args = parser.parse_args()
 
     hub = 龍魂人格中枢()
 
     if args.list:
-        result = {"人格内阁": hub.列出人格()}
+        result = {"人格内阁": hub.列出人格(), "系统信息": hub.系统信息()}
+    elif args.info:
+        result = hub.系统信息()
+    elif args.arb:
+        result = {"仲裁规则": hub.仲裁规则()}
+    elif args.宝宝:
+        result = hub.人格建议("宝宝 启动系统", "UID9622")
     elif args.hexagram:
         result = {"当前卦象": hub.当前卦象()}
     elif args.task:
@@ -249,9 +304,12 @@ def main():
         result = {
             "欢迎使用": "龍魂人格中枢",
             "可用命令": [
-                "python3 longhun_persona_hub.py --task '你的任务'",
-                "python3 longhun_persona_hub.py --hexagram",
-                "python3 longhun_persona_hub.py --list",
+                "python3 longhun_persona_hub.py --task '你的任务'    # 智能路由",
+                "python3 longhun_persona_hub.py --宝宝             # 宝宝入口",
+                "python3 longhun_persona_hub.py --list            # 人格内阁",
+                "python3 longhun_persona_hub.py --info            # 系统信息",
+                "python3 longhun_persona_hub.py --arb             # 仲裁规则",
+                "python3 longhun_persona_hub.py --hexagram        # 当前卦象",
             ],
             "当前卦象": hub.当前卦象(),
         }
@@ -260,29 +318,41 @@ def main():
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print("\n" + "=" * 60)
-        print("  🐉 龍魂人格中枢 · LongHun Persona Hub")
+        print(f"  🐉 龍魂人格中枢 · LongHun Persona Hub {hub.人格中枢版本}")
+        info = hub.系统信息()
+        print(f"  📂 数据源: {info['数据源']}")
         print("=" * 60)
         if "人格内阁" in result:
-            print("\n📋 人格内阁:")
-            for p in result["人格内阁"]:
-                print(f"  {p['代码']} {p['名称']} | {p['角色']} | 权重{p['权重']} | 成功率{p['成功率']:.1%}")
+            print(f"\n📋 人格内阁 ({info['人格数']}个 / {info['路由规则数']}路由 / {info['仲裁规则数']}仲裁):")
+            for p in result["人格内阁"]:  # pyright: ignore[reportArgumentType]
+                优先级标记 = "⭐" if p.get('路由优先级') == 'P0' else "  "  # pyright: ignore[reportAttributeAccessIssue]
+                print(f"  {优先级标记} {p.get('代码','')} {p.get('名称','')} | {p.get('角色','')} | 权重{p.get('权重',0)} | 成功率{p.get('成功率',0):.1%}")  # pyright: ignore[reportAttributeAccessIssue]
+        elif "版本" in result:
+            # --info
+            for k, v in result.items():
+                print(f"  {k}: {v}")
+        elif "仲裁规则" in result:
+            print(f"\n⚖️ 仲裁规则 ({len(result['仲裁规则'])}条):")
+            for a in result["仲裁规则"]:  # pyright: ignore[reportArgumentType]
+                print(f"  {a.get('编号','')} | {a.get('类型','')} | {a.get('左','')} vs {a.get('右','')} → {a.get('规则','')} → 🏆{a.get('胜出','')}")  # pyright: ignore[reportAttributeAccessIssue]
         elif "当前卦象" in result and len(result) == 1:
-            g = result["当前卦象"]
-            print(f"\n☯️ 当前卦象: {g['卦名']} {g['卦象']}")
-            print(f"   含义: {g['含义']}")
-            print(f"   属性: {g['属性']}")
+            g = result["当前卦象"]  # pyright: ignore[reportArgumentType]
+            print(f"\n☯️ 当前卦象: {g.get('卦名','')} {g.get('卦象','')}")  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"   含义: {g.get('含义','')}")  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"   属性: {g.get('属性','')}")  # pyright: ignore[reportAttributeAccessIssue]
         elif "任务" in result:
-            r = result["路由结果"]
-            print(f"\n🎯 任务: {r['任务']}")
-            print(f"🛣️ 路由: {r['规则名称']} ({r['匹配规则']})")
-            print(f"👤 主人格: {r['主人格']['名称']} ({r['主人格']['代码']}) 权重{r['主人格']['权重']}")
-            if r['副人格']:
-                print("👥 副人格: " + "、".join([f"{s['名称']}({s['代码']})" for s in r['副人格']]))
-            print(f"🔗 执行模式: {r['执行模式']}")
-            print(f"💞 关系权重: {result['关系权重']}")
-            g = result["当前卦象"]
-            print(f"\n☯️ 当前卦象: {g['卦名']} {g['卦象']}")
-            print(f"   {g['含义']}")
+            r = result["路由结果"]  # pyright: ignore[reportArgumentType]
+            print(f"\n🎯 任务: {r.get('任务','')}")  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"🛣️ 路由: {r.get('规则名称','')} ({r.get('匹配规则','')})")  # pyright: ignore[reportAttributeAccessIssue]
+            _primary = r.get('主人格', {})  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"👤 主人格: {_primary.get('名称','')} ({_primary.get('代码','')}) 权重{_primary.get('权重',0)}")  # pyright: ignore[reportAttributeAccessIssue]
+            if r.get('副人格'):  # pyright: ignore[reportAttributeAccessIssue]
+                print("👥 副人格: " + "、".join([f"{s.get('名称','')}({s.get('代码','')})" for s in r.get('副人格', [])]))  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"🔗 执行模式: {r.get('执行模式','')}")  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"💞 关系权重: {result.get('关系权重', 0)}")  # pyright: ignore[reportAttributeAccessIssue]
+            g = result["当前卦象"]  # pyright: ignore[reportArgumentType]
+            print(f"\n☯️ 当前卦象: {g.get('卦名','')} {g.get('卦象','')}")  # pyright: ignore[reportAttributeAccessIssue]
+            print(f"   {g.get('含义','')}")  # pyright: ignore[reportAttributeAccessIssue]
             print(f"\n💡 策略建议: {result['策略建议']}")
         else:
             print(json.dumps(result, ensure_ascii=False, indent=2))

@@ -6,6 +6,7 @@ LH_ROOT="${LONGHUN_ROOT:-$HOME/longhun-system}"
 CNSH_TERMINAL="$LH_ROOT/cnsh-terminal/cnsh_terminal_v5.py"
 CNSH_EDITOR="$LH_ROOT/cnsh-editor/cnsh_editor_engine_v2.0.py"
 CNSH_AUDITOR="$LH_ROOT/cnsh-editor/core/cnsh_editor_var_auditor.py"
+CLAP_ENGINE="$LH_ROOT/audit/capital_love_audit.py"
 PLIST_VALIDATOR="$LH_ROOT/bin/plist_validator.py"
 FUSE_CONTROL="$LH_ROOT/bin/fuse_control.py"
 SEMANTIC_PARSER="$LH_ROOT/bin/semantic_parser.py"
@@ -649,6 +650,49 @@ else:
     fi
     ;;
 
+  # ── 🛡️ CLAP 资本愛之审计 ──
+  clap|资本审计|愛之审计|资本隔离)
+    shift
+    if [ -f "$CLAP_ENGINE" ]; then
+      case "${1:-status}" in
+        audit|审计)
+          shift
+          if [ $# -eq 0 ]; then
+            echo "🛡️ CLAP 资本愛之审计"
+            echo "用法: lh6 clap audit <实体JSON文件>"
+            echo "示例: lh6 clap audit audit/sample_entity_good.json"
+            echo ""
+            echo "实体JSON格式见: audit/sample_entity_good.json"
+          else
+            python3 "$CLAP_ENGINE" --audit "$@"
+          fi
+          ;;
+        report|报告)
+          python3 "$CLAP_ENGINE" --report
+          ;;
+        banned|禁入|黑名单)
+          python3 "$CLAP_ENGINE" --list-banned
+          ;;
+        verify|status|状态)
+          python3 "$CLAP_ENGINE" --verify
+          ;;
+        *)
+          echo "🛡️ CLAP 资本愛之审计 v1.0"
+          echo "  得罪少数人 · 造福14亿人"
+          echo ""
+          echo "用法:"
+          echo "  lh6 clap audit <entity.json>   审计资本实体"
+          echo "  lh6 clap report                生成本季度报告"
+          echo "  lh6 clap banned                查看禁入黑名单"
+          echo "  lh6 clap status                引擎状态自检"
+          ;;
+      esac
+    else
+      echo "❌ CLAP 资本愛之审计引擎未找到: $CLAP_ENGINE"
+      exit 1
+    fi
+    ;;
+
   help|--help|-h|""|*)
     cat <<EOF
 🐉 龍魂 v6 统一入口 · 河图洛书不动点
@@ -692,6 +736,7 @@ else:
    error     系统错误中文翻译（别名: err）
    audit-plugin  B4可插拔审计插件系统（别名: ap）
    going     创始人报备行程（你说去哪，系统随行）
+   clap      资本愛之审计：七维评分，四级准入（别名: 资本审计/愛之审计）
    ops       打开本地 OPS 操作台
    portal    打开 https://longhun888.com/
    cnsh      启动 CNSH 终端

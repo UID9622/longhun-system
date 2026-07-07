@@ -42,6 +42,8 @@ header p{color:var(--muted);font-size:13px;margin-top:6px}
 footer{text-align:center;color:#475569;font-size:11px;margin-top:30px}
 footer a{color:var(--blue);text-decoration:none}
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -98,20 +100,20 @@ function loadHistory(){
   const list = JSON.parse(localStorage.getItem(LS_KEY)||'[]');
   const el = document.getElementById('historyList');
   if(!list.length){
-    el.innerHTML = '<div class="empty">暂无推演记录，前往 <a href="longhun_hub.html">龍魂智能中枢</a> 启动推演</div>';
+    el.innerHTML = escHtml('<div class="empty">暂无推演记录，前往 <a href="longhun_hub.html">龍魂智能中枢</a> 启动推演</div>');
     return;
   }
-  el.innerHTML = list.slice().reverse().map(renderOne).join('');
+  el.innerHTML = escHtml(list.slice().reverse().map(renderOne).join(''));
 }
 
 function renderPaste(){
   const raw = document.getElementById('jsonInput').value.trim();
-  if(!raw) return alert('请先粘贴 JSON');
+  if(!raw) return showToast('请先粘贴 JSON');
   try{
     const d = JSON.parse(raw);
     const el = document.getElementById('historyList');
-    el.innerHTML = renderOne(d);
-  }catch(e){ alert('JSON 解析失败: '+e.message); }
+    el.innerHTML = escHtml(renderOne(d));
+  }catch(e){ showToast('JSON 解析失败: '+e.message); }
 }
 
 loadHistory();

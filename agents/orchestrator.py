@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂智能体编排器 v1.1
+龍魂智能体编排器 v1.2
 
 - 读取 manifest.json 中的智能体注册表
 - 根据输入文本关键词匹配最合适的智能体/人格
 - 支持 L1 常驻、L2 按需、L3 人格三层模型
-- 已缠尾：全部 176 个智能体/技能接入编排
+- 四层路由：关键词 → empower-engine → agent-eco → 神经网络桥接
+- 已缠尾：全部 213 个智能体/技能接入编排
 - 100% 本地运行，纯标准库
 
-DNA: #龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1
+DNA: #龍芯⚡️2026-07-06-AGENT-ORCHESTRATOR-v1.2-NEURAL
 """
 
 import json
@@ -19,41 +20,55 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-from agent_daemon import start_daemon as _start_daemon, stop_daemon as _stop_daemon
-from agent_status_reporter import generate_report as _generate_report
+from agent_daemon import start_daemon as _start_daemon, stop_daemon as _stop_daemon  # pyright: ignore[reportImplicitRelativeImport]
+from agent_status_reporter import generate_report as _generate_report  # pyright: ignore[reportImplicitRelativeImport]
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 MANIFEST_PATH = SCRIPT_DIR / "manifest.json"
-DNA_SIGNATURE = "#龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1"
-VERSION = "v1.1"
+DNA_SIGNATURE = "#龍芯⚡️2026-07-06-AGENT-ORCHESTRATOR-v1.2-NEURAL"
+VERSION = "v1.2"
 
 # 可选：接入 longhun-empower-engine 进行语义路由兜底
-_EMPOWER_ENGINE = None
+_empower_engine = None
 _EMPOWER_PATH = Path.home() / ".kimi-code" / "skills" / "longhun-empower-engine" / "scripts"
 if _EMPOWER_PATH.exists():
     try:
         sys.path.insert(0, str(_EMPOWER_PATH))
-        from empower_engine_v2 import EmpowerEngine  # type: ignore
+        from empower_engine_v2 import EmpowerEngine  # pyright: ignore[reportMissingImports]
 
-        _EMPOWER_ENGINE = EmpowerEngine()
+        _empower_engine = EmpowerEngine()
     except Exception:
-        _EMPOWER_ENGINE = None
+        _empower_engine = None
 
 # 可选：接入 longhun-agent-eco 动态调度
-_AGENT_ECO = None
+_agent_eco = None
+_eco_route = None
+_eco_status = None
+_eco_list = None
 try:
-    from agent_eco_adapter import (
+    from agent_eco_adapter import (  # pyright: ignore[reportImplicitRelativeImport]
         eco_route as _eco_route,
         eco_status as _eco_status,
         eco_list as _eco_list,
     )
 
-    _AGENT_ECO = True
+    _agent_eco = True
 except Exception:
-    _AGENT_ECO = None
+    _agent_eco = None
+
+# 可选：接入神经网络·智能体桥接器
+_neural_bridge = None
+_NEURAL_BRIDGE_PATH = SCRIPT_DIR.parent / "cnsh-core" / "neural_agent_bridge.py"
+if _NEURAL_BRIDGE_PATH.exists():
+    try:
+        sys.path.insert(0, str(_NEURAL_BRIDGE_PATH.parent))
+        from neural_agent_bridge import NeuralAgentBridge  # pyright: ignore[reportMissingImports]
+        _neural_bridge = NeuralAgentBridge()
+    except Exception:
+        _neural_bridge = None
 
 
 class AgentOrchestrator:
@@ -70,7 +85,7 @@ class AgentOrchestrator:
         self.audit_log_path = Path.home() / ".longhun" / "agents" / "orchestrator_audit.jsonl"
         self.audit_log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    def _load_manifest(self) -> Dict[str, Any]:
+    def _load_manifest(self) -> dict[str, Any]:
         with self.manifest_path.open("r", encoding="utf-8") as f:
             return json.load(f)
 
@@ -80,7 +95,7 @@ class AgentOrchestrator:
         text = re.sub(r"[\s\u3000]+", " ", text)
         return text[:5000]
 
-    def route(self, text: str) -> Dict[str, Any]:
+    def route(self, text: str) -> dict[str, Any]:
         """根据输入文本匹配最合适的智能体。"""
         start = time.time()
         cleaned = self._preprocess(text)
@@ -102,25 +117,43 @@ class AgentOrchestrator:
             return self._build_result(cleaned, matches, start)
 
         # 无直接关键词匹配时，尝试用 empower-engine 做语义兜底
-        if _EMPOWER_ENGINE is not None:
+        if _empower_engine is not None:
             try:
-                empower_result = _EMPOWER_ENGINE.identify(cleaned)
+                empower_result = _empower_engine.identify(cleaned)
                 return self._build_from_empower(cleaned, empower_result, start)
             except Exception:
                 pass
 
         # 若 empower-engine 也未命中，调用 longhun-agent-eco v2 路由引擎
-        if _AGENT_ECO is not None:
+        if _agent_eco is not None:
             try:
-                eco_result = _eco_route(cleaned)
+                eco_result = _eco_route(cleaned)  # pyright: ignore[reportOptionalCall]
                 if eco_result.get("狀態") == "success":
                     return self._build_from_eco(cleaned, eco_result, start)
             except Exception:
                 pass
 
+        # 若以上均未命中，调用神经网络·智能体桥接器
+        if _neural_bridge is not None:
+            try:
+                neural_result = _neural_bridge.route(cleaned)
+                if neural_result.primary_agent:
+                    return self._build_from_neural(cleaned, neural_result, start)
+            except Exception:
+                pass
+
+        # v1.3: 若以上均未命中，调用流场协同引擎做多人格协同路由
+        if len(cleaned) > 10:
+            try:
+                collab_result = self._route_via_collab_flow(cleaned)
+                if collab_result:
+                    return self._build_from_collab(cleaned, collab_result, start)
+            except Exception:
+                pass
+
         return self._fallback(cleaned, "未匹配到智能体")
 
-    def _match_agents(self, text: str) -> List[Dict[str, Any]]:
+    def _match_agents(self, text: str) -> list[dict[str, Any]]:
         results = []
         for agent in self.agents:
             keywords = agent.get("keywords", [])
@@ -144,9 +177,9 @@ class AgentOrchestrator:
     def _build_result(
         self,
         cleaned: str,
-        matches: List[Dict[str, Any]],
+        matches: list[dict[str, Any]],
         start: float,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         primary = matches[0]
         secondary = matches[1] if len(matches) > 1 else None
 
@@ -185,9 +218,9 @@ class AgentOrchestrator:
     def _build_from_empower(
         self,
         cleaned: str,
-        empower_result: Dict[str, Any],
+        empower_result: dict[str, Any],
         start: float,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """当关键词未命中时，用 empower-engine 的语义结果映射到 L3 人格智能体。"""
         persona_code = empower_result.get("primary_persona", "P01")
         agent = next(
@@ -229,9 +262,9 @@ class AgentOrchestrator:
     def _build_from_eco(
         self,
         cleaned: str,
-        eco_result: Dict[str, Any],
+        eco_result: dict[str, Any],
         start: float,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """当关键词与 empower-engine 均未命中时，由 agent-eco v2 路由引擎调度。"""
         matched_ids = eco_result.get("匹配智能體", [])
         tag = eco_result.get("匹配標籤", "")
@@ -239,9 +272,9 @@ class AgentOrchestrator:
 
         # 把 AGENT-XXX 解析为可读名称
         name_map = {}
-        if _AGENT_ECO is not None:
+        if _agent_eco is not None:
             try:
-                for a in _eco_list():
+                for a in _eco_list():  # pyright: ignore[reportOptionalCall]
                     name_map[a["id"]] = a["name"]
             except Exception:
                 pass
@@ -284,9 +317,41 @@ class AgentOrchestrator:
         self._write_audit_log(result)
         return result
 
-    def daemon_status(self) -> Dict[str, Any]:
+    def _build_from_neural(
+        self,
+        cleaned: str,
+        neural_result: Any,
+        start: float,
+    ) -> dict[str, Any]:
+        """当关键词、empower-engine、agent-eco 均未命中时，由神经网络桥接器路由。"""
+        result = {
+            "dna": DNA_SIGNATURE,
+            "version": VERSION,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "input_summary": cleaned[:20] + ("…" if len(cleaned) > 20 else ""),
+            "routing_mode": "neural",
+            "neural_status": neural_result.neural_status,
+            "neural_health": neural_result.network_health,
+            "constitution_ok": neural_result.constitution_ok,
+            "wuxing_flow": neural_result.wuxing_flow,
+            "routing_path": neural_result.routing_path,
+            "matches": neural_result.matched_agents[:5],
+            "primary_agent": neural_result.primary_agent or {
+                "id": "P01",
+                "name": "诸葛亮",
+                "layer": "L3",
+                "logic": "战略推演逻辑",
+                "persona_code": "P01",
+            },
+            "routing_advice": neural_result.advice or "神经网络路由兜底",
+            "processing_time_ms": round((time.time() - start) * 1000, 1),
+        }
+        self._write_audit_log(result)
+        return result
+
+    def daemon_status(self) -> dict[str, Any]:
         """读取 L1 守护进程状态文件。"""
-        from agent_daemon import _read_pid, _is_alive, read_json
+        from agent_daemon import _read_pid, _is_alive, read_json  # pyright: ignore[reportImplicitRelativeImport]
         pid = _read_pid()
         alive = bool(pid and _is_alive(pid))
         state = read_json(Path.home() / "longhun-system" / "agents" / "daemon_state.json", {})
@@ -299,13 +364,13 @@ class AgentOrchestrator:
             "agents": heartbeat.get("agents", []),
         }
 
-    def eco_status(self) -> Dict[str, Any]:
+    def eco_status(self) -> dict[str, Any]:
         """获取 agent-eco 生态系统状态。"""
-        if _AGENT_ECO is None:
+        if _agent_eco is None:
             return {"available": False, "error": "agent-eco 适配器未加载"}
-        return {"available": True, "data": _eco_status()}
+        return {"available": True, "data": _eco_status()}  # pyright: ignore[reportOptionalCall]
 
-    def show_skill(self, skill_id: str) -> Dict[str, Any]:
+    def show_skill(self, skill_id: str) -> dict[str, Any]:
         """查看某个已注册技能/智能体的详情与调用方式。"""
         agent = next((a for a in self.agents if a.get("id") == skill_id), None)
         if agent is None:
@@ -322,7 +387,7 @@ class AgentOrchestrator:
             "dna": agent.get("dna", ""),
         }
 
-    def run_skill(self, skill_id: str, args: List[str]) -> Dict[str, Any]:
+    def run_skill(self, skill_id: str, args: list[str]) -> dict[str, Any]:
         """尝试运行技能的 entrypoint（仅限本地脚本）。"""
         agent = next((a for a in self.agents if a.get("id") == skill_id), None)
         if agent is None:
@@ -361,7 +426,7 @@ class AgentOrchestrator:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def _routing_advice(self, primary: Dict[str, Any], secondary: Optional[Dict[str, Any]]) -> str:
+    def _routing_advice(self, primary: dict[str, Any], secondary: dict[str, Any] | None) -> str:
         name = primary["name"]
         logic = primary["logic"]
         layer = primary["layer"]
@@ -371,7 +436,7 @@ class AgentOrchestrator:
             base += f"；「{secondary['name']}」({secondary['logic']}) 辅助"
         return base
 
-    def _fallback(self, cleaned: str, reason: str) -> Dict[str, Any]:
+    def _fallback(self, cleaned: str, reason: str) -> dict[str, Any]:
         result = {
             "dna": DNA_SIGNATURE,
             "version": VERSION,
@@ -392,7 +457,150 @@ class AgentOrchestrator:
         self._write_audit_log(result)
         return result
 
-    def _write_audit_log(self, result: Dict[str, Any]) -> None:
+    # ═══════════════════════════════════════════════════════════════
+    # v1.3: 流场协同引擎集成
+    # ═══════════════════════════════════════════════════════════════
+
+    _collab_engine = None
+
+    def _get_collab_engine(self):
+        """惰性加载流场协同引擎"""
+        if self._collab_engine is None:
+            try:
+                flowfield_path = ROOT.parent / "scripts" / "round1" / "flowfield_collab_engine.py"
+                if flowfield_path.exists():
+                    sys.path.insert(0, str(flowfield_path.parent))
+                    from flowfield_collab_engine import (
+                        create_default_collab_field,
+                        CollabTask,
+                        WuxingElement,
+                        CollabMode,
+                        CollabTaskDistributor,
+                    )
+                    self._collab_engine = {
+                        "field": create_default_collab_field,
+                        "CollabTask": CollabTask,
+                        "WuxingElement": WuxingElement,
+                        "CollabMode": CollabMode,
+                        "CollabTaskDistributor": CollabTaskDistributor,
+                    }
+            except Exception:
+                self._collab_engine = {}
+        return self._collab_engine
+
+    def _route_via_collab_flow(self, text: str) -> dict[str, Any] | None:
+        """
+        v1.3: 通过流场协同引擎做多人格协同路由
+
+        当单体路由都未命中时，自动启动多人格协同推演：
+        1. 分析任务所需的五行属性
+        2. 从默认协同场中选出最佳协同团队
+        3. 检测协同冲突并给出补救建议
+        """
+        eng = self._get_collab_engine()
+        if not eng:
+            return None
+
+        try:
+            CollabTask = eng["CollabTask"]
+            WuxingElement = eng["WuxingElement"]
+            CollabMode = eng["CollabMode"]
+            field = eng["field"]()
+            distributor = eng["CollabTaskDistributor"](field)
+
+            # 根据输入文本推断任务五行需求
+            required_wuxing = _infer_task_wuxing(text)
+            required_role = _infer_task_role(text)
+            mode = _infer_collab_mode(text)
+
+            task = CollabTask(
+                id=f"COLLAB-{datetime.now().strftime('%H%M%S')}",
+                title=text[:30],
+                description=text,
+                required_wuxing=required_wuxing,
+                required_role=required_role,
+                mode=mode,
+                priority=2,
+            )
+            assignment = distributor.auto_assign(task)
+
+            # 获取协同场报告
+            from flowfield_collab_engine import CollabConflictDetector, FlowFieldFusionEngine
+            fusion = FlowFieldFusionEngine(field).compute_fusion()
+            conflicts = CollabConflictDetector(field).detect_all()
+
+            return {
+                "task": task,
+                "assignment": assignment,
+                "fusion": fusion,
+                "conflicts": conflicts,
+                "field": field,
+            }
+        except Exception:
+            return None
+
+    def _build_from_collab(
+        self,
+        cleaned: str,
+        collab_result: dict[str, Any],
+        start: float,
+    ) -> dict[str, Any]:
+        """将流场协同路由结果转化为标准路由响应"""
+        assignment = collab_result["assignment"]
+        fusion = collab_result["fusion"]
+
+        assigned_names = [a["name"] for a in assignment.get("assigned_to", [])]
+        result = {
+            "dna": DNA_SIGNATURE,
+            "version": VERSION,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "input_summary": cleaned[:20] + ("…" if len(cleaned) > 20 else ""),
+            "routing_mode": "collab_flow",
+            "fusion_index": fusion["fusion_index"],
+            "fusion_status": fusion["fusion_status"],
+            "dominant_wuxing": fusion["dominant_wuxing"],
+            "matches": [
+                {
+                    "id": a["id"],
+                    "name": a["name"],
+                    "score": a["score"],
+                    "wuxing": a.get("wuxing", "N/A"),
+                }
+                for a in assignment.get("assigned_to", [])
+            ],
+            "primary_agent": (
+                {
+                    "id": assignment["assigned_to"][0]["id"],
+                    "name": assignment["assigned_to"][0]["name"],
+                    "layer": "L3",
+                    "logic": f"流场协同路由·{fusion['dominant_wuxing']}行主导",
+                    "persona_code": assignment["assigned_to"][0].get("id", "N/A"),
+                }
+                if assignment.get("assigned_to")
+                else {
+                    "id": "P01",
+                    "name": "诸葛亮",
+                    "layer": "L3",
+                    "logic": "协同路由兜底",
+                    "persona_code": "P01",
+                }
+            ),
+            "routing_advice": (
+                f"流场协同路由：{', '.join(assigned_names)} 协同执行 · "
+                f"融合指数 {fusion['fusion_index']:.2f} · {fusion['fusion_status']}"
+            ),
+            "collab_detail": {
+                "team": assigned_names,
+                "fusion_index": fusion["fusion_index"],
+                "dominant_wuxing": fusion["dominant_wuxing"],
+                "sancai": fusion["fused_sancai"],
+            },
+            "processing_time_ms": round((time.time() - start) * 1000, 1),
+        }
+        self._write_audit_log(result)
+        return result
+
+    def _write_audit_log(self, result: dict[str, Any]) -> None:
         try:
             entry = {
                 "timestamp": result["timestamp"],
@@ -409,11 +617,74 @@ class AgentOrchestrator:
         except Exception:
             pass
 
-    def list_agents(self, layer: Optional[str] = None) -> List[Dict[str, Any]]:
+    def list_agents(self, layer: str | None = None) -> list[dict[str, Any]]:
         """列出已注册智能体。"""
         if layer:
             return [a for a in self.agents if a.get("layer") == layer]
         return self.agents
+
+
+# ═══════════════════════════════════════════════════════════════
+# v1.3: 流场协同辅助函数（任务→五行/角色/模式推断）
+# ═══════════════════════════════════════════════════════════════
+
+def _infer_task_wuxing(text: str) -> List[Any]:
+    """从任务文本推断所需五行"""
+    from flowfield_collab_engine import WuxingElement
+    wuxing_keywords = {
+        WuxingElement.METAL: ["审计", "安全", "规则", "边界", "加密", "签名", "熔断", "漏洞", "合规", "裁决"],
+        WuxingElement.WATER: ["记忆", "追溯", "归档", "同步", "翻译", "日志", "历史", "检索", "DNA", "索引"],
+        WuxingElement.WOOD: ["创新", "构建", "编码", "设计", "架构", "扩展", "生长", "新建", "创造", "生成"],
+        WuxingElement.FIRE: ["执行", "部署", "发布", "激活", "运行", "启动", "推进", "加速", "攻击", "告警"],
+        WuxingElement.EARTH: ["聚合", "编排", "协调", "入口", "承载", "总控", "治理", "注册", "稳定", "锚定"],
+    }
+    scores = {}
+    for elem, keywords in wuxing_keywords.items():
+        score = sum(1 for kw in keywords if kw in text)
+        scores[elem] = score
+    max_score = max(scores.values()) if scores else 0
+    if max_score == 0:
+        return []  # 无偏好
+    return [elem for elem, s in scores.items() if s >= max_score]
+
+
+def _infer_task_role(text: str) -> Any:
+    """从任务文本推断协同角色"""
+    from flowfield_collab_engine import CollabRole
+    role_keywords = {
+        CollabRole.AUDITOR: ["审计", "检查", "漏洞", "安全", "合规"],
+        CollabRole.EXECUTOR: ["执行", "部署", "运行", "发布", "构建"],
+        CollabRole.STRATEGIST: ["设计", "架构", "规划", "战略", "方案"],
+        CollabRole.MEMORIZER: ["记录", "归档", "备份", "日志", "索引"],
+        CollabRole.GUARDIAN: ["守护", "防御", "保护", "监控", "报警"],
+        CollabRole.COMMANDER: ["总控", "编排", "协调", "决策", "指挥"],
+        CollabRole.BRIDGE: ["同步", "对接", "集成", "桥接", "翻译"],
+        CollabRole.OBSERVER: ["观察", "分析", "调研", "评估", "扫描"],
+    }
+    best_role = None
+    best_score = 0
+    for role, keywords in role_keywords.items():
+        score = sum(1 for kw in keywords if kw in text)
+        if score > best_score:
+            best_score = score
+            best_role = role
+    return best_role
+
+
+def _infer_collab_mode(text: str) -> Any:
+    """从任务文本推断协同模式"""
+    from flowfield_collab_engine import CollabMode
+    if any(kw in text for kw in ["并行", "同时", "分头", "各自", "多线"]):
+        return CollabMode.PARALLEL
+    if any(kw in text for kw in ["流水线", "串行", "先后", "传递", "接力"]):
+        return CollabMode.PIPELINE
+    if any(kw in text for kw in ["共识", "投票", "表决", "一致", "全体"]):
+        return CollabMode.CONSENSUS
+    if any(kw in text for kw in ["委派", "指派", "授权", "代理", "代表"]):
+        return CollabMode.DELEGATION
+    if any(kw in text for kw in ["监察", "监督", "审核", "双人", "复核"]):
+        return CollabMode.WATCHDOG
+    return CollabMode.PARALLEL  # 默认并行
 
 
 def main():
@@ -422,7 +693,7 @@ def main():
     print(f"已注册 {len(orchestrator.agents)} 个智能体")
     print(f"DNA: {DNA_SIGNATURE}")
     print("输入文本进行路由，输入 'q' 退出")
-    print("命令: list | skill <id> | run <id> [args] | daemon-status | start-daemon | stop-daemon | report | eco-status | eco-route <文本>\n")
+    print("命令: list | skill <id> | run <id> [args] | daemon-status | start-daemon | stop-daemon | report | eco-status | eco-route <文本> | neural-status | neural-route <文本>\n")
 
     while True:
         try:
@@ -465,7 +736,10 @@ def main():
             print()
             continue
         if cmd == "report":
-            report, json_path, md_path = _generate_report()
+            _report_tuple = _generate_report()
+            report = _report_tuple[0]  # pyright: ignore[reportArgumentType]
+            _json_path = _report_tuple[1]  # pyright: ignore[reportArgumentType]
+            md_path = _report_tuple[2]  # pyright: ignore[reportArgumentType]
             sc = report["sancai"]
             print(f"三才审计报告已生成：{md_path}")
             print(f"综合评分: {sc['overall']:.3f} | dr={sc['digital_root']} | {sc['color']}")
@@ -475,10 +749,26 @@ def main():
             print(json.dumps(orchestrator.eco_status(), ensure_ascii=False, indent=2))
             print()
             continue
+        if cmd == "neural-status":
+            if _neural_bridge is not None:
+                pano = _neural_bridge.health_panorama()
+                print(json.dumps(pano, ensure_ascii=False, indent=2))
+            else:
+                print("神经网络桥接器未加载（需要 cnsh-core/neural_agent_bridge.py）")
+            print()
+            continue
+        if cmd.startswith("neural-route "):
+            query = text[len("neural-route "):].strip()
+            if _neural_bridge is not None:
+                print(json.dumps(_neural_bridge.execute(query), ensure_ascii=False, indent=2))
+            else:
+                print("神经网络桥接器未加载")
+            print()
+            continue
         if cmd.startswith("eco-route "):
             query = text[len("eco-route "):].strip()
-            if _AGENT_ECO is not None:
-                print(json.dumps(_eco_route(query), ensure_ascii=False, indent=2))
+            if _agent_eco is not None:
+                print(json.dumps(_eco_route(query), ensure_ascii=False, indent=2))  # pyright: ignore[reportOptionalCall]
             else:
                 print("agent-eco 适配器未加载")
             print()

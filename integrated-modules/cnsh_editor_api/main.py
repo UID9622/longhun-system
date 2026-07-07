@@ -50,13 +50,13 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# 跨域支持
+# 跨域支持（🛡️ P77修复：白名单替代通配符）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE", "X-CNSH-CONFIRM"],
 )
 
 # 静态文件（前端编辑器）
@@ -232,6 +232,26 @@ def _strip_trailing_main_call(python_code: str) -> str:
 if __name__ == "__main__":
     import uvicorn
 
-    host = os.environ.get("CNSH_API_HOST", "0.0.0.0")
+    # 🛡️ 安全加固 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-api-v1.0
+    # 默認僅綁定 localhost，公網部署需顯式設置 CNSH_API_HOST=0.0.0.0 + API_KEY
+    host = os.environ.get("CNSH_API_HOST", "127.0.0.1")
     port = int(os.environ.get("CNSH_API_PORT", "8000"))
+    # 🛡️ API Key 校驗：設置 CNSH_API_KEY 環境變量後強制要求
+    _api_key = os.environ.get("CNSH_API_KEY", "")
+    if _api_key:
+        from fastapi import Security
+        from fastapi.security import APIKeyHeader
+        _api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+        async def _verify_key(api_key: str = Security(_api_key_header)):
+            if api_key != _api_key:
+                raise HTTPException(status_code=401, detail="Invalid API Key")
+        # 將驗證依賴注入到所有 exec 路由（通過中間件）
+        @app.middleware("http")
+        async def _api_key_middleware(request: Request, call_next):
+            if request.url.path.startswith("/api/run"):
+                key = request.headers.get("X-API-Key", "")
+                if key != _api_key:
+                    from fastapi.responses import JSONResponse
+                    return JSONResponse(status_code=401, content={"detail": "Invalid API Key"})
+            return await call_next(request)
     uvicorn.run(app, host=host, port=port)

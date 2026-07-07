@@ -33,7 +33,7 @@ import hashlib
 import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any
 from enum import Enum
 
 # ── 路径配置 ──
@@ -96,7 +96,7 @@ def fallback_log(msg: str):
 
 
 # ── 熔断状态管理 ──
-def read_fuse_state() -> Dict:
+def read_fuse_state() -> dict[str, Any]:
     if os.path.exists(FUSE_FILE):
         with open(FUSE_FILE) as f:
             return json.load(f)
@@ -113,12 +113,12 @@ def read_fuse_state() -> Dict:
         "overrides": {},  # {domain: expires_at}
     }
 
-def write_fuse_state(state: Dict):
+def write_fuse_state(state: dict[str, Any]):
     ensure_dirs()
     with open(FUSE_FILE, "w") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
 
-def read_blocklist() -> Dict:
+def read_blocklist() -> dict[str, Any]:
     if os.path.exists(BLOCKLIST_FILE):
         with open(BLOCKLIST_FILE) as f:
             return json.load(f)
@@ -134,12 +134,12 @@ def read_blocklist() -> Dict:
         "dna": DNA,
     }
 
-def write_blocklist(data: Dict):
+def write_blocklist(data: dict[str, Any]):
     ensure_dirs()
     with open(BLOCKLIST_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def read_tokens() -> Dict:
+def read_tokens() -> dict[str, Any]:
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE) as f:
             return json.load(f)
@@ -152,7 +152,7 @@ def read_tokens() -> Dict:
         "dna": DNA,
     }
 
-def write_tokens(data: Dict):
+def write_tokens(data: dict[str, Any]):
     ensure_dirs()
     with open(TOKEN_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)

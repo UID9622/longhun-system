@@ -23,9 +23,12 @@ import json
 class TargetLang(str, Enum):
     """编译目标语言"""
     C = "c"
+    CPP = "cpp"
     PYTHON = "python"
     JAVASCRIPT = "javascript"
     RUST = "rust"
+    OBJC = "objc"
+    SWIFT = "swift"
 
 
 class CompileStatus(str, Enum):

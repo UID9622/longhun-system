@@ -22,10 +22,10 @@ from longhun_download_guard import 下载文件检测器, 下载隔离区
 app = FastAPI(title="龍魂护盾 Web 面板")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8766", "http://127.0.0.1:8766"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-DNA-TRACE"],
 )
 护盾 = 龍魂护盾()
 AI熔断器 = AI输出熔断器(护盾)
@@ -206,4 +206,4 @@ async def 实时通道(ws: WebSocket):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("LONGHUN_PANEL_PORT", "8788"))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="127.0.0.1", port=port)

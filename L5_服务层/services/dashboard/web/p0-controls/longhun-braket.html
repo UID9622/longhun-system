@@ -99,6 +99,8 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
         .persona-chip code { color: var(--gold); font-family: Consolas, monospace; }
         footer { text-align: center; margin-top: 30px; color: #606070; font-size: 12px; }
     </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
     <div class="container">
@@ -168,7 +170,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
         function renderPersonaGrid() {
             const grid = document.getElementById('personaGrid');
-            grid.innerHTML = personas.map(p => `
+            grid.innerHTML = escHtml(personas.map(p => `)
                 <div class="persona-chip">
                     <code>|${p.code}⟩</code> ${p.name}<br>
                     <small>${p.desc}</small>
@@ -206,7 +208,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
         function calculate() {
             const task = document.getElementById('taskInput').value.trim();
-            if (!task) { alert("请输入任务描述"); return; }
+            if (!task) { showToast("请输入任务描述"); return; }
 
             const { scenario, weights } = measureScenario(task);
             const evolved = evolve(weights, 1.0);
@@ -229,7 +231,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
             }
 
             document.getElementById('scenarioBadge').textContent = `场景：${scenario}`;
-            document.getElementById('probList').innerHTML = probs.map(p => `
+            document.getElementById('probList').innerHTML = escHtml(probs.map(p => `)
                 <div class="prob-row">
                     <div class="prob-name">${p.name}</div>
                     <div class="prob-bar-wrap"><div class="prob-bar" style="width:0%"></div></div>
@@ -249,7 +251,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
             auditBox.textContent = auditText;
 
             const top = probs[0];
-            document.getElementById('formulaBox').innerHTML = `
+            document.getElementById('formulaBox').innerHTML = escHtml(`)
                 |ψ⟩ = Σ αᵢ|Pᵢ⟩，  Σ|αᵢ|² = 1<br>
                 主执行人格：|${top.code}⟩ = |${top.name}⟩，概率 ${(top.prob*100).toFixed(2)}%<br>
                 协作内阁：${probs.slice(0,3).map(p => p.name).join(' + ')}

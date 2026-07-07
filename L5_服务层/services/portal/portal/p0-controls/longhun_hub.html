@@ -45,6 +45,7 @@ body{
   font-size:26px;
   background:linear-gradient(135deg,var(--blue),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-clip: text;
   margin-bottom:6px
 }
 .hub-header .dna{
@@ -245,6 +246,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
   .tabs{grid-template-columns:repeat(2,1fr)}
 }
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -259,7 +262,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
     <span class="svc-badge" id="badge8765">⚫ 主服务(8765)</span>
     <span class="svc-badge" id="badge8766">⚫ 声影桥(8766)</span>
     <span class="svc-badge" id="badge11434">⚫ Ollama(11434)</span>
-    <a href="../CNSH_龍魂控制台v4.0.html" target="_blank" class="svc-badge" style="text-decoration:none;color:inherit">🚀 操作台 v4.0</a>
+    <a href="../CNSH_龍魂操作台v4.0.html" target="_blank" class="svc-badge" style="text-decoration:none;color:inherit">🚀 操作台 v4.0</a>
     <span id="headerClock">--:--:--</span>
   </div>
 </div>
@@ -858,7 +861,7 @@ function renderDimCards(containerId, auditR) {
     { label: '地利 ☷', data: auditR.diLi, icon: '🌍' },
     { label: '人和 ☵', data: auditR.renHe, icon: '🤝' },
   ];
-  el.innerHTML = dims.map(d => {
+  const cells = dims.map(d => {
     const sc = d.data.score;
     const cls = sc >= 70 ? 'dim-green' : sc >= 40 ? 'dim-yellow' : 'dim-red';
     return `<div class="dim-card ${cls}">
@@ -867,6 +870,7 @@ function renderDimCards(containerId, auditR) {
       <div class="dim-desc">${escHtml((d.data.reason || '').split('\n')[0].slice(0, 60))}</div>
     </div>`;
   }).join('');
+  el.innerHTML = escHtml(cells);
 }
 
 // ── audit log ───────────────────────────────────
@@ -954,7 +958,7 @@ async function checkServices() {
     // keep default option
     const sel = document.getElementById('chatModel');
     if (sel && sel.options.length <= 1) {
-      sel.innerHTML = '<option value="">Ollama离线 · 请启动ollama serve</option>';
+      sel.innerHTML = escHtml('<option value="">Ollama离线 · 请启动ollama serve</option>');
     }
   }
 }
@@ -968,7 +972,7 @@ function setSvcBadge(id, online, label) {
 function setSvcCard(statusId, infoId, online, info) {
   const se = document.getElementById(statusId);
   const ie = document.getElementById(infoId);
-  if (se) se.innerHTML = `<span class="svc-dot ${online ? 'online' : 'offline'}"></span><span style="font-size:12px;color:${online ? 'var(--green)' : 'var(--red)'}">${online ? '🟢 在线' : '🔴 离线'}</span>`;
+  if (se) se.innerHTML = escHtml(`<span class="svc-dot ${online ? 'online' : 'offline'}"></span><span style="font-size:12px;color:${online ? 'var(--green)' : 'var(--red)'}">${online ? '🟢 在线' : '🔴 离线'}</span>`);
   if (ie) ie.textContent = info;
 }
 function loadOllamaModels(models) {
@@ -976,7 +980,7 @@ function loadOllamaModels(models) {
   if (!sel) return;
   const prev = sel.value;
   const bridgeOpt = '<option value="deepseek-bridge">🌉 DeepSeek Bridge (M266)</option>';
-  sel.innerHTML = bridgeOpt + (models.length
+  sel.innerHTML = escHtml(bridgeOpt + (models.length)
     ? models.map(m => `<option value="${escHtml(m)}">${escHtml(m)}</option>`).join('')
     : '<option value="">无可用Ollama模型</option>');
   if (prev && (models.includes(prev) || prev === 'deepseek-bridge')) sel.value = prev;
@@ -993,10 +997,10 @@ function updateHexDisplay() {
   const hx = getHexagram();
   const el = document.getElementById('hexDisplay');
   if (!el) return;
-  el.innerHTML = `<b style="font-size:22px;color:var(--gold)">${hx.sym}</b>
+  el.innerHTML = escHtml(`<b style="font-size:22px;color:var(--gold)">${hx.sym}</b>
    <b style="color:var(--blue)">${hx.n}卦</b> · 评分: <b style="color:var(--green)">${hx.sc}</b><br>
    <span style="font-size:12px;color:#b0b8d1">${hx.desc}</span><br>
-   <span style="font-size:11px;color:#666">当前时辰：${new Date().getHours()}时</span>`;
+   <span style="font-size:11px;color:#666">当前时辰：${new Date().getHours()}时</span>`);
 }
 
 // ── Tab 1: Chat ─────────────────────────────────
@@ -1110,7 +1114,7 @@ function appendChat(role, content, cls, auditColor, auditBadge) {
     const chipCls = auditColor === 'yellow' ? 'yellow' : auditColor === 'red' ? 'red' : '';
     html += `<div><span class="audit-chip ${chipCls}">${escHtml(auditBadge)}</span></div>`;
   }
-  div.innerHTML = html;
+  div.innerHTML = escHtml(html);
   area.appendChild(div);
   area.scrollTop = area.scrollHeight;
 }
@@ -1122,7 +1126,7 @@ async function runAudit() {
   const text = document.getElementById('auditInput').value.trim();
   const cat = document.getElementById('auditCat').value;
   const mode = document.getElementById('auditMode').value;
-  if (!text) { alert('请输入内容'); return; }
+  if (!text) { showToast('请输入内容'); return; }
 
   const btn = document.getElementById('btnAudit');
   btn.disabled = true; btn.textContent = '审计中…';
@@ -1164,7 +1168,7 @@ async function runAudit() {
     renderAuditHist();
     await logAudit(auditR.color, `三色审计(${mode})`, text.slice(0, 60));
   } catch (err) {
-    alert('审计失败: ' + err.message);
+    showToast('审计失败: ' + err.message);
   } finally {
     btn.disabled = false; btn.textContent = '☯️ 执行审计';
   }
@@ -1174,11 +1178,12 @@ function renderAuditHist() {
   const el = document.getElementById('auditHistList');
   if (!el) return;
   const items = auditHist.slice(0, 10);
-  if (!items.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无审计记录</div>'; return; }
-  el.innerHTML = items.map(a => {
+  if (!items.length) { el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无审计记录</div>'); return; }
+  const rows = items.map(a => {
     const cls = a.color === 'green' ? 'ah-g' : a.color === 'yellow' ? 'ah-y' : 'ah-r';
     return `<div class="audit-hist-item ${cls}">${a.time} | ${escHtml(a.badge)} | ${escHtml(a.text)}…</div>`;
   }).join('');
+  el.innerHTML = escHtml(rows);
 }
 
 async function quickAudit8765(text, cat) {
@@ -1239,7 +1244,7 @@ function genDNA() {
   const proj = document.getElementById('dnaProject').value.trim() || 'CREATION';
   const tag = document.getElementById('dnaTag').value.trim() || 'v1.0';
   const content = document.getElementById('dnaContent').value.trim();
-  if (!content) { alert('请输入内容'); return; }
+  if (!content) { showToast('请输入内容'); return; }
   const date = new Date().toISOString().slice(0, 10);
   const hash8 = simpleHash(proj + date + content).toString(16).slice(0, 8).toUpperCase();
   const dna = `#龍芯⚡️${date}-${proj.replace(/\s+/g, '-').toUpperCase()}-${tag}-${hash8}`;
@@ -1253,7 +1258,7 @@ function genDNA() {
   };
   dbPut('dna_evidences', ev).then(() => {
     refreshDNAList(); updateDNAStats(); logAudit(ar.color, 'DNA生成', `proj:${proj}`);
-  }).catch(e => alert('存证失败: ' + e.message));
+  }).catch(e => showToast('存证失败: ' + e.message));
 }
 
 function verifyDNA() {
@@ -1295,9 +1300,8 @@ async function refreshDNAList() {
   all.sort((a, b) => new Date(b.time) - new Date(a.time));
   const el = document.getElementById('dnaList');
   if (!el) return;
-  if (!all.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无存证</div>'; return; }
-  el.innerHTML = all.map(e => `
-    <div class="mem-item">
+  if (!all.length) { el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:24px;font-size:12px">暂无存证</div>'); return; }
+  const dnaItems = all.map(e => `<div class="mem-item">
       <div class="mem-head">
         <span class="mem-dna" style="color:var(--gold)">${escHtml(e.dna)}</span>
         <span class="mem-time">${new Date(e.time).toLocaleString('zh-CN')}</span>
@@ -1308,6 +1312,7 @@ async function refreshDNAList() {
         <span class="tag">${escHtml(e.summary)}</span>
       </div>
     </div>`).join('');
+  el.innerHTML = escHtml(dnaItems);
 }
 
 async function updateDNAStats() {
@@ -1326,7 +1331,7 @@ async function saveMemory() {
   const title = document.getElementById('memTitle').value.trim();
   const content = document.getElementById('memContent').value.trim();
   const cat = document.getElementById('memCategory').value;
-  if (!content) { alert('请输入内容'); return; }
+  if (!content) { showToast('请输入内容'); return; }
 
   const btn = document.getElementById('btnSaveMem');
   btn.disabled = true; btn.textContent = '审计中…';
@@ -1389,9 +1394,8 @@ async function refreshMemList(q = '') {
   filt.sort((a, b) => new Date(b.time) - new Date(a.time));
   const el = document.getElementById('memList');
   if (!el) return;
-  if (!filt.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:30px;font-size:12px">无匹配记忆</div>'; return; }
-  el.innerHTML = filt.map(m => `
-    <div class="mem-item">
+  if (!filt.length) { el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:30px;font-size:12px">无匹配记忆</div>'); return; }
+  const memItems = filt.map(m => `<div class="mem-item">
       <div class="mem-head">
         <span class="mem-dna">${escHtml((m.dna || '').slice(0, 50))}…</span>
         <span class="mem-time">${new Date(m.time).toLocaleString('zh-CN')}</span>
@@ -1408,6 +1412,7 @@ async function refreshMemList(q = '') {
         <button class="btn btn-danger" style="font-size:11px;padding:3px 8px" onclick="delMem(${m.id})">🗑️</button>
       </div>
     </div>`).join('');
+  el.innerHTML = escHtml(memItems);
 }
 
 async function viewMem(id) {
@@ -1467,9 +1472,9 @@ function importAll(file) {
       for (const m of (data.memories || [])) try { await dbPut('memories', m); imp++; } catch { }
       for (const d of (data.dna_evidences || [])) try { await dbPut('dna_evidences', d); } catch { }
       for (const l of (data.audit_log || [])) try { await dbPut('audit_log', l); } catch { }
-      alert(`✅ 导入: ${imp}条记忆`);
+      showToast(`✅ 导入: ${imp}条记忆`);
       await refreshAll();
-    } catch (err) { alert('导入失败: ' + err.message); }
+    } catch (err) { showToast('导入失败: ' + err.message); }
   };
   reader.readAsText(file);
 }
@@ -1478,7 +1483,7 @@ function importAll(file) {
 async function runSandbox() {
   const taskType = document.getElementById('sbTaskType').value.trim();
   const content = document.getElementById('sbContent').value.trim();
-  if (!content) { alert('请输入推演内容'); return; }
+  if (!content) { showToast('请输入推演内容'); return; }
 
   const btn = document.getElementById('btnRunSandbox');
   btn.disabled = true; btn.textContent = '推演中…';
@@ -1530,7 +1535,7 @@ async function runSandbox() {
     await logAudit('blue', '沙盒推演', `task:${taskType}`);
     await loadSandboxHistory();
   } catch (err) {
-    alert('推演失败: ' + err.message);
+    showToast('推演失败: ' + err.message);
   } finally {
     btn.disabled = false; btn.textContent = '🐉 启动推演';
   }
@@ -1564,7 +1569,7 @@ function renderSandboxResult(d) {
   const colorMap = { '🟢': 'abadge-g', '🟡': 'abadge-y', '🔴': 'abadge-r' };
   const badgeCls = colorMap[d.color] || 'abadge-g';
 
-  el.innerHTML = `
+  el.innerHTML = escHtml(`
     <div style="margin-bottom:10px">
       <span style="color:var(--gold);font-size:14px">卦象：${escHtml(d.hexagram || '')}</span>
       <span style="color:#b0b8d1;font-size:12px;margin-left:10px">${d._local ? '[本地推演]' : '[后端推演]'}</span>
@@ -1574,14 +1579,14 @@ function renderSandboxResult(d) {
     <div style="margin:10px 0;padding:10px;background:rgba(0,212,255,.05);border-radius:8px;font-size:12px;color:#b0b8d1">
       📜 道德经锚点：${escHtml(d.dao_anchor || '')}
     </div>
-    <div><span class="abadge ${badgeCls}" style="font-size:14px;padding:4px 14px">${escHtml(d.badge || d.color || '')}</span></div>`;
+    <div><span class="abadge ${badgeCls}" style="font-size:14px;padding:4px 14px">${escHtml(d.badge || d.color || '')}</span></div>`);
 }
 
 async function loadSandboxHistory() {
   const el = document.getElementById('sbHistTable');
   if (!el) return;
   if (!svcStatus.s8765) {
-    el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">主服务(8765)离线，无法获取历史</div>';
+    el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:20px;font-size:12px">主服务(8765)离线，无法获取历史</div>');
     return;
   }
   try {
@@ -1589,8 +1594,8 @@ async function loadSandboxHistory() {
     if (!r.ok) throw new Error('error');
     const d = await r.json();
     const rows = d.history || d.data || d || [];
-    if (!rows.length) { el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">暂无推演历史</div>'; return; }
-    el.innerHTML = `<table class="hist-table">
+    if (!rows.length) { el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:20px;font-size:12px">暂无推演历史</div>'); return; }
+    el.innerHTML = escHtml(`<table class="hist-table">
       <thead><tr><th>时间</th><th>任务类型</th><th>结论</th><th>卦象</th></tr></thead>
       <tbody>${rows.map(row => `<tr>
         <td>${escHtml(row.time || row.created_at || '')}</td>
@@ -1598,9 +1603,9 @@ async function loadSandboxHistory() {
         <td>${escHtml(row.badge || row.color || '')}</td>
         <td>${escHtml(row.hexagram || '')}</td>
       </tr>`).join('')}</tbody>
-    </table>`;
+    </table>`);
   } catch {
-    el.innerHTML = '<div style="color:#666;text-align:center;padding:20px;font-size:12px">获取历史失败</div>';
+    el.innerHTML = escHtml('<div style="color:#666;text-align:center;padding:20px;font-size:12px">获取历史失败</div>');
   }
 }
 
@@ -1814,7 +1819,7 @@ async function notionPush(chapterId, dryRun){
     console.log('理论指导：曾仕强老师（永恒显示）');
   } catch (e) {
     console.error('初始化失败', e);
-    alert('系统初始化失败: ' + e.message);
+    showToast('系统初始化失败: ' + e.message);
   }
 })();
 
@@ -1842,9 +1847,9 @@ async function gitStage() {
       body: JSON.stringify({files:['.']})
     });
     const d = await r.json();
-    alert(d.ok ? '✅ 全部文件已暂存，可以提交了' : '❌ 暂存失败: ' + JSON.stringify(d.results));
+    showToast(d.ok ? '✅ 全部文件已暂存，可以提交了' : '❌ 暂存失败: ' + JSON.stringify(d.results));
     await gitStatus();
-  } catch(e) { alert('服务未启动'); }
+  } catch(e) { showToast('服务未启动'); }
 }
 
 function openCommitModal() {
@@ -1859,7 +1864,7 @@ function closeCommitModal() {
 
 async function gitCommit() {
   const msg = document.getElementById('commit-msg').value.trim();
-  if (!msg) { alert('提交信息不能为空'); return; }
+  if (!msg) { showToast('提交信息不能为空'); return; }
   try {
     const r = await fetch(`${API}/git/提交`, {
       method:'POST', headers:{'Content-Type':'application/json'},
@@ -1868,9 +1873,9 @@ async function gitCommit() {
     const d = await r.json();
     closeCommitModal();
     document.getElementById('commit-msg').value = '';
-    alert(d.ok ? '✅ 提交成功！\n' + d.msg : '❌ 提交失败：' + d.msg);
+    showToast(d.ok ? '✅ 提交成功！\n' + d.msg : '❌ 提交失败：' + d.msg);
     await gitStatus();
-  } catch(e) { alert('服务未启动'); }
+  } catch(e) { showToast('服务未启动'); }
 }
 
 async function gitPush() {

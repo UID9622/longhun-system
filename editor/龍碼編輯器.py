@@ -309,15 +309,37 @@ class 龍码编辑器:
         except Exception as e:
             self._输出(f"[错误] {e}")
 
+    # 🛡️ 安全白名单 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-shell-v1.0
+    _SHELL_WHITELIST = {
+        "python3", "python", "pip3", "pip",
+        "ls", "pwd", "cat", "head", "tail", "wc",
+        "git", "grep", "find", "which", "echo",
+        "node", "npm", "npx", "yarn",
+        "rsync", "scp", "curl", "wget",
+        "docker", "podman",
+    }
+
     def _运行Shell(self):
         content = self.编辑区.get("sel.first", "sel.last") if self.编辑区.tag_ranges("sel") else ""
         if not content.strip():
             self._输出("[Shell] 请先选中要运行的命令")
             return
+        cmd_str = content.strip()
+        # 🛡️ 禁止 shell=True 的危險模式
+        dangerous_patterns = [";", "&&", "||", "|", "`", "$(", ">", ">>", "<", "sudo"]
+        for p in dangerous_patterns:
+            if p in cmd_str:
+                self._输出(f"[Shell] 🛡️ 安全攔截：禁止使用 '{p}' 操作符，請改用白名單命令")
+                return
+        # 🛡️ 白名單校驗
+        first_cmd = cmd_str.split()[0].split("/")[-1] if cmd_str.split() else ""
+        if first_cmd not in self._SHELL_WHITELIST:
+            self._输出(f"[Shell] 🛡️ 安全攔截：'{first_cmd}' 不在白名單中，允許的命令: {', '.join(sorted(self._SHELL_WHITELIST))}")
+            return
         try:
             result = subprocess.run(
-                content.strip(),
-                shell=True,
+                cmd_str.split(),
+                shell=False,
                 capture_output=True,
                 text=True,
                 timeout=30,
@@ -413,7 +435,7 @@ class 龍码编辑器:
 
 def main():
     root = tk.Tk()
-    app = 龍码编辑器(root)
+    _app = 龍码编辑器(root)
     root.mainloop()
 
 

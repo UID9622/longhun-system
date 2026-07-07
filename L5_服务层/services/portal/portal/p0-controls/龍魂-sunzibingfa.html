@@ -233,6 +233,8 @@ body::before{
   .scroll-card{padding:18px}
 }
 </style>
+
+<script src="../../lh-utils.js"></script>
 </head>
 <body>
 <div class="container">
@@ -313,11 +315,11 @@ async function speak(text, voice="zh-CN-YunxiNeural"){
       currentAudio = new Audio(j.audio_url);
       currentAudio.play();
     } else {
-      alert("朗读服务暂不可用：" + (j.error || "未知"));
+      showToast("朗读服务暂不可用：" + (j.error || "未知"));
     }
   } catch(e){
     console.error(e);
-    alert("无法连接声影桥，请确认 8766 端口已启动");
+    showToast("无法连接声影桥，请确认 8766 端口已启动");
   }
 }
 

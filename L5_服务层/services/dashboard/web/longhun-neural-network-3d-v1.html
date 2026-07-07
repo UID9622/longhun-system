@@ -82,6 +82,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 #loader .sub{font-size:12px;color:#64748b;letter-spacing:.06em}
 @keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
 </style>
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 <div id="loader">
@@ -568,7 +570,7 @@ function onMouseMove(event){
       tt.style.top=event.clientY+12+'px';
       const n=obj.userData;
       tt.querySelector('.tt-title').textContent=`${WUXING[n.wuxing].icon} ${n.name}`;
-      tt.querySelector('.tt-meta').innerHTML=`端口: ${n.port||'—'} · 状态: ${STATUS[n.status].name} · 五行: ${WUXING[n.wuxing].name}<br>三才: ${(n.tian*0.3+n.di*0.3+n.ren*0.4).toFixed(3)}`;
+      tt.querySelector('.tt-meta').innerHTML=escHtml(`端口: ${n.port||'—'} · 状态: ${STATUS[n.status].name} · 五行: ${WUXING[n.wuxing].name}<br>三才: ${(n.tian*0.3+n.di*0.3+n.ren*0.4).toFixed(3)}`);
     }
   }else{
     hoveredNode=null;
@@ -600,7 +602,7 @@ function showDetail(node){
     return `<div class="edge-row"><b>${e.type==='guard'?'🛡️':'→'}</b> ${t?t.name:e.target} <span style="color:#64748b">${e.label}</span></div>`;
   }).join('');
 
-  content.innerHTML=`
+  content.innerHTML=escHtml(`)
     <span class="tag">${CATEGORY[node.category].name}</span>
     <span class="tag" style="background:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()}20;color:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()};border-color:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()}40">${STATUS[node.status].name}</span>
     <span class="tag" style="background:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()}20;color:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()};border-color:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()}40">${WUXING[node.wuxing].icon} 五行·${WUXING[node.wuxing].name}</span>

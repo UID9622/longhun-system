@@ -13,6 +13,9 @@
 DNA: #龍芯⚡️20260630-LONGZHI-SHOU-v1
 """
 
+# 龙智守飞书卡片全局确认码（焊死）
+_CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
+
 import argparse
 import datetime
 import hashlib
@@ -41,8 +44,8 @@ _DEEPSEEK_DIR = Path.home() / "longhun-system" / "integrations" / "deepseek"
 if str(_DEEPSEEK_DIR) not in sys.path:
     sys.path.insert(0, str(_DEEPSEEK_DIR))
 try:
-    from deepseek_client import DeepSeekClient
-    _deepseek_client: DeepSeekClient | None = None
+    from deepseek_client import DeepSeekClient  # type: ignore[import-untyped]
+    _deepseek_client: Any | None = None
 except Exception:
     DeepSeekClient = None  # type: ignore[misc, assignment]
     _deepseek_client = None
@@ -507,6 +510,28 @@ def _判斷意圖(text: str) -> str:
     return "綜合審核"
 
 
+def _底部按钮() -> dict[str, Any]:
+    """生成飞书卡片底部按钮，焊死确认码。"""
+    actions = [
+        {
+            "tag": "button",
+            "text": {"tag": "plain_text", "content": "✅ 确认"},
+            "type": "primary",
+            "value": json.dumps({"action": "confirm", "code": _CONFIRM}),
+        },
+        {
+            "tag": "button",
+            "text": {"tag": "plain_text", "content": "❌ 忽略"},
+            "type": "default",
+            "value": json.dumps({"action": "ignore", "code": _CONFIRM}),
+        },
+    ]
+    return {
+        "tag": "action",
+        "actions": actions,
+    }
+
+
 def _使用指南卡片() -> dict[str, Any]:
     return {
         "config": {"wide_screen_mode": True},
@@ -545,6 +570,7 @@ def _使用指南卡片() -> dict[str, Any]:
                 "tag": "note",
                 "elements": [{"tag": "plain_text", "content": "日常用法照舊：直接發鏈接、發話術、發『起一卦』，龍智守會自動判斷。"}],
             },
+            _底部按钮(),
         ],
     }
 
@@ -648,6 +674,9 @@ def _構建卡片(input_text: str, intent: str, results: dict[str, Any], role: s
         "elements": [{"tag": "plain_text", "content": f"龍智守 · {time.strftime('%Y-%m-%d %H:%M')} · DNA: #龍芯⚡️{time.strftime('%Y%m%d%H%M%S')}-LONGZHI-SHOU"}],
     })
 
+    # 底部按钮
+    elements.append(_底部按钮())
+
     return {
         "config": {"wide_screen_mode": True},
         "header": {
@@ -720,7 +749,7 @@ def _構建審計卡片(dna: str, record: dict[str, Any], report_md: str) -> dic
                 "tag": "div",
                 "text": {
                     "tag": "lark_md",
-                    "content": f"**流程圖 Mermaid**\n```mermaid\n{_dna_portal.render_mermaid(record)}\n```",
+                    "content": f"**流程圖 Mermaid**\n```mermaid\n{_dna_portal.render_mermaid(record) if _dna_portal else '# DNA門戶未加載'}\n```",
                 },
             },
             {
@@ -735,6 +764,7 @@ def _構建審計卡片(dna: str, record: dict[str, Any], report_md: str) -> dic
                     {"tag": "plain_text", "content": f"DNA: #龍芯⚡️{time.strftime('%Y%m%d%H%M%S')}-LONGHUN-DNA-AUDIT"}
                 ],
             },
+            _底部按钮(),
         ],
     }
 
@@ -803,6 +833,7 @@ def _套路趨勢回應(days: int = 7, top: int = 10) -> tuple[str, dict[str, An
             {"tag": "div", "text": {"tag": "lark_md", "content": "\n".join(lines)}},
             {"tag": "note", "elements": [{"tag": "plain_text", "content": "📎 詳細趨勢報告將以附件發送"}]},
             {"tag": "note", "elements": [{"tag": "plain_text", "content": f"DNA: #龍芯⚡️{time.strftime('%Y%m%d%H%M%S')}-LONGZHI-SHOU-TREND"}]},
+            _底部按钮(),
         ],
     }
 
@@ -850,6 +881,7 @@ def _DNA日報回應(days: int = 7) -> tuple[str, dict[str, Any], dict[str, Any]
             {"tag": "div", "text": {"tag": "lark_md", "content": "\n".join(lines)}},
             {"tag": "note", "elements": [{"tag": "plain_text", "content": "📎 詳細 DNA 審計日報將以附件發送"}]},
             {"tag": "note", "elements": [{"tag": "plain_text", "content": f"DNA: #龍芯⚡️{time.strftime('%Y%m%d%H%M%S')}-LONGHUN-DNA-DAILY"}]},
+            _底部按钮(),
         ],
     }
 

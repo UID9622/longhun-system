@@ -8,6 +8,8 @@
 <title>longhun888.com · 龍魂系统 · 中国自主可控 AI 基础设施</title>
 <link rel="stylesheet" href="css/longhun-portal.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐉%3C/text%3E%3C/svg%3E">
+
+<script src="../lh-utils.js"></script>
 </head>
 <body>
 
@@ -16,6 +18,7 @@
     <div class="logo"><span class="brand">☰ 龍🇨🇳魂 ☷</span> longhun888.com</div>
     <div class="nav-links">
       <a href="#features">能力</a>
+      <a href="#persona">人格报表</a>
       <a href="#api">API</a>
       <a href="#console">控制台</a>
       <a href="#kg">知识图谱</a>
@@ -56,6 +59,7 @@
     <div class="stat"><b id="stat-csdn">-</b><span>CSDN 文章</span></div>
     <div class="stat"><b id="stat-papers">-</b><span>论文/协议</span></div>
     <div class="stat"><b id="stat-kg">-</b><span>知识节点</span></div>
+    <div class="stat"><b id="stat-persona">-</b><span>人格在线</span></div>
   </div>
 </div>
 
@@ -144,6 +148,30 @@
         <a class="btn btn-outline" href="./longhun-master-control.html" target="_blank">旧版主控台</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="persona" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-title">🧬 人格内阁 · 实时评估报表</div>
+        <div class="section-sub">19个人格多维度评估：活跃度、成功率、信任度、贡献值、稳定性。每项操作实时同步。</div>
+      </div>
+      <a class="btn btn-outline btn-sm" id="persona-refresh-btn" onclick="initPersonaReport()">🔄 刷新数据</a>
+    </div>
+    <!-- 系统总览 -->
+    <div id="persona-overview"></div>
+    <!-- 排名表 -->
+    <div style="overflow-x:auto;margin-top:20px;">
+      <table id="persona-table" style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead><tr id="persona-thead"></tr></thead>
+        <tbody id="persona-tbody"></tbody>
+      </table>
+    </div>
+    <!-- 需关注 -->
+    <div id="persona-attention" style="margin-top:16px;"></div>
+    <div class="dna" style="margin-top:16px;font-size:11px;" id="persona-dna"></div>
   </div>
 </section>
 
@@ -324,6 +352,14 @@ async function initStats(){
   }catch(e){
     setText('stat-kg', '-');
   }
+  
+  // 人格统计
+  try{
+    const pr = await loadJSON('data/persona_report.json');
+    setText('stat-persona', (pr&&pr.summary) ? pr.summary.active + '/' + pr.summary.total_personas : '-');
+  }catch(e){
+    setText('stat-persona', '-');
+  }
 }
 
 function makeLink(href, text, external=true){
@@ -340,7 +376,7 @@ function makeMeta(text){
 async function initAPI(){
   const spec = await loadJSON('data/cnsh_openapi.json');
   const container = document.getElementById('api-list');
-  if(!spec || !spec.paths){ container.innerHTML = '<div class="error">API 数据未加载</div>'; return; }
+  if(!spec || !spec.paths){ container.innerHTML = escHtml('<div class="error">API 数据未加载</div>'; return; });
   const wrap = document.createElement('div');
   for(const [path, methods] of Object.entries(spec.paths)){
     for(const [method, info] of Object.entries(methods)){
@@ -360,7 +396,7 @@ async function initKG(){
   const container = document.getElementById('kg-stats');
   try{
     const stats = await fetch('http://127.0.0.1:8444/api/unified/stats').then(r=>r.json());
-    container.innerHTML = `
+    container.innerHTML = escHtml(`)
       <div class="grid">
         <div class="card"><h3>节点</h3><p>${stats.node_count || 0}</p></div>
         <div class="card"><h3>关系</h3><p>${stats.edge_count || 0}</p></div>
@@ -368,7 +404,7 @@ async function initKG(){
       </div>
       <p style="margin-top:14px"><a class="btn btn-accent" href="./p0-controls/龍魂知识矩阵-3D-沉浸式.html" target="_blank">进入 3D 沉浸式矩阵</a></p>`;
   }catch(e){
-    container.innerHTML = '<div class="error">知识图谱服务未运行（端口 8444）</div>';
+    container.innerHTML = escHtml('<div class="error">知识图谱服务未运行（端口 8444）</div>');
   }
 }
 
@@ -387,7 +423,7 @@ async function initArticles(){
     container.innerHTML = ''; container.appendChild(list);
     return;
   }
-  container.innerHTML = `
+  container.innerHTML = escHtml(`)
     <div class="list">
       <div class="list-item"><a href="./articles/2026-07-04-龍魂隐私白皮书_v2.0.md" target="_blank">龍魂隐私白皮书 v2.0</a><span class="meta">2026-07-04</span></div>
       <div class="list-item"><a href="./articles/2026-07-04-龍魂天道系统-v1.3-优化版.md" target="_blank">龍魂天道系统 v1.3</a><span class="meta">2026-07-04</span></div>
@@ -399,7 +435,7 @@ async function initArticles(){
 async function initNotion(){
   const data = await loadJSON('data/notion_nav.json') || [];
   const container = document.getElementById('notion-list');
-  if(!data.length){ container.innerHTML = '<div class="empty">无 Notion 数据</div>'; return; }
+  if(!data.length){ container.innerHTML = escHtml('<div class="empty">无 Notion 数据</div>'; return; });
   const cats = {};
   data.forEach(p => { (cats[p.category] ||= []).push(p); });
   const frag = document.createDocumentFragment();
@@ -421,7 +457,7 @@ async function initCSDN(){
   const data = await loadJSON('data/csdn_articles.json') || {};
   const articles = data.articles || [];
   const container = document.getElementById('csdn-list');
-  if(!articles.length){ container.innerHTML = '<div class="empty">暂无已同步 CSDN 文章</div>'; return; }
+  if(!articles.length){ container.innerHTML = escHtml('<div class="empty">暂无已同步 CSDN 文章</div>'; return; });
   const list = document.createElement('div'); list.className = 'list';
   articles.forEach(a => {
     const item = document.createElement('div'); item.className = 'list-item';
@@ -436,7 +472,7 @@ async function initPapers(){
   const data = await loadJSON('data/papers.json?v=2') || {};
   const papers = data.papers || [];
   const container = document.getElementById('papers-list');
-  if(!papers.length){ container.innerHTML = '<div class="empty">暂无论文数据</div>'; return; }
+  if(!papers.length){ container.innerHTML = escHtml('<div class="empty">暂无论文数据</div>'; return; });
   const list = document.createElement('div'); list.className = 'list';
   papers.forEach(p => {
     const item = document.createElement('div'); item.className = 'list-item';
@@ -447,8 +483,72 @@ async function initPapers(){
   container.innerHTML = ''; container.appendChild(list);
 }
 
+// ─── 人格内阁报表 ───
+async function initPersonaReport(){
+  const data = await loadJSON('data/persona_report.json');
+  if(!data){ document.getElementById('persona-overview').innerHTML = '<div class="error">报表数据未生成，请运行 python3 bin/lh_persona_report.py</div>'; return; }
+  
+  const s = data.summary;
+  const rankings = data.rankings;
+  
+  // 总览卡片
+  const healthColor = s.system_health >= 80 ? 'var(--green)' : s.system_health >= 60 ? 'var(--yellow)' : 'var(--red)';
+  document.getElementById('persona-overview').innerHTML = 
+    '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;">' +
+      '<div class="card" style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:var(--accent)">'+s.total_personas+'</div><div style="font-size:11px;color:var(--text-dim)">人格总数</div></div>' +
+      '<div class="card" style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:var(--green)">'+s.active+'</div><div style="font-size:11px;color:var(--text-dim)">在线</div></div>' +
+      '<div class="card" style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:'+healthColor+'">'+s.system_health+'</div><div style="font-size:11px;color:var(--text-dim)">健康度</div></div>' +
+      '<div class="card" style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:var(--purple)">'+s.average_score+'</div><div style="font-size:11px;color:var(--text-dim)">平均分</div></div>' +
+      '<div class="card" style="text-align:center;padding:12px;"><div style="font-size:28px;font-weight:800;color:var(--cyan)">'+s.lu_origin_count+'</div><div style="font-size:11px;color:var(--text-dim)">LU回流</div></div>' +
+    '</div>' +
+    '<div style="margin-top:10px;font-size:12px;color:var(--text-dim)">'+
+      '等级: '+' | '.join(Object.entries(s.grade_distribution).map(([k,v])=>'<b style="color:var(--accent)">'+k+'</b>级×'+v)) +
+      ' | 信任: '+' | '.join(Object.entries(s.trust_distribution).map(([k,v])=>'<b>'+k+'</b>×'+v))+
+    '</div>';
+  
+  // 排名表
+  const thead = document.getElementById('persona-thead');
+  thead.innerHTML = '<tr style="background:var(--bg3);color:var(--text-dim);font-size:11px;text-align:left">'+
+    ['#','代码','名称','角色','分组','总分','等级','活跃度','成功率','信任','贡献','稳定','风险'].map(h=>'<th style="padding:8px 6px;border-bottom:1px solid var(--border)">'+h+'</th>').join('')+'</tr>';
+  
+  const tbody = document.getElementById('persona-tbody');
+  const gradeColors = {S:'#FFD700',A:'var(--green)',B:'var(--blue)',C:'var(--text-dim)',D:'var(--red)'};
+  tbody.innerHTML = rankings.map((r,i)=>{
+    const sc = r.scores;
+    const bg = r.lu_origin ? 'rgba(192,132,252,0.06)' : 'transparent';
+    const luBadge = r.lu_origin ? ' <span style="font-size:9px;background:var(--purple-dim);color:var(--purple);padding:1px 4px;border-radius:4px;">LU</span>' : '';
+    return '<tr style="background:'+bg+';border-bottom:1px solid var(--border)">'+
+      '<td style="padding:6px;font-size:11px;color:var(--text-dim)">'+(i+1)+'</td>'+
+      '<td style="padding:6px;font-weight:600">'+r.code+'</td>'+
+      '<td style="padding:6px">'+r.name+luBadge+'</td>'+
+      '<td style="padding:6px;font-size:11px;color:var(--text-dim)">'+r.role+'</td>'+
+      '<td style="padding:6px;font-size:11px"><span style="background:var(--bg3);padding:2px 6px;border-radius:4px">'+r.ip_group+'</span></td>'+
+      '<td style="padding:6px;font-weight:700;color:'+(gradeColors[r.grade]||'var(--text)')+'">'+sc.total+'</td>'+
+      '<td style="padding:6px;font-weight:700;color:'+(gradeColors[r.grade]||'var(--text)')+'">'+r.grade+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+r.activity_label+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.success+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.trust+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.contribution+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.stability+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+r.risk+'</td>'+
+      '</tr>';
+  }).join('');
+  
+  // 需关注
+  const attn = data.needs_attention || [];
+  document.getElementById('persona-attention').innerHTML = attn.length 
+    ? '<div style="background:var(--yellow-dim);border:1px solid var(--yellow);border-radius:var(--radius);padding:12px 16px;">'+
+        '<b style="color:var(--yellow)">⚠️ 需关注 ('+attn.length+'个人格)</b>: '+
+        attn.map(a=>'<span style="margin:0 6px;font-size:12px">'+a.code+' '+a.name+' <span style="color:var(--text-dim)">('+a.grade+'级)</span></span>').join('')+
+      '</div>'
+    : '';
+  
+  // DNA
+  document.getElementById('persona-dna').textContent = '报表 DNA: '+(data._meta.report_dna||'')+' · 生成: '+(data._meta.generated_at||'').split('T')[0];
+}
+
 initTheme();
-initStats(); initAPI(); initKG(); initArticles(); initNotion(); initCSDN(); initPapers();
+initStats(); initAPI(); initKG(); initPersonaReport(); initArticles(); initNotion(); initCSDN(); initPapers();
 </script>
 </body>
 </html>

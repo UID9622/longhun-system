@@ -18,11 +18,9 @@ DNA: #龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0
 
 import os
 import sys
-import stat
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
 
 # DNA
 DNA = "#龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0"
@@ -86,10 +84,10 @@ class ValidationIssue:
 @dataclass
 class ValidationReport:
     file_path: str
-    issues: List[ValidationIssue] = field(default_factory=list)
+    issues: list[ValidationIssue] = field(default_factory=list)
     plist_version: str = ""
     label: str = ""
-    program_args: List[str] = field(default_factory=list)
+    program_args: list[str] = field(default_factory=list)
     run_at_load: bool = False
     keep_alive: bool = False
     passed: bool = False
@@ -112,7 +110,7 @@ def resolve_path(plist_path: str) -> Path:
     return p.resolve()
 
 
-def validate_xml(file_path: Path) -> Tuple[Optional[ET.Element], Optional[str]]:
+def validate_xml(file_path: Path) -> tuple[ET.Element | None, str | None]:
     """验证 XML 格式，返回 root 和错误信息"""
     try:
         tree = ET.parse(str(file_path))
@@ -131,7 +129,6 @@ def find_value(root, key: str, parent_tag: str = "dict"):
     for k in found:
         if k.text == key:
             # 下一个兄弟元素就是 value
-            siblings = list(root.iter())
             # 简单但可靠的方式：找紧跟 key 后面的元素
             for elem in root.findall(f"./{parent_tag}/*"):
                 if elem.tag == "key" and elem.text == key:
@@ -292,7 +289,7 @@ def format_report(report: ValidationReport) -> str:
     return "\n".join(lines)
 
 
-def find_all_plists() -> List[Path]:
+def find_all_plists() -> list[Path]:
     """查找所有龍魂相关 plist 文件"""
     found = []
     for d in LAUNCHD_DIRS:

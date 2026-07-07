@@ -90,7 +90,7 @@ class TestCNSHDNAFormat:
             "龍芯⚡️2026-07-06-test-A8F3C1D6",  # 缺少 #
         ]
         for dna in invalid:
-            match = self.DNA_PATTERN.match(dna)
+            _match = self.DNA_PATTERN.match(dna)
             # 有些可能仍然部分匹配（DNA_5_... 不符合模式是预期的）
             if dna.startswith("DNA_"):
                 continue  # 这是河图洛书格式，不是 #龍芯 格式，跳过

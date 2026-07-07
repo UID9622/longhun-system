@@ -1,6 +1,6 @@
 # 龍魂系统 · 统一子系统收口总表 v3.0
 
-> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v3.0`
+> DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
 > 收口人: CodeBuddy
 > 审计: 🟢 通过
 > 原则: 一个仓库，一份总表，不可有未注册的子系统
@@ -11,6 +11,7 @@
 > - 技能去重: [`SKILLS_DEDUP_MANIFEST.md`](./SKILLS_DEDUP_MANIFEST.md)
 > - 插件主权: [`agents/CODEBUDDY_插件主权清单_v1.0.md`](./agents/CODEBUDDY_插件主权清单_v1.0.md)
 > - 交接文档: [`L8_治理层/governance/HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md`](./L8_治理层/governance/HANDOVER_CODEBUDDY_龍魂神经网络实时总控_v2.0.md)
+> - **v∞ 引擎归档（2026-07-06）**: 无限增长引擎/决策链/民主回复/权重算法/五行计算器v2-v3/流场压缩核 — 全部归档至权威目录
 >
 > **2026-07-06 架构归一操作:**
 > - CNSH内核: 5个冗余目录→ `_archive/legacy/`（仅保留`cnsh-core/`为权威源）
@@ -22,6 +23,7 @@
 > - .gitignore: 新增 brain/voice-twin/train/outputs/.snapshots 规则
 > - 引擎: 标记 8 个副本文件，确定 11 组权威源
 > - 技能: 确认 skills.backup 为独立历史分支（全部 32 文件不同）
+> - **v3.3 更新**: 五行映射全局对齐 — 数字根→五行统一为河图经典映射；IPA注册表wuxing_guard元数据修正；hetu_luoshu_dna.py新增数字根转五行函数
 
 ---
 
@@ -320,7 +322,86 @@ CodeBuddy 环境的 Agent 定义文件。
 
 ---
 
-## 十二、收口行动计划
+## 十二、治理协议 (Governance Protocols)
+
+### 12.1 已激活协议
+
+| 协议 | 文件 | 用途 | 状态 |
+|------|------|------|------|
+| KFPP | `L8_治理层/governance/KFPP_ACTIVATION_PROCLAMATION.md` | 知识流动纯净度协议 | 🟢 活跃 |
+| **CLAP** | `L8_治理层/governance/CAPITAL_LOVE_AUDIT_PROTOCOL.md` | **资本愛之审计协议 v1.0** | 🟢 活跃 |
+
+### 12.2 CLAP 资本愛之审计引擎
+
+| 文件 | 用途 |
+|------|------|
+| `audit/capital_love_audit.py` | 资本愛之审计执行引擎 · 七维矩阵评分 · 四级准入判定 |
+| `audit/reports/` | 季度审计报告输出目录 |
+| `~/.longhun/audit/capital_love_audit.jsonl` | 追加式审计日志 |
+| `~/.longhun/audit/capital_banned.json` | 永久禁入名单 |
+
+### CLAP 核心原则
+- 🔴 没有爱的资本 → 永久禁入
+- 🟡 进来的资本 → 只配当服务商
+- 🟢 主权不可让渡 · 中国法律唯一管辖权
+- 🛡️ 得罪少数人 · 造福14亿人
+
+### 12.3 v∞ 算法与协议家族（2026-07-06 归档）
+
+| 文档 | 路径 | 用途 | 状态 |
+|------|------|------|------|
+| **INFINITE_GROWTH_ENGINE** | `L8_治理层/governance/INFINITE_GROWTH_ENGINE_v∞.md` | v∞无限智能增长引擎·四层循环+失控防护 | 🟡 待人审 |
+| **IPA-DICT-101-111** | `01_protocols/IPA-DICT-101-111-决策链.md` | 循环触发·五行流转·11条决策链 | 🟢 通过 |
+| **Democratic Reply** | `L2_技能层/skills/democratic-reply-calculator.md` | 民主回复计算函数·六维检查矩阵 | 🟢 通过 |
+| **Weight Algo v3.1** | `L8_治理层/governance/tech-docs/LONGHUN-WEIGHT-ALGO-v3.1.md` | 龍魂权重算法·三层次解构·形式化证明 | 🟢 通过 |
+| **Wuxing v2.0-v3.0** | `cnsh-core/wuxing/WUXING-CALCULATOR-v2.0-v3.0.md` | 五行计算器·四大指令·六门路由·对冲指数H | 🟢 通过 |
+| **FLOW-CORE v3.0** | `cnsh-core/CNSH-FLOW-CORE-v3.0.md` | 流场压缩核·任意输入→流场节点 | 🟢 通过 |
+
+**算法家族关系图：**
+```
+INFINITE_GROWTH_ENGINE (v∞ 主引擎)
+  ├── IPA-DICT-101-111 (决策链协议)
+  │     └── Democratic Reply (民主回复中间件)
+  ├── LONGHUN-WEIGHT-ALGO v3.1 (数学基础)
+  │     └── WUXING-CALCULATOR v2.0-v3.0 (五行计算)
+  └── CNSH-FLOW-CORE v3.0 (流场压缩核·统一出口)
+```
+
+| 关联对 | 对接方式 |
+|--------|----------|
+| 决策链 ↔ 无限引擎 | 四层循环（微观/宏观/进化/超越）→ 引擎四层优化器 |
+| 权重算法 ↔ 五行计算器 | 数字根→五行映射 + 对冲指数H → 天道系统分级 |
+| 流场压缩核 ↔ 五行计算器 | 入口宇宙六门路由 + 生成节点统一格式 |
+| 民主回复 ↔ 权重算法 | 六维检查中的权重与权重算法的太极公式共用数学根 |
+
+---
+
+### 12.4 铁律总目录·本地归档（2026-07-06）
+
+| 文档 | 路径 | 用途 | 状态 |
+|------|------|------|------|
+| **P0 铁律总目录** | `L8_治理层/governance/IRON-LAWS/P0_ETERNAL_IRON_LAW_DIRECTORY.md` | 35 条主律+子律完整目录·九钻石伦理·六主权出口 | 🟢 已归档 |
+
+原始来源：Notion P0 永恒页（UID9622 亲自焊接·v1.0-v3.5 版本日志完整）
+
+---
+
+### 12.5 本地 API 服务状态（2026-07-06 盘点）
+
+| 服务 | 端口 | 状态 | 说明 |
+|------|------|------|------|
+| **Ollama** | :11434 | 🟢 在线 | 15 个模型已加载（qwen2.5:7b/14b/72b, cnsh-reactor v2.6, longhun-9622, Qwen3-8B, dolphin-mixtral 46.7B, chuxinzhiyi 72.7B, deepseek-v3.1:671b-cloud, deepseek-coder:6.7b 等） |
+| **DeepSeek 中继桥** | :8788 | 🟢 在线 | bridge=deepseek, ollama_fallback 已就绪 |
+| **主服务** | :9622 | 🟡 在线 | 服务在跑但无 /health 端点（返回 404） |
+| **操作台** | :9625 | 🟢 在线 | 龍魂腦幹 v1.0 |
+| **FAISS** | :8081 | 🔴 未启动 | 向量检索服务 |
+| **Shield** | :8765 | 🔴 未启动 | 安全护盾服务 |
+
+> 需要启动的服务：`FAISS (:8081)` `Shield (:8765)`
+
+---
+
+## 十三、收口行动计划
 
 ### 🔴 高优先级（重复/冲突）
 | 问题 | 建议 |
@@ -352,7 +433,7 @@ CodeBuddy 环境的 Agent 定义文件。
 
 ---
 
-## 十三、统计总表
+## 十四、统计总表
 
 | 类别 | 权威位置 | 副本/冗余数 | 状态 |
 |------|---------|------------|------|
@@ -370,4 +451,9 @@ CodeBuddy 环境的 Agent 定义文件。
 
 ---
 
-DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v1.0`
+DNA: `#龍芯⚡️2026-07-06-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
+
+> v3.1 更新：新增 v∞ 算法协议家族（6 个文档）归档注册
+> v3.2 更新：新增铁律总目录本地归档 + 修复 .codebuddy/agents 断链 + 本地 API 状态盘点
+> v3.3 更新：五行映射全局对齐 — 数字根→五行统一为河图经典映射；IPA注册表修正；hetu_luoshu_dna.py 新增数字根转五行()
+

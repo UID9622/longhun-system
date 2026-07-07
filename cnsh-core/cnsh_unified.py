@@ -13,7 +13,7 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any
 
 
 # ============================================================
@@ -61,16 +61,21 @@ WORK_DIR = 系统路径.工作数据目录()
 # ============================================================
 
 class DNA工具:
-    """统一 DNA 生成、校验、解析"""
+    """
+    统一 DNA 生成、校验、解析
+    DNA: #龍芯⚡️2026-07-06-CNSH-UNIFIED-繁简归一-v1.1
+    🔄 繁简归一更新：简/繁等价接收，自动归一化为标准形式，不熔断
+    """
 
     标准前缀 = "#龍芯⚡️"
-    简化字前缀 = "#龙芯⚡️"  # 用于识别违规
+    简化字前缀 = "#龙芯⚡️"  # 兼容接收，自动归一
+    # 推荐格式同时匹配繁/简，可选哈希后缀
     推荐格式 = re.compile(
-        r"^#龍芯⚡️(?P<日期>\d{4}-\d{2}-\d{2})-(?P<模块>[A-Za-z0-9_\u4e00-\u9fa5]+)-v(?P<版本>\d+\.\d+\.?\d*)$"
+        r"^#[龍龙]芯⚡️(?P<日期>\d{4}-\d{2}-\d{2})-(?P<模块>[A-Za-z0-9_\u4e00-\u9fa5]+)-v(?P<版本>\d+\.\d+\.?\d*)(?:-(?P<哈希>[A-Fa-f0-9]{8}))?$"
     )
 
     @staticmethod
-    def 生成(模块名: str, 版本: str = "1.0", 时间: datetime = None) -> str:
+    def 生成(模块名: str, 版本: str = "1.0", 时间: datetime | None = None) -> str:
         时间 = 时间 or datetime.now(timezone.utc)
         日期 = 时间.strftime("%Y-%m-%d")
         时间戳 = 时间.strftime("%Y%m%d%H%M%S")
@@ -80,22 +85,24 @@ class DNA工具:
         return f"{DNA工具.标准前缀}{日期}-{模块名}-v{版本}-{哈希}"
 
     @staticmethod
-    def 校验(dna: str) -> Dict[str, Any]:
+    def 校验(dna: str) -> dict[str, Any]:
         if not isinstance(dna, str):
             return {"合法": False, "原因": "DNA 必须是字符串"}
-        if dna.startswith(DNA工具.简化字前缀):
-            return {"合法": False, "原因": "使用了简化字'龙'，必须使用繁体'龍'"}
-        if not dna.startswith(DNA工具.标准前缀):
-            return {"合法": False, "原因": "缺少标准前缀 #龍芯⚡️"}
-        m = DNA工具.推荐格式.match(dna)
+        # 🔄 繁简归一：简体前缀自动归一，视为合法
+        _working = dna
+        if _working.startswith(DNA工具.简化字前缀):
+            _working = DNA工具.规范化(_working)
+        if not _working.startswith(DNA工具.标准前缀):
+            return {"合法": False, "原因": "缺少标准前缀 #龍芯⚡️（或等价简写 #龙芯⚡️）"}
+        m = DNA工具.推荐格式.match(_working) or DNA工具.推荐格式.match(dna)
         if m:
-            return {"合法": True, "推荐": True, "解析": m.groupdict()}
+            return {"合法": True, "推荐": True, "解析": m.groupdict(), "已归一": _working if _working != dna else None}
         return {"合法": True, "推荐": False, "原因": "格式不是推荐形式"}
 
     @staticmethod
     def 规范化(dna: str) -> str:
-        """把简写/变体尽量转成标准前缀，但不保证完全修复"""
-        return dna.replace("#龙芯⚡️", DNA工具.标准前缀)
+        """繁简归一：简体前缀统一转为繁体，保持系统内一致性"""
+        return dna.replace("#龙芯⚡️", DNA工具.标准前缀).replace("#龙魂", "龍魂").replace("龙魂", "龍魂")
 
 
 # 兼容旧函数名
@@ -103,7 +110,7 @@ def 生成DNA(模块名: str, 版本: str = "1.0") -> str:
     return DNA工具.生成(模块名, 版本)
 
 
-def DNA校验(dna: str) -> Dict[str, Any]:
+def DNA校验(dna: str) -> dict[str, Any]:
     return DNA工具.校验(dna)
 
 
@@ -113,7 +120,7 @@ def DNA校验(dna: str) -> Dict[str, Any]:
 
 class 数学工具:
     @staticmethod
-    def 计算数字根(内容: Union[int, str]) -> int:
+    def 计算数字根(内容: int | str) -> int:
         if isinstance(内容, int):
             n = 内容
         else:
@@ -128,7 +135,7 @@ class 数学工具:
         return n
 
     @staticmethod
-    def 文本数字根(文本: str) -> Dict[str, Any]:
+    def 文本数字根(文本: str) -> dict[str, Any]:
         数字 = re.sub(r"[^0-9]", "", str(文本))
         if not 数字:
             return {"数字根": 0, "数字序列": "", "原始": 文本}
@@ -171,7 +178,7 @@ class 审计工具:
 
 
 # 兼容旧函数名
-def 计算数字根(内容: Union[int, str]) -> int:
+def 计算数字根(内容: int | str) -> int:
     return 数学工具.计算数字根(内容)
 
 
@@ -221,31 +228,44 @@ class 配置键统一:
     }
 
     @classmethod
-    def 标准化字典(cls, 数据: Dict[str, Any]) -> Dict[str, Any]:
+    def 标准化字典(cls, 数据: dict[str, Any]) -> dict[str, Any]:
         return {cls.标准映射.get(k, k): v for k, v in 数据.items()}
 
     @classmethod
-    def 还原英文键(cls, 数据: Dict[str, Any]) -> Dict[str, Any]:
+    def 还原英文键(cls, 数据: dict[str, Any]) -> dict[str, Any]:
         反向 = {v: k for k, v in cls.标准映射.items()}
         return {反向.get(k, k): v for k, v in 数据.items()}
 
 
 # ============================================================
-# 五、龍/龙规范化
+# 五、龍/龙规范化 · 繁简归一 v1.1
+# 🔄 DNA: #龍芯⚡️2026-07-06-CNSH-UNIFIED-繁简归一-v1.1
+# 策略：繁体为规范形式，简体等价接收 · 自动归一 · 不熔断
 # ============================================================
 
 class 文字规范:
     @staticmethod
     def 繁体龍(文本: str) -> str:
+        """归一化：简体→繁体，保证系统内一致性"""
         return str(文本).replace("龙芯", "龍芯").replace("龙魂", "龍魂")
 
     @staticmethod
-    def 检查简化字(文本: str) -> List[str]:
+    def 检查简化字(文本: str) -> list[str]:
+        """
+        🔄 繁简归一更新：简体词不再视为违规。
+        此方法仅用于统计/审计记录，不触发熔断或报错。
+        返回：检测到的简化词列表（仅供参考）
+        """
         命中 = []
-        for 词 in ["龙芯", "龙魂", "龙"]:
+        for 词 in ["龙芯", "龙魂"]:
             if 词 in str(文本):
                 命中.append(词)
         return 命中
+
+    @staticmethod
+    def 繁简等价(文本1: str, 文本2: str) -> bool:
+        """判断两个字符串在忽略繁简差异后是否等价"""
+        return 文字规范.繁体龍(文本1) == 文字规范.繁体龍(文本2)
 
 
 # ============================================================
@@ -253,25 +273,25 @@ class 文字规范:
 # ============================================================
 
 class 公开内容:
-    """扫描并规范化对外公开的内容（DNA、龍字、配置键）"""
+    """扫描并规范化对外公开的内容（DNA、龍字、配置键）· 繁简归一"""
 
     @staticmethod
-    def 扫描文件(路径: Path) -> Dict[str, Any]:
+    def 扫描文件(路径: Path) -> dict[str, Any]:
         文本 = Path(路径).read_text(encoding="utf-8", errors="ignore")
         return {
             "路径": str(路径),
-            "简化字": 文字规范.检查简化字(文本),
-            "dna数量": len(re.findall(r"#龍芯⚡️[^\s\"'<>]+|#龙芯⚡️[^\s\"'<>]+", 文本)),
+            "简化字统计": 文字规范.检查简化字(文本),  # 仅统计，不报错
+            "dna数量": len(re.findall(r"#[龍龙]芯⚡️[^\s\"'<>]+", 文本)),
             "推荐dna数量": len(DNA工具.推荐格式.findall(文本)),
         }
 
     @staticmethod
-    def 规范化文件(路径: Path, 输出路径: Optional[Path] = None) -> Path:
+    def 规范化文件(路径: Path, 输出路径: Path | None = None) -> Path:
         原文件 = Path(路径)
         文本 = 原文件.read_text(encoding="utf-8", errors="ignore")
-        # 简化字 → 繁体
+        # 🔄 繁简归一：简化字 → 繁体（保持系统内一致）
         文本 = 文字规范.繁体龍(文本)
-        # DNA 前缀规范化（仅前缀）
+        # DNA 前缀规范化
         文本 = DNA工具.规范化(文本)
         目标 = 输出路径 or 原文件
         目标.write_text(文本, encoding="utf-8")

@@ -1,5 +1,16 @@
-# #龍芯⚡️2026-07-03-TOOL-SESSION_END-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
+#!/usr/bin/env bash
+# session_end.sh
+# 龍魂终端宝宝会话结束钩子 stub
+# 老大终端启动时反复报错: No such file or directory
+# 本 stub 让 hook 不再噪音 · 实际想做留痕功能可以后续填
 
-#!/bin/bash
-echo "$(date '+%Y-%m-%d %H:%M:%S') SESSION_END UID9622" >> ~/CNSH/logs/audit.log 2>/dev/null
+# 留痕到本机 (可选)
+LOG_DIR="${LOG_DIR:-/Users/zuimeidedeyihan/longhun-system/logs}"
+mkdir -p "$LOG_DIR" 2>/dev/null
+
+TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+echo "{\"ts\":\"$TS\",\"event\":\"session_end\",\"agent\":\"claude-code\"}" \
+  >> "$LOG_DIR/session_end.jsonl" 2>/dev/null
+
+# 必须 exit 0 · 否则 Claude Code 报 non-blocking status code
+exit 0

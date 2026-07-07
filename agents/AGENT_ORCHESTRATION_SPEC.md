@@ -1,11 +1,12 @@
-# 龍魂智能体编排规范 v1.2
+# 龍魂智能体编排规范 v1.3
 
 > **不是固定后台，是可叠加、可扩展、可审计的本地智能体编排层。**
-> **所有技能与人格已缠尾：201 个智能体/技能/人格统一注册、统一路由、可执行。**
+> **所有技能与人格已缠尾：201 个纯智能体（L1常驻 8 + L2技能 91 + L3人格 102）统一注册、统一路由、可执行。**
+> **设备孤儿文件（16,989条）与知识文件索引（336条）已拆分至独立注册表，不再混入 agent manifest。**
 
 <!-- DNA -->
 ```
-#龍芯⚡️2026-06-26-AGENT-ORCHESTRATION-SPEC-v1.6
+#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7
 ```
 <!-- 君子协议：本文件受龍魂DNA追溯保护，来源不可删、影响不可覆、贡献不可抹 -->
 
@@ -156,7 +157,7 @@ python3 agent_daemon.py once
 
 ---
 
-## 八、状态上报与三才审计
+## 七、状态上报与三才审计
 
 `agent_status_reporter.py` 聚合以下数据源：
 
@@ -248,38 +249,50 @@ python3 agent_daemon.py once
 ```text
 longhun-system/agents/
 ├── AGENT_ORCHESTRATION_SPEC.md    # 本规范
-├── manifest.json                  # 智能体注册表
+├── README.md                      # 使用入口
+├── manifest.json                  # 纯智能体注册表（201条）
+├── device_orphan_registry.json    # 设备孤儿文件注册表（非Agent，仅溯源）
+├── knowledge_file_registry.json   # 知识文件注册表（非Agent，仅索引）
 ├── orchestrator.py                # 编排器核心
 ├── agent_daemon.py                # L1 常驻守护进程
 ├── agent_eco_adapter.py           # agent-eco 适配器
 ├── agent_status_reporter.py       # 状态上报 + 三才审计
-├── README.md                      # 使用入口
+├── task_executor_live_v1.py       # 实时任务执行引擎
+├── longhun_foundation_launcher_auto.py
+├── longhun_notion_sync_auto.py
+├── xpay_core_auto.py
 ├── daemon_logs/                   # 守护进程输出
 │   ├── heartbeat.json
-│   ├── wenwen.json
-│   ├── scout.json
-│   ├── guardian.json
-│   ├── builder.json
+│   ├── wenwen.json / wenwen_summary.json
+│   ├── scout.json / scout_intel.json
+│   ├── guardian.json / guardian_audit.json
+│   ├── builder.json / builder_status.json
 │   └── syncer.json
 ├── queues/
 │   └── builder_tasks.jsonl        # 宝宝构建任务队列
 ├── reports/
-│   ├── latest_sancai_report.json
-│   └── sancai_audit_*.md
-├── task_executor_live_v1.py
-├── longhun_foundation_launcher_auto.py
-├── longhun_notion_sync_auto.py
-└── xpay_core_auto.py
+│   ├── latest_sancai_report.json  # 最新三才审计
+│   └── _archive/                  # 历史一次性报告归档
+├── downloads-imports/             # 外部导入资源
+└── quarantine/                    # 隔离区（不安全副作用）
 ```
 
 ---
 
 ## 十一、DNA 与君子协议
 
-- **规范 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATION-SPEC-v1.6`
+- **规范 DNA**：`#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7`
+- **注册表 DNA**：`#龍芯⚡️2026-07-06-AGENT-MANIFEST-v1.10-CLEAN`
+- **编排器 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1`
+- **守护进程 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0`
 - **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **协议**：CC BY-NC-SA 4.0
 - **原则**：站普通人一边、数据主权至上、反垄断评分独立、来源不可删
+
+### 注册表拆分说明（v1.10.0）
+- `manifest.json`：纯智能体/技能/人格（201条）
+- `device_orphan_registry.json`：设备扫描文件（16,989条，非Agent）
+- `knowledge_file_registry.json`：知识库文件索引（336条，非Agent）
 
 ---
 

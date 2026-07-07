@@ -1,75 +1,67 @@
 #!/bin/bash
-# ╔══════════════════════════════════════════════════════════════╗
-# ║  龍魂共生体 · 启动脚本 v2.0                                 ║
-# ║  DNA: #龍芯⚡️2026-07-06-SYMBIOTE-LAUNCHER-v2.0            ║
-# ║                                                            ║
-# ║  启动端口 9627 — 知识矩阵+神经网络融合服务器                ║
-# ║  仪表盘: http://127.0.0.1:9627/symbiote                    ║
-# ║  3D网络: http://127.0.0.1:9627/                             ║
-# ║                                                            ║
-# ║  fallback机制: launchctl失败时自动调用本脚本                ║
-# ╚══════════════════════════════════════════════════════════════╝
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║  龍魂共生体 · 启动脚本 v2.1                                    ║
+# ║  DNA: #龍芯⚡️2026-07-06-SYMBIOTE-LAUNCHER-v2.1               ║
+# ║  端口 9627 — 知识矩阵+神经网络融合服务器                        ║
+# ╚══════════════════════════════════════════════════════════════════╝
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SERVER_SCRIPT="$ROOT/tools/longhun_symbiote_server.py"
 PORT=9627
 LOG_DIR="$ROOT/logs"
-FALLBACK_LOG="$LOG_DIR/fallback.log"
 mkdir -p "$LOG_DIR"
 
-log_fallback() {
-    echo "[$(date '+%Y-%m-%dT%H:%M:%SZ')] $*" >> "$FALLBACK_LOG"
-}
-
-# ── Fallback 机制 ──
-log_fallback "symbiote_launcher_started via=${1:-manual}"
-
-# 先停旧版
-echo "🧹 清理旧版服务..."
-if /usr/sbin/lsof -ti:$PORT >/dev/null 2>&1; then
-    /usr/sbin/lsof -ti:$PORT 2>/dev/null | xargs kill -9 2>/dev/null || true
-    sleep 1
+# ── 先清理旧进程 ──
+if lsof -ti:$PORT >/dev/null 2>&1; then
+    echo "🧹 清理端口 $PORT 上的旧进程..."
+    lsof -ti:$PORT | xargs kill -9 2>/dev/null || true
+    sleep 2
 fi
 
-# ── 启动共生体（主路径）──
+# ── 确保 HTML 资源就位 ──
+WEB_DIR="$ROOT/web"
+mkdir -p "$WEB_DIR"
+
+# symbiote-dashboard.html
+if [ ! -s "$WEB_DIR/symbiote-dashboard.html" ]; then
+    SRC="$ROOT/L5_服务层/services/dashboard/web/symbiote-dashboard.html"
+    if [ -f "$SRC" ]; then
+        cp "$SRC" "$WEB_DIR/symbiote-dashboard.html"
+        echo "📋 复制 symbiote-dashboard.html → web/"
+    fi
+fi
+
+# 3D 神经网络
+if [ ! -f "$WEB_DIR/longhun-neural-network-3d-v2.html" ]; then
+    SRC="$ROOT/L5_服务层/services/dashboard/web/longhun-neural-network-3d-v2.html"
+    if [ -f "$SRC" ]; then
+        ln -sf "$SRC" "$WEB_DIR/longhun-neural-network-3d-v2.html"
+        echo "🔗 链接 longhun-neural-network-3d-v2.html → web/"
+    fi
+fi
+
+# ── 启动共生体 ──
 echo "🧬 启动龍魂共生体服务器..."
 cd "$ROOT"
-nohup /usr/bin/python3 "$SERVER_SCRIPT" > "$LOG_DIR/symbiote_server.log" 2>&1 &
+nohup python3 "$SERVER_SCRIPT" > "$LOG_DIR/symbiote_server.log" 2>&1 &
 PID=$!
-echo "   PID: $PID"
-sleep 2
+disown "$PID" 2>/dev/null || true
 
-# ── 验证 & Fallback ──
-if kill -0 $PID 2>/dev/null; then
-    echo "🟢 共生体已启动"
-    echo "   仪表盘: http://127.0.0.1:$PORT/symbiote"
-    echo "   3D网络: http://127.0.0.1:$PORT/"
-    echo "   日志:   $LOG_DIR/symbiote_server.log"
-    log_fallback "symbiote_started pid=$PID port=$PORT health=OK"
-else
-    echo "🔴 启动失败，尝试 fallback 恢复..."
-    log_fallback "symbiote_start_failed pid=$PID attempting_fallback"
-
-    # Fallback 1: 检查 Python 可用性
-    if ! /usr/bin/python3 -c "import http.server" 2>/dev/null; then
-        echo "   ⚠️  Python3 http.server 不可用"
-        log_fallback "fallback_failed python3_unavailable"
-        exit 1
+# 等待启动
+for i in $(seq 1 10); do
+    sleep 1
+    if curl -s --connect-timeout 1 "http://127.0.0.1:$PORT/api/health" >/dev/null 2>&1; then
+        echo "🟢 共生体已启动 (PID=$PID)"
+        echo "   仪表盘: http://127.0.0.1:$PORT/symbiote"
+        echo "   3D网络: http://127.0.0.1:$PORT/"
+        echo "   状态:   http://127.0.0.1:$PORT/api/health"
+        exit 0
     fi
+    echo "   ⏳ 等待中... ($i/10)"
+done
 
-    # Fallback 2: 再次尝试启动
-    sleep 2
-    nohup /usr/bin/python3 "$SERVER_SCRIPT" > "$LOG_DIR/symbiote_server.log" 2>&1 &
-    PID=$!
-    sleep 3
-
-    if kill -0 $PID 2>/dev/null; then
-        echo "🟢 共生体已通过 fallback 恢复启动"
-        log_fallback "symbiote_fallback_success pid=$PID"
-    else
-        echo "🔴 Fallback 也失败了，查看日志: $FALLBACK_LOG"
-        log_fallback "symbiote_fallback_failed"
-        exit 1
-    fi
-fi
+# 超时
+echo "🔴 共生体启动超时"
+kill $PID 2>/dev/null || true
+exit 1
