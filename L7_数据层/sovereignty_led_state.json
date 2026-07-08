@@ -1,0 +1,215 @@
+{
+  "timestamp": "2026-07-08T08:03:32",
+  "sovereignty_anchors": [
+    {
+      "file": "P0_ETERNAL_LOCK.md",
+      "status": "G",
+      "icon": "🔒"
+    },
+    {
+      "file": "CONSTITUTION.md",
+      "status": "G",
+      "icon": "🔒"
+    },
+    {
+      "file": "AGENTS.md",
+      "status": "G",
+      "icon": "🔒"
+    },
+    {
+      "file": "CNSH-PROTOCOL.md",
+      "status": "G",
+      "icon": "🔒"
+    }
+  ],
+  "digital_humans": [],
+  "audit_status": "G",
+  "forbidden_zone_alerts": [],
+  "led_segments": [
+    {
+      "color": "P",
+      "label": "底座锚点",
+      "detail": "✅",
+      "color_name": "主权紫",
+      "color_hex": "#7C3AED",
+      "color_icon": "🔒",
+      "color_css": "purple"
+    },
+    {
+      "color": "G",
+      "label": "系统审计",
+      "detail": "安全·通行 — 已审计通过",
+      "color_name": "安全绿",
+      "color_hex": "#00C853",
+      "color_icon": "✅",
+      "color_css": "green"
+    },
+    {
+      "color": "G",
+      "label": "防篡改",
+      "detail": "就绪",
+      "color_name": "安全绿",
+      "color_hex": "#00C853",
+      "color_icon": "✅",
+      "color_css": "green"
+    },
+    {
+      "color": "G",
+      "label": "联动感知",
+      "detail": "在线",
+      "color_name": "安全绿",
+      "color_hex": "#00C853",
+      "color_icon": "✅",
+      "color_css": "green"
+    },
+    {
+      "color": "C",
+      "label": ".git",
+      "detail": "有",
+      "color_name": "信息蓝",
+      "color_hex": "#00BCD4",
+      "color_icon": "ℹ️",
+      "color_css": "cyan"
+    },
+    {
+      "color": "G",
+      "label": "禁区告警",
+      "detail": "无",
+      "color_name": "安全绿",
+      "color_hex": "#00C853",
+      "color_icon": "✅",
+      "color_css": "green"
+    },
+    {
+      "color": "AU",
+      "label": "UID9622",
+      "detail": "北辰·永不下线",
+      "color_name": "裁决金",
+      "color_hex": "#FFC400",
+      "color_icon": "👑",
+      "color_css": "gold"
+    }
+  ],
+  "anti_tamper_available": true,
+  "cross_module_available": true,
+  "last_audit": {
+    "color": "G",
+    "timestamp": ""
+  },
+  "git_available": true,
+  "overall_color": "G",
+  "forbidden_zones": [
+    {
+      "id": "FZ-001",
+      "name": "底座锚点 A-001~A-012",
+      "color": "P",
+      "desc": "任何人不得修改"
+    },
+    {
+      "id": "FZ-002",
+      "name": "P0_ETERNAL_LOCK.md",
+      "color": "P",
+      "desc": "宪法层·不可变"
+    },
+    {
+      "id": "FZ-003",
+      "name": "CONSTITUTION.md",
+      "color": "P",
+      "desc": "系统宪法·不可变"
+    },
+    {
+      "id": "FZ-004",
+      "name": "密钥/token/私钥泄露",
+      "color": "R",
+      "desc": "安全熔断·立即封锁"
+    },
+    {
+      "id": "FZ-005",
+      "name": "GPG私钥 A2D0092C",
+      "color": "R",
+      "desc": "仅UID9622持有"
+    },
+    {
+      "id": "FZ-006",
+      "name": "369不动点",
+      "color": "AU",
+      "desc": "三才算法内核·焊死"
+    },
+    {
+      "id": "FZ-007",
+      "name": "龍（繁体）规范形式",
+      "color": "P",
+      "desc": "CNSH繁简归一v1.1"
+    },
+    {
+      "id": "FZ-008",
+      "name": "rm -rf / git push --force",
+      "color": "R",
+      "desc": "高危命令·需UID9622确认"
+    },
+    {
+      "id": "FZ-009",
+      "name": "未成年数据出境",
+      "color": "R",
+      "desc": "场景红线·立即停止"
+    },
+    {
+      "id": "FZ-010",
+      "name": "境外AI内容未经防篡改扫描",
+      "color": "R",
+      "desc": "先过 lh_anti_tamper.py scan"
+    }
+  ],
+  "color_rules": {
+    "R": {
+      "name": "禁区红",
+      "hex": "#FF1744",
+      "meaning": "禁区·熔断 — 不可触碰",
+      "rule": "一票否决，立即停止，不上传不执行",
+      "icon": "⛔"
+    },
+    "Y": {
+      "name": "警告黄",
+      "hex": "#FFD600",
+      "meaning": "警告·待审 — 边界地带",
+      "rule": "暂停操作，转人工确认",
+      "icon": "⚠️"
+    },
+    "G": {
+      "name": "安全绿",
+      "hex": "#00C853",
+      "meaning": "安全·通行 — 已审计通过",
+      "rule": "可以执行，不留痕则无责",
+      "icon": "✅"
+    },
+    "P": {
+      "name": "主权紫",
+      "hex": "#7C3AED",
+      "meaning": "主权·底座 — 不可变锚点",
+      "rule": "任何人不得修改，宪法层保护",
+      "icon": "🔒"
+    },
+    "AU": {
+      "name": "裁决金",
+      "hex": "#FFC400",
+      "meaning": "金色·裁决 — 最高主权确认",
+      "rule": "仅 UID9622 可签发，GPG签名绑定",
+      "icon": "👑"
+    },
+    "K": {
+      "name": "休眠黑",
+      "hex": "#212121",
+      "meaning": "休眠·离线 — 未激活状态",
+      "rule": "待唤醒后重新评估",
+      "icon": "💤"
+    },
+    "C": {
+      "name": "信息蓝",
+      "hex": "#00BCD4",
+      "meaning": "信息·系统 — 中性状态",
+      "rule": "正常运行中，无异常",
+      "icon": "ℹ️"
+    }
+  },
+  "dna": "#龍芯⚡️2026-07-07-SOVEREIGNTY-LED-v1.0"
+}
