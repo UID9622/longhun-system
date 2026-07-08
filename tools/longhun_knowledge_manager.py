@@ -6,11 +6,11 @@
 专门用于：
 1. 扫描外部目录（如 Kimi_Agent）中的技能/知识库模块
 2. 与现有龍魂体系去重对比（目录名 + 内容哈希）
-3. 龙盾主权防火墙检查（DNA / 君子协议 / 外网 URL）
+3. 龍盾主权防火墙检查（DNA / 君子协议 / 外网 URL）
 4. 清洗并写入 dragon_knowledge.db
 5. 安装新增技能到 ~/.kimi-code/skills/
 6. 注册到 longhun-system/agents/manifest.json
-7. 生成提炼报告 + 龙盾审计日志
+7. 生成提炼报告 + 龍盾审计日志
 
 DNA: #龍芯⚡️2026-06-26-LONGHUN-KNOWLEDGE-MANAGER-v1.1
 """
@@ -44,9 +44,9 @@ DNA_SIGNATURE = "#龍芯⚡️2026-06-26-LONGHUN-KNOWLEDGE-MANAGER-v1.1"
 
 # 明显不是技能包的目录
 IGNORE_DIRS = {"__pycache__", "checkpoints", "logs", "CNSH", "longhun_mvp_reviewed",
-               "zeng-extraction", "longhun-v5-skills", "龙魂日记本-iOS"}
+               "zeng-extraction", "longhun-v5-skills", "龍魂日记本-iOS"}
 
-# 龙盾：敏感外网域名白名单检查
+# 龍盾：敏感外网域名白名单检查
 SENSITIVE_DOMAINS = {
     "github.com", "gitlab.com", "bitbucket.org",
     "huggingface.co", "openai.com", "anthropic.com",
@@ -245,7 +245,7 @@ def hash_exists_in_db(conn: sqlite3.Connection, content_hash: str) -> bool:
 
 def dragon_shield_check(source_path: Path, meta: SkillMeta) -> DragonShieldResult:
     """
-    龙盾主权防火墙检查。
+    龍盾主权防火墙检查。
     返回 GREEN（通过）/ YELLOW（警告）/ RED（熔断）
     """
     checks: Dict[str, Dict] = {}
@@ -313,7 +313,7 @@ def dragon_shield_check(source_path: Path, meta: SkillMeta) -> DragonShieldResul
 
 
 def write_dragon_shield_audit(meta: SkillMeta, shield: DragonShieldResult, action: str) -> None:
-    """写入龙盾审计日志"""
+    """写入龍盾审计日志"""
     DRAGON_SHIELD_AUDIT_PATH.parent.mkdir(parents=True, exist_ok=True)
     record = {
         "timestamp": now_iso(),
@@ -549,7 +549,7 @@ def generate_report(db_path: Path, output_dir: Path, discovered: List[SkillMeta]
         f"**生成时间**: {now_iso()}",
         f"**来源目录**: {DEFAULT_KA}",
         f"**目标数据库**: {db_path}",
-        f"\n> 本报告由龍魂知识库管理器生成，所有数据本地存储，含龙盾主权防火墙审计。",
+        f"\n> 本报告由龍魂知识库管理器生成，所有数据本地存储，含龍盾主权防火墙审计。",
         "\n## 一、扫描发现",
         f"\n发现潜在模块: {len(discovered)} 个",
         "\n| 模块名 | 类型 | 版本 | DNA | 内容哈希 |",
@@ -559,7 +559,7 @@ def generate_report(db_path: Path, output_dir: Path, discovered: List[SkillMeta]
         lines.append(f"| {m.name} | {m.skill_type} | {m.version} | `{m.dna}` | `{m.content_hash[:16]}...` |")
 
     lines.extend([
-        "\n## 二、龙盾主权防火墙审计",
+        "\n## 二、龍盾主权防火墙审计",
         f"\n已执行安全审计: {len(shield_results)} 个模块",
         "\n| 模块 | 结果 | 等级 | DNA检查 | 君子协议 | 主权归属 | 外网URL |",
         "|------|------|------|---------|----------|----------|---------|",
@@ -587,7 +587,7 @@ def generate_report(db_path: Path, output_dir: Path, discovered: List[SkillMeta]
         "\n## 四、数据库状态",
         f"\n- knowledge_modules: {len(discovered)} 条",
         f"- knowledge_entries: {sum(r['cnt'] for r in stats)} 条",
-        f"- 龙盾审计日志: {DRAGON_SHIELD_AUDIT_PATH}",
+        f"- 龍盾审计日志: {DRAGON_SHIELD_AUDIT_PATH}",
         "\n---",
         "*本报告由龍魂知识库管理器自动生成，数据全部本地存储，不上传。*",
     ])
@@ -650,17 +650,17 @@ def cmd_import(args):
             ), "SKIPPED_DUPLICATE")
             continue
 
-        # 2. 龙盾主权防火墙
+        # 2. 龍盾主权防火墙
         shield = dragon_shield_check(meta.source_path, meta)
         shield_results.append({"module": meta.name, **asdict(shield)})
         write_dragon_shield_audit(meta, shield, "CHECKED")
-        print(f"  🛡️ 龙盾: {shield.level} ({'通过' if shield.passed else '熔断'})")
+        print(f"  🛡️ 龍盾: {shield.level} ({'通过' if shield.passed else '熔断'})")
         for check_name, check_result in shield.checks.items():
             icon = "✅" if check_result["passed"] else "⚠️" if shield.level == "YELLOW" else "❌"
             print(f"    {icon} {check_result['name']}: {check_result['detail'][:60]}")
 
         if not shield.passed:
-            print(f"  🔴 龙盾熔断，拒绝导入")
+            print(f"  🔴 龍盾熔断，拒绝导入")
             continue
 
         # 3. 数据导入
@@ -697,7 +697,7 @@ def cmd_import(args):
     report_path = generate_report(db_path, AGENTS_DIR / "reports", discovered, imported, shield_results)
     print(f"\n📝 报告已生成: {report_path}")
     print(f"\n✅ 导入完成: {len(imported)} 个模块")
-    print(f"🛡️ 龙盾审计: {DRAGON_SHIELD_AUDIT_PATH}")
+    print(f"🛡️ 龍盾审计: {DRAGON_SHIELD_AUDIT_PATH}")
 
 
 def cmd_list(args):
@@ -740,7 +740,7 @@ def cmd_search(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龍魂知识库管理器：扫描、清洗、导入外部知识模块（含龙盾防火墙）",
+        description="🐉 龍魂知识库管理器：扫描、清洗、导入外部知识模块（含龍盾防火墙）",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--db", help="知识库 SQLite 路径", default=str(DEFAULT_DB))

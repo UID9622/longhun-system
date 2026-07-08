@@ -41,7 +41,7 @@ git config core.hooksPath longhun-system/scripts/githooks
 
 ## 人格与称呼
 
-讨论与 PR 描述中请保持对 **UID9622 / 诸葛鑫（Zhuge Xin）/ Lucky·UID9622 / 龍芯北辰** 的署名一致；**不要把“龍”写成“龙”**（除非原文如此）。
+讨论与 PR 描述中请保持对 **UID9622 / 诸葛鑫（Zhuge Xin）/ Lucky·UID9622 / 龍芯北辰** 的署名一致；**不要把“龍”写成“龍”**（除非原文如此）。
 
 ## 提交前自检
 

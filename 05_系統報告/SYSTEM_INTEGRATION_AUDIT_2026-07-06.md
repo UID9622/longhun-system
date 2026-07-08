@@ -61,7 +61,7 @@
 
 | 文章 | 主题 | 应链接知识图谱节点 |
 |------|------|-------------------|
-| `龙魂数字主权体系_学术论文_v2.0.md` | 数字主权、学术 | → `IPA-L0-001`(宪法)、`paper/digital-sovereignty` |
+| `龍魂数字主权体系_学术论文_v2.0.md` | 数字主权、学术 | → `IPA-L0-001`(宪法)、`paper/digital-sovereignty` |
 | `灵活与原则-无底线即虚无-龍魂价值观论文.md` | 价值观 | → `paper/values`、`IPA-L0-001` |
 | `三才算法发微_为曾老师正名.md` | 三才算法 | → `IPA-L2-FLOW-GATE-SANCAI-006` |
 | `伦理量子·中式价值对齐方案-v1.0.md` | 伦理·价值对齐 | → `paper/ethics-quantum`、`RULE-FORMULA-001` |
@@ -105,7 +105,7 @@
 
 ```json
 // 学术论文
-"paper/digital-sovereignty":   → 《龙魂数字主权体系》
+"paper/digital-sovereignty":   → 《龍魂数字主权体系》
 "paper/values-principles":     → 《灵活与原则》
 "paper/sancai-algorithm":      → 《三才算法发微》
 "paper/ethics-quantum":        → 《伦理量子·价值对齐》

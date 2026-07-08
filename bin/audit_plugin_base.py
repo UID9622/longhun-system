@@ -362,11 +362,11 @@ class DNAVerifierPlugin(AuditPlugin):
         findings = []
 
         # L0检查: 繁体龍
-        if "龙" in content and "龍" not in content:
+        if "龍" in content and "龍" not in content:
             findings.append(AuditFinding(
                 level="error",
-                message="铁律违反: 使用简体「龙」，应使用繁体「龍」",
-                suggestion="全局替换 龙 → 龍",
+                message="铁律违反: 使用简体「龍」，应使用繁体「龍」",
+                suggestion="全局替换 龍 → 龍",
             ))
 
         # DNA格式检查

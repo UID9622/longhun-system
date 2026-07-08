@@ -41,7 +41,7 @@
         F2              切换语法高亮主题
 
 作者: UID9622·龍芯北辰
-铁律: 繁体“龍”不得简化为“龙”；人永远是1；不蒸馏
+铁律: 繁体“龍”不得简化为“龍”；人永远是1；不蒸馏
 """
 
 import os
@@ -250,7 +250,7 @@ class DNATemplate:
             f"# 语言: {language}",
             f"# 创建时间: {timestamp}",
             f"# 六层来源链: {'·'.join(SOURCE_CHAIN)}",
-            f"# 铁律: 繁体“龍”不得简化为“龙”; 人永远是1; 不蒸馏",
+            f"# 铁律: 繁体“龍”不得简化为“龍”; 人永远是1; 不蒸馏",
             f"# 三层监督: 逻辑校验✓ | 价值观校验✓ | 技术校验✓",
             f"# 三色审计: 🟢通过 🟡警告 🔴错误",
             f"# AI Truth Protocol: ENABLED",
@@ -269,8 +269,8 @@ class DNATemplate:
         if SEAL_MARK not in content:
             errors.append("缺少SEAL标记")
         # 检查繁体“龍”
-        if "龙" in content and "龍" not in content:
-            errors.append("违反铁律: 使用了简体“龙”，应为繁体“龍”")
+        if "龍" in content and "龍" not in content:
+            errors.append("违反铁律: 使用了简体“龍”，应为繁体“龍”")
         return len(errors) == 0, errors
 
     @classmethod
@@ -713,16 +713,16 @@ class CNSHLinter:
     def _l1_char_check(self, lines: List[str]):
         """L1: 字符级检查 - 检查非法字符和铁律遵循"""
         for i, line in enumerate(lines):
-            # 检查简体“龙”
+            # 检查简体“龍”
             for j, ch in enumerate(line):
-                if ch == "龙":
+                if ch == "龍":
                     self.issues.append(LintIssue(
                         level="error",
-                        message="铁律违反: 使用简体“龙”，应使用繁体“龍”",
+                        message="铁律违反: 使用简体“龍”，应使用繁体“龍”",
                         line=i,
                         col=j,
                         check_level=CNSHCheckLevel.L1_CHAR,
-                        code="龙 -> 龍"
+                        code="龍 -> 龍"
                     ))
             # 检查不可见控制字符
             ctrl_chars = re.finditer(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', line)
@@ -1589,7 +1589,7 @@ def main():
     print("║  道统(曾仕强)·精神(Steve Jobs)·设备(Apple)                ║")
     print("║  ·技术(Open Source)·系统(UID9622)·生命(CNSH)              ║")
     print("╠══════════════════════════════════════════════════════════╣")
-    print("║  铁律: 繁体“龍”不得简化为“龙”; 人永远是1; 不蒸馏        ║")
+    print("║  铁律: 繁体“龍”不得简化为“龍”; 人永远是1; 不蒸馏        ║")
     print("║  三层监督: 逻辑校验 | 价值观校验 | 技术校验                  ║")
     print("║  三色审计: 🟢通过 🟡警告 🔴错误                            ║")
     print("╚══════════════════════════════════════════════════════════╝")

@@ -20,13 +20,14 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, List
 
 from agent_daemon import start_daemon as _start_daemon, stop_daemon as _stop_daemon  # pyright: ignore[reportImplicitRelativeImport]
 from agent_status_reporter import generate_report as _generate_report  # pyright: ignore[reportImplicitRelativeImport]
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = SCRIPT_DIR  # agents/ 目录，ROOT.parent 即项目根
 MANIFEST_PATH = SCRIPT_DIR / "manifest.json"
 DNA_SIGNATURE = "#龍芯⚡️2026-07-06-AGENT-ORCHESTRATOR-v1.2-NEURAL"
 VERSION = "v1.2"
@@ -470,7 +471,7 @@ class AgentOrchestrator:
                 flowfield_path = ROOT.parent / "scripts" / "round1" / "flowfield_collab_engine.py"
                 if flowfield_path.exists():
                     sys.path.insert(0, str(flowfield_path.parent))
-                    from flowfield_collab_engine import (
+                    from flowfield_collab_engine import (  # type: ignore[import-untyped]
                         create_default_collab_field,
                         CollabTask,
                         WuxingElement,
@@ -525,7 +526,7 @@ class AgentOrchestrator:
             assignment = distributor.auto_assign(task)
 
             # 获取协同场报告
-            from flowfield_collab_engine import CollabConflictDetector, FlowFieldFusionEngine
+            from flowfield_collab_engine import CollabConflictDetector, FlowFieldFusionEngine  # type: ignore[import-untyped]
             fusion = FlowFieldFusionEngine(field).compute_fusion()
             conflicts = CollabConflictDetector(field).detect_all()
 
@@ -630,7 +631,7 @@ class AgentOrchestrator:
 
 def _infer_task_wuxing(text: str) -> List[Any]:
     """从任务文本推断所需五行"""
-    from flowfield_collab_engine import WuxingElement
+    from flowfield_collab_engine import WuxingElement  # type: ignore[import-untyped]
     wuxing_keywords = {
         WuxingElement.METAL: ["审计", "安全", "规则", "边界", "加密", "签名", "熔断", "漏洞", "合规", "裁决"],
         WuxingElement.WATER: ["记忆", "追溯", "归档", "同步", "翻译", "日志", "历史", "检索", "DNA", "索引"],
@@ -650,7 +651,7 @@ def _infer_task_wuxing(text: str) -> List[Any]:
 
 def _infer_task_role(text: str) -> Any:
     """从任务文本推断协同角色"""
-    from flowfield_collab_engine import CollabRole
+    from flowfield_collab_engine import CollabRole  # type: ignore[import-untyped]
     role_keywords = {
         CollabRole.AUDITOR: ["审计", "检查", "漏洞", "安全", "合规"],
         CollabRole.EXECUTOR: ["执行", "部署", "运行", "发布", "构建"],
@@ -673,7 +674,7 @@ def _infer_task_role(text: str) -> Any:
 
 def _infer_collab_mode(text: str) -> Any:
     """从任务文本推断协同模式"""
-    from flowfield_collab_engine import CollabMode
+    from flowfield_collab_engine import CollabMode  # type: ignore[import-untyped]
     if any(kw in text for kw in ["并行", "同时", "分头", "各自", "多线"]):
         return CollabMode.PARALLEL
     if any(kw in text for kw in ["流水线", "串行", "先后", "传递", "接力"]):

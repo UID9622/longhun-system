@@ -14,7 +14,7 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-SRC_DIR = Path("/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龙魂IP资产清单 (2)")
+SRC_DIR = Path("/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂IP资产清单 (2)")
 BASE = Path("/Users/zuimeidedeyihan/longhun-system")
 DOCS = BASE / "docs/private-shared-imports"
 SCRIPTS = BASE / "scripts/private-shared-imports/ip-assets-v2"
@@ -218,7 +218,7 @@ __all__ = [
 > **DNA:** `#龍芯⚡️2026-07-04-IP-ASSETS-SCRIPT-PACK-v2.0`
 > **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`
 
-本目录收录从 `Kimi_Agent_龙魂IP资产清单 (2)` 归集的 4 个核心 Python 引擎模块：
+本目录收录从 `Kimi_Agent_龍魂IP资产清单 (2)` 归集的 4 个核心 Python 引擎模块：
 
 | 文件 | 功能 | DNA |
 |---|---|---|

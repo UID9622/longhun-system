@@ -41,7 +41,7 @@ class SemanticShield:
 
     # 龍 - 神圣字（必须是繁体）
     SACRED_CHARACTERS = {
-        "龍": r"[龙]",  # 龍 不能被替换成简体龙
+        "龍": r"[龍]",  # 龍 不能被替换成简体龍
     }
 
     # 术语统一标准
@@ -172,9 +172,9 @@ class SemanticShield:
         """
         corrected = text
 
-        # 修复龍 vs 龙
-        corrected = corrected.replace("龙魂", "龍魂")
-        corrected = corrected.replace("龙芯", "龍芯")
+        # 修复龍 vs 龍
+        corrected = corrected.replace("龍魂", "龍魂")
+        corrected = corrected.replace("龍芯", "龍芯")
 
         return corrected
 

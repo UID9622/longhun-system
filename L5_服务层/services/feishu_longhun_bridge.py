@@ -33,9 +33,10 @@ import hashlib
 import subprocess
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
+from typing import Any, Dict
 
-from fastapi import FastAPI, Request, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request, HTTPException  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import JSONResponse
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -73,7 +74,7 @@ def get_tenant_access_token() -> str:
     except Exception:
         return ""
 
-def reply_feishu_card(receive_id: str, msg_id: str, card: dict):
+def reply_feishu_card(receive_id: str, msg_id: str, card: Dict[str, Any]):
     token = get_tenant_access_token()
     if not token:
         return
@@ -92,7 +93,7 @@ def reply_feishu_card(receive_id: str, msg_id: str, card: dict):
         print(f"[飞书] 回复失败: {e}")
 
 # ─── 命令路由引擎 ───
-def parse_intent(text: str) -> dict:
+def parse_intent(text: str) -> Dict[str, Any]:
     """解析用户输入 → 返回意图和参数
     
     优先级: 精确正则 → 语义解析器 → 未知
@@ -139,7 +140,7 @@ def parse_intent(text: str) -> dict:
     
     # ── 第二层: 语义解析器（兜底）──
     try:
-        from semantic_parser import parse_command
+        from semantic_parser import parse_command  # type: ignore[import-untyped]
         result = parse_command(text)
         if result.get("success") and result.get("cn_command"):
             cn = result["cn_command"]
@@ -162,7 +163,7 @@ def parse_intent(text: str) -> dict:
         "text": text,
     }
 
-def execute_command(intent: dict) -> dict:
+def execute_command(intent: Dict[str, Any]) -> Dict[str, Any]:
     """根据意图执行对应引擎"""
     cmd = intent.get("cn_command", "") or intent.get("intent", "")
     text = intent.get("text", "")
@@ -295,7 +296,7 @@ def execute_command(intent: dict) -> dict:
         nums = re.findall(r'\d+', text)
         if nums:
             try:
-                from wuxing_engine import compute_digital_root, get_wuxing_element
+                from wuxing_engine import compute_digital_root, get_wuxing_element  # type: ignore[import-untyped]
                 num = int(nums[0])
                 dr = sum(int(d) for d in str(num))
                 while dr > 9:
@@ -340,7 +341,7 @@ def execute_command(intent: dict) -> dict:
     
     return result
 
-def build_feishu_card(result: dict, query_text: str = "") -> dict:
+def build_feishu_card(result: Dict[str, Any], query_text: str = "") -> Dict[str, Any]:
     """将执行结果转为飞书卡片"""
     if "card" in result:
         return result["card"]

@@ -28,9 +28,10 @@ import hashlib
 import subprocess
 from pathlib import Path
 from datetime import datetime
+from typing import Any, Dict
 
-from fastapi import FastAPI, Request, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, HTTPException, Request  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import JSONResponse
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -75,7 +76,7 @@ def get_tenant_access_token() -> str:
         return ""
 
 
-def send_feishu_message(receive_id: str, msg_type: str, content: dict, token: str = ""):
+def send_feishu_message(receive_id: str, msg_type: str, content: Dict[str, Any], token: str = ""):
     """发送飞书消息"""
     token = token or get_tenant_access_token()
     if not token:
@@ -109,7 +110,7 @@ def send_feishu_message(receive_id: str, msg_type: str, content: dict, token: st
         return None
 
 
-def reply_feishu_card(receive_id: str, msg_id: str, card: dict):
+def reply_feishu_card(receive_id: str, msg_id: str, card: Dict[str, Any]):
     """以卡片方式回复飞书消息"""
     token = get_tenant_access_token()
     if not token:
@@ -139,7 +140,7 @@ def reply_feishu_card(receive_id: str, msg_id: str, card: dict):
         print(f"[飞书] 回复失败: {e}")
 
 
-def get_persona_card(query: str = "") -> dict:
+def get_persona_card(query: str = "") -> Dict[str, Any]:
     """调用报表脚本获取飞书卡片"""
     try:
         cmd = [sys.executable, str(REPORT_SCRIPT), "--feishu-card"]

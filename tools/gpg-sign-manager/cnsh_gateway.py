@@ -38,8 +38,8 @@ from pathlib import Path
 
 # ── Flask（可选，无则退化为纯CLI）──
 try:
-    from flask import Flask, request, jsonify, Response, stream_with_context
-    from flask_cors import CORS
+    from flask import Flask, request, jsonify, Response, stream_with_context  # type: ignore[import-untyped]
+    from flask_cors import CORS  # type: ignore[import-untyped]
     FLASK_OK = True
 except ImportError:
     FLASK_OK = False
@@ -184,7 +184,7 @@ INPUT_TYPES = {
     "chinese":lambda s: len(re.findall(r'[\u4e00-\u9fff]', s)) > len(s) * 0.3,
 }
 
-def parse_input(raw: str) -> Dict:
+def parse_input(raw: str) -> Dict[str, Any]:
     detected = "text"
     for t, check in INPUT_TYPES.items():
         if check(raw):
@@ -231,7 +231,7 @@ def normalize_vars(variables: List[str]) -> Dict[str, str]:
 # 功能3：冲突检测（扩展版）
 # ============================================================================
 
-def detect_conflicts(parsed: Dict) -> Tuple[bool, List[str]]:
+def detect_conflicts(parsed: Dict[str, Any]) -> Tuple[bool, List[str]]:
     issues = []
     raw = parsed["raw"]
 
@@ -268,7 +268,7 @@ def detect_conflicts(parsed: Dict) -> Tuple[bool, List[str]]:
 # 功能4：三色审计
 # ============================================================================
 
-def audit(parsed: Dict, has_conflict: bool, conflicts: List[str]) -> str:
+def audit(parsed: Dict[str, Any], has_conflict: bool, conflicts: List[str]) -> str:
     raw = parsed["raw"]
 
     # 危险 → 🔴
@@ -301,7 +301,7 @@ def _log_audit(operator: str, action: str, status: str):
 # 功能5：自动修复
 # ============================================================================
 
-def auto_fix(parsed: Dict, conflicts: List[str]) -> Dict:
+def auto_fix(parsed: Dict[str, Any], conflicts: List[str]) -> Dict[str, Any]:
     fixed = dict(parsed)
     applied = []
 
@@ -322,7 +322,7 @@ def auto_fix(parsed: Dict, conflicts: List[str]) -> Dict:
 # 功能6：模板系统
 # ============================================================================
 
-def get_templates() -> List[Dict]:
+def get_templates() -> List[Dict]:  # type: ignore[reportMissingTypeArgument]
     conn = get_db()
     rows = conn.execute("SELECT id, name, usage_count FROM templates ORDER BY usage_count DESC").fetchall()
     conn.close()
@@ -367,7 +367,7 @@ def save_timeline(event_type: str, description: str):
     except Exception:
         pass
 
-def get_timeline(limit: int = 20) -> List[Dict]:
+def get_timeline(limit: int = 20) -> List[Dict[str, Any]]:
     conn = get_db()
     rows = conn.execute(
         "SELECT date, event_type, description, created_at FROM timeline ORDER BY id DESC LIMIT ?",
@@ -423,7 +423,7 @@ def ollama_models() -> List[str]:
     except Exception:
         return []
 
-def ollama_chat_stream(model: str, messages: List[Dict]):
+def ollama_chat_stream(model: str, messages: List[Dict[str, Any]]):
     """生成器：流式返回 Ollama 对话"""
     payload = json.dumps({"model": model, "messages": messages, "stream": True}).encode()
     req = urllib.request.Request(
@@ -450,7 +450,7 @@ def ollama_chat_stream(model: str, messages: List[Dict]):
 # 主网关函数
 # ============================================================================
 
-def cnsh_gateway(raw_input: str, verbose: bool = True) -> Dict:
+def cnsh_gateway(raw_input: str, verbose: bool = True) -> Dict[str, Any]:
     """
     CNSH统一入口
     INPUT → PARSE → NORMALIZE → DETECT → AUDIT → FIX → OUTPUT

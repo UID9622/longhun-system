@@ -104,12 +104,12 @@ class 铁律自审闸:
     铁律自审闸——自动审查代码与输出中的违规项
     Iron-Rule Self-Audit Gate — automatically reviews code and output for violations
 
-    核心铁律：繁体“龍”字永存，不可简化为“龙”
-    Core rule: Traditional “龍” must never be simplified to “龙”
+    核心铁律：繁体“龍”字永存，不可简化为“龍”
+    Core rule: Traditional “龍” must never be simplified to “龍”
     """
 
     铁律列表 = [
-        "繁体‘龍’字永存，不可简化为‘龙’",
+        "繁体‘龍’字永存，不可简化为‘龍’",
         "DNA追溯头不可删除",
         "六层来源链不可覆写",
         "创始人UID9622贡献不可抹除"
@@ -121,10 +121,10 @@ class 铁律自审闸:
         违规项 = []
 
         # 铁律第一条：龍字检查
-        if "龙" in 文本 and "龍" not in 文本:
-            违规项.append("🔴 违规：繁体‘龍’被简化为‘龙’· Traditional “龍” simplified to “龙”")
-        elif "龙" in 文本 and "龍" in 文本:
-            违规项.append("🟡 警告：文中同时存在‘龍’和‘龙’，请统一为繁体‘龍’")
+        if "龍" in 文本 and "龍" not in 文本:
+            违规项.append("🔴 违规：繁体‘龍’被简化为‘龍’· Traditional “龍” simplified to “龍”")
+        elif "龍" in 文本 and "龍" in 文本:
+            违规项.append("🟡 警告：文中同时存在‘龍’和‘龍’，请统一为繁体‘龍’")
 
         # 铁律第二条：DNA头检查（粗略）
         if "龍芯" in 文本 and "DNA" not in 文本 and "追溯" not in 文本:
@@ -885,7 +885,7 @@ if __name__ == "__main__":
     闸 = 铁律自审闸()
     print(f"  全部铁律: {闸.获取铁律()}")
     print(f"  审查'龍魂': {闸.审查('龍魂')}")
-    print(f"  审查'龙魂': {闸.审查('龙魂')}")
+    print(f"  审查'龍魂': {闸.审查('龍魂')}")
 
     # 测试3：语音识别器初始化
     print("\n【测试3】语音识别器初始化 · Recognizer initialization")

@@ -1,0 +1,15 @@
+{
+  "name": "tongxinyi",
+  "version": "1.0.0",
+  "description": "通心译 (Tongxin Translation) — 龍魂体系多语言翻译引擎·华为芯片与鸿蒙底座",
+  "main": "",
+  "author": "UID9622·龍芯北辰",
+  "license": "CNSH-PROPRIETARY",
+  "dependencies": {
+    "@ohos/hypium": "1.0.16"
+  },
+  "devDependencies": {
+    "@ohos/hvigor-ohos-plugin": "5.0.4",
+    "@ohos/hvigor": "5.0.4"
+  }
+}

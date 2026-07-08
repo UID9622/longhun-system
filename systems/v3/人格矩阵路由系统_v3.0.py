@@ -328,18 +328,18 @@ class SituationParser:
     SITUATION_RULES: Dict[SituationType, Callable[[SituationContext], float]] = {
         SituationType.EMERGENCY: lambda ctx: (
             ctx.urgency * 0.4 + ctx.time_pressure * 0.3 +
-            (1 - ctx.resource_scarcity) * 0.2 + min(ctx.stakeholders / 10, 1.0) * 0.1
+            (1 - ctx.resource_scarcity) * 0.2 + min(ctx.stakeholders / 10, 1.0) * 0.1  # type: ignore[reportArgumentType]
         ),
         SituationType.ARCHITECTURE: lambda ctx: (
             ctx.complexity * 0.35 + ctx.ambiguity * 0.25 +
-            (1 - ctx.urgency) * 0.2 + min(ctx.stakeholders / 5, 1.0) * 0.2
+            (1 - ctx.urgency) * 0.2 + min(ctx.stakeholders / 5, 1.0) * 0.2  # type: ignore[reportArgumentType]
         ),
         SituationType.RESOURCE: lambda ctx: (
             ctx.resource_scarcity * 0.4 + ctx.complexity * 0.2 +
-            (1 - ctx.urgency) * 0.2 + min(ctx.stakeholders / 8, 1.0) * 0.2
+            (1 - ctx.urgency) * 0.2 + min(ctx.stakeholders / 8, 1.0) * 0.2  # type: ignore[reportArgumentType]
         ),
         SituationType.COLLABORATION: lambda ctx: (
-            min(ctx.stakeholders / 5, 1.0) * 0.4 + (1 - ctx.urgency) * 0.25 +
+            min(ctx.stakeholders / 5, 1.0) * 0.4 + (1 - ctx.urgency) * 0.25 +  # type: ignore[reportArgumentType]
             ctx.complexity * 0.2 + ctx.ambiguity * 0.15
         ),
         SituationType.STRATEGIC: lambda ctx: (
@@ -370,7 +370,7 @@ class SituationParser:
         scores = self._score_situations(input_text, keywords)
 
         # 确定主导情境
-        situation_type = max(scores, key=scores.get)
+        situation_type = max(scores, key=scores.get)  # type: ignore[reportArgumentType]
 
         # 如果所有分数都低，归为均衡型
         if scores[situation_type] < 0.3:
@@ -385,7 +385,7 @@ class SituationParser:
             description=input_text[:200],
             keywords=keywords,
             raw_input=input_text,
-            **params
+            **params  # type: ignore[reportArgumentType]
         )
 
         self._last_parsed = context
@@ -533,7 +533,7 @@ class WeightDistributor:
 
     def __init__(self, meta_profiles: Optional[Dict[MetaCognition, MetaProfile]] = None):
         self.meta_profiles = meta_profiles or {}
-        self._distribution_history: deque = deque(maxlen=100)
+        self._distribution_history: deque[Any] = deque(maxlen=100)
 
     def distribute(self, situation: SituationContext,
                    meta_profiles: Optional[Dict[MetaCognition, MetaProfile]] = None) -> Tuple[RouteType, Dict[MetaCognition, float]]:
@@ -674,7 +674,7 @@ class ValueCalibrator:
                  unified_engine=None):
         # 默认激活所有价值
         self.active_values = active_values or list(self.VALUE_PRIORITY.keys())
-        self._calibration_history: deque = deque(maxlen=100)
+        self._calibration_history: deque[Any] = deque(maxlen=100)
         # v2.0: 可注入统一价值观引擎
         self._unified_engine = unified_engine
 
@@ -769,7 +769,7 @@ class ValueCalibrator:
     def get_primary_unified_value(self) -> str:
         """v2.0: 获取当前首要核心价值观标签"""
         unified = self.get_unified_value_weights()
-        return max(unified, key=unified.get) if unified else "魂"# ═══════════════════════════════════════════════════════════════════════════════
+        return max(unified, key=unified.get) if unified else "魂"# ═══════════════════════════════════════════════════════════════════════════════  # type: ignore[reportArgumentType]
 # 6. 资源约束检查器
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -906,8 +906,8 @@ class IntelligenceCorrector:
     """
 
     def __init__(self, intelligence_buffer_size: int = 50):
-        self.intelligence_buffer: deque = deque(maxlen=intelligence_buffer_size)
-        self.meta_effectiveness_history: Dict[MetaCognition, deque] = {
+        self.intelligence_buffer: deque[Any] = deque(maxlen=intelligence_buffer_size)
+        self.meta_effectiveness_history: Dict[MetaCognition, deque[Any]] = {
             meta: deque(maxlen=20) for meta in MetaCognition
         }
         self._correction_stats = {"total_corrections": 0, "avg_magnitude": 0.0}
@@ -1215,7 +1215,7 @@ class RouteGenerator:
     }
 
     def __init__(self):
-        self._route_history: deque = deque(maxlen=100)
+        self._route_history: deque[Any] = deque(maxlen=100)
         self._template_stats: Dict[RouteType, int] = {rt: 0 for rt in RouteType}
 
     def generate(self, route_type: RouteType,
@@ -1404,8 +1404,8 @@ class TriColorAuditor:
     }
 
     def __init__(self):
-        self.audit_log: deque = deque(maxlen=200)
-        self.route_sequence: deque = deque(maxlen=50)
+        self.audit_log: deque[Any] = deque(maxlen=200)
+        self.route_sequence: deque[Any] = deque(maxlen=50)
         self._audit_counts = {"🟢": 0, "🟡": 0, "🔴": 0}
 
     def audit(self, decision: RouteDecision) -> AuditLevel:
@@ -1629,7 +1629,7 @@ class FeedbackCalibrator:
                  calibration_decay: float = 0.95):
         self.learning_rate = learning_rate
         self.calibration_decay = calibration_decay
-        self.feedback_history: deque = deque(maxlen=100)
+        self.feedback_history: deque[Any] = deque(maxlen=100)
         self.meta_calibration_bias: Dict[MetaCognition, float] = {
             meta: 0.0 for meta in MetaCognition
         }
@@ -1809,8 +1809,8 @@ class PersonaMatrixEngine:
 
         # 状态追踪
         self._execution_count = 0
-        self._step_execution_log: deque = deque(maxlen=100)
-        self._decision_history: deque = deque(maxlen=200)
+        self._step_execution_log: deque[Any] = deque(maxlen=100)
+        self._decision_history: deque[Any] = deque(maxlen=200)
 
     def process(self, input_text: str, **kwargs) -> RouteDecision:
         """

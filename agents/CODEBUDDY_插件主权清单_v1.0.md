@@ -94,8 +94,8 @@
 | 插件 | ID | 说明 |
 |---|---|---|
 | 密钥扫描 | `GitHub.vscode-codeql` 过重，不建议 | 改用本地脚本 |
-| 敏感信息检查 | 自研 `~/longhun-system/tools/longhun_code_audit_runner.py` | 龙魂自带 |
-| 代码审计 | `~/longhun-system/tools/longhun_code_audit_runner.py` | 龙魂自带 |
+| 敏感信息检查 | 自研 `~/longhun-system/tools/longhun_code_audit_runner.py` | 龍魂自带 |
+| 代码审计 | `~/longhun-system/tools/longhun_code_audit_runner.py` | 龍魂自带 |
 
 ### 5. 运行与调试（本地进程）
 
@@ -114,7 +114,7 @@
 | Rainbow CSV | `mechatroner.rainbow-csv` | 已装 |
 | 中文字体优化 | 自研 CSS/配置 | 不装插件 |
 
-### 7. 龙魂/CNSH 专用（自研，不上市场）
+### 7. 龍魂/CNSH 专用（自研，不上市场）
 
 | 组件 | 路径 | 说明 |
 |---|---|---|
@@ -184,7 +184,7 @@ cp ~/.codebuddy/mcp.json ~/.codebuddy/mcp.json.bak.$(date +%Y%m%d)
 4. `eamodio.gitlens`（关闭云同步）
 5. `formulahendry.code-runner`
 6. 自研 CNSH 语法插件
-7. 龙魂 `:9627` 神经网络总控（浏览器访问）
+7. 龍魂 `:9627` 神经网络总控（浏览器访问）
 
 ---
 

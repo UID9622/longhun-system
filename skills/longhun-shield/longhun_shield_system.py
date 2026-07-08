@@ -158,7 +158,7 @@ class PauseGate:
         return {
             "非空": code_obj is not None,
             "有效类型": callable(code_obj) or isinstance(code_obj, (str, dict, list)),
-            "不是简体龍": '龙' not in str(code_obj),
+            "不是简体龍": '龍' not in str(code_obj),
             "无危险函数": not self._contains_dangerous_functions(code_obj),
         }
     

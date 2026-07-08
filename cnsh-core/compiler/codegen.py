@@ -74,7 +74,7 @@ class CodeGenerator:
             '空值': '()',
             '空': 'None'
         },
-        TargetLang.CPP: {
+        TargetLang.CPP: {  # type: ignore[attr-defined]
             '整数': 'int',
             '小数': 'double',
             '文本': 'std::string',
@@ -85,7 +85,7 @@ class CodeGenerator:
             '空值': 'void',
             '空': 'nullptr'
         },
-        TargetLang.OBJC: {
+        TargetLang.OBJC: {  # type: ignore[attr-defined]
             '整数': 'NSInteger',
             '小数': 'CGFloat',
             '文本': 'NSString*',
@@ -96,7 +96,7 @@ class CodeGenerator:
             '空值': 'void',
             '空': 'nil'
         },
-        TargetLang.SWIFT: {
+        TargetLang.SWIFT: {  # type: ignore[attr-defined]
             '整数': 'Int',
             '小数': 'Double',
             '文本': 'String',
@@ -136,21 +136,21 @@ class CodeGenerator:
             'bool': 'false',
             'None': 'None'
         },
-        TargetLang.CPP: {
+        TargetLang.CPP: {  # type: ignore[attr-defined]
             'int': '0',
             'double': '0.0',
             'std::string': '""',
             'bool': 'false',
             'nullptr': 'nullptr'
         },
-        TargetLang.OBJC: {
+        TargetLang.OBJC: {  # type: ignore[attr-defined]
             'NSInteger': '0',
             'CGFloat': '0.0',
             'NSString*': '@""',
             'BOOL': 'NO',
             'nil': 'nil'
         },
-        TargetLang.SWIFT: {
+        TargetLang.SWIFT: {  # type: ignore[attr-defined]
             'Int': '0',
             'Double': '0.0',
             'String': '""',
@@ -166,27 +166,27 @@ class CodeGenerator:
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.log',
             TargetLang.RUST: 'println!',
-            TargetLang.CPP: 'std::cout',
-            TargetLang.OBJC: 'NSLog',
-            TargetLang.SWIFT: 'print'
+            TargetLang.CPP: 'std::cout',  # type: ignore[attr-defined]
+            TargetLang.OBJC: 'NSLog',  # type: ignore[attr-defined]
+            TargetLang.SWIFT: 'print'  # type: ignore[attr-defined]
         },
         '提示': {
             TargetLang.C: 'printf',
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.warn',
             TargetLang.RUST: 'eprintln!',
-            TargetLang.CPP: 'std::cerr',
-            TargetLang.OBJC: 'NSLog',
-            TargetLang.SWIFT: 'print'
+            TargetLang.CPP: 'std::cerr',  # type: ignore[attr-defined]
+            TargetLang.OBJC: 'NSLog',  # type: ignore[attr-defined]
+            TargetLang.SWIFT: 'print'  # type: ignore[attr-defined]
         },
         '报错': {
             TargetLang.C: 'fprintf',
             TargetLang.PYTHON: 'print',
             TargetLang.JAVASCRIPT: 'console.error',
             TargetLang.RUST: 'eprintln!',
-            TargetLang.CPP: 'std::cerr',
-            TargetLang.OBJC: 'NSLog',
-            TargetLang.SWIFT: 'debugPrint'
+            TargetLang.CPP: 'std::cerr',  # type: ignore[attr-defined]
+            TargetLang.OBJC: 'NSLog',  # type: ignore[attr-defined]
+            TargetLang.SWIFT: 'debugPrint'  # type: ignore[attr-defined]
         }
     }
 

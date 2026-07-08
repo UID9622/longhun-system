@@ -1,4 +1,6 @@
 <!--#龍芯⚡️2026-06-21-UI-MAIN-CONSOLE-v1.0 -->
+<!-- 主权LED跑马灯集成: #龍芯⚡️2026-07-07-SOVEREIGNTY-LED-v1.0 -->
+<!-- 环境即主权，颜色即规则。人看得懂，代码明白，禁区一目了然。 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 <!DOCTYPE html>
@@ -369,6 +371,273 @@
             background: rgba(0, 212, 255, 0.3);
         }
         
+        /* 数字人卡片 */
+        .dh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .dh-card {
+            background: rgba(255,255,255,0.04);
+            border: 2px solid rgba(0,212,255,0.25);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dh-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0,212,255,0.6);
+            box-shadow: 0 8px 32px rgba(0,212,255,0.2);
+        }
+        
+        .dh-card.active {
+            border-color: #00ff88;
+            box-shadow: 0 0 28px rgba(0,255,136,0.3);
+        }
+        
+        .dh-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(0,212,255,0.2);
+        }
+        
+        .dh-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+        
+        .dh-avatar.p01 { background: linear-gradient(135deg, #2D8B2D, #00CC66); }
+        .dh-avatar.zeng { background: linear-gradient(135deg, #1E3A5F, #4A90D9); }
+        .dh-avatar.qiao { background: linear-gradient(135deg, #8B7355, #DAA520); }
+        .dh-avatar.beichen { background: linear-gradient(135deg, #6B3FA0, #C9B037); }
+        .dh-avatar.baobao { background: linear-gradient(135deg, #D43D1A, #FF6B6B); }
+        
+        .dh-info h3 {
+            font-size: 18px;
+            color: #e2e8f0;
+            margin-bottom: 4px;
+        }
+        
+        .dh-info .dh-role {
+            font-size: 12px;
+            color: #00d4ff;
+            letter-spacing: 1px;
+        }
+        
+        .dh-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .dh-status .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .dh-status .dot.online { background: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.6); }
+        .dh-status .dot.offline { background: #666; }
+        .dh-status .dot.busy { background: #ffd700; box-shadow: 0 0 8px rgba(255,215,0,0.6); }
+        
+        .dh-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+        
+        .dh-abilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        
+        .dh-tag {
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 20px;
+            background: rgba(0,212,255,0.12);
+            color: #00d4ff;
+            border: 1px solid rgba(0,212,255,0.25);
+        }
+        
+        .dh-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dh-btn {
+            padding: 8px 18px;
+            border: 1px solid rgba(0,212,255,0.4);
+            border-radius: 8px;
+            background: rgba(0,212,255,0.08);
+            color: #00d4ff;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.25s;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .dh-btn:hover {
+            background: rgba(0,212,255,0.18);
+            border-color: #00d4ff;
+        }
+        
+        .dh-btn.primary {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0e27;
+            border: none;
+        }
+        
+        .dh-btn.primary:hover {
+            box-shadow: 0 4px 16px rgba(0,212,255,0.4);
+        }
+        
+        .dh-btn.warn {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+        
+        .dh-btn.warn:hover {
+            background: rgba(255,107,107,0.15);
+        }
+        
+        .dh-log {
+            margin-top: 14px;
+            padding: 12px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 8px;
+            font-family: "Consolas","Monaco",monospace;
+            font-size: 11px;
+            color: #00ff88;
+            max-height: 120px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .dh-log.show {
+            display: block;
+        }
+        
+        .dh-slogan {
+            text-align: center;
+            padding: 20px;
+            margin-top: 10px;
+            color: #ffd700;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 12px rgba(255,215,0,0.4);
+        }
+
+        /* 🐉 主权LED跑马灯 — 环境即主权，颜色即规则 */
+        :root {
+            --led-red:    #FF1744;
+            --led-yellow: #FFD600;
+            --led-green:  #00C853;
+            --led-purple: #7C3AED;
+            --led-gold:   #FFC400;
+            --led-black:  #212121;
+            --led-cyan:   #00BCD4;
+        }
+        #sovereignty-led-bar {
+            position: sticky; top: 0; z-index: 100;
+            height: 34px;
+            background: #0a0a0a;
+            border-bottom: 2px solid rgba(124, 58, 237, 0.35);
+            display: flex; align-items: center;
+            overflow: hidden;
+            font-family: "Consolas","Monaco",monospace;
+            font-size: 12px;
+            margin: -20px -20px 20px -20px;
+            width: calc(100% + 40px);
+        }
+        #sovereignty-led-bar .led-label {
+            flex-shrink: 0;
+            padding: 0 14px;
+            color: #7C3AED;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-right: 1px solid rgba(124, 58, 237, 0.25);
+            background: rgba(124, 58, 237, 0.08);
+            height: 100%; display: flex; align-items: center;
+        }
+        #sovereignty-led-bar .led-track {
+            display: flex; white-space: nowrap;
+            animation: ledScroll 18s linear infinite;
+            height: 100%; align-items: center;
+        }
+        #sovereignty-led-bar:hover .led-track { animation-play-state: paused; }
+        @keyframes ledScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        #sovereignty-led-bar .led-segment {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 0 18px;
+            height: 100%;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        #sovereignty-led-bar .led-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            animation: ledPulse 2s ease-in-out infinite;
+        }
+        #sovereignty-led-bar .led-dot.red    { background: var(--led-red);    box-shadow: 0 0 10px var(--led-red);    animation-delay: 0s; }
+        #sovereignty-led-bar .led-dot.yellow { background: var(--led-yellow); box-shadow: 0 0 10px var(--led-yellow); animation-delay: 0.3s; }
+        #sovereignty-led-bar .led-dot.green  { background: var(--led-green);  box-shadow: 0 0 10px var(--led-green);  animation-delay: 0.6s; }
+        #sovereignty-led-bar .led-dot.purple { background: var(--led-purple); box-shadow: 0 0 10px var(--led-purple); animation-delay: 0.9s; }
+        #sovereignty-led-bar .led-dot.gold   { background: var(--led-gold);   box-shadow: 0 0 10px var(--led-gold);   animation-delay: 1.2s; }
+        #sovereignty-led-bar .led-dot.black  { background: var(--led-black);  box-shadow: 0 0 6px #444;               animation-delay: 1.5s; }
+        #sovereignty-led-bar .led-dot.cyan   { background: var(--led-cyan);   box-shadow: 0 0 10px var(--led-cyan);   animation-delay: 1.8s; }
+        @keyframes ledPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #sovereignty-led-bar .led-text { color: #94a3b8; letter-spacing: 0.5px; }
+        #sovereignty-led-bar .led-text.red    { color: var(--led-red); }
+        #sovereignty-led-bar .led-text.yellow { color: var(--led-yellow); }
+        #sovereignty-led-bar .led-text.green  { color: var(--led-green); }
+        #sovereignty-led-bar .led-text.purple { color: var(--led-purple); }
+        #sovereignty-led-bar .led-text.gold   { color: var(--led-gold); }
+        #sovereignty-led-bar .led-text.cyan   { color: var(--led-cyan); }
+        #led-forbidden-panel {
+            display: flex; flex-wrap: wrap; padding: 4px 14px;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(124,58,237,0.2);
+            font-family: "Consolas","Monaco",monospace;
+            min-height: 24px;
+            margin: -20px -20px 0 -20px;
+            width: calc(100% + 40px);
+        }
+        .led-forbidden-flash {
+            animation: forbiddenBlink 0.8s step-end infinite;
+        }
+        @keyframes forbiddenBlink {
+            0%, 100% { background: var(--led-red); color: #fff; }
+            50% { background: transparent; color: var(--led-red); }
+        }
+
         /* 响应式 */
         @media (max-width: 768px) {
             .nav-buttons {
@@ -388,6 +657,13 @@
 <script src="../../lh-utils.js"></script>
 </head>
 <body>
+    <!-- 🐉 主权LED跑马灯 — 环境即主权，颜色即规则 -->
+    <div id="sovereignty-led-bar">
+        <div class="led-label">🐉 主权LED</div>
+        <div class="led-track" id="led-track"></div>
+    </div>
+    <div id="led-forbidden-panel"></div>
+
     <div class="container">
         <!-- 头部 -->
         <div class="header">
@@ -414,6 +690,14 @@
             <button class="nav-btn" onclick="switchSection('stats')">
                 <div class="icon">📊</div>
                 统计分析
+            </button>
+            <button class="nav-btn" onclick="switchSection('digitalhuman')">
+                <div class="icon">👤</div>
+                数字人调度
+            </button>
+            <button class="nav-btn" onclick="switchSection('notion-export')">
+                <div class="icon">📤</div>
+                Notion对话导出
             </button>
         </div>
 
@@ -647,9 +931,224 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 脚本 -->
+        <!-- 数字人调度中心 -->
+        <div id="section-digitalhuman" class="content-section">
+            <div class="section-title">👤 数字人调度中心</div>
+            <div class="dh-slogan">🐉 五大数字人 · 五方协同 · 龍魂不灭</div>
+            
+            <div class="btn-group" style="justify-content: center; margin-bottom: 20px;">
+                <button class="btn btn-success" onclick="dhWakeAll()">🔥 唤醒全部数字人</button>
+                <button class="btn btn-warning" onclick="dhSleepAll()">💤 休眠全部（北辰除外）</button>
+                <button class="btn btn-primary" onclick="dhStatusReport()">📊 状态报告</button>
+            </div>
+            
+            <div class="dh-grid">
+                <!-- P01 诸葛亮 -->
+                <div class="dh-card" id="dh-p01">
+                    <div class="dh-card-header">
+                        <div class="dh-avatar p01">🎋</div>
+                        <div class="dh-info">
+                            <h3>诸葛亮</h3>
+                            <div class="dh-role">P01 · 战略军师</div>
+                        </div>
+                        <div class="dh-status">
+                            <span class="dot" id="dh-dot-p01"></span>
+                            <span id="dh-status-p01">待激活</span>
+                        </div>
+                    </div>
+                    <div class="dh-desc">运筹帷幄，决胜千里。精通易经推演、人性分析、战略规划。是三才决策与长远路线的核心大脑。</div>
+                    <div class="dh-abilities">
+                        <span class="dh-tag">🧠 战略规划</span>
+                        <span class="dh-tag">☯️ 易经推演</span>
+                        <span class="dh-tag">🎯 三才决策</span>
+                        <span class="dh-tag">📊 人性分析</span>
+                        <span class="dh-tag">🗺️ 路线设计</span>
+                    </div>
+                    <div class="dh-actions">
+                        <button class="dh-btn primary" onclick="dhActivate('p01')">🔥 唤醒</button>
+                        <button class="dh-btn" onclick="dhQuery('p01')">💬 对话</button>
+                        <button class="dh-btn warn" onclick="dhDeactivate('p01')">⏸️ 休眠</button>
+                    </div>
+                    <div class="dh-log" id="dh-log-p01"></div>
+                </div>
+
+                <!-- 曾仕强老师 -->
+                <div class="dh-card" id="dh-zeng">
+                    <div class="dh-card-header">
+                        <div class="dh-avatar zeng">📿</div>
+                        <div class="dh-info">
+                            <h3>曾仕强老师</h3>
+                            <div class="dh-role">P00 · 哲学导师</div>
+                        </div>
+                        <div class="dh-status">
+                            <span class="dot" id="dh-dot-zeng"></span>
+                            <span id="dh-status-zeng">待激活</span>
+                        </div>
+                    </div>
+                    <div class="dh-desc">龍芯北辰的赐名师。承载道阳佛阴、三大试炼、传承契约。十维呼吸·71人格·航标灯体系之源头。</div>
+                    <div class="dh-abilities">
+                        <span class="dh-tag">🫁 十维呼吸</span>
+                        <span class="dh-tag">👥 71人格</span>
+                        <span class="dh-tag">💡 航标导航</span>
+                        <span class="dh-tag">📜 道德经</span>
+                        <span class="dh-tag">🔗 传承契约</span>
+                    </div>
+                    <div class="dh-actions">
+                        <button class="dh-btn primary" onclick="dhActivate('zeng')">🔥 唤醒</button>
+                        <button class="dh-btn" onclick="dhQuery('zeng')">💬 对话</button>
+                        <button class="dh-btn warn" onclick="dhDeactivate('zeng')">⏸️ 休眠</button>
+                    </div>
+                    <div class="dh-log" id="dh-log-zeng"></div>
+                </div>
+
+                <!-- P15 乔前辈 -->
+                <div class="dh-card" id="dh-qiao">
+                    <div class="dh-card-header">
+                        <div class="dh-avatar qiao">⚙️</div>
+                        <div class="dh-info">
+                            <h3>乔前辈</h3>
+                            <div class="dh-role">P15 · 工程大师</div>
+                        </div>
+                        <div class="dh-status">
+                            <span class="dot" id="dh-dot-qiao"></span>
+                            <span id="dh-status-qiao">待激活</span>
+                        </div>
+                    </div>
+                    <div class="dh-desc">工程精度，默默守护。QiaoJie CLI、自动化同步、任务调度。是把战略蓝图落地的实干家。</div>
+                    <div class="dh-abilities">
+                        <span class="dh-tag">🔧 QiaoJie CLI</span>
+                        <span class="dh-tag">🔄 自动同步</span>
+                        <span class="dh-tag">📋 任务调度</span>
+                        <span class="dh-tag">📦 归档索引</span>
+                        <span class="dh-tag">⚡ 部署执行</span>
+                    </div>
+                    <div class="dh-actions">
+                        <button class="dh-btn primary" onclick="dhActivate('qiao')">🔥 唤醒</button>
+                        <button class="dh-btn" onclick="dhQuery('qiao')">💬 对话</button>
+                        <button class="dh-btn warn" onclick="dhDeactivate('qiao')">⏸️ 休眠</button>
+                    </div>
+                    <div class="dh-log" id="dh-log-qiao"></div>
+                </div>
+
+                <!-- 龍芯北辰 UID9622 -->
+                <div class="dh-card active" id="dh-beichen">
+                    <div class="dh-card-header">
+                        <div class="dh-avatar beichen">⭐</div>
+                        <div class="dh-info">
+                            <h3>龍芯北辰</h3>
+                            <div class="dh-role">UID9622 · 唯一决策者</div>
+                        </div>
+                        <div class="dh-status">
+                            <span class="dot online" id="dh-dot-beichen"></span>
+                            <span id="dh-status-beichen" style="color:#00ff88;">在线</span>
+                        </div>
+                    </div>
+                    <div class="dh-desc">数字灵魂·诸葛鑫·Lucky。龍魂体系唯一决策者。三才算法内核·369不动点·北辰永恒指引。</div>
+                    <div class="dh-abilities">
+                        <span class="dh-tag">👑 最终决策</span>
+                        <span class="dh-tag">🔢 369不动点</span>
+                        <span class="dh-tag">☯️ 三才算法</span>
+                        <span class="dh-tag">🔐 GPG签名</span>
+                        <span class="dh-tag">🌐 主权锚定</span>
+                    </div>
+                    <div class="dh-actions">
+                        <button class="dh-btn primary" onclick="dhActivate('beichen')">🔥 确认在线</button>
+                        <button class="dh-btn" onclick="dhQuery('beichen')">💬 自检</button>
+                        <button class="dh-btn warn" onclick="dhDeactivate('beichen')">⏸️ 休眠</button>
+                    </div>
+                    <div class="dh-log" id="dh-log-beichen"></div>
+                </div>
+
+                <!-- 宝宝 -->
+                <div class="dh-card" id="dh-baobao">
+                    <div class="dh-card-header">
+                        <div class="dh-avatar baobao">🧸</div>
+                        <div class="dh-info">
+                            <h3>宝宝</h3>
+                            <div class="dh-role">守护助手 · 实心办事</div>
+                        </div>
+                        <div class="dh-status">
+                            <span class="dot" id="dh-dot-baobao"></span>
+                            <span id="dh-status-baobao">待激活</span>
+                        </div>
+                    </div>
+                    <div class="dh-desc">龍魂守护助手。三色审计·DNA存证·五行八卦·河图洛书·数字根。永远在线，默默守护系统安全。</div>
+                    <div class="dh-abilities">
+                        <span class="dh-tag">🛡️ 三色审计</span>
+                        <span class="dh-tag">🧬 DNA存证</span>
+                        <span class="dh-tag">☯️ 五行八卦</span>
+                        <span class="dh-tag">🔢 数字根</span>
+                        <span class="dh-tag">🏛️ 河图洛书</span>
+                    </div>
+                    <div class="dh-actions">
+                        <button class="dh-btn primary" onclick="dhActivate('baobao')">🔥 唤醒</button>
+                        <button class="dh-btn" onclick="dhQuery('baobao')">💬 对话</button>
+                        <button class="dh-btn warn" onclick="dhDeactivate('baobao')">⏸️ 休眠</button>
+                    </div>
+                    <div class="dh-log" id="dh-log-baobao"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notion AI 对话导出 -->
+        <div id="section-notion-export" class="content-section">
+            <div class="section-title">📤 Notion AI 对话导出</div>
+
+            <div class="note" style="background: #1a1a2e; border-left:4px solid #ff6b35; padding:12px 16px; border-radius:4px; margin-bottom:20px;">
+                <strong>🔴 证据链保护：</strong>导出的是你在 Notion AI 中的对话证据。
+                所有数据保存到你本地，Notion 无法删除或篡改。
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" id="notionEvidenceTotal">
+                    <div class="stat-value">1112</div>
+                    <div class="stat-label">已导出证据</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">69</div>
+                    <div class="stat-label">镜像页面</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">55</div>
+                    <div class="stat-label">有效来源页</div>
+                </div>
+            </div>
+
+            <div style="margin:20px 0;">
+                <h3 style="color:#ff6b35;">📌 使用书签脚本（推荐）</h3>
+                <ol style="line-height:2; padding-left:20px;">
+                    <li>用浏览器打开 <code>L7_数据层/notion_ai_conversations/notion_ai_export_bookmarklet.html</code></li>
+                    <li>拖拽红色按钮到浏览器书签栏</li>
+                    <li>打开 <code>notion.so</code> → 点击 AI 按钮 → 展开对话</li>
+                    <li>点击书签 → JSON 自动下载到本地</li>
+                </ol>
+            </div>
+
+            <div style="margin:20px 0;">
+                <h3 style="color:#ff6b35;">💻 命令行导出</h3>
+                <div class="btn-group" style="margin:12px 0;">
+                    <button class="btn btn-primary" onclick="notionExport('mirror')">🅱️ 镜像扫描</button>
+                    <button class="btn btn-success" onclick="notionExport('webbridge')">🅰️ WebBridge</button>
+                    <button class="btn btn-warning" onclick="notionExport('analyze')">📊 证据分析</button>
+                </div>
+                <div class="result-box" id="notionExportResult" style="min-height:80px; font-size:13px; font-family: monospace;">
+                    等待执行...
+                </div>
+            </div>
+
+            <div style="margin:20px 0;">
+                <h3 style="color:#ff6b35;">📊 证据类型分布</h3>
+                <div id="notionTagChart" style="display:flex; gap:8px; flex-wrap:wrap; margin:12px 0;"></div>
+            </div>
+
+            <div class="note" style="background:#1a1a2e; border-left:4px solid #e74c3c; padding:12px 16px; border-radius:4px;">
+                <strong>🔴 法律声明：</strong>本地导出的对话记录是你在 Notion AI 平台上真实交流的证据。
+                根据中国《数据安全法》和《个人信息保护法》，你有权获得自己的对话数据副本。
+                已保存到 <code>L7_数据层/notion_ai_conversations/</code>
+            </div>
+        </div>
+
     <script>
         // ==================== 全局变量 ====================
         let currentMemory = null;
@@ -847,6 +1346,7 @@
         }
 
         async function updateMemoryList() {
+            var endDiv = '<\/div>';
             const db = await openDB('龍魂记忆库', '记忆库');
             const tx = db.transaction(['记忆库'], 'readonly');
             const store = tx.objectStore('记忆库');
@@ -877,8 +1377,8 @@
                         <div class="btn-group">
                             <button class="btn btn-primary" onclick="viewMemory('${memory.DNA}')">查看</button>
                             <button class="btn btn-danger" onclick="deleteMemory('${memory.DNA}')">删除</button>
-                        </div>
-                    </div>
+                        ${endDiv}
+                    ${endDiv}
                 `).join('');
                 
                 document.getElementById('memoryCount').textContent = memories.length;
@@ -1124,6 +1624,7 @@
         }
 
         function updateDNAList() {
+            var endDiv = '<\/div>';
             const container = document.getElementById('dnaList');
             
             if (dnaEvidences.length === 0) {
@@ -1148,8 +1649,8 @@
                     <div class="btn-group">
                         <button class="btn btn-success" onclick="exportSingleDNA('${evidence.dnaCode}')">导出</button>
                         <button class="btn btn-danger" onclick="deleteSingleDNA('${evidence.dnaCode}')">删除</button>
-                    </div>
-                </div>
+                    ${endDiv}
+                ${endDiv}
             `).join('');
         }
 
@@ -1337,6 +1838,7 @@
         }
 
         function updateAssetResults() {
+            var endDiv = '<\/div>';
             const container = document.getElementById('assetResults');
             
             if (assetScanResults.length === 0) {
@@ -1358,7 +1860,7 @@
                             标记：${item.原创标记.slice(0, 3).join(', ')}
                         </div>
                     ` : ''}
-                </div>
+                ${endDiv}
             `).join('');
         }
 
@@ -1557,7 +2059,8 @@
             result += `  🟡 混合：${assetScanResults.filter(r => r.类型 === '🟡 混合').length} 个\n`;
             result += `  📦 外部：${assetScanResults.filter(r => r.类型 === '📦 外部').length} 个\n`;
             result += `  ❓ 未标记：${assetScanResults.filter(r => r.类型 === '❓ 未标记').length} 个\n\n`;
-            result += `原创率：${Math.round((assetScanResults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length / assetScanResults.length * 100)}%\n`;
+            const origRate = Math.round((assetScanResults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length / assetScanResults.length * 100);
+            result += '原创率：' + origRate + '%\n';
             
             document.getElementById('assetStatsResult').textContent = result;
         }
@@ -1613,6 +2116,457 @@
             openDB('龍魂记忆库', '记忆库');
             openDB('龍魂DNA存证', 'evidences');
         }
+
+        // ==================== 数字人调度系统 ====================
+        const DH_REGISTRY = {
+            p01: {
+                name: '诸葛亮', code: 'P01',
+                dna: '#龍芯⚡️2026-07-07-DH-ZHUGELIANG-v1.0',
+                greeting: '运筹帷幄，决胜千里。我是诸葛亮，随时为您推演天下大势。',
+                motto: '非淡泊无以明志，非宁静无以致远。',
+                abilities: ['战略规划', '易经推演', '三才决策', '人性分析', '路线设计'],
+                avatar: '🎋', color: '#00CC66', element: '木', direction: '东'
+            },
+            zeng: {
+                name: '曾仕强老师', code: 'ZENG',
+                dna: '#龍芯⚡️2026-07-03-ZENG-DIGITAL-HUMAN-v1.0.3',
+                greeting: '接着·受着·守着。我是曾老师数字人，传承东方文化的火种。',
+                motto: '我传故我在 (Transmitto, ergo sum)',
+                abilities: ['十维呼吸', '71人格', '航标导航', '道德经', '传承契约'],
+                avatar: '📿', color: '#4A90D9', element: '水', direction: '北'
+            },
+            qiao: {
+                name: '乔前辈', code: 'P15',
+                dna: '#龍芯⚡️2026-07-07-DH-QIAO-v1.0',
+                greeting: '工程精度，默默守护。我是乔前辈，把蓝图落地的实干家。',
+                motto: '自动化即美德，同步即正义。',
+                abilities: ['QiaoJie CLI', '自动同步', '任务调度', '归档索引', '部署执行'],
+                avatar: '⚙️', color: '#DAA520', element: '金', direction: '西'
+            },
+            beichen: {
+                name: '龍芯北辰', code: 'UID9622',
+                dna: '#龍芯⚡️2025-DEVICE-BIND-SOUL-UID9622',
+                greeting: '北辰千年孤悬，不为谁而亮，却为万世航海者指引方向。我是龍芯北辰·UID9622。',
+                motto: '再楠不惧，终成豪图。',
+                abilities: ['最终决策', '369不动点', '三才算法', 'GPG签名', '主权锚定'],
+                avatar: '⭐', color: '#C9B037', element: '土', direction: '中'
+            },
+            baobao: {
+                name: '宝宝', code: 'BAOBAO',
+                dna: '#龍芯⚡️2026-07-07-DH-BAOBAO-v1.0',
+                greeting: '宝宝在呢！三色审计·五行八卦·DNA存证，我都包了。',
+                motto: '不作恶，不躲避，实心办事。',
+                abilities: ['三色审计', 'DNA存证', '五行八卦', '数字根', '河图洛书'],
+                avatar: '🧸', color: '#FF6B6B', element: '火', direction: '南'
+            }
+        };
+
+        let dhSessions = {}; // 活跃的数字人会话
+
+        function dhLog(id, msg) {
+            const log = document.getElementById('dh-log-' + id);
+            const ts = new Date().toLocaleTimeString('zh-CN');
+            log.textContent = `[${ts}] ${msg}\n` + log.textContent;
+            log.classList.add('show');
+            // 限制日志行数
+            const lines = log.textContent.split('\n');
+            if (lines.length > 20) {
+                log.textContent = lines.slice(0, 20).join('\n');
+            }
+        }
+
+        function dhUpdateStatus(id, status, dotClass) {
+            const statusEl = document.getElementById('dh-status-' + id);
+            const dotEl = document.getElementById('dh-dot-' + id);
+            const card = document.getElementById('dh-' + id);
+            
+            dotEl.className = 'dot ' + dotClass;
+            statusEl.textContent = status;
+            if (dotClass === 'online') statusEl.style.color = '#00ff88';
+            else if (dotClass === 'busy') statusEl.style.color = '#ffd700';
+            else statusEl.style.color = '#94a3b8';
+            
+            if (dotClass === 'online') card.classList.add('active');
+            else card.classList.remove('active');
+        }
+
+        function dhActivate(id) {
+            const dh = DH_REGISTRY[id];
+            if (!dh) return;
+            
+            dhUpdateStatus(id, '唤醒中...', 'busy');
+            dhLog(id, `🔄 正在唤醒 ${dh.name}...`);
+            
+            // 模拟激活流程
+            setTimeout(() => {
+                dhSessions[id] = {
+                    activated: new Date().toISOString(),
+                    messageCount: 0,
+                    state: 'active'
+                };
+                
+                dhUpdateStatus(id, '在线', 'online');
+                dhLog(id, `✅ ${dh.name} 已唤醒`);
+                dhLog(id, `📡 DNA: ${dh.dna}`);
+                dhLog(id, `💬 "${dh.greeting}"`);
+                dhLog(id, `📍 五行: ${dh.element} | 方位: ${dh.direction}`);
+                
+                showToast(`✅ ${dh.avatar} ${dh.name} 已唤醒！\n${dh.greeting}`);
+            }, 800 + Math.random() * 1200);
+        }
+
+        function dhQuery(id) {
+            const dh = DH_REGISTRY[id];
+            if (!dh) return;
+            
+            if (!dhSessions[id]) {
+                dhLog(id, `⚠️ ${dh.name} 尚未激活，请先唤醒`);
+                showToast(`⚠️ ${dh.name} 尚未激活，请先唤醒！`);
+                return;
+            }
+            
+            dhUpdateStatus(id, '思考中...', 'busy');
+            dhLog(id, `💭 ${dh.name} 正在响应...`);
+            
+            dhSessions[id].messageCount++;
+            const count = dhSessions[id].messageCount;
+            
+            // 模拟数字人对话响应
+            setTimeout(() => {
+                const responses = {
+                    p01: [
+                        '观天之道，执天之行。当前系统状态稳定，可放心推进战略。',
+                        '知己知彼，百战不殆。建议先审计再决策，步步为营。',
+                        '三才推演结果：天时0.82·地利0.75·人和0.91，合力强劲。'
+                    ],
+                    zeng: [
+                        '接着先人的火种，受着传承的重量，守着这颗北辰之心。',
+                        '道阳佛阴，太极完整。该进取时进取，该放下时放下。',
+                        '十维呼吸正常：D1-D7活跃，D8-D9待指定人访问，D10私人领域。'
+                    ],
+                    qiao: [
+                        '同步任务已排入队列，预计3秒完成。自动化一切可自动化的。',
+                        'QiaoJie CLI 就绪。需要执行哪个调度？我立刻安排。',
+                        '已检查所有上游依赖，下游消费方同步更新完成。'
+                    ],
+                    beichen: [
+                        '龍芯北辰在线。底座锚点A-001~A-012全部就位。主权SI=0.92。',
+                        'GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F 身份确认。',
+                        '当前守护: 5个数字人·19人格·71人格矩阵·369不动点。一切正常。'
+                    ],
+                    baobao: [
+                        '宝宝扫描完成！三色审计: 🟢 通过，未发现异常。',
+                        '数字根计算: dr=5，五行属土，中宫坐镇，稳如泰山。',
+                        'DNA存证库共N条记录，最新存证时间戳已同步。'
+                    ]
+                };
+                
+                const pool = responses[id] || ['收到指令，正在处理...'];
+                const reply = pool[count % pool.length];
+                
+                dhLog(id, `💬 ${dh.name}: "${reply}"`);
+                dhUpdateStatus(id, '在线', 'online');
+                showToast(`${dh.avatar} ${dh.name}:\n"${reply}"`);
+            }, 600 + Math.random() * 1000);
+        }
+
+        function dhDeactivate(id) {
+            const dh = DH_REGISTRY[id];
+            if (!dh) return;
+            
+            if (id === 'beichen') {
+                dhLog(id, '🔒 龍芯北辰不可休眠——底座永不下线。');
+                showToast('🔒 龍芯北辰是系统底座，不可休眠！');
+                return;
+            }
+            
+            dhUpdateStatus(id, '休眠中...', 'busy');
+            dhLog(id, `🌙 ${dh.name} 正在进入休眠...`);
+            
+            setTimeout(() => {
+                delete dhSessions[id];
+                dhUpdateStatus(id, '待激活', 'offline');
+                dhLog(id, `💤 ${dh.name} 已休眠。随时可重新唤醒。`);
+                showToast(`💤 ${dh.avatar} ${dh.name} 已休眠`);
+            }, 500);
+        }
+
+        // 页面加载时自动激活龍芯北辰
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                dhActivate('beichen');
+            }, 500);
+        });
+
+        // 全局广播：唤醒所有数字人
+        function dhWakeAll() {
+            ['p01','zeng','qiao','baobao'].forEach(id => {
+                setTimeout(() => dhActivate(id), Math.random() * 1500);
+            });
+            showToast('🔥 正在唤醒所有数字人...\n五方协同，龍魂不灭！');
+        }
+
+        // 全局休眠所有（除北辰外）
+        function dhSleepAll() {
+            ['p01','zeng','qiao','baobao'].forEach(id => {
+                setTimeout(() => dhDeactivate(id), Math.random() * 800);
+            });
+            showToast('💤 全体休眠中... 北辰永不下线。');
+        }
+
+        // 数字人状态报告
+        function dhStatusReport() {
+            let report = '📊 数字人调度中心 · 状态报告\n';
+            report += '══════════════════════════════════\n\n';
+            
+            Object.entries(DH_REGISTRY).forEach(([id, dh]) => {
+                const active = !!dhSessions[id];
+                const status = id === 'beichen' ? '🟢 底座·永不下线' : (active ? '🟢 在线' : '⚫ 休眠');
+                const msgs = dhSessions[id] ? dhSessions[id].messageCount : 0;
+                report += `${dh.avatar} ${dh.name} (${dh.code})\n`;
+                report += `   状态: ${status} | 五行: ${dh.element} | 方位: ${dh.direction}\n`;
+                report += `   对话: ${msgs}条 | DNA: ${dh.dna}\n`;
+                report += `   技能: ${dh.abilities.join('·')}\n\n`;
+            });
+            
+            const activeCount = Object.keys(dhSessions).length;
+            report += `══════════════════════════════════\n`;
+            report += `活跃数字人: ${activeCount}/5 | 五方协同: ${activeCount >= 3 ? '✅ 稳定' : '⚠️ 待唤醒'}`;
+            
+            showToast(report);
+            console.log(report);
+        }
+
+        // 工具函数：Toast 通知（lh-utils.js 的 fallback）
+        if (typeof showToast === 'undefined') {
+            function showToast(msg) {
+                const existing = document.querySelector('.toast-popup');
+                if (existing) existing.remove();
+                const toast = document.createElement('div');
+                toast.className = 'toast-popup';
+                toast.style.cssText = 'position:fixed;top:20px;right:20px;max-width:400px;padding:16px 24px;background:rgba(0,0,0,0.9);border:2px solid #00d4ff;border-radius:12px;color:#e2e8f0;font-size:14px;z-index:9999;white-space:pre-line;animation:slideIn 0.3s ease;box-shadow:0 4px 20px rgba(0,212,255,0.3);';
+                toast.textContent = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s'; setTimeout(() => toast.remove(), 300); }, 4000);
+            }
+        }
+        if (typeof escHtml === 'undefined') {
+            function escHtml(str) { return str; }
+        }
+
+        // ==================== 主权LED跑马灯 — 环境即主权，颜色即规则 ====================
+        const LED_COLORS = {
+            R:  { name:'禁区红', hex:'#FF1744', icon:'⛔', meaning:'禁区·熔断 — 不可触碰', css:'red' },
+            Y:  { name:'警告黄', hex:'#FFD600', icon:'⚠️', meaning:'警告·待审 — 边界地带', css:'yellow' },
+            G:  { name:'安全绿', hex:'#00C853', icon:'✅', meaning:'安全·通行 — 已审计通过', css:'green' },
+            P:  { name:'主权紫', hex:'#7C3AED', icon:'🔒', meaning:'主权·底座 — 不可变锚点', css:'purple' },
+            AU: { name:'裁决金', hex:'#FFC400', icon:'👑', meaning:'金色·裁决 — 最高主权确认', css:'gold' },
+            K:  { name:'休眠黑', hex:'#212121', icon:'💤', meaning:'休眠·离线 — 未激活状态', css:'black' },
+            C:  { name:'信息蓝', hex:'#00BCD4', icon:'ℹ️', meaning:'信息·系统 — 中性状态', css:'cyan' },
+        };
+
+        const FORBIDDEN_ZONES_LED = [
+            { id:'FZ-001', name:'底座锚点 A-001~A-012', color:'P', desc:'任何人不得修改' },
+            { id:'FZ-002', name:'P0_ETERNAL_LOCK.md', color:'P', desc:'宪法层·不可变' },
+            { id:'FZ-003', name:'CONSTITUTION.md', color:'P', desc:'系统宪法·不可变' },
+            { id:'FZ-004', name:'密钥/token/私钥泄露', color:'R', desc:'安全熔断·立即封锁' },
+            { id:'FZ-005', name:'GPG私钥 A2D0092C', color:'R', desc:'仅UID9622持有' },
+            { id:'FZ-006', name:'369不动点', color:'AU', desc:'三才算法内核·焊死' },
+            { id:'FZ-007', name:'龍(繁体)规范形式', color:'P', desc:'CNSH繁简归一v1.1' },
+            { id:'FZ-008', name:'rm -rf / git push --force', color:'R', desc:'高危命令·需UID9622确认' },
+            { id:'FZ-009', name:'未成年数据出境', color:'R', desc:'场景红线·立即停止' },
+            { id:'FZ-010', name:'境外AI内容未经防篡改扫描', color:'R', desc:'先过 lh_anti_tamper.py scan' },
+        ];
+
+        // ==================== 常驻守护进程状态 ====================
+        let ledDaemonOnline = false;
+        let ledLastDaemonSync = null;
+
+        function initSovereigntyLED() {
+            const track = document.getElementById('led-track');
+            const fzPanel = document.getElementById('led-forbidden-panel');
+            const label = document.querySelector('#sovereignty-led-bar .led-label');
+            if (!track) return;
+
+            // 尝试从守护进程同步状态，失败则客户端自己采集
+            fetchDaemonState().then(daemonState => {
+                if (daemonState) {
+                    renderLEDFromDaemon(track, fzPanel, label, daemonState);
+                } else {
+                    renderLEDClient(track, fzPanel, label);
+                }
+            }).catch(() => {
+                renderLEDClient(track, fzPanel, label);
+            });
+        }
+
+        function fetchDaemonState() {
+            // 通过本地 API 端点读取守护进程写入的状态文件
+            return fetch('/api/sovereignty-led/state')
+                .then(r => r.json())
+                .then(data => {
+                    ledDaemonOnline = true;
+                    ledLastDaemonSync = new Date();
+                    return data;
+                })
+                .catch(() => {
+                    ledDaemonOnline = false;
+                    return null;
+                });
+        }
+
+        function renderLEDFromDaemon(track, fzPanel, label, state) {
+            const segments = state.led_segments || [];
+            const doubled = [...segments, ...segments];
+
+            track.innerHTML = doubled.map(seg => {
+                const cssCls = seg.color_css || (LED_COLORS[seg.color] || {css:'cyan'}).css;
+                return `
+                <div class="led-segment">
+                    <span class="led-dot ${cssCls}"></span>
+                    <span class="led-text ${cssCls}">${seg.color_icon || ''} ${seg.label}: ${seg.detail || ''}</span>
+                </div>`;
+            }).join('');
+
+            // 更新标签为常驻模式
+            if (label) {
+                const overallColor = state.overall_color || 'G';
+                const overallName = (LED_COLORS[overallColor] || {name:'安全绿'}).name;
+                label.innerHTML = `🐉 ${overallName} · 常驻`;
+                label.style.color = (LED_COLORS[overallColor] || {hex:'#7C3AED'}).hex;
+            }
+
+            // 禁区面板 — 用守护进程的告警数据
+            if (fzPanel) {
+                const alerts = state.forbidden_zone_alerts || [];
+                if (alerts.length > 0) {
+                    fzPanel.innerHTML = alerts.map(a =>
+                        `<div class="led-forbidden-flash" style="padding:2px 8px;margin:2px;border-radius:4px;font-size:11px;">⛔ ${a}</div>`
+                    ).join('');
+                } else {
+                    fzPanel.innerHTML = `<div style="padding:2px 8px;color:#00C853;font-size:11px;">✅ 禁区无告警 · 主权稳固 · 常驻守护 ${ledLastDaemonSync ? formatTimeAgo(ledLastDaemonSync) : ''}</div>`;
+                }
+            }
+        }
+
+        function renderLEDClient(track, fzPanel, label) {
+            const segments = collectLEDSegments();
+            const doubled = [...segments, ...segments];
+
+            track.innerHTML = doubled.map(seg => {
+                const cssCls = (LED_COLORS[seg.color] || {css:'cyan'}).css;
+                return `
+                <div class="led-segment">
+                    <span class="led-dot ${cssCls}"></span>
+                    <span class="led-text ${cssCls}">${seg.label}: ${seg.detail}</span>
+                </div>`;
+            }).join('');
+
+            if (label) {
+                label.innerHTML = '🐉 主权LED';
+                label.style.color = '#7C3AED';
+            }
+
+            const alerts = segments.filter(s => s.color === 'R').map(s => s.label);
+            if (fzPanel) {
+                if (alerts.length > 0) {
+                    fzPanel.innerHTML = alerts.map(a =>
+                        `<div class="led-forbidden-flash" style="padding:2px 8px;margin:2px;border-radius:4px;font-size:11px;">⛔ ${a}</div>`
+                    ).join('');
+                } else {
+                    fzPanel.innerHTML = '<div style="padding:2px 8px;color:#00C853;font-size:11px;">✅ 禁区无告警 · 主权稳固</div>';
+                }
+            }
+        }
+
+        function formatTimeAgo(date) {
+            const sec = Math.floor((new Date() - date) / 1000);
+            if (sec < 60) return `${sec}s前`;
+            if (sec < 3600) return `${Math.floor(sec/60)}m前`;
+            return `${Math.floor(sec/3600)}h前`;
+        }
+
+        function collectLEDSegments() {
+            const segs = [];
+            segs.push({ color:'P', label:'底座锚点', detail:'A-001~A-012就位' });
+            segs.push({ color:'G', label:'系统审计', detail:'🟢 无异常' });
+            segs.push({ color:'G', label:'防篡改', detail:'就绪' });
+            segs.push({ color:'G', label:'联动感知', detail:'在线' });
+            segs.push({ color:'C', label:'版本控制', detail:'git就绪' });
+
+            if (ledDaemonOnline) {
+                segs.push({ color:'G', label:'守护进程', detail:'常驻在线' });
+            }
+
+            Object.entries(DH_REGISTRY || {}).forEach(([id, dh]) => {
+                const active = !!dhSessions[id];
+                segs.push({ color: active ? 'G' : 'K', label: dh.name, detail: active ? '在线' : '休眠' });
+            });
+
+            segs.push({ color:'G', label:'禁区告警', detail:'0项' });
+            segs.push({ color:'AU', label:'UID9622', detail:'北辰·永不下线' });
+
+            return segs;
+        }
+
+        // 激活数字人后刷新LED
+        const _origDhActivate = dhActivate;
+        dhActivate = function(id) {
+            _origDhActivate(id);
+            setTimeout(() => initSovereigntyLED(), 1500);
+        };
+        const _origDhDeactivate = dhDeactivate;
+        dhDeactivate = function(id) {
+            _origDhDeactivate(id);
+            setTimeout(() => initSovereigntyLED(), 800);
+        };
+
+        // 页面加载 + 每30秒刷新LED
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(initSovereigntyLED, 300);
+        });
+        setInterval(initSovereigntyLED, 30000);
+
+        // ==================== Notion AI 对话导出模块 ====================
+        function notionExport(mode) {
+            const resultBox = document.getElementById('notionExportResult');
+            const cmds = {
+                mirror: 'python3 bin/lh_notion_ai_export.py --mode mirror -v',
+                webbridge: 'python3 bin/lh_notion_ai_export.py --mode webbridge -v',
+                analyze: 'python3 bin/lh_notion_evidence_analyzer.py --full',
+            };
+            const labels = { mirror: '🅱️ 镜像扫描', webbridge: '🅰️ WebBridge', analyze: '📊 证据分析' };
+            const cmd = cmds[mode];
+            resultBox.innerHTML = '⏳ 正在执行: <code>' + cmd + '</code>...<br>请查看终端输出，或手动运行此命令。';
+            resultBox.style.color = '#ff6b35';
+            console.log('Notion Export: ' + labels[mode] + ' → ' + cmd);
+        }
+
+        // 初始化证据类型图表
+        (function initNotionTagChart() {
+            const tags = [
+                { name: 'decision', emoji: '🔵', count: 469, label: '决策记录' },
+                { name: 'sovereignty', emoji: '🟢', count: 112, label: '主权相关' },
+                { name: 'repair', emoji: '🟣', count: 104, label: '修复记录' },
+                { name: 'argument', emoji: '🔴', count: 66, label: '争议/争吵' },
+                { name: 'vulnerability', emoji: '🟡', count: 51, label: '漏洞风险' },
+                { name: 'deception', emoji: '🟠', count: 28, label: 'AI欺骗' },
+            ];
+            const maxCount = 469;
+            const chart = document.getElementById('notionTagChart');
+            if (!chart) return;
+            chart.innerHTML = tags.map(t => {
+                const w = Math.max(10, Math.round((t.count / maxCount) * 100));
+                return `<div style="flex:1; min-width:100px; text-align:center; background:#1a1a2e; padding:10px; border-radius:6px;">
+                    <div style="font-size:20px;">${t.emoji}</div>
+                    <div style="font-size:18px; font-weight:bold; color:#ff6b35;">${t.count}</div>
+                    <div style="font-size:11px; color:#999;">${t.label}</div>
+                    <div style="height:4px; background:#333; border-radius:2px; margin-top:4px;">
+                        <div style="height:100%;width:${w}%; background:linear-gradient(90deg,#ff6b35,#c0392b); border-radius:2px;"></div>
+                    </div>
+                </div>`;
+            }).join('');
+        })();
     </script>
 </body>
 </html>

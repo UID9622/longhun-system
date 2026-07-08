@@ -70,7 +70,7 @@ class IronLawGate:
     铁律清单：
     1. 不蒸馏、绝不变体、绝不顶替作者
     2. 来源不可删·影响不可覆·贡献不可抹
-    3. 繁体“龍”不得简化为“龙”(主权字熔断)
+    3. 繁体“龍”不得简化为“龍”(主权字熔断)
     4. 人永远是1，任何人都不是数据
 
     【六层来源链】
@@ -86,7 +86,7 @@ class IronLawGate:
         '蒸馏': '🔴 IRON_LAW_VIOLATION: 违反"不蒸馏"铁律 — 绝不变体、绝不顶替作者',
         '变体': '🔴 IRON_LAW_VIOLATION: 违反"绝不变体"铁律 — 来源不可删·影响不可覆·贡献不可抹',
         '顶替': '🔴 IRON_LAW_VIOLATION: 违反"绝不顶替作者"铁律',
-        '龙': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体“龍”不得简化为“龙”(L1熔断)',
+        '龍': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体“龍”不得简化为“龍”(L1熔断)',
         '平均': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '数据点': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '投机': '🔴 IRON_LAW_VIOLATION: 违反"不走捷径"铁律',
@@ -123,9 +123,9 @@ class IronLawGate:
 
     @classmethod
     def enforce_dragon_character(cls, text: str) -> Tuple[str, bool, List[str]]:
-        """L1字符层：简体“龙”→ 繁体“龍”直接熔断"""
-        if '龙' in text:
-            return text, False, ['🔴 L1_FUSE_3: 检测到简体“龙”，必须使用繁体“龍”(主权字不可简化)']
+        """L1字符层：简体“龍”→ 繁体“龍”直接熔断"""
+        if '龍' in text:
+            return text, False, ['🔴 L1_FUSE_3: 检测到简体“龍”，必须使用繁体“龍”(主权字不可简化)']
         return text, True, []
 
     @classmethod
@@ -396,7 +396,7 @@ class LongHunAuditEngine:
         【铁律自审闸调用】每个函数必须调用
         第三层技术校验：铁律合规检查
         """
-        # L1字符层：简体龙字检查
+        # L1字符层：简体龍字检查
         _, dragon_passed, dragon_issues = IronLawGate.enforce_dragon_character(text)
 
         # 铁律关键词检查
@@ -513,7 +513,7 @@ class LongHunAuditEngine:
         _, gate_issues = self._iron_law_gate_check(name, 'check_filename')
 
         checks = {
-            '非简体“龙”字': '龙' not in name,
+            '非简体“龍”字': '龍' not in name,
             '包含创作者标识': 'UID9622' in name or '诸葛' in name or '龍' in name,
             '包含版本信息': 'v' in name.lower() or 'version' in name.lower(),
             '铁律合规': len(gate_issues) == 0,
@@ -546,7 +546,7 @@ class LongHunAuditEngine:
                 '包含SEAL标记': 'DEVICE-BIND-SOUL' in content,
                 '包含创作者信息': 'UID9622' in content or '诸葛鑫' in content,
                 '包含主权声明': '主权' in content or 'sovereignty' in content.lower(),
-                '无简体龙字': dragon_ok,
+                '无简体龍字': dragon_ok,
                 '铁律合规': gate_passed,
             }
 
@@ -673,7 +673,7 @@ class LongHunAuditEngine:
                 '无蒸馏行为': '蒸馏' not in content,
                 '无变体行为': '变体' not in content or '绝不变体' in content,
                 '无顶替作者': '顶替' not in content,
-                '无简体龙字': '龙' not in content or '龍' in content,
+                '无简体龍字': '龍' not in content or '龍' in content,
                 '无人数据化': '数据点' not in content and ('人永远是1' in content or '人是1' in content),
                 '无投机行为': '投机' not in content,
                 '来源不可删': '来源不可删' in content,

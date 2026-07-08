@@ -15,7 +15,7 @@ DNA: #龍芯⚡️20260701024143064405-tongxinyi-v2-overview-5BB684BC
 ## 快速命令
 
 ```bash
-python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate "画龙点睛"
+python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate "画龍点睛"
 python3 .../tongxin_cli.py eval --limit 5
 python3 .../tongxin_cli.py tag 火·旺 HTML
 python3 .../tongxin_cli.py tag-search 启动

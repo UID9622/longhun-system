@@ -41,7 +41,7 @@ def _load_deepseek_key() -> Optional[str]:
 
 
 def call_deepseek(system_prompt: str, user_prompt: str) -> str:
-    """调用 DeepSeek API（龙魂 Vault 自动解密 key）"""
+    """调用 DeepSeek API（龍魂 Vault 自动解密 key）"""
     key = _load_deepseek_key()
     if not key:
         return "[DeepSeek API Key 未配置]"

@@ -6,15 +6,15 @@ from pathlib import Path
 from typing import Optional
 
 import uvicorn
-from fastapi import FastAPI, Form, HTTPException, Request, UploadFile
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Form, HTTPException, Request, UploadFile  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles  # type: ignore[import-untyped]
+from fastapi.templating import Jinja2Templates  # type: ignore[import-untyped]
 
-from config import get_settings
-from core import ArticleManager, MediaManager, WeChatClient
-from services import ImageService, PersonaService, VoiceService
+from config import get_settings  # type: ignore[import-untyped]
+from core import ArticleManager, MediaManager, WeChatClient  # type: ignore[import-untyped]
+from services import ImageService, PersonaService, VoiceService  # type: ignore[import-untyped]
 
 app = FastAPI(
     title="龍魂生态智能内容中枢",
@@ -219,7 +219,7 @@ async def api_run_persona(
 
 @app.post("/api/media/upload")
 async def api_media_upload(
-    file: UploadFile = ...,
+    file: UploadFile = ...,  # type: ignore[assignment]  # FastAPI required-param pattern
     media_type: str = Form(...),
     title: Optional[str] = Form(None),
     introduction: Optional[str] = Form(None),

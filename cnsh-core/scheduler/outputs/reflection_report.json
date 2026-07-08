@@ -40,7 +40,7 @@
   },
   "sovereign_status": {
     "identity": "UID9622",
-    "bound_star": "亢金龙",
+    "bound_star": "亢金龍",
     "privilege_boost": 0,
     "active": false,
     "mode": "evade",
@@ -49,14 +49,14 @@
   "conflict_report": {
     "conflict": true,
     "current_star": "星日马",
-    "bound_star": "亢金龙",
+    "bound_star": "亢金龍",
     "current_wuxing": "火",
     "bound_wuxing": "金",
-    "relation": "星日马(火) 克 亢金龙(金)",
+    "relation": "星日马(火) 克 亢金龍(金)",
     "action": "当值星宿克制本命星宿，启动避让协议：降低操作频率、切换只读模式、等待主场窗口",
     "protocol": "EVADE_PROTOCOL"
   },
-  "recommended_action": "⚠️ 星日马(火) 克 亢金龙(金)：启动避让协议，降低操作频率，切换只读模式，优先审计与归档",
+  "recommended_action": "⚠️ 星日马(火) 克 亢金龍(金)：启动避让协议，降低操作频率，切换只读模式，优先审计与归档",
   "audit_trail": [],
   "_dna": "2026-07-03-CORE-REFLECTION_REPORT-v1.0"
 }

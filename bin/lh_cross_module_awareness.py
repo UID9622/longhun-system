@@ -369,6 +369,88 @@ def check_consumer_consistency(registry: dict[str, Any]) -> list[dict[str, Any]]
     
     return issues
 
+# ─── RULE-011: MCP 主权适配层一致性检查（铁律 A-012 联动不被动）───
+def check_mcp_sovereignty(registry: dict[str, Any]) -> list[dict[str, Any]]:
+    """检查实际启用的 MCP ↔ 主权适配层策略表是否一致。
+
+    断点类型：
+      🔴 实际启用但策略表未覆盖  → 主权闸门有漏网之鱼
+      🔴 策略表标记不保留但仍启用 → 违反主权适配（如番茄小说）
+      🟡 策略表标记保留但未启用  → 策略表与现状错位，需同步
+    """
+    issues: list[dict[str, Any]] = []
+
+    # ── 1. 读取实际 MCP 配置（用户家目录）──
+    mcp_path = Path.home() / ".codebuddy" / "mcp.json"
+    if not mcp_path.exists():
+        return [{"rule": "RULE-011", "severity": "🟡",
+                 "msg": f"未找到 MCP 配置: {mcp_path}（跳过主权核对）"}]
+    try:
+        mcp_cfg = json.load(open(mcp_path, 'r', encoding='utf-8'))
+    except Exception as e:
+        return [{"rule": "RULE-011", "severity": "🟡",
+                 "msg": f"无法解析 MCP 配置: {e}"}]
+
+    servers = mcp_cfg.get("mcpServers", {})
+    enabled = {n for n, c in servers.items() if not c.get("disabled", False)}
+    # disabled 项不计入「启用」，但策略表若仍标记保留则提示同步
+
+    # ── 2. 动态加载主权适配层策略表（稳健 exec 命名空间加载）──
+    try:
+        import types
+        import sys as _sys
+        adapter_path = PROJECT_ROOT / "L1_内核层" / "kernel" / "masters" / "mcp_sovereignty_config.py"
+        if not adapter_path.exists():
+            return [{"rule": "RULE-011", "severity": "🟡",
+                     "msg": f"主权适配层文件不存在: {adapter_path}"}]
+        mod = types.ModuleType("mcp_sovereignty_config")
+        mod.__file__ = str(adapter_path)
+        # 必须注册到 sys.modules，dataclass 装饰器会反查模块 __dict__
+        _sys.modules["mcp_sovereignty_config"] = mod
+        with open(adapter_path, 'r', encoding='utf-8') as _f:
+            _code = compile(_f.read(), str(adapter_path), 'exec')
+        exec(_code, mod.__dict__)
+        策略表 = mod.MCP主权策略表
+        查询策略 = mod.查询策略
+    except Exception as e:
+        return [{"rule": "RULE-011", "severity": "🟡",
+                 "msg": f"无法加载主权适配层 mcp_sovereignty_config: {e}"}]
+
+    策略名集合 = {s.名称 for s in 策略表}
+    保留集合 = {s.名称 for s in 策略表 if s.是否保留}
+
+    # ── 3. 实际启用但未在策略表覆盖 → 漏网 ──
+    for name in sorted(enabled):
+        if name not in 策略名集合:
+            issues.append({
+                "rule": "RULE-011", "severity": "🔴",
+                "msg": f"MCP[{name}] 实际启用但主权适配层未覆盖（缺少策略）",
+                "auto_fix": False,
+                "fix_description": f"在 mcp_sovereignty_config.py 的 MCP主权策略表 增补 {name} 的主权策略",
+            })
+
+    # ── 4. 策略表标记不保留但仍启用 → 违反主权 ──
+    for name in sorted(enabled):
+        s = 查询策略(name)
+        if s is not None and not s.是否保留:
+            issues.append({
+                "rule": "RULE-011", "severity": "🔴",
+                "msg": f"MCP[{name}] 策略表标记不保留(是否保留=False)但仍启用（违反主权适配）",
+                "auto_fix": False,
+                "fix_description": f"在 MCP 市场取消 {name} 勾选，或在适配层改为 是否保留=True",
+            })
+
+    # ── 5. 策略表标记保留但未启用 → 错位（黄）──
+    for name in sorted(保留集合):
+        if name not in enabled:
+            issues.append({
+                "rule": "RULE-011", "severity": "🟡",
+                "msg": f"MCP[{name}] 策略表标记保留=True 但实际未启用（策略表与现状错位，需同步）",
+                "auto_fix": False,
+            })
+
+    return issues
+
 # ─── 自动修复 ───
 def auto_fix_issues(issues: list[dict[str, Any]]) -> int:
     """对可自动修复的问题执行修复"""
@@ -440,6 +522,7 @@ def scan_all(registry: dict[str, Any], auto_fix: bool = False, changed_file: Opt
         ("RULE-007: portal导航栏检查", check_portal_nav),
         ("RULE-008: init函数调用检查", check_init_functions),
         ("RULE-010: 执行权限检查", check_exec_permissions),
+        ("RULE-011: MCP主权适配一致性检查", check_mcp_sovereignty),
     ]
     
     result = {

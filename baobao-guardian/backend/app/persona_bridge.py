@@ -203,7 +203,7 @@ class PersonaBridge:
     def system_info(self) -> Dict[str, Any]:
         """系统信息"""
         try:
-            return self.hub.系统信息()
+            return self.hub.系统信息()  # type: ignore[attr-defined]
         except Exception:
             return {"版本": "fallback", "DNA": self.DNA}
 

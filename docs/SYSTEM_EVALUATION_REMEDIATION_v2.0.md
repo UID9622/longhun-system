@@ -57,7 +57,7 @@
 | **Bandit 配置** | `.bandit.yaml` | Python 代码静态安全分析（50+ 条规则） |
 | **Pre-commit 钩子** | `.pre-commit-config.yaml` | 提交前自动拦截密钥泄露、规范违规 |
 | **detect-secrets** | pre-commit hook | 扫描敏感信息（API Key/Token/密码） |
-| **CNSH 繁体验证** | pre-commit local hook | 自动检测「龙魂」→ 应使用「龍魂」 |
+| **CNSH 繁体验证** | pre-commit local hook | 自动检测「龍魂」→ 应使用「龍魂」 |
 | **Security Policy** | `SECURITY.md` | 安全漏洞报告流程、版本支持、修复记录 |
 
 ### 2.2 CI/CD 持续集成 ✅

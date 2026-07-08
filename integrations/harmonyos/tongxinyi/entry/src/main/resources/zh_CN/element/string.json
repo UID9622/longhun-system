@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "通心译"
+    },
+    {
+      "name": "app_desc",
+      "value": "通心译 (Tongxin Translation) — 龍魂体系多语言翻译引擎·华为芯片·鸿蒙底座"
+    },
+    {
+      "name": "module_desc",
+      "value": "通心译主模块·CNSH中文编程翻译核心"
+    }
+  ]
+}

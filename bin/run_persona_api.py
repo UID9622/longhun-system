@@ -1,9 +1,7 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-RUN_PERSONA_API-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 龍魂人格 API 启动脚本
 绕过 logging 模块名称冲突问题

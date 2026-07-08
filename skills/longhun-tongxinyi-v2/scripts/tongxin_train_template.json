@@ -32,8 +32,8 @@
         "annotation_timestamp": "2026-07-01T08:00:00Z"
       },
       "source": {
-        "text": "画龙点睛",
-        "context": "张僧繇于金陵安乐寺画四龙于壁，不点睛。每曰：'点之即飞去。'人以为妄诞，固请点之。须臾，雷电破壁，两龙乘云腾去上天，二龙未点眼者见在。",
+        "text": "画龍点睛",
+        "context": "张僧繇于金陵安乐寺画四龍于壁，不点睛。每曰：'点之即飞去。'人以为妄诞，固请点之。须臾，雷电破壁，两龍乘云腾去上天，二龍未点眼者见在。",
         "cultural_notes": "成语出自唐·张彦远《历代名画记·卷七》。比喻艺术创作或说话时在关键处加上精辟的一笔，使内容更加生动传神。"
       },
       "translation": {
@@ -41,7 +41,7 @@
           "text": "to draw the eyes on the dragon painting",
           "terminology_mapping": [
             {"source": "画", "target": "draw/paint"},
-            {"source": "龙", "target": "dragon (cultural symbol)"},
+            {"source": "龍", "target": "dragon (cultural symbol)"},
             {"source": "点睛", "target": "dot the eyes"}
           ],
           "confidence": 0.95
@@ -93,15 +93,15 @@
         "annotation_timestamp": "2026-07-01T08:15:00Z"
       },
       "source": {
-        "text": "龙",
-        "context": "中华文化中龙是祥瑞、权威、帝王的象征，与西方dragon作为邪恶喷火怪兽的形象截然不同。",
-        "cultural_notes": "文化负载词。中文'龙'为正面象征（皇权、祥瑞、力量），英文'dragon'传统为负面（贪婪、邪恶）。翻译时需进行文化风险标注。"
+        "text": "龍",
+        "context": "中华文化中龍是祥瑞、权威、帝王的象征，与西方dragon作为邪恶喷火怪兽的形象截然不同。",
+        "cultural_notes": "文化负载词。中文'龍'为正面象征（皇权、祥瑞、力量），英文'dragon'传统为负面（贪婪、邪恶）。翻译时需进行文化风险标注。"
       },
       "translation": {
         "literal_layer": {
           "text": "dragon",
           "terminology_mapping": [
-            {"source": "龙", "target": "dragon (with cultural annotation)"}
+            {"source": "龍", "target": "dragon (with cultural annotation)"}
           ],
           "confidence": 0.70
         },

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂君子协议 · 链式存储与审计
+龍魂君子协议 · 链式存储与审计
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-STORAGE-v1.0
 
 本地 JSON 持久化 + SHA-256 链式哈希，保证事件不可篡改。

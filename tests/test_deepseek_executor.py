@@ -112,14 +112,14 @@ class TestSecureGateway:
         assert r.status_code == 403
 
     def test_secure_execute_echo_success(self, client):
-        payload = {"route": "echo", "payload": {"msg": "龙魂测试"}}
+        payload = {"route": "echo", "payload": {"msg": "龍魂测试"}}
         env = make_envelope(payload, SECRET)
         r = client.post("/api/secure/execute", json=env)
         assert r.status_code == 200
         resp_env = r.json()
         result = open_envelope(resp_env, SECRET, ttl=300)
         assert result["status"] == "ok"
-        assert result["result"]["echo"]["msg"] == "龙魂测试"
+        assert result["result"]["echo"]["msg"] == "龍魂测试"
 
     def test_secure_execute_bad_hmac_fails(self, client):
         env = make_envelope({"route": "echo", "payload": {}}, SECRET)

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════
-# 龙魂知识图谱安装脚本
+# 龍魂知识图谱安装脚本
 # DNA: #龍芯⚡️2026-06-27-LHKG-INSTALL-v1.0
 # ═══════════════════════════════════════════════════════════════
 
@@ -12,7 +12,7 @@ BIN_DIR="${HOME}/bin"
 FORCE=0
 
 usage() {
-    echo "安装龙魂知识图谱"
+    echo "安装龍魂知识图谱"
     echo ""
     echo "用法: $0 [选项]"
     echo ""
@@ -85,7 +85,7 @@ if [ -f "${INSTALL_DIR}/edges/all_edges.json" ]; then
 fi
 
 color "92" ""
-color "92" "🎉 龙魂知识图谱安装完成！"
+color "92" "🎉 龍魂知识图谱安装完成！"
 color "96" "   数据目录: ${INSTALL_DIR}"
 color "96" "   命令: kg list | kg show | kg path | kg state | kg export"
 color "96" ""

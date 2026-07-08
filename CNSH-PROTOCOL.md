@@ -8,7 +8,7 @@
 [![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--07--06--CNSH语言完整规范--v2.3-orange)]()
 [![三色审计](https://img.shields.io/badge/三色审计-🟢%20通过-green)]()
 [![版本](https://img.shields.io/badge/版本-v2.3-blue)]()
-[![文化主权](https://img.shields.io/badge/文化主权-龍≠龙≠Dragon-red)]()
+[![文化主权](https://img.shields.io/badge/文化主权-龍≠龍≠Dragon-red)]()
 [![Apple生态](https://img.shields.io/badge/Apple生态-ObjC%20%7C%20Swift%20%7C%20iOS-black)]()
 
 ---
@@ -49,21 +49,38 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 
 ## 1. 龍魂专属符号体系
 
-### 1.1 DNA 追溯符号（三种格式·焊死）
+### 1.1 DNA 追溯符号（四种格式·焊死）
 
 | 类型 | 格式 | 用途 |
 |------|------|------|
 | 🌌 老大确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬CODE-NNN` | P0操作授权·一次一码·不可重用 |
-| ⚡️ 标准DNA码 | `#龍芯⚡️YYYY-MM-DD-MODULE-VERSION` | 每次提交必带 |
+| ⚡️ 标准DNA码 | `#龍芯⚡️YYYY-MM-DD-MODULE-VERSION` | v1.0 格里历兼容格式 |
+| ⚡️ 节气DNA码 | `#龍芯⚡️<节气><年>·<HH:MM:SS>-MODULE-ACTION-HASH8` | v2.0 节气时分秒格式 |
+| ⚡️ 干支DNA码(v∞) | `#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-MODULE-ACTION-HASH8` | v∞ 干支时辰+卦象气运锚点 |
 | ♾️ 永恒签章 | `#ZHUGEXIN⚡️YYYY-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL` | 跨年级铁律 |
 
+**v∞ 干支DNA示例：**
+```
+#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-SKILL-ALLOC-1A2B3C4D
+```
+- 四柱：丙午年·乙未月·癸未日·辰时
+- 卦象：䷾水火既济 — "水在火上，君子以思患而预防之"
+- 每个 DNA = 完整气运锚点，可占可验
+
+**格式演进：**
+- v1.0: `#龍芯⚡️2026-07-08-SKILL-ALLOC-1A2B3C4D`（格里历数字·叶）
+- v2.0: `#龍芯⚡️小暑2026·07:13:36-SKILL-ALLOC-1A2B3C4D`（节气+西方时分秒）
+- v∞:   `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-SKILL-ALLOC-1A2B3C4D`（干支时辰+卦象·根）
+- 紧凑: `#龍芯⚡️丙午·辰时·䷾-SKILL-ALLOC-1A2B3C4D`（仅年干支+时辰+卦）
+
 **铁律：**
-- `龍` 字繁体为规范形式（简体 `龙` 等价接收，自动归一化，不熔断）
+- `龍` 字繁体为规范形式（简体 `龍` 等价接收，自动归一化，不熔断）
 - 🔄 **繁简归一 v1.1**：简/繁互为变量，系统自动归一为繁体，统一出口
 - DNA码中的 `⚡️` 不能换成普通⚡
 - 符号位置焊死，不能调换顺序
 - 🧬 **DNA 不可跳过**：每个操作必须绑定 DNA 追溯码，不留黑箱
 - 🔍 **主动巡检**：`lh patrol` 一键触发全系统安全扫描，不躲避漏洞
+- 🀄 **干支时辰v∞为推荐格式**：天干地支+时辰+卦象为DNA时间戳的"根"格式，格里历为兼容"叶"格式，四代格式并行兼容，不强制报废
 
 ### 1.2 变量符号体系（前缀焊死）
 
@@ -850,7 +867,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|
-| 文化主权 | 龍/龍魂/龍芯·繁体永不翻译·龍≠龙≠Dragon |
+| 文化主权 | 龍/龍魂/龍芯·繁体永不翻译·龍≠龍≠Dragon |
 | Apple生态 | fireroot.lad@outlook.com | Apple Developer 主账号 |
 | 编译目标 | Python / C / C++ / Objective-C / Swift / JavaScript / Rust |
 

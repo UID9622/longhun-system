@@ -94,7 +94,7 @@ def compute_bloodline_score(text: str) -> int:
         "龍魂", "龍芯", "CNSH", "UID9622", "君子协议", "DNA", "河图洛书",
         "易经", "太极", "五行", "八卦", "六十四卦", "洛书", "通心译",
         "longhun", "dragon soul", "德者永生殿", "铁律", "主权",
-        "魂灵", "星闪", "鸿蒙", "北斗", "龙芯", "数字人", "曾老师",
+        "魂灵", "星闪", "鸿蒙", "北斗", "龍芯", "数字人", "曾老师",
     ]
     weak_markers = [
         "python", "script", "module", "skill", "知识库", "协议", "规范",
@@ -113,7 +113,7 @@ def compute_bloodline_score(text: str) -> int:
 
 def dragon_shield_check(file_path: Path, text: str) -> Dict:
     """
-    龙盾检查 v2：内容血脉识别。
+    龍盾检查 v2：内容血脉识别。
     Kimi_Agent 目录是老大私产，默认读内容认血脉，不因缺少 DNA/UID 就熔断。
     """
     has_dna = bool(re.search(r'#龍芯[⚡️][^\s\n]+', text))
@@ -320,8 +320,8 @@ def main():
     print(f"扫描文件: {len(files)}")
     print(f"新增导入: {imported}")
     print(f"跳过重复: {skipped}")
-    print(f"龙盾拒绝: {rejected}")
-    print(f"龙盾统计: 🟢{shield_summary['GREEN']} 🟡{shield_summary['YELLOW']} 🔴{shield_summary['RED']}")
+    print(f"龍盾拒绝: {rejected}")
+    print(f"龍盾统计: 🟢{shield_summary['GREEN']} 🟡{shield_summary['YELLOW']} 🔴{shield_summary['RED']}")
     print(f"Manifest 版本: {manifest['version']}")
     print(f"Manifest agents 总数: {len(manifest['agents'])}")
     print(f"\nDNA: {DNA_SIGNATURE}")

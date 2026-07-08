@@ -75,7 +75,7 @@ ARCHIVE_KEYWORDS = ["backup", "备份", "backup-", "-bfg", "archive", "归档", 
 def is_longhun_related(name: str) -> bool:
     """判断文件名是否与龍魂体系相关。"""
     lowered = name.lower()
-    keywords = ["longhun", "龍魂", "Kimi_Agent", "CNSH", "龍芯", "龙魂", "UID9622"]
+    keywords = ["longhun", "龍魂", "Kimi_Agent", "CNSH", "龍芯", "龍魂", "UID9622"]
     return any(k.lower() in lowered for k in keywords) or any(k in name for k in keywords[1:])
 
 

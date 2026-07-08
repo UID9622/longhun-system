@@ -40,7 +40,7 @@ L1 ████████ 字元层 — 甲骨文Canvas · .cnsh格式
 ```
 1. 语义化优先  → 变量名必须表达真实含义
 2. 可读性第一  → 代码是写给人看的
-3. 繁体龍字永存 → 文化符号必须用“龍”不用“龙”
+3. 繁体龍字永存 → 文化符号必须用“龍”不用“龍”
 4. 动词+名词   → 函数名用“生成龍魂ID”格式
 5. 类名显职责  → 类名反映单一职责
 ```
@@ -87,7 +87,7 @@ class 三色审计状态(Enum):
 
 ```python
 class DragonIDGenerator:            pass  # 英文
-class 龍芯处理器:                   pass  # 简化字“龙”
+class 龍芯处理器:                   pass  # 简化字“龍”
 class LYIDGen:                      pass  # 缩写
 class User用户管理:                 pass  # 中英混杂
 def 处理数据(self, d1, d2):         pass  # 无意义参数

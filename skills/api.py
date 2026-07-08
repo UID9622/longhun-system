@@ -9,6 +9,8 @@ DNA:#龍芯⚡️2026-06-07-SKILL-API-FILE2-v1.0
 责任: UID9622·不免责
 """
 
+from typing import Any, Dict, Optional
+
 from fastapi import FastAPI, HTTPException
 from . import get_registry, list_skills, get_skill_content
 
@@ -66,7 +68,7 @@ async def get_skill_full_content(skill_id: str):
     }
 
 @app.post("/api/v1/skills/{skill_id}/execute")
-async def execute_skill(skill_id: str, params: dict = None):
+async def execute_skill(skill_id: str, params: Optional[Dict[str, Any]] = None):
     """执行 Python Skill"""
     registry = get_registry()
     skill = registry.get_skill(skill_id)

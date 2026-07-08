@@ -42,9 +42,21 @@ ROOT = HOME / "longhun-system"
 LOG_DIR = ROOT / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-DNA = "#龍芯⚡️2026-07-06-SYMBIOTE-SERVER-v1.0"
+DNA = "#龍芯⚡️2026-07-07-SYMBIOTE-SERVER-v1.1"
 CONFIRM_TOKEN = "CONFIRM🌌9622-ONLY-ONCE"
 PORT = 9627
+
+# ── 脑神经自动生长引擎（v1.1 新增）──
+try:
+    from bin.lh_neural_growth import NeuralGrowthEngine, neural_api_handler  # type: ignore[reportMissingImports]
+    neural_engine = NeuralGrowthEngine()
+    _NEURAL_READY = True
+except Exception:
+    neural_engine = None
+    _NEURAL_READY = False
+
+    def neural_api_handler(path, query_params=None):
+        return None
 
 # ── 共生体内核标记 ──
 SYMBIOTE_CORE = {
@@ -341,7 +353,7 @@ class SymbioteGrowthEngine:
         self.api_calls = 0
         self.kg_queries = 0
         self.nodes_healed = 0
-        self.growth_events: List[Dict] = []
+        self.growth_events: List[Dict[str, Any]] = []
         self._load_growth_log()
 
     def _load_growth_log(self):
@@ -354,7 +366,7 @@ class SymbioteGrowthEngine:
             except Exception:
                 pass
 
-    def record(self, event_type: str, detail: Dict):
+    def record(self, event_type: str, detail: Dict[str, Any]):
         event = {
             "dna": f"#龍芯⚡️{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-SYMBIOTE-{event_type.upper()}-{hashlib.sha256(str(detail).encode()).hexdigest()[:8]}",
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -367,7 +379,7 @@ class SymbioteGrowthEngine:
         # 异步写入
         threading.Thread(target=self._append_to_log, args=(event,), daemon=True).start()
 
-    def _append_to_log(self, event: Dict):
+    def _append_to_log(self, event: Dict[str, Any]):
         try:
             with open(GROWTH_LOG_PATH, "a") as f:
                 f.write(json.dumps(event, ensure_ascii=False) + "\n")
@@ -387,7 +399,7 @@ class SymbioteGrowthEngine:
                 self.nodes_healed += 1
             self.record("node_change", {"node": node_id, "from": old_status, "to": new_status})
 
-    def get_symbiote_stats(self) -> Dict:
+    def get_symbiote_stats(self) -> Dict[str, Any]:
         return {
             "uptime_seconds": round(time.time() - self.start_time, 1),
             "uptime_human": str(timedelta(seconds=int(time.time() - self.start_time))),
@@ -434,7 +446,7 @@ class KnowledgeGraphEngine:
     def _connect(self):
         return sqlite3.connect(str(self._db_path))
 
-    def search(self, keyword: str, limit: int = 20) -> Dict:
+    def search(self, keyword: str, limit: int = 20) -> Dict[str, Any]:
         if not self._ready:
             return {"error": "知识图谱数据库不可用", "ready": False}
 
@@ -468,7 +480,7 @@ class KnowledgeGraphEngine:
         except Exception as e:
             return {"error": str(e), "ready": False}
 
-    def get_node(self, node_id: str) -> Dict:
+    def get_node(self, node_id: str) -> Dict[str, Any]:
         if not self._ready:
             return {"error": "知识图谱数据库不可用", "ready": False}
 
@@ -517,7 +529,7 @@ class KnowledgeGraphEngine:
         except Exception as e:
             return {"error": str(e), "ready": False}
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         if not self._ready:
             return {"ready": False, "node_count": 0, "edge_count": 0}
 
@@ -539,7 +551,7 @@ class KnowledgeGraphEngine:
         except Exception as e:
             return {"error": str(e), "ready": False}
 
-    def cross_reference(self, node_id: str) -> Dict:
+    def cross_reference(self, node_id: str) -> Dict[str, Any]:
         """共生体交叉引用：查找知识图谱节点 ↔ 神经网络节点映射"""
         result = self.get_node(node_id)
         if not result.get("ready"):
@@ -643,8 +655,8 @@ def compute_node_state(node: NodeDef) -> Dict[str, Any]:
     global _previous_node_states
 
     port = node.port
-    tcp_ok, tcp_latency = probe_tcp(port)
-    http_ok, http_status, http_latency = probe_http(port, node.health_path)
+    tcp_ok, tcp_latency = probe_tcp(port)  # type: ignore[reportArgumentType]
+    http_ok, http_status, http_latency = probe_http(port, node.health_path)  # type: ignore[reportArgumentType]
     pid = find_pid_by_port(port) if port else None
 
     loaded = False
@@ -779,6 +791,14 @@ def build_state() -> Dict[str, Any]:
     # 共生体健康补充：宪法层不通过时也判定共生体健康
     symbiote_health = symbiote._compute_health()
 
+    # v1.1：加载脑神经引擎中已激活的DNA人格节点
+    person_nodes = []
+    if _NEURAL_READY and neural_engine:
+        try:
+            person_nodes = neural_engine.load_persons()
+        except Exception:
+            pass
+
     return {
         "dna": DNA,
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -791,12 +811,17 @@ def build_state() -> Dict[str, Any]:
             "health_rate": round(healthy / total * 100, 1) if total else 0,
             "constitution_ok": constitution_ok,
             "symbiote_health": symbiote_health,
+            "person_nodes_count": len(person_nodes),
         },
         "nodes": nodes,
         "edges": EDGES,
         "symbiote": symbiote.get_symbiote_stats(),
         "knowledge_matrix": KNOWLEDGE_MATRIX,
         "kg_ready": kg_engine.ready,
+        "neural": {
+            "ready": _NEURAL_READY,
+            "person_nodes": person_nodes,
+        } if _NEURAL_READY else {"ready": False},
     }
 
 
@@ -862,7 +887,7 @@ class SymbioteHandler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         pass
 
-    def _send_json(self, data: Dict, code: int = 200):
+    def _send_json(self, data: Dict[str, Any], code: int = 200):
         body = json.dumps(data, ensure_ascii=False).encode("utf-8")
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -960,7 +985,17 @@ class SymbioteHandler(BaseHTTPRequestHandler):
                 "stats": symbiote.get_symbiote_stats(),
                 "knowledge_matrix": KNOWLEDGE_MATRIX,
                 "kg_ready": kg_engine.ready,
+                "neural_ready": _NEURAL_READY,
             })
+
+        # ── 新增v1.1：脑神经API（DNA激活→神经生长）──
+        elif path.startswith("/api/neural/"):
+            qs = parse_qs(parsed.query)
+            result = neural_api_handler(path, qs)
+            if result is not None:
+                self._send_json(result)
+            else:
+                self._send_json({"error": "未知的神经API端点"}, 404)
 
         elif path == "/api/symbiote/growth":
             self._send_json(symbiote.get_symbiote_stats())
@@ -970,7 +1005,7 @@ class SymbioteHandler(BaseHTTPRequestHandler):
 
         # ── 新增：系统资源健康API ──
         elif path == "/api/symbiote/health-system":
-            import psutil
+            import psutil  # type: ignore[import-untyped]
             cpu = 0.0
             mem_total = 0
             mem_used = 0
@@ -1128,8 +1163,12 @@ def main():
     print(f"║  KG:   http://127.0.0.1:{PORT}/api/kg/search?q=龍魂     ║")
     print(f"║  矩阵: http://127.0.0.1:{PORT}/api/knowledge-matrix     ║")
     print(f"║  共生: http://127.0.0.1:{PORT}/api/symbiote             ║")
+    print(f"║  脑神: http://127.0.0.1:{PORT}/api/neural/persons       ║")
     print("╠══════════════════════════════════════════════════════════╣")
     print(f"║  知识图谱: {'🟢 ' + str(kg_engine.stats().get('node_count', 0)) + '节点' if kg_engine.ready else '🔴 未就绪'}                                   ║")
+    if _NEURAL_READY and neural_engine:
+        persons = neural_engine.load_persons()
+        print(f"║  🧠 已激活DNA: {len(persons)} 个神经元                       ║")
     print(f"║  共生宣言: 共生体非代理人                                ║")
     print(f"║  DNA: {DNA}                                             ║")
     print("╚══════════════════════════════════════════════════════════╝")

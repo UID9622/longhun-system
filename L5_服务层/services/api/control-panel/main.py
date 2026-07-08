@@ -13,11 +13,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, HTTPException, Request  # type: ignore[import-untyped]
+from fastapi.staticfiles import StaticFiles  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import RedirectResponse, StreamingResponse
-import httpx
+import httpx  # type: ignore[import-untyped]
 
 # 将专案根目录加入路径
 ROOT = Path(__file__).resolve().parent.parent
@@ -46,7 +46,7 @@ def _get_registry():
     return _SKILL_REGISTRY
 
 
-def _secure_log(entry: dict):
+def _secure_log(entry: Dict[str, Any]):
     _LOCAL_GATEWAY_LOG.mkdir(parents=True, exist_ok=True)
     path = _LOCAL_GATEWAY_LOG / f"longhun_secure_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl"
     with open(path, "a", encoding="utf-8") as f:
@@ -121,7 +121,7 @@ TONGXINYI_GATE_ENABLED = os.getenv("TONGXINYI_GATE_ENABLED", "true").lower() == 
 
 @app.get("/")
 def index():
-    return {"message": "龍魂操作台 MVP v1.1", "dna": #龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-FILE1-FILE1-FILE1-v1.1-1"}
+    return {"message": "龍魂操作台 MVP v1.1", "dna": "#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-FILE1-v1.1"}
 
 
 @app.get("/api/health")
@@ -589,7 +589,7 @@ async def audit_integrated(request: Request):
         pass
     模式 = 载荷.get("模式", "system")
     目标 = 载荷.get("file")
-    return foundation_wrappers.run_integrated_audit(模式=模式, target_file=目标)
+    return foundation_wrappers.run_integrated_audit(mode=模式, target_file=目标)  # type: ignore[reportArgumentType]
 
 
 @app.post("/api/shield/{动作}")
@@ -625,6 +625,211 @@ async def cnsh_align(request: Request):
 @app.post("/api/cnsh/script-manager")
 def cnsh_script_manager():
     return foundation_wrappers.run_script_manager()
+
+
+# ═══════════════════════════════════════════
+# 🏦 CNSH 剪贴板翻译 API — 贴入→翻译→DNA注入→锁定
+# ═══════════════════════════════════════════
+# DNA: #龍芯⚡️2026-07-08-CLIPBOARD-TRANSLATE-API-v1.0
+# 供 iOS 快捷指令 / PWA / 鸿蒙快应用 / 任意第三方调用
+# ═══════════════════════════════════════════
+
+import hashlib as _hashlib
+
+_PROJECT_ROOT = ROOT.parent.parent.parent  # main.py → control-panel → api → services → L5_服务层 → 项目根
+_SYNTAX_LIB_PATH = _PROJECT_ROOT / "03_compiler" / "mappings" / "syntax_library.json"
+_SYNTAX_LIB: dict[str, Any] | None = None
+
+
+def _加载语法库() -> dict[str, Any]:
+    global _SYNTAX_LIB
+    if _SYNTAX_LIB is None:
+        if _SYNTAX_LIB_PATH.exists():
+            _SYNTAX_LIB = json.loads(_SYNTAX_LIB_PATH.read_text(encoding="utf-8"))
+        else:
+            _SYNTAX_LIB = {"syntax": {}}
+    return _SYNTAX_LIB  # type: ignore[reportReturnType]
+
+
+def _检测CNSH关键字(文本: str) -> list[dict[str, Any]]:
+    """扫描文本中的CNSH关键字，返回匹配列表"""
+    库 = _加载语法库()
+    命中: list[dict[str, Any]] = []
+    已匹配: set[str] = set()
+    for 类别名, 条目列表 in 库.get("syntax", {}).items():
+        for 条目 in 条目列表:
+            cn = 条目.get("cn", "")
+            if cn and cn in 文本 and cn not in 已匹配:
+                已匹配.add(cn)
+                命中.append({
+                    "关键字": cn,
+                    "英文": 条目.get("en", ""),
+                    "类别": 类别名,
+                    "Python": 条目.get("py", "—"),
+                    "JavaScript": 条目.get("js", "—"),
+                    "C": 条目.get("c", "—"),
+                })
+    return 命中
+
+
+def _计算完整性哈希(组件: dict[str, Any]) -> str:
+    """覆盖全部组件的完整性哈希·少一个就断裂"""
+    串 = json.dumps(组件, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return _hashlib.sha256(串.encode("utf-8")).hexdigest()
+
+
+@app.post("/api/cnsh/clipboard-translate")
+async def cnsh_clipboard_translate(request: Request):
+    """
+    🏦 CNSH剪贴板翻译 — 贴入任意文本→CNSH翻译+DNA注入+时间戳锁定
+    
+    请求体:
+    {
+        "text": "任意文本内容",
+        "parent_dna": "父DNA码（可选·链式协作）",
+        "lang": "py"  // 可选：目标语言，默认 py
+    }
+    
+    返回:
+    {
+        "状态": "success",
+        "DNA": "#龍芯⚡️2026-07-08-...",
+        "时间戳": {"ISO8601": "...", "北京时间": "...", "Unix": 1234567890},
+        "内容指纹": "sha256...",
+        "CNSH关键字": [...],
+        "完整性哈希": "sha256...",
+        "原文": "...",
+        "翻译时间戳": "...",
+        "父DNA链": ["..."]
+    }
+    """
+    载荷: dict[str, Any] = {}
+    try:
+        请求体 = await request.json()
+        if isinstance(请求体, dict):
+            载荷 = 请求体
+    except Exception:
+        pass
+
+    文本 = 载荷.get("text", "").strip()
+    if not 文本:
+        raise HTTPException(status_code=400, detail="缺少 text 字段")
+
+    父DNA = 载荷.get("parent_dna", "").strip()
+
+    # ① 内容指纹
+    内容指纹 = _hashlib.sha256(文本.encode("utf-8")).hexdigest()
+
+    # ② CNSH关键字检测
+    关键字列表 = _检测CNSH关键字(文本)
+
+    # ③ 时间戳锁定（北京时间 + ISO8601 + Unix）
+    现在 = datetime.now(timezone.utc)
+    北京时间 = 现在.strftime("%Y-%m-%d %H:%M:%S")
+    ISO8601 = 现在.isoformat()
+    Unix时间 = int(现在.timestamp())
+
+    # ④ DNA追溯码生成
+    DNA码 = f"#龍芯⚡️{现在.strftime('%Y-%m-%d')}-CLIPBOARD-{uuid.uuid4().hex[:8].upper()}"
+
+    # ⑤ 构建完整性组件包
+    组件包: dict[str, Any] = {
+        "DNA": DNA码,
+        "时间戳": {
+            "ISO8601": ISO8601,
+            "北京时间": f"{北京时间} CST",
+            "Unix": Unix时间,
+            "锁定": True,
+        },
+        "内容指纹": 内容指纹,
+        "关键字数量": len(关键字列表),
+        "关键字列表": [k["关键字"] for k in 关键字列表],
+        "父DNA链": [父DNA] if 父DNA else [],
+        "原文长度": len(文本),
+    }
+
+    # ⑥ 完整性哈希（覆盖全部组件·少一个就断裂）
+    完整性哈希 = _计算完整性哈希(组件包)
+
+    组件包["完整性哈希"] = 完整性哈希
+
+    # ⑦ 构建CNSH译文标注
+    if 关键字列表:
+        标注行: list[str] = []
+        for k in 关键字列表:
+            cn = k["关键字"]
+            en = k["英文"]
+            cat = k["类别"]
+            标注行.append(f"  ┃ {cn} → {en}  [{cat}]")
+        CNSH标注 = "\n".join(标注行)
+    else:
+        CNSH标注 = "  (未检测到CNSH关键字 — 纯文本直通)"
+
+    return {
+        "状态": "success",
+        "DNA": DNA码,
+        "时间戳": {
+            "ISO8601": ISO8601,
+            "北京时间": f"{北京时间} CST",
+            "Unix": Unix时间,
+            "锁定": True,
+        },
+        "内容指纹": 内容指纹,
+        "CNSH关键字": 关键字列表,
+        "完整性哈希": 完整性哈希,
+        "完整性组件": 组件包,
+        "原文": 文本,
+        "CNSH标注": CNSH标注,
+        "父DNA链": [父DNA] if 父DNA else [],
+        "验证指令": f"python3 bin/lh_anti_tamper.py verify --dna {DNA码}",
+    }
+
+
+@app.post("/api/cnsh/clipboard-verify")
+async def cnsh_clipboard_verify(request: Request):
+    """
+    🔍 验证翻译包的完整性 — 重新计算哈希比对·任何组件缺失/篡改→断裂
+    """
+    载荷: dict[str, Any] = {}
+    try:
+        请求体 = await request.json()
+        if isinstance(请求体, dict):
+            载荷 = 请求体
+    except Exception:
+        pass
+
+    组件 = 载荷.get("完整性组件") or 载荷.get("完整性哈希")
+    if not 组件:
+        raise HTTPException(status_code=400, detail="缺少 完整性组件 字段")
+
+    if isinstance(组件, dict):
+        # 取出已有的哈希
+        旧哈希 = 组件.pop("完整性哈希", None)
+        新哈希 = _计算完整性哈希(组件)
+        组件["完整性哈希"] = 旧哈希
+
+        if 旧哈希 is None:
+            return {"状态": "error", "说明": "缺少完整性哈希字段", "匹配": False}
+
+        if 旧哈希 == 新哈希:
+            return {
+                "状态": "success",
+                "完整": True,
+                "说明": "✅ 所有组件完好·完整性验证通过",
+                "DNA": 组件.get("DNA"),
+                "内容指纹": 组件.get("内容指纹"),
+            }
+        else:
+            return {
+                "状态": "error",
+                "完整": False,
+                "说明": "🔴 完整性断裂 — 组件被篡改或缺失·不可使用",
+                "DNA": 组件.get("DNA"),
+                "期望哈希": 旧哈希[:16] + "...",
+                "实际哈希": 新哈希[:16] + "...",
+            }
+    else:
+        return {"状态": "error", "说明": "完整性组件格式错误", "完整": False}
 
 
 @app.post("/api/research/光刻机瓶颈推演")
@@ -685,6 +890,60 @@ def system_status():
 def ecosystem_dashboard():
     """跳转到生态仪表盘页面。"""
     return RedirectResponse(url="/static/ecosystem-dashboard.html")
+
+
+# ===== 主权LED跑马灯常驻状态 API =====
+
+LED_STATE_FILE = ROOT.parent.parent.parent / "L7_数据层" / "sovereignty_led_state.json"
+
+
+@app.get("/api/sovereignty-led/state")
+def sovereignty_led_state():
+    """返回主权LED守护进程写入的实时状态（控制台跑马灯消费）。"""
+    if LED_STATE_FILE.exists():
+        try:
+            data = json.loads(LED_STATE_FILE.read_text(encoding="utf-8"))
+            data["source"] = "daemon"
+            return data
+        except Exception:
+            pass
+    # 守护进程未启动，尝试直接采集一次
+    try:
+        bin_path = str(ROOT.parent.parent.parent / "bin")
+        if bin_path not in sys.path:
+            sys.path.insert(0, bin_path)
+        from lh_sovereignty_led import _build_full_state  # type: ignore[import-untyped]
+        state = _build_full_state()
+        state["source"] = "on-demand"
+        return state
+    except Exception:
+        return {
+            "overall_color": "K",
+            "source": "offline",
+            "message": "守护进程未运行，无法获取状态",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+
+
+@app.get("/api/sovereignty-led/daemon-status")
+def sovereignty_led_daemon_status():
+    """主权LED守护进程运行状态。"""
+    pid_file = LED_STATE_FILE.parent / "sovereignty_led_daemon.pid"
+    alive = False
+    pid = None
+    if pid_file.exists():
+        try:
+            pid = int(pid_file.read_text().strip())
+            os.kill(pid, 0)
+            alive = True
+        except (OSError, ValueError):
+            pass
+    return {
+        "alive": alive,
+        "pid": pid if alive else None,
+        "state_file": str(LED_STATE_FILE),
+        "state_file_exists": LED_STATE_FILE.exists(),
+    }
 
 
 # ===== 龍魂公民画像引擎（亮灯功能）API =====
@@ -786,14 +1045,14 @@ def _build_cloud_routes():
             except Exception:
                 body = b""
             try:
-                async with httpx.AsyncClient(timeout=30.0) as client:
+                async with httpx.AsyncClient(timeout=30.0) as client:  # type: ignore[reportAttributeAccessIssue]
                     response = await client.request(method, target_url, headers=headers, content=body)
                 return StreamingResponse(
                     content=response.iter_bytes(),
                     status_code=response.status_code,
                     headers=dict(response.headers),
                 )
-            except httpx.ConnectError:
+            except httpx.ConnectError:  # type: ignore[reportAttributeAccessIssue]
                 raise HTTPException(status_code=503, detail=f"云端 Skill {prefix} 未启动 (端口 {port})")
             except Exception as e:
                 raise HTTPException(status_code=500, detail=f"代理失败: {e}")

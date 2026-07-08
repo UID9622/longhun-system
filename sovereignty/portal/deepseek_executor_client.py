@@ -86,4 +86,4 @@ if __name__ == "__main__":
 
     client = DeepSeekExecutorClient(url, secret, token)
     print("[health]", client.health())
-    print("[execute]", client.execute("echo", {"message": "龙魂 DeepSeek 执行器测试"}))
+    print("[execute]", client.execute("echo", {"message": "龍魂 DeepSeek 执行器测试"}))

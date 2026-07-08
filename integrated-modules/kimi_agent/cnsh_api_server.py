@@ -18,9 +18,9 @@ AI协作: Kimi
 # ═══════════════════════════════════════════════════════════
 # 第一部分: 导入模块
 # ═══════════════════════════════════════════════════════════
-from fastapi import FastAPI, HTTPException, BackgroundTasks, Request, status
+from fastapi import FastAPI, HTTPException, BackgroundTasks, Request, status  # type: ignore[import-untyped]
 from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Dict, Optional, Literal, Any, Tuple
 import hashlib

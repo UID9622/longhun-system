@@ -31,7 +31,7 @@ python3 script_manager.py
 
 **四层检查顺序:**
 ```
-L1 字符检查  → 禁用字符替换（最关键：简体"龙"→熔断）
+L1 字符检查  → 禁用字符替换（最关键：简体"龍"→熔断）
 L2 关键字检查 → CNSH保留字用法验证
 L3 语法检查   → 命名规范、函数签名检查
 L4 语义检查   → 底座铁律违反扫描（最严格）
@@ -133,7 +133,7 @@ SEM-003: 熔断检查    | circuit_breaker.py       | 1h   | SEM-002
 **检查项:**
 - [ ] 三模式分离明确：--verify | --generate | --repair
 - [ ] DNA碰撞检查：SHA256+时辰五行+黑名单
-- [ ] 简体"龙"熔断：检测到立即FUSE_3
+- [ ] 简体"龍"熔断：检测到立即FUSE_3
 - [ ] CNSH语法检查：集成cnsh_aligner.py
 - [ ] 输出格式统一：[DNA] 时戳 | 三色 | 说明 | 建议
 - [ ] DNA追溯链：每次生成都记录来源
@@ -151,7 +151,7 @@ bash dna_verify.sh --verify | grep "🟢"
 bash dna_verify.sh --repair < error.dna
 
 # 测试4: 检查禁用字符（应该熔断）
-echo "包含龙字的DNA" | bash dna_verify.sh --verify
+echo "包含龍字的DNA" | bash dna_verify.sh --verify
 # 预期输出：🔴 FUSE_3熔断
 ```
 
@@ -245,7 +245,7 @@ bash health_check.sh --json > health_report.json
 ```
 禁用字符    | 替换为      | 原因
 ────────────────────────────────
-龙（简体）  | 龍（繁体）  | 最高级熔断FUSE_3
+龍（简体）  | 龍（繁体）  | 最高级熔断FUSE_3
 其他特殊    | (待扩展)    | L1字符检查
 ```
 
@@ -301,8 +301,8 @@ print(aligner.format_report(result))
 # 2. 检查是否包含违禁词
 grep -E "蒸馏|平均|数据点|投机|用户" your_script.sh
 
-# 3. 检查是否有简体龙字
-grep "龙" your_script.sh  # 应该没有任何输出
+# 3. 检查是否有简体龍字
+grep "龍" your_script.sh  # 应该没有任何输出
 ```
 
 **修复方案:**
@@ -310,7 +310,7 @@ grep "龙" your_script.sh  # 应该没有任何输出
 # 替换违禁词
 sed -i 's/蒸馏/融合/g' your_script.sh
 sed -i 's/用户/某个具体的人/g' your_script.sh
-sed -i 's/龙/龍/g' your_script.sh
+sed -i 's/龍/龍/g' your_script.sh
 
 # 重新检查
 bash dna_verify.sh --verify
@@ -359,7 +359,7 @@ bash dna_verify.sh --repair < your_log.txt
 示例：
 [#龍芯⚡️2026-06-02-HEALTH-CHECK-v2.0] 🟢 | 2026-06-02 12:30:45 | 系统完全健康 | 无需修正
 [#龍芯⚡️2026-06-02-DNA-VERIFY-v2.0] 🡡 | 2026-06-02 12:31:12 | 发现1个警告 | bash fix_dna.sh
-[#龍芯⚡️2026-06-02-CNSH-ALIGN-v1.0] 🔴 | 2026-06-02 12:32:00 | 简体龙字检测 | FUSE_3熔断，无法执行
+[#龍芯⚡️2026-06-02-CNSH-ALIGN-v1.0] 🔴 | 2026-06-02 12:32:00 | 简体龍字检测 | FUSE_3熔断，无法执行
 ```
 
 ### JSON交互格式

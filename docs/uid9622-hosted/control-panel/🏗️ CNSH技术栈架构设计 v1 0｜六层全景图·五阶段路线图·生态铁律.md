@@ -633,7 +633,7 @@ if __name__ == '__main__':
 | 本地编译 | Makefile + cnsh脚本 | `cnsh 编译` 或 `make all` | 一个命令编译全部 |
 | 本地测试 | Shell测试脚本 | `cnsh 测试` 或 `make test` | 一个命令跑全部测试 |
 | 本地审计 | Python三色审计 | `cnsh 审计` 或 `make audit` | 一个命令三色扫描 |
-| 本地全流程 | Makefile pipeline | `cnsh 全流程` 或 `make pipeline` | 编译→测试→审计一条龙 |
+| 本地全流程 | Makefile pipeline | `cnsh 全流程` 或 `make pipeline` | 编译→测试→审计一条龍 |
 | 远程CI/CD | GitHub Actions | git push自动触发 | 推代码就跑·不用手动 |
 | DNA检查 | Python脚本 | CI流水线自动跑 | 没有DNA的文件不能合并 |
 | 发布打包 | Shell + GPG签名 | 审计通过后自动打包 | 每个发布包都有GPG签名+DNA戳 |

@@ -69,7 +69,7 @@ class CNSHChecker:
         
         # 黑名单字符
         self.banned_chars = {
-            '龙': ('龍', 'L1:简体龙->繁体龍-FUSE_3'),
+            '龍': ('龍', 'L1:简体龍->繁体龍-FUSE_3'),
         }
         
         # 保留关键字
@@ -100,7 +100,7 @@ class CNSHChecker:
         # L1: 字符检查
         for banned, (replacement, reason) in self.banned_chars.items():
             if banned in text:
-                if banned == '龙':
+                if banned == '龍':
                     result['confidence'] = 0.0
                     result['color'] = '🔴'
                     result['issues'].append(f'🔴 FUSE_3熔断: {reason}')
@@ -223,7 +223,7 @@ class SystemAuditor:
             for f in list(root.rglob('*.py'))[:50]:
                 try:
                     content = f.read_text(encoding='utf-8', errors='ignore')
-                    if '龙芯' in content and '#龍芯' not in content:
+                    if '龍芯' in content and '#龍芯' not in content:
                         polluted += 1
                 except:
                     pass

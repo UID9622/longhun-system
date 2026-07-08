@@ -38,7 +38,7 @@
 │   └── manifesto_watchdog.py   # 宣言守卫：永不关闭
 ├── L1_IRON_LAWS/              # L1 铁律执行 (2 个)
 │   ├── iron_laws_enforcer.py   # 8 条铁律执行
-│   └── semantic_shield.py      # 语义盾·龍 不能变龙
+│   └── semantic_shield.py      # 语义盾·龍 不能变龍
 ├── L2_WELDED_PROTOCOLS/       # L2 焊死协议 (4 个)
 │   ├── protocol_auditor.py     # 协议审计·检测篡改
 │   ├── dna_verifier.py         # DNA 验证·追溯身份
@@ -91,7 +91,7 @@
 8. ✅ 后人不做企业标杆
 
 **语义盾防护**:
-- ✅ 神圣字符保护（龍 vs 龙）
+- ✅ 神圣字符保护（龍 vs 龍）
 - ✅ 术语一致性（龍魂 vs Dragon Soul）
 - ✅ 修辞恰当性（禁止煽动性语言）
 

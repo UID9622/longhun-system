@@ -400,7 +400,7 @@
 - **类型**: inbox
 - **DNA**:`#龍芯⚡️2026-06-22-DOWNLOADS-INBOX-v1.0`
 - **描述**: ~/Downloads 顶层未录入龍魂主干的交付物集合
-- **相关节点**: [[downloads/10-个-skill]] [[downloads/cnsh-v3-0-完整交付清單]] [[downloads/龍魂系統-phase-3-完整交付-立即可用]] [[downloads/龍魂系統-cnsh-語義接入規範-v2-0]] [[downloads/cnsh-runtime-governance-mathematics-完整版-v3-0]] [[downloads/kimi_agent_启动全部技能]] [[downloads/kimi_agent_终端升级]] [[downloads/kimi_agent_终端升级与结构优-化-3]] [[downloads/kimi_agent_终端升级与结构优化]] [[downloads/kimi_agent_终端升级与结构优化-2]] [[downloads/kimi_agent_终端升级与结构优化-3]] [[downloads/kimi_agent_终端升级与结构优化-6]] [[downloads/kimi_agent_终端升级与结构优化-7]] [[downloads/kimi_agent_终端升级与结构优化-8]] [[downloads/kimi_agent_终端升级与结构优化5]] [[downloads/kimi_agent_脚本升级请求]] [[downloads/kimi_agent_龍魂体系技能检查]] [[downloads/kimi_agent_龍魂協議自動化完成]] [[downloads/kimi_agent_龍魂审计改进]] [[downloads/kimi_agent_龍魂根协议自动化]] [[downloads/notion-导出]] [[downloads/longhun-forensic-toolkit-v1-0]] [[downloads/z-s]] [[downloads/z-s-2]] [[downloads/升級-brain_notion_sync-py-phase-1-完整實現]] [[downloads/发布协议和申请条件]] [[downloads/完整的龍魂系統標準化-3-核心系統優化升級]] [[downloads/开机自动化]] [[downloads/新视觉计算公式]] [[downloads/日志-版本-追溯系统-完整交付]] [[downloads/计算公式]] [[downloads/论文]] [[downloads/论文-1]] [[downloads/证据]] [[downloads/龍魂-10-skill-標準化完成]] [[downloads/龍魂协议双语版]] [[downloads/龍魂協議焊死-立即行動方案]] [[downloads/龍魂移動端監控自動化-部署-quick-start]] [[downloads/龍魂网关]] [[downloads/龍魂自动化启动]] [[downloads/migration_log_2026-06-01-md]] [[downloads/529-1-txt]] [[downloads/img_1260-png]] [[downloads/img_1263-png]] [[downloads/img_1264-png]] [[downloads/img_1265-png]] [[downloads/img_1266-png]] [[downloads/img_1267-png]] [[downloads/img_1268-png]] [[downloads/img_1269-png]] [[downloads/img_1302-heic]] [[downloads/longhun-mobile-monitoring-automation-complete-md]] [[downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md]] [[downloads/kimi_3-0-3-dmg]] [[downloads/longhun-forensic-toolkit-v1-0-tar-gz]] [[downloads/天窗-mp3]] [[downloads/查看uid9622仓库-docx]] [[downloads/灵魂传承-pdf]] [[downloads/算力税-mp3]] [[downloads/终端保存的输出-5282-txt]] [[downloads/钢印-mp3]] [[downloads/龍魂根协议自动化-zip]] [[downloads/龍魂流水线使用说明-md]] [[downloads/龍魂系统_知识矩阵总纲_v2-0-md]] [[downloads/龙脊-mp3]]
+- **相关节点**: [[downloads/10-个-skill]] [[downloads/cnsh-v3-0-完整交付清單]] [[downloads/龍魂系統-phase-3-完整交付-立即可用]] [[downloads/龍魂系統-cnsh-語義接入規範-v2-0]] [[downloads/cnsh-runtime-governance-mathematics-完整版-v3-0]] [[downloads/kimi_agent_启动全部技能]] [[downloads/kimi_agent_终端升级]] [[downloads/kimi_agent_终端升级与结构优-化-3]] [[downloads/kimi_agent_终端升级与结构优化]] [[downloads/kimi_agent_终端升级与结构优化-2]] [[downloads/kimi_agent_终端升级与结构优化-3]] [[downloads/kimi_agent_终端升级与结构优化-6]] [[downloads/kimi_agent_终端升级与结构优化-7]] [[downloads/kimi_agent_终端升级与结构优化-8]] [[downloads/kimi_agent_终端升级与结构优化5]] [[downloads/kimi_agent_脚本升级请求]] [[downloads/kimi_agent_龍魂体系技能检查]] [[downloads/kimi_agent_龍魂協議自動化完成]] [[downloads/kimi_agent_龍魂审计改进]] [[downloads/kimi_agent_龍魂根协议自动化]] [[downloads/notion-导出]] [[downloads/longhun-forensic-toolkit-v1-0]] [[downloads/z-s]] [[downloads/z-s-2]] [[downloads/升級-brain_notion_sync-py-phase-1-完整實現]] [[downloads/发布协议和申请条件]] [[downloads/完整的龍魂系統標準化-3-核心系統優化升級]] [[downloads/开机自动化]] [[downloads/新视觉计算公式]] [[downloads/日志-版本-追溯系统-完整交付]] [[downloads/计算公式]] [[downloads/论文]] [[downloads/论文-1]] [[downloads/证据]] [[downloads/龍魂-10-skill-標準化完成]] [[downloads/龍魂协议双语版]] [[downloads/龍魂協議焊死-立即行動方案]] [[downloads/龍魂移動端監控自動化-部署-quick-start]] [[downloads/龍魂网关]] [[downloads/龍魂自动化启动]] [[downloads/migration_log_2026-06-01-md]] [[downloads/529-1-txt]] [[downloads/img_1260-png]] [[downloads/img_1263-png]] [[downloads/img_1264-png]] [[downloads/img_1265-png]] [[downloads/img_1266-png]] [[downloads/img_1267-png]] [[downloads/img_1268-png]] [[downloads/img_1269-png]] [[downloads/img_1302-heic]] [[downloads/longhun-mobile-monitoring-automation-complete-md]] [[downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md]] [[downloads/kimi_3-0-3-dmg]] [[downloads/longhun-forensic-toolkit-v1-0-tar-gz]] [[downloads/天窗-mp3]] [[downloads/查看uid9622仓库-docx]] [[downloads/灵魂传承-pdf]] [[downloads/算力税-mp3]] [[downloads/终端保存的输出-5282-txt]] [[downloads/钢印-mp3]] [[downloads/龍魂根协议自动化-zip]] [[downloads/龍魂流水线使用说明-md]] [[downloads/龍魂系统_知识矩阵总纲_v2-0-md]] [[downloads/龍脊-mp3]]
 
 #### [[longhun-forensic-toolkit-v1.0]]
 - **ID**: `downloads/longhun-forensic-toolkit-v1-0`
@@ -588,10 +588,10 @@
 - **描述**: media · 5.39 MB · 归宿: _archive/media/ 或 _archive/deliverables/
 - **相关节点**: [[l1-storage]]
 
-#### [[龙脊.mp3]]
-- **ID**: `downloads/龙脊-mp3`
+#### [[龍脊.mp3]]
+- **ID**: `downloads/龍脊-mp3`
 - **类型**: media
-- **DNA**:`#龍芯⚡️2026-06-22-DOWNLOADS-龙脊-MP3-v1.0`
+- **DNA**:`#龍芯⚡️2026-06-22-DOWNLOADS-龍脊-MP3-v1.0`
 - **描述**: media · 5.42 MB · 归宿: _archive/media/ 或 _archive/deliverables/
 - **相关节点**: [[l1-storage]]
 
@@ -1272,7 +1272,7 @@
 - [[Downloads 主干收件箱]] → [[龍魂根协议自动化.zip]] (强度: 0.9)
 - [[Downloads 主干收件箱]] → [[龍魂流水线使用说明.md]] (强度: 0.9)
 - [[Downloads 主干收件箱]] → [[龍魂系统_知识矩阵总纲_v2.0.md]] (强度: 0.9)
-- [[Downloads 主干收件箱]] → [[龙脊.mp3]] (强度: 0.9)
+- [[Downloads 主干收件箱]] → [[龍脊.mp3]] (强度: 0.9)
 - [[Claude Local Agent Sessions]] → [[Skills]] (强度: 0.9)
 - [[Claude Local Agent Sessions]] → [[Plugins]] (强度: 0.9)
 - [[Claude Local Agent Sessions]] → [[Extensions]] (强度: 0.9)
@@ -1416,7 +1416,7 @@
 - [[龍魂根协议自动化.zip]] → [[L0 核心层]] (强度: 0.6)
 - [[龍魂流水线使用说明.md]] → [[L0 核心层]] (强度: 0.6)
 - [[龍魂系统_知识矩阵总纲_v2.0.md]] → [[L0 核心层]] (强度: 0.6)
-- [[龙脊.mp3]] → [[L1 数据存储]] (强度: 0.6)
+- [[龍脊.mp3]] → [[L1 数据存储]] (强度: 0.6)
 - [[CNSH Editor 统一编辑器模块]] → [[L0 核心层]] (强度: 0.9)
 - [[CNSH Editor 统一编辑器模块]] → [[Kimi WebBridge]] (强度: 0.7)
 - [[CNSH Editor 统一编辑器模块]] → [[Downloads 主干收件箱]] (强度: 0.6)

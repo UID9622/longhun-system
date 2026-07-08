@@ -60,11 +60,11 @@ for root, dirs, files in os.walk('.'):
       try:
         with open(fp,'r',encoding='utf-8',errors='ignore') as fh:
           content = fh.read();
-        # 检测 '龙魂' 而非 '龍魂' (排除 龙芯 匹配)
+        # 检测 '龍魂' 而非 '龍魂' (排除 龍芯 匹配)
         import re;
-        bad = re.findall(r'(?<!CNSH.*)(?<![#>\- ])龙(?=魂|系统)', content);
+        bad = re.findall(r'(?<!CNSH.*)(?<![#>\- ])龍(?=魂|系统)', content);
         if bad:
-          print(f'🔴 CNSH违规: {fp} — 发现简体龙字，应为「龍」', file=sys.stderr);
+          print(f'🔴 CNSH违规: {fp} — 发现简体龍字，应为「龍」', file=sys.stderr);
           errors += 1;
       except: pass;
 sys.exit(min(errors, 1));

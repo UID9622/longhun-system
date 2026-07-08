@@ -23,7 +23,7 @@ CNSH = 中文原生语义层级（Chinese Native Semantic Hierarchy）
   📖 cnsh_keywords     — 关键字查询：查 CNSH 所有中文关键字
   🛑 cnsh_redline_check — 红线熔断：检测是否违反人民数据主权
   📋 cnsh_redline_list  — 红线清单：列出全部红线词组及本源
-  🧬 cnsh_dna_generate  — DNA 生成：龙魂标准追溯码
+  🧬 cnsh_dna_generate  — DNA 生成：龍魂标准追溯码
   ✅ cnsh_dna_validate  — DNA 校验：检查追溯码是否合法
   🔢 cnsh_digital_root  — 数字根：计算数字根+五行+369闸门
   🎨 cnsh_audit         — 三色审计：🟢通过 / 🟡警告 / 🔴拒绝
@@ -732,7 +732,7 @@ def _handle_dna_validate(args: dict[str, object]) -> dict[str, object]:
 
     # 🔄 繁简归一：简/繁均合法，仅记录用于审计
     checks = {
-        "has_simplified_dragon": "龙芯" in dna or "龙魂" in dna,  # 相容接收，仅记录
+        "has_simplified_dragon": "龍芯" in dna or "龍魂" in dna,  # 相容接收，仅记录
         "has_proper_dragon": "龍" in dna,
         "has_lightning": "⚡️" in dna or "⚡" in dna,
         "length": len(dna),

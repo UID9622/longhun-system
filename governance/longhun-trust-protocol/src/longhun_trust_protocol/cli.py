@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂君子协议 · 命令行工具
+龍魂君子协议 · 命令行工具
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-CLI-v1.0
 
 用法：
@@ -146,7 +146,7 @@ def cmd_version(args):
 def main(argv=None):
     parser = argparse.ArgumentParser(
         prog="longhun-trust",
-        description="龙魂君子协议 · 诚信评级与违约清算",
+        description="龍魂君子协议 · 诚信评级与违约清算",
     )
     parser.add_argument("--db", default="~/.longhun/trust_protocol", help="数据目录")
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")

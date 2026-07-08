@@ -205,8 +205,51 @@ class Lexer:
         start_line = self.line
         start_col = self.column
         name = ""
+        # Greedy accumulate all CJK + alphanumeric chars
         while self._is_id_continue(self._peek()):
             name += self._advance()
-        # 检查是否为关键字
-        kind = KEYWORDS.get(name, "IDENTIFIER")
-        self.tokens.append(Token(kind, name, start_line, start_col, self.file))
+        # 尝试拆分复合中文关键字（最长匹配优先）
+        if self._is_cjk(name[0]) if name else False:
+            self._emit_cjk_tokens(name, start_line, start_col)
+        else:
+            kind = KEYWORDS.get(name, "IDENTIFIER")
+            self.tokens.append(Token(kind, name, start_line, start_col, self.file))
+
+    def _emit_cjk_tokens(self, text: str, start_line: int, start_col: int):
+        """对连续中文文本做最长关键字匹配切分。
+        从右向左贪心匹配最长关键字，连续的非关键字 CJK 字符合并为一个标识符。
+        """
+        pos = 0
+        col = start_col
+        while pos < len(text):
+            matched = False
+            # 从最长可能长度开始向下匹配（最多8字，覆盖"数字根熔断"等复合词）
+            max_len = min(len(text) - pos, 8)
+            for length in range(max_len, 0, -1):
+                candidate = text[pos:pos + length]
+                if candidate in KEYWORDS:
+                    kind = KEYWORDS[candidate]
+                    self.tokens.append(Token(kind, candidate, start_line, col, self.file))
+                    pos += length
+                    col += length
+                    matched = True
+                    break
+            if not matched:
+                # 连续非关键字 CJK 合并为一个标识符
+                ident = ""
+                while pos < len(text):
+                    ch = text[pos]
+                    # 检查以当前 pos 开头的任意长度子串是否为关键字
+                    is_kw = False
+                    max_check = min(len(text) - pos, 8)
+                    for length in range(1, max_check + 1):
+                        if text[pos:pos + length] in KEYWORDS:
+                            is_kw = True
+                            break
+                    if is_kw:
+                        break
+                    ident += ch
+                    pos += 1
+                if ident:
+                    self.tokens.append(Token("IDENTIFIER", ident, start_line, col, self.file))
+                    col += len(ident)

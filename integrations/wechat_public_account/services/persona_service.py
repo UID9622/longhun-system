@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 
-# 引入龙魂模型路由，不再直连 Moonshot
+# 引入龍魂模型路由，不再直连 Moonshot
 ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT))
 from sovereignty.portal import model_router
@@ -163,7 +163,7 @@ class PersonaService:
 
     def _call_kimi(self, prompt: str) -> Optional[str]:
         """
-        已迁移：不再直连 Moonshot，统一走龙魂模型路由（DeepSeek / 本地 Ollama）。
+        已迁移：不再直连 Moonshot，统一走龍魂模型路由（DeepSeek / 本地 Ollama）。
         """
         try:
             req = model_router.ChatRequest(

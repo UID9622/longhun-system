@@ -19,6 +19,12 @@ from .ast_nodes import (
     EnumMember, EnumDecl, DataClassField, DataClassDecl, ImportStmt,
     # Bra-Ket 节点
     PersonaBasisDecl, SystemDecl,
+    # CNSH v2.0-v2.3 新增节点
+    SwitchStmt, CaseClause, DNARegisterStmt, DNAVerifyStmt, DNASignStmt,
+    AbortStmt, CreateRollbackStmt, RollbackStmt, VerifyRollbackStmt,
+    HookStmt, TriColorAuditStmt, TestStmt, AssertStmt, ExpectStmt,
+    RouteToStmt, QuantumEntangleStmt, CollapseStmt,
+    ColdStartStmt, HotStartStmt, ExitProgramStmt, ExportStmt, AuditStmt,
 )
 from .errors import CNSHParseError
 
@@ -137,6 +143,55 @@ class Parser:
             return self._break_stmt()
         if tok.type == "CONTINUE":
             return self._continue_stmt()
+        # ── CNSH v2.0-v2.3 新增语句 ──
+        if tok.type == "SWITCH":
+            return self._switch_stmt()
+        if tok.type == "HOOK":
+            return self._hook_stmt(hook_type="")
+        if tok.type == "BEFORE_HOOK":
+            return self._hook_stmt(hook_type="before")
+        if tok.type == "AFTER_HOOK":
+            return self._hook_stmt(hook_type="after")
+        if tok.type == "TRI_COLOR_AUDIT":
+            return self._tri_color_audit_stmt()
+        if tok.type == "DNA_REGISTER":
+            return self._dna_register_stmt()
+        if tok.type == "DNA_VERIFY":
+            return self._dna_verify_stmt()
+        if tok.type == "DNA_SIGN":
+            return self._dna_sign_stmt()
+        if tok.type == "ABORT":
+            return self._abort_stmt()
+        if tok.type == "CREATE_ROLLBACK":
+            return self._create_rollback_stmt()
+        if tok.type == "ROLLBACK":
+            return self._rollback_stmt()
+        if tok.type == "VERIFY_ROLLBACK":
+            return self._verify_rollback_stmt()
+        if tok.type == "TEST":
+            return self._test_stmt()
+        if tok.type == "ASSERT":
+            return self._assert_stmt()
+        if tok.type == "EXPECT":
+            return self._expect_stmt()
+        if tok.type == "ROUTE_TO":
+            return self._route_to_stmt()
+        if tok.type == "QUANTUM_ENTANGLE":
+            return self._quantum_entangle_stmt()
+        if tok.type == "COLLAPSE":
+            return self._collapse_stmt()
+        if tok.type == "COLD_START":
+            return self._cold_start_stmt()
+        if tok.type == "HOT_START":
+            return self._hot_start_stmt()
+        if tok.type == "EXIT_PROGRAM":
+            return self._exit_program_stmt()
+        if tok.type == "EXPORT":
+            return self._export_stmt()
+        if tok.type in ("AUDITING", "AUDITED"):
+            return self._audit_stmt()
+        if tok.type == "GLOBAL":
+            return self._global_decl()
         return self._expression_stmt()
 
     def _module_decl(self) -> ModuleDecl:
@@ -744,7 +799,8 @@ class Parser:
 
     def _assignment(self) -> ASTNode:
         left = self._or_expr()
-        if self._check("ASSIGN"):
+        assign_types = {"ASSIGN", "PLUS_ASSIGN", "MINUS_ASSIGN", "STAR_ASSIGN", "SLASH_ASSIGN", "PERCENT_ASSIGN"}
+        if self._peek().type in assign_types:
             op = self._advance().value
             right = self._assignment()
             return BinaryExpr(op=op, left=left, right=right, line=left.line, column=left.column)
@@ -792,7 +848,7 @@ class Parser:
 
     def _multiplicative(self) -> ASTNode:
         left = self._unary()
-        while self._check("STAR") or self._check("SLASH") or self._check("PERCENT"):
+        while self._check("STAR") or self._check("SLASH") or self._check("PERCENT") or self._check("POWER") or self._check("FLOOR_DIV"):
             op = self._advance().value
             right = self._unary()
             left = BinaryExpr(op=op, left=left, right=right, line=left.line, column=left.column)
@@ -874,7 +930,7 @@ class Parser:
         if tok.type == "IDENTIFIER":
             self._advance()
             return IdentifierExpr(name=tok.value, line=tok.line, column=tok.column)
-        if tok.type in ("SELF", "SUPER", "FIELD"):
+        if tok.type in ("SELF", "SUPER", "FIELD", "PRINT", "CALL", "NEW", "DELETE_KW", "NOW_FN", "LEN_FN", "TO_STR_FN", "TO_INT_FN"):
             self._advance()
             return IdentifierExpr(name=tok.value, line=tok.line, column=tok.column)
         if tok.type == "LPAREN":
@@ -947,3 +1003,264 @@ class Parser:
         self._skip_newlines()
         self._expect("RBRACE", "映射需要 '}'")
         return MapExpr(pairs=pairs, line=start.line, column=start.column)
+
+    # ═══════════════════════════════════════════════════════════════
+    # CNSH v2.0-v2.3 新增语句解析方法
+    # ═══════════════════════════════════════════════════════════════
+
+    def _switch_stmt(self) -> SwitchStmt:
+        """切换 表达式 { 情况 值: ... 默认: ... }"""
+        start = self._advance()  # SWITCH
+        value = self._expression()
+        self._expect("LBRACE", "切换语句需要 '{'")
+        cases: List[CaseClause] = []
+        default_body: List[ASTNode] = []
+        while not self._check("RBRACE") and not self._check("EOF"):
+            self._skip_newlines()
+            if self._check("RBRACE"):
+                break
+            if self._check("CASE"):
+                self._advance()
+                case_val = self._expression()
+                self._expect("COLON", "情况需要 ':'")
+                case_body: List[ASTNode] = []
+                while not self._check("CASE") and not self._check("DEFAULT") and not self._check("RBRACE"):
+                    self._skip_newlines()
+                    if self._check("CASE") or self._check("DEFAULT") or self._check("RBRACE"):
+                        break
+                    case_body.append(self._statement())
+                cases.append(CaseClause(value=case_val, body=case_body))
+            elif self._check("DEFAULT"):
+                self._advance()
+                self._expect("COLON", "默认需要 ':'")
+                while not self._check("RBRACE") and not self._check("EOF"):
+                    self._skip_newlines()
+                    if self._check("RBRACE"):
+                        break
+                    default_body.append(self._statement())
+            else:
+                raise CNSHParseError("切换体需要 情况 或 默认", self._peek().line, self._peek().column)
+        self._expect("RBRACE", "切换体需要 '}'")
+        return SwitchStmt(value=value, cases=cases, default_body=default_body, line=start.line, column=start.column)
+
+    def _hook_stmt(self, hook_type: str = "") -> HookStmt:
+        """钩子/前置钩子/后置钩子 名称(参数) { ... }"""
+        start = self._advance()  # HOOK / BEFORE_HOOK / AFTER_HOOK
+        name = self._expect("IDENTIFIER", "钩子需要名称").value
+        params: List[Parameter] = []
+        if self._check("LPAREN"):
+            self._advance()
+            params = self._parameter_list()
+            self._expect("RPAREN", "钩子参数需要 ')'")
+        self._expect("LBRACE", "钩子体需要 '{'")
+        body = self._block_body()
+        return HookStmt(name=name, params=params, body=body, hook_type=hook_type, line=start.line, column=start.column)
+
+    def _tri_color_audit_stmt(self) -> TriColorAuditStmt:
+        """三色审计(操作映射)"""
+        start = self._advance()  # TRI_COLOR_AUDIT
+        operation: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                operation = self._expression()
+            self._expect("RPAREN", "三色审计参数需要 ')'")
+        self._statement_end()
+        return TriColorAuditStmt(operation=operation, line=start.line, column=start.column)
+
+    def _dna_register_stmt(self) -> DNARegisterStmt:
+        """DNA登记(信息)"""
+        start = self._advance()  # DNA_REGISTER
+        info: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                info = self._expression()
+            self._expect("RPAREN", "DNA登记参数需要 ')'")
+        self._statement_end()
+        return DNARegisterStmt(info=info, line=start.line, column=start.column)
+
+    def _dna_verify_stmt(self) -> DNAVerifyStmt:
+        """DNA验证(码)"""
+        start = self._advance()  # DNA_VERIFY
+        dna_code: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                dna_code = self._expression()
+            self._expect("RPAREN", "DNA验证参数需要 ')'")
+        self._statement_end()
+        return DNAVerifyStmt(dna_code=dna_code, line=start.line, column=start.column)
+
+    def _dna_sign_stmt(self) -> DNASignStmt:
+        """DNA签章(信息)"""
+        start = self._advance()  # DNA_SIGN
+        info: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                info = self._expression()
+            self._expect("RPAREN", "DNA签章参数需要 ')'")
+        self._statement_end()
+        return DNASignStmt(info=info, line=start.line, column=start.column)
+
+    def _abort_stmt(self) -> AbortStmt:
+        """熔断(原因)"""
+        start = self._advance()  # ABORT
+        reason: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                reason = self._expression()
+            self._expect("RPAREN", "熔断参数需要 ')'")
+        self._statement_end()
+        return AbortStmt(reason=reason, line=start.line, column=start.column)
+
+    def _create_rollback_stmt(self) -> CreateRollbackStmt:
+        """生成回滚点(标记)"""
+        start = self._advance()  # CREATE_ROLLBACK
+        label: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                label = self._expression()
+            self._expect("RPAREN", "生成回滚点参数需要 ')'")
+        self._statement_end()
+        return CreateRollbackStmt(label=label, line=start.line, column=start.column)
+
+    def _rollback_stmt(self) -> RollbackStmt:
+        """回滚(快照ID)"""
+        start = self._advance()  # ROLLBACK
+        snapshot_id: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                snapshot_id = self._expression()
+            self._expect("RPAREN", "回滚参数需要 ')'")
+        self._statement_end()
+        return RollbackStmt(snapshot_id=snapshot_id, line=start.line, column=start.column)
+
+    def _verify_rollback_stmt(self) -> VerifyRollbackStmt:
+        """验证回滚(快照ID)"""
+        start = self._advance()  # VERIFY_ROLLBACK
+        snapshot_id: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                snapshot_id = self._expression()
+            self._expect("RPAREN", "验证回滚参数需要 ')'")
+        self._statement_end()
+        return VerifyRollbackStmt(snapshot_id=snapshot_id, line=start.line, column=start.column)
+
+    def _test_stmt(self) -> TestStmt:
+        """测试 "名称" { ... }"""
+        start = self._advance()  # TEST
+        name = self._expect("STRING", "测试需要名称字符串").value
+        self._expect("LBRACE", "测试体需要 '{'")
+        body = self._block_body()
+        return TestStmt(name=name, body=body, line=start.line, column=start.column)
+
+    def _assert_stmt(self) -> AssertStmt:
+        """断言 表达式 == 期望值"""
+        start = self._advance()  # ASSERT
+        actual = self._expression()
+        expected: Optional[ASTNode] = None
+        if self._check("EQ"):
+            self._advance()
+            expected = self._expression()
+        self._statement_end()
+        return AssertStmt(actual=actual, expected=expected, line=start.line, column=start.column)
+
+    def _expect_stmt(self) -> ExpectStmt:
+        """期望 表达式 == 值"""
+        start = self._advance()  # EXPECT
+        actual = self._expression()
+        expected: Optional[ASTNode] = None
+        if self._check("EQ"):
+            self._advance()
+            expected = self._expression()
+        self._statement_end()
+        return ExpectStmt(actual=actual, expected=expected, line=start.line, column=start.column)
+
+    def _route_to_stmt(self) -> RouteToStmt:
+        """路由到 人格名"""
+        start = self._advance()  # ROUTE_TO
+        persona = self._expect("IDENTIFIER", "路由到需要人格名").value
+        self._statement_end()
+        return RouteToStmt(persona=persona, line=start.line, column=start.column)
+
+    def _quantum_entangle_stmt(self) -> QuantumEntangleStmt:
+        """量子纠缠(父, 子)"""
+        start = self._advance()  # QUANTUM_ENTANGLE
+        self._expect("LPAREN", "量子纠缠需要 '('")
+        parent: Optional[ASTNode] = None
+        child: Optional[ASTNode] = None
+        if not self._check("RPAREN"):
+            parent = self._expression()
+            if self._check("COMMA"):
+                self._advance()
+                child = self._expression()
+        self._expect("RPAREN", "量子纠缠需要 ')'")
+        self._statement_end()
+        return QuantumEntangleStmt(parent=parent, child=child, line=start.line, column=start.column)
+
+    def _collapse_stmt(self) -> CollapseStmt:
+        """坍缩到(状态)"""
+        start = self._advance()  # COLLAPSE
+        state: Optional[ASTNode] = None
+        if self._check("LPAREN"):
+            self._advance()
+            if not self._check("RPAREN"):
+                state = self._expression()
+            self._expect("RPAREN", "坍缩到需要 ')'")
+        self._statement_end()
+        return CollapseStmt(state=state, line=start.line, column=start.column)
+
+    def _cold_start_stmt(self) -> ColdStartStmt:
+        """冷启动"""
+        start = self._advance()
+        self._statement_end()
+        return ColdStartStmt(line=start.line, column=start.column)
+
+    def _hot_start_stmt(self) -> HotStartStmt:
+        """热启动"""
+        start = self._advance()
+        self._statement_end()
+        return HotStartStmt(line=start.line, column=start.column)
+
+    def _exit_program_stmt(self) -> ExitProgramStmt:
+        """终止执行(退出码)"""
+        start = self._advance()  # EXIT_PROGRAM
+        code: Optional[ASTNode] = None
+        if not (self._check("SEMICOLON") or self._check("NEWLINE") or self._check("RBRACE") or self._check("EOF")):
+            code = self._expression()
+        self._statement_end()
+        return ExitProgramStmt(code=code, line=start.line, column=start.column)
+
+    def _export_stmt(self) -> ExportStmt:
+        """导出 名称"""
+        start = self._advance()  # EXPORT
+        name = self._expect("IDENTIFIER", "导出需要名称").value
+        self._statement_end()
+        return ExportStmt(name=name, line=start.line, column=start.column)
+
+    def _audit_stmt(self) -> AuditStmt:
+        """已审计 / 审计中"""
+        start = self._advance()  # AUDITING or AUDITED
+        self._statement_end()
+        return AuditStmt(status=start.type, line=start.line, column=start.column)
+
+    def _global_decl(self) -> VarDecl:
+        """全局 变量名 = 初始值"""
+        start = self._advance()  # GLOBAL
+        name = self._expect("IDENTIFIER", "全局变量需要名称").value
+        type_ann: Optional[str] = None
+        if self._check("COLON"):
+            self._advance()
+            type_ann = self._expect("IDENTIFIER", "全局变量类型").value
+        init: Optional[ASTNode] = None
+        if self._check("ASSIGN"):
+            self._advance()
+            init = self._expression()
+        self._statement_end()
+        return VarDecl(name=name, initializer=init, is_const=False, type_annotation=type_ann, line=start.line, column=start.column)

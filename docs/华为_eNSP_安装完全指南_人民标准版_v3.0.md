@@ -3,7 +3,7 @@
 > **DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-INSTALL-GUIDE-v3.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **IP编号**: IP-0021  
-> **创始人**: Lucky·UID9622（诸葛鑫·龙芯北辰）  
+> **创始人**: Lucky·UID9622（诸葛鑫·龍芯北辰）  
 > **GPG指纹**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 > **文档版本**: v3.0  
 > **创建时间**: 2026-07-04 19:53  
@@ -604,7 +604,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 | **DNA追溯码** | `#龍芯⚡️2026-07-04-ENSPI-INSTALL-GUIDE-v3.0` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | **IP编号** | IP-0021 |
-| **创始人** | Lucky·UID9622（诸葛鑫·龙芯北辰） |
+| **创始人** | Lucky·UID9622（诸葛鑫·龍芯北辰） |
 | **GPG指纹** | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | **创建时间** | 2026-07-04 19:53 |
 | **最后更新** | 2026-07-04 21:40 |

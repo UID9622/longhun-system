@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂万年历 (LongHun Calendar) - 龙魂系统唯一入口
+龍魂万年历 (LongHun Calendar) - 龍魂系统唯一入口
 版本: v1.0
-体系: 龙魂体系 (UID9622)
+体系: 龍魂体系 (UID9622)
 功能: 系统入口 | 时间管理 | 任务调度 | 上下文路由 | 实时记录 | 多AI网关
-设计原则: 龙字简体 | DNA追溯 | 三色审计 | 与52技能无冲突
+设计原则: 龍字简体 | DNA追溯 | 三色审计 | 与52技能无冲突
 
 DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬CALENDAR-v1.0
 
-作者: 龙魂AI架构师
+作者: 龍魂AI架构师
 创建: 2026-06-27
 """
 
@@ -29,7 +29,7 @@ from collections import OrderedDict
 # ============================================================================
 
 LONGHUN_UID = "9622"
-SYSTEM_NAME = "龙魂系统"
+SYSTEM_NAME = "龍魂系统"
 CALENDAR_VERSION = "1.0"
 
 # 三色审计标记
@@ -49,7 +49,7 @@ SKILL_REGISTRY = {
     "S08": {"name": "AI网关", "layer": "L2", "desc": "多AI网关调度"},
     "S09": {"name": "代码生成", "layer": "L3", "desc": "程序代码生成"},
     "S10": {"name": "数据分析", "layer": "L3", "desc": "数据分析与可视化"},
-    "S11": {"name": "万年历", "layer": "L0", "desc": "龙魂万年历-系统入口"},
+    "S11": {"name": "万年历", "layer": "L0", "desc": "龍魂万年历-系统入口"},
     # ... 可扩展至S52
 }
 
@@ -58,7 +58,7 @@ TIAN_GAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"
 # 地支
 DI_ZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
 # 生肖
-SHENG_XIAO = ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"]
+SHENG_XIAO = ["鼠", "牛", "虎", "兔", "龍", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"]
 
 # 卦名（64卦）
 GUA_NAMES = [
@@ -714,7 +714,7 @@ class ShengXiaoInfo:
             "勤恳踏实，坚韧不拔",  # 牛
             "勇猛果敢，富有领导力",  # 虎
             "温和善良，心思细腻",  # 兔
-            "自信豪迈，志向远大",  # 龙
+            "自信豪迈，志向远大",  # 龍
             "智慧深邃，洞察力强",  # 蛇
             "热情奔放，自由不羁",  # 马
             "温顺谦逊，富有同情心",  # 羊
@@ -1707,9 +1707,9 @@ class AIGateway:
 
 class LongHunCalendar:
     """
-    龙魂万年历 - 系统唯一入口
+    龍魂万年历 - 系统唯一入口
     
-    这是龙魂体系(UID9622)的唯一系统入口，所有操作都通过此类进入。
+    这是龍魂体系(UID9622)的唯一系统入口，所有操作都通过此类进入。
     
     核心职责:
     1. 系统入口 - enter() 方法
@@ -1720,7 +1720,7 @@ class LongHunCalendar:
     6. 多AI网关 - 任务类型路由最优AI
     
     设计原则:
-    - 龙字简体（用户精神支柱）
+    - 龍字简体（用户精神支柱）
     - DNA追溯每个操作
     - 三色审计标记
     - 时间戳精确到毫秒
@@ -1729,7 +1729,7 @@ class LongHunCalendar:
     
     def __init__(self, base_path=None, notion_hook=None):
         """
-        初始化龙魂万年历
+        初始化龍魂万年历
         
         Args:
             base_path: 数据存储根目录，默认 ~/.longhun/calendar-context-logger/calendar/
@@ -1806,9 +1806,9 @@ class LongHunCalendar:
     
     def enter(self, task_type, user_input, skill_hint=None, context=None):
         """
-        系统入口 - 所有操作通过这里进入龙魂体系
+        系统入口 - 所有操作通过这里进入龍魂体系
         
-        这是龙魂万年历的核心方法，每个用户请求都必须经过此方法。
+        这是龍魂万年历的核心方法，每个用户请求都必须经过此方法。
         
         处理流程:
         1. 生成DNA标识 + 时间戳
@@ -2368,7 +2368,7 @@ class LongHunCalendar:
         cal = status["calendar"]
         return (
             f"{'='*50}\n"
-            f"  龙魂万年历 v{CALENDAR_VERSION} | {SYSTEM_NAME} UID{LONGHUN_UID}\n"
+            f"  龍魂万年历 v{CALENDAR_VERSION} | {SYSTEM_NAME} UID{LONGHUN_UID}\n"
             f"{'='*50}\n"
             f"  公历: {cal['solar_date']}\n"
             f"  农历: {cal['lunar']['full_str']}\n"
@@ -2393,16 +2393,16 @@ class LongHunCalendar:
 
 def demo():
     """
-    龙魂万年历使用示例
+    龍魂万年历使用示例
     
     展示所有核心功能的使用方法
     """
     print("=" * 60)
-    print("  龙魂万年历 v1.0 - 使用演示")
+    print("  龍魂万年历 v1.0 - 使用演示")
     print("=" * 60)
     
     # 1. 初始化万年历
-    print("\n【1】初始化龙魂万年历")
+    print("\n【1】初始化龍魂万年历")
     calendar = LongHunCalendar(base_path="/tmp/longhun_demo/")
     print(f"  系统状态: {repr(calendar)}")
     
@@ -2495,7 +2495,7 @@ def demo():
     # 9. AI网关
     print("\n【9】AI网关调度")
     
-    # 注册模拟模型（仅示例，龙魂系统禁止直连外部 AI）
+    # 注册模拟模型（仅示例，龍魂系统禁止直连外部 AI）
     calendar.register_ai_model("local-demo", {
         "name": "Local-Demo",
         "endpoint": "http://127.0.0.1:11434",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂君子协议单元测试
+龍魂君子协议单元测试
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-TESTS-v1.0
 """
 import tempfile

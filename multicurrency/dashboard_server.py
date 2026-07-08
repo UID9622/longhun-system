@@ -8,8 +8,8 @@ DNA:#龍芯⚡️2026-06-07-DASHBOARD-v1.0
 Flask Web 服务器·实时数据更新·可视化仪表板
 """
 
-from flask import Flask, render_template_string, jsonify
-from flask_cors import CORS
+from flask import Flask, render_template_string, jsonify  # type: ignore[import-untyped]
+from flask_cors import CORS  # type: ignore[import-untyped]
 import json
 import os
 from datetime import datetime

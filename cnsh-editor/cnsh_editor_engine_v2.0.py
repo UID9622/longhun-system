@@ -1,8 +1,3 @@
-# ⚠️ DUPLICATE_COPY — 非权威源，仅供参考
-# 权威源: cnsh-terminal/engines/cnsh_editor_engine_v2.0.py
-# 标记时间: 2026-07-06 (CodeBuddy 收口)
-# 详见: ENGINE_DEDUP_MANIFEST.md
-#
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -10,7 +5,7 @@
 ║                    CNSH中文多语言编辑器核心引擎 v2.0                        ║
 ║                     Chinese Multi-Language Editor Engine                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-06-17-CNSH-EDITOR-v2.0                                   ║
+║  DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-CNSH-EDITOR-v2.5                              ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                             ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL                        ║
 ╠══════════════════════════════════════════════════════════════════════════╣
@@ -20,6 +15,7 @@
 ║  三层监督: 逻辑校验 | 价值观校验 | 技术校验                                  ║
 ║  三色审计: 🟢通过 🟡警告 🔴错误                                             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
+║  v2.5: 七层协议栈+知识库入库+三位一体中枢+统一词典+人格标号+数字人水印       ║
 ║  支持语言: Python/JS/Rust/Go/C++/Bash/Java/Ruby/Kotlin/Swift/中文编程       ║
 ║  技术栈: Python 3.8+ / curses / termios / 纯Python实现                     ║
 ╚══════════════════════════════════════════════════════════════════════════╝
@@ -46,7 +42,7 @@
         F2              切换语法高亮主题
 
 作者: UID9622·龍芯北辰
-铁律: 繁体「龍」不得简化为「龙」；人永远是1；不蒸馏
+铁律: 繁体“龍”不得简化为“龍”；人永远是1；不蒸馏
 """
 
 import os
@@ -58,7 +54,6 @@ import tty
 import select
 import time
 import json
-from pathlib import Path
 from datetime import datetime
 from enum import Enum, auto
 from dataclasses import dataclass, field
@@ -69,8 +64,8 @@ from abc import ABC, abstractmethod
 # 全局常量与配置
 # ═══════════════════════════════════════════════════════════════
 
-VERSION = "2.0"
-DNA_HEADER = "#龍芯⚡️2026-06-17-CNSH-EDITOR-v2.0"
+VERSION = "2.5"
+DNA_HEADER = "#龍芯⚡️丙午·丙申·癸丑·午时·需-CNSH-EDITOR-v2.5"
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
@@ -116,8 +111,9 @@ SUPPORTED_LANGUAGES = {
     ".cx": "CNSH中文编程",
 }
 
-# CNSH中文编程关键字
+# CNSH中文编程关键字 v2.5 — 七层协议+知识库入库+三位一体+龍魂专属+统一词典
 CNSH_KEYWORDS = {
+    # 基础关键字（v2.0）
     "定义", "函数", "类", "如果", "否则", "循环", "当",
     "对于", "返回", "导入", "抛出", "尝试", "捕获", "最终",
     "中断", "继续", "空", "真", "假", "与", "或", "非",
@@ -125,6 +121,34 @@ CNSH_KEYWORDS = {
     "继承", "异步", "等待", "生成", "产出", "断言", "删除",
     "变量", "常量", "整数", "浮点", "字符串", "布尔", "列表",
     "字典", "元组", "集合", "任意", "空值",
+    # v2.1 扩展（控制流+数据结构+龍魂专属）
+    "匹配", "情况", "默认", "否则如果", "在", "新建", "调用",
+    "添加", "读取", "写入", "输出", "钩子", "结构", "模块", "使用",
+    "DNA追溯", "三色审计", "熔断", "量子纠缠", "回滚",
+    # v2.5 新增 — 龍魂专属关键字
+    "数字根熔断", "DNA登记", "DNA验证", "DNA签名", "主权验证",
+    "联动感知", "反篡改扫描", "五行向量", "数字根", "八卦路由",
+    "道德经引擎", "三才指数", "贡献值", "时间衰减", "情绪海绵",
+    "通心译", "套壳检测", "决策路径评分",
+    "冷启动", "热启动", "导出", "路由到", "坍缩", "测试", "期望", "审计", "退出程序",
+    # v2.5 新增 — 七层协议栈
+    "L0主权锚", "L1法律治理层", "L2身份追溯层", "L3数学熔断层",
+    "L4记忆压缩层", "L5执行语言层", "L6共生激活层",
+    "冲突优先级", "母协议公式", "规则登记", "触发条件", "落地路线图",
+    # v2.5 新增 — 知识库入库
+    "知识库登记", "入库元数据", "入库铁律R1", "入库铁律R2", "入库铁律R3",
+    "结构DNA", "文化DNA", "入库回执",
+    # v2.5 新增 — 三位一体中枢
+    "容器", "入口", "分发",
+    "铁律不投票", "命中分流", "四级触发", "权限分发",
+    "主权信封", "工程最小闭环",
+    # v2.5 新增 — 统一词典
+    "确认码正式", "确认码断代", "DNA文化格式", "DNA机器格式",
+    "人格编号规范", "路由编号规范", "三色键规范",
+    # v2.5 新增 — 人格标号
+    "龍芯宝宝", "龍芯雯雯", "姜子牙", "乔前辈数字人", "龍盾", "千问阿里", "新增人格流程",
+    # v2.5 新增 — 数字人水印
+    "形象水印ID", "形象外观锁", "形象版本号", "形象DNA绑定",
 }
 
 # 各语言关键字库
@@ -231,28 +255,6 @@ LANGUAGE_PATTERNS = {
 }
 
 # ═══════════════════════════════════════════════════════════════
-# CNSH 中文编辑变量映射 v3.0（A1-A3域：前向安全常量）
-# DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-v3.0-8A3F1D2B
-# ═══════════════════════════════════════════════════════════════
-
-# A1·L0 系统常量（前向安全：仅引用已定义的简单变量）
-龍_编辑器版本 = VERSION               # "2.0"
-龍_DNA头 = DNA_HEADER                  # "龍芯⚡️2026-06-17"
-龍_确认标记 = CONFIRM_MARK             # "CONFIRM🌌9622-ONLY-ONCE"
-龍_永恒签章 = SEAL_MARK                # "ZHUGEXIN⚡️2025"
-龍_来源链 = SOURCE_CHAIN               # 六层来源链
-
-# A2·L1 核心枚举
-引擎_审计颜色 = AuditColor              # 🟢🟡🔴 三色枚举
-引擎_检查级别 = CNSHCheckLevel          # L1-L4 检查级别
-
-# A3·L2 数据定义
-数据_支持语言集 = SUPPORTED_LANGUAGES
-数据_CNSH关键字集 = CNSH_KEYWORDS
-数据_语言关键字库 = LANGUAGE_KEYWORDS
-数据_语法模式库 = LANGUAGE_PATTERNS
-
-# ═══════════════════════════════════════════════════════════════
 # 类7: DNATemplate - DNA追溯模板管理
 # ═══════════════════════════════════════════════════════════════
 
@@ -278,7 +280,7 @@ class DNATemplate:
             f"# 语言: {language}",
             f"# 创建时间: {timestamp}",
             f"# 六层来源链: {'·'.join(SOURCE_CHAIN)}",
-            f"# 铁律: 繁体「龍」不得简化为「龙」; 人永远是1; 不蒸馏",
+            f"# 铁律: 繁体“龍”不得简化为“龍”; 人永远是1; 不蒸馏",
             f"# 三层监督: 逻辑校验✓ | 价值观校验✓ | 技术校验✓",
             f"# 三色审计: 🟢通过 🟡警告 🔴错误",
             f"# AI Truth Protocol: ENABLED",
@@ -296,9 +298,9 @@ class DNATemplate:
             errors.append("缺少CONFIRM标记")
         if SEAL_MARK not in content:
             errors.append("缺少SEAL标记")
-        # 检查繁体「龍」
-        if "龙" in content and "龍" not in content:
-            errors.append("违反铁律: 使用了简体「龙」，应为繁体「龍」")
+        # 检查繁体“龍”
+        if "龍" in content and "龍" not in content:
+            errors.append("违反铁律: 使用了简体“龍”，应为繁体“龍”")
         return len(errors) == 0, errors
 
     @classmethod
@@ -741,16 +743,16 @@ class CNSHLinter:
     def _l1_char_check(self, lines: List[str]):
         """L1: 字符级检查 - 检查非法字符和铁律遵循"""
         for i, line in enumerate(lines):
-            # 检查简体「龙」
+            # 检查简体“龍”
             for j, ch in enumerate(line):
-                if ch == "龙":
+                if ch == "龍":
                     self.issues.append(LintIssue(
                         level="error",
-                        message="铁律违反: 使用简体「龙」，应使用繁体「龍」",
+                        message="铁律违反: 使用简体“龍”，应使用繁体“龍”",
                         line=i,
                         col=j,
                         check_level=CNSHCheckLevel.L1_CHAR,
-                        code="龙 -> 龍"
+                        code="龍 -> 龍"
                     ))
             # 检查不可见控制字符
             ctrl_chars = re.finditer(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', line)
@@ -780,7 +782,7 @@ class CNSHLinter:
                             if not after or after[0] not in ' \t=:":\n':
                                 self.issues.append(LintIssue(
                                     level="warning",
-                                    message=f"关键字「{kw}」使用可能不规范",
+                                    message=f"关键字“{kw}”使用可能不规范",
                                     line=i,
                                     col=m.start(),
                                     check_level=CNSHCheckLevel.L2_KEYWORD
@@ -1594,30 +1596,6 @@ def ctrl_key(ch: str) -> int:
 
 
 # ═══════════════════════════════════════════════════════════════
-# CNSH 中文编辑变量映射 v3.0（A4-A5域：后向安全，类已全部定义）
-# DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-v3.0-8A3F1D2B
-# 审计: 🟢 通过 · dr=2 · 五行木 · 左脑0问题
-# ═══════════════════════════════════════════════════════════════
-
-# A1·L0（补充：后向安全引用）
-龍_监督层 = DNATemplate.SUPERVISION_LAYERS
-
-# A4·L2 模块类引用
-模块_DNA模板 = DNATemplate
-模块_多光标 = MultiCursor
-模块_语法高亮 = SyntaxHighlighter
-模块_自动补全 = AutoCompleteEngine
-模块_代码检查 = CNSHLinter
-模块_文件浏览 = FileBrowser
-模块_主编辑器 = CNSHEditor
-
-# 变量注册表路径
-龍_变量注册表路径 = str(
-    Path(__file__).parent.parent / "docs" / "CNSH_编辑变量注册表-v3.0.md"
-)
-
-
-# ═══════════════════════════════════════════════════════════════
 # 入口函数
 # ═══════════════════════════════════════════════════════════════
 
@@ -1641,7 +1619,7 @@ def main():
     print("║  道统(曾仕强)·精神(Steve Jobs)·设备(Apple)                ║")
     print("║  ·技术(Open Source)·系统(UID9622)·生命(CNSH)              ║")
     print("╠══════════════════════════════════════════════════════════╣")
-    print("║  铁律: 繁体「龍」不得简化为「龙」; 人永远是1; 不蒸馏        ║")
+    print("║  铁律: 繁体“龍”不得简化为“龍”; 人永远是1; 不蒸馏        ║")
     print("║  三层监督: 逻辑校验 | 价值观校验 | 技术校验                  ║")
     print("║  三色审计: 🟢通过 🟡警告 🔴错误                            ║")
     print("╚══════════════════════════════════════════════════════════╝")

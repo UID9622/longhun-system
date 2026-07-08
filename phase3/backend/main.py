@@ -10,8 +10,8 @@ Author: UID9622 (龍芯北辰)
 Status: Production Ready
 """
 
-from fastapi import FastAPI, WebSocket, Depends, HTTPException, Query
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, WebSocket, Depends, HTTPException, Query  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from pydantic import BaseModel, Field
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Any
@@ -28,13 +28,14 @@ try:
     skills_path = Path(__file__).parent.parent / "longhun-system" / "skills"
     if str(skills_path) not in sys.path:
         sys.path.insert(0, str(skills_path))
-    from __init__ import get_registry as get_skill_registry
+    from __init__ import get_registry as get_skill_registry  # type: ignore[import-untyped]
     SKILLS_AVAILABLE = True
 except Exception as e:
     logger = logging.getLogger(__name__)
     logger.warning(f"⚠️ Skill 系统加载失败: {e}")
     SKILLS_AVAILABLE = False
-    get_skill_registry = None
+    def get_skill_registry():  # type: ignore[reportRedeclaration]
+        raise RuntimeError("Skill 系统未可用")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -181,7 +182,7 @@ class SkillManager:
         return skills
     
     @staticmethod
-    def execute_skill(skill_id: str, args: Dict[str, Any] = None) -> Execution:
+    def execute_skill(skill_id: str, args: Optional[Dict[str, Any]] = None) -> Execution:
         """执行技能"""
         import uuid
         
@@ -273,7 +274,7 @@ class SystemMonitor:
     def get_health() -> Dict[str, Any]:
         """获取系统健康状态"""
         import os
-        import psutil
+        import psutil  # type: ignore[import-untyped]
         
         # 获取系统指标
         cpu_percent = psutil.cpu_percent(interval=1)
@@ -372,7 +373,7 @@ async def get_skill(skill_id: str):
 
 
 @app.post("/api/v1/skills/{skill_id}/execute")
-async def execute_skill(skill_id: str, body: Dict[str, Any] = None):
+async def execute_skill(skill_id: str, body: Optional[Dict[str, Any]] = None):
     """执行技能"""
     execution = SkillManager.execute_skill(skill_id, args=body)
     return {
@@ -543,7 +544,7 @@ async def get_longhun_skill_content(skill_id: str):
 
 
 @app.post("/api/v1/longhun-skills/{skill_id}/execute")
-async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):
+async def execute_longhun_skill(skill_id: str, params: Dict[str, Any] = None):  # type: ignore[reportArgumentType]
     """执行龍魂 Skill"""
     if not SKILLS_AVAILABLE:
         raise HTTPException(status_code=503, detail="Skills 系统未可用")

@@ -65,7 +65,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 | §3 | 系统铁律 | System Iron Laws | 三不 + 三必须 + 三禁止 / Three Nots + Three Musts + Three Forbiddens |
 | §4 | DNA 协议 | DNA Governance Protocol | 标准 DNA 格式 + 双签章 + 不可篡改 / Standard DNA Format + Double-Signature + Immutable |
 | §5 | LU 全域同步协议 | LU FullSync Runtime | 跨窗口语义连续性恢复 / Cross-Window Semantic Continuity Recovery |
-| §6 | 跨窗口协作链 | Cross-Window Runtime Chain | 多窗口接龙·状态不丢 / Multi-Window Chaining·State Never Lost |
+| §6 | 跨窗口协作链 | Cross-Window Runtime Chain | 多窗口接龍·状态不丢 / Multi-Window Chaining·State Never Lost |
 | §7 | 星辰记忆库 | Persistent Semantic Memory Registry | 九层记忆拓扑·从活跃到隔离区 / Nine-Layer Memory Topology·From Active to Quarantine |
 | §8 | Notion 语义入口规范 | Notion Semantic Gateway | Notion = 语义入口·不是数据库 / Notion = Semantic Gateway·Not Database |
 | §9 | Claude/ChatGPT 接入规范 | AI Runtime Access Standard | AI 必须遵守的 6 条规则 / AI Must Follow 6 Rules |

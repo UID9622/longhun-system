@@ -51,7 +51,7 @@ python3 ../../scheduler/heaven_cli.py heatmap
 # 记录主权豁免
 python3 ../../scheduler/heaven_cli.py override \
   --action "执行亮剑任务" \
-  --justification "夏至午时，火势烈焰，亢金龙主场"
+  --justification "夏至午时，火势烈焰，亢金龍主场"
 ```
 
 ## 启动

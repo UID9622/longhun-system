@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂系统 Notion 实时记录引擎 v1.0
+龍魂系统 Notion 实时记录引擎 v1.0
 =================================
-龙魂体系(UID9622)动作实时记录器 - 本地SQLite + Notion双写
+龍魂体系(UID9622)动作实时记录器 - 本地SQLite + Notion双写
 
 核心特性：
 - 毫秒级时间戳记录
@@ -16,7 +16,7 @@
 DNA: #龍芯⚡️2026-06-27-LONGHUN-LOGGER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LOGGER-v1.0
 
-作者：龙魂北辰｜UID9622
+作者：龍魂北辰｜UID9622
 版本：v1.0
 """
 
@@ -41,7 +41,7 @@ from typing import Optional, List, Dict, Any, Callable
 
 VERSION = "1.0"
 SYSTEM_UID = "UID9622"
-SYSTEM_NAME = "龙芯北辰"
+SYSTEM_NAME = "龍芯北辰"
 
 # Notion API 配置
 NOTION_API_BASE = "api.notion.com"
@@ -732,7 +732,7 @@ class SyncEngine:
 
 class LongHunLogger:
     """
-    龙魂系统记录器 - 主入口类
+    龍魂系统记录器 - 主入口类
     
     使用方法:
         logger = LongHunLogger(notion_token="xxx", database_id="xxx")
@@ -798,7 +798,7 @@ class LongHunLogger:
             self._sync_engine.start_auto_sync()
         except Exception as e:
             # Notion同步初始化失败，降级为仅本地模式
-            print(f"[龙魂记录器] Notion同步初始化失败，降级为本地模式: {e}")
+            print(f"[龍魂记录器] Notion同步初始化失败，降级为本地模式: {e}")
             self._notion_client = None
             self._sync_engine = None
     
@@ -1172,7 +1172,7 @@ def main():
     """命令行入口 - 用于测试和手动同步"""
     import argparse
     
-    parser = argparse.ArgumentParser(description="龙魂系统 Notion 记录器 v1.0")
+    parser = argparse.ArgumentParser(description="龍魂系统 Notion 记录器 v1.0")
     parser.add_argument("--db", default=DEFAULT_DB_PATH, help="数据库路径")
     parser.add_argument("--token", help="Notion API Token")
     parser.add_argument("--db-id", dest="db_id", help="Notion数据库ID")
@@ -1201,7 +1201,7 @@ def main():
         store = SQLiteStore(args.db)
         stats = store.get_stats()
         print("=" * 50)
-        print("📊 龙魂记录器统计")
+        print("📊 龍魂记录器统计")
         print("=" * 50)
         print(f"  总记录数: {stats['total']}")
         print(f"  待同步:   {stats['pending']}")
@@ -1238,7 +1238,7 @@ def main():
         store.close()
     
     elif args.command == "test":
-        print("🐉 龙魂记录器测试模式")
+        print("🐉 龍魂记录器测试模式")
         print("=" * 50)
         
         # 创建测试记录器（仅本地模式）

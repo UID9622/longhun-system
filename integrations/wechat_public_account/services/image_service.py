@@ -82,7 +82,7 @@ class ImageService:
     ) -> bool:
         """
         外部图片生成 API 已禁用。
-        龙魂系统要求所有外部 AI 调用必须经过 DeepSeek 执行器中转，
+        龍魂系统要求所有外部 AI 调用必须经过 DeepSeek 执行器中转，
         OpenAI DALL-E 等直连出口不再保留。
         """
         return False

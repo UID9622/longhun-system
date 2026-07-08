@@ -6,16 +6,17 @@ FastAPI统一路由·连接五行计算器核心
 DNA:#龍芯⚡️2026-06-04-API-WUXING-FILE1-v3.2
 """
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from pydantic import BaseModel
 from datetime import datetime
+from typing import Any, Dict
 import json
 import sys
 import os
 
 # 导入计算器核心模块
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'wuxing_calculator'))
-from calculator import (
+from calculator import (  # type: ignore[import-untyped]
     龍魂五行计算器_v2, 生成节点, 计算数字根,
     天干五行表, 地支五行表, 五行相生, 五行相克,
     完整链路分析, 生成补益建议
@@ -23,7 +24,7 @@ from calculator import (
 
 # 引入五行计算优化模块
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'wuxing'))
-from wuxing_calc_optimizations import (
+from wuxing_calc_optimizations import (  # type: ignore[import-untyped]
     robust_digital_root,
     compute_hedge_index_h,
     cv_balance_score,
@@ -67,7 +68,7 @@ class 健康检查(BaseModel):
 
 # 健康检查端点
 @app.get("/health", response_model=健康检查)
-async def 健康检查():
+async def 健康检查端点():
     """系统健康检查"""
     return {
         "状态": "🟢 正常",
@@ -157,7 +158,7 @@ async def 五行关系查询(五行: str):
 
 # 批量链路分析端点
 @app.post("/analyze/circuit")
-async def 链路分析(得分数据: dict):
+async def 链路分析(得分数据: Dict[str, Any]):
     """完整链路分析"""
     try:
         结果 = 完整链路分析(得分数据)
@@ -173,7 +174,7 @@ async def 链路分析(得分数据: dict):
 
 # 五行对冲指数 H 端点
 @app.post("/analyze/hedge")
-async def 对冲指数分析(得分数据: dict):
+async def 对冲指数分析(得分数据: Dict[str, Any]):
     """计算五行对冲指数 H（自学习权重）"""
     try:
         scores = 得分数据.get("scores", {})

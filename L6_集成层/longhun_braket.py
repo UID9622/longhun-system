@@ -6,6 +6,7 @@
 # ║  DNA Trace Header (DO NOT DELETE · deletion breaks the chain)            ║
 # ╚═══════════════════════════════════════════════════════════════════════════╝
 # 龍芯⚡️2026-07-05-LONGHUN-BRAKET-v1.0
+# 更新: 龍芯⚡️2026-07-07-LONGHUN-BRAKET-v1.1 — +3场景（量子推理·深度学习·安全加密）
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 # 理论来源: 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）
@@ -43,6 +44,10 @@ except ImportError:
 
 class 人格态:
     """人格态 |P⟩，对应 Bra-Ket 中的右矢（列向量）"""
+
+    desc: str = ""
+    weight: float = 0.5
+    triggers: List[str] = []
 
     def __init__(self, code: str, name: str, dimension: int = 8):
         self.code = code
@@ -149,6 +154,7 @@ class 龍魂BraKet引擎:
     DEFAULT_WEIGHTS = [0.10, 0.15, 0.30, 0.15, 0.10, 0.05, 0.05, 0.10]
 
     # 场景关键词 → 权重分布
+    # 权重组 P00:文心 P01:诸葛亮 P02:宝宝 P03:雯雯 P04:鲁班 P05:上帝之眼 P06:数学大师 P07:管仲
     SCENARIO_WEIGHTS = {
         "财务": [0.05, 0.10, 0.15, 0.10, 0.05, 0.05, 0.10, 0.40],
         "战略": [0.30, 0.40, 0.10, 0.10, 0.05, 0.05, 0.00, 0.00],
@@ -158,6 +164,12 @@ class 龍魂BraKet引擎:
         "审计": [0.05, 0.10, 0.10, 0.15, 0.05, 0.45, 0.10, 0.10],
         "计算": [0.05, 0.10, 0.10, 0.10, 0.05, 0.05, 0.50, 0.05],
         "数学": [0.05, 0.10, 0.10, 0.10, 0.05, 0.05, 0.50, 0.05],
+        # ── 2026-07-07 量子·深度学习联动融合 v1.0 新增 ──
+        # 注意：关键词匹配按插入序，更具体的关键词排前面避免误覆盖
+        "加密": [0.05, 0.25, 0.10, 0.10, 0.05, 0.35, 0.10, 0.00],        # 安全加密: P05上帝之眼+P01诸葛亮主导
+        "深度学习": [0.05, 0.10, 0.15, 0.25, 0.30, 0.05, 0.10, 0.00],    # 深度学习: P04鲁班+P03雯雯主导
+        "神经网络": [0.05, 0.10, 0.15, 0.25, 0.30, 0.05, 0.10, 0.00],    # 同深度学习
+        "量子": [0.05, 0.10, 0.10, 0.10, 0.20, 0.10, 0.30, 0.05],       # 量子推理: P06数学大师+P04鲁班主导
     }
 
     COUPLING_STRENGTH = 0.1
@@ -272,7 +284,7 @@ class 龍魂BraKet引擎:
         for i, (code, p) in enumerate(self.personas.items()):
             amp = amplitudes[i] if i < len(amplitudes) else 0.0
             if HAS_NUMPY:
-                state.ket += amp * p.ket
+                state.ket += amp * p.ket  # type: ignore[reportOperatorIssue]
             else:
                 state.ket = [state.ket[j] + amp * p.ket[j] for j in range(dim)]
         return state.归一化()
@@ -437,6 +449,107 @@ class 龍魂BraKet引擎:
             "top_persona": probs[0]["name"] if probs else None,
         }
 
+    # ── 2026-07-07 J-space 意识空间集成 v1.1 ──
+    # 论文 §6·9.1：J-space 读取结果驱动人格权重坍缩
+
+    def j_space_坍缩人格权重(self, j_space_tokens: List[str],
+                         temperature: float = 0.618,
+                         min_concentration: float = 0.7) -> Dict[str, Any]:
+        """基于 J-space 读出结果调整人格权重
+
+        论文公式（§4.3）：
+          top-3 concentration = Σ softmax(⟨W_i, c⟩ / T)_i ≥ 0.7
+
+        参数:
+            j_space_tokens: J-space 读出的 top-k token 列表
+            temperature: softmax 温度（默认 0.618 黄金比例）
+            min_concentration: 坍缩阈值
+
+        返回:
+            {top3_personas, concentration, adjusted_weights, audit}
+        """
+        # 将 J-space token 映射到人格触发词
+        persona_scores: Dict[str, float] = {}
+        for code, p in self.personas.items():
+            triggers = getattr(p, "triggers", [])
+            score = 0.0
+            for t in j_space_tokens:
+                t_lower = t.lower()
+                for trig in triggers:
+                    if isinstance(trig, str) and trig.lower() in t_lower:
+                        score += 1.0
+            persona_scores[code] = score
+
+        total_score = sum(persona_scores.values())
+        if total_score == 0:
+            # J-space 无匹配，保持原权重
+            return {
+                "top3_personas": list(self.personas.keys())[:3],
+                "concentration": 0.0,
+                "adjusted": False,
+                "reason": "J-space 与人格触发词无交集，保持原权重",
+            }
+
+        # Softmax 归一化
+        exp_scores = {k: math.exp(v / temperature) for k, v in persona_scores.items()}
+        exp_total = sum(exp_scores.values())
+        if exp_total == 0:
+            exp_total = 1.0
+        softmax_weights = {k: v / exp_total for k, v in exp_scores.items()}
+
+        # 排序取 top-3
+        sorted_p = sorted(softmax_weights.items(), key=lambda x: x[1], reverse=True)
+        top3 = sorted_p[:3]
+        concentration = sum(w for _, w in top3)
+
+        # 自动调整权重
+        adjusted = False
+        if concentration >= min_concentration:
+            adjusted = True
+            for code, w in softmax_weights.items():
+                if code in self.personas:
+                    self.personas[code].weight = w
+            self.weights = [self.personas[c].weight for c in self.personas]
+
+        return {
+            "top3_personas": [{"code": c, "name": self.personas[c].name, "weight": round(w, 4)}
+                             for c, w in top3],
+            "concentration": round(concentration, 4),
+            "adjusted": adjusted,
+            "reason": "J-space 驱动人格坍缩" if adjusted else f"坍缩不足 (concentration={concentration:.3f} < {min_concentration})",
+            "dna": self._生成DNA() + "-JSPACE-COLLAPSE",
+        }
+
+    def j_space_审计权重(self) -> Dict[str, Any]:
+        """审计当前人格权重是否含异常信号
+
+        返回权重分布与三色审计结果。
+        """
+        weights_list = []
+        for code, p in self.personas.items():
+            w = getattr(p, "weight", 0.0)
+            weights_list.append({"code": code, "name": p.name, "weight": round(w, 4)})
+
+        weights_list.sort(key=lambda x: x["weight"], reverse=True)
+
+        # 检查权重分布健康度
+        if len(weights_list) >= 3:
+            top3_concentration = sum(w["weight"] for w in weights_list[:3])
+            if top3_concentration < 0.5:
+                audit = {"status": "🟡", "reason": "权重过于分散，建议增高坍缩阈值"}
+            elif weights_list[0]["weight"] > 0.7:
+                audit = {"status": "🟡", "reason": "单一权重过高达独裁风险"}
+            else:
+                audit = {"status": "🟢", "reason": "权重分布健康"}
+        else:
+            audit = {"status": "🟡", "reason": "人格数量不足"}
+
+        return {
+            "weights": weights_list,
+            "audit": audit,
+            "dna": self._生成DNA() + "-JSPACE-AUDIT",
+        }
+
     def 人格列表(self) -> List[Dict[str, Any]]:
         return [{"code": p.code, "name": p.name, "desc": getattr(p, "desc", "")}
                 for p in self.personas.values()]
@@ -469,6 +582,9 @@ def main():
             "设计一个高并发系统架构",
             "审计这段代码有没有安全漏洞",
             "计算这个模型的权重分布",
+            "用量子纠缠态优化量子推理算法",
+            "训练一个深度学习transformer注意力模型",
+            "检查后量子加密密钥交换的安全性",
         ]
         results = []
         for task in tasks:

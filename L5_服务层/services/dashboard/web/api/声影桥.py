@@ -21,10 +21,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.staticfiles import StaticFiles  # type: ignore[import-untyped]
 from pydantic import BaseModel, Field
 
 # ═══════════════════════════════════════════════════════════
@@ -95,7 +95,7 @@ def now_iso() -> str:
     return datetime.now().isoformat()
 
 
-def audit(颜色: str, 动作: str, 元数据: Optional[Dict] = None):
+def audit(颜色: str, 动作: str, 元数据: Optional[Dict[str, Any]] = None):
     """写入三色审计日志"""
     entry = {
         "时间戳": now_iso(),
@@ -174,19 +174,22 @@ def get_asr_engine():
             sys.path.insert(0, str(asr_script.parent))
             import importlib.util
             spec = importlib.util.spec_from_file_location("语音识别引擎", str(asr_script))
+            if spec is None or spec.loader is None:
+                _asr_engine = None  # sentinel: 引擎不可用
+                return _asr_engine
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             # 使用模拟模式，避免加载外部模型
             _asr_engine = module.龍音ASR引擎(模式="模拟模式")
         else:
-            _asr_engine = False
+            _asr_engine = None  # sentinel: 脚本不存在
     return _asr_engine
 
 
 # ═══════════════════════════════════════════════════════════
 # 简单对话逻辑
 # ═══════════════════════════════════════════════════════════
-def chat_reply(prompt: str, context: List[Dict[str, str]] = None) -> str:
+def chat_reply(prompt: str, context: Optional[List[Dict[str, str]]] = None) -> str:
     """基于章节关键词做本地回复"""
     p = prompt.lower()
 

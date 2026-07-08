@@ -19,7 +19,7 @@
 | 横向对比 | 无同类框架对比 | ✅ 新增框架横向对比表 |
 | 章节衔接 | 各节独立，无过渡 | ✅ 每节末增加过渡摘要 |
 | 并行分析 | 仅描述策略，无公式 | ✅ 新增 Amdahl 扩展公式 |
-| DNA统一性 | 部分仍含简体龙芯 | ✅ 全文统一繁体龍芯 |
+| DNA统一性 | 部分仍含简体龍芯 | ✅ 全文统一繁体龍芯 |
 
 ---
 
@@ -155,7 +155,7 @@ O = ⟨τ, h, W, ε, D, A, δ⟩
 def generate_dna(scenario: str, bjt: datetime.datetime) -> str:
     ts  = bjt.strftime('%Y%m%d-%H%M%S')
     uid = abs(hash(scenario)) % 99999
-    return f"#龍芯⚡️{ts}-龙魂决策-{uid:05d}"
+    return f"#龍芯⚡️{ts}-龍魂决策-{uid:05d}"
 ```
 
 ### Output Correctness
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     )
     result = safe_longhun_decision(inp)
     # → audit: "🔴 红色熔断：涉及弱势群体，不允许伤害"
-    # → DNA: "#龍芯⚡️20260304-XXXXXX-龙魂决策-NNNNN"
+    # → DNA: "#龍芯⚡️20260304-XXXXXX-龍魂决策-NNNNN"
     # MSE = 0.000012 (N=200,000 场景)
 ```
 

@@ -22,7 +22,7 @@ import time
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
-# 引入龙魂模型路由，禁止直连 Moonshot
+# 引入龍魂模型路由，禁止直连 Moonshot
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from sovereignty.portal import model_router
@@ -32,14 +32,14 @@ class KimiClient:
     """Kimi API 客户端"""
 
     def __init__(self, api_key: Optional[str] = None, timeout: int = 30):
-        # 龙魂系统不再使用 KIMI_API_KEY；保留参数仅兼容旧接口
+        # 龍魂系统不再使用 KIMI_API_KEY；保留参数仅兼容旧接口
         self.api_key = api_key or os.getenv("KIMI_API_KEY") or "longhun-local"
         self.timeout = timeout
         self.max_retries = 3
         self.retry_delay = 1.0
 
     def _make_request(self, method: str, endpoint: str, data: Dict[str, Any] = None) -> Dict[str, Any]:
-        """已迁移：统一调用龙魂模型路由（DeepSeek / 本地 Ollama）。"""
+        """已迁移：统一调用龍魂模型路由（DeepSeek / 本地 Ollama）。"""
         if method != "POST" or endpoint != "/chat/completions":
             raise ValueError(f"当前仅支持本地 /chat/completions 代理: {method} {endpoint}")
 

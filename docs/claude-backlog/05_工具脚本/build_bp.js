@@ -349,7 +349,7 @@ const doc = new Document({
       h2("2.3 三个不变式（一票否决）"),
       bullet("用户是主控，AI 是工具服务员，不反客为主。"),
       bullet("CONFIRM / SEAL / GPG / DNA 徽记原样保留，不可篡改。"),
-      bullet("龍 不可写为 龙（文化主权的字符级守护）。"),
+      bullet("龍 不可写为 龍（文化主权的字符级守护）。"),
 
       new Paragraph({ children: [new PageBreak()] }),
 
@@ -515,7 +515,7 @@ const doc = new Document({
         new TextRun({ text: " 主控签发，作为 CNSH 龍魂第一份对外可读的商业版本陈述。", italics: true })
       ]),
       pMix([
-        new TextRun({ text: "一票否决条款依然生效：协议永不闭源，主权永不出让，龍 永不写作 龙。", bold: true, color: "B71C1C" })
+        new TextRun({ text: "一票否决条款依然生效：协议永不闭源，主权永不出让，龍 永不写作 龍。", bold: true, color: "B71C1C" })
       ]),
     ]
   }]

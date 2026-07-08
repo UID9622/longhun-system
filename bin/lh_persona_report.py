@@ -24,6 +24,7 @@ import sys
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
+from typing import Any, Dict
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_PATH = ROOT / "persona" / "persona_registry.json"
@@ -37,7 +38,7 @@ def load_registry():
         return json.load(f)
 
 
-def compute_assessment(persona: dict) -> dict:
+def compute_assessment(persona: Dict[str, Any]) -> Dict[str, Any]:
     """
     单个人格多维度评估
     
@@ -160,7 +161,7 @@ def compute_assessment(persona: dict) -> dict:
     }
 
 
-def generate_report() -> dict:
+def generate_report() -> Dict[str, Any]:
     """生成完整的评估报表"""
     data = load_registry()
     personas_raw = data.get("personas", {})
@@ -249,7 +250,7 @@ def generate_report() -> dict:
     return report
 
 
-def generate_feishu_card(report: dict, query: str = "") -> dict:
+def generate_feishu_card(report: Dict[str, Any], query: str = "") -> Dict[str, Any]:
     """
     生成飞书卡片消息格式
     
@@ -358,7 +359,7 @@ def generate_feishu_card(report: dict, query: str = "") -> dict:
     }
 
 
-def print_console(report: dict):
+def print_console(report: Dict[str, Any]):
     """终端彩色输出"""
     s = report["summary"]
     rankings = report["rankings"]
@@ -400,7 +401,7 @@ def print_console(report: dict):
     print()
 
 
-def print_summary(code: str, report: dict):
+def print_summary(code: str, report: Dict[str, Any]):
     """打印单个人格详情"""
     rankings = report["rankings"]
     target = None

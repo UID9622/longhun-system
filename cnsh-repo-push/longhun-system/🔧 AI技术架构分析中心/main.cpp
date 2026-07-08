@@ -1,4 +1,4 @@
-// 来源标注: #ZHUGEXIN⚡️ | UID9622 龙魂体系
+// 来源标注: #ZHUGEXIN⚡️ | UID9622 龍魂体系
 // 模块定位: CNSH 字元渲染引擎 · 基础三次贝塞尔层
 
 #include <iostream>
@@ -10,7 +10,7 @@ using namespace LongHun::TraceCore;
 // 主函数
 // ============================================================
 int main() {
-    std::cout << "🔵 龙魂留痕系统 v1.1 启动中...\n\n";
+    std::cout << "🔵 龍魂留痕系统 v1.1 启动中...\n\n";
 
     TraceEngine engine;
 

@@ -89,7 +89,7 @@ class CNSHFourLayerChecker:
     def __init__(self):
         # L1: 字符黑名单（禁用字符）
         self.banned_chars = {
-            '龙': ('龍', 'L1:简体龙→繁体龍 永久熔断'),
+            '龍': ('龍', 'L1:简体龍→繁体龍 永久熔断'),
         }
         # L2: CNSH保留关键字
         self.cnsh_keywords = {

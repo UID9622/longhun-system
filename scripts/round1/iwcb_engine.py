@@ -441,14 +441,14 @@ class IWCBEngine:
     def _step6_consensus(self, op: Dict[str, Any]) -> Dict[str, bool]:
         return {"unanimous": True, "veto": False}
 
-    def _step7_select(self, consensus: Dict, at_boundary: bool, irreversible: bool) -> str:
+    def _step7_select(self, consensus: Dict[str, bool], at_boundary: bool, irreversible: bool) -> str:
         if irreversible:
             return "BLOCK"
         if at_boundary:
             return "REVIEW"
         return "ALLOW"
 
-    def _step8_validate(self, state: str, history: Dict) -> bool:
+    def _step8_validate(self, state: str, history: Dict[str, Any]) -> bool:
         if state == "BLOCK" and not history.get("matched"):
             return True  # 新类型违规，但熔断正确
         return True

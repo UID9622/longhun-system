@@ -225,9 +225,9 @@ class ShieldEntry:
         """检查底座原则"""
         violations = []
         
-        # 检查简体龙字
-        if '龙' in self.content:
-            violations.append('使用了简体"龙"字（应使用繁体"龍"）')
+        # 检查简体龍字
+        if '龍' in self.content:
+            violations.append('使用了简体"龍"字（应使用繁体"龍"）')
         
         # 检查违禁词
         forbidden = ['蒸馏', '平均', '投机', '用户']

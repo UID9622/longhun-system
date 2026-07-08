@@ -103,7 +103,7 @@ if __name__ == "__main__":
     test_main_process()
     test_log_written()
     print("\n✅ 全部验收测试通过")
-    print("\n✅ 龙魂系统第一轮迭代已交付")
+    print("\n✅ 龍魂系统第一轮迭代已交付")
     print("✅ 6个模块全部可运行")
     print("✅ 主流程已串通")
     print("✅ 验收标准全部通过")

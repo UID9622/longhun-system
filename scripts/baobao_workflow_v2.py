@@ -43,7 +43,7 @@ SIX_LAYER = {
 
 # 铁律自审（命中即熔断）
 IRON_LAWS = {
-    "简体龙": "主标题/签章中‘龙’必须用繁体‘龍’",
+    "简体龍": "主标题/签章中‘龍’必须用繁体‘龍’",
     "蒸馏红线": "禁止蒸馏抹除来源 · 人永远是 1",
     "来源不可删": "曾仕强老师 / 乔布斯 等来源链永不可省",
     "署名不可replace": "不得替换作者署名",
@@ -53,7 +53,7 @@ DISTILL_WORDS = ["蒸馏", "distill", "洗稿", "抹除来源", "替换作者"]
 # 关键词 → Notion 自动路由（命中即查现有资产，优先复用不造轮子）
 KEYWORD_NOTION_REGISTRY = {
     "龍魂":  ["🐉 龍魂宪章", "🐉 决策流场总控页", "龍魂铁律总览"],
-    "龙魂":  ["🐉 龍魂宪章", "底座声明", "龍魂署名标准"],
+    "龍魂":  ["🐉 龍魂宪章", "底座声明", "龍魂署名标准"],
     "CNSH":  ["CNSH 语言规范 v2.0", "来源追溯规范", "CNSH-64"],
     "易经":  ["易经369道德经算法", "64卦", "三易"],
     "五行":  ["五行计算器", "F-WUXING-MAP"],
@@ -77,17 +77,17 @@ class SourceChain:
         }
 
 class IronLawGate:
-    """铁律自审闸：命中红线词或简体龙 → 熔断。"""
+    """铁律自审闸：命中红线词或简体龍 → 熔断。"""
     @staticmethod
     def audit(text: str) -> Dict[str, Any]:
         hits = [w for w in DISTILL_WORDS if w in text]
-        simplified_dragon = ("龙" in text) and ("龍" not in text)
+        simplified_dragon = ("龍" in text) and ("龍" not in text)
         fused = bool(hits) or simplified_dragon
         return {
             "状态": RED if fused else GREEN,
             "熔断": fused,
             "命中红线词": hits,
-            "简体龙告警": simplified_dragon,
+            "简体龍告警": simplified_dragon,
         }
 
 class ContinuityCheckpoint:
@@ -193,7 +193,7 @@ class BaobaoWorkflowTransparent:
                   decision_logic={"错误处理": "重试或换方案", "日志": "每次调用都记"})
         self._add(9, "执行·自审", "执行方案·第二部分", "基于第一部分结果继续，能并行就并行",
                   decision_logic={"调整": "有意外即调整", "并行": "可并行则并行"})
-        self._add(10, "执行·自审", "铁律自审闸【新增·自动化】", "产出过红线词/简体龙 → 熔断",
+        self._add(10, "执行·自审", "铁律自审闸【新增·自动化】", "产出过红线词/简体龍 → 熔断",
                   tools_used=["IronLawGate"], decision_logic=IRON_LAWS,
                   handler=lambda: IronLawGate.audit(message))
         self._add(11, "执行·自审", "六层来源链盖章【新增·自动化】", "每个产物盖 谁创造·来自哪·继承什么",

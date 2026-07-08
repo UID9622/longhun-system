@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂君子协议 · 默认规则配置
+龍魂君子协议 · 默认规则配置
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-CONFIG-v1.0
 """
 from __future__ import annotations
@@ -19,7 +19,7 @@ MORAL_RULES = {
 # 人品值 P 行为规则
 CHARACTER_RULES = {
     "info_asymmetry": {"delta": -35.0, "label": "故意制造信息差，收割他人"},
-    "abuse_ecosystem": {"delta": -30.0, "label": "利用龙魂生态牟取不正当利益"},
+    "abuse_ecosystem": {"delta": -30.0, "label": "利用龍魂生态牟取不正当利益"},
     "rude_after_breach": {"delta": -25.0, "label": "违约后态度恶劣、拒不配合"},
     "open_info": {"delta": +15.0, "label": "主动公开信息，消除信息差"},
     "help_others": {"delta": +10.0, "label": "帮助他人解决问题"},
@@ -47,7 +47,7 @@ SLAUGHTER_CONDITIONS = [
     ("violations_ge_3", "违约次数 ≥ 3"),
     ("reports_ge_3", "被社区有效举报 ≥ 3 次"),
     ("info_asymmetry_loss", "利用信息差造成他人实际损失"),
-    ("malicious_damage", "恶意破坏龙魂生态"),
+    ("malicious_damage", "恶意破坏龍魂生态"),
 ]
 
 # 综合信用分等级

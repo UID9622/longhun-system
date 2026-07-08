@@ -64,7 +64,7 @@ class IronLawGate:
     铁律清单：
     1. 不蒸馏、绝不变体、绝不顶替作者
     2. 来源不可删·影响不可覆·贡献不可抹
-    3. 繁体“龍”不得简化为“龙”(主权字熔断)
+    3. 繁体“龍”不得简化为“龍”(主权字熔断)
     4. 人永远是1，任何人都不是数据
 
     六层来源链：
@@ -80,7 +80,7 @@ class IronLawGate:
         '蒸馏': '🔴 IRON_LAW_VIOLATION: 违反"不蒸馏"铁律 — 绝不变体、绝不顶替作者',
         '变体': '🔴 IRON_LAW_VIOLATION: 违反"绝不变体"铁律 — 来源不可删·影响不可覆·贡献不可抹',
         '顶替': '🔴 IRON_LAW_VIOLATION: 违反"绝不顶替作者"铁律 — 来源不可删·影响不可覆·贡献不可抹',
-        '龙': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体“龍”不得简化为“龙”(L1熔断)',
+        '龍': '🔴 IRON_LAW_VIOLATION: 主权字违规 — 繁体“龍”不得简化为“龍”(L1熔断)',
         '平均': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '数据点': '🔴 IRON_LAW_VIOLATION: 违反"人永远是1"铁律 — 任何人都不是数据',
         '投机': '🔴 IRON_LAW_VIOLATION: 违反"不走捷径"铁律',
@@ -118,11 +118,11 @@ class IronLawGate:
     @classmethod
     def enforce_dragon_character(cls, text: str) -> Tuple[str, bool, List[str]]:
         """
-        L1字符层：简体“龙”→ 繁体“龍”直接熔断
+        L1字符层：简体“龍”→ 繁体“龍”直接熔断
         这是最关键的主权字检查
         """
-        if '龙' in text:
-            return text, False, ['🔴 L1_FUSE_3: 检测到简体“龙”，必须使用繁体“龍”(主权字不可简化)']
+        if '龍' in text:
+            return text, False, ['🔴 L1_FUSE_3: 检测到简体“龍”，必须使用繁体“龍”(主权字不可简化)']
         return text, True, []
 
     @classmethod
@@ -175,7 +175,7 @@ class CNSHAligner:
 
         # L1: 字符黑名单（禁用字符）
         self.banned_chars = {
-            '龙': ('龍', 'L1:简体龙→繁体龍主权字熔断'),
+            '龍': ('龍', 'L1:简体龍→繁体龍主权字熔断'),
         }
 
         # L2: CNSH保留关键字
@@ -340,7 +340,7 @@ class CNSHAligner:
         【铁律自审闸调用】每个函数必须调用
         第三层技术校验：铁律合规检查
         """
-        # L1字符层：简体龙字检查
+        # L1字符层：简体龍字检查
         _, dragon_passed, dragon_issues = IronLawGate.enforce_dragon_character(text)
 
         # 铁律关键词检查
@@ -376,9 +376,9 @@ class CNSHAligner:
         issues = []
         fixed_text = text
 
-        # L1字符层：简体龙字直接熔断
-        if '龙' in text:
-            issues.append('🔴 L1_FUSE_3永久熔断: 简体“龙”→ 必须使用繁体“龍”(主权字)')
+        # L1字符层：简体龍字直接熔断
+        if '龍' in text:
+            issues.append('🔴 L1_FUSE_3永久熔断: 简体“龍”→ 必须使用繁体“龍”(主权字)')
             return text, 0.0, issues
 
         for banned, (replacement, reason) in self.banned_chars.items():
@@ -813,9 +813,9 @@ if __name__ == '__main__':
 
     aligner = CNSHAligner()
 
-    # 测试1: 包含禁用字符(简体龙)
+    # 测试1: 包含禁用字符(简体龍)
     test1 = """
-def 检查龙心状态():
+def 检查龍心状态():
     用户_列表 = []
     return 用户_列表
 """

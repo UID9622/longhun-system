@@ -376,7 +376,7 @@ function makeMeta(text){
 async function initAPI(){
   const spec = await loadJSON('data/cnsh_openapi.json');
   const container = document.getElementById('api-list');
-  if(!spec || !spec.paths){ container.innerHTML = escHtml('<div class="error">API 数据未加载</div>'; return; });
+  if(!spec || !spec.paths){ container.innerHTML = escHtml('<div class="error">API 数据未加载</div>'); return; }
   const wrap = document.createElement('div');
   for(const [path, methods] of Object.entries(spec.paths)){
     for(const [method, info] of Object.entries(methods)){
@@ -393,6 +393,8 @@ async function initAPI(){
 }
 
 async function initKG(){
+  const endDiv = '<\/div>';
+  const endP = '<\/p>';
   const container = document.getElementById('kg-stats');
   try{
     const stats = await fetch('http://127.0.0.1:8444/api/unified/stats').then(r=>r.json());
@@ -402,7 +404,7 @@ async function initKG(){
         <div class="card"><h3>关系</h3><p>${stats.edge_count || 0}</p></div>
         <div class="card"><h3>数据来源</h3><p>${(stats.sources||[]).length || 0}</p></div>
       </div>
-      <p style="margin-top:14px"><a class="btn btn-accent" href="./p0-controls/龍魂知识矩阵-3D-沉浸式.html" target="_blank">进入 3D 沉浸式矩阵</a></p>`;
+      <p style="margin-top:14px"><a class="btn btn-accent" href="./p0-controls/龍魂知识矩阵-3D-沉浸式.html" target="_blank">进入 3D 沉浸式矩阵</a>${endP}`;
   }catch(e){
     container.innerHTML = escHtml('<div class="error">知识图谱服务未运行（端口 8444）</div>');
   }
@@ -423,19 +425,20 @@ async function initArticles(){
     container.innerHTML = ''; container.appendChild(list);
     return;
   }
+  const endDiv2 = '<\/div>';
   container.innerHTML = escHtml(`)
     <div class="list">
       <div class="list-item"><a href="./articles/2026-07-04-龍魂隐私白皮书_v2.0.md" target="_blank">龍魂隐私白皮书 v2.0</a><span class="meta">2026-07-04</span></div>
       <div class="list-item"><a href="./articles/2026-07-04-龍魂天道系统-v1.3-优化版.md" target="_blank">龍魂天道系统 v1.3</a><span class="meta">2026-07-04</span></div>
       <div class="list-item"><a href="./articles/2026-07-04-UID9622-IP展示页-龍芯北辰.md" target="_blank">UID9622 IP 展示页 · 龍芯北辰</a><span class="meta">2026-07-04</span></div>
       <div class="list-item"><a href="./articles/2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md" target="_blank">龍魂算法公司护城河规范 v1.0</a><span class="meta">2026-07-04</span></div>
-    </div>`;
+    ${endDiv2}`;
 }
 
 async function initNotion(){
   const data = await loadJSON('data/notion_nav.json') || [];
   const container = document.getElementById('notion-list');
-  if(!data.length){ container.innerHTML = escHtml('<div class="empty">无 Notion 数据</div>'; return; });
+  if(!data.length){ container.innerHTML = escHtml('<div class="empty">无 Notion 数据</div>'); return; }
   const cats = {};
   data.forEach(p => { (cats[p.category] ||= []).push(p); });
   const frag = document.createDocumentFragment();
@@ -457,7 +460,7 @@ async function initCSDN(){
   const data = await loadJSON('data/csdn_articles.json') || {};
   const articles = data.articles || [];
   const container = document.getElementById('csdn-list');
-  if(!articles.length){ container.innerHTML = escHtml('<div class="empty">暂无已同步 CSDN 文章</div>'; return; });
+  if(!articles.length){ container.innerHTML = escHtml('<div class="empty">暂无已同步 CSDN 文章</div>'); return; }
   const list = document.createElement('div'); list.className = 'list';
   articles.forEach(a => {
     const item = document.createElement('div'); item.className = 'list-item';
@@ -472,7 +475,7 @@ async function initPapers(){
   const data = await loadJSON('data/papers.json?v=2') || {};
   const papers = data.papers || [];
   const container = document.getElementById('papers-list');
-  if(!papers.length){ container.innerHTML = escHtml('<div class="empty">暂无论文数据</div>'; return; });
+  if(!papers.length){ container.innerHTML = escHtml('<div class="empty">暂无论文数据</div>'); return; }
   const list = document.createElement('div'); list.className = 'list';
   papers.forEach(p => {
     const item = document.createElement('div'); item.className = 'list-item';

@@ -452,7 +452,7 @@ class FiveValuesUnifiedEngine:
         scores = {v: 0.0 for v in UnifiedValue}
 
         keyword_map = {
-            UnifiedValue.ROOT: ["文化", "传统", "中华", "易经", "道德经", "龙", "河图", "洛书", "星宿", "五行", "八卦"],
+            UnifiedValue.ROOT: ["文化", "传统", "中华", "易经", "道德经", "龍", "河图", "洛书", "星宿", "五行", "八卦"],
             UnifiedValue.SOUL: ["服务", "人民", "主权", "法律", "数据", "审计", "安全", "防御", "保护", "合规"],
             UnifiedValue.TRUST: ["透明", "开源", "诚实", "真实", "追溯", "DNA", "验证", "信任", "公开", "审计"],
             UnifiedValue.LOVE: ["陪伴", "温度", "人性", "关怀", "理解", "温暖", "支持", "情感"],
@@ -519,7 +519,7 @@ class FiveValuesUnifiedEngine:
             ],
         }
 
-    def _get_recommendation(self, score: float, violations: List[Dict]) -> str:
+    def _get_recommendation(self, score: float, violations: List[Dict[str, Any]]) -> str:
         if score >= 0.9:
             return "✅ 全值通过·可执行"
         elif score >= 0.7:
@@ -811,7 +811,7 @@ class MetaValueBridge:
         return {
             "operational_values": [(op.cn_name, op.priority) for op in op_values],
             "unified_weights": unified,
-            "primary_value": max(unified, key=unified.get).cn_name if unified else "N/A",
+            "primary_value": max(unified, key=unified.get).cn_name if unified else "N/A",  # type: ignore[reportArgumentType]
             "balanced": balanced,
             "variance": round(variance, 6),
             "diagnosis": "🟢 价值观均衡" if balanced else "🟡 价值观倾斜·需关注",
@@ -851,8 +851,8 @@ class ValueConsistencyVerifier:
             r.get("status") == "🟢 一致" if isinstance(r, dict) else True
             for r in results.values()
         )
-        results["overall_status"] = "🟢 全层一致" if all_ok else "🟡 存在不一致"
-        results["dna"] = self.engine._generate_dna()
+        results["overall_status"] = "🟢 全层一致" if all_ok else "🟡 存在不一致"  # type: ignore[reportArgumentType]
+        results["dna"] = self.engine._generate_dna()  # type: ignore[reportArgumentType]
 
         return results
 
@@ -988,7 +988,7 @@ def run_all_tests():
     ]
     for ops, label in test_ops:
         unified = engine.map_operational_to_unified(ops)
-        primary = max(unified, key=unified.get)
+        primary = max(unified, key=unified.get)  # type: ignore[reportArgumentType]
         print(f"  ✅ [{label}] 主要激活: {primary.cn_name} · 权重: {unified}")
     passed += 1
 
@@ -1007,7 +1007,7 @@ def run_all_tests():
     # 元知 → 核心价值观 (倾斜)
     mil_heavy = {"MIL": 0.5, "HIS": 0.2, "PHI": 0.1, "ECO": 0.1, "POL": 0.1}
     values_from_mil = meta_bridge.meta_to_values_weights(mil_heavy)
-    primary = max(values_from_mil, key=values_from_mil.get)
+    primary = max(values_from_mil, key=values_from_mil.get)  # type: ignore[reportArgumentType]
     print(f"  ✅ 军事主导→价值观: 主{primary.cn_name} · {values_from_mil}")
     assert primary == UnifiedValue.SOUL, "军事主导应对齐服务魂!"
     passed += 1
@@ -1034,7 +1034,7 @@ def run_all_tests():
     for pid in ["UID9622_MAIN", "P05_EYE", "P02_LONGXIN"]:
         bridge.personas[pid].verified = True
     collective = bridge.get_collective_values(["UID9622_MAIN", "P05_EYE", "P02_LONGXIN"])
-    primary = max(collective, key=collective.get)
+    primary = max(collective, key=collective.get)  # type: ignore[reportArgumentType]
     print(f"  ✅ 主+眼+芯 集体价值观: 主{primary.cn_name} · {collective}")
     passed += 1
 

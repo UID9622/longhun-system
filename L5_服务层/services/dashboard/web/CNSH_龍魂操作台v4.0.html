@@ -127,6 +127,8 @@ body{background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line
     <div class="workspace-head">
       <button class="btn btn-outline" onclick="loadWorkspace('http://127.0.0.1:18000/editor','CNSH 中文编辑器')">CNSH 编辑器</button>
       <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/cnsh_examples.html','CNSH 示例库')">CNSH 示例库</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/cnsh_translate_vault.html','🏦 CNSH翻译金库')" style="border-color:var(--gold);color:var(--gold);">🏦 翻译金库</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/clipboard_pwa.html','📋 CNSH剪贴板')" style="background:var(--card2);">📋 剪贴板</button>
       <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html','🎙️ 沉浸式 AI 播音员')">真声控制台</button>
       <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html','🎙️ 沉浸式 AI 播音员')">🎙️ AI 播音员</button>
       <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-3D-沉浸式.html','🌌 知识矩阵 3D')">🌌 3D 矩阵</button>
@@ -161,6 +163,9 @@ const services = {
     {id:'cnsh-editor', name:'CNSH 中文编辑器', desc:'在线写、跑 CNSH 脚本', port:18000, path:'/editor', embed:true, p0:true},
     {id:'cnsh-docs', name:'CNSH API 文档', desc:'Swagger /docs', port:18000, path:'/docs', p0:true},
     {id:'cnsh-examples', name:'CNSH 示例库', desc:'语法 · 类/装饰器/生成器 · 异步/枚举/dataclass · 类型注解/装饰器带参/异常 · Notion/数学公式一体化', url:'./p0-controls/cnsh_examples.html', embed:true, p0:true},
+    {id:'cnsh-translate-vault', name:'🏦 CNSH翻译金库', desc:'贴入→翻译→DNA注入→时间戳锁定 · 少一样不能用 · DNA链协作', url:'./p0-controls/cnsh_translate_vault.html', embed:true, p0:true, badge:'NEW'},
+    {id:'cnsh-clipboard', name:'📋 CNSH剪贴板', desc:'跨平台剪贴板翻译 · iOS快捷指令 · PWA · 鸿蒙服务卡片', url:'./p0-controls/clipboard_pwa.html', embed:true, p0:true, badge:'📱'},
+    {id:'cnsh-clipboard-ios', name:'📱 iOS快捷指南', desc:'一键导入iOS快捷指令 · 剪贴板→DNSH翻译→DNA注入', url:'./p0-controls/ios_shortcut_guide.md', embed:false, p0:true},
     {id:'shengying', name:'声影桥 · AI 播音员', desc:'中国文化沉浸式朗读', port:8766, path:'/health', embed:true, p0:true},
     {id:'ai-broadcaster', name:'🎙️ 沉浸式 AI 播音员', desc:'中国文化章节 · 朗读 · 对话 · 视频', url:'./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html', embed:true, p0:true},
     {id:'kg-3d', name:'🌌 3D 知识矩阵', desc:'三维沉浸式知识宇宙 · 文化视觉默认', url:'./p0-controls/龍魂知识矩阵-3D-沉浸式.html', embed:true},

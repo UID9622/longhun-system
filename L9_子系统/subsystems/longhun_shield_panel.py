@@ -9,11 +9,11 @@ import asyncio
 import json
 import os
 from pathlib import Path
-from typing import List
+from typing import Any, Dict, List
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect  # type: ignore[import-untyped]
 from fastapi.responses import HTMLResponse
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 
 from longhun_shield_cnsh import 龍魂护盾
 from longhun_ai_output_guard import AI输出熔断器
@@ -34,7 +34,7 @@ AI熔断器 = AI输出熔断器(护盾)
 连接池: List[WebSocket] = []
 
 
-def 广播到面板(事件: dict):
+def 广播到面板(事件: Dict[str, Any]):
     数据 = json.dumps(事件, ensure_ascii=False)
     存活 = []
     for ws in 连接池:
@@ -164,14 +164,14 @@ async def 熔断状态():
 
 
 @app.post("/api/ai-scan")
-async def AI输出扫描(请求: dict):
+async def AI输出扫描(请求: Dict[str, Any]):
     来源 = 请求.get("来源", "unknown")
     内容 = 请求.get("内容", "")
     return AI熔断器.检查(来源, 内容)
 
 
 @app.post("/api/download-event")
-async def 浏览器下载事件(请求: dict):
+async def 浏览器下载事件(请求: Dict[str, Any]):
     """浏览器扩展上报下载完成事件，立即触发本地扫描。"""
     本地路径 = Path(请求.get("local_path", ""))
     文件名 = 请求.get("filename", 本地路径.name)

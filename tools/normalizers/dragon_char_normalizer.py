@@ -7,7 +7,7 @@ UID9622 · 诸葛鑫 · 龍芯北辰
 DNA:#龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-功能: 统一龍字编码 (简体龙 U+9F99 → 繁体龍 U+9F8D)
+功能: 统一龍字编码 (简体龍 U+9F99 → 繁体龍 U+9F8D)
 
 用法:
   python3 dragon_char_normalizer.py --root ~/longhun-system --dry-run
@@ -27,8 +27,8 @@ from typing import List, Tuple
 # 字符定义
 # ═══════════════════════════════════════════════════════════════
 
-# 简体 "龙" (U+9F99)
-SIMPLIFIED = "龙"
+# 简体 "龍" (U+9F99)
+SIMPLIFIED = "龍"
 
 # 繁体 "龍" (U+9F8D)
 TRADITIONAL = "龍"
@@ -40,15 +40,19 @@ TRADITIONAL = "龍"
 # 只处理这些副档名
 ALLOWED_EXTENSIONS = {
     '.md', '.txt', '.markdown',
-    '.json', '.yaml', '.yml',
-    '.html', '.csv'
+    '.json', '.yaml', '.yml', '.jsonl',
+    '.html', '.csv',
+    '.py', '.sh', '.js', '.ts', '.tsx', '.css',
+    '.toml', '.cnsh', '.cpp', '.cfg', '.conf',
+    '.tex', '.ini'
 }
 
 # 排除这些目录
 EXCLUDED_DIRS = {
     '.git', '__pycache__', 'node_modules',
     '.venv', 'venv', '.egg-info',
-    '_archive', '.obsidian'
+    '_archive', '.obsidian',
+    '.venv_longhun_math', 'voice-twin'
 }
 
 # ═══════════════════════════════════════════════════════════════
@@ -134,11 +138,11 @@ def scan_directory(root_path: Path, stats: NormalizationStats,
     递归扫描目录并规范化所有文件
     """
     for item in sorted(root_path.rglob('*')):
-        # 跳过目录
+        # 排除的目录/文件统一跳过（无论是目录还是文件都检查）
+        if any(excluded in item.parts for excluded in EXCLUDED_DIRS):
+            continue
+        # 跳过目录本身
         if item.is_dir():
-            # 跳过排除的目录
-            if any(excluded in item.parts for excluded in EXCLUDED_DIRS):
-                continue
             continue
 
         # 检查副档名
@@ -183,13 +187,13 @@ def main():
     parser.add_argument(
         '--normalize-to-traditional',
         action='store_true',
-        help='简体 → 繁体 (默认) · 龙 → 龍'
+        help='简体 → 繁体 (默认) · 龍 → 龍'
     )
 
     parser.add_argument(
         '--normalize-to-simplified',
         action='store_true',
-        help='繁体 → 简体 (不建议) · 龍 → 龙'
+        help='繁体 → 简体 (不建议) · 龍 → 龍'
     )
 
     parser.add_argument(
@@ -239,7 +243,7 @@ def main():
     print("🐉 龍字规范化工具 v1.0")
     print("════════════════════════════════════════════════════════════════")
     print(f"根目录:         {args.root}")
-    print(f"规范方向:       {'简体 → 繁体 (龙 → 龍)' if traditional else '繁体 → 简体 (龍 → 龙)'}")
+    print(f"规范方向:       {'简体 → 繁体 (龍 → 龍)' if traditional else '繁体 → 简体 (龍 → 龍)'}")
     print(f"模式:           {'预演 (不修改)' if args.dry_run else '实际执行 (会修改)'}")
     print(f"备份:           {'启用' if backup else '禁用'}")
     print("════════════════════════════════════════════════════════════════\n")

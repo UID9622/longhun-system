@@ -25,9 +25,10 @@
 import os
 import json
 import requests
+from typing import Any
 from datetime import datetime
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type: ignore[import-untyped]
 
 # ── 加载 Token ──
 load_dotenv(Path.home() / '.cnsh' / '.env')
@@ -57,7 +58,7 @@ DNA_CODE = f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-NOTION-SYNC-v1.1
 LOG_FILE = Path.home() / 'longhun-system' / 'sync_log.jsonl'
 
 
-def get_page_content(page_id: str) -> dict:
+def get_page_content(page_id: str) -> dict[str, Any]:
     """拉取页面元数据"""
     url = f'https://api.notion.com/v1/pages/{page_id}'
     resp = requests.get(url, headers=HEADERS, timeout=10)
@@ -75,7 +76,7 @@ def classify_content(text: str) -> str:
     return '🌐公开 | 不含敏感信息'
 
 
-def write_log(entry: dict):
+def write_log(entry: dict[str, Any]):
     """写草日志（只追加·永不覆盖）"""
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(LOG_FILE, 'a', encoding='utf-8') as f:

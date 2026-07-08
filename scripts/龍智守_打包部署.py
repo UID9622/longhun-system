@@ -19,7 +19,7 @@ HOME = Path.home()
 SRC_BOT = HOME / "Downloads" / "龍智守_本地控制接口_v2.0.py"
 SRC_CONFIG_EXAMPLE = HOME / ".longhun" / "config" / "龍智守_config.example.json"
 SRC_SCRIPTS_DIR = HOME / "longhun-system" / "scripts"
-SRC_OPTIMIZER_DIR = HOME / "Downloads" / "Kimi_Agent_龙魂训练协议"
+SRC_OPTIMIZER_DIR = HOME / "Downloads" / "Kimi_Agent_龍魂训练协议"
 SRC_GUOMI = HOME / "CNSH_国密工具.py"
 OUTPUT_BASE = HOME / "longhun-system" / "dist"
 
@@ -75,8 +75,8 @@ def main():
     for name in REQUIRED_SCRIPT_MODULES:
         copy_file(SRC_SCRIPTS_DIR / name, deps_dir / name)
 
-    # 5. 训练数据优化器（bot 里写死路径 ~/Downloads/Kimi_Agent_龙魂训练协议/...）
-    optimizer_dst_dir = out_dir / "Kimi_Agent_龙魂训练协议"
+    # 5. 训练数据优化器（bot 里写死路径 ~/Downloads/Kimi_Agent_龍魂训练协议/...）
+    optimizer_dst_dir = out_dir / "Kimi_Agent_龍魂训练协议"
     for name in REQUIRED_OPTIMIZER_FILES:
         copy_file(SRC_OPTIMIZER_DIR / name, optimizer_dst_dir / name)
 
@@ -196,7 +196,7 @@ chown -R "$USER:$USER" "$INSTALL_DIR"
 
 # 4. 创建 longzhishou 用户主目录下的依赖目录
 mkdir -p "$HOME_DIR/longhun-system/scripts"
-mkdir -p "$HOME_DIR/Downloads/Kimi_Agent_龙魂训练协议"
+mkdir -p "$HOME_DIR/Downloads/Kimi_Agent_龍魂训练协议"
 mkdir -p "$HOME_DIR/.longhun/config"
 mkdir -p "$HOME_DIR/.longhun/logs"
 mkdir -p "$HOME_DIR/.龍魂"
@@ -204,7 +204,7 @@ mkdir -p "$HOME_DIR/.龍魂"
 # 5. 放置依赖模块和优化器（bot 写死了这些路径）
 cp "$INSTALL_DIR/CNSH_国密工具.py" "$HOME_DIR/CNSH_国密工具.py"
 cp "$INSTALL_DIR/longhun-system_scripts/"*.py "$HOME_DIR/longhun-system/scripts/"
-cp "$INSTALL_DIR/Kimi_Agent_龙魂训练协议/"*.py "$HOME_DIR/Downloads/Kimi_Agent_龙魂训练协议/"
+cp "$INSTALL_DIR/Kimi_Agent_龍魂训练协议/"*.py "$HOME_DIR/Downloads/Kimi_Agent_龍魂训练协议/"
 chown -R "$USER:$USER" "$HOME_DIR"
 
 # 6. 安装 Python 依赖
@@ -294,7 +294,7 @@ echo "DNA: #龍芯⚡️2026-06-30-LONGZHISHOU-PACKAGER-v2.1"
 - `龍智守_config.example.json` —— 配置模板（可公开）
 - `CNSH_国密工具.py` —— 国密 SM3/SM4 依赖
 - `longhun-system_scripts/` —— bot 运行依赖的龍魂模块
-- `Kimi_Agent_龙魂训练协议/` —— 训练数据优化器
+- `Kimi_Agent_龍魂训练协议/` —— 训练数据优化器
 - `requirements.txt` —— Python 依赖
 - `.env.example` —— 环境变量模板
 - `龍智守.service` —— systemd 服务模板

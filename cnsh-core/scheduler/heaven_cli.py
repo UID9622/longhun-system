@@ -169,7 +169,7 @@ def main():
     p_heatmap.set_defaults(func=cmd_heatmap)
 
     p_set = sub.add_parser("set-star", help="手动切换主权星宿（仅 UID9622）")
-    p_set.add_argument("star", help="目标星宿名，如 亢金龙")
+    p_set.add_argument("star", help="目标星宿名，如 亢金龍")
     p_set.add_argument("--force", action="store_true", required=True, help="必须加 --force 确认")
     p_set.set_defaults(func=cmd_set_star)
 

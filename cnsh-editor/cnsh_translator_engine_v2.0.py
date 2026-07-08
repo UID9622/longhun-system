@@ -1,23 +1,18 @@
-# ⚠️ DUPLICATE_COPY — 非权威源，仅供参考
-# 权威源: cnsh-terminal/engines/cnsh_translator_engine_v2.0.py
-# 标记时间: 2026-07-06 (CodeBuddy 收口)
-# 详见: ENGINE_DEDUP_MANIFEST.md
-#
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                     通心译 (Tongxin Translation) 引擎 v2.0                      ║
-║                     CNSH 多语言编辑器终端 · 龍魂体系翻译核心                     ║
+║                   通心译 (Tongxin Translation) 引擎 v2.5                        ║
+║              CNSH 多语言编辑器终端 · 龍魂体系翻译核心·七层协议对齐              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-龍魂体系DNA:#龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-FILE1-v2.0-1
+龍魂体系DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXIN-TRANSLATOR-v2.5
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
 架构师: UID9622·龍芯北辰
-版本: 2.0.0
-协议: CNSH v5.0 兼容
+版本: 2.5.0
+协议: CNSH v5.0 兼容·七层母协议对齐·知识库入库铁律·三位一体中枢
 
 五大铁律:
   1. 中文活着，英文也活着 — 不是镜像，各自重新写，逻辑深度相等
@@ -484,7 +479,7 @@ class TerminologyDatabase:
              "龍魂专属"),
             ("Dragon Core", "龍芯",
              "The central processing unit of the Dragon Soul system, like the dragon's heart pumping qi through the entire network",
-             "龍魂体系的中央处理核心，如同龙的心脏，为整个网络泵送真气",
+             "龍魂体系的中央处理核心，如同龍的心脏，为整个网络泵送真气",
              "龍魂专属"),
             ("Soul Binding", "魂印",
              "The irreversible binding of a device to a user's soul signature, like a blood oath in the digital realm",
@@ -511,8 +506,8 @@ class TerminologyDatabase:
              "三层审查机制：逻辑、价值观、技术三重校验",
              "龍魂专属"),
             ("Sovereign Character", "主权字",
-             "Characters like 龍/龙 that carry cultural sovereignty — always protected in both traditional and simplified forms",
-             "如龍/龙般承载文化主权的文字 — 繁简两种形态均受保护",
+             "Characters like 龍/龍 that carry cultural sovereignty — always protected in both traditional and simplified forms",
+             "如龍/龍般承载文化主权的文字 — 繁简两种形态均受保护",
              "龍魂专属"),
         ]
 
@@ -888,25 +883,25 @@ class CulturalAdapter:
     通心译 · 文化适配器
 
     负责处理文化差异和主权字保护:
-        - 繁体「龍」/简体「龙」智能处理（主权字保护）
+        - 繁体“龍”/简体“龍”智能处理（主权字保护）
         - CNSH命名规范检查
         - 文化敏感度筛查
         - 龍魂体系标记保护
 
     主权字保护规则:
-        1. 「龍」为繁体主权字，用于正式/神圣语境
-        2. 「龙」为简体常用字，用于日常语境
-        3. 龍魂体系标记中的「龍」不可替换
+        1. “龍”为繁体主权字，用于正式/神圣语境
+        2. “龍”为简体常用字，用于日常语境
+        3. 龍魂体系标记中的“龍”不可替换
         4. 用户可自定义主权字偏好
     """
 
     def __init__(self):
         self._sovereign_chars = {
-            "龍": {"variant": "龙", "protection_level": "maximum",
+            "龍": {"variant": "龍", "protection_level": "maximum",
                    "context": "formal/sacred"},
-            "國": {"variant": "国", "protection_level": "high",
+            "国": {"variant": "国", "protection_level": "high",
                    "context": "formal/sacred"},
-            "華": {"variant": "华", "protection_level": "high",
+            "华": {"variant": "华", "protection_level": "high",
                    "context": "formal/sacred"},
         }
         self._cnsh_naming_rules = [
@@ -1141,8 +1136,8 @@ class QualityAuditor:
         issues = []
 
         # 检查主权字保护
-        if "龍" in source and "龙" in target:
-            issues.append("主权字「龍」被不当简化为「龙」")
+        if "龍" in source and "龍" in target:
+            issues.append("主权字“龍”被不当简化为“龍”")
 
         # 检查文化尊重
         disrespect_patterns = [
@@ -1630,7 +1625,7 @@ def print_banner():
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-  「五大铁律」
+  “五大铁律”
     ① 中文活着，英文也活着 — 不是镜像，各自重新写
     ② 不是镜像，是共鸣 — 比喻可以不同，精神必须对上
     ③ 比喻优先于公式 — 0公式，追求"啊！我懂了"的时刻
@@ -1916,7 +1911,7 @@ def main():
         python cnsh_translator_engine_v2.0.py --mode bilingual
             以双语模式启动交互Shell
 
-    龍魂体系DNA: #龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-v2.0
+    龍魂体系DNA:#龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-v2.0
     """
     parser = argparse.ArgumentParser(
         description="通心译 (Tongxin Translation) v2.0 — 龍魂体系翻译引擎",

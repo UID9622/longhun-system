@@ -67,14 +67,14 @@ REPORT_DIR.mkdir(parents=True, exist_ok=True)
 # ═══════════════════════════════════════════════════════════════════
 
 TWENTY_EIGHT_MANSIONS = [
-    # 东方青龙七宿
-    {"name": "角木蛟",  "name_en": "Horn-Wood-Dragon",     "wuxing": "木", "direction": "东方青龙", "behavior": "主生", "blessing": "萌发·启动·创新",      "warning": "急进易折",      "privilege": "INITIATE_PLUS_1"},
-    {"name": "亢金龙",  "name_en": "Neck-Gold-Dragon",     "wuxing": "金", "direction": "东方青龙", "behavior": "主攻", "blessing": "决断·亮剑·主权扩张",  "warning": "过刚易折",      "privilege": "SOVEREIGN_EXEMPT_PLUS_2"},
-    {"name": "氐土貉",  "name_en": "Root-Earth-Badger",    "wuxing": "土", "direction": "东方青龙", "behavior": "主稳", "blessing": "扎根·积累·承载",      "warning": "固执迟滞",      "privilege": "STABILITY_PLUS_1"},
-    {"name": "房日兔",  "name_en": "Room-Sun-Rabbit",      "wuxing": "火", "direction": "东方青龙", "behavior": "主联", "blessing": "联络·同步·外交",      "warning": "分散精力",      "privilege": "SYNC_PRIORITY_PLUS_1"},
-    {"name": "心月狐",  "name_en": "Heart-Moon-Fox",       "wuxing": "火", "direction": "东方青龙", "behavior": "主情", "blessing": "洞察·陪伴·共情",      "warning": "感情用事",      "privilege": "EMPATHY_PLUS_1"},
-    {"name": "尾火虎",  "name_en": "Tail-Fire-Tiger",      "wuxing": "火", "direction": "东方青龙", "behavior": "主势", "blessing": "蓄势·爆发·威慑",      "warning": "冲动冒进",      "privilege": "MOMENTUM_PLUS_1"},
-    {"name": "箕水豹",  "name_en": "Winnow-Water-Leopard", "wuxing": "水", "direction": "东方青龙", "behavior": "主变", "blessing": "灵活·变通·转进",      "warning": "反复无常",      "privilege": "ADAPT_PLUS_1"},
+    # 东方青龍七宿
+    {"name": "角木蛟",  "name_en": "Horn-Wood-Dragon",     "wuxing": "木", "direction": "东方青龍", "behavior": "主生", "blessing": "萌发·启动·创新",      "warning": "急进易折",      "privilege": "INITIATE_PLUS_1"},
+    {"name": "亢金龍",  "name_en": "Neck-Gold-Dragon",     "wuxing": "金", "direction": "东方青龍", "behavior": "主攻", "blessing": "决断·亮剑·主权扩张",  "warning": "过刚易折",      "privilege": "SOVEREIGN_EXEMPT_PLUS_2"},
+    {"name": "氐土貉",  "name_en": "Root-Earth-Badger",    "wuxing": "土", "direction": "东方青龍", "behavior": "主稳", "blessing": "扎根·积累·承载",      "warning": "固执迟滞",      "privilege": "STABILITY_PLUS_1"},
+    {"name": "房日兔",  "name_en": "Room-Sun-Rabbit",      "wuxing": "火", "direction": "东方青龍", "behavior": "主联", "blessing": "联络·同步·外交",      "warning": "分散精力",      "privilege": "SYNC_PRIORITY_PLUS_1"},
+    {"name": "心月狐",  "name_en": "Heart-Moon-Fox",       "wuxing": "火", "direction": "东方青龍", "behavior": "主情", "blessing": "洞察·陪伴·共情",      "warning": "感情用事",      "privilege": "EMPATHY_PLUS_1"},
+    {"name": "尾火虎",  "name_en": "Tail-Fire-Tiger",      "wuxing": "火", "direction": "东方青龍", "behavior": "主势", "blessing": "蓄势·爆发·威慑",      "warning": "冲动冒进",      "privilege": "MOMENTUM_PLUS_1"},
+    {"name": "箕水豹",  "name_en": "Winnow-Water-Leopard", "wuxing": "水", "direction": "东方青龍", "behavior": "主变", "blessing": "灵活·变通·转进",      "warning": "反复无常",      "privilege": "ADAPT_PLUS_1"},
     # 北方玄武七宿
     {"name": "斗木獬",  "name_en": "Dipper-Wood-Xie",      "wuxing": "木", "direction": "北方玄武", "behavior": "主守", "blessing": "守护·修复·持久",      "warning": "过度防御",      "privilege": "GUARD_PLUS_1"},
     {"name": "牛金牛",  "name_en": "Ox-Gold-Ox",           "wuxing": "金", "direction": "北方玄武", "behavior": "主固", "blessing": "固守·沉淀·归档",      "warning": "僵化保守",      "privilege": "ARCHIVE_PLUS_1"},
@@ -144,7 +144,7 @@ SOLAR_TERM_FIRE_WEIGHT = {
 }
 
 SOVEREIGN_BINDINGS = {
-    "UID9622": {"star": "亢金龙", "privilege_boost": 2, "description": "本命主攻星，亮剑时刻自动升权；非本命当值时进入战备状态"},
+    "UID9622": {"star": "亢金龍", "privilege_boost": 2, "description": "本命主攻星，亮剑时刻自动升权；非本命当值时进入战备状态"},
     "宝宝":    {"star": "心月狐", "privilege_boost": 1, "description": "情感陪伴星，建议与安抚模式"},
     "系统守护": {"star": "斗木獬", "privilege_boost": 1, "description": "自动修复与守护模式"},
 }
@@ -538,7 +538,7 @@ class HeavenDutyEngine:
             "dna": make_dna(f"{identity}|{action}", "SOVEREIGN-OVERRIDE"),
             "timestamp": dt.isoformat(),
             "operator": identity,
-            "bound_star": SOVEREIGN_BINDINGS.get(identity, {}).get("star", "亢金龙"),
+            "bound_star": SOVEREIGN_BINDINGS.get(identity, {}).get("star", "亢金龍"),
             "current_star": star.name,
             "fire_index": fire.current,
             "action": action,
@@ -698,7 +698,7 @@ class HeavenDutyEngine:
             draw.text((x - 20, margin_top - 30), f"第{col+1}宿", fill=(200, 200, 220), font=font_small)
 
         # 行标题：四象
-        directions = ["东方青龙", "北方玄武", "西方白虎", "南方朱雀"]
+        directions = ["东方青龍", "北方玄武", "西方白虎", "南方朱雀"]
         for row, direction in enumerate(directions):
             y = margin_top + row * cell_h + cell_h // 2
             draw.text((10, y - 10), direction, fill=(200, 200, 220), font=font_small)

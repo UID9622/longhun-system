@@ -165,7 +165,7 @@ class V9SymbiosisEngine:
             cycle=len(self.history) + 1,
         )
 
-    def repeated_game(self, rounds: int = 100, strategy_a: Callable = None, strategy_b: Callable = None) -> List[GameResult]:
+    def repeated_game(self, rounds: int = 100, strategy_a: Optional[Callable[..., Any]] = None, strategy_b: Optional[Callable[..., Any]] = None) -> List[GameResult]:
         """重复博弈 · 触发策略"""
         history: List[GameResult] = []
         a_playing_aug = True
@@ -228,7 +228,7 @@ class V9SymbiosisEngine:
             ))
             distances[tier] = d
 
-        best_tier = min(distances, key=distances.get)
+        best_tier = min(distances, key=distances.get)  # type: ignore[reportArgumentType]
         tier_enum = V9Tier(best_tier)
 
         # 工具配置
@@ -371,7 +371,7 @@ class V9SymbiosisEngine:
         avg_wage: float,
         keynesian_multiplier: float = 1.5,
         firm_market_share: float = 0.1,
-    ) -> Dict[str, float]:
+    ) -> Dict[str, Any]:
         """
         替代策略的聚合需求毁伤链
 

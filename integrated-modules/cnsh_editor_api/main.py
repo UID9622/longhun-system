@@ -21,10 +21,10 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
-from fastapi import Depends, FastAPI, HTTPException, Request
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Depends, FastAPI, HTTPException, Request  # type: ignore[import-untyped]
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.staticfiles import StaticFiles  # type: ignore[import-untyped]
 
 # 将 longhun-chinese-editor 加入 Python 路径
 _CURRENT_DIR = Path(__file__).resolve().parent
@@ -33,8 +33,8 @@ if _CHINESE_EDITOR_SRC.exists():
     sys.path.insert(0, str(_CHINESE_EDITOR_SRC))
 
 try:
-    import longhun_chinese_editor as ce
-    from longhun_chinese_editor.compiler.lexer import Lexer
+    import longhun_chinese_editor as ce  # type: ignore[import-untyped]
+    from longhun_chinese_editor.compiler.lexer import Lexer  # type: ignore[import-untyped]
 except ImportError as exc:
     raise ImportError(
         f"无法导入 longhun-chinese-editor，请确认 {_CHINESE_EDITOR_SRC} 存在"
@@ -240,8 +240,8 @@ if __name__ == "__main__":
     _api_key = os.environ.get("CNSH_API_KEY", "")
     if _api_key:
         from fastapi import Security
-        from fastapi.security import APIKeyHeader
-        _api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+        from fastapi.security import APIKeyHeader  # type: ignore[import-untyped]
+        _api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)  # type: ignore[attr-defined]
         async def _verify_key(api_key: str = Security(_api_key_header)):
             if api_key != _api_key:
                 raise HTTPException(status_code=401, detail="Invalid API Key")

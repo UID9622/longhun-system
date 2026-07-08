@@ -13,7 +13,7 @@
 DNA: #龍芯⚡️20260630-LONGZHI-SHOU-v1
 """
 
-# 龙智守飞书卡片全局确认码（焊死）
+# 龍智守飞书卡片全局确认码（焊死）
 _CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
 import argparse

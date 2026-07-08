@@ -5,7 +5,7 @@
 """
 书法渲染引擎
 
-输入文字 + 选择书法样式 → 输出带印章、龙纹水印、作品编号的高清书法图片。
+输入文字 + 选择书法样式 → 输出带印章、龍纹水印、作品编号的高清书法图片。
 """
 
 import json
@@ -366,7 +366,7 @@ def render(text: str, style_code: str = "YZQ-KA",
             sy = size[1] - seal_size - 40
         canvas.paste(seal, (sx, sy), seal)
 
-    # 龙纹可见水印
+    # 龍纹可见水印
     canvas = add_visible_watermark(canvas, opacity=60, corner=True)
 
     # 频域水印

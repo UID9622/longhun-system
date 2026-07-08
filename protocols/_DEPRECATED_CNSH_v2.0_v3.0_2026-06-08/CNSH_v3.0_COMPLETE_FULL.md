@@ -624,7 +624,7 @@ Lend it out and you bear the consequences. DNA will carry a person's entire pers
 | --- | --- | --- |
 | 龍芯 (LóngXīn) | 🔴 身份锚点 | 全球信任标识·翻译即断裂·Dragon Core ≠ 龍芯 |
 | 龍魂 (LóngHún) | 🔴 系统名称 | 系统灵魂·Dragon Soul 是误导·不用 |
-| 龍 (Lóng) | 🔴 文化符号 | 繁体龍 ≠ 简体龙 ≠ Dragon · 三者不等价 |
+| 龍 (Lóng) | 🔴 文化符号 | 繁体龍 ≠ 简体龍 ≠ Dragon · 三者不等价 |
 | DNA 追溯码 | 🔴 技术术语 | 专有命名·不是生物 DNA |
 | UID9622 | 🔴 创始人身份 | 唯一标识·不解释·不翻译 |
 | 通心译 | 🔴 产品名 | 字体翻译引擎专有名称 |

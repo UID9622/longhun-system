@@ -215,7 +215,7 @@ class WuxingCollabField:
     def __init__(self, name: str = "default"):
         self.name = name
         self.nodes: Dict[str, CollabNode] = {}
-        self._history: List[Dict] = []
+        self._history: List[Dict[str, Any]] = []
 
     def register(self, node: CollabNode) -> str:
         """注册协同节点"""
@@ -355,7 +355,7 @@ class FlowFieldFusionEngine:
 
     def __init__(self, collab_field: WuxingCollabField):
         self.field = collab_field
-        self._last_fusion: Optional[Dict] = None
+        self._last_fusion: Optional[Dict[str, Any]] = None
 
     def compute_fusion(self) -> Dict[str, Any]:
         """
@@ -384,7 +384,7 @@ class FlowFieldFusionEngine:
             collective_energy = {k: round(v / total_energy, 4) for k, v in collective_energy.items()}
 
         # 集体主导五行
-        dom_wuxing = max(collective_energy, key=collective_energy.get)
+        dom_wuxing = max(collective_energy, key=collective_energy.get)  # type: ignore[reportArgumentType]
 
         # ── 2. 三才融合 ──
         fused_sancai = {"heaven": 0.0, "earth": 0.0, "human": 0.0}
@@ -490,8 +490,8 @@ class CollabConflictDetector:
 
     def __init__(self, collab_field: WuxingCollabField):
         self.field = collab_field
-        self.conflicts: List[Dict] = []
-        self.warnings: List[Dict] = []
+        self.conflicts: List[Dict[str, Any]] = []
+        self.warnings: List[Dict[str, Any]] = []
 
     def detect_all(self) -> Dict[str, Any]:
         """全量检测"""
@@ -964,9 +964,9 @@ def run_tests() -> Dict[str, bool]:
     # ── 测试8: 小团队协同（仅3人） ──
     print("\n🧪 测试8: 三人小团队协同")
     small_field = WuxingCollabField("三人小队")
-    small_field.register(CollabNode("s1", "指挥", WuxingElement.EARTH, 5, 80, CollabRole.COMMANDER, 0.95))
-    small_field.register(CollabNode("s2", "执行", WuxingElement.FIRE, 2, 70, CollabRole.EXECUTOR, 0.9))
-    small_field.register(CollabNode("s3", "守护", WuxingElement.METAL, 4, 75, CollabRole.AUDITOR, 0.92))
+    small_field.register(CollabNode("s1", "指挥", WuxingElement.EARTH, 5, 80, CollabRole.COMMANDER, 0.95))  # type: ignore[reportArgumentType]
+    small_field.register(CollabNode("s2", "执行", WuxingElement.FIRE, 2, 70, CollabRole.EXECUTOR, 0.9))  # type: ignore[reportArgumentType]
+    small_field.register(CollabNode("s3", "守护", WuxingElement.METAL, 4, 75, CollabRole.AUDITOR, 0.92))  # type: ignore[reportArgumentType]
 
     balance3, status3 = small_field.get_team_balance_score()
     print(f"   均衡指数: {balance3} · {status3}")
@@ -982,9 +982,9 @@ def run_tests() -> Dict[str, bool]:
     # ── 测试9: 角色冲突团队 ──
     print("\n🧪 测试9: 角色冲突检测")
     conflict_field = WuxingCollabField("冲突测试")
-    conflict_field.register(CollabNode("c1", "审计甲", WuxingElement.METAL, 4, 80, CollabRole.AUDITOR, 0.9))
-    conflict_field.register(CollabNode("c2", "审计乙", WuxingElement.METAL, 9, 75, CollabRole.AUDITOR, 0.85))
-    conflict_field.register(CollabNode("c3", "审计丙", WuxingElement.METAL, 4, 70, CollabRole.AUDITOR, 0.8))
+    conflict_field.register(CollabNode("c1", "审计甲", WuxingElement.METAL, 4, 80, CollabRole.AUDITOR, 0.9))  # type: ignore[reportArgumentType]
+    conflict_field.register(CollabNode("c2", "审计乙", WuxingElement.METAL, 9, 75, CollabRole.AUDITOR, 0.85))  # type: ignore[reportArgumentType]
+    conflict_field.register(CollabNode("c3", "审计丙", WuxingElement.METAL, 4, 70, CollabRole.AUDITOR, 0.8))  # type: ignore[reportArgumentType]
     cd = CollabConflictDetector(conflict_field)
     cr = cd.detect_all()
     role_warns = [w for w in cr['warnings'] if w['type'] == 'role_duplicate']
@@ -1109,7 +1109,7 @@ if __name__ == "__main__":
                 bar = "█" * count
                 print(f"  {elem}: {bar} ({count})")
             # 五行补位提示
-            min_elem = min(dist, key=dist.get)
+            min_elem = min(dist, key=dist.get)  # type: ignore[reportArgumentType]
             if dist[min_elem] == 0:
                 print(f"\n⚠️ {min_elem}行缺失，建议补充对应角色")
 

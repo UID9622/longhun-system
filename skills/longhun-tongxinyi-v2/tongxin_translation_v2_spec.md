@@ -174,7 +174,7 @@ class TriLayerProtocol:
 
 **关键样本类型**:
 ```
-输入: "画龙点睛"
+输入: "画龍点睛"
 字面输出: "to draw eyes on a dragon painting"
 心意输出: "to add the finishing touch that brings something to life"
 文化注释: {source: "成语-张彦远《历代名画记》", risk_level: "low"}
@@ -307,7 +307,7 @@ DIMENSION_WEIGHTS = {
 
 ```csv
 sample_id,source_text,context,domain,dim_focus,literal_text,logical_text,intentional_text,D1_score,D2_score,D3_score,D4_score,D5_score,D6_score,D7_score,overall_score,annotator,timestamp
-TX-v2-0001,画龙点睛,,literary,"D1,D4",to draw eyes on a dragon painting,to add the crucial detail,to add the finishing touch,0.95,0.80,0.70,0.90,0.90,0.85,0.90,0.88,human,2026-07-01
+TX-v2-0001,画龍点睛,,literary,"D1,D4",to draw eyes on a dragon painting,to add the crucial detail,to add the finishing touch,0.95,0.80,0.70,0.90,0.90,0.85,0.90,0.88,human,2026-07-01
 ```
 
 ### 5.3 标注指南速查
@@ -896,7 +896,7 @@ def main():
     
     # 测试样本
     test_samples = [
-        "画龙点睛",
+        "画龍点睛",
         " his team delivered the project ahead of schedule",
         "The early bird catches the worm",
     ]

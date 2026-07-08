@@ -440,7 +440,7 @@ def cmd_audit(tail: int = 20):
     print("─" * 70)
 
 def cmd_validate_plist():
-    """校验龙魂 plist（委托 plist_validator）"""
+    """校验龍魂 plist（委托 plist_validator）"""
     import subprocess
     validator = os.path.join(PROJECT_ROOT, "bin", "plist_validator.py")
     plist = os.path.join(PROJECT_ROOT, "launchd", "com.longhun.symbiote.plist")

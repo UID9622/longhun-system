@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂万年历 (LongHun Calendar) - 龙魂系统唯一入口
+龍魂万年历 (LongHun Calendar) - 龍魂系统唯一入口
 版本: v1.0
-体系: 龙魂体系 (UID9622)
+体系: 龍魂体系 (UID9622)
 功能: 系统入口 | 时间管理 | 任务调度 | 上下文路由 | 实时记录 | 多AI网关
-设计原则: 龙字简体 | DNA追溯 | 三色审计 | 与52技能无冲突
+设计原则: 龍字简体 | DNA追溯 | 三色审计 | 与52技能无冲突
 
-作者: 龙魂AI架构师
+作者: 龍魂AI架构师
 创建: 2026-06-27
 """
 
@@ -26,7 +26,7 @@ from collections import OrderedDict
 # ============================================================================
 
 LONGHUN_UID = "9622"
-SYSTEM_NAME = "龙魂系统"
+SYSTEM_NAME = "龍魂系统"
 CALENDAR_VERSION = "1.0"
 
 # 三色审计标记
@@ -46,7 +46,7 @@ SKILL_REGISTRY = {
     "S08": {"name": "AI网关", "layer": "L2", "desc": "多AI网关调度"},
     "S09": {"name": "代码生成", "layer": "L3", "desc": "程序代码生成"},
     "S10": {"name": "数据分析", "layer": "L3", "desc": "数据分析与可视化"},
-    "S11": {"name": "万年历", "layer": "L0", "desc": "龙魂万年历-系统入口"},
+    "S11": {"name": "万年历", "layer": "L0", "desc": "龍魂万年历-系统入口"},
     # ... 可扩展至S52
 }
 
@@ -55,7 +55,7 @@ TIAN_GAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"
 # 地支
 DI_ZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
 # 生肖
-SHENG_XIAO = ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"]
+SHENG_XIAO = ["鼠", "牛", "虎", "兔", "龍", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"]
 
 # 卦名（64卦）
 GUA_NAMES = [
@@ -512,7 +512,7 @@ class LunarEngine:
 
 class LongHunCalendar:
     """
-    龙魂万年历 - 系统唯一入口 (L0层)
+    龍魂万年历 - 系统唯一入口 (L0层)
     
     核心职责:
     1. 时间管理：公历/农历/节气/干支/卦象
@@ -521,7 +521,7 @@ class LongHunCalendar:
     4. 实时记录：动作日志、DNA追溯
     5. 多AI网关：AI服务调度
     
-    DNA: #龙芯⚡️2026-06-27-LONGHUN-CALENDAR-v1.0
+    DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-v1.0
     """
     
     def __init__(self):
@@ -540,7 +540,7 @@ class LongHunCalendar:
             skill_id="S11",
             audit_level=AUDIT_GREEN
         )
-        print(f"{AUDIT_GREEN} 龙魂万年历 v{CALENDAR_VERSION} 启动")
+        print(f"{AUDIT_GREEN} 龍魂万年历 v{CALENDAR_VERSION} 启动")
         print(f"   DNA: {self.boot_dna['dna_code']}")
     
     def _init_dna(self):
@@ -549,7 +549,7 @@ class LongHunCalendar:
             "system": SYSTEM_NAME,
             "uid": LONGHUN_UID,
             "version": CALENDAR_VERSION,
-            "dna_signature": f"#龙芯⚡️2026-06-27-LONGHUN-CALENDAR-v{CALENDAR_VERSION}",
+            "dna_signature": f"#龍芯⚡️2026-06-27-LONGHUN-CALENDAR-v{CALENDAR_VERSION}",
             "confirm_code": f"#CONFIRM🌌{LONGHUN_UID}-ONLY-ONCE🧬CALENDAR-v{CALENDAR_VERSION}",
         }
     
@@ -952,7 +952,7 @@ class LongHunCalendar:
 # ============================================================================
 
 def create_calendar():
-    """创建龙魂万年历实例"""
+    """创建龍魂万年历实例"""
     return LongHunCalendar()
 
 def quick_calendar():
@@ -961,10 +961,10 @@ def quick_calendar():
     return cal.get_today()
 
 def demo():
-    """演示龙魂万年历功能"""
+    """演示龍魂万年历功能"""
     print("=" * 60)
-    print("  龙魂万年历 v1.0 - 演示")
-    print("  DNA: #龙芯⚡️2026-06-27-LONGHUN-CALENDAR-v1.0")
+    print("  龍魂万年历 v1.0 - 演示")
+    print("  DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-v1.0")
     print("=" * 60)
     
     cal = LongHunCalendar()

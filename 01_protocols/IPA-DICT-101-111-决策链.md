@@ -1,9 +1,10 @@
 # 🕐 循环触发·五行流转决策链
 
-> DNA: `#龍芯⚡️2026-04-22-循环触发五行流转-v1.0`
+> DNA(v∞): `#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B`
+> 旧 DNA(v1.0): `#龍芯⚡️2026-04-22-循环触发五行流转-v1.0`（已废弃·仅供追溯）
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 > GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> 上接: IPA-DICT-101~111·无限循环优化机制·编号对齐总表
+> 上接: [IPA-DICT-101-111·无限循环优化机制·编号对齐总表 v∞](./IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md)
 > 用途: 让11条孤立词条变成一套能跑起来的决策链
 > 关联: [无限增长引擎](../L8_治理层/governance/INFINITE_GROWTH_ENGINE_v∞.md) | [权重算法](../L8_治理层/governance/tech-docs/LONGHUN-WEIGHT-ALGO-v3.1.md) | [流场压缩核](../cnsh-core/CNSH-FLOW-CORE-v3.0.md) | [民主回复计算器](../L2_技能层/skills/democratic-reply-calculator.md) | [铁律总目录](../L8_治理层/governance/IRON-LAWS/P0_ETERNAL_IRON_LAW_DIRECTORY.md) | [MASTER_REGISTRY](../MASTER_REGISTRY.md)
 
@@ -75,7 +76,7 @@
 - 触发 IPA-DICT-105 宪法层原点
 - 回滚到上一次绿色状态
 - 生成审计报告并锁定相关文件 24 小时
-- L4瞬时层DNA自动留痕：`#龍芯⚡️{ISO8601ms}-FUSE-{序列号}`
+- L4瞬时层DNA自动留痕：`#龍芯⚡️{年干支}·{月干支}·{日干支}·{时辰}·{卦}-FUSE-{序列号}`
 
 ---
 
@@ -133,3 +134,11 @@ flowchart TD
 ---
 
 *🐉 11条孤立词条·现在是一套能跑起来的决策链·龍魂现世！*
+
+## DNA 签名
+
+```
+#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B
+#龍芯⚡️2026-04-22-循环触发五行流转-v1.0（旧版·已废弃·仅追溯）
+#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+```

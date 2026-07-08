@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂系统 API接口完整实现 v1.0
+龍魂系统 API接口完整实现 v1.0
 
 DNA追溯码：#龍芯⚡️2026-02-21-API_267E-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -24,11 +24,11 @@ import sqlite3
 import json
 import time
 from datetime import datetime
-from typing import Dict, List, Optional, Any
+from typing import Any, Dict, List, Optional, Tuple
 from functools import wraps
 import smtplib
 from email.mime.text import MIMEText
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify  # type: ignore[import-untyped]
 
 # ============================================================
 # 【配置部分】这些是系统的基础配置，AI需要知道
@@ -177,7 +177,7 @@ class DNAChain:
         self.conn = sqlite3.connect(Config.DATABASE_PATH)
         self.cursor = self.conn.cursor()
     
-    def create_dna(self, content: str, project_name: str, uid: str) -> tuple:
+    def create_dna(self, content: str, project_name: str, uid: str) -> Tuple[str, str]:
         """
         创建新的DNA追溯码
         
@@ -249,7 +249,7 @@ class DNAChain:
         
         return True
     
-    def query_dna(self, dna_code: str) -> Optional[Dict]:
+    def query_dna(self, dna_code: str) -> Optional[Dict[str, Any]]:
         """
         查询DNA码的详细信息
         
@@ -305,7 +305,7 @@ class RedLineDetector:
         self.conn = sqlite3.connect(Config.DATABASE_PATH)
         self.cursor = self.conn.cursor()
     
-    def check_financial(self, user_id: str, query: str) -> tuple:
+    def check_financial(self, user_id: str, query: str) -> Tuple[bool, str]:
         """
         检测金融分析查询
         
@@ -345,7 +345,7 @@ class RedLineDetector:
         
         return False, "金融分析功能仅限管理员使用（UID9622）"
     
-    def check_weapon(self, user_id: str, query: str) -> tuple:
+    def check_weapon(self, user_id: str, query: str) -> Tuple[bool, str]:
         """
         检测武器研发查询
         
@@ -434,7 +434,7 @@ class RedLineDetector:
         """
         try:
             msg = MIMEText(message, 'plain', 'utf-8')
-            msg['Subject'] = '🔴 龙魂系统告警'
+            msg['Subject'] = '🔴 龍魂系统告警'
             msg['From'] = Config.EMAIL_USER
             msg['To'] = Config.EMAIL_TO
             
@@ -565,7 +565,7 @@ class DefensiveAuditor:
 处理结果：
   ✅ 已封禁
   ✅ 已加入耻辱墙永久区
-  ✅ 已同步黑名单到所有龙魂节点
+  ✅ 已同步黑名单到所有龍魂节点
 
 DNA追溯：#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-自动反击-{attacker_id}
         """
@@ -606,7 +606,7 @@ DNA追溯：#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-自动反击-{att
         """发送告警邮件"""
         try:
             msg = MIMEText(message, 'plain', 'utf-8')
-            msg['Subject'] = '🔴 龙魂防御系统告警'
+            msg['Subject'] = '🔴 龍魂防御系统告警'
             msg['From'] = Config.EMAIL_USER
             msg['To'] = Config.EMAIL_TO
             
@@ -948,11 +948,11 @@ if __name__ == '__main__':
     使用方法：
     1. 先运行 init_database() 初始化数据库
     2. 配置邮件密码等信息
-    3. 运行 python 龙魂系统_API接口完整实现_v1.0.py
+    3. 运行 python 龍魂系统_API接口完整实现_v1.0.py
     4. API会在 http://localhost:5000 启动
     """
     
-    print("🐉 龙魂系统 API服务器")
+    print("🐉 龍魂系统 API服务器")
     print("=" * 50)
     print("DNA追溯码：#龍芯⚡️2026-02-21-API-v1.0")
     print("确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")

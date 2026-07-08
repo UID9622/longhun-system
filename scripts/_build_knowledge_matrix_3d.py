@@ -137,7 +137,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0a0f;color:#e4e4e
   </div>
   <div class="hud-panel" id="legend">
     <div class="legend-item"><span class="legend-dot" style="background:#DC143C;color:#DC143C"></span>主权·朱雀</div>
-    <div class="legend-item"><span class="legend-dot" style="background:#2E8B57;color:#2E8B57"></span>治理·青龙</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#2E8B57;color:#2E8B57"></span>治理·青龍</div>
     <div class="legend-item"><span class="legend-dot" style="background:#1E90FF;color:#1E90FF"></span>机制·玄武</div>
     <div class="legend-item"><span class="legend-dot" style="background:#FFD700;color:#FFD700"></span>基础·白虎</div>
     <div class="legend-item"><span class="legend-dot" style="background:#8B4513;color:#8B4513"></span>北辰·太极</div>
@@ -184,7 +184,7 @@ const KNOWLEDGE_EDGES = __EDGES_JSON__;
 
 const LAYER_CONFIG = {
   sovereignty:  { y:  45, radius: 32, color: 0xDC143C, name: '主权层·朱雀', beast: '朱雀' },
-  governance:   { y:  15, radius: 26, color: 0x2E8B57, name: '治理层·青龙', beast: '青龙' },
+  governance:   { y:  15, radius: 26, color: 0x2E8B57, name: '治理层·青龍', beast: '青龍' },
   mechanism:    { y: -15, radius: 26, color: 0x1E90FF, name: '机制层·玄武', beast: '玄武' },
   foundation:   { y: -45, radius: 32, color: 0xFFD700, name: '基础层·白虎', beast: '白虎' }
 };

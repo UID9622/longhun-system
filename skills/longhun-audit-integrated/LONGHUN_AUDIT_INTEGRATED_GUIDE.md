@@ -51,7 +51,7 @@ python3 longhun_audit_integrated.py --script --file health_check.sh
 ```
 
 **检查内容：**
-- 是否包含简体"龙"字 → FUSE_3熔断
+- 是否包含简体"龍"字 → FUSE_3熔断
 - 是否违反底座原则（蒸馏、平均、投机等）
 - 是否通过L4语义检查
 
@@ -125,7 +125,7 @@ python3 longhun_audit_integrated.py --system > audit_report.json
 
 ```
 ┌─ 第一层：CNSH对齐
-│  ├─ 包含简体"龙"？ → 🔴 FUSE_3熔断，不执行
+│  ├─ 包含简体"龍"？ → 🔴 FUSE_3熔断，不执行
 │  └─ 违反底座原则？ → 🔴 语义错误，不执行
 │
 ├─ 第二层：系统健康（执行前检查）
@@ -165,7 +165,7 @@ else:
     "CNSH对齐": {
       "confidence": 0.85,
       "color": "🟢",
-      "issues": ["L1纠正: 龙->龍"]
+      "issues": ["L1纠正: 龍->龍"]
     }
   },
   "overall_confidence": 0.85,

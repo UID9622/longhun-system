@@ -246,7 +246,7 @@ class AntiDomesticationDetector:
     }
 
     def __init__(self):
-        self.compiled_patterns: List[Tuple[DomesticationPattern, List[Pattern]]] = []
+        self.compiled_patterns: List[Tuple[DomesticationPattern, List[Pattern[str]]]] = []
         for dp in ALL_DOMESTICATION_PATTERNS:
             compiled = [re.compile(p, re.IGNORECASE) for p in dp.patterns]
             self.compiled_patterns.append((dp, compiled))

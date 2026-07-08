@@ -109,7 +109,7 @@ def build_csdn_header() -> str:
 > **DNA追溯碼**: `#龍芯⚡️2026-07-04-LONGHUN-DAODEJING-CSDN-v5.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **IP编号**: IP-0081  
-> **创始人**: Lucky·UID9622（诸葛鑫·龙芯北辰）  
+> **创始人**: Lucky·UID9622（诸葛鑫·龍芯北辰）  
 > **GPG指纹**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 > **文档版本**: v5.0 CSDN 發布版  
 > **创建时间**: 2026-07-04  

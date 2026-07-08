@@ -29,7 +29,7 @@ HAS_BRAKET = False  # type: ignore[assignment]
 try:
     import sys
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "L6_集成层"))
-    from longhun_braket import 龍魂BraKet引擎, 人格态  # noqa: F401
+    from longhun_braket import 龍魂BraKet引擎, 人格态  # noqa: F401  # type: ignore[import-untyped]
     HAS_BRAKET = True
 except ImportError:
     pass

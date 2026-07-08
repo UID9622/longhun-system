@@ -175,7 +175,7 @@ def F22_inheritance_loyalty(
 
     不变式范例（必须继承）:
         · CONFIRM / SEAL / GPG 徽记
-        · “龍 不可写为 龙”字符律
+        · “龍 不可写为 龍”字符律
         · P0 一票否决条款
         · 主控身份 UID9622
 

@@ -16,7 +16,7 @@
 
 ## 🏗️ 三层语义传递 v2.0 | Tri-Layer Semantic Transfer
 
-| 层级 | 英文名 | 功能 | 输出示例（画龙点睛）|
+| 层级 | 英文名 | 功能 | 输出示例（画龍点睛）|
 |------|--------|------|---------------------|
 | 字面层 | Literal Layer | 术语对齐+语法映射 | to draw eyes on a dragon painting |
 | 逻辑层 | Logical Layer | 语义蕴含+语篇连贯 | to add the crucial detail that brings life |
@@ -118,7 +118,7 @@ Safety_Penalty   = max(0, 0.95 - D5) × 10   (D5<0.95时重罚)
 {
   "sample_id": "TX-v2-0001",
   "source": {
-    "text": "画龙点睛",
+    "text": "画龍点睛",
     "context": "...",
     "cultural_notes": "..."
   },

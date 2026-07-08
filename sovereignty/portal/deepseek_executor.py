@@ -8,10 +8,10 @@
 🐉 龍魂 DeepSeek 唯一监管加密执行者
 
 职责：
-1. 作为龙魂系统对外 API 的唯一入口。
+1. 作为龍魂系统对外 API 的唯一入口。
 2. 解密外部请求、校验调用者身份、HMAC、时间戳、防重放。
 3. 可选地把动作描述送 DeepSeek API 做策略审查。
-4. 把合法请求重新加密后转发给龙魂本地网关。
+4. 把合法请求重新加密后转发给龍魂本地网关。
 5. 将本地网关的加密响应解密后再加密返回给外部调用者。
 
 监听：127.0.0.1:9453（由 Nginx 反代 /executor/ 到公网）
@@ -101,7 +101,7 @@ def _policy_check(route: str, payload_summary: str, caller: str) -> bool:
         return True
 
     prompt = (
-        "你是龙魂系统的安全策略审查员。请仅回答 ALLOW 或 DENY，不要解释。\n"
+        "你是龍魂系统的安全策略审查员。请仅回答 ALLOW 或 DENY，不要解释。\n"
         f"调用者: {caller}\n"
         f"目标路由: {route}\n"
         f"请求摘要: {payload_summary[:200]}\n"

@@ -173,7 +173,7 @@
 | 3 | `lh6` 与 `lh` 命令注册表存在部分重复定义 | 🟡 | 统一定义在 B 域，命令注册表 JSON 只做别名映射 | ✅ 采纳·入表 B |
 | 4 | 编辑器引擎中的 `SUPPORTED_LANGUAGES` 缺少 `.cnsh` 和 `.cx` 扩展名在引擎中已注册 |
    但未在关键字登记册中对应 | 🟡 | 对齐 `.cnsh`/`.cx` → CNSH中文编程 映射 | ✅ 已正确·入表 A3 |
-| 5 | `DNATemplate.verify_dna()` 中的"龙"检测只检查 `"龙" in content and "龍" not in content`，| 🟡 | 增加完整检测：`龍 in content → True`，`龙 in content and 龍 not in content → 🔴` | ✅ 采纳·入表 A1 |
+| 5 | `DNATemplate.verify_dna()` 中的"龍"检测只检查 `"龍" in content and "龍" not in content`，| 🟡 | 增加完整检测：`龍 in content → True`，`龍 in content and 龍 not in content → 🔴` | ✅ 采纳·入表 A1 |
 | 6 | 编辑器缺少触发词→执行指令的消费端，即 `lh` 命令调用编辑器时无参数透传 | 🔴 | 在 `lh6` 增加 `editor` 子命令，透传文件名和语言 | ✅ 采纳·入表 B2 |
 | 7 | 变量命名存在英文残留（如 `show_line_numbers`），| 🟡 | 全部映射到 CNSH 中文变量名（A5 域），英文名保留为向后兼容别名 | ✅ 采纳·入表 A5 |
 | 8 | B 域终端命令缺少对应的编辑器引擎执行钩子 | 🔴 | 增加 `引擎_命令_打开编辑器` 映射到 `lh edit <文件>` | ✅ 采纳·入表 B2 |
@@ -343,8 +343,8 @@ def 左右互搏审计(注册表):
             问题列表.append(f"🔴 {变量名}: 权重 {属性['权重']} 应为 {期望权重}")
 
         # 左脑检查 2：龍字繁体
-        if "龍" in 变量名 and "龙" in 变量名.replace("龍", ""):
-            问题列表.append(f"🔴 {变量名}: 含简体「龙」→ 熔断")
+        if "龍" in 变量名 and "龍" in 变量名.replace("龍", ""):
+            问题列表.append(f"🔴 {变量名}: 含简体「龍」→ 熔断")
 
         # 左脑检查 3：类型必须声明
         if not 属性.get("类型"):

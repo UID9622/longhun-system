@@ -20,6 +20,7 @@ import sys
 import os
 import json
 from pathlib import Path
+from typing import Any, Dict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,20 +44,20 @@ for _audit_path in _AUDIT_CANDIDATES:
         break
 
 try:
-    from system_guardian import 系统守护者
+    from system_guardian import 系统守护者  # type: ignore[import-untyped]
 except Exception:
     系统守护者 = None
 
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
+from fastapi.staticfiles import StaticFiles  # type: ignore[import-untyped]
 from fastapi.responses import FileResponse
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from pydantic import BaseModel
 from 国家数字身份统一认证入口 import 魂灵ID, 服务商接入点, 国家数字身份统一认证中心
 
 app = FastAPI(
     title="中国国家数字身份统一认证入口 v2.0",
-    description="人民数据主权，平台服务降级。龙芯 × 华为 × CNSH 融合。",
+    description="人民数据主权，平台服务降级。龍芯 × 华为 × CNSH 融合。",
     version="2.0.0"
 )
 
@@ -89,7 +90,7 @@ def _find_skills_registry() -> Path:
     for c in candidates:
         if c and Path(c).exists():
             return Path(c)
-    return None
+    return None  # type: ignore[return-value]
 
 
 class 签发请求(BaseModel):
@@ -99,7 +100,7 @@ class 签发请求(BaseModel):
 
 
 class 验证请求(BaseModel):
-    令牌: dict
+    令牌: Dict[str, Any]
     服务商名称: str
     服务类型: str
 
@@ -121,7 +122,7 @@ def 开发者门户页():
 
 @app.get("/health")
 def 健康检查():
-    base = {"status": "unknown", "note": "system guardian not loaded"}
+    base: Dict[str, Any] = {"status": "unknown", "note": "system guardian not loaded"}
     if 系统守护者 is not None:
         base = 系统守护者().全检()
 
@@ -206,7 +207,7 @@ def 信息():
     return {
         "title": "中国国家数字身份统一认证入口 v2.0",
         "principle": "一次认证，全网通行",
-        "slogan": "芯可龙，云可私，网可断，心不可失",
+        "slogan": "芯可龍，云可私，网可断，心不可失",
         "tech_stack": 中心.技术栈,
         "declaration": 中心.生成主权宣言(),
         "dna": "#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0"

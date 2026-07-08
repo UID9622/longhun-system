@@ -1,0 +1,43 @@
+{
+  "version": "2.0",
+  "test_estate": "#测试庄园·BHV-20260708-001",
+  "sub_estate": "#测试庄园·CAL-20260708-001",
+  "calibrated_at": "2026-07-08T08:53:44",
+  "sample_size": "1000 humans + 200 AI",
+  "data_source": {
+    "type": "simulated",
+    "generator": "bin/lh_sample_generator.py",
+    "seed": 9622,
+    "human_scenarios": [
+      "技术讨论（GitHub/CSDN评论区风格）",
+      "生活吐槽（小红书/微博/朋友圈）",
+      "深夜感慨（社交情感类内容）",
+      "购物点评（淘宝/京东/大众点评）",
+      "工作吐槽（脉脉/职场群聊）",
+      "群聊朋友圈（微信/QQ群碎片化聊天）",
+      "游戏娱乐（NGA/贴吧/游戏社区）",
+      "学习考试（知乎/学生群聊混合风格）"
+    ],
+    "ai_scenarios": [
+      "Claude结构化建议型",
+      "Gemini学术分析型",
+      "通用AI技术文档型",
+      "GPT总结汇报型",
+      "产品介绍型"
+    ],
+    "note": "全模拟数据·零真实用户数据·seed=9622可复现"
+  },
+  "responsibility": {
+    "数据来源责任": "P06 数学大师",
+    "测试执行责任": "P02 龍芯",
+    "审计责任": "P05 上帝之眼",
+    "审核责任": "UID9622"
+  },
+  "optimal_alpha": 0.62,
+  "optimal_beta": 0.25,
+  "optimal_gamma": 0.13,
+  "optimal_threshold": 0.73,
+  "f1": 0.9751,
+  "accuracy": 0.9575,
+  "dna": "#龍芯⚡️2026-07-08-08:50-CALIBRATION-1000HUMANS-v2.0"
+}

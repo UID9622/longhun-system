@@ -30,7 +30,7 @@ class CNSHAligner:
         
         # L1: 字符黑名单（禁用字符）
         self.banned_chars = {
-            '龙': ('龍', 'L1:简体龙->繁体龍'),  # 最关键的熔断字符
+            '龍': ('龍', 'L1:简体龍->繁体龍'),  # 最关键的熔断字符
             '松': ('松', 'L1:保留用于五行'),
             '竹': ('竹', 'L1:保留用于五行'),
         }
@@ -77,8 +77,8 @@ class CNSHAligner:
         
         for banned, (replacement, reason) in self.banned_chars.items():
             if banned in text:
-                # 简体龙字 → 直接熔断
-                if banned == '龙':
+                # 简体龍字 → 直接熔断
+                if banned == '龍':
                     return (text, 0.0, [f'🔴 FUSE_3永久熔断: {reason}'])
                 
                 fixed_text = fixed_text.replace(banned, replacement)
@@ -280,7 +280,7 @@ if __name__ == '__main__':
     
     # 测试1: 包含禁用字符
     test1 = """
-    def 检查龙心状态():
+    def 检查龍心状态():
         用户_列表 = []
         return 用户_列表
     """

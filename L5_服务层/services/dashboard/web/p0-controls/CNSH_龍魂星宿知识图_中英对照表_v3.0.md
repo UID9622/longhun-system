@@ -44,7 +44,7 @@
 | `marquee-track` | `跑马灯轨道` | id/class |
 | `nebula` | `星云背景` | id/class |
 | `open` | `打开` | id/class |
-| `qinglong` | `青龙` | id/class |
+| `qinglong` | `青龍` | id/class |
 | `red-alert` | `红色警报` | id/class |
 | `secondary` | `次要` | id/class |
 | `silver-dot` | `银色点` | id/class |

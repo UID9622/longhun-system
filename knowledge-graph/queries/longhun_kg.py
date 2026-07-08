@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂知识图谱查询引擎 (LongHun Knowledge Graph Engine)
+龍魂知识图谱查询引擎 (LongHun Knowledge Graph Engine)
 =====================================================
-为龙魂系统(UID9622)构建的轻量级知识图谱查询引擎。
+为龍魂系统(UID9622)构建的轻量级知识图谱查询引擎。
 
 功能:
   - list   : 列出节点（支持类型/层级/状态过滤）
@@ -53,7 +53,7 @@ def color(text, *codes):
 #  LongHunGraph 核心类
 # ═══════════════════════════════════════════════════════════════
 class LongHunGraph:
-    """龙魂知识图谱查询引擎"""
+    """龍魂知识图谱查询引擎"""
 
     def __init__(self, data_dir):
         """
@@ -83,7 +83,7 @@ class LongHunGraph:
         1. 扁平结构: data_dir/nodes.json, data_dir/edges.json, data_dir/states.json
         2. 分层结构: data_dir/nodes/all_nodes.json, data_dir/edges/all_edges.json, data_dir/states/state_machine.json
         """
-        # 尝试分层结构（龙魂标准结构）
+        # 尝试分层结构（龍魂标准结构）
         nodes_path = os.path.join(data_dir, "nodes", "all_nodes.json")
         edges_path = os.path.join(data_dir, "edges", "all_edges.json")
         states_path = os.path.join(data_dir, "states", "state_machine.json")
@@ -162,7 +162,7 @@ class LongHunGraph:
     def _load_builtin(self):
         """加载内建测试数据"""
         self.nodes = {
-            "LH9622": {"id": "LH9622", "node_id": "LH9622", "type": "system", "node_type": "system", "name": "龙魂系统", "layer": "core", "state": "active", "desc": "龙魂系统核心本体", "dna": "#龍芯⚡️2026-06-27-LHKG-BUILTIN-v1.0", "properties": {}, "version": "v1.0", "created_at": "", "updated_at": ""},
+            "LH9622": {"id": "LH9622", "node_id": "LH9622", "type": "system", "node_type": "system", "name": "龍魂系统", "layer": "core", "state": "active", "desc": "龍魂系统核心本体", "dna": "#龍芯⚡️2026-06-27-LHKG-BUILTIN-v1.0", "properties": {}, "version": "v1.0", "created_at": "", "updated_at": ""},
         }
         self.edges = []
         self.state_machine = {
@@ -339,7 +339,7 @@ class LongHunGraph:
 #  命令行入口
 # ═══════════════════════════════════════════════════════════════
 def main():
-    parser = argparse.ArgumentParser(description="龙魂知识图谱查询引擎")
+    parser = argparse.ArgumentParser(description="龍魂知识图谱查询引擎")
     parser.add_argument("--data-dir", default=os.environ.get("LHKG_DIR", os.path.expanduser("~/.龍魂/knowledge-graph")), help="数据目录")
     sub = parser.add_subparsers(dest="cmd")
 

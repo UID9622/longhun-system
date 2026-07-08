@@ -339,3 +339,149 @@ class SystemDecl(ASTNode):
     """系统声明：系统 名字 { 人格空间: [...] }"""
     name: str = ""
     fields: List["MapPair"] = field(default_factory=list)
+
+
+# ═══════════════════════════════════════════════════════════════
+# CNSH v2.0-v2.3 新增：分支/审计/DNA/熔断/回滚/钩子/测试/路由
+# ═══════════════════════════════════════════════════════════════
+
+@dataclass
+class SwitchStmt(ASTNode):
+    """切换 ... { 情况 ...: ... 默认: ... }"""
+    value: Optional[ASTNode] = None
+    cases: List["CaseClause"] = field(default_factory=list)
+    default_body: List[ASTNode] = field(default_factory=list)
+
+
+@dataclass
+class CaseClause(ASTNode):
+    """情况 值: 语句..."""
+    value: Optional[ASTNode] = None
+    body: List[ASTNode] = field(default_factory=list)
+
+
+@dataclass
+class DNARegisterStmt(ASTNode):
+    """DNA登记(信息映射)"""
+    info: Optional[ASTNode] = None
+
+
+@dataclass
+class DNAVerifyStmt(ASTNode):
+    """DNA验证(DNA码)"""
+    dna_code: Optional[ASTNode] = None
+
+
+@dataclass
+class DNASignStmt(ASTNode):
+    """DNA签章(信息)"""
+    info: Optional[ASTNode] = None
+
+
+@dataclass
+class AbortStmt(ASTNode):
+    """熔断(原因)"""
+    reason: Optional[ASTNode] = None
+
+
+@dataclass
+class CreateRollbackStmt(ASTNode):
+    """生成回滚点(标记)"""
+    label: Optional[ASTNode] = None
+
+
+@dataclass
+class RollbackStmt(ASTNode):
+    """回滚(快照ID)"""
+    snapshot_id: Optional[ASTNode] = None
+
+
+@dataclass
+class VerifyRollbackStmt(ASTNode):
+    """验证回滚(快照ID)"""
+    snapshot_id: Optional[ASTNode] = None
+
+
+@dataclass
+class HookStmt(ASTNode):
+    """钩子 名称(参数...) { ... }"""
+    name: str = ""
+    params: List["Parameter"] = field(default_factory=list)
+    body: List[ASTNode] = field(default_factory=list)
+    hook_type: str = ""  # "before" / "after" / ""
+
+
+@dataclass
+class TriColorAuditStmt(ASTNode):
+    """三色审计(操作映射)"""
+    operation: Optional[ASTNode] = None
+
+
+@dataclass
+class TestStmt(ASTNode):
+    """测试 "名称" { ... }"""
+    name: str = ""
+    body: List[ASTNode] = field(default_factory=list)
+
+
+@dataclass
+class AssertStmt(ASTNode):
+    """断言 表达式 == 期望值"""
+    actual: Optional[ASTNode] = None
+    expected: Optional[ASTNode] = None
+
+
+@dataclass
+class ExpectStmt(ASTNode):
+    """期望 表达式 == 值"""
+    actual: Optional[ASTNode] = None
+    expected: Optional[ASTNode] = None
+
+
+@dataclass
+class RouteToStmt(ASTNode):
+    """路由到 人格名"""
+    persona: str = ""
+
+
+@dataclass
+class QuantumEntangleStmt(ASTNode):
+    """量子纠缠(父任务, 子任务)"""
+    parent: Optional[ASTNode] = None
+    child: Optional[ASTNode] = None
+
+
+@dataclass
+class CollapseStmt(ASTNode):
+    """坍缩到(状态)"""
+    state: Optional[ASTNode] = None
+
+
+@dataclass
+class ColdStartStmt(ASTNode):
+    """冷启动"""
+    pass
+
+
+@dataclass
+class HotStartStmt(ASTNode):
+    """热启动"""
+    pass
+
+
+@dataclass
+class ExitProgramStmt(ASTNode):
+    """终止执行(退出码)"""
+    code: Optional[ASTNode] = None
+
+
+@dataclass
+class ExportStmt(ASTNode):
+    """导出 名称"""
+    name: str = ""
+
+
+@dataclass
+class AuditStmt(ASTNode):
+    """审计状态语句（已审计 / 审计中）"""
+    status: str = ""  # "AUDITED" / "AUDITING"

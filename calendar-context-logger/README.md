@@ -33,5 +33,5 @@ lh-logger recent --limit 5         # 查看最近记录
 ## 品牌约定
 
 - DNA 追溯码使用繁体 **龍**：`#龍芯⚡️...`
-- 普通用户可见文本使用简体 **龙**
+- 普通用户可见文本使用简体 **龍**
 - 所有路径统一在 `~/.longhun/calendar-context-logger/`

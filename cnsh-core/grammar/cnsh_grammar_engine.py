@@ -81,7 +81,7 @@ PREFIX_WEIGHTS: Dict[str, int] = {
 }
 
 # 繁体龍保护
-SIMPLIFIED_DRAGON = re.compile(r"(?<!龍)龙(?!魂)")
+SIMPLIFIED_DRAGON = re.compile(r"(?<!龍)龍(?!魂)")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -484,10 +484,10 @@ class CNSHAuditor:
 
     def check_simplified_dragon(self):
         for i, line in enumerate(self.source.splitlines(), 1):
-            if "龙" in line and not SIMPLIFIED_DRAGON.search(line):
+            if "龍" in line and not SIMPLIFIED_DRAGON.search(line):
                 continue
-            if "龙" in line:
-                self.items.append(AuditItem("🔴", "文化主权", i, "发现简体「龙」字，应使用繁体「龍」"))
+            if "龍" in line:
+                self.items.append(AuditItem("🔴", "文化主权", i, "发现简体「龍」字，应使用繁体「龍」"))
 
     def check_weight_prefix(self):
         for node in self.ast:

@@ -94,7 +94,7 @@ class BarrierMonitor:
         """
         检查语义盾状态
 
-        意图: 确保龍 还是龍，不会变成龙
+        意图: 确保龍 还是龍，不会变成龍
         """
         shield_config = self.config.get("shield_rules", {}).get("semantic_shield", {})
 

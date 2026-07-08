@@ -479,7 +479,7 @@ class TerminologyDatabase:
              "龍魂专属"),
             ("Dragon Core", "龍芯",
              "The central processing unit of the Dragon Soul system, like the dragon's heart pumping qi through the entire network",
-             "龍魂体系的中央处理核心，如同龙的心脏，为整个网络泵送真气",
+             "龍魂体系的中央处理核心，如同龍的心脏，为整个网络泵送真气",
              "龍魂专属"),
             ("Soul Binding", "魂印",
              "The irreversible binding of a device to a user's soul signature, like a blood oath in the digital realm",
@@ -506,8 +506,8 @@ class TerminologyDatabase:
              "三层审查机制：逻辑、价值观、技术三重校验",
              "龍魂专属"),
             ("Sovereign Character", "主权字",
-             "Characters like 龍/龙 that carry cultural sovereignty — always protected in both traditional and simplified forms",
-             "如龍/龙般承载文化主权的文字 — 繁简两种形态均受保护",
+             "Characters like 龍/龍 that carry cultural sovereignty — always protected in both traditional and simplified forms",
+             "如龍/龍般承载文化主权的文字 — 繁简两种形态均受保护",
              "龍魂专属"),
         ]
 
@@ -883,21 +883,21 @@ class CulturalAdapter:
     通心译 · 文化适配器
 
     负责处理文化差异和主权字保护:
-        - 繁体“龍”/简体“龙”智能处理（主权字保护）
+        - 繁体“龍”/简体“龍”智能处理（主权字保护）
         - CNSH命名规范检查
         - 文化敏感度筛查
         - 龍魂体系标记保护
 
     主权字保护规则:
         1. “龍”为繁体主权字，用于正式/神圣语境
-        2. “龙”为简体常用字，用于日常语境
+        2. “龍”为简体常用字，用于日常语境
         3. 龍魂体系标记中的“龍”不可替换
         4. 用户可自定义主权字偏好
     """
 
     def __init__(self):
         self._sovereign_chars = {
-            "龍": {"variant": "龙", "protection_level": "maximum",
+            "龍": {"variant": "龍", "protection_level": "maximum",
                    "context": "formal/sacred"},
             "国": {"variant": "国", "protection_level": "high",
                    "context": "formal/sacred"},
@@ -1136,8 +1136,8 @@ class QualityAuditor:
         issues = []
 
         # 检查主权字保护
-        if "龍" in source and "龙" in target:
-            issues.append("主权字“龍”被不当简化为“龙”")
+        if "龍" in source and "龍" in target:
+            issues.append("主权字“龍”被不当简化为“龍”")
 
         # 检查文化尊重
         disrespect_patterns = [

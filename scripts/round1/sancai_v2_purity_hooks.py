@@ -243,12 +243,12 @@ class SanCycleHooks:
 
     def __init__(self):
         self.purity_evaluator = PurityChainEvaluator()
-        self.hooks: Dict[str, List[Callable]] = {
+        self.hooks: Dict[str, List[Callable[..., Any]]] = {
             point: [] for point in self.HOOK_POINTS
         }
         self.hook_results: List[HookResult] = []
 
-    def register_hook(self, hook_point: str, func: Callable) -> None:
+    def register_hook(self, hook_point: str, func: Callable[..., Any]) -> None:
         """注册钩子函数"""
         if hook_point in self.hooks:
             self.hooks[hook_point].append(func)

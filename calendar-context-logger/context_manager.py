@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂认知上下文管理器 v3.0
+龍魂认知上下文管理器 v3.0
 LongHun Cognitive Context Manager v3.0
 
 功能：管理对话上下文的全生命周期，包括状态机、压缩、知识图谱联动、DNA追溯
 定位：L1认知层，输入过滤协议v3.0的下游
-体系：龙魂系统 UID9622
+体系：龍魂系统 UID9622
 
 技术规范：
   - Python 3.8+，零外部依赖（仅标准库）
   - DNA追溯每个操作
   - 时间戳精确到毫秒
   - 三色审计（红/黄/绿）
-  - 龙字简体（用户可见文本）
+  - 龍字简体（用户可见文本）
 
 DNA: #龍芯⚡️2026-06-27-LONGHUN-CTX-MGR-v3.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬CTX-MGR-v3.0
@@ -154,7 +154,7 @@ class DNARecord:
     kg_nodes_related: int = 0
     confidence_score: float = 0.0
     audit_color: str = AuditColor.GREEN.value
-    operator: str = "龙芯上下文引擎"
+    operator: str = "龍芯上下文引擎"
     dna_signature: str = ""
 
     def to_dict(self) -> Dict:
@@ -196,7 +196,7 @@ class DNATracer:
     def generate_header(module: str, operation: str, obj_id: str, version: str = "v3.0") -> str:
         """生成CNSH结构化头部"""
         ts = DNATracer.now()
-        return f"#龙[{module}]⚡️{ts}-LONGHUN-{operation}-{obj_id}-{version}"
+        return f"#龍[{module}]⚡️{ts}-LONGHUN-{operation}-{obj_id}-{version}"
 
     @staticmethod
     def create_record(
@@ -746,7 +746,7 @@ class CompressionEngine:
 
 class ContextManager:
     """
-    龙魂认知上下文管理器 —— 核心类
+    龍魂认知上下文管理器 —— 核心类
     管理窗口状态机、压缩、知识图谱联动、DNA追溯
     """
 
@@ -1451,7 +1451,7 @@ def main():
     args = sys.argv[1:]
     if not args:
         print("""
-龙魂认知上下文管理器 v3.0 —— 命令行接口
+龍魂认知上下文管理器 v3.0 —— 命令行接口
 
 用法: python longhun-context-manager-v3.0.py <命令> [选项]
 

@@ -24,8 +24,8 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List
 
-from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI  # Request 动态导入见下方
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
 

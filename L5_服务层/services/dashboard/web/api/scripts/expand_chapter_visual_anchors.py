@@ -267,7 +267,7 @@ CHAPTER_CONFIG = {
     "hetu-luoshu": {
         "era": "上古",
         "era_en": "Legendary Ancient",
-        "visual_theme": "龙马负图·神龟载书",
+        "visual_theme": "龍马负图·神龟载书",
         "figure_image": "hetu_luoshu",
         "background_image": "hetu_luoshu",
         "seal_text": "洛书",

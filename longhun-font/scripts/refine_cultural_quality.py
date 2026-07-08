@@ -240,7 +240,7 @@ REFINEMENTS = {
     chr(0xE103): ("水", oracle_water),
     chr(0xE104): ("火", oracle_fire),
     chr(0xE114): ("木", oracle_wood),
-    chr(0xE120): ("龙", oracle_dragon),
+    chr(0xE120): ("龍", oracle_dragon),
     chr(0xE121): ("凤", oracle_phoenix),
     chr(0xE127): ("鼎", oracle_ding),
     # 中国风图标

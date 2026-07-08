@@ -1,28 +1,40 @@
-# 03_compiler
+# 03_compiler — CNSH 编译器 & 语法库
 
 **路径**：`03_compiler`
 
 ## 状态
 
-🟡 本 README 由 `bin/generate_module_readmes.py` 自动生成，用于提高仓库透明度。
-具体用法请结合源码与实际场景调整。
+🟢 活跃开发中
 
 ## 功能概述
 
-该模块包含 4 个文件，主要提供 `03_compiler` 相关能力。
+该模块包含 CNSH 编译器的映射配置和统一语法库：
+
+| 文件 | 说明 |
+|------|------|
+| `mappings/syntax_library.json` | 🆕 **统一语法库 v1.0** — 25类·350+条目·20种目标语言归一总表 |
+| `mappings/SYNTAX_LIBRARY.md` | 🆕 语法库使用文档 |
+| `mappings/keywords.json` | 中文关键字→多目标语言映射 (历史·已合并到语法库) |
+| `mappings/operators.json` | 中文运算符→多目标语言映射 (历史·已合并到语法库) |
+| `mappings/stdlib.json` | 中文标准库→多目标语言映射 (历史·已合并到语法库) |
+| `COMPILE-REGISTRY.local.jsonl` | 编译任务注册表 (Append-Only) |
 
 ## 入口脚本
 
-- 暂无明确入口脚本，请查看目录内文件。
+- `bin/syntax_lookup.py` — 语法库查询工具
 
-## 接口说明
+```bash
+python3 bin/syntax_lookup.py "打印"              # 查单个中文关键字
+python3 bin/syntax_lookup.py "打印" --target py   # 只查Python映射
+python3 bin/syntax_lookup.py --list-categories    # 列出所有语法类别
+python3 bin/syntax_lookup.py --category 控制流     # 列出某类别所有关键字
+python3 bin/syntax_lookup.py --search "merge"     # 模糊搜索
+```
 
-- 若该模块提供 API，请在源码中查找 `api/`、`router/`、`main.py` 等入口。
-- 若为脚本工具，可直接调用上述入口脚本。
+## 哲学
 
-## 注意事项
+**只翻译·不破解·MD格式归一·中文编辑可用·丢啥给啥·原汁原味。**
 
-- 运行前请确认依赖已安装。
-- 建议先阅读源码注释，了解每个脚本的副作用。
+几百个不同脚本和语法 → 一个 JSON 总表 → 中文关键字 → 20种目标语言。
 
-**DNA**:#龍芯⚡️2026-06-17-MOD_03_COMPILER-README_66BE-v1.0
+**DNA**: `#龍芯⚡️2026-07-08-SYNTAX-LIBRARY-v1.0`

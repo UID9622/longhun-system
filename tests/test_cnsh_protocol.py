@@ -16,7 +16,7 @@ class TestCNSHDragonCharacter:
 
     def test_dragon_in_core_files_uses_traditional(self):
         """核心宪法/标准文件中的「系统」前缀应使用繁體「龍」（P0 约束文件）"""
-        # P0 级别核心文件：宪法、协议、标准 — 不允许任何简体「龙」
+        # P0 级别核心文件：宪法、协议、标准 — 不允许任何简体「龍」
         p0_files = [
             "CONSTITUTION.md",
             "CNSH-PROTOCOL.md",
@@ -30,13 +30,13 @@ class TestCNSHDragonCharacter:
                 continue
             with open(fpath, encoding="utf-8", errors="ignore") as f:
                 content = f.read()
-            bad = re.findall(r'(?<![#>\-\s])龙(?=魂)', content)
+            bad = re.findall(r'(?<![#>\-\s])龍(?=魂)', content)
             if bad:
-                violations.append(f"{fname}: 发现 {len(bad)} 处简体「龙魂」")
+                violations.append(f"{fname}: 发现 {len(bad)} 处简体「龍魂」")
         assert len(violations) == 0, f"P0 核心文件 CNSH 规范违反: {violations}"
 
     def test_dragon_in_registry_acceptable(self):
-        """MASTER_REGISTRY.md / README.md 允许过渡期存在简体「龙」（P2 级别）"""
+        """MASTER_REGISTRY.md / README.md 允许过渡期存在简体「龍」（P2 级别）"""
         p2_files = ["MASTER_REGISTRY.md", "README.md"]
         for fname in p2_files:
             fpath = os.path.join(ROOT, fname)
@@ -44,7 +44,7 @@ class TestCNSHDragonCharacter:
                 continue
             with open(fpath, encoding="utf-8", errors="ignore") as f:
                 content = f.read()
-            simplified = re.findall(r'(?<![#>\-\s])龙(?=魂)', content)
+            simplified = re.findall(r'(?<![#>\-\s])龍(?=魂)', content)
             traditional = content.count("龍")
             # P2 文件允许混合，但应有繁體比例 > 50%
             if simplified and traditional:
@@ -86,7 +86,7 @@ class TestCNSHDNAFormat:
         invalid = [
             "DNA_5_a3f8c1d9e2b7f4a6",  # 河图洛书格式(DNA后缀+hash组合不匹配)
             "#龍芯 2026-07-06-test-A8F3C1D6",  # 空格分隔
-            "#龙芯⚡️2026-07-06-test-A8F3C1D6",  # 简体「龙」
+            "#龍芯⚡️2026-07-06-test-A8F3C1D6",  # 简体「龍」
             "龍芯⚡️2026-07-06-test-A8F3C1D6",  # 缺少 #
         ]
         for dna in invalid:

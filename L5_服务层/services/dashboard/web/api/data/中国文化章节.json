@@ -82,21 +82,21 @@
         "阴阳",
         "五行"
       ],
-      "classical_text": "伏羲氏之王天下也，龙马负图出于河，遂则其文以画八卦；大禹治水，神龟载书出于洛，乃陈其数以定九畴。河图十数，生成五行；洛书九宫，纵横皆十五。",
+      "classical_text": "伏羲氏之王天下也，龍马负图出于河，遂则其文以画八卦；大禹治水，神龟载书出于洛，乃陈其数以定九畴。河图十数，生成五行；洛书九宫，纵横皆十五。",
       "modern_text": "河图洛书是中国最早的数学矩阵与数据结构。河图标示生成之数，洛书展示平衡之阵。龍魂算法中的洛书九宫、权重矩阵均源于此。",
-      "voice_script": "上古之时，龙马负图而出河，神龟载书而出洛。河图洛书，是中华文明的数象之根。河图为体，生成五行；洛书为用，九宫平衡。龍魂借其数理，铸算法之魂。",
+      "voice_script": "上古之时，龍马负图而出河，神龟载书而出洛。河图洛书，是中华文明的数象之根。河图为体，生成五行；洛书为用，九宫平衡。龍魂借其数理，铸算法之魂。",
       "linked_nodes": [
         "root_001",
         "term_004"
       ],
       "era": "上古",
       "era_en": "Legendary Ancient",
-      "visual_theme": "龙马负图·神龟载书",
+      "visual_theme": "龍马负图·神龟载书",
       "figure_image": {
         "asset_key": "hetu_luoshu",
         "local": "assets/cultural/backgrounds/hetu_luoshu.svg",
         "status": "placeholder",
-        "alt": "龙马负图配图"
+        "alt": "龍马负图配图"
       },
       "background_image": {
         "asset_key": "hetu_luoshu",

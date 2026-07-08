@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龙魂君子协议 · Python API
+龍魂君子协议 · Python API
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-API-v1.0
 """
 from __future__ import annotations

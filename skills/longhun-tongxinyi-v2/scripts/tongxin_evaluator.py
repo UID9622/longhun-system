@@ -809,7 +809,7 @@ def create_sample_output(sample_id: int) -> TranslationOutput:
     
     samples = {
         1: {
-            "source": "画龙点睛",
+            "source": "画龍点睛",
             "literal": "to draw eyes on the dragon painting",
             "logical": "to add the crucial final detail that brings a work to life",
             "intentional": "to add the finishing touch that brings something to life",
@@ -817,7 +817,7 @@ def create_sample_output(sample_id: int) -> TranslationOutput:
             "css": 95,
         },
         2: {
-            "source": "龙",
+            "source": "龍",
             "literal": "dragon",
             "logical": "Chinese dragon (loong) — auspicious divine creature",
             "intentional": "loong [Chinese dragon — benevolent symbol distinct from Western dragon]",

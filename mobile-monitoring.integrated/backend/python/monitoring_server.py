@@ -1,9 +1,7 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-MOBILE-MONITORING_SERVER-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 龍魂移动端监控后端 v4.1
 Python FastAPI 实现
@@ -82,3 +80,4 @@ try:
 except ImportError as e:
     print(f"⚠️  FastAPI not installed: {e}")
     print("Run: pip install fastapi uvicorn")
+# #龍芯⚡️2026-07-08-FORCE-REINDEX-v1.0

@@ -62,12 +62,12 @@ echo ""
 echo "================================================================"
 echo " 验证 2 · 龍字符律 (检查同步包是否被简体污染)"
 echo "================================================================"
-SIMP_COUNT=$(grep -rE "龙" "$REPO_ROOT/CLAUDE.md" "$REPO_ROOT/protocols-sync/" 2>/dev/null | wc -l)
+SIMP_COUNT=$(grep -rE "龍" "$REPO_ROOT/CLAUDE.md" "$REPO_ROOT/protocols-sync/" 2>/dev/null | wc -l)
 if [ "$SIMP_COUNT" -eq 0 ]; then
-    echo "[OK]   未发现简体龙字 · 字符律守住"
+    echo "[OK]   未发现简体龍字 · 字符律守住"
 else
-    echo "[WARN] 发现 $SIMP_COUNT 处简体龙 · 需人工检查"
-    grep -rn "龙" "$REPO_ROOT/CLAUDE.md" "$REPO_ROOT/protocols-sync/" 2>/dev/null | head -5
+    echo "[WARN] 发现 $SIMP_COUNT 处简体龍 · 需人工检查"
+    grep -rn "龍" "$REPO_ROOT/CLAUDE.md" "$REPO_ROOT/protocols-sync/" 2>/dev/null | head -5
 fi
 
 # 7. 留痕

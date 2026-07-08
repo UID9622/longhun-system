@@ -54,7 +54,7 @@ def _dr(idx: int) -> str:
         "description": "通心译不是传统 NMT，而是语义心意映射引擎。输入人话、情绪、碎片后，输出 L0-L5 六层结构与可执行意图骨架，并附带三色审计。",
         "context_trigger": "通心译、先翻译再执行、意图识别、情绪净化、人话转可执行结构",
         "ipa_abbr": "Tongxin Translation v2.0",
-        "cli_example": "python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate \"画龙点睛\"",
+        "cli_example": "python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate \"画龍点睛\"",
     },
     {
         "name": "三层语义传递（字面/逻辑/心意）",
@@ -114,8 +114,8 @@ def _dr(idx: int) -> str:
         "name": "二十八星宿标签（28 宿）",
         "category": "龍魂文化标签",
         "subcategory": "星宿",
-        "description": "东方青龙、北方玄武、西方白虎、南方朱雀各七宿，共 28 个标签。映射初始化、防御、存储、调度、计算、风险、缓存、完成等系统组件与阶段。",
-        "context_trigger": "二十八星宿、青龙白虎朱雀玄武、星宿标签、系统组件",
+        "description": "东方青龍、北方玄武、西方白虎、南方朱雀各七宿，共 28 个标签。映射初始化、防御、存储、调度、计算、风险、缓存、完成等系统组件与阶段。",
+        "context_trigger": "二十八星宿、青龍白虎朱雀玄武、星宿标签、系统组件",
         "ipa_abbr": "28 Xiu Tags",
         "cli_example": "python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py tag-search 调度",
     },
@@ -211,7 +211,7 @@ DNA: {_dna('tongxinyi-v2-overview')}
 ## 快速命令
 
 ```bash
-python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate "画龙点睛"
+python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py translate "画龍点睛"
 python3 .../tongxin_cli.py eval --limit 5
 python3 .../tongxin_cli.py tag 火·旺 HTML
 python3 .../tongxin_cli.py tag-search 启动

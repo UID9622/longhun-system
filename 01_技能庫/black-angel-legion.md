@@ -224,6 +224,56 @@ P04 鲁班/运维执行修复
 
 ---
 
+## 自动化巡检（2026-07-07 加固）
+
+P77 黑天使军团已接入龍魂自动化体系，每日自动执行安全巡检与修复。
+
+| 项目 | 内容 |
+|------|------|
+| 自动化 ID | `p77-security-scan-auto-fix` |
+| 调度 | 每日 03:00（UTC+8） |
+| 任务文件 | `.codebuddy/automations/p77-security-scan-auto-fix/task.md` |
+| 配置文件 | `.codebuddy/automations/p77-security-scan-auto-fix/automation.toml` |
+| 触发人格 | P77 黑天使军团（主导）+ P03 墨子 + P06 镜像审计者 + P72 龍盾 |
+
+### 自动执行流程
+
+```
+1. 加载记忆（bin/lh_memory_load.py）
+2. 全量安全扫描（bin/patrol_security.py）
+   ├ 报告保存：logs/p77_security_report_YYYYMMDD_HHMMSS.json
+   └ 发现 P0 立即报告，不自动修复涉密项
+3. 自愈修复（bin/longhun-self-heal.py --repair）
+   ├ 环境清洁（__pycache__ 等）
+   ├ 脚本权限修复
+   └ 重复模块/目录缺失标记
+4. 联动感知扫描（bin/lh_cross_module_awareness.py --auto-fix）
+   └ 自动修复上下游断点
+5. 追加执行日志到 02_執行記錄/YYYY-MM-DD.md
+6. 绑定 DNA：#龍芯⚡️YYYY-MM-DD-P77-AUTO-PATROL-v1.0
+```
+
+### 修复红线
+
+| 风险等级 | 动作 | 是否自动 |
+|:---:|------|:---:|
+| 🔴 P0 严重 | 密钥泄露、命令注入、RCE、公网暴露 | 报告，不自动修涉密项 |
+| 🟡 P1 中等 | 不安全配置、XSS、依赖漏洞 | 自动修复 + 日志 |
+| 🟢 P2 低危 | 代码规范、信息泄露 | 标记留档 |
+| 🟢 环境清洁 | __pycache__、权限、注册 | 自动修复 |
+
+### 手动触发
+
+```bash
+# 手动触发完整 P77 安全巡检
+python3 bin/patrol_security.py
+python3 bin/longhun-self-heal.py --repair
+python3 bin/lh_cross_module_awareness.py --auto-fix
+```
+
+
+---
+
 ## 操作日志
 
 | 日期 | 操作 | DNA |

@@ -64,7 +64,7 @@ def 数字根(text: str) -> int:
     return total
 
 
-def 数字根熔断检查(dr: int) -> tuple:
+def 数字根熔断检查(dr: int) -> tuple:  # type: ignore[reportMissingTypeArgument]
     """
     数字根熔断判定:
       dr ∈ {3, 9} → 🔴熔断 (拒绝执行)
@@ -140,7 +140,7 @@ def 打印英文帮助():
 def 搜索Notion页面(页面名称: str):
     """搜索Notion页面名称"""
     try:
-        from dotenv import load_dotenv
+        from dotenv import load_dotenv  # type: ignore[import-untyped]
         load_dotenv(Path.home() / '.cnsh' / '.env')
         TOKEN = os.getenv('NOTION_TOKEN')
         if not TOKEN:

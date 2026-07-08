@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 longhun-trust-protocol
-龙魂君子协议 · 诚信评级与违约清算算法
+龍魂君子协议 · 诚信评级与违约清算算法
 DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-PROTOCOL-v1.0
 """
 
