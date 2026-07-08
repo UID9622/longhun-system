@@ -28,6 +28,40 @@
 
 ---
 
+## 📥 开源代码获取
+
+### Gitee（国内推荐）
+
+```bash
+# 克隆整个龍魂系统（通心译在 integrations/harmonyos/tongxinyi/ 目录下）
+git clone git@gitee.com:uid9622_admin/longhun-system-core.git
+
+# 如果只想下载通心译鸿蒙端（零散文件）
+wget https://gitee.com/uid9622_admin/longhun-system-core/raw/main/integrations/harmonyos/tongxinyi/README.md
+```
+
+### GitHub（国际镜像）
+
+```bash
+# 克隆整个龍魂系统
+git clone git@github.com:UID9622/longhun-system.git
+
+# 或 HTTPS
+git clone https://github.com/UID9622/longhun-system.git
+```
+
+### 浏览器直接下载
+
+| 平台 | 地址 |
+|------|------|
+| **Gitee** | [gitee.com/uid9622_admin/longhun-system-core](https://gitee.com/uid9622_admin/longhun-system-core) |
+| **GitHub** | [github.com/UID9622/longhun-system](https://github.com/UID9622/longhun-system) |
+
+> 通心译路径：`integrations/harmonyos/tongxinyi/`
+> 在 DevEco Studio 中直接打开此目录即可编译运行。
+
+---
+
 ## 🏗️ 项目结构
 
 ```
