@@ -8,6 +8,9 @@ _archive*/
 _backup/
 _backup*/
 
+# 归档与备份（可能含敏感记忆/密钥）
+_archive/
+
 # macOS
 .DS_Store
 .AppleDouble

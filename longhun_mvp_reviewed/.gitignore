@@ -1,0 +1,5 @@
+# MVP reviewed runtime artifacts
+__pycache__/
+*.pyc
+audit_log_*.json
+*.db
