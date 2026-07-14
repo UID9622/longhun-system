@@ -1078,7 +1078,7 @@ No Deception Under Heaven. 🐉
   • 字段: 币种对(title)·汇率(number)·状态(status)·偏离·数据源·更新时间·备注
 
 ✅ 环境配置
-  • NOTION_TOKEN: ntn_30372699... (已验证)
+  • NOTION_TOKEN: ntn_xxxxxxxx... (已验证)
   • .env 配置完成
   • secrets.env 持久化完成
 

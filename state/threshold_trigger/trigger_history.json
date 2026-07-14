@@ -1610,6 +1610,42 @@
       "priority": "P0",
       "elapsed_ms": 11.147166005684994,
       "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:22:22.667762+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.18208299297839403,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T23:25:22.966281+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 153.11083299457096,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:25:25.267670+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.081958997645415,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:27:22.809016+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.1630000042496249,
+      "meta": {}
     }
   ],
   "stats": {
@@ -1628,24 +1664,24 @@
       "priority": "P1"
     },
     "intrusion": {
-      "checks": 39,
+      "checks": 40,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 70.82094107898057,
+      "avg_ms": 65.04704287084705,
       "priority": "P0"
     },
     "battery": {
-      "checks": 13,
+      "checks": 14,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 211.80034605303524,
+      "avg_ms": 205.93139474718882,
       "priority": "P3"
     },
     "health": {
-      "checks": 37,
-      "triggers": 37,
-      "last_trigger": "2026-07-14T23:17:22.531875+08:00",
-      "avg_ms": 0.2051368278127422,
+      "checks": 39,
+      "triggers": 39,
+      "last_trigger": "2026-07-14T23:27:22.809023+08:00",
+      "avg_ms": 0.19884830032133916,
       "priority": "P1"
     },
     "memory": {

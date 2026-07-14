@@ -2134,7 +2134,7 @@
     "NOTION": {
       "description": "Notion知识库映射——龍魂系统的外部知识底座。51个核心页面映射，本地是主，Notion是镜像。数据主权归本地。",
       "infrastructure": {
-        "token": "***REMOVED*** (配置在.env)",
+        "token": "ntn_xxxxxxxx (配置在.env·本地私密存储)",
         "sync_bridges": 50,
         "sync_config": "config/notion_sync.json",
         "key_files": [
