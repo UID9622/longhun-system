@@ -1646,6 +1646,87 @@
       "priority": "P1",
       "elapsed_ms": 0.1630000042496249,
       "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T23:30:24.957474+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 59.6359589981148,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:30:25.363700+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.584583000512794,
+      "meta": {}
+    },
+    {
+      "guard": "backup",
+      "timestamp": "2026-07-14T23:32:08.256219+08:00",
+      "triggered": false,
+      "message": "✅ backup: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.025165994884446263,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T23:32:08.738034+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.01912500010803342,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T23:32:09.407544+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.018041013390757143,
+      "meta": {}
+    },
+    {
+      "guard": "git",
+      "timestamp": "2026-07-14T23:32:09.453729+08:00",
+      "triggered": false,
+      "message": "✅ git: 正常",
+      "priority": "P2",
+      "elapsed_ms": 48.65995899308473,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T23:32:10.009890+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 32.79208300227765,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:32:22.964131+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.19837499712593853,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:35:25.469186+08:00",
+      "triggered": true,
+      "message": "🟡 安全提醒: .env(0.0小时前修改)",
+      "priority": "P0",
+      "elapsed_ms": 10.970500006806105,
+      "meta": {}
     }
   ],
   "stats": {
@@ -1657,17 +1738,17 @@
       "priority": "P1"
     },
     "network": {
-      "checks": 20,
+      "checks": 21,
       "triggers": 2,
       "last_trigger": "2026-07-14T23:00:24.295162+08:00",
-      "avg_ms": 195.27043966377,
+      "avg_ms": 181.70699159720448,
       "priority": "P1"
     },
     "intrusion": {
-      "checks": 40,
-      "triggers": 0,
-      "last_trigger": null,
-      "avg_ms": 65.04704287084705,
+      "checks": 42,
+      "triggers": 1,
+      "last_trigger": "2026-07-14T23:35:25.469196+08:00",
+      "avg_ms": 54.82776719611287,
       "priority": "P0"
     },
     "battery": {
@@ -1678,38 +1759,38 @@
       "priority": "P3"
     },
     "health": {
-      "checks": 39,
-      "triggers": 39,
-      "last_trigger": "2026-07-14T23:27:22.809023+08:00",
-      "avg_ms": 0.19884830032133916,
+      "checks": 40,
+      "triggers": 40,
+      "last_trigger": "2026-07-14T23:32:22.964136+08:00",
+      "avg_ms": 0.1988009700017991,
       "priority": "P1"
     },
     "memory": {
-      "checks": 13,
+      "checks": 14,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 0.014099787566350911,
+      "avg_ms": 0.014493910148791535,
       "priority": "P2"
     },
     "process": {
-      "checks": 13,
+      "checks": 14,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 26.878669221840383,
+      "avg_ms": 27.47001059988411,
       "priority": "P2"
     },
     "disk": {
-      "checks": 6,
+      "checks": 7,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 0.010749324878284826,
+      "avg_ms": 0.011586892401259685,
       "priority": "P1"
     },
     "git": {
-      "checks": 3,
+      "checks": 4,
       "triggers": 3,
       "last_trigger": "2026-07-14T22:32:09.335278+08:00",
-      "avg_ms": 66.42533243140497,
+      "avg_ms": 64.64879508757295,
       "priority": "P2"
     },
     "firewall": {
@@ -1762,10 +1843,10 @@
       "priority": "P2"
     },
     "backup": {
-      "checks": 1,
+      "checks": 2,
       "triggers": 0,
       "last_trigger": null,
-      "avg_ms": 0.0032584008295089006,
+      "avg_ms": 0.005449160235002637,
       "priority": "P1"
     },
     "audit": {

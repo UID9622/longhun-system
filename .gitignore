@@ -96,6 +96,13 @@ voice-twin/voice_dataset/
 data/usb_index/
 *.db
 
+# --- 境外编辑器暗桩（耻辱柱记录在案）---
+.claude/
+.cursor/
+.cursorrules
+CLAUDE.md
+CLAUDE.md.asc
+
 # --- IDE ---
 .idea/
 .vscode/

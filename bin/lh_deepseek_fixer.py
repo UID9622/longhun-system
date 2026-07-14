@@ -42,7 +42,7 @@ def _get_api_key(key_name: str, fallback: str = "") -> str:
     """从环境变量取密钥，环境变量优先，无环境变量用传入值"""
     return os.environ.get(key_name, fallback)
 
-DEEPSEEK_API_KEY = _get_api_key("DEEPSEEK_API_KEY", "sk-355de56897614114ad4179b261d2b12b")
+DEEPSEEK_API_KEY = _get_api_key("DEEPSEEK_API_KEY", "")  # fallback已移除——真实key必须从环境变量来
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 
 # ═══════════════════════════════════════════

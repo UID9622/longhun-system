@@ -39,7 +39,7 @@ def _init_admin() -> dict:
             pass
     
     # 默认管理员账号
-    default_password = "longhun9622"
+    default_password = os.environ.get("LONGHUN_ADMIN_PASSWORD", "")  # 必须从环境变量设置，不再硬编码
     pw_hash, salt = _hash_password(default_password)
     admin_config = {
         "username": "admin",
