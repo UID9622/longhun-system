@@ -1,0 +1,83 @@
+# ═══════════════════════════════════════════════════════════════════
+# 龍魂系统 · Bandit 安全扫描配置
+# DNA: #龍芯⚡️2026-07-06-BANDIT-CONFIG-v1.0-C4E8A2D7
+# 用途: Python 代码静态安全分析
+# 运行: bandit -c .bandit.yaml -r .
+# ═══════════════════════════════════════════════════════════════════
+
+# 排除目录
+exclude_dirs:
+  - _archive
+  - backups
+  - brain
+  - node_modules
+  - venv
+  - .venv
+  - __pycache__
+  - dist
+  - .git
+
+# 需要运行的测试插件
+tests:
+  - B101   # assert_used
+  - B102   # exec_used
+  - B103   # set_bad_file_permissions
+  - B104   # hardcoded_bind_all_interfaces
+  - B105   # hardcoded_password_string
+  - B106   # hardcoded_password_funcarg
+  - B107   # hardcoded_password_default
+  - B108   # hardcoded_tmp_directory
+  - B110   # try_except_pass
+  - B112   # try_except_continue
+  - B201   # flask_debug_true
+  - B301   # pickle
+  - B302   # marshal
+  - B303   # md5
+  - B304   # ciphers
+  - B305   # blacklist_calls
+  - B306   # mktemp_q
+  - B307   # eval
+  - B308   # mark_safe
+  - B310   # urllib_urlopen
+  - B311   # random
+  - B312   # telnetlib
+  - B313   # xml_bad_cElementTree
+  - B314   # xml_bad_ElementTree
+  - B315   # xml_bad_expatreader
+  - B316   # xml_bad_expatbuilder
+  - B317   # xml_bad_sax
+  - B318   # xml_bad_minidom
+  - B319   # xml_bad_pulldom
+  - B320   # xml_bad_etree
+  - B321   # ftplib
+  - B323   # unverified_context
+  - B324   # hashlib_new_insecure_functions
+  - B325   # tempfile_mktemp
+  - B501   # request_with_no_cert_validation
+  - B502   # ssl_with_bad_version
+  - B503   # ssl_with_bad_defaults
+  - B504   # ssl_with_no_version
+  - B505   # weak_cryptographic_key
+  - B506   # yaml_load
+  - B507   # ssh_no_host_key_verification
+  - B601   # paramiko_calls
+  - B602   # subprocess_popen_with_shell_equals_true
+  - B603   # subprocess_without_shell_equals_true
+  - B604   # any_other_function_with_shell_equals_true
+  - B607   # start_process_with_partial_path
+  - B608   # hardcoded_sql_expressions
+  - B609   # linux_commands_wildcard_injection
+  - B610   # django_extra_used
+  - B611   # django_rawsql_used
+  - B701   # jinja2_autoescape_false
+  - B702   # use_of_mako_templates
+  - B703   # django_mark_safe
+
+# 跳过的测试（龍魂系统的合法使用场景）
+skips:
+  - B101   # assert 在测试中被使用
+  - B311   # random 用于熵源而非密码学
+  - B322   # input() 在 CLI 工具中合法使用
+
+# 基线结果文件
+baseline: .bandit-baseline.json

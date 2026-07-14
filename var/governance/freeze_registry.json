@@ -1,0 +1,35 @@
+{
+  "LayerLevel.L1:file:chain_hash.jsonl": {
+    "frozen": false,
+    "reason": "文件存在但缺少 DNA 追溯码: /Users/zuimeidedeyihan/chain_hash.jsonl",
+    "layer_id": "L1",
+    "frozen_at": "2026-06-24T01:09:45.776656+00:00",
+    "frozen_by": "layered_governance_engine",
+    "dna": "#龍芯⚡️20260624010945776-GOV-HEAL-61AFA542",
+    "activated_at": "2026-06-24T01:12:59.820437+00:00",
+    "activate_reason": "手动激活组件 LayerLevel.L1:file:chain_hash.jsonl",
+    "activate_dna": "#龍芯⚡️20260624011259820-GOV-ACTIVATE-86C36E38"
+  },
+  "LayerLevel.L7:file:package-integration-queue.json": {
+    "frozen": false,
+    "reason": "文件存在但缺少 DNA 追溯码: /Users/zuimeidedeyihan/longhun-system/docs/package-integration-queue.json",
+    "layer_id": "L7",
+    "frozen_at": "2026-06-24T01:13:30.626842+00:00",
+    "frozen_by": "layered_governance_engine",
+    "dna": "#龍芯⚡️20260624011330626-GOV-HEAL-FC579948",
+    "activated_at": "2026-06-24T01:14:03.396639+00:00",
+    "activate_reason": "手动激活组件 LayerLevel.L7:file:package-integration-queue.json",
+    "activate_dna": "#龍芯⚡️20260624011403396-GOV-ACTIVATE-CC2861C5"
+  },
+  "LayerLevel.L4:file:LICENSE": {
+    "frozen": false,
+    "reason": "文件存在但缺少 DNA 追溯码: /Users/zuimeidedeyihan/longhun-system/longhun-font/LICENSE",
+    "layer_id": "L4",
+    "frozen_at": "2026-06-24T01:28:56.676537+00:00",
+    "frozen_by": "layered_governance_engine",
+    "dna": "#龍芯⚡️20260624012856676-GOV-HEAL-59E1BA97",
+    "activated_at": "2026-06-24T01:29:18.378590+00:00",
+    "activate_reason": "手动激活组件 LayerLevel.L4:file:LICENSE",
+    "activate_dna": "#龍芯⚡️20260624012918378-GOV-ACTIVATE-3BE0BCCD"
+  }
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂本地安全网关（仅监听 127.0.0.1:9623）
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/var/www/longhun/longhun-system
+Environment="PYTHONUNBUFFERED=1"
+Environment="PATH=/var/www/longhun/longhun-system/venv/bin:/usr/local/bin:/usr/bin:/bin"
+# secrets.env 使用 bash export 语法，需通过 bash source 后启动
+ExecStart=/bin/bash -c 'set -a; source /var/www/longhun/secrets.env; set +a; exec /var/www/longhun/longhun-system/venv/bin/python3 sovereignty/portal/local_secure_gateway.py'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

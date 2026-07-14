@@ -1,0 +1,23 @@
+{
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-13",
+  "items": [
+    {
+      "id": "kfpp-demo",
+      "label": "🛡️ 运行 KFPP 知识纯净度演示",
+      "type": "shell",
+      "command": "cd {root} && python3 systems/kfpp/kfpp_executor_v1.0.py",
+      "description": "演示龍魂知识流动纯净度协议：检测、阻止、监控知识权力化污染",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "kfpp-readme",
+      "label": "📘 查看 KFPP 说明",
+      "type": "shell",
+      "command": "open {root}/systems/kfpp/README.md",
+      "description": "打开知识流动纯净度协议说明",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ]
+}

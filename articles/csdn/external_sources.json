@@ -1,0 +1,61 @@
+{
+  "schema_version": "v1.0",
+  "name": "UID9622 CSDN 外部博客源·统一引用注册",
+  "description": "龙魂系统对外发布的CSDN博客源注册表·系统内组件通过此表引用已发布的外部内容",
+  "dna": "#龍芯⚡️2026-07-12-CSDN-EXTERNAL-SOURCES-v1.0",
+
+  "sources": [
+    {
+      "id": "csdn-main-legacy",
+      "name": "主账号·历史全量",
+      "url": "https://uid9622.blog.csdn.net",
+      "alt_url": "https://blog.csdn.net/2500_94248780",
+      "account": "已注销·内容保留",
+      "articles_total": 360,
+      "columns": 16,
+      "period": "2025-11 ~ 2026-06",
+      "status": "archive",
+      "description": "UID9622原始CSDN账号，360篇原创，16个专栏，内容保留但无法更新",
+      "refer_by": "uid9622.blog.csdn.net"
+    },
+    {
+      "id": "csdn-second-active",
+      "name": "第二账号·当前活跃",
+      "url": "https://blog.csdn.net/UID9622",
+      "alt_url": "https://blog.csdn.net/UID9622?type=blog",
+      "account": "龍芯北辰_UID9622",
+      "articles_total": 147,
+      "columns": 10,
+      "period": "2026-06-07 ~ 现在",
+      "status": "active",
+      "description": "UID9622新CSDN账号，147篇原创，持续更新中",
+      "refer_by": "blog.csdn.net/UID9622"
+    }
+  ],
+
+  "rss_feeds": [
+    {
+      "source": "csdn-second-active",
+      "url": "https://blog.csdn.net/UID9622/rss/list",
+      "description": "最近20篇RSS，分页 page=N"
+    }
+  ],
+
+  "cross_references": {
+    "system_integration": "integrations/csdn/",
+    "api_client": "integrations/csdn/csdn_api_client.py",
+    "sync_engine": "integrations/csdn/csdn_sync_engine.py",
+    "portal_data": "L5_服务层/services/portal/portal/data/csdn_articles.json",
+    "deep_learning_report": "knowledge/ai-ecosystem/uid9622_csdn_blog_deep_learning_v1.0.md",
+    "local_index": "articles/csdn/CSDN_FULL_INDEX.md",
+    "recent_index": "articles/csdn/README.md"
+  },
+
+  "how_to_reference": {
+    "from_python": "from integrations.csdn import get_csdn_client; client = get_csdn_client()",
+    "from_cli": "python3 integrations/csdn/csdn_api_client.py <command>",
+    "from_mcp": "通过 CNSH 语义命令: csdn列表 / csdn状态 / csdn搜索",
+    "from_portal": "http://localhost:9622/#csdn",
+    "from_markdown": "引用 external_sources.json 中的 url 字段"
+  }
+}

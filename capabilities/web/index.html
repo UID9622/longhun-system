@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂能力中枢 · 能力清单与训练状态</title>
+    <style>
+        :root { --bg: #0a0a0a; --card: #141414; --border: #2a2a2a; --text: #e0e0e0; --muted: #888; --green: #00d26a; --yellow: #f5c518; --red: #ff4d4d; --blue: #4dabf7; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif; background: var(--bg); color: var(--text); }
+        header { padding: 32px 24px; border-bottom: 1px solid var(--border); background: linear-gradient(90deg, #111 0%, #1a1a1a 100%); }
+        h1 { margin: 0; font-size: 28px; letter-spacing: 2px; }
+        .subtitle { color: var(--muted); margin-top: 8px; font-size: 14px; }
+        .dna { font-family: monospace; color: var(--blue); font-size: 12px; margin-top: 12px; }
+        main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .stat-card h3 { margin: 0 0 12px; font-size: 14px; color: var(--muted); text-transform: uppercase; }
+        .stat-card .value { font-size: 32px; font-weight: 700; }
+        .section-title { font-size: 20px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        .capability { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .capability-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .capability-name { font-weight: 600; font-size: 16px; }
+        .badge { font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600; }
+        .badge-active { background: rgba(0,210,106,0.15); color: var(--green); }
+        .badge-pending { background: rgba(245,197,24,0.15); color: var(--yellow); }
+        .badge-blocked { background: rgba(255,77,77,0.15); color: var(--red); }
+        .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+        .meta span { margin-right: 16px; }
+        .format { font-family: monospace; font-size: 12px; color: var(--muted); background: #0d0d0d; padding: 8px; border-radius: 6px; overflow-x: auto; }
+        .train-status { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .train-status pre { white-space: pre-wrap; font-family: monospace; font-size: 12px; color: var(--muted); }
+        footer { text-align: center; color: var(--muted); font-size: 12px; padding: 40px 24px; border-top: 1px solid var(--border); }
+        .loading { color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐉 龍魂能力中枢</h1>
+        <div class="subtitle">本地模型 · 外部API · 脚本 · 知识库 · 工具链 · 统一调度 · 自动训练迭代</div>
+        <div class="dna">DNA: #龍芯⚡️2026-06-28-LONGHUN-CAPABILITY-WEB-v1.0</div>
+    </header>
+
+    <main>
+        <div class="grid" id="stats">
+            <div class="stat-card"><h3>总能力数</h3><div class="value loading">加载中…</div></div>
+            <div class="stat-card"><h3>已规则覆盖</h3><div class="value loading">加载中…</div></div>
+            <div class="stat-card"><h3>待规则覆盖</h3><div class="value loading">加载中…</div></div>
+            <div class="stat-card"><h3>本地模型</h3><div class="value loading">加载中…</div></div>
+        </div>
+
+        <h2 class="section-title">能力清单</h2>
+        <div id="capabilities"><div class="loading">正在加载能力清单…</div></div>
+
+        <h2 class="section-title">训练状态</h2>
+        <div class="train-status" id="train-status"><div class="loading">正在加载训练状态…</div></div>
+    </main>
+
+    <footer>
+        人民数据主权 · 平台服务降级 · 龍魂自主可控
+    </footer>
+
+    <script>
+        async function loadData() {
+            try {
+                const [registryRes, statsRes, trainRes] = await Promise.all([
+                    fetch('/api/registry'),
+                    fetch('/api/stats'),
+                    fetch('/api/train/status')
+                ]);
+                const registry = await registryRes.json();
+                const stats = await statsRes.json();
+                const train = await trainRes.json();
+
+                renderStats(stats);
+                renderCapabilities(registry.capabilities || {});
+                renderTrainStatus(train);
+            } catch (e) {
+                document.getElementById('capabilities').innerHTML = '<div class="loading">加载失败：' + e.message + '</div>';
+            }
+        }
+
+        function renderStats(stats) {
+            const cards = document.getElementById('stats').children;
+            cards[0].querySelector('.value').textContent = stats.total;
+            cards[1].querySelector('.value').textContent = stats.overridden;
+            cards[2].querySelector('.value').textContent = stats.pending_override;
+            cards[3].querySelector('.value').textContent = stats.by_category.local_model || 0;
+        }
+
+        function renderCapabilities(caps) {
+            const container = document.getElementById('capabilities');
+            container.innerHTML = '';
+            const categories = {
+                local_model: '本地模型',
+                external_api: '外部API',
+                local_script: '本地脚本',
+                knowledge_base: '知识库',
+                tool_chain: '工具链'
+            };
+            for (const [name, info] of Object.entries(caps)) {
+                const overridden = info.rules_overridden;
+                const statusClass = info.status === 'active' ? 'badge-active' : 'badge-pending';
+                const overrideClass = overridden ? 'badge-active' : 'badge-pending';
+                const overrideText = overridden ? '已覆盖' : '待覆盖';
+                const el = document.createElement('div');
+                el.className = 'capability';
+                el.innerHTML = `
+                    <div class="capability-header">
+                        <div class="capability-name">${info.display_name || name}</div>
+                        <div>
+                            <span class="badge ${statusClass}">${info.status}</span>
+                            <span class="badge ${overrideClass}">${overrideText}</span>
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <span>类型：${categories[info.category] || info.category}</span>
+                        <span>提供者：${info.provider}</span>
+                        <span>能力：${(info.capacity || []).join(' / ')}</span>
+                    </div>
+                    <div class="format">输入：${info.input_format}</div>
+                    <div class="format" style="margin-top:6px">输出：${info.output_format}</div>
+                `;
+                container.appendChild(el);
+            }
+        }
+
+        function renderTrainStatus(train) {
+            const container = document.getElementById('train-status');
+            container.innerHTML = '<pre>' + JSON.stringify(train, null, 2) + '</pre>';
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

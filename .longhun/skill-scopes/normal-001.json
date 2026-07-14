@@ -1,0 +1,12 @@
+{
+  "uid": "normal-001",
+  "profession": "自由职业",
+  "allowed_domains": [
+    "写作",
+    "烹饪",
+    "教育教学"
+  ],
+  "max_risk_level": 3,
+  "verified_skills": [],
+  "intent_history": []
+}

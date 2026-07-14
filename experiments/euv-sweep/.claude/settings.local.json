@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(date:*)",
+      "Bash(/tmp/notion_nav.json <<'EOF'\n{\n  \"action\": \"navigate\",\n  \"args\": {\n    \"url\": \"https://www.notion.so\",\n    \"newTab\": true\n  },\n  \"session\": \"notion-explore\"\n}\nEOF)",
+      "Bash(cat EOF { action: snapshot, session: notion-explore } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_snap.json)",
+      "Bash(cat EOF { action: navigate, args: { url: https://www.notion.so/2507125a9c9f80d2b214c07deced0f0f, newTab: false }, session: notion-explore } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_console.json)",
+      "Bash(cat EOF { action: snapshot, session: notion-explore } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/search_notion.json)",
+      "Bash(cat EOF { action: navigate, args: { url: https://www.notion.so/uid9622/v2-0-54e82329e86c47599879366db9fa57a4?source=copy_link, newTab: true }, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_nav_upgrade.json)",
+      "Bash(cat EOF { action: snapshot, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_snap.json cat /tmp/notion_snapshot.json)",
+      "Bash(cat EOF { action: screenshot, args: { format: png }, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_screenshot.json)",
+      "Bash(/tmp/notion_scroll.json <<'EOF'\n{\n  \"action\": \"evaluate\",\n  \"args\": {\n    \"code\": \"window.scrollBy\\(0, 1000\\); window.innerHeight\"\n  },\n  \"session\": \"notion-upgrade\"\n}\nEOF)",
+      "Bash(cat EOF { action: screenshot, args: { format: png }, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_screenshot2.json)",
+      "Bash(/tmp/notion_scroll2.json <<'EOF'\n{\n  \"action\": \"evaluate\",\n  \"args\": {\n    \"code\": \"window.scrollBy\\(0, 2000\\); document.querySelectorAll\\('[data-id]'\\).length\"\n  },\n  \"session\": \"notion-upgrade\"\n}\nEOF)",
+      "Bash(cat EOF { action: evaluate, args: { code: document.body.innerText }, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_extract_text.json)",
+      "Bash(/tmp/scroll_to_bottom.json <<'EOF'\n{\n  \"action\": \"evaluate\",\n  \"args\": {\n    \"code\": \"window.scrollBy\\(0, 3000\\); document.body.scrollHeight\"\n  },\n  \"session\": \"notion-upgrade\"\n}\nEOF)",
+      "Bash(cat EOF { action: screenshot, args: { format: png }, session: notion-upgrade } EOF curl -s -X POST http://127.0.0.1:10086/command -H 'Content-Type: application/json' -d @/tmp/notion_screenshot3.json)",
+      "Bash(cat:*)"
+    ]
+  }
+}

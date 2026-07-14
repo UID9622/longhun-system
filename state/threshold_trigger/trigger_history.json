@@ -1,0 +1,1744 @@
+{
+  "triggers": [
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T20:10:17.612884+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 93.4741670062067,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T20:10:17.972472+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 47.49591699510347,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:10:17.994398+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 10.557165995123796,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T20:10:18.532873+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 347.29512500052806,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:12:10.379456+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.20312500419095159,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:15:18.082876+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.579417001688853,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T20:17:08.270598+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.018167003872804344,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T20:17:08.492756+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 46.29370800103061,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:17:10.524206+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.22887499653734267,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T20:20:18.105627+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 46.31208300997969,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:20:18.180261+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.705124998115934,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:22:10.680853+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.22425000497605652,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:25:18.270354+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.40362500154879,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T20:25:18.906517+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 292.50245800358243,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:27:10.828623+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.15562500630039722,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T20:30:18.243969+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 57.483500000671484,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:30:18.365308+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.572291005402803,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T20:32:08.239527+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.02708299143705517,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T20:32:08.369164+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.019709012121893466,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T20:32:08.616920+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 40.82841600757092,
+      "meta": {}
+    },
+    {
+      "guard": "git",
+      "timestamp": "2026-07-14T20:32:08.660914+08:00",
+      "triggered": true,
+      "message": "🟡 Git脏状态: 213个未提交文件",
+      "priority": "P2",
+      "elapsed_ms": 257.202791995951,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:32:10.981612+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2177499991375953,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:35:18.469968+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.838082999223843,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:37:11.138000+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.1839159958763048,
+      "meta": {}
+    },
+    {
+      "guard": "firewall",
+      "timestamp": "2026-07-14T20:40:17.474085+08:00",
+      "triggered": true,
+      "message": "🔴 防火墙关闭: 系统防火墙未启用",
+      "priority": "P1",
+      "elapsed_ms": 7.657667010789737,
+      "meta": {}
+    },
+    {
+      "guard": "persona",
+      "timestamp": "2026-07-14T20:40:17.525976+08:00",
+      "triggered": false,
+      "message": "✅ persona: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.025250003091059625,
+      "meta": {}
+    },
+    {
+      "guard": "privacy",
+      "timestamp": "2026-07-14T20:40:17.526806+08:00",
+      "triggered": false,
+      "message": "✅ privacy: 正常",
+      "priority": "P0",
+      "elapsed_ms": 0.04308400093577802,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T20:40:17.628481+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.3476250023813918,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T20:40:17.682930+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.025375004042871296,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T20:40:17.754675+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 45.27925000002142,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T20:40:18.371403+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 44.702208004309796,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:40:18.567707+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.53166699805297,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T20:40:19.143315+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 155.04358400357887,
+      "meta": {}
+    },
+    {
+      "guard": "github",
+      "timestamp": "2026-07-14T20:40:19.544614+08:00",
+      "triggered": false,
+      "message": "✅ github: 正常",
+      "priority": "P2",
+      "elapsed_ms": 52.144457993563265,
+      "meta": {}
+    },
+    {
+      "guard": "gitee",
+      "timestamp": "2026-07-14T20:40:19.633624+08:00",
+      "triggered": false,
+      "message": "✅ gitee: 正常",
+      "priority": "P2",
+      "elapsed_ms": 1143.0107089981902,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:42:11.294010+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2692910056794062,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:45:18.657064+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.046959007624537,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T20:47:08.460858+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.018292004824616015,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T20:47:08.729458+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 35.71508299501147,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:47:11.428972+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.16262498684227467,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T20:50:18.530733+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 45.79433301114477,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:50:18.783639+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 21.172708991798572,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:52:11.648670+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.19549998978618532,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T20:55:18.886305+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.099832998705097,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T20:55:19.461848+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 208.14454200444743,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T20:57:11.821575+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.1898749906104058,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:00:18.702533+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 47.3872080037836,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:00:18.995318+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 16.48725000268314,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T21:02:08.348722+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.023375003365799785,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T21:02:08.557086+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.015583005733788013,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T21:02:08.871147+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 42.349333001766354,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:02:11.987327+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.25949999690055847,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:05:19.114884+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.072792000253685,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:07:12.159134+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.16437500016763806,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T21:10:17.755746+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.4866670098854229,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T21:10:17.875572+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.03695799387060106,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T21:10:17.959476+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 80.99362500070129,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:10:18.852875+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 51.401250006165355,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:10:19.221958+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.439832993550226,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T21:10:19.885804+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 322.90066599671263,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:12:12.301887+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.18262499361298978,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:15:19.313333+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 10.308124998118728,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T21:17:08.646245+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.016542006051167846,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T21:17:09.002111+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 39.032792003126815,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:17:12.438803+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.17941699479706585,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:20:18.977912+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 44.5647500018822,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:20:19.401480+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 10.792166998726316,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:22:12.575594+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.1765830093063414,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:25:19.494375+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.211915997089818,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T21:25:20.277359+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 301.3821659988025,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:27:12.741892+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2331669966224581,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:30:19.161289+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 50.54612499952782,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:30:19.581408+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.186957999598235,
+      "meta": {}
+    },
+    {
+      "guard": "backup",
+      "timestamp": "2026-07-14T21:32:08.199383+08:00",
+      "triggered": false,
+      "message": "✅ backup: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.032584008295089006,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T21:32:08.446812+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.025540997739881277,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T21:32:08.740932+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.016833000699989498,
+      "meta": {}
+    },
+    {
+      "guard": "git",
+      "timestamp": "2026-07-14T21:32:09.022454+08:00",
+      "triggered": true,
+      "message": "🟡 Git脏状态: 228个未提交文件",
+      "priority": "P2",
+      "elapsed_ms": 222.8897919994779,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T21:32:09.135740+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 39.773208991391584,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:32:12.893624+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2052919880952686,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:35:19.676918+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.212916994234547,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:37:13.048765+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.20008299907203764,
+      "meta": {}
+    },
+    {
+      "guard": "audit",
+      "timestamp": "2026-07-14T21:40:17.475236+08:00",
+      "triggered": false,
+      "message": "✅ audit: 正常",
+      "priority": "P0",
+      "elapsed_ms": 0.23895899357739836,
+      "meta": {}
+    },
+    {
+      "guard": "persona",
+      "timestamp": "2026-07-14T21:40:17.664413+08:00",
+      "triggered": false,
+      "message": "✅ persona: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.030291004804894328,
+      "meta": {}
+    },
+    {
+      "guard": "privacy",
+      "timestamp": "2026-07-14T21:40:17.667466+08:00",
+      "triggered": false,
+      "message": "✅ privacy: 正常",
+      "priority": "P0",
+      "elapsed_ms": 0.04266700125299394,
+      "meta": {}
+    },
+    {
+      "guard": "firewall",
+      "timestamp": "2026-07-14T21:40:17.684492+08:00",
+      "triggered": true,
+      "message": "🔴 防火墙关闭: 系统防火墙未启用",
+      "priority": "P1",
+      "elapsed_ms": 6.44708400068339,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T21:40:17.861906+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.6340000001946464,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T21:40:18.036105+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.02083300205413252,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T21:40:18.113208+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 49.5552909997059,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:40:19.288836+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 44.31745799956843,
+      "meta": {}
+    },
+    {
+      "guard": "github",
+      "timestamp": "2026-07-14T21:40:19.737661+08:00",
+      "triggered": false,
+      "message": "✅ github: 正常",
+      "priority": "P2",
+      "elapsed_ms": 53.33879200043157,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:40:19.777215+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 13.110541985952295,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T21:40:20.521918+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 156.94779199839104,
+      "meta": {}
+    },
+    {
+      "guard": "gitee",
+      "timestamp": "2026-07-14T21:40:21.025731+08:00",
+      "triggered": false,
+      "message": "✅ gitee: 正常",
+      "priority": "P2",
+      "elapsed_ms": 1246.6040830040583,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:42:13.190327+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.19270899065304548,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:45:19.909064+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.77708400064148,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T21:47:08.826926+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.016874997527338564,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T21:47:09.250435+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 38.04445800778922,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T21:50:19.430422+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 47.65999999654014,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:50:20.004928+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 21.40454199980013,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:52:13.394483+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.22633399930782616,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T21:55:20.112928+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.390208994271234,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T21:55:20.856148+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 236.5099580056267,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T21:57:13.641207+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2170000079786405,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:00:19.584908+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 49.4108329876326,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:00:20.211732+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 20.285625010728836,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T22:02:08.541630+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.02241700713057071,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T22:02:08.917052+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.024125009076669812,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T22:02:09.369799+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 34.29183398839086,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:02:13.769169+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.21241699869278818,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:05:20.316296+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.455459010903724,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:07:13.990148+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.17354200826957822,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T22:10:17.951439+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.5511249948758632,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T22:10:18.183389+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.049291003961116076,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T22:10:20.263811+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 2063.024625007529,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:10:20.409254+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 10.828625003341585,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:10:20.741384+08:00",
+      "triggered": true,
+      "message": "🟡 网络延迟: 1064ms (>500ms)",
+      "priority": "P1",
+      "elapsed_ms": 1063.9690420066472,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T22:10:21.146737+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 203.72350000252482,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:12:14.135022+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.21225000091362745,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:15:20.504171+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.564665997866541,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T22:17:09.036242+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.02054200740531087,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T22:17:09.488579+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 32.21874999871943,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:17:14.280461+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.17458399815950543,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:20:22.244380+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 59.38691600749735,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:20:22.594158+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 535.4185410105856,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:22:16.056235+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.40262500988319516,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T22:25:21.418640+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 202.11662499059457,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:25:22.718111+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 21.62754199525807,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:27:17.034319+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2127920015482232,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:30:22.527919+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 84.02608300093561,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:30:22.814806+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 19.833500002278015,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T22:32:08.592687+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.022375010303221643,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T22:32:09.074014+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.01766700006555766,
+      "meta": {}
+    },
+    {
+      "guard": "git",
+      "timestamp": "2026-07-14T22:32:09.335271+08:00",
+      "triggered": true,
+      "message": "🟡 Git脏状态: 631个未提交文件",
+      "priority": "P2",
+      "elapsed_ms": 255.31824999779928,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T22:32:09.561771+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 31.939041989971884,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:32:17.260669+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2181250019930303,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:35:22.910013+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.25016699754633,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:37:17.431019+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2680829929886386,
+      "meta": {}
+    },
+    {
+      "guard": "persona",
+      "timestamp": "2026-07-14T22:40:17.736076+08:00",
+      "triggered": false,
+      "message": "✅ persona: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.025749992346391082,
+      "meta": {}
+    },
+    {
+      "guard": "firewall",
+      "timestamp": "2026-07-14T22:40:17.819790+08:00",
+      "triggered": true,
+      "message": "🔴 防火墙关闭: 系统防火墙未启用",
+      "priority": "P1",
+      "elapsed_ms": 7.464125010301359,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T22:40:18.015869+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.5902500017546117,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T22:40:18.304807+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.027582995244301856,
+      "meta": {}
+    },
+    {
+      "guard": "github",
+      "timestamp": "2026-07-14T22:40:19.858224+08:00",
+      "triggered": false,
+      "message": "✅ github: 正常",
+      "priority": "P2",
+      "elapsed_ms": 55.284166999626905,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T22:40:20.393840+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 55.8865000057267,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T22:40:21.716604+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 206.7649170057848,
+      "meta": {}
+    },
+    {
+      "guard": "gitee",
+      "timestamp": "2026-07-14T22:40:22.449888+08:00",
+      "triggered": false,
+      "message": "✅ gitee: 正常",
+      "priority": "P2",
+      "elapsed_ms": 1312.5877080019563,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:40:22.929748+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 60.813582997070625,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:40:23.022310+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 18.045958000584505,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:42:19.114601+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.21158299932722002,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:45:24.460278+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 838.8304999971297,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T22:47:09.182035+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.0237500062212348,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T22:47:09.684756+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 35.164125001756474,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:47:21.445566+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.178082991624251,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T22:50:23.092456+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 57.01579200103879,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:50:24.582308+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 21.176666996325366,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:52:21.644745+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.2160829899366945,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T22:55:22.133910+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 368.4661250008503,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T22:55:24.635002+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.943499994231388,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T22:57:21.868409+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.19062499632127583,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T23:00:24.295129+08:00",
+      "triggered": true,
+      "message": "🟡 网络延迟: 1146ms (>500ms)",
+      "priority": "P1",
+      "elapsed_ms": 1146.05704099813,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:00:24.734208+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 18.76566700229887,
+      "meta": {}
+    },
+    {
+      "guard": "disk",
+      "timestamp": "2026-07-14T23:02:08.641193+08:00",
+      "triggered": false,
+      "message": "✅ disk: 正常",
+      "priority": "P1",
+      "elapsed_ms": 0.01925000105984509,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T23:02:09.228135+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.018791004549711943,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T23:02:09.764711+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 35.41445800510701,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:02:22.039859+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.23983301070984453,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:05:24.832212+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 12.581916991621256,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:07:22.183440+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.14183399616740644,
+      "meta": {}
+    },
+    {
+      "guard": "temperature",
+      "timestamp": "2026-07-14T23:10:18.069105+08:00",
+      "triggered": false,
+      "message": "✅ temperature: 正常",
+      "priority": "P3",
+      "elapsed_ms": 1.4963329886086285,
+      "meta": {}
+    },
+    {
+      "guard": "signing",
+      "timestamp": "2026-07-14T23:10:18.409659+08:00",
+      "triggered": true,
+      "message": "🔴 签章缺失: 签章日志文件不存在",
+      "priority": "P0",
+      "elapsed_ms": 0.028000009479001164,
+      "meta": {}
+    },
+    {
+      "guard": "huaweicloud",
+      "timestamp": "2026-07-14T23:10:20.551979+08:00",
+      "triggered": false,
+      "message": "✅ huaweicloud: 正常",
+      "priority": "P1",
+      "elapsed_ms": 111.10733399982564,
+      "meta": {}
+    },
+    {
+      "guard": "battery",
+      "timestamp": "2026-07-14T23:10:22.725987+08:00",
+      "triggered": false,
+      "message": "✅ battery: 正常",
+      "priority": "P3",
+      "elapsed_ms": 507.10820899985265,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T23:10:24.636202+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 148.38604199758265,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:10:24.952802+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 37.530083005549386,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:12:22.359295+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.22087499382905662,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:15:25.051346+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 18.364957999438047,
+      "meta": {}
+    },
+    {
+      "guard": "memory",
+      "timestamp": "2026-07-14T23:17:09.305794+08:00",
+      "triggered": false,
+      "message": "✅ memory: 正常",
+      "priority": "P2",
+      "elapsed_ms": 0.016375008272007108,
+      "meta": {}
+    },
+    {
+      "guard": "process",
+      "timestamp": "2026-07-14T23:17:09.877306+08:00",
+      "triggered": false,
+      "message": "✅ process: 正常",
+      "priority": "P2",
+      "elapsed_ms": 32.96816699730698,
+      "meta": {}
+    },
+    {
+      "guard": "health",
+      "timestamp": "2026-07-14T23:17:22.531869+08:00",
+      "triggered": true,
+      "message": "🔴 服务离线: 伦理锚点API(:9630), 龙魂Portal(:8888)",
+      "priority": "P1",
+      "elapsed_ms": 0.19020799663849175,
+      "meta": {}
+    },
+    {
+      "guard": "network",
+      "timestamp": "2026-07-14T23:20:24.809563+08:00",
+      "triggered": false,
+      "message": "✅ network: 正常",
+      "priority": "P1",
+      "elapsed_ms": 71.10904100409243,
+      "meta": {}
+    },
+    {
+      "guard": "intrusion",
+      "timestamp": "2026-07-14T23:20:25.174738+08:00",
+      "triggered": false,
+      "message": "✅ intrusion: 正常",
+      "priority": "P0",
+      "elapsed_ms": 11.147166005684994,
+      "meta": {}
+    }
+  ],
+  "stats": {
+    "huaweicloud": {
+      "checks": 7,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 199.8133803883282,
+      "priority": "P1"
+    },
+    "network": {
+      "checks": 20,
+      "triggers": 2,
+      "last_trigger": "2026-07-14T23:00:24.295162+08:00",
+      "avg_ms": 195.27043966377,
+      "priority": "P1"
+    },
+    "intrusion": {
+      "checks": 39,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 70.82094107898057,
+      "priority": "P0"
+    },
+    "battery": {
+      "checks": 13,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 211.80034605303524,
+      "priority": "P3"
+    },
+    "health": {
+      "checks": 37,
+      "triggers": 37,
+      "last_trigger": "2026-07-14T23:17:22.531875+08:00",
+      "avg_ms": 0.2051368278127422,
+      "priority": "P1"
+    },
+    "memory": {
+      "checks": 13,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.014099787566350911,
+      "priority": "P2"
+    },
+    "process": {
+      "checks": 13,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 26.878669221840383,
+      "priority": "P2"
+    },
+    "disk": {
+      "checks": 6,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.010749324878284826,
+      "priority": "P1"
+    },
+    "git": {
+      "checks": 3,
+      "triggers": 3,
+      "last_trigger": "2026-07-14T22:32:09.335278+08:00",
+      "avg_ms": 66.42533243140497,
+      "priority": "P2"
+    },
+    "firewall": {
+      "checks": 3,
+      "triggers": 3,
+      "last_trigger": "2026-07-14T22:40:17.819799+08:00",
+      "avg_ms": 1.9469210889656097,
+      "priority": "P1"
+    },
+    "persona": {
+      "checks": 3,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.007346439917455427,
+      "priority": "P1"
+    },
+    "privacy": {
+      "checks": 2,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.008144260209519416,
+      "priority": "P0"
+    },
+    "temperature": {
+      "checks": 6,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.7146316549021139,
+      "priority": "P3"
+    },
+    "signing": {
+      "checks": 6,
+      "triggers": 6,
+      "last_trigger": "2026-07-14T23:10:18.409665+08:00",
+      "avg_ms": 0.014716950282061589,
+      "priority": "P0"
+    },
+    "github": {
+      "checks": 3,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 14.552609077480156,
+      "priority": "P2"
+    },
+    "gitee": {
+      "checks": 3,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 336.0370056994143,
+      "priority": "P2"
+    },
+    "backup": {
+      "checks": 1,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.0032584008295089006,
+      "priority": "P1"
+    },
+    "audit": {
+      "checks": 1,
+      "triggers": 0,
+      "last_trigger": null,
+      "avg_ms": 0.023895899357739836,
+      "priority": "P0"
+    }
+  },
+  "alerts": []
+}

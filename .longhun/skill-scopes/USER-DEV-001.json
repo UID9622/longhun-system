@@ -1,0 +1,10 @@
+{
+  "uid": "USER-DEV-001",
+  "profession": "程序员",
+  "allowed_domains": [
+    "编程"
+  ],
+  "max_risk_level": 3,
+  "verified_skills": [],
+  "intent_history": []
+}

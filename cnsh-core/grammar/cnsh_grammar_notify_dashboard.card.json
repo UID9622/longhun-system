@@ -1,0 +1,27 @@
+{
+  "CNSH_CARD": {
+    "name": "CNSH中文语法库+终端通知+Notion公开仪表盘",
+    "version": "1.0",
+    "dna": "#龍芯⚡️2026-06-29-LONGHUN-GRAMMAR-NOTIFY-DASHBOARD-UID9622",
+    "created_at": "2026-06-29T12:46:01.360691+00:00",
+    "components": {
+      "grammar_engine": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/grammar/cnsh_grammar_engine.py",
+      "terminal_notifier": "/Users/zuimeidedeyihan/longhun-system/longhun_terminal_notifier.py",
+      "notion_dashboard": "/Users/zuimeidedeyihan/longhun-system/longhun_notion_dashboard.py"
+    },
+    "integrations": {
+      "shield": "longhun_shield_cnsh.py 已接入终端通知与 Notion 攻击地图",
+      "audit": "CNSH_目录审计.py --public 同步审计登记到公开仪表盘"
+    },
+    "tags": [
+      "CNSH",
+      "中文语法",
+      "终端通知",
+      "Notion",
+      "公开仪表盘",
+      "UID9622"
+    ],
+    "status": "🟢 完成"
+  },
+  "_dna": "2026-07-03-CORE-CNSH_GRAMMAR_NOTIFY_DASHBOARD-CARD-v1.0"
+}

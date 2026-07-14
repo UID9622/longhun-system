@@ -1,0 +1,24 @@
+{
+  "dna": "#龍芯⚡️2026-06-28-LONGHUN-SELF-AUDIT-v1.0",
+  "timestamp": "2026-06-28T03:49:00Z",
+  "score": 106,
+  "total": 111,
+  "rate": 95,
+  "rank": "🟢 卓越",
+  "checks": [
+    {"name":"Git工作区干净","status":"WARN","max_score":10,"score":5,"note":"存在未提交变更，建议及时提交"},
+    {"name":"v3核心模块可导入","status":"PASS","max_score":20,"score":20,"note":"5个v3模块正常"},
+    {"name":"Skill注册表正常","status":"PASS","max_score":15,"score":15,"note":"10/10 skills 已注册"},
+    {"name":"目录存在: skills/warehouse-audit","status":"PASS","max_score":3,"score":3,"note":"目录结构完整"},
+    {"name":"目录存在: systems/v3","status":"PASS","max_score":3,"score":3,"note":"目录结构完整"},
+    {"name":"目录存在: docs/v3","status":"PASS","max_score":3,"score":3,"note":"目录结构完整"},
+    {"name":"目录存在: bin","status":"PASS","max_score":3,"score":3,"note":"目录结构完整"},
+    {"name":"脚本可执行: bin/run-warehouse-audit.sh","status":"PASS","max_score":2,"score":2,"note":"权限正常"},
+    {"name":"脚本可执行: bin/skill-launcher-v3.sh","status":"PASS","max_score":2,"score":2,"note":"权限正常"},
+    {"name":"核心服务运行中","status":"PASS","max_score":10,"score":10,"note":"2 个端口有服务"},
+    {"name":"仓储审计引擎可运行","status":"PASS","max_score":10,"score":10,"note":"引擎无报错"},
+    {"name":"全局索引服务运行中","status":"PASS","max_score":10,"score":10,"note":"PID 87672 | 索引 977053 个文件"},
+    {"name":"知识图谱公开接口","status":"PASS","max_score":10,"score":10,"note":"PID 94782 | http://127.0.0.1:8088"},
+    {"name":"主干自我迭代检查","status":"PASS","max_score":10,"score":10,"note":"raw.md 无变化，向量库已是最新"}
+  ]
+}

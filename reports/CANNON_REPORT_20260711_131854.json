@@ -1,0 +1,459 @@
+{
+  "DNA": "#龍芯⚡️丙午·丙申·丙辰·巳时·需-AUTO-CANNON-v2.0",
+  "UID": "UID9622",
+  "version": "2.0.0",
+  "exec_time": "2026-07-11T13:18:54.356037",
+  "total_elapsed_sec": 22.77,
+  "health": {
+    "dimensions": {
+      "目录完整性": 9.166666666666666,
+      "文件可用性": 9.166666666666666,
+      "DNA对齐度": 6,
+      "依赖完整性": 7.272727272727273,
+      "服务可用性": 10.0,
+      "模型就绪": 10.0
+    },
+    "total_score": 8.601010101010102,
+    "rating": "🟢 生产级",
+    "ok": 44,
+    "warning": 4,
+    "failed": 0
+  },
+  "fix_stats": {
+    "fixed": 0
+  },
+  "details": [
+    {
+      "name": "目录/protocols",
+      "status": "StatusCode.OK",
+      "message": "存在 (22 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.00016307830810546875,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/skills",
+      "status": "StatusCode.OK",
+      "message": "存在 (24 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.00037288665771484375,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/data_layer",
+      "status": "StatusCode.OK",
+      "message": "存在 (45178 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.28383517265319824,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/service_layer",
+      "status": "StatusCode.OK",
+      "message": "存在 (393 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.004359722137451172,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/governance",
+      "status": "StatusCode.OK",
+      "message": "存在 (25 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0002899169921875,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/kernel",
+      "status": "StatusCode.OK",
+      "message": "存在 (105 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0015919208526611328,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/bin",
+      "status": "StatusCode.OK",
+      "message": "存在 (332 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0013959407806396484,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/config",
+      "status": "StatusCode.OK",
+      "message": "存在 (7 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0002486705780029297,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/models",
+      "status": "StatusCode.OK",
+      "message": "存在 (56 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0004150867462158203,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/train",
+      "status": "StatusCode.OK",
+      "message": "存在 (113 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0011172294616699219,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/integrations",
+      "status": "StatusCode.OK",
+      "message": "存在 (25101 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.5452301502227783,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/backend",
+      "status": "StatusCode.OK",
+      "message": "存在 (35 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0007171630859375,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/web",
+      "status": "StatusCode.OK",
+      "message": "存在 (77 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0003349781036376953,
+      "fix_action": ""
+    },
+    {
+      "name": "目录/portal",
+      "status": "StatusCode.OK",
+      "message": "存在 (1 文件)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 4.506111145019531e-05,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/AGENTS.md",
+      "status": "StatusCode.OK",
+      "message": "存在 (43166 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 1.2874603271484375e-05,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/CONSTITUTION.md.asc",
+      "status": "StatusCode.OK",
+      "message": "存在 (833 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 9.059906005859375e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/P0_ETERNAL_LOCK.md.asc",
+      "status": "StatusCode.OK",
+      "message": "存在 (833 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 7.867813110351562e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/STANDARD.md.asc",
+      "status": "StatusCode.OK",
+      "message": "存在 (833 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 7.867813110351562e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/web_server.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (3820 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 1.9073486328125e-05,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/backend/main.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (4832 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/backend/config.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (1511 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/backend/routes.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (18857 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 9.059906005859375e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/requirements.txt",
+      "status": "StatusCode.OK",
+      "message": "存在 (1138 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 1.3113021850585938e-05,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/docker-compose.yml",
+      "status": "StatusCode.OK",
+      "message": "存在 (4416 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 1.1920928955078125e-05,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/pyproject.toml",
+      "status": "StatusCode.OK",
+      "message": "存在 (3934 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "文件/.env.example",
+      "status": "StatusCode.OK",
+      "message": "存在 (539 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/lh_memory_load.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (5424 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 7.867813110351562e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/lh_anti_tamper.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (20826 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 5.9604644775390625e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/lh_persona_orchestrator.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (25669 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/lh_auto_cannon.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (28518 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 5.9604644775390625e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/longhun-self-heal.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (13823 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.198883056640625e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/longhun_auto_sync.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (6930 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "脚本/bin/cnsh_gatekeeper.py",
+      "status": "StatusCode.OK",
+      "message": "存在 (20897 字节)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 6.9141387939453125e-06,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/fastapi",
+      "status": "StatusCode.OK",
+      "message": "Web框架 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/uvicorn",
+      "status": "StatusCode.OK",
+      "message": "ASGI服务器 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/torch",
+      "status": "StatusCode.WARNING",
+      "message": "深度学习框架 - 未安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/aiohttp",
+      "status": "StatusCode.WARNING",
+      "message": "异步HTTP - 未安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/jinja2",
+      "status": "StatusCode.OK",
+      "message": "模板引擎 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/jwt",
+      "status": "StatusCode.OK",
+      "message": "JWT认证 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/requests",
+      "status": "StatusCode.OK",
+      "message": "HTTP客户端 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/websockets",
+      "status": "StatusCode.OK",
+      "message": "WebSocket - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/aiofiles",
+      "status": "StatusCode.WARNING",
+      "message": "异步文件 - 未安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/cryptography",
+      "status": "StatusCode.OK",
+      "message": "加密库 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "依赖/yaml",
+      "status": "StatusCode.OK",
+      "message": "YAML解析 - 已安装",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "模型/权重文件",
+      "status": "StatusCode.OK",
+      "message": "10 safetensors + 0 pt (5.9 GB)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0.0014698505401611328,
+      "fix_action": ""
+    },
+    {
+      "name": "服务/API后端 (FastAPI)",
+      "status": "StatusCode.OK",
+      "message": "端口 9622 运行中",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "服务/Web门户",
+      "status": "StatusCode.OK",
+      "message": "端口 8777 运行中",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    },
+    {
+      "name": "DNA对齐",
+      "status": "StatusCode.WARNING",
+      "message": "对齐率 40.7% (18290/44928)",
+      "dna_tag": "",
+      "version": "",
+      "elapsed": 0,
+      "fix_action": ""
+    }
+  ]
+}

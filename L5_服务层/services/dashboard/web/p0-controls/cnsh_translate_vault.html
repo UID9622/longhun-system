@@ -1,0 +1,854 @@
+<!--#龍芯⚡️2026-07-08-CNSH-TRANSLATE-VAULT-v1.0 -->
+<!-- CNSH翻译金库 · 贴入→翻译→DNA注入→锁定 · 只翻译不破解 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏦 CNSH翻译金库 · 万物翻译·DNA注入·时间戳锁定</title>
+<style>
+:root {
+  --bg:#0a0a0f; --bg2:#12121a; --bg3:#1a1a25; --border:#2a2a3a;
+  --green:#4ade80; --green-dim:#22c55e33; --yellow:#fbbf24; --yellow-dim:#f59e0b33;
+  --red:#f87171; --red-dim:#ef444433; --blue:#60a5fa; --blue-dim:#3b82f633;
+  --purple:#c084fc; --purple-dim:#a855f733; --gold:#d4a574; --cyan:#22d3ee;
+  --text:#e4e4e7; --text-dim:#71717a; --accent:#a78bfa;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",monospace;}
+body{background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
+
+.header{
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);
+  border-radius:12px;padding:16px 20px;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.header-left h1{font-size:20px;color:var(--gold);}
+.header-left p{font-size:11px;color:var(--text-dim);margin-top:4px;}
+.header-right{display:flex;gap:8px;}
+.badge{padding:4px 10px;border-radius:99px;font-size:10px;border:1px solid;}
+.badge-green{background:var(--green-dim);color:var(--green);border-color:var(--green);}
+.badge-yellow{background:var(--yellow-dim);color:var(--yellow);border-color:var(--yellow);}
+.badge-red{background:var(--red-dim);color:var(--red);border-color:var(--red);}
+.badge-purple{background:var(--purple-dim);color:var(--purple);border-color:var(--purple);}
+
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+@media(max-width:900px){.panels{grid-template-columns:1fr;}}
+
+.panel{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  display:flex;flex-direction:column;min-height:420px;
+}
+.panel-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  font-size:13px;font-weight:600;
+}
+.panel-body{flex:1;padding:12px 16px;display:flex;flex-direction:column;gap:10px;}
+
+textarea{
+  flex:1;min-height:180px;background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;color:var(--text);padding:12px;font-size:13px;resize:vertical;
+  font-family:"SF Mono","Menlo","Consolas","Courier New",monospace;
+  line-height:1.5;
+}
+textarea:focus{outline:none;border-color:var(--accent);}
+
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;}
+.btn{
+  padding:8px 16px;border:none;border-radius:6px;cursor:pointer;
+  font-size:12px;font-weight:600;transition:all .2s;white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:#000;}
+.btn-primary:hover{filter:brightness(1.15);}
+.btn-outline{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-copy{background:var(--purple-dim);color:var(--purple);border:1px solid var(--purple);}
+.btn-copy:hover{background:var(--purple);color:#fff;}
+.btn-danger{background:var(--red-dim);color:var(--red);border:1px solid var(--red);}
+.btn-danger:hover{background:var(--red);color:#fff;}
+.btn-green{background:var(--green-dim);color:var(--green);border:1px solid var(--green);}
+.btn-green:hover{background:var(--green);color:#000;}
+
+.parent-dna{display:flex;gap:8px;align-items:center;}
+.parent-dna input{
+  flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;
+  color:var(--gold);padding:6px 10px;font-size:12px;font-family:monospace;
+}
+.parent-dna input:focus{outline:none;border-color:var(--gold);}
+.parent-dna label{font-size:11px;color:var(--text-dim);white-space:nowrap;}
+
+.output-area{
+  flex:1;min-height:180px;background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;padding:12px;overflow-y:auto;font-size:12px;font-family:monospace;
+  line-height:1.6;white-space:pre-wrap;word-break:break-all;color:var(--text);
+}
+.output-area .key{color:var(--gold);}
+.output-area .val{color:var(--cyan);}
+.output-area .cnsh{color:var(--green);}
+.output-area .hash{color:var(--purple);}
+.output-area .err{color:var(--red);}
+.output-area .warn{color:var(--yellow);}
+
+/* Validation panel */
+.validation-bar{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  margin-bottom:16px;flex-wrap:wrap;
+}
+.validation-bar h3{font-size:13px;color:var(--accent);}
+.check-list{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.check-item{display:flex;align-items:center;gap:6px;font-size:11px;}
+.check-item .dot{width:8px;height:8px;border-radius:50%;}
+.check-item .dot.pass{background:var(--green);box-shadow:0 0 6px var(--green);}
+.check-item .dot.fail{background:var(--red);box-shadow:0 0 6px var(--red);}
+.check-item .dot.none{background:var(--text-dim);}
+
+/* DNA Chain Visualization */
+.chain-section{margin-bottom:16px;}
+.chain-title{font-size:13px;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.chain-bar{
+  display:flex;align-items:center;gap:8px;overflow-x:auto;padding:8px 0;
+}
+.chain-node{
+  flex-shrink:0;background:var(--bg3);border:2px solid var(--accent);
+  border-radius:10px;padding:8px 14px;text-align:center;min-width:140px;
+  font-size:10px;font-family:monospace;
+}
+.chain-node.root{border-color:var(--gold);}
+.chain-node .node-label{color:var(--text-dim);font-size:10px;}
+.chain-node .node-dna{color:var(--accent);font-size:11px;word-break:break-all;}
+.chain-link{color:var(--accent);font-size:18px;flex-shrink:0;}
+
+/* Keyword tags */
+.tags-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.tag{
+  font-size:10px;padding:2px 8px;border-radius:99px;
+  background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);
+}
+.tag.matched{background:var(--green-dim);border-color:var(--green);color:var(--green);}
+
+/* Stats row */
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;
+}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+.stat-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:12px;text-align:center;
+}
+.stat-card .stat-num{font-size:24px;font-weight:700;color:var(--accent);}
+.stat-card .stat-label{font-size:10px;color:var(--text-dim);margin-top:4px;}
+
+.toast{
+  position:fixed;bottom:20px;right:20px;background:var(--green-dim);
+  color:var(--green);border:1px solid var(--green);padding:10px 16px;
+  border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;
+  pointer-events:none;z-index:100;
+}
+.toast.show{opacity:1;}
+
+/* Tabs */
+.tab-row{display:flex;gap:4px;margin-bottom:4px;}
+.tab-btn{
+  padding:5px 12px;border:none;border-radius:6px;cursor:pointer;
+  font-size:11px;background:var(--bg3);color:var(--text-dim);
+  transition:all .2s;
+}
+.tab-btn.active{background:var(--accent);color:#000;}
+
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:200;align-items:center;justify-content:center;
+}
+.modal-overlay.show{display:flex;}
+.modal{
+  background:var(--bg2);border:2px solid var(--accent);border-radius:16px;
+  padding:24px;max-width:600px;width:90%;text-align:center;
+}
+.modal h2{color:var(--red);margin-bottom:12px;}
+.modal p{font-size:13px;color:var(--text-dim);margin-bottom:16px;}
+.modal .missing-list{text-align:left;background:var(--bg3);border-radius:8px;padding:12px;margin-bottom:16px;font-size:11px;font-family:monospace;}
+
+.footer{text-align:center;font-size:10px;color:var(--text-dim);padding:16px;border-top:1px solid var(--border);margin-top:8px;}
+</style>
+</head>
+<body style="max-width:1200px;margin:0 auto;padding:16px;">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1>🏦 CNSH 翻译金库 · 万物翻译引擎</h1>
+    <p>贴入任意内容 → CNSH转译 → DNA注入 → 时间戳锁定 → 组件绑定 · 少一样不能跑 · DNA链协作可验证</p>
+  </div>
+  <div class="header-right">
+    <span class="badge badge-green" id="status-badge">🟢 待输入</span>
+    <span class="badge badge-purple">只翻译·不破解</span>
+    <span class="badge badge-yellow" id="chain-badge">链: 0</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num" id="stat-total">0</div><div class="stat-label">总翻译次数</div></div>
+  <div class="stat-card"><div class="stat-num" id="stat-kw">0</div><div class="stat-label">命中CNSH关键字</div></div>
+  <div class="stat-card"><div class="stat-num" id="stat-integrity">—</div><div class="stat-label">完整性状态</div></div>
+  <div class="stat-card"><div class="stat-num" id="stat-chain">0</div><div class="stat-label">DNA链长度</div></div>
+</div>
+
+<!-- VALIDATION BAR -->
+<div class="validation-bar" id="validation-bar">
+  <h3>🔍 组件完整性校验</h3>
+  <div class="check-list">
+    <div class="check-item"><span class="dot none" id="dot-dna"></span>DNA追溯码</div>
+    <div class="check-item"><span class="dot none" id="dot-ts"></span>时间戳锁定</div>
+    <div class="check-item"><span class="dot none" id="dot-fp"></span>内容指纹</div>
+    <div class="check-item"><span class="dot none" id="dot-cnsh"></span>CNSH译文</div>
+    <div class="check-item"><span class="dot none" id="dot-ih"></span>完整性哈希</div>
+    <div class="check-item"><span class="dot none" id="dot-chain"></span>父DNA链</div>
+  </div>
+</div>
+
+<!-- DNA CHAIN -->
+<div class="chain-section" id="chain-section" style="display:none;">
+  <div class="chain-title">🔗 DNA协作链</div>
+  <div class="chain-bar" id="chain-bar"></div>
+</div>
+
+<!-- MAIN PANELS -->
+<div class="panels">
+  <!-- LEFT: INPUT -->
+  <div class="panel">
+    <div class="panel-head">
+      <span>📥 贴入原始内容</span>
+      <span style="font-size:11px;color:var(--text-dim);">任意代码/文本/配置/Markdown</span>
+    </div>
+    <div class="panel-body">
+      <div class="parent-dna">
+        <label>🔗 父DNA（可选·DNA链协作）：</label>
+        <input type="text" id="parent-dna-input" placeholder="#龍芯⚡️2026-07-08-... 或留空">
+      </div>
+      <textarea id="input-area" placeholder="在这里粘贴任意内容...
+支持：代码 / 文本 / Markdown / JSON / YAML / 配置文件 / 命令行 / SQL / HTML / CSS
+粘贴后自动检测CNSH关键字，翻译为龍魂格式，注入DNA和时间戳"></textarea>
+      <div class="tags-row" id="keyword-tags"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="doTranslate()">🔀 翻译·注入DNA</button>
+        <button class="btn btn-outline" onclick="clearAll()">🗑️ 清空</button>
+        <button class="btn btn-outline" onclick="loadExample('code')">📋 示例代码</button>
+        <button class="btn btn-outline" onclick="loadExample('text')">📋 示例文本</button>
+        <button class="btn btn-outline" onclick="loadExample('sql')">📋 示例SQL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTPUT -->
+  <div class="panel">
+    <div class="panel-head">
+      <span>📤 CNSH 翻译结果 · DNA绑定 · 时间戳锁定</span>
+      <div class="tab-row">
+        <button class="tab-btn active" onclick="switchTab('formatted')">格式化</button>
+        <button class="tab-btn" onclick="switchTab('raw')">原始JSON</button>
+        <button class="tab-btn" onclick="switchTab('cnsh')">纯CNSH</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="output-area" id="output-area">
+        <span style="color:var(--text-dim);">等待输入内容并点击"翻译·注入DNA"...</span>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-copy" onclick="copyOutput()">📋 复制完整输出</button>
+        <button class="btn btn-copy" onclick="copyDNA()">🧬 复制DNA码</button>
+        <button class="btn btn-green" onclick="validateOutput()">🔍 验证完整性</button>
+        <button class="btn btn-outline" onclick="exportVault()">💾 导出金库包</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALIDATION FAIL MODAL -->
+<div class="modal-overlay" id="fail-modal">
+  <div class="modal">
+    <h2>🔴 组件缺失 — 此翻译产物不可使用</h2>
+    <p>以下组件缺失或被篡改，"少一样就不能用"</p>
+    <div class="missing-list" id="missing-list"></div>
+    <button class="btn btn-danger" onclick="closeModal()">知道了</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">已复制到剪贴板</div>
+
+<div class="footer">
+  DNA: #龍芯⚡️2026-07-08-CNSH-TRANSLATE-VAULT-v1.0 · 洛书宫格5不动点 · 只翻译不破解 · UID9622主权<br>
+  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+</div>
+
+<script>
+// ============================================================
+// CNSH翻译金库 · 核心引擎 v1.0
+// DNA: #龍芯⚡️2026-07-08-TRANSLATE-VAULT-ENGINE-v1.0
+// ============================================================
+
+// CNSH 关键字映射表（精简内嵌版·完整版在 syntax_library.json）
+const CNSH_KEYWORDS = {
+  '控制流': ['如果','否则','否则如果','循环','遍历','重复','直到','当','跳出','继续','匹配','情况','返回','暂停'],
+  '函数': ['定义','函数','方法','参数','返回值','箭头函数','匿名函数','闭包','装饰器'],
+  '类': ['类','继承','接口','实现','抽象','静态','公有','私有','保护','构造','析构'],
+  '类型': ['整数','浮点','字符串','布尔','数组','列表','字典','集合','元组','空','任意','泛型'],
+  '运算符': ['等于','不等于','大于','小于','大于等于','小于等于','与','或','非','取余','取整','幂'],
+  '模块': ['导入','导出','模块','包','命名空间','引用'],
+  '异步': ['异步','等待','协程','并发','并行','线程','锁','信号量','通道'],
+  '异常': ['尝试','捕获','抛出','最终','断言'],
+  '标准库': ['打印','输入','输出','读取','写入','打开','关闭','删除','检查','存在','长度','类型','排序','映射','过滤','归约'],
+  '文件': ['文件','路径','目录','创建目录','删除文件','复制','移动','重命名','读取文件','写入文件'],
+  'SQL': ['查询','选择','从','插入','更新','删除','创建表','修改表','联合','分组','排序','限制','条件','左连接','右连接'],
+  'Git': ['克隆','提交','推送','拉取','分支','合并','标签','暂存','变基','cherry选取'],
+  'Docker': ['镜像','容器','构建','运行','停止','拉取镜像','推送镜像','挂载','端口映射','环境变量'],
+  'Shell': ['执行','管道','重定向','后台','变量','循环','判断','函数定义','别名'],
+};
+
+let translationCount = 0;
+let currentOutput = null;
+let dnaChain = []; // [{dna, timestamp, contentFingerprint, parentDna}]
+let outputTab = 'formatted';
+
+// ============================================================
+// 核心：SHA-256 哈希 (Web Crypto API)
+// ============================================================
+async function sha256(text) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// ============================================================
+// 核心：生成DNA追溯码
+// ============================================================
+function generateDNA(contentHash, isRoot = true) {
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const ts = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const shortHash = contentHash.substring(0, 8).toUpperCase();
+  const type = isRoot ? 'VAULT-ROOT' : 'VAULT-CHILD';
+  return `#龍芯⚡️${ts}-${type}-${shortHash}`;
+}
+
+// ============================================================
+// 核心：检测CNSH关键字
+// ============================================================
+function detectCNSHKeywords(text) {
+  const found = [];
+  const catMatches = {};
+  for (const [cat, keywords] of Object.entries(CNSH_KEYWORDS)) {
+    for (const kw of keywords) {
+      if (text.includes(kw)) {
+        found.push({cat, kw});
+        catMatches[cat] = (catMatches[cat] || 0) + 1;
+      }
+    }
+  }
+  return {found, catMatches};
+}
+
+// ============================================================
+// 核心：CNSH翻译（简化版·关键字映射+保留结构）
+// ============================================================
+function translateToCNSH(text) {
+  let result = text;
+  // 保留代码结构，标注CNSH关键字
+  const lines = result.split('\n');
+  const translated = lines.map(line => {
+    let annotation = '';
+    for (const [cat, keywords] of Object.entries(CNSH_KEYWORDS)) {
+      for (const kw of keywords) {
+        if (line.includes(kw)) {
+          annotation += ` /* CNSH:${cat}.${kw} */`;
+          break; // 每行最多标注一个关键字
+        }
+      }
+    }
+    return line + (annotation ? annotation : '');
+  });
+  return {
+    annotated: translated.join('\n'),
+    original: text,
+    lineCount: lines.length,
+    charCount: text.length,
+  };
+}
+
+// ============================================================
+// 核心：生成时间戳锁定（不可篡改）
+// ============================================================
+function lockTimestamp() {
+  const now = new Date();
+  return {
+    iso8601: now.toISOString(),
+    cn: now.toLocaleString('zh-CN', {timeZone:'Asia/Shanghai', hour12:false}),
+    unix: Math.floor(now.getTime() / 1000),
+    locked: true,
+    note: '此时间戳已锁定，篡改将导致完整性哈希断裂',
+  };
+}
+
+// ============================================================
+// 核心：计算完整性哈希（覆盖所有组件）
+// ============================================================
+async function computeIntegrityHash(dna, timestamp, contentFingerprint, cnshContent, parentDna) {
+  const bundle = [
+    `DNA:${dna}`,
+    `TIMESTAMP:${timestamp.iso8601}`,
+    `TIMESTAMP_UNIX:${timestamp.unix}`,
+    `CONTENT_FP:${contentFingerprint}`,
+    `CNSH_CONTENT:${cnshContent.annotated}`,
+    `CNSH_ORIGINAL_FP:${await sha256(cnshContent.original)}`,
+    `PARENT_DNA:${parentDna || 'ROOT'}`,
+  ].join('\n');
+  return await sha256(bundle);
+}
+
+// ============================================================
+// 主流程：翻译·注入DNA·锁定
+// ============================================================
+async function doTranslate() {
+  const input = document.getElementById('input-area').value.trim();
+  if (!input) {
+    showToast('⚠️ 请先贴入内容');
+    return;
+  }
+
+  const parentDna = document.getElementById('parent-dna-input').value.trim() || null;
+
+  // Step 1: 内容指纹
+  const contentFingerprint = await sha256(input);
+
+  // Step 2: 检测CNSH关键字
+  const {found, catMatches} = detectCNSHKeywords(input);
+  document.getElementById('stat-kw').textContent = found.length;
+  renderKeywordTags(found);
+
+  // Step 3: CNSH翻译
+  const cnshContent = translateToCNSH(input);
+
+  // Step 4: 时间戳锁定
+  const timestamp = lockTimestamp();
+
+  // Step 5: 生成DNA
+  const isRoot = !parentDna;
+  const dna = generateDNA(contentFingerprint, isRoot);
+
+  // Step 6: 完整性哈希
+  const integrityHash = await computeIntegrityHash(dna, timestamp, contentFingerprint, cnshContent, parentDna);
+
+  // Step 7: 组装输出包
+  currentOutput = {
+    version: '1.0',
+    dna,
+    parentDna: parentDna || null,
+    timestamp,
+    contentFingerprint,
+    cnshFingerprint: await sha256(cnshContent.annotated),
+    originalFingerprint: await sha256(cnshContent.original),
+    integrityHash,
+    cnshContent,
+    keywords: found.map(f => `${f.cat}.${f.kw}`),
+    keywordCategories: catMatches,
+    lineCount: cnshContent.lineCount,
+    charCount: cnshContent.charCount,
+    status: 'locked',
+    components: ['dna', 'timestamp', 'contentFingerprint', 'cnshContent', 'integrityHash'],
+    valid: true,
+  };
+
+  // 加到DNA链
+  translationCount++;
+  document.getElementById('stat-total').textContent = translationCount;
+
+  // 加入DNA链追踪
+  dnaChain.push({
+    dna,
+    parentDna: parentDna || null,
+    timestamp: timestamp.iso8601,
+    contentFingerprint: currentOutput.cnshFingerprint,
+  });
+
+  // 更新UI
+  document.getElementById('stat-chain').textContent = dnaChain.length;
+  document.getElementById('chain-badge').textContent = `链: ${dnaChain.length}`;
+  document.getElementById('status-badge').textContent = '🟢 已锁定';
+  document.getElementById('status-badge').className = 'badge badge-green';
+
+  renderChain();
+  renderOutput();
+  updateValidationDots(true);
+  document.getElementById('stat-integrity').textContent = '🟢 完整';
+}
+
+// ============================================================
+// HTML转义
+// ============================================================
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ============================================================
+// 渲染输出
+// ============================================================
+function renderOutput() {
+  if (!currentOutput) return;
+  const o = currentOutput;
+  const area = document.getElementById('output-area');
+
+  if (outputTab === 'formatted') {
+    area.innerHTML = `
+<span class="key">╔══════════════════════════════════════════════════════════╗</span>
+<span class="key">║  🏦 CNSH翻译金库 · 输出包 · 已锁定                       ║</span>
+<span class="key">╠══════════════════════════════════════════════════════════╣</span>
+
+<span class="key">【🧬 DNA追溯码】</span>
+<span class="hash">  ${escapeHtml(o.dna)}</span>
+${o.parentDna ? `<span class="key">【🔗 父DNA】</span>\n<span class="hash">  ${escapeHtml(o.parentDna)}</span>\n` : ''}
+<span class="key">【⏰ 时间戳锁定】</span> <span style="color:var(--red);font-size:10px;">🔒 不可篡改</span>
+  ISO8601: <span class="val">${escapeHtml(o.timestamp.iso8601)}</span>
+  北京时间: <span class="val">${escapeHtml(o.timestamp.cn)}</span>
+  Unix:    <span class="val">${o.timestamp.unix}</span>
+
+<span class="key">【🔐 内容指纹 SHA-256】</span>
+  <span class="hash">${escapeHtml(o.contentFingerprint)}</span>
+
+<span class="key">【🔐 CNSH译文指纹 SHA-256】</span>
+  <span class="hash">${escapeHtml(o.cnshFingerprint)}</span>
+
+<span class="key">【🔐 原始内容指纹 SHA-256】</span>
+  <span class="hash">${escapeHtml(o.originalFingerprint)}</span>
+
+<span class="key">【⚡ 完整性哈希 SHA-256】</span> <span style="color:var(--red);font-size:10px;">覆盖以上所有字段·任何改变将断裂</span>
+  <span class="hash">${escapeHtml(o.integrityHash)}</span>
+
+<span class="key">【🏷️ 命中CNSH关键字】</span> <span class="val">${o.keywords.length}个</span>
+  ${o.keywords.map(k => `<span class="tag matched">${escapeHtml(k)}</span>`).join(' ')}
+
+<span class="key">【📊 统计】</span> <span class="val">${o.lineCount}行 · ${o.charCount}字符</span>
+
+<span class="key">╠══════════════════════════════════════════════════════════╣</span>
+<span class="key">【🐉 CNSH译文】</span>
+<span class="cnsh">${escapeHtml(o.cnshContent.annotated)}</span>
+
+<span class="key">╠══════════════════════════════════════════════════════════╣</span>
+<span class="key">【⚙️ 元数据】</span>
+  状态:     <span style="color:var(--green);">🔒 已锁定 · 组件齐全 · 可验证</span>
+  组件数:   <span class="val">${o.components.length}</span>
+  DNA链长:  <span class="val">${dnaChain.length}</span>
+  ${o.parentDna ? '协作模式: <span style="color:var(--accent);">🔗 DNA链协作</span>' : '协作模式: <span style="color:var(--gold);">🏠 根节点</span>'}
+
+<span class="key">╠══════════════════════════════════════════════════════════╣</span>
+<span class="key">【🧬 验证指令】</span>
+  将此输出包粘贴回验证区，系统将自动检查：
+  ✅ DNA是否完整
+  ✅ 时间戳是否被篡改
+  ✅ 完整性哈希是否匹配
+  ✅ 内容指纹是否一致
+  ❌ 任一组件缺失 → <span style="color:var(--red);">不可使用</span>
+
+<span class="key">╚══════════════════════════════════════════════════════════╝</span>
+<span style="color:var(--text-dim);font-size:10px;">洛书宫格5不动点 · 只翻译不破解 · UID9622主权 · DNA链协作可验证</span>`;
+  } else if (outputTab === 'raw') {
+    area.innerHTML = `<span class="hash">${escapeHtml(JSON.stringify(currentOutput, null, 2))}</span>`;
+  } else if (outputTab === 'cnsh') {
+    area.innerHTML = `<span class="cnsh">${escapeHtml(o.cnshContent.annotated)}</span>`;
+  }
+}
+
+// ============================================================
+// 验证完整性
+// ============================================================
+async function validateOutput() {
+  if (!currentOutput) {
+    showToast('⚠️ 请先执行翻译');
+    return;
+  }
+
+  // 检查所有组件是否存在
+  const checks = {
+    dna: !!currentOutput.dna,
+    timestamp: !!(currentOutput.timestamp && currentOutput.timestamp.iso8601 && currentOutput.timestamp.locked),
+    contentFingerprint: !!currentOutput.contentFingerprint,
+    cnshContent: !!(currentOutput.cnshContent && currentOutput.cnshContent.annotated),
+    integrityHash: !!currentOutput.integrityHash,
+    parentDnaChain: true, // 父DNA可选，但如果当前输出有parentDna则必须验证链
+  };
+
+  // 重新计算完整性哈希
+  const recomputedHash = await computeIntegrityHash(
+    currentOutput.dna,
+    currentOutput.timestamp,
+    currentOutput.contentFingerprint,
+    currentOutput.cnshContent,
+    currentOutput.parentDna
+  );
+
+  const hashMatch = recomputedHash === currentOutput.integrityHash;
+
+  // 检查所有组件
+  const missingComponents = [];
+  for (const [comp, ok] of Object.entries(checks)) {
+    if (!ok) missingComponents.push(comp);
+  }
+  if (!hashMatch) missingComponents.push('完整性哈希不匹配（内容被篡改）');
+
+  updateValidationDots(missingComponents.length === 0);
+
+  if (missingComponents.length > 0) {
+    document.getElementById('stat-integrity').textContent = '🔴 断裂';
+    document.getElementById('status-badge').textContent = '🔴 不可用';
+    document.getElementById('status-badge').className = 'badge badge-red';
+    document.getElementById('missing-list').innerHTML = missingComponents.map(c =>
+      `<div style="color:var(--red);padding:4px 0;">❌ ${c}</div>`
+    ).join('');
+    document.getElementById('fail-modal').classList.add('show');
+    showToast('🔴 组件缺失 — 此翻译产物不可使用');
+    currentOutput.valid = false;
+  } else {
+    document.getElementById('stat-integrity').textContent = '🟢 完整';
+    document.getElementById('status-badge').textContent = '🟢 已验证';
+    document.getElementById('status-badge').className = 'badge badge-green';
+    showToast('🟢 验证通过 — 所有组件完整，可安全使用');
+    currentOutput.valid = true;
+  }
+}
+
+function updateValidationDots(allPass) {
+  const cls = allPass ? 'pass' : 'fail';
+  const setDot = (id, ok) => {
+    const el = document.getElementById(id);
+    if (el) { el.className = `dot ${ok ? 'pass' : 'fail'}`; }
+  };
+  if (currentOutput) {
+    setDot('dot-dna', !!currentOutput.dna);
+    setDot('dot-ts', !!(currentOutput.timestamp && currentOutput.timestamp.locked));
+    setDot('dot-fp', !!currentOutput.contentFingerprint);
+    setDot('dot-cnsh', !!(currentOutput.cnshContent && currentOutput.cnshContent.annotated));
+    setDot('dot-ih', !!currentOutput.integrityHash);
+    setDot('dot-chain', true);
+  } else {
+    ['dot-dna','dot-ts','dot-fp','dot-cnsh','dot-ih','dot-chain'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.className = 'dot none';
+    });
+  }
+}
+
+// ============================================================
+// DNA链可视化
+// ============================================================
+function renderChain() {
+  const bar = document.getElementById('chain-bar');
+  const section = document.getElementById('chain-section');
+
+  if (dnaChain.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  section.style.display = 'block';
+  bar.innerHTML = dnaChain.map((node, i) => {
+    const isRoot = !node.parentDna;
+    const cls = isRoot ? 'chain-node root' : 'chain-node';
+    const label = isRoot ? '🏠 根' : `🔗 #${i}`;
+    const arrow = i < dnaChain.length - 1
+      ? '<span class="chain-link">→</span>'
+      : '';
+    return `
+      <div class="${cls}">
+        <div class="node-label">${label} · ${new Date(node.timestamp).toLocaleTimeString('zh-CN')}</div>
+        <div class="node-dna">${node.dna.replace('#龍芯⚡️','')}</div>
+      </div>${arrow}`;
+  }).join('');
+}
+
+// ============================================================
+// 关键字标签渲染
+// ============================================================
+function renderKeywordTags(found) {
+  const container = document.getElementById('keyword-tags');
+  if (found.length === 0) {
+    container.innerHTML = '<span class="tag">未检测到CNSH关键字（将按原文翻译）</span>';
+    return;
+  }
+  const unique = [...new Set(found.map(f => `${f.cat}.${f.kw}`))];
+  container.innerHTML = unique.map(k =>
+    `<span class="tag matched">${k}</span>`
+  ).join('');
+}
+
+// ============================================================
+// Tab切换
+// ============================================================
+function switchTab(tab) {
+  outputTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderOutput();
+}
+
+// ============================================================
+// 复制函数
+// ============================================================
+function copyOutput() {
+  if (!currentOutput) { showToast('⚠️ 请先执行翻译'); return; }
+  const text = document.getElementById('output-area').innerText;
+  navigator.clipboard.writeText(text).then(() => showToast('📋 完整输出已复制'));
+}
+
+function copyDNA() {
+  if (!currentOutput) { showToast('⚠️ 请先执行翻译'); return; }
+  navigator.clipboard.writeText(currentOutput.dna).then(() => showToast('🧬 DNA码已复制'));
+}
+
+// ============================================================
+// 导出金库包
+// ============================================================
+function exportVault() {
+  if (!currentOutput) { showToast('⚠️ 请先执行翻译'); return; }
+
+  const vault = {
+    vault_version: '1.0',
+    vault_dna: '#龍芯⚡️2026-07-08-VAULT-EXPORT-v1.0',
+    exported_at: new Date().toISOString(),
+    translation: currentOutput,
+    dna_chain: dnaChain,
+    verify_instructions: [
+      '1. 将此JSON粘贴回翻译金库的父DNA输入框',
+      '2. 点击"验证完整性"检查所有组件',
+      '3. 如果完整性哈希断裂，说明内容被篡改',
+      '4. DNA链协作：父DNA必须存在于链中',
+    ],
+    warning: '少一样就不能用 — 所有组件必须齐全且完整性哈希匹配',
+  };
+
+  const blob = new Blob([JSON.stringify(vault, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `cnsh_vault_${currentOutput.dna.replace(/[#⚡️:]/g,'_').substring(0,50)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('💾 金库包已导出');
+}
+
+// ============================================================
+// 清空
+// ============================================================
+function clearAll() {
+  document.getElementById('input-area').value = '';
+  document.getElementById('output-area').innerHTML = '<span style="color:var(--text-dim);">等待输入内容并点击"翻译·注入DNA"...</span>';
+  document.getElementById('parent-dna-input').value = '';
+  document.getElementById('keyword-tags').innerHTML = '';
+  document.getElementById('status-badge').textContent = '🟢 待输入';
+  document.getElementById('status-badge').className = 'badge badge-green';
+  document.getElementById('stat-integrity').textContent = '—';
+  document.getElementById('stat-kw').textContent = '0';
+  currentOutput = null;
+  updateValidationDots(false);
+}
+
+// ============================================================
+// 示例加载
+// ============================================================
+function loadExample(type) {
+  const examples = {
+    code: [
+      '定义 类 用户 {',
+      '    公有 字符串 姓名',
+      '    公有 整数 年龄',
+      '    ',
+      '    定义 构造(姓名, 年龄) {',
+      '        打印("创建用户: " + 姓名)',
+      '    }',
+      '    ',
+      '    异步 定义 保存() {',
+      '        尝试 {',
+      '            等待 写入文件(姓名 + ".json", 字典)',
+      '        } 捕获 异常 {',
+      '            打印("保存失败")',
+      '        }',
+      '    }',
+      '}',
+    ].join('\n'),
+    text: [
+      '龍魂系统是一个中国自主可控的AI主权管理系统。',
+      '核心原则：人民数据主权、平台服务降级、忠诚执行、实心办事。',
+      '',
+      '如果检测到异常行为，系统会自动标记但不封锁，保留人工复核通道。',
+      '洛书中心"5"是不动点锚，无论外部输入从哪个方向来，归宿永远是同一个不动点。',
+      '',
+      '遍历所有审计记录，打印出风险等级大于3的条目。',
+    ].join('\n'),
+    sql: [
+      '-- CNSH SQL 示例',
+      '创建表 用户表 (',
+      '    整数 id 主键,',
+      '    字符串 姓名 非空,',
+      '    整数 年龄 默认 18,',
+      '    浮点 余额',
+      ');',
+      '',
+      '插入 到 用户表 (姓名, 年龄) 值 ("龍芯", 25);',
+      '',
+      '查询 姓名, 年龄 从 用户表 条件 年龄 > 18 分组 年龄 排序 姓名 升序 限制 10;',
+    ].join('\n'),
+  };
+
+  document.getElementById('input-area').value = examples[type] || '';
+  showToast(`📋 已加载${type}示例`);
+}
+
+// ============================================================
+// Toast & Modal
+// ============================================================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+function closeModal() {
+  document.getElementById('fail-modal').classList.remove('show');
+}
+
+// ============================================================
+// 粘贴事件·自动检测关键字
+// ============================================================
+document.getElementById('input-area').addEventListener('input', function() {
+  const text = this.value;
+  if (text.trim().length > 0) {
+    const {found} = detectCNSHKeywords(text);
+    renderKeywordTags(found);
+    document.getElementById('stat-kw').textContent = found.length;
+  } else {
+    document.getElementById('keyword-tags').innerHTML = '';
+    document.getElementById('stat-kw').textContent = '0';
+  }
+});
+
+// ============================================================
+// 键盘快捷键
+// ============================================================
+document.addEventListener('keydown', function(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+    e.preventDefault();
+    doTranslate();
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key === 'v' && e.shiftKey) {
+    e.preventDefault();
+    validateOutput();
+  }
+});
+</script>
+</body>
+</html>

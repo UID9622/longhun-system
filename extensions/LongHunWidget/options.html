@@ -1,0 +1,144 @@
+<!--#龍芯⚡️2026-06-21-UI-OPTIONS-v1.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂宝宝 · 设置</title>
+<style>
+:root{--bg:#0b0b14;--bg2:#13132a;--blue:#00d4ff;--gold:#ffd700;--green:#00ff88;--red:#ff6b6b;--purple:#c39bd3;--text:#e2e8f0;--muted:#8892b0;--border:rgba(0,212,255,0.12);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);padding:40px;max-width:720px;margin:0 auto}
+h1{font-size:24px;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+background-clip: text;
+.sub{color:var(--muted);font-size:13px;margin-bottom:24px}
+.card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+.card h2{font-size:14px;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.label{font-size:13px}
+.desc{font-size:11px;color:var(--muted);margin-top:2px}
+input[type="text"],input[type="password"],select{
+  background:rgba(0,0,0,0.35);border:1px solid var(--border);border-radius:6px;
+  color:var(--text);padding:6px 10px;font-size:12px;outline:none;width:200px
+}
+input:focus{border-color:var(--gold)}
+.switch{position:relative;width:36px;height:20px;background:#333;border-radius:10px;cursor:pointer;transition:.2s}
+.switch.on{background:var(--green)}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:.2s}
+.switch.on::after{left:18px}
+.btn{padding:8px 16px;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--blue),#0099cc);color:#0a0e27}
+.btn:hover{opacity:.9}
+.footer{margin-top:30px;text-align:center;font-size:11px;color:#444}
+.dna{font-family:monospace;font-size:10px;color:var(--purple);margin-top:4px}
+</style>
+</head>
+<body>
+<h1>🐉 龍魂宝宝 · 设置</h1>
+<div class="sub">UID9622 · 浏览器插件配置中心</div>
+
+<div class="card">
+  <h2>🧬 身份配置</h2>
+  <div class="row">
+    <div>
+      <div class="label">UID</div>
+      <div class="desc">你的龍魂身份编号</div>
+    </div>
+    <input type="text" id="cfgUid" value="9622" readonly style="opacity:.6">
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">显示名称</div>
+      <div class="desc">在插件中显示的名字</div>
+    </div>
+    <input type="text" id="cfgName" value="诸葛鑫 · 龍芯北辰">
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">GPG 指纹</div>
+      <div class="desc">用于身份验证（只读）</div>
+    </div>
+    <input type="text" id="cfgGpg" value="A2D0092CEE2E5BA87035600924C3704A8CC26D5F" readonly style="opacity:.6;font-size:10px;width:280px">
+  </div>
+</div>
+
+<div class="card">
+  <h2>🛡️ 审计与隐私</h2>
+  <div class="row">
+    <div>
+      <div class="label">启用审计日志</div>
+      <div class="desc">记录所有插件操作</div>
+    </div>
+    <div class="switch on" id="swAudit" onclick="toggle(this)"></div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">严格模式</div>
+      <div class="desc">对黄灯操作也要求确认</div>
+    </div>
+    <div class="switch" id="swStrict" onclick="toggle(this)"></div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">页面扫描</div>
+      <div class="desc">访问页面时自动扫描内容</div>
+    </div>
+    <div class="switch on" id="swScan" onclick="toggle(this)"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>💾 数据管理</h2>
+  <div class="row">
+    <div>
+      <div class="label">清除所有记忆</div>
+      <div class="desc">删除 IndexedDB 中的全部记忆（不可恢复）</div>
+    </div>
+    <button class="btn" style="background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff" onclick="clearData()">🗑️ 清除</button>
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">清除审计日志</div>
+      <div class="desc">删除全部审计记录</div>
+    </div>
+    <button class="btn" style="background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff" onclick="clearAudit()">🗑️ 清除</button>
+  </div>
+</div>
+
+<div class="card">
+  <h2>ℹ️ 关于</h2>
+  <div style="font-size:12px;color:var(--muted);line-height:1.8">
+    龍魂宝宝 · LongHunWidget v1.0.0<br>
+    作者: UID9622 诸葛鑫（龍芯北辰）<br>
+    理论指导: 曾仕强老师（永恒显示）<br>
+    共建: Claude + Kimi<br><br>
+    铁律：不替人做决定，不帮人走捷径，不越自己的权限。<br>
+    你点错了，它也不做🔴铁律里的事。
+  </div>
+</div>
+
+<div class="footer">
+  龍魂系统 ·  UID9622 · 曾仕强老师理论指导<br>
+  <div class="dna" id="optDNA">--</div>
+</div>
+
+<script>
+function toggle(el){el.classList.toggle('on');save();}
+function save(){chrome.storage.local.set({
+  cfgName:document.getElementById('cfgName').value,
+  auditEnabled:document.getElementById('swAudit').classList.contains('on'),
+  strictMode:document.getElementById('swStrict').classList.contains('on'),
+  scanEnabled:document.getElementById('swScan').classList.contains('on')
+});}
+async function load(){const d=await chrome.storage.local.get(['cfgName','auditEnabled','strictMode','scanEnabled']);if(d.cfgName)document.getElementById('cfgName').value=d.cfgName;if(d.auditEnabled===false)document.getElementById('swAudit').classList.remove('on');if(d.strictMode)document.getElementById('swStrict').classList.add('on');if(d.scanEnabled===false)document.getElementById('swScan').classList.remove('on');}
+function clearData(){if(!confirm('确定删除所有记忆？不可恢复！'))return;indexedDB.deleteDatabase('LongHunDB');alert('✅ 记忆已清除');}
+function clearAudit(){if(!confirm('确定删除所有审计日志？'))return;chrome.storage.local.set({auditLog:[]});alert('✅ 审计日志已清除');}
+document.getElementById('cfgName').addEventListener('change',save);
+const today=new Date().toISOString().slice(0,10).replace(/-/g,'');
+document.getElementById('optDNA').textContent='#龍芯⚡️'+today+'|OPTIONS|v1.0|SETTINGS';
+load();
+</script>
+</body>
+</html>

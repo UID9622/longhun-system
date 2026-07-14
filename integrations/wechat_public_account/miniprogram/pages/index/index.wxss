@@ -1,0 +1,7 @@
+.article-card {
+  transition: transform 0.1s;
+}
+
+.article-card:active {
+  transform: scale(0.98);
+}

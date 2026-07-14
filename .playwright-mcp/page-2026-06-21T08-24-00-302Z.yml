@@ -1,0 +1,29 @@
+- generic [active] [ref=e1]:
+  - img "favicon" [ref=e2]
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - generic [ref=e10]:
+        - img [ref=e11] [cursor=pointer]
+        - link [ref=e13] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - img [ref=e21]
+          - text:  
+        - textbox
+      - img [ref=e25]
+    - generic [ref=e37]:
+      - generic [ref=e38]: 页面找不到或无权限
+      - link "返回首页" [ref=e40] [cursor=pointer]:
+        - /url: /
+        - button "返回首页" [ref=e41]:
+          - text: 
+          - generic [ref=e42]: 返回首页
+    - generic:
+      - generic:
+        - generic [ref=e45] [cursor=pointer]: 邀请
+        - generic [ref=e48]:
+          - generic [ref=e51]:
+            - generic [ref=e52]: 客
+            - generic [ref=e53]: 服
+          - img [ref=e61]

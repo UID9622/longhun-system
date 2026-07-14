@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs><radialGradient id="bronze" cx="0.4" cy="0.4" r="0.8"><stop offset="0%" stop-color="#bfa880"/><stop offset="50%" stop-color="#6e5a3a"/><stop offset="100%" stop-color="#3a2e1c"/></radialGradient></defs>
+  <rect width="400" height="400" fill="#f7f3e8"/>
+  <path d="M100 120 Q200 80 300 120 V280 Q200 320 100 280 Z" fill="url(#bronze)"/>
+  <path d="M130 160 Q200 140 270 160 V240 Q200 260 130 240 Z" fill="#4a3a24" opacity="0.4"/>
+  <text x="200" y="360" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">青铜器 · 鼎占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实青铜器公开版权图像</text>
+</svg>

@@ -1,0 +1,28 @@
+# Dependabot configuration for LongHun OS
+# Monitors only actively maintained code paths.
+# Archived/historical code under _archive/ is intentionally not monitored.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directories:
+      - "/baobao-guardian/backend"
+      - "/cnsh-core/ai-tools/operation_log_engine"
+      - "/mobile-monitoring.integrated"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+
+  - package-ecosystem: "npm"
+    directories:
+      - "/baobao-guardian/frontend"
+      - "/mobile-monitoring.integrated"
+      - "/phase3/frontend"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"

@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="header">
+    <view class="header-title">龍魂</view>
+    <view class="header-sub">根性治理 · 中国道理</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{error}}" class="error">{{error}}</view>
+  <view wx:elif="{{articles.length === 0}}" class="empty">暂无文章</view>
+
+  <view wx:for="{{articles}}" wx:key="id" class="article-card" bindtap="onArticleTap" data-id="{{item.id}}">
+    <view class="article-title">{{item.title}}</view>
+    <view class="article-meta">{{item.type}}</view>
+    <view class="article-desc">{{item.description || item.digest}}</view>
+  </view>
+</view>

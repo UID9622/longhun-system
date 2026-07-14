@@ -1,0 +1,11 @@
+# CNSH Terminal v5.0 runtime artifacts
+.venv/
+__pycache__/
+*.pyc
+*.c
+*.o
+*.out
+*.log
+audit_log_*.json
+data/chroma/
+data/vector_db/

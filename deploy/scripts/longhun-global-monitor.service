@@ -1,0 +1,40 @@
+[Unit]
+Description=龙魂全局监控与实时通报引擎 v1.0
+Documentation=https://github.com/UID9622/longhun-system
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/longhun-system
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin:/opt/longhun-system/venv/bin"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=-/opt/longhun-system/.env.kunpeng
+
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_global_monitor.py --daemon --interval 60
+ExecStop=/bin/kill -TERM $MAINPID
+ExecReload=/bin/kill -HUP $MAINPID
+
+Restart=always
+RestartSec=15
+StartLimitInterval=300
+StartLimitBurst=5
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/longhun-system /var/log/longhun
+ReadOnlyPaths=/home
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-global-monitor
+
+[Install]
+WantedBy=multi-user.target

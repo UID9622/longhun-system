@@ -1,0 +1,376 @@
+{
+  "monitoring_configuration": {
+    "environment": "production",
+    "version": "1.0",
+    "timestamp": "2026-06-10T16:00:00Z",
+    "DNA": "#龍芯⚡️2026-06-10-PROD-MONITORING-ALERTS-v1.0"
+  },
+  "alert_rules": {
+    "api_performance": {
+      "name": "API 响应时间异常",
+      "description": "P95 响应时间超过阈值",
+      "condition": "avg:longhun.api.response_time{env:prod}",
+      "threshold": 100,
+      "unit": "milliseconds",
+      "evaluation_window": "5m",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "pagerduty:longhun-prod-team",
+        "email:ops@longhun.example.com"
+      ]
+    },
+    "api_error_rate": {
+      "name": "API 错误率升高",
+      "description": "API 端点错误率超过 0.5%",
+      "condition": "avg:longhun.api.error_rate{env:prod}",
+      "threshold": 0.005,
+      "unit": "percentage",
+      "evaluation_window": "3m",
+      "severity": "critical",
+      "escalation": "immediate",
+      "notification_channels": [
+        "slack:#ops-critical",
+        "pagerduty:longhun-prod-team:urgent",
+        "sms:+1234567890",
+        "email:ops@longhun.example.com"
+      ],
+      "auto_remediation": {
+        "enabled": true,
+        "action": "trigger_rollback_l1"
+      }
+    },
+    "skill_execution_failure": {
+      "name": "Skill 执行失败率",
+      "description": "Skill 执行失败率超过 5%",
+      "condition": "avg:longhun.skill.execution_failure_rate{env:prod}",
+      "threshold": 0.05,
+      "unit": "percentage",
+      "evaluation_window": "5m",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "email:ops@longhun.example.com"
+      ]
+    },
+    "database_latency": {
+      "name": "数据库延迟过高",
+      "description": "数据库查询延迟超过 100ms",
+      "condition": "avg:longhun.database.query_latency{env:prod}",
+      "threshold": 100,
+      "unit": "milliseconds",
+      "evaluation_window": "3m",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "email:dba@longhun.example.com"
+      ]
+    },
+    "database_connection_pool_exhausted": {
+      "name": "数据库连接池耗尽",
+      "description": "数据库连接池已用完",
+      "condition": "avg:longhun.database.connection_pool_usage{env:prod}",
+      "threshold": 95,
+      "unit": "percentage",
+      "evaluation_window": "1m",
+      "severity": "critical",
+      "escalation": "immediate",
+      "notification_channels": [
+        "slack:#ops-critical",
+        "pagerduty:longhun-prod-team:urgent",
+        "email:dba@longhun.example.com"
+      ]
+    },
+    "memory_usage": {
+      "name": "内存使用过高",
+      "description": "应用内存使用率超过 80%",
+      "condition": "avg:system.memory.usage{env:prod,service:longhun}",
+      "threshold": 80,
+      "unit": "percentage",
+      "evaluation_window": "5m",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "email:ops@longhun.example.com"
+      ],
+      "auto_remediation": {
+        "enabled": true,
+        "action": "trigger_gc_and_restart_workers"
+      }
+    },
+    "cpu_usage": {
+      "name": "CPU 使用过高",
+      "description": "CPU 使用率超过 70%",
+      "condition": "avg:system.cpu.usage{env:prod,service:longhun}",
+      "threshold": 70,
+      "unit": "percentage",
+      "evaluation_window": "5m",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "email:ops@longhun.example.com"
+      ]
+    },
+    "disk_space": {
+      "name": "磁盘空间不足",
+      "description": "磁盘可用空间少于 10GB",
+      "condition": "avg:system.disk.free{env:prod,path:/}",
+      "threshold": 10737418240,
+      "unit": "bytes",
+      "comparison": "less_than",
+      "evaluation_window": "5m",
+      "severity": "critical",
+      "escalation": "immediate",
+      "notification_channels": [
+        "slack:#ops-critical",
+        "pagerduty:longhun-prod-team:urgent",
+        "email:ops@longhun.example.com"
+      ]
+    },
+    "ssl_certificate_expiration": {
+      "name": "SSL 证书即将过期",
+      "description": "SSL 证书在 30 天内将过期",
+      "condition": "avg:system.ssl.days_until_expiration{env:prod}",
+      "threshold": 30,
+      "unit": "days",
+      "comparison": "less_than",
+      "evaluation_window": "24h",
+      "severity": "warning",
+      "escalation": "oncall",
+      "notification_channels": [
+        "slack:#ops-alerts",
+        "email:ops@longhun.example.com"
+      ]
+    },
+    "deployment_health": {
+      "name": "部署环境健康检查失败",
+      "description": "蓝绿环境之一健康检查失败",
+      "condition": "avg:longhun.deployment.health_check_failures{env:prod}",
+      "threshold": 0,
+      "evaluation_window": "1m",
+      "severity": "critical",
+      "escalation": "immediate",
+      "notification_channels": [
+        "slack:#ops-critical",
+        "pagerduty:longhun-prod-team:urgent",
+        "email:ops@longhun.example.com"
+      ],
+      "auto_remediation": {
+        "enabled": true,
+        "action": "trigger_automated_recovery"
+      }
+    }
+  },
+  "slo_definitions": {
+    "api_availability": {
+      "target": 99.95,
+      "unit": "percentage",
+      "window": "rolling_month",
+      "description": "API 可用性 99.95%"
+    },
+    "api_latency_p95": {
+      "target": 100,
+      "unit": "milliseconds",
+      "window": "rolling_day",
+      "description": "P95 延迟 < 100ms"
+    },
+    "skill_execution_success": {
+      "target": 99.5,
+      "unit": "percentage",
+      "window": "rolling_day",
+      "description": "Skill 执行成功率 99.5%"
+    }
+  },
+  "dashboard_definitions": {
+    "api_performance_dashboard": {
+      "name": "API 性能监控",
+      "widgets": [
+        {
+          "type": "timeseries",
+          "title": "API 响应时间",
+          "queries": [
+            "avg:longhun.api.response_time{env:prod}",
+            "max:longhun.api.response_time{env:prod}",
+            "pct_95:longhun.api.response_time{env:prod}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "API 吞吐量",
+          "queries": [
+            "avg:longhun.api.throughput{env:prod}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "API 错误率",
+          "queries": [
+            "avg:longhun.api.error_rate{env:prod}"
+          ]
+        }
+      ]
+    },
+    "skill_execution_dashboard": {
+      "name": "Skill 执行监控",
+      "widgets": [
+        {
+          "type": "timeseries",
+          "title": "Skill 执行时间分布",
+          "queries": [
+            "avg:longhun.skill.execution_time{env:prod}",
+            "pct_95:longhun.skill.execution_time{env:prod}",
+            "max:longhun.skill.execution_time{env:prod}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "Skill 执行成功率",
+          "queries": [
+            "avg:longhun.skill.success_rate{env:prod}"
+          ]
+        },
+        {
+          "type": "heatmap",
+          "title": "Skill 执行热力图",
+          "queries": [
+            "longhun.skill.execution_time{env:prod} by {skill_name}"
+          ]
+        }
+      ]
+    },
+    "infrastructure_dashboard": {
+      "name": "基础设施监控",
+      "widgets": [
+        {
+          "type": "timeseries",
+          "title": "CPU 使用率",
+          "queries": [
+            "avg:system.cpu.usage{env:prod,service:longhun}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "内存使用率",
+          "queries": [
+            "avg:system.memory.usage{env:prod,service:longhun}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "磁盘使用率",
+          "queries": [
+            "avg:system.disk.usage{env:prod,path:/}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "网络 I/O",
+          "queries": [
+            "avg:system.network.in{env:prod,service:longhun}",
+            "avg:system.network.out{env:prod,service:longhun}"
+          ]
+        }
+      ]
+    },
+    "database_dashboard": {
+      "name": "数据库监控",
+      "widgets": [
+        {
+          "type": "timeseries",
+          "title": "查询延迟",
+          "queries": [
+            "avg:longhun.database.query_latency{env:prod}",
+            "pct_95:longhun.database.query_latency{env:prod}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "连接池使用",
+          "queries": [
+            "avg:longhun.database.connection_pool_usage{env:prod}"
+          ]
+        },
+        {
+          "type": "timeseries",
+          "title": "慢查询数量",
+          "queries": [
+            "sum:longhun.database.slow_queries{env:prod}"
+          ]
+        }
+      ]
+    },
+    "deployment_dashboard": {
+      "name": "部署状态监控",
+      "widgets": [
+        {
+          "type": "gauge",
+          "title": "蓝色环境健康",
+          "query": "avg:longhun.deployment.health{env:prod,version:blue}"
+        },
+        {
+          "type": "gauge",
+          "title": "绿色环境健康",
+          "query": "avg:longhun.deployment.health{env:prod,version:green}"
+        },
+        {
+          "type": "timeseries",
+          "title": "流量分配",
+          "queries": [
+            "avg:longhun.deployment.traffic_ratio{env:prod,version:blue}",
+            "avg:longhun.deployment.traffic_ratio{env:prod,version:green}"
+          ]
+        }
+      ]
+    }
+  },
+  "log_aggregation": {
+    "provider": "elasticsearch",
+    "config": {
+      "hosts": [
+        "PROD_ELASTICSEARCH_HOST:9200"
+      ],
+      "username": "PROD_ES_USER",
+      "password": "PROD_ES_PASSWORD_FROM_VAULT",
+      "index_prefix": "longhun-prod",
+      "retention_days": 30
+    },
+    "log_levels": {
+      "ERROR": "红色",
+      "WARNING": "黄色",
+      "INFO": "绿色",
+      "DEBUG": "灰色"
+    }
+  },
+  "distributed_tracing": {
+    "provider": "jaeger",
+    "config": {
+      "agent_host": "PROD_JAEGER_HOST",
+      "agent_port": 6831,
+      "sample_rate": 0.1,
+      "service_name": "longhun-api",
+      "tags": {
+        "environment": "production",
+        "version": "1.0"
+      }
+    }
+  },
+  "audit_logging": {
+    "enabled": true,
+    "log_all_api_calls": true,
+    "log_database_changes": true,
+    "retention_days": 365,
+    "sensitive_fields_masking": [
+      "password",
+      "api_key",
+      "secret",
+      "token",
+      "ssn",
+      "credit_card"
+    ]
+  }
+}

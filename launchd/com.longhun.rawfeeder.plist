@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.rawfeeder</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/scripts/龍魂投喂器服务.py</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/.longhun/logs/raw_feeder.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/.longhun/logs/raw_feeder.err</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/zuimeidedeyihan</string>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.14/bin</string>
+    </dict>
+</dict>
+</plist>

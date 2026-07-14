@@ -1,0 +1,121 @@
+{
+  "comment": "CNSH标准库函数映射表 · 可扩展的参数化配置",
+  "dna": "#龍芯⚡️2026-06-03-STDLIB-MAPPING-v1.0",
+  "note": "将常用的CNSH标准库函数映射到各目标语言的等价物",
+  "mappings": {
+    "打印": {
+      "c": "printf",
+      "python": "print",
+      "javascript": "console.log",
+      "rust": "println!"
+    },
+    "读取": {
+      "c": "scanf",
+      "python": "input",
+      "javascript": "prompt",
+      "rust": "std::io::stdin"
+    },
+    "长度": {
+      "c": "strlen",
+      "python": "len",
+      "javascript": "length",
+      "rust": "len"
+    },
+    "转整数": {
+      "c": "atoi",
+      "python": "int",
+      "javascript": "parseInt",
+      "rust": "parse"
+    },
+    "转浮点": {
+      "c": "atof",
+      "python": "float",
+      "javascript": "parseFloat",
+      "rust": "parse"
+    },
+    "转字符串": {
+      "c": "sprintf",
+      "python": "str",
+      "javascript": "toString",
+      "rust": "to_string"
+    },
+    "数组创建": {
+      "c": "malloc",
+      "python": "list",
+      "javascript": "Array",
+      "rust": "Vec::new"
+    },
+    "数组长度": {
+      "c": "sizeof",
+      "python": "len",
+      "javascript": "length",
+      "rust": "len"
+    },
+    "字符串连接": {
+      "c": "strcat",
+      "python": "+",
+      "javascript": "+",
+      "rust": "+"
+    },
+    "字符串查找": {
+      "c": "strstr",
+      "python": "find",
+      "javascript": "indexOf",
+      "rust": "find"
+    },
+    "数学平方": {
+      "c": "pow",
+      "python": "**",
+      "javascript": "**",
+      "rust": "powi"
+    },
+    "数学平方根": {
+      "c": "sqrt",
+      "python": "math.sqrt",
+      "javascript": "Math.sqrt",
+      "rust": "f64::sqrt"
+    },
+    "数学绝对值": {
+      "c": "abs",
+      "python": "abs",
+      "javascript": "Math.abs",
+      "rust": "i32::abs"
+    },
+    "数学最大值": {
+      "c": "fmax",
+      "python": "max",
+      "javascript": "Math.max",
+      "rust": "f64::max"
+    },
+    "数学最小值": {
+      "c": "fmin",
+      "python": "min",
+      "javascript": "Math.min",
+      "rust": "f64::min"
+    },
+    "文件打开": {
+      "c": "fopen",
+      "python": "open",
+      "javascript": "fs.readFile",
+      "rust": "std::fs::File::open"
+    },
+    "文件关闭": {
+      "c": "fclose",
+      "python": "close",
+      "javascript": "fs.closeSync",
+      "rust": "drop"
+    },
+    "文件读取": {
+      "c": "fread",
+      "python": "read",
+      "javascript": "fs.readFileSync",
+      "rust": "std::fs::read_to_string"
+    },
+    "文件写入": {
+      "c": "fwrite",
+      "python": "write",
+      "javascript": "fs.writeFile",
+      "rust": "std::fs::write"
+    }
+  }
+}

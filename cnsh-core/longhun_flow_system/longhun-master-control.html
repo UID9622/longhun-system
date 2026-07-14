@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UID9622｜龍魂流场总控台 v2.0</title>
+  <style>
+    :root {
+      --gold: #d6a84f;
+      --cyan: #62e6ff;
+      --red: #ff5a6a;
+      --green: #6dff9a;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --panel: rgba(10, 14, 22, 0.88);
+      --panel2: rgba(18, 24, 38, 0.92);
+      --border: rgba(214, 168, 79, 0.28);
+      --border-red: rgba(255, 90, 106, 0.45);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(214,168,79,0.12), transparent 32%),
+        radial-gradient(circle at 85% 70%, rgba(98,230,255,0.10), transparent 30%),
+        linear-gradient(135deg,#030406,#090b12 60%,#030406);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      overflow: hidden;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 320px 1fr 360px;
+      grid-template-rows: 56px 76px 1fr 56px;
+      grid-template-areas:
+        "banner banner banner"
+        "header header header"
+        "left main right"
+        "footer footer footer";
+      height: 100vh;
+      gap: 10px;
+      padding: 10px;
+    }
+    .banner {
+      grid-area: banner;
+      background: linear-gradient(90deg, rgba(255,90,106,0.18), rgba(255,90,106,0.08));
+      border: 1px solid var(--border-red);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 12px;
+      font-size: 13px;
+      color: #ffd2d6;
+    }
+    .banner strong { color: #ff8b96; }
+    header {
+      grid-area: header;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+    }
+    .title h1 { margin: 0; font-size: 22px; letter-spacing: 0.06em; color: var(--gold); }
+    .title p { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+    .status { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+    .pill {
+      border: 1px solid var(--border);
+      background: rgba(214,168,79,0.08);
+      color: var(--gold);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .pill.live { color: var(--green); border-color: rgba(109,255,154,0.28); background: rgba(109,255,154,0.08); }
+    .pill.warn { color: var(--red); border-color: rgba(255,90,106,0.4); background: rgba(255,90,106,0.08); }
+    aside.left, aside.right, main {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    aside.left { grid-area: left; padding: 14px; overflow: auto; }
+    main { grid-area: main; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); }
+    aside.right { grid-area: right; padding: 16px; overflow: auto; }
+    footer {
+      grid-area: footer;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .section-title { font-size: 13px; color: var(--gold); margin: 4px 0 12px; letter-spacing: 0.08em; }
+    .nav { display: flex; flex-direction: column; gap: 10px; }
+    .nav button {
+      width: 100%; text-align: left;
+      border: 1px solid rgba(214,168,79,0.22);
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.18s ease;
+      font-family: inherit;
+    }
+    .nav button:hover, .nav button:focus, .nav button.active {
+      border-color: var(--gold);
+      background: rgba(214,168,79,0.14);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .nav .role { display: inline-block; color: var(--cyan); font-size: 12px; margin-bottom: 4px; }
+    .nav .name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .nav .ipa { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace; }
+    .nav .file { color: var(--muted); font-size: 11px; word-break: break-all; margin-top: 4px; }
+    .frame-toolbar {
+      height: 44px; flex: 0 0 auto;
+      background: var(--panel2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 14px; font-size: 13px; color: var(--muted);
+    }
+    .frame-toolbar code { color: var(--cyan); font-family: ui-monospace, monospace; }
+    .frame-content { flex: 1; position: relative; background: #050608; }
+    iframe { width: 100%; height: 100%; border: none; background: #050608; display: block; }
+    .welcome, .error, .loading {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; padding: 24px; text-align: center;
+    }
+    .welcome h2 { color: var(--gold); margin: 0; }
+    .welcome p { color: var(--muted); max-width: 520px; line-height: 1.7; margin: 0; }
+    .error h2 { color: var(--red); margin: 0; }
+    .error code { color: var(--red); }
+    .hidden { display: none !important; }
+    .card {
+      border: 1px solid rgba(214,168,79,0.22);
+      background: rgba(255,255,255,0.035);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .card h3 { margin: 0 0 8px; color: var(--gold); font-size: 16px; }
+    .card p, .card li { color: #d1d5db; font-size: 13px; line-height: 1.6; }
+    .card ul { margin: 8px 0 0; padding-left: 18px; }
+    code { color: var(--cyan); font-family: ui-monospace, monospace; }
+    @media (max-width: 1100px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: 56px 76px 200px 1fr 56px;
+        grid-template-areas: "banner" "header" "left" "main" "footer";
+      }
+      aside.right { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="banner">
+      <strong>⛔ 主权回收声明已生效 · 2026-05-08</strong>
+      <span>本代码 / 数据 / 设计 不授权 AI 训练 · 不授权第三方分发 · GPG 签名为唯一识别</span>
+    </div>
+    <header>
+      <div class="title">
+        <h1>UID9622｜龍魂流场总控台 v2.0</h1>
+        <p>LOCAL-VIZ-MASTER · 五个本地 HTML 的统一切换入口 · 不假融合 · 不假联动</p>
+      </div>
+      <div class="status">
+        <span class="pill" id="pillState">未加载</span>
+        <span class="pill">Root: dr=5 土</span>
+        <span class="pill live">🟢 三色: 绿</span>
+      </div>
+    </header>
+    <aside class="left">
+      <div class="section-title">入口(从 flow-field-index.json 加载)</div>
+      <div class="nav" id="nav" role="navigation" aria-label="文件入口"></div>
+    </aside>
+    <main>
+      <div class="frame-toolbar">
+        <span id="currentLabel">当前: 欢迎页 · 未加载任何 iframe</span>
+        <span id="currentFile"><code>—</code></span>
+      </div>
+      <div class="frame-content">
+        <div class="welcome" id="welcome">
+          <h2>🐉 龍魂流场总控台 v2.0</h2>
+          <p>左侧选一个入口,iframe 才会加载对应 HTML。<br>这样你保留启动主权,不会被任何 HTML 默认抢占视野。</p>
+          <p style="font-size:12px;">键盘:↑↓ 切换条目 · Enter 加载</p>
+        </div>
+        <div class="loading hidden" id="loading">
+          <p>加载中...</p>
+        </div>
+        <div class="error hidden" id="error">
+          <h2>加载失败</h2>
+          <p id="errorMessage">文件路径错误或浏览器拦截。</p>
+          <p style="font-size:12px;">如果是 file:// 直接打开,某些浏览器会拦截 iframe<br>建议跑 <code>python3 -m http.server 9622</code></p>
+        </div>
+        <iframe id="viewer" class="hidden" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="当前 HTML 视图"></iframe>
+      </div>
+    </main>
+    <aside class="right">
+      <div class="section-title">说明</div>
+      <div class="card" id="infoCard">
+        <h3 id="infoTitle">欢迎页</h3>
+        <p id="infoDesc">左侧选择一个入口加载。</p>
+        <p id="infoIPA" style="font-size:11px; color:var(--muted); margin-top:8px;"></p>
+      </div>
+      <div class="card">
+        <h3>识别口诀</h3>
+        <ul>
+          <li>会动·像星云·粒子: <code>longhun-unified-v9.html</code></li>
+          <li>有节点连线·护盾熔断: <code>longhun-flow-field-v9.html</code></li>
+          <li>黑底星空·二十八宿: <code>longhun-28mansions-v1.html</code></li>
+          <li>有输入框·数字根: <code>dragon_soul_9622.html</code></li>
+          <li>三才·忠孝义: <code>current.html</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>一票否决(接驳公式对准表 §S)</h3>
+        <ul>
+          <li>不假联动·不说五图已深度融合</li>
+          <li>不删原文件·不覆盖原文件</li>
+          <li>不读密钥·不读 .env</li>
+          <li>不上传·不联网调用</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>ROOT_CARD</h3>
+        <p style="font-size:11px;">
+          DNA: <code>#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-FILE1-FILE1-v2.0-1</code><br>
+          ParentDNA: <code>#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1.1</code><br>
+          IPA: <code>LOCAL-VIZ-MASTER → IPA-010</code><br>
+          GPG: <code>A2D0092C...8CC26D5F</code>
+        </p>
+      </div>
+    </aside>
+    <footer>
+      <span>UID9622 · 龍魂流场可视化 · v2.0 · 数据主权归于人民 🐉</span>
+      <span><code id="indexVersion">index.json 加载中...</code></span>
+    </footer>
+  </div>
+  <script>
+    (function(){
+      'use strict';
+      const els = {
+        nav: document.getElementById('nav'),
+        viewer: document.getElementById('viewer'),
+        welcome: document.getElementById('welcome'),
+        loading: document.getElementById('loading'),
+        errorBox: document.getElementById('error'),
+        errorMessage: document.getElementById('errorMessage'),
+        currentLabel: document.getElementById('currentLabel'),
+        currentFile: document.getElementById('currentFile'),
+        infoTitle: document.getElementById('infoTitle'),
+        infoDesc: document.getElementById('infoDesc'),
+        infoIPA: document.getElementById('infoIPA'),
+        pillState: document.getElementById('pillState'),
+        indexVersion: document.getElementById('indexVersion')
+      };
+      let files = [];
+      let activeIndex = -1;
+
+      function setState(name, mode) {
+        els.pillState.textContent = name;
+        els.pillState.classList.remove('live','warn');
+        if (mode === 'live') els.pillState.classList.add('live');
+        if (mode === 'warn') els.pillState.classList.add('warn');
+      }
+      function showWelcome() {
+        els.welcome.classList.remove('hidden');
+        els.loading.classList.add('hidden');
+        els.errorBox.classList.add('hidden');
+        els.viewer.classList.add('hidden');
+      }
+      function showLoading() {
+        els.welcome.classList.add('hidden');
+        els.loading.classList.remove('hidden');
+        els.errorBox.classList.add('hidden');
+        els.viewer.classList.add('hidden');
+      }
+      function showError(msg) {
+        els.errorMessage.textContent = msg || '文件路径错误或浏览器拦截。';
+        els.welcome.classList.add('hidden');
+        els.loading.classList.add('hidden');
+        els.errorBox.classList.remove('hidden');
+        els.viewer.classList.add('hidden');
+        setState('加载失败','warn');
+      }
+      function showFrame() {
+        els.welcome.classList.add('hidden');
+        els.loading.classList.add('hidden');
+        els.errorBox.classList.add('hidden');
+        els.viewer.classList.remove('hidden');
+        setState('已加载','live');
+      }
+
+      function activate(item, button, idx) {
+        activeIndex = idx;
+        document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+        if (button) button.classList.add('active');
+
+        els.currentLabel.textContent = `当前: ${item.role_label}｜${item.name}`;
+        els.currentFile.innerHTML = '';
+        const codeEl = document.createElement('code');
+        codeEl.textContent = item.file;
+        els.currentFile.appendChild(codeEl);
+        els.infoTitle.textContent = `${item.role_label}｜${item.name}`;
+        els.infoDesc.textContent = item.description;
+        els.infoIPA.textContent = `IPA: ${item.ipa}`;
+
+        showLoading();
+        setState('加载中','warn');
+
+        const onLoad = () => {
+          els.viewer.removeEventListener('load', onLoad);
+          els.viewer.removeEventListener('error', onError);
+          showFrame();
+        };
+        const onError = () => {
+          els.viewer.removeEventListener('load', onLoad);
+          els.viewer.removeEventListener('error', onError);
+          showError(`无法加载 ${item.file} · 检查文件是否在同一目录 · 或用本地服务器打开`);
+        };
+        els.viewer.addEventListener('load', onLoad);
+        els.viewer.addEventListener('error', onError);
+        els.viewer.src = item.file;
+
+        // 5 秒兜底:file:// 同源限制可能导致 onLoad 不触发,但 iframe 实际已加载
+        setTimeout(() => {
+          if (els.pillState.textContent === '加载中') {
+            showFrame();
+          }
+        }, 5000);
+      }
+
+      function renderNav() {
+        els.nav.innerHTML = '';
+        files.forEach((item, idx) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.id = item.id;
+          button.dataset.idx = idx;
+          const role = document.createElement('span');
+          role.className = 'role';
+          role.textContent = item.role_label;
+          const name = document.createElement('div');
+          name.className = 'name';
+          name.textContent = item.name;
+          const ipa = document.createElement('div');
+          ipa.className = 'ipa';
+          ipa.textContent = item.ipa;
+          const file = document.createElement('div');
+          file.className = 'file';
+          file.textContent = item.file;
+          button.appendChild(role);
+          button.appendChild(name);
+          button.appendChild(ipa);
+          button.appendChild(file);
+          button.addEventListener('click', () => activate(item, button, idx));
+          els.nav.appendChild(button);
+        });
+      }
+
+      function setupKeyboard() {
+        document.addEventListener('keydown', (e) => {
+          if (!files.length) return;
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const next = (activeIndex + 1) % files.length;
+            const btn = els.nav.children[next];
+            btn.focus();
+            activeIndex = next;
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prev = activeIndex <= 0 ? files.length - 1 : activeIndex - 1;
+            const btn = els.nav.children[prev];
+            btn.focus();
+            activeIndex = prev;
+          } else if (e.key === 'Enter' && document.activeElement && document.activeElement.dataset.idx !== undefined) {
+            e.preventDefault();
+            const idx = parseInt(document.activeElement.dataset.idx, 10);
+            activate(files[idx], document.activeElement, idx);
+          }
+        });
+      }
+
+      async function init() {
+        setState('加载 index...');
+        try {
+          const r = await fetch('flow-field-index.json', { cache: 'no-store' });
+          if (!r.ok) throw new Error('index HTTP ' + r.status);
+          const idx = await r.json();
+          files = idx.files || [];
+          els.indexVersion.textContent = `index ${idx.version || '?'} · ${files.length} 个入口`;
+          renderNav();
+          setupKeyboard();
+
+          if (idx.default_view) {
+            const i = files.findIndex(f => f.id === idx.default_view);
+            if (i >= 0) {
+              activate(files[i], els.nav.children[i], i);
+              return;
+            }
+          }
+          setState('就绪 · 未加载','live');
+          showWelcome();
+        } catch (e) {
+          showError('无法加载 flow-field-index.json: ' + e.message + ' · 请用 python3 -m http.server 9622 启动本地服务器');
+          els.indexVersion.textContent = 'index 加载失败';
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

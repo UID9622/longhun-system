@@ -1,0 +1,342 @@
+<!--#龍芯⚡️2026-06-21-UI-INDEX-FILE7-v1.0-8 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🐉 龍魂操作台 MVP v1.1 · UID9622</title>
+  <style>
+    :root{
+      --bg0:#030310;--bg1:#070720;--bg2:#0b0b2e;--bg3:#0f0f3a;
+      --bd:#1c1c55;--bd2:#2a2a6a;--gold:#d4af37;--goldb:#ffd700;
+      --grn:#00ff88;--cyn:#00d4ff;--red:#ff3355;--yel:#ffcc00;--pur:#7b2dff;
+      --tp:#e8e0f8;--ts:#6868a8;--td:#2e2e66;
+      --nav-w:220px;--hdr-h:54px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;overflow:hidden;font-family:'PingFang SC','Noto Sans SC',sans-serif;font-size:13px;color:var(--tp);background:var(--bg0)}
+    #hdr{height:var(--hdr-h);background:var(--bg1);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 18px;gap:14px;flex-shrink:0}
+    #hdr-logo{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--goldb));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    #hdr-dna{flex:1;font:10px 'JetBrains Mono',monospace;color:var(--goldd);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .badge{padding:3px 10px;border-radius:3px;font:10px 'JetBrains Mono',monospace;border:1px solid var(--bd);color:var(--ts)}
+    .badge.grn{border-color:rgba(0,255,136,.3);color:var(--grn);background:var(--grng)}
+    #body{flex:1;display:flex;overflow:hidden}
+    #nav{width:var(--nav-w);background:var(--bg1);border-right:1px solid var(--bd);overflow-y:auto;flex-shrink:0}
+    .nav-title{padding:10px 14px;font:10px 'JetBrains Mono',monospace;color:var(--goldd);letter-spacing:2px;text-transform:uppercase}
+    .nav-item{padding:9px 14px;cursor:pointer;border-left:2px solid transparent;color:var(--ts);display:flex;align-items:center;gap:8px}
+    .nav-item:hover,.nav-item.active{background:rgba(212,175,55,.06);color:var(--gold);border-left-color:var(--gold)}
+    #main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+    #panels{flex:1;overflow-y:auto;padding:20px;position:relative}
+    .panel{display:none}
+    .panel.active{display:block}
+    h2{font-size:16px;margin-bottom:16px;color:var(--gold)}
+    h3{font-size:13px;margin:18px 0 10px;color:var(--cyn)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+    .card{background:var(--bg2);border:1px solid var(--bd);border-radius:6px;padding:14px;position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+    .card.html::before{background:var(--cyn)}
+    .card.python::before{background:var(--grn)}
+    .card-title{font-size:13px;font-weight:700;margin-bottom:6px}
+    .card-meta{font:10px 'JetBrains Mono',monospace;color:var(--goldd);margin-bottom:10px}
+    .card-desc{font-size:11px;color:var(--ts);line-height:1.7;margin-bottom:12px;min-height:38px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{padding:5px 12px;border-radius:3px;border:1px solid var(--bd2);background:var(--bg3);color:var(--tp);font:11px 'JetBrains Mono',monospace;cursor:pointer;transition:all .15s}
+    .btn:hover{border-color:var(--gold);color:var(--gold)}
+    .btn.primary{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.25);color:var(--cyn)}
+    .btn.run{background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.25);color:var(--grn)}
+    .payload{width:100%;background:var(--bg0);border:1px solid var(--bd);color:var(--tp);font:11px 'JetBrains Mono',monospace;padding:8px;border-radius:3px;margin-top:8px;min-height:60px}
+    .result{width:100%;background:var(--bg0);border:1px solid var(--bd);color:var(--grn);font:11px 'JetBrains Mono',monospace;padding:8px;border-radius:3px;margin-top:8px;min-height:80px;white-space:pre-wrap;overflow:auto;max-height:240px}
+    iframe{width:100%;height:70vh;border:1px solid var(--bd);border-radius:6px;background:#fff}
+    .wf-step{background:var(--bg2);border:1px solid var(--bd);border-radius:4px;padding:10px;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+    .wf-step .num{width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--bg0);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:10px}
+    table{width:100%;border-collapse:collapse;font:11px 'JetBrains Mono',monospace;margin-top:10px}
+    th,td{padding:8px 10px;border:1px solid var(--bd);text-align:left;color:var(--ts)}
+    th{background:rgba(212,175,55,.08);color:var(--gold);font-weight:400}
+    .status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+    .status-dot.ok{background:var(--grn);box-shadow:0 0 6px var(--grn)}
+    .status-dot.warn{background:var(--yel);box-shadow:0 0 6px var(--yel)}
+    .log{font:11px 'JetBrains Mono',monospace;color:var(--ts);line-height:1.8}
+    .log .ts{color:var(--goldd)}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div id="hdr">
+    <div id="hdr-logo">🐉 龍魂操作台 MVP v1.1</div>
+    <div id="hdr-dna">DNA: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</div>
+    <div class="badge grn"><span class="status-dot ok"></span>UID9622</div>
+  </div>
+  <div id="body">
+    <nav id="nav">
+      <div class="nav-title">SKILLS</div>
+      <div class="nav-item active" onclick="showPanel('skills')">🧩 技能总览</div>
+      <div class="nav-item" onclick="showPanel('workflows')">🔄 工作流</div>
+      <div class="nav-item" onclick="showPanel('foundation')">🛡️ 底座联动</div>
+      <div class="nav-item" onclick="showPanel('api')">🔌 API 文档</div>
+      <div class="nav-item" onclick="showPanel('logs')">📋 运行日志</div>
+      <div class="nav-title">SYSTEM</div>
+      <div class="nav-item" onclick="showPanel('dna')">🧬 DNA 绑定</div>
+    </nav>
+    <main id="main">
+      <div id="panels">
+        <!-- 技能总览 -->
+        <section id="panel-skills" class="panel active">
+          <h2>🧩 技能总览 · 10 个 Skill 全接入</h2>
+          <div class="grid" id="skill-grid"></div>
+          <div id="skill-viewer" class="hidden" style="margin-top:20px">
+            <h3 id="viewer-title"></h3>
+            <iframe id="viewer-frame"></iframe>
+          </div>
+        </section>
+
+        <!-- 底座联动 -->
+        <section id="panel-foundation" class="panel">
+          <h2>🛡️ 底座联动 · 不是孤立功能</h2>
+          <div class="grid">
+            <div class="card">
+              <div class="card-title">🛡️ 龍盾检查</div>
+              <div class="card-meta">/api/shield/check</div>
+              <div class="card-desc">调用龍盾 CLI 对指定文件做风险检查。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.check', {file:'shield_test_example.py'}, this)">▶ 检查</button></div>
+              <div class="result" id="res-shield-check"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🔍 龍盾分析</div>
+              <div class="card-meta">/api/shield/analyze</div>
+              <div class="card-desc">深度分析 + 代码转译。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.analyze', {file:'shield_test_example.py'}, this)">▶ 分析</button></div>
+              <div class="result" id="res-shield-analyze"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">✅ 龍盾验证</div>
+              <div class="card-meta">/api/shield/validate</div>
+              <div class="card-desc">完整验证 + 请求权限。</div>
+              <div class="actions"><button class="btn run" onclick="callFoundation('shield.validate', {file:'shield_test_example.py'}, this)">▶ 验证</button></div>
+              <div class="result" id="res-shield-validate"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">📐 CNSH 对齐</div>
+              <div class="card-meta">/api/cnsh/align</div>
+              <div class="card-desc">四层 CNSH 检查：字符、关键字、语法、语义。</div>
+              <textarea class="payload" id="payload-cnsh">def verify_dna():\n    return calculate_hash()</textarea>
+              <div class="actions"><button class="btn run" onclick="runCnshAlign(this)">▶ 对齐</button></div>
+              <div class="result" id="res-cnsh-align"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🔬 融合审计</div>
+              <div class="card-meta">/api/audit/integrated</div>
+              <div class="card-desc">CNSH + 10 维系统审计融合。</div>
+              <div class="actions">
+                <button class="btn run" onclick="callFoundation('audit.integrated', {mode:'system'}, this)">▶ 系统审计</button>
+                <button class="btn primary" onclick="callFoundation('cnsh.script-manager', {}, this)">▶ 脚本管理</button>
+              </div>
+              <div class="result" id="res-audit-integrated"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🧬 DNA 指令</div>
+              <div class="card-meta">/api/instruction/execute</div>
+              <div class="card-desc">指令 = 身份证 + DNA + 参数。</div>
+              <textarea class="payload" id="payload-instruction">@shield.check shield_test_example.py</textarea>
+              <div class="actions"><button class="btn run" onclick="runInstruction(this)">▶ 执行指令</button></div>
+              <div class="result" id="res-instruction"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 工作流 -->
+        <section id="panel-workflows" class="panel">
+          <h2>🔄 跨技能工作流</h2>
+          <div id="workflow-list" class="grid"></div>
+        </section>
+
+        <!-- API -->
+        <section id="panel-api" class="panel">
+          <h2>🔌 API 调用表</h2>
+          <table>
+            <tr><th>Method</th><th>Endpoint</th><th>说明</th></tr>
+            <tr><td>GET</td><td>/api/health</td><td>健康检查</td></tr>
+            <tr><td>GET</td><td>/api/skills</td><td>列出所有 Skill</td></tr>
+            <tr><td>POST</td><td>/api/skills/{skill_id}/run</td><td>运行 Python Skill</td></tr>
+            <tr><td>GET</td><td>/api/workflows</td><td>列出工作流</td></tr>
+            <tr><td>GET</td><td>/api/workflows/{id}</td><td>取得工作流定义</td></tr>
+            <tr><td>POST</td><td>/api/workflows/{id}/run</td><td>执行工作流（含 Skill + 底座联动）</td></tr>
+            <tr><td>GET</td><td>/api/foundation</td><td>列出底座 API</td></tr>
+            <tr><td>POST</td><td>/api/shield/{check|analyze|validate}</td><td>龍盾检查</td></tr>
+            <tr><td>POST</td><td>/api/cnsh/align</td><td>CNSH 对齐</td></tr>
+            <tr><td>POST</td><td>/api/cnsh/script-manager</td><td>全脚本扫描</td></tr>
+            <tr><td>POST</td><td>/api/audit/integrated</td><td>融合审计</td></tr>
+            <tr><td>POST</td><td>/api/instruction/execute</td><td>DNA 指令执行</td></tr>
+          </table>
+          <h3>WebSocket / SSE 预留</h3>
+          <p class="card-desc">未来可透过 <code>/api/stream</code> 订阅技能执行状态与审计日志。</p>
+        </section>
+
+        <!-- 日志 -->
+        <section id="panel-logs" class="panel">
+          <h2>📋 运行日志</h2>
+          <div id="log-box" class="log"></div>
+        </section>
+
+        <!-- DNA -->
+        <section id="panel-dna" class="panel">
+          <h2>🧬 设备灵魂绑定</h2>
+          <div class="card">
+            <div class="card-title">确认码</div>
+            <div class="card-meta">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</div>
+            <div class="card-desc">本操作台仅绑定 UID9622 主权设备。所有技能调用、工作流执行、API 请求均写入不可篡改 DNA 追溯链。</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const skillPayloads = {
+      'skill-6-mcp-builder': JSON.stringify({name:'longhun-mcp',version:'1.0.0',tools:[{name:'echo',description:'回显工具',parameters:{msg:{type:'string'}}}]},null,2),
+      'skill-7-skill-creator': JSON.stringify({skill_id:'demo-skill',name:'Demo Skill',description:'由操作台自动创建',category:'general'},null,2),
+      'skill-8-slack-gif-creator': JSON.stringify({type:'loading_spinner',width:512,height:512},null,2),
+      'skill-9-theme-factory': JSON.stringify({base:'longhun-cyber',name:'control-panel'},null,2),
+      'skill-10-web-artifacts-builder': JSON.stringify({artifact_id:'landing-page',name:'龍魂着陆页',type:'html',code:'<h1 style="color:#d4af37">🐉 龍魂操作台</h1>'},null,2)
+    };
+
+    let skills = [];
+
+    async function api(path, method='GET', body=null){
+      const opts = {method, headers:{}};
+      if(body){opts.headers['Content-Type']='application/json'; opts.body=JSON.stringify(body);}
+      try{
+        const r = await fetch(path, opts);
+        const data = await r.json();
+        log(`${method} ${path} → ${r.status}`);
+        return data;
+      }catch(e){
+        log(`ERR ${method} ${path}: ${e.message}`, 'err');
+        return {error:e.message};
+      }
+    }
+
+    function log(msg, type='info'){
+      const box = document.getElementById('log-box');
+      const t = new Date().toLocaleTimeString();
+      const color = type==='err'?'color:#ff3355':type==='ok'?'color:#00ff88':'';
+      box.innerHTML += `<div><span class="ts">[${t}]</span> <span style="${color}">${msg}</span></div>`;
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function showPanel(id){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+      document.getElementById('panel-'+id).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function renderSkillCard(s){
+      const isHtml = s.type === 'html';
+      const cls = isHtml ? 'html' : 'python';
+      const actionBtn = isHtml
+        ? `<button class="btn primary" onclick="openSkill('${s.id}','${s.url}')">🖥️ 打开面板</button>`
+        : `<button class="btn run" onclick="runSkill('${s.id}', this)">▶ 调用 API</button>`;
+      const payloadArea = isHtml ? '' : `<textarea class="payload" id="payload-${s.id}">${skillPayloads[s.id]||'{}'}</textarea><div class="result" id="result-${s.id}"></div>`;
+      return `
+        <div class="card ${cls}">
+          <div class="card-title">${s.id}</div>
+          <div class="card-meta">${s.name} · ${s.type.toUpperCase()}</div>
+          <div class="card-desc">${isHtml?'前端互动工具，可直接在操作台内嵌运行。':'后端 Python Skill，通过 API 调用并返回 JSON / 文件 / 图像。'}</div>
+          <div class="actions">${actionBtn}</div>
+          ${payloadArea}
+        </div>`;
+    }
+
+    async function loadSkills(){
+      const data = await api('/api/skills');
+      skills = data.skills || [];
+      document.getElementById('skill-grid').innerHTML = skills.map(renderSkillCard).join('');
+    }
+
+    function openSkill(id, url){
+      document.getElementById('skill-viewer').classList.remove('hidden');
+      document.getElementById('viewer-title').textContent = id;
+      document.getElementById('viewer-frame').src = url;
+      log(`Open HTML skill: ${id}`);
+    }
+
+    async function runSkill(id, btn){
+      const payloadRaw = document.getElementById('payload-'+id)?.value || '{}';
+      let payload = {};
+      try{ payload = JSON.parse(payloadRaw); }catch(e){ log('JSON parse error: '+e.message,'err'); return; }
+      btn.disabled = true; btn.textContent = '⏳ 执行中...';
+      const res = await api(`/api/skills/${id}/run`, 'POST', payload);
+      document.getElementById('result-'+id).textContent = JSON.stringify(res, null, 2);
+      btn.disabled = false; btn.textContent = '▶ 调用 API';
+      log(`Skill ${id} result: ${res.status}`, res.status==='success'?'ok':'err');
+    }
+
+    async function loadWorkflows(){
+      const data = await api('/api/workflows');
+      const box = document.getElementById('workflow-list');
+      box.innerHTML = (data.workflows||[]).map(wf=>`
+        <div class="card">
+          <div class="card-title">${wf.name}</div>
+          <div class="card-meta">${wf.id} · ${wf.step_count} 步</div>
+          <div class="card-desc">${wf.description}</div>
+          <div class="actions"><button class="btn run" onclick="runWorkflow('${wf.id}',this)">▶ 执行工作流</button></div>
+          <div class="result" id="wf-result-${wf.id}"></div>
+        </div>
+      `).join('');
+    }
+
+    async function runWorkflow(id, btn){
+      btn.disabled = true; btn.textContent = '⏳ 执行中...';
+      const res = await api(`/api/workflows/${id}/run`, 'POST', {});
+      document.getElementById('wf-result-'+id).textContent = JSON.stringify(res, null, 2);
+      btn.disabled = false; btn.textContent = '▶ 执行工作流';
+      log(`Workflow ${id} result: ${res.results ? res.results.length + ' steps' : 'error'}`, res.results?'ok':'err');
+    }
+
+    async function callFoundation(action, payload, btn, resultId){
+      const rid = resultId || 'res-' + action.replace(/\./g, '-');
+      btn.disabled = true; btn.textContent = '⏳ 执行中...';
+      let endpoint = '/api/foundation';
+      let body = {};
+      if(action.startsWith('shield.')){
+        endpoint = `/api/shield/${action.split('.')[1]}`;
+        body = payload;
+      } else if(action === 'cnsh.align'){
+        endpoint = '/api/cnsh/align';
+        body = payload;
+      } else if(action === 'cnsh.script-manager'){
+        endpoint = '/api/cnsh/script-manager';
+      } else if(action === 'audit.integrated'){
+        endpoint = '/api/audit/integrated';
+        body = payload;
+      }
+      const res = await api(endpoint, 'POST', body);
+      const box = document.getElementById(rid);
+      if(box) box.textContent = JSON.stringify(res, null, 2);
+      btn.disabled = false; btn.textContent = '▶ 执行';
+      log(`Foundation ${action} result returned`, res.error?'err':'ok');
+    }
+
+    async function runCnshAlign(btn){
+      const text = document.getElementById('payload-cnsh').value;
+      await callFoundation('cnsh.align', {text: text.replace(/\\n/g, '\n'), context: 'ui'}, btn, 'res-cnsh-align');
+    }
+
+    async function runInstruction(btn){
+      const instruction = document.getElementById('payload-instruction').value;
+      const res = await api('/api/instruction/execute', 'POST', {instruction});
+      document.getElementById('res-instruction').textContent = JSON.stringify(res, null, 2);
+      log(`Instruction executed: ${instruction}`, res.error?'err':'ok');
+    }
+
+    (async function init(){
+      await api('/api/health');
+      await loadSkills();
+      await loadWorkflows();
+      log('龍魂操作台已就绪');
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!--#龍芯⚡️2026-06-21-UI-SIDEPANEL-v1.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂宝宝 · SidePanel</title>
+<style>
+:root{
+  --bg:#0b0b14;--bg2:#13132a;--bg3:#1a1a35;--card:rgba(255,255,255,0.04);
+  --blue:#00d4ff;--gold:#ffd700;--green:#00ff88;--red:#ff6b6b;--purple:#c39bd3;
+  --yellow:#f5c518;--text:#e2e8f0;--muted:#8892b0;--border:rgba(0,212,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--text);font-size:13px;line-height:1.6;
+}
+
+/* 头部 */
+.header{
+  height:56px;background:linear-gradient(90deg,var(--bg2),var(--bg3));
+  border-bottom:1px solid var(--border);display:flex;align-items:center;
+  justify-content:space-between;padding:0 14px;flex-shrink:0
+}
+.header .logo{font-size:16px;font-weight:600;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+background-clip: text;
+.header .uid{font-size:10px;color:var(--muted);font-family:monospace}
+.header .dna{font-size:9px;color:var(--purple);background:rgba(195,155,211,0.1);padding:2px 6px;border-radius:4px}
+
+/* 标签栏 */
+.tabs{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:2px;
+  background:var(--bg2);padding:4px;border-bottom:1px solid var(--border)
+}
+.tab{
+  padding:8px 2px;text-align:center;font-size:11px;font-weight:600;
+  color:var(--muted);cursor:pointer;border-radius:6px;transition:.2s;border:none;background:transparent
+}
+.tab:hover{background:rgba(0,212,255,0.08);color:var(--text)}
+.tab.active{background:rgba(0,212,255,0.15);color:var(--blue)}
+.tab .emoji{font-size:14px;display:block;margin-bottom:1px}
+
+/* 内容区 */
+.content{height:calc(100vh - 100px);overflow-y:auto;padding:12px}
+.panel{display:none}
+.panel.active{display:block;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* 卡片 */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:14px;margin-bottom:12px
+}
+.card-title{
+  font-size:13px;font-weight:600;color:var(--blue);margin-bottom:10px;
+  display:flex;align-items:center;gap:6px
+}
+.card-title .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* 状态网格 */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:10px;text-align:center
+}
+.stat-val{font-size:20px;font-weight:700;color:var(--green);font-family:monospace}
+.stat-label{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* DNA身份卡 */
+.idcard{
+  background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(6,182,212,0.08));
+  border:1px solid rgba(139,92,246,0.3);border-radius:12px;padding:14px;
+  text-align:center;margin-bottom:12px
+}
+.idcard .avatar{
+  width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));
+  display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 8px
+}
+.idcard .name{font-size:15px;font-weight:600;margin-bottom:2px}
+.idcard .uid2{font-size:11px;color:var(--muted);margin-bottom:6px}
+.idcard .fingerprint{
+  font-family:monospace;font-size:9px;color:var(--purple);background:rgba(0,0,0,0.3);
+  padding:4px 8px;border-radius:6px;word-break:break-all
+}
+.idcard .confirm{
+  margin-top:8px;font-size:10px;color:var(--gold);background:rgba(245,197,24,0.1);
+  padding:4px 10px;border-radius:6px;display:inline-block
+}
+
+/* 表单 */
+input,textarea,select{
+  width:100%;padding:8px 10px;background:rgba(0,0,0,0.35);border:1px solid var(--border);
+  border-radius:6px;color:var(--text);font-size:12px;outline:none;margin-bottom:8px
+}
+input:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:80px;resize:vertical;font-family:monospace}
+.btn{
+  padding:8px 14px;border:none;border-radius:6px;font-size:12px;font-weight:600;
+  cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:4px
+}
+.btn:hover{transform:translateY(-1px);opacity:.9}
+.btn-primary{background:linear-gradient(135deg,var(--blue),#0099cc);color:#0a0e27}
+.btn-success{background:linear-gradient(135deg,var(--green),#00cc6a);color:#0a0e27}
+.btn-warn{background:linear-gradient(135deg,var(--yellow),#ffaa00);color:#0a0e27}
+.btn-danger{background:linear-gradient(135deg,var(--red),#ee5a5a);color:#fff}
+.btn-ghost{background:rgba(0,212,255,0.1);color:var(--blue);border:1px solid var(--blue)}
+.btn-group{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+
+/* 记忆列表 */
+.mem-item{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(0,212,255,0.1);
+  border-radius:8px;padding:10px;margin-bottom:8px;transition:.2s
+}
+.mem-item:hover{border-color:rgba(0,212,255,0.25);background:rgba(0,212,255,0.04)}
+.mem-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mem-title{font-size:12px;font-weight:600;color:var(--text)}
+.mem-time{font-size:9px;color:var(--muted)}
+.mem-dna{font-family:monospace;font-size:8px;color:var(--purple)}
+.mem-summary{font-size:11px;color:var(--muted);line-height:1.5;margin-top:4px}
+
+/* 审核日志 */
+.audit-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:11px}
+.audit-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.audit-dot.green{background:var(--green);box-shadow:0 0 4px var(--green)}
+.audit-dot.yellow{background:var(--yellow);box-shadow:0 0 4px var(--yellow)}
+.audit-dot.red{background:var(--red);box-shadow:0 0 4px var(--red)}
+.audit-text{flex:1;min-width:0}
+.audit-action{color:var(--text);font-weight:500}
+.audit-reason{color:var(--muted);font-size:10px}
+.audit-time{color:#555;font-size:9px;flex-shrink:0}
+
+/* 五行仪表盘 */
+.wuxing{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:12px}
+.wx{
+  text-align:center;padding:10px 4px;border-radius:10px;border:1px solid;
+  transition:.3s
+}
+.wx-wood{background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.3);color:var(--green)}
+.wx-fire{background:rgba(255,107,107,0.1);border-color:rgba(255,107,107,0.3);color:var(--red)}
+.wx-earth{background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.3);color:var(--yellow)}
+.wx-metal{background:rgba(192,192,192,0.1);border-color:rgba(192,192,192,0.3);color:#c0c0c0}
+.wx-water{background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.3);color:var(--blue)}
+.wx-name{font-size:10px;font-weight:600;margin-bottom:4px}
+.wx-val{font-size:18px;font-weight:700;font-family:monospace}
+.wx-bar{height:3px;border-radius:2px;background:rgba(255,255,255,0.1);margin-top:6px;overflow:hidden}
+.wx-bar-inner{height:100%;border-radius:2px;transition:width .5s}
+
+/* 控制台链接 */
+.link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.link-card{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:10px;text-decoration:none;color:var(--text);display:flex;
+  flex-direction:column;gap:4px;transition:.2s;cursor:pointer
+}
+.link-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-1px)}
+.link-icon{font-size:18px}
+.link-name{font-size:11px;font-weight:600}
+.link-desc{font-size:9px;color:var(--muted)}
+
+/* DNA工具 */
+.dna-result{
+  background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;
+  padding:10px;font-family:monospace;font-size:11px;color:var(--green);margin-top:8px;word-break:break-all
+}
+.dna-result.error{color:var(--red);border-color:rgba(255,107,107,0.3)}
+
+/* 结果框 */
+.result-box{
+  background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:8px;
+  padding:10px;font-family:monospace;font-size:11px;color:var(--green);max-height:200px;overflow-y:auto;white-space:pre-wrap
+}
+
+/* 页脚 */
+.footer{text-align:center;padding:12px;font-size:9px;color:#444;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- 头部 -->
+<div class="header">
+  <div>
+    <div class="logo">龍魂宝宝</div>
+    <div class="uid">UID9622 · 浏览器化身</div>
+  </div>
+  <div>
+    <span class="dna" id="headerDNA">DNA生成中...</span>
+  </div>
+</div>
+
+<!-- 标签 -->
+<div class="tabs">
+  <button class="tab active" data-panel="panel-home"><span class="emoji">🏠</span>控制台</button>
+  <button class="tab" data-panel="panel-memory"><span class="emoji">🧠</span>记忆</button>
+  <button class="tab" data-panel="panel-dna"><span class="emoji">🧬</span>DNA</button>
+  <button class="tab" data-panel="panel-audit"><span class="emoji">🛡️</span>审计</button>
+  <button class="tab" data-panel="panel-wuxing"><span class="emoji">☯️</span>五行</button>
+  <button class="tab" data-panel="panel-mcp"><span class="emoji">🌉</span>MCP</button>
+  <button class="tab" data-panel="panel-calendar"><span class="emoji">📅</span>万年历</button>
+</div>
+
+<!-- 内容区 -->
+<div class="content">
+
+<!-- ========== 控制台 ========== -->
+<div class="panel active" id="panel-home">
+  <div class="idcard">
+    <div class="avatar">🐉</div>
+    <div class="name">诸葛鑫 · 龍芯北辰</div>
+    <div class="uid2">UID9622 · 白虎+朱雀双神兽共体</div>
+    <div class="fingerprint" id="gpgFingerprint">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+    <div class="confirm" id="confirmCode">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-val" id="statMemCount">0</div><div class="stat-label">记忆数</div></div>
+    <div class="stat"><div class="stat-val" id="statAuditGreen">0</div><div class="stat-label">绿通行</div></div>
+    <div class="stat"><div class="stat-val" id="statAuditRed">0</div><div class="stat-label">红熔断</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🚀 快捷入口</div>
+    <div class="link-grid">
+      <a class="link-card" href="https://www.notion.so" target="_blank">
+        <span class="link-icon">📓</span><span class="link-name">Notion</span><span class="link-desc">龍魂总入口</span>
+      </a>
+      <a class="link-card" href="http://localhost:9622" target="_blank">
+        <span class="link-icon">🖥️</span><span class="link-name">本地:9622</span><span class="link-desc">龍魂服务</span>
+      </a>
+      <a class="link-card" href="http://localhost:11434" target="_blank">
+        <span class="link-icon">🦙</span><span class="link-name">Ollama</span><span class="link-desc">本地模型</span>
+      </a>
+      <div class="link-card" id="btnOpenConsole">
+        <span class="link-icon">🎛️</span><span class="link-name">系统控制台</span><span class="link-desc">打开控制台页</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>📋 当前页面</div>
+    <div id="currentPageInfo" style="font-size:11px;color:var(--muted);line-height:1.6">
+      正在读取...
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-ghost" id="btnReadPage">👁️ 读取页面</button>
+      <button class="btn btn-ghost" id="btnSavePage">💾 保存到记忆</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--red)"></span>⚖️ 铁律</div>
+    <div style="font-size:11px;color:var(--muted);line-height:1.8">
+      · 不替人做决定<br>
+      · 不帮人走捷径<br>
+      · 不越自己的权限<br>
+      · 不读密码/银行/私密页
+    </div>
+  </div>
+</div>
+
+<!-- ========== 记忆 ========== -->
+<div class="panel" id="panel-memory">
+  <div class="card">
+    <div class="card-title">📝 记忆输入</div>
+    <textarea id="memInput" placeholder="在此输入记忆、想法、笔记...
+
+系统会自动：
+✅ 生成 DNA 追溯码
+✅ 提取太极变量
+✅ 压缩记忆内容
+✅ 保存到 IndexedDB"></textarea>
+    <input type="text" id="memTitle" placeholder="标题（可选）">
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnProcessMem">🧠 处理记忆</button>
+      <button class="btn btn-warn" id="btnCompressMem">📦 压缩</button>
+      <button class="btn btn-success" id="btnSaveMem">💾 保存</button>
+      <button class="btn btn-ghost" id="btnClearMem">🗑️ 清空</button>
+    </div>
+    <div class="result-box" id="memResult" style="display:none;margin-top:10px"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🗄️ 记忆库 <span id="memCountLabel">(0)</span></div>
+    <div id="memLibrary">
+      <div style="color:var(--muted);text-align:center;padding:20px;font-size:11px">暂无记忆</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== DNA ========== -->
+<div class="panel" id="panel-dna">
+  <div class="card">
+    <div class="card-title">🧬 生成 DNA 签名</div>
+    <input type="text" id="dnaTopic" placeholder="主题，如 PROTOCOL, COMMIT, MEMORY" value="WIDGET">
+    <input type="text" id="dnaVersion" placeholder="版本，默认 v1.0" value="v1.0">
+    <button class="btn btn-primary" id="btnGenDNA">✨ 生成 DNA</button>
+    <div class="dna-result" id="dnaGenResult" style="display:none"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔍 验证 DNA</div>
+    <input type="text" id="dnaVerifyInput" placeholder="粘贴 DNA 签名，如 #龍芯⚡️20260525|PROTOCOL|v1.0|3a69e869">
+    <button class="btn btn-success" id="btnVerifyDNA">✅ 验证</button>
+    <div class="dna-result" id="dnaVerifyResult" style="display:none"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📚 DNA 格式说明</div>
+    <div style="font-size:11px;color:var(--muted);line-height:1.8;font-family:monospace">
+      格式: #龍芯⚡️YYYYMMDD|TOPIC|VERSION|SHA8<br><br>
+      示例:<br>
+      #龍芯⚡️20260525|PROTOCOL|v1.0|3a69e869<br><br>
+      验证公式:<br>
+      SHA8 = SHA256(TOPIC+YYYYMMDD+VERSION)[:8]
+    </div>
+  </div>
+</div>
+
+<!-- ========== 审计 ========== -->
+<div class="panel" id="panel-audit">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-val" id="auditTotal">0</div><div class="stat-label">总计</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--green)" id="auditG">0</div><div class="stat-label">🟢 绿</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--yellow)" id="auditY">0</div><div class="stat-label">🟡 黄</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--red)" id="auditR">0</div><div class="stat-label">🔴 红</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--red)" id="auditB">0</div><div class="stat-label">⛔ 阻断</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🛡️ 三色审计规则</div>
+    <div style="font-size:11px;line-height:1.8">
+      <div style="color:var(--green)">🟢 绿灯：read_page, take_screenshot, list_pages, copy_text</div>
+      <div style="color:var(--yellow)">🟡 黄灯：click, type, navigate, fill_form</div>
+      <div style="color:var(--red)">🔴 红灯：evaluate_script, delete_cookies, clear_storage, modify_page</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📜 近期日志 <button class="btn btn-ghost" style="padding:2px 6px;font-size:9px;float:right" id="btnClearAudit">清空</button></div>
+    <div id="auditLog" style="max-height:300px;overflow-y:auto">
+      <div style="color:var(--muted);text-align:center;padding:20px;font-size:11px">暂无审计记录</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 五行 ========== -->
+<div class="panel" id="panel-wuxing">
+  <div class="wuxing">
+    <div class="wx wx-wood">
+      <div class="wx-name">木 🌲</div>
+      <div class="wx-val" id="wxWood">--</div>
+      <div class="wx-bar"><div class="wx-bar-inner" id="barWood" style="width:0%;background:var(--green)"></div></div>
+    </div>
+    <div class="wx wx-fire">
+      <div class="wx-name">火 🔥</div>
+      <div class="wx-val" id="wxFire">--</div>
+      <div class="wx-bar"><div class="wx-bar-inner" id="barFire" style="width:0%;background:var(--red)"></div></div>
+    </div>
+    <div class="wx wx-earth">
+      <div class="wx-name">土 🌍</div>
+      <div class="wx-val" id="wxEarth">--</div>
+      <div class="wx-bar"><div class="wx-bar-inner" id="barEarth" style="width:0%;background:var(--yellow)"></div></div>
+    </div>
+    <div class="wx wx-metal">
+      <div class="wx-name">金 ⚔️</div>
+      <div class="wx-val" id="wxMetal">--</div>
+      <div class="wx-bar"><div class="wx-bar-inner" id="barMetal" style="width:0%;background:#c0c0c0"></div></div>
+    </div>
+    <div class="wx wx-water">
+      <div class="wx-name">水 💧</div>
+      <div class="wx-val" id="wxWater">--</div>
+      <div class="wx-bar"><div class="wx-bar-inner" id="barWater" style="width:0%;background:var(--blue)"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">☯️ 五行状态解读</div>
+    <div id="wuxingDesc" style="font-size:11px;color:var(--muted);line-height:1.8">
+      正在计算系统五行状态...
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎛️ 手动调节（模拟）</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">拖动调整五行能量分布：</div>
+    <div style="margin-bottom:6px"><span style="color:var(--green)">木</span> <input type="range" min="0" max="100" value="50" id="rngWood" style="width:70%;display:inline-block"></div>
+    <div style="margin-bottom:6px"><span style="color:var(--red)">火</span> <input type="range" min="0" max="100" value="50" id="rngFire" style="width:70%;display:inline-block"></div>
+    <div style="margin-bottom:6px"><span style="color:var(--yellow)">土</span> <input type="range" min="0" max="100" value="50" id="rngEarth" style="width:70%;display:inline-block"></div>
+    <div style="margin-bottom:6px"><span style="color:#c0c0c0">金</span> <input type="range" min="0" max="100" value="50" id="rngMetal" style="width:70%;display:inline-block"></div>
+    <div style="margin-bottom:6px"><span style="color:var(--blue)">水</span> <input type="range" min="0" max="100" value="50" id="rngWater" style="width:70%;display:inline-block"></div>
+    <button class="btn btn-primary" id="btnCalcWuxing">🔮 重新计算</button>
+  </div>
+</div>
+
+<!-- ========== MCP 桥接 ========== -->
+<div class="panel" id="panel-mcp">
+  <div class="card">
+    <div class="card-title">🌉 龍魂 MCP 认证桥接 v0.1</div>
+    <div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px">
+      Chrome DevTools MCP Server 外层门卫 · 不改源码 · 只套 wrapper
+    </div>
+    <div class="idcard" style="margin-bottom:10px">
+      <div class="confirm" id="mcpDna">#龍芯⚡️20260525|LONGHUN-CHROME-MCP-AUTH-BRIDGE|v0.1|e5c407ec</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnMcpSign">🧬 L0 签到</button>
+      <button class="btn btn-success" id="btnMcpConfirm">🌌 CONFIRM 校验</button>
+      <button class="btn btn-warn" id="btnMcpGpg">🔒 GPG 比对</button>
+      <button class="btn btn-danger" id="btnMcpReset">🔄 重置会话</button>
+    </div>
+    <div class="dna-result" id="mcpGateResult" style="display:none;margin-top:10px"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🚦 工具红绿灯</div>
+    <div style="font-size:11px;line-height:1.8">
+      <div style="color:var(--green)">🟢 read_page · take_screenshot · list_pages · list_network_requests · list_console_messages</div>
+      <div style="color:var(--yellow)">🟡 click · type · navigate · fill · select_option</div>
+      <div style="color:var(--red)">🔴 evaluate_script · delete_cookies · clear_storage · close_page · upload_file</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📦 工程包文件</div>
+    <div class="link-grid">
+      <div class="link-card" id="btnOpenAuth">
+        <span class="link-icon">📄</span><span class="link-name">auth.json</span><span class="link-desc">认证配置</span>
+      </div>
+      <div class="link-card" id="btnOpenWrapper">
+        <span class="link-icon">🔧</span><span class="link-name">wrapper.js</span><span class="link-desc">拦截层代码</span>
+      </div>
+      <div class="link-card" id="btnOpenPrompt">
+        <span class="link-icon">📝</span><span class="link-name">cursor-prompt</span><span class="link-desc">Cursor提示词</span>
+      </div>
+      <div class="link-card" id="btnOpenInstall">
+        <span class="link-icon">⚡</span><span class="link-name">install.sh</span><span class="link-desc">一键安装</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Cursor 提示词（点击复制）</div>
+    <textarea id="cursorPrompt" readonly style="min-height:120px;font-size:10px">我要在本机集成 Chrome DevTools MCP Server v0.21.0 + 龍魂主控台认证。
+
+工程包在 ~/Desktop/LongHunWidget/mcp-bridge/：
+- longhun-mcp-auth.json
+- longhun-mcp-wrapper.js
+- install.sh
+
+步骤：
+1. cd 项目目录，把3个文件拷进去
+2. bash install.sh
+3. .env 加 LONGHUN_GPG=A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+4. 按 cursor-prompt.md 跑 test-gate.js
+5. 把日志贴回来</textarea>
+    <button class="btn btn-primary" id="btnCopyPrompt">📋 复制提示词</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📜 桥接审计日志</div>
+    <div id="mcpAuditLog" style="max-height:200px;overflow-y:auto;font-size:10px;color:var(--muted)">
+      暂无桥接记录
+    </div>
+  </div>
+</div>
+
+<!-- ========== 万年历 ========== -->
+<div class="panel" id="panel-calendar">
+  <iframe src="../../widgets/longhun-perpetual-calendar/index.html" style="width:100%;height:calc(100vh - 110px);border:none;border-radius:12px;background:#0a0a12;" title="龍魂万年历"></iframe>
+</div>
+
+</div>
+
+<div class="footer">
+  龍魂系统 · UID9622 · 曾仕强老师理论指导 · <span id="footerDNA"></span>
+</div>
+
+<script src="modules/engine.js"></script>
+<script src="modules/dna.js"></script>
+<script src="modules/memory.js"></script>
+<script src="modules/audit.js"></script>
+<script src="sidepanel.js"></script>
+</body>
+</html>

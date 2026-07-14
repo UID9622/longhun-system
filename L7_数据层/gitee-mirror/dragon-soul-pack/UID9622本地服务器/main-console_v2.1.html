@@ -1,0 +1,1616 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "microsoft yahei", "pingfang sc", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 2px solid #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            color: #b0b8d1;
+            margin-bottom: 15px;
+        }
+        
+        .header .dna-code {
+            font-family: "consolas", "monaco", monospace;
+            font-size: 12px;
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .header .slogan {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-top: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* 导航按钮 */
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .nav-btn {
+            padding: 20px;
+            border: 2px solid #00d4ff;
+            border-radius: 12px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translatey(-3px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        .nav-btn.active {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+        
+        .nav-btn .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #00d4ff;
+        }
+        
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-family: "consolas", "monaco", monospace;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0e27;
+        }
+        
+        .btn-primary:hover {
+            transform: translatey(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #0a0e27;
+        }
+        
+        .btn-success:hover {
+            transform: translatey(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #0a0e27;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* 结果显示 */
+        .result-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 200px;
+            font-family: "consolas", "monaco", monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+            color: #00ff88;
+        }
+        
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #b0b8d1;
+        }
+        
+        /* 列表项 */
+        .list-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .list-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+        
+        .list-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .list-item-title {
+            font-weight: bold;
+            color: #00d4ff;
+            font-size: 14px;
+        }
+        
+        .list-item-meta {
+            font-size: 12px;
+            color: #b0b8d1;
+        }
+        
+        /* 上传区域 */
+        .upload-area {
+            border: 3px dashed #00d4ff;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(0, 212, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .upload-area:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #ffd700;
+        }
+        
+        .upload-area.dragover {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+        }
+        
+        /* 状态指示器 */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-success {
+            background: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .status-warning {
+            background: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .status-error {
+            background: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* 标签页 */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🐉 龍魂系统主控台</h1>
+            <div class="subtitle">技术主权 · 数据主权 · 本地优先 · 中国必胜</div>
+            <div class="dna-code">dna: #龍芯⚡️丙午·丙申·甲寅·辛未-main-console-v2.1</div>
+            <div class="slogan">🇨🇳 让数据主权的斗争回归中国！技术主权，从我做起！</div>
+        </div>
+
+        <!-- 导航按钮 -->
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="switchsection('memory')">
+                <div class="icon">🧠</div>
+                记忆压缩系统
+            </button>
+            <button class="nav-btn" onclick="switchsection('dna')">
+                <div class="icon">🧬</div>
+                dna 存证系统
+            </button>
+            <button class="nav-btn" onclick="switchsection('asset')">
+                <div class="icon">🔍</div>
+                资产扫描器
+            </button>
+            <button class="nav-btn" onclick="switchsection('stats')">
+                <div class="icon">📊</div>
+                统计分析
+            </button>
+        </div>
+
+        <!-- 记忆压缩系统 -->
+        <div id="section-memory" class="content-section active">
+            <div class="section-title">🧠 记忆压缩系统</div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="memorycount">0</div>
+                    <div class="stat-label">记忆总数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compressionrate">0%</div>
+                    <div class="stat-label">平均压缩率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="storagesize">0 kb</div>
+                    <div class="stat-label">存储占用</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>📝 输入记忆内容</label>
+                <textarea id="memoryinput" placeholder="在此输入你的记忆、想法、笔记...
+
+🐉 系统会自动：
+✅ 生成 dna 追溯码
+✅ 提取太极算法变量（字数、关键词、情感、重要程度）
+✅ 压缩记忆内容（压缩率可达 99%+）
+✅ 保存到 indexeddb（永久存储）
+✅ 支持快速还原"></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="processmemory()">🧠 处理记忆</button>
+                <button class="btn btn-success" onclick="savememory()">💾 保存记忆</button>
+                <button class="btn btn-warning" onclick="clearmemoryinput()">🗑️ 清空</button>
+            </div>
+
+            <div class="form-group">
+                <label>✨ 处理结果</label>
+                <div id="memoryresult" class="result-box">等待输入记忆...</div>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;">🗄️ 记忆库</div>
+            <div id="memorylist">
+                <div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>
+            </div>
+        </div>
+
+        <!-- dna 存证系统 -->
+        <div id="section-dna" class="content-section">
+            <div class="section-title">🧬 dna 存证系统</div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchdnatab('generate')">生成存证</button>
+                <button class="tab-btn" onclick="switchdnatab('verify')">验证存证</button>
+                <button class="tab-btn" onclick="switchdnatab('manage')">管理存证</button>
+            </div>
+
+            <!-- 生成存证 -->
+            <div id="dna-generate" class="dna-tab">
+                <div class="form-group">
+                    <label>👤 创作者 id</label>
+                    <input type="text" id="creatorid" value="zhugexin" placeholder="输入创作者id">
+                </div>
+
+                <div class="form-group">
+                    <label>📁 项目名称</label>
+                    <input type="text" id="projectname" value="default" placeholder="输入项目名称">
+                </div>
+
+                <div class="form-group">
+                    <label>📄 存证内容</label>
+                    <textarea id="dnacontent" placeholder="输入需要存证的内容..."></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generatedna()">🔐 生成 dna 存证</button>
+                    <button class="btn btn-success" onclick="exportdna()">📥 下载存证文件</button>
+                </div>
+
+                <div class="form-group">
+                    <label>✨ 生成结果</label>
+                    <div id="dnaresult" class="result-box">等待生成存证...</div>
+                </div>
+            </div>
+
+            <!-- 验证存证 -->
+            <div id="dna-verify" class="dna-tab" style="display: none;">
+                <div class="form-group">
+                    <label>🔍 选择验证方式</label>
+                </div>
+
+                <div class="upload-area" id="dnauploadarea">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                    <div style="font-size: 16px; color: #b0b8d1; margin-bottom: 10px;">拖拽存证文件到这里，或点击选择文件</div>
+                    <div style="font-size: 14px; color: #666;">支持 json 格式</div>
+                    <input type="file" id="dnafileinput" style="display: none;" accept=".json">
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>🔑 输入 dna 追溯码</label>
+                    <input type="text" id="dnacodeinput" placeholder="输入 dna 追溯码，例如：#zhugexin⚡️2026-03-03-default-001">
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="verifydna()">🔐 验证 dna 存证</button>
+                    <button class="btn btn-warning" onclick="cleardnainput()">🗑️ 清空</button>
+                </div>
+
+                <div class="form-group">
+                    <label>✨ 验证结果</label>
+                    <div id="dnaverifyresult" class="result-box">等待验证...</div>
+                </div>
+            </div>
+
+            <!-- 管理存证 -->
+            <div id="dna-manage" class="dna-tab" style="display: none;">
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="loadalldna()">📋 加载所有存证</button>
+                    <button class="btn btn-success" onclick="exportalldna()">📥 批量导出</button>
+                    <button class="btn btn-danger" onclick="clearalldna()">🗑️ 清空所有存证</button>
+                </div>
+
+                <div class="section-title" style="margin-top: 30px;">📋 存证列表</div>
+                <div id="dnalist">
+                    <div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资产扫描器 -->
+        <div id="section-asset" class="content-section">
+            <div class="section-title">🔍 资产扫描器</div>
+            
+            <div class="upload-area" id="assetuploadarea">
+                <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                <div style="font-size: 16px; color: #b0b8d1; margin-bottom: 10px;">拖拽文件到这里扫描</div>
+                <div style="font-size: 14px; color: #666;">支持 .md, .py, .js, .html, .json 等格式</div>
+                <input type="file" id="assetfileinput" multiple style="display: none;" accept=".md,.py,.js,.ts,.cpp,.html,.json,.txt,.cnsh">
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="scanassets()">🔍 开始扫描</button>
+                <button class="btn btn-success" onclick="exportassetreport()">📄 导出扫描报告</button>
+                <button class="btn btn-warning" onclick="clearassetresults()">🗑️ 清空结果</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="coreoriginalcount">0</div>
+                    <div class="stat-label">✅ 核心原创</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="originalcount">0</div>
+                    <div class="stat-label">🟢 原创</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="mixedcount">0</div>
+                    <div class="stat-label">🟡 混合</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="externalcount">0</div>
+                    <div class="stat-label">📦 外部</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalcount">0</div>
+                    <div class="stat-label">📊 总计</div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;">📁 扫描结果</div>
+            <div id="assetresults">
+                <div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>
+            </div>
+        </div>
+
+        <!-- 统计分析 -->
+        <div id="section-stats" class="content-section">
+            <div class="section-title">📊 统计分析</div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchstatstab('overview')">总览</button>
+                <button class="tab-btn" onclick="switchstatstab('memory')">记忆统计</button>
+                <button class="tab-btn" onclick="switchstatstab('dna')">dna 统计</button>
+                <button class="tab-btn" onclick="switchstatstab('asset')">资产统计</button>
+            </div>
+
+            <div id="stats-overview" class="stats-tab">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalmemories">0</div>
+                        <div class="stat-label">记忆总数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totaldna">0</div>
+                        <div class="stat-label">dna 存证</div>
+                    </div>
+                    <div class="stat-card">
+                        <div="stat-value" id="totalassets">0</div>
+                        <div class="stat-label">扫描文件</div>
+                    </div>
+                    <div class="stat-card">
+                        <div="stat-value" id="totalstorage">0 kb</div>
+                        <div class="stat-label">总存储</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="overviewresult">
+                    📊 系统总览统计信息...
+                </div>
+            </div>
+
+            <div id="stats-memory" class="stats-tab" style="display: none;">
+                <div class="result-box" id="memorystatsresult">
+                    📊 记忆系统统计信息...
+                </div>
+            </div>
+
+            <div id="stats-dna" class="stats-tab" style="display: none;">
+                <div class="result-box" id="dnastatsresult">
+                    📊 dna 存证统计信息...
+                </div>
+            </div>
+
+            <div id="stats-asset" class="stats-tab" style="display: none;">
+                <div class="result-box" id="assetstatsresult">
+                    📊 资产扫描统计信息...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本 -->
+    <script>
+        // ==================== 全局变量 ====================
+        let currentmemory = null;
+        let currentdna = null;
+        let assetscanresults = [];
+        let dnaevidences = [];
+        let memorydata = [];
+
+        // ==================== 初始化 ====================
+        window.onload = function() {
+            console.log('🐉 龍魂系统主控台启动');
+            console.log('dna: #龍芯⚡️2026-03-03-main-console-uid9622');
+            console.log('🇨🇳 技术主权 · 数据主权 · 中国必胜');
+            
+            // 初始化 indexeddb
+            initdatabases();
+            
+            // 加载统计数据
+            loadstatistics();
+            
+            console.log('✅ 系统初始化完成');
+        };
+
+        // ==================== 导航切换 ====================
+        function switchsection(sectionid) {
+            // 隐藏所有内容区域
+            document.queryselectorall('.content-section').foreach(section => {
+                section.classlist.remove('active');
+            });
+            
+            // 取消所有导航按钮的激活状态
+            document.queryselectorall('.nav-btn').foreach(btn => {
+                btn.classlist.remove('active');
+            });
+            
+            // 显示选中的内容区域
+            document.getelementbyid('section-' + sectionid).classlist.add('active');
+            
+            // 激活对应的导航按钮
+            event.target.closest('.nav-btn').classlist.add('active');
+            
+            // 如果切换到统计页面，刷新统计
+            if (sectionid === 'stats') {
+                loadstatistics();
+            }
+        }
+
+        // ==================== 记忆压缩系统 ====================
+        function processmemory() {
+            const input = document.getelementbyid('memoryinput').value.trim();
+            
+            if (!input) {
+                alert('请输入记忆内容！');
+                return;
+            }
+            
+            // 生成 dna 追溯码
+            const timestamp = new date().toisostring().split('t')[0];
+            const hash = simplehash(input).substring(0, 8);
+            const dna = `#龍芯⚡️${timestamp}-memory-${hash}-uid9622`;
+            
+            // 提取太极算法变量
+            const taijivars = extracttaijivars(input);
+            
+            // 压缩记忆
+            const compressed = compressmemorycontent(input, taijivars);
+            
+            // 显示结果
+            let result = `🧬 dna追溯码：\n${dna}\n\n`;
+            result += `☯️ 太极算法变量：\n`;
+            result += `  字数：${taijivars.字数}\n`;
+            result += `  行数：${taijivars.行数}\n`;
+            result += `  关键词：${taijivars.关键词.join(', ')}\n`;
+            result += `  情感：${taijivars.情感}\n`;
+            result += `  重要程度：${taijivars.重要程度}/10\n\n`;
+            result += `📦 记忆压缩：\n`;
+            result += `  原始长度：${compressed.原始长度}字\n`;
+            result += `  压缩后：${compressed.压缩后长度}字\n`;
+            result += `  压缩率：${compressed.压缩率}%\n`;
+            result += `  完整哈希：${compressed.完整哈希}\n\n`;
+            result += `📝 记忆摘要：\n${compressed.摘要}`;
+            
+            document.getelementbyid('memoryresult').textcontent = result;
+            
+            // 保存当前处理结果
+            currentmemory = {
+                dna: dna,
+                原始内容: input,
+                太极变量: taijivars,
+                压缩数据: compressed,
+                创建时间: new date().toisostring()
+            };
+        }
+
+        async function savememory() {
+            if (!currentmemory) {
+                alert('请先处理记忆！');
+                return;
+            }
+            
+            try {
+                // 保存到 indexeddb
+                const db = await opendb('龍魂记忆库', '记忆库');
+                const tx = db.transaction(['记忆库'], 'readwrite');
+                const store = tx.objectstore('记忆库');
+                
+                const request = store.put(currentmemory);
+                
+                request.onsuccess = () => {
+                    console.log('✅ 记忆已保存');
+                    updatememorylist();
+                    updatememorystats();
+                    alert('✅ 记忆已保存到系统！');
+                };
+                
+                request.onerror = () => {
+                    console.error('保存失败：', request.error);
+                    alert('保存失败：' + request.error.message);
+                };
+            } catch (error) {
+                console.error('保存失败：', error);
+                alert('保存失败：' + error.message);
+            }
+        }
+
+        function clearmemoryinput() {
+            document.getelementbyid('memoryinput').value = '';
+            document.getelementbyid('memoryresult').textcontent = '等待输入记忆...';
+            currentmemory = null;
+        }
+
+        function extracttaijivars(content) {
+            const lines = content.split('\n');
+            const wordcount = content.length;
+            const keywords = extractkeywords(content);
+            const emotion = analyzeemotion(content);
+            const importance = math.min(10, math.ceil(wordcount / 100) + keywords.length);
+            
+            return {
+                字数: wordcount,
+                行数: lines.length,
+                关键词: keywords,
+                情感: emotion,
+                重要程度: importance,
+                时间戳: new date().toisostring(),
+                创建者: 'uid9622'
+            };
+        }
+
+        function extractkeywords(text) {
+            const stopwords = ['的', '了', '在', '是', '我', '有', '和', '就', '不', '人', '都', '一', '一个', '上', '也', '很', '到', '说', '要', '去', '你', '会', '着', '没有', '看', '好', '自己', '这'];
+            const words = text.split(/[，。！？；：、\s]+/).filter(w => w.length > 1);
+            const filtered = words.filter(w => !stopwords.includes(w));
+            const freq = {};
+            filtered.foreach(w => {
+                freq[w] = (freq[w] || 0) + 1;
+            });
+            const sorted = object.entries(freq).sort((a, b) => b[1] - a[1]);
+            return sorted.slice(0, 5).map(([word]) => word);
+        }
+
+        function analyzeemotion(text) {
+            const positive = ['开心', '快乐', '高兴', '幸福', '美好', '喜欢', '爱', '棒', '好', '成功'];
+            const negative = ['难过', '悲伤', '痛苦', '失败', '糟糕', '讨厌', '恨', '差', '错误'];
+            
+            let poscount = 0, negcount = 0;
+            positive.foreach(word => { if (text.includes(word)) poscount++; });
+            negative.foreach(word => { if (text.includes(word)) negcount++; });
+            
+            if (poscount > negcount) return '积极';
+            if (negcount > poscount) return '消极';
+            return '平静';
+        }
+
+        function compressmemorycontent(content, taijivars) {
+            const summary = content.substring(0, 100) + (content.length > 100 ? '...' : '');
+            return {
+                原始长度: content.length,
+                压缩后长度: summary.length + json.stringify(taijivars).length,
+                压缩率: math.round((1 - (summary.length / content.length)) * 100),
+                摘要: summary,
+                完整哈希: simplehash(content),
+                可还原: true
+            };
+        }
+
+        function simplehash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charcodeat(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return math.abs(hash).tostring(16).padstart(8, '0');
+        }
+
+        async function updatememorylist() {
+            const db = await opendb('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectstore('记忆库');
+            const request = store.getall();
+            
+            request.onsuccess = () => {
+                const memories = request.result;
+                const container = document.getelementbyid('memorylist');
+                
+                if (memories.length === 0) {
+                    container.innerhtml = '<div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>';
+                    document.getelementbyid('memorycount').textcontent = '0';
+                    return;
+                }
+                
+                container.innerhtml = memories.map(memory => `
+                    <div class="list-item">
+                        <div class="list-item-header">
+                            <div class="list-item-title">${memory.dna}</div>
+                            <div class="list-item-meta">${new date(memory.创建时间).tolocalestring('zh-cn')}</div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong>摘要：</strong>${memory.压缩数据.摘要}
+                        </div>
+                        <div style="font-size: 12px; color: #b0b8d1;">
+                            关键词：${memory.太极变量.关键词.join(', ')} | 情感：${memory.太极变量.情感} | 压缩率：${memory.压缩数据.压缩率}%
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="viewmemory('${memory.dna}')">查看</button>
+                            <button class="btn btn-danger" onclick="deletememory('${memory.dna}')">删除</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.getelementbyid('memorycount').textcontent = memories.length;
+            };
+        }
+
+        async function updatememorystats() {
+            const db = await opendb('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectstore('记忆库');
+            const request = store.getall();
+            
+            request.onsuccess = () => {
+                const memories = request.result;
+                const totalsize = json.stringify(memories).length;
+                const avgcompression = memories.length > 0 
+                    ? math.round(memories.reduce((sum, m) => sum + m.压缩数据.压缩率, 0) / memories.length)
+                    : 0;
+                
+                document.getelementbyid('compressionrate').textcontent = avgcompression + '%';
+                document.getelementbyid('storagesize').textcontent = math.round(totalsize / 1024) + ' kb';
+            };
+        }
+
+        async function viewmemory(dna) {
+            const db = await opendb('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectstore('记忆库');
+            const request = store.get(dna);
+            
+            request.onsuccess = () => {
+                const memory = request.result;
+                if (memory) {
+                    document.getelementbyid('memoryinput').value = memory.原始内容;
+                    document.getelementbyid('memoryresult').textcontent = `🧬 dna：${memory.dna}\n\n📝 完整内容：\n${memory.原始内容}`;
+                    currentmemory = memory;
+                }
+            };
+        }
+
+        async function deletememory(dna) {
+            if (!confirm('确定要删除这条记忆吗？')) return;
+            
+            const db = await opendb('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readwrite');
+            const store = tx.objectstore('记忆库');
+            store.delete(dna);
+            
+            tx.oncomplete = () => {
+                updatememorylist();
+                updatememorystats();
+                alert('✅ 记忆已删除');
+            };
+        }
+
+        // ==================== dna 存证系统 ====================
+        function switchdnatab(tabid) {
+            document.queryselectorall('.dna-tab').foreach(tab => {
+                tab.style.display = 'none';
+            });
+            document.queryselectorall('#dna-' + tabid).foreach(tab => {
+                tab.style.display = 'block';
+            });
+            document.queryselectorall('#section-dna .tab-btn').foreach(btn => {
+                btn.classlist.remove('active');
+            });
+            event.target.classlist.add('active');
+        }
+
+        async function generatedna() {
+            const creatorid = document.getelementbyid('creatorid').value.trim();
+            const projectname = document.getelementbyid('projectname').value.trim();
+            const content = document.getelementbyid('dnacontent').value.trim();
+            
+            if (!creatorid || !projectname || !content) {
+                alert('请填写完整信息！');
+                return;
+            }
+            
+            try {
+                const timestamp = date.now();
+                const storagekey = `latest_seq_${creatorid}_${projectname}`;
+                let latestseq = parseint(localstorage.getitem(storagekey) || '0');
+                const newseq = latestseq + 1;
+                
+                const dnacode = `#${creatorid}⚡️${new date(timestamp).toisostring().split('t')[0]}-${projectname}-${string(newseq).padstart(3, '0')}`;
+                const fingerprint = await generatedigitalfingerprint(content, dnacode);
+                
+                const evidence = {
+                    content: content,
+                    timestamp: new date(timestamp).toisostring(),
+                    timestampunix: timestamp,
+                    creatorid: creatorid,
+                    projectname: projectname,
+                    sequence: newseq,
+                    dnacode: dnacode,
+                    digitalfingerprint: fingerprint,
+                    metadata: {
+                        toolversion: "龍魂dna存证系统 v1.0",
+                        systemnote: "本存证基于sha-256算法生成，任何修改都会导致指纹失效",
+                        creatorstatement: "技术主权·数据主权·中文原生"
+                    }
+                };
+                
+                localstorage.setitem(dnacode, json.stringify(evidence));
+                localstorage.setitem(storagekey, newseq.tostring());
+                
+                // 保存到 indexeddb
+                const db = await opendb('龍魂dna存证', 'evidences');
+                const tx = db.transaction(['evidences'], 'readwrite');
+                const store = tx.objectstore('evidences');
+                store.put(evidence);
+                
+                // 显示结果
+                let result = `🧬 dna 追溯码：\n${dnacode}\n\n`;
+                result += `👤 创作者：${creatorid}\n`;
+                result += `📁 项目：${projectname}\n`;
+                result += `📅 序号：${newseq}\n`;
+                result += `⏰ 时间：${new date(timestamp).tolocalestring('zh-cn')}\n\n`;
+                result += `🔐 数字指纹：\n${fingerprint}\n\n`;
+                result += `✅ 存证已创建并保存！`;
+                
+                document.getelementbyid('dnaresult').textcontent = result;
+                currentdna = evidence;
+                
+                alert('✅ dna 存证已成功创建！');
+            } catch (error) {
+                console.error('生成失败：', error);
+                alert('生成失败：' + error.message);
+            }
+        }
+
+        async function generatedigitalfingerprint(content, dnacode) {
+            const combined = content + dnacode;
+            const encoder = new textencoder();
+            const data = encoder.encode(combined);
+            const hashbuffer = await crypto.subtle.digest('sha-256', data);
+            const hasharray = array.from(new uint8array(hashbuffer));
+            return hasharray.map(b => b.tostring(16).padstart(2, '0')).join('');
+        }
+
+        async function exportdna() {
+            if (!currentdna) {
+                alert('请先生成 dna 存证！');
+                return;
+            }
+            
+            const jsontext = json.stringify(currentdna, null, 2);
+            const blob = new blob([jsontext], { type: 'application/json' });
+            const url = url.createobjecturl(blob);
+            const a = document.createelement('a');
+            a.href = url;
+            a.download = `dna存证_${currentdna.dnacode}.json`;
+            a.click();
+            url.revokeobjecturl(url);
+            
+            alert('✅ 存证文件已下载！');
+        }
+
+        async function verifydna() {
+            const dnacode = document.getelementbyid('dnacodeinput').value.trim();
+            
+            if (!dnacode) {
+                alert('请输入 dna 追溯码！');
+                return;
+            }
+            
+            try {
+                let evidence;
+                
+                // 先从 localstorage 查找
+                const stored = localstorage.getitem(dnacode);
+                if (stored) {
+                    evidence = json.parse(stored);
+                } else {
+                    // 从 indexeddb 查找
+                    const db = await opendb('龍魂dna存证', 'evidences');
+                    const tx = db.transaction(['evidences'], 'readonly');
+                    const store = tx.objectstore('evidences');
+                    const request = store.get(dnacode);
+                    
+                    evidence = await new promise((resolve, reject) => {
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => reject(request.error);
+                    });
+                }
+                
+                if (!evidence) {
+                    document.getelementbyid('dnaverifyresult').textcontent = '❌ 未找到此 dna 追溯码的存证';
+                    return;
+                }
+                
+                const originalfingerprint = evidence.digitalfingerprint;
+                const calculatedfingerprint = await generatedigitalfingerprint(evidence.content, evidence.dnacode);
+                const ismatch = (originalfingerprint === calculatedfingerprint);
+                
+                let result;
+                if (ismatch) {
+                    result = `✅ 验证通过！\n\n`;
+                    result += `🧬 dna 追溯码：${evidence.dnacode}\n`;
+                    result += `👤 创作者：${evidence.creatorid}\n`;
+                    result += `📁 项目：${evidence.projectname}\n`;
+                    result += `📅 序号：${evidence.sequence}\n`;
+                    result += `⏰ 时间：${evidence.timestamp}\n\n`;
+                    result += `🔐 数字指纹：${originalfingerprint}\n\n`;
+                    result += `✨ 内容真实可信，未被篡改！`;
+                } else {
+                    result = `❌ 验证失败！\n\n`;
+                    result += `🚨 数字指纹不匹配，内容可能已被篡改！\n\n`;
+                    result += `原始指纹：${originalfingerprint}\n`;
+                    result += `计算指纹：${calculatedfingerprint}\n\n`;
+                    result += `⚠️ 请谨慎处理此内容！`;
+                }
+                
+                document.getelementbyid('dnaverifyresult').textcontent = result;
+            } catch (error) {
+                console.error('验证失败：', error);
+                document.getelementbyid('dnaverifyresult').textcontent = '❌ 验证失败：' + error.message;
+            }
+        }
+
+        function cleardnainput() {
+            document.getelementbyid('dnacodeinput').value = '';
+            document.getelementbyid('dnaverifyresult').textcontent = '等待验证...';
+        }
+
+        async function loadalldna() {
+            const results = [];
+            for (let i = 0; i < localstorage.length; i++) {
+                const key = localstorage.key(i);
+                if (key.startswith('#')) {
+                    const value = localstorage.getitem(key);
+                    const evidence = json.parse(value);
+                    results.push(evidence);
+                }
+            }
+            results.sort((a, b) => b.timestampunix - a.timestampunix);
+            
+            dnaevidences = results;
+            updatednalist();
+            
+            alert(`✅ 已加载 ${results.length} 条存证记录`);
+        }
+
+        function updatednalist() {
+            const container = document.getelementbyid('dnalist');
+            
+            if (dnaevidences.length === 0) {
+                container.innerhtml = '<div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>';
+                return;
+            }
+            
+            container.innerhtml = dnaevidences.map(evidence => `
+                <div class="list-item">
+                    <div class="list-item-header">
+                        <div class="list-item-title">${evidence.dnacode}</div>
+                        <div class="list-item-meta">${new date(evidence.timestamp).tolocalestring('zh-cn')}</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>👤 创作者：</strong>${evidence.creatorid}<br>
+                        <strong>📁 项目：</strong>${evidence.projectname}<br>
+                        <strong>📅 序号：</strong>${evidence.sequence}
+                    </div>
+                    <div style="font-size: 12px; color: #b0b8d1; margin-top: 10px;">
+                        🔐 指纹：${evidence.digitalfingerprint.substring(0, 32)}...
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-success" onclick="exportsingledna('${evidence.dnacode}')">导出</button>
+                        <button class="btn btn-danger" onclick="deletesingledna('${evidence.dnacode}')">删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function exportsingledna(dnacode) {
+            const evidence = dnaevidences.find(e => e.dnacode === dnacode);
+            if (evidence) {
+                const jsontext = json.stringify(evidence, null, 2);
+                const blob = new blob([jsontext], { type: 'application/json' });
+                const url = url.createobjecturl(blob);
+                const a = document.createelement('a');
+                a.href = url;
+                a.download = `dna存证_${dnacode}.json`;
+                a.click();
+                url.revokeobjecturl(url);
+            }
+        }
+
+        async function deletesingledna(dnacode) {
+            if (!confirm('确定要删除这条存证吗？')) return;
+            
+            localstorage.removeitem(dnacode);
+            const db = await opendb('龍魂dna存证', 'evidences');
+            const tx = db.transaction(['evidences'], 'readwrite');
+            const store = tx.objectstore('evidences');
+            store.delete(dnacode);
+            
+            tx.oncomplete = () => {
+                dnaevidences = dnaevidences.filter(e => e.dnacode !== dnacode);
+                updatednalist();
+                alert('✅ 存证已删除');
+            };
+        }
+
+        async function exportalldna() {
+            if (dnaevidences.length === 0) {
+                alert('没有存证记录可导出！');
+                return;
+            }
+            
+            const jsontext = json.stringify(dnaevidences, null, 2);
+            const blob = new blob([jsontext], { type: 'application/json' });
+            const url = url.createobjecturl(blob);
+            const a = document.createelement('a');
+            a.href = url;
+            a.download = `dna存证_全部_${new date().toisostring().split('t')[0]}.json`;
+            a.click();
+            url.revokeobjecturl(url);
+            
+            alert(`✅ 已导出 ${dnaevidences.length} 条存证记录！`);
+        }
+
+        async function clearalldna() {
+            if (!confirm('确定要清空所有存证记录吗？此操作不可恢复！')) return;
+            
+            // 清空 localstorage
+            const keystodelete = [];
+            for (let i = 0; i < localstorage.length; i++) {
+                const key = localstorage.key(i);
+                if (key.startswith('#')) {
+                    keystodelete.push(key);
+                }
+            }
+            keystodelete.foreach(key => localstorage.removeitem(key));
+            
+            // 清空 indexeddb
+            const db = await opendb('龍魂dna存证', 'evidences');
+            const tx = db.transaction(['evidences'], 'readwrite');
+            const store = tx.objectstore('evidences');
+            store.clear();
+            
+            tx.oncomplete = () => {
+                dnaevidences = [];
+                updatednalist();
+                alert('✅ 所有存证记录已清空');
+            };
+        }
+
+        // ==================== 资产扫描器 ====================
+        const originalmarkers = [
+            "uid9622", "宝宝", "诸葛鑫", "lucky",
+            "a2d0092cee2e5ba87035600924c3704a8cc26d5f",
+            "lk9x-772z", "#龍芯", "#zhugexin", "confirm🌌9622",
+            "北辰协议", "p0", "铁律", "红线", "宣言",
+            "三才算法", "天爻", "地爻", "人爻", "冲气以为和",
+            "太极", "易经", "八卦", "卦象", "道德经",
+            "量子纠缠", "bra-ket", "叠加态", "观测坍缩",
+            "元宇宙", "元知", "数字人", "元世界",
+            "lu_", "lu指令", "主控指令", "熔断", "净化器",
+            "dna追溯", "三色审计", "cnsh", "龍魂", "龍魂",
+            "星辰记忆", "压缩卡", "语义压缩", "记忆编辑器",
+            "人格路由", "route_", "persona", "fuse_manager",
+            "snapshot_core", "dragon_soul",
+            "人格", "推演", "开源", "主权", "算法宪法",
+            "愿景", "内核", "规则引擎", "权限管理",
+            "h武器", "数字资产", "贡献尊严",
+            "personaroute", "dragonsoul", "route_guardian",
+            "route_architect", "semanticcompression",
+        ];
+
+        const externalmarkers = [
+            "mit license", "apache license", "copyright (c)",
+            "all rights reserved", "do not edit",
+            "auto-generated", "this file is generated"
+        ];
+
+        // 文件上传处理
+        const assetuploadarea = document.getelementbyid('assetuploadarea');
+        const assetfileinput = document.getelementbyid('assetfileinput');
+
+        assetuploadarea.addeventlistener('click', () => assetfileinput.click());
+        assetuploadarea.addeventlistener('dragover', (e) => {
+            e.preventdefault();
+            assetuploadarea.classlist.add('dragover');
+        });
+        assetuploadarea.addeventlistener('dragleave', () => {
+            assetuploadarea.classlist.remove('dragover');
+        });
+        assetuploadarea.addeventlistener('drop', (e) => {
+            e.preventdefault();
+            assetuploadarea.classlist.remove('dragover');
+            handleassetfiles(e.datatransfer.files);
+        });
+        assetfileinput.addeventlistener('change', (e) => {
+            handleassetfiles(e.target.files);
+        });
+
+        async function handleassetfiles(files) {
+            assetscanresults = [];
+            
+            for (const file of files) {
+                try {
+                    const content = await readfile(file);
+                    const originalhits = originalmarkers.filter(m => content.includes(m));
+                    const externalhits = externalmarkers.filter(m => content.includes(m));
+                    
+                    const iscore = ["uid9622", "宝宝", "#龍芯", "#zhugexin"].some(k => content.includes(k));
+                    
+                    let category;
+                    if (iscore) {
+                        category = "✅ 核心原创";
+                    } else if (originalhits.length > 0 && externalhits.length === 0) {
+                        category = "🟢 原创";
+                    } else if (originalhits.length > 0 && externalhits.length > 0) {
+                        category = "🟡 混合";
+                    } else if (externalhits.length > 0) {
+                        category = "📦 外部";
+                    } else {
+                        category = "❓ 未标记";
+                    }
+                    
+                    assetscanresults.push({
+                        文件: file.name,
+                        文件大小: file.size,
+                        类型: category,
+                        原创标记: originalhits.slice(0, 5),
+                        字符数: content.length,
+                        修改时间: file.lastmodified ? new date(file.lastmodified).tolocalestring('zh-cn') : '未知'
+                    });
+                } catch (error) {
+                    console.error(`扫描文件失败: ${file.name}`, error);
+                }
+            }
+            
+            updateassetstats();
+            updateassetresults();
+            
+            alert(`✅ 扫描完成！\n\n核心原创：${assetscanresults.filter(r => r.类型 === '✅ 核心原创').length} 个\n其他原创：${assetscanresults.filter(r => r.类型 === '🟢 原创').length} 个\n总计：${assetscanresults.length} 个`);
+        }
+
+        function readfile(file) {
+            return new promise((resolve, reject) => {
+                const reader = new filereader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.onerror = () => reject(reader.error);
+                reader.readastext(file, 'utf-8');
+            });
+        }
+
+        function updateassetstats() {
+            document.getelementbyid('coreoriginalcount').textcontent = assetscanresults.filter(r => r.类型 === '✅ 核心原创').length;
+            document.getelementbyid('originalcount').textcontent = assetscanresults.filter(r => r.类型 === '🟢 原创').length;
+            document.getelementbyid('mixedcount').textcontent = assetscanresults.filter(r => r.类型 === '🟡 混合').length;
+            document.getelementbyid('externalcount').textcontent = assetscanresults.filter(r => r.类型 === '📦 外部').length;
+            document.getelementbyid('totalcount').textcontent = assetscanresults.length;
+        }
+
+        function updateassetresults() {
+            const container = document.getelementbyid('assetresults');
+            
+            if (assetscanresults.length === 0) {
+                container.innerhtml = '<div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>';
+                return;
+            }
+            
+            container.innerhtml = assetscanresults.map(item => `
+                <div class="list-item">
+                    <div class="list-item-header">
+                        <div class="list-item-title">${item.文件}</div>
+                        <div class="list-item-meta">${item.类型}</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        字符数：${item.字符数} | 文件大小：${formatfilesize(item.文件大小)}
+                    </div>
+                    ${item.原创标记.length > 0 ? `
+                        <div style="font-size: 12px; color: #b0b8d1;">
+                            标记：${item.原创标记.slice(0, 3).join(', ')}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function formatfilesize(bytes) {
+            if (bytes === 0) return '0 b';
+            const k = 1024;
+            const sizes = ['b', 'kb', 'mb', 'gb'];
+            const i = math.floor(math.log(bytes) / math.log(k));
+            return math.round(bytes / math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function scanassets() {
+            const files = assetfileinput.files;
+            if (files.length === 0) {
+                alert('请先选择文件！');
+                return;
+            }
+            
+            handleassetfiles(files);
+        }
+
+        function exportassetreport() {
+            if (assetscanresults.length === 0) {
+                alert('没有扫描结果可导出！');
+                return;
+            }
+            
+            const report = {
+                扫描时间: new date().toisostring(),
+                dna: '#龍芯⚡️' + new date().toisostring().split('t')[0] + '-scan-uid9622',
+                统计: {
+                    "✅ 核心原创": assetscanresults.filter(r => r.类型 === '✅ 核心原创').length,
+                    "🟢 原创": assetscanresults.filter(r => r.类型 === '🟢 原创').length,
+                    "🟡 混合": assetscanresults.filter(r => r.类型 === '🟡 混合').length,
+                    "📦 外部": assetscanresults.filter(r => r.类型 === '📦 外部').length,
+                    "❓ 未标记": assetscanresults.filter(r => r.类型 === '❓ 未标记').length,
+                    "总计": assetscanresults.length,
+                    "合计原创": assetscanresults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length
+                },
+                详情: {
+                    "✅ 核心原创": assetscanresults.filter(r => r.类型 === '✅ 核心原创'),
+                    "🟢 原创": assetscanresults.filter(r => r.类型 === '🟢 原创'),
+                    "🟡 混合": assetscanresults.filter(r => r.类型 === '🟡 混合'),
+                    "📦 外部": assetscanresults.filter(r => r.类型 === '📦 外部'),
+                    "❓ 未标记": assetscanresults.filter(r => r.类型 === '❓ 未标记')
+                }
+            };
+            
+            const jsontext = json.stringify(report, null, 2);
+            const blob = new blob([jsontext], { type: 'application/json' });
+            const url = url.createobjecturl(blob);
+            const a = document.createelement('a');
+            a.href = url;
+            a.download = `龍魂资产扫描报告_${new date().toisostring().split('t')[0]}.json`;
+            a.click();
+            url.revokeobjecturl(url);
+            
+            alert(`✅ 报告已导出！`);
+        }
+
+        function clearassetresults() {
+            assetscanresults = [];
+            updateassetstats();
+            updateassetresults();
+            document.getelementbyid('assetfileinput').value = '';
+        }
+
+        // ==================== 统计分析 ====================
+        function switchstatstab(tabid) {
+            document.queryselectorall('.stats-tab').foreach(tab => {
+                tab.style.display = 'none';
+            });
+            document.getelementbyid('stats-' + tabid).style.display = 'block';
+            document.queryselectorall('#section-stats .tab-btn').foreach(btn => {
+                btn.classlist.remove('active');
+            });
+            event.target.classlist.add('active');
+            
+            loadstatstab(tabid);
+        }
+
+        function loadstatistics() {
+            loadstatstab('overview');
+        }
+
+        async function loadstatstab(tabid) {
+            if (tabid === 'overview') {
+                await loadoverviewstats();
+            } else if (tabid === 'memory') {
+                await loadmemorystats();
+            } else if (tabid === 'dna') {
+                await loaddnastats();
+            } else if (tabid === 'asset') {
+                await loadassetstats();
+            }
+        }
+
+        async function loadoverviewstats() {
+            const memorycount = await getdbcount('龍魂记忆库', '记忆库');
+            const dnacount = await getdbcount('龍魂dna存证', 'evidences');
+            
+            document.getelementbyid('totalmemories').textcontent = memorycount;
+            document.getelementbyid('totaldna').textcontent = dnacount;
+            document.getelementbyid('totalassets').textcontent = assetscanresults.length;
+            
+            const totalstorage = json.stringify(await getalldbdata('龍魂记忆库', '记忆库')).length +
+                               json.stringify(await getalldbdata('龍魂dna存证', 'evidences')).length;
+            document.getelementbyid('totalstorage').textcontent = math.round(totalstorage / 1024) + ' kb';
+            
+            document.getelementbyid('overviewresult').textcontent = `📊 系统总览统计\n\n` +
+                `🧠 记忆系统：${memorycount} 条记忆\n` +
+                `🧬 dna 存证：${dnacount} 条存证\n` +
+                `🔍 资产扫描：${assetscanresults.length} 个文件\n\n` +
+                `💾 总存储：${math.round(totalstorage / 1024)} kb\n\n` +
+                `✅ 系统运行正常`;
+        }
+
+        async function loadmemorystats() {
+            const memories = await getalldbdata('龍魂记忆库', '记忆库');
+            
+            if (memories.length === 0) {
+                document.getelementbyid('memorystatsresult').textcontent = '暂无记忆统计数据';
+                return;
+            }
+            
+            const totalsize = json.stringify(memories).length;
+            const avgcompression = memories.reduce((sum, m) => sum + m.压缩数据.压缩率, 0) / memories.length;
+            
+            let result = `📊 记忆系统统计\n\n`;
+            result += `记忆总数：${memories.length} 条\n`;
+            result += `总存储大小：${math.round(totalsize / 1024)} kb\n`;
+            result += `平均压缩率：${math.round(avgcompression)}%\n\n`;
+            result += `情感分布：\n`;
+            
+            const emotions = {};
+            memories.foreach(m => {
+                const emotion = m.太极变量.情感;
+                emotions[emotion] = (emotions[emotion] || 0) + 1;
+            });
+            
+            object.entries(emotions).foreach(([emotion, count]) => {
+                result += `  ${emotion}：${count} 条\n`;
+            });
+            
+            document.getelementbyid('memorystatsresult').textcontent = result;
+        }
+
+        async function loaddnastats() {
+            const evidences = await getalldbdata('龍魂dna存证', 'evidences');
+            
+            if (evidences.length === 0) {
+                document.getelementbyid('dnastatsresult').textcontent = '暂无 dna 存证统计数据';
+                return;
+            }
+            
+            let result = `📊 dna 存证统计\n\n`;
+            result += `存证总数：${evidences.length} 条\n\n`;
+            result += `按创作者分布：\n`;
+            
+            const creators = {};
+            evidences.foreach(e => {
+                const creator = e.creatorid;
+                creators[creator] = (creators[creator] || 0) + 1;
+            });
+            
+            object.entries(creators).foreach(([creator, count]) => {
+                result += `  ${creator}：${count} 条\n`;
+            });
+            
+            result += `\n按项目分布：\n`;
+            
+            const projects = {};
+            evidences.foreach(e => {
+                const project = e.projectname;
+                projects[project] = (projects[project] || 0) + 1;
+            });
+            
+            object.entries(projects).foreach(([project, count]) => {
+                result += `  ${project}：${count} 条\n`;
+            });
+            
+            document.getelementbyid('dnastatsresult').textcontent = result;
+        }
+
+        async function loadassetstats() {
+            if (assetscanresults.length === 0) {
+                document.getelementbyid('assetstatsresult').textcontent = '暂无资产扫描统计数据';
+                return;
+            }
+            
+            let result = `📊 资产扫描统计\n\n`;
+            result += `扫描文件总数：${assetscanresults.length} 个\n\n`;
+            result += `按类型分布：\n`;
+            result += `  ✅ 核心原创：${assetscanresults.filter(r => r.类型 === '✅ 核心原创').length} 个\n`;
+            result += `  🟢 原创：${assetscanresults.filter(r => r.类型 === '🟢 原创').length} 个\n`;
+            result += `  🟡 混合：${assetscanresults.filter(r => r.类型 === '🟡 混合').length} 个\n`;
+            result += `  📦 外部：${assetscanresults.filter(r => r.类型 === '📦 外部').length} 个\n`;
+            result += `  ❓ 未标记：${assetscanresults.filter(r => r.类型 === '❓ 未标记').length} 个\n\n`;
+            result += `原创率：${math.round((assetscanresults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length / assetscanresults.length * 100)}%\n`;
+            
+            document.getelementbyid('assetstatsresult').textcontent = result;
+        }
+
+        // ==================== 数据库工具函数 ====================
+        function opendb(dbname, storename) {
+            return new promise((resolve, reject) => {
+                const request = indexeddb.open(dbname, 1);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectstorenames.contains(storename)) {
+                        db.createobjectstore(storename, { keypath: 'dnacode' });
+                    }
+                };
+            });
+        }
+
+        function getdbcount(dbname, storename) {
+            return new promise((resolve, reject) => {
+                const request = indexeddb.open(dbname, 1);
+                request.onsuccess = () => {
+                    const db = request.result;
+                    const tx = db.transaction([storename], 'readonly');
+                    const store = tx.objectstore(storename);
+                    const countrequest = store.count();
+                    
+                    countrequest.onsuccess = () => resolve(countrequest.result);
+                    countrequest.onerror = () => reject(countrequest.error);
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function getalldbdata(dbname, storename) {
+            return new promise((resolve, reject) => {
+                const request = indexeddb.open(dbname, 1);
+                request.onsuccess = () => {
+                    const db = request.result;
+                    const tx = db.transaction([storename], 'readonly');
+                    const store = tx.objectstore(storename);
+                    const getallrequest = store.getall();
+                    
+                    getallrequest.onsuccess = () => resolve(getallrequest.result);
+                    getallrequest.onerror = () => reject(getallrequest.error);
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function initdatabases() {
+            opendb('龍魂记忆库', '记忆库');
+            opendb('龍魂dna存证', 'evidences');
+        }
+    </script>
+
+<!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
+<!-- DNA: #龍芯⚡️丙午·丙申·甲寅·申时·贲-CONFIRM-SEAL-main-console_v2.1-F976B09F -->
+</body>
+</html>

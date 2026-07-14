@@ -1,0 +1,242 @@
+{
+  "main": {
+    "id": "1c713f5900709b70",
+    "type": "split",
+    "children": [
+      {
+        "id": "8282f122fe26c885",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dafdaab3dbff12d9",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f9724264c4d96e75",
+    "type": "split",
+    "children": [
+      {
+        "id": "65b88f07ec7ca626",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "afba84c0aaae8c66",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "f833afcaf07cee0a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "ed2cda681fadc2ef",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "41fafb64e3ab9194",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f15e317f33430c5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "24d2f307896406c2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "f3ffe15309904ecf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "3f3bb7982b60016a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "62b7c1dbebce0a8f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "e2c8c6cec58cb732",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "671b63327112aa9d",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "footnotes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "dafdaab3dbff12d9",
+  "lastOpenFiles": [
+    "统一入口/龍魂长记忆/global_index/service.pid",
+    "logs/auto_heal/heal_report_20260713_000731.json",
+    "统一入口/龍魂长记忆/logs/memory_bootstrap_daemon_2026-07-13.log",
+    "logs/auto_heal/heal_report_20260712_230730.json",
+    "integrations/guardian/ABSORPTION_LOG.md",
+    "integrations/guardian/README.md",
+    "integrations/guardian/DragonSoul_Guardian_v2.py",
+    "integrations/guardian",
+    "docs/defense-constitution/TRIPLE_FIRE_INTEGRATION_INDEX.md",
+    "tombstone_vault/kimi_feed_v1.0/longhun_auto_cannon.py",
+    "tombstone_vault/kimi_feed_v1.0/longhun_agent_viceroy.json",
+    "tombstone_vault/kimi_feed_v1.0",
+    "web/longhun-guardian-dashboard/vitest.config.ts",
+    "web/longhun-guardian-dashboard/vite.config.ts",
+    "web/longhun-guardian-dashboard/info.md",
+    "web/longhun-guardian-dashboard/README.md",
+    "docs/shenzhen-report/chart5_regional_divergence.png",
+    "docs/shenzhen-report/chart2_dna_ecosystem.png",
+    "docs/shenzhen-report/chart3_industrial_champion.png",
+    "docs/shenzhen-report/chart1_dna_tech_maturity.png",
+    "docs/shenzhen-report/chart4_property_supply_demand.png",
+    "docs/shenzhen-report/chart6_funding_growth.png",
+    "docs/defense-constitution/龍魂系统-全技能导航与绝对防御宪法-v5.2.md",
+    "integrations/ide-heavy-artillery/longhun_ide_setup.md",
+    "deploy/guardian-v2/deploy_manual.md",
+    "deploy/guardian-v2/README_triple_fire.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/AI语义标准/Notion页面补充内容清单.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/AI语义标准/Notion导入使用指南.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/AI语义标准/AI语义标准化系统-Notion完整版.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/API 接口文档/07-API规则速查清单.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/API 接口文档/06-API接出规则-龙魂API对外保护.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/API 接口文档/05-API接入规则-老大接入外部API.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/ARCHITECTURE.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH-第一批创建完成报告.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH-语言配件集成-执行完成报告.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH-语言配件集成完成报告.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH完整规范-Notion版.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH编辑器-使用指南.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH编辑器-完成报告.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH编辑器_普惠版/使用说明.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/PROJECT_SETUP.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/README.md",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/stylegan3-main 2/docs/visualizer_screen0_half.png",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/stylegan3-main 2/docs/visualizer_screen0.png",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/stylegan3-main 2/docs/stylegan3-teaser-1920x1006.png",
+    "_archive/cnsh-history/CNSH-v1.0-完整实现/stylegan3-main 2/docs/avg_spectra_screen0.png",
+    "L7_数据层/desktop_archive/未命名.canvas",
+    "未命名.canvas"
+  ]
+}

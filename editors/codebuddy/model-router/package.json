@@ -1,0 +1,168 @@
+{
+  "name": "longhun-model-router",
+  "displayName": "龍魂多模型路由",
+  "description": "DeepSeek/Kimi/本地模型一键切换 — 根据任务类型自动选择最优模型",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Snippets"
+  ],
+  "keywords": [
+    "AI",
+    "LLM",
+    "DeepSeek",
+    "Kimi",
+    "router",
+    "龍魂",
+    "longhun",
+    "模型路由",
+    "model-router",
+    "本地模型",
+    "代码生成",
+    "代码审查",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "activationEvents": [
+    "onCommand:longhun-model.switchToDeepSeek",
+    "onCommand:longhun-model.switchToKimi",
+    "onCommand:longhun-model.switchToLocal",
+    "onCommand:longhun-model.switchAuto",
+    "onCommand:longhun-model.showStatus",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "longhun-model.switchToDeepSeek",
+        "title": "切换到 DeepSeek",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-model.switchToKimi",
+        "title": "切换到 Kimi",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-model.switchToLocal",
+        "title": "切换到本地模型",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-model.switchAuto",
+        "title": "自动路由（按任务类型）",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-model.showStatus",
+        "title": "查看当前模型路由状态",
+        "category": "龍魂"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "longhun-model.switchToDeepSeek",
+        "key": "ctrl+shift+1",
+        "mac": "cmd+shift+1"
+      },
+      {
+        "command": "longhun-model.switchToKimi",
+        "key": "ctrl+shift+2",
+        "mac": "cmd+shift+2"
+      },
+      {
+        "command": "longhun-model.switchToLocal",
+        "key": "ctrl+shift+3",
+        "mac": "cmd+shift+3"
+      },
+      {
+        "command": "longhun-model.switchAuto",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a"
+      }
+    ],
+    "statusBarItem": {
+      "id": "longhun-model-status",
+      "alignment": "right",
+      "priority": 100
+    },
+    "configuration": {
+      "title": "龍魂多模型路由",
+      "properties": {
+        "longhun-model.defaultModel": {
+          "type": "string",
+          "default": "auto",
+          "enum": ["auto", "deepseek", "kimi", "local"],
+          "description": "默认模型选择"
+        },
+        "longhun-model.deepseekApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "DeepSeek API Key（仅本地存储）"
+        },
+        "longhun-model.kimiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Kimi API Key（仅本地存储）"
+        },
+        "longhun-model.localModelPath": {
+          "type": "string",
+          "default": "",
+          "description": "本地模型路径（如 ollama://qwen:7b）"
+        },
+        "longhun-model.codeGenModel": {
+          "type": "string",
+          "default": "deepseek",
+          "enum": ["deepseek", "kimi", "local"],
+          "description": "代码生成任务使用的模型"
+        },
+        "longhun-model.codeReviewModel": {
+          "type": "string",
+          "default": "kimi",
+          "enum": ["deepseek", "kimi", "local"],
+          "description": "代码审查任务使用的模型"
+        },
+        "longhun-model.sensitiveModel": {
+          "type": "string",
+          "default": "local",
+          "enum": ["deepseek", "kimi", "local"],
+          "description": "敏感操作使用的模型（建议本地）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/model-router"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/model-router/README.md",
+  "_dna": "#龍芯⚡️丙午·辛未·MODEL-ROUTER-v1.0"
+}

@@ -1,0 +1,66 @@
+{
+  // ==========================================================================
+  // 通心译 — 项目级构建配置 ✅ 检查项#5
+  // ==========================================================================
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "release",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "./sign/release.cer",
+          "storePassword": "0000000000000000000000000000000000000000000000000000000000000000",
+          "keyAlias": "releaseKey",
+          "keyPassword": "0000000000000000000000000000000000000000000000000000000000000000",
+          "profile": "./sign/release.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "./sign/release.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "release",
+        "targetSdkVersion": "5.0.0(12)",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "release",
+        "buildOption": {
+          "debuggable": false,
+          "compressNativeLibs": true
+        }
+      },
+      {
+        "name": "debug",
+        "buildOption": {
+          "debuggable": true
+        }
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
