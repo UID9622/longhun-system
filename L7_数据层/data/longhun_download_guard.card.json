@@ -1,0 +1,36 @@
+{
+  "M::": {
+    "type": "download_guard",
+    "status": "pass",
+    "payload": {
+      "title": "龍魂下载守卫 v1.0",
+      "source_file": "longhun_download_guard.py",
+      "watch_dirs": [
+        "~/Downloads"
+      ],
+      "quarantine_dir": "~/.longhun/quarantine",
+      "checks": [
+        "dangerous_extension",
+        "content_patterns",
+        "ai_semantic_fuse"
+      ],
+      "input": 2026062911,
+      "digital_root": 2,
+      "wuxing": "土",
+      "color": "🟢",
+      "decision": "PASS",
+      "action": "放行·执行",
+      "self_check": "7/7 单元测试通过",
+      "note": "下载文件自动检测 + 隔离 + 告警；已接入龍魂护盾主权熔断与国密耻辱墙"
+    }
+  },
+  "CNSH::": {
+    "dna": "#龍芯⚡️2026-06-29-LONGHUN-DOWNLOAD-GUARD-CARD-v1.0",
+    "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "audit": "🟢",
+    "wuxing": "土",
+    "policy": "pass",
+    "trace_hash": "7e8f603a8cf4dbff"
+  }
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂服务器连通性看板</title>
+<style>
+:root {
+  --bg: #0a0e14;
+  --card-bg: #141b22;
+  --border: #1e2836;
+  --text: #c9d1d9;
+  --muted: #6e7681;
+  --online: #3fb950;
+  --offline: #f85149;
+  --degraded: #d2991d;
+  --accent: #58a6ff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  min-height: 100vh; padding: 20px;
+}
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 { font-size: 24px; font-weight: 600; }
+.header .meta { color: var(--muted); font-size: 13px; text-align: right; }
+.header .meta .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; }
+.header .meta .dot.live { background: var(--online); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.overview {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 12px; margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; text-align: center;
+}
+.stat-card .value { font-size: 32px; font-weight: 700; }
+.stat-card .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.stat-card.online .value { color: var(--online); }
+.stat-card.offline .value { color: var(--offline); }
+.stat-card.health .value { color: var(--accent); }
+
+.section-title {
+  font-size: 14px; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin: 20px 0 12px 0; padding-left: 4px;
+}
+
+.item-list { display: flex; flex-direction: column; gap: 8px; }
+.item {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: border-color .3s;
+}
+.item:hover { border-color: #30363d; }
+.item .left { flex:1; min-width:0; }
+.item .name { font-size: 15px; font-weight: 500; }
+.item .desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.item .right { text-align: right; flex-shrink:0; margin-left: 16px; }
+.item .status-badge {
+  display: inline-block; padding: 2px 10px; border-radius: 12px;
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+}
+.status-online { background: rgba(63,185,80,.15); color: var(--online); }
+.status-offline { background: rgba(248,81,73,.15); color: var(--offline); }
+.status-degraded { background: rgba(210,153,29,.15); color: var(--degraded); }
+.item .latency { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.item .latency.slow { color: var(--offline); font-weight: 700; }
+.item .latency.warn { color: var(--degraded); font-weight: 600; }
+.item.warn-item { border-left: 3px solid var(--offline); }
+
+.actions {
+  display: flex; gap: 10px; margin-top: 24px;
+  justify-content: center;
+}
+.btn {
+  padding: 8px 20px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--card-bg); color: var(--text);
+  font-size: 13px; cursor: pointer; transition: all .2s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); color: #000; border-color: var(--accent); }
+.btn.primary:hover { opacity: .85; }
+
+.last-update { text-align: center; color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+.error-msg { color: var(--offline); font-size: 13px; margin-top: 4px; }
+.loading { text-align:center; color:var(--muted); padding:40px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🐉 龍魂服务器连通性看板</h1>
+    <div style="font-size:12px;color:var(--muted);margin-top:4px;">每一次检测都是真实SSH/HTTP请求 · 不造假</div>
+  </div>
+  <div class="meta">
+    <div><span class="dot live"></span> 实时监控中</div>
+    <div id="lastUpdate">--</div>
+  </div>
+</div>
+
+<div class="overview" id="overview"></div>
+<div id="latencySummary" style="margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap;"></div>
+<div id="sections"></div>
+
+<div class="actions">
+  <button class="btn primary" onclick="refresh(true)">🔄 立即刷新</button>
+  <button class="btn" onclick="toggleAuto()" id="autoBtn">⏸ 暂停自动</button>
+  <button class="btn" onclick="generateFeishuReport()" id="feishuBtn" style="background:rgba(64,128,255,.15);border-color:#4080ff;color:#4080ff;">📤 生成飞书报告</button>
+</div>
+<div id="feishuResult" style="text-align:center;margin-top:8px;font-size:13px;"></div>
+<div class="last-update" id="footer">--</div>
+
+<script>
+let autoRefresh = true;
+let timer = null;
+
+const STATUS_MAP = {
+  online: { cls: 'status-online', label: '在线' },
+  offline: { cls: 'status-offline', label: '断开' },
+  degraded: { cls: 'status-degraded', label: '降级' },
+};
+
+async function refresh(force) {
+  document.getElementById('footer').textContent = '检测中...';
+  try {
+    const url = force
+      ? '/api/system/connectivity?force=true'
+      : '/api/system/connectivity';
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+
+    if (data.error && !data.items) {
+      renderError(data.error);
+      return;
+    }
+
+    render(data);
+    document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString('zh-CN');
+    document.getElementById('footer').textContent =
+      `最后检测: ${new Date(data.timestamp).toLocaleString('zh-CN')}`;
+  } catch (e) {
+    document.getElementById('footer').textContent = '检测失败: ' + e.message;
+  }
+}
+
+function render(data) {
+  const s = data.summary;
+  // 概览卡片
+  document.getElementById('overview').innerHTML = `
+    <div class="stat-card online">
+      <div class="value">${s.online}</div>
+      <div class="label">在线</div>
+    </div>
+    <div class="stat-card offline">
+      <div class="value">${s.offline + s.degraded}</div>
+      <div class="label">断线/降级</div>
+    </div>
+    <div class="stat-card health">
+      <div class="value">${s.health_pct}%</div>
+      <div class="label">健康度</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">${s.total}</div>
+      <div class="label">总计</div>
+    </div>
+  `;
+
+  // 延迟统计摘要
+  let slowCount = 0, warnCount = 0;
+  const slowItems = [];
+  for (const [name, item] of Object.entries(data.items)) {
+    if (item.latency_ms > 200) { slowCount++; slowItems.push({name, ms: item.latency_ms}); }
+    else if (item.latency_ms > 50) warnCount++;
+  }
+  document.getElementById('latencySummary').innerHTML = slowCount + warnCount > 0 ? `
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-size:12px;">
+      🐌 延迟>50ms: <span style="color:var(--degraded);font-weight:700;">${warnCount}</span> 个 |
+      🔴 延迟>200ms: <span style="color:var(--offline);font-weight:700;">${slowCount}</span> 个
+      ${slowItems.length ? ' | ' + slowItems.map(i => `<span style="color:var(--offline);">${i.name}(${i.ms}ms)</span>`).join(', ') : ''}
+    </div>
+  ` : '';
+
+  // 分组
+  const groups = {};
+  for (const [name, item] of Object.entries(data.items)) {
+    const g = item.group || '其他';
+    if (!groups[g]) groups[g] = [];
+    groups[g].push({ name, ...item });
+  }
+
+  let html = '';
+  const groupOrder = ['云服务器','本地','龍魂服务','本地AI','外部API','代码仓库'];
+  for (const g of groupOrder) {
+    if (!groups[g]) continue;
+    html += `<div class="section-title">${g}</div><div class="item-list">`;
+    for (const item of groups[g]) {
+      const s = STATUS_MAP[item.status] || STATUS_MAP.degraded;
+      const lat = item.latency_ms > 0 ? `${item.latency_ms}ms` : '';
+      const icn = item.critical ? '🔴' : '';
+      // 延迟分级: >200ms 红色慢, 50-200ms 黄色警告, <50ms 正常
+      let latCls = '';
+      let itemCls = '';
+      if (item.latency_ms > 200) { latCls = 'slow'; itemCls = 'warn-item'; }
+      else if (item.latency_ms > 50) { latCls = 'warn'; }
+      html += `
+      <div class="item ${itemCls}">
+        <div class="left">
+          <div class="name">${icn} ${item.name}</div>
+          <div class="desc">${item.desc || ''}</div>
+          ${item.error ? `<div class="error-msg">${escapeHtml(item.error)}</div>` : ''}
+        </div>
+        <div class="right">
+          <span class="status-badge ${s.cls}">${s.label}</span>
+          ${lat ? `<div class="latency ${latCls}">${lat}</div>` : ''}
+        </div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+  document.getElementById('sections').innerHTML = html;
+}
+
+function renderError(msg) {
+  document.getElementById('overview').innerHTML = '';
+  document.getElementById('sections').innerHTML = `
+    <div class="loading">⚠️ 连通性检测器未就绪<br><small>${escapeHtml(msg)}</small></div>
+  `;
+}
+
+function escapeHtml(s) {
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function toggleAuto() {
+  autoRefresh = !autoRefresh;
+  const btn = document.getElementById('autoBtn');
+  if (autoRefresh) {
+    btn.textContent = '⏸ 暂停自动';
+    startAuto();
+  } else {
+    btn.textContent = '▶ 恢复自动';
+    stopAuto();
+  }
+}
+
+// 飞书报告生成（通过飞书桥接Webhook推送）
+async function generateFeishuReport() {
+  const btn = document.getElementById('feishuBtn');
+  const resultDiv = document.getElementById('feishuResult');
+  btn.disabled = true;
+  btn.textContent = '⏳ 生成中...';
+  resultDiv.innerHTML = '';
+
+  try {
+    // 先获取最新数据
+    const resp = await fetch('/api/system/connectivity?force=true');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+
+    // 收集延迟>50ms的节点
+    const slowNodes = [];
+    for (const [name, item] of Object.entries(data.items)) {
+      if (item.latency_ms > 50) {
+        slowNodes.push({
+          name, group: item.group || '未知',
+          latency: item.latency_ms,
+          status: item.status,
+          critical: item.critical || false,
+        });
+      }
+    }
+
+    // 构建报告文本
+    const now = new Date().toLocaleString('zh-CN');
+    let report = `🐉 **龍魂连通性巡检报告**\n`;
+    report += `⏰ ${now}\n`;
+    report += `📊 总计: ${data.summary.total} | 🟢在线: ${data.summary.online} | 🔴断线: ${data.summary.offline + data.summary.degraded} | 健康度: ${data.summary.health_pct}%\n\n`;
+
+    if (slowNodes.length === 0) {
+      report += `✅ 所有节点延迟均在50ms以内，系统运行正常。`;
+    } else {
+      report += `⚠️ **延迟超标节点 (${slowNodes.length}个):**\n`;
+      for (const n of slowNodes) {
+        const icon = n.latency > 200 ? '🔴' : '🟡';
+        const crit = n.critical ? ' [关键]' : '';
+        report += `${icon} **${n.name}** (${n.group}) — ${n.latency}ms${crit}\n`;
+      }
+    }
+    report += `\n---\n🧬 #龍芯⚡️丙午·丙申·丙辰·亥时·需-CONNECTIVITY-REPORT`;
+
+    // 尝试通过飞书桥接发送
+    const feishuBridge = 'http://127.0.0.1:9637/webhook';
+    try {
+      const fbResp = await fetch(feishuBridge, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: report }),
+      });
+      if (fbResp.ok) {
+        resultDiv.innerHTML = `<span style="color:var(--online);">✅ 飞书报告已发送（:9637桥接）</span>`;
+      } else {
+        resultDiv.innerHTML = `<span style="color:var(--degraded);">⚠️ 飞书桥接响应异常 (${fbResp.status})，报告文本已生成</span>`;
+      }
+    } catch {
+      // 飞书桥接不可用，显示报告文本供手动复制
+      resultDiv.innerHTML = `<span style="color:var(--degraded);">⚠️ 飞书桥接(:9637)未运行</span>`;
+    }
+
+    // 始终在控制台输出报告
+    console.log(report);
+    // 复制到剪贴板作为兜底
+    try {
+      await navigator.clipboard.writeText(report);
+      if (resultDiv.innerHTML.includes('未运行')) {
+        resultDiv.innerHTML += ` <span style="color:var(--accent);">| 📋 报告已复制到剪贴板</span>`;
+      }
+    } catch {}
+
+  } catch (e) {
+    resultDiv.innerHTML = `<span style="color:var(--offline);">❌ 生成失败: ${escapeHtml(e.message)}</span>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📤 生成飞书报告';
+  }
+}
+
+function startAuto() {
+  stopAuto();
+  timer = setInterval(() => refresh(false), 10000);
+}
+
+function stopAuto() {
+  if (timer) { clearInterval(timer); timer = null; }
+}
+
+// 启动
+refresh(false);
+startAuto();
+</script>
+</body>
+</html>

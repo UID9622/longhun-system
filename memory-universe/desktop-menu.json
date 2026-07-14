@@ -1,0 +1,41 @@
+{
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-8",
+  "items": [
+    {
+      "id": "starry-memory-seed",
+      "label": "🌌 星辰记忆：添加示例",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py seed",
+      "description": "自动添加一世一双人、三生三世、星辰记忆三则示例",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-generate",
+      "label": "✨ 生成星辰记忆页面",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py generate && open {root}/memory-universe/index.md",
+      "description": "根据数据库记忆自动生成 index.md 并打开",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-stats",
+      "label": "📊 星辰记忆统计",
+      "type": "shell",
+      "command": "cd {root}/memory-universe && python3 星辰记忆系统.py stats",
+      "description": "查看各分类记忆数量统计",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "starry-memory-readme",
+      "label": "📘 查看星辰记忆说明",
+      "type": "shell",
+      "command": "open {root}/memory-universe/README.md",
+      "description": "打开星辰记忆系统使用说明",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ]
+}

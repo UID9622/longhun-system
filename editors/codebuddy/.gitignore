@@ -1,0 +1,27 @@
+# 龍魂 CodeBuddy 插件集 · Git 忽略规则
+# DNA: #龍芯⚡️丙午·辛未·CODEBUDDY-GITIGNORE-v1.0
+
+# 编译产物
+out/
+*.js.map
+
+# 依赖目录
+node_modules/
+
+# 包管理锁定文件（扩展依赖极少，由 install.sh 现场生成）
+package-lock.json
+
+# 日志
+*.log
+npm-debug.log*
+
+# VSCode/系统文件
+.DS_Store
+.vscode-test/
+
+# 本地配置（不提交个人 API 密钥）
+config/
+
+# 保留分发包（取消根目录 dist/ 忽略）
+!dist/
+!dist/*.vsix

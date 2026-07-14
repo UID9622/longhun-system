@@ -1,0 +1,117 @@
+{
+  "name": "longhun-protocol-checker",
+  "displayName": "龍魂协议校验",
+  "description": "保存文件时自动扫描 — 检查DNA锚定、老祖宗规则、敏感信息泄露。违规弹窗警告，一键修复",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "longhun-protocol.checkFile",
+        "title": "龍魂: 协议校验当前文件",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-protocol.checkWorkspace",
+        "title": "龍魂: 协议校验整个工作区",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-protocol.fixFile",
+        "title": "龍魂: 一键修复当前文件",
+        "category": "龍魂"
+      }
+    ],
+    "configuration": {
+      "title": "龍魂协议校验",
+      "properties": {
+        "longhun-protocol.enableDNA": {
+          "type": "boolean",
+          "default": true,
+          "description": "检查 DNA 锚定码"
+        },
+        "longhun-protocol.enableAncestors": {
+          "type": "boolean",
+          "default": true,
+          "description": "检查老祖宗规则（境外API导入/云端上传/敏感库）"
+        },
+        "longhun-protocol.enableSensitive": {
+          "type": "boolean",
+          "default": true,
+          "description": "检查敏感信息泄露（密钥/Token/密码/私钥）"
+        },
+        "longhun-protocol.autoFixOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "保存时自动修复（谨慎开启）"
+        },
+        "longhun-protocol.ignoredFiles": {
+          "type": "array",
+          "default": [
+            "node_modules/**",
+            "venv/**",
+            ".git/**",
+            "__pycache__/**",
+            "*.pyc",
+            "*.min.js"
+          ],
+          "description": "忽略的文件模式"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "_dna": "#龍芯⚡️丙午·辛未·PROTOCOL-CHECKER-v1.0",
+  "dependencies": {
+    "minimatch": "^10.2.5"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/protocol-checker"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/protocol-checker/README.md",
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "协议校验",
+    "protocol-checker",
+    "DNA锚定",
+    "老祖宗规则",
+    "敏感信息",
+    "安全",
+    "合规",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ]
+}

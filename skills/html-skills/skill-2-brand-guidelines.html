@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 龍魂品牌指南 v1.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #151a3f 100%);
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 30px;
+        }
+        .header h1 {
+            background: linear-gradient(90deg, #00d4ff, #00f5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .section {
+            background: rgba(21, 26, 63, 0.8);
+            border: 2px solid #00d4ff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .section h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ff006e;
+            padding-bottom: 10px;
+        }
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .color-swatch {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .color-block {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .color-info {
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+        .typography {
+            margin: 20px 0;
+        }
+        .type-sample {
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            border-radius: 4px;
+        }
+        .type-sample.h1 { font-size: 2.5em; font-weight: bold; }
+        .type-sample.h2 { font-size: 2em; font-weight: bold; }
+        .type-sample.body { font-size: 1em; line-height: 1.6; }
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .component {
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.05);
+        }
+        .component h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 5px;
+            border: 2px solid #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        .guidelines {
+            background: rgba(255, 0, 110, 0.1);
+            border-left: 4px solid #ff006e;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .guidelines h4 {
+            color: #ff006e;
+            margin-bottom: 10px;
+        }
+        .guidelines ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        .dna {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 0.9em;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #00d4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 龍魂品牌指南 v1.0</h1>
+            <p>DNA:#龍芯⚡️2026-06-07-BRAND-GUIDELINES-FILE2-v1.0</p>
+            <p>完整的视觉识别系统·色彩·排版·组件·应用规范</p>
+        </div>
+        
+        <!-- 色彩系统 -->
+        <div class="section">
+            <h2>🎨 色彩系统</h2>
+            
+            <h3 style="color: #00d4ff; margin: 20px 0 15px 0;">主色调</h3>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #00d4ff;">主蓝</div>
+                    <div class="color-info">
+                        <strong>#00d4ff</strong><br>
+                        RGB: 0, 212, 255<br>
+                        用途: 按钮、链接、强调
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #ff006e;">强红</div>
+                    <div class="color-info">
+                        <strong>#ff006e</strong><br>
+                        RGB: 255, 0, 110<br>
+                        用途: 告警、错误
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #00f5ff;">亮青</div>
+                    <div class="color-info">
+                        <strong>#00f5ff</strong><br>
+                        RGB: 0, 245, 255<br>
+                        用途: 悬停、高亮
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #0a0e27;">深黑</div>
+                    <div class="color-info">
+                        <strong>#0a0e27</strong><br>
+                        RGB: 10, 14, 39<br>
+                        用途: 背景
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="color: #00d4ff; margin: 20px 0 15px 0;">语义色彩</h3>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #4ade80;">成功</div>
+                    <div class="color-info">#4ade80</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #facc15;">警告</div>
+                    <div class="color-info">#facc15</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #06b6d4;">信息</div>
+                    <div class="color-info">#06b6d4</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-block" style="background: #a0aec0;">中性</div>
+                    <div class="color-info">#a0aec0</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 排版系统 -->
+        <div class="section">
+            <h2>✍️ 排版系统</h2>
+            
+            <div class="typography">
+                <p style="color: #a0aec0; margin-bottom: 10px;">字体家族: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif</p>
+                
+                <div class="type-sample h1">
+                    H1 - 主标题 · 2.5em · Bold
+                </div>
+                
+                <div class="type-sample h2">
+                    H2 - 副标题 · 2em · Bold
+                </div>
+                
+                <div class="type-sample body">
+                    Body Text - 正文 · 1em · Regular · 行高 1.6<br>
+                    用于长文本阅读，确保可读性和舒适度。
+                </div>
+                
+                <div class="type-sample body" style="font-size: 0.9em;">
+                    Caption - 标题 · 0.9em · Regular · 行高 1.4<br>
+                    用于较小的辅助文本信息。
+                </div>
+            </div>
+        </div>
+        
+        <!-- 组件库 -->
+        <div class="section">
+            <h2>🧩 组件库</h2>
+            
+            <div class="component-grid">
+                <div class="component">
+                    <h3>按钮·主要</h3>
+                    <button>Primary Button</button>
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        主要行为，蓝色背景，高对比度
+                    </p>
+                </div>
+                
+                <div class="component">
+                    <h3>按钮·次要</h3>
+                    <button style="border-color: #a0aec0; color: #a0aec0;">Secondary Button</button>
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        次要行为，边框样式，低对比度
+                    </p>
+                </div>
+                
+                <div class="component">
+                    <h3>输入框</h3>
+                    <input type="text" placeholder="输入文本..." 
+                        style="width: 100%; padding: 10px; background: rgba(0,212,255,0.1); border: 2px solid #00d4ff; color: #00d4ff; border-radius: 4px;">
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        文本输入，圆角边框，蓝色聚焦
+                    </p>
+                </div>
+                
+                <div class="component">
+                    <h3>标签·成功</h3>
+                    <span style="background: #4ade80; color: #000; padding: 4px 12px; border-radius: 12px; font-size: 0.85em;">
+                        Success
+                    </span>
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        正向状态表示
+                    </p>
+                </div>
+                
+                <div class="component">
+                    <h3>标签·错误</h3>
+                    <span style="background: #ff006e; color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 0.85em;">
+                        Error
+                    </span>
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        负向状态表示
+                    </p>
+                </div>
+                
+                <div class="component">
+                    <h3>卡片</h3>
+                    <div style="border: 2px solid #00d4ff; border-radius: 8px; padding: 15px; background: rgba(0,212,255,0.05);">
+                        <p style="font-weight: bold; margin-bottom: 5px;">卡片标题</p>
+                        <p style="color: #a0aec0; font-size: 0.9em;">卡片内容描述</p>
+                    </div>
+                    <p style="font-size: 0.85em; color: #a0aec0; margin-top: 10px;">
+                        信息容器，分离内容
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 应用指南 -->
+        <div class="section">
+            <h2>📋 应用指南</h2>
+            
+            <div class="guidelines">
+                <h4>✅ 做这些</h4>
+                <ul>
+                    <li>使用龍魂蓝作为主要交互颜色</li>
+                    <li>保持充足的白空间，不要拥挤</li>
+                    <li>使用一致的间距和对齐</li>
+                    <li>确保文本对比度 ≥ 4.5:1</li>
+                    <li>响应式设计，适配所有屏幕</li>
+                </ul>
+            </div>
+            
+            <div class="guidelines">
+                <h4>❌ 避免这些</h4>
+                <ul>
+                    <li>混合使用多种颜色主题</li>
+                    <li>使用品牌外的色彩</li>
+                    <li>强行缩小文本以适应空间</li>
+                    <li>过度使用强调色，容易疲劳</li>
+                    <li>在浅色背景上使用深色字体</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 响应式网格 -->
+        <div class="section">
+            <h2>📐 响应式网格</h2>
+            <p style="margin-bottom: 20px; color: #a0aec0;">
+                使用 8px 基础网格系统
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px;">
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+                <div style="height: 40px; background: rgba(0,212,255,0.1); border: 1px dashed #00d4ff; border-radius: 4px;"></div>
+            </div>
+        </div>
+        
+        <div class="dna">
+            <p><strong>DNA:#龍芯⚡️2026-06-07-BRAND-GUIDELINES-v1.0</strong></p>
+            <p>责任: UID9622 · 不免责</p>
+            <p>状态: 🟢 生产就绪</p>
+        </div>
+    </div>
+</body>
+</html>

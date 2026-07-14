@@ -1,0 +1,11 @@
+##龍芯⚡️2026-06-21-DOC-REQUIREMENTS-v1.0
+# 君子协议: 本文件受龍魂DNA追溯保护
+
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+websockets==12.0
+python-dotenv==1.2.2
+pydantic==2.5.3
+sqlalchemy==2.0.25
+python-multipart==0.0.32
+aiofiles==23.2.1

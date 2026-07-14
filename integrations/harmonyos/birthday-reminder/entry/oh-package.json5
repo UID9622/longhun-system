@@ -1,0 +1,9 @@
+{
+  "name": "entry",
+  "version": "2.0.0",
+  "description": "龍魂生日提醒 · 人格联动模块",
+  "main": "",
+  "author": "UID9622",
+  "license": "LongHun-Sovereign",
+  "dependencies": {}
+}

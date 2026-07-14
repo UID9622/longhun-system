@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "状态穿透规则",
+    "description": "上层节点状态变更时自动影响下层节点",
+    "version": "v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-PENETRATION-v1.0"
+  },
+  "rules": [
+    {
+      "rule_id": "penetration_001",
+      "trigger_layer": "sovereignty",
+      "trigger_state": "suspended",
+      "target_layer": "governance",
+      "target_action": "set_pending",
+      "priority": "critical",
+      "description": "主权层暂停时，治理层全部变为待生效"
+    },
+    {
+      "rule_id": "penetration_002",
+      "trigger_layer": "governance",
+      "trigger_state": "terminated",
+      "target_layer": "mechanism",
+      "target_action": "set_suspended",
+      "priority": "high",
+      "description": "治理层终止时，关联机制层暂停"
+    },
+    {
+      "rule_id": "penetration_003",
+      "trigger_layer": "sovereignty",
+      "trigger_state": "active",
+      "target_layer": "governance",
+      "target_action": "restore_active",
+      "priority": "high",
+      "description": "主权层恢复时，治理层恢复生效"
+    }
+  ]
+}

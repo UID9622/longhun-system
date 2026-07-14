@@ -1,0 +1,62 @@
+{
+  "id": "longhun-semantic-lie-detector",
+  "name": "longhun-semantic-lie-detector",
+  "version": "2.0.0",
+  "description": "🧬 龍魂·语义测谎仪 v2.0 — 语义库联动·规避话术全维度检测·异常账号自动标记。15大检测维度+15组谐音映射+139条正则模式。新增：谐音字规避/笔画拆字规避/直播互动规避/平台规则规避/数字暗号/隐藏文字检测+异常账号标记+本源追溯。语义模式库独立存储于 anti_fraud_patterns_v2.0.json，无需改代码即可迭代进化。当用户提及关键词时触发。",
+  "scope": "project",
+  "type": "python",
+  "scripts": [
+    "bin/lh_semantic_lie_detector.py"
+  ],
+  "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_semantic_lie_detector.py",
+  "pattern_library": "01_技能庫/anti_fraud_patterns_v2.0.json",
+  "semantic_drawers": "01_技能庫/owner_semantic_drawers_v2.0.json",
+  "source": "internal",
+  "dna": "#龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0",
+  "cloud_port": 19624,
+  "api_endpoints": {
+    "health": "GET /health",
+    "analyze": "POST /analyze",
+    "track": "GET /track/<person_id>",
+    "flag": "GET /flag/<person_id>",
+    "trace_origin": "GET /trace-origin/<person_id>",
+    "expand": "POST /expand",
+    "reload": "POST /reload",
+    "stats": "GET /stats"
+  },
+  "detection_dimensions": [
+    {"name": "self_praise", "label": "自我美化检测", "risk": "medium"},
+    {"name": "over_promise", "label": "过度承诺检测", "risk": "high"},
+    {"name": "pyramid_scheme", "label": "传销/金字塔结构检测", "risk": "critical"},
+    {"name": "emotional_manipulation", "label": "情感操控检测", "risk": "high"},
+    {"name": "anxiety_creation", "label": "焦虑制造检测", "risk": "medium"},
+    {"name": "false_authority", "label": "虚假权威检测", "risk": "high"},
+    {"name": "vague_tactics", "label": "模糊话术检测", "risk": "medium"},
+    {"name": "guided_consumption", "label": "引导性消费检测", "risk": "high"},
+    {"name": "trap_chain", "label": "连环套检测", "risk": "critical"},
+    {"name": "homophone_evasion", "label": "谐音字规避检测", "risk": "high", "new_in": "v2.0"},
+    {"name": "stroke_evasion", "label": "笔画拆分规避检测", "risk": "high", "new_in": "v2.0"},
+    {"name": "live_stream_tricks", "label": "直播互动规避检测", "risk": "high", "new_in": "v2.0"},
+    {"name": "platform_evasion", "label": "平台规则规避检测", "risk": "high", "new_in": "v2.0"},
+    {"name": "number_code_evasion", "label": "数字暗号检测", "risk": "medium", "new_in": "v2.0"},
+    {"name": "invisible_text_evasion", "label": "隐藏文字规避检测", "risk": "critical", "new_in": "v2.0"},
+    {"name": "contradiction_tracking", "label": "前后矛盾追踪(跨会话)", "risk": "high"},
+    {"name": "account_flagging", "label": "异常账号自动标记", "risk": "critical", "new_in": "v2.0"}
+  ],
+  "v2_features": {
+    "semantic_library_connection": "从 anti_fraud_patterns_v2.0.json 加载模式·热更新无需改代码",
+    "homophone_normalization": "15组谐音映射·自动还原规避用字",
+    "account_flagging": "四级标记: normal→suspicious→dangerous→confirmed_fraud",
+    "origin_tracing": "追溯本源: 话术时间线·拐点检测·规避演变·连环套链",
+    "reload": "POST /reload 从语义库热更新检测模式"
+  },
+  "iron_laws": [
+    "不修改原文·下方追加审计备注",
+    "每条DNA嵌入·三色审计",
+    "不做政府的事·但给政府提供最好的反诈工具",
+    "保护受害者·揭露连环套·追溯本源",
+    "不预设结论·只追踪一致性·DNA链不可篡改",
+    "语义模式库独立·迭代进化·不锁死在代码里"
+  ],
+  "vision": "2025年初心：人文系统即测谎仪。让谐音字/拆字/直播暗号无所遁形，让连环套被DNA链锁定，让异常账号自动标记，给政府提供最好的反诈工具。"
+}

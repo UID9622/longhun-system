@@ -1,0 +1,24 @@
+{
+  "apiType": "stageMode",
+  "buildOption": {
+    "arkOptions": {
+      "runtimeOnly": {
+        "packages": [
+          "@ohos.arkui.UIContext"
+        ]
+      }
+    },
+    // 龍魂 Native 并发与高性能计算 · C++ 构建
+    "externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "-DUSE_HUGE_PAGES=OFF -DUSE_NUMA=OFF -DENABLE_PROFILING=OFF",
+      "cppFlags": "-O3 -march=armv8-a+fp+simd",
+      "abiFilters": ["arm64-v8a"]
+    }
+  },
+  "targets": [
+    {
+      "name": "default"
+    }
+  ]
+}

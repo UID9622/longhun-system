@@ -1,0 +1,130 @@
+{
+  "name": "longhun-one-click-deploy",
+  "displayName": "龍魂一键部署",
+  "description": "代码写完一键推送 GitHub/Gitee/华为云 — 自动 git add commit push，附带 GPG 签名",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["SCM", "Other"],
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "一键部署",
+    "one-click-deploy",
+    "Git",
+    "GPG",
+    "CNSH",
+    "中国自主",
+    "多平台",
+    "GitHub",
+    "Gitee",
+    "华为云",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/one-click-deploy"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/one-click-deploy/README.md",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "longhun-deploy.quickPush",
+        "title": "龍魂: 一键推送 (add+commit+push)",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-deploy.pushToGitHub",
+        "title": "龍魂: 推送到 GitHub",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-deploy.pushToGitee",
+        "title": "龍魂: 推送到 Gitee",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-deploy.pushToHuawei",
+        "title": "龍魂: 推送到华为云",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-deploy.gpgSignAndPush",
+        "title": "龍魂: GPG 签名 + 推送",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-deploy.showGitStatus",
+        "title": "龍魂: 查看 Git 状态",
+        "category": "龍魂"
+      }
+    ],
+    "configuration": {
+      "title": "龍魂一键部署",
+      "properties": {
+        "longhun-deploy.githubRemote": {
+          "type": "string",
+          "default": "github",
+          "description": "GitHub 远程名称"
+        },
+        "longhun-deploy.giteeRemote": {
+          "type": "string",
+          "default": "gitee",
+          "description": "Gitee 远程名称"
+        },
+        "longhun-deploy.huaweiRemote": {
+          "type": "string",
+          "default": "huawei",
+          "description": "华为云远程名称"
+        },
+        "longhun-deploy.enableGPG": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用 GPG 签名"
+        },
+        "longhun-deploy.gpgKeyId": {
+          "type": "string",
+          "default": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+          "description": "GPG Key ID"
+        },
+        "longhun-deploy.autoPullBeforePush": {
+          "type": "boolean",
+          "default": true,
+          "description": "推送前自动拉取"
+        },
+        "longhun-deploy.commitTemplate": {
+          "type": "string",
+          "default": "{type}: {message}",
+          "description": "提交信息模板"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "_dna": "#龍芯⚡️丙午·辛未·ONE-CLICK-DEPLOY-v1.0"
+}

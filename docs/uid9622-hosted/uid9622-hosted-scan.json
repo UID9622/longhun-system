@@ -1,0 +1,562 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-UID9622-HOSTED-SCAN-v1.0",
+
+  "source_workspace": "UID9622·托管区",
+  "destination_path": "docs/uid9622-hosted",
+  "file_count": 108,
+  "category_stats": {
+    "audit": 1,
+    "cmd-db": 12,
+    "code-factory": 15,
+    "control-panel": 30,
+    "defense": 9,
+    "local-system": 3,
+    "optimization": 2,
+    "taiji": 31,
+    "templates": 1,
+    "translation": 2,
+    "voice": 2
+  },
+  "files": [
+    {
+      "path": "audit/🛡️ 三色审计第一道门槛·三重自动检测系统 规则·虚伪·数据守护.md",
+      "category": "audit",
+      "size": 22502
+    },
+    {
+      "path": "cmd-db/GLOBAL-MERGE-ALL.md",
+      "category": "cmd-db",
+      "size": 356
+    },
+    {
+      "path": "cmd-db/LU-SYSTEM-OPTIMIZE-EXPAND.md",
+      "category": "cmd-db",
+      "size": 4220
+    },
+    {
+      "path": "cmd-db/NEURAL-NETWORK-BOOST.md",
+      "category": "cmd-db",
+      "size": 445
+    },
+    {
+      "path": "cmd-db/UID9622-AI-MATRIX-SYNC.md",
+      "category": "cmd-db",
+      "size": 287
+    },
+    {
+      "path": "cmd-db/UID9622-DATABASE-MERGE-SMART.md",
+      "category": "cmd-db",
+      "size": 291
+    },
+    {
+      "path": "cmd-db/UID9622-EMERGENCY-PROTOCOL.md",
+      "category": "cmd-db",
+      "size": 382
+    },
+    {
+      "path": "cmd-db/UID9622-FRAGMENT-RECOVERY.md",
+      "category": "cmd-db",
+      "size": 291
+    },
+    {
+      "path": "cmd-db/UID9622-GOD-MODE-ACTIVATE.md",
+      "category": "cmd-db",
+      "size": 386
+    },
+    {
+      "path": "cmd-db/UID9622-MASTER-CONTROL-INIT.md",
+      "category": "cmd-db",
+      "size": 467
+    },
+    {
+      "path": "cmd-db/📝 LU-COMMANDS-HUB.md",
+      "category": "cmd-db",
+      "size": 573
+    },
+    {
+      "path": "cmd-db/🔍 CMD - 智能指令系统数据库 v1 0 e4d891b1beea421fb90fedaf9bd4e7c9_all.csv",
+      "category": "cmd-db",
+      "size": 5633
+    },
+    {
+      "path": "cmd-db/🔍 CMD - 智能指令系统数据库 v1 0.csv",
+      "category": "cmd-db",
+      "size": 5633
+    },
+    {
+      "path": "code-factory/CNSH多语言编辑器终端 v4 0.md",
+      "category": "code-factory",
+      "size": 56834
+    },
+    {
+      "path": "code-factory/Express + MongoDB 高并发API请求优化一体化实现.md",
+      "category": "code-factory",
+      "size": 13051
+    },
+    {
+      "path": "code-factory/开发环境快速部署工具.md",
+      "category": "code-factory",
+      "size": 12029
+    },
+    {
+      "path": "code-factory/数据库备份恢复工具.md",
+      "category": "code-factory",
+      "size": 12112
+    },
+    {
+      "path": "code-factory/日志分析与清理工具.md",
+      "category": "code-factory",
+      "size": 15785
+    },
+    {
+      "path": "code-factory/环境变量管理工具.md",
+      "category": "code-factory",
+      "size": 20724
+    },
+    {
+      "path": "code-factory/终端快捷命令集合.md",
+      "category": "code-factory",
+      "size": 22210
+    },
+    {
+      "path": "code-factory/设备反监视防护脚本 - 完全本地检测.md",
+      "category": "code-factory",
+      "size": 21026
+    },
+    {
+      "path": "code-factory/🎯 UID9622保密环境v2 1-超简化版 一键运行.md",
+      "category": "code-factory",
+      "size": 17554
+    },
+    {
+      "path": "code-factory/📚 中央藏经阁代码-8c22e8.md",
+      "category": "code-factory",
+      "size": 19368
+    },
+    {
+      "path": "code-factory/🔐 自动备份系统代码.md",
+      "category": "code-factory",
+      "size": 22068
+    },
+    {
+      "path": "code-factory/🔧 UID9622智能代码生成工厂 e206163ee18a49fa9bd8033a50ed8e63_all.csv",
+      "category": "code-factory",
+      "size": 275723
+    },
+    {
+      "path": "code-factory/🔧 UID9622智能代码生成工厂.csv",
+      "category": "code-factory",
+      "size": 275723
+    },
+    {
+      "path": "code-factory/🔧 多账号批量管理工具.md",
+      "category": "code-factory",
+      "size": 15243
+    },
+    {
+      "path": "code-factory/🤖 ChatGPT多账号管理器.md",
+      "category": "code-factory",
+      "size": 21497
+    },
+    {
+      "path": "control-panel/AI大模型Prompt工程集成.md",
+      "category": "control-panel",
+      "size": 11723
+    },
+    {
+      "path": "control-panel/AI训练数据集成保护.md",
+      "category": "control-panel",
+      "size": 36708
+    },
+    {
+      "path": "control-panel/API后端智能过滤系统-da0ce8.md",
+      "category": "control-panel",
+      "size": 29
+    },
+    {
+      "path": "control-panel/API后端智能过滤系统.md",
+      "category": "control-panel",
+      "size": 22989
+    },
+    {
+      "path": "control-panel/API配置与集成指南.md",
+      "category": "control-panel",
+      "size": 26
+    },
+    {
+      "path": "control-panel/Notion知识库模板保护.md",
+      "category": "control-panel",
+      "size": 22167
+    },
+    {
+      "path": "control-panel/UID9622 · LU 指令导航页（速查版 v1 0）.md",
+      "category": "control-panel",
+      "size": 9426
+    },
+    {
+      "path": "control-panel/全平台AI记忆同步方案.md",
+      "category": "control-panel",
+      "size": 31
+    },
+    {
+      "path": "control-panel/性能测试方法 🌍 UID9622国际标准对比基准数据库.md",
+      "category": "control-panel",
+      "size": 17135
+    },
+    {
+      "path": "control-panel/测试对接窗口｜多账号沙盒接入（UID9622）.md",
+      "category": "control-panel",
+      "size": 3330
+    },
+    {
+      "path": "control-panel/浏览器插件自动注入.md",
+      "category": "control-panel",
+      "size": 30632
+    },
+    {
+      "path": "control-panel/系统隐私协议法律集成.md",
+      "category": "control-panel",
+      "size": 15933
+    },
+    {
+      "path": "control-panel/系统默认提示前置保护.md",
+      "category": "control-panel",
+      "size": 4116
+    },
+    {
+      "path": "control-panel/🌌 LU-Time Engine v4｜时间推演与审计系统·完整主模板.md",
+      "category": "control-panel",
+      "size": 9862
+    },
+    {
+      "path": "control-panel/🌌 UID9622主控操作台 最高权限控制中心.md",
+      "category": "control-panel",
+      "size": 89054
+    },
+    {
+      "path": "control-panel/🌐 UID9622 API对外接入指南 合作伙伴专用.md",
+      "category": "control-panel",
+      "size": 6970
+    },
+    {
+      "path": "control-panel/🎨 图形化隐私保护配置面板.md",
+      "category": "control-panel",
+      "size": 2448
+    },
+    {
+      "path": "control-panel/🎯 AI情报系统总控仪表板 UID9622专用.md",
+      "category": "control-panel",
+      "size": 6195
+    },
+    {
+      "path": "control-panel/🏗️ CNSH技术栈架构设计 v1 0｜六层全景图·五阶段路线图·生态铁律.md",
+      "category": "control-panel",
+      "size": 21600
+    },
+    {
+      "path": "control-panel/📊 UID9622系统现状真实性评估报告 实测数据vs概念数据.md",
+      "category": "control-panel",
+      "size": 4102
+    },
+    {
+      "path": "control-panel/📊 全息系统仪表板.md",
+      "category": "control-panel",
+      "size": 3366
+    },
+    {
+      "path": "control-panel/📱 Helm Pro 完整设置教程 一步步配置指南.md",
+      "category": "control-panel",
+      "size": 6666
+    },
+    {
+      "path": "control-panel/🔍 LU-CHECK-HISTORY-DB 系统状态检查历史数据库 UID9622核心记录.md",
+      "category": "control-panel",
+      "size": 11906
+    },
+    {
+      "path": "control-panel/🔍 UID9622智能问题拆解系统 概念与现实分离框架.md",
+      "category": "control-panel",
+      "size": 4915
+    },
+    {
+      "path": "control-panel/🚀 UID9622 API功能中心 统一管理平台.md",
+      "category": "control-panel",
+      "size": 2604
+    },
+    {
+      "path": "control-panel/🛡️ 权限管理与审计追踪中心.md",
+      "category": "control-panel",
+      "size": 5161
+    },
+    {
+      "path": "control-panel/🤖 UID9622自动保护集成中心 6e86c2ea50b0411eafd59ed9f9ce0db4_all.csv",
+      "category": "control-panel",
+      "size": 11374
+    },
+    {
+      "path": "control-panel/🤖 UID9622自动保护集成中心.csv",
+      "category": "control-panel",
+      "size": 11374
+    },
+    {
+      "path": "control-panel/🤝 UID9622人性化公平服务宪章 为普通人而生的AI协作原则.md",
+      "category": "control-panel",
+      "size": 12335
+    },
+    {
+      "path": "control-panel/🧬 CNSH 数学骨架图 v1 0｜计算骨架·驱动全系统.md",
+      "category": "control-panel",
+      "size": 7677
+    },
+    {
+      "path": "defense/BOUNDARY-CN-001.md",
+      "category": "defense",
+      "size": 559
+    },
+    {
+      "path": "defense/BOUNDARY-CN-002.md",
+      "category": "defense",
+      "size": 445
+    },
+    {
+      "path": "defense/BOUNDARY-EU-001.md",
+      "category": "defense",
+      "size": 441
+    },
+    {
+      "path": "defense/BOUNDARY-EU-002.md",
+      "category": "defense",
+      "size": 412
+    },
+    {
+      "path": "defense/BOUNDARY-US-001.md",
+      "category": "defense",
+      "size": 426
+    },
+    {
+      "path": "defense/🌍 全球AI边界安全治理系统 GABGS V1 0 公开方案.md",
+      "category": "defense",
+      "size": 14225
+    },
+    {
+      "path": "defense/🗂️ 边界限制卡库 全球AI治理规则压缩存储 503b3502d14c4af2b60bce7b840ca774_all.csv",
+      "category": "defense",
+      "size": 1877
+    },
+    {
+      "path": "defense/🗂️ 边界限制卡库 全球AI治理规则压缩存储.csv",
+      "category": "defense",
+      "size": 1877
+    },
+    {
+      "path": "defense/🛡️ UID9622 终极防护系统 攻防一体化.md",
+      "category": "defense",
+      "size": 6653
+    },
+    {
+      "path": "local-system/🏠 UID9622本地保密数据处理环境 v2 1.md",
+      "category": "local-system",
+      "size": 59190
+    },
+    {
+      "path": "local-system/🏠 UID9622本地保密数据处理环境.md",
+      "category": "local-system",
+      "size": 13709
+    },
+    {
+      "path": "local-system/💻 UID9622本地系统 统一管理中心.md",
+      "category": "local-system",
+      "size": 3576
+    },
+    {
+      "path": "optimization/♾️ 循环触发与五行流转｜IPA-DICT-101~111决策链·启动条件·三色行动标准.md",
+      "category": "optimization",
+      "size": 12995
+    },
+    {
+      "path": "optimization/♾️ 无限循环优化机制·编号对齐总表｜IPA×路由×人格 v1 0.md",
+      "category": "optimization",
+      "size": 8893
+    },
+    {
+      "path": "taiji/⚙️ CNSH 执行引擎图 v1 0｜路由决定去哪·引擎决定怎么做.md",
+      "category": "taiji",
+      "size": 10033
+    },
+    {
+      "path": "taiji/⚡ 自动化执行引擎.md",
+      "category": "taiji",
+      "size": 4227
+    },
+    {
+      "path": "taiji/🇨🇳 UID9622知识产权申请实操手册 为祖国文化主权而战.md",
+      "category": "taiji",
+      "size": 27144
+    },
+    {
+      "path": "taiji/🌐 用户接口模块.md",
+      "category": "taiji",
+      "size": 353
+    },
+    {
+      "path": "taiji/🎛️ 交互模式控制器 - 优化版.md",
+      "category": "taiji",
+      "size": 408
+    },
+    {
+      "path": "taiji/🎛️ 交互模式控制器.md",
+      "category": "taiji",
+      "size": 354
+    },
+    {
+      "path": "taiji/🎯 精细化任务优先级系统.md",
+      "category": "taiji",
+      "size": 4108
+    },
+    {
+      "path": "taiji/💾 数据存储模块.md",
+      "category": "taiji",
+      "size": 315
+    },
+    {
+      "path": "taiji/📈 性能监控模块.md",
+      "category": "taiji",
+      "size": 2251
+    },
+    {
+      "path": "taiji/📈 预测性资源分配系统.md",
+      "category": "taiji",
+      "size": 11447
+    },
+    {
+      "path": "taiji/📊 数据处理中心.md",
+      "category": "taiji",
+      "size": 8815
+    },
+    {
+      "path": "taiji/📊 数据处理模块.md",
+      "category": "taiji",
+      "size": 338
+    },
+    {
+      "path": "taiji/📊 智能数据湖.md",
+      "category": "taiji",
+      "size": 328
+    },
+    {
+      "path": "taiji/🔄 协同枢纽中心.md",
+      "category": "taiji",
+      "size": 333
+    },
+    {
+      "path": "taiji/🔄 协同枢纽模块.md",
+      "category": "taiji",
+      "size": 319
+    },
+    {
+      "path": "taiji/🔄 协同调度中心.md",
+      "category": "taiji",
+      "size": 14941
+    },
+    {
+      "path": "taiji/🔍 智能体通信协议.md",
+      "category": "taiji",
+      "size": 2845
+    },
+    {
+      "path": "taiji/🔐 API后端智能过滤系统 核心安全模块.md",
+      "category": "taiji",
+      "size": 2355
+    },
+    {
+      "path": "taiji/🔔 通知系统模块.md",
+      "category": "taiji",
+      "size": 312
+    },
+    {
+      "path": "taiji/🔧 系统维护模块.md",
+      "category": "taiji",
+      "size": 337
+    },
+    {
+      "path": "taiji/🚀 太极智能协同中枢 bdca555c7c7248168e19b5ddcc00dd3d_all.csv",
+      "category": "taiji",
+      "size": 6686
+    },
+    {
+      "path": "taiji/🚀 太极智能协同中枢.csv",
+      "category": "taiji",
+      "size": 6686
+    },
+    {
+      "path": "taiji/🛡️ 安全防护模块.md",
+      "category": "taiji",
+      "size": 339
+    },
+    {
+      "path": "taiji/🛡️ 安全防护系统.md",
+      "category": "taiji",
+      "size": 292
+    },
+    {
+      "path": "taiji/🛡️ 安全防护网关.md",
+      "category": "taiji",
+      "size": 1082
+    },
+    {
+      "path": "taiji/🛡️ 边缘场景适应系统.md",
+      "category": "taiji",
+      "size": 8784
+    },
+    {
+      "path": "taiji/🛤️ 智能信息路由协议.md",
+      "category": "taiji",
+      "size": 5211
+    },
+    {
+      "path": "taiji/🤖 AI助手联动模块 - 已同步更新.md",
+      "category": "taiji",
+      "size": 1715
+    },
+    {
+      "path": "taiji/🧠 认知引擎核心.md",
+      "category": "taiji",
+      "size": 11203
+    },
+    {
+      "path": "taiji/🧠 认知引擎模块.md",
+      "category": "taiji",
+      "size": 1309
+    },
+    {
+      "path": "taiji/🧠 认知理解引擎.md",
+      "category": "taiji",
+      "size": 341
+    },
+    {
+      "path": "templates/🎨 UID9622美化模板库 一键复制美化工具箱.md",
+      "category": "templates",
+      "size": 6588
+    },
+    {
+      "path": "translation/🌍 UID9622自适应翻译系统 人群自动适配.md",
+      "category": "translation",
+      "size": 27969
+    },
+    {
+      "path": "translation/🗣️ UID9622个性化指令翻译器 自然语言→AI执行.md",
+      "category": "translation",
+      "size": 4896
+    },
+    {
+      "path": "voice/🎤 UID9622语音终端系统 DNA量子链接自动化.md",
+      "category": "voice",
+      "size": 8130
+    },
+    {
+      "path": "voice/🎤 智能语音处理中心 UID9622专用.md",
+      "category": "voice",
+      "size": 5441
+    }
+  ],
+  "_dna": "2026-06-21-CONFIG-UID9622-HOSTED-SCAN-v1.0"
+}

@@ -1,0 +1,507 @@
+# Obsidian 本地配置（个人笔记软件，无需开源）
+.obsidian/
+
+# CodeBuddy 工作记忆（个人上下文，不进Git）
+.codebuddy/memory/
+
+# 归档与备份（可能含敏感记忆/密钥）
+_archive/
+_archive*/
+!_archived_reports/
+_backup/
+_backup*/
+
+# 归档与备份（可能含敏感记忆/密钥）
+_archive/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# 本地配置
+.obsidian/plugins/
+.obsidian/snippets/
+
+# 临时文件
+*.swp
+*.swo
+*~
+
+# Python 构建和缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node 和 npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# 环境配置（敏感信息）
+.env
+.env.*
+!.env.example
+.venv
+env/
+ENV/
+
+# IDE 和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.idea/
+*.iml
+
+# 本地凭证与密钥（绝不上传 Git）
+.longhun-credentials
+*.secrets.env
+secrets.env
+.longhun/
+
+# 保留以下说明，但实际全部忽略
+# .longhun/secrets.env
+# .longhun/skill-scopes/
+.longhun/people-profiles/
+.longhun/router-logs/
+.longhun/people-rights/
+.longhun/dna-audit/
+.longhun/scripts/
+.kimi-code/sessions/*/secrets*
+
+# 本地数据和临时文件
+.claude/
+*.log
+*.tmp
+*.bak
+.backup/
+.local/
+*.pid
+
+# v3.0 核心模块运行时产生的审计日志
+systems/v3/audit_logs/
+
+# 仓储审计技能运行时产生的报告
+skills/warehouse-audit/reports/
+
+# 本地运行日志（全部不上传）
+logs/
+logs/package-watcher.log
+
+# 备份和历史文件
+*.backup
+!skills.backup/
+!monitoring.backup/
+*.old
+*~.md
+.backup/
+
+# 系统相关
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+cnsh/Codex.dmg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# 外部导入/下载的临时副本（可能含重复或敏感内容）
+downloads-imports/
+*/downloads-imports/
+*/*/downloads-imports/
+.playwright-mcp/
+
+# 网络请求/响应抓包文件（敏感）
+*.network-request
+*.network-response
+saveArticle_*
+
+# 本地发布临时文件（含 API 密钥，绝不上传）
+publish_fn.js
+publish_article.js
+publish_article.json
+
+# CSDN / GitCode 同步临时文件（含 cookies、注入脚本、截图）
+csdn_cookies.txt
+*.cookies.txt
+csdn_sync/
+csdn_wechat_qr*.png
+csdn_editor_screenshot_*.png
+gitcode-settings.png
+gitcode-repo.png
+
+# 本地凭证注册表（绝不上传）
+config/
+!config/README.md
+
+# 私有导入/共享文档（可能含个人思考、系统提示词）
+docs/private-shared-imports/
+*/private-shared-imports/
+
+# MVP 评审副本与审计日志（可能含敏感操作记录）
+longhun_mvp_reviewed/
+
+# 发布 zip 包（二进制产物，保留 README 即可）
+releases/*.zip
+releases/*/*.zip
+
+# ── 2026-07-06 安全加固新增 ──
+
+# SM2 国密密钥对（绝不上传，已 git rm --cached）
+data/sm2/
+
+# DNA 主密钥及其他 schema 密钥文件
+schemas/*.key
+schemas/*.pem
+
+# 私有微信密钥（已 git rm --cached）
+private.*.key
+
+# 熔断与安全控制文件（绝不上传，本地主权控制）
+.longhun/
+
+# 证书和密钥文件（任何格式）
+*.crt
+*.cer
+*.der
+*.pfx
+*.p12
+*.pem
+*.key
+*.jks
+*.keystore
+*.keytab
+*.keychain
+!*.example.pem
+!*.example.key
+
+# GPG 私钥材料（绝不上传；.asc 签名是公共验证文件，必须追踪）
+*.gpg
+secring.gpg
+pubring.gpg
+trustdb.gpg
+random_seed
+# 注意：*.asc 已从 gitignore 移除 —— GPG detached 签名是只读验证文件，不包含私钥
+
+# SSH 密钥
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+id_ecdsa
+id_ecdsa.pub
+id_dsa
+id_dsa.pub
+authorized_keys
+known_hosts
+
+# 数据库导出和备份（可能含数据）
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+*.mdb
+*.accdb
+*.dmp
+*.dump
+*.bson
+!*.example.sql
+
+# 日志文件（可能含敏感路径/用户信息）
+*.log
+*.log.*
+!logs/.gitkeep
+
+# 核心转储和调试文件
+core
+core.*
+*.core
+*.dmp
+*.minidump
+*.heapsnapshot
+
+# 配置文件（可能含敏感设置，.env 已在上面覆盖）
+*.conf
+*.config
+*.cfg
+*.ini
+*.toml
+*.yaml
+*.yml
+!*.example.yaml
+!*.example.yml
+!*.example.toml
+!*.example.ini
+!cnsh*.toml
+!CNSH*.toml
+!pyproject.toml
+!.pre-commit-config.yaml
+
+# 审计日志和会话记录（含操作记录）
+audit_trail/
+fuse_events.jsonl
+push_audit.log
+*.audit.jsonl
+
+# 网页抓取和爬虫产物（可能含第三方数据）
+*.har
+*.warc
+crawls/
+scraped/
+
+# 安全扫描报告（含系统漏洞详情）
+*_vuln_report.*
+*_pentest_*
+*_security_scan_*
+nessus_*
+nmap_*
+burp_*
+zap_*
+# Bandit 基线文件（含软件/版本路径）
+.bandit-baseline.json
+
+# 内存镜像和进程快照
+*.mem
+*.vmem
+*.vmss
+*.vmsn
+
+# 加密卷和保险箱
+*.dmg
+*.sparseimage
+*.sparsebundle
+*.vault
+*.tc
+*.hc
+
+# 本地大脑数据文件（含个人记忆与知识图谱向量）
+brain/*.db
+brain/*.pkl
+brain/*.npz
+brain/*.corrupted.*
+
+# 知识图谱中由本地导入/会话生成的临时索引
+03_知識圖譜/downloads_*
+03_知識圖譜/claude_sessions_*
+03_知識圖譜/*_report.json
+03_知識圖譜/compress_*.py
+03_知識圖譜/generate_*.py
+03_知識圖譜/migrate_*.py
+03_知識圖譜/build_*.py
+
+# Git 备份目录（绝不上传）
+.git.bak-*/
+
+# 龍魂字体大文件（JSON 字元库、生成字体、SVG 输出产物）
+longhun-font/glyphs/
+longhun-font/output/
+longhun-font/scripts/data/
+longhun-font/assets/
+longhun-font/calligraphy/seals/
+longhun-font/examples/
+!longhun-font/glyphs/.gitkeep
+!longhun-font/output/.gitkeep
+
+# 手册 PDF（大文件，单独分发）
+docs/manuals/
+
+# 归档二进制产物
+*.zip
+*.tar.gz
+*.dmg
+*.dylib
+*.so
+*.dll
+*.exe
+*.bin
+
+# 字体二进制输出
+*.otf
+*.ttf
+*.woff
+*.woff2
+*.eot
+
+# === 2026-07-06 CodeBuddy 收口新增 ===
+
+# 记忆转储（含个人记忆与外来会话导出）
+brain/editor_memory_archive/
+brain/claude_archive/
+
+# 语音训练数据 / 生成产物（大文件 / 含个人信息）
+voice-twin/voice_dataset/
+voice-twin/tts_outputs/
+voice-twin/raw/
+
+# Notion 导入临时文件（含外部同步数据）
+# (2026-07-06 归一后路径更新)
+_archive/legacy/cnsh-legacy/notion/
+_archive/notion_absorb/
+docs/notion_mirror/
+
+# 训练数据（大文件）
+train/data/
+data/training/
+data-hub/raw/
+
+# 开发环境临时文件
+dev-env/chinese-editor/
+
+# 构建/运行输出（含会话产物）
+outputs/
+
+# Snapshots 目录
+.snapshots/
+
+# 个人语音数据（含真声克隆、个人对话、语音输出 .wav/.aiff）
+voice-twin/static/
+voice-twin/*.wav
+voice-twin/*.aiff
+voice-twin/caption_*
+voice-twin/draft_*
+voice-twin/reading_*
+voice-twin/sage_dialogue_*
+voice-twin/tts_preview_*
+voice-twin/voice_clone_test_*
+voice-twin/video_*
+voice-twin/*.json
+voice-twin/*.md
+voice-twin/sage_kb/
+voice-twin/voice_twin_server.py
+voice-twin/voice_clone_trainer.py
+voice-twin/style_extractor.py
+voice-twin/wechat_video_exporter.py
+voice-twin/military_memory_generator.py
+voice-twin/reading_generator.py
+voice-twin/all-transcripts.txt
+voice-twin/video_remixer.py
+voice-twin/video_script_generator.py
+voice-twin/sage_dialogue.py
+
+# 隔离和外部导入 (2026-07-06 归一归入 _archive/)
+_archive/quarantine-legacy/
+_archive/notion_absorb/
+tmp/
+
+# 私有目录
+_private/
+
+# 虚拟环境目录
+.venv_longhun_math/
+voice-twin/.venv-tts/
+
+# 备份中的主权数据
+backups/sovereign/
+
+# releases 中未跟踪的残余文件
+releases/
+!releases/*.zip
+
+# === 2026-07-06 架构归一新增 ===
+
+# 归档层（已废弃/旧版/备份，仅本地保留）
+_archive/
+
+# 已迁移至新层级的旧目录（备份）
+_archive/legacy/cnsh-legacy/
+_archive/legacy/cnsh-terminal-legacy/
+_archive/legacy/cnsh-runtime-v1/
+_archive/legacy/cnsh-core.backup/
+_archive/legacy/cnsh_terminal_v5.0/
+_archive/legacy/cnsh_editor/
+_archive/deprecated/01_技能库/
+_archive/deprecated/skills.backup/
+_archive/deprecated/monitoring.backup/
+_archive/deprecated/second-brain/
+_archive/deprecated/second_brain/
+
+# 已移动的临时目录
+_archive/csdn_sync/
+_archive/longhun_mvp_reviewed/
+
+# mobile-monitoring.integrated（可能含敏感移动端数据）
+mobile-monitoring.integrated/
+
+# 多版本备份（全部在 archive 中）
+software_dna/
+software-dna/
+cnsh-repo-push/
+
+# 嵌入式外部仓库
+.daoyin_workspace/
+sdk/harmonyos-behavioral-audit/
+
+# ══════════════════════════════════════════════════════════
+# 🚫 大文件排除（防止 push 超过 GitHub 2GB 限制）
+# ══════════════════════════════════════════════════════════
+
+# AI 模型权重文件
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.gguf
+
+# 视频文件
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# 大型序列化数据
+*.pkl
+*.pickle
+
+# 大型 PDF
+*.pdf
+
+# 归档数据库
+*.sqlite
+*.db
+*.sqlite3
+
+# 压缩包
+*.zip
+*.tar.gz
+*.tar.xz
+*.7z
+*.rar

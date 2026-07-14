@@ -1,0 +1,372 @@
+{
+  "DNA追溯码": "#龍芯⚡️2026-06-22-CNSH-EUV-LITHOGRAPHY-MODEL-v0.1",
+  "生成时间": "2026-06-22T20:13:04.098255",
+  "协议态": "🟡 预判骨架·非物理定论·仅数学映射 + 工程方向预判",
+  "基线参数": {
+    "P_laser_W": 30000,
+    "CE": 0.06,
+    "eta_system": 0.4,
+    "frequency_kHz": 50,
+    "plasma_temp_eV": 40
+  },
+  "基线P_EUV_理论_W": 720.0,
+  "七因子分解": {
+    "F1_mirror": 0.65,
+    "F2_focus": 0.85,
+    "F3_contamination": 0.95,
+    "F4_thermal": 0.9,
+    "F5_transmission": 0.85,
+    "F6_pellicle": 0.9,
+    "F7_stability": 0.85,
+    "eta_system": 0.3072,
+    "hard_failures": []
+  },
+  "369频率窗口_高优先级": [
+    {
+      "frequency_kHz": 27,
+      "digital_root": 9,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 30,
+      "digital_root": 3,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 33,
+      "digital_root": 6,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 36,
+      "digital_root": 9,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 39,
+      "digital_root": 3,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 42,
+      "digital_root": 6,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 45,
+      "digital_root": 9,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 48,
+      "digital_root": 3,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 51,
+      "digital_root": 6,
+      "369_aligned": true,
+      "priority": "高"
+    },
+    {
+      "frequency_kHz": 54,
+      "digital_root": 9,
+      "369_aligned": true,
+      "priority": "高"
+    }
+  ],
+  "CE_P_laser扫描_达标1000W": [
+    {
+      "P_laser_W": 30000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1105.8,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1228.7,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1474.4,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.07,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1075.1,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.08,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1228.7,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1535.8,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1843.0,
+      "target_1000W": true
+    }
+  ],
+  "CE_P_laser扫描_全部": [
+    {
+      "P_laser_W": 20000,
+      "CE": 0.04,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 245.7,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.05,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 307.2,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.06,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 368.6,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.07,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 430.0,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.08,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 491.5,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 614.3,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 20000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 737.2,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.04,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 368.6,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.05,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 460.8,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.06,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 552.9,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.07,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 645.1,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.08,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 737.2,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 921.5,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 30000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1105.8,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.04,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 491.5,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.05,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 614.3,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.06,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 737.2,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.07,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 860.1,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.08,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 982.9,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1228.7,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 40000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1474.4,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.04,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 614.3,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.05,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 767.9,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.06,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 921.5,
+      "target_1000W": false
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.07,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1075.1,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.08,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1228.7,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.1,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1535.8,
+      "target_1000W": true
+    },
+    {
+      "P_laser_W": 50000,
+      "CE": 0.12,
+      "eta_system": 0.307169971875,
+      "P_EUV_W": 1843.0,
+      "target_1000W": true
+    }
+  ],
+  "不动点稳定性迭代": [
+    {
+      "iteration": 46,
+      "T": 54.0323,
+      "C": 0.5323,
+      "S": 0.4677,
+      "delta": 0.0
+    },
+    {
+      "iteration": 47,
+      "T": 54.0323,
+      "C": 0.5323,
+      "S": 0.4677,
+      "delta": 0.0
+    },
+    {
+      "iteration": 48,
+      "T": 54.0323,
+      "C": 0.5323,
+      "S": 0.4677,
+      "delta": 0.0
+    },
+    {
+      "iteration": 49,
+      "T": 54.0323,
+      "C": 0.5323,
+      "S": 0.4677,
+      "delta": 0.0
+    },
+    {
+      "iteration": 50,
+      "T": 54.0323,
+      "C": 0.5323,
+      "S": 0.4677,
+      "delta": 0.0
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "龍魂 CNSH 在线编辑器 · 文章与 UID9622 真声播报",
+  "dna": "#龍芯⚡️2026-07-04-CNSH-EDITOR-API-ARTICLE-PACK-v1.0",
+  "created_at": "2026-07-04T13:44:27+08:00",
+  "files": {
+    "article_csdn": "article_csdn.md",
+    "voice_script": "voice_script.json",
+    "voice_audio": "cnsh_editor_api_voice.mp3",
+    "generator_legacy": "generate_voice.py",
+    "generator_fast": "generate_voice_server.py",
+    "manifest": "manifest.json"
+  },
+  "audio": {
+    "duration_seconds": 180.63,
+    "size_bytes": 4300800,
+    "voice_engine": "XTTS v2 + UID9622 reference_optimized.wav",
+    "server": "http://localhost:9623/api/tts",
+    "segments": 10
+  },
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}

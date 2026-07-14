@@ -1,0 +1,13 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{error}}" class="error">{{error}}</view>
+  <view wx:else>
+    <view class="article-header">
+      <view class="article-title">{{article.title}}</view>
+      <view class="article-meta">{{article.type}} · {{article.description || article.digest}}</view>
+    </view>
+    <view class="article-content">
+      <rich-text nodes="{{content}}"></rich-text>
+    </view>
+  </view>
+</view>

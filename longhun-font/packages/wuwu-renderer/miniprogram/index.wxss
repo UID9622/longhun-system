@@ -1,0 +1,5 @@
+@import "../src/wuwu.css";
+
+.wuwu-container {
+  display: inline;
+}

@@ -1,0 +1,152 @@
+{
+  "user": "uid9622_admin",
+  "timestamp": "2026-07-11T00:49:48",
+  "summary": {
+    "verified": 7,
+    "not_found": 9,
+    "errors": 0,
+    "total": 16
+  },
+  "repos": [
+    {
+      "tier": "第一梯队·鸿蒙内核",
+      "repo": "openharmony/kernel_linux_5.10",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openharmony/kernel_linux_5.10.git",
+      "stars": 70,
+      "language": null,
+      "license": "N/A",
+      "description": ""
+    },
+    {
+      "tier": "第一梯队·鸿蒙内核",
+      "repo": "openharmony/drivers_peripheral",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openharmony/drivers_peripheral.git",
+      "stars": 87,
+      "language": null,
+      "license": "Apache-2.0",
+      "description": "暂无描述"
+    },
+    {
+      "tier": "第一梯队·鸿蒙内核",
+      "repo": "openharmony/distributed_hardware",
+      "weight": 10,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第一梯队·鸿蒙内核",
+      "repo": "openharmony/ability_base",
+      "weight": 10,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第二梯队·鲲鹏昇腾",
+      "repo": "kunpengcompute/KunpengBoostKit",
+      "weight": 10,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第二梯队·鲲鹏昇腾",
+      "repo": "ascend/ascend-cann-toolkit",
+      "weight": 10,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第二梯队·鲲鹏昇腾",
+      "repo": "openeuler/kernel",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openeuler/kernel.git",
+      "stars": 1657,
+      "language": "C",
+      "license": "N/A",
+      "description": "本项目已经迁移至 AtomGit  || This project has been migrated to AtomGit || Linked: https://atomgit.com/openeu"
+    },
+    {
+      "tier": "第二梯队·鲲鹏昇腾",
+      "repo": "mindspore/mindspore",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:mindspore/mindspore.git",
+      "stars": 9076,
+      "language": "Python",
+      "license": "Apache-2.0",
+      "description": "MindSpore is a new open source deep learning training/inference framework that could be used for mob"
+    },
+    {
+      "tier": "第三梯队·国密安全",
+      "repo": "gmssl/GmSSL",
+      "weight": 10,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第三梯队·国密安全",
+      "repo": "openeuler/openssl",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openeuler/openssl.git",
+      "stars": 6,
+      "language": null,
+      "license": "Apache-2.0",
+      "description": "本项目已经迁移至 AtomGit  || This project has been migrated to AtomGit || Linked: https://atomgit.com/openeu"
+    },
+    {
+      "tier": "第三梯队·国密安全",
+      "repo": "openharmony/security_huks",
+      "weight": 10,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openharmony/security_huks.git",
+      "stars": 129,
+      "language": null,
+      "license": "Apache-2.0",
+      "description": "Key management service | 提供密钥管理服务功能"
+    },
+    {
+      "tier": "第四梯队·方舟编译",
+      "repo": "openarkcompiler/OpenArkCompiler",
+      "weight": 9,
+      "verified": true,
+      "ssh_url": "git@gitee.com:openarkcompiler/OpenArkCompiler.git",
+      "stars": 7565,
+      "language": "C++",
+      "license": "N/A",
+      "description": "方舟编译器2.0开源代码主仓库: \r\nhttps://gitee.com/openarkcompiler/OpenArkCompiler"
+    },
+    {
+      "tier": "第四梯队·方舟编译",
+      "repo": "openharmony-tpc/ohos_build",
+      "weight": 9,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第五梯队·UI图形",
+      "repo": "openharmony/ui",
+      "weight": 8,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第五梯队·UI图形",
+      "repo": "openharmony/graphic_2d",
+      "weight": 8,
+      "verified": false,
+      "reason": "404"
+    },
+    {
+      "tier": "第五梯队·UI图形",
+      "repo": "openharmony/graphic_3d",
+      "weight": 8,
+      "verified": false,
+      "reason": "404"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+/* 龍魂·六层来源链 / LongHun Six-Layer Source Chain */
+/* DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-RENDERER-FILE4-v1.0 */
+
+/*
+ * 女娲五彩石渲染层 —— 跨平台文化主权标识
+ * 色卡：红 #FF0000、黄 #FFFF00、青 #00FFFF、白 #FFFFFF、黑 #000000
+ * 循环给每个字符上色，使文本在视觉上呈现女娲补天五彩石的韵律。
+ * 这是主权表达，不是讨好审美；站着给世界看。
+ */
+
+.wuwu-char {
+  display: inline-block;
+  white-space: pre;
+  font-weight: bold;
+}
+
+/* 五色石 */
+.wuwu-color-0 { color: #FF0000; text-shadow: 0 0 1px rgba(0,0,0,0.5); }
+.wuwu-color-1 { color: #FFFF00; text-shadow: 0 0 1px rgba(0,0,0,0.5); }
+.wuwu-color-2 { color: #00FFFF; text-shadow: 0 0 1px rgba(0,0,0,0.5); }
+.wuwu-color-3 { color: #FFFFFF; text-shadow: 0 0 2px rgba(0,0,0,0.9); }
+.wuwu-color-4 { color: #000000; text-shadow: 0 0 1px rgba(255,255,255,0.4); }
+
+/* 浅色模式适配：当父容器背景为浅色时，黑色石加白边、白色石加黑边 */
+.wuwu-light .wuwu-color-3,
+[data-wuwu-theme="light"] .wuwu-color-3 {
+  text-shadow: 0 0 2px rgba(0,0,0,0.9);
+}
+.wuwu-light .wuwu-color-4,
+[data-wuwu-theme="light"] .wuwu-color-4 {
+  text-shadow: 0 0 1px rgba(255,255,255,0.8);
+}

@@ -1,0 +1,30 @@
+{
+  "name": "王羲之-行书",
+  "code": "WXZ-XS",
+  "category": "行书",
+  "category_code": "XS",
+  "artist": "王羲之",
+  "artist_code": "WXZ",
+  "era": "东晋",
+  "description": "书圣行书，遒美飘逸，行云流水",
+  "dna": "#龍芯⚡️2026-06-23-LONGHUN-FONT-STYLE-WXZ-XS-v1.0",
+  "parameters": {
+    "font_size": 220,
+    "stroke_width": 24,
+    "slant": 0.08,
+    "ink_pressure": 0.85,
+    "tip_style": "flowing",
+    "spacing_x": 1.15,
+    "spacing_y": 1.25,
+    "randomness": 0.04,
+    "background": "宣纸本白",
+    "ink_color": "#2b1d0e"
+  },
+  "source_works": [
+    "《兰亭序》",
+    "《快雪时晴帖》"
+  ],
+  "fallback_font": "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/88d6cc32a907955efa1d014207889413890573be.asset/AssetData/Kaiti.ttc",
+  "_dna": "#龍芯⚡️20260624010825159-AUTO-DNA-C8E4CE99",
+  "_dna_note": "自动注入·分层治理自愈引擎·来源可查"
+}

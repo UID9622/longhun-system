@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f7f3e8"/>
+  <g transform="translate(400,300)">
+    <circle r="150" fill="#f7f3e8" stroke="#1a1a1a" stroke-width="3"/>
+    <path d="M0,-150 A75,75 0 0,1 0,0 A75,75 0 0,0 0,150 A150,150 0 0,1 0,-150 Z" fill="#1a1a1a"/>
+    <circle cx="0" cy="-75" r="18" fill="#f7f3e8"/>
+    <circle cx="0" cy="75" r="18" fill="#1a1a1a"/>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="serif" font-size="16" fill="#555">太极图占位 · 待替换为真实公开版权图像</text>
+</svg>

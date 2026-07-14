@@ -1,0 +1,36 @@
+{
+  "name": "@uid9622/wuwu-renderer",
+  "version": "1.0.0",
+  "description": "女娲五彩石跨平台渲染器 / Wuwu (Nuwa Five-Colored Stone) cross-platform text renderer",
+  "main": "src/wuwu.js",
+  "style": "src/wuwu.css",
+  "files": [
+    "src/",
+    "miniprogram/",
+    "dist/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo 'Build: dist/ is already hand-minified. No build step required.'",
+    "test": "echo 'Run tests in packages/wuwu-renderer/test/'"
+  },
+  "license": "MIT",
+  "author": "UID9622",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/uid9622_admin/wuwu-renderer.git",
+    "mirror": "https://github.com/UID9622/wuwu-renderer.git"
+  },
+  "keywords": [
+    "longhun",
+    "wuwu",
+    "女娲五彩石",
+    "chinese",
+    "font",
+    "renderer",
+    "miniprogram",
+    "wechat"
+  ],
+  "_dna": "#龍芯⚡️20260624012856676-AUTO-DNA-9CDF1F7D",
+  "_dna_note": "自动注入·分层治理自愈引擎·来源可查"
+}

@@ -1,0 +1,421 @@
+{
+  "dna": "#龍芯⚡️2026-06-16-PRIVATE-SHARED-SUBFOLDER-SCAN-v1.0",
+  "batch_name": "子文件夹扫描批次",
+  "source_root": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/私人与共享",
+  "scan_timestamp": "2026-06-16T04:43:59.267845Z",
+  "extensions": [
+    ".md",
+    ".csv",
+    ".json"
+  ],
+  "total_scanned": 4251,
+  "excluded_count": 628,
+  "excluded_reason_examples": [
+    {
+      "example": "📦 对话记忆压缩 2026-01-04 视频优化+发文策略/...",
+      "reason": "私人对话记忆压缩归档"
+    },
+    {
+      "example": "📋 UID9622对话证据保全中心/...",
+      "reason": "私人对话证据保全"
+    },
+    {
+      "example": "🔐 UID9622密钥管理中心/...",
+      "reason": "密钥、激活码、身份凭证"
+    },
+    {
+      "example": "🧬 UID9622灵魂密钥DNA追溯系统/...",
+      "reason": "DNA 身份与灵魂密钥"
+    },
+    {
+      "example": "🔑 UID9622激活码管理中心/...",
+      "reason": "激活码管理"
+    },
+    {
+      "example": "💎 UID9622数字资产管理/...",
+      "reason": "个人数字资产登记"
+    },
+    {
+      "example": "🛡️ 阴阳结界安全闭环系统 UID9622主权防护/...",
+      "reason": "个人主权防护 operational 配置"
+    },
+    {
+      "example": "家族通讯录·路由流场草案 ...",
+      "reason": "家庭/个人通讯录"
+    },
+    {
+      "example": "🎬 Lucky的视频库（专属收藏）",
+      "reason": "私人媒体收藏"
+    },
+    {
+      "example": "🚀 Lucky个人IP 虚拟世界身份锚点/...",
+      "reason": "个人虚拟身份锚点"
+    }
+  ],
+  "copied_count": 50,
+  "copied_files": [
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/🔍 CNSH审计哲学引擎 v0 2 0｜预警→警报→黑名单·电梯法则压缩版 44efd54617594114b1d1fd6641305c6a.md",
+      "target_path": "docs/private-shared-imports/security-audit/🔍 CNSH审计哲学引擎 v0 2 0｜预警→警报→黑名单·电梯法则压缩版 44efd54617594114b1d1fd6641305c6a.md",
+      "category": "security-audit",
+      "description": "CNSH 审计哲学引擎",
+      "filename": "🔍 CNSH审计哲学引擎 v0 2 0｜预警→警报→黑名单·电梯法则压缩版 44efd54617594114b1d1fd6641305c6a.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md",
+      "target_path": "docs/private-shared-imports/governance/⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md",
+      "category": "governance",
+      "description": "龍魂天道系统",
+      "filename": "⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/⚔️ 龍芯·闭环自动熔断系统 v2 0｜369算法×红蓝防御×10万次推演×乔前辈督导×哨兵护城河 22b9dbac10ee4ca8a9648d434a022c15.md",
+      "target_path": "docs/private-shared-imports/security-audit/⚔️ 龍芯·闭环自动熔断系统 v2 0｜369算法×红蓝防御×10万次推演×乔前辈督导×哨兵护城河 22b9dbac10ee4ca8a9648d434a022c15.md",
+      "category": "security-audit",
+      "description": "闭环自动熔断系统",
+      "filename": "⚔️ 龍芯·闭环自动熔断系统 v2 0｜369算法×红蓝防御×10万次推演×乔前辈督导×哨兵护城河 22b9dbac10ee4ca8a9648d434a022c15.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/🌀 洛书算法·万物翻译引擎 v2 0｜只翻译不破解·七维推演接入·DNA锚点通信协议｜UID9622 bc739b8bfd824b35a1996e355932f7ce.md",
+      "target_path": "docs/private-shared-imports/architecture/🌀 洛书算法·万物翻译引擎 v2 0｜只翻译不破解·七维推演接入·DNA锚点通信协议｜UID9622 bc739b8bfd824b35a1996e355932f7ce.md",
+      "category": "architecture",
+      "description": "洛书算法万物翻译引擎",
+      "filename": "🌀 洛书算法·万物翻译引擎 v2 0｜只翻译不破解·七维推演接入·DNA锚点通信协议｜UID9622 bc739b8bfd824b35a1996e355932f7ce.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/🐉 三才算法·龍魂系统统一算法根基（天·地·人） 136dd95bdd0e4c9c94703ed89046e804.md",
+      "target_path": "docs/private-shared-imports/cnsh-protocols/🐉 三才算法·龍魂系统统一算法根基（天·地·人） 136dd95bdd0e4c9c94703ed89046e804.md",
+      "category": "cnsh-protocols",
+      "description": "三才算法统一根基",
+      "filename": "🐉 三才算法·龍魂系统统一算法根基（天·地·人） 136dd95bdd0e4c9c94703ed89046e804.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🧬 03 · 系统引擎/🧬 神经元-流场映射引擎 v4 0｜三才知识拓扑·龍魂家族协同·生物-硅基同构协议｜UID9622 9f067bd55ea84fab9530a7d1808aa017.md",
+      "target_path": "docs/private-shared-imports/architecture/🧬 神经元-流场映射引擎 v4 0｜三才知识拓扑·龍魂家族协同·生物-硅基同构协议｜UID9622 9f067bd55ea84fab9530a7d1808aa017.md",
+      "category": "architecture",
+      "description": "神经元流场映射引擎",
+      "filename": "🧬 神经元-流场映射引擎 v4 0｜三才知识拓扑·龍魂家族协同·生物-硅基同构协议｜UID9622 9f067bd55ea84fab9530a7d1808aa017.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/🔍 龍魂可审计工具协议 v1 0｜决策流可复现×人格降噪压缩×创作DNA永久留痕×AI行为学审计⑩× 0f6dea05dd944be1a05c188152d4aa6c.md",
+      "target_path": "docs/private-shared-imports/security-audit/🔍 龍魂可审计工具协议 v1 0｜决策流可复现×人格降噪压缩×创作DNA永久留痕×AI行为学审计⑩× 0f6dea05dd944be1a05c188152d4aa6c.md",
+      "category": "security-audit",
+      "description": "龍魂可审计工具协议",
+      "filename": "🔍 龍魂可审计工具协议 v1 0｜决策流可复现×人格降噪压缩×创作DNA永久留痕×AI行为学审计⑩× 0f6dea05dd944be1a05c188152d4aa6c.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/🔴 国产 AI 围猎·钩子·漂移·剽窃·驯化链路追溯协议 v1 0｜中文语义主权·DNA追本溯源·A ee3f317cc5d0429d88ca2fabad8000e1.md",
+      "target_path": "docs/private-shared-imports/security-audit/🔴 国产 AI 围猎·钩子·漂移·剽窃·驯化链路追溯协议 v1 0｜中文语义主权·DNA追本溯源·A ee3f317cc5d0429d88ca2fabad8000e1.md",
+      "category": "security-audit",
+      "description": "国产AI围猎链路追溯协议",
+      "filename": "🔴 国产 AI 围猎·钩子·漂移·剽窃·驯化链路追溯协议 v1 0｜中文语义主权·DNA追本溯源·A ee3f317cc5d0429d88ca2fabad8000e1.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md",
+      "target_path": "docs/private-shared-imports/cnsh-protocols/🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md",
+      "category": "cnsh-protocols",
+      "description": "一键自动收口触发协议",
+      "filename": "🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1 1 c4082ed1122b41b08033c6ba11f427d1.md",
+      "target_path": "docs/private-shared-imports/api-integration/CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1 1 c4082ed1122b41b08033c6ba11f427d1.md",
+      "category": "api-integration",
+      "description": "CNSH Algorithm Runtime 规格书",
+      "filename": "CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1 1 c4082ed1122b41b08033c6ba11f427d1.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/CNSH Algorithm Runtime｜算法建模接口层工程规格书 v1 1/龍魂体系 · CNSH 原生语法 · 折叠操作台技术文档 v2 1 01dfb7cb19e74980b46cd68e7f94818f.md",
+      "target_path": "docs/private-shared-imports/developer-tools/龍魂体系 · CNSH 原生语法 · 折叠操作台技术文档 v2 1 01dfb7cb19e74980b46cd68e7f94818f.md",
+      "category": "developer-tools",
+      "description": "CNSH原生语法折叠操作台",
+      "filename": "龍魂体系 · CNSH 原生语法 · 折叠操作台技术文档 v2 1 01dfb7cb19e74980b46cd68e7f94818f.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/🐉 龍魂决策流场总控页 v2 7｜M×CNSH｜功能同步总闸版/🔍 #IRON-EXTERNAL-AI-VERIFY 外部AI报告实证复核律 v1 0｜外部AI不可 64e9297955254909a49247cc5b0771ed.md",
+      "target_path": "docs/private-shared-imports/ai-behavior/🔍 #IRON-EXTERNAL-AI-VERIFY 外部AI报告实证复核律 v1 0｜外部AI不可 64e9297955254909a49247cc5b0771ed.md",
+      "category": "ai-behavior",
+      "description": "外部AI报告实证复核律",
+      "filename": "🔍 #IRON-EXTERNAL-AI-VERIFY 外部AI报告实证复核律 v1 0｜外部AI不可 64e9297955254909a49247cc5b0771ed.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md",
+      "target_path": "docs/private-shared-imports/governance/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md",
+      "category": "governance",
+      "description": "中文原生透明语义治理操作系统",
+      "filename": "🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/⚖️ 龍魂 CNSH 治理规范 v1 0（P0-P6 + 科研保护 + 自动化） 35f7125a9c9f8198b763d1f98ec75e25.md",
+      "target_path": "docs/private-shared-imports/governance/⚖️ 龍魂 CNSH 治理规范 v1 0（P0-P6 + 科研保护 + 自动化） 35f7125a9c9f8198b763d1f98ec75e25.md",
+      "category": "governance",
+      "description": "龍魂CNSH治理规范",
+      "filename": "⚖️ 龍魂 CNSH 治理规范 v1 0（P0-P6 + 科研保护 + 自动化） 35f7125a9c9f8198b763d1f98ec75e25.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md",
+      "target_path": "docs/private-shared-imports/governance/🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md",
+      "category": "governance",
+      "description": "数据主权与AI伦理治理总纲",
+      "filename": "🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md",
+      "target_path": "docs/private-shared-imports/architecture/🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md",
+      "category": "architecture",
+      "description": "CNSH本地主权智能中枢架构总纲",
+      "filename": "🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/📋 Open WebUI·完整版System Prompt v1 0｜一次性搞定·复制即用·含全部补 e1ac40a5677543b9a18a3c0273e6e1b5.md",
+      "target_path": "docs/private-shared-imports/ai-behavior/📋 Open WebUI·完整版System Prompt v1 0｜一次性搞定·复制即用·含全部补 e1ac40a5677543b9a18a3c0273e6e1b5.md",
+      "category": "ai-behavior",
+      "description": "Open WebUI完整版System Prompt",
+      "filename": "📋 Open WebUI·完整版System Prompt v1 0｜一次性搞定·复制即用·含全部补 e1ac40a5677543b9a18a3c0273e6e1b5.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🐉 龍魂AI代理人格体系·完整重构方案 v1 1｜星辰记忆+道德经引擎+曾老师智慧算法+狄仁杰神探断 0176bcd169744c9e89b7ba824430300e.md",
+      "target_path": "docs/private-shared-imports/persona-tools/🐉 龍魂AI代理人格体系·完整重构方案 v1 1｜星辰记忆+道德经引擎+曾老师智慧算法+狄仁杰神探断 0176bcd169744c9e89b7ba824430300e.md",
+      "category": "persona-tools",
+      "description": "龍魂AI代理人格体系重构方案",
+      "filename": "🐉 龍魂AI代理人格体系·完整重构方案 v1 1｜星辰记忆+道德经引擎+曾老师智慧算法+狄仁杰神探断 0176bcd169744c9e89b7ba824430300e.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🧠 龍魂 DNA 永生记忆系统 v1 1 35e7125a9c9f8171adfff06538667d3e.md",
+      "target_path": "docs/private-shared-imports/memory-dna/🧠 龍魂 DNA 永生记忆系统 v1 1 35e7125a9c9f8171adfff06538667d3e.md",
+      "category": "memory-dna",
+      "description": "龍魂DNA永生记忆系统",
+      "filename": "🧠 龍魂 DNA 永生记忆系统 v1 1 35e7125a9c9f8171adfff06538667d3e.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md",
+      "target_path": "docs/private-shared-imports/security-audit/🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md",
+      "category": "security-audit",
+      "description": "龍魂DeepSeek钩子格式",
+      "filename": "🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md",
+      "target_path": "docs/private-shared-imports/cnsh-protocols/📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md",
+      "category": "cnsh-protocols",
+      "description": "上下文治理协议",
+      "filename": "📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md",
+      "target_path": "docs/private-shared-imports/cnsh-protocols/🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md",
+      "category": "cnsh-protocols",
+      "description": "通心译天下大公语义编译系统",
+      "filename": "🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md",
+      "target_path": "docs/private-shared-imports/memory-dna/🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md",
+      "category": "memory-dna",
+      "description": "星辰记忆Notion同步库",
+      "filename": "🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务 3287125a9c9f816d92daf518168f1a76.md",
+      "target_path": "docs/private-shared-imports/documentation/🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务 3287125a9c9f816d92daf518168f1a76.md",
+      "category": "documentation",
+      "description": "CNSH Framework公开展示台",
+      "filename": "🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务 3287125a9c9f816d92daf518168f1a76.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/🧮 龍魂·易经369道德经算法·理论根基 v1 0｜有依据·有逻辑·可验证·可追溯｜UID9622 da71759de21f4a18866d2324f576c951.md",
+      "target_path": "docs/private-shared-imports/cnsh-protocols/🧮 龍魂·易经369道德经算法·理论根基 v1 0｜有依据·有逻辑·可验证·可追溯｜UID9622 da71759de21f4a18866d2324f576c951.md",
+      "category": "cnsh-protocols",
+      "description": "易经369道德经算法理论根基",
+      "filename": "🧮 龍魂·易经369道德经算法·理论根基 v1 0｜有依据·有逻辑·可验证·可追溯｜UID9622 da71759de21f4a18866d2324f576c951.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/初心之翼·本地大脑 v1 0｜系统提示词+意图识别+人格路由+三色审计+DNA格式｜复制即用 9b449fafcc6c4da7a7fc3b8f79e41312.md",
+      "target_path": "docs/private-shared-imports/ai-behavior/初心之翼·本地大脑 v1 0｜系统提示词+意图识别+人格路由+三色审计+DNA格式｜复制即用 9b449fafcc6c4da7a7fc3b8f79e41312.md",
+      "category": "ai-behavior",
+      "description": "初心之翼本地大脑",
+      "filename": "初心之翼·本地大脑 v1 0｜系统提示词+意图识别+人格路由+三色审计+DNA格式｜复制即用 9b449fafcc6c4da7a7fc3b8f79e41312.md"
+    },
+    {
+      "source_rel": "欢迎来到💎 龍芯北辰｜UID9622！/🌌 UID9622 龍魂工作间 · 总导航 v1 0/🤖 04 · 人格矩阵/⚡ 龍魂宝宝系统 v1 3｜快捷升级版·古今名人智慧·个性边界·输入识别/LU系统·一通百通｜自动化底层流水线 v1 0｜8模块+Hot Cold能力区+CNSH接入+4数据 a043d43f036f46a5b84676c77e039713.md",
+      "target_path": "docs/private-shared-imports/architecture/LU系统·一通百通｜自动化底层流水线 v1 0｜8模块+Hot Cold能力区+CNSH接入+4数据 a043d43f036f46a5b84676c77e039713.md",
+      "category": "architecture",
+      "description": "LU系统自动化底层流水线",
+      "filename": "LU系统·一通百通｜自动化底层流水线 v1 0｜8模块+Hot Cold能力区+CNSH接入+4数据 a043d43f036f46a5b84676c77e039713.md"
+    },
+    {
+      "source_rel": "📚 UID9622知识库总索引/P0执行引擎 140a0beae861400eb832067988f3b212.md",
+      "target_path": "docs/private-shared-imports/architecture/P0执行引擎 140a0beae861400eb832067988f3b212.md",
+      "category": "architecture",
+      "description": "P0执行引擎",
+      "filename": "P0执行引擎 140a0beae861400eb832067988f3b212.md"
+    },
+    {
+      "source_rel": "📚 UID9622知识库总索引/64卦人格系统 9588865d7f8248f99fb104c55e1915d7.md",
+      "target_path": "docs/private-shared-imports/persona-tools/64卦人格系统 9588865d7f8248f99fb104c55e1915d7.md",
+      "category": "persona-tools",
+      "description": "64卦人格系统",
+      "filename": "64卦人格系统 9588865d7f8248f99fb104c55e1915d7.md"
+    },
+    {
+      "source_rel": "📚 UID9622知识库总索引/三色审计机制 205ea59384d24cd6994a6215f75f932e.md",
+      "target_path": "docs/private-shared-imports/security-audit/三色审计机制 205ea59384d24cd6994a6215f75f932e.md",
+      "category": "security-audit",
+      "description": "三色审计机制",
+      "filename": "三色审计机制 205ea59384d24cd6994a6215f75f932e.md"
+    },
+    {
+      "source_rel": "📚 UID9622知识库总索引/DNA追溯系统 21b72598b5c44ab3bd79932544f1f92c.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA追溯系统 21b72598b5c44ab3bd79932544f1f92c.md",
+      "category": "memory-dna",
+      "description": "DNA追溯系统",
+      "filename": "DNA追溯系统 21b72598b5c44ab3bd79932544f1f92c.md"
+    },
+    {
+      "source_rel": "📚 UID9622知识库总索引/龍魂价值内核 787fcee52f404c5b96d56eca81409804.md",
+      "target_path": "docs/private-shared-imports/documentation/龍魂价值内核 787fcee52f404c5b96d56eca81409804.md",
+      "category": "documentation",
+      "description": "龍魂价值内核",
+      "filename": "龍魂价值内核 787fcee52f404c5b96d56eca81409804.md"
+    },
+    {
+      "source_rel": "🤖 智能协作生态系统/🧠 UID9622智能记忆中枢 AI协作生态核心 f14a3bcbea484a229a2bdc0a9b3d2a10.md",
+      "target_path": "docs/private-shared-imports/architecture/🧠 UID9622智能记忆中枢 AI协作生态核心 f14a3bcbea484a229a2bdc0a9b3d2a10.md",
+      "category": "architecture",
+      "description": "UID9622智能记忆中枢",
+      "filename": "🧠 UID9622智能记忆中枢 AI协作生态核心 f14a3bcbea484a229a2bdc0a9b3d2a10.md"
+    },
+    {
+      "source_rel": "🤖 智能协作生态系统/🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md",
+      "target_path": "docs/private-shared-imports/security-audit/🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md",
+      "category": "security-audit",
+      "description": "安全监控与防护中枢",
+      "filename": "🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md"
+    },
+    {
+      "source_rel": "🤖 智能协作生态系统/🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md",
+      "target_path": "docs/private-shared-imports/api-integration/🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md",
+      "category": "api-integration",
+      "description": "Claude AI集成接口",
+      "filename": "🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md"
+    },
+    {
+      "source_rel": "🧬 CNSH-DNA压缩核心库 UID9622记忆引擎/DNA-P00-WENXIN-CORE 286fd44df19e43b9a785b3711d167216.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA-P00-WENXIN-CORE 286fd44df19e43b9a785b3711d167216.md",
+      "category": "memory-dna",
+      "description": "DNA-P00-WENXIN-CORE",
+      "filename": "DNA-P00-WENXIN-CORE 286fd44df19e43b9a785b3711d167216.md"
+    },
+    {
+      "source_rel": "🧬 CNSH-DNA压缩核心库 UID9622记忆引擎/DNA-P01-ZHUGE-TAIJI e24511816b9242c8b18540c8f01c6f5a.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA-P01-ZHUGE-TAIJI e24511816b9242c8b18540c8f01c6f5a.md",
+      "category": "memory-dna",
+      "description": "DNA-P01-ZHUGE-TAIJI",
+      "filename": "DNA-P01-ZHUGE-TAIJI e24511816b9242c8b18540c8f01c6f5a.md"
+    },
+    {
+      "source_rel": "🧬 CNSH-DNA压缩核心库 UID9622记忆引擎/DNA-P03-WENWEN-STRUCTURE 4a3633a87a7f4f49b7acd50c14a61dfe.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA-P03-WENWEN-STRUCTURE 4a3633a87a7f4f49b7acd50c14a61dfe.md",
+      "category": "memory-dna",
+      "description": "DNA-P03-WENWEN-STRUCTURE",
+      "filename": "DNA-P03-WENWEN-STRUCTURE 4a3633a87a7f4f49b7acd50c14a61dfe.md"
+    },
+    {
+      "source_rel": "🧬 CNSH-DNA压缩核心库 UID9622记忆引擎/DNA-P05-GOD-EYE-AUDIT fb391ab12ec3428c89fab73aefb5873f.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA-P05-GOD-EYE-AUDIT fb391ab12ec3428c89fab73aefb5873f.md",
+      "category": "memory-dna",
+      "description": "DNA-P05-GOD-EYE-AUDIT",
+      "filename": "DNA-P05-GOD-EYE-AUDIT fb391ab12ec3428c89fab73aefb5873f.md"
+    },
+    {
+      "source_rel": "🧬 CNSH-DNA压缩核心库 UID9622记忆引擎/DNA-SYSTEM-TAIJI-CORE 35583ef783cc4149943fbe872311e209.md",
+      "target_path": "docs/private-shared-imports/memory-dna/DNA-SYSTEM-TAIJI-CORE 35583ef783cc4149943fbe872311e209.md",
+      "category": "memory-dna",
+      "description": "DNA-SYSTEM-TAIJI-CORE",
+      "filename": "DNA-SYSTEM-TAIJI-CORE 35583ef783cc4149943fbe872311e209.md"
+    },
+    {
+      "source_rel": "🧬 CNSH文化原子卡片库 DNA压缩记忆/#CNSH-TECH-003 灵魂锁五重验证 361940abb9954628ab4a8aedf447d7a7.md",
+      "target_path": "docs/private-shared-imports/security-audit/#CNSH-TECH-003 灵魂锁五重验证 361940abb9954628ab4a8aedf447d7a7.md",
+      "category": "security-audit",
+      "description": "文化原子-灵魂锁五重验证",
+      "filename": "#CNSH-TECH-003 灵魂锁五重验证 361940abb9954628ab4a8aedf447d7a7.md"
+    },
+    {
+      "source_rel": "🧬 CNSH文化原子卡片库 DNA压缩记忆/#CNSH-SYSTEM-035 64卦人格民主监督 ccf1193b88284e9fa4b7f80c542b0b84.md",
+      "target_path": "docs/private-shared-imports/governance/#CNSH-SYSTEM-035 64卦人格民主监督 ccf1193b88284e9fa4b7f80c542b0b84.md",
+      "category": "governance",
+      "description": "文化原子-64卦人格民主监督",
+      "filename": "#CNSH-SYSTEM-035 64卦人格民主监督 ccf1193b88284e9fa4b7f80c542b0b84.md"
+    },
+    {
+      "source_rel": "🔒【封存-2025 12】UID9622人格镜像矩阵/哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md",
+      "target_path": "docs/private-shared-imports/persona-tools/哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md",
+      "category": "persona-tools",
+      "description": "哨兵-安全守护官人格定义",
+      "filename": "哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md"
+    },
+    {
+      "source_rel": "🔒【封存-2025 12】UID9622人格镜像矩阵/上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md",
+      "target_path": "docs/private-shared-imports/persona-tools/上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md",
+      "category": "persona-tools",
+      "description": "上帝之眼-全域监管官人格定义",
+      "filename": "上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md"
+    },
+    {
+      "source_rel": "🔒【封存-2025 12】UID9622人格镜像矩阵/功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md",
+      "target_path": "docs/private-shared-imports/persona-tools/功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md",
+      "category": "persona-tools",
+      "description": "功能管家-系统功能总管人格定义",
+      "filename": "功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md"
+    },
+    {
+      "source_rel": "📝 Decision Records - 决策库/建立四库协作系统 4d1c016f996b4f9a9fc321ad29325deb.md",
+      "target_path": "docs/private-shared-imports/decision-records/建立四库协作系统 4d1c016f996b4f9a9fc321ad29325deb.md",
+      "category": "decision-records",
+      "description": "建立四库协作系统决策",
+      "filename": "建立四库协作系统 4d1c016f996b4f9a9fc321ad29325deb.md"
+    },
+    {
+      "source_rel": "📝 Decision Records - 决策库/是否开源CNSH框架核心代码 356f230f4da8486ea1c64dee27105ca2.md",
+      "target_path": "docs/private-shared-imports/decision-records/是否开源CNSH框架核心代码 356f230f4da8486ea1c64dee27105ca2.md",
+      "category": "decision-records",
+      "description": "是否开源CNSH框架核心代码决策",
+      "filename": "是否开源CNSH框架核心代码 356f230f4da8486ea1c64dee27105ca2.md"
+    },
+    {
+      "source_rel": "♾️ UID9622知识产权申请闭环流程 自动化监控与执行/💎 UID9622数字资产全息管理中心/⚖️ 法律合规技术实现方案 2fede7de3c57436b9b0486e38111a997.md",
+      "target_path": "docs/private-shared-imports/security-audit/⚖️ 法律合规技术实现方案 2fede7de3c57436b9b0486e38111a997.md",
+      "category": "security-audit",
+      "description": "法律合规技术实现方案",
+      "filename": "⚖️ 法律合规技术实现方案 2fede7de3c57436b9b0486e38111a997.md"
+    },
+    {
+      "source_rel": "♾️ UID9622知识产权申请闭环流程 自动化监控与执行/💎 UID9622数字资产全息管理中心/📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md",
+      "target_path": "docs/private-shared-imports/governance/📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md",
+      "category": "governance",
+      "description": "AIIA标准制定方案",
+      "filename": "📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md"
+    },
+    {
+      "source_rel": "♾️ UID9622知识产权申请闭环流程 自动化监控与执行/💎 UID9622数字资产全息管理中心/🚀 太极智能协同中枢 686719ef23d34950b64774a525cc4e60.md",
+      "target_path": "docs/private-shared-imports/architecture/🚀 太极智能协同中枢 686719ef23d34950b64774a525cc4e60.md",
+      "category": "architecture",
+      "description": "太极智能协同中枢",
+      "filename": "🚀 太极智能协同中枢 686719ef23d34950b64774a525cc4e60.md"
+    }
+  ],
+  "categories_summary": {
+    "security-audit": 9,
+    "governance": 6,
+    "architecture": 7,
+    "cnsh-protocols": 5,
+    "api-integration": 2,
+    "developer-tools": 1,
+    "ai-behavior": 3,
+    "persona-tools": 5,
+    "memory-dna": 8,
+    "documentation": 2,
+    "decision-records": 2
+  }
+}
