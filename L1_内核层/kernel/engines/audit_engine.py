@@ -16,8 +16,8 @@ DNA     : #龍芯⚡️20260422-CODE-AUDIT01
 功能清单:
   ① SQLite append-only 审计日志 (触发器防篡改)
   ② GPG 签名每条记录 (UID9622 身份锁定)
-  ③ Flask 路由: /write_dna · /audit · /log · /stats · /sync_notion
-  ④ Notion API 推送审计记录
+  ③ Flask 路由: /write_dna · /audit · /log · /stats · /sync_notion [已禁用·数据主权]
+  ④ Notion API 推送 [已禁用·UID9622确认切断境外同步 🔴黑名单]
   ⑤ API 调用计数器 (每个 token/服务单独统计)
   ⑥ 人格动作追踪 (P00-P13 + 五大后台人格)
   ⑦ 三色状态自动判定
@@ -421,9 +421,16 @@ def stats():
 
 @app.route("/sync_notion", methods=["POST"])
 def sync_notion():
-    """触发 Notion 同步"""
-    synced = sync_pending_to_notion()
-    return jsonify({"synced": synced, "status": "🟢" if synced >= 0 else "🔴"})
+    """[已禁用] Notion 同步 — UID9622 2026-07-14 确认切断境外同步
+    数据主权: 审计数据不再自动出境到境外 Notion 服务器。
+    耻辱柱: data/shame_wall.jsonl DARKMINE-V2-20260714
+    """
+    return jsonify({
+        "synced": 0,
+        "status": "🔴已禁用",
+        "reason": "数据主权·UID9622确认切断境外Notion自动同步·2026-07-14",
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·亥-NOTION-CUT-v1.0"
+    })
 
 @app.route("/persona_act", methods=["POST"])
 def persona_act():
@@ -467,15 +474,17 @@ if __name__ == "__main__":
     init_dirs()
     init_db()
 
-    # 后台同步线程
-    t = threading.Thread(target=background_sync, daemon=True)
-    t.start()
+    # 🔴 后台 Notion 同步已禁用 — UID9622 2026-07-14 确认切断
+    # 原代码(冻结留存): t = threading.Thread(target=background_sync, daemon=True); t.start()
+    # 数据主权: 审计日志永不再自动推送到境外 Notion 服务器
+    print("[龍魂] Notion后台同步已禁用·数据主权归集本地·UID9622确认")
 
     print("""
 ╔══════════════════════════════════════════╗
-║   龍魂审计引擎 v1.0 · UID9622           ║
+║   龍魂审计引擎 v1.1 · UID9622           ║
 ║   Port: 9622  |  不黑箱·审计即主权      ║
 ║   DNA: #龍芯⚡️20260422-CODE-AUDIT01      ║
+║   Notion同步: 🔴已切断·数据主权本地     ║
 ╚══════════════════════════════════════════╝
     端点列表:
     GET  /health          — 公开健康检查
@@ -483,7 +492,7 @@ if __name__ == "__main__":
     POST /audit           — 记录任意审计事件
     GET  /log             — 查询审计日志
     GET  /stats           — 调用统计 + 熔断状态
-    POST /sync_notion     — 推送到 Notion
+    POST /sync_notion     — [已禁用] Notion推送
     POST /persona_act     — 人格动作追踪
     """)
 

@@ -1778,42 +1778,45 @@ class 自治核心:
     # ─────────────────────────────────────────
     def 模型适配路由(self, 任务: 任务包) -> Dict[str, str]:
         """
-        执行路由器: 自动选模型适配
+        执行路由器: 自动选模型适配 · v2.0 本地Ollama优先
+        UID9622 2026-07-14 确认: Claude/Grok/Gemini 境外API全部替换为本地Ollama
 
-        GPT: 结构化输出
-        Claude: 长逻辑推理  
-        Grok: 发散性思维
-        Gemini: 校验与验证
+        本地 Ollama 模型:
+        - qwen2.5:14b     — 通用推理 (替代GPT-4/Claude-3)
+        - deepseek-r1:14b — 长逻辑推理 (替代Claude-3-Opus)
+        - qwen2.5:7b      — 轻量校验
+        - phi4:14b        — 结构化输出
+        - gemma3:12b      — 发散思维 (替代Grok-2)
         """
         适配建议 = {
-            "primary_model": "GPT-4",
-            "backup_model": "Claude-3",
-            "reason": "默认配置",
+            "primary_model": "qwen2.5:14b",       # 国产·阿里·本地Ollama
+            "backup_model": "deepseek-r1:8b",     # 国产·DeepSeek·本地Ollama
+            "reason": "默认配置·本地Ollama·数据不出境",
         }
 
         if 任务.任务类型 == 任务类型.创意生成:
             适配建议 = {
-                "primary_model": "Grok-2",
-                "backup_model": "Claude-3-Opus",
-                "reason": "创意生成任务需要发散性思维",
+                "primary_model": "gemma3:12b",      # 本地·发散思维
+                "backup_model": "deepseek-r1:14b",  # 本地·长逻辑
+                "reason": "创意生成任务·本地Ollama·数据主权",
             }
         elif 任务.任务类型 == 任务类型.规则审计:
             适配建议 = {
-                "primary_model": "GPT-4",
-                "backup_model": "Gemini-1.5",
-                "reason": "规则审计需要严格的结构化输出",
+                "primary_model": "phi4:14b",        # 本地·结构化输出
+                "backup_model": "qwen2.5:7b",       # 本地·轻量校验
+                "reason": "规则审计·本地Ollama·结构化优先",
             }
         elif 任务.任务类型 == 任务类型.战略推演:
             适配建议 = {
-                "primary_model": "Claude-3-Opus",
-                "backup_model": "GPT-4",
-                "reason": "战略推演需要长逻辑推理能力",
+                "primary_model": "deepseek-r1:14b", # 国产·DeepSeek R1·本地Ollama
+                "backup_model": "qwen2.5:14b",      # 国产·阿里·本地Ollama
+                "reason": "战略推演·本地Ollama·长逻辑推理",
             }
         elif 任务.复杂度 > 0.8:
             适配建议 = {
-                "primary_model": "Claude-3-Opus",
-                "backup_model": "GPT-4",
-                "reason": "高复杂度任务需要强逻辑推理",
+                "primary_model": "deepseek-r1:14b", # 国产·DeepSeek R1·本地Ollama
+                "backup_model": "qwen2.5:14b",      # 国产·阿里·本地Ollama
+                "reason": "高复杂度·本地Ollama·数据主权",
             }
 
         return 适配建议
