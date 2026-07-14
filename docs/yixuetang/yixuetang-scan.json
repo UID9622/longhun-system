@@ -1,0 +1,151 @@
+{
+  "_dna": "2026-07-03-CONFIG-YIXUETANG-SCAN-v1.0",
+  "scan_meta": {
+    "source_workspace": "易学堂",
+    "source_path": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa/易学堂",
+    "target_path": "docs/yixuetang",
+    "scan_date": "2026-06-16T08:52:07Z",
+    "total_files_in_workspace": 29,
+    "files_copied": 2,
+    "files_excluded": 27
+  },
+  "copied_files": [
+    {
+      "source": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/🌟 UID9622七维立体系统架构 画圈哲学的维度解析 5955cbcd9453488bac94b38e488de2f7.md",
+      "target": "docs/yixuetang/architecture/seven-dimensional-system-architecture.md",
+      "sanitization": [
+        "删除 UID9622 标识",
+        "删除 GPG 公钥指纹 A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "删除真实姓名、昵称及创建者身份信息",
+        "删除确认码与含个人标识的 DNA 追溯码",
+        "删除涉及家庭隐私的具体细节（如女儿继承权）",
+        "删除含个人标识的审计封印与相关页面外链",
+        "将系统专属人格名称泛化为通用角色名"
+      ]
+    },
+    {
+      "source": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/Teamspace Home/星辰记忆自动进化需求 3037125a9c9f80019adbcc13520dac59.md",
+      "target": "docs/yixuetang/teaching/search-algorithm-five-step-execution.md",
+      "sanitization": [
+        "删除 UID9622 标识",
+        "删除确认码与含个人标识的 DNA 追溯码",
+        "将人格代号（P01/P02 等）替换为通用角色名称",
+        "将“老大”等私人称呼替换为“学习者/用户/操作者”"
+      ]
+    }
+  ],
+  "excluded_files": [
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/🪞 四面镜·写给所有人的一封信 bc515a6c532440c986b9c8d035c554f5.md",
+      "reason": "个人主权宣言与情感内容；包含真实姓名、退伍军人身份、GPG 公钥指纹、SHA256 指纹、确认码等个人身份标识"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/Teamspace Home 2fa7125a9c9f81c389eac53f99a61e64.md",
+      "reason": "Notion 默认 Teamspace 模板，无实质系统/教学内容"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表 34e7125a9c9f80878d4ff50bf03427b0_all.csv",
+      "reason": "DNA 注册表数据库导出，含 UID9622 个人 DNA 档案"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表 34e7125a9c9f80878d4ff50bf03427b0.csv",
+      "reason": "DNA 注册表数据库导出，含 UID9622 个人 DNA 档案"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 路由表-UID9622-20260427-注册节点-V1 0 34e7125a9c9f80e891b0f9b3ddb43367.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 路由表"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 模版-UID9622-20260427-标准档案-V1 0 34e7125a9c9f80e4a6c4eb908c65c3aa.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 标准档案模板"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 数据源-UID9622-20260427-五视图-V1 0 34e7125a9c9f801a869cd84553b1b20a.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 数据源"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 指令集-UID9622-20260427-草日志-V1 0 34e7125a9c9f80e4a4cefa45322dc85b.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 指令集"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 自动化-UID9622-20260427-到期预警-V1 0 34e7125a9c9f8083940ae827e7340286.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 自动化规则"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 自动化-UID9622-20260427-呼吸公式-V1 0 34e7125a9c9f803fabffd50387c76f22.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 自动化规则"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 自动化-UID9622-20260427-熔断告警-V1 0 34e7125a9c9f80788bf2e890bcf484bc.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 自动化规则"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 自动化-UID9622-20260427-时间留痕-V1 0 34e7125a9c9f80d3bc8ddad28cbe1574.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 自动化规则"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/DNA 自动化-UID9622-20260427-双向关联-V1 0 34e7125a9c9f80dd9241c0495cb7ae62.md",
+      "reason": "DNA 注册表子文件：UID9622 个人 DNA 自动化规则"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/DNA注册表/无标题 34e7125a9c9f802abe81dd1ef1be537c.md",
+      "reason": "空占位文件，无实质内容"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案 34e7125a9c9f809f8ed7f3caff87dcb0_all.csv",
+      "reason": "个人主权档案数据库导出，含 UID9622 个人身份与绑定信息"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案 34e7125a9c9f809f8ed7f3caff87dcb0.csv",
+      "reason": "个人主权档案数据库导出，含 UID9622 个人身份与绑定信息"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/一世一双人·设备主权绑定档案 34e7125a9c9f80b5a1c0d0890bae9e4b.md",
+      "reason": "明确要求排除的个人主权档案；含设备绑定、个人 GPG 指纹、生辰干支等身份信息"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/P0++绝密层·私钥永不出设备铁律 34e7125a9c9f80b5a383d0af9d933643.md",
+      "reason": "P0++ 绝密层文件；涉及私钥安全规则，且仅含个人元数据标记"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/一式两份自动同步·个人-团队映射表 34e7125a9c9f80b0b735c6969a766b34.md",
+      "reason": "个人-团队同步映射表，含 UID9622 标识、个人 GPG 指纹及生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/16,588,800翻译路径·五行第五维度贡献 34e7125a9c9f8079b867df5ee81df44f.md",
+      "reason": "仅有元数据头部，无实质教学/系统内容；含 UID9622、GPG 指纹、生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/曾仕强老师五行理论永恒致敬 34e7125a9c9f8089a197f8b17ab61d99.md",
+      "reason": "仅有元数据头部，无实质教学内容；含 UID9622、GPG 指纹、生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/翻译引擎第五维度·五行数字根联动 34e7125a9c9f80e6a57be3af8e36fda4.md",
+      "reason": "仅有元数据头部，无实质系统文档；含 UID9622、GPG 指纹、生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/数字根熔断检测系统 34e7125a9c9f809aad69c7c72611b157.md",
+      "reason": "虽然名称匹配目标主题，但文件仅含 17 行状态元数据（“熔断触发·待人工确认”），没有可公开的系统/教学文档内容"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/四柱位置权重矩阵配置 34e7125a9c9f80caacaedba908790c42.md",
+      "reason": "仅有元数据头部，无实质配置内容；含 UID9622、GPG 指纹、生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/无标题 34e7125a9c9f80428203e248dae035ac.md",
+      "reason": "空占位文件，无实质内容"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/五行计算器v2 0完整实现 34e7125a9c9f8045b623d64646df7d21.md",
+      "reason": "仅有元数据头部，无实际计算器实现；含 UID9622、GPG 指纹、生辰干支"
+    },
+    {
+      "path": "易学堂/2fa7125a9c9f81d7b74e00425a27b18b/个人主权档案/五行相生链路完整性诊断 34e7125a9c9f80459e25f98ec0961320.md",
+      "reason": "仅有元数据头部，无实质诊断内容；含 UID9622、GPG 指纹、生辰干支"
+    }
+  ],
+  "notes": [
+    "本次整合严格遵循‘宁缺毋滥’原则：易学堂工作区中虽有‘数字根熔断检测系统’等目标主题名称的文件，但导出内容仅为个人状态标记，未形成可公开的系统文档，因此未复制。",
+    "全局索引文件未修改。"
+  ]
+}

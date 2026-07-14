@@ -1,0 +1,1398 @@
+{
+  "審計時間": "2026-06-21 13:39 CST",
+  "掃描目錄": "/Users/zuimeidedeyihan/longhun-system",
+  "統計": {
+    "總文件數": 6580,
+    "有DNA文件數": 5186,
+    "無DNA文件數": 1394,
+    "DNA對齐率": 78.81,
+    "重複DNA數": 18,
+    "無效DNA數": 129
+  },
+  "健康評級": "🟢 良好",
+  "修復建議": [
+    "🔴 高優先: 存在18個重複DNA，違反「一文件一DNA」原則，需拆分",
+    "🟡 中優先: 129個文件DNA格式無效，需修正格式為 #龍芯⚡️YYYY-MM-DD-MODULE-vX.X",
+    "🟡 Python腳本: 對齐率40.4%，需補充1034個文件"
+  ],
+  "按類型統計": {
+    "Markdown文檔": {
+      "總數": 2308,
+      "有DNA": 2297,
+      "無DNA": 11,
+      "對齐率": 99.52339688041594
+    },
+    "JSON配置": {
+      "總數": 216,
+      "有DNA": 144,
+      "無DNA": 72,
+      "對齐率": 66.66666666666666
+    },
+    "Python腳本": {
+      "總數": 1735,
+      "有DNA": 701,
+      "無DNA": 1034,
+      "對齐率": 40.403458213256485
+    },
+    "Shell腳本": {
+      "總數": 128,
+      "有DNA": 128,
+      "無DNA": 0,
+      "對齐率": 100.0
+    },
+    "其他": {
+      "總數": 1896,
+      "有DNA": 1659,
+      "無DNA": 237,
+      "對齐率": 87.5
+    },
+    "文本文件": {
+      "總數": 104,
+      "有DNA": 68,
+      "無DNA": 36,
+      "對齐率": 65.38461538461539
+    },
+    "HTML": {
+      "總數": 110,
+      "有DNA": 108,
+      "無DNA": 2,
+      "對齐率": 98.18181818181819
+    },
+    "TypeScript": {
+      "總數": 13,
+      "有DNA": 13,
+      "無DNA": 0,
+      "對齐率": 100.0
+    },
+    "CSS": {
+      "總數": 8,
+      "有DNA": 8,
+      "無DNA": 0,
+      "對齐率": 100.0
+    },
+    "YAML配置": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0,
+      "對齐率": 100.0
+    },
+    "JavaScript": {
+      "總數": 57,
+      "有DNA": 55,
+      "無DNA": 2,
+      "對齐率": 96.49122807017544
+    }
+  },
+  "按目錄統計": {
+    "LOGGING_INTEGRATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SESSION_SUMMARY_20260603.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH-PROTOCOL.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "STAGING_DEPLOYMENT_EXECUTION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PHASE2_VERIFICATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "output_v3.2.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_REPAIR_COMPLETE_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "brain_notion_sync.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LONGHUN_MASTER_CONSOLE_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "COMPLETE-API-DOCUMENTATION-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DEPLOYMENT_READINESS_CONFIRMATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL_SYSTEM_VERIFICATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "KIMI_VERIFICATION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PROTOCOL_LOCKDOWN_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SKILL_STANDARDIZATION_UPGRADE_v3.3.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ROUTE_VERIFICATION_COMPLETE_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH_v1.0_DEPLOYMENT_VERIFICATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_DEPLOYMENT_PREPARATION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "15_AGENTS_INTEGRATION_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SECURITY-HOTFIX-v4.1.1-RELEASE-NOTES.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "XPAY_DEPLOYMENT_COMPLETE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SKILLS_INTEGRATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ROUTER_MATRIX_DEPLOYMENT_CONFIRMATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "protocol_shield.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "IMPLEMENTATION_STATUS_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_INTEGRATION_COMPLETE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "behavcrypto_receipt_2026-06-05.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "install_longhun_daemon.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_AUDIT_COMPLETE_2026-06-07.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL_SESSION_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "UNIFIED_SYSTEM_COMPREHENSIVE_TEST_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "test_persona_api.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DASHBOARD_TEST_SUITE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAY23-COMPLETION-REPORT-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "COMMIT_MESSAGE_STANDARD.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "AUTOMATED_DAILY_ASSESSMENT_SETUP.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "AGENT_011_FIX_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "QUICK_REFERENCE_CARD.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ATTRIBUTION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun_mvp_setup_integration_v1.0.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DASHBOARD_TEST_CONFIRMATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_UNIFICATION_COMPLETION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "INTEGRATION_COMPLETE_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DNA_ALIGNMENT_CURRENT_STATUS.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_ROUTER_DELIVERY_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun_self_check_v1.0.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "TASK_EXECUTION_LIVE_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "prod_config_template.json": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "CRON_BACKUP_SETUP.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ARCHIVE_EVALUATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "未命名.canvas": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PHASE3_AUTOMATED_EVALUATION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_UNIFICATION_PLAN_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRE_DEPLOYMENT_FINAL_SAFETY_CHECK.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SMOKE_TEST_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PROJECT_SUMMARY_2026-06-08.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "prod_monitoring_alerts.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_SYSTEM_VERIFICATION_20260609.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL_SYSTEM_DELIVERY_REPORT_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DRAGON_UPGRADE_QUICKREF.txt": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DNA_ALIGNMENT_REPAIR_ACTION_PLAN.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DRAGON_MULTICURRENCY_UPGRADE_PLAN.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SESSION_SUMMARY_20260603.md.bak": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL_SYSTEM_TEST_SUMMARY_2026-06-10.txt": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRK_v3.0_NOTION_DEPLOYMENT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "IMPLEMENTATION_EXECUTION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "TASK3_COMPLETION_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "INTEGRATION_TEST_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "setup_daily_review_auto.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_READINESS_CHECKLIST.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH_v1.0_FULL_ARCHITECTURE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH_INTEGRATED_EXECUTION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_STATUS_REPORT_20260609.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_INTEGRATION_PLAN.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "__init__.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_TEST_RESULTS_FINAL.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SYSTEM_INTEGRATION_TEST_RESULTS.json": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "DECISION_FLOW_FIELD_INDEX.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_ROUTER_FINAL_DELIVERY_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "init_directories.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL_SYSTEM_READINESS_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DEPLOYMENT_RUNBOOK_FOR_TEAM.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAY67-FINAL-COMPLETION-REPORT-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_DEPLOYMENT_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH-SEMANTIC.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "riemann_hypothesis_dragonhood_perspective.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    ".env.monitoring": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "STAGING_DEPLOYMENT_PREPARATION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "KIMI_VERIFICATION_REPORT_2026-06-10_UPDATED.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "README-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "V7_UPGRADE_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "MVP_COMPLETION_REPORT_2026-06-05.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "COMPREHENSIVE_DEPLOYMENT_STATUS_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ACTION_LOG_USAGE_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "README.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "MONITORING_VERIFICATION_REPORT_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_DEPLOYMENT_REPORT_PROD-20260608200902.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun-brain-sync.service": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun_system_startup_check.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "RELEASE-v4.0-MOBILE-MONITORING.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PERSONA_TRAINING_SYSTEM_v1.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "QUICK_DNA_STATUS.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun_mvp_executor_v1.0.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "daily_review.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "WEEK_EXECUTION_PLAN_2026-06-09-06-15.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CRON_AUTOMATION_SETUP.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "MCP_DETECTION_REPORT_2026-06-04.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LONGHUN-3CORE-QUICK-START-CHECKLIST.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    ".dockerignore": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "UID9622_龍魂流场总控_v2.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "ROUTING_VERIFICATION_FINAL_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FLOW_DECISION_EXECUTION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DELIVERY_AGREEMENT_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAY45-COMPLETION-REPORT-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FORMULA_SYSTEM_OPTIMIZATION_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "BENCHMARK_COMPLETE_FINAL_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PROJECT_FINAL_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "deploy_persona_api.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "COMPATIBILITY_ANALYSIS_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "longhun_system_start_all.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "MASTER_SYSTEMS_REFERENCE_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "NOTION_EXTRACTION_COMPLETE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "test_audit_integration_v1.py": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PROTOCOL_UNIFICATION_PLAN.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAY1-COMPLETION-REPORT-v3.3.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "COMPLETE_EXECUTION_SUMMARY.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DEPLOYMENT_GUIDE_v1.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DEPENDENCY_UPDATE_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "BACKUP_MANIFEST.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DNA_ALIGNMENT_AUDIT_2026-06-07.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_DEPLOYMENT_REPORT_PROD-20260608204930.json": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    ".env.example": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "NOTION_SYNC_STATUS_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "AGENT_007_FIX_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "WUXING_V3.2_SETUP_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "persona_cert_template.html": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAILY_REVIEW_SETUP.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "NEXT_WEEK_DEPLOYMENT_PREP_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LONGHUN_STARTUP_COMPLETE_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "AGENT_014_FIX_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PHASE4_PRODUCTION_DEPLOYMENT_COMPLETE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LOCAL_DEPLOYMENT_GUIDE.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_ROLLBACK_PROCEDURES.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "OPENHUB_AI_CLAW_API_DOCS_20260609.json": {
+      "總數": 1,
+      "有DNA": 0,
+      "無DNA": 1
+    },
+    "DEPLOYMENT_READY_CHECKLIST_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PROTOCOL_SIMPLIFICATION_COMPLETION_v2.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "setup_daily_review.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "SANCAI_SYNC_EXECUTION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "PRODUCTION_FILES_INDEX.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LONGHUN-3CORE-OPTIMIZATION-UPGRADE-v1.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "\\": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "EVOLUTION_DASHBOARD_VERIFICATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FLEXIBLE_INTEGRATION_ROADMAP_2026-06-10.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "DAILY_REVIEW_QUICKSTART.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FORMULA_CHAIN_OPTIMIZATION_COMPLETE_v2.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "test-workflow.sh": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "KFPP_ACTIVATION_PROCLAMATION.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "M04_M05_EXECUTION_REPORT.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "FINAL-PROJECT-COMPLETION-REPORT-v4.0.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "LONGHUN_GOVERNANCE_FINAL_DELIVERY_2026-06-03.md": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "research": {
+      "總數": 18,
+      "有DNA": 18,
+      "無DNA": 0
+    },
+    "skill-standards.integrated": {
+      "總數": 6,
+      "有DNA": 6,
+      "無DNA": 0
+    },
+    "baobao-guardian": {
+      "總數": 27,
+      "有DNA": 24,
+      "無DNA": 3
+    },
+    "monitoring.backup": {
+      "總數": 5,
+      "有DNA": 4,
+      "無DNA": 1
+    },
+    "multicurrency": {
+      "總數": 27,
+      "有DNA": 25,
+      "無DNA": 2
+    },
+    "mobile-monitoring.integrated": {
+      "總數": 15,
+      "有DNA": 12,
+      "無DNA": 3
+    },
+    "releases": {
+      "總數": 344,
+      "有DNA": 326,
+      "無DNA": 18
+    },
+    "tools": {
+      "總數": 15,
+      "有DNA": 15,
+      "無DNA": 0
+    },
+    "docker": {
+      "總數": 3,
+      "有DNA": 3,
+      "無DNA": 0
+    },
+    "memory-universe": {
+      "總數": 5,
+      "有DNA": 4,
+      "無DNA": 1
+    },
+    "longhun_mvp_reviewed": {
+      "總數": 12,
+      "有DNA": 12,
+      "無DNA": 0
+    },
+    "03_知識圖譜": {
+      "總數": 3,
+      "有DNA": 3,
+      "無DNA": 0
+    },
+    "bin": {
+      "總數": 32,
+      "有DNA": 32,
+      "無DNA": 0
+    },
+    "web": {
+      "總數": 10,
+      "有DNA": 10,
+      "無DNA": 0
+    },
+    "experiments": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "phase3": {
+      "總數": 14,
+      "有DNA": 12,
+      "無DNA": 2
+    },
+    "training": {
+      "總數": 2,
+      "有DNA": 2,
+      "無DNA": 0
+    },
+    "ops-console": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "tests": {
+      "總數": 13,
+      "有DNA": 13,
+      "無DNA": 0
+    },
+    "control-panel": {
+      "總數": 12,
+      "有DNA": 10,
+      "無DNA": 2
+    },
+    "05_系統報告": {
+      "總數": 2,
+      "有DNA": 2,
+      "無DNA": 0
+    },
+    "agents": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "var": {
+      "總數": 4,
+      "有DNA": 4,
+      "無DNA": 0
+    },
+    "skills.backup": {
+      "總數": 32,
+      "有DNA": 31,
+      "無DNA": 1
+    },
+    "desktop": {
+      "總數": 5,
+      "有DNA": 4,
+      "無DNA": 1
+    },
+    "04_決策日誌": {
+      "總數": 6,
+      "有DNA": 6,
+      "無DNA": 0
+    },
+    "imports": {
+      "總數": 13,
+      "有DNA": 13,
+      "無DNA": 0
+    },
+    "docs": {
+      "總數": 840,
+      "有DNA": 832,
+      "無DNA": 8
+    },
+    "xpay": {
+      "總數": 14,
+      "有DNA": 13,
+      "無DNA": 1
+    },
+    "extensions": {
+      "總數": 30,
+      "有DNA": 27,
+      "無DNA": 3
+    },
+    "06_技術文檔": {
+      "總數": 3,
+      "有DNA": 3,
+      "無DNA": 0
+    },
+    "03_compiler": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "01_protocols": {
+      "總數": 2,
+      "有DNA": 2,
+      "無DNA": 0
+    },
+    "rules-engine-v2.5": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "integrated-modules": {
+      "總數": 43,
+      "有DNA": 42,
+      "無DNA": 1
+    },
+    "integrations": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "cnsh_terminal_v5.0": {
+      "總數": 23,
+      "有DNA": 23,
+      "無DNA": 0
+    },
+    "cnsh": {
+      "總數": 33,
+      "有DNA": 32,
+      "無DNA": 1
+    },
+    "01_技能庫": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "logs": {
+      "總數": 6,
+      "有DNA": 6,
+      "無DNA": 0
+    },
+    "audit": {
+      "總數": 3,
+      "有DNA": 3,
+      "無DNA": 0
+    },
+    "cnsh-terminal": {
+      "總數": 28,
+      "有DNA": 27,
+      "無DNA": 1
+    },
+    "executors": {
+      "總數": 17,
+      "有DNA": 16,
+      "無DNA": 1
+    },
+    "deployment": {
+      "總數": 9,
+      "有DNA": 8,
+      "無DNA": 1
+    },
+    "02_執行記錄": {
+      "總數": 2,
+      "有DNA": 2,
+      "無DNA": 0
+    },
+    "scripts": {
+      "總數": 35,
+      "有DNA": 31,
+      "無DNA": 4
+    },
+    "logging_backup": {
+      "總數": 5,
+      "有DNA": 5,
+      "無DNA": 0
+    },
+    "software-dna": {
+      "總數": 4,
+      "有DNA": 4,
+      "無DNA": 0
+    },
+    "project-memory": {
+      "總數": 6,
+      "有DNA": 5,
+      "無DNA": 1
+    },
+    "mvp_config": {
+      "總數": 9,
+      "有DNA": 3,
+      "無DNA": 6
+    },
+    "brain": {
+      "總數": 4,
+      "有DNA": 4,
+      "無DNA": 0
+    },
+    "cnsh-core.backup": {
+      "總數": 918,
+      "有DNA": 261,
+      "無DNA": 657
+    },
+    "skills": {
+      "總數": 98,
+      "有DNA": 95,
+      "無DNA": 3
+    },
+    "sovereignty": {
+      "總數": 11,
+      "有DNA": 11,
+      "無DNA": 0
+    },
+    "wuxing-visual": {
+      "總數": 6,
+      "有DNA": 6,
+      "無DNA": 0
+    },
+    "monitoring": {
+      "總數": 7,
+      "有DNA": 6,
+      "無DNA": 1
+    },
+    "_archive": {
+      "總數": 2502,
+      "有DNA": 2501,
+      "無DNA": 1
+    },
+    "cnsh-core": {
+      "總數": 1028,
+      "有DNA": 371,
+      "無DNA": 657
+    },
+    "systems": {
+      "總數": 22,
+      "有DNA": 19,
+      "無DNA": 3
+    },
+    "kimi": {
+      "總數": 10,
+      "有DNA": 10,
+      "無DNA": 0
+    },
+    "protocols": {
+      "總數": 28,
+      "有DNA": 27,
+      "無DNA": 1
+    },
+    "02_rules": {
+      "總數": 1,
+      "有DNA": 1,
+      "無DNA": 0
+    },
+    "editor": {
+      "總數": 4,
+      "有DNA": 3,
+      "無DNA": 1
+    },
+    "android-auto": {
+      "總數": 2,
+      "有DNA": 2,
+      "無DNA": 0
+    },
+    "crypto-stack": {
+      "總數": 7,
+      "有DNA": 6,
+      "無DNA": 1
+    },
+    "vault": {
+      "總數": 6,
+      "有DNA": 5,
+      "無DNA": 1
+    }
+  },
+  "重複DNA列表": [
+    {
+      "DNA碼": " #龍芯⚡️2026-05-24-22:57-CNSH-RUNTIME-ACCESS-v2.0",
+      "文件數": 8,
+      "嚴重度": "critical",
+      "文件列表": [
+        "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL.md",
+        "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+        "releases/v5.1/staging/protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL.md",
+        "releases/v5.1/staging/protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+        "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL.md",
+        "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+        "protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL.md",
+        "protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "SESSION_SUMMARY_20260603.md",
+        "_archive/cnsh-history/CNSH_备份_20260211/.claude.json"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE3-FILE1-v1.1",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "brain_notion_sync.py",
+        "brain/brain_notion_sync.py"
+      ]
+    },
+    {
+      "DNA碼": " #龍芯⚡️2026-06-04-BAOBAO-ENV-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "baobao-guardian/backend/.env",
+        "releases/v5.1/staging/baobao-guardian/backend/.env"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-18-STARRY-MEMORY-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/memory-universe/README.md",
+        "releases/v5.1/staging/memory-universe/index.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-HUB-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/cnsh/sancai_sync/README.md",
+        "cnsh/sancai_sync/README.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-06-THREE-INTEGRATION-SYNC-HUB-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/cnsh/sancai_sync/sancai_sync_hub.py",
+        "cnsh/sancai_sync/sancai_sync_hub.py"
+      ]
+    },
+    {
+      "DNA碼": " #龍芯⚡️2026-06-06-SANCAI-SYNC-TEST-SUITE-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/cnsh/sancai_sync/tests/test_sancai_sync_hub.py",
+        "cnsh/sancai_sync/tests/test_sancai_sync_hub.py"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-v3.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/01_技能庫/code-audit.md",
+        "06_技術文檔/skill_code-audit.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-06-KIMI-WEBBRIDGE-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/01_技能庫/kimi-webbridge.md",
+        "03_知識圖譜/graph_data.json"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE1-v2.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/skills/longhun-audit-integrated/LONGHUN_AUDIT_INTEGRATED_GUIDE.md",
+        "skills/longhun-audit-integrated/LONGHUN_AUDIT_INTEGRATED_GUIDE.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-04-KFPP-EXECUTOR-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/systems/kfpp/README.md",
+        "executors/kfpp/longhun_kfpp_executor_v1.0.py"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "releases/v5.1/staging/editor/龍碼編輯器.py",
+        "editor/README.md"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-07-ALGORITHMIC-ART-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "skills.backup/html-skills/skill-1-algorithmic-art.html",
+        "docs/v3/HTML交互工具启动指南.md"
+      ]
+    },
+    {
+      "DNA碼": " #龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "cnsh-core.backup/core_system_launcher.py",
+        "cnsh-core/core_system_launcher.py"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-05-30-ENV-CONFIG-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "cnsh-core.backup/ai-tools/operation_log_engine/.env.example",
+        "cnsh-core/ai-tools/operation_log_engine/.env.example"
+      ]
+    },
+    {
+      "DNA碼": " #龍芯⚡️2026-04-19-三才流場-v8",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "cnsh-core.backup/longhun-flow-system/current.html",
+        "cnsh-core/longhun-flow-system/current.html"
+      ]
+    },
+    {
+      "DNA碼": "#龍芯⚡️2026-06-03-PERSONA-ROUTER-FILE1-v1.0",
+      "文件數": 2,
+      "嚴重度": "info",
+      "文件列表": [
+        "cnsh-core.backup/router/PERSONA_ROUTER_README.md",
+        "cnsh-core/router/persona_router.py"
+      ]
+    }
+  ]
+}

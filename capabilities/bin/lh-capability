@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂能力统一调度 CLI
+DNA: #龍芯⚡️2026-06-28-LH-CAPABILITY-v1.1
+
+用法：
+  lh-capability list                    # 列出所有能力
+  lh-capability status                  # 能力系统状态
+  lh-capability override <能力名>        # 规则覆盖
+  lh-capability stats                   # 统计
+  lh-capability trace <DNA>             # 追溯
+  lh-capability call <能力名> [params]  # 调用能力
+  lh-capability train status            # 训练状态
+  lh-capability train trigger           # 触发训练
+  lh-capability train logs              # 训练日志
+  lh-capability train deploy            # 手动上线
+  lh-capability train rollback          # 回滚
+  lh-capability persona list            # 列出所有人格
+  lh-capability persona route <任务>    # 任务人格路由
+  lh-capability persona run tech-doc <主题>  # 宝宝+诸葛+鲁班写技术文档
+"""
+import sys
+import json
+from pathlib import Path
+
+# 把 src 加入路径
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+from registry import CapabilityRegistry
+from dispatcher import Dispatcher
+from auditor import Auditor
+from train_pipeline import TrainPipeline
+from persona_matrix import PersonaMatrix
+from workflows import WorkflowEngine
+
+
+DNA = "#龍芯⚡️2026-06-28-LH-CAPABILITY-v1.1"
+
+
+def print_json(obj):
+    print(json.dumps(obj, ensure_ascii=False, indent=2))
+
+
+def cmd_list(args):
+    registry = CapabilityRegistry()
+    category = args[0] if args else None
+    caps = registry.list_capabilities(category=category)
+    print_json({
+        "DNA": DNA,
+        "count": len(caps),
+        "capabilities": caps,
+    })
+
+
+def cmd_status(args):
+    registry = CapabilityRegistry()
+    dispatcher = Dispatcher()
+    stats = registry.get_stats()
+    print_json({
+        "DNA": DNA,
+        "stats": stats,
+        "audit_log": str(dispatcher.auditor.log_path),
+    })
+
+
+def cmd_override(args):
+    if not args:
+        print("用法: lh-capability override <能力名>")
+        sys.exit(1)
+    dispatcher = Dispatcher()
+    result = dispatcher.override_rules(args[0])
+    print_json(result)
+
+
+def cmd_stats(args):
+    registry = CapabilityRegistry()
+    print_json({
+        "DNA": DNA,
+        "stats": registry.get_stats(),
+    })
+
+
+def cmd_trace(args):
+    if not args:
+        print("用法: lh-capability trace <DNA>")
+        sys.exit(1)
+    auditor = Auditor()
+    results = auditor.query(dna=args[0])
+    print_json({
+        "DNA": DNA,
+        "trace": results,
+    })
+
+
+def cmd_call(args):
+    if not args:
+        print("用法: lh-capability call <能力名> [JSON参数]")
+        sys.exit(1)
+    name = args[0]
+    params = {}
+    if len(args) > 1:
+        try:
+            params = json.loads(args[1])
+        except Exception:
+            params = {"prompt": args[1]}
+    dispatcher = Dispatcher()
+    result = dispatcher.call(name, params)
+    print_json(result)
+
+
+def cmd_train_status(args):
+    pipeline = TrainPipeline()
+    print_json({
+        "DNA": DNA,
+        "status": pipeline.status(),
+    })
+
+
+def cmd_train_trigger(args):
+    pipeline = TrainPipeline()
+    result = pipeline.run_full_pipeline()
+    print_json({
+        "DNA": DNA,
+        "result": result,
+    })
+
+
+def cmd_train_logs(args):
+    pipeline = TrainPipeline()
+    limit = int(args[0]) if args else 20
+    print_json({
+        "DNA": DNA,
+        "logs": pipeline.logs(limit=limit),
+    })
+
+
+def cmd_train_deploy(args):
+    pipeline = TrainPipeline()
+    result = pipeline.deploy()
+    print_json({
+        "DNA": DNA,
+        "result": result,
+    })
+
+
+def cmd_train_rollback(args):
+    pipeline = TrainPipeline()
+    result = pipeline.rollback()
+    print_json({
+        "DNA": DNA,
+        "result": result,
+    })
+
+
+def cmd_persona_list(args):
+    matrix = PersonaMatrix()
+    personas = matrix.list_personas()
+    print_json({
+        "DNA": DNA,
+        "count": len(personas),
+        "personas": personas,
+    })
+
+
+def cmd_persona_route(args):
+    if not args:
+        print("用法: lh-capability persona route <任务描述>")
+        sys.exit(1)
+    task = " ".join(args)
+    matrix = PersonaMatrix()
+    routed = matrix.route(task)
+    print_json({
+        "DNA": DNA,
+        "task": task,
+        "routed_personas": routed,
+    })
+
+
+def cmd_persona_run(args):
+    if len(args) < 2:
+        print("用法: lh-capability persona run <工作流> <主题>")
+        print("示例: lh-capability persona run tech-doc 龍魂人格矩阵接入方案")
+        sys.exit(1)
+    workflow_name = args[0]
+    topic = " ".join(args[1:])
+
+    if workflow_name != "tech-doc":
+        print(f"暂不支持工作流: {workflow_name}，当前可用: tech-doc")
+        sys.exit(1)
+
+    dispatcher = Dispatcher()
+
+    def model_caller(messages):
+        return dispatcher.call("ollama-qwen2.5-7b", {"messages": messages})["output"]
+
+    engine = WorkflowEngine()
+    result = engine.tech_doc(topic, model_caller=model_caller)
+    print_json({
+        "DNA": DNA,
+        "result": result,
+    })
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(0)
+
+    command = sys.argv[1]
+    args = sys.argv[2:]
+
+    handlers = {
+        "list": cmd_list,
+        "status": cmd_status,
+        "override": cmd_override,
+        "stats": cmd_stats,
+        "trace": cmd_trace,
+        "call": cmd_call,
+    }
+
+    train_handlers = {
+        "status": cmd_train_status,
+        "trigger": cmd_train_trigger,
+        "logs": cmd_train_logs,
+        "deploy": cmd_train_deploy,
+        "rollback": cmd_train_rollback,
+    }
+
+    persona_handlers = {
+        "list": cmd_persona_list,
+        "route": cmd_persona_route,
+        "run": cmd_persona_run,
+    }
+
+    if command == "train":
+        if not args:
+            print("子命令: status/trigger/logs/deploy/rollback")
+            sys.exit(1)
+        sub = args[0]
+        sub_args = args[1:]
+        if sub in train_handlers:
+            train_handlers[sub](sub_args)
+        else:
+            print(f"未知训练子命令: {sub}")
+            sys.exit(1)
+    elif command == "persona":
+        if not args:
+            print("子命令: list/route/run")
+            sys.exit(1)
+        sub = args[0]
+        sub_args = args[1:]
+        if sub in persona_handlers:
+            persona_handlers[sub](sub_args)
+        else:
+            print(f"未知人格子命令: {sub}")
+            sys.exit(1)
+    elif command in handlers:
+        handlers[command](args)
+    else:
+        print(f"未知命令: {command}")
+        print(__doc__)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

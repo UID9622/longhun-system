@@ -1,0 +1,33 @@
+# 龍魂 Web 门户 · 静态资源服务
+# DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·需-DOCKER-WEB-v2.0
+# 用 Python http.server 或 FastAPI 挂载 portal/ web/ 目录
+
+FROM python:3.13-slim
+
+LABEL maintainer="UID9622"
+LABEL description="龍魂 Web Portal · 静态资源 + SPA 路由"
+LABEL dna="#龍芯⚡️2026-07-11-DOCKER-WEB-v2.0"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir fastapi uvicorn aiofiles
+
+# 复制前端资源
+COPY portal/ /app/portal/
+COPY web/ /app/web/
+COPY web_server.py /app/web_server.py
+
+ENV PYTHONUNBUFFERED=1
+ENV TZ=Asia/Shanghai
+ENV LONGHUN_API_URL=http://api:9622
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8777/health || exit 1
+
+EXPOSE 8777
+
+CMD ["python", "/app/web_server.py"]

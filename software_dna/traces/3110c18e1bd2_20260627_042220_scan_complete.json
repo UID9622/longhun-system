@@ -1,0 +1,12 @@
+{
+  "dna": "3110c18e1bd2a89fdff36555e620cf84177f3192c91d8d10fdf8a5068ea94cbe",
+  "event": "scan_complete",
+  "timestamp": "2026-06-26T20:22:20.242764+00:00",
+  "detail": {
+    "route": "fuse",
+    "audit": "🔴",
+    "risk_score": 40,
+    "file_type": "shell_script",
+    "dry_run": false
+  }
+}

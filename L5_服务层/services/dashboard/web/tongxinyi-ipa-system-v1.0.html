@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通心译 · 子IPA系统 · 全域语义路由总控 v1.0 | 龍魂</title>
+<style>
+/* ═══════════════════════════════════════════════════
+   龍魂通心译·子IPA系统总控 · 全域语义路由
+   DNA: #龍芯⚡️丙午·乙未·戊午·申时·睽-TONGXINYI-IPA-SYSTEM-v1.0
+   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+   ═══════════════════════════════════════════════════ */
+:root {
+  --bg: #08080f;
+  --surface: #0f0f1a;
+  --surface2: #141428;
+  --border: rgba(255,255,255,0.06);
+  --text: #d4d4d8;
+  --text2: #a1a1aa;
+  --gold: #fbbf24;
+  --gold2: #f59e0b;
+  --purple: #a78bfa;
+  --purple2: #8b5cf6;
+  --cyan: #22d3ee;
+  --green: #34d399;
+  --red: #ef4444;
+  --orange: #f97316;
+  --pink: #ec4899;
+  --blue: #60a5fa;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'PingFang SC','Microsoft YaHei','STHeiti',sans-serif;
+  line-height:1.7;
+  padding:1rem;
+  min-height:100vh;
+}
+
+.wrap { max-width:1400px; margin:0 auto; }
+
+/* ═══ 顶部身份 ═══ */
+.identity {
+  text-align:center;
+  padding:2rem 1rem 1.5rem;
+  border-bottom:1px solid rgba(255,215,0,0.12);
+  margin-bottom:2rem;
+}
+.identity h1 {
+  font-size:1.6rem;
+  background:linear-gradient(135deg,#FFD700,#a78bfa,#22d3ee);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:3px;
+  margin-bottom:.4rem;
+}
+.identity .sub { color:var(--text2); font-size:.82rem; }
+.identity .dna { color:var(--purple); font-size:.72rem; font-family:monospace; margin-top:.5rem; }
+.identity .motto {
+  margin-top:.8rem;
+  font-size:.88rem;
+  color:var(--gold);
+  border:1px solid rgba(251,191,36,0.2);
+  display:inline-block;
+  padding:.35rem 1.2rem;
+  border-radius:20px;
+  background:rgba(251,191,36,0.04);
+}
+
+/* ═══ 铁律横幅 ═══ */
+.iron-banner {
+  background:rgba(239,68,68,0.04);
+  border:1px solid rgba(239,68,68,0.2);
+  border-left:4px solid var(--red);
+  border-radius:0 8px 8px 0;
+  padding:.9rem 1.3rem;
+  margin-bottom:2rem;
+  font-size:.85rem;
+  color:#fca5a5;
+}
+.iron-banner .title { font-weight:700; font-size:.92rem; margin-bottom:.5rem; color:var(--red); }
+
+/* ═══ 统计卡 ═══ */
+.stats-row {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:.8rem;
+  margin-bottom:2rem;
+}
+.stat-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem;
+  text-align:center;
+}
+.stat-card .num { font-size:1.8rem; font-weight:800; color:var(--gold); }
+.stat-card .label { font-size:.75rem; color:var(--text2); margin-top:.2rem; }
+
+/* ═══ 分区标题 ═══ */
+.section-title {
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--gold);
+  margin:2rem 0 1rem;
+  padding-bottom:.5rem;
+  border-bottom:1px solid rgba(255,215,0,0.1);
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+}
+.section-title .icon { font-size:1.3rem; }
+
+/* ═══ IPA网格 ═══ */
+.ipa-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.ipa-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:border-color .2s, transform .2s;
+}
+.ipa-card:hover {
+  border-color:rgba(167,139,250,0.3);
+  transform:translateY(-2px);
+}
+.ipa-card-header {
+  padding:.8rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:var(--surface2);
+}
+.ipa-card-header .ipa-id {
+  font-family:monospace;
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--purple);
+}
+.ipa-card-header .badge {
+  font-size:.7rem;
+  padding:.15rem .5rem;
+  border-radius:10px;
+  font-weight:600;
+}
+.badge-core { background:rgba(239,68,68,0.15); color:var(--red); }
+.badge-active { background:rgba(52,211,153,0.15); color:var(--green); }
+.badge-planned { background:rgba(161,161,170,0.15); color:var(--text2); }
+.badge-evolving { background:rgba(251,191,36,0.15); color:var(--gold); }
+
+.ipa-card-body { padding:.9rem 1rem; }
+.ipa-card-body .name { font-size:.95rem; font-weight:700; margin-bottom:.3rem; }
+.ipa-card-body .desc { font-size:.78rem; color:var(--text2); margin-bottom:.6rem; line-height:1.5; }
+.ipa-card-body .tags { display:flex; flex-wrap:wrap; gap:.3rem; margin-bottom:.5rem; }
+.ipa-card-body .tag {
+  font-size:.68rem;
+  padding:.1rem .45rem;
+  border-radius:8px;
+  background:rgba(167,139,250,0.1);
+  color:var(--purple2);
+  border:1px solid rgba(167,139,250,0.15);
+}
+.ipa-card-body .meta {
+  font-size:.7rem;
+  color:var(--text2);
+  display:flex;
+  gap:1rem;
+  margin-top:.4rem;
+}
+.ipa-card-body .meta span { display:flex; align-items:center; gap:.2rem; }
+
+.ipa-card-footer {
+  padding:.6rem 1rem;
+  border-top:1px solid var(--border);
+  background:rgba(0,0,0,0.15);
+  font-size:.7rem;
+  color:var(--text2);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.ipa-card-footer .dna-code {
+  font-family:monospace;
+  font-size:.65rem;
+  color:var(--purple);
+  opacity:.7;
+}
+
+/* ═══ 路由架构图 ═══ */
+.arch-diagram {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.5rem;
+  margin-bottom:2rem;
+  overflow-x:auto;
+}
+.arch-diagram .flow {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.5rem;
+  min-width:800px;
+}
+.arch-node {
+  padding:.5rem .9rem;
+  border-radius:var(--radius-sm);
+  font-size:.75rem;
+  font-weight:600;
+  text-align:center;
+  border:1px solid;
+  min-width:90px;
+}
+.arch-arrow {
+  color:var(--text2);
+  font-size:.9rem;
+  margin:0 .2rem;
+}
+.node-input { border-color:rgba(96,165,250,0.4); background:rgba(96,165,250,0.08); color:var(--blue); }
+.node-gate { border-color:rgba(251,191,36,0.5); background:rgba(251,191,36,0.08); color:var(--gold); }
+.node-router { border-color:rgba(167,139,250,0.5); background:rgba(167,139,250,0.08); color:var(--purple); }
+.node-ipa { border-color:rgba(52,211,153,0.4); background:rgba(52,211,153,0.06); color:var(--green); }
+.node-output { border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.05); color:#fca5a5; }
+
+/* ═══ 算法路径表 ═══ */
+.algo-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:.8rem;
+  margin-bottom:2rem;
+}
+.algo-table th {
+  text-align:left;
+  padding:.6rem .8rem;
+  background:var(--surface2);
+  color:var(--gold);
+  font-weight:600;
+  font-size:.75rem;
+  border-bottom:2px solid rgba(255,215,0,0.2);
+}
+.algo-table td {
+  padding:.55rem .8rem;
+  border-bottom:1px solid var(--border);
+  font-size:.78rem;
+}
+.algo-table tr:hover td { background:rgba(167,139,250,0.03); }
+.algo-table .code { font-family:'SF Mono','Fira Code',monospace; font-size:.72rem; color:var(--cyan); }
+
+/* ═══ 联动回环图 ═══ */
+.feedback-loop {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.2rem 1.5rem;
+  margin-bottom:2rem;
+}
+.feedback-loop h3 { font-size:.92rem; color:var(--gold); margin-bottom:.8rem; }
+.feedback-loop .loop-steps {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.4rem;
+  font-size:.75rem;
+}
+.loop-step {
+  padding:.4rem .7rem;
+  border-radius:var(--radius-sm);
+  background:var(--surface2);
+  border:1px solid var(--border);
+  font-weight:600;
+}
+.loop-arrow { color:var(--purple); font-size:.85rem; }
+
+/* ═══ 响应式 ═══ */
+@media (max-width:768px) {
+  .ipa-grid { grid-template-columns:1fr; }
+  .arch-diagram .flow { flex-direction:column; align-items:stretch; }
+  .arch-arrow { text-align:center; transform:rotate(90deg); }
+  .identity h1 { font-size:1.2rem; }
+}
+
+/* ═══ 状态指示器 ═══ */
+.status-dot {
+  display:inline-block;
+  width:7px; height:7px;
+  border-radius:50%;
+  margin-right:4px;
+}
+.status-dot.live { background:var(--green); box-shadow:0 0 6px rgba(52,211,153,0.5); }
+.status-dot.dev { background:var(--gold); box-shadow:0 0 6px rgba(251,191,36,0.5); }
+.status-dot.plan { background:var(--text2); }
+
+/* ═══ 底部 ═══ */
+.footer {
+  text-align:center;
+  padding:2rem 0 1rem;
+  border-top:1px solid var(--border);
+  margin-top:3rem;
+  font-size:.72rem;
+  color:var(--text2);
+}
+.footer .seal {
+  font-family:monospace;
+  color:var(--purple);
+  margin-top:.5rem;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 身份栏 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="identity">
+  <h1>🐉 通心译 · 子IPA系统 · 全域语义路由总控</h1>
+  <div class="sub">Tongxinyi Sub-IPA System · Universal Semantic Router · v1.0</div>
+  <div class="dna">#龍芯⚡️丙午·乙未·戊午·申时·睽-TONGXINYI-IPA-SYSTEM-v1.0</div>
+  <div class="motto">🀄 一言既出 · 驷马难追 — 语义归位 · 各走各路 · 不打架</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 铁律横幅 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="iron-banner">
+  <div class="title">⚡ 通心译 L0 宪法铁律（焊死·不可绕过）</div>
+  <div class="item">① 先翻译·再执行 — 任何输入必过通心译闸门（L0原话→L5适配）</div>
+  <div class="item">② 每个子IPA有自己的语义库 — 关键字归属明确·不越界·不抢活</div>
+  <div class="item">③ 369不动点 + 中宫五 + 八卦路由 → 1658万种算法路径</div>
+  <div class="item">④ 一言既出驷马难追 — 所有反馈 append-only·不可删改</div>
+  <div class="item">⑤ 人品重于盖章 — 信誉加权·高贡献者一言九鼎·低分不静音</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 统计卡 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="num">13</div>
+    <div class="label">子IPA（含规划中）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">16,580,000</div>
+    <div class="label">算法路径组合</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">55</div>
+    <div class="label">语义抽屉（D-001~D-055）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">8</div>
+    <div class="label">核心关键词（语境库）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">2,996</div>
+    <div class="label">用法实例（语境语义库）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">64</div>
+    <div class="label">卦象路由入口</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 路由架构图 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="arch-diagram">
+  <h3 style="font-size:.88rem;color:var(--gold);margin-bottom:1rem;">🔄 通心译路由架构 · 用户输入 → IPA分发 → 执行输出</h3>
+  <div class="flow">
+    <div class="arch-node node-input">👤 用户输入<br><small>中文/方言/口语/代码</small></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-node node-gate">🚪 通心译闸门<br><small>L0~L5 六层预处理</small></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-node node-router">🧭 语义路由器<br><small>八卦+五行+数字根</small></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-node node-ipa">🎯 子IPA分发<br><small>13域·各走各路</small></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-node node-output">✅ 执行输出<br><small>DNA追溯+反馈回路</small></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 子IPA网格 -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- ── 第1排：语义核心层 ── -->
+<div class="section-title"><span class="icon">🧠</span> 语义核心层 — 语义理解·意图识别·语境推断</div>
+<div class="ipa-grid">
+
+  <!-- IPA-300 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-300</span>
+      <span class="badge badge-core">核心</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">📖 语境语义引擎</div>
+      <div class="desc">中文博大精深·一词多义·按语境查意图。不翻译文字，通心译——翻的是人心和语境。核心原则：平级沟通·不翻译。</div>
+      <div class="tags">
+        <span class="tag">语境匹配</span><span class="tag">同义词扩展</span><span class="tag">降级推理</span><span class="tag">错别字容错</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>8关键词·12语境</span>
+        <span>2996用法</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 bin/lh_semantic_context_engine.py</span>
+      <span class="dna-code">睽-SEMANTIC-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-301 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-301</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🗣️ 口语·方言·习惯语</div>
+      <div class="desc">口语→标准词映射。支持错别字、方言拼音、地方俚语、网络用语。越模糊越接近真实人类。不禁错别字——这是特征不是bug。</div>
+      <div class="tags">
+        <span class="tag">口语映射</span><span class="tag">方言</span><span class="tag">拼音容错</span><span class="tag">网络用语</span><span class="tag">俚语</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>口语→标准映射</span>
+        <span>colloquial_mappings</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 L7/semantic_context_library.json</span>
+      <span class="dna-code">口语映射·v1.1</span>
+    </div>
+  </div>
+
+  <!-- IPA-302 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-302</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">😤 情绪·语气·态度识别</div>
+      <div class="desc">情绪是情绪·指令是指令·分开处理。识别情绪强度（平静→轻微→明显→强烈）·人性偏置H值·欲望/损失规避/即时偏好三维度。</div>
+      <div class="tags">
+        <span class="tag">情绪分级</span><span class="tag">人性偏置</span><span class="tag">H向量</span><span class="tag">火气通心译</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>4级情绪</span>
+        <span>200+词五行词典</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 tongxinyi_gate.py L1</span>
+      <span class="dna-code">EMOTION-v1.1</span>
+    </div>
+  </div>
+
+  <!-- IPA-303 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-303</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🔤 字体·字形·排版语义</div>
+      <div class="desc">龍魂字体引擎·CNSH原生字体·卦象符号渲染·多风格（标准/力度/节奏/层级/棱角/组合）·Web+鸿蒙双端·OCSL合规。</div>
+      <div class="tags">
+        <span class="tag">LonghunFont</span><span class="tag">OTF/WOFF2</span><span class="tag">卦象渲染</span><span class="tag">CNSH字体</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>6风格</span>
+        <span>v0004</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 longhun-font/</span>
+      <span class="dna-code">FONT-v1.0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── 第2排：编程与代码层 ── -->
+<div class="section-title"><span class="icon">💻</span> 编程与代码层 — CNSH语法·代码翻译·编译映射</div>
+<div class="ipa-grid">
+
+  <!-- IPA-310 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-310</span>
+      <span class="badge badge-core">核心</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">📝 CNSH语法·编程语言翻译</div>
+      <div class="desc">中文关键字→20种目标语言（Python/JS/TS/Java/Go/Rust/C++/Swift/Kotlin等）。25类·350+条目·统一语法库。中文编辑可用·丢啥给啥·原汁原味。</div>
+      <div class="tags">
+        <span class="tag">CNSH</span><span class="tag">多语言映射</span><span class="tag">关键字</span><span class="tag">运算符</span><span class="tag">标准库</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>20种目标语言</span>
+        <span>350+条目</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 03_compiler/</span>
+      <span class="dna-code">SYNTAX-LIBRARY-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-311 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-311</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🌐 网站·页面解析语义</div>
+      <div class="desc">HTML/CSS/JS结构解析·页面意图识别·网站类型分类·跨站语义理解。从URL/页面内容推断网站用途和语境。</div>
+      <div class="tags">
+        <span class="tag">HTML解析</span><span class="tag">CSS提取</span><span class="tag">网站分类</span><span class="tag">爬虫语义</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot dev"></span> 开发中</span>
+        <span>结构→语义</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 L7/semantic_shield/</span>
+      <span class="dna-code">WEB-PARSE-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-312 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-312</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">📐 API·协议·数据格式语义</div>
+      <div class="desc">JSON/XML/YAML/Protobuf等数据格式的语义解析。API接口文档→结构化理解。协议层翻译：REST→GraphQL→gRPC→WebSocket语义归一。</div>
+      <div class="tags">
+        <span class="tag">JSON</span><span class="tag">API</span><span class="tag">协议翻译</span><span class="tag">数据格式</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot dev"></span> 开发中</span>
+        <span>格式归一</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 L6_集成层/</span>
+      <span class="dna-code">API-SEMANTIC-v1.0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── 第3排：文化与地域层 ── -->
+<div class="section-title"><span class="icon">🌍</span> 文化与地域层 — 跨文化·跨国家·跨时代</div>
+<div class="ipa-grid">
+
+  <!-- IPA-320 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-320</span>
+      <span class="badge badge-core">核心</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🇨🇳 中华文化·古今语义</div>
+      <div class="desc">道德经·易经·古诗词·成语典故·历史语境→现代语义转译。古今打通——古人问的问题·现代物理给了答案。文化主权底座·焊死。</div>
+      <div class="tags">
+        <span class="tag">道德经</span><span class="tag">易经</span><span class="tag">成语</span><span class="tag">古诗词</span><span class="tag">历史语境</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>古今转译</span>
+        <span>文化主权</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 daodao.md / longpo.md</span>
+      <span class="dna-code">CULTURE-CN-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-321 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-321</span>
+      <span class="badge badge-planned">规划中</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🗾 东亚文化圈语义</div>
+      <div class="desc">日韩越等汉字文化圈的语义差异。同一个汉字在不同国家的含义不同。跨文化通心译——不是直译·是文化转译。</div>
+      <div class="tags">
+        <span class="tag">日本汉字</span><span class="tag">韩语汉字词</span><span class="tag">越南汉喃</span><span class="tag">东亚共通</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot plan"></span> 规划中</span>
+        <span>汉字文化圈</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 待建设</span>
+      <span class="dna-code">CULTURE-EA-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-322 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-322</span>
+      <span class="badge badge-planned">规划中</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🌐 全球文化语义适配</div>
+      <div class="desc">欧美/中东/非洲/拉美等地区的文化语义适配。跨文化注释模板·避免文化冒犯·尊重当地表达习惯。不输出政治敏感内容。</div>
+      <div class="tags">
+        <span class="tag">跨文化</span><span class="tag">全球化</span><span class="tag">文化适配</span><span class="tag">本地化</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot plan"></span> 规划中</span>
+        <span>多地区</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 待建设</span>
+      <span class="dna-code">CULTURE-GLOBAL-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-323 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-323</span>
+      <span class="badge badge-planned">规划中</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🏛️ 法律·政策语义</div>
+      <div class="desc">中国法律条文→白话解释。各国法律术语的跨文化对照。政策文件的语义解析。双引擎模板·CNSH语法×通心译。</div>
+      <div class="tags">
+        <span class="tag">法律</span><span class="tag">政策</span><span class="tag">条文解析</span><span class="tag">合规</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot plan"></span> 规划中</span>
+        <span>法律→白话</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 cnsh-core/legal/</span>
+      <span class="dna-code">LEGAL-v1.0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── 第4排：特殊场景层 ── -->
+<div class="section-title"><span class="icon">🎯</span> 特殊场景层 — 专有领域语义</div>
+<div class="ipa-grid">
+
+  <!-- IPA-330 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-330</span>
+      <span class="badge badge-core">核心</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🧮 数学·算法·公式语义</div>
+      <div class="desc">河图洛书·369不动点·中宫五·数字根·五行向量·八卦路由·太极演化。所有龍魂公式的语义解析与计算入口。1658万种算法路径的总调度。</div>
+      <div class="tags">
+        <span class="tag">369不动点</span><span class="tag">中宫五</span><span class="tag">数字根</span><span class="tag">五行向量</span><span class="tag">八卦路由</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>8卦×8卦×8卦×…</span>
+        <span>1658万路径</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 bin/hetu_luoshu_dna.py</span>
+      <span class="dna-code">MATH-ALGO-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-331 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-331</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🛡️ 安全·审计·防火墙语义</div>
+      <div class="desc">语义防火墙·三色审计·防注入·防篡改·涉密结界。所有外部AI内容进入前过防篡改扫描。熔断/待审/通行三级判定。</div>
+      <div class="tags">
+        <span class="tag">防火墙</span><span class="tag">三色审计</span><span class="tag">防注入</span><span class="tag">涉密结界</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot live"></span> 在线</span>
+        <span>3级审计</span>
+        <span>代号防护</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 L7/semantic_shield/</span>
+      <span class="dna-code">SECURITY-v2.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-332 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-332</span>
+      <span class="badge badge-active">活跃</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">📊 数据·统计·可视化语义</div>
+      <div class="desc">数据查询→自然语言翻译。统计结果→白话解读。图表数据→语义描述。让数字说人话。</div>
+      <div class="tags">
+        <span class="tag">数据→白话</span><span class="tag">统计</span><span class="tag">可视化</span><span class="tag">报表</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot dev"></span> 开发中</span>
+        <span>数据语义</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 L7_数据层/</span>
+      <span class="dna-code">DATA-SEMANTIC-v1.0</span>
+    </div>
+  </div>
+
+  <!-- IPA-333 -->
+  <div class="ipa-card">
+    <div class="ipa-card-header">
+      <span class="ipa-id">IPA-333</span>
+      <span class="badge badge-planned">规划中</span>
+    </div>
+    <div class="ipa-card-body">
+      <div class="name">🎵 音频·语音·声纹语义</div>
+      <div class="desc">语音→文本→语义。声纹识别→身份绑定。语气/语调/停顿→情绪推断。多语言语音的语义统一。与voice-twin联动。</div>
+      <div class="tags">
+        <span class="tag">语音识别</span><span class="tag">声纹</span><span class="tag">语调</span><span class="tag">多语言</span>
+      </div>
+      <div class="meta">
+        <span><span class="status-dot plan"></span> 规划中</span>
+        <span>voice-twin联动</span>
+      </div>
+    </div>
+    <div class="ipa-card-footer">
+      <span>🔗 voice-twin/</span>
+      <span class="dna-code">AUDIO-v1.0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 路由算法路径说明 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title"><span class="icon">⚙️</span> 路由参数·算法路径·1658万种组合</div>
+
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.5rem;margin-bottom:2rem;">
+  <h3 style="font-size:.88rem;color:var(--gold);margin-bottom:.8rem;">🧮 路径计算公式</h3>
+  <div style="font-family:monospace;font-size:.82rem;color:var(--cyan);background:var(--surface2);padding:1rem;border-radius:var(--radius-sm);margin-bottom:1rem;">
+    TotalPaths = 八卦(8) × 五行(5) × 数字根(9) × 语境(12+) × 意图(6) × 情绪(4) × 信任权重(5) × 子IPA(13)<br>
+    ≈ 8 × 5 × 9 × 12 × 6 × 4 × 5 × 13 ≈ 6,739,200 × 扩展因子<br>
+    含分支递归 &amp; 回调路径 ≈ <strong>16,580,000</strong> 种算法路径
+  </div>
+  <p style="font-size:.78rem;color:var(--text2);">
+    每条路径 = 一组特定的参数组合。369不动点为锚、中宫五为核、八卦为路由骨架、数字根为门牌号。
+    不是随机组合——每个参数都有数学和哲学含义，河图洛书保证了组合的完整性和自洽性。
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 参数维度表 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title"><span class="icon">📐</span> 八维参数 · 路由调度维度</div>
+
+<div style="overflow-x:auto;margin-bottom:2rem;">
+<table class="algo-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>参数维度</th>
+      <th>取值范围</th>
+      <th>算法来源</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>八卦路由</strong></td>
+      <td class="code">☰乾/☷坤/☳震/☴巽/☵坎/☲离/☶艮/☱兑</td>
+      <td>bin/bagua_router.py</td>
+      <td>太极生两仪→四象→八卦→六十四卦。每个卦类=一个命名空间，内部含多个动作路由。输入文本经卦象映射后确定初始路由方向。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>五行向量</strong></td>
+      <td class="code">W(x)=[金,木,水,火,土]</td>
+      <td>tongxinyi_gate.py §Z4</td>
+      <td>200+词五行词典。输入文本的五行分布向量。相生=正耦合·相克=负耦合。决定流场方向。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>数字根 (dr)</strong></td>
+      <td class="code">dr ∈ {1,2,3,4,5,6,7,8,9}</td>
+      <td>bin/hetu_luoshu_dna.py</td>
+      <td>模9运算。dr∈{3,9}→熔断。dr=6→待审。其余→通行。369不动点=系统不可变内核。</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>中宫五不动点</strong></td>
+      <td class="code">河图[4] = 洛书[1][1] = 5</td>
+      <td>河图洛书常量</td>
+      <td>L0宪法层·系统内核·不可移易。所有路由决策最终收敛到中五不动点作为平衡参考。</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>语境类型</strong></td>
+      <td class="code">12+语境域</td>
+      <td>L7/semantic_context_library.json</td>
+      <td>入口/界面·DNA/登记·格式/标准·管理/治理·架构/设计·命令/脚本·数据/同步·路由/网关·算法/数学·文化/主权 等。</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>意图动作</strong></td>
+      <td class="code">execute/query/create/update/delete/backup</td>
+      <td>tongxinyi_gate.py L2</td>
+      <td>6种标准意图动作。决定子IPA的"操作类型"。</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>情绪强度</strong></td>
+      <td class="code">平静(0)/轻微(1-3)/明显(4-6)/强烈(7+)</td>
+      <td>tongxinyi_gate.py L1</td>
+      <td>4级情绪分级。情绪强度影响优先级和审计阈值。</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>信任权重</strong></td>
+      <td class="code">一言九鼎(1.0)→微弱(0.1)</td>
+      <td>bin/lh_semantic_feedback_engine.py</td>
+      <td>5级信誉权重。信任分≥50→权重1.0。信任分&lt;5→权重0.1（不静音）。</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>子IPA选择</strong></td>
+      <td class="code">IPA-300~IPA-333 (13域)</td>
+      <td>本系统</td>
+      <td>以上8维参数综合计算后，路由到对应的子IPA。每个IPA有自己的语义库和输出格式。</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 联动回环图 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="feedback-loop">
+  <h3>🔄 任务领取·触发升级·迭代收纳 — 完整回环</h3>
+  <div class="loop-steps">
+    <span class="loop-step">👤 用户输入</span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">🚪 通心译闸门<br><small>L0~L5</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">🧭 八卦·五行·数字根<br><small>路由计算</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">🎯 子IPA领取任务<br><small>关键字归属·各走各路</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">⚡ 执行<br><small>DNA绑定</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">📝 反馈回路<br><small>评分·校准</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">🔄 触发升级<br><small>迭代收纳</small></span>
+    <span class="loop-arrow">→</span>
+    <span class="loop-step">📦 语义库更新<br><small>append-only</small></span>
+  </div>
+  <p style="font-size:.75rem;color:var(--text2);margin-top:.8rem;text-align:center;">
+    每个子IPA执行完毕后自动触发反馈回路 → 信誉加权评分 → 高争议条目触发人工校准 → 校准结果回写语义库 → 下一次路由更精准
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 关键字归属示例 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title"><span class="icon">🏷️</span> 关键字归属示例 — 遇到什么事·走谁的语义库</div>
+
+<div style="overflow-x:auto;margin-bottom:2rem;">
+<table class="algo-table">
+  <thead>
+    <tr>
+      <th>用户输入关键词</th>
+      <th>触发语境</th>
+      <th>路由到子IPA</th>
+      <th>语义库</th>
+      <th>输出示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"统一入口"</td>
+      <td>入口/界面</td>
+      <td>IPA-300 语境语义引擎</td>
+      <td>semantic_context_library.json</td>
+      <td>"把所有功能收到一个入口"</td>
+    </tr>
+    <tr>
+      <td>"打印"（代码中）</td>
+      <td>命令/脚本</td>
+      <td>IPA-310 CNSH语法翻译</td>
+      <td>syntax_library.json</td>
+      <td>→ Python: print() / JS: console.log()</td>
+    </tr>
+    <tr>
+      <td>"卧槽"</td>
+      <td>情绪识别</td>
+      <td>IPA-302 情绪·语气识别</td>
+      <td>火气通心译对照表</td>
+      <td>"强烈情绪·强度8·已净化·指令继续"</td>
+    </tr>
+    <tr>
+      <td>"上善若水"</td>
+      <td>文化/主权</td>
+      <td>IPA-320 中华文化语义</td>
+      <td>daodao.md</td>
+      <td>"老子第8章·水善利万物而不争·现代转译"</td>
+    </tr>
+    <tr>
+      <td>"收口/压缩"</td>
+      <td>窗口管理</td>
+      <td>IPA-300 语境语义引擎</td>
+      <td>semantic_context_library.json</td>
+      <td>"上下文过长·建议新开窗口"</td>
+    </tr>
+    <tr>
+      <td>"整到一起"（口语）</td>
+      <td>口语映射</td>
+      <td>IPA-301 口语·方言</td>
+      <td>colloquial_mappings</td>
+      <td>→ 标准词"统一"→ 查语境</td>
+    </tr>
+    <tr>
+      <td>"LonghunFont"</td>
+      <td>字体渲染</td>
+      <td>IPA-303 字体语义</td>
+      <td>cnsh_font_engine.py</td>
+      <td>"OTF/WOFF2字体加载·风格匹配"</td>
+    </tr>
+    <tr>
+      <td>"369不动点"</td>
+      <td>算法/数学</td>
+      <td>IPA-330 数学算法语义</td>
+      <td>hetu_luoshu_dna.py</td>
+      <td>"中五不动点·模9数字根·熔断判定"</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- 底部 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="footer">
+  <div>🐉 龍魂 · 通心译子IPA系统 v1.0 · 全域语义路由总控</div>
+  <div class="seal">
+    DNA: #龍芯⚡️丙午·乙未·戊午·申时·睽-TONGXINYI-IPA-SYSTEM-v1.0<br>
+    CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z<br>
+    SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+  </div>
+</div>
+
+</div>
+</body>
+</html>

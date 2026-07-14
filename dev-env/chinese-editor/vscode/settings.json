@@ -1,0 +1,161 @@
+{
+  "//": "龍魂中文编辑开发环境 - VS Code配置",
+  "// DNA": "#龍芯⚡️2026-06-26-DEVENV-VSCODE-v1.0",
+  "// 说明": "专为中文编辑角色优化的VS Code配置，支持CNSH中文编程规范",
+
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'JetBrains Mono', 'Noto Sans SC', 'Source Han Sans SC', monospace",
+  "editor.lineHeight": 1.8,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.snippetSuggestions": "top",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.pytest_cache": true,
+    "**/*.pyc": true,
+    "**/.venv": true,
+    "**/venv": true
+  },
+  "files.associations": {
+    "*.cnsh": "python",
+    "*.wuxing": "json",
+    "*.dna": "json",
+    "*.audit": "json"
+  },
+
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "'JetBrains Mono', 'Noto Sans SC', monospace",
+  "terminal.integrated.cursorStyle": "line",
+
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 20,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "welcomePage",
+
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.py": "${capture}.test.py, ${capture}_test.py",
+    "*.js": "${capture}.test.js, ${capture}.spec.js",
+    "*.ts": "${capture}.test.ts, ${capture}.spec.ts"
+  },
+
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.defaultBranchName": "main",
+  "git.commit.template": "./templates/git-commit-template.txt",
+
+  "python.defaultInterpreterPath": "./.venv/bin/python",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+
+  "npm.packageManager": "npm",
+  "eslint.format.enable": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+
+  "extensions.ignoreRecommendations": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverwrite",
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
+
+  "markdown.preview.breaks": true,
+  "markdown.extension.toc.levels": "2-6",
+  "markdown.extension.print.imgToBase64": true,
+
+  "// CNSH中文编程规范配置": "",
+  "cnsh.enabled": true,
+  "cnsh.dnaTrace.enabled": true,
+  "cnsh.tripleAudit.enabled": true,
+  "cnsh.namingConvention": "chinese_first",
+  "cnsh.sovereigntyCheck": true,
+
+  "// 龍魂体系集成配置": "",
+  "longhun.enabled": true,
+  "longhun.dnaTemplate": "#龍芯⚡️{date}-{project}-{module}-{version}",
+  "longhun.auditColors": {
+    "green": "🟢",
+    "yellow": "🟡",
+    "red": "🔴"
+  },
+  "longhun.commitPrefix": "[龍魂]",
+
+  "// AI辅助工具配置": "",
+  "roo.code.enabled": true,
+  "roo.code.model": "claude-sonnet-4-20250514",
+  "roo.code.language": "zh-CN",
+  "roo.code.autoComplete": true,
+  "tongyilingma.enabled": true,
+  "tongyilingma.language": "zh-CN",
+  "tongyilingma.completionDelay": 300,
+
+  "// 同步配置": "",
+  "settingsSync.keybindingsPerPlatform": true,
+  "settingsSync.ignoredSettings": []
+}

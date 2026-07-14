@@ -1,0 +1,25 @@
+{
+  "dna": "#龍芯⚡️20260628232516-TRAIN-10DD5E9E",
+  "model_name": "龍魂-0.1B",
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/train/output/models/龍魂-0.1B.pt",
+  "tokenizer_path": "/Users/zuimeidedeyihan/longhun-system/train/output/models/龍魂-0.1B_tokenizer.json",
+  "device": "mps",
+  "total_params": 2389036,
+  "vocab_size": 2604,
+  "train_samples": 1000,
+  "epochs": 3,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 4.275303569793701
+    },
+    {
+      "epoch": 2,
+      "loss": 2.9428029346466062
+    },
+    {
+      "epoch": 3,
+      "loss": 2.4480339241027833
+    }
+  ]
+}

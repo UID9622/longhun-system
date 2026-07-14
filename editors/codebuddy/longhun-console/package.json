@@ -1,0 +1,122 @@
+{
+  "name": "longhun-console",
+  "displayName": "龍魂控制台",
+  "description": "龍魂系统 CodeBuddy 侧边栏专用控制台 — 一键执行审计/推送/健康检查",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers",
+    "Visualization"
+  ],
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "控制台",
+    "console",
+    "侧边栏",
+    "总控面板",
+    "蚁群",
+    "DNA锚定",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "activationEvents": [
+    "onView:longhun-console.mainView",
+    "onCommand:longhun-console.runLhCommand",
+    "onCommand:longhun-console.openDashboard",
+    "onCommand:longhun-console.quickAudit",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "longhun-console",
+          "title": "龍魂控制台",
+          "icon": "media/longhun-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "longhun-console": [
+        {
+          "type": "webview",
+          "id": "longhun-console.mainView",
+          "name": "龍魂总控"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "longhun-console.runLhCommand",
+        "title": "执行 lh 命令",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.openDashboard",
+        "title": "打开总控面板",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.openAntColony",
+        "title": "打开蚁群控制台",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.quickAudit",
+        "title": "快速审计",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.toggleDevPanel",
+        "title": "切换开发者面板",
+        "category": "龍魂"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "longhun-console.openDashboard",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l"
+      },
+      {
+        "command": "longhun-console.quickAudit",
+        "key": "ctrl+shift+k",
+        "mac": "cmd+shift+k"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/longhun-console"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/longhun-console/README.md",
+  "_dna": "#龍芯⚡️丙午·辛未·CODEBUDDY-LONGHUN-CONSOLE-v1.0"
+}

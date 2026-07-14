@@ -1,0 +1,10 @@
+# 龍魂中文编辑开发环境 - 发布清单
+# DNA: #龍芯⚡️2026-06-26-LONGHUN-CHINESE-EDITOR-MANIFEST-v1.0
+
+include README.md
+include LICENSE
+include SOVEREIGNTY.md
+include MVP.md
+recursive-include fonts *.otf
+recursive-include examples *.cnsh
+recursive-include cnsh *.json *.md

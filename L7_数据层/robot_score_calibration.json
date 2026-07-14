@@ -1,0 +1,12 @@
+{
+  "version": "2.0",
+  "calibrated_at": "2026-07-14T16:31:11",
+  "sample_size": "1000 humans + 200 AI",
+  "optimal_alpha": 0.62,
+  "optimal_beta": 0.25,
+  "optimal_gamma": 0.13,
+  "optimal_threshold": 0.73,
+  "f1": 0.9751,
+  "accuracy": 0.9575,
+  "dna": "#龍芯⚡️2026-07-08-08:50-CALIBRATION-1000HUMANS-v2.0"
+}

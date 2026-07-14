@@ -1,0 +1,10 @@
+{
+  "uid": "USER-FARMER-001",
+  "profession": "农民",
+  "allowed_domains": [
+    "农业生产"
+  ],
+  "max_risk_level": 3,
+  "verified_skills": [],
+  "intent_history": []
+}

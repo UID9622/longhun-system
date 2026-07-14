@@ -1,0 +1,316 @@
+{
+  "_meta": {
+    "DNA": "#龍芯⚡️20260628-CAPABILITY-REGISTRY-v1.0",
+    "version": "1.0.0",
+    "description": "龍魂能力统一注册表：本地模型、外部API、脚本、知识库、工具链",
+    "updated_at": "2026-06-28T23:17:00+00:00"
+  },
+  "categories": {
+    "local_model": "本地模型",
+    "external_api": "外部API",
+    "local_script": "本地脚本",
+    "knowledge_base": "知识库",
+    "tool_chain": "工具链"
+  },
+  "capabilities": {
+    "ollama-qwen2.5-7b": {
+      "name": "ollama-qwen2.5-7b",
+      "display_name": "本地 Qwen2.5 7B",
+      "category": "local_model",
+      "provider": "ollama",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}]}",
+      "output_format": "{\"content\":\"...\"}",
+      "invoke": {
+        "type": "ollama",
+        "model": "qwen2.5:7b",
+        "endpoint": "http://localhost:11434/api/chat"
+      },
+      "capacity": ["本地", "私有", "离线", "兜底"],
+      "dna": "#龍芯⚡️20260628-CAP-OLLAMA-QWEN25-7B-v1.0"
+    },
+    "ollama-longhun-9622": {
+      "name": "ollama-longhun-9622",
+      "display_name": "本地 龍魂-9622",
+      "category": "local_model",
+      "provider": "ollama",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}]}",
+      "output_format": "{\"content\":\"...\"}",
+      "invoke": {
+        "type": "ollama",
+        "model": "longhun-9622:latest",
+        "endpoint": "http://localhost:11434/api/chat"
+      },
+      "capacity": ["本地", "龍魂专用", "私有"],
+      "dna": "#龍芯⚡️20260628-CAP-OLLAMA-LONGHUN-9622-v1.0"
+    },
+    "api-kimi": {
+      "name": "api-kimi",
+      "display_name": "Kimi API",
+      "category": "external_api",
+      "provider": "kimi",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"moonshot-v1-8k\"}",
+      "output_format": "{\"choices\":[{\"message\":{\"content\":\"...\"}}]}",
+      "invoke": {
+        "type": "api",
+        "platform": "kimi",
+        "base_url": "https://api.moonshot.cn/v1",
+        "endpoint": "/chat/completions"
+      },
+      "capacity": ["通用", "长文本", "代码", "中文", "多模态"],
+      "dna": "#龍芯⚡️20260628-CAP-API-KIMI-v1.0"
+    },
+    "api-deepseek": {
+      "name": "api-deepseek",
+      "display_name": "DeepSeek API",
+      "category": "external_api",
+      "provider": "deepseek",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"deepseek-chat\"}",
+      "output_format": "{\"choices\":[{\"message\":{\"content\":\"...\"}}]}",
+      "invoke": {
+        "type": "api",
+        "platform": "deepseek",
+        "base_url": "https://api.deepseek.com/v1",
+        "endpoint": "/chat/completions"
+      },
+      "capacity": ["中文", "代码", "推理", "性价比"],
+      "dna": "#龍芯⚡️20260628-CAP-API-DEEPSEEK-v1.0"
+    },
+    "api-claude": {
+      "name": "api-claude",
+      "display_name": "Claude API",
+      "category": "external_api",
+      "provider": "claude",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"claude-3-5-sonnet-20241022\"}",
+      "output_format": "{\"content\":[{\"text\":\"...\"}]}",
+      "invoke": {
+        "type": "api",
+        "platform": "claude",
+        "base_url": "https://api.anthropic.com/v1",
+        "endpoint": "/messages"
+      },
+      "capacity": ["长文本", "推理", "写作", "英文", "复杂分析"],
+      "dna": "#龍芯⚡️20260628-CAP-API-CLAUDE-v1.0"
+    },
+    "api-302ai": {
+      "name": "api-302ai",
+      "display_name": "302.ai 聚合网关",
+      "category": "external_api",
+      "provider": "302ai",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"302ai/claude-sonnet-4-6\"}",
+      "output_format": "{\"choices\":[{\"message\":{\"content\":\"...\"}}]}",
+      "invoke": {
+        "type": "api",
+        "platform": "302ai",
+        "base_url": "https://api.302.ai/v1",
+        "endpoint": "/chat/completions"
+      },
+      "capacity": ["聚合网关", "Claude", "Grok", "GPT", "Gemini", "Qwen", "GLM"],
+      "dna": "#龍芯⚡️20260628-CAP-API-302AI-v1.0"
+    },
+    "api-notion": {
+      "name": "api-notion",
+      "display_name": "Notion API",
+      "category": "external_api",
+      "provider": "notion",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "Notion REST API 标准请求",
+      "output_format": "Notion REST API 标准响应",
+      "invoke": {
+        "type": "api",
+        "platform": "notion",
+        "base_url": "https://api.notion.com/v1"
+      },
+      "capacity": ["知识库", "文档", "笔记", "搜索"],
+      "dna": "#龍芯⚡️20260628-CAP-API-NOTION-v1.0"
+    },
+    "script-global-index": {
+      "name": "script-global-index",
+      "display_name": "全局索引服务",
+      "category": "local_script",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "lh-index [status|search <关键词>|daily]",
+      "output_format": "文本/表格/JSON",
+      "invoke": {
+        "type": "script",
+        "script": "~/.longhun/bin/lh-index"
+      },
+      "capacity": ["文件索引", "实时搜索", "系统体检"],
+      "dna": "#龍芯⚡️20260628-CAP-SCRIPT-GLOBAL-INDEX-v1.0"
+    },
+    "script-formula": {
+      "name": "script-formula",
+      "display_name": "公式对准表向量检索",
+      "category": "local_script",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "lh formula <查询>",
+      "output_format": "文本列表",
+      "invoke": {
+        "type": "script",
+        "script": "~/.龍魂/bin/lh-formula"
+      },
+      "capacity": ["公式检索", "语义搜索", "龍魂数学"],
+      "dna": "#龍芯⚡️20260628-CAP-SCRIPT-FORMULA-v1.0"
+    },
+    "script-self-update": {
+      "name": "script-self-update",
+      "display_name": "主干自我迭代",
+      "category": "local_script",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "lh-self-update [--rollback]",
+      "output_format": "文本状态",
+      "invoke": {
+        "type": "script",
+        "script": "~/.龍魂/bin/lh-self-update"
+      },
+      "capacity": ["主干迭代", "向量重建", "KG刷新", "备份回滚"],
+      "dna": "#龍芯⚡️20260628-CAP-SCRIPT-SELF-UPDATE-v1.0"
+    },
+    "knowledge-global-index-db": {
+      "name": "knowledge-global-index-db",
+      "display_name": "全局索引知识库",
+      "category": "knowledge_base",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "SQL/CLI 查询",
+      "output_format": "文件路径/元数据",
+      "invoke": {
+        "type": "database",
+        "path": "~/.longhun/global_index/global_index.db"
+      },
+      "capacity": ["文件元数据", "图片/音频/视频", "事件日志"],
+      "dna": "#龍芯⚡️20260628-CAP-KG-GLOBAL-INDEX-v1.0"
+    },
+    "knowledge-formula-vectors": {
+      "name": "knowledge-formula-vectors",
+      "display_name": "公式对准表向量库",
+      "category": "knowledge_base",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "文本查询",
+      "output_format": "相似公式块",
+      "invoke": {
+        "type": "database",
+        "path": "~/_work/formula_alignment_v1_6_vectors.json"
+      },
+      "capacity": ["公式向量", "语义检索", "龍魂公式"],
+      "dna": "#龍芯⚡️20260628-CAP-KG-FORMULA-VECTORS-v1.0"
+    },
+    "knowledge-notion-pages": {
+      "name": "knowledge-notion-pages",
+      "display_name": "Notion 母页知识库",
+      "category": "knowledge_base",
+      "provider": "notion",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "Notion API / 本地导出",
+      "output_format": "Markdown / JSON",
+      "invoke": {
+        "type": "database",
+        "path": "~/.longhun/notion_pages"
+      },
+      "capacity": ["笔记", "文档", "知识图谱"],
+      "dna": "#龍芯⚡️20260628-CAP-KG-NOTION-v1.0"
+    },
+    "tool-audit": {
+      "name": "tool-audit",
+      "display_name": "龍魂审计工具",
+      "category": "tool_chain",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "longhun-self-audit.sh",
+      "output_format": "Markdown 报告",
+      "invoke": {
+        "type": "script",
+        "script": "~/longhun-system/bin/longhun-self-audit.sh"
+      },
+      "capacity": ["系统体检", "DNA对齐", "三色审计"],
+      "dna": "#龍芯⚡️20260628-CAP-TOOL-AUDIT-v1.0"
+    },
+    "gua-audit-engine": {
+      "name": "gua-audit-engine",
+      "display_name": "64卦审计引擎",
+      "category": "local_script",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "{\"metrics\":{\"innovation\":0-100,...}, \"context\":\"...\"}",
+      "output_format": "JSON：卦象、三色、置信度、建议、DNA",
+      "invoke": {
+        "type": "script",
+        "script": "~/longhun-system/audit/audit_api.py"
+      },
+      "capacity": ["64卦推演", "三色审计", "系统状态映射", "动态推演"],
+      "dna": "#龍芯⚡️20260629-CAP-GUA-AUDIT-ENGINE-v1.0"
+    },
+    "heart-talk-backend": {
+      "name": "heart-talk-backend",
+      "display_name": "龍心之语后端",
+      "category": "local_script",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "REST API / JSON",
+      "output_format": "JSON：房间、消息、DNA、分享链接、导出",
+      "invoke": {
+        "type": "script",
+        "script": "~/.龍魂/heart-talk/heart_talk_api.py"
+      },
+      "capacity": ["消息存储", "DNA追溯", "房间管理", "本地模型回复", "公开核验", "分享导出"],
+      "dna": "#龍芯⚡️20260629-CAP-HEART-TALK-BACKEND-v1.0"
+    },
+    "tool-voice-dna": {
+      "name": "tool-voice-dna",
+      "display_name": "声纹DNA锚定链",
+      "category": "tool_chain",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "voice-dna/cli.py [anchor|verify|list]",
+      "output_format": "文本/加密包",
+      "invoke": {
+        "type": "script",
+        "script": "~/longhun-system/voice-dna/cli.py"
+      },
+      "capacity": ["声纹注册", "身份验证", "DNA锚定"],
+      "dna": "#龍芯⚡️20260628-CAP-TOOL-VOICE-DNA-v1.0"
+    },
+    "tool-multi-ai-gateway": {
+      "name": "tool-multi-ai-gateway",
+      "display_name": "多AI统一网关",
+      "category": "tool_chain",
+      "provider": "longhun",
+      "status": "active",
+      "rules_overridden": true,
+      "input_format": "AI Gateway REST API",
+      "output_format": "统一 JSON",
+      "invoke": {
+        "type": "script",
+        "script": "~/.longhun/multi-ai-gateway/ai_gateway.py"
+      },
+      "capacity": ["API路由", "兜底调度", "沙盒分拣", "记忆管理"],
+      "dna": "#龍芯⚡️20260628-CAP-TOOL-MULTI-AI-GATEWAY-v1.0"
+    }
+  }
+}

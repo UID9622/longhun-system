@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CNSH v2.0",
+  "scopeName": "source.cnsh",
+  "fileTypes": [".cnsh"],
+  "patterns": [
+    { "include": "#dna_anchor" },
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords_control" },
+    { "include": "#keywords_type" },
+    { "include": "#keywords_security" },
+    { "include": "#keywords_dna" },
+    { "include": "#builtin_functions" },
+    { "include": "#operators" },
+    { "include": "#chinese_identifiers" },
+    { "include": "#english_identifiers" }
+  ],
+  "repository": {
+    "dna_anchor": {
+      "name": "markup.bold.cnsh.dna",
+      "match": "#龍芯⚡️[\\u4e00-\\u9fa5·䷀-䷿\\-A-Za-z0-9._]+",
+      "comment": "DNA 追溯码 — 金色高亮"
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.cnsh",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.line.number-sign.cnsh",
+          "match": "#(?!龍芯)[^#].*$"
+        },
+        {
+          "name": "comment.block.cnsh",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.cnsh",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        { "name": "constant.character.escape.cnsh", "match": "\\\\." }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.cnsh",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "keywords_control": {
+      "name": "keyword.control.cnsh",
+      "match": "\\b(如果|否则如果|否则|循环|当|对于|遍历|中断|继续|返回|导入|导出|使用|模块|函数|定义|变量|常量|结构体|类型|实现|接口|继承|枚举)\\b"
+    },
+    "keywords_type": {
+      "name": "storage.type.cnsh",
+      "match": "\\b(真|假|空|整数|浮点|文本|布尔|列表|字典|集合|元组|字节|文件)\\b"
+    },
+    "keywords_security": {
+      "name": "entity.name.tag.cnsh.security",
+      "match": "\\b(熔断|审计|验证|签名|哈希|加密|解密|脱敏|隔离|闸门|一票否决|三色|DNA检测|伦理审计|熔断检查|日志记录|DNA追溯)\\b",
+      "comment": "安全关键字 — 红色标记"
+    },
+    "keywords_dna": {
+      "name": "support.constant.cnsh.dna",
+      "match": "\\b(UID9622|龍魂|CNSH|DNA|GPG|锚定|不动点|河图|洛书|五行|八卦|太极|三才|四象|天干|地支|干支)\\b",
+      "comment": "系统常量 — 蓝色标记"
+    },
+    "builtin_functions": {
+      "name": "support.function.cnsh",
+      "match": "\\b(打印|输入|长度|类型|范围|排序|映射|过滤|归约|连接|分割|替换|格式化|读取文件|写入文件|发送请求|解析JSON|生成JSON|哈希计算|签名验证|三色审计|伦理检查|闸门通行|日志)\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.cnsh",
+      "match": "(\\+|-|\\*|/|%|==|!=|<=|>=|<|>|&&|\\|\\||!|=|:|\\.|,|;|\\(|\\)|\\[|\\]|\\{|\\})"
+    },
+    "chinese_identifiers": {
+      "name": "variable.other.cnsh.chinese",
+      "match": "[\\u4e00-\\u9fa5][\\u4e00-\\u9fa5a-zA-Z0-9_]*",
+      "comment": "中文标识符 — 浅绿高亮，区别于英文变量"
+    },
+    "english_identifiers": {
+      "name": "variable.other.cnsh.english",
+      "match": "[a-zA-Z_][a-zA-Z0-9_]*",
+      "comment": "英文标识符 — 标准着色"
+    }
+  },
+  "_dna": "#龍芯⚡️丙午·辛未·CNSH-TMLANGUAGE-v2.0"
+}

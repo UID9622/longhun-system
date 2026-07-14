@@ -1,0 +1,13 @@
+{
+  "uid": "USER-WORKER-001",
+  "name": "小张",
+  "age_stage": "青年",
+  "profession": "工人",
+  "daily_rhythm": "两班倒",
+  "current_pain": "我只会干这个，怕以后被淘汰",
+  "current_strength": "机器毛病我一听就知道",
+  "learning_style": "做中学",
+  "goals": [
+    "成为厂里不可替代的人"
+  ]
+}

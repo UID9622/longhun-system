@@ -1,0 +1,10 @@
+# 龍魂 Vault 安全规则：明文与私钥禁止入仓库
+*.plain.json
+*.plain.env
+*.plain.toml
+*.plain.md
+audit.log
+age.key
+*.age.key
+*.secret
+*.credentials

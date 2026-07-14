@@ -1,0 +1,9 @@
+{
+  "name": "birthday-reminder",
+  "version": "2.0.0",
+  "description": "龍魂 · 人格联动生日提醒 · HarmonyOS ArkTS",
+  "main": "",
+  "author": "UID9622",
+  "license": "LongHun-Sovereign",
+  "dependencies": {}
+}

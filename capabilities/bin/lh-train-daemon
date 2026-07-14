@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂训练自动迭代守护进程
+DNA: #龍芯⚡️2026-06-28-LH-TRAIN-DAEMON-v1.0
+
+每 30 秒检查 ~/longhun-system/train/data/raw/ 是否有新语料，
+有变化则自动执行：训练 → 测试 → 评估 → 上线。
+"""
+import os
+import sys
+import time
+import signal
+from pathlib import Path
+
+# 把 src 加入路径
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+from config import Config
+from train_pipeline import TrainPipeline
+from auditor import Auditor
+
+
+DNA = "#龍芯⚡️2026-06-28-LH-TRAIN-DAEMON-v1.0"
+
+
+class TrainDaemon:
+    def __init__(self):
+        self.pipeline = TrainPipeline()
+        self.auditor = Auditor(Config.train_log)
+        self.running = True
+
+    def handle_signal(self, signum, frame):
+        self.running = False
+
+    def write_pid(self):
+        Config.daemon_pid.write_text(str(os.getpid()), encoding="utf-8")
+
+    def remove_pid(self):
+        if Config.daemon_pid.exists():
+            Config.daemon_pid.unlink()
+
+    def run(self):
+        signal.signal(signal.SIGTERM, self.handle_signal)
+        signal.signal(signal.SIGINT, self.handle_signal)
+        self.write_pid()
+
+        self.auditor.log(
+            "daemon_start", output_data={"pid": os.getpid(), "DNA": DNA},
+            status="success"
+        )
+        print(f"🐉 龍魂训练守护进程启动 DNA: {DNA}")
+        print(f"   监控目录: {Config.train_raw_dir}")
+        print(f"   检查间隔: {Config.daemon_interval_seconds} 秒")
+
+        try:
+            while self.running:
+                if self.pipeline.has_new_corpus():
+                    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] 检测到新语料，启动训练管线...")
+                    result = self.pipeline.run_full_pipeline()
+                    print(f"   结果: {result.get('status')}")
+                    if result.get('status') == 'deployed':
+                        print("   ✅ 新模型已自动上线")
+                    elif result.get('status') == 'kept':
+                        print(f"   ⏸ 保留旧模型: {result.get('reason')}")
+                time.sleep(Config.daemon_interval_seconds)
+        finally:
+            self.remove_pid()
+            self.auditor.log("daemon_stop", status="success")
+            print("🛑 龍魂训练守护进程已停止")
+
+
+def main():
+    daemon = TrainDaemon()
+    daemon.run()
+
+
+if __name__ == "__main__":
+    main()

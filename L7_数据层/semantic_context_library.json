@@ -1,0 +1,1214 @@
+{
+  "_meta": {
+    "title": "🐉 龍魂·语境语义库 — 一词多义·按语境查意图",
+    "version": "v1.1",
+    "DNA": "#龍芯⚡️丙午·乙未·丁巳·未时·睽-SEMANTIC-CONTEXT-LIBRARY-v1.0",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "created": "2026-07-10T14:58:23.166740",
+    "principle": "中文博大精深：同一个词，不同人对不同人说、在不同地方用、在不同时代用，意思完全不同。这不是翻译，是通心译——翻的是人心和语境，不是文字。",
+    "design": "平级沟通，不翻译。语义库不做'A→B'的机械映射，而是做'在X语境下，用词Y的人大概率想表达Z意图'的参考。允许错别字、允许理解偏差、允许方言、允许情绪化表达——越模糊越接近真实人类。",
+    "enhanced": "2026-07-10T14:56",
+    "changes": [
+      "+ 收口语境（窗口管理/入口/格式）",
+      "+ 降级推理模式（无关键词匹配时的语义推断）",
+      "+ 口语→标准词映射",
+      "+ 同义词扩展补充"
+    ]
+  },
+  "words": {
+    "一致": {
+      "frequency": 427,
+      "aliases": [
+        "consistent",
+        "same"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 204,
+          "collocations": [
+            "\" \": [\"consistent\",",
+            "# 数字根 性",
+            "CNSH-FLOW-CORE-v3.0.md 完全",
+            "top_keys 中的引用，标记潜在不",
+            "检查：ISO时间·时辰 性·数字根一致性"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用_UID9622_×_Clau_3297125a9c9f81b5ab3fda0a0151b069.md",
+            "L7_数据层/desktop_archive/articles/20260621_中美民生数据对比｜用数据说话，不抹黑不吹捧_649faf6e6d5e4570936bdaced850a31e.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-01-旧账怎么算-主权追溯版_1.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md",
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量·统一版_v3.0.md"
+          ]
+        },
+        {
+          "context_type": "入口/界面",
+          "intent": "把所有功能收到一个入口，方便使用",
+          "count": 124,
+          "collocations": [
+            "\"text\": \"本文档介绍数据平台的核心架构设计。系统采用分层架构模式，具有高性能和数据 性双重保障 在跨地域下，性能提升可达50%",
+            "[ARTICLE] 2026-07-04-龍魂系统入口 性协议_v1.0.md ->",
+            "\"L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口 性协议_v1.0-微信公众号版.md\",",
+            "[ARTICLE] /Users/zuimeidedeyihan/Desktop/文章/原文/2026-07-04-龍魂系统入口 性协议_v1.0.md ->",
+            "\"20260704_2026-07-04-龍魂系统入口 性协议\": ["
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+            "L7_数据层/calibration_ai_samples.json",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0-CSDN发布版.md",
+            "L7_数据层/desktop_archive/articles/20260705_CNSH_2026-07-04_XXT_道德经81章_龍魂系统大白话解读_完整版_v5.0.md"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 34,
+          "collocations": [
+            "playmodern(){ speak(`黄帝内经把人体看作动态系统：阴阳是状态变量，五行是相互作用，经络是信息通道，治未病是预测性维护。这与复杂系统监控、健康预警工程的思路完全 。`, \"zh-cn-yunxineural\");",
+            "+ 本地优先（与龍魂海归系统+国产审计原则 ）",
+            "\"modern_text\": \"黄帝内经把人体看作动态系统：阴阳是状态变量，五行是相互作用，经络是信息通道，治未病是预测性维护。这与复杂系统监控、健康预警工程的思路完全 。\",",
+            "- 该确认码在龍魂系统核心文档中重复使用，作为UID9622意志的跨文件 性校验",
+            "\"\"\"SHA-256 取前8位十六进制（与系统其他模块 ）\"\"\""
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-UID9622-IP展示页-龍芯北辰-微信公众号版.md",
+            "L7_数据层/calibration_ai_samples.json",
+            "L7_数据层/desktop_archive/articles/20260621_🔍_龍魂黎曼猜想观察框架·数字验证报告_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260703_CNSH_2026-07-04_XSL_UID9622-IP展示页-龍芯北辰.md",
+            "L5_服务层/services/dashboard/web/p0-controls/龍魂-huangdineijing.html"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 29,
+          "collocations": [
+            "issues.append(f\"数字根不 ：DNA={dr_dna}，期望={expected_dr}\")",
+            "- 系统检测提交数据的DNA码与数据内指向身份是否",
+            "D -->|\"DNA与数据指向 \"| F[\"正常数据\\n进入审计引擎\"]",
+            "# 价值观校验：检查DNA签名 性",
+            "— 用完整L2(16位)计算HMAC，与生成DNA链时"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260706_龍魂_諸葛亮易經鋰電技術推演_v2.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂天道系统-v1.3-优化版_1.md",
+            "L7_数据层/desktop_archive/articles/20260703_四来源对齐报告.md",
+            "integrations/mcp/cnsh_syntax_mcp_server.py",
+            "bin/lh_behavioral_crypto_verifier.py"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 21,
+          "collocations": [
+            "\"name\": \"数据源变更→所有消费方 性检查\",",
+            "⚠️ 当前数据({current_n}样本)与checkpoint数据({saved_n}样本)不 ！\")",
+            "\"特性2\": [\"数据 性\", \"容错恢复\",",
+            "- 数据 性",
+            "引擎级监督 (业务逻辑/数据 性)"
+          ],
+          "related_files": [
+            "bin/lh_sample_generator.py",
+            "L7_数据层/desktop_archive/articles/20260707_龍魂系统_从J-space到龍魂意识_中国脑神经哲学工程化论文.md",
+            "L7_数据层/desktop_archive/articles/20260704_CNSH_2026-07-04_XXT_道德经81章_龍魂系统大白话解读_多维度注解_v4.1.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+            "L7_数据层/desktop_archive/articles/20260621_中美民生数据对比｜用数据说话，不抹黑不吹捧_649faf6e6d5e4570936bdaced850a31e.md"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "让大家用同样的格式，减少混乱",
+          "count": 10,
+          "collocations": [
+            "| 命名锚 性 |",
+            "**14 个技能名称重复**：如“CNSH语义规范”在本地技能和协议中并存、版本不 ；云端技能中“龍魂操作台/部署/MCP/Notion/Kimi”各有新旧两条记录。",
+            "- 数据格式不 → 我们提供转换器（他们适配我们）",
+            "lh_memory_client.py 的薄封装，仅为了保持命令行命名风格 。",
+            "v1.0 格式：检查时间 性"
+          ],
+          "related_files": [
+            "L5_服务层/services/portal/portal/articles/2026-07-03-UID9622-全资产审查看板.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "bin/lh_behavioral_crypto_verifier.py",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/references/锚点体系.md",
+            "L7_数据层/desktop_archive/articles/20260621_【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）_3664bb869a0841478008c6c111b9289d.md"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "以中国文化主体统一认知标准",
+          "count": 3,
+          "collocations": [
+            "MCP 主权适配层 性检查（铁律 A-012",
+            "(\"RULE-011: MCP主权适配 性检查\", check_mcp_sovereignty),",
+            "↔ 主权适配层策略表是否 。"
+          ],
+          "related_files": [
+            "bin/lh_cross_module_awareness.py"
+          ]
+        },
+        {
+          "context_type": "路由/网关",
+          "intent": "所有请求从一个网关进来，统一分发",
+          "count": 2,
+          "collocations": [
+            "## 七、技能与工具路由 性"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md"
+          ]
+        }
+      ]
+    },
+    "合并": {
+      "frequency": 128,
+      "aliases": [
+        "merge",
+        "combine"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 117,
+          "collocations": [
+            "\"\"\" LoRA adapter",
+            "print(f\" ❌ 模型不存在: {cfg.merged_dir}\")",
+            "1. 关键词本体（统一/ /归一/对齐/...）",
+            "print(\"🔗 LoRA adapter...\")",
+            "重复哈希 → 引用 ║"
+          ],
+          "related_files": [
+            "L5_服务层/services/portal/portal/public-content/cnsh_editor_api_v1_voice/article_csdn.md",
+            "L5_服务层/services/desktop/desktop/README.md",
+            "L7_数据层/desktop_archive/articles/20260625_乡镇基层多源真实性协同协议_可复制版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-UID9622-全资产审查看板.md",
+            "bin/lh_lora_trainer.py"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "让大家用同样的格式，减少混乱",
+          "count": 3,
+          "collocations": [
+            "中文标准库→多目标语言映射 (历史·已 到语法库) |",
+            "# 为H武器消费格式",
+            "← 标准库映射（历史保留·已 到语法库）"
+          ],
+          "related_files": [
+            "03_compiler/mappings/SYNTAX_LIBRARY.md",
+            "03_compiler/README.md",
+            "L7_数据层/persona_knowledge/P01_诸葛亮/methodologies.py"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 2,
+          "collocations": [
+            "把 scanned/passed 进系统",
+            "print(\"🔵 阶段四： 通过的素材到龍魂系统\")"
+          ],
+          "related_files": [
+            "bin/extract_claude_sessions.py"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "以中国文化主体统一认知标准",
+          "count": 2,
+          "collocations": [
+            "中文运算符→多目标语言映射 (历史·已 到语法库) |",
+            "中文关键字→多目标语言映射 (历史·已 到语法库) |"
+          ],
+          "related_files": [
+            "03_compiler/README.md"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 1,
+          "collocations": [
+            "— 短时间内的重复DNA"
+          ],
+          "related_files": [
+            "bin/lh_dna_uniqueness_guard.py"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 1,
+          "collocations": [
+            "\"数据/同步\": \"多个数据源 成一个视图\","
+          ],
+          "related_files": [
+            "bin/_mine_unified_semantics.py"
+          ]
+        },
+        {
+          "context_type": "管理/治理",
+          "intent": "用一个规则管理所有，不允许多头",
+          "count": 1,
+          "collocations": [
+            "未发布 | 为“CNSH-IEEE 治理与白皮书统一版”"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_IEEE_论文专题索引.md"
+          ]
+        },
+        {
+          "context_type": "命令/脚本",
+          "intent": "提供一个命令入口，屏蔽底层复杂",
+          "count": 1,
+          "collocations": [
+            "`[工作脚本路径]` 扫描冲突，再统一 重复条目。"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-03-UID9622-全资产审查看板-微信公众号版.md"
+          ]
+        }
+      ]
+    },
+    "对齐": {
+      "frequency": 869,
+      "aliases": [
+        "align",
+        "alignment"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 308,
+          "collocations": [
+            "1. 关键词本体（统一/合并/归一/ /...）",
+            "\" \": [\"对上\",",
+            "\"CNSH 四层 矫正\",",
+            "\"cnsh \": {",
+            "\"\"\"底座锚点 检查\"\"\""
+          ],
+          "related_files": [
+            "integrations/csdn/csdn_api_client.py",
+            "L7_数据层/desktop_archive/articles/20260708_2026-07-04-灵活与原则-无底线即虚无-龍魂价值观论文.md",
+            "L5_服务层/services/portal/portal/articles/2026-07-03-孤立文件治理与技能落地报告.md",
+            "L7_数据层/desktop_archive/articles/20260703_CNSH_2026-07-04_XSL_UID9622-IP展示页-龍芯北辰.md",
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-05_XGJ_CSDN资料与模板设计_v1.0.md"
+          ]
+        },
+        {
+          "context_type": "算法/数学",
+          "intent": "用同一套算法框架解决问题",
+          "count": 217,
+          "collocations": [
+            "- 三才算法声明：`~/longhun-system/articles/2026-07-03-三才算法统一算法根基与算法 声明.md`",
+            "> ** 关系：** 七因子模型属于三才算法体系中",
+            "## 二、三才算法",
+            "嵌入更多个人经历与模型局限 · 三才算法根基 ·",
+            "創新引擎** 如何 到 **三才算法**"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂心法·归源-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0-CSDN发布版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-行为密码学七因子视角-老实人与算计者_1.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂DNA时间轴L5分层架构-v1.4-优化版_1.md"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 93,
+          "collocations": [
+            "| 代码头部注入三才算法 与 DNA",
+            "- 用不同专业长处协作，给每个用户更好地创作数字资产（现实价值与虚拟资产价值 ）。",
+            "DNA 格式自动 脚本 v1.0",
+            "**数据锚定：** 龍魂系统当前 率 **100.0%**，注册文件",
+            "DNA 格式检查与自动"
+          ],
+          "related_files": [
+            "L7_数据层/persona_knowledge/registry.json",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-05-龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-UID9622-IP展示页-龍芯北辰-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-行为密码学七因子视角-老实人与算计者_1.md",
+            "L5_服务层/services/portal/portal/articles/2026-07-03-孤立文件治理与技能落地报告.md"
+          ]
+        },
+        {
+          "context_type": "入口/界面",
+          "intent": "把所有功能收到一个入口，方便使用",
+          "count": 82,
+          "collocations": [
+            "跨平台 DNA 确认报告 ·",
+            "对应入口一致性协议 E4『 人』与 longhun-review",
+            "+ 投喂入口 协议</span>",
+            "+ 投喂入口 协议</span></div>",
+            "对应入口一致性协议 E1-E5：先读记忆、再读协议、再 人、再出动作——让动作自然从意图中生长。"
+          ],
+          "related_files": [
+            "L5_服务层/services/dashboard/web/龍魂流场20260426l.html",
+            "L7_数据层/desktop_archive/articles/20260703_四来源对齐报告.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0-CSDN发布版.md",
+            "L5_服务层/services/dashboard/web/longhun_flow_portal_v2.html"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 59,
+          "collocations": [
+            "本文算法体系统一 至 **三才算法**：",
+            "[ARTICLE] PAPER-20260621-001_CNSH_AI_Governance_Framework_IEEE论文版_工程架构图_龍魂 版.md ->",
+            "Governance Framework｜IEEE论文版+工程架构图·龍魂 版 fab5940bb6d84936a6a1e56432aeb33a.md`",
+            "/ 龍魂系统自主研发，统一 至三才算法根基。",
+            "Governance Framework｜IEEE论文版+工程架构图·龍魂 版 fab5940bb6d84936a6a1e56432aeb33a.md"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂心法·归源-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-05-龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-三才算法统一算法根基与算法对齐声明.md",
+            "L7_数据层/desktop_archive/articles/20260621_北京智源研究院人工智能治理白皮书_01a982c912b6458bbd79575bdf4c8f02.md"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "让大家用同样的格式，减少混乱",
+          "count": 57,
+          "collocations": [
+            "Markdown 格式，补充三才算法 、版本日志、知识图谱引用链，并同步至桌面知识矩阵。",
+            "Markdown 格式，补充导读、三才算法 、应用表、归源自检清单、版本日志与引用链 |",
+            "优化版在保留原文全部技术内容的基础上，补充了标准格式、三才算法 、版本日志与引用链，便于归档、同步与对外发布。",
+            "Markdown 格式，补充导读、三才算法 、版本日志与引用链，保留全部原文技术内容 |",
+            "Markdown 格式，补充三才算法 、知识图谱引用链、一票否决、版本日志 |"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂DNA时间轴L5分层架构-v1.4-优化版_1.md",
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-05_XGJ_CSDN资料与模板设计_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260703_DNA_ALIGNMENT_AUDIT_20260703_185241.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260703_CNSH_2026-07-04_XSL_伦理量子·中式价值对齐方案-v1.0.md"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "以中国文化主体统一认知标准",
+          "count": 25,
+          "collocations": [
+            "3. 数字主权与中式价值 思考",
+            "| 跨语言语义 |",
+            "| 龙魂深思熟虑 ：基于文化锚点的AI伦理决策框架",
+            "| 中英文技术语义 | 属“人”才维度的跨文化桥接"
+          ],
+          "related_files": [
+            "L5_服务层/services/portal/portal/articles/2026-07-04-龍魂DNA时间轴L5分层架构-v1.4-优化版.md",
+            "L7_数据层/desktop_archive/articles/20260708_2026-07-05-CSDN资料与模板设计_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260707_龍魂系统_从J-space到龍魂意识_中国脑神经哲学工程化论文.md",
+            "L5_服务层/services/portal/portal/articles/2026-07-03-三才算法统一算法根基与算法对齐声明.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-三才算法统一算法根基与算法对齐声明_1.md"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 14,
+          "collocations": [
+            "\"L7_数据层/desktop_archive/articles/20260703_2026-07-04-伦理量子·中式价值 方案-v1.0.md\"",
+            "\"L7_数据层/desktop_archive/articles/20260703_2026-07-04-伦理量子·中式价值 方案-v1.0.md\",",
+            "\"L7_数据层/desktop_archive/articles/20260704_2026-07-04-M266_DeepSeek桥接方案_当前 _v1.1.md\"",
+            "\"L7_数据层/desktop_archive/articles/20260703_2026-07-03-三才算法统一算法根基与算法 声明.md\"",
+            "\"L7_数据层/desktop_archive/articles/20260703_四来源 报告.md\""
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260703_四来源对齐报告.md",
+            "integrations/csdn/csdn_sync_engine.py",
+            "L7_数据层/strategy_reports/execution_logs/multi_version_archive_index_v1.0.json",
+            "L7_数据层/strategy_reports/execution_logs/same_name_conflict_index_v1.0.json",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/references/逻辑框架.md"
+          ]
+        },
+        {
+          "context_type": "管理/治理",
+          "intent": "用一个规则管理所有，不允许多头",
+          "count": 10,
+          "collocations": [
+            "\"description\": \"CSDN博客API客户端v1.0·三账号管理·38专栏索引·TOP20文章·13条代码 ·全文搜索·缓存管理\",",
+            "| 待与治理协议 |",
+            "IEEE 治理 ** |",
+            "CNSH-64 治理感知决策框架、IPA×人格 、意图识别、龍魂元宇宙与智能体系统规格、开源模板与学术论文。已过滤明显私人存档与碎片文件。"
+          ],
+          "related_files": [
+            "L5_服务层/services/portal/portal/articles/2026-07-03-UID9622-全资产审查看板.md",
+            "L7_数据层/desktop_archive/articles/20260704_CNSH_2026-07-04_XXT_龍魂对话中枢结构规范_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-UID9622-全资产审查看板.md",
+            "L7_数据层/desktop_archive/articles/20260621_README_1.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-03-UID9622-全资产审查看板-微信公众号版.md"
+          ]
+        },
+        {
+          "context_type": "命令/脚本",
+          "intent": "提供一个命令入口，屏蔽底层复杂",
+          "count": 2,
+          "collocations": [
+            "- \" \"不是对齐命令，是对齐 UID9622",
+            "- \" \"不是对齐命令，是对齐 这个人——他的价值观、他的脾气、他的真实意图、他的人民立场。"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md"
+          ]
+        },
+        {
+          "context_type": "路由/网关",
+          "intent": "所有请求从一个网关进来，统一分发",
+          "count": 2,
+          "collocations": [
+            "— 路由表、A-024、自检范围均已",
+            "UID9622 为不动点，统一记忆加载、两层边界、无孤立文件、三才算法 、技能路由、熔断纠错规则 |"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260709_2026-07-09-龍魂执行记录-脱敏版.md"
+          ]
+        }
+      ]
+    },
+    "归一": {
+      "frequency": 137,
+      "aliases": [
+        "normalize",
+        "unify"
+      ],
+      "contexts": [
+        {
+          "context_type": "算法/数学",
+          "intent": "归一化处理：权重/数据/向量缩放到同一量级。河图洛书统一到ℤ₉₀。",
+          "count": 50,
+          "collocations": [
+            "归一化处理",
+            "权重归一",
+            "归一化",
+            "九宫归一",
+            "L2归一"
+          ],
+          "related_files": [
+            "bin/lh_wuxing_api_bridge.py",
+            "L1_内核层/"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "繁简归一：龍与龙等价接收。多种格式归一为一种标准。",
+          "count": 45,
+          "collocations": [
+            "繁简归一",
+            "格式归一",
+            "命名归一",
+            "CNSH归一"
+          ],
+          "related_files": [
+            "AGENTS.md",
+            "CNSH-PROTOCOL.md"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "九宫归一：所有信息最终回到DNA不动点。",
+          "count": 25,
+          "collocations": [
+            "DNA归一",
+            "九宫归一",
+            "369归一",
+            "不动点归一"
+          ],
+          "related_files": [
+            "L7_数据层/"
+          ]
+        },
+        {
+          "context_type": "命令/脚本",
+          "intent": "几百个不同脚本和语法，归一为一个JSON命令注册表。",
+          "count": 10,
+          "collocations": [
+            "脚本归一",
+            "命令归一"
+          ],
+          "related_files": [
+            "bin/"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "中文编程语法→多目标语言映射·归一总表。",
+          "count": 7,
+          "collocations": [
+            "归一总表",
+            "文化归一",
+            "语法归一"
+          ],
+          "related_files": [
+            "03_compiler/"
+          ]
+        }
+      ]
+    },
+    "收口": {
+      "frequency": 69,
+      "aliases": [
+        "close",
+        "wrap",
+        "converge",
+        "收敛",
+        "截止",
+        "收了"
+      ],
+      "contexts": [
+        {
+          "context_type": "窗口管理",
+          "intent": "对话窗口太长/太乱，需要压缩上下文、新开会话、防止污染。龍魂术语：守恒收口。",
+          "count": 56,
+          "collocations": [
+            "收口",
+            "该收了",
+            "压缩",
+            "新窗口",
+            "守恒",
+            "接上",
+            "接力"
+          ],
+          "related_files": [
+            "bin/semantic_parser.py",
+            "AGENTS.md"
+          ]
+        },
+        {
+          "context_type": "入口/界面",
+          "intent": "系统入口收敛，把所有分叉收回到一个主入口。",
+          "count": 12,
+          "collocations": [
+            "统一入口",
+            "收口",
+            "IPA"
+          ],
+          "related_files": [
+            "L5_服务层/services/dashboard/web/"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "时间格式统一收口到干支格式。",
+          "count": 1,
+          "collocations": [
+            "主权时间格式",
+            "收口",
+            "2026-07-08"
+          ],
+          "related_files": [
+            "AGENTS.md"
+          ]
+        }
+      ]
+    },
+    "整合": {
+      "frequency": 128,
+      "aliases": [
+        "integrate"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 103,
+          "collocations": [
+            "\"# 龍魂技术全站文档 \",",
+            "v2.0 无限循环优化机制",
+            "CNSH｜UID9622 文档 \",",
+            "\" \": [\"integrate\"],",
+            "所有子系統，提供完整的工作流透明化能力"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260705_文章索引.md",
+            "bin/integrate_cnsh_uid9622.py",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "L7_数据层/desktop_archive/articles/20260621_SESSION_SUMMARY_20260603.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-028_白皮书文件包使用说明_Claude操作指南.md"
+          ]
+        },
+        {
+          "context_type": "算法/数学",
+          "intent": "用同一套算法框架解决问题",
+          "count": 10,
+          "collocations": [
+            "> **版本**：v2.0｜公式 版｜CSDN UID9622",
+            "推演師: 龍魂系統·公式 師",
+            "**CSDN 25條公式全面 ，24區塊** |",
+            "*本文檔由龍魂系統·公式 師生成*",
+            "‖ v2.0公式 _JSON) ←"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260706_龍魂_諸葛亮易經鋰電技術推演_v2.md",
+            "L7_数据层/desktop_archive/articles/20260706_CNSH_2026-07-08_XJS_龍魂_諸葛亮易經鋰電技術推演_v2.md"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 5,
+          "collocations": [
+            "# DNA：#龍芯⚡️2026-04-13-无限循环×BraKet -v1.0",
+            "**DNA追溯码：**#龍芯⚡️2026-04-13-BRAKET-v2.0-无限循环",
+            "- **中央 DNA**：`#龍芯⚡️2026-07-03-QIAO-ARCHIVE-LOCAL-v1.0`",
+            "# DNA：#龍芯⚡️2026-04-13-BraKet-v2.0-无限循环"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "L1_内核层/kernel/algorithms/longhun-algorithms-cnsh-v1.0.md",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/SKILL.md",
+            "L7_数据层/desktop_archive/articles/20260621_【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）_3664bb869a0841478008c6c111b9289d.md"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "以中国文化主体统一认知标准",
+          "count": 3,
+          "collocations": [
+            "**拿捏：** Monotype是全球字体版权最大的持有方，通过收购策略 了大量经典字体版权。选它是为了说明“这不只是中国问题，是全球资本整合的结果”。它让人看到：字体版权已经被资本集中化。来源：Monotype官网 +",
+            "btn-outline\" href=\"./docs/中国自主技术栈 清单_v1.0.md\" target=\"_blank\">查看完整技术栈清单</a>"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_💰_字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费_v1_1_8b5652c312034ef092f708d19365055c.md",
+            "L5_服务层/services/portal/portal/index.html",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-015_字体版权费_数据统计白皮书_你手机里每个字_都有人在收费_v1_1.md"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 3,
+          "collocations": [
+            "我们把所有内容 成可执行的日常系统。",
+            "五大子系统："
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-07_XMS_80后最累_时代宣言与全文总结_Part14_1.md",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/scripts/数字人主控.py",
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-07_XMS_80后最累_时代宣言与全文总结_Part14.md"
+          ]
+        },
+        {
+          "context_type": "管理/治理",
+          "intent": "用一个规则管理所有，不允许多头",
+          "count": 2,
+          "collocations": [
+            "GPG签署管理工具 · 指南",
+            "所有子系統，提供完整的腳本管理能力"
+          ],
+          "related_files": [
+            "tools/gpg-sign-manager/INTEGRATION_GUIDE.md",
+            "bin/longhun_script_manager_v2.0.py"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 2,
+          "collocations": [
+            "\"L7_数据层/desktop_archive/articles/20260705_2026-07-05-河图洛书_易经_七因子_生态 协议_v1.0.md\",",
+            "\"L7_数据层/desktop_archive/articles/20260705_2026-07-05-河图洛书_易经_七因子_生态 协议_v1.0.md\""
+          ],
+          "related_files": [
+            "L7_数据层/strategy_reports/execution_logs/same_name_conflict_index_v1.0.json",
+            "L7_数据层/strategy_reports/execution_logs/multi_version_archive_index_v1.0.json"
+          ]
+        }
+      ]
+    },
+    "汇总": {
+      "frequency": 87,
+      "aliases": [
+        "aggregate",
+        "summarize"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 78,
+          "collocations": [
+            "\"\"\"五行流场健康度 \"\"\"",
+            "[\"🐉 B4审计层·全插件 报告\", \"=\"",
+            "# ── ──",
+            "#",
+            "# 结果"
+          ],
+          "related_files": [
+            "bin/skill-launcher-v3.sh",
+            "integrations/mcp/cnsh_syntax_mcp_server.py",
+            "L5_服务层/services/dashboard/web/longhun-unified-v9.html",
+            "bin/cnsh_gatekeeper.py",
+            "L5_服务层/services/portal/portal/longhun-unified-v9.html"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 5,
+          "collocations": [
+            "- 原有能力：全网情报搜索、外部信息交叉验证、多源数据 、信息可信度评估",
+            "[📚 数据来源 ](#数据来源汇总)",
+            "📚 数据来源",
+            "\"📊 同步结果 \""
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-007_中美民生数据对比_用数据说话_不抹黑不吹捧.md",
+            "bin/lh_sync_all.sh",
+            "L7_数据层/strategy_reports/execution_logs/P1_P2_EXECUTION_SUMMARY_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260621_中美民生数据对比｜用数据说话，不抹黑不吹捧_649faf6e6d5e4570936bdaced850a31e.md"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 1,
+          "collocations": [
+            "\"║ 启动 — 龍魂系统状态报告"
+          ],
+          "related_files": [
+            "bin/skill-launcher-v3.sh"
+          ]
+        },
+        {
+          "context_type": "命令/脚本",
+          "intent": "提供一个命令入口，屏蔽底层复杂",
+          "count": 1,
+          "collocations": [
+            "print(\"命令: / 导出"
+          ],
+          "related_files": [
+            "bin/lh_finance_fmt.py"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 1,
+          "collocations": [
+            "附录B: DNA签名"
+          ],
+          "related_files": [
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/references/锚点体系.md"
+          ]
+        },
+        {
+          "context_type": "算法/数学",
+          "intent": "用同一套算法框架解决问题",
+          "count": 1,
+          "collocations": [
+            "9.2 核心公式"
+          ],
+          "related_files": [
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/references/逻辑框架.md"
+          ]
+        }
+      ]
+    },
+    "统一": {
+      "frequency": 1151,
+      "aliases": [
+        "unify",
+        "uniform",
+        "consolidate",
+        "single",
+        "one"
+      ],
+      "contexts": [
+        {
+          "context_type": "general",
+          "intent": "在general语境下的统一语义",
+          "count": 492,
+          "collocations": [
+            "排除规则（文件名/路径）—— 将 按 ignorecase",
+            "# 启动常驻服务 +",
+            "🐉 龍魂 记忆中枢 ·",
+            "🐉 龍魂 启动器 ·",
+            "\"国际接轨\", \"全球 \"]):"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260708_2026-07-04-灵活与原则-无底线即虚无-龍魂价值观论文.md",
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用_UID9622_×_Clau_3297125a9c9f81b5ab3fda0a0151b069.md",
+            "L7_数据层/desktop_archive/articles/20260621_中美民生数据对比｜用数据说话，不抹黑不吹捧_649faf6e6d5e4570936bdaced850a31e.md",
+            "bin/lh_memory_client.py",
+            "L7_数据层/desktop_archive/articles/20260703_CNSH_2026-07-04_XSL_UID9622-IP展示页-龍芯北辰.md"
+          ]
+        },
+        {
+          "context_type": "入口/界面",
+          "intent": "把所有功能收到一个入口，方便使用",
+          "count": 162,
+          "collocations": [
+            "\"desc\": \"多平台技能 主控器（交互模式）\",",
+            "【 入口】所有龍魂CLI工具通过此入口路由。",
+            "\"desc\": \"打开龍魂主控台（路由矩阵· 入口）\"},",
+            "— 龍魂 记忆入口",
+            "\"desc\": \"打开龍魂主控台（路由矩阵· 入口·导航中枢）\","
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂多平台调度中枢_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260703_CNSH_2026-07-04_XSL_UID9622-IP展示页-龍芯北辰.md",
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-05_XGJ_CSDN资料与模板设计_v1.0.md",
+            "L5_服务层/services/api/control-panel/main.py"
+          ]
+        },
+        {
+          "context_type": "DNA/登记",
+          "intent": "把不同来源的资产登记到一个Merkle根下",
+          "count": 155,
+          "collocations": [
+            "║ 龍魂 DNA登记册 ·",
+            "print(\"🧬 龍魂 DNA登记册 ·",
+            "对一笔 DNA登记记录执行严格审计，输出 🟢🟡🔴",
+            "# 从 DNA登记引擎导入资产类型表与核心函数",
+            "4. 这就是这个人的「物理+虚拟」 DNA"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+            "bin/lh_unified_dna_registry.py",
+            "L5_服务层/services/dashboard/web/longhun-unified-v9.html",
+            "bin/cnsh_gatekeeper.py",
+            "L5_服务层/services/portal/portal/longhun-unified-v9.html"
+          ]
+        },
+        {
+          "context_type": "算法/数学",
+          "intent": "用同一套算法框架解决问题",
+          "count": 147,
+          "collocations": [
+            "## 二、三才算法： 根基",
+            "- 三才算法声明：`~/longhun-system/articles/2026-07-03-三才算法 算法根基与算法对齐声明.md`",
+            "| 确立三才算法为终极称号， 附属算法清单，划分自研与引用算法，建立对齐检查规则 |",
+            "- 三才算法对齐声明：`~/longhun-system/articles/2026-07-03-三才算法 算法根基与算法对齐声明.md`",
+            "title: 三才算法 算法根基与算法对齐声明"
+          ],
+          "related_files": [
+            "integrations/csdn/csdn_api_client.py",
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用_UID9622_×_Clau_3297125a9c9f81b5ab3fda0a0151b069.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-UID9622-IP展示页-龍芯北辰-微信公众号版.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂DNA时间轴L5分层架构-v1.4-优化版_1.md"
+          ]
+        },
+        {
+          "context_type": "架构/设计",
+          "intent": "系统架构收拢，减少冗余模块",
+          "count": 114,
+          "collocations": [
+            "龍魂系统 · 知识矩阵桌面同步脚本",
+            "龍魂移动端应用 · 监控自动化系统 v1.0",
+            "龍魂系统 · 知识矩阵')",
+            "龍魂系统 · 流场 v9",
+            "\"元字引擎\", \" 同步视图\", \"系统架构全景\"]),"
+          ],
+          "related_files": [
+            "L5_服务层/services/dashboard/web/p0-controls/龍魂-daodejing-v4.1.html",
+            "L5_服务层/services/portal/portal/data/notion_nav.json",
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用_UID9622_×_Clau_3297125a9c9f81b5ab3fda0a0151b069.md",
+            "bin/integrate_cnsh_uid9622.py",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md"
+          ]
+        },
+        {
+          "context_type": "格式/标准",
+          "intent": "让大家用同样的格式，减少混乱",
+          "count": 26,
+          "collocations": [
+            "(2026-07-07) 主控体系 规范：",
+            "Python Skill 封装为标准 JSON",
+            "✅ [1] SDK 规范",
+            "\"文化/主权\": \"以中国文化主体 认知标准\",",
+            "净土36条 AI 标准 CNSH文化内核/📊"
+          ],
+          "related_files": [
+            "tools/sync_article_to_desktop.py",
+            "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-05_XGJ_CSDN资料与模板设计_v1.0.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版-微信公众号版.md",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/references/乔前辈数字人知识库/🍎乔前辈数字人知识库·本地归档.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md"
+          ]
+        },
+        {
+          "context_type": "管理/治理",
+          "intent": "用一个规则管理所有，不允许多头",
+          "count": 17,
+          "collocations": [
+            "> 三才算法即“三”，是龍魂系统所有可计算治理的 起点。",
+            "<ol><li>&quot;载营魄抱一&quot;=系统 ，不分裂——**龍魂系统：统一人格，不分裂**</li><li>&quot;生而不有，为而不恃，长而不宰&quot;=做出来是人民的，不占有，不控制——**玄德**</li><li>不分裂，才能有力</li><li>专注，不分散</li><li>像婴儿一样纯净，不被污染</li></ol>",
+            "合并为“CNSH-IEEE 治理与白皮书 版” |",
+            "核心目标不是替代传统系统，而是提供 **AI治理、知识管理与自动化协作的 运行环境**。",
+            "提供行为记录、亮灯控制、画像查询的 接口"
+          ],
+          "related_files": [
+            "L5_服务层/services/dashboard/web/p0-controls/龍魂-daodejing-v4.1.html",
+            "tools/gpg-sign-manager/gpg_sign_manager.py",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-001_CNSH_AI_Governance_Framework_IEEE论文版_工程架构图_龍魂对齐版.md",
+            "L5_服务层/services/portal/portal/articles/2026-07-03-三才算法统一算法根基与算法对齐声明.md",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-03-三才算法统一算法根基与算法对齐声明_1.md"
+          ]
+        },
+        {
+          "context_type": "文化/主权",
+          "intent": "以中国文化主体统一认知标准",
+          "count": 17,
+          "collocations": [
+            "(2) 河图的核心常数5是洛书幻和15的因子（15=3×5），而洛书的模数9是河图模数10的互素伙伴。两者通过中国剩余定理（CRT） 。",
+            "**数学的优雅，中国文化的底蕴，AI的创新，三者完美 。**",
+            "`ℤ₉` 互素（`gcd(9,10)=1`），由中国剩余定理 为 `ℤ₉₀",
+            "**命题 F（对偶 ）：** 河图与洛书通过中国剩余定理统一为",
+            "中国文化章节.json metadata 为 v2.0"
+          ],
+          "related_files": [
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量·统一版_v3.0.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-026_洛书369与AI决策不变量_古典数学在现代人工智能中的形式化应用_UID9622_Cl.md",
+            "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用_UID9622_×_Clau_3297125a9c9f81b5ab3fda0a0151b069.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-005_龍魂系统_曾老师智慧算法_用量子力学重构AI人格协作_Bra-Ket完整版.md",
+            "L7_数据层/desktop_archive/articles/20260621_PAPER-20260621-025_洛书369与AI决策不变量_arXiv投稿就绪版_v1_0_UID9622_Claude.md"
+          ]
+        },
+        {
+          "context_type": "数据/同步",
+          "intent": "多个数据源合并成一个视图",
+          "count": 9,
+          "collocations": [
+            "desc:'50 页面 索引', path:'/data/notion_nav.json'},",
+            "\"L7_数据层/desktop_archive/articles/20260704_2026-07-03-三才算法 算法根基与算法对齐声明-微信公众号版.md\"",
+            "1. 加载 花名册 (L7_数据层/unified_family_roster.json)",
+            "# 模拟内化：将多条数据融合为 表达",
+            "\"L7_数据层/desktop_archive/articles/20260621_PAPER-20260622-030_洛书369与AI决策不变量_ 版_v3_0.md\""
+          ],
+          "related_files": [
+            "L5_服务层/services/dashboard/web/CNSH_龍魂操作台v4.0.html",
+            "L7_数据层/desktop_archive/articles/20260709_2026-07-09-龍魂执行记录-脱敏版.md",
+            "L7_数据层/strategy_reports/execution_logs/multi_version_archive_index_v1.0.json",
+            "L7_数据层/strategy_reports/execution_logs/same_name_conflict_index_v1.0.json",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/scripts/十维呼吸引擎.py"
+          ]
+        },
+        {
+          "context_type": "命令/脚本",
+          "intent": "提供一个命令入口，屏蔽底层复杂",
+          "count": 6,
+          "collocations": [
+            "与 `启动数字人.py` 注入脚本目录到 `sys.path`",
+            "命令：",
+            "B4 审计命令提供 的插件基类",
+            "`[工作脚本路径]` 扫描冲突，再 合并重复条目。",
+            "║ 龍魂 CLI 启动器"
+          ],
+          "related_files": [
+            "bin/longhun-governance.py",
+            "L7_数据层/daoyin/mirror/92d21a0a593b0d44/AUDIT_REPORT_20260625.md",
+            "L7_数据层/desktop_archive/articles/20260704_2026-07-03-UID9622-全资产审查看板-微信公众号版.md",
+            "bin/longhun_cli.py",
+            "L1_内核层/kernel/cross_module_registry.json"
+          ]
+        },
+        {
+          "context_type": "路由/网关",
+          "intent": "所有请求从一个网关进来，统一分发",
+          "count": 6,
+          "collocations": [
+            "= 0.855',description:'五大人格实体的 API 路由与调度。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-PERSONA-API-v1.0'},",
+            "description=\"五大人格实体的 API 路由与调度。\",",
+            "description=\"五大人格实体 API路由\", dna=\"#龍芯⚡️2026-06-22-LONGHUN-PERSONA-API-v1.0\"),",
+            "\"路由/网关\": \"所有请求从一个网关进来， 分发\",",
+            "已迁移：不再直连 Moonshot， 走龍魂模型路由（DeepSeek /"
+          ],
+          "related_files": [
+            "bin/_mine_unified_semantics.py",
+            "tools/longhun_neural_network_server.py",
+            "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md",
+            "tools/longhun_symbiote_server.py",
+            "L5_服务层/services/dashboard/web/longhun-neural-network-3d-v1.html"
+          ]
+        }
+      ]
+    }
+  },
+  "synonym_expansions": {
+    "统一": [
+      "整合",
+      "合并",
+      "归一",
+      "一起",
+      "收到一起",
+      "归到一个",
+      "合到一块",
+      "弄到一起",
+      "并在一起",
+      "集中",
+      "收拢",
+      "归拢",
+      "汇总",
+      "合起来",
+      "拢到一起",
+      "合并到一块"
+    ],
+    "对齐": [
+      "对上",
+      "对准",
+      "匹配",
+      "对号",
+      "对上号",
+      "对不齐",
+      "对得上",
+      "同步"
+    ],
+    "收口": [
+      "收了",
+      "收起来",
+      "该收了",
+      "压缩",
+      "收敛",
+      "收紧",
+      "停下来"
+    ]
+  },
+  "fallback_patterns": [
+    {
+      "pattern_keywords": [
+        "乱",
+        "整",
+        "理",
+        "清",
+        "归档"
+      ],
+      "intent": "需要整理/清理/归档",
+      "context_type": "管理/治理",
+      "examples": [
+        "这个太乱了整一下",
+        "帮忙整理一下",
+        "归档一下"
+      ]
+    },
+    {
+      "pattern_keywords": [
+        "格式",
+        "样式",
+        "排版",
+        "模板",
+        "不对劲",
+        "对不上",
+        "不对"
+      ],
+      "intent": "格式不统一，需要标准化",
+      "context_type": "格式/标准",
+      "examples": [
+        "格式不对劲",
+        "排版有问题",
+        "样式不统一"
+      ]
+    },
+    {
+      "pattern_keywords": [
+        "版本",
+        "对不上",
+        "不一致",
+        "冲突",
+        "冲突了"
+      ],
+      "intent": "版本不一致，需要对齐",
+      "context_type": "格式/标准",
+      "examples": [
+        "版本对不上号",
+        "两个版本不一致",
+        "冲突了"
+      ]
+    },
+    {
+      "pattern_keywords": [
+        "跑着没",
+        "活着没",
+        "正常不",
+        "状态",
+        "情况",
+        "咋样"
+      ],
+      "intent": "检查系统运行状态",
+      "context_type": "系统状态",
+      "examples": [
+        "系统跑着没",
+        "共生体还活着没",
+        "查下状态"
+      ]
+    },
+    {
+      "pattern_keywords": [
+        "太长了",
+        "该收了",
+        "新开",
+        "换窗口",
+        "太多了",
+        "接不上了"
+      ],
+      "intent": "窗口太长需要压缩收口",
+      "context_type": "窗口管理",
+      "examples": [
+        "该收口了",
+        "太长了开新窗",
+        "接不上了"
+      ]
+    }
+  ],
+  "colloquial_mappings": {
+    "对对": {
+      "standard": "对齐",
+      "context_type": "格式/标准"
+    },
+    "整一下": {
+      "standard": "统一",
+      "context_type": "管理/治理"
+    },
+    "拢到一起": {
+      "standard": "统一",
+      "context_type": "管理/治理"
+    },
+    "合到一块": {
+      "standard": "合并",
+      "context_type": "数据/同步"
+    },
+    "收到一起": {
+      "standard": "统一",
+      "context_type": "管理/治理"
+    },
+    "对不上号": {
+      "standard": "对齐",
+      "context_type": "格式/标准"
+    },
+    "不对劲": {
+      "standard": "对齐",
+      "context_type": "格式/标准"
+    },
+    "太乱了": {
+      "standard": "统一",
+      "context_type": "管理/治理"
+    },
+    "归一": {
+      "standard": "归一",
+      "context_type": "算法/数学"
+    },
+    "归一到一起": {
+      "standard": "归一",
+      "context_type": "命令/脚本"
+    },
+    "归拢归拢": {
+      "standard": "统一",
+      "context_type": "管理/治理"
+    }
+  }
+}

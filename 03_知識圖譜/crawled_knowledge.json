@@ -1,0 +1,1996 @@
+{
+  "daodejing": [
+    {
+      "chapter": 1,
+      "source": "https://www.gushiwen.cn/guwen/book_1.aspx",
+      "title": "山海经",
+      "content": ""
+    },
+    {
+      "chapter": 2,
+      "source": "https://www.gushiwen.cn/guwen/book_2.aspx",
+      "title": "论语",
+      "content": ""
+    },
+    {
+      "chapter": 3,
+      "source": "https://www.gushiwen.cn/guwen/book_3.aspx",
+      "title": "孙子兵法",
+      "content": ""
+    },
+    {
+      "chapter": 4,
+      "source": "https://www.gushiwen.cn/guwen/book_4.aspx",
+      "title": "三十六计",
+      "content": ""
+    },
+    {
+      "chapter": 5,
+      "source": "https://www.gushiwen.cn/guwen/book_5.aspx",
+      "title": "史记",
+      "content": ""
+    },
+    {
+      "chapter": 6,
+      "source": "https://www.gushiwen.cn/guwen/book_6.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 7,
+      "source": "https://www.gushiwen.cn/guwen/book_7.aspx",
+      "title": "易传",
+      "content": ""
+    },
+    {
+      "chapter": 8,
+      "source": "https://www.gushiwen.cn/guwen/book_8.aspx",
+      "title": "资治通鉴",
+      "content": ""
+    },
+    {
+      "chapter": 9,
+      "source": "https://www.gushiwen.cn/guwen/book_9.aspx",
+      "title": "续资治通鉴",
+      "content": ""
+    },
+    {
+      "chapter": 10,
+      "source": "https://www.gushiwen.cn/guwen/book_10.aspx",
+      "title": "黄帝内经",
+      "content": ""
+    },
+    {
+      "chapter": 11,
+      "source": "https://www.gushiwen.cn/guwen/book_11.aspx",
+      "title": "孟子",
+      "content": ""
+    },
+    {
+      "chapter": 12,
+      "source": "https://www.gushiwen.cn/guwen/book_12.aspx",
+      "title": "本草纲目",
+      "content": ""
+    },
+    {
+      "chapter": 13,
+      "source": "https://www.gushiwen.cn/guwen/book_13.aspx",
+      "title": "了凡四训",
+      "content": ""
+    },
+    {
+      "chapter": 14,
+      "source": "https://www.gushiwen.cn/guwen/book_14.aspx",
+      "title": "梦溪笔谈",
+      "content": ""
+    },
+    {
+      "chapter": 15,
+      "source": "https://www.gushiwen.cn/guwen/book_15.aspx",
+      "title": "三字经",
+      "content": ""
+    },
+    {
+      "chapter": 16,
+      "source": "https://www.gushiwen.cn/guwen/book_16.aspx",
+      "title": "百家姓",
+      "content": ""
+    },
+    {
+      "chapter": 17,
+      "source": "https://www.gushiwen.cn/guwen/book_17.aspx",
+      "title": "千字文",
+      "content": ""
+    },
+    {
+      "chapter": 18,
+      "source": "https://www.gushiwen.cn/guwen/book_18.aspx",
+      "title": "世说新语",
+      "content": ""
+    },
+    {
+      "chapter": 19,
+      "source": "https://www.gushiwen.cn/guwen/book_19.aspx",
+      "title": "左传",
+      "content": ""
+    },
+    {
+      "chapter": 20,
+      "source": "https://www.gushiwen.cn/guwen/book_20.aspx",
+      "title": "大学",
+      "content": ""
+    },
+    {
+      "chapter": 21,
+      "source": "https://www.gushiwen.cn/guwen/book_21.aspx",
+      "title": "中庸",
+      "content": ""
+    },
+    {
+      "chapter": 22,
+      "source": "https://www.gushiwen.cn/guwen/book_22.aspx",
+      "title": "尚书",
+      "content": ""
+    },
+    {
+      "chapter": 23,
+      "source": "https://www.gushiwen.cn/guwen/book_23.aspx",
+      "title": "礼记",
+      "content": ""
+    },
+    {
+      "chapter": 24,
+      "source": "https://www.gushiwen.cn/guwen/book_24.aspx",
+      "title": "周礼",
+      "content": ""
+    },
+    {
+      "chapter": 25,
+      "source": "https://www.gushiwen.cn/guwen/book_25.aspx",
+      "title": "仪礼",
+      "content": ""
+    },
+    {
+      "chapter": 26,
+      "source": "https://www.gushiwen.cn/guwen/book_26.aspx",
+      "title": "庄子",
+      "content": ""
+    },
+    {
+      "chapter": 27,
+      "source": "https://www.gushiwen.cn/guwen/book_27.aspx",
+      "title": "鬼谷子",
+      "content": ""
+    },
+    {
+      "chapter": 28,
+      "source": "https://www.gushiwen.cn/guwen/book_28.aspx",
+      "title": "老子",
+      "content": ""
+    },
+    {
+      "chapter": 29,
+      "source": "https://www.gushiwen.cn/guwen/book_29.aspx",
+      "title": "墨子",
+      "content": ""
+    },
+    {
+      "chapter": 30,
+      "source": "https://www.gushiwen.cn/guwen/book_30.aspx",
+      "title": "荀子",
+      "content": ""
+    },
+    {
+      "chapter": 31,
+      "source": "https://www.gushiwen.cn/guwen/book_31.aspx",
+      "title": "韩非子",
+      "content": ""
+    },
+    {
+      "chapter": 32,
+      "source": "https://www.gushiwen.cn/guwen/book_32.aspx",
+      "title": "列子",
+      "content": ""
+    },
+    {
+      "chapter": 33,
+      "source": "https://www.gushiwen.cn/guwen/book_33.aspx",
+      "title": "淮南子",
+      "content": ""
+    },
+    {
+      "chapter": 34,
+      "source": "https://www.gushiwen.cn/guwen/book_34.aspx",
+      "title": "管子",
+      "content": ""
+    },
+    {
+      "chapter": 35,
+      "source": "https://www.gushiwen.cn/guwen/book_35.aspx",
+      "title": "尉缭子",
+      "content": ""
+    },
+    {
+      "chapter": 36,
+      "source": "https://www.gushiwen.cn/guwen/book_36.aspx",
+      "title": "吴子",
+      "content": ""
+    },
+    {
+      "chapter": 37,
+      "source": "https://www.gushiwen.cn/guwen/book_37.aspx",
+      "title": "伤寒论",
+      "content": ""
+    },
+    {
+      "chapter": 38,
+      "source": "https://www.gushiwen.cn/guwen/book_38.aspx",
+      "title": "天工开物",
+      "content": ""
+    },
+    {
+      "chapter": 39,
+      "source": "https://www.gushiwen.cn/guwen/book_39.aspx",
+      "title": "素书",
+      "content": ""
+    },
+    {
+      "chapter": 40,
+      "source": "https://www.gushiwen.cn/guwen/book_40.aspx",
+      "title": "汉书",
+      "content": ""
+    },
+    {
+      "chapter": 41,
+      "source": "https://www.gushiwen.cn/guwen/book_41.aspx",
+      "title": "后汉书",
+      "content": ""
+    },
+    {
+      "chapter": 42,
+      "source": "https://www.gushiwen.cn/guwen/book_42.aspx",
+      "title": "商君书",
+      "content": ""
+    },
+    {
+      "chapter": 43,
+      "source": "https://www.gushiwen.cn/guwen/book_43.aspx",
+      "title": "文心雕龙",
+      "content": ""
+    },
+    {
+      "chapter": 44,
+      "source": "https://www.gushiwen.cn/guwen/book_44.aspx",
+      "title": "吕氏春秋",
+      "content": ""
+    },
+    {
+      "chapter": 45,
+      "source": "https://www.gushiwen.cn/guwen/book_45.aspx",
+      "title": "孝经",
+      "content": ""
+    },
+    {
+      "chapter": 46,
+      "source": "https://www.gushiwen.cn/guwen/book_46.aspx",
+      "title": "孔子家语",
+      "content": ""
+    },
+    {
+      "chapter": 47,
+      "source": "https://www.gushiwen.cn/guwen/book_47.aspx",
+      "title": "颜氏家训",
+      "content": ""
+    },
+    {
+      "chapter": 48,
+      "source": "https://www.gushiwen.cn/guwen/book_48.aspx",
+      "title": "孙膑兵法",
+      "content": ""
+    },
+    {
+      "chapter": 49,
+      "source": "https://www.gushiwen.cn/guwen/book_49.aspx",
+      "title": "搜神记",
+      "content": ""
+    },
+    {
+      "chapter": 50,
+      "source": "https://www.gushiwen.cn/guwen/book_50.aspx",
+      "title": "搜神后记",
+      "content": ""
+    },
+    {
+      "chapter": 51,
+      "source": "https://www.gushiwen.cn/guwen/book_51.aspx",
+      "title": "笑林广记",
+      "content": ""
+    },
+    {
+      "chapter": 52,
+      "source": "https://www.gushiwen.cn/guwen/book_52.aspx",
+      "title": "百战奇略",
+      "content": ""
+    },
+    {
+      "chapter": 53,
+      "source": "https://www.gushiwen.cn/guwen/book_53.aspx",
+      "title": "战国策",
+      "content": ""
+    },
+    {
+      "chapter": 54,
+      "source": "https://www.gushiwen.cn/guwen/book_54.aspx",
+      "title": "三国志",
+      "content": ""
+    },
+    {
+      "chapter": 55,
+      "source": "https://www.gushiwen.cn/guwen/book_55.aspx",
+      "title": "将苑",
+      "content": ""
+    },
+    {
+      "chapter": 56,
+      "source": "https://www.gushiwen.cn/guwen/book_56.aspx",
+      "title": "六韬",
+      "content": ""
+    },
+    {
+      "chapter": 57,
+      "source": "https://www.gushiwen.cn/guwen/book_57.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 58,
+      "source": "https://www.gushiwen.cn/guwen/book_58.aspx",
+      "title": "公孙龙子",
+      "content": ""
+    },
+    {
+      "chapter": 59,
+      "source": "https://www.gushiwen.cn/guwen/book_59.aspx",
+      "title": "司马法",
+      "content": ""
+    },
+    {
+      "chapter": 60,
+      "source": "https://www.gushiwen.cn/guwen/book_60.aspx",
+      "title": "逸周书",
+      "content": ""
+    },
+    {
+      "chapter": 61,
+      "source": "https://www.gushiwen.cn/guwen/book_61.aspx",
+      "title": "黄帝四经",
+      "content": ""
+    },
+    {
+      "chapter": 62,
+      "source": "https://www.gushiwen.cn/guwen/book_62.aspx",
+      "title": "贞观政要",
+      "content": ""
+    },
+    {
+      "chapter": 63,
+      "source": "https://www.gushiwen.cn/guwen/book_63.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 64,
+      "source": "https://www.gushiwen.cn/guwen/book_64.aspx",
+      "title": "文昌孝经",
+      "content": ""
+    },
+    {
+      "chapter": 65,
+      "source": "https://www.gushiwen.cn/guwen/book_65.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 66,
+      "source": "https://www.gushiwen.cn/guwen/book_66.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 67,
+      "source": "https://www.gushiwen.cn/guwen/book_67.aspx",
+      "title": "徐霞客游记",
+      "content": ""
+    },
+    {
+      "chapter": 68,
+      "source": "https://www.gushiwen.cn/guwen/book_68.aspx",
+      "title": "弟子规",
+      "content": ""
+    },
+    {
+      "chapter": 69,
+      "source": "https://www.gushiwen.cn/guwen/book_69.aspx",
+      "title": "增广贤文",
+      "content": ""
+    },
+    {
+      "chapter": 70,
+      "source": "https://www.gushiwen.cn/guwen/book_70.aspx",
+      "title": "幼学琼林",
+      "content": ""
+    },
+    {
+      "chapter": 71,
+      "source": "https://www.gushiwen.cn/guwen/book_71.aspx",
+      "title": "冰鉴",
+      "content": ""
+    },
+    {
+      "chapter": 72,
+      "source": "https://www.gushiwen.cn/guwen/book_72.aspx",
+      "title": "容斋随笔",
+      "content": ""
+    },
+    {
+      "chapter": 73,
+      "source": "https://www.gushiwen.cn/guwen/book_73.aspx",
+      "title": "围炉夜话",
+      "content": ""
+    },
+    {
+      "chapter": 74,
+      "source": "https://www.gushiwen.cn/guwen/book_74.aspx",
+      "title": "论衡",
+      "content": ""
+    },
+    {
+      "chapter": 75,
+      "source": "https://www.gushiwen.cn/guwen/book_75.aspx",
+      "title": "菜根谭",
+      "content": ""
+    },
+    {
+      "chapter": 76,
+      "source": "https://www.gushiwen.cn/guwen/book_76.aspx",
+      "title": "",
+      "content": ""
+    },
+    {
+      "chapter": 77,
+      "source": "https://www.gushiwen.cn/guwen/book_77.aspx",
+      "title": "水经注",
+      "content": ""
+    },
+    {
+      "chapter": 78,
+      "source": "https://www.gushiwen.cn/guwen/book_78.aspx",
+      "title": "智囊(选录)",
+      "content": ""
+    },
+    {
+      "chapter": 79,
+      "source": "https://www.gushiwen.cn/guwen/book_79.aspx",
+      "title": "农桑辑要",
+      "content": ""
+    },
+    {
+      "chapter": 80,
+      "source": "https://www.gushiwen.cn/guwen/book_80.aspx",
+      "title": "睡虎地秦墓竹简",
+      "content": ""
+    },
+    {
+      "chapter": 81,
+      "source": "https://www.gushiwen.cn/guwen/book_81.aspx",
+      "title": "晋书",
+      "content": ""
+    }
+  ],
+  "yijing": [
+    {
+      "index": 1,
+      "name": "乾",
+      "pinyin": "qián",
+      "xiang": "天",
+      "gua_ci": "元亨利贞。",
+      "source": "https://www.gushiwen.cn/guwen/book_101.aspx"
+    },
+    {
+      "index": 2,
+      "name": "坤",
+      "pinyin": "kūn",
+      "xiang": "地",
+      "gua_ci": "元亨，利牝马之贞。君子有攸往，先迷后得主，利西南得朋，东北丧朋。安贞吉。",
+      "source": "https://www.gushiwen.cn/guwen/book_102.aspx"
+    },
+    {
+      "index": 3,
+      "name": "屯",
+      "pinyin": "zhūn",
+      "xiang": "水雷",
+      "gua_ci": "元亨利贞。勿用有攸往，利建侯。",
+      "source": "https://www.gushiwen.cn/guwen/book_103.aspx"
+    },
+    {
+      "index": 4,
+      "name": "蒙",
+      "pinyin": "méng",
+      "xiang": "山水",
+      "gua_ci": "亨。匪我求童蒙，童蒙求我。初筮告，再三渎，渎则不告。利贞。",
+      "source": "https://www.gushiwen.cn/guwen/book_104.aspx"
+    },
+    {
+      "index": 5,
+      "name": "需",
+      "pinyin": "xū",
+      "xiang": "水天",
+      "gua_ci": "有孚，光亨，贞吉。利涉大川。",
+      "source": "https://www.gushiwen.cn/guwen/book_105.aspx"
+    },
+    {
+      "index": 6,
+      "name": "讼",
+      "pinyin": "sòng",
+      "xiang": "天水",
+      "gua_ci": "有孚，窒惕，中吉，终凶。利见大人，不利涉大川。",
+      "source": "https://www.gushiwen.cn/guwen/book_106.aspx"
+    },
+    {
+      "index": 7,
+      "name": "师",
+      "pinyin": "shī",
+      "xiang": "地水",
+      "gua_ci": "贞，丈人吉，无咎。",
+      "source": "https://www.gushiwen.cn/guwen/book_107.aspx"
+    },
+    {
+      "index": 8,
+      "name": "比",
+      "pinyin": "bǐ",
+      "xiang": "水地",
+      "gua_ci": "吉。原筮，元永贞，无咎。不宁方来，后夫凶。",
+      "source": "https://www.gushiwen.cn/guwen/book_108.aspx"
+    },
+    {
+      "index": 9,
+      "name": "小畜",
+      "pinyin": "xiǎo xù",
+      "xiang": "风天",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_109.aspx"
+    },
+    {
+      "index": 10,
+      "name": "履",
+      "pinyin": "lǚ",
+      "xiang": "天泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_110.aspx"
+    },
+    {
+      "index": 11,
+      "name": "泰",
+      "pinyin": "tài",
+      "xiang": "地天",
+      "gua_ci": "小往大来，吉亨。",
+      "source": "https://www.gushiwen.cn/guwen/book_111.aspx"
+    },
+    {
+      "index": 12,
+      "name": "否",
+      "pinyin": "pǐ",
+      "xiang": "天地",
+      "gua_ci": "否之匪人，不利君子贞，大往小来。",
+      "source": "https://www.gushiwen.cn/guwen/book_112.aspx"
+    },
+    {
+      "index": 13,
+      "name": "同人",
+      "pinyin": "tóng rén",
+      "xiang": "天火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_113.aspx"
+    },
+    {
+      "index": 14,
+      "name": "大有",
+      "pinyin": "dà yǒu",
+      "xiang": "火天",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_114.aspx"
+    },
+    {
+      "index": 15,
+      "name": "谦",
+      "pinyin": "qiān",
+      "xiang": "地山",
+      "gua_ci": "亨，君子有终。",
+      "source": "https://www.gushiwen.cn/guwen/book_115.aspx"
+    },
+    {
+      "index": 16,
+      "name": "豫",
+      "pinyin": "yù",
+      "xiang": "雷地",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_116.aspx"
+    },
+    {
+      "index": 17,
+      "name": "随",
+      "pinyin": "suí",
+      "xiang": "泽雷",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_117.aspx"
+    },
+    {
+      "index": 18,
+      "name": "蛊",
+      "pinyin": "gǔ",
+      "xiang": "山风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_118.aspx"
+    },
+    {
+      "index": 19,
+      "name": "临",
+      "pinyin": "lín",
+      "xiang": "地泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_119.aspx"
+    },
+    {
+      "index": 20,
+      "name": "观",
+      "pinyin": "guān",
+      "xiang": "风地",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_120.aspx"
+    },
+    {
+      "index": 21,
+      "name": "噬嗑",
+      "pinyin": "shì hé",
+      "xiang": "火雷",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_121.aspx"
+    },
+    {
+      "index": 22,
+      "name": "贲",
+      "pinyin": "bì",
+      "xiang": "山火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_122.aspx"
+    },
+    {
+      "index": 23,
+      "name": "剥",
+      "pinyin": "bō",
+      "xiang": "山地",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_123.aspx"
+    },
+    {
+      "index": 24,
+      "name": "复",
+      "pinyin": "fù",
+      "xiang": "地雷",
+      "gua_ci": "亨。出入无疾，朋来无咎。反复其道，七日来复，利有攸往。",
+      "source": "https://www.gushiwen.cn/guwen/book_124.aspx"
+    },
+    {
+      "index": 25,
+      "name": "无妄",
+      "pinyin": "wú wàng",
+      "xiang": "天雷",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_125.aspx"
+    },
+    {
+      "index": 26,
+      "name": "大畜",
+      "pinyin": "dà chù",
+      "xiang": "山天",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_126.aspx"
+    },
+    {
+      "index": 27,
+      "name": "颐",
+      "pinyin": "yí",
+      "xiang": "山雷",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_127.aspx"
+    },
+    {
+      "index": 28,
+      "name": "大过",
+      "pinyin": "dà guò",
+      "xiang": "泽风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_128.aspx"
+    },
+    {
+      "index": 29,
+      "name": "坎",
+      "pinyin": "kǎn",
+      "xiang": "坎为水",
+      "gua_ci": "习坎，有孚，维心亨，行有尚。",
+      "source": "https://www.gushiwen.cn/guwen/book_129.aspx"
+    },
+    {
+      "index": 30,
+      "name": "离",
+      "pinyin": "lí",
+      "xiang": "离为火",
+      "gua_ci": "利贞，亨。畜牝牛，吉。",
+      "source": "https://www.gushiwen.cn/guwen/book_130.aspx"
+    },
+    {
+      "index": 31,
+      "name": "咸",
+      "pinyin": "xián",
+      "xiang": "泽山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_131.aspx"
+    },
+    {
+      "index": 32,
+      "name": "恒",
+      "pinyin": "héng",
+      "xiang": "雷风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_132.aspx"
+    },
+    {
+      "index": 33,
+      "name": "遁",
+      "pinyin": "dùn",
+      "xiang": "天山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_133.aspx"
+    },
+    {
+      "index": 34,
+      "name": "大壮",
+      "pinyin": "dà zhuàng",
+      "xiang": "雷天",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_134.aspx"
+    },
+    {
+      "index": 35,
+      "name": "晋",
+      "pinyin": "jìn",
+      "xiang": "火地",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_135.aspx"
+    },
+    {
+      "index": 36,
+      "name": "明夷",
+      "pinyin": "míng yí",
+      "xiang": "地火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_136.aspx"
+    },
+    {
+      "index": 37,
+      "name": "家人",
+      "pinyin": "jiā rén",
+      "xiang": "风火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_137.aspx"
+    },
+    {
+      "index": 38,
+      "name": "睽",
+      "pinyin": "kuí",
+      "xiang": "火泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_138.aspx"
+    },
+    {
+      "index": 39,
+      "name": "蹇",
+      "pinyin": "jiǎn",
+      "xiang": "水山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_139.aspx"
+    },
+    {
+      "index": 40,
+      "name": "解",
+      "pinyin": "xiè",
+      "xiang": "雷水",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_140.aspx"
+    },
+    {
+      "index": 41,
+      "name": "损",
+      "pinyin": "sǔn",
+      "xiang": "山泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_141.aspx"
+    },
+    {
+      "index": 42,
+      "name": "益",
+      "pinyin": "yì",
+      "xiang": "风雷",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_142.aspx"
+    },
+    {
+      "index": 43,
+      "name": "夬",
+      "pinyin": "guài",
+      "xiang": "泽天",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_143.aspx"
+    },
+    {
+      "index": 44,
+      "name": "姤",
+      "pinyin": "gòu",
+      "xiang": "天风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_144.aspx"
+    },
+    {
+      "index": 45,
+      "name": "萃",
+      "pinyin": "cuì",
+      "xiang": "泽地",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_145.aspx"
+    },
+    {
+      "index": 46,
+      "name": "升",
+      "pinyin": "shēng",
+      "xiang": "地风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_146.aspx"
+    },
+    {
+      "index": 47,
+      "name": "困",
+      "pinyin": "kùn",
+      "xiang": "泽水",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_147.aspx"
+    },
+    {
+      "index": 48,
+      "name": "井",
+      "pinyin": "jǐng",
+      "xiang": "水风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_148.aspx"
+    },
+    {
+      "index": 49,
+      "name": "革",
+      "pinyin": "gé",
+      "xiang": "泽火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_149.aspx"
+    },
+    {
+      "index": 50,
+      "name": "鼎",
+      "pinyin": "dǐng",
+      "xiang": "火风",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_150.aspx"
+    },
+    {
+      "index": 51,
+      "name": "震",
+      "pinyin": "zhèn",
+      "xiang": "震为雷",
+      "gua_ci": "亨。震来虩虩，笑言哑哑。震惊百里，不丧匕鬯。",
+      "source": "https://www.gushiwen.cn/guwen/book_151.aspx"
+    },
+    {
+      "index": 52,
+      "name": "艮",
+      "pinyin": "gèn",
+      "xiang": "艮为山",
+      "gua_ci": "艮其背，不获其身，行其庭，不见其人，无咎。",
+      "source": "https://www.gushiwen.cn/guwen/book_152.aspx"
+    },
+    {
+      "index": 53,
+      "name": "渐",
+      "pinyin": "jiàn",
+      "xiang": "风山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_153.aspx"
+    },
+    {
+      "index": 54,
+      "name": "归妹",
+      "pinyin": "guī mèi",
+      "xiang": "雷泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_154.aspx"
+    },
+    {
+      "index": 55,
+      "name": "丰",
+      "pinyin": "fēng",
+      "xiang": "雷火",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_155.aspx"
+    },
+    {
+      "index": 56,
+      "name": "旅",
+      "pinyin": "lǚ",
+      "xiang": "火山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_156.aspx"
+    },
+    {
+      "index": 57,
+      "name": "巽",
+      "pinyin": "xùn",
+      "xiang": "巽为风",
+      "gua_ci": "小亨，利有攸往，利见大人。",
+      "source": "https://www.gushiwen.cn/guwen/book_157.aspx"
+    },
+    {
+      "index": 58,
+      "name": "兑",
+      "pinyin": "duì",
+      "xiang": "兑为泽",
+      "gua_ci": "亨，利贞。",
+      "source": "https://www.gushiwen.cn/guwen/book_158.aspx"
+    },
+    {
+      "index": 59,
+      "name": "涣",
+      "pinyin": "huàn",
+      "xiang": "风水",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_159.aspx"
+    },
+    {
+      "index": 60,
+      "name": "节",
+      "pinyin": "jié",
+      "xiang": "水泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_160.aspx"
+    },
+    {
+      "index": 61,
+      "name": "中孚",
+      "pinyin": "zhōng fú",
+      "xiang": "风泽",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_161.aspx"
+    },
+    {
+      "index": 62,
+      "name": "小过",
+      "pinyin": "xiǎo guò",
+      "xiang": "雷山",
+      "gua_ci": "",
+      "source": "https://www.gushiwen.cn/guwen/book_162.aspx"
+    },
+    {
+      "index": 63,
+      "name": "既济",
+      "pinyin": "jì jì",
+      "xiang": "水火",
+      "gua_ci": "亨小，利贞。初吉终乱。",
+      "source": "https://www.gushiwen.cn/guwen/book_163.aspx"
+    },
+    {
+      "index": 64,
+      "name": "未济",
+      "pinyin": "wèi jì",
+      "xiang": "火水",
+      "gua_ci": "亨。小狐汔济，濡其尾，无攸利。",
+      "source": "https://www.gushiwen.cn/guwen/book_164.aspx"
+    }
+  ],
+  "xingxiu": [
+    {
+      "full_name": "角木蛟",
+      "short_name": "角",
+      "element": "木",
+      "direction": "东方青龙",
+      "description": "角宿，东方青龙第一宿，为龙角。主春生之机。"
+    },
+    {
+      "full_name": "亢金龙",
+      "short_name": "亢",
+      "element": "金",
+      "direction": "东方青龙",
+      "description": "亢宿，东方青龙第二宿，为龙颈。主风雨调和。"
+    },
+    {
+      "full_name": "氐土貉",
+      "short_name": "氐",
+      "element": "土",
+      "direction": "东方青龙",
+      "description": "氐宿，东方青龙第三宿，为龙胸。主根基稳固。"
+    },
+    {
+      "full_name": "房日兔",
+      "short_name": "房",
+      "element": "日",
+      "direction": "东方青龙",
+      "description": "房宿，东方青龙第四宿，为龙腹。主明堂政令。"
+    },
+    {
+      "full_name": "心月狐",
+      "short_name": "心",
+      "element": "月",
+      "direction": "东方青龙",
+      "description": "心宿，东方青龙第五宿，为龙心。主帝王之星。"
+    },
+    {
+      "full_name": "尾火虎",
+      "short_name": "尾",
+      "element": "火",
+      "direction": "东方青龙",
+      "description": "尾宿，东方青龙第六宿，为龙尾。主子孙繁衍。"
+    },
+    {
+      "full_name": "箕水豹",
+      "short_name": "箕",
+      "element": "水",
+      "direction": "东方青龙",
+      "description": "箕宿，东方青龙第七宿，为龙粪。主风伯飞扬。"
+    },
+    {
+      "full_name": "斗木獬",
+      "short_name": "斗",
+      "element": "木",
+      "direction": "北方玄武",
+      "description": "斗宿，北方玄武第一宿，为南斗六星。主爵禄荣升。"
+    },
+    {
+      "full_name": "牛金牛",
+      "short_name": "牛",
+      "element": "金",
+      "direction": "北方玄武",
+      "description": "牛宿，北方玄武第二宿，为牵牛星。主牺牲奉献。"
+    },
+    {
+      "full_name": "女土蝠",
+      "short_name": "女",
+      "element": "土",
+      "direction": "北方玄武",
+      "description": "女宿，北方玄武第三宿，为须女星。主婚姻嫁娶。"
+    },
+    {
+      "full_name": "虚日鼠",
+      "short_name": "虚",
+      "element": "日",
+      "direction": "北方玄武",
+      "description": "虚宿，北方玄武第四宿，为墟落。主虚怀若谷。"
+    },
+    {
+      "full_name": "危月燕",
+      "short_name": "危",
+      "element": "月",
+      "direction": "北方玄武",
+      "description": "危宿，北方玄武第五宿，为危屋。主居安思危。"
+    },
+    {
+      "full_name": "室火猪",
+      "short_name": "室",
+      "element": "火",
+      "direction": "北方玄武",
+      "description": "室宿，北方玄武第六宿，为营室。主宫室安居。"
+    },
+    {
+      "full_name": "壁水貐",
+      "short_name": "壁",
+      "element": "水",
+      "direction": "北方玄武",
+      "description": "壁宿，北方玄武第七宿，为东壁。主文章图书。"
+    },
+    {
+      "full_name": "奎木狼",
+      "short_name": "奎",
+      "element": "木",
+      "direction": "西方白虎",
+      "description": "奎宿，西方白虎第一宿，为天库。主文章府库。"
+    },
+    {
+      "full_name": "娄金狗",
+      "short_name": "娄",
+      "element": "金",
+      "direction": "西方白虎",
+      "description": "娄宿，西方白虎第二宿，为天狱。主聚众兴兵。"
+    },
+    {
+      "full_name": "胃土雉",
+      "short_name": "胃",
+      "element": "土",
+      "direction": "西方白虎",
+      "description": "胃宿，西方白虎第三宿，为天仓。主五谷丰登。"
+    },
+    {
+      "full_name": "昴日鸡",
+      "short_name": "昴",
+      "element": "日",
+      "direction": "西方白虎",
+      "description": "昴宿，西方白虎第四宿，为旄头。主胡兵夷狄。"
+    },
+    {
+      "full_name": "毕月乌",
+      "short_name": "毕",
+      "element": "月",
+      "direction": "西方白虎",
+      "description": "毕宿，西方白虎第五宿，为天网。主弋猎兵刑。"
+    },
+    {
+      "full_name": "觜火猴",
+      "short_name": "觜",
+      "element": "火",
+      "direction": "西方白虎",
+      "description": "觜宿，西方白虎第六宿，为虎首。主参商之隔。"
+    },
+    {
+      "full_name": "参水猿",
+      "short_name": "参",
+      "element": "水",
+      "direction": "西方白虎",
+      "description": "参宿，西方白虎第七宿，为参伐。主杀伐征讨。"
+    },
+    {
+      "full_name": "井木犴",
+      "short_name": "井",
+      "element": "木",
+      "direction": "南方朱雀",
+      "description": "井宿，南方朱雀第一宿，为天井。主水衡法令。"
+    },
+    {
+      "full_name": "鬼金羊",
+      "short_name": "鬼",
+      "element": "金",
+      "direction": "南方朱雀",
+      "description": "鬼宿，南方朱雀第二宿，为舆鬼。主祭祀鬼神。"
+    },
+    {
+      "full_name": "柳土獐",
+      "short_name": "柳",
+      "element": "土",
+      "direction": "南方朱雀",
+      "description": "柳宿，南方朱雀第三宿，为鸟嘴。主庖厨饮食。"
+    },
+    {
+      "full_name": "星日马",
+      "short_name": "星",
+      "element": "日",
+      "direction": "南方朱雀",
+      "description": "星宿，南方朱雀第四宿，为七星。主急事文书。"
+    },
+    {
+      "full_name": "张月鹿",
+      "short_name": "张",
+      "element": "月",
+      "direction": "南方朱雀",
+      "description": "张宿，南方朱雀第五宿，为鸟嗉。主宾客宴享。"
+    },
+    {
+      "full_name": "翼火蛇",
+      "short_name": "翼",
+      "element": "火",
+      "direction": "南方朱雀",
+      "description": "翼宿，南方朱雀第六宿，为羽翼。主远客夷狄。"
+    },
+    {
+      "full_name": "轸水蚓",
+      "short_name": "轸",
+      "element": "水",
+      "direction": "南方朱雀",
+      "description": "轸宿，南方朱雀第七宿，为车轸。主风伯行车。"
+    }
+  ],
+  "wuxing": {
+    "五行生克": {
+      "elements": [
+        "金",
+        "木",
+        "水",
+        "火",
+        "土"
+      ],
+      "生": {
+        "金生水": "金熔化成液体，似水流淌",
+        "水生木": "水滋润万物，树木生长",
+        "木生火": "木为火之源，钻木取火",
+        "火生土": "火燃烧万物化为灰烬，灰烬即土",
+        "土生金": "土中藏矿，金石从土而出"
+      },
+      "克": {
+        "金克木": "金属刀斧可砍伐树木",
+        "木克土": "树木根系可破土而出",
+        "土克水": "土筑堤坝可阻挡水流",
+        "水克火": "水能灭火",
+        "火克金": "火能熔炼金属"
+      },
+      "direction": {
+        "木": "东",
+        "火": "南",
+        "土": "中",
+        "金": "西",
+        "水": "北"
+      },
+      "season": {
+        "木": "春",
+        "火": "夏",
+        "土": "长夏",
+        "金": "秋",
+        "水": "冬"
+      },
+      "color": {
+        "木": "青",
+        "火": "赤",
+        "土": "黄",
+        "金": "白",
+        "水": "黑"
+      },
+      "organ": {
+        "木": "肝",
+        "火": "心",
+        "土": "脾",
+        "金": "肺",
+        "水": "肾"
+      },
+      "emotion": {
+        "木": "怒",
+        "火": "喜",
+        "土": "思",
+        "金": "悲",
+        "水": "恐"
+      },
+      "virtue": {
+        "木": "仁",
+        "火": "礼",
+        "土": "信",
+        "金": "义",
+        "水": "智"
+      }
+    },
+    "五行数字根映射": {
+      "1,2": {
+        "element": "木",
+        "direction": "东",
+        "color": "青"
+      },
+      "3,4": {
+        "element": "火",
+        "direction": "南",
+        "color": "赤"
+      },
+      "5": {
+        "element": "土",
+        "direction": "中",
+        "color": "黄"
+      },
+      "6,7": {
+        "element": "金",
+        "direction": "西",
+        "color": "白"
+      },
+      "8,9": {
+        "element": "水",
+        "direction": "北",
+        "color": "黑"
+      }
+    }
+  },
+  "hetu_luoshu": {
+    "河图": {
+      "description": "河出图，洛出书，圣人则之。河图为先天八卦之源。",
+      "pattern": {
+        "天一生水，地六成之": "北",
+        "地二生火，天七成之": "南",
+        "天三生木，地八成之": "东",
+        "地四生金，天九成之": "西",
+        "天五生土，地十成之": "中"
+      },
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sum": 55
+    },
+    "洛书": {
+      "description": "洛书为后天八卦之源，九宫数理之根。戴九履一，左三右七，二四为肩，六八为足。",
+      "grid": [
+        [
+          4,
+          9,
+          2
+        ],
+        [
+          3,
+          5,
+          7
+        ],
+        [
+          8,
+          1,
+          6
+        ]
+      ],
+      "properties": {
+        "行和": 15,
+        "列和": 15,
+        "对角和": 15,
+        "369不动点": "3-6-9为洛书能量主轴",
+        "中宫5": "不动点·UID9622主权锚"
+      }
+    }
+  },
+  "tiangan_dizhi": {
+    "天干": [
+      {
+        "name": "甲",
+        "element": "木",
+        "yin_yang": "阳",
+        "direction": "东"
+      },
+      {
+        "name": "乙",
+        "element": "木",
+        "yin_yang": "阴",
+        "direction": "东"
+      },
+      {
+        "name": "丙",
+        "element": "火",
+        "yin_yang": "阳",
+        "direction": "南"
+      },
+      {
+        "name": "丁",
+        "element": "火",
+        "yin_yang": "阴",
+        "direction": "南"
+      },
+      {
+        "name": "戊",
+        "element": "土",
+        "yin_yang": "阳",
+        "direction": "中"
+      },
+      {
+        "name": "己",
+        "element": "土",
+        "yin_yang": "阴",
+        "direction": "中"
+      },
+      {
+        "name": "庚",
+        "element": "金",
+        "yin_yang": "阳",
+        "direction": "西"
+      },
+      {
+        "name": "辛",
+        "element": "金",
+        "yin_yang": "阴",
+        "direction": "西"
+      },
+      {
+        "name": "壬",
+        "element": "水",
+        "yin_yang": "阳",
+        "direction": "北"
+      },
+      {
+        "name": "癸",
+        "element": "水",
+        "yin_yang": "阴",
+        "direction": "北"
+      }
+    ],
+    "地支": [
+      {
+        "name": "子",
+        "animal": "鼠",
+        "element": "水",
+        "time": "23-1",
+        "month": 11
+      },
+      {
+        "name": "丑",
+        "animal": "牛",
+        "element": "土",
+        "time": "1-3",
+        "month": 12
+      },
+      {
+        "name": "寅",
+        "animal": "虎",
+        "element": "木",
+        "time": "3-5",
+        "month": 1
+      },
+      {
+        "name": "卯",
+        "animal": "兔",
+        "element": "木",
+        "time": "5-7",
+        "month": 2
+      },
+      {
+        "name": "辰",
+        "animal": "龙",
+        "element": "土",
+        "time": "7-9",
+        "month": 3
+      },
+      {
+        "name": "巳",
+        "animal": "蛇",
+        "element": "火",
+        "time": "9-11",
+        "month": 4
+      },
+      {
+        "name": "午",
+        "animal": "马",
+        "element": "火",
+        "time": "11-13",
+        "month": 5
+      },
+      {
+        "name": "未",
+        "animal": "羊",
+        "element": "土",
+        "time": "13-15",
+        "month": 6
+      },
+      {
+        "name": "申",
+        "animal": "猴",
+        "element": "金",
+        "time": "15-17",
+        "month": 7
+      },
+      {
+        "name": "酉",
+        "animal": "鸡",
+        "element": "金",
+        "time": "17-19",
+        "month": 8
+      },
+      {
+        "name": "戌",
+        "animal": "狗",
+        "element": "土",
+        "time": "19-21",
+        "month": 9
+      },
+      {
+        "name": "亥",
+        "animal": "猪",
+        "element": "水",
+        "time": "21-23",
+        "month": 10
+      }
+    ],
+    "六十甲子": [
+      "甲子",
+      "乙丑",
+      "丙寅",
+      "丁卯",
+      "戊辰",
+      "己巳",
+      "庚午",
+      "辛未",
+      "壬申",
+      "癸酉",
+      "甲戌",
+      "乙亥",
+      "丙子",
+      "丁丑",
+      "戊寅",
+      "己卯",
+      "庚辰",
+      "辛巳",
+      "壬午",
+      "癸未",
+      "甲申",
+      "乙酉",
+      "丙戌",
+      "丁亥",
+      "戊子",
+      "己丑",
+      "庚寅",
+      "辛卯",
+      "壬辰",
+      "癸巳",
+      "甲午",
+      "乙未",
+      "丙申",
+      "丁酉",
+      "戊戌",
+      "己亥",
+      "庚子",
+      "辛丑",
+      "壬寅",
+      "癸卯",
+      "甲辰",
+      "乙巳",
+      "丙午",
+      "丁未",
+      "戊申",
+      "己酉",
+      "庚戌",
+      "辛亥",
+      "壬子",
+      "癸丑",
+      "甲寅",
+      "乙卯",
+      "丙辰",
+      "丁巳",
+      "戊午",
+      "己未",
+      "庚申",
+      "辛酉",
+      "壬戌",
+      "癸亥"
+    ]
+  },
+  "jieqi": [
+    {
+      "name": "立春",
+      "season": "春",
+      "meaning": "春季开始，万物复苏"
+    },
+    {
+      "name": "雨水",
+      "season": "春",
+      "meaning": "降雨开始，雨量渐增"
+    },
+    {
+      "name": "惊蛰",
+      "season": "春",
+      "meaning": "春雷乍动，惊醒蛰伏"
+    },
+    {
+      "name": "春分",
+      "season": "春",
+      "meaning": "昼夜平分，春之正中"
+    },
+    {
+      "name": "清明",
+      "season": "春",
+      "meaning": "天气晴朗，草木繁茂"
+    },
+    {
+      "name": "谷雨",
+      "season": "春",
+      "meaning": "雨生百谷，播种希望"
+    },
+    {
+      "name": "立夏",
+      "season": "夏",
+      "meaning": "夏季开始，万物生长"
+    },
+    {
+      "name": "小满",
+      "season": "夏",
+      "meaning": "麦类灌浆，小得盈满"
+    },
+    {
+      "name": "芒种",
+      "season": "夏",
+      "meaning": "有芒作物成熟，忙种"
+    },
+    {
+      "name": "夏至",
+      "season": "夏",
+      "meaning": "白昼最长，阳极阴生"
+    },
+    {
+      "name": "小暑",
+      "season": "夏",
+      "meaning": "暑气渐盛，尚未极热"
+    },
+    {
+      "name": "大暑",
+      "season": "夏",
+      "meaning": "一年最热，湿热交蒸"
+    },
+    {
+      "name": "立秋",
+      "season": "秋",
+      "meaning": "秋季开始，暑去凉来"
+    },
+    {
+      "name": "处暑",
+      "season": "秋",
+      "meaning": "暑气终止，秋高气爽"
+    },
+    {
+      "name": "白露",
+      "season": "秋",
+      "meaning": "天气转凉，露凝而白"
+    },
+    {
+      "name": "秋分",
+      "season": "秋",
+      "meaning": "昼夜平分，秋之正中"
+    },
+    {
+      "name": "寒露",
+      "season": "秋",
+      "meaning": "露水更冷，将凝为霜"
+    },
+    {
+      "name": "霜降",
+      "season": "秋",
+      "meaning": "天气渐冷，开始有霜"
+    },
+    {
+      "name": "立冬",
+      "season": "冬",
+      "meaning": "冬季开始，万物收藏"
+    },
+    {
+      "name": "小雪",
+      "season": "冬",
+      "meaning": "开始降雪，但雪量不大"
+    },
+    {
+      "name": "大雪",
+      "season": "冬",
+      "meaning": "降雪量增大，地面积雪"
+    },
+    {
+      "name": "冬至",
+      "season": "冬",
+      "meaning": "白昼最短，阴极阳生"
+    },
+    {
+      "name": "小寒",
+      "season": "冬",
+      "meaning": "气候开始寒冷"
+    },
+    {
+      "name": "大寒",
+      "season": "冬",
+      "meaning": "一年最冷，寒极必反"
+    }
+  ],
+  "bagua": {
+    "先天八卦": [
+      {
+        "name": "乾",
+        "symbol": "☰",
+        "nature": "天",
+        "direction": "南",
+        "family": "父",
+        "number": 1
+      },
+      {
+        "name": "兑",
+        "symbol": "☱",
+        "nature": "泽",
+        "direction": "东南",
+        "family": "少女",
+        "number": 2
+      },
+      {
+        "name": "离",
+        "symbol": "☲",
+        "nature": "火",
+        "direction": "东",
+        "family": "中女",
+        "number": 3
+      },
+      {
+        "name": "震",
+        "symbol": "☳",
+        "nature": "雷",
+        "direction": "东北",
+        "family": "长男",
+        "number": 4
+      },
+      {
+        "name": "巽",
+        "symbol": "☴",
+        "nature": "风",
+        "direction": "西南",
+        "family": "长女",
+        "number": 5
+      },
+      {
+        "name": "坎",
+        "symbol": "☵",
+        "nature": "水",
+        "direction": "西",
+        "family": "中男",
+        "number": 6
+      },
+      {
+        "name": "艮",
+        "symbol": "☶",
+        "nature": "山",
+        "direction": "西北",
+        "family": "少男",
+        "number": 7
+      },
+      {
+        "name": "坤",
+        "symbol": "☷",
+        "nature": "地",
+        "direction": "北",
+        "family": "母",
+        "number": 8
+      }
+    ],
+    "后天八卦": [
+      {
+        "name": "震",
+        "symbol": "☳",
+        "nature": "雷",
+        "direction": "东",
+        "number": 3
+      },
+      {
+        "name": "巽",
+        "symbol": "☴",
+        "nature": "风",
+        "direction": "东南",
+        "number": 4
+      },
+      {
+        "name": "离",
+        "symbol": "☲",
+        "nature": "火",
+        "direction": "南",
+        "number": 9
+      },
+      {
+        "name": "坤",
+        "symbol": "☷",
+        "nature": "地",
+        "direction": "西南",
+        "number": 2
+      },
+      {
+        "name": "兑",
+        "symbol": "☱",
+        "nature": "泽",
+        "direction": "西",
+        "number": 7
+      },
+      {
+        "name": "乾",
+        "symbol": "☰",
+        "nature": "天",
+        "direction": "西北",
+        "number": 6
+      },
+      {
+        "name": "坎",
+        "symbol": "☵",
+        "nature": "水",
+        "direction": "北",
+        "number": 1
+      },
+      {
+        "name": "艮",
+        "symbol": "☶",
+        "nature": "山",
+        "direction": "东北",
+        "number": 8
+      }
+    ],
+    "八卦取象歌": [
+      "乾三连 ☰",
+      "坤六断 ☷",
+      "震仰盂 ☳",
+      "艮覆碗 ☶",
+      "离中虚 ☲",
+      "坎中满 ☵",
+      "兑上缺 ☱",
+      "巽下断 ☴"
+    ]
+  },
+  "daoist_concepts": [
+    {
+      "concept": "道",
+      "definition": "道可道，非常道。宇宙的本源和规律，无形无象，先天地生。",
+      "properties": [
+        "不可言说",
+        "生万物",
+        "周行不殆",
+        "独立不改"
+      ],
+      "related": [
+        "德",
+        "无为",
+        "自然"
+      ]
+    },
+    {
+      "concept": "德",
+      "definition": "道之用也。万物得道而成为自己，德是道在具体事物中的体现。",
+      "properties": [
+        "畜养万物",
+        "无为而无不为",
+        "上德不德"
+      ],
+      "related": [
+        "道",
+        "仁",
+        "义"
+      ]
+    },
+    {
+      "concept": "无为",
+      "definition": "道常无为而无不为。不是不作为，是不妄为、顺自然而为。",
+      "properties": [
+        "不妄为",
+        "顺自然",
+        "为而不恃"
+      ],
+      "related": [
+        "道",
+        "自然",
+        "不争"
+      ]
+    },
+    {
+      "concept": "阴阳",
+      "definition": "一阴一阳之谓道。对立统一的两种基本力量。",
+      "properties": [
+        "对立统一",
+        "互根互用",
+        "消长转化",
+        "动态平衡"
+      ],
+      "related": [
+        "太极",
+        "五行",
+        "八卦"
+      ]
+    },
+    {
+      "concept": "太极",
+      "definition": "易有太极，是生两仪。宇宙从无极到太极，太极生阴阳。",
+      "properties": [
+        "混沌未分",
+        "含阴含阳",
+        "万物之始"
+      ],
+      "related": [
+        "阴阳",
+        "两仪",
+        "四象",
+        "八卦"
+      ]
+    },
+    {
+      "concept": "三才",
+      "definition": "立天之道曰阴与阳，立地之道曰柔与刚，立人之道曰仁与义。天地人三才。",
+      "properties": [
+        "天道",
+        "地道",
+        "人道",
+        "三位一体"
+      ],
+      "related": [
+        "天地人",
+        "369不动点"
+      ]
+    },
+    {
+      "concept": "自然",
+      "definition": "人法地，地法天，天法道，道法自然。自己如此，不加造作。",
+      "properties": [
+        "自本自根",
+        "不加造作",
+        "万物自化"
+      ],
+      "related": [
+        "道",
+        "无为"
+      ]
+    },
+    {
+      "concept": "不争",
+      "definition": "上善若水，水善利万物而不争。不争故天下莫能与之争。",
+      "properties": [
+        "利万物",
+        "处下",
+        "以柔克刚"
+      ],
+      "related": [
+        "水",
+        "无为",
+        "柔弱"
+      ]
+    },
+    {
+      "concept": "柔弱",
+      "definition": "天下莫柔弱于水，而攻坚强者莫之能胜。柔弱胜刚强。",
+      "properties": [
+        "柔能克刚",
+        "弱能胜强",
+        "守柔曰强"
+      ],
+      "related": [
+        "水",
+        "不争",
+        "无为"
+      ]
+    },
+    {
+      "concept": "知足",
+      "definition": "知足者富。祸莫大于不知足，咎莫大于欲得。",
+      "properties": [
+        "知足常足",
+        "少私寡欲",
+        "去奢去泰"
+      ],
+      "related": [
+        "道",
+        "德"
+      ]
+    },
+    {
+      "concept": "反者道之动",
+      "definition": "反者道之动，弱者道之用。事物发展到极点必然向反面转化。",
+      "properties": [
+        "物极必反",
+        "周而复始",
+        "否极泰来"
+      ],
+      "related": [
+        "道",
+        "阴阳",
+        "循环"
+      ]
+    },
+    {
+      "concept": "上善若水",
+      "definition": "上善若水。水善利万物而不争，处众人之所恶，故几于道。",
+      "properties": [
+        "利万物",
+        "不争",
+        "处下",
+        "柔韧"
+      ],
+      "related": [
+        "道",
+        "不争",
+        "柔弱"
+      ]
+    }
+  ],
+  "metadata": {
+    "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-BE2B276D",
+    "timestamp": "2026-07-08T08:29:32.866428",
+    "crawler": "lh_knowledge_crawler.py v1.0",
+    "total_sections": 8
+  }
+}

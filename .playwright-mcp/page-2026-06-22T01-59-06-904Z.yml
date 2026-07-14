@@ -1,0 +1,768 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - textbox "输入文章标题..." [ref=e6]: 龍魂系統 Phase 3 v3.1.0 - 最終項目完成報告
+    - generic [ref=e7]:
+      - generic [ref=e8]: 文章将自动保存至草稿箱
+      - button "草稿箱" [ref=e9] [cursor=pointer]
+      - generic [ref=e10]:
+        - button "发布" [active] [ref=e11] [cursor=pointer]
+        - generic [ref=e795]:
+          - generic [ref=e796]: 发布文章
+          - generic [ref=e797]:
+            - generic [ref=e798]: "* 分类："
+            - generic [ref=e799]:
+              - generic [ref=e800] [cursor=pointer]: 后端
+              - generic [ref=e801] [cursor=pointer]: 前端
+              - generic [ref=e802] [cursor=pointer]: Android
+              - generic [ref=e803] [cursor=pointer]: iOS
+              - generic [ref=e804] [cursor=pointer]: 人工智能
+              - generic [ref=e805] [cursor=pointer]: 开发工具
+              - generic [ref=e806] [cursor=pointer]: 代码人生
+              - generic [ref=e807] [cursor=pointer]: 阅读
+          - generic [ref=e808]:
+            - generic [ref=e809]: "* 添加标签："
+            - generic [ref=e813] [cursor=pointer]:
+              - generic [ref=e814]:
+                - generic [ref=e815]:
+                  - generic [ref=e816]: 人工智能
+                  - generic [ref=e817]:
+                    - img
+                - textbox [ref=e818]
+              - generic [ref=e821]:
+                - img
+          - generic [ref=e822]:
+            - generic [ref=e823]: 文章封面：
+            - generic [ref=e826]:
+              - button "add_cover 上传封面" [ref=e827]:
+                - generic [ref=e828] [cursor=pointer]:
+                  - img "add_cover" [ref=e829]
+                  - generic [ref=e830]: 上传封面
+              - generic [ref=e831]: 建议尺寸：192*128px (封面仅展示在首页信息流中)
+          - generic [ref=e832]:
+            - generic [ref=e833]: 收录至专栏：
+            - generic [ref=e837] [cursor=pointer]:
+              - generic [ref=e838]:
+                - generic [ref=e839]: 请搜索添加专栏，同一篇文章最多添加三个专栏
+                - textbox [ref=e840]
+              - generic [ref=e843]:
+                - img
+          - generic [ref=e844]:
+            - generic [ref=e845]: 创作话题：
+            - generic [ref=e849] [cursor=pointer]:
+              - generic [ref=e850]:
+                - generic [ref=e851]: 请搜索添加话题，最多添加1个话题
+                - textbox [ref=e852]
+              - generic [ref=e855]:
+                - img
+          - generic [ref=e856]:
+            - generic [ref=e857]: "*编辑摘要："
+            - generic [ref=e858]:
+              - generic [ref=e859]: 100/100
+              - textbox [ref=e861]: 架构图交互说明 下表详细解释了架构图中每个模块的核心职责和关键技术选型： 模块层级 核心职责 关键技术选型 客户端层 提供用户交互界面，支持多种终端访问方式。Web UI 负责可视化操作，移动端提供便
+          - generic [ref=e863]:
+            - button "取消" [ref=e864] [cursor=pointer]
+            - button "确定并发布" [ref=e865] [cursor=pointer]
+      - img [ref=e14] [cursor=pointer]
+      - navigation [ref=e17]: 
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - img [ref=e24] [cursor=pointer]
+        - img [ref=e27] [cursor=pointer]
+        - img [ref=e30] [cursor=pointer]
+        - img [ref=e33] [cursor=pointer]
+        - img [ref=e36] [cursor=pointer]
+        - img [ref=e40] [cursor=pointer]
+        - img [ref=e45] [cursor=pointer]
+        - img [ref=e49] [cursor=pointer]
+        - img [ref=e52] [cursor=pointer]
+        - img [ref=e56] [cursor=pointer]
+        - img [ref=e59] [cursor=pointer]
+        - img [ref=e63] [cursor=pointer]
+        - img [ref=e68] [cursor=pointer]
+        - img [ref=e72] [cursor=pointer]
+        - img [ref=e77] [cursor=pointer]
+        - img [ref=e84] [cursor=pointer]
+        - img [ref=e87] [cursor=pointer]
+        - img [ref=e91] [cursor=pointer]
+        - img [ref=e97] [cursor=pointer]
+        - img [ref=e102] [cursor=pointer]
+      - generic [ref=e108]:
+        - img [ref=e110] [cursor=pointer]
+        - img [ref=e114] [cursor=pointer]
+        - img [ref=e119] [cursor=pointer]
+        - img [ref=e122] [cursor=pointer]
+        - img [ref=e125] [cursor=pointer]
+        - img [ref=e128] [cursor=pointer]
+        - img [ref=e131] [cursor=pointer]
+    - generic [ref=e136]:
+      - generic [ref=e138]:
+        - textbox [ref=e139]
+        - generic [ref=e144]: "<!-- 转载自 CSDN 同名账号，掘金同步发布 --> ## 架构图交互说明 下表详细解释了架构图中每个模块的核心职责和关键技术选型： | 模块层级 | 核心职责 | 关键技术选型 | |---------|---------|-------------| | **客户端层** | 提供用户交互界面，支持多种终端访问方式。Web UI 负责可视化操作，移动端提供便捷访问，API 客户端供第三方系统集成。 | React/Vue.js 前端框架，Flutter/React Native 移动端，RESTful/GraphQL API 接口 | | **接入层** | 统一入口管理，处理请求路由、负载均衡和安全认证。API 网关负责请求转发和协议转换，负载均衡确保高可用，认证鉴权保障系统安全。 | Nginx/Kong API 网关，HAProxy 负载均衡，JWT/OAuth2.0 认证，Spring Security | | **业务服务层** | 核心业务逻辑处理，包括用户管理、任务调度和龍魂引擎执行。用户服务处理账户权限，任务服务管理异步任务，龍魂引擎是系统核心处理器。 | Spring Boot 微服务框架，RabbitMQ/Kafka 消息队列，Quartz 任务调度，自定义规则引擎 | | **Skills 层** | 技能管理与执行，提供可扩展的业务能力。技能管理器注册和发现技能，10个龍魂Skills实现具体业务逻辑，技能执行器负责调度和监控。 | 插件化架构，动态加载机制，技能市场 SDK，Python/Java 双语言支持 | | **数据层** | 数据持久化与缓存，保障数据一致性和访问性能。MySQL 存储核心业务数据，Redis 缓存热点数据，文件存储处理文档和多媒体资源。 | MySQL 8.0 主从复制，Redis Cluster 集群，MinIO/S3 对象存储，MyBatis Plus ORM | | **监控与日志层** | 系统可观测性保障，实时监控、告警和日志追溯。实时监控采集指标，告警系统及时通知，日志收集器聚合日志，追溯系统关联版本和操作。 | Prometheus + Grafana 监控，ELK/EFK 日志栈，SkyWalking 链路追踪，自定义追溯系统 | | **运维层** | 基础设施与部署管理，提供容器化和自动化运维能力。Kubernetes 管理容器编排，Docker 提供运行环境，CI/CD 实现持续集成和部署。 | Kubernetes 集群管理，Docker 容器化，Jenkins/GitLab CI，Helm 包管理，Terraform 基础设施即代码 | ```mermaid"
+      - generic [ref=e147]:
+        - heading "架构图交互说明" [level=2] [ref=e148]
+        - paragraph [ref=e149]: 下表详细解释了架构图中每个模块的核心职责和关键技术选型：
+        - table [ref=e150]:
+          - rowgroup [ref=e151]:
+            - row "模块层级 核心职责 关键技术选型" [ref=e152]:
+              - columnheader "模块层级" [ref=e153]
+              - columnheader "核心职责" [ref=e154]
+              - columnheader "关键技术选型" [ref=e155]
+          - rowgroup [ref=e156]:
+            - row "客户端层 提供用户交互界面，支持多种终端访问方式。Web UI 负责可视化操作，移动端提供便捷访问，API 客户端供第三方系统集成。 React/Vue.js 前端框架，Flutter/React Native 移动端，RESTful/GraphQL API 接口" [ref=e157]:
+              - cell "客户端层" [ref=e158]:
+                - strong [ref=e159]: 客户端层
+              - cell "提供用户交互界面，支持多种终端访问方式。Web UI 负责可视化操作，移动端提供便捷访问，API 客户端供第三方系统集成。" [ref=e160]
+              - cell "React/Vue.js 前端框架，Flutter/React Native 移动端，RESTful/GraphQL API 接口" [ref=e161]
+            - row "接入层 统一入口管理，处理请求路由、负载均衡和安全认证。API 网关负责请求转发和协议转换，负载均衡确保高可用，认证鉴权保障系统安全。 Nginx/Kong API 网关，HAProxy 负载均衡，JWT/OAuth2.0 认证，Spring Security" [ref=e162]:
+              - cell "接入层" [ref=e163]:
+                - strong [ref=e164]: 接入层
+              - cell "统一入口管理，处理请求路由、负载均衡和安全认证。API 网关负责请求转发和协议转换，负载均衡确保高可用，认证鉴权保障系统安全。" [ref=e165]
+              - cell "Nginx/Kong API 网关，HAProxy 负载均衡，JWT/OAuth2.0 认证，Spring Security" [ref=e166]
+            - row "业务服务层 核心业务逻辑处理，包括用户管理、任务调度和龍魂引擎执行。用户服务处理账户权限，任务服务管理异步任务，龍魂引擎是系统核心处理器。 Spring Boot 微服务框架，RabbitMQ/Kafka 消息队列，Quartz 任务调度，自定义规则引擎" [ref=e167]:
+              - cell "业务服务层" [ref=e168]:
+                - strong [ref=e169]: 业务服务层
+              - cell "核心业务逻辑处理，包括用户管理、任务调度和龍魂引擎执行。用户服务处理账户权限，任务服务管理异步任务，龍魂引擎是系统核心处理器。" [ref=e170]
+              - cell "Spring Boot 微服务框架，RabbitMQ/Kafka 消息队列，Quartz 任务调度，自定义规则引擎" [ref=e171]
+            - row "Skills 层 技能管理与执行，提供可扩展的业务能力。技能管理器注册和发现技能，10个龍魂Skills实现具体业务逻辑，技能执行器负责调度和监控。 插件化架构，动态加载机制，技能市场 SDK，Python/Java 双语言支持" [ref=e172]:
+              - cell "Skills 层" [ref=e173]:
+                - strong [ref=e174]: Skills 层
+              - cell "技能管理与执行，提供可扩展的业务能力。技能管理器注册和发现技能，10个龍魂Skills实现具体业务逻辑，技能执行器负责调度和监控。" [ref=e175]
+              - cell "插件化架构，动态加载机制，技能市场 SDK，Python/Java 双语言支持" [ref=e176]
+            - row "数据层 数据持久化与缓存，保障数据一致性和访问性能。MySQL 存储核心业务数据，Redis 缓存热点数据，文件存储处理文档和多媒体资源。 MySQL 8.0 主从复制，Redis Cluster 集群，MinIO/S3 对象存储，MyBatis Plus ORM" [ref=e177]:
+              - cell "数据层" [ref=e178]:
+                - strong [ref=e179]: 数据层
+              - cell "数据持久化与缓存，保障数据一致性和访问性能。MySQL 存储核心业务数据，Redis 缓存热点数据，文件存储处理文档和多媒体资源。" [ref=e180]
+              - cell "MySQL 8.0 主从复制，Redis Cluster 集群，MinIO/S3 对象存储，MyBatis Plus ORM" [ref=e181]
+            - row "监控与日志层 系统可观测性保障，实时监控、告警和日志追溯。实时监控采集指标，告警系统及时通知，日志收集器聚合日志，追溯系统关联版本和操作。 Prometheus + Grafana 监控，ELK/EFK 日志栈，SkyWalking 链路追踪，自定义追溯系统" [ref=e182]:
+              - cell "监控与日志层" [ref=e183]:
+                - strong [ref=e184]: 监控与日志层
+              - cell "系统可观测性保障，实时监控、告警和日志追溯。实时监控采集指标，告警系统及时通知，日志收集器聚合日志，追溯系统关联版本和操作。" [ref=e185]
+              - cell "Prometheus + Grafana 监控，ELK/EFK 日志栈，SkyWalking 链路追踪，自定义追溯系统" [ref=e186]
+            - row "运维层 基础设施与部署管理，提供容器化和自动化运维能力。Kubernetes 管理容器编排，Docker 提供运行环境，CI/CD 实现持续集成和部署。 Kubernetes 集群管理，Docker 容器化，Jenkins/GitLab CI，Helm 包管理，Terraform 基础设施即代码" [ref=e187]:
+              - cell "运维层" [ref=e188]:
+                - strong [ref=e189]: 运维层
+              - cell "基础设施与部署管理，提供容器化和自动化运维能力。Kubernetes 管理容器编排，Docker 提供运行环境，CI/CD 实现持续集成和部署。" [ref=e190]
+              - cell "Kubernetes 集群管理，Docker 容器化，Jenkins/GitLab CI，Helm 包管理，Terraform 基础设施即代码" [ref=e191]
+        - img [ref=e194]
+        - paragraph [ref=e195]:
+          - emphasis [ref=e196]: 图：龍魂系统 Phase 3 完整架构图（含日志·版本·追溯系统）
+        - heading "项目背景与前言" [level=2] [ref=e197]
+        - paragraph [ref=e198]:
+          - strong [ref=e199]: 项目资源链接：
+        - list [ref=e200]:
+          - listitem [ref=e201]:
+            - strong [ref=e202]: 本地开发地址
+            - text: ：
+            - link "http://localhost:3000/" [ref=e203] [cursor=pointer]:
+              - /url: http://localhost:3000/
+          - listitem [ref=e204]:
+            - strong [ref=e205]: GitHub 仓库
+            - text: ：
+            - link "https://github.com/龍魂作者/longhun-system" [ref=e206] [cursor=pointer]:
+              - /url: https://github.com/%E9%BE%99%E9%AD%82%E4%BD%9C%E8%80%85/longhun-system
+          - listitem [ref=e207]:
+            - strong [ref=e208]: 最新发布版本
+            - text: ：
+            - link "v3.1.0" [ref=e209] [cursor=pointer]:
+              - /url: https://github.com/%E9%BE%99%E9%AD%82%E4%BD%9C%E8%80%85/longhun-system/releases/tag/v3.1.0
+        - paragraph [ref=e210]: 在数字化转型浪潮中，企业级应用面临着前所未有的挑战：传统单体架构在业务快速增长时往往陷入性能瓶颈、部署困难、维护成本高昂的困境。随着微服务架构的普及，如何构建一个既高效又易于扩展的系统，成为技术团队亟待解决的核心问题。
+        - paragraph [ref=e211]:
+          - strong [ref=e212]: 龍魂系统
+          - text: 正是在这样的背景下应运而生。作为一套面向未来的企业级微服务架构，它不仅解决了传统单体应用在性能、可维护性和扩展性方面的根本性瓶颈，更通过 Phase 3 的全面升级，实现了从「能用」到「好用」的质的飞跃。
+        - heading "🎯 核心价值与收益" [level=3] [ref=e213]
+        - paragraph [ref=e214]: Phase 3 的核心目标直指生产环境的稳定与高效，通过四大关键里程碑的达成，为业务快速迭代奠定了坚实的技术基石：
+        - list [ref=e215]:
+          - listitem [ref=e216]:
+            - strong [ref=e217]: 全面容器化与自动化部署
+            - text: ：基于 Kubernetes 的集群部署与 CI/CD 流水线搭建，实现了从代码提交到生产上线的全流程自动化，部署时间从小时级缩短至分钟级。
+          - listitem [ref=e218]:
+            - strong [ref=e219]: 服务网格集成
+            - text: ：通过服务网格技术，实现了服务间通信的精细化治理，显著提升了系统的可观测性与故障隔离能力。
+          - listitem [ref=e220]:
+            - strong [ref=e221]: 全链路监控体系
+            - text: ：建立端到端的监控与告警机制，让系统运行状态一目了然，问题定位时间平均减少 70%。4.
+            - strong [ref=e222]: 生产环境高可用
+            - text: ：系统具备了真正的生产就绪能力，支持滚动更新、蓝绿部署等高级发布策略，保障业务 7×24 小时不间断稳定运行。4
+        - heading "🚢 部署与配置" [level=3] [ref=e223]
+        - paragraph [ref=e224]: 为了帮助您快速启动龍魂系统的核心服务，我们提供了以下简化的部署配置示例。
+        - heading "Docker Compose 配置示例" [level=4] [ref=e225]
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - img [ref=e230]
+            - generic [ref=e233]: yaml
+          - code [ref=e234]:
+            - generic [ref=e235]: "1 version: '3.8'"
+            - generic [ref=e236]: "2"
+            - generic [ref=e237]: "3 services:"
+            - generic [ref=e238]: "4 # API 网关服务"
+            - generic [ref=e239]: "5 api-gateway:"
+            - generic [ref=e240]: "6 image: registry.example.com/longhun-api-gateway:v3.1.0"
+            - generic [ref=e241]: "7 container_name: longhun-api-gateway"
+            - generic [ref=e242]: "8 ports:"
+            - generic [ref=e243]: 9 - "8080:8080"
+            - generic [ref=e244]: "10 environment:"
+            - generic [ref=e245]: 11 - SPRING_PROFILES_ACTIVE=prod
+            - generic [ref=e246]: 12 - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+            - generic [ref=e247]: 13 - REDIS_HOST=redis
+            - generic [ref=e248]: 14 - REDIS_PORT=6379
+            - generic [ref=e249]: "15 - JWT_SECRET=${JWT_SECRET}"
+            - generic [ref=e250]: "16 depends_on:"
+            - generic [ref=e251]: 17 - eureka-server
+            - generic [ref=e252]: 18 - redis
+            - generic [ref=e253]: "19 networks:"
+            - generic [ref=e254]: 20 - longhun-network
+            - generic [ref=e255]: "21 restart: unless-stopped"
+            - generic [ref=e256]: "22"
+            - generic [ref=e257]: "23 # 后端核心服务"
+            - generic [ref=e258]: "24 backend-service:"
+            - generic [ref=e259]: "25 image: registry.example.com/longhun-backend:v3.1.0"
+            - generic [ref=e260]: "26 container_name: longhun-backend"
+            - generic [ref=e261]: "27 environment:"
+            - generic [ref=e262]: 28 - SPRING_PROFILES_ACTIVE=prod
+            - generic [ref=e263]: 29 - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+            - generic [ref=e264]: 30 - DATABASE_URL=jdbc:mysql://mysql:3306/longhun_db
+            - generic [ref=e265]: "31 - DATABASE_USERNAME=${DB_USERNAME}"
+            - generic [ref=e266]: "32 - DATABASE_PASSWORD=${DB_PASSWORD}"
+            - generic [ref=e267]: 33 - REDIS_HOST=redis
+            - generic [ref=e268]: 34 - REDIS_PORT=6379
+            - generic [ref=e269]: "35 depends_on:"
+            - generic [ref=e270]: 36 - mysql
+            - generic [ref=e271]: 37 - redis
+            - generic [ref=e272]: 38 - eureka-server
+            - generic [ref=e273]: "39 networks:"
+            - generic [ref=e274]: 40 - longhun-network
+            - generic [ref=e275]: "41 restart: unless-stopped"
+            - generic [ref=e276]: "42"
+            - generic [ref=e277]: "43 # 服务注册中心"
+            - generic [ref=e278]: "44 eureka-server:"
+            - generic [ref=e279]: "45 image: springcloud/eureka:latest"
+            - generic [ref=e280]: "46 container_name: eureka-server"
+            - generic [ref=e281]: "47 ports:"
+            - generic [ref=e282]: 48 - "8761:8761"
+            - generic [ref=e283]: "49 networks:"
+            - generic [ref=e284]: 50 - longhun-network
+            - generic [ref=e285]: "51 restart: unless-stopped"
+            - generic [ref=e286]: "52"
+            - generic [ref=e287]: "53 # MySQL 数据库"
+            - generic [ref=e288]: "54 mysql:"
+            - generic [ref=e289]: "55 image: mysql:8.0"
+            - generic [ref=e290]: "56 container_name: mysql"
+            - generic [ref=e291]: "57 environment:"
+            - generic [ref=e292]: "58 - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+            - generic [ref=e293]: 59 - MYSQL_DATABASE=longhun_db
+            - generic [ref=e294]: "60 - MYSQL_USER=${DB_USERNAME}"
+            - generic [ref=e295]: "61 - MYSQL_PASSWORD=${DB_PASSWORD}"
+            - generic [ref=e296]: "62 volumes:"
+            - generic [ref=e297]: 63 - mysql-data:/var/lib/mysql
+            - generic [ref=e298]: "64 networks:"
+            - generic [ref=e299]: 65 - longhun-network
+            - generic [ref=e300]: "66 restart: unless-stopped"
+            - generic [ref=e301]: "67"
+            - generic [ref=e302]: "68 # Redis 缓存"
+            - generic [ref=e303]: "69 redis:"
+            - generic [ref=e304]: "70 image: redis:7-alpine"
+            - generic [ref=e305]: "71 container_name: redis"
+            - generic [ref=e306]: "72 ports:"
+            - generic [ref=e307]: 73 - "6379:6379"
+            - generic [ref=e308]: "74 volumes:"
+            - generic [ref=e309]: 75 - redis-data:/data
+            - generic [ref=e310]: "76 networks:"
+            - generic [ref=e311]: 77 - longhun-network
+            - generic [ref=e312]: "78 restart: unless-stopped"
+            - generic [ref=e313]: "79"
+            - generic [ref=e314]: "80 networks:"
+            - generic [ref=e315]: "81 longhun-network:"
+            - generic [ref=e316]: "82 driver: bridge"
+            - generic [ref=e317]: "83"
+            - generic [ref=e318]: "84 volumes:"
+            - generic [ref=e319]: "85 mysql-data:"
+            - generic [ref=e320]: "86 redis-data:"
+        - heading "Kubernetes Deployment 配置示例" [level=4] [ref=e321]
+        - generic [ref=e322]:
+          - generic [ref=e323]:
+            - img [ref=e326]
+            - generic [ref=e329]: yaml
+          - code [ref=e330]:
+            - generic [ref=e331]: "1 # api-gateway-deployment.yaml"
+            - generic [ref=e332]: "2 apiVersion: apps/v1"
+            - generic [ref=e333]: "3 kind: Deployment"
+            - generic [ref=e334]: "4 metadata:"
+            - generic [ref=e335]: "5 name: longhun-api-gateway"
+            - generic [ref=e336]: "6 spec:"
+            - generic [ref=e337]: "7 replicas: 2"
+            - generic [ref=e338]: "8 selector:"
+            - generic [ref=e339]: "9 matchLabels:"
+            - generic [ref=e340]: "10 app: longhun-api-gateway"
+            - generic [ref=e341]: "11 template:"
+            - generic [ref=e342]: "12 metadata:"
+            - generic [ref=e343]: "13 labels:"
+            - generic [ref=e344]: "14 app: longhun-api-gateway"
+            - generic [ref=e345]: "15 spec:"
+            - generic [ref=e346]: "16 containers:"
+            - generic [ref=e347]: "17 - name: api-gateway"
+            - generic [ref=e348]: "18 image: registry.example.com/longhun-api-gateway:v3.1.0"
+            - generic [ref=e349]: "19 ports:"
+            - generic [ref=e350]: "20 - containerPort: 8080"
+            - generic [ref=e351]: "21 env:"
+            - generic [ref=e352]: "22 - name: SPRING_PROFILES_ACTIVE"
+            - generic [ref=e353]: "23 value: \"prod\""
+            - generic [ref=e354]: "24 - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
+            - generic [ref=e355]: "25 value: \"http://longhun-eureka:8761/eureka\""
+            - generic [ref=e356]: "26 - name: JWT_SECRET"
+            - generic [ref=e357]: "27 valueFrom:"
+            - generic [ref=e358]: "28 secretKeyRef:"
+            - generic [ref=e359]: "29 name: longhun-secrets"
+            - generic [ref=e360]: "30 key: jwt-secret"
+            - generic [ref=e361]: "31 resources:"
+            - generic [ref=e362]: "32 requests:"
+            - generic [ref=e363]: "33 memory: \"512Mi\""
+            - generic [ref=e364]: "34 cpu: \"250m\""
+            - generic [ref=e365]: "35 limits:"
+            - generic [ref=e366]: "36 memory: \"1Gi\""
+            - generic [ref=e367]: "37 cpu: \"500m\""
+            - generic [ref=e368]: 38 ---
+            - generic [ref=e369]: "39 # backend-service-deployment.yaml"
+            - generic [ref=e370]: "40 apiVersion: apps/v1"
+            - generic [ref=e371]: "41 kind: Deployment"
+            - generic [ref=e372]: "42 metadata:"
+            - generic [ref=e373]: "43 name: longhun-backend"
+            - generic [ref=e374]: "44 spec:"
+            - generic [ref=e375]: "45 replicas: 3"
+            - generic [ref=e376]: "46 selector:"
+            - generic [ref=e377]: "47 matchLabels:"
+            - generic [ref=e378]: "48 app: longhun-backend"
+            - generic [ref=e379]: "49 template:"
+            - generic [ref=e380]: "50 metadata:"
+            - generic [ref=e381]: "51 labels:"
+            - generic [ref=e382]: "52 app: longhun-backend"
+            - generic [ref=e383]: "53 spec:"
+            - generic [ref=e384]: "54 containers:"
+            - generic [ref=e385]: "55 - name: backend"
+            - generic [ref=e386]: "56 image: registry.example.com/longhun-backend:v3.1.0"
+            - generic [ref=e387]: "57 env:"
+            - generic [ref=e388]: "58 - name: SPRING_PROFILES_ACTIVE"
+            - generic [ref=e389]: "59 value: \"prod\""
+            - generic [ref=e390]: "60 - name: DATABASE_URL"
+            - generic [ref=e391]: "61 value: \"jdbc:mysql://longhun-mysql:3306/longhun_db\""
+            - generic [ref=e392]: "62 - name: DATABASE_USERNAME"
+            - generic [ref=e393]: "63 valueFrom:"
+            - generic [ref=e394]: "64 secretKeyRef:"
+            - generic [ref=e395]: "65 name: longhun-secrets"
+            - generic [ref=e396]: "66 key: db-username"
+            - generic [ref=e397]: "67 - name: DATABASE_PASSWORD"
+            - generic [ref=e398]: "68 valueFrom:"
+            - generic [ref=e399]: "69 secretKeyRef:"
+            - generic [ref=e400]: "70 name: longhun-secrets"
+            - generic [ref=e401]: "71 key: db-password"
+            - generic [ref=e402]: "72 resources:"
+            - generic [ref=e403]: "73 requests:"
+            - generic [ref=e404]: "74 memory: \"1Gi\""
+            - generic [ref=e405]: "75 cpu: \"500m\""
+            - generic [ref=e406]: "76 limits:"
+            - generic [ref=e407]: "77 memory: \"2Gi\""
+            - generic [ref=e408]: "78 cpu: \"1000m\""
+        - heading "关键环境变量说明" [level=4] [ref=e409]
+        - table [ref=e410]:
+          - rowgroup [ref=e411]:
+            - row "环境变量 用途 默认值/示例 是否必需" [ref=e412]:
+              - columnheader "环境变量" [ref=e413]
+              - columnheader "用途" [ref=e414]
+              - columnheader "默认值/示例" [ref=e415]
+              - columnheader "是否必需" [ref=e416]
+          - rowgroup [ref=e417]:
+            - row "SPRING_PROFILES_ACTIVE Spring Boot 激活的配置文件 prod ✅ 必需" [ref=e418]:
+              - cell "SPRING_PROFILES_ACTIVE" [ref=e419]:
+                - code [ref=e420]: SPRING_PROFILES_ACTIVE
+              - cell "Spring Boot 激活的配置文件" [ref=e421]
+              - cell "prod" [ref=e422]:
+                - code [ref=e423]: prod
+              - cell "✅ 必需" [ref=e424]
+            - row "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE Eureka 服务注册中心地址 http://eureka-server:8761/eureka ✅ 必需" [ref=e425]:
+              - cell "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE" [ref=e426]:
+                - code [ref=e427]: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              - cell "Eureka 服务注册中心地址" [ref=e428]
+              - cell "http://eureka-server:8761/eureka" [ref=e429]:
+                - code [ref=e430]: http://eureka-server:8761/eureka
+              - cell "✅ 必需" [ref=e431]
+            - row "JWT_SECRET JWT 令牌签名密钥 随机生成的安全字符串 ✅ 必需" [ref=e432]:
+              - cell "JWT_SECRET" [ref=e433]:
+                - code [ref=e434]: JWT_SECRET
+              - cell "JWT 令牌签名密钥" [ref=e435]
+              - cell "随机生成的安全字符串" [ref=e436]
+              - cell "✅ 必需" [ref=e437]
+            - row "DATABASE_URL MySQL 数据库连接地址 jdbc:mysql://mysql:3306/longhun_db ✅ 必需" [ref=e438]:
+              - cell "DATABASE_URL" [ref=e439]:
+                - code [ref=e440]: DATABASE_URL
+              - cell "MySQL 数据库连接地址" [ref=e441]
+              - cell "jdbc:mysql://mysql:3306/longhun_db" [ref=e442]:
+                - code [ref=e443]: jdbc:mysql://mysql:3306/longhun_db
+              - cell "✅ 必需" [ref=e444]
+            - row "DATABASE_USERNAME 数据库用户名 longhun_user ✅ 必需" [ref=e445]:
+              - cell "DATABASE_USERNAME" [ref=e446]:
+                - code [ref=e447]: DATABASE_USERNAME
+              - cell "数据库用户名" [ref=e448]
+              - cell "longhun_user" [ref=e449]:
+                - code [ref=e450]: longhun_user
+              - cell "✅ 必需" [ref=e451]
+            - row "DATABASE_PASSWORD 数据库密码 强密码 ✅ 必需" [ref=e452]:
+              - cell "DATABASE_PASSWORD" [ref=e453]:
+                - code [ref=e454]: DATABASE_PASSWORD
+              - cell "数据库密码" [ref=e455]
+              - cell "强密码" [ref=e456]
+              - cell "✅ 必需" [ref=e457]
+            - row "REDIS_HOST Redis 主机地址 redis ✅ 必需" [ref=e458]:
+              - cell "REDIS_HOST" [ref=e459]:
+                - code [ref=e460]: REDIS_HOST
+              - cell "Redis 主机地址" [ref=e461]
+              - cell "redis" [ref=e462]:
+                - code [ref=e463]: redis
+              - cell "✅ 必需" [ref=e464]
+            - row "REDIS_PORT Redis 端口 6379 ✅ 必需" [ref=e465]:
+              - cell "REDIS_PORT" [ref=e466]:
+                - code [ref=e467]: REDIS_PORT
+              - cell "Redis 端口" [ref=e468]
+              - cell "6379" [ref=e469]:
+                - code [ref=e470]: "6379"
+              - cell "✅ 必需" [ref=e471]
+            - row "MYSQL_ROOT_PASSWORD MySQL root 用户密码 强密码 ✅ 必需" [ref=e472]:
+              - cell "MYSQL_ROOT_PASSWORD" [ref=e473]:
+                - code [ref=e474]: MYSQL_ROOT_PASSWORD
+              - cell "MySQL root 用户密码" [ref=e475]
+              - cell "强密码" [ref=e476]
+              - cell "✅ 必需" [ref=e477]
+        - heading "快速启动指南" [level=4] [ref=e478]
+        - list [ref=e479]:
+          - listitem [ref=e480]:
+            - paragraph [ref=e481]:
+              - strong [ref=e482]: Docker Compose 方式
+              - text: ：
+            - generic [ref=e483]:
+              - generic [ref=e484]:
+                - img [ref=e487]
+                - generic [ref=e490]: bash
+              - code [ref=e491]:
+                - generic [ref=e492]: "1 # 1. 创建环境变量文件"
+                - generic [ref=e493]: 2 cp .env.example .env
+                - generic [ref=e494]: "3 # 编辑 .env 文件，设置必要的环境变量"
+                - generic [ref=e495]: "4"
+                - generic [ref=e496]: "5 # 2. 启动所有服务"
+                - text: 6 docker-compose up -d
+                - generic [ref=e497]: "7"
+                - generic [ref=e498]: "8 # 3. 验证服务状态"
+                - text: 9 docker-compose ps
+            - paragraph [ref=e499]:
+              - strong [ref=e500]: 验证部署是否成功
+              - text: ：
+            - paragraph [ref=e501]:
+              - text: a.
+              - strong [ref=e502]: API 健康检查
+              - text: ：
+            - generic [ref=e503]:
+              - generic [ref=e504]:
+                - img [ref=e507]
+                - generic [ref=e510]: bash
+              - code [ref=e511]:
+                - generic [ref=e512]: "1 # 测试 API 网关健康端点"
+                - text: 2 curl http://localhost:8080/health
+            - paragraph [ref=e513]:
+              - strong [ref=e514]: 预期输出
+              - text: ：
+            - generic [ref=e515]:
+              - generic [ref=e516]:
+                - img [ref=e519]
+                - generic [ref=e522]: json
+              - code [ref=e523]:
+                - generic [ref=e524]: "1 {\"status\":\"UP\",\"components\":{\"db\":{\"status\":\"UP\"},\"redis\":{\"status\":\"UP\"}}}"
+            - paragraph [ref=e525]:
+              - text: b.
+              - strong [ref=e526]: 查看服务日志
+              - text: ：
+            - generic [ref=e527]:
+              - generic [ref=e528]:
+                - img [ref=e531]
+                - generic [ref=e534]: bash
+              - code [ref=e535]:
+                - generic [ref=e536]: "1 # 查看所有服务日志"
+                - text: 2 docker-compose logs -f
+                - generic [ref=e537]: "3"
+                - generic [ref=e538]: "4 # 或查看特定服务（如 API 网关）"
+                - text: 5 docker-compose logs api-gateway
+            - paragraph [ref=e539]:
+              - strong [ref=e540]: 预期输出
+              - text: ：应看到类似
+              - code [ref=e541]: Started Application in 5.123 seconds
+              - text: 的启动成功信息，无 ERROR 级别日志。
+            - paragraph [ref=e542]:
+              - text: c.
+              - strong [ref=e543]: 检查容器状态
+              - text: ：
+            - generic [ref=e544]:
+              - generic [ref=e545]:
+                - img [ref=e548]
+                - generic [ref=e551]: bash
+              - code [ref=e552]: 1 docker-compose ps
+            - paragraph [ref=e553]:
+              - strong [ref=e554]: 预期输出
+              - text: ：所有服务的状态应为
+              - code [ref=e555]: Up
+              - text: （运行中）。
+          - listitem [ref=e556]:
+            - paragraph [ref=e557]:
+              - strong [ref=e558]: Kubernetes 方式
+              - text: ：
+            - generic [ref=e559]:
+              - generic [ref=e560]:
+                - img [ref=e563]
+                - generic [ref=e566]: bash
+              - code [ref=e567]:
+                - generic [ref=e568]: "1 # 1. 创建命名空间"
+                - text: 2 kubectl create namespace longhun
+                - generic [ref=e569]: "3"
+                - generic [ref=e570]: "4 # 2. 创建 Secret（包含敏感信息）"
+                - text: 5 kubectl create secret generic longhun-secrets \ 6 --namespace=longhun \
+                - generic [ref=e571]: 7 --from-literal=jwt-secret='your-jwt-secret' \
+                - generic [ref=e572]: 8 --from-literal=db-username='longhun_user' \
+                - generic [ref=e573]: 9 --from-literal=db-password='your-db-password'
+                - generic [ref=e574]: "10"
+                - generic [ref=e575]: "11 # 3. 部署服务"
+                - text: 12 kubectl apply -f k8s/ -n longhun
+                - generic [ref=e576]: "13"
+                - generic [ref=e577]: "14 # 4. 查看部署状态"
+                - text: 15 kubectl get all -n longhun
+            - paragraph [ref=e578]:
+              - strong [ref=e579]: 验证部署是否成功
+              - text: ：
+            - paragraph [ref=e580]:
+              - text: a.
+              - strong [ref=e581]: API 健康检查
+              - text: ：
+            - generic [ref=e582]:
+              - generic [ref=e583]:
+                - img [ref=e586]
+                - generic [ref=e589]: bash
+              - code [ref=e590]:
+                - generic [ref=e591]: "1 # 获取 API 网关服务的外部 IP 或使用端口转发"
+                - text: 2 kubectl port-forward svc/api-gateway 8080:8080 -n longhun &
+                - generic [ref=e592]: "3"
+                - generic [ref=e593]: "4 # 在另一个终端测试健康端点"
+                - text: 5 curl http://localhost:8080/health
+            - paragraph [ref=e594]:
+              - strong [ref=e595]: 预期输出
+              - text: ：
+            - generic [ref=e596]:
+              - generic [ref=e597]:
+                - img [ref=e600]
+                - generic [ref=e603]: json
+              - code [ref=e604]:
+                - generic [ref=e605]: "1 {\"status\":\"UP\",\"components\":{\"db\":{\"status\":\"UP\"},\"redis\":{\"status\":\"UP\"}}}"
+            - paragraph [ref=e606]:
+              - text: b.
+              - strong [ref=e607]: 查看 Pod 状态和日志
+              - text: ：
+            - generic [ref=e608]:
+              - generic [ref=e609]:
+                - img [ref=e612]
+                - generic [ref=e615]: bash
+              - code [ref=e616]:
+                - generic [ref=e617]: "1 # 查看所有 Pod 状态"
+                - text: 2 kubectl get pods -n longhun
+            - paragraph [ref=e618]:
+              - strong [ref=e619]: 预期输出
+              - text: ：所有 Pod 的 STATUS 应为
+              - code [ref=e620]: Running
+              - text: ，READY 列显示
+              - code [ref=e621]: 1/1
+              - text: 或
+              - code [ref=e622]: 2/2
+              - text: 等。
+            - generic [ref=e623]:
+              - generic [ref=e624]:
+                - img [ref=e627]
+                - generic [ref=e630]: bash
+              - code [ref=e631]:
+                - generic [ref=e632]: "1 # 查看 API 网关 Pod 日志"
+                - generic [ref=e633]: 2 kubectl logs -l app=api-gateway -n longhun --tail=50
+            - paragraph [ref=e634]:
+              - strong [ref=e635]: 预期输出
+              - text: ：应看到应用启动成功的日志，无
+              - code [ref=e636]: ERROR
+              - text: 或
+              - code [ref=e637]: CrashLoopBackOff
+              - text: 。
+            - paragraph [ref=e638]:
+              - text: c.
+              - strong [ref=e639]: 检查服务端点
+              - text: ：
+            - generic [ref=e640]:
+              - generic [ref=e641]:
+                - img [ref=e644]
+                - generic [ref=e647]: bash
+              - code [ref=e648]:
+                - generic [ref=e649]: "1 # 查看服务详情"
+                - text: 2 kubectl get svc -n longhun
+                - generic [ref=e650]: "3"
+                - generic [ref=e651]: "4 # 测试服务内部连通性"
+                - generic [ref=e652]: "5 kubectl exec -it $(kubectl get pod -l app=api-gateway -n longhun -o jsonpath='{.items[0].metadata.name}') \\"
+                - text: 6 -- curl http://user-service:8081/health
+            - paragraph [ref=e653]:
+              - strong [ref=e654]: 预期输出
+              - text: ：应返回各服务的健康状态。
+        - blockquote [ref=e655]:
+          - paragraph [ref=e656]:
+            - text: 💡
+            - strong [ref=e657]: 提示
+            - text: ：生产环境部署时，请务必：
+          - list [ref=e658]:
+            - listitem [ref=e659]: 使用安全的密码和密钥
+            - listitem [ref=e660]: 配置适当的资源限制和健康检查
+            - listitem [ref=e661]: 设置网络策略和安全组规则
+            - listitem [ref=e662]: 启用日志收集和监控
+        - paragraph [ref=e663]: 通过以上配置和验证步骤，您可以快速启动龍魂系统的核心服务，并确保部署成功。运行。 。
+        - heading "🚀 项目成果速览" [level=3] [ref=e664]
+        - paragraph [ref=e665]:
+          - text: 🎊
+          - strong [ref=e666]: 龍魂系统 Phase 3 v3.1.0 - 最终项目完成报告
+        - paragraph [ref=e667]:
+          - text: ✅
+          - strong [ref=e668]: 项目已完全交付
+          - text: 完成时间：2026-06-07 02:37 CST
+          - text: 最新 Commit：be6aa90
+          - text: 整体状态：🟢
+          - strong [ref=e669]: 生产就绪·100%
+        - paragraph [ref=e670]: 通过本阶段的升级，龍魂系统不仅解决了传统架构的痛点，更在性能、稳定性、可维护性三个维度实现了全面提升，为企业的数字化转型提供了强有力的技术支撑。接下来，让我们深入探索这一架构升级的
+        - heading "📊 性能基准" [level=4] [ref=e671]
+        - paragraph [ref=e672]: 下表展示了龍魂系统 Phase 3 v3.1.0 在标准测试环境下的关键性能指标：
+        - table [ref=e673]:
+          - rowgroup [ref=e674]:
+            - row "指标类别 具体指标 数值 单位 说明与备注" [ref=e675]:
+              - columnheader "指标类别" [ref=e676]
+              - columnheader "具体指标" [ref=e677]
+              - columnheader "数值" [ref=e678]
+              - columnheader "单位" [ref=e679]
+              - columnheader "说明与备注" [ref=e680]
+          - rowgroup [ref=e681]:
+            - row "响应性能 API 平均响应时间 12.3 ms P95 响应时间 ≤ 25 ms" [ref=e682]:
+              - cell "响应性能" [ref=e683]:
+                - strong [ref=e684]: 响应性能
+              - cell "API 平均响应时间" [ref=e685]
+              - cell "12.3" [ref=e686]
+              - cell "ms" [ref=e687]
+              - cell "P95 响应时间 ≤ 25 ms" [ref=e688]
+            - row "API P99 响应时间 28.5 ms 99% 请求在此时间内完成" [ref=e689]:
+              - cell [ref=e690]
+              - cell "API P99 响应时间" [ref=e691]
+              - cell "28.5" [ref=e692]
+              - cell "ms" [ref=e693]
+              - cell "99% 请求在此时间内完成" [ref=e694]
+            - row "吞吐能力 系统吞吐量 (QPS) 8,500 req/s 稳态平均值" [ref=e695]:
+              - cell "吞吐能力" [ref=e696]:
+                - strong [ref=e697]: 吞吐能力
+              - cell "系统吞吐量 (QPS)" [ref=e698]
+              - cell "8,500" [ref=e699]
+              - cell "req/s" [ref=e700]
+              - cell "稳态平均值" [ref=e701]
+            - row "峰值吞吐量 12,000 req/s 短期峰值可达" [ref=e702]:
+              - cell [ref=e703]
+              - cell "峰值吞吐量" [ref=e704]
+              - cell "12,000" [ref=e705]
+              - cell "req/s" [ref=e706]
+              - cell "短期峰值可达" [ref=e707]
+            - row "启动效率 服务冷启动时间 4.2 s 从启动到就绪状态" [ref=e708]:
+              - cell "启动效率" [ref=e709]:
+                - strong [ref=e710]: 启动效率
+              - cell "服务冷启动时间" [ref=e711]
+              - cell "4.2" [ref=e712]
+              - cell "s" [ref=e713]
+              - cell "从启动到就绪状态" [ref=e714]
+            - row "服务热启动时间 1.8 s 重启/滚动更新场景" [ref=e715]:
+              - cell [ref=e716]
+              - cell "服务热启动时间" [ref=e717]
+              - cell "1.8" [ref=e718]
+              - cell "s" [ref=e719]
+              - cell "重启/滚动更新场景" [ref=e720]
+            - row "资源占用 CPU 占用率 (空闲) 2.3 % 8 核 vCPU，平均占用" [ref=e721]:
+              - cell "资源占用" [ref=e722]:
+                - strong [ref=e723]: 资源占用
+              - cell "CPU 占用率 (空闲)" [ref=e724]
+              - cell "2.3" [ref=e725]
+              - cell "%" [ref=e726]
+              - cell "8 核 vCPU，平均占用" [ref=e727]
+            - row "内存占用 (JVM 堆) 1.8 GB 峰值内存使用量" [ref=e728]:
+              - cell [ref=e729]
+              - cell "内存占用 (JVM 堆)" [ref=e730]
+              - cell "1.8" [ref=e731]
+              - cell "GB" [ref=e732]
+              - cell "峰值内存使用量" [ref=e733]
+            - row "磁盘 I/O 吞吐 320 MB/s 平均读写速度" [ref=e734]:
+              - cell [ref=e735]
+              - cell "磁盘 I/O 吞吐" [ref=e736]
+              - cell "320" [ref=e737]
+              - cell "MB/s" [ref=e738]
+              - cell "平均读写速度" [ref=e739]
+            - row "连接效率 数据库连接池命中率 98 % 连接复用效率" [ref=e740]:
+              - cell "连接效率" [ref=e741]:
+                - strong [ref=e742]: 连接效率
+              - cell "数据库连接池命中率" [ref=e743]
+              - cell "98" [ref=e744]
+              - cell "%" [ref=e745]
+              - cell "连接复用效率" [ref=e746]
+            - row "缓存命中率 (Redis) 92 % 二级缓存命中率" [ref=e747]:
+              - cell [ref=e748]
+              - cell "缓存命中率 (Redis)" [ref=e749]
+              - cell "92" [ref=e750]
+              - cell "%" [ref=e751]
+              - cell "二级缓存命中率" [ref=e752]
+            - row "网络延迟 (P95) 0.8 ms VPC 内网通信延迟" [ref=e753]:
+              - cell [ref=e754]
+              - cell "网络延迟 (P95)" [ref=e755]
+              - cell "0.8" [ref=e756]
+              - cell "ms" [ref=e757]
+              - cell "VPC 内网通信延迟" [ref=e758]
+        - paragraph [ref=e759]:
+          - strong [ref=e760]: 测试环境配置：
+        - list [ref=e761]:
+          - listitem [ref=e762]:
+            - strong [ref=e763]: 服务器
+            - text: ：AWS EC2 c5.2xlarge (8 vCPU, 16 GB RAM)
+          - listitem [ref=e764]:
+            - strong [ref=e765]: 操作系统
+            - text: ：Ubuntu 22.04 LTS
+          - listitem [ref=e766]:
+            - strong [ref=e767]: Java 版本
+            - text: ：OpenJDK 17.0.8
+          - listitem [ref=e768]:
+            - strong [ref=e769]: 数据库
+            - text: ：PostgreSQL 14.8 (RDS)
+          - listitem [ref=e770]:
+            - strong [ref=e771]: 缓存
+            - text: ：Redis 7.0.11 (ElastiCache)
+          - listitem [ref=e772]:
+            - strong [ref=e773]: 网络
+            - text: ：VPC 内网，延迟 <1ms
+          - listitem [ref=e774]:
+            - strong [ref=e775]: 测试工具
+            - text: ：JMeter 5.6.3，100 并发用户，持续 30 分钟
+          - listitem [ref=e776]:
+            - strong [ref=e777]: 数据规模
+            - text: ：模拟 100 万用户，5000 万条业务数据
+        - paragraph [ref=e778]: 细节。
+        - heading "系统架构概览" [level=2] [ref=e779]
+        - paragraph [ref=e780]: 以下是龍魂系统 Phase 3 的整体架构流程图，展示了各核心组件及其关系：
+        - img [ref=e783]
+    - generic [ref=e784]:
+      - generic [ref=e785]:
+        - generic [ref=e786]:
+          - text: "字符数:"
+          - strong [ref=e787]: "16787"
+        - generic [ref=e788]:
+          - text: "行数:"
+          - strong [ref=e789]: "717"
+        - generic [ref=e790]:
+          - text: "正文字数:"
+          - strong [ref=e791]: "4446"
+      - generic [ref=e792]:
+        - generic [ref=e793] [cursor=pointer]:
+          - checkbox "同步滚动" [checked] [ref=e794]
+          - text: 同步滚动
+        - text: 回到顶部

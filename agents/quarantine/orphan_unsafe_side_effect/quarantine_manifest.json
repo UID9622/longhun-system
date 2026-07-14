@@ -1,0 +1,46 @@
+{
+  "DNA": "#龍芯⚡️20260626012245-QUARANTINE-UNSAFE-SIDE-EFFECT",
+  "quarantine_dir": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect",
+  "items": [
+    {
+      "original": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "quarantine_copy": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect/longhun-system-backup-2026-06-01-bfg/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "verdict": "FALSE_POSITIVE",
+      "threat_assessment": "无实际威胁",
+      "note": "setup.py 为正常包安装脚本，命中 keywords 里的 cryptography 和 __file__ 是误报",
+      "sha256": "f5a10233dfae22345c7ec27bf65aff849232f5b78c502e82a4a64e760c001ee7"
+    },
+    {
+      "original": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/cnsh_notion_importer.py",
+      "quarantine_copy": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect/longhun-system-backup-2026-06-01-bfg/cnsh_notion_importer.py",
+      "verdict": "SIDE_EFFECT_NOT_MALICIOUS",
+      "threat_assessment": "有副作用但非恶意",
+      "note": "脚本会调用 Notion API 并写入 ~/.龍魂_config/ 配置文件，属于业务副作用，未发现后门/外泄/破坏逻辑",
+      "sha256": "107fbb834d0d50c0c9d92d997360056dfd16ca394b9a4970dee4bdb9a293850e"
+    },
+    {
+      "original": "/Users/zuimeidedeyihan/longhun-system-backup-2026-06-01-bfg/create_cnsh_theory_dbs.py",
+      "quarantine_copy": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect/longhun-system-backup-2026-06-01-bfg/create_cnsh_theory_dbs.py",
+      "verdict": "SIDE_EFFECT_NOT_MALICIOUS",
+      "threat_assessment": "有副作用但非恶意",
+      "note": "脚本会调用 Notion API 并写入 ~/.龍魂_config/ 配置文件，属于业务副作用，未发现后门/外泄/破坏逻辑",
+      "sha256": "81d13999d73238fd19ec5850afaa1d4669d77773215dba898ef92a81202f74a0"
+    },
+    {
+      "original": "/Users/zuimeidedeyihan/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/setup.py",
+      "quarantine_copy": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect/longhun-system/cnsh-core.backup/ai-tools/operation_log_engine/setup.py",
+      "verdict": "FALSE_POSITIVE",
+      "threat_assessment": "无实际威胁",
+      "note": "setup.py 为正常包安装脚本，命中 keywords 里的 cryptography 和 __file__ 是误报",
+      "sha256": "4d95d8805303a43e3495d8bb5ca0f5109088a6006b3b3240cd621a0889278b1a"
+    },
+    {
+      "original": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "quarantine_copy": "/Users/zuimeidedeyihan/longhun-system/agents/quarantine/orphan_unsafe_side_effect/longhun-system/cnsh-core/ai-tools/operation_log_engine/setup.py",
+      "verdict": "FALSE_POSITIVE",
+      "threat_assessment": "无实际威胁",
+      "note": "setup.py 为正常包安装脚本，命中 keywords 里的 cryptography 和 __file__ 是误报",
+      "sha256": "0beeba51cb697e3aafdcce63e125b398b07f4e5211853a5ea0fd35a831947ef4"
+    }
+  ]
+}

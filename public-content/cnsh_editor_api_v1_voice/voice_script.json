@@ -1,0 +1,88 @@
+{
+  "title": "龍魂 CNSH 在线编辑器 · UID9622 真声播报稿",
+  "dna": "#龍芯⚡️2026-07-04-CNSH-EDITOR-API-VOICE-SCRIPT-v1.0",
+  "reference_audio": "~/longhun-system/voice-twin/voice_dataset/reference_optimized.wav",
+  "output_file": "~/longhun-system/public-content/cnsh_editor_api_v1_voice/cnsh_editor_api_voice.mp3",
+  "segments": [
+    {
+      "id": "s01",
+      "text": "喂，听我说。今天这篇文章，我不想用那种机器念的、半死不活的语气读给你听。我要用我自己的语气：有愤怒，有憋屈，也有爽点。你准备好了吗？",
+      "style": "passionate",
+      "rate": "+5%",
+      "emotion": "开场·点燃",
+      "note": "语速稍快，带点挑衅和邀请感"
+    },
+    {
+      "id": "s02",
+      "text": "说真的，写代码这么多年，我受够了。受够了满屏的英文关键字，受够了英文不好就被开除程序员籍，受够了那些高高在上的框架，把中国开发者当成二等用户。凭什么？",
+      "style": "passionate",
+      "rate": "+10%",
+      "emotion": "愤怒·积压",
+      "note": "语速加快，重音在“凭什么”"
+    },
+    {
+      "id": "s03",
+      "text": "所以今天，我不忍了。我直接放出龍魂 CNSH 在线编辑器加 API 服务。中文关键字、中文函数名、中文变量，直接跑。对，你没看错。",
+      "style": "passionate",
+      "rate": "+5%",
+      "emotion": "爆发·宣告",
+      "note": "“我不忍了”加重，“直接跑”落地"
+    },
+    {
+      "id": "s04",
+      "text": "很多人一听中文编程就笑，说这是给小学生玩的。我告诉你，那是因为你从来没见过真正工程化的中文编程。龍魂 CNSH Editor API，能写、能跑、能接出去。",
+      "style": "educator",
+      "rate": "-5%",
+      "emotion": "严肃·正名",
+      "note": "沉稳，一句一顿，反驳但不骂人"
+    },
+    {
+      "id": "s05",
+      "text": "本地启动就一行命令，打开编辑器就能写。你要是愿意上华为云鲲鹏完整版，代码长度、执行时间、文件 IO、网络访问，全部放开。数据根留在中国。",
+      "style": "storyteller",
+      "rate": "-5%",
+      "emotion": "叙述·铺开",
+      "note": "像讲故事一样娓娓道来"
+    },
+    {
+      "id": "s06",
+      "text": "我这里没有既要开源又要跪着求打赏那一套。免费版，我给的清清楚楚；完整版，我把最好的留在中国云上。就一个字：敞亮。",
+      "style": "passionate",
+      "rate": "+5%",
+      "emotion": "痛快·表态",
+      "note": "“敞亮”两个字放出来，带笑感"
+    },
+    {
+      "id": "s07",
+      "text": "API 调用也简单。你一个 post 请求过去，CNSH 代码直接执行，返回标准输出。还能编译成 Python，还能分词分析。Swagger 文档自动生成，不劳你手写。",
+      "style": "educator",
+      "rate": "-5%",
+      "emotion": "讲解·稳重",
+      "note": "放慢，强调“简单”“自动生成”"
+    },
+    {
+      "id": "s08",
+      "text": "Docker 和华为云部署我也给你准备好了。x86 能跑，鲲鹏 ARM64 也能跑。只要配好 AKSK 和 ECS 地址，执行一个脚本，全自动。",
+      "style": "calm",
+      "rate": "-10%",
+      "emotion": "轻松·兜底",
+      "note": "语速放慢，让人安心"
+    },
+    {
+      "id": "s09",
+      "text": "最后，我说清楚我为什么要做这件事。不是为了炫技。是为了让中国开发者有一个不需要跪着学英语的入口。是为了让数据主权留在本地、留在中国云上。是为了证明，中国人自己定的语法，一样能跑，还能跑得更好。",
+      "style": "educator",
+      "rate": "-10%",
+      "emotion": "庄严·收束",
+      "note": "最慢、最重，每个短句落地"
+    },
+    {
+      "id": "s10",
+      "text": "老子不跪，代码也不跪。龍魂系统，中国自主可控，数据主权归人民。我是 UID9622，下次见。",
+      "style": "passionate",
+      "rate": "+5%",
+      "emotion": "收尾·定格",
+      "note": "“老子不跪”重音，结尾干脆"
+    }
+  ]
+}

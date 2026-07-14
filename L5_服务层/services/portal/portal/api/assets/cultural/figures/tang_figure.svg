@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#f7f3e8"/>
+  <g>
+    <ellipse cx="200" cy="120" rx="55" ry="60" fill="#c48a4a"/>
+    <path d="M140 190 Q200 170 260 190 L280 420 Q200 450 120 420 Z" fill="#7a5c3a"/>
+    <path d="M160 220 Q200 240 240 220" stroke="#f4d03f" stroke-width="3" fill="none"/>
+    <circle cx="170" cy="320" r="20" fill="#2e86c1" opacity="0.7"/>
+    <circle cx="230" cy="320" r="20" fill="#28b463" opacity="0.7"/>
+  </g>
+  <text x="200" y="480" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">唐三彩俑占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实唐三彩公开版权图像</text>
+</svg>

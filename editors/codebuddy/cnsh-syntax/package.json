@@ -1,0 +1,140 @@
+{
+  "name": "cnsh-syntax",
+  "displayName": "CNSH 语法高亮 v2.0",
+  "description": "CNSH 中文原生脚本语言 v2.0 语法支持 — 中文变量着色、DNA锚定高亮、安全关键字标记、自动补全、保存时审计、协议校验",
+  "version": "2.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Programming Languages", "Linters"],
+  "activationEvents": [
+    "onLanguage:cnsh"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "cnsh",
+        "aliases": ["CNSH", "cnsh", "中文脚本"],
+        "extensions": [".cnsh"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cnsh",
+        "scopeName": "source.cnsh",
+        "path": "./syntaxes/cnsh.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "cnsh-syntax.runFile",
+        "title": "CNSH: 运行当前文件",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh-syntax.compileFile",
+        "title": "CNSH: 编译当前文件",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh-syntax.auditVariables",
+        "title": "CNSH: 审计当前文件变量命名",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh-syntax.showDNA",
+        "title": "CNSH: 显示文件 DNA 追溯码",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh-syntax.checkProtocol",
+        "title": "CNSH: 龍魂协议校验",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh-syntax.fixProtocol",
+        "title": "CNSH: 一键修复协议违规",
+        "category": "CNSH"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cnsh-syntax.runFile",
+          "group": "CNSH",
+          "when": "editorLangId == cnsh"
+        },
+        {
+          "command": "cnsh-syntax.compileFile",
+          "group": "CNSH",
+          "when": "editorLangId == cnsh"
+        },
+        {
+          "command": "cnsh-syntax.auditVariables",
+          "group": "CNSH",
+          "when": "editorLangId == cnsh"
+        },
+        {
+          "command": "cnsh-syntax.checkProtocol",
+          "group": "CNSH",
+          "when": "editorLangId == cnsh"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CNSH",
+      "properties": {
+        "cnsh.enableAuditOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存 .cnsh 文件时自动审计变量命名"
+        },
+        "cnsh.enableProtocolCheckOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存 .cnsh 文件时自动执行龍魂协议校验"
+        },
+        "cnsh.enableDNAHighlight": {
+          "type": "boolean",
+          "default": true,
+          "description": "高亮 DNA 锚定行"
+        },
+        "cnsh.enableSensitiveLeakCheck": {
+          "type": "boolean",
+          "default": true,
+          "description": "检查敏感信息泄露（密钥/Token/密码等）"
+        },
+        "cnsh.compilerPath": {
+          "type": "string",
+          "default": "",
+          "description": "CNSH 编译器路径"
+        },
+        "cnsh.auditOutputPath": {
+          "type": "string",
+          "default": "",
+          "description": "审计日志输出路径（默认写入 logs/cnsh_audit.jsonl）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  },
+  "_dna": "#龍芯⚡️丙午·辛未·CNSH-SYNTAX-v2.0"
+}
