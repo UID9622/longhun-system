@@ -21,7 +21,7 @@
 from __future__ import annotations
 from math import log2, sqrt, isclose, exp
 from hashlib import sha256
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════════
@@ -177,7 +177,7 @@ def truth_score(M: float, V: float, F: int, w: Tuple[float, float, float] = (0.4
     return w[0] * M + w[1] * V + w[2] * F
 
 
-def truth_total(rows: List[Dict]) -> Dict:
+def truth_total(rows: List[Dict]) -> Dict[str, Any]:
     """龍魂主权层·一票否决：任一 F=0 ⟹ 总分=0
     签章污染（F=0）是绝对红线，不可调和。"""
 
@@ -316,7 +316,7 @@ def magic_ok(m: List[List[int]] = None) -> bool:
     return True
 
 
-def luoshu_dual_check(m: List[List[int]] = None) -> Dict:
+def luoshu_dual_check(m: List[List[int]] = None) -> Dict[str, Any]:
     """龍魂主权层·洛书双检：
     - 幻方守恒（行列对角）
     - 中宫恒为 5（不动点/主权锚）

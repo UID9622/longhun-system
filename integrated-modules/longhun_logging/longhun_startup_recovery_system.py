@@ -12,7 +12,7 @@ import sqlite3
 import json
 import gzip
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 import os
 
 class StartupManager:
@@ -23,7 +23,7 @@ class StartupManager:
         self.startup_time = datetime.now()
         self.startup_log = []
     
-    def startup(self) -> Dict:
+    def startup(self) -> Dict[str, Any]:
         """完整启动流程"""
         print("\n" + "=" * 70)
         print("🐉 龍魂系统启动")
@@ -79,7 +79,7 @@ class StartupManager:
         
         return result
     
-    def _check_database(self) -> Dict:
+    def _check_database(self) -> Dict[str, Any]:
         """检查数据库完整性"""
         try:
             os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
@@ -116,7 +116,7 @@ class StartupManager:
                 "error": str(e)
             }
     
-    def _recover_logs(self) -> Dict:
+    def _recover_logs(self) -> Dict[str, Any]:
         """恢复上次运行的日志"""
         try:
             conn = sqlite3.connect(self.db_path)
@@ -164,7 +164,7 @@ class StartupManager:
                 "error": str(e)
             }
     
-    def _detect_anomalies(self) -> Dict:
+    def _detect_anomalies(self) -> Dict[str, Any]:
         """检测系统异常"""
         try:
             conn = sqlite3.connect(self.db_path)
@@ -234,7 +234,7 @@ class StartupManager:
                 "warning_count": 0
             }
     
-    def _compress_and_cleanup(self) -> Dict:
+    def _compress_and_cleanup(self) -> Dict[str, Any]:
         """自动压缩和清理日志"""
         try:
             conn = sqlite3.connect(self.db_path)
@@ -298,7 +298,7 @@ class StartupManager:
                 "error": str(e)
             }
     
-    def _generate_startup_report(self, result: Dict) -> Dict:
+    def _generate_startup_report(self, result: Dict[str, Any]) -> Dict[str, Any]:
         """生成启动报告"""
         try:
             conn = sqlite3.connect(self.db_path)

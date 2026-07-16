@@ -181,7 +181,7 @@ def verify_token(req_obj) -> bool:
 # ═══════════════════════════════════════════════
 def write_audit(event_type: str, source: str, target: str,
                 payload: str = "", status: str = "🟡",
-                note: str = "") -> dict:
+                note: str = "") -> dict[str, Any]:
     ts_ns  = time.time_ns()
     ts_str = datetime.now(timezone.utc).isoformat()
     p_hash = sha256(payload) if payload else ""
@@ -254,7 +254,7 @@ def fuse_check(service: str, success: bool) -> str:
 # ═══════════════════════════════════════════════
 # Notion 同步
 # ═══════════════════════════════════════════════
-def notion_push(record: dict) -> bool:
+def notion_push(record: dict[str, Any]) -> bool:
     """把一条审计记录推送到 Notion 审计数据库"""
     if not NOTION_TOKEN or not NOTION_DB_ID:
         return False

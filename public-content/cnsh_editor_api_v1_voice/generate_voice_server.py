@@ -28,7 +28,7 @@ OUTPUT_DIR = Path(__file__).parent
 SERVER_URL = "http://localhost:9623"
 
 
-def load_script(path: Path) -> dict:
+def load_script(path: Path) -> dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -46,7 +46,7 @@ def wait_for_server(timeout: int = 30) -> bool:
     return False
 
 
-def generate_segment(seg: dict) -> Path:
+def generate_segment(seg: dict[str, Any]) -> Path:
     """调用 /api/tts 生成单段语音，返回 wav 路径。"""
     seg_id = seg["id"]
     text = seg["text"].strip()

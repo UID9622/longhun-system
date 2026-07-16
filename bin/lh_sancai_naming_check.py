@@ -21,7 +21,7 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 DNA = "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SANCAI-NAMING-CHECK-v1.0"
@@ -109,7 +109,7 @@ NAMING_MAP: Dict[str, str] = {
 }
 
 
-def audit_scripts(verbose: bool = True) -> Dict:
+def audit_scripts(verbose: bool = True) -> Dict[str, Any]:
     """审计 bin/ 下所有 Python 脚本的命名合规性"""
     results = {
         "total": 0,
@@ -164,7 +164,7 @@ def audit_scripts(verbose: bool = True) -> Dict:
     return results
 
 
-def verify_international_mapping() -> Dict:
+def verify_international_mapping() -> Dict[str, Any]:
     """验证国际算法对照表完整性"""
     # 从标准文档中提取对照表
     standard_file = ROOT / "01_protocols" / "LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md"
@@ -223,7 +223,7 @@ def verify_international_mapping() -> Dict:
     }
 
 
-def generate_report(audit_results: Dict, intl_results: Dict):
+def generate_report(audit_results: Dict[str, Any], intl_results: Dict[str, Any]):
     """生成合规报告"""
     print(f"\n{'='*70}")
     print(f"🐉 三才算法命名合规报告 v1.0")

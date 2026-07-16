@@ -470,7 +470,7 @@ class Notion告警器:
     def _保存告警中心(self, page_id: str):
         self._状态文件().write_text(page_id, encoding="utf-8")
 
-    def _curl(self, url: str, method: str = "GET", 数据: Optional[Dict] = None) -> Dict:
+    def _curl(self, url: str, method: str = "GET", 数据: Optional[Dict] = None) -> Dict[str, Any]:
         cmd = ["curl", "-s", "--max-time", "30", "-X", method, url,
                "-H", f"Authorization: Bearer {self.配置.notion令牌}",
                "-H", "Notion-Version: 2022-06-28",

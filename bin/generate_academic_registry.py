@@ -13,7 +13,7 @@ import os
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 
 ACADEMIC_DIR = Path(__file__).parent.parent / "docs" / "dragon-soul-open-hub" / "academic"
@@ -97,7 +97,7 @@ def generate_dna(paper_id: str) -> str:
     return f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-ACADEMIC-REGISTRY-{paper_id}"
 
 
-def scan_papers() -> Dict:
+def scan_papers() -> Dict[str, Any]:
     """扫描学术目录并生成登记册"""
     papers = []
     skipped = []
@@ -155,7 +155,7 @@ def scan_papers() -> Dict:
     return registry
 
 
-def save_registry(registry: Dict):
+def save_registry(registry: Dict[str, Any]):
     """保存登记册到 JSON"""
     with open(REGISTRY_PATH, "w", encoding="utf-8") as f:
         json.dump(registry, f, ensure_ascii=False, indent=2)

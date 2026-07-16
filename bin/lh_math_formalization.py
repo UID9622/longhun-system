@@ -14,7 +14,7 @@ import hashlib
 import time
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════
@@ -92,7 +92,7 @@ class PersonalityVector:
     def norm_squared(self) -> float:
         return sum(v ** 2 for v in self.values)
 
-    def snapshot(self) -> Dict:
+    def snapshot(self) -> Dict[str, Any]:
         return {
             "values": self.values,
             "norm": math.sqrt(self.norm_squared()),
@@ -140,7 +140,7 @@ class MemoryNode:
     timestamp: str
     height: int
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "hash": self.hash,
             "prev_hash": self.prev_hash,
@@ -268,7 +268,7 @@ class LyapunovStability:
     def record(self, v: float):
         self.history.append(v)
 
-    def status_report(self) -> Dict:
+    def status_report(self) -> Dict[str, Any]:
         if not self.history:
             return {"status": "无数据"}
 
@@ -348,7 +348,7 @@ class MathFormalizationEngine:
         self.memory_chain = MemoryChain("UID9622_ROOT")
         self.results: List[Dict] = []
 
-    def formalize_dna(self, source: str) -> Dict:
+    def formalize_dna(self, source: str) -> Dict[str, Any]:
         """形式化1: DNA概率单射 + 注册"""
         dna, success = self.dna_registry.register(source)
         return {
@@ -358,7 +358,7 @@ class MathFormalizationEngine:
             "registry_size": self.dna_registry.size,
         }
 
-    def formalize_personality(self, values: List[float], delta: List[float]) -> Dict:
+    def formalize_personality(self, values: List[float], delta: List[float]) -> Dict[str, Any]:
         """形式化2: 人格向量有界更新"""
         self.persona_vector.set_initial(values)
         self.persona_vector.update(delta)
@@ -368,7 +368,7 @@ class MathFormalizationEngine:
             "bounded": self.persona_vector.is_bounded(),
         }
 
-    def formalize_memory(self, action: str) -> Dict:
+    def formalize_memory(self, action: str) -> Dict[str, Any]:
         """形式化3: 记忆链追加 + 验证"""
         node = self.memory_chain.append(action)
         ok, errors = self.memory_chain.verify()
@@ -379,7 +379,7 @@ class MathFormalizationEngine:
             "chain_length": self.memory_chain.length,
         }
 
-    def formalize_stability(self, heaven: float, earth: float, human: float) -> Dict:
+    def formalize_stability(self, heaven: float, earth: float, human: float) -> Dict[str, Any]:
         """形式化4: Lyapunov稳定性"""
         stable, v = self.sancai.evolve(heaven, earth, human)
         return {
@@ -390,7 +390,7 @@ class MathFormalizationEngine:
             **self.sancai.lyapunov.status_report(),
         }
 
-    def type_system_check(self, persona_a: str, persona_b: str) -> Dict:
+    def type_system_check(self, persona_a: str, persona_b: str) -> Dict[str, Any]:
         """形式化5: 类型系统隔离"""
         a = PersonaType(persona_a, "owner_a")
         b = PersonaType(persona_b, "owner_b")
@@ -404,7 +404,7 @@ class MathFormalizationEngine:
         }
 
     def full_audit(self, source: str, action: str,
-                   heaven: float, earth: float, human: float) -> Dict:
+                   heaven: float, earth: float, human: float) -> Dict[str, Any]:
         """完整审计：所有7项形式化验证"""
         results = {
             "dna": self.formalize_dna(source),
@@ -414,7 +414,7 @@ class MathFormalizationEngine:
         self.results.append(results)
         return results
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         return {
             "dna_registry_size": self.dna_registry.size,
             "memory_chain_length": self.memory_chain.length,

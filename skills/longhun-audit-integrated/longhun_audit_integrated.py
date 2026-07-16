@@ -88,7 +88,7 @@ class CNSHChecker:
             '用户': 'L4:应改为某个具体的人',
         }
     
-    def check(self, text: str) -> dict:
+    def check(self, text: str) -> dict[str, Any]:
         """完整的CNSH检查"""
         result = {
             'type': 'CNSH对齐',
@@ -144,7 +144,7 @@ class SystemAuditor:
             '日志审计': self.audit_logs,
         }
     
-    def audit_files(self) -> dict:
+    def audit_files(self) -> dict[str, Any]:
         """维度1: 文件完整性"""
         root = Path(os.path.expanduser('~/longhun-system'))
         if not root.exists():
@@ -171,7 +171,7 @@ class SystemAuditor:
             'details': f'共{total}个Python文件'
         }
     
-    def audit_health(self) -> dict:
+    def audit_health(self) -> dict[str, Any]:
         """维度2: 系统健康"""
         scores = []
         issues = []
@@ -203,7 +203,7 @@ class SystemAuditor:
             'details': f'检查{len(scores)}项'
         }
     
-    def audit_security(self) -> dict:
+    def audit_security(self) -> dict[str, Any]:
         """维度3: 安全性"""
         issues = []
         score = 1.0
@@ -238,7 +238,7 @@ class SystemAuditor:
             'details': '权限检查·字符检查'
         }
     
-    def audit_compliance(self) -> dict:
+    def audit_compliance(self) -> dict[str, Any]:
         """维度4: 合规性（六层来源链）"""
         layers = {
             '道统': ['道德经', '易经', '曾仕强'],
@@ -279,7 +279,7 @@ class SystemAuditor:
             'details': f'{len(layer_scores)}层检查'
         }
     
-    def audit_performance(self) -> dict:
+    def audit_performance(self) -> dict[str, Any]:
         """维度5: 性能"""
         start = time.time()
         for _ in range(1000):
@@ -296,7 +296,7 @@ class SystemAuditor:
             'details': f'{elapsed*1000:.0f}ms/1000次'
         }
     
-    def audit_behavior(self) -> dict:
+    def audit_behavior(self) -> dict[str, Any]:
         """维度6: 行为审计"""
         log_path = os.path.expanduser('~/.龍魂/audit_master.log')
         if not os.path.exists(log_path):
@@ -318,7 +318,7 @@ class SystemAuditor:
         except:
             return {'name': '行为审计', 'confidence': 0.6, 'issues': ['日志读取失败']}
     
-    def audit_code(self) -> dict:
+    def audit_code(self) -> dict[str, Any]:
         """维度7: 代码审计"""
         root = Path(os.path.expanduser('~/longhun-system'))
         if not root.exists():
@@ -344,7 +344,7 @@ class SystemAuditor:
             'details': '采样检查'
         }
     
-    def audit_network(self) -> dict:
+    def audit_network(self) -> dict[str, Any]:
         """维度8: 网络审计"""
         # 简化版：只检查基本连通性
         import socket
@@ -374,7 +374,7 @@ class SystemAuditor:
             'details': '基础连接测试'
         }
     
-    def audit_dependencies(self) -> dict:
+    def audit_dependencies(self) -> dict[str, Any]:
         """维度9: 依赖审计"""
         required = ['hashlib', 'json', 'sqlite3', 'datetime', 'pathlib', 'os', 'sys']
         missing = []
@@ -394,7 +394,7 @@ class SystemAuditor:
             'details': (f'缺失: {missing}' if missing else '完整')
         }
     
-    def audit_logs(self) -> dict:
+    def audit_logs(self) -> dict[str, Any]:
         """维度10: 日志审计"""
         log_files = [
             os.path.expanduser('~/.龍魂/audit_master.log'),
@@ -418,7 +418,7 @@ class SystemAuditor:
             'details': f'总量: {total_size/1024:.0f}KB'
         }
     
-    def audit_all(self) -> list:
+    def audit_all(self) -> list[Any]:
         """审计所有维度"""
         results = []
         for dim_name, dim_func in self.dimensions.items():
@@ -447,7 +447,7 @@ class LonghunIntegratedAudit:
         self.cnsh_checker = CNSHChecker()
         self.system_auditor = SystemAuditor()
     
-    def audit_script(self, script_path: str) -> dict:
+    def audit_script(self, script_path: str) -> dict[str, Any]:
         """审计单个脚本"""
         result = {
             'path': script_path,
@@ -477,7 +477,7 @@ class LonghunIntegratedAudit:
         
         return result
     
-    def audit_system(self) -> dict:
+    def audit_system(self) -> dict[str, Any]:
         """审计整个系统"""
         result = {
             'dna': self.dna,
@@ -509,7 +509,7 @@ class LonghunIntegratedAudit:
         
         return result
     
-    def print_dashboard(self, script_result: dict = None, system_result: dict = None):
+    def print_dashboard(self, script_result: dict[str, Any] = None, system_result: dict[str, Any] = None):
         """打印仪表盘"""
         print("\n" + "="*70)
         print("  🐉 龍魂完整审计系统 v2.0 仪表盘")

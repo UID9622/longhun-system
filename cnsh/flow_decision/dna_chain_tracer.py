@@ -15,7 +15,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 import hashlib
 import json
 from dataclasses import dataclass, asdict
-from typing import Optional, List, Tuple
+from typing import Optional, List, Tuple, Any
 from datetime import datetime
 from .schemas import DNATagPolicy, LevelEnum, VisibilityEnum, TraceModeEnum
 
@@ -112,7 +112,7 @@ class DNAChainTracer:
 
     @staticmethod
     def trace_to_ancestor(
-        dna_registry: dict,
+        dna_registry: dict[str, Any],
         current_dna: str,
         max_depth: int = 10
     ) -> List[str]:
@@ -140,7 +140,7 @@ class DNAChainTracer:
 
     @staticmethod
     def trace_to_descendants(
-        dna_registry: dict,
+        dna_registry: dict[str, Any],
         current_dna: str,
         max_depth: int = 10
     ) -> List[str]:
@@ -170,9 +170,9 @@ class DNAChainTracer:
 
     @staticmethod
     def build_full_lineage(
-        dna_registry: dict,
+        dna_registry: dict[str, Any],
         target_dna: str
-    ) -> dict:
+    ) -> dict[str, Any]:
         """
         构建完整DNA谱系
         返回: {
@@ -226,7 +226,7 @@ class DNATagPolicyValidator:
     @staticmethod
     def auto_set_tags_by_content(
         content: str,
-        tags: dict
+        tags: dict[str, Any]
     ) -> DNATagPolicy:
         """
         根据内容自动设置DNA标签

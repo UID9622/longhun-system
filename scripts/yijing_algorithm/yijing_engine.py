@@ -15,7 +15,7 @@ import json
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 # ═════════ 载入数据 ═════════
 _DATA_PATH = Path(__file__).with_name("yijing_data.json")
@@ -37,7 +37,7 @@ CULTURAL_DNA = {
 }
 
 
-def verify_cultural_dna() -> Dict:
+def verify_cultural_dna() -> Dict[str, Any]:
     expected = hashlib.sha256("易经64卦推演引擎-Lucky-2025".encode("utf-8")).hexdigest()[:16]
     if CULTURAL_DNA["signature"] != expected:
         print("⚠️ 警告：文化DNA已被篡改")
@@ -57,7 +57,7 @@ def print_cultural_dna() -> None:
 
 
 # ═════════ 1. 起卦算法 ═════════
-def generate_hexagram(input_text: str, timestamp: float = None) -> Dict:
+def generate_hexagram(input_text: str, timestamp: float | None = None) -> Dict[str, Any]:
     """
     生成本卦
     input_text: 用户问题或意念
@@ -102,7 +102,7 @@ def id_to_binary(hex_id: int) -> str:
 
 
 # ═════════ 2. 互卦与变卦 ═════════
-def derive_mutual_hexagram(original_lines: List[int]) -> Dict:
+def derive_mutual_hexagram(original_lines: List[int]) -> Dict[str, Any]:
     """
     推演互卦：取 2-5 爻构成新的上下卦。
     注意：original_lines[0] 为顶爻。
@@ -120,7 +120,7 @@ def derive_mutual_hexagram(original_lines: List[int]) -> Dict:
     }
 
 
-def derive_changed_hexagram(original_lines: List[int], change_lines: List[int]) -> Dict:
+def derive_changed_hexagram(original_lines: List[int], change_lines: List[int]) -> Dict[str, Any]:
     """推演变卦：将变爻阴阳互换。"""
     changed_lines = original_lines.copy()
     for pos in change_lines:
@@ -167,7 +167,7 @@ def get_solar_term_weight(timestamp: float) -> float:
 
 
 # ═════════ 4. 五行分析 ═════════
-def analyze_wuxing(original_hex: Dict, changed_hex: Dict) -> Dict:
+def analyze_wuxing(original_hex: Dict[str, Any], changed_hex: Dict[str, Any]) -> Dict[str, Any]:
     """分析五行相生相克关系。"""
     original_element = HEXAGRAMS[original_hex["binary"]]["element"]
     changed_element = HEXAGRAMS[changed_hex["binary"]]["element"]
@@ -196,7 +196,7 @@ def analyze_wuxing(original_hex: Dict, changed_hex: Dict) -> Dict:
 
 
 # ═════════ 5. 卦辞爻辞解析 ═════════
-def interpret_hexagram(hex_data: Dict) -> Dict:
+def interpret_hexagram(hex_data: Dict[str, Any]) -> Dict[str, Any]:
     """解析卦象。"""
     info = HEXAGRAMS.get(hex_data["binary"], {})
     return {
@@ -209,7 +209,7 @@ def interpret_hexagram(hex_data: Dict) -> Dict:
 
 
 # ═════════ 6. 太极三才综合判断 ═════════
-def taiji_judgment(original_hex: Dict, mutual_hex: Dict, changed_hex: Dict, solar_weight: float) -> Dict:
+def taiji_judgment(original_hex: Dict[str, Any], mutual_hex: Dict[str, Any], changed_hex: Dict[str, Any], solar_weight: float) -> Dict[str, Any]:
     """太极三才综合判断。"""
     original_interp = interpret_hexagram(original_hex)
     changed_interp = interpret_hexagram(changed_hex)
@@ -257,7 +257,7 @@ def taiji_judgment(original_hex: Dict, mutual_hex: Dict, changed_hex: Dict, sola
     }
 
 
-def generate_advice(score: float, wuxing_result: Dict) -> str:
+def generate_advice(score: float, wuxing_result: Dict[str, Any]) -> str:
     """生成行动建议。"""
     if score > 0.6:
         return f"当前形势有利，{wuxing_result['trend']}，可积极推进计划。"
@@ -268,7 +268,7 @@ def generate_advice(score: float, wuxing_result: Dict) -> str:
 
 
 # ═════════ 7. 完整推演流程 ═════════
-def complete_divination(question: str, timestamp: float = None) -> Dict:
+def complete_divination(question: str, timestamp: float | None = None) -> Dict[str, Any]:
     """完整易经推演流程。"""
     if timestamp is None:
         timestamp = time.time()

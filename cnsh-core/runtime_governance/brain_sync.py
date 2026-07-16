@@ -144,7 +144,7 @@ def _请求(方法, 路径, 数据=None, token=None, 重试=3):
     return {"error": "重试耗尽"}
 
 # ─── 检查双脑连通性 ───────────────────────────────────────
-def 检查双脑() -> tuple:
+def 检查双脑() -> tuple[Any, ...]:
     print("【双脑连通检测 | Dual-Brain Connectivity Check】")
     展示OK = 内核OK = False
     for 名, token in [("展示脑", 展示脑TOKEN), ("内核脑", 内核脑TOKEN)]:
@@ -162,7 +162,7 @@ def 检查双脑() -> tuple:
     return 展示OK, 内核OK
 
 # ─── 读取展示脑所有页面（分页完整拉取）───────────────────
-def 读取所有页面(增量=False) -> list:
+def 读取所有页面(增量=False) -> list[Any]:
     print("【读取展示脑页面 | Reading Display-Brain Pages】")
 
     # 增量同步：读取上次同步时间
@@ -213,7 +213,7 @@ def 读取所有页面(增量=False) -> list:
     print(f"  读到 | Read {len(所有页面)} 个页面 | pages")
     return 所有页面
 
-def _提取标题(item: dict) -> str:
+def _提取标题(item: dict[str, Any]) -> str:
     props = item.get("properties", {})
     for key in ["title", "Title", "名称", "Name", "标题"]:
         if key in props:
@@ -223,7 +223,7 @@ def _提取标题(item: dict) -> str:
     return "(无标题)"
 
 # ─── 分类聚合 ─────────────────────────────────────────────
-def 压缩分类(页面列表: list) -> dict:
+def 压缩分类(页面列表: list[Any]) -> dict[str, Any]:
     聚合 = {}
     for p in 页面列表:
         c = p["分类"]
@@ -301,7 +301,7 @@ def _分批追加(页面ID, 块列表, token, 批大小=50):
         print(f"  🟡 写入完成: {成功}块成功 / {失败}块跳过")
     return 成功 > 0
 
-def _安全截块(块: dict) -> dict:
+def _安全截块(块: dict[str, Any]) -> dict[str, Any]:
     """截断块内所有rich_text确保不超2000字符"""
     import copy
     块 = copy.deepcopy(块)
@@ -316,7 +316,7 @@ def _安全截块(块: dict) -> dict:
     return 块
 
 # ─── 自动寻找内核脑可用父页面 ────────────────────────────
-def _找内核脑父页(指定ID="") -> dict:
+def _找内核脑父页(指定ID="") -> dict[str, Any]:
     """
     优先级: 1.指定ID 2.env里DB_CLOUD（旧名 NOTION_TEAM_PARENT_ID 仍兼容） 3.搜索第一个可用页
     返回 Notion parent 对象
@@ -345,7 +345,7 @@ def _找内核脑父页(指定ID="") -> dict:
     return {"type": "workspace", "workspace": True}
 
 # ─── 在内核脑创建知识索引页 ──────────────────────────────
-def 创建索引页(分类聚合: dict, 同步DNA: str) -> str:
+def 创建索引页(分类聚合: dict[str, Any], 同步DNA: str) -> str:
     总页数 = sum(len(v) for v in 分类聚合.values())
     同步时间 = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
@@ -413,7 +413,7 @@ def 创建索引页(分类聚合: dict, 同步DNA: str) -> str:
     return 链接
 
 # ─── 本地备份 ─────────────────────────────────────────────
-def 本地备份(页面列表: list, DNA: str):
+def 本地备份(页面列表: list[Any], DNA: str):
     record = {
         "时间":  datetime.datetime.now().isoformat(),
         "DNA":   DNA,
@@ -434,7 +434,7 @@ def 保存状态(总数: int, DNA: str):
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2))
 
 # ─── 追加memory.jsonl ─────────────────────────────────────
-def 写记忆(事件: str, DNA: str, 详情: dict = None):
+def 写记忆(事件: str, DNA: str, 详情: dict[str, Any] = None):
     record = {
         "timestamp": datetime.datetime.now().isoformat(),
         "dna":       DNA,
@@ -450,7 +450,7 @@ def 写记忆(事件: str, DNA: str, 详情: dict = None):
 # ╚════════════════════════════════════════════════════════════╝
 
 # ─── Terminal → Notion：本地文件推送到展示脑 ───────────────
-def 读取本地记录(限制=100) -> list:
+def 读取本地记录(限制=100) -> list[Any]:
     """读取本地 memory.jsonl 中的记录，返回待同步项"""
     print("【本地→展示脑 | Terminal→Display-Brain】")
     if not MEMORY.exists():
@@ -494,7 +494,7 @@ def 读取本地记录(限制=100) -> list:
     print(f"  读到 {len(本地记录)} 条本地记录，其中 {len(本地记录)} 条待同步")
     return 本地记录[:限制]
 
-def 推送到展示脑(本地记录: list, token) -> dict:
+def 推送到展示脑(本地记录: list[Any], token) -> dict[str, Any]:
     """将本地记录推送到 Notion 展示脑"""
     if not token or len(token) < 20:
         print("  🔴 展示脑Token未配置")
@@ -546,7 +546,7 @@ def 推送到展示脑(本地记录: list, token) -> dict:
     return {"success": 成功, "failed": 失败}
 
 # ─── Notion → Terminal：从展示脑拉取并更新本地 ────────────
-def 拉取自展示脑(token, 最小编辑时间="") -> list:
+def 拉取自展示脑(token, 最小编辑时间="") -> list[Any]:
     """从展示脑拉取所有 [LOCAL] 标记的页面，返回更新列表"""
     print("【展示脑→本地 | Display-Brain→Terminal】")
 
@@ -591,7 +591,7 @@ def 拉取自展示脑(token, 最小编辑时间="") -> list:
     print(f"  拉取 {len(所有页面)} 条页面")
     return 所有页面
 
-def 更新本地记录(远程页面列表: list) -> dict:
+def 更新本地记录(远程页面列表: list[Any]) -> dict[str, Any]:
     """将远程页面追加到本地 memory.jsonl"""
     成功 = 0
     失败 = 0
@@ -618,7 +618,7 @@ def 更新本地记录(远程页面列表: list) -> dict:
     return {"success": 成功, "failed": 失败}
 
 # ─── 冲突检测与解决 ────────────────────────────────────────
-def 检测冲突(本地记录: list, 远程页面: list) -> dict:
+def 检测冲突(本地记录: list[Any], 远程页面: list[Any]) -> dict[str, Any]:
     """
     检测本地和远程的冲突
     冲突规则：
@@ -689,7 +689,7 @@ def 检测冲突(本地记录: list, 远程页面: list) -> dict:
 
     return 冲突
 
-def 解决冲突(冲突: dict, DNA: str) -> dict:
+def 解决冲突(冲突: dict[str, Any], DNA: str) -> dict[str, Any]:
     """
     解决检测到的冲突
     规则：

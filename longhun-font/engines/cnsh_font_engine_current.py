@@ -41,7 +41,7 @@ CNSH字体系统 - 中文原生字体引擎
 import json
 import os
 import re
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 
@@ -70,7 +70,7 @@ class 字体配置:
     换行符: str = "LF"
     专有标记: bool = False
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "名称": self.名称,
             "版本": self.版本,
@@ -131,7 +131,7 @@ class CNSH字体引擎:
     - 支持龍魂DNA追溯码格式
     """
     
-    def __init__(self, 字元库路径: str = None):
+    def __init__(self, 字元库路径: str | None = None):
         """
         初始化字体引擎
         
@@ -273,7 +273,7 @@ class CNSH字体引擎:
         
         return svg头部 + svg内容 + svg尾部
     
-    def _生成字元SVG(self, 字元: str, 字元数据: Dict, x: int, y: int, 风格: 字体风格) -> str:
+    def _生成字元SVG(self, 字元: str, 字元数据: Dict[str, Any], x: int, y: int, 风格: 字体风格) -> str:
         """生成单个字元的SVG"""
         颜色 = self._获取风格颜色(风格)
         
@@ -337,7 +337,7 @@ class CNSH字体引擎:
                 "字元库": self.字元库
             }, f, ensure_ascii=False, indent=2)
     
-    def 获取统计信息(self) -> Dict:
+    def 获取统计信息(self) -> Dict[str, Any]:
         """获取字元库统计信息"""
         总字元数 = len(self.字元库)
         汉字数 = sum(1 for v in self.字元库.values() if v.get("类型") != "ASCII")
@@ -357,7 +357,7 @@ class CNSH字体引擎:
 # 第四部分：字体系统API
 # ═══════════════════════════════════════════════════════════
 
-def 创建字体引擎(字元库路径: str = None) -> CNSH字体引擎:
+def 创建字体引擎(字元库路径: str | None = None) -> CNSH字体引擎:
     """工厂函数：创建字体引擎实例"""
     return CNSH字体引擎(字元库路径)
 

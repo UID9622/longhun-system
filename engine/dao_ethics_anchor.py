@@ -22,7 +22,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 
 # ============================================================
@@ -504,12 +504,12 @@ class DaoEthicsAnchorLayer:
 
         return True, "無為校驗通過"
 
-    def anchor_c_audit(self, result: dict) -> str:
+    def anchor_c_audit(self, result: dict[str, Any]) -> str:
         """錨點C：天網審計（輸出側）"""
         dna = self.auditor.record("FULL-CHECK", 0, str(result), AuditColor.GREEN, result.get("錨點A", {}).get("評分", 1.0))
         return dna
 
-    def anchor_d_feedback(self, result: dict):
+    def anchor_d_feedback(self, result: dict[str, Any]):
         """錨點D：循環反饋（反饋側）
         根據結果動態調整約束強度感知
         """
@@ -520,7 +520,7 @@ class DaoEthicsAnchorLayer:
             return "約束良好，保持當前強度"
         return "約束適中"
 
-    def full_check(self, user_input: str, system_output: str = "") -> dict:
+    def full_check(self, user_input: str, system_output: str = "") -> dict[str, Any]:
         """完整檢查流程（四個錨點全跑）"""
         result = {
             "整體狀態": "🟢 通過",

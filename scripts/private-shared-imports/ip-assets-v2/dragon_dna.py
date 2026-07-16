@@ -237,7 +237,7 @@ class DNAModel:
     sm3_hash: str = ""
     threshold: float = 0.0
     sm2_signature: str = ""
-    metadata: Dict = field(default_factory=dict)
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
     def to_basic_dna(self) -> str:
         return f"{DNA_PREFIX}{self.timestamp}-{self.data_type.value}-{self.source}-{self.version}"
@@ -296,7 +296,7 @@ class DNAGenerator:
 class ImageDNAGenerator(DNAGenerator):
     def generate(self, image_data: bytes, image_format: str = "JPG",
                  width: int = 0, height: int = 0,
-                 device_info: str = "", geo_tag: str = "") -> Dict:
+                 device_info: str = "", geo_tag: str = "") -> Dict[str, Any]:
         dna = super().generate(image_data, DataType.IMAGE, threshold=0.8)
         return {
             'dna_model': dna,
@@ -318,7 +318,7 @@ class ImageDNAGenerator(DNAGenerator):
 
 
 class TextDNAGenerator(DNAGenerator):
-    def generate(self, text: str, text_type: str = "general") -> Dict:
+    def generate(self, text: str, text_type: str = "general") -> Dict[str, Any]:
         data = text.encode('utf-8')
         dna = super().generate(data, DataType.TEXT, threshold=0.75)
         paragraphs = text.split('\n\n')
@@ -340,7 +340,7 @@ class TextDNAGenerator(DNAGenerator):
 
 
 class PersonalInfoDNAGenerator(DNAGenerator):
-    def generate(self, info: Dict, privacy_level: str = "normal") -> Dict:
+    def generate(self, info: Dict[str, Any], privacy_level: str = "normal") -> Dict[str, Any]:
         info_str = json.dumps(info, sort_keys=True)
         data = info_str.encode('utf-8')
         threshold_map = {'low': 0.5, 'normal': 0.7, 'high': 0.85, 'critical': 0.95}
@@ -367,7 +367,7 @@ class PersonalInfoDNAGenerator(DNAGenerator):
 
 
 class FormulaDNAGenerator(DNAGenerator):
-    def generate(self, formula: Dict, compliance_standard: str = "GB") -> Dict:
+    def generate(self, formula: Dict[str, Any], compliance_standard: str = "GB") -> Dict[str, Any]:
         formula_str = json.dumps(formula, sort_keys=True)
         data = formula_str.encode('utf-8')
         ingredients = formula.get('ingredients', [])
@@ -404,7 +404,7 @@ class FormulaDNAGenerator(DNAGenerator):
 
 class FingerprintDNAGenerator(DNAGenerator):
     def generate(self, fingerprint_data: bytes, device_id: str = "",
-                 capture_type: str = "optical") -> Dict:
+                 capture_type: str = "optical") -> Dict[str, Any]:
         dna = super().generate(fingerprint_data, DataType.FINGERPRINT, threshold=0.9,
                                extra_meta={'device_id': device_id, 'capture_type': capture_type})
         feature_hash = SM3.hash(fingerprint_data)
@@ -431,7 +431,7 @@ class FingerprintDNAGenerator(DNAGenerator):
 
 class MetadataEmbedder:
     @staticmethod
-    def embed_exif(image_bytes: bytes, dna_info: Dict) -> bytes:
+    def embed_exif(image_bytes: bytes, dna_info: Dict[str, Any]) -> bytes:
         if image_bytes[:2] == b'\xff\xd8':
             dna_exif = b'\xff\xe1'
             exif_data = dna_info.get('exif_dna', '').encode('utf-8')
@@ -450,7 +450,7 @@ class MetadataEmbedder:
         return dna_header + "\n\n" + text
 
     @staticmethod
-    def embed_json_meta(data: Dict, dna_data: Dict) -> Dict:
+    def embed_json_meta(data: Dict[str, Any], dna_data: Dict[str, Any]) -> Dict[str, Any]:
         data['_dna'] = {
             'basic_dna': dna_data.get('basic_dna', ''),
             'sm3_hash': dna_data.get('verification', {}).get('sm3_full', ''),
@@ -512,7 +512,7 @@ class CryptoEmbedder:
         self.sm2 = SM2Crypto()
         self._keys = self.sm2.generate_key_pair()
 
-    def embed_signature(self, data: bytes) -> Dict:
+    def embed_signature(self, data: bytes) -> Dict[str, Any]:
         hash_val = SM3.hash(data)
         signature = self.sm2.sign(data)
         return {
@@ -522,7 +522,7 @@ class CryptoEmbedder:
             'embedded': f"SIG:{signature[:64]}|HASH:{hash_val[:32]}"
         }
 
-    def verify_embedded(self, data: bytes, signature: str, public_key: str = None) -> bool:
+    def verify_embedded(self, data: bytes, signature: str, public_key: str | None = None) -> bool:
         if public_key:
             self.sm2.load_public_key(public_key)
         return self.sm2.verify(data, signature)
@@ -538,7 +538,7 @@ class CryptoEmbedder:
         return chain
 
     @staticmethod
-    def create_merkle_tree(data_list: List[bytes]) -> Dict:
+    def create_merkle_tree(data_list: List[bytes]) -> Dict[str, Any]:
         leaves = [SM3.hash(d) for d in data_list]
         tree = [leaves]
         current = leaves
@@ -563,14 +563,14 @@ class CryptoEmbedder:
 # ============================================================
 
 class DNAVerifier:
-    def __init__(self, public_key: str = None):
+    def __init__(self, public_key: str | None = None):
         self.sm2 = SM2Crypto()
         if public_key:
             self.sm2.load_public_key(public_key)
         self._audit_log = []
 
     def verify(self, data: Union[str, bytes], dna_model: DNAModel,
-               expected_signature: str = None) -> Dict:
+               expected_signature: str = None) -> Dict[str, Any]:
         if isinstance(data, str):
             data = data.encode('utf-8')
         results = {
@@ -619,7 +619,7 @@ class DNAVerifier:
         self._audit_log.append(results)
         return results
 
-    def verify_image(self, image_data: bytes, dna_data: Dict) -> Dict:
+    def verify_image(self, image_data: bytes, dna_data: Dict[str, Any]) -> Dict[str, Any]:
         results = self.verify(image_data, dna_data['dna_model'])
         lsb = WatermarkEmbedder.extract_lsb(image_data)
         results['checks']['lsb_watermark'] = {
@@ -637,7 +637,7 @@ class DNAVerifier:
             return False
 
     @staticmethod
-    def format_report(result: Dict) -> str:
+    def format_report(result: Dict[str, Any]) -> str:
         lines = [
             "=" * 50,
             "Dragon DNA Verification Report",
@@ -661,16 +661,16 @@ class DNAVerifier:
 # ============================================================
 
 class DNADatabase:
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str | None = None):
         self._records: Dict[str, Dict] = {}
         self._index_by_type: Dict[str, set] = defaultdict(set)
         self._index_by_source: Dict[str, set] = defaultdict(set)
         self._index_by_time: Dict[str, set] = defaultdict(set)
-        self._blacklist: set = set()
+        self._blacklist: set[str] = set()
         self._audit_log = []
         self._lock = threading.Lock()
 
-    def insert(self, dna_data: Dict, original_data_hash: str = "") -> str:
+    def insert(self, dna_data: Dict[str, Any], original_data_hash: str = "") -> str:
         with self._lock:
             dna_model = dna_data.get('dna_model')
             if not dna_model:
@@ -723,7 +723,7 @@ class DNADatabase:
                 results.extend([self._records[did] for did in ids if did in self._records])
         return results
 
-    def query(self, data_type: str = None, source: str = None,
+    def query(self, data_type: str | None = None, source: str | None = None,
               date: str = None, min_threshold: float = None) -> List[Dict]:
         candidates = set(self._records.keys())
         if data_type:
@@ -751,7 +751,7 @@ class DNADatabase:
     def get_blacklist(self) -> List[str]:
         return list(self._blacklist)
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         return {
             'total_records': len(self._records),
             'by_type': {k: len(v) for k, v in self._index_by_type.items()},
@@ -797,7 +797,7 @@ class DragonDNATraceSystem:
     def get_system_dna(self) -> str:
         return self.SYSTEM_DNA
 
-    def generate_dna(self, data, data_type: DataType, **kwargs) -> Dict:
+    def generate_dna(self, data, data_type: DataType, **kwargs) -> Dict[str, Any]:
         generator = self._generators.get(data_type)
         if not generator:
             raise ValueError(f"Unsupported data type: {data_type}")
@@ -837,7 +837,7 @@ class DragonDNATraceSystem:
                 self._public_keys[src] = gen.get_public_key()
         return result
 
-    def embed_dna(self, data: bytes, dna_data: Dict, method: str = 'auto') -> bytes:
+    def embed_dna(self, data: bytes, dna_data: Dict[str, Any], method: str = 'auto') -> bytes:
         if method == 'auto':
             dna_model = dna_data.get('dna_model')
             method = 'watermark' if dna_model and dna_model.data_type == DataType.IMAGE else 'metadata'
@@ -850,7 +850,7 @@ class DragonDNATraceSystem:
                 header = header.encode('utf-8')
             return MetadataEmbedder.embed_file_header(data, header)
 
-    def verify_dna(self, data, dna_data, public_key: str = None) -> Dict:
+    def verify_dna(self, data, dna_data, public_key: str | None = None) -> Dict[str, Any]:
         dna_model = dna_data.get('dna_model')
         if not dna_model:
             return {'error': 'Invalid DNA data'}
@@ -865,7 +865,7 @@ class DragonDNATraceSystem:
         self._audit_log.append(result)
         return result
 
-    def store_dna(self, dna_data: Dict) -> str:
+    def store_dna(self, dna_data: Dict[str, Any]) -> str:
         return self.db.insert(dna_data)
 
     def query_dna(self, **kwargs) -> List[Dict]:
@@ -874,7 +874,7 @@ class DragonDNATraceSystem:
     def add_to_blacklist(self, dna_id: str, reason: str = ""):
         self.db.add_to_blacklist(dna_id, reason)
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         return {
             'system_dna': self.SYSTEM_DNA,
             'version': self.VERSION,

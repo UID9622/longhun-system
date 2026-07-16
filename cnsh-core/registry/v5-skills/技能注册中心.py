@@ -15,7 +15,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 __版本__ = "v5.0"
 __dna__ = "#龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.0"
@@ -257,7 +257,7 @@ class 技能注册中心:
             访问(技能名)
         return 排序结果
 
-    def 检查依赖(self, 技能名: str) -> Dict:
+    def 检查依赖(self, 技能名: str) -> Dict[str, Any]:
         """✅ 检查技能的依赖是否满足 | Check if skill dependencies are satisfied"""
         技能 = self.全部技能.get(技能名)
         if not 技能:
@@ -280,7 +280,7 @@ class 技能注册中心:
         状态标 = "🟢" if 成功 else "🔴"
         print(f"[技能注册中心] {状态标} 技能已注册: {技能名}")
 
-    def 生成加载报告(self) -> Dict:
+    def 生成加载报告(self) -> Dict[str, Any]:
         """📊 生成技能加载报告 | Generate skill loading report"""
         已加载 = sum(1 for v in self.加载状态.values() if v)
         失败 = sum(1 for v in self.加载状态.values() if not v)
@@ -311,7 +311,7 @@ class 技能注册中心:
             json.dump(数据, f, ensure_ascii=False, indent=2)
         print(f"[技能注册中心] 💾 注册表已导出: {路径}")
 
-    def 路由请求(self, 技能名: str, 本地优先: bool = True) -> Dict:
+    def 路由请求(self, 技能名: str, 本地优先: bool = True) -> Dict[str, Any]:
         """🌐 路由请求到本地或云端技能 | Route request to local or cloud skill"""
         技能 = self.全部技能.get(技能名)
         if not 技能:

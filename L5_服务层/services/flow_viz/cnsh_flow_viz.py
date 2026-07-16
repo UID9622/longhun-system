@@ -625,7 +625,7 @@ if __name__ == "__main__":
         print(json.dumps(审计结果, ensure_ascii=False, indent=2)[:600])
 
 
-def selftest() -> dict:
+def selftest() -> dict[str, Any]:
     """
     自检函数：验证 CNSH 流场可视化引擎是否正常。
     DNA: #龍芯⚡️2026-07-01-CNSH-FLOW-SELFTEST-v1.0

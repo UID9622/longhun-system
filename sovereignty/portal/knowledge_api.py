@@ -18,7 +18,7 @@ import sys
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -136,7 +136,7 @@ def _search_knowledge_db(q: str, limit: int = 20) -> List[Dict]:
 
 
 # ── 图谱构建 ──────────────────────────────────────────────
-def _build_graph() -> Dict:
+def _build_graph() -> Dict[str, Any]:
     nodes: List[Dict] = []
     edges: List[Dict] = []
     node_ids = set()
@@ -230,7 +230,7 @@ def _build_graph() -> Dict:
 _GRAPH_CACHE: Optional[Dict] = None
 
 
-def _get_graph() -> Dict:
+def _get_graph() -> Dict[str, Any]:
     global _GRAPH_CACHE
     if _GRAPH_CACHE is None:
         _GRAPH_CACHE = _build_graph()

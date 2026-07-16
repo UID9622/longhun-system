@@ -40,11 +40,11 @@
   ✅ 内置于系统启动流程
 """
 
-from typing import List
+from typing import List, Any
 from .rule_node import Rule, RuleType, RuleStatus, RulePriority
 
 
-def get_builtin_rules() -> List[Rule]:
+def get_builtin_rules() -> List, Any[Rule]:
     """
     获取内置规则库
 
@@ -165,7 +165,7 @@ def get_builtin_rules() -> List[Rule]:
     ]
 
 
-def register_all_builtin_rules(engine) -> tuple:
+def register_all_builtin_rules(engine) -> tuple[Any, ...]:
     """
     批量注册所有内置规则
 
@@ -173,7 +173,7 @@ def register_all_builtin_rules(engine) -> tuple:
         engine: RuleEngine 实例
 
     Returns:
-        (success: bool, results: List[str])
+        (success: bool, results: List[Any], Any[str])
             success: 所有规则是否都注册成功
             results: 注册结果消息列表
     """
@@ -194,12 +194,12 @@ def register_all_builtin_rules(engine) -> tuple:
 # 【模块自检】
 # ═══════════════════════════════════════════════════════════════════════════
 
-def selftest_builtin_rules() -> tuple:
+def selftest_builtin_rules() -> tuple[Any, ...]:
     """
     内置规则库自检
 
     Returns:
-        (all_pass: bool, errors: List[str])
+        (all_pass: bool, errors: List[Any], Any[str])
     """
     errors = []
 

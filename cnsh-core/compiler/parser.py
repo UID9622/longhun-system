@@ -15,7 +15,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 - 完整的语句和表达式支持
 """
 
-from typing import List, Optional
+from typing import List, Optional, Any
 from .compiler_node import Token, ASTNode
 
 
@@ -55,7 +55,7 @@ class Parser:
             return self.tokens[self.pos + 1]
         return None
 
-    def expect(self, token_type: str, value: str = None) -> Token:
+    def expect(self, token_type: str, value: str | None = None) -> Token:
         """
         期望某个Token，如果不符合则抛异常
 

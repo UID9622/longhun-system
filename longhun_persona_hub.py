@@ -52,7 +52,7 @@ class 龍魂人格中枢:
         self.arbitrations = self.registry.get("arbitration_rules", [])
         self.hexagrams = self.yijing.get("hexagrams", {})
 
-    def _加载_json(self, filename: str) -> Dict:
+    def _加载_json(self, filename: str) -> Dict[str, Any]:
         path = self.persona_dir / filename
         if not path.exists():
             return {}
@@ -109,7 +109,7 @@ class 龍魂人格中枢:
         best = scores[0]
         return self._组装路由结果(best[1], best[2], task)
 
-    def _组装路由结果(self, rule: Dict, matched: List[str], task: str) -> Dict[str, Any]:
+    def _组装路由结果(self, rule: Dict[str, Any], matched: List[str], task: str) -> Dict[str, Any]:
         primary_id = rule.get("primary", "P05")
         secondary_ids = rule.get("secondary", [])
         primary = self.personas.get(primary_id, {})
@@ -196,7 +196,7 @@ class 龍魂人格中枢:
             "策略建议": strategy,
         }
 
-    def _卦象策略(self, hexagram: Dict) -> str:
+    def _卦象策略(self, hexagram: Dict[str, Any]) -> str:
         """根据卦象属性给出策略"""
         prop = hexagram.get("属性", "")
         strategies = {

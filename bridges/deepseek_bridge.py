@@ -31,7 +31,7 @@ import time
 import uuid
 import logging
 from datetime import datetime
-from typing import Dict, List, Optional, AsyncGenerator
+from typing import Dict, List, Optional, AsyncGenerator, Any
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
@@ -96,7 +96,7 @@ class AnthropicMessage:
 
 
 # ==================== 格式转译 ====================
-def anthropic_to_openai(body: dict) -> dict:
+def anthropic_to_openai(body: dict[str, Any]) -> dict[str, Any]:
     """
     Anthropic Messages API → OpenAI Chat Completions
 
@@ -169,7 +169,7 @@ def anthropic_to_openai(body: dict) -> dict:
     }
 
 
-def openai_to_anthropic(response: dict, model_in: str) -> dict:
+def openai_to_anthropic(response: dict[str, Any], model_in: str) -> dict[str, Any]:
     """
     OpenAI Chat Completions → Anthropic Messages API 回包
 
@@ -316,7 +316,7 @@ async def messages(req: Request):
         raise HTTPException(502, f"DeepSeek调用失败: {e}")
 
 
-async def fallback_ollama(payload: dict, model_in: str) -> JSONResponse:
+async def fallback_ollama(payload: dict[str, Any], model_in: str) -> JSONResponse:
     """
     Ollama本地兜底·DeepSeek失败/超时时自动切换
     """

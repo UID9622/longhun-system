@@ -21,7 +21,7 @@ import sys, os, json, re, hashlib, time, subprocess, argparse
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import Counter, defaultdict
-from typing import Dict, List, Set, Tuple, Optional
+from typing import Dict, List, Set, Tuple, Optional, Any
 
 HOME = Path.home()
 ROOT = HOME / "longhun-system"
@@ -181,7 +181,7 @@ def extract_terms_from_file(filepath: Path) -> Dict[str, List[str]]:
     return {"terms": terms, "headers": headers}
 
 
-def load_registry() -> dict:
+def load_registry() -> dict[str, Any]:
     """加载注册表"""
     if not REGISTRY_PATH.exists():
         print(f"  ❌ 注册表不存在: {REGISTRY_PATH}")
@@ -196,7 +196,7 @@ def load_registry() -> dict:
     return json.loads('\n'.join(clean))
 
 
-def get_existing_terms(registry: dict) -> Set[str]:
+def get_existing_terms(registry: dict[str, Any]) -> Set[str]:
     """从注册表提取已有术语集合"""
     existing = set()
     for cat_key, cat_data in registry.get("categories", {}).items():
@@ -223,7 +223,7 @@ def get_existing_terms(registry: dict) -> Set[str]:
     return existing
 
 
-def load_sync_state() -> dict:
+def load_sync_state() -> dict[str, Any]:
     """加载同步状态"""
     if STATE_PATH.exists():
         lines = STATE_PATH.read_text().split('\n')
@@ -236,12 +236,12 @@ def load_sync_state() -> dict:
     return {"last_full_scan": None, "last_quick_scan": None, "file_hashes": {}, "total_scans": 0}
 
 
-def save_sync_state(state: dict):
+def save_sync_state(state: dict[str, Any]):
     """保存同步状态"""
     STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2))
 
 
-def scan_directories(quick_hours: int = None) -> Dict[str, dict]:
+def scan_directories(quick_hours: int | None = None) -> Dict[str, dict]:
     """扫描监控目录，返回文件→术语映射"""
     results = {}
     state = load_sync_state()
@@ -336,7 +336,7 @@ def aggregate_terms(scanned: Dict[str, dict]) -> Dict[str, dict]:
     return dict(aggregated)
 
 
-def build_patch(aggregated: dict, registry: dict) -> dict:
+def build_patch(aggregated: dict[str, Any], registry: dict[str, Any]) -> dict[str, Any]:
     """生成增量补丁——只保留注册表中不存在的新术语"""
     existing = get_existing_terms(registry)
     new_terms = {}
@@ -370,7 +370,7 @@ def build_patch(aggregated: dict, registry: dict) -> dict:
     }
 
 
-def apply_patch_to_registry(patch: dict, dry_run: bool = False) -> dict:
+def apply_patch_to_registry(patch: dict[str, Any], dry_run: bool = False) -> dict[str, Any]:
     """将补丁写入注册表"""
     registry = load_registry()
     if not registry:

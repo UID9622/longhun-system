@@ -14,7 +14,7 @@ import sqlite3
 import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
 HOME = Path.home()
 KA_DIR = HOME / "Downloads" / "Kimi_Agent"
@@ -49,7 +49,7 @@ def sha256_full(data) -> str:
     return hashlib.sha256(data.encode("utf-8")).hexdigest()
 
 
-def extract_meta(text: str, filename: str) -> Dict:
+def extract_meta(text: str, filename: str) -> Dict[str, Any]:
     """从文件头提取元数据"""
     meta = {
         "dna": "",
@@ -111,7 +111,7 @@ def compute_bloodline_score(text: str) -> int:
     return score
 
 
-def dragon_shield_check(file_path: Path, text: str) -> Dict:
+def dragon_shield_check(file_path: Path, text: str) -> Dict[str, Any]:
     """
     龍盾检查 v2：内容血脉识别。
     Kimi_Agent 目录是老大私产，默认读内容认血脉，不因缺少 DNA/UID 就熔断。
@@ -177,23 +177,23 @@ def init_tables(conn: sqlite3.Connection):
     conn.commit()
 
 
-def load_existing_hashes(conn: sqlite3.Connection) -> set:
+def load_existing_hashes(conn: sqlite3.Connection) -> set[str]:
     cursor = conn.cursor()
     cursor.execute("SELECT file_hash FROM ka_files")
     return {row[0] for row in cursor.fetchall()}
 
 
-def load_manifest() -> Dict:
+def load_manifest() -> Dict[str, Any]:
     if not MANIFEST_PATH.exists():
         return {"version": "1.0.0", "agents": [], "dna": ""}
     return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
-def save_manifest(manifest: Dict):
+def save_manifest(manifest: Dict[str, Any]):
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def register_file_in_manifest(manifest: Dict, rel_path: str, meta: Dict, shield: Dict) -> bool:
+def register_file_in_manifest(manifest: Dict[str, Any], rel_path: str, meta: Dict[str, Any], shield: Dict[str, Any]) -> bool:
     agent_id = rel_path.replace('/', '-').replace(' ', '_').replace('.', '_')
     for a in manifest.get("agents", []):
         if a.get("id") == agent_id:

@@ -16,7 +16,7 @@
 import json
 import re
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 LIBRARY = ROOT / "library" / "protocols"
@@ -88,7 +88,7 @@ class 协议图书馆员:
     def __init__(self):
         pass
 
-    def 查找相关协议(self, question: str) -> list:
+    def 查找相关协议(self, question: str) -> list[Any]:
         hits = []
         for keyword, files in self.ROUTES.items():
             if keyword in question:
@@ -97,7 +97,7 @@ class 协议图书馆员:
                         hits.append(f)
         return hits
 
-    def 读取协议摘要(self, rel_path: str) -> dict:
+    def 读取协议摘要(self, rel_path: str) -> dict[str, Any]:
         path = LIBRARY / rel_path
         if not path.exists():
             return {"found": False, "path": rel_path, "reason": "文件不存在"}

@@ -15,7 +15,7 @@ DNA:#龍芯⚡️2026-05-17-INDEX-RESOLVER-FILE1-v1.0
 """
 
 import json
-from typing import Dict, List
+from typing import Dict, List, Any
 
 class IndexResolver:
     """索引树重组器"""
@@ -49,7 +49,7 @@ class IndexResolver:
             }
         }
 
-    def build_unified_index(self) -> Dict:
+    def build_unified_index(self) -> Dict[str, Any]:
         """构建统一的索引树"""
         unified_structure = {
             "§0·不动点锚定区": {
@@ -150,7 +150,7 @@ class IndexResolver:
         }
         return mapping.get(parent_name, "0")
 
-    def validate_index_consistency(self) -> Dict:
+    def validate_index_consistency(self) -> Dict[str, Any]:
         """校验索引一致性"""
         report = {
             "total_parent_pages": len(self.parent_pages),

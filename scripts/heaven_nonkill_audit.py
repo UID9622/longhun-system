@@ -24,7 +24,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 
 from enum import Enum
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List, Optional, Any
 from datetime import datetime
 
 
@@ -133,7 +133,7 @@ class HeavenNonKillAudit:
         """初始化审计系统"""
         self.audit_log: List[AuditResult] = []
 
-    def check(self, intent: str = None, **kwargs) -> AuditResult:
+    def check(self, intent: str | None = None, **kwargs) -> AuditResult:
         """
         检查是否允许执行
 

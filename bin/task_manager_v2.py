@@ -44,7 +44,7 @@ class TaskManager:
                         tasks.append(json.loads(line))
         return tasks
 
-    def load_dedup_registry(self) -> Dict:
+    def load_dedup_registry(self) -> Dict[str, Any]:
         """加载去重登记簿"""
         if DEDUP_REGISTRY.exists():
             with open(DEDUP_REGISTRY, 'r', encoding='utf-8') as f:
@@ -121,7 +121,7 @@ class TaskManager:
         pending.sort(key=lambda x: x['current_priority'], reverse=True)
         return pending
 
-    def calculate_priority_decay(self, task: Dict) -> float:
+    def calculate_priority_decay(self, task: Dict[str, Any]) -> float:
         """计算考虑衰减的优先级"""
         created = datetime.fromisoformat(task['created_at'])
         age_days = (datetime.now() - created).days
@@ -140,7 +140,7 @@ class TaskManager:
 
         return task['priority'] * decay
 
-    def auto_deduplicate(self) -> Dict:
+    def auto_deduplicate(self) -> Dict[str, Any]:
         """自动去重"""
         duplicates = []
 

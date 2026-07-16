@@ -320,7 +320,7 @@ class QueryTool:
 
         return history[-limit:]
 
-    def get_multisig_alerts(self, risk_level: str = None) -> List[Dict[str, Any]]:
+    def get_multisig_alerts(self, risk_level: str | None = None) -> List[Dict[str, Any]]:
         """查询多签警报·按风险等级过滤"""
 
         alert_log = self.multisig_dir / "alerts.jsonl"

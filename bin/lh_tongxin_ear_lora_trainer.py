@@ -508,7 +508,7 @@ class TongXinEarLoraTrainer:
 
     # ── 评估 ──
 
-    def evaluate(self, model_path: str, test_samples: Optional[List[TrainingSample]] = None) -> Dict:
+    def evaluate(self, model_path: str, test_samples: Optional[List[TrainingSample]] = None) -> Dict[str, Any]:
         """
         评估微调后的模型：词错率(WER) + 口语词识别率。
         """

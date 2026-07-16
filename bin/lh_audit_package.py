@@ -172,7 +172,7 @@ def 收集模型(quick: bool):
 
 
 # ───────────────────────── 训练日志 / loss 提取 ─────────────────────────
-def 提取训练日志() -> dict:
+def 提取训练日志() -> dict[str, Any]:
     base = os.path.join(ROOT, "models", "longhun-v1.0", "lora_output")
     info = {"样本数": {}, "超参": {}, "loss曲线": [], "原始日志": []}
     for logname in ("train.log", "train_run.log", "fuse_export.log"):
@@ -224,7 +224,7 @@ def 提取训练日志() -> dict:
     return info
 
 
-def 提取关键日志块(names: list) -> str:
+def 提取关键日志块(names: list[Any]) -> str:
     base = os.path.join(ROOT, "models", "longhun-v1.0", "lora_output")
     blocks = []
     for n in names:
@@ -239,7 +239,7 @@ def 提取关键日志块(names: list) -> str:
 
 
 # ───────────────────────── 测试 / Ollama 实测检测 ─────────────────────────
-def 检测测试与实测() -> dict:
+def 检测测试与实测() -> dict[str, Any]:
     res = {"测试集": "L2-待补", "ollama": "L2-待补", "命令": []}
     # 1. 测试集: 查找自写测试集(非 pytest 框架依赖)
     test_files = glob.glob(os.path.join(ROOT, "data", "training", "**", "*test*.jsonl"), recursive=True)

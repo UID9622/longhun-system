@@ -19,7 +19,7 @@
 import hashlib
 import hmac
 import json
-from typing import Dict, Tuple, Optional, List
+from typing import Dict, Tuple, Optional, List, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import binascii
@@ -230,7 +230,7 @@ class IdentityVerificationL0:
         """验证签名"""
         return self.gpg.verify_signature(message, signature)
 
-    def _log_verification(self, result: Dict):
+    def _log_verification(self, result: Dict[str, Any]):
         """记录验证过程到日志"""
         log_entry = {
             "timestamp": result["timestamp"],
@@ -249,7 +249,7 @@ class IdentityVerificationL0:
 # 【身份证明生成】
 # ═══════════════════════════════════════════════════════════════
 
-def generate_identity_proof() -> Dict:
+def generate_identity_proof() -> Dict[str, Any]:
     """生成完整的身份证明 (用于系统启动)"""
 
     verifier = IdentityVerificationL0()

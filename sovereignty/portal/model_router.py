@@ -13,7 +13,7 @@ import os
 import time
 import uuid
 from datetime import datetime, timezone
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 import requests
 from fastapi import APIRouter, HTTPException
@@ -53,7 +53,7 @@ class EmbedRequest(BaseModel):
     model: Optional[str] = None
 
 
-def probe_ollama() -> Dict:
+def probe_ollama() -> Dict[str, Any]:
     start = time.time()
     try:
         r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
@@ -81,7 +81,7 @@ def probe_ollama() -> Dict:
         }
 
 
-def probe_deepseek() -> Dict:
+def probe_deepseek() -> Dict[str, Any]:
     if not DEEPSEEK_API_KEY:
         return {
             "name": "DeepSeek API",
@@ -133,7 +133,7 @@ def _ollama_default_model() -> str:
         return DEFAULT_LOCAL_MODEL
 
 
-def chat_ollama(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict:
+def chat_ollama(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict[str, Any]:
     model = model or _ollama_default_model()
     body = {
         "model": model,
@@ -148,7 +148,7 @@ def chat_ollama(messages: List[Dict[str, str]], model: Optional[str], temperatur
     return {"provider": "local", "model": model, "reply": reply}
 
 
-def chat_deepseek(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict:
+def chat_deepseek(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict[str, Any]:
     model = model or "deepseek-chat"
     body = {
         "model": model,

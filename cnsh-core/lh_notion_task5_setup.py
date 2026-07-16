@@ -58,7 +58,7 @@ def make_dna(type_code: str) -> str:
     ts = datetime.now().strftime("%Y%m%d")
     return f"#龍芯⚇️{ts}-{type_code}-{h}"
 
-def log(level: str, msg: str, data: Dict = None):
+def log(level: str, msg: str, data: Dict[str, Any] = None):
     """日志输出"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if data is None:
@@ -73,7 +73,7 @@ def make_headers() -> Dict[str, str]:
         "Content-Type": "application/json",
     }
 
-def notion_request(method: str, endpoint: str, data: Dict = None) -> Dict:
+def notion_request(method: str, endpoint: str, data: Dict[str, Any] = None) -> Dict[str, Any]:
     """发送 Notion API 请求"""
     url = f"{NOTION_API_URL}{endpoint}"
     headers = make_headers()

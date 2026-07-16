@@ -17,7 +17,7 @@ import json
 import hashlib
 import requests
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from enum import Enum
 
 
@@ -34,7 +34,7 @@ class NotionAuth:
         self.database_ids = database_ids
         self.base_url = "https://api.notion.com/v1"
 
-    def query_database(self, db_key: str, filters: Dict = None) -> List[Dict]:
+    def query_database(self, db_key: str, filters: Dict[str, Any] = None) -> List[Dict]:
         """查询Notion数据库"""
         url = f"{self.base_url}/databases/{self.database_ids[db_key]}/query"
         payload = {"filter": filters} if filters else {}
@@ -50,7 +50,7 @@ class NotionAuth:
             print(f"❌ API错误: {e}")
             return []
 
-    def create_page(self, db_key: str, data: Dict) -> Optional[Dict]:
+    def create_page(self, db_key: str, data: Dict[str, Any]) -> Optional[Dict]:
         """创建Notion页面"""
         url = f"{self.base_url}/pages"
         payload = {
@@ -69,7 +69,7 @@ class NotionAuth:
             print(f"❌ API错误: {e}")
             return None
 
-    def update_page(self, page_id: str, data: Dict) -> bool:
+    def update_page(self, page_id: str, data: Dict[str, Any]) -> bool:
         """更新Notion页面"""
         url = f"{self.base_url}/pages/{page_id}"
         payload = {"properties": data}
@@ -94,7 +94,7 @@ class PersonaWeightManager:
     }
 
     @staticmethod
-    def calculate_new_weight(current_weight: float, result: str, factors: Dict = None) -> float:
+    def calculate_new_weight(current_weight: float, result: str, factors: Dict[str, Any] = None) -> float:
         """计算新权重"""
         delta = PersonaWeightManager.WEIGHT_RULES.get(result, 0)
 
@@ -134,7 +134,7 @@ class NotionSyncEngine:
 
         print(f"✅ 加载了 {len(self.personas_cache)} 个人格到缓存")
 
-    def sync_execution_result(self, exec_data: Dict) -> bool:
+    def sync_execution_result(self, exec_data: Dict[str, Any]) -> bool:
         """同步执行结果到Notion"""
         # 提取数据
         exec_id = exec_data.get("exec_id")
@@ -187,7 +187,7 @@ class NotionSyncEngine:
 
         return False
 
-    def get_routing_rules(self, task_type: str) -> Dict:
+    def get_routing_rules(self, task_type: str) -> Dict[str, Any]:
         """从Notion获取路由规则"""
         rules = self.notion.query_database("routing_rules")
 
@@ -235,7 +235,7 @@ class NotionMVPBridge:
         print(f"✅ 从Notion加载了 {len(tasks)} 条任务规则")
         return tasks
 
-    def sync_execution(self, exec_id: str, exec_result: Dict) -> bool:
+    def sync_execution(self, exec_id: str, exec_result: Dict[str, Any]) -> bool:
         """同步执行结果"""
         exec_data = {
             "exec_id": exec_id,
@@ -250,7 +250,7 @@ class NotionMVPBridge:
 
         return self.sync_engine.sync_execution_result(exec_data)
 
-    def generate_notion_report(self) -> Dict:
+    def generate_notion_report(self) -> Dict[str, Any]:
         """生成Notion统计报告"""
         personas = self.sync_engine.personas_cache
 

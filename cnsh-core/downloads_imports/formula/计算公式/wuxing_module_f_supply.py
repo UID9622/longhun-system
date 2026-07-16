@@ -21,7 +21,7 @@
 """
 
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from enum import Enum
 import hashlib
 
@@ -150,7 +150,7 @@ class AutoSupplyEngine:
     
     # ========== 诊断五行状态 ==========
     
-    def diagnose_wuxing(self, scores: Dict[str, float]) -> Dict:
+    def diagnose_wuxing(self, scores: Dict[str, float]) -> Dict[str, Any]:
         """
         诊断五行状态：
         1. 找出缺失的五行（得分 < 10）
@@ -364,7 +364,7 @@ class AutoSupplyEngine:
     
     # ========== 输出报告 ==========
     
-    def generate_report(self, scores: Dict[str, float]) -> Dict:
+    def generate_report(self, scores: Dict[str, float]) -> Dict[str, Any]:
         """生成完整补益报告"""
         
         # 执行诊断和生成方案

@@ -29,7 +29,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 import requests
 
@@ -74,7 +74,7 @@ def extract_title_from_front(text: str, fallback: str) -> str:
     return m.group(1).strip() if m else fallback
 
 
-def text_block_obj(text: str, annotations: Optional[Dict] = None) -> Dict:
+def text_block_obj(text: str, annotations: Optional[Dict] = None) -> Dict[str, Any]:
     obj = {"type": "text", "text": {"content": text[:2000]}}
     if annotations:
         obj["annotations"] = annotations
@@ -100,24 +100,24 @@ def make_rich_text(text: str) -> List[Dict]:
     return parts
 
 
-def paragraph_block(text: str) -> Dict:
+def paragraph_block(text: str) -> Dict[str, Any]:
     return {"object": "block", "type": "paragraph", "paragraph": {"rich_text": make_rich_text(text)}}
 
 
-def heading_block(level: int, text: str) -> Dict:
+def heading_block(level: int, text: str) -> Dict[str, Any]:
     key = f"heading_{level}"
     return {"object": "block", "type": key, key: {"rich_text": make_rich_text(text)}}
 
 
-def quote_block(text: str) -> Dict:
+def quote_block(text: str) -> Dict[str, Any]:
     return {"object": "block", "type": "quote", "quote": {"rich_text": make_rich_text(text.lstrip("> ").strip())}}
 
 
-def bulleted_item(text: str) -> Dict:
+def bulleted_item(text: str) -> Dict[str, Any]:
     return {"object": "block", "type": "bulleted_list_item", "bulleted_list_item": {"rich_text": make_rich_text(text)}}
 
 
-def numbered_item(text: str) -> Dict:
+def numbered_item(text: str) -> Dict[str, Any]:
     return {"object": "block", "type": "numbered_list_item", "numbered_list_item": {"rich_text": make_rich_text(text)}}
 
 
@@ -159,11 +159,11 @@ def normalize_code_language(language: str) -> str:
     return "plain text"
 
 
-def code_block(text: str, language: str = "plain text") -> Dict:
+def code_block(text: str, language: str = "plain text") -> Dict[str, Any]:
     return {"object": "block", "type": "code", "code": {"rich_text": [text_block_obj(text)], "language": normalize_code_language(language)}}
 
 
-def divider_block() -> Dict:
+def divider_block() -> Dict[str, Any]:
     return {"object": "block", "type": "divider", "divider": {}}
 
 

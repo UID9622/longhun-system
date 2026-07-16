@@ -24,7 +24,7 @@ import json
 import argparse
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 
 class 龍魂DNA追溯器:
@@ -80,7 +80,7 @@ class 龍魂DNA追溯器:
                 matched.append(item)
         return matched
 
-    def 模块溯源(self, module_name: str, target_dir: Optional[str] = None) -> Dict:
+    def 模块溯源(self, module_name: str, target_dir: Optional[str] = None) -> Dict[str, Any]:
         """追溯某个模块的所有 DNA 记录（支持模块名、文件名、关键词）"""
         scan_dir = Path(target_dir) if target_dir else self.base_dir
         findings = self.扫描(scan_dir)

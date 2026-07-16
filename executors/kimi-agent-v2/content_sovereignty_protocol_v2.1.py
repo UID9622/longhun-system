@@ -36,7 +36,7 @@ import sqlite3
 import hashlib
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ═══════════════════════════════════════════════════════════
 # 全局DNA签名常量 (不可修改)
@@ -487,7 +487,7 @@ class ContentSovereigntyProtocol:
 
         return dragon_passed and passed, all_issues
 
-    def verify_all_layers(self) -> Dict:
+    def verify_all_layers(self) -> Dict[str, Any]:
         """
         验证八层主权框架完整性
 
@@ -554,7 +554,7 @@ class ContentSovereigntyProtocol:
 
         return results
 
-    def enforce_file_sovereignty(self, file_path: str) -> Dict:
+    def enforce_file_sovereignty(self, file_path: str) -> Dict[str, Any]:
         """
         强制执行文件内容主权
 
@@ -597,7 +597,7 @@ class ContentSovereigntyProtocol:
 
         return result
 
-    def validate_content_against_protocol(self, content: str, content_type: str = 'text') -> Dict:
+    def validate_content_against_protocol(self, content: str, content_type: str = 'text') -> Dict[str, Any]:
         """
         验证内容是否符合CNSH主权协议
 
@@ -795,7 +795,7 @@ class CNSHProtocolValidator:
     ]
 
     @classmethod
-    def validate_metadata(cls, metadata: dict) -> Dict:
+    def validate_metadata(cls, metadata: dict[str, Any]) -> Dict[str, Any]:
         """
         验证元数据是否符合CNSH协议
 
@@ -819,7 +819,7 @@ class CNSHProtocolValidator:
         }
 
     @classmethod
-    def enforce_immutability(cls, file_path: str) -> Dict:
+    def enforce_immutability(cls, file_path: str) -> Dict[str, Any]:
         """
         强制执行不可删除性
 

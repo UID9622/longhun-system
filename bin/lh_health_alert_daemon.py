@@ -38,7 +38,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "health"
@@ -193,7 +193,7 @@ class HealthAlertDaemon:
             return bark_path.read_text().strip()
         return ""
 
-    def _log(self, entry: dict):
+    def _log(self, entry: dict[str, Any]):
         entry["ts"] = datetime.now().isoformat()
         with open(HEALTH_LOG, "a") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -525,7 +525,7 @@ class HealthAlertDaemon:
 
         print(f"   自动修复尝试: {fixes_attempted} 项")
 
-    def dashboard(self) -> dict:
+    def dashboard(self) -> dict[str, Any]:
         """生成健康仪表盘数据"""
         report = self.full_check()
 

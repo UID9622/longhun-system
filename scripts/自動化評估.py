@@ -70,7 +70,7 @@ def 生成DNA(模塊: str, 動作: str) -> str:
 # 飛書通知
 # ============================================================
 
-def _飛書請求(url: str, *, method: str = "GET", headers: dict | None = None, data: dict | None = None) -> dict:
+def _飛書請求(url: str, *, method: str = "GET", headers: dict | None = None, data: dict | None = None) -> dict[str, Any]:
     h = {"Content-Type": "application/json"}
     if headers:
         h.update(headers)

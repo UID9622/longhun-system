@@ -11,7 +11,7 @@
 import re
 import json
 import hashlib
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime
 
@@ -72,7 +72,7 @@ class 翻译结果:
     时间戳: str
     DNA追溯: str
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
     def __repr__(self):
@@ -399,7 +399,7 @@ class 通心译翻译器:
         """获取术语总数"""
         return len(self.术语映射)
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

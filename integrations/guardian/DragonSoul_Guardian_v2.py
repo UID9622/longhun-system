@@ -34,7 +34,7 @@ from datetime import datetime, timedelta
 from collections import defaultdict, deque
 from dataclasses import dataclass, field, asdict
 from enum import Enum, auto
-from typing import Dict, List, Set, Optional, Tuple, Deque
+from typing import Dict, List, Set, Optional, Tuple, Deque, Any
 from pathlib import Path
 
 # ==============================================================================
@@ -636,7 +636,7 @@ class 龍魂憲兵隊:
     # 對外接口 — longhun-daemon 集成
     # --------------------------------------------------------------------------
 
-    def 獲取狀態報告(self) -> Dict:
+    def 獲取狀態報告(self) -> Dict[str, Any]:
         """返回守護進程狀態報告 (供 longhun-daemon 調用)"""
         return {
             "DNA": self.配置.DNA標記,

@@ -12,7 +12,7 @@ SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾�
 from __future__ import annotations
 from math import log2, sqrt, isclose, exp
 from hashlib import sha256
-from typing import List, Dict
+from typing import List, Dict, Any
 
 # ═════════ 1. 数字根 Digital Root ═════════
 def digital_root(n: int) -> int:
@@ -72,7 +72,7 @@ def truth_score(M: float, V: float, F: int, w=(0.4, 0.3, 0.3)) -> float:
     """龍魂：T = 0.4·M + 0.3·V + 0.3·F（标准加权平均）。"""
     return w[0] * M + w[1] * V + w[2] * F
 
-def truth_total(rows: List[Dict]) -> Dict:
+def truth_total(rows: List[Dict]) -> Dict[str, Any]:
     """加权平均 + 主权熔断：任一 F=0 ⟹ 总分=0（格式安全一票否决）。"""
     if any(r["F"] == 0 for r in rows):
         return {"score": 0.0, "color": "🔴", "veto": True}

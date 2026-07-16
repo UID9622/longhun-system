@@ -37,7 +37,7 @@ def _今日目录() -> Path:
     return 目录
 
 
-def _读取jsonl(路径: Path) -> list:
+def _读取jsonl(路径: Path) -> list[Any]:
     if not 路径.exists():
         return []
     结果 = []
@@ -53,7 +53,7 @@ def _读取jsonl(路径: Path) -> list:
     return 结果
 
 
-def _初筛(数据: dict) -> bool:
+def _初筛(数据: dict[str, Any]) -> bool:
     文本 = str(数据.get("raw_text", ""))
     # 过滤过短或空内容
     if len(文本.strip()) < 3:
@@ -61,7 +61,7 @@ def _初筛(数据: dict) -> bool:
     return True
 
 
-def _评分(数据: dict) -> dict:
+def _评分(数据: dict[str, Any]) -> dict[str, Any]:
     文本 = str(数据.get("raw_text", ""))
     元数据 = 数据.get("metadata", {})
 

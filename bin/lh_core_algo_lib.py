@@ -98,7 +98,7 @@ class AlgoCard:
         return "其他"
 
 
-def 加载算法库(db_path: str = None) -> List[AlgoCard]:
+def 加载算法库(db_path: str | None = None) -> List[AlgoCard]:
     """从SQLite加载43张数据与人工智能卡片"""
     if db_path is None:
         db_path = str(DB_PATH)
@@ -282,7 +282,7 @@ class 算法引擎:
 # §3 格式化输出
 # ═══════════════════════════════════════════════════════════
 
-def 打印统计(统计: Dict):
+def 打印统计(统计: Dict[str, Any]):
     print("\n" + "═" * 68)
     print("  🧮 龍魂·核心算法库全景")
     print("═" * 68)
@@ -352,7 +352,7 @@ def 打印公式详情(algo: AlgoCard):
     print("\n" + "═" * 68 + "\n")
 
 
-def 打印运行结果(card_id: str, algo: AlgoCard, 结果: Dict):
+def 打印运行结果(card_id: str, algo: AlgoCard, 结果: Dict[str, Any]):
     print("\n" + "═" * 68)
     print(f"  ▶️ 运行: [{card_id}] {algo.名称}")
     print("═" * 68)

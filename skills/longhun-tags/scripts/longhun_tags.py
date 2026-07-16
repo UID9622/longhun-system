@@ -800,7 +800,7 @@ class LongHunTagSystem:
                 )
         return self
 
-    def metadata(self) -> Dict:
+    def metadata(self) -> Dict[str, Any]:
         """返回系统元数据"""
         return {
             "system": "龍魂文化标签体系",

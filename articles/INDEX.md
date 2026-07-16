@@ -81,6 +81,16 @@
 
 ---
 
+## 🌐 对外宣传 / 全网对齐
+
+| 日期 | 标题 | 文件 | 平台 |
+|---|---|---|---|
+| 2026-07-16 | 全网信息对齐与开源仓库引用总览——中国AI开放原理与民间工程实现 | [csdn/2026-07-16-全网信息对齐与开源仓库引用总览.md](csdn/2026-07-16-全网信息对齐与开源仓库引用总览.md) | [CSDN新号](https://uid9622-01.blog.csdn.net/article/details/162920058) |
+
+> 全网12个引用链接 + 新闻联播"中国开放原理"背书 + 宣传口径模板。对外统一入口。
+
+---
+
 ## CSDN 发布版汇总
 
 | 日期 | 标题 | 文件 |
@@ -95,6 +105,30 @@
 | 文件 | 说明 |
 |---|---|
 | [../docs/notion_mirror/consumer_fire_digest_v1.0.md](../docs/notion_mirror/consumer_fire_digest_v1.0.md) | 《提前消费的真相》Notion 对齐摘要 |
+
+---
+
+## 📦 Downloads归档 (2026-07-16 批量整理)
+
+| 类别 | 目标目录 | 数量 |
+|:---|:---|:---:|
+| CSDN博客文章(鸿蒙) | `csdn/` | 8 |
+| CSDN发布版 | `CSDN发布版/` | 5 |
+| 普通文章/解读 | `articles/` | 17 |
+| 协议/规范 | `01_protocols/downloads_archive/` | 29 |
+| 脚本/Python | `bin/` | 15 |
+| 论文/CNSH | `papers/` + `papers/downloads_archive/` | 10 |
+| 技能 | `01_技能庫/` + `downloads_archive/` | 9 |
+| 知识文档 | `03_知識圖譜/downloads_archive/` | 16 |
+| 部署/自动化 | `deploy/downloads_archive/` | 3 |
+| 公式/计算 | `L1_内核层/formulas/downloads_archive/` | 2 |
+| 网关 | `L5_服务层/downloads_archive/` | 5 |
+| 编辑器 | `editors/downloads_archive/` | 9 |
+| 技术文档 | `06_技術文檔/downloads_archive/` | 4 |
+| Kimi Agent | `_downloads_staging/` | 14 |
+| 其余 | `_downloads_staging/` | 7 |
+
+> 已修复命名: `龍魂_CNSH_全球协议___.md` → `_v1.0.md`，`SKILL (1).md` → `SKILL_longhun-empower-engine.md`
 
 ---
 

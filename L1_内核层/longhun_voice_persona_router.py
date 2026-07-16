@@ -433,7 +433,7 @@ class VoicePersonaRouter:
         self.profiles[profile.persona_id] = profile
         print(f"✅ 已添加人格音色: {profile.persona_id} ({profile.persona_name})")
 
-    def update_profile(self, persona_id: str, updates: Dict):
+    def update_profile(self, persona_id: str, updates: Dict[str, Any]):
         """更新人格音色档案"""
         if persona_id in self.profiles:
             profile = self.profiles[persona_id]
@@ -487,7 +487,7 @@ class VoicePersonaRouter:
 
     # ── 文本感知参数 ──
 
-    def _text_aware_params(self, text: str, params: Dict, profile: VoiceProfile) -> Dict:
+    def _text_aware_params(self, text: str, params: Dict[str, Any], profile: VoiceProfile) -> Dict[str, Any]:
         """
         根据文本内容微调音色参数：
         - 包含"警告""熔断"→ 降音调、提音量

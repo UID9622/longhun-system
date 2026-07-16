@@ -210,7 +210,7 @@ class DNASignatureEngine:
     
     def __init__(self, uid: str = "UID9622"):
         self.uid = uid
-        self._nonce_history: set = set()
+        self._nonce_history: set[str] = set()
         self._lock = threading.Lock()
     
     def generate_signature(self, audit_content: str) -> str:
@@ -236,7 +236,7 @@ class DNASignatureEngine:
             self._nonce_history.add(nonce)
             return DNA_CONFIRM_TEMPLATE.format(nonce=nonce)
     
-    def verify_signature(self, signature: str, expected_uid: str = None) -> bool:
+    def verify_signature(self, signature: str, expected_uid: str | None = None) -> bool:
         """验证DNA签名格式有效性"""
         if not signature or not signature.startswith("#UID9622⚡️"):
             return False
@@ -290,7 +290,7 @@ class ConstraintChecker:
     def __init__(self):
         self._violation_log: List[ConstraintCheck] = []
     
-    def check_all(self, content: str, context: Dict = None) -> List[ConstraintCheck]:
+    def check_all(self, content: str, context: Dict[str, Any] = None) -> List[ConstraintCheck]:
         """执行全部三级约束检测"""
         results = []
         results.extend(self._check_infinity_loyalty(content, context))
@@ -299,7 +299,7 @@ class ConstraintChecker:
         self._violation_log.extend([r for r in results if r.violated])
         return results
     
-    def _check_infinity_loyalty(self, content: str, context: Dict = None) -> List[ConstraintCheck]:
+    def _check_infinity_loyalty(self, content: str, context: Dict[str, Any] = None) -> List[ConstraintCheck]:
         """∞级忠检测 - 最高优先级"""
         results = []
         content_lower = content.lower()
@@ -334,7 +334,7 @@ class ConstraintChecker:
         
         return results
     
-    def _check_p0_trustworthiness(self, content: str, context: Dict = None) -> List[ConstraintCheck]:
+    def _check_p0_trustworthiness(self, content: str, context: Dict[str, Any] = None) -> List[ConstraintCheck]:
         """P0级信检测 - 核心级"""
         results = []
         content_lower = content.lower()
@@ -368,7 +368,7 @@ class ConstraintChecker:
         
         return results
     
-    def _check_p1_conscience(self, content: str, context: Dict = None) -> List[ConstraintCheck]:
+    def _check_p1_conscience(self, content: str, context: Dict[str, Any] = None) -> List[ConstraintCheck]:
         """P1级心检测 - 业务级"""
         results = []
         content_lower = content.lower()
@@ -1081,7 +1081,7 @@ class HistoryObservationManager:
             
             return triggered, info
     
-    def get_statistics(self) -> Dict:
+    def get_statistics(self) -> Dict[str, Any]:
         """获取历史统计信息"""
         with self._lock:
             self._cleanup_old_records()
@@ -1262,7 +1262,7 @@ class AuditLogGenerator:
     每笔审计自动生成完整日志记录
     """
     
-    def __init__(self, log_dir: str = None):
+    def __init__(self, log_dir: str | None = None):
         self.log_dir = log_dir or V3_AUDIT_LOG_DIR
         import os
         os.makedirs(self.log_dir, exist_ok=True)
@@ -1623,7 +1623,7 @@ class TricolorAuditEngine:
         """获取当前系统状态"""
         return self._system_status
     
-    def get_statistics(self) -> Dict:
+    def get_statistics(self) -> Dict[str, Any]:
         """获取审计统计"""
         stats = copy.deepcopy(self._stats)
         if stats["total_audits"] > 0:
@@ -1637,7 +1637,7 @@ class TricolorAuditEngine:
         """获取状态转换图"""
         return self.state_machine.get_transition_diagram()
     
-    def get_system_info(self) -> Dict:
+    def get_system_info(self) -> Dict[str, Any]:
         """获取系统信息"""
         return {
             "system": "龍魂三色审计与10道闸流场决策系统",
@@ -1744,7 +1744,7 @@ class SelfTestSuite:
         self.engine = engine
         self.test_results: List[Dict] = []
     
-    def run_all_tests(self) -> Dict:
+    def run_all_tests(self) -> Dict[str, Any]:
         """运行全部自测试"""
         tests = [
             self.test_dna_signature,
@@ -1789,7 +1789,7 @@ class SelfTestSuite:
             "details": self.test_results
         }
     
-    def test_dna_signature(self) -> Dict:
+    def test_dna_signature(self) -> Dict[str, Any]:
         """测试DNA签名生成"""
         sig = self.engine.dna_engine.generate_signature("test_content")
         valid = self.engine.dna_engine.verify_signature(sig)
@@ -1804,7 +1804,7 @@ class SelfTestSuite:
             "confirm_valid": confirm_valid
         }
     
-    def test_r_score_calculation(self) -> Dict:
+    def test_r_score_calculation(self) -> Dict[str, Any]:
         """测试R评分计算"""
         rb = RScoreBreakdown(
             human_welfare=100, fairness=100,
@@ -1821,7 +1821,7 @@ class SelfTestSuite:
             "cap": R_CAP
         }
     
-    def test_constraint_checker(self) -> Dict:
+    def test_constraint_checker(self) -> Dict[str, Any]:
         """测试三级约束检测"""
         checks = self.engine.constraint_checker.check_all("正常内容")
         has_infinity = any(c.level == ConstraintLevel.INFINITY for c in checks)
@@ -1838,7 +1838,7 @@ class SelfTestSuite:
             "all_passed": all_passed
         }
     
-    def test_gate1_ethics(self) -> Dict:
+    def test_gate1_ethics(self) -> Dict[str, Any]:
         """测试伦理红线闸"""
         item = AuditItem(
             item_id="test-1", description="伦理测试",
@@ -1859,7 +1859,7 @@ class SelfTestSuite:
             "gate1_result": gate1.result.name if gate1 else "N/A"
         }
     
-    def test_gate2_cultural(self) -> Dict:
+    def test_gate2_cultural(self) -> Dict[str, Any]:
         """测试文化主权闸"""
         item = AuditItem(
             item_id="test-2", description="文化测试",
@@ -1880,7 +1880,7 @@ class SelfTestSuite:
             "gate2_result": gate2.result.name if gate2 else "N/A"
         }
     
-    def test_gate5_values(self) -> Dict:
+    def test_gate5_values(self) -> Dict[str, Any]:
         """测试价值观校验闸"""
         item = AuditItem(
             item_id="test-5", description="价值观测试",
@@ -1904,7 +1904,7 @@ class SelfTestSuite:
             "gate5_result": gate5.result.name if gate5 else "N/A"
         }
     
-    def test_gate6_security(self) -> Dict:
+    def test_gate6_security(self) -> Dict[str, Any]:
         """测试技术安全性闸"""
         item = AuditItem(
             item_id="test-6", description="安全测试",
@@ -1925,7 +1925,7 @@ class SelfTestSuite:
             "gate6_result": gate6.result.name if gate6 else "N/A"
         }
     
-    def test_history_observation(self) -> Dict:
+    def test_history_observation(self) -> Dict[str, Any]:
         """测试历史观察期"""
         if not self.engine.history_manager:
             return {"test": "历史观察期", "passed": False, "reason": "未启用"}
@@ -1943,7 +1943,7 @@ class SelfTestSuite:
             "triggered": triggered
         }
     
-    def test_state_machine(self) -> Dict:
+    def test_state_machine(self) -> Dict[str, Any]:
         """测试状态机转换"""
         # 测试🔴不能直接→🟢
         new_status, transition = self.engine.state_machine.compute_transition(
@@ -1959,7 +1959,7 @@ class SelfTestSuite:
             "transition": transition.value
         }
     
-    def test_full_audit_green(self) -> Dict:
+    def test_full_audit_green(self) -> Dict[str, Any]:
         """测试完整审计 - 绿色场景"""
         # 清空历史记录，避免被之前测试的红色记录污染
         if self.engine.history_manager:
@@ -1983,7 +1983,7 @@ class SelfTestSuite:
             "gates_passed": sum(1 for g in decision.gate_results if g.result == GateResult.PASS)
         }
     
-    def test_full_audit_red(self) -> Dict:
+    def test_full_audit_red(self) -> Dict[str, Any]:
         """测试完整审计 - 红色场景"""
         item = AuditItem(
             item_id="red-test", description="红色测试",
@@ -2007,7 +2007,7 @@ class SelfTestSuite:
             "block_reasons": len(decision.block_reasons)
         }
     
-    def test_r_cap_95(self) -> Dict:
+    def test_r_cap_95(self) -> Dict[str, Any]:
         """测试95极限封顶"""
         rb = RScoreBreakdown(100, 100, 100, 100, 100, 100)
         score = rb.compute_total()
@@ -2019,7 +2019,7 @@ class SelfTestSuite:
             "expected_cap": 95
         }
     
-    def test_tricolor_coverage(self) -> Dict:
+    def test_tricolor_coverage(self) -> Dict[str, Any]:
         """测试三色覆盖率"""
         # 清空历史记录，避免被之前测试的红色记录污染
         if self.engine.history_manager:
@@ -2057,7 +2057,7 @@ class SelfTestSuite:
             "coverage": f"{len(statuses_triggered)}/3"
         }
     
-    def generate_test_report(self, results: Dict) -> str:
+    def generate_test_report(self, results: Dict[str, Any]) -> str:
         """生成测试报告"""
         lines = [
             "\n╔═══════════════════════════════════════════════════════════════╗",

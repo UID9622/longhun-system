@@ -28,7 +28,7 @@ UID: 9622
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -67,8 +67,8 @@ class CitizenFeedbackProcessor:
         feedback_type: str,
         content: str,
         submitter: str = "anonymous",
-        context: Dict = None
-    ) -> Dict:
+        context: Dict[str, Any] = None
+    ) -> Dict[str, Any]:
         """
         提交反馈
 
@@ -113,7 +113,7 @@ class CitizenFeedbackProcessor:
             "message": "反馈已提交，感谢您的声音"
         }
 
-    def process_feedback(self, feedback_id: int) -> Dict:
+    def process_feedback(self, feedback_id: int) -> Dict[str, Any]:
         """
         处理反馈
 
@@ -170,7 +170,7 @@ class CitizenFeedbackProcessor:
             "message": f"反馈已处理: {feedback['action']}"
         }
 
-    def get_feedback_stats(self) -> Dict:
+    def get_feedback_stats(self) -> Dict[str, Any]:
         """
         获取反馈统计
 

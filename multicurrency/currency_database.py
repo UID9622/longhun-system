@@ -10,7 +10,7 @@ DNA:#龍芯⚡️2026-06-07-CURRENCY-DATABASE-v1.0
 
 import json
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 @dataclass
 class Currency:
@@ -97,7 +97,7 @@ class CurrencyDatabase:
             key=lambda c: c.priority
         )[:n]
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """导出为字典"""
         return {
             code: {

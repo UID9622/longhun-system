@@ -28,7 +28,7 @@
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple, Any
 from enum import Enum
 from datetime import datetime
 import hashlib
@@ -277,7 +277,7 @@ class KnowledgeGraphEngine:
     
     # ========== 决策知识提取 ==========
     
-    def extract_decision_knowledge(self, decision_report: Dict) -> Entity:
+    def extract_decision_knowledge(self, decision_report: Dict[str, Any]) -> Entity:
         """
         从决策报告提取决策知识
         """
@@ -435,7 +435,7 @@ class KnowledgeGraphEngine:
         return opportunities
     
     def _generate_recommendations(self, decision: Entity,
-                                 direct: Dict, indirect: Dict,
+                                 direct: Dict[str, Any], indirect: Dict[str, Any],
                                  risks: List[str]) -> List[str]:
         """生成推荐"""
         recs = []
@@ -463,7 +463,7 @@ class KnowledgeGraphEngine:
     
     # ========== 报告生成 ==========
     
-    def generate_knowledge_report(self, decision_id: str) -> Dict:
+    def generate_knowledge_report(self, decision_id: str) -> Dict[str, Any]:
         """生成知识图谱报告"""
         if decision_id not in self.correlation_cache:
             analysis = self.analyze_correlations(decision_id)

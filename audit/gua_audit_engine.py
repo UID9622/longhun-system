@@ -14,7 +14,7 @@ import time
 import hashlib
 import statistics
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass, asdict
 
 
@@ -46,7 +46,7 @@ class GuaAuditResult:
     dna_code: str
     timestamp: str
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -240,7 +240,7 @@ class GuaAuditEngine:
         else:
             return '☷'
 
-    def _determine_audit_color(self, gua_info: Dict, metrics: Dict[str, float]) -> str:
+    def _determine_audit_color(self, gua_info: Dict[str, Any], metrics: Dict[str, float]) -> str:
         """根据卦象和指标确定审计颜色"""
         risk_level = gua_info.get('risk_level', 'medium')
         avg_score = sum(metrics.values()) / len(metrics)
@@ -262,7 +262,7 @@ class GuaAuditEngine:
         confidence = max(0.5, 1 - (std_dev / 100))
         return round(confidence, 2)
 
-    def dynamic_divination(self, current_gua: str, trend: Dict[str, str]) -> Dict:
+    def dynamic_divination(self, current_gua: str, trend: Dict[str, str]) -> Dict[str, Any]:
         """
         基于当前卦象和8维度变化趋势，推演未来24小时状态。
         trend: {'innovation': 'up'|'down'|'stable', ...}

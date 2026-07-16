@@ -111,10 +111,10 @@ class SemanticOutput:
         d["relations"] = [asdict(r) for r in self.relations]
         return json.dumps(d, ensure_ascii=False, indent=indent)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return json.loads(self.to_json())
 
-    def to_audit_record(self) -> dict:
+    def to_audit_record(self) -> dict[str, Any]:
         """导出审计摘要 (不含原始内容，只含哈希+摘要)"""
         return {
             "input_hash": self.input_hash,

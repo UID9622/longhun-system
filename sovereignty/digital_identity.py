@@ -13,7 +13,7 @@ DNA:#龍芯⚡️2026-06-20-LONGHUN-SOVEREIGNTY-DIGITAL-IDENTITY-v2.0
 import json
 import hashlib
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
 
 class 数字身份主权协议:
@@ -183,10 +183,10 @@ class 平台授权检查器:
         self.平台名 = 平台名
         self.越界项目 = []
 
-    def 检查授权(self, 已授权项目: List[str]) -> Dict:
+    def 检查授权(self, 已授权项目: List[str]) -> Dict[str, Any]:
         """
         检查平台申请的授权是否越界
-        返回：{合规: bool, 越界项目: list, 建议: str}
+        返回：{合规: bool, 越界项目: list[Any], 建议: str}
         """
         红线 = [
             "手机号", "通讯录", "位置", "相册", "麦克风", "摄像头",
@@ -275,7 +275,7 @@ class 维权话术生成器:
 日期：{datetime.now().strftime('%Y年%m月%d日')}
 """.strip()
 
-    def 层次解决方案(self, 层次: str) -> Dict:
+    def 层次解决方案(self, 层次: str) -> Dict[str, Any]:
         """
         按层次给出解决方案，不按群体贴标签。
         L1 = 执行层：只操作，不决策，被上级/平台要求采集数据
@@ -355,7 +355,7 @@ class 维权话术生成器:
         }
         return 方案库.get(层次, 方案库["L1"])
 
-    def 主动触发清单(self) -> Dict:
+    def 主动触发清单(self) -> Dict[str, Any]:
         """主动识别常见越界要求，不用等用户说关键词"""
         return {
             "越界信号": [

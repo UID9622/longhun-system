@@ -12,7 +12,7 @@ import json
 import math
 import random
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -214,7 +214,7 @@ def _draw_char(canvas, draw, contours, ink_color, x, y, scale, slant):
             draw.polygon(pts, fill=ink_color)
 
 
-def load_style(style_code: str) -> dict:
+def load_style(style_code: str) -> dict[str, Any]:
     """加载书法样式配置。"""
     styles_dir = Path(__file__).parent / "styles"
     for p in styles_dir.glob("*.json"):
@@ -225,7 +225,7 @@ def load_style(style_code: str) -> dict:
     raise ValueError(f"未找到书法样式: {style_code}")
 
 
-def list_styles() -> list:
+def list_styles() -> list[Any]:
     """列出所有可用样式。"""
     styles = []
     styles_dir = Path(__file__).parent / "styles"
@@ -241,7 +241,7 @@ def list_styles() -> list:
     return styles
 
 
-def _background(name: str, size: tuple) -> Image.Image:
+def _background(name: str, size: tuple[Any, ...]) -> Image.Image:
     color = BACKGROUNDS.get(name, (245, 240, 230))
     img = Image.new("RGB", size, color)
     # 轻微纹理：随机噪点模拟宣纸纤维
@@ -252,10 +252,10 @@ def _background(name: str, size: tuple) -> Image.Image:
 
 
 def render(text: str, style_code: str = "YZQ-KA",
-           layout: str = "horizontal", seal_text: Optional[str] = None,
-           classic: str = "GENERAL", output_name: Optional[str] = None,
-           size: Optional[tuple] = None,
-           font_size: Optional[int] = None) -> dict:
+           layout: str = "horizontal", seal_text: Optional, Any[str] = None,
+           classic: str = "GENERAL", output_name: Optional, Any[str] = None,
+           size: Optional, Any[tuple] = None,
+           font_size: Optional, Any[int] = None) -> dict[str, Any]:
     """
     渲染书法作品。
 

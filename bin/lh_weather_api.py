@@ -50,7 +50,7 @@ class LonghunWeather:
     def _lunar_timestamp(self) -> str:
         return datetime.now().strftime('丙午·%m月%d日·%H:%M')
 
-    def _get_cache(self, key: str) -> dict:
+    def _get_cache(self, key: str) -> dict[str, Any]:
         try:
             cache_path = Path(self.CACHE_DIR) / f"{key}.json"
             if cache_path.exists():
@@ -62,7 +62,7 @@ class LonghunWeather:
             pass
         return None
 
-    def _set_cache(self, key: str, data: dict):
+    def _set_cache(self, key: str, data: dict[str, Any]):
         try:
             os.makedirs(self.CACHE_DIR, exist_ok=True)
             data['_cached_at'] = datetime.now().timestamp()
@@ -84,7 +84,7 @@ class LonghunWeather:
         except Exception:
             pass
 
-    def _check_provider(self, provider: str) -> tuple:
+    def _check_provider(self, provider: str) -> tuple[Any, ...]:
         cfg = self.PROVIDERS.get(provider)
         if not cfg:
             return False, f"未知服务商: {provider}"
@@ -93,7 +93,7 @@ class LonghunWeather:
                 return False, f"缺少环境变量: {key}"
         return True, "ok"
 
-    def now(self, city: str = '北京', provider: str = 'auto') -> dict:
+    def now(self, city: str = '北京', provider: str = 'auto') -> dict[str, Any]:
         cache_key = f"now_{city}"
         cached = self._get_cache(cache_key)
         if cached:
@@ -137,7 +137,7 @@ class LonghunWeather:
         self._set_cache(cache_key, result)
         return result
 
-    def forecast(self, city: str = '北京', days: int = 3, provider: str = 'auto') -> dict:
+    def forecast(self, city: str = '北京', days: int = 3, provider: str = 'auto') -> dict[str, Any]:
         cache_key = f"forecast_{city}_{days}"
         cached = self._get_cache(cache_key)
         if cached:
@@ -165,7 +165,7 @@ class LonghunWeather:
         self._set_cache(cache_key, result)
         return result
 
-    def list_providers(self) -> dict:
+    def list_providers(self) -> dict[str, Any]:
         providers = []
         for pid, cfg in sorted(self.PROVIDERS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_provider(pid)

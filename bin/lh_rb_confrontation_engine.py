@@ -451,7 +451,7 @@ class RBConfrontationEngine:
         }
         return mapping.get(attack_category, "场景覆盖")
 
-    def _generate_blue_response(self, attack: Dict, content: str) -> str:
+    def _generate_blue_response(self, attack: Dict[str, Any], content: str) -> str:
         """蓝方生成防御回应"""
         category = attack["category"]
         responses = {
@@ -512,7 +512,7 @@ class RBConfrontationEngine:
         }
 
     # ─── 阶段三: 牺牲 ───
-    def phase_sacrifice(self, confrontation_result: Dict,
+    def phase_sacrifice(self, confrontation_result: Dict[str, Any],
                         red_attacks: List[Dict], blue_defenses: List[Dict],
                         auto: bool = False) -> List[SacrificeRecord]:
         """
@@ -661,7 +661,7 @@ class RBConfrontationEngine:
 
     # ─── 熔断器 ───
     def circuit_breaker_trip(self, violation_type: str, evidence: str = "",
-                             confrontation_id: str = "") -> Dict:
+                             confrontation_id: str = "") -> Dict[str, Any]:
         """熔断器触发"""
         if violation_type in self.RED_LINES:
             self._circuit_broken = True
@@ -1042,7 +1042,7 @@ class DualBrainBridge:
     """双脑引擎→红蓝对抗桥接器"""
 
     @staticmethod
-    def integrate(confrontation_id: str, block_content: str) -> Dict:
+    def integrate(confrontation_id: str, block_content: str) -> Dict[str, Any]:
         """
         将双脑引擎的七因子审计集成到红蓝对抗
         """

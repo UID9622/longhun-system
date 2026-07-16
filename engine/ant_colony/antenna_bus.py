@@ -20,7 +20,7 @@ import time
 import json
 import random
 import threading
-from typing import Dict, List, Optional, Callable, Set, Tuple
+from typing import Dict, List, Optional, Callable, Set, Tuple, Any
 from dataclasses import dataclass, field
 from collections import defaultdict
 
@@ -378,7 +378,7 @@ class AntennaBus:
     
     # === 信号接收 ===
     
-    def receive(self, module_id: str, max_signals: int = None,
+    def receive(self, module_id: str, max_signals: int | None = None,
                 pheromone_filter: Optional[PheromoneType] = None) -> List[AntennaSignal]:
         with self._lock:
             inbox = self.inboxes.get(module_id, [])
@@ -505,7 +505,7 @@ class AntennaBus:
                 distribution[reg.population] += 1
             return dict(distribution)
     
-    def get_stats(self) -> dict:
+    def get_stats(self) -> dict[str, Any]:
         with self._lock:
             return {
                 **self.stats,

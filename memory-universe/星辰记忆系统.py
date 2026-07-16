@@ -25,7 +25,7 @@ import sqlite3
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 
 ROOT = Path(__file__).resolve().parent
@@ -70,7 +70,7 @@ class 星辰记忆系统:
                 CREATE INDEX IF NOT EXISTS idx_category ON memories(category)
             """)
 
-    def add(self, title: str, content: str, category: str = "星辰记忆", tags: str = "") -> Dict:
+    def add(self, title: str, content: str, category: str = "星辰记忆", tags: str = "") -> Dict[str, Any]:
         if category not in CATEGORIES:
             category = "其他"
         created_at = datetime.now().isoformat()
@@ -123,7 +123,7 @@ class 星辰记忆系统:
             for row in rows
         ]
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         with sqlite3.connect(self.db_path) as conn:
             total = conn.execute("SELECT COUNT(*) FROM memories").fetchone()[0]
             by_category = conn.execute(

@@ -15,7 +15,7 @@ import sqlite3
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 from .config import DB_PATH, DATA_DIR
 from .database import get_connection, now_iso, ensure_db
@@ -173,7 +173,7 @@ def init_regulatory_db():
 
 
 def create_auditor(auditor_id: str, name: str, auth_key_hash: str, 
-                   organization: str = "", access_level: str = "readonly") -> dict:
+                   organization: str = "", access_level: str = "readonly") -> dict[str, Any]:
     """创建监管者账号。"""
     with get_connection() as conn:
         try:
@@ -188,7 +188,7 @@ def create_auditor(auditor_id: str, name: str, auth_key_hash: str,
             return {"ok": False, "error": str(e)}
 
 
-def get_auditor_by_key_hash(auth_key_hash: str) -> Optional[dict]:
+def get_auditor_by_key_hash(auth_key_hash: str) -> Optional, Any[dict]:
     """通过密钥哈希查找监管者。"""
     with get_connection() as conn:
         row = conn.execute(
@@ -249,7 +249,7 @@ def log_operation(op_type: str, source: str, target: str = "", detail: str = "",
         conn.commit()
 
 
-def log_file_change(event_type: str, file_path: str, old_path: str = None,
+def log_file_change(event_type: str, file_path: str, old_path: str | None = None,
                     file_type: str = "", file_size: int = 0, sha256: str = "",
                     previous_sha256: str = "", detected_by: str = "daemon") -> None:
     """记录文件变更。"""
@@ -263,9 +263,9 @@ def log_file_change(event_type: str, file_path: str, old_path: str = None,
         conn.commit()
 
 
-def get_operations(limit: int = 100, offset: int = 0, op_type: str = None,
+def get_operations(limit: int = 100, offset: int = 0, op_type: str | None = None,
                    source: str = None, file_path: str = None,
-                   from_ts: str = None, to_ts: str = None) -> list:
+                   from_ts: str = None, to_ts: str = None) -> list[Any]:
     """查询操作日志。"""
     with get_connection() as conn:
         query = "SELECT * FROM operation_log WHERE 1=1"
@@ -291,8 +291,8 @@ def get_operations(limit: int = 100, offset: int = 0, op_type: str = None,
         return [dict(r) for r in rows]
 
 
-def get_file_changes(limit: int = 100, offset: int = 0, event_type: str = None,
-                     file_path: str = None, from_ts: str = None, to_ts: str = None) -> list:
+def get_file_changes(limit: int = 100, offset: int = 0, event_type: str | None = None,
+                     file_path: str = None, from_ts: str = None, to_ts: str = None) -> list[Any]:
     """查询文件变更日志。"""
     with get_connection() as conn:
         query = "SELECT * FROM file_change_log WHERE 1=1"
@@ -315,9 +315,9 @@ def get_file_changes(limit: int = 100, offset: int = 0, event_type: str = None,
         return [dict(r) for r in rows]
 
 
-def get_documents(doc_type: str = None, status: str = None, 
+def get_documents(doc_type: str | None = None, status: str | None = None, 
                   limit: int = 100, offset: int = 0,
-                  search: str = None) -> list:
+                  search: str = None) -> list[Any]:
     """查询文档注册表。"""
     with get_connection() as conn:
         query = "SELECT * FROM document_registry WHERE 1=1"
@@ -340,7 +340,7 @@ def get_documents(doc_type: str = None, status: str = None,
 def upsert_document(file_path: str, doc_type: str, title: str = "", 
                     status: str = "draft", word_count: int = 0,
                     content_hash: str = "", tags: str = "[]", meta_json: str = "{}",
-                    sovereignty_level: int = 2, is_private_content: int = 0) -> dict:
+                    sovereignty_level: int = 2, is_private_content: int = 0) -> dict[str, Any]:
     """插入或更新文档注册。v2: +主权分级。"""
     import hashlib
     doc_id = hashlib.sha256(file_path.encode()).hexdigest()[:16]
@@ -371,7 +371,7 @@ def upsert_document(file_path: str, doc_type: str, title: str = "",
         return {"ok": True, "doc_id": doc_id, "file_path": file_path}
 
 
-def verify_regulatory_hash_chain() -> dict:
+def verify_regulatory_hash_chain() -> dict[str, Any]:
     """验证操作日志的哈希链完整性。"""
     with get_connection() as conn:
         rows = conn.execute(
@@ -441,7 +441,7 @@ def log_sovereignty_policy(policy_type: str, target: str, decision: str,
         conn.commit()
 
 
-def get_sovereignty_policies(policy_type: str = None, limit: int = 50) -> list:
+def get_sovereignty_policies(policy_type: str | None = None, limit: int = 50) -> list[Any]:
     """查询主权策略。"""
     with get_connection() as conn:
         if policy_type:
@@ -457,7 +457,7 @@ def get_sovereignty_policies(policy_type: str = None, limit: int = 50) -> list:
         return [dict(r) for r in rows]
 
 
-def get_document_by_path(file_path: str) -> Optional[dict]:
+def get_document_by_path(file_path: str) -> Optional, Any[dict]:
     """通过文件路径获取文档信息。"""
     with get_connection() as conn:
         row = conn.execute(
@@ -466,7 +466,7 @@ def get_document_by_path(file_path: str) -> Optional[dict]:
         return dict(row) if row else None
 
 
-def get_document_by_id(doc_id: str) -> Optional[dict]:
+def get_document_by_id(doc_id: str) -> Optional, Any[dict]:
     """通过文档ID获取文档信息。"""
     with get_connection() as conn:
         row = conn.execute(
@@ -475,7 +475,7 @@ def get_document_by_id(doc_id: str) -> Optional[dict]:
         return dict(row) if row else None
 
 
-def get_document_stats() -> dict:
+def get_document_stats() -> dict[str, Any]:
     """获取文档统计信息。"""
     with get_connection() as conn:
         total = conn.execute("SELECT COUNT(*) FROM document_registry").fetchone()[0]
@@ -500,7 +500,7 @@ def get_document_stats() -> dict:
         }
 
 
-def get_regulatory_access_logs(limit: int = 100, auditor_id: str = None) -> list:
+def get_regulatory_access_logs(limit: int = 100, auditor_id: str | None = None) -> list[Any]:
     """查询监管访问日志。"""
     with get_connection() as conn:
         if auditor_id:

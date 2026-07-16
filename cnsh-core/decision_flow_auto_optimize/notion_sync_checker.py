@@ -17,7 +17,7 @@ DNA:#龍芯⚡️2026-05-17-NOTION-SYNC-CHECKER-FILE1-v1.0
 
 import json
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 class NotionSyncChecker:
     """Notion 同步检查器"""
@@ -49,7 +49,7 @@ class NotionSyncChecker:
 
         self.sync_reports = []
 
-    def check_version_sync(self) -> Dict:
+    def check_version_sync(self) -> Dict[str, Any]:
         """检查版本号是否同步"""
         report = {
             "check_type": "version_sync",
@@ -69,7 +69,7 @@ class NotionSyncChecker:
 
         return report
 
-    def check_content_consistency(self, main_text: str, parent_text: str) -> Dict:
+    def check_content_consistency(self, main_text: str, parent_text: str) -> Dict[str, Any]:
         """检查内容一致性"""
         # 检查关键词是否匹配
         keywords = ["DNA", "确认码", "焊点", "版本"]
@@ -84,7 +84,7 @@ class NotionSyncChecker:
             "status": "✅ 一致" if consistency_score == len(keywords) else "⚠️ 偏差"
         }
 
-    def generate_sync_report(self) -> Dict:
+    def generate_sync_report(self) -> Dict[str, Any]:
         """生成完整的同步报告"""
         report = {
             "timestamp": datetime.now().isoformat(),
@@ -102,7 +102,7 @@ class NotionSyncChecker:
 
         return report
 
-    def monitor_changes(self) -> Dict:
+    def monitor_changes(self) -> Dict[str, Any]:
         """监控主控页和父页的变更"""
         monitor_report = {
             "monitoring_period": "last_24h",

@@ -23,7 +23,7 @@ import json
 import hashlib
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -50,7 +50,7 @@ class ProtocolAuditor:
         self.config = get_config()
         self.dna = DNAVerifier.generate("PROTOCOL-AUDITOR", "L2")
 
-    def audit_protocol_access(self, protocol_path: str) -> Dict:
+    def audit_protocol_access(self, protocol_path: str) -> Dict[str, Any]:
         """
         审计协议文件访问
 
@@ -105,7 +105,7 @@ class ProtocolAuditor:
         protocol_path: str,
         previous_fingerprint: str,
         current_fingerprint: str
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         审计协议文件修改
 
@@ -139,7 +139,7 @@ class ProtocolAuditor:
             "current_fingerprint": current_fingerprint,
         }
 
-    def audit_all_protocols(self) -> Dict:
+    def audit_all_protocols(self) -> Dict[str, Any]:
         """
         审计所有协议文件
 

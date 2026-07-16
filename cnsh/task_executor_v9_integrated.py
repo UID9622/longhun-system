@@ -16,7 +16,7 @@ import json
 import subprocess
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 from cnsh.v9_task_executor_adapter import V9TaskExecutorAdapter
 
@@ -73,7 +73,7 @@ class IntegratedTaskExecutor:
                             tasks.append(task)
         return tasks
 
-    def route_task(self, task: Dict) -> Tuple[List[str], str]:
+    def route_task(self, task: Dict[str, Any]) -> Tuple[List[str], str]:
         """
         智能路由任務
 
@@ -128,7 +128,7 @@ class IntegratedTaskExecutor:
 
         return agents, reason
 
-    def execute_agent(self, agent_id: str) -> Dict:
+    def execute_agent(self, agent_id: str) -> Dict[str, Any]:
         """
         執行智能體
 
@@ -182,7 +182,7 @@ class IntegratedTaskExecutor:
                 "error": str(e)
             }
 
-    def execute_v9_task(self, task: Dict) -> Dict:
+    def execute_v9_task(self, task: Dict[str, Any]) -> Dict[str, Any]:
         """
         執行 v9.0 系統任務（新增）
 

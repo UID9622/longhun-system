@@ -108,7 +108,7 @@ class VisionOutput:
         d["ocr_texts"] = [asdict(o) for o in self.ocr_texts]
         return json.dumps(d, ensure_ascii=False, indent=indent)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return json.loads(self.to_json())
 
 

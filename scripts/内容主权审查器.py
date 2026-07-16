@@ -40,7 +40,7 @@ class 公开内容审查器:
     def __init__(self):
         self.协议 = ContentSovereigntyProtocol()
 
-    def 审查(self, 内容: str, 内容类型: str = "text") -> dict:
+    def 审查(self, 内容: str, 内容类型: str = "text") -> dict[str, Any]:
         return self.协议.validate_content_against_protocol(内容, 内容类型)
 
     def 生成报告(self, 内容: str) -> str:

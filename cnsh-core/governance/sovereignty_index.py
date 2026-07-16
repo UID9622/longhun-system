@@ -17,7 +17,7 @@ SI < 0.34 → 主权失锚·锁定·只能归档、不能再造
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from datetime import datetime
 import json
 import os
@@ -58,7 +58,7 @@ class SovereigntyEvent:
     evidence: str
     recoverable: bool  # Can this be reversed?
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "timestamp": self.timestamp,
             "event_type": self.event_type.value,
@@ -82,7 +82,7 @@ class SovereigntySnapshot:
     event_count: int
     most_recent_violation: Optional[SovereigntyEvent] = None
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "timestamp": self.timestamp,
             "tian": self.tian_score,
@@ -107,7 +107,7 @@ class ThreeTalentSovereigntyIndex:
     SI = 0.34·天 + 0.33·地 + 0.33·人
     """
 
-    def __init__(self, creator_uid: str, storage_dir: str = None):
+    def __init__(self, creator_uid: str, storage_dir: str | None = None):
         """
         初始化主权指数系统
 
@@ -349,7 +349,7 @@ class ThreeTalentSovereigntyIndex:
     # 【锁定机制】
     # ═════════════════════════════════════════════════════════════════
 
-    def lock_status(self) -> Dict:
+    def lock_status(self) -> Dict[str, Any]:
         """
         取得完整锁定状态报告
         """

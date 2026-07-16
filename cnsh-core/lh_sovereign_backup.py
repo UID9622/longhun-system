@@ -36,7 +36,7 @@ def 生成DNA(标签: str) -> str:
     return DNA工具.生成(f"SOVEREIGN-BACKUP-{标签}", "1.0")
 
 
-def 打包并加密(来源列表: list, 输出目录: Path, 密码: str) -> dict:
+def 打包并加密(来源列表: list[Any], 输出目录: Path, 密码: str) -> dict[str, Any]:
     输出目录 = Path(输出目录)
     输出目录.mkdir(parents=True, exist_ok=True)
     时间戳 = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
@@ -100,7 +100,7 @@ def 打包并加密(来源列表: list, 输出目录: Path, 密码: str) -> dict
     }
 
 
-def 解密(加密文件: Path, 输出目录: Path, 密码: str) -> dict:
+def 解密(加密文件: Path, 输出目录: Path, 密码: str) -> dict[str, Any]:
     加密文件 = Path(加密文件)
     输出目录 = Path(输出目录)
     输出目录.mkdir(parents=True, exist_ok=True)

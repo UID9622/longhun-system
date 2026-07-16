@@ -172,7 +172,7 @@ def build_csdn_footer() -> str:
 """
 
 
-def extract_chapters(text: str) -> list:
+def extract_chapters(text: str) -> list[Any]:
     """提取所有章節區塊"""
     pattern = re.compile(r"(## 第\d+章 · .+?)(?=\n## 第\d+章 · |\n## 【附錄|## 版本元信息|$)", re.DOTALL)
     return pattern.findall(text)

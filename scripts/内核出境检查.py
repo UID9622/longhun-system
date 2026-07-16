@@ -32,7 +32,7 @@ KERNEL_DIRS = [
 ]
 
 
-def _检查文件(路径: Path) -> list:
+def _检查文件(路径: Path) -> list[Any]:
     风险 = []
     if not 路径.is_file():
         return 风险

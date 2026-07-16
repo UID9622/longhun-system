@@ -135,7 +135,7 @@ class 传播层基类:
         """
         raise NotImplementedError
     
-    def 统计(self) -> Dict:
+    def 统计(self) -> Dict[str, Any]:
         """🟢 返回层统计信息"""
         丢失率 = self.丢失计数 / max(self.接收计数, 1)
         return {
@@ -362,7 +362,7 @@ class 接收层(传播层基类):
             n = sum(int(d) for d in str(n))
         return n
     
-    def 获取接收统计(self) -> Dict:
+    def 获取接收统计(self) -> Dict[str, Any]:
         """🟢 获取接收统计"""
         if not self.接收到的信息:
             return {'接收总数': 0, '平均熵值': 0, '平均完整性': 0}
@@ -477,7 +477,7 @@ class 龍芯AI验证系统:
             结果[信息.标识] = self.实时验证(信息)[0]
         return 结果
     
-    def 统计(self) -> Dict:
+    def 统计(self) -> Dict[str, Any]:
         """🟢 验证统计"""
         通过率 = self.通过计数 / max(self.验证计数, 1)
         return {
@@ -505,7 +505,7 @@ class 不动点收敛证明:
     """
     
     @staticmethod
-    def 压缩映射验证(信源: 信源层, 传播: 传播层, 接收: 接收层) -> Dict:
+    def 压缩映射验证(信源: 信源层, 传播: 传播层, 接收: 接收层) -> Dict[str, Any]:
         """
         🔴 验证三层传播系统是否满足压缩映射条件
         
@@ -593,7 +593,7 @@ class 传播延迟验证器:
     def __init__(self):
         self.测量记录: List[Dict] = []
     
-    def 测量(self, 原始信息: 信息包, 接收信息: Optional[信息包], 实际延迟: float) -> Dict:
+    def 测量(self, 原始信息: 信息包, 接收信息: Optional[信息包], 实际延迟: float) -> Dict[str, Any]:
         """
         🔴 测量一次传播的延迟与完整性
         """
@@ -614,7 +614,7 @@ class 传播延迟验证器:
         self.测量记录.append(记录)
         return 记录
     
-    def 完整性报告(self) -> Dict:
+    def 完整性报告(self) -> Dict[str, Any]:
         """
         🟢 生成完整性统计报告
         """
@@ -678,7 +678,7 @@ class 传播系统:
         
         return 接收后信息
     
-    def 批量发送(self, 数量: int) -> Dict:
+    def 批量发送(self, 数量: int) -> Dict[str, Any]:
         """
         🟢 批量发送测试
         """
@@ -698,7 +698,7 @@ class 传播系统:
             '成功率': 成功 / max(数量, 1),
         }
     
-    def 系统统计(self) -> Dict:
+    def 系统统计(self) -> Dict[str, Any]:
         """🟢 全系统统计"""
         return {
             '信源层': self.信源.统计(),

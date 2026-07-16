@@ -31,7 +31,7 @@ alignment_v1.5_F19_F22.py
 """
 import sys
 import math
-from typing import Sequence
+from typing import Sequence, Any
 
 
 # =================================================================
@@ -76,8 +76,8 @@ def F19_compression_ratio(
 # F20 · 语义场恢复完整度
 # =================================================================
 def F20_semantic_fidelity(
-    original_keywords: Sequence[str],
-    restored_keywords: Sequence[str],
+    original_keywords: Sequence, Any[str],
+    restored_keywords: Sequence, Any[str],
 ) -> float:
     """
     F20 · Semantic Field Restoration Fidelity
@@ -116,7 +116,7 @@ def F20_semantic_fidelity(
 # F21 · 时戳熵密度
 # =================================================================
 def F21_timestamp_entropy_density(
-    timestamp_dims: dict,
+    timestamp_dims: dict[str, Any],
     token_count: int,
 ) -> float:
     """
@@ -162,8 +162,8 @@ def F21_timestamp_entropy_density(
 # F22 · 跨窗口继承忠诚度
 # =================================================================
 def F22_inheritance_loyalty(
-    invariants_required: Sequence[str],
-    invariants_carried: Sequence[str],
+    invariants_required: Sequence, Any[str],
+    invariants_carried: Sequence, Any[str],
 ) -> float:
     """
     F22 · Cross-Window Inheritance Loyalty
@@ -207,7 +207,7 @@ def F22_inheritance_loyalty(
 # 护城河总量（四柱聚合）
 # =================================================================
 def moat_strength(F19: float, F20: float, F21: float, F22: float,
-                  F21_normalized_baseline: float = 21.0) -> dict:
+                  F21_normalized_baseline: float = 21.0) -> dict[str, Any]:
     """
     压缩护城河 v1.0 · 四柱聚合
     F21 用基准 21 bits/token 归一化（黄历典型熵）

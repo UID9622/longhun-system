@@ -105,7 +105,7 @@ class VetoWordMatch:
     context: str                    # 上下文片段(±10字符)
     severity: str                   # 严重度: LOW/MEDIUM/HIGH
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "word": self.word,
             "category": self.category.value,
@@ -138,7 +138,7 @@ class PersonaRoutingDecision:
     # 扩展信息
     metadata: Dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "routing_id": self.routing_id,
             "timestamp": self.timestamp,
@@ -169,7 +169,7 @@ class PersonaRouter:
     4. 完整的DNA追溯和审计日志
     """
 
-    def __init__(self, log_dir: str = None, persona_weights: Dict[str, float] = None):
+    def __init__(self, log_dir: str | None = None, persona_weights: Dict[str, float] = None):
         """
         初始化PersonaRouter
 

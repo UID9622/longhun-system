@@ -17,7 +17,7 @@ DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-FORMULA-CHAIN-v2.0-SYST
 """
 
 from __future__ import annotations
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from functools import lru_cache
 import time
 
@@ -63,7 +63,7 @@ def sovereignty_index(
     ren: float,
     weights: Optional[Tuple[float, ...]] = None,
     use_cache: bool = True
-) -> Dict:
+) -> Dict[str, Any]:
     """三才主权指数·天<0.34 → 一票熔断"""
     t0 = time.time()
     weights = weights or CHAIN_CONFIG["si_weights"]
@@ -118,7 +118,7 @@ def decision_chain(
     ren: float = 0.85,
     si_weights: Optional[Tuple[float, ...]] = None,
     score_thresholds: Optional[Dict[str, float]] = None
-) -> Dict:
+) -> Dict[str, Any]:
     """完整决策链 v2.0·六环全程可审
 
     环1：数字根 → 五行属性
@@ -203,7 +203,7 @@ def decision_chain(
     _audit.record("decision_chain", f"n={n}", f"{decision}·{decision}", time.time() - chain_start, dna)
     return trace
 
-def full_audit_report(trace: Dict) -> str:
+def full_audit_report(trace: Dict[str, Any]) -> str:
     """生成可审计的决策报告"""
     report = []
     report.append("=" * 80)

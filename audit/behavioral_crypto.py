@@ -22,7 +22,7 @@ import time
 from datetime import datetime, timezone
 from enum import IntEnum
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 
 class 权限等级(IntEnum):
@@ -93,8 +93,8 @@ class 行为密码:
         DNA: str,
         行为: str,
         结果: str,
-        确认码: Optional[str] = None,
-    ) -> dict:
+        确认码: Optional, Any[str] = None,
+    ) -> dict[str, Any]:
         record = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "dna": DNA,
@@ -125,7 +125,7 @@ class 行为授权矩阵:
         "grant_super_power": 权限等级.L4_CONSTITUTION,
     }
 
-    def __init__(self, 矩阵: Optional[dict] = None):
+    def __init__(self, 矩阵: Optional, Any[dict] = None):
         self.矩阵 = 矩阵 or self.默认矩阵
 
     def 查询权限(self, 操作: str) -> 权限等级:

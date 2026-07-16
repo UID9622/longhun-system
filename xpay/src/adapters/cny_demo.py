@@ -39,7 +39,7 @@ class CNYAdapter(CurrencyAdapter):
             return False
         return True
 
-    def calculate_fee(self, amount: float) -> dict:
+    def calculate_fee(self, amount: float) -> dict[str, Any]:
         dna_fee = 0.001
         return {
             "processing": 0.0,

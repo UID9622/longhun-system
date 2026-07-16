@@ -17,7 +17,7 @@ v2.0 增强:
 import time
 import math
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from collections import defaultdict
 import threading
 import json
@@ -53,7 +53,7 @@ class PheromoneTrail:
     hop_count: int
     fixed_point_level: int = 1       # v2.0: 关联不动点层级
     emergence_contribution: float = 0.0  # v2.0: 涌现贡献值
-    metadata: dict = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
     
     def __post_init__(self):
         if self.current_strength == 0:
@@ -348,7 +348,7 @@ class PheromoneSystem:
             self.emergence_metrics["last_emergence_score"] = E
             return E
     
-    def get_stats(self) -> dict:
+    def get_stats(self) -> dict[str, Any]:
         """获取系统统计"""
         with self._lock:
             return {
@@ -365,7 +365,7 @@ class PheromoneSystem:
                 "emergence_metrics": self.emergence_metrics,
             }
     
-    def dump_state(self) -> dict:
+    def dump_state(self) -> dict[str, Any]:
         """导出完整状态"""
         with self._lock:
             return {
@@ -385,7 +385,7 @@ class PheromoneSystem:
                 "emergence_metrics": self.emergence_metrics,
             }
     
-    def load_state(self, state: dict):
+    def load_state(self, state: dict[str, Any]):
         """从持久化状态恢复"""
         with self._lock:
             self.trails.clear()

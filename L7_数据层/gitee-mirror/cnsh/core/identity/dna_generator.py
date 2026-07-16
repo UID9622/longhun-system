@@ -10,7 +10,7 @@ import hashlib
 import re
 import json
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 class CNSHDNAGenerator:
     def __init__(self):
@@ -35,7 +35,7 @@ class CNSHDNAGenerator:
         }
     
     def generate_dna_code(self, content_type: str, region: str, content: str, 
-                        author: str, version: str = "v1.0") -> Dict:
+                        author: str, version: str = "v1.0") -> Dict[str, Any]:
         validation_result = self._validate_input(content_type, region, content, author, version)
         if not validation_result["valid"]:
             return {"success": False, "error": validation_result["error"]}
@@ -61,7 +61,7 @@ class CNSHDNAGenerator:
             }
         }
     
-    def _validate_input(self, content_type, region, content, author, version) -> Dict:
+    def _validate_input(self, content_type, region, content, author, version) -> Dict[str, Any]:
         if content_type not in self.content_types:
             return {"valid": False, "error": f"无效的创作类型: {content_type}"}
         if region not in self.regions:
@@ -76,7 +76,7 @@ class CNSHDNAGenerator:
             return {"valid": False, "error": "版本格式必须为 vX.Y"}
         return {"valid": True}
     
-    def verify_dna_code(self, dna_code: str) -> Dict:
+    def verify_dna_code(self, dna_code: str) -> Dict[str, Any]:
         if not dna_code.startswith("#ZHUGEXIN⚡️"):
             return {"valid": False, "error": "DNA码格式错误：必须以#ZHUGEXIN⚡️开头"}
         parts = dna_code[1:].split('-')

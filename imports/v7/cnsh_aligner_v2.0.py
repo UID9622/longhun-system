@@ -33,7 +33,7 @@ import sqlite3
 import hashlib
 from pathlib import Path
 from datetime import datetime
-from typing import Tuple, List, Dict, Optional
+from typing import Tuple, List, Dict, Optional, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════
@@ -293,7 +293,7 @@ class CNSHAligner:
         conn.commit()
         conn.close()
 
-    def _save_audit_result(self, results: Dict, text_hash: str):
+    def _save_audit_result(self, results: Dict[str, Any], text_hash: str):
         """保存完整审计结果到数据库"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -514,7 +514,7 @@ class CNSHAligner:
         return text, conf, issues
 
     # ═══ 六层来源链验证 ═══
-    def verify_six_layer_lineage(self) -> Dict:
+    def verify_six_layer_lineage(self) -> Dict[str, Any]:
         """
         六层来源链验证 — 完整性检查
 
@@ -565,7 +565,7 @@ class CNSHAligner:
         return lineage
 
     # ═══ 综合对齐 ═══
-    def align_and_correct(self, text: str, context: str = '') -> Dict:
+    def align_and_correct(self, text: str, context: str = '') -> Dict[str, Any]:
         """
         完整的四层对齐和矫正
 
@@ -656,7 +656,7 @@ class CNSHAligner:
 
         return results
 
-    def _generate_suggestion(self, results: Dict) -> str:
+    def _generate_suggestion(self, results: Dict[str, Any]) -> str:
         """根据检查结果生成修复建议"""
         if not results['all_issues']:
             return '✅ CNSH四层语法完全通过，无需修正'
@@ -674,7 +674,7 @@ class CNSHAligner:
             return f'🟢 低危警告{issues_count}项，可继续执行。建议：' + \
                    '；'.join(results['all_issues'][:3])
 
-    def format_report(self, results: Dict) -> str:
+    def format_report(self, results: Dict[str, Any]) -> str:
         """生成格式化的审计报告"""
         report = []
         report.append('═' * 70)

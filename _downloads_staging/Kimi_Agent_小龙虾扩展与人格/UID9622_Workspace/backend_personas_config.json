@@ -1,0 +1,12 @@
+{
+  "workspace": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace",
+  "logs_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/logs",
+  "data_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/data",
+  "backups_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/backups",
+  "temp_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/temp",
+  "personas_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/backend_personas",
+  "mailbox": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/mailbox",
+  "audit_dir": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/logs/audit",
+  "log_max_bytes": 10485760,
+  "log_backup_count": 5
+}

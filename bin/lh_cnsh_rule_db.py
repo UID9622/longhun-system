@@ -175,7 +175,7 @@ _原始规则 = [
     ]
 
 
-def 获取规则库(预编译: bool = True) -> list:
+def 获取规则库(预编译: bool = True) -> list[Any]:
     """返回全部 115 条审计规则，可选预编译正则。"""
     if not 预编译:
         return [dict(r) for r in _原始规则]

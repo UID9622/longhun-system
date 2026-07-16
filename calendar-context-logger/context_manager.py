@@ -157,7 +157,7 @@ class DNARecord:
     operator: str = "龍芯上下文引擎"
     dna_signature: str = ""
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -187,7 +187,7 @@ class DNATracer:
         return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.") + f"{datetime.now().microsecond // 1000:03d}Z"
 
     @staticmethod
-    def sign(data: Dict) -> str:
+    def sign(data: Dict[str, Any]) -> str:
         """生成DNA签名（SHA256）"""
         content = json.dumps(data, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
@@ -481,7 +481,7 @@ class CompressionEngine:
     def __init__(self, tracer: DNATracer):
         self.tracer = tracer
 
-    def compress(self, context: Dict, level: CompressionLevel, topic_id: str, session_id: str) -> Tuple[Dict, CompressionReport]:
+    def compress(self, context: Dict[str, Any], level: CompressionLevel, topic_id: str, session_id: str) -> Tuple[Dict, CompressionReport]:
         """
         执行压缩
         返回: (压缩后数据, 压缩报告)
@@ -499,7 +499,7 @@ class CompressionEngine:
         else:
             raise ValueError(f"未知压缩级别: {level}")
 
-    def _compress_l0(self, context: Dict, topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
+    def _compress_l0(self, context: Dict[str, Any], topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
         """L0: 不压缩，仅添加DNA标记"""
         header = self.tracer.generate_header("CTX-L0", "ACTIVE", topic_id)
         result = {
@@ -521,7 +521,7 @@ class CompressionEngine:
         )
         return result, report
 
-    def _compress_l1(self, context: Dict, topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
+    def _compress_l1(self, context: Dict[str, Any], topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
         """L1: 摘要压缩 —— 保留摘要+关键结论+未完成项"""
         # 提取信息
         messages = context.get("messages", [])
@@ -565,7 +565,7 @@ class CompressionEngine:
         )
         return result, report
 
-    def _compress_l2(self, context: Dict, topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
+    def _compress_l2(self, context: Dict[str, Any], topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
         """L2: 实体提取 —— 保留核心实体+关系图谱节点链接"""
         entities = self._extract_entities(context)
         decisions = context.get("key_decisions", [])
@@ -602,7 +602,7 @@ class CompressionEngine:
         )
         return result, report
 
-    def _compress_l3(self, context: Dict, topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
+    def _compress_l3(self, context: Dict[str, Any], topic_id: str, session_id: str, ts: str) -> Tuple[Dict, CompressionReport]:
         """L3: 长期记忆固化 —— 保留关键决策+用户偏好+技能列表"""
         critical_decisions = self._extract_critical_decisions(context)
         pref_profile = self._build_preference_profile(context)
@@ -702,7 +702,7 @@ class CompressionEngine:
         return pending[:10]
 
     @staticmethod
-    def _extract_entities(context: Dict) -> List[Dict]:
+    def _extract_entities(context: Dict[str, Any]) -> List[Dict]:
         """提取核心实体"""
         entities = []
         # 从语义锚点提取
@@ -723,14 +723,14 @@ class CompressionEngine:
         return unique[:20]
 
     @staticmethod
-    def _extract_critical_decisions(context: Dict) -> List[Dict]:
+    def _extract_critical_decisions(context: Dict[str, Any]) -> List[Dict]:
         """提取关键决策"""
         decisions = context.get("key_decisions", [])
         return [{"what": d.get("decision", ""), "why": d.get("reason", ""), "when": d.get("timestamp", "")}
                 for d in decisions[:10]]
 
     @staticmethod
-    def _build_preference_profile(context: Dict) -> Dict:
+    def _build_preference_profile(context: Dict[str, Any]) -> Dict[str, Any]:
         """构建用户偏好画像"""
         return {
             "communication_style": context.get("communication_style", "balanced"),
@@ -764,7 +764,7 @@ class ContextManager:
         self._current_state = ContextState.ACTIVE
         self._current_topic_id = ""
         self._current_session_id = self._generate_session_id()
-        self._current_context: Dict = {}
+        self._current_context: Dict[str, Any] = {}
         self._standby_since: Optional[float] = None
         self._message_count = 0
         self._context_size_tokens = 0
@@ -798,7 +798,7 @@ class ContextManager:
 
     # ── 状态查询 ──
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """获取当前上下文状态（MCP工具: longhun_ctx_status）"""
         active_nodes = self.kg.get_active_nodes()
         return {
@@ -819,7 +819,7 @@ class ContextManager:
 
     # ── 话题切换（核心方法）──
 
-    def switch_topic(self, new_topic: str, user_confirmed: bool = False) -> Dict:
+    def switch_topic(self, new_topic: str, user_confirmed: bool = False) -> Dict[str, Any]:
         """
         话题切换（MCP工具: longhun_ctx_switch）
         包含用户确认流程
@@ -988,7 +988,7 @@ class ContextManager:
 
     # ── 处理用户输入 ──
 
-    def process_input(self, ctx_input: ContextInput) -> Dict:
+    def process_input(self, ctx_input: ContextInput) -> Dict[str, Any]:
         """
         处理用户输入（主入口）
         输入: 从输入过滤协议v3.0接收的ContextInput
@@ -1109,7 +1109,7 @@ class ContextManager:
 
         return None
 
-    def _check_context_health(self) -> Dict:
+    def _check_context_health(self) -> Dict[str, Any]:
         """检查上下文健康状态"""
         blocked = self._context_size_tokens > THRESHOLD_CTX_BLOCK
         warning = self._context_size_tokens > THRESHOLD_CTX_WARNING
@@ -1146,7 +1146,7 @@ class ContextManager:
 
     # ── 待机检测 ──
 
-    def check_standby(self) -> Dict:
+    def check_standby(self) -> Dict[str, Any]:
         """
         检查是否需要进入待机状态
         仅标记，不自动切换话题
@@ -1193,7 +1193,7 @@ class ContextManager:
 
     # ── 压缩 ──
 
-    def compress_context(self, level: CompressionLevel, topic_id: str = "") -> Dict:
+    def compress_context(self, level: CompressionLevel, topic_id: str = "") -> Dict[str, Any]:
         """
         手动触发压缩（MCP工具: longhun_ctx_compress）
         """
@@ -1246,7 +1246,7 @@ class ContextManager:
 
     # ── 恢复 ──
 
-    def restore_topic(self, topic_id_or_title: str) -> Dict:
+    def restore_topic(self, topic_id_or_title: str) -> Dict[str, Any]:
         """
         从归档恢复话题（MCP工具: longhun_ctx_restore）
         """
@@ -1321,7 +1321,7 @@ class ContextManager:
 
     # ── 关闭会话 ──
 
-    def close_session(self, user_confirmed: bool = False) -> Dict:
+    def close_session(self, user_confirmed: bool = False) -> Dict[str, Any]:
         """
         关闭当前会话
         执行L2+L3压缩，完整归档
@@ -1481,7 +1481,7 @@ def main():
     manager = ContextManager()
     output_json = "--json" in args
 
-    def output(data: Dict):
+    def output(data: Dict[str, Any]):
         if output_json:
             print(json.dumps(data, ensure_ascii=False, indent=2))
         else:

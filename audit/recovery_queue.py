@@ -15,7 +15,7 @@ import tarfile
 import argparse
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 # 将 longhun-backup 脚本目录加入 sys.path
 _BACKUP_SKILL_SCRIPTS = os.path.expanduser("~/.kimi-code/skills/longhun-backup/scripts")
@@ -47,7 +47,7 @@ class RecoveryQueue:
         self.备份管理器 = BackupManager(str(self.备份根目录))
         self.恢复系统 = RecoverySystem(str(self.备份根目录))
 
-    def _写入队列记录(self, 记录: Dict):
+    def _写入队列记录(self, 记录: Dict[str, Any]):
         """以 JSONL 形式追加队列记录。"""
         with open(self.队列文件, "a", encoding="utf-8") as f:
             f.write(json.dumps(记录, ensure_ascii=False) + "\n")
@@ -68,7 +68,7 @@ class RecoveryQueue:
                     continue
         return 记录列表
 
-    def enqueue(self, snapshot_id: str) -> Dict:
+    def enqueue(self, snapshot_id: str) -> Dict[str, Any]:
         """把快照加入恢复队列，状态 pending。"""
         快照 = self.备份管理器.get_snapshot(snapshot_id)
         if not 快照:
@@ -83,7 +83,7 @@ class RecoveryQueue:
         self._写入队列记录(记录)
         return 记录
 
-    def verify_integrity(self, snapshot_id: str, deep_check: bool = True) -> dict:
+    def verify_integrity(self, snapshot_id: str, deep_check: bool = True) -> dict[str, Any]:
         """调用 RecoverySystem.verify_integrity()，返回验证报告（转 dict）。"""
         报告 = self.恢复系统.verify_integrity(snapshot_id, deep_check=deep_check)
         return {
@@ -97,7 +97,7 @@ class RecoveryQueue:
             "details": 报告.details,
         }
 
-    def verify_dna_chain(self, snapshot_id: str) -> Dict:
+    def verify_dna_chain(self, snapshot_id: str) -> Dict[str, Any]:
         """
         读取快照的 manifest，检查其中 DNA 列表是否都以 #龍芯⚡️ 开头且按时间连续。
         同时要求 DNA 包含 UID9622。
@@ -196,7 +196,7 @@ class RecoveryQueue:
 
         return 回答 in ("y", "yes")
 
-    def execute_restore(self, snapshot_id: str, target_path: str) -> Dict:
+    def execute_restore(self, snapshot_id: str, target_path: str) -> Dict[str, Any]:
         """
         先创建恢复点（把当前 target_path 备份到临时目录），
         再调用 RecoverySystem.restore_snapshot() 恢复，

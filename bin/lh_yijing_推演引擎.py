@@ -13,7 +13,7 @@ DNA: #龍芯⚡️丙午·辛未·乙酉·需-LONGHUN-YIJING-ENGINE-v1.0-7A3F2B9
 import json
 import hashlib
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ============================================================
 # §0. 公理体系 — 不可修改的底座
@@ -102,7 +102,7 @@ class YijingEngine:
 
         return upper_gua_name, lower_gua_name, upper_gua['五行'], lower_gua['五行']
 
-    def _five_element_deduce(self, upper_element: str, lower_element: str) -> Dict:
+    def _five_element_deduce(self, upper_element: str, lower_element: str) -> Dict[str, Any]:
         """五行生克推演 — 上下卦五行关系决定局势走向"""
         self._log("§2.1 五行推演", f"上卦五行: {upper_element}, 下卦五行: {lower_element}")
 
@@ -141,7 +141,7 @@ class YijingEngine:
             "lower_element": lower_element,
         }
 
-    def _apply_dao_de_jing(self, five_element_result: Dict, question: str) -> List[Dict]:
+    def _apply_dao_de_jing(self, five_element_result: Dict[str, Any], question: str) -> List[Dict]:
         """道德经公理推导 — 用81章公理体系匹配局势，给出行动法则"""
         self._log("§3.1 道德经公理匹配", f"基于五行关系 {five_element_result['relation']} 匹配公理")
 
@@ -169,7 +169,7 @@ class YijingEngine:
 
         return matched_axioms
 
-    def deduce(self, question: str, domain: str = "通用") -> Dict:
+    def deduce(self, question: str, domain: str = "通用") -> Dict[str, Any]:
         """
         主推演入口。
         输入：一个现代问题
@@ -291,7 +291,7 @@ class CulturalOutput:
     def __init__(self):
         self.engine = YijingEngine()
 
-    def output_on_topic(self, topic: str, target_audience: str = "国际学术界") -> Dict:
+    def output_on_topic(self, topic: str, target_audience: str = "国际学术界") -> Dict[str, Any]:
         """
         针对一个现代话题，用易经道德经体系给出"无需引用西方权威"的独立答案。
         输出格式适合学术引用 — 推导链完整，每步可验证。

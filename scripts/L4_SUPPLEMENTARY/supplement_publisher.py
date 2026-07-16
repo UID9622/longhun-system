@@ -24,7 +24,7 @@ UID: 9622
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -63,8 +63,8 @@ class SupplementPublisher:
         supplement_type: str,
         title: str,
         content: str,
-        metadata: Dict = None
-    ) -> Dict:
+        metadata: Dict[str, Any] = None
+    ) -> Dict[str, Any]:
         """
         发布补充内容
 
@@ -107,11 +107,11 @@ class SupplementPublisher:
             "message": f"已发布: {title}"
         }
 
-    def publish_news(self, title: str, content: str) -> Dict:
+    def publish_news(self, title: str, content: str) -> Dict[str, Any]:
         """快捷方法：发布新闻"""
         return self.publish_supplement("news", title, content)
 
-    def publish_discussion(self, title: str, content: str, topic: str = "") -> Dict:
+    def publish_discussion(self, title: str, content: str, topic: str = "") -> Dict[str, Any]:
         """快捷方法：发起讨论"""
         return self.publish_supplement(
             "discussion",
@@ -125,7 +125,7 @@ class SupplementPublisher:
         partner: str,
         project: str,
         description: str
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """快捷方法：发布合作"""
         return self.publish_supplement(
             "collaboration",
@@ -134,7 +134,7 @@ class SupplementPublisher:
             {"partner": partner, "project": project}
         )
 
-    def publish_documentation(self, title: str, content: str) -> Dict:
+    def publish_documentation(self, title: str, content: str) -> Dict[str, Any]:
         """快捷方法：发布文档"""
         return self.publish_supplement("documentation", title, content)
 

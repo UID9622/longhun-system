@@ -13,13 +13,13 @@ from __future__ import annotations
 import math
 import random
 from math import isclose
-from typing import List, Tuple, Dict, Optional
+from typing import List, Tuple, Dict, Optional, Any
 
 # ═══════════════════════════════════════════════════════════════
 # 1. 信息论 · Information Theory
 # ═══════════════════════════════════════════════════════════════
 
-def shannon_entropy(sequence: List) -> float:
+def shannon_entropy(sequence: List[Any]) -> float:
     """离散序列的香农熵（单位：bits）"""
     n = len(sequence)
     if n == 0:
@@ -30,7 +30,7 @@ def shannon_entropy(sequence: List) -> float:
     return -sum((c / n) * math.log2(c / n) for c in counts.values())
 
 
-def mutual_information(x: List, y: List) -> float:
+def mutual_information(x: List[Any], y: List[Any]) -> float:
     """两个等长序列的互信息"""
     if len(x) != len(y) or len(x) == 0:
         return 0.0
@@ -82,7 +82,7 @@ def hetu_pair(element: str) -> Tuple[int, int]:
 # 3. 采样定理 · Nyquist
 # ═══════════════════════════════════════════════════════════════
 
-def nyquist_check(sample_rate: float, max_freq: float, safety_factor: float = 2.2) -> Dict:
+def nyquist_check(sample_rate: float, max_freq: float, safety_factor: float = 2.2) -> Dict[str, Any]:
     """检查采样率是否满足奈奎斯特条件，并给出工程建议"""
     nyquist_rate = 2 * max_freq
     safe_rate = safety_factor * nyquist_rate
@@ -178,7 +178,7 @@ def dual_exp(x: DualNumber) -> DualNumber:
 # 6. 数值方法 · Numerical Methods
 # ═══════════════════════════════════════════════════════════════
 
-def newton_raphson(f, df, x0: float, tol: float = 1e-6, max_iter: int = 100) -> Dict:
+def newton_raphson(f, df, x0: float, tol: float = 1e-6, max_iter: int = 100) -> Dict[str, Any]:
     x = x0
     for i in range(max_iter):
         fx = f(x)
@@ -191,7 +191,7 @@ def newton_raphson(f, df, x0: float, tol: float = 1e-6, max_iter: int = 100) -> 
     return {"root": x, "iterations": max_iter, "f(x)": f(x), "error": "not converged"}
 
 
-def bisection(f, a: float, b: float, tol: float = 1e-6) -> Dict:
+def bisection(f, a: float, b: float, tol: float = 1e-6) -> Dict[str, Any]:
     if f(a) * f(b) > 0:
         return {"error": "f(a) and f(b) same sign"}
     it = 0
@@ -216,7 +216,7 @@ def trapezoidal_integral(f, a: float, b: float, n: int = 100) -> float:
 
 
 def jacobi_iteration(A: List[List[float]], b: List[float], x0: List[float] = None,
-                     tol: float = 1e-6, max_iter: int = 100) -> Dict:
+                     tol: float = 1e-6, max_iter: int = 100) -> Dict[str, Any]:
     n = len(A)
     x = x0[:] if x0 else [0.0] * n
     for it in range(max_iter):
@@ -616,7 +616,7 @@ def default_sancai_weights() -> Dict[str, float]:
 
 
 def sancai_vector(sancai: Tuple[float, float, float],
-                  weights: Dict[str, float] = None) -> Dict:
+                  weights: Dict[str, float] = None) -> Dict[str, Any]:
     if weights is None:
         weights = default_sancai_weights()
     tian, di, ren = sancai
@@ -640,7 +640,7 @@ def sancai_check(sancai: Tuple[float, float, float]) -> Tuple[float, str]:
     return score, color
 
 
-def sancai_route_vector(sancai: Tuple[float, float, float], threshold: float = 0.1) -> Dict:
+def sancai_route_vector(sancai: Tuple[float, float, float], threshold: float = 0.1) -> Dict[str, Any]:
     route = sancai_route(sancai, threshold)
     return {"route": route, "resonance": {"tian": sancai[0], "di": sancai[1], "ren": sancai[2]}}
 

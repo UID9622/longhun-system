@@ -271,7 +271,7 @@ class ExecutionScheduler:
 
         return executed
 
-    def _record_execution(self, task_id: str, status: str, context: Dict = None):
+    def _record_execution(self, task_id: str, status: str, context: Dict[str, Any] = None):
         """记录任务执行"""
         record = {
             "timestamp": datetime.now().isoformat(),
@@ -281,7 +281,7 @@ class ExecutionScheduler:
         }
         self.execution_history.append(record)
 
-    def get_schedule_info(self, layer: str) -> Dict:
+    def get_schedule_info(self, layer: str) -> Dict[str, Any]:
         """获取特定层级的执行时间表"""
         return self.layer_config.get(layer, {})
 
@@ -289,7 +289,7 @@ class ExecutionScheduler:
         """获取执行历史"""
         return self.execution_history[-limit:]
 
-    def export_schedule(self) -> Dict:
+    def export_schedule(self) -> Dict[str, Any]:
         """导出执行时间表"""
         return {
             "schedule": self.layer_config,

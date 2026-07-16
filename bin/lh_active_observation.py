@@ -221,6 +221,15 @@ DEFAULT_RULES: List[Dict] = [
         "action_script": "bin/lh_dual_audit_engine.py",
         "description": "每日凌晨3点双重审计",
     },
+    {
+        "rule_id": "obs-time-direct-settlement-selfcheck",
+        "trigger_type": "time_event",
+        "pattern": "hourly",
+        "action": "execute",
+        "action_script": "bin/lh_dcep_recharge.py --verify-selfcheck",
+        "description": "每小时对系统货币通道做直达标准自检",
+        "threshold": {"min_interval_ms": 3600000, "max_per_hour": 2, "cooldown_ms": 3600000, "escalation_level": 3},
+    },
     # ── 进程 ──
     {
         "rule_id": "obs-proc-longhun-down",
@@ -264,6 +273,16 @@ DEFAULT_RULES: List[Dict] = [
         "action": "alert",
         "description": "鲲鹏服务器不可达时告警",
         "threshold": {"min_interval_ms": 600000, "max_per_hour": 6, "cooldown_ms": 600000, "escalation_level": 3},
+    },
+    # ── 反钓鱼反贪心自审计 ──
+    {
+        "rule_id": "obs-time-anti-fishing-selfcheck",
+        "trigger_type": "time_event",
+        "pattern": "hourly",
+        "action": "execute",
+        "action_script": "python3 L3_数据层/anti_fishing_greed.py --audit-self",
+        "description": "每小时反钓鱼反贪心自审计（8项P0承诺逐条检查）",
+        "threshold": {"min_interval_ms": 3600000, "max_per_hour": 2, "cooldown_ms": 3600000, "escalation_level": 3},
     },
 ]
 
@@ -698,7 +717,7 @@ class ActiveObservationEngine:
 
     # ── 辅助方法 ──
 
-    def _send_alert(self, rule: ObservationRule, data: Dict):
+    def _send_alert(self, rule: ObservationRule, data: Dict[str, Any]):
         """发送告警（对接 Bark/飞书）"""
         alert_msg = f"[龍魂·主动观察] {rule.rule_id}: {rule.description}\n{json.dumps(data, ensure_ascii=False, indent=2)}"
         self._log(f"🚨 告警: {alert_msg[:200]}")
@@ -706,7 +725,7 @@ class ActiveObservationEngine:
         # from deploy.scripts.health_check import send_bark_alert
         # send_bark_alert(alert_msg)
 
-    def _auto_archive(self, rule: ObservationRule, data: Dict):
+    def _auto_archive(self, rule: ObservationRule, data: Dict[str, Any]):
         """自动归档"""
         archive_file = OBS_DIR / f"archive_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(archive_file, 'w', encoding='utf-8') as f:
@@ -718,17 +737,17 @@ class ActiveObservationEngine:
             }, f, ensure_ascii=False, indent=2)
         self._log(f"📦 已归档: {archive_file.name}")
 
-    def _trigger_fuse(self, rule: ObservationRule, data: Dict):
+    def _trigger_fuse(self, rule: ObservationRule, data: Dict[str, Any]):
         """触发熔断"""
         self._log(f"🔥 熔断触发: {rule.rule_id}")
         # TODO: 对接 lh_fuse_response.py
 
-    def _notify_master(self, rule: ObservationRule, data: Dict):
+    def _notify_master(self, rule: ObservationRule, data: Dict[str, Any]):
         """通知 UID9622"""
         self._log(f"📢 通知主人: {rule.description}")
         # TODO: 对接通知渠道
 
-    def _write_obs_log(self, rule: ObservationRule, data: Dict):
+    def _write_obs_log(self, rule: ObservationRule, data: Dict[str, Any]):
         """写观察日志"""
         log_file = OBS_DIR / "observation_log.jsonl"
         with open(log_file, 'a', encoding='utf-8') as f:
@@ -815,7 +834,7 @@ class ActiveObservationEngine:
 
     # ── 状态查询 ──
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """获取引擎运行状态"""
         return {
             "running": self._running,
@@ -827,7 +846,7 @@ class ActiveObservationEngine:
             "event_bus_events": len(self._event_bus.event_log),
         }
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取统计信息"""
         return {
             "rules": {

@@ -1,7 +1,7 @@
 # core/agent/education_agent.py
 # 龍魂 · 教育智能体 · 自主决策与任务规划
 
-from typing import List, Dict, Optional, Callable
+from typing import List, Dict, Optional, Callable, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import json
@@ -27,7 +27,7 @@ class IntentType(Enum):
 class AgentMemory:
     """智能体记忆"""
     short_term: List[Dict] = field(default_factory=list)   # 短期记忆（当前对话）
-    long_term: Dict = field(default_factory=dict)            # 长期记忆（用户画像）
+    long_term: Dict[str, Any] = field(default_factory=dict)            # 长期记忆（用户画像）
     max_short_term: int = 10
     
     def add_interaction(self, role: str, content: str, metadata: Optional[Dict] = None):
@@ -94,7 +94,7 @@ class EducationAgent:
         """初始化意图分类器 - 实际使用BERT/规则引擎"""
         return None
     
-    def process(self, user_input: str) -> Dict:
+    def process(self, user_input: str) -> Dict[str, Any]:
         """处理用户输入"""
         # 1. 意图识别
         intent = self._classify_intent(user_input)
@@ -206,7 +206,7 @@ class EducationAgent:
         
         return plan.result
     
-    def _execute_action(self, action: str, params: Dict) -> str:
+    def _execute_action(self, action: str, params: Dict[str, Any]) -> str:
         """执行具体动作"""
         if action == "rag_search" and self.rag_service:
             response = self.rag_service.query(params["query"])
@@ -248,7 +248,7 @@ class EducationAgent:
         
         return f"未知动作: {action}"
     
-    def _reflect(self, plan: TaskPlan, result: str) -> Dict:
+    def _reflect(self, plan: TaskPlan, result: str) -> Dict[str, Any]:
         """反思机制"""
         reflection = {
             "plan_id": plan.task_id,
@@ -267,7 +267,7 @@ class EducationAgent:
         
         return reflection
     
-    def get_memory_snapshot(self) -> Dict:
+    def get_memory_snapshot(self) -> Dict[str, Any]:
         """获取记忆快照"""
         return {
             "short_term": self.memory.short_term,
@@ -275,7 +275,7 @@ class EducationAgent:
             "user_profile": self._build_user_profile()
         }
     
-    def _build_user_profile(self) -> Dict:
+    def _build_user_profile(self) -> Dict[str, Any]:
         """构建用户画像"""
         profile = {
             "interests": [],

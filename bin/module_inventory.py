@@ -28,7 +28,7 @@ def is_active(module_dir: Path) -> bool:
     return any(f.suffix in CODE_EXTS for f in module_dir.rglob("*") if f.is_file())
 
 
-def inspect(module_dir: Path) -> dict:
+def inspect(module_dir: Path) -> dict[str, Any]:
     rel = module_dir.relative_to(ROOT)
     files = [f for f in module_dir.rglob("*") if f.is_file()]
     has_readme = any(f.name.lower() == "readme.md" for f in files)

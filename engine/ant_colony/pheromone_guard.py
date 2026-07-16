@@ -69,7 +69,7 @@ class GuardAlert:
     threshold: float = 0.0
     created_at: str = ""
     
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "alert_id": self.alert_id,
             "rule": self.rule,
@@ -461,13 +461,13 @@ class PheromoneGuard:
 
     # ── 查询 ──
 
-    def get_alerts(self, severity: int = None, limit: int = 50) -> List[GuardAlert]:
+    def get_alerts(self, severity: int | None = None, limit: int = 50) -> List[GuardAlert]:
         """获取告警列表（可按严重级过滤）"""
         if severity is not None:
             return [a for a in self.alerts if a.severity >= severity][-limit:]
         return self.alerts[-limit:]
 
-    def get_trust_report(self) -> dict:
+    def get_trust_report(self) -> dict[str, Any]:
         """获取信任评分报告"""
         scores = {
             mid: {
@@ -497,7 +497,7 @@ class PheromoneGuard:
             "dna": DNA,
         }
 
-    def get_stats(self) -> dict:
+    def get_stats(self) -> dict[str, Any]:
         """获取守护统计"""
         severity_dist = defaultdict(int)
         for a in self.alerts:

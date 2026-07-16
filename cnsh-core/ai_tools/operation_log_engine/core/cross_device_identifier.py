@@ -130,7 +130,7 @@ class CrossDeviceIdentifier:
         seal = hashlib.sha256(content.encode('utf-8')).hexdigest()[:16].upper()
         return f"#DEVICE-SEAL-{datetime.now().strftime('%Y-%m-%d')}-{seal}"
 
-    def register_device(self, device_id: str = None) -> Dict[str, Any]:
+    def register_device(self, device_id: str | None = None) -> Dict[str, Any]:
         """
         注册新设备到信任列表
 

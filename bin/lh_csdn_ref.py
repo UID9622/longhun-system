@@ -70,7 +70,7 @@ def search_article(keyword: str):
     return client.search_articles(keyword)
 
 
-def generate_url_ref(title: str, article_id: str = None, source: str = "active"):
+def generate_url_ref(title: str, article_id: str | None = None, source: str = "active"):
     """生成CSDN文章引用URL"""
     if source == "legacy":
         base = "https://uid9622.blog.csdn.net/article/details"

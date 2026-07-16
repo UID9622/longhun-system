@@ -18,7 +18,7 @@ def compile_cnsh(source: str, include_main_guard: bool = False) -> str:
     return generate_python(ast, include_main_guard=include_main_guard)
 
 
-def compile_cnsh_safe(source: str, include_main_guard: bool = False) -> tuple:
+def compile_cnsh_safe(source: str, include_main_guard: bool = False) -> tuple[Any, ...]:
     """
     安全编译，返回 (success: bool, result: str, error_type: str)
     result 成功时为 Python 代码，失败时为错误信息。

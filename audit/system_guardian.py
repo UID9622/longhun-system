@@ -24,7 +24,7 @@ import subprocess
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Any
 
 
 class 系统守护者:
@@ -43,7 +43,7 @@ class 系统守护者:
         self.日志路径 = Path(日志路径).expanduser()
         self.日志路径.parent.mkdir(parents=True, exist_ok=True)
 
-    def _记录(self, report: dict) -> dict:
+    def _记录(self, report: dict[str, Any]) -> dict[str, Any]:
         with open(self.日志路径, "a", encoding="utf-8") as f:
             f.write(json.dumps(report, ensure_ascii=False) + "\n")
         return report
@@ -105,7 +105,7 @@ class 系统守护者:
         except Exception as e:
             return False, str(e)
 
-    def 全检(self) -> dict:
+    def 全检(self) -> dict[str, Any]:
         checks: Dict[str, Tuple[bool, str]] = {
             "portal_http": self.检查HTTP(f"http://{self.IP}/"),
             "portal_https": self.检查HTTP(f"https://{self.域名}/"),

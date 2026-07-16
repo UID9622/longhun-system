@@ -11,7 +11,7 @@ DNA:#龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-FILE2-v1.0
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
 
 @dataclass
@@ -65,7 +65,7 @@ class WebArtifact:
         """添加资源"""
         self.assets[name] = content
     
-    def export_metadata(self) -> Dict:
+    def export_metadata(self) -> Dict[str, Any]:
         """导出元数据"""
         return {
             "metadata": asdict(self.metadata),
@@ -74,7 +74,7 @@ class WebArtifact:
             "code_length": len(self.code)
         }
     
-    def save(self, output_dir: str = ".") -> Dict:
+    def save(self, output_dir: str = ".") -> Dict[str, Any]:
         """保存工件"""
         os.makedirs(output_dir, exist_ok=True)
         
@@ -204,7 +204,7 @@ class ArtifactBuilder:
             for a in self.artifacts.values()
         ]
     
-    def build_bundle(self, output_dir: str = ".") -> Dict:
+    def build_bundle(self, output_dir: str = ".") -> Dict[str, Any]:
         """构建包含所有工件的包"""
         os.makedirs(output_dir, exist_ok=True)
         

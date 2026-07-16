@@ -103,7 +103,7 @@ class AudioOutput:
         d["entities"] = [asdict(e) for e in self.entities]
         return json.dumps(d, ensure_ascii=False, indent=indent)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return json.loads(self.to_json())
 
 
@@ -340,7 +340,7 @@ class AudioParser:
         return emotions
 
     # ── 步骤④: 关键词提取 ──
-    def _extract_keywords(self, transcript: str, utterances: List[SpeakerUtterance]) -> tuple:
+    def _extract_keywords(self, transcript: str, utterances: List[SpeakerUtterance]) -> tuple[Any, ...]:
         """关键词/实体/敏感词/核心诉求提取"""
         cleaned = self.cleaner.clean(transcript)
 

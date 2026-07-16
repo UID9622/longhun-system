@@ -24,7 +24,7 @@ import sys
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
@@ -72,7 +72,7 @@ class PerimeterGuard:
         self.issues: List[PerimeterIssue] = []
         self.state = self._load_state()
 
-    def _load_state(self) -> Dict:
+    def _load_state(self) -> Dict[str, Any]:
         if PERIMETER_STATE.exists():
             return json.loads(PERIMETER_STATE.read_text())
         return {"scans": 0, "last_scan": "", "total_issues_found": 0,
@@ -180,7 +180,7 @@ class PerimeterGuard:
 
         return issues
 
-    def scan_all(self) -> Dict:
+    def scan_all(self) -> Dict[str, Any]:
         """完整边界扫描"""
         now = datetime.now().isoformat()
         all_issues = (
@@ -220,7 +220,7 @@ class PerimeterGuard:
         base = 1.0 - min(total / 50, 0.5)
         return round(base, 3)
 
-    def report(self) -> Dict:
+    def report(self) -> Dict[str, Any]:
         """边界安全报告"""
         scan = self.scan_all()
 

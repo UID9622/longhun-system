@@ -31,7 +31,7 @@ F7: 错误日志 (Mistake Ledger) - 10% (0.10)
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime
 import hashlib
 import json
@@ -392,7 +392,7 @@ class SevenFactorVerifier:
         f6: F6StyleVector,
         f7: F7MistakeLedger,
         threshold: float = None
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         执行完整的七因子验证
 
@@ -467,7 +467,7 @@ class SevenFactorVerifier:
 
         return confidence
 
-    def _detailed_analysis(self, scores: Dict[VerificationFactor, float]) -> Dict:
+    def _detailed_analysis(self, scores: Dict[VerificationFactor, float]) -> Dict[str, Any]:
         """生成详细分析"""
         analysis = {}
 
@@ -495,7 +495,7 @@ class SevenFactorVerifier:
 
         return analysis
 
-    def print_report(self, verification_result: Dict) -> None:
+    def print_report(self, verification_result: Dict[str, Any]) -> None:
         """打印验证报告"""
         print("\n" + "="*70)
         print("【龍魂七因子验证报告】")

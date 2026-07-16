@@ -18,7 +18,7 @@
 
 from enum import Enum
 from dataclasses import dataclass, field
-from typing import Dict, List, Set, Optional, Tuple
+from typing import Dict, List, Set, Optional, Tuple, Any
 from datetime import datetime
 import json
 
@@ -363,7 +363,7 @@ class RBACSystem:
         """获取审计日志"""
         return self.audit_log.copy()
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> Dict[str, Any]:
         """获取系统状态"""
         return {
             "users_count": len(self.users),

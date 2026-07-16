@@ -465,7 +465,7 @@ class LineageVerificationEngine:
         return None
 
     def _save_to_cache(self, file_path: str, file_hash: str,
-                       result: Dict) -> None:
+                       result: Dict[str, Any]) -> None:
         """保存验证结果到缓存 - 真实SQLite写入"""
         conn = sqlite3.connect(str(self.verification_db))
         cursor = conn.cursor()
@@ -540,7 +540,7 @@ class LineageVerificationEngine:
             conn.commit()
         conn.close()
 
-    def _detect_layer(self, content: str, layer_config: Dict) -> float:
+    def _detect_layer(self, content: str, layer_config: Dict[str, Any]) -> float:
         """检测单一层级的关键词匹配度"""
         content_lower = content.lower()
         keywords = layer_config.get("keywords", [])
@@ -558,7 +558,7 @@ class LineageVerificationEngine:
             return min(1.0, ratio * 3.0)  # 放大系数,最高1.0
         return ratio  # 低于10%返回原始比例
 
-    def _check_dna_in_content(self, content: str) -> Dict:
+    def _check_dna_in_content(self, content: str) -> Dict[str, Any]:
         """检查内容中的DNA标记"""
         has_dna = '#龍芯⚡️' in content
         has_confirm = '#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z' in content
@@ -572,7 +572,7 @@ class LineageVerificationEngine:
         }
 
     @supervised("machine")
-    def verify_file(self, file_path: str) -> Dict:
+    def verify_file(self, file_path: str) -> Dict[str, Any]:
         """
         验证单个文件的六层来源链完整性
         三层监督: L1-机器自动审计
@@ -832,7 +832,7 @@ class LineageVerificationEngine:
         return "\n".join(report_lines)
 
     @supervised("machine")
-    def get_cache_stats(self) -> Dict:
+    def get_cache_stats(self) -> Dict[str, Any]:
         """获取缓存命中率统计 - 真实SQLite查询"""
         conn = sqlite3.connect(str(self.verification_db))
         cursor = conn.cursor()
@@ -919,7 +919,7 @@ class AutoAuditTrigger:
         print(f"[AUTO-TRIGGER] {message}")
 
     @supervised("machine")
-    def trigger_on_file(self, file_path: str) -> Dict:
+    def trigger_on_file(self, file_path: str) -> Dict[str, Any]:
         """
         对单个文件触发自动审计
         这是自动触发机制的核心方法

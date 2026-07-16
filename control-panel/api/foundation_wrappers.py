@@ -21,7 +21,7 @@ if str(SHIELD_DIR) not in sys.path:
     sys.path.insert(0, str(SHIELD_DIR))
 
 
-def _run(cmd: List[str], cwd: Path = None, input_text: str = None, timeout: int = 60) -> Dict[str, Any]:
+def _run(cmd: List[str], cwd: Path = None, input_text: str | None = None, timeout: int = 60) -> Dict[str, Any]:
     try:
         proc = subprocess.run(
             cmd,
@@ -57,7 +57,7 @@ def _extract_json(text: str) -> Any:
     return None
 
 
-def run_integrated_audit(mode: str = "system", target_file: str = None) -> Dict[str, Any]:
+def run_integrated_audit(mode: str = "system", target_file: str | None = None) -> Dict[str, Any]:
     """調用 longhun_audit_integrated.py"""
     cwd = ROOT / "skills" / "longhun-audit-integrated"
     cmd = [sys.executable, "longhun_audit_integrated.py", f"--{mode}"]

@@ -28,7 +28,7 @@ import hashlib
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 # ═══════════════════════════════════════════════
 # 0. 配置常量
@@ -264,7 +264,7 @@ def classify_item(title: str, extra_text: str = "") -> str:
     return best if scores[best] > 0 else "DB-08"
 
 
-def load_scan_data() -> Dict:
+def load_scan_data() -> Dict[str, Any]:
     """加载扫描原始数据"""
     if not SCAN_FILE.exists():
         print(f"❌ 扫描数据不存在: {SCAN_FILE}")
@@ -287,7 +287,7 @@ def load_duplicate_groups() -> List[Dict]:
 # 2. 分析: 分类 + 统计
 # ═══════════════════════════════════════════════
 
-def analyze_classification(scan: Dict) -> Dict:
+def analyze_classification(scan: Dict[str, Any]) -> Dict[str, Any]:
     """对所有页面和数据库条目执行8主题分类"""
     result: Dict[str, List[Dict]] = {db_id: [] for db_id in THEMES}
 
@@ -329,7 +329,7 @@ def analyze_classification(scan: Dict) -> Dict:
     return result
 
 
-def compute_stats(classified: Dict[str, List[Dict]]) -> Dict:
+def compute_stats(classified: Dict[str, List[Dict]]) -> Dict[str, Any]:
     """计算分类统计"""
     stats = {}
     total = 0
@@ -366,7 +366,7 @@ def compute_content_hash(text: str) -> str:
 def find_duplicates_within_theme(items: List[Dict], threshold: float = 0.85) -> List[Dict]:
     """在分类内发现重复组"""
     groups: List[Dict] = []
-    seen_indices: set = set()
+    seen_indices: set[str] = set()
 
     for i, item_a in enumerate(items):
         if i in seen_indices:
@@ -400,7 +400,7 @@ def find_duplicates_within_theme(items: List[Dict], threshold: float = 0.85) -> 
 # ═══════════════════════════════════════════════
 
 def generate_migration_plan(classified: Dict[str, List[Dict]],
-                            stats: Dict) -> Dict:
+                            stats: Dict[str, Any]) -> Dict[str, Any]:
     """生成 Notion API 可执行的迁移命令清单"""
     plan = {
         "generated_at": TODAY,
@@ -485,7 +485,7 @@ class NotionExecutor:
         if self.call_count % 3 == 0:
             time.sleep(1.1)
 
-    def _api(self, method: str, endpoint: str, payload: Optional[Dict] = None) -> Dict:
+    def _api(self, method: str, endpoint: str, payload: Optional[Dict] = None) -> Dict[str, Any]:
         """统一下层 API 调用"""
         import urllib.request
         import urllib.error
@@ -542,7 +542,7 @@ class NotionExecutor:
         return db_created_id
 
     def create_page_in_db(self, db_created_id: str, title: str, db_id: str,
-                          page_data: Dict) -> bool:
+                          page_data: Dict[str, Any]) -> bool:
         """在已创建的数据库中新建一页"""
         config = THEMES[db_id]
         payload = {

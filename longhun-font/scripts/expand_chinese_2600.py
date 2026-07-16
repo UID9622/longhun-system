@@ -94,12 +94,12 @@ def is_cjk_unified_ideograph(char: str) -> bool:
     return 0x4E00 <= code <= 0x9FFF
 
 
-def load_library(path: Path) -> dict:
+def load_library(path: Path) -> dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def build_extra_charset(existing_chars: set) -> tuple:
+def build_extra_charset(existing_chars: set[str]) -> tuple[Any, ...]:
     """整理扩展字符，去重、校验、跳过已存在"""
     unique_extra = []
     invalid = []
@@ -125,7 +125,7 @@ def build_extra_charset(existing_chars: set) -> tuple:
     return unique_extra, invalid, duplicates_in_list, already_present
 
 
-def add_glyph_entry(char: str, library: dict) -> None:
+def add_glyph_entry(char: str, library: dict[str, Any]) -> None:
     """为单个字符生成字元条目并加入字元库"""
     library["字符集_cnsh9622"][char] = {
         "unicode": f"U+{ord(char):04X}",
@@ -141,7 +141,7 @@ def add_glyph_entry(char: str, library: dict) -> None:
     }
 
 
-def count_chinese_chars(library: dict) -> int:
+def count_chinese_chars(library: dict[str, Any]) -> int:
     """统计当前字元库中 CJK Unified Ideograph 数量"""
     return sum(
         1 for ch in library["字符集_cnsh9622"].keys()
@@ -149,7 +149,7 @@ def count_chinese_chars(library: dict) -> int:
     )
 
 
-def update_metadata(library: dict, added_count: int, before_total: int, before_chinese: int) -> None:
+def update_metadata(library: dict[str, Any], added_count: int, before_total: int, before_chinese: int) -> None:
     """更新字元库元数据与 DNA"""
     after_total = before_total + added_count
     after_chinese = before_chinese + added_count

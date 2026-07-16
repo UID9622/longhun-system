@@ -20,7 +20,7 @@ def now_iso():
     return datetime.now(CST).isoformat()
 
 
-def run_command(cmd: list, cwd=None, timeout=5) -> tuple:
+def run_command(cmd: list[Any], cwd=None, timeout=5) -> tuple[Any, ...]:
     try:
         result = subprocess.run(
             cmd,

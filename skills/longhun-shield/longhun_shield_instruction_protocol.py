@@ -172,7 +172,7 @@ class ImmutableInstructionProtocol:
             },
         }
     
-    def register_instruction(self, instruction_id: str, definition: Dict) -> None:
+    def register_instruction(self, instruction_id: str, definition: Dict[str, Any]) -> None:
         """
         注册一个不变的指令
         
@@ -194,7 +194,7 @@ class ImmutableInstructionProtocol:
         }
         print(f"✓ 指令已注册: {instruction_id}")
     
-    def execute_instruction(self, instruction_id: str, params: Dict = None) -> Any:
+    def execute_instruction(self, instruction_id: str, params: Dict[str, Any] = None) -> Any:
         """
         执行一个指令
         
@@ -260,7 +260,7 @@ class ImmutableInstructionProtocol:
         
         return None
     
-    def _log_execution(self, result: Dict) -> None:
+    def _log_execution(self, result: Dict[str, Any]) -> None:
         """记录指令执行"""
         self.execution_log.append(result)
         
@@ -271,7 +271,7 @@ class ImmutableInstructionProtocol:
         with open(log_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(result, ensure_ascii=False) + '\n')
     
-    def _error(self, message: str) -> Dict:
+    def _error(self, message: str) -> Dict[str, Any]:
         """错误处理"""
         return {
             'status': 'error',
@@ -360,7 +360,7 @@ class InstructionSyntax:
     """
     
     @staticmethod
-    def parse(instruction_string: str) -> tuple:
+    def parse(instruction_string: str) -> tuple[Any, ...]:
         """
         解析指令字符串
         

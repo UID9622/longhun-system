@@ -85,7 +85,7 @@ class 版本向量时钟:
         self.本机标识: Optional[str] = None
         
         # 历史版本记录（用于追溯）
-        self._历史: list = []
+        self._历史: list[Any] = []
         
         logger.info("🟢 [初始化] 版本向量时钟")
         logger.info("🟢 [设备] %s ↔ %s", 设备A, 设备B)
@@ -211,8 +211,8 @@ class 版本向量时钟:
     
     def 检测冲突(
         self,
-        本地数据: Dict,
-        远程数据: Dict,
+        本地数据: Dict[str, Any],
+        远程数据: Dict[str, Any],
         本地向量: Dict[str, int],
         远程向量: Dict[str, int]
     ) -> Tuple[bool, 时钟状态]:
@@ -243,8 +243,8 @@ class 版本向量时钟:
     
     def 分析冲突细节(
         self,
-        本地数据: Dict,
-        远程数据: Dict
+        本地数据: Dict[str, Any],
+        远程数据: Dict[str, Any]
     ) -> Dict[str, Any]:
         """
         分析冲突的具体差异
@@ -300,7 +300,7 @@ class 版本向量时钟:
     # 诊断
     # ============================================================
     
-    def 获取历史(self) -> list:
+    def 获取历史(self) -> list[Any]:
         """获取版本向量操作历史"""
         return copy.deepcopy(self._历史)
     

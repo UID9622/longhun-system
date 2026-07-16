@@ -37,7 +37,7 @@ class USDAdapter(CurrencyAdapter):
             return False
         return True
 
-    def calculate_fee(self, amount: float) -> dict:
+    def calculate_fee(self, amount: float) -> dict[str, Any]:
         processing = round(amount * 0.005, 4)
         dna_fee = 0.01
         return {

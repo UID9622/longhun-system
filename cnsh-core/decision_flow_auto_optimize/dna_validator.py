@@ -17,7 +17,7 @@ DNA:#龍芯⚡️2026-05-17-DNA-VALIDATOR-FILE1-v1.0
 import json
 import re
 from datetime import datetime
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 
 class DNAValidator:
     """DNA 格式校验器"""
@@ -61,7 +61,7 @@ class DNAValidator:
             return []
         return matches
 
-    def check_version_consistency(self, text: str) -> Dict:
+    def check_version_consistency(self, text: str) -> Dict[str, Any]:
         """检查版本号一致性"""
         versions = re.findall(r'v[\d\.]+', text)
         version_counts = {}
@@ -95,7 +95,7 @@ class DNAValidator:
 
         return suggestions
 
-    def validate_text(self, text: str) -> Dict:
+    def validate_text(self, text: str) -> Dict[str, Any]:
         """校验整段文本"""
         report = {
             "timestamp": datetime.now().isoformat(),

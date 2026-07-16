@@ -142,12 +142,12 @@ MODULES = {
 }
 
 
-def hex_to_rgb(h: str) -> tuple:
+def hex_to_rgb(h: str) -> tuple[Any, ...]:
     h = h.lstrip("#")
     return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
 
-def render_icon_png(name: str, meta: dict, size: int = 256) -> Image.Image:
+def render_icon_png(name: str, meta: dict[str, Any], size: int = 256) -> Image.Image:
     bg = hex_to_rgb("#0a0514")
     primary = hex_to_rgb(meta["color"])
     accent = hex_to_rgb(meta["accent"])
@@ -194,7 +194,7 @@ def render_icon_png(name: str, meta: dict, size: int = 256) -> Image.Image:
     return img
 
 
-def render_icon_svg(name: str, meta: dict) -> str:
+def render_icon_svg(name: str, meta: dict[str, Any]) -> str:
     c = meta["color"]
     a = meta["accent"]
     g = meta["glyph"]
@@ -230,7 +230,7 @@ def write_text(path: Path, content: str):
     path.write_text(content, encoding="utf-8")
 
 
-def generate_readme(name: str, meta: dict) -> str:
+def generate_readme(name: str, meta: dict[str, Any]) -> str:
     features = "\n".join(f"| {k} | {v} |" for k, v in meta["features"])
     commands = "\n".join(f"| `{k}` | {v} |" for k, v in meta["commands"])
     config_props = "\n".join(f'  {k},  // {v}' for k, v in meta["config_props"])
@@ -404,7 +404,7 @@ npx vsce package # 打包 VSIX
 """
 
 
-def update_package_json(pkg_path: Path, meta: dict):
+def update_package_json(pkg_path: Path, meta: dict[str, Any]):
     import json
     data = json.loads(pkg_path.read_text(encoding="utf-8"))
     data["icon"] = "images/icon.png"

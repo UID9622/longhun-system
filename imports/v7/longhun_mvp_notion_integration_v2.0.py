@@ -125,7 +125,7 @@ class SixLayerSourceChain:
     }
 
     @staticmethod
-    def verify_chain() -> Dict:
+    def verify_chain() -> Dict[str, Any]:
         print(f"\n{'='*60}")
         print("🔗 六层来源链验证")
         print(f"{'='*60}")
@@ -234,7 +234,7 @@ class NotionSyncState:
         conn.commit()
         conn.close()
 
-    def log_api_call(self, method: str, endpoint: str, status_code: int = None,
+    def log_api_call(self, method: str, endpoint: str, status_code: int | None = None,
                      response_size: int = None, error_message: str = None,
                      retry_count: int = 0):
         conn = sqlite3.connect(str(self.db_path))
@@ -264,7 +264,7 @@ class NotionSyncState:
         conn.commit()
         conn.close()
 
-    def get_recent_syncs(self, limit: int = 10) -> List:
+    def get_recent_syncs(self, limit: int = 10) -> List[Any]:
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
         cursor.execute("""
@@ -446,8 +446,8 @@ class NotionAPIClient:
             return databases
         return []
 
-    def query_database(self, database_id: str, filter_obj: Dict = None,
-                       sorts: List = None) -> List[Dict]:
+    def query_database(self, database_id: str, filter_obj: Dict[str, Any] = None,
+                       sorts: List[Any] = None) -> List[Dict]:
         """查询数据库内容"""
         payload = {}
         if filter_obj:
@@ -462,7 +462,7 @@ class NotionAPIClient:
             return data["results"]
         return []
 
-    def create_page(self, database_id: str, properties: Dict) -> Optional[Dict]:
+    def create_page(self, database_id: str, properties: Dict[str, Any]) -> Optional[Dict]:
         """在数据库中创建页面"""
         payload = {
             "parent": {"database_id": database_id},
@@ -471,7 +471,7 @@ class NotionAPIClient:
         data, status = self._make_request("POST", "/pages", json=payload)
         return data
 
-    def update_page(self, page_id: str, properties: Dict) -> Optional[Dict]:
+    def update_page(self, page_id: str, properties: Dict[str, Any]) -> Optional[Dict]:
         """更新页面属性"""
         data, status = self._make_request(
             "PATCH", f"/pages/{page_id}", json={"properties": properties}
@@ -479,7 +479,7 @@ class NotionAPIClient:
         return data
 
     def create_database(self, parent_page_id: str, title: str,
-                        properties: Dict) -> Optional[Dict]:
+                        properties: Dict[str, Any]) -> Optional[Dict]:
         """创建新数据库"""
         payload = {
             "parent": {"type": "page_id", "page_id": parent_page_id},
@@ -497,7 +497,7 @@ class MVPNotionSync:
     使用真实Notion API进行数据同步
     """
 
-    def __init__(self, token: str, database_id: str = None):
+    def __init__(self, token: str, database_id: str | None = None):
         # [LAYER-1 ANCESTOR] 架构级监督
         ThreeLayerSupervision.supervise(
             ThreeLayerSupervision.LAYER1_ANCESTOR,
@@ -546,7 +546,7 @@ class MVPNotionSync:
         IronLawGate.post_check("connect", success=self.connected)
         return self.connected
 
-    def sync_all(self) -> Dict:
+    def sync_all(self) -> Dict[str, Any]:
         """
         [LAYER-2 COSMOS] 运行时监督 - 全量同步
         [LAYER-3 ENGINE] 引擎监督 - 同步数据一致性
@@ -607,7 +607,7 @@ class MVPNotionSync:
         IronLawGate.post_check("sync_all", success=results["status"] != "failed")
         return results
 
-    def sync_tasks(self) -> Dict:
+    def sync_tasks(self) -> Dict[str, Any]:
         """
         [LAYER-3 ENGINE] 引擎监督 - 任务数据同步
         """
@@ -633,7 +633,7 @@ class MVPNotionSync:
             "items": [{"id": r["id"], "url": r.get("url", "")} for r in results]
         }
 
-    def sync_personas(self) -> Dict:
+    def sync_personas(self) -> Dict[str, Any]:
         """
         [LAYER-3 ENGINE] 引擎监督 - 人格数据同步
         """
@@ -683,7 +683,7 @@ class MVPNotionSync:
         TriColorAudit.green("NOTION", f"推送任务 {task_id} 状态: {status}")
         return True
 
-    def get_sync_status(self) -> Dict:
+    def get_sync_status(self) -> Dict[str, Any]:
         """获取同步状态"""
         recent_syncs = self.state.get_recent_syncs(5)
         connection = self.state.get_state("connection_status", "unknown")

@@ -26,7 +26,7 @@ Reference: ~/longhun-system/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md
 import json
 import re
 from dataclasses import dataclass, field
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Any
 from datetime import datetime
 from enum import Enum
 import hashlib
@@ -240,7 +240,7 @@ class AuditReport:
 
         return "\n".join(report)
 
-    def to_json(self) -> Dict:
+    def to_json(self) -> Dict[str, Any]:
         """转为JSON格式"""
         return {
             "target": self.target,

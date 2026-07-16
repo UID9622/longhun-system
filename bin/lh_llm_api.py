@@ -85,7 +85,7 @@ class LonghunLLM:
         self.audit_log.append(entry)
         self._write_audit(entry)
 
-    def _write_audit(self, entry: Dict):
+    def _write_audit(self, entry: Dict[str, Any]):
         try:
             os.makedirs(os.path.dirname(self.audit_db), exist_ok=True)
             conn = sqlite3.connect(self.audit_db)
@@ -99,7 +99,7 @@ class LonghunLLM:
         except Exception:
             pass
 
-    def _resolve_model(self) -> tuple:
+    def _resolve_model(self) -> tuple[Any, ...]:
         """解析可用模型，自动降级"""
         model_config = self.MODELS.get(self.preferred, self.MODELS['deepseek'])
         api_key = os.getenv(model_config['env_key'])

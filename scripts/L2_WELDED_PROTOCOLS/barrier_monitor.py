@@ -25,7 +25,7 @@ UID: 9622
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -151,7 +151,7 @@ class BarrierMonitor:
 
         return True, "主权盾正常"
 
-    def check_all_barriers(self) -> Dict:
+    def check_all_barriers(self) -> Dict[str, Any]:
         """
         一次性检查所有屏障
 

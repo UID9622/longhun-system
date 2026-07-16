@@ -33,7 +33,7 @@ def should_ignore(path: Path) -> bool:
     return False
 
 
-def collect_existing_dnas(root: Path) -> set:
+def collect_existing_dnas(root: Path) -> set[str]:
     dnas = set()
     for path in root.rglob('*.py'):
         if should_ignore(path):
@@ -56,7 +56,7 @@ def normalize_module(name: str) -> str:
     return module[:60]
 
 
-def make_dna(module: str, used: set) -> str:
+def make_dna(module: str, used: set[str]) -> str:
     date_str = datetime.now().strftime('%Y-%m-%d')
     base = f'#龍芯⚡️{date_str}-ENGINE-{module}-v1.0'
     if base not in used:

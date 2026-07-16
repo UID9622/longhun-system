@@ -13,7 +13,7 @@ import re
 import json
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox, filedialog, simpledialog
-from typing import Dict, List, Optional, Callable
+from typing import Dict, List, Optional, Callable, Any
 from datetime import datetime
 
 # 尝试导入各模块
@@ -181,7 +181,7 @@ class 行号画布(tk.Canvas):
 class 编辑器标签页(ttk.Frame):
     """单个编辑器标签页"""
 
-    def __init__(self, 父容器, 文件路径: str = None, **参数):
+    def __init__(self, 父容器, 文件路径: str | None = None, **参数):
         super().__init__(父容器, **参数)
         self.文件路径 = 文件路径
         self.已修改 = False
@@ -244,7 +244,7 @@ class 编辑器标签页(ttk.Frame):
             messagebox.showerror("错误", f"无法加载文件: {e}")
             return False
 
-    def 保存文件(self, 文件路径: str = None) -> bool:
+    def 保存文件(self, 文件路径: str | None = None) -> bool:
         """保存文件"""
         路径 = 文件路径 or self.文件路径
         if not 路径:

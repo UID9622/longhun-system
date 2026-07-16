@@ -46,7 +46,7 @@ import hashlib
 import sqlite3
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ═══════════════════════════════════════════════════════════
 # 全局DNA签名常量 (不可修改)
@@ -291,7 +291,7 @@ class LongHunAuditCache:
             }
         return None
 
-    def cache_result(self, dna: str, file_path: str, audit_result: Dict, tricolor: str):
+    def cache_result(self, dna: str, file_path: str, audit_result: Dict[str, Any], tricolor: str):
         """缓存审计结果 — 真实SQLite操作"""
         file_hash = self.get_file_dna(file_path)
 
@@ -435,7 +435,7 @@ class LongHunAuditEngine:
         # 同时输出到控制台
         print(message)
 
-    def audit_file(self, file_path: str) -> Dict:
+    def audit_file(self, file_path: str) -> Dict[str, Any]:
         """
         审计一个文件
         如果已缓存，直接返回结果（不重复计算）
@@ -478,7 +478,7 @@ class LongHunAuditEngine:
             'timestamp': datetime.now().isoformat()
         }
 
-    def _perform_audit(self, file_path: Path) -> Dict:
+    def _perform_audit(self, file_path: Path) -> Dict[str, Any]:
         """
         执行文件审计（检查CNSH协议）
 
@@ -500,7 +500,7 @@ class LongHunAuditEngine:
 
         return audit_checks
 
-    def _check_filename(self, file_path: Path) -> Dict:
+    def _check_filename(self, file_path: Path) -> Dict[str, Any]:
         """
         检查文件名是否符合龍魂命名规范
 
@@ -521,7 +521,7 @@ class LongHunAuditEngine:
 
         return checks
 
-    def _check_content(self, file_path: Path) -> Dict:
+    def _check_content(self, file_path: Path) -> Dict[str, Any]:
         """
         检查文件内容是否符合CNSH协议
 
@@ -554,7 +554,7 @@ class LongHunAuditEngine:
         except Exception as e:
             return {'error': str(e), '文件可读': False}
 
-    def _check_dna(self, file_path: Path) -> Dict:
+    def _check_dna(self, file_path: Path) -> Dict[str, Any]:
         """
         检查DNA签证完整性
 
@@ -578,7 +578,7 @@ class LongHunAuditEngine:
 
         return checks
 
-    def _check_lineage(self, file_path: Path) -> Dict:
+    def _check_lineage(self, file_path: Path) -> Dict[str, Any]:
         """
         检查来源链（lineage）完整性
 
@@ -619,7 +619,7 @@ class LongHunAuditEngine:
         except Exception:
             return {'文件可读': False, '有来源链声明': False}
 
-    def _check_sovereignty(self, file_path: Path) -> Dict:
+    def _check_sovereignty(self, file_path: Path) -> Dict[str, Any]:
         """
         检查主权声明
 
@@ -651,7 +651,7 @@ class LongHunAuditEngine:
         except Exception:
             return {'文件可读': False, '主权声明完整': False}
 
-    def _check_iron_law_compliance(self, file_path: Path) -> Dict:
+    def _check_iron_law_compliance(self, file_path: Path) -> Dict[str, Any]:
         """
         检查铁律合规性
 
@@ -684,7 +684,7 @@ class LongHunAuditEngine:
         except Exception:
             return {'文件可读': False, '铁律合规': False}
 
-    def _determine_tricolor(self, audit_result: Dict) -> str:
+    def _determine_tricolor(self, audit_result: Dict[str, Any]) -> str:
         """
         根据审计结果判断三色
 
@@ -828,7 +828,7 @@ CONFIRM: {CONFIRM_MARKER}
         """获取铁律违规记录 — 来自真实数据库"""
         return self.cache.get_iron_law_violations(limit)
 
-    def verify_six_layer_lineage(self) -> Dict:
+    def verify_six_layer_lineage(self) -> Dict[str, Any]:
         """
         六层来源链验证
 

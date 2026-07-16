@@ -20,7 +20,7 @@
 
 from enum import Enum
 from dataclasses import dataclass
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 import hashlib
 from datetime import datetime
 
@@ -88,7 +88,7 @@ class YijingEngine:
         self.decisions: Dict[str, Decision] = {}
         self.verdicts: Dict[str, Dict] = {}
 
-    def analyze_decision(self, decision: Decision) -> Dict:
+    def analyze_decision(self, decision: Decision) -> Dict[str, Any]:
         """
         用易经64卦分析决策
 
@@ -190,7 +190,7 @@ class YijingEngine:
 
         return verdict_map.get(verdict_type, "未知")
 
-    def _synthesize_verdict(self, motivation: str, gua_verdict: str, decision: Decision) -> Dict:
+    def _synthesize_verdict(self, motivation: str, gua_verdict: str, decision: Decision) -> Dict[str, Any]:
         """综合动机与卦象·得出最终判定"""
 
         # 动机权重
@@ -233,7 +233,7 @@ class YijingEngine:
             "risk_level": risk
         }
 
-    def get_verdict_record(self, decision_id: str) -> Dict:
+    def get_verdict_record(self, decision_id: str) -> Dict[str, Any]:
         """查询决策记录（永久可追踪）"""
         return self.verdicts.get(decision_id, None)
 

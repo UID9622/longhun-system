@@ -8,7 +8,7 @@ DNA: #龍芯⚡️2026-07-05-ROUND1-HEXAGRAM-STATE-MACHINE-v1.0
 import hashlib
 import json
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Any
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "round1"
 
@@ -25,7 +25,7 @@ class HexagramStateMachine:
             return 0
         return 1 + ((n - 1) % 9)
 
-    def map(self, text: str, context: Dict = None) -> Dict:
+    def map(self, text: str, context: Dict[str, Any], Any = None) -> Dict, Any:
         """
         根据输入特征映射到64卦。
         简化规则：

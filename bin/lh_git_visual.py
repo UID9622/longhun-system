@@ -17,7 +17,7 @@ import sys
 import json
 import subprocess
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from collections import defaultdict
 
 
@@ -128,7 +128,7 @@ def get_stash_count() -> int:
 # 文件分类与影响分析
 # ═══════════════════════════════════════════════════════════
 
-def classify_file(filepath: str) -> Dict:
+def classify_file(filepath: str) -> Dict[str, Any]:
     """分类单个文件并评估影响面"""
     # 匹配模块
     module_name = '📁 其他'
@@ -183,7 +183,7 @@ def classify_file(filepath: str) -> Dict:
     }
 
 
-def build_module_tree(files: List[Tuple[str, str]]) -> Dict:
+def build_module_tree(files: List[Tuple[str, str]]) -> Dict[str, Any]:
     """构建模块变更树"""
     tree = defaultdict(lambda: {
         'added': [], 'modified': [], 'deleted': [], 'untracked': [],
@@ -257,7 +257,7 @@ def render_banner(branch, total_files, modified, added, deleted, untracked, stas
 """)
 
 
-def render_module_tree(tree: Dict, show_all: bool = True):
+def render_module_tree(tree: Dict[str, Any], show_all: bool = True):
     """按模块分组渲染变更树"""
     # 排序：影响面越大越在前
     impact_order = {'🐍 API接口': 0, '⚙️ 引擎内核': 1, '🧩 子系统': 2, '🚀 部署配置': 3,
@@ -336,7 +336,7 @@ def render_diff_preview(files: List[Tuple[str, str]], max_files: int = 5):
     print()
 
 
-def suggest_commit_message(tree: Dict) -> str:
+def suggest_commit_message(tree: Dict[str, Any]) -> str:
     """根据变更智能生成提交信息"""
     # 按影响面找出主要变更
     total = sum(d['total'] for d in tree.values())
@@ -388,7 +388,7 @@ def suggest_commit_message(tree: Dict) -> str:
 # 交互式暂存
 # ═══════════════════════════════════════════════════════════
 
-def interactive_stage(tree: Dict):
+def interactive_stage(tree: Dict[str, Any]):
     """交互式暂存：按模块选择"""
     print(f'\n{C.CYAN}{C.BOLD}  🎯 交互式暂存（输入模块编号，用逗号分隔，或 all）{C.RESET}\n')
 

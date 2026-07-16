@@ -39,7 +39,7 @@ def ensure_log_file() -> Path:
     return LOG_DIR / f"raw_conversations_{today}.jsonl"
 
 
-def feed(text: str, source: str = "socket") -> dict:
+def feed(text: str, source: str = "socket") -> dict[str, Any]:
     record = {
         "timestamp_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "timestamp_local": datetime.datetime.now().astimezone().isoformat(),

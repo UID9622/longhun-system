@@ -192,7 +192,7 @@ class RulesEngineBatchProcessorV25:
                 processing_time_ms=processing_time
             )
 
-    def _evaluate_case_with_rules(self, case: Case) -> Dict:
+    def _evaluate_case_with_rules(self, case: Case) -> Dict[str, Any]:
         """
         评估案件 (实现规则逻辑)
 

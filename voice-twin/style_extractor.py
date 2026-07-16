@@ -11,7 +11,7 @@ import json
 import re
 from collections import Counter
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parent
 TRANSCRIPTS = ROOT / "all-transcripts.txt"
@@ -61,7 +61,7 @@ def extract_profanity(text: str) -> List[str]:
     return found
 
 
-def extract_style_features(text: str) -> Dict:
+def extract_style_features(text: str) -> Dict[str, Any]:
     sentences = split_sentences(text)
     words = re.findall(r"[\u4e00-\u9fff]{2,}", text)
     bigrams = [words[i] + words[i + 1] for i in range(len(words) - 1)]

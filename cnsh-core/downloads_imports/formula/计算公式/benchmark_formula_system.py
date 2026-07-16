@@ -14,7 +14,7 @@ DNA:#龍芯⚡️2026-06-08-BENCHMARK-FORMULA-SYSTEM-FILE5-v2.0
 """
 
 import time
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 import sys
 import os
 
@@ -88,7 +88,7 @@ class Benchmark:
         elapsed = (time.perf_counter() - t0) * 1000  # ms
         return elapsed, result
 
-    def run_test(self, name: str, func, iterations: int, *args, **kwargs) -> Dict:
+    def run_test(self, name: str, func, iterations: int, *args, **kwargs) -> Dict[str, Any]:
         """运行重复测试"""
         times = []
         result = None
@@ -107,7 +107,7 @@ class Benchmark:
             "result": result
         }
 
-    def compare(self, name: str, func_v1, func_v2, iterations: int, *args, **kwargs) -> Dict:
+    def compare(self, name: str, func_v1, func_v2, iterations: int, *args, **kwargs) -> Dict[str, Any]:
         """对比 v1.0 和 v2.0"""
         result_v1 = self.run_test(f"{name} (v1.0)", func_v1, iterations, *args, **kwargs)
         result_v2 = self.run_test(f"{name} (v2.0)", func_v2, iterations, *args, **kwargs)

@@ -20,7 +20,7 @@ CNSH 映射:
 import json
 import os
 from dataclasses import dataclass, asdict
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 from datetime import datetime
 
 
@@ -99,7 +99,7 @@ class CNSHEUVModel:
             F7_stability=0.85
         )
 
-    def compute_P_EUV(self, P_laser: float = None, CE: float = None, eta: float = None) -> float:
+    def compute_P_EUV(self, P_laser: float | None = None, CE: float | None = None, eta: float | None = None) -> float:
         """计算 EUV 输出功率"""
         P = P_laser if P_laser is not None else self.baseline.P_laser_W
         C = CE if CE is not None else self.baseline.CE
@@ -164,7 +164,7 @@ class CNSHEUVModel:
             })
         return trajectory
 
-    def seven_factor_breakdown(self) -> Dict:
+    def seven_factor_breakdown(self) -> Dict[str, Any]:
         """七因子分解与 Hard Failure 判定"""
         f = self.factors
         return {

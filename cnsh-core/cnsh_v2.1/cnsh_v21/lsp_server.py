@@ -209,7 +209,7 @@ class LspServer:
             "severity": severity,
         }
 
-    def _parse_pos(self, message: str) -> tuple:
+    def _parse_pos(self, message: str) -> tuple[Any, ...]:
         if message.startswith("[") and "]" in message:
             inner = message[1 : message.index("]")]
             parts = inner.split(":")

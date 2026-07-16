@@ -1,0 +1,266 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龙魂系统 · UID9622 后台人格管理主控
+用法：
+  python3 uid9622-manager status
+  python3 uid9622-manager health-check
+  python3 uid9622-manager start|stop|restart <人格>
+  python3 uid9622-manager logs <人格> -n 50
+  python3 uid9622-manager dna
+  python3 uid9622-manager install-cron
+  python3 uid9622-manager evaluate
+  python3 uid9622-manager dashboard [--html]
+  python3 uid9622-manager list
+
+DNA: #龍芯⚡️2026-06-27-LONGHUN-SYSTEM-MANAGER-v2.0
+"""
+import argparse
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+WORKSPACE = Path("/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace")
+PERSONAS_DIR = WORKSPACE / "backend_personas"
+REGISTRY = WORKSPACE / "dna_registry.json"
+CRON_DIR = PERSONAS_DIR
+
+sys.path.insert(0, str(PERSONAS_DIR))
+from core import generate_html, print_summary
+
+# 历史目录名与编码的映射（保持旧实现不变）
+_DIR_OVERRIDES = {
+    "WENWEN": "wenwen",
+    "SCOUT": "scout",
+    "GUARDIAN": "guardian",
+    "BAOBAO": "builder",
+    "WENXIN": "sync_master",
+    "ROUTER": "router",
+}
+
+
+def load_matrix():
+    path = PERSONAS_DIR / "persona_matrix.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def build_personas():
+    matrix = load_matrix()
+    personas = {}
+    for code, info in matrix.items():
+        dname = _DIR_OVERRIDES.get(code, code.lower())
+        personas[code.lower()] = {
+            "name": info.get("name", f"龍芯·{code}"),
+            "script": f"{dname}/persona.py",
+            "code": code,
+            "enabled": info.get("enabled", True),
+        }
+    return personas
+
+
+PERSONAS = build_personas()
+
+
+def load_registry():
+    if REGISTRY.exists():
+        return json.loads(REGISTRY.read_text(encoding="utf-8"))
+    return {}
+
+
+def status():
+    reg = load_registry()
+    print(f"{'编码':<12} {'名称':<28} {'状态':<8} {'DNA':<36} {'脚本存在':<8}")
+    print("-" * 96)
+    for key, info in PERSONAS.items():
+        script = PERSONAS_DIR / info["script"]
+        exists = "✅" if script.exists() else "❌"
+        enabled = "启用" if info["enabled"] else "停用"
+        dna = reg.get(info["code"], {}).get("dna", "未注册")
+        print(f"{info['code']:<12} {info['name']:<28} {enabled:<8} {dna:<36} {exists:<8}")
+
+
+def list_personas():
+    for key, info in PERSONAS.items():
+        enabled = "启用" if info["enabled"] else "停用"
+        print(f"{info['code']:<12} {info['name']:<28} {enabled}")
+
+
+def health_check():
+    errors = []
+    for key, info in PERSONAS.items():
+        script = PERSONAS_DIR / info["script"]
+        if not script.exists():
+            errors.append(f"{info['code']}: 脚本不存在 {script}")
+            continue
+        result = subprocess.run([sys.executable, "-m", "py_compile", str(script)], capture_output=True, text=True)
+        if result.returncode != 0:
+            errors.append(f"{info['code']}: 语法错误 {result.stderr.strip()}")
+    if errors:
+        print(f"❌ 健康检查未通过 ({len(errors)} 处错误):")
+        for e in errors:
+            print(f"  - {e}")
+        return 1
+    print(f"✅ 健康检查通过：{len(PERSONAS)}/{len(PERSONAS)} 人格脚本语法正确")
+    return 0
+
+
+def start_persona(code):
+    info = PERSONAS.get(code)
+    if not info:
+        print(f"未知人格: {code}")
+        return 1
+    script = PERSONAS_DIR / info["script"]
+    print(f"启动 {info['name']} ...")
+    subprocess.Popen([sys.executable, str(script)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return 0
+
+
+def stop_persona(code):
+    print(f"停止 {code} 请手动 kill 对应进程（当前未维护 PID 文件）")
+    return 0
+
+
+def logs(code, n=50):
+    log_file = WORKSPACE / "logs" / f"{code}.log"
+    if not log_file.exists():
+        print(f"日志不存在: {log_file}")
+        return 1
+    lines = log_file.read_text(encoding="utf-8").splitlines()
+    print("\n".join(lines[-n:]))
+    return 0
+
+
+def dna_cmd():
+    reg = load_registry()
+    print(json.dumps(reg, ensure_ascii=False, indent=2))
+
+
+CRON_BEGIN = "# UID9622_WORKSPACE_PERSONA_CRON_BEGIN"
+CRON_END = "# UID9622_WORKSPACE_PERSONA_CRON_END"
+CRON_PATTERN = "UID9622_Workspace/backend_personas"
+
+
+def install_cron():
+    cron_lines = []
+    for conf in CRON_DIR.glob("*/cron.conf"):
+        cron_lines.append(conf.read_text(encoding="utf-8"))
+    full = "\n".join(cron_lines)
+    out = WORKSPACE / "cron.d" / "uid9622_personas.cron"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    marked = f"{CRON_BEGIN}\n{full}\n{CRON_END}\n"
+    out.write_text(marked, encoding="utf-8")
+    print(f"已合并定时任务到: {out}")
+
+    # 安全合并到现有 crontab，不覆盖用户其他任务
+    try:
+        current = subprocess.run(["crontab", "-l"], capture_output=True, text=True)
+        existing_lines = current.stdout.splitlines() if current.returncode == 0 else []
+    except Exception:
+        existing_lines = []
+
+    # 删除旧的本系统块以及任何引用 UID9622_Workspace/backend_personas 的旧行
+    cleaned = []
+    skip = False
+    for i, line in enumerate(existing_lines):
+        if line.strip() == CRON_BEGIN:
+            skip = True
+            continue
+        if line.strip() == CRON_END:
+            skip = False
+            continue
+        if skip:
+            continue
+        # 跳过旧的 workspace persona 任务行及其紧邻的上一行注释
+        if CRON_PATTERN in line:
+            if cleaned and cleaned[-1].strip().startswith("#"):
+                cleaned.pop()
+            continue
+        cleaned.append(line)
+
+    # 清理末尾空行
+    while cleaned and cleaned[-1].strip() == "":
+        cleaned.pop()
+
+    new_cron = "\n".join(cleaned) + "\n\n" + marked
+    subprocess.run(["crontab", "-"], input=new_cron, text=True, check=True)
+    schedule_count = len([ln for ln in full.splitlines() if ln.strip() and not ln.strip().startswith('#')])
+    print("✅ 已安全写入用户 crontab（保留原有任务）")
+    print(f"本次写入 {schedule_count} 条人格调度")
+
+
+def evaluate():
+    print_summary()
+    return 0
+
+
+def dashboard(html: bool = False):
+    if html:
+        path = generate_html()
+        print(f"✅ 三维仪表盘已生成: {path}")
+        print(f"请用浏览器打开: file://{path}")
+        return 0
+    else:
+        print_summary()
+        return 0
+
+
+def main():
+    persona_keys = sorted(PERSONAS.keys())
+
+    parser = argparse.ArgumentParser(description="龙魂系统 · UID9622 后台人格管理主控")
+    sub = parser.add_subparsers(dest="cmd")
+    sub.add_parser("status", help="查看人格状态")
+    sub.add_parser("list", help="列出所有人格")
+    sub.add_parser("health-check", help="健康检查")
+    sub.add_parser("dna", help="查看 DNA 注册表")
+    sub.add_parser("evaluate", help="多维评估汇总")
+    dash = sub.add_parser("dashboard", help="仪表盘（默认文本，--html 生成三维视图）")
+    dash.add_argument("--html", action="store_true", help="生成 HTML 三维仪表盘")
+    install = sub.add_parser("install-cron", help="合并并安装定时任务")
+
+    start = sub.add_parser("start", help="启动人格")
+    start.add_argument("persona", choices=persona_keys)
+    stop = sub.add_parser("stop", help="停止人格")
+    stop.add_argument("persona", choices=persona_keys)
+    restart = sub.add_parser("restart", help="重启人格")
+    restart.add_argument("persona", choices=persona_keys)
+
+    logp = sub.add_parser("logs", help="查看日志")
+    logp.add_argument("persona", choices=persona_keys)
+    logp.add_argument("-n", type=int, default=50, help="行数")
+
+    args = parser.parse_args()
+
+    if args.cmd == "status":
+        status()
+    elif args.cmd == "list":
+        list_personas()
+    elif args.cmd == "health-check":
+        return health_check()
+    elif args.cmd == "dna":
+        dna_cmd()
+    elif args.cmd == "install-cron":
+        install_cron()
+    elif args.cmd == "evaluate":
+        return evaluate()
+    elif args.cmd == "dashboard":
+        return dashboard(html=args.html)
+    elif args.cmd == "start":
+        return start_persona(args.persona)
+    elif args.cmd == "stop":
+        return stop_persona(args.persona)
+    elif args.cmd == "restart":
+        stop_persona(args.persona)
+        return start_persona(args.persona)
+    elif args.cmd == "logs":
+        return logs(args.persona, args.n)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

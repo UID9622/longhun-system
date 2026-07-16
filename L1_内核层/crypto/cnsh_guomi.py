@@ -13,7 +13,7 @@ DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-CNSH-GUOMI-v1.0-SYSTEM
 import hmac as _hmac_mod
 import os
 import struct
-from typing import Union
+from typing import Union, Any
 
 
 # ============== SM3 哈希算法 (GB/T 32905-2016) ==============
@@ -49,7 +49,7 @@ class SM3:
         return x ^ SM3._rotate_left(x, 15) ^ SM3._rotate_left(x, 23)
 
     @classmethod
-    def hash(cls, data: Union[str, bytes]) -> bytes:
+    def hash(cls, data: Union, Any[str, bytes]) -> bytes:
         if isinstance(data, str):
             data = data.encode("utf-8")
 
@@ -101,7 +101,7 @@ class SM3:
         return b"".join(x.to_bytes(4, "big") for x in v)
 
     @classmethod
-    def hex_hash(cls, data: Union[str, bytes]) -> str:
+    def hex_hash(cls, data: Union, Any[str, bytes]) -> str:
         return cls.hash(data).hex()
 
 
@@ -161,7 +161,7 @@ class SM4:
         return ((x << n) | (x >> (32 - n))) & 0xFFFFFFFF
 
     @classmethod
-    def _expand_key(cls, key: bytes) -> list:
+    def _expand_key(cls, key: bytes) -> list[Any]:
         if len(key) != 16:
             raise ValueError("SM4 密钥长度必须为 16 字节")
         mk = [int.from_bytes(key[i:i + 4], "big") for i in range(0, 16, 4)]
@@ -177,7 +177,7 @@ class SM4:
         return x0 ^ cls._l(cls._tau(x1 ^ x2 ^ x3 ^ rk))
 
     @classmethod
-    def _crypt_block(cls, block: bytes, rk: list) -> bytes:
+    def _crypt_block(cls, block: bytes, rk: list[Any]) -> bytes:
         x = [int.from_bytes(block[i:i + 4], "big") for i in range(0, 16, 4)]
         for i in range(32):
             x.append(cls._f(x[i], x[i + 1], x[i + 2], x[i + 3], rk[i]))
@@ -213,7 +213,7 @@ class SM4:
 
 
 # ============== HMAC-SM3 ==============
-def hmac_sm3(key: bytes, message: Union[str, bytes]) -> str:
+def hmac_sm3(key: bytes, message: Union, Any[str, bytes]) -> str:
     """基于 SM3 的 HMAC (RFC 2104)，输出 64 位十六进制字符串。"""
     if isinstance(message, str):
         message = message.encode("utf-8")

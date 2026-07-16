@@ -47,7 +47,7 @@ class CNSHModule:
 
 
 # ---------- 龍.核心 ----------
-def _核心_DNA登记(信息: Dict) -> str:
+def _核心_DNA登记(信息: Dict[str, Any]) -> str:
     return 生成DNA("CNSH-RUNTIME", 信息.get("模块", "未知"))
 
 
@@ -55,19 +55,19 @@ def _核心_DNA验证(DNA码: str) -> bool:
     return isinstance(DNA码, str) and DNA码.startswith("#龍芯⚡️")
 
 
-def _核心_IPA注册(节点: Dict):
+def _核心_IPA注册(节点: Dict[str, Any]):
     print(f"[IPA注册] {节点.get('名称', '未命名')} @ {节点.get('路由', '未知')}")
 
 
-def _核心_记忆归集() -> Dict:
+def _核心_记忆归集() -> Dict[str, Any]:
     return {"摘要": "跨平台记忆归集占位", "时间": datetime.now(timezone.utc).isoformat()}
 
 
-def _核心_序列化全局状态(状态: Dict) -> str:
+def _核心_序列化全局状态(状态: Dict[str, Any]) -> str:
     return json.dumps(状态, ensure_ascii=False, indent=2)
 
 
-def _核心_恢复全局状态(快照: str) -> Dict:
+def _核心_恢复全局状态(快照: str) -> Dict[str, Any]:
     return json.loads(快照)
 
 
@@ -76,19 +76,19 @@ def _数学_数字根(文本: str) -> int:
     return 计算数字根(文本)
 
 
-def _五行_解析八字(八字: str) -> Dict:
+def _五行_解析八字(八字: str) -> Dict[str, Any]:
     return {"八字": 八字, "天干": list(八字[::2]), "地支": list(八字[1::2])}
 
 
-def _五行_计算强度(四柱: Dict) -> Dict:
+def _五行_计算强度(四柱: Dict[str, Any]) -> Dict[str, Any]:
     return {"金": 20, "木": 20, "水": 20, "火": 20, "土": 20}
 
 
-def _八卦_推演(场景: Dict) -> Dict:
+def _八卦_推演(场景: Dict[str, Any]) -> Dict[str, Any]:
     return {"卦象": "未济", "建议": "审慎推进", "场景": 场景}
 
 
-def _洛书_定位(数字: int) -> Dict:
+def _洛书_定位(数字: int) -> Dict[str, Any]:
     洛书 = {
         1: {"宫": "坎", "五行": "水"},
         2: {"宫": "坤", "五行": "土"},
@@ -104,7 +104,7 @@ def _洛书_定位(数字: int) -> Dict:
 
 
 # ---------- 龍.审计 ----------
-def _审计_三色判定(操作: Dict) -> str:
+def _审计_三色判定(操作: Dict[str, Any]) -> str:
     文本 = json.dumps(操作, ensure_ascii=False, sort_keys=True)
     return 数字根颜色(文本)
 
@@ -113,11 +113,11 @@ def _审计_数字根(文本: str) -> int:
     return 计算数字根(文本)
 
 
-def _审计_证据校验(证据: Dict) -> bool:
+def _审计_证据校验(证据: Dict[str, Any]) -> bool:
     return "哈希" in 证据 and "签名" in 证据
 
 
-def _审计_日志记录(事件: Dict):
+def _审计_日志记录(事件: Dict[str, Any]):
     line = json.dumps({"时间": datetime.now(timezone.utc).isoformat(), "事件": 事件}, ensure_ascii=False)
     print(f"[审计日志] {line}")
 
@@ -135,7 +135,7 @@ def _IO_写入文件(路径: str, 内容: str) -> bool:
     return True
 
 
-def _IO_网络请求(地址: str, 方法: str = "GET") -> Dict:
+def _IO_网络请求(地址: str, 方法: str = "GET") -> Dict[str, Any]:
     try:
         req = urllib.request.Request(地址, method=方法.upper())
         with urllib.request.urlopen(req, timeout=10) as resp:
@@ -156,7 +156,7 @@ def _IO_标准输出(内容: str):
 _DNA注册表: Dict[str, Dict] = {}
 
 
-def _DNA_登记(信息: Dict) -> str:
+def _DNA_登记(信息: Dict[str, Any]) -> str:
     dna = 生成DNA("CNSH-DNA", 信息.get("模块", "未知"))
     _DNA注册表[dna] = {"信息": 信息, "时间": datetime.now(timezone.utc).isoformat()}
     return dna
@@ -171,7 +171,7 @@ def _DNA_签章(数据: str) -> str:
     return base64.b64encode(h.encode("utf-8")).decode("utf-8")
 
 
-def _DNA_查询(DNA码: str) -> Dict:
+def _DNA_查询(DNA码: str) -> Dict[str, Any]:
     return _DNA注册表.get(DNA码, {})
 
 
@@ -204,7 +204,7 @@ def _盾_验签(数据: str, 签名: str) -> bool:
         raise CNSHRuntimeError(f"GPG 验签失败: {exc}")
 
 
-def _盾_阅后即焚(数据: Dict):
+def _盾_阅后即焚(数据: Dict[str, Any]):
     if "敏感字段" in 数据:
         del 数据["敏感字段"]
     print("[阅后即焚] 敏感字段已销毁")

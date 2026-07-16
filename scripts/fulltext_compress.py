@@ -26,7 +26,7 @@ def generate_shortcode(content: str) -> str:
     return f"COMPRESS-{datetime.now().strftime('%Y%m%d')}-{prefix}-{hash_val}".upper()
 
 
-def extract_skeleton(content: str) -> dict:
+def extract_skeleton(content: str) -> dict[str, Any]:
     """提取骨架（问题、结论、方法、行动、下一步）"""
     lines = content.split('\n')
 
@@ -73,7 +73,7 @@ def extract_skeleton(content: str) -> dict:
     return skeleton
 
 
-def generate_compress_card(content: str, shortcode: str, skeleton: dict) -> str:
+def generate_compress_card(content: str, shortcode: str, skeleton: dict[str, Any]) -> str:
     """生成Markdown压缩卡"""
 
     # 一句话压缩
@@ -170,7 +170,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
     return card
 
 
-def generate_machine_structure(content: str, shortcode: str, skeleton: dict) -> dict:
+def generate_machine_structure(content: str, shortcode: str, skeleton: dict[str, Any]) -> dict[str, Any]:
     """生成M::机器结构"""
 
     structure = {

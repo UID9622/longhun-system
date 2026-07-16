@@ -14,7 +14,7 @@ import subprocess
 import sys
 import requests
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Any
 
 ROOT = Path(__file__).resolve().parent
 PROFILE_PATH = ROOT / "style_profile.json"
@@ -78,7 +78,7 @@ def _ollama_available() -> bool:
         return False
 
 
-def load_style_profile() -> dict:
+def load_style_profile() -> dict[str, Any]:
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 
 
@@ -87,7 +87,7 @@ def load_transcripts_sample(max_chars: int = 2000) -> str:
     return text[:max_chars]
 
 
-def build_system_prompt(profile: dict, sample: str) -> str:
+def build_system_prompt(profile: dict[str, Any], sample: str) -> str:
     fillers = profile.get("口头禅", {})
     emotions = profile.get("情绪分布", {})
     return f"""你是 UID9622（龍芯北辰）的数字人分身。你正在模仿他的真实表达风格写作。

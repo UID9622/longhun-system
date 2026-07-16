@@ -281,7 +281,7 @@ class OversightBridge:
     
     # ── 状态查询 ──
     
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """获取联动状态"""
         total = len(self.events)
         resolved = sum(1 for e in self.events if e.resolved)

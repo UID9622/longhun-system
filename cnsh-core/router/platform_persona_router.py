@@ -118,7 +118,7 @@ class PlatformRoutingDecision:
     signature: str = ""
     metadata: Dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "routing_id": self.routing_id,
             "timestamp": self.timestamp,
@@ -151,7 +151,7 @@ class PlatformPersonaRouter:
     4. 记录审计日志
     """
 
-    def __init__(self, log_dir: str = None):
+    def __init__(self, log_dir: str | None = None):
         self.log_dir = log_dir or os.path.expanduser("~/longhun-system/logs")
         os.makedirs(self.log_dir, exist_ok=True)
         self.routing_counter = 0
@@ -314,7 +314,7 @@ class PlatformPersonaRouter:
 _GLOBAL_PLATFORM_ROUTER = None
 
 
-def get_platform_persona_router(log_dir: str = None) -> PlatformPersonaRouter:
+def get_platform_persona_router(log_dir: str | None = None) -> PlatformPersonaRouter:
     """获取全局 PlatformPersonaRouter 单例"""
     global _GLOBAL_PLATFORM_ROUTER
     if _GLOBAL_PLATFORM_ROUTER is None:

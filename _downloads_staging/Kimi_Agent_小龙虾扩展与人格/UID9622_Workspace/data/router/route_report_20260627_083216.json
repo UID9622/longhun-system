@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-06-27T08:32:16.714398+00:00",
+  "query": "帮我整理一下文档",
+  "source": "cli",
+  "device": "MacBook",
+  "routed_to_type": "agent",
+  "routed_to": "🔍 龍芯·雯雯",
+  "code": "WENWEN",
+  "score": 2,
+  "ranked": [
+    {
+      "type": "agent",
+      "name": "🔍 龍芯·雯雯",
+      "code": "WENWEN",
+      "score": 2
+    },
+    {
+      "type": "agent",
+      "name": "🐱 龍芯·宝宝",
+      "code": "BAOBAO",
+      "score": 1
+    }
+  ],
+  "dna": "#ROUTER-ROUTE-20260627-0001"
+}

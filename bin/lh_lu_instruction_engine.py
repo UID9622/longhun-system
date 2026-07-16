@@ -13,7 +13,7 @@ import hashlib
 import time
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Callable, Tuple
+from typing import Dict, List, Optional, Callable, Tuple, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════
@@ -75,7 +75,7 @@ class LuInstruction:
     """Lu指令 · 统一执行单元"""
     layer: LuLayer
     action: LuAction
-    params: Dict = field(default_factory=dict)
+    params: Dict[str, Any] = field(default_factory=dict)
     dna: str = ""
     timestamp: str = field(default_factory=lambda: time.strftime("%Y%m%dT%H%M%S"))
 
@@ -98,7 +98,7 @@ class LuResult:
     """Lu执行结果"""
     instruction: LuInstruction
     status: str  # 🟢 🟡 🔴
-    output: Dict
+    output: Dict[str, Any]
     dna_trace: str
     error: Optional[str] = None
 
@@ -119,7 +119,7 @@ class LuResult:
 class ThreePowersCore:
     """三才算法内核 · 天地人"""
 
-    def define_persona(self, gua: str, name: str, level: str) -> Dict:
+    def define_persona(self, gua: str, name: str, level: str) -> Dict[str, Any]:
         return {
             "persona": name,
             "gua": gua,
@@ -127,7 +127,7 @@ class ThreePowersCore:
             "status": "已定义",
         }
 
-    def set_rule(self, rule_type: str, condition: str, action: str) -> Dict:
+    def set_rule(self, rule_type: str, condition: str, action: str) -> Dict[str, Any]:
         return {
             "rule_type": rule_type,
             "condition": condition,
@@ -135,7 +135,7 @@ class ThreePowersCore:
             "status": "已设置",
         }
 
-    def register_user(self, user_id: str, weight: float, status: str) -> Dict:
+    def register_user(self, user_id: str, weight: float, status: str) -> Dict[str, Any]:
         return {
             "user_id": user_id,
             "weight": weight,
@@ -147,7 +147,7 @@ class ThreePowersCore:
 class AIDNACore:
     """AI-DNA思考引擎 · 思修签"""
 
-    def parse_intent(self, content: str, complexity: int = 5) -> Dict:
+    def parse_intent(self, content: str, complexity: int = 5) -> Dict[str, Any]:
         intents = []
         intent_map = {
             "分析": ["分析","评估","对比","为什么"],
@@ -166,7 +166,7 @@ class AIDNACore:
             "content_hash": hashlib.sha3_256(content.encode()).hexdigest()[:12],
         }
 
-    def self_attack(self, dimensions: List[str]) -> Dict:
+    def self_attack(self, dimensions: List[str]) -> Dict[str, Any]:
         """自我攻击 · 从逻辑/意图/DNA维度扫描漏洞"""
         results = {}
         for dim in dimensions:
@@ -174,7 +174,7 @@ class AIDNACore:
             results[dim] = "🟢 通过"
         return {"scan_results": results, "vulnerabilities": []}
 
-    def generate_dna(self, content: str, gpg_fingerprint: str = "") -> Dict:
+    def generate_dna(self, content: str, gpg_fingerprint: str = "") -> Dict[str, Any]:
         content_hash = hashlib.sha3_256(content.encode()).hexdigest()[:16]
         return {
             "dna": f"#龍芯⚡️{content_hash}",
@@ -197,7 +197,7 @@ class IChingCore:
         "巽☴","兑☱","涣☴","节☵","中孚☴","小过☳","既济☲","未济☲",
     ]
 
-    def cast_gua(self, subject: str, obj: str = "", time_str: str = "") -> Dict:
+    def cast_gua(self, subject: str, obj: str = "", time_str: str = "") -> Dict[str, Any]:
         """起卦：SHA256映射到64卦"""
         seed = f"{subject}{obj}{time_str or time.time()}"
         hash_val = int(hashlib.sha256(seed.encode()).hexdigest()[:6], 16)
@@ -208,7 +208,7 @@ class IChingCore:
             "seed_hash": hashlib.sha256(seed.encode()).hexdigest()[:12],
         }
 
-    def change_yao(self, gua: str, position: int, direction: str) -> Dict:
+    def change_yao(self, gua: str, position: int, direction: str) -> Dict[str, Any]:
         """变爻"""
         return {
             "original_gua": gua,
@@ -217,7 +217,7 @@ class IChingCore:
             "new_gua": gua,
         }
 
-    def evolve(self, current_gua: str, target_gua: str, path: List[str] = None) -> Dict:
+    def evolve(self, current_gua: str, target_gua: str, path: List[str] = None) -> Dict[str, Any]:
         """卦变推演"""
         return {
             "from": current_gua,
@@ -468,7 +468,7 @@ class LuEngine:
 
         return None
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         """引擎状态"""
         greens = sum(1 for r in self.history if r.status == '🟢')
         yellows = sum(1 for r in self.history if r.status == '🟡')

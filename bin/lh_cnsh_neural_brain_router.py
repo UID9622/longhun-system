@@ -264,7 +264,7 @@ class DecisionEngine:
     _brain_map: Optional[Dict] = None
 
     @classmethod
-    def load_brain_map(cls) -> Dict:
+    def load_brain_map(cls) -> Dict[str, Any]:
         if cls._brain_map is None:
             config_path = os.path.join(
                 os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -278,7 +278,7 @@ class DecisionEngine:
         return cls._brain_map
 
     @classmethod
-    def _fallback_brain_map(cls) -> Dict:
+    def _fallback_brain_map(cls) -> Dict[str, Any]:
         return {
             "brains": {
                 f"B{i}": {"persona": f"P0{i}" if i < 8 else f"P{i+10}"}
@@ -438,7 +438,7 @@ class BrainDispatcher:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         self.regions_dir = os.path.join(script_dir, "cnsh_brain_regions")
 
-    def execute(self, decision: Dict, code: str, features: InputFeatures) -> Dict[str, Any]:
+    def execute(self, decision: Dict[str, Any], code: str, features: InputFeatures) -> Dict[str, Any]:
         """执行路由决策"""
         result = {
             "input_features": features.to_dict(),
@@ -614,14 +614,14 @@ class CNSHNeuralBrainHub:
 
         return "\n".join(report)
 
-    def _generate_dna(self, result: Dict) -> str:
+    def _generate_dna(self, result: Dict[str, Any]) -> str:
         """生成DNA追溯码"""
         path = result["decision"]["path"]
         content = json.dumps(result["input_features"], sort_keys=True)
         short_hash = hashlib.sha256(content.encode()).hexdigest()[:8].upper()
         return f"#龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-{path}-{short_hash}"
 
-    def _learn(self, features: InputFeatures, decision: Dict, result: Dict):
+    def _learn(self, features: InputFeatures, decision: Dict[str, Any], result: Dict[str, Any]):
         """学習模块：记录决策效果"""
         self.learning_log.append({
             "features": features.to_dict(),

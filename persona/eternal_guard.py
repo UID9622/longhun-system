@@ -23,7 +23,7 @@ import re
 import json
 import argparse
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 
 
 class 龍魂永恒锁守卫:
@@ -73,7 +73,7 @@ class 龍魂永恒锁守卫:
     def __init__(self, root: str = "."):
         self.root = Path(root).resolve()
 
-    def 检查锁定(self, target: str) -> Dict:
+    def 检查锁定(self, target: str) -> Dict[str, Any]:
         """检查目标文件/目录是否被锁定"""
         target_path = Path(target)
         rel = target_path.relative_to(self.root) if target_path.is_absolute() and str(target_path).startswith(str(self.root)) else target_path
@@ -100,7 +100,7 @@ class 龍魂永恒锁守卫:
                 hits.append(pattern)
         return hits
 
-    def 验证命令(self, command_text: str) -> Dict:
+    def 验证命令(self, command_text: str) -> Dict[str, Any]:
         """验证一条自然语言或命令文本是否可以执行"""
         result = {
             "allowed": True,
@@ -142,7 +142,7 @@ class 龍魂永恒锁守卫:
 
         return result
 
-    def 列出锁定(self) -> Dict:
+    def 列出锁定(self) -> Dict[str, Any]:
         return {
             "神圣文件": sorted(self.SACRED_FILES),
             "神圣目录/文件": sorted(self.SACRED_DIRS),

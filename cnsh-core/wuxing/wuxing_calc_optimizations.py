@@ -18,7 +18,7 @@ import json
 import math
 import unicodedata
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 HOME = Path.home()
 WEIGHTS_PATH = HOME / ".longhun" / "wuxing_weights.json"
@@ -180,7 +180,7 @@ def compute_hedge_index_h(
     balance_score: float,
     health_score: float,
     weights: Optional[Dict[str, float]] = None
-) -> Dict:
+) -> Dict[str, Any]:
     """
     计算五行对冲指数 H（使用可自学习权重）。
     """
@@ -232,7 +232,7 @@ def detect_excess(scores: Dict[str, float], threshold_sigma: float = 1.5) -> Lis
     return [(k, v) for k, v in scores.items() if v > threshold]
 
 
-def fuse_audit(dr: int) -> Dict:
+def fuse_audit(dr: int) -> Dict[str, Any]:
     """返回数字根熔断规则"""
     return FUSE_RULES.get(dr, {"level": "🟢", "reason": "通行", "dna_tag": "PASS"})
 

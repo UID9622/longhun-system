@@ -75,7 +75,7 @@ class TrustProtocol:
         self.store.save(p)
         return p
 
-    def list_profiles(self) -> list:
+    def list_profiles(self) -> list[Any]:
         return self.store.list_profiles()
 
     def verify(self, uid: str) -> bool:

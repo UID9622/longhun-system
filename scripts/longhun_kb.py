@@ -18,7 +18,7 @@ import sqlite3
 import sys
 import textwrap
 from datetime import datetime, timezone, timedelta
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -95,7 +95,7 @@ WUXING = {
 }
 
 
-def category_to_wuxing(category: str) -> dict:
+def category_to_wuxing(category: str) -> dict[str, Any]:
     """根据分类名匹配五行情绪。"""
     cat = category or ""
     for wx, info in WUXING.items():
@@ -107,7 +107,7 @@ def category_to_wuxing(category: str) -> dict:
     return list(WUXING.values())[idx]
 
 
-def rgb_to_hex(rgb: tuple) -> str:
+def rgb_to_hex(rgb: tuple[Any, ...]) -> str:
     return "#%02x%02x%02x" % rgb
 
 
@@ -315,7 +315,7 @@ def draw_mixed_line(
     y: int,
     text: str,
     size: int,
-    fill: tuple,
+    fill: tuple[Any, ...],
     longhun_path: pathlib.Path = DEFAULT_FONT,
 ) -> int:
     """用 LonghunFont + 系统中文字体混合绘制一行文本，返回绘制后的 x 坐标。"""
@@ -362,7 +362,7 @@ def render_calligraphy_banner(
     title: str,
     output_path: pathlib.Path,
     style_code: str = "WXZ-XS",
-    size: tuple = (1200, 280),
+    size: tuple[Any, ...] = (1200, 280),
 ) -> pathlib.Path:
     """把页面标题渲染成书法横幅，返回最终图片路径。"""
     text = re.sub(r"[^\u4e00-\u9fff]", "", title)  # 只保留 CJK

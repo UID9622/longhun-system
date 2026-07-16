@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 from dotenv import load_dotenv
 
@@ -13,7 +13,7 @@ if ENV_PATH.exists():
     load_dotenv(ENV_PATH)
 
 
-def _load_from_vault(key_name: str) -> Optional[str]:
+def _load_from_vault(key_name: str) -> Optional, Any[str]:
     """Load a credential from Longhun vault plaintext JSON fallback.
 
     The vault is managed by the 龍魂密钥管家 persona. Plaintext files are
@@ -37,19 +37,19 @@ class Settings:
     """Configuration settings loaded from environment variables and vault."""
 
     # WeChat Official Account (env first, vault fallback)
-    WECHAT_APPID: Optional[str] = os.getenv("WECHAT_APPID") or _load_from_vault(
+    WECHAT_APPID: Optional, Any[str] = os.getenv("WECHAT_APPID") or _load_from_vault(
         "WECHAT_APPID"
     )
-    WECHAT_APPSECRET: Optional[str] = os.getenv("WECHAT_APPSECRET") or _load_from_vault(
+    WECHAT_APPSECRET: Optional, Any[str] = os.getenv("WECHAT_APPSECRET") or _load_from_vault(
         "WECHAT_APPSECRET"
     )
-    WECHAT_TOKEN: Optional[str] = os.getenv("WECHAT_TOKEN")
-    WECHAT_ENCODING_AES_KEY: Optional[str] = os.getenv("WECHAT_ENCODING_AES_KEY")
+    WECHAT_TOKEN: Optional, Any[str] = os.getenv("WECHAT_TOKEN")
+    WECHAT_ENCODING_AES_KEY: Optional, Any[str] = os.getenv("WECHAT_ENCODING_AES_KEY")
 
     # AI Services
-    KIMI_API_KEY: Optional[str] = os.getenv("KIMI_API_KEY")
-    DEEPSEEK_API_KEY: Optional[str] = os.getenv("DEEPSEEK_API_KEY")
-    OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
+    KIMI_API_KEY: Optional, Any[str] = os.getenv("KIMI_API_KEY")
+    DEEPSEEK_API_KEY: Optional, Any[str] = os.getenv("DEEPSEEK_API_KEY")
+    OPENAI_API_KEY: Optional, Any[str] = os.getenv("OPENAI_API_KEY")
 
     # Paths
     LONGHUN_SYSTEM_ROOT: Path = Path(
@@ -63,7 +63,7 @@ class Settings:
     WEB_PORT: int = int(os.getenv("WEB_PORT", "8443"))
 
     @classmethod
-    def validate_wechat(cls) -> dict:
+    def validate_wechat(cls) -> dict[str, Any]:
         """Validate WeChat configuration and return status."""
         errors = []
         if not cls.WECHAT_APPID:

@@ -124,13 +124,13 @@ class CrystalTagger:
     def __init__(self):
         self.tags_config = self._load_tags()
 
-    def _load_tags(self) -> Dict:
+    def _load_tags(self) -> Dict[str, Any]:
         if TAGS_PATH.exists():
             with open(TAGS_PATH, "r", encoding="utf-8") as f:
                 return json.load(f)
         return {}
 
-    def tag(self, evidence: Dict) -> List[Tuple[str, str]]:
+    def tag(self, evidence: Dict[str, Any]) -> List[Tuple[str, str]]:
         """
         对一条阻断证据自动打标签
         返回 [(标签, 类型), ...]
@@ -242,7 +242,7 @@ class CrystalIndex:
     def __init__(self):
         self._data = self._load()
 
-    def _load(self) -> Dict:
+    def _load(self) -> Dict[str, Any]:
         if INDEX_PATH.exists():
             with open(INDEX_PATH, "r", encoding="utf-8") as f:
                 return json.load(f)
@@ -268,7 +268,7 @@ class CrystalIndex:
     def is_ingested(self, session_id: str) -> bool:
         return session_id in self._data["ingested_sessions"]
 
-    def add(self, session_id: str, crystal: Dict):
+    def add(self, session_id: str, crystal: Dict[str, Any]):
         self._data["total_crystals"] += 1
         self._data["last_ingest"] = datetime.now(TZ).isoformat()
         if session_id not in self._data["ingested_sessions"]:
@@ -289,7 +289,7 @@ class CrystalIndex:
 
         self.save()
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         return self._data["stats"]
 
     def get_ingested(self) -> List[str]:
@@ -360,14 +360,14 @@ class CrystalRecognition:
         print(f"💎 水晶摄入: {session_id}")
         return True
 
-    def feed_direct(self, evidence: Dict, session_id: str) -> bool:
+    def feed_direct(self, evidence: Dict[str, Any], session_id: str) -> bool:
         """直接喂养（由 lh_platform_block_logger 调用）"""
         if self.index.is_ingested(session_id):
             return False
         self._ingest_one(evidence, session_id)
         return True
 
-    def _ingest_one(self, evidence: Dict, session_id: str):
+    def _ingest_one(self, evidence: Dict[str, Any], session_id: str):
         """内部：摄入一条"""
         # 1. 自动标签
         tags = self.tagger.tag(evidence)
@@ -472,7 +472,7 @@ class CrystalRecognition:
 
         return results
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取统计概览"""
         return {
             "index": self.index._data,

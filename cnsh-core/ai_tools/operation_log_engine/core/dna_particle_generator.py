@@ -156,7 +156,7 @@ class DNAParticleGenerator:
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
-    def list_particles(self, limit: int = 10) -> list:
+    def list_particles(self, limit: int = 10) -> list[Any]:
         """列出最近的DNA粒子"""
         particles = sorted(self.dna_dir.glob("*.dna.json"),
                           key=lambda p: p.stat().st_mtime,

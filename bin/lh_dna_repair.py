@@ -31,7 +31,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 import logging
 
 # ═══════════════════════════════════════════════════════════
@@ -92,7 +92,7 @@ class DNARepairEngine:
         self.dna_pattern = re.compile(r"#龍[芯魂]⚡️(\d{4}-\d{2}-\d{2})-([^-]+)-v([\d.]+)")
         self.confirm_pattern = re.compile(r"#CONFIRM🌌9622-ONLY-ONCE🧬([A-Z0-9-]+)")
 
-    def analyze(self, file_path: Path, content: str) -> Dict:
+    def analyze(self, file_path: Path, content: str) -> Dict[str, Any]:
         """分析文件DNA状态"""
         result = {
             "file_path": str(file_path),
@@ -188,7 +188,7 @@ class DNARepairEngine:
         name = re.sub(r'[_-]\d{4}[-\d]*', '', name)
         return name[:20] or "未命名"
 
-    def _generate_dna(self, file_path: Path, analysis: Dict) -> str:
+    def _generate_dna(self, file_path: Path, analysis: Dict[str, Any]) -> str:
         """生成DNA追溯码"""
         date_str = datetime.now().strftime("%Y-%m-%d")
         project = analysis["project_name"] or "未命名"
@@ -206,7 +206,7 @@ class DNARepairEngine:
         random_part = "".join(random.choices(chars, k=8))
         return CONFIG["confirm_template"].format(random=random_part)
 
-    def _suggest_rename(self, file_path: Path, analysis: Dict) -> str:
+    def _suggest_rename(self, file_path: Path, analysis: Dict[str, Any]) -> str:
         """建议新文件名"""
         type_marker = analysis["type_marker"] or "文"
         project = analysis["project_name"] or "未命名"
@@ -239,7 +239,7 @@ class FileRepairer:
         shutil.copy2(file_path, backup_path)
         return backup_path
 
-    def repair(self, file_path: Path, analysis: Dict) -> bool:
+    def repair(self, file_path: Path, analysis: Dict[str, Any]) -> bool:
         """执行修复"""
         if self.preview:
             logger.info(f"[预览] {file_path.name}")

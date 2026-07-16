@@ -64,7 +64,7 @@ class LonghunFontMCPServer:
     # 核心: 请求分发
     # ═══════════════════════════════════════
 
-    def handle_request(self, request: dict) -> dict:
+    def handle_request(self, request: dict[str, Any]) -> dict[str, Any]:
         """
         处理 MCP 请求
         请求格式: {"method": "list_fonts", "params": {...}}
@@ -89,7 +89,7 @@ class LonghunFontMCPServer:
         except Exception as e:
             return {"error": str(e), "result": None}
 
-    def handle_batch(self, requests: list) -> list:
+    def handle_batch(self, requests: list[Any]) -> list[Any]:
         """批量处理多个请求"""
         return [self.handle_request(req) for req in requests]
 
@@ -97,37 +97,37 @@ class LonghunFontMCPServer:
     # 方法实现
     # ═══════════════════════════════════════
 
-    def _list_fonts(self, params: dict) -> list:
+    def _list_fonts(self, params: dict[str, Any]) -> list[Any]:
         return self.engine.get_all_fonts()
 
-    def _get_font(self, params: dict) -> dict:
+    def _get_font(self, params: dict[str, Any]) -> dict[str, Any]:
         name = params.get("name", "")
         if not name:
             return {"error": "缺少 name 参数"}
         font = self.engine.get_font_by_name(name)
         return font if font else {"error": f"字体 '{name}' 未找到"}
 
-    def _get_font_path(self, params: dict) -> str:
+    def _get_font_path(self, params: dict[str, Any]) -> str:
         name = params.get("name", "")
         path = self.engine.get_font_file_path(name)
         return path or f"字体 '{name}' 未找到"
 
-    def _get_by_format(self, params: dict) -> list:
+    def _get_by_format(self, params: dict[str, Any]) -> list[Any]:
         fmt = params.get("format", "otf")
         return self.engine.get_font_by_format(fmt)
 
-    def _get_by_family(self, params: dict) -> list:
+    def _get_by_family(self, params: dict[str, Any]) -> list[Any]:
         family = params.get("family", "Longhun")
         return self.engine.get_font_by_family(family)
 
-    def _get_by_style(self, params: dict) -> list:
+    def _get_by_style(self, params: dict[str, Any]) -> list[Any]:
         style = params.get("style", "Regular")
         return self.engine.get_font_by_style(style)
 
-    def _get_summary(self, params: dict) -> dict:
+    def _get_summary(self, params: dict[str, Any]) -> dict[str, Any]:
         return self.engine.get_summary()
 
-    def _export_registry(self, params: dict) -> dict:
+    def _export_registry(self, params: dict[str, Any]) -> dict[str, Any]:
         path = params.get("output_path")
         exported = self.engine.export_registry_json(path)
         return {
@@ -135,7 +135,7 @@ class LonghunFontMCPServer:
             "count": len(self.engine.font_registry),
         }
 
-    def _rescan(self, params: dict) -> dict:
+    def _rescan(self, params: dict[str, Any]) -> dict[str, Any]:
         old_count = len(self.engine.font_registry)
         self.engine.rescan()
         return {
@@ -144,7 +144,7 @@ class LonghunFontMCPServer:
             "summary": self.engine.get_summary(),
         }
 
-    def _verify(self, params: dict) -> dict:
+    def _verify(self, params: dict[str, Any]) -> dict[str, Any]:
         all_fonts = self.engine.get_all_fonts()
         valid = self.engine.get_valid_fonts()
         damaged = [f for f in all_fonts if not f.get("is_valid", False)]

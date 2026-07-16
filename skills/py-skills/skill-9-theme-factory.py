@@ -9,7 +9,7 @@ DNA:#龍芯⚡️2026-06-07-THEME-FACTORY-FILE2-v1.0
 """
 
 import json
-from typing import Dict, List
+from typing import Dict, List, Any
 from dataclasses import dataclass, asdict
 
 @dataclass
@@ -73,7 +73,7 @@ class Theme:
 }}
 """
     
-    def export_config(self) -> Dict:
+    def export_config(self) -> Dict[str, Any]:
         """导出配置"""
         return {
             "name": self.name,
@@ -242,7 +242,7 @@ class ThemeFactory:
         return list(ThemeFactory.PRESETS.keys())
     
     @staticmethod
-    def export_all_css(output_file: str = None) -> str:
+    def export_all_css(output_file: str | None = None) -> str:
         """导出所有主题的 CSS"""
         css = "/* 龍魂主题工厂 - 所有主题 */\n\n"
         
@@ -260,7 +260,7 @@ class ThemeFactory:
         return css
     
     @staticmethod
-    def export_all_json(output_file: str = None) -> str:
+    def export_all_json(output_file: str | None = None) -> str:
         """导出所有主题的 JSON"""
         themes = {}
         for preset_name in ThemeFactory.list_presets():

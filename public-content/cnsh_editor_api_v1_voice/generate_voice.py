@@ -43,12 +43,12 @@ SCRIPT_PATH = Path(__file__).with_name("voice_script.json")
 OUTPUT_DIR = Path(__file__).parent
 
 
-def load_script(path: Path) -> dict:
+def load_script(path: Path) -> dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def generate_segment(service: VoiceService, segment: dict, output_dir: Path) -> Path:
+def generate_segment(service: VoiceService, segment: dict[str, Any], output_dir: Path) -> Path:
     """生成单个音频片段，返回 mp3 路径。"""
     seg_id = segment["id"]
     text = segment["text"].strip()

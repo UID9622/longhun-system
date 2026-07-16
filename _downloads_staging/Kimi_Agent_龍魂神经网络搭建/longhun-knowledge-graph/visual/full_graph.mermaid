@@ -1,0 +1,277 @@
+%% 龙魂系统知识图谱 - 完整全景图
+%% UID9622 | 龙魂系统全栈可视化
+%% 包含: 图谱A(主权+治理+机制) + 图谱B(治理+机制+基础) + 跨图谱连接
+
+graph TD
+    %% ============ 样式定义 ============
+    classDef sovereignty fill:#DC2626,color:#fff,stroke:#991B1B,stroke-width:2px
+    classDef governanceA fill:#EA580C,color:#fff,stroke:#9A3412,stroke-width:2px
+    classDef mechanismA fill:#16A34A,color:#fff,stroke:#166534,stroke-width:2px
+    classDef governanceB fill:#2563EB,color:#fff,stroke:#1E40AF,stroke-width:2px
+    classDef mechanismB fill:#7C3AED,color:#fff,stroke:#5B21B6,stroke-width:2px
+    classDef foundation fill:#4B5563,color:#fff,stroke:#1F2937,stroke-width:2px
+
+    %% ============ 图谱A：主权层 ============
+    subgraph SG_主权层["⛩️ 主权层 · Sovereignty Layer"]
+        direction TB
+        subgraph SG_法律管辖链["📜 法律管辖链"]
+            direction LR
+            term_jurisdiction["法律管辖"]
+            term_exclusive["专属管辖"]
+            term_international["国际法不适用"]
+            term_immunity["主权豁免"]
+            term_china_law["中国法律"]
+            term_china_court["中国法院"]
+            term_no_arbitration["排除仲裁"]
+            term_no_foreign["排除外国法院"]
+            term_no_investigation["不受外国调查"]
+            term_counter["保留反制权利"]
+        end
+
+        subgraph SG_核心主张["⚔️ 核心主张四条铁律"]
+            direction LR
+            claim_core["核心主张四条铁律"]
+            claim_chinese_logic["中文即逻辑"]
+            claim_cnsh_open["CNSH开放"]
+            claim_no_commercial["不归属商业"]
+            claim_no_platform["不绑定平台"]
+        end
+
+        subgraph SG_普惠原则["🌏 普惠原则"]
+            direction LR
+            commitment_universal["普惠原则"]
+            commit_open_grammar["语法公开"]
+            commit_open_source["实现开源"]
+            commit_zero_data["零数据收集"]
+            commit_zero_lock["零生态锁定"]
+        end
+    end
+
+    %% ============ 图谱A：治理层 ============
+    subgraph SG_治理层A["🛡️ 治理层A · Governance Layer A"]
+        direction TB
+        subgraph SG_禁止行为清单["🚫 禁止行为清单"]
+            direction LR
+            behavior_prohibited["禁止行为清单"]
+            beh_block["封锁访问"]
+            beh_monopoly["技术垄断"]
+            beh_harvest["用户收割"]
+            beh_tamper["语义篡改"]
+            beh_confuse["来源混淆"]
+            beh_hide["知道不说"]
+            beh_patent["专利封存"]
+        end
+    end
+
+    %% ============ 图谱A：机制层 ============
+    subgraph SG_机制层A["⚙️ 机制层A · Mechanism Layer A"]
+        direction TB
+        subgraph SG_自动熔断["🔥 自动熔断机制"]
+            direction LR
+            mech_fuse["自动熔断机制"]
+            mech_detect["检测违规"]
+            mech_trigger["触发熔断"]
+            mech_dna["生成DNA记录"]
+            mech_ai["AI自动执行"]
+            mech_protocol_first["协议优先于指令"]
+        end
+
+        subgraph SG_三色审计["🚦 三色审计"]
+            direction TB
+            audit_three["三色审计"]
+            subgraph SG_审计结果["审计结果"]
+                direction LR
+                audit_green["🟢 合规"]
+                audit_yellow["🟡 警告"]
+                audit_red["🔴 关闭"]
+            end
+            subgraph SG_关闭对象["关闭对象"]
+                direction LR
+                audit_close_target["关闭对象"]
+                audit_close_perm["永久关闭"]
+                audit_close_temp["限期关闭"]
+            end
+        end
+    end
+
+    %% ============ 图谱B：治理层 ============
+    subgraph SG_治理层B["🛡️ 治理层B · Governance Layer B"]
+        direction TB
+        subgraph SG_核心宗旨["⚔️ 核心宗旨"]
+            direction LR
+            principle_core["核心宗旨"]
+            prin_people["取之于民用之于民"]
+            prin_archive["贡献即存档"]
+            prin_no_profit["回馈不依赖商业利润"]
+            prin_hereditary["世袭继承"]
+            prin_never_hide["永不掩盖"]
+        end
+
+        subgraph SG_贡献维度["📊 贡献三维度"]
+            direction LR
+            contrib_dims["贡献三维度"]
+            contrib_code["代码贡献40%"]
+            contrib_doc["协议文档贡献30%"]
+            contrib_community["传播社区贡献30%"]
+        end
+    end
+
+    %% ============ 图谱B：机制层 ============
+    subgraph SG_机制层B["⚙️ 机制层B · Mechanism Layer B"]
+        direction TB
+        subgraph SG_回馈机制["🎁 回馈机制"]
+            direction LR
+            reward_mech["回馈机制"]
+            reward_source["回馈来源"]
+            reward_pool["资金池分配"]
+            reward_formula["回馈公式"]
+        end
+
+        subgraph SG_三池结构["🏊 三池结构"]
+            direction LR
+            pool_struct["三池结构"]
+            pool_personal["个人权益"]
+            pool_fund["基金池"]
+            pool_support["扶持池"]
+        end
+    end
+
+    %% ============ 图谱B：基础层 ============
+    subgraph SG_基础层["🏛️ 基础层 · Foundation Layer"]
+        direction TB
+        subgraph SG_世袭继承["👑 世袭继承"]
+            direction LR
+            inherit_mech["世袭继承"]
+            inherit_archive["贡献档案永久保留"]
+            inherit_descendants["后代可继承权益"]
+            inherit_dna["DNA追溯链可延续"]
+        end
+
+        subgraph SG_道德熔断["🛡️ 道德绑架熔断"]
+            direction LR
+            fuse_moral["道德绑架熔断"]
+            fuse_identify["识别索取拒绝行为"]
+            fuse_archive["会话归档+用户标记"]
+            fuse_reject["拒绝后续请求"]
+        end
+    end
+
+    %% ═══════════════════════════════════════════
+    %% ============ 图谱A 内部边 ============
+    %% ═══════════════════════════════════════════
+    %% 法律管辖链
+    term_jurisdiction -->|"确立"| term_exclusive
+    term_exclusive -->|"排除"| term_international
+    term_international -->|"确立"| term_immunity
+    term_immunity -->|"适用"| term_china_law
+    term_china_law -->|"管辖"| term_china_court
+    term_china_court -->|"排除"| term_no_arbitration
+    term_no_arbitration -->|"排除"| term_no_foreign
+    term_no_foreign -->|"拒绝"| term_no_investigation
+    term_no_investigation -->|"保留"| term_counter
+
+    %% 核心主张
+    claim_core -->|"铁律1"| claim_chinese_logic
+    claim_core -->|"铁律2"| claim_cnsh_open
+    claim_core -->|"铁律3"| claim_no_commercial
+    claim_core -->|"铁律4"| claim_no_platform
+
+    %% 普惠原则
+    commitment_universal -->|"公开"| commit_open_grammar
+    commitment_universal -->|"开源"| commit_open_source
+    commitment_universal -->|"零数据"| commit_zero_data
+    commitment_universal -->|"零锁定"| commit_zero_lock
+
+    %% 禁止行为
+    behavior_prohibited -->|"禁止"| beh_block
+    behavior_prohibited -->|"禁止"| beh_monopoly
+    behavior_prohibited -->|"禁止"| beh_harvest
+    behavior_prohibited -->|"禁止"| beh_tamper
+    behavior_prohibited -->|"禁止"| beh_confuse
+    behavior_prohibited -->|"禁止"| beh_hide
+    behavior_prohibited -->|"禁止"| beh_patent
+
+    %% 熔断机制
+    mech_fuse -->|"启动"| mech_detect
+    mech_detect -->|"触发"| mech_trigger
+    mech_trigger -->|"生成"| mech_dna
+    mech_dna -->|"驱动"| mech_ai
+    mech_ai -->|"执行"| mech_protocol_first
+
+    %% 三色审计
+    audit_three -->|"通过"| audit_green
+    audit_three -->|"警告"| audit_yellow
+    audit_three -->|"关闭"| audit_red
+    audit_red -->|"确定"| audit_close_target
+    audit_close_target -->|"永久"| audit_close_perm
+    audit_close_target -->|"限期"| audit_close_temp
+
+    %% 图谱A跨层连接
+    claim_no_commercial -->|"驱动"| commitment_universal
+    beh_harvest -->|"触发"| mech_detect
+    mech_protocol_first -->|"进入"| audit_three
+
+    %% ═══════════════════════════════════════════
+    %% ============ 图谱B 内部边 ============
+    %% ═══════════════════════════════════════════
+    %% 核心宗旨
+    principle_core -->|"宗旨1"| prin_people
+    principle_core -->|"宗旨2"| prin_archive
+    principle_core -->|"宗旨3"| prin_no_profit
+    principle_core -->|"宗旨4"| prin_hereditary
+    principle_core -->|"宗旨5"| prin_never_hide
+
+    %% 贡献三维度
+    contrib_dims -->|"权重40%"| contrib_code
+    contrib_dims -->|"权重30%"| contrib_doc
+    contrib_dims -->|"权重30%"| contrib_community
+
+    %% 回馈机制
+    reward_mech -->|"来源"| reward_source
+    reward_mech -->|"分配"| reward_pool
+    reward_mech -->|"计算"| reward_formula
+
+    %% 三池结构
+    pool_struct -->|"个人"| pool_personal
+    pool_struct -->|"基金"| pool_fund
+    pool_struct -->|"扶持"| pool_support
+    reward_pool -->|"分配至"| pool_struct
+
+    %% 世袭继承
+    inherit_mech -->|"保留"| inherit_archive
+    inherit_mech -->|"继承"| inherit_descendants
+    inherit_mech -->|"延续"| inherit_dna
+
+    %% 道德绑架熔断
+    fuse_moral -->|"识别"| fuse_identify
+    fuse_moral -->|"归档"| fuse_archive
+    fuse_moral -->|"拒绝"| fuse_reject
+
+    %% 图谱B跨层连接
+    prin_archive -->|"驱动"| inherit_mech
+    prin_hereditary -->|"驱动"| inherit_mech
+    prin_no_profit -->|"限制"| reward_source
+    contrib_code -->|"计入"| reward_formula
+    contrib_doc -->|"计入"| reward_formula
+    contrib_community -->|"计入"| reward_formula
+
+    %% ═══════════════════════════════════════════
+    %% ============ 跨图谱连接（7条） ============
+    %% ═══════════════════════════════════════════
+    audit_red -.->|"🔴关闭触发道德熔断"| fuse_moral
+    mech_fuse -.->|"熔断暂停回馈"| reward_mech
+    claim_no_commercial -.->|"限制商业来源"| reward_source
+    beh_harvest -.->|"用户收割触发熔断"| fuse_moral
+    prin_archive -.->|"贡献生成DNA记录"| mech_dna
+    fuse_moral -.->|"熔断进入审计"| audit_three
+    inherit_dna -.->|"继承延续DNA链"| mech_dna
+
+    %% ═══════════════════════════════════════════
+    %% ============ 样式应用 ============
+    %% ═══════════════════════════════════════════
+    class term_jurisdiction,term_exclusive,term_international,term_immunity,term_china_law,term_china_court,term_no_arbitration,term_no_foreign,term_no_investigation,term_counter,claim_core,claim_chinese_logic,claim_cnsh_open,claim_no_commercial,claim_no_platform,commitment_universal,commit_open_grammar,commit_open_source,commit_zero_data,commit_zero_lock sovereignty
+    class behavior_prohibited,beh_block,beh_monopoly,beh_harvest,beh_tamper,beh_confuse,beh_hide,beh_patent governanceA
+    class mech_fuse,mech_detect,mech_trigger,mech_dna,mech_ai,mech_protocol_first,audit_three,audit_green,audit_yellow,audit_red,audit_close_target,audit_close_perm,audit_close_temp mechanismA
+    class principle_core,prin_people,prin_archive,prin_no_profit,prin_hereditary,prin_never_hide,contrib_dims,contrib_code,contrib_doc,contrib_community governanceB
+    class reward_mech,reward_source,reward_pool,reward_formula,pool_struct,pool_personal,pool_fund,pool_support mechanismB
+    class inherit_mech,inherit_archive,inherit_descendants,inherit_dna,fuse_moral,fuse_identify,fuse_archive,fuse_reject foundation

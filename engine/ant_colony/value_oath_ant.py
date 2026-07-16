@@ -175,7 +175,7 @@ class ValueAlignmentReport:
         lines.append(f"\n  DNA: {self.dna}")
         return "\n".join(lines)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "timestamp": self.timestamp,
             "overall_score": round(self.overall_score, 4),

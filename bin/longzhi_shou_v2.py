@@ -2067,7 +2067,7 @@ class 审计日志:
         self.路径 = Path(配置.日志路径)
         self.路径.parent.mkdir(parents=True, exist_ok=True)
 
-    def 记录(self, 用户: str, 等级: int, 原始消息: str, 解析结果: Dict, 执行结果: Dict):
+    def 记录(self, 用户: str, 等级: int, 原始消息: str, 解析结果: Dict[str, Any], 执行结果: Dict[str, Any]):
         条目 = {
             "时间": datetime.now(timezone.utc).isoformat(),
             "用户": 用户,
@@ -2557,7 +2557,7 @@ if __name__ == "__main__":
 
 
 # ============ selftest() 自检函数 ============
-def selftest() -> dict:
+def selftest() -> dict[str, Any]:
     """
     自检函数：验证核心模块是否正常加载。
     DNA: #龍芯⚡️2026-07-01-LONGZHISHOU-SELFTEST-v2.0

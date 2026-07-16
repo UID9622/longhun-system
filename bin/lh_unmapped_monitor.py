@@ -35,7 +35,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "inbox"
@@ -94,7 +94,7 @@ class UnmappedMonitor:
         }
         MONITOR_STATE.write_text(json.dumps(data, ensure_ascii=False, indent=2))
 
-    def _load_inbox_data(self) -> dict:
+    def _load_inbox_data(self) -> dict[str, Any]:
         """加载inbox数据用于分析"""
         if not INBOX_DB.exists():
             return {"items": [], "count": 0}
@@ -209,7 +209,7 @@ class UnmappedMonitor:
                 except Exception as e:
                     print(f"⚠️ Bark推送失败: {e}")
 
-    def dashboard(self) -> dict:
+    def dashboard(self) -> dict[str, Any]:
         """生成仪表盘数据"""
         self.check()  # 先更新一次
         inbox = self._load_inbox_data()

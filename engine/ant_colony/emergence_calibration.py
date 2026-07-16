@@ -26,7 +26,7 @@ import time
 import os
 from datetime import datetime, timezone, timedelta
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 from itertools import product
 
@@ -60,7 +60,7 @@ class SensitivityResult:
     C: float
     V: float
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "alpha": round(self.alpha, 4),
             "beta": round(self.beta, 4),
@@ -158,7 +158,7 @@ class EmergenceCalibrator:
         "V": 0.780,   # 变异容忍
     }
 
-    def __init__(self, inputs: dict = None):
+    def __init__(self, inputs: dict[str, Any] = None):
         self.inputs = inputs or self.DEFAULT_INPUTS.copy()
         self.calc = EmergenceCalculator()
 
@@ -253,7 +253,7 @@ class EmergenceCalibrator:
                     beta_range: Tuple[float, float] = (0.2, 0.6),
                     gamma_range: Tuple[float, float] = (0.05, 0.35),
                     delta_range: Tuple[float, float] = (0.02, 0.25),
-                    add_input_noise: bool = True) -> Dict:
+                    add_input_noise: bool = True) -> Dict[str, Any]:
         """
         蒙特卡洛模拟 E 公式
 

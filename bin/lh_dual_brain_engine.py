@@ -173,7 +173,7 @@ class DualBrainRecord:
     dna_trace: str
     hash_chain: str = ""       # SHA256链式哈希
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         def _serialize(obj):
             if isinstance(obj, Enum):
                 return obj.value

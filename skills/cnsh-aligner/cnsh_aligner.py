@@ -12,7 +12,7 @@ DNA:#龍芯⚡️2026-06-02-CNSH-ALIGNER-FILE3-v1.0
 import re
 import json
 from datetime import datetime
-from typing import Tuple, List, Dict
+from typing import Tuple, List, Dict, Any
 from enum import Enum
 
 class AuditColor(Enum):
@@ -153,7 +153,7 @@ class CNSHAligner:
         return (text, conf, issues)
     
     # ═══ 综合对齐 ═══
-    def align_and_correct(self, text: str, context: str = '') -> Dict:
+    def align_and_correct(self, text: str, context: str = '') -> Dict[str, Any]:
         """完整的四层对齐和矫正"""
         
         results = {
@@ -220,7 +220,7 @@ class CNSHAligner:
         
         return results
     
-    def _generate_suggestion(self, results: Dict) -> str:
+    def _generate_suggestion(self, results: Dict[str, Any]) -> str:
         """根据检查结果生成修复建议"""
         if not results['all_issues']:
             return '✅ CNSH语法完全通过，无需修正'
@@ -238,7 +238,7 @@ class CNSHAligner:
             return f'🟢 低危警告{issues_count}项，可继续执行。建议：' + \
                    '；'.join(results['all_issues'][:3])
     
-    def format_report(self, results: Dict) -> str:
+    def format_report(self, results: Dict[str, Any]) -> str:
         """生成格式化的审计报告"""
         report = []
         report.append('═' * 70)

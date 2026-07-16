@@ -64,7 +64,7 @@ def 数字根(text: str) -> int:
     return total
 
 
-def 数字根熔断检查(dr: int) -> tuple:  # type: ignore[reportMissingTypeArgument]
+def 数字根熔断检查(dr: int) -> tuple[Any, ...]:  # type: ignore[reportMissingTypeArgument]
     """
     数字根熔断判定:
       dr ∈ {3, 9} → 🔴熔断 (拒绝执行)

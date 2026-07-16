@@ -10,7 +10,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "cnsh-core"))
 from cnsh_unified import DNA工具
@@ -19,11 +19,11 @@ ROOT = Path(__file__).parent
 LAWS_PATH = ROOT / "laws.json"
 
 
-def 加载法律库() -> dict:
+def 加载法律库() -> dict[str, Any]:
     return json.loads(LAWS_PATH.read_text(encoding="utf-8"))
 
 
-def 匹配法律(问题: str, 法律库: dict, top_k: int = 5) -> List[Dict]:
+def 匹配法律(问题: str, 法律库: dict[str, Any], top_k: int = 5) -> List[Dict]:
     问题小写 = 问题.lower()
     得分列表 = []
     for 分类名, 分类数据 in 法律库["categories"].items():
@@ -44,7 +44,7 @@ def 匹配法律(问题: str, 法律库: dict, top_k: int = 5) -> List[Dict]:
     return [item[1] for item in 得分列表[:top_k]]
 
 
-def 解释问题(问题: str, 法律库: Optional[dict] = None, 语气: str = "大白话") -> Dict:
+def 解释问题(问题: str, 法律库: Optional[dict] = None, 语气: str = "大白话") -> Dict[str, Any]:
     法律库 = 法律库 or 加载法律库()
     法条列表 = 匹配法律(问题, 法律库)
 

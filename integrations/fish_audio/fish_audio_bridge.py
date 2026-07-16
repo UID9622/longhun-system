@@ -16,7 +16,7 @@ import os
 import requests
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 
 class LongHunFishAudioBridge:
@@ -26,9 +26,9 @@ class LongHunFishAudioBridge:
 
     def __init__(
         self,
-        reference_audio: Optional[Path] = None,
-        model_id_file: Optional[Path] = None,
-        output_dir: Optional[Path] = None,
+        reference_audio: Optional, Any[Path] = None,
+        model_id_file: Optional, Any[Path] = None,
+        output_dir: Optional, Any[Path] = None,
     ):
         self.api_key = self._load_api_key()
 
@@ -49,7 +49,7 @@ class LongHunFishAudioBridge:
         )
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-    def _load_api_key(self) -> Optional[str]:
+    def _load_api_key(self) -> Optional, Any[str]:
         """从环境变量或 secrets.env 读取 API key。"""
         key = os.getenv("FISH_AUDIO_API_KEY")
         if key:
@@ -68,7 +68,7 @@ class LongHunFishAudioBridge:
                         return line.split("=", 1)[1].strip().strip('"').strip("'")
         return None
 
-    def health_check(self) -> dict:
+    def health_check(self) -> dict[str, Any]:
         """返回当前状态。"""
         return {
             "api_key_configured": bool(self.api_key),
@@ -78,7 +78,7 @@ class LongHunFishAudioBridge:
             "output_dir": str(self.output_dir),
         }
 
-    def get_model_id(self) -> Optional[str]:
+    def get_model_id(self) -> Optional, Any[str]:
         """读取本地保存的 model_id。"""
         if self.model_id_file.exists():
             try:
@@ -108,7 +108,7 @@ class LongHunFishAudioBridge:
         self,
         name: str = "龍魂-UID9622-真声",
         description: str = "UID9622 / 龍芯北辰本人音色，用于微信公众号播报与龍魂系统语音交互",
-    ) -> Optional[str]:
+    ) -> Optional, Any[str]:
         """上传参考音频，创建云端声音模型。返回 model_id。"""
         if not self.api_key:
             raise RuntimeError("未配置 FISH_AUDIO_API_KEY")
@@ -151,8 +151,8 @@ class LongHunFishAudioBridge:
     def text_to_speech(
         self,
         text: str,
-        output_file: Optional[Path] = None,
-        model_id: Optional[str] = None,
+        output_file: Optional, Any[Path] = None,
+        model_id: Optional, Any[str] = None,
         timeout: int = 120,
     ) -> Path:
         """用 UID9622 声音模型生成语音。"""

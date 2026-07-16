@@ -9,7 +9,7 @@ DNA: #龍芯⚡️2026-06-29-CNSH-OPTIMIZER-v2.1
 - 表达式化简（Expression Simplification）
 """
 from copy import copy
-from typing import List, Optional
+from typing import List, Optional, Any
 
 from . import ast_nodes as ast
 
@@ -37,7 +37,7 @@ class Optimizer:
             return node
         return self._opt(node)
 
-    def report(self) -> dict:
+    def report(self) -> dict[str, Any]:
         return dict(self.stats)
 
     # ---------- 节点分发 ----------

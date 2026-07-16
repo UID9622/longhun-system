@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 龍魂审计引擎 v1.0 — CNSH Audit Engine
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8,17 +9,9 @@ DNA     : #龍芯⚡️20260422-CODE-AUDIT01
 端口    : :9622 (三色审计) | :8765 (主服务)
 原则    : 不黑箱·不收割·不说教·审计即主权
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-功能清单:
-  ① SQLite append-only 审计日志 (触发器防篡改)
-  ② GPG 签名每条记录 (UID9622 身份锁定)
-  ③ Flask 路由: /write_dna · /audit · /log · /stats · /sync_notion
-  ④ Notion API 推送审计记录
-  ⑤ API 调用计数器 (每个 token/服务单独统计)
-  ⑥ 人格动作追踪 (P00-P13 + 五大后台人格)
-  ⑦ 三色状态自动判定
+功能: SQLite审计/GPG签名/Flask路由/Notion推送/人格追踪/三色判定
 """
-
+from typing import Any
 import os, sqlite3, json, hashlib, time, subprocess, threading
 from datetime import datetime, timezone
 from flask import Flask, request, jsonify, abort
@@ -176,7 +169,7 @@ def verify_token(req_obj) -> bool:
 # ═══════════════════════════════════════════════
 def write_audit(event_type: str, source: str, target: str,
                 payload: str = "", status: str = "🟡",
-                note: str = "") -> dict:
+                note: str = "") -> dict[str, Any]:
     ts_ns  = time.time_ns()
     ts_str = datetime.now(timezone.utc).isoformat()
     p_hash = sha256(payload) if payload else ""
@@ -249,7 +242,7 @@ def fuse_check(service: str, success: bool) -> str:
 # ═══════════════════════════════════════════════
 # Notion 同步
 # ═══════════════════════════════════════════════
-def notion_push(record: dict) -> bool:
+def notion_push(record: dict[str, Any]) -> bool:
     """把一条审计记录推送到 Notion 审计数据库"""
     if not NOTION_TOKEN or not NOTION_DB_ID:
         return False

@@ -32,7 +32,7 @@ EXCLUDE_FILES = {"20260620 221423-E7210E2A.m4a"}
 SAMPLE_RATE = 24000
 
 
-def run(cmd: list, **kwargs):
+def run(cmd: list[Any], **kwargs):
     print("$ " + " ".join(str(c) for c in cmd))
     return subprocess.run(cmd, check=True, **kwargs)
 
@@ -46,7 +46,7 @@ def get_duration(path: Path) -> float:
     return float(out.stdout.strip())
 
 
-def detect_speech_regions(wav_path: Path, noise_db: int = -40, min_silence: float = 0.3) -> list:
+def detect_speech_regions(wav_path: Path, noise_db: int = -40, min_silence: float = 0.3) -> list[Any]:
     """用 ffmpeg silencedetect 找出有声区间。"""
     proc = subprocess.run(
         ["ffmpeg", "-i", str(wav_path), "-af",
@@ -87,7 +87,7 @@ def slice_region(src_wav: Path, dst_wav: Path, start: float, end: float):
     ])
 
 
-def pick_reference(wav_files: list) -> Path:
+def pick_reference(wav_files: list[Any]) -> Path:
     """挑一段 6-10 秒、非首尾的干净片段作为参考音。"""
     for wav in wav_files:
         regions = detect_speech_regions(wav, noise_db=-40, min_silence=0.5)

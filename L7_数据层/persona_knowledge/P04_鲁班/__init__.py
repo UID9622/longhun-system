@@ -127,7 +127,7 @@ class CodeImplementor:
             mid_priority: List[str] = field(default_factory=lambda: {mid_dims})
             watch_list: List[str] = field(default_factory=lambda: {low_dims})
 
-            def execute_phase_1(self) -> Dict:
+            def execute_phase_1(self) -> Dict[str, Any]:
                 """优先执行高优先级维度"""
                 results = {{}}
                 {chr(10).join(f'results["{d}"] = self._handle_{d.replace(" ", "_")[:15]}()'

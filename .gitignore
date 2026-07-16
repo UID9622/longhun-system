@@ -132,3 +132,10 @@ CLAUDE.md.asc
 字体/*.ttf
 字体/*.otf
 字体/*.woff2
+
+# --- 运行时状态（不入版本库）---
+state/
+
+# --- 编辑器工作区 ---
+.obsidian/
+.codebuddy/memory/

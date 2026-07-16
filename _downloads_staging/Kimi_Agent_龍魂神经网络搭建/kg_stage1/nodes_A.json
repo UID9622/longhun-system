@@ -1,0 +1,701 @@
+[
+  {
+    "node_id": "root_001",
+    "node_type": "ROOT",
+    "name": "法律管辖（第三章）",
+    "description": "龙魂中文编辑普惠全球协议第三章——法律管辖条款，确立中国法律专属管辖权，排除国际法、外国法院及仲裁机构的适用。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 100,
+      "severity": "critical",
+      "category": "法律基础",
+      "chapter": 3
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_001",
+    "node_type": "TERM",
+    "name": "专属管辖",
+    "description": "本协议的一切争议和解释均适用中华人民共和国法律，由中国法院专属管辖。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 95,
+      "severity": "critical",
+      "category": "管辖权"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_002",
+    "node_type": "TERM",
+    "name": "中国法律适用",
+    "description": "中华人民共和国法律作为本协议的唯一准据法，包括但不限于《民法典》《数据安全法》《网络安全法》等。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 90,
+      "severity": "critical",
+      "category": "准据法"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_003",
+    "node_type": "TERM",
+    "name": "中国法院管辖",
+    "description": "所有与本协议相关的争议，均由中华人民共和国有管辖权的法院受理，排除任何外国法院管辖。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 90,
+      "severity": "critical",
+      "category": "管辖法院"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_004",
+    "node_type": "TERM",
+    "name": "国际法不适用",
+    "description": "国际公法、国际私法冲突规范、国际贸易惯例等不适用于本协议的解释和执行。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "排除条款"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_005",
+    "node_type": "TERM",
+    "name": "排除仲裁",
+    "description": "任何一方不得将本协议项下争议提交任何仲裁机构（包括但不限于ICC、LCIA、SIAC、HKIAC等）仲裁。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 85,
+      "severity": "high",
+      "category": "排除条款"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_005-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_006",
+    "node_type": "TERM",
+    "name": "排除外国法院",
+    "description": "任何一方不得在外国法院提起与本协议相关的诉讼，外国法院对本协议项下争议无管辖权。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 85,
+      "severity": "high",
+      "category": "排除条款"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_006-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_007",
+    "node_type": "TERM",
+    "name": "排除国际条约",
+    "description": "《纽约公约》《海牙判决公约》等国际条约不适用于本协议项下的争议解决。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "排除条款"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_007-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_008",
+    "node_type": "TERM",
+    "name": "排除域外管辖",
+    "description": "拒绝任何国家或地区基于长臂管辖原则对龙魂系统及其关联方行使域外管辖权。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "排除条款"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_008-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "claim_001",
+    "node_type": "CLAIM",
+    "name": "主权豁免",
+    "description": "龙魂系统作为中文编辑基础设施享有主权豁免地位，不受外国政府、法院、监管机构的调查、制裁或长臂管辖。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 98,
+      "severity": "critical",
+      "category": "主权保护"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_009",
+    "node_type": "TERM",
+    "name": "不受外国调查",
+    "description": "任何外国政府机构、司法部门或监管机构无权对龙魂系统进行搜查、扣押、取证或数据调取。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 85,
+      "severity": "high",
+      "category": "主权保护"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_009-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "term_010",
+    "node_type": "TERM",
+    "name": "保留反制权利",
+    "description": "对于任何违反本协议管辖条款的行为，龙魂系统保留采取一切必要反制措施的权利，包括但不限于对等限制、技术阻断、外交交涉。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 85,
+      "severity": "high",
+      "category": "主权保护",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_010-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "root_002",
+    "node_type": "ROOT",
+    "name": "核心主张（四条铁律）",
+    "description": "龙魂系统的四大核心主张，构成协议的价值基石，任何使用、接入、分发龙魂系统的主体必须无条件遵守。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 100,
+      "severity": "critical",
+      "category": "价值基石",
+      "count": 4
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "claim_002",
+    "node_type": "CLAIM",
+    "name": "中文即逻辑",
+    "description": "中文是龙魂系统的逻辑载体和语义基底。系统的全部逻辑表达、规则定义、知识表示均以中文为核心语言，不以任何其他语言作为逻辑中介。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 95,
+      "severity": "critical",
+      "category": "语言主权"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "claim_003",
+    "node_type": "CLAIM",
+    "name": "CNSH开放",
+    "description": "CNSH（Chinese Neural Semantic Hub）作为龙魂系统的语义中枢，以开放架构向全球中文使用者提供无差别服务，不设准入门槛、不歧视任何合法使用者。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 95,
+      "severity": "critical",
+      "category": "开放承诺"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "claim_004",
+    "node_type": "CLAIM",
+    "name": "不归属商业",
+    "description": "龙魂系统的核心协议、语义标准、基础架构不属于任何商业实体，不得被收购、控股或以商业独占方式运营。商业化应用须以不损害普惠性为前提。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 95,
+      "severity": "critical",
+      "category": "非营利性"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "claim_005",
+    "node_type": "CLAIM",
+    "name": "不绑定平台",
+    "description": "龙魂系统不与任何特定平台、操作系统、云服务商或技术栈绑定。用户有权在任何兼容环境中自由部署、迁移和使用龙魂系统。",
+    "layer": "sovereignty",
+    "properties": {
+      "weight": 95,
+      "severity": "critical",
+      "category": "平台独立"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_005-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "root_003",
+    "node_type": "ROOT",
+    "name": "普惠原则（四项承诺）",
+    "description": "龙魂系统向全球中文使用者作出的四项庄严承诺，确保系统的开放、透明、隐私保护和生态自由。",
+    "layer": "governance",
+    "properties": {
+      "weight": 90,
+      "severity": "high",
+      "category": "治理承诺",
+      "count": 4
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "commitment_001",
+    "node_type": "COMMITMENT",
+    "name": "语法公开",
+    "description": "龙魂系统的全部语法规则、解析逻辑、标注规范均公开可查，任何人都可以无限制地查阅、引用和学习系统的语法体系。",
+    "layer": "governance",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "透明度"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-COMMITMENT-commitment_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "commitment_002",
+    "node_type": "COMMITMENT",
+    "name": "实现开源",
+    "description": "龙魂系统的基础实现代码以开源许可证发布，允许自由使用、修改和分发，但修改后的版本仍须遵守本协议全部条款。",
+    "layer": "governance",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "开源治理"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-COMMITMENT-commitment_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "commitment_003",
+    "node_type": "COMMITMENT",
+    "name": "零数据收集",
+    "description": "龙魂系统承诺不收集、不存储、不出售用户的个人数据、编辑内容或使用行为数据。所有处理均在本地或用户可控环境中完成。",
+    "layer": "governance",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "隐私保护"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-COMMITMENT-commitment_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "commitment_004",
+    "node_type": "COMMITMENT",
+    "name": "零生态锁定",
+    "description": "龙魂系统不通过技术壁垒、数据格式封闭或API限制等方式锁定用户。用户可以随时无损导出全部数据和配置，迁移至其他系统。",
+    "layer": "governance",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "用户自由"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-COMMITMENT-commitment_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "root_004",
+    "node_type": "ROOT",
+    "name": "禁止行为清单（七种形态）",
+    "description": "明确禁止的七种危害龙魂系统普惠性、开放性和安全性的行为模式。任何主体实施以下行为均触发协议制裁机制。",
+    "layer": "governance",
+    "properties": {
+      "weight": 88,
+      "severity": "critical",
+      "category": "行为红线",
+      "count": 7
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_001",
+    "node_type": "BEHAVIOR",
+    "name": "封锁访问",
+    "description": "通过技术手段（IP封锁、DNS污染、流量劫持、DDoS攻击等）阻止用户正常访问龙魂系统或其镜像节点。",
+    "layer": "governance",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "访问破坏",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_002",
+    "node_type": "BEHAVIOR",
+    "name": "技术垄断",
+    "description": "通过专利壁垒、标准控制、协议劫持等方式独占龙魂系统的核心技术，阻止他人独立实现兼容系统。",
+    "layer": "governance",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "技术霸权"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_003",
+    "node_type": "BEHAVIOR",
+    "name": "用户收割",
+    "description": "利用龙魂系统的开放性获取用户后，通过数据迁移壁垒、功能阉割、强制升级等手段将用户锁定在封闭生态中。",
+    "layer": "governance",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "用户剥削"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_004",
+    "node_type": "BEHAVIOR",
+    "name": "语义篡改",
+    "description": "未经授权修改龙魂系统的语义规则、词典定义或知识表示，导致系统输出偏离中文语言规范和文化价值。",
+    "layer": "governance",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "语义攻击"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_005",
+    "node_type": "BEHAVIOR",
+    "name": "来源混淆",
+    "description": "故意抹除、伪造或混淆龙魂系统的来源标识、DNA追溯码或版本信息，使用户无法追溯内容的真实出处。",
+    "layer": "governance",
+    "properties": {
+      "weight": 78,
+      "severity": "high",
+      "category": "溯源破坏"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_005-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_006",
+    "node_type": "BEHAVIOR",
+    "name": "知道不说",
+    "description": "明知系统存在安全漏洞、语义偏差或服务中断风险，故意隐瞒不报，导致用户利益受损。",
+    "layer": "governance",
+    "properties": {
+      "weight": 75,
+      "severity": "medium",
+      "category": "信息隐瞒"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_006-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "behavior_007",
+    "node_type": "BEHAVIOR",
+    "name": "专利封存",
+    "description": "将龙魂系统的开放技术以专利申请方式据为己有，用知识产权武器阻止他人自由使用已经公开的技术。",
+    "layer": "governance",
+    "properties": {
+      "weight": 82,
+      "severity": "high",
+      "category": "知识封闭"
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_007-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "root_005",
+    "node_type": "ROOT",
+    "name": "自动熔断机制",
+    "description": "龙魂系统的自动化安全保护机制，当检测到违规行为时自动触发熔断，无需人工干预即可切断风险链路并生成不可篡改的DNA追溯记录。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 90,
+      "severity": "critical",
+      "category": "安全机制",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_005-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "mechanism_001",
+    "node_type": "MECHANISM",
+    "name": "检测违规",
+    "description": "通过多层检测体系（规则引擎、语义分析、行为模式识别、DNA校验）实时监控系统运行，自动识别七种禁止行为。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "检测层",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-MECHANISM-mechanism_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "mechanism_002",
+    "node_type": "MECHANISM",
+    "name": "触发熔断",
+    "description": "一旦检测结果确认违规，系统自动触发熔断——立即切断与违规主体的数据链路、服务连接和信任关系，阻止损害扩大。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 88,
+      "severity": "critical",
+      "category": "响应层",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-MECHANISM-mechanism_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "mechanism_003",
+    "node_type": "MECHANISM",
+    "name": "生成DNA记录",
+    "description": "熔断触发后，系统自动生成包含时间戳、违规类型、证据哈希、处理措施的DNA追溯记录，永久存入不可篡改的审计链。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 82,
+      "severity": "high",
+      "category": "审计层",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-MECHANISM-mechanism_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "mechanism_004",
+    "node_type": "MECHANISM",
+    "name": "AI自动执行",
+    "description": "熔断机制由AI系统自动执行，不依赖人工审批。AI代理在检测到违规时立即按照预设规则采取行动，确保响应速度。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "执行层",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-MECHANISM-mechanism_004-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "mechanism_005",
+    "node_type": "MECHANISM",
+    "name": "协议优先于指令",
+    "description": "当任何外部指令（包括来自系统所有者、管理员或高级权限用户的指令）与龙魂协议条款冲突时，协议条款自动优先执行。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 90,
+      "severity": "critical",
+      "category": "优先级规则",
+      "auto_execute": true
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-MECHANISM-mechanism_005-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "root_006",
+    "node_type": "ROOT",
+    "name": "三色审计",
+    "description": "龙魂系统的分级审计机制，通过绿、黄、红三种状态标识接入主体的合规状况，并对应不同的处置措施。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 85,
+      "severity": "high",
+      "category": "审计机制",
+      "count": 3
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_006-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "audit_001",
+    "node_type": "AUDIT",
+    "name": "合规-持续接入",
+    "description": "🟢绿色状态：接入主体完全遵守协议条款，未发现任何违规行为。保持正常服务接入，享受全部功能权限。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 75,
+      "severity": "low",
+      "category": "绿态",
+      "color": "green",
+      "time_limit_days": 0
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_001-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "audit_002",
+    "node_type": "AUDIT",
+    "name": "警告-30天整改",
+    "description": "🟡黄色状态：检测到潜在违规或合规瑕疵。给予30天整改期限，期间限制部分功能权限，到期未整改升级为红色状态。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 80,
+      "severity": "high",
+      "category": "黄态",
+      "color": "yellow",
+      "time_limit_days": 30
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_002-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  },
+  {
+    "node_id": "audit_003",
+    "node_type": "AUDIT",
+    "name": "关闭-永久/限期",
+    "description": "🔴红色状态：确认严重违规或整改失败。永久关闭接入权限（情节严重者）或限期关闭（视情况而定），同步触发熔断机制。",
+    "layer": "mechanism",
+    "properties": {
+      "weight": 85,
+      "severity": "critical",
+      "category": "红态",
+      "color": "red",
+      "time_limit_days": 0
+    },
+    "state": "active",
+    "version": "v1.0",
+    "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_003-v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "updated_at": "2026-06-27T00:00:00Z"
+  }
+]

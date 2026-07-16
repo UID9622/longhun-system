@@ -4,7 +4,7 @@ import html
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from .media_manager import MediaManager
 from .wechat_client import WeChatClient
@@ -59,7 +59,7 @@ class ArticleManager:
         digest: Optional[str] = None,
         cover_media_id: Optional[str] = None,
         source_url: Optional[str] = None,
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Build a single article dict for draft/add or draft/update."""
         html_content = self.markdown_to_html(content)
 
@@ -88,7 +88,7 @@ class ArticleManager:
         digest: Optional[str] = None,
         cover_image_path: Optional[str] = None,
         source_url: Optional[str] = None,
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Create a new draft article."""
         token = self.client.get_access_token()
 
@@ -132,7 +132,7 @@ class ArticleManager:
         digest: Optional[str] = None,
         cover_image_path: Optional[str] = None,
         source_url: Optional[str] = None,
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Update an existing draft article."""
         token = self.client.get_access_token()
 
@@ -166,7 +166,7 @@ class ArticleManager:
 
         return result
 
-    def publish(self, media_id: str) -> Dict:
+    def publish(self, media_id: str) -> Dict[str, Any]:
         """Publish a draft to all subscribers."""
         token = self.client.get_access_token()
         return self.client._request(
@@ -176,7 +176,7 @@ class ArticleManager:
             data={"media_id": media_id},
         )
 
-    def get_publish_status(self, publish_id: str) -> Dict:
+    def get_publish_status(self, publish_id: str) -> Dict[str, Any]:
         """Get publish task status."""
         token = self.client.get_access_token()
         return self.client._request(
@@ -186,7 +186,7 @@ class ArticleManager:
             data={"publish_id": publish_id},
         )
 
-    def list_drafts(self, offset: int = 0, count: int = 20, no_content: int = 0) -> Dict:
+    def list_drafts(self, offset: int = 0, count: int = 20, no_content: int = 0) -> Dict[str, Any]:
         """List draft articles."""
         token = self.client.get_access_token()
         return self.client._request(
@@ -196,7 +196,7 @@ class ArticleManager:
             data={"offset": offset, "count": count, "no_content": no_content},
         )
 
-    def delete_draft(self, media_id: str) -> Dict:
+    def delete_draft(self, media_id: str) -> Dict[str, Any]:
         """Delete a draft."""
         token = self.client.get_access_token()
         return self.client._request(

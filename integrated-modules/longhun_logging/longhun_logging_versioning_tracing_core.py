@@ -72,7 +72,7 @@ class LogEntry:
     status: str  # success/failure/partial
     error_message: Optional[str] = None
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
     
     def to_json(self) -> str:
@@ -104,7 +104,7 @@ class VersionRecord:
     failure_count: int = 0
     dna_signature: str = ""
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -284,7 +284,7 @@ class LonghunLogger:
         
         return log_id
     
-    def _compress_old_logs(self, days: int = 7) -> Dict:
+    def _compress_old_logs(self, days: int = 7) -> Dict[str, Any]:
         """压缩旧的成功日志 (节省空间)"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -467,7 +467,7 @@ class LonghunLogger:
             for row in rows
         ]
     
-    def analyze_evolution(self) -> Dict:
+    def analyze_evolution(self) -> Dict[str, Any]:
         """分析系统演变 (一清二楚!)"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()

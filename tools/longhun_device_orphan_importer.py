@@ -56,7 +56,7 @@ def init_tables(conn: sqlite3.Connection):
     conn.commit()
 
 
-def load_existing_hashes(conn: sqlite3.Connection) -> set:
+def load_existing_hashes(conn: sqlite3.Connection) -> set[str]:
     cursor = conn.cursor()
     existing = set()
     for table in ["ka_files", "device_orphan_files"]:
@@ -68,13 +68,13 @@ def load_existing_hashes(conn: sqlite3.Connection) -> set:
     return existing
 
 
-def load_manifest() -> dict:
+def load_manifest() -> dict[str, Any]:
     if not MANIFEST_PATH.exists():
         return {"version": "1.0.0", "agents": [], "dna": ""}
     return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
-def save_manifest(manifest: dict):
+def save_manifest(manifest: dict[str, Any]):
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
 

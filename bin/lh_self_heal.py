@@ -16,7 +16,7 @@ import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Any
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -225,7 +225,7 @@ class SelfHealEngine:
 
     # ─────────────────────────────── 报告 ───────────────────────────────
 
-    def report(self) -> dict:
+    def report(self) -> dict[str, Any]:
         by_category = {}
         for issue in self.issues:
             by_category.setdefault(issue.category, []).append(issue)

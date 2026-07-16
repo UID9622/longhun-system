@@ -19,7 +19,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Optional, Tuple, Union, Any
 
 # ============================================================
 # 常量定义
@@ -155,7 +155,7 @@ PSYCH_RECOVERY_CHANNELS = [
 class SensoryEducationEngine:
     """感官教育尊严引擎·核心计算"""
 
-    def __init__(self, data_dir: str = None):
+    def __init__(self, data_dir: str | None = None):
         if data_dir is None:
             data_dir = os.path.expanduser("~/.龍魂/sensory_education")
         self.data_dir = Path(data_dir)
@@ -181,13 +181,13 @@ class SensoryEducationEngine:
     def _save_agency(self):
         self.agency_file.write_text(json.dumps(self.agency_registry, ensure_ascii=False, indent=2))
 
-    def _append_session(self, session: dict):
+    def _append_session(self, session: dict[str, Any]):
         """追加会话到JSONL"""
         session["timestamp"] = int(time.time())
         with open(self.sessions_file, "a") as f:
             f.write(json.dumps(session, ensure_ascii=False) + "\n")
 
-    def _get_dna_hash(self, data: dict) -> str:
+    def _get_dna_hash(self, data: dict[str, Any]) -> str:
         """生成DNA短哈希"""
         h = hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()[:8].upper()
         return h
@@ -196,7 +196,7 @@ class SensoryEducationEngine:
     # 1. 性教育去黑箱化
     # ============================================================
 
-    def get_age_layer(self, age: int) -> dict:
+    def get_age_layer(self, age: int) -> dict[str, Any]:
         """根据年龄获取内容层级"""
         for key, layer in AGE_LAYERS.items():
             if layer["min_age"] <= age <= layer["max_age"]:
@@ -205,7 +205,7 @@ class SensoryEducationEngine:
 
     def register_student(
         self, user_id: str, age: int, guardian_id: str = None
-    ) -> dict:
+    ) -> dict[str, Any]:
         """注册学生档案"""
         layer = self.get_age_layer(age)
         profile = {
@@ -232,7 +232,7 @@ class SensoryEducationEngine:
 
     def calculate_demystification(
         self, knowledge: float, visualization: float, shame: float, mystification: float
-    ) -> dict:
+    ) -> dict[str, Any]:
         """
         祛魅指数计算
 
@@ -265,7 +265,7 @@ class SensoryEducationEngine:
             "next_step": "继续学习科学知识" if D < 0.8 else "已建立平常心·可选深入探索",
         }
 
-    def evaluate_student(self, user_id: str, module_scores: Dict[int, float]) -> dict:
+    def evaluate_student(self, user_id: str, module_scores: Dict[int, float]) -> dict[str, Any]:
         """评估学生学习后的祛魅状态"""
         if user_id not in self.profiles:
             return {"error": f"用户 {user_id} 未注册"}
@@ -305,7 +305,7 @@ class SensoryEducationEngine:
         else:
             return [EDUCATION_MODULES[0]]  # 6-9 仅基础
 
-    def check_age_access(self, age: int, request_level: int) -> dict:
+    def check_age_access(self, age: int, request_level: int) -> dict[str, Any]:
         """检查年龄访问权限"""
         layer = self.get_age_layer(age)
         if request_level > layer["content_level"]:
@@ -322,7 +322,7 @@ class SensoryEducationEngine:
 
     def calculate_dignity(
         self, control: float, sincerity: float, pressure: float, expectation: float
-    ) -> dict:
+    ) -> dict[str, Any]:
         """
         尊严指数计算
 
@@ -357,7 +357,7 @@ class SensoryEducationEngine:
             ),
         }
 
-    def anti_kneel_check(self, interaction: Dict) -> dict:
+    def anti_kneel_check(self, interaction: Dict[str, Any]) -> dict[str, Any]:
         """免跪舔规则检查"""
         violations = []
         for rule in ANTI_KNEEL_RULES:
@@ -376,7 +376,7 @@ class SensoryEducationEngine:
     def register_dignity_session(
         self, user_id: str, control: float, sincerity: float,
         pressure: float, expectation: float
-    ) -> dict:
+    ) -> dict[str, Any]:
         """登记一次尊严恢复会话"""
         result = self.calculate_dignity(control, sincerity, pressure, expectation)
 
@@ -401,7 +401,7 @@ class SensoryEducationEngine:
 
         return result
 
-    def get_dignity_trend(self, user_id: str) -> dict:
+    def get_dignity_trend(self, user_id: str) -> dict[str, Any]:
         """获取尊严恢复趋势"""
         if user_id not in self.profiles:
             return {"error": f"用户 {user_id} 无记录"}
@@ -432,8 +432,8 @@ class SensoryEducationEngine:
     # ============================================================
 
     def register_agency(
-        self, agency_id: str, level: str, applicant_info: dict, dna_ref: str = None
-    ) -> dict:
+        self, agency_id: str, level: str, applicant_info: dict[str, Any], dna_ref: str = None
+    ) -> dict[str, Any]:
         """注册代理授权"""
         if level not in AGENCY_LEVELS:
             return {"error": f"无效代理级别: {level}，可选: {list(AGENCY_LEVELS.keys())}"}
@@ -467,7 +467,7 @@ class SensoryEducationEngine:
 
         return record
 
-    def standard_check(self, dimension: str, checks: Dict[str, bool]) -> dict:
+    def standard_check(self, dimension: str, checks: Dict[str, bool]) -> dict[str, Any]:
         """
         单维度高标准检查
 
@@ -513,7 +513,7 @@ class SensoryEducationEngine:
             "missing": [r["item"] for r in results if not r["passed"]],
         }
 
-    def full_standard_audit(self, agency_id: str, all_checks: Dict[str, Dict[str, bool]]) -> dict:
+    def full_standard_audit(self, agency_id: str, all_checks: Dict[str, Dict[str, bool]]) -> dict[str, Any]:
         """四维高标准全面审计"""
         dimensions = ["safety", "hygiene", "usage", "education"]
         audit_results = {}
@@ -550,7 +550,7 @@ class SensoryEducationEngine:
             "all_pass": all_pass,
         }
 
-    def auto_standard_check(self, agency_id: str) -> dict:
+    def auto_standard_check(self, agency_id: str) -> dict[str, Any]:
         """自动初始检查（新注册代理默认全不通过）"""
         all_empty = {
             "safety": {},
@@ -560,7 +560,7 @@ class SensoryEducationEngine:
         }
         return self.full_standard_audit(agency_id, all_empty)
 
-    def calculate_fund_distribution(self, amount_yuan: float, payer_dna: str) -> dict:
+    def calculate_fund_distribution(self, amount_yuan: float, payer_dna: str) -> dict[str, Any]:
         """计算资金分池"""
         distribution = {}
         for pool, ratio in FUND_DISTRIBUTION.items():
@@ -586,13 +586,13 @@ class SensoryEducationEngine:
             "note": "公益池资金不得挪用·季度公示",
         }
 
-    def get_agency_status(self, agency_id: str) -> dict:
+    def get_agency_status(self, agency_id: str) -> dict[str, Any]:
         """查询代理状态"""
         if agency_id not in self.agency_registry:
             return {"error": f"代理 {agency_id} 未注册"}
         return self.agency_registry[agency_id]
 
-    def list_agencies(self, level_filter: str = None) -> List[dict]:
+    def list_agencies(self, level_filter: str | None = None) -> List[dict]:
         """列出所有代理"""
         agencies = list(self.agency_registry.values())
         if level_filter:
@@ -603,7 +603,7 @@ class SensoryEducationEngine:
     # 4. 综合报告
     # ============================================================
 
-    def full_report(self, user_id: str) -> dict:
+    def full_report(self, user_id: str) -> dict[str, Any]:
         """生成完整用户报告"""
         if user_id not in self.profiles:
             return {"error": f"用户 {user_id} 未注册"}
@@ -625,7 +625,7 @@ class SensoryEducationEngine:
             "dna": self._get_dna_hash({"user": user_id, "report": int(time.time())}),
         }
 
-    def system_summary(self) -> dict:
+    def system_summary(self) -> dict[str, Any]:
         """系统概览"""
         student_count = sum(
             1 for p in self.profiles.values()

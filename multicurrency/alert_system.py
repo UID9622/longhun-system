@@ -13,7 +13,7 @@ import sqlite3
 import json
 from datetime import datetime
 from dataclasses import dataclass, asdict
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 from enum import Enum
 
 class AlertLevel(str, Enum):
@@ -61,7 +61,7 @@ class Alert:
 class AlertManager:
     """告警管理器"""
     
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str | None = None):
         self.db_path = db_path or os.path.expanduser('~/.龍魂/alert.db')
         self._init_db()
     
@@ -206,7 +206,7 @@ class AlertManager:
             print(f"❌ 消除告警失败: {e}")
             return False
     
-    def get_statistics(self) -> Dict:
+    def get_statistics(self) -> Dict[str, Any]:
         """获取告警统计"""
         try:
             conn = sqlite3.connect(self.db_path)

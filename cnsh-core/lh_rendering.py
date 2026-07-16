@@ -55,7 +55,7 @@ TRI_COLOR_STATES = {
 }
 
 
-def _hex_to_rgb(hex_color: str) -> tuple:
+def _hex_to_rgb(hex_color: str) -> tuple[Any, ...]:
     hex_color = hex_color.lstrip("#")
     if len(hex_color) == 3:
         hex_color = "".join(c * 2 for c in hex_color)

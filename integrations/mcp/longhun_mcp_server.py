@@ -58,7 +58,7 @@ def _log(msg: str):
     print(f"[longhun-mcp] {msg}", file=sys.stderr, flush=True)
 
 
-def _send_json(data: dict):
+def _send_json(data: dict[str, Any]):
     """发送 JSON-RPC 响应"""
     sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
     sys.stdout.flush()
@@ -68,7 +68,7 @@ def _send_json(data: dict):
 # 龍魂工具实现
 # ═══════════════════════════════════
 
-def tool_health() -> dict:
+def tool_health() -> dict[str, Any]:
     """系统健康检查"""
     api_up = False
     try:
@@ -89,7 +89,7 @@ def tool_health() -> dict:
     }
 
 
-def tool_dna_gen(module: str = "MCP", action: str = "CALL") -> dict:
+def tool_dna_gen(module: str = "MCP", action: str = "CALL") -> dict[str, Any]:
     """生成 DNA 追溯码"""
     ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")[:-3]
     h = hashlib.sha256(f"{ts}-{module}-{action}-UID9622".encode()).hexdigest()[:8].upper()
@@ -111,7 +111,7 @@ def tool_dna_gen(module: str = "MCP", action: str = "CALL") -> dict:
     return {"dna": dna, "module": module, "action": action, "format": "v∞"}
 
 
-def tool_audit(text: str = "") -> dict:
+def tool_audit(text: str = "") -> dict[str, Any]:
     """三色审计扫描"""
     if not text:
         return {"ok": True, "color": "green", "message": "无内容需要审计"}
@@ -149,7 +149,7 @@ def tool_audit(text: str = "") -> dict:
     return {"ok": True, "color": "green", "verdict": "🟢 通过"}
 
 
-def tool_semantic(input_text: str) -> dict:
+def tool_semantic(input_text: str) -> dict[str, Any]:
     """中英语义路由解析"""
     parser = ROOT / "bin" / "semantic_parser.py"
     if parser.exists():
@@ -172,7 +172,7 @@ def tool_semantic(input_text: str) -> dict:
     }
 
 
-def tool_wuxing(text: str) -> dict:
+def tool_wuxing(text: str) -> dict[str, Any]:
     """五行数字根分析"""
     wuxing_check = ROOT / "bin" / "lh_wuxing_check.py"
     if wuxing_check.exists():
@@ -191,7 +191,7 @@ def tool_wuxing(text: str) -> dict:
     return {"ok": True, "input_text": text, "digital_root": dr, "wuxing": wuxing_map.get(dr, "未知")}
 
 
-def tool_kb_search(query: str) -> dict:
+def tool_kb_search(query: str) -> dict[str, Any]:
     """知识图谱搜索"""
     import httpx
     try:
@@ -203,7 +203,7 @@ def tool_kb_search(query: str) -> dict:
     return {"ok": False, "query": query, "message": "API 后端未连接，请启动 longhun-api"}
 
 
-def tool_cannon(mode: str = "full") -> dict:
+def tool_cannon(mode: str = "full") -> dict[str, Any]:
     """全自动机枪扫描"""
     cannon_script = ROOT / "bin" / "lh_auto_cannon.py"
     if not cannon_script.exists():
@@ -233,7 +233,7 @@ def tool_cannon(mode: str = "full") -> dict:
         return {"ok": False, "error": str(e)}
 
 
-def tool_vision_parse(image_path: str = "", text_hint: str = "") -> dict:
+def tool_vision_parse(image_path: str = "", text_hint: str = "") -> dict[str, Any]:
     """视觉解析桥接 — 调用 lh_vision_parser"""
     vision_path = ROOT / "bin" / "lh_vision_parser.py"
     if not vision_path.exists():
@@ -266,7 +266,7 @@ else:
         return {"ok": False, "error": str(e)}
 
 
-def tool_audio_parse(audio_path: str = "") -> dict:
+def tool_audio_parse(audio_path: str = "") -> dict[str, Any]:
     """音频解析桥接 — 调用 lh_audio_parser"""
     audio_module = ROOT / "bin" / "lh_audio_parser.py"
     if not audio_module.exists():
@@ -296,7 +296,7 @@ print(json.dumps({{"ok": True, "engine_available": is_available(),
         return {"ok": False, "error": str(e)}
 
 
-def tool_semantic_parse(text: str) -> dict:
+def tool_semantic_parse(text: str) -> dict[str, Any]:
     """语义解析桥接 — 调用 lh_semantic_parser"""
     semantic_module = ROOT / "bin" / "lh_semantic_parser.py"
     if not semantic_module.exists():
@@ -337,7 +337,7 @@ print(json.dumps({{"ok": True, "intent": r.intent.label, "confidence": r.intent.
         return {"ok": False, "error": str(e)}
 
 
-def tool_self_heal() -> dict:
+def tool_self_heal() -> dict[str, Any]:
     """系统自愈"""
     heal_script = ROOT / "bin" / "longhun-self-heal.py"
     if not heal_script.exists():
@@ -356,7 +356,7 @@ def tool_self_heal() -> dict:
         return {"ok": False, "error": str(e)}
 
 
-def tool_auto_sync() -> dict:
+def tool_auto_sync() -> dict[str, Any]:
     """触发自动同步"""
     sync_script = ROOT / "bin" / "longhun_auto_sync.py"
     if not sync_script.exists():
@@ -375,7 +375,7 @@ def tool_auto_sync() -> dict:
         return {"ok": False, "error": str(e)}
 
 
-def tool_persona_list() -> dict:
+def tool_persona_list() -> dict[str, Any]:
     """列出所有人格"""
     personas_dir = ROOT / "personas"
     if not personas_dir.exists():
@@ -392,7 +392,7 @@ def tool_persona_list() -> dict:
             "note": "16/16 满编 · 0红色" if len(personas) >= 16 else f"{len(personas)}/16"}
 
 
-def tool_persona_status(persona_id: str = "") -> dict:
+def tool_persona_status(persona_id: str = "") -> dict[str, Any]:
     """查询单个人格状态"""
     if not persona_id:
         return tool_persona_list()
@@ -416,7 +416,7 @@ def tool_persona_status(persona_id: str = "") -> dict:
         return {"ok": False, "error": str(e)}
 
 
-def tool_api_list() -> dict:
+def tool_api_list() -> dict[str, Any]:
     """列出可用 API 端点"""
     return {
         "ok": True,
@@ -583,7 +583,7 @@ TOOLS = {
 # JSON-RPC 消息处理
 # ═══════════════════════════════════
 
-def handle_request(msg: dict) -> dict | None:
+def handle_request(msg: dict[str, Any]) -> dict | None:
     """处理 JSON-RPC 请求，返回响应或 None（通知）"""
     msg_id = msg.get("id")
     method = msg.get("method")

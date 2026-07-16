@@ -28,7 +28,7 @@ def longhun_home() -> Path:
     return Path(os.path.expanduser("~/longhun-system"))
 
 
-def collect_data(user_id: str) -> dict:
+def collect_data(user_id: str) -> dict[str, Any]:
     """收集与用户相关的数据"""
     home = longhun_home()
     data = {
@@ -87,13 +87,13 @@ def collect_data(user_id: str) -> dict:
     return data
 
 
-def export_json(data: dict, output_dir: Path) -> Path:
+def export_json(data: dict[str, Any], output_dir: Path) -> Path:
     path = output_dir / f"user_data_{data['user_id']}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     return path
 
 
-def export_csv_summary(data: dict, output_dir: Path) -> Path:
+def export_csv_summary(data: dict[str, Any], output_dir: Path) -> Path:
     path = output_dir / f"user_data_summary_{data['user_id']}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
     rows = [
         ["类别", "数量", "说明"],

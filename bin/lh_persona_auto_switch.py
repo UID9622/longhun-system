@@ -360,7 +360,7 @@ class PersonaAutoSwitchEngine:
             for dim in PersonaDimension
         }
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """获取引擎状态"""
         profile = PERSONA_PROFILES[self.current_dimension]
         return {

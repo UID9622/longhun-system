@@ -14,7 +14,7 @@ import time
 import uuid
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from enum import Enum
 from datetime import datetime
 
@@ -30,7 +30,7 @@ def _jsonl_path(db_name: str) -> Path:
     return PIPELINE_DIR / f"{db_name}.jsonl"
 
 
-def _append_jsonl(path: Path, record: Dict):
+def _append_jsonl(path: Path, record: Dict[str, Any]):
     with open(path, 'a', encoding='utf-8') as f:
         f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
@@ -89,7 +89,7 @@ class InboxItem:
     noise_flags: List[str] = field(default_factory=list)  # 噪音标记
     dna_list: List[str] = field(default_factory=list)     # 拆解后的DNA列表
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d['resource_type'] = self.resource_type.value
         d['status'] = self.status.value
@@ -176,7 +176,7 @@ class LearningInbox:
     def list_by_status(self, status: InboxStatus) -> List[InboxItem]:
         return [item for item in self.items.values() if item.status == status]
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         items = list(self.items.values())
         return {
             "total": len(items),
@@ -225,7 +225,7 @@ class KnowledgeDNA:
     related_dna: List[str] = field(default_factory=list)  # 关联DNA
     derived_tasks: List[str] = field(default_factory=list)  # 派生的学习任务
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d['direction'] = self.direction.value
         d['difficulty'] = self.difficulty.value
@@ -318,7 +318,7 @@ class KnowledgeDNABase:
 
         return results
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         dnas = list(self.dnas.values())
         dir_counts = {}
         for d in dnas:
@@ -368,7 +368,7 @@ class LearningTask:
     review_url: str = ""
     notes: str = ""
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d['learn_mode'] = self.learn_mode.value
         d['status'] = self.status.value
@@ -425,7 +425,7 @@ class LearningTaskBoard:
             self.tasks[task_id].completed_at = datetime.now().isoformat()
             _append_jsonl(self.path, self.tasks[task_id].to_dict())
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         tasks = list(self.tasks.values())
         return {
             "total": len(tasks),
@@ -458,7 +458,7 @@ class FutureSignal:
     related_projects: List[str] = field(default_factory=list)
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d['time_scale'] = self.time_scale.value
         return d
@@ -512,7 +512,7 @@ class FutureSignalBase:
             self.signals[signal_id].related_dna.append(dna_id)
             _append_jsonl(self.path, self.signals[signal_id].to_dict())
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         signals = list(self.signals.values())
         return {
             "total": len(signals),
@@ -546,7 +546,7 @@ class Project:
     status: str = "规划中"
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d['maturity'] = self.maturity.value
         return d
@@ -575,7 +575,7 @@ class ProjectBase:
             )
             self.projects[proj.project_id] = proj
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         projects = list(self.projects.values())
         return {
             "total": len(projects),
@@ -601,7 +601,7 @@ class Soldier:
     level: int = 1
     status: str = "待训练"
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -666,7 +666,7 @@ class DigitalArmy:
         dna.tags.append(f"ARMY:{soldier.soldier_id}")
         return soldier
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         soldiers = list(self.soldiers.values())
         role_counts = {}
         for s in soldiers:
@@ -699,7 +699,7 @@ class LearningPipelineEngine:
         rt = ResourceType(resource_type) if resource_type in [e.value for e in ResourceType] else ResourceType.IDEA
         return self.inbox.add(title, rt, url, content)
 
-    def process_inbox_item(self, item_id: str) -> Dict:
+    def process_inbox_item(self, item_id: str) -> Dict[str, Any]:
         """处理单个Inbox条目：净化→拆DNA→派任务→趋势绑定"""
         result = {"inbox_id": item_id, "steps": []}
 
@@ -759,7 +759,7 @@ class LearningPipelineEngine:
 
         return result
 
-    def pipeline_status(self) -> Dict:
+    def pipeline_status(self) -> Dict[str, Any]:
         """管道全貌"""
         return {
             "inbox": self.inbox.stats(),

@@ -23,7 +23,7 @@ import sqlite3
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -62,7 +62,7 @@ class 龍魂编年史:
             """)
             conn.execute("CREATE INDEX IF NOT EXISTS idx_cat ON milestones(category)")
 
-    def add(self, title: str, content: str, category: str = "其他", source: str = "") -> Dict:
+    def add(self, title: str, content: str, category: str = "其他", source: str = "") -> Dict[str, Any]:
         if category not in CATEGORIES:
             category = "其他"
         created_at = datetime.now().isoformat()
@@ -90,7 +90,7 @@ class 龍魂编年史:
             for r in rows
         ]
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         with sqlite3.connect(self.db_path) as conn:
             total = conn.execute("SELECT COUNT(*) FROM milestones").fetchone()[0]
             by_cat = conn.execute("SELECT category, COUNT(*) FROM milestones GROUP BY category").fetchall()

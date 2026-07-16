@@ -174,13 +174,13 @@ class 德者永生殿:
         self.personas = self.registry.get("personas", {})
         self._ensure_state()
 
-    def _load_json(self, path: Path) -> Dict:
+    def _load_json(self, path: Path) -> Dict[str, Any]:
         if not path.exists():
             return {}
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    def _save_json(self, path: Path, data: Dict):
+    def _save_json(self, path: Path, data: Dict[str, Any]):
         path.parent.mkdir(parents=True, exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)

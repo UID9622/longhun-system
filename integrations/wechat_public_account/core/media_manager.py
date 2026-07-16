@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 from .wechat_client import WeChatClient
 
@@ -80,7 +80,7 @@ class MediaManager:
         material_type: str,
         offset: int = 0,
         count: int = 20,
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """List permanent materials."""
         token = self.client.get_access_token()
         return self.client._request(
@@ -90,7 +90,7 @@ class MediaManager:
             data={"type": material_type, "offset": offset, "count": count},
         )
 
-    def get_material_count(self) -> Dict:
+    def get_material_count(self) -> Dict[str, Any]:
         """Get count of permanent materials."""
         token = self.client.get_access_token()
         return self.client._request(

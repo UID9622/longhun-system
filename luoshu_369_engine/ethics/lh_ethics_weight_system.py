@@ -30,7 +30,7 @@
 """
 
 import numpy as np
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass, field
 from enum import Enum
 
@@ -38,7 +38,7 @@ from enum import Enum
 # 全局常量与工具函数
 # ═══════════════════════════════════════════════════════════
 
-不动点集: set = {3, 6, 9}
+不动点集: set[str] = {3, 6, 9}
 """369不动点集 🟢"""
 
 
@@ -178,7 +178,7 @@ class 伦理维度权重:
         return self.基础权重 * self.当前评分
 
     @property
-    def 状态报告(self) -> Dict:
+    def 状态报告(self) -> Dict[str, Any]:
         """返回完整的状态报告 🟢"""
         return {
             "维度": self.维度.中文名,
@@ -337,7 +337,7 @@ class 伦理权重框架:
             return 0.0
         return 加权和 / self.权重总和
 
-    def 伦理评分函数(self, 各维度评分: Optional[Dict[伦理维度, float]] = None) -> Dict:
+    def 伦理评分函数(self, 各维度评分: Optional[Dict[伦理维度, float]] = None) -> Dict[str, Any]:
         """
         伦理评分函数 — 核心API
         
@@ -401,7 +401,7 @@ class 伦理权重框架:
 
     # ── 审计功能 ──
 
-    def 三色审计(self) -> Dict:
+    def 三色审计(self) -> Dict[str, Any]:
         """
         执行三色审计 — 对所有维度进行三色标记评估
         
@@ -500,7 +500,7 @@ class 伦理决策流:
         self.决策历史: List[Dict] = []
         print("🟢 伦理决策流初始化完成")
 
-    def 执行决策评估(self, 决策名称: str, 维度评分: Dict[伦理维度, float]) -> Dict:
+    def 执行决策评估(self, 决策名称: str, 维度评分: Dict[伦理维度, float]) -> Dict[str, Any]:
         """
         执行一次完整的伦理决策评估
         

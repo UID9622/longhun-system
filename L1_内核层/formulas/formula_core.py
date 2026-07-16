@@ -21,7 +21,7 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 from __future__ import annotations
 from math import log2, sqrt, isclose, exp
 from hashlib import sha256
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from functools import lru_cache
 from collections import defaultdict
 import time
@@ -54,7 +54,7 @@ class AuditLog:
         })
         self.perf[func_name].append(elapsed)
 
-    def summary(self) -> Dict:
+    def summary(self) -> Dict[str, Any]:
         return {
             func: {
                 "calls": len(times),
@@ -179,7 +179,7 @@ def alpha_weight_ok(ws: List[float], tol: Optional[float] = None) -> bool:
 def truth_score(M: float, V: float, F: int, w: Tuple[float, ...] = (0.4, 0.3, 0.3)) -> float:
     return w[0] * M + w[1] * V + w[2] * F
 
-def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict:
+def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict[str, Any]:
     t0 = time.time()
     weights = weights or (0.4, 0.3, 0.3)
     if any(r.get("F", 1) == 0 for r in rows):

@@ -128,7 +128,7 @@ class EcosystemCode:
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     confirmed_seal: str = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
         d["mode"] = self.mode.value
         return d

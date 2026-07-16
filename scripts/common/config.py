@@ -20,7 +20,7 @@ from typing import Dict, Any
 class ConfigManager:
     """配置管理器 - 一次加载，全局使用"""
 
-    def __init__(self, config_dir: str = None):
+    def __init__(self, config_dir: str | None = None):
         """初始化配置管理器"""
         if config_dir is None:
             config_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/config"

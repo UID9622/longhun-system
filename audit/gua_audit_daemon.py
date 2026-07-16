@@ -56,7 +56,7 @@ def 生成DNA(動作: str) -> str:
 # 指标采集
 # ============================================================
 
-def collect_metrics() -> dict:
+def collect_metrics() -> dict[str, Any]:
     """采集系统8维度指标"""
     metrics = {
         "innovation": 70,
@@ -128,7 +128,7 @@ def collect_metrics() -> dict:
 # 审计执行
 # ============================================================
 
-def run_audit(context: str = "高频巡检") -> dict:
+def run_audit(context: str = "高频巡检") -> dict[str, Any]:
     engine = GuaAuditEngine()
     metrics = collect_metrics()
     result = engine.calculate_gua(metrics, context=context)

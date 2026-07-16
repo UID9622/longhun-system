@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-27T08:05:31.373310+00:00",
+  "query": "检查一下系统安全",
+  "source": "cli",
+  "device": "MacBook",
+  "routed_to_type": "agent",
+  "routed_to": "上帝之眼·守护者",
+  "code": "GUARDIAN",
+  "score": 2,
+  "ranked": [
+    {
+      "type": "agent",
+      "name": "上帝之眼·守护者",
+      "code": "GUARDIAN",
+      "score": 2
+    }
+  ],
+  "dna": "#ROUTER-ROUTE-20260627-0001"
+}

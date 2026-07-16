@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "dna": "#龍芯⚡️2026-06-27-LONGHUN-VOICE-PROFILES-v1.0",
+  "note": "龍魂语音合成音色配置。assistant 为系统助手女声，uid9622 为 UID9622 本人克隆音色。",
+  "server": {
+    "host": "127.0.0.1",
+    "port": 9624,
+    "model_name": "tts_models/multilingual/multi-dataset/xtts_v2"
+  },
+  "profiles": {
+    "assistant": {
+      "name": "宝宝·系统助手",
+      "gender": "female",
+      "type": "builtin_speaker",
+      "speaker": "Daisy Studious",
+      "language": "zh",
+      "description": "温柔沉稳的女声，用于唤醒回复与系统助手播报",
+      "fallback_order": ["Daisy Studious", "Gracie Wise", "Claribel Dervla", "Tammie Ema"]
+    },
+    "uid9622": {
+      "name": "UID9622·本音",
+      "gender": "male",
+      "type": "voice_clone",
+      "speaker_wav": "/Users/zuimeidedeyihan/longhun-system/voice-twin/voice_dataset/reference_optimized.wav",
+      "speaker_wav_fallback": "/Users/zuimeidedeyihan/longhun-system/voice-twin/voice_dataset/reference.wav",
+      "language": "zh",
+      "description": "UID9622 本人克隆音色，用于解说稿、读文章、对外宣传内容"
+    }
+  },
+  "rules": {
+    "default_profile": "assistant",
+    "content_keywords_profile": "uid9622",
+    "content_keywords": ["解说", "读文章", "播报", "宣传", "UID9622", "本音"],
+    "max_text_length": 800
+  }
+}

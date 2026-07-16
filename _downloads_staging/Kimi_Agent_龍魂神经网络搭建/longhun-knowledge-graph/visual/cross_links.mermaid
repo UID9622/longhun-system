@@ -1,0 +1,53 @@
+%% 龙魂系统知识图谱 - 跨图谱连接
+%% UID9622 | 图谱A ↔ 图谱B 跨层连接
+%% 样式: 虚线 + 金色高亮
+
+graph TD
+    %% ============ 样式定义 ============
+    classDef sovereignty fill:#DC2626,color:#fff,stroke:#991B1B,stroke-width:2px
+    classDef governanceA fill:#EA580C,color:#fff,stroke:#9A3412,stroke-width:2px
+    classDef mechanismA fill:#16A34A,color:#fff,stroke:#166534,stroke-width:2px
+    classDef governanceB fill:#2563EB,color:#fff,stroke:#1E40AF,stroke-width:2px
+    classDef mechanismB fill:#7C3AED,color:#fff,stroke:#5B21B6,stroke-width:2px
+    classDef foundation fill:#4B5563,color:#fff,stroke:#1F2937,stroke-width:2px
+    classDef crossLink stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4,color:#fff
+
+    %% ============ 跨图谱节点（精简版，仅显示连接点） ============
+    subgraph SG_图谱A["⛩️ 图谱A · 中文编辑普惠全球协议"]
+        direction TB
+        audit_red["🔴 关闭"]
+        mech_fuse["自动熔断机制"]
+        claim_no_commercial["不归属商业"]
+        beh_harvest["用户收割"]
+        mech_dna["生成DNA记录"]
+        audit_three["三色审计"]
+    end
+
+    subgraph SG_图谱B["🏛️ 图谱B · 贡献者永恒回报机制"]
+        direction TB
+        fuse_moral["道德绑架熔断"]
+        reward_mech["回馈机制"]
+        reward_source["回馈来源"]
+        prin_archive["贡献即存档"]
+        inherit_dna["DNA追溯链可延续"]
+    end
+
+    %% ============ 跨图谱连接（7条） ============
+    audit_red -.->|"🔴关闭触发道德熔断"| fuse_moral
+    mech_fuse -.->|"熔断暂停回馈"| reward_mech
+    claim_no_commercial -.->|"限制商业来源"| reward_source
+    beh_harvest -.->|"用户收割触发熔断"| fuse_moral
+    prin_archive -.->|"贡献生成DNA记录"| mech_dna
+    fuse_moral -.->|"熔断进入审计"| audit_three
+    inherit_dna -.->|"继承延续DNA链"| mech_dna
+
+    %% ============ 样式应用 ============
+    class audit_red,mech_fuse,claim_no_commercial,beh_harvest,mech_dna,audit_three sovereignty
+    class fuse_moral,reward_mech,reward_source,prin_archive,inherit_dna governanceB
+    linkStyle 0 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 1 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 2 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 3 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 4 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 5 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4
+    linkStyle 6 stroke:#F59E0B,stroke-width:4px,stroke-dasharray: 8 4

@@ -29,7 +29,7 @@ UID: 9622
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -78,7 +78,7 @@ class StateMachineController:
             }
         ]
 
-    def get_current_state(self) -> Dict:
+    def get_current_state(self) -> Dict[str, Any]:
         """获取当前状态"""
         return {
             "state": self.current_state,

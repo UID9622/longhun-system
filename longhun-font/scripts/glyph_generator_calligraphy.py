@@ -281,7 +281,7 @@ def _in_bounds(strokes, low=0, high=600):
 # 按结构生成书法骨架
 # ---------------------------------------------------------------------------
 
-def generate_skeleton(char: str) -> list:
+def generate_skeleton(char: str) -> list[Any]:
     """根据结构生成带有手写笔意的参数化骨架"""
     structure = structure_of(char)
     rng = random.Random(ord(char))
@@ -502,7 +502,7 @@ def generate_skeleton(char: str) -> list:
     return _panel(100, 100, 500, 500, s, ox, oy)
 
 
-def generate_glyph_library(chars: str = CORE_CHARS, output_path: str = None):
+def generate_glyph_library(chars: str = CORE_CHARS, output_path: str | None = None):
     """生成书法风格字元库 JSON"""
     base_dir = Path(__file__).parent.parent
     output_path = Path(output_path) if output_path else base_dir / "glyphs" / "龍魂字元库_v0002_书法骨架版.json"

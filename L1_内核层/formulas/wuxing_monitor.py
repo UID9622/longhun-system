@@ -21,7 +21,7 @@
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 from datetime import datetime
 import hashlib
@@ -171,7 +171,7 @@ class RealtimeMonitoringEngine:
     
     # ========== 指标收集 ==========
     
-    def collect_metrics(self, report_data: Dict) -> List[MetricSnapshot]:
+    def collect_metrics(self, report_data: Dict[str, Any]) -> List[MetricSnapshot]:
         """
         从决策报告收集监控指标
         """
@@ -422,7 +422,7 @@ class RealtimeMonitoringEngine:
     
     # ========== 应急流程 ==========
     
-    def trigger_emergency_procedure(self, alert: AlertEvent) -> Dict:
+    def trigger_emergency_procedure(self, alert: AlertEvent) -> Dict[str, Any]:
         """
         触发应急流程
         """
@@ -456,7 +456,7 @@ class RealtimeMonitoringEngine:
     
     # ========== 报告生成 ==========
     
-    def generate_monitoring_report(self) -> Dict:
+    def generate_monitoring_report(self) -> Dict[str, Any]:
         """生成完整的监控报告"""
         return {
             "report_time": datetime.now().isoformat(),
@@ -500,7 +500,7 @@ class RealtimeMonitoringEngine:
     
     # ========== 完整监控流程 ==========
     
-    def monitor_cycle(self, report_data: Dict) -> Dict:
+    def monitor_cycle(self, report_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         执行完整的监控周期
         """

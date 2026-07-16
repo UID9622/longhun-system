@@ -198,7 +198,7 @@ class LonghunFontEngine:
             self.font_registry[file_key] = entry
             return entry
 
-    def _register_woff2(self, font_path: Path) -> dict:
+    def _register_woff2(self, font_path: Path) -> dict[str, Any]:
         """woff2 无法用 fontTools 解析字体名，使用基础信息"""
         file_key = font_path.name
         file_size = font_path.stat().st_size
@@ -294,7 +294,7 @@ class LonghunFontEngine:
         """获取所有有效的字体 (过滤损坏的)"""
         return [v for v in self.font_registry.values() if v.get("is_valid", False)]
 
-    def get_summary(self) -> dict:
+    def get_summary(self) -> dict[str, Any]:
         """获取引擎摘要"""
         return {
             "font_dir": str(self.font_dir.resolve()),
@@ -328,7 +328,7 @@ class LonghunFontEngine:
         print(f"[字体引擎] 注册表已导出: {output_path}")
         return output_path
 
-    def export_registry_dict(self) -> dict:
+    def export_registry_dict(self) -> dict[str, Any]:
         """导出注册表为 dict (供 MCP 服务)"""
         return self.font_registry
 

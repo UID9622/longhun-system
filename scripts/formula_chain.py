@@ -9,7 +9,7 @@ DNA:#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-FILE1-v1.0-1
 主权人: UID9622 · 龍芯北辰
 """
 from __future__ import annotations
-from typing import List, Dict
+from typing import List, Dict, Any
 from formula_core import digital_root, dr_gate, normalize
 
 # ── 数字根 → 五行（在数论之上焊属性底色）──
@@ -21,7 +21,7 @@ def five_element(n: int) -> str:
     return FIVE_ELEMENT[digital_root(n)]
 
 # ── 三才主权指数 SI（天<0.34 一票熔断）──
-def sovereignty_index(tian: float, di: float, ren: float) -> Dict:
+def sovereignty_index(tian: float, di: float, ren: float) -> Dict[str, Any]:
     """世界标准是 MCDA 加权和；龍魂焊主权轴熔断：天<0.34 直接全盘否。"""
     if tian < 0.34:                       # 主权轴不达标 → 一票熔断
         return {"SI": 0.0, "color": "🔴", "veto": True}
@@ -30,7 +30,7 @@ def sovereignty_index(tian: float, di: float, ren: float) -> Dict:
     return {"SI": round(si, 4), "color": color, "veto": False}
 
 # ── 决策链 dr→W→Risk→S→D→Action（六环全程可审）──
-def decision_chain(n: int, risk_factors: List[float], weights: List[float]) -> Dict:
+def decision_chain(n: int, risk_factors: List[float], weights: List[float]) -> Dict[str, Any]:
     dr = digital_root(n)
     gate = dr_gate(n)
     trace = {"输入": n, "数字根": dr, "五行": five_element(n), "三色闸": gate}

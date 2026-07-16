@@ -36,7 +36,7 @@ import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 AUDIT_DIR = ROOT / "audit"
@@ -222,7 +222,7 @@ class AuditTrigger:
 
         md_path.write_text(md_content)
 
-    def _log(self, action: str, sheet_id: str, detail: dict):
+    def _log(self, action: str, sheet_id: str, detail: dict[str, Any]):
         """审计链日志"""
         entry = {
             "ts": datetime.now().isoformat(),
@@ -358,7 +358,7 @@ class AuditTrigger:
         print(f"✅ {sheet_id} 已确认 · 签名: {signer}")
         return True
 
-    def complete(self, sheet_id: str, result: dict = None) -> bool:
+    def complete(self, sheet_id: str, result: dict[str, Any] = None) -> bool:
         """标记完成 + 预期vs实际对比"""
         if sheet_id not in self.sheets:
             print(f"❌ 审计单 {sheet_id} 不存在")
@@ -422,7 +422,7 @@ class AuditTrigger:
 
     # ── 查询 / 报告 ──────────────────────────────────────
 
-    def list_all(self, filter_status: str = None):
+    def list_all(self, filter_status: str | None = None):
         """列出所有审计单"""
         titles = {"待确认": "🟡", "已确认": "🟢", "已完成": "✅", "已拦截·待审批": "🔴", "已驳回": "❌"}
 

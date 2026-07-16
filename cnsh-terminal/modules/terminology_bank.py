@@ -46,7 +46,7 @@ class 术语记录:
     使用次数: int = 0
     置信度: float = 1.0
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -58,7 +58,7 @@ class 中央藏经阁:
 
     DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-TERMINOLOGY-BANK-v5.0"
 
-    def __init__(self, chroma_path: str = None, sqlite_path: str = None):
+    def __init__(self, chroma_path: str | None = None, sqlite_path: str | None = None):
         """
         初始化中央藏经阁
         """
@@ -452,7 +452,7 @@ class 中央藏经阁:
 
     # ========== 统计与报告 ==========
 
-    def 获取统计(self) -> Dict:
+    def 获取统计(self) -> Dict[str, Any]:
         """获取藏经阁统计信息"""
         try:
             cursor = self.sqlite连接.cursor()
@@ -486,7 +486,7 @@ class 中央藏经阁:
             self.记录("错误", f"获取全部术语失败: {e}")
             return []
 
-    def 导出JSON(self, 文件路径: str = None) -> str:
+    def 导出JSON(self, 文件路径: str | None = None) -> str:
         """导出术语库为JSON"""
         术语列表 = self.获取全部术语()
         json字符串 = json.dumps(术语列表, ensure_ascii=False, indent=2)
@@ -521,7 +521,7 @@ class 中央藏经阁:
         并集 = 集合1 | 集合2
         return len(交集) / len(并集)
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

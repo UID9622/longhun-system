@@ -455,7 +455,7 @@ class HumanBrainEngine:
         return neurons
     
     def _persona_think(
-        self, pid: str, info: dict, text: str,
+        self, pid: str, info: dict[str, Any], text: str,
         dimensions: List[HumanDimension], strength: float
     ) -> str:
         """单个人格的思考过程"""
@@ -705,7 +705,7 @@ class HumanBrainEngine:
         """生成思考周期DNA"""
         return f"#龍芯⚡️BRAIN-CYCLE-{cycle_id}-v1.0"
     
-    def status(self) -> dict:
+    def status(self) -> dict[str, Any]:
         """引擎状态"""
         total_cycles = len(self.think_history)
         return {
@@ -718,7 +718,7 @@ class HumanBrainEngine:
             "memory_loaded": True,
         }
     
-    def human_nature_map(self) -> dict:
+    def human_nature_map(self) -> dict[str, Any]:
         """生成人性维度-人格映射表"""
         mapping = {}
         for dim in HumanDimension:

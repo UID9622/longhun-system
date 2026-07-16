@@ -147,7 +147,7 @@ def save_merkle_index(index: Dict[str, Any]):
 
 
 def append_to_merkle_chain(backup_type: str, entry_hash: str, content_hash: str,
-                           obj_key: str, metadata: Dict = None) -> Dict[str, Any]:
+                           obj_key: str, metadata: Dict[str, Any] = None) -> Dict[str, Any]:
     """向 Merkle 链追加一条记录"""
     idx = load_merkle_index()
 
@@ -232,7 +232,7 @@ def get_obs_client(region_config: Dict[str, str]):
 # ═══════════════════════════════════════════════════════════
 
 def upload_to_obs(file_path: str, backup_type: str,
-                  metadata: Dict = None,
+                  metadata: Dict[str, Any] = None,
                   region: str = "primary") -> Dict[str, Any]:
     """
     上传文件到 OBS 并设置不可删除策略
@@ -376,7 +376,7 @@ def upload_to_obs(file_path: str, backup_type: str,
 # 跨区域灾备同步
 # ═══════════════════════════════════════════════════════════
 
-def cross_region_sync(backup_type: str = None) -> Dict[str, Any]:
+def cross_region_sync(backup_type: str | None = None) -> Dict[str, Any]:
     """
     将主区域的对象同步到灾备区域
 
@@ -535,7 +535,7 @@ def verify_backup(backup_type: str, region: str = "primary") -> Dict[str, Any]:
 # 列表 & 恢复
 # ═══════════════════════════════════════════════════════════
 
-def list_backups(backup_type: str = None, region: str = "primary",
+def list_backups(backup_type: str | None = None, region: str = "primary",
                  max_keys: int = 50) -> List[Dict]:
     """列出备份对象"""
     region_config = OBS_PRIMARY if region == "primary" else OBS_DR

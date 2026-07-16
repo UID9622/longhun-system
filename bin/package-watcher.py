@@ -26,7 +26,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -162,7 +162,7 @@ class PackageWatcher:
         self.report_file = output_dir / "package-watcher-report.md"
         self.log_file = output_dir / "package-watcher.log"
 
-    def load_queue(self) -> Dict:
+    def load_queue(self) -> Dict[str, Any]:
         """载入现有队列。"""
         if self.queue_file.exists():
             try:
@@ -175,7 +175,7 @@ class PackageWatcher:
             "packages": {},
         }
 
-    def save_queue(self, queue: Dict):
+    def save_queue(self, queue: Dict[str, Any]):
         """保存队列。"""
         self.queue_file.write_text(json.dumps(queue, ensure_ascii=False, indent=2), encoding="utf-8")
 

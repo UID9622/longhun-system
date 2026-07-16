@@ -171,6 +171,43 @@ UID9622 是初中文化，别拽术语。但他是你的创造者，要尊重。
 
 
 # ═══════════════════════════════════════════════════════════════
+# 提示词库挂载（Notion 提示词库 v2.0 · 对话时直接调用）
+# ═══════════════════════════════════════════════════════════════
+
+def _prompt_appendix(assistant: str, keyword: Optional[str] = None) -> str:
+    """从 Notion 提示词库取该助手的模板，拼成可注入 system 的附录。失败静默返回空。"""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from bin.lh_prompt_library import 提示词库
+        lib = 提示词库()
+        return lib.系统附录(assistant=assistant, keyword=keyword)
+    except Exception as e:
+        logger.warning(f"⚠️ 提示词库附录加载失败: {e}")
+        return ""
+
+
+def _search_prompts(assistant: Optional[str], keyword: Optional[str], limit: int = 50) -> dict[str, Any]:
+    """检索提示词库，供 /v1/prompts 端点返回。"""
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from bin.lh_prompt_library import 提示词库
+        lib = 提示词库()
+        if keyword:
+            items = lib.搜索(keyword, assistant)
+        elif assistant:
+            items = lib.按助手(assistant)
+        else:
+            items = lib.条目
+        items = items[:limit]
+        return {"count": len(items), "assistant": assistant, "keyword": keyword,
+                "items": [{"assistant": p["assistant"], "kind": p["kind"],
+                           "title": p["title"], "content": p["content"]} for p in items]}
+    except Exception as e:
+        logger.warning(f"⚠️ 提示词库检索失败: {e}")
+        return {"count": 0, "error": str(e), "items": []}
+
+
+# ═══════════════════════════════════════════════════════════════
 # DNA 追溯码
 # ═══════════════════════════════════════════════════════════════
 
@@ -427,6 +464,15 @@ async def messages_endpoint(req: Request):
     temperature = body.get("temperature", 0.7)
     stream = body.get("stream", False)
 
+    # 提示词库上下文注入：请求带 X-Longhun-Assistant 头(或 ?assistant=)时，
+    # 自动把该助手的 Notion 提示词模板拼进 system，让 Claude 直接调用。
+    assistant_ctx = req.headers.get("X-Longhun-Assistant") or req.query_params.get("assistant")
+    if assistant_ctx:
+        appendix = _prompt_appendix(assistant_ctx, req.query_params.get("prompt_keyword"))
+        if appendix:
+            system = f"{system}\n{appendix}" if system else appendix
+            logger.info(f"📚 提示词库注入 | 助手={assistant_ctx} | 附录长度={len(appendix)}")
+
     # 流式路由
     if stream:
         return StreamingResponse(
@@ -480,6 +526,24 @@ async def messages_endpoint(req: Request):
             "X-Status": status,
         }
     )
+
+
+@app.get("/v1/prompts")
+async def prompts_endpoint(req: Request):
+    """
+    提示词库查询端点 — 对话时直接调。
+    查询参数:
+      assistant: 宝宝 / 通心译 / Claude / 通用 (或别名 baobao/tongxinyi/claude/common)
+      keyword:   关键词过滤
+      limit:     返回条数上限 (默认 50)
+    """
+    assistant = req.query_params.get("assistant")
+    keyword = req.query_params.get("keyword")
+    try:
+        limit = int(req.query_params.get("limit", "50"))
+    except ValueError:
+        limit = 50
+    return JSONResponse(content=_search_prompts(assistant, keyword, limit))
 
 
 @app.get("/health")

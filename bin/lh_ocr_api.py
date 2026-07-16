@@ -73,7 +73,7 @@ class LonghunOCR:
         except Exception:
             pass
 
-    def _check_provider(self, provider_id: str) -> tuple:
+    def _check_provider(self, provider_id: str) -> tuple[Any, ...]:
         cfg = self.PROVIDERS.get(provider_id)
         if not cfg:
             return False, f"未知服务商: {provider_id}"
@@ -82,7 +82,7 @@ class LonghunOCR:
                 return False, f"缺少环境变量: {key}"
         return True, "ok"
 
-    def recognize(self, input_path: str, task: str = 'ocr', provider: str = 'auto') -> dict:
+    def recognize(self, input_path: str, task: str = 'ocr', provider: str = 'auto') -> dict[str, Any]:
         self._audit('recognize', provider, f"{task}:{input_path}")
 
         if not Path(input_path).exists():
@@ -118,7 +118,7 @@ class LonghunOCR:
             'message': '模型未接入，请执行道引流程审查后部署',
         }
 
-    def list_providers(self) -> dict:
+    def list_providers(self) -> dict[str, Any]:
         providers = []
         for pid, cfg in sorted(self.PROVIDERS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_provider(pid)

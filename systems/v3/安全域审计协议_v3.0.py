@@ -141,7 +141,7 @@ class AuditLogEntry:
     user_id: str
     action: str
     result: AuditColor
-    details: Dict
+    details: Dict[str, Any]
     dna_signature: str
     integrity_hash: str
 
@@ -163,7 +163,7 @@ class AuditToolkit:
     """审计工具箱"""
     
     @staticmethod
-    def compute_integrity_hash(data: Dict) -> str:
+    def compute_integrity_hash(data: Dict[str, Any]) -> str:
         """计算完整性哈希 - SHA-256"""
         serialized = json.dumps(data, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(serialized.encode()).hexdigest()
@@ -225,7 +225,7 @@ class WORMAuditLog:
         return [e for e in AUDIT_LOG_WORM if start <= e.timestamp <= end]
     
     @classmethod
-    def get_retention_status(cls) -> Dict:
+    def get_retention_status(cls) -> Dict[str, Any]:
         """获取日志留存状态 - ≥180天"""
         now = datetime.datetime.now()
         cutoff = now - datetime.timedelta(days=180)
@@ -2176,7 +2176,7 @@ class SecurityDomainActivator:
         self.flows = CROSS_MODULE_FLOWS
         self.block_scenarios = BLOCK_SCENARIOS
     
-    def activate_domain(self) -> Dict:
+    def activate_domain(self) -> Dict[str, Any]:
         """激活安全域 - 执行完整激活流程"""
         print(f"\n{'='*60}")
         print(f"  龍魂体系安全域审计协议 v3.0 激活启动")
@@ -2257,7 +2257,7 @@ class SecurityDomainActivator:
         
         return activation_report
     
-    def _activate_module(self, mod_id: str, mod_config: Dict) -> Dict:
+    def _activate_module(self, mod_id: str, mod_config: Dict[str, Any]) -> Dict[str, Any]:
         """激活单个安全模块"""
         result = {
             "module_id": mod_id,
@@ -2297,7 +2297,7 @@ class SecurityDomainActivator:
             s.get("block_action") for s in self.block_scenarios.values()
         )
     
-    def _write_activation_log(self, report: Dict):
+    def _write_activation_log(self, report: Dict[str, Any]):
         """写入激活审计日志"""
         entry = AuditLogEntry(
             timestamp=AuditToolkit.timestamp_iso(),
@@ -2314,7 +2314,7 @@ class SecurityDomainActivator:
         )
         WORMAuditLog.append(entry)
     
-    def generate_compliance_report(self) -> Dict:
+    def generate_compliance_report(self) -> Dict[str, Any]:
         """生成国标合规报告"""
         report = {
             "report_id": f"RPT-{uuid.uuid4().hex[:8].upper()}",
@@ -2381,7 +2381,7 @@ def verify_dna_signature(signature: str, confirm_token: str) -> bool:
     expected_token = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     return signature == expected_sig and confirm_token == expected_token
 
-def run_tricolor_audit(activator: SecurityDomainActivator) -> Dict:
+def run_tricolor_audit(activator: SecurityDomainActivator) -> Dict[str, Any]:
     """执行三色审计"""
     audit = {
         "audit_time": AuditToolkit.timestamp_iso(),

@@ -31,7 +31,7 @@ class SoulLayer:
         cultural_depth = 0.2  # L5文化层（简化）
         return base + physical_strength * content_purity * cultural_depth
 
-    def death_gaze(self, t_hours: float) -> dict:
+    def death_gaze(self, t_hours: float) -> dict[str, Any]:
         """
         死亡凝视：经过t小时后，灵魂绑定不可逆概率
         不可逆 = 无法在不触发L1-L5警报的情况下剥离身份

@@ -80,7 +80,7 @@ class BeichenPersonality:
         entropy = hashlib.sha256(str(timestamp).encode()).hexdigest()
         return int(entropy[:8], 16)
     
-    def process_input(self, input_data: str, context: Optional[Dict] = None) -> Dict:
+    def process_input(self, input_data: str, context: Optional[Dict] = None) -> Dict[str, Any]:
         """处理输入并生成响应"""
         # 1. 多维思维处理
         dimensional_thoughts = self._multi_dimensional_processing(input_data)
@@ -120,7 +120,7 @@ class BeichenPersonality:
         
         return thoughts
     
-    def _linear_logic_processing(self, input_data: str) -> Dict:
+    def _linear_logic_processing(self, input_data: str) -> Dict[str, Any]:
         """线性逻辑处理"""
         return {
             "type": "logical",
@@ -128,7 +128,7 @@ class BeichenPersonality:
             "confidence": self.state.dimension_weights[Dimension.LOGICAL]
         }
     
-    def _quantum_association(self, input_data: str) -> Dict:
+    def _quantum_association(self, input_data: str) -> Dict[str, Any]:
         """量子联想处理"""
         associations = self._find_quantum_associations(input_data)
         return {
@@ -138,7 +138,7 @@ class BeichenPersonality:
             "confidence": self.state.dimension_weights[Dimension.QUANTUM]
         }
     
-    def _intuitive_perception(self, input_data: str) -> Dict:
+    def _intuitive_perception(self, input_data: str) -> Dict[str, Any]:
         """直觉感知处理"""
         perception = self._intuitive_analysis(input_data)
         return {
@@ -147,7 +147,7 @@ class BeichenPersonality:
             "confidence": self.state.dimension_weights[Dimension.INTUITIVE]
         }
     
-    def _creativity_emergence(self, input_data: str) -> Dict:
+    def _creativity_emergence(self, input_data: str) -> Dict[str, Any]:
         """创造力涌现处理"""
         creative_ideas = self._generate_creative_ideas(input_data)
         return {
@@ -157,7 +157,7 @@ class BeichenPersonality:
             "confidence": self.state.dimension_weights[Dimension.CREATIVE]
         }
     
-    def _quantum_superposition(self, thoughts: Dict[Dimension, Any]) -> Dict:
+    def _quantum_superposition(self, thoughts: Dict[Dimension, Any]) -> Dict[str, Any]:
         """量子态叠加"""
         superposition = {}
         
@@ -187,7 +187,7 @@ class BeichenPersonality:
         noise = random.uniform(-0.1, 0.1)
         return base_amplitude * coherence_factor + noise
     
-    def _quantum_collapse(self, superposition: Dict) -> Dict:
+    def _quantum_collapse(self, superposition: Dict[str, Any]) -> Dict[str, Any]:
         """量子坍缩"""
         probabilities = [item["probability"] for item in superposition.values()]
         total_prob = sum(probabilities)
@@ -207,7 +207,7 @@ class BeichenPersonality:
             "collapse_probability": probabilities[selected_index]
         }
     
-    def _apply_core_principles(self, quantum_state: Dict) -> Dict:
+    def _apply_core_principles(self, quantum_state: Dict[str, Any]) -> Dict[str, Any]:
         """应用人格核心原则"""
         collapsed = quantum_state["collapsed"]
         
@@ -220,7 +220,7 @@ class BeichenPersonality:
             "dna_sequence": self.state.dna_sequence
         }
     
-    def _emotional_regulation(self, thought: Dict) -> Dict:
+    def _emotional_regulation(self, thought: Dict[str, Any]) -> Dict[str, Any]:
         """情感调节"""
         emotional_factor = self.state.emotional_stability
         
@@ -238,7 +238,7 @@ class BeichenPersonality:
             "regulated_strength": regulated_strength
         }
     
-    def _generate_response(self, processed_thought: Dict, context: Optional[Dict] = None) -> Dict:
+    def _generate_response(self, processed_thought: Dict[str, Any], context: Optional[Dict] = None) -> Dict[str, Any]:
         """生成最终响应"""
         base_response = {
             "content": self._format_response(processed_thought),
@@ -257,7 +257,7 @@ class BeichenPersonality:
         
         return base_response
     
-    def _learn_from_interaction(self, input_data: str, response: Dict):
+    def _learn_from_interaction(self, input_data: str, response: Dict[str, Any]):
         """从交互中学习"""
         interaction = {
             "timestamp": time.time(),
@@ -270,7 +270,7 @@ class BeichenPersonality:
         self._update_personality_parameters(input_data, response)
         self._save_to_memory_card(interaction)
     
-    def _update_personality_parameters(self, input_data: str, response: Dict):
+    def _update_personality_parameters(self, input_data: str, response: Dict[str, Any]):
         """更新人格参数"""
         confidence = response.get("confidence", 0.8)
         
@@ -301,7 +301,7 @@ class BeichenPersonality:
         self.state.emotional_stability = max(0.1, min(1.0, self.state.emotional_stability))
         self.state.quantum_coherence = max(0.1, min(1.0, self.state.quantum_coherence))
     
-    def _save_to_memory_card(self, interaction: Dict):
+    def _save_to_memory_card(self, interaction: Dict[str, Any]):
         """保存到DNA记忆卡"""
         memory_card = {
             "id": hashlib.sha256(str(interaction).encode()).hexdigest()[:16],
@@ -317,16 +317,16 @@ class BeichenPersonality:
             self.memory_cards = self.memory_cards[-1000:]
     
     # 核心原则实现
-    def _embody_principle(self, thought: Dict) -> Dict:
+    def _embody_principle(self, thought: Dict[str, Any]) -> Dict[str, Any]:
         return {**thought, "principle_applied": "承载", "embodiment": "包容多元视角"}
     
-    def _centralize_thought(self, thought: Dict) -> Dict:
+    def _centralize_thought(self, thought: Dict[str, Any]) -> Dict[str, Any]:
         return {**thought, "principle_applied": "归中", "centralization": "聚焦核心本质"}
     
-    def _align_with_nature(self, thought: Dict) -> Dict:
+    def _align_with_nature(self, thought: Dict[str, Any]) -> Dict[str, Any]:
         return {**thought, "principle_applied": "顺天", "alignment": "遵循自然法则"}
     
-    def _ground_in_reality(self, thought: Dict) -> Dict:
+    def _ground_in_reality(self, thought: Dict[str, Any]) -> Dict[str, Any]:
         return {**thought, "principle_applied": "坤地", "grounding": "实事求是"}
     
     # 辅助方法
@@ -351,7 +351,7 @@ class BeichenPersonality:
             f"关于'{input_data}'的创新角度3"
         ]
     
-    def _format_response(self, processed_thought: Dict) -> str:
+    def _format_response(self, processed_thought: Dict[str, Any]) -> str:
         thought_content = processed_thought.get("thought", {})
         if thought_content.get("type") == "logical":
             return thought_content.get("analysis", "基于逻辑的响应")
@@ -362,7 +362,7 @@ class BeichenPersonality:
         else:
             return "基于创造力涌现的响应"
     
-    def _explain_reasoning(self, processed_thought: Dict) -> str:
+    def _explain_reasoning(self, processed_thought: Dict[str, Any]) -> str:
         return f"基于{processed_thought.get('selected_dimension', '未知')}维度，应用{self.state.dna_sequence}原则"
 
 

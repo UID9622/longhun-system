@@ -148,7 +148,7 @@ class TranslationOutput:
     r_score: float = 0.0
     quality_grade: QualityGrade = QualityGrade.D_FAIL
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "source_text": self.source_text,
             "literal": {

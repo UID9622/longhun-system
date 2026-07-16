@@ -21,7 +21,7 @@ import json
 import time
 import sqlite3
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict
 from enum import Enum
 from abc import ABC, abstractmethod
@@ -145,7 +145,7 @@ class MockExchangeRateSource(ExchangeRateSource):
 class MultiCurrencyHub:
     """龍魂多币种直达系统"""
 
-    def __init__(self, db_path: str = None, use_real_sources: bool = True):
+    def __init__(self, db_path: str | None = None, use_real_sources: bool = True):
         # 使用新的数据源管理器或回退到 Mock
         if use_real_sources and USE_REAL_SOURCES:
             self.source_manager = ExchangeRateSourceManager()
@@ -295,7 +295,7 @@ class MultiCurrencyHub:
 
         return rates
 
-    def get_market_overview(self) -> Dict:
+    def get_market_overview(self) -> Dict[str, Any]:
         """获取市场概览"""
         return {
             'timestamp': datetime.now().isoformat(),

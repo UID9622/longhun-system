@@ -80,7 +80,7 @@ class DNAObject:
     dna_primary: str = ""
     dna_confirm: str = ""
     is_valid: bool = False
-    metadata: Dict = field(default_factory=dict)
+    metadata: Dict[str, Any] = field(default_factory=dict)
     extracted_at: str = ""
 
 
@@ -107,7 +107,7 @@ class IntentObject:
     """STEP_04-05 输出：意图解析结果"""
     primary_action: str = ""
     secondary_object: str = ""
-    parameters: Dict = field(default_factory=dict)
+    parameters: Dict[str, Any] = field(default_factory=dict)
     confidence: float = 0.0
     normalized_action: str = ""
     required_permission: int = 0
@@ -120,7 +120,7 @@ class RouteDecision:
     backup_executors: List[str] = field(default_factory=list)
     routing_decision_id: str = ""
     routing_confidence: float = 0.0
-    candidates_scores: Dict = field(default_factory=dict)
+    candidates_scores: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -129,7 +129,7 @@ class ExecutionResult:
     success: bool = False
     output: str = ""
     files_modified: List[str] = field(default_factory=list)
-    memory_written: Dict = field(default_factory=dict)
+    memory_written: Dict[str, Any] = field(default_factory=dict)
     side_effects: List[str] = field(default_factory=list)
     error: str = ""
 
@@ -166,8 +166,8 @@ class SnapshotObject:
     snapshot_id: str = ""
     timestamp: str = ""
     dna_trace: str = ""
-    system_state: Dict = field(default_factory=dict)
-    file_checksums: Dict = field(default_factory=dict)
+    system_state: Dict[str, Any] = field(default_factory=dict)
+    file_checksums: Dict[str, Any] = field(default_factory=dict)
     rollback_point: str = ""
     primary_path: str = ""
     verified: bool = False
@@ -248,7 +248,7 @@ class ElevenStepChain:
             f.write(json.dumps(serializable, ensure_ascii=False) + '\n')
         self.chain_history.append(result)
 
-    def _serialize_step(self, obj) -> Dict:
+    def _serialize_step(self, obj) -> Dict[str, Any]:
         if obj is None:
             return {}
         if isinstance(obj, dict):

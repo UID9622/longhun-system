@@ -20,7 +20,7 @@ import subprocess
 import asyncio
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Optional, AsyncGenerator
+from typing import Optional, AsyncGenerator, Any
 
 from .config import PROJECT_ROOT, DATA_DIR, DB_PATH, SOVEREIGNTY_PRIVATE_DIRS, SOVEREIGNTY_PRIVATE_TAGS
 from .database import now_iso
@@ -116,7 +116,7 @@ def count_words(content: str) -> int:
     return chinese_chars + english_words
 
 
-def extract_title(file_path: str, content: str = None) -> str:
+def extract_title(file_path: str, content: str | None = None) -> str:
     """从文件提取标题。"""
     if content is None:
         try:
@@ -168,7 +168,7 @@ def should_index(file_path: str) -> bool:
     return True
 
 
-def detect_sovereignty_level(file_path: str, content: str = None) -> tuple:
+def detect_sovereignty_level(file_path: str, content: str | None = None) -> tuple[Any, ...]:
     """
     三层主权分级检测。
     返回: (sovereignty_level: int, is_private_content: int, reason: str)
@@ -235,7 +235,7 @@ def redact_private_content(file_path: str, sovereignty_level: int) -> str:
     return None  # 层1/2 不脱敏
 
 
-def get_sovereignty_declaration() -> dict:
+def get_sovereignty_declaration() -> dict[str, Any]:
     """获取完整的数据主权声明（三层透明模型）。"""
     from .config import REGULATORY_POSITION_STATEMENT, REGULATORY_CONSTITUTION_VERSION
     return {
@@ -282,7 +282,7 @@ def get_sovereignty_declaration() -> dict:
     }
 
 
-def protocol_self_check() -> dict:
+def protocol_self_check() -> dict[str, Any]:
     """
     协议合规自检 — 检查系统是否遵守自身设定的安全基线。
     返回逐项判定结果。
@@ -377,7 +377,7 @@ def protocol_self_check() -> dict:
     }
 
 
-def scan_directory(root_path: str, max_files: int = 10000) -> list:
+def scan_directory(root_path: str, max_files: int = 10000) -> list[Any]:
     """扫描目录，返回所有应索引的文件路径列表。"""
     results = []
     root = Path(root_path)
@@ -472,7 +472,7 @@ def index_document(file_path: str) -> Optional[dict]:
         return None
 
 
-def full_index(progress_callback=None) -> dict:
+def full_index(progress_callback=None) -> dict[str, Any]:
     """全量扫描并索引所有文档。"""
     start_time = datetime.now(timezone.utc)
     root = str(PROJECT_ROOT)
@@ -516,7 +516,7 @@ def full_index(progress_callback=None) -> dict:
     }
 
 
-def get_system_state() -> dict:
+def get_system_state() -> dict[str, Any]:
     """获取系统实时状态快照。"""
     state = {
         "timestamp": now_iso(),
@@ -580,7 +580,7 @@ def get_system_state() -> dict:
     return state
 
 
-def generate_daily_report(date_str: str = None) -> dict:
+def generate_daily_report(date_str: str | None = None) -> dict[str, Any]:
     """生成每日合规报告。"""
     if date_str is None:
         date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -637,7 +637,7 @@ def generate_daily_report(date_str: str = None) -> dict:
     }
 
 
-def generate_weekly_report() -> dict:
+def generate_weekly_report() -> dict[str, Any]:
     """生成每周合规报告。"""
     end_date = datetime.now(timezone.utc)
     start_date = end_date - timedelta(days=7)
@@ -681,7 +681,7 @@ class RegulatoryEventBus:
         if queue in self._subscribers:
             self._subscribers.remove(queue)
     
-    async def publish(self, event: dict):
+    async def publish(self, event: dict[str, Any]):
         event["timestamp"] = now_iso()
         dead = []
         for q in self._subscribers:

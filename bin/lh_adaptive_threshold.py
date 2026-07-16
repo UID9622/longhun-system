@@ -22,7 +22,7 @@ import sys
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
@@ -131,7 +131,7 @@ class AdaptiveThresholdEngine:
         return self.PARAMETERS[name].current_value if name in self.PARAMETERS else 0
 
     def calibrate(self, colony_health: float, alert_count: int,
-                  orphan_count: int, rb_count: int, total_scripts: int) -> Dict:
+                  orphan_count: int, rb_count: int, total_scripts: int) -> Dict[str, Any]:
         """
         根据蚁群状态自动校准参数
         
@@ -184,7 +184,7 @@ class AdaptiveThresholdEngine:
             "timestamp": datetime.now().isoformat(),
         }
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         """查看当前激素水平"""
         params = {}
         for name, p in self.PARAMETERS.items():

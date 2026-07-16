@@ -26,7 +26,7 @@ DNA = "#龍芯⚡️2026-07-04-ENSP-HASH-CHECKER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
-def load_hash_library(json_path: Path) -> dict:
+def load_hash_library(json_path: Path) -> dict[str, Any]:
     with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -42,7 +42,7 @@ def compute_hash(file_path: Path, algorithm: str = "sha256") -> str:
     return h.hexdigest()
 
 
-def match_known_file(filename: str, library: dict) -> tuple:
+def match_known_file(filename: str, library: dict[str, Any]) -> tuple[Any, ...]:
     """根据文件名在哈希库中查找对应条目，返回 (key, entry) 或 (None, None)。"""
     lower = filename.lower()
     for key, entry in library.get("sources", {}).items():
@@ -51,7 +51,7 @@ def match_known_file(filename: str, library: dict) -> tuple:
     return None, None
 
 
-def check_file(file_path: Path, library: dict) -> dict:
+def check_file(file_path: Path, library: dict[str, Any]) -> dict[str, Any]:
     filename = file_path.name
     key, entry = match_known_file(filename, library)
     result = {
@@ -103,7 +103,7 @@ def check_file(file_path: Path, library: dict) -> dict:
     return result
 
 
-def scan_directory(dir_path: Path, library: dict) -> list:
+def scan_directory(dir_path: Path, library: dict[str, Any]) -> list[Any]:
     results = []
     for item in dir_path.iterdir():
         if item.is_file():
@@ -111,7 +111,7 @@ def scan_directory(dir_path: Path, library: dict) -> list:
     return results
 
 
-def print_report(results: list):
+def print_report(results: list[Any]):
     print("\n" + "=" * 70)
     print("龍魂 · 华为 eNSP 套件哈希校验报告")
     print("=" * 70)

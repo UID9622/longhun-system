@@ -32,12 +32,12 @@ if SECRETS.exists():
 NOTION_API_KEY = os.getenv("NOTION_API_KEY", "")
 
 
-def 生成DNA(数据: dict) -> str:
+def 生成DNA(数据: dict[str, Any]) -> str:
     """生成简化 DNA 哈希"""
     return hashlib.sha256(json.dumps(数据, sort_keys=True).encode("utf-8")).hexdigest()[:16]
 
 
-def 验证云端DNA(云端DNA: str, 数据: dict) -> bool:
+def 验证云端DNA(云端DNA: str, 数据: dict[str, Any]) -> bool:
     """演示模式：长度合法即视为有效"""
     return len(云端DNA) >= 16
 
@@ -56,7 +56,7 @@ def 模拟云端事件():
     }
 
 
-def 本地处理(数据: dict) -> dict:
+def 本地处理(数据: dict[str, Any]) -> dict[str, Any]:
     """本地 CNSH 治理处理"""
     local_dna = 生成DNA(数据)
     return {
@@ -66,7 +66,7 @@ def 本地处理(数据: dict) -> dict:
     }
 
 
-def 同步到Notion(本地结果: dict) -> bool:
+def 同步到Notion(本地结果: dict[str, Any]) -> bool:
     """尝试同步到 Notion（无 API key 时模拟）"""
     if not NOTION_API_KEY:
         print("   🟡 NOTION_API_KEY 未配置，跳过真实同步")

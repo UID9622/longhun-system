@@ -30,7 +30,7 @@ import sys
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -56,7 +56,7 @@ class CrisisRecovery:
         "unknown_error": "未知错误",
     }
 
-    def __init__(self, backup_dir: str = None):
+    def __init__(self, backup_dir: str | None = None):
         """初始化危机恢复系统"""
         self.logger = get_logger()
         self.config = get_config()
@@ -76,7 +76,7 @@ class CrisisRecovery:
         snapshot_name: str,
         target_path: str,
         description: str = ""
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         创建快照
 
@@ -177,7 +177,7 @@ class CrisisRecovery:
         crisis_type: str,
         description: str,
         recommended_snapshot: str = None
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         从危机中恢复
 

@@ -19,7 +19,7 @@
 
 import sys
 import json
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Any
 from datetime import datetime
 
 # ═══════════════════════════════════════════════════════════════
@@ -326,7 +326,7 @@ class LongHunCoreSystem:
             print(f"\n❌ 启动失败: {e}")
             return False, startup_report
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> Dict[str, Any]:
         """获取系统状态"""
         return {
             "timestamp": datetime.now().isoformat(),
@@ -351,7 +351,7 @@ class LongHunCoreSystem:
             "rule_engine_statistics": self.rule_engine.get_statistics() if self.rule_engine else None,
         }
 
-    def execute_operation(self, operation: str, params: Dict = None) -> Dict:
+    def execute_operation(self, operation: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
         """执行系统操作"""
         result = {
             "operation": operation,

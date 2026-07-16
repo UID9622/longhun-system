@@ -6,7 +6,7 @@ DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-PARSER-v1.0
 """
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List, Optional, Any
 
 from .ast_nodes import *
 from .lexer import Token, TokenType
@@ -33,7 +33,7 @@ class Parser:
     def _match(self, *types: TokenType) -> bool:
         return self._peek().type in types
 
-    def _consume(self, expected: TokenType = None, value: str = None) -> Token:
+    def _consume(self, expected: TokenType = None, value: str | None = None) -> Token:
         tok = self._peek()
         if expected and tok.type != expected:
             raise ParseError(f"期望 {expected.name}，得到 {tok} (L{tok.line}C{tok.col})")

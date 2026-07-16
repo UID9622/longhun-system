@@ -100,7 +100,7 @@ class AdaptiveParams:
     最后微调时间: str = ""
     参数哈希: str = ""                # 当前参数的哈希
     父哈希: str = ""                  # 上一代参数的哈希
-    微调记录: list = field(default_factory=list)
+    微调记录: list[Any] = field(default_factory=list)
 
 # ═══════════════════════════════════════════════════════════════
 # 二、硬界 · 焊死·调节器越界即拒绝
@@ -125,7 +125,7 @@ PARAM_HARD_BOUNDS: Dict[str, Tuple[float, float]] = {
 # 三、三色 dr 审计 · 老大的核心规矩
 # ═══════════════════════════════════════════════════════════════
 
-def tricolor_dr_audit(data: dict) -> Tuple[str, int, str]:
+def tricolor_dr_audit(data: dict[str, Any]) -> Tuple[str, int, str]:
     """
     根据分析数据评估三色 dr。
     🟢 dr ∈ {1,2,4,5,7,8}   通行
@@ -244,7 +244,7 @@ class AdaptiveTuner:
 
     # ── 窗口判定 ──────────────────────────────────────────
 
-    def _in_window(self, event: dict, days: int) -> bool:
+    def _in_window(self, event: dict[str, Any], days: int) -> bool:
         try:
             ts = event.get("时间戳", "")
             if not ts:
@@ -254,7 +254,7 @@ class AdaptiveTuner:
         except Exception:
             return False
 
-    def _in_window_range(self, event: dict, from_days: int, to_days: int) -> bool:
+    def _in_window_range(self, event: dict[str, Any], from_days: int, to_days: int) -> bool:
         try:
             ts = event.get("时间戳", "")
             if not ts:
@@ -267,7 +267,7 @@ class AdaptiveTuner:
 
     # ── 分析 + 趋势（v2.0 新增） ──────────────────────────
 
-    def _stats_segment(self, window_events: List[dict]) -> dict:
+    def _stats_segment(self, window_events: List[dict]) -> dict[str, Any]:
         if not window_events:
             return {"样本数": 0}
         errors = [e for e in window_events if e.get("犯错")]
@@ -281,7 +281,7 @@ class AdaptiveTuner:
             "补救率": round(len([e for e in errors if e.get("补救")]) / len(errors), 3) if errors else 0,
         }
 
-    def analyze(self) -> dict:
+    def analyze(self) -> dict[str, Any]:
         """v2.0：返回快照 + 趋势"""
         window = self.params.观察窗口_天
         window_events = [e for e in self.events if self._in_window(e, window)]
@@ -344,7 +344,7 @@ class AdaptiveTuner:
 
     # ── 微调主流程 ────────────────────────────────────────
 
-    def tune(self, simulate: bool = True) -> dict:
+    def tune(self, simulate: bool = True) -> dict[str, Any]:
         """
         v2.0：默认模拟态·非模拟需 --apply
         触发流程：分析 → 三色 dr → 微调建议 → 红线熔断检测 → 落盘
@@ -448,7 +448,7 @@ class AdaptiveTuner:
 
     # ── 回滚（v2.0 新增） ─────────────────────────────────
 
-    def rollback(self) -> dict:
+    def rollback(self) -> dict[str, Any]:
         """回滚到上一代参数（从历史目录读取）"""
         if not self.params.父哈希:
             return {"status": "🟡 无父代·无法回滚"}
@@ -488,7 +488,7 @@ class AdaptiveTuner:
 
     # ── 查看参数 ──────────────────────────────────────────
 
-    def view_params(self) -> dict:
+    def view_params(self) -> dict[str, Any]:
         d = asdict(self.params)
         for k in ("熔断_dr", "待审_dr"):
             if isinstance(d.get(k), tuple):
@@ -498,7 +498,7 @@ class AdaptiveTuner:
 
     # ── Markdown 审计报告（v2.0 新增） ────────────────────
 
-    def generate_audit_report(self, tune_result: dict) -> Path:
+    def generate_audit_report(self, tune_result: dict[str, Any]) -> Path:
         """落地 Markdown 审计·便于眼审 + 入 Notion 草日志"""
         today = datetime.now().strftime("%Y-%m-%d")
         time_str = datetime.now().strftime("%H:%M:%S")
@@ -549,7 +549,7 @@ class AdaptiveTuner:
 # 五、钩子接口 · 供 lh_unified_hook 调用
 # ═══════════════════════════════════════════════════════════════
 
-def adaptive_tuner_analyze_hook(data: dict) -> dict:
+def adaptive_tuner_analyze_hook(data: dict[str, Any]) -> dict[str, Any]:
     """钩子：分析当前参数状态 + 三色 dr"""
     tuner = AdaptiveTuner()
     analysis = tuner.analyze()
@@ -562,7 +562,7 @@ def adaptive_tuner_analyze_hook(data: dict) -> dict:
         "parent_hash": tuner.params.父哈希,
     }
 
-def adaptive_tuner_audit_hook(data: dict) -> dict:
+def adaptive_tuner_audit_hook(data: dict[str, Any]) -> dict[str, Any]:
     """钩子：参数审计 + 熔断检查"""
     tuner = AdaptiveTuner()
     tune_result = tuner.tune(simulate=True)  # 只模拟，不落盘

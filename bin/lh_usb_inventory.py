@@ -15,7 +15,7 @@ import os
 import sqlite3
 import sys
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Any
 
 DB_PATH = Path("~/longhun-system/data/usb_index/usb_index.db").expanduser()
 MILESTONE_PATH = Path("~/longhun-system/data/usb_index/milestones.json").expanduser()
@@ -164,7 +164,7 @@ def scan(root: Path, conn: sqlite3.Connection, dry_run: bool = False) -> None:
     print(f"Done: inserted={inserted}, skipped={skipped}")
 
 
-def summarize(conn: sqlite3.Connection, root: Path) -> dict:
+def summarize(conn: sqlite3.Connection, root: Path) -> dict[str, Any]:
     cursor = conn.cursor()
     root_str = str(root)
     rows = list(cursor.execute(

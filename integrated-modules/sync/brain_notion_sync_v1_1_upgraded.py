@@ -190,7 +190,7 @@ def safe_parse_tags(tags):
     
     return []
 
-def notion_create_page(memory: dict, rate_limiter: RateLimiter = None) -> str | None:
+def notion_create_page(memory: dict[str, Any], rate_limiter: RateLimiter = None) -> str | None:
     """
     把一条记忆写到 Notion 数据库，返回 page_id
     
@@ -320,7 +320,7 @@ def update_notion_id(db_path, memory_id: int, notion_id: str):
     con.commit()
     con.close()
 
-def get_unsynced(db_path) -> list:
+def get_unsynced(db_path) -> list[Any]:
     """找出还没同步到 Notion 的记忆"""
     con = sqlite3.connect(db_path)
     con.execute("""

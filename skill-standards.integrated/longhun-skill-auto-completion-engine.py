@@ -220,7 +220,7 @@ class SkillSpec:
                 
                 block.auto_generated = True
     
-    def _generate_metadata(self) -> Dict:
+    def _generate_metadata(self) -> Dict[str, Any]:
         """生成元數據"""
         return {
             "skill_id": self.skill_id,
@@ -234,7 +234,7 @@ class SkillSpec:
             "dna_signature": f"#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-{self.skill_id}-v1.0"
         }
     
-    def _generate_calculation_spec(self) -> Dict:
+    def _generate_calculation_spec(self) -> Dict[str, Any]:
         """生成計算規範"""
         return {
             "algorithm": "TBD",
@@ -245,7 +245,7 @@ class SkillSpec:
             "mark": "🟡 待驗證實際性能"
         }
     
-    def _generate_io_schema(self) -> Dict:
+    def _generate_io_schema(self) -> Dict[str, Any]:
         """生成 I/O 規範"""
         return {
             "inputs": {},
@@ -255,7 +255,7 @@ class SkillSpec:
             "mark": "🔖 待詳細定義參數"
         }
     
-    def _generate_execution_flow(self) -> Dict:
+    def _generate_execution_flow(self) -> Dict[str, Any]:
         """生成執行流程"""
         return {
             "stage_1": "輸入驗證",
@@ -266,7 +266,7 @@ class SkillSpec:
             "mark": "🔖 待繪製流程圖"
         }
     
-    def _generate_integration(self) -> Dict:
+    def _generate_integration(self) -> Dict[str, Any]:
         """生成集成接口"""
         return {
             "api_endpoint": f"/api/v1/{self.skill_id}",
@@ -276,7 +276,7 @@ class SkillSpec:
             "mark": "🟡 待測試 API"
         }
     
-    def _generate_performance(self) -> Dict:
+    def _generate_performance(self) -> Dict[str, Any]:
         """生成性能評估"""
         return {
             "typical_throughput": "TBD req/s",
@@ -287,7 +287,7 @@ class SkillSpec:
             "mark": "🟡 待基准測試"
         }
     
-    def _generate_qa(self) -> Dict:
+    def _generate_qa(self) -> Dict[str, Any]:
         """生成質量保證"""
         return {
             "test_coverage": "TBD%",
@@ -298,7 +298,7 @@ class SkillSpec:
             "mark": "🟡 待補充測試用例"
         }
     
-    def _generate_documentation(self) -> Dict:
+    def _generate_documentation(self) -> Dict[str, Any]:
         """生成文檔示例"""
         return {
             "description": f"Skill: {self.name}",
@@ -308,7 +308,7 @@ class SkillSpec:
             "mark": "🔖 待補充完整文檔"
         }
     
-    def _generate_versioning(self) -> Dict:
+    def _generate_versioning(self) -> Dict[str, Any]:
         """生成版本信息"""
         return {
             "version": "1.0.0",
@@ -317,7 +317,7 @@ class SkillSpec:
             "support_status": "production"
         }
     
-    def _generate_security(self) -> Dict:
+    def _generate_security(self) -> Dict[str, Any]:
         """生成安全信息"""
         return {
             "data_privacy": "TBD",
@@ -327,7 +327,7 @@ class SkillSpec:
             "mark": "🟡 待安全審計"
         }
     
-    def _generate_constraints(self) -> Dict:
+    def _generate_constraints(self) -> Dict[str, Any]:
         """生成限制信息"""
         return {
             "max_input_size_mb": 100,
@@ -337,7 +337,7 @@ class SkillSpec:
             "mark": "🔖 待確認實際限制"
         }
     
-    def _generate_ecosystem(self) -> Dict:
+    def _generate_ecosystem(self) -> Dict[str, Any]:
         """生成生態信息"""
         return {
             "related_skills": [],

@@ -1,0 +1,118 @@
+%% 龙魂系统知识图谱 - 图谱B：贡献者永恒回报机制
+%% UID9622 | 贡献者永恒回报机制
+%% 层级: 治理层(蓝) + 机制层(紫) + 基础层(灰)
+
+graph TD
+    %% ============ 样式定义 ============
+    classDef governanceB fill:#2563EB,color:#fff,stroke:#1E40AF,stroke-width:2px
+    classDef mechanismB fill:#7C3AED,color:#fff,stroke:#5B21B6,stroke-width:2px
+    classDef foundation fill:#4B5563,color:#fff,stroke:#1F2937,stroke-width:2px
+
+    %% ============ 治理层B ============
+    subgraph SG_治理层B["🛡️ 治理层 · Governance Layer B"]
+        direction TB
+        subgraph SG_核心宗旨["⚔️ 核心宗旨"]
+            direction LR
+            principle_core["核心宗旨"]
+            prin_people["取之于民用之于民"]
+            prin_archive["贡献即存档"]
+            prin_no_profit["回馈不依赖商业利润"]
+            prin_hereditary["世袭继承"]
+            prin_never_hide["永不掩盖"]
+        end
+
+        subgraph SG_贡献维度["📊 贡献三维度"]
+            direction LR
+            contrib_dims["贡献三维度"]
+            contrib_code["代码贡献40%"]
+            contrib_doc["协议文档贡献30%"]
+            contrib_community["传播社区贡献30%"]
+        end
+    end
+
+    %% ============ 机制层B ============
+    subgraph SG_机制层B["⚙️ 机制层 · Mechanism Layer B"]
+        direction TB
+        subgraph SG_回馈机制["🎁 回馈机制"]
+            direction LR
+            reward_mech["回馈机制"]
+            reward_source["回馈来源"]
+            reward_pool["资金池分配"]
+            reward_formula["回馈公式"]
+        end
+
+        subgraph SG_三池结构["🏊 三池结构"]
+            direction LR
+            pool_struct["三池结构"]
+            pool_personal["个人权益"]
+            pool_fund["基金池"]
+            pool_support["扶持池"]
+        end
+    end
+
+    %% ============ 基础层 ============
+    subgraph SG_基础层["🏛️ 基础层 · Foundation Layer"]
+        direction TB
+        subgraph SG_世袭继承["👑 世袭继承"]
+            direction LR
+            inherit_mech["世袭继承"]
+            inherit_archive["贡献档案永久保留"]
+            inherit_descendants["后代可继承权益"]
+            inherit_dna["DNA追溯链可延续"]
+        end
+
+        subgraph SG_道德熔断["🛡️ 道德绑架熔断"]
+            direction LR
+            fuse_moral["道德绑架熔断"]
+            fuse_identify["识别索取拒绝行为"]
+            fuse_archive["会话归档+用户标记"]
+            fuse_reject["拒绝后续请求"]
+        end
+    end
+
+    %% ============ 内部边连接 ============
+    %% 核心宗旨
+    principle_core -->|"宗旨1"| prin_people
+    principle_core -->|"宗旨2"| prin_archive
+    principle_core -->|"宗旨3"| prin_no_profit
+    principle_core -->|"宗旨4"| prin_hereditary
+    principle_core -->|"宗旨5"| prin_never_hide
+
+    %% 贡献三维度
+    contrib_dims -->|"权重40%"| contrib_code
+    contrib_dims -->|"权重30%"| contrib_doc
+    contrib_dims -->|"权重30%"| contrib_community
+
+    %% 回馈机制
+    reward_mech -->|"来源"| reward_source
+    reward_mech -->|"分配"| reward_pool
+    reward_mech -->|"计算"| reward_formula
+
+    %% 三池结构
+    pool_struct -->|"个人"| pool_personal
+    pool_struct -->|"基金"| pool_fund
+    pool_struct -->|"扶持"| pool_support
+    reward_pool -->|"分配至"| pool_struct
+
+    %% 世袭继承
+    inherit_mech -->|"保留"| inherit_archive
+    inherit_mech -->|"继承"| inherit_descendants
+    inherit_mech -->|"延续"| inherit_dna
+
+    %% 道德绑架熔断
+    fuse_moral -->|"识别"| fuse_identify
+    fuse_moral -->|"归档"| fuse_archive
+    fuse_moral -->|"拒绝"| fuse_reject
+
+    %% ============ 跨层连接 ============
+    prin_archive -->|"驱动"| inherit_mech
+    prin_hereditary -->|"驱动"| inherit_mech
+    prin_no_profit -->|"限制"| reward_source
+    contrib_code -->|"计入"| reward_formula
+    contrib_doc -->|"计入"| reward_formula
+    contrib_community -->|"计入"| reward_formula
+
+    %% ============ 样式应用 ============
+    class principle_core,prin_people,prin_archive,prin_no_profit,prin_hereditary,prin_never_hide,contrib_dims,contrib_code,contrib_doc,contrib_community governanceB
+    class reward_mech,reward_source,reward_pool,reward_formula,pool_struct,pool_personal,pool_fund,pool_support mechanismB
+    class inherit_mech,inherit_archive,inherit_descendants,inherit_dna,fuse_moral,fuse_identify,fuse_archive,fuse_reject foundation

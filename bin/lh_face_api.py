@@ -42,7 +42,7 @@ class LonghunFace:
         },
     }
 
-    def __init__(self, dna: str, auth_code: str = None, audit_db: str = 'data/sqlite/audit.db'):
+    def __init__(self, dna: str, auth_code: str | None = None, audit_db: str = 'data/sqlite/audit.db'):
         self.dna = dna
         self.auth_code = auth_code
         self.audit_db = audit_db
@@ -79,7 +79,7 @@ class LonghunFace:
         except Exception:
             pass
 
-    def _check_provider(self, provider_id: str) -> tuple:
+    def _check_provider(self, provider_id: str) -> tuple[Any, ...]:
         cfg = self.PROVIDERS.get(provider_id)
         if not cfg:
             return False, f"未知服务商: {provider_id}"
@@ -88,7 +88,7 @@ class LonghunFace:
                 return False, f"缺少环境变量: {key}"
         return True, "ok"
 
-    def detect(self, input_path: str, provider: str = 'auto') -> dict:
+    def detect(self, input_path: str, provider: str = 'auto') -> dict[str, Any]:
         if not self._check_auth():
             return {
                 'success': False,
@@ -129,7 +129,7 @@ class LonghunFace:
             'message': '模型未接入，请执行道引流程审查后部署',
         }
 
-    def compare(self, img1: str, img2: str, provider: str = 'auto') -> dict:
+    def compare(self, img1: str, img2: str, provider: str = 'auto') -> dict[str, Any]:
         if not self._check_auth():
             return {
                 'success': False,
@@ -153,7 +153,7 @@ class LonghunFace:
             'message': '模型未接入',
         }
 
-    def list_providers(self) -> dict:
+    def list_providers(self) -> dict[str, Any]:
         providers = []
         for pid, cfg in sorted(self.PROVIDERS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_provider(pid)

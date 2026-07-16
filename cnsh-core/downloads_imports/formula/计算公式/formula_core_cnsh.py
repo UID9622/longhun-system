@@ -100,123 +100,123 @@ def cnsh_package(
 
 # ═════════ 单公式 CNSH 封装 ═════════
 
-def temporal_decay_cnsh(T: float, alpha_tau: float) -> Dict:
+def temporal_decay_cnsh(T: float, alpha_tau: float) -> Dict[str, Any]:
     eta = fc.temporal_decay(T, alpha_tau)
     return cnsh_package("temporal_decay", {"T": T, "alpha_tau": alpha_tau, "eta": eta}, "🟢")
 
 
-def content_contribution_cnsh(R: float, I: float, T: float, alpha_tau: float) -> Dict:
+def content_contribution_cnsh(R: float, I: float, T: float, alpha_tau: float) -> Dict[str, Any]:
     C = fc.content_contribution(R, I, T, alpha_tau)
     return cnsh_package("content_contribution", {"R": R, "I": I, "T": T, "alpha_tau": alpha_tau, "C": C}, "🟢")
 
 
-def digital_root_cnsh(n: int) -> Dict:
+def digital_root_cnsh(n: int) -> Dict[str, Any]:
     dr = fc.digital_root(n)
     return cnsh_package("digital_root", {"n": n, "dr": dr}, "🟢")
 
 
-def dr_gate_cnsh(n: int) -> Dict:
+def dr_gate_cnsh(n: int) -> Dict[str, Any]:
     gate = fc.dr_gate(n)
     return cnsh_package("dr_gate", {"n": n, "dr": fc.digital_root(n), "gate": gate}, gate)
 
 
-def five_element_cnsh(n: int) -> Dict:
+def five_element_cnsh(n: int) -> Dict[str, Any]:
     element = fc.five_element(n)
     return cnsh_package("five_element", {"n": n, "dr": fc.digital_root(n), "wuxing": element}, "🟢")
 
 
-def wuxing_vector_cnsh(text: str) -> Dict:
+def wuxing_vector_cnsh(text: str) -> Dict[str, Any]:
     vec = fc.wuxing_vector(text)
     return cnsh_package("wuxing_vector", {"text": text, "vector": vec}, "🟢")
 
 
-def cosine_cnsh(a, b) -> Dict:
+def cosine_cnsh(a, b) -> Dict[str, Any]:
     sim = fc.cosine(a, b)
     color = "🟢" if sim >= 0.9 else ("🟡" if sim >= 0.6 else "⚪")
     return cnsh_package("cosine", {"similarity": round(sim, 4)}, color)
 
 
-def normalize_cnsh(xs) -> Dict:
+def normalize_cnsh(xs) -> Dict[str, Any]:
     vec = fc.normalize(xs)
     ok = abs(sum(vec) - 1.0) < 1e-6 if sum(xs) != 0 else True
     return cnsh_package("normalize", {"input": xs, "output": vec, "sum": round(sum(vec), 6)},
                         "🟢" if ok else "🔴")
 
 
-def alpha_amp_ok_cnsh(amps) -> Dict:
+def alpha_amp_ok_cnsh(amps) -> Dict[str, Any]:
     ok = fc.alpha_amp_ok(amps)
     return cnsh_package("alpha_amp_ok", {"amps": amps, "valid": ok}, "🟢" if ok else "🔴")
 
 
-def alpha_weight_ok_cnsh(ws) -> Dict:
+def alpha_weight_ok_cnsh(ws) -> Dict[str, Any]:
     ok = fc.alpha_weight_ok(ws)
     return cnsh_package("alpha_weight_ok", {"weights": ws, "valid": ok}, "🟢" if ok else "🔴")
 
 
-def truth_total_cnsh(rows, weights=None) -> Dict:
+def truth_total_cnsh(rows, weights=None) -> Dict[str, Any]:
     result = fc.truth_total(rows, weights)
     return cnsh_package("truth_total",
                         {"score": result["score"], "veto": result["veto"], "color": result["color"]},
                         result["color"])
 
 
-def soul_score_cnsh(E: Dict[str, float]) -> Dict:
+def soul_score_cnsh(E: Dict[str, float]) -> Dict[str, Any]:
     score = fc.soul_score(E)
     color = "🟢" if score >= 0.85 else ("🟡" if score >= 0.6 else "🔴")
     return cnsh_package("soul_score", {"score": round(score, 4)}, color)
 
 
-def hash_chain_cnsh(events) -> Dict:
+def hash_chain_cnsh(events) -> Dict[str, Any]:
     chain = fc.hash_chain(events)
     return cnsh_package("hash_chain", {"events": len(events), "tail": chain[-1][:16] if chain else ""}, "🟢")
 
 
-def magic_ok_cnsh(m=fc.LUOSHU) -> Dict:
+def magic_ok_cnsh(m=fc.LUOSHU) -> Dict[str, Any]:
     ok = fc.magic_ok(m)
     return cnsh_package("magic_ok", {"lo_shu_valid": ok}, "🟢" if ok else "🔴")
 
 
-def risk_tri_color_cnsh(impact: float, uncertainty: float, boundary: float) -> Dict:
+def risk_tri_color_cnsh(impact: float, uncertainty: float, boundary: float) -> Dict[str, Any]:
     color = fc.risk_tri_color(impact, uncertainty, boundary)
     return cnsh_package("risk_tri_color",
                         {"impact": impact, "uncertainty": uncertainty, "boundary": boundary, "risk_color": color},
                         color)
 
 
-def conservation_score_cnsh(主控, 任务, 边界, 留痕, 验收) -> Dict:
+def conservation_score_cnsh(主控, 任务, 边界, 留痕, 验收) -> Dict[str, Any]:
     S = fc.conservation_score(主控, 任务, 边界, 留痕, 验收)
     color = "🟢" if S >= 13 else ("🟡" if S >= 10 else ("🟡" if S >= 7 else "🔴"))
     return cnsh_package("conservation_score", {"S": S}, color)
 
 
-def decision_path_score_cnsh(可执行, 安全, 主线, 验证, 风险, H_人性) -> Dict:
+def decision_path_score_cnsh(可执行, 安全, 主线, 验证, 风险, H_人性) -> Dict[str, Any]:
     D = fc.decision_path_score(可执行, 安全, 主线, 验证, 风险, H_人性)
     return cnsh_package("decision_path_score", {"D": round(D, 4)}, "🟢")
 
 
-def human_bias_cnsh(欲望, 损失规避, 即时偏好) -> Dict:
+def human_bias_cnsh(欲望, 损失规避, 即时偏好) -> Dict[str, Any]:
     H = fc.human_bias(欲望, 损失规避, 即时偏好)
     color = "🟢" if H <= 8 else ("🟡" if H <= 27 else "🔴")
     return cnsh_package("human_bias", {"H_人性": round(H, 4)}, color)
 
 
-def persona_contribution_cnsh(R, I, T_lv, B_seven, W, F, B_test) -> Dict:
+def persona_contribution_cnsh(R, I, T_lv, B_seven, W, F, B_test) -> Dict[str, Any]:
     PC = fc.persona_contribution(R, I, T_lv, B_seven, W, F, B_test)
     return cnsh_package("persona_contribution", {"PC": round(PC, 4)}, "🟢")
 
 
-def seven_dim_bonus_cnsh(covered_dims: int) -> Dict:
+def seven_dim_bonus_cnsh(covered_dims: int) -> Dict[str, Any]:
     B = fc.seven_dim_bonus(covered_dims)
     return cnsh_package("seven_dim_bonus", {"covered_dims": covered_dims, "bonus": B}, "🟢")
 
 
-def activity_color_cnsh(days: int) -> Dict:
+def activity_color_cnsh(days: int) -> Dict[str, Any]:
     color = fc.activity_color(days)
     policy = {"🔥": "pass", "✅": "pass", "⚠️": "hold", "❌": "reject"}.get(color, "error")
     return cnsh_package("activity_color", {"days": days, "activity_color": color}, color, policy=policy)
 
 
-def sovereignty_index_cnsh(tian: float, di: float, ren: float) -> Dict:
+def sovereignty_index_cnsh(tian: float, di: float, ren: float) -> Dict[str, Any]:
     si = fc.sovereignty_index(tian, di, ren)
     return cnsh_package("sovereignty_index",
                         {"SI": si["SI"], "color": si["color"], "veto": si.get("veto", False),
@@ -224,42 +224,42 @@ def sovereignty_index_cnsh(tian: float, di: float, ren: float) -> Dict:
                         si["color"])
 
 
-def behavioral_confidence_cnsh(factors, weights) -> Dict:
+def behavioral_confidence_cnsh(factors, weights) -> Dict[str, Any]:
     conf = fc.behavioral_confidence(factors, weights)
     color = "🔴" if conf == 0 else ("🟢" if conf >= 0.85 else "🟡")
     return cnsh_package("behavioral_confidence", {"conf": round(conf, 4)}, color)
 
 
-def ete_confidence_cnsh(cos_sim, cultural_root, emotion_keep) -> Dict:
+def ete_confidence_cnsh(cos_sim, cultural_root, emotion_keep) -> Dict[str, Any]:
     conf = fc.ete_confidence(cos_sim, cultural_root, emotion_keep)
     color = "🟢" if conf >= 0.85 else ("🟡" if conf >= 0.6 else "🔴")
     return cnsh_package("ete_confidence", {"CONF_ETE": round(conf, 4)}, color)
 
 
-def generalized_addition_cnsh(A, B, alpha, beta, gamma, delta) -> Dict:
+def generalized_addition_cnsh(A, B, alpha, beta, gamma, delta) -> Dict[str, Any]:
     result = fc.generalized_addition(A, B, alpha, beta, gamma, delta)
     color = "🔴" if result.get("violation") else "🟢"
     return cnsh_package("generalized_addition", result, color)
 
 
-def royalty_cnsh(valid_citations, Q, owner_share, auth_coef, L5) -> Dict:
+def royalty_cnsh(valid_citations, Q, owner_share, auth_coef, L5) -> Dict[str, Any]:
     R = fc.royalty(valid_citations, Q, owner_share, auth_coef, L5)
     return cnsh_package("royalty", {"Royalty": round(R, 6)}, "🟢")
 
 
-def dna_hash_child_cnsh(parent_hash: str, payload: Dict) -> Dict:
+def dna_hash_child_cnsh(parent_hash: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     child = fc.dna_hash_child(parent_hash, payload)
     return cnsh_package("dna_hash_child", {"parent_hash": parent_hash, "child_hash": child}, "🟢")
 
 
-def alpha_calibration_cnsh(eta_obs, eta_init, T_days) -> Dict:
+def alpha_calibration_cnsh(eta_obs, eta_init, T_days) -> Dict[str, Any]:
     alpha = fc.alpha_calibration(eta_obs, eta_init, T_days)
     T_half = fc.half_life(alpha) if alpha else None
     return cnsh_package("alpha_calibration",
                         {"alpha": round(alpha, 4), "half_life": T_half}, "🟢")
 
 
-def wuxing_hedge_cnsh(克制衡, 疏导, 补益, 均衡, 链路健康度) -> Dict:
+def wuxing_hedge_cnsh(克制衡, 疏导, 补益, 均衡, 链路健康度) -> Dict[str, Any]:
     H = fc.wuxing_hedge(克制衡, 疏导, 补益, 均衡, 链路健康度)
     color = "🟢" if H >= 0.8 else ("🟡" if H >= 0.5 else "🔴")
     return cnsh_package("wuxing_hedge", {"H_五行": round(H, 4)}, color)
@@ -271,7 +271,7 @@ def wuxing_hedge_cnsh(克制衡, 疏导, 补益, 均衡, 链路健康度) -> Dic
 decision_chain_cnsh = fchain.decision_chain_cnsh
 
 
-def generate_hexagram_cnsh(question: str, timestamp: Optional[float] = None) -> Dict:
+def generate_hexagram_cnsh(question: str, timestamp: Optional[float] = None) -> Dict[str, Any]:
     """易经起卦 CNSH 封装"""
     result = ye.generate_hexagram(question, timestamp)
     return cnsh_package("yijing_hexagram",
@@ -282,7 +282,7 @@ def generate_hexagram_cnsh(question: str, timestamp: Optional[float] = None) -> 
                         "🟢")
 
 
-def complete_divination_cnsh(question: str, timestamp: Optional[float] = None) -> Dict:
+def complete_divination_cnsh(question: str, timestamp: Optional[float] = None) -> Dict[str, Any]:
     """易经完整推演 CNSH 封装"""
     result = ye.complete_divination(question, timestamp)
     original = result["hexagrams"]["original"]

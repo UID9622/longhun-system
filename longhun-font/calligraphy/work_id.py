@@ -55,7 +55,7 @@ def generate_work_id(category_code: str, artist_code: str, text: str, classic: s
     return work_id
 
 
-def parse_work_id(work_id: str) -> dict:
+def parse_work_id(work_id: str) -> dict[str, Any]:
     """解析作品编号。"""
     parts = work_id.split("-")
     if len(parts) != 7 or parts[0] != "LH" or parts[1] != "CAL":

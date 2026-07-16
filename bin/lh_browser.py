@@ -39,7 +39,7 @@ BASE_URL = f"http://{HOST}:{PORT}"
 DAEMON_SCRIPT = Path(__file__).parent / "lh_browser_daemon.py"
 
 
-def _post(action: str, data: dict = None, timeout: int = 30) -> dict:
+def _post(action: str, data: dict[str, Any] = None, timeout: int = 30) -> dict[str, Any]:
     """发送 POST 请求到守护进程"""
     body = json.dumps(data or {}).encode("utf-8")
     req = urllib.request.Request(
@@ -60,7 +60,7 @@ def _post(action: str, data: dict = None, timeout: int = 30) -> dict:
         sys.exit(1)
 
 
-def _get_status() -> dict:
+def _get_status() -> dict[str, Any]:
     """获取守护进程状态"""
     try:
         req = urllib.request.Request(f"{BASE_URL}/status")

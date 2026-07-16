@@ -12,7 +12,7 @@ import os
 import sqlite3
 from datetime import datetime, timedelta
 from dataclasses import dataclass
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 import statistics
 
 @dataclass
@@ -31,7 +31,7 @@ class TrendData:
 class TrendAnalyzer:
     """趋势分析引擎"""
     
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str | None = None):
         self.db_path = db_path or os.path.expanduser('~/.龍魂/multicurrency.db')
     
     def _get_historical_prices(self, base: str, target: str, days: int) -> List[float]:

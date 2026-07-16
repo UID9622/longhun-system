@@ -119,7 +119,7 @@ def execute(code: str, features: Dict[str, Any], step: int, total: int) -> Dict[
         {
             "output_code": str,          # 输出代码
             "auto_activate": List[str],  # 需要自动激活的脑区
-            "parsed": Dict,              # 解析结果
+            "parsed": Dict[str, Any],              # 解析结果
             "message": str               # 状态訊息
         }
     """

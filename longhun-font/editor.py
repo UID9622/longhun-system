@@ -30,7 +30,7 @@ from cnsh_font_engine_uid9622 import CNSH字元基础引擎_UID9622
 class LonghunFontEditor:
     DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EDITOR-v1.0"
 
-    def __init__(self, glyph_path: str = None):
+    def __init__(self, glyph_path: str | None = None):
         self.base_dir = Path(__file__).parent
         self.glyph_path = Path(glyph_path) if glyph_path else self.base_dir / "glyphs" / "龍魂字元库_v0001.json"
         self.output_dir = self.base_dir / "output"
@@ -45,7 +45,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 关键字搜索
     # ═══════════════════════════════════════════════════════════
-    def search(self, keyword: str = None, unicode_prefix: str = None, structure: str = None):
+    def search(self, keyword: str | None = None, unicode_prefix: str | None = None, structure: str | None = None):
         """按关键字、Unicode 前缀或结构搜索字元"""
         results = []
         for char, data in self.engine.字元集_cnsh9622.items():
@@ -69,7 +69,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 渲染
     # ═══════════════════════════════════════════════════════════
-    def render_char(self, char: str, filename: str = None):
+    def render_char(self, char: str, filename: str | None = None):
         """渲染单个字元到 SVG"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元库中不存在: {char}")
@@ -104,7 +104,7 @@ class LonghunFontEditor:
         for idx, stroke in enumerate(strokes):
             print(f"[{idx:02d}] {stroke['类型']}: {stroke}")
 
-    def add_stroke(self, char: str, stroke: dict):
+    def add_stroke(self, char: str, stroke: dict[str, Any]):
         """为字元添加笔画"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元不存在: {char}")
@@ -113,7 +113,7 @@ class LonghunFontEditor:
         print(f"✅ 已为 {char} 添加笔画")
         return True
 
-    def update_stroke(self, char: str, index: int, stroke: dict):
+    def update_stroke(self, char: str, index: int, stroke: dict[str, Any]):
         """更新指定笔画"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元不存在: {char}")
@@ -142,7 +142,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 保存与审计
     # ═══════════════════════════════════════════════════════════
-    def save(self, path: str = None):
+    def save(self, path: str | None = None):
         """保存字元库"""
         save_path = Path(path) if path else self.glyph_path
         data = {

@@ -85,7 +85,7 @@ class 左右互搏审计器:
         左函数: Callable[[str], Any],
         右函数: Callable[[str], Any],
         对象: str = "default",
-    ) -> dict:
+    ) -> dict[str, Any]:
         """
         执行左右互搏审计。
         返回包含 dna、left、right、similarity、passed、lock 的字典。
@@ -129,7 +129,7 @@ class 左右互搏审计器:
         return report
 
 
-def 示例左函数(任务: str) -> dict:
+def 示例左函数(任务: str) -> dict[str, Any]:
     """示例：执行者给出结构化方案。"""
     return {
         "任务": 任务,
@@ -140,7 +140,7 @@ def 示例左函数(任务: str) -> dict:
     }
 
 
-def 示例右函数(任务: str) -> dict:
+def 示例右函数(任务: str) -> dict[str, Any]:
     """示例：质疑者独立审查并给出结构化结论。"""
     return {
         "任务": 任务,

@@ -1,0 +1,151 @@
+#!/usr/bin/env bash
+# ═══════════════════════════════════════════════════════════════
+#  kg - 龙魂知识图谱命令行工具 (UID9622)
+# ═══════════════════════════════════════════════════════════════
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DATA_DIR="${LHKG_DIR:-$HOME/.龍魂/knowledge-graph}"
+
+if [[ -f "$SCRIPT_DIR/longhun_kg.py" ]]; then
+    ENGINE="$SCRIPT_DIR/longhun_kg.py"
+else
+    ENGINE="longhun_kg.py"
+fi
+
+C_BOLD='\033[1m'; C_DIM='\033[2m'; C_RED='\033[91m'
+C_GREEN='\033[92m'; C_YELLOW='\033[93m'; C_BLUE='\033[94m'
+C_CYAN='\033[96m'; C_RESET='\033[0m'
+
+banner() {
+    echo -e "${C_CYAN}╔══════════════════════════════════════════════════════════════╗${C_RESET}"
+    echo -e "${C_CYAN}║         龙魂知识图谱命令行工具  v1.0  (UID9622)             ║${C_RESET}"
+    echo -e "${C_CYAN}╚══════════════════════════════════════════════════════════════╝${C_RESET}"
+}
+
+usage() {
+    cat <<EOF
+${C_BOLD}用法:${C_RESET} kg <command> [args...]
+
+${C_BOLD}命令:${C_RESET}
+  list [--type TYPE] [--layer LAYER] [--state STATE]
+       列出所有节点，支持按类型/层级/状态过滤
+
+  show <NODE_ID>
+       显示指定节点的详情和关联节点
+
+  path <NODE1> <NODE2>
+       使用 BFS 查找两节点间的最短路径
+
+  state <NODE_ID>
+       查看节点的状态转换历史
+
+  export [--output PATH] [--layer LAYER]
+       导出知识图谱为 Mermaid 格式
+
+  transition <NODE_ID> <NEW_STATE>
+       应用状态转换（含联动更新关联节点）
+
+  help
+       显示此帮助信息
+
+${C_BOLD}环境变量:${C_RESET}
+  LHKG_DIR    数据目录路径（默认: ~/.龍魂/knowledge-graph）
+
+${C_BOLD}示例:${C_RESET}
+  kg list
+  kg list --type core_mod --state active
+  kg show CORE-01
+  kg path SENS-01 ACT-01
+  kg state CORE-01
+  kg export --output /tmp/graph.mmd
+  kg transition ACT-02 active
+EOF
+}
+
+kg_list() {
+    local type_filter="" layer_filter="" state_filter=""
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --type)  type_filter="$2"; shift 2 ;;
+            --layer) layer_filter="$2"; shift 2 ;;
+            --state) state_filter="$2"; shift 2 ;;
+            *) echo -e "${C_RED}[ERROR] 未知参数: $1${C_RESET}"; exit 1 ;;
+        esac
+    done
+    local args=("$ENGINE" "list" "--data-dir" "$DATA_DIR")
+    [[ -n "$type_filter" ]]  && args+=("--type" "$type_filter")
+    [[ -n "$layer_filter" ]] && args+=("--layer" "$layer_filter")
+    [[ -n "$state_filter" ]] && args+=("--state" "$state_filter")
+    python3 "${args[@]}"
+}
+
+kg_show() {
+    if [[ $# -lt 1 ]]; then
+        echo -e "${C_RED}[ERROR] 缺少节点 ID${C_RESET}"
+        echo "用法: kg show <NODE_ID>"; exit 1
+    fi
+    python3 "$ENGINE" show "$1" --data-dir "$DATA_DIR"
+}
+
+kg_path() {
+    if [[ $# -lt 2 ]]; then
+        echo -e "${C_RED}[ERROR] 需要两个节点 ID${C_RESET}"
+        echo "用法: kg path <NODE1> <NODE2>"; exit 1
+    fi
+    python3 "$ENGINE" path "$1" "$2" --data-dir "$DATA_DIR"
+}
+
+kg_state() {
+    if [[ $# -lt 1 ]]; then
+        echo -e "${C_RED}[ERROR] 缺少节点 ID${C_RESET}"
+        echo "用法: kg state <NODE_ID>"; exit 1
+    fi
+    python3 "$ENGINE" state "$1" --data-dir "$DATA_DIR"
+}
+
+kg_export() {
+    local output="" layer_filter=""
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --output) output="$2"; shift 2 ;;
+            --layer)  layer_filter="$2"; shift 2 ;;
+            *) echo -e "${C_RED}[ERROR] 未知参数: $1${C_RESET}"; exit 1 ;;
+        esac
+    done
+    local args=("$ENGINE" "export" "--data-dir" "$DATA_DIR")
+    [[ -n "$output" ]] && args+=("--output" "$output")
+    [[ -n "$layer_filter" ]] && args+=("--layer" "$layer_filter")
+    python3 "${args[@]}"
+}
+
+kg_transition() {
+    if [[ $# -lt 2 ]]; then
+        echo -e "${C_RED}[ERROR] 需要节点 ID 和新状态${C_RESET}"
+        echo "用法: kg transition <NODE_ID> <NEW_STATE>"; exit 1
+    fi
+    python3 "$ENGINE" transition "$1" "$2" --data-dir "$DATA_DIR"
+}
+
+main() {
+    if [[ $# -eq 0 ]]; then
+        banner; usage; exit 0
+    fi
+    local cmd="$1"; shift
+    case "$cmd" in
+        list)       kg_list "$@" ;;
+        show)       kg_show "$@" ;;
+        path)       kg_path "$@" ;;
+        state)      kg_state "$@" ;;
+        export)     kg_export "$@" ;;
+        transition) kg_transition "$@" ;;
+        help|--help|-h) banner; usage ;;
+        *)
+            echo -e "${C_RED}[ERROR] 未知命令: $cmd${C_RESET}"
+            usage; exit 1
+            ;;
+    esac
+}
+
+main "$@"

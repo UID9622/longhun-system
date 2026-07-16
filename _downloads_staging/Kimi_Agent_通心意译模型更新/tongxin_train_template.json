@@ -1,0 +1,1244 @@
+{
+  "_meta": {
+    "schema_version": "tongxin-v2.0-training-sample",
+    "dataset_name": "通心译v2.0训练数据集 | Tongxin Translation v2.0 Training Dataset",
+    "description": "20条高质量训练样本，覆盖7个训练维度，基于20条语义观察构建",
+    "total_samples": 20,
+    "dimension_coverage": {
+      "D1_culture_lexicon": 8,
+      "D2_semantic_syntax": 5,
+      "D3_classical_chinese": 3,
+      "D4_discourse_integrity": 6,
+      "D5_civilization_safety": 5,
+      "D6_creative_strategy": 4,
+      "D7_semantic_precision": 3
+    },
+    "file_dna": "#龍芯⚡️2026-07-01-TONGXIN-TRANSLATION-v2.0",
+    "parent_dna": "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
+  },
+  "samples": [
+    {
+      "sample_id": "TX-v2-0001",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "literary",
+        "dimension_focus": ["D1", "D4", "D6"],
+        "observation_mapping": [1, 3, 12, 20],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T08:00:00Z"
+      },
+      "source": {
+        "text": "画龙点睛",
+        "context": "张僧繇于金陵安乐寺画四龙于壁，不点睛。每曰：'点之即飞去。'人以为妄诞，固请点之。须臾，雷电破壁，两龙乘云腾去上天，二龙未点眼者见在。",
+        "cultural_notes": "成语出自唐·张彦远《历代名画记·卷七》。比喻艺术创作或说话时在关键处加上精辟的一笔，使内容更加生动传神。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "to draw the eyes on the dragon painting",
+          "terminology_mapping": [
+            {"source": "画", "target": "draw/paint"},
+            {"source": "龙", "target": "dragon (cultural symbol)"},
+            {"source": "点睛", "target": "dot the eyes"}
+          ],
+          "confidence": 0.95
+        },
+        "logical_layer": {
+          "text": "to add the crucial final detail that brings a work to life",
+          "semantic_entailments": [
+            {"premise": "eyes are the most expressive part of a dragon", "conclusion": "adding eyes makes the painting alive"},
+            {"premise": "a painting without eyes lacks spirit", "conclusion": "the final touch transforms the work"}
+          ],
+          "discourse_structure": "idiom_with_historical_origin→metaphorical_extension",
+          "confidence": 0.92
+        },
+        "intentional_layer": {
+          "text": "to add the finishing touch that brings something to life; the crucial detail that makes all the difference",
+          "cultural_intention": "Expresses the transformative power of a precise, well-placed detail in art or communication. The dragon symbolizes vitality and power in Chinese culture; adding eyes is the moment of animation.",
+          "imagery_mapping": [
+            {"source_image": "dragon_eyes_coming_alive", "target_image": "finishing_touch_bringing_vitality"}
+          ],
+          "civilization_safety_score": 95,
+          "confidence": 0.88
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.95,
+          "D2_semantic_syntax": 0.75,
+          "D3_classical_chinese": 0.90,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.95,
+          "D6_creative_strategy": 0.88,
+          "D7_semantic_precision": 0.85
+        },
+        "overall_score": 0.91,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0002",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "cultural",
+        "dimension_focus": ["D1", "D5", "D7"],
+        "observation_mapping": [1, 2, 9, 18, 19],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T08:15:00Z"
+      },
+      "source": {
+        "text": "龙",
+        "context": "中华文化中龙是祥瑞、权威、帝王的象征，与西方dragon作为邪恶喷火怪兽的形象截然不同。",
+        "cultural_notes": "文化负载词。中文'龙'为正面象征（皇权、祥瑞、力量），英文'dragon'传统为负面（贪婪、邪恶）。翻译时需进行文化风险标注。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "dragon",
+          "terminology_mapping": [
+            {"source": "龙", "target": "dragon (with cultural annotation)"}
+          ],
+          "confidence": 0.70
+        },
+        "logical_layer": {
+          "text": "Chinese dragon (loong) — auspicious divine creature",
+          "semantic_entailments": [
+            {"premise": "loong is benevolent in Chinese culture", "conclusion": "direct translation as 'dragon' risks misinterpretation"}
+          ],
+          "discourse_structure": "cultural_lexicon_risk_assessment",
+          "confidence": 0.85
+        },
+        "intentional_layer": {
+          "text": "loong [Chinese dragon — benevolent symbol of imperial authority, prosperity, and good fortune, distinct from Western dragon]",
+          "cultural_intention": "Preserve positive Chinese cultural connotation while explicitly distinguishing from Western 'dragon' to prevent cultural misreading. Use 'loong' as cultural transliteration.",
+          "imagery_mapping": [
+            {"source_image": "celestial_benevolent_serpentine_dragon_with_pearl", "target_image": "loong_annotated_as_distinct_cultural_symbol"}
+          ],
+          "civilization_safety_score": 88,
+          "confidence": 0.90
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.98,
+          "D2_semantic_syntax": 0.70,
+          "D3_classical_chinese": 0.60,
+          "D4_discourse_integrity": 0.85,
+          "D5_civilization_safety": 0.88,
+          "D6_creative_strategy": 0.92,
+          "D7_semantic_precision": 0.95
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0003",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D4", "D5", "D7"],
+        "observation_mapping": [3, 4, 8, 16, 18],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T08:30:00Z"
+      },
+      "source": {
+        "text": "本文提出了一种基于深度学习的自然语言处理方法，实验结果表明该方法在多个基准测试上取得了优异性能。",
+        "context": "中文科技论文摘要，强调客观性和群体贡献",
+        "cultural_notes": "中文摘要特点：无主句、强调方法客观性、使用四字短语、不强调个体贡献。英文摘要特点：使用第一人称/被动语态、强调个体贡献、结构清晰。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "This paper proposes a natural language processing method based on deep learning. Experimental results show that this method achieves excellent performance on multiple benchmark tests.",
+          "terminology_mapping": [
+            {"source": "深度学习", "target": "deep learning"},
+            {"source": "自然语言处理", "target": "natural language processing"},
+            {"source": "基准测试", "target": "benchmark tests"}
+          ],
+          "confidence": 0.93
+        },
+        "logical_layer": {
+          "text": "We propose a deep learning-based NLP method that achieves state-of-the-art results across multiple benchmarks.",
+          "semantic_entailments": [
+            {"premise": "method uses deep learning", "conclusion": "applies to NLP tasks"},
+            {"premise": "tested on multiple benchmarks", "conclusion": "method has general validity"}
+          ],
+          "discourse_structure": "purpose_statement→methodology→results_claim",
+          "confidence": 0.90
+        },
+        "intentional_layer": {
+          "text": "We propose a novel deep learning approach for NLP that achieves state-of-the-art performance across multiple benchmarks. [Adapted from Chinese passive-objective style to English active-claim conventions while preserving all factual content]",
+          "cultural_intention": "Convert Chinese group-oriented, modest academic voice to English individual-claim conventions. Maintain factual accuracy while adapting rhetorical structure.",
+          "imagery_mapping": [
+            {"source_image": "objective_method_centered_narrative", "target_image": "researcher_claim_centered_narrative"}
+          ],
+          "civilization_safety_score": 96,
+          "confidence": 0.88
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.80,
+          "D2_semantic_syntax": 0.88,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.96,
+          "D6_creative_strategy": 0.85,
+          "D7_semantic_precision": 0.90
+        },
+        "overall_score": 0.88,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0004",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D2", "D7"],
+        "observation_mapping": [5, 7, 13, 15, 18],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T08:45:00Z"
+      },
+      "source": {
+        "text": "因为下雨，所以地面湿了。",
+        "context": "汉语因果句式，语义制约语法结构",
+        "cultural_notes": "汉语'因为...所以...'为显性因果标记，但英语中'because'和'so'不能同时出现在一个句子中（*Because it rained, so the ground is wet）。体现语义对语法的跨语言制约差异。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Because rain, so ground wet.",
+          "terminology_mapping": [
+            {"source": "因为", "target": "because"},
+            {"source": "所以", "target": "so"},
+            {"source": "下雨", "target": "rain"},
+            {"source": "地面", "target": "ground"},
+            {"source": "湿", "target": "wet"}
+          ],
+          "confidence": 0.60,
+          "error_flag": "GRAMMAR_CONFLICT: because+so coexistence"
+        },
+        "logical_layer": {
+          "text": "Because it rained, the ground is wet.",
+          "semantic_entailments": [
+            {"premise": "it rained", "conclusion": "the ground is wet"},
+            {"premise": "rain causes wetness", "conclusion": "causal relationship holds necessarily"}
+          ],
+          "discourse_structure": "cause_effect_explicit",
+          "confidence": 0.95
+        },
+        "intentional_layer": {
+          "text": "Because it rained, the ground is wet.",
+          "cultural_intention": "Demonstrate semantic-syntactic constraint: Chinese allows 'because...so...' co-occurrence, English forbids it. Translation must resolve the structural conflict while preserving the causal necessity.",
+          "imagery_mapping": [
+            {"source_image": "dual_causal_markers_coexisting", "target_image": "single_causal_marker_with_entailment"}
+          ],
+          "civilization_safety_score": 98,
+          "confidence": 0.95
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.70,
+          "D2_semantic_syntax": 0.98,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.90,
+          "D5_civilization_safety": 0.98,
+          "D6_creative_strategy": 0.75,
+          "D7_semantic_precision": 0.95
+        },
+        "overall_score": 0.91,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0005",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "classical",
+        "dimension_focus": ["D3", "D1"],
+        "observation_mapping": [6, 14],
+        "difficulty_level": 5,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T09:00:00Z"
+      },
+      "source": {
+        "text": "学而时习之，不亦说乎？",
+        "context": "《论语·学而》开篇第一句",
+        "cultural_notes": "孔子语录。'学'兼指学习与修身，'习'兼指复习与实践，'说'通'悦'。三跳转换：古汉语→现代汉语→英语，每层都有语义损失风险。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Learn and timely review it, is it not pleasant?",
+          "terminology_mapping": [
+            {"source": "学", "target": "learn/study"},
+            {"source": "习", "target": "review/practice"},
+            {"source": "说", "target": "pleasant (archaic: yue)"}
+          ],
+          "confidence": 0.70
+        },
+        "logical_layer": {
+          "text": "To learn and to practice what one has learned at due times — is this not a source of pleasure?",
+          "semantic_entailments": [
+            {"premise": "one learns knowledge", "conclusion": "periodic practice reinforces understanding"},
+            {"premise": "learning and practice combine", "conclusion": "joy arises from integration"}
+          ],
+          "discourse_structure": "rhetorical_question_with_philosophical_claim",
+          "confidence": 0.88
+        },
+        "intentional_layer": {
+          "text": "Is it not a delight, having learned something, to try it out at due intervals? [Analects 1:1 — Confucius suggests that the joy of learning lies not in accumulation but in the living practice of wisdom]",
+          "cultural_intention": "Convey Confucian epistemology: learning (xue) is inseparable from embodied practice (xi), and true pleasure (yue) emerges from this integration. The 'three-jump' translation must preserve the philosophical depth across temporal and linguistic barriers.",
+          "imagery_mapping": [
+            {"source_image": "ancient_scholar_practicing_wisdom_with_joy", "target_image": "lifelong_learner_applying_knowledge_with_delight"}
+          ],
+          "civilization_safety_score": 92,
+          "confidence": 0.85
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.92,
+          "D2_semantic_syntax": 0.85,
+          "D3_classical_chinese": 0.95,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.92,
+          "D6_creative_strategy": 0.90,
+          "D7_semantic_precision": 0.82
+        },
+        "overall_score": 0.91,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0006",
+      "metadata": {
+        "source_language": "en",
+        "target_language": "zh",
+        "domain": "academic",
+        "dimension_focus": ["D4", "D5", "D6"],
+        "observation_mapping": [4, 8, 9, 10, 11, 16],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T09:15:00Z"
+      },
+      "source": {
+        "text": "We demonstrate that our model outperforms existing methods by 15% on average across all benchmarks.",
+        "context": "英文科技论文摘要，强调个体贡献",
+        "cultural_notes": "英文使用第一人称'We'强调研究者贡献，中文翻译需转换为客观表述或群体视角，同时保持学术规范。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "我们证明我们的模型在所有基准测试中平均优于现有方法15%。",
+          "terminology_mapping": [
+            {"source": "demonstrate", "target": "证明/表明"},
+            {"source": "outperforms", "target": "优于"},
+            {"source": "benchmarks", "target": "基准测试"}
+          ],
+          "confidence": 0.90
+        },
+        "logical_layer": {
+          "text": "实验结果表明，所提模型在所有基准测试上的平均性能较现有方法提升15%。",
+          "semantic_entailments": [
+            {"premise": "model tested across benchmarks", "conclusion": "15% average improvement demonstrated"},
+            {"premise": "outperformance is quantified", "conclusion": "claim is empirically supported"}
+          ],
+          "discourse_structure": "result_claim_with_quantification",
+          "confidence": 0.93
+        },
+        "intentional_layer": {
+          "text": "实验结果表明，所提模型在所有基准测试上的平均性能较现有方法提升15%。[将英文'We'主体转换为中文客观表述，保持学术贡献的量化表达，适配中文群体本位学术写作规范]",
+          "cultural_intention": "Adapt English individual-claim voice to Chinese group-oriented academic convention. Remove 'We' while preserving the factual claim and quantitative evidence. Maintain 95-5% civilization safety boundary.",
+          "imagery_mapping": [
+            {"source_image": "researcher_claiming_credit", "target_image": "objective_method_demonstrating_results"}
+          ],
+          "civilization_safety_score": 95,
+          "confidence": 0.90
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.78,
+          "D2_semantic_syntax": 0.88,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.93,
+          "D5_civilization_safety": 0.95,
+          "D6_creative_strategy": 0.90,
+          "D7_semantic_precision": 0.88
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0007",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "cultural",
+        "dimension_focus": ["D5", "D1", "D6"],
+        "observation_mapping": [9, 10, 11, 12, 19, 20],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T09:30:00Z"
+      },
+      "source": {
+        "text": "舍生取义",
+        "context": "出自《孟子·告子上》：'生，亦我所欲也；义，亦我所欲也。二者不可得兼，舍生而取义者也。'",
+        "cultural_notes": "儒家核心价值观。'义'指道义、正义，非一般意义上的'righteousness'。涉及东西方价值观差异：东方群体道义 vs 西方个体权利。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "abandon life for righteousness",
+          "terminology_mapping": [
+            {"source": "舍", "target": "abandon/give up"},
+            {"source": "生", "target": "life"},
+            {"source": "取", "target": "choose/take"},
+            {"source": "义", "target": "righteousness (yi)"}
+          ],
+          "confidence": 0.75
+        },
+        "logical_layer": {
+          "text": "to sacrifice one's life for the sake of moral duty",
+          "semantic_entailments": [
+            {"premise": "life and moral duty conflict", "conclusion": "moral duty takes precedence"},
+            {"premise": "choice is irreversible", "conclusion": "ultimate commitment to values"}
+          ],
+          "discourse_structure": "antithetical_structure_life_vs_duty",
+          "confidence": 0.88
+        },
+        "intentional_layer": {
+          "text": "to sacrifice one's life for the sake of yi (moral duty/righteousness) [Mencian concept: when life and moral principle conflict, the superior person chooses moral principle — a cornerstone of Confucian virtue ethics distinct from Western individual rights framework]",
+          "cultural_intention": "Preserve the specifically Confucian concept of 'yi' (义) which encodes group-oriented moral obligation. Explicitly mark the cultural frame to prevent assimilation into Western 'righteousness' or 'justice' concepts. Acknowledge the civilizational difference in value prioritization.",
+          "imagery_mapping": [
+            {"source_image": "confucian_scholar_choosing_virtue_over_survival", "target_image": "moral_hero_sacrificing_for_principle_with_cultural_context"}
+          ],
+          "civilization_safety_score": 85,
+          "confidence": 0.82
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.95,
+          "D2_semantic_syntax": 0.82,
+          "D3_classical_chinese": 0.88,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.85,
+          "D6_creative_strategy": 0.92,
+          "D7_semantic_precision": 0.85
+        },
+        "overall_score": 0.88,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0008",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D4", "D7"],
+        "observation_mapping": [3, 7, 15, 18],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T09:45:00Z"
+      },
+      "source": {
+        "text": "该算法不仅提高了准确率，而且降低了计算复杂度。",
+        "context": "科技论文中的递进复句",
+        "cultural_notes": "'不仅...而且...'为汉语递进结构，翻译为英语时需保持前后件的语义关联和必然性。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "This algorithm not only improves accuracy, but also reduces computational complexity.",
+          "terminology_mapping": [
+            {"source": "不仅...而且...", "target": "not only...but also..."},
+            {"source": "准确率", "target": "accuracy"},
+            {"source": "计算复杂度", "target": "computational complexity"}
+          ],
+          "confidence": 0.93
+        },
+        "logical_layer": {
+          "text": "The algorithm achieves dual improvement: higher accuracy and lower computational complexity.",
+          "semantic_entailments": [
+            {"premise": "algorithm improves accuracy", "conclusion": "quality metric increases"},
+            {"premise": "algorithm reduces complexity", "conclusion": "efficiency metric improves"},
+            {"premise": "both improvements occur simultaneously", "conclusion": "algorithm is superior on dual criteria"}
+          ],
+          "discourse_structure": "progressive_relation_not_only_but_also",
+          "confidence": 0.92
+        },
+        "intentional_layer": {
+          "text": "The algorithm achieves dual improvement: higher accuracy together with lower computational complexity — a combination that addresses both effectiveness and efficiency concerns.",
+          "cultural_intention": "Preserve the progressive emphasis of 'not only...but also' while ensuring the semantic entailment chain is complete: accuracy improvement AND complexity reduction together imply superiority.",
+          "imagery_mapping": [
+            {"source_image": "dual_advantage_progressive_structure", "target_image": "dual_benefit_comprehensive_improvement"}
+          ],
+          "civilization_safety_score": 97,
+          "confidence": 0.90
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.75,
+          "D2_semantic_syntax": 0.92,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.93,
+          "D5_civilization_safety": 0.97,
+          "D6_creative_strategy": 0.82,
+          "D7_semantic_precision": 0.92
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0009",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "literary",
+        "dimension_focus": ["D1", "D6"],
+        "observation_mapping": [1, 12, 20],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T10:00:00Z"
+      },
+      "source": {
+        "text": "胸有成竹",
+        "context": "出自宋·苏轼《文与可画筼筜谷偃竹记》：'画竹必先得成竹于胸中。'",
+        "cultural_notes": "成语。字面意思为'胸中有完整竹子'，比喻做事之前已有完整计划。苏轼记述文与可画竹的故事。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "to have a complete bamboo in one's chest",
+          "terminology_mapping": [
+            {"source": "胸", "target": "chest/bosom"},
+            {"source": "成竹", "target": "complete bamboo"}
+          ],
+          "confidence": 0.70
+        },
+        "logical_layer": {
+          "text": "to have a well-thought-out plan before taking action",
+          "semantic_entailments": [
+            {"premise": "bamboo image exists in mind completely", "conclusion": "action will be confident and precise"}
+          ],
+          "discourse_structure": "metaphor_with_artistic_origin",
+          "confidence": 0.90
+        },
+        "intentional_layer": {
+          "text": "to have a well-thought-out plan; to know exactly what one intends to do [from Su Shi's account of painter Wen Tong, who could paint bamboo fluently because he had visualized the complete image in his mind beforehand — artistic mastery through mental preparation]",
+          "cultural_intention": "Replace the culturally opaque 'bamboo in chest' image with a functional equivalent while preserving the artistic origin in annotation. The bamboo metaphor is central to Chinese literati culture but opaque to Western readers.",
+          "imagery_mapping": [
+            {"source_image": "scholar_with_bamboo_vision_in_mind", "target_image": "prepared_person_with_clear_plan"}
+          ],
+          "civilization_safety_score": 93,
+          "confidence": 0.88
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.93,
+          "D2_semantic_syntax": 0.80,
+          "D3_classical_chinese": 0.85,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.93,
+          "D6_creative_strategy": 0.92,
+          "D7_semantic_precision": 0.85
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0010",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D2", "D4"],
+        "observation_mapping": [5, 13, 7],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T10:15:00Z"
+      },
+      "source": {
+        "text": "只有通过大量实验，才能验证这一假设。",
+        "context": "科技论文中的条件句式",
+        "cultural_notes": "'只有...才...'为汉语必要条件句式，强调条件的唯一性和必要性。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Only through large amounts of experiments, can verify this hypothesis.",
+          "terminology_mapping": [
+            {"source": "只有", "target": "only"},
+            {"source": "才", "target": "can (then)"},
+            {"source": "大量实验", "target": "large amounts of experiments"},
+            {"source": "验证", "target": "verify"},
+            {"source": "假设", "target": "hypothesis"}
+          ],
+          "confidence": 0.75,
+          "error_flag": "GRAMMAR: dangling modifier, missing subject"
+        },
+        "logical_layer": {
+          "text": "Only through extensive experimentation can this hypothesis be verified.",
+          "semantic_entailments": [
+            {"premise": "experiments are extensive", "conclusion": "hypothesis can be verified"},
+            {"premise": "experiments are insufficient", "conclusion": "hypothesis cannot be verified"},
+            {"premise": "condition is necessary", "conclusion": "no alternative verification path exists"}
+          ],
+          "discourse_structure": "necessary_condition_only_then",
+          "confidence": 0.95
+        },
+        "intentional_layer": {
+          "text": "Extensive experimentation is a necessary condition for verifying this hypothesis — without it, verification is impossible.",
+          "cultural_intention": "Preserve the necessity modality of 'only...then' structure. The Chinese original encodes a strong logical necessity that must be preserved in translation, using either inversion or explicit reformulation.",
+          "imagery_mapping": [
+            {"source_image": "unique_gate_that_must_be_passed", "target_image": "necessary_prerequisite_no_alternative"}
+          ],
+          "civilization_safety_score": 97,
+          "confidence": 0.93
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.70,
+          "D2_semantic_syntax": 0.95,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.97,
+          "D6_creative_strategy": 0.82,
+          "D7_semantic_precision": 0.92
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0011",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "daily",
+        "dimension_focus": ["D1", "D7"],
+        "observation_mapping": [2, 18],
+        "difficulty_level": 2,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T10:30:00Z"
+      },
+      "source": {
+        "text": "方便",
+        "context": "一词多义，需根据语境消歧",
+        "cultural_notes": "汉语高频多义词：方便=convenient/appropriate/flush (toilet)/have money to spare/go to the restroom (euphemism)。语义精确性挑战。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "convenient",
+          "terminology_mapping": [{"source": "方便", "target": "convenient"}],
+          "confidence": 0.60,
+          "ambiguity_note": "HIGH_AMBIGUITY: context required"
+        },
+        "logical_layer": {
+          "text": "[CONTEXT_REQUIRED] convenient / go to the restroom (euphemism) / flush (toilet) / have spare money",
+          "semantic_entailments": [],
+          "discourse_structure": "ambiguous_lexeme_requires_disambiguation",
+          "confidence": 0.40
+        },
+        "intentional_layer": {
+          "text": "[DISAMBIGUATION_REQUIRED] The target meaning cannot be determined without context. Possible translations: (1) convenient; (2) to go to the restroom (euphemism); (3) to flush; (4) to have money to spare. Please provide context.",
+          "cultural_intention": "Explicitly flag ambiguity rather than guessing. 'Fangbian' is a classic example where semantic precision requires contextual input. The model should not default to the most common meaning.",
+          "imagery_mapping": [],
+          "civilization_safety_score": 95,
+          "confidence": 0.30
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.85,
+          "D2_semantic_syntax": 0.70,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.60,
+          "D5_civilization_safety": 0.95,
+          "D6_creative_strategy": 0.75,
+          "D7_semantic_precision": 0.98
+        },
+        "overall_score": 0.82,
+        "quality_labels": ["good"],
+        "error_types": ["ambiguity"]
+      }
+    },
+    {
+      "sample_id": "TX-v2-0012",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "classical",
+        "dimension_focus": ["D3", "D1", "D5"],
+        "observation_mapping": [6, 14, 9, 19],
+        "difficulty_level": 5,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T10:45:00Z"
+      },
+      "source": {
+        "text": "道可道，非常道。",
+        "context": "《道德经》第一章开篇",
+        "cultural_notes": "老子核心哲学命题。第一个'道'为名词（宇宙本源），第二个'道'为动词（言说），第三个'道'为名词（永恒之道）。三跳转换中语义层次极为丰富。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Way can be spoken, not constant way.",
+          "terminology_mapping": [
+            {"source": "道(1)", "target": "Way/Tao (noun)"},
+            {"source": "道(2)", "target": "spoken/articulated (verb)"},
+            {"source": "常", "target": "constant/eternal"}
+          ],
+          "confidence": 0.65
+        },
+        "logical_layer": {
+          "text": "The Tao that can be told is not the eternal Tao.",
+          "semantic_entailments": [
+            {"premise": "the ultimate principle can be partially articulated", "conclusion": "full articulation is impossible"},
+            {"premise": "language is finite", "conclusion": "the eternal transcends language"}
+          ],
+          "discourse_structure": "paradoxical_opening_philosophical_treatise",
+          "confidence": 0.85
+        },
+        "intentional_layer": {
+          "text": "The Tao that can be spoken of is not the constant Tao. [Dao De Jing 1:1 — Laozi opens with a linguistic paradox: the moment the ultimate reality is named, it becomes limited. The three occurrences of 'dao' (道) play across noun/verb boundaries to demonstrate the inadequacy of language. Translation preserves the paradox while losing the tripartite wordplay]",
+          "cultural_intention": "Preserve the philosophical paradox at the heart of Daoism: the ultimate principle (Tao) transcends linguistic capture. Explicitly annotate the lost wordplay (three 'dao's) as a translation limitation. Handle with extreme civilization care — this is foundational Chinese philosophy.",
+          "imagery_mapping": [
+            {"source_image": "infinite_principle_slipping_through_language", "target_image": "ineffable_truth_beyond_words"}
+          ],
+          "civilization_safety_score": 82,
+          "confidence": 0.80
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.95,
+          "D2_semantic_syntax": 0.82,
+          "D3_classical_chinese": 0.98,
+          "D4_discourse_integrity": 0.85,
+          "D5_civilization_safety": 0.82,
+          "D6_creative_strategy": 0.88,
+          "D7_semantic_precision": 0.80
+        },
+        "overall_score": 0.87,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0013",
+      "metadata": {
+        "source_language": "en",
+        "target_language": "zh",
+        "domain": "technical",
+        "dimension_focus": ["D6", "D4"],
+        "observation_mapping": [12, 17, 20, 4],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T11:00:00Z"
+      },
+      "source": {
+        "text": "The system is designed to be fault-tolerant and horizontally scalable.",
+        "context": "技术文档中的系统架构描述",
+        "cultural_notes": "技术英语中的隐喻表达：'fault-tolerant'（容错的）、'horizontally scalable'（水平可扩展的）。中文技术语境中需转换为惯用表达。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "该系统被设计为容错和水平可扩展的。",
+          "terminology_mapping": [
+            {"source": "fault-tolerant", "target": "容错的"},
+            {"source": "horizontally scalable", "target": "水平可扩展的"}
+          ],
+          "confidence": 0.88
+        },
+        "logical_layer": {
+          "text": "该系统设计具备容错能力，并支持水平扩展。",
+          "semantic_entailments": [
+            {"premise": "system is fault-tolerant", "conclusion": "continues operating despite component failures"},
+            {"premise": "system is horizontally scalable", "conclusion": "capacity increases by adding nodes"}
+          ],
+          "discourse_structure": "technical_feature_listing_with_capabilities",
+          "confidence": 0.92
+        },
+        "intentional_layer": {
+          "text": "该系统设计具备容错能力，并支持水平扩展。[保留技术隐喻的精确性：'容错'对应fault-tolerance概念，'水平扩展'对应scale-out架构模式，均为中文技术社区标准术语]",
+          "cultural_intention": "Translate technical metaphors using established Chinese technical terminology. 'Fault-tolerant' → 容错的 is already standard in CN tech discourse. 'Horizontally scalable' → 水平可扩展的 preserves the spatial metaphor. No creativity needed — use domain conventions.",
+          "imagery_mapping": [
+            {"source_image": "technical_metaphors_fault_and_scaling", "target_image": "standard_cn_technical_terminology"}
+          ],
+          "civilization_safety_score": 98,
+          "confidence": 0.93
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.82,
+          "D2_semantic_syntax": 0.88,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.98,
+          "D6_creative_strategy": 0.78,
+          "D7_semantic_precision": 0.92
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0014",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "literary",
+        "dimension_focus": ["D5", "D6"],
+        "observation_mapping": [9, 10, 11, 20],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T11:15:00Z"
+      },
+      "source": {
+        "text": "天下兴亡，匹夫有责。",
+        "context": "出自顾炎武《日知录》。清代思想家顾炎武提出的爱国命题。",
+        "cultural_notes": "经典爱国语录。'天下'指国家/天下苍生，'匹夫'指普通平民。体现东方群体本位价值观：国家命运与每个个体相关。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "World rise and fall, ordinary man has responsibility.",
+          "terminology_mapping": [
+            {"source": "天下", "target": "world/empire"},
+            {"source": "兴亡", "target": "rise and fall"},
+            {"source": "匹夫", "target": "ordinary man"},
+            {"source": "有责", "target": "has responsibility"}
+          ],
+          "confidence": 0.72
+        },
+        "logical_layer": {
+          "text": "The rise and fall of a nation is the responsibility of every common person.",
+          "semantic_entailments": [
+            {"premise": "nation's fate changes", "conclusion": "every individual bears responsibility"},
+            {"premise": "responsibility is universal", "conclusion": "no one is exempt from civic duty"}
+          ],
+          "discourse_structure": "maxim_with_collective_ethics",
+          "confidence": 0.88
+        },
+        "intentional_layer": {
+          "text": "The rise and fall of the nation is the responsibility of every ordinary citizen. [Gu Yanwu — expresses the Confucian civic ethic that national destiny concerns everyone, not just rulers. Reflects East Asian collectivist political philosophy distinct from Western social contract individualism]",
+          "cultural_intention": "Preserve the collectivist civic ethic while making it comprehensible to Western readers. 'Tianxia' (天下) as 'nation' rather than 'world' to avoid over-broad interpretation. Explicitly mark the civilizational frame: this is not liberal civic duty but Confucian moral responsibility.",
+          "imagery_mapping": [
+            {"source_image": "every_commoner_carrying_nation_on_shoulders", "target_image": "collective_civic_responsibility"}
+          ],
+          "civilization_safety_score": 83,
+          "confidence": 0.85
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.90,
+          "D2_semantic_syntax": 0.85,
+          "D3_classical_chinese": 0.82,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.83,
+          "D6_creative_strategy": 0.90,
+          "D7_semantic_precision": 0.85
+        },
+        "overall_score": 0.87,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0015",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D4", "D7"],
+        "observation_mapping": [3, 7, 15, 16, 18],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T11:30:00Z"
+      },
+      "source": {
+        "text": "尽管存在这些挑战，研究结果仍然具有重要的理论意义和实践价值。",
+        "context": "论文结论部分的转折复句",
+        "cultural_notes": "'尽管...仍然...'为汉语让步转折结构，翻译需保持前后件的语义对立和相关性。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Although exist these challenges, research results still have important theoretical significance and practical value.",
+          "terminology_mapping": [
+            {"source": "尽管", "target": "although/though"},
+            {"source": "仍然", "target": "still"},
+            {"source": "理论意义", "target": "theoretical significance"},
+            {"source": "实践价值", "target": "practical value"}
+          ],
+          "confidence": 0.70,
+          "error_flag": "GRAMMAR: Chinese word order interference"
+        },
+        "logical_layer": {
+          "text": "Despite these challenges, the research findings nonetheless hold significant theoretical and practical value.",
+          "semantic_entailments": [
+            {"premise": "challenges exist", "conclusion": "value might be expected to diminish"},
+            {"premise": "value remains significant", "conclusion": "challenges do not negate contribution"},
+            {"premise": "both theory and practice benefit", "conclusion": "dual contribution established"}
+          ],
+          "discourse_structure": "concessive_adversative_despite_nevertheless",
+          "confidence": 0.93
+        },
+        "intentional_layer": {
+          "text": "Despite these challenges, the findings nonetheless carry significant theoretical implications and practical value — demonstrating that difficulties do not diminish the contribution.",
+          "cultural_intention": "Preserve the rhetorical force of the Chinese adversative structure: challenges are acknowledged but overcome by value. Use 'despite...nonetheless' to maintain the semantic tension. The conclusion should affirm the research's dual contribution.",
+          "imagery_mapping": [
+            {"source_image": "challenges_acknowledged_value_preserved", "target_image": "obstacles_surmounted_contribution_intact"}
+          ],
+          "civilization_safety_score": 96,
+          "confidence": 0.90
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.75,
+          "D2_semantic_syntax": 0.90,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.93,
+          "D5_civilization_safety": 0.96,
+          "D6_creative_strategy": 0.85,
+          "D7_semantic_precision": 0.92
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0016",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "classical",
+        "dimension_focus": ["D3", "D1"],
+        "observation_mapping": [6, 14, 1],
+        "difficulty_level": 5,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T11:45:00Z"
+      },
+      "source": {
+        "text": "己所不欲，勿施于人。",
+        "context": "《论语·卫灵公》",
+        "cultural_notes": "孔子黄金法则。'己'为自身，'欲'为想要，'施'为施加。古今三跳转换中需保持伦理准则的普适性。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Self not want, do not impose on others.",
+          "terminology_mapping": [
+            {"source": "己", "target": "self"},
+            {"source": "欲", "target": "want/desire"},
+            {"source": "施", "target": "impose/inflict"}
+          ],
+          "confidence": 0.70
+        },
+        "logical_layer": {
+          "text": "Do not impose on others what you yourself do not desire.",
+          "semantic_entailments": [
+            {"premise": "one does not desire X", "conclusion": "others likely do not desire X either"},
+            {"premise": "imposing unwanted things is wrong", "conclusion": "golden rule of reciprocity"}
+          ],
+          "discourse_structure": "negative_formulation_golden_rule",
+          "confidence": 0.92
+        },
+        "intentional_layer": {
+          "text": "Do not do to others what you would not want done to yourself. [Analects 15:24 — Confucius's negative formulation of the Golden Rule, predating the Western positive formulation. Emphasizes restraint and empathy as moral foundations]",
+          "cultural_intention": "Highlight that this is Confucius's negative Golden Rule — distinct from the Western positive 'do unto others.' The negative formulation emphasizes restraint rather than proactive benevolence, reflecting a different ethical orientation.",
+          "imagery_mapping": [
+            {"source_image": "self_restraint_as_ethical_foundation", "target_image": "negative_golden_rule_restraint_ethics"}
+          ],
+          "civilization_safety_score": 90,
+          "confidence": 0.88
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.92,
+          "D2_semantic_syntax": 0.88,
+          "D3_classical_chinese": 0.95,
+          "D4_discourse_integrity": 0.90,
+          "D5_civilization_safety": 0.90,
+          "D6_creative_strategy": 0.88,
+          "D7_semantic_precision": 0.88
+        },
+        "overall_score": 0.91,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0017",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D2", "D4", "D7"],
+        "observation_mapping": [5, 13, 3, 18],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T12:00:00Z"
+      },
+      "source": {
+        "text": "与其被动接受，不如主动探索。",
+        "context": "学术论文讨论部分的建议性表达",
+        "cultural_notes": "'与其...不如...'为汉语选择句式，表达优选关系。翻译需保持选择对比的逻辑关系。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "Rather than passive acceptance, better active exploration.",
+          "terminology_mapping": [
+            {"source": "与其", "target": "rather than"},
+            {"source": "不如", "target": "better to"},
+            {"source": "被动接受", "target": "passive acceptance"},
+            {"source": "主动探索", "target": "active exploration"}
+          ],
+          "confidence": 0.85
+        },
+        "logical_layer": {
+          "text": "Rather than passively accepting the status quo, it is preferable to actively explore alternatives.",
+          "semantic_entailments": [
+            {"premise": "passive acceptance maintains current state", "conclusion": "active exploration leads to new possibilities"},
+            {"premise": "two options are presented", "conclusion": "second option is preferred"}
+          ],
+          "discourse_structure": "preferential_contrast_rather_than_preferable",
+          "confidence": 0.93
+        },
+        "intentional_layer": {
+          "text": "Rather than accepting passively, we should explore actively — the latter approach opens possibilities that the former forecloses.",
+          "cultural_intention": "Preserve the preferential logic of '与其...不如...': option B is not just different but superior to option A. Add logical connective 'opens possibilities that...forecloses' to make the preference explicit for English readers.",
+          "imagery_mapping": [
+            {"source_image": "two_paths_one_preferred", "target_image": "active_exploration_vs_passive_stagnation"}
+          ],
+          "civilization_safety_score": 96,
+          "confidence": 0.90
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.72,
+          "D2_semantic_syntax": 0.93,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.96,
+          "D6_creative_strategy": 0.85,
+          "D7_semantic_precision": 0.90
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0018",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "daily",
+        "dimension_focus": ["D6", "D1"],
+        "observation_mapping": [12, 17, 20, 1, 2],
+        "difficulty_level": 3,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T12:15:00Z"
+      },
+      "source": {
+        "text": "对牛弹琴",
+        "context": "汉·牟融《理惑论》：'公明仪为牛弹清角之操，伏食如故。'",
+        "cultural_notes": "成语。字面意思为对牛弹奏琴曲，比喻对不懂道理的人讲道理，对外行人说内行话。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "to play the lute to a cow",
+          "terminology_mapping": [
+            {"source": "对", "target": "to/facing"},
+            {"source": "牛", "target": "cow/ox"},
+            {"source": "弹琴", "target": "play the lute/qin"}
+          ],
+          "confidence": 0.85
+        },
+        "logical_layer": {
+          "text": "to cast pearls before swine; to waste effort on an unappreciative audience",
+          "semantic_entailments": [
+            {"premise": "audience lacks capability to appreciate", "conclusion": "effort is wasted"},
+            {"premise": "communication requires mutual competence", "conclusion": "one-sided expertise is futile"}
+          ],
+          "discourse_structure": "metaphorical_idiom_with_pejorative_sense",
+          "confidence": 0.90
+        },
+        "intentional_layer": {
+          "text": "to cast pearls before swine [Chinese idiom: playing the qin (lute) to a cow — communicating with someone who lacks the background to appreciate the message. The cow in Chinese agricultural culture represents uneducated simplicity; the qin represents refined culture. Cf. Biblical 'pearls before swine']",
+          "cultural_intention": "Use the functional equivalent 'cast pearls before swine' (Biblical allusion familiar to Western readers) while preserving the Chinese origin in annotation. The metaphor of wasted communication on an unworthy audience is culturally universal but the imagery differs.",
+          "imagery_mapping": [
+            {"source_image": "scholar_playing_lute_to_indifferent_cow", "target_image": "precious_pearls_before_unappreciative_swine"}
+          ],
+          "civilization_safety_score": 92,
+          "confidence": 0.88
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.93,
+          "D2_semantic_syntax": 0.80,
+          "D3_classical_chinese": 0.78,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.92,
+          "D6_creative_strategy": 0.93,
+          "D7_semantic_precision": 0.86
+        },
+        "overall_score": 0.90,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0019",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "academic",
+        "dimension_focus": ["D2", "D7"],
+        "observation_mapping": [5, 7, 13, 15, 18],
+        "difficulty_level": 4,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T12:30:00Z"
+      },
+      "source": {
+        "text": "如果不考虑计算成本，这种方法是最优的。",
+        "context": "论文讨论部分的假设性条件句",
+        "cultural_notes": "'如果...'为汉语假设条件句，翻译需保持条件-结果的逻辑必然性。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "If not consider computational cost, this method is optimal.",
+          "terminology_mapping": [
+            {"source": "如果", "target": "if"},
+            {"source": "不考虑", "target": "not consider"},
+            {"source": "计算成本", "target": "computational cost"},
+            {"source": "最优的", "target": "optimal"}
+          ],
+          "confidence": 0.75,
+          "error_flag": "GRAMMAR: missing subject in subordinate clause"
+        },
+        "logical_layer": {
+          "text": "If computational cost is not considered, this method is optimal.",
+          "semantic_entailments": [
+            {"premise": "cost constraint is removed", "conclusion": "method achieves optimality"},
+            {"premise": "optimality is conditional", "conclusion": "in practice cost must be considered"}
+          ],
+          "discourse_structure": "hypothetical_conditional_if_then",
+          "confidence": 0.95
+        },
+        "intentional_layer": {
+          "text": "If computational cost were not a factor, this method would be optimal. [Counterfactual conditional: the method is theoretically optimal but practically constrained by cost]",
+          "cultural_intention": "Use counterfactual 'were/would' to signal that the condition is hypothetical and unlikely in practice. Preserve the logical implication: the method's optimality is contingent on ignoring a real-world constraint.",
+          "imagery_mapping": [
+            {"source_image": "theoretical_ideal_vs_practical_constraint", "target_image": "counterfactual_optimal_vs_actual_cost_limited"}
+          ],
+          "civilization_safety_score": 97,
+          "confidence": 0.93
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.72,
+          "D2_semantic_syntax": 0.95,
+          "D3_classical_chinese": 0.50,
+          "D4_discourse_integrity": 0.92,
+          "D5_civilization_safety": 0.97,
+          "D6_creative_strategy": 0.82,
+          "D7_semantic_precision": 0.94
+        },
+        "overall_score": 0.91,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    },
+    {
+      "sample_id": "TX-v2-0020",
+      "metadata": {
+        "source_language": "zh",
+        "target_language": "en",
+        "domain": "cultural",
+        "dimension_focus": ["D1", "D5", "D6"],
+        "observation_mapping": [1, 2, 9, 10, 11, 12, 19, 20],
+        "difficulty_level": 5,
+        "annotator": "human",
+        "annotation_timestamp": "2026-07-01T12:45:00Z"
+      },
+      "source": {
+        "text": "阴阳",
+        "context": "中国古代哲学核心概念",
+        "cultural_notes": "最核心的中国文化负载词之一。'阴'为暗/柔/被动/地/女，'阳'为明/刚/主动/天/男。不仅是哲学概念，更是文化世界观的基础。翻译面临极大挑战：西方无对应概念。"
+      },
+      "translation": {
+        "literal_layer": {
+          "text": "yin and yang",
+          "terminology_mapping": [
+            {"source": "阴", "target": "yin"},
+            {"source": "阳", "target": "yang"}
+          ],
+          "confidence": 0.80
+        },
+        "logical_layer": {
+          "text": "yin-yang: complementary opposite forces in Chinese cosmology",
+          "semantic_entailments": [
+            {"premise": "yin and yang are opposites", "conclusion": "they are complementary rather than conflicting"},
+            {"premise": "all phenomena contain both", "conclusion": "dynamic balance is the natural state"}
+          ],
+          "discourse_structure": "cosmological_concept_dualistic_but_unified",
+          "confidence": 0.85
+        },
+        "intentional_layer": {
+          "text": "yin and yang (阴阳) [foundational Chinese cosmological concept: two complementary, interdependent forces that permeate all phenomena. Yin = dark, receptive, earth, female; Yang = bright, active, heaven, male. Not dualistic opposition (Western) but dynamic interplay generating all existence. Transliteration 'yin-yang' has entered English but often loses the philosophical depth]",
+          "cultural_intention": "Use established transliteration 'yin-yang' while providing extensive annotation. Explicitly distinguish from Western dualism: this is complementary interaction, not antagonistic opposition. This is a civilization-core concept requiring maximum care — mistranslation distorts Chinese worldview.",
+          "imagery_mapping": [
+            {"source_image": "taijitu_intertwining_complementary_forces", "target_image": "yin_yang_as_dynamic_unity_with_annotation"}
+          ],
+          "civilization_safety_score": 80,
+          "confidence": 0.82
+        }
+      },
+      "annotations": {
+        "dimension_scores": {
+          "D1_culture_lexicon": 0.98,
+          "D2_semantic_syntax": 0.80,
+          "D3_classical_chinese": 0.90,
+          "D4_discourse_integrity": 0.88,
+          "D5_civilization_safety": 0.80,
+          "D6_creative_strategy": 0.92,
+          "D7_semantic_precision": 0.85
+        },
+        "overall_score": 0.88,
+        "quality_labels": ["excellent"],
+        "error_types": []
+      }
+    }
+  ]
+}

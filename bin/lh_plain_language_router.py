@@ -25,7 +25,7 @@ import sys
 import json
 import os
 from pathlib import Path
-from typing import Optional, Tuple, List
+from typing import Optional, Tuple, List, Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DNA = "#龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0"
@@ -95,7 +95,7 @@ INTENT_CATALOG = [
 # 语义相似度计算 — 轻量级，无外部依赖
 # ═══════════════════════════════════════════════════════════════
 
-def _char_bigrams(text: str) -> set:
+def _char_bigrams(text: str) -> set[str]:
     """提取字符级 bigram 集合（中文友好）"""
     chars = list(text)
     return set(tuple(chars[i:i+2]) for i in range(len(chars) - 1))
@@ -180,7 +180,7 @@ def semantic_match(text: str, threshold: float = 0.04) -> Optional[Tuple[str, st
     return candidates[0]
 
 
-def match_with_fallback(text: str) -> dict:
+def match_with_fallback(text: str) -> dict[str, Any]:
     """
     完整的匹配流程：先试大话语义匹配，再试精确触发词。
     返回: {"command": ..., "name": ..., "source": ..., "score": ...}

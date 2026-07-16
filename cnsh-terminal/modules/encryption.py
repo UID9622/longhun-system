@@ -15,7 +15,7 @@ import json
 import base64
 import hashlib
 import secrets
-from typing import Dict, Optional, Tuple, List
+from typing import Dict, Optional, Tuple, List, Any
 from datetime import datetime
 from dataclasses import dataclass, asdict
 
@@ -51,7 +51,7 @@ class 加密消息:
     算法: str
     DNA追溯: str
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
     def 序列化(self) -> str:
@@ -71,7 +71,7 @@ class 点对点加密:
 
     DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-ENCRYPTION-v5.0"
 
-    def __init__(self, 密钥目录: str = None):
+    def __init__(self, 密钥目录: str | None = None):
         self.审计日志: List[Dict] = []
         self.密钥目录 = 密钥目录 or os.path.expanduser("~/.cnsh/keys")
         self.私钥 = None
@@ -427,7 +427,7 @@ class 点对点加密:
 
     # ========== 审计 ==========
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

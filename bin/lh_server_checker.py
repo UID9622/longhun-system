@@ -103,7 +103,7 @@ LOCAL_SERVICES = {
 }
 
 
-def check_ssh(host: str, port: int, user: str, key: str, timeout: int = 8) -> dict:
+def check_ssh(host: str, port: int, user: str, key: str, timeout: int = 8) -> dict[str, Any]:
     """真实 SSH 连接检测 — 实际登录并执行 echo"""
     start = time.time()
     try:
@@ -142,12 +142,12 @@ def check_ssh(host: str, port: int, user: str, key: str, timeout: int = 8) -> di
         return {"status": "offline", "latency_ms": elapsed, "error": str(e)[:200]}
 
 
-def check_local() -> dict:
+def check_local() -> dict[str, Any]:
     """本地始终在线"""
     return {"status": "online", "latency_ms": 0, "error": None}
 
 
-def check_api(endpoint: dict, timeout: int = 8) -> dict:
+def check_api(endpoint: dict[str, Any], timeout: int = 8) -> dict[str, Any]:
     """真实 HTTP API 检测"""
     start = time.time()
     url = endpoint["url"]
@@ -177,7 +177,7 @@ def check_api(endpoint: dict, timeout: int = 8) -> dict:
         return {"status": "offline", "latency_ms": elapsed, "error": str(e)[:200]}
 
 
-def check_port(port: int, host: str = "127.0.0.1") -> dict:
+def check_port(port: int, host: str = "127.0.0.1") -> dict[str, Any]:
     """检测本地端口是否监听"""
     import socket
     start = time.time()
@@ -195,7 +195,7 @@ def check_port(port: int, host: str = "127.0.0.1") -> dict:
         return {"status": "offline", "latency_ms": 0, "error": str(e)[:200]}
 
 
-def run_all_checks() -> dict:
+def run_all_checks() -> dict[str, Any]:
     """并行执行所有检测"""
     results = {}
 

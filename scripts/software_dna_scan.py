@@ -118,7 +118,7 @@ def ensure_master_key() -> bytes:
     return key
 
 
-def encrypt_local_report(plaintext: bytes, key: bytes, associated_data: bytes) -> dict:
+def encrypt_local_report(plaintext: bytes, key: bytes, associated_data: bytes) -> dict[str, Any]:
     """AES-256-GCM 加密本地完整报告。"""
     aesgcm = AESGCM(key)
     nonce = secrets.token_bytes(12)
@@ -131,7 +131,7 @@ def encrypt_local_report(plaintext: bytes, key: bytes, associated_data: bytes) -
     }
 
 
-def detect_file_type(path: Path) -> dict:
+def detect_file_type(path: Path) -> dict[str, Any]:
     """基于魔数和扩展名做文件类型识别，不执行文件。"""
     ext = path.suffix.lower()
     name_lower = path.name.lower()
@@ -183,7 +183,7 @@ def detect_file_type(path: Path) -> dict:
     return detected
 
 
-def scan_secrets(path: Path, max_bytes: int = 5 * 1024 * 1024) -> dict:
+def scan_secrets(path: Path, max_bytes: int = 5 * 1024 * 1024) -> dict[str, Any]:
     """本地扫描文件中是否包含敏感凭据，不上传命中内容。"""
     size = path.stat().st_size
     if size <= max_bytes:
@@ -207,7 +207,7 @@ def scan_secrets(path: Path, max_bytes: int = 5 * 1024 * 1024) -> dict:
     }
 
 
-def build_risk_score(file_type: dict, secret_scan: dict, size: int) -> int:
+def build_risk_score(file_type: dict[str, Any], secret_scan: dict[str, Any], size: int) -> int:
     score = 0
     # 可执行/安装包风险权重
     if file_type["type"] in ("windows_executable", "macos_mach_o", "macos_dmg", "macos_pkg",
@@ -226,7 +226,7 @@ def build_risk_score(file_type: dict, secret_scan: dict, size: int) -> int:
     return min(100, score)
 
 
-def build_sbom(path: Path, file_hash: str, file_type: dict) -> dict:
+def build_sbom(path: Path, file_hash: str, file_type: dict[str, Any]) -> dict[str, Any]:
     stat = path.stat()
     return {
         "filename": path.name,
@@ -240,7 +240,7 @@ def build_sbom(path: Path, file_hash: str, file_type: dict) -> dict:
     }
 
 
-def write_trace(dna: str, event: str, detail: dict):
+def write_trace(dna: str, event: str, detail: dict[str, Any]):
     TRACES.mkdir(parents=True, exist_ok=True)
     trace = {
         "dna": dna,

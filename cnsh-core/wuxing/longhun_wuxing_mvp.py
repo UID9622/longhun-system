@@ -127,7 +127,7 @@ def wuxing_ke(element: str) -> str:
     """返回该五行所克的五行"""
     return KE.get(element, "未知")
 
-def analyze_number(n: int) -> dict:
+def analyze_number(n: int) -> dict[str, Any]:
     """完整分析一个数字的五行属性"""
     dr = digital_root(n)
     wx = number_to_wuxing(n)
@@ -151,7 +151,7 @@ def analyze_number(n: int) -> dict:
         "dna": make_dna("WX", str(n))
     }
 
-def analyze_uid(uid_str: str) -> dict:
+def analyze_uid(uid_str: str) -> dict[str, Any]:
     """分析UID字符串的五行属性（已接入鲁棒数字根）"""
     dr = robust_digital_root(uid_str)
     return analyze_number(dr)
@@ -160,7 +160,7 @@ def analyze_uid(uid_str: str) -> dict:
 # 八字简化推算
 # ═══════════════════════════════
 
-def year_ganzhi(year: int) -> tuple:
+def year_ganzhi(year: int) -> tuple[Any, ...]:
     """返回年份的天干地支"""
     tg_idx = (year - 4) % 10
     dz_idx = (year - 4) % 12
@@ -168,7 +168,7 @@ def year_ganzhi(year: int) -> tuple:
     dz = DIZHI[dz_idx]
     return tg, dz, TG_WUXING[tg], DZ_WUXING[dz]
 
-def bazi_wuxing_score(year: int) -> dict:
+def bazi_wuxing_score(year: int) -> dict[str, Any]:
     """八字年柱五行强度评估"""
     tg, dz, tg_wx, dz_wx = year_ganzhi(year)
     score = {}
@@ -215,7 +215,7 @@ def print_loshu():
 # 五行平衡分析
 # ═══════════════════════════════
 
-def wuxing_balance_report(scores: dict) -> str:
+def wuxing_balance_report(scores: dict[str, Any]) -> str:
     """五行平衡报告"""
     total = sum(scores.values()) or 1
     lines = []
@@ -230,7 +230,7 @@ def wuxing_balance_report(scores: dict) -> str:
 # CNSH协议输出格式
 # ═══════════════════════════════
 
-def cnsh_output(title: str, data: dict, tc: str = "🟢"):
+def cnsh_output(title: str, data: dict[str, Any], tc: str = "🟢"):
     """标准CNSH输出格式"""
     print(f"\n{'━'*50}")
     print(f"  {title}")

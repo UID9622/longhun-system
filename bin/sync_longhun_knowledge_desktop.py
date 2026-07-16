@@ -185,7 +185,7 @@ def file_checksum(path: Path) -> str:
     return h.hexdigest()
 
 
-def collect_source_files() -> list:
+def collect_source_files() -> list[Any]:
     """返回 [(source_path, relative_label), ...]"""
     collected = []
     seen = set()
@@ -238,7 +238,7 @@ def collect_source_files() -> list:
     return collected
 
 
-def safe_name(path: Path, used_names: set) -> str:
+def safe_name(path: Path, used_names: set[str]) -> str:
     name = path.name
     if name not in used_names:
         used_names.add(name)

@@ -19,7 +19,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "cnsh-core"))
 from cnsh_unified import DNA工具
@@ -28,11 +28,11 @@ ROOT = Path(__file__).parent
 TEMPLATES_PATH = ROOT / "templates.json"
 
 
-def 加载模板() -> dict:
+def 加载模板() -> dict[str, Any]:
     return json.loads(TEMPLATES_PATH.read_text(encoding="utf-8"))
 
 
-def 识别场景(用户输入: str, 模板: dict) -> Optional[str]:
+def 识别场景(用户输入: str, 模板: dict[str, Any]) -> Optional[str]:
     输入小写 = 用户输入.lower()
     得分: Dict[str, int] = {}
     for 场景名, 数据 in 模板["scenarios"].items():
@@ -44,7 +44,7 @@ def 识别场景(用户输入: str, 模板: dict) -> Optional[str]:
     return max(得分, key=得分.get)
 
 
-def 填充模板(模板文本: str, 参数: dict) -> str:
+def 填充模板(模板文本: str, 参数: dict[str, Any]) -> str:
     for 键, 值 in 参数.items():
         模板文本 = 模板文本.replace("{" + 键 + "}", str(值))
     # 清理未填充的占位符
@@ -52,7 +52,7 @@ def 填充模板(模板文本: str, 参数: dict) -> str:
     return 模板文本
 
 
-def 通心译转换(文本: str, 语气: str, 模板: dict) -> str:
+def 通心译转换(文本: str, 语气: str, 模板: dict[str, Any]) -> str:
     """把官话/法律术语转成老百姓能听懂的大白话，或指定语气。"""
     语气配置 = 模板.get("tones", {}).get(语气)
     if not 语气配置:
@@ -64,7 +64,7 @@ def 通心译转换(文本: str, 语气: str, 模板: dict) -> str:
     return 文本.strip()
 
 
-def 生成报告(场景名: str, 数据: dict, 参数: dict, 语气: str, 模板: dict) -> dict:
+def 生成报告(场景名: str, 数据: dict[str, Any], 参数: dict[str, Any], 语气: str, 模板: dict[str, Any]) -> dict[str, Any]:
     投诉书 = 填充模板(数据["complaint_template"], 参数)
     法条 = 数据["legal_basis"]
     话术 = 数据["talking_points"]
@@ -91,7 +91,7 @@ def 生成报告(场景名: str, 数据: dict, 参数: dict, 语气: str, 模板
     }
 
 
-def 打印报告(报告: dict):
+def 打印报告(报告: dict[str, Any]):
     print("\n" + "=" * 60)
     print(f"🐉 龍魂老百姓维权助手 · {报告['场景']} · {报告['语气']}版")
     print(f"生成时间: {报告['生成时间']}")

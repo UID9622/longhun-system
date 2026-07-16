@@ -15,7 +15,7 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ── 路径 ──
 LONGHUN_ROOT = Path(__file__).resolve().parent.parent
@@ -47,7 +47,7 @@ def append_jsonl(path: Path, records: List[Dict]) -> None:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 
-def load_registry_sources() -> set:
+def load_registry_sources() -> set[str]:
     """加载已注册的来源URL集合（用于去重）"""
     if not REGISTRY_FILE.exists():
         return set()

@@ -747,14 +747,14 @@ class ResidentFunctionRegistry:
             pass
         return None
 
-    def _save_cache(self, cache_file: Path, data: Dict):
+    def _save_cache(self, cache_file: Path, data: Dict[str, Any]):
         """保存轻量级缓存"""
         try:
             cache_file.write_text(json.dumps(data, ensure_ascii=False))
         except Exception:
             pass
 
-    def _summarize_payload(self, payload: Dict, _task_id: str = "") -> Dict:
+    def _summarize_payload(self, payload: Dict[str, Any], _task_id: str = "") -> Dict[str, Any]:
         """摘要化负载：裁剪大数组，避免日志膨胀"""
         p = dict(payload)
         result = p.get("result", {})
@@ -852,7 +852,7 @@ class ResidentFunctionRegistry:
         ts = datetime.now().strftime("%H:%M:%S")
         print(f"[resident {ts}] {prefix} {msg}")
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """获取注册表状态"""
         return {
             "running": self._running,

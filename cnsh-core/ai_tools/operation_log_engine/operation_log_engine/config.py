@@ -23,7 +23,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 import os
 import sys
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 
 # 在模组加载前，先加载 .env 文件
@@ -213,7 +213,7 @@ class Config:
             return False
 
     @classmethod
-    def get_config_dict(cls) -> dict:
+    def get_config_dict(cls) -> dict[str, Any]:
         """获取配置字典"""
         return {
             "paths": {

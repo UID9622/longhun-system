@@ -64,7 +64,7 @@ class ScriptManager:
             'recommendations': []
         }
     
-    def scan_all_scripts(self) -> Dict:
+    def scan_all_scripts(self) -> Dict[str, Any]:
         """扫描所有脚本"""
         print(f"\n{'='*70}")
         print(f"龍魂系统脚本扫描和对齐 [{self.timestamp}]")
@@ -93,7 +93,7 @@ class ScriptManager:
         self.scan_results['total_scripts'] = len(all_scripts)
         return all_scripts
     
-    def align_script(self, script_path: str) -> Dict:
+    def align_script(self, script_path: str) -> Dict[str, Any]:
         """对齐单个脚本"""
         
         try:

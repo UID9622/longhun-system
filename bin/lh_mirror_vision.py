@@ -30,7 +30,7 @@ import time
 import math
 import os
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from collections import deque
 from pathlib import Path
 
@@ -207,7 +207,7 @@ class MirrorVision:
     # 轨迹预测
     # ═══════════════════════════════════════════════
 
-    def _predict(self, target_id: str, horizon: float = None):
+    def _predict(self, target_id: str, horizon: float | None = None):
         """预测轨迹（线性卡尔曼滤波器）"""
         if horizon is None:
             horizon = self.params["prediction_horizon"]
@@ -322,7 +322,7 @@ class MirrorVision:
     # 状态报告
     # ═══════════════════════════════════════════════
 
-    def get_status(self) -> dict:
+    def get_status(self) -> dict[str, Any]:
         return {
             "dna": DNA,
             "confirm": CONFIRM,

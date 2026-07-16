@@ -17,7 +17,7 @@ import os
 import json
 import re
 from dataclasses import dataclass, field, asdict
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime
 from pathlib import Path
 
@@ -386,7 +386,7 @@ class SkillScopeGuard:
         domain_name: str,
         stated_intent: str = "",
         profession: str = "",
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         结合技能边界与行为引擎，给出个性化判定和说法。
         """
@@ -437,7 +437,7 @@ class SkillScopeGuard:
         shared = set(domain1.related_professions) & set(domain2.related_professions)
         return len(shared)
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         return {
             "domains": len(self.DOMAINS),
             "scopes": len(list(self.scope_dir.glob("*.json"))),

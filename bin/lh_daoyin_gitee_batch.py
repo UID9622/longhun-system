@@ -23,7 +23,7 @@ import tempfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, NamedTuple, Optional, Tuple
+from typing import Dict, List, NamedTuple, Optional, Tuple, Any
 
 # ── 路径 ──
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -145,7 +145,7 @@ def clone_repo(source: str, clone_dir: Path) -> CloneResult:
         return CloneResult(source, False, "", str(e), time.time() - t0)
 
 
-def absorb_local(path: str, dry_run: bool = False) -> Dict:
+def absorb_local(path: str, dry_run: bool = False) -> Dict[str, Any]:
     """调用 lh_daoyin.py absorb 吸收本地路径"""
     cmd = [sys.executable, str(DAOYIN_SCRIPT), "absorb", path]
     if dry_run:
@@ -180,7 +180,7 @@ def absorb_local(path: str, dry_run: bool = False) -> Dict:
         return {"success": False, "exit_code": -1, "dna": "", "stderr": str(e)}
 
 
-def process_single(url: str, dry_run: bool = False) -> Dict:
+def process_single(url: str, dry_run: bool = False) -> Dict[str, Any]:
     """
     单个 Gitee 仓库处理流程：
     1. clone → 2. daoyin absorb → 3. 清理 clone

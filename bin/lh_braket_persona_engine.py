@@ -15,7 +15,7 @@ import hashlib
 import time
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════
@@ -222,7 +222,7 @@ class GHZState:
     """GHZ多人格纠缠态 · 全人格不可分"""
 
     @staticmethod
-    def create() -> Dict:
+    def create() -> Dict[str, Any]:
         """|GHZ⟩ = 1/√2 (|00000000⟩ + |11111111⟩)"""
         dim = HilbertSpace.DIM
         all_up = HilbertSpace.basis(0).components  # 简化表示
@@ -268,7 +268,7 @@ class BlochSphere:
     """布洛赫球 · 二人格可视化"""
 
     @staticmethod
-    def to_bloch(theta: float, phi: float) -> Dict:
+    def to_bloch(theta: float, phi: float) -> Dict[str, Any]:
         """|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ)sin(θ/2)|1⟩"""
         return {
             "x": math.sin(theta) * math.cos(phi),
@@ -279,7 +279,7 @@ class BlochSphere:
         }
 
     @staticmethod
-    def from_weights(w_a: float, w_b: float) -> Dict:
+    def from_weights(w_a: float, w_b: float) -> Dict[str, Any]:
         """从两个权重计算布洛赫球坐标"""
         total = w_a ** 2 + w_b ** 2
         if total < 1e-15:
@@ -330,7 +330,7 @@ class IChingQuantumMapping:
         return [1.0 / dim] * dim  # 均匀分布
 
     @staticmethod
-    def cast_from_content(content: str) -> Dict:
+    def cast_from_content(content: str) -> Dict[str, Any]:
         """SHA256起卦"""
         h = hashlib.sha256(content.encode()).hexdigest()
         gua_idx = int(h[:6], 16) % 64
@@ -386,7 +386,7 @@ class BraKetPersonaEngine:
                 return scenario
         return "日常"
 
-    def execute(self, text: str) -> Dict:
+    def execute(self, text: str) -> Dict[str, Any]:
         """主执行流程：场景识别→叠加态坍缩→纠缠协作→输出"""
         # 1. 场景识别
         scenario = self.recognize_scenario(text)
@@ -428,7 +428,7 @@ class BraKetPersonaEngine:
         self.execution_history.append(result)
         return result
 
-    def get_entanglement_map(self) -> Dict:
+    def get_entanglement_map(self) -> Dict[str, Any]:
         """纠缠态图谱"""
         return {
             "pairs": [

@@ -64,7 +64,7 @@ class SensorReading:
             f"{sensor_id}:{data_type}:{str(value)[:100]}:{self.timestamp}".encode()
         ).hexdigest()[:16]
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "sensor_id": self.sensor_id,
             "type": self.data_type,
@@ -88,7 +88,7 @@ class IAntennaSensor(ABC):
         ...
 
     @abstractmethod
-    def get_status(self) -> dict:
+    def get_status(self) -> dict[str, Any]:
         """获取传感器状态"""
         ...
 
@@ -108,7 +108,7 @@ class LLMResponse:
     """LLM 响应 — 统一格式"""
 
     def __init__(self, text: str, model: str, tokens_used: int = 0,
-                 finish_reason: str = "stop", raw: dict = None):
+                 finish_reason: str = "stop", raw: dict[str, Any] = None):
         self.text = text
         self.model = model
         self.tokens_used = tokens_used
@@ -134,7 +134,7 @@ class BaseLLMProvider(ABC):
         ...
 
     @abstractmethod
-    def get_model_info(self) -> dict:
+    def get_model_info(self) -> dict[str, Any]:
         """获取模型信息"""
         ...
 
@@ -173,7 +173,7 @@ class MockLLMProvider(BaseLLMProvider):
             yield word + (" " if i < len(words) - 1 else "")
             time.sleep(0.05)
 
-    def get_model_info(self) -> dict:
+    def get_model_info(self) -> dict[str, Any]:
         return {
             "model": self.model,
             "provider": "mock",
@@ -247,7 +247,7 @@ class LLMAntennaAdapter(IAntennaSensor):
         self.stats = {k: 0 for k in self.stats}
         return True
 
-    def get_status(self) -> dict:
+    def get_status(self) -> dict[str, Any]:
         """获取适配器状态"""
         return {
             "sensor_id": self.sensor_id,
@@ -260,7 +260,7 @@ class LLMAntennaAdapter(IAntennaSensor):
 
     # ── 核心转换方法 ──
 
-    def chat(self, user_message: str, system_prompt: str = None,
+    def chat(self, user_message: str, system_prompt: str | None = None,
              task_id: str = None, priority: int = 5) -> List[AntennaSignal]:
         """
         发送 LLM 对话请求 → 返回蚁群信号列表

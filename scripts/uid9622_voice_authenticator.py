@@ -9,7 +9,7 @@ DNA: #龍芯⚡️2026-07-04-UID9622-VOICE-AUTHENTICATOR-v1.0
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 DNA = "#龍芯⚡️2026-07-04-UID9622-VOICE-AUTHENTICATOR-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
@@ -25,7 +25,7 @@ class UID9622大白话印证器:
         self.routing = self.profile.get("routing_rules", {})
         self.defense = self.profile.get("defense_heuristics", {})
 
-    def _load_profile(self, path: Path) -> Dict:
+    def _load_profile(self, path: Path) -> Dict[str, Any]:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
 
@@ -92,7 +92,7 @@ class UID9622大白话印证器:
             score += 0.25
         return score, matched
 
-    def authenticate(self, text: str, context: Dict = None) -> Dict:
+    def authenticate(self, text: str, context: Dict[str, Any] = None) -> Dict[str, Any]:
         text = text or ""
         result = {
             "dna": DNA,

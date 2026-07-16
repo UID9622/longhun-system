@@ -22,7 +22,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 from __future__ import annotations
 from math import log2, sqrt, isclose, exp
 from hashlib import sha256
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from functools import lru_cache
 from collections import defaultdict
 import json
@@ -57,7 +57,7 @@ class AuditLog:
         })
         self.perf[func_name].append(elapsed)
 
-    def summary(self) -> Dict:
+    def summary(self) -> Dict[str, Any]:
         """性能统计"""
         return {
             func: {
@@ -207,7 +207,7 @@ def truth_score(M: float, V: float, F: int, w: Tuple[float, ...] = (0.4, 0.3, 0.
     """标准加权平均"""
     return w[0] * M + w[1] * V + w[2] * F
 
-def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict:
+def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict[str, Any]:
     """加权平均·优化版
 
     改进：
@@ -484,7 +484,7 @@ def activity_color(days: int) -> str:
     return result
 
 # F18 三才主权指数（核心层简化版）
-def sovereignty_index(tian: float, di: float, ren: float) -> Dict:
+def sovereignty_index(tian: float, di: float, ren: float) -> Dict[str, Any]:
     """F18·三才主权指数 SI=0.34·天+0.33·地+0.33·人；天<0.34 熔断"""
     t0 = time.time()
     if tian < 0.34:
@@ -531,7 +531,7 @@ def ete_confidence(cos_sim: float, cultural_root: float, emotion_keep: float) ->
 
 # F21 广义加法
 def generalized_addition(A: float, B: float, alpha: float, beta: float,
-                         gamma: float, delta: float) -> Dict:
+                         gamma: float, delta: float) -> Dict[str, Any]:
     """F21·广义加法 A⊕B；返回主导项与数值"""
     t0 = time.time()
     terms = {
@@ -560,7 +560,7 @@ def royalty(valid_citations: float, Q: float, owner_share: float,
     return result
 
 # F23 DNA 哈希链（父子节点）
-def dna_hash_child(parent_hash: str, payload: Dict) -> str:
+def dna_hash_child(parent_hash: str, payload: Dict[str, Any]) -> str:
     """F23·子哈希=SHA256(parent_hash‖canonical_JSON(payload))"""
     t0 = time.time()
     canon = json.dumps(payload, ensure_ascii=False, sort_keys=True, default=str)

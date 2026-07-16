@@ -22,7 +22,7 @@ class WeightTuner:
         "F4": 0.12, "F5": 0.12, "F6": 0.11, "F7": 0.10
     }
 
-    def __init__(self, history_file: str = None):
+    def __init__(self, history_file: str | None = None):
         self.history = self._load_history(history_file)
 
     def _load_history(self, filepath):
@@ -32,7 +32,7 @@ class WeightTuner:
         # 默认：空历史，返回基础权重
         return []
 
-    def tune(self) -> dict:
+    def tune(self) -> dict[str, Any]:
         """
         简单调谐：根据硬失败频率降低对应因子权重
         根据成功验证提高权重

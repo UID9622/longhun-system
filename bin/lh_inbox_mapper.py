@@ -37,7 +37,7 @@ import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "inbox"
@@ -176,7 +176,7 @@ class InboxMapper:
         }
         INBOX_DB.write_text(json.dumps(data, ensure_ascii=False, indent=2))
 
-    def _log(self, action: str, item_id: str, detail: dict):
+    def _log(self, action: str, item_id: str, detail: dict[str, Any]):
         """操作日志"""
         import time
         entry = {
@@ -211,7 +211,7 @@ class InboxMapper:
 
         return item
 
-    def _suggest_map(self, item: InboxItem) -> dict:
+    def _suggest_map(self, item: InboxItem) -> dict[str, Any]:
         """对单个条目建议目标层"""
         best = {"layer": None, "confidence": 0.0}
 
@@ -353,7 +353,7 @@ class InboxMapper:
         ])
         return "\n".join(lines)
 
-    def export_unmapped_json(self, path: str = None) -> str:
+    def export_unmapped_json(self, path: str | None = None) -> str:
         """导出未映射清单为JSON"""
         unmapped = self.get_unmapped()
         data = {

@@ -13,7 +13,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 from .core import TrustProfile
 
@@ -45,10 +45,10 @@ class TrustStore:
         data = json.loads(path.read_text(encoding="utf-8"))
         return TrustProfile.from_dict(data)
 
-    def list_profiles(self) -> list:
+    def list_profiles(self) -> list[Any]:
         return [p.stem for p in self.base_dir.glob("*.json")]
 
-    def _compute_hash(self, data: Dict) -> str:
+    def _compute_hash(self, data: Dict[str, Any]) -> str:
         canonical = json.dumps(data, ensure_ascii=False, sort_keys=True, default=str)
         return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
@@ -71,7 +71,7 @@ class TrustStore:
         with self.chain_hash_file.open("a", encoding="utf-8") as f:
             f.write(entry + "\n")
 
-    def _gpg_sign_placeholder(self, data: Dict, key: str) -> str:
+    def _gpg_sign_placeholder(self, data: Dict[str, Any], key: str) -> str:
         # 真实环境应调用 gnupg 库；此处为合规预留接口
         canonical = json.dumps(data, ensure_ascii=False, sort_keys=True, default=str)
         return f"GPG-SIGNATURE-PLACEHOLDER({key[:16]}...):{hashlib.sha256(canonical.encode()).hexdigest()[:16]}"

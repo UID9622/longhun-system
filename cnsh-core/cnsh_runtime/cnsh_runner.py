@@ -229,7 +229,7 @@ class TongXinYiTranslator:
     def _default_dict_path() -> Path:
         return Path(__file__).parent / "dictionaries" / "cnsh_to_python.json"
 
-    def _load_dict(self) -> Dict:
+    def _load_dict(self) -> Dict[str, Any]:
         try:
             with open(self.dict_path, "r", encoding="utf-8") as f:
                 return json.load(f)
@@ -359,7 +359,7 @@ class CNSHInterpreter:
                 f"{exc.text}"
             )
 
-    def execute(self, source: str, add_explanations: bool = False, globals_dict: Optional[Dict] = None) -> Dict:
+    def execute(self, source: str, add_explanations: bool = False, globals_dict: Optional[Dict] = None) -> Dict[str, Any]:
         """
         执行 CNSH 源码：转译、验证、运行。
         """

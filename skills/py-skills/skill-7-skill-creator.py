@@ -67,7 +67,7 @@ class Skill:
         self.validators.append(func)
         print(f"✅ 验证器已添加: {func.__name__}")
     
-    def add_test(self, input_data: Dict, expected_output: Any) -> None:
+    def add_test(self, input_data: Dict[str, Any], expected_output: Any) -> None:
         """添加测试用例"""
         self.tests.append({
             "input": input_data,
@@ -182,7 +182,7 @@ class SkillBuilder:
         self.skill.add_validator(func)
         return self
     
-    def with_test(self, input_data: Dict, expected_output: Any) -> "SkillBuilder":
+    def with_test(self, input_data: Dict[str, Any], expected_output: Any) -> "SkillBuilder":
         """添加测试"""
         self.skill.add_test(input_data, expected_output)
         return self
@@ -206,7 +206,7 @@ if __name__ == "__main__":
     print("=" * 50)
     
     # 创建数据处理技能
-    def process_data(data: str) -> Dict:
+    def process_data(data: str) -> Dict[str, Any]:
         """处理数据"""
         return {
             "input": data,
@@ -214,7 +214,7 @@ if __name__ == "__main__":
             "length": len(data)
         }
     
-    def validate_input(kwargs: Dict) -> tuple:
+    def validate_input(kwargs: Dict[str, Any]) -> tuple[Any, ...]:
         """验证输入"""
         if "data" not in kwargs:
             return False, "Missing 'data' parameter"

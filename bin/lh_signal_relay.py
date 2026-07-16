@@ -25,7 +25,7 @@ import signal
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
@@ -46,7 +46,7 @@ class Signal:
     source: str
     target: str
     priority: str           # P0/P1/P2/P3
-    content: Dict
+    content: Dict[str, Any]
     intensity: float        # 0.0~1.0
     sent_at: str
     received_at: str = ""
@@ -73,7 +73,7 @@ class SignalRelay:
     def __init__(self):
         self.state = self._load_state()
 
-    def _load_state(self) -> Dict:
+    def _load_state(self) -> Dict[str, Any]:
         if SIGNAL_STATE.exists():
             return json.loads(SIGNAL_STATE.read_text())
         return {
@@ -89,7 +89,7 @@ class SignalRelay:
         SIGNAL_STATE.write_text(json.dumps(self.state, ensure_ascii=False, indent=2))
 
     def emit(self, signal_type: str, source: str, priority: str,
-             content: Dict, intensity: float = 0.8,
+             content: Dict[str, Any], intensity: float = 0.8,
              target: str = "auto") -> Signal:
         """发射一个神经信号"""
         if target == "auto":
@@ -128,7 +128,7 @@ class SignalRelay:
         self._save_state()
         return s
 
-    def dispatch(self) -> Dict:
+    def dispatch(self) -> Dict[str, Any]:
         """
         分派待处理信号到目标系统
         模拟神经递质释放到突触间隙
@@ -176,7 +176,7 @@ class SignalRelay:
             "dispatch_rate": round(dispatched / max(dispatched + dropped, 1), 2),
         }
 
-    def _forward_signal(self, record: Dict):
+    def _forward_signal(self, record: Dict[str, Any]):
         """将信号转发到目标系统"""
         # 写入信息素网络（所有目标系统监听此网络）
         with open(PHEROMONE_FILE, "a") as f:
@@ -195,7 +195,7 @@ class SignalRelay:
                 "ttl": 3600,
             }, ensure_ascii=False) + "\n")
 
-    def _log_dead_letter(self, record: Dict, elapsed: float):
+    def _log_dead_letter(self, record: Dict[str, Any], elapsed: float):
         """记录未送达的死亡信号"""
         with open(PHEROMONE_FILE, "a") as f:
             f.write(json.dumps({
@@ -214,7 +214,7 @@ class SignalRelay:
                 "ttl": 86400,
             }, ensure_ascii=False) + "\n")
 
-    def monitor(self) -> Dict:
+    def monitor(self) -> Dict[str, Any]:
         """监测当前信号队列"""
         pending = {"P0": 0, "P1": 0, "P2": 0, "P3": 0}
         types = {}

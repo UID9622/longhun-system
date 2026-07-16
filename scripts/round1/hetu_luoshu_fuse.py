@@ -11,7 +11,7 @@ DNA: #龍芯⚡️2026-07-05-ROUND1-HETU-LUOSHU-FUSE-v1.0
 """
 
 import hashlib
-from typing import Dict
+from typing import Dict, Any
 
 
 PERSONA_CODE = {
@@ -38,7 +38,7 @@ class HetuLuoshuFuse:
     def _hash_int(text: str) -> int:
         return int(hashlib.sha256(text.encode("utf-8")).hexdigest(), 16)
 
-    def check(self, state_code: int, persona: str, audit_dims: list, content: str) -> Dict:
+    def check(self, state_code: int, persona: str, audit_dims: list[Any], content: str) -> Dict, Any:
         """检查决策链是否偏离河图洛书不动点"""
         persona_code = PERSONA_CODE.get(persona, 0)
         content_dr = self._digital_root(self._hash_int(content))

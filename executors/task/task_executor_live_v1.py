@@ -12,7 +12,7 @@ import subprocess
 import sys
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 HOME = Path.home()
 TASK_QUEUE = HOME / ".龍魂/task_queue.jsonl"
@@ -53,7 +53,7 @@ class LiveTaskExecutor:
                             tasks.append(task)
         return tasks
 
-    def route_task(self, task: Dict) -> Tuple[List[str], str]:
+    def route_task(self, task: Dict[str, Any]) -> Tuple[List[str], str]:
         """路由任务并返回决策理由"""
         # 【优先级 1】标签精确匹配
         tag_agent_map = {
@@ -95,7 +95,7 @@ class LiveTaskExecutor:
 
         return agents, reason
 
-    def execute_agent(self, agent_id: str) -> Dict:
+    def execute_agent(self, agent_id: str) -> Dict[str, Any]:
         """执行单个智能体"""
         if agent_id not in AGENT_COMMANDS:
             return {

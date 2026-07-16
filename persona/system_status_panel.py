@@ -26,7 +26,7 @@ import psutil
 import argparse
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 
 class 龍魂状态面板:
@@ -43,7 +43,7 @@ class 龍魂状态面板:
         self.base_dir = Path(base_dir) if base_dir else Path(__file__).parent
         self.module_map = self._加载模块地图()
 
-    def _加载模块地图(self) -> Dict:
+    def _加载模块地图(self) -> Dict[str, Any]:
         path = self.base_dir / "module_map.json"
         if path.exists():
             return json.loads(path.read_text(encoding="utf-8"))
@@ -110,7 +110,7 @@ class 龍魂状态面板:
             "metrics": metrics,
         }
 
-    def 高峰保护策略(self, status: Dict) -> Dict[str, Any]:
+    def 高峰保护策略(self, status: Dict[str, Any]) -> Dict[str, Any]:
         """根据状态给出保护策略"""
         if status["color"] == "red":
             return {

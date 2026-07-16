@@ -641,7 +641,7 @@ class CrossValidator:
 
         return validations
 
-    def _check_philosophy_consistency(self, yijing, philosophy) -> Dict:
+    def _check_philosophy_consistency(self, yijing, philosophy) -> Dict[str, Any]:
         if not yijing or not philosophy:
             return {"状态": "跳过", "原因": "引擎结果缺失"}
         try:
@@ -658,7 +658,7 @@ class CrossValidator:
         except Exception:
             return {"一致性分数": 0.5, "评价": "无法计算"}
 
-    def _check_sentiment_consistency(self, anxiety, robot_score) -> Dict:
+    def _check_sentiment_consistency(self, anxiety, robot_score) -> Dict[str, Any]:
         if not anxiety and not robot_score:
             return {"状态": "跳过", "原因": "文本分析引擎均不可用"}
         try:
@@ -677,7 +677,7 @@ class CrossValidator:
         except Exception:
             return {"一致性分数": 0.5, "评价": "无法计算"}
 
-    def _check_strategy_consistency(self, sandbox, yijing, philosophy) -> Dict:
+    def _check_strategy_consistency(self, sandbox, yijing, philosophy) -> Dict[str, Any]:
         if not sandbox:
             return {"状态": "跳过", "原因": "沙盒引擎结果缺失"}
         # 检查沙盒推演方向是否与易经卦象方向一致

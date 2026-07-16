@@ -24,7 +24,7 @@ import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 def _import_pil_safely():
     """安全导入 PIL：避免 cnsh-core/logging 目录 shadow stdlib logging。"""
@@ -215,7 +215,7 @@ class StarInfo:
     warning: str
     privilege: str
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -228,7 +228,7 @@ class FireIndex:
     predicted_next_6: List[float] = field(default_factory=list)
     factors: Dict[str, float] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         rounded_factors = {}
         for k, v in self.factors.items():
             if isinstance(v, (int, float)):
@@ -254,7 +254,7 @@ class SovereignStatus:
     mode: str
     description: str
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -269,7 +269,7 @@ class ConflictReport:
     action: str
     protocol: str
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -282,15 +282,15 @@ class HeavenReport:
     branch: str
     solar_term: str
     solar_term_fire: float
-    current_star: Dict
+    current_star: Dict[str, Any]
     current_gua: str
-    fire_index: Dict
-    sovereign_status: Dict
-    conflict_report: Dict
+    fire_index: Dict[str, Any]
+    sovereign_status: Dict[str, Any]
+    conflict_report: Dict[str, Any]
     recommended_action: str
     audit_trail: List[Dict]
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "DNA": self.dna,
             "timestamp": self.timestamp,
@@ -548,7 +548,7 @@ class HeavenDutyEngine:
         self._append_jsonl(LOG_DIR / "sovereign_override_audit.jsonl", record)
         return record
 
-    def _append_jsonl(self, path: Path, record: Dict):
+    def _append_jsonl(self, path: Path, record: Dict[str, Any]):
         with open(path, "a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 

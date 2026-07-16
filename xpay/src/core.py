@@ -8,7 +8,7 @@ import importlib
 import pkgutil
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from xpay.src.adapter import CurrencyAdapter, ExecutionResult, SovereignInfo
 from xpay.src.dna import generate_dna_signature, generate_tx_id
@@ -58,7 +58,7 @@ class SovereignGateway:
         return adapter.info if adapter else None
 
     def pay(self, amount: float, currency: str, recipient: str,
-            sender: str = "UID9622", memo: str = "") -> Dict:
+            sender: str = "UID9622", memo: str = "") -> Dict[str, Any]:
         """
         用户级最简 API：发起一笔支付。
         所有复杂逻辑封装在适配器内部。
@@ -134,7 +134,7 @@ class SovereignGateway:
             return None
         return tx.__dict__
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         """统计所有交易"""
         return self.store.stats()
 

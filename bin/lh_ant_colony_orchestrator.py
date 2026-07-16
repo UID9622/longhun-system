@@ -348,7 +348,7 @@ class RegistrarAnt:
     def _save(self):
         self.REGISTRY_FILE.write_text(json.dumps(self.registry, ensure_ascii=False, indent=2))
 
-    def register(self, fp: ScriptFingerprint) -> Dict:
+    def register(self, fp: ScriptFingerprint) -> Dict[str, Any]:
         """注册或更新脚本"""
         sid = fp.script_id
         now = datetime.now().isoformat()
@@ -539,7 +539,7 @@ class ExecutionAnt:
         self.signing_engine = str(ROOT / "bin" / "lh_persona_signing.py")
         self.oversight_engine = str(ROOT / "bin" / "lh_oversight_bridge.py")
 
-    def trigger_rb(self, target: str, reason: str = "") -> Dict:
+    def trigger_rb(self, target: str, reason: str = "") -> Dict[str, Any]:
         """触发红蓝对抗"""
         try:
             result = subprocess.run(
@@ -555,7 +555,7 @@ class ExecutionAnt:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def trigger_signing(self, persona: str, action: str, target: str) -> Dict:
+    def trigger_signing(self, persona: str, action: str, target: str) -> Dict[str, Any]:
         """触发签章"""
         try:
             result = subprocess.run(
@@ -570,7 +570,7 @@ class ExecutionAnt:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def trigger_oversight(self, target: str, content: str = "", audit_color: str = "🟢", audit_score: float = 85.0) -> Dict:
+    def trigger_oversight(self, target: str, content: str = "", audit_color: str = "🟢", audit_score: float = 85.0) -> Dict[str, Any]:
         """触发监管天联动"""
         try:
             result = subprocess.run(
@@ -594,7 +594,7 @@ class ExecutionAnt:
 class QueenGuardian:
     """蚁后守护者：确保所有操作不违背不动点"""
 
-    def validate(self, action: Dict) -> Tuple[bool, str]:
+    def validate(self, action: Dict[str, Any]) -> Tuple[bool, str]:
         """
         验证操作是否忠于蚁后不动点
         返回：(is_valid, reason)
@@ -640,7 +640,7 @@ class PheromoneNetwork:
         self.active_pheromones: List[Pheromone] = []
 
     def emit(self, ptype: PheromoneType, source: str, target: str,
-             intensity: float, content: Dict, ttl: int = 3600) -> Pheromone:
+             intensity: float, content: Dict[str, Any], ttl: int = 3600) -> Pheromone:
         """发射信息素到网络中"""
         p = Pheromone(
             id=hashlib.sha256(f"{source}-{target}-{time.time()}".encode()).hexdigest()[:12],
@@ -682,7 +682,7 @@ class PheromoneNetwork:
                 "timestamp": p.timestamp, "ttl": p.ttl_seconds,
             }, ensure_ascii=False) + "\n")
 
-    def get_network_stats(self) -> Dict:
+    def get_network_stats(self) -> Dict[str, Any]:
         active = sum(1 for p in self.active_pheromones if p.is_valid())
         types = {}
         for p in self.active_pheromones:
@@ -747,7 +747,7 @@ def audit_hook(action_type: str = "执行", fixed_point: str = "通用工具"):
 
 
 def _emit_pheromone(event: str, func_name: str, sign_id: str,
-                    status: str, fixed_point: str, extra: dict = None):
+                    status: str, fixed_point: str, extra: dict[str, Any] = None):
     """向信息素网络发射信号"""
     record = {
         "event": event, "function": func_name, "sign_id": sign_id,
@@ -791,7 +791,7 @@ class AntColonyOrchestrator:
         if self.verbose:
             print(f"  🐜 {msg}")
 
-    def _emit_state_pheromone(self, stage: str, data: Dict):
+    def _emit_state_pheromone(self, stage: str, data: Dict[str, Any]):
         """发射状态信息素"""
         self.pheromones.emit(
             ptype=PheromoneType.STATE,
@@ -801,7 +801,7 @@ class AntColonyOrchestrator:
             content={"stage": stage, **data},
         )
 
-    def run_closed_loop(self) -> Dict:
+    def run_closed_loop(self) -> Dict[str, Any]:
         """
         执行一次完整闭环：发现→注册→评估→对抗→审计→签章→反馈
         这是蚁群的日常心跳

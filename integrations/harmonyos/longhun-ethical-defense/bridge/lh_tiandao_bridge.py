@@ -182,7 +182,7 @@ class ShieldBurn:
         "微信号", "支付宝", "QQ号"
     ]
 
-    def __init__(self, log_path: str = None):
+    def __init__(self, log_path: str | None = None):
         if log_path is None:
             log_path = os.path.join(PROJECT_ROOT, "L7_数据层", "shield_burn.jsonl")
         os.makedirs(os.path.dirname(log_path), exist_ok=True)
@@ -246,7 +246,7 @@ class ShieldBurn:
         self._log(result, "TRACK")
         return result
 
-    def _check_sensitive(self, metadata: Dict) -> Optional[ShieldResult]:
+    def _check_sensitive(self, metadata: Dict[str, Any]) -> Optional[ShieldResult]:
         for field in self.SENSITIVE_FIELDS:
             if field in metadata and metadata[field]:
                 value = str(metadata[field])
@@ -383,7 +383,7 @@ class EvidenceChain:
     对齐 Notion §5 证据包结构
     """
 
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str | None = None):
         if db_path is None:
             db_path = os.path.join(PROJECT_ROOT, "L7_数据层", "evidence_chain.db")
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
@@ -497,7 +497,7 @@ class EvidenceChain:
             (now,)
         ).fetchall()]
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         total = self.conn.execute("SELECT COUNT(*) FROM evidence_chain").fetchone()[0]
         red = self.conn.execute("SELECT COUNT(*) FROM evidence_chain WHERE audit_color='red'").fetchone()[0]
         black = self.conn.execute("SELECT COUNT(*) FROM evidence_chain WHERE audit_color='black'").fetchone()[0]
@@ -525,7 +525,7 @@ class ErrorBook:
 
     ESCALATION = 3  # 连续3次 → 自动升级
 
-    def __init__(self, db_path: str = None):
+    def __init__(self, db_path: str | None = None):
         if db_path is None:
             db_path = os.path.join(PROJECT_ROOT, "L7_数据层", "errorbook_tiandao.db")
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
@@ -717,7 +717,7 @@ class ErrorBook:
                 return False, f"哈希链断裂: seq={rows[i][0]}"
         return True, f"完整: {len(rows)}条"
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         l1 = self.conn.execute("SELECT COUNT(*) FROM l1_immutable").fetchone()[0]
         l2 = self.conn.execute("SELECT COUNT(*) FROM l2_learning").fetchone()[0]
         l3 = self.conn.execute("SELECT COUNT(*) FROM l3_observation").fetchone()[0]
@@ -833,7 +833,7 @@ class TiandaoSystem:
         )
         return self.inspect(target)
 
-    def inspect_product(self, product_data: Dict) -> TiandaoReport:
+    def inspect_product(self, product_data: Dict[str, Any]) -> TiandaoReport:
         """快捷商品检测"""
         target = TiandaoTarget(
             target_id=product_data.get('product_id', f"PROD-{int(time.time())}"),
@@ -914,7 +914,7 @@ class TiandaoSystem:
         payload = f"{target_id}|{anomaly_count}|{int(time.time())}"
         return f"SM3-TIANDAO-{hashlib.md5(payload.encode()).hexdigest()[:8]}"
 
-    def system_status(self) -> Dict:
+    def system_status(self) -> Dict[str, Any]:
         """系统健康检查"""
         return {
             "dna": DNA,
@@ -974,7 +974,7 @@ if HAS_API:
         return _tiandao
 
     @tiandao_app.post("/api/tiandao/inspect")
-    async def inspect(body: dict):
+    async def inspect(body: dict[str, Any]):
         """天道系统 · 综合检测"""
         tiandao = get_tiandao()
         target_type = body.get('type', 'text')

@@ -1,0 +1,37 @@
+{
+  "log_id": "LOG-70750F8C10BC",
+  "audit_id": "AUDIT-4351CCD761F8",
+  "timestamp": "2026-06-16T01:24:15.905701",
+  "dna_signature": "#UID9622⚡️2026-06-16-012415-TRICOLOR-AUDIT-v3.0-F173103B4981",
+  "tricolor_status": "🔴",
+  "tricolor_meaning": "阻断，潜在违规 - 阻断",
+  "operator": "UID9622",
+  "r_score": 6.0,
+  "r_breakdown": {
+    "human_welfare": 10,
+    "fairness": 5,
+    "controllability": 10,
+    "transparency": 5,
+    "accountability": 5,
+    "privacy": 0
+  },
+  "benefit_loss_ratio": 0.3,
+  "gate_results": [
+    {
+      "gate_id": 1,
+      "gate_name": "伦理红线闸",
+      "result": "BLOCK",
+      "detail": "元数据标记伦理违规 - 自动阻断",
+      "timestamp": "2026-06-16T01:24:15.905663"
+    }
+  ],
+  "constraint_checks": [],
+  "block_reason": "闸1[伦理红线闸]: 元数据标记伦理违规 - 自动阻断",
+  "state_transition": "🟢→🔴",
+  "final_decision": "阻断 - 闸1-伦理红线闸: 元数据标记伦理违规 - 自动阻断",
+  "metadata": {
+    "source": "demo",
+    "history_triggered": false,
+    "warnings": []
+  }
+}

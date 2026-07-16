@@ -38,7 +38,7 @@ import math
 import os
 import sys
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Any
 
 # ── 路径 ──────────────────────────────────────────────
 DATA_DIR = os.path.expanduser("~/.龍魂/qiye_deng")
@@ -58,21 +58,21 @@ HEALTH_BENCHMARKS = {
 
 # ── 工具函数 ──────────────────────────────────────────
 
-def load_json(path: str) -> dict:
+def load_json(path: str) -> dict[str, Any]:
     if os.path.exists(path):
         with open(path) as f:
             return json.load(f)
     return {}
 
-def save_json(path: str, data: dict):
+def save_json(path: str, data: dict[str, Any]):
     with open(path, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def append_jsonl(path: str, record: dict):
+def append_jsonl(path: str, record: dict[str, Any]):
     with open(path, "a") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-def read_jsonl(path: str) -> list:
+def read_jsonl(path: str) -> list[Any]:
     if not os.path.exists(path):
         return []
     records = []
@@ -101,7 +101,7 @@ def tricolor_label(value: float, green: float = 0.7, yellow: float = 0.4) -> str
 #  🪞 前生灯（镜）·因果追溯引擎
 # ══════════════════════════════════════════════════════
 
-def qiansheng_trace(*weights: float) -> dict:
+def qiansheng_trace(*weights: float) -> dict[str, Any]:
     """
     因果追溯度 P = Σ(节点权重 × 时间衰减) / 链长度
     输入: 按时间顺序（最近到最远）的历史节点权重
@@ -135,7 +135,7 @@ def qiansheng_trace(*weights: float) -> dict:
     }
 
 
-def qiansheng_chain(*nodes_str: str) -> dict:
+def qiansheng_chain(*nodes_str: str) -> dict[str, Any]:
     """带标签的历史节点追溯"""
     nodes = []
     total = 0.0
@@ -169,7 +169,7 @@ def qiansheng_chain(*nodes_str: str) -> dict:
 #  ⚖️ 今世灯（秤）·压力算法
 # ══════════════════════════════════════════════════════
 
-def jinshi_pressure(f: float, t: float, m: float, d: float, p: float) -> dict:
+def jinshi_pressure(f: float, t: float, m: float, d: float, p: float) -> dict[str, Any]:
     """
     今世压力指数 J = F×0.35 + T×0.25 + M×0.20 + D×0.15 + P×0.05
     """
@@ -208,7 +208,7 @@ def jinshi_health(
     xianjinliu: float,  # 现金流（月）
     liucunlv: float,    # 核心团队留存率（%）
     zengsu: float,      # 主营业务增速（%）
-) -> dict:
+) -> dict[str, Any]:
     """关键健康指标对比"""
     indicators = {}
 
@@ -259,7 +259,7 @@ def weilai_project(
     c: float, m: float, t: float, l: float,
     path: str = "A",
     months: int = 6,
-) -> dict:
+) -> dict[str, Any]:
     """
     生存概率 S(t) = C(t) × M(t) × T(t) × L(t)
     每条路径有不同衰减因子
@@ -310,7 +310,7 @@ def weilai_project(
     }
 
 
-def weilai_compare(c: float, m: float, t: float, l: float, months: int = 6) -> dict:
+def weilai_compare(c: float, m: float, t: float, l: float, months: int = 6) -> dict[str, Any]:
     """三条路径平行对比"""
     results = {}
     for path in ["A", "B", "AB"]:
@@ -329,7 +329,7 @@ def weilai_compare(c: float, m: float, t: float, l: float, months: int = 6) -> d
 #  📋 企业注册
 # ══════════════════════════════════════════════════════
 
-def register_qiye(qiye_id: str, name: str, industry: str, scale: str) -> dict:
+def register_qiye(qiye_id: str, name: str, industry: str, scale: str) -> dict[str, Any]:
     registry = load_json(REGISTRY_FILE)
     if qiye_id in registry:
         return {"error": f"企业 {qiye_id} 已注册", "existing": registry[qiye_id]}
@@ -356,7 +356,7 @@ def register_qiye(qiye_id: str, name: str, industry: str, scale: str) -> dict:
 #  💰 认路费（数字契约·智能合约记录）
 # ══════════════════════════════════════════════════════
 
-def renlufei_commit(qiye_id: str, problem: str, path: str, days: int, action: str) -> dict:
+def renlufei_commit(qiye_id: str, problem: str, path: str, days: int, action: str) -> dict[str, Any]:
     """认路费承诺·打上DNA追溯"""
     registry = load_json(REGISTRY_FILE)
     if qiye_id not in registry:
@@ -389,7 +389,7 @@ def renlufei_commit(qiye_id: str, problem: str, path: str, days: int, action: st
 #  📝 还账记录
 # ══════════════════════════════════════════════════════
 
-def huanzhang_log(qiye_id: str, action: str, result: str, next_step: str) -> dict:
+def huanzhang_log(qiye_id: str, action: str, result: str, next_step: str) -> dict[str, Any]:
     registry = load_json(REGISTRY_FILE)
     if qiye_id not in registry:
         return {"error": f"企业 {qiye_id} 未注册"}
@@ -428,7 +428,7 @@ def huanzhang_log(qiye_id: str, action: str, result: str, next_step: str) -> dic
     }
 
 
-def write_jsonl(path: str, records: list):
+def write_jsonl(path: str, records: list[Any]):
     with open(path, "w") as f:
         for r in records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -438,7 +438,7 @@ def write_jsonl(path: str, records: list):
 #  📊 综合报告
 # ══════════════════════════════════════════════════════
 
-def report(qiye_id: str) -> dict:
+def report(qiye_id: str) -> dict[str, Any]:
     registry = load_json(REGISTRY_FILE)
     if qiye_id not in registry:
         return {"error": f"企业 {qiye_id} 未注册"}
@@ -472,7 +472,7 @@ def report(qiye_id: str) -> dict:
 #  路标指南
 # ══════════════════════════════════════════════════════
 
-def summary() -> dict:
+def summary() -> dict[str, Any]:
     registry = load_json(REGISTRY_FILE)
     renlufei_records = read_jsonl(RENLUFEI_FILE)
     huanzhang_records = read_jsonl(HUANZHANG_FILE)
@@ -506,7 +506,7 @@ def summary() -> dict:
 #  CLI入口
 # ══════════════════════════════════════════════════════
 
-def print_result(data: dict):
+def print_result(data: dict[str, Any]):
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
 

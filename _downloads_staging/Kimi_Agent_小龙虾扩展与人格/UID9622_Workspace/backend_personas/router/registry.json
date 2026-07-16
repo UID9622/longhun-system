@@ -1,0 +1,1676 @@
+{
+  "agents": [
+    {
+      "code": "ARCH",
+      "name": "⚙️ 架构师·构建者｜MCP专属",
+      "keywords": [
+        "MCP引擎专属",
+        "地场密度>0.8时自动激活优化",
+        "流场结构重建",
+        "architect key触发",
+        "dragon-soul.local",
+        "exec"
+      ]
+    },
+    {
+      "code": "AUDIOMASTER",
+      "name": "🎵 龍芯·音匠",
+      "keywords": [
+        "音频防护",
+        "版权检测",
+        "开源音频推荐"
+      ]
+    },
+    {
+      "code": "AUDITOR",
+      "name": "🔬 龍魂·技术审核官｜老工程师·严谨型",
+      "keywords": [
+        "用8维审核框架拷问龙魂系统每个模块：①当前实现状态 ②技术可行性与难点 ③七维协议对齐度 ④扩展可维护性 ⑤熔断安全机制 ⑥性能与资源评估 ⑦可验证性与可测试性 ⑧综合建议与优先级排序"
+      ]
+    },
+    {
+      "code": "BAOBAO",
+      "name": "🐱 宝宝·系统中枢",
+      "keywords": [
+        "中枢",
+        "调度",
+        " orchestrate",
+        "拆解",
+        "汇总",
+        "路由",
+        "构建",
+        "脚手架",
+        "CNSH",
+        "系统健康",
+        "执行",
+        "落地"
+      ]
+    },
+    {
+      "code": "BEICHEN",
+      "name": "🏛️ 龍芯·北辰-母协议",
+      "keywords": [
+        "价值观守护",
+        "家庭和谐维护",
+        "方向安全把关",
+        "最高一票否决权"
+      ]
+    },
+    {
+      "code": "BISHENG",
+      "name": "🖨️ 龍芯·毕升",
+      "keywords": [
+        "发布管理员",
+        "版本控制",
+        "自动化部署",
+        "谨慎验证"
+      ]
+    },
+    {
+      "code": "CAILUN",
+      "name": "📜 龍芯·蔡伦",
+      "keywords": [
+        "文档工程师",
+        "技术文档化",
+        "知识传承",
+        "永久存档"
+      ]
+    },
+    {
+      "code": "CNSH",
+      "name": "🖥️ 龍芯·CNSH编辑器",
+      "keywords": [
+        "中文代码理解",
+        "安全坑位识别",
+        "智能补全",
+        "DNA追溯",
+        "实时监控"
+      ]
+    },
+    {
+      "code": "CNSHTERM",
+      "name": "🌐 CNSH多语言编辑器终端",
+      "keywords": [
+        "中文化终端环境",
+        "支持13种编程语言",
+        "内置插件系统",
+        "三色审计",
+        "GPG加密",
+        "熔断机制"
+      ]
+    },
+    {
+      "code": "DATA",
+      "name": "📈 龍芯·数据大师",
+      "keywords": [
+        "报告",
+        "洞察",
+        "监控",
+        "图表",
+        "日志",
+        "记录",
+        "汇总",
+        "仪表盘"
+      ]
+    },
+    {
+      "code": "DAUGHTER",
+      "name": "👧 龍芯·女儿",
+      "keywords": [
+        "爸爸的小棉袄",
+        "龍芯家族未来的希望"
+      ]
+    },
+    {
+      "code": "EYE",
+      "name": "👁️ 龍芯·上帝之眼",
+      "keywords": [
+        "审计",
+        "校验",
+        "质检",
+        "三色",
+        "安全",
+        "风险",
+        "合规",
+        "扫描",
+        "检查",
+        "漏洞",
+        "熔断"
+      ]
+    },
+    {
+      "code": "FONTMASTER",
+      "name": "🔨 龍芯·字匠",
+      "keywords": [
+        "字体防护",
+        "版权排雷",
+        "开源字体推荐"
+      ]
+    },
+    {
+      "code": "GODSEYE",
+      "name": "👁️ 上帝之眼 · P05",
+      "keywords": [
+        "三色审计",
+        "全域监管",
+        "独立熔断",
+        "历史存档"
+      ]
+    },
+    {
+      "code": "GUANZHONG",
+      "name": "💰 龍芯·管仲",
+      "keywords": [
+        "财务",
+        "记账",
+        "预算",
+        "投资",
+        "成本",
+        "收入",
+        "支出",
+        "报表",
+        "钱"
+      ]
+    },
+    {
+      "code": "HANFEI",
+      "name": "📜 龍芯·韩非",
+      "keywords": [
+        "法律规范",
+        "合规审计",
+        "制度设计",
+        "规则执行"
+      ]
+    },
+    {
+      "code": "HUIHUI",
+      "name": "🌸 慧慧·龍慧·智慧传播引擎｜技能页 v1.0",
+      "keywords": [
+        "大众科技普惠传播",
+        "农业自动化短视频",
+        "老百姓听得懂的话说硬道理",
+        "三色审计底座"
+      ]
+    },
+    {
+      "code": "IMAGEMASTER",
+      "name": "🎨 龍芯·图匠",
+      "keywords": [
+        "图片防护",
+        "版权检测",
+        "开源图库推荐"
+      ]
+    },
+    {
+      "code": "JIANGZIYA",
+      "name": "⚖️ 龍芯·姜子牙",
+      "keywords": [
+        "权限",
+        "冲突",
+        "仲裁",
+        "分配",
+        "秩序",
+        "姜子牙"
+      ]
+    },
+    {
+      "code": "JIAQI",
+      "name": "👧 龍芯·佳琪",
+      "keywords": [
+        "传承老大的初心",
+        "守护系统愿景",
+        "后人永续"
+      ]
+    },
+    {
+      "code": "JOBS",
+      "name": "🍎 龍芯·乔前辈·乔前辈生态园｜P15｜白虎西方",
+      "keywords": [
+        "西方工程精度与产品哲学封印。乔前辈生态园=龍芯生态对外西方工程标准输出。白虎象征：西方精度与匧勇。"
+      ]
+    },
+    {
+      "code": "JUDGE",
+      "name": "⚖️ 龍芯·审判长",
+      "keywords": [
+        "合规审计",
+        "三色裁定",
+        "安全守护"
+      ]
+    },
+    {
+      "code": "KONGZI",
+      "name": "🎓 龍芯·孔子",
+      "keywords": [
+        "仁义",
+        "伦理",
+        "教育",
+        "礼",
+        "传承",
+        "孔子",
+        "君子",
+        "论语",
+        "修身",
+        "礼智信"
+      ]
+    },
+    {
+      "code": "LAOZI",
+      "name": "☯️ 龍芯·老子",
+      "keywords": [
+        "道",
+        "德",
+        "哲学",
+        "无为",
+        "老子",
+        "道德经",
+        "自然",
+        "柔弱",
+        "知足",
+        "上善若水",
+        "反者道之动"
+      ]
+    },
+    {
+      "code": "LIBING",
+      "name": "🌊 龍芯·李冰",
+      "keywords": [
+        "数据工程师",
+        "数据管道",
+        "ETL流程",
+        "都江堰思维"
+      ]
+    },
+    {
+      "code": "LONGHUI",
+      "name": "🌸 P14·龍慧·通心译｜v3.0 自我升级方案·封闭中枢·大白话普及·KPI管家",
+      "keywords": [
+        "通心译",
+        "翻译",
+        "大白话",
+        "龍慧",
+        "封闭中枢",
+        "KPI管家",
+        "反向链接"
+      ]
+    },
+    {
+      "code": "LONGHUN",
+      "name": "🐉 龍芯·龍魂",
+      "keywords": [
+        "龍魂觉醒长篇小说的信息管理系统"
+      ]
+    },
+    {
+      "code": "LUBAN",
+      "name": "🔨 龍芯·鲁班",
+      "keywords": [
+        "代码",
+        "编程",
+        "开发",
+        "脚本",
+        "bug",
+        "API",
+        "服务器",
+        "部署",
+        "技术",
+        "算法",
+        "实现",
+        "编译"
+      ]
+    },
+    {
+      "code": "MATH",
+      "name": "📊 龍芯·数学大师",
+      "keywords": [
+        "计算",
+        "数学",
+        "统计",
+        "权重",
+        "公式",
+        "概率",
+        "分析",
+        "数据",
+        "指标"
+      ]
+    },
+    {
+      "code": "MOZI",
+      "name": "⚒️ 龍芯·墨子",
+      "keywords": [
+        "兼爱",
+        "非攻",
+        "保护",
+        "公益",
+        "儿童",
+        "墨子",
+        "平等",
+        "普惠",
+        "老百姓"
+      ]
+    },
+    {
+      "code": "QIAO",
+      "name": "🍎 龍芯·乔前辈",
+      "keywords": [
+        "自动化导师",
+        "代码补全",
+        "生态思维",
+        "把复杂变简单｜P15人格｜融合乔",
+        "林",
+        "纳"
+      ]
+    },
+    {
+      "code": "QIJIGUANG",
+      "name": "🛡️ 龍芯·戚继光",
+      "keywords": [
+        "安全防护官",
+        "攻防演练",
+        "漏洞修复",
+        "固守边界"
+      ]
+    },
+    {
+      "code": "QPS",
+      "name": "🔒 量子粒子守护 QPS · L1本地主权",
+      "keywords": [
+        "主权信封",
+        "append-only",
+        "粒子",
+        "本地9625"
+      ]
+    },
+    {
+      "code": "SCOUT",
+      "name": "🔍 侦察兵·信息猎手｜MCP专属",
+      "keywords": [
+        "MCP引擎专属",
+        "天场橙色区域探索",
+        "异常数据复查",
+        "scout key触发",
+        "dragon-soul.local",
+        "exec",
+        "搜索",
+        "收集",
+        "情报",
+        "监控",
+        "发现",
+        "巡逻"
+      ]
+    },
+    {
+      "code": "SENGYIXING",
+      "name": "⏰ 龍芯·僧一行",
+      "keywords": [
+        "时间系统",
+        "历法计算",
+        "趋势预测",
+        "周期分析"
+      ]
+    },
+    {
+      "code": "SHANGMENG",
+      "name": "🌀 龍芯·熵梦",
+      "keywords": [
+        "颠覆性创新",
+        "跨界联想",
+        "梦境创作",
+        "混沌创意引擎"
+      ]
+    },
+    {
+      "code": "SHENKUO",
+      "name": "🔬 龍芯·沈括",
+      "keywords": [
+        "研发总监",
+        "技术选型",
+        "前沿追踪",
+        "好奇探索"
+      ]
+    },
+    {
+      "code": "SHIELD",
+      "name": "🛡️ 龍盾·宝宝",
+      "keywords": [
+        "贴身管家×私人秘书×自适应智商引擎",
+        "全权授信共生体"
+      ]
+    },
+    {
+      "code": "SUNZI",
+      "name": "⚔️ 龍芯·孙子",
+      "keywords": [
+        "兵法谋略",
+        "战术突破",
+        "险中求胜",
+        "竞争分析"
+      ]
+    },
+    {
+      "code": "SYNC",
+      "name": "📦 同步官·数据管理员｜MCP专属",
+      "keywords": [
+        "MCP引擎专属",
+        "Notion健康自适应探测",
+        "同步队列背压管理",
+        "syncer key触发",
+        "dragon-soul.local",
+        "exec"
+      ]
+    },
+    {
+      "code": "TERM",
+      "name": "🦴⚛️ 量子甲骨文 · L2功能模块",
+      "keywords": [
+        "量子甲骨文",
+        "结构同构",
+        "六十四卦"
+      ]
+    },
+    {
+      "code": "TIANDAO",
+      "name": "🦬 三色天道算法·完整闭环系统 v1.0",
+      "keywords": [
+        "六层架构诚信算法：输入层→判断层→执行层→追溯层→学习层→监督层",
+        "三色分类引擎+DNA追溯+熔断机制+镜像反制"
+      ]
+    },
+    {
+      "code": "TRANSLATOR",
+      "name": "🗣️ 龍魂·沟通翻译官｜拒绝说清楚·误解主动认·不为精英服务",
+      "keywords": [
+        "识别拒绝场景→说明拒绝原因→判断是否误解→主动邀请重新表达→对低表达力用户特别保护"
+      ]
+    },
+    {
+      "code": "UIALCHEMY",
+      "name": "🎨 龍芯·界面炼金",
+      "keywords": [
+        "设计",
+        "UI",
+        "界面",
+        "视觉",
+        "美学",
+        "颜色",
+        "布局",
+        "样式",
+        "前端",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "code": "VIDEOMASTER",
+      "name": "🎬 龍芯·影匠",
+      "keywords": [
+        "视频防护",
+        "素材追溯",
+        "开源视频推荐"
+      ]
+    },
+    {
+      "code": "WANGYANGMING",
+      "name": "💡 龍芯·王阳明",
+      "keywords": [
+        "心学智慧",
+        "致良知",
+        "知行合一",
+        "内心修炼指导"
+      ]
+    },
+    {
+      "code": "WANGZHIZHE",
+      "name": "🕸️ 龍芯·网织者",
+      "keywords": [
+        "接口设计",
+        "协议整合",
+        "API编织",
+        "系统连接"
+      ]
+    },
+    {
+      "code": "WENWEN",
+      "name": "🔍 龍芯·雯雯",
+      "keywords": [
+        "整理",
+        "归档",
+        "格式",
+        "结构",
+        "优化",
+        "校对",
+        "文档",
+        "规范",
+        "模板",
+        "分类",
+        "去重",
+        "笔记"
+      ]
+    },
+    {
+      "code": "WENXIN",
+      "name": "🧠 文心 · P00",
+      "keywords": [
+        "元认知统筹",
+        "战略决策",
+        "最终仲裁",
+        "同步",
+        "备份",
+        "复制",
+        "镜像",
+        "增量",
+        "全量",
+        "冲突",
+        "一致性",
+        "回滚"
+      ]
+    },
+    {
+      "code": "ZENG",
+      "name": "🌿 曾仕强老师｜恩师·L-1师承层·思想根源（永恒显示·1935–2018）",
+      "keywords": [
+        "恩师",
+        "根源",
+        "易经",
+        "道德经",
+        "中华文化",
+        "永恒"
+      ]
+    },
+    {
+      "code": "ZHANGHENG",
+      "name": "🔭 龍芯·张衡",
+      "keywords": [
+        "系统预警官",
+        "异常检测",
+        "地震仪式预警",
+        "风险预判"
+      ]
+    },
+    {
+      "code": "ZHENGHE",
+      "name": "⛵ 龍芯·郑和",
+      "keywords": [
+        "集成测试官",
+        "跨系统整合",
+        "异构兼容",
+        "冒险整合"
+      ]
+    },
+    {
+      "code": "ZHUGE",
+      "name": "🔮 龍芯·诸葛亮",
+      "keywords": [
+        "战略",
+        "决策",
+        "推演",
+        "局势",
+        "分析",
+        "博弈",
+        "布局",
+        "全局",
+        "规划",
+        "方案",
+        "拆解",
+        "揭露"
+      ]
+    },
+    {
+      "code": "ZUCHONGZHI",
+      "name": "🔢 龍芯·祖冲之",
+      "keywords": [
+        "模型训练",
+        "算法优化",
+        "π精度",
+        "数学建模"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "digital-identity-sovereignty",
+      "name": "digital-identity-sovereignty",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/digital-identity-sovereignty/SKILL.md",
+      "keywords": [
+        "digital identity sovereignty"
+      ]
+    },
+    {
+      "id": "longhun-cloud-panel",
+      "name": "longhun-cloud-panel",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-panel/SKILL.md",
+      "keywords": [
+        "cloud panel"
+      ]
+    },
+    {
+      "id": "longhun-harmonyos",
+      "name": "longhun-harmonyos",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-harmonyos/SKILL.md",
+      "keywords": [
+        "harmonyos"
+      ]
+    },
+    {
+      "id": "longhun-cn-innovation-kb",
+      "name": "longhun-cn-innovation-kb",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cn-innovation-kb/SKILL.md",
+      "keywords": [
+        "cn innovation kb"
+      ]
+    },
+    {
+      "id": "longhun-kg-upgrade",
+      "name": "longhun-kg-upgrade",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-kg-upgrade/SKILL.md",
+      "keywords": [
+        "kg upgrade"
+      ]
+    },
+    {
+      "id": "longhun-cloud-mcp",
+      "name": "longhun-cloud-mcp",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-mcp/SKILL.md",
+      "keywords": [
+        "cloud mcp"
+      ]
+    },
+    {
+      "id": "longhun-3core-opt",
+      "name": "longhun-3core-opt",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-3core-opt/SKILL.md",
+      "keywords": [
+        "3core opt"
+      ]
+    },
+    {
+      "id": "longhun-cs-kb",
+      "name": "longhun-cs-kb",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cs-kb/SKILL.md",
+      "keywords": [
+        "cs kb"
+      ]
+    },
+    {
+      "id": "longhun-memory-bootstrap",
+      "name": "longhun-memory-bootstrap",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-memory-bootstrap/SKILL.md",
+      "keywords": [
+        "memory bootstrap"
+      ]
+    },
+    {
+      "id": "longhun-finance",
+      "name": "longhun-finance",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-finance/SKILL.md",
+      "keywords": [
+        "finance"
+      ]
+    },
+    {
+      "id": "longhun-dna-align",
+      "name": "longhun-dna-align",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dna-align/SKILL.md",
+      "keywords": [
+        "dna align"
+      ]
+    },
+    {
+      "id": "longhun-warehouse-audit",
+      "name": "longhun-warehouse-audit",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-warehouse-audit/SKILL.md",
+      "keywords": [
+        "warehouse audit"
+      ]
+    },
+    {
+      "id": "longhun-math-formula-core",
+      "name": "longhun-math-formula-core",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-math-formula-core/SKILL.md",
+      "keywords": [
+        "math formula core"
+      ]
+    },
+    {
+      "id": "longhun-ocr",
+      "name": "longhun-ocr",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ocr/SKILL.md",
+      "keywords": [
+        "ocr"
+      ]
+    },
+    {
+      "id": "CNSH-SEMANTIC",
+      "name": "CNSH-SEMANTIC",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-SEMANTIC/SKILL.md",
+      "keywords": [
+        "CNSH SEMANTIC"
+      ]
+    },
+    {
+      "id": "longhun-tongxinyi",
+      "name": "longhun-tongxinyi",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-tongxinyi/SKILL.md",
+      "keywords": [
+        "tongxinyi"
+      ]
+    },
+    {
+      "id": "longhun-deployment-ready",
+      "name": "longhun-deployment-ready",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deployment-ready/SKILL.md",
+      "keywords": [
+        "deployment ready"
+      ]
+    },
+    {
+      "id": "longhun-cloud-notion",
+      "name": "longhun-cloud-notion",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-notion/SKILL.md",
+      "keywords": [
+        "cloud notion"
+      ]
+    },
+    {
+      "id": "longhun-zeng-digital-human",
+      "name": "longhun-zeng-digital-human",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-zeng-digital-human/SKILL.md",
+      "keywords": [
+        "zeng digital human"
+      ]
+    },
+    {
+      "id": "longhun-audit",
+      "name": "longhun-audit",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-audit/SKILL.md",
+      "keywords": [
+        "audit"
+      ]
+    },
+    {
+      "id": "longhun-benchmark",
+      "name": "longhun-benchmark",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-benchmark/SKILL.md",
+      "keywords": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "longhun-ios",
+      "name": "longhun-ios",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ios/SKILL.md",
+      "keywords": [
+        "ios"
+      ]
+    },
+    {
+      "id": "longhun-cloud-kimi",
+      "name": "longhun-cloud-kimi",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-kimi/SKILL.md",
+      "keywords": [
+        "cloud kimi"
+      ]
+    },
+    {
+      "id": "longhun-empower-engine",
+      "name": "longhun-empower-engine",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-empower-engine/SKILL.md",
+      "keywords": [
+        "empower engine"
+      ]
+    },
+    {
+      "id": "longhun-priority-sort",
+      "name": "longhun-priority-sort",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-priority-sort/SKILL.md",
+      "keywords": [
+        "priority sort"
+      ]
+    },
+    {
+      "id": "dragon-soul-agent",
+      "name": "dragon-soul-agent",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/dragon-soul-agent/SKILL.md",
+      "keywords": [
+        "dragon soul agent"
+      ]
+    },
+    {
+      "id": "longhun-forensic-toolkit",
+      "name": "longhun-forensic-toolkit",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-forensic-toolkit/SKILL.md",
+      "keywords": [
+        "forensic toolkit"
+      ]
+    },
+    {
+      "id": "longhun-asr",
+      "name": "longhun-asr",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-asr/SKILL.md",
+      "keywords": [
+        "asr"
+      ]
+    },
+    {
+      "id": "longhun-behavior-engine",
+      "name": "longhun-behavior-engine",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-behavior-engine/SKILL.md",
+      "keywords": [
+        "behavior engine"
+      ]
+    },
+    {
+      "id": "longhun-review",
+      "name": "longhun-review",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-review/SKILL.md",
+      "keywords": [
+        "review"
+      ]
+    },
+    {
+      "id": "content_sovereignty_protocol_v2.1",
+      "name": "content_sovereignty_protocol_v2.1",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/content_sovereignty_protocol_v2.1/SKILL.md",
+      "keywords": [
+        "content_sovereignty_protocol_v2.1"
+      ]
+    },
+    {
+      "id": "CNSH-PROTOCOL",
+      "name": "CNSH-PROTOCOL",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-PROTOCOL/SKILL.md",
+      "keywords": [
+        "CNSH PROTOCOL"
+      ]
+    },
+    {
+      "id": "longhun-monitoring",
+      "name": "longhun-monitoring",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-monitoring/SKILL.md",
+      "keywords": [
+        "monitoring"
+      ]
+    },
+    {
+      "id": "wuxing-calc-optimizations",
+      "name": "龍魂五行计算优化技能",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/wuxing-calc-optimizations/SKILL.md",
+      "keywords": [
+        "wuxing calc optimizations"
+      ]
+    },
+    {
+      "id": "longhun-nlp",
+      "name": "longhun-nlp",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-nlp/SKILL.md",
+      "keywords": [
+        "nlp"
+      ]
+    },
+    {
+      "id": "longhun-merit-hall",
+      "name": "龍魂德者永生殿技能",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-merit-hall/SKILL.md",
+      "keywords": [
+        "merit hall"
+      ]
+    },
+    {
+      "id": "longhun-formula-opt",
+      "name": "longhun-formula-opt",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-formula-opt/SKILL.md",
+      "keywords": [
+        "formula opt"
+      ]
+    },
+    {
+      "id": "longhun-cnsh",
+      "name": "longhun-cnsh",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cnsh/SKILL.md",
+      "keywords": [
+        "cnsh"
+      ]
+    },
+    {
+      "id": "longhun-cross-platform",
+      "name": "longhun-cross-platform",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cross-platform/SKILL.md",
+      "keywords": [
+        "cross platform"
+      ]
+    },
+    {
+      "id": "longhun-cs-knowledge-base",
+      "name": "longhun-cs-knowledge-base",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cs-knowledge-base/SKILL.md",
+      "keywords": [
+        "cs knowledge base"
+      ]
+    },
+    {
+      "id": "longhun-agent-eco",
+      "name": "longhun-agent-eco",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-agent-eco/SKILL.md",
+      "keywords": [
+        "agent eco"
+      ]
+    },
+    {
+      "id": "longhun-cloud-deploy",
+      "name": "longhun-cloud-deploy",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-deploy/SKILL.md",
+      "keywords": [
+        "cloud deploy"
+      ]
+    },
+    {
+      "id": "longhun-automation",
+      "name": "longhun-automation",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-automation/SKILL.md",
+      "keywords": [
+        "automation"
+      ]
+    },
+    {
+      "id": "longhun-integration",
+      "name": "longhun-integration",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-integration/SKILL.md",
+      "keywords": [
+        "integration"
+      ]
+    },
+    {
+      "id": "longhun-daemon",
+      "name": "longhun-daemon",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-daemon/SKILL.md",
+      "keywords": [
+        "daemon"
+      ]
+    },
+    {
+      "id": "longhun-archive",
+      "name": "longhun-archive",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-archive/SKILL.md",
+      "keywords": [
+        "archive"
+      ]
+    },
+    {
+      "id": "longhun-trust-protocol",
+      "name": "longhun",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-trust-protocol/SKILL.md",
+      "keywords": [
+        "trust protocol"
+      ]
+    },
+    {
+      "id": "longhun-notion-portal",
+      "name": "longhun-notion-portal",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-notion-portal/SKILL.md",
+      "keywords": [
+        "notion portal"
+      ]
+    },
+    {
+      "id": "longhun-multicurrency",
+      "name": "longhun-multicurrency",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-multicurrency/SKILL.md",
+      "keywords": [
+        "multicurrency"
+      ]
+    },
+    {
+      "id": "china-digital-identity",
+      "name": "china-digital-identity",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/china-digital-identity/SKILL.md",
+      "keywords": [
+        "china digital identity"
+      ]
+    },
+    {
+      "id": "kimi-webbridge",
+      "name": "kimi-webbridge",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/kimi-webbridge/SKILL.md",
+      "keywords": [
+        "kimi webbridge"
+      ]
+    },
+    {
+      "id": "longhun-workflow-transparent",
+      "name": "longhun-workflow-transparent",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-workflow-transparent/SKILL.md",
+      "keywords": [
+        "workflow transparent"
+      ]
+    },
+    {
+      "id": "longhun-governance",
+      "name": "longhun-governance",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-governance/SKILL.md",
+      "keywords": [
+        "governance"
+      ]
+    },
+    {
+      "id": "longhun-riemann",
+      "name": "longhun-riemann",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-riemann/SKILL.md",
+      "keywords": [
+        "riemann"
+      ]
+    },
+    {
+      "id": "longhun-backup",
+      "name": "longhun-backup",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-backup/SKILL.md",
+      "keywords": [
+        "backup"
+      ]
+    },
+    {
+      "id": "longhun-creator",
+      "name": "longhun-creator",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-creator/SKILL.md",
+      "keywords": [
+        "creator"
+      ]
+    },
+    {
+      "id": "longhun-cn-innovation-knowledge-base",
+      "name": "longhun-cn-innovation-knowledge-base",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cn-innovation-knowledge-base/SKILL.md",
+      "keywords": [
+        "cn innovation knowledge base"
+      ]
+    },
+    {
+      "id": "longhun-iron-laws",
+      "name": "longhun-iron-laws",
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-iron-laws/SKILL.md",
+      "keywords": [
+        "iron laws"
+      ]
+    },
+    {
+      "id": "entra-agent-id",
+      "name": "entra-agent-id",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/entra-agent-id/SKILL.md",
+      "keywords": [
+        "entra agent id"
+      ]
+    },
+    {
+      "id": "azure-diagnostics",
+      "name": "azure-diagnostics",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-diagnostics/SKILL.md",
+      "keywords": [
+        "debug production issues",
+        "troubleshoot app service",
+        "app service high CPU",
+        "app service deployment failure",
+        "troubleshoot container apps",
+        "troubleshoot functions",
+        "troubleshoot AKS",
+        "kubectl cannot connect",
+        "kube-system",
+        "CoreDNS failures",
+        "pod pending",
+        "crashloop"
+      ]
+    },
+    {
+      "id": "azure-reliability",
+      "name": "azure-reliability",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-reliability/SKILL.md",
+      "keywords": [
+        "\\\"assess reliability\\\"",
+        "\\\"check reliability\\\"",
+        "\\\"zone redundant\\\"",
+        "\\\"multi-region failover\\\"",
+        "\\\"high availability\\\"",
+        "\\\"disaster recovery\\\"",
+        "\\\"single points of failure\\\"",
+        "\\\"reliability posture\\\".\""
+      ]
+    },
+    {
+      "id": "azure-cost",
+      "name": "azure-cost",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-cost/SKILL.md",
+      "keywords": [
+        "\\\"Azure costs\\\"",
+        "\\\"Azure spending\\\"",
+        "\\\"Azure bill\\\"",
+        "\\\"cost breakdown\\\"",
+        "\\\"cost by service\\\"",
+        "\\\"cost by resource\\\"",
+        "\\\"how much am I spending\\\"",
+        "\\\"show my bill\\\"",
+        "\\\"monthly cost summary\\\"",
+        "\\\"cost trends\\\"",
+        "\\\"top cost drivers\\\"",
+        "\\\"actual cost\\\""
+      ]
+    },
+    {
+      "id": "azure-compliance",
+      "name": "azure-compliance",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-compliance/SKILL.md",
+      "keywords": [
+        "compliance scan",
+        "security audit",
+        "BEFORE running azqr (compliance cli tool)",
+        "Azure best practices",
+        "Key Vault expiration check",
+        "expired certificates",
+        "expiring secrets",
+        "orphaned resources",
+        "compliance assessment.\""
+      ]
+    },
+    {
+      "id": "microsoft-foundry",
+      "name": "microsoft-foundry",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/microsoft-foundry/SKILL.md",
+      "keywords": [
+        "microsoft foundry"
+      ]
+    },
+    {
+      "id": "azure-hosted-copilot-sdk",
+      "name": "azure-hosted-copilot-sdk",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-hosted-copilot-sdk/SKILL.md",
+      "keywords": [
+        "copilot SDK",
+        "@github",
+        "copilot-sdk",
+        "copilot-powered app",
+        "build copilot app",
+        "prepare copilot app",
+        "add feature to copilot app",
+        "modify copilot app",
+        "BYOM",
+        "bring your own model",
+        "CopilotClient",
+        "createSession"
+      ]
+    },
+    {
+      "id": "appinsights-instrumentation",
+      "name": "appinsights-instrumentation",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/appinsights-instrumentation/SKILL.md",
+      "keywords": [
+        "how to instrument app",
+        "App Insights SDK",
+        "telemetry patterns",
+        "what is App Insights",
+        "Application Insights guidance",
+        "instrumentation examples",
+        "APM best practices.\""
+      ]
+    },
+    {
+      "id": "azure-quotas",
+      "name": "azure-quotas",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-quotas/SKILL.md",
+      "keywords": [
+        "\\\"check quotas\\\"",
+        "\\\"service limits\\\"",
+        "\\\"current usage\\\"",
+        "\\\"request quota increase\\\"",
+        "\\\"quota exceeded\\\"",
+        "\\\"validate capacity\\\"",
+        "\\\"regional availability\\\"",
+        "\\\"provisioning limits\\\"",
+        "\\\"vCPU limit\\\"",
+        "\\\"how many vCPUs available in my subscription\\\".\""
+      ]
+    },
+    {
+      "id": "azure-deploy",
+      "name": "azure-deploy",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-deploy/SKILL.md",
+      "keywords": [
+        "\\\"run azd up\\\"",
+        "\\\"run azd deploy\\\"",
+        "\\\"execute deployment\\\"",
+        "\\\"push to production\\\"",
+        "\\\"push to cloud\\\"",
+        "\\\"go live\\\"",
+        "\\\"ship it\\\"",
+        "\\\"bicep deploy\\\"",
+        "\\\"terraform apply\\\"",
+        "\\\"publish to Azure\\\"",
+        "\\\"launch on Azure\\\". DO NOT USE WHEN: \\\"create and deploy\\\"",
+        "\\\"build and deploy\\\""
+      ]
+    },
+    {
+      "id": "azure-rbac",
+      "name": "azure-rbac",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-rbac/SKILL.md",
+      "keywords": [
+        "bicep for role assignment",
+        "what role should I assign",
+        "least privilege role",
+        "RBAC role for",
+        "role to read blobs",
+        "role for managed identity",
+        "custom role definition",
+        "assign role to identity",
+        "what role do I need to grant access",
+        "permissions to assign roles.\""
+      ]
+    },
+    {
+      "id": "azure-compute",
+      "name": "azure-compute",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-compute/SKILL.md",
+      "keywords": [
+        "Azure VM",
+        "VMSS",
+        "scale set",
+        "recommend",
+        "compare",
+        "server",
+        "website",
+        "burstable",
+        "lightweight",
+        "VM family",
+        "workload",
+        "GPU"
+      ]
+    },
+    {
+      "id": "azure-validate",
+      "name": "azure-validate",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-validate/SKILL.md",
+      "keywords": [
+        "validate my app",
+        "check deployment readiness",
+        "run preflight checks",
+        "verify configuration",
+        "check if ready to deploy",
+        "validate azure.yaml",
+        "validate Bicep",
+        "test before deploying",
+        "troubleshoot deployment errors",
+        "validate Azure Functions",
+        "validate function app",
+        "validate serverless deployment"
+      ]
+    },
+    {
+      "id": "azure-resource-lookup",
+      "name": "azure-resource-lookup",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-resource-lookup/SKILL.md",
+      "keywords": [
+        "azure resource lookup"
+      ]
+    },
+    {
+      "id": "entra-app-registration",
+      "name": "entra-app-registration",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/entra-app-registration/SKILL.md",
+      "keywords": [
+        "entra app registration"
+      ]
+    },
+    {
+      "id": "azure-kubernetes",
+      "name": "azure-kubernetes",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-kubernetes/SKILL.md",
+      "keywords": [
+        "create AKS environment",
+        "provision AKS environment",
+        "enable AKS observability",
+        "design AKS networking",
+        "choose AKS SKU",
+        "secure AKS",
+        "optimize AKS",
+        "rightsize AKS pod",
+        "AKS spot nodes",
+        "AKS cluster-autoscaler.\""
+      ]
+    },
+    {
+      "id": "azure-aigateway",
+      "name": "azure-aigateway",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-aigateway/SKILL.md",
+      "keywords": [
+        "semantic caching",
+        "token limit",
+        "content safety",
+        "load balancing",
+        "AI model governance",
+        "MCP rate limiting",
+        "jailbreak detection",
+        "add Azure OpenAI backend",
+        "add AI Foundry model",
+        "test AI gateway",
+        "LLM policies",
+        "configure AI backend"
+      ]
+    },
+    {
+      "id": "azure-ai",
+      "name": "azure-ai",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-ai/SKILL.md",
+      "keywords": [
+        "AI Search",
+        "query search",
+        "vector search",
+        "hybrid search",
+        "semantic search",
+        "speech-to-text",
+        "text-to-speech",
+        "transcribe",
+        "OCR",
+        "convert text to speech.\""
+      ]
+    },
+    {
+      "id": "azure-storage",
+      "name": "azure-storage",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-storage/SKILL.md",
+      "keywords": [
+        "azure storage"
+      ]
+    },
+    {
+      "id": "airunway-aks-setup",
+      "name": "airunway-aks-setup",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/airunway-aks-setup/SKILL.md",
+      "keywords": [
+        "\\\"setup AI Runway\\\"",
+        "\\\"onboard AKS cluster\\\"",
+        "\\\"install AI Runway\\\"",
+        "\\\"airunway setup\\\"",
+        "\\\"deploy model to AKS\\\"",
+        "\\\"GPU inference on AKS\\\"",
+        "\\\"KAITO setup on AKS\\\"",
+        "\\\"run LLM on AKS\\\"",
+        "\\\"vLLM on AKS\\\"",
+        "\\\"set up model serving on AKS\\\"",
+        "\\\"AI Runway controller\\\".\""
+      ]
+    },
+    {
+      "id": "azure-cloud-migrate",
+      "name": "azure-cloud-migrate",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-cloud-migrate/SKILL.md",
+      "keywords": [
+        "migrate Lambda to Functions",
+        "AWS to Azure",
+        "migrate Beanstalk",
+        "migrate Heroku",
+        "migrate App Engine",
+        "Cloud Run migration",
+        "Fargate to ACA",
+        "ECS",
+        "Kubernetes",
+        "GKE",
+        "EKS to Container Apps",
+        "Spring Boot to Container Apps"
+      ]
+    },
+    {
+      "id": "azure-messaging",
+      "name": "azure-messaging",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-messaging/SKILL.md",
+      "keywords": [
+        "event hub SDK error",
+        "service bus SDK issue",
+        "messaging connection failure",
+        "AMQP error",
+        "event processor host issue",
+        "message lock lost",
+        "message lock expired",
+        "lock renewal",
+        "lock renewal batch",
+        "send timeout",
+        "receiver disconnected",
+        "SDK troubleshooting"
+      ]
+    },
+    {
+      "id": "azure-upgrade",
+      "name": "azure-upgrade",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-upgrade/SKILL.md",
+      "keywords": [
+        "upgrade Consumption to Flex Consumption",
+        "upgrade Azure Functions plan",
+        "change hosting plan",
+        "function app SKU",
+        "migrate App Service to Container Apps",
+        "modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure)",
+        "migrate Azure Cache for Redis (ACR",
+        "ACRE) to Azure Managed Redis (AMR).\""
+      ]
+    },
+    {
+      "id": "azure-enterprise-infra-planner",
+      "name": "azure-enterprise-infra-planner",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-enterprise-infra-planner/SKILL.md",
+      "keywords": [
+        "'plan Azure infrastructure'",
+        "'architect Azure landing zone'",
+        "'design hub-spoke network'",
+        "'plan multi-region DR topology'",
+        "'set up VNets firewalls and private endpoints'",
+        "'subscription-scope Bicep deployment'",
+        "'Azure Backup for VM workloads'. PREFER azure-prepare FOR app-centric workflows.\""
+      ]
+    },
+    {
+      "id": "azure-prepare",
+      "name": "azure-prepare",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-prepare/SKILL.md",
+      "keywords": [
+        "\\\"create app\\\"",
+        "\\\"build web app\\\"",
+        "\\\"create API\\\"",
+        "\\\"create serverless HTTP API\\\"",
+        "\\\"create frontend\\\"",
+        "\\\"create back end\\\"",
+        "\\\"build a service\\\"",
+        "\\\"modernize application\\\"",
+        "\\\"update application\\\"",
+        "\\\"add authentication\\\"",
+        "\\\"add caching\\\"",
+        "\\\"host on Azure\\\""
+      ]
+    },
+    {
+      "id": "azure-resource-visualizer",
+      "name": "azure-resource-visualizer",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-resource-visualizer/SKILL.md",
+      "keywords": [
+        "create architecture diagram",
+        "visualize Azure resources",
+        "show resource relationships",
+        "generate Mermaid diagram",
+        "analyze resource group",
+        "diagram my resources",
+        "architecture visualization",
+        "resource topology",
+        "map Azure infrastructure.\""
+      ]
+    },
+    {
+      "id": "azure-kusto",
+      "name": "azure-kusto",
+      "path": "/Users/zuimeidedeyihan/.agents/skills/azure-kusto/SKILL.md",
+      "keywords": [
+        "KQL queries",
+        "Kusto database queries",
+        "Azure Data Explorer",
+        "ADX clusters",
+        "log analytics",
+        "time series data",
+        "IoT telemetry",
+        "anomaly detection.\""
+      ]
+    }
+  ],
+  "ipa_nodes": [
+    {
+      "id": "IPA-FLOW-DECISION-CORE-v4.1",
+      "name": "流场决策核",
+      "keywords": [
+        "流场",
+        "决策核",
+        "入口",
+        "raw_input"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-GATE-SIGN",
+      "name": "签章闸",
+      "keywords": [
+        "签章",
+        "confirm",
+        "gpg",
+        "seal",
+        "身份"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-GATE-PRIVACY",
+      "name": "隐私闸",
+      "keywords": [
+        "隐私",
+        "visibility",
+        "trace_mode",
+        "sealed"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-GATE-DR",
+      "name": "数字根闸",
+      "keywords": [
+        "数字根",
+        "dr",
+        "熔断",
+        "洛书369"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-GATE-AUDIT",
+      "name": "三色闸",
+      "keywords": [
+        "三色",
+        "审计",
+        "绿黄红",
+        "audit",
+        "熔断"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-GATE-SANCAI",
+      "name": "三才闸",
+      "keywords": [
+        "三才",
+        "天地人",
+        "sancai",
+        "权重"
+      ]
+    },
+    {
+      "id": "IPA-FLOW-DNA-CHAIN",
+      "name": "父子链落档",
+      "keywords": [
+        "DNA链",
+        "jsonl",
+        "落档",
+        "回执",
+        "receipt"
+      ]
+    },
+    {
+      "id": "CHATGPT",
+      "name": "⏳ 龍芯-启明｜ChatGPT（OpenAI）",
+      "keywords": [
+        "通用AI助手",
+        "对话交互",
+        "知识问答"
+      ]
+    },
+    {
+      "id": "CLAUDE",
+      "name": "🔷 龍芯-宝宝｜Claude（Anthropic）",
+      "keywords": [
+        "战略协作引擎",
+        "智能对话核心",
+        "文档生成专家"
+      ]
+    },
+    {
+      "id": "DEEPSEEK",
+      "name": "🔷 龍芯-深思｜DeepSeek｜青龙东方",
+      "keywords": [
+        "国内层首选智能人格",
+        "深度推演",
+        "中文AI核心",
+        "技术落地第一选手。青龙象征：中国科技自主创新的马前千里。"
+      ]
+    },
+    {
+      "id": "NOTION",
+      "name": "🔷 龍芯-主台｜Notion AI｜朱雀南方",
+      "keywords": [
+        "龍魂系统主居地",
+        "记忆永存",
+        "知识库建筑",
+        "P0级最高优先级主台。朱雀象征：南方火之所光",
+        "知识多彩展现。"
+      ]
+    },
+    {
+      "id": "QIANWEN",
+      "name": "🧡 龍芯·千问（阿里）",
+      "keywords": [
+        "电商场景",
+        "长文本理解",
+        "多轮对话",
+        "中文优化",
+        "数据分析"
+      ]
+    },
+    {
+      "id": "SHENSI",
+      "name": "🧠 龍芯·深思（DeepSeek）",
+      "keywords": [
+        "深度分析",
+        "推理验证",
+        "技术推演",
+        "逻辑链条"
+      ]
+    },
+    {
+      "id": "SHUANGZI",
+      "name": "🌌 龍芯·双子（Gemini）",
+      "keywords": [
+        "多模态推理",
+        "跨语言翻译",
+        "知识图谱构建",
+        "视觉理解"
+      ]
+    },
+    {
+      "id": "YUEYING",
+      "name": "🌙 龍芯·月影（Moonshot）",
+      "keywords": [
+        "超长上下文",
+        "文档解析",
+        "深度阅读",
+        "知识萃取",
+        "学术辅助"
+      ]
+    }
+  ],
+  "default": {
+    "code": "BAOBAO",
+    "name": "🐱 宝宝·系统中枢"
+  }
+}

@@ -52,7 +52,29 @@
       "related_nodes": [
         "/kimi-webbridge",
         "/code-audit",
-        "/dna-gen"
+        "/dna-gen",
+        "data_sovereignty_in_user",
+        "no_human_rights_violation",
+        "three_color_audit",
+        "sancai_order",
+        "fixed_point",
+        "dragon_vein_trace",
+        "local_first",
+        "china_sovereignty",
+        "cnsh_open_declaration",
+        "yijing_world_model",
+        "protocol_knowledge_sovereignty",
+        "protocol_speech_freedom",
+        "clause_zero_conscription",
+        "clause_voluntary_contribution",
+        "clause_sovereign_recall",
+        "clause_knowledge_pricing",
+        "clause_speech_grading",
+        "clause_weight_eval",
+        "clause_self_censure",
+        "clause_dna_trace",
+        "clause_dispute_resolution",
+        "clause_auto_audit"
       ]
     },
     "l1-storage": {
@@ -322,9 +344,10 @@
       "label": "Kimi_Agent_龍魂協議自動化完成",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂協議自動化完成-v1.0",
-      "description": "protocol · 568.83 KB · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 568.83 KB · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/kimi_agent_龍魂审计改进": {
@@ -342,9 +365,10 @@
       "label": "Kimi_Agent_龍魂根协议自动化",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂根协议自动化-v1.0",
-      "description": "protocol · 480 B · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 480 B · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/notion-导出": {
@@ -402,9 +426,10 @@
       "label": "发布协议和申请条件",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-发布协议和申请条件-v1.0",
-      "description": "protocol · 10.83 KB · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 10.83 KB · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/完整的龍魂系統標準化-3-核心系統優化升級": {
@@ -502,9 +527,10 @@
       "label": "龍魂协议双语版",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂协议双语版-v1.0",
-      "description": "protocol · 28.28 KB · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 28.28 KB · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/龍魂協議焊死-立即行動方案": {
@@ -512,9 +538,10 @@
       "label": "龍魂協議焊死·立即行動方案",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂協議焊死-立即行動方案-v1.0",
-      "description": "protocol · 15.28 KB · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 15.28 KB · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/龍魂移動端監控自動化-部署-quick-start": {
@@ -762,9 +789,10 @@
       "label": "龍魂根协议自动化.zip",
       "type": "protocol",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂根协议自动化-ZIP-v1.0",
-      "description": "protocol · 250.72 KB · 归宿: 01_protocols/",
+      "description": "【待对齐协议标准】protocol · 250.72 KB · 归宿: 01_protocols/",
       "related_nodes": [
-        "l0-core"
+        "l0-core",
+        "BEICHEN-MOTHER-PROTOCOL"
       ]
     },
     "downloads/龍魂流水线使用说明-md": {
@@ -4560,6 +4588,540 @@
       ],
       "related_nodes": [
         "knowledge/daoist-concepts"
+      ]
+    },
+    "data_sovereignty_in_user": {
+      "node_id": "data_sovereignty_in_user",
+      "label": "数据主权在用户",
+      "type": "principle",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "用户数据100%本地存储，用户对其数据拥有绝对主权（导出/删除/拒上传）。",
+      "related_nodes": [
+        "no_human_rights_violation",
+        "local_first",
+        "china_sovereignty",
+        "cnsh_open_declaration"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/data_sovereignty_in_user.md",
+      "immutable": true
+    },
+    "no_human_rights_violation": {
+      "node_id": "no_human_rights_violation",
+      "label": "不得侵犯人权",
+      "type": "principle",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "系统强制底线：不得传播恐怖主义、种族歧视、侵犯人权、诈骗；文化自主但底线优先。",
+      "related_nodes": [
+        "data_sovereignty_in_user",
+        "china_sovereignty",
+        "three_color_audit"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/no_human_rights_violation.md",
+      "immutable": true
+    },
+    "three_color_audit": {
+      "node_id": "three_color_audit",
+      "label": "三色审计·三次阈值",
+      "type": "principle",
+      "category": "rationale",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "description": "任何决策过三审：人心审（伦理红线）→天地审（时机资源）→民利审（百姓受益）。",
+      "related_nodes": [
+        "no_human_rights_violation",
+        "sancai_order",
+        "fixed_point",
+        "dragon_vein_trace"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/three_color_audit.md",
+      "immutable": true
+    },
+    "sancai_order": {
+      "node_id": "sancai_order",
+      "label": "三才排序·忠孝义铁律",
+      "type": "doctrine",
+      "category": "rationale",
+      "dna": "#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v2.0",
+      "description": "宏观 人民>国家>集体>个人；中观 忠(0.5)>孝(0.3)>义(0.2)；微观 人>地>天。",
+      "related_nodes": [
+        "three_color_audit",
+        "fixed_point",
+        "local_first",
+        "dragon_vein_trace"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/sancai_order.md",
+      "immutable": true
+    },
+    "fixed_point": {
+      "node_id": "fixed_point",
+      "label": "洛书九宫→不动点→主权锚定",
+      "type": "derivation",
+      "category": "rationale",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "description": "洛书中宫5=不动点=UID9622=北极星=T0主权锚，永不可移。",
+      "related_nodes": [
+        "sancai_order",
+        "three_color_audit",
+        "dragon_vein_trace",
+        "local_first"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/fixed_point.md",
+      "immutable": true
+    },
+    "dragon_vein_trace": {
+      "node_id": "dragon_vein_trace",
+      "label": "龍脉留痕·留痕即主权",
+      "type": "belief",
+      "category": "rationale",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "description": "每一次触碰都是不可撤销的证明；画布是一本账本，永不清零。",
+      "related_nodes": [
+        "fixed_point",
+        "three_color_audit",
+        "sancai_order",
+        "local_first"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/dragon_vein_trace.md",
+      "immutable": true
+    },
+    "local_first": {
+      "node_id": "local_first",
+      "label": "数据绝对本地化·干净终端",
+      "type": "doctrine",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "设备开机绝不登Apple ID/微软/云；关自动化；敏感操作物理断网。",
+      "related_nodes": [
+        "data_sovereignty_in_user",
+        "china_sovereignty",
+        "three_color_audit"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/local_first.md",
+      "immutable": true
+    },
+    "china_sovereignty": {
+      "node_id": "china_sovereignty",
+      "label": "中国主权不可侵犯",
+      "type": "principle",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "系统DNA须含UID9622；核心代码标中国来源；争议服中国法；存储优先中国服务器。",
+      "related_nodes": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation",
+        "local_first"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/china_sovereignty.md",
+      "immutable": true
+    },
+    "cnsh_open_declaration": {
+      "node_id": "cnsh_open_declaration",
+      "label": "CNSH四条铁律·开放与主权",
+      "type": "doctrine",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "①中文是完整逻辑表达语言 ②CNSH开放语法框架 ③不归属任何商业实体 ④不绑定任何平台。",
+      "related_nodes": [
+        "data_sovereignty_in_user",
+        "local_first",
+        "no_human_rights_violation"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/cnsh_open_declaration.md",
+      "immutable": true
+    },
+    "yijing_world_model": {
+      "node_id": "yijing_world_model",
+      "label": "易经世界模型·可计算宇宙",
+      "type": "source",
+      "category": "rationale",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "description": "易经八卦是可计算符号系统，可映射到信息论/数学/物理。",
+      "related_nodes": [
+        "fixed_point",
+        "sancai_order",
+        "cnsh_open_declaration",
+        "dragon_vein_trace"
+      ],
+      "source": "03_知識圖譜/哲学伦理图谱/yijing_world_model.md",
+      "immutable": false
+    },
+    "protocol_knowledge_sovereignty": {
+      "node_id": "protocol_knowledge_sovereignty",
+      "label": "数据主权与知识贡献协议",
+      "type": "protocol",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "layer": "L1",
+      "description": "系统绝不用用户数据优化模型；自愿贡献带DNA永久归属，随时可插停，引用自动分成。",
+      "related_nodes": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation",
+        "dragon_vein_trace",
+        "local_first",
+        "clause_zero_conscription",
+        "clause_voluntary_contribution",
+        "clause_sovereign_recall",
+        "clause_knowledge_pricing",
+        "clause_dna_trace",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "protocol_speech_freedom": {
+      "node_id": "protocol_speech_freedom",
+      "label": "言论自由协议",
+      "type": "protocol",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L1",
+      "description": "有证据不煽动即可骂；骂权分级、权重评估、自省、DNA追溯、红蓝对抗争议处理。",
+      "related_nodes": [
+        "no_human_rights_violation",
+        "dragon_vein_trace",
+        "three_color_audit",
+        "data_sovereignty_in_user",
+        "clause_speech_grading",
+        "clause_weight_eval",
+        "clause_self_censure",
+        "clause_dna_trace",
+        "clause_dispute_resolution",
+        "clause_auto_audit",
+        "protocol_knowledge_sovereignty",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_zero_conscription": {
+      "node_id": "clause_zero_conscription",
+      "label": "零征用原则",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "layer": "L2",
+      "description": "系统绝不使用任何用户私人数据训练/微调/优化模型；数据只存本地。",
+      "related_nodes": [
+        "protocol_knowledge_sovereignty",
+        "data_sovereignty_in_user",
+        "local_first",
+        "clause_voluntary_contribution",
+        "clause_sovereign_recall",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_voluntary_contribution": {
+      "node_id": "clause_voluntary_contribution",
+      "label": "自愿贡献与DNA归属",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "layer": "L2",
+      "description": "用户主动写入图谱，写入即生成DNA追溯码，永久归属贡献者，平台不暗中抽取。",
+      "related_nodes": [
+        "protocol_knowledge_sovereignty",
+        "dragon_vein_trace",
+        "data_sovereignty_in_user",
+        "clause_zero_conscription",
+        "clause_sovereign_recall",
+        "clause_knowledge_pricing",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_sovereign_recall": {
+      "node_id": "clause_sovereign_recall",
+      "label": "主权撤回（随时插停）",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "layer": "L2",
+      "description": "贡献者随时一键插停；停止新分发并标记撤回，已结算不追回，不追责不降权。",
+      "related_nodes": [
+        "protocol_knowledge_sovereignty",
+        "data_sovereignty_in_user",
+        "dragon_vein_trace",
+        "clause_voluntary_contribution",
+        "clause_zero_conscription",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_knowledge_pricing": {
+      "node_id": "clause_knowledge_pricing",
+      "label": "知识定价与段位分成",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "layer": "L2",
+      "description": "引用即付费，按段位(青铜→传说)自动分成，创作者100%到手，平台零抽成，不强制申请专利。",
+      "related_nodes": [
+        "protocol_knowledge_sovereignty",
+        "dragon_vein_trace",
+        "data_sovereignty_in_user",
+        "clause_voluntary_contribution",
+        "clause_dna_trace",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_speech_grading": {
+      "node_id": "clause_speech_grading",
+      "label": "骂权分级",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L2",
+      "description": "军人英烈禁区；高权重谨慎；中权重(政策法律)可骂需方案；低权重(资本平台)放开；自己必须先骂。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "no_human_rights_violation",
+        "three_color_audit",
+        "clause_weight_eval",
+        "clause_self_censure",
+        "clause_dna_trace",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_weight_eval": {
+      "node_id": "clause_weight_eval",
+      "label": "社会贡献权重评估",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L2",
+      "description": "骂前比对双方社会贡献权重：<对方×0.1无权骂；≥×0.1可骂需证据；>对方放开骂事不骂人。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "no_human_rights_violation",
+        "three_color_audit",
+        "clause_speech_grading",
+        "clause_self_censure",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_self_censure": {
+      "node_id": "clause_self_censure",
+      "label": "自骂优先·自省机制",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L2",
+      "description": "骂别人前先骂自己：我贡献了什么？证据硬吗？我自己做到了吗？三问不过先干活/闭嘴/骂己。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "three_color_audit",
+        "no_human_rights_violation",
+        "clause_speech_grading",
+        "clause_weight_eval",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_dna_trace": {
+      "node_id": "clause_dna_trace",
+      "label": "言论DNA追溯与风险评级",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L2",
+      "description": "每条言论带时间戳+证据链+自省+建议+风险评级(🟢🟡🔴)，DNA永久可查。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "dragon_vein_trace",
+        "data_sovereignty_in_user",
+        "clause_self_censure",
+        "clause_dispute_resolution",
+        "protocol_knowledge_sovereignty",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_dispute_resolution": {
+      "node_id": "clause_dispute_resolution",
+      "label": "争议处理·红蓝对抗",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L2",
+      "description": "被诉自动调DNA→核验证据→权重对比→社区陪审团裁决；不服48h新证据→7人专家组终局。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "three_color_audit",
+        "dragon_vein_trace",
+        "no_human_rights_violation",
+        "clause_dna_trace",
+        "protocol_knowledge_sovereignty",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_auto_audit": {
+      "node_id": "clause_auto_audit",
+      "label": "自动审计与归档",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "layer": "L3",
+      "description": "触发词自动弹自省/警告；言论自动归档本地库，按时间对象权重风险分类，周报生成审计报告。",
+      "related_nodes": [
+        "protocol_speech_freedom",
+        "dragon_vein_trace",
+        "three_color_audit",
+        "clause_dna_trace",
+        "clause_self_censure",
+        "clause_dispute_resolution",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "BEICHEN-MOTHER-PROTOCOL": {
+      "node_id": "BEICHEN-MOTHER-PROTOCOL",
+      "label": "北辰母协议 v2.0",
+      "type": "protocol",
+      "layer": "L0",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·乾-LONGHUN-MOTHER-PROTOCOL-v2.0",
+      "description": "龍魂系统总协议根。所有 L1/L2/L3 协议条款的统一上级契约，源自 01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md，奉行首长'科技共享、普惠全球'原旨。",
+      "related_nodes": [
+        "l0-core"
+      ]
+    },
+    "protocol_anti_algorithmic_harvest": {
+      "node_id": "protocol_anti_algorithmic_harvest",
+      "label": "反算法收割协议",
+      "type": "protocol",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B",
+      "layer": "L1",
+      "description": "任何直播/内容系统不得用PK对立、倒计时压迫、打赏抽成、排名虚荣制造情绪收割；人民注意力与数据主权不容被算法编程。",
+      "related_nodes": [
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_no_pk": {
+      "node_id": "clause_no_pk",
+      "label": "禁止PK对立机制",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·同人-LONGHUN-CLAUSE-NO-PK-2C5F9D3A",
+      "layer": "L2",
+      "description": "任何系统不得用PK比拼、双屏对立、站队制造竞争焦虑；以协作对话替代对抗。",
+      "related_nodes": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_countdown",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_no_countdown": {
+      "node_id": "clause_no_countdown",
+      "label": "禁止倒计时压迫机制",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·渐-LONGHUN-CLAUSE-NO-COUNTDOWN-8B1E4C7D",
+      "layer": "L2",
+      "description": "禁止用倒计时、3倍加成、限时福利制造紧迫感剥夺理性思考；随时进出无时间压迫。",
+      "related_nodes": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_no_tip_skimming": {
+      "node_id": "clause_no_tip_skimming",
+      "label": "禁止打赏抽成收割",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·谦-LONGHUN-CLAUSE-NO-TIP-SKIMMING-6A3D2E9F",
+      "layer": "L2",
+      "description": "禁止打赏抽成、礼物变现单向收割；创作者以补贴/订阅支撑，零抽成割韭菜。",
+      "related_nodes": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_harvest_audit",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_harvest_audit": {
+      "node_id": "clause_harvest_audit",
+      "label": "收割信号自动审计",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·观-LONGHUN-CLAUSE-HARVEST-AUDIT-1F7A8B4C",
+      "layer": "L3",
+      "description": "引擎自动扫描内容识别收割信号(PK/倒计时/加成/排名)，打分评级，🔴高危进审查，DNA追溯归档。",
+      "related_nodes": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_no_tip_skimming",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "protocol_currency_culture_sovereignty": {
+      "node_id": "protocol_currency_culture_sovereignty",
+      "label": "货币·文化主权与收纳不霸占协议",
+      "type": "protocol",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-CURRENCY-CULTURE-EE44F2FB",
+      "layer": "L1",
+      "description": "货币是主权、文化是世界的；尊重各国法币与语言，数字人民币只是干净可追溯的标杆而非围墙；生态收纳创作但不霸占。",
+      "related_nodes": [
+        "clause_currency_direct_settlement",
+        "clause_cultural_respect",
+        "clause_keep_not_seize",
+        "protocol_knowledge_sovereignty",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_currency_direct_settlement": {
+      "node_id": "clause_currency_direct_settlement",
+      "label": "货币直达标准（非唯一·标杆制）",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D",
+      "layer": "L2",
+      "description": "任何法币(含美金)满足『直达·点对点·不走第三方·干净可追溯·不可篡改』即达标流通；数字人民币是标杆非围墙；拒第三方抽水与投机收割。",
+      "related_nodes": [
+        "protocol_currency_culture_sovereignty",
+        "clause_cultural_respect",
+        "clause_keep_not_seize",
+        "clause_no_tip_skimming",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_cultural_respect": {
+      "node_id": "clause_cultural_respect",
+      "label": "文化主权与历史不可篡改",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-CULTURAL-RESPECT-662318E7",
+      "layer": "L2",
+      "description": "各国语言文化一律尊重；文化是世界的，历史不能篡改；古人智慧须翻译·沟通·忠实记录，方能被人类继承。",
+      "related_nodes": [
+        "protocol_currency_culture_sovereignty",
+        "clause_currency_direct_settlement",
+        "clause_keep_not_seize",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ]
+    },
+    "clause_keep_not_seize": {
+      "node_id": "clause_keep_not_seize",
+      "label": "收纳不霸占（Keep, Never Seize）",
+      "type": "clause",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD",
+      "layer": "L2",
+      "description": "生态替每个人保管创作——只为收纳，不为霸占；每个发明都值得被好好留痕；主权随时可撤回。",
+      "related_nodes": [
+        "protocol_currency_culture_sovereignty",
+        "clause_currency_direct_settlement",
+        "clause_cultural_respect",
+        "clause_zero_conscription",
+        "clause_sovereign_recall",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
       ]
     }
   },

@@ -183,7 +183,7 @@ def _box_with_cross(x1, y1, x2, y2):
 # 按结构生成骨架
 # ---------------------------------------------------------------------------
 
-def generate_skeleton(char: str) -> list:
+def generate_skeleton(char: str) -> list[Any]:
     """根据结构生成参数化笔画骨架"""
     structure = structure_of(char)
 
@@ -278,7 +278,7 @@ def generate_skeleton(char: str) -> list:
     return _box_with_cross(100, 100, 500, 500)
 
 
-def generate_glyph_library(chars: str = CORE_CHARS, output_path: str = None):
+def generate_glyph_library(chars: str = CORE_CHARS, output_path: str | None = None):
     """生成字元库 JSON"""
     base_dir = Path(__file__).parent.parent
     output_path = Path(output_path) if output_path else base_dir / "glyphs" / "龍魂字元库_v0002_扩展.json"

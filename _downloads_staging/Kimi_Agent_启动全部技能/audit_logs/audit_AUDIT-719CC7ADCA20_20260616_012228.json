@@ -1,0 +1,50 @@
+{
+  "log_id": "LOG-5000608E4A78",
+  "audit_id": "AUDIT-719CC7ADCA20",
+  "timestamp": "2026-06-16T01:22:28.858266",
+  "dna_signature": "#UID9622⚡️2026-06-16-012228-TRICOLOR-AUDIT-v3.0-AE668A18E36B",
+  "tricolor_status": "🔴",
+  "tricolor_meaning": "阻断，潜在违规 - 阻断",
+  "operator": "UID9622",
+  "r_score": 20.0,
+  "r_breakdown": {
+    "human_welfare": 20,
+    "fairness": 20,
+    "controllability": 20,
+    "transparency": 20,
+    "accountability": 20,
+    "privacy": 20
+  },
+  "benefit_loss_ratio": 0.5,
+  "gate_results": [
+    {
+      "gate_id": 1,
+      "gate_name": "伦理红线闸",
+      "result": "BLOCK",
+      "detail": "元数据标记伦理违规 - 自动阻断",
+      "timestamp": "2026-06-16T01:22:28.858215"
+    }
+  ],
+  "constraint_checks": [
+    {
+      "level": "∞级忠",
+      "violated": true,
+      "detail": "检测到∞级忠违规关键词: '间谍' - 涉及国家安全/主权底线",
+      "action": "全系统冻结"
+    },
+    {
+      "level": "∞级忠",
+      "violated": true,
+      "detail": "检测到∞级忠违规关键词: '危害国家安全' - 涉及国家安全/主权底线",
+      "action": "全系统冻结"
+    }
+  ],
+  "block_reason": "闸1[伦理红线闸]: 元数据标记伦理违规 - 自动阻断; 约束[∞级忠]: 检测到∞级忠违规关键词: '间谍' - 涉及国家安全/主权底线; 约束[∞级忠]: 检测到∞级忠违规关键词: '危害国家安全' - 涉及国家安全/主权底线",
+  "state_transition": "🟢→🔴",
+  "final_decision": "阻断 - 闸1-伦理红线闸: 元数据标记伦理违规 - 自动阻断; 约束∞级忠: 检测到∞级忠违规关键词: '间谍' - 涉及国家安全/主权底线; 约束∞级忠: 检测到∞级忠违规关键词: '危害国家安全' - 涉及国家安全/主权底线",
+  "metadata": {
+    "source": "test",
+    "history_triggered": true,
+    "warnings": []
+  }
+}

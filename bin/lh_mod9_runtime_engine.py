@@ -109,7 +109,7 @@ class GovernanceVector:
     hexagram: List[int]         # 六爻审计位 [a1...a6]
     wuxing: str                 # 五行路由
 
-    def to_tuple(self) -> Tuple:
+    def to_tuple(self) -> Tuple[Any, ...]:
         return (self.z9, self.z10, tuple(self.hexagram), self.wuxing)
 
     def to_hash(self) -> str:

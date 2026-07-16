@@ -7,7 +7,7 @@ DNA: #龍芯⚡️2026-07-05-ROUND1-PERSONA-ROUTER-v1.0
 
 import json
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "round1"
 
@@ -18,7 +18,7 @@ class PersonaRouter:
         with open(self.registry_path, "r", encoding="utf-8") as f:
             self.registry = json.load(f)
 
-    def route(self, state_code: int, scene_tags: List[str], priority: str = "normal") -> Dict:
+    def route(self, state_code: int, scene_tags: List[str], priority: str = "normal") -> Dict[str, Any]:
         """
         根据64卦状态码+场景标签选择执行人格。
         匹配规则：状态码命中人格 hexagrams 列表 → 命中；再按场景标签加分。

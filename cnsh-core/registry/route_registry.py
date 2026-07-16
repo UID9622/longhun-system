@@ -76,7 +76,7 @@ class RouteRegistry:
     - 完整的健康检查和验证
     """
 
-    def __init__(self, registry_file: str = None):
+    def __init__(self, registry_file: str | None = None):
         """
         初始化注册表
 

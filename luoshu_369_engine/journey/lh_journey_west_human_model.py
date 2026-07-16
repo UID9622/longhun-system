@@ -22,7 +22,7 @@
 import numpy as np
 import random
 from dataclasses import dataclass, field
-from typing import Dict, List, Callable, Tuple
+from typing import Dict, List, Callable, Tuple, Any
 from enum import Enum, auto
 
 
@@ -338,7 +338,7 @@ class 取经优化器:
         
         return 劫难
     
-    def 取经(self, 日志间隔: int = 9) -> Dict:
+    def 取经(self, 日志间隔: int = 9) -> Dict[str, Any]:
         """
         🔴 执行完整的81难取经过程
         

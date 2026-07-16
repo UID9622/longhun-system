@@ -62,6 +62,149 @@ DCEP_BANKS = {
     "webank":  {"name": "微众银行", "code": "323401000004"},
 }
 
+# ══════════════════════════════════════════════════════════════
+# 直达标准校验钩子 — 落地 [[clause_currency_direct_settlement]]
+#   协议: protocol_currency_culture_sovereignty
+#   口径: 数字人民币是标杆不是围墙。任何法币（含美金）只要满足
+#         「点对点·可追溯·不可篡改·无第三方抽水」四道闸，即达标流通。
+#   执行侧复用反算法收割引擎「抽成」信号位：命中抽水/投机杠杆一票 🔴。
+# ══════════════════════════════════════════════════════════════
+
+# 四道闸门（缺一即非绿）
+DIRECT_SETTLEMENT_GATES = {
+    "peer_to_peer":  "点对点直达·不经第三方托管账户",
+    "traceable":     "全链路可追溯·哈希链留痕",
+    "tamper_proof":  "签名固定·不可篡改",
+    "direct_settle": "直达结算·非第三方代持",
+}
+
+# 红线信号位（命中任一 = 🔴 一票否决，进伦理审查队列）
+DIRECT_SETTLEMENT_REDLINES = {
+    "third_party_skim":      "第三方抽水/抽成/平台分润",
+    "speculative_leverage":  "投机杠杆/合约/爆仓机制",
+    "third_party_custody":   "资金第三方托管/沉淀",
+}
+
+# 数字人民币标杆基线（本币天然全绿）
+DCEP_STANDARD_BASELINE = {
+    "peer_to_peer": True, "traceable": True,
+    "tamper_proof": True, "direct_settle": True,
+    "third_party_skim": False, "speculative_leverage": False,
+    "third_party_custody": False,
+}
+
+
+# 系统默认 DNA（自检/校验等系统级命令缺省使用，无需每次传 --dna）
+DEFAULT_DNA = "#龍芯⚡️丙午·辛未·DCEP-RECHARGE-v1.0"
+
+
+def verify_direct_settlement(config: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    直达标准校验 — 任何法币/支付模块接入前必过。
+
+    入参 config 支持字段（缺省按最严处理，即视为不达标）：
+      peer_to_peer / traceable / tamper_proof / direct_settle  (bool, 需 True)
+      third_party_skim / speculative_leverage / third_party_custody (bool, 需 False)
+
+    返回：{level, verdict, passed_gates, failed_gates, redline_hits, ...}
+      🟢达标   = 四闸全过 且 无红线      → 与数字人民币同标准，畅通
+      🟡待整改 = 无红线 但 有闸未过       → 补齐即可流通
+      🔴拦截   = 命中任一红线            → 一票否决·进伦理审查队列
+    """
+    currency = config.get("currency", "UNKNOWN")
+
+    # 1. 红线扫描（一票否决优先）
+    redline_hits = [
+        DIRECT_SETTLEMENT_REDLINES[k]
+        for k in DIRECT_SETTLEMENT_REDLINES
+        if config.get(k, False) is True
+    ]
+
+    # 2. 四道闸门校验
+    passed_gates = [k for k in DIRECT_SETTLEMENT_GATES if config.get(k, False) is True]
+    failed_gates = [
+        DIRECT_SETTLEMENT_GATES[k]
+        for k in DIRECT_SETTLEMENT_GATES
+        if config.get(k, False) is not True
+    ]
+
+    # 3. 定级
+    if redline_hits:
+        level, verdict, ok = "🔴拦截", "命中红线·一票否决·进伦理审查队列", False
+    elif failed_gates:
+        level, verdict, ok = "🟡待整改", "无红线但闸门未齐·补齐即可流通", False
+    else:
+        level, verdict, ok = "🟢达标", "四闸全过·与数字人民币同标准·畅通流通", True
+
+    return {
+        "success": ok,
+        "currency": currency,
+        "level": level,
+        "verdict": verdict,
+        "passed_gates": passed_gates,
+        "failed_gates": failed_gates,
+        "redline_hits": redline_hits,
+        "benchmark": "数字人民币 DCEP（标杆·非围墙）",
+        "protocol": "protocol_currency_culture_sovereignty",
+        "clause": "clause_currency_direct_settlement",
+    }
+
+
+def _lunar_ts() -> str:
+    """农历时间戳（模块级，供自检与实例复用）"""
+    dt = datetime.now()
+    return f"丙午·{dt.month:02d}月{dt.day:02d}日·{dt.hour:02d}:{dt.minute:02d}"
+
+
+# 受监控系统货币通道清单（直达标准定时自检目标）
+# 未来真实接入外部支付网关时，把该通道 config 加进此清单即自动纳入每小时体检
+SELFCHECK_TARGETS = [
+    {"currency": "DCEP", **DCEP_STANDARD_BASELINE},   # 本币标杆·必全绿
+    {"currency": "USD", "peer_to_peer": True, "traceable": True,
+     "tamper_proof": True, "direct_settle": True},     # 达标法币·应🟢
+    {"currency": "EUR", "peer_to_peer": True, "traceable": True},  # 缺闸回归用例·应🟡
+]
+
+
+def run_selfcheck() -> Dict[str, Any]:
+    """对系统已知货币通道做直达标准全套体检，结果归档+退出码反映🔴。"""
+    results = []
+    for cfg in SELFCHECK_TARGETS:
+        r = verify_direct_settlement(dict(cfg))
+        for k in ("benchmark", "protocol", "clause"):
+            r.pop(k, None)
+        results.append(r)
+
+    green = [r for r in results if r["level"].startswith("🟢")]
+    yellow = [r for r in results if r["level"].startswith("🟡")]
+    red = [r for r in results if r["level"].startswith("🔴")]
+    ok = len(red) == 0
+
+    lunar_ts = _lunar_ts()
+    h = hashlib.sha256(json.dumps(results, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:8].upper()
+    report = {
+        "success": ok,
+        "selfcheck_at": lunar_ts,
+        "total": len(results),
+        "green": len(green), "yellow": len(yellow), "red": len(red),
+        "results": results,
+        "dna": f"#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-DIRECT-SETTLE-SELFCHECK-{h}",
+        "protocol": "protocol_currency_culture_sovereignty",
+        "clause": "clause_currency_direct_settlement",
+        "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    }
+    try:
+        verify_dir = DCEP_DIR / "currency_verify"
+        os.makedirs(verify_dir, exist_ok=True)
+        path = verify_dir / f"selfcheck-{h}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+        report["archived"] = str(path)
+    except Exception as e:
+        if os.environ.get("LH_VERBOSE"):
+            print(f"⚠️ 自检归档失败: {e}", file=sys.stderr)
+    return report
+
 
 class RechargeStatus(Enum):
     CREATED = "created"         # 已创建
@@ -142,8 +285,7 @@ class DCEPRecharge:
         return confirm_code.startswith("#CONFIRM") and len(confirm_code) > 10
 
     def _lunar_ts(self) -> str:
-        dt = datetime.now()
-        return f"丙午·{dt.month:02d}月{dt.day:02d}日·{dt.hour:02d}:{dt.minute:02d}"
+        return _lunar_ts()
 
     # ═══ 核心接口 ═══
 
@@ -154,13 +296,61 @@ class DCEPRecharge:
             for bid, info in DCEP_BANKS.items()
         ]
 
+    def verify_currency(self, config: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        直达标准校验 — 任何外部法币/支付模块接入前必过此关。
+
+        落地 [[clause_currency_direct_settlement]]：达标即流通，
+        命中红线（第三方抽水/投机杠杆/资金托管）一票 🔴 拦截。
+        校验结果带 DNA 归档到 data/dcep/currency_verify/。
+        """
+        report = verify_direct_settlement(config)
+
+        # 生成 DNA + 归档
+        lunar_ts = self._lunar_ts()
+        h = self._hash(report["currency"], report["level"], lunar_ts)[:8].upper()
+        report["dna"] = (
+            f"#龍芯⚡️丙午·辛未·乙酉·巳时·大有"
+            f"-LONGHUN-DIRECT-SETTLE-{h}"
+        )
+        report["lunar_timestamp"] = lunar_ts
+        report["confirm"] = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+        try:
+            verify_dir = DCEP_DIR / "currency_verify"
+            os.makedirs(verify_dir, exist_ok=True)
+            path = verify_dir / f"{report['currency']}-{h}.json"
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+            report["archived"] = str(path)
+        except Exception as e:
+            if self.verbose:
+                print(f"⚠️ 校验归档失败: {e}", file=sys.stderr)
+
+        return report
+
     def create_recharge(self, amount: float, bank_id: str, wallet_id: str,
-                        user_id: str = "UID9622", remark: str = "") -> Dict[str, Any]:
+                        user_id: str = "UID9622", remark: str = "",
+                        currency_config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         创建充值订单
 
         一元起充·无上限·需#CONFIRM授权
+        若传入 currency_config（外部法币接入场景），先过直达标准校验，
+        未达标（🟡/🔴）直接拒单——数字人民币本币天然全绿，无需传。
         """
+        # 0. 直达标准前置校验（仅外部法币接入时）
+        if currency_config is not None:
+            v = self.verify_currency(currency_config)
+            if not v["success"]:
+                return {
+                    "success": False,
+                    "error": f"未过直达标准: {v['level']} {v['verdict']}",
+                    "redline_hits": v["redline_hits"],
+                    "failed_gates": v["failed_gates"],
+                    "hint": "外部法币须满足点对点·可追溯·不可篡改·无第三方抽水",
+                }
+
         # 1. 金额校验
         if amount < MIN_RECHARGE:
             return {"success": False, "error": f"最低充值{MIN_RECHARGE}元（一元起充）"}
@@ -429,7 +619,7 @@ class DCEPRecharge:
 
 def main():
     parser = argparse.ArgumentParser(description="龍魂数字人民币充值 · 一元起充·无上限")
-    parser.add_argument("--dna", required=True, help="DNA追溯码")
+    parser.add_argument("--dna", default="", help="DNA追溯码（缺省用系统默认DNA）")
     parser.add_argument("--confirm", default="", help="#CONFIRM授权码")
     parser.add_argument("--amount", type=float, help="充值金额（元，最低0.01）")
     parser.add_argument("--bank", default="icbc", help=f"运营机构: {','.join(DCEP_BANKS.keys())}")
@@ -445,13 +635,45 @@ def main():
     parser.add_argument("--stats", action="store_true", help="充值统计")
     parser.add_argument("--json", action="store_true", help="JSON格式输出")
 
+    # 直达标准校验（落地 clause_currency_direct_settlement）
+    parser.add_argument("--verify", metavar="CURRENCY", help="校验某法币是否达直达标准")
+    parser.add_argument("--p2p", action="store_true", help="点对点直达")
+    parser.add_argument("--traceable", action="store_true", help="全链路可追溯")
+    parser.add_argument("--tamper-proof", action="store_true", help="签名不可篡改")
+    parser.add_argument("--direct-settle", action="store_true", help="直达结算")
+    parser.add_argument("--skim", action="store_true", help="第三方抽水(红线)")
+    parser.add_argument("--leverage", action="store_true", help="投机杠杆(红线)")
+    parser.add_argument("--custody", action="store_true", help="资金第三方托管(红线)")
+    parser.add_argument("--verify-selfcheck", action="store_true", help="对系统货币通道做直达标准定时自检")
+
     args = parser.parse_args()
 
+    dna = args.dna or DEFAULT_DNA
     try:
-        engine = DCEPRecharge(dna=args.dna, confirm_code=args.confirm)
+        engine = DCEPRecharge(dna=dna, confirm_code=args.confirm)
     except ValueError as e:
         print(json.dumps({"success": False, "error": str(e)}, ensure_ascii=False))
         return 1
+
+    if args.verify:
+        config = {
+            "currency": args.verify,
+            "peer_to_peer": args.p2p,
+            "traceable": args.traceable,
+            "tamper_proof": args.tamper_proof,
+            "direct_settle": args.direct_settle,
+            "third_party_skim": args.skim,
+            "speculative_leverage": args.leverage,
+            "third_party_custody": args.custody,
+        }
+        result = engine.verify_currency(config)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result.get("success") else 1
+
+    if args.verify_selfcheck:
+        report = run_selfcheck()
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+        return 0 if report.get("success") else 1
 
     if args.banks:
         result = engine.list_banks()

@@ -33,7 +33,7 @@ class 龙魂永世唯一ID生成器:
                    身份证号: str,
                    国家代码: str = "CN",
                    盐值: str = "UID9622",
-                   使用示例模式: bool = True) -> dict:
+                   使用示例模式: bool = True) -> dict[str, Any]:
         print("🐉 开始生成龙魂永世唯一ID...")
 
         if 使用示例模式:
@@ -81,7 +81,7 @@ class 龙魂永世唯一ID生成器:
         print("✅ 龙魂ID生成完成！")
         return 结果
 
-    def 验证龙魂ID(self, 待验证ID: str, 身份证号: str, 盐值: str = "UID9622") -> dict:
+    def 验证龙魂ID(self, 待验证ID: str, 身份证号: str, 盐值: str = "UID9622") -> dict[str, Any]:
         重新生成 = self.生成龙魂ID(身份证号, 使用示例模式=True)
         ID部分 = 待验证ID.rsplit('-', 1)[0]
         原始校验码 = 待验证ID.rsplit('-', 1)[1]
@@ -98,7 +98,7 @@ class 龙魂永世唯一ID生成器:
             "验证时间": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
 
-    def 导出证书(self, 龙魂ID信息: dict, 输出路径: str = None):
+    def 导出证书(self, 龙魂ID信息: dict[str, Any], 输出路径: str | None = None):
         if 输出路径 is None:
             输出目录 = Path.cwd() / "output"
             输出目录.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,150 @@
+{
+  "dna": "#龍芯⚡️丙午·癸未·乙酉·䷻节-REALTIME-SNAPSHOT-v1.0",
+  "timestamp": "2026-07-16T00:43:27.947948+08:00",
+  "timestamp_cn": "丙午·庚申·己卯·00:43",
+  "unixtime": 1784133807,
+  "data": {
+    "system": {
+      "os": "Darwin",
+      "os_version": "25.5.0",
+      "machine": "arm64",
+      "processor": "arm",
+      "hostname_hash": "2642fe17",
+      "python_version": "3.14.6",
+      "timezone": "UTC+08:00"
+    },
+    "network": {
+      "ip_hashes": [
+        "805ebf20"
+      ],
+      "ip_count": 1,
+      "network_interfaces": 1
+    },
+    "git": {
+      "branch": "main",
+      "total_commits": 5,
+      "last_commit_summary": "6336e70779a2894ecebeaf73282bedcbad925252 审计打包器发布·单人闭环自证清白 [L5] UID9622·龍芯北辰 2026-07-15 23:54:36 +0800",
+      "author_count": 1,
+      "branch_count": 16,
+      "changes_last_30d": 5,
+      "uncommitted_files": 982,
+      "is_clean": false
+    },
+    "file_stats": {
+      "by_type": {
+        "python": {
+          "count": 5910,
+          "size_bytes": 54014632,
+          "size_mb": 51.51
+        },
+        "markdown": {
+          "count": 5281,
+          "size_bytes": 52966853,
+          "size_mb": 50.51
+        },
+        "json": {
+          "count": 18288,
+          "size_bytes": 308966985,
+          "size_mb": 294.65
+        },
+        "jsonl": {
+          "count": 158,
+          "size_bytes": 659565830,
+          "size_mb": 629.01
+        },
+        "html": {
+          "count": 638,
+          "size_bytes": 13671040,
+          "size_mb": 13.04
+        },
+        "signature": {
+          "count": 118,
+          "size_bytes": 98359,
+          "size_mb": 0.09
+        },
+        "shell": {
+          "count": 935,
+          "size_bytes": 4707758,
+          "size_mb": 4.49
+        },
+        "other": {
+          "count": 73869,
+          "size_bytes": 21189588448,
+          "size_mb": 20207.97
+        }
+      },
+      "by_layer": {
+        "L0_神圣层": {
+          "count": 4,
+          "size_mb": 0.03
+        },
+        "L1_内核层": {
+          "count": 49,
+          "size_mb": 26.05
+        },
+        "L2_技能层": {
+          "count": 17,
+          "size_mb": 0.16
+        },
+        "L3_路由层": {
+          "count": 5,
+          "size_mb": 0.05
+        },
+        "L4_闸门层": {
+          "count": 4,
+          "size_mb": 0.02
+        },
+        "L5_服务层": {
+          "count": 295,
+          "size_mb": 34.67
+        },
+        "L7_数据层": {
+          "count": 39085,
+          "size_mb": 894.16
+        },
+        "L8_治理层": {
+          "count": 78,
+          "size_mb": 0.9
+        }
+      },
+      "bin_engines": {
+        "count": 396,
+        "size_mb": 6.89
+      },
+      "protocols": {
+        "count": 125,
+        "size_mb": 1.31
+      },
+      "total": {
+        "file_count": 73869,
+        "size_mb": 17541.25
+      }
+    },
+    "engine_inventory": {
+      "total": 365,
+      "by_category": {
+        "其他引擎": 235,
+        "语义·检测": 14,
+        "审计·安全": 14,
+        "闸门·路由": 12,
+        "DNA·主权": 15,
+        "模型训练": 5,
+        "人格": 20,
+        "知识·记忆": 29,
+        "数字人·媒体": 3,
+        "水军检测": 5,
+        "运维·采集": 5,
+        "搜索": 4,
+        "推演·哲学": 4
+      },
+      "stub_count": 43,
+      "active_count": 322
+    },
+    "integrity": {
+      "health_score": 80.0,
+      "ok_count": 42,
+      "issue_count": 0,
+      "last_scan": "2026-07-15T16:01:39.282405"
+    }
+  }
+}

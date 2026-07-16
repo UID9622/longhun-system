@@ -10,7 +10,7 @@ DNA:#龍芯⚡️2026-06-07-SLACK-GIF-CREATOR-FILE2-v1.0
 
 from PIL import Image, ImageDraw, ImageSequence
 import math
-from typing import List, Tuple, Dict
+from typing import List, Tuple, Dict, Any
 from datetime import datetime
 
 class SlackGIFCreator:
@@ -38,7 +38,7 @@ class SlackGIFCreator:
         self.frames: List[Image.Image] = []
         self.created_at = datetime.now().isoformat()
     
-    def add_static_frame(self, draw_func, duration: int = None) -> None:
+    def add_static_frame(self, draw_func, duration: int | None = None) -> None:
         """添加静态帧"""
         img = Image.new('RGB', (self.width, self.height), color=(10, 14, 39))
         draw = ImageDraw.Draw(img)
@@ -209,7 +209,7 @@ class SlackGIFCreator:
         
         self.add_animated_sequence(draw_error, frame_count=20)
     
-    def save(self, filepath: str, optimize: bool = True) -> Dict:
+    def save(self, filepath: str, optimize: bool = True) -> Dict[str, Any]:
         """保存 GIF 文件"""
         if not self.frames:
             raise ValueError("No frames added")

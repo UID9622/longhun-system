@@ -84,7 +84,7 @@ class CipherBlob:
         if self.timestamp is None:
             self.timestamp = datetime.now().isoformat()
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             'algorithm': self.algorithm,
             'ciphertext': self.ciphertext,

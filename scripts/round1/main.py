@@ -32,7 +32,7 @@ def generate_dna(text: str, timestamp: str) -> str:
     return f"#龍芯⚡️{timestamp.replace('-', '').replace(':', '').replace(' ', '-')}-ROUND1-DECISION-{h}"
 
 
-def process(user_input: str, context: dict = None) -> dict:
+def process(user_input: str, context: dict[str, Any] = None) -> dict[str, Any]:
     """
     完整执行链路：
     道德经场景匹配 → 64卦状态机 → 人格路由 → 河图洛书熔断 → 64卦审计矩阵 → 三色审计

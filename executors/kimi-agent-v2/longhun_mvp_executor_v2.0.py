@@ -41,7 +41,7 @@ import sqlite3
 import hashlib
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 
 # ========== DNA签名和合规标记 ==========
@@ -149,7 +149,7 @@ class SixLayerSourceChain:
     }
 
     @staticmethod
-    def verify_chain() -> Dict:
+    def verify_chain() -> Dict[str, Any]:
         print(f"\n{'='*60}")
         print("🔗 六层来源链验证")
         print(f"{'='*60}")
@@ -195,7 +195,7 @@ class CNSHCheck:
     H - Harmony (和谐性)
     """
     @staticmethod
-    def run_check(context: Dict) -> Dict:
+    def run_check(context: Dict[str, Any]) -> Dict[str, Any]:
         print(f"\n{'='*60}")
         print("🔍 CNSH四层检查")
         print(f"{'='*60}")
@@ -253,7 +253,7 @@ class MVPTask:
         self.output = {}
         self.dna_signature = None
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             'task_id': self.task_id,
             'name': self.name,
@@ -379,7 +379,7 @@ class PersonaWeightSystem:
         else:
             self.update_weight(persona, -0.03, "执行失败")
 
-    def get_stats(self, persona: Persona) -> Dict:
+    def get_stats(self, persona: Persona) -> Dict[str, Any]:
         """获取人格执行统计"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
@@ -469,7 +469,7 @@ class DNASQLitePersistence:
             for r in rows
         ]
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
         stats = {}
@@ -689,7 +689,7 @@ class MVPExecutor:
         IronLawGate.post_check(f"skip_task({task_id})", success=False)
         return False
 
-    def get_task_status(self) -> Dict:
+    def get_task_status(self) -> Dict[str, Any]:
         """
         [LAYER-2 COSMOS] 运行时监督 - 获取任务状态
         [LAYER-3 ENGINE] 引擎监督 - 数据统计验证
@@ -719,7 +719,7 @@ class MVPExecutor:
             }
         }
 
-    def get_persona_status(self) -> Dict:
+    def get_persona_status(self) -> Dict[str, Any]:
         """
         [LAYER-3 ENGINE] 引擎监督 - 人格状态统计
         """

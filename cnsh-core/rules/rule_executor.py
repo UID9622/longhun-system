@@ -133,7 +133,7 @@ class RuleExecutor:
     # 【条件评估】
     # ═══════════════════════════════════════════════════════════════
 
-    def _evaluate_condition(self, condition: str, context: Dict) -> bool:
+    def _evaluate_condition(self, condition: str, context: Dict[str, Any]) -> bool:
         """
         评估条件表达式
 
@@ -167,7 +167,7 @@ class RuleExecutor:
     # 【动作执行】
     # ═══════════════════════════════════════════════════════════════
 
-    def _execute_action(self, action: str, context: Dict) -> Any:
+    def _execute_action(self, action: str, context: Dict[str, Any]) -> Any:
         """
         执行规则动作
 
@@ -204,15 +204,15 @@ class RuleExecutor:
     # 【内置动作方法】
     # ═══════════════════════════════════════════════════════════════
 
-    def noop(self, context: Dict) -> Dict:
+    def noop(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """无操作 (no-op) - 只返回成功"""
         return {"status": "noop", "success": True}
 
-    def return_context(self, context: Dict) -> Dict:
+    def return_context(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """返回整个上下文（用于调试）"""
         return {"context": context}
 
-    def three_color_judgment(self, context: Dict) -> Dict:
+    def three_color_judgment(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """
         三色判定动作
 
@@ -240,7 +240,7 @@ class RuleExecutor:
             "threshold_review": 50
         }
 
-    def veto_block(self, context: Dict) -> Dict:
+    def veto_block(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """
         一票否决动作
 
@@ -262,7 +262,7 @@ class RuleExecutor:
     # 【审计检查】
     # ═══════════════════════════════════════════════════════════════
 
-    def _audit_result(self, result: Any, context: Dict, rule: Rule) -> str:
+    def _audit_result(self, result: Any, context: Dict[str, Any], rule: Rule) -> str:
         """
         审计执行结果，进行三色判定
 

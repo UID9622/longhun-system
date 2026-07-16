@@ -64,7 +64,7 @@ def classify_by_path(path: str) -> str:
     return project
 
 
-def classify_by_topic(text: str, filename: str) -> list:
+def classify_by_topic(text: str, filename: str) -> list[Any]:
     """根据内容判断主题标签"""
     text_lower = (text + " " + filename).lower()
     topics = []
@@ -78,7 +78,7 @@ def classify_by_topic(text: str, filename: str) -> list:
     return topics
 
 
-def get_file_time(path: str) -> dict:
+def get_file_time(path: str) -> dict[str, Any]:
     """获取文件时间信息"""
     try:
         stat = os.stat(path)

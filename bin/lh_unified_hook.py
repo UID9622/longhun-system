@@ -78,7 +78,7 @@ class UnifiedHookRegistry:
         self.hooks[hook_type].sort(key=lambda h: h.priority)
         return hook_id
 
-    def trigger(self, hook_type: HookType, context: Dict = None) -> List[Dict]:
+    def trigger(self, hook_type: HookType, context: Dict[str, Any] = None) -> List[Dict]:
         """触发钩子链"""
         if context is None:
             context = {}
@@ -107,7 +107,7 @@ class UnifiedHookRegistry:
         self.execution_log.extend(results)
         return results
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         """钩子系统状态"""
         total = sum(len(h) for h in self.hooks.values())
         enabled = sum(
@@ -168,7 +168,7 @@ class PipelineResult:
     stage: str
     engine: str
     status: str  # 🟢 🟡 🔴
-    output: Dict
+    output: Dict[str, Any]
     duration_ms: float = 0.0
     dna: str = ""
 
@@ -363,7 +363,7 @@ class UnifiedPipeline:
         self.registry.register(HookType.LIFECYCLE, "lh_ant_colony",
                               ant_colony_lifecycle, 2, "蚁群生命周期全局监听")
 
-    def process(self, content: str, source: str = "pipeline") -> Dict:
+    def process(self, content: str, source: str = "pipeline") -> Dict[str, Any]:
         """全链路处理 · 13大引擎串联（v2.1 升级）"""
         start = time.time()
 

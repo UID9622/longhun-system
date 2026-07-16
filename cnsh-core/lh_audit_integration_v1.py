@@ -31,7 +31,7 @@ import sqlite3
 import json
 import os
 from datetime import datetime
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from pathlib import Path
 from dataclasses import dataclass
 import hashlib
@@ -79,7 +79,7 @@ class ContaminationEvent:
     audit_dna: str                      # 审计的DNA签章
     remediation_required: bool = True
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "timestamp": self.timestamp,
             "assertion_id": self.assertion_id,
@@ -395,7 +395,7 @@ class LonghunAuditEngine:
         assertions_data: List[Dict],
         current_shield_emotion: str = "calm",
         context_sensitivity: float = 1.0
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         执行完整的龍魂三色审计流程
 
@@ -480,7 +480,7 @@ class LonghunAuditEngine:
             "audit_dna": self.audit_dna,
         }
 
-    def generate_integrated_report(self, audit_result: Dict) -> str:
+    def generate_integrated_report(self, audit_result: Dict[str, Any]) -> str:
         """生成集成后的审计报告"""
         lines = []
         lines.append("═" * 80)

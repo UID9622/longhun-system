@@ -28,7 +28,7 @@ import zipfile
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 HOME = Path.home()
 DEFAULT_DB = HOME / "_work" / "dragon_knowledge.db"
@@ -225,7 +225,7 @@ def discover_ka_modules(ka_dir: Path, work_dir: Path) -> List[SkillMeta]:
     return discovered
 
 
-def load_existing_skills() -> set:
+def load_existing_skills() -> set[str]:
     """加载现有技能名称"""
     existing = set()
     for base in [SKILLS_DIR, HOME / ".agents" / "skills"]:
@@ -372,7 +372,7 @@ def init_kb_tables(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
-def upsert_module(conn: sqlite3.Connection, meta: SkillMeta, entry_count: int, metadata: Dict) -> None:
+def upsert_module(conn: sqlite3.Connection, meta: SkillMeta, entry_count: int, metadata: Dict[str, Any]) -> None:
     cursor = conn.cursor()
     cursor.execute("""
         INSERT OR REPLACE INTO knowledge_modules

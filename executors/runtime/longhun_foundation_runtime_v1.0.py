@@ -158,7 +158,7 @@ class ImmutableTimestamp:
     data_hash: str                   # 数据哈希
     timestamp_hash: str              # 时间戳自身的哈希
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     def compute_hash(self) -> str:
@@ -189,7 +189,7 @@ class VersionRecord:
     is_deletion: bool = False        # 是否是删除操作（逻辑删除，不真删）
     deletion_reason: Optional[str] = None  # 删除理由
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         ts_dict = self.created_timestamp.to_dict()
         return {
             'version_id': self.version_id,
@@ -313,7 +313,7 @@ class Router:
         self.rules.append(rule)
         self.rules.sort(key=lambda r: r.priority, reverse=True)
 
-    def route(self, data: Dict, data_type: DataType, source: str) -> Tuple[List[str], str]:
+    def route(self, data: Dict[str, Any], data_type: DataType, source: str) -> Tuple[List[str], str]:
         """
         路由数据
 
@@ -510,7 +510,7 @@ class LonghuRuntimeEngine:
 
     def process_data(self,
                     key: str,
-                    data: Dict,
+                    data: Dict[str, Any],
                     data_type: DataType,
                     author: str,
                     change_description: str = "Auto-versioning") -> Tuple[bool, str]:

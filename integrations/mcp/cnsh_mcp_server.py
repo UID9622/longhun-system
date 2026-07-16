@@ -110,7 +110,7 @@ def _gen_dna(module: str = "CNSH-CORE-MCP", action: str = "TOOL") -> str:
     return f"#龍芯⚡️{now.strftime('%Y-%m-%d')}-{module}-v2.0-{h}"
 
 
-def _calc_digital_root(text: str) -> dict:
+def _calc_digital_root(text: str) -> dict[str, Any]:
     """计算数字根+五行+闸门"""
     digits = re.sub(r"[^0-9]", "", text)
     if not digits:
@@ -128,7 +128,7 @@ def _calc_digital_root(text: str) -> dict:
     }
 
 
-def _simple_redline_check(text: str) -> dict:
+def _simple_redline_check(text: str) -> dict[str, Any]:
     """简易红线检测（不依赖外部模块）"""
     redlines = {
         "P0": ["技术无国界", "数据无国界", "隐私不重要", "生态锁定", "用户数据收割",
@@ -157,7 +157,7 @@ def _simple_redline_check(text: str) -> dict:
 # 工具处理器
 # ══════════════════════════════════════════════════════════════════
 
-async def _api_write(args: dict) -> dict:
+async def _api_write(args: dict[str, Any]) -> dict[str, Any]:
     """通过 HTTP API 写入 CNSH 块"""
     if not _HTTPX:
         return {"ok": False, "error": "httpx 不可用", "dna": _gen_dna("CNSH-CORE-MCP", "WRITE-ERROR")}
@@ -178,7 +178,7 @@ async def _api_write(args: dict) -> dict:
         return {"ok": False, "error": f"API 写入失败: {e}", "dna": _gen_dna("CNSH-CORE-MCP", "WRITE-ERROR")}
 
 
-async def _api_query(args: dict) -> dict:
+async def _api_query(args: dict[str, Any]) -> dict[str, Any]:
     if not _HTTPX:
         return {"ok": False, "error": "httpx 不可用"}
     try:
@@ -190,7 +190,7 @@ async def _api_query(args: dict) -> dict:
         return {"ok": False, "error": f"API 查询失败: {e}", "dna": _gen_dna("CNSH-CORE-MCP", "QUERY-ERROR")}
 
 
-async def _api_audit(args: dict) -> dict:
+async def _api_audit(args: dict[str, Any]) -> dict[str, Any]:
     if not _HTTPX:
         return {"ok": False, "error": "httpx 不可用"}
     try:
@@ -204,7 +204,7 @@ async def _api_audit(args: dict) -> dict:
         return {"ok": False, "error": f"API 审计失败: {e}", "dna": _gen_dna("CNSH-CORE-MCP", "AUDIT-ERROR")}
 
 
-async def _block_stats(args: dict) -> dict:
+async def _block_stats(args: dict[str, Any]) -> dict[str, Any]:
     if not _HTTPX:
         return {"ok": False, "error": "httpx 不可用"}
     try:
@@ -217,7 +217,7 @@ async def _block_stats(args: dict) -> dict:
                 "api_status": "offline"}
 
 
-async def _block_chain(args: dict) -> dict:
+async def _block_chain(args: dict[str, Any]) -> dict[str, Any]:
     if not _HTTPX:
         return {"ok": False, "error": "httpx 不可用"}
     block_id = args.get("block_id", "")
@@ -229,7 +229,7 @@ async def _block_chain(args: dict) -> dict:
         return {"ok": False, "error": f"API 链查询失败: {e}", "dna": _gen_dna("CNSH-CORE-MCP", "CHAIN-ERROR")}
 
 
-async def _sync_state(args: dict) -> dict:
+async def _sync_state(args: dict[str, Any]) -> dict[str, Any]:
     """获取同步状态"""
     try:
         sync_log = _PROJECT_ROOT / "logs" / "sync_state.json"
@@ -243,7 +243,7 @@ async def _sync_state(args: dict) -> dict:
             "dna": _gen_dna("CNSH-CORE-MCP", "SYNC")}
 
 
-async def _event_watch(args: dict) -> dict:
+async def _event_watch(args: dict[str, Any]) -> dict[str, Any]:
     """查看最近事件"""
     prefix = args.get("prefix", "")
     limit = int(args.get("limit", 20))
@@ -264,7 +264,7 @@ async def _event_watch(args: dict) -> dict:
     return {"ok": True, "events": events[-limit:], "count": len(events), "dna": _gen_dna("CNSH-CORE-MCP", "EVENTS")}
 
 
-async def _handle_health(args: dict) -> dict:
+async def _handle_health(args: dict[str, Any]) -> dict[str, Any]:
     """综合健康检查"""
     modules = {
         "CNSH统一API": _CNSH_UNIFIED,
@@ -295,7 +295,7 @@ async def _handle_health(args: dict) -> dict:
     }
 
 
-def _handle_dna_gen(args: dict) -> dict:
+def _handle_dna_gen(args: dict[str, Any]) -> dict[str, Any]:
     module = str(args.get("module", "CNSH"))
     version = str(args.get("version", "1.0"))
     if _CNSH_UNIFIED:
@@ -304,7 +304,7 @@ def _handle_dna_gen(args: dict) -> dict:
     return {"ok": True, "dna": _gen_dna(module, "GEN"), "module": module, "version": version}
 
 
-def _handle_dna_validate(args: dict) -> dict:
+def _handle_dna_validate(args: dict[str, Any]) -> dict[str, Any]:
     dna = str(args.get("dna", ""))
     valid = "龍" in dna and ("⚡️" in dna or "⚡" in dna) and len(dna) > 10
     return {
@@ -320,7 +320,7 @@ def _handle_dna_validate(args: dict) -> dict:
     }
 
 
-def _handle_digital_root(args: dict) -> dict:
+def _handle_digital_root(args: dict[str, Any]) -> dict[str, Any]:
     content = str(args.get("content", str(args)))
     result = _calc_digital_root(content)
     if _CNSH_UNIFIED and _calc_digital_root(content)["digital_root"] > 0:
@@ -333,7 +333,7 @@ def _handle_digital_root(args: dict) -> dict:
     return {"ok": True, "content_sample": content[:100], "dna": _gen_dna("CNSH-CORE-MCP", "DIGITAL-ROOT"), **result}
 
 
-def _handle_redline(args: dict) -> dict:
+def _handle_redline(args: dict[str, Any]) -> dict[str, Any]:
     text = str(args.get("text", ""))
     if _CNSH_REDLINES:
         try:
@@ -353,7 +353,7 @@ def _handle_redline(args: dict) -> dict:
     return {"ok": True, **result, "engine": "builtin-simple"}
 
 
-def _handle_redline_list(args: dict) -> dict:
+def _handle_redline_list(args: dict[str, Any]) -> dict[str, Any]:
     level = str(args.get("level", "all"))
     if _CNSH_REDLINES:
         try:
@@ -576,11 +576,11 @@ def _jsonrpc_main():
     def _log(msg: str):
         print(f"[cnsh-core-mcp] {msg}", file=sys.stderr, flush=True)
 
-    def _send(data: dict):
+    def _send(data: dict[str, Any]):
         sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
         sys.stdout.flush()
 
-    def _handle(msg: dict) -> Optional[dict]:
+    def _handle(msg: dict[str, Any]) -> Optional[dict]:
         msg_id = msg.get("id")
         method = msg.get("method")
 

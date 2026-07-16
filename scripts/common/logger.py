@@ -23,7 +23,7 @@ from typing import Dict, Any
 class AppendOnlyLogger:
     """追溯级日志 - 一次写入，永不修改"""
 
-    def __init__(self, log_dir: str = None):
+    def __init__(self, log_dir: str | None = None):
         """初始化日志系统"""
         if log_dir is None:
             log_dir = os.path.expanduser("~/.龍魂/logs")
@@ -58,7 +58,7 @@ class AppendOnlyLogger:
             logger.addHandler(handler)
             self.loggers[layer] = logger
 
-    def log_operation(self, layer: str, operation: str, dna: str, details: Dict = None):
+    def log_operation(self, layer: str, operation: str, dna: str, details: Dict[str, Any] = None):
         """
         记录操作
         意图: 追溯不可篡改
@@ -86,7 +86,7 @@ class AppendOnlyLogger:
         }
         logger.info(json.dumps(entry, ensure_ascii=False))
 
-    def log_error(self, error_type: str, message: str, dna: str, context: Dict = None):
+    def log_error(self, error_type: str, message: str, dna: str, context: Dict[str, Any] = None):
         """记录错误（熔断级）"""
         logger = self.loggers["ERROR"]
         entry = {

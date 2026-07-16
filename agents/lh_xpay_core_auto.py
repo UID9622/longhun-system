@@ -12,7 +12,7 @@ DNA:#龍芯⚡️2026-06-05-XPAY-CORE-AUTO-FILE1-v1.1
 import json
 import sys
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Any
 import logging
 
 logging.basicConfig(
@@ -31,7 +31,7 @@ class XPaySystemVerifier:
         self.transactions_file = self.data_dir / 'transactions.json'
         self.ledger_file = self.data_dir / 'ledger.jsonl'
 
-    def verify_structure(self) -> Dict:
+    def verify_structure(self) -> Dict, Any:
         """验证XPay系统结构"""
         print("\n📊 XPay系统结构验证")
         print("=" * 70)
@@ -53,7 +53,7 @@ class XPaySystemVerifier:
         print("=" * 70)
         return {'all_ok': all_ok, 'checks': checks}
 
-    def verify_data_integrity(self) -> Dict:
+    def verify_data_integrity(self) -> Dict, Any:
         """验证数据完整性"""
         print("\n📋 数据完整性检查")
         print("=" * 70)
@@ -101,7 +101,7 @@ class XPaySystemVerifier:
         print("=" * 70)
         return stats
 
-    def verify_api_interface(self) -> Dict:
+    def verify_api_interface(self) -> Dict, Any:
         """验证API接口可用性"""
         print("\n🔌 API接口验证")
         print("=" * 70)
@@ -138,7 +138,7 @@ class XPaySystemVerifier:
         print("=" * 70)
         return api_status
 
-    def health_check(self) -> Dict:
+    def health_check(self) -> Dict, Any:
         """执行完整健康检查"""
         print("\n🔧 XPay系统完整健康检查")
         print("=" * 70)
@@ -166,7 +166,7 @@ class XPaySystemVerifier:
             'health_status': health_status
         }
 
-    def generate_report(self) -> Dict:
+    def generate_report(self) -> Dict, Any:
         """生成验证报告"""
         health = self.health_check()
 
@@ -199,7 +199,7 @@ class XPaySystemVerifier:
 
         return report
 
-    def save_report(self, report: Dict) -> Path:
+    def save_report(self, report: Dict[str, Any], Any) -> Path:
         """保存报告"""
         report_path = Path.home() / '.龍魂' / 'xpay_core_auto_report.json'
 

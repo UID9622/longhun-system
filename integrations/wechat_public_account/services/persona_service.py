@@ -4,7 +4,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 # 引入龍魂模型路由，不再直连 Moonshot
 ROOT = Path(__file__).resolve().parents[4]
@@ -106,7 +106,7 @@ class PersonaService:
         """Get full persona definition."""
         return self.personas.get(persona_id)
 
-    def route_task(self, task: str, persona_id: Optional[str] = None) -> Dict:
+    def route_task(self, task: str, persona_id: Optional[str] = None) -> Dict[str, Any]:
         """Route a task to a persona and generate content."""
         if persona_id is None:
             persona_id = self._auto_select_persona(task)
@@ -177,13 +177,13 @@ class PersonaService:
         except Exception:
             return None
 
-    def add_persona(self, persona_id: str, definition: Dict) -> Dict:
+    def add_persona(self, persona_id: str, definition: Dict[str, Any]) -> Dict[str, Any]:
         """Add or update a persona."""
         self.personas[persona_id] = definition
         self._save_personas()
         return {"status": "ok", "persona_id": persona_id}
 
-    def delete_persona(self, persona_id: str) -> Dict:
+    def delete_persona(self, persona_id: str) -> Dict[str, Any]:
         """Delete a persona."""
         if persona_id in self.personas:
             del self.personas[persona_id]

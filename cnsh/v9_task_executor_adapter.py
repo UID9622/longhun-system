@@ -65,7 +65,7 @@ class V9TaskExecutorAdapter:
             "檢查": V9AgentType.SYSTEM_CHECK,
         }
 
-    def is_v9_task(self, task: Dict) -> bool:
+    def is_v9_task(self, task: Dict[str, Any]) -> bool:
         """判斷任務是否為 v9 系統任務"""
         # 檢查標籤
         labels = task.get("labels", [])
@@ -82,7 +82,7 @@ class V9TaskExecutorAdapter:
 
         return False
 
-    def convert_to_v9_task(self, task: Dict) -> SystemIntegrationTask:
+    def convert_to_v9_task(self, task: Dict[str, Any]) -> SystemIntegrationTask:
         """將 task_executor 任務轉換為 v9 任務"""
         # 確定任務類型
         task_type = self._detect_task_type(task)
@@ -132,7 +132,7 @@ class V9TaskExecutorAdapter:
 
         return v9_task
 
-    def _detect_task_type(self, task: Dict) -> TaskType:
+    def _detect_task_type(self, task: Dict[str, Any]) -> TaskType:
         """檢測任務類型"""
         labels = task.get("labels", [])
 
@@ -161,7 +161,7 @@ class V9TaskExecutorAdapter:
         }
         return type_map.get(task_type, ModuleLayer.V1_0_SANCAI_SYNC)
 
-    def execute_v9_task(self, task: Dict) -> Dict[str, Any]:
+    def execute_v9_task(self, task: Dict[str, Any]) -> Dict[str, Any]:
         """執行 v9 任務"""
         # 轉換任務
         v9_task = self.convert_to_v9_task(task)
@@ -263,7 +263,7 @@ class LiveTaskExecutorWithV9(LiveTaskExecutor):
         super().__init__()
         self.v9_adapter = V9TaskExecutorAdapter()
 
-    def route_task(self, task: Dict) -> Tuple[List[str], str]:
+    def route_task(self, task: Dict[str, Any]) -> Tuple[List[str], str]:
         \"\"\"路由任務（整合 v9）\"\"\"
 
         # 檢查是否為 v9 任務
@@ -273,7 +273,7 @@ class LiveTaskExecutorWithV9(LiveTaskExecutor):
         # 否則使用原有邏輯
         return super().route_task(task)
 
-    def execute_agent(self, agent_id: str) -> Dict:
+    def execute_agent(self, agent_id: str) -> Dict[str, Any]:
         \"\"\"執行智能體（整合 v9）\"\"\"
 
         # v9 系統代理

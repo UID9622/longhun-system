@@ -191,7 +191,7 @@ class Rule:
 # 【模块自检】
 # ═══════════════════════════════════════════════════════════════════════════
 
-def selftest_rule_node() -> tuple:
+def selftest_rule_node() -> tuple[Any, ...]:
     """规则节点模块自检"""
     errors = []
 

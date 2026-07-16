@@ -153,7 +153,7 @@ def now_str() -> str:
 # 告警去重
 # ═══════════════════════════════════════════════════════════
 
-def load_alert_state() -> Dict:
+def load_alert_state() -> Dict[str, Any]:
     try:
         if ALERT_STATE.exists():
             return json.loads(ALERT_STATE.read_text())
@@ -162,7 +162,7 @@ def load_alert_state() -> Dict:
     return {}
 
 
-def save_alert_state(state: Dict):
+def save_alert_state(state: Dict[str, Any]):
     try:
         ALERT_STATE.write_text(json.dumps(state, ensure_ascii=False, indent=2))
     except Exception:

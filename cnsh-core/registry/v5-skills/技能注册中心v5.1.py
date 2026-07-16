@@ -14,7 +14,7 @@ DNA: #龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.1
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 __版本__ = "v5.1"
 __dna__ = "#龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.1"
@@ -115,7 +115,7 @@ class 技能注册中心v51:
         print(f"  DNA: {__dna__}")
         print("=" * 70 + "\n")
 
-    def 生成报告(self) -> Dict:
+    def 生成报告(self) -> Dict[str, Any]:
         return {
             "版本": __版本__,
             "DNA": __dna__,

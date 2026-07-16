@@ -12,7 +12,7 @@ from pathlib import Path
 DB_PATH = Path.home() / "_work" / "dragon_knowledge.db"
 
 
-def search(query: str, limit: int = 20, project: str = None, topic: str = None):
+def search(query: str, limit: int = 20, project: str | None = None, topic: str | None = None):
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()

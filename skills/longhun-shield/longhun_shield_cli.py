@@ -28,7 +28,7 @@ from pathlib import Path
 from datetime import datetime
 import subprocess
 import tempfile
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ANSI颜色
 class Color:
@@ -87,7 +87,7 @@ class ShieldEntry:
         
         print(f"{Color.CYAN}{'='*70}{Color.END}\n")
     
-    def analyze(self) -> Dict:
+    def analyze(self) -> Dict[str, Any]:
         """深度分析代码"""
         print(f"\n{Color.BOLD}🔍 深度分析{Color.END}\n")
         
@@ -237,7 +237,7 @@ class ShieldEntry:
         
         return violations
     
-    def _calculate_risk_score(self, checks: Dict) -> int:
+    def _calculate_risk_score(self, checks: Dict[str, Any]) -> int:
         """计算风险分数"""
         score = 0
         

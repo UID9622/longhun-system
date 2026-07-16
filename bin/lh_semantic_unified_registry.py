@@ -59,7 +59,7 @@ CATEGORY_COLORS = {
 }
 
 
-def load_registry() -> dict:
+def load_registry() -> dict[str, Any]:
     """加载统一注册表"""
     if not REGISTRY_PATH.exists():
         print(f"❌ 注册表不存在: {REGISTRY_PATH}")
@@ -524,6 +524,43 @@ def show_notion_pages(args):
     print()
 
 
+def show_notion_prompt_library(args):
+    """Notion 提示词库查询 — 挂接 notion_prompt_library/library_v2.json"""
+    try:
+        sys.path.insert(0, str(ROOT))
+        from bin.lh_prompt_library import 提示词库
+    except Exception as e:
+        print(f"❌ 提示词库加载器不可用: {e}")
+        return
+
+    lib = 提示词库()
+    stats = lib.统计()
+    print(f"\n{'='*70}")
+    print(f"📝 Notion 提示词库 v2.0 · 按助手分库 (精筛真模板)")
+    print(f"{'='*70}\n")
+    print(f"  来源页面: {stats['pages']} | 真模板总数: {stats['total']}")
+    print(f"  按助手: {json.dumps(stats['assistants'], ensure_ascii=False)}\n")
+
+    assistant = getattr(args, "assistant", None)
+    keyword = getattr(args, "keyword", None)
+    limit = getattr(args, "limit", 50) or 50
+
+    if keyword:
+        items = lib.搜索(keyword, assistant)
+        print(f"  🔍 关键词「{keyword}」命中 {len(items)} 条 (上限 {limit}):\n")
+    elif assistant:
+        items = lib.按助手(assistant)
+        print(f"  🤖 助手「{assistant}」共 {len(items)} 条 (上限 {limit}):\n")
+    else:
+        items = lib.条目
+        print(f"  📚 全部模板 (上限 {limit}):\n")
+    items = items[:limit]
+
+    for i, p in enumerate(items, 1):
+        print(f"  {i:3d}. [{p['assistant']}·{p['kind']}] {p['content'][:88]}")
+    print()
+
+
 def show_quantum(args):
     """量子体系引擎一览"""
     registry = load_registry()
@@ -665,12 +702,18 @@ def main():
     
     # notion-pages
     subparsers.add_parser("notion-pages", help="Notion知识库页面一览")
-    
+
+    # notion-prompt-library (挂接 Notion 提示词库 v2.0)
+    p_npl = subparsers.add_parser("notion-prompt-library", help="Notion提示词库查询(按助手分库)")
+    p_npl.add_argument("--assistant", help="助手: 宝宝/通心译/Claude/通用 (或别名)")
+    p_npl.add_argument("--keyword", help="关键词过滤")
+    p_npl.add_argument("--limit", type=int, default=50, help="返回条数上限")
+
     # quantum
     subparsers.add_parser("quantum", help="量子体系引擎一览")
-    
+
     args = parser.parse_args()
-    
+
     if args.command == "search":
         search(args)
     elif args.command == "list":
@@ -695,6 +738,8 @@ def main():
         show_papers(args)
     elif args.command == "notion-pages":
         show_notion_pages(args)
+    elif args.command == "notion-prompt-library":
+        show_notion_prompt_library(args)
     elif args.command == "quantum":
         show_quantum(args)
     else:

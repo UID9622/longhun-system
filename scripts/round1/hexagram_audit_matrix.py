@@ -7,7 +7,7 @@ DNA: #龍芯⚡️2026-07-05-ROUND1-HEXAGRAM-AUDIT-MATRIX-v1.0
 
 import json
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "round1"
 
@@ -26,9 +26,9 @@ class HexagramAuditMatrix:
         hexagram_id: int,
         hexagram_name: str,
         audit_dims: List[str],
-        fuse_result: Dict,
+        fuse_result: Dict[str, Any],
         scene_tags: List[str]
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         根据卦象、熔断结果、场景标签生成8维审计矩阵。
         简化规则：

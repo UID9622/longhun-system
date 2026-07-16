@@ -7,7 +7,7 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 
 # ---------------------------------------------------------------------------
@@ -148,7 +148,7 @@ def load_glyph_library(path: Path) -> Tuple[Dict, List[Tuple[str, Dict]]]:
     return data, glyphs
 
 
-def get_glyph_codepoint(info: Dict) -> int:
+def get_glyph_codepoint(info: Dict[str, Any]) -> int:
     raw = info.get("unicode", info.get("Unicode", ""))
     return parse_codepoint(raw)
 
@@ -156,7 +156,7 @@ def get_glyph_codepoint(info: Dict) -> int:
 # ---------------------------------------------------------------------------
 # Analysis
 # ---------------------------------------------------------------------------
-def analyze(glyphs: List[Tuple[str, Dict]]) -> Dict:
+def analyze(glyphs: List[Tuple[str, Dict]]) -> Dict[str, Any]:
     total = len(glyphs)
     codepoints = []
     pua_by_structure: Counter = Counter()
@@ -273,7 +273,7 @@ def render_table(headers: List[str], rows: List[List[str]]) -> str:
     return "\n".join([header_line, sep] + row_lines)
 
 
-def generate_report(data: Dict, glyphs: List[Tuple[str, Dict]], stats: Dict, pua_sections: List[Tuple[str, int, int]]) -> str:
+def generate_report(data: Dict[str, Any], glyphs: List[Tuple[str, Dict]], stats: Dict[str, Any], pua_sections: List[Tuple[str, int, int]]) -> str:
     library_dna = data.get("DNA追溯码", "未记录")
     total = stats["total"]
     chinese = stats["chinese_count"]

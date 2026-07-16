@@ -101,7 +101,7 @@ class FlowPipeline:
         self.state = self._load_state()
         self.log = []
 
-    def _load_state(self) -> Dict:
+    def _load_state(self) -> Dict[str, Any]:
         if FLOW_STATE.exists():
             return json.loads(FLOW_STATE.read_text())
         return {nid: {"throughput": n.throughput, "health": n.health,
@@ -131,7 +131,7 @@ class FlowPipeline:
                 self.state[nid]["throughput"] += volume
                 self.state[nid]["last_pulse"] = record["timestamp"]
 
-    def pulse(self) -> Dict:
+    def pulse(self) -> Dict[str, Any]:
         """
         一次心跳脉冲：数据沿着管道流动一圈
         
@@ -203,7 +203,7 @@ class FlowPipeline:
             return 0.0
         return round(sum(s.get("health", 0) for s in self.state.values()) / len(self.state), 3)
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         """返回当前循环系统状态"""
         flows_today = 0
         blockages = 0

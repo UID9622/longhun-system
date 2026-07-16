@@ -24,7 +24,7 @@ class SevenFactorLayer:
         self.uid = uid
         self.dna_file = Path(f"~/longhun-system/skills/skill-11-persona-dna/dna_{uid}.json").expanduser()
 
-    def compute(self, factors: dict) -> dict:
+    def compute(self, factors: dict[str, Any]) -> dict[str, Any]:
         """
         factors = {"F1": 0.9, "F2": 0.8, ...}
         任一因子为0 → conf=0（硬失败）

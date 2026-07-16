@@ -127,7 +127,7 @@ class TaskDefinition:
     stated_intent: Optional[str] = None  # 用户表达的意图
     profession: Optional[str] = None  # 用户职业/身份
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -165,7 +165,7 @@ class ExecutionRecord:
     dna_trace: str = ""             # DNA追踪码
     duration_ms: float = 0.0        # 执行耗时 (毫秒)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {k: v.value if isinstance(v, Enum) else v for k, v in asdict(self).items()}
 
 
@@ -291,7 +291,7 @@ class TaskQueue:
         }
         return scores.get(priority, 0)
 
-    def get_queue_status(self) -> Dict:
+    def get_queue_status(self) -> Dict[str, Any]:
         """获取队列状态"""
         return {
             "pending": len(self.queue),
@@ -310,7 +310,7 @@ class ExecutionRouter:
     龍魂执行路由器 - 本地系统的协调中枢
     """
 
-    def __init__(self, manifest_path: str, log_dir: str = None):
+    def __init__(self, manifest_path: str, log_dir: str | None = None):
         """
         初始化执行路由器
 
@@ -574,7 +574,7 @@ class ExecutionRouter:
 
         return record
 
-    def _default_execute_handler(self, task: TaskDefinition) -> Dict:
+    def _default_execute_handler(self, task: TaskDefinition) -> Dict[str, Any]:
         """默认的任务执行处理"""
         return {
             "task": task.task_name,
@@ -600,7 +600,7 @@ class ExecutionRouter:
         with open(self.execution_log_path, 'a', encoding='utf-8') as f:
             f.write(json.dumps(record.to_dict(), ensure_ascii=False) + "\n")
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> Dict[str, Any]:
         """获取系统状态"""
         return {
             "system": self.manifest_reader.system_name,

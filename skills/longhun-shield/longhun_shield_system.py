@@ -90,7 +90,7 @@ class PauseGate:
         self.decisions = {}
         self.interactive_mode = True
     
-    def check_entry(self, code_obj: Any, metadata: Dict = None) -> PauseDecision:
+    def check_entry(self, code_obj: Any, metadata: Dict[str, Any] = None) -> PauseDecision:
         """
         检查代码进入申请
         返回决策：允许·拒绝·修改·检查·暂停
@@ -174,7 +174,7 @@ class PauseGate:
         return f"ENTRY-{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}-{code_hash}"
     
     def _log_pause_decision(self, entry_id: str, code_obj: Any, 
-                           decision: PauseDecision, metadata: Dict):
+                           decision: PauseDecision, metadata: Dict[str, Any]):
         """记录暂停决策"""
         log_entry = {
             'id': entry_id,
@@ -208,7 +208,7 @@ class DeepTranslator:
         self.translation_cache = {}
     
     def translate_code(self, code_obj: Any, 
-                      level: CodeTranslationLevel = CodeTranslationLevel.COMPLETE) -> Dict:
+                      level: CodeTranslationLevel = CodeTranslationLevel.COMPLETE) -> Dict[str, Any]:
         """
         深度转译代码
         返回代码的完整人类可理解的描述
@@ -239,7 +239,7 @@ class DeepTranslator:
         
         return translation
     
-    def _translate_syntax(self, code_obj: Any) -> Dict:
+    def _translate_syntax(self, code_obj: Any) -> Dict[str, Any]:
         """
         语法级别转译
         理解代码的表面结构
@@ -267,7 +267,7 @@ class DeepTranslator:
                 'repr': repr(code_obj)[:200],
             }
     
-    def _translate_logic(self, code_obj: Any) -> Dict:
+    def _translate_logic(self, code_obj: Any) -> Dict[str, Any]:
         """
         逻辑级别转译
         理解代码的执行流程
@@ -297,7 +297,7 @@ class DeepTranslator:
         except Exception as e:
             return {'error': str(e)}
     
-    def _translate_semantic(self, code_obj: Any) -> Dict:
+    def _translate_semantic(self, code_obj: Any) -> Dict[str, Any]:
         """
         语义级别转译
         理解代码的意图
@@ -312,7 +312,7 @@ class DeepTranslator:
         else:
             return {'intent': '数据结构', 'content_summary': str(code_obj)[:200]}
     
-    def _translate_impact(self, code_obj: Any) -> Dict:
+    def _translate_impact(self, code_obj: Any) -> Dict[str, Any]:
         """
         影响级别转译
         理解代码的副作用和环境影响
@@ -334,7 +334,7 @@ class DeepTranslator:
             'requires_permission': 'user' if any(impact.values()) else 'none',
         }
     
-    def _build_complete_translation(self, translation: Dict) -> str:
+    def _build_complete_translation(self, translation: Dict[str, Any]) -> str:
         """
         构建完整的人类可读转译
         """
@@ -407,8 +407,8 @@ class ComprehensiveVerifier:
         self.verification_log = []
     
     def verify_before_execution(self, code_obj: Any, 
-                               translation: Dict = None,
-                               metadata: Dict = None) -> bool:
+                               translation: Dict[str, Any] = None,
+                               metadata: Dict[str, Any] = None) -> bool:
         """
         执行前完整验证
         返回是否可以安全执行
@@ -458,7 +458,7 @@ class ComprehensiveVerifier:
         
         return all_passed
     
-    def _verify_dna(self, code_obj: Any, metadata: Dict = None) -> bool:
+    def _verify_dna(self, code_obj: Any, metadata: Dict[str, Any] = None) -> bool:
         """验证DNA签证"""
         if metadata and 'dna' in metadata:
             dna = metadata['dna']
@@ -483,7 +483,7 @@ class ComprehensiveVerifier:
         print("   ✅ 符合底座原则")
         return True
     
-    def _verify_environment(self, metadata: Dict = None) -> bool:
+    def _verify_environment(self, metadata: Dict[str, Any] = None) -> bool:
         """验证环境一致性"""
         if metadata and 'environment' in metadata:
             env = metadata['environment']
@@ -494,7 +494,7 @@ class ComprehensiveVerifier:
         print("   ⚠️  环境未指定（使用默认）")
         return True
     
-    def _verify_side_effects(self, translation: Dict = None) -> bool:
+    def _verify_side_effects(self, translation: Dict[str, Any] = None) -> bool:
         """验证副作用"""
         if translation and 'levels' in translation:
             impact = translation['levels'].get('impact', {})
@@ -518,7 +518,7 @@ class ComprehensiveVerifier:
         code_hash = hashlib.sha256(str(code_obj).encode()).hexdigest()[:8]
         return f"CODE-{code_hash}"
     
-    def _log_verification(self, result: Dict):
+    def _log_verification(self, result: Dict[str, Any]):
         """记录验证结果"""
         log_file = Path.home() / '.龍盾' / 'verification.log'
         log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -544,7 +544,7 @@ class LonghunShield:
         self.verifier = ComprehensiveVerifier()
         self.execution_log = []
     
-    def execute_with_shield(self, code_obj: Any, metadata: Dict = None) -> Any:
+    def execute_with_shield(self, code_obj: Any, metadata: Dict[str, Any] = None) -> Any:
         """
         带着盾牌执行代码
         

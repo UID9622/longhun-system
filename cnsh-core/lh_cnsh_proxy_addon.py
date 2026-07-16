@@ -33,7 +33,7 @@ import time
 import traceback
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ── mitmproxy 可选（独立测试时不依赖） ──
 try:
@@ -171,7 +171,7 @@ class Config:
         Path(cls.LOCAL_STORAGE).mkdir(parents=True, exist_ok=True)
 
     @classmethod
-    def load_heart_seed(cls) -> dict:
+    def load_heart_seed(cls) -> dict[str, Any]:
         """加载心种子配置"""
         if os.path.exists(cls.HEART_SEED_PATH):
             with open(cls.HEART_SEED_PATH, "r", encoding="utf-8") as f:
@@ -570,7 +570,7 @@ class HeaderAdapter:
         return ("Authorization", "Bearer")
 
     @classmethod
-    def add_cnsh_headers(cls, headers: dict, dna: str):
+    def add_cnsh_headers(cls, headers: dict[str, Any], dna: str):
         """注入CNSH追踪头部"""
         headers["X-CNSH-DNA"] = dna
         headers["X-CNSH-Version"] = "0.4.1"
@@ -586,7 +586,7 @@ class LocalShieldBridge:
     SHIELD_API = os.getenv("CNSH_SHIELD_API", "http://localhost:9622")
 
     @classmethod
-    def audit(cls, content: str, host: str) -> dict:
+    def audit(cls, content: str, host: str) -> dict[str, Any]:
         """调用 LocalShield 伦理审查·异步不阻塞"""
         try:
             import requests
@@ -614,7 +614,7 @@ class PerfMonitor:
     def start(self, label: str) -> float:
         return time.time()
 
-    def record(self, label: str, start: float, extra: dict = None):
+    def record(self, label: str, start: float, extra: dict[str, Any] = None):
         elapsed = (time.time() - start) * 1000
         entry = {"step": label, "elapsed_ms": round(elapsed, 2)}
         if extra:

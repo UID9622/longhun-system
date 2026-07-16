@@ -9,7 +9,7 @@ import sqlite3
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 
 @dataclass
@@ -98,7 +98,7 @@ class TransactionStore:
             ).fetchall()
         return [Transaction(*row) for row in rows]
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         with sqlite3.connect(self.db_path) as conn:
             total = conn.execute(
                 "SELECT COUNT(*), COALESCE(SUM(amount), 0), COALESCE(SUM(total_fee), 0) FROM transactions"

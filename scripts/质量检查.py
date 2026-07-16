@@ -16,7 +16,7 @@ ANNOTATED_DIR = HOME / "longhun-system" / "data" / "training" / "annotated"
 REPORT_DIR = HOME / "longhun-system" / "data" / "training" / "reports"
 
 
-def _读取jsonl(路径: Path) -> list:
+def _读取jsonl(路径: Path) -> list[Any]:
     if not 路径.exists():
         return []
     结果 = []

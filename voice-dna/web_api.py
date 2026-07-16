@@ -63,11 +63,11 @@ def _audio_from_request(req) -> np.ndarray:
     return None
 
 
-def _ok(payload: Dict[str, Any]) -> tuple:
+def _ok(payload: Dict[str, Any]) -> tuple[Any, ...]:
     return jsonify({"success": True, **payload}), 200
 
 
-def _err(message: str, code: int = 400) -> tuple:
+def _err(message: str, code: int = 400) -> tuple[Any, ...]:
     return jsonify({"success": False, "message": message}), code
 
 

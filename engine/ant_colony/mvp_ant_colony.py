@@ -70,7 +70,7 @@ class WorkerAnt:
             capabilities=capabilities,
         )
     
-    def execute(self, task: dict, colony: 'MVPColony') -> Optional[AntennaSignal]:
+    def execute(self, task: dict[str, Any], colony: 'MVPColony') -> Optional[AntennaSignal]:
         """执行任务 → 发放招募素 + 留足迹"""
         self.state.busy = True
         self.state.current_task = task.get("task", str(task))
@@ -219,7 +219,7 @@ class MVPColony:
 
     # ── 主循环 ──
 
-    def tick(self) -> dict:
+    def tick(self) -> dict[str, Any]:
         """单次滴答 — MVP蚁群一步"""
         self._tick += 1
         tc = self._tick
@@ -346,7 +346,7 @@ class MVPColony:
         # 终态报告
         self._print_final_report(snapshots)
 
-    def _print_tick(self, state: dict):
+    def _print_tick(self, state: dict[str, Any]):
         """打印tick状态"""
         bar = "=" * min(20, int(state["emergence_E"] * 30))
         print(f"[t={state['tick']:3d}] 工蚁活跃:{state['workers_active']} "
@@ -354,7 +354,7 @@ class MVPColony:
               f"轨迹:{state['trails']} "
               f"E={state['emergence_E']:.3f} {bar}")
 
-    def _print_final_report(self, snapshots: list):
+    def _print_final_report(self, snapshots: list[Any]):
         """终态报告"""
         if not snapshots:
             return

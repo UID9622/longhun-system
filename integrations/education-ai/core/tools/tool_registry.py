@@ -42,7 +42,7 @@ class ToolSchema:
         payload = f"{self.name}-{self.category.value}-{self.description[:20]}"
         return f"SM3-{hashlib.sha256(payload.encode()).hexdigest()[:16]}"
     
-    def to_openai_format(self) -> Dict:
+    def to_openai_format(self) -> Dict[str, Any]:
         """转换为OpenAI Function Calling格式"""
         return {
             "type": "function",
@@ -69,7 +69,7 @@ class ToolRegistry:
                  name: str,
                  description: str,
                  category: ToolCategory,
-                 parameters: Dict,
+                 parameters: Dict[str, Any],
                  required: List[str],
                  dangerous: bool = False):
         """注册工具装饰器"""
@@ -102,7 +102,7 @@ class ToolRegistry:
         """获取所有Schema（用于LLM Function Calling）"""
         return [tool.to_openai_format() for tool in self.tools.values()]
     
-    def execute(self, name: str, arguments: Dict) -> Dict:
+    def execute(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """执行工具"""
         tool = self.tools.get(name)
         if not tool:
@@ -138,7 +138,7 @@ class ToolRegistry:
                 "tool": name
             }
     
-    def _validate_params(self, tool: ToolSchema, arguments: Dict) -> Dict:
+    def _validate_params(self, tool: ToolSchema, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """参数验证"""
         for req in tool.required:
             if req not in arguments:
@@ -330,8 +330,8 @@ def execute_python(code: str) -> str:
         
         exec(code, {"__builtins__": {
             "print": print, "range": range, "len": len,
-            "int": int, "float": float, "str": str, "list": list,
-            "dict": dict, "set": set, "tuple": tuple, "bool": bool,
+            "int": int, "float": float, "str": str, "list": list[Any],
+            "dict": dict[str, Any], "set": set[str], "tuple": tuple[Any, ...], "bool": bool,
             "abs": abs, "max": max, "min": min, "sum": sum,
             "round": round, "sorted": sorted, "zip": zip,
             "enumerate": enumerate, "map": map, "filter": filter

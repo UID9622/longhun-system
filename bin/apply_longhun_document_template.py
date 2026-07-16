@@ -177,7 +177,7 @@ def build_footer(title: str, dna: str) -> str:
 """
 
 
-def process_file(path: Path) -> dict:
+def process_file(path: Path) -> dict[str, Any]:
     rel = path.relative_to(PROJECT_ROOT)
     try:
         content = path.read_text(encoding='utf-8')

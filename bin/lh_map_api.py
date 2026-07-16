@@ -65,7 +65,7 @@ class LonghunMap:
         except Exception:
             pass
 
-    def _check_provider(self, provider: str) -> tuple:
+    def _check_provider(self, provider: str) -> tuple[Any, ...]:
         cfg = self.PROVIDERS.get(provider)
         if not cfg:
             return False, f"未知服务商: {provider}"
@@ -82,7 +82,7 @@ class LonghunMap:
                 return pid
         return 'amap'  # 默认高德（即使无密钥也返回以产生友好错误）
 
-    def geocode(self, address: str, provider: str = 'auto') -> dict:
+    def geocode(self, address: str, provider: str = 'auto') -> dict[str, Any]:
         self._audit('geocode', provider, address)
 
         if provider == 'auto':
@@ -108,7 +108,7 @@ class LonghunMap:
             'message': '地图服务未接入，请执行道引流程审查后部署',
         }
 
-    def reverse_geocode(self, lat: float, lng: float, provider: str = 'auto') -> dict:
+    def reverse_geocode(self, lat: float, lng: float, provider: str = 'auto') -> dict[str, Any]:
         self._audit('reverse_geocode', provider, f'{lat:.6f},{lng:.6f}')
 
         if provider == 'auto':
@@ -125,7 +125,7 @@ class LonghunMap:
             'message': '地图服务未接入',
         }
 
-    def distance(self, lat1: float, lng1: float, lat2: float, lng2: float, provider: str = 'auto') -> dict:
+    def distance(self, lat1: float, lng1: float, lat2: float, lng2: float, provider: str = 'auto') -> dict[str, Any]:
         self._audit('distance', provider, f'({lat1:.4f},{lng1:.4f})->({lat2:.4f},{lng2:.4f})')
 
         import math
@@ -145,7 +145,7 @@ class LonghunMap:
             'hash': self._hash_chain(f'{lat1},{lng1},{lat2},{lng2}'),
         }
 
-    def list_providers(self) -> dict:
+    def list_providers(self) -> dict[str, Any]:
         providers = []
         for pid, cfg in sorted(self.PROVIDERS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_provider(pid)

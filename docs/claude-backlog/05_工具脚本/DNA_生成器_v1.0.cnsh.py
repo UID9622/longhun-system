@@ -39,7 +39,7 @@
 import hashlib
 import json
 import datetime
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 # =====================================================
 # 第一步：导入工具库
@@ -221,7 +221,7 @@ class DNA生成器_龍魂系统:
         版本号: str = "v1.0",
         创建者: str = "UID9622",
         额外说明: Optional[str] = None
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         生成完整的DNA码和元数据（JSON格式）
 

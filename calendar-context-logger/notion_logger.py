@@ -279,7 +279,7 @@ class NotionAPIClient:
             "Content-Type": "application/json",
         }
     
-    def _request(self, method: str, path: str, body: Optional[Dict] = None) -> Dict:
+    def _request(self, method: str, path: str, body: Optional[Dict] = None) -> Dict[str, Any]:
         """发送HTTP请求"""
         body_json = json.dumps(body) if body else None
         
@@ -321,7 +321,7 @@ class NotionAPIClient:
         
         return {}
     
-    def create_page(self, database_id: str, properties: Dict, icon: Optional[str] = None) -> Dict:
+    def create_page(self, database_id: str, properties: Dict[str, Any], icon: Optional[str] = None) -> Dict[str, Any]:
         """在数据库中创建页面"""
         body = {
             "parent": {"database_id": database_id},
@@ -331,14 +331,14 @@ class NotionAPIClient:
             body["icon"] = {"emoji": icon}
         return self._request("POST", "/v1/pages", body)
     
-    def query_database(self, database_id: str, filter_obj: Optional[Dict] = None) -> Dict:
+    def query_database(self, database_id: str, filter_obj: Optional[Dict] = None) -> Dict[str, Any]:
         """查询数据库"""
         body = {}
         if filter_obj:
             body["filter"] = filter_obj
         return self._request("POST", f"/v1/databases/{database_id}/query", body)
     
-    def update_page(self, page_id: str, properties: Dict) -> Dict:
+    def update_page(self, page_id: str, properties: Dict[str, Any]) -> Dict[str, Any]:
         """更新页面属性"""
         return self._request("PATCH", f"/v1/pages/{page_id}", {"properties": properties})
     
@@ -577,7 +577,7 @@ class SQLiteStore:
         self.conn.commit()
         return cursor.lastrowid
     
-    def log_sync_end(self, log_id: int, success: int, failed: int, error: str = None):
+    def log_sync_end(self, log_id: int, success: int, failed: int, error: str | None = None):
         """记录同步结束"""
         cursor = self.conn.cursor()
         cursor.execute("""

@@ -126,7 +126,7 @@ def safe_copy(src: Path, dst: Path, use_sqlite: bool = False) -> bool:
         return False
 
 
-def collect_browser(args) -> list:
+def collect_browser(args) -> list[Any]:
     """采集浏览器数据。"""
     log("📊 模块: 浏览器数据")
     out_dir = RAW_DIR / "browser"
@@ -179,7 +179,7 @@ def collect_browser(args) -> list:
     return collected
 
 
-def collect_downloads(args) -> list:
+def collect_downloads(args) -> list[Any]:
     """采集下载目录清单与校验和。"""
     log("📥 模块: 下载记录")
     out_dir = RAW_DIR
@@ -221,7 +221,7 @@ def collect_downloads(args) -> list:
     return collected
 
 
-def collect_applications(args) -> list:
+def collect_applications(args) -> list[Any]:
     """采集 APP 安装列表。"""
     log("📱 模块: APP 数据")
     out_dir = RAW_DIR
@@ -262,7 +262,7 @@ def collect_applications(args) -> list:
     return collected
 
 
-def collect_shopping(args) -> list:
+def collect_shopping(args) -> list[Any]:
     """采集购物账单 CSV。"""
     log("🛒 模块: 购物数据")
     out_dir = RAW_DIR / "shopping"
@@ -295,7 +295,7 @@ def collect_shopping(args) -> list:
     return collected
 
 
-def collect_system_logs(args) -> list:
+def collect_system_logs(args) -> list[Any]:
     """采集系统日志（仅元数据，默认不复制大日志）。"""
     log("📋 模块: 系统日志")
     out_dir = RAW_DIR / "logs"
@@ -345,7 +345,7 @@ def collect_system_logs(args) -> list:
     return collected
 
 
-def collect_hardware_info(args) -> list:
+def collect_hardware_info(args) -> list[Any]:
     """采集设备信息。"""
     log("🖥️ 模块: 设备信息")
     out_dir = RAW_DIR
@@ -369,7 +369,7 @@ def collect_hardware_info(args) -> list:
     return collected
 
 
-def feed_to_longhun(records: list, dry_run: bool) -> None:
+def feed_to_longhun(records: list[Any], dry_run: bool) -> None:
     """将采集元数据投喂给龍魂投喂器。"""
     feeder = HOME / "longhun-system" / "scripts" / "龍魂投喂器.py"
     if not feeder.exists():
@@ -391,7 +391,7 @@ def feed_to_longhun(records: list, dry_run: bool) -> None:
             log(f"  ⚠️ 投喂失败 {text}: {e}")
 
 
-def generate_manifest(records: list, dry_run: bool) -> None:
+def generate_manifest(records: list[Any], dry_run: bool) -> None:
     """生成数据清单与 DNA 审计。"""
     if dry_run:
         return

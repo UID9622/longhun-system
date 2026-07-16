@@ -138,12 +138,12 @@ def make_dna(type_code: str, content: str) -> str:
     date = datetime.now().strftime("%Y%m%d")
     return f"#龍芯⚡️{date}-{type_code}-{sha8(content)}"
 
-def log_local(entry: dict):
+def log_local(entry: dict[str, Any]):
     path = os.path.join(LOG_DIR, f"gateway_{datetime.now().strftime('%Y%m%d')}.jsonl")
     with open(path, "a") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-def log_notion(entry: dict):
+def log_notion(entry: dict[str, Any]):
     if not NOTION_TOKEN or not NOTION_LOG_DB:
         return
     try:
@@ -172,7 +172,7 @@ def log_notion(entry: dict):
 # ═══════════════════════════════
 # AI 路由器
 # ═══════════════════════════════
-def call_deepseek(messages: list, model: str = "deepseek-chat") -> str:
+def call_deepseek(messages: list[Any], model: str = "deepseek-chat") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
     # DeepSeek 兼容 OpenAI 格式
@@ -189,7 +189,7 @@ def call_deepseek(messages: list, model: str = "deepseek-chat") -> str:
     resp.raise_for_status()
     return resp.json()["choices"][0]["message"]["content"]
 
-def call_ollama(messages: list, model: str = "qwen2.5:7b") -> str:
+def call_ollama(messages: list[Any], model: str = "qwen2.5:7b") -> str:
     # 本地 Ollama — 完全私有，零泄漏
     full_messages = [{"role": "system", "content": CNSH_SYSTEM_PROMPT}] + messages
     resp = requests.post(
@@ -223,7 +223,7 @@ def _ctx_from_request(req) -> "Context":
     )
 
 
-def security_check(req, endpoint_path: str = None, intent: str = "execute"):
+def security_check(req, endpoint_path: str | None = None, intent: str = "execute"):
     """
     网关安全门。
 

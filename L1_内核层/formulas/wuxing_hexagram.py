@@ -17,7 +17,7 @@
 """
 
 from dataclasses import dataclass
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from enum import Enum
 import hashlib
 
@@ -336,7 +336,7 @@ class HexagramIntegration:
                 wuxing_element: str,
                 digital_root: int,
                 balance_index: float,
-                gr_net_strength: float) -> Dict:
+                gr_net_strength: float) -> Dict[str, Any]:
         """
         完整卦象推演流程：
         1. 计算主卦

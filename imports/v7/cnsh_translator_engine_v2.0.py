@@ -40,7 +40,7 @@ import string
 import os
 import sys
 import argparse
-from typing import Dict, List, Tuple, Optional, Set
+from typing import Dict, List, Tuple, Optional, Set, Any
 from dataclasses import dataclass, field
 from enum import Enum
 
@@ -1404,7 +1404,7 @@ class BatchTranslator:
                 results.append("")
         return "\n\n".join(results)
 
-    def get_statistics(self) -> dict:
+    def get_statistics(self) -> dict[str, Any]:
         """获取翻译统计"""
         return self.stats.copy()
 

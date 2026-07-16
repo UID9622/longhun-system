@@ -30,7 +30,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # 可選 HTTP 服務依賴
 uvicorn = None
@@ -118,7 +118,7 @@ class DaoRule:
         }
 
     @classmethod
-    def from_dict(cls, d: dict):
+    def from_dict(cls, d: dict[str, Any]):
         return cls(
             rule_id=d["rule_id"],
             chapter=d.get("chapter", 0),
@@ -561,7 +561,7 @@ class DaoEthicsAnchorLayer:
             return True, "輸出可能過度，建議精簡（無為原則）"
         return False, "輸出符合無為原則"
 
-    def anchor_c_audit(self, final_decision: dict) -> str:
+    def anchor_c_audit(self, final_decision: dict[str, Any]) -> str:
         decision_color = AuditColor.GREEN
         if final_decision.get("level") in ["警告", "yellow"]:
             decision_color = AuditColor.YELLOW
@@ -576,7 +576,7 @@ class DaoEthicsAnchorLayer:
         )
         return dna
 
-    def anchor_d_feedback(self) -> dict:
+    def anchor_d_feedback(self) -> dict[str, Any]:
         stats = self.auditor.get_stats()
         avg_force = self.decay_model.get_average_force()
         suggestion = {
@@ -592,7 +592,7 @@ class DaoEthicsAnchorLayer:
             suggestion["原因"] = "約束過鬆，建議適當收緊"
         return suggestion
 
-    def full_check(self, user_input: str, system_output: str = "") -> dict:
+    def full_check(self, user_input: str, system_output: str = "") -> dict[str, Any]:
         """完整檢查流程（四個錨點全跑）"""
         result = {
             "整體狀態": "🟢 通過",

@@ -19,7 +19,7 @@ import os
 import json
 import sqlite3
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from dataclasses import asdict
 from pathlib import Path
 
@@ -241,7 +241,7 @@ class NotionMulticurrencyIntegration:
         print("📌 下一步: 通过 Notion API 或手动在 Notion 中创建页面")
         return True
 
-    def generate_sync_config(self) -> Dict:
+    def generate_sync_config(self) -> Dict[str, Any]:
         """生成同步配置"""
         return {
             "notion": {
@@ -277,7 +277,7 @@ class NotionMulticurrencyIntegration:
             }
         }
 
-    def save_sync_config(self, config_path: str = None):
+    def save_sync_config(self, config_path: str | None = None):
         """保存同步配置"""
         if config_path is None:
             config_path = os.path.expanduser('~/.龍魂/multicurrency_sync_config.json')

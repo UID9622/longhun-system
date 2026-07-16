@@ -112,7 +112,7 @@ class 技能注册中心:
             for s in self._技能.values()
         ]
 
-    def 执行技能(self, 名称: str, 输入: Any = None) -> Dict:
+    def 执行技能(self, 名称: str, 输入: Any = None) -> Dict[str, Any]:
         """执行指定技能"""
         skill = self.获取技能(名称)
         if not skill:
@@ -165,7 +165,7 @@ class 技能注册中心:
             for a in self._算法.values()
         ]
 
-    def 执行算法(self, 名称: str, 输入: Any = None, 输出: str = None) -> Dict:
+    def 执行算法(self, 名称: str, 输入: Any = None, 输出: str | None = None) -> Dict[str, Any]:
         """执行指定算法"""
         algo = self._算法.get(名称)
         if not algo:

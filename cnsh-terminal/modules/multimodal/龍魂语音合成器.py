@@ -87,7 +87,7 @@ class 六层来源链:
     }
     DNA ="#龍芯⚡️2026-06-18-LONGHUN-TTS-ENGINE-FILE2-v1.0"
     @classmethod
-    def 盖章(cls, 模块路径: str = "") -> Dict:
+    def 盖章(cls, 模块路径: str = "") -> Dict[str, Any]:
         """为模块产出物盖上六层来源链印章 · Stamp the output with six-layer provenance"""
         return {
             "六层来源链": dict(cls.六层),
@@ -168,7 +168,7 @@ class 语音合成结果:
     合成引擎: str                      # 使用的引擎 · Engine used
     DNA追溯: str                       # DNA追溯码 · DNA trace code
     审计日志: List[审计结果] = field(default_factory=list)  # 审计记录 · Audit log
-    来源链盖章: Dict = field(default_factory=dict)          # 来源链印章 · Provenance stamp
+    来源链盖章: Dict[str, Any] = field(default_factory=dict)          # 来源链印章 · Provenance stamp
 
     def to_dict(self) -> Dict[str, Any]:
         """转换为字典格式 · Convert to dictionary format"""

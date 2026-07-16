@@ -60,7 +60,7 @@ def discover_menu_files(root: Path) -> list[Path]:
     return sorted(discovered)
 
 
-def build_registry() -> dict:
+def build_registry() -> dict[str, Any]:
     registry = load_json(REGISTRY_PATH)
     if "items" not in registry:
         registry["items"] = []
@@ -89,7 +89,7 @@ def build_registry() -> dict:
     return registry
 
 
-def display_label(item: dict) -> str:
+def display_label(item: dict[str, Any]) -> str:
     """生成带模式标注的菜单显示文字。"""
     label = item.get("label", "未命名")
     if item.get("type") == "quit":
@@ -99,7 +99,7 @@ def display_label(item: dict) -> str:
     return label + badge
 
 
-def generate_applescript(registry: dict) -> str:
+def generate_applescript(registry: dict[str, Any]) -> str:
     root_str = as_string_literal(str(ROOT))
     items = registry.get("items", [])
 

@@ -80,7 +80,7 @@ def generate_base64_code(entropy_bits: int = DEFAULT_ENTROPY_BITS) -> str:
     return b64_code[:b64_chars_needed]
 
 
-def verify_entropy(code: str, mode: str = None) -> float:
+def verify_entropy(code: str, mode: str | None = None) -> float:
     """
     验证确认码的实际熵值。
 
@@ -127,7 +127,7 @@ def verify_entropy(code: str, mode: str = None) -> float:
     return len(code) * bits_per_char
 
 
-def check_compliance(actual_entropy: float) -> dict:
+def check_compliance(actual_entropy: float) -> dict[str, Any]:
     """
     检查确认码是否符合安全基线。
 
@@ -159,7 +159,7 @@ def check_compliance(actual_entropy: float) -> dict:
     return result
 
 
-def validate_code_safety(code: str) -> list:
+def validate_code_safety(code: str) -> list[Any]:
     """
     检查确认码是否违反安全规范。
 

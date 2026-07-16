@@ -10,7 +10,7 @@ import json
 import math
 import sys
 from pathlib import Path
-from typing import Dict, Union
+from typing import Dict, Union, Any
 
 # 把 governance 目录加入路径，复用 SevenFactorVerifier
 _GOV_DIR = Path(__file__).resolve().parent.parent / "governance"
@@ -41,7 +41,7 @@ def digital_root(n: int) -> int:
     return 1 + ((n - 1) % 9)
 
 
-def digital_root_invariant_check(value: Union[int, str]) -> Dict:
+def digital_root_invariant_check(value: Union[int, str]) -> Dict[str, Any]:
     """
     对任意整数或字符串计算数字根，输出三色动作。
     字符串会先被哈希成整数，再求数字根。
@@ -105,7 +105,7 @@ def score_to_gua(score: float) -> str:
     return "☷"
 
 
-def seven_factor_to_bagua(factors: Dict[str, float]) -> Dict:
+def seven_factor_to_bagua(factors: Dict[str, float]) -> Dict[str, Any]:
     """
     把 F1-F7 因子映射到 64 卦审计所需的 8 维度指标。
     创新突破度由七因子综合置信度转换。
@@ -171,7 +171,7 @@ LIUSHISI_GUA = {
 }
 
 
-def determine_audit_color(gua_info: Dict, metrics: Dict) -> str:
+def determine_audit_color(gua_info: Dict[str, Any], metrics: Dict[str, Any]) -> str:
     """根据卦象与指标判定三色"""
     risk_level = gua_info.get("risk_level", "medium")
     values = list(metrics.values())
@@ -201,7 +201,7 @@ GUA_TO_PERSONA_GROUP = {
 }
 
 
-def route_persona(upper_gua: str, lower_gua: str) -> Dict:
+def route_persona(upper_gua: str, lower_gua: str) -> Dict[str, Any]:
     return {
         "upper_group": GUA_TO_PERSONA_GROUP.get(upper_gua, "未知组"),
         "lower_group": GUA_TO_PERSONA_GROUP.get(lower_gua, "未知组"),
@@ -216,8 +216,8 @@ def route_persona(upper_gua: str, lower_gua: str) -> Dict:
 def audit_with_ecosystem(
     factors: Dict[str, float],
     content: str,
-    metadata: Dict = None
-) -> Dict:
+    metadata: Dict[str, Any] = None
+) -> Dict[str, Any]:
     """
     龍魂生态完整审计：
     七因子 → 8 维度 → 64 卦 → 数字根红线 → 人格路由 → 道德经引用

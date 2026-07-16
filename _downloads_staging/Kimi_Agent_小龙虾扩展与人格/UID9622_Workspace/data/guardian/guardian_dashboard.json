@@ -1,0 +1,510 @@
+{
+  "counts": {
+    "green": 4,
+    "yellow": 55,
+    "red": 151
+  },
+  "latest": [
+    {
+      "timestamp": "2026-06-27T08:16:24.803872+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/data/router/route_report_20260627_080531.json",
+        "dna": "#ROUTER-ROUTE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.803786+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/data/router/route_report_20260627_080536.json",
+        "dna": "#ROUTER-ROUTE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.802995+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/data/guardian/guardian_dashboard.json",
+        "dna": "#WENWEN-SCAN-20251214-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.802899+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/data/sync_master/last_sync_report.json",
+        "dna": "#WENXIN-SYNC-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800530+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800492+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800451+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800398+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800361+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800325+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800287+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800250+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800213+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800176+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800136+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800099+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800061+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.800024+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799986+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799933+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799895+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799858+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799819+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799780+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799743+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799706+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799670+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799633+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799596+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799556+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799519+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799463+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799424+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799385+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799345+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799306+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799267+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799227+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799187+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-002"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799149+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799110+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799070+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.799031+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.798991+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-001"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.798931+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.798888+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_report_20260627_081624.md",
+        "dna": "#WENWEN-FILE-20260627-000"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.797888+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_index.json",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.797847+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_index.json",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.797807+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_index.json",
+        "dna": "#WENWEN-FILE-20260627-004"
+      }
+    },
+    {
+      "timestamp": "2026-06-27T08:16:24.797767+00:00",
+      "level": "red",
+      "persona": "上帝之眼·守护者 P-AK-GUARDIAN",
+      "event": "DNA_INVALID",
+      "details": {
+        "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_小龙虾扩展与人格/UID9622_Workspace/organized/wenwen_index.json",
+        "dna": "#WENWEN-FILE-20260627-003"
+      }
+    }
+  ],
+  "generated_at": "2026-06-27T08:16:24.804404+00:00"
+}

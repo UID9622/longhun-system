@@ -28,7 +28,7 @@ def now_iso() -> str:
     return datetime.now(CST).isoformat()
 
 
-def build_graph(db_path: pathlib.Path) -> dict:
+def build_graph(db_path: pathlib.Path) -> dict[str, Any]:
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
 

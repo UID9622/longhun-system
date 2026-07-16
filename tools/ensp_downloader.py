@@ -27,7 +27,7 @@ DNA = "#龍芯⚡️2026-07-04-ENSP-DOWNLOADER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
-def load_hash_library(json_path: Path) -> dict:
+def load_hash_library(json_path: Path) -> dict[str, Any]:
     with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 

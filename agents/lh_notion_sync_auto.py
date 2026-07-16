@@ -14,7 +14,7 @@ import json
 import hashlib
 import datetime
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 import logging
 import sys
 
@@ -34,7 +34,7 @@ class NotionSyncAutoManager:
         self.dna_registry = self.home_dir / 'dna_registry.jsonl'
         self.token_available = bool(os.environ.get('NOTION_TOKEN'))
 
-    def verify_configuration(self) -> Dict:
+    def verify_configuration(self) -> Dict[str, Any]:
         """验证Notion同步配置"""
         print("\n📊 Notion同步配置验证")
         print("=" * 70)
@@ -62,7 +62,7 @@ class NotionSyncAutoManager:
             'checks': checks
         }
 
-    def health_check(self) -> Dict:
+    def health_check(self) -> Dict[str, Any]:
         """执行健康检查"""
         print("\n🔧 Notion系统健康检查")
         print("=" * 70)
@@ -103,7 +103,7 @@ class NotionSyncAutoManager:
             'timestamp': datetime.datetime.now().isoformat()
         }
 
-    def generate_status_report(self) -> Dict:
+    def generate_status_report(self) -> Dict[str, Any]:
         """生成状态报告"""
         health = self.health_check()
 
@@ -132,7 +132,7 @@ class NotionSyncAutoManager:
 
         return report
 
-    def save_report(self, report: Dict) -> Path:
+    def save_report(self, report: Dict[str, Any]) -> Path:
         """保存报告"""
         report_path = self.home_dir / 'notion_sync_auto_report.json'
 

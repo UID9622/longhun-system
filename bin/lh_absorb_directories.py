@@ -409,7 +409,7 @@ class AbsorbAuditor:
                 self.skip_list.append(rel)
                 self.stats["skip"] += 1
     
-    def _check_violations(self, filename: str, is_py_sh: bool) -> list:
+    def _check_violations(self, filename: str, is_py_sh: bool) -> list[Any]:
         """检查命名违规"""
         violations = []
         name_without_ext = os.path.splitext(filename)[0]
@@ -695,7 +695,7 @@ class AbsorbExecutor:
         except Exception:
             return src == dst
     
-    def execute(self, plan: list) -> bool:
+    def execute(self, plan: list[Any]) -> bool:
         """执行重命名计划（深度优先：先处理子文件，再处理父目录）"""
         print(f"\n{'='*60}")
         print(f"  龍魂·目录吸收执行器 v1.0")

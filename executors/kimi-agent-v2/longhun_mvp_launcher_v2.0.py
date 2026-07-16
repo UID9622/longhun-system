@@ -45,7 +45,7 @@ import hashlib
 import importlib.util
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 # ========== DNA签名和合规标记 ==========
 DNA_SIGNATURE = "#龍芯⚡️2026-06-17-MVP-LAUNCHER-v2.0"
@@ -125,7 +125,7 @@ class SixLayerSourceChain:
     }
 
     @staticmethod
-    def verify_chain() -> Dict:
+    def verify_chain() -> Dict[str, Any]:
         print(f"\n{'='*60}")
         print("🔗 六层来源链验证")
         print(f"{'='*60}")
@@ -209,7 +209,7 @@ class AutoAuditSystem:
         conn.commit()
         conn.close()
 
-    def trigger_startup_audit(self) -> Dict:
+    def trigger_startup_audit(self) -> Dict[str, Any]:
         """启动时触发完整审计"""
         print(f"\n{'='*60}")
         print("🔍 自动审计 - 启动审计")
@@ -233,7 +233,7 @@ class AutoAuditSystem:
         print(f"\n  ✅ 启动审计完成: {len(checks)}项检查全部通过\n")
         return checks
 
-    def get_recent_audits(self, limit: int = 10) -> list:
+    def get_recent_audits(self, limit: int = 10) -> list[Any]:
         """获取最近审计记录"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
@@ -368,7 +368,7 @@ class MVPLauncher:
         conn.commit()
         conn.close()
 
-    def _db_get_state(self) -> Dict:
+    def _db_get_state(self) -> Dict[str, Any]:
         """获取当前状态"""
         conn = sqlite3.connect(str(self.config_db))
         cursor = conn.cursor()

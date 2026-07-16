@@ -71,7 +71,7 @@ class LonghunPayment:
         except Exception:
             pass
 
-    def _check_channel(self, channel: str) -> tuple:
+    def _check_channel(self, channel: str) -> tuple[Any, ...]:
         cfg = self.CHANNELS.get(channel)
         if not cfg:
             return False, f"未知支付通道: {channel}，可用: {','.join(self.CHANNELS.keys())}"
@@ -80,7 +80,7 @@ class LonghunPayment:
                 return False, f"缺少环境变量: {key}"
         return True, "ok"
 
-    def create_order(self, amount: float, description: str, channel: str = 'wechat', out_trade_no: str = None) -> dict:
+    def create_order(self, amount: float, description: str, channel: str = 'wechat', out_trade_no: str | None = None) -> dict[str, Any]:
         ok, msg = self._check_channel(channel)
         if not ok:
             return {'success': False, 'error': msg, 'dna': self.dna}
@@ -107,7 +107,7 @@ class LonghunPayment:
             'message': '支付通道未接入，请执行道引流程审查后部署',
         }
 
-    def query_order(self, order_id: str, channel: str = 'wechat') -> dict:
+    def query_order(self, order_id: str, channel: str = 'wechat') -> dict[str, Any]:
         ok, msg = self._check_channel(channel)
         if not ok:
             return {'success': False, 'error': msg, 'dna': self.dna}
@@ -124,7 +124,7 @@ class LonghunPayment:
             'message': '支付通道未接入',
         }
 
-    def list_channels(self) -> dict:
+    def list_channels(self) -> dict[str, Any]:
         channels = []
         for cid, cfg in sorted(self.CHANNELS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_channel(cid)

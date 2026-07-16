@@ -11,7 +11,7 @@ DNA:#龍芯⚡️2026-06-07-MCP-BUILDER-FILE2-v1.0
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 class MCPBuilder:
     """MCP 服务器快速构建器"""
@@ -23,7 +23,7 @@ class MCPBuilder:
         self.resources: List[Dict] = []
         self.created_at = datetime.now().isoformat()
     
-    def add_tool(self, name: str, description: str, params: Dict = None) -> None:
+    def add_tool(self, name: str, description: str, params: Dict[str, Any] = None) -> None:
         """添加工具定义"""
         tool = {
             "name": name,
@@ -99,7 +99,7 @@ if __name__ == "__main__":
 '''
         return code
     
-    def generate_config(self) -> Dict:
+    def generate_config(self) -> Dict[str, Any]:
         """生成 MCP 配置"""
         return {
             "name": self.name,

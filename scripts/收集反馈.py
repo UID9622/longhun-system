@@ -38,7 +38,7 @@ def _生成DNA(来源: str, 内容摘要: str) -> str:
     return f"#龍芯⚡️{日期}-{来源.upper()}-{哈希}"
 
 
-def _读取jsonl(路径: Path) -> list:
+def _读取jsonl(路径: Path) -> list[Any]:
     if not 路径.exists():
         return []
     结果 = []
@@ -54,7 +54,7 @@ def _读取jsonl(路径: Path) -> list:
     return 结果
 
 
-def _收集机器人日志() -> list:
+def _收集机器人日志() -> list[Any]:
     条目 = []
     for 路径 in LOGS:
         for 记录 in _读取jsonl(路径):
@@ -79,7 +79,7 @@ def _收集机器人日志() -> list:
     return 条目
 
 
-def _收集评估报告() -> list:
+def _收集评估报告() -> list[Any]:
     条目 = []
     if not EVAL_DIR.exists():
         return 条目
@@ -97,7 +97,7 @@ def _收集评估报告() -> list:
     return 条目
 
 
-def _收集用户反馈目录() -> list:
+def _收集用户反馈目录() -> list[Any]:
     条目 = []
     if not FEEDBACK_DIR.exists():
         return 条目

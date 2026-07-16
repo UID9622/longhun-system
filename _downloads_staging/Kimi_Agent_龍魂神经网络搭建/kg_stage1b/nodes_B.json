@@ -1,0 +1,768 @@
+{
+  "metadata": {
+    "graph": "B",
+    "graph_name": "贡献者永恒回报机制（治理层）",
+    "system_uid": "UID9622",
+    "version": "v1.0",
+    "created_at": "2026-06-27T00:00:00Z",
+    "last_updated": "2026-06-27T00:00:00Z",
+    "node_count": 25,
+    "edge_count": 35,
+    "category_distribution": {
+      "CONTRIBUTION": 4,
+      "FUSE": 4,
+      "INHERIT": 4,
+      "POOL": 4,
+      "PRINCIPLE": 5,
+      "REWARD": 4
+    },
+    "layer_distribution": {
+      "foundation": 4,
+      "governance": 9,
+      "mechanism": 12
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "principle_001",
+      "name": "取之于民，用之于民",
+      "category": "PRINCIPLE",
+      "layer": "governance",
+      "level": 1,
+      "parent_id": null,
+      "description": "所有资源来源于社区贡献，最终回馈于社区成员",
+      "properties": {
+        "source": "民间",
+        "target": "民间",
+        "nature": "循环"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-P001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "principle_002",
+      "name": "贡献即存档",
+      "category": "PRINCIPLE",
+      "layer": "governance",
+      "level": 1,
+      "parent_id": null,
+      "description": "任何贡献行为自动记录在案，成为可追溯的档案",
+      "properties": {
+        "persistence": "permanent",
+        "auto_record": true
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-P002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "principle_003",
+      "name": "回馈不依赖商业利润",
+      "category": "PRINCIPLE",
+      "layer": "governance",
+      "level": 1,
+      "parent_id": null,
+      "description": "回馈机制独立于商业利润，确保纯粹性",
+      "properties": {
+        "commercial_dependency": false,
+        "funding_sources": [
+          "接入费",
+          "主题包",
+          "捐赠"
+        ]
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-P003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "principle_004",
+      "name": "世袭继承",
+      "category": "PRINCIPLE",
+      "layer": "governance",
+      "level": 1,
+      "parent_id": null,
+      "description": "贡献者权益可由后代继承，形成代际传承",
+      "properties": {
+        "hereditary": true,
+        "generations": "unlimited"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-P004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "principle_005",
+      "name": "永不掩盖",
+      "category": "PRINCIPLE",
+      "layer": "governance",
+      "level": 1,
+      "parent_id": null,
+      "description": "所有记录透明公开，不允许掩盖或删除",
+      "properties": {
+        "transparency": "full",
+        "deletion_allowed": false
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-P005-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "contrib_001",
+      "name": "贡献三维度",
+      "category": "CONTRIBUTION",
+      "layer": "governance",
+      "level": 2,
+      "parent_id": "principle_002",
+      "description": "贡献评估的三个维度，构成完整贡献画像",
+      "properties": {
+        "total_dimensions": 3,
+        "evaluation_method": "weighted_sum"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-CONTRIBUTION-C001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "contrib_002",
+      "name": "代码贡献",
+      "category": "CONTRIBUTION",
+      "layer": "governance",
+      "level": 2,
+      "parent_id": "contrib_001",
+      "description": "通过代码提交、PR、Bug修复等技术贡献",
+      "properties": {
+        "weight_percent": 40,
+        "measurement": "commits+prs+reviews",
+        "weight": 0.4
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-CONTRIBUTION-C002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "contrib_003",
+      "name": "协议/文档贡献",
+      "category": "CONTRIBUTION",
+      "layer": "governance",
+      "level": 2,
+      "parent_id": "contrib_001",
+      "description": "协议设计、文档编写、规范制定等知识贡献",
+      "properties": {
+        "weight_percent": 30,
+        "measurement": "docs+specs+protocols",
+        "weight": 0.3
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-CONTRIBUTION-C003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "contrib_004",
+      "name": "传播/社区贡献",
+      "category": "CONTRIBUTION",
+      "layer": "governance",
+      "level": 2,
+      "parent_id": "contrib_001",
+      "description": "社区运营、推广传播、用户引导等生态贡献",
+      "properties": {
+        "weight_percent": 30,
+        "measurement": "events+content+referrals",
+        "weight": 0.3
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-CONTRIBUTION-C004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "reward_001",
+      "name": "回馈机制",
+      "category": "REWARD",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "principle_001",
+      "description": "将收入按比例回馈给贡献者的完整机制",
+      "properties": {
+        "activation_threshold": "季度结算",
+        "distribution_method": "自动分配"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-REWARD-R001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "reward_002",
+      "name": "回馈来源",
+      "category": "REWARD",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "reward_001",
+      "description": "回馈资金的收入来源渠道",
+      "properties": {
+        "sources": [
+          "接入费",
+          "主题包销售",
+          "社区捐赠"
+        ],
+        "non_commercial": true,
+        "profit_exclusion": true
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-REWARD-R002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "reward_003",
+      "name": "资金池分配",
+      "category": "REWARD",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "reward_001",
+      "description": "收入按固定比例分配至回馈池和维护池",
+      "properties": {
+        "reward_pool_percent": 60,
+        "maintenance_pool_percent": 40,
+        "allocation_formula": "fixed_ratio"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-REWARD-R003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "reward_004",
+      "name": "回馈公式",
+      "category": "REWARD",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "reward_001",
+      "description": "个人应得回馈的计算公式",
+      "properties": {
+        "formula": "(个人权重 / 总权重) × 季度池",
+        "calculation_period": "quarterly",
+        "transparency": "public"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-REWARD-R004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "pool_001",
+      "name": "三池结构",
+      "category": "POOL",
+      "layer": "mechanism",
+      "level": 4,
+      "parent_id": "reward_003",
+      "description": "回馈资金的三种池化分配结构",
+      "properties": {
+        "pool_count": 3,
+        "purpose": "分层管理"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-POOL-PL001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "pool_002",
+      "name": "个人权益池",
+      "category": "POOL",
+      "layer": "mechanism",
+      "level": 4,
+      "parent_id": "pool_001",
+      "description": "个人可直接领取的权益份额",
+      "properties": {
+        "claimable": true,
+        "waivable": true,
+        "auto_flow": "放弃→基金池",
+        "nature": "个人"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-POOL-PL002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "pool_003",
+      "name": "基金池",
+      "category": "POOL",
+      "layer": "mechanism",
+      "level": 4,
+      "parent_id": "pool_001",
+      "description": "汇集放弃份额的长期基金",
+      "properties": {
+        "source": "放弃份额自动流入",
+        "usage": "长期发展",
+        "nature": "集体"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-POOL-PL003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "pool_004",
+      "name": "扶持池",
+      "category": "POOL",
+      "layer": "mechanism",
+      "level": 4,
+      "parent_id": "pool_001",
+      "description": "按需分配给有需要的贡献者",
+      "properties": {
+        "allocation_method": "按需分配",
+        "approval_required": true,
+        "nature": "救济"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-POOL-PL004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "inherit_001",
+      "name": "世袭继承机制",
+      "category": "INHERIT",
+      "layer": "foundation",
+      "level": 5,
+      "parent_id": "principle_004",
+      "description": "贡献权益的代际传承机制",
+      "properties": {
+        "hereditary": true,
+        "generations": "unlimited",
+        "verification_required": true
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-INHERIT-I001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "inherit_002",
+      "name": "贡献档案永久保留",
+      "category": "INHERIT",
+      "layer": "foundation",
+      "level": 5,
+      "parent_id": "inherit_001",
+      "description": "所有贡献记录永久存储，不可删除",
+      "properties": {
+        "retention": "permanent",
+        "immutable": true,
+        "storage": "分布式"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-INHERIT-I002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "inherit_003",
+      "name": "后代权益继承",
+      "category": "INHERIT",
+      "layer": "foundation",
+      "level": 5,
+      "parent_id": "inherit_001",
+      "description": "贡献者后代可继承未领取权益",
+      "properties": {
+        "inheritance_scope": "未领取权益",
+        "claim_window": "验证后30年",
+        "proof_required": "DNA验证"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-INHERIT-I003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "inherit_004",
+      "name": "DNA追溯链延续",
+      "category": "INHERIT",
+      "layer": "foundation",
+      "level": 5,
+      "parent_id": "inherit_001",
+      "description": "追溯链可在代际间延续",
+      "properties": {
+        "chain_continuity": "generational",
+        "format": "#龍芯⚡️{DATE}-LHKG-{TYPE}-{ID}-v{N}",
+        "version_increment": "inheritance+1"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-INHERIT-I004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "fuse_b001",
+      "name": "道德绑架熔断机制",
+      "category": "FUSE",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "principle_005",
+      "description": "识别并熔断道德绑架行为的机制",
+      "properties": {
+        "trigger_patterns": [
+          "索取",
+          "拒绝",
+          "情感勒索"
+        ],
+        "response_type": "hard_stop",
+        "record_retention": "permanent"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-FUSE-F001-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "fuse_b002",
+      "name": "行为模式识别",
+      "category": "FUSE",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "fuse_b001",
+      "description": "自动识别索取/拒绝等道德绑架行为模式",
+      "properties": {
+        "detection_method": "pattern_matching",
+        "patterns": [
+          "反复索取",
+          "拒绝合作",
+          "情感绑架"
+        ],
+        "confidence_threshold": 0.85
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-FUSE-F002-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "fuse_b003",
+      "name": "会话归档标记",
+      "category": "FUSE",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "fuse_b001",
+      "description": "将违规会话归档并对用户进行标记",
+      "properties": {
+        "archive_scope": "full_conversation",
+        "mark_type": "permanent_tag",
+        "visibility": "internal_only"
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-FUSE-F003-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    },
+    {
+      "node_id": "fuse_b004",
+      "name": "后续请求拒绝",
+      "category": "FUSE",
+      "layer": "mechanism",
+      "level": 3,
+      "parent_id": "fuse_b001",
+      "description": "拒绝被熔断用户的后续请求",
+      "properties": {
+        "block_scope": "all_requests",
+        "duration": "permanent",
+        "appeal_allowed": false
+      },
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-FUSE-F004-v1.0",
+      "status": "active",
+      "created_at": "2026-06-27T00:00:00Z"
+    }
+  ],
+  "internal_edges": [
+    {
+      "edge_id": "edge_b001",
+      "source": "principle_001",
+      "target": "principle_002",
+      "relation": "supports",
+      "description": "取之于民用之于民→贡献即存档"
+    },
+    {
+      "edge_id": "edge_b002",
+      "source": "principle_002",
+      "target": "principle_003",
+      "relation": "enables",
+      "description": "贡献即存档→回馈不依赖商业利润"
+    },
+    {
+      "edge_id": "edge_b003",
+      "source": "principle_003",
+      "target": "principle_004",
+      "relation": "leads_to",
+      "description": "回馈不依赖→世袭继承"
+    },
+    {
+      "edge_id": "edge_b004",
+      "source": "principle_004",
+      "target": "principle_005",
+      "relation": "requires",
+      "description": "世袭继承→永不掩盖"
+    },
+    {
+      "edge_id": "edge_b005",
+      "source": "principle_002",
+      "target": "contrib_001",
+      "relation": "manifests_as",
+      "description": "贡献即存档→贡献三维度"
+    },
+    {
+      "edge_id": "edge_b006",
+      "source": "contrib_001",
+      "target": "contrib_002",
+      "relation": "contains",
+      "description": "代码贡献(40%)"
+    },
+    {
+      "edge_id": "edge_b007",
+      "source": "contrib_001",
+      "target": "contrib_003",
+      "relation": "contains",
+      "description": "协议文档贡献(30%)"
+    },
+    {
+      "edge_id": "edge_b008",
+      "source": "contrib_001",
+      "target": "contrib_004",
+      "relation": "contains",
+      "description": "传播社区贡献(30%)"
+    },
+    {
+      "edge_id": "edge_b009",
+      "source": "contrib_002",
+      "target": "reward_001",
+      "relation": "triggers",
+      "description": "代码贡献→回馈机制"
+    },
+    {
+      "edge_id": "edge_b010",
+      "source": "contrib_003",
+      "target": "reward_001",
+      "relation": "triggers",
+      "description": "文档贡献→回馈机制"
+    },
+    {
+      "edge_id": "edge_b011",
+      "source": "contrib_004",
+      "target": "reward_001",
+      "relation": "triggers",
+      "description": "社区贡献→回馈机制"
+    },
+    {
+      "edge_id": "edge_b012",
+      "source": "reward_001",
+      "target": "reward_002",
+      "relation": "contains",
+      "description": "回馈来源"
+    },
+    {
+      "edge_id": "edge_b013",
+      "source": "reward_001",
+      "target": "reward_003",
+      "relation": "contains",
+      "description": "资金池分配"
+    },
+    {
+      "edge_id": "edge_b014",
+      "source": "reward_001",
+      "target": "reward_004",
+      "relation": "contains",
+      "description": "回馈公式"
+    },
+    {
+      "edge_id": "edge_b015",
+      "source": "reward_003",
+      "target": "pool_001",
+      "relation": "routes_to",
+      "description": "资金分配→三池结构"
+    },
+    {
+      "edge_id": "edge_b016",
+      "source": "pool_001",
+      "target": "pool_002",
+      "relation": "contains",
+      "description": "个人权益池"
+    },
+    {
+      "edge_id": "edge_b017",
+      "source": "pool_001",
+      "target": "pool_003",
+      "relation": "contains",
+      "description": "基金池"
+    },
+    {
+      "edge_id": "edge_b018",
+      "source": "pool_001",
+      "target": "pool_004",
+      "relation": "contains",
+      "description": "扶持池"
+    },
+    {
+      "edge_id": "edge_b019",
+      "source": "pool_002",
+      "target": "pool_003",
+      "relation": "overflows_to",
+      "description": "放弃份额→基金池"
+    },
+    {
+      "edge_id": "edge_b020",
+      "source": "pool_003",
+      "target": "pool_004",
+      "relation": "feeds",
+      "description": "基金→扶持池"
+    },
+    {
+      "edge_id": "edge_b021",
+      "source": "inherit_001",
+      "target": "inherit_002",
+      "relation": "contains",
+      "description": "贡献档案永久保留"
+    },
+    {
+      "edge_id": "edge_b022",
+      "source": "inherit_001",
+      "target": "inherit_003",
+      "relation": "contains",
+      "description": "后代权益继承"
+    },
+    {
+      "edge_id": "edge_b023",
+      "source": "inherit_001",
+      "target": "inherit_004",
+      "relation": "contains",
+      "description": "DNA追溯链延续"
+    },
+    {
+      "edge_id": "edge_b024",
+      "source": "inherit_002",
+      "target": "inherit_004",
+      "relation": "enables",
+      "description": "档案保留→追溯链延续"
+    },
+    {
+      "edge_id": "edge_b025",
+      "source": "fuse_b001",
+      "target": "fuse_b002",
+      "relation": "contains",
+      "description": "行为模式识别"
+    },
+    {
+      "edge_id": "edge_b026",
+      "source": "fuse_b001",
+      "target": "fuse_b003",
+      "relation": "contains",
+      "description": "会话归档标记"
+    },
+    {
+      "edge_id": "edge_b027",
+      "source": "fuse_b001",
+      "target": "fuse_b004",
+      "relation": "contains",
+      "description": "后续请求拒绝"
+    },
+    {
+      "edge_id": "edge_b028",
+      "source": "fuse_b002",
+      "target": "fuse_b003",
+      "relation": "triggers",
+      "description": "识别→归档标记"
+    },
+    {
+      "edge_id": "edge_b029",
+      "source": "fuse_b003",
+      "target": "fuse_b004",
+      "relation": "triggers",
+      "description": "归档→拒绝后续"
+    },
+    {
+      "edge_id": "edge_b030",
+      "source": "reward_001",
+      "target": "pool_002",
+      "relation": "distributes_to",
+      "description": "回馈→个人权益池"
+    },
+    {
+      "edge_id": "edge_b031",
+      "source": "pool_002",
+      "target": "inherit_003",
+      "relation": "passes_to",
+      "description": "权益→后代继承"
+    },
+    {
+      "edge_id": "edge_b032",
+      "source": "inherit_002",
+      "target": "contrib_001",
+      "relation": "records",
+      "description": "档案→记录贡献"
+    },
+    {
+      "edge_id": "edge_b033",
+      "source": "principle_005",
+      "target": "fuse_b001",
+      "relation": "protects_via",
+      "description": "永不掩盖→熔断机制"
+    },
+    {
+      "edge_id": "edge_b034",
+      "source": "reward_002",
+      "target": "principle_003",
+      "relation": "honors",
+      "description": "回馈来源→不依赖商业"
+    },
+    {
+      "edge_id": "edge_b035",
+      "source": "pool_004",
+      "target": "principle_001",
+      "relation": "realizes",
+      "description": "扶持池→用之于民"
+    }
+  ],
+  "state_penetration_rules": [
+    {
+      "rule_id": "penetration_001",
+      "rule_name": "主权层→治理层状态穿透",
+      "description": "当主权层节点状态变为 suspended 时，其下所有 governance 层节点状态变为 pending",
+      "trigger": {
+        "source_layer": "A",
+        "source_status": "suspended",
+        "affected_scope": "all_governance_nodes_in_B"
+      },
+      "response": {
+        "target_layer": "B",
+        "target_layer_filter": "governance",
+        "new_status": "pending",
+        "propagation": "cascade_all"
+      },
+      "priority": "critical",
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PENETRATION-PN001-v1.0",
+      "example": "sov_state_001.status='suspended' → principle_001~principle_005, contrib_001~contrib_004 全部变为 pending"
+    },
+    {
+      "rule_id": "penetration_002",
+      "rule_name": "治理层→机制层状态穿透",
+      "description": "当治理层节点状态变为 terminated 时，关联的 mechanism 层节点状态变为 suspended",
+      "trigger": {
+        "source_layer": "B",
+        "source_status": "terminated",
+        "affected_scope": "related_mechanism_nodes"
+      },
+      "response": {
+        "target_layer": "B",
+        "target_layer_filter": "mechanism",
+        "new_status": "suspended",
+        "propagation": "related_only"
+      },
+      "priority": "high",
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PENETRATION-PN002-v1.0",
+      "example": "fuse_b001.status='terminated' → fuse_b002~fuse_b004, reward_001~reward_004 全部变为 suspended"
+    },
+    {
+      "rule_id": "penetration_003",
+      "rule_name": "治理层恢复联动",
+      "description": "当主权层节点状态恢复为 active 时，治理层 governance 节点自动恢复为 active",
+      "trigger": {
+        "source_layer": "A",
+        "source_status": "active",
+        "previous_status": "suspended"
+      },
+      "response": {
+        "target_layer": "B",
+        "target_layer_filter": "governance",
+        "new_status": "active",
+        "propagation": "cascade_all"
+      },
+      "priority": "high",
+      "dna_trace": "#龍芯⚡️2026-06-27-LHKG-PENETRATION-PN003-v1.0",
+      "example": "sov_state_001.status='active' → 所有 governance 层节点恢复 active"
+    }
+  ]
+}

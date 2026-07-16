@@ -22,7 +22,7 @@ NOTION_EXPORT_DIRS = [
 OUTPUT_INDEX = Path.home() / ".longhun" / "index" / "notion_exports.json"
 
 
-def parse_index_file(path: Path) -> dict:
+def parse_index_file(path: Path) -> dict[str, Any]:
     """解析带 YAML/comment 前缀的 _INDEX.json 文件。"""
     text = path.read_text(encoding="utf-8")
     # 去掉开头的注释行
@@ -76,7 +76,7 @@ def build_index():
     print(f"   DNA: {DNA}")
 
 
-def search_index(keywords: list, limit: int = 20):
+def search_index(keywords: list[Any], limit: int = 20):
     """简单关键词搜索。"""
     if not OUTPUT_INDEX.exists():
         build_index()

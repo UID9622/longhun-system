@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <rect width="200" height="200" fill="#0a0908"/>
+  <path d="M 0 20 L 20 20 L 20 40 L 40 40" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 40 20 L 60 20 L 60 40 L 80 40" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 80 20 L 100 20 L 100 40 L 120 40" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 120 20 L 140 20 L 140 40 L 160 40" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 160 20 L 180 20 L 180 40 L 200 40" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 0 60 L 20 60 L 20 80 L 40 80" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 40 60 L 60 60 L 60 80 L 80 80" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 80 60 L 100 60 L 100 80 L 120 80" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 120 60 L 140 60 L 140 80 L 160 80" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 160 60 L 180 60 L 180 80 L 200 80" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 0 100 L 20 100 L 20 120 L 40 120" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 40 100 L 60 100 L 60 120 L 80 120" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 80 100 L 100 100 L 100 120 L 120 120" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 120 100 L 140 100 L 140 120 L 160 120" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 160 100 L 180 100 L 180 120 L 200 120" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 0 140 L 20 140 L 20 160 L 40 160" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 40 140 L 60 140 L 60 160 L 80 160" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 80 140 L 100 140 L 100 160 L 120 160" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 120 140 L 140 140 L 140 160 L 160 160" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 160 140 L 180 140 L 180 160 L 200 160" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 0 180 L 20 180 L 20 200 L 40 200" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 40 180 L 60 180 L 60 200 L 80 200" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 80 180 L 100 180 L 100 200 L 120 200" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 120 180 L 140 180 L 140 200 L 160 200" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 160 180 L 180 180 L 180 200 L 200 200" fill="none" stroke="#b87333" stroke-width="1.5" opacity="0.6"/>
+</svg>

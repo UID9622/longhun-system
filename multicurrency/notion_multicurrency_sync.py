@@ -20,7 +20,7 @@ import json
 import time
 import sqlite3
 import logging
-from typing import Dict, Optional, List, Tuple
+from typing import Dict, Optional, List, Tuple, Any
 from datetime import datetime, timedelta
 from dataclasses import asdict
 import urllib.request
@@ -65,7 +65,7 @@ class NotionAPI:
         """检查是否已配置"""
         return bool(self.token) and bool(self.database_id)
 
-    def _make_request(self, method: str, endpoint: str, data: Dict = None) -> Optional[Dict]:
+    def _make_request(self, method: str, endpoint: str, data: Dict[str, Any] = None) -> Optional[Dict]:
         """发送 Notion API 请求"""
         try:
             url = f"{self.base_url}{endpoint}"
@@ -91,7 +91,7 @@ class NotionAPI:
 
         return None
 
-    def query_database(self, filter_obj: Dict = None) -> Optional[List[Dict]]:
+    def query_database(self, filter_obj: Dict[str, Any] = None) -> Optional[List[Dict]]:
         """查询 Notion 数据库"""
         data = {
             'page_size': 100
@@ -108,7 +108,7 @@ class NotionAPI:
         """取得页面信息"""
         return self._make_request('GET', f'/pages/{page_id}')
 
-    def update_page(self, page_id: str, properties: Dict) -> bool:
+    def update_page(self, page_id: str, properties: Dict[str, Any]) -> bool:
         """更新页面属性"""
         data = {
             'properties': properties
@@ -116,7 +116,7 @@ class NotionAPI:
         response = self._make_request('PATCH', f'/pages/{page_id}', data)
         return response is not None
 
-    def create_page(self, properties: Dict) -> Optional[str]:
+    def create_page(self, properties: Dict[str, Any]) -> Optional[str]:
         """在数据库中创建新页面"""
         data = {
             'parent': {'database_id': self.database_id},
@@ -344,7 +344,7 @@ class NotionMulticurrencySyncManager:
             return '异常'
         return '未知'
 
-    def sync_all(self) -> Dict:
+    def sync_all(self) -> Dict[str, Any]:
         """同步所有支持的币种对"""
         logger.info("=" * 70)
         logger.info("🔄 开始多币种同步")
@@ -378,7 +378,7 @@ class NotionMulticurrencySyncManager:
             if (self.success_count + self.error_count) > 0 else 0
         }
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         """取得同步状态"""
         return {
             'notion_configured': self.notion_api.is_configured(),

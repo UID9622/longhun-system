@@ -150,7 +150,7 @@ class NotionClient:
             logger.error(f"查询异常: {e}")
             return []
 
-    def update_page(self, page_id: str, properties: Dict) -> bool:
+    def update_page(self, page_id: str, properties: Dict[str, Any]) -> bool:
         """更新页面"""
         if not REQUESTS_AVAILABLE or not self.api_key:
             logger.warning("无法连接 Notion，模拟更新成功")
@@ -177,7 +177,7 @@ class NotionClient:
             logger.error(f"更新异常: {e}")
             return False
 
-    def create_page(self, database_id: str, properties: Dict) -> Optional[str]:
+    def create_page(self, database_id: str, properties: Dict[str, Any]) -> Optional[str]:
         """创建页面"""
         if not REQUESTS_AVAILABLE or not self.api_key:
             logger.warning("无法连接 Notion，模拟创建成功")
@@ -274,7 +274,7 @@ class NotionSyncManager:
     def sync_item(
         self,
         local_id: str,
-        local_data: Dict,
+        local_data: Dict[str, Any],
         remote_id: Optional[str] = None
     ) -> bool:
         """

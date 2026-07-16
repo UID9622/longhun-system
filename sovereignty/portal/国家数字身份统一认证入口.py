@@ -14,7 +14,7 @@ import json
 import hashlib
 import secrets
 from datetime import datetime, timedelta
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 
 class 魂灵ID:
@@ -38,7 +38,7 @@ class 魂灵ID:
         data = f"{self.身份证编号}:{盐}"
         return hashlib.sha3_256(data.encode("utf-8")).hexdigest()
 
-    def 生成通行令牌(self, 有效期小时: int = 24) -> Dict:
+    def 生成通行令牌(self, 有效期小时: int = 24) -> Dict[str, Any]:
         """生成一次认证、全网通行的魂灵ID令牌"""
         令牌 = {
             "魂灵ID哈希": self.身份哈希,
@@ -63,7 +63,7 @@ class 服务商接入点:
         self.服务类型 = 服务类型
         self.已验证记录 = []
 
-    def 验证身份(self, 令牌: Dict) -> Dict:
+    def 验证身份(self, 令牌: Dict[str, Any]) -> Dict[str, Any]:
         """
         服务商只能验证身份真伪，不能采集任何其他信息。
         返回：验证结果 + 允许的最小服务权限
@@ -112,7 +112,7 @@ class 服务商接入点:
             "说明": "服务商仅获得验证结果，不获得任何个人信息"
         }
 
-    def _最小权限(self) -> list:
+    def _最小权限(self) -> list[Any]:
         """根据服务类型返回最小必要权限"""
         权限库 = {
             "门禁": ["验证是否为业主/住户"],
@@ -142,7 +142,7 @@ class 国家数字身份统一认证中心:
         }
         self.接入服务商 = []
 
-    def 注册服务商(self, 服务商: 服务商接入点) -> Dict:
+    def 注册服务商(self, 服务商: 服务商接入点) -> Dict[str, Any]:
         self.接入服务商.append(服务商)
         return {
             "状态": "已接入",

@@ -21,7 +21,7 @@ GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
 
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 import hashlib
 from datetime import datetime
@@ -345,7 +345,7 @@ class FormulaCatalog:
             return f"❌ 公式 {fid} 不存在"
         return f"🧮 引用 {fid}（{f.title}）— {f.canon_page}"
     
-    def verification_report(self) -> Dict:
+    def verification_report(self) -> Dict[str, Any]:
         """生成验证报告"""
         verifiable = [f for f in self.formulas.values() if f.verifiable]
         return {

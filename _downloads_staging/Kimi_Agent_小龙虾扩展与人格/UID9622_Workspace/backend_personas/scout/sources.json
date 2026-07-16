@@ -1,0 +1,161 @@
+{
+  "_meta": {
+    "description": "「侦察兵·信息猎手 P-AK-SCOUT」数据源配置文件",
+    "dna_trace": "#SCOUT-AGENT-CONFIG-20251214-001",
+    "version": "1.0.0",
+    "updated": "2025-12-14",
+    "format": "每个RSS源包含: name(名称), url(地址), enabled(是否启用), credibility(可选的可信度覆盖)"
+  },
+  "github_trending": {
+    "enabled": true,
+    "url": "https://github.com/trending",
+    "description": "GitHub Trending 页面爬虫",
+    "credibility": "high",
+    "dna_tag": "GH"
+  },
+  "rss_feeds": [
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss",
+      "enabled": true,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "Y Combinator 技术新闻聚合"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "科技创业新闻"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "科技与数字文化新闻"
+    },
+    {
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "enabled": true,
+      "credibility": "high",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "GitHub 官方博客"
+    },
+    {
+      "name": "OSChina",
+      "url": "https://www.oschina.net/news/rss",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "zh",
+      "description": "开源中国技术新闻"
+    },
+    {
+      "name": "SegmentFault",
+      "url": "https://segmentfault.com/articles/feeds",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "zh",
+      "description": "思否开发者社区"
+    },
+    {
+      "name": "CSDN",
+      "url": "https://blog.csdn.net/rss.html",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "zh",
+      "description": "CSDN技术社区"
+    },
+    {
+      "name": "Solidot",
+      "url": "https://www.solidot.org/index.rss",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "zh",
+      "description": "奇客资讯 - 科技新闻"
+    },
+    {
+      "name": "FreeBuf",
+      "url": "https://www.freebuf.com/feed",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "zh",
+      "description": "网络安全行业门户"
+    },
+    {
+      "name": "SecurityFocus",
+      "url": "https://www.securityfocus.com/rss/vulnerabilities.xml",
+      "enabled": false,
+      "credibility": "high",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "安全漏洞 RSS (官方)"
+    },
+    {
+      "name": "ArXiv CS",
+      "url": "https://rss.arxiv.org/rss/cs",
+      "enabled": false,
+      "credibility": "high",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "ArXiv 计算机科学论文"
+    },
+    {
+      "name": "Dev.to",
+      "url": "https://dev.to/feed",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "开发者社区聚合"
+    },
+    {
+      "name": "Reddit Programming",
+      "url": "https://www.reddit.com/r/programming/.rss",
+      "enabled": false,
+      "credibility": "medium",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "Reddit Programming板块"
+    },
+    {
+      "name": "AWS Blog",
+      "url": "https://aws.amazon.com/blogs/aws/feed/",
+      "enabled": false,
+      "credibility": "high",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "AWS 官方博客"
+    },
+    {
+      "name": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/rss/",
+      "enabled": false,
+      "credibility": "high",
+      "dna_tag": "RSS",
+      "language": "en",
+      "description": "Cloudflare 官方博客"
+    }
+  ],
+  "keyword_default_groups": {
+    "security": ["CVE", "vulnerability", "exploit", "0day", "RCE", "SQL injection", "XSS", "security"],
+    "ai_ml": ["AI", "machine learning", "deep learning", "LLM", "GPT", "neural network", "模型"],
+    "backend": ["Python", "Go", "Rust", "Java", "backend", "server", "API", "microservice"],
+    "frontend": ["React", "Vue", "Angular", "frontend", "JavaScript", "TypeScript", "CSS"],
+    "devops": ["Kubernetes", "Docker", "CI/CD", "DevOps", "cloud", "serverless", "terraform"],
+    "database": ["database", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch", "SQL"]
+  }
+}

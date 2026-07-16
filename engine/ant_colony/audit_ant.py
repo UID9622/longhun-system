@@ -74,7 +74,7 @@ class TraceNode:
     fixed_point_level: int
     color_state: str
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "hop": self.hop,
             "module": self.module_id,
@@ -117,7 +117,7 @@ class AuditReport:
                 lines.append(f"     - {a}")
         return "\n".join(lines)
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "decision_id": self.decision_id,
             "trace_chain": [n.to_dict() for n in self.trace_chain],
@@ -244,7 +244,7 @@ class AuditAnt:
                     related.append((key, trail))
         return related
 
-    def _summarize_payload(self, metadata: dict) -> str:
+    def _summarize_payload(self, metadata: dict[str, Any]) -> str:
         """提取 payload 摘要"""
         payload = metadata.get("payload", metadata.get("task", ""))
         if isinstance(payload, dict):
@@ -385,7 +385,7 @@ class AuditAnt:
 
     # ── 统计 ──
 
-    def get_audit_stats(self) -> dict:
+    def get_audit_stats(self) -> dict[str, Any]:
         """获取审计统计数据"""
         levels = defaultdict(int)
         for report in self._audit_log:

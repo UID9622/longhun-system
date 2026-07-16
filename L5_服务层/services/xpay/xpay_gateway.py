@@ -30,7 +30,7 @@ import base64
 import uuid
 import threading
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict, field
 from enum import Enum
 from pathlib import Path
@@ -76,7 +76,7 @@ class DNACodec:
     VERSION = "1.0"
     
     @staticmethod
-    def compress(data: Dict) -> str:
+    def compress(data: Dict[str, Any]) -> str:
         """压缩交易数据"""
         json_data = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
         compressed = zlib.compress(json_data.encode('utf-8'), level=9)
@@ -138,7 +138,7 @@ class BehavCryptoSignature:
     timestamp: str                     # 生成时间
     
     @staticmethod
-    def generate(transaction_id: str, transaction_data: Dict) -> 'BehavCryptoSignature':
+    def generate(transaction_id: str, transaction_data: Dict[str, Any]) -> 'BehavCryptoSignature':
         """生成签证"""
         # 计算行为特征
         behavior_hash = hashlib.sha256(json.dumps(transaction_data, sort_keys=True).encode()).hexdigest()
@@ -202,9 +202,9 @@ class Transaction:
     previous_tx_hash: Optional[str] = None
     
     # 元数据
-    metadata: Dict = field(default_factory=dict)
+    metadata: Dict[str, Any] = field(default_factory=dict)
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """转换为字典（用于压缩）"""
         return {
             'transaction_id': self.transaction_id,
@@ -530,7 +530,7 @@ class XPayCore:
             return [t for t in self.transaction_history if t.sender_id == sender_id]
         return self.transaction_history
     
-    def verify_transaction(self, transaction_id: str) -> Dict:
+    def verify_transaction(self, transaction_id: str) -> Dict[str, Any]:
         """验证交易完整性"""
         tx = self.get_transaction(transaction_id)
         
@@ -553,7 +553,7 @@ class XPayCore:
             'created_at': tx.created_at
         }
     
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取系统统计"""
         total_amount = sum(t.amount for t in self.transaction_history)
         total_fee = sum(t.fee for t in self.transaction_history)
@@ -593,7 +593,7 @@ class XPayAPI:
     def __init__(self, core: XPayCore):
         self.core = core
     
-    def create_transaction(self, params: Dict) -> Dict:
+    def create_transaction(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """创建交易"""
         try:
             success, tx = self.core.process_transaction(
@@ -628,7 +628,7 @@ class XPayAPI:
                 'error': str(e)
             }
     
-    def get_transaction(self, transaction_id: str) -> Dict:
+    def get_transaction(self, transaction_id: str) -> Dict[str, Any]:
         """查询交易"""
         tx = self.core.get_transaction(transaction_id)
         
@@ -650,7 +650,7 @@ class XPayAPI:
             }
         }
     
-    def get_history(self, sender_id: Optional[str] = None) -> Dict:
+    def get_history(self, sender_id: Optional[str] = None) -> Dict[str, Any]:
         """获取历史"""
         history = self.core.get_transaction_history(sender_id)
         
@@ -670,11 +670,11 @@ class XPayAPI:
             'count': len(history)
         }
     
-    def verify(self, transaction_id: str) -> Dict:
+    def verify(self, transaction_id: str) -> Dict[str, Any]:
         """验证交易"""
         return self.core.verify_transaction(transaction_id)
     
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取统计"""
         return self.core.get_stats()
 
@@ -777,7 +777,7 @@ def demo():
     print("✅ XPay支付网关演示完成")
     print("="*60)
 
-def selftest() -> dict:
+def selftest() -> dict[str, Any]:
     """
     自检函数：验证 XPay 核心模块是否正常。
     DNA: #龍芯⚡️2026-07-01-XPAY-SELFTEST-v1.0

@@ -31,7 +31,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Tuple, Set, Optional
+from typing import Dict, List, Tuple, Set, Optional, Any
 import logging
 
 # ═══════════════════════════════════════════════════════════
@@ -89,7 +89,7 @@ class DNAExtractor:
     def __init__(self):
         self.patterns = [re.compile(p) for p in CONFIG["dna_patterns"]]
 
-    def extract(self, content: str, filename: str) -> Dict:
+    def extract(self, content: str, filename: str) -> Dict[str, Any]:
         """从文件内容和文件名提取DNA信息"""
         result = {
             "filename": filename,
@@ -150,7 +150,7 @@ class FileScanner:
         self.scanned_files: Set[str] = set(self.checkpoint.get("scanned", []))
         self.results: List[Dict] = self.checkpoint.get("results", [])
 
-    def _load_checkpoint(self) -> Dict:
+    def _load_checkpoint(self) -> Dict[str, Any]:
         cp_path = os.path.expanduser(CONFIG["checkpoint_file"])
         if os.path.exists(cp_path):
             try:
@@ -257,7 +257,7 @@ class RelationMatrix:
         self.edges: List[Dict] = []
         self.isolated: List[Dict] = []
 
-    def build(self) -> Dict:
+    def build(self) -> Dict[str, Any]:
         """构建关联矩阵"""
         logger.info("构建关联矩阵...")
 
@@ -407,7 +407,7 @@ class RelationMatrix:
         except:
             return False
 
-    def _calc_isolation_days(self, node: Dict) -> int:
+    def _calc_isolation_days(self, node: Dict[str, Any]) -> int:
         """计算孤立天数"""
         modified = node.get("modified_time")
         if modified:
@@ -423,10 +423,10 @@ class RelationMatrix:
 # ═══════════════════════════════════════════════════════════
 
 class Visualizer:
-    def __init__(self, matrix_data: Dict):
+    def __init__(self, matrix_data: Dict[str, Any]):
         self.data = matrix_data
 
-    def to_force_graph_json(self) -> Dict:
+    def to_force_graph_json(self) -> Dict[str, Any]:
         """输出力导向图格式（兼容D3.js/ECharts）"""
         nodes = []
         for i, node in enumerate(self.data["nodes"]):

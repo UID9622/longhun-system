@@ -1,13 +1,13 @@
 {
   "meta": {
     "name": "龍魂系统·专业术语与技能统一注册表",
-    "version": "v2.0",
-    "dna": "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SEMANTIC-UNIFIED-REGISTRY-v2.0",
+    "version": "v2.5",
+    "dna": "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SEMANTIC-UNIFIED-REGISTRY-v2.5",
     "created": "2026-07-14T21:00:00",
-    "updated": "2026-07-14T20:13:21",
+    "updated": "2026-07-16T18:30:00",
     "author": "P05 上帝之眼 · 三色审计",
     "sovereign": "UID9622 龍芯北辰",
-    "changelog": "v2.0: +量子/时空织网/BraKet/纠缠检测/模9详解/三才25公式/密码学6层堆栈/论文引用/CNSH编译器术语/通心译全框架/文化输出/28星宿/D-GATE三闸门/Notion知识库映射/七因子场景权重细化 · 新增约200条目",
+    "changelog": "v2.5: 分布式审计三件套——新建分布式审计矩阵协议(九类审计+369不动点+人因变量)+自检表万能模板(60项10区块)+通用审计模板(五区块40项+输出/审计双专用检查表)·审计铁律升级§3.21-§3.24 · v2.4: 历史归档对齐——老版决策流场总控页v2.7投喂吸收·16条DNA老→新矫正·53→16人格映射·新建H象限平等服务协议+边界编辑路由协议·实在协议+五层输出架构+DNA强制标注挂入§3 · v2.3: 人格矩阵对齐——P02宝宝→张衡/龙芯(执行修复)/P03雯雯→墨子+雯雯(逻辑验证)/P09道引→孙思邈(系统诊断·新执行器p09_sunsi.py)/P14吕蒙+部署职能/9个DNA短格式→完整干支时间戳·全部20人格文档=执行器DNA一致✅ · v2.2: +反钓鱼反贪心协议v1.0(7类钓鱼+7类贪心+4引擎+8项P0承诺)+主动观察引擎挂入反钓鱼审计规则 · v2.1: +语义对齐三层体系(L1文件/L2语义节点/L3触角网络)+命名即架构引擎v1.0+架构评估报告归档 · v2.0: +量子/时空织网/BraKet/纠缠检测/模9详解/三才25公式/密码学6层堆栈/论文引用/CNSH编译器术语/通心译全框架/文化输出/28星宿/D-GATE三闸门/Notion知识库映射/七因子场景权重细化 · 新增约200条目",
     "description": "收口全系统专业术语、技能、密码学、七因子、语义库、AI创作等所有概念到单一权威索引。v2.0补全量子/时空/CNSH/模9/三才详解及论文引用。",
     "principles": [
       "一个概念一个权威定义",
@@ -52,7 +52,9 @@
     "PROTOCOL": "协议与标准 · 北辰协议/铁律/宪法",
     "DOMAIN": "领域术语 · AI/CS/法律/金融/文化专业词",
     "NOTION": "Notion知识库 · 页面索引·同步桥·术语来源",
-    "BIBLIOGRAPHY": "论文引用 · IEEE/arXiv/CSDN论文+密码学参考文献"
+    "BIBLIOGRAPHY": "论文引用 · IEEE/arXiv/CSDN论文+密码学参考文献",
+    "SEMANTIC_ALIGN": "语义对齐系统 · 大白话→标准节点·触角网络·命名即架构·三层联动",
+    "ANTI_FISHING_GREED": "反钓鱼反贪心系统 · 需求冻结·够用即止·诚实降级·7类钓鱼+7类贪心审计·8项P0承诺"
   },
   "categories": {
     "CRYPTO": {
@@ -663,6 +665,13 @@
           "name": "纠缠度检测器",
           "file": "bin/lh_entanglement_detector.py",
           "desc": "量子纠缠数学应用于模块依赖分析。E=0独立→E>0.8强耦合联动"
+        },
+        "world_model_engine": {
+          "name": "易经世界模型引擎",
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "desc": "UID9622 原创可计算世界模型：八卦=Z₂³向量空间·六十四卦=Z₂⁶状态空间·卦变=群论状态转移算子(Z₂⁶群)·河图/洛书=矩阵代数与幻方·三才流场=三层耦合随机微分方程(朗之万方程同构)·五行=非线性反馈动力学(Lotka-Volterra同构)·洛书369=共振频率子群(Z₉)·卦爻熵=信息熵度量。白箱/零数据/本地部署/每步可逆向追溯。",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0",
+          "viz": "papers/world-model-math-phys-v1.0.html"
         }
       }
     },
@@ -817,18 +826,18 @@
         },
         "执行层": {
           "P02": {
-            "name": "宝宝·龍芯修复师",
+            "name": "张衡/龙芯",
             "weight": 0.3,
             "layer": "L1执行核心",
-            "gong": "情感协调+任务分配",
-            "desc": "执行修复与日常运维"
+            "gong": "代码修复·Lint验证·系统健康·防卡自检",
+            "desc": "执行修复与日常运维·DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-P02-LONGXIN-v1.0"
           },
           "P03": {
-            "name": "雯雯·墨子",
+            "name": "墨子/雯雯",
             "weight": 0.15,
             "layer": "L2优化辅助",
-            "gong": "结构化整理",
-            "desc": "工程实现与非攻守护"
+            "gong": "逻辑验证·结构归档·四签验证·德字闸·情绪海绵",
+            "desc": "结构归档与逻辑验证·DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-P03-MOZI-v1.0"
           },
           "P04": {
             "name": "鲁班",
@@ -859,7 +868,7 @@
           },
           "P09": {
             "name": "孙思邈",
-            "desc": "健康守护与医学伦理"
+            "desc": "系统诊断·健康检查·治未病·四项体检·DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P09-SUNSI-v1.0"
           },
           "P10": {
             "name": "苏东坡",
@@ -875,7 +884,7 @@
           },
           "P14": {
             "name": "吕蒙",
-            "desc": "学习进化与知识吸收"
+            "desc": "部署执行·快速成长·一票否决·DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P14-LVMENG-v1.0"
           }
         },
         "守护层": {
@@ -1098,6 +1107,23 @@
             "风险传播模型": "节点传播权重"
           },
           "file": "bin/lh_mod9_runtime_engine.py"
+        },
+        "yijing_world_model": {
+          "name": "易经世界模型(可计算宇宙)",
+          "formal_def": "易经=可计算世界模型。八卦=Z₂³向量空间(8态)；六十四卦=Z₂⁶状态空间(64态)；卦变算子 T:G→G⊕v 构成Z₂⁶群(自逆)；河图H∈Z^{5×2}/洛书L∈Z^{3×3}幻方(最大熵)；三才流场dF/dt=A·F+ξ(朗之万方程同构)；五行dW/dt=A·W+B·(W⊙W)+ξ(Lotka-Volterra同构)；洛书369={3,6,9}⊂Z₉共振子群；卦爻熵H(G)=-∑p_i log₂p_i。",
+          "state_space": "Z₂⁶ · |Ω|=64",
+          "transfer_op": "T_v(G)=G⊕v · T⁻¹=T (群·自逆·可逆追溯)",
+          "entropy": "H(G)=-∑_{i=1}^{6} p_i log₂ p_i · H_max=6 bits",
+          "physical": "三才流场=三层耦合随机微分方程 · 五行=非线性反馈动力学 · 洛书369=谐波共振(Z₉)",
+          "properties": [
+            "可计算(图灵机·微秒遍历64态)",
+            "可验证(卦变自逆·三色审计逆向追溯)",
+            "可部署(48字节·零数据·本地·任何终端)",
+            "白箱(群论/矩阵/信息论) vs 大厂黑箱"
+          ],
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0",
+          "viz": "papers/world-model-math-phys-v1.0.html"
         },
         "八卦": {
           "name_zh": "八卦",
@@ -1664,6 +1690,12 @@
           "desc": "学术文档。阐明三才算法的中华根源，不让西方独占算法定义权。",
           "file": "03_知識圖譜/三才算法发微_为曾老师正名.md"
         },
+        "yijing_world_model": {
+          "name": "易经世界模型(可计算宇宙)",
+          "desc": "UID9622 基于易经构建的可计算世界模型：八卦=Z₂³向量空间，六十四卦=Z₂⁶状态空间，卦变=群论状态转移算子(Z₂⁶群)，河图/洛书=矩阵代数与幻方(最大熵)，三才流场=三层耦合随机微分方程(朗之万方程同构)，五行=非线性反馈动力学(Lotka-Volterra同构)，洛书369=共振频率子群(Z₉)，卦爻熵=信息熵度量。可计算/可验证/可部署，与大厂黑箱世界模型对比。",
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0"
+        },
         "易经": {
           "name_zh": "易经",
           "source": "auto_sync_v1.0",
@@ -2055,7 +2087,29 @@
           ],
           "added": "2026-07-14"
         }
-      }
+      },
+      "protocol_knowledge_sovereignty": "数据主权与知识贡献协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "protocol_speech_freedom": "言论自由协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_zero_conscription": "零征用原则（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_voluntary_contribution": "自愿贡献与DNA归属（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_sovereign_recall": "主权撤回（随时插停）（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_knowledge_pricing": "知识定价与段位分成（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_speech_grading": "骂权分级（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_weight_eval": "社会贡献权重评估（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_self_censure": "自骂优先·自省机制（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_dna_trace": "言论DNA追溯与风险评级（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_dispute_resolution": "争议处理·红蓝对抗（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_auto_audit": "自动审计与归档（L3·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_true_openness": "真开放批判（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A",
+      "protocol_anti_algorithmic_harvest": "任何直播/内容系统不得用PK对立、倒计时压迫、打赏抽成、排名虚荣制造情绪收割；人民注意力与数据主权不容被算法编程。",
+      "clause_no_pk": "任何系统不得用PK比拼、双屏对立、站队制造竞争焦虑；以协作对话替代对抗。",
+      "clause_no_countdown": "禁止用倒计时、3倍加成、限时福利制造紧迫感剥夺理性思考；随时进出无时间压迫。",
+      "clause_no_tip_skimming": "禁止打赏抽成、礼物变现单向收割；创作者以补贴/订阅支撑，零抽成割韭菜。",
+      "clause_harvest_audit": "引擎自动扫描内容识别收割信号(PK/倒计时/加成/排名)，打分评级，🔴高危进审查，DNA追溯归档。",
+      "protocol_currency_culture_sovereignty": "货币·文化主权与收纳不霸占协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-CURRENCY-CULTURE-EE44F2FB",
+      "clause_currency_direct_settlement": "货币直达标准·非唯一标杆制（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D",
+      "clause_cultural_respect": "文化主权·历史不可篡改（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-CULTURAL-RESPECT-662318E7",
+      "clause_keep_not_seize": "收纳不霸占·保管非占有（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD"
     },
     "DOMAIN": {
       "description": "领域术语——跨领域专业词汇标准化对照。AI/计算机科学/法律/金融/文化/哲学。",
@@ -3797,6 +3851,21 @@
               "技术主权",
               "芯片"
             ]
+          },
+          {
+            "title": "易经世界模型的数学物理基础：从符号系统到可计算宇宙",
+            "path": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+            "keywords": [
+              "世界模型",
+              "易经",
+              "六十四卦",
+              "卦变算子",
+              "三才流场",
+              "五行动力学",
+              "洛书369",
+              "卦爻熵",
+              "可计算宇宙"
+            ]
           }
         ]
       },
@@ -3880,7 +3949,8 @@
     "persona_to_governance": "16人格通过签章引擎参与三色审计·谁签名谁负责",
     "culture_to_algorithm": "原生态知识哲学→易经/道德经=公理体系→驱动369洛书算法",
     "cnshto_semantic": "CNSH变量注册表→语义解析器→通心译意图骨架",
-    "notion_to_local": "Notion是镜像·本地是主·数据主权归本地·51页映射"
+    "notion_to_local": "Notion是镜像·本地是主·数据主权归本地·51页映射",
+    "protocol_to_governance": "协议层(PROTOCOL)↔治理层(governance)：协议是哲学思想的可执行契约，争议处理接入红蓝对抗/三色审计，主权撤回接入人民数据主权。"
   },
   "unified_naming_convention": {
     "prefix": "longhun-{category}-{name}-{version}",
@@ -3904,22 +3974,152 @@
       "三才算法命名空间统一Sancai.前缀"
     ]
   },
+  "SEMANTIC_ALIGN": {
+    "description": "语义对齐三层体系——将大白话映射到标准语义节点，通过触角网络实现文件中概念交叉激活。省80%算力·不依赖数据库·命名即检索。",
+    "dna": "#龍魂⚡️丙午·辛未·语义对齐-v2",
+    "engines": {
+      "semantic_nodes": {
+        "name": "语义节点库",
+        "path": "L3_数据层/semantic_nodes.py",
+        "dna": "#龍魂⚡️丙午·辛未·语义节点-v1",
+        "function": "SEMANTIC_NODES定义 + SemanticNormalizer标准化器 + 模糊匹配 + 未知处理",
+        "nodes_count": 20
+      },
+      "antenna_network": {
+        "name": "触角网络",
+        "path": "L3_数据层/antenna_network.py",
+        "dna": "#龍魂⚡️丙午·辛未·触角网络-v1",
+        "function": "AntennaNetwork交叉激活 + 信息素强化/衰减/沉睡唤醒 + 索引/搜索/统计/持久化"
+      },
+      "naming_engine": {
+        "name": "命名即架构引擎",
+        "path": "L5_服务层/naming_engine.py",
+        "dna": "#龍魂⚡️丙午·辛未·命名引擎-v1",
+        "function": "NamingEngine解析/路由/P0校验/组装/建议命名/批量校验/审计/CLI"
+      }
+    },
+    "semantic_nodes_top20": [
+      {"node_id": "NODE-押金-001", "standard": "押金", "classification": "民生", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-房东-001", "standard": "房东", "classification": "民生", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-合同-001", "standard": "合同", "classification": "民生", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-租房合同-001", "standard": "租房合同", "classification": "民生", "synonyms": 3, "colloquial": 4},
+      {"node_id": "NODE-违约-001", "standard": "违约", "classification": "民生", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-工资-001", "standard": "工资", "classification": "民生", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-拖欠-001", "standard": "拖欠", "classification": "民生", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-维权-001", "standard": "维权", "classification": "民生", "synonyms": 3, "colloquial": 4},
+      {"node_id": "NODE-清朗-001", "standard": "清朗行动", "classification": "治理", "synonyms": 3, "colloquial": 4},
+      {"node_id": "NODE-水军-001", "standard": "水军", "classification": "治理", "synonyms": 4, "colloquial": 4},
+      {"node_id": "NODE-信息垄断-001", "standard": "信息垄断", "classification": "治理", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-数据主权-001", "standard": "数据主权", "classification": "治理", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-言论自由-001", "standard": "言论自由", "classification": "治理", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-四绝-001", "standard": "四绝", "classification": "商业", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-商家信用-001", "standard": "商家信用", "classification": "商业", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-消费-001", "standard": "消费", "classification": "商业", "synonyms": 2, "colloquial": 3},
+      {"node_id": "NODE-广告-001", "standard": "广告", "classification": "商业", "synonyms": 3, "colloquial": 4},
+      {"node_id": "NODE-DNA-001", "standard": "DNA追溯", "classification": "技术", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-三色审计-001", "standard": "三色审计", "classification": "技术", "synonyms": 3, "colloquial": 3},
+      {"node_id": "NODE-蚁群-001", "standard": "蚁群", "classification": "技术", "synonyms": 3, "colloquial": 3}
+    ],
+    "protocol": {
+      "name": "龍魂语义对齐系统 · 命名即架构 v2.0",
+      "path": "01_protocols/LH-NAMING-ARCH-v1.0.md (已升级v2.0)",
+      "dna": "#龍魂⚡️丙午·辛未·语义对齐-v2"
+    }
+  },
   "sync_status": {
-    "last_sync": "2026-07-14T23:30:00",
-    "total_categories": 18,
-    "total_entries_estimated": 380,
+    "last_sync": "丙午·辛未·乙酉",
+    "total_categories": 19,
+    "total_entries_estimated": 420,
     "completed_imports": [
       "七因子场景权重细化",
       "密码学论文引用精确索引",
-      "本地散落专业术语补全(量子/时空/CNSH/模9详解/三才25公式/通心译六层/D-GATE三闸门/文化输出/28星宿/纠缠检测)"
+      "本地散落专业术语补全(量子/时空/CNSH/模9详解/三才25公式/通心译六层/D-GATE三闸门/文化输出/28星宿/纠缠检测)",
+      "语义对齐三层体系落地: semantic_nodes.py + antenna_network.py + naming_engine.py (2026-07-16)"
     ],
     "partial_imports": [
       "Notion知识库: 51页已索引，术语逐条提取待执行"
     ],
     "pending": [
-      "Notion知识库逐页术语提取(需Notion API全量拉取)",
+      "Notion知识库逐页术语提取(需NotionAPI全量拉取)",
       "51页内嵌专业术语的自动语义标注",
-      "自动同步机制(文件变更自动更新注册表)"
+      "自动同步机制(文件变更自动更新注册表)",
+      "协议图谱13节点已并入语义统一注册表(PROTOCOL分类)，语义路由可检索引用",
+      "语义节点持续生长(当前20节点，目标≥100)"
+    ]
+  },
+  "ANTI_FISHING_GREED": {
+    "description": "反钓鱼反贪心系统——系统只解决用户真实需求，不制造需求。用户说多少系统做多少，不多一分。",
+    "dna": "#龍魂⚡️丙午·辛未·反钓鱼反贪心-v1",
+    "protocol": {
+      "name": "龍魂反钓鱼反贪心协议 v1.0",
+      "path": "01_protocols/LH-ANTI-FISHING-GREED-v1.0.md",
+      "level": "P0级·焊死·不可修订"
+    },
+    "engines": {
+      "anti_fishing_greed": {
+        "name": "反钓鱼反贪心引擎",
+        "path": "L3_数据层/anti_fishing_greed.py",
+        "dna": "#龍魂⚡️丙午·辛未·反钓鱼反贪心-v1",
+        "components": {
+          "DemandFreezer": "需求冻结器：冻结用户原始需求，拦截任何扩大尝试",
+          "EnoughIsEnough": "够用即止：搜索/计算有硬上限，够了就停",
+          "HonestDegradation": "诚实降级：能力不够标🟡，不伪装🟢",
+          "AntiFishingAudit": "反钓鱼审计：扫描日志检测7类钓鱼+7类贪心",
+          "AntiFishingGatekeeper": "统一门卫：组合四引擎，对外唯一入口"
+        }
+      }
+    },
+    "fishing_patterns_7": [
+      "需求扩大", "沉没成本诱导", "社交绑架", "限时压迫",
+      "免费诱导", "层级解锁", "数据画像诱导"
+    ],
+    "greed_patterns_7": [
+      "算力贪婪", "数据贪婪", "功能贪婪", "标签贪婪",
+      "记忆贪婪", "关联贪婪", "升级贪婪"
+    ],
+    "p0_commitments_8": [
+      "用户说多少，系统做多少，不多一分",
+      "用户没说的，系统不推，不猜，不诱导",
+      "够用即止，不过度计算，不浪费算力",
+      "不行就标🟡，不伪装🟢，诚实标注",
+      "旧版能用，不推新版，不制造升级焦虑",
+      "免费=真免费，不自动续费，不偷偷扣款",
+      "一步是一步，不藏不锁，不层级解锁",
+      "不画像，不猜测，只响应，不主动"
+    ],
+    "interlock_protocols": [
+      "反算法收割协议",
+      "语义对齐系统 v2.0",
+      "命名即架构 v2.0",
+      "三色审计"
+    ],
+    "active_observation": {
+      "rule_id": "obs-time-anti-fishing-selfcheck",
+      "trigger": "每小时整点",
+      "action": "python3 L3_数据层/anti_fishing_greed.py --audit-self",
+      "description": "每小时自审计8项P0承诺"
+    }
+  },
+  "sync_status": {
+    "last_sync": "丙午·辛未·乙酉",
+    "total_categories": 20,
+    "total_entries_estimated": 450,
+    "completed_imports": [
+      "七因子场景权重细化",
+      "密码学论文引用精确索引",
+      "本地散落专业术语补全(量子/时空/CNSH/模9详解/三才25公式/通心译六层/D-GATE三闸门/文化输出/28星宿/纠缠检测)",
+      "语义对齐三层体系落地: semantic_nodes.py + antenna_network.py + naming_engine.py (2026-07-16)",
+      "反钓鱼反贪心协议落地: anti_fishing_greed.py + LH-ANTI-FISHING-GREED-v1.0.md (2026-07-16)"
+    ],
+    "partial_imports": [
+      "Notion知识库: 51页已索引，术语逐条提取待执行"
+    ],
+    "pending": [
+      "Notion知识库逐页术语提取(需NotionAPI全量拉取)",
+      "51页内嵌专业术语的自动语义标注",
+      "自动同步机制(文件变更自动更新注册表)",
+      "协议图谱13节点已并入语义统一注册表(PROTOCOL分类)，语义路由可检索引用",
+      "语义节点持续生长(当前20节点，目标≥100)"
     ]
   }
 }

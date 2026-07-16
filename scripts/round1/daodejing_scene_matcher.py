@@ -7,7 +7,7 @@ DNA: #龍芯⚡️2026-07-05-ROUND1-DAODEJING-SCENE-MATCHER-v1.0
 
 import json
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "round1"
 
@@ -18,7 +18,7 @@ class DaodejingSceneMatcher:
         with open(self.map_path, "r", encoding="utf-8") as f:
             self.scene_map = json.load(f)
 
-    def match(self, text: str) -> Dict:
+    def match(self, text: str) -> Dict[str, Any]:
         """对用户输入进行关键词扫描，返回最匹配的道德经章节"""
         text = text.lower()
         best_chapter = None

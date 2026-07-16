@@ -642,7 +642,7 @@ class IntegrityDB:
     def get_blacklist(self) -> List[dict]:
         return [dict(r) for r in self.conn.execute("SELECT * FROM blacklist ORDER BY added_at DESC").fetchall()]
 
-    def get_stats(self) -> dict:
+    def get_stats(self) -> dict[str, Any]:
         total = self.conn.execute("SELECT COUNT(*) as c FROM inspections").fetchone()['c']
         black = self.conn.execute("SELECT COUNT(*) as c FROM inspections WHERE integrity_level = 'F'").fetchone()['c']
         elderly = self.conn.execute(
@@ -654,7 +654,7 @@ class IntegrityDB:
             'elderly_scams_detected': elderly
         }
 
-    def get_daily_stats(self) -> dict:
+    def get_daily_stats(self) -> dict[str, Any]:
         today_start = int((datetime.now() - timedelta(hours=datetime.now().hour, minutes=datetime.now().minute, seconds=datetime.now().second)).timestamp() * 1000)
         total = self.conn.execute("SELECT COUNT(*) as c FROM inspections WHERE created_at >= ?", (today_start,)).fetchone()['c']
         black = self.conn.execute("SELECT COUNT(*) as c FROM inspections WHERE integrity_level = 'F' AND created_at >= ?", (today_start,)).fetchone()['c']
@@ -667,7 +667,7 @@ class IntegrityDB:
             (limit,)
         ).fetchall()]
 
-    def _anomaly_to_dict(self, a: AnomalyRecord) -> dict:
+    def _anomaly_to_dict(self, a: AnomalyRecord) -> dict[str, Any]:
         return {
             'type': a.type.value,
             'severity': a.severity.value,
@@ -710,7 +710,7 @@ if HAS_FASTAPI:
         return mapping.get(level, 'yellow')
 
     @app.post("/api/integrity/inspect")
-    async def inspect_product(product: dict):
+    async def inspect_product(product: dict[str, Any]):
         """检测商品诚信度"""
         p = ProductInspection(
             product_id=product.get('product_id', f"PROD-{int(time.time())}"),

@@ -18,7 +18,7 @@
 
 import hashlib
 import json
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict, field
 from datetime import datetime
 from enum import Enum
@@ -91,7 +91,7 @@ class DNA:
     version: str = "v1.0"            # 版本
 
     # 追溯链信息
-    six_layer_chain: Dict = field(default_factory=lambda: SIX_LAYER_CHAIN.copy())
+    six_layer_chain: Dict[str, Any] = field(default_factory=lambda: SIX_LAYER_CHAIN.copy())
     parent_dna: Optional[str] = None  # 父代DNA (用于继承关系)
     child_dnas: List[str] = field(default_factory=list)  # 子代DNA
 
@@ -141,7 +141,7 @@ class DNA:
 
         return len(errors) == 0, errors
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """转换为字典"""
         return {
             "dna_code": self.dna_code,
@@ -309,7 +309,7 @@ class DNAGenerator:
         """列出所有DNA"""
         return list(self.dna_registry.values())
 
-    def get_statistics(self) -> Dict:
+    def get_statistics(self) -> Dict[str, Any]:
         """获取统计信息"""
         total = len(self.dna_registry)
         active = sum(1 for dna in self.dna_registry.values() if dna.status == DNAStatus.ACTIVE)

@@ -140,7 +140,7 @@ class 检查结果:
     时间戳: str
     DNA追溯: str
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -410,7 +410,7 @@ class 熔断机制:
 
     # ========== 统计与报告 ==========
 
-    def 获取统计(self) -> Dict:
+    def 获取统计(self) -> Dict[str, Any]:
         """获取熔断机制统计"""
         return {
             "拦截次数": self.拦截计数,
@@ -421,7 +421,7 @@ class 熔断机制:
             "覆盖函数列表": list(self.已覆盖函数.keys())
         }
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

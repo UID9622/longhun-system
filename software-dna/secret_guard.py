@@ -12,7 +12,7 @@ DNA:#龍芯⚡️2026-06-07-SECRET-GUARD-v1.0
 import re
 import logging
 from pathlib import Path
-from typing import List, Dict, Set, Optional
+from typing import List, Dict, Set, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -106,7 +106,7 @@ class SecretFinding:
     severity: str = "HIGH"
     context: str = None
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             'file_path': self.file_path,
             'line_number': self.line_number,
@@ -314,7 +314,7 @@ class SecretGuard:
         cls,
         findings: List[SecretFinding],
         output_file: Optional[Path] = None
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         生成扫描报告
 

@@ -26,7 +26,7 @@ import traceback
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
@@ -75,7 +75,7 @@ class ExecutionTracker:
     def __init__(self):
         self.report = self._load_report()
 
-    def _load_report(self) -> Dict:
+    def _load_report(self) -> Dict[str, Any]:
         if EXEC_REPORT.exists():
             return json.loads(EXEC_REPORT.read_text())
         return {"total_executions": 0, "success_count": 0, "fail_count": 0,
@@ -193,7 +193,7 @@ class ExecutionTracker:
         self.report["total_executions"] += 1
         self._save_report()
 
-    def test_all_core(self) -> Dict:
+    def test_all_core(self) -> Dict[str, Any]:
         """测试所有核心肌肉（dry run + 小部分实际执行）"""
         results = {}
         for path in self.CORE_MUSCLES:
@@ -223,7 +223,7 @@ class ExecutionTracker:
             "details": results,
         }
 
-    def report_summary(self) -> Dict:
+    def report_summary(self) -> Dict[str, Any]:
         """执行报告摘要"""
         recent_logs = []
         if EXEC_LOG.exists():

@@ -32,7 +32,7 @@ import time
 import urllib.request
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 LOG_DIR = ROOT / "logs"
@@ -149,7 +149,7 @@ def find_pid_by_port(port: int) -> Optional[int]:
     return None
 
 
-def get_service_status(svc: Service) -> Dict:
+def get_service_status(svc: Service) -> Dict[str, Any]:
     port_open = is_port_open(svc.port)
     pid = find_pid_by_port(svc.port) if port_open else None
     healthy = False
@@ -165,7 +165,7 @@ def get_service_status(svc: Service) -> Dict:
     }
 
 
-def save_status(report: Dict) -> None:
+def save_status(report: Dict[str, Any]) -> None:
     _ensure_dirs()
     STATUS_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -176,7 +176,7 @@ def load_status() -> Optional[Dict]:
     return None
 
 
-def start_service(svc: Service) -> Dict:
+def start_service(svc: Service) -> Dict[str, Any]:
     status = get_service_status(svc)
     if status["running"]:
         return {**status, "action": "already_running"}
@@ -230,7 +230,7 @@ def start_service(svc: Service) -> Dict:
     return status
 
 
-def stop_service(svc: Service) -> Dict:
+def stop_service(svc: Service) -> Dict[str, Any]:
     status = get_service_status(svc)
     if not status["running"]:
         return {**status, "action": "not_running"}
@@ -256,7 +256,7 @@ def stop_service(svc: Service) -> Dict:
 def resolve_order(services: List[Service]) -> List[Service]:
     """拓扑排序，按依赖顺序返回服务。"""
     svc_map = {s.id: s for s in services}
-    visited: set = set()
+    visited: set[str] = set()
     order: List[Service] = []
 
     def visit(sid: str):

@@ -64,11 +64,11 @@ class SemanticCore:
     implicit_premises: List[str]   # 隐含前提
     conclusion_anchor: str         # 结论锚点 (简短陈述)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     @staticmethod
-    def from_dict(data: Dict) -> "SemanticCore":
+    def from_dict(data: Dict[str, Any]) -> "SemanticCore":
         return SemanticCore(**data)
 
 
@@ -93,11 +93,11 @@ class DecisionPathReplay:
     confidence: float              # 决策置信度 (0.0-1.0)
     audit_log_entries: List[str]   # 审计日志ID
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     @staticmethod
-    def from_dict(data: Dict) -> "DecisionPathReplay":
+    def from_dict(data: Dict[str, Any]) -> "DecisionPathReplay":
         return DecisionPathReplay(**data)
 
 
@@ -129,11 +129,11 @@ class EmotionFold:
     preserved_in_archive: bool = True
     removed_from_logic: bool = True
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     @staticmethod
-    def from_dict(data: Dict) -> "EmotionFold":
+    def from_dict(data: Dict[str, Any]) -> "EmotionFold":
         return EmotionFold(**data)
 
     def get_archive_note(self) -> str:
@@ -180,11 +180,11 @@ class ThreeTalentSnapshot:
     sovereignty_level: str         # 主权等级
     can_reconstruct: bool          # 是否允许重建
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     @staticmethod
-    def from_dict(data: Dict) -> "ThreeTalentSnapshot":
+    def from_dict(data: Dict[str, Any]) -> "ThreeTalentSnapshot":
         return ThreeTalentSnapshot(**data)
 
 
@@ -304,7 +304,7 @@ SI: {self.si_snapshot.si_index:.4f}
 SI >= 0.34 时，使用短码 /recall-{self.particle_id} 进行认知恢复
 """
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """序列化为字典"""
         return {
             "particle_id": self.particle_id,
@@ -321,7 +321,7 @@ SI >= 0.34 时，使用短码 /recall-{self.particle_id} 进行认知恢复
         }
 
     @staticmethod
-    def from_dict(data: Dict) -> "CognitiveDNAParticle":
+    def from_dict(data: Dict[str, Any]) -> "CognitiveDNAParticle":
         """从字典反序列化"""
         return CognitiveDNAParticle(
             particle_id=data["particle_id"],
@@ -354,7 +354,7 @@ class CognitiveDNAParticleManager:
     5. 生成档案 (永久保存)
     """
 
-    def __init__(self, storage_dir: str = None):
+    def __init__(self, storage_dir: str | None = None):
         """初始化粒子管理器"""
         import os
 

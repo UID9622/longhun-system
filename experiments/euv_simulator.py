@@ -15,7 +15,7 @@ import sys
 import os
 from collections import defaultdict, deque
 from dataclasses import dataclass, field
-from typing import Dict, Tuple, Optional, List
+from typing import Dict, Tuple, Optional, List, Any
 from enum import Enum
 
 # ============================================================================
@@ -148,7 +148,7 @@ def 频率谐波序列(freq_khz: int, harmonics: int = 5) -> List[int]:
     return [freq_khz * (i + 1) for i in range(harmonics)]
 
 
-def 谐波漂移检测(freq_khz: int, cycles: int = 1000, perturbation_sigma: float = 0.003) -> Dict:
+def 谐波漂移检测(freq_khz: int, cycles: int = 1000, perturbation_sigma: float = 0.003) -> Dict[str, Any]:
     """
     模拟谐波漂移：每次 tick 加高斯扰动，统计漂出稳定区间的次数。
     369子群的频率因为群封闭性，谐波自然归位，漂移次数显著更低。
@@ -297,7 +297,7 @@ class 锡滴状态机:
         next_idx = (idx + 1) % len(self.标准路径)
         return self.标准路径[next_idx][0]
 
-    def 射击(self, perturbation_seed: Optional[float] = None) -> Dict:
+    def 射击(self, perturbation_seed: Optional[float] = None) -> Dict[str, Any]:
         """
         模拟一次"射击"——锡滴经历一次完整态跃迁。
         返回本次射击的作战日志。
@@ -366,7 +366,7 @@ class 锡滴状态机:
                 "原因": f"扰动抖动·位翻转至{抖动目标:06b}",
             }
 
-    def 获取状态报告(self) -> Dict:
+    def 获取状态报告(self) -> Dict[str, Any]:
         return {
             "当前状态码": f"{self.当前状态:06b}",
             "当前卦象": f"{' '.join(取卦(self.当前状态)[:2])}",
@@ -401,7 +401,7 @@ class EUV_Simulator:
         self.敏感度累积: Dict[str, float] = defaultdict(float)
         self.敏感度采样次数 = 0
 
-    def _格式化日志(self, 状态: Dict, eta: float, 谐波状态: str) -> str:
+    def _格式化日志(self, 状态: Dict[str, Any], eta: float, 谐波状态: str) -> str:
         """作战记录格式"""
         卦名, 卦符, _ = 取卦(self.状态机.当前状态)
         码 = f"{self.状态机.当前状态:06b}"
@@ -409,7 +409,7 @@ class EUV_Simulator:
                 ("↘ 下降" if len(self.效率历史) >= 2 and eta < list(self.效率历史)[-2][1] else "→ 持平")
         return f"[Tick {self.循环计数:>5d}] State: {卦符} {卦名} ({码}) | Freq: {self.频率选择}kHz ({谐波状态}) | η_sys: {eta:.4f} ({trend})"
 
-    def 运行(self, ticks: int = 10000, verbose: bool = True, verbose_interval: int = 100) -> Dict:
+    def 运行(self, ticks: int = 10000, verbose: bool = True, verbose_interval: int = 100) -> Dict[str, Any]:
         """主循环"""
         print("=" * 82)
         print("🔬 EUV 数字光刻机 ┃ 锡滴64卦状态机 × 369频率窗口 × 七因子张量分解")
@@ -573,7 +573,7 @@ class EUV_Simulator:
         print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
         print()
 
-    def _汇总数据(self, 谐波漂移: int, ticks: int, elapsed: float) -> Dict:
+    def _汇总数据(self, 谐波漂移: int, ticks: int, elapsed: float) -> Dict[str, Any]:
         return {
             "状态机": self.状态机.获取状态报告(),
             "频率稳定性": {

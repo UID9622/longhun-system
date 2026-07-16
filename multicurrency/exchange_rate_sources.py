@@ -15,7 +15,7 @@ import json
 import time
 import random
 import logging
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional, Tuple, Any
 from abc import ABC, abstractmethod
 from datetime import datetime, timedelta
 import urllib.request
@@ -54,7 +54,7 @@ class ExchangeRateSource(ABC):
         """数据源名称"""
         return self.name_str
 
-    def stats(self) -> Dict:
+    def stats(self) -> Dict[str, Any]:
         """获取统计信息"""
         total = self.success_count + self.error_count
         success_rate = (self.success_count / total * 100) if total > 0 else 0
@@ -317,7 +317,7 @@ class ExchangeRateSourceManager:
         logger.error(f"无法获取 {base}/{target} 汇率·已耗尽所有数据源")
         return None, '失败'
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取所有数据源的统计信息"""
         return {
             'timestamp': datetime.now().isoformat(),

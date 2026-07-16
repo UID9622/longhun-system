@@ -30,7 +30,7 @@ def _生成DNA(类型: str) -> str:
     return f"#龍芯⚡️{日期}-{类型.upper()}-{哈希}"
 
 
-def _加载数据库() -> dict:
+def _加载数据库() -> dict[str, Any]:
     if DNA_DB_PATH.exists():
         try:
             return json.loads(DNA_DB_PATH.read_text(encoding="utf-8"))
@@ -45,12 +45,12 @@ def _加载数据库() -> dict:
     }
 
 
-def _保存数据库(数据: dict) -> None:
+def _保存数据库(数据: dict[str, Any]) -> None:
     DNA_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     DNA_DB_PATH.write_text(json.dumps(数据, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def _检查文件(路径: Path) -> list:
+def _检查文件(路径: Path) -> list[Any]:
     """扫描单个文件是否含 DNA 转让/买卖/删除等敏感词。"""
     违规 = []
     if not 路径.is_file():
@@ -79,7 +79,7 @@ def _检查文件(路径: Path) -> list:
     return 违规
 
 
-def _扫描目录(目录: Path) -> list:
+def _扫描目录(目录: Path) -> list[Any]:
     违规 = []
     for root, _, files in os.walk(目录):
         for name in files:
@@ -88,7 +88,7 @@ def _扫描目录(目录: Path) -> list:
     return 违规
 
 
-def _登记否决(理由: str, 目标: str) -> dict:
+def _登记否决(理由: str, 目标: str) -> dict[str, Any]:
     数据 = _加载数据库()
     记录 = {
         "dna": _生成DNA("VETO"),
@@ -103,7 +103,7 @@ def _登记否决(理由: str, 目标: str) -> dict:
     return 记录
 
 
-def _登记继承(原DNA: str, 继承人: str) -> dict:
+def _登记继承(原DNA: str, 继承人: str) -> dict[str, Any]:
     数据 = _加载数据库()
     记录 = {
         "dna": _生成DNA("INHERIT"),
@@ -117,7 +117,7 @@ def _登记继承(原DNA: str, 继承人: str) -> dict:
     return 记录
 
 
-def _报告() -> dict:
+def _报告() -> dict[str, Any]:
     数据 = _加载数据库()
     return {
         "否决记录数": len(数据.get("vetoes", [])),

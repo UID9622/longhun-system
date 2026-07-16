@@ -42,7 +42,7 @@ import hashlib
 import subprocess
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 # ========== DNA签名和合规标记 ==========
 DNA_SIGNATURE = "#龍芯⚡️2026-06-17-MVP-SETUP-INTEGRATION-v2.0"
@@ -134,7 +134,7 @@ class SixLayerSourceChain:
     }
 
     @staticmethod
-    def verify_chain() -> Dict:
+    def verify_chain() -> Dict[str, Any]:
         """验证六层来源链完整性"""
         print(f"\n{'='*60}")
         print("🔗 六层来源链验证")
@@ -187,7 +187,7 @@ class CNSHCheck:
     H - Harmony (和谐性)
     """
     @staticmethod
-    def run_check(data: Dict) -> Dict:
+    def run_check(data: Dict[str, Any]) -> Dict[str, Any]:
         """运行CNSH四层检查"""
         print(f"\n{'='*60}")
         print("🔍 CNSH四层检查")
@@ -410,7 +410,7 @@ class SQLiteDBManager:
         conn.commit()
         conn.close()
 
-    def save_tasks(self, tasks: Dict):
+    def save_tasks(self, tasks: Dict[str, Any]):
         """保存MVP任务到SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
@@ -425,7 +425,7 @@ class SQLiteDBManager:
         conn.commit()
         conn.close()
 
-    def save_personas(self, personas: Dict):
+    def save_personas(self, personas: Dict[str, Any]):
         """保存人格数据到SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
@@ -438,7 +438,7 @@ class SQLiteDBManager:
         conn.commit()
         conn.close()
 
-    def save_assignments(self, assignments: Dict):
+    def save_assignments(self, assignments: Dict[str, Any]):
         """保存任务分配表"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()
@@ -506,7 +506,7 @@ class SQLiteDBManager:
         conn.close()
         return dna
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取数据库统计信息"""
         conn = sqlite3.connect(str(self.db_path))
         cursor = conn.cursor()

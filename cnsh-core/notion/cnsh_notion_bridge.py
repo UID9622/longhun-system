@@ -70,7 +70,7 @@ def _make_dna(op: str) -> str:
     return f"{DNA_PREFIX}{ts}-CNSH-NOTION-{op}-{h}"
 
 
-def _audit(action: str, page_id: str, path: str, status: str, detail: dict):
+def _audit(action: str, page_id: str, path: str, status: str, detail: dict[str, Any]):
     entry = {
         "timestamp": _now_iso(),
         "action": action,
@@ -109,7 +109,7 @@ class NotionAPIClient:
         }
 
     def _request(self, method: str, path: str, data: Optional[dict] = None,
-                 timeout: float = 60.0, retries: int = 3) -> dict:
+                 timeout: float = 60.0, retries: int = 3) -> dict[str, Any]:
         """统一使用 curl 子进程调用 Notion API，避免 requests 网络层挂起。"""
         import subprocess
         url = f"{self.base}{path}"
@@ -150,11 +150,11 @@ class NotionAPIClient:
 
         raise RuntimeError(f"Notion API 重试耗尽: {method} {url}")
 
-    def get_page(self, page_id: str) -> dict:
+    def get_page(self, page_id: str) -> dict[str, Any]:
         return self._request("GET", f"/pages/{page_id}")
 
     def query_database(self, database_id: str, filter_obj: Optional[dict] = None,
-                       page_size: int = 100, start_cursor: Optional[str] = None) -> dict:
+                       page_size: int = 100, start_cursor: Optional[str] = None) -> dict[str, Any]:
         database_id = database_id.replace("-", "")
         payload: Dict[str, Any] = {"page_size": page_size}
         if filter_obj:
@@ -164,7 +164,7 @@ class NotionAPIClient:
         return self._request("POST", f"/databases/{database_id}/query", payload)
 
     def create_page(self, parent_id: str, title: str, children: Optional[List[dict]] = None,
-                    parent_type: str = "page_id") -> dict:
+                    parent_type: str = "page_id") -> dict[str, Any]:
         payload = {
             "parent": {parent_type: parent_id},
             "properties": {
@@ -181,17 +181,17 @@ class NotionAPIClient:
             self._request("PATCH", f"/blocks/{page['id']}/children", {"children": chunk})
         return page
 
-    def update_page_properties(self, page_id: str, properties: dict) -> dict:
+    def update_page_properties(self, page_id: str, properties: dict[str, Any]) -> dict[str, Any]:
         return self._request("PATCH", f"/pages/{page_id}", {"properties": properties})
 
     def get_block_children(self, block_id: str, page_size: int = 100,
-                           start_cursor: Optional[str] = None) -> dict:
+                           start_cursor: Optional[str] = None) -> dict[str, Any]:
         path = f"/blocks/{block_id}/children?page_size={page_size}"
         if start_cursor:
             path += f"&start_cursor={start_cursor}"
         return self._request("GET", path)
 
-    def append_blocks(self, block_id: str, children: List[dict]) -> dict:
+    def append_blocks(self, block_id: str, children: List[dict]) -> dict[str, Any]:
         return self._request("PATCH", f"/blocks/{block_id}/children", {"children": children})
 
 
@@ -226,22 +226,22 @@ def 查询数据库(数据库ID: str, 筛选: Optional[dict] = None, 页大小: 
     return results
 
 
-def 获取页面(页面ID: str) -> dict:
+def 获取页面(页面ID: str) -> dict[str, Any]:
     """获取单个 Notion 页面元数据"""
     return _get_client().get_page(页面ID)
 
 
-def 创建页面(父页面ID: str, 标题: str, 内容块: Optional[List[dict]] = None) -> dict:
+def 创建页面(父页面ID: str, 标题: str, 内容块: Optional[List[dict]] = None) -> dict[str, Any]:
     """在指定父页面下创建子页面"""
     return _get_client().create_page(父页面ID, 标题, 内容块 or [])
 
 
-def 更新页面属性(页面ID: str, 属性: dict) -> dict:
+def 更新页面属性(页面ID: str, 属性: dict[str, Any]) -> dict[str, Any]:
     """更新 Notion 页面属性"""
     return _get_client().update_page_properties(页面ID, 属性)
 
 
-def 追加块(页面ID: str, 内容块: List[dict]) -> dict:
+def 追加块(页面ID: str, 内容块: List[dict]) -> dict[str, Any]:
     """在页面末尾追加内容块"""
     return _get_client().append_blocks(页面ID, 内容块)
 
@@ -253,7 +253,7 @@ def _rich_text(rt: List[dict]) -> str:
     return "".join(t.get("plain_text", "") for t in rt)
 
 
-def _block_to_md(b: dict, depth: int = 0) -> List[str]:
+def _block_to_md(b: dict[str, Any], depth: int = 0) -> List[str]:
     t = b.get("type")
     d = b.get(t, {})
     text = _rich_text(d.get("rich_text", []))
@@ -419,7 +419,7 @@ def _md_to_blocks(md_text: str) -> List[dict]:
     return blocks
 
 
-def 推送页面(父页面ID: str, 文件路径: str, 标题: Optional[str] = None) -> dict:
+def 推送页面(父页面ID: str, 文件路径: str, 标题: Optional[str] = None) -> dict[str, Any]:
     """把本地 Markdown 文件推送为 Notion 子页面"""
     p = Path(文件路径).expanduser()
     text = p.read_text(encoding="utf-8")
@@ -451,7 +451,7 @@ def _safe_filename(title: str, page_id: str) -> str:
     return f"M_{clean}_{short_id}.md"
 
 
-def _generate_seed_module(entry: dict) -> str:
+def _generate_seed_module(entry: dict[str, Any]) -> str:
     title = entry.get("title") or "未命名条目"
     page_id = entry.get("page_id", "")
     url = entry.get("url", "")
@@ -518,7 +518,7 @@ if __name__ == '__main__':
 """
 
 
-def 同步DB3367种子模块(数据库ID: str = "3367125a9c9f808a9692f0c6752e92fa") -> dict:
+def 同步DB3367种子模块(数据库ID: str = "3367125a9c9f808a9692f0c6752e92fa") -> dict[str, Any]:
     """
     从 Notion DB3367 拉取「有代码」条目，生成/更新 CNSH 种子模块。
     返回同步统计。
@@ -595,7 +595,7 @@ def 同步DB3367种子模块(数据库ID: str = "3367125a9c9f808a9692f0c6752e92f
 # ═══════════════════════════════════════════════════════════════
 # 6. 自检
 # ═══════════════════════════════════════════════════════════════
-def 自检() -> dict:
+def 自检() -> dict[str, Any]:
     """检查 Notion Token、网络、索引文件是否就绪"""
     token = os.environ.get("NOTION_TOKEN")
     checks = {

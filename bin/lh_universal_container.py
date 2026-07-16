@@ -82,7 +82,7 @@ class IngestedItem:
     ingested_at: str         # ISO 8601
     privacy_level: PrivacyLevel = PrivacyLevel.P0_PUBLIC
     dna_tag: str = ""
-    metadata: Dict = field(default_factory=dict)
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -95,7 +95,7 @@ class DecomResult:
     relations: List[Tuple[str, str, str]] = field(default_factory=list)  # (主体, 关系, 客体)
     tags: List[str] = field(default_factory=list)
     weight: float = 0.0
-    extra: Dict = field(default_factory=dict)
+    extra: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -872,7 +872,7 @@ class Distributor:
         return None
 
     def _archive_item(self, item: IngestedItem, lib_path: Path,
-                      result: WeightedResult) -> Dict:
+                      result: WeightedResult) -> Dict[str, Any]:
         """归档到归档库"""
         archive_record = {
             "source": item.source_path,
@@ -891,7 +891,7 @@ class Distributor:
         return {"library": "archive", "action": "indexed", "file": str(idx_file)}
 
     def _index_knowledge(self, item: IngestedItem, lib_path: Path,
-                         result: WeightedResult) -> Dict:
+                         result: WeightedResult) -> Dict[str, Any]:
         """索引入知识库"""
         all_tags = []
         all_entities = []
@@ -912,7 +912,7 @@ class Distributor:
         return {"library": "knowledge", "action": "indexed", "tags": knowledge_entry["tags"]}
 
     def _store_memory(self, item: IngestedItem, lib_path: Path,
-                      result: WeightedResult) -> Dict:
+                      result: WeightedResult) -> Dict[str, Any]:
         """存入记忆库"""
         temporal = next((r for r in result.decom_results if r.line == DecomLine.TEMPORAL), None)
         decay = temporal.extra.get("decay_factor", 0.5) if temporal else 0.5
@@ -929,7 +929,7 @@ class Distributor:
         return {"library": "memory", "action": "stored", "decay": decay}
 
     def _log_decision(self, item: IngestedItem, lib_path: Path,
-                      result: WeightedResult) -> Dict:
+                      result: WeightedResult) -> Dict[str, Any]:
         """记录决策卡"""
         decision_entry = {
             "source": item.source_path,
@@ -949,7 +949,7 @@ class Distributor:
         return {"library": "decisions", "action": "logged"}
 
     def _register_skill(self, item: IngestedItem, lib_path: Path,
-                        result: WeightedResult) -> Dict:
+                        result: WeightedResult) -> Dict[str, Any]:
         """注册技能"""
         name = Path(item.source_path).stem
         skill_entry = {
@@ -965,7 +965,7 @@ class Distributor:
         return {"library": "skills", "action": "registered", "name": name}
 
     def _create_trigger(self, item: IngestedItem, lib_path: Path,
-                        result: WeightedResult) -> Dict:
+                        result: WeightedResult) -> Dict[str, Any]:
         """创建联动触发"""
         trigger_entry = {
             "source": item.source_path,
@@ -980,7 +980,7 @@ class Distributor:
         return {"library": "triggers", "action": "created"}
 
     def _audit_log(self, item: IngestedItem, lib_path: Path,
-                   result: WeightedResult) -> Dict:
+                   result: WeightedResult) -> Dict[str, Any]:
         """审计日志"""
         audit_entry = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -1068,7 +1068,7 @@ class UniversalContainer:
         log.info(f"全流程完成: {len(results)} 个结果, {self.stats['errors']} 个错误")
         return results
 
-    def scan_home_for_longhun_assets(self, home_dir: str = None) -> List[str]:
+    def scan_home_for_longhun_assets(self, home_dir: str | None = None) -> List[str]:
         """扫描家目录中所有龙魂相关资产路径"""
         if home_dir is None:
             home_dir = str(Path.home())

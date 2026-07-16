@@ -64,7 +64,7 @@ class RuleEngine:
       - 依赖注入 (rule_file 参数)
     """
 
-    def __init__(self, rule_file: str = None):
+    def __init__(self, rule_file: str | None = None):
         """
         初始化规则引擎
 
@@ -416,7 +416,7 @@ class RuleEngine:
 _GLOBAL_RULE_ENGINE: Optional[RuleEngine] = None
 
 
-def get_rule_engine(rule_file: str = None) -> RuleEngine:
+def get_rule_engine(rule_file: str | None = None) -> RuleEngine:
     """
     获取全局规则引擎实例（单例模式）
 

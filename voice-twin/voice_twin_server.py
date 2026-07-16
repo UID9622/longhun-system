@@ -72,7 +72,7 @@ def _safe_filename(text: str, max_len: int = 30) -> str:
     return "".join(c if c.isalnum() or c in "_-" else "_" for c in text)[:max_len]
 
 
-def save_text_output(content_type: str, topic: str, content: str) -> dict:
+def save_text_output(content_type: str, topic: str, content: str) -> dict[str, Any]:
     """
     保存生成的文本内容到 ~/longhun-system/outputs/YYYYMMDD/
     并返回包含 DNA、路径等信息的字典。
@@ -110,7 +110,7 @@ created_at: {datetime.now().isoformat()}
     return record
 
 
-def _append_manifest(record: dict):
+def _append_manifest(record: dict[str, Any]):
     """把记录追加到 manifest.json"""
     manifest = []
     if MANIFEST_PATH.exists():
@@ -124,7 +124,7 @@ def _append_manifest(record: dict):
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def _load_manifest() -> list:
+def _load_manifest() -> list[Any]:
     if MANIFEST_PATH.exists():
         try:
             data = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -146,7 +146,7 @@ class TTSRequest(BaseModel):
     pitch: str = "+0Hz"
 
 
-def _edge_tts_generate(text: str, voice: str, rate: str, volume: str, pitch: str, audio_path: Path) -> dict:
+def _edge_tts_generate(text: str, voice: str, rate: str, volume: str, pitch: str, audio_path: Path) -> dict[str, Any]:
     """edge-tts 生成，失败回退 Mac say。"""
     try:
         import asyncio
@@ -163,7 +163,7 @@ def _edge_tts_generate(text: str, voice: str, rate: str, volume: str, pitch: str
                 "note": "Mac 系统默认声音（edge-tts 失败回退）"}
 
 
-def _fish_audio_generate(text: str, audio_path: Path) -> dict:
+def _fish_audio_generate(text: str, audio_path: Path) -> dict[str, Any]:
     """Fish Audio 真声生成，失败抛出异常由上层回退。"""
     if not FISH_AUDIO_AVAILABLE:
         raise RuntimeError("Fish Audio 桥接未就绪")
@@ -222,7 +222,7 @@ def _get_xtts_model():
     return _XTTS_MODEL
 
 
-def _xtts_generate(text: str, audio_path: Path) -> dict:
+def _xtts_generate(text: str, audio_path: Path) -> dict[str, Any]:
     """本地 XTTS v2 真声生成。"""
     tts = _get_xtts_model()
     tts.tts_to_file(text=text, speaker_wav=str(REFERENCE_WAV), language="zh", file_path=str(audio_path))

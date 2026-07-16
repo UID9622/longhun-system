@@ -198,7 +198,7 @@ class PhilosophyUnifiedEngine:
             return "🟢", TRICOLOR["🟢"]
 
     # ─── 维度1: 太极推演 ───
-    def dimension_taiji(self, question: str) -> Dict:
+    def dimension_taiji(self, question: str) -> Dict[str, Any]:
         """太极维度：阴阳分化·Bloch球面映射"""
         self._log("太极", "阴阳分化推演启动")
         seed = self._hash_to_seed(question)
@@ -243,7 +243,7 @@ class PhilosophyUnifiedEngine:
             return "阴阳和谐 — 保持平衡，顺其自然"
 
     # ─── 维度2: 易经推演 ───
-    def dimension_yijing(self, question: str) -> Dict:
+    def dimension_yijing(self, question: str) -> Dict[str, Any]:
         """易经维度：64卦状态映射"""
         self._log("易经", "64卦状态机推演启动")
         seed = self._hash_to_seed(question)
@@ -313,7 +313,7 @@ class PhilosophyUnifiedEngine:
         return interpretations.get(gua_name, f"「{gua_name}」— 卦象已定·待具体推演")
 
     # ─── 维度3: 369洛书推演 ───
-    def dimension_luoshu369(self, question: str) -> Dict:
+    def dimension_luoshu369(self, question: str) -> Dict[str, Any]:
         """369洛书维度：数字根·幻方守恒·不动点"""
         self._log("369洛书", "数字根+幻方守恒推演启动")
         seed = self._hash_to_seed(question)
@@ -353,7 +353,7 @@ class PhilosophyUnifiedEngine:
         }
 
     # ─── 维度4: 七因子推演 ───
-    def dimension_seven_factors(self, question: str) -> Dict:
+    def dimension_seven_factors(self, question: str) -> Dict[str, Any]:
         """七因子维度：行为密码学分析"""
         self._log("七因子", "行为密码学七因子推演启动")
         seed = self._hash_to_seed(question)
@@ -389,7 +389,7 @@ class PhilosophyUnifiedEngine:
         }
 
     # ─── 维度5: 道德经推演 ───
-    def dimension_daodejing(self, question: str) -> Dict:
+    def dimension_daodejing(self, question: str) -> Dict[str, Any]:
         """道德经维度：81章公理匹配"""
         self._log("道德经", "81章公理体系推演启动")
         seed = self._hash_to_seed(question)
@@ -440,7 +440,7 @@ class PhilosophyUnifiedEngine:
             return "抱一为天下式 — 守住根本法则"
 
     # ─── 维度6: 三才算法推演 ───
-    def dimension_sancai(self, question: str) -> Dict:
+    def dimension_sancai(self, question: str) -> Dict[str, Any]:
         """三才维度：天·地·人三层正交分析"""
         self._log("三才算法", "天·地·人三层正交推演启动")
         seed = self._hash_to_seed(question)
@@ -465,7 +465,7 @@ class PhilosophyUnifiedEngine:
         }
 
     # ─── 维度7: 五行生克推演 ───
-    def dimension_wuxing(self, question: str) -> Dict:
+    def dimension_wuxing(self, question: str) -> Dict[str, Any]:
         """五行维度：生克推演"""
         self._log("五行", "五行生克推演启动")
         seed = self._hash_to_seed(question)
@@ -524,7 +524,7 @@ class PhilosophyUnifiedEngine:
         return " → ".join(chain)
 
     # ─── 维度8: 河图推演 ───
-    def dimension_hetu(self, question: str) -> Dict:
+    def dimension_hetu(self, question: str) -> Dict[str, Any]:
         """河图维度：天地生成数"""
         self._log("河图", "河图数阵推演启动")
         seed = self._hash_to_seed(question)
@@ -542,7 +542,7 @@ class PhilosophyUnifiedEngine:
         }
 
     # ─── 维度9: 八卦路由 ───
-    def dimension_bagua_route(self, question: str) -> Dict:
+    def dimension_bagua_route(self, question: str) -> Dict[str, Any]:
         """八卦维度：3-bit量子路由"""
         self._log("八卦路由", "3-qubit计算基推演启动")
         seed = self._hash_to_seed(question)
@@ -583,7 +583,7 @@ class PhilosophyUnifiedEngine:
         }
 
     # ─── 维度10: 中国哲学综合 ───
-    def dimension_chinese_philosophy(self, question: str) -> Dict:
+    def dimension_chinese_philosophy(self, question: str) -> Dict[str, Any]:
         """中国哲学综合维度：文化主权声明"""
         self._log("中国哲学", "中华哲学可计算化综合推演启动")
 
@@ -605,7 +605,7 @@ class PhilosophyUnifiedEngine:
     # §2. 统一推演入口
     # ============================================================
 
-    def deduce(self, question: str) -> Dict:
+    def deduce(self, question: str) -> Dict[str, Any]:
         """
         十维同演：一个问题 → 十个哲学维度同时推演 → 交叉验证
         """
@@ -653,7 +653,7 @@ class PhilosophyUnifiedEngine:
             "trace": self.trace,
         }
 
-    def _cross_validate(self, results: Dict) -> Dict:
+    def _cross_validate(self, results: Dict[str, Any]) -> Dict[str, Any]:
         """十维交叉验证 — 不同维度之间的一致性检验"""
         validations = []
 
@@ -715,7 +715,7 @@ class PhilosophyUnifiedEngine:
             "summary": f"{len(validations)}组维度交叉验证完成·十维一致",
         }
 
-    def _synthesize(self, question: str, results: Dict, cross_validation: Dict) -> Dict:
+    def _synthesize(self, question: str, results: Dict[str, Any], cross_validation: Dict[str, Any]) -> Dict[str, Any]:
         """综合推演：十维汇聚成统一结论"""
         # 主导趋势判定
         tricolor = results["369洛书"]["tricolor"]

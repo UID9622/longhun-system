@@ -12,7 +12,7 @@ import json
 import sqlite3
 from pathlib import Path
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Any
 
 sys.path.insert(0, str(Path.home() / "_work"))
 from formula_alignment_search import search as formula_search
@@ -230,7 +230,7 @@ def dna_trace(dna_code: str):
     }
 
 
-def _parse_paper_meta(path: Path) -> dict:
+def _parse_paper_meta(path: Path) -> dict[str, Any]:
     text = path.stem
     # 尝试提取日期 2024-01 / 202401 / 2024
     dates = re.findall(r"(20\d{2})[-_ ]?(0[1-9]|1[0-2])[-_ ]?([0-2][0-9]|3[01])?", text)
@@ -287,17 +287,17 @@ def _parse_paper_meta(path: Path) -> dict:
     }
 
 
-def _cite_apa(p: dict) -> str:
+def _cite_apa(p: dict[str, Any]) -> str:
     authors = ", ".join(p["authors"])
     return f"{authors} ({p['year']}). {p['title']}. 龍魂知识图谱. {p['path']}"
 
 
-def _cite_mla(p: dict) -> str:
+def _cite_mla(p: dict[str, Any]) -> str:
     authors = ", ".join(p["authors"])
     return f'"{p["title"]}." 龍魂知识图谱, {p["year"]}, {p["path"]}.'
 
 
-def _cite_gb(p: dict) -> str:
+def _cite_gb(p: dict[str, Any]) -> str:
     authors = ", ".join(p["authors"])
     return f"[{1}] {authors}. {p['title']}[R]. 龍魂知识图谱, {p['year']}."
 

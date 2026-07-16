@@ -77,7 +77,7 @@ class NotionClient:
             time.sleep(0.34 - elapsed)
 
     def _call(self, method: str, endpoint: str, payload: Optional[Dict] = None,
-              timeout: int = 60) -> Dict:
+              timeout: int = 60) -> Dict[str, Any]:
         self._rate_limit()
         self.last_call = time.time()
 
@@ -139,7 +139,7 @@ class NotionClient:
 
     def search(self, query: str = "", page_size: int = 100,
                start_cursor: Optional[str] = None,
-               filter_type: Optional[str] = None) -> Dict:
+               filter_type: Optional[str] = None) -> Dict[str, Any]:
         payload: Dict[str, Any] = {"page_size": page_size}
         if query:
             payload["query"] = query
@@ -172,11 +172,11 @@ class NotionClient:
         print(f"  🔍 搜索完成: 共{len(results)}项" + " " * 30)
         return results
 
-    def get_page(self, page_id: str) -> Dict:
+    def get_page(self, page_id: str) -> Dict[str, Any]:
         page_id = page_id.replace("-", "")
         return self._call("GET", f"/pages/{page_id}")
 
-    def get_block_children(self, block_id: str, page_size: int = 100) -> Dict:
+    def get_block_children(self, block_id: str, page_size: int = 100) -> Dict[str, Any]:
         block_id = block_id.replace("-", "")
         return self._call("GET",
                          f"/blocks/{block_id}/children?page_size={page_size}")
@@ -200,7 +200,7 @@ class NotionClient:
             cursor = data.get("next_cursor")
         return all_blocks
 
-    def query_database(self, db_id: str) -> Dict:
+    def query_database(self, db_id: str) -> Dict[str, Any]:
         db_id = db_id.replace("-", "")
         return self._call("POST", f"/databases/{db_id}/query",
                          {"page_size": 100})
@@ -226,12 +226,12 @@ class NotionClient:
             cursor = data.get("next_cursor")
         return results
 
-    def get_database(self, db_id: str) -> Dict:
+    def get_database(self, db_id: str) -> Dict[str, Any]:
         db_id = db_id.replace("-", "")
         return self._call("GET", f"/databases/{db_id}")
 
     def create_database(self, parent_page_id: str, title: str,
-                        properties: Dict) -> Dict:
+                        properties: Dict[str, Any]) -> Dict[str, Any]:
         payload = {
             "parent": {"type": "page_id", "page_id": parent_page_id},
             "title": [{"type": "text", "text": {"content": title}}],
@@ -309,7 +309,7 @@ class ContentAnalyzer:
         return "未分类"
 
     @staticmethod
-    def extract_title(page: Dict) -> str:
+    def extract_title(page: Dict[str, Any]) -> str:
         """从页面提取标题"""
         props = page.get("properties", {})
         for prop_val in props.values():
@@ -324,7 +324,7 @@ class ContentAnalyzer:
         return "未命名"
 
     @staticmethod
-    def extract_tags(page: Dict) -> List[str]:
+    def extract_tags(page: Dict[str, Any]) -> List[str]:
         """提取标签"""
         tags = []
         props = page.get("properties", {})
@@ -336,7 +336,7 @@ class ContentAnalyzer:
         return tags
 
     @staticmethod
-    def estimate_size(page: Dict) -> int:
+    def estimate_size(page: Dict[str, Any]) -> int:
         """估算页面大小（字符数）"""
         total = 0
         props = page.get("properties", {})
@@ -489,7 +489,7 @@ class NotionScanner:
 class ReorganizerPlanner:
     """生成 Notion 整理方案"""
 
-    def __init__(self, scan_result: Dict):
+    def __init__(self, scan_result: Dict[str, Any]):
         self.scan = scan_result
 
     def generate_plan(self) -> Dict[str, Any]:
@@ -522,7 +522,7 @@ class ReorganizerPlanner:
 
         return plan
 
-    def _suggest_structure(self) -> Dict:
+    def _suggest_structure(self) -> Dict[str, Any]:
         """建议理想的 Notion 数据库结构"""
         cat_stats = self.scan.get("category_stats", {})
 
@@ -845,7 +845,7 @@ class ReorganizerPlanner:
 
         return sorted(suggestions, key=lambda x: x["size_kb"], reverse=True)
 
-    def _generate_actions(self, plan: Dict) -> List[str]:
+    def _generate_actions(self, plan: Dict[str, Any]) -> List[str]:
         """生成推荐操作列表"""
         actions = []
 
@@ -891,7 +891,7 @@ class ReorganizerPlanner:
 # ═══════════════════════════════════════════════
 # 5. 报告生成
 # ═══════════════════════════════════════════════
-def generate_markdown_report(scan: Dict, plan: Dict) -> str:
+def generate_markdown_report(scan: Dict[str, Any], plan: Dict[str, Any]) -> str:
     """生成可读的 Markdown 报告"""
     s = scan.get("summary", {})
     cat_stats = scan.get("category_stats", {})

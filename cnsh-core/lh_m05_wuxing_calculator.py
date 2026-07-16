@@ -20,7 +20,7 @@
 
 from enum import Enum
 from dataclasses import dataclass
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 import math
 import sys
 from pathlib import Path
@@ -88,7 +88,7 @@ class WuXingCalculator:
         stability: float,   # 土: 承载度
         constraint: float,  # 金: 约束度
         flexibility: float  # 水: 流动度
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """
         用五行逻辑分析决策的平衡性
 
@@ -167,7 +167,7 @@ class WuXingCalculator:
 
         return warnings if warnings else ["✓ 五行相对均衡"]
 
-    def _check_interactions(self, score: WuXingScore) -> Dict:
+    def _check_interactions(self, score: WuXingScore) -> Dict[str, Any]:
         """
         检查五行相生相克逻辑
 

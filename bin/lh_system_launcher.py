@@ -468,7 +468,7 @@ class SystemLauncher:
         ts = datetime.now().strftime("%H:%M:%S")
         print(f"[boot {ts}] {prefix} {msg}")
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> Dict[str, Any]:
         return {
             "running": self._running,
             "version": VERSION,

@@ -1,0 +1,808 @@
+{
+  "_meta": {
+    "system": "CNSH_OS",
+    "version": "2.0.0",
+    "dna": "CNSH::DB::SCHEMA::INIT",
+    "author": "DragonSoul Automation Infrastructure",
+    "created": "2025-06-09T00:00:00Z",
+    "audit_level": "TRICOLOR",
+    "description": "CNSH OS Notion 6+1 Database Schema - Complete API-ready structure definitions",
+    "naming_standard": "CNSH (Consensus Hash Naming Standard)",
+    "databases_count": 7,
+    "compatibility": "Notion API v2022-06-28+"
+  },
+  "parent_page_id": "PARENT_PAGE_ID_PLACEHOLDER",
+  "databases": [
+    {
+      "name": "CNSH_BLOCK_CORE",
+      "description": "核心运行库 - 系统的思维原子",
+      "icon": {"type": "emoji", "emoji": "🧱"},
+      "dna_marker": "CNSH::DB::BLOCK_CORE::v2.0",
+      "properties": {
+        "BLOCK_ID": {
+          "type": "title",
+          "title": {}
+        },
+        "CONTENT": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "DNA": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "SOURCE_AI": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "GPT", "color": "green"},
+              {"name": "Claude", "color": "purple"},
+              {"name": "Grok", "color": "blue"},
+              {"name": "Human", "color": "yellow"},
+              {"name": "Gemini", "color": "orange"},
+              {"name": "Multi-AI", "color": "red"}
+            ]
+          }
+        },
+        "TAGS": {
+          "type": "multi_select",
+          "multi_select": {
+            "options": [
+              {"name": "Protocol", "color": "blue"},
+              {"name": "Insight", "color": "green"},
+              {"name": "Conflict", "color": "red"},
+              {"name": "Draft", "color": "yellow"},
+              {"name": "Core", "color": "purple"},
+              {"name": "Archive", "color": "gray"},
+              {"name": "High-Value", "color": "pink"},
+              {"name": "Risk", "color": "brown"}
+            ]
+          }
+        },
+        "ELEMENT": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "金", "color": "yellow"},
+              {"name": "木", "color": "green"},
+              {"name": "水", "color": "blue"},
+              {"name": "火", "color": "red"},
+              {"name": "土", "color": "brown"}
+            ]
+          }
+        },
+        "VALUE_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "RISK_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "STATUS": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "IDEA", "color": "gray"},
+              {"name": "DRAFT", "color": "yellow"},
+              {"name": "REVIEW", "color": "orange"},
+              {"name": "ACTIVE", "color": "green"},
+              {"name": "FROZEN", "color": "blue"}
+            ]
+          }
+        },
+        "PARENT_BLOCK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "self",
+            "single_property": {}
+          }
+        },
+        "CHILD_BLOCK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "self",
+            "single_property": {}
+          }
+        },
+        "CREATED_TIME": {
+          "type": "created_time",
+          "created_time": {}
+        },
+        "UPDATED_TIME": {
+          "type": "last_edited_time",
+          "last_edited_time": {}
+        },
+        "EMBEDDING": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "CONFLICT_FLAG": {
+          "type": "checkbox",
+          "checkbox": {}
+        }
+      },
+      "views": [
+        {
+          "name": "🔴 冲突检测",
+          "type": "board",
+          "filter": {
+            "property": "CONFLICT_FLAG",
+            "checkbox": {"equals": true}
+          },
+          "group_by": "STATUS"
+        },
+        {
+          "name": "🟢 高价值内容",
+          "type": "table",
+          "filter": {
+            "property": "VALUE_SCORE",
+            "number": {"greater_than_or_equal_to": 85}
+          },
+          "sort": {"property": "VALUE_SCORE", "direction": "descending"}
+        },
+        {
+          "name": "🟡 审查中",
+          "type": "table",
+          "filter": {
+            "property": "STATUS",
+            "select": {"equals": "REVIEW"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "CNSH_PROTOCOL_ENGINE",
+      "description": "协议库 - 规则/制度/文明层",
+      "icon": {"type": "emoji", "emoji": "📜"},
+      "dna_marker": "CNSH::DB::PROTOCOL::v2.0",
+      "properties": {
+        "TITLE": {
+          "type": "title",
+          "title": {}
+        },
+        "DNA": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "VERSION": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "v1", "color": "gray"},
+              {"name": "v2", "color": "blue"},
+              {"name": "v3", "color": "green"},
+              {"name": "v4+", "color": "purple"}
+            ]
+          }
+        },
+        "STATUS": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "DRAFT", "color": "yellow"},
+              {"name": "ACTIVE", "color": "green"},
+              {"name": "LOCKED", "color": "red"},
+              {"name": "DEPRECATED", "color": "gray"}
+            ]
+          }
+        },
+        "AUTHOR": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "AI_SOURCE": {
+          "type": "multi_select",
+          "multi_select": {
+            "options": [
+              {"name": "GPT", "color": "green"},
+              {"name": "Claude", "color": "purple"},
+              {"name": "Grok", "color": "blue"},
+              {"name": "Gemini", "color": "orange"},
+              {"name": "Consensus", "color": "red"}
+            ]
+          }
+        },
+        "BLOCK_LINK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "CNSH_BLOCK_CORE",
+            "single_property": {}
+          }
+        },
+        "VALUE_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "RISK_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "IMPACT_SCOPE": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "局部", "color": "gray"},
+              {"name": "系统", "color": "blue"},
+              {"name": "文明", "color": "purple"}
+            ]
+          }
+        },
+        "ENFORCEMENT_LEVEL": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "L0-建议", "color": "gray"},
+              {"name": "L1-规范", "color": "blue"},
+              {"name": "L2-强制", "color": "yellow"},
+              {"name": "L3-核心", "color": "orange"},
+              {"name": "L∞-文明", "color": "red"}
+            ]
+          }
+        },
+        "TIMESTAMP": {
+          "type": "created_time",
+          "created_time": {}
+        }
+      },
+      "views": [
+        {
+          "name": "📜 协议总览",
+          "type": "table",
+          "sort": {"property": "ENFORCEMENT_LEVEL", "direction": "ascending"}
+        },
+        {
+          "name": "🔒 已固化协议",
+          "type": "board",
+          "filter": {
+            "property": "STATUS",
+            "select": {"equals": "LOCKED"}
+          },
+          "group_by": "IMPACT_SCOPE"
+        }
+      ]
+    },
+    {
+      "name": "CNSH_AI_LOG",
+      "description": "AI行为审计 - 抓AI行为真相",
+      "icon": {"type": "emoji", "emoji": "🤖"},
+      "dna_marker": "CNSH::DB::AI_LOG::v2.0",
+      "properties": {
+        "LOG_ID": {
+          "type": "title",
+          "title": {}
+        },
+        "AI_MODEL": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "GPT", "color": "green"},
+              {"name": "Claude", "color": "purple"},
+              {"name": "Grok", "color": "blue"},
+              {"name": "Gemini", "color": "orange"},
+              {"name": "Multi-AI", "color": "red"}
+            ]
+          }
+        },
+        "INPUT": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "OUTPUT": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "INTENT": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "HALLUCINATION": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 1
+          }
+        },
+        "BIAS": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 1
+          }
+        },
+        "LOGIC_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "CONSENSUS_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "TIMESTAMP": {
+          "type": "created_time",
+          "created_time": {}
+        }
+      },
+      "views": [
+        {
+          "name": "🤖 AI审计总览",
+          "type": "table",
+          "sort": {"property": "TIMESTAMP", "direction": "descending"}
+        },
+        {
+          "name": "🔴 高风险AI输出",
+          "type": "table",
+          "filter": {
+            "and": [
+              {"property": "HALLUCINATION", "number": {"greater_than": 0.5}},
+              {"property": "LOGIC_SCORE", "number": {"less_than": 60}}
+            ]
+          },
+          "sort": {"property": "HALLUCINATION", "direction": "descending"}
+        },
+        {
+          "name": "📊 共识分析",
+          "type": "board",
+          "group_by": "AI_MODEL"
+        }
+      ]
+    },
+    {
+      "name": "CNSH_DNA_CHAIN",
+      "description": "文明链 - 版本追踪",
+      "icon": {"type": "emoji", "emoji": "🧬"},
+      "dna_marker": "CNSH::DB::DNA_CHAIN::v2.0",
+      "properties": {
+        "DNA": {
+          "type": "title",
+          "title": {}
+        },
+        "ORIGIN": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "PARENT_DNA": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "VERSION": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "BRANCH_TYPE": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "主链", "color": "green"},
+              {"name": "分支", "color": "blue"},
+              {"name": "实验", "color": "yellow"},
+              {"name": "废弃", "color": "gray"}
+            ]
+          }
+        },
+        "MUTATION_SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "INTEGRITY_STATUS": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "完整", "color": "green"},
+              {"name": "损坏", "color": "red"},
+              {"name": "修复中", "color": "yellow"},
+              {"name": "校验失败", "color": "orange"}
+            ]
+          }
+        },
+        "LINKED_BLOCK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "CNSH_BLOCK_CORE",
+            "single_property": {}
+          }
+        },
+        "TIMESTAMP": {
+          "type": "created_time",
+          "created_time": {}
+        }
+      },
+      "views": [
+        {
+          "name": "🧬 DNA总览",
+          "type": "table",
+          "sort": {"property": "TIMESTAMP", "direction": "descending"}
+        },
+        {
+          "name": "🌳 分支视图",
+          "type": "board",
+          "group_by": "BRANCH_TYPE"
+        },
+        {
+          "name": "⚠️ 完整性检查",
+          "type": "table",
+          "filter": {
+            "property": "INTEGRITY_STATUS",
+            "select": {"does_not_equal": "完整"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "CNSH_STATE_ENGINE",
+      "description": "状态引擎 - 2.0灵魂",
+      "icon": {"type": "emoji", "emoji": "⚙️"},
+      "dna_marker": "CNSH::DB::STATE::v2.0",
+      "properties": {
+        "NODE_ID": {
+          "type": "title",
+          "title": {}
+        },
+        "CURRENT_STATE": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "INIT", "color": "gray"},
+              {"name": "PENDING", "color": "yellow"},
+              {"name": "PROCESSING", "color": "blue"},
+              {"name": "REVIEW", "color": "orange"},
+              {"name": "ACTIVE", "color": "green"},
+              {"name": "BLOCKED", "color": "red"},
+              {"name": "ARCHIVED", "color": "brown"},
+              {"name": "FROZEN", "color": "purple"}
+            ]
+          }
+        },
+        "NEXT_STATE": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "INIT", "color": "gray"},
+              {"name": "PENDING", "color": "yellow"},
+              {"name": "PROCESSING", "color": "blue"},
+              {"name": "REVIEW", "color": "orange"},
+              {"name": "ACTIVE", "color": "green"},
+              {"name": "BLOCKED", "color": "red"},
+              {"name": "ARCHIVED", "color": "brown"},
+              {"name": "FROZEN", "color": "purple"}
+            ]
+          }
+        },
+        "TRIGGER_RULE": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "SCORE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "RISK_FLAG": {
+          "type": "checkbox",
+          "checkbox": {}
+        },
+        "AUTO_EXECUTE": {
+          "type": "checkbox",
+          "checkbox": {}
+        },
+        "TIMESTAMP": {
+          "type": "created_time",
+          "created_time": {}
+        }
+      },
+      "views": [
+        {
+          "name": "⚙️ 状态总览",
+          "type": "board",
+          "group_by": "CURRENT_STATE"
+        },
+        {
+          "name": "🔴 阻断状态",
+          "type": "table",
+          "filter": {
+            "property": "RISK_FLAG",
+            "checkbox": {"equals": true}
+          }
+        },
+        {
+          "name": "🤖 自动执行队列",
+          "type": "table",
+          "filter": {
+            "and": [
+              {"property": "AUTO_EXECUTE", "checkbox": {"equals": true}},
+              {"property": "CURRENT_STATE", "select": {"does_not_equal": "ACTIVE"}}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CNSH_GRAPH_MEMORY",
+      "description": "文明图谱 - 关系网络",
+      "icon": {"type": "emoji", "emoji": "🕸️"},
+      "dna_marker": "CNSH::DB::GRAPH::v2.0",
+      "properties": {
+        "NODE": {
+          "type": "title",
+          "title": {}
+        },
+        "EDGE": {
+          "type": "rich_text",
+          "rich_text": {}
+        },
+        "RELATION_TYPE": {
+          "type": "select",
+          "select": {
+            "options": [
+              {"name": "DERIVES_FROM", "color": "blue"},
+              {"name": "CONTRADICTS", "color": "red"},
+              {"name": "EXTENDS", "color": "green"},
+              {"name": "REPLACES", "color": "orange"},
+              {"name": "VALIDATES", "color": "purple"}
+            ]
+          }
+        },
+        "STRENGTH": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "SEMANTIC_DISTANCE": {
+          "type": "number",
+          "number": {
+            "format": "number",
+            "min": 0,
+            "max": 1
+          }
+        },
+        "SOURCE_BLOCK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "CNSH_BLOCK_CORE",
+            "single_property": {}
+          }
+        },
+        "TARGET_BLOCK": {
+          "type": "relation",
+          "relation": {
+            "database_id": "CNSH_BLOCK_CORE",
+            "single_property": {}
+          }
+        }
+      },
+      "views": [
+        {
+          "name": "🕸️ 图谱总览",
+          "type": "table"
+        },
+        {
+          "name": "🔗 关系类型视图",
+          "type": "board",
+          "group_by": "RELATION_TYPE"
+        },
+        {
+          "name": "💪 强关联",
+          "type": "table",
+          "filter": {
+            "property": "STRENGTH",
+            "number": {"greater_than_or_equal_to": 80}
+          }
+        }
+      ]
+    },
+    {
+      "name": "CNSH_CONTROL_CENTER",
+      "description": "控制台视图配置 - 中央监控面板",
+      "icon": {"type": "emoji", "emoji": "🎛️"},
+      "dna_marker": "CNSH::DB::CONTROL::v2.0",
+      "is_view_config": true,
+      "linked_databases": ["CNSH_BLOCK_CORE", "CNSH_PROTOCOL_ENGINE", "CNSH_AI_LOG", "CNSH_STATE_ENGINE"],
+      "dashboard_views": [
+        {
+          "name": "🆕 今日新增BLOCK",
+          "view_type": "table",
+          "source_db": "CNSH_BLOCK_CORE",
+          "icon": "🆕",
+          "filter": {
+            "time_range": "today",
+            "property": "CREATED_TIME"
+          },
+          "columns_visible": ["BLOCK_ID", "CONTENT", "SOURCE_AI", "VALUE_SCORE", "RISK_SCORE", "STATUS", "ELEMENT"],
+          "sort": [{"property": "VALUE_SCORE", "direction": "descending"}],
+          "audit_color": "🟢"
+        },
+        {
+          "name": "💎 高价值内容",
+          "view_type": "gallery",
+          "source_db": "CNSH_BLOCK_CORE",
+          "icon": "💎",
+          "filter": {
+            "property": "VALUE_SCORE",
+            "number": {"greater_than_or_equal_to": 85}
+          },
+          "columns_visible": ["BLOCK_ID", "CONTENT", "VALUE_SCORE", "DNA", "SOURCE_AI"],
+          "sort": [{"property": "VALUE_SCORE", "direction": "descending"}],
+          "audit_color": "🟢",
+          "highlight_condition": {"property": "VALUE_SCORE", "number": {"greater_than_or_equal_to": 95}}
+        },
+        {
+          "name": "⚠️ 风险内容",
+          "view_type": "board",
+          "source_db": "CNSH_BLOCK_CORE",
+          "icon": "⚠️",
+          "filter": {
+            "or": [
+              {"property": "RISK_SCORE", "number": {"greater_than_or_equal_to": 70}},
+              {"property": "CONFLICT_FLAG", "checkbox": {"equals": true}}
+            ]
+          },
+          "group_by": "STATUS",
+          "columns_visible": ["BLOCK_ID", "CONTENT", "RISK_SCORE", "CONFLICT_FLAG", "STATUS"],
+          "sort": [{"property": "RISK_SCORE", "direction": "descending"}],
+          "audit_color": "🔴"
+        },
+        {
+          "name": "🔒 已固化协议",
+          "view_type": "table",
+          "source_db": "CNSH_PROTOCOL_ENGINE",
+          "icon": "🔒",
+          "filter": {
+            "property": "STATUS",
+            "select": {"equals": "LOCKED"}
+          },
+          "columns_visible": ["TITLE", "DNA", "VERSION", "ENFORCEMENT_LEVEL", "IMPACT_SCOPE", "AI_SOURCE"],
+          "sort": [
+            {"property": "ENFORCEMENT_LEVEL", "direction": "ascending"},
+            {"property": "TIMESTAMP", "direction": "descending"}
+          ],
+          "audit_color": "🔴"
+        }
+      ],
+      "control_widgets": [
+        {
+          "name": "系统健康度",
+          "type": "formula",
+          "dna": "CNSH::WIDGET::HEALTH",
+          "formula": "AVG(VALUE_SCORE) * 0.4 + AVG(LOGIC_SCORE) * 0.3 + (1 - AVG(HALLUCINATION)*100) * 0.3",
+          "display": "progress_bar",
+          "thresholds": {"green": 80, "yellow": 50, "red": 0}
+        },
+        {
+          "name": "AI共识度",
+          "type": "formula",
+          "dna": "CNSH::WIDGET::CONSENSUS",
+          "formula": "AVG(CONSENSUS_SCORE)",
+          "display": "percentage",
+          "thresholds": {"green": 75, "yellow": 50, "red": 0}
+        },
+        {
+          "name": "冲突计数器",
+          "type": "rollup",
+          "dna": "CNSH::WIDGET::CONFLICTS",
+          "source": "CNSH_BLOCK_CORE",
+          "rollup_property": "CONFLICT_FLAG",
+          "function": "checked",
+          "display": "number",
+          "alert_threshold": 1
+        }
+      ]
+    }
+  ],
+  "relations_map": {
+    "description": "跨数据库关系映射 - 确保创建顺序: BLOCK_CORE → PROTOCOL_ENGINE → AI_LOG → DNA_CHAIN → STATE_ENGINE → GRAPH_MEMORY",
+    "relations": [
+      {
+        "from": "CNSH_PROTOCOL_ENGINE.BLOCK_LINK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "many_to_one"
+      },
+      {
+        "from": "CNSH_DNA_CHAIN.LINKED_BLOCK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "many_to_one"
+      },
+      {
+        "from": "CNSH_GRAPH_MEMORY.SOURCE_BLOCK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "many_to_one"
+      },
+      {
+        "from": "CNSH_GRAPH_MEMORY.TARGET_BLOCK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "many_to_one"
+      },
+      {
+        "from": "CNSH_BLOCK_CORE.PARENT_BLOCK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "self"
+      },
+      {
+        "from": "CNSH_BLOCK_CORE.CHILD_BLOCK",
+        "to": "CNSH_BLOCK_CORE",
+        "type": "self"
+      }
+    ]
+  },
+  "creation_order": [
+    "CNSH_BLOCK_CORE",
+    "CNSH_PROTOCOL_ENGINE",
+    "CNSH_AI_LOG",
+    "CNSH_DNA_CHAIN",
+    "CNSH_STATE_ENGINE",
+    "CNSH_GRAPH_MEMORY",
+    "CNSH_CONTROL_CENTER"
+  ],
+  "api_endpoints": {
+    "create_database": "POST /v1/databases",
+    "query_database": "POST /v1/databases/{database_id}/query",
+    "create_page": "POST /v1/pages",
+    "update_page": "PATCH /v1/pages/{page_id}",
+    "base_url": "https://api.notion.com/v1"
+  },
+  "tricolor_audit_config": {
+    "🔴_red": {
+      "conditions": [
+        "RISK_SCORE >= 70",
+        "CONFLICT_FLAG == true",
+        "HALLUCINATION > 0.5",
+        "INTEGRITY_STATUS == 损坏"
+      ],
+      "action": "标记为需人工审查",
+      "priority": "HIGH"
+    },
+    "🟡_yellow": {
+      "conditions": [
+        "STATUS == REVIEW",
+        "RISK_SCORE >= 40 AND RISK_SCORE < 70",
+        "LOGIC_SCORE < 70"
+      ],
+      "action": "进入审查队列",
+      "priority": "MEDIUM"
+    },
+    "🟢_green": {
+      "conditions": [
+        "VALUE_SCORE >= 85",
+        "STATUS == ACTIVE",
+        "CONSENSUS_SCORE >= 80"
+      ],
+      "action": "自动推进/激活",
+      "priority": "LOW"
+    }
+  }
+}

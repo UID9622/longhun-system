@@ -19,7 +19,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from cnsh_unified import 三色审计, 系统路径, DNA工具
 
@@ -40,7 +40,7 @@ class 控制台:
         self.字体清单 = 字体数据 if isinstance(字体数据, list) else 字体数据.get("fonts", [])
 
     @staticmethod
-    def _读_json(路径: Path, 默认值: dict) -> dict:
+    def _读_json(路径: Path, 默认值: dict[str, Any]) -> dict[str, Any]:
         if not 路径.exists():
             return 默认值
         try:
@@ -49,7 +49,7 @@ class 控制台:
             return 默认值
 
     @staticmethod
-    def _执行(cmd: List[str]) -> tuple:
+    def _执行(cmd: List[str]) -> tuple[Any, ...]:
         try:
             r = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
             return r.returncode, r.stdout, r.stderr

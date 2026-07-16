@@ -10,7 +10,7 @@ import os
 import secrets
 import time
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 import jwt
 
@@ -30,7 +30,7 @@ def _hash_password(password: str, salt: str = "") -> tuple[str, str]:
     return h.hex(), salt
 
 
-def _init_admin() -> dict:
+def _init_admin() -> dict[str, Any]:
     """初始化或读取管理员配置"""
     if ADMIN_FILE.exists():
         try:
@@ -55,13 +55,13 @@ def _init_admin() -> dict:
     return admin_config
 
 
-def _save_admin(config: dict):
+def _save_admin(config: dict[str, Any]):
     """保存管理员配置"""
     ADMIN_FILE.write_text(json.dumps(config, indent=2, ensure_ascii=False), encoding="utf-8")
     os.chmod(ADMIN_FILE, 0o600)
 
 
-def verify_password(username: str, password: str) -> tuple[bool, Optional[dict]]:
+def verify_password(username: str, password: str) -> tuple[bool, Optional, Any[dict]]:
     """验证用户名密码，返回 (成功, 管理员配置)"""
     config = _init_admin()
     if username != config.get("username", "admin"):
@@ -112,7 +112,7 @@ def create_token(username: str) -> str:
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
 
-def verify_token(token: str) -> Optional[dict]:
+def verify_token(token: str) -> Optional, Any[dict]:
     """验证 JWT 令牌，返回 payload 或 None"""
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
@@ -123,7 +123,7 @@ def verify_token(token: str) -> Optional[dict]:
         return None
 
 
-def get_admin_info() -> dict:
+def get_admin_info() -> dict[str, Any]:
     """获取管理员信息（不含密码哈希）"""
     config = _init_admin()
     return {

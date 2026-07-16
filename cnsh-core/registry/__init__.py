@@ -17,7 +17,7 @@
 ╚══════════════════════════════════════════════════════════════════╝
 """
 
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Any
 
 from .node import RouteNode, NodeStatus, NodeType, normalize_node_id, parse_node_id
 from .route_registry import RouteRegistry, get_route_registry
@@ -72,7 +72,7 @@ def list_routes(
     return get_route_registry().list_nodes(node_type, status, layer)
 
 
-def check_route_health(node_id: str) -> dict:
+def check_route_health(node_id: str) -> dict[str, Any]:
     """
     检查路由节点健康度
 
@@ -85,7 +85,7 @@ def check_route_health(node_id: str) -> dict:
     return get_route_registry().check_health(node_id)
 
 
-def get_route_statistics() -> dict:
+def get_route_statistics() -> dict[str, Any]:
     """
     获取路由统计信息
 

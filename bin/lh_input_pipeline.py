@@ -25,7 +25,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
@@ -203,7 +203,7 @@ class DigestivePipeline:
         self._save_queue()
         return node
 
-    def digest(self) -> Dict:
+    def digest(self) -> Dict[str, Any]:
         """处理待消化队列：分类→路由→吸收"""
         results = {"classified": 0, "routed": 0, "rejected": 0, "absorbed": 0}
         new_queue = []
@@ -275,7 +275,7 @@ class DigestivePipeline:
                 "timestamp": datetime.now().isoformat(),
             }, ensure_ascii=False) + "\n")
 
-    def status(self) -> Dict:
+    def status(self) -> Dict[str, Any]:
         """消化系统当前状态"""
         counts = {s.value: 0 for s in DigestState}
         types = {}

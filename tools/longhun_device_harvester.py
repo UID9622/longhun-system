@@ -13,7 +13,7 @@ import re
 import sqlite3
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import List, Dict, Set, Tuple
+from typing import List, Dict, Set, Tuple, Any
 
 HOME = Path.home()
 DB_PATH = HOME / "_work" / "dragon_knowledge.db"
@@ -132,7 +132,7 @@ def compute_bloodline_score(text: str) -> int:
     return score
 
 
-def extract_meta(text: str, filename: str) -> Dict:
+def extract_meta(text: str, filename: str) -> Dict[str, Any]:
     meta = {
         "dna": "",
         "version": "",

@@ -49,7 +49,7 @@ class BridgeDecision:
     emergence_influence: float               # 涌现影响因子
     colony_consensus: float                  # 蚁群共识度 (0-1)
     recommendation: str                      # green/yellow/red
-    details: Dict = field(default_factory=dict)
+    details: Dict[str, Any] = field(default_factory=dict)
     dna: str = DNA
 
 
@@ -107,7 +107,7 @@ class AntColonyEngineBridge:
     # 1. 决策加权 → 双脑互搏
     # ═══════════════════════════════
 
-    def weigh_decision(self, decision: Dict) -> BridgeDecision:
+    def weigh_decision(self, decision: Dict[str, Any]) -> BridgeDecision:
         """
         用蚁群涌现指标加权双脑决策。
         
@@ -209,7 +209,7 @@ class AntColonyEngineBridge:
     # 2. 审计增强 → 统一钩子
     # ═══════════════════════════════
 
-    def augment_audit(self, audit_ctx: Dict) -> BridgeAudit:
+    def augment_audit(self, audit_ctx: Dict[str, Any]) -> BridgeAudit:
         """
         用蚁群感知增强审计结果。
 
@@ -217,7 +217,7 @@ class AntColonyEngineBridge:
             audit_ctx: {
                 "verdict": str,       # green/yellow/red
                 "engine": str,        # 来源引擎
-                "evidence": List,
+                "evidence": List[Any],
             }
         """
         verdict = audit_ctx.get("verdict", "green")
@@ -306,7 +306,7 @@ class AntColonyEngineBridge:
     # 3. 涌现质量快照 → Braket联动
     # ═══════════════════════════════
 
-    def emergence_snapshot(self) -> Dict:
+    def emergence_snapshot(self) -> Dict[str, Any]:
         """获取当前涌现质量快照，供 Braket 量子引擎联动"""
         try:
             rt = self.runtime
@@ -337,7 +337,7 @@ class AntColonyEngineBridge:
     # 4. 路由决策 → 模9治理
     # ═══════════════════════════════
 
-    def route_decision(self, context: Dict) -> Dict:
+    def route_decision(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """
         基于蚁群信息素热度做路由推荐。
         

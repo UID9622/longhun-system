@@ -77,7 +77,7 @@ class CalculationSpec:
     max_duration_ms: int = 0  # 最大耗时
     memory_usage_mb: float = 0.0  # 内存占用
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
     
     def validate(self) -> tuple[bool, List[str]]:
@@ -117,7 +117,7 @@ class SkillIOSchema:
     example_input: Dict[str, Any] = field(default_factory=dict)
     example_output: Dict[str, Any] = field(default_factory=dict)
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -155,7 +155,7 @@ class SkillMetadata:
         if not self.last_updated:
             self.last_updated = datetime.now().isoformat()
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
     
     def validate(self) -> tuple[bool, List[str]]:
@@ -221,7 +221,7 @@ class SkillStructure:
     # 10. 扩展信息 (Extensions)
     extensions: Dict[str, Any] = field(default_factory=dict)  # 任何额外信息
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "metadata": self.metadata.to_dict(),
             "calculation_spec": self.calculation_spec.to_dict(),

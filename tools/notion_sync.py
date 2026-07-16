@@ -78,7 +78,7 @@ def make_dna(op: str) -> str:
     return f"{DNA_PREFIX}{ts}-NOTION-SYNC-{op}-{h}"
 
 
-def audit(action: str, page_id: str, path: str, status: str, detail: dict):
+def audit(action: str, page_id: str, path: str, status: str, detail: dict[str, Any]):
     entry = {
         "timestamp": now_iso(),
         "action": action,
@@ -105,7 +105,7 @@ class NotionClient:
         self.base = "https://api.notion.com/v1"
         self._req_count = 0
 
-    def _req(self, method: str, path: str, data: Optional[dict] = None, timeout: float = 60.0) -> dict:
+    def _req(self, method: str, path: str, data: Optional[dict] = None, timeout: float = 60.0) -> dict[str, Any]:
         url = f"{self.base}{path}"
         cmd = [
             "curl", "-s", "-X", method,
@@ -150,16 +150,16 @@ class NotionClient:
                 raise RuntimeError(f"Notion API 請求失敗: {method} {url} -> {e}")
         raise RuntimeError(f"Notion API 重試耗盡: {method} {url}")
 
-    def get_page(self, page_id: str) -> dict:
+    def get_page(self, page_id: str) -> dict[str, Any]:
         return self._req("GET", f"/pages/{page_id}")
 
-    def get_children(self, block_id: str, page_size: int = 100, start_cursor: Optional[str] = None, timeout: float = 60.0) -> dict:
+    def get_children(self, block_id: str, page_size: int = 100, start_cursor: Optional[str] = None, timeout: float = 60.0) -> dict[str, Any]:
         path = f"/blocks/{block_id}/children?page_size={page_size}"
         if start_cursor:
             path += f"&start_cursor={start_cursor}"
         return self._req("GET", path, timeout=timeout)
 
-    def create_page(self, parent_id: str, title: str, children: List[dict]) -> dict:
+    def create_page(self, parent_id: str, title: str, children: List[dict]) -> dict[str, Any]:
         payload = {
             "parent": {"page_id": parent_id},
             "properties": {
@@ -176,7 +176,7 @@ class NotionClient:
             self._req("PATCH", f"/blocks/{page['id']}/children", {"children": chunk})
         return page
 
-    def append_blocks(self, block_id: str, children: List[dict]) -> dict:
+    def append_blocks(self, block_id: str, children: List[dict]) -> dict[str, Any]:
         return self._req("PATCH", f"/blocks/{block_id}/children", {"children": children})
 
 
@@ -187,7 +187,7 @@ def rich_text(rt: List[dict]) -> str:
     return "".join(t.get("plain_text", "") for t in rt)
 
 
-def block_to_md(b: dict, depth: int = 0) -> List[str]:
+def block_to_md(b: dict[str, Any], depth: int = 0) -> List[str]:
     t = b.get("type")
     d = b.get(t, {})
     text = rich_text(d.get("rich_text", []))
@@ -385,7 +385,7 @@ def md_to_blocks(md_text: str) -> List[dict]:
     return blocks
 
 
-def push_markdown(client: NotionClient, parent_id: str, md_path: Path, title: Optional[str] = None) -> dict:
+def push_markdown(client: NotionClient, parent_id: str, md_path: Path, title: Optional[str] = None) -> dict[str, Any]:
     text = md_path.read_text(encoding="utf-8")
     blocks = md_to_blocks(text)
     if not title:

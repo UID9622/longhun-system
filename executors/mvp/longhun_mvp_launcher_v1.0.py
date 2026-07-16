@@ -18,7 +18,7 @@ import time
 from pathlib import Path
 from datetime import datetime, timedelta
 from enum import Enum
-from typing import Dict
+from typing import Dict, Any
 import sys
 
 import importlib.util
@@ -42,7 +42,7 @@ class SystemPhase(Enum):
 class MVPLauncher:
     """龍魂MVP启动器"""
 
-    def __init__(self, config_dir: str = None):
+    def __init__(self, config_dir: str | None = None):
         self.config_dir = Path(config_dir or "./mvp_config")
         self.executor = MVPExecutor()
         self.start_time = datetime.now()
@@ -202,7 +202,7 @@ class MVPLauncher:
 
         return True
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> Dict, Any:
         """获取系统状态"""
         task_status = self.executor.get_task_status()
         completed = sum(1 for t in self.executor.tasks.values() if t.status == TaskStatus.COMPLETED)
@@ -236,7 +236,7 @@ class MVPLauncher:
 
         return report + additional_info
 
-    def save_report(self, filename: str = None):
+    def save_report(self, filename: str | None = None):
         """保存日报"""
         if not filename:
             filename = f"daily_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"

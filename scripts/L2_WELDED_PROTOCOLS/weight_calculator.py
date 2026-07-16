@@ -24,7 +24,7 @@ import os
 import sys
 import json
 from datetime import datetime, timedelta
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -138,7 +138,7 @@ class WeightCalculator:
 
         return contribution
 
-    def calculate_wuxing_weight(self, text: str) -> Dict:
+    def calculate_wuxing_weight(self, text: str) -> Dict[str, Any]:
         """
         计算五行向量
 
@@ -176,7 +176,7 @@ class WeightCalculator:
     def calculate_layer_weight(
         self,
         layer: str,
-        adjustments: Dict = None
+        adjustments: Dict[str, Any] = None
     ) -> float:
         """
         计算层级权重（综合考虑所有因素）

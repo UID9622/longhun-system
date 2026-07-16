@@ -24,7 +24,7 @@ import time
 import subprocess
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from enum import Enum
 
@@ -95,7 +95,7 @@ class HumHaKuSync:
 
     # ── 清单管理 ──
 
-    def _load_manifest(self) -> dict:
+    def _load_manifest(self) -> dict[str, Any]:
         """加载同步清单"""
         if MANIFEST_PATH.exists():
             try:
@@ -350,7 +350,7 @@ class HumHaKuSync:
 
     # ── 主流程 ──
 
-    def run(self, source_path: Optional[str] = None) -> Dict:
+    def run(self, source_path: Optional[str] = None) -> Dict[str, Any]:
         """
         主同步流程：
         1. 扫描源目录

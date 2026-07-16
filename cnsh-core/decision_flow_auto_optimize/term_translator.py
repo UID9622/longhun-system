@@ -17,7 +17,7 @@ DNA:#龍芯⚡️2026-05-17-TERM-TRANSLATOR-FILE1-v1.0
 
 import json
 import re
-from typing import Dict, List
+from typing import Dict, List, Any
 
 class TermTranslator:
     """术语翻译器"""
@@ -100,7 +100,7 @@ class TermTranslator:
         else:
             return "mixed"
 
-    def generate_translation_report(self, text: str) -> Dict:
+    def generate_translation_report(self, text: str) -> Dict[str, Any]:
         """生成翻译报告"""
         internal_mode = self.translate_to_mode(text, "internal")
         external_mode = self.translate_to_mode(text, "external")

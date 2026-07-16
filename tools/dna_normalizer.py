@@ -50,7 +50,7 @@ def normalize_module(module_part: str, fallback: str, fallback_dir: str = '') ->
 def make_dna(date_str: str, module: str, version: str) -> str:
     return f'#龍芯⚡️{date_str}-{module}-v{version}'
 
-def collect_valid_dnas(root: Path) -> set:
+def collect_valid_dnas(root: Path) -> set[str]:
     valid = set()
     for path in root.rglob('*'):
         if not path.is_file():

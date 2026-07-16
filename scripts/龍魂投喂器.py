@@ -43,7 +43,7 @@ def ensure_log_file() -> Path:
     return LOG_DIR / f"raw_conversations_{today}.jsonl"
 
 
-def feed_line(line: str, source: str = "cli") -> dict:
+def feed_line(line: str, source: str = "cli") -> dict[str, Any]:
     line = line.rstrip("\n\r")
     # 优先发送给后台服务（如果正在运行）
     svc_record = _send_to_service(line, source=source)

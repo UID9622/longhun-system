@@ -31,7 +31,7 @@ import hashlib
 import json
 import time
 from contextlib import redirect_stdout, redirect_stderr
-from typing import Dict, List
+from typing import Dict, List, Any
 
 # ============ 路径注入 ============
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,7 +47,7 @@ for p in (FORMULA_DIR, YIJING_DIR, TERMINOLOGY_DIR, SCRIPTS_DIR):
 
 # ============ 运行辅助 ============
 
-def run_selftest(module_name: str, func_name: str = "selftest") -> Dict:
+def run_selftest(module_name: str, func_name: str = "selftest") -> Dict[str, Any]:
     """运行某模块的自检函数，捕获输出与异常"""
     result = {"name": module_name, "ok": False, "error": None, "output": ""}
     try:
@@ -70,7 +70,7 @@ def run_selftest(module_name: str, func_name: str = "selftest") -> Dict:
 
 
 
-def run_terminology_check() -> Dict:
+def run_terminology_check() -> Dict[str, Any]:
     """术语库抽检：导入数学公式术语 + 查询 digital_root"""
     result = {"name": "terminology_bank", "ok": False, "error": None, "output": ""}
     try:
@@ -97,7 +97,7 @@ def run_terminology_check() -> Dict:
 
 # ============ 主控 ============
 
-def run_all() -> Dict:
+def run_all() -> Dict[str, Any]:
     """运行全部套件"""
     start = time.time()
     results: List[Dict] = []

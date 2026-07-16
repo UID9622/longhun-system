@@ -253,7 +253,7 @@ class SandboxResult:
     confirm: str = CONFIRM
     labels: List[InfoLabel] = field(default_factory=list)
     
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d["mode"] = self.mode.value
         d["labels"] = [l.value for l in self.labels]

@@ -28,7 +28,7 @@ GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from enum import Enum
 import hashlib
 import json
@@ -264,7 +264,7 @@ def five_element(n):
         backfill_rule="引用 F08·Σ=1·缺省中宫",
         verifiable=True,
         python_snippet="""
-def wuxing_vector(text: str) -> list:
+def wuxing_vector(text: str) -> list[Any]:
     # 简化示例：按关键词计数后归一
     counts = {"金":0,"木":0,"水":0,"火":0,"土":0}
     for c in text:
@@ -753,7 +753,7 @@ class FormulaCatalog:
             return f"❌ 公式 {fid} 不存在"
         return f"🧮 引用 {fid}（{f.title}）— {f.canon_page}"
 
-    def verification_report(self) -> Dict:
+    def verification_report(self) -> Dict[str, Any]:
         verifiable = [f for f in self.formulas.values() if f.verifiable]
         total = len(self.formulas)
         return {
@@ -767,7 +767,7 @@ class FormulaCatalog:
             "missing_f16_f30": sorted(self.EXPECTED_F16_F30 - set(self.formulas)),
         }
 
-    def continuity_check(self) -> Dict:
+    def continuity_check(self) -> Dict[str, Any]:
         """检查 F01-F25 是否连续"""
         expected = {f"F{i:02d}" for i in range(1, 26)}
         present = set(self.formulas) & expected

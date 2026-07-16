@@ -552,7 +552,7 @@ class DNATraceCode:
         self.version = version
         self.timestamp = datetime.now().strftime("%Y-%m-%d")
 
-    def generate(self, extra_data: dict = None) -> str:
+    def generate(self, extra_data: dict[str, Any] = None) -> str:
         """生成DNA追溯码"""
         module_code = self.MODULE_CODES.get(self.module, self.module.upper())
         base = f"#龍芯⚡️{self.timestamp}-{module_code}-v{self.version}"
@@ -562,7 +562,7 @@ class DNATraceCode:
         return base
 
     @staticmethod
-    def parse(dna_code: str) -> dict:
+    def parse(dna_code: str) -> dict[str, Any]:
         """解析DNA追溯码"""
         if not dna_code.startswith("#龍芯⚡️"):
             return {"valid": False, "error": "无效的DNA追溯码格式"}
@@ -673,7 +673,7 @@ class WatermarkEmbedder:
         return wm_bytes.decode('utf-8', errors='ignore')
 
     @staticmethod
-    def embed_metadata(image_bytes: bytes, metadata: dict) -> bytes:
+    def embed_metadata(image_bytes: bytes, metadata: dict[str, Any]) -> bytes:
         """将DNA元数据嵌入PNG的文本块 (tEXt)"""
         from PIL import Image
         from PIL.PngImagePlugin import PngInfo
@@ -686,7 +686,7 @@ class WatermarkEmbedder:
         return output.getvalue()
 
     @staticmethod
-    def extract_metadata(image_bytes: bytes) -> dict:
+    def extract_metadata(image_bytes: bytes) -> dict[str, Any]:
         """从PNG文本块提取元数据"""
         from PIL import Image
         img = Image.open(io.BytesIO(image_bytes))
@@ -720,7 +720,7 @@ class LongHunCryptoEngine:
         self._sm4_cipher = SM4Cipher(key)
 
     @staticmethod
-    def sm4_encrypt(data: bytes, key: bytes, iv: bytes = None) -> dict:
+    def sm4_encrypt(data: bytes, key: bytes, iv: bytes = None) -> dict[str, Any]:
         """SM4加密便捷方法"""
         cipher = SM4Cipher(key)
         if iv is None:
@@ -768,7 +768,7 @@ class LongHunCryptoEngine:
         """SM3哈希摘要 (64字符hex)"""
         return sm3_hash(data)
 
-    def generate_dna_code(self, module: str, extra: dict = None) -> str:
+    def generate_dna_code(self, module: str, extra: dict[str, Any] = None) -> str:
         """生成DNA追溯码"""
         dna = DNATraceCode(module=module)
         return dna.generate(extra)
@@ -790,7 +790,7 @@ class ImageEncryptor:
         self.dna = DNATraceCode('image_encrypt')
 
     def encrypt(self, image_data: bytes, sm4_key: bytes = None,
-                owner_id: str = "unknown", encrypt_format: str = "dna_visible") -> dict:
+                owner_id: str = "unknown", encrypt_format: str = "dna_visible") -> dict[str, Any]:
         """
         加密图片并嵌入DNA追溯码
 
@@ -874,7 +874,7 @@ class ImageEncryptor:
         """从图片提取DNA水印"""
         return WatermarkEmbedder.extract_lsb(image_data)
 
-    def embed_dna_metadata(self, image_data: bytes, metadata: dict) -> bytes:
+    def embed_dna_metadata(self, image_data: bytes, metadata: dict[str, Any]) -> bytes:
         """将DNA元数据嵌入PNG"""
         return WatermarkEmbedder.embed_metadata(image_data, metadata)
 
@@ -913,7 +913,7 @@ class TextEncryptor:
         self.engine = engine or LongHunCryptoEngine()
         self.dna = DNATraceCode('text_encrypt')
 
-    def encrypt(self, text: str, sm4_key: bytes = None, owner_id: str = "unknown") -> dict:
+    def encrypt(self, text: str, sm4_key: bytes = None, owner_id: str = "unknown") -> dict[str, Any]:
         """加密文本并添加DNA标记"""
         if sm4_key is None:
             sm4_key = os.urandom(16)
@@ -965,7 +965,7 @@ class TextEncryptor:
         plaintext = self.engine.sm4_decrypt(ciphertext, sm4_key, iv)
         return plaintext.decode('utf-8')
 
-    def verify_dna(self, encrypted_package: str) -> dict:
+    def verify_dna(self, encrypted_package: str) -> dict[str, Any]:
         """验证DNA标记完整性"""
         header_match = re.search(rf'{self.DNA_HEADER_MARK}(.+?){self.DNA_HEADER_MARK}', encrypted_package)
         footer_match = re.search(rf'{self.DNA_FOOTER_MARK}([a-f0-9]+){self.DNA_FOOTER_MARK}', encrypted_package)
@@ -997,7 +997,7 @@ class PersonalInfoEncryptor:
         self.engine = engine or LongHunCryptoEngine()
         self.dna = DNATraceCode('personal_info')
 
-    def encrypt_field(self, field_type: str, value: str, sm2_public_key: bytes) -> dict:
+    def encrypt_field(self, field_type: str, value: str, sm2_public_key: bytes) -> dict[str, Any]:
         """
         加密单个个人信息字段
 
@@ -1044,7 +1044,7 @@ class PersonalInfoEncryptor:
         plaintext = self.engine.sm2_decrypt(encrypted, sm2_private_key)
         return plaintext.decode('utf-8')
 
-    def encrypt_person(self, person_data: dict, sm2_public_key: bytes) -> dict:
+    def encrypt_person(self, person_data: dict[str, Any], sm2_public_key: bytes) -> dict[str, Any]:
         """加密完整个人信息"""
         results = {}
         dna_codes = []
@@ -1093,8 +1093,8 @@ class FormulaEncryptor:
         self.engine = engine or LongHunCryptoEngine()
         self.dna = DNATraceCode('formula')
 
-    def encrypt_formula(self, formula: dict, sm4_key: bytes = None,
-                        compliance_rules: dict = None) -> dict:
+    def encrypt_formula(self, formula: dict[str, Any], sm4_key: bytes = None,
+                        compliance_rules: dict[str, Any] = None) -> dict[str, Any]:
         """
         加密配方数据
 
@@ -1153,7 +1153,7 @@ class FormulaEncryptor:
             "threshold_summary": threshold_dna,
         }
 
-    def decrypt_formula(self, ciphertext_hex: str, sm4_key_hex: str, iv_hex: str) -> dict:
+    def decrypt_formula(self, ciphertext_hex: str, sm4_key_hex: str, iv_hex: str) -> dict[str, Any]:
         """解密配方"""
         ciphertext = binascii.unhexlify(ciphertext_hex)
         sm4_key = binascii.unhexlify(sm4_key_hex)
@@ -1161,7 +1161,7 @@ class FormulaEncryptor:
         plaintext = self.engine.sm4_decrypt(ciphertext, sm4_key, iv)
         return json.loads(plaintext.decode('utf-8'))
 
-    def _check_compliance(self, formula: dict, rules: dict) -> dict:
+    def _check_compliance(self, formula: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]:
         """检查配方合规性"""
         if not rules:
             return {"status": "unknown", "checks": []}
@@ -1186,7 +1186,7 @@ class FormulaEncryptor:
             "checks": checks,
         }
 
-    def _get_actual_value(self, formula: dict, rule_name: str):
+    def _get_actual_value(self, formula: dict[str, Any], rule_name: str):
         """从配方中获取规则对应的实际值"""
         # 去掉max_/min_前缀
         ingredient_name = rule_name
@@ -1269,7 +1269,7 @@ class KeyManager:
         """设置检测部门公钥 (用于验证)"""
         self._inspector_pk = pk_bytes
 
-    def generate_session_key(self, key_id: str = None) -> bytes:
+    def generate_session_key(self, key_id: str | None = None) -> bytes:
         """生成SM4会话密钥"""
         key = os.urandom(16)
         kid = key_id or f"sk_{int(time.time())}"
@@ -1335,7 +1335,7 @@ class AuditSystem:
     def __init__(self, engine: LongHunCryptoEngine = None):
         self.engine = engine or LongHunCryptoEngine()
 
-    def verify_data_integrity(self, original_data: bytes, stored_hash: str) -> dict:
+    def verify_data_integrity(self, original_data: bytes, stored_hash: str) -> dict[str, Any]:
         """验证数据完整性 (SM3哈希对比)"""
         current_hash = self.engine.sm3_digest(original_data)
         match = current_hash == stored_hash
@@ -1347,7 +1347,7 @@ class AuditSystem:
             "match": match,
         }
 
-    def verify_dna_trace(self, dna_code: str, expected_module: str = None) -> dict:
+    def verify_dna_trace(self, dna_code: str, expected_module: str | None = None) -> dict[str, Any]:
         """验证DNA追溯码"""
         parsed = DNATraceCode.parse(dna_code)
         if not parsed["valid"]:
@@ -1371,7 +1371,7 @@ class AuditSystem:
         return {"status": "pass", "audit_color": "green",
                 "module": parsed.get("module"), "timestamp": parsed["timestamp"]}
 
-    def audit_encrypted_package(self, package: dict, inspector_id: str) -> dict:
+    def audit_encrypted_package(self, package: dict[str, Any], inspector_id: str) -> dict[str, Any]:
         """对加密包进行完整审计"""
         results = []
         final_color = "green"
@@ -1421,7 +1421,7 @@ class AuditSystem:
 # 第七部分: 便捷入口函数
 # ============================================================
 
-def quick_encrypt_image(image_data: bytes, key_manager: KeyManager = None) -> dict:
+def quick_encrypt_image(image_data: bytes, key_manager: KeyManager = None) -> dict[str, Any]:
     """快速加密图片"""
     engine = LongHunCryptoEngine()
     km = key_manager or KeyManager()
@@ -1431,7 +1431,7 @@ def quick_encrypt_image(image_data: bytes, key_manager: KeyManager = None) -> di
     sm4_key = km.generate_session_key()
     return encryptor.encrypt(image_data, sm4_key)
 
-def quick_encrypt_text(text: str, key_manager: KeyManager = None) -> dict:
+def quick_encrypt_text(text: str, key_manager: KeyManager = None) -> dict[str, Any]:
     """快速加密文本"""
     engine = LongHunCryptoEngine()
     km = key_manager or KeyManager()
@@ -1441,15 +1441,15 @@ def quick_encrypt_text(text: str, key_manager: KeyManager = None) -> dict:
     sm4_key = km.generate_session_key()
     return encryptor.encrypt(text, sm4_key)
 
-def quick_encrypt_personal(data: dict, sm2_public_key: bytes,
-                           key_manager: KeyManager = None) -> dict:
+def quick_encrypt_personal(data: dict[str, Any], sm2_public_key: bytes,
+                           key_manager: KeyManager = None) -> dict[str, Any]:
     """快速加密个人信息"""
     engine = LongHunCryptoEngine()
     encryptor = PersonalInfoEncryptor(engine)
     return encryptor.encrypt_person(data, sm2_public_key)
 
-def quick_encrypt_formula(formula: dict, compliance: dict = None,
-                          key_manager: KeyManager = None) -> dict:
+def quick_encrypt_formula(formula: dict[str, Any], compliance: dict[str, Any] = None,
+                          key_manager: KeyManager = None) -> dict[str, Any]:
     """快速加密配方"""
     engine = LongHunCryptoEngine()
     km = key_manager or KeyManager()

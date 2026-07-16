@@ -235,7 +235,7 @@ def audit_aggregate(文本: str = "") -> str:
             return "🟡"
         return "🟢"
 
-    def _红线(text: str) -> dict:
+    def _红线(text: str) -> dict[str, Any]:
         red_words = ["技术无国界", "数据无国界", "生态锁定", "用户数据收割", "暗网", "信息殖民"]
         yellow_words = ["优化", "完善", "补充", "建议", "更好", "专业", "规范"]
         hits_red = [w for w in red_words if w in text]
@@ -497,11 +497,11 @@ def _jsonrpc_main():
     def _log(msg: str):
         print(f"[longhun-v4] {msg}", file=sys.stderr, flush=True)
 
-    def _send(data: dict):
+    def _send(data: dict[str, Any]):
         sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
         sys.stdout.flush()
 
-    def _handle(msg: dict) -> dict | None:
+    def _handle(msg: dict[str, Any]) -> dict | None:
         msg_id = msg.get("id")
         method = msg.get("method")
 

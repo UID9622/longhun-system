@@ -67,7 +67,7 @@ class LonghunSMS:
         except Exception:
             pass
 
-    def _check_provider(self, provider: str) -> tuple:
+    def _check_provider(self, provider: str) -> tuple[Any, ...]:
         cfg = self.PROVIDERS.get(provider)
         if not cfg:
             return False, f"未知服务商: {provider}"
@@ -84,7 +84,7 @@ class LonghunSMS:
                 return pid
         return 'aliyun'  # 默认阿里云
 
-    def send(self, phone: str, template_id: str, params: dict = None, provider: str = 'auto', sign_name: str = '龍魂系统') -> dict:
+    def send(self, phone: str, template_id: str, params: dict[str, Any] = None, provider: str = 'auto', sign_name: str = '龍魂系统') -> dict[str, Any]:
         if not phone or not phone.isdigit() or len(phone) < 11:
             return {'success': False, 'error': '手机号格式无效', 'dna': self.dna}
 
@@ -113,7 +113,7 @@ class LonghunSMS:
             'message': '短信通道未接入，请执行道引流程审查后部署',
         }
 
-    def list_providers(self) -> dict:
+    def list_providers(self) -> dict[str, Any]:
         providers = []
         for pid, cfg in sorted(self.PROVIDERS.items(), key=lambda x: x[1]['priority']):
             ok, msg = self._check_provider(pid)

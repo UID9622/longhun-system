@@ -12,7 +12,7 @@ import re
 import hashlib
 from enum import Enum, auto
 from dataclasses import dataclass
-from typing import List, Optional, Tuple, Dict
+from typing import List, Optional, Tuple, Dict, Any
 
 
 class TokenType(Enum):
@@ -557,7 +557,7 @@ class Lexer:
             })
         return 高亮信息
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

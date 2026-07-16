@@ -89,7 +89,7 @@ def _parse_hype_level(text: str) -> int:
     return 0
 
 
-def 加载话术词库(db_path: str = None) -> List[HypeCard]:
+def 加载话术词库(db_path: str | None = None) -> List[HypeCard]:
     """从SQLite加载100张AI行业话术卡片"""
     if db_path is None:
         db_path = str(DB_PATH)
@@ -272,7 +272,7 @@ class 反诈防火墙:
 # §3 格式化输出
 # ═══════════════════════════════════════════════════════════
 
-def 打印扫描结果(结果: Dict):
+def 打印扫描结果(结果: Dict[str, Any]):
     print("\n" + "═" * 68)
     print("  🛡️ 龍魂·AI反诈防火墙 — 扫描报告")
     print("═" * 68)
@@ -301,7 +301,7 @@ def 打印扫描结果(结果: Dict):
     print("═" * 68 + "\n")
 
 
-def 打印全局统计(统计: Dict):
+def 打印全局统计(统计: Dict[str, Any]):
     print("\n" + "═" * 68)
     print("  📚 龍魂·100张AI话术词库全景")
     print("═" * 68)
@@ -324,7 +324,7 @@ def 打印全局统计(统计: Dict):
     print("═" * 68 + "\n")
 
 
-def 打印大白话翻译(原文: str, 翻译: str, 扫描结果: Dict):
+def 打印大白话翻译(原文: str, 翻译: str, 扫描结果: Dict[str, Any]):
     print("\n" + "═" * 68)
     print("  📝 大白话翻译")
     print("═" * 68)
