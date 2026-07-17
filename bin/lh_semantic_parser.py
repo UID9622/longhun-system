@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 🐉 龍魂·语义解析引擎 v1.0 — 文本/OCR/语音转录 → 结构化语义
 DNA: #龍芯⚡️丙午·辛未·SEMANTIC-PARSER-v1.0-INTENT2ACTION
@@ -400,7 +401,7 @@ class SemanticParser:
         self.sentiment_analyzer = SentimentAnalyzer()
         self.entity_extractor = EntityExtractor()
 
-    def parse(self, input_data: Union[str, dict]) -> SemanticOutput:
+    def parse(self, input_data: Union[str, dict[str, Any]]) -> SemanticOutput:
         """
         统一解析接口。支持:
         - str: 纯文本
@@ -528,7 +529,7 @@ def bridge_audio_to_semantic(audio_output) -> SemanticOutput:
 
 _default_parser: Optional[SemanticParser] = None
 
-def parse(input_data: Union[str, dict]) -> SemanticOutput:
+def parse(input_data: Union[str, dict[str, Any]]) -> SemanticOutput:
     global _default_parser
     if _default_parser is None:
         _default_parser = SemanticParser()

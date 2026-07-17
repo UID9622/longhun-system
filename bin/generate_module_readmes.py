@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 为缺失 README.md 的活跃模块生成透明化说明文件。
 """
@@ -20,7 +21,7 @@ def usage_for(script: Path) -> str:
     return f"# 参见 {script.name}"
 
 
-def generate(module: dict) -> str:
+def generate(module: dict[str, Any]) -> str:
     path = ROOT / module["path"]
     name = path.name
     entries = module["entry_scripts"]

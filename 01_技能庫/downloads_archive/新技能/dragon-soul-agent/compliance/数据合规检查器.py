@@ -243,7 +243,7 @@ class 传输影响评估:
         self.数据库 = 跨境传输机制数据库()
         self.评估记录 = []
     
-    def 执行评估(self, 传输配置: Dict) -> Dict:
+    def 执行评估(self, 传输配置: Dict[str, Any]) -> Dict[str, Any]:
         """
         执行传输影响评估
         
@@ -338,7 +338,7 @@ class 传输影响评估:
             分数 = max(分数, 权重.get(类型, 0.5))
         return 分数
     
-    def _评估接收国风险(self, 接收国: str) -> Dict:
+    def _评估接收国风险(self, 接收国: str) -> Dict[str, Any]:
         """Evaluate recipient country risk"""
         for 等级, 国家列表 in self.数据库.接收国风险.items():
             if 接收国 in 国家列表:
@@ -356,7 +356,7 @@ class 传输影响评估:
             "说明": "未在风险数据库中找到该国家",
         }
     
-    def _评估传输机制(self, 传输配置: Dict) -> Dict:
+    def _评估传输机制(self, 传输配置: Dict[str, Any]) -> Dict[str, Any]:
         """Evaluate transfer mechanism adequacy"""
         机制 = 传输配置.get("现有机制", "")
         充分机制 = ["充分性认定", "SCCs", "BCRs", "标准合同条款"]
@@ -405,7 +405,7 @@ class 数据合规检查器:
         """Initialize with default configurations"""
         pass
     
-    def 检查传输合规(self, 传输配置: Dict) -> Dict:
+    def 检查传输合规(self, 传输配置: Dict[str, Any]) -> Dict[str, Any]:
         """
         全面检查数据传输的合规性
         Comprehensive check of data transfer compliance
@@ -466,7 +466,7 @@ class 数据合规检查器:
         
         return 结果
     
-    def _检查数据分类(self, 配置: Dict) -> Dict:
+    def _检查数据分类(self, 配置: Dict[str, Any]) -> Dict[str, Any]:
         """Check data classification"""
         数据类型 = 配置.get("数据类型", [])
         分类结果 = []
@@ -500,7 +500,7 @@ class 数据合规检查器:
             "敏感度": "高" if any(d in ["敏感个人数据", "重要数据", "核心数据", "生物识别"] for d in 数据类型) else "中",
         }
     
-    def _检查传输合法性(self, 配置: Dict) -> Dict:
+    def _检查传输合法性(self, 配置: Dict[str, Any]) -> Dict[str, Any]:
         """Check transfer legality"""
         机制 = 配置.get("现有机制", "")
         接收国 = 配置.get("接收国", "")
@@ -537,12 +537,12 @@ class 数据合规检查器:
                 "补充措施": "必须建立传输机制（建议使用SCCs）",
             }
     
-    def _评估接收国(self, 配置: Dict) -> Dict:
+    def _评估接收国(self, 配置: Dict[str, Any]) -> Dict[str, Any]:
         """Evaluate recipient country"""
         接收国 = 配置.get("接收国", "")
         return self.TIA评估器._评估接收国风险(接收国)
     
-    def _评估技术措施(self, 配置: Dict) -> Dict:
+    def _评估技术措施(self, 配置: Dict[str, Any]) -> Dict[str, Any]:
         """Evaluate technical measures"""
         措施 = 配置.get("技术措施", [])
         建议措施 = []
@@ -567,7 +567,7 @@ class 数据合规检查器:
             ],
         }
     
-    def _检查用户权利保障(self, 配置: Dict) -> Dict:
+    def _检查用户权利保障(self, 配置: Dict[str, Any]) -> Dict[str, Any]:
         """Check user rights protection after transfer"""
         接收国 = 配置.get("接收国", "")
         
@@ -591,7 +591,7 @@ class 数据合规检查器:
             ],
         }
     
-    def _生成合规状态(self, 维度: Dict, TIA: Dict) -> str:
+    def _生成合规状态(self, 维度: Dict[str, Any], TIA: Dict[str, Any]) -> str:
         """Generate overall compliance status"""
         状态列表 = [v.get("状态", "") for v in 维度.values()]
         
@@ -602,7 +602,7 @@ class 数据合规检查器:
         else:
             return "🟢 合规"
     
-    def _生成整改建议(self, 结果: Dict) -> List[str]:
+    def _生成整改建议(self, 结果: Dict[str, Any]) -> List[str]:
         """Generate remediation suggestions"""
         建议 = []
         
@@ -617,7 +617,7 @@ class 数据合规检查器:
         
         return 建议
     
-    def _生成文件清单(self, 配置: Dict) -> List[str]:
+    def _生成文件清单(self, 配置: Dict[str, Any]) -> List[str]:
         """Generate required compliance documents list"""
         清单 = [
             "☐ 数据分类清单 (Data Inventory)",
@@ -646,7 +646,7 @@ class 数据合规检查器:
         
         return 清单
     
-    def 保存传输记录(self, 结果: Dict) -> str:
+    def 保存传输记录(self, 结果: Dict[str, Any]) -> str:
         """Save transfer record and return record ID"""
         记录ID = f"XFER-{datetime.now().strftime('%Y%m%d%H%M%S')}-{hashlib.sha256(str(结果).encode()).hexdigest()[:6]}"
         
@@ -668,7 +668,7 @@ class 数据合规检查器:
         """Get all transfer records"""
         return self.传输记录
     
-    def 生成定期复评提醒(self, 上次评估时间: datetime = None) -> Dict:
+    def 生成定期复评提醒(self, 上次评估时间: datetime = None) -> Dict[str, Any]:
         """Generate periodic re-evaluation reminder"""
         if 上次评估时间 is None:
             上次评估时间 = datetime.now()

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂 · 中国文化公开素材采集器
 只采集 Wikimedia Commons 上明确为 Public Domain / CC0 的真实图片
@@ -108,7 +109,7 @@ def download_image(url: str, dest: Path):
     dest.write_bytes(r.content)
 
 
-def log_change(action: str, item: str, detail: dict):
+def log_change(action: str, item: str, detail: dict[str, Any]):
     entry = {
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "action": action,

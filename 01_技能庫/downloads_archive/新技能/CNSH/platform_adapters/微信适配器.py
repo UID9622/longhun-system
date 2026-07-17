@@ -19,7 +19,7 @@ DNA授权点 (DNA Authorization Points):
 """
 
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, Any
 import random
 import json
 import time
@@ -43,8 +43,8 @@ class 微信适配器(平台适配器基类):
     def __init__(self, 模式: str = "模拟"):
         super().__init__(模式)
         self._登录状态: bool = False
-        self._用户信息: Optional[dict] = None
-        self._小程序会话: Optional[dict] = None
+        self._用户信息: Optional, Any[dict] = None
+        self._小程序会话: Optional, Any[dict] = None
         self._支付记录: list[dict] = []
         
         if self.是否模拟模式():
@@ -92,7 +92,7 @@ class 微信适配器(平台适配器基类):
             return False
         return True
     
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行微信操作 / Execute WeChat operation
         
@@ -122,7 +122,7 @@ class 微信适配器(平台适配器基类):
     # 具体操作实现 / Specific Operation Implementations
     # ═══════════════════════════════════════════════════
     
-    def _扫码登录(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _扫码登录(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 扫码登录 / QR Code Login
         
@@ -198,7 +198,7 @@ class 微信适配器(平台适配器基类):
         
         return self._调用生产API("sns/oauth2/access_token", 参数)
     
-    def _小程序调用(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _小程序调用(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 小程序调用 / Mini Program Invocation
         
@@ -257,7 +257,7 @@ class 微信适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _支付(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _支付(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🔴 微信支付 — 最高安全级别 / WeChat Pay — Highest Security
         
@@ -343,7 +343,7 @@ class 微信适配器(平台适配器基类):
                 "模拟数据": True,
             }
     
-    def _调用生产API(self, 接口名: str, 参数: dict) -> dict:
+    def _调用生产API(self, 接口名: str, 参数: dict[str, Any]) -> dict[str, Any]:
         """调用生产环境API / Call production API"""
         return {
             "状态": "待实现",
@@ -355,7 +355,7 @@ class 微信适配器(平台适配器基类):
         """获取当前登录状态 / Get current login status"""
         return self._登录状态
     
-    def 获取用户信息(self) -> Optional[dict]:
+    def 获取用户信息(self) -> Optional, Any[dict]:
         """获取登录用户信息 / Get logged-in user info"""
         return self._用户信息.copy() if self._用户信息 else None
     

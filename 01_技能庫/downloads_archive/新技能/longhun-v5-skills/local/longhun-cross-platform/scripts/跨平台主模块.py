@@ -104,7 +104,7 @@ class 同步结果:
     耗时毫秒: int = 0
     冲突数: int = 0
     主权检查: bool = False
-    审计日志: list = field(default_factory=list)
+    审计日志: list[Any] = field(default_factory=list)
     DNA: str = "#龍芯⚡️2026-06-19-SYNC-MSG-v1.0"
 
 
@@ -415,12 +415,12 @@ class 跨平台主模块:
         # 实际实现需要调用BLE API
         return b""
     
-    def _获取本地对应数据(self, 远程数据: Dict) -> Dict:
+    def _获取本地对应数据(self, 远程数据: Dict[str, Any]) -> Dict[str, Any]:
         """获取与远程数据对应的本地数据"""
         # 实际实现从本地数据库查询
         return {}
     
-    def _合并数据(self, 本地: Dict, 对端: Dict) -> Dict:
+    def _合并数据(self, 本地: Dict[str, Any], 对端: Dict[str, Any]) -> Dict[str, Any]:
         """合并两设备数据"""
         结果 = dict(本地)
         for 键, 值 in 对端.items():

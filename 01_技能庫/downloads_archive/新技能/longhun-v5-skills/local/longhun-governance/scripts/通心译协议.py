@@ -11,7 +11,7 @@ All code must include both Chinese and English comments for global accessibility
 # 🔴 DNA Trace: #龍芯⚡️2026-06-18-CNSH-protocols-通心译协议-v1.0
 
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
 __版本__ = "v1.0"
 __dna__ = "#龍芯⚡️2026-06-18-CNSH-protocols-通心译协议-v1.0"
@@ -60,7 +60,7 @@ class 通心译协议:
         注释 = f"通心译 | TongXinYi: {{中文描述}}\n{{英文描述}}"
         return 注释
 
-    def 验证文件注释(自身, 文件内容: str) -> Dict:
+    def 验证文件注释(自身, 文件内容: str) -> Dict[str, Any]:
         """🟡 验证文件是否包含双语注释 | Verify bilingual comments in file"""
         有中文 = any("一" <= c <= "鿿" for c in 文件内容[:500])
         有英文 = any(c.isascii() and c.isalpha() for c in 文件内容[:500])
@@ -79,7 +79,7 @@ class 通心译协议:
 
         return 结果
 
-    def 列出所有术语(自身) -> Dict:
+    def 列出所有术语(自身) -> Dict[str, Any]:
         """🟢 列出所有术语 | List all terminology"""
         print("=" * 60)
         print("通心译术语词典 | TongXinYi Terminology Dictionary")
@@ -89,7 +89,7 @@ class 通心译协议:
         print("=" * 60)
         return 自身.术语词典
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取协议统计 | Get protocol statistics"""
         return {
             "术语总数": len(自身.术语词典),

@@ -71,7 +71,7 @@ class AI真相协议:
         print(f"[AI真相协议] 🟢 标记已添加: {{内容ID}} -> {{标记}}")
         return 标记
 
-    def 验证内容(自身, 内容ID: str) -> Dict:
+    def 验证内容(自身, 内容ID: str) -> Dict[str, Any]:
         """🟡 验证内容的真相标记 | Verify content truth marker"""
         if 内容ID not in 自身.标记字典:
             print(f"[AI真相协议] 🔴 内容未标记: {{内容ID}}")
@@ -100,7 +100,7 @@ class AI真相协议:
         print(f"[AI真相协议] {{'🟢' if 通过 else '🔴'}} 验证{{'通过' if 通过 else '未通过'}}: {{内容ID}}")
         return {"通过": 通过, "问题": 问题, "标记": 标记}
 
-    def 批量验证(自身) -> Dict:
+    def 批量验证(自身) -> Dict[str, Any]:
         """🟡 批量验证所有标记 | Batch verify all markers"""
         统计 = {"总数": 0, "通过": 0, "未通过": 0, "问题列表": []}
 
@@ -116,7 +116,7 @@ class AI真相协议:
         print(f"[AI真相协议] 🟡 批量验证: {{统计['通过']}}/{{统计['总数']}} 通过")
         return 统计
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取协议统计 | Get protocol statistics"""
         return {
             "已标记内容": len(自身.标记字典),

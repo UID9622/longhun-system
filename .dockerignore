@@ -1,12 +1,61 @@
+# 龍魂 Docker 构建排除列表
+# DNA: #龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-DOCKER-IGNORE-v1.0
+
+# 大文件/二进制
+models/
+*.safetensors
+*.gguf
+*.bin
+*.pth
+
+# 归档
+.archive/
+archive/
+downloads_archive/
+brain/
+
+# Git
 .git/
+.gitattributes
+
+# 临时文件
 __pycache__/
 *.pyc
+*.pyo
 .DS_Store
-node_modules/
-.venv/
-venv/
+*.swp
+*.swo
+
+# 日志
+logs/
 *.log
-skills/warehouse-audit/reports/
-systems/v3/audit_logs/
-archive/
-_archive/
+
+# 密钥
+secrets/
+*secret*
+*key*
+*.pem
+*.asc
+vault/
+
+# Node
+node_modules/
+
+# Python 虚拟环境
+venv/
+.venv/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# 测试
+test/
+tests/
+
+# Docker本身
+.docker/
+docker-compose*.yml
+Dockerfile*

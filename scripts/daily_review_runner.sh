@@ -25,5 +25,5 @@ if [ -f "$HOME/.longhun/webhooks.env" ]; then
 fi
 
 # 運行復盤引擎
-python3 "$ROOT/tools/logging/daily_review_enhanced.py" \
+/opt/homebrew/bin/python3 "$ROOT/tools/logging/daily_review_enhanced.py" \
     >> "$LOG_DIR/daily_review_enhanced.out.log" 2>> "$LOG_DIR/daily_review_enhanced.err.log"

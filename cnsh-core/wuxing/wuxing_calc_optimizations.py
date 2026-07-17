@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 ##龍芯⚡️2026-06-26-WUXING-CALC-OPTIMIZATIONS-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
 
@@ -214,7 +215,7 @@ def compute_hedge_index_h(
     }
 
 
-def detect_excess(scores: Dict[str, float], threshold_sigma: float = 1.5) -> List[tuple]:
+def detect_excess(scores: Dict[str, float], threshold_sigma: float = 1.5) -> List[tuple[Any, ...]]:
     """
     动态过旺检测：超过 均值 + threshold_sigma * 标准差 才算过旺。
     比固定阈值 0.40 更适应不同总分规模。

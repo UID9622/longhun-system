@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂·注册表自动同步引擎 v1.0
 ==============================
@@ -241,7 +242,7 @@ def save_sync_state(state: dict[str, Any]):
     STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2))
 
 
-def scan_directories(quick_hours: int | None = None) -> Dict[str, dict]:
+def scan_directories(quick_hours: int | None = None) -> Dict[str, dict[str, Any]]:
     """扫描监控目录，返回文件→术语映射"""
     results = {}
     state = load_sync_state()
@@ -317,7 +318,7 @@ def scan_directories(quick_hours: int | None = None) -> Dict[str, dict]:
     return results
 
 
-def aggregate_terms(scanned: Dict[str, dict]) -> Dict[str, dict]:
+def aggregate_terms(scanned: Dict[str, dict[str, Any]]) -> Dict[str, dict[str, Any]]:
     """聚合术语 → {term: {files: [...], categories: [...], count: N}}"""
     aggregated = defaultdict(lambda: {"files": [], "categories": set(), "count": 0})
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂真声 · 圣贤对话生成器
 基于伏羲、诸葛亮、曾老师智慧知识库，用 UID9622 的风格回答。
@@ -20,7 +21,7 @@ SAGE_FILES = {
 }
 
 
-def load_sage_kb(sages: list) -> str:
+def load_sage_kb(sages: list[Any]) -> str:
     texts = []
     for sage in sages:
         for fname in SAGE_FILES.get(sage, []):
@@ -31,7 +32,7 @@ def load_sage_kb(sages: list) -> str:
     return "".join(texts)
 
 
-def build_sage_prompt(kb_text: str, sages: list) -> str:
+def build_sage_prompt(kb_text: str, sages: list[Any]) -> str:
     sage_names = "、".join(sages)
     return f"""你是 UID9622（龍芯北辰）的数字人分身。你现在就在微信语音里跟老铁唠嗑，聊到{sage_names}的智慧，但说的是你自己的大白话。
 
@@ -82,7 +83,7 @@ def guard_spoken_style(text: str) -> str:
     return text.strip()
 
 
-def generate_sage_dialogue(question: str, sages: list = None) -> str:
+def generate_sage_dialogue(question: str, sages: list[Any] = None) -> str:
     sages = sages or ["伏羲", "诸葛亮", "曾老师"]
     kb_text = load_sage_kb(sages)
     system_prompt = build_sage_prompt(kb_text, sages)

@@ -67,7 +67,7 @@ VOCAB_REPLACE = {
 # ─────────────────────────────────────────────────────────────
 # 简/繁 龍 检查
 # ─────────────────────────────────────────────────────────────
-def check_long_char(text: str) -> list:
+def check_long_char(text: str) -> list[Any]:
     """检查是否把'龍'写成了简体'龙'"""
     issues = []
     # 找所有"龙"出现的位置·但"龍"是正确的不报
@@ -78,7 +78,7 @@ def check_long_char(text: str) -> list:
     return issues
 
 
-def check_drift_signals(text: str) -> list:
+def check_drift_signals(text: str) -> list[Any]:
     """检查 AI 人格漂移信号词"""
     hits = []
     for code, (signal, reason) in DRIFT_SIGNALS.items():
@@ -87,7 +87,7 @@ def check_drift_signals(text: str) -> list:
     return hits
 
 
-def apply_vocab_replace(text: str) -> tuple:
+def apply_vocab_replace(text: str) -> tuple[Any, ...]:
     """替换 6 弃词·返回（修正后文本, 替换列表）"""
     changes = []
     result = text
@@ -102,7 +102,7 @@ def generate_dna() -> str:
     return f"#龍芯⚡️{datetime.now().strftime('%Y%m%d-%H%M%S')}-CORRECTOR-v1.0"
 
 
-def check_and_fix(text: str, verbose: bool = True) -> dict:
+def check_and_fix(text: str, verbose: bool = True) -> dict[str, Any]:
     """主检查函数·返回结果字典"""
     result = {
         "original": text,

@@ -117,7 +117,7 @@ class CheckResult:
     details: Dict[str, Any] = field(default_factory=dict)
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "component": self.component,
             "check_type": self.check_type,
@@ -852,7 +852,7 @@ class CompatibilityChecker:
 
         return plan
 
-    def _print_report_summary(self, report: Dict):
+    def _print_report_summary(self, report: Dict[str, Any]):
         s = report["summary"]
         print(f"""
 ╔══════════════════════════════════════════════════════════════════╗

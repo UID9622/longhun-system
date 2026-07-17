@@ -56,7 +56,7 @@ CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 # 语义节点库（焊死·持续生长）
 # ═══════════════════════════════════════════════
 
-SEMANTIC_NODES: Dict[str, dict] = {
+SEMANTIC_NODES: Dict[str, dict[str, Any]] = {
     # ── 民生类 ──
     "押金": {
         "标准词": "押金",
@@ -320,7 +320,7 @@ class SemanticNormalizer:
     支持：精确匹配 / 同义词匹配 / 近义词匹配 / 大白话匹配
     """
 
-    def __init__(self, nodes: Optional[Dict[str, dict]] = None):
+    def __init__(self, nodes: Optional[Dict[str, dict[str, Any]]] = None):
         self.nodes = nodes or SEMANTIC_NODES
         # 构建反向索引：词 → 节点
         self._build_index()
@@ -452,7 +452,7 @@ class SemanticNormalizer:
 
         return missing
 
-    def fuzzy_match(self, keyword: str, threshold: float = 0.6) -> List[dict]:
+    def fuzzy_match(self, keyword: str, threshold: float = 0.6) -> List[dict[str, Any]]:
         """
         模糊匹配：对未知词做相似度计算
 
@@ -559,7 +559,7 @@ class SemanticNormalizer:
             "confirm_code": CONFIRM_CODE,
         }
 
-    def list_nodes(self, classification: Optional[str] = None) -> List[dict]:
+    def list_nodes(self, classification: Optional[str] = None) -> List[dict[str, Any]]:
         """列出所有语义节点"""
         result = []
         for node_key, node in self.nodes.items():

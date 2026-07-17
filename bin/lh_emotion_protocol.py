@@ -443,7 +443,7 @@ class LongHunEmotionProtocol:
         self.protocols = SCENE_PROTOCOLS
         self._sign_all_protocols()
         self.active_sessions: Dict[str, ActiveSession] = {}
-        self.consent_records: Dict[str, dict] = {}
+        self.consent_records: Dict[str, dict[str, Any]] = {}
         self._load_state()
 
     # ── DNA 签名 ──
@@ -521,7 +521,7 @@ class LongHunEmotionProtocol:
         SESSIONS_FILE.write_text(json.dumps({"sessions": sessions_data, "updated": time.time()}, ensure_ascii=False, indent=2))
         CONSENT_FILE.write_text(json.dumps(self.consent_records, ensure_ascii=False, indent=2))
 
-    def _write_audit(self, session_id: str, action: str, level: AuditLevel, detail: Optional[dict] = None) -> None:
+    def _write_audit(self, session_id: str, action: str, level: AuditLevel, detail: Optional[dict[str, Any]] = None) -> None:
         """写入审计日志。"""
         today = datetime.now().strftime("%Y-%m-%d")
         audit_file = AUDIT_DIR / f"audit_{today}.jsonl"

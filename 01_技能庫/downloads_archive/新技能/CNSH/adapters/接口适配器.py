@@ -100,7 +100,7 @@ class 接口适配器:
                   f"调用{{适配器['调用次数']}}次")
         print("=" * 50)
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取适配器统计 | Get adapter statistics"""
         return {
             "注册适配器": len(自身.适配器字典),

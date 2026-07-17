@@ -21,7 +21,7 @@ __dna__ = "#龍芯⚡️2026-06-18-CNSH-snapshots-快照管理器-v1.0"
 class 状态快照:
     """通心译 | TongXinYi: State Snapshot — 单条状态快照"""
 
-    def __init__(自身, 名称: str, 状态数据: dict, 父快照=None):
+    def __init__(自身, 名称: str, 状态数据: dict[str, Any], 父快照=None):
         自身.名称 = 名称
         自身.状态数据 = 状态数据
         自身.父快照 = 父快照
@@ -44,7 +44,7 @@ class 快照管理器:
         自身.当前索引 = -1
         print(f"[快照管理器] 🐉 快照管理器已初始化 | 最大: {{最大快照数}} | {{__dna__}}")
 
-    def 创建快照(自身, 名称: str, 状态数据: dict) -> 状态快照:
+    def 创建快照(自身, 名称: str, 状态数据: dict[str, Any]) -> 状态快照:
         """🟢 创建新快照 | Create new snapshot"""
         # 🟡 移除当前位置之后的快照（分支处理）
         if 自身.当前索引 < len(自身.快照列表) - 1:
@@ -63,7 +63,7 @@ class 快照管理器:
         print(f"[快照管理器] 🟢 快照已创建: {{名称}} ({{快照.大小}} bytes)")
         return 快照
 
-    def 回滚(自身, 索引: int = None):
+    def 回滚(自身, 索引: int | None = None):
         """🟡 回滚到指定快照 | Rollback to snapshot"""
         if 索引 is None:
             索引 = 自身.当前索引
@@ -77,7 +77,7 @@ class 快照管理器:
         print(f"[快照管理器] 🟡 已回滚到: {{快照.名称}} @ {{快照.时间戳}}")
         return 快照.状态数据
 
-    def 对比(自身, 索引A: int, 索引B: int) -> dict:
+    def 对比(自身, 索引A: int, 索引B: int) -> dict[str, Any]:
         """🟡 对比两个快照的差异 | Compare two snapshots"""
         if 索引A < 0 or 索引A >= len(自身.快照列表) or 索引B < 0 or 索引B >= len(自身.快照列表):
             return {"错误": "无效索引"}

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
 # 2 精神层 Spirit        : Steve Jobs
@@ -410,7 +411,7 @@ M260 哨兵机器人 (你正在这里)
 每条都被永久记录
         """
 
-    def _cmd_verify(self, args: list) -> str:
+    def _cmd_verify(self, args: list[Any]) -> str:
         """处理 /verify 命令"""
         if not args:
             return "❌ 用法: /verify <message_id>"

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 🐉 龍魂知识库与图谱 API · LongHun Knowledge & Graph API
 
@@ -85,7 +86,7 @@ _KNOWLEDGE_DB: Optional[Path] = _find_knowledge_db()
 
 
 # ── 数据加载 ──────────────────────────────────────────────
-def _load_archive() -> Dict[str, dict]:
+def _load_archive() -> Dict[str, dict[str, Any]]:
     if not _ARCHIVE_PATH:
         return {}
     try:

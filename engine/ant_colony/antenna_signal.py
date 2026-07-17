@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 触角信号协议 v2.0 · AntennaSignal
 基于 LACA v1.0 论文，深度整合龙魂系统
@@ -320,7 +321,7 @@ class SignalTamperedError(Exception):
 
 # === 快捷工厂函数 ===
 
-def recruit_signal(sender: str, receiver: Optional[str], task: dict, priority: int = 7) -> AntennaSignal:
+def recruit_signal(sender: str, receiver: Optional[str], task: dict[str, Any], priority: int = 7) -> AntennaSignal:
     """创建招募素信号"""
     return AntennaSignal(
         sender_id=sender,
@@ -332,7 +333,7 @@ def recruit_signal(sender: str, receiver: Optional[str], task: dict, priority: i
     )
 
 
-def alert_signal(sender: str, alert_level: int, description: str, affected: list = None) -> AntennaSignal:
+def alert_signal(sender: str, alert_level: int, description: str, affected: list[Any] = None) -> AntennaSignal:
     """创建警戒素信号"""
     priority = min(10, alert_level * 2 + 2)
     return AntennaSignal(
@@ -350,7 +351,7 @@ def alert_signal(sender: str, alert_level: int, description: str, affected: list
     )
 
 
-def trail_signal(sender: str, receiver: str, trail_type: str, path_data: dict) -> AntennaSignal:
+def trail_signal(sender: str, receiver: str, trail_type: str, path_data: dict[str, Any]) -> AntennaSignal:
     """创建足迹素信号"""
     return AntennaSignal(
         sender_id=sender,
@@ -362,7 +363,7 @@ def trail_signal(sender: str, receiver: str, trail_type: str, path_data: dict) -
     )
 
 
-def aggregate_signal(sender: str, topic: str, participants: list, duration: int = 30) -> AntennaSignal:
+def aggregate_signal(sender: str, topic: str, participants: list[Any], duration: int = 30) -> AntennaSignal:
     """创建聚集素信号"""
     return AntennaSignal(
         sender_id=sender,

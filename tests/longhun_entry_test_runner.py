@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·通用收口指令 v1.0 · 测试执行器                                ║
@@ -335,7 +336,7 @@ class EntryTestRunner:
                 self._print_result(result)
         return self.results
 
-    def _run_one(self, tc: dict) -> TestResult:
+    def _run_one(self, tc: dict[str, Any]) -> TestResult:
         """执行单个测试用例"""
         checks = tc["checks"]
         result = TestResult(

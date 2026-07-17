@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 龍魂·感官教育尊严引擎 v1.0
 ================================
@@ -295,7 +296,7 @@ class SensoryEducationEngine:
 
         return {**result, "profile": profile}
 
-    def get_education_modules(self, age: int) -> List[dict]:
+    def get_education_modules(self, age: int) -> List[dict[str, Any]]:
         """获取适龄教育模块列表"""
         layer = self.get_age_layer(age)
         if layer["content_level"] >= 2:
@@ -592,7 +593,7 @@ class SensoryEducationEngine:
             return {"error": f"代理 {agency_id} 未注册"}
         return self.agency_registry[agency_id]
 
-    def list_agencies(self, level_filter: str | None = None) -> List[dict]:
+    def list_agencies(self, level_filter: str | None = None) -> List[dict[str, Any]]:
         """列出所有代理"""
         agencies = list(self.agency_registry.values())
         if level_filter:

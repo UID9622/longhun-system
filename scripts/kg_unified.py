@@ -348,7 +348,7 @@ def sync_notion_pages(conn: sqlite3.Connection, db_path: pathlib.Path = NOTION_D
     occ_rows = src_conn.execute(
         "SELECT entity_id, page_id FROM entity_occurrences"
     ).fetchall()
-    occ_added: set = set()
+    occ_added: set[Any] = set()
     for r in occ_rows:
         eid = entity_id_map.get(r["entity_id"])
         pid = f"{source}:page:{r['page_id']}"

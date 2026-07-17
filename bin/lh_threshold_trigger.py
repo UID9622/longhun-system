@@ -51,6 +51,7 @@ import hashlib
 import json
 import os
 import psutil
+import re
 import socket
 import subprocess
 import sys
@@ -243,6 +244,19 @@ class AutoRepair:
         "signing": {
             "missing_gpg": [
                 f"{sys.executable} {ROOT}/bin/lh_persona_signing.py --auto-fix 2>/dev/null || true",
+            ],
+        },
+        "typefix": {
+            "bare_types": [
+                f"{sys.executable} {ROOT}/bin/lh_type_fixer.py --apply",
+            ],
+        },
+        "dualnode": {
+            "connection_lost": [
+                f"{sys.executable} {ROOT}/L6_同步层/dual_node_cli.py sync",
+            ],
+            "frp_down": [
+                f"{sys.executable} {ROOT}/L6_同步层/dual_node_cli.py tunnel restart",
             ],
         },
     }
@@ -770,6 +784,119 @@ def check_audit_guard() -> Optional[str]:
         return f"❌ 审计检查异常: {e}"
 
 
+# ── 代码质量守卫 (1个) ──
+
+@guard("typefix", interval_min=60, desc="basedpyright 类型注解缺失自动修复", priority="P2")
+def check_typefix_guard() -> Optional[str]:
+    """检查裸类型注解数量，超过阈值自动触发修复"""
+    try:
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "bin" / "lh_type_fixer.py")],
+            capture_output=True, text=True, timeout=60
+        )
+        output = result.stdout
+
+        # 从预览输出中解析问题数量: "X 文件 · Y 处待修复"
+        m = re.search(r'(\d+)\s*文件\s*·\s*(\d+)\s*处待修复', output)
+        if m:
+            file_count = int(m.group(1))
+            issue_count = int(m.group(2))
+
+            # 阈值：5处以上裸类型注解就触发自动修复
+            TYPEFIX_THRESHOLD = 5
+            if issue_count > TYPEFIX_THRESHOLD:
+                return f"🟡 类型注解欠佳: {file_count}个文件 · {issue_count}处裸类型 (>阈值{ TYPEFIX_THRESHOLD})"
+            elif issue_count > 0:
+                return None  # 有少量问题但不触发，避免过度修复
+
+        # 如果解析失败但有输出，看是否有意义
+        if "处待修复" in output:
+            # 尝试另一种解析
+            numbers = re.findall(r'(\d+)', output.split('处待修复')[0])
+            if numbers:
+                issue_count = int(numbers[-1])
+                if issue_count > 5:
+                    return f"🟡 类型注解欠佳: {issue_count}处裸类型"
+
+        return None
+    except Exception as e:
+        return f"❌ typefix检查异常: {e}"
+
+
+# ── 双节点同步守卫 (1个) ──
+
+@guard("dualnode", interval_min=60, desc="Mac↔鲲鹏双节点连接健康检查（frp+SSH双通道）", priority="P1")
+def check_dualnode_guard() -> Optional[str]:
+    """检查双节点连接状态，frp隧道+SSH直连双通道检测，任一可用即正常"""
+    try:
+        from L6_同步层.dual_node_protocol import DualNodeProtocol
+        config_file = ROOT / "deploy" / ".kunpeng_config"
+        if not config_file.exists():
+            return None  # 未配置鲲鹏连接，跳过
+
+        # 解析配置
+        kunpeng_ip = "119.13.90.27"
+        kunpeng_user = "root"
+        kunpeng_port = 22
+        with open(config_file) as f:
+            for line in f:
+                if "=" in line and not line.startswith("#"):
+                    k, v = line.strip().split("=", 1)
+                    v = v.strip().strip('"').strip("'")
+                    if k.strip() == "KUNPENG_MGMT_IP":
+                        kunpeng_ip = v
+                    elif k.strip() == "KUNPENG_USER":
+                        kunpeng_user = v
+                    elif k.strip() == "KUNPENG_SSH_PORT":
+                        kunpeng_port = int(v)
+
+        # 1. 检查 frp 隧道
+        frp_ok = False
+        try:
+            import urllib.request, json as ujson
+            req = urllib.request.Request("http://127.0.0.1:9633/health")
+            resp = urllib.request.urlopen(req, timeout=5)
+            data = ujson.loads(resp.read().decode())
+            if data.get("node_role") == "kunpeng":
+                frp_ok = True
+        except Exception:
+            pass
+
+        # 2. 检查 SSH 直连
+        protocol = DualNodeProtocol(
+            kunpeng_ip=kunpeng_ip,
+            kunpeng_user=kunpeng_user,
+            kunpeng_port=kunpeng_port,
+        )
+        result = protocol.test_connection()
+        ssh_ok = result.get("ssh_ok", False)
+
+        # 双通道都断 → 告警
+        if not frp_ok and not ssh_ok:
+            return f"🔴 双节点全断: frp隧道+SSH直连均无法连接鲲鹏 {kunpeng_ip}"
+
+        # 仅 frp 断（SSH可用）→ 降级告警
+        if not frp_ok and ssh_ok:
+            return f"🟡 frp隧道断开, SSH直连可用 — 检查和重启: lh tunnel status"
+
+        if not result.get("remote_path_ok"):
+            return f"🟡 鲲鹏路径异常: /opt/longhun-system 不存在"
+
+        # 检查磁盘
+        disk = result.get("disk_info", {})
+        if disk:
+            pct = disk.get("use_pct", "0%").replace("%", "")
+            try:
+                if int(pct) > 90:
+                    return f"🟡 鲲鹏磁盘告警: {disk.get('use_pct')}"
+            except ValueError:
+                pass
+
+        return None
+    except Exception as e:
+        return f"❌ dualnode检查异常: {e}"
+
+
 # ── 安全级守卫 (3个) ──
 
 @guard("intrusion", interval_min=5, desc="入侵检测（异常登录/文件变更）", priority="P0")
@@ -1150,6 +1277,13 @@ def _infer_issue_type(guard_name: str, msg: str) -> str:
         return "dirty_repo"
     elif guard_name == "signing" and "签章" in msg:
         return "missing_gpg"
+    elif guard_name == "typefix" and "类型" in msg:
+        return "bare_types"
+    elif guard_name == "dualnode":
+        if "frp" in msg.lower() or "隧道" in msg:
+            return "frp_down"
+        elif "断开" in msg:
+            return "connection_lost"
     return "generic"
 
 
@@ -1173,6 +1307,8 @@ def list_guards():
     categories = {
         "系统级": ["disk", "memory", "process", "network", "temperature", "battery"],
         "龍魂系统级": ["git", "health", "backup", "persona", "signing", "audit"],
+        "代码质量": ["typefix"],
+        "双节点同步": ["dualnode"],
         "安全级": ["intrusion", "firewall", "privacy"],
         "业务级": ["github", "gitee", "huaweicloud"],
         "数据级": ["recovery"],

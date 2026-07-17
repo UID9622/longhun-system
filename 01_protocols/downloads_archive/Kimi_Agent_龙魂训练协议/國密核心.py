@@ -38,7 +38,7 @@ class SM3哈希器:
         else:
             return (甲 ^ 乙 ^ 丙) & 0xFFFFFFFF
 
-    def _壓縮函數(self, 向量: list, 數據塊: bytes) -> list:
+    def _壓縮函數(self, 向量: list[Any], 數據塊: bytes) -> list[Any]:
         # 將數據塊轉為16個32位字
         W = [int.from_bytes(數據塊[j*4:(j+1)*4], 'big') for j in range(16)]
         # 擴展到64個字
@@ -179,13 +179,13 @@ class SM4密碼器:
         return (輸入值 ^ self._循環左移(輸入值, 13) ^
                 self._循環左移(輸入值, 23)) & 0xFFFFFFFF
 
-    def _輪函數F(self, 狀態: list, 輪密鑰: int) -> int:
+    def _輪函數F(self, 狀態: list[Any], 輪密鑰: int) -> int:
         輸入值 = 狀態[1] ^ 狀態[2] ^ 狀態[3] ^ 輪密鑰
         非線性 = self._非線性變換(輸入值)
         線性 = self._線性變換L(非線性)
         return (狀態[0] ^ 線性) & 0xFFFFFFFF
 
-    def _密鑰擴展(self, 密鑰: bytes) -> list:
+    def _密鑰擴展(self, 密鑰: bytes) -> list[Any]:
         初始密鑰 = [int.from_bytes(密鑰[i:i+4], 'big') for i in range(0, 16, 4)]
         常量_密鑰 = [初始密鑰[i] ^ self._固定參數[i] for i in range(4)]
 

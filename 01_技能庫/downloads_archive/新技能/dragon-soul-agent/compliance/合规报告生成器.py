@@ -281,7 +281,7 @@ class 合规报告生成器:
         生成器.生成市场对比报告(批量结果, "/output/path")
     """
     
-    def __init__(self, 输出目录: str = None):
+    def __init__(self, 输出目录: str | None = None):
         self.模板 = 报告模板()
         self.输出目录 = 输出目录 or os.path.dirname(__file__)
         self.DNA标识 = "#龍芯⚡️2026-06-18-LONGHUN-COMPLIANCE-REPORT"
@@ -291,7 +291,7 @@ class 合规报告生成器:
         """Ensure output directory exists"""
         os.makedirs(self.输出目录, exist_ok=True)
     
-    def 生成全面报告(self, 检查结果: Dict, 输出路径: str = None, 格式列表: List[str] = None) -> Dict:
+    def 生成全面报告(self, 检查结果: Dict[str, Any], 输出路径: str | None = None, 格式列表: List[str] = None) -> Dict[str, Any]:
         """
         生成全面合规报告
         Generate comprehensive compliance report
@@ -337,7 +337,7 @@ class 合规报告生成器:
             "格式": 格式列表,
         }
     
-    def _生成JSON(self, 结果: Dict, 路径: str):
+    def _生成JSON(self, 结果: Dict[str, Any], 路径: str):
         """Generate JSON report"""
         # 添加报告元数据
         报告 = {
@@ -355,7 +355,7 @@ class 合规报告生成器:
             json.dump(报告, f, ensure_ascii=False, indent=2)
         print(f"📄 JSON报告已生成: {路径}")
     
-    def _生成Markdown(self, 结果: Dict, 路径: str):
+    def _生成Markdown(self, 结果: Dict[str, Any], 路径: str):
         """Generate Markdown report"""
         目标市场 = 结果.get("目标市场", "未知")
         功能列表 = ", ".join(结果.get("功能列表", []))
@@ -436,7 +436,7 @@ class 合规报告生成器:
             f.write(报告)
         print(f"📄 Markdown报告已生成: {路径}")
     
-    def _生成HTML(self, 结果: Dict, 路径: str):
+    def _生成HTML(self, 结果: Dict[str, Any], 路径: str):
         """Generate HTML report"""
         目标市场 = 结果.get("目标市场", "未知")
         功能列表 = ", ".join(结果.get("功能列表", []))
@@ -483,7 +483,7 @@ class 合规报告生成器:
             f.write(报告)
         print(f"📄 HTML报告已生成: {路径}")
     
-    def 生成市场对比报告(self, 批量结果: Dict, 输出路径: str = None) -> str:
+    def 生成市场对比报告(self, 批量结果: Dict[str, Any], 输出路径: str | None = None) -> str:
         """
         生成多市场对比报告
         Generate multi-market comparison report
@@ -559,7 +559,7 @@ Phase 5 (4-6月): 🇨🇳 中国
         print(f"📄 市场对比报告已生成: {md路径}")
         return md路径
     
-    def 生成快速状态报告(self, 检查结果列表: List[Dict], 输出路径: str = None) -> str:
+    def 生成快速状态报告(self, 检查结果列表: List[Dict], 输出路径: str | None = None) -> str:
         """
         生成快速状态报告（简洁版）
         Generate quick status report (concise version)
@@ -589,7 +589,7 @@ Phase 5 (4-6月): 🇨🇳 中国
         print(f"📄 快速状态报告已生成: {md路径}")
         return md路径
     
-    def _计算报告哈希(self, 结果: Dict) -> str:
+    def _计算报告哈希(self, 结果: Dict[str, Any]) -> str:
         """Calculate report integrity hash"""
         import hashlib
         内容 = json.dumps(结果, ensure_ascii=False, sort_keys=True)

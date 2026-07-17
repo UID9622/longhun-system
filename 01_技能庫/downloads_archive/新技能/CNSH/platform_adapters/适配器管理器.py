@@ -17,7 +17,7 @@
 """
 
 from datetime import datetime, timedelta
-from typing import Optional, Type
+from typing import Optional, Type, Any
 import json
 
 from .平台适配器基类 import (
@@ -161,8 +161,8 @@ class 适配器管理器:
         
         return 令牌
     
-    def 跨平台操作(self, 平台名称: str, 操作: str, 参数: dict, 
-                 DNA令牌实例: DNA令牌) -> dict:
+    def 跨平台操作(self, 平台名称: str, 操作: str, 参数: dict[str, Any], 
+                 DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行跨平台操作 / Execute cross-platform operation
         
@@ -306,7 +306,7 @@ class 适配器管理器:
         
         print(f"\n{'='*60}")
     
-    def 导出完整报告(self, 文件路径: str = None) -> str:
+    def 导出完整报告(self, 文件路径: str | None = None) -> str:
         """
         导出完整报告到文件 / Export full report to file
         

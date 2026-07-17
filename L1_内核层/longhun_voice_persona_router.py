@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂通心语 · 多人格音色路由桥 v1.0
 LongHun TongXin-Voice · Multi-Persona Voice Router Bridge
@@ -76,7 +77,7 @@ class VoiceProfile:
     pitch: float = 0.0       # 音调偏移 Hz
     volume: float = 0.0      # 音量 dB
     description: str = ""
-    mood_profiles: Dict[str, dict] = field(default_factory=dict)
+    mood_profiles: Dict[str, dict[str, Any]] = field(default_factory=dict)
     wuxing: str = ""         # 五行
     bagua: str = ""          # 八卦
 

@@ -518,7 +518,7 @@ class DNA授權執行引擎:
     }
 
     # 熔断裂集 / Circuit breaker set
-    熔断裂集: set = {3, 9}
+    熔断裂集: set[str] = {3, 9}
 
     def __init__(self, 模拟模式: bool = True):
         """
@@ -1597,7 +1597,7 @@ class DNA授權執行引擎:
         """Get registered platforms - 获取已注册平台列表"""
         return list(self.平台适配器.keys())
 
-    def 获取执行历史(self, 用户身份: str = None) -> List[执行结果]:
+    def 获取执行历史(self, 用户身份: str | None = None) -> List[执行结果]:
         """
         Get execution history - 获取执行历史
         @param 用户身份: 可选的用户身份过滤 / Optional user identity filter
@@ -1647,7 +1647,7 @@ class DNA授權執行引擎:
 """
         return 报告
 
-    def 保存审计日志(self, 文件路径: str = None) -> bool:
+    def 保存审计日志(self, 文件路径: str | None = None) -> bool:
         """
         Save audit log - 保存审计日志到文件
         @param 文件路径: 日志文件路径 / Log file path

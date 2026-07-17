@@ -28,7 +28,7 @@ import subprocess
 import importlib
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
@@ -109,7 +109,7 @@ class CheckResult:
     category: str
     status: CheckStatus
     message: str = ""
-    details: Dict = field(default_factory=dict)
+    details: Dict[str, Any] = field(default_factory=dict)
     duration_ms: float = 0.0
     auto_fixed: bool = False
     fix_message: str = ""
@@ -125,7 +125,7 @@ class DeploymentReadinessChecker:
         self.start_time = None
         self.total_duration = 0.0
 
-    def _load_config(self, config_path: Optional[str]) -> Dict:
+    def _load_config(self, config_path: Optional[str]) -> Dict[str, Any]:
         """加载配置文件"""
         defaults = {
             "python_min_version": (3, 9),

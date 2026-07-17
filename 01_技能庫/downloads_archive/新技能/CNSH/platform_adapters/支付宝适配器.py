@@ -19,7 +19,7 @@ DNA授权点 (DNA Authorization Points):
 """
 
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, Any
 from enum import Enum
 import random
 import json
@@ -54,11 +54,11 @@ class 支付宝适配器(平台适配器基类):
     
     def __init__(self, 模式: str = "模拟"):
         super().__init__(模式)
-        self._用户信息: Optional[dict] = None
+        self._用户信息: Optional, Any[dict] = None
         self._支付记录: list[dict] = []
         self._转账记录: list[dict] = []
         self._花呗额度: float = 5000.00  # 模拟花呗额度
-        self._五行审计结果: dict = {}
+        self._五行审计结果: dict[str, Any] = {}
         
         if self.是否模拟模式():
             print(f"[{self.平台名称()}] 💰 模拟支付宝环境已就绪")
@@ -157,7 +157,7 @@ class 支付宝适配器(平台适配器基类):
             return False
         return True
     
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行支付宝操作 / Execute Alipay operation
         
@@ -187,7 +187,7 @@ class 支付宝适配器(平台适配器基类):
     # 具体操作实现 / Specific Operation Implementations
     # ═══════════════════════════════════════════════════
     
-    def _扫码付(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _扫码付(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 扫码付 / Scan-to-Pay
         
@@ -248,7 +248,7 @@ class 支付宝适配器(平台适配器基类):
             "模拟数据": True,
         }
     
-    def _转账(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _转账(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🔴 转账 — 高危操作 / Transfer — High Risk Operation
         
@@ -314,7 +314,7 @@ class 支付宝适配器(平台适配器基类):
             "模拟数据": True,
         }
     
-    def _花呗(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _花呗(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🔴 花呗分期 / Huabei Installment
         

@@ -57,6 +57,7 @@ P4 = 个人偏好，用户自己说了算
 | P0-10 | 创建者保护 | `01_protocols/LH-CREATOR-PROTECTION-v1.0.md` | UID9622创造权不可剥夺 |
 | P0-11 | 伦理熔断 ∞级 | `01_protocols/LH-ETHICS-ANCHOR-v1.0.md` | 涉童/伪造DNA → 全系统冻结 |
 | P0-12 | 协议永久顶置公开 | 北辰母协议 §新时代治理 | 全球监督·接受全世界审视 |
+| P0-13 | 创始人心法宪法 | `01_protocols/LH-VISION-CONSTITUTION-v1.1.md` | 六条心法·精神底座·与北辰同级 |
 
 **不可修订条款**：
 - 为人民服务
@@ -71,7 +72,7 @@ P4 = 个人偏好，用户自己说了算
 
 ## 三、P1 — 核心宪法（CORE-CONSTITUTIONAL）
 
-> 可修订，但需UID9622确认码+16人格全签章+DNA链验证通过。
+> 可修订，但需UID9622确认码+16核心人格(P00-P72)全签章+P77黑天使签章+S1-S3子系统确认+DNA链验证通过。
 
 | # | 协议名 | 路径 | 核心 |
 |:--:|------|------|------|
@@ -79,7 +80,7 @@ P4 = 个人偏好，用户自己说了算
 | P1-02 | 绝对防御宪法 v5.2 | `docs/defense-constitution/龍魂系统-全技能导航与绝对防御宪法-v5.2.md` | 三级熔断·机器独裁·原子回滚 |
 | P1-03 | 三闸门决策流场 | 系统底座 | 数字根→身份→伦理·三级闸门 |
 | P1-04 | 三色审计体系 | 系统底座 | 🟢合规·🟡警告·🔴红线 |
-| P1-05 | 人格矩阵 (16/16) | `personas/` | P00-P72·16人格全落地·权重体系 |
+| P1-05 | 20人格矩阵 | `personas/` + `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` | 16核心(P00-P72)+1安全(P77)+3子系统(S1-S3)·全落地 |
 | P1-06 | GPG签章体系 | `L8_治理层/original_creation_milestones/GPG_SIGNING_REGISTRY_v1.0.md` | 谁签名谁负责·不可伪造 |
 | P1-07 | IW-ECB伦理熔断 v2.0 | 系统底座 | E/V/A/X四层定锚·叄呼吸循环 |
 | P1-08 | AI访问授权令 | `01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md` | AI访问权限·行为边界 |
@@ -101,7 +102,7 @@ P4 = 个人偏好，用户自己说了算
 
 | # | 协议名 | 路径 | 核心 |
 |:--:|------|------|------|
-| P2-01 | 四层命名规范 v1.0 | `01_protocols/LH-NAMING-ARCH-v1.0.md` | 物理/身份/主权/执行·`lh_`前缀 |
+| P2-01 | 四层命名规范 v2.0 | `01_protocols/LH-NAMING-ARCH-v2.0.md` | 物理/身份/主权/执行·`lh_`前缀·语义对齐三层体系 |
 | P2-02 | CNSH全球协议 v3.0 | `01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md` | 中文编程语法·14章规范 |
 | P2-03 | CNSH第一性原理补充 | `01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md` | CNSH根基理论 |
 | P2-04 | CNSH翻译器神经架构 | `01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md` | 多语言翻译引擎 |
@@ -134,7 +135,7 @@ P4 = 个人偏好，用户自己说了算
 | P2-31 | 七因子验证 | `01_protocols/seven-factor-verification.md` | 七因子身份验证 |
 | P2-32 | 数据权限矩阵 | `01_protocols/DATA-PERMISSIONS-MATRIX-v1.0.md` | 数据访问权限矩阵 |
 | P2-33 | 政府数据主权 | `01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md` | 政务数据主权 |
-| P2-34 | 政府基层现实协议 | `01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md` | 基层治理·现实采集 |
+| P2-34 | 政府基层现实协议 | `01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md` | 基层治理·现实采集·多源校验 |
 | P2-35 | 数据熔毁人格主权 | `01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md` | 数据销毁·人格保护 |
 | P2-36 | 审计表模板 | `01_protocols/AUDIT-SHEET-TEMPLATE-v1.0.md` | 审计标准化模板 |
 | P2-37 | 测试庄园规范 | `01_protocols/测试庄园规范_v1.0.md` | 测试环境规范 |
@@ -219,7 +220,7 @@ P4 = 个人偏好，用户自己说了算
          │   全球统一·不可变·不可协商        │
          ├─────────────────────────────────┤
          │         P1 核心宪法              │
-         │   全球统一·修订需16人格签章        │
+         │   全球统一·修订需20人格签章        │
          ├─────────────────────────────────┤
          │         P2 系统规则              │
          │   全球统一·框架内灵活调整          │

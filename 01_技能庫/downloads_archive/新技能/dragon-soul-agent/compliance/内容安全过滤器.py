@@ -39,7 +39,7 @@ avoiding any political, territorial, or cultural controversies.
 import re
 import hashlib
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Tuple, Set, Any
 from enum import Enum
 import json
 
@@ -194,7 +194,7 @@ class 关键词过滤器:
                 )
                 self.正则模式[模式名] = pattern
     
-    def 过滤(self, 内容: str, 目标市场: str = "全球") -> Dict:
+    def 过滤(self, 内容: str, 目标市场: str = "全球") -> Dict[str, Any]:
         """
         关键词过滤主函数
         Main keyword filtering function
@@ -355,7 +355,7 @@ class 语义分析器:
             },
         ]
     
-    def 分析(self, 内容: str, 目标市场: str = "全球") -> Dict:
+    def 分析(self, 内容: str, 目标市场: str = "全球") -> Dict[str, Any]:
         """
         语义分析主函数
         Main semantic analysis function
@@ -363,8 +363,8 @@ class 语义分析器:
         Returns:
             {
                 "风险分数": float (0-1),
-                "风险类型": list,
-                "命中规则": list,
+                "风险类型": list[Any],
+                "命中规则": list[Any],
                 "建议操作": str,
                 "处理时间_ms": float,
             }
@@ -444,7 +444,7 @@ class 人工审核标记器:
         self.待审核队列 = []
         self.DNA标识 = "#龍芯⚡️2026-06-18-CONTENT-FILTER"
     
-    def 评估(self, 内容: str, 第一层结果: Dict, 第二层结果: Dict) -> Dict:
+    def 评估(self, 内容: str, 第一层结果: Dict[str, Any], 第二层结果: Dict[str, Any]) -> Dict[str, Any]:
         """
         评估是否需要人工审核
         Evaluate if human review is needed
@@ -536,7 +536,7 @@ class 内容安全过滤器:
         }
         self.DNA标识 = "#龍芯⚡️2026-06-18-LONGHUN-CONTENT-FILTER"
     
-    def 过滤(self, 内容: str, 目标市场: str = "全球", 用户ID: str = None) -> Dict:
+    def 过滤(self, 内容: str, 目标市场: str = "全球", 用户ID: str | None = None) -> Dict[str, Any]:
         """
         三层过滤主函数
         Three-layer filtering main function
@@ -636,7 +636,7 @@ class 内容安全过滤器:
         """Batch filter multiple content items"""
         return [self.过滤(内容, 目标市场) for 内容 in 内容列表]
     
-    def 获取统计(self) -> Dict:
+    def 获取统计(self) -> Dict[str, Any]:
         """Get filtering statistics"""
         return {
             **self.过滤统计,

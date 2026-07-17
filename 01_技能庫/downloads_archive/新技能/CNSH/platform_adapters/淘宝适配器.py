@@ -20,7 +20,7 @@ DNA授权点 (DNA Authorization Points):
 """
 
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, Any
 import random
 import json
 
@@ -44,7 +44,7 @@ class 淘宝适配器(平台适配器基类):
         super().__init__(模式)
         self._购物车: list[dict] = []
         self._订单记录: list[dict] = []
-        self._会话令牌: Optional[str] = None
+        self._会话令牌: Optional, Any[str] = None
         
         if self.是否模拟模式():
             self._会话令牌 = f"taobao_mock_session_{datetime.now().strftime('%Y%m%d%H%M%S')}"
@@ -98,7 +98,7 @@ class 淘宝适配器(平台适配器基类):
         # Production: call Alibaba Open Platform verification API
         return True
     
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行淘宝操作 / Execute Taobao operation
         
@@ -130,7 +130,7 @@ class 淘宝适配器(平台适配器基类):
     # 具体操作实现 / Specific Operation Implementations
     # ═══════════════════════════════════════════════════
     
-    def _商品搜索(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _商品搜索(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟢 商品搜索 / Product Search
         
@@ -179,7 +179,7 @@ class 淘宝适配器(平台适配器基类):
         # 生产模式：调用淘宝API
         return self._调用生产API("taobao.items.search", 参数)
     
-    def _加入购物车(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _加入购物车(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 加入购物车 / Add to Cart
         
@@ -227,7 +227,7 @@ class 淘宝适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _下单(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _下单(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 下单 / Create Order
         
@@ -288,7 +288,7 @@ class 淘宝适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _支付(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _支付(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🔴 支付 — 最高安全级别操作 / Payment — Highest Security Level
         
@@ -381,7 +381,7 @@ class 淘宝适配器(平台适配器基类):
             结果.append(商品)
         return 结果
     
-    def _调用生产API(self, 接口名: str, 参数: dict) -> dict:
+    def _调用生产API(self, 接口名: str, 参数: dict[str, Any]) -> dict[str, Any]:
         """调用生产环境API / Call production API"""
         # 生产环境下实际调用淘宝API
         return {

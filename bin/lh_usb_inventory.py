@@ -198,7 +198,7 @@ def summarize(conn: sqlite3.Connection, root: Path) -> dict[str, Any]:
     return summary
 
 
-def detect_milestones(conn: sqlite3.Connection) -> list[dict]:
+def detect_milestones(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     """从目录名和修改时间中提取里程碑。"""
     cursor = conn.cursor()
     roots = [row[0] for row in cursor.execute("SELECT DISTINCT root FROM files")]

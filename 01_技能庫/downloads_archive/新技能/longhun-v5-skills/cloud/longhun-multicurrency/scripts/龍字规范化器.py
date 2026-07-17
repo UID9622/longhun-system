@@ -28,7 +28,7 @@ import re
 import unicodedata
 import hashlib
 import json
-from typing import Dict, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Tuple, Set, Any
 from dataclasses import dataclass, asdict
 from enum import Enum
 
@@ -116,7 +116,7 @@ class 龍字分析結果:
     規範化文本: str
     發現的龍字: List[dict]
     替換記錄: List[Tuple[str, str, str]]  # (位置, 原始, 替換後)
-    統計: dict
+    統計: dict[str, Any]
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -378,7 +378,7 @@ class 龍字規範化器:
     # Unicode 工具
     # ───────────────────────────────────────────────
     
-    def 獲取字符信息(self, 字符: str) -> dict:
+    def 獲取字符信息(self, 字符: str) -> dict[str, Any]:
         """獲取字符的 Unicode 詳細信息"""
         碼點 = ord(字符)
         return {
@@ -394,7 +394,7 @@ class 龍字規範化器:
             )
         }
     
-    def 獲取統計(self) -> dict:
+    def 獲取統計(self) -> dict[str, Any]:
         """獲取處理統計"""
         return {
             **self.統計,
@@ -416,7 +416,7 @@ def 快速規範化(文本: str) -> str:
     return 規範化器.規範化(文本)
 
 
-def 檢查文本龍字(文本: str) -> dict:
+def 檢查文本龍字(文本: str) -> dict[str, Any]:
     """快速檢查文本中的龍字"""
     規範化器 = 龍字規範化器()
     return 規範化器.分析文本(文本)

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 创建 CNSH 三层论文数据库（workspace 级别）
 """
@@ -11,7 +12,7 @@ from datetime import datetime
 
 token = os.getenv("NOTION_TOKEN")
 
-def create_db(title: str, description: str, properties: dict) -> str:
+def create_db(title: str, description: str, properties: dict[str, Any]) -> str:
     """创建数据库"""
     url = "https://api.notion.com/v1/databases"
     headers = {

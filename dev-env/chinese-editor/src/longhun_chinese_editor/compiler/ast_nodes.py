@@ -157,7 +157,7 @@ class ArrayLiteral(ASTNode):
 
 @dataclass
 class DictLiteral(ASTNode):
-    pairs: List[tuple] = field(default_factory=list)
+    pairs: List[tuple[Any, ...]] = field(default_factory=list)
 
 
 @dataclass

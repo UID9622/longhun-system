@@ -115,7 +115,7 @@ def build_index(conn: sqlite3.Connection, root: Path) -> None:
     print(f"Index done: {added} added, {skipped} skipped")
 
 
-def search(conn: sqlite3.Connection, query: str, root: Path) -> list[dict]:
+def search(conn: sqlite3.Connection, query: str, root: Path) -> list[dict[str, Any]]:
     cursor = conn.cursor()
     try:
         rows = cursor.execute(

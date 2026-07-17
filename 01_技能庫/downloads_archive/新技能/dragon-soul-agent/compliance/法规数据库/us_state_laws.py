@@ -30,7 +30,7 @@ US Federal + State-Level AI Regulatory Matrix
 """
 
 from datetime import datetime
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Optional, Set, Any
 import json
 
 
@@ -353,7 +353,7 @@ class 美国州法律检查器:
             "怀俄明州",
         ]
     
-    def 全面检查(self, 功能列表: List[str], 目标州: List[str] = None) -> Dict:
+    def 全面检查(self, 功能列表: List[str], 目标州: List[str] = None) -> Dict[str, Any]:
         """
         对指定功能和目标州进行全面合规检查
         
@@ -389,7 +389,7 @@ class 美国州法律检查器:
         
         return 结果
     
-    def _检查州合规(self, 州: str, 功能列表: List[str]) -> Dict:
+    def _检查州合规(self, 州: str, 功能列表: List[str]) -> Dict[str, Any]:
         """Check compliance for a specific state"""
         法律信息 = self.数据库.州法律[州]
         
@@ -417,7 +417,7 @@ class 美国州法律检查器:
         
         return 结果
     
-    def _检查功能在州(self, 功能: str, 州: str, 法律信息: Dict) -> Dict:
+    def _检查功能在州(self, 功能: str, 州: str, 法律信息: Dict[str, Any]) -> Dict[str, Any]:
         """Check a specific feature's compliance in a state"""
         风险 = "🟢 合规"
         要求 = []
@@ -455,7 +455,7 @@ class 美国州法律检查器:
             "合规要求": 要求,
         }
     
-    def _检查联邦要求(self, 功能列表: List[str]) -> Dict:
+    def _检查联邦要求(self, 功能列表: List[str]) -> Dict[str, Any]:
         """Check federal-level requirements"""
         return {
             "NIST AI RMF": {
@@ -478,7 +478,7 @@ class 美国州法律检查器:
             },
         }
     
-    def _生成整改建议(self, 州检查: Dict, 功能列表: List[str]) -> List[str]:
+    def _生成整改建议(self, 州检查: Dict[str, Any], 功能列表: List[str]) -> List[str]:
         """Generate remediation suggestions"""
         建议 = []
         

@@ -39,7 +39,7 @@ import argparse
 import sys
 from datetime import datetime
 from dataclasses import dataclass, field, asdict
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 
 
@@ -143,7 +143,7 @@ class Event:
     chain_hash: str = ""             # 链式哈希（改不了）
     prev_hash: str = ""              # 上一条的哈希
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
 
@@ -261,7 +261,7 @@ class ScoreEngine:
         with open(self.ledger_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(event.to_dict(), ensure_ascii=False) + "\n")
 
-    def _apply_rules(self, event: Event, record: bool = True) -> dict:
+    def _apply_rules(self, event: Event, record: bool = True) -> dict[str, Any]:
         """
         按规矩判断，更新分数。
         record=True 时记录详情；False 时只算分（用于重建）。
@@ -328,7 +328,7 @@ class ScoreEngine:
             "dna": event.dna,
         }
 
-    def judge(self, event: Event) -> dict:
+    def judge(self, event: Event) -> dict[str, Any]:
         """
         判断一笔账。主入口。
         生成 DNA → 计算链式哈希 → 打分 → 存账本 → 返回结果。
@@ -352,7 +352,7 @@ class ScoreEngine:
 
         return result
 
-    def get_score(self, person: str) -> dict:
+    def get_score(self, person: str) -> dict[str, Any]:
         """查一个人的分数和状态"""
         score = self.scores.get(person, 100)
         color, status = tricolor_gate(score)
@@ -367,7 +367,7 @@ class ScoreEngine:
             "threats": sum(1 for e in records if e.threat),
         }
 
-    def get_history(self, person: str = None) -> List[dict]:
+    def get_history(self, person: str | None = None) -> List[dict]:
         """查历史账目"""
         if person:
             return [e.to_dict() for e in self.history if e.person == person]
@@ -382,7 +382,7 @@ class ScoreEngine:
 # 五、M:: × CNSH:: 双视角封装
 # ═══════════════════════════════════════════════════════════════
 
-def wrap_m(result: dict, event: Event) -> dict:
+def wrap_m(result: dict[str, Any], event: Event) -> dict[str, Any]:
     """M:: 机器视角封装·机器看的"""
     return {
         "id": f"M::EVT-{CONFIG['uid']}-{event.event_id}",
@@ -402,7 +402,7 @@ def wrap_m(result: dict, event: Event) -> dict:
     }
 
 
-def wrap_cnsh(result: dict, event: Event) -> dict:
+def wrap_cnsh(result: dict[str, Any], event: Event) -> dict[str, Any]:
     """CNSH:: 龍魂视角封装·龍魂看的"""
     return {
         "dna": event.dna,
@@ -474,7 +474,7 @@ def generate_report(engine: ScoreEngine) -> str:
 # 七、Notion 推送（可选）
 # ═══════════════════════════════════════════════════════════════
 
-def push_to_notion(result: dict, event: Event) -> bool:
+def push_to_notion(result: dict[str, Any], event: Event) -> bool:
     """
     把判断结果推送到 Notion 数据库。
     需要设置环境变量 NOTION_TOKEN 和 DATABASE_ID。

@@ -48,10 +48,10 @@ class 檢查結果:
     HTTP狀態碼: int = 0
     檢查時間: str = ""
     錯誤信息: str = ""
-    詳細數據: Dict = field(default_factory=dict)
+    詳細數據: Dict[str, Any] = field(default_factory=dict)
     DNA追溯: str = DNA標識
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "檢查名稱": self.檢查名稱,
             "健康等級": self.健康等級.value,

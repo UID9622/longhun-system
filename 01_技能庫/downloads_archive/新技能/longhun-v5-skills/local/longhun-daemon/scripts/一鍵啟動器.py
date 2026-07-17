@@ -25,7 +25,7 @@ import datetime
 import subprocess
 import threading
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # 第一區：DNA追溯與全域常數
@@ -82,7 +82,7 @@ class 審計日誌器:
         self.運行日誌路徑 = self.日誌目錄 / "launchd.out.log"
         self.錯誤日誌路徑 = self.日誌目錄 / "launchd.err.log"
 
-    def 記錄(self, 級別: str, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 記錄(self, 級別: str, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         時間戳 = datetime.datetime.now().isoformat()
         龍印 = hashlib.sha256(f"{時間戳}{模塊}{訊息}{龍魂DNA追溯碼}".encode()).hexdigest()[:12]
         記錄行 = f"[{時間戳}] [龍印:{龍印}] [{級別}] [一鍵啟動器][{模塊}] {訊息}"
@@ -101,13 +101,13 @@ class 審計日誌器:
         else:
             print(f"\033[92m{記錄行.strip()}\033[0m")
 
-    def 紅(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 紅(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_紅, 模塊, 訊息, 元數據)
 
-    def 黃(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 黃(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_黃, 模塊, 訊息, 元數據)
 
-    def 綠(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 綠(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_綠, 模塊, 訊息, 元數據)
 
 
@@ -184,7 +184,7 @@ class 一鍵啟動器:
                 日誌.紅("前置檢查", 問題)
         return 通過, 問題列表
 
-    def 啟動服務進程(self, 服務名稱: str, 指令: List[str], 環境: dict = None) -> Optional[subprocess.Popen]:
+    def 啟動服務進程(self, 服務名稱: str, 指令: List[str], 環境: dict[str, Any] = None) -> Optional[subprocess.Popen]:
         """啟動單個服務進程"""
         try:
             服務環境 = os.environ.copy()
@@ -231,7 +231,7 @@ class 一鍵啟動器:
         日誌.紅("等待超時", f"[{服務名稱}] 端口 {端口} 未就緒")
         return False
 
-    def 執行啟動階段(self, 階段名稱: str, 階段配置: dict) -> Dict[str, bool]:
+    def 執行啟動階段(self, 階段名稱: str, 階段配置: dict[str, Any]) -> Dict[str, bool]:
         """執行單個啟動階段"""
         日誌.綠("階段啟動", f"===== {階段名稱}: {階段配置['描述']} =====")
         結果 = {}
@@ -297,7 +297,7 @@ class 一鍵啟動器:
 
         return 結果
 
-    def 啟動全部(self) -> dict:
+    def 啟動全部(self) -> dict[str, Any]:
         """按階段順序啟動所有服務"""
         總開始 = time.time()
         self.啟動報告["啟動時間"] = datetime.datetime.now().isoformat()

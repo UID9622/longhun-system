@@ -183,7 +183,7 @@ class 洛书九宫:
         if hasattr(self, 宫位):
             setattr(self, 宫位, 内容)
 
-    def 序列化(self) -> dict:
+    def 序列化(self) -> dict[str, Any]:
         return asdict(self)
 
 
@@ -194,13 +194,13 @@ class 审计条目:
     模块: str
     消息: str
     时间戳: str = ""
-    数据: dict = field(default_factory=dict)
+    数据: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self):
         if not self.时间戳:
             self.时间戳 = datetime.now(timezone.utc).isoformat()
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "级别": self.级别.value,
             "模块": self.模块,
@@ -289,13 +289,13 @@ class 自动收口引擎:
         self.九宫.四宫_边界主权 = "P0永恒保留·P1摘要保留·P2可丢弃"
         self.九宫.八宫_安全风险 = "三色审计·一票否决·CONFIRM/SEAL/GPG"
 
-    def _绿记录(self, 模块: str, 消息: str, 数据: dict = None):
+    def _绿记录(self, 模块: str, 消息: str, 数据: dict[str, Any] = None):
         self.审计器.append(审计条目(三色.绿, 模块, 消息, 数据=数据 or {}))
 
-    def _黄记录(self, 模块: str, 消息: str, 数据: dict = None):
+    def _黄记录(self, 模块: str, 消息: str, 数据: dict[str, Any] = None):
         self.审计器.append(审计条目(三色.黄, 模块, 消息, 数据=数据 or {}))
 
-    def _红记录(self, 模块: str, 消息: str, 数据: dict = None):
+    def _红记录(self, 模块: str, 消息: str, 数据: dict[str, Any] = None):
         self.审计器.append(审计条目(三色.红, 模块, 消息, 数据=数据 or {}))
 
     def 获取DNA(self) -> str:
@@ -581,7 +581,7 @@ class 自动收口引擎:
 
     # ── 洛书九宫映射 ──
 
-    def _更新九宫_from分层(self, 分层: 内容分层结果, 上下文: dict):
+    def _更新九宫_from分层(self, 分层: 内容分层结果, 上下文: dict[str, Any]):
         """根据内容分层结果填充九宫"""
         # 1宫：已执行结果 / P1 内容摘要
         p1_summary = self._摘要列表(分层.P1)
@@ -693,7 +693,7 @@ H｜ROOT_CARD
 
     def 渲染C3(self, DNA总结: str = "", P0内容: List[Dict[str, str]] = None,
                P1内容: List[Dict[str, str]] = None, P2内容: List[Dict[str, str]] = None,
-               里程碑: dict = None, 下一步动作: str = "",
+               里程碑: dict[str, Any] = None, 下一步动作: str = "",
                数字根: int = 5, 五行: str = "土", 输入内容: str = "") -> str:
         """C3 阶段收口模板渲染：动态填充 + 完整 DNA 链"""
         P0内容 = P0内容 or []
@@ -817,7 +817,7 @@ GPG: "{GPG_FINGERPRINT}" """
 
     # ── 知识库提交 ──
 
-    def 提交知识库(self, 标题: str, 内容: str, 元数据: dict = None) -> str:
+    def 提交知识库(self, 标题: str, 内容: str, 元数据: dict[str, Any] = None) -> str:
         """将审核过的创作提交到 dragon_knowledge.db"""
         if not os.path.exists(DB_PATH):
             self._红记录("知识库", f"数据库不存在: {DB_PATH}")
@@ -918,7 +918,7 @@ GPG: "{GPG_FINGERPRINT}" """
 
     # ── 综合收口接口 v2.0 ──
 
-    def 执行收口(self, 用户输入: str, 上下文数据: dict = None) -> 收口结果:
+    def 执行收口(self, 用户输入: str, 上下文数据: dict[str, Any] = None) -> 收口结果:
         """
         主入口：自动检测档位并执行对应收口
         """
@@ -991,7 +991,7 @@ GPG: "{GPG_FINGERPRINT}" """
 
     # ── 文件级收口提交 ──
 
-    def 提交文件(self, 文件路径: str, 元数据: dict = None) -> 收口结果:
+    def 提交文件(self, 文件路径: str, 元数据: dict[str, Any] = None) -> 收口结果:
         """提交单个审核过的文件：读取 → 分层 → C3收口 → 入库"""
         元数据 = 元数据 or {}
         if not os.path.exists(文件路径):
@@ -1088,7 +1088,7 @@ GPG: "{GPG_FINGERPRINT}" """
 
     # ── 统计与报告 ──
 
-    def 生成统计报告(self) -> dict:
+    def 生成统计报告(self) -> dict[str, Any]:
         """生成收口引擎统计报告"""
         三色分布 = {"🟢": 0, "🟡": 0, "🔴": 0}
         for 条目 in self.审计器:
@@ -1104,7 +1104,7 @@ GPG: "{GPG_FINGERPRINT}" """
             "引擎版本": ENGINE_VERSION
         }
 
-    def 导出审计日志(self, 文件路径: str = None) -> str:
+    def 导出审计日志(self, 文件路径: str | None = None) -> str:
         """导出审计日志为JSON"""
         if 文件路径 is None:
             目录 = os.path.expanduser("~/_work")

@@ -150,10 +150,10 @@ def normalize_language(lang: str) -> str:
     return "plain text"
 
 
-def split_long_code_blocks(blocks: List[dict]) -> List[dict]:
+def split_long_code_blocks(blocks: List[dict[str, Any]]) -> List[dict[str, Any]]:
     """Notion code block 单个 rich_text 内容上限 2000 字符，超长时拆分。"""
     MAX_LEN = 2000
-    result: List[dict] = []
+    result: List[dict[str, Any]] = []
     for block in blocks:
         if block.get("type") == "code":
             code = block["code"]
@@ -166,7 +166,7 @@ def split_long_code_blocks(blocks: List[dict]) -> List[dict]:
                 block["code"]["language"] = language
                 result.append(block)
                 continue
-            rich_texts: List[dict] = []
+            rich_texts: List[dict[str, Any]] = []
             for i in range(0, len(full_text), MAX_LEN):
                 chunk = full_text[i : i + MAX_LEN]
                 rich_texts.append({"type": "text", "text": {"content": chunk}})

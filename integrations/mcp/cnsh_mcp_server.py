@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║            CNSH 核心 MCP Server v2.0 — CNSH 块写入/查询/审计           ║
@@ -580,7 +581,7 @@ def _jsonrpc_main():
         sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
         sys.stdout.flush()
 
-    def _handle(msg: dict[str, Any]) -> Optional[dict]:
+    def _handle(msg: dict[str, Any]) -> Optional[dict[str, Any]]:
         msg_id = msg.get("id")
         method = msg.get("method")
 

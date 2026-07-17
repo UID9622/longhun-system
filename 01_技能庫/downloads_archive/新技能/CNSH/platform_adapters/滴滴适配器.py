@@ -19,7 +19,7 @@ DNA授权点 (DNA Authorization Points):
 """
 
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, Any
 from enum import Enum
 import random
 import json
@@ -65,7 +65,7 @@ class 滴滴适配器(平台适配器基类):
     
     def __init__(self, 模式: str = "模拟"):
         super().__init__(模式)
-        self._当前订单: Optional[dict] = None
+        self._当前订单: Optional, Any[dict] = None
         self._历史订单: list[dict] = []
         self._常用地址: list[dict] = [
             {"名称": "家", "地址": "上海市浦东新区世纪大道100号", "经度": 121.4737, "纬度": 31.2304},
@@ -118,7 +118,7 @@ class 滴滴适配器(平台适配器基类):
             return False
         return True
     
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行滴滴操作 / Execute DiDi operation
         
@@ -148,7 +148,7 @@ class 滴滴适配器(平台适配器基类):
     # 具体操作实现 / Specific Operation Implementations
     # ═══════════════════════════════════════════════════
     
-    def _预估价格(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _预估价格(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟢 预估价格 / Price Estimation
         
@@ -215,7 +215,7 @@ class 滴滴适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _叫车(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _叫车(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 叫车 — 安全关键操作 / Request Ride — Safety Critical
         
@@ -297,7 +297,7 @@ class 滴滴适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _支付(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _支付(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🔴 行程支付 / Trip Payment
         
@@ -381,7 +381,7 @@ class 滴滴适配器(平台适配器基类):
         # 默认快车价格 / Default express price
         return round(10.0 + 距离 * 2.0, 1)
     
-    def _生成模拟司机(self) -> dict:
+    def _生成模拟司机(self) -> dict[str, Any]:
         """生成模拟司机信息 / Generate mock driver info"""
         姓氏 = ["张", "王", "李", "刘", "陈", "杨", "赵", "黄"]
         名字 = ["师傅", "师傅", "师傅", "师傅", "师傅"]
@@ -410,7 +410,7 @@ class 滴滴适配器(平台适配器基类):
                 print(f"[{self.平台名称()}]    → {状态.value}")
                 time.sleep(0.1)  # 快速模拟
     
-    def 获取当前订单(self) -> Optional[dict]:
+    def 获取当前订单(self) -> Optional, Any[dict]:
         """获取当前订单 / Get current order"""
         return self._当前订单.copy() if self._当前订单 else None
     
@@ -418,7 +418,7 @@ class 滴滴适配器(平台适配器基类):
         """获取历史订单 / Get order history"""
         return self._历史订单.copy()
     
-    def 取消订单(self, 订单号: str) -> dict:
+    def 取消订单(self, 订单号: str) -> dict[str, Any]:
         """取消订单 / Cancel order"""
         for 订单 in self._历史订单:
             if 订单["订单号"] == 订单号:

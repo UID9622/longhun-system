@@ -24,7 +24,7 @@ import hashlib
 import time
 import numpy as np
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set, Tuple, Callable
+from typing import Dict, List, Optional, Set, Tuple, Callable, Any
 from enum import Enum, auto
 
 
@@ -91,7 +91,7 @@ class 主权实体:
     所有者: str                           # 主权归属者
     创建时间: float = field(default_factory=time.time)
     数字指纹: str = ""                     # SHA256唯一标识
-    元数据: Dict = field(default_factory=dict)
+    元数据: Dict[str, Any] = field(default_factory=dict)
     授权列表: List['授权记录'] = field(default_factory=list)
     变更日志: List[Dict] = field(default_factory=list)
     
@@ -222,7 +222,7 @@ class 不变量计算器:
         return (设备主权值 + 数据主权值 + 决策主权值) % 3
     
     @staticmethod
-    def 主权一致性验证(三层主权: List[主权实体]) -> Dict:
+    def 主权一致性验证(三层主权: List[主权实体]) -> Dict[str, Any]:
         """
         🔴 验证三层主权的一致性 (结构同构)
         
@@ -295,7 +295,7 @@ class 违规检测器:
         self.命中计数 = 0
     
     def 检测传播事件(self, 
-                     传播事件: Dict,
+                     传播事件: Dict[str, Any],
                      主权注册表: Dict[str, 主权实体],
                      授权注册表: Dict[str, 授权记录]) -> List[Dict]:
         """
@@ -378,7 +378,7 @@ class 违规检测器:
     def 批量检测(self,
                  事件列表: List[Dict],
                  主权注册表: Dict[str, 主权实体],
-                 授权注册表: Dict[str, 授权记录]) -> Dict:
+                 授权注册表: Dict[str, 授权记录]) -> Dict[str, Any]:
         """
         🟢 批量检测传播事件
         
@@ -400,7 +400,7 @@ class 违规检测器:
             '违规详情': 所有违规,
         }
     
-    def 统计(self) -> Dict:
+    def 统计(self) -> Dict[str, Any]:
         """🟢 检测统计"""
         命中率 = self.命中计数 / max(self.检测计数, 1)
         return {
@@ -519,7 +519,7 @@ class 私域主权管理器:
         
         return 授权
     
-    def 验证传播(self, 源: str, 目标: str, 资源: str) -> Dict:
+    def 验证传播(self, 源: str, 目标: str, 资源: str) -> Dict[str, Any]:
         """
         🔴 验证一次传播是否合法
         
@@ -541,7 +541,7 @@ class 私域主权管理器:
             '违规': 违规,
         }
     
-    def 获取主权统计(self) -> Dict:
+    def 获取主权统计(self) -> Dict[str, Any]:
         """🟢 获取主权统计"""
         层级统计 = {层级.name: 0 for 层级 in 主权层级}
         for 实体 in self.主权注册表.values():
@@ -562,7 +562,7 @@ class 私域主权管理器:
             '违规检测': self.违规检测器.统计(),
         }
     
-    def 结构同构验证(self, 所有者: str) -> Dict:
+    def 结构同构验证(self, 所有者: str) -> Dict[str, Any]:
         """
         🔴 验证某所有者的三层主权结构同构
         

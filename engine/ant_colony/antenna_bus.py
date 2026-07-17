@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 触角总线 v2.0 · AntennaBus
 基于 LACA v1.0 论文，深度整合龙魂不动点系统
@@ -449,7 +450,7 @@ class AntennaBus:
             self.modules[module_id].status = "online"
             return True
     
-    def check_health(self) -> Dict[str, dict]:
+    def check_health(self) -> Dict[str, dict[str, Any]]:
         with self._lock:
             now = time.time()
             health_report = {}
@@ -518,7 +519,7 @@ class AntennaBus:
                 ),
             }
     
-    def get_module_info(self, module_id: str) -> Optional[dict]:
+    def get_module_info(self, module_id: str) -> Optional[dict[str, Any]]:
         with self._lock:
             if module_id not in self.modules:
                 return None

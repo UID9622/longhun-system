@@ -14,7 +14,7 @@ import json
 import hashlib
 import hmac
 import secrets
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from datetime import datetime
 from dataclasses import dataclass, asdict
 
@@ -38,7 +38,7 @@ class AI时间戳:
         """格式化为标准AI时间戳字符串"""
         return f"#AI生成⚡️{self.时间戳}·{self.模型}·{self.置信度:.4f}"
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -223,7 +223,7 @@ class AI时间戳规范:
 
     # ========== 审计 ==========
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

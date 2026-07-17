@@ -29,7 +29,7 @@ The EU AI Act —— The World's Strictest AI Regulatory Framework
 """
 
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 import json
 import re
 
@@ -88,7 +88,7 @@ class 铁律自审闸:
         self.铁律 = 铁律清单_EU
         self.触碰记录 = []
     
-    def 检查(self, 功能描述: str) -> Dict:
+    def 检查(self, 功能描述: str) -> Dict[str, Any]:
         """Check if a feature description violates any iron rules"""
         结果 = {"通过": True, "触碰项": []}
         for 铁律 in self.铁律:
@@ -289,7 +289,7 @@ class EU_AI_Act检查器:
         self.来源链.记录引用(3, "EAIO Best Practices 2025",
             "European Artificial Intelligence Office best practice recommendations")
     
-    def 检查(self, 功能列表: List[str]) -> Dict:
+    def 检查(self, 功能列表: List[str]) -> Dict[str, Any]:
         """
         对指定功能列表进行EU AI Act合规检查
         Perform EU AI Act compliance check on given features
@@ -327,7 +327,7 @@ class EU_AI_Act检查器:
         
         return 结果
     
-    def _检查单一功能(self, 功能: str) -> Dict:
+    def _检查单一功能(self, 功能: str) -> Dict[str, Any]:
         """Check compliance for a single feature"""
         配置 = self.风险分级表.get(功能, {
             "风险等级": "未知",
@@ -356,7 +356,7 @@ class EU_AI_Act检查器:
             "合规动作": 要求.get("合规动作", "N/A"),
         }
     
-    def _检查现状(self, 功能: str, 风险: str) -> Dict:
+    def _检查现状(self, 功能: str, 风险: str) -> Dict[str, Any]:
         """Check current LONGHUN compliance status for a feature"""
         现状表 = {
             "CNSH编辑器": {
@@ -438,7 +438,7 @@ class EU_AI_Act检查器:
         }
         return 建议表.get(功能, [])
     
-    def 获取风险分级总览(self) -> Dict:
+    def 获取风险分级总览(self) -> Dict[str, Any]:
         """Get an overview of all feature risk classifications"""
         return {
             "分级版本": "2026-06-18-v1.0",
@@ -447,7 +447,7 @@ class EU_AI_Act检查器:
             "更新时间": datetime.now().isoformat(),
         }
     
-    def 检查时间线合规性(self) -> Dict:
+    def 检查时间线合规性(self) -> Dict[str, Any]:
         """Check compliance against the 2026 timeline milestones"""
         今天 = datetime.now()
         结果 = {}
@@ -497,7 +497,7 @@ class GPAI义务检查器:
         self.计算量 = 计算量_FLOPs
         self.是否为系统性 = 计算量_FLOPs >= 1e25
     
-    def 检查透明度义务(self) -> Dict:
+    def 检查透明度义务(self) -> Dict[str, Any]:
         """Check transparency obligations for GPAI"""
         基础要求 = [
             "✅ 提供技术文档（包括训练数据说明）",

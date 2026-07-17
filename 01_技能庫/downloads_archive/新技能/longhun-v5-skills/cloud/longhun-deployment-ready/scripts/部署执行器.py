@@ -28,7 +28,7 @@ import argparse
 import subprocess
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 from dataclasses import dataclass, field
 
@@ -142,7 +142,7 @@ class DeploymentExecutor:
         self.start_time = None
         self.config = self._load_deploy_config()
 
-    def _load_deploy_config(self) -> Dict:
+    def _load_deploy_config(self) -> Dict[str, Any]:
         """加载部署配置"""
         config_paths = ["config/deploy.json", "config/deploy.yaml", "config/deploy.yml"]
         for path in config_paths:

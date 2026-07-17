@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CHECK-v1.0
 
@@ -49,14 +50,14 @@ def load_library(path: Path):
         return json.load(f)
 
 
-def validate_structure(data: dict, errors: list):
+def validate_structure(data: dict[str, Any], errors: list[Any]):
     """校验顶层结构"""
     for key in REQUIRED_TOP_KEYS:
         if key not in data:
             errors.append(f"缺少顶层键: {key}")
 
 
-def validate_glyphs(data: dict, errors: list):
+def validate_glyphs(data: dict[str, Any], errors: list[Any]):
     """校验每个字元条目"""
     glyphs = data.get("字符集_cnsh9622", {})
     if not isinstance(glyphs, dict):
@@ -101,7 +102,7 @@ def validate_glyphs(data: dict, errors: list):
             )
 
 
-def count_categories(glyphs: dict):
+def count_categories(glyphs: dict[str, Any]):
     """分类统计字元"""
     chinese = 0
     latin = 0

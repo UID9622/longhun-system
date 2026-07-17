@@ -97,7 +97,7 @@ class 修复记录:
         哈希值 = hashlib.sha256(数据.encode()).hexdigest()[:12]
         return f"#龍芯⚡️{self.修复时间[:10]}-{self.代理编号}-FIX-{哈希值[:6]}"
     
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -163,7 +163,7 @@ class 审计日志:
     事件描述: str
     操作者: str
     关联脱氧核糖核酸: str
-    详细数据: Dict = field(default_factory=dict)
+    详细数据: Dict[str, Any] = field(default_factory=dict)
 
 
 # ═══════════════════════════════════════════════════════════
@@ -185,7 +185,7 @@ class 审计修复系统:
     DNA = "#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1"
     版本 = "5.1.0"
     
-    def __init__(self, 数据目录: str = None):
+    def __init__(self, 数据目录: str | None = None):
         self.数据目录 = Path(数据目录) if 数据目录 else Path.home() / ".龍魂" / "audit"
         self.数据目录.mkdir(parents=True, exist_ok=True)
         
@@ -233,7 +233,7 @@ class 审计修复系统:
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     def _记录审计日志(self, 事件类型: str, 代理编号: str, 事件描述: str, 
-                     操作者: str = "系统", 详细数据: Dict = None):
+                     操作者: str = "系统", 详细数据: Dict[str, Any] = None):
         """记录一条审计日志"""
         日志 = 审计日志(
             日志编号=self._生成日志编号(),
@@ -324,7 +324,7 @@ class 审计修复系统:
         print(f"[审计系统] ✅ 已创建修复记录: {代理编号} - {记录.脱氧核糖核酸签名}")
         return 记录
     
-    def 更新修复状态(self, 代理编号: str, 新状态: str, 验证结果: str = None):
+    def 更新修复状态(self, 代理编号: str, 新状态: str, 验证结果: str | None = None):
         """更新修复记录状态"""
         if 代理编号 not in self.修复记录池:
             raise ValueError(f"未找到 {代理编号} 的修复记录")
@@ -353,7 +353,7 @@ class 审计修复系统:
         
         print(f"[审计系统] 🔄 {代理编号} 状态更新: {旧状态} → {新状态}")
     
-    def 获取修复记录(self, 代理编号: str = None) -> Optional[修复记录]:
+    def 获取修复记录(self, 代理编号: str | None = None) -> Optional[修复记录]:
         """获取单个或全部修复记录"""
         if 代理编号:
             return self.修复记录池.get(代理编号)
@@ -376,7 +376,7 @@ class 审计修复系统:
     # ═══════════════════════════════════════════════════
     
     def 执行根因分析(self, 代理编号: str, 症状: str, 
-                    日志片段: str = None, 环境信息: Dict = None) -> 根因分析报告:
+                    日志片段: str = None, 环境信息: Dict[str, Any] = None) -> 根因分析报告:
         """
         执行根因分析 (Root Cause Analysis)
         
@@ -517,7 +517,7 @@ class 审计修复系统:
         
         return 验证步骤列表
     
-    def 执行验证(self, 代理编号: str, 验证步骤列表: List[验证步骤]) -> Dict:
+    def 执行验证(self, 代理编号: str, 验证步骤列表: List[验证步骤]) -> Dict[str, Any]:
         """
         执行完整的修复验证流程
         
@@ -603,7 +603,7 @@ class 审计修复系统:
     # 公开API: 报告生成
     # ═══════════════════════════════════════════════════
     
-    def 生成修复报告(self, 代理编号: str = None, 输出格式: str = "markdown") -> str:
+    def 生成修复报告(self, 代理编号: str | None = None, 输出格式: str = "markdown") -> str:
         """
         生成修复报告
         
@@ -615,7 +615,7 @@ class 审计修复系统:
             return self._生成修复报告_json(代理编号)
         return self._生成修复报告_markdown(代理编号)
     
-    def _生成修复报告_markdown(self, 代理编号: str = None) -> str:
+    def _生成修复报告_markdown(self, 代理编号: str | None = None) -> str:
         """生成Markdown格式修复报告"""
         时间戳 = self._生成时间戳()
         
@@ -708,7 +708,7 @@ class 审计修复系统:
         print(f"[审计系统] 📄 修复报告已生成: {报告文件}")
         return 报告内容
     
-    def _生成修复报告_json(self, 代理编号: str = None) -> str:
+    def _生成修复报告_json(self, 代理编号: str | None = None) -> str:
         """生成JSON格式修复报告"""
         if 代理编号:
             记录 = self.修复记录池.get(代理编号)
@@ -733,7 +733,7 @@ class 审计修复系统:
         
         return json.dumps(数据, ensure_ascii=False, indent=2)
     
-    def 生成修复报告模板(self, 代理编号: str, 填充数据: Dict = None) -> str:
+    def 生成修复报告模板(self, 代理编号: str, 填充数据: Dict[str, Any] = None) -> str:
         """
         生成修复报告模板 (可复用模板)
         
@@ -817,7 +817,7 @@ class 审计修复系统:
     # 公开API: 审计日志查询
     # ═══════════════════════════════════════════════════
     
-    def 查询审计日志(self, 代理编号: str = None, 
+    def 查询审计日志(self, 代理编号: str | None = None, 
                    事件类型: str = None, 
                    开始时间: str = None,
                    结束时间: str = None,
@@ -836,7 +836,7 @@ class 审计修复系统:
         
         return 结果[-限制:]
     
-    def 导出审计日志(self, 输出路径: str = None, 格式: str = "json") -> str:
+    def 导出审计日志(self, 输出路径: str | None = None, 格式: str = "json") -> str:
         """导出审计日志到文件"""
         if not 输出路径:
             输出路径 = str(self.审计日志目录 / f"审计日志导出_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
@@ -864,7 +864,7 @@ class 审计修复系统:
     # 公开API: 系统统计
     # ═══════════════════════════════════════════════════
     
-    def 生成系统统计(self) -> Dict:
+    def 生成系统统计(self) -> Dict[str, Any]:
         """生成系统级修复统计"""
         全部记录 = self.列出所有修复记录()
         
@@ -948,7 +948,7 @@ def 快速修复流程(审计系统: 审计修复系统,
                问题描述: str, 症状描述: str,
                根因类别: str, 严重程度: str,
                根因分析: str, 方案选择: str, 实施方案: str,
-               代理类型: str = "通用") -> Dict:
+               代理类型: str = "通用") -> Dict[str, Any]:
     """
     一键执行完整修复流程: 创建记录 → 根因分析 → 验证 → 生成报告
     

@@ -89,7 +89,7 @@ class 龍魂路由器:
         """🟢 获取所有注册的路由 | Get all registered routes"""
         return sorted(自身.路由表.keys(), key=lambda p: 自身.路由表[p].优先级)
 
-    def 获取统计(自身) -> dict:
+    def 获取统计(自身) -> dict[str, Any]:
         """🟡 获取路由统计 | Get routing statistics"""
         return dict(自身.统计)
 

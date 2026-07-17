@@ -20,7 +20,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 """
 
 from __future__ import annotations
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from functools import lru_cache
 from collections import defaultdict
 import time
@@ -88,7 +88,7 @@ def sovereignty_index(
     ren: float,
     weights: Optional[Tuple[float, ...]] = None,
     use_cache: bool = True
-) -> Dict:
+) -> Dict[str, Any]:
     """
     三才主权指数·优化版
 
@@ -171,7 +171,7 @@ def decision_chain(
     ren: float = 0.85,
     si_weights: Optional[Tuple[float, ...]] = None,
     score_thresholds: Optional[Dict[str, float]] = None
-) -> Dict:
+) -> Dict[str, Any]:
     """
     完整决策链 v2.0·六环全程可审·完整追踪
 
@@ -291,7 +291,7 @@ def decision_chain(
     return trace
 
 # ═════════ 完整决策报告（审计报告）═════════
-def full_audit_report(trace: Dict) -> str:
+def full_audit_report(trace: Dict[str, Any]) -> str:
     """生成可审计的决策报告·包含性能数据"""
     report = []
     report.append("=" * 80)

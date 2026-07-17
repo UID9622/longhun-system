@@ -463,7 +463,7 @@ class SemanticWeb:
         """语义匹配：基于共现词 + 信息素排序（无向量库·诚实降级余弦→共现评分）。"""
         # 受控术语匹配：查询句命中术语表即加分（与 grow 一致，避免碎片）
         qwords = {t for t in self.SEEDS if t in query}
-        scored: List[tuple] = []
+        scored: List[tuple[Any, ...]] = []
         for name, tag in self.nodes.items():
             score = 0.0
             if name in qwords:
@@ -599,7 +599,7 @@ class MemoryEngine:
         qwords = {t for t in self.semantic.nodes if t in req.query_text}
         # 同时允许自由关键词（内容子串）兜底
         free_words = set(re.findall(r"[一-鿿]{2,4}", req.query_text))
-        scored: List[tuple] = []
+        scored: List[tuple[Any, ...]] = []
         for e in self.entries:
             score = 0.0
             for t in e.tags:

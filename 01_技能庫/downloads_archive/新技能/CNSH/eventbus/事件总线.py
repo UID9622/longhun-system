@@ -89,7 +89,7 @@ class 事件总线:
 
         事件对象.已处理 = True
 
-    def 获取统计(自身) -> dict:
+    def 获取统计(自身) -> dict[str, Any]:
         """🟡 获取事件统计 | Get event statistics"""
         return dict(自身.统计)
 

@@ -30,7 +30,7 @@ import warnings
 import tempfile
 import subprocess
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional, Union, Callable
+from typing import List, Dict, Tuple, Optional, Union, Callable, Any
 from collections import Counter, deque
 from dataclasses import dataclass, field
 from enum import Enum
@@ -849,9 +849,9 @@ class 语音识别结果:
     语言: str = "zh"                         # 语言代码 | Language code
     耗时秒: float = 0.0                       # 处理耗时 | Processing time
     是否降级: bool = False                    # 是否降级处理 | Whether degraded
-    原始数据: Dict = field(default_factory=dict)     # 原始引擎数据 | Raw engine data
+    原始数据: Dict[str, Any] = field(default_factory=dict)     # 原始引擎数据 | Raw engine data
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """转为字典 | Convert to dictionary"""
         return {
             "文本": self.文本,
@@ -2057,7 +2057,7 @@ class 龍音ASR引擎:
 
         return 临时路径
 
-    def _计算Whisper置信度(self, 识别结果: Dict) -> float:
+    def _计算Whisper置信度(self, 识别结果: Dict[str, Any]) -> float:
         """🟢 从Whisper结果计算置信度 | Calculate confidence from Whisper result"""
         置信度 = 0.8  # 基础置信度 | Base confidence
 
@@ -2301,7 +2301,7 @@ class 龍音ASR引擎:
     # 12. 元信息与统计 | Meta Info & Statistics
     # ═════════════════════════════════════════════════════════════════════════
 
-    def 获取统计信息(self) -> Dict:
+    def 获取统计信息(self) -> Dict[str, Any]:
         """
         🟢 获取引擎统计信息 | Get engine statistics
 

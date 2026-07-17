@@ -534,7 +534,7 @@ class V1V2對比分析器:
         else:
             return "需改進(必須優化後部署)"
     
-    def _生成優化摘要(self, 對比詳情: Dict) -> List[str]:
+    def _生成優化摘要(self, 對比詳情: Dict[str, Any]) -> List[str]:
         建議 = []
         for 階段, 詳情 in 對比詳情.items():
             if "D級" in 詳情["審計影響評級"]:
@@ -645,7 +645,7 @@ class 優化建議引擎:
         
         return sorted(匹配建議, key=lambda x: x.優先級)
     
-    def _建議適用(self, 建議: 優化建議, 性能數據: Dict) -> bool:
+    def _建議適用(self, 建議: 優化建議, 性能數據: Dict[str, Any]) -> bool:
         """判斷建議是否適用於給定性能數據"""
         # 檢查審計影響評級
         評級 = 性能數據.get("審計影響評級", "")
@@ -779,7 +779,7 @@ class 公式鏈主控優化器:
             return 0
         return 1 + (數值 - 1) % 9
     
-    def _執行三色閘審計(self, 數據: Dict) -> Dict:
+    def _執行三色閘審計(self, 數據: Dict[str, Any]) -> Dict[str, Any]:
         """執行三色閘審計"""
         if not self.啟用審計:
             return {"狀態": "跳過", "原因": "審計已禁用"}
@@ -792,7 +792,7 @@ class 公式鏈主控優化器:
             "藍閘": True,
         }
     
-    def _計算權重(self, 數據: Dict) -> float:
+    def _計算權重(self, 數據: Dict[str, Any]) -> float:
         """計算權重 - 使用緩存"""
         鍵 = f"權重_{hash(str(sorted(數據.items())))}"
         return self.權重緩存.獲取權重(

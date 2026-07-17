@@ -46,7 +46,7 @@ class DNA令牌:
     令牌字符串: str
     创建时间: datetime = field(default_factory=datetime.now)
     过期时间: Optional[datetime] = None
-    授权范围: list = field(default_factory=list)
+    授权范围: list[Any] = field(default_factory=list)
     用户标识: str = ""
     
     def 是否过期(self) -> bool:
@@ -70,7 +70,7 @@ class 审计记录:
     审计级别: 审计级别
     DNA哈希: str
     结果: str
-    详情: dict = field(default_factory=dict)
+    详情: dict[str, Any] = field(default_factory=dict)
 
 
 class 平台适配器基类(ABC):
@@ -119,7 +119,7 @@ class 平台适配器基类(ABC):
         pass
     
     @abstractmethod
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行平台操作 / Execute platform operation
         
@@ -196,7 +196,7 @@ class 平台适配器基类(ABC):
         return self._连接状态
     
     def _记录审计(self, 操作: str, 级别: 审计级别, DNA哈希: str, 
-                 结果: str, 详情: dict = None) -> None:
+                 结果: str, 详情: dict[str, Any] = None) -> None:
         """
         内部方法：记录审计日志 / Internal: record audit log
         
@@ -251,7 +251,7 @@ class 平台适配器基类(ABC):
             import time
             time.sleep(毫秒 / 1000)
     
-    def _生成模拟响应(self, 操作: str, 参数: dict) -> dict:
+    def _生成模拟响应(self, 操作: str, 参数: dict[str, Any]) -> dict[str, Any]:
         """
         生成模拟响应 / Generate simulation response
         

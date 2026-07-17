@@ -102,8 +102,8 @@ class Parser:
         body = self._parse_block()
         return FuncDecl(name=name, params=params, return_type=return_type, body=body, line=line, col=col)
 
-    def _parse_params(self) -> List[dict]:
-        params: List[dict] = []
+    def _parse_params(self) -> List[dict[str, Any]]:
+        params: List[dict[str, Any]] = []
         if self._match(TokenType.RPAREN):
             return params
         while True:
@@ -452,7 +452,7 @@ class Parser:
     def _parse_dict_literal(self) -> DictLiteral:
         line, col = self._peek().line, self._peek().col
         self._consume(TokenType.LBRACE)
-        pairs: List[tuple] = []
+        pairs: List[tuple[Any, ...]] = []
         if not self._match(TokenType.RBRACE):
             key = self._parse_expr()
             self._consume(TokenType.OP, ":")

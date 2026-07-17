@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 ##龍芯⚡️2026-06-21-ENGINE-STACK_RUNNER-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
 
@@ -24,7 +25,7 @@ class CryptoStack:
         self.l4 = SevenFactorLayer(uid)
         self.results = {}
 
-    def run(self, seven_factors: dict = None):
+    def run(self, seven_factors: dict[str, Any] = None):
         """运行全栈验证"""
         # L1: 物理层
         self.results["L1"] = self.l1.export()

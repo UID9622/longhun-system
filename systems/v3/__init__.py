@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂系统 · v3.0 核心模块集成包
 Longhun System · v3.0 Core Modules Integration Package
@@ -17,7 +18,7 @@ import os
 import sys
 import importlib.util
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 __all__ = [
     "WuxingDecisionEngine",
@@ -38,7 +39,7 @@ _V3_MODULE_MAP = {
 }
 
 # 延迟加载快取
-_loaded_modules: dict = {}
+_loaded_modules: dict[str, Any] = {}
 
 
 def _load_module(alias: str, filename: str):

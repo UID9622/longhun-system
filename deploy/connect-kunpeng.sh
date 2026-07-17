@@ -385,10 +385,18 @@ incremental_sync() {
     do_full_sync  # 复用，实际的增量由 rsync 自动处理
 }
 
+# ─── 双节点 CLI 快捷入口 ───
+
+dual_node() {
+    local cmd="${1:-status}"
+    shift 2>/dev/null || true
+    python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" "$cmd" "$@"
+}
+
 # ─── 主入口 ───
 main() {
     echo ""
-    echo "🐉 龍魂 · 鲲鹏连接工具 v2.0"
+    echo "🐉 龍魂 · 鲲鹏连接工具 v3.0"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -415,25 +423,111 @@ main() {
         sync)
             incremental_sync
             ;;
+        sync5|sync-all)
+            # 五维全量同步（新协议）
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_protocol.py" sync --json
+            ;;
         deploy)
             deploy
+            ;;
+        status|dual-status)
+            # 双节点状态总览
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" status
+            ;;
+        ask)
+            # 推理: bash deploy/connect-kunpeng.sh ask "问题"
+            shift
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" ask "$@"
+            ;;
+        train)
+            # 训练: bash deploy/connect-kunpeng.sh train 任务名 数据路径
+            shift
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" train "$@"
+            ;;
+        train-status)
+            shift
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" train-status "$@"
+            ;;
+        checkpoint|ckpt)
+            shift
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" checkpoint "$@"
+            ;;
+        health)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" health
+            ;;
+        api-init)
+            # 初始化双节点API认证
+            python3 "${SCRIPT_DIR}/../L6_同步层/auth_middleware.py" init --role mac
+            echo ""
+            echo "  ⚠️  请在鲲鹏端也执行: python3 L6_同步层/auth_middleware.py init --role kunpeng"
+            echo "  然后将鲲鹏端的 peer_api_key 填入 Mac 端的 .dual_node_keys"
+            ;;
+        api-serve)
+            # 启动本地双节点API（开发/调试用）
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_api.py" serve --role mac --host 127.0.0.1 --port 9634
+            ;;
+        # ─── FRP 隧道命令 ───
+        tunnel|frp)
+            # FRP 隧道管理
+            shift 2>/dev/null || true
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel "$@"
+            ;;
+        tunnel-install)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel install
+            ;;
+        tunnel-start)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel start
+            ;;
+        tunnel-stop)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel stop
+            ;;
+        tunnel-status)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel status
+            ;;
+        tunnel-dashboard)
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel dashboard
+            ;;
+        tunnel-daemon)
+            shift 2>/dev/null || true
+            python3 "${SCRIPT_DIR}/../L6_同步层/dual_node_cli.py" tunnel daemon "$@"
             ;;
         help|--help|-h)
             echo "用法: bash deploy/connect-kunpeng.sh [命令]"
             echo ""
-            echo "  命令:"
-            echo "    config   初次配置（IP + 用户名，30 秒）"
-            echo "    deploy   一键部署 🚀（全程自动）"
-            echo "    check    检测服务器状态"
-            echo "    sync     增量同步代码"
-            echo "    ssh      交互式 SSH 终端"
-            echo "    help     帮助"
+            echo "  基础:"
+            echo "    config      初次配置（IP + 用户名，30 秒）"
+            echo "    deploy      一键部署 🚀（全程自动）"
+            echo "    check       检测服务器状态"
+            echo "    sync        增量同步代码（rsync）"
+            echo "    ssh         交互式 SSH 终端"
             echo ""
-            echo "  DNA: #龍芯⚡️2026-07-06-KUNPENG-CONNECT-v2.0"
+            echo "  双节点同步:"
+            echo "    status      双节点状态总览"
+            echo "    sync5       五维全量同步（代码+协议+知识+记忆+模型）"
+            echo "    ask \"问题\"  推理（本地优先→鲲鹏fallback）"
+            echo "    train 任务名 数据路径  提交训练到鲲鹏"
+            echo "    train-status 任务名    查询训练进度"
+            echo "    checkpoint  查看/拉取最新模型"
+            echo "    health      健康检查"
+            echo ""
+            echo "  FRP 隧道:"
+            echo "    tunnel-install   安装 frpc"
+            echo "    tunnel-start     启动隧道"
+            echo "    tunnel-stop      停止隧道"
+            echo "    tunnel-status    隧道状态"
+            echo "    tunnel-dashboard  打开Web面板"
+            echo "    tunnel-daemon     守护模式（自动重连）"
+            echo ""
+            echo "  API管理:"
+            echo "    api-init    初始化双节点API认证"
+            echo "    api-serve   启动本地双节点API"
+            echo ""
+            echo "  DNA: #龍芯⚡️丙午·辛未·KUNPENG-CONNECT-v4.0"
             ;;
         *)
-            echo "  用法: deploy | check | sync | ssh | config"
+            echo "  用法: deploy | check | sync | sync5 | status | ask | train | checkpoint | health | ssh | tunnel"
             echo "  建议: bash deploy/connect-kunpeng.sh deploy  ← 一键搞定"
+            echo "  帮助: bash deploy/connect-kunpeng.sh help"
             ;;
     esac
 }

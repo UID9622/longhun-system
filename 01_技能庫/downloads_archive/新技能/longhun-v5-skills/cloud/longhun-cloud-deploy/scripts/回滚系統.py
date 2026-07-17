@@ -63,7 +63,7 @@ class 回滾記錄:
     審計標記: str = 安全通過
     DNA追溯: str = DNA標識
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "回滾ID": self.回滾ID,
             "觸發部署ID": self.觸發部署ID,
@@ -86,8 +86,8 @@ class 版本快照:
     部署ID: str = ""
     時間戳: str = ""
     容器鏡像: str = ""
-    配置文件: Dict = field(default_factory=dict)
-    環境變量: Dict = field(default_factory=dict)
+    配置文件: Dict[str, Any] = field(default_factory=dict)
+    環境變量: Dict[str, Any] = field(default_factory=dict)
     數據庫版本: str = ""
     DNA追溯: str = DNA標識
 
@@ -348,7 +348,7 @@ class 龍魂回滾系統:
     # 輔助方法
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def _執行命令(self, 命令: List[str], 超時: int = 60) -> Dict:
+    def _執行命令(self, 命令: List[str], 超時: int = 60) -> Dict[str, Any]:
         """執行 shell 命令"""
         try:
             結果 = subprocess.run(
@@ -394,7 +394,7 @@ class 龍魂回滾系統:
             return self.當前回滾.to_dict()
         return None
 
-    def 統計信息(self) -> Dict:
+    def 統計信息(self) -> Dict[str, Any]:
         """獲取回滾統計信息"""
         總數 = len(self.回滾歷史)
         成功數 = sum(1 for r in self.回滾歷史 if r.狀態 == 回滾狀態.成功.value)

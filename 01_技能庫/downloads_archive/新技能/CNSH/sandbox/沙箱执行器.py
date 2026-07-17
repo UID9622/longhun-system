@@ -47,7 +47,7 @@ class 沙箱执行器:
         自身.禁止调用 = {"open", "exec", "eval", "__import__", "compile", "input"}
         print(f"[沙箱执行器] 🐉 沙箱已初始化 | 超时: {{最大执行时间}}s | {{__dna__}}")
 
-    def 执行(自身, 代码: str, 全局变量: Dict = None) -> 沙箱结果:
+    def 执行(自身, 代码: str, 全局变量: Dict[str, Any] = None) -> 沙箱结果:
         """🟡 在沙箱中执行代码 | Execute code in sandbox"""
         print(f"[沙箱执行器] 🟡 准备执行代码 ({{len(代码)}} 字符)")
 
@@ -94,7 +94,7 @@ class 沙箱执行器:
         print(f"[沙箱执行器] {{'🟢' if 结果.成功 else '🔴'}} 执行完成: {{结果}}")
         return 结果
 
-    def _安全检查(自身, 代码: str) -> Dict:
+    def _安全检查(自身, 代码: str) -> Dict[str, Any]:
         """🔴 代码安全检查 | Security check"""
         for 禁止词 in 自身.禁止调用:
             if 禁止词 in 代码:
@@ -107,7 +107,7 @@ class 沙箱执行器:
 
         return {"通过": True}
 
-    def _构建环境(自身) -> Dict:
+    def _构建环境(自身) -> Dict[str, Any]:
         """🟢 构建安全执行环境 | Build safe execution environment"""
         import math, json, re, datetime, itertools, collections
         return {
@@ -132,10 +132,10 @@ class 沙箱执行器:
             "str": str,
             "int": int,
             "float": float,
-            "list": list,
-            "dict": dict,
-            "set": set,
-            "tuple": tuple,
+            "list": list[Any],
+            "dict": dict[str, Any],
+            "set": set[str],
+            "tuple": tuple[Any, ...],
         }
 
 

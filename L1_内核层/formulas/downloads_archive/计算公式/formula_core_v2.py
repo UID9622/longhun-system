@@ -22,7 +22,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 from __future__ import annotations
 from math import log2, sqrt, isclose, exp
 from hashlib import sha256
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from functools import lru_cache
 from collections import defaultdict
 import time
@@ -56,7 +56,7 @@ class AuditLog:
         })
         self.perf[func_name].append(elapsed)
 
-    def summary(self) -> Dict:
+    def summary(self) -> Dict[str, Any]:
         """性能统计"""
         return {
             func: {
@@ -206,7 +206,7 @@ def truth_score(M: float, V: float, F: int, w: Tuple[float, ...] = (0.4, 0.3, 0.
     """标准加权平均"""
     return w[0] * M + w[1] * V + w[2] * F
 
-def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict:
+def truth_total(rows: List[Dict], weights: Optional[Tuple] = None) -> Dict[str, Any]:
     """加权平均·优化版
 
     改进：

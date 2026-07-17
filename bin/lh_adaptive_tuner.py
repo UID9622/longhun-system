@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂·自适应微调参数系统 v2.0                                ║
@@ -176,7 +177,7 @@ class AdaptiveTuner:
         self.audit_dir.mkdir(parents=True, exist_ok=True)
 
         self.params = self._load_params()
-        self.events: List[dict] = self._load_ledger()
+        self.events: List[dict[str, Any]] = self._load_ledger()
 
     # ── 持久化 ────────────────────────────────────────────
 
@@ -228,7 +229,7 @@ class AdaptiveTuner:
                     data[k] = list(data[k])
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-    def _load_ledger(self) -> List[dict]:
+    def _load_ledger(self) -> List[dict[str, Any]]:
         events = []
         if os.path.exists(self.ledger_path):
             with open(self.ledger_path, "r", encoding="utf-8") as f:
@@ -267,7 +268,7 @@ class AdaptiveTuner:
 
     # ── 分析 + 趋势（v2.0 新增） ──────────────────────────
 
-    def _stats_segment(self, window_events: List[dict]) -> dict[str, Any]:
+    def _stats_segment(self, window_events: List[dict[str, Any]]) -> dict[str, Any]:
         if not window_events:
             return {"样本数": 0}
         errors = [e for e in window_events if e.get("犯错")]

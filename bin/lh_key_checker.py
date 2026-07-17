@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 🐉 龍魂 API 密钥检测器
 DNA: #龍芯⚡️丙午·辛未·KEY-CHECKER-v1.0
@@ -15,7 +16,7 @@ DNA: #龍芯⚡️丙午·辛未·KEY-CHECKER-v1.0
 import os
 import sys
 import json
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass, field
 
 
@@ -34,7 +35,7 @@ class KeyEntry:
 # 46个环境变量全量注册表
 # ═══════════════════════════════════════════════════════════
 
-REGISTRY: List[dict] = [
+REGISTRY: List[dict[str, Any]] = [
     # --- LLM ---
     {'category': 'LLM大模型', 'provider': 'DeepSeek', 'env': 'DEEPSEEK_API_KEY', 'url': 'https://platform.deepseek.com'},
     {'category': 'LLM大模型', 'provider': 'Kimi月之暗面', 'env': 'KIMI_API_KEY', 'url': 'https://platform.moonshot.cn'},
@@ -96,7 +97,7 @@ def _is_placeholder(value: str) -> bool:
     return False
 
 
-def scan_all() -> Tuple[List[KeyEntry], dict]:
+def scan_all() -> Tuple[List[KeyEntry], dict[str, Any]]:
     """扫描全部环境变量，返回分组结果和统计"""
     entries: List[KeyEntry] = []
     stats = {'total': 0, 'ok': 0, 'placeholder': 0, 'missing': 0}
@@ -210,7 +211,7 @@ def render_terminal(entries, grouped, stats):
         print(f'{Colors.BOLD}{Colors.MAGENTA}  ▸ {category}{Colors.RESET} {icon} ({cat_ok}/{cat_total})')
 
         # 按 provider 分组
-        providers: dict = {}
+        providers: dict[str, Any] = {}
         for e in group_entries:
             providers.setdefault(e.provider, []).append(e)
 

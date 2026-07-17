@@ -29,7 +29,7 @@ General Data Protection Regulation —— The World's Most Comprehensive Data Pr
 """
 
 from datetime import datetime
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Optional, Set, Any
 import json
 
 
@@ -124,7 +124,7 @@ class GDPR合规检查器:
         self.审计日志 = []
         self.DNA标识 = "#龍芯⚡️2026-06-18-GDPR"
     
-    def 全面检查(self, 数据处理活动列表: List[Dict]) -> Dict:
+    def 全面检查(self, 数据处理活动列表: List[Dict]) -> Dict[str, Any]:
         """
         对所有数据处理活动进行全面GDPR合规检查
         Comprehensive GDPR compliance check for all data processing activities
@@ -172,7 +172,7 @@ class GDPR合规检查器:
         
         return 结果
     
-    def _检查数据处理活动(self, 活动: Dict) -> Dict:
+    def _检查数据处理活动(self, 活动: Dict[str, Any]) -> Dict[str, Any]:
         """Check a single data processing activity"""
         名称 = 活动.get("名称", "未命名")
         数据类型 = 活动.get("数据类型", [])
@@ -257,7 +257,7 @@ class GDPR合规检查器:
         
         return 结果
     
-    def _检查DPO要求(self, 活动列表: List[Dict]) -> Dict:
+    def _检查DPO要求(self, 活动列表: List[Dict]) -> Dict[str, Any]:
         """Check if Data Protection Officer appointment is required"""
         需要DPO = False
         原因 = []
@@ -278,7 +278,7 @@ class GDPR合规检查器:
             "建议": "建议任命DPO，即使非强制也可提升合规水平" if not 需要DPO else "必须任命DPO",
         }
     
-    def _评估跨境传输(self, 跨境活动: List[Dict]) -> Dict:
+    def _评估跨境传输(self, 跨境活动: List[Dict]) -> Dict[str, Any]:
         """Evaluate cross-border data transfer compliance"""
         return {
             "状态": "🟡 需关注",
@@ -295,7 +295,7 @@ class GDPR合规检查器:
             "龍魂建议": "使用欧盟委员会2021版SCCs + 技术补充措施（加密）",
         }
     
-    def 检查数据主体权利机制(self, 现有机制: Dict) -> Dict:
+    def 检查数据主体权利机制(self, 现有机制: Dict[str, Any]) -> Dict[str, Any]:
         """
         Check if data subject rights mechanisms are adequate
         
@@ -355,7 +355,7 @@ class 数据处理活动记录:
     def __init__(self):
         self.记录 = []
     
-    def 添加记录(self, 活动: Dict):
+    def 添加记录(self, 活动: Dict[str, Any]):
         """
         Add a processing activity record
         

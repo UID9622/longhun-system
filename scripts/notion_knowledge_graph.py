@@ -32,8 +32,8 @@ def build_graph(db_path: pathlib.Path) -> dict[str, Any]:
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
 
-    nodes: list[dict] = []
-    edges: list[dict] = []
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
     node_ids: set[str] = set()
 
     def add_node(nid: str, label: str, group: str, meta: dict | None = None) -> None:

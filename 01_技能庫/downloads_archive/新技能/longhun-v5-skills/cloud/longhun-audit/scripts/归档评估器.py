@@ -13,7 +13,7 @@ import hashlib
 import datetime
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from enum import Enum
 
 # ═══════════════════════════════════════════════════════════
@@ -115,7 +115,7 @@ class 归档条目:
         else:
             return f"{字节}B"
     
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         数据 = asdict(self)
         数据["格式化大小"] = self.格式化大小
         数据["综合得分显示"] = f"{self.综合得分:.1f}"
@@ -163,7 +163,7 @@ class 完整性检查结果:
         else:
             self.健康状态 = "🔴 受损"
     
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -202,7 +202,7 @@ class 归档评估器:
         "建议删除": 15,
     }
     
-    def __init__(self, 数据目录: str = None):
+    def __init__(self, 数据目录: str | None = None):
         self.数据目录 = Path(数据目录) if 数据目录 else Path.home() / ".龍魂" / "archive_eval"
         self.数据目录.mkdir(parents=True, exist_ok=True)
         
@@ -230,7 +230,7 @@ class 归档评估器:
     def _生成时间戳(self) -> str:
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    def _扫描目录(self, 目录路径: str) -> Dict:
+    def _扫描目录(self, 目录路径: str) -> Dict[str, Any]:
         """
         扫描目录获取文件统计
         
@@ -386,7 +386,7 @@ class 归档评估器:
             结果.append(条目)
         return 结果
     
-    def 计算可释放空间(self) -> Dict:
+    def 计算可释放空间(self) -> Dict[str, Any]:
         """
         计算按建议删除可释放的磁盘空间
         
@@ -763,7 +763,7 @@ class 归档评估器:
         }
         return json.dumps(数据, ensure_ascii=False, indent=2)
     
-    def 导出评估数据(self, 输出路径: str = None) -> str:
+    def 导出评估数据(self, 输出路径: str | None = None) -> str:
         """导出评估数据到JSON"""
         if not 输出路径:
             输出路径 = str(self.数据目录 / f"归档评估导出_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
@@ -857,7 +857,7 @@ def 获取标准归档评估配置() -> List[Dict]:
 
 
 def 快速归档评估(评估器: 归档评估器, 
-               执行完整性检查: bool = False) -> Dict:
+               执行完整性检查: bool = False) -> Dict[str, Any]:
     """
     一键执行完整归档评估流程
     

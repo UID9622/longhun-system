@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂P0级 · 电子签与照片篡改审计引擎（焊死）
 
@@ -57,7 +58,7 @@ class P0AuditEngine(BaseMinshengService):
                           cert_pem: Optional[bytes] = None, pdf_bytes: Optional[bytes] = None,
                           tsr: Optional[bytes] = None, tsa_cert: Optional[bytes] = None,
                           signed_hash: Optional[str] = None, sign_time_iso: Optional[str] = None,
-                          ca_certs: Optional[list] = None, sm2: bool = False) -> Dict[str, Any]:
+                          ca_certs: Optional[list[Any]] = None, sm2: bool = False) -> Dict[str, Any]:
         dna = make_dna("P0", "esign", gua="讼", applicant=applicant)
         rep = MinshengReport(dna_trace=dna, applicant=applicant,
                              version=self.version, audit_level="P0")
@@ -217,7 +218,7 @@ def _strip(obj):
     return obj
 
 
-def _esign_section(findings: list) -> str:
+def _esign_section(findings: list[Any]) -> str:
     rows = "".join(
         f"<tr><td>{f.get('subject','-')}</td><td>{f.get('chain_status','-')}</td>"
         f"<td>{f.get('expired','-')}</td><td>{f.get('tier','-')}</td></tr>"
@@ -226,7 +227,7 @@ def _esign_section(findings: list) -> str:
            f"<th>过期</th><th>可信度</th></tr>{rows}</table></div>"
 
 
-def _photo_section(results: list) -> str:
+def _photo_section(results: list[Any]) -> str:
     rows = "".join(
         f"<tr><td>{k}</td><td>{r.get('tier','-')}</td></tr>"
         for k, r in [("EXIF", results[0]), ("哈希", results[1] if len(results) > 1 else {}),

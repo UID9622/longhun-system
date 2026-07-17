@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 CNSH v2.1 解释器（树遍历执行）
 DNA: #龍芯⚡️2026-06-29-CNSH-INTERPRETER-v2.1
@@ -37,7 +38,7 @@ class Environment:
     def __init__(self, parent: Optional["Environment"] = None):
         self.parent = parent
         self.values: Dict[str, Any] = {}
-        self.consts: set = set()
+        self.consts: set[Any] = set()
 
     def define(self, name: str, value: Any, is_const: bool = False):
         self.values[name] = value

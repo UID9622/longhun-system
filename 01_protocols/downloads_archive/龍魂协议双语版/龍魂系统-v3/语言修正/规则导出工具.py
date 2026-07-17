@@ -34,7 +34,7 @@ except ImportError:
     sys.exit(1)
 
 
-def extract_rules_to_json(output_path: str = None, summary_only: bool = False) -> dict:
+def extract_rules_to_json(output_path: str | None = None, summary_only: bool = False) -> dict[str, Any]:
     """
     从账本提取规则命中数据·导出为 JSON。
     """

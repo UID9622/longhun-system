@@ -206,7 +206,7 @@ class NamingEngine:
 
     def __init__(self, templates_dir: Optional[str] = None):
         self.templates_dir = Path(templates_dir) if templates_dir else None
-        self._audit_log: List[dict] = []
+        self._audit_log: List[dict[str, Any]] = []
 
     def parse(self, filename: str) -> ParsedName:
         """
@@ -310,7 +310,7 @@ class NamingEngine:
 
         return report
 
-    def _p0_validate(self, parsed: ParsedName, content: Optional[str] = None) -> List[dict]:
+    def _p0_validate(self, parsed: ParsedName, content: Optional[str] = None) -> List[dict[str, Any]]:
         """P0级焊死项检查"""
         checks = []
 
@@ -410,7 +410,7 @@ class NamingEngine:
 
         return f"{clean_summary}_{file_type}_{structure}_{permission}_{dna}.{file_type}"
 
-    def batch_validate(self, directory: str, pattern: str = "*.*") -> List[dict]:
+    def batch_validate(self, directory: str, pattern: str = "*.*") -> List[dict[str, Any]]:
         """批量校验目录下所有文件"""
         results = []
         for f in Path(directory).rglob(pattern):

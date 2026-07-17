@@ -231,7 +231,7 @@ class 哈希链管理器:
         拼接 = f"{前一哈希}{数据}{随机数}"
         return hashlib.sha256(拼接.encode("utf-8")).hexdigest()
 
-    def 添加块(self, 数据: str, 难度: int = 2) -> Dict:
+    def 添加块(self, 数据: str, 难度: int = 2) -> Dict[str, Any]:
         """
         添加新区块（带简易工作量证明）
         难度: 哈希前缀0的个数
@@ -285,7 +285,7 @@ class 哈希链管理器:
     def 获取链长度(self) -> int:
         return len(self.链)
 
-    def 获取最新块(self) -> Dict:
+    def 获取最新块(self) -> Dict[str, Any]:
         return self.链[-1]
 
     def 导出链(self) -> List[Dict]:
@@ -375,7 +375,7 @@ class 设备绑定验证器:
         设备 = self._注册设备[设备ID]
         return 设备["设备哈希"] == 提供哈希
 
-    def 获取设备信息(self, 设备ID: str = None) -> Dict:
+    def 获取设备信息(self, 设备ID: str | None = None) -> Dict[str, Any]:
         """获取设备信息"""
         if 设备ID:
             return self._注册设备.get(设备ID, {})
@@ -442,7 +442,7 @@ class 三色审计引擎:
             },
         ]
 
-    def _验证权重(self, 权重: Dict) -> bool:
+    def _验证权重(self, 权重: Dict[str, Any]) -> bool:
         """验证忠孝义权重是否符合铁律"""
         if not 权重:
             return False
@@ -451,7 +451,7 @@ class 三色审计引擎:
         义 = 权重.get("义", 0)
         return 忠 >= CONST_忠权重 and 孝 >= CONST_孝权重 and 义 >= CONST_义权重
 
-    def 执行审计(self, 上下文: Dict) -> Tuple[三色审计状态, List[Dict]]:
+    def 执行审计(self, 上下文: Dict[str, Any]) -> Tuple[三色审计状态, List[Dict]]:
         """
         执行完整审计流程
         返回: (最终状态, 详细结果列表)
@@ -485,13 +485,13 @@ class 三色审计引擎:
 
         return 最终状态, 结果列表
 
-    def 获取审计记录(self, 数量: int = None) -> List[Dict]:
+    def 获取审计记录(self, 数量: int | None = None) -> List[Dict]:
         """获取审计记录"""
         if 数量:
             return self.审计记录[-数量:]
         return self.审计记录.copy()
 
-    def 导出审计报告(self) -> Dict:
+    def 导出审计报告(self) -> Dict[str, Any]:
         """导出完整审计报告"""
         通过数 = sum(1 for r in self.审计记录 if r["最终结果"] == 三色审计状态.通过.value)
         标记数 = sum(1 for r in self.审计记录 if r["最终结果"] == 三色审计状态.标记.value)
@@ -521,7 +521,7 @@ class 双签确认机制:
     def __init__(self):
         self._确认记录: Dict[str, Dict] = {}
         self._封印记录: Dict[str, Dict] = {}
-        self._已使用随机码: set = set()
+        self._已使用随机码: set[str] = set()
 
     def 生成确认码(self, 签名ID: str) -> str:
         """生成CONFIRM确认码"""
@@ -593,7 +593,7 @@ class 双签确认机制:
             "封印哈希": 封印哈希,
         }
 
-    def 导出记录(self) -> Dict:
+    def 导出记录(self) -> Dict[str, Any]:
         """导出所有双签记录"""
         return {
             "确认记录": self._确认记录,
@@ -624,7 +624,7 @@ class GPG签名验证器:
         """验证GPG指纹是否匹配"""
         return self._指纹.replace(" ", "").upper() == 指纹.replace(" ", "").upper()
 
-    def 模拟签名(self, 数据: str, 密码: str = None) -> str:
+    def 模拟签名(self, 数据: str, 密码: str | None = None) -> str:
         """
         模拟GPG签名（无外部GPG依赖时的降级方案）
         实际部署时应调用 python-gnupg 库
@@ -645,7 +645,7 @@ class GPG签名验证器:
         self._验证历史.append(结果)
         return 期望签名 == 签名
 
-    def 使用真实GPG验证(self, 签名数据: str, 公钥路径: str = None) -> bool:
+    def 使用真实GPG验证(self, 签名数据: str, 公钥路径: str | None = None) -> bool:
         """
         使用真实GPG验证（需要安装gnupg）
         降级到模拟验证如果GPG不可用
@@ -762,7 +762,7 @@ class L1文件级追溯:
         with open(文件路径, "r", encoding="utf-8") as f:
             return f.read()
 
-    def 查询文件记录(self, 文件路径: str = None) -> Dict:
+    def 查询文件记录(self, 文件路径: str | None = None) -> Dict[str, Any]:
         """查询文件追溯记录"""
         if 文件路径:
             return self.文件记录.get(文件路径, {})
@@ -780,7 +780,7 @@ class L2模块级追溯:
         self.模块记录: Dict[str, List[Dict]] = {}
         self.模块间链路: List[Dict] = []
 
-    def 签名模块输入(self, 模块名: str, 输入数据: str, 来源模块: str = None) -> DNA签名记录:
+    def 签名模块输入(self, 模块名: str, 输入数据: str, 来源模块: str | None = None) -> DNA签名记录:
         """为模块输入签名"""
         内容哈希 = hashlib.sha256(输入数据.encode("utf-8")).hexdigest()
         父哈希 = self.哈希链.获取最新块()["当前哈希"]
@@ -822,7 +822,7 @@ class L2模块级追溯:
 
         return 签名
 
-    def 签名模块输出(self, 模块名: str, 输出数据: str, 目标模块: str = None) -> DNA签名记录:
+    def 签名模块输出(self, 模块名: str, 输出数据: str, 目标模块: str | None = None) -> DNA签名记录:
         """为模块输出签名"""
         内容哈希 = hashlib.sha256(输出数据.encode("utf-8")).hexdigest()
         父哈希 = self.哈希链.获取最新块()["当前哈希"]
@@ -873,7 +873,7 @@ class L2模块级追溯:
             "签名哈希": 签名.计算哈希(),
         })
 
-    def 获取模块数据流(self, 模块名: str) -> Dict:
+    def 获取模块数据流(self, 模块名: str) -> Dict[str, Any]:
         """获取模块的完整数据流记录"""
         输入记录 = []
         输出记录 = []
@@ -894,7 +894,7 @@ class L2模块级追溯:
         """获取模块间链路图"""
         return self.模块间链路
 
-    def 查询模块记录(self, 模块名: str = None) -> Dict:
+    def 查询模块记录(self, 模块名: str | None = None) -> Dict[str, Any]:
         """查询模块追溯记录"""
         if 模块名:
             return self.模块记录.get(模块名, [])
@@ -947,7 +947,7 @@ class L3会话级追溯:
         self.当前会话ID = 会话ID
         return 会话ID
 
-    def 记录消息(self, 角色: str, 内容: str, 元数据: Dict = None) -> DNA签名记录:
+    def 记录消息(self, 角色: str, 内容: str, 元数据: Dict[str, Any] = None) -> DNA签名记录:
         """记录会话消息"""
         if not self.当前会话ID:
             self.开始会话()
@@ -989,7 +989,7 @@ class L3会话级追溯:
         })
         return 签名
 
-    def 结束会话(self, 会话ID: str = None) -> DNA签名记录:
+    def 结束会话(self, 会话ID: str | None = None) -> DNA签名记录:
         """结束会话"""
         目标会话 = 会话ID or self.当前会话ID
         if not 目标会话 or 目标会话 not in self.会话记录:
@@ -1028,11 +1028,11 @@ class L3会话级追溯:
 
         return 签名
 
-    def 获取会话链(self, 会话ID: str) -> Dict:
+    def 获取会话链(self, 会话ID: str) -> Dict[str, Any]:
         """获取会话完整签名链"""
         return self.会话记录.get(会话ID, {})
 
-    def 查询会话记录(self, 会话ID: str = None) -> Dict:
+    def 查询会话记录(self, 会话ID: str | None = None) -> Dict[str, Any]:
         """查询会话记录"""
         if 会话ID:
             return self.会话记录.get(会话ID, {})
@@ -1051,7 +1051,7 @@ class L4系统级追溯:
         self._全局计数器 = 0
         self._系统启动时间 = datetime.now(timezone.utc).isoformat()
 
-    def 签名系统状态(self, 状态快照: Dict) -> DNA签名记录:
+    def 签名系统状态(self, 状态快照: Dict[str, Any]) -> DNA签名记录:
         """为系统全局状态签名"""
         self._全局计数器 += 1
         状态序列化 = json.dumps(状态快照, sort_keys=True, ensure_ascii=False)
@@ -1244,7 +1244,7 @@ class 追溯查询引擎:
         )
         return 结果
 
-    def _记录查询(self, 查询类型: str, 参数: Dict):
+    def _记录查询(self, 查询类型: str, 参数: Dict[str, Any]):
         """记录查询日志"""
         self._查询历史.append({
             "时间戳": datetime.now(timezone.utc).isoformat(),
@@ -1328,7 +1328,7 @@ class DNA追溯系统管理器:
         self._统计信息["签名总数"] += 1
         return 签名
 
-    def 签名模块输入(self, 模块名: str, 输入数据: str, 来源模块: str = None) -> DNA签名记录:
+    def 签名模块输入(self, 模块名: str, 输入数据: str, 来源模块: str | None = None) -> DNA签名记录:
         """L2 - 模块输入签名"""
         签名 = self.L2.签名模块输入(模块名, 输入数据, 来源模块)
         self._全局记录集.append({
@@ -1339,7 +1339,7 @@ class DNA追溯系统管理器:
         self._统计信息["签名总数"] += 1
         return 签名
 
-    def 签名模块输出(self, 模块名: str, 输出数据: str, 目标模块: str = None) -> DNA签名记录:
+    def 签名模块输出(self, 模块名: str, 输出数据: str, 目标模块: str | None = None) -> DNA签名记录:
         """L2 - 模块输出签名"""
         签名 = self.L2.签名模块输出(模块名, 输出数据, 目标模块)
         self._全局记录集.append({
@@ -1364,7 +1364,7 @@ class DNA追溯系统管理器:
             self._统计信息["签名总数"] += 1
         return 会话ID
 
-    def 记录会话消息(self, 角色: str, 内容: str, 元数据: Dict = None) -> DNA签名记录:
+    def 记录会话消息(self, 角色: str, 内容: str, 元数据: Dict[str, Any] = None) -> DNA签名记录:
         """L3 - 记录会话消息"""
         签名 = self.L3.记录消息(角色, 内容, 元数据)
         self._全局记录集.append({
@@ -1375,7 +1375,7 @@ class DNA追溯系统管理器:
         self._统计信息["签名总数"] += 1
         return 签名
 
-    def 结束会话(self, 会话ID: str = None) -> DNA签名记录:
+    def 结束会话(self, 会话ID: str | None = None) -> DNA签名记录:
         """L3 - 结束会话"""
         签名 = self.L3.结束会话(会话ID)
         if 签名:
@@ -1387,7 +1387,7 @@ class DNA追溯系统管理器:
             self._统计信息["签名总数"] += 1
         return 签名
 
-    def 签名系统状态(self, 状态快照: Dict) -> DNA签名记录:
+    def 签名系统状态(self, 状态快照: Dict[str, Any]) -> DNA签名记录:
         """L4 - 系统状态签名"""
         签名 = self.L4.签名系统状态(状态快照)
         self._全局记录集.append({
@@ -1398,7 +1398,7 @@ class DNA追溯系统管理器:
         self._统计信息["签名总数"] += 1
         return 签名
 
-    def 执行审计(self, 上下文: Dict) -> Tuple[三色审计状态, List[Dict]]:
+    def 执行审计(self, 上下文: Dict[str, Any]) -> Tuple[三色审计状态, List[Dict]]:
         """执行三色审计"""
         状态, 结果 = self.审计引擎.执行审计(上下文)
         if 状态 == 三色审计状态.通过:
@@ -1421,7 +1421,7 @@ class DNA追溯系统管理器:
         """验证哈希链完整性"""
         return self.哈希链.验证链()
 
-    def 导出完整追溯报告(self, 输出路径: str = None) -> Dict:
+    def 导出完整追溯报告(self, 输出路径: str | None = None) -> Dict[str, Any]:
         """
         导出完整追溯报告
         """
@@ -1468,7 +1468,7 @@ class DNA追溯系统管理器:
         系统签名ID = f"SYS-{uuid.uuid4().hex[:16].upper()}"
         return self.双签机制.生成完整双签(系统签名ID)
 
-    def 获取系统状态(self) -> Dict:
+    def 获取系统状态(self) -> Dict[str, Any]:
         """获取当前系统状态"""
         return {
             "运行中": self._运行中,

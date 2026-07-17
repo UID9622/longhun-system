@@ -32,7 +32,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')  # 无GUI后端
 import matplotlib.pyplot as plt
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass
 from enum import Enum
 
@@ -40,7 +40,7 @@ from enum import Enum
 # 全局常量与工具函数
 # ═══════════════════════════════════════════════════════════
 
-不动点集: set = {3, 6, 9}
+不动点集: set[str] = {3, 6, 9}
 """369不动点集 🟢"""
 
 
@@ -243,7 +243,7 @@ class 太极递归生成器:
             print(f"  [{i:>3}] {状态:<12} → {名称:<12} "
                   f"(阴{阴计数}/阳{阳计数}) {阴阳平衡}")
 
-    def 递归结构分析(self, 最大层级: int = 6) -> Dict:
+    def 递归结构分析(self, 最大层级: int = 6) -> Dict[str, Any]:
         """
         分析递归结构的数学特性
         
@@ -378,7 +378,7 @@ class 五行有向图:
             self._特征向量 = 特征向量
         return self._特征值, self._特征向量
 
-    def 验证正五边形(self) -> Dict:
+    def 验证正五边形(self) -> Dict[str, Any]:
         """
         验证特征值在复平面上是否构成正五边形
         
@@ -507,7 +507,7 @@ class 收敛性验证器:
         self.迭代历史 = 历史
         return 历史
 
-    def 验证收敛到均匀分布(self, 初始分布: np.ndarray, 迭代次数: int = 100) -> Dict:
+    def 验证收敛到均匀分布(self, 初始分布: np.ndarray, 迭代次数: int = 100) -> Dict[str, Any]:
         """
         验证动力系统是否收敛到均匀分布
         
@@ -621,7 +621,7 @@ class 图灵机等价框架:
         self.图模型 = 图模型
         print("🟢 图灵机等价框架初始化完成")
 
-    def 编码图灵机状态(self, 图灵机状态: Dict) -> np.ndarray:
+    def 编码图灵机状态(self, 图灵机状态: Dict[str, Any]) -> np.ndarray:
         """
         将图灵机状态编码为五行能量分布
         
@@ -673,7 +673,7 @@ class 图灵机等价框架:
 
         return 编码向量
 
-    def 解码图灵机状态(self, 分布: np.ndarray) -> Dict:
+    def 解码图灵机状态(self, 分布: np.ndarray) -> Dict[str, Any]:
         """
         将五行能量分布解码为图灵机状态
         🟢

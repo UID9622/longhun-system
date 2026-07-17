@@ -30,7 +30,7 @@ China AI Regulatory Framework —— Interim Measures on Generative AI Services
 """
 
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 import json
 
 
@@ -245,7 +245,7 @@ class 中国AI监管检查器:
         self.审计日志 = []
         self.DNA标识 = "#龍芯⚡️2026-06-18-CHINA-AI-REG"
     
-    def 全面检查(self, 功能列表: List[str]) -> Dict:
+    def 全面检查(self, 功能列表: List[str]) -> Dict[str, Any]:
         """
         对龍魂AI功能进行中国法规全面检查
         
@@ -278,7 +278,7 @@ class 中国AI监管检查器:
         
         return 结果
     
-    def _检查功能(self, 功能: str) -> Dict:
+    def _检查功能(self, 功能: str) -> Dict[str, Any]:
         """Check compliance for a single feature"""
         风险分级 = {
             "CNSH编辑器": {
@@ -372,7 +372,7 @@ class 中国AI监管检查器:
         
         return 基础清单
     
-    def _检查核心义务(self) -> Dict:
+    def _检查核心义务(self) -> Dict[str, Any]:
         """Check core obligations under the Interim Measures"""
         return {
             "内容合规": {
@@ -397,7 +397,7 @@ class 中国AI监管检查器:
             },
         }
     
-    def _检查备案要求(self, 功能列表: List[str]) -> Dict:
+    def _检查备案要求(self, 功能列表: List[str]) -> Dict[str, Any]:
         """Check filing/registration requirements"""
         需备案 = any(f in ["语音合成", "图像识别", "通心译翻译"] for f in 功能列表)
         
@@ -423,7 +423,7 @@ class 中国AI监管检查器:
             ],
         }
     
-    def _生成整改建议(self, 功能检查: Dict) -> List[str]:
+    def _生成整改建议(self, 功能检查: Dict[str, Any]) -> List[str]:
         """Generate remediation suggestions"""
         建议 = [
             "🔴 首要：完成算法备案（如适用）",
@@ -444,7 +444,7 @@ class 中国AI监管检查器:
         
         return 建议
     
-    def 生成备案材料清单(self) -> Dict:
+    def 生成备案材料清单(self) -> Dict[str, Any]:
         """Generate a checklist for filing materials"""
         return {
             "主体信息": [

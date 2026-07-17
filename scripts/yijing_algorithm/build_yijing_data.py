@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 从 ichingshifa 数据包提取 64 卦信息，生成 yijing_data.json
 供 python易经算法实现.pdf 中的算法使用。
@@ -55,7 +56,7 @@ def code_to_bin(code: str) -> str:
     return "".join("1" if c in "79" else "0" for c in code)
 
 
-def fortune_score(name: str, gua_ci: str, yao_texts: list) -> float:
+def fortune_score(name: str, gua_ci: str, yao_texts: list[Any]) -> float:
     """基于卦辞/爻辞吉/凶关键词的简单吉凶评分。"""
     text = gua_ci + "".join(yao_texts)
     good = sum(text.count(w) for w in ["吉", "利", "亨", "无咎", "元亨利贞", "贞吉"])

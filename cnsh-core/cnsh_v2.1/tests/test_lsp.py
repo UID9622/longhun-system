@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 CNSH v2.1 LSP 服务器测试
 DNA: #龍芯⚡️2026-06-29-CNSH-LSP-TESTS-v2.1
@@ -11,12 +12,12 @@ from cnsh_v21.lsp_server import LspServer
 
 
 class TestLspServer(unittest.TestCase):
-    def _send(self, server: LspServer, msg: dict):
+    def _send(self, server: LspServer, msg: dict[str, Any]):
         body = json.dumps(msg, ensure_ascii=False).encode("utf-8")
         data = f"Content-Length: {len(body)}\r\n\r\n".encode("ascii") + body
         server.in_stream = io.BytesIO(data)
 
-    def _read_response(self, server: LspServer) -> dict:
+    def _read_response(self, server: LspServer) -> dict[str, Any]:
         server.out_stream.seek(0)
         header = b""
         while b"\r\n\r\n" not in header:

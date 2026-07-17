@@ -22,7 +22,7 @@ import time
 import filecmp
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Tuple, Set, Any
 from dataclasses import dataclass, asdict
 from enum import Enum
 import logging
@@ -71,9 +71,9 @@ class RestoreResult:
     skipped_files: List[str]
     total_size: int
     elapsed_seconds: float
-    verification: Dict
+    verification: Dict[str, Any]
     timestamp: str
-    metadata: Dict
+    metadata: Dict[str, Any]
 
 
 @dataclass
@@ -97,7 +97,7 @@ class IntegrityReport:
     file_checks: List[Dict]
     missing_files: List[str]
     corrupted_files: List[str]
-    details: Dict
+    details: Dict[str, Any]
 
 
 # ============================================================================
@@ -455,7 +455,7 @@ class RecoverySystem:
         # 应用增量变更
         incremental_tar.extractall(str(target))
 
-    def _verify_restore(self, snapshot: BackupSnapshot, target_path: str) -> Dict:
+    def _verify_restore(self, snapshot: BackupSnapshot, target_path: str) -> Dict[str, Any]:
         """验证恢复结果"""
         target = Path(target_path)
         if not target.exists():

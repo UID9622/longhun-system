@@ -278,7 +278,7 @@ def test_hash_chain_v2(data: bytes = b"longhun_test") -> str:
     return result
 
 
-def test_decision_chain_fuse_v1(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict:
+def test_decision_chain_fuse_v1(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict[str, Any]:
     """決策鏈(熔斷) v1.0 - 快速路徑"""
     if weights is None:
         weights = [0.1, 0.15]
@@ -291,7 +291,7 @@ def test_decision_chain_fuse_v1(si: int = 5, weights: List[float] = None, states
     }
 
 
-def test_decision_chain_fuse_v2(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict:
+def test_decision_chain_fuse_v2(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict[str, Any]:
     """決策鏈(熔斷) v2.0 - 含審計"""
     if weights is None:
         weights = [0.1, 0.15]
@@ -307,7 +307,7 @@ def test_decision_chain_fuse_v2(si: int = 5, weights: List[float] = None, states
     return result
 
 
-def test_decision_chain_full_v1(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict:
+def test_decision_chain_full_v1(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict[str, Any]:
     """決策鏈(完整) v1.0"""
     if weights is None:
         weights = [0.1, 0.15]
@@ -325,7 +325,7 @@ def test_decision_chain_full_v1(si: int = 5, weights: List[float] = None, states
     }
 
 
-def test_decision_chain_full_v2(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict:
+def test_decision_chain_full_v2(si: int = 5, weights: List[float] = None, states: List[int] = None) -> Dict[str, Any]:
     """決策鏈(完整) v2.0 - 含審計 + DNA追蹤"""
     if weights is None:
         weights = [0.1, 0.15]

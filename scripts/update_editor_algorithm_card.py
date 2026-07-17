@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """#龍芯⚡️2026-06-29-EDITOR-CARD-UPDATE-SCRIPT-v1.0
 🟢 审计通过: 定时刷新编辑器算法公式卡片
 用途:
@@ -85,7 +86,7 @@ def _count_terms():
         return 0
 
 
-def _compute_trace_hash(payload: dict) -> str:
+def _compute_trace_hash(payload: dict[str, Any]) -> str:
     """对 payload 做稳定短哈希。"""
     s = json.dumps(payload, ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]

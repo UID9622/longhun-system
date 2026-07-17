@@ -115,7 +115,7 @@ class 任務定義:
         數據 = f"{self.編號}:{self.標題}:{self.創建時間}"
         return hashlib.sha256(數據.encode()).hexdigest()[:16]
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return {
             "編號": self.編號,
             "標題": self.標題,
@@ -150,7 +150,7 @@ class 任務統計:
     跳躍次數: int = 0
     平均處理時間分鐘: float = 0.0
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -164,7 +164,7 @@ class 操作日誌:
     操作後狀態: str = ""
     備註: str = ""
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -262,7 +262,7 @@ class 去重引擎:
         for 密鑰 in 過期密鑰:
             del self._去重登記簿[密鑰]
 
-    def 獲取去重統計(self) -> Dict:
+    def 獲取去重統計(self) -> Dict[str, Any]:
         """獲取去重統計"""
         return {
             "去重次數": self._去重次數,
@@ -304,7 +304,7 @@ class 任務管理器v2:
         self._序列號 = 0
         self._初始化時間 = datetime.datetime.now().isoformat()
 
-    def 初始化(self, 配置: Dict = None) -> bool:
+    def 初始化(self, 配置: Dict[str, Any] = None) -> bool:
         """初始化任務管理器"""
         if 配置:
             self._配置.update(配置)
@@ -315,7 +315,7 @@ class 任務管理器v2:
     # ---- 核心操作 ----
 
     def 添加任務(self, 標題: str, 描述: str = "", 標籤: str = "",
-               優先級: 任務優先級 = 任務優先級.正常, 元數據: Dict = None) -> Tuple[bool, str]:
+               優先級: 任務優先級 = 任務優先級.正常, 元數據: Dict[str, Any] = None) -> Tuple[bool, str]:
         """
         添加新任務
         返回: (是否成功, 任務編號或錯誤消息)
@@ -388,7 +388,7 @@ class 任務管理器v2:
                 return 任務
         return None
 
-    def 完成任務(self, 編號: str, 結果: Dict = None) -> bool:
+    def 完成任務(self, 編號: str, 結果: Dict[str, Any] = None) -> bool:
         """標記任務為已完成"""
         任務 = self._任務倉庫.get(編號)
         if not 任務:
@@ -414,7 +414,7 @@ class 任務管理器v2:
 
     # ---- 跳躍式操作 (v2.0 核心特性) ----
 
-    def 跳躍操作(self, 目標編號: str, 來源編號: str = None,
+    def 跳躍操作(self, 目標編號: str, 來源編號: str | None = None,
                原因: str = "") -> Tuple[bool, str]:
         """
         跳躍式操作: 直接跳到指定任務
@@ -567,7 +567,7 @@ class 任務管理器v2:
             備註=備註,
         ))
 
-    def 獲取日誌(self, 任務編號: str = None) -> List[操作日誌]:
+    def 獲取日誌(self, 任務編號: str | None = None) -> List[操作日誌]:
         """獲取操作日誌"""
         if 任務編號:
             return [log for log in self._操作日誌 if log.任務編號 == 任務編號]

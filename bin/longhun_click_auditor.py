@@ -12,7 +12,7 @@ import hashlib
 import time
 import re
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
 from enum import Enum
 
@@ -86,7 +86,7 @@ class LonghunClickAuditor:
         raw = f"{ip}|{timestamp}|{hashlib.sha256(str(timestamp).encode()).hexdigest()[:8]}"
         return hashlib.sha256(raw.encode()).hexdigest()[:24]
 
-    def _detect_click_type(self, user_agent: str, headers: Dict) -> ClickType:
+    def _detect_click_type(self, user_agent: str, headers: Dict[str, Any]) -> ClickType:
         """检测点击类型"""
         ua_lower = user_agent.lower()
 
@@ -110,7 +110,7 @@ class LonghunClickAuditor:
 
         return ClickType.UNKNOWN
 
-    def _has_human_traits(self, headers: Dict) -> bool:
+    def _has_human_traits(self, headers: Dict[str, Any]) -> bool:
         """判断是否具有人类特征"""
         human_indicators = [
             'accept-language' in headers,  # 人类浏览器会发送语言偏好
@@ -121,7 +121,7 @@ class LonghunClickAuditor:
         return sum(human_indicators) >= 3
 
     def _calculate_risk(self, click_type: ClickType, ip: str, 
-                        click_pattern: Dict) -> RiskLevel:
+                        click_pattern: Dict[str, Any]) -> RiskLevel:
         """计算风险等级"""
         risk_score = 0
 
@@ -159,7 +159,7 @@ class LonghunClickAuditor:
             return RiskLevel.LOW
         return RiskLevel.SAFE
 
-    def _generate_fingerprint(self, headers: Dict) -> str:
+    def _generate_fingerprint(self, headers: Dict[str, Any]) -> str:
         """生成浏览器指纹"""
         fingerprint_data = [
             headers.get('user-agent', ''),
@@ -172,9 +172,9 @@ class LonghunClickAuditor:
         return hashlib.sha256(raw.encode()).hexdigest()[:32]
 
     def audit_click(self, ip: str, user_agent: str, target_url: str,
-                    referer: str = "", headers: Dict = None,
-                    dna: str = "", click_pattern: Dict = None,
-                    geo_info: Dict = None) -> Dict:
+                    referer: str = "", headers: Dict[str, Any] = None,
+                    dna: str = "", click_pattern: Dict[str, Any] = None,
+                    geo_info: Dict[str, Any] = None) -> Dict[str, Any]:
         """
         审计点击事件
         返回：审计结果 + 追溯信息
@@ -266,7 +266,7 @@ class LonghunClickAuditor:
             "action": "ALLOW" if risk_level.value <= 2 else "BLOCK"
         }
 
-    def trace_event(self, event_id: str) -> Dict:
+    def trace_event(self, event_id: str) -> Dict[str, Any]:
         """追溯事件本源"""
         event = self.event_registry.get(event_id)
         if not event:
@@ -298,7 +298,7 @@ class LonghunClickAuditor:
                       else "待确认"
         }
 
-    def get_ip_report(self, ip: str) -> Dict:
+    def get_ip_report(self, ip: str) -> Dict[str, Any]:
         """获取IP完整报告"""
         rep = self.ip_reputation.get(ip, {})
         if not rep:

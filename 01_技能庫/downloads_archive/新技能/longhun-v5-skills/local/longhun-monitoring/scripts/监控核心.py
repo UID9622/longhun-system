@@ -85,7 +85,7 @@ class 加密引擎:
         aesgcm = AESGCM(self.密鑰)
         return aesgcm.decrypt(初始化向量, 密文, None).decode()
 
-    def 數據脫敏(self, 數據: Dict, 敏感字段: List[str] = None) -> Dict:
+    def 數據脫敏(self, 數據: Dict[str, Any], 敏感字段: List[str] = None) -> Dict[str, Any]:
         """GDPR合規數據脫敏"""
         敏感字段 = 敏感字段 or ["password", "token", "secret", "credit_card", "phone", "email", "id_card"]
         結果 = json.loads(json.dumps(數據))
@@ -124,7 +124,7 @@ class 審計記錄:
     操作者: str
     結果: str
     DNA簽名: str
-    詳情: Dict = field(default_factory=dict)
+    詳情: Dict[str, Any] = field(default_factory=dict)
 
 
 class 三色審計器:
@@ -134,7 +134,7 @@ class 三色審計器:
         self.審計日誌: List[審計記錄] = []
         self.統計 = {"紅": 0, "黃": 0, "綠": 0}
 
-    def 記錄(self, 級別: 審計級別, 操作: str, 操作者: str = "系統", 結果: str = "成功", 詳情: Dict = None) -> 審計記錄:
+    def 記錄(self, 級別: 審計級別, 操作: str, 操作者: str = "系統", 結果: str = "成功", 詳情: Dict[str, Any] = None) -> 審計記錄:
         """記錄審計日誌"""
         記錄ID = f"AUDIT-{uuid.uuid4().hex[:8].upper()}"
         時間戳 = datetime.now()
@@ -167,7 +167,7 @@ class 三色審計器:
             結果 = [r for r in 結果 if r.級別 == 級別]
         return 結果[-數量:]
 
-    def 生成審計報告(self) -> Dict:
+    def 生成審計報告(self) -> Dict[str, Any]:
         """生成審計報告"""
         return {
             "總記錄數": len(self.審計日誌),
@@ -346,7 +346,7 @@ class 龍魂監控核心:
 
     # ======== 層級1-5：基礎層 ========
 
-    def 層級1_SDK規範(self) -> Dict:
+    def 層級1_SDK規範(self) -> Dict[str, Any]:
         """層級1：SDK規範和集成 — 5個專業SDK"""
         self.審計器.記錄(審計級別.綠, "層級1_SDK規範檢查", "系統")
 
@@ -368,7 +368,7 @@ class 龍魂監控核心:
             "上報成功率": "> 99.9%",
         }
 
-    def 層級2_應用指標(self) -> Dict:
+    def 層級2_應用指標(self) -> Dict[str, Any]:
         """層級2：各應用監控指標 — 4應用完整覆蓋"""
         self.審計器.記錄(審計級別.綠, "層級2_應用指標檢查", "系統")
 
@@ -408,7 +408,7 @@ class 龍魂監控核心:
             "覆蓋率": "100%",
         }
 
-    def 層級3_日誌系統(self) -> Dict:
+    def 層級3_日誌系統(self) -> Dict[str, Any]:
         """層級3：公開日誌系統 — 實時儀表板·24/7日誌服務·30天保留"""
         self.審計器.記錄(審計級別.綠, "層級3_日誌系統檢查", "系統")
 
@@ -424,7 +424,7 @@ class 龍魂監控核心:
             "查詢延遲": "< 100ms",
         }
 
-    def 層級4_告警系統(self) -> Dict:
+    def 層級4_告警系統(self) -> Dict[str, Any]:
         """層級4：自動告警系統 — 5層規則·釘釘·郵件·Webhook"""
         self.審計器.記錄(審計級別.黃, "層級4_告警系統檢查", "系統")
 
@@ -452,7 +452,7 @@ class 龍魂監控核心:
             "觸發準確率": "> 95%",
         }
 
-    def 層級5_報告生成(self) -> Dict:
+    def 層級5_報告生成(self) -> Dict[str, Any]:
         """層級5：自動報告生成 — 日·週·月報自動化"""
         self.審計器.記錄(審計級別.綠, "層級5_報告生成檢查", "系統")
 
@@ -474,7 +474,7 @@ class 龍魂監控核心:
 
     # ======== 層級6-10：高級層 ========
 
-    def 層級6_部署初始化(self) -> Dict:
+    def 層級6_部署初始化(self) -> Dict[str, Any]:
         """層級6：部署和初始化 — 一鍵自動部署·零配置·6步流程"""
         self.審計器.記錄(審計級別.黃, "層級6_部署初始化檢查", "系統")
 
@@ -498,7 +498,7 @@ class 龍魂監控核心:
             "自動化": "100%",
         }
 
-    def 層級7_數據存儲(self) -> Dict:
+    def 層級7_數據存儲(self) -> Dict[str, Any]:
         """層級7：數據存儲和持久化 — 4層存儲架構（L1-L4·熱-冷-凍）"""
         self.審計器.記錄(審計級別.綠, "層級7_數據存儲檢查", "系統")
 
@@ -519,7 +519,7 @@ class 龍魂監控核心:
             "數據加密": "AES-256-GCM",
         }
 
-    def 層級8_安全隱私(self) -> Dict:
+    def 層級8_安全隱私(self) -> Dict[str, Any]:
         """層級8：安全和隱私 — AES-256-GCM加密·數據脫敏·GDPR合規"""
         self.審計器.記錄(審計級別.紅, "層級8_安全隱私檢查", "系統")
 
@@ -541,7 +541,7 @@ class 龍魂監控核心:
             "審計記錄數": len(self.審計器.審計日誌),
         }
 
-    def 層級9_性能優化(self) -> Dict:
+    def 層級9_性能優化(self) -> Dict[str, Any]:
         """層級9：性能優化 — 動態採樣·GZIP壓縮(70%)·批量上報"""
         self.審計器.記錄(審計級別.綠, "層級9_性能優化檢查", "系統")
 
@@ -563,7 +563,7 @@ class 龍魂監控核心:
             "數據採集": "> 1000 events/sec",
         }
 
-    def 層級10_集成測試(self) -> Dict:
+    def 層級10_集成測試(self) -> Dict[str, Any]:
         """層級10：集成測試 — SDK·性能·錯誤·上報完整測試覆蓋"""
         self.審計器.記錄(審計級別.黃, "層級10_集成測試檢查", "系統")
 
@@ -587,7 +587,7 @@ class 龍魂監控核心:
 
     # ======== 層級11-15：運維層 ========
 
-    def 層級11_故障恢復(self) -> Dict:
+    def 層級11_故障恢復(self) -> Dict[str, Any]:
         """層級11：故障恢復 — 自動健康檢查·組件自動修復·離線降級"""
         self.審計器.記錄(審計級別.紅, "層級11_故障恢復檢查", "系統")
 
@@ -609,7 +609,7 @@ class 龍魂監控核心:
             "自動恢復次數": self.統計["自動恢復次數"],
         }
 
-    def 層級12_成本控制(self) -> Dict:
+    def 層級12_成本控制(self) -> Dict[str, Any]:
         """層級12：成本控制 — 存儲成本分析·採樣率優化·月度監控"""
         self.審計器.記錄(審計級別.黃, "層級12_成本控制檢查", "系統")
 
@@ -629,7 +629,7 @@ class 龍魂監控核心:
             "優化建議": ["降低採樣率 100%→50%", "啟用數據壓縮 GZIP", "自動歸檔7天→冷存儲"],
         }
 
-    def 層級13_儀表板(self) -> Dict:
+    def 層級13_儀表板(self) -> Dict[str, Any]:
         """層級13：儀表板設計 — 實時狀態·KPI·性能趨勢·告警日誌"""
         self.審計器.記錄(審計級別.綠, "層級13_儀表板檢查", "系統")
 
@@ -651,7 +651,7 @@ class 龍魂監控核心:
             "訪問地址": "https://logs.longhun.io/public",
         }
 
-    def 層級14_調試工具(self) -> Dict:
+    def 層級14_調試工具(self) -> Dict[str, Any]:
         """層級14：調試工具 — 開發者控制台·實時診斷·數據導出"""
         self.審計器.記錄(審計級別.綠, "層級14_調試工具檢查", "系統")
 
@@ -672,7 +672,7 @@ class 龍魂監控核心:
             "API文檔": "https://docs.longhun.io/monitoring",
         }
 
-    def 層級15_自監控(self) -> Dict:
+    def 層級15_自監控(self) -> Dict[str, Any]:
         """層級15：監控監控 — SDK健康檢查·自我診斷·自我修復"""
         self.審計器.記錄(審計級別.黃, "層級15_自監控檢查", "系統")
 
@@ -720,7 +720,7 @@ class 龍魂監控核心:
             },
         ]
 
-    def _初始化故障恢復配置(self) -> Dict:
+    def _初始化故障恢復配置(self) -> Dict[str, Any]:
         """初始化故障恢復配置"""
         return {
             "自動健康檢查間隔": 5,  # 秒
@@ -827,7 +827,7 @@ class 龍魂監控核心:
 
     # ======== 應用監控 ========
 
-    def 監控應用(self, 應用: 應用類型, 指標數據: Dict) -> 應用監控指標:
+    def 監控應用(self, 應用: 應用類型, 指標數據: Dict[str, Any]) -> 應用監控指標:
         """監控4應用指標"""
         指標 = 應用監控指標(
             應用=應用,
@@ -879,7 +879,7 @@ class 龍魂監控核心:
 
     # ======== 完整監控週期 ========
 
-    def 執行完整監控(self) -> Dict:
+    def 執行完整監控(self) -> Dict[str, Any]:
         """執行15層完整監控週期"""
         self.統計["總檢查次數"] += 1
         時間戳 = datetime.now()
@@ -999,7 +999,7 @@ class 龍魂監控核心:
 
         return self.當前狀態
 
-    def 檢查故障恢復(self) -> Dict:
+    def 檢查故障恢復(self) -> Dict[str, Any]:
         """檢查並執行故障恢復"""
         恢復結果 = []
 
@@ -1024,7 +1024,7 @@ class 龍魂監控核心:
 
     # ======== 報告生成 ========
 
-    def 生成監控報告(self, 報告類型: str = "完整") -> Dict:
+    def 生成監控報告(self, 報告類型: str = "完整") -> Dict[str, Any]:
         """生成監控報告"""
         時間戳 = datetime.now()
 
@@ -1085,7 +1085,7 @@ class 龍魂監控核心:
         self.審計器.記錄(審計級別.黃, "數據解密", "系統", "成功")
         return 結果
 
-    def 脫敏數據(self, 數據: Dict) -> Dict:
+    def 脫敏數據(self, 數據: Dict[str, Any]) -> Dict[str, Any]:
         """GDPR合規數據脫敏"""
         return self.加密引擎.數據脫敏(數據)
 
@@ -1129,7 +1129,7 @@ class 龍魂監控核心:
 
     # ======== 自我診斷 ========
 
-    def 自我診斷(self) -> Dict:
+    def 自我診斷(self) -> Dict[str, Any]:
         """執行自我診斷"""
         診斷結果 = []
 

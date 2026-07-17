@@ -108,7 +108,7 @@ class NotionAPIClient:
             "Content-Type": "application/json",
         }
 
-    def _request(self, method: str, path: str, data: Optional[dict] = None,
+    def _request(self, method: str, path: str, data: Optional[dict[str, Any]] = None,
                  timeout: float = 60.0, retries: int = 3) -> dict[str, Any]:
         """统一使用 curl 子进程调用 Notion API，避免 requests 网络层挂起。"""
         import subprocess
@@ -153,7 +153,7 @@ class NotionAPIClient:
     def get_page(self, page_id: str) -> dict[str, Any]:
         return self._request("GET", f"/pages/{page_id}")
 
-    def query_database(self, database_id: str, filter_obj: Optional[dict] = None,
+    def query_database(self, database_id: str, filter_obj: Optional[dict[str, Any]] = None,
                        page_size: int = 100, start_cursor: Optional[str] = None) -> dict[str, Any]:
         database_id = database_id.replace("-", "")
         payload: Dict[str, Any] = {"page_size": page_size}
@@ -163,7 +163,7 @@ class NotionAPIClient:
             payload["start_cursor"] = start_cursor
         return self._request("POST", f"/databases/{database_id}/query", payload)
 
-    def create_page(self, parent_id: str, title: str, children: Optional[List[dict]] = None,
+    def create_page(self, parent_id: str, title: str, children: Optional[List[dict[str, Any]]] = None,
                     parent_type: str = "page_id") -> dict[str, Any]:
         payload = {
             "parent": {parent_type: parent_id},
@@ -191,7 +191,7 @@ class NotionAPIClient:
             path += f"&start_cursor={start_cursor}"
         return self._request("GET", path)
 
-    def append_blocks(self, block_id: str, children: List[dict]) -> dict[str, Any]:
+    def append_blocks(self, block_id: str, children: List[dict[str, Any]]) -> dict[str, Any]:
         return self._request("PATCH", f"/blocks/{block_id}/children", {"children": children})
 
 
@@ -212,7 +212,7 @@ def 查询数据库(数据库ID: str, 筛选: Optional[dict] = None, 页大小: 
              最大条数: Optional[int] = None) -> List[dict]:
     """查询 Notion 数据库，返回条目列表（自动翻页，可用 最大条数 限制）"""
     client = _get_client()
-    results: List[dict] = []
+    results: List[dict[str, Any]] = []
     cursor = None
     while True:
         resp = client.query_database(数据库ID, filter_obj=筛选, page_size=页大小, start_cursor=cursor)
@@ -249,7 +249,7 @@ def 追加块(页面ID: str, 内容块: List[dict]) -> dict[str, Any]:
 # ═══════════════════════════════════════════════════════════════
 # 4. Markdown 双向转换
 # ═══════════════════════════════════════════════════════════════
-def _rich_text(rt: List[dict]) -> str:
+def _rich_text(rt: List[dict[str, Any]]) -> str:
     return "".join(t.get("plain_text", "") for t in rt)
 
 
@@ -329,8 +329,8 @@ def 拉取页面(页面ID: str, 输出路径: Optional[str] = None, 最大深度
     return md
 
 
-def _md_to_blocks(md_text: str) -> List[dict]:
-    blocks: List[dict] = []
+def _md_to_blocks(md_text: str) -> List[dict[str, Any]]:
+    blocks: List[dict[str, Any]] = []
     lines = md_text.splitlines()
     i = 0
     while i < len(lines):

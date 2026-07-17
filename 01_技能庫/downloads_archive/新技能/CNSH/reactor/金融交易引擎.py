@@ -499,7 +499,7 @@ class 五行决策引擎:
         ]
         return sorted(元素, key=lambda x: x[1], reverse=True)
 
-    def 检查熔断(self, 结果: Dict) -> str:
+    def 检查熔断(self, 结果: Dict[str, Any]) -> str:
         """
         Circuit Breaker Check - 检查熔断条件
         熔断条件: 复合决策强度 < 0.15 或 金值（风控）< 0.1
@@ -554,7 +554,7 @@ class 六十四卦审计器:
     """
 
     # 熔断裂集 = {3, 9}，对应三爻与九爻为极变之位
-    熔断裂集: set = {3, 9}
+    熔断裂集: set[str] = {3, 9}
 
     def __init__(self):
         """Initialize auditor - 初始化审计器"""
@@ -1280,7 +1280,7 @@ class 数字人民币接口:
                  f"{检查结果['整體結果']}")
         return 检查结果
 
-    def 获取汇率表(self) -> Dict:
+    def 获取汇率表(self) -> Dict[str, Any]:
         """Get exchange rate table - 获取当前汇率表"""
         return {
             "基準貨幣": "CNY",
@@ -1518,7 +1518,7 @@ class Web3DNA交易系统:
             "DNA": self.DNA標識,
         }
 
-    def _验证交易身份(self, 请求: 交易请求) -> Dict:
+    def _验证交易身份(self, 请求: 交易请求) -> Dict[str, Any]:
         """Verify transaction identity - 验证交易身份"""
         数字人 = self.数字人注册表.get(请求.发起方)
         if not 数字人:
@@ -1532,7 +1532,7 @@ class Web3DNA交易系统:
             return {"通過": True, "身份": 验证结果}
         return {"通過": False, "原因": "身份驗證失敗", "詳情": 验证结果}
 
-    def _构建五行数据(self, 请求数据: Dict) -> 五行数据:
+    def _构建五行数据(self, 请求数据: Dict[str, Any]) -> 五行数据:
         """Build Five Elements data - 构建五行数据"""
         return 五行数据(
             金值=请求数据.get("金", 0.5),
@@ -1542,7 +1542,7 @@ class Web3DNA交易系统:
             土值=请求数据.get("土", 0.5),
         )
 
-    def _执行实际交易(self, 请求: 交易请求, 原始数据: Dict) -> Dict:
+    def _执行实际交易(self, 请求: 交易请求, 原始数据: Dict[str, Any]) -> Dict[str, Any]:
         """Execute actual transaction - 执行实际交易"""
         if 原始数据.get("跨境", False):
             return self.人民币接口.跨境支付(
@@ -1560,7 +1560,7 @@ class Web3DNA交易系统:
                 附言=原始数据.get("附言", ""),
             )
 
-    def _三色标注(self, 五行: Dict, 卦象: Dict, 合规: Dict) -> str:
+    def _三色标注(self, 五行: Dict[str, Any], 卦象: Dict[str, Any], 合规: Dict[str, Any]) -> str:
         """Tri-color audit label - 三色审计标注"""
         标签 = []
         # 五行标注
@@ -1592,7 +1592,7 @@ class Web3DNA交易系统:
 
         return " | ".join(标签)
 
-    def _生成拒绝响应(self, 交易ID: str, 原因: str, 详情: Dict) -> Dict:
+    def _生成拒绝响应(self, 交易ID: str, 原因: str, 详情: Dict[str, Any]) -> Dict[str, Any]:
         """Generate rejection response - 生成拒绝响应"""
         响应 = {
             "狀態": "拒絕",
@@ -1604,7 +1604,7 @@ class Web3DNA交易系统:
         日志.warning(f"❌ [交易拒絕] {交易ID}: {原因}")
         return 响应
 
-    def _生成熔断响应(self, 交易ID: str, 原因: str, 详情: Dict) -> Dict:
+    def _生成熔断响应(self, 交易ID: str, 原因: str, 详情: Dict[str, Any]) -> Dict[str, Any]:
         """Generate circuit breaker response - 生成熔断响应"""
         响应 = {
             "狀態": "熔斷",
@@ -1616,7 +1616,7 @@ class Web3DNA交易系统:
         日志.error(f"🔴 [交易熔斷] {交易ID}: {原因}")
         return 响应
 
-    def _生成失败响应(self, 交易ID: str, 原因: str, 详情: Dict) -> Dict:
+    def _生成失败响应(self, 交易ID: str, 原因: str, 详情: Dict[str, Any]) -> Dict[str, Any]:
         """Generate failure response - 生成失败响应"""
         响应 = {
             "狀態": "失敗",

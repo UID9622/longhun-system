@@ -22,8 +22,8 @@ _DATA_PATH = Path(__file__).with_name("yijing_data.json")
 with open(_DATA_PATH, "r", encoding="utf-8") as _f:
     _RAW = json.load(_f)
 
-HEXAGRAMS: Dict[str, dict] = _RAW["HEXAGRAMS"]
-HEXAGRAM_BY_ID: Dict[int, dict] = {v["id"]: v for v in HEXAGRAMS.values()}
+HEXAGRAMS: Dict[str, dict[str, Any]] = _RAW["HEXAGRAMS"]
+HEXAGRAM_BY_ID: Dict[int, dict[str, Any]] = {v["id"]: v for v in HEXAGRAMS.values()}
 SOLAR_TERMS: Dict[str, float] = _RAW["SOLAR_TERMS"]
 WUXING_RELATION: Dict[str, Dict[str, str]] = _RAW["WUXING_RELATION"]
 

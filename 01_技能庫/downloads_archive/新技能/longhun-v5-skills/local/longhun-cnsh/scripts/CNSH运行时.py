@@ -350,7 +350,7 @@ class 内容主权:
         return len(问题) == 0, 问题
 
     @classmethod
-    def 获取主权信息(cls) -> Dict:
+    def 获取主权信息(cls) -> Dict[str, Any]:
         """获取完整的主权信息"""
         return {
             **cls.主权标识,
@@ -400,7 +400,7 @@ class 字元渲染器:
         self.dna = DNA_SIGNATURE
         self.渲染参数 = {层: self._默认参数(层) for 层 in 渲染层级}
 
-    def _默认参数(self, 层: 渲染层级) -> Dict:
+    def _默认参数(self, 层: 渲染层级) -> Dict[str, Any]:
         """获取各层级的默认渲染参数"""
         参数库 = {
             渲染层级.V0001基础笔画: {"启用": True, "线宽": 2.0},
@@ -421,7 +421,7 @@ class 字元渲染器:
         }
         return 参数库.get(层, {"启用": False})
 
-    def 设置渲染参数(self, 层名: str, 参数: Dict):
+    def 设置渲染参数(self, 层名: str, 参数: Dict[str, Any]):
         """设置指定层级的渲染参数"""
         for 层 in 渲染层级:
             if 层.value == 层名 or 层.name == 层名:
@@ -429,7 +429,7 @@ class 字元渲染器:
                 return True
         return False
 
-    def 获取渲染参数(self, 层名: str = None) -> Dict:
+    def 获取渲染参数(self, 层名: str | None = None) -> Dict[str, Any]:
         """获取渲染参数"""
         if 层名:
             for 层, 参数 in self.渲染参数.items():
@@ -437,7 +437,7 @@ class 字元渲染器:
                     return {层.name: 参数}
         return {层.name: 参数 for 层, 参数 in self.渲染参数.items()}
 
-    def 渲染(self, 笔画序列: List[Dict]) -> Dict:
+    def 渲染(self, 笔画序列: List[Dict]) -> Dict[str, Any]:
         """
         执行15层渲染
         参数: 笔画序列 [{"x": int, "y": int, "pressure": float}, ...]
@@ -464,7 +464,7 @@ class 字元渲染器:
   <!-- 15层渲染系统激活 -->
 """
 
-    def 导出SVG(self, 渲染结果: Dict, 输出路径: str) -> str:
+    def 导出SVG(self, 渲染结果: Dict[str, Any], 输出路径: str) -> str:
         """导出为SVG矢量图"""
         svg内容 = self._生成SVG前缀()
         svg内容 += f"""  <metadata>
@@ -476,7 +476,7 @@ class 字元渲染器:
             f.write(svg内容)
         return 输出路径
 
-    def 保存CNSH格式(self, 字元数据: Dict, 输出路径: str) -> str:
+    def 保存CNSH格式(self, 字元数据: Dict[str, Any], 输出路径: str) -> str:
         """
         保存.cnsh格式文件（可重新编辑）
         """
@@ -625,7 +625,7 @@ class 命名规范检查器:
         """检查字符串是否为纯中文"""
         return bool(re.match(r'^[\u4e00-\u9fff_]+$', s))
 
-    def 完整代码检查(self, 代码: str) -> Dict:
+    def 完整代码检查(self, 代码: str) -> Dict[str, Any]:
         """对代码进行完整命名规范检查"""
         结果 = {
             "变量": [],
@@ -659,7 +659,7 @@ class 命名规范检查器:
 
         return 结果
 
-    def _统计结果(self, 总计: Dict, 状态: str):
+    def _统计结果(self, 总计: Dict[str, Any], 状态: str):
         """统计检查结果"""
         if "通过" in 状态:
             总计["通过"] += 1
@@ -795,7 +795,7 @@ class 龍魂基础设施:
     - 铁律自审闸集成
     """
 
-    def __init__(self, 数据库路径: str = None):
+    def __init__(self, 数据库路径: str | None = None):
         self.dna = DNA_SIGNATURE
         self.确认标记 = CONFIRM_MARKER
         self.封印标记 = SEAL_MARKER
@@ -874,7 +874,7 @@ class 龍魂基础设施:
         连接.commit()
         连接.close()
 
-    def 保存审计结果(self, 结果: Dict, 文本哈希: str):
+    def 保存审计结果(self, 结果: Dict[str, Any], 文本哈希: str):
         """保存完整审计结果到数据库"""
         连接 = sqlite3.connect(self.数据库路径)
         游标 = 连接.cursor()
@@ -913,7 +913,7 @@ class 龍魂基础设施:
         连接.commit()
         连接.close()
 
-    def 验证六层来源链(self) -> Dict:
+    def 验证六层来源链(self) -> Dict[str, Any]:
         """六层来源链验证"""
         return {
             "道统层": {"名称": "CNSH协议体系", "状态": "✅ 已验证"},
@@ -952,7 +952,7 @@ class CNSH运行时:
     特性: 15层渲染系统 · DNA追溯 · .cnsh文件格式 · 三色审计
     """
 
-    def __init__(self, 数据库路径: str = None):
+    def __init__(self, 数据库路径: str | None = None):
         self.dna = DNA_SIGNATURE
         self.确认 = CONFIRM_MARKER
         self.封印 = SEAL_MARKER
@@ -1098,7 +1098,7 @@ class CNSH运行时:
         return 置信度, 问题列表
 
     # ═══ 综合七层检查 ═══
-    def 七层检查(self, 文本: str, 上下文: str = "") -> Dict:
+    def 七层检查(self, 文本: str, 上下文: str = "") -> Dict[str, Any]:
         """
         执行完整的L1-L7七层检查
 
@@ -1170,7 +1170,7 @@ class CNSH运行时:
 
         return 结果
 
-    def _生成建议(self, 结果: Dict) -> str:
+    def _生成建议(self, 结果: Dict[str, Any]) -> str:
         """根据检查结果生成修复建议"""
         if not 结果["all_issues"]:
             return "✅ CNSH七层检查完全通过，无需修正"
@@ -1185,7 +1185,7 @@ class CNSH运行时:
         else:
             return f"🟢 低危警告{问题数}项，可继续执行。建议: " + "; ".join(结果["all_issues"][:3])
 
-    def 格式化报告(self, 结果: Dict) -> str:
+    def 格式化报告(self, 结果: Dict[str, Any]) -> str:
         """生成格式化的审计报告"""
         报告 = []
         报告.append("═" * 70)
@@ -1261,7 +1261,7 @@ class CNSH运行时:
         """生成许可证头"""
         return 开源宪章.生成许可证头(许可证)
 
-    def 版本信息(self) -> Dict:
+    def 版本信息(self) -> Dict[str, Any]:
         """获取运行时版本信息"""
         return {
             "版本": self.版本,

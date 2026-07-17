@@ -64,7 +64,7 @@ class 文字识别引擎:
         print(f"[龍文NLP] 🟢 NER完成: 发现 {{len(实体列表)}} 个实体")
         return 实体列表
 
-    def 情感分析(自身, 文本: str) -> Dict:
+    def 情感分析(自身, 文本: str) -> Dict[str, Any]:
         """🟡 情感分析 | Sentiment analysis"""
         print(f"[龍文NLP] 🟡 情感分析: {{文本[:30]}}...")
 

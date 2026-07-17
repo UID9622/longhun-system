@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 LLM→蚁群适配器 v1.0 · LLMAntennaAdapter
 投喂挑战 P1-A4 落地：将 LLM 调用包装为 AntennaSignal 标准协议
@@ -124,12 +125,12 @@ class BaseLLMProvider(ABC):
     """LLM Provider 基类"""
 
     @abstractmethod
-    def chat(self, messages: List[dict], **kwargs) -> LLMResponse:
+    def chat(self, messages: List[dict[str, Any]], **kwargs) -> LLMResponse:
         """同步对话"""
         ...
 
     @abstractmethod
-    def chat_stream(self, messages: List[dict], **kwargs) -> Iterator[str]:
+    def chat_stream(self, messages: List[dict[str, Any]], **kwargs) -> Iterator[str]:
         """流式对话"""
         ...
 
@@ -146,7 +147,7 @@ class MockLLMProvider(BaseLLMProvider):
         self.model = model
         self._call_count = 0
 
-    def chat(self, messages: List[dict], **kwargs) -> LLMResponse:
+    def chat(self, messages: List[dict[str, Any]], **kwargs) -> LLMResponse:
         self._call_count += 1
         last_msg = messages[-1].get("content", "") if messages else ""
         
@@ -165,7 +166,7 @@ class MockLLMProvider(BaseLLMProvider):
             finish_reason="stop",
         )
 
-    def chat_stream(self, messages: List[dict], **kwargs) -> Iterator[str]:
+    def chat_stream(self, messages: List[dict[str, Any]], **kwargs) -> Iterator[str]:
         response = self.chat(messages, **kwargs)
         # 模拟流式输出
         words = response.text.split()
@@ -223,7 +224,7 @@ class LLMAntennaAdapter(IAntennaSensor):
         }
         
         # 会话上下文
-        self._conversation_history: List[dict] = []
+        self._conversation_history: List[dict[str, Any]] = []
         self._model_info = self.provider.get_model_info()
 
     # ── IAntennaSensor 实现 ──

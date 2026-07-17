@@ -18,7 +18,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 """
 
 from __future__ import annotations
-from typing import List, Dict
+from typing import List, Dict, Any
 import sys
 import os
 
@@ -38,7 +38,7 @@ def five_element(n: int) -> str:
     return FIVE_ELEMENT[dr]
 
 # ═════════ 三才主权指数 SI（天<0.34 一票熔断）═════════
-def sovereignty_index(tian: float, di: float, ren: float) -> Dict:
+def sovereignty_index(tian: float, di: float, ren: float) -> Dict[str, Any]:
     """
     世界标准是 MCDA 加权和；龍魂焊主权轴熔断：天<0.34 直接全盘否。
     
@@ -82,7 +82,7 @@ def decision_chain(
     tian: float = 0.85,
     di: float = 0.85,
     ren: float = 0.85
-) -> Dict:
+) -> Dict[str, Any]:
     """
     完整决策链，六环全程可审和熔断：
     
@@ -165,7 +165,7 @@ def decision_chain(
 
 
 # ═════════ 完整决策报告（可审计）═════════
-def full_audit_report(trace: Dict) -> str:
+def full_audit_report(trace: Dict[str, Any]) -> str:
     """生成可审计的决策报告"""
     report = []
     report.append("=" * 64)

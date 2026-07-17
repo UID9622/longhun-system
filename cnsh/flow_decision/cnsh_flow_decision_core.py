@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂流场决策核 v4.1·主入口（10道闸完整流程）
 CNSH Flow Decision Core v4.1 - Main Entry Point (10 Gates Complete Flow)
@@ -15,7 +16,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 import json
 import hashlib
-from typing import Optional, List, Tuple
+from typing import Optional, List, Tuple, Any
 from datetime import datetime
 from .schemas import (
     FlowDecisionNode, VisibilityEnum, BucketEnum, StatusEnum,
@@ -43,7 +44,7 @@ class CNSHFlowDecisionCore:
     def process_input(
         self,
         raw_input: str,
-        tags: dict,
+        tags: dict[str, Any],
         parent_dna: str = ""
     ) -> Tuple[FlowDecisionNode, List[str]]:
         """
@@ -358,7 +359,7 @@ class CNSHFlowDecisionCore:
 
 
 # 快速入口
-def quick_process(raw_input: str, tags: dict = None, parent_dna: str = "") -> FlowDecisionNode:
+def quick_process(raw_input: str, tags: dict[str, Any] = None, parent_dna: str = "") -> FlowDecisionNode:
     """快速处理输入"""
     if tags is None:
         tags = {"title": "quick_process"}

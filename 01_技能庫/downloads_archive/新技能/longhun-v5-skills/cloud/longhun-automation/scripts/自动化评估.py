@@ -77,7 +77,7 @@ def 確保目錄(目錄: Path) -> None:
     目錄.mkdir(parents=True, exist_ok=True)
 
 
-def 寫入JSON(路徑: Path, 數據: Dict) -> None:
+def 寫入JSON(路徑: Path, 數據: Dict[str, Any]) -> None:
     with open(路徑, 'w', encoding='utf-8') as 文件:
         json.dump(數據, 文件, ensure_ascii=False, indent=2)
 
@@ -474,7 +474,7 @@ def 評估_安全性() -> Tuple[float, Dict]:
 # 評估引擎核心
 # ═══════════════════════════════════════════════════════════
 
-def 執行全面評估() -> Dict:
+def 執行全面評估() -> Dict[str, Any]:
     """執行完整6維度評估"""
     記錄日誌("════════════════════════════════════════════════════════════")
     記錄日誌("🐉 龍魂系統 · 自動化日評估")
@@ -554,7 +554,7 @@ def 執行全面評估() -> Dict:
 # 報告生成
 # ═══════════════════════════════════════════════════════════
 
-def 生成JSON報告(評估數據: Dict) -> Path:
+def 生成JSON報告(評估數據: Dict[str, Any]) -> Path:
     """生成JSON格式評估報告"""
     確保目錄(配置["評估目錄"])
     文件名 = f"local_assessment_{獲取日期標記()}.json"
@@ -564,7 +564,7 @@ def 生成JSON報告(評估數據: Dict) -> Path:
     return 路徑
 
 
-def 生成Markdown總結(評估數據: Dict) -> Path:
+def 生成Markdown總結(評估數據: Dict[str, Any]) -> Path:
     """生成Markdown格式評估總結"""
     確保目錄(配置["評估目錄"])
     路徑 = 配置["評估目錄"] / "ASSESSMENT_SUMMARY.md"
@@ -843,7 +843,7 @@ def 安裝Cron任務() -> bool:
 # 狀態檢查工具
 # ═══════════════════════════════════════════════════════════
 
-def 檢查狀態() -> Dict:
+def 檢查狀態() -> Dict[str, Any]:
     """快速檢查評估系統狀態"""
     狀態 = {
         "時間戳": 獲取時間戳(),
@@ -929,7 +929,7 @@ def 打印狀態報告() -> None:
 # 趨勢分析
 # ═══════════════════════════════════════════════════════════
 
-def 分析歷史趨勢(天數: int = 30) -> Dict:
+def 分析歷史趨勢(天數: int = 30) -> Dict[str, Any]:
     """分析歷史評分趨勢"""
     模式 = str(配置["評估目錄"] / "local_assessment_*.json")
     所有報告 = sorted(glob.glob(模式))

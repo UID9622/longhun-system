@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂系統 · 道德經倫理錨定引擎 v1.1
 LongHun System · Dao Ethics Anchor Engine
@@ -557,7 +558,7 @@ class DaoEthicsAnchorLayer:
 
         return result
 
-    def batch_check(self, inputs: List[str]) -> List[dict]:
+    def batch_check(self, inputs: List[str]) -> List[dict[str, Any]]:
         """批量檢查"""
         return [self.full_check(text) for text in inputs]
 

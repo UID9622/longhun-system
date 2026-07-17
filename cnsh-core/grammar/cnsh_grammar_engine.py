@@ -329,7 +329,7 @@ class Parser:
     def expr(self) -> Any:
         return self.comp()
 
-    def _op(self, ops: set) -> bool:
+    def _op(self, ops: set[Any]) -> bool:
         tok = self.current()
         return tok.type == "OP" and tok.value in ops
 

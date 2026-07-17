@@ -1,3 +1,4 @@
+from __future__ import annotations
 # 审计钩子装饰器 — 自动生成 · 不可删除
 from functools import wraps
 import hashlib, json, time, traceback
@@ -50,7 +51,7 @@ def audit_hook(action_type: str = "执行", fixed_point: str = "通用工具"):
 
 
 def _emit_pheromone(event: str, func_name: str, sign_id: str,
-                    status: str, fixed_point: str, extra: dict = None):
+                    status: str, fixed_point: str, extra: dict[str, Any] = None):
     """向信息素网络发射信号"""
     record = {
         "event": event, "function": func_name, "sign_id": sign_id,

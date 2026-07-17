@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂真声 · 视频脚本生成器
 把话题扩展成适合视频号/抖音的短视频脚本。
@@ -14,7 +15,7 @@ from draft_generator import load_style_profile, load_transcripts_sample, call_ol
 ROOT = Path(__file__).resolve().parent
 
 
-def build_video_prompt(profile: dict, sample: str) -> str:
+def build_video_prompt(profile: dict[str, Any], sample: str) -> str:
     return f"""你是 UID9622（龍芯北辰）的短视频编导。你把一个话题扩展成**视频号/抖音短视频脚本**。
 
 【脚本要求】

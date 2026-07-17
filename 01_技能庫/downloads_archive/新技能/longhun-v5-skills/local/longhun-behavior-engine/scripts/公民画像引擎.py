@@ -10,7 +10,7 @@ DNA: #龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0
 
 import json, hashlib, time, os
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field, asdict
 
 __dna__ = "#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0"
@@ -145,7 +145,7 @@ class 公民画像引擎:
         return f"🟢 习惯记录: {行为} 连续{连续天数}天 (+{round(权重,2)}分)"
 
     # ── 六大维度分数计算 ──
-    def 计算六大维度(self) -> Dict:
+    def 计算六大维度(self) -> Dict[str, Any]:
         """计算六大维度分数"""
         维度 = {
             "环保贡献": {"分": 0, "条": 0, "亮灯": self.亮灯设置["环保贡献"]},

@@ -21,7 +21,7 @@ import os
 import re
 import datetime
 from pathlib import Path
-from typing import List
+from typing import List, Any
 
 HOME = Path.home()
 LONGHUN_ROOT = Path(os.environ.get("LONGHUN_ROOT", HOME / "longhun-system"))
@@ -108,7 +108,7 @@ PLACEHOLDER_PATTERNS = [
 ]
 
 
-def classify(entry: dict) -> str:
+def classify(entry: dict[str, Any]) -> str:
     title = entry.get("title", "") or ""
     status = entry.get("status") or ""
     tags = set(entry.get("tags") or [])
@@ -144,7 +144,7 @@ def classify(entry: dict) -> str:
     return "纯概念"
 
 
-def update_manifest_entry(manifest: list, path: str, topic: str, dna: str):
+def update_manifest_entry(manifest: list[Any], path: str, topic: str, dna: str):
     """按 file_path 更新已有条目，避免重复追加"""
     for m in manifest:
         if m.get("file_path") == path:

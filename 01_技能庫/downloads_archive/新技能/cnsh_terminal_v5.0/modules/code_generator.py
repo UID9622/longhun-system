@@ -432,7 +432,7 @@ class CCodeGenerator(AST访问者):
 
         return f"/* 未实现: {type(节点).__name__} */ 0"
 
-    def 求表达式类型和值(self, 节点: AST节点) -> tuple:
+    def 求表达式类型和值(self, 节点: AST节点) -> tuple[Any, ...]:
         """求表达式的类型和值"""
         值 = self.求表达式值(节点)
 
@@ -454,7 +454,7 @@ class CCodeGenerator(AST访问者):
         """将CNSH类型转换为C类型"""
         return self.类型映射.get(cnsh类型, cnsh类型)
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

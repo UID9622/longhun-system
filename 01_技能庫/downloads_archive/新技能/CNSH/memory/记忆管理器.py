@@ -21,7 +21,7 @@ __dna__ = "#龍芯⚡️2026-06-18-CNSH-memory-记忆管理器-v1.0"
 class 记忆条目:
     """通心译 | TongXinYi: Memory Entry — 单条记忆记录"""
 
-    def __init__(自身, 内容: str, 记忆类型: str = "情景", 权重: float = 1.0, 标签: list = None):
+    def __init__(自身, 内容: str, 记忆类型: str = "情景", 权重: float = 1.0, 标签: list[Any] = None):
         自身.唯一ID = hashlib.md5(f"{{内容}}{{datetime.now()}}".encode()).hexdigest()[:12]
         自身.内容 = 内容
         自身.记忆类型 = 记忆类型  # 工作/情景/语义
@@ -51,7 +51,7 @@ class 记忆管理器:
         自身.遗忘阈值 = 0.1
         print(f"[记忆管理器] 🐉 记忆系统已初始化 | 最大: {{最大记忆数}} | {{__dna__}}")
 
-    def 存储(自身, 内容: str, 记忆类型: str = "情景", 权重: float = 1.0, 标签: list = None):
+    def 存储(自身, 内容: str, 记忆类型: str = "情景", 权重: float = 1.0, 标签: list[Any] = None):
         """🟢 存储新记忆 | Store new memory"""
         条目 = 记忆条目(内容, 记忆类型, 权重, 标签)
 
@@ -68,7 +68,7 @@ class 记忆管理器:
         print(f"[记忆管理器] 🟢 记忆已存储 [{{条目.唯一ID}}]: {{内容[:30]}}...")
         return 条目.唯一ID
 
-    def 检索(自身, 查询: str, 记忆类型: str = None, 最大条数: int = 5) -> List[记忆条目]:
+    def 检索(自身, 查询: str, 记忆类型: str | None = None, 最大条数: int = 5) -> List[记忆条目]:
         """🟡 检索记忆 | Retrieve memories"""
         print(f"[记忆管理器] 🟡 检索记忆: {{查询}}")
 
@@ -107,7 +107,7 @@ class 记忆管理器:
                     遗忘数 += 1
         print(f"[记忆管理器] 🔴 已遗忘 {{遗忘数}} 条记忆")
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取记忆统计 | Get memory statistics"""
         return {
             "工作记忆": len(自身.工作记忆),

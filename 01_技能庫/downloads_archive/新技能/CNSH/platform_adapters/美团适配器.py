@@ -19,7 +19,7 @@ DNA授权点 (DNA Authorization Points):
 """
 
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, Any
 from enum import Enum
 import random
 import json
@@ -100,7 +100,7 @@ class 美团适配器(平台适配器基类):
             return False
         return True
     
-    def 执行操作(self, 操作: str, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         执行美团操作 / Execute Meituan operation
         
@@ -130,7 +130,7 @@ class 美团适配器(平台适配器基类):
     # 具体操作实现 / Specific Operation Implementations
     # ═══════════════════════════════════════════════════
     
-    def _外卖下单(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _外卖下单(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 外卖下单 / Food Delivery Order
         
@@ -204,7 +204,7 @@ class 美团适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _酒店预订(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _酒店预订(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 酒店预订 / Hotel Booking
         
@@ -283,7 +283,7 @@ class 美团适配器(平台适配器基类):
             "时间戳": datetime.now().isoformat()
         }
     
-    def _电影票(self, 参数: dict, DNA令牌实例: DNA令牌) -> dict:
+    def _电影票(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
         """
         🟡 电影票 / Movie Ticket
         

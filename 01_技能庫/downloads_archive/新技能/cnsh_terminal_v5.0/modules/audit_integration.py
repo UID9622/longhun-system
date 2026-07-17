@@ -12,7 +12,7 @@
 import json
 import hashlib
 import threading
-from typing import Dict, List, Optional, Callable
+from typing import Dict, List, Optional, Callable, Any
 from datetime import datetime
 from enum import Enum
 from dataclasses import dataclass, asdict, field
@@ -55,14 +55,14 @@ class 审计记录:
     操作: str
     模块: str
     消息: str
-    详情: Dict = field(default_factory=dict)
+    详情: Dict[str, Any] = field(default_factory=dict)
     DNA追溯: str = ""
 
     def 格式化(self) -> str:
         """格式化为审计日志字符串"""
         return f"[{self.时间}] {self.颜色} [{self.操作}] {self.模块}: {self.消息}"
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -100,7 +100,7 @@ class 联动审计:
         self.记录(审计级别.成功, 操作类型.配置, "联动审计", f"注册模块: {模块名}")
 
     def 记录(self, 级别: 审计级别, 操作: 操作类型, 模块: str,
-             消息: str, 详情: Dict = None) -> 审计记录:
+             消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """
         记录审计事件
         核心审计方法
@@ -134,29 +134,29 @@ class 联动审计:
 
     # ========== 快捷记录方法 ==========
 
-    def 成功(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict = None) -> 审计记录:
+    def 成功(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """记录成功事件"""
         return self.记录(审计级别.成功, 操作, 模块, 消息, 详情)
 
-    def 警告(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict = None) -> 审计记录:
+    def 警告(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """记录警告事件"""
         return self.记录(审计级别.警告, 操作, 模块, 消息, 详情)
 
-    def 错误(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict = None) -> 审计记录:
+    def 错误(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """记录错误事件"""
         return self.记录(审计级别.错误, 操作, 模块, 消息, 详情)
 
-    def 信息(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict = None) -> 审计记录:
+    def 信息(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """记录信息事件"""
         return self.记录(审计级别.信息, 操作, 模块, 消息, 详情)
 
-    def 安全(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict = None) -> 审计记录:
+    def 安全(self, 操作: 操作类型, 模块: str, 消息: str, 详情: Dict[str, Any] = None) -> 审计记录:
         """记录安全事件"""
         return self.记录(审计级别.安全, 操作, 模块, 消息, 详情)
 
     # ========== 集成审计 ==========
 
-    def 审计编译(self, 源代码: str, 结果: Dict) -> None:
+    def 审计编译(self, 源代码: str, 结果: Dict[str, Any]) -> None:
         """审计编译操作"""
         状态 = 结果.get("状态", "未知")
         颜色 = "🟢" if "通过" in 状态 else ("🟡" if "警告" in 状态 else "🔴")
@@ -246,7 +246,7 @@ class 联动审计:
         """按模块筛选记录"""
         return [r for r in self.审计记录列表 if r.模块 == 模块]
 
-    def 生成报告(self) -> Dict:
+    def 生成报告(self) -> Dict[str, Any]:
         """生成审计报告"""
         统计 = {}
         for 级别 in 审计级别:
@@ -269,7 +269,7 @@ class 联动审计:
             }
         }
 
-    def 格式化日志(self, 数量: int = None) -> str:
+    def 格式化日志(self, 数量: int | None = None) -> str:
         """格式化为可读日志文本"""
         记录列表 = self.审计记录列表[-数量:] if 数量 else self.审计记录列表
         行列表 = []
@@ -282,7 +282,7 @@ class 联动审计:
 
         return "\n".join(行列表)
 
-    def 导出JSON(self, 文件路径: str = None) -> str:
+    def 导出JSON(self, 文件路径: str | None = None) -> str:
         """导出审计记录为JSON"""
         数据 = [r.转字典() for r in self.审计记录列表]
         json字符串 = json.dumps(数据, ensure_ascii=False, indent=2)
@@ -315,7 +315,7 @@ class 联动审计:
 
     # ========== 综合审计结果 ==========
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计系统自身的审计结果"""
         报告 = self.生成报告()
 

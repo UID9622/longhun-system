@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 # bridge/lh_integrity_bridge.py
 # 龍魂 · 商业诚信熔断Python桥接 · 联动RobotScore+语义防火墙+熔断器
 # DNA: #龍芯⚡️丙午·辛未·丙戌·INTEGRITY-BRIDGE-v1.0
@@ -633,13 +634,13 @@ class IntegrityDB:
         )
         self.conn.commit()
 
-    def get_seller(self, seller_id: str) -> Optional[dict]:
+    def get_seller(self, seller_id: str) -> Optional[dict[str, Any]]:
         row = self.conn.execute(
             "SELECT * FROM seller_profiles WHERE seller_id = ?", (seller_id,)
         ).fetchone()
         return dict(row) if row else None
 
-    def get_blacklist(self) -> List[dict]:
+    def get_blacklist(self) -> List[dict[str, Any]]:
         return [dict(r) for r in self.conn.execute("SELECT * FROM blacklist ORDER BY added_at DESC").fetchall()]
 
     def get_stats(self) -> dict[str, Any]:
@@ -661,7 +662,7 @@ class IntegrityDB:
         elderly = self.conn.execute("SELECT COUNT(*) as c FROM inspections WHERE anomalies_json LIKE '%elderly_scam%' AND created_at >= ?", (today_start,)).fetchone()['c']
         return {'today_inspections': total, 'today_black_flags': black, 'today_elderly_alerts': elderly}
 
-    def get_high_risk_sellers(self, limit: int = 20) -> List[dict]:
+    def get_high_risk_sellers(self, limit: int = 20) -> List[dict[str, Any]]:
         return [dict(r) for r in self.conn.execute(
             "SELECT * FROM seller_profiles WHERE worst_level IN ('red','black') ORDER BY avg_trust_score ASC LIMIT ?",
             (limit,)

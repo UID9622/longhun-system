@@ -25,7 +25,7 @@ import datetime
 import subprocess
 import threading
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field, asdict
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -70,7 +70,7 @@ class 審計日誌器:
         self.運行日誌路徑 = self.日誌目錄 / "launchd.out.log"
         self.錯誤日誌路徑 = self.日誌目錄 / "launchd.err.log"
 
-    def 記錄(self, 級別: str, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 記錄(self, 級別: str, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         時間戳 = datetime.datetime.now().isoformat()
         龍印 = hashlib.sha256(f"{時間戳}{模塊}{訊息}{龍魂DNA追溯碼}".encode()).hexdigest()[:12]
         記錄行 = f"[{時間戳}] [龍印:{龍印}] [{級別}] [健康檢查器][{模塊}] {訊息}"
@@ -89,13 +89,13 @@ class 審計日誌器:
         else:
             print(f"\033[92m{記錄行.strip()}\033[0m")
 
-    def 紅(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 紅(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_紅, 模塊, 訊息, 元數據)
 
-    def 黃(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 黃(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_黃, 模塊, 訊息, 元數據)
 
-    def 綠(self, 模塊: str, 訊息: str, 元數據: dict = None):
+    def 綠(self, 模塊: str, 訊息: str, 元數據: dict[str, Any] = None):
         self.記錄(審計級別_綠, 模塊, 訊息, 元數據)
 
 
@@ -199,7 +199,7 @@ class 健康檢查器:
             pass
         return 0.0, 0.0
 
-    def 獲取系統資源(self) -> dict:
+    def 獲取系統資源(self) -> dict[str, Any]:
         """獲取系統級資源信息"""
         結果 = {"磁盤使用百分比": 0.0, "系統負載": 0.0, "總內存MB": 0.0, "可用內存MB": 0.0}
         try:
@@ -232,7 +232,7 @@ class 健康檢查器:
 
         return 結果
 
-    def 檢查單個服務(self, 服務名稱: str, 配置: dict) -> 健康指標:
+    def 檢查單個服務(self, 服務名稱: str, 配置: dict[str, Any]) -> 健康指標:
         """檢查單個服務的健康狀態"""
         指標 = 健康指標(服務名稱=服務名稱)
         指標.總檢查次數 += 1

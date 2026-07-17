@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 龍魂·命名检查引擎 v1.0
-基于四层命名法(LH-NAMING-ARCH-v1.0)自动检查所有文件命名合规性
-协议: LH-NAMING-ARCH-2026-0714-v1.0
+基于四层命名法(LH-NAMING-ARCH-v2.0)自动检查所有文件命名合规性
+协议: LH-NAMING-ARCH-2026-0716-v2.0
 """
 import os, re, sys, json
 from pathlib import Path

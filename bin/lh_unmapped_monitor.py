@@ -75,7 +75,7 @@ class UnmappedMonitor:
     """未映射条目监控器"""
 
     def __init__(self):
-        self.history: List[dict] = []
+        self.history: List[dict[str, Any]] = []
         self.last_check: Optional[datetime] = None
         self._load_state()
 

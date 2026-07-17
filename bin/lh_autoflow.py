@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·一句话全链路自动执行引擎 v1.0                                ║
@@ -265,7 +266,7 @@ class LonghunAutoFlow:
         self.timeout_ms = timeout_ms
         self.enable_gpg = enable_gpg
         self.dna_base = DNA_BASE
-        self.locked_personas: set = set()
+        self.locked_personas: set[Any] = set()
         self.lock_duration: float = 30 * 60  # 30分钟锁定
         self.max_retry: int = 3
         self._executors = self._load_executors()

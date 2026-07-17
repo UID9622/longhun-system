@@ -73,19 +73,19 @@ class 三色審計器:
         self.日誌記錄: List[Dict] = []
         self._鎖 = threading.Lock()
 
-    def 綠(self, 訊息: str, 元數據: Dict = None):
+    def 綠(self, 訊息: str, 元數據: Dict[str, Any] = None):
         """綠色日誌 - 正常運行"""
         self._記錄(審計色.綠_正常, 訊息, 元數據)
 
-    def 黃(self, 訊息: str, 元數據: Dict = None):
+    def 黃(self, 訊息: str, 元數據: Dict[str, Any] = None):
         """黃色日誌 - 警告狀態"""
         self._記錄(審計色.黃_警告, 訊息, 元數據)
 
-    def 紅(self, 訊息: str, 元數據: Dict = None):
+    def 紅(self, 訊息: str, 元數據: Dict[str, Any] = None):
         """紅色日誌 - 異常故障"""
         self._記錄(審計色.紅_異常, 訊息, 元數據)
 
-    def _記錄(self, 級別: 審計色, 訊息: str, 元數據: Dict = None):
+    def _記錄(self, 級別: 審計色, 訊息: str, 元數據: Dict[str, Any] = None):
         with self._鎖:
             條目 = {
                 "時間戳": datetime.now().isoformat(),
@@ -136,7 +136,7 @@ class DNA追溯節點:
     輸出摘要: str
     DNA標記: str
     父節點ID: Optional[str] = None
-    元數據: Dict = field(default_factory=dict)
+    元數據: Dict[str, Any] = field(default_factory=dict)
 
 class DNA追溯鏈:
     """DNA追溯鏈管理器 - 完整操作歷史追溯"""
@@ -152,7 +152,7 @@ class DNA追溯鏈:
         return f"NODE-{self._計數器:06d}-{int(time.time())}"
 
     def 記錄(self, 操作: str, 輸入摘要: str, 輸出摘要: str,
-             元數據: Dict = None) -> str:
+             元數據: Dict[str, Any] = None) -> str:
         with self._鎖:
             節點ID = self._生成ID()
             節點 = DNA追溯節點(
@@ -250,7 +250,7 @@ class 断路器:
         狀態 = self.檢查狀態()
         return 狀態 in (斷路器狀態.閉合, 斷路器狀態.半開)
 
-    def 獲取狀態字典(self) -> Dict:
+    def 獲取狀態字典(self) -> Dict[str, Any]:
         with self._鎖:
             return {
                 "狀態": self.狀態.value,
@@ -290,7 +290,7 @@ class Kimi客戶端:
         self.失敗計數 = 0
         self._鎖 = threading.Lock()
 
-    def 調用(self, 提示詞: str, 參數: Dict = None) -> Kimi響應:
+    def 調用(self, 提示詞: str, 參數: Dict[str, Any] = None) -> Kimi響應:
         """調用Kimi API，帶断路器和故障轉移"""
         self.請求計數 += 1
         參數 = 參數 or {}
@@ -334,7 +334,7 @@ class Kimi客戶端:
             self.審計.紅(f"API調用失敗: {str(錯誤)}", {"錯誤類型": type(錯誤).__name__})
             return self._故障轉移(提示詞, 參數, str(錯誤))
 
-    def _發送請求(self, 提示詞: str, 參數: Dict) -> str:
+    def _發送請求(self, 提示詞: str, 參數: Dict[str, Any]) -> str:
         """發送HTTP請求到Kimi API"""
         請求體 = json.dumps({
             "prompt": 提示詞,
@@ -360,7 +360,7 @@ class Kimi客戶端:
         except Exception as e:
             raise Exception(f"請求失敗: {str(e)}")
 
-    def _故障轉移(self, 提示詞: str, 參數: Dict, 原因: str) -> Kimi響應:
+    def _故障轉移(self, 提示詞: str, 參數: Dict[str, Any], 原因: str) -> Kimi響應:
         """故障轉移到本地備份推理"""
         self.審計.黃(f"故障轉移啟動 | 原因: {原因}")
 
@@ -494,7 +494,7 @@ if __name__ == "__main__":
 > 🧬 DNA: {DNA標記}
 """
 
-    def 健康檢查(self) -> Dict:
+    def 健康檢查(self) -> Dict[str, Any]:
         """健康檢查端點"""
         try:
             開始時間 = time.time()
@@ -534,7 +534,7 @@ class 集成模式處理器:
         self.客戶端 = Kimi客戶端(self.審計, self.追溯)
         self.啟動時間 = datetime.now().isoformat()
 
-    def 處理(self, 模式: 集成模式, 參數: Dict = None) -> Dict:
+    def 處理(self, 模式: 集成模式, 參數: Dict[str, Any] = None) -> Dict[str, Any]:
         """處理指定的集成模式"""
         參數 = 參數 or {}
         self.審計.綠(f"處理模式: {模式.value}")
@@ -556,7 +556,7 @@ class 集成模式處理器:
             self.審計.紅(f"模式處理異常: {str(e)}", {"traceback": traceback.format_exc()})
             return {"錯誤": str(e), "模式": 模式.value}
 
-    def _處理健康檢查(self, 參數: Dict) -> Dict:
+    def _處理健康檢查(self, 參數: Dict[str, Any]) -> Dict[str, Any]:
         """模式: health - 檢查API和断路器健康狀態"""
         健康結果 = self.客戶端.健康檢查()
         統計 = {
@@ -575,7 +575,7 @@ class 集成模式處理器:
             "時間戳": datetime.now().isoformat()
         }
 
-    def _處理備份推理(self, 參數: Dict) -> Dict:
+    def _處理備份推理(self, 參數: Dict[str, Any]) -> Dict[str, Any]:
         """模式: backup-inference - 直接使用本地備份推理"""
         提示詞 = 參數.get("prompt", "")
         if not 提示詞:
@@ -594,7 +594,7 @@ class 集成模式處理器:
             "時間戳": datetime.now().isoformat()
         }
 
-    def _處理技能調用(self, 參數: Dict) -> Dict:
+    def _處理技能調用(self, 參數: Dict[str, Any]) -> Dict[str, Any]:
         """模式: skill - 調用Kimi API進行技能處理"""
         提示詞 = 參數.get("prompt", "")
         if not 提示詞:
@@ -616,7 +616,7 @@ class 集成模式處理器:
             "時間戳": datetime.now().isoformat()
         }
 
-    def _處理斷路器狀態(self, 參數: Dict) -> Dict:
+    def _處理斷路器狀態(self, 參數: Dict[str, Any]) -> Dict[str, Any]:
         """模式: circuit-status - 查詢断路器詳細狀態"""
         狀態 = self.客戶端.断路器.獲取狀態字典()
         日誌統計 = self.審計.統計()
@@ -629,7 +629,7 @@ class 集成模式處理器:
             "時間戳": datetime.now().isoformat()
         }
 
-    def 獲取統計(self) -> Dict:
+    def 獲取統計(self) -> Dict[str, Any]:
         """獲取完整統計信息"""
         return {
             "DNA": DNA標記,

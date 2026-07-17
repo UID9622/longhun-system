@@ -25,7 +25,7 @@ import hashlib
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
@@ -87,7 +87,7 @@ class 轉換記錄:
     def 驗證(self) -> bool:
         return self.DNA校驗 == self._計算校驗()
     
-    def 轉字典(self) -> dict:
+    def 轉字典(self) -> dict[str, Any]:
         return asdict(self)
 
 
@@ -124,7 +124,7 @@ class 匯率轉換器:
     - 🔴 轉換失敗或數據異常
     """
     
-    def __init__(self, 行情中心: 多幣種行情中心 = None, 數據目錄: str = None,
+    def __init__(self, 行情中心: 多幣種行情中心 = None, 數據目錄: str | None = None,
                  默認手續費率: float = 0.001):
         self.行情中心 = 行情中心 or 多幣種行情中心(數據目錄=數據目錄)
         self.數據目錄 = Path(數據目錄 or os.path.expanduser("~/.longhun/multicurrency"))
@@ -416,7 +416,7 @@ class 匯率轉換器:
         行.append(f"{'─'*50}\n")
         return "\n".join(行)
     
-    def 獲取歷史(self, 幣種對: str = None, 限制: int = 20) -> List[轉換記錄]:
+    def 獲取歷史(self, 幣種對: str | None = None, 限制: int = 20) -> List[轉換記錄]:
         """
         獲取轉換歷史
         
@@ -436,7 +436,7 @@ class 匯率轉換器:
         
         return 結果[-限制:]
     
-    def 獲取統計(self) -> dict:
+    def 獲取統計(self) -> dict[str, Any]:
         """獲取轉換統計"""
         return {
             **self.統計,
@@ -464,7 +464,7 @@ class 數字人民幣跨境通道:
         self.轉換器 = 轉換器 or 匯率轉換器()
         self.通道狀態 = "就緒"
     
-    def CNY轉eCNY(self, 金額: float) -> dict:
+    def CNY轉eCNY(self, 金額: float) -> dict[str, Any]:
         """CNY 轉 e-CNY（1:1 等值轉換）"""
         return {
             "來源": "CNY",

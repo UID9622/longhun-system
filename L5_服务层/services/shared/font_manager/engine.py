@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 龍魂字体管理引擎 v2.0 · LonghunFont Engine
 =============================================
@@ -64,16 +65,16 @@ class LonghunFontEngine:
             self.font_dir = _find_project_root() / "L1_内核层" / "fonts"
 
         # 注册表: key=文件名(无后缀)唯一键, value=字体元数据dict
-        self.font_registry: Dict[str, dict] = {}
+        self.font_registry: Dict[str, dict[str, Any]] = {}
 
         # PostScript名 → 文件键 映射 (用于按PS名查询)
-        self._ps_index: Dict[str, list] = {}
+        self._ps_index: Dict[str, list[Any]] = {}
 
         # 按格式索引: "otf" / "ttf" / "woff2" → [file_key, ...]
-        self._format_index: Dict[str, list] = {}
+        self._format_index: Dict[str, list[Any]] = {}
 
         # 按家族索引: family_name → [file_key, ...]
-        self._family_index: Dict[str, list] = {}
+        self._family_index: Dict[str, list[Any]] = {}
 
         # 自动扫描加载
         self._load_all_fonts()
@@ -97,7 +98,7 @@ class LonghunFontEngine:
         if self.font_registry:
             print(f"[字体引擎] 已注册 {len(self.font_registry)} 个龙魂字体变体")
 
-    def _register_font(self, font_path: Path) -> Optional[dict]:
+    def _register_font(self, font_path: Path) -> Optional[dict[str, Any]]:
         """使用 fontTools 解析单个字体并注册"""
         suffix = font_path.suffix.lower().lstrip(".")
         fmt = suffix  # otf / ttf / woff2
@@ -238,11 +239,11 @@ class LonghunFontEngine:
     # 查询接口
     # ═══════════════════════════════════════
 
-    def get_all_fonts(self) -> List[dict]:
+    def get_all_fonts(self) -> List[dict[str, Any]]:
         """获取所有已注册字体"""
         return list(self.font_registry.values())
 
-    def get_font_by_name(self, name: str) -> Optional[dict]:
+    def get_font_by_name(self, name: str) -> Optional[dict[str, Any]]:
         """按名称查找 (支持 文件名 / PostScript名 / 模糊匹配)"""
         # 精确匹配 file_key (完整文件名)
         if name in self.font_registry:
@@ -263,12 +264,12 @@ class LonghunFontEngine:
                 return val
         return None
 
-    def get_font_by_format(self, fmt: str) -> List[dict]:
+    def get_font_by_format(self, fmt: str) -> List[dict[str, Any]]:
         """按格式筛选 (otf / ttf / woff2)"""
         names = self._format_index.get(fmt.lower(), [])
         return [self.font_registry[n] for n in names if n in self.font_registry]
 
-    def get_font_by_family(self, family: str) -> List[dict]:
+    def get_font_by_family(self, family: str) -> List[dict[str, Any]]:
         """按字体家族筛选"""
         names = self._family_index.get(family, [])
         if not names:
@@ -279,7 +280,7 @@ class LonghunFontEngine:
                     names.extend(ns)
         return [self.font_registry[n] for n in names if n in self.font_registry]
 
-    def get_font_by_style(self, style: str) -> List[dict]:
+    def get_font_by_style(self, style: str) -> List[dict[str, Any]]:
         """按样式筛选 (Regular/Bold/Italic...)"""
         style_lower = style.lower()
         return [v for v in self.font_registry.values()
@@ -290,7 +291,7 @@ class LonghunFontEngine:
         font = self.get_font_by_name(name)
         return font["file_path"] if font else None
 
-    def get_valid_fonts(self) -> List[dict]:
+    def get_valid_fonts(self) -> List[dict[str, Any]]:
         """获取所有有效的字体 (过滤损坏的)"""
         return [v for v in self.font_registry.values() if v.get("is_valid", False)]
 

@@ -34,7 +34,7 @@
 │  └ 四套模板 · 触发路由 · 人格签章链 · 输出自动挂载             │
 │                                                              │
 │  治理监督层                                                   │
-│  └ LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md（公开承诺·审计）  │
+│  └ LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md（公开承诺·审计）  │
 │                                                              │
 │  联动协议：                                                   │
 │  ├ 本协议输出 → P15乔前辈签章 → P05上帝之眼审计               │
@@ -422,8 +422,8 @@ DNA生成引擎 → 绑定DNA（代码级追溯）
 | 关联协议 | 关系 | 桥接点 |
 |:---|------|------|
 | `LH-CREATOR-PROTECTION-v1.0.md` | 法律底座 | 本协议是其操作执行层 |
-| `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md` | 治理框架 | §十四公开承诺·本文档纳入承诺范围 |
-| `LH-NAMING-ARCH-v1.0.md` | 命名规范 | DNA 动态变量的格式由此定义 |
+| `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` | 治理框架 | §十四公开承诺·本文档纳入承诺范围 |
+| `LH-NAMING-ARCH-v2.0.md` | 命名规范 | DNA 动态变量的格式由此定义 |
 | `LH-DISTRIBUTED-AUDIT-MATRIX-v1.0.md` | 审计矩阵 | 签章链的审计标准 |
 
 ---

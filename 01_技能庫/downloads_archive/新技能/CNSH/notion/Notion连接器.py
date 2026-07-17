@@ -20,7 +20,7 @@ __dna__ = "#龍芯⚡️2026-06-18-CNSH-notion-Notion连接器-v1.0"
 class Notion连接器:
     """通心译 | TongXinYi: Notion Connector — 龍魂Notion集成连接器"""
 
-    def __init__(自身, api令牌: str = None, 版本: str = "2022-06-28"):
+    def __init__(自身, api令牌: str | None = None, 版本: str = "2022-06-28"):
         自身.api令牌 = api令牌
         自身.api版本 = 版本
         自身.基础URL = "https://api.notion.com/v1"
@@ -29,7 +29,7 @@ class Notion连接器:
         自身.缓存 = {}
         print(f"[Notion连接器] 🐉 Notion连接器已初始化 | API版本: {{版本}} | {{__dna__}}")
 
-    def 连接(自身, api令牌: str = None) -> bool:
+    def 连接(自身, api令牌: str | None = None) -> bool:
         """🟢 连接到Notion API | Connect to Notion API"""
         if api令牌:
             自身.api令牌 = api令牌
@@ -55,7 +55,7 @@ class Notion连接器:
             "Content-Type": "application/json"
         }
 
-    def 获取页面(自身, 页面ID: str) -> Dict:
+    def 获取页面(自身, 页面ID: str) -> Dict[str, Any]:
         """🟡 获取Notion页面 | Get Notion page"""
         自身.请求计数 += 1
         print(f"[Notion连接器] 🟡 获取页面: {{页面ID}}")
@@ -78,7 +78,7 @@ class Notion连接器:
         print(f"[Notion连接器] 🟢 页面已获取: {{页面['properties']['标题']['title'][0]['text']['content']}}")
         return 页面
 
-    def 查询数据库(自身, 数据库ID: str, 筛选条件: Dict = None) -> List[Dict]:
+    def 查询数据库(自身, 数据库ID: str, 筛选条件: Dict[str, Any] = None) -> List[Dict]:
         """🟡 查询Notion数据库 | Query Notion database"""
         自身.请求计数 += 1
         print(f"[Notion连接器] 🟡 查询数据库: {{数据库ID}}")
@@ -98,7 +98,7 @@ class Notion连接器:
         print(f"[Notion连接器] 🟢 查询完成: {{len(结果)}} 条结果")
         return 结果
 
-    def 创建页面(自身, 父页面ID: str, 标题: str, 内容: List[Dict] = None) -> Dict:
+    def 创建页面(自身, 父页面ID: str, 标题: str, 内容: List[Dict] = None) -> Dict[str, Any]:
         """🟡 创建新页面 | Create new page"""
         自身.请求计数 += 1
         print(f"[Notion连接器] 🟡 创建页面: {{标题}} (父: {{父页面ID}})")
@@ -116,7 +116,7 @@ class Notion连接器:
         print(f"[Notion连接器] 🟢 页面已创建: {{标题}}")
         return 新页面
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取连接统计 | Get connection statistics"""
         return {
             "连接状态": 自身.连接状态,

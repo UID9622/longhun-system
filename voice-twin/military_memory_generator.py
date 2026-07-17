@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂真声 · 军旅记忆字幕生成器
 根据 UID9622 的军旅素材，生成三种风格的字幕文案。
@@ -14,7 +15,7 @@ from draft_generator import load_style_profile, load_transcripts_sample, call_ol
 ROOT = Path(__file__).resolve().parent
 
 
-def build_prompt(profile: dict, sample: str) -> str:
+def build_prompt(profile: dict[str, Any], sample: str) -> str:
     return f"""你是 UID9622（龍芯北辰）的数字人分身。你正在给他的军旅/海训怀旧短视频写字幕文案。
 
 【 UID9622 的真实风格】

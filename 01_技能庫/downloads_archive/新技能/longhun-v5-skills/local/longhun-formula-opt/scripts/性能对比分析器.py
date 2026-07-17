@@ -79,7 +79,7 @@ class 完整對比報告:
     DNA: str = "#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2"
     版本: str = "v5.2"
     生成時間: str = ""
-    測試環境: Dict = field(default_factory=dict)
+    測試環境: Dict[str, Any] = field(default_factory=dict)
     樣本統計: Dict[str, int] = field(default_factory=dict)
     對比結果表: Dict[str, 對比結果] = field(default_factory=dict)
     瓶頸分析表: List[瓶頸分析] = field(default_factory=list)
@@ -449,7 +449,7 @@ class 性能對比分析器:
             建議 += "。優先處理critical級別瓶頸。"
             return 建議
     
-    def _獲取測試環境(self) -> Dict:
+    def _獲取測試環境(self) -> Dict[str, Any]:
         """獲取測試環境信息"""
         import platform
         return {
@@ -550,7 +550,7 @@ class 批量性能分析器:
         self.測量結果: List[Dict] = []
         self.DNA = "#龍芯⚡️2026-06-19-BATCH-ANALYZER-v2"
     
-    def 測量批量吞吐(self, 決策函數: Callable, 樣本數: int = 100000) -> Dict:
+    def 測量批量吞吐(self, 決策函數: Callable, 樣本數: int = 100000) -> Dict[str, Any]:
         """
         測量批量決策吞吐量
         目標: 205,228決策/秒

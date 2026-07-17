@@ -18,7 +18,7 @@ import os
 import secrets
 import struct
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 __版本__ = "v1.0"
 __dna__ = "#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-v1.0"
@@ -445,7 +445,7 @@ class DNA身份錨定器:
     # 核心身份哈希 | Core Identity Hash
     # ═══════════════════════════════════════════════════════════════
 
-    def 生成身份哈希(自身, 生物特徵種子: str, 鹽值: str = None) -> Dict:
+    def 生成身份哈希(自身, 生物特徵種子: str, 鹽值: str | None = None) -> Dict[str, Any]:
         """
         🟢 生成DNA身份哈希 | Generate DNA identity hash
         :param 生物特徵種子: 用戶生物特徵摘要（如指紋特徵碼）
@@ -526,7 +526,7 @@ class DNA身份錨定器:
     # SM2密鑰管理 | SM2 Key Management
     # ═══════════════════════════════════════════════════════════════
 
-    def 生成身份密鑰對(自身) -> Dict:
+    def 生成身份密鑰對(自身) -> Dict[str, Any]:
         """
         🟢 為身份生成SM2密鑰對 | Generate SM2 key pair for identity
         :return: 包含公鑰、私鑰指紋的字典
@@ -543,7 +543,7 @@ class DNA身份錨定器:
             'fingerprint': 公鑰指紋
         }
 
-    def 設置密鑰(自身, 私鑰十六進制: str, 公鑰字典: Dict):
+    def 設置密鑰(自身, 私鑰十六進制: str, 公鑰字典: Dict[str, Any]):
         """🟡 設置現有密鑰 | Set existing key pair"""
         自身.SM2.私鑰 = int(私鑰十六進制, 16)
         自身.SM2.公鑰 = (int(公鑰字典['x'], 16), int(公鑰字典['y'], 16))

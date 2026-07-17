@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂 IP 资产脚本 · dragon_dna.py
 DNA: #龍芯:2026-07-04-DNA-TRACE-v3.0
@@ -663,9 +664,9 @@ class DNAVerifier:
 class DNADatabase:
     def __init__(self, db_path: str | None = None):
         self._records: Dict[str, Dict] = {}
-        self._index_by_type: Dict[str, set] = defaultdict(set)
-        self._index_by_source: Dict[str, set] = defaultdict(set)
-        self._index_by_time: Dict[str, set] = defaultdict(set)
+        self._index_by_type: Dict[str, set[Any]] = defaultdict(set)
+        self._index_by_source: Dict[str, set[Any]] = defaultdict(set)
+        self._index_by_time: Dict[str, set[Any]] = defaultdict(set)
         self._blacklist: set[str] = set()
         self._audit_log = []
         self._lock = threading.Lock()

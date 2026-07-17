@@ -78,7 +78,7 @@ class 智能體定義:
         數據 = f"{self.編號}:{self.名稱}:{self.類型.value}:{版本號}"
         return hashlib.sha256(數據.encode()).hexdigest()[:16]
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return {
             "編號": self.編號,
             "名稱": self.名稱,
@@ -109,7 +109,7 @@ class 生態狀態:
     DNA完整性: bool = True
     路由精確度: float = 100.0
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -456,7 +456,7 @@ class 智能體協調器:
         self._更新狀態()
         return True
 
-    def 執行智能體(self, 編號: str, 參數: Dict = None) -> Dict:
+    def 執行智能體(self, 編號: str, 參數: Dict[str, Any] = None) -> Dict[str, Any]:
         """執行指定智能體"""
         智能體 = self._智能體倉庫.get(編號)
         if not 智能體:

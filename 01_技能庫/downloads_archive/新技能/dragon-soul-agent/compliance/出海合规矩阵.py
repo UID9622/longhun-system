@@ -473,7 +473,7 @@ class 出海合规矩阵:
         self.DNA标识 = "#龍芯⚡️2026-06-18-LONGHUN-COMPLIANCE-MATRIX"
         self._初始化审计()
     
-    def _加载全部法规(self) -> Dict:
+    def _加载全部法规(self) -> Dict[str, Any]:
         """Load all regulation modules"""
         return {
             "🇪🇺 欧盟": {
@@ -499,7 +499,7 @@ class 出海合规矩阵:
         self.来源链.记录引用(6, "LONGHUN Compliance Matrix v1.0",
             "Internal compliance framework for global market entry")
     
-    def 全面合规检查(self, 目标市场: str, 功能列表: List[str]) -> Dict:
+    def 全面合规检查(self, 目标市场: str, 功能列表: List[str]) -> Dict[str, Any]:
         """
         对指定目标市场进行全面合规检查
         Comprehensive compliance check for specified target market
@@ -578,7 +578,7 @@ class 出海合规矩阵:
         
         return 结果
     
-    def 批量检查(self, 功能列表: List[str]) -> Dict:
+    def 批量检查(self, 功能列表: List[str]) -> Dict[str, Any]:
         """
         对所有支持的市场进行批量合规检查
         Batch compliance check across all supported markets
@@ -620,7 +620,7 @@ class 出海合规矩阵:
         
         return 结果
     
-    def _评估维度(self, 维度: str, 配置: Dict, 功能列表: List[str]) -> Dict:
+    def _评估维度(self, 维度: str, 配置: Dict[str, Any], 功能列表: List[str]) -> Dict[str, Any]:
         """Evaluate a single compliance dimension"""
         龍魂状态 = 配置["龍魂状态"]
         
@@ -644,7 +644,7 @@ class 出海合规矩阵:
         else:
             return "🔴 高风险 - 暂停出海"
     
-    def _执行法规检查(self, 目标市场: str, 功能列表: List[str]) -> Dict:
+    def _执行法规检查(self, 目标市场: str, 功能列表: List[str]) -> Dict[str, Any]:
         """Execute detailed regulation checks"""
         法规模块 = self.法规库.get(目标市场, {})
         结果 = {}
@@ -657,7 +657,7 @@ class 出海合规矩阵:
         
         return 结果
     
-    def _生成整改建议(self, 检查结果: Dict) -> List[str]:
+    def _生成整改建议(self, 检查结果: Dict[str, Any]) -> List[str]:
         """Generate remediation suggestions based on check results"""
         建议 = []
         
@@ -672,7 +672,7 @@ class 出海合规矩阵:
         
         return 建议
     
-    def 导出报告(self, 结果: Dict, 文件路径: str):
+    def 导出报告(self, 结果: Dict[str, Any], 文件路径: str):
         """Export compliance report to JSON file"""
         with open(文件路径, 'w', encoding='utf-8') as f:
             json.dump(结果, f, ensure_ascii=False, indent=2)
@@ -691,13 +691,13 @@ class 出海合规矩阵:
 # 快捷函数 | Convenience Functions
 # =============================================================================
 
-def 快速合规检查(目标市场: str, 功能列表: List[str]) -> Dict:
+def 快速合规检查(目标市场: str, 功能列表: List[str]) -> Dict[str, Any]:
     """Quick compliance check shortcut"""
     矩阵 = 出海合规矩阵()
     return 矩阵.全面合规检查(目标市场, 功能列表)
 
 
-def 全球批量检查(功能列表: List[str]) -> Dict:
+def 全球批量检查(功能列表: List[str]) -> Dict[str, Any]:
     """Global batch check shortcut"""
     矩阵 = 出海合规矩阵()
     return 矩阵.批量检查(功能列表)

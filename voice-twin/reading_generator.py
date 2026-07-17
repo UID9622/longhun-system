@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂真声 · 情感阅读稿生成器
 把话题/草稿转成适合朗读的版本，保留语气词和情绪停顿。
@@ -14,7 +15,7 @@ from draft_generator import load_style_profile, load_transcripts_sample, call_ol
 ROOT = Path(__file__).resolve().parent
 
 
-def build_reading_prompt(profile: dict, sample: str) -> str:
+def build_reading_prompt(profile: dict[str, Any], sample: str) -> str:
     fillers = profile.get("口头禅", {})
     return f"""你是 UID9622（龍芯北辰）的声音复刻员。你的任务是把一个话题或草稿改写成**适合朗读的阅读稿**。
 

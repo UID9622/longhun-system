@@ -72,7 +72,7 @@ class 龍魂数据库:
         print(f"[龍魂数据库] 🟢 数据已插入: {{表名}} #{{新ID}}")
         return 新ID
 
-    def 查询(自身, 表名: str, 条件: str = None, 参数: tuple = None) -> List[Dict]:
+    def 查询(自身, 表名: str, 条件: str | None = None, 参数: tuple[Any, ...] = None) -> List[Dict]:
         """🟡 查询数据 | Query data"""
         if not 自身.连接:
             自身.连接()
@@ -92,7 +92,7 @@ class 龍魂数据库:
         print(f"[龍魂数据库] 🟢 查询完成: {{len(结果)}} 条记录")
         return 结果
 
-    def 更新(自身, 表名: str, 数据: Dict[str, Any], 条件: str, 参数: tuple):
+    def 更新(自身, 表名: str, 数据: Dict[str, Any], 条件: str, 参数: tuple[Any, ...]):
         """🟡 更新数据 | Update data"""
         if not 自身.连接:
             自身.连接()
@@ -107,7 +107,7 @@ class 龍魂数据库:
         print(f"[龍魂数据库] 🟡 数据已更新: {{表名}} ({{影响行数}} 行)")
         return 影响行数
 
-    def 删除(自身, 表名: str, 条件: str, 参数: tuple):
+    def 删除(自身, 表名: str, 条件: str, 参数: tuple[Any, ...]):
         """🔴 删除数据 | Delete data"""
         if not 自身.连接:
             自身.连接()
@@ -126,7 +126,7 @@ class 龍魂数据库:
             自身.连接 = None
             print("[龍魂数据库] 🟢 数据库连接已关闭")
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取数据库统计 | Get database statistics"""
         return {
             "数据库路径": 自身.数据库路径,

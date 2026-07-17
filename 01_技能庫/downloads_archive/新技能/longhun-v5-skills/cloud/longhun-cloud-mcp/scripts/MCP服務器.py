@@ -81,7 +81,7 @@ class 三色審計器:
         )
         self.日誌器 = logging.getLogger("龍魂MCP")
 
-    def 記錄(self, 級別: 審計級別, 模塊: str, 消息: str, 詳情: Dict = None):
+    def 記錄(self, 級別: 審計級別, 模塊: str, 消息: str, 詳情: Dict[str, Any] = None):
         """記錄一條審計日誌"""
         時間戳 = datetime.now().isoformat()
         記錄項 = {
@@ -108,23 +108,23 @@ class 三色審計器:
         elif 級別 == 審計級別.致命:
             self.日誌器.critical(日誌消息)
 
-    def 信息(self, 模塊: str, 消息: str, 詳情: Dict = None):
+    def 信息(self, 模塊: str, 消息: str, 詳情: Dict[str, Any] = None):
         """記錄信息級日誌 🟢"""
         self.記錄(審計級別.信息, 模塊, 消息, 詳情)
 
-    def 警告(self, 模塊: str, 消息: str, 詳情: Dict = None):
+    def 警告(self, 模塊: str, 消息: str, 詳情: Dict[str, Any] = None):
         """記錄警告級日誌 🟡"""
         self.記錄(審計級別.警告, 模塊, 消息, 詳情)
 
-    def 錯誤(self, 模塊: str, 消息: str, 詳情: Dict = None):
+    def 錯誤(self, 模塊: str, 消息: str, 詳情: Dict[str, Any] = None):
         """記錄錯誤級日誌 🔴"""
         self.記錄(審計級別.錯誤, 模塊, 消息, 詳情)
 
-    def 致命(self, 模塊: str, 消息: str, 詳情: Dict = None):
+    def 致命(self, 模塊: str, 消息: str, 詳情: Dict[str, Any] = None):
         """記錄致命級日誌 💀"""
         self.記錄(審計級別.致命, 模塊, 消息, 詳情)
 
-    def 獲取報告(self, 限制: int = 100) -> Dict:
+    def 獲取報告(self, 限制: int = 100) -> Dict[str, Any]:
         """獲取審計報告"""
         return {
             "統計": self.統計,
@@ -178,7 +178,7 @@ class DNAT追溯器:
         數據 = f"{DNA}:{操作}:{datetime.now().isoformat()}:{服務配置['版本']}"
         return hashlib.sha256(數據.encode("utf-8")).hexdigest()[:16]
 
-    def 添加節點(self, 操作: str, 元數據: Dict = None) -> Dict:
+    def 添加節點(self, 操作: str, 元數據: Dict[str, Any] = None) -> Dict[str, Any]:
         """添加新的 DNA 追溯節點"""
         self.當前節點 += 1
         節點 = {
@@ -234,7 +234,7 @@ class 工具參數:
         self.必需 = 必需
         self.默認值 = 默認值
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "名稱": self.名稱,
             "類型": self.類型,
@@ -266,7 +266,7 @@ class 工具定義:
         self.調用次數 = 0
         self.DNA = f"{服務配置['DNA']}-TOOL-{名稱}"
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         return {
             "名稱": self.名稱,
             "描述": self.描述,
@@ -278,7 +278,7 @@ class 工具定義:
             "DNA": self.DNA,
         }
 
-    def to_mcp_schema(self) -> Dict:
+    def to_mcp_schema(self) -> Dict[str, Any]:
         """轉換為 MCP Schema 格式"""
         屬性 = {}
         必需列表 = []
@@ -335,7 +335,7 @@ class 技能註冊中心:
         """獲取工具定義"""
         return self.工具表.get(名稱)
 
-    def 列出工具(self, 分類: str = None) -> List[Dict]:
+    def 列出工具(self, 分類: str | None = None) -> List[Dict]:
         """列出所有工具"""
         工具列表 = []
         for 名稱, 工具 in self.工具表.items():
@@ -347,7 +347,7 @@ class 技能註冊中心:
         """獲取 MCP 格式的工具列表"""
         return [工具.to_mcp_schema() for 工具 in self.工具表.values()]
 
-    def 調用工具(self, 名稱: str, 參數: Dict = None) -> Dict:
+    def 調用工具(self, 名稱: str, 參數: Dict[str, Any] = None) -> Dict[str, Any]:
         """調用一個工具"""
         工具 = self.工具表.get(名稱)
         if not 工具:
@@ -388,7 +388,7 @@ class 技能註冊中心:
                 "耗時ms": 耗時,
             }
 
-    def 註冊技能(self, 技能ID: str, 元數據: Dict):
+    def 註冊技能(self, 技能ID: str, 元數據: Dict[str, Any]):
         """註冊一個龍魂 Skill"""
         self.技能表[技能ID] = {
             **元數據,
@@ -545,7 +545,7 @@ class Docker文件生成器:
             "java": self._java模板,
         }
 
-    def _python模板(self, 配置: Dict) -> str:
+    def _python模板(self, 配置: Dict[str, Any]) -> str:
         """Python 項目 Dockerfile 模板"""
         基礎鏡像 = 配置.get("基礎鏡像", "python:3.11-slim")
         工作目錄 = 配置.get("工作目錄", "/app")
@@ -596,7 +596,7 @@ LABEL version="{服務配置['版本']}"
 LABEL dna="{服務配置['DNA']}"
 """
 
-    def _node模板(self, 配置: Dict) -> str:
+    def _node模板(self, 配置: Dict[str, Any]) -> str:
         """Node.js 項目 Dockerfile 模板"""
         return f"""# 龍魂 Node.js 服務 Dockerfile
 FROM node:18-slim
@@ -618,7 +618,7 @@ CMD ["node", "{配置.get('入口', 'index.js')}"]
 LABEL dna="{服務配置['DNA']}"
 """
 
-    def _go模板(self, 配置: Dict) -> str:
+    def _go模板(self, 配置: Dict[str, Any]) -> str:
         """Go 項目 Dockerfile 模板"""
         return f"""# 龍魂 Go 服務 Dockerfile
 FROM golang:1.21-alpine AS builder
@@ -643,7 +643,7 @@ CMD ["./app"]
 LABEL dna="{服務配置['DNA']}"
 """
 
-    def _rust模板(self, 配置: Dict) -> str:
+    def _rust模板(self, 配置: Dict[str, Any]) -> str:
         """Rust 項目 Dockerfile 模板"""
         return f"""# 龍魂 Rust 服務 Dockerfile
 FROM rust:1.70-slim AS builder
@@ -666,7 +666,7 @@ CMD ["app"]
 LABEL dna="{服務配置['DNA']}"
 """
 
-    def _java模板(self, 配置: Dict) -> str:
+    def _java模板(self, 配置: Dict[str, Any]) -> str:
         """Java 項目 Dockerfile 模板"""
         return f"""# 龍魂 Java 服務 Dockerfile
 FROM eclipse-temurin:17-jdk-alpine AS builder
@@ -690,7 +690,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 LABEL dna="{服務配置['DNA']}"
 """
 
-    def 生成(self, 語言: str = "python", 配置: Dict = None) -> str:
+    def 生成(self, 語言: str = "python", 配置: Dict[str, Any] = None) -> str:
         """生成 Dockerfile"""
         配置 = 配置 or {}
         生成器 = self.模板庫.get(語言)
@@ -761,14 +761,14 @@ Docker生成器 = Docker文件生成器()
 class 配置管理器:
     """MCP 配置管理器"""
 
-    def __init__(self, 配置路徑: str = None):
+    def __init__(self, 配置路徑: str | None = None):
         self.配置路徑 = 配置路徑 or os.path.join(
             服務配置["技能目錄"], "..", "mcp_config.json"
         )
         self.運行時配置 = {}
         self.加載配置()
 
-    def 加載配置(self) -> Dict:
+    def 加載配置(self) -> Dict[str, Any]:
         """從文件加載配置"""
         if os.path.exists(self.配置路徑):
             try:
@@ -783,7 +783,7 @@ class 配置管理器:
             self.保存配置()
         return self.運行時配置
 
-    def _默認配置(self) -> Dict:
+    def _默認配置(self) -> Dict[str, Any]:
         """生成默認配置"""
         return {
             "服務名稱": 服務配置["服務名稱"],
@@ -825,7 +825,7 @@ class 配置管理器:
         self.運行時配置[鍵] = 值
         審計.信息("配置管理", f"配置已更新: {鍵}")
 
-    def 獲取全部(self) -> Dict:
+    def 獲取全部(self) -> Dict[str, Any]:
         """獲取全部配置"""
         return self.運行時配置.copy()
 
@@ -837,7 +837,7 @@ class 配置管理器:
 # ──────────────────────────────────────────────
 # 內建工具處理函數
 # ──────────────────────────────────────────────
-def 工具_執行技能(技能ID: str = "", 參數: Dict = None) -> Dict:
+def 工具_執行技能(技能ID: str = "", 參數: Dict[str, Any] = None) -> Dict[str, Any]:
     """執行龍魂技能"""
     參數 = 參數 or {}
     審計.信息("技能執行", f"執行技能: {技能ID}", 參數)
@@ -850,7 +850,7 @@ def 工具_執行技能(技能ID: str = "", 參數: Dict = None) -> Dict:
     }
 
 
-def 工具_查詢DNA(查詢: str = "") -> Dict:
+def 工具_查詢DNA(查詢: str = "") -> Dict[str, Any]:
     """查詢 DNA 鏈信息"""
     鏈 = 追溯器.獲取鏈()
     return {
@@ -863,7 +863,7 @@ def 工具_查詢DNA(查詢: str = "") -> Dict:
     }
 
 
-def 工具_獲取狀態() -> Dict:
+def 工具_獲取狀態() -> Dict[str, Any]:
     """獲取系統狀態"""
     return {
         "狀態": "運行中",
@@ -878,7 +878,7 @@ def 工具_獲取狀態() -> Dict:
     }
 
 
-def 工具_列出技能(分類: str = "", 類型: str = "") -> Dict:
+def 工具_列出技能(分類: str = "", 類型: str = "") -> Dict[str, Any]:
     """列出所有龍魂技能"""
     技能列表 = 註冊中心.發現技能()
     if 分類:
@@ -892,7 +892,7 @@ def 工具_列出技能(分類: str = "", 類型: str = "") -> Dict:
     }
 
 
-def 工具_生成Dockerfile(語言: str = "python", 項目配置: Dict = None) -> Dict:
+def 工具_生成Dockerfile(語言: str = "python", 項目配置: Dict[str, Any] = None) -> Dict[str, Any]:
     """自動生成 Dockerfile"""
     項目配置 = 項目配置 or {}
     try:
@@ -907,7 +907,7 @@ def 工具_生成Dockerfile(語言: str = "python", 項目配置: Dict = None) -
         return {"狀態": "錯誤", "錯誤": str(異常)}
 
 
-def 工具_生成Compose(服務列表: List[Dict] = None) -> Dict:
+def 工具_生成Compose(服務列表: List[Dict] = None) -> Dict[str, Any]:
     """自動生成 docker-compose.yml"""
     try:
         內容 = Docker生成器.生成Compose(服務列表)
@@ -920,7 +920,7 @@ def 工具_生成Compose(服務列表: List[Dict] = None) -> Dict:
         return {"狀態": "錯誤", "錯誤": str(異常)}
 
 
-def 工具_註冊工具(名稱: str = "", 描述: str = "", 參數定義: List[Dict] = None) -> Dict:
+def 工具_註冊工具(名稱: str = "", 描述: str = "", 參數定義: List[Dict] = None) -> Dict[str, Any]:
     """動態註冊一個 MCP 工具"""
     參數定義 = 參數定義 or []
     if not 名稱 or not 描述:
@@ -945,7 +945,7 @@ def 工具_註冊工具(名稱: str = "", 描述: str = "", 參數定義: List[D
     return {"狀態": "成功", "工具": 工具.to_dict()}
 
 
-def 工具_獲取審計日誌(限制: int = 100, 級別: str = "") -> Dict:
+def 工具_獲取審計日誌(限制: int = 100, 級別: str = "") -> Dict[str, Any]:
     """獲取三色審計日誌"""
     報告 = 審計.獲取報告(限制)
     if 級別:
@@ -953,7 +953,7 @@ def 工具_獲取審計日誌(限制: int = 100, 級別: str = "") -> Dict:
     return {"狀態": "成功", **報告}
 
 
-def 工具_健康檢查() -> Dict:
+def 工具_健康檢查() -> Dict[str, Any]:
     """MCP 服務健康檢查"""
     return {
         "狀態": "健康",
@@ -969,14 +969,14 @@ def 工具_健康檢查() -> Dict:
     }
 
 
-def 工具_調用MCP(工具名: str = "", 工具參數: Dict = None) -> Dict:
+def 工具_調用MCP(工具名: str = "", 工具參數: Dict[str, Any] = None) -> Dict[str, Any]:
     """調用已註冊的 MCP 工具"""
     if not 工具名:
         return {"狀態": "錯誤", "錯誤": "工具名不能為空"}
     return 註冊中心.調用工具(工具名, 工具參數 or {})
 
 
-def 工具_發現資源(前綴: str = "") -> Dict:
+def 工具_發現資源(前綴: str = "") -> Dict[str, Any]:
     """發現所有 MCP 資源"""
     資源列表 = []
     for URI, 資源 in 註冊中心.資源表.items():
@@ -1168,7 +1168,7 @@ class MCP服務器:
         class MCP請求處理器(BaseHTTPRequestHandler):
             """MCP HTTP 請求處理器"""
 
-            def _發送JSON(self, 數據: Dict, 狀態碼: int = 200):
+            def _發送JSON(self, 數據: Dict[str, Any], 狀態碼: int = 200):
                 """發送 JSON 響應"""
                 self.send_response(狀態碼)
                 self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -1177,7 +1177,7 @@ class MCP服務器:
                 self.end_headers()
                 self.wfile.write(json.dumps(數據, indent=2, ensure_ascii=False).encode("utf-8"))
 
-            def _讀取JSON(self) -> Dict:
+            def _讀取JSON(self) -> Dict[str, Any]:
                 """讀取請求 JSON 體"""
                 長度 = int(self.headers.get("Content-Length", 0))
                 if 長度 > 0:
@@ -1185,7 +1185,7 @@ class MCP服務器:
                     return json.loads(數據)
                 return {}
 
-            def _解析查詢(self) -> Dict:
+            def _解析查詢(self) -> Dict[str, Any]:
                 """解析 URL 查詢參數"""
                 解析 = urllib.parse.urlparse(self.path)
                 return dict(urllib.parse.parse_qsl(解析.query))

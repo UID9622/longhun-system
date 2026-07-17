@@ -31,7 +31,7 @@ import threading
 import schedule
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Callable
+from typing import Dict, List, Optional, Tuple, Callable, Any
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 import logging
@@ -117,8 +117,8 @@ class BackupSnapshot:
     file_count: int
     checksum: str
     parent_id: Optional[str] = None  # 增量备份的父快照
-    manifest: Dict = field(default_factory=dict)
-    metadata: Dict = field(default_factory=dict)
+    manifest: Dict[str, Any] = field(default_factory=dict)
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -642,7 +642,7 @@ class BackupManager:
         """获取指定快照"""
         return self.snapshots.get(snapshot_id)
 
-    def verify_backup(self, snapshot_id: str) -> Dict:
+    def verify_backup(self, snapshot_id: str) -> Dict[str, Any]:
         """
         验证备份完整性
         
@@ -745,7 +745,7 @@ class BackupManager:
         self.logger.info(f"[清理] 已删除 {len(deleted)} 个过期备份")
         return deleted
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         """获取备份统计信息"""
         total_size = sum(s.size_bytes for s in self.snapshots.values())
         type_counts = {}

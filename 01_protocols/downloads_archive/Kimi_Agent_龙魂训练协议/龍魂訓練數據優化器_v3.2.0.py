@@ -201,7 +201,7 @@ class UID9622語氣評分器:
         直接 = sum(1 for w in self.UID9622直接詞 if w in 內容)
         return min(1.0, 0.4 + 語氣 * 0.05 + 拒絕 * 0.15 + 直接 * 0.05)
 
-    def 評估準確性(self, 內容: str, 元數據: dict = None) -> float:
+    def 評估準確性(self, 內容: str, 元數據: dict[str, Any] = None) -> float:
         if not 內容 or len(內容.strip()) < 5:
             return 0.3
         評分 = 0.5
@@ -227,7 +227,7 @@ class UID9622語氣評分器:
         負向 = sum(1 for w in self.惡意內容詞 if w in 內容)
         return max(0.0, 1.0 - 負向 * 0.3)
 
-    def 計算質量評分(self, 數據ID: str, 內容: str, 元數據: dict = None) -> 質量評分結果:
+    def 計算質量評分(self, 數據ID: str, 內容: str, 元數據: dict[str, Any] = None) -> 質量評分結果:
         邏輯 = self.評估邏輯清晰度(內容)
         語氣 = self.評估語氣一致性(內容)
         準確 = self.評估準確性(內容, 元數據)
@@ -260,7 +260,7 @@ class 內容主權閘門:
     def __init__(self):
         self._協議 = ContentSovereigntyProtocol() if ContentSovereigntyProtocol else None
 
-    def 檢查(self, 內容: str, 嚴格模式: bool = False) -> dict:
+    def 檢查(self, 內容: str, 嚴格模式: bool = False) -> dict[str, Any]:
         # 訓練數據階段使用底線檢查；嚴格模式才調用完整協議（用於最終公開內容）
         if 嚴格模式 and self._協議:
             return self._協議.validate_content_against_protocol(內容)
@@ -301,7 +301,7 @@ class 真實數據收集器:
         哈希 = sm3_哈希(種子.encode("utf-8")).hex()[:8]
         return f"#龍芯⚡️{日期}-{來源.upper()}-{哈希}"
 
-    def _讀取jsonl(self, 路徑: Path) -> list:
+    def _讀取jsonl(self, 路徑: Path) -> list[Any]:
         if not 路徑.exists():
             return []
         結果 = []
@@ -419,7 +419,7 @@ class DNA追溯治理系統:
         return f"#龍芯⚡️{日期}-{項目名稱}-{模塊名稱}-{版本標識}-{哈希值}"
 
     def 註冊追溯條目(self, DNA標識: str, 項目名稱: str, 模塊名稱: str,
-                      版本標識: str, 操作類型: str, 治理標籤: dict = None) -> DNA追溯條目:
+                      版本標識: str, 操作類型: str, 治理標籤: dict[str, Any] = None) -> DNA追溯條目:
         條目 = DNA追溯條目(
             DNA標識=DNA標識, 時間戳=datetime.now(timezone.utc).isoformat(),
             項目名稱=項目名稱, 模塊名稱=模塊名稱,
@@ -499,7 +499,7 @@ class 訓練數據優化器:
         self._輸出目錄 = HOME / "longhun-system" / "data" / "training" / "v3.2"
         self._輸出目錄.mkdir(parents=True, exist_ok=True)
 
-    def 執行完整流程(self, 使用測試數據: bool = False, 加密輸出: bool = False) -> dict:
+    def 執行完整流程(self, 使用測試數據: bool = False, 加密輸出: bool = False) -> dict[str, Any]:
         日期 = datetime.now(timezone.utc).strftime("%Y%m%d")
         if 使用測試數據:
             數據集 = [

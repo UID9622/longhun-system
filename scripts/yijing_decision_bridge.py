@@ -52,7 +52,7 @@ def yijing_to_decision(
     timestamp: Optional[float] = None,
     n: Optional[int] = None,
     risk_weights: Optional[List[float]] = None,
-    si_weights: Optional[tuple] = None,
+    si_weights: Optional[tuple[Any, ...]] = None,
     score_thresholds: Optional[Dict[str, float]] = None
 ) -> Dict[str, Any]:
     """

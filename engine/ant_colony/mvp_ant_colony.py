@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 极简MVP蚁群 v1.0 · MinimalViableColony
 投喂挑战 P0-A1 落地：工蚁+侦察蚁 + 招募素+足迹素 + L1-L3
@@ -203,7 +204,7 @@ class MVPColony:
         self.workers: Dict[str, WorkerAnt] = {}
         self.scouts: Dict[str, ScoutAnt] = {}
         self.ph = PheromoneSystem()
-        self.task_queue: List[dict] = []
+        self.task_queue: List[dict[str, Any]] = []
         
         # 注册蚂蚁
         for ant_id, ant in MVP_ANTS.items():
@@ -215,7 +216,7 @@ class MVPColony:
         self._running = False
         self._thread: Optional[threading.Thread] = None
         self._tick = 0
-        self._active_tasks: List[dict] = []
+        self._active_tasks: List[dict[str, Any]] = []
 
     # ── 主循环 ──
 

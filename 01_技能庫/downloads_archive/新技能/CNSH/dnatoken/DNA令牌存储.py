@@ -20,7 +20,7 @@ import sqlite3
 import struct
 import threading
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 __版本__ = "v1.0"
 __dna__ = "#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌存储-v1.0"
@@ -211,7 +211,7 @@ class 加密存儲引擎:
     使用SM4國密算法加密存儲敏感令牌數據
     """
 
-    def __init__(自身, 密鑰路徑: str = None):
+    def __init__(自身, 密鑰路徑: str | None = None):
         自身.密鑰路徑 = 密鑰路徑 or os.path.expanduser("~/.cns/sm4_key.bin")
         自身.SM4 = SM4密碼器()
         自身._初始化密鑰()
@@ -250,7 +250,7 @@ class DNA令牌存儲管理器:
     龍魂DNA令牌的SQLite加密存儲與生命周期管理
     """
 
-    def __init__(自身, 數據庫路徑: str = None, 加密密鑰路徑: str = None):
+    def __init__(自身, 數據庫路徑: str | None = None, 加密密鑰路徑: str | None = None):
         """
         初始化令牌存儲管理器
         :param 數據庫路徑: SQLite數據庫文件路徑
@@ -327,7 +327,7 @@ class DNA令牌存儲管理器:
     # 令牌CRUD操作 | Token CRUD Operations
     # ═══════════════════════════════════════════════════════════════
 
-    def 存儲令牌(自身, 令牌數據: Dict) -> bool:
+    def 存儲令牌(自身, 令牌數據: Dict[str, Any]) -> bool:
         """
         🟢 存儲新令牌 | Store a new token
         :param 令牌數據: 完整的令牌字典
@@ -495,7 +495,7 @@ class DNA令牌存儲管理器:
     # 內部方法 | Internal Methods
     # ═══════════════════════════════════════════════════════════════
 
-    def _行轉字典(自身, 行) -> Dict:
+    def _行轉字典(自身, 行) -> Dict[str, Any]:
         """🔴 將數據庫行轉為字典 | Convert database row to dict"""
         結果 = dict(行)
 
@@ -538,7 +538,7 @@ class DNA令牌存儲管理器:
     # 統計與維護 | Statistics and Maintenance
     # ═══════════════════════════════════════════════════════════════
 
-    def 獲取統計(自身) -> Dict:
+    def 獲取統計(自身) -> Dict[str, Any]:
         """🟡 獲取令牌庫統計 | Get storage statistics"""
         with sqlite3.connect(自身.數據庫路徑) as 連接:
             游標 = 連接.cursor()
@@ -574,7 +574,7 @@ class DNA令牌存儲管理器:
                 '待清理過期': 待清理數
             }
 
-    def 獲取日誌(自身, 令牌ID: str = None, 數量: int = 50) -> List[Dict]:
+    def 獲取日誌(自身, 令牌ID: str | None = None, 數量: int = 50) -> List[Dict]:
         """🟡 獲取訪問日誌 | Get access logs"""
         with sqlite3.connect(自身.數據庫路徑) as 連接:
             連接.row_factory = sqlite3.Row

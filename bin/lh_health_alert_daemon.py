@@ -167,7 +167,7 @@ class HealthAlertDaemon:
     """健康检查+告警自动化"""
 
     def __init__(self):
-        self.history: List[dict] = []
+        self.history: List[dict[str, Any]] = []
         self.last_check: Optional[datetime] = None
         self._load_state()
         self.bark_key = self._load_bark_key()

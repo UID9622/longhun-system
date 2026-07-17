@@ -60,7 +60,7 @@ class Parser:
         """检查当前Token类型是否匹配"""
         return self.当前标记().类型 in 类型列表
 
-    def 消费(self, 期望类型: TokenType = None, 期望值: str = None) -> Token:
+    def 消费(self, 期望类型: TokenType = None, 期望值: str | None = None) -> Token:
         """消费当前Token"""
         标记 = self.当前标记()
         if 期望类型 and 标记.类型 != 期望类型:
@@ -720,7 +720,7 @@ class Parser:
         if self.匹配(TokenType.SEMICOLON):
             self.消费(TokenType.SEMICOLON)
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")

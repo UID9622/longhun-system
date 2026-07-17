@@ -109,7 +109,7 @@ class 君子协议:
             print(f"[君子协议] 🟢 非商业使用: {{使用场景}}")
         return 是否商业
 
-    def 获取统计(自身) -> dict:
+    def 获取统计(自身) -> dict[str, Any]:
         """🟡 获取授权统计 | Get authorization statistics"""
         return {
             "协议版本": f"CC BY-NC-SA {{自身.协议版本}}",

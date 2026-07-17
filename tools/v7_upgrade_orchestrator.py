@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 🐉 龍魂 v7 主干升级编排器
 
@@ -195,7 +196,7 @@ def import_new_files():
     return copied
 
 
-def update_cnsh_link(report: dict):
+def update_cnsh_link(report: dict[str, Any]):
     old_target = None
     if CNSH_LINK.is_symlink():
         old_target = os.readlink(str(CNSH_LINK))
@@ -210,7 +211,7 @@ def update_cnsh_link(report: dict):
     log(f"CNSH 软链接更新: {old_target} -> {new_target}")
 
 
-def sync_skills(report: dict):
+def sync_skills(report: dict[str, Any]):
     skills_dir = V7_ROOT / "skills"
     installed, skipped = [], []
     for scope in ("local", "cloud", "protocol"):
@@ -232,7 +233,7 @@ def sync_skills(report: dict):
     log(f"同步技能: 新增 {len(installed)}, 跳过 {len(skipped)}")
 
 
-def update_shell_rc(report: dict):
+def update_shell_rc(report: dict[str, Any]):
     old_path = "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 6"
     new_path = str(V7_ROOT)
     for rc in (Path.home() / ".zshrc", Path.home() / ".bashrc"):
@@ -256,7 +257,7 @@ def update_shell_rc(report: dict):
     report["shell_rc_updated"] = True
 
 
-def run_memory_bootstrap(report: dict):
+def run_memory_bootstrap(report: dict[str, Any]):
     script = None
     for cand in MEMORY_SCRIPT_CANDIDATES:
         if cand.exists():
@@ -276,7 +277,7 @@ def run_memory_bootstrap(report: dict):
         log(f"记忆启动器异常: {e}")
 
 
-def write_report(report: dict):
+def write_report(report: dict[str, Any]):
     lines = [
         "# 🐉 龍魂 v7 主干升级报告",
         "",

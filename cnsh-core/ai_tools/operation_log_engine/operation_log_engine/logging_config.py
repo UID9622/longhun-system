@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
 # 2 精神层 Spirit        : Steve Jobs
@@ -24,7 +25,7 @@ import logging
 import logging.handlers
 import sys
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
 from operation_log_engine.config import Config
 
@@ -193,7 +194,7 @@ def log_sync_event(event_type: str, status: str, message: str) -> None:
         logger_sync.info(log_msg)
 
 
-def log_verification(operation_id: str, verdict: str, layers_status: dict) -> None:
+def log_verification(operation_id: str, verdict: str, layers_status: dict[str, Any]) -> None:
     """
     记录验证结果。
 

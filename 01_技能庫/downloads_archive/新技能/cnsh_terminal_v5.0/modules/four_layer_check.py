@@ -11,7 +11,7 @@ L1 字符层 · L2 关键字层 · L3 语法层 · L4 语义层
 
 import re
 import hashlib
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -34,7 +34,7 @@ class 检查结果:
     警告列表: List[str] = field(default_factory=list)
     信息列表: List[str] = field(default_factory=list)
 
-    def 转字典(self) -> Dict:
+    def 转字典(self) -> Dict[str, Any]:
         return {
             "层": self.层,
             "通过": self.通过,
@@ -373,7 +373,7 @@ class CNSH四层检查:
 
     # ========== 综合检查 ==========
 
-    def 四层检查(self, 代码: str) -> Dict:
+    def 四层检查(self, 代码: str) -> Dict[str, Any]:
         """
         执行完整的四层检查
         返回综合结果
@@ -422,7 +422,7 @@ class CNSH四层检查:
 
     # ========== 审计 ==========
 
-    def 获取审计结果(self) -> Dict:
+    def 获取审计结果(self) -> Dict[str, Any]:
         """获取审计结果"""
         错误数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "错误")
         警告数 = sum(1 for 日志 in self.审计日志 if 日志["级别"] == "警告")
@@ -441,7 +441,7 @@ class CNSH四层检查:
 
 # ========== 便捷函数 ==========
 
-def 快速四层检查(代码: str) -> Dict:
+def 快速四层检查(代码: str) -> Dict[str, Any]:
     """快速执行四层检查"""
     检查器 = CNSH四层检查()
     return 检查器.四层检查(代码)

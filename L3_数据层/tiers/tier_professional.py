@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 龍魂DNA记忆库 · 专业人士适配器（L2·专业术语）
 
@@ -16,7 +17,7 @@ class TierProfessional:
 
     @staticmethod
     def adapt(content_professional: str, content_common: str,
-              sources: list = None) -> str:
+              sources: list[Any] = None) -> str:
         base = content_professional or content_common
         if sources:
             cited = "\n".join(f"  · 来源: {s}" for s in sources[:5])

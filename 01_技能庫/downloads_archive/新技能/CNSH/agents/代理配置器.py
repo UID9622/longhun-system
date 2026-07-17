@@ -121,7 +121,7 @@ class 代理配置器:
                   f"能力{{len(角色.能力列表)}} | 约束{{len(角色.行为约束)}}{{当前}}")
         print("=" * 50)
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取统计 | Get statistics"""
         return {
             "角色总数": len(自身.角色字典),

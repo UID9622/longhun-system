@@ -368,7 +368,7 @@ class 龍魂多模态感知中枢:
                 层.名称 = "语音合成兼容层"
                 层.语音角色 = "zh-CN-XiaoxiaoNeural"
 
-            async def 文字转语音(层, 文本: str, 输出路径: str = None, 语速: float = 1.0) -> 语音表达结果:
+            async def 文字转语音(层, 文本: str, 输出路径: str | None = None, 语速: float = 1.0) -> 语音表达结果:
                 return 语音表达结果(
                     音频路径="",
                     音频时长=0.0,
@@ -612,7 +612,7 @@ class 龍魂多模态感知中枢:
     # Processors —— specific handlers for four perception types
     # =========================================================================
 
-    def _处理图像(self, 路径: str, 语言: str) -> Dict:
+    def _处理图像(self, 路径: str, 语言: str) -> Dict[str, Any]:
         """
         处理图像输入——调用图像识别器进行OCR
         Process image input —— call image recognizer for OCR
@@ -631,7 +631,7 @@ class 龍魂多模态感知中枢:
             "原始数据": None
         }
 
-    def _处理语音(self, 路径: str, 语言: str) -> Dict:
+    def _处理语音(self, 路径: str, 语言: str) -> Dict[str, Any]:
         """
         处理语音输入——调用语音识别器进行STT
         Process voice input —— call speech recognizer for STT
@@ -650,7 +650,7 @@ class 龍魂多模态感知中枢:
             "原始数据": None
         }
 
-    def _处理视频(self, 路径: str, 语言: str) -> Dict:
+    def _处理视频(self, 路径: str, 语言: str) -> Dict[str, Any]:
         """
         处理视频输入——将视频拆分为图像帧+音频分别处理
         Process video input —— split into image frames + audio for separate processing
@@ -791,7 +791,7 @@ class 龍魂多模态感知中枢:
             except Exception:
                 pass  # 清理失败不影响主流程
 
-    def _处理文字(self, 路径: str) -> Dict:
+    def _处理文字(self, 路径: str) -> Dict[str, Any]:
         """
         处理纯文字文件——直接读取内容
         Process plain text file —— read content directly

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 龍魂统一监管API · 核心服务层
 DNA: #龍芯⚡️2026-07-12-REGULATORY-SERVICE-v2.0 · 三层透明模型
@@ -397,7 +398,7 @@ def scan_directory(root_path: str, max_files: int = 10000) -> list[Any]:
     return results
 
 
-def index_document(file_path: str) -> Optional[dict]:
+def index_document(file_path: str) -> Optional[dict[str, Any]]:
     """索引单个文档到注册表。v2: +主权分级。"""
     if not should_index(file_path):
         return None

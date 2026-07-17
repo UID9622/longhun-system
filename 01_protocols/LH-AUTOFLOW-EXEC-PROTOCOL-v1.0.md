@@ -28,7 +28,7 @@
 |:---|:---|:---|
 | `LH-CREATOR-PROTECTION-v1.0.md` | 法律底座 | 原创保护·署名强制·去来源追责 |
 | **`LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md`** (本文) | **操作执行层** | **一句话自动流·人格链路·闸口审计** |
-| `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` | 治理监督层 | 人格治理·签章规则·输出声明 |
+| `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` (文件正确版本号) | 治理监督层 | 20人格治理·签章规则·输出声明 |
 
 ---
 
@@ -388,7 +388,7 @@ pytest tests/test_autoflow.py -v -k "test_intent"
 | `bin/hetu_luoshu_dna.py` | DNA 基于河图洛书不动点算法生成 |
 | `deploy/scripts/health_check.sh` | `lh_autoflow.py --health` 可被监控调用 |
 | `01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md` | 输出时可自动挂载原创声明模板 |
-| `01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` | 签章规则对齐白皮书第十四章 |
+| `01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` | 签章规则对齐20人格治理白皮书第十四章 |
 
 ---
 

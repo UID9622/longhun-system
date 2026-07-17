@@ -90,7 +90,7 @@ __all__ = [
 ]
 
 
-def 获取版本信息() -> dict:
+def 获取版本信息() -> dict[str, Any]:
     """获取包版本信息 / Get package version info"""
     return {
         "版本": __version__,
@@ -102,7 +102,7 @@ def 获取版本信息() -> dict:
     }
 
 
-def 快速开始(模式: str = "模拟") -> tuple:
+def 快速开始(模式: str = "模拟") -> tuple[Any, ...]:
     """
     快速开始 — 创建管理器和示例令牌 / Quick start
     

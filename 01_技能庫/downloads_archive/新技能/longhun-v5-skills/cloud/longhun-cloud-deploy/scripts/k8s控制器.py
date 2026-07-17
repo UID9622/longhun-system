@@ -52,7 +52,7 @@ class K8s資源狀態:
     可用副本: int = 0
     運行狀態: str = ""
     創建時間: str = ""
-    標籤: Dict = field(default_factory=dict)
+    標籤: Dict[str, Any] = field(default_factory=dict)
     事件: List[str] = field(default_factory=list)
     DNA追溯: str = DNA標識
 
@@ -95,7 +95,7 @@ class 龍魂K8s控制器:
     # 核心命令執行
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def _執行(self, 參數: List[str], 超時: int = 60) -> Dict:
+    def _執行(self, 參數: List[str], 超時: int = 60) -> Dict[str, Any]:
         """執行 kubectl 命令"""
         命令 = self.基礎命令 + 參數
         try:
@@ -118,7 +118,7 @@ class 龍魂K8s控制器:
     # 命名空間管理
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def 創建命名空間(self, 名稱: str = "", 標籤: Dict = None) -> Dict:
+    def 創建命名空間(self, 名稱: str = "", 標籤: Dict[str, Any] = None) -> Dict[str, Any]:
         """創建命名空間"""
         名稱 = 名稱 or self.命名空間
         標籤 = 標籤 or {"app.kubernetes.io/managed-by": "longhun-deploy"}
@@ -147,8 +147,8 @@ class 龍魂K8s控制器:
 
     def 創建部署(self, 名稱: str, 鏡像: str, 版本標籤: str = "v1",
                  副本數: int = 3, 端口: int = 8080,
-                 資源限制: Dict = None, 環境變量: Dict = None,
-                 健康檢查路徑: str = "/health") -> Dict:
+                 資源限制: Dict[str, Any] = None, 環境變量: Dict[str, Any] = None,
+                 健康檢查路徑: str = "/health") -> Dict[str, Any]:
         """創建 Deployment 資源"""
 
         資源限制 = 資源限制 or {"cpu": "500m", "memory": "512Mi"}
@@ -213,7 +213,7 @@ class 龍魂K8s控制器:
 
         return self._應用清單(清單, f"Deployment/{名稱}")
 
-    def 更新鏡像(self, 部署名: str, 新鏡像: str) -> Dict:
+    def 更新鏡像(self, 部署名: str, 新鏡像: str) -> Dict[str, Any]:
         """更新 Deployment 鏡像"""
         結果 = self._執行([
             "set", "image", f"deployment/{部署名}",
@@ -229,7 +229,7 @@ class 龍魂K8s控制器:
             self.日誌.error(f"{阻塞風險} 鏡像更新失敗: {結果['stderr']}")
             return {"狀態": "failed", "錯誤": 結果["stderr"]}
 
-    def 縮放副本(self, 部署名: str, 副本數: int) -> Dict:
+    def 縮放副本(self, 部署名: str, 副本數: int) -> Dict[str, Any]:
         """縮放 Deployment 副本數"""
         結果 = self._執行([
             "scale", "deployment", 部署名,
@@ -293,8 +293,8 @@ class 龍魂K8s控制器:
     # Service 管理
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def 創建服務(self, 名稱: str, 選擇器: Dict, 端口映射: List[Dict],
-                 類型: str = "ClusterIP") -> Dict:
+    def 創建服務(self, 名稱: str, 選擇器: Dict[str, Any], 端口映射: List[Dict],
+                 類型: str = "ClusterIP") -> Dict[str, Any]:
         """創建 Service 資源"""
         清單 = {
             "apiVersion": "v1",
@@ -312,7 +312,7 @@ class 龍魂K8s控制器:
         }
         return self._應用清單(清單, f"Service/{名稱}")
 
-    def 更新服務選擇器(self, 服務名: str, 新選擇器: Dict) -> Dict:
+    def 更新服務選擇器(self, 服務名: str, 新選擇器: Dict[str, Any]) -> Dict[str, Any]:
         """更新 Service 的標籤選擇器（用於藍綠切換）"""
         選擇器JSON = json.dumps({"spec": {"selector": 新選擇器}})
 
@@ -334,7 +334,7 @@ class 龍魂K8s控制器:
     # ConfigMap / Secret 管理
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def 創建配置映射(self, 名稱: str, 數據: Dict) -> Dict:
+    def 創建配置映射(self, 名稱: str, 數據: Dict[str, Any]) -> Dict[str, Any]:
         """創建 ConfigMap"""
         清單 = {
             "apiVersion": "v1",
@@ -348,7 +348,7 @@ class 龍魂K8s控制器:
         }
         return self._應用清單(清單, f"ConfigMap/{名稱}")
 
-    def 創建密鑰(self, 名稱: str, 字符串數據: Dict) -> Dict:
+    def 創建密鑰(self, 名稱: str, 字符串數據: Dict[str, Any]) -> Dict[str, Any]:
         """創建 Secret"""
         import base64
         編碼數據 = {
@@ -374,7 +374,7 @@ class 龍魂K8s控制器:
     # ═══════════════════════════════════════════════════════════════════════════
 
     def 創建HPA(self, 部署名: str, 最小副本: int = 2, 最大副本: int = 10,
-                CPU目標: int = 70, 內存目標: int = 80) -> Dict:
+                CPU目標: int = 70, 內存目標: int = 80) -> Dict[str, Any]:
         """創建 HorizontalPodAutoscaler"""
         清單 = {
             "apiVersion": "autoscaling/v2",
@@ -423,7 +423,7 @@ class 龍魂K8s控制器:
     # ═══════════════════════════════════════════════════════════════════════════
 
     def 創建入口(self, 名稱: str, 主機: str, 服務名: str,
-                 服務端口: int = 80, 路徑: str = "/") -> Dict:
+                 服務端口: int = 80, 路徑: str = "/") -> Dict[str, Any]:
         """創建 Ingress 資源"""
         清單 = {
             "apiVersion": "networking.k8s.io/v1",
@@ -460,7 +460,7 @@ class 龍魂K8s控制器:
     # 藍綠部署支持
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def 獲取藍綠狀態(self, 應用名: str) -> Dict:
+    def 獲取藍綠狀態(self, 應用名: str) -> Dict[str, Any]:
         """獲取藍綠雙環境狀態"""
         狀態 = {"blue": None, "green": None, "active": "unknown"}
 
@@ -496,7 +496,7 @@ class 龍魂K8s控制器:
 
         return 狀態
 
-    def 執行藍綠切換(self, 應用名: str, 目標版本: str = "green") -> Dict:
+    def 執行藍綠切換(self, 應用名: str, 目標版本: str = "green") -> Dict[str, Any]:
         """執行藍綠環境切換"""
         self.日誌.info(f"{龍印標記} 藍綠切換: {應用名} → {目標版本}")
 
@@ -537,7 +537,7 @@ class 龍魂K8s控制器:
     # 輔助方法
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def _應用清單(self, 清單: Dict, 描述: str) -> Dict:
+    def _應用清單(self, 清單: Dict[str, Any], 描述: str) -> Dict[str, Any]:
         """應用 K8s 清單"""
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as 臨時文件:
             json.dump(清單, 臨時文件)
@@ -555,7 +555,7 @@ class 龍魂K8s控制器:
             os.unlink(臨時路徑)
 
     def 獲取日誌(self, 資源名: str, 資源類型: str = "deployment",
-                 行數: int = 100, 跟隨: bool = False) -> Dict:
+                 行數: int = 100, 跟隨: bool = False) -> Dict[str, Any]:
         """獲取資源日誌"""
         命令 = ["logs", f"{資源類型}/{資源名}", "-n", self.命名空間, "--tail", str(行數)]
         if 跟隨:
@@ -578,7 +578,7 @@ class 龍魂K8s控制器:
             return 結果["stdout"].strip().split("\n")
         return []
 
-    def 刪除資源(self, 名稱: str, 資源類型: str = "deployment") -> Dict:
+    def 刪除資源(self, 名稱: str, 資源類型: str = "deployment") -> Dict[str, Any]:
         """刪除 K8s 資源"""
         結果 = self._執行(["delete", 資源類型, 名稱, "-n", self.命名空間])
         if 結果["返回碼"] == 0:

@@ -1255,7 +1255,7 @@ class 國際兜底引擎:
                 日誌.info(f"🟢 Tesseract路徑 / Path: {路徑}")
                 break
     
-    def 識別(self, 圖像數組: np.ndarray, 語言: str = None) -> 識別結果:
+    def 識別(self, 圖像數組: np.ndarray, 語言: str | None = None) -> 識別結果:
         """
         🟡 使用Tesseract進行OCR識別 / OCR recognition using Tesseract
         
@@ -1540,7 +1540,7 @@ class 中文字符識別器:
             引擎來源="龍瞳-模板匹配"
         )
     
-    def _計算匹配分數(self, 特徵: Dict, 模板: Dict) -> float:
+    def _計算匹配分數(self, 特徵: Dict[str, Any], 模板: Dict[str, Any]) -> float:
         """計算特徵與模板的匹配分數 / Calculate feature-template match score"""
         分數 = 0.0
         權重 = 0.0

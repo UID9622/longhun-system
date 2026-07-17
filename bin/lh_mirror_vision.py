@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║       龍魂 · 镜像视界跨镜接力引擎 v1.0                         ║
@@ -105,8 +106,8 @@ class MirrorVision:
     def __init__(self):
         self.cameras: Dict[str, CameraNode] = {}
         self.global_targets: Dict[str, Target] = {}
-        self.mirror_space: Dict[str, dict] = {}
-        self.handoff_log: List[dict] = []
+        self.mirror_space: Dict[str, dict[str, Any]] = {}
+        self.handoff_log: List[dict[str, Any]] = []
         self._init_time = time.time()
 
         # 蚁群参数
@@ -131,7 +132,7 @@ class MirrorVision:
         self.cameras[node_id] = cam
         return cam
 
-    def list_cameras(self) -> List[dict]:
+    def list_cameras(self) -> List[dict[str, Any]]:
         return [{"id": c.node_id, "pos": c.position, "fov": c.fov_deg,
                  "range": c.range_m, "targets": len(c.current_targets),
                  "hw": c.hardware, "status": c.status}

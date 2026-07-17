@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 Task 5: 批量导入到 Notion 数据库
 """
@@ -28,7 +29,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-def create_page(db_id: str, title: str, properties: dict) -> str:
+def create_page(db_id: str, title: str, properties: dict[str, Any]) -> str:
     """在数据库中创建页面"""
     url = f"https://api.notion.com/v1/pages"
     payload = {

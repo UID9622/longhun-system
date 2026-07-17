@@ -11,7 +11,7 @@ import json
 import hashlib
 import uuid
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 from pathlib import Path
 import threading
@@ -43,7 +43,7 @@ class DNAFeeCalculator:
     }
     
     @staticmethod
-    def calculate(amount: float, currency: str) -> Dict:
+    def calculate(amount: float, currency: str) -> Dict[str, Any]:
         """计算DNA费用"""
         dna_fee = DNAFeeCalculator.DNA_FEES.get(currency, 0.001)
         
@@ -86,7 +86,7 @@ class DNAStubManager:
         self.maintenance_fund += fee
         return stub_id
     
-    def get_maintenance_stats(self) -> Dict:
+    def get_maintenance_stats(self) -> Dict[str, Any]:
         """获取维护统计"""
         return {
             'total_stubs': len(self.stubs),
@@ -140,7 +140,7 @@ class XPayCore:
     def get_transaction_history(self):
         return self.transaction_history
     
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         return {
             'total_transactions': len(self.transaction_history),
             'total_amount': sum(t['amount'] for t in self.transaction_history),
@@ -195,7 +195,7 @@ class BatchPaymentProcessor:
         
         return True, batch_id
     
-    def get_batch_status(self, batch_id: str) -> Dict:
+    def get_batch_status(self, batch_id: str) -> Dict[str, Any]:
         """获取批次状态"""
         batch = self.batches.get(batch_id, {})
         return {
@@ -218,7 +218,7 @@ class Dashboard:
         self.xpay_core = xpay_core
         self.dna_manager = dna_manager
     
-    def get_realtime_dashboard(self) -> Dict:
+    def get_realtime_dashboard(self) -> Dict[str, Any]:
         """获取实时仪表板"""
         xpay_stats = self.xpay_core.get_stats()
         dna_stats = self.dna_manager.get_maintenance_stats()
@@ -255,7 +255,7 @@ class LongHunEcosystem:
         self.batch_processor = BatchPaymentProcessor(self.xpay_core)
         self.dashboard = Dashboard(self.xpay_core, self.dna_manager)
     
-    def create_payment_with_dna(self, amount: float, currency: str, sender_id: str, recipient_id: str, memo: str = "") -> Dict:
+    def create_payment_with_dna(self, amount: float, currency: str, sender_id: str, recipient_id: str, memo: str = "") -> Dict[str, Any]:
         """创建支付并生成DNA"""
         
         # 计算DNA费用
@@ -293,7 +293,7 @@ class LongHunEcosystem:
             'created_at': tx['created_at']
         }
     
-    def get_ecosystem_stats(self) -> Dict:
+    def get_ecosystem_stats(self) -> Dict[str, Any]:
         """获取生态统计"""
         return {
             'timestamp': datetime.now().isoformat(),

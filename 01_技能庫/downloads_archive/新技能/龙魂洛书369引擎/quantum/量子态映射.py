@@ -26,7 +26,7 @@
 
 import numpy as np
 import random
-from typing import List, Tuple, Dict, Callable, Optional
+from typing import List, Tuple, Dict, Callable, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 
@@ -34,7 +34,7 @@ from enum import Enum
 # 全局常量与工具函数
 # ═══════════════════════════════════════════════════════════
 
-不动点集: set = {3, 6, 9}
+不动点集: set[str] = {3, 6, 9}
 """369不动点集 — 特斯神圣数集 🟢"""
 
 基矢标签: List[str] = ['|3⟩', '|6⟩', '|9⟩']
@@ -304,7 +304,7 @@ class 测量框架:
         self.历史记录: List[Dict] = []
         print(f"🟢 测量框架「{名称}」初始化完成")
 
-    def 执行测量(self, 量子态实例: 量子态, 决策标签: str = "") -> Dict:
+    def 执行测量(self, 量子态实例: 量子态, 决策标签: str = "") -> Dict[str, Any]:
         """
         执行一次完整的测量-坍缩过程
         
@@ -420,7 +420,7 @@ class 易经变爻模拟器:
         self.起卦历史: List[Dict] = []
         print("🟢 易经变爻模拟器初始化完成")
 
-    def 起卦(self) -> Dict:
+    def 起卦(self) -> Dict[str, Any]:
         """
         模拟易经起卦过程 — 对应量子态制备
         
@@ -441,7 +441,7 @@ class 易经变爻模拟器:
         }
         return 卦象
 
-    def 变爻(self, 卦象: Dict) -> Dict:
+    def 变爻(self, 卦象: Dict[str, Any]) -> Dict[str, Any]:
         """
         模拟变爻过程 — 对应量子测量坍缩
         
@@ -534,7 +534,7 @@ class 决策稳定性分析器:
         self.分析历史: List[Dict] = []
         print("🟢 决策稳定性分析器初始化完成")
 
-    def 分析稳定性(self, 量子态实例: 量子态, 测量次数: int = 1000) -> Dict:
+    def 分析稳定性(self, 量子态实例: 量子态, 测量次数: int = 1000) -> Dict[str, Any]:
         """
         分析给定量子态的决策稳定性
         

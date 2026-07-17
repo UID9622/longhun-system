@@ -216,7 +216,7 @@ class 中央藏经阁:
     - 统计报告 / Statistics reporting
     """
 
-    def __init__(self, 索引路径: str = None):
+    def __init__(self, 索引路径: str | None = None):
         """🏯 构造函数 — Constructor
         @param 索引路径: 索引文件存储路径 / Index file storage path
         """
@@ -477,7 +477,7 @@ class 中央藏经阁:
 
     # ── 索引持久化 / Index Persistence ──────────────────────────────────────
 
-    def 保存索引(self, 路径: str = None) -> bool:
+    def 保存索引(self, 路径: str | None = None) -> bool:
         """💾 保存索引到JSON — Save index to JSON file
         @param 路径: 自定义保存路径 / Custom save path
         @return: 保存是否成功 / Whether save succeeded
@@ -506,7 +506,7 @@ class 中央藏经阁:
             print(f"[❌] 保存失败: {错误} / Save failed: {错误}")
             return False
 
-    def 加载索引(self, 路径: str = None) -> bool:
+    def 加载索引(self, 路径: str | None = None) -> bool:
         """📂 从JSON加载索引 — Load index from JSON file
         @param 路径: 自定义加载路径 / Custom load path
         @return: 加载是否成功 / Whether load succeeded
@@ -584,7 +584,7 @@ class 中央藏经阁:
 
         return "\n".join(输出)
 
-    def 导出_markdown(self, 路径: str = None) -> str:
+    def 导出_markdown(self, 路径: str | None = None) -> str:
         """📤 导出Markdown目录 — Export catalog as Markdown file
         @param 路径: 导出路径 / Export path
         @return: 导出的文件路径 / Exported file path

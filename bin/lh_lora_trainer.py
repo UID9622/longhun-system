@@ -15,7 +15,7 @@ DNA: #龍芯⚡️丙午·癸未·丙戌·辰时·需-MODEL-LORA-TRAINER-v1.0
   python3 bin/lh_lora_trainer.py export    # 导出GGUF → Ollama加载
 """
 
-import json, os, sys, time
+import json, os, sys, time, subprocess
 from pathlib import Path
 
 # ============================================================
@@ -45,7 +45,7 @@ _patch_mlx_lm_tokenizer()
 class Config:
     # 模型
     base_model = str(Path(__file__).parent.parent / "models" / "longhun-v1.0" / "base_model")  # 本地 MLX 格式
-    model_name = "longhun-v1.0-lora"
+    model_name = "longhun-v2.1-lora"
     
     # LoRA 参数
     lora_rank = 8
@@ -55,8 +55,8 @@ class Config:
     
     # 训练参数
     batch_size = 2
-    learning_rate = 1.5e-4  # v5.1：略降防止过拟合
-    epochs = 5  # v5.5：5 epochs 最佳平衡
+    learning_rate = 1.5e-4
+    epochs = 6  # v2.1：6 epochs，新增74条拒绝样本
     max_seq_length = 2048
     grad_checkpoint = True
     
@@ -68,9 +68,9 @@ class Config:
     # 路径
     project_root = Path(__file__).resolve().parent.parent
     output_dir = project_root / "models" / "longhun-v1.0" / "lora_output"
-    adapter_dir = output_dir / "adapter"
-    merged_dir = output_dir / "merged"
-    gguf_dir = output_dir / "gguf"
+    adapter_dir = output_dir / "adapter_v2.1"
+    merged_dir = output_dir / "merged_v2.1"
+    gguf_dir = output_dir / "gguf_v2.1"
     data_dir = output_dir / "data"
 
 
@@ -462,7 +462,7 @@ def resume():
 
 
 def fuse():
-    """合并 LoRA adapter → 完整模型"""
+    """合并 LoRA adapter → 完整模型（使用 mlx_lm fuse CLI）"""
     print("🔗 合并 LoRA adapter...")
     cfg = Config()
     
@@ -471,22 +471,33 @@ def fuse():
         print(f"   请先运行: python3 bin/lh_lora_trainer.py train")
         sys.exit(1)
     
+    # 清理旧合并目录
+    import shutil
+    if cfg.merged_dir.exists():
+        shutil.rmtree(cfg.merged_dir)
     cfg.merged_dir.mkdir(parents=True, exist_ok=True)
     
-    from mlx_lm import fuse
-    fuse.fuse(
-        model=cfg.base_model,
-        adapter_path=str(cfg.adapter_dir),
-        save_path=str(cfg.merged_dir),
-        de_quantize=False,
-    )
+    # mlx_lm 0.31.x: fuse 通过 CLI subprocess 调用
+    print(f"   底模: {cfg.base_model}")
+    print(f"   Adapter: {cfg.adapter_dir}")
+    result = subprocess.run([
+        sys.executable, "-m", "mlx_lm", "fuse",
+        "--model", str(cfg.base_model),
+        "--adapter-path", str(cfg.adapter_dir),
+        "--save-path", str(cfg.merged_dir),
+    ], capture_output=True, text=True)
     
+    if result.returncode != 0:
+        print(f"   ❌ 合并失败:\n{result.stderr}")
+        sys.exit(1)
+    
+    print(result.stdout)
     print(f"   ✅ 合并完成 → {cfg.merged_dir}")
     print(f"   下一步: python3 bin/lh_lora_trainer.py export")
 
 
 def export_gguf():
-    """导出 GGUF 格式，供 Ollama 加载"""
+    """导出 GGUF 格式（使用 llama.cpp convert_hf_to_gguf.py）"""
     print("📦 导出 GGUF...")
     cfg = Config()
     
@@ -497,24 +508,45 @@ def export_gguf():
     
     cfg.gguf_dir.mkdir(parents=True, exist_ok=True)
     
-    from mlx_lm import convert
-    quant = "Q4_K_M"  # 推荐：速度与质量平衡
+    # 查找 llama.cpp 的 convert_hf_to_gguf.py
+    import shutil
+    converter = shutil.which("convert_hf_to_gguf.py")
+    if not converter:
+        # 搜索常见路径
+        candidates = [
+            "/tmp/llama.cpp/convert_hf_to_gguf.py",
+            str(Path.home() / "llama.cpp/convert_hf_to_gguf.py"),
+        ]
+        for c in candidates:
+            if Path(c).exists():
+                converter = c
+                break
     
-    print(f"   量化: {quant}")
-    print(f"   转换中...（约5-10分钟）")
+    if not converter:
+        print("   ❌ 找不到 convert_hf_to_gguf.py，请安装 llama.cpp:")
+        print("      git clone https://github.com/ggerganov/llama.cpp.git /tmp/llama.cpp")
+        sys.exit(1)
     
-    convert.convert(
+    gguf_path = cfg.gguf_dir / "longhun-v2.1.F16.gguf"
+    print(f"   转换器: {converter}")
+    print(f"   输出: {gguf_path}")
+    print(f"   转换中...（约5-10分钟，3GB+ F16模型）")
+    
+    result = subprocess.run([
+        sys.executable, converter,
         str(cfg.merged_dir),
-        mlx_path=str(cfg.merged_dir),
-        quantize=True,
-        q_group_size=64,
-        q_bits=4,
-    )
+        "--outtype", "f16",
+        "--outfile", str(gguf_path),
+    ], capture_output=True, text=True)
+    
+    if result.returncode != 0:
+        print(f"   ❌ GGUF 导出失败:\n{result.stderr}")
+        sys.exit(1)
     
     # 创建 Modelfile
     modelfile = cfg.gguf_dir / "Modelfile"
     modelfile.write_text(f"""
-FROM {cfg.merged_dir}/gguf-model-Q4_K_M.gguf
+FROM {gguf_path}
 
 PARAMETER temperature 0.7
 PARAMETER top_p 0.9
@@ -526,11 +558,10 @@ SYSTEM \"\"\"
 \"\"\"
 """)
     
-    print(f"   ✅ GGUF 导出完成 → {cfg.gguf_dir}")
+    print(f"   ✅ GGUF 导出完成 → {gguf_path} ({gguf_path.stat().st_size / 1e9:.2f} GB)")
     print(f"\n🐉 部署到 Ollama:")
-    print(f"   cd {cfg.gguf_dir}")
-    print(f"   ollama create longhun-v1.0-lora -f Modelfile")
-    print(f"   ollama run longhun-v1.0-lora")
+    print(f"   ollama create longhun-v1.0 -f {modelfile}")
+    print(f"   ollama run longhun-v1.0")
 
 
 def test_model():

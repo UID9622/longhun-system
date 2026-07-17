@@ -19,7 +19,7 @@ import os
 import secrets
 import uuid
 from datetime import datetime, timedelta, timezone
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 __版本__ = "v1.0"
 __dna__ = "#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0"
@@ -69,7 +69,7 @@ class DNA令牌生成器:
         '全部': []  # 動態填充所有
     }
 
-    def __init__(自身, 數據庫路徑: str = None, 加密密鑰路徑: str = None):
+    def __init__(自身, 數據庫路徑: str | None = None, 加密密鑰路徑: str | None = None):
         """
         初始化DNA令牌生成器
         :param 數據庫路徑: 令牌存儲數據庫路徑
@@ -95,7 +95,7 @@ class DNA令牌生成器:
               有效期小時: int = 24,
               生物特徵種子: str = None,
               平台標識: str = "CNSH",
-              動作描述: str = "令牌簽發") -> Dict:
+              動作描述: str = "令牌簽發") -> Dict[str, Any]:
         """
         🟢 生成DNA令牌 | Generate DNA Token
         :param 用戶身份: 用戶身份標識（如用戶名或身份證摘要）
@@ -180,7 +180,7 @@ class DNA令牌生成器:
     # 核心: 驗證令牌 | Core: Verify Token
     # ═══════════════════════════════════════════════════════════════
 
-    def 驗證令牌(自身, 令牌輸入) -> Dict:
+    def 驗證令牌(自身, 令牌輸入) -> Dict[str, Any]:
         """
         🟡 驗證DNA令牌 | Verify DNA Token
         檢查: 格式合法性 → SM2簽名 → 過期時間 → 撤銷狀態
@@ -264,7 +264,7 @@ class DNA令牌生成器:
         結果 = 自身.存儲管理.撤銷令牌(令牌ID, 原因)
         return 結果
 
-    def 列出有效令牌(自身, 用戶身份: str = None) -> List[Dict]:
+    def 列出有效令牌(自身, 用戶身份: str | None = None) -> List[Dict]:
         """
         🟢 列出有效令牌 | List active tokens
         :param 用戶身份: 可選，指定用戶
@@ -285,7 +285,7 @@ class DNA令牌生成器:
     # 隱私保護: 範圍驗證 | Privacy: Scope Verification
     # ═══════════════════════════════════════════════════════════════
 
-    def 驗證平台授權(自身, 令牌輸入, 平台名: str, 操作: str) -> Dict:
+    def 驗證平台授權(自身, 令牌輸入, 平台名: str, 操作: str) -> Dict[str, Any]:
         """
         🟡 驗證平台特定授權 — 平台只能看到跟自己相關的授權
         | Verify platform-specific authorization
@@ -339,7 +339,7 @@ class DNA令牌生成器:
         清理數 = 自身.存儲管理.清理過期令牌()
         return 清理數
 
-    def 獲取統計(自身) -> Dict:
+    def 獲取統計(自身) -> Dict[str, Any]:
         """🟡 獲取系統統計 | Get system statistics"""
         存儲統計 = 自身.存儲管理.獲取統計()
         存儲統計['dna_version'] = __dna__
@@ -353,7 +353,7 @@ class DNA令牌生成器:
     def 從模板生成(自身,
               用戶身份: str,
               模板名: str = '全部',
-              有效期小時: int = 24) -> Dict:
+              有效期小時: int = 24) -> Dict[str, Any]:
         """
         🟢 從預設模板生成令牌 | Generate token from template
         :param 模板名: 模板名稱（購物/出行/餐飲/支付/社交/娛樂/全部）

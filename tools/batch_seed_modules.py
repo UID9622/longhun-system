@@ -18,7 +18,7 @@ import os
 import re
 import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 HOME = Path.home()
 LONGHUN_ROOT = Path(os.environ.get("LONGHUN_ROOT", HOME / "longhun-system"))
@@ -44,7 +44,7 @@ def safe_filename(title: str, page_id: str) -> str:
     return f"M_{clean}_{short_id}.md"
 
 
-def generate_module(entry: dict) -> str:
+def generate_module(entry: dict[str, Any]) -> str:
     title = entry.get("title") or "未命名条目"
     page_id = entry.get("page_id", "")
     url = entry.get("url", "")

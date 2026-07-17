@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 🧠 龍魂·语义解析引擎 v2.0 — 中英双轨分离
 DNA: #龍芯⚡️2026-07-06-SEMANTIC-PARSER-v2.0-DUALTRACK
@@ -2175,7 +2176,7 @@ COLLOQUIAL_COMPOUND = [
 ]
 
 
-def _match_group(text: str, word_group: list) -> bool:  # type: ignore[type-arg]
+def _match_group(text: str, word_group: list[Any]) -> bool:  # type: ignore[type-arg]
     """一组词中至少一个命中（大小写不敏感，中英文混输兼容）"""
     if not word_group:
         return True

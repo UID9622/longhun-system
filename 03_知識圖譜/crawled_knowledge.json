@@ -32,9 +32,9 @@
     },
     {
       "chapter": 6,
-      "source": "https://www.gushiwen.cn/guwen/book_6.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第6章",
+      "content": "第6章内容待补充"
     },
     {
       "chapter": 7,
@@ -338,9 +338,9 @@
     },
     {
       "chapter": 57,
-      "source": "https://www.gushiwen.cn/guwen/book_57.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第57章",
+      "content": "第57章内容待补充"
     },
     {
       "chapter": 58,
@@ -374,9 +374,9 @@
     },
     {
       "chapter": 63,
-      "source": "https://www.gushiwen.cn/guwen/book_63.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第63章",
+      "content": "第63章内容待补充"
     },
     {
       "chapter": 64,
@@ -386,15 +386,15 @@
     },
     {
       "chapter": 65,
-      "source": "https://www.gushiwen.cn/guwen/book_65.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第65章",
+      "content": "第65章内容待补充"
     },
     {
       "chapter": 66,
-      "source": "https://www.gushiwen.cn/guwen/book_66.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第66章",
+      "content": "第66章内容待补充"
     },
     {
       "chapter": 67,
@@ -452,9 +452,9 @@
     },
     {
       "chapter": 76,
-      "source": "https://www.gushiwen.cn/guwen/book_76.aspx",
-      "title": "",
-      "content": ""
+      "source": "fallback",
+      "title": "道德经·第76章",
+      "content": "第76章内容待补充"
     },
     {
       "chapter": 77,
@@ -1988,8 +1988,8 @@
     }
   ],
   "metadata": {
-    "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-BE2B276D",
-    "timestamp": "2026-07-08T08:29:32.866428",
+    "dna": "#龍芯⚡️2026-07-17-KNOWLEDGE-CRAWL-BE2B276D",
+    "timestamp": "2026-07-17T20:22:32.917120",
     "crawler": "lh_knowledge_crawler.py v1.0",
     "total_sections": 8
   }

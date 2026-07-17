@@ -31,12 +31,14 @@ DNA = "#龍芯⚡️丙午·辛未·TYPE-FIXER-v1.0"
 
 # 跳过目录
 SKIP_DIRS = {
-    '__pycache__', '.git', 'venv', 'node_modules', 'dist',
+    '__pycache__', '.git', 'venv', '.venv', '.venvs', '.venv_longhun_math', '.venv_docs',
+    'node_modules', 'dist',
     'backups', '_archive', '_archived_reports', 'logs', 'logging_backup',
     'tmp', 'var', 'data', 'outputs', 'releases',
     'extensions', 'imports', 'integrated_modules', 'integrated-modules',
     'vector_db', 'vault', 'tombstone_vault', '_private',
-    'extensions', '.obsidian', 'memory-universe',
+    '.obsidian', 'memory-universe', 'brain',
+    'L7_数据层', '_downloads_staging', 'downloads_archive',
 }
 
 # 裸类型 → 修复映射
@@ -133,7 +135,7 @@ def analyze_file(filepath: Path) -> List[Dict[str, Any]]:
 
     try:
         tree = ast.parse(source, filename=str(filepath))
-    except SyntaxError:
+    except (SyntaxError, RecursionError):
         return []
 
     lines = source.splitlines()

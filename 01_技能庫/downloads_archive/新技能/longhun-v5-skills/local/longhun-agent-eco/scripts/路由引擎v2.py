@@ -61,7 +61,7 @@ class 路由規則:
     描述: str = ""
     啟用: bool = True
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return {
             "標籤": self.標籤,
             "關鍵詞": self.關鍵詞,
@@ -86,7 +86,7 @@ class 路由結果:
     耗時毫秒: float = 0.0
     消息: str = ""
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return {
             "狀態": self.狀態.value,
             "輸入": self.輸入,
@@ -117,7 +117,7 @@ class 路由統計:
             return 100.0
         return round((self.成功數 / self.總路由數) * 100, 2)
 
-    def 到字典(self) -> Dict:
+    def 到字典(self) -> Dict[str, Any]:
         return {
             "總路由數": self.總路由數,
             "成功數": self.成功數,
@@ -285,7 +285,7 @@ class 路由引擎v2:
 
     # ---- 核心路由算法 ----
 
-    def 路由(self, 輸入: str, 指定標籤: str = None) -> 路由結果:
+    def 路由(self, 輸入: str, 指定標籤: str | None = None) -> 路由結果:
         """
         執行三層路由匹配
         L1: 標籤匹配 → L2: 關鍵詞匹配 → L3: 優先級排序
@@ -355,7 +355,7 @@ class 路由引擎v2:
 
         return self._完成路由(結果, 開始時間)
 
-    def _L1標籤匹配(self, 輸入: str, 指定標籤: str = None) -> List[路由規則]:
+    def _L1標籤匹配(self, 輸入: str, 指定標籤: str | None = None) -> List[路由規則]:
         """第一層: 標籤匹配"""
         if 指定標籤:
             return [r for r in self._規則表 if r.標籤 == 指定標籤 and r.啟用]
@@ -424,7 +424,7 @@ class 路由引擎v2:
 
     # ---- 批量路由 ----
 
-    def 批量路由(self, 輸入列表: List[str], 指定標籤: str = None) -> List[路由結果]:
+    def 批量路由(self, 輸入列表: List[str], 指定標籤: str | None = None) -> List[路由結果]:
         """批量執行路由"""
         結果列表 = []
         for 輸入 in 輸入列表:

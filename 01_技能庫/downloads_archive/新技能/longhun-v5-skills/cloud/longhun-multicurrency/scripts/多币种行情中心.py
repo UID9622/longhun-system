@@ -97,11 +97,11 @@ class 匯率記錄:
         """驗證數據完整性"""
         return self.DNA校驗 == self._計算校驗()
     
-    def 轉字典(self) -> dict:
+    def 轉字典(self) -> dict[str, Any]:
         return asdict(self)
     
     @classmethod
-    def 從字典創建(cls, 數據: dict) -> "匯率記錄":
+    def 從字典創建(cls, 數據: dict[str, Any]) -> "匯率記錄":
         return cls(**{k: v for k, v in 數據.items() if k in cls.__dataclass_fields__})
 
 
@@ -144,7 +144,7 @@ class 多幣種行情中心:
     - 紅色：數據異常，獲取失敗
     """
     
-    def __init__(self, 數據目錄: str = None, 緩存時間: int = None):
+    def __init__(self, 數據目錄: str | None = None, 緩存時間: int = None):
         self.數據目錄 = Path(數據目錄 or 默認數據目錄)
         self.數據目錄.mkdir(parents=True, exist_ok=True)
         
@@ -504,7 +504,7 @@ class 多幣種行情中心:
         
         return None
     
-    def 列出所有匯率(self, 過濾基準幣: str = None) -> List[匯率記錄]:
+    def 列出所有匯率(self, 過濾基準幣: str | None = None) -> List[匯率記錄]:
         """列出所有可用匯率"""
         結果 = []
         for 幣種對, (記錄, _) in self.匯率緩存.items():
@@ -586,7 +586,7 @@ class 多幣種行情中心:
         
         return "\n".join(行)
     
-    def 獲取統計(self) -> dict:
+    def 獲取統計(self) -> dict[str, Any]:
         """獲取運行統計"""
         return {
             **self.統計數據,

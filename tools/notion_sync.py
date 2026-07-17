@@ -105,7 +105,7 @@ class NotionClient:
         self.base = "https://api.notion.com/v1"
         self._req_count = 0
 
-    def _req(self, method: str, path: str, data: Optional[dict] = None, timeout: float = 60.0) -> dict[str, Any]:
+    def _req(self, method: str, path: str, data: Optional[dict[str, Any]] = None, timeout: float = 60.0) -> dict[str, Any]:
         url = f"{self.base}{path}"
         cmd = [
             "curl", "-s", "-X", method,
@@ -159,7 +159,7 @@ class NotionClient:
             path += f"&start_cursor={start_cursor}"
         return self._req("GET", path, timeout=timeout)
 
-    def create_page(self, parent_id: str, title: str, children: List[dict]) -> dict[str, Any]:
+    def create_page(self, parent_id: str, title: str, children: List[dict[str, Any]]) -> dict[str, Any]:
         payload = {
             "parent": {"page_id": parent_id},
             "properties": {
@@ -176,14 +176,14 @@ class NotionClient:
             self._req("PATCH", f"/blocks/{page['id']}/children", {"children": chunk})
         return page
 
-    def append_blocks(self, block_id: str, children: List[dict]) -> dict[str, Any]:
+    def append_blocks(self, block_id: str, children: List[dict[str, Any]]) -> dict[str, Any]:
         return self._req("PATCH", f"/blocks/{block_id}/children", {"children": children})
 
 
 # ═══════════════════════════════════════════
 # 3. Pull：Notion → Markdown
 # ═══════════════════════════════════════════
-def rich_text(rt: List[dict]) -> str:
+def rich_text(rt: List[dict[str, Any]]) -> str:
     return "".join(t.get("plain_text", "") for t in rt)
 
 
@@ -288,8 +288,8 @@ class NotionPuller:
 # ═══════════════════════════════════════════
 # 4. Push：Markdown → Notion 子頁面
 # ═══════════════════════════════════════════
-def md_to_blocks(md_text: str) -> List[dict]:
-    blocks: List[dict] = []
+def md_to_blocks(md_text: str) -> List[dict[str, Any]]:
+    blocks: List[dict[str, Any]] = []
     lines = md_text.splitlines()
     i = 0
     while i < len(lines):

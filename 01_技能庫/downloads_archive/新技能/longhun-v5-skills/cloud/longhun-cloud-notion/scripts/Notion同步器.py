@@ -125,7 +125,7 @@ class 週報數據:
     DNA校驗結果: str = ""
     生成時間: str = ""
 
-    def 轉換字典(self) -> dict:
+    def 轉換字典(self) -> dict[str, Any]:
         return asdict(self)
 
 
@@ -253,7 +253,7 @@ class NotionAPI客戶端:
         self.請求計數 = 0
         self.最後請求時間 = 0.0
     
-    def _發送請求(self, 方法: str, 路徑: str, **參數) -> dict:
+    def _發送請求(self, 方法: str, 路徑: str, **參數) -> dict[str, Any]:
         """發送 API 請求 (帶速率限制處理)"""
         # 速率限制: Notion API 限制約 3 req/sec
         當前時間 = time.time()
@@ -311,11 +311,11 @@ class NotionAPI客戶端:
                     {"數據庫ID": 數據庫ID, "結果數": len(結果)})
         return 結果
     
-    def 獲取頁面(self, 頁面ID: str) -> dict:
+    def 獲取頁面(self, 頁面ID: str) -> dict[str, Any]:
         """獲取頁面詳情"""
         return self._發送請求("GET", f"/pages/{頁面ID}")
     
-    def 創建頁面(self, 父級: dict, 屬性: dict, 內容塊: Optional[List[dict]] = None) -> dict:
+    def 創建頁面(self, 父級: dict[str, Any], 屬性: dict[str, Any], 內容塊: Optional[List[dict]] = None) -> dict[str, Any]:
         """在數據庫中創建新頁面"""
         請求體 = {
             "parent": 父級,
@@ -326,7 +326,7 @@ class NotionAPI客戶端:
         
         return self._發送請求("POST", "/pages", json=請求體)
     
-    def 更新頁面(self, 頁面ID: str, 屬性: dict) -> dict:
+    def 更新頁面(self, 頁面ID: str, 屬性: dict[str, Any]) -> dict[str, Any]:
         """更新頁面屬性"""
         return self._發送請求("PATCH", f"/pages/{頁面ID}", json={"properties": 屬性})
     
@@ -349,7 +349,7 @@ class NotionAPI客戶端:
         
         return 結果
     
-    def 追加塊內容(self, 塊ID: str, 子塊: List[dict]) -> dict:
+    def 追加塊內容(self, 塊ID: str, 子塊: List[dict]) -> dict[str, Any]:
         """向塊追加子內容"""
         return self._發送請求("PATCH", f"/blocks/{塊ID}/children", json={"children": 子塊})
 
@@ -424,7 +424,7 @@ class DNA校驗器:
         
         return 通過數, 失敗數
     
-    def 生成校驗報告(self) -> dict:
+    def 生成校驗報告(self) -> dict[str, Any]:
         """生成 DNA 校驗報告"""
         已驗證 = sum(1 for r in self.校驗記錄 if r.校驗狀態 == "已驗證")
         異常 = sum(1 for r in self.校驗記錄 if r.校驗狀態 == "異常")
@@ -525,7 +525,7 @@ class 同步引擎:
         self.審計.允許(f"推送完成", {"類型": 數據類型, "成功數": len(創建結果)})
         return 創建結果
     
-    def 雙向同步(self, 數據庫ID: str, 數據類型: str = "任務") -> dict:
+    def 雙向同步(self, 數據庫ID: str, 數據類型: str = "任務") -> dict[str, Any]:
         """
         執行雙向同步
         
@@ -717,7 +717,7 @@ class 週報生成器:
 *君子協議: 數據真實, 血統純正, 透明追溯*
 """
     
-    def _提取狀態(self, 任務: dict) -> str:
+    def _提取狀態(self, 任務: dict[str, Any]) -> str:
         """從任務中提取狀態"""
         屬性 = 任務.get("properties", {})
         狀態屬性 = 屬性.get("Status") or 屬性.get("狀態")
@@ -727,7 +727,7 @@ class 週報生成器:
                 return 狀態值.get("name", "未知")
         return "未知"
     
-    def _提取標題(self, 任務: dict) -> str:
+    def _提取標題(self, 任務: dict[str, Any]) -> str:
         """從任務中提取標題"""
         屬性 = 任務.get("properties", {})
         標題屬性 = 屬性.get("Name") or 屬性.get("標題") or 屬性.get("Title")
@@ -762,7 +762,7 @@ class 團隊統計引擎:
         self.成員數據[成員記錄.成員名稱] = 成員記錄
         self.審計.允許(f"成員記錄已更新", {"成員": 成員記錄.成員名稱})
     
-    def 計算團隊統計(self) -> dict:
+    def 計算團隊統計(self) -> dict[str, Any]:
         """計算團隊整體統計"""
         if not self.成員數據:
             return {"錯誤": "無成員數據"}
@@ -825,7 +825,7 @@ class 配置管理器:
         self.配置目錄路徑 = 配置目錄
         self.配置目錄路徑.mkdir(parents=True, exist_ok=True)
     
-    def 讀取配置(self) -> dict:
+    def 讀取配置(self) -> dict[str, Any]:
         """讀取配置文件"""
         if not 配置檔路徑.exists():
             self.創建預設配置()
@@ -860,7 +860,7 @@ class 配置管理器:
         with open(配置檔路徑, 'w', encoding='utf-8') as f:
             json.dump(預設配置, f, ensure_ascii=False, indent=2)
     
-    def 保存配置(self, 配置: dict):
+    def 保存配置(self, 配置: dict[str, Any]):
         """保存配置"""
         with open(配置檔路徑, 'w', encoding='utf-8') as f:
             json.dump(配置, f, ensure_ascii=False, indent=2)
@@ -1081,7 +1081,7 @@ class API服務器:
     def _404(self) -> Tuple[str, bytes]:
         return self._JSON響應(404, {"錯誤": "端點不存在"})
     
-    def _JSON響應(self, 狀態碼: int, 數據: dict) -> Tuple[str, bytes]:
+    def _JSON響應(self, 狀態碼: int, 數據: dict[str, Any]) -> Tuple[str, bytes]:
         """生成 JSON 響應"""
         數據["狀態碼"] = 狀態碼
         數據["DNA"] = 龍DNA標記

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                   通心译 (Tongxin Translation) 引擎 v2.5                        ║
@@ -1023,7 +1024,7 @@ class QualityAuditor:
     """
 
     def __init__(self):
-        self._audit_history: List[dict] = []
+        self._audit_history: List[dict[str, Any]] = []
         self._five_laws_checklist = [
             "铁律1: 中英各自独立生成，非镜像",
             "铁律2: 精神共鸣，非字面匹配",
@@ -1198,7 +1199,7 @@ class QualityAuditor:
         }
         return recommendations[level]
 
-    def get_audit_history(self) -> List[dict]:
+    def get_audit_history(self) -> List[dict[str, Any]]:
         """获取审计历史"""
         return self._audit_history
 
@@ -1446,7 +1447,7 @@ class LearningEngine:
         self.memory_file = memory_file or os.path.expanduser(
             "~/.tongxin_learning_memory.json"
         )
-        self._feedback_history: List[dict] = []
+        self._feedback_history: List[dict[str, Any]] = []
         self._user_preferences: Dict[str, any] = {
             "preferred_mode": TranslationMode.BILINGUAL.value,
             "cultural_strictness": "normal",  # strict/normal/loose

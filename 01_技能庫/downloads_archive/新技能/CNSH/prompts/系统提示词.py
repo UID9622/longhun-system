@@ -70,7 +70,7 @@ class 系统提示词:
         }
         print(f"[系统提示词] 🟢 已加载 {len(自身.提示词字典)} 个默认提示词")
 
-    def 获取提示词(自身, 名称: str, 语言: str = "zh", 变量: Dict = None) -> str:
+    def 获取提示词(自身, 名称: str, 语言: str = "zh", 变量: Dict[str, Any] = None) -> str:
         """🟢 获取提示词模板 | Get prompt template"""
         if 名称 not in 自身.提示词字典:
             print(f"[系统提示词] 🔴 提示词未找到: {{名称}}")
@@ -101,7 +101,7 @@ class 系统提示词:
             print(f"  🟢 {{名称:15s}} | {{长度}} 字符 | 中文{'+英文' if 内容.get('en') else ''}")
         print("=" * 50)
 
-    def 获取统计(自身) -> Dict:
+    def 获取统计(自身) -> Dict[str, Any]:
         """🟡 获取统计 | Get statistics"""
         return {
             "提示词总数": len(自身.提示词字典),

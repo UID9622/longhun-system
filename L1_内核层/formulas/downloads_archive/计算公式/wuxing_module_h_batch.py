@@ -21,7 +21,7 @@
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 from datetime import datetime
 import hashlib
@@ -59,7 +59,7 @@ class ItemStatus(Enum):
 class BatchItem:
     """批次项目"""
     item_id: str
-    source_data: Dict
+    source_data: Dict[str, Any]
     decision_result: Optional[Dict] = None
     confidence_score: float = 0.0
     status: ItemStatus = ItemStatus.PENDING
@@ -324,7 +324,7 @@ class BatchProcessingEngine:
     
     # ========== 归档阶段 ==========
     
-    def archive_batch(self, batch_id: str) -> Dict:
+    def archive_batch(self, batch_id: str) -> Dict[str, Any]:
         """归档批次·保存结果"""
         batch = self.batches.get(batch_id)
         if not batch:
@@ -406,7 +406,7 @@ class BatchProcessingEngine:
             avg_item_time_seconds=0,
         )
     
-    def generate_batch_report(self, batch_id: str) -> Dict:
+    def generate_batch_report(self, batch_id: str) -> Dict[str, Any]:
         """生成批次报告"""
         batch = self.batches.get(batch_id)
         if not batch:

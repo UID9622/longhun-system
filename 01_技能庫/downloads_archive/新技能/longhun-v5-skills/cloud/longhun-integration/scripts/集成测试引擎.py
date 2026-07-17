@@ -132,7 +132,7 @@ class TestResult:
     details: Dict[str, Any] = field(default_factory=dict)
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "name": self.name,
             "category": self.category,
@@ -1202,7 +1202,7 @@ class IntegrationTestEngine:
 
         return improvements
 
-    def _print_report_summary(self, report: Dict):
+    def _print_report_summary(self, report: Dict[str, Any]):
         """打印报告摘要"""
         s = report["summary"]
         print(f"""

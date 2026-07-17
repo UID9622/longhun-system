@@ -29,7 +29,7 @@ import base64
 import uuid
 import threading
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict, field
 from enum import Enum
 from pathlib import Path
@@ -226,7 +226,7 @@ class DNAStubManager:
         
         return stub
     
-    def verify_stub(self, stub_id: str) -> Dict:
+    def verify_stub(self, stub_id: str) -> Dict[str, Any]:
         """验证DNA存根完整性"""
         
         if stub_id not in self.stubs:
@@ -250,7 +250,7 @@ class DNAStubManager:
             'verification_hash': stub.verification_hash
         }
     
-    def get_maintenance_stats(self) -> Dict:
+    def get_maintenance_stats(self) -> Dict[str, Any]:
         """获取维护统计"""
         
         return {
@@ -479,7 +479,7 @@ class BatchPaymentProcessor:
         # 实际实现会调用用户提供的webhook URL
         print(f"Webhook: batch={batch_id}, tx={tx_id}, status={status}")
     
-    def get_batch_status(self, batch_id: str) -> Dict:
+    def get_batch_status(self, batch_id: str) -> Dict[str, Any]:
         """获取批次状态"""
         
         if batch_id not in self.batch_history:
@@ -512,7 +512,7 @@ class DashboardManager:
         self.dna_stub_manager = dna_stub_manager
         self.batch_processor = batch_processor
     
-    def get_realtime_dashboard(self) -> Dict:
+    def get_realtime_dashboard(self) -> Dict[str, Any]:
         """获取实时仪表板数据"""
         
         # 获取XPay统计
@@ -550,7 +550,7 @@ class DashboardManager:
             }
         }
     
-    def get_dna_tracking(self, transaction_id: str) -> Dict:
+    def get_dna_tracking(self, transaction_id: str) -> Dict[str, Any]:
         """获取DNA追踪信息"""
         
         tx = self.xpay_core.get_transaction(transaction_id)
@@ -677,7 +677,7 @@ class LongHunEcosystem:
                                currency: str,
                                sender_id: str,
                                recipient_id: str,
-                               memo: str = "") -> Dict:
+                               memo: str = "") -> Dict[str, Any]:
         """创建支付并同时生成DNA存根"""
         
         try:
@@ -724,7 +724,7 @@ class LongHunEcosystem:
             'created_at': tx.created_at
         }
     
-    def get_ecosystem_stats(self) -> Dict:
+    def get_ecosystem_stats(self) -> Dict[str, Any]:
         """获取生态统计"""
         
         return {
