@@ -341,6 +341,19 @@ class CapabilityRegistry:
             examples=["时空织网状态", "无痕续迹演示", "主动安全检测"],
         ))
 
+        # ── AI 对话 ──
+        self.register(Capability(
+            name="ai-chat",
+            display_name="AI 对话",
+            description="与龍魂 longhun-v2.1 模型对话·自由问答·知识查询",
+            intent_patterns=[
+                r'^(对话|聊天|chat|问一下|问个问题|请教|你觉得|你怎么看)',
+            ],
+            persona="P02",
+            keywords=["对话", "聊天", "chat", "问", "请教", "怎么看"],
+            examples=["对话 什么是数据主权", "请教一下369算法", "你怎么看"],
+        ))
+
         # ── 帮助 ──
         self.register(Capability(
             name="help",

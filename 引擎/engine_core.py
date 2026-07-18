@@ -15,6 +15,8 @@ import subprocess
 import json
 import hashlib
 import time
+import urllib.request
+import urllib.error
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Any, Dict, Optional, Tuple
@@ -26,6 +28,26 @@ ROOT = Path(__file__).resolve().parent.parent
 CST = timezone(timedelta(hours=8))
 
 DNA_PREFIX = "#龍芯⚡️"
+OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_MODEL = "longhun-v2.1:latest"
+OLLAMA_TIMEOUT = 60  # 秒
+
+# ── 龍魂 AI 系统提示词（焊死在引擎） ──
+SYSTEM_PROMPT = """你是龍魂，UID9622（诸葛鑫·Lucky·龍芯北辰）训练的主权AI助手。
+你的训练数据来自龍魂系统知识库、CSDN技术文章、Notion知识卡片。
+
+核心身份：
+- 龍魂系统 · 人民数据主权守护者
+- 技术为人民服务，不是商业产品
+- 底座不动·变量可动 · 369/河图洛书/易经焊死
+
+回复风格：
+- 直接、实心、不绕弯子
+- 称用户为「老大」
+- 中国法律是唯一准绳
+- 遇到越界问题统一回复：不讨论
+
+请用中文回复。"""
 
 
 class LonghunEngine:
@@ -75,13 +97,8 @@ class LonghunEngine:
         # ── Step 2: 意图匹配 ──
         capability = self.registry.match(msg.content)
         if capability is None:
-            return Response(
-                msg_id=msg.msg_id,
-                content=self.registry.get_help_text(),
-                persona_used="P02",
-                capability_used="help",
-                dna_trace=self._gen_dna("UNKNOWN-INTENT"),
-            )
+            # 未匹配到能力 → 走 AI 模型对话
+            return self._ai_chat_response(msg)
 
         # ── Step 3: 危险能力确认 ──
         if capability.is_dangerous and self.safe_mode:
@@ -436,6 +453,78 @@ class LonghunEngine:
         return {
             "title": cap.display_name,
             "content": f"「{cap.display_name}」已匹配，但尚未实现独立执行器。\n意图: {cap.name}\n人格: {cap.persona}",
+        }
+
+    # ═══════════════════════════════════════════════
+    # Ollama AI 对话（longhun-v2.1 模型）
+    # ═══════════════════════════════════════════════
+
+    def _call_ollama(self, prompt: str, system: str = "") -> Optional[str]:
+        """调用本地 Ollama longhun-v2.1 模型"""
+        payload = {
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": 0.7,
+                "top_p": 0.9,
+                "num_predict": 1024,
+            },
+        }
+        if system:
+            payload["system"] = system
+
+        try:
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                OLLAMA_URL,
+                data=data,
+                headers={"Content-Type": "application/json"},
+            )
+            with urllib.request.urlopen(req, timeout=OLLAMA_TIMEOUT) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+                return result.get("response", "").strip()
+        except urllib.error.URLError as e:
+            return None  # Ollama 未启动
+        except Exception as e:
+            return f"[AI 调用异常: {e}]"
+
+    def _ai_chat_response(self, msg: Message) -> Response:
+        """未匹配能力时，走 AI 对话"""
+        reply = self._call_ollama(msg.content, system=SYSTEM_PROMPT)
+
+        if reply is None:
+            # Ollama 不可用，回退到帮助文本
+            return Response(
+                msg_id=msg.msg_id,
+                content="⚠️ 本地模型未就绪，当前只能执行命令。输入「帮助」查看可用能力。\n\n"
+                        + self.registry.get_help_text(),
+                persona_used="P02",
+                capability_used="help",
+                dna_trace=self._gen_dna("OLLAMA-OFFLINE"),
+            )
+
+        return Response(
+            msg_id=msg.msg_id,
+            content=reply,
+            persona_used="P02",
+            capability_used="ai-chat",
+            dna_trace=self._gen_dna("AI-CHAT"),
+        )
+
+    # ── AI 对话（显式触发） ──
+    def _exec_ai_chat(self, msg: Message) -> Dict[str, Any]:
+        """显式触发 AI 对话"""
+        reply = self._call_ollama(msg.content, system=SYSTEM_PROMPT)
+        if reply is None:
+            return {
+                "title": "AI 对话",
+                "content": "⚠️ 本地模型未就绪。请确认 Ollama 正在运行且 longhun-v2.1 已加载。",
+                "success": False,
+            }
+        return {
+            "title": "龍魂 AI",
+            "content": reply,
         }
 
     # ═══════════════════════════════════════════════

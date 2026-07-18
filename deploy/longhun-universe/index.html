@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂翻译引擎 · 1650万路径宇宙</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        canvas { display: block; }
+
+        /* 顶部标题栏 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 25px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .header .subtitle {
+            color: #888;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* 右侧信息面板 */
+        .info-panel {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 280px;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .info-panel h3 {
+            color: #FFD700;
+            font-size: 13px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .info-panel .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .info-panel .stat-label { color: #888; }
+        .info-panel .stat-value { color: #fff; font-weight: bold; }
+
+        .info-panel .wuxing-bar {
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 3px;
+            background: #333;
+        }
+
+        .info-panel .wuxing-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        /* 底部控制栏 */
+        .controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 25px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .controls .dna-watermark {
+            color: #444;
+            font-size: 10px;
+        }
+
+        .controls .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .controls button {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .controls button:hover {
+            background: rgba(255,215,0,0.3);
+        }
+
+        .controls button.active {
+            background: #FFD700;
+            color: #000;
+        }
+
+        /* 节点详情弹窗 */
+        .node-popup {
+            position: fixed;
+            background: rgba(0,0,0,0.95);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 200;
+            display: none;
+            min-width: 300px;
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+        }
+
+        .node-popup h4 {
+            color: #FFD700;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .node-popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #888;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .node-popup .close-btn:hover { color: #fff; }
+
+        .node-popup .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 12px;
+        }
+
+        .node-popup .detail-label { color: #888; }
+        .node-popup .detail-value { 
+            color: #fff; 
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .node-popup .audit-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .audit-green { background: rgba(0,255,0,0.2); color: #0f0; }
+        .audit-yellow { background: rgba(255,255,0,0.2); color: #ff0; }
+        .audit-red { background: rgba(255,0,0,0.2); color: #f00; }
+
+        /* 搜索框 */
+        .search-box {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .search-box input {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            padding: 10px 15px;
+            border-radius: 4px;
+            width: 250px;
+            font-family: inherit;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .search-box input::placeholder { color: #666; }
+
+        .search-box button {
+            background: #FFD700;
+            border: none;
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* 加载动画 */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 300;
+            text-align: center;
+        }
+
+        .loading .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #333;
+            border-top: 3px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loading p {
+            color: #FFD700;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>龍魂宇宙加载中...</p>
+    </div>
+
+    <!-- 顶部标题 -->
+    <div class="header">
+        <h1>🐉 龍魂翻译引擎 · 1650万路径宇宙</h1>
+        <div class="subtitle">六维空间投影 | 五行配色 | 三色审计 | 可交互探索</div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="输入文本追踪路径..." value="龍魂系统">
+        <button onclick="tracePath()">追踪</button>
+    </div>
+
+    <!-- 右侧信息面板 -->
+    <div class="info-panel">
+        <h3>📊 路径统计</h3>
+        <div class="stat-row">
+            <span class="stat-label">总路径</span>
+            <span class="stat-value" style="color:#FFD700">16,588,800</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">当前采样</span>
+            <span class="stat-value" id="sample-count">10,000</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">🟢 通行</span>
+            <span class="stat-value" style="color:#0f0" id="green-count">--</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">🟡 待审</span>
+            <span class="stat-value" style="color:#ff0" id="yellow-count">--</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">🔴 熔断</span>
+            <span class="stat-value" style="color:#f00" id="red-count">--</span>
+        </div>
+
+        <h3 style="margin-top:15px">🎨 五行分布</h3>
+        <div id="wuxing-stats"></div>
+    </div>
+
+    <!-- 节点详情弹窗 -->
+    <div class="node-popup" id="node-popup">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <h4>🐉 节点详情</h4>
+        <div id="popup-content"></div>
+    </div>
+
+    <!-- 底部控制栏 -->
+    <div class="controls">
+        <div class="dna-watermark">
+            UID9622 | 龍芯北辰 | #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+        </div>
+        <div class="buttons">
+            <button onclick="toggleRotation()" id="rotate-btn">⏸ 暂停旋转</button>
+            <button onclick="resetView()">⟲ 重置视角</button>
+            <button onclick="toggleAuditFilter('all')" class="active" id="btn-all">全部</button>
+            <button onclick="toggleAuditFilter('green')" id="btn-green">🟢通行</button>
+            <button onclick="toggleAuditFilter('yellow')" id="btn-yellow">🟡待审</button>
+            <button onclick="toggleAuditFilter('red')" id="btn-red">🔴熔断</button>
+        </div>
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════
+        // 龍魂路径引擎
+        // ═══════════════════════════════════════════════════════
+
+        const WUXING_COLORS = {
+            "金": 0xFFD700,
+            "木": 0x228B22,
+            "水": 0x00008B,
+            "火": 0xE32636,
+            "土": 0xDAA520
+        };
+
+        const AUDIT_ALPHA = { "🟢": 1.0, "🟡": 0.45, "🔴": 0.15 };
+        const DR_WUXING = { 0: "土", 1: "水", 2: "火", 3: "木", 4: "金", 5: "土", 6: "水", 7: "火", 8: "木", 9: "金" };
+        const DR_AUDIT = { 3: "🔴", 9: "🔴", 6: "🟡" };
+
+        let scene, camera, renderer, controls;
+        let nodes = [];
+        let pointClouds = {};
+        let traceLine = null;
+        let traceNode = null;
+        let isRotating = true;
+        let currentFilter = 'all';
+
+        // 初始化场景
+        function init() {
+            const container = document.getElementById('canvas-container');
+
+            // 场景
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a0a);
+            scene.fog = new THREE.FogExp2(0x0a0a0a, 0.0005);
+
+            // 相机
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 10000);
+            camera.position.set(200, 150, 200);
+
+            // 渲染器
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // 控制器
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 0.5;
+
+            // 生成节点
+            generateNodes(10000);
+
+            // 渲染节点
+            renderNodes();
+
+            // 添加坐标轴
+            addAxes();
+
+            // 更新统计
+            updateStats();
+
+            // 隐藏加载
+            document.getElementById('loading').classList.add('hidden');
+
+            // 开始动画
+            animate();
+
+            // 窗口调整
+            window.addEventListener('resize', onWindowResize);
+
+            // 点击检测
+            renderer.domElement.addEventListener('click', onMouseClick);
+        }
+
+        // 生成采样节点
+        function generateNodes(count) {
+            const seed = 9622;
+            let random = mulberry32(seed);
+
+            nodes = [];
+            for (let i = 0; i < count; i++) {
+                const d = Math.floor(random() * 6);
+                const l = Math.floor(random() * 9);
+                const b = Math.floor(random() * 8);
+                const g = Math.floor(random() * 64);
+                const w = Math.floor(random() * 5);
+                const tg = Math.floor(random() * 120);
+
+                const dr = [0, 1, 2, 3, 4, 5][d] || 0;
+                const wuxing = DR_WUXING[dr] || "土";
+                const audit = DR_AUDIT[dr] || "🟢";
+
+                const x = d * 9 + l;
+                const y = b * 64 + g;
+                const z = w * 120 + tg;
+
+                const pathId = d * 9 * 8 * 64 * 5 * 120 + l * 8 * 64 * 5 * 120 + 
+                              b * 64 * 5 * 120 + g * 5 * 120 + w * 120 + tg;
+
+                nodes.push({
+                    x, y, z,
+                    d, l, b, g, w, tg,
+                    dr, wuxing, audit,
+                    pathId,
+                    color: WUXING_COLORS[wuxing],
+                    alpha: AUDIT_ALPHA[audit],
+                    size: 2 + Math.random() * 3
+                });
+            }
+        }
+
+        // 确定性随机
+        function mulberry32(a) {
+            return function() {
+                let t = a += 0x6D2B79F5;
+                t = Math.imul(t ^ (t >>> 15), t | 1);
+                t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            }
+        }
+
+        // 渲染节点
+        function renderNodes() {
+            // 清除旧的
+            Object.values(pointClouds).forEach(pc => scene.remove(pc));
+            pointClouds = {};
+
+            const groups = { "🟢": [], "🟡": [], "🔴": [] };
+
+            nodes.forEach(node => {
+                if (currentFilter !== 'all' && currentFilter !== getAuditKey(node.audit)) {
+                    return;
+                }
+                groups[node.audit].push(node);
+            });
+
+            Object.entries(groups).forEach(([audit, groupNodes]) => {
+                if (groupNodes.length === 0) return;
+
+                const geometry = new THREE.BufferGeometry();
+                const positions = new Float32Array(groupNodes.length * 3);
+                const colors = new Float32Array(groupNodes.length * 3);
+                const sizes = new Float32Array(groupNodes.length);
+
+                groupNodes.forEach((node, i) => {
+                    positions[i * 3] = node.x;
+                    positions[i * 3 + 1] = node.y;
+                    positions[i * 3 + 2] = node.z;
+
+                    const color = new THREE.Color(node.color);
+                    colors[i * 3] = color.r;
+                    colors[i * 3 + 1] = color.g;
+                    colors[i * 3 + 2] = color.b;
+
+                    sizes[i] = node.size;
+                });
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+                geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+                const material = new THREE.PointsMaterial({
+                    size: 3,
+                    vertexColors: true,
+                    transparent: true,
+                    opacity: AUDIT_ALPHA[audit],
+                    sizeAttenuation: true,
+                    blending: THREE.AdditiveBlending
+                });
+
+                const points = new THREE.Points(geometry, material);
+                points.userData = { audit, nodes: groupNodes };
+                scene.add(points);
+                pointClouds[audit] = points;
+            });
+        }
+
+        // 添加坐标轴
+        function addAxes() {
+            // X轴 - 数字根×洛书
+            const xAxis = new THREE.ArrowHelper(
+                new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 60,
+                0xFFD700, 5, 3
+            );
+            scene.add(xAxis);
+
+            // Y轴 - 八卦×64卦
+            const yAxis = new THREE.ArrowHelper(
+                new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 550,
+                0xFFD700, 5, 3
+            );
+            scene.add(yAxis);
+
+            // Z轴 - 五行×干支
+            const zAxis = new THREE.ArrowHelper(
+                new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 650,
+                0xFFD700, 5, 3
+            );
+            scene.add(zAxis);
+
+            // 网格
+            const gridHelper = new THREE.GridHelper(500, 50, 0x333333, 0x111111);
+            gridHelper.position.set(250, 0, 300);
+            scene.add(gridHelper);
+        }
+
+        // 更新统计
+        function updateStats() {
+            const wuxingDist = {};
+            const auditDist = {};
+
+            nodes.forEach(n => {
+                wuxingDist[n.wuxing] = (wuxingDist[n.wuxing] || 0) + 1;
+                auditDist[n.audit] = (auditDist[n.audit] || 0) + 1;
+            });
+
+            document.getElementById('green-count').textContent = auditDist['🟢'] || 0;
+            document.getElementById('yellow-count').textContent = auditDist['🟡'] || 0;
+            document.getElementById('red-count').textContent = auditDist['🔴'] || 0;
+
+            // 五行分布
+            const wuxingStats = document.getElementById('wuxing-stats');
+            wuxingStats.innerHTML = '';
+
+            Object.entries(wuxingDist).forEach(([wx, count]) => {
+                const pct = (count / nodes.length * 100).toFixed(1);
+                const colorHex = '#' + WUXING_COLORS[wx].toString(16).padStart(6, '0');
+
+                wuxingStats.innerHTML += `
+                    <div style="margin-bottom:8px">
+                        <div style="display:flex;justify-content:space-between">
+                            <span style="color:${colorHex}">${wx}</span>
+                            <span>${count} (${pct}%)</span>
+                        </div>
+                        <div class="wuxing-bar">
+                            <div class="wuxing-fill" style="width:${pct}%;background:${colorHex}"></div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // 追踪路径
+        function tracePath() {
+            const text = document.getElementById('search-input').value || '龍魂系统';
+
+            // 计算数字根
+            const digits = text.split('').filter(c => /\d/.test(c)).map(Number);
+            let dr = 0;
+            if (digits.length > 0) {
+                let n = digits.reduce((a, b) => a + b, 0);
+                while (n >= 10) {
+                    n = String(n).split('').map(Number).reduce((a, b) => a + b, 0);
+                }
+                dr = n;
+            }
+
+            const d = Math.min(dr, 5);
+            const l = hashCode(text) % 9;
+            const b = hashCode(text + 'bagua') % 8;
+            const g = hashCode(text + '64gua') % 64;
+            const w = Math.min(dr, 4);
+            const tg = hashCode(text + 'tiangan') % 120;
+
+            const x = d * 9 + l;
+            const y = b * 64 + g;
+            const z = w * 120 + tg;
+
+            const pathId = d * 9 * 8 * 64 * 5 * 120 + l * 8 * 64 * 5 * 120 + 
+                          b * 64 * 5 * 120 + g * 5 * 120 + w * 120 + tg;
+
+            const wuxing = DR_WUXING[dr] || '土';
+            const audit = DR_AUDIT[dr] || '🟢';
+
+            // 清除旧轨迹
+            if (traceLine) scene.remove(traceLine);
+            if (traceNode) scene.remove(traceNode);
+
+            // 绘制轨迹线
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(x, y, z)
+            ]);
+            const lineMaterial = new THREE.LineDashedMaterial({
+                color: 0xFFD700,
+                dashSize: 5,
+                gapSize: 3,
+                linewidth: 2
+            });
+            traceLine = new THREE.Line(lineGeometry, lineMaterial);
+            traceLine.computeLineDistances();
+            scene.add(traceLine);
+
+            // 高亮目标节点
+            const nodeGeometry = new THREE.SphereGeometry(5, 16, 16);
+            const nodeMaterial = new THREE.MeshBasicMaterial({
+                color: WUXING_COLORS[wuxing],
+                transparent: true,
+                opacity: 0.9
+            });
+            traceNode = new THREE.Mesh(nodeGeometry, nodeMaterial);
+            traceNode.position.set(x, y, z);
+            scene.add(traceNode);
+
+            // 移动相机
+            const targetPos = new THREE.Vector3(x + 50, y + 50, z + 50);
+            animateCamera(targetPos, new THREE.Vector3(x, y, z));
+
+            // 显示弹窗
+            showPopup({
+                pathId, x, y, z, dr, wuxing, audit,
+                d, l, b, g, w, tg,
+                text
+            });
+        }
+
+        // 哈希函数
+        function hashCode(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash);
+        }
+
+        // 相机动画
+        function animateCamera(targetPos, lookAt) {
+            const startPos = camera.position.clone();
+            const startTime = Date.now();
+            const duration = 1000;
+
+            function update() {
+                const elapsed = Date.now() - startTime;
+                const t = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - t, 3);
+
+                camera.position.lerpVectors(startPos, targetPos, ease);
+                controls.target.lerp(lookAt, ease);
+                controls.update();
+
+                if (t < 1) requestAnimationFrame(update);
+            }
+            update();
+        }
+
+        // 显示弹窗
+        function showPopup(node) {
+            const popup = document.getElementById('node-popup');
+            const content = document.getElementById('popup-content');
+
+            const auditClass = node.audit === '🟢' ? 'audit-green' : 
+                              node.audit === '🟡' ? 'audit-yellow' : 'audit-red';
+
+            content.innerHTML = `
+                <div class="detail-row">
+                    <span class="detail-label">输入文本</span>
+                    <span class="detail-value">"${node.text}"</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">PathID</span>
+                    <span class="detail-value">${node.pathId}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">3D坐标</span>
+                    <span class="detail-value">(${node.x}, ${node.y}, ${node.z})</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">数字根</span>
+                    <span class="detail-value">${node.dr}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">五行</span>
+                    <span class="detail-value" style="color:#${node.wuxing === '金' ? 'FFD700' : node.wuxing === '木' ? '228B22' : node.wuxing === '水' ? '00008B' : node.wuxing === '火' ? 'E32636' : 'DAA520'}">${node.wuxing}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">审计状态</span>
+                    <span class="audit-badge ${auditClass}">${node.audit}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">六维坐标</span>
+                    <span class="detail-value">D${node.d}·L${node.l}·B${node.b}·G${node.g}·W${node.w}·TG${node.tg}</span>
+                </div>
+            `;
+
+            popup.style.display = 'block';
+            popup.style.left = '50%';
+            popup.style.top = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+        }
+
+        function closePopup() {
+            document.getElementById('node-popup').style.display = 'none';
+        }
+
+        // 点击检测
+        function onMouseClick(event) {
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+
+            const intersects = raycaster.intersectObjects(Object.values(pointClouds));
+
+            if (intersects.length > 0) {
+                const point = intersects[0];
+                const points = point.object;
+                const index = point.index;
+                const node = points.userData.nodes[index];
+
+                if (node) {
+                    showPopup({
+                        ...node,
+                        text: '点击选择'
+                    });
+                }
+            }
+        }
+
+        // 控制函数
+        function toggleRotation() {
+            isRotating = !isRotating;
+            controls.autoRotate = isRotating;
+            document.getElementById('rotate-btn').textContent = isRotating ? '⏸ 暂停旋转' : '▶ 开始旋转';
+        }
+
+        function resetView() {
+            camera.position.set(200, 150, 200);
+            controls.target.set(0, 0, 0);
+            controls.update();
+
+            if (traceLine) {
+                scene.remove(traceLine);
+                traceLine = null;
+            }
+            if (traceNode) {
+                scene.remove(traceNode);
+                traceNode = null;
+            }
+            closePopup();
+        }
+
+        function getAuditKey(audit) {
+            return audit === '🟢' ? 'green' : audit === '🟡' ? 'yellow' : 'red';
+        }
+
+        function toggleAuditFilter(filter) {
+            currentFilter = filter;
+
+            document.querySelectorAll('.controls button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + filter).classList.add('active');
+
+            renderNodes();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // 启动
+        init();
+    </script>
+</body>
+</html>

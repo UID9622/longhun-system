@@ -1,0 +1,19 @@
+# 龍魂宇宙 · 鸿蒙 .gitignore
+# UID9622 | 2026-07-18
+
+/node_modules
+/oh_modules
+/.preview
+/build
+/.hvigor
+
+# 签名文件（勿提交）
+*.p12
+*.p7b
+*.csr
+*.cer
+
+# IDE
+.idea/
+*.iml
+/local.properties

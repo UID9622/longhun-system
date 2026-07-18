@@ -13,6 +13,7 @@ LonghunFont 字元批量生成器 v2.0
 import json
 from pathlib import Path
 from datetime import datetime
+from typing import Any
 
 
 DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-GLYPH-GENERATOR-v2.0"

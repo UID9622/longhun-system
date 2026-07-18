@@ -22,6 +22,7 @@ import sqlite3
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 HOME = Path.home()
 HUB_DIR = HOME / "longhun-system" / "data-hub"

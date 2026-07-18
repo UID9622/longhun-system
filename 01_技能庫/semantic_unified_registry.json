@@ -4,10 +4,10 @@
     "version": "v2.5",
     "dna": "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SEMANTIC-UNIFIED-REGISTRY-v2.5",
     "created": "2026-07-14T21:00:00",
-    "updated": "2026-07-17T10:30:37",
+    "updated": "2026-07-17T23:16:00",
     "author": "P05 上帝之眼 · 三色审计",
     "sovereign": "UID9622 龍芯北辰",
-    "changelog": "v2.5: 分布式审计三件套——新建分布式审计矩阵协议(九类审计+369不动点+人因变量)+自检表万能模板(60项10区块)+通用审计模板(五区块40项+输出/审计双专用检查表)·审计铁律升级§3.21-§3.24 · v2.4: 历史归档对齐——老版决策流场总控页v2.7投喂吸收·16条DNA老→新矫正·53→16人格映射·新建H象限平等服务协议+边界编辑路由协议·实在协议+五层输出架构+DNA强制标注挂入§3 · v2.3: 人格矩阵对齐——P02宝宝→张衡/龙芯(执行修复)/P03雯雯→墨子+雯雯(逻辑验证)/P09道引→孙思邈(系统诊断·新执行器p09_sunsi.py)/P14吕蒙+部署职能/9个DNA短格式→完整干支时间戳·全部20人格文档=执行器DNA一致✅ · v2.2: +反钓鱼反贪心协议v1.0(7类钓鱼+7类贪心+4引擎+8项P0承诺)+主动观察引擎挂入反钓鱼审计规则 · v2.1: +语义对齐三层体系(L1文件/L2语义节点/L3触角网络)+命名即架构引擎v1.0+架构评估报告归档 · v2.0: +量子/时空织网/BraKet/纠缠检测/模9详解/三才25公式/密码学6层堆栈/论文引用/CNSH编译器术语/通心译全框架/文化输出/28星宿/D-GATE三闸门/Notion知识库映射/七因子场景权重细化 · 新增约200条目",
+    "changelog": "v2.5: 分布式审计三件套——新建分布式审计矩阵协议(九类审计+369不动点+人因变量)+自检表万能模板(60项10区块)+通用审计模板(五区块40项+输出/审计双专用检查表)·审计铁律升级§3.21-§3.24 · v2.4: 历史归档对齐——老版决策流场总控页v2.7投喂吸收·16条DNA老→新矫正·53→16人格映射·新建H象限平等服务协议+边界编辑路由协议·实在协议+五层输出架构+DNA强制标注挂入§3 · v2.3: 人格矩阵对齐——P02宝宝→张衡/龙芯(执行修复)/P03雯雯→墨子+雯雯(逻辑验证)/P09道引→孙思邈(系统诊断·新执行器p09_sunsi.py)/P14吕蒙+部署职能/9个DNA短格式→完整干支时间戳·全部20人格文档=执行器DNA一致✅ · v2.2: +反钓鱼反贪心协议v1.0(7类钓鱼+7类贪心+4引擎+8项P0承诺)+主动观察引擎挂入反钓鱼审计规则 · v2.1: +语义对齐三层体系(L1文件/L2语义节点/L3触角网络)+命名即架构引擎v1.0+架构评估报告归档 · v2.0: +量子/时空织网/BraKet/纠缠检测/模9详解/三才25公式/密码学6层堆栈/论文引用/CNSH编译器术语/通心译全框架/文化输出/28星宿/D-GATE三闸门/Notion知识库映射/七因子场景权重细化 · 新增约200条目 · v2.6: +quantum_evidence v2.0量子存证系统注册 · v2.7: +privacy_access_control v1.0(P0++)隐私接入规则引擎",
     "description": "收口全系统专业术语、技能、密码学、七因子、语义库、AI创作等所有概念到单一权威索引。v2.0补全量子/时空/CNSH/模9/三才详解及论文引用。",
     "principles": [
       "一个概念一个权威定义",
@@ -74,7 +74,10 @@
         "crypto-stack/src/stack_runner.py",
         "crypto-stack/src/weight_tuner.py",
         "docs/onghun-seven-factor-cryptography.md",
-        "docs/claude-backlog/04_BehavCrypto论文/C_CHINESE_FORMAL_PAPER_v1.0.md"
+        "docs/claude-backlog/04_BehavCrypto论文/C_CHINESE_FORMAL_PAPER_v1.0.md",
+        "deploy/evidence/longhun_evidence.py",
+        "deploy/evidence/longhun_privacy.py",
+        "deploy/evidence/privacy_api.py"
       ],
       "stack_layers": {
         "L1_physical": {
@@ -267,6 +270,50 @@
             "crypto-stack/src/stack_runner.py"
           ],
           "added": "2026-07-17"
+        },
+        "quantum_evidence": {
+          "name_zh": "量子存证系统",
+          "name_en": "Quantum Evidence System",
+          "version": "v2.0",
+          "definition": "龍魂量子存证系统。三层架构：语义压缩(AI可读摘要) + 量子态指纹(50分片XOR加密模拟) + DNA存证链(本地+模拟链上)。核心理念：压缩公开，原文加密，需要时量子重组。",
+          "commands": [
+            "store",
+            "verify",
+            "reconstruct"
+          ],
+          "api_port": 19629,
+          "files": [
+            "deploy/evidence/longhun_evidence.py",
+            "deploy/evidence/evidence_api.py"
+          ],
+          "deploy": {
+            "local": "launchd com.longhun.evidence-api",
+            "kunpeng": "systemd longhun-evidence.service"
+          },
+          "dna": "#龍芯⚡️丙午·乙申·己酉·亥时·需-EVIDENCE-API-v2.0"
+        },
+        "privacy_access_control": {
+          "name_zh": "隐私接入规则系统",
+          "name_en": "Privacy Access Control System",
+          "version": "v1.0",
+          "level": "P0++ (最高优先级，不可覆盖)",
+          "definition": "龍魂隐私接入规则引擎。P0++级别，三层防护：黑名单检查(永久拒绝)→国际组织白名单(需审计)→国家审批(网信办/公安部/工信部)。含隐私强制执行器(授权/敏感数据/禁止用途/跨境四重) + 熔断器(CRITICAL→紧急关闭, HIGH→立即阻断)。",
+          "commands": [
+            "verify",
+            "enforce",
+            "audit",
+            "status"
+          ],
+          "api_port": 19630,
+          "files": [
+            "deploy/evidence/longhun_privacy.py",
+            "deploy/evidence/privacy_api.py"
+          ],
+          "deploy": {
+            "local": "launchd com.longhun.privacy-api",
+            "kunpeng": "systemd longhun-privacy.service"
+          },
+          "dna": "#龍芯⚡️丙午·乙申·己酉·亥时·需-PRIVACY-API-v1.0"
         }
       }
     },
@@ -4595,7 +4642,17 @@
     "culture_to_algorithm": "原生态知识哲学→易经/道德经=公理体系→驱动369洛书算法",
     "cnshto_semantic": "CNSH变量注册表→语义解析器→通心译意图骨架",
     "notion_to_local": "Notion是镜像·本地是主·数据主权归本地·51页映射",
-    "protocol_to_governance": "协议层(PROTOCOL)↔治理层(governance)：协议是哲学思想的可执行契约，争议处理接入红蓝对抗/三色审计，主权撤回接入人民数据主权。"
+    "protocol_to_governance": "协议层(PROTOCOL)↔治理层(governance)：协议是哲学思想的可执行契约，争议处理接入红蓝对抗/三色审计，主权撤回接入人民数据主权。",
+    "crypto_to_governance": {
+      "quantum_evidence": {
+        "target": "quantum_evidence",
+        "description": "量子存证系统 → 治理审计：存证内容可被审计引擎交叉验证"
+      },
+      "privacy_access_control": {
+        "target": "privacy_access_control",
+        "description": "隐私接入系统 → 治理审计：P0++规则不可覆盖，违规自动熔断"
+      }
+    }
   },
   "unified_naming_convention": {
     "prefix": "longhun-{category}-{name}-{version}",
