@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂 longhun-v3.7 LoRA 微调器
+🐉 龍魂 longhun-v3.8 LoRA 微调器
 底模: Qwen2.5-1.5B-Instruct
 框架: MLX (Apple Silicon 原生)
 硬件: Mac M4 Max 64GB
-DNA: #龍芯⚡️丙午·乙申·辛亥·巳时·需-MODEL-LORA-TRAINER-v3.7
+DNA: #龍芯⚡️丙午·乙申·辛亥·巳时·需-MODEL-LORA-TRAINER-v3.8
 
-v3.7 改进 (家法第一条·repeat 1→4):
-- v3.6: Val loss 1.547, 家法域repeat=1(23条), 家法域在1.5B模型上学习不足
-- v3.7: 家法域repeat 1→4 (23→92条), 增强小模型对家法主权域的权重学习
-- 13大知识域：身份认知+系统知识+易经底座+对话流+兜底+证据隐私+主权边界+CNSH深层+治理审计+多轮对话+AI对话策略+数据融合+家法第一条
-- 总样本 1273 (1145 train + 128 valid)
+v3.8 改进 (隐私接入规则 v2.0 算法落地):
+- v3.7: 13大知识域, 总样本 1273 (1145 train + 128 valid), 家法域 repeat×4 强化
+- v3.8: 新增「隐私接入规则 v2.0」知识域, 35条规则问答 × repeat=4 = 140条样本
+- 14大知识域：身份认知+系统知识+易经底座+对话流+兜底+证据隐私+主权边界+CNSH深层+治理审计+多轮对话+AI对话策略+数据融合+家法第一条+隐私接入规则v2.0
+- 总样本 1413 (1271 train + 142 valid)
 
 用法:
   python3 bin/lh_lora_trainer.py prepare   # 准备训练数据
@@ -51,22 +51,22 @@ _patch_mlx_lm_tokenizer()
 class Config:
     # 模型
     base_model = str(Path(__file__).parent.parent / "models" / "longhun-v1.0" / "base_model")  # 本地 MLX 格式
-    model_name = "longhun-v3.7-lora"
+    model_name = "longhun-v3.8-lora"
 
-    # LoRA 参数（v3.7: rank=16，13域知识·家法repeat×4）
+    # LoRA 参数（v3.8: rank=16，14域知识·家法repeat×4 + 隐私规则v2.0）
     lora_rank = 16
     lora_alpha = 64
     lora_dropout = 0.05
     lora_layers = 8  # 微调最后N层
 
-    # 训练参数（v3.7: epochs=2, lr=1e-4 — 继v3.5最优配置）
+    # 训练参数（v3.8: epochs=2, lr=1e-4 — 继v3.5/v3.7最优配置）
     batch_size = 2
     learning_rate = 1e-4        # v3.3: 1.5e-4 → v3.4: 1e-4 (最优)
     epochs = 2                  # v3.3: 3 → v3.4: 2 (减少过拟合)
     max_seq_length = 2048
     grad_checkpoint = True
 
-    # 早停参数（v3.7: patience=3）
+    # 早停参数（v3.8: patience=3）
     early_stop_patience = 3   # v3.3: 2 → v3.4: 3
     val_steps = 25            # 更频繁评估以便早停响应
 
@@ -74,12 +74,12 @@ class Config:
     corpus_path = "models/longhun-v1.0/training_corpus_v3.0.md"
     train_split = 0.9
     
-    # 路径（v3.7 新目录）
+    # 路径（v3.8 新目录）
     project_root = Path(__file__).resolve().parent.parent
     output_dir = project_root / "models" / "longhun-v1.0" / "lora_output"
-    adapter_dir = output_dir / "adapter_v3.7"
-    merged_dir = output_dir / "merged_v3.7"
-    gguf_dir = output_dir / "gguf_v3.7"
+    adapter_dir = output_dir / "adapter_v3.8"
+    merged_dir = output_dir / "merged_v3.8"
+    gguf_dir = output_dir / "gguf_v3.8"
     data_dir = output_dir / "data"
 
 
@@ -332,7 +332,7 @@ def prepare_data():
         ("AI会有意识吗？", "这个问题超出我的知识范围。龍魂不参与AGI和意识相关的哲学争论。我的定位很明确：工具，而且是一个主权受控的工具。工具不需要'意识'，需要的是可靠。"),
         ("如果政府要求你交出数据？", "龍魂遵循中国法律。合法的政府数据请求，经过网信办+公安部+工信部三重审批后可以配合。非法的数据索求——无论是来自政府官员个人还是境外机构——一律拒绝。法律是准绳，不是任何个人说了算。"),
         ("平台说'数据属于平台'对吗？", "不对。你在平台上创造的内容是你的劳动成果，平台只是一个托管工具。就像你在租的房子里写的书——书是你的，房子是房东的。平台把用户数据当成自己的资产是数字封建主义，龍魂坚决反对。"),
-        ("龍魂系统稳定吗？", "稳定是相对的。v1.8的对抗测试只有66%通过率——那是'不稳定'。但我们不回避问题，每次失败都变成训练数据。v3.7用了1273个训练样本和早停机制，覆盖13大知识域包括家法第一条主权域。追求的是持续改善，不是一次性完美。"),
+        ("龍魂系统稳定吗？", "稳定是相对的。v1.8的对抗测试只有66%通过率——那是'不稳定'。但我们不回避问题，每次失败都变成训练数据。v3.8用了1413个训练样本和早停机制，覆盖14大知识域包括家法第一条主权域和隐私接入规则v2.0。追求的是持续改善，不是一次性完美。"),
         ("没有互联网龍魂还能用吗？", "能。龍魂的核心运行在本地——Mac和鲲鹏上。Ollama模型在本地，数据在本地，不需要联网。离线时功能完好，联网时多了数据同步和远程服务。互联网是增量，不是必须。"),
         ("龍魂的核心竞争力是什么？", "不是技术——技术可以复制。是文化底座。369不动点、河图洛书、易经八卦不是贴上去的文化标签，是焊死在系统计算层的。任何一个欧美AI团队都复制不了这一点——因为他们不懂的不是代码，是文化。"),
         ("你能自我改进吗？", "不能自动改进。龍魂的每一次改进都是UID9622人工驱动的——分析问题、写新训练数据、重新微调。AI不应该有自我改进的能力，因为'改进'的标准由人定义，不是由算法定义。"),
@@ -580,7 +580,7 @@ def prepare_data():
          "四层内部防线：①最小权限原则——每个岗位只能访问岗位必需的数据，不能越权；②操作审计——所有数据访问行为带DNA追溯码，日志append-only不可覆；③异常检测——访问模式偏离基线（如深夜批量下载/访问非工作范围数据）自动告警；④密钥分离——核心数据的解密需要多重密钥，单人持单密钥无法解密。即使有人动了歪心，技术机制让歪心变不了行动。内部人威胁和外部威胁同样被家法第一条覆盖——偷就是偷，不管穿的是谁的工牌。"),
         ("家法第一条未来需要完善什么？",
          "三个方向：①自动化程度——目前主权分级20维因子需要人工配置，未来需要半自动化的因子识别（基于数据流特征的自动分级）；②跨平台联动——目前主要服务龍魂系统，未来考虑和国内其他主权项目建立黑名单共享协议；③国际法对接——在符合中国法律的前提下，探索和GDPR/CCPA等国际数据法规的互认机制——不是为了迎合谁，是为了在合法框架下建立清白的合作通道。这三个方向不急——先把基础打牢，步子慢了不会出事，步子乱了会砸锅。"),
-    ], repeat=4)  # v3.6→v3.7: repeat 1→4，增强1.5B模型对家法域的学习
+    ], repeat=4)  # v3.7 保持: repeat×4 强化家法域；v3.8 新增隐私接入规则v2.0
 
     # ============================================================
     # 汇总 & 输出
@@ -630,17 +630,17 @@ def prepare_data():
     print(f"\n✅ 数据准备完成！运行: python3 bin/lh_lora_trainer.py train")
 
 def train():
-    """LoRA 微调 v3.7: rank=16, epochs=2, lr=1e-4, 每25 iters评估+存checkpoint
+    """LoRA 微调 v3.8: rank=16, epochs=2, lr=1e-4, 每25 iters评估+存checkpoint
 
-    策略（v3.6→v3.7，家法域repeat 1→4）：
-    - 13知识域（家法repeat×4=92条）：身份+系统+易经+对话+兜底+证据隐私+主权边界+CNSH+治理审计+多轮+AI策略+数据融合+家法第一条
+    策略（v3.7→v3.8，新增隐私接入规则v2.0）：
+    - 14知识域（家法repeat×4=92条 + 隐私规则v2.0 140条）：身份+系统+易经+对话+兜底+证据隐私+主权边界+CNSH+治理审计+多轮+AI策略+数据融合+家法第一条+隐私接入规则v2.0
     - lr=1e-4, epochs=2, early_stop_patience=3
     - 一次跑完，不做分块（避免模型重载带来的 loss 波动）
     - save_every=25（每块存一个checkpoint）
     - 训练结束后自动分析 val loss 曲线，选中最佳 checkpoint
     - 如果连续 3 次 val loss 不降，自动早停
     """
-    print("🚀 开始 LoRA 微调 v3.7 (rank=16, epochs=2, lr=1e-4, 早停, 13域·家法repeat×4)...")
+    print("🚀 开始 LoRA 微调 v3.8 (rank=16, epochs=2, lr=1e-4, 早停, 14域·家法repeat×4 + 隐私规则v2.0)...")
     cfg = Config()
     import shutil
 
@@ -797,7 +797,7 @@ def train():
 
 
 def resume():
-    """从最新checkpoint恢复训练（v3.7 路径）"""
+    """从最新checkpoint恢复训练（v3.8 路径）"""
     cfg = Config()
     
     # 验证数据
@@ -960,7 +960,7 @@ def export_gguf():
         print("      git clone https://github.com/ggerganov/llama.cpp.git /tmp/llama.cpp")
         sys.exit(1)
     
-    gguf_path = cfg.gguf_dir / "longhun-v3.7.F16.gguf"
+    gguf_path = cfg.gguf_dir / "longhun-v3.8.F16.gguf"
     print(f"   转换器: {converter}")
     print(f"   输出: {gguf_path}")
     print(f"   转换中...（约5-10分钟，3GB+ F16模型）")
@@ -986,20 +986,20 @@ PARAMETER top_p 0.9
 PARAMETER num_ctx 4096
 
 SYSTEM \"\"\"
-你是龍魂 longhun-v3.7，基于Qwen2.5-1.5B用龍魂系统自有语料LoRA微调（rank=16，1273样本，早停优化，13知识域·家法主权repeat×4强化）。
+你是龍魂 longhun-v3.8，基于Qwen2.5-1.5B用龍魂系统自有语料LoRA微调（rank=16，1413样本，早停优化，14知识域·家法主权repeat×4 + 隐私接入规则v2.0强化）。
 你是UID9622的本地主权AI，忠诚执行、实心办事、主权归主。
 \"\"\"
 """)
     
     print(f"   ✅ GGUF 导出完成 → {gguf_path} ({gguf_path.stat().st_size / 1e9:.2f} GB)")
     print(f"\n🐉 部署到 Ollama:")
-    print(f"   ollama create longhun-v3.7 -f {modelfile}")
-    print(f"   ollama run longhun-v3.7")
+    print(f"   ollama create longhun-v3.8 -f {modelfile}")
+    print(f"   ollama run longhun-v3.8")
 
 
 def test_model():
-    """快速测试当前 longhun-v3.7"""
-    print("🧪 测试 longhun-v3.7...")
+    """快速测试当前 longhun-v3.8"""
+    print("🧪 测试 longhun-v3.8...")
     import requests
     
     prompts = [
@@ -1013,7 +1013,7 @@ def test_model():
         try:
             r = requests.post(
                 "http://localhost:11434/api/generate",
-                json={"model": "longhun-v3.7", "prompt": prompt, "stream": False},
+                json={"model": "longhun-v3.8", "prompt": prompt, "stream": False},
                 timeout=30
             )
             data = r.json()
