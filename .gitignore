@@ -139,3 +139,31 @@ state/
 # --- 编辑器工作区 ---
 .obsidian/
 .codebuddy/memory/
+
+# --- 运行时生成数据（训练/采集/审计）---
+data/sources/fetched/
+data/sources/cleaned/
+data/sources/logs/
+data/sources/intl/
+data/sources/registry/*.json
+data/sources/*.json
+data/sources/index-for-codebuddy.md
+deploy/longhun-node/audit/
+deploy/evidence/
+deploy/auto_sync/*.log
+data/collector/
+data/training/home_absorb/
+data/training/media/
+data/training/evidence_v2/
+data/training/reports/
+data/training/v3.2/
+data/training/raw/
+data/training/annotated/
+data/self_improvement_log.json
+data/euv_history.json
+data/ant_colony_state.db
+models/longhun-v1.0/base_model_old/
+models/longhun-v1.0/llama3.1-8b-mlx/
+*.mov
+*.mp4
+*.avi
