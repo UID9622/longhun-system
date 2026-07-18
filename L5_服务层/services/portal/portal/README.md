@@ -119,7 +119,7 @@ curl http://127.0.0.1:18000/openapi.json > ~/longhun-system/portal/data/cnsh_ope
       Nginx（统一入口）
          ├── /            → 静态门户
          ├── /editor/     → CNSH Editor API
-         ├── /api/v1/     → CNSH Editor API
+         ├── /a../     → CNSH Editor API
          └── /docs        → Swagger UI
 ```
 

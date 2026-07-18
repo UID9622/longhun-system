@@ -168,3 +168,6 @@ models/longhun-v1.0/llama3.1-8b-mlx/
 *.mov
 *.mp4
 *.avi
+
+# --- L3 语义层模型产物 ---
+L3_语义层/20260718/model/

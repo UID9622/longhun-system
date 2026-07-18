@@ -26,14 +26,14 @@
 | 字元库版本 | `v0019-龍纹书法版` |
 | 总字符数 | **28957** 个 |
 | 汉字 | **28096** 个 |
-| 拉丁/数字/符号 | **124** 个 |
+| ../符号 | **124** 个 |
 | 龍纹水印 | **每个字形右下角均嵌入 U+E200 龍纹缩微水印** |
 | 骨架风格 | **书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视** |
 | 结构支持 | **单一 / 左右 / 左中右 / 上下 / 上中下 / 包围 / 半包围 / 品字形 / 镶嵌** |
 | 女娲五彩石渲染 | **跨平台字符级五色循环：红/黄/青/白/黑** |
 | 五彩石彩色字体原型 | `output/LonghunFont-WuwuColor.otf`（COLR/CPAL） |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
-| 五行/河图/洛书/太极八卦 | **8** 个 PUA |
+| ../洛书/太极八卦 | **8** 个 PUA |
 | 甲骨文 | **150** 个 PUA |
 | 中国风文化图标 | **29** 个 PUA |
 | 二十四节气图标 | **24** 个 PUA |
@@ -44,8 +44,8 @@
 | 苏州码子 | **10** 个 PUA |
 | 传统纹样 | **15** 个 PUA |
 | 文化主权图标 | **20** 个 PUA |
-| 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
-| 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
+| 实用符号（../箭头/制../几何） | **151** 个 |
+| 国际符号（拼音调号/希腊../../../上下标等） | **188** 个 |
 | 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
 | v3.0 书法轮廓原型 | `output/LonghunFont-Regular-v3.otf`（可变宽度笔锋，试验版） |
 | 字元库文件 | `glyphs/龍魂字元库_v0019_龍纹书法版.json` |
@@ -97,7 +97,7 @@ longhun-font/
 │   ├── LonghunFont.css               # @font-face 与辅助类
 │   └── wuwu.css                      # 女娲五彩石渲染样式
 ├── js/                   # 跨平台渲染脚本
-│   └── wuwu.js                       # Web/H5/小程序五彩石上色
+│   └── wuwu.js                       # W../小程序五彩石上色
 ├── examples/             # 各端示例
 │   └── harmonyos/
 │       └── WuwuFontPage.ets          # HarmonyOS ArkTS 示例
@@ -114,18 +114,18 @@ longhun-font/
 │   ├── expand_to_1000.py             # 千字符扩展
 │   ├── expand_latin_symbols.py       # 拉丁/符号扩展
 │   ├── expand_yijing_symbols.py      # 易经八卦扩展
-│   ├── expand_wuxing_hetu_luoshu.py  # 五行/河图/洛书扩展
+│   ├── expand_wuxing_hetu_luoshu.py  # ../洛书扩展
 │   ├── expand_oracle_bone.py         # 甲骨文扩展
 │   ├── expand_chinese_culture.py     # 中国风文化图标扩展
-│   ├── expand_lunar_sovereignty.py   # 甲骨文/节气/生肖扩展
+│   ├── expand_lunar_sovereignty.py   # 甲../生肖扩展
 │   ├── expand_tiangan_dizhi.py       # 天干地支扩展
 │   ├── expand_ershiba_xiu.py         # 二十八宿扩展
 │   ├── expand_chuan_tong_jieri.py    # 传统节日扩展
 │   ├── expand_suzhou_motifs.py       # 苏州码子/传统纹样扩展
-│   ├── expand_extra_sovereignty.py   # 北斗/四象/福禄寿喜财/文房/乐器扩展
+│   ├── expand_extra_sovereignty.py   # ../福禄寿../乐器扩展
 │   ├── expand_chinese_2000.py        # 中文字符扩至 2000+
-│   ├── expand_practical_symbols.py   # 标点/数学/箭头/制表符/货币扩展
-│   ├── expand_international_symbols.py # 拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标
+│   ├── expand_practical_symbols.py   # ../箭头/制表符/货币扩展
+│   ├── expand_international_symbols.py # 拼音调号/希腊../../../上下标
 │   ├── expand_chinese_2600.py        # 中文字符扩至 2600+
 │   ├── expand_chinese_3500.py        # 中文字符扩至 3500
 │   ├── expand_chinese_5000.py        # 中文字符扩至 5000+
@@ -139,7 +139,7 @@ longhun-font/
 │   ├── refine_all_cjk_calligraphy.py # 书法骨架精修脚本
 │   ├── refine_core_glyphs.py         # 核心字形精修
 │   ├── check_font.py                 # 字元库校验/审计脚本
-│   ├── release.sh                    # 一键构建/标签/双仓发布脚本
+│   ├── release.sh                    # 一键../双仓发布脚本
 │   ├── subset_font.py                # 字体子集化脚本（按文本裁剪 OTF）
 │   └── embed_longhun_watermark.py    # 龍纹水印嵌入脚本
 ├── docs/                 # 文档
@@ -279,12 +279,12 @@ python3 scripts/subset_font.py \
 
 ## 📌 已完成功能
 
-- [x] 28096 个汉字 + 124 个拉丁/数字/符号
-- [x] 151 个实用符号（标点/数学/箭头/制表符/货币/几何）
-- [x] 188 个国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等）
+- [x] 28096 个汉字 + 124 个../符号
+- [x] 151 个实用符号（../箭头/制../几何）
+- [x] 188 个国际符号（拼音调号/希腊../../../上下标等）
 - [x] 覆盖 CJK 统一表意文字（U+4E00~U+9FFF）+ CJK Extension A（U+3400~U+4DBF）+ CJK 兼容区（U+F900~U+FAFF）
-- [x] 75 个易经/八卦/太极/两仪符号
-- [x] 8 个五行/河图/洛书/太极八卦 PUA 图标
+- [x] 75 个../太极/两仪符号
+- [x] 8 个../洛书/太极八卦 PUA 图标
 - [x] 150 个甲骨文字符（四季、时序、天象、祭祀、权力、农牧工商、器物等）
 - [x] 29 个中国风文化图标（龍纹、凤纹、祥云、灯笼、红包、饺子等）
 - [x] 24 个二十四节气 PUA 图标
@@ -294,7 +294,7 @@ python3 scripts/subset_font.py \
 - [x] 15 个传统节日 PUA 图标
 - [x] 10 个苏州码子 PUA 符号
 - [x] 15 个传统纹样 PUA 图标
-- [x] 20 个文化主权图标（北斗/四象/福禄寿喜财/文房/乐器/麒麟）
+- [x] 20 个文化主权图标（../福禄寿../乐器/麒麟）
 - [x] OTF 导出，含真实字面外框与安全框
 - [x] 字元库校验脚本（完整性/唯一性/编码一致性/分类统计）
 - [x] 一键发布脚本（校验 → 构建 → 渲染 → 提交 → 标签 → 双仓推送）
@@ -306,7 +306,7 @@ python3 scripts/subset_font.py \
 - [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
 - [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龍纹标识
 - [x] 中文字符扩展至 10000，覆盖全部 BMP CJK 统一表意文字
-- [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
+- [x] CJK 骨架按 9 种结构精修（../左../上../半包围/品字形/镶嵌）
 - [x] 书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视
 - [x] v3.0 书法轮廓原型：可变宽度笔画 + 起收笔 taper + 横粗竖细（`LonghunFont-Regular-v3.otf`）
 - [x] 书法渲染与作品编号系统：7 种名家书体、印章、龍纹水印、作品编号 `LH-CAL-...`
