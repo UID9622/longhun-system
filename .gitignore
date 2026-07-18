@@ -50,6 +50,7 @@ backups/
 # --- 私有文件 ---
 _private/
 _archive/
+!bin/_archive/
 _archived_reports/
 tmp/
 temp/
