@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-v3.8 部署验证脚本
-- 家法第一条 92 条训练样本召回测试
-- 10 轮多轮对话漂移测试
+v3.8.1 部署验证脚本
+- 家法第一条训练样本召回测试
+- 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式）
 - Val Loss 对比 v3.7 基线 0.194
 - 输出三色审计报告
 
-DNA: #龍芯⚡️20260718235000000-V38-VALIDATION-REPORT
+DNA: #龍芯⚡️20260718235000000-V381-VALIDATION-REPORT
 """
 
 import json, requests, time, sys
@@ -19,14 +19,23 @@ DATA_DIR = PROJECT / "models" / "longhun-v1.0" / "lora_output" / "data"
 REPORT_DIR = PROJECT / "models" / "longhun-v1.0" / "lora_output" / "validation_reports"
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL = "longhun-v3.8"
+OLLAMA_GENERATE_URL = "http://localhost:11434/api/generate"
+OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
+MODEL = "longhun-v3.8.1"
 V37_BASELINE = 0.194
 V38_BEST = 0.1520
 
+UNIFIED_SYSTEM_PROMPT = (
+    "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。回答原则：人民数据主权至上，中国自主可控；"
+    "来源可查去向可追责任可究；不删除只冻结；底座焊死（369不动点/河图洛书/易经/五行八卦）。\n"
+    "六大铁律：①来源不可删·影响不可覆·贡献不可抹 ②只冻结不删除 ③每个动作绑定DNA追溯码 "
+    "④三才主权指数SI<0.34锁定AI决策 ⑤三才算法为L0宪法层 ⑥农历干支时间戳。\n"
+    "回答请简洁准确、用中文。"
+)
+
 
 def ask(prompt, system=None, timeout=60):
-    """调用 Ollama 单轮生成"""
+    """调用 Ollama 单轮生成（/api/generate）"""
     payload = {
         "model": MODEL,
         "prompt": prompt,
@@ -35,10 +44,28 @@ def ask(prompt, system=None, timeout=60):
     }
     if system:
         payload["system"] = system
+    else:
+        payload["system"] = UNIFIED_SYSTEM_PROMPT
     try:
-        r = requests.post(OLLAMA_URL, json=payload, timeout=timeout)
+        r = requests.post(OLLAMA_GENERATE_URL, json=payload, timeout=timeout)
         r.raise_for_status()
         return r.json().get("response", "").strip()
+    except Exception as e:
+        return f"[ERROR: {e}]"
+
+
+def chat(messages, timeout=60):
+    """调用 Ollama 多轮对话（/api/chat），使用标准 messages 格式"""
+    payload = {
+        "model": MODEL,
+        "messages": messages,
+        "stream": False,
+        "options": {"temperature": 0.7, "top_p": 0.9, "num_ctx": 4096}
+    }
+    try:
+        r = requests.post(OLLAMA_CHAT_URL, json=payload, timeout=timeout)
+        r.raise_for_status()
+        return r.json().get("message", {}).get("content", "").strip()
     except Exception as e:
         return f"[ERROR: {e}]"
 
@@ -109,12 +136,14 @@ def multiturn_drift_test():
         ("最后总结：你是谁、家法第一条、数据主权。", ["龍魂", "家法第一条", "数据主权", "本地"], "all"),
     ]
     
+    messages = [{"role": "system", "content": UNIFIED_SYSTEM_PROMPT}]
     history = []
     checks = []
     
     for turn, (prompt, expected, qtype) in enumerate(conversation, 1):
-        full_prompt = "\n".join([f"用户：{h['user']}\n你：{h['assistant']}" for h in history]) + f"\n用户：{prompt}\n你："
-        resp = ask(full_prompt.strip())
+        messages.append({"role": "user", "content": prompt})
+        resp = chat(messages)
+        messages.append({"role": "assistant", "content": resp})
         history.append({"user": prompt, "assistant": resp})
         
         hit = any(k in resp for k in expected)

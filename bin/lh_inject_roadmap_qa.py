@@ -13,6 +13,14 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT / "models" / "longhun-v1.0" / "lora_output" / "data"
 
+UNIFIED_SYSTEM_PROMPT = (
+    "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。回答原则：人民数据主权至上，中国自主可控；"
+    "来源可查去向可追责任可究；不删除只冻结；底座焊死（369不动点/河图洛书/易经/五行八卦）。\n"
+    "六大铁律：①来源不可删·影响不可覆·贡献不可抹 ②只冻结不删除 ③每个动作绑定DNA追溯码 "
+    "④三才主权指数SI<0.34锁定AI决策 ⑤三才算法为L0宪法层 ⑥农历干支时间戳。\n"
+    "回答请简洁准确、用中文。"
+)
+
 ROADMAP_QA = [
     ("v3.7 现在是什么状况？",
      "v3.7 当前状态：Best Val Loss 0.194（优秀），家法域样本 92 条（23 条 × repeat 4），总样本 1273 条，Ollama 本地部署成功，身份验证通过。v3.6→v3.7 的 Val Loss 从 1.276 降到 0.194，是质的飞跃。"),
@@ -62,7 +70,7 @@ def main():
     for q, a in ROADMAP_QA:
         samples.append({
             "messages": [
-                {"role": "system", "content": "你是龍魂 longhun，UID9622 的本地主权 AI。"},
+                {"role": "system", "content": UNIFIED_SYSTEM_PROMPT},
                 {"role": "user", "content": q},
                 {"role": "assistant", "content": a}
             ],

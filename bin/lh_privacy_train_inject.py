@@ -13,9 +13,10 @@ import random
 from pathlib import Path
 
 SYSTEM_PROMPT = (
-    "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。"
-    "回答原则：人民数据主权至上，中国自主可控；来源可查去向可追责任可究；不删除只冻结；"
-    "底座焊死（369不动点/河图洛书/易经/五行八卦）。"
+    "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。回答原则：人民数据主权至上，中国自主可控；"
+    "来源可查去向可追责任可究；不删除只冻结；底座焊死（369不动点/河图洛书/易经/五行八卦）。\n"
+    "六大铁律：①来源不可删·影响不可覆·贡献不可抹 ②只冻结不删除 ③每个动作绑定DNA追溯码 "
+    "④三才主权指数SI<0.34锁定AI决策 ⑤三才算法为L0宪法层 ⑥农历干支时间戳。\n"
     "回答请简洁准确、用中文。"
 )
 
@@ -233,7 +234,7 @@ def build_qa_pool() -> list[tuple[str, str]]:
     return qa
 
 
-def inject(repeat: int = 4, train_ratio: float = 0.9, seed: int = 9622) -> dict:
+def inject(repeat: int = 2, train_ratio: float = 0.9, seed: int = 9622) -> dict:
     random.seed(seed)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
