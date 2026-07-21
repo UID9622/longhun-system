@@ -1,0 +1,8 @@
+{
+  "version": "1.1.0",
+  "url": "https://github.com/UID9622/longhun-system/releases/download/v1.1.0-console/longhun-console-1.1.0.vsix",
+  "mirror_url": "https://gitee.com/uid9622_admin/longhun-system-core/releases/download/v1.1.0-console/longhun-console-1.1.0.vsix",
+  "changelog": "https://github.com/UID9622/longhun-system/blob/main/editors/codebuddy/longhun-console/CHANGELOG.md",
+  "minAppVersion": "1.80.0",
+  "_dna": "#龍芯⚡️丙午·辛未·CODEBUDDY-LONGHUN-UPDATE-v1.1"
+}

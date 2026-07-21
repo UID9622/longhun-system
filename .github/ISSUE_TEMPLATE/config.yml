@@ -1,0 +1,15 @@
+# 龍魂系统 · Issue 模板配置
+# DNA: #龍芯⚡️2026-07-13-ISSUE-TEMPLATES-v1.0
+
+blank_issues_enabled: true
+
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/UID9622/longhun-system/discussions
+    about: 使用问题、想法讨论、社区交流请到 Discussions
+  - name: 📖 快速入门指南
+    url: https://github.com/UID9622/longhun-system/blob/main/QUICKSTART.md
+    about: 新用户请先阅读快速入门指南
+  - name: 🤝 贡献指南
+    url: https://github.com/UID9622/longhun-system/blob/main/CONTRIBUTING.md
+    about: 参与贡献前请先阅读贡献指南

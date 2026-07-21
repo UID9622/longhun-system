@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-07-08T13:26:41.636975",
+  "total_new_or_modified_hour": 49,
+  "by_extension": {
+    ".toml": 1,
+    ".json": 20,
+    ".py": 15,
+    ".md": 6,
+    ".status": 1,
+    ".log": 5,
+    ".jsonl": 1
+  },
+  "sample_files": [
+    "longhun-system/pyproject.toml",
+    "longhun-system/L1_内核层/kernel/cross_module_registry.json",
+    "longhun-system/L1_内核层/kernel/engines/cnsh_editor_engine.py",
+    "longhun-system/L1_内核层/kernel/engines/cnsh_translator_engine.py",
+    "longhun-system/bin/longhun_cli.py",
+    "longhun-system/bin/lh_site_gen.py",
+    "longhun-system/bin/lh_finance_fmt.py",
+    "longhun-system/agents/daemon_logs/builder_status.json",
+    "longhun-system/agents/daemon_logs/guardian_audit.json",
+    "longhun-system/agents/daemon_logs/heartbeat.json",
+    "longhun-system/agents/daemon_logs/syncer.json",
+    "longhun-system/agents/daemon_logs/scout.json",
+    "longhun-system/agents/daemon_logs/builder.json",
+    "longhun-system/agents/daemon_logs/guardian.json",
+    "longhun-system/agents/daemon_logs/scout_intel.json",
+    "longhun-system/L5_服务层/services/finance/cnsh_finance_formatter.py",
+    "longhun-system/03_compiler/mappings/syntax_library.json",
+    "longhun-system/03_compiler/mappings/keywords.json",
+    "longhun-system/01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+    "longhun-system/01_protocols/IPA-DICT-101-111-决策链.md"
+  ]
+}

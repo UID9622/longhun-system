@@ -1,0 +1,13 @@
+{
+  "agent_id": "builder",
+  "name": "宝宝",
+  "state": "idle",
+  "last_run": "2026-07-08T13:45:45.146912",
+  "last_error": "",
+  "counters": {
+    "processed_tasks": 0,
+    "failed_tasks": 0
+  },
+  "updated_at": "2026-07-08T13:45:45.149711",
+  "dna": "#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0"
+}

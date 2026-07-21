@@ -1,0 +1,8 @@
+# Credentials and local config
+.env
+.env.bak
+.ssh/
+.cache/
+*.pyc
+__pycache__/
+venv/

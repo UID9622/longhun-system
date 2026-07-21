@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂管理后台 · 登录</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #0a0a0f;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  /* 背景龙纹 */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(0,180,180,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(180,0,0,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  /* 粒子 */
+  .particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #d4af37;
+    border-radius: 50%;
+    animation: floatUp 8s linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
+  /* 容器 */
+  .container {
+    position: relative; z-index: 1;
+    width: 420px;
+  }
+  /* 头部 */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .logo {
+    font-size: 52px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 20px rgba(212,175,55,0.3));
+  }
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 4px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 2px;
+  }
+  /* 登录卡片 */
+  .card {
+    background: rgba(20,20,30,0.9);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 12px;
+    padding: 40px 36px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 1px rgba(212,175,55,0.2);
+  }
+  .card-title {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  /* 输入框 */
+  .input-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .input-group label {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(10,10,20,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+  }
+  .input-group input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+  }
+  .input-group input::placeholder { color: #444; }
+  /* 按钮 */
+  .btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #d4af37, #b8960f);
+    border: none;
+    border-radius: 8px;
+    color: #0a0a0f;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .btn:hover {
+    background: linear-gradient(135deg, #e6c44a, #c9a620);
+    box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+    transform: translateY(-1px);
+  }
+  .btn:active { transform: translateY(0); }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  /* 错误提示 */
+  .error {
+    background: rgba(220,38,38,0.1);
+    border: 1px solid rgba(220,38,38,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #f87171;
+    font-size: 13px;
+    margin-bottom: 16px;
+    display: none;
+    text-align: center;
+  }
+  .error.show { display: block; animation: shake 0.4s; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+  /* 成功提示 */
+  .success {
+    background: rgba(22,163,74,0.1);
+    border: 1px solid rgba(22,163,74,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #4ade80;
+    font-size: 13px;
+    margin-bottom: 16px;
+    display: none;
+    text-align: center;
+  }
+  .success.show { display: block; }
+  /* 改密弹窗 */
+  .modal-overlay {
+    display: none;
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 10;
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: rgba(20,20,30,0.95);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 12px;
+    padding: 32px;
+    width: 380px;
+  }
+  .modal h3 { color: #d4af37; font-size: 18px; margin-bottom: 20px; text-align: center; }
+  .modal .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #999;
+    margin-top: 8px;
+  }
+  .modal .btn-secondary:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    background: rgba(212,175,55,0.05);
+  }
+  /* 底部 */
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #444;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .footer span { color: #d4af37; }
+  /* 加载 */
+  .spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid transparent;
+    border-top-color: #0a0a0f;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">🐉</div>
+    <div class="title">龍魂管理后台</div>
+    <div class="subtitle">LONGHUN ADMIN · v2.0</div>
+  </div>
+
+  <div class="card" id="loginCard">
+    <div class="card-title">管理员登录</div>
+    <div class="error" id="error"></div>
+    <div class="input-group">
+      <label>账号</label>
+      <input type="text" id="username" placeholder="请输入管理员账号" autocomplete="username" autofocus>
+    </div>
+    <div class="input-group">
+      <label>密码</label>
+      <input type="password" id="password" placeholder="请输入管理员密码" autocomplete="current-password">
+    </div>
+    <button class="btn" id="loginBtn" onclick="doLogin()">登 录</button>
+  </div>
+
+  <div class="footer">
+    <span>UID9622</span> · 本地管理后台 · 端口 9622
+  </div>
+</div>
+
+<!-- 改密弹窗 -->
+<div class="modal-overlay" id="changePwModal">
+  <div class="modal">
+    <h3>🔐 首次登录 · 修改密码</h3>
+    <div class="error" id="pwError"></div>
+    <div class="success" id="pwSuccess"></div>
+    <div class="input-group">
+      <label>当前密码</label>
+      <input type="password" id="oldPw" placeholder="输入当前密码">
+    </div>
+    <div class="input-group">
+      <label>新密码（至少8位）</label>
+      <input type="password" id="newPw" placeholder="设置新密码">
+    </div>
+    <div class="input-group">
+      <label>确认新密码</label>
+      <input type="password" id="newPw2" placeholder="再次输入新密码">
+    </div>
+    <button class="btn" onclick="doChangePw()">确认修改</button>
+    <button class="btn btn-secondary" onclick="skipChangePw()">稍后修改</button>
+  </div>
+</div>
+
+<script>
+const API = '';
+
+function showError(msg) {
+  const el = document.getElementById('error');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4000);
+}
+
+function showPwError(msg) {
+  const el = document.getElementById('pwError');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4000);
+}
+
+function showPwSuccess(msg) {
+  const el = document.getElementById('pwSuccess');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4000);
+}
+
+async function doLogin() {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value;
+  
+  if (!username || !password) {
+    showError('请输入账号和密码');
+    return;
+  }
+
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>登录中...';
+
+  try {
+    const res = await fetch(API + '/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+    
+    if (!res.ok) {
+      showError(data.detail || '登录失败');
+      btn.disabled = false;
+      btn.innerHTML = '登 录';
+      return;
+    }
+
+    // 存储 token
+    localStorage.setItem('longhun_admin_token', data.token);
+    localStorage.setItem('longhun_admin_user', data.username);
+
+    // 首次登录强制改密
+    if (data.must_change_password) {
+      document.getElementById('changePwModal').classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = '登 录';
+      return;
+    }
+
+    // 登录成功，跳转
+    window.location.href = '/static/index.html';
+
+  } catch (e) {
+    showError('网络错误，请检查服务是否启动');
+    btn.disabled = false;
+    btn.innerHTML = '登 录';
+  }
+}
+
+async function doChangePw() {
+  const oldPw = document.getElementById('oldPw').value;
+  const newPw = document.getElementById('newPw').value;
+  const newPw2 = document.getElementById('newPw2').value;
+
+  if (newPw !== newPw2) {
+    showPwError('两次新密码不一致');
+    return;
+  }
+  if (newPw.length < 8) {
+    showPwError('新密码至少8位');
+    return;
+  }
+
+  const token = localStorage.getItem('longhun_admin_token');
+  try {
+    const res = await fetch(API + '/api/auth/change-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify({ old_password: oldPw, new_password: newPw })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      showPwError(data.detail || '修改失败');
+      return;
+    }
+
+    // 更新 token
+    localStorage.setItem('longhun_admin_token', data.token);
+    showPwSuccess('密码修改成功！');
+    setTimeout(() => {
+      document.getElementById('changePwModal').classList.remove('show');
+      window.location.href = '/static/index.html';
+    }, 1200);
+
+  } catch (e) {
+    showPwError('网络错误');
+  }
+}
+
+function skipChangePw() {
+  document.getElementById('changePwModal').classList.remove('show');
+  window.location.href = '/static/index.html';
+}
+
+// 回车登录
+document.getElementById('password').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('username').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('password').focus();
+});
+
+// 粒子效果
+(function(){
+  const p = document.getElementById('particles');
+  for (let i=0; i<40; i++) {
+    const d = document.createElement('div');
+    d.className = 'particle';
+    d.style.left = Math.random()*100 + '%';
+    d.style.animationDelay = Math.random()*8 + 's';
+    d.style.animationDuration = (6 + Math.random()*8) + 's';
+    p.appendChild(d);
+  }
+})();
+
+// 检查是否已登录 → 直接跳转
+(async function(){
+  const token = localStorage.getItem('longhun_admin_token');
+  if (!token) return;
+  try {
+    const res = await fetch(API + '/api/auth/verify', {
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
+    if (res.ok) {
+      window.location.href = '/static/index.html';
+    } else {
+      localStorage.removeItem('longhun_admin_token');
+    }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>

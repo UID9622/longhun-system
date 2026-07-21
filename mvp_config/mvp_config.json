@@ -1,0 +1,227 @@
+{
+  "dna": "#龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0",
+  "version": "1.0",
+  "created_at": "2026-06-05T00:14:47.152797",
+  "personas": {
+    "P01": {
+      "name": "诸葛亮",
+      "role": "战略规划师",
+      "description": "长期战略思维·系统设计·整体规划",
+      "weight": 0.97,
+      "success_rate": 0.942,
+      "execution_count": 847,
+      "priority": 1,
+      "status": "active"
+    },
+    "P02": {
+      "name": "张衡",
+      "role": "数学引擎",
+      "description": "数值计算·严谨验证·精确推导",
+      "weight": 0.93,
+      "success_rate": 0.891,
+      "execution_count": 623,
+      "priority": 2,
+      "status": "active"
+    },
+    "P03": {
+      "name": "墨子",
+      "role": "逻辑验证师",
+      "description": "符号推理·逻辑校验·矛盾检测",
+      "weight": 0.94,
+      "success_rate": 0.963,
+      "execution_count": 712,
+      "priority": 2,
+      "status": "active"
+    },
+    "P04": {
+      "name": "鲁班",
+      "role": "工程师",
+      "description": "实现编码·工程化落地·可执行代码",
+      "weight": 0.87,
+      "success_rate": 0.912,
+      "execution_count": 534,
+      "priority": 2,
+      "status": "active"
+    },
+    "P05": {
+      "name": "执行外设",
+      "role": "协调员",
+      "description": "全局调度·跨领域协作·系统集成",
+      "weight": 1.0,
+      "success_rate": 0.991,
+      "execution_count": 2156,
+      "priority": 3,
+      "status": "active"
+    },
+    "P06": {
+      "name": "镜像审计者",
+      "role": "对抗模拟器",
+      "description": "安全检测·漏洞发现·极端情景模拟",
+      "weight": 0.99,
+      "success_rate": 0.887,
+      "execution_count": 456,
+      "priority": 2,
+      "status": "active"
+    }
+  },
+  "tasks": {
+    "P1-A": {
+      "name": "Notion数据库初始化",
+      "personas": [
+        "P04",
+        "P05"
+      ],
+      "difficulty": 2,
+      "estimated_hours": 3,
+      "phase": "Phase 1"
+    },
+    "P1-B": {
+      "name": "人格权重初始化",
+      "personas": [
+        "P01",
+        "P03"
+      ],
+      "difficulty": 1,
+      "estimated_hours": 1,
+      "phase": "Phase 1"
+    },
+    "P1-C": {
+      "name": "路由决策器配置",
+      "personas": [
+        "P05",
+        "P01"
+      ],
+      "difficulty": 2,
+      "estimated_hours": 2,
+      "phase": "Phase 1"
+    },
+    "P2-A": {
+      "name": "任务拆解器实现",
+      "personas": [
+        "P01",
+        "P04"
+      ],
+      "difficulty": 3,
+      "estimated_hours": 5,
+      "phase": "Phase 2"
+    },
+    "P2-B": {
+      "name": "冲突检测与仲裁实现",
+      "personas": [
+        "P03",
+        "P01"
+      ],
+      "difficulty": 4,
+      "estimated_hours": 7,
+      "phase": "Phase 2"
+    },
+    "P2-C": {
+      "name": "审计增强实现",
+      "personas": [
+        "P06",
+        "P03"
+      ],
+      "difficulty": 3,
+      "estimated_hours": 5,
+      "phase": "Phase 2"
+    },
+    "P3-A": {
+      "name": "DNA链与记忆系统",
+      "personas": [
+        "P02",
+        "P04"
+      ],
+      "difficulty": 3,
+      "estimated_hours": 4,
+      "phase": "Phase 3"
+    },
+    "P3-B": {
+      "name": "人格权重学习",
+      "personas": [
+        "P01",
+        "P02"
+      ],
+      "difficulty": 2,
+      "estimated_hours": 2,
+      "phase": "Phase 3"
+    },
+    "P3-C": {
+      "name": "端到端集成测试",
+      "personas": [
+        "P05",
+        "P01"
+      ],
+      "difficulty": 2,
+      "estimated_hours": 3,
+      "phase": "Phase 3"
+    }
+  },
+  "routing_rules": {
+    "ROUTE-001": {
+      "name": "数学问题路由",
+      "trigger": "task_type == 'math'",
+      "task_type": "math",
+      "primary_persona": "P02",
+      "secondary_personas": [
+        "P03"
+      ],
+      "execution_mode": "sequential",
+      "priority": 1
+    },
+    "ROUTE-002": {
+      "name": "系统设计路由",
+      "trigger": "task_type == 'system'",
+      "task_type": "system_design",
+      "primary_persona": "P01",
+      "secondary_personas": [
+        "P04"
+      ],
+      "execution_mode": "parallel",
+      "priority": 2
+    },
+    "ROUTE-003": {
+      "name": "安全验证路由",
+      "trigger": "task_type == 'security'",
+      "task_type": "security",
+      "primary_persona": "P03",
+      "secondary_personas": [
+        "P06"
+      ],
+      "execution_mode": "adversarial",
+      "priority": 3
+    },
+    "ROUTE-004": {
+      "name": "论文生成路由",
+      "trigger": "task_type == 'paper'",
+      "task_type": "paper",
+      "primary_persona": "P01",
+      "secondary_personas": [
+        "P02",
+        "P05"
+      ],
+      "execution_mode": "sequential",
+      "priority": 4
+    },
+    "ROUTE-005": {
+      "name": "混合任务路由",
+      "trigger": "task_type == 'mixed'",
+      "task_type": "mixed",
+      "primary_persona": "P05",
+      "secondary_personas": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P06"
+      ],
+      "execution_mode": "parallel",
+      "priority": 5
+    }
+  },
+  "system_info": {
+    "total_personas": 6,
+    "total_tasks": 9,
+    "total_rules": 5,
+    "phases": 3
+  }
+}

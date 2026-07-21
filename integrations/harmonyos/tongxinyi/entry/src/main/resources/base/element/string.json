@@ -1,0 +1,40 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "通心译"
+    },
+    {
+      "name": "app_desc",
+      "value": "通心译 (Tongxin Translation) — 龍魂体系多语言翻译引擎·华为芯片·鸿蒙底座"
+    },
+    {
+      "name": "module_desc",
+      "value": "通心译主模块·CNSH中文编程翻译核心"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "通心译翻译主界面"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "通心译"
+    },
+    {
+      "name": "internet_reason",
+      "value": "通心译需要网络连接以访问远程翻译服务器"
+    },
+    {
+      "name": "network_reason",
+      "value": "用于检测网络连接状态，优化翻译请求"
+    },
+    {
+      "name": "pasteboard_reason",
+      "value": "用于快速粘贴需要翻译的文本内容"
+    },
+    {
+      "name": "background_reason",
+      "value": "用于后台保持翻译任务不中断"
+    }
+  ]
+}

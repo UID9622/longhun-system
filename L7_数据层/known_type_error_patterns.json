@@ -1,0 +1,112 @@
+{
+  "_meta": {
+    "version": "v1.0",
+    "description": "龍魂·已知类型错误模式库 — 不犯第三次",
+    "dna": "#龍芯⚡️丙午·乙未·戊午·申时·需-TYPE-ERROR-PATTERN-DB-v1.0",
+    "usage": "AI写Python代码前必读此文件；longhun-self-heal.py 扫描时用此文件做模式匹配",
+    "last_updated": "2026-07-10",
+    "patterns_count": 6
+  },
+  "patterns": [
+    {
+      "id": "P001",
+      "name": "裸 Dict 缺类型参数",
+      "category": "reportMissingTypeArgument",
+      "severity": "error",
+      "trigger": "Dict 或 dict 后没有 [str, Any]",
+      "regex_patterns": [
+        "\\bDict\\b(?!\\[)",
+        "\\bdict\\b(?!\\[)"
+      ],
+      "before": "def foo(x: Dict) -> Dict:",
+      "after": "def foo(x: Dict[str, Any]) -> Dict[str, Any]:",
+      "fix": "所有 Dict/dict 类型注解必须带 [str, Any]",
+      "occurrence_count": 22,
+      "last_seen": "2026-07-10"
+    },
+    {
+      "id": "P002",
+      "name": "Optional 成员访问无守卫",
+      "category": "reportOptionalMemberAccess",
+      "severity": "error",
+      "trigger": "Optional 类型的属性访问前没有 None 检查",
+      "regex_patterns": [
+        "self\\.\\w+\\s*=\\s*None",
+        "self\\.page\\.\\w+"
+      ],
+      "before": "def foo(self):\n    self.ensure_page()\n    return self.page.url",
+      "after": "def foo(self):\n    self.ensure_page()\n    assert self.page is not None, \"...\"\n    return self.page.url",
+      "fix": "ensure_page() 后加 assert self.page is not None",
+      "occurrence_count": 14,
+      "last_seen": "2026-07-10"
+    },
+    {
+      "id": "P003",
+      "name": "None 默认值与类型不兼容 (str)",
+      "category": "reportArgumentType",
+      "severity": "error",
+      "trigger": "参数声明 str = None 但 str 不接受 None",
+      "regex_patterns": [
+        "\\bstr\\s*=\\s*None\\b"
+      ],
+      "before": "def foo(path: str = None):",
+      "after": "def foo(path: str | None = None):",
+      "fix": "可空参数用 str | None，不是 str = None",
+      "occurrence_count": 2,
+      "last_seen": "2026-07-10"
+    },
+    {
+      "id": "P004",
+      "name": "None 默认值与类型不兼容 (int)",
+      "category": "reportArgumentType",
+      "severity": "error",
+      "trigger": "参数声明 int = None 但 int 不接受 None",
+      "regex_patterns": [
+        "\\bint\\s*=\\s*None\\b"
+      ],
+      "before": "def foo(timeout: int = None):",
+      "after": "def foo(timeout: int | None = None):",
+      "fix": "可空参数用 int | None，不是 int = None",
+      "occurrence_count": 2,
+      "last_seen": "2026-07-10"
+    },
+    {
+      "id": "P005",
+      "name": "int 默认值接受 float 赋值",
+      "category": "reportArgumentType",
+      "severity": "error",
+      "trigger": "defaultdict 初始 int 值被赋予 float（如 round() 结果）",
+      "regex_patterns": [
+        "defaultdict.*\\{\"\\w+\":\\s*0[^.]"
+      ],
+      "before": "defaultdict(lambda: {\"avg_rating\": 0})",
+      "after": "defaultdict(lambda: {\"avg_rating\": 0.0})",
+      "fix": "预期接收 float 值的 defaultdict 用 0.0 初始化",
+      "occurrence_count": 1,
+      "last_seen": "2026-07-10"
+    },
+    {
+      "id": "P006",
+      "name": "裸 List 缺类型参数",
+      "category": "reportMissingTypeArgument",
+      "severity": "error",
+      "trigger": "List 后没有类型参数",
+      "regex_patterns": [
+        "\\bList\\b(?!\\[)"
+      ],
+      "before": "def foo(x: List):",
+      "after": "def foo(x: List[Dict[str, Any]]):",
+      "fix": "所有 List 类型注解必须带类型参数",
+      "occurrence_count": 1,
+      "last_seen": "2026-07-10"
+    }
+  ],
+  "pre_write_checklist": [
+    { "check": "所有 dict/Dict 注解是否带了 [str, Any]?", "pattern": "P001" },
+    { "check": "所有 List 注解是否带了类型参数?", "pattern": "P006" },
+    { "check": "Optional 属性访问前是否有 None guard?", "pattern": "P002" },
+    { "check": "None 默认值参数是否用了 T | None?", "pattern": "P003,P004" },
+    { "check": "defaultdict 数值初始值与赋入值类型是否一致?", "pattern": "P005" },
+    { "check": "from typing import Any 是否已导入?", "pattern": "all" }
+  ]
+}

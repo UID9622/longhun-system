@@ -1,0 +1,62 @@
+{
+  "DNA": "#龍芯⚡️20260624065144-REFLECTION-REPORT-74C2596E",
+  "timestamp": "2026-12-22T00:00:00",
+  "version": "3.0.0",
+  "hour": 0,
+  "branch": "子",
+  "solar_term": "冬至",
+  "solar_term_fire": 0.0,
+  "current_star": {
+    "name": "星日马",
+    "name_en": "Star-Sun-Horse",
+    "wuxing": "火",
+    "direction": "南方朱雀",
+    "behavior": "主发",
+    "blessing": "发布·传播·照耀",
+    "warning": "锋芒毕露",
+    "privilege": "PUBLISH_PLUS_1"
+  },
+  "current_gua": "既济",
+  "fire_index": {
+    "current": 0.496,
+    "level": "温火",
+    "color": "🟡",
+    "trend": "平稳",
+    "predicted_next_6": [
+      0.532,
+      0.568,
+      0.64,
+      0.484,
+      0.448,
+      0.496
+    ],
+    "factors": {
+      "solar_term": "冬至",
+      "solar_term_fire": 0.0,
+      "hour_fire": 0.52,
+      "system_load": 0.8,
+      "user_activity": 0.9
+    }
+  },
+  "sovereign_status": {
+    "identity": "UID9622",
+    "bound_star": "亢金龍",
+    "privilege_boost": 0,
+    "active": false,
+    "mode": "evade",
+    "description": "本命主攻星，亮剑时刻自动升权；非本命当值时进入战备状态"
+  },
+  "conflict_report": {
+    "conflict": true,
+    "current_star": "星日马",
+    "bound_star": "亢金龍",
+    "current_wuxing": "火",
+    "bound_wuxing": "金",
+    "relation": "星日马(火) 克 亢金龍(金)",
+    "action": "当值星宿克制本命星宿，启动避让协议：降低操作频率、切换只读模式、等待主场窗口",
+    "protocol": "EVADE_PROTOCOL"
+  },
+  "recommended_action": "⚠️ 星日马(火) 克 亢金龍(金)：启动避让协议，降低操作频率，切换只读模式，优先审计与归档",
+  "audit_trail": [],
+  "_dna": "2026-07-03-CORE-REFLECTION_REPORT-v1.0"
+}

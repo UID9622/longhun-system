@@ -1,0 +1,75 @@
+# DNA: #龍芯⚡️2026-07-13-ISSUE-BUG-REPORT-v1.0
+name: 🐛 Bug 报告
+description: 报告系统缺陷或异常行为
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间报告 Bug！请尽可能详细填写以下信息，帮助我们快速定位和修复。
+
+  - type: input
+    id: version
+    attributes:
+      label: 龍魂版本
+      description: 你使用的龍魂系统版本号
+      placeholder: "v5.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug 描述
+      description: 清晰简洁地描述发生了什么问题
+      placeholder: "执行 lh-start 后，gatekeeper 服务报错..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 如何触发这个 Bug
+      placeholder: |
+        1. 执行 `python3 龍魂体系v5-一键启动.py`
+        2. 选择模块 'xxx'
+        3. 输入参数 'yyy'
+        4. 看到错误...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你期望发生什么
+      placeholder: "应该正常返回结果..."
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志/截图
+      description: 粘贴相关日志或截图（如有）
+      render: shell
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - macOS
+        - Linux (鲲鹏/openEuler)
+        - Linux (其他)
+        - Windows
+    validations:
+      required: true
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Python 版本
+      placeholder: "3.12.4"
+    validations:
+      required: true

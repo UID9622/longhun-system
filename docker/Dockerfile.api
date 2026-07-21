@@ -1,0 +1,54 @@
+# 龍魂统一后端 API · 生产容器镜像
+# DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·需-DOCKER-API-v2.0
+# 基于 backend/main.py (FastAPI, port 9622)
+
+FROM python:3.13-slim
+
+LABEL maintainer="UID9622"
+LABEL description="龍魂统一后端 API Gateway v2.0 · FastAPI · Port 9622"
+LABEL dna="#龍芯⚡️2026-07-11-DOCKER-API-v2.0"
+
+# 系统依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# 分层安装依赖（利用 Docker 缓存）
+COPY requirements.txt /app/requirements.txt
+COPY requirements-base.txt /app/requirements-base.txt
+COPY backend/requirements.txt /app/backend-requirements.txt
+RUN pip install --no-cache-dir \
+    -r /app/requirements-base.txt \
+    -r /app/backend-requirements.txt \
+    -r /app/requirements.txt
+
+# 复制应用代码
+COPY backend/ /app/backend/
+COPY L7_数据层/ /app/L7_数据层/
+COPY config/ /app/config/
+COPY bin/ /app/bin/
+COPY AGENTS.md /app/AGENTS.md
+COPY CONSTITUTION.md.asc /app/CONSTITUTION.md.asc
+COPY P0_ETERNAL_LOCK.md.asc /app/P0_ETERNAL_LOCK.md.asc
+
+# 确保数据目录存在
+RUN mkdir -p /app/L7_数据层/data /app/backend/logs /app/config
+
+# 环境变量（生产部署时覆盖）
+ENV LONGHUN_API_HOST=0.0.0.0
+ENV LONGHUN_API_PORT=9622
+ENV LONGHUN_LOG_LEVEL=INFO
+ENV LONGHUN_DATA=/app/L7_数据层
+ENV PYTHONUNBUFFERED=1
+ENV TZ=Asia/Shanghai
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:9622/api/system/health || exit 1
+
+EXPOSE 9622
+
+CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "9622", "--log-level", "info"]

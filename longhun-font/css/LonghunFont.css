@@ -1,0 +1,16 @@
+/*
+ * DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CSS-v1.0
+ * LonghunFont web font face
+ */
+
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('../output/LonghunFont-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.longhun-font {
+  font-family: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}

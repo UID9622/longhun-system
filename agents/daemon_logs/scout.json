@@ -1,0 +1,13 @@
+{
+  "agent_id": "scout",
+  "name": "侦察兵",
+  "state": "idle",
+  "last_run": "2026-07-08T13:41:43.927479",
+  "last_error": "",
+  "counters": {
+    "hot_files_10min": 24,
+    "memory_key_events": 146
+  },
+  "updated_at": "2026-07-08T13:41:45.327386",
+  "dna": "#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0"
+}

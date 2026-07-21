@@ -1,0 +1,43 @@
+{
+  "_dna": "#龍芯⚡️20260624013232250-AUTO-DNA-735D7139",
+  "items": [
+    {
+      "id": "xpay-currencies",
+      "label": "💱 查看主权币种",
+      "type": "shell",
+      "command": "cd {root} && python3 xpay/src/cli.py currencies",
+      "description": "列出支持的法币/CBDC 与主权审计信息",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "xpay-demo-pay",
+      "label": "💰 演示支付（CNY → UID1001）",
+      "type": "shell",
+      "command": "cd {root} && python3 xpay/src/cli.py pay 100.00 CNY UID1001 --memo \"桌面主开关演示\"",
+      "description": "发起一笔数字人民币演示支付并生成 DNA 存根",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "xpay-stats",
+      "label": "📊 XPay 交易统计",
+      "type": "shell",
+      "command": "cd {root} && python3 xpay/src/cli.py stats",
+      "description": "查看交易笔数、总量与 DNA 维护费",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "xpay-readme",
+      "label": "📘 查看 XPay 设计说明",
+      "type": "shell",
+      "command": "open {root}/xpay/README.md",
+      "description": "打开主权支付网关说明文档",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ],
+  "_dna_note": "自动注入·分层治理自愈引擎·来源可查",
+  "_longhun_identity": "龍魂 · UID9622 · 中国自主可控"
+}

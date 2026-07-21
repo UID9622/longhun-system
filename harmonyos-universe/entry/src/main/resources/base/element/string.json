@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "龍魂翻译引擎 · 1650万路径宇宙 · 3D可交互可视化"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "龍魂宇宙主入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "龍魂宇宙"
+    }
+  ]
+}

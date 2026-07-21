@@ -1,0 +1,74 @@
+{
+  "M::": {
+    "type": "shield_defense_cnsh",
+    "status": "pass",
+    "payload": {
+      "title": "龍魂护盾 v3.0 · CNSH 中文命名 + 国密五维防御",
+      "source_file": "longhun_shield_cnsh.py",
+      "panel_file": "longhun_shield_panel.py",
+      "test_file": "tests/test_longhun_shield_cnsh.py",
+      "design_doc": "longhun_shield.md",
+      "dimensions": [
+        "web/api",
+        "db",
+        "iot",
+        "fs",
+        "ai"
+      ],
+      "crypto": [
+        "SM2",
+        "SM3",
+        "SM4"
+      ],
+      "firewall": [
+        "nftables",
+        "iptables",
+        "dry_run"
+      ],
+      "alerts": [
+        "email",
+        "notion"
+      ],
+      "features": [
+        "wall_of_shame",
+        "chain_hash",
+        "sm2_sign",
+        "sm4_vault",
+        "threat_sense",
+        "auto_isolate",
+        "web_panel",
+        "sovereignty_fuse"
+      ],
+      "input": 2026062911,
+      "digital_root": 2,
+      "wuxing": "土",
+      "color": "🟢",
+      "decision": "PASS",
+      "action": "放行·执行",
+      "self_check": "9/9 单元测试通过",
+      "note": "国密 SM2/SM3/SM4 + CNSH 中文命名 + 五维防御 + 耻辱墙 + 防火墙/邮件/Notion/Web 面板 + 主权熔断 + 下载守卫 + AI 输出熔断 + 浏览器下载即时钩子已落地",
+      "deployed": true,
+      "panel_url": "http://127.0.0.1:8788",
+      "notion_alert_page": "38e7125a-9c9f-8158-beb1-e0ef8d2a0c8b",
+      "components": [
+        "longhun_shield_panel.py",
+        "longhun_ai_output_guard.py",
+        "chrome_extension",
+        "longhun_download_guard.py"
+      ],
+      "endpoints": [
+        "/api/ai-scan",
+        "/api/download-event"
+      ]
+    }
+  },
+  "CNSH::": {
+    "dna": "#龍芯⚡️2026-06-29-LONGHUN-SHIELD-CNSH-CARD-v3.0",
+    "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "audit": "🟢",
+    "wuxing": "土",
+    "policy": "pass",
+    "trace_hash": "7e8f603a8cf4dbff"
+  }
+}

@@ -1,0 +1,85 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-TASK_ASSIGNMENTS-v1.0",
+
+  "P1-A": {
+    "task_name": "Notion数据库初始化",
+    "assigned_personas": [
+      "P04",
+      "P05"
+    ],
+    "status": "pending",
+    "phase": "Phase 1"
+  },
+  "P1-B": {
+    "task_name": "人格权重初始化",
+    "assigned_personas": [
+      "P01",
+      "P03"
+    ],
+    "status": "pending",
+    "phase": "Phase 1"
+  },
+  "P1-C": {
+    "task_name": "路由决策器配置",
+    "assigned_personas": [
+      "P05",
+      "P01"
+    ],
+    "status": "pending",
+    "phase": "Phase 1"
+  },
+  "P2-A": {
+    "task_name": "任务拆解器实现",
+    "assigned_personas": [
+      "P01",
+      "P04"
+    ],
+    "status": "pending",
+    "phase": "Phase 2"
+  },
+  "P2-B": {
+    "task_name": "冲突检测与仲裁实现",
+    "assigned_personas": [
+      "P03",
+      "P01"
+    ],
+    "status": "pending",
+    "phase": "Phase 2"
+  },
+  "P2-C": {
+    "task_name": "审计增强实现",
+    "assigned_personas": [
+      "P06",
+      "P03"
+    ],
+    "status": "pending",
+    "phase": "Phase 2"
+  },
+  "P3-A": {
+    "task_name": "DNA链与记忆系统",
+    "assigned_personas": [
+      "P02",
+      "P04"
+    ],
+    "status": "pending",
+    "phase": "Phase 3"
+  },
+  "P3-B": {
+    "task_name": "人格权重学习",
+    "assigned_personas": [
+      "P01",
+      "P02"
+    ],
+    "status": "pending",
+    "phase": "Phase 3"
+  },
+  "P3-C": {
+    "task_name": "端到端集成测试",
+    "assigned_personas": [
+      "P05",
+      "P01"
+    ],
+    "status": "pending",
+    "phase": "Phase 3"
+  },
+  "_dna": "2026-06-21-CONFIG-TASK_ASSIGNMENTS-v1.0"
+}

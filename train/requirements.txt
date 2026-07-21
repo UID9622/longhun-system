@@ -1,0 +1,6 @@
+# 龍魂本地训练引擎依赖
+# DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-REQUIREMENTS-v1.0
+
+torch>=2.0.0
+tqdm
+numpy

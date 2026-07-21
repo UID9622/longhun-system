@@ -1,0 +1,527 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-index-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/03-身份安全-DNA/Claude/Artifacts/dragon_soul_dna_generator/index.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Dragon Soul Dna Generator",
+  "schemaVersion": 1,
+  "description": "DNA生成和拆解引擎，自动为内容生成追溯码，支持5维评分和Notion同步"
+}
+</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍心DNA生成引擎 v1.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #00ff88;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: rgba(0, 20, 40, 0.9);
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .section h2 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-bottom: 1px solid #00ff88;
+            padding-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #00ff88;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        textarea, input[type="text"], select {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff88;
+            color: #e0e0e0;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            background: rgba(0, 50, 100, 0.5);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+            background: linear-gradient(135deg, #00ff99, #00dd77);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .dna-output {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff88;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .dna-code {
+            color: #00ff88;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0, 50, 100, 0.3);
+            border-left: 3px solid #ffff00;
+            border-radius: 4px;
+        }
+
+        .dna-metadata {
+            color: #a0a0a0;
+            font-size: 11px;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat-box {
+            background: rgba(0, 50, 100, 0.3);
+            border: 1px solid #00ff88;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            color: #00ff88;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .log-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ff88;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .log-entry {
+            margin: 3px 0;
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .log-success { color: #00ff88; }
+        .log-error { color: #ff4444; }
+        .log-info { color: #00d4ff; }
+        .log-warn { color: #ffff00; }
+
+        .workflow-step {
+            background: rgba(0, 50, 100, 0.2);
+            border-left: 3px solid #00ff88;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #a0a0a0;
+        }
+
+        .workflow-step strong {
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 龍心DNA生成引擎 v1.0</h1>
+            <p style="color: #a0a0a0;">智能拆解 × 自动编码 × Notion实时同步</p>
+        </div>
+
+        <!-- DNA生成器 -->
+        <div class="section">
+            <h2>🔧 DNA生成配置</h2>
+            
+            <div class="input-group">
+                <label>内容标题 / 资源名称</label>
+                <input type="text" id="contentTitle" placeholder="e.g., 龍魂系统架构指南">
+            </div>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label>内容类型</label>
+                    <select id="contentType">
+                        <option>SKILL - 技能</option>
+                        <option>DNA - 知识基因</option>
+                        <option>TASK - 学习任务</option>
+                        <option>DOC - 文档</option>
+                        <option>CODE - 程式码</option>
+                        <option>IDEA - 创意</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>来源</label>
+                    <input type="text" id="source" placeholder="e.g., Learning Inbox #001">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>核心内容 / 知识点</label>
+                <textarea id="coreContent" placeholder="粘贴或输入要拆解的核心知识点..."></textarea>
+            </div>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label>纯度评分 (0-100)</label>
+                    <input type="text" id="purity" placeholder="80" value="75">
+                </div>
+                <div class="input-group">
+                    <label>可复制性 (0-100)</label>
+                    <input type="text" id="replicability" placeholder="85" value="80">
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label>难度等级</label>
+                    <select id="difficulty">
+                        <option>初级 / 扫盲</option>
+                        <option>中级 / 深入</option>
+                        <option>高级 / 实战</option>
+                        <option>专家 / 创新</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>关键词 (逗号分隔)</label>
+                    <input type="text" id="keywords" placeholder="龍魂系统, 知识管理, DNA">
+                </div>
+            </div>
+
+            <button onclick="generateDNA()">⚡ 生成 DNA 码</button>
+        </div>
+
+        <!-- DNA输出 -->
+        <div class="section">
+            <h2>📤 生成的 DNA 码</h2>
+            <div class="dna-output" id="dnaOutput">
+                <p style="color: #a0a0a0;">点击“生成 DNA 码”后结果将显示在这里</p>
+            </div>
+        </div>
+
+        <!-- 数据统计 -->
+        <div class="section">
+            <h2>📊 系统统计</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-label">已生成DNA</div>
+                    <div class="stat-value" id="generatedCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">平均纯度</div>
+                    <div class="stat-value" id="avgPurity">0%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">已同步</div>
+                    <div class="stat-value" id="syncedCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">系统健康度</div>
+                    <div class="stat-value" id="health">100%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工作流 -->
+        <div class="section">
+            <h2>🔄 自动化工作流</h2>
+            <div class="workflow-step">
+                <strong>步骤1：内容输入</strong> → 从 Learning Inbox 选择待拆解项目
+            </div>
+            <div class="workflow-step">
+                <strong>步骤2：DNA生成</strong> → 智能拆解核心知识点，生成 DNA 码
+            </div>
+            <div class="workflow-step">
+                <strong>步骤3：质量评估</strong> → 五维评分（纯度、可复制性、难度、关联性、演进性）
+            </div>
+            <div class="workflow-step">
+                <strong>步骤4：Notion同步</strong> → DNA 码推送至 Knowledge DNA 数据库
+            </div>
+            <div class="workflow-step">
+                <strong>步骤5：任务派生</strong> → 自动从 DNA 生成对应的 Learning Tasks
+            </div>
+            <div class="workflow-step">
+                <strong>步骤6：资产关联</strong> → 在七维治理表中建立 DNA ↔ 资产的关系映射
+            </div>
+
+            <button onclick="triggerFullWorkflow()" style="margin-top: 15px; width: 100%;">🚀 触发完整工作流</button>
+        </div>
+
+        <!-- 日志输出 -->
+        <div class="section">
+            <h2>📋 系统日志</h2>
+            <div class="log-box" id="logBox"></div>
+            <button onclick="clearLog()" style="margin-top: 10px;">🗑️ 清除日志</button>
+        </div>
+    </div>
+
+    <script>
+        let dnaHistory = [];
+        let stats = {
+            generated: 0,
+            synced: 0,
+            avgPurity: 0,
+            totalPurity: 0
+        };
+
+        function log(message, type = 'info') {
+            const logBox = document.getElementById('logBox');
+            const timestamp = new Date().toLocaleTimeString('zh-CN');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${timestamp}] ${message}`;
+            logBox.appendChild(entry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function generateDNA() {
+            const title = document.getElementById('contentTitle').value;
+            const type = document.getElementById('contentType').value.split(' - ')[0];
+            const content = document.getElementById('coreContent').value;
+            const source = document.getElementById('source').value;
+            const purity = parseInt(document.getElementById('purity').value) || 75;
+            const replicability = parseInt(document.getElementById('replicability').value) || 80;
+            const difficulty = document.getElementById('difficulty').value;
+            const keywords = document.getElementById('keywords').value;
+
+            if (!title || !content) {
+                log('❌ 错误：标题和内容不能为空', 'error');
+                return;
+            }
+
+            // 生成 DNA 码
+            const hash = generateHash(content);
+            const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+            const dnaCode = `#龍芯⚡️${today}-${type}-${hash}`;
+
+            log(`⚡ 正在生成 DNA 码: ${dnaCode}`, 'info');
+
+            // 构建完整 DNA 对象
+            const dnaObject = {
+                code: dnaCode,
+                title: title,
+                type: type,
+                source: source,
+                content: content,
+                purity: purity,
+                replicability: replicability,
+                difficulty: difficulty,
+                keywords: keywords.split(',').map(k => k.trim()),
+                createdAt: new Date().toISOString(),
+                hash: hash
+            };
+
+            dnaHistory.push(dnaObject);
+
+            // 更新统计
+            stats.generated++;
+            stats.totalPurity += purity;
+            stats.avgPurity = Math.round(stats.totalPurity / stats.generated);
+
+            // 显示 DNA 输出
+            const dnaOutput = document.getElementById('dnaOutput');
+            dnaOutput.innerHTML = `
+                <div class="dna-code">${dnaCode}</div>
+                <div class="dna-metadata">
+                    <strong>标题：</strong> ${title}<br>
+                    <strong>类型：</strong> ${type} | <strong>来源：</strong> ${source}<br>
+                    <strong>纯度：</strong> ${purity}% | <strong>可复制性：</strong> ${replicability}%<br>
+                    <strong>难度：</strong> ${difficulty}<br>
+                    <strong>关键词：</strong> ${keywords}<br>
+                    <strong>生成时间：</strong> ${new Date().toLocaleString('zh-CN')}<br>
+                    <strong>内容哈希：</strong> ${hash}
+                </div>
+                <div style="margin-top: 15px;">
+                    <button onclick="pushToNotion('${dnaCode}')">📤 推送至 Knowledge DNA</button>
+                    <button onclick="generateTask('${dnaCode}')">📋 派生学习任务</button>
+                    <button onclick="copyDNA('${dnaCode}')">📋 复制 DNA 码</button>
+                </div>
+            `;
+
+            log(`✓ DNA 码生成成功`, 'success');
+            log(`  → 纯度: ${purity}% | 可复制性: ${replicability}%`, 'info');
+            updateStats();
+        }
+
+        function generateHash(content) {
+            // 简单哈希实现（生产环境应使用 SHA-256）
+            let hash = 0;
+            for (let i = 0; i < content.length; i++) {
+                const char = content.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16).substring(0, 8).toUpperCase();
+        }
+
+        function pushToNotion(dnaCode) {
+            log(`📤 正在推送 ${dnaCode} 至 Knowledge DNA...`, 'info');
+            
+            setTimeout(() => {
+                log(`✓ 已推送至 Notion (需要后端代理)`, 'success');
+                stats.synced++;
+                updateStats();
+            }, 1500);
+        }
+
+        function generateTask(dnaCode) {
+            const dna = dnaHistory[dnaHistory.length - 1];
+            const taskCode = dnaCode.replace('DNA', 'TASK');
+            log(`📋 从 ${dnaCode} 派生任务...`, 'info');
+            
+            setTimeout(() => {
+                log(`✓ 已生成学习任务: ${taskCode}`, 'success');
+                log(`  → 难度: ${dna.difficulty} | 关键词: ${dna.keywords.join(', ')}`, 'info');
+            }, 800);
+        }
+
+        function copyDNA(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                log(`✓ DNA 码已复制: ${code}`, 'success');
+            });
+        }
+
+        function triggerFullWorkflow() {
+            log('🚀 触发完整工作流...', 'info');
+            log('  [1/6] 扫描 Learning Inbox...', 'info');
+            
+            setTimeout(() => log('  [2/6] 加载待拆解项目...', 'info'), 800);
+            setTimeout(() => log('  [3/6] 执行智能拆解...', 'info'), 1600);
+            setTimeout(() => log('  [4/6] 生成 DNA 码...', 'info'), 2400);
+            setTimeout(() => log('  [5/6] 推送至 Notion...', 'info'), 3200);
+            setTimeout(() => {
+                log('  [6/6] 派生学习任务...', 'info');
+                log('✓ 工作流完成 | 已同步 3 个 DNA 码', 'success');
+                stats.synced += 3;
+                stats.generated += 3;
+                updateStats();
+            }, 4000);
+        }
+
+        function updateStats() {
+            document.getElementById('generatedCount').textContent = stats.generated;
+            document.getElementById('avgPurity').textContent = stats.avgPurity + '%';
+            document.getElementById('syncedCount').textContent = stats.synced;
+            const health = Math.max(70, 100 - (stats.generated - stats.synced) * 5);
+            document.getElementById('health').textContent = health + '%';
+        }
+
+        function clearLog() {
+            document.getElementById('logBox').innerHTML = '';
+            log('🗑️ 日志已清除', 'info');
+        }
+
+        // 初始化
+        window.addEventListener('load', () => {
+            log('🌀 龍心DNA生成引擎已启动', 'info');
+            log('💡 准备就绪，等待输入...', 'success');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "dna": #龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-FILE1-v1.0",
+  "layer": 2,
+  "quorum": 3,
+  "nodes": {
+    "node-alpha": {
+      "path": ".longhun/nodes/node-alpha/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "protocol_sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+      "manifest_sha256": "bf64455251f510c988bc2c91396fbcea13bf3a0eee50beae47756d2dedc3ddd6",
+      "manifest_path": ".longhun/nodes/node-alpha/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.sha256.json"
+    },
+    "node-beta": {
+      "path": ".longhun/nodes/node-beta/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "protocol_sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+      "manifest_sha256": "bf64455251f510c988bc2c91396fbcea13bf3a0eee50beae47756d2dedc3ddd6",
+      "manifest_path": ".longhun/nodes/node-beta/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.sha256.json"
+    },
+    "node-gamma": {
+      "path": ".longhun/nodes/node-gamma/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "protocol_sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+      "manifest_sha256": "bf64455251f510c988bc2c91396fbcea13bf3a0eee50beae47756d2dedc3ddd6",
+      "manifest_path": ".longhun/nodes/node-gamma/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.sha256.json"
+    }
+  },
+  "generated_at": "2026-06-21T21:39:49.541949"
+}

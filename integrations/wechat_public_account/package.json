@@ -1,0 +1,17 @@
+{
+  "name": "longhun-wechat-integration",
+  "version": "1.0.0",
+  "description": "龍魂微信生态智能内容中枢（公众号+小程序）",
+  "main": "web_ui.py",
+  "scripts": {
+    "miniprogram:upload": "node scripts/upload_miniprogram.js",
+    "miniprogram:preview": "node scripts/preview_miniprogram.js"
+  },
+  "dependencies": {
+    "miniprogram-ci": "1.9.17"
+  },
+  "devDependencies": {
+    "less": "3.13.1"
+  },
+  "private": true
+}

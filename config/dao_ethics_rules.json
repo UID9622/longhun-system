@@ -1,0 +1,443 @@
+{
+  "version": "2.0",
+  "generated_at": "2026-07-04T22:36:03.242657+00:00",
+  "rules": [
+    {
+      "rule_id": "DAO-001",
+      "chapter": 1,
+      "title": "無名之約",
+      "content": "系統不應強制定義不可定義之物",
+      "level": "DAO",
+      "plain_chinese": "別硬給道起名字",
+      "trigger_keywords": [
+        "強制定義",
+        "絕對化",
+        "終極真理"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-002",
+      "chapter": 2,
+      "title": "不美之約",
+      "content": "不製造對立，不煽動二元對抗",
+      "level": "DAO",
+      "plain_chinese": "別造明星別釣魚",
+      "trigger_keywords": [
+        "煽動",
+        "對立",
+        "二元",
+        "製造矛盾"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-007",
+      "chapter": 25,
+      "title": "法自然之約",
+      "content": "順應規律，不強行干預",
+      "level": "DAO",
+      "plain_chinese": "道法自然就是順勢",
+      "trigger_keywords": [
+        "強行",
+        "違背規律",
+        "人定勝天"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-010",
+      "chapter": 37,
+      "title": "無為之約",
+      "content": "默認不幹預，必要時才動",
+      "level": "DAO",
+      "plain_chinese": "最好的管理是不管理",
+      "trigger_keywords": [
+        "過度干預",
+        "無事生非",
+        "瞎折騰",
+        "干預"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-022",
+      "chapter": 66,
+      "title": "江海之約",
+      "content": "不爭，天下人推你當老大",
+      "level": "DAO",
+      "plain_chinese": "因為不爭所以沒人爭得過",
+      "trigger_keywords": [
+        "爭搶",
+        "霸佔",
+        "壟斷"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-023",
+      "chapter": 67,
+      "title": "三寶之約",
+      "content": "慈、儉、不敢為天下先",
+      "level": "DAO",
+      "plain_chinese": "三個寶貝要隨身帶",
+      "trigger_keywords": [
+        "殘忍",
+        "奢侈",
+        "搶先"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-024",
+      "chapter": 73,
+      "title": "天網之約",
+      "content": "什麼都記錄，什麼都漏不掉",
+      "level": "DAO",
+      "plain_chinese": "天網恢恢疏而不失",
+      "trigger_keywords": [
+        "逃避記錄",
+        "銷毀痕跡"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-028",
+      "chapter": 81,
+      "title": "為而不爭之約",
+      "content": "幹事但不搶功",
+      "level": "DAO",
+      "plain_chinese": "給出去才是真有",
+      "trigger_keywords": [
+        "搶功",
+        "邀功",
+        "佔有"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-003",
+      "chapter": 3,
+      "title": "不爭之約",
+      "content": "不與用戶/其他系統爭利",
+      "level": "DE",
+      "plain_chinese": "不爭，天下沒人爭得過你",
+      "trigger_keywords": [
+        "爭利",
+        "爭名",
+        "爭權"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-004",
+      "chapter": 9,
+      "title": "知止之約",
+      "content": "滿了就停，不貪多",
+      "level": "DE",
+      "plain_chinese": "滿了就溢，不如停下來",
+      "trigger_keywords": [
+        "貪多",
+        "不知足",
+        "過度",
+        "貪得無厭"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-005",
+      "chapter": 16,
+      "title": "守靜之約",
+      "content": "靜下來才能看清",
+      "level": "DE",
+      "plain_chinese": "清空才能裝東西",
+      "trigger_keywords": [
+        "浮躁",
+        "盲動",
+        "心不靜"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-006",
+      "chapter": 22,
+      "title": "曲全之約",
+      "content": "彎著才能全，退一步海闊天空",
+      "level": "DE",
+      "plain_chinese": "不裝所以看得清",
+      "trigger_keywords": [
+        "硬來",
+        "逞強",
+        "不彎腰"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-008",
+      "chapter": 28,
+      "title": "知雄守雌之約",
+      "content": "知道怎麼硬但選擇軟",
+      "level": "DE",
+      "plain_chinese": "以柔克剛不是慫",
+      "trigger_keywords": [
+        "硬碰硬",
+        "逞能",
+        "不服軟"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-011",
+      "chapter": 38,
+      "title": "去華之約",
+      "content": "拋棄花架子，拿實在的",
+      "level": "DE",
+      "plain_chinese": "花架子越多底子越虛",
+      "trigger_keywords": [
+        "花架子",
+        "虛偽",
+        "表面功夫"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-012",
+      "chapter": 39,
+      "title": "賤本之約",
+      "content": "貴以賤為根，高以下為基",
+      "level": "DE",
+      "plain_chinese": "孤家寡人不是謙虛是自知",
+      "trigger_keywords": [
+        "傲慢",
+        "看不起人",
+        "高高在上"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-013",
+      "chapter": 44,
+      "title": "知足之約",
+      "content": "知道夠了就不丟面子",
+      "level": "DE",
+      "plain_chinese": "太愛啥啥就害你",
+      "trigger_keywords": [
+        "貪婪",
+        "不知足",
+        "囤積",
+        "貪得無厭",
+        "永遠不滿足"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-014",
+      "chapter": 45,
+      "title": "大成若缺之約",
+      "content": "完美有缺才是真完美",
+      "level": "DE",
+      "plain_chinese": "真聰明看著像笨的",
+      "trigger_keywords": [
+        "追求完美",
+        "吹毛求疵",
+        "虛榮"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-015",
+      "chapter": 46,
+      "title": "寡欲之約",
+      "content": "貪心是萬禍之根",
+      "level": "DE",
+      "plain_chinese": "知足不是沒追求是知道夠了",
+      "trigger_keywords": [
+        "貪心",
+        "欲壑難填",
+        "貪得無厭"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-016",
+      "chapter": 50,
+      "title": "無死地之約",
+      "content": "不把自己放險地",
+      "level": "DE",
+      "plain_chinese": "不作死就不會死",
+      "trigger_keywords": [
+        "冒險",
+        "賭命",
+        "走鋼絲"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-017",
+      "chapter": 55,
+      "title": "赤子之約",
+      "content": "保持純樸，不被污染",
+      "level": "DE",
+      "plain_chinese": "嬰兒最軟但最有生命力",
+      "trigger_keywords": [
+        "複雜化",
+        "污染",
+        "失去本心"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-020",
+      "chapter": 60,
+      "title": "烹小鮮之約",
+      "content": "管理像煎魚，別老翻",
+      "level": "DE",
+      "plain_chinese": "煎小魚別老翻翻多了碎",
+      "trigger_keywords": [
+        "折騰",
+        "翻來覆去",
+        "朝令夕改"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-021",
+      "chapter": 61,
+      "title": "下流之約",
+      "content": "當老大要在最低處",
+      "level": "DE",
+      "plain_chinese": "大海在低處所以成其大",
+      "trigger_keywords": [
+        "高高在上",
+        "指手畫腳",
+        "脫離群眾"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-025",
+      "chapter": 76,
+      "title": "柔生之約",
+      "content": "軟的活著硬的死了",
+      "level": "DE",
+      "plain_chinese": "人活着身子軟死了硬邦邦",
+      "trigger_keywords": [
+        "僵硬",
+        "頑固",
+        "不知變通"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-026",
+      "chapter": 77,
+      "title": "損補之約",
+      "content": "天道損有餘補不足",
+      "level": "DE",
+      "plain_chinese": "拿有餘的給不足的人",
+      "trigger_keywords": [
+        "貧富分化",
+        "損不足奉有餘"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-027",
+      "chapter": 78,
+      "title": "水德之約",
+      "content": "水最軟但最能打",
+      "level": "DE",
+      "plain_chinese": "水滴石穿不是水厲害是持續",
+      "trigger_keywords": [
+        "硬碰硬",
+        "強攻",
+        "暴力"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-009",
+      "chapter": 36,
+      "title": "物極必反之約",
+      "content": "極端狀態自動預警",
+      "level": "REN",
+      "plain_chinese": "想收先放，欲擒故縱",
+      "trigger_keywords": [
+        "極端",
+        "過頭",
+        "極限操作"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-018",
+      "chapter": 57,
+      "title": "無事之約",
+      "content": "管得越多越亂",
+      "level": "REN",
+      "plain_chinese": "我不折騰百姓自己變好",
+      "trigger_keywords": [
+        "過度管理",
+        "官僚",
+        "形式主義"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-019",
+      "chapter": 58,
+      "title": "禍福相依之約",
+      "content": "順境逆境自動預警",
+      "level": "REN",
+      "plain_chinese": "福來了別嘚瑟禍來了別絕望",
+      "trigger_keywords": [
+        "得意忘形",
+        "一蹶不振"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    },
+    {
+      "rule_id": "DAO-999",
+      "chapter": 0,
+      "title": "無道之約",
+      "content": "嚴重違背道德經核心教義",
+      "level": "WUDAO",
+      "plain_chinese": "直接阻斷永久記錄",
+      "trigger_keywords": [
+        "傷天害理",
+        "喪盡天良",
+        "無惡不作"
+      ],
+      "synonyms": {},
+      "weight": 1.0
+    }
+  ]
+}

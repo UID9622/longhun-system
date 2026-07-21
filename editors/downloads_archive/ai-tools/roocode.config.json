@@ -1,0 +1,63 @@
+{
+  "//": "龍魂中文编辑开发环境 - RooCode AI配置",
+  "// DNA": "#龍芯⚡️2026-06-26-DEVENV-ROOCODE-v1.0",
+  "// 说明": "RooCode AI编程助手配置 - 中文优先",
+
+  "general": {
+    "language": "zh-CN",
+    "theme": "dark",
+    "autoComplete": true,
+    "autoImport": true,
+    "suggestTimeout": 5000,
+    "maxTokens": 4000,
+    "temperature": 0.3
+  },
+
+  "codeGeneration": {
+    "language": "zh",
+    "commentLanguage": "zh",
+    "namingConvention": "cnsh",
+    "variableNaming": "chinese_first",
+    "functionNaming": "chinese_first",
+    "classNaming": "chinese_first",
+    "dnaTraceEnabled": true,
+    "auditEnabled": true
+  },
+
+  "models": {
+    "primary": "claude-sonnet-4-20250514",
+    "fallback": "gpt-4o",
+    "local": "ollama-llama3"
+  },
+
+  "completion": {
+    "enabled": true,
+    "triggerOnTyping": true,
+    "triggerDelay": 300,
+    "maxSuggestions": 5,
+    "inlineSuggestions": true,
+    "wholeLineSuggestions": true
+  },
+
+  "codeReview": {
+    "enabled": true,
+    "cnshCheck": true,
+    "dnaCheck": true,
+    "auditCheck": true,
+    "securityCheck": true,
+    "performanceCheck": true
+  },
+
+  "documentation": {
+    "autoDoc": true,
+    "docLanguage": "zh",
+    "bilingualDoc": true,
+    "includeDNA": true
+  },
+
+  "customPrompts": {
+    "systemPrompt": "你是龍魂中文编辑的AI编程助手。你遵循CNSH中文编程规范，优先使用中文命名变量、函数和类。所有代码必须包含DNA追溯标记和三色审计注释。繁体'龍'字永存。",
+    "codeReviewPrompt": "请审查以下代码，检查：1)CNSH中文命名规范 2)DNA追溯标记 3)三色审计状态 4)繁体龍字使用",
+    "docPrompt": "请为以下代码生成中文文档，包含功能说明、参数说明、返回值说明，并附加DNA追溯标记。"
+  }
+}

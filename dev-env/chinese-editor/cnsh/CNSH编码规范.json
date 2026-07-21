@@ -1,0 +1,141 @@
+{
+  "//": "龍魂中文编辑开发环境 - CNSH中文编程规范配置",
+  "// DNA": "#龍芯⚡️2026-06-26-DEVENV-CNSH-SPEC-v1.0",
+  "// 说明": "CNSH (Chinese Native Semantic Hierarchy) 中文原生编程规范",
+
+  "版本": "3.0",
+  "层级": ["L1", "L2", "L3", "L4", "L5", "L6", "L7"],
+  
+  "L1_字元层": {
+    "description": "Canvas字元设计与15层渲染系统",
+    "enabled": true,
+    "renderLayers": 15,
+    "supportedFormats": [".cnsh", ".svg", ".png"]
+  },
+
+  "L2_语法层": {
+    "description": "中文变量命名规范",
+    "enabled": true,
+    "namingRules": {
+      "variables": "中文优先，英文兜底",
+      "functions": "中文优先，英文兜底",
+      "classes": "中文优先，英文兜底",
+      "constants": "全大写中文描述",
+      "prefixRules": {
+        "龍_": "L0系统核心 (权重100)",
+        "系统_/核心_/引擎_": "L1核心模块 (权重80)",
+        "模块_/用户_/数据_": "L2功能模块 (权重60)",
+        "辅助_/临时_": "L3辅助模块 (权重40)",
+        "扩展_/访客_": "L4扩展模块 (权重20)"
+      }
+    },
+    "forbiddenPatterns": [
+      "简体'龍'字（必须用繁体'龍'）",
+      "纯英文命名（CNSH环境下）",
+      "拼音命名",
+      "无意义命名"
+    ]
+  },
+
+  "L3_语义层": {
+    "description": "通心译双语规范",
+    "enabled": true,
+    "translationRules": {
+      "principle": "中文活着，英文也活着 - 不是镜像，是共鸣",
+      "metaphorFirst": true,
+      "bilingualOutput": true,
+      "termMapping": {
+        "Prompt Engineering": "道令工程",
+        "Large Language Model": "大罗金仙",
+        "Token": "字元",
+        "Embedding": "嵌入",
+        "Fine-tuning": "精调",
+        "Inference": "推理",
+        "Agent": "智能体",
+        "Chain-of-Thought": "思维链",
+        "RAG": "检索增强生成",
+        "Vector Database": "向量库"
+      }
+    }
+  },
+
+  "L4_系统层": {
+    "description": "龍魂基础设施",
+    "enabled": true,
+    "components": {
+      "sqliteAudit": true,
+      "sixLayerSourceChain": true,
+      "dnaTrace": true,
+      "auditPersistence": true
+    }
+  },
+
+  "L5_生态层": {
+    "description": "开源宪章",
+    "enabled": true,
+    "license": "CC BY-NC-SA 4.0",
+    "openSourceCharter": true
+  },
+
+  "L6_治理层": {
+    "description": "君子协议",
+    "enabled": true,
+    "ironRules": [
+      "不欺 - 不欺骗用户",
+      "不商 - 不以龍魂之名商业化",
+      "不政 - 不站任何政治队",
+      "不军 - 不为军事目的服务",
+      "守护 - 只为普通人服务",
+      "传承 - 协议对后人开放",
+      "溯源 - 所有决策有DNA追溯",
+      "主权 - 文化主权不可侵犯"
+    ]
+  },
+
+  "L7_主权层": {
+    "description": "内容主权",
+    "enabled": true,
+    "sovereignChars": ["龍", "國", "華"],
+    "simplifiedBlock": true,
+    "sovereigntyStatement": "繁体龍字永不简化，文化不出卖"
+  },
+
+  "编译器": {
+    "fiveStagePipeline": [
+      "词法分析(Lexer)",
+      "语法分析(Parser→AST)",
+      "语义分析(三色审计+DNA验证)",
+      "中间代码生成(IR)",
+      "目标代码生成"
+    ],
+    "auditGates": {
+      "red": "编译熔断，停止",
+      "yellow": "记录警告，继续",
+      "green": "正常编译"
+    }
+  },
+
+  "标准库": {
+    "namespaces": [
+      {"name": "龍_数学", "prefix": "龍.数学.", "weight": "L1·80"},
+      {"name": "龍_输入输出", "prefix": "龍.IO.", "weight": "L2·60"},
+      {"name": "龍_DNA", "prefix": "龍.DNA.", "weight": "L0·100"},
+      {"name": "龍_审计", "prefix": "龍.审计.", "weight": "L0·100"},
+      {"name": "龍_加密", "prefix": "龍.盾.", "weight": "L1·80"},
+      {"name": "龍_翻译", "prefix": "龍.翻译.", "weight": "L2·60"}
+    ]
+  },
+
+  "错误处理": {
+    "pattern": "尝试 { ... } 捕获 错误 错误对象 { ... } 最终 { ... }",
+    "circuitBreaker": {
+      "infinity": "伦理红线 - 立即停止",
+      "P0": "核心 - 阻断+自动回滚",
+      "P1": "偏离 - 降级运行+48h整改",
+      "P2": "预警 - 通知+记录",
+      "P3": "观察 - 仅记录"
+    }
+  },
+
+  "文化主权声明": "龍≠龍≠Dragon，繁体「龍」字不可简化，简化视为伪造"
+}
