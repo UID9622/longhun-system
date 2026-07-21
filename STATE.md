@@ -29,6 +29,7 @@
 | 🧪 **集成测试** 🔥 | ✅ `lh_system_integration_test.py`·30/30·全链路联通 |
 | 📚 **学习融合总手册** 🔥 | ✅ `LH-LEARN-INTEGRATE-MANUAL-v1.0.2.md`·9节+附录B·12/12全绿 |
 | 🛡️ **未成年守护引擎** 🔥 | ✅ `bin/lh_minor_guard_engine.py`·P0·17/17全绿·数学建模增补落档 |
+| ✉️ **注册双轨邮箱引擎** 🔥 | ✅ `bin/lh_register_mail_engine.py`·P0·17/17全绿·六大数学模块 |
 | AC电源 | ❌ 断开·电池71% |
 | 鲲鹏 (119.13.90.27) | 🟡 未连接 |
 | 数据量 | 27,082条 (含DNA捆绑协议33条新增) |
@@ -154,6 +155,7 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] 全系统集成测试 `bin/lh_system_integration_test.py` 30/30·85/85全绿
 - [x] 学习融合总手册 v1.0.2 落档 `01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.2.md`·12/12全绿
 - [x] **未成年守护引擎** `bin/lh_minor_guard_engine.py`·P0·17/17全绿·归一化半群+组合判定格+EWMA低通滤波+三视角融合+误报约束
+- [x] **注册双轨邮箱引擎** `bin/lh_register_mail_engine.py`·P0·17/17全绿·邮箱权重格+信任分+验证码熵+令牌桶+通道路由+激活码链
 
 ### 📋 冻结
 - 数字人民币/多币种 (金融红线)
