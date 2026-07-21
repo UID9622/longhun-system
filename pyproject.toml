@@ -1,0 +1,135 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "longhun-system"
+version = "2.5.0"
+description = "龍魂系统 · 中国文化底座的AI主权系统 · 21人格多智能体协作引擎"
+authors = [
+    {name = "UID9622 · 诸葛鑫·Lucky·龍芯北辰", email = "9622@longhun.local"}
+]
+license = {text = "CN-SOVEREIGN-LICENSE-v1.0"}
+requires-python = ">=3.11"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# ═══════════════════════════════════════════════
+# P11架构师: 依赖分层
+# ═══════════════════════════════════════════════
+
+[project.optional-dependencies]
+# 核心依赖 — 最小安装
+core = [
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "pyyaml>=6.0",
+]
+
+# 服务层
+server = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "requests>=2.31.0",
+]
+
+# 数据与知识
+data = [
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
+    "jieba>=0.42.0",
+]
+
+# 安全与审计
+security = [
+    "cryptography>=41.0.0",
+    "pycryptodome>=3.19.0",
+    "python-gnupg>=0.5.0",
+]
+
+# 开发工具
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "pytest-xdist>=3.5.0",
+    "pytest-mock>=3.12.0",
+    "basedpyright>=1.8.0",
+    "ruff>=0.3.0",
+    "pre-commit>=3.6.0",
+]
+
+# 全量安装
+all = [
+    "longhun-system[core,server,data,security,dev]",
+]
+
+# ═══════════════════════════════════════════════
+# 入口点 · 命令行工具
+# ═══════════════════════════════════════════════
+
+[project.scripts]
+lh = "bin.longhun_cli:main"
+longhun = "bin.longhun_cli:main"
+
+[project.gui-scripts]
+longhun-dashboard = "bin.longhun_cli:dashboard"
+
+# ═══════════════════════════════════════════════
+# 工具配置
+# ═══════════════════════════════════════════════
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = ["-v", "--tb=long", "--strict-markers", "--durations=10"]
+
+[tool.coverage.run]
+source = ["bin", "L1_内核层", "L6_集成层", "audit"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM"]
+ignore = ["E501", "B008", "SIM108"]
+
+[tool.basedpyright]
+typeCheckingMode = "basic"
+pythonVersion = "3.11"
+reportMissingTypeArgument = "warning"
+reportArgumentType = "warning"
+reportReturnType = "warning"
+reportUnknownMemberType = "none"
+reportUnknownVariableType = "none"
+reportUnknownArgumentType = "none"
+reportDeprecated = "none"
+reportExplicitAny = "none"
+reportGeneralTypeIssues = "warning"
+reportInvalidTypeForm = "warning"
+reportAssignmentType = "warning"
+reportCallIssue = "warning"
+reportAttributeAccessIssue = "warning"
+reportOperatorIssue = "warning"
+reportMissingImports = "warning"
+reportMissingModuleSource = "warning"
+
+[tool.basedpyright.executionEnvironments]
+# CNSH 中文编程特征 — 压制动态类型 WARNING
+[tool.basedpyright.executionEnvironments.root]
+extraPaths = ["bin", "L1_内核层", "L6_集成层", "audit", "cnsh-core"]

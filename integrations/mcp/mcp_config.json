@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "longhun": {
+      "command": "python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/integrations/mcp/longhun_mcp_server.py"
+      ],
+      "description": "龍魂系统主 MCP Server v2.0 — 16工具：健康检查、DNA生成/校验、三色审计、语义路由、五行分析、知识图谱、视觉/音频/语义解析桥接、机枪扫描、自愈、同步、人格管理",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "cnsh-core": {
+      "command": "python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/integrations/mcp/cnsh_mcp_server.py"
+      ],
+      "description": "CNSH 核心块管理 MCP Server v2.0 — 13工具：块写入/查询/审计、DNA生成/校验、红线熔断/清单、数字根+五行、块统计/溯源、同步、事件监听",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "CNSH_API_URL": "http://localhost:9000"
+      }
+    },
+    "cnsh-syntax": {
+      "command": "python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/integrations/mcp/cnsh_syntax_mcp_server.py"
+      ],
+      "description": "CNSH 语法工具链 MCP Server v1.0 — 13工具：词法分析、语法分析(AST)、CNSH→7语言编译、关键字查询、红线熔断/清单、DNA生成/校验、数字根/五行/三色闸门、完整诊断、健康检查",
+      "env": {
+        "PYTHONPATH": "/Users/zuimeidedeyihan/longhun-system"
+      }
+    },
+    "cnsh-var-sandbox": {
+      "command": "python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/integrations/mcp/cnsh_var_sandbox_mcp_server.py"
+      ],
+      "description": "CNSH 变量沙箱 MCP Server v1.0 — 10工具：变量注册(7语言自动映射)、校验、翻译、隔离执行、审计报告、代码生成、外部对比、金融数据摄取/监控",
+      "env": {
+        "PYTHONPATH": "/Users/zuimeidedeyihan/longhun-system"
+      }
+    },
+    "longhun-v4": {
+      "command": "python3",
+      "args": [
+        "/Users/zuimeidedeyihan/longhun-system/integrations/mcp/v4_mcp_server.py"
+      ],
+      "description": "龍魂 MCP Server v4.0 — 15工具：流场查询/变异、人格管理(16矩阵)、聚合审计(三色+红线+数字根)、系统拓扑、CNSH编译桥接、变量沙箱桥接、快照统计、聚合健康",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "PYTHONPATH": "/Users/zuimeidedeyihan/longhun-system"
+      }
+    }
+  }
+}

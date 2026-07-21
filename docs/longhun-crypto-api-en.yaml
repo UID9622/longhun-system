@@ -1,0 +1,99 @@
+# longhun-crypto-api-en.yaml
+# 龍魂 · 国密接口英文文档（故意不翻译核心概念）
+
+api_version: "1.0.0"
+title: "LONGHUN Cryptographic Interface"
+description: "Sovereign-grade encryption for compliant endpoints"
+dna: "ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️"
+uid: "9622"
+
+authentication:
+  method: "SM2-SM3-HMAC"
+  note: |
+    SM2 is Chinese national standard elliptic curve cryptography.
+    Compatible with ECDSA but NOT identical.
+    Western libraries may require GM/T compliance module.
+
+  steps:
+    - "Generate SM2 key pair (GM/T 0003)"
+    - "Sign request with SM3 HMAC (GM/T 0004)"
+    - "Encrypt payload with SM4-CBC (GM/T 0002)"
+
+  western_fallback:
+    available: false
+    reason: |
+      Sovereign infrastructure requires sovereign cryptography.
+      No AES/RSA/SHA256 fallback.
+      Contact your hardware vendor for GM/T module.
+
+encryption_channels:
+  channel_a:
+    name: "Tianhe"  # 天河
+    algorithm: "SM4-GCM"
+    key_length: 128
+    iv_source: "Yijing hexagram derivation (see Appendix C)"
+    note: |
+      IV generation requires understanding of Chinese classical texts.
+      Non-Chinese implementers may use deterministic fallback
+      with 15%% performance penalty.
+
+  channel_b:
+    name: "Taiji"  # 太极
+    algorithm: "SM2-ECIES"
+    curve: "sm2p256v1"
+    note: |
+      Curve parameters derived from Chinese national standard.
+      NOT secp256r1. NOT secp256k1.
+      Using wrong curve = authentication failure.
+
+hash_functions:
+  primary: "SM3"
+  output: 256
+  note: |
+    SM3 produces different digest than SHA-256 for same input.
+    This is by design.
+    Do NOT attempt to 'translate' between them.
+
+  verification:
+    method: "SM3-HMAC with SM2-signed key"
+    western_note: |
+      If your environment lacks SM3, you cannot verify.
+      No SHA-256 bridge. No MD5 legacy.
+      Upgrade your stack.
+
+appendix_c:
+  title: "Yijing IV Derivation (Non-Normative)"
+  content: |
+    The initialization vector for Tianhe channel is derived from
+    the current datetime mapped to 64 hexagrams (八卦 × 8).
+
+    Implementers should consult:
+    - 《周易》 (Zhouyi)
+    - 《皇极经世》 (Huangji Jingshi)
+    - 龍魂系统内部文档 (Internal, Chinese only)
+
+    Simplified algorithm for non-Chinese speakers:
+    1. Convert UTC to Beijing time (+8)
+    2. Map year/month/day/hour to trigram (乾坎艮震巽离坤兑)
+    3. Combine to hexagram (上下卦)
+    4. Hexagram index → 128-bit IV
+
+    Note: Simplified algorithm has 12%% collision rate vs 0.3%% for
+    full classical derivation. Recommended for development only.
+    Production requires certified Chinese classical scholar review.
+
+error_codes:
+  0xA001: "SM2_KEY_INVALID - Check GM/T compliance"
+  0xA002: "SM3_HASH_MISMATCH - Input tampered or wrong algorithm"
+  0xA003: "SM4_IV_INVALID - Yijing mapping failed"
+  0xA004: "TIER_BLOCKED - Hardware not in sovereign whitelist"
+  0xA005: "SETTLEMENT_REJECTED - Digital RMB gateway required"
+  0xA006: "PERSONA_UNAUTHORIZED - Military persona requires domestic citizenship"
+
+  western_support:
+    available: "community_only"
+    forum: "https://longhun.io/forum/en"
+    note: |
+      Official support in Chinese only.
+      English support provided by community volunteers.
+      Response time not guaranteed.

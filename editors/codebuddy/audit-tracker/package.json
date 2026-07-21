@@ -1,0 +1,128 @@
+{
+  "name": "longhun-audit-tracker",
+  "displayName": "龍魂审计追踪",
+  "description": "AI生成代码自动审计追踪 — 记录DNA签名、三色标记、责任追溯",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Testing",
+    "Linters"
+  ],
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "审计",
+    "audit",
+    "追踪",
+    "AI生成代码",
+    "提示词哈希",
+    "合规",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "activationEvents": [
+    "onCommand:longhun-audit.showAuditLog",
+    "onCommand:longhun-audit.auditSelection",
+    "onCommand:longhun-audit.generateReport",
+    "onCommand:longhun-audit.markAsReviewed",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "longhun-audit.showAuditLog",
+        "title": "查看审计日志",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-audit.auditSelection",
+        "title": "审计选中代码",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-audit.generateReport",
+        "title": "生成审计报告",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-audit.markAsReviewed",
+        "title": "标记为已审核",
+        "category": "龍魂"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "longhun-audit.auditSelection",
+          "group": "9_cutcopypaste@5",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "longhun-audit.auditSelection",
+        "key": "ctrl+shift+u",
+        "mac": "cmd+shift+u"
+      }
+    ],
+    "configuration": {
+      "title": "龍魂审计追踪",
+      "properties": {
+        "longhun-audit.auditLogPath": {
+          "type": "string",
+          "default": "",
+          "description": "审计日志路径（默认 logs/ai_audit.jsonl）"
+        },
+        "longhun-audit.autoAuditOnPaste": {
+          "type": "boolean",
+          "default": true,
+          "description": "粘贴代码时自动记录审计"
+        },
+        "longhun-audit.autoAuditOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存文件时自动审计 AI 生成的代码段"
+        },
+        "longhun-audit.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "在状态栏显示审计计数"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/audit-tracker"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/audit-tracker/README.md",
+  "_dna": "#龍芯⚡️丙午·辛未·AUDIT-TRACKER-v1.0"
+}

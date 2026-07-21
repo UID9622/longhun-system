@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f7f3e8"/>
+  <g opacity="0.2" fill="none" stroke="#3a5a2a" stroke-width="2">
+    <circle cx="400" cy="300" r="200"/>
+    <line x1="400" y1="100" x2="400" y2="500"/>
+    <line x1="200" y1="300" x2="600" y2="300"/>
+    <line x1="258" y1="158" x2="542" y2="442"/>
+    <line x1="542" y1="158" x2="258" y2="442"/>
+  </g>
+  <text x="400" y="300" text-anchor="middle" font-family="serif" font-size="60" fill="#3a5a2a" opacity="0.7">二十四节气</text>
+  <text x="400" y="560" text-anchor="middle" font-family="serif" font-size="16" fill="#555">节气历法占位 · 待替换</text>
+</svg>

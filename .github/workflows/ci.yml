@@ -1,0 +1,157 @@
+# 龍魂系统 · CI/CD 流水线
+# DNA: #龍芯⚡️2026-07-07-CI-CD-PIPELINE-v1.0
+# 人格: P15乔前辈(自动化) + P04鲁班(工程) + P18凤凰(自动修复)
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#
+# 触发条件: push/PR 到 main · 定时每日 UTC 00:00
+# 核心流程: 检查 → 测试 → 审计 → 报告
+
+name: 龍魂 CI · 三色审计流水线
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'articles/**'
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * *'  # 每日 UTC 00:00
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  # ────────────────────────────────
+  # 闸门 · 前置检查
+  # ────────────────────────────────
+  gatekeeper:
+    name: 🛡️ 闸门检查
+    runs-on: ubuntu-latest
+    outputs:
+      gatekeeper_status: ${{ steps.gate.outputs.status }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: CNSH 闸门扫
+        run: |
+          python3 bin/cnsh_gatekeeper.py --check 2>&1 || echo "GATE_WARN=1" >> $GITHUB_OUTPUT
+        id: gate
+        continue-on-error: true
+
+  # ────────────────────────────────
+  # 核心测试
+  # ────────────────────────────────
+  test:
+    name: 🧪 核心测试 (Python ${{ matrix.python-version }})
+    needs: gatekeeper
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: 安装依赖
+        run: |
+          pip install --upgrade pip
+          pip install -e ".[core,dev]" 2>/dev/null || \
+          pip install pytest pytest-cov numpy scipy pyyaml
+
+      - name: 运行核心测试
+        run: |
+          python3 -m pytest tests/core/ -v --tb=long --junitxml=test-results-core.xml
+
+      - name: 覆盖率报告
+        run: |
+          python3 -m pytest tests/ --cov=bin --cov=L6_集成层 --cov=audit \
+            --cov-report=xml --cov-report=term-missing
+
+      - name: 上传覆盖率
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-${{ matrix.python-version }}
+          path: coverage.xml
+
+  # ────────────────────────────────
+  # 安全测试
+  # ────────────────────────────────
+  security:
+    name: 🔴 安全审计
+    needs: gatekeeper
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: |
+          pip install pytest numpy scipy pyyaml
+
+      - name: 运行安全测试
+        run: |
+          python3 -m pytest tests/safety/ -v --tb=long -m safety
+
+      - name: 防篡改扫描（自检）
+        run: |
+          python3 bin/lh_anti_tamper.py scan "CI 流水线自检" 2>&1 || true
+
+      - name: 联动感知
+        run: |
+          python3 bin/lh_cross_module_awareness.py --auto-fix 2>&1 || true
+
+  # ────────────────────────────────
+  # J-space 意识测试
+  # ────────────────────────────────
+  jspace:
+    name: 🧠 J-space 意识
+    needs: gatekeeper
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: pip install pytest numpy scipy pyyaml
+
+      - name: J-space 测试
+        run: |
+          python3 -m pytest tests/core/test_jspace.py -v --tb=long
+
+      - name: J-space 全链路 demo
+        run: |
+          python3 bin/lh_j_space_manager.py demo 2>&1 || true
+
+  # ────────────────────────────────
+  # 总结报告
+  # ────────────────────────────────
+  report:
+    name: 📊 总结报告
+    needs: [test, security, jspace]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 汇总状态
+        run: |
+          echo "========================================"
+          echo "🐉 龍魂 CI · 三色审计流水线 · 完成"
+          echo "DNA: #龍芯⚡️2026-07-07-CI-CD-PIPELINE-v1.0"
+          echo "========================================"
+          echo "🧪 核心测试: ${{ needs.test.result }}"
+          echo "🔴 安全审计: ${{ needs.security.result }}"
+          echo "🧠 J-space:  ${{ needs.jspace.result }}"
+          echo "========================================"

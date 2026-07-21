@@ -1,0 +1,163 @@
+# ═══════════════════════════════════════════
+# 龍魂中文编辑开发环境 - Git配置
+# DNA追溯码：#龍芯⚡️2026-06-26-DEVENV-GIT-v1.0
+# 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬DEVENV-GIT
+# 创建者：UID9622（诸葛鑫）
+# 权重级别：L1
+# 三色审计状态：🟢
+# ═══════════════════════════════════════════
+
+[user]
+    name = 中文编辑
+    email = editor@longhun.dev
+    signingkey = A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+[core]
+    editor = code --wait
+    autocrlf = input
+    safecrlf = true
+    eol = lf
+    filemode = false
+    ignorecase = false
+    precomposeunicode = true
+    quotepath = false
+
+[init]
+    defaultBranch = main
+
+[commit]
+    template = ~/.gitmessage
+    gpgsign = true
+
+[push]
+    default = simple
+    followTags = true
+
+[pull]
+    rebase = true
+
+[branch]
+    autosetuprebase = always
+
+[merge]
+    tool = vscode
+    conflictstyle = diff3
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[diff]
+    tool = vscode
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[log]
+    date = iso
+    decorate = short
+
+[format]
+    pretty = format:%C(yellow)%h%Creset %C(green)%ai%Creset %C(bold blue)%an%Creset %s%C(red)%d%Creset
+
+[alias]
+    # 基础操作
+    st = status -sb
+    co = checkout
+    br = branch
+    ci = commit
+    cp = cherry-pick
+
+    # 日志查看（带DNA追溯风格）
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    lgd = log --pretty=format:'%h %ad %s' --date=short --graph
+
+    # 龙魂专属别名
+    dna = log --pretty=format:'🧬 %H | %ai | %an | %s'
+    audit = log --oneline --grep="🟢\\|🟡\\|🔴"
+    
+    # 快速操作
+    undo = reset --soft HEAD~1
+    amend = commit --amend --no-edit
+    unstage = reset HEAD --
+    discard = checkout --
+    
+    # 分支管理
+    bm = branch -m
+    bd = branch -d
+    bD = branch -D
+    
+    # 远程同步
+    sync = pull --rebase origin main
+    publish = push -u origin HEAD
+    
+    # 搜索
+    find = !git ls-files | grep -i
+    grep-all = grep -n -i -e
+    
+    # 统计
+    stats = shortlog -sn --all
+    count = rev-list --count HEAD
+    
+    # 清理
+    cleanup = !git branch --merged | grep -v \\* | xargs -n 1 git branch -d
+    prune-all = !git remote | xargs -n 1 git remote prune
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[gpg]
+    program = gpg
+
+[credential]
+    helper = cache --timeout=3600
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[http]
+    postBuffer = 524288000
+
+[https]
+    postBuffer = 524288000
+
+[pack]
+    windowMemory = 100m
+    packSizeLimit = 100m
+
+[advice]
+    detachedHead = false
+
+[rerere]
+    enabled = true
+
+[rebase]
+    autoStash = true

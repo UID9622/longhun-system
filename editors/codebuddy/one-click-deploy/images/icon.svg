@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0514"/>
+      <stop offset="100%" stop-color="#1a0b2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="22" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="54" fill="none" stroke="#d4af37" stroke-width="3"/>
+  <circle cx="64" cy="64" r="50" fill="none" stroke="#f0d878" stroke-width="1"/>
+  <text x="64" y="78" font-family="serif, 'Songti SC', 'SimSun', sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#d4af37">龍</text>
+  <text x="66" y="80" font-family="serif, 'Songti SC', 'SimSun', sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#8a1428" opacity="0.4">龍</text>
+  <text x="64" y="108" font-family="monospace" font-size="12" text-anchor="middle" fill="#f0d878">9622</text>
+  <polygon points="96,28 104,44 100,44 100,52 92,52 92,44 88,44" fill="#c41e3a"/>
+  <polygon points="92,52 100,52 96,62" fill="#f0d878"/>
+</svg>

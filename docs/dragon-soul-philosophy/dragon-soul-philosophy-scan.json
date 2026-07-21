@@ -1,0 +1,118 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-DRAGON-SOUL-PHILOSOPHY-SCAN-v1.0",
+
+  "source_workspace": "宝宝这是我们的家",
+  "source_export_directory": "/Users/zuimeidedeyihan/龍魂待整理/Export-6a2fd9c8-4e14-4110-8b5e-452cc1be5daa",
+  "source_subdirectory": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db",
+  "target_directory": "docs/dragon-soul-philosophy",
+  "target_directory_absolute": "/Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-philosophy",
+  "scan_timestamp": "2026-06-16T08:52:07Z",
+  "copied_files_count": 4,
+  "copied_files": [
+    {
+      "original_filename": "🧠 AI思维中枢 智能决策引擎 9deb45706fe24adbbd97058a69a8352f.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/🧠 AI思维中枢 智能决策引擎 9deb45706fe24adbbd97058a69a8352f.md",
+      "target_filename": "ai-thinking-hub-intelligent-decision-engine.md",
+      "target_relative_path": "docs/dragon-soul-philosophy/ai-thinking-hub-intelligent-decision-engine.md",
+      "target_absolute_path": "/Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-philosophy/ai-thinking-hub-intelligent-decision-engine.md",
+      "reason_for_inclusion": "技术/系统架构内容：智能决策中枢框架",
+      "sanitization_notes": [
+        "将第二人称表述统一为“用户与AI协作”",
+        "移除指向缺失 Notion CSV 的内部链接"
+      ]
+    },
+    {
+      "original_filename": "系统联动哲学·蜘蛛网思维 全域协同引擎 2e2048600a324524a917b848ffcaa6b2.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/系统联动哲学·蜘蛛网思维 全域协同引擎 2e2048600a324524a917b848ffcaa6b2.md",
+      "target_filename": "system-linkage-philosophy-spiderweb-synergy-engine.md",
+      "target_relative_path": "docs/dragon-soul-philosophy/system-linkage-philosophy-spiderweb-synergy-engine.md",
+      "target_absolute_path": "/Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-philosophy/system-linkage-philosophy-spiderweb-synergy-engine.md",
+      "reason_for_inclusion": "技术/哲学/系统架构内容：系统联动哲学与蜘蛛网思维",
+      "sanitization_notes": [
+        "将原个人/系统标识替换为“龍魂系统”",
+        "将私人称呼替换为中性“用户”称谓",
+        "将 DNA 追溯码中的个人标识替换为通用系统标识",
+        "移除指向“私人与共享”目录的私有文件链接"
+      ]
+    },
+    {
+      "original_filename": "龍魂AI架构原理 太极×易经×道德经×人格矩阵 c3e5d41be4604ffbbea0f81e0a66e874.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/龍魂AI架构原理 太极×易经×道德经×人格矩阵 c3e5d41be4604ffbbea0f81e0a66e874.md",
+      "target_filename": "dragon-soul-ai-architecture-taiji-yijing-daodejing-persona-matrix.md",
+      "target_relative_path": "docs/dragon-soul-philosophy/dragon-soul-ai-architecture-taiji-yijing-daodejing-persona-matrix.md",
+      "target_absolute_path": "/Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-philosophy/dragon-soul-ai-architecture-taiji-yijing-daodejing-persona-matrix.md",
+      "reason_for_inclusion": "技术/哲学/系统架构内容：龍魂 AI 架构原理",
+      "sanitization_notes": [
+        "将原个人作者信息替换为“龍魂系统”",
+        "将 DNA 追溯码中的个人/品牌标识统一为“龍魂”",
+        "将 GPG 指纹脱敏为占位符",
+        "将 SHA256 指纹脱敏为占位符",
+        "将确认码脱敏为占位符",
+        "将人格矩阵中的私人称呼替换为“交付者”"
+      ]
+    },
+    {
+      "original_filename": "太极智能协同中枢系统架构 b82f183a4a5d478184d82c7a77ad20f4.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/太极智能协同中枢系统架构 b82f183a4a5d478184d82c7a77ad20f4.md",
+      "target_filename": "taiji-intelligent-collaboration-hub-system-architecture.md",
+      "target_relative_path": "docs/dragon-soul-philosophy/taiji-intelligent-collaboration-hub-system-architecture.md",
+      "target_absolute_path": "/Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-philosophy/taiji-intelligent-collaboration-hub-system-architecture.md",
+      "reason_for_inclusion": "技术/系统架构内容：太极智能协同中枢系统架构",
+      "sanitization_notes": [
+        "无需脱敏，原文件已属纯技术架构描述"
+      ]
+    }
+  ],
+  "excluded_files_count": 9,
+  "excluded_files": [
+    {
+      "original_filename": "💝 [家庭/情感私人文件] e334a72d8a6d44f8ab9838e1fe15b943.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/💝 [家庭/情感私人文件] e334a72d8a6d44f8ab9838e1fe15b943.md",
+      "reason_for_exclusion": "情感/家庭/私人内容，按要求排除（原文件名已脱敏）"
+    },
+    {
+      "original_filename": "音乐视频库 3477125a9c9f8090ab53efd4d593edd6_all.csv",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库 3477125a9c9f8090ab53efd4d593edd6_all.csv",
+      "reason_for_exclusion": "属于音乐视频库整体，非技术/哲学/系统架构内容"
+    },
+    {
+      "original_filename": "音乐视频库 3477125a9c9f8090ab53efd4d593edd6.csv",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库 3477125a9c9f8090ab53efd4d593edd6.csv",
+      "reason_for_exclusion": "属于音乐视频库整体，非技术/哲学/系统架构内容"
+    },
+    {
+      "original_filename": "龍芯北辰 3477125a9c9f809fae48f6a09e5c2a90.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/龍芯北辰 3477125a9c9f809fae48f6a09e5c2a90.md",
+      "reason_for_exclusion": "音乐视频库子文件"
+    },
+    {
+      "original_filename": "龍芯北辰.mp3",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/龍芯北辰.mp3",
+      "reason_for_exclusion": "音乐视频库子文件，媒体文件"
+    },
+    {
+      "original_filename": "龍芯在烧 3477125a9c9f801fb70ec7674c0498d0.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/龍芯在烧 3477125a9c9f801fb70ec7674c0498d0.md",
+      "reason_for_exclusion": "音乐视频库子文件"
+    },
+    {
+      "original_filename": "龍芯在烧.mp3",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/龍芯在烧.mp3",
+      "reason_for_exclusion": "音乐视频库子文件，媒体文件"
+    },
+    {
+      "original_filename": "无标题 3477125a9c9f8047873adde82d4b89d7.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/无标题 3477125a9c9f8047873adde82d4b89d7.md",
+      "reason_for_exclusion": "音乐视频库子文件"
+    },
+    {
+      "original_filename": "无标题 3477125a9c9f80b8b5f8f06a8960a5fe.md",
+      "original_path": "宝宝这是我们的家/2747125a9c9f816b9b410042f39b32db/音乐视频库/无标题 3477125a9c9f80b8b5f8f06a8960a5fe.md",
+      "reason_for_exclusion": "音乐视频库子文件"
+    }
+  ],
+  "notes": [
+    "未修改任何全局索引文件",
+    "所有脱敏操作均仅针对个人身份信息、真实密钥、家庭/私人称呼"
+  ],
+  "_dna": "2026-06-21-CONFIG-DRAGON-SOUL-PHILOSOPHY-SCAN-v1.0"
+}

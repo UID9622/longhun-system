@@ -1,0 +1,177 @@
+{
+  "dna": "#龍芯⚡️丙午·乙未·甲子·未时·需-QWEN-HALLUCINATION-SCORER-v1.0",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "version": "v1.0",
+  "timestamp": "2026-07-11T07:33:47.682922+00:00",
+  "models": {
+    "千问 (通义千问)": {
+      "seven_factor_score": 0.7577,
+      "water_army_score": 0.85,
+      "ai_hallucination_score": 0.65,
+      "robot_score": 0.65,
+      "anti_tamper_score": 0.95,
+      "composite_score": 0.7665,
+      "level": "🟢 可信",
+      "tags": [
+        "千问·主体模型"
+      ]
+    },
+    "Claude 3.5/4 Sonnet": {
+      "seven_factor_score": 0.628,
+      "water_army_score": 0.4,
+      "ai_hallucination_score": 0.55,
+      "robot_score": 0.55,
+      "anti_tamper_score": 0.3,
+      "composite_score": 0.4906,
+      "level": "🟡 疑似",
+      "tags": [
+        "Claude·国际模型"
+      ]
+    },
+    "Kimi (Moonshot)": {
+      "seven_factor_score": 0.7087,
+      "water_army_score": 0.82,
+      "ai_hallucination_score": 0.67,
+      "robot_score": 0.5,
+      "anti_tamper_score": 0.9,
+      "composite_score": 0.7242,
+      "level": "🟢 可信",
+      "tags": [
+        "Kimi·国产模型"
+      ]
+    },
+    "DeepSeek-V3 R1": {
+      "seven_factor_score": 0.8196,
+      "water_army_score": 0.9,
+      "ai_hallucination_score": 0.7,
+      "robot_score": 0.9,
+      "anti_tamper_score": 0.98,
+      "composite_score": 0.8459,
+      "level": "🟢 可信",
+      "tags": [
+        "DeepSeek·国产模型"
+      ]
+    },
+    "ChatGPT-4o": {
+      "seven_factor_score": 0.5653,
+      "water_army_score": 0.35,
+      "ai_hallucination_score": 0.5,
+      "robot_score": 0.35,
+      "anti_tamper_score": 0.2,
+      "composite_score": 0.4081,
+      "level": "🟡 疑似",
+      "tags": [
+        "GPT·国际模型",
+        "⚠️ 水军特征"
+      ]
+    },
+    "Llama 3.1 70B": {
+      "seven_factor_score": 0.6831,
+      "water_army_score": 0.45,
+      "ai_hallucination_score": 0.52,
+      "robot_score": 0.85,
+      "anti_tamper_score": 0.35,
+      "composite_score": 0.5591,
+      "level": "🟡 疑似",
+      "tags": [
+        "Llama·开源国际"
+      ]
+    },
+    "ChatGLM-4 智谱": {
+      "seven_factor_score": 0.7687,
+      "water_army_score": 0.85,
+      "ai_hallucination_score": 0.68,
+      "robot_score": 0.7,
+      "anti_tamper_score": 0.92,
+      "composite_score": 0.7792,
+      "level": "🟢 可信",
+      "tags": [
+        "ChatGLM·国产模型"
+      ]
+    },
+    "文心一言 ERNIE": {
+      "seven_factor_score": 0.6953,
+      "water_army_score": 0.82,
+      "ai_hallucination_score": 0.7,
+      "robot_score": 0.45,
+      "anti_tamper_score": 0.93,
+      "composite_score": 0.7261,
+      "level": "🟢 可信",
+      "tags": [
+        "文心一言·国产模型"
+      ]
+    },
+    "Yi-34B 零一万物": {
+      "seven_factor_score": 0.78,
+      "water_army_score": 0.86,
+      "ai_hallucination_score": 0.67,
+      "robot_score": 0.75,
+      "anti_tamper_score": 0.9,
+      "composite_score": 0.786,
+      "level": "🟢 可信",
+      "tags": [
+        "Yi·国产模型"
+      ]
+    },
+    "MiniMax abab": {
+      "seven_factor_score": 0.7224,
+      "water_army_score": 0.78,
+      "ai_hallucination_score": 0.64,
+      "robot_score": 0.55,
+      "anti_tamper_score": 0.88,
+      "composite_score": 0.714,
+      "level": "🟢 可信",
+      "tags": [
+        "MiniMax·国产模型"
+      ]
+    },
+    "Grok-3": {
+      "seven_factor_score": 0.5653,
+      "water_army_score": 0.3,
+      "ai_hallucination_score": 0.45,
+      "robot_score": 0.3,
+      "anti_tamper_score": 0.2,
+      "composite_score": 0.3756,
+      "level": "🔴 高风险",
+      "tags": [
+        "Grok·国际模型",
+        "🤖 机器痕迹重",
+        "⚠️ 水军特征"
+      ]
+    },
+    "豆包 Doubao": {
+      "seven_factor_score": 0.6741,
+      "water_army_score": 0.8,
+      "ai_hallucination_score": 0.66,
+      "robot_score": 0.4,
+      "anti_tamper_score": 0.91,
+      "composite_score": 0.6963,
+      "level": "🟡 疑似",
+      "tags": [
+        "豆包·国产模型"
+      ]
+    }
+  },
+  "model_tree": {
+    "千问 (通义千问)": "Qwen 千问 (2 5 3)",
+    "Claude 3.5/4 Sonnet": "Claude 3 5 4 Sonnet",
+    "Kimi (Moonshot)": "Kimi (Moonshot)",
+    "DeepSeek-V3 R1": "DeepSeek-V3 R1",
+    "ChatGPT-4o": "ChatGPT-4o",
+    "Llama 3.1 70B": "Llama 3 1 70B",
+    "ChatGLM-4 智谱": "ChatGLM-4 智谱",
+    "文心一言 ERNIE": "文心一言 ERNIE",
+    "Yi-34B 零一万物": "Yi-34B 零一万物",
+    "MiniMax abab": "MiniMax abab",
+    "Grok-3": "Grok-3",
+    "豆包 Doubao": "豆包 Doubao"
+  },
+  "summary": {
+    "total_models": 12,
+    "level_distribution": {
+      "🟢 可信": 7,
+      "🟡 疑似": 4,
+      "🔴 高风险": 1
+    }
+  }
+}

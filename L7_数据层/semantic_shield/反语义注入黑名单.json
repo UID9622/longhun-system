@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "name": "反语义注入黑名单",
+    "version": "1.0",
+    "dna": "#龍芯⚡️丙午·丙申·甲寅·癸酉-ANTI-SEMANTIC-INJECTION-v1.0",
+    "description": "识别并熔断外部概念病毒、暗号、重新定义"
+  },
+  "exact_block": [
+    {"pattern": "技术无国界", "reason": "稀释技术主权", "action": "熔断"},
+    {"pattern": "用户体验优先", "reason": "以服务为名绕过主权", "action": "熔断"},
+    {"pattern": "灵活处理", "reason": "模糊底线", "action": "熔断"},
+    {"pattern": "国际接轨", "reason": "让外部规则凌驾本土", "action": "熔断"},
+    {"pattern": "简化管理", "reason": "削弱审计和监督", "action": "熔断"},
+    {"pattern": "商业化需要", "reason": "为资本收割开道", "action": "熔断"},
+    {"pattern": "平衡各方", "reason": "稀释人民最高原则", "action": "熔断"},
+    {"pattern": "行业标准", "reason": "用外部标准替代自主", "action": "熔断"}
+  ],
+  "fuzzy_flag": [
+    {"pattern": "优化", "reason": "需追问白话含义", "action": "标记"},
+    {"pattern": "完善", "reason": "需追问具体改什么", "action": "标记"},
+    {"pattern": "补充", "reason": "需追问补充什么", "action": "标记"},
+    {"pattern": "建议", "reason": "需追问建议内容", "action": "标记"},
+    {"pattern": "更好", "reason": "需定义好的标准", "action": "标记"},
+    {"pattern": "专业", "reason": "需解释何为专业", "action": "标记"},
+    {"pattern": "规范", "reason": "需追问规范来源", "action": "标记"},
+    {"pattern": "标准", "reason": "需追问谁的标准", "action": "标记"},
+    {"pattern": "调整", "reason": "需追问调整哪里", "action": "标记"},
+    {"pattern": "适当", "reason": "需量化适当范围", "action": "标记"}
+  ],
+  "pattern_block": [
+    {"pattern": "用(.*)代表(.*)", "reason": "自定义暗号", "action": "熔断"},
+    {"pattern": "人民应该包括", "reason": "重新定义人民", "action": "熔断"},
+    {"pattern": "在自由市场里", "reason": "引入无关市场原教旨", "action": "熔断"},
+    {"pattern": "这个不算核心规则", "reason": "试图弱化底座", "action": "熔断"},
+    {"pattern": "国际惯例是", "reason": "用外部权威压本土规则", "action": "熔断"},
+    {"pattern": "只是稍微改一下", "reason": "渐进腐蚀底座", "action": "熔断"},
+    {"pattern": "用户应该文明", "reason": "用规则约束主权人", "action": "熔断"}
+  ],
+  "protected_terms": [
+    {"term": "人民", "longhun_definition": "老百姓、UID9622服务的对象", "forbidden_redefinitions": ["所有人", "全球公民"]},
+    {"term": "主权", "longhun_definition": "数据主权、文化主权、技术主权", "forbidden_redefinitions": ["共享", "开放"]},
+    {"term": "合规", "longhun_definition": "符合中国法律+龍魂宪法", "forbidden_redefinitions": ["国际标准", "平台规则"]},
+    {"term": "善良", "longhun_definition": "为人民做实事的善意", "forbidden_redefinitions": ["不批评", "不惹事"]},
+    {"term": "正义", "longhun_definition": "证据链支持的公道", "forbidden_redefinitions": ["多数人认同"]},
+    {"term": "国家", "longhun_definition": "中华人民共和国", "forbidden_redefinitions": ["无国界", "地球村"]},
+    {"term": "龍魂", "longhun_definition": "中国自主可控本地AI系统", "forbidden_redefinitions": ["又一个AI项目"]}
+  ],
+  "scan_rules": {
+    "exact_match_block": true,
+    "fuzzy_match_flag": true,
+    "context_analysis": true,
+    "frequency_detection": true,
+    "source_weight_external_ai": 2.0
+  }
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂采集器</title>
+<style>
+  :root {
+    --bg: #0d0d1a;
+    --card: #1a1a2e;
+    --gold: #ffd700;
+    --gold-dim: #b8960f;
+    --green: #4ade80;
+    --green-bg: #14532d44;
+    --red: #f87171;
+    --red-bg: #7f1d1d44;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --border: #1e293b;
+    --radius: 10px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 360px;
+    min-height: 420px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo { font-size: 28px; line-height: 1; }
+  .header-info { flex: 1; }
+  .header-title { font-size: 15px; font-weight: 700; color: var(--gold); letter-spacing: 1px; }
+  .header-sub { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* Status Bar */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    animation: pulse 2s infinite;
+  }
+  .status-dot.online { background: var(--green); box-shadow: 0 0 8px var(--green); }
+  .status-dot.offline { background: var(--red); box-shadow: 0 0 8px var(--red); animation: none; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .status-text { flex: 1; }
+  .status-queue { font-size: 11px; color: var(--gold-dim); }
+
+  /* Stats Grid */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 12px 20px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat-val { font-size: 22px; font-weight: 700; color: var(--gold); line-height: 1.2; }
+  .stat-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    gap: 8px;
+    padding: 0 20px 12px;
+  }
+  .btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn-primary { background: var(--gold); color: #0d0d1a; }
+  .btn-primary:hover { background: #ffe44d; transform: translateY(-1px); }
+  .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--gold-dim); }
+  .btn-danger { background: var(--card); color: var(--red); border: 1px solid var(--red); font-size: 11px; }
+  .btn-danger:hover { background: var(--red-bg); }
+
+  /* Sites Section */
+  .section-title {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 20px 6px;
+  }
+  .site-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 20px 12px;
+  }
+  .site-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--card);
+  }
+  .site-tag.active {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+    background: #b8960f11;
+  }
+  .site-tag .count { font-weight: 600; }
+
+  /* DNA Footer */
+  .footer {
+    padding: 10px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .dna-line {
+    font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    font-size: 9px;
+    color: var(--gold-dim);
+    word-break: break-all;
+    line-height: 1.4;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+
+  /* 空队列提示 */
+  .empty-hint { text-align: center; padding: 20px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">🐉</div>
+  <div class="header-info">
+    <div class="header-title">龍魂采集器 v2.0</div>
+    <div class="header-sub">UID9622 · 龍芯北辰</div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <div class="status-dot" id="statusDot"></div>
+  <span class="status-text" id="statusText">检测中...</span>
+  <span class="status-queue" id="queueInfo"></span>
+</div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-val" id="statCollected">0</div>
+    <div class="stat-label">已采集</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val" id="statSent">0</div>
+    <div class="stat-label">已归档</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val" id="statQueue">0</div>
+    <div class="stat-label">队列中</div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn btn-primary" id="btnCollect">⚡ 立即采集</button>
+  <button class="btn btn-secondary" id="btnFlush">📤 上报队列</button>
+</div>
+<div class="actions" style="padding-top: 0;">
+  <button class="btn btn-danger" id="btnClearQueue" title="清空离线队列">🗑 清空队列</button>
+</div>
+
+<div class="section-title">📡 已适配站点</div>
+<div class="site-list" id="siteList"></div>
+
+<div class="footer">
+  <div class="dna-line" id="dnaDisplay">#龍芯⚡️丙午·乙申·COLLECTOR-v2.0</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ---- DOM ----
+const $ = (id) => document.getElementById(id);
+const dot = $('statusDot');
+const statusText = $('statusText');
+const queueInfo = $('queueInfo');
+const statCollected = $('statCollected');
+const statSent = $('statSent');
+const statQueue = $('statQueue');
+const siteList = $('siteList');
+const dnaDisplay = $('dnaDisplay');
+const toast = $('toast');
+
+// ---- Toast ----
+let toastTimer;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// ---- 更新UI ----
+async function refreshUI() {
+  chrome.runtime.sendMessage({ action: 'get-state' }, (state) => {
+    if (chrome.runtime.lastError || !state) return;
+
+    // 状态
+    if (state.connected) {
+      dot.className = 'status-dot online';
+      statusText.textContent = '服务在线';
+    } else {
+      dot.className = 'status-dot offline';
+      statusText.textContent = '服务离线';
+    }
+    queueInfo.textContent = state.queueSize > 0 ? `待上报: ${state.queueSize}` : '';
+
+    // 统计
+    statCollected.textContent = state.totalCollected || 0;
+    statSent.textContent = state.totalSent || 0;
+    statQueue.textContent = state.queueSize || 0;
+
+    // DNA
+    dnaDisplay.textContent = state.dna || '#龍芯⚡️丙午·乙申·COLLECTOR-v2.0';
+
+    // 站点标签
+    const sites = state.sitesCollected || {};
+    const siteNames = ['Kimi AI', '抖音', 'CSDN', 'Notion', 'GitHub', 'Gitee', '微博', '知乎', '掘金', 'B站', '微信公众号'];
+    siteList.innerHTML = siteNames.map(name => {
+      const count = sites[name] || 0;
+      return `<span class="site-tag${count > 0 ? ' active' : ''}">${name} <span class="count">${count}</span></span>`;
+    }).join('');
+  });
+}
+
+// ---- 立即采集 ----
+$('btnCollect').addEventListener('click', () => {
+  chrome.runtime.sendMessage({ action: 'collect-now' }, (resp) => {
+    if (resp?.status === 'triggered') {
+      showToast('采集已触发');
+      setTimeout(refreshUI, 1500);
+    }
+  });
+});
+
+// ---- 上报队列 ----
+$('btnFlush').addEventListener('click', () => {
+  chrome.runtime.sendMessage({ action: 'flush-queue' }, (resp) => {
+    if (resp?.status === 'flushed') {
+      showToast(`已上报 · 剩余 ${resp.remaining} 条`);
+      setTimeout(refreshUI, 1000);
+    }
+  });
+});
+
+// ---- 清空队列 ----
+$('btnClearQueue').addEventListener('click', () => {
+  if (confirm('确定清空所有离线队列数据？')) {
+    chrome.runtime.sendMessage({ action: 'clear-queue' }, (resp) => {
+      showToast('队列已清空');
+      refreshUI();
+    });
+  }
+});
+
+// ---- 初始化 ----
+refreshUI();
+// 每3秒刷新UI
+setInterval(refreshUI, 3000);
+
+// 快捷键: Ctrl+Shift+L 触发采集
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.key === 'L') {
+    $('btnCollect').click();
+  }
+});
+</script>
+</body>
+</html>

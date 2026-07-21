@@ -1,0 +1,69 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-MANIFEST_D9F0-v1.0",
+
+  "manifest_version": 3,
+  "name": "龍魂宝宝 · LongHunWidget",
+  "version": "1.1.0",
+  "description": "龍魂大脑的浏览器化身 — 眼耳手三器官 · DNA追溯 · 记忆编辑 · 五行仪表盘",
+  "author": "UID9622 诸葛鑫",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "sidePanel",
+    "clipboardWrite",
+    "unlimitedStorage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "龍魂宝宝",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "_execute_side_panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "打开龍魂侧边栏"
+    },
+    "toggle_audit": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "切换页面审计模式"
+    }
+  },
+  "_dna": "2026-06-21-CONFIG-MANIFEST-v1.0"
+}

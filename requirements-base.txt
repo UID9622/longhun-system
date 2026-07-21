@@ -1,0 +1,13 @@
+# 龍魂系统公共依赖基线
+# 用于收敛各子系统 fastapi / uvicorn / pydantic 版本冲突
+# DNA: #龍芯⚡️2026-06-23-LONGHUN-REQUIREMENTS-BASE-v1.0
+
+fastapi>=0.109.0,<0.140.0
+uvicorn[standard]>=0.27.0,<0.50.0
+pydantic>=2.5.0,<2.14.0
+pydantic-settings>=2.14.2,<2.15.0
+requests>=2.31.0
+httpx>=0.27.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.9
+cryptography>=41.0.0

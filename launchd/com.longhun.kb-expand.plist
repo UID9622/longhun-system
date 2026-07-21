@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.kb-expand</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/bin/lh_kb_expand.py</string>
+        <string>all</string>
+        <string>-p</string>
+        <string>P0,P1</string>
+        <string>-l</string>
+        <string>30</string>
+        <string>--skip-train</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- 每天凌晨3点 + 下午3点 -->
+        <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/kb_expand.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/kb_expand.err.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

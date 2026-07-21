@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-06-08T19:52:12.103899",
+  "dependencies": [
+    {
+      "from": "skill-1-algorithmic-art",
+      "to": "skill-9-theme-factory",
+      "type": "functional",
+      "level": "light",
+      "description": "算法艺术可使用主题色彩系统"
+    },
+    {
+      "from": "skill-2-brand-guidelines",
+      "to": "skill-9-theme-factory",
+      "type": "data",
+      "level": "medium",
+      "description": "品牌指南导出到主题工厂"
+    },
+    {
+      "from": "skill-3-canvas-design",
+      "to": "skill-8-slack-gif-creator",
+      "type": "functional",
+      "level": "light",
+      "description": "画布输出转换为 GIF"
+    },
+    {
+      "from": "skill-6-mcp-builder",
+      "to": "skill-10-web-artifacts-builder",
+      "type": "functional",
+      "level": "medium",
+      "description": "MCP 服务可调用 Web 构件"
+    },
+    {
+      "from": "skill-7-skill-creator",
+      "to": "skill-6-mcp-builder",
+      "type": "workflow",
+      "level": "medium",
+      "description": "Skill 创建可生成 MCP 服务"
+    },
+    {
+      "from": "skill-4-doc-coauthoring",
+      "to": "skill-5-internal-comms",
+      "type": "functional",
+      "level": "light",
+      "description": "文档变更触发通信事件"
+    },
+    {
+      "from": "skill-10-web-artifacts-builder",
+      "to": "skill-2-brand-guidelines",
+      "type": "data",
+      "level": "light",
+      "description": "Web 构件应用品牌指南"
+    },
+    {
+      "from": "skill-6-mcp-builder",
+      "to": "skill-9-theme-factory",
+      "type": "functional",
+      "level": "light",
+      "description": "MCP 服务应用主题"
+    }
+  ],
+  "integration_points": {
+    "skill-1-algorithmic-art": {
+      "interface_type": "REST + SDK",
+      "endpoints": [
+        "/api/v1/algorithmic-art/generate",
+        "/api/v1/algorithmic-art/apply-theme"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-2-brand-guidelines": {
+      "interface_type": "REST + SDK",
+      "endpoints": [
+        "/api/v1/brand/export-tokens",
+        "/api/v1/brand/apply-to-component"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-3-canvas-design": {
+      "interface_type": "REST + WebSocket",
+      "endpoints": [
+        "/api/v1/canvas/render",
+        "/ws/v1/canvas/collaborate"
+      ],
+      "supported_methods": [
+        "POST",
+        "WS"
+      ]
+    },
+    "skill-4-doc-coauthoring": {
+      "interface_type": "REST + Event Stream",
+      "endpoints": [
+        "/api/v1/docs/create",
+        "/api/v1/docs/subscribe"
+      ],
+      "supported_methods": [
+        "POST",
+        "GET"
+      ]
+    },
+    "skill-5-internal-comms": {
+      "interface_type": "REST + Queue",
+      "endpoints": [
+        "/api/v1/messages/send",
+        "/api/v1/tasks/create"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-6-mcp-builder": {
+      "interface_type": "SDK + CLI",
+      "endpoints": [
+        "/api/v1/mcp/generate",
+        "/api/v1/mcp/deploy"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-7-skill-creator": {
+      "interface_type": "SDK + Wizard",
+      "endpoints": [
+        "/api/v1/skill/create",
+        "/api/v1/skill/validate"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-8-slack-gif-creator": {
+      "interface_type": "REST + Slack Bot",
+      "endpoints": [
+        "/api/v1/gif/create",
+        "/slack/callback"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-9-theme-factory": {
+      "interface_type": "REST + SDK",
+      "endpoints": [
+        "/api/v1/theme/generate",
+        "/api/v1/theme/apply"
+      ],
+      "supported_methods": [
+        "POST"
+      ]
+    },
+    "skill-10-web-artifacts-builder": {
+      "interface_type": "REST + SDK",
+      "endpoints": [
+        "/api/v1/artifacts/generate",
+        "/api/v1/artifacts/preview"
+      ],
+      "supported_methods": [
+        "POST",
+        "GET"
+      ]
+    }
+  },
+  "test_results": [
+    {
+      "test_name": "品牌+主题集成",
+      "skills": [
+        "skill-2-brand-guidelines",
+        "skill-9-theme-factory"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 31.5
+    },
+    {
+      "test_name": "算法艺术+主题",
+      "skills": [
+        "skill-1-algorithmic-art",
+        "skill-9-theme-factory"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 45.5
+    },
+    {
+      "test_name": "画布+GIF生成",
+      "skills": [
+        "skill-3-canvas-design",
+        "skill-8-slack-gif-creator"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 49.5
+    },
+    {
+      "test_name": "MCP+Web构件",
+      "skills": [
+        "skill-6-mcp-builder",
+        "skill-10-web-artifacts-builder"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 54.5
+    },
+    {
+      "test_name": "Skill创建+MCP",
+      "skills": [
+        "skill-7-skill-creator",
+        "skill-6-mcp-builder"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 27.5
+    },
+    {
+      "test_name": "文档+通信",
+      "skills": [
+        "skill-4-doc-coauthoring",
+        "skill-5-internal-comms"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 34.5
+    },
+    {
+      "test_name": "Web构件+品牌",
+      "skills": [
+        "skill-10-web-artifacts-builder",
+        "skill-2-brand-guidelines"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 27.5
+    },
+    {
+      "test_name": "MCP+主题",
+      "skills": [
+        "skill-6-mcp-builder",
+        "skill-9-theme-factory"
+      ],
+      "status": "PASS",
+      "execution_time_ms": 50.5
+    }
+  ],
+  "summary": {
+    "total_dependencies": 8,
+    "total_interfaces": 10,
+    "total_tests": 8,
+    "tests_passed": 8,
+    "pass_rate": "100.0%"
+  },
+  "dna":#龍芯⚡️2026-06-08-PHASE6-INTEGRATION-COMPLETE-FILE2-v1.0"
+}

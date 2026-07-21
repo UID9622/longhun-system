@@ -1,0 +1,9 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "通心译 主模块",
+  "main": "",
+  "author": "UID9622",
+  "license": "CNSH-PROPRIETARY",
+  "dependencies": {}
+}

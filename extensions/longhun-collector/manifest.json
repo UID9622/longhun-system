@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "龍魂采集器 · UID9622",
+  "version": "2.1.0",
+  "description": "龍魂系统浏览器内容采集引擎 — 自动归档 · DNA绑定 · 主权归集 · 离线队列",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs",
+    "alarms",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://kimi.com/*",
+    "https://www.kimi.com/*",
+    "https://kimi.moonshot.cn/*",
+    "https://www.douyin.com/*",
+    "https://weibo.com/*",
+    "https://blog.csdn.net/*",
+    "https://*.notion.site/*",
+    "https://github.com/*",
+    "https://gitee.com/*",
+    "https://mp.weixin.qq.com/*",
+    "https://www.zhihu.com/*",
+    "https://juejin.cn/*",
+    "https://www.bilibili.com/*",
+    "http://localhost:9622/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kimi.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.moonshot.cn/*",
+        "https://www.douyin.com/*",
+        "https://weibo.com/*",
+        "https://blog.csdn.net/*",
+        "https://*.notion.site/*",
+        "https://github.com/*",
+        "https://gitee.com/*",
+        "https://mp.weixin.qq.com/*",
+        "https://www.zhihu.com/*",
+        "https://juejin.cn/*",
+        "https://www.bilibili.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "龍魂采集器 · UID9622",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

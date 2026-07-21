@@ -1,0 +1,31 @@
+{
+  "name": "deepseek-longhun-adapter",
+  "version": "1.0.0",
+  "dna": "#龍芯⚡️2026-07-01-DEEPSEEK-CLIENT-v1.0",
+  "base_url": "https://api.deepseek.com",
+  "chat_endpoint": "/v1/chat/completions",
+  "default_model": "deepseek-chat",
+  "available_models": [
+    "deepseek-chat",
+    "deepseek-reasoner"
+  ],
+  "env_key": "DEEPSEEK_API_KEY",
+  "timeout": {
+    "connect": 10,
+    "read": 120
+  },
+  "rate_limit": {
+    "requests_per_second": 3
+  },
+  "tracing": {
+    "enabled": true,
+    "dna_prefix": "#龍芯⚡️",
+    "log_dir": "~/.longhun/logs/deepseek"
+  },
+  "sovereignty": {
+    "data_residency": "local",
+    "cloud_bypass": true,
+    "出境阻断": true,
+    "国密加密": false
+  }
+}

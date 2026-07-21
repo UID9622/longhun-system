@@ -1,0 +1,262 @@
+{
+  "name": "longhun-console",
+  "displayName": "龍魂控制台",
+  "description": "龍魂系统 CodeBuddy 侧边栏专用控制台 — 一键总控面板、蚁群控制台、审计、18个公开龍魂技能",
+  "version": "1.1.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers",
+    "Visualization"
+  ],
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "控制台",
+    "console",
+    "侧边栏",
+    "总控面板",
+    "蚁群",
+    "DNA锚定",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "activationEvents": [
+    "onView:longhun-console.mainView",
+    "onCommand:longhun-console.runLhCommand",
+    "onCommand:longhun-console.openDashboard",
+    "onCommand:longhun-console.openAntColony",
+    "onCommand:longhun-console.quickAudit",
+    "onCommand:longhun-console.checkUpdate",
+    "onCommand:longhun-console.toggleDevPanel",
+    "onCommand:longhun-console.openSkillMatrix",
+    "onStartupFinished",
+    "onCommand:longhun-console.skill.active-observer",
+    "onCommand:longhun-console.skill.anxiety-detector",
+    "onCommand:longhun-console.skill.bagua-router",
+    "onCommand:longhun-console.skill.code-security",
+    "onCommand:longhun-console.skill.corpus-registry",
+    "onCommand:longhun-console.skill.dna-engine",
+    "onCommand:longhun-console.skill.knowledge-cards",
+    "onCommand:longhun-console.skill.longzhi-shou",
+    "onCommand:longhun-console.skill.mind-link",
+    "onCommand:longhun-console.skill.philosophy",
+    "onCommand:longhun-console.skill.robot-score",
+    "onCommand:longhun-console.skill.sandbox",
+    "onCommand:longhun-console.skill.semantic-parser",
+    "onCommand:longhun-console.skill.semantic-drawers",
+    "onCommand:longhun-console.skill.semantic-library",
+    "onCommand:longhun-console.skill.tongxinyi",
+    "onCommand:longhun-console.skill.water-army",
+    "onCommand:longhun-console.skill.yijing",
+    "onCommand:longhun-console.skill.black-angel",
+    "onCommand:longhun-console.skill.sovereign-gateway",
+    "onCommand:longhun-console.skill.seamless-handoff",
+    "onCommand:longhun-console.skill.tongxin-ear"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "longhun-console",
+          "title": "龍魂控制台",
+          "icon": "media/longhun-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "longhun-console": [
+        {
+          "type": "webview",
+          "id": "longhun-console.mainView",
+          "name": "龍魂总控"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "longhun-console.runLhCommand",
+        "title": "执行 lh 命令",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.openDashboard",
+        "title": "打开总控面板",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.openAntColony",
+        "title": "打开蚁群控制台",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.quickAudit",
+        "title": "快速审计",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.toggleDevPanel",
+        "title": "切换开发者面板",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.checkUpdate",
+        "title": "检查更新",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.openSkillMatrix",
+        "title": "打开技能矩阵",
+        "category": "龍魂"
+      },
+      {
+        "command": "longhun-console.skill.active-observer",
+        "title": "👁️ 主动观察: 系统健康检查、守护进程状态、文件变更监控、联动感知扫描",
+        "category": "龍魂技能/运维"
+      },
+      {
+        "command": "longhun-console.skill.anxiety-detector",
+        "title": "🛡️ 焦虑识别: 识别PUA、情绪攻击、道德绑架、年龄歧视等焦虑话术，输出反制",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.bagua-router",
+        "title": "☯️ 八卦路由: 基于太极→八卦→六十四卦的哲学模型，实现统一命令调度",
+        "category": "龍魂技能/文化"
+      },
+      {
+        "command": "longhun-console.skill.code-security",
+        "title": "🔒 代码安全: 代码安全审计、漏洞检测、注入/越权/敏感信息泄露/硬编码密钥",
+        "category": "龍魂技能/安全"
+      },
+      {
+        "command": "longhun-console.skill.corpus-registry",
+        "title": "📚 语库桥接: 连接语义统一注册表、中央藏经阁、训练语料，术语→技能/引擎映",
+        "category": "龍魂技能/知识"
+      },
+      {
+        "command": "longhun-console.skill.dna-engine",
+        "title": "🧬 DNA追溯: 生成DNA追溯码、验证DNA签名、文件来源追溯、全生命周期溯",
+        "category": "龍魂技能/治理"
+      },
+      {
+        "command": "longhun-console.skill.knowledge-cards",
+        "title": "🗂️ 知识卡片: 三源(CSDN+Notion+本地)知识卡片统一查询，273",
+        "category": "龍魂技能/知识"
+      },
+      {
+        "command": "longhun-console.skill.longzhi-shou",
+        "title": "🐲 龍智守: 链接安全预审、反诈套路识别、易经起卦、三色状态、飞书通知",
+        "category": "龍魂技能/守护"
+      },
+      {
+        "command": "longhun-console.skill.mind-link",
+        "title": "🔗 意念链接: 深度理解→预判意图→意念链接，磨合出来的默契",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.philosophy",
+        "title": "☯️ 哲学推演: 十维同演（太极/易经/369/七因子/道德经/三才/五行/河",
+        "category": "龍魂技能/文化"
+      },
+      {
+        "command": "longhun-console.skill.robot-score",
+        "title": "🤖 AI检测: 三因子分解检测内容是否AI生成，F1=0.975·准确率95",
+        "category": "龍魂技能/检测"
+      },
+      {
+        "command": "longhun-console.skill.sandbox",
+        "title": "🏜️ 沙盒推演: 时间推演+博弈对抗+平行宇宙+自适应学习，决策模拟与趋势预测",
+        "category": "龍魂技能/推演"
+      },
+      {
+        "command": "longhun-console.skill.semantic-parser",
+        "title": "🔍 语义解析: 语义解析+语义测谎+上下文理解，识别言行不一致与隐藏意图",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.semantic-drawers",
+        "title": "🗃️ 语义抽屉: 先读情绪再读语义，情绪容错/玩笑解码/严肃模式/敷衍标记/反",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.semantic-library",
+        "title": "📖 语境语义库: 一词多义·平级沟通·按语境查意图，允许方言/错别字/情绪化表",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.tongxinyi",
+        "title": "🌐 通心译: CNSH中文编程术语翻译+多语言通心译，理解语境·保持语义·",
+        "category": "龍魂技能/语义"
+      },
+      {
+        "command": "longhun-console.skill.water-army",
+        "title": "🌊 水军检测: 水军行为检测、恶意剪辑识别、虚假评论检测、举报材料生成",
+        "category": "龍魂技能/检测"
+      },
+      {
+        "command": "longhun-console.skill.yijing",
+        "title": "☰ 易经推演: 原生态文化输出·公理推导，易经64卦+道德经81章独立推演",
+        "category": "龍魂技能/文化"
+      },
+      {
+        "command": "longhun-console.skill.black-angel",
+        "title": "🖤 黑天使军团 [受限]",
+        "category": "龍魂技能(受限)"
+      },
+      {
+        "command": "longhun-console.skill.sovereign-gateway",
+        "title": "🏛️ 主权网关 [受限]",
+        "category": "龍魂技能(受限)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "longhun-console.openDashboard",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l"
+      },
+      {
+        "command": "longhun-console.quickAudit",
+        "key": "ctrl+shift+k",
+        "mac": "cmd+shift+k"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/longhun-console"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/longhun-console/README.md",
+  "_dna": "#龍芯⚡️丙午·辛未·CODEBUDDY-LONGHUN-CONSOLE-v1.0",
+  "longhun": {
+    "updateUrl": "https://raw.githubusercontent.com/uid9622/longhun-system/main/editors/codebuddy/longhun-console/update.json",
+    "minVersion": "1.0.0"
+  }
+}

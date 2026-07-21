@@ -1,0 +1,14 @@
+{
+  "dna": #龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-FILE3-v1.0",
+  "event": "gpg_sign_authorization",
+  "token_sha256": "baea51cc7861de7c24dbbef5ca08fb4a6bc9e39e3ef08f38d62274089809ad49",
+  "authorized_by": "UID9622",
+  "action": "one-time device-bind-soul authorization to sign protocol with GPG key A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "timestamp": "2026-06-21T21:46:50.553823",
+  "status": "signed_and_verified",
+  "attempted_at": "2026-06-21T21:47:09.093691",
+  "note": "已通过 UID9622 提供的 GPG 私钥密码完成签名并验证，密码不保留。",
+  "last_update": "2026-06-21T21:49:41.384123",
+  "signed_at": "2026-06-21T22:02:48.570515",
+  "signature_sha256": "42f7a3058d44761136a4afac994b072e892abb9369fb98d91df5ebf647a1b2fa"
+}

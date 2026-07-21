@@ -1,0 +1,31 @@
+{
+  "dna": #龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-FILE2-v1.0",
+  "protocol_sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+  "generated_at": "2026-06-21T21:41:16.603380",
+  "layer2": {
+    "status": "anchored",
+    "manifest": "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.layer2.json",
+    "quorum": 3,
+    "node_hashes": {
+      "node-alpha": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+      "node-beta": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+      "node-gamma": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7"
+    }
+  },
+  "layer3": {
+    "status": "anchored",
+    "chain_file": "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.chain.jsonl",
+    "latest_block_index": 2,
+    "latest_block_hash": "4e90974de915f79ea6534e407c10eeb1780423cc832a0ecc21271e3ef0d46cc4",
+    "blocks": 3
+  },
+  "gpg_signature": {
+    "status": "signed",
+    "signer_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "signature_file": "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md.asc",
+    "signature_sha256": "42f7a3058d44761136a4afac994b072e892abb9369fb98d91df5ebf647a1b2fa",
+    "gpg_verify_returncode": 0,
+    "signed_at": "2026-06-21T22:02:48.570515"
+  },
+  "updated_at": "2026-06-21T22:02:48.570515"
+}

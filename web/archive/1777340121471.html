@@ -1,0 +1,737 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-1777340121471-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/versions/1777340121471.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Dragon Soul Lifecycle Dashboard",
+  "schemaVersion": 1,
+  "description": "龍魂系统完全融合版：整个数据生命周期可视化（输入→评分→净化→拆解→派生→执行→治理），包含DNA追溯系统、资产治理关联、自我修正回路",
+  "mcpTools": [],
+  "mcpServerNames": []
+}
+</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂生命周期·融合仪表板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6b5b95;
+            --accent: #00d9ff;
+            --success: #44ff44;
+            --warning: #ffaa00;
+            --danger: #ff4444;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050810;
+            --text-main: #e0e0ff;
+            --text-sub: #a0a0cc;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text-main);
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            text-shadow: 0 0 12px var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+        }
+
+        /* 主流程图 */
+        .lifecycle-flow {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .lifecycle-flow::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            z-index: 0;
+        }
+
+        .stage {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.3) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stage:hover {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(107, 91, 149, 0.1) 100%);
+            border-color: var(--accent);
+            box-shadow: 0 0 16px rgba(0, 217, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stage-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .stage-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .stage-desc {
+            font-size: 10px;
+            color: var(--text-sub);
+            line-height: 1.3;
+        }
+
+        .stage-count {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--warning);
+            margin-top: 6px;
+        }
+
+        /* 三才层级 */
+        .sancai-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sancai-layer {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .sancai-layer h3 {
+            color: var(--accent);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .layer-item {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 3px solid var(--primary);
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            transition: all 0.3s;
+        }
+
+        .layer-item:hover {
+            border-left-color: var(--accent);
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .layer-item-title {
+            color: var(--text-main);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .layer-item-desc {
+            color: var(--text-sub);
+            font-size: 10px;
+        }
+
+        /* DNA追溯系统 */
+        .dna-system {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .dna-system h3 {
+            color: var(--accent);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .dna-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+        }
+
+        .dna-code {
+            color: var(--warning);
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .dna-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            color: var(--text-sub);
+            font-size: 9px;
+        }
+
+        .dna-meta-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 资产治理关联 */
+        .asset-integration {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .asset-integration h3 {
+            color: var(--accent);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .asset-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 8px;
+            align-items: center;
+            font-size: 11px;
+        }
+
+        .asset-name {
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        .asset-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .badge-pass {
+            background: rgba(68, 255, 68, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .badge-pending {
+            background: rgba(255, 170, 0, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+
+        .badge-danger {
+            background: rgba(255, 68, 68, 0.2);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        /* 反馈回路 */
+        .feedback-loop {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feedback-loop h3 {
+            color: var(--accent);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .feedback-text {
+            font-size: 12px;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .breathing-cycle {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .cycle-step {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 11px;
+        }
+
+        .cycle-step:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .cycle-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .cycle-label {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        /* 配置区 */
+        .config-section {
+            background: linear-gradient(135deg, rgba(107, 91, 149, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .config-section h3 {
+            color: var(--accent);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .config-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 10px;
+        }
+
+        .config-label {
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .config-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--primary);
+            border-radius: 3px;
+            padding: 6px;
+            color: var(--text-main);
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+        }
+
+        .config-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            background: rgba(0, 217, 255, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(0, 217, 255, 0.4);
+            box-shadow: 0 0 12px rgba(0, 217, 255, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="title">🐉 龍魂生命周期·融合仪表板 v1.0</div>
+            <div class="subtitle">Complete Integration: Input → Assessment → Gene-Splicing → Execution → Governance → Reflection</div>
+        </div>
+
+        <!-- Main Lifecycle Flow -->
+        <div class="lifecycle-flow">
+            <div class="stage">
+                <div class="stage-icon">📥</div>
+                <div class="stage-name">输入·天层</div>
+                <div class="stage-desc">Drop Zone<br>内容粘贴入</div>
+                <div class="stage-count" id="stageCount1">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">⚡</div>
+                <div class="stage-name">评分·地层</div>
+                <div class="stage-desc">五维扫描<br>自动评估</div>
+                <div class="stage-count" id="stageCount2">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">📌</div>
+                <div class="stage-name">净化·入库</div>
+                <div class="stage-desc">Learning Inbox<br>待净化池</div>
+                <div class="stage-count" id="stageCount3">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">🧬</div>
+                <div class="stage-name">拆解·DNA</div>
+                <div class="stage-desc">Knowledge DNA<br>知识基因库</div>
+                <div class="stage-count" id="stageCount4">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">📋</div>
+                <div class="stage-name">派生·任务</div>
+                <div class="stage-desc">Learning Tasks<br>每日执行卡</div>
+                <div class="stage-count" id="stageCount5">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">👤</div>
+                <div class="stage-name">决策·人层</div>
+                <div class="stage-desc">执行验证<br>实战应用</div>
+                <div class="stage-count" id="stageCount6">0</div>
+            </div>
+
+            <div class="stage">
+                <div class="stage-icon">🌀</div>
+                <div class="stage-name">治理·资产</div>
+                <div class="stage-desc">七维治理表<br>生命周期</div>
+                <div class="stage-count" id="stageCount7">0</div>
+            </div>
+        </div>
+
+        <!-- 三才系统 -->
+        <div class="sancai-section">
+            <div class="sancai-layer">
+                <h3>☀️ 天 · 输入层</h3>
+                <div class="layer-item">
+                    <div class="layer-item-title">原始信息入口</div>
+                    <div class="layer-item-desc">所有初始数据来源：文本、链接、笔记、想法</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">信息采集</div>
+                    <div class="layer-item-desc">通过Drop Zone粘贴或拖拽上传</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">初步扫描</div>
+                    <div class="layer-item-desc">字数、关键词、来源追踪</div>
+                </div>
+            </div>
+
+            <div class="sancai-layer">
+                <h3>🌍 地 · 处理层</h3>
+                <div class="layer-item">
+                    <div class="layer-item-title">五维自动评分</div>
+                    <div class="layer-item-desc">内容品质、系统契合、创新指数、执行价值、长期影响</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">污染指数判定</div>
+                    <div class="layer-item-desc">检测营销语言、空洞结论、可信度评估</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">DNA追溯码生成</div>
+                    <div class="layer-item-desc">#龍芯⚡️{日期}-{类型}-{HASH}</div>
+                </div>
+            </div>
+
+            <div class="sancai-layer">
+                <h3>👤 人 · 决策层</h3>
+                <div class="layer-item">
+                    <div class="layer-item-title">人工审核</div>
+                    <div class="layer-item-desc">确认内容是否进入基因库或淘汰</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">拆解与融合</div>
+                    <div class="layer-item-desc">从Inbox提取DNA，关联其他知识</div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-item-title">执行规划</div>
+                    <div class="layer-item-desc">从DNA自动派生学习任务和应用场景</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DNA追溯系统 -->
+        <div class="dna-system">
+            <h3>🧬 DNA追溯系统 · 知识基因序列</h3>
+            <div class="dna-card">
+                <div class="dna-code">#龍芯⚡️20260428-IDEA-A3F7C2B1</div>
+                <div class="dna-meta">
+                    <div class="dna-meta-item"><span>来源：</span><span>Drop Zone</span></div>
+                    <div class="dna-meta-item"><span>评分：</span><span>87/100</span></div>
+                    <div class="dna-meta-item"><span>状态：</span><span>✓ 已净化</span></div>
+                    <div class="dna-meta-item"><span>层级：</span><span>核心概念</span></div>
+                </div>
+            </div>
+            <div class="dna-card">
+                <div class="dna-code">#龍芯⚡️20260428-SKILL-B7E4D9F5</div>
+                <div class="dna-meta">
+                    <div class="dna-meta-item"><span>来源：</span><span>Learning Inbox</span></div>
+                    <div class="dna-meta-item"><span>评分：</span><span>92/100</span></div>
+                    <div class="dna-meta-item"><span>状态：</span><span>✓ 派生任务</span></div>
+                    <div class="dna-meta-item"><span>层级：</span><span>可操作技能</span></div>
+                </div>
+            </div>
+            <div class="dna-card">
+                <div class="dna-code">#龍芯⚡️20260428-GENE-C8F2E1A3</div>
+                <div class="dna-meta">
+                    <div class="dna-meta-item"><span>来源：</span><span>Knowledge DNA</span></div>
+                    <div class="dna-meta-item"><span>评分：</span><span>78/100</span></div>
+                    <div class="dna-meta-item"><span>状态：</span><span>⏳ 待执行</span></div>
+                    <div class="dna-meta-item"><span>层级：</span><span>跨域应用</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资产治理关联 -->
+        <div class="asset-integration">
+            <h3>🌀 七维治理表 · 资产生命周期关联</h3>
+            <div class="asset-row">
+                <div class="asset-name">📱 App: SnailGitLite</div>
+                <div><span class="asset-badge badge-pass">通过</span></div>
+                <div><span class="asset-badge badge-pass">正常</span></div>
+                <div>#龍芯⚡️20260415-ASSET-4141</div>
+                <div style="font-size: 10px; color: var(--text-sub);">已关联2个DNA</div>
+            </div>
+            <div class="asset-row">
+                <div class="asset-name">⚡ LaunchAgent: com.longhun.autoat</div>
+                <div><span class="asset-badge badge-pass">通过</span></div>
+                <div><span class="asset-badge badge-pass">正常</span></div>
+                <div>#龍芯⚡️20260420-AGENT-4163</div>
+                <div style="font-size: 10px; color: var(--text-sub);">已关联5个DNA</div>
+            </div>
+            <div class="asset-row">
+                <div class="asset-name">🎵 App: NeteasMusic</div>
+                <div><span class="asset-badge badge-pending">待审</span></div>
+                <div><span class="asset-badge badge-pending">警告</span></div>
+                <div>#龍芯⚡️20260410-MEDIA-4130</div>
+                <div style="font-size: 10px; color: var(--text-sub);">等待拆解</div>
+            </div>
+        </div>
+
+        <!-- 自我修正回路 -->
+        <div class="feedback-loop">
+            <h3>🔄 自呼吸·自修正回路</h3>
+            <div class="feedback-text">
+                每周复盘检查：<br>
+                • 上周入库了多少DNA？评分平均值？<br>
+                • 有多少DNA已执行？执行反馈评价？<br>
+                • 资产健康状态？是否需要净化或熔断？<br>
+                • 整个系统的呼吸节奏是否协调？
+            </div>
+            <div class="breathing-cycle">
+                <div class="cycle-step">
+                    <div class="cycle-icon">📊</div>
+                    <div class="cycle-label">数据收集</div>
+                    周一整理上周数据
+                </div>
+                <div class="cycle-step">
+                    <div class="cycle-icon">🔍</div>
+                    <div class="cycle-label">趋势分析</div>
+                    对标DNA品质和资产状态
+                </div>
+                <div class="cycle-step">
+                    <div class="cycle-icon">⚙️</div>
+                    <div class="cycle-label">算法优化</div>
+                    调整五维评分权重
+                </div>
+                <div class="cycle-step">
+                    <div class="cycle-icon">🚀</div>
+                    <div class="cycle-label">迭代执行</div>
+                    下一周应用改进版本
+                </div>
+            </div>
+        </div>
+
+        <!-- 配置区 -->
+        <div class="config-section" style="margin-top: 40px;">
+            <h3>⚙️ 系统配置 · 生命管道连接</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <div class="config-label">Learning Inbox Database ID</div>
+                    <input type="text" class="config-input" id="inboxDbId" value="1d9af383678442db827fc035be3f1458" placeholder="Database ID">
+                </div>
+                <div class="config-item">
+                    <div class="config-label">Knowledge DNA Database ID</div>
+                    <input type="text" class="config-input" id="dnaDbId" value="6f1ddacc289c46fc9369a07e3d937f5e" placeholder="Database ID">
+                </div>
+                <div class="config-item">
+                    <div class="config-label">Learning Tasks Database ID</div>
+                    <input type="text" class="config-input" id="tasksDbId" value="58953efd058840df8ce07e76b0ae9" placeholder="Database ID">
+                </div>
+                <div class="config-item">
+                    <div class="config-label">Asset Governance Table ID</div>
+                    <input type="text" class="config-input" id="assetDbId" value="f73674795e6b4cfeab38b5039ede5828" placeholder="Database ID">
+                </div>
+                <div class="config-item">
+                    <div class="config-label">Notion API Key (加密存储)</div>
+                    <input type="password" class="config-input" id="notionApiKey" placeholder="Bearer token">
+                </div>
+                <div class="config-item">
+                    <div class="config-label">系统DNA前缀</div>
+                    <input type="text" class="config-input" id="dnaPrefix" value="龍芯⚡️" placeholder="DNA Prefix">
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn" onclick="validateConfig()">✓ 验证配置</button>
+                <button class="btn" onclick="initializeLifecycle()">🚀 初始化生命管道</button>
+                <button class="btn" onclick="syncWithNotion()">🔄 同步Notion</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateConfig() {
+            const configs = {
+                inboxDbId: document.getElementById('inboxDbId').value,
+                dnaDbId: document.getElementById('dnaDbId').value,
+                tasksDbId: document.getElementById('tasksDbId').value,
+                assetDbId: document.getElementById('assetDbId').value,
+                notionApiKey: document.getElementById('notionApiKey').value
+            };
+
+            const allValid = Object.values(configs).every(v => v && v.length > 0);
+            if (allValid) {
+                alert('✓ 配置验证成功\n所有关键数据库已就位');
+                return true;
+            } else {
+                alert('⚠ 缺少必要配置\n请填写所有Database ID');
+                return false;
+            }
+        }
+
+        function initializeLifecycle() {
+            if (!validateConfig()) return;
+            
+            // 初始化示例数据
+            const stageCounts = [5, 4, 3, 2, 1, 0, 0];
+            stageCounts.forEach((count, idx) => {
+                document.getElementById(`stageCount${idx + 1}`).textContent = count;
+            });
+
+            alert('🚀 生命管道已初始化\n\n7个环节已连接：\n✓ 输入 → 评分 → 净化 → 拆解 → 派生 → 执行 → 治理\n\n系统开始呼吸...');
+        }
+
+        function syncWithNotion() {
+            if (!validateConfig()) return;
+            alert('🔄 同步中...\n与Notion的4个核心数据库进行实时同步');
+        }
+    </script>
+</body>
+</html>

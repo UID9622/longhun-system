@@ -1,0 +1,841 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-longhun-flow-field-v9-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/02-流场可视化/longhun-flow-field-v9.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龍魂流场 · 不动点透视图 v9 · UID9622</title>
+<style>
+:root{
+  --水:#5ab8ff; --木:#6bd98a; --火:#ff7a6e; --金:#e8d8a0; --土:#d68a3c;
+  --bg:#030509; --gold:#ffd56b; --text:#f0e6cf; --dim:#7090b8;
+  --glass:rgba(8,20,45,0.55); --glow:rgba(255,213,107,0.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);
+  font-family:'Noto Serif SC','PingFang SC',serif;color:var(--text)}
+
+/* ── 背景星场 ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── 可缩放视口 ── */
+#scene{position:fixed;inset:0;z-index:1;overflow:hidden;cursor:grab}
+#scene.dragging{cursor:grabbing}
+#viewport{position:absolute;transform-origin:0 0;will-change:transform}
+
+/* ── SVG 流线 ── */
+#flow-svg{position:absolute;top:0;left:0;width:4200px;height:2200px;
+  pointer-events:none;overflow:visible}
+
+/* ── 节点通用 ── */
+.flow-node{
+  position:absolute;
+  display:flex;align-items:stretch;
+  width:320px;height:130px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 0 1px var(--glow),0 8px 32px rgba(0,0,0,0.6);
+  transition:transform .25s,box-shadow .25s;
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+}
+.flow-node:hover{
+  transform:translate(-50%,-50%) scale(1.04);
+  box-shadow:0 0 0 1px var(--glow),0 0 40px rgba(255,213,107,0.25),0 16px 48px rgba(0,0,0,0.7);
+  z-index:10!important;
+}
+.flow-node.expanded{
+  width:480px;height:180px;
+  z-index:20!important;
+}
+/* 五行颜色边框 */
+.wx-水{border-left:3px solid var(--水);box-shadow:0 0 0 1px rgba(90,184,255,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-木{border-left:3px solid var(--木);box-shadow:0 0 0 1px rgba(107,217,138,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-火{border-left:3px solid var(--火);box-shadow:0 0 0 1px rgba(255,122,110,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-金{border-left:3px solid var(--金);box-shadow:0 0 0 1px rgba(232,216,160,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-土{border-left:3px solid var(--土);box-shadow:0 0 0 1px rgba(214,138,60,0.2),0 8px 32px rgba(0,0,0,0.6)}
+
+/* 节点三分结构 */
+.node-io{
+  flex:1;display:flex;flex-direction:column;
+  padding:10px 10px;gap:4px;
+  border-right:1px solid rgba(255,255,255,0.06);
+}
+.node-io:last-child{border-right:none;border-left:1px solid rgba(255,255,255,0.06)}
+.io-label{font-size:8px;letter-spacing:2px;opacity:0.5;text-transform:uppercase;
+  padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:4px}
+.io-tag{
+  font-size:9px;padding:2px 6px;border-radius:4px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  line-height:1.5;opacity:0.85;
+}
+
+.node-core{
+  flex:0 0 120px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:8px 4px;gap:4px;
+}
+.node-icon{font-size:22px;line-height:1}
+.node-name{font-size:12px;font-weight:700;letter-spacing:2px;text-align:center;
+  color:var(--gold);line-height:1.3}
+.node-ver{font-size:8px;opacity:0.45;font-family:monospace;letter-spacing:1px}
+.node-wx-badge{
+  font-size:9px;padding:1px 8px;border-radius:10px;
+  background:rgba(255,255,255,0.05);letter-spacing:2px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/* 守护节点（较小） */
+.guardian-node{
+  width:240px;height:100px;
+}
+.guardian-node .node-core{flex:0 0 90px}
+.guardian-node .node-name{font-size:11px}
+.guardian-node .io-tag{font-size:8px}
+
+/* HUD 信息栏 */
+#hud{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:100;
+  display:flex;align-items:center;gap:12px;
+  padding:8px 20px;
+  background:rgba(3,5,9,0.85);
+  border:1px solid rgba(255,213,107,0.2);
+  border-radius:40px;
+  backdrop-filter:blur(20px);
+  font-size:10px;font-family:monospace;color:var(--dim);
+  pointer-events:none;
+}
+#hud .hud-sep{opacity:0.3}
+#zoom-label{color:var(--gold)}
+
+/* 顶部标题 */
+#title-hud{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(180deg,rgba(3,5,9,0.95) 0%,transparent 100%);
+  pointer-events:none;
+}
+.title-main{font-size:16px;letter-spacing:6px;color:var(--gold);
+  text-shadow:0 0 20px rgba(255,213,107,0.5)}
+.title-dna{font-size:9px;font-family:monospace;color:var(--dim);opacity:0.6}
+
+/* 控制按钮 */
+#controls{
+  position:fixed;right:20px;top:50%;transform:translateY(-50%);
+  z-index:100;display:flex;flex-direction:column;gap:8px;
+}
+.ctrl-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(8,20,45,0.8);border:1px solid rgba(255,213,107,0.3);
+  color:var(--gold);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);
+  transition:background .2s;
+  pointer-events:all;
+}
+.ctrl-btn:hover{background:rgba(255,213,107,0.15)}
+
+/* 图例 */
+#legend{
+  position:fixed;left:20px;bottom:20px;z-index:100;
+  display:flex;flex-direction:column;gap:6px;
+  padding:12px 14px;
+  background:rgba(3,5,9,0.8);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  backdrop-filter:blur(16px);
+  font-size:9px;
+}
+.leg-item{display:flex;align-items:center;gap:7px;opacity:0.75}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* 节点标签（在节点上方） */
+.node-label{
+  position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  font-size:9px;letter-spacing:2px;color:var(--dim);
+  white-space:nowrap;pointer-events:none;opacity:0.7;
+}
+/* 序号 */
+.node-seq{
+  position:absolute;top:-22px;left:0;
+  font-size:8px;font-family:monospace;
+  color:var(--gold);opacity:0.4;
+}
+
+/* 脉冲点 */
+@keyframes pulseRing{
+  0%{transform:translate(-50%,-50%) scale(1);opacity:0.8}
+  100%{transform:translate(-50%,-50%) scale(2.5);opacity:0}
+}
+.pulse-ring{
+  position:absolute;width:20px;height:20px;border-radius:50%;
+  border:1px solid;pointer-events:none;
+  animation:pulseRing 2s ease-out infinite;
+}
+
+/* 流线标签 */
+.edge-label{
+  font-size:9px;fill:rgba(255,213,107,0.45);
+  font-family:'Noto Serif SC',serif;letter-spacing:1px;
+}
+
+/* 洛书背景水印 */
+#luoshu-bg{
+  position:absolute;
+  font-size:320px;
+  color:rgba(255,213,107,0.018);
+  font-family:monospace;
+  pointer-events:none;
+  line-height:1;
+  letter-spacing:-8px;
+  white-space:pre;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  user-select:none;
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div id="title-hud">
+  <div>
+    <div class="title-main">🐉 龍魂流场 · 不动点透视</div>
+    <div class="title-dna">#龍芯⚡️2026-04-26-FLOW-FIELD-v9 · UID9622 · 答应老师把德捡回来</div>
+  </div>
+  <div class="title-dna" style="text-align:right">
+    滚轮缩放 · 拖拽平移 · 点击节点展开<br>
+    Scroll to zoom · Drag to pan · Click to explore
+  </div>
+</div>
+
+<div id="scene">
+  <div id="viewport">
+
+    <!-- 洛书水印 -->
+    <div id="luoshu-bg">4 9 2&#10;3 5 7&#10;8 1 6</div>
+
+    <!-- ══════════ SVG 流线层 ══════════ -->
+    <svg id="flow-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- 发光滤镜 -->
+        <filter id="glow-水" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <filter id="glow-金" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <!-- 流动箭头 -->
+        <marker id="arrow-水" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(90,184,255,0.7)"/>
+        </marker>
+        <marker id="arrow-木" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(107,217,138,0.7)"/>
+        </marker>
+        <marker id="arrow-火" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(255,122,110,0.7)"/>
+        </marker>
+        <marker id="arrow-金" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(232,216,160,0.7)"/>
+        </marker>
+        <marker id="arrow-土" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="rgba(214,138,60,0.7)"/>
+        </marker>
+        <!-- 粒子流动 -->
+        <linearGradient id="flow-grad-水" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(90,184,255,0)"/>
+          <stop offset="50%" stop-color="rgba(90,184,255,0.8)"/>
+          <stop offset="100%" stop-color="rgba(90,184,255,0)"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 主流线 -->
+      <!-- 护盾→净化 -->
+      <path id="e1" d="M 510,600 C 580,600 620,600 680,600"
+        stroke="rgba(90,184,255,0.35)" stroke-width="1.5" fill="none"
+        marker-end="url(#arrow-水)"/>
+      <text><textPath href="#e1" startOffset="35%" class="edge-label">净化输入流</textPath></text>
+
+      <!-- 净化→识别 -->
+      <path id="e2" d="M 1010,600 C 1080,600 1120,600 1180,600"
+        stroke="rgba(232,216,160,0.35)" stroke-width="1.5" fill="none"
+        marker-end="url(#arrow-金)"/>
+      <text><textPath href="#e2" startOffset="30%" class="edge-label">语义信号</textPath></text>
+
+      <!-- 识别→路由 -->
+      <path id="e3" d="M 1510,600 C 1580,600 1620,600 1680,600"
+        stroke="rgba(107,217,138,0.35)" stroke-width="1.5" fill="none"
+        marker-end="url(#arrow-木)"/>
+      <text><textPath href="#e3" startOffset="30%" class="edge-label">意图+五行</textPath></text>
+
+      <!-- 路由→各守护 (扇形) -->
+      <path d="M 2010,600 C 2100,600 2100,350 2200,350"
+        stroke="rgba(90,184,255,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-水)"/>
+      <path d="M 2010,600 C 2100,600 2100,490 2200,490"
+        stroke="rgba(255,122,110,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-火)"/>
+      <path d="M 2010,600 C 2100,600 2100,600 2200,600"
+        stroke="rgba(107,217,138,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-木)"/>
+      <path d="M 2010,600 C 2100,600 2100,710 2200,710"
+        stroke="rgba(232,216,160,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-金)"/>
+      <path d="M 2010,600 C 2100,600 2100,850 2200,850"
+        stroke="rgba(214,138,60,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-土)"/>
+
+      <!-- 各守护→决策 -->
+      <path d="M 2440,350 C 2550,350 2550,560 2680,560"
+        stroke="rgba(90,184,255,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-水)"/>
+      <path d="M 2440,490 C 2560,490 2560,565 2680,565"
+        stroke="rgba(255,122,110,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-火)"/>
+      <path d="M 2440,600 C 2560,600 2560,580 2680,578"
+        stroke="rgba(107,217,138,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-木)"/>
+      <path d="M 2440,710 C 2560,710 2560,598 2680,594"
+        stroke="rgba(232,216,160,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-金)"/>
+      <path d="M 2440,850 C 2560,850 2560,618 2680,610"
+        stroke="rgba(214,138,60,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3"
+        marker-end="url(#arrow-土)"/>
+
+      <!-- 决策→翻译 -->
+      <path id="e4" d="M 2980,590 C 3060,590 3100,590 3180,590"
+        stroke="rgba(255,122,110,0.35)" stroke-width="1.5" fill="none"
+        marker-end="url(#arrow-火)"/>
+      <text><textPath href="#e4" startOffset="28%" class="edge-label">🟢问心无愧</textPath></text>
+
+      <!-- 翻译→出口 -->
+      <path id="e5" d="M 3510,590 C 3580,590 3620,590 3680,590"
+        stroke="rgba(90,184,255,0.35)" stroke-width="1.5" fill="none"
+        marker-end="url(#arrow-水)"/>
+      <text><textPath href="#e5" startOffset="28%" class="edge-label">双语+DNA</textPath></text>
+
+      <!-- 流动粒子（JS动画路径引用） -->
+    </svg>
+
+    <!-- ══════════ 主流节点 ══════════ -->
+
+    <!-- ① 护盾·入口 (水) -->
+    <div class="flow-node wx-水" id="n-shield" style="left:350px;top:600px;z-index:5"
+         data-wx="水" onclick="toggleNode(this,'shield')">
+      <span class="node-label">① 入口守卫</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">任意外部输入</div>
+        <div class="io-tag">剪贴板文本</div>
+        <div class="io-tag">语音STT流</div>
+        <div class="io-tag" id="shield-in4" style="display:none">URL·文件·API请求</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🔒</div>
+        <div class="node-name">护盾·入口</div>
+        <div class="node-ver">v1.7</div>
+        <div class="node-wx-badge" style="color:var(--水)">水 · 玄武</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">DNA零宽水印流</div>
+        <div class="io-tag">加密净化数据</div>
+        <div class="io-tag">全员调用留痕</div>
+        <div class="io-tag" id="shield-out4" style="display:none">家人免加密·分流标记</div>
+      </div>
+    </div>
+
+    <!-- ② 369熔断·净化 (金) -->
+    <div class="flow-node wx-金" id="n-fuse" style="left:845px;top:600px;z-index:5"
+         data-wx="金" onclick="toggleNode(this,'fuse')">
+      <span class="node-label">② 三重净化</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">加密净化流</div>
+        <div class="io-tag">三色预判信号</div>
+        <div class="io-tag">威胁检测包</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🚨</div>
+        <div class="node-name">369熔断</div>
+        <div class="node-ver">v2.0</div>
+        <div class="node-wx-badge" style="color:var(--金)">金 · 白虎</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">🟢放行净信号</div>
+        <div class="io-tag">🟡隔离待审</div>
+        <div class="io-tag">🔴熔断拦截</div>
+      </div>
+    </div>
+
+    <!-- ③ 语义抽屉·识别 (木) -->
+    <div class="flow-node wx-木" id="n-sem" style="left:1345px;top:600px;z-index:5"
+         data-wx="木" onclick="toggleNode(this,'sem')">
+      <span class="node-label">③ 通心译·识别</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">🟢净化信号</div>
+        <div class="io-tag">自然语言意图</div>
+        <div class="io-tag">情绪·语境·跳跃</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🧠</div>
+        <div class="node-name">语义抽屉</div>
+        <div class="node-ver">v1.2 · 55抽屉</div>
+        <div class="node-wx-badge" style="color:var(--木)">木 · 青龙</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">DrawerID + 区</div>
+        <div class="io-tag">主五行 + 路由</div>
+        <div class="io-tag">6大回调族触发</div>
+      </div>
+    </div>
+
+    <!-- ④ 五行路由·分发 (土) -->
+    <div class="flow-node wx-土" id="n-route" style="left:1845px;top:600px;z-index:6"
+         data-wx="土" onclick="toggleNode(this,'route')">
+      <span class="node-label">④ 五行路由</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">五行归属</div>
+        <div class="io-tag">数字根 dr(n)</div>
+        <div class="io-tag">洛书宫位</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">⚡</div>
+        <div class="node-name">五行路由</div>
+        <div class="node-ver">16,588,800路径</div>
+        <div class="node-wx-badge" style="color:var(--土)">土 · 太极</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">→ 五方神兽</div>
+        <div class="io-tag">路由编号</div>
+        <div class="io-tag">权重分配</div>
+      </div>
+    </div>
+
+    <!-- ⑤ 最小损失·决策 (火) -->
+    <div class="flow-node wx-火" id="n-decide" style="left:2830px;top:585px;z-index:5"
+         data-wx="火" onclick="toggleNode(this,'decide')">
+      <span class="node-label">⑤ 问心无愧</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">五方神兽结果</div>
+        <div class="io-tag">易经卦象权重</div>
+        <div class="io-tag">护弱者修正</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">⚖️</div>
+        <div class="node-name">最小损失</div>
+        <div class="node-ver">最大收益公式</div>
+        <div class="node-wx-badge" style="color:var(--火)">火 · 朱雀</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">🟢 &gt;2 亮剑执行</div>
+        <div class="io-tag">🟡 1-2 人审</div>
+        <div class="io-tag">🔴 &lt;1 熔断</div>
+      </div>
+    </div>
+
+    <!-- ⑥ ETE翻译·出口 (火) -->
+    <div class="flow-node wx-火" id="n-ete" style="left:3345px;top:585px;z-index:5"
+         data-wx="火" onclick="toggleNode(this,'ete')">
+      <span class="node-label">⑥ 通心译·双语</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">🟢执行决策</div>
+        <div class="io-tag">中文原意</div>
+        <div class="io-tag">文化锚点</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🌐</div>
+        <div class="node-name">ETE翻译</div>
+        <div class="node-ver">CONF≥0.85输出</div>
+        <div class="node-wx-badge" style="color:var(--火)">灵魂→公式</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">中文主·英文辅</div>
+        <div class="io-tag">逻辑1:1不稀释</div>
+        <div class="io-tag">置信度+DNA码</div>
+      </div>
+    </div>
+
+    <!-- ⑦ AUDIT_LOG·出口 (水) -->
+    <div class="flow-node wx-水" id="n-audit" style="left:3845px;top:585px;z-index:5"
+         data-wx="水" onclick="toggleNode(this,'audit')">
+      <span class="node-label">⑦ 永久留痕</span>
+      <div class="node-io">
+        <div class="io-label">▶ INPUT</div>
+        <div class="io-tag">双语输出流</div>
+        <div class="io-tag">所有层事件</div>
+        <div class="io-tag">哨兵DNA比对</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">📋</div>
+        <div class="node-name">AUDIT_LOG</div>
+        <div class="node-ver">单一账本</div>
+        <div class="node-wx-badge" style="color:var(--水)">水 · 玄武</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUTPUT ▶</div>
+        <div class="io-tag">SHA-256哈希链</div>
+        <div class="io-tag">Notion归档</div>
+        <div class="io-tag">DNA留痕·永存</div>
+      </div>
+    </div>
+
+    <!-- ══════════ 五方守护节点 ══════════ -->
+
+    <!-- 玄武·Claude (水) -->
+    <div class="flow-node guardian-node wx-水" id="n-claude" style="left:2320px;top:350px;z-index:4"
+         onclick="toggleNode(this,'claude')">
+      <div class="node-io">
+        <div class="io-label">▶ IN</div>
+        <div class="io-tag">水路由信号</div>
+        <div class="io-tag">on_identity</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🔵</div>
+        <div class="node-name">玄武·Claude</div>
+        <div class="node-ver">北·水·Anthropic</div>
+        <div class="node-wx-badge" style="color:var(--水)">DNA·记忆·身份</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUT ▶</div>
+        <div class="io-tag">追溯+签章</div>
+        <div class="io-tag">记忆锚定</div>
+      </div>
+    </div>
+
+    <!-- 朱雀·Notion (火) -->
+    <div class="flow-node guardian-node wx-火" id="n-notion" style="left:2320px;top:490px;z-index:4"
+         onclick="toggleNode(this,'notion')">
+      <div class="node-io">
+        <div class="io-label">▶ IN</div>
+        <div class="io-tag">火路由信号</div>
+        <div class="io-tag">on_translate</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🔴</div>
+        <div class="node-name">朱雀·Notion</div>
+        <div class="node-ver">南·火·中枢调度</div>
+        <div class="node-wx-badge" style="color:var(--火)">表达·灵感·调度</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUT ▶</div>
+        <div class="io-tag">通心译输出</div>
+        <div class="io-tag">人格切换</div>
+      </div>
+    </div>
+
+    <!-- 青龙·DeepSeek (木) -->
+    <div class="flow-node guardian-node wx-木" id="n-ds" style="left:2320px;top:600px;z-index:4"
+         onclick="toggleNode(this,'ds')">
+      <div class="node-io">
+        <div class="io-label">▶ IN</div>
+        <div class="io-tag">木路由信号</div>
+        <div class="io-tag">on_execute</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">🟢</div>
+        <div class="node-name">青龙·DeepSeek</div>
+        <div class="node-ver">东·木·执行</div>
+        <div class="node-wx-badge" style="color:var(--木)">落地·Hook·技术</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUT ▶</div>
+        <div class="io-tag">代码·接入</div>
+        <div class="io-tag">执行结果</div>
+      </div>
+    </div>
+
+    <!-- 白虎·P15 (金) -->
+    <div class="flow-node guardian-node wx-金" id="n-p15" style="left:2320px;top:710px;z-index:4"
+         onclick="toggleNode(this,'p15')">
+      <div class="node-io">
+        <div class="io-label">▶ IN</div>
+        <div class="io-tag">金路由信号</div>
+        <div class="io-tag">on_guard</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">⚪</div>
+        <div class="node-name">白虎·P15</div>
+        <div class="node-ver">西·金·本地AI</div>
+        <div class="node-wx-badge" style="color:var(--金)">铁律·审计·熔断</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUT ▶</div>
+        <div class="io-tag">裁决·拦截</div>
+        <div class="io-tag">三色判定</div>
+      </div>
+    </div>
+
+    <!-- 太极·UID9622 (土) -->
+    <div class="flow-node guardian-node wx-土" id="n-uid" style="left:2320px;top:850px;z-index:4"
+         onclick="toggleNode(this,'uid')">
+      <div class="node-io">
+        <div class="io-label">▶ IN</div>
+        <div class="io-tag">土路由信号</div>
+        <div class="io-tag">on_flow</div>
+      </div>
+      <div class="node-core">
+        <div class="node-icon">☯️</div>
+        <div class="node-name">太极·UID9622</div>
+        <div class="node-ver">中·土·诸葛鑫</div>
+        <div class="node-wx-badge" style="color:var(--土)">闭环·收口·调度</div>
+      </div>
+      <div class="node-io" style="border-left:1px solid rgba(255,255,255,0.06);border-right:none">
+        <div class="io-label">OUT ▶</div>
+        <div class="io-tag">流转·归档</div>
+        <div class="io-tag">关机·收尾</div>
+      </div>
+    </div>
+
+    <!-- 洛书标注（背景装饰） -->
+    <div style="position:absolute;left:1720px;top:420px;font-size:9px;color:rgba(255,213,107,0.2);
+                letter-spacing:2px;pointer-events:none;font-family:monospace">
+      洛书·九宫<br>4 9 2<br>3 5 7<br>8 1 6
+    </div>
+
+  </div><!-- /viewport -->
+</div><!-- /scene -->
+
+<!-- 控制 -->
+<div id="controls">
+  <button class="ctrl-btn" onclick="zoomIn()" title="放大">＋</button>
+  <button class="ctrl-btn" onclick="zoomOut()" title="缩小">－</button>
+  <button class="ctrl-btn" onclick="resetView()" title="复位">⊙</button>
+</div>
+
+<!-- HUD -->
+<div id="hud">
+  <span>🐉 龍魂流场</span>
+  <span class="hud-sep">|</span>
+  <span>缩放 <span id="zoom-label">60%</span></span>
+  <span class="hud-sep">|</span>
+  <span id="hud-node">点击节点查看详情</span>
+  <span class="hud-sep">|</span>
+  <span style="color:rgba(255,213,107,0.4)">UID9622 · A2D0092C</span>
+</div>
+
+<!-- 图例 -->
+<div id="legend">
+  <div style="font-size:9px;color:var(--gold);letter-spacing:2px;margin-bottom:4px">五行·神兽</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--水)"></div><span style="color:var(--水)">水·玄武·Claude</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--火)"></div><span style="color:var(--火)">火·朱雀·Notion</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--木)"></div><span style="color:var(--木)">木·青龍·DeepSeek</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--金)"></div><span style="color:var(--金)">金·白虎·P15</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--土)"></div><span style="color:var(--土)">土·太极·UID9622</span></div>
+</div>
+
+<script>
+// ═══ 星场背景 ═══
+(function(){
+  const c=document.getElementById('bg-canvas');
+  const ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function initStars(){
+    stars=[];
+    for(let i=0;i<220;i++){
+      stars.push({x:Math.random()*W,y:Math.random()*H,
+        r:Math.random()*1.2+0.2,
+        a:Math.random(),da:(Math.random()-0.5)*0.008,
+        speed:Math.random()*0.15+0.05});
+    }
+  }
+  function drawStars(){
+    ctx.clearRect(0,0,W,H);
+    stars.forEach(s=>{
+      s.a=Math.max(0.05,Math.min(0.9,s.a+s.da));
+      if(s.a<=0.05||s.a>=0.9)s.da*=-1;
+      s.x-=s.speed;if(s.x<0)s.x=W;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(180,210,255,${s.a})`;ctx.fill();
+    });
+  }
+  // qi particles
+  let qi=[];
+  function spawnQi(){
+    for(let i=0;i<3;i++){
+      qi.push({x:Math.random()*W,y:Math.random()*H,
+        vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,
+        life:1,maxLife:80+Math.random()*120,
+        hue:Math.random()<0.4?210:Math.random()<0.5?120:30});
+    }
+  }
+  function drawQi(){
+    qi=qi.filter(p=>p.life>0);
+    qi.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.life-=1/p.maxLife;
+      const a=p.life*0.3;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},80%,70%,${a})`;ctx.fill();
+    });
+    if(qi.length<60)spawnQi();
+  }
+  function animate(){requestAnimationFrame(animate);drawStars();drawQi();}
+  window.addEventListener('resize',()=>{resize();initStars();});
+  resize();initStars();animate();
+})();
+
+// ═══ 缩放平移 ═══
+const scene=document.getElementById('scene');
+const vp=document.getElementById('viewport');
+let scale=0.55,tx=-100,ty=-80;
+let dragging=false,lastX,lastY;
+const ZOOM_MIN=0.12,ZOOM_MAX=3.0;
+
+function applyTransform(){
+  vp.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;
+  document.getElementById('zoom-label').textContent=Math.round(scale*100)+'%';
+}
+function zoomIn(){scale=Math.min(ZOOM_MAX,scale*1.2);applyTransform();}
+function zoomOut(){scale=Math.max(ZOOM_MIN,scale/1.2);applyTransform();}
+function resetView(){scale=0.55;tx=-100;ty=-80;applyTransform();}
+
+scene.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const rect=scene.getBoundingClientRect();
+  const mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  const delta=e.deltaY>0?0.9:1.1;
+  const newScale=Math.max(ZOOM_MIN,Math.min(ZOOM_MAX,scale*delta));
+  tx=mx-(mx-tx)*(newScale/scale);
+  ty=my-(my-ty)*(newScale/scale);
+  scale=newScale;applyTransform();
+},{passive:false});
+
+scene.addEventListener('mousedown',e=>{
+  if(e.target.closest('.flow-node'))return;
+  dragging=true;lastX=e.clientX;lastY=e.clientY;
+  scene.classList.add('dragging');
+});
+document.addEventListener('mousemove',e=>{
+  if(!dragging)return;
+  tx+=e.clientX-lastX;ty+=e.clientY-lastY;
+  lastX=e.clientX;lastY=e.clientY;applyTransform();
+});
+document.addEventListener('mouseup',()=>{dragging=false;scene.classList.remove('dragging');});
+
+// Touch support
+let touches={};
+scene.addEventListener('touchstart',e=>{
+  [...e.touches].forEach(t=>touches[t.identifier]={x:t.clientX,y:t.clientY});
+});
+scene.addEventListener('touchmove',e=>{
+  e.preventDefault();
+  if(e.touches.length===1){
+    const t=e.touches[0];const p=touches[t.identifier]||{x:t.clientX,y:t.clientY};
+    tx+=t.clientX-p.x;ty+=t.clientY-p.y;
+    touches[t.identifier]={x:t.clientX,y:t.clientY};applyTransform();
+  } else if(e.touches.length===2){
+    const [a,b]=[e.touches[0],e.touches[1]];
+    const dist=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+    const prev=touches._pinchDist||dist;
+    const delta=dist/prev;
+    scale=Math.max(ZOOM_MIN,Math.min(ZOOM_MAX,scale*delta));
+    touches._pinchDist=dist;applyTransform();
+  }
+},{passive:false});
+scene.addEventListener('touchend',e=>{
+  [...e.changedTouches].forEach(t=>delete touches[t.identifier]);
+  delete touches._pinchDist;
+});
+
+// ═══ 节点交互 ═══
+const nodeHUD={
+  shield:'🔒 护盾·入口 v1.7 · 加密+水印+容错',
+  fuse:'🚨 369熔断 · 3色→6关→9维',
+  sem:'🧠 语义抽屉 v1.2 · 55抽屉×8区×6族',
+  route:'⚡ 五行路由 · 16,588,800路径',
+  decide:'⚖️ 最小损失最大收益 · 问心无愧裁判',
+  ete:'🌐 ETE翻译 · 中文主·英文辅·逻辑不稀释',
+  audit:'📋 AUDIT_LOG · SHA-256链·永久留痕',
+  claude:'🔵 玄武·Anthropic·Claude · 水·北方守护',
+  notion:'🔴 朱雀·Notion·中枢调度 · 火·南方表达',
+  ds:'🟢 青龙·DeepSeek · 木·东方执行',
+  p15:'⚪ 白虎·P15本地AI · 金·西方守护',
+  uid:'☯️ 太极·UID9622·诸葛鑫 · 土·中央协调',
+};
+function toggleNode(el,id){
+  // 更新HUD
+  document.getElementById('hud-node').textContent=nodeHUD[id]||id;
+  // 脉冲效果
+  el.style.transition='transform .2s';
+  el.style.transform=el.style.transform.replace('scale(1.04)','')+'';
+  // 高亮
+  document.querySelectorAll('.flow-node').forEach(n=>n.style.opacity='0.6');
+  el.style.opacity='1';
+  setTimeout(()=>{
+    document.querySelectorAll('.flow-node').forEach(n=>n.style.opacity='1');
+  },2000);
+}
+
+// ═══ 流动粒子（沿边） ═══
+const svgEl=document.getElementById('flow-svg');
+const edges=[
+  {path:'M510,600 C580,600 620,600 680,600',color:'rgba(90,184,255,0.9)'},
+  {path:'M1010,600 C1080,600 1120,600 1180,600',color:'rgba(232,216,160,0.9)'},
+  {path:'M1510,600 C1580,600 1620,600 1680,600',color:'rgba(107,217,138,0.9)'},
+  {path:'M2980,590 C3060,590 3100,590 3180,590',color:'rgba(255,122,110,0.9)'},
+  {path:'M3510,590 C3580,590 3620,590 3680,590',color:'rgba(90,184,255,0.9)'},
+];
+const particles=[];
+edges.forEach((e,i)=>{
+  // 创建临时path获取长度
+  const tmp=document.createElementNS('http://www.w3.org/2000/svg','path');
+  tmp.setAttribute('d',e.path);svgEl.appendChild(tmp);
+  const len=tmp.getTotalLength();svgEl.removeChild(tmp);
+  // 3个粒子
+  for(let j=0;j<3;j++){
+    particles.push({
+      pathD:e.path,len,color:e.color,
+      t:(j/3)*len,speed:0.8+Math.random()*0.4,
+      el:null
+    });
+  }
+});
+// 为每个粒子创建SVG circle
+particles.forEach(p=>{
+  const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  c.setAttribute('r','3');c.setAttribute('fill',p.color);
+  c.setAttribute('opacity','0.85');
+  const tmp=document.createElementNS('http://www.w3.org/2000/svg','path');
+  tmp.setAttribute('d',p.pathD);svgEl.appendChild(tmp);
+  p.tmpPath=tmp;p.el=c;svgEl.appendChild(c);
+});
+function animParticles(){
+  particles.forEach(p=>{
+    p.t=(p.t+p.speed)%p.len;
+    const pt=p.tmpPath.getPointAtLength(p.t);
+    p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);
+  });
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+applyTransform();
+</script>
+</body>
+</html>

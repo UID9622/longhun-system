@@ -1,0 +1,102 @@
+<!--#龍芯⚡️2026-06-21-UI-POPUP-v1.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂宝宝</title>
+<style>
+:root{--bg:#0b0b14;--bg2:#13132a;--blue:#00d4ff;--gold:#ffd700;--green:#00ff88;--red:#ff6b6b;--text:#e2e8f0;--muted:#8892b0;--border:rgba(0,212,255,0.12);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:320px;background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:12px;padding:12px}
+.header{text-align:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.header h1{font-size:16px;background:linear-gradient(90deg,var(--blue),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+background-clip: text;
+.header .sub{font-size:10px;color:var(--muted);margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.btn{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 4px;
+  text-align:center;cursor:pointer;transition:.2s;color:var(--text);font-size:11px;
+  display:flex;flex-direction:column;align-items:center;gap:4px
+}
+.btn:hover{border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.06);transform:translateY(-1px)}
+.btn .icon{font-size:20px}
+.btn .label{font-weight:600}
+.btn .hint{font-size:9px;color:var(--muted)}
+.status{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:10px;color:var(--muted)}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 4px var(--green)}
+.footer{text-align:center;font-size:9px;color:#444;padding-top:8px;border-top:1px solid var(--border)}
+.dna{font-family:monospace;font-size:8px;color:var(--purple);margin-top:4px;word-break:break-all}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🐉 龍魂宝宝</h1>
+  <div class="sub">UID9622 · 浏览器化身 · 眼耳手三器官</div>
+</div>
+
+<div class="status">
+  <span class="status-dot"></span>
+  <span>系统正常 · <span id="clock">--:--</span></span>
+</div>
+
+<div class="grid">
+  <div class="btn" id="btnSidepanel">
+    <span class="icon">🎛️</span>
+    <span class="label">侧边栏</span>
+    <span class="hint">Ctrl+Shift+L</span>
+  </div>
+  <div class="btn" id="btnRead">
+    <span class="icon">👁️</span>
+    <span class="label">读页面</span>
+    <span class="hint">当前Tab</span>
+  </div>
+  <div class="btn" id="btnMemory">
+    <span class="icon">🧠</span>
+    <span class="label">记一笔</span>
+    <span class="hint">快速记忆</span>
+  </div>
+  <div class="btn" id="btnDNA">
+    <span class="icon">🧬</span>
+    <span class="label">DNA</span>
+    <span class="hint">生成签名</span>
+  </div>
+  <div class="btn" id="btnAudit">
+    <span class="icon">🛡️</span>
+    <span class="label">审计</span>
+    <span class="hint">切换模式</span>
+  </div>
+  <div class="btn" id="btnNotion">
+    <span class="icon">📓</span>
+    <span class="label">Notion</span>
+    <span class="hint">总入口</span>
+  </div>
+</div>
+
+<div class="footer">
+  铁律：不替人做决定 · 不帮人走捷径 · 不越权限<br>
+  <div class="dna" id="popupDNA">--</div>
+</div>
+
+<script>
+function updateClock(){const d=new Date();document.getElementById('clock').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+updateClock();setInterval(updateClock,1000);
+
+// DNA
+const today=new Date().toISOString().slice(0,10).replace(/-/g,'');
+function jsSHA256(str){const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];let h0=0x6a09e667,h1=0xbb67ae85,h2=0x3c6ef372,h3=0xa54ff53a,h4=0x510e527f,h5=0x9b05688c,h6=0x1f83d9ab,h7=0x5be0cd19;const msg=unescape(encodeURIComponent(str));const len=msg.length;const totalLen=Math.ceil((len+9)/64)*64;const bytes=new Uint8Array(totalLen);for(let i=0;i<len;i++)bytes[i]=msg.charCodeAt(i);bytes[len]=0x80;const bitLen=len*8;bytes[totalLen-4]=(bitLen>>>24)&0xff;bytes[totalLen-3]=(bitLen>>>16)&0xff;bytes[totalLen-2]=(bitLen>>>8)&0xff;bytes[totalLen-1]=bitLen&0xff;for(let i=0;i<totalLen;i+=64){const w=new Uint32Array(64);for(let t=0;t<16;t++){w[t]=(bytes[i+t*4]<<24)|(bytes[i+t*4+1]<<16)|(bytes[i+t*4+2]<<8)|bytes[i+t*4+3];}for(let t=16;t<64;t++){const s0=((w[t-15]>>>7)|(w[t-15]<<25))^((w[t-15]>>>18)|(w[t-15]<<14))^(w[t-15]>>>3);const s1=((w[t-2]>>>17)|(w[t-2]<<15))^((w[t-2]>>>19)|(w[t-2]<<13))^(w[t-2]>>>10);w[t]=(w[t-16]+s0+w[t-7]+s1)>>>0;}let a=h0,b=h1,c=h2,d=h3,e=h4,f=h5,g=h6,hh=h7;for(let t=0;t<64;t++){const S1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7));const ch=(e&f)^(~e&g);const temp1=(hh+S1+ch+K[t]+w[t])>>>0;const S0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10));const maj=(a&b)^(a&c)^(b&c);const temp2=(S0+maj)>>>0;hh=g;g=f;f=e;e=(d+temp1)>>>0;d=c;c=b;b=a;a=(temp1+temp2)>>>0;}h0=(h0+a)>>>0;h1=(h1+b)>>>0;h2=(h2+c)>>>0;h3=(h3+d)>>>0;h4=(h4+e)>>>0;h5=(h5+f)>>>0;h6=(h6+g)>>>0;h7=(h7+hh)>>>0;}const toHex=(n)=>(n>>>0).toString(16).padStart(8,'0');return toHex(h0)+toHex(h1)+toHex(h2)+toHex(h3)+toHex(h4)+toHex(h5)+toHex(h6)+toHex(h7);}
+const sha8=jsSHA256('POPUP'+today+'v1.0').slice(0,8);
+document.getElementById('popupDNA').textContent='#龍芯⚡️'+today+'|POPUP|v1.0|'+sha8;
+
+// 事件
+document.getElementById('btnSidepanel').addEventListener('click',()=>{chrome.sidePanel.open({});window.close();});
+document.getElementById('btnRead').addEventListener('click',async()=>{try{const[t]=await chrome.tabs.query({active:true,currentWindow:true});const r=await chrome.tabs.sendMessage(t.id,{type:'EYE_READ_PAGE'});if(r.restricted){alert('🔴 敏感页面，禁止读取');}else{alert('✅ 页面已读取\n\n摘要:\n'+r.summary.slice(0,300));}}catch(e){alert('读取失败: '+e.message);}});
+document.getElementById('btnMemory').addEventListener('click',()=>{chrome.sidePanel.open({});window.close();});
+document.getElementById('btnDNA').addEventListener('click',()=>{chrome.sidePanel.open({});window.close();});
+document.getElementById('btnAudit').addEventListener('click',()=>{chrome.runtime.sendMessage({type:'AUDIT_ACTION',record:{action:'toggle_audit_popup',level:'yellow'}});alert('🛡️ 审计模式切换信号已发送');window.close();});
+document.getElementById('btnNotion').addEventListener('click',()=>{chrome.tabs.create({url:'https://www.notion.so'});window.close();});
+</script>
+</body>
+</html>

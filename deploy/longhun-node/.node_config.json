@@ -1,0 +1,11 @@
+{
+  "node_id": "mac-studio",
+  "node_name": "Mac工作室",
+  "node_type": "mac",
+  "center_host": "localhost",
+  "center_port": 19623,
+  "center_tunnel": "ssh-reverse",
+  "heartbeat_interval": 300,
+  "audit_interval": 3600,
+  "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-MAC-NODE-v1.0"
+}

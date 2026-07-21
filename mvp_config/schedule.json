@@ -1,0 +1,37 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-SCHEDULE-v1.0",
+
+  "start_date": "2026-06-05T00:14:47.152615",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "name": "基础配置阶段",
+      "duration_days": 3,
+      "tasks": [
+        "P1-A",
+        "P1-B",
+        "P1-C"
+      ]
+    },
+    {
+      "phase": "Phase 2",
+      "name": "核心逻辑阶段",
+      "duration_days": 5,
+      "tasks": [
+        "P2-A",
+        "P2-B",
+        "P2-C"
+      ]
+    },
+    {
+      "phase": "Phase 3",
+      "name": "集成测试阶段",
+      "duration_days": 3,
+      "tasks": [
+        "P3-A",
+        "P3-B",
+        "P3-C"
+      ]
+    }
+  ],
+  "_dna": "2026-06-21-CONFIG-SCHEDULE-v1.0"
+}

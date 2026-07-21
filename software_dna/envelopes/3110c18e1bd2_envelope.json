@@ -1,0 +1,16 @@
+{
+  "software_dna": "3110c18e1bd2a89fdff36555e620cf84177f3192c91d8d10fdf8a5068ea94cbe",
+  "file_hash": "7a5f882e89514eb51c2509b36e5d5e12bf54495aa30133f5869bc1ff8926a897",
+  "cipher_blob_id": "CIPHER-9622-20260627-3110c18e",
+  "route": "fuse",
+  "audit_color": "🔴",
+  "wuxing": "金",
+  "digital_root": 9,
+  "risk_score": 40,
+  "has_secrets": true,
+  "file_type": "shell_script",
+  "file_size": 130,
+  "timestamp": "2026-06-26T20:22:20.235323+00:00",
+  "device_fingerprint_prefix": "DF-B22D8...",
+  "version": "v1.0"
+}

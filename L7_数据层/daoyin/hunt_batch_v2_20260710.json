@@ -1,0 +1,14 @@
+{
+  "total": 1,
+  "repos": [
+    {
+      "full_name": "sh6252/embedded-systems-labs",
+      "url": "https://github.com/sh6252/embedded-systems-labs",
+      "stars": 0,
+      "language": "C++",
+      "license": "N/A",
+      "description": "Hands-on embedded systems and robotics projects featuring Raspberry Pi, ESP32, and Arduino, with focus on UART/I2C communication, WiFi/MQTT protocols, FreeRTOS, IoT systems, sensor integration, and re",
+      "query": "iot+rtos+mqtt+ble+sensor+embedded"
+    }
+  ]
+}

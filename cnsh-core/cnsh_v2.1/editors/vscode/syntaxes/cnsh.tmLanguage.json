@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CNSH",
+  "scopeName": "source.cnsh",
+  "fileTypes": [
+    ".cnsh"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#identifiers"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.cnsh",
+          "match": "#.*$"
+        },
+        {
+          "name": "comment.block.cnsh",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.cnsh",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.cnsh",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.cnsh",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "keywords": {
+      "name": "keyword.control.cnsh",
+      "match": "\\b(模块|函数|变量|常量|结构体|返回|如果|否则如果|否则|循环|当|对于|中断|继续|使用|真|假|空|且|或|非)\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.cnsh",
+      "match": "(\\+|-\\*|/|%|==|!=|<=|>=|<|>|&&|\\|\\||!|=|:|\\.|,|;)"
+    },
+    "identifiers": {
+      "name": "variable.other.cnsh",
+      "match": "[a-zA-Z_\\u4e00-\\u9fa5][a-zA-Z0-9_\\u4e00-\\u9fa5]*"
+    }
+  },
+  "_dna": "2026-07-03-CORE-CNSH-TMLANGUAGE-v1.0"
+}

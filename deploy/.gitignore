@@ -1,0 +1,22 @@
+# 龍魂部署 .gitignore
+# DNA: #龍芯⚡️2026-07-06-KUNPENG-DEPLOY-GITIGNORE
+
+# 敏感配置（绝不提交）
+.kunpeng_config
+.kunpeng_auth
+.cloud_credentials
+.env.kunpeng
+
+# SSH 密钥
+*.pem
+*.key
+id_*
+
+# 日志
+*.log
+connect.log
+
+# 临时文件
+/tmp/
+*.tmp
+*.swp

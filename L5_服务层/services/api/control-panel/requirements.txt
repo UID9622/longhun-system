@@ -1,0 +1,7 @@
+##龍芯⚡️2026-06-21-DOC-REQUIREMENTS-FILE3-v1.0-4
+# 君子协议: 本文件受龍魂DNA追溯保护
+
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pillow>=10.0.0
+psutil>=5.9.0      # 生态仪表盘：实时采集 CPU / 内存 / 磁盘消耗

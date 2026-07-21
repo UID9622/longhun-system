@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "lu-fulltext-compress/v1.1",
+  "id": "M::COMPRESS-20260603-龍魂系统的防失控框架-FA1C836A",
+  "type": "compress-card",
+  "ts": "2026-06-03T21:07:44.673566",
+  "status": "active",
+  "payload": {
+    "summary": "龍魂系统的防失控框架\n\n我们现在有两份完整的底层协议：天道不杀和全文压缩。前者防守AI失控，后者保存人类信息。\n\n问题：现在的系统结构太复杂，需要一个本地可执行的最小版本。\n\n方案：写一个Python脚本，把长文本变成结构化的压缩卡，包括Markdown版本（给人读）、JSON版本（给机器解析）、短码（下次直接召回）。\n\n主要步骤：\n- 读入长文本\n- 提取骨架（问题、方案、结论）\n- 生成压缩卡",
+    "source": "local_input",
+    "shortcode": "COMPRESS-20260603-龍魂系统的防失控框架-FA1C836A",
+    "skeleton": {
+      "problem": "问题：现在的系统结构太复杂，需要一个本地可执行的最小版本。\n- 提取骨架（问题、方案、结论）",
+      "solution": "方案：写一个Python脚本，把长文本变成结构化的压缩卡，包括Markdown版本（给人读）、JSON版本（给机器解析）、短码（下次直接召回）。\n主要步骤：",
+      "key_points": [
+        "读入长文本",
+        "生成压缩卡和JSON",
+        "生成短码以便未来召回"
+      ],
+      "next_action": "下一步：先跑通本地版本，再推到Notion。不折腾框架设计，直接就干活。",
+      "context": "龍魂系统的防失控框架\n我们现在有两份完整的底层协议：天道不杀和全文压缩。前者防守AI失控，后者保存人类信息。"
+    },
+    "word_count": 257,
+    "line_count": 16
+  },
+  "meta": {
+    "dna": "#龍芯⚡️2026-06-03-FULLTEXT-COMPRESS-v1.0",
+    "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "audit": "🟢",
+    "route": "IPA-FULLTEXT-COMPRESS"
+  }
+}

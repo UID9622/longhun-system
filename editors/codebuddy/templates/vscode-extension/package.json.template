@@ -1,0 +1,70 @@
+{
+  "name": "longhun-EXTENSION-NAME",
+  "displayName": "龍魂扩展名",
+  "description": "一句话描述 — 扩展的核心功能",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "license": "CC-BY-NC-SA-4.0",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "龍魂",
+    "longhun",
+    "CNSH",
+    "中国自主",
+    "诸葛鑫",
+    "uid9622"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "longhun-EXTENSION.commandName",
+        "title": "龍魂: 命令名称",
+        "category": "龍魂"
+      }
+    ],
+    "configuration": {
+      "title": "龍魂扩展名",
+      "properties": {
+        "longhun-EXTENSION.optionName": {
+          "type": "boolean",
+          "default": true,
+          "description": "配置项说明"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "galleryBanner": {
+    "color": "#0a0514",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uid9622/longhun-system/tree/main/editors/codebuddy/EXTENSION-DIR"
+  },
+  "bugs": {
+    "url": "https://github.com/uid9622/longhun-system/issues"
+  },
+  "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/EXTENSION-DIR/README.md",
+  "_dna": "#龍芯⚡️丙午·辛未·EXT-v1.0"
+}

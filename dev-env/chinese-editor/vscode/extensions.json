@@ -1,0 +1,60 @@
+{
+    "//": "龍魂中文编辑开发环境 - VS Code推荐扩展",
+    "// DNA": "#龍芯⚡️2026-06-26-DEVENV-EXTENSIONS-v1.0",
+    
+    "recommendations": [
+        "=== 基础编辑 ===",
+        "zhuangtongfa.material-theme",
+        "pkief.material-icon-theme",
+        "editorconfig.editorconfig",
+        
+        "=== 中文支持 ===",
+        "MS-CEINTL.vscode-language-pack-zh-hans",
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        
+        "=== Python开发 ===",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.mypy-type-checker",
+        "njpwerner.autodocstring",
+        
+        "=== JavaScript/TypeScript ===",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        
+        "=== Git版本控制 ===",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        
+        "=== AI辅助编程 ===",
+        "RooVeterinaryInc.roo-cline",
+        "TongyiLab.tongyilingma-vscode",
+        "github.copilot",
+        "github.copilot-chat",
+        
+        "=== 调试与测试 ===",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        
+        "=== 鸿蒙开发 ===",
+        "huawei.deveco-studio-plugin",
+        
+        "=== 格式化与美化 ===",
+        "aaron-bond.better-comments",
+        "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker",
+        
+        "=== 终端与工具 ===",
+        "ms-vscode.powershell",
+        " formulahendry.code-runner"
+    ],
+    
+    "unwantedRecommendations": [
+        "ms-vscode.vscode-typescript-next"
+    ]
+}

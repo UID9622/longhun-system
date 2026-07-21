@@ -1,0 +1,265 @@
+{
+  "_meta": {
+    "title": "龍魂公开技能注册表",
+    "version": "1.1.0",
+    "license": "CC-BY-NC-SA-4.0",
+    "publisher": "uid9622",
+    "dna": "#龍芯⚡️丙午·辛未·CODEBUDDY-LONGHUN-PUBLIC-SKILLS-v1.1",
+    "last_updated": "2026-07-16",
+    "total_public": 18,
+    "total_restricted": 2,
+    "total_internal": 2
+  },
+  "public": [
+    {
+      "id": "longhun-active-observer",
+      "name": "主动观察",
+      "title": "龍魂·主动观察引擎",
+      "emoji": "👁️",
+      "description": "系统健康检查、守护进程状态、文件变更监控、联动感知扫描",
+      "entry": "python3 ~/longhun-system/bin/lh_active_observation.py",
+      "command": "active-observer",
+      "category": "运维",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-anxiety-detector",
+      "name": "焦虑识别",
+      "title": "龍魂·焦虑制造者识别器",
+      "emoji": "🛡️",
+      "description": "识别PUA、情绪攻击、道德绑架、年龄歧视等焦虑话术，输出反制建议",
+      "entry": "python3 ~/longhun-system/bin/lh_anxiety_detector.py",
+      "command": "anxiety-detector",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-bagua-router",
+      "name": "八卦路由",
+      "title": "龍魂·六十四卦路由引擎",
+      "emoji": "☯️",
+      "description": "基于太极→八卦→六十四卦的哲学模型，实现统一命令调度",
+      "entry": "python3 ~/longhun-system/bin/lh_bagua.py",
+      "command": "bagua-router",
+      "category": "文化",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-code-security",
+      "name": "代码安全",
+      "title": "龍魂·代码安全审计引擎",
+      "emoji": "🔒",
+      "description": "代码安全审计、漏洞检测、注入/越权/敏感信息泄露/硬编码密钥检测",
+      "entry": "python3 ~/longhun-system/bin/lh_cnsh_code_audit.py",
+      "command": "code-security",
+      "category": "安全",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-corpus-registry",
+      "name": "语库桥接",
+      "title": "龍魂·语库统一桥接器",
+      "emoji": "📚",
+      "description": "连接语义统一注册表、中央藏经阁、训练语料，术语→技能/引擎映射",
+      "entry": "python3 ~/.codebuddy/skills/longhun-corpus-registry/search_registry.py",
+      "command": "corpus-registry",
+      "category": "知识",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-dna-engine",
+      "name": "DNA追溯",
+      "title": "龍魂·DNA生成与追溯引擎",
+      "emoji": "🧬",
+      "description": "生成DNA追溯码、验证DNA签名、文件来源追溯、全生命周期溯源",
+      "entry": "python3 ~/longhun-system/bin/lh_dna_registry.py",
+      "command": "dna-engine",
+      "category": "治理",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-knowledge-cards",
+      "name": "知识卡片",
+      "title": "龍魂·统一知识卡片索引",
+      "emoji": "🗂️",
+      "description": "三源(CSDN+Notion+本地)知识卡片统一查询，273张卡片·18分类",
+      "entry": "python3 ~/longhun-system/bin/lh_knowledge_semantic_trigger.py",
+      "command": "knowledge-cards",
+      "category": "知识",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-longzhi-shou",
+      "name": "龍智守",
+      "title": "龍智守·智能守护",
+      "emoji": "🐲",
+      "description": "链接安全预审、反诈套路识别、易经起卦、三色状态、飞书通知",
+      "entry": "python3 ~/longhun-system/bin/longzhi_shou_v2.py",
+      "command": "longzhi-shou",
+      "category": "守护",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-mind-link",
+      "name": "意念链接",
+      "title": "龍魂·意念交流引擎",
+      "emoji": "🔗",
+      "description": "深度理解→预判意图→意念链接，磨合出来的默契",
+      "entry": "python3 ~/longhun-system/bin/lh_mind_link.py",
+      "command": "mind-link",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-philosophy",
+      "name": "哲学推演",
+      "title": "龍魂·统一哲学执行引擎",
+      "emoji": "☯️",
+      "description": "十维同演（太极/易经/369/七因子/道德经/三才/五行/河图/八卦/中国哲学）",
+      "entry": "python3 ~/longhun-system/bin/lh_philosophy_unified_engine.py",
+      "command": "philosophy",
+      "category": "文化",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-robot-score",
+      "name": "AI检测",
+      "title": "龍魂 RobotScore 反图灵检测",
+      "emoji": "🤖",
+      "description": "三因子分解检测内容是否AI生成，F1=0.975·准确率95.8%",
+      "entry": "python3 ~/longhun-system/bin/lh_robot_score.py",
+      "command": "robot-score",
+      "category": "检测",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-sandbox",
+      "name": "沙盒推演",
+      "title": "龍魂·沙盒推演系统控制台",
+      "emoji": "🏜️",
+      "description": "时间推演+博弈对抗+平行宇宙+自适应学习，决策模拟与趋势预测",
+      "entry": "python3 ~/longhun-system/bin/lh_sandbox_console.py",
+      "command": "sandbox",
+      "category": "推演",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-semantic-parser",
+      "name": "语义解析",
+      "title": "龍魂·语义解析引擎",
+      "emoji": "🔍",
+      "description": "语义解析+语义测谎+上下文理解，识别言行不一致与隐藏意图",
+      "entry": "python3 ~/longhun-system/bin/lh_semantic_parser.py",
+      "command": "semantic-parser",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-semantic-drawers",
+      "name": "语义抽屉",
+      "title": "龍魂·语义抽屉体系",
+      "emoji": "🗃️",
+      "description": "先读情绪再读语义，情绪容错/玩笑解码/严肃模式/敷衍标记/反问识别",
+      "entry": "python3 ~/longhun-system/bin/lh_semantic_drawers.py",
+      "command": "semantic-drawers",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-semantic-library",
+      "name": "语境语义库",
+      "title": "龍魂·语境语义库",
+      "emoji": "📖",
+      "description": "一词多义·平级沟通·按语境查意图，允许方言/错别字/情绪化表达",
+      "entry": "python3 ~/longhun-system/bin/lh_semantic_context_engine.py",
+      "command": "semantic-library",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-tongxinyi",
+      "name": "通心译",
+      "title": "龍魂·通心译翻译引擎",
+      "emoji": "🌐",
+      "description": "CNSH中文编程术语翻译+多语言通心译，理解语境·保持语义·文化对齐",
+      "entry": "python3 ~/longhun-system/bin/lh_tongxinyi_backend.py",
+      "command": "tongxinyi",
+      "category": "语义",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-water-army",
+      "name": "水军检测",
+      "title": "龍魂·水军检测体系",
+      "emoji": "🌊",
+      "description": "水军行为检测、恶意剪辑识别、虚假评论检测、举报材料生成",
+      "entry": "python3 ~/longhun-system/bin/lh_water_army_elimination.py",
+      "command": "water-army",
+      "category": "检测",
+      "license": "MIT"
+    },
+    {
+      "id": "longhun-yijing",
+      "name": "易经推演",
+      "title": "龍魂·易经推演引擎",
+      "emoji": "☰",
+      "description": "原生态文化输出·公理推导，易经64卦+道德经81章独立推演",
+      "entry": "python3 ~/longhun-system/bin/lh_yijing_推演引擎.py",
+      "command": "yijing",
+      "category": "文化",
+      "license": "MIT"
+    }
+  ],
+  "restricted": [
+    {
+      "id": "longhun-black-angel",
+      "name": "黑天使军团",
+      "title": "龍魂·黑天使军团",
+      "emoji": "🖤",
+      "description": "红蓝对抗融合·安全漏洞·渗透测试。仅用于自己的系统，禁止对外攻击",
+      "entry": "python3 ~/longhun-system/bin/lh_rb_confrontation_engine.py",
+      "command": "black-angel",
+      "category": "安全",
+      "license": "MIT",
+      "reason": "涉及安全攻防，需显式确认目标为自有系统"
+    },
+    {
+      "id": "longhun-sovereign-gateway",
+      "name": "主权网关",
+      "title": "龍魂·主权网关",
+      "emoji": "🏛️",
+      "description": "API主权网关+六重主权认证+国密SM2/SM3/SM4加密，系统基础设施",
+      "entry": "python3 ~/longhun-system/bin/lh_ai_gateway.py",
+      "command": "sovereign-gateway",
+      "category": "基础设施",
+      "license": "MIT",
+      "reason": "涉及身份认证与主权基础设施，需环境配置"
+    }
+  ],
+  "internal": [
+    {
+      "id": "longhun-seamless-handoff",
+      "name": "无缝接上",
+      "title": "龍魂·无缝接上",
+      "emoji": "🤝",
+      "description": "对话上下文压缩接力，跨窗口/跨设备无缝衔接",
+      "entry": "python3 ~/.codebuddy/skills/longhun-seamless-handoff/scripts/compress_handoff.py",
+      "command": "seamless-handoff",
+      "category": "内部",
+      "license": "MIT",
+      "reason": "会话级内部工具，不适合作为通用扩展命令暴露"
+    },
+    {
+      "id": "longhun-tongxin-ear",
+      "name": "通心听",
+      "title": "龍魂·通心听",
+      "emoji": "👂",
+      "description": "语音识别+口音适配引擎，基于Whisper LoRA微调听懂用户口音",
+      "entry": "python3 ~/longhun-system/bin/lh_tongxin_ear_lora_trainer.py",
+      "command": "tongxin-ear",
+      "category": "内部",
+      "license": "MIT",
+      "reason": "个人化语音模型训练，依赖特定用户语音数据"
+    }
+  ]
+}
