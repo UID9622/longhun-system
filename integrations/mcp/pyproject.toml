@@ -1,0 +1,43 @@
+[project]
+name = "longhun-mcp-servers"
+version = "2.0.0"
+description = "龍魂系统 MCP Server 套件 — 5个 MCP Server 统一分发包：core/syntax/var-sandbox/main/v4"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.24.0",
+]
+license = {text = "龙魂数字主权协议 (LONGHUN DIGITAL SOVEREIGNTY LICENSE)"}
+authors = [
+    {name = "UID9622 (诸葛鑫·Lucky)", email = "longhun@longhun-system.local"},
+]
+keywords = ["longhun", "cnsh", "mcp", "chinese-programming-language", "digital-sovereignty"]
+
+[project.optional-dependencies]
+fastmcp = ["mcp[cli]>=1.8.0"]
+finance = ["requests>=2.28"]
+vision = ["Pillow>=9.0", "pytesseract>=0.3"]
+audio = ["speechrecognition>=3.10", "openai-whisper>=20231117"]
+
+[project.scripts]
+longhun-mcp = "longhun_mcp_server:main"
+cnsh-core-mcp = "cnsh_mcp_server:main"
+cnsh-syntax-mcp = "cnsh_syntax_mcp_server:main"
+cnsh-var-mcp = "cnsh_var_sandbox_mcp_server:main"
+longhun-v4-mcp = "v4_mcp_server:main"
+
+[tool.setuptools.packages.find]
+include = ["."]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.longhun]
+dna = "#龍芯⚡️2026-07-13-LONGHUN-MCP-SUITES-v2.0"
+gpg = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+uid = "UID9622"
+architecture = "L0-L9 九层·洛书九宫骨架"
+personas = "16/16 满编·0红色"
+servers = ["longhun", "cnsh-core", "cnsh-syntax", "cnsh-var-sandbox", "longhun-v4"]
+total_tools = 67

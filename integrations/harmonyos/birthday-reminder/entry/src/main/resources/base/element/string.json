@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "龍魂生日提醒"
+    },
+    {
+      "name": "module_desc",
+      "value": "龍魂 · 人格联动生日提醒 · 团队办公"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "龍魂生日提醒主页"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "龍魂生日提醒"
+    },
+    {
+      "name": "notification_permission_reason",
+      "value": "用于生日提醒通知"
+    },
+    {
+      "name": "calendar_permission_reason",
+      "value": "用于同步生日到系统日历"
+    },
+    {
+      "name": "background_permission_reason",
+      "value": "用于后台定时检查生日"
+    }
+  ]
+}

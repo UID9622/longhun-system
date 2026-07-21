@@ -1,0 +1,203 @@
+{
+  "_dna": "2026-07-03-CONFIG-SKILL-WORKFLOWS-v1.0-2",
+  "workflows": [
+    {
+      "id": "brand-kit",
+      "name": "品牌套件流水线",
+      "description": "品牌指南 → 主题工厂 → Web 工件构建器",
+      "steps": [
+        {
+          "skill": "skill-2-brand-guidelines",
+          "action": "render",
+          "note": "生成品牌指南页面"
+        },
+        {
+          "skill": "skill-9-theme-factory",
+          "action": "run",
+          "payload": {
+            "base": "longhun-cyber",
+            "name": "brand-kit"
+          },
+          "note": "根据品牌生成主题"
+        },
+        {
+          "skill": "skill-10-web-artifacts-builder",
+          "action": "run",
+          "payload": {
+            "artifact_id": "brand-landing",
+            "name": "Brand Landing",
+            "type": "html",
+            "code": "<h1>龍魂品牌着陆页</h1>"
+          },
+          "note": "生成品牌着陆页"
+        }
+      ]
+    },
+    {
+      "id": "art-to-brand",
+      "name": "艺术到品牌",
+      "description": "算法艺术 → 品牌指南",
+      "steps": [
+        {
+          "skill": "skill-1-algorithmic-art",
+          "action": "render",
+          "note": "生成算法艺术"
+        },
+        {
+          "skill": "skill-2-brand-guidelines",
+          "action": "render",
+          "note": "导出品牌规范"
+        }
+      ]
+    },
+    {
+      "id": "doc-publish",
+      "name": "文档发布流水线",
+      "description": "文档协作 → Web 工件",
+      "steps": [
+        {
+          "skill": "skill-4-doc-coauthoring",
+          "action": "render",
+          "note": "编辑 Markdown 文档"
+        },
+        {
+          "skill": "skill-10-web-artifacts-builder",
+          "action": "run",
+          "payload": {
+            "artifact_id": "doc-site",
+            "name": "Doc Site",
+            "type": "html",
+            "code": "<article>龍魂文档</article>"
+          },
+          "note": "生成文档站点"
+        }
+      ]
+    },
+    {
+      "id": "comms-theme",
+      "name": "通讯主题化",
+      "description": "内部通讯 → 主题工厂",
+      "steps": [
+        {
+          "skill": "skill-5-internal-comms",
+          "action": "render",
+          "note": "内部通讯面板"
+        },
+        {
+          "skill": "skill-9-theme-factory",
+          "action": "run",
+          "payload": {
+            "base": "longhun-cyber",
+            "name": "comms"
+          },
+          "note": "生成通讯主题"
+        }
+      ]
+    },
+    {
+      "id": "mcp-skill",
+      "name": "MCP + 技能框架",
+      "description": "MCP 服务器构建 → 技能创建框架",
+      "steps": [
+        {
+          "skill": "skill-6-mcp-builder",
+          "action": "run",
+          "payload": {
+            "name": "longhun-mcp",
+            "tools": [
+              {
+                "name": "echo",
+                "description": "Echo tool",
+                "parameters": {
+                  "msg": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          },
+          "note": "构建 MCP 服务器"
+        },
+        {
+          "skill": "skill-7-skill-creator",
+          "action": "run",
+          "payload": {
+            "skill_id": "mcp-client",
+            "name": "MCP Client",
+            "category": "integration"
+          },
+          "note": "创建配套技能"
+        }
+      ]
+    },
+    {
+      "id": "shield-audit-chain",
+      "name": "龍盾 → CNSH → 融合审计联动",
+      "description": "入口检查 → 代码底座对齐 → 系统十维审计",
+      "steps": [
+        {
+          "foundation": "shield.check",
+          "payload": {
+            "file": "shield_test_example.py"
+          },
+          "note": "龍盾入口风险检查"
+        },
+        {
+          "foundation": "cnsh.align",
+          "payload": {
+            "text": "def verify_dna():\n    return calculate_hash()",
+            "context": "workflow"
+          },
+          "note": "CNSH 对齐检查"
+        },
+        {
+          "foundation": "audit.integrated",
+          "payload": {
+            "mode": "system"
+          },
+          "note": "十维融合审计"
+        }
+      ]
+    },
+    {
+      "id": "full-governance",
+      "name": "完整治理检查",
+      "description": "脚本管理 + 龍盾验证 + 审计",
+      "steps": [
+        {
+          "foundation": "cnsh.script-manager",
+          "payload": {},
+          "note": "全脚本扫描"
+        },
+        {
+          "foundation": "shield.validate",
+          "payload": {
+            "file": "shield_test_example.py"
+          },
+          "note": "龍盾完整验证"
+        },
+        {
+          "foundation": "audit.integrated",
+          "payload": {
+            "mode": "system"
+          },
+          "note": "系统审计"
+        }
+      ]
+    },
+    {
+      "id": "instruction-demo",
+      "name": "DNA 指令执行示范",
+      "description": "执行 @shield.check 等 DNA 指令",
+      "steps": [
+        {
+          "foundation": "instruction.execute",
+          "payload": {
+            "instruction": "@shield.check shield_test_example.py"
+          },
+          "note": "解析并执行 DNA 指令"
+        }
+      ]
+    }
+  ]
+}

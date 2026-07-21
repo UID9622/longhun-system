@@ -1,0 +1,7 @@
+{
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/capabilities/models/龍魂-0.1B.pt",
+  "tokenizer_path": "/Users/zuimeidedeyihan/longhun-system/capabilities/models/龍魂-0.1B_tokenizer.json",
+  "loss": 2.4480339241027833,
+  "train_dna": "#龍芯⚡️20260628232516-TRAIN-10DD5E9E",
+  "deployed_at": "2026-06-28T23:25:24.775686"
+}

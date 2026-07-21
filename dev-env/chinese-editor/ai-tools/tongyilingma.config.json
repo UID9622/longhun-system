@@ -1,0 +1,43 @@
+{
+  "//": "龍魂中文编辑开发环境 - 通义灵码配置",
+  "// DNA": "#龍芯⚡️2026-06-26-DEVENV-TONGYI-v1.0",
+
+  "general": {
+    "language": "zh-CN",
+    "confidence": 0.85,
+    "completionDelay": 300
+  },
+
+  "codeCompletion": {
+    "enabled": true,
+    "maxCompletionsPerLine": 3,
+    "showInline": true,
+    "showMethodCompletions": true,
+    "snippetEnabled": true
+  },
+
+  "codeGeneration": {
+    "language": "zh",
+    "generateComments": true,
+    "generateDoc": true,
+    "namingConvention": "chinese_first"
+  },
+
+  "codeReview": {
+    "enabled": true,
+    "checkStyle": true,
+    "checkSecurity": true,
+    "checkPerformance": true
+  },
+
+  "unitTest": {
+    "enabled": true,
+    "framework": "pytest",
+    "generateDoc": true
+  },
+
+  "commitMessage": {
+    "enabled": true,
+    "template": "[类型] 描述\n\n详细说明\n\n🟢/🟡/🔴 审计标记\nDNA: #龍芯⚡️YYYY-MM-DD-MODULE-vX.X"
+  }
+}

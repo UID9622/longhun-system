@@ -1,0 +1,38 @@
+{
+  "app": {
+    "bundleName": "com.longhun.ai.dragonos",
+    "vendor": "longhun",
+    "versionCode": 100,
+    "versionName": "5.0.0",
+    "icon": "$media:app_icon",
+    "label": "$string:app_name",
+    "description": "$string:app_desc",
+    "minAPIVersion": 12,
+    "targetAPIVersion": 12,
+    "apiReleaseType": "Release",
+    "debug": false,
+    "multiApp": false,
+    "distributedNotificationEnabled": true,
+    "deviceConfigs": {
+      "default": {
+        "process": "com.longhun.ai.dragonos"
+      }
+    },
+    "modules": [
+      {
+        "moduleName": "entry",
+        "bundleName": "com.longhun.ai.dragonos",
+        "deliveryWithInstall": true
+      }
+    ],
+    "metadata": {
+      "longhun_dna": "#龍芯⚡️2026-06-18-LONGHUN-HARMONYOS-v1.0",
+      "founder": "UID9622 · 龍芯北辰 · 诸葛鑫",
+      "gpg_key": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+      "governance_framework": "龍魂六层治理体系",
+      "cnsh_support": true,
+      "tongxin_translate": true,
+      "three_color_audit": true
+    }
+  }
+}

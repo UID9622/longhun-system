@@ -1,0 +1,57 @@
+[Unit]
+Description=龍魂系统 DNA 验证服务器 v2.0
+Documentation=https://uid9622.cn
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=longhun
+Group=longhun
+WorkingDirectory=/var/longhun
+EnvironmentFile=-/var/longhun/.env
+
+# Gunicorn 生产模式（2 worker，适配鲲鹏 2 核）
+ExecStart=/var/longhun/venv/bin/gunicorn \
+    --workers 2 \
+    --bind 0.0.0.0:7000 \
+    --timeout 30 \
+    --graceful-timeout 10 \
+    --max-requests 10000 \
+    --max-requests-jitter 1000 \
+    --access-logfile /var/longhun/gunicorn-access.log \
+    --error-logfile /var/longhun/gunicorn-error.log \
+    --log-level info \
+    --capture-output \
+    longhun_dna_server:app
+
+# 确保数据目录存在
+ExecStartPre=/bin/mkdir -p /var/longhun/dna-registry
+ExecStartPre=/bin/chown longhun:longhun /var/longhun/dna-registry
+
+# 重启策略
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=300
+StartLimitBurst=5
+
+# ── 安全加固 ──
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/longhun
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+MemoryDenyWriteExecute=no
+
+# ── 日志 ──
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-dna
+
+[Install]
+WantedBy=multi-user.target

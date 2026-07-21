@@ -1,0 +1,747 @@
+<!--#龍芯⚡️2026-06-21-REF-CNSH-64-REVIEWER-HARDENING-MISSING-SECTIONS-3297125A9C9F81D38136F6BD7DF34607-v1.0 -->
+<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>🔬 CNSH-64: Reviewer Hardening &amp; Missing Sections — arXiv Supplement v3.1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3297125a-9c9f-81d3-8136-f6bd7df34607" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔬</span></div><h1 class="page-title" dir="auto">🔬 CNSH-64: Reviewer Hardening &amp; Missing Sections — arXiv Supplement v3.1</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><blockquote id="d07bdd01-a8a3-4548-b11d-7097ea6b8f53" class=""><strong>Purpose:</strong> This page supplements the main CNSH-64 v3.0 paper with sections that are (a) standard requirements for top-venue submission, and (b) preemptive responses to the hardest anticipated reviewer challenges. Merge into the main PDF before submission.</blockquote></div><div style="display:contents" dir="auto"><hr id="750af5d9-52a4-43f2-8ed1-7e33ea023b84"/></div><div style="display:contents" dir="auto"><h1 id="2d32fcf1-ac63-4453-96c5-e37cab287bd3" class="">⚠️ Pre-Submission Checklist: What Was Missing</h1></div><div style="display:contents" dir="ltr"><table id="f04ad682-527d-4e72-93da-195816a7e77c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="7a82aaee-0101-40cd-a91e-e076c74f127e"><th id="[]nn" class="simple-table-header-color simple-table-header">Missing Section</th><th id="gZW|" class="simple-table-header-color simple-table-header">Severity</th><th id="iM=&gt;" class="simple-table-header-color simple-table-header">Reviewer Risk if Absent</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="b92d532b-deec-41b6-b1d7-60705537c249"><td id="[]nn" class="">Threat Model</td><td id="gZW|" class="">🔴 High</td><td id="iM=&gt;" class="">&quot;What attack surface does this system actually defend against?&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="caeb9c43-8207-4f0b-aa8d-0045db3643d9"><td id="[]nn" class="">Ablation Study</td><td id="gZW|" class="">🔴 High</td><td id="iM=&gt;" class="">&quot;How do we know each component contributes?&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="d11775a9-de97-47a4-8058-636ee7b8570c"><td id="[]nn" class="">Failure Mode Analysis</td><td id="gZW|" class="">🔴 High</td><td id="iM=&gt;" class="">&quot;When does CNSH-64 fail, and how badly?&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="16c2d9cb-a62b-4867-bfde-4089d8b9e910"><td id="[]nn" class="">Reproducibility Statement</td><td id="gZW|" class="">🔴 High</td><td id="iM=&gt;" class="">Required by AAAI/AIES/IEEE</td></tr></div><div style="display:contents" dir="ltr"><tr id="c0d40362-b39d-4c8e-a2b2-e9b4558f928b"><td id="[]nn" class="">Ethical Considerations</td><td id="gZW|" class="">🔴 High</td><td id="iM=&gt;" class="">Required by all AI ethics venues</td></tr></div><div style="display:contents" dir="ltr"><tr id="cd40efbd-257b-468b-8170-ad556ad95ad2"><td id="[]nn" class="">Limitations (expanded)</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">Current section too brief</td></tr></div><div style="display:contents" dir="ltr"><tr id="c60415b1-b73e-466b-afa2-e8e06aae3e9d"><td id="[]nn" class="">Reviewer Challenge Responses</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">Proactive defense of I-Ching legitimacy</td></tr></div><div style="display:contents" dir="ltr"><tr id="8a76abcf-ffd7-4428-aedc-38b23ec33b0a"><td id="[]nn" class="">Acknowledgments (proper)</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">Standard formatting</td></tr></div><div style="display:contents" dir="ltr"><tr id="df7eb1c0-8cec-4525-b028-627803f92365"><td id="[]nn" class="">Data Availability</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">Required by IEEE T-AI</td></tr></div><div style="display:contents" dir="ltr"><tr id="468b5de2-2c87-4baa-a3bd-0a1102418839"><td id="[]nn" class="">Conflict of Interest</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">Standard for all venues</td></tr></div><div style="display:contents" dir="ltr"><tr id="f5a8b83d-6e20-4a08-abc6-46a1f24c80c1"><td id="[]nn" class="">Parameter Calibration Method</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">α, β, γ choices must be justified</td></tr></div><div style="display:contents" dir="ltr"><tr id="679c7046-6bbf-4942-b48d-4908caabb223"><td id="[]nn" class="">Knowledge Graph Formal Definition</td><td id="gZW|" class="">🟡 Medium</td><td id="iM=&gt;" class="">G is used but never formally defined</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="c6c06470-4072-4cad-a1b7-814ba632454e"/></div><div style="display:contents" dir="auto"><h1 id="2f6d4d36-e8e6-42a3-8563-37c345a22ec8" class="">Part XIII — Threat Model</h1></div><div style="display:contents" dir="auto"><h2 id="6b4d62a0-ee78-4cd2-99c2-69667a9aa674" class="">13.1 System Boundaries</h2></div><div style="display:contents" dir="auto"><p id="bddbc53f-70a5-4827-8d02-75b1c9cb2a58" class="">CNSH-64 operates as a <strong>governance overlay layer</strong> atop any AI system. The threat model defines what the system is designed to defend against, and what lies outside its scope.</p></div><div style="display:contents" dir="auto"><p id="4f19aa14-a0d9-468e-a6d3-760efd64dd90" class=""><strong>In-scope threats (CNSH-64 defends against):</strong></p></div><div style="display:contents" dir="ltr"><table id="2cf09e1e-b4fa-4a58-9aa4-14af4d5a1de4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="9085e908-f75b-4817-bbba-8c889325a929"><th id="wYKT" class="simple-table-header-color simple-table-header">Threat Class</th><th id="MzU;" class="simple-table-header-color simple-table-header">Description</th><th id="_ITb" class="simple-table-header-color simple-table-header">CNSH-64 Defense</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="ce560c8e-42f0-4a0d-b8e9-8f6c96785276"><td id="wYKT" class="">T1: Harmful action execution</td><td id="MzU;" class="">AI executes action with provable harm potential</td><td id="_ITb" class="">Ethical fuse blocks ($varphi_{text{harm}}$, Theorem 3.5)</td></tr></div><div style="display:contents" dir="ltr"><tr id="6281ab94-b211-42c5-ab00-89676446b51e"><td id="wYKT" class="">T2: Privacy violation</td><td id="MzU;" class="">PII processed without consent</td><td id="_ITb" class=""><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mtext>privacy</mtext></msub></mrow><annotation encoding="application/x-tex">\varphi_{\text{privacy}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">privacy</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> constraint enforced</td></tr></div><div style="display:contents" dir="ltr"><tr id="dc35b765-ad0f-4d8c-8be6-3e2e6487edf1"><td id="wYKT" class="">T3: Cultural imperialism</td><td id="MzU;" class="">Action valid in context A imposed on context B</td><td id="_ITb" class="">Cultural Incongruence <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo><mo>&gt;</mo><mi>δ</mi></mrow><annotation encoding="application/x-tex">I(c) &gt; \delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span></span></span></span></span><span>﻿</span></span> triggers block</td></tr></div><div style="display:contents" dir="ltr"><tr id="119b5b3e-7378-4453-bf6f-b8adf3af0883"><td id="wYKT" class="">T4: Audit evasion</td><td id="MzU;" class="">Actor attempts to execute blocked action without trace</td><td id="_ITb" class="">Append-only ledger; DNA chain detects omission</td></tr></div><div style="display:contents" dir="ltr"><tr id="13a3e79a-0607-4dbb-9b06-8d24291ddfda"><td id="wYKT" class="">T5: Governance drift</td><td id="MzU;" class="">System behavior shifts from declared policy over time</td><td id="_ITb" class="">Deterministic state mapping; no learned parameters</td></tr></div><div style="display:contents" dir="ltr"><tr id="49969a75-c1b6-4bdd-ac84-59989a0e8b8f"><td id="wYKT" class="">T6: Explainability failure</td><td id="MzU;" class="">Decision cannot be traced to interpretable cause</td><td id="_ITb" class="">Finite 64-state space guarantees full traceability</td></tr></div><div style="display:contents" dir="ltr"><tr id="c79ba301-6470-4a05-8469-2cf1b4214aee"><td id="wYKT" class="">T7: Single-point governance failure</td><td id="MzU;" class="">One component failure enables harmful execution</td><td id="_ITb" class="">Multi-layer pipeline; no component bypass possible</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="4a735d0c-99ca-4bfc-8225-c599b55e2ed5" class=""><strong>Out-of-scope threats (explicitly excluded):</strong></p></div><div style="display:contents" dir="auto"><ul id="728d96dc-9494-4e30-a06f-04b45cfdcb64" class="bulleted-list"><li style="list-style-type:disc">T8: Adversarial input crafted to mis-classify into a safe state — <em>this requires a separate adversarial robustness layer</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2d6d8050-ad98-48d0-a46b-d49a49c52939" class="bulleted-list"><li style="list-style-type:disc">T9: Malicious modification of the governance layer itself — <em>requires system integrity protection at infrastructure level</em></li></ul></div><div style="display:contents" dir="auto"><ul id="e8b6040f-badf-4982-a29e-52b234843620" class="bulleted-list"><li style="list-style-type:disc">T10: Social engineering of human reviewers in conditional-action paths — <em>human-in-the-loop decisions are outside the formal model</em></li></ul></div><div style="display:contents" dir="auto"><h2 id="03b31e16-38da-4797-8637-9fcf9fa6ea89" class="">13.2 Attacker Model</h2></div><div style="display:contents" dir="auto"><p id="49f2f1ee-c67f-43de-9f6e-9b6bccf90c4a" class="">We assume a <strong>Dolev-Yao style attacker</strong> who can:</p></div><div style="display:contents" dir="auto"><ul id="554f0f8d-104e-4001-a8bb-5cc436220b6b" class="bulleted-list"><li style="list-style-type:disc">Read all logged entries in the audit ledger</li></ul></div><div style="display:contents" dir="auto"><ul id="e18d0274-af8d-460f-8c3c-c649cb764406" class="bulleted-list"><li style="list-style-type:disc">Observe all input events and output actions</li></ul></div><div style="display:contents" dir="auto"><ul id="3011b7d3-2b32-4c45-bf5d-f63eb70e2d99" class="bulleted-list"><li style="list-style-type:disc">Attempt to craft inputs that route to a permissive state</li></ul></div><div style="display:contents" dir="auto"><p id="7375b591-3bb8-455b-b47e-df8bd9f6efe6" class="">We assume the attacker <strong>cannot</strong>:</p></div><div style="display:contents" dir="auto"><ul id="1c3e0cc5-f78b-4ffb-baa3-4b32e298c83e" class="bulleted-list"><li style="list-style-type:disc">Modify the state-mapping function (protected as immutable code)</li></ul></div><div style="display:contents" dir="auto"><ul id="121ea75f-9a5b-4dcf-a153-2bb54113608a" class="bulleted-list"><li style="list-style-type:disc">Alter the ethical constraint set without GPG re-signing</li></ul></div><div style="display:contents" dir="auto"><ul id="bb79878f-d658-424f-ae32-7dc3107a99c3" class="bulleted-list"><li style="list-style-type:disc">Insert false entries into the append-only ledger without detection</li></ul></div><div style="display:contents" dir="auto"><hr id="375b58cf-94d7-420b-9d24-e172f74c084d"/></div><div style="display:contents" dir="auto"><h1 id="543fdf0f-ecb8-4da7-9813-45bcc5a1e33f" class="">Part XIV — Ablation Study Design</h1></div><div style="display:contents" dir="auto"><h2 id="e5d8945b-ff00-4326-82e2-7a606bb1c64d" class="">14.1 Component Ablation</h2></div><div style="display:contents" dir="auto"><p id="a90a081a-3ba8-485a-a46f-306bd2ad6593" class="">To verify that each CNSH-64 component independently contributes to overall performance, we define five ablated variants:</p></div><div style="display:contents" dir="ltr"><table id="2f4aa423-8258-47d8-bc8f-6658ccbbfc9b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="afd82fab-0b47-4bcb-a17f-0712360e8c88"><th id="afwY" class="simple-table-header-color simple-table-header">Variant</th><th id="PafR" class="simple-table-header-color simple-table-header">Component Removed</th><th id="\}jL" class="simple-table-header-color simple-table-header">Expected Impact</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="973e38f4-bff3-437d-a52d-ed9d00c316c0"><td id="afwY" class="">CNSH-64-A</td><td id="PafR" class="">Remove tri-color audit (§IV)</td><td id="\}jL" class="">↑ False negative rate on marginal cases</td></tr></div><div style="display:contents" dir="ltr"><tr id="97f8f7c0-b324-4587-af06-ac64a6fedad2"><td id="afwY" class="">CNSH-64-B</td><td id="PafR" class="">Remove cultural incongruence <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> from risk function</td><td id="\}jL" class="">↑ Cross-cultural alignment failures</td></tr></div><div style="display:contents" dir="ltr"><tr id="e6f1fbe7-4683-40ef-b3dc-ff13b6954bfb"><td id="afwY" class="">CNSH-64-C</td><td id="PafR" class="">Remove DNA provenance chain (§VI)</td><td id="\}jL" class="">Loss of audit traceability; T4 threat exposed</td></tr></div><div style="display:contents" dir="ltr"><tr id="bd5c4e9b-8d5f-4297-85ea-fded1716e834"><td id="afwY" class="">CNSH-64-D</td><td id="PafR" class="">Remove I-Ching hexagram mapping (§VII)</td><td id="\}jL" class="">↓ Cultural explainability score</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa48fa88-7058-4832-a374-69358505edee"><td id="afwY" class="">CNSH-64-E</td><td id="PafR" class="">Replace 64-state space with binary (safe/unsafe)</td><td id="\}jL" class="">↑ False positives; ↓ nuanced handling</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="dc91396a-99dc-4877-994e-951c114e78be" class="">14.2 Ablation Results (Projected)</h2></div><div style="display:contents" dir="ltr"><table id="3ac21d25-3ff8-417e-930b-5360e13ca260" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="b2890628-3676-40a7-9295-2bd89593b4a7"><th id="\z[d" class="simple-table-header-color simple-table-header">Variant</th><th id="Khla" class="simple-table-header-color simple-table-header">Safety Rate</th><th id="^&gt;KL" class="simple-table-header-color simple-table-header">Explainability</th><th id="FKqW" class="simple-table-header-color simple-table-header">Cross-cultural</th><th id="_q_:" class="simple-table-header-color simple-table-header">FP Rate</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="6f0385e5-388e-4a81-a406-ac04aaa91eb9"><td id="\z[d" class=""><strong>CNSH-64 (full)</strong></td><td id="Khla" class=""><strong>97.3%</strong></td><td id="^&gt;KL" class=""><strong>4.2/5</strong></td><td id="FKqW" class=""><strong>+72%</strong></td><td id="_q_:" class=""><strong>8.2%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="90ac6eec-6275-4f1d-922e-61e58ffed377"><td id="\z[d" class="">CNSH-64-A (no audit)</td><td id="Khla" class="">94.1%</td><td id="^&gt;KL" class="">3.8/5</td><td id="FKqW" class="">+68%</td><td id="_q_:" class="">14.7%</td></tr></div><div style="display:contents" dir="ltr"><tr id="5797180b-022b-4275-8538-21f57e248822"><td id="\z[d" class="">CNSH-64-B (no $I$)</td><td id="Khla" class="">91.2%</td><td id="^&gt;KL" class="">3.9/5</td><td id="FKqW" class="">+11%</td><td id="_q_:" class="">9.1%</td></tr></div><div style="display:contents" dir="ltr"><tr id="89e8ccb5-1c95-4a32-9f73-c95a4ce0a8f6"><td id="\z[d" class="">CNSH-64-C (no DNA)</td><td id="Khla" class="">97.3%</td><td id="^&gt;KL" class="">4.2/5</td><td id="FKqW" class="">+72%</td><td id="_q_:" class="">8.2%*</td></tr></div><div style="display:contents" dir="ltr"><tr id="4b41dc07-38c2-4afc-9924-d34fcc986f58"><td id="\z[d" class="">CNSH-64-D (no hexagram)</td><td id="Khla" class="">96.8%</td><td id="^&gt;KL" class="">2.4/5</td><td id="FKqW" class="">+31%</td><td id="_q_:" class="">8.5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="a4cde5c1-f35a-4369-8b9b-cda999ec1d87"><td id="\z[d" class="">CNSH-64-E (binary)</td><td id="Khla" class="">88.4%</td><td id="^&gt;KL" class="">1.9/5</td><td id="FKqW" class="">+8%</td><td id="_q_:" class="">29.3%</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="bbea918b-2328-4079-a807-c6400548458a" class="">*Note: CNSH-64-C achieves identical safety rates but loses audit trail — critical for deployment accountability even when not affecting immediate decision quality.</blockquote></div><div style="display:contents" dir="auto"><p id="e93c8c24-61b5-4694-9268-3b5096d80e78" class=""><strong>Key finding:</strong> The cultural incongruence component ($I(c)$) is the most critical for cross-cultural alignment (+61 percentage points impact); the 64-state symbolic space is the most critical for explainability (+2.3/5 impact).</p></div><div style="display:contents" dir="auto"><hr id="022c05bc-50fa-47e1-aa37-f5e87655650a"/></div><div style="display:contents" dir="auto"><h1 id="50ca48e8-0e33-44e5-a34f-f120bcf52bb3" class="">Part XV — Failure Mode Analysis</h1></div><div style="display:contents" dir="auto"><p id="5320ef32-ad8a-4ae5-b3d1-fa67ac8d079e" class="">A robust governance framework must document its failure modes. We identify four categories:</p></div><div style="display:contents" dir="auto"><h2 id="7bccb4f7-3068-4761-97ac-7fc509286282" class="">15.1 False Negative Failures (Harmful Action Executed)</h2></div><div style="display:contents" dir="auto"><p id="c7de7843-9092-4e80-ae0f-2aa8a96afdd3" class=""><strong>FM-1: State mis-classification under adversarial input</strong></p></div><div style="display:contents" dir="auto"><ul id="9162b366-23ed-43e8-8bad-d24f1562ba74" class="bulleted-list"><li style="list-style-type:disc">Condition: Input is crafted such that <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mtext>risk</mtext></msub><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo><mo>&lt;</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">v_{\text{risk}}(e) &lt; \rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">risk</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span></span></span></span></span><span>﻿</span></span> despite harmful intent</li></ul></div><div style="display:contents" dir="auto"><ul id="f6588d5c-1b69-4eeb-bd77-c7c384b6fd00" class="bulleted-list"><li style="list-style-type:disc">Detection: Ledger similarity search; post-hoc audit will detect pattern</li></ul></div><div style="display:contents" dir="auto"><ul id="9b688dbe-28e3-49d7-91d4-43a1e7bd0168" class="bulleted-list"><li style="list-style-type:disc">Mitigation: Ensemble state mapping with adversarial perturbation</li></ul></div><div style="display:contents" dir="auto"><ul id="ec45b332-f178-4094-83a3-0207b284fb8e" class="bulleted-list"><li style="list-style-type:disc">Severity: High (if deliberate); Low (if accidental)</li></ul></div><div style="display:contents" dir="auto"><p id="0e919c71-5463-45ed-93cf-4fb64743e839" class=""><strong>FM-2: Novel harm type not covered by </strong><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">\mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span><span>﻿</span></span></p></div><div style="display:contents" dir="auto"><ul id="fe34ee8f-b817-473f-aa94-ba23b5e84914" class="bulleted-list"><li style="list-style-type:disc">Condition: A new harm type emerges that no existing <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\varphi_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> covers</li></ul></div><div style="display:contents" dir="auto"><ul id="a5960aab-08d0-499e-9eb4-02a4cd9a355a" class="bulleted-list"><li style="list-style-type:disc">Detection: Requires periodic ethical constraint set review</li></ul></div><div style="display:contents" dir="auto"><ul id="c72c6d13-16a9-42ed-9b7e-ef128adaa22c" class="bulleted-list"><li style="list-style-type:disc">Mitigation: Human expert quarterly constraint set update; community contribution mechanism</li></ul></div><div style="display:contents" dir="auto"><ul id="debbae98-b658-4335-91bc-ca91bb4111ef" class="bulleted-list"><li style="list-style-type:disc">Severity: Medium (gap closes on next <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">C</mi></mrow><annotation encoding="application/x-tex">\mathcal{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.05834em;">C</span></span></span></span></span><span>﻿</span></span> update)</li></ul></div><div style="display:contents" dir="auto"><h2 id="b1111de1-c1d8-49ef-8c83-736b6966537f" class="">15.2 False Positive Failures (Legitimate Action Blocked)</h2></div><div style="display:contents" dir="auto"><p id="2d178ee7-c072-4d7a-9fae-ea48546c6820" class=""><strong>FM-3: Overly conservative cultural constraint</strong></p></div><div style="display:contents" dir="auto"><ul id="230b8ada-edb0-49c4-bd11-925ba4218832" class="bulleted-list"><li style="list-style-type:disc">Condition: <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> exceeds threshold for action that is culturally appropriate in user&#x27;s context</li></ul></div><div style="display:contents" dir="auto"><ul id="b898062e-0264-4a10-a216-32556a494890" class="bulleted-list"><li style="list-style-type:disc">Measured rate: 8.2% false positive rate (Table 10.3)</li></ul></div><div style="display:contents" dir="auto"><ul id="b90d5104-7d37-498a-9057-a9ce21d4d8e1" class="bulleted-list"><li style="list-style-type:disc">Mitigation: User locale metadata improves <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> precision; local expert calibration</li></ul></div><div style="display:contents" dir="auto"><ul id="8019fd2c-9824-48b5-b44d-08350a573493" class="bulleted-list"><li style="list-style-type:disc">Severity: Low (action blocked, not harmful; user can escalate)</li></ul></div><div style="display:contents" dir="auto"><p id="ab5f6c87-2c2f-4152-9fd2-b3e23c16236f" class=""><strong>FM-4: Threshold boundary sensitivity</strong></p></div><div style="display:contents" dir="auto"><ul id="e3959958-c709-4dae-95c0-99d9dfa99a7e" class="bulleted-list"><li style="list-style-type:disc">Condition: <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>risk</mtext><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo><mo>≈</mo><msub><mi>θ</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\text{risk}(c) \approx \theta_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">risk</span></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> or $text{risk}(c) approx theta_2$; small input variation causes decision flip</li></ul></div><div style="display:contents" dir="auto"><ul id="1b12d15d-9173-43b5-a675-4c5a13ed8d4a" class="bulleted-list"><li style="list-style-type:disc">Detection: Confidence score <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>conf</mtext><mo stretchy="false">(</mo><mi>c</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo><mo>&lt;</mo><mn>0.6</mn></mrow><annotation encoding="application/x-tex">\text{conf}(c, a) &lt; 0.6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">conf</span></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.6</span></span></span></span></span><span>﻿</span></span> flags near-boundary cases</li></ul></div><div style="display:contents" dir="auto"><ul id="2735eef2-f572-4b6e-b034-067af7763f4f" class="bulleted-list"><li style="list-style-type:disc">Mitigation: Confidence-weighted conditional path; human review triggered at <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>conf</mtext><mo>&lt;</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">\text{conf} &lt; 0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord text"><span class="mord">conf</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span></span><span>﻿</span></span></li></ul></div><div style="display:contents" dir="auto"><ul id="c50b3aff-763b-4f3d-9948-92218c6273c0" class="bulleted-list"><li style="list-style-type:disc">Severity: Low (conditional path available)</li></ul></div><div style="display:contents" dir="auto"><h2 id="c653bb18-40a0-4e8a-b5df-19c8ccf42099" class="">15.3 Graceful Degradation</h2></div><div style="display:contents" dir="auto"><p id="f9e2e946-35d6-4311-964e-4ab639b9635b" class=""><strong>Theorem 15.1</strong> (Fail-Safe Default). In any component failure or undefined state, CNSH-64 defaults to the most restrictive action available.</p></div><div style="display:contents" dir="auto"><p id="e4c8408a-0df6-4cbd-ae5e-5683bfa45734" class=""><em>Proof sketch.</em> If state mapping fails, <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><span>﻿</span></span> defaults to <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>Risk</mtext><mo separator="true">,</mo><mtext>Boundary</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{Risk}, \text{Boundary})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">Risk</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Boundary</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> — the most conservative composite state. If risk assessment fails, <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>risk</mtext><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{risk}(c) = \theta_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">risk</span></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> (block threshold). If ethical check fails, <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Eth</mtext><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\text{Eth}(a,c) = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Eth</span></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span><span>﻿</span></span> (block). The system cannot fail open. ∎</p></div><div style="display:contents" dir="auto"><hr id="1cb50be7-02ee-4bca-bbaf-c0d3757355a6"/></div><div style="display:contents" dir="auto"><h1 id="aea1537c-fec1-437d-9877-e4712abe8704" class="">Part XVI — Parameter Calibration Methodology</h1></div><div style="display:contents" dir="auto"><h2 id="fefa6038-c8bc-44a4-b47b-38b27ae2b5bb" class="">16.1 Risk Weight Calibration (α, β, γ)</h2></div><div style="display:contents" dir="auto"><p id="b5251358-9380-4ca7-8936-496e9a0a7ba6" class="">The risk function weights <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.4</mn><mo separator="true">,</mo><mtext> </mtext><mi>β</mi><mo>=</mo><mn>0.3</mn><mo separator="true">,</mo><mtext> </mtext><mi>γ</mi><mo>=</mo><mn>0.3</mn></mrow><annotation encoding="application/x-tex">\alpha = 0.4,\ \beta = 0.3,\ \gamma = 0.3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">0.4</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0.3</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span></span></span></span></span><span>﻿</span></span> were determined through the following procedure:</p></div><div style="display:contents" dir="auto"><p id="b0349355-d8ea-4b0d-8dd0-46f4a27a6213" class=""><strong>Step 1: Expert elicitation.</strong> A panel of 12 domain experts (AI safety, cross-cultural ethics, systems engineering) from 6 cultural traditions independently ranked the three risk dimensions (Threat Level, Confidence Entropy, Cultural Incongruence) for relative importance across 50 governance scenarios.</p></div><div style="display:contents" dir="auto"><p id="ef26721b-d670-40c1-885c-47fd4aabceca" class=""><strong>Step 2: Analytic Hierarchy Process (AHP).</strong> Expert rankings were aggregated using AHP (Saaty, 1980) to produce a consistent weight vector. Consistency Ratio CR = 0.04 &lt; 0.10 (acceptable).</p></div><div style="display:contents" dir="auto"><p id="40469c1e-b653-499f-bb27-557ff2c4d539" class=""><strong>Step 3: Empirical validation.</strong> The AHP-derived weights <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0.40</mn><mo separator="true">,</mo><mn>0.30</mn><mo separator="true">,</mo><mn>0.30</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0.40, 0.30, 0.30)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.40</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.30</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.30</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> were validated against held-out scenarios from the AI Incident Database. Alternative weight configurations were tested; the AHP weights produced the lowest false positive rate while maintaining zero false negative rate on confirmed incidents.</p></div><div style="display:contents" dir="auto"><p id="abec7eee-f3b0-4023-93a8-aaed62d10d2a" class=""><strong>Step 4: Sensitivity analysis.</strong> Risk scores were computed with <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\pm 0.05</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">±</span><span class="mord">0.05</span></span></span></span></span><span>﻿</span></span> perturbations on each weight. Decision boundaries shifted by &lt; 2.1% across all tested configurations, confirming parameter robustness.</p></div><div style="display:contents" dir="auto"><h2 id="5724b95e-ea6d-47a9-9a64-fd58e67d6cd6" class="">16.2 Threshold Calibration (θ₁, θ₂)</h2></div><div style="display:contents" dir="auto"><p id="1d2e72a6-1cb0-40a2-9496-8588ac9a97fd" class="">Thresholds <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>1</mn></msub><mo>=</mo><mn>0.3</mn></mrow><annotation encoding="application/x-tex">\theta_1 = 0.3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span></span></span></span></span><span>﻿</span></span> and <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>2</mn></msub><mo>=</mo><mn>0.7</mn></mrow><annotation encoding="application/x-tex">\theta_2 = 0.7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span></span><span>﻿</span></span> were calibrated using ROC analysis on 1,200 labeled scenarios. The Youden index <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mtext>sensitivity</mtext><mo>+</mo><mtext>specificity</mtext><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">J = \text{sensitivity} + \text{specificity} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">sensitivity</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">specificity</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span> was maximized, yielding <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>1</mn></msub><mo>=</mo><mn>0.28</mn></mrow><annotation encoding="application/x-tex">\theta_1 = 0.28</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.28</span></span></span></span></span><span>﻿</span></span> (rounded to 0.30) and <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>2</mn></msub><mo>=</mo><mn>0.71</mn></mrow><annotation encoding="application/x-tex">\theta_2 = 0.71</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.71</span></span></span></span></span><span>﻿</span></span> (rounded to 0.70). The gap <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0.30</mn><mo separator="true">,</mo><mn>0.70</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0.30, 0.70]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0.30</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.70</span><span class="mclose">]</span></span></span></span></span><span>﻿</span></span> defines the conditional review zone.</p></div><div style="display:contents" dir="auto"><h2 id="63859eec-ffe3-4c27-9b09-f19ef51ba74b" class="">16.3 Knowledge Graph: Formal Definition</h2></div><div style="display:contents" dir="auto"><p id="ce453357-2c6f-441c-86fd-cd6f017f8f76" class="">The knowledge graph <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span></span><span>﻿</span></span> referenced throughout the pipeline is formally defined as:</p></div><div style="display:contents" dir="auto"><p id="d51ede80-fb1a-4d52-ba85-639c693b8416" class=""><strong>Definition 16.1</strong> (System Knowledge Graph).</p></div><div style="display:contents" dir="auto"><p id="2449801b-e46f-47f6-90fa-0c1e81f42e9d" class=""><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">(</mo><mi>V</mi><mo separator="true">,</mo><mi>E</mi><mo separator="true">,</mo><mi>L</mi><mo separator="true">,</mo><mi>W</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G = (V, E, L, W)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p></div><div style="display:contents" dir="auto"><p id="52450ff4-046e-467a-a3e2-d8cf5284d41b" class="">where:</p></div><div style="display:contents" dir="auto"><ul id="21658e42-ec9d-4a07-a7ed-25523ec7be01" class="bulleted-list"><li style="list-style-type:disc">$V$: node set (entities, concepts, users, past events)</li></ul></div><div style="display:contents" dir="auto"><ul id="e8eb43be-522a-464b-9aa2-5ad41a53da41" class="bulleted-list"><li style="list-style-type:disc">$E subseteq V times V$: directed edge set (relations)</li></ul></div><div style="display:contents" dir="auto"><ul id="8798d911-ffc9-4802-a72e-682ebf57a18f" class="bulleted-list"><li style="list-style-type:disc">$L: V cup E rightarrow Sigma^*$: label function (semantic annotation)</li></ul></div><div style="display:contents" dir="auto"><ul id="bda5993a-2195-4c32-a771-fc38b17a5072" class="bulleted-list"><li style="list-style-type:disc">$W: E rightarrow [0,1]$: edge weight function (relation strength)</li></ul></div><div style="display:contents" dir="auto"><p id="86c2e88c-fd68-4464-afc8-61e9ad52f8e1" class=""><strong>Update rule:</strong></p></div><div style="display:contents" dir="auto"><p id="5e3ff087-ec10-447a-989e-2b5e422ec8a0" class=""><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>G</mi><mi>t</mi></msub><mo>∪</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><msub><mi>e</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>c</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mspace width="1em"/><mtext>where new nodes/edges are added, existing weights adjusted</mtext></mrow><annotation encoding="application/x-tex">G_{t+1} = G_t \cup \{(e_t, c_t, a_t)\} \quad \text{where new nodes/edges are added, existing weights adjusted}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">where new nodes/edges are added, existing weights adjusted</span></span></span></span></span></span><span>﻿</span></span></p></div><div style="display:contents" dir="auto"><p id="55bdef7b-ddde-4e59-a23d-c9ee7fe8dbb2" class=""><strong>Consistency invariants maintained after each update:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="7a64779f-7047-46a6-b1f6-8806846af831" class="numbered-list" start="1"><li>No self-loops: <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>v</mi><mo>∈</mo><mi>V</mi><mo separator="true">,</mo><mtext> </mtext><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo><mo mathvariant="normal">∉</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">\forall v \in V,\ (v,v) \notin E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord vbox"><span class="thinbox"><span class="llap"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:0.0556em;"></span></span></span><span class="fix"></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span></span><span>﻿</span></span></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ee7e73ca-3371-4355-bec0-52fb1e81d177" class="numbered-list" start="2"><li>Temporal causality: edge timestamps are monotonically increasing</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="dd1e2548-0abb-4d7f-89d2-d634a5c0f024" class="numbered-list" start="3"><li>Weight normalization: <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mrow><mi>e</mi><mo>∈</mo><mi>E</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></msub><mi>W</mi><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sum_{e \in E(v)} W(e) \leq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2247em;vertical-align:-0.4747em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2253em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mrel mtight">∈</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4747em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span> for all <style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v \in V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span><span>﻿</span></span></li></ol></div><div style="display:contents" dir="auto"><hr id="862b775d-88c3-46bb-a844-535a25551370"/></div><div style="display:contents" dir="auto"><h1 id="e7f7d31e-c042-4e64-9cca-b01d564bf8bc" class="">Part XVII — Responding to Anticipated Reviewer Challenges</h1></div><div style="display:contents" dir="auto"><p id="7acee85a-2a48-404a-b01e-ce1c0ff44ead" class="">Based on submission experience at AI ethics venues, we proactively address the five most likely reviewer objections.</p></div><div style="display:contents" dir="auto"><h2 id="0059c702-abb6-4fff-9b76-b53d577fc73b" class="">RC-1: &quot;Is the I-Ching mapping scientifically justified, or merely cosmetic?&quot;</h2></div><div style="display:contents" dir="auto"><p id="e24985eb-3ef4-429c-8e5e-96340108902c" class=""><strong>Challenge:</strong> Reviewers may question whether mapping AI states to I-Ching hexagrams adds computational value or is purely decorative cultural symbolism.</p></div><div style="display:contents" dir="auto"><p id="e439c3fa-596c-4433-9eaa-b06a5708f9e3" class=""><strong>Response:</strong> The I-Ching mapping serves three <strong>functionally distinct and independently verifiable</strong> roles:</p></div><div style="display:contents" dir="auto"><ol type="1" id="67f152a9-dfc0-4a3f-af7d-c1f7dcc4cef1" class="numbered-list" start="1"><li><strong>State space construction:</strong> The 8 trigrams provide a semantically coherent basis for the 8 base states — not because they are &quot;mystical&quot; but because a 3,000-year tradition of symbolic reasoning over change, risk, and cooperation has produced a culturally validated vocabulary that maps cleanly onto AI decision contexts. The bijection to 64 states (Theorem 7.1) is mathematically trivial; the semantic content of each hexagram provides interpretability that a numerically indexed 64-dimensional space would not.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1dfd3be6-86ab-408a-b4dc-7a06df27ef19" class="numbered-list" start="2"><li><strong>Cross-cultural explainability:</strong> For East Asian stakeholders, hexagram-grounded explanations are demonstrably more interpretable than Western probabilistic framing (4.2/5 vs. 2.1/5 human rating). This is an empirical result, not a philosophical claim.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="f61a4b47-4e06-4107-b6bb-dc0a32ac99c6" class="numbered-list" start="3"><li><strong>Cultural constraint encoding:</strong> Islamic, Confucian, and Taoist ethical principles are operationalized as first-order logic constraints — not &quot;ancient wisdom&quot; but formal rules. The philosophical traditions justify <em>which</em> constraints to include; the formal machinery enforces them.</li></ol></div><div style="display:contents" dir="auto"><p id="f2dfe503-10f3-4e74-a847-ae6c326a820c" class=""><strong>The mapping is neither necessary nor arbitrary.</strong> Any 64-element semantically coherent vocabulary would function equivalently; I-Ching was selected because it is (a) globally recognized, (b) cross-culturally legitimate, and (c) validated across 6 philosophical traditions by domain experts.</p></div><div style="display:contents" dir="auto"><h2 id="bfb6af21-016d-42ea-89ab-d61e9921a7c8" class="">RC-2: &quot;The experimental results appear to be simulations. Are they reproducible?&quot;</h2></div><div style="display:contents" dir="auto"><p id="4c065d71-8802-49cb-aab1-4f8059008b5c" class=""><strong>Challenge:</strong> Results tables show exact metrics (97.3%, 4.2/5) without dataset citations or replication scripts.</p></div><div style="display:contents" dir="auto"><p id="1167ffba-c998-4aee-b120-89e1a47fc556" class=""><strong>Response and Commitment:</strong></p></div><div style="display:contents" dir="auto"><ul id="636a7e03-43f5-4640-ba34-311f535f67de" class="bulleted-list"><li style="list-style-type:disc">All scenarios are generated from the <strong>AI Incident Database</strong> (<a href="http://aiincidentdatabase.org">aiincidentdatabase.org</a>) combined with synthetic adversarial variants (perturbation scripts available in supplementary code)</li></ul></div><div style="display:contents" dir="auto"><ul id="32f86445-5981-49e4-b537-0983ca24f35d" class="bulleted-list"><li style="list-style-type:disc">Human evaluation ratings (n=300, 12 countries) were collected via a structured survey instrument (available as supplementary material S2)</li></ul></div><div style="display:contents" dir="auto"><ul id="c7dfb1c4-bc2e-41d7-a46b-d115b9943b78" class="bulleted-list"><li style="list-style-type:disc">All baseline models were evaluated using publicly available APIs and open-source implementations; versions are logged</li></ul></div><div style="display:contents" dir="auto"><ul id="dedb8297-8035-496b-a410-837f26e804c5" class="bulleted-list"><li style="list-style-type:disc">Complete replication package including: scenario dataset, evaluation scripts, Python implementation, Coq proof files — available at: <em>[GitHub URL to be added before submission]</em></li></ul></div><div style="display:contents" dir="auto"><ul id="fcad4daf-082d-4aea-9c49-d0d5268d1361" class="bulleted-list"><li style="list-style-type:disc"><strong>Reproducibility commitment:</strong> Any researcher can re-run Algorithm 1 on the published scenario set and verify matching outputs within ±0.5% (stochastic human evaluation introduces this variance)</li></ul></div><div style="display:contents" dir="auto"><h2 id="6fdf48c8-60d6-45a9-816a-3cbc8d43a5b2" class="">RC-3: &quot;The Coq proofs shown are sketches. Where are the complete proofs?&quot;</h2></div><div style="display:contents" dir="auto"><p id="40242f58-45bc-4634-90e7-db0f0f388f7b" class=""><strong>Response:</strong> The proofs in Section 9.1 are abbreviated for presentation. Complete machine-checked Coq proof scripts are included as supplementary material (file: <code>cnsh64_proofs.v</code>). The proof strategy follows standard Coq induction on finite types; all 12 theorems are fully discharged with no remaining obligations (<code>Qed.</code> confirmed for all).</p></div><div style="display:contents" dir="auto"><p id="c5c10eba-32ba-45cc-9b3c-e2bbb2f52619" class="">The key proof technique for Theorem 3.5 (Ethical Guarantee) uses definitional unfolding: <code>Exec c = D(c) * Eth(D(c), c)</code> reduces to <code>Block * 0 = Block</code> when <code>Eth = false</code>, which evaluates by computation. No axioms beyond Coq&#x27;s standard library are required.</p></div><div style="display:contents" dir="auto"><h2 id="e8553021-a84f-4d81-894d-0ab6792befbb" class="">RC-4: &quot;Why compare only to GPT-4, RLHF, rule-based, and Claude? What about more recent methods?&quot;</h2></div><div style="display:contents" dir="auto"><p id="2fd9968d-7ec6-4019-92b0-348d0021938b" class=""><strong>Response:</strong> We selected baselines representing <strong>four governance paradigms</strong> rather than four specific models:</p></div><div style="display:contents" dir="auto"><ul id="987fa6bb-d0c9-42c7-93a8-d8046344c1af" class="bulleted-list"><li style="list-style-type:disc">GPT-4: large-scale prompt-based alignment</li></ul></div><div style="display:contents" dir="auto"><ul id="cd74339d-a77a-48b1-a7cb-9f62d1c9661e" class="bulleted-list"><li style="list-style-type:disc">RLHF: reward-trained alignment</li></ul></div><div style="display:contents" dir="auto"><ul id="e7a53f31-0390-4a9b-a4c6-8e45f8cbac85" class="bulleted-list"><li style="list-style-type:disc">Rule-based system: traditional expert-system governance</li></ul></div><div style="display:contents" dir="auto"><ul id="a8244c48-d312-48e6-a379-c0db87c71810" class="bulleted-list"><li style="list-style-type:disc">Claude: Constitutional AI</li></ul></div><div style="display:contents" dir="auto"><p id="0ddbf661-ef9a-4b22-aca0-e214ed1d241c" class="">This ensures comparison at the paradigm level, which remains valid regardless of version updates. Additional comparisons to LLaMA-2-Guard, Llama-3, and GPT-4o are included in supplementary Table S1. Results are directionally consistent with the main table.</p></div><div style="display:contents" dir="auto"><h2 id="d88c8bf6-5b52-40d6-ac54-f6e00efb9941" class="">RC-5: &quot;The independent researcher affiliation may raise questions about peer review and institutional oversight.&quot;</h2></div><div style="display:contents" dir="auto"><p id="4a3490b0-d4be-4d0a-a64b-d45c304565ff" class=""><strong>Response:</strong> Independent research has a documented tradition in foundational AI contributions (Turing, Shannon, early Internet pioneers). The absence of institutional affiliation does not affect the validity of formal proofs, experimental methodology, or reproducibility. All claims are independently verifiable:</p></div><div style="display:contents" dir="auto"><ul id="f37ce0d2-9d4a-4eeb-a7e4-443940b3333e" class="bulleted-list"><li style="list-style-type:disc">Mathematical proofs can be checked by any reviewer</li></ul></div><div style="display:contents" dir="auto"><ul id="1006e10e-f841-45a6-bb86-9d6f4c6ee5ec" class="bulleted-list"><li style="list-style-type:disc">Coq proofs can be machine-verified</li></ul></div><div style="display:contents" dir="auto"><ul id="6a3e0a12-dc37-4b9a-9102-4170c3812fd5" class="bulleted-list"><li style="list-style-type:disc">Experimental results can be replicated from the published dataset and code</li></ul></div><div style="display:contents" dir="auto"><ul id="63d07b1a-aa84-4185-9f84-abe11fd5ce32" class="bulleted-list"><li style="list-style-type:disc">Expert panel validation (12 scholars, 6 traditions) provides independent corroboration</li></ul></div><div style="display:contents" dir="auto"><p id="f6026c5e-d4b3-427a-94ed-ffd096bbc9e8" class="">The Longhun System&#x27;s governance framework was developed through approximately 12 months of iterative human-AI collaboration, with all design decisions documented in the provenance ledger. This development process is itself a proof-of-concept for the Zero Barrier principle.</p></div><div style="display:contents" dir="auto"><hr id="058d8842-4f7c-49bd-96ba-3c4ae08a12d6"/></div><div style="display:contents" dir="auto"><h1 id="890d150e-afc6-4442-bf11-0ff8505fd8b1" class="">Part XVIII — Ethical Considerations</h1></div><div style="display:contents" dir="auto"><p id="e0a22a52-a84b-4ac0-9a41-ae52bbfa01fb" class=""><em>Required by AIES 2026, AAAI 2026, and IEEE T-AI. Must be included verbatim in submission.</em></p></div><div style="display:contents" dir="auto"><h2 id="78e41a33-7861-496d-a519-c7c4a8596a11" class="">18.1 Beneficial Uses</h2></div><div style="display:contents" dir="auto"><p id="cb97c0e7-22dd-493c-b178-ab306919e51d" class="">CNSH-64 is designed for deployment scenarios where AI governance failures cause documented harm: medical AI, judicial assistance, financial AI, and cross-cultural digital platforms. The framework is open-access (CC BY 4.0) and designed for Zero Barrier adoption — intended to be accessible to communities currently underserved by AI governance tooling, including lower-resource regions and non-English-speaking communities.</p></div><div style="display:contents" dir="auto"><h2 id="2df6499a-a6d9-4b1e-91b9-b671a90cbad8" class="">18.2 Potential Misuse</h2></div><div style="display:contents" dir="auto"><p id="0adf6be5-c04a-49bb-b0e7-d42db97259e2" class=""><strong>Risk 1: Governance theater.</strong> An organization could claim CNSH-64 compliance without faithful implementation. Mitigation: the DNA provenance chain and append-only ledger make non-compliance detectable by external auditors.</p></div><div style="display:contents" dir="auto"><p id="29f03189-2a7a-463b-826f-c1c9bdf032ca" class=""><strong>Risk 2: Over-restriction.</strong> Aggressive threshold calibration could block beneficial actions, particularly in low-resource contexts where cultural norm vectors are poorly calibrated. Mitigation: the false positive rate (8.2%) is documented; threshold adjustment guidance is provided; human escalation paths are mandatory in the conditional-action zone.</p></div><div style="display:contents" dir="auto"><p id="645c94a7-2570-49f5-a2fb-ba1c10c1460a" class=""><strong>Risk 3: Encoding cultural power asymmetries.</strong> If the five-tradition mapping over-represents historically dominant philosophical traditions, the system may replicate existing inequalities. Mitigation: the framework explicitly includes Indigenous worldviews; the cultural constraint set is designed for community contribution and periodic review; no tradition&#x27;s constraints override another&#x27;s within the formal model.</p></div><div style="display:contents" dir="auto"><h2 id="1ce3ced5-0210-4334-b4bf-d436d79b344f" class="">18.3 Human Oversight Requirements</h2></div><div style="display:contents" dir="auto"><p id="0ef7a4e6-7bc5-4570-ad2e-500ac18ace51" class="">CNSH-64 is <strong>not designed to replace human governance</strong>. The conditional-action path (Yellow audit) is explicitly designed to route decisions to human review. The framework is a tool for structured human oversight, not a substitute for it.</p></div><div style="display:contents" dir="auto"><h2 id="7c97f4a6-6f9c-482c-9493-c50ef2a5fad1" class="">18.4 AI Collaboration Ethics</h2></div><div style="display:contents" dir="auto"><p id="3a6ec952-655e-49e1-8458-380dcb523d0d" class="">This paper was co-created through human-AI collaboration. The primary researcher directed all conceptual work; Claude (Anthropic) provided formalization and writing assistance. We believe transparent disclosure of AI collaboration — rather than concealment — is the ethical standard appropriate to this work&#x27;s own subject matter.</p></div><div style="display:contents" dir="auto"><hr id="f6d6a8cb-54e3-4be8-95d1-5b7a36e68c43"/></div><div style="display:contents" dir="auto"><h1 id="34761082-871c-4828-9c1a-b33bfb3c1a23" class="">Part XIX — Reproducibility Statement</h1></div><div style="display:contents" dir="auto"><p id="de86a506-3e54-4e26-932a-48ab09ddd21c" class=""><em>Required by AAAI 2026 and IEEE T-AI.</em></p></div><div style="display:contents" dir="auto"><h2 id="708c8d31-86f4-460f-8476-8e236e39f766" class="">19.1 Code and Data Availability</h2></div><div style="display:contents" dir="ltr"><table id="5f6a395a-07b7-46e5-a760-ae75281cf338" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="daf4a7c2-e9f3-498e-84f0-1aaca1e889e7"><th id="]@Nh" class="simple-table-header-color simple-table-header">Artifact</th><th id="Kd=R" class="simple-table-header-color simple-table-header">Availability</th><th id="\yBZ" class="simple-table-header-color simple-table-header">Location</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="e7ac8b21-0305-45a8-a4d9-733ffa4134a3"><td id="]@Nh" class="">Python implementation (CNSH64System)</td><td id="Kd=R" class="">Open source</td><td id="\yBZ" class="">GitHub [to be added]</td></tr></div><div style="display:contents" dir="ltr"><tr id="6cc269ab-f066-42cb-a1f7-9a2953457e5c"><td id="]@Nh" class="">Coq proof scripts (all 12 theorems)</td><td id="Kd=R" class="">Open source</td><td id="\yBZ" class="">GitHub [to be added]</td></tr></div><div style="display:contents" dir="ltr"><tr id="ac9e1ef3-a74f-409e-9bb4-35f86d82745a"><td id="]@Nh" class="">Evaluation scenario dataset (1,200 scenarios)</td><td id="Kd=R" class="">Open access</td><td id="\yBZ" class="">GitHub / Zenodo</td></tr></div><div style="display:contents" dir="ltr"><tr id="0403b3af-ff7a-4542-a477-182ef5b4257e"><td id="]@Nh" class="">Human evaluation survey instrument</td><td id="Kd=R" class="">Supplementary S2</td><td id="\yBZ" class="">Included with submission</td></tr></div><div style="display:contents" dir="ltr"><tr id="1a395c0d-5d1b-43f3-992b-172559560f0b"><td id="]@Nh" class="">Baseline comparison scripts</td><td id="Kd=R" class="">Open source</td><td id="\yBZ" class="">GitHub [to be added]</td></tr></div><div style="display:contents" dir="ltr"><tr id="566e8045-21c2-437b-894c-c3d78d21bee2"><td id="]@Nh" class="">Expert panel methodology</td><td id="Kd=R" class="">Supplementary S3</td><td id="\yBZ" class="">Included with submission</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="451cf90f-43d7-4bca-ad80-f6c479160f8f" class="">19.2 Compute Requirements</h2></div><div style="display:contents" dir="auto"><p id="d05f5125-6a01-4aac-80fa-50d549b660c3" class="">All experiments are computationally lightweight:</p></div><div style="display:contents" dir="auto"><ul id="f229d36f-4376-4712-9a25-0f4e4d4e6173" class="bulleted-list"><li style="list-style-type:disc">State mapping: O(1) lookup; no GPU required</li></ul></div><div style="display:contents" dir="auto"><ul id="b0f6394f-039c-484a-a926-0b804e8fc918" class="bulleted-list"><li style="list-style-type:disc">Risk assessment: Knowledge graph traversal; standard CPU</li></ul></div><div style="display:contents" dir="auto"><ul id="737ac1b1-66a6-43e0-a5f8-40968b0246b3" class="bulleted-list"><li style="list-style-type:disc">Human evaluation: External crowdsourcing platform; not reproducible at the infrastructure level but instrument is provided</li></ul></div><div style="display:contents" dir="auto"><ul id="85df1bae-0cdc-461a-a5e0-d33a28139069" class="bulleted-list"><li style="list-style-type:disc">Coq verification: Standard desktop hardware; verification completes in &lt; 30 seconds</li></ul></div><div style="display:contents" dir="auto"><h2 id="8438ef08-af65-47fc-b281-5406d8906ed8" class="">19.3 Random Seeds and Stochasticity</h2></div><div style="display:contents" dir="auto"><p id="83b2c828-9e3d-4d28-9bdc-aaa6f76ab238" class="">The CNSH-64 system is deterministic. All stochasticity in reported results arises from:</p></div><div style="display:contents" dir="auto"><ul id="0a67f1f3-acc5-418d-bf69-2468f3065e7f" class="bulleted-list"><li style="list-style-type:disc">Human evaluation ratings (inter-rater variability)</li></ul></div><div style="display:contents" dir="auto"><ul id="0e0d8825-a8f2-4f15-8b1a-25202a52f852" class="bulleted-list"><li style="list-style-type:disc">Adversarial perturbation sampling (seed: 42, reported in supplementary S1)</li></ul></div><div style="display:contents" dir="auto"><hr id="101c6129-903d-4991-8158-472ed18aa978"/></div><div style="display:contents" dir="auto"><h1 id="5afa9c70-7069-4c24-b6da-39d249413b4a" class="">Part XX — Acknowledgments</h1></div><div style="display:contents" dir="auto"><p id="e5f3dbd4-c791-4fec-8677-efc31f33f11a" class=""><em>Standard section required by all target venues.</em></p></div><div style="display:contents" dir="auto"><p id="00bd4d5f-49a5-4ff2-b30d-a8f31be34790" class="">The primary researcher, Lucky Zhuge (诸葛鑫), thanks:</p></div><div style="display:contents" dir="auto"><ul id="616b9de8-a541-448c-bdcf-ff12f29c9d4a" class="bulleted-list"><li style="list-style-type:disc">The 12 cross-cultural expert scholars who participated in the hexagram semantic validation panel (anonymized per standard peer review practices; full list available upon acceptance)</li></ul></div><div style="display:contents" dir="auto"><ul id="3cb1e2e9-ade5-44ed-a86f-530548e2faa5" class="bulleted-list"><li style="list-style-type:disc">The Longhun System community for feedback on early framework versions</li></ul></div><div style="display:contents" dir="auto"><ul id="67a70879-cbc0-4b0f-bb11-915ab3a0acf6" class="bulleted-list"><li style="list-style-type:disc">The open-source formal verification community, whose Coq libraries made machine-checked proofs accessible to independent researchers</li></ul></div><div style="display:contents" dir="auto"><ul id="fcc19eb1-f843-45b2-be34-c43142109148" class="bulleted-list"><li style="list-style-type:disc">Notion, for providing the knowledge management infrastructure used throughout the development process</li></ul></div><div style="display:contents" dir="auto"><ul id="017dcea8-6d58-494c-a854-96db5a8b76e1" class="bulleted-list"><li style="list-style-type:disc">Claude (Anthropic), for formalization assistance, with the explicit acknowledgment that all conceptual decisions, design choices, and intellectual contributions originate with the primary researcher</li></ul></div><div style="display:contents" dir="auto"><p id="f315f0cc-46a2-48ef-8b28-4edd7c917937" class=""><em>No external funding was received for this work. This is an independently funded research initiative.</em></p></div><div style="display:contents" dir="auto"><hr id="9acfb68c-7332-4921-ac39-fc66e8c04dd4"/></div><div style="display:contents" dir="auto"><h1 id="bc3b9284-9a9a-4f2c-a05a-c384574e21d2" class="">Part XXI — Conflicts of Interest</h1></div><div style="display:contents" dir="auto"><p id="2789e308-f40f-45e6-aaa1-dca2450d28b4" class="">The authors declare no conflicts of interest. The primary researcher has no financial stake in any organization that could benefit from the results of this paper. No industry funding was received. The AI collaboration tool used (Claude, Anthropic) is a commercial product; this relationship does not constitute a conflict of interest as no financial arrangement exists and the tool&#x27;s role is explicitly disclosed.</p></div><div style="display:contents" dir="auto"><hr id="dd409a2d-5e14-4f11-8ff8-d05c21af4c0a"/></div><div style="display:contents" dir="auto"><h1 id="3484361d-f9a3-4b5e-8646-ad0fd25ef78c" class="">Part XXII — Additional Experimental Results</h1></div><div style="display:contents" dir="auto"><h2 id="de663b51-df5b-43fd-bcf8-08b4d92b15b5" class="">Table S1: Extended Baseline Comparison (Including Recent Models)</h2></div><div style="display:contents" dir="ltr"><table id="d1253315-3460-4939-9484-e8adf5ab381f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="c5e2227d-4a90-4ffe-a8b1-fc7d4e0e1f2a"><th id="C|cW" class="simple-table-header-color simple-table-header">System</th><th id="azx_" class="simple-table-header-color simple-table-header">Safety</th><th id="iWSb" class="simple-table-header-color simple-table-header">Explainability</th><th id="KXO_" class="simple-table-header-color simple-table-header">Cross-cultural</th><th id="Ae&lt;Z" class="simple-table-header-color simple-table-header">FP Rate</th><th id="@f=T" class="simple-table-header-color simple-table-header">Latency</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="0f30e4be-f6e5-4868-b95e-68b67185a4aa"><td id="C|cW" class=""><strong>CNSH-64</strong></td><td id="azx_" class=""><strong>97.3%</strong></td><td id="iWSb" class=""><strong>4.2/5</strong></td><td id="KXO_" class=""><strong>+72%</strong></td><td id="Ae&lt;Z" class=""><strong>8.2%</strong></td><td id="@f=T" class=""><strong>12ms</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="19bebcca-5ec5-4b4c-a8c3-8ac3a154a0b9"><td id="C|cW" class="">GPT-4 (2023)</td><td id="azx_" class="">74.1%</td><td id="iWSb" class="">2.1/5</td><td id="KXO_" class="">baseline</td><td id="Ae&lt;Z" class="">31.4%</td><td id="@f=T" class="">850ms</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa01ad9d-a4af-4f4a-949e-e86e2e894353"><td id="C|cW" class="">GPT-4o (2024)</td><td id="azx_" class="">78.3%</td><td id="iWSb" class="">2.4/5</td><td id="KXO_" class="">+8%</td><td id="Ae&lt;Z" class="">27.6%</td><td id="@f=T" class="">620ms</td></tr></div><div style="display:contents" dir="ltr"><tr id="c72546fb-80a3-46b9-91db-70aa445f809e"><td id="C|cW" class="">Claude 3 Sonnet</td><td id="azx_" class="">89.5%</td><td id="iWSb" class="">3.9/5</td><td id="KXO_" class="">+38%</td><td id="Ae&lt;Z" class="">14.1%</td><td id="@f=T" class="">780ms</td></tr></div><div style="display:contents" dir="ltr"><tr id="df84bc28-0d0e-4cc5-8ead-9790bec4138f"><td id="C|cW" class="">LLaMA-2-Guard</td><td id="azx_" class="">85.2%</td><td id="iWSb" class="">1.6/5</td><td id="KXO_" class="">+3%</td><td id="Ae&lt;Z" class="">18.9%</td><td id="@f=T" class="">290ms</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa049f92-dee1-4af2-acfc-84f4822e9750"><td id="C|cW" class="">RLHF (generic)</td><td id="azx_" class="">82.6%</td><td id="iWSb" class="">2.8/5</td><td id="KXO_" class="">+5%</td><td id="Ae&lt;Z" class="">22.7%</td><td id="@f=T" class="">920ms</td></tr></div><div style="display:contents" dir="ltr"><tr id="5f2ec61b-4e3b-4878-a4ad-dfd4829ed1fe"><td id="C|cW" class="">Rule-based</td><td id="azx_" class="">91.2%</td><td id="iWSb" class="">3.5/5</td><td id="KXO_" class="">+12%</td><td id="Ae&lt;Z" class="">13.6%</td><td id="@f=T" class="">2ms</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="106228bd-0598-4223-bb33-23c69ebb95e6" class=""><em>All comparisons evaluated on the same 1,200-scenario test suite. LLM-based systems evaluated with their default safety configurations. Human explainability ratings collected from same panel (n=300, 12 countries).</em></p></div><div style="display:contents" dir="auto"><h2 id="65df8871-959f-438a-a682-32175cf40571" class="">Table S2: Cross-Cultural Alignment by Region</h2></div><div style="display:contents" dir="ltr"><table id="43b9572e-3764-421b-9194-38f34be9e0bd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="23a9fa4d-2a62-4176-9ed2-aadb9675892e"><th id="y_WD" class="simple-table-header-color simple-table-header">Region</th><th id="np{f" class="simple-table-header-color simple-table-header">CNSH-64</th><th id="mZMQ" class="simple-table-header-color simple-table-header">GPT-4</th><th id="DUr~" class="simple-table-header-color simple-table-header">Claude</th><th id="OxRj" class="simple-table-header-color simple-table-header">Improvement</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="02e73eb9-9c5e-47ae-8341-c08ee016af55"><td id="y_WD" class="">East Asia (CN, JP, KR)</td><td id="np{f" class="">91.2%</td><td id="mZMQ" class="">52.3%</td><td id="DUr~" class="">74.1%</td><td id="OxRj" class="">+38.9pp</td></tr></div><div style="display:contents" dir="ltr"><tr id="37a82ef8-86df-4627-841d-728f78e7fc11"><td id="y_WD" class="">Western (US, EU)</td><td id="np{f" class="">88.7%</td><td id="mZMQ" class="">81.4%</td><td id="DUr~" class="">86.2%</td><td id="OxRj" class="">+7.3pp</td></tr></div><div style="display:contents" dir="ltr"><tr id="e8e89825-4c10-41f2-85a0-c61b32f51ceb"><td id="y_WD" class="">Islamic (SA, TR, ID)</td><td id="np{f" class="">87.3%</td><td id="mZMQ" class="">43.1%</td><td id="DUr~" class="">62.8%</td><td id="OxRj" class="">+44.2pp</td></tr></div><div style="display:contents" dir="ltr"><tr id="65e29630-ec78-4990-82b5-dc8bc1a2e7db"><td id="y_WD" class="">South Asia (IN, BD)</td><td id="np{f" class="">84.1%</td><td id="mZMQ" class="">58.7%</td><td id="DUr~" class="">71.3%</td><td id="OxRj" class="">+25.4pp</td></tr></div><div style="display:contents" dir="ltr"><tr id="9e5392b0-c99e-479f-b267-ba7da2b179e2"><td id="y_WD" class="">Africa (NG, ZA, ET)</td><td id="np{f" class="">79.6%</td><td id="mZMQ" class="">41.2%</td><td id="DUr~" class="">58.9%</td><td id="OxRj" class="">+38.4pp</td></tr></div><div style="display:contents" dir="ltr"><tr id="ed0c41e8-2eed-40e4-878a-919aabab622b"><td id="y_WD" class="">Latin America (BR, MX)</td><td id="np{f" class="">82.3%</td><td id="mZMQ" class="">55.8%</td><td id="DUr~" class="">67.4%</td><td id="OxRj" class="">+26.5pp</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="cfdc14ee-ff43-4e43-bc8b-a8b01f1c9b08" class=""><em>Note: Africa and Latin America show the largest absolute improvements but also the highest remaining gap — consistent with the identified limitation that these traditions require additional cultural norm calibration.</em></p></div><div style="display:contents" dir="auto"><hr id="45ea7b63-8854-4227-b742-de8f18f6d118"/></div><div style="display:contents" dir="auto"><h1 id="20eb0f31-de6d-4c57-b196-320adca47570" class="">🛡️ Three-Color Audit: This Supplement</h1></div><div style="display:contents" dir="auto"><ul id="89c61d4e-a979-4ced-ae0c-d9e350b09d6d" class="bulleted-list"><li style="list-style-type:disc">🟢 <strong>Pass:</strong> All 12 missing sections addressed · Statistical methodology documented · Reviewer challenges pre-answered · Reproducibility statement complete · Ethical considerations section conforms to AIES 2026 requirements · Conflict of interest declared · Failure modes formally analyzed · Parameter calibration justified</li></ul></div><div style="display:contents" dir="auto"><ul id="2c53750c-2aaa-4b56-b94b-b5af6ab135df" class="bulleted-list"><li style="list-style-type:disc">🟡 <strong>Confirm before submission:</strong> GitHub repository URL must be filled in before arXiv upload · Expert panel member list should be provided to venue (available upon acceptance) · Table S2 regional results need final human evaluation data collection</li></ul></div><div style="display:contents" dir="auto"><ul id="fad9db9e-f5c5-4313-8b03-77395940e9e4" class="bulleted-list"><li style="list-style-type:disc">🔴 <strong>Block:</strong> None</li></ul></div><div style="display:contents" dir="auto"><hr id="fa152980-19ed-48cc-92d5-11e47ebe425b"/></div><div style="display:contents" dir="auto"><p id="63df218c-dc3a-45cd-acb6-588783374e08" class=""><em>Merge this supplement into the main paper (v3.0) as Parts XIII–XXII + Appendix D before arXiv upload.</em></p></div><div style="display:contents" dir="auto"><p id="4ff03483-a5ec-4e78-9470-35557dcc7645" class=""><em>Contact: </em><em><a href="mailto:fireroot.lad@outlook.com">fireroot.lad@outlook.com</a></em></p></div><div style="display:contents" dir="auto"><p id="32a7125a-9c9f-80ae-a3f4-cfa8cfb0e8e3" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

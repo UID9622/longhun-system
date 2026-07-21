@@ -1,0 +1,84 @@
+{
+  "dna": "#龍芯⚡️2026-07-02-LOCAL-DATA-HUB-v2.0",
+  "generated_at": "2026-07-01T17:00:07.084341+00:00",
+  "generated_at_local": "2026-07-02T01:00:07.084473+08:00",
+  "host": "LongXinbeichengUID9622.local",
+  "record_count": 15,
+  "records": [
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Safari/History.db",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/safari_history.db",
+      "type": "safari_history"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Google/Chrome/Default/History",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/chrome_history.db",
+      "type": "chrome_history"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/d9decdzb.default-release-1/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_d9decdzb.default-release-1.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/d7bql44e.default-release-3/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_d7bql44e.default-release-3.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/s8u6352k.default-release-4/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_s8u6352k.default-release-4.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/qjDsT0cs.配置文件 1/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_qjDsT0cs.配置文件 1.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/au3albpa.default-release-2/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_au3albpa.default-release-2.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Application Support/Firefox/Profiles/3rq0e2xi.default-esr-1/places.sqlite",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/browser/firefox_places_3rq0e2xi.default-esr-1.sqlite",
+      "type": "firefox_places"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Downloads",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/downloads_manifest.jsonl",
+      "type": "downloads_manifest"
+    },
+    {
+      "source": "/Applications",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/applications_list.txt",
+      "type": "applications_list"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Applications",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/user_applications_list.txt",
+      "type": "applications_list"
+    },
+    {
+      "source": "/Users/zuimeidedeyihan/Library/Logs",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/logs/user_logs_index.jsonl",
+      "type": "user_logs_index"
+    },
+    {
+      "source": "/var/log/system.log",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/logs/system_log_meta.json",
+      "type": "system_log_meta"
+    },
+    {
+      "source": "system_profiler SPHardwareDataType",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/hardware_info.txt",
+      "type": "SPHardwareDataType"
+    },
+    {
+      "source": "system_profiler SPSoftwareDataType",
+      "dst": "/Users/zuimeidedeyihan/longhun-system/data-hub/raw/software_info.txt",
+      "type": "SPSoftwareDataType"
+    }
+  ]
+}

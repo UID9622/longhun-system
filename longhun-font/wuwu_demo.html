@@ -1,0 +1,61 @@
+<!-- #龍芯⚡️20260624010825155-AUTO-DNA-01CB448A 自动注入·分层治理自愈引擎 · 来源可查 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LonghunFont · 女娲五彩石渲染演示</title>
+  <!-- DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-DEMO-v1.0 -->
+  <link rel="stylesheet" href="css/wuwu.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #eee;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 { color: #00FFFF; }
+    .subtitle { color: #FF0000; font-weight: bold; }
+    .demo-section {
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+    .demo-label {
+      color: #FFFF00;
+      font-size: 14px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>龍魂字体 · 女娲五彩石渲染</h1>
+  <p class="subtitle">文化主权不是讨好审美，是站着给世界看。</p>
+
+  <div class="demo-section">
+    <div class="demo-label">自动渲染：给元素加 data-wuwu="true"</div>
+    <div data-wuwu="true">龍魂字体，承载中华文脉，通心译世界。</div>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-label">手动调用：Wuwu.render(element)</div>
+    <div id="manual">女娲补天，五色石光耀九州。</div>
+    <button onclick="Wuwu.render(document.getElementById('manual'))">点我渲染</button>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-label">中英文混排（默认全部字符上色）</div>
+    <div data-wuwu="true">LonghunFont 主权字体 · 站着给，不求认可。</div>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-label">色卡：红 · 黄 · 青 · 白 · 黑</div>
+    <div data-wuwu="true">红黄青白黑红黄青白黑红黄青白黑</div>
+  </div>
+
+  <script src="js/wuwu.js"></script>
+</body>
+</html>

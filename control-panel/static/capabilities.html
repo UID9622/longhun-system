@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂多模态能力全景看板</title>
+<style>
+:root {
+  --bg: #0a0e14;
+  --card-bg: #141b22;
+  --border: #1e2836;
+  --text: #c9d1d9;
+  --muted: #6e7681;
+  --online: #3fb950;
+  --offline: #f85149;
+  --degraded: #d2991d;
+  --accent: #58a6ff;
+  --gold: #d4a853;
+  --red: #f85149;
+  --grn: #3fb950;
+  --cyn: #39c5cf;
+  --pur: #a371f7;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  min-height: 100vh;
+}
+/* 顶部导航 */
+.topbar {
+  background: linear-gradient(135deg, #1a1f2e 0%, #141b22 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top:0; z-index:100;
+}
+.topbar .logo { font-size: 20px; font-weight: 700; }
+.topbar .logo span { color: var(--gold); }
+.topbar .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar .nav a {
+  color: var(--muted); text-decoration: none;
+  padding: 6px 14px; border-radius: 6px; font-size: 13px;
+  transition: all .2s; border: 1px solid transparent;
+}
+.topbar .nav a:hover, .topbar .nav a.active {
+  color: var(--text); background: var(--card-bg);
+  border-color: var(--border);
+}
+.topbar .nav a.active { border-color: var(--gold); color: var(--gold); }
+.topbar .live-dot { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); }
+.topbar .live-dot .dot { width:8px; height:8px; border-radius:50%; background:var(--online); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* 布局 */
+.layout { display: flex; min-height: calc(100vh - 57px); }
+.sidebar {
+  width: 240px; background: #0d1117;
+  border-right: 1px solid var(--border);
+  padding: 16px 0; flex-shrink: 0;
+}
+.sidebar .section-label {
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 12px 20px 6px;
+}
+.sidebar .menu-item {
+  display: block; padding: 10px 20px; font-size: 14px;
+  color: var(--muted); text-decoration: none;
+  border-left: 2px solid transparent; transition: all .2s;
+}
+.sidebar .menu-item:hover, .sidebar .menu-item.active {
+  color: var(--text); background: rgba(255,255,255,.03);
+  border-left-color: var(--gold);
+}
+.sidebar .menu-item .badge {
+  float: right; font-size: 11px; padding: 1px 8px;
+  border-radius: 10px; background: rgba(63,185,80,.15); color: var(--online);
+}
+.sidebar .menu-item .badge.warn { background: rgba(210,153,29,.15); color: var(--degraded); }
+.sidebar .menu-item .badge.off { background: rgba(248,81,73,.15); color: var(--offline); }
+
+.main { flex:1; padding: 24px; overflow-y: auto; }
+
+/* 能力分类标题 */
+.cat-title {
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 2px;
+  margin: 28px 0 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.cat-title .icon { font-size: 18px; }
+.cat-title:first-child { margin-top: 0; }
+
+/* 能力卡片网格 */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+.cap-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px;
+  transition: all .3s; position: relative; overflow: hidden;
+}
+.cap-card:hover { border-color: #30363d; transform: translateY(-1px); }
+.cap-card .card-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 10px;
+}
+.cap-card .card-icon { font-size: 28px; }
+.cap-card .card-status {
+  font-size: 11px; padding: 2px 10px; border-radius: 12px;
+  font-weight: 600; text-transform: uppercase;
+}
+.status-live { background: rgba(63,185,80,.15); color: var(--online); }
+.status-ready { background: rgba(210,153,29,.15); color: var(--degraded); }
+.status-plan { background: rgba(248,81,73,.15); color: var(--offline); }
+.cap-card .card-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.cap-card .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.cap-card .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.cap-card .tag {
+  font-size: 11px; padding: 2px 8px; border-radius: 4px;
+  background: rgba(88,166,255,.1); color: var(--accent);
+  border: 1px solid rgba(88,166,255,.2);
+}
+.cap-card .tag.gold { color: var(--gold); border-color: rgba(212,168,83,.2); background: rgba(212,168,83,.1); }
+.cap-card .tag.red { color: var(--red); border-color: rgba(248,81,73,.2); background: rgba(248,81,73,.1); }
+.cap-card .card-meta { margin-top: 12px; font-size: 11px; color: var(--muted); display: flex; gap: 16px; }
+.cap-card .card-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* 统计条 */
+.stats-bar {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px; margin-bottom: 24px;
+}
+.stat-mini {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; text-align: center;
+}
+.stat-mini .num { font-size: 28px; font-weight: 700; }
+.stat-mini .lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.stat-mini.live .num { color: var(--online); }
+.stat-mini.ready .num { color: var(--degraded); }
+.stat-mini.plan .num { color: var(--offline); }
+.stat-mini.total .num { color: var(--accent); }
+
+/* 搜索 */
+.search-bar {
+  margin-bottom: 20px;
+}
+.search-bar input {
+  width: 100%; padding: 10px 16px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--card-bg);
+  color: var(--text); font-size: 14px; outline: none;
+  transition: border-color .2s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar input::placeholder { color: var(--muted); }
+
+/* 图例 */
+.legend {
+  display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+.legend-dot.live { background: var(--online); }
+.legend-dot.ready { background: var(--degraded); }
+.legend-dot.plan { background: var(--offline); }
+
+/* 隐藏卡片 */
+.cap-card.hidden { display: none; }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .topbar .nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">🐉 <span>龍魂</span> · 多模态能力全景</div>
+  <div class="nav">
+    <a href="/static/index.html">操作台</a>
+    <a href="/connectivity-dashboard">连通性</a>
+    <a href="/capabilities-dashboard" class="active">能力全景</a>
+    <a href="/ecosystem-dashboard">生态图</a>
+  </div>
+  <div class="live-dot"><span class="dot"></span> 实时</div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="section-label">能力分类</div>
+    <a href="#" class="menu-item active" data-cat="all">📋 全部能力 <span class="badge" id="totalBadge">--</span></a>
+    <a href="#" class="menu-item" data-cat="visual">👁️ 肉眼可视化</a>
+    <a href="#" class="menu-item" data-cat="voice">🎤 声音识别</a>
+    <a href="#" class="menu-item" data-cat="image">🖼️ 图片识别</a>
+    <a href="#" class="menu-item" data-cat="multimodal">🧠 多模态融合</a>
+    <a href="#" class="menu-item" data-cat="ai-model">🤖 AI模型</a>
+    <a href="#" class="menu-item" data-cat="dev-tools">🔧 开发工具</a>
+    <a href="#" class="menu-item" data-cat="security">🛡️ 安全审计</a>
+    <a href="#" class="menu-item" data-cat="integration">🔗 集成对接</a>
+  </aside>
+
+  <main class="main">
+    <!-- 统计条 -->
+    <div class="stats-bar">
+      <div class="stat-mini total"><div class="num" id="countTotal">--</div><div class="lbl">总能力</div></div>
+      <div class="stat-mini live"><div class="num" id="countLive">--</div><div class="lbl">已落地</div></div>
+      <div class="stat-mini ready"><div class="num" id="countReady">--</div><div class="lbl">部分就绪</div></div>
+      <div class="stat-mini plan"><div class="num" id="countPlan">--</div><div class="lbl">规划中</div></div>
+    </div>
+
+    <!-- 图例 -->
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot live"></span> 已落地（有可执行代码）</div>
+      <div class="legend-item"><span class="legend-dot ready"></span> 部分就绪（有框架待完善）</div>
+      <div class="legend-item"><span class="legend-dot plan"></span> 规划中（待开发）</div>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 搜索能力...（如：语音、OCR、可视化、模型）" oninput="filterCards()">
+    </div>
+
+    <!-- 能力卡片区域 -->
+    <div id="capabilities"></div>
+  </main>
+</div>
+
+<script>
+// 多模态能力全景数据
+const CAPABILITIES = [
+  // === 肉眼可视化 ===
+  { cat:"visual", icon:"🌀", name:"三才流場 v8.1", status:"live", desc:"Canvas 2D 粒子流场实时动画仪表盘。天·地·人三才动态可视化，含HUD面板、时间回放、速度调节。", tags:["Canvas 2D","粒子系统","实时动画","HUD"], file:"web/p0-controls/sancai-flow-v8.1.html", port:8777 },
+  { cat:"visual", icon:"🕸️", name:"生态关系网络图", status:"live", desc:"vis-network 生态系统节点关系图。展示模块依赖、数据流向、在线/离线状态，可拖拽交互。", tags:["vis-network","拓扑图","交互式"], file:"control-panel/static/ecosystem-dashboard.html", port:9622 },
+  { cat:"visual", icon:"📊", name:"报告视觉引擎 v5.2", status:"live", desc:"深空暗色底+金龙标识+扫描线+6色标签。可复用CSS视觉系统，供所有报告页使用。", tags:["CSS","报告渲染","视觉模板"], file:"web/reports/assets/report-visual-v5.2.css", port:8777 },
+  { cat:"visual", icon:"🧊", name:"Three.js 3D渲染", status:"ready", desc:"Three.js 3D库已集成。可用于3D数据可视化、DNA分子展示、五行立体模型。", tags:["Three.js","3D","WebGL"], file:"L5_服务层/services/dashboard/web/本地库/three/three.min.js" },
+  { cat:"visual", icon:"🔥", name:"五行可视化组件", status:"ready", desc:"React/TypeScript 五行图表可视化组件。金木水火土五色映射、数字根雷达图。", tags:["React","TypeScript","五行"], file:"wuxing-visual/src/components/WuxingVisual.tsx" },
+  { cat:"visual", icon:"📈", name:"matplotlib 图表引擎", status:"live", desc:"Python matplotlib 生成静态图表。支持报告自动生成、趋势图、对比图。", tags:["matplotlib","Python","静态图表"], file:"rules-engine-v2.5/report_generator_enhanced.py" },
+  { cat:"visual", icon:"🌐", name:"龍魂智能中枢 v4.0", status:"live", desc:"全套一体化智能中枢页面。header流光动画、DNA追溯、三色审计可视化。", tags:["HTML","流光动画","DNA可视化"], file:"web/p0-controls/longhun_hub.html", port:8777 },
+  { cat:"visual", icon:"📋", name:"统一操作台 v2.0", status:"live", desc:"主控制面板。7个面板切换、人格矩阵卡片、引擎通道表格、实时状态指示器。", tags:["FastAPI","多面板","状态指示"], file:"control-panel/static/index.html", port:9622 },
+  { cat:"visual", icon:"🖥️", name:"服务器连通性看板", status:"live", desc:"真实SSH/HTTP检测看板。10秒自动刷新、延迟显示、离线变红、分组排列。", tags:["实时检测","SSH","HTTP"], file:"control-panel/static/connectivity.html", port:9622 },
+
+  // === 声音识别 ===
+  { cat:"voice", icon:"🎙️", name:"Whisper 语音识别 (STT)", status:"live", desc:"OpenAI Whisper 本地语音转文字。支持99种语言，含音频预处理（降噪/归一化）和后处理。", tags:["Whisper","STT","99语言","本地离线"], file:"cnsh_terminal_v5.0/modules/voice/龍魂语音识别器.py" },
+  { cat:"voice", icon:"🔊", name:"Edge-TTS 语音合成", status:"live", desc:"微软 Edge TTS 文字转语音。支持中英日多语言，pyttsx3 离线降级备用。", tags:["TTS","edge-tts","多语言","离线降级"], file:"cnsh_terminal_v5.0/modules/voice/龍魂语音合成器.py" },
+  { cat:"voice", icon:"🗣️", name:"Fish Audio 声纹克隆", status:"ready", desc:"Fish Audio API 语音克隆桥接。用UID9622参考音频克隆声音，供微信公众号播报。", tags:["声纹克隆","Fish Audio","公众号"], file:"integrations/fish_audio/fish_audio_bridge.py" },
+  { cat:"voice", icon:"🎭", name:"多人格音色路由", status:"live", desc:"IPA人格系统映射到TTS音色库。P05/P72/P03/P00/宝宝/云间等不同人格对应不同音色。", tags:["人格路由","音色库","IPA"], file:"L1_内核层/longhun_voice_persona_router.py" },
+  { cat:"voice", icon:"🎵", name:"SDK 语音模块", status:"live", desc:"VoiceResult/VoiceProfile/VoiceRegisterResult 标准化语音数据类。统一语音接口。", tags:["SDK","数据类","标准化"], file:"gitee-export/sdk/python/longhun/voice.py" },
+  { cat:"voice", icon:"📻", name:"微信公众号语音服务", status:"ready", desc:"微信公众号集成语音播报。文章转语音、自动推送语音消息。", tags:["微信公众号","语音播报"], file:"integrations/wechat_public_account/services/voice_service.py" },
+  { cat:"voice", icon:"🎬", name:"沉浸式AI播音员", status:"ready", desc:"HTML5 沉浸式AI播音员页面。视频/音频播放、字幕同步、多语言切换。", tags:["HTML5","播音员","字幕"], file:"L5_服务层/services/dashboard/web/p0-controls/龍魂知识矩阵-沉浸式AI播音员.html" },
+  { cat:"voice", icon:"🔐", name:"语音DNA演示", status:"ready", desc:"语音DNA提取与验证演示。声纹特征→DNA哈希→登记册入库。", tags:["DNA","声纹","演示"], file:"gitee-export/examples/voice_dna_demo.py" },
+
+  // === 图片识别 ===
+  { cat:"image", icon:"🖼️", name:"图像识别核心", status:"live", desc:"PIL/OpenCV/pytesseract 图像识别引擎。含OCR文字提取、文化符号（卦象/五行）识别。", tags:["PIL","OpenCV","pytesseract","OCR"], file:"cnsh_terminal_v5.0/modules/vision/龍魂图像识别器.py" },
+  { cat:"image", icon:"🏷️", name:"SDK 视觉模块", status:"live", desc:"VisionResult/SymbolResult/Scene 标准化数据类。文化符号、卦象、五行元素识别结果。", tags:["SDK","视觉","卦象","五行"], file:"gitee-export/sdk/python/longhun/vision.py" },
+  { cat:"image", icon:"📸", name:"浏览器截图引擎", status:"live", desc:"Playwright 浏览器守护进程。自动截图、页面导航、JS执行、HTTP状态码捕获。", tags:["Playwright","截图","浏览器"], file:"bin/lh_browser.py", port:19862 },
+  { cat:"image", icon:"📄", name:"CNSH 通心译 OCR", status:"ready", desc:"通心译翻译引擎集成OCR。图片中文字提取→翻译→CNSH语义分析。", tags:["OCR","翻译","CNSH"], file:"cnsh-editor/cnsh_translator_engine_v2.0.py" },
+  { cat:"image", icon:"🧬", name:"视觉分析示例", status:"live", desc:"图片文化符号分析示例。上传图片→卦象识别→五行元素分析→文化语义输出。", tags:["示例","文化符号","分析"], file:"gitee-export/examples/vision_analyze.py" },
+  { cat:"image", icon:"🖌️", name:"微信公众号图片服务", status:"ready", desc:"微信公众号图片处理。自动压缩、格式转换、水印添加、CDN分发。", tags:["微信公众号","图片处理"], file:"integrations/wechat_public_account/services/image_service.py" },
+  { cat:"image", icon:"🎴", name:"主权注册卡片生成", status:"ready", desc:"DNA登记册配套卡片生成。含二维码、Merkle根哈希、资产列表的图片卡片。", tags:["卡片生成","DNA","二维码"], file:"sovereign-registry/card.py" },
+
+  // === 多模态融合 ===
+  { cat:"multimodal", icon:"🧠", name:"多模态感知中枢", status:"live", desc:"统一调度图像识别+语音识别+语音合成三大模块。智能路由，视频自动拆分为图像+语音处理。", tags:["感知中枢","多模态","智能路由"], file:"cnsh_terminal_v5.0/modules/感知中枢/龍魂多模态感知中枢.py" },
+  { cat:"multimodal", icon:"🎥", name:"视频脚本生成器", status:"ready", desc:"AI自动生成视频脚本。输入主题→生成分镜→配音稿→时间轴。", tags:["视频","脚本","AI生成"], file:"voice-twin/video_script_generator.py" },
+  { cat:"multimodal", icon:"✂️", name:"视频重混器", status:"ready", desc:"视频自动剪辑重混。片段提取、转场添加、字幕叠加、音频替换。", tags:["视频","剪辑","自动化"], file:"voice-twin/video_remixer.py" },
+  { cat:"multimodal", icon:"📱", name:"微信视频导出器", status:"ready", desc:"视频自动适配微信格式。压缩、分辨率调整、封面生成、一键导出。", tags:["微信","视频","导出"], file:"voice-twin/wechat_video_exporter.py" },
+  { cat:"multimodal", icon:"🌉", name:"声影桥 API", status:"ready", desc:"声音/影像桥接服务。语音↔文字↔图片↔视频 多格式互转API。", tags:["API","桥接","格式转换"], file:"L5_服务层/services/dashboard/web/api/声影桥.py" },
+  { cat:"multimodal", icon:"🧩", name:"统一仪表盘 v9", status:"ready", desc:"龍魂统一仪表盘 v9。集成多模态监控、实时数据流、模块状态总览。", tags:["仪表盘","统一","v9"], file:"L5_服务层/services/dashboard/web/longhun-unified-v9.html" },
+
+  // === AI模型 ===
+  { cat:"ai-model", icon:"🐉", name:"龍魂唯一模型 longhun", status:"live", desc:"Qwen2.5-1.5B + LoRA微调。986MB，23/23全维度测试通过，本地+远端双部署。", tags:["Qwen2.5","LoRA","1.5B","本地部署"], file:"models/longhun/Modelfile" },
+  { cat:"ai-model", icon:"🦙", name:"Ollama 本地模型服务", status:"live", desc:"22个模型本地运行。含qwen2.5:7b/deepseek-r1:7b等，端口11434。", tags:["Ollama","22模型","本地"], port:11434 },
+  { cat:"ai-model", icon:"🧪", name:"MLX 模型服务", status:"live", desc:"Apple Silicon MLX 模型推理。Metal加速，端口8081。", tags:["MLX","Metal","Apple Silicon"], port:8081 },
+  { cat:"ai-model", icon:"🤖", name:"Kimi API 桥接", status:"live", desc:"Moonshot Kimi API 中继桥接。百万字上下文，端口10086。", tags:["Kimi","API","长上下文"], port:10086 },
+  { cat:"ai-model", icon:"🧮", name:"DeepSeek API 接入", status:"live", desc:"DeepSeek API 集成。逻辑推理+代码生成，外部API兜底。", tags:["DeepSeek","API","推理"], file:"config/CREDENTIAL_REGISTRY.json" },
+  { cat:"ai-model", icon:"🏭", name:"LoRA 训练管线", status:"live", desc:"MLX LoRA 微调完整管线。321样本、rank=8、5 epochs、720 iters，完美收敛。", tags:["LoRA","训练","MLX","微调"], file:"bin/lh_lora_trainer.py" },
+
+  // === 开发工具 ===
+  { cat:"dev-tools", icon:"⚡", name:"lh 统一控制台", status:"live", desc:"一个 lh 命令进入交互式终端。9大功能分类、103+命令、人格仪表盘。", tags:["CLI","终端","统一入口"], file:"bin/lh.py" },
+  { cat:"dev-tools", icon:"🌐", name:"FastAPI 控制面板", status:"live", desc:"FastAPI 后端服务。端口9622，含认证/JWT/操作台/连通性/引擎状态API。", tags:["FastAPI","API","JWT"], port:9622 },
+  { cat:"dev-tools", icon:"🚪", name:"Web 门户服务器", status:"live", desc:"统一Web门户。挂载portal/web/reports目录，端口8777。", tags:["Web","门户","静态服务"], port:8777 },
+  { cat:"dev-tools", icon:"🐳", name:"Docker 容器化部署", status:"live", desc:"docker-compose.yml 完整编排。api + web + nginx + package-watcher。", tags:["Docker","容器化","编排"], file:"docker-compose.yml" },
+  { cat:"dev-tools", icon:"🔌", name:"MCP Server", status:"live", desc:"7个MCP工具：health/dna/audit/semantic/wuxing/kb/api。供Claude Desktop/CodeBuddy调用。", tags:["MCP","工具","集成"], file:"integrations/mcp/longhun_mcp_server.py" },
+  { cat:"dev-tools", icon:"📦", name:"CNSH 护盾代理", status:"live", desc:"mitmproxy 护盾代理 v0.4.1。E2EE加密+DNA追溯+多厂家支持+心种子驱动。", tags:["mitmproxy","加密","代理"], file:"cnsh-core/cnsh_proxy_addon.py" },
+
+  // === 安全审计 ===
+  { cat:"security", icon:"🛡️", name:"三色/五色审计引擎", status:"live", desc:"五色金审计v3.0。含F18主权SI、α三义锁、六步最小链、VOID色。", tags:["审计","五色","三色","熔断"], file:"systems/v3/" },
+  { cat:"security", icon:"🧹", name:"防篡改扫描器", status:"live", desc:"外部AI内容三色熔断。红色一票否决、黄色追问白话、绿色通过。", tags:["防篡改","扫描","熔断"], file:"bin/lh_anti_tamper.py" },
+  { cat:"security", icon:"⚔️", name:"红队对抗引擎", status:"live", desc:"7种对手角色×7种攻击维度=49种攻击模拟。竞争/恶意审计/黑客/法律/工程/道德/资源。", tags:["红队","对抗","安全测试"], file:"bin/lh_red_team_engine.py" },
+  { cat:"security", icon:"🔒", name:"数据黑洞五层熔断", status:"live", desc:"L0前端沙箱→L1传输黑洞→L2内存瞬态→L3存储拒绝→L4日志湮灭。10项敏感字段。", tags:["数据黑洞","熔断","隐私"], file:"bin/lh_data_meltdown.py" },
+  { cat:"security", icon:"🧮", name:"11步执行链", status:"live", desc:"DNA闸门→L0闸门→Tier准入→意图解析→别名规范→路由→执行→三色→审计→快照→回执。", tags:["执行链","11步","DNA"], file:"bin/lh_11step_chain_engine.py" },
+  { cat:"security", icon:"🛡️", name:"算力憲兵隊 v2.1", status:"live", desc:"四道防线+七级熔断阶梯+五维监控+哈希链。守护算力纯洁性。", tags:["算力","熔断","守护"], file:"bin/lh_guardian_v2.py" },
+
+  // === 集成对接 ===
+  { cat:"integration", icon:"📋", name:"Notion API 同步", status:"live", desc:"Notion 数据库双向同步。页面导入/导出、数据库查询、块操作。", tags:["Notion","API","同步"], file:"brain_notion_sync.py" },
+  { cat:"integration", icon:"🐙", name:"GitHub 集成", status:"live", desc:"GitHub API 集成。仓库操作、Issue管理、PR审查、代码搜索。", tags:["GitHub","API","Git"], file:".git/config" },
+  { cat:"integration", icon:"🏮", name:"Gitee 国产镜像", status:"live", desc:"Gitee API 集成。6个仓库已同步搬运，国内访问加速。", tags:["Gitee","国产","镜像"], file:"gitee-export/" },
+  { cat:"integration", icon:"📨", name:"飞书通道", status:"ready", desc:"飞书消息通道。端口9637，支持消息收发、卡片消息、审批流。", tags:["飞书","消息","通道"], port:9637 },
+  { cat:"integration", icon:"💬", name:"微信通道", status:"ready", desc:"微信消息通道。端口9638，支持公众号消息、模板消息。", tags:["微信","消息","通道"], port:9638 },
+  { cat:"integration", icon:"🌍", name:"API网关 (CORS)", status:"live", desc:"API统一网关。端口8443，CORS全开，AI中继路由，设备入口信息。", tags:["网关","CORS","统一入口"], port:8443 },
+  { cat:"integration", icon:"🤖", name:"AI中继桥接", status:"live", desc:"本地AI中继服务。端口8788，0.0.0.0监听，手机可直连。", tags:["AI","中继","桥接"], port:8788 },
+  { cat:"integration", icon:"📡", name:"华为云服务器", status:"live", desc:"119.13.90.27 新加坡。2vCPU/4GB/100GB，Ollama远端推理。", tags:["华为云","服务器","远端"], host:"119.13.90.27" },
+];
+
+// 渲染
+function renderAll() {
+  const container = document.getElementById('capabilities');
+  const cats = {};
+  CAPABILITIES.forEach(c => {
+    if (!cats[c.cat]) cats[c.cat] = [];
+    cats[c.cat].push(c);
+  });
+
+  const catNames = {
+    visual: '👁️ 肉眼可视化',
+    voice: '🎤 声音识别',
+    image: '🖼️ 图片识别',
+    multimodal: '🧠 多模态融合',
+    'ai-model': '🤖 AI模型',
+    'dev-tools': '🔧 开发工具',
+    security: '🛡️ 安全审计',
+    integration: '🔗 集成对接',
+  };
+
+  const catOrder = ['visual','voice','image','multimodal','ai-model','dev-tools','security','integration'];
+
+  let html = '';
+  for (const cat of catOrder) {
+    const items = cats[cat] || [];
+    if (items.length === 0) continue;
+    html += `<div class="cat-title"><span class="icon">${catNames[cat].slice(0,2)}</span> ${catNames[cat]} <span style="font-weight:400;font-size:12px;">(${items.length}项)</span></div>`;
+    html += `<div class="cap-grid">`;
+    items.forEach(item => {
+      const statusCls = item.status === 'live' ? 'status-live' : item.status === 'ready' ? 'status-ready' : 'status-plan';
+      const statusLabel = item.status === 'live' ? '已落地' : item.status === 'ready' ? '部分就绪' : '规划中';
+      const fileInfo = item.file ? `<span>📁 ${item.file.split('/').pop()}</span>` : '';
+      const portInfo = item.port ? `<span>🔌 :${item.port}</span>` : '';
+      const hostInfo = item.host ? `<span>🌐 ${item.host}</span>` : '';
+      html += `
+      <div class="cap-card" data-cat="${item.cat}" data-search="${item.name} ${item.desc} ${item.tags.join(' ')}">
+        <div class="card-header">
+          <div class="card-icon">${item.icon}</div>
+          <div class="card-status ${statusCls}">${statusLabel}</div>
+        </div>
+        <div class="card-name">${item.name}</div>
+        <div class="card-desc">${item.desc}</div>
+        <div class="card-tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <div class="card-meta">${fileInfo}${portInfo}${hostInfo}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  container.innerHTML = html;
+  updateStats();
+}
+
+function updateStats() {
+  const live = CAPABILITIES.filter(c => c.status === 'live').length;
+  const ready = CAPABILITIES.filter(c => c.status === 'ready').length;
+  const plan = CAPABILITIES.filter(c => c.status === 'plan').length;
+  document.getElementById('countTotal').textContent = CAPABILITIES.length;
+  document.getElementById('countLive').textContent = live;
+  document.getElementById('countReady').textContent = ready;
+  document.getElementById('countPlan').textContent = plan;
+  document.getElementById('totalBadge').textContent = CAPABILITIES.length;
+}
+
+function filterCards() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.cap-card').forEach(card => {
+    const searchText = card.getAttribute('data-search').toLowerCase();
+    card.classList.toggle('hidden', query && !searchText.includes(query));
+  });
+}
+
+// 侧边栏分类过滤
+document.querySelectorAll('.sidebar .menu-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.sidebar .menu-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+    const cat = this.getAttribute('data-cat');
+
+    document.querySelectorAll('.cap-card').forEach(card => {
+      if (cat === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.toggle('hidden', card.getAttribute('data-cat') !== cat);
+      }
+    });
+
+    // 隐藏空分类标题
+    document.querySelectorAll('.cat-title').forEach(title => {
+      const grid = title.nextElementSibling;
+      if (grid && grid.classList.contains('cap-grid')) {
+        const visible = grid.querySelectorAll('.cap-card:not(.hidden)').length;
+        title.style.display = visible > 0 ? '' : 'none';
+        grid.style.display = visible > 0 ? '' : 'none';
+      }
+    });
+
+    document.getElementById('searchInput').value = '';
+  });
+});
+
+// 启动
+renderAll();
+</script>
+</body>
+</html>

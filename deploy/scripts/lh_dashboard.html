@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·运维实时大屏</title>
+<style>
+/* ====== RESET & BASE ====== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#D4A843;--gold-light:#E8C76A;--gold-dark:#9A7030;
+  --bg:#0D0D0F;--bg-card:#141418;--bg-card-hover:#1A1A20;
+  --text:#C8C8CC;--text-dim:#707078;--text-bright:#E8E8F0;
+  --green:#2ECC71;--yellow:#F39C12;--red:#E74C3C;--blue:#3498DB;
+  --cyan:#00D4AA;--purple:#9B59B6;--orange:#E67E22;
+  --border:rgba(212,168,67,0.15);--glow:0 0 20px rgba(212,168,67,0.15);
+  --font-mono:'SF Mono','Fira Code','Cascadia Code',monospace;
+  --font-cn:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  font-family:var(--font-cn);background:var(--bg);color:var(--text);
+  display:flex;flex-direction:column;user-select:none;
+  -webkit-font-smoothing:antialiased;
+}
+/* ====== CANVAS BACKGROUND ====== */
+#starfield{
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;
+}
+/* ====== HEADER ====== */
+.header{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;background:linear-gradient(180deg,rgba(20,20,24,0.95),rgba(13,13,15,0.8));
+  border-bottom:1px solid var(--border);
+}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  box-shadow:0 0 16px rgba(212,168,67,0.4);
+  animation: logoPulse 2s ease-in-out infinite;
+}
+@keyframes logoPulse{
+  0%,100%{box-shadow:0 0 16px rgba(212,168,67,0.4)}
+  50%{box-shadow:0 0 32px rgba(212,168,67,0.7)}
+}
+.logo-text{font-size:22px;font-weight:700;color:var(--gold-light);letter-spacing:2px}
+.logo-sub{font-size:11px;color:var(--text-dim);letter-spacing:1px}
+.header-center{text-align:center}
+.header-dna{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);opacity:0.7}
+.header-right{display:flex;align-items:center;gap:20px;font-size:13px}
+.clock{font-family:var(--font-mono);font-size:28px;color:var(--gold);font-weight:700;
+  letter-spacing:1px;text-shadow:0 0 10px rgba(212,168,67,0.3)}
+.clock-date{font-size:11px;color:var(--text-dim);text-align:right}
+.status-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;
+}
+.status-dot.green{background:var(--green);box-shadow:0 0 8px var(--green);animation: dotPulse 1.5s infinite}
+.status-dot.yellow{background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation: dotPulse 2s infinite}
+.status-dot.red{background:var(--red);box-shadow:0 0 8px var(--red);animation: dotPulse 1s infinite}
+@keyframes dotPulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.4}
+}
+/* ====== MAIN LAYOUT ====== */
+.main{
+  position:relative;z-index:2;flex:1;display:flex;padding:16px;gap:16px;
+  overflow:hidden;
+}
+.panel{
+  background:var(--bg-card);border-radius:12px;border:1px solid var(--border);
+  padding:16px;overflow-y:auto;
+}
+.panel-title{
+  font-size:13px;font-weight:700;color:var(--gold-light);margin-bottom:12px;
+  padding-bottom:8px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;letter-spacing:1px;
+}
+.panel-title .icon{font-size:16px}
+/* ====== LEFT: MAC NODE ====== */
+.node-panel{flex:0 0 340px;display:flex;flex-direction:column;gap:12px}
+.node-card{
+  background:var(--bg-card);border-radius:12px;border:1px solid var(--border);
+  padding:14px;transition:all 0.3s;position:relative;overflow:hidden;
+}
+.node-card::before{
+  content:'';position:absolute;left:0;top:0;width:3px;height:100%;
+  background:linear-gradient(180deg,var(--gold),transparent);
+}
+.node-card:hover{border-color:var(--gold);box-shadow:var(--glow)}
+.node-name{font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:8px}
+.node-info{font-size:11px;color:var(--text-dim);margin-bottom:2px;font-family:var(--font-mono)}
+.metric-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);
+  font-size:12px;
+}
+.metric-label{color:var(--text-dim)}
+.metric-value{font-family:var(--font-mono);font-weight:600}
+.metric-value.ok{color:var(--green)}
+.metric-value.warn{color:var(--yellow)}
+.metric-value.bad{color:var(--red)}
+/* cpu bar */
+.cpu-bar{height:6px;background:rgba(255,255,255,0.05);border-radius:3px;margin-top:6px;overflow:hidden}
+.cpu-fill{
+  height:100%;border-radius:3px;transition:width 1s ease;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  animation: cpuGlow 1.5s ease-in-out infinite;
+}
+@keyframes cpuGlow{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.3)}
+}
+/* service grid */
+.service-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.service-tag{
+  padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;
+  border:1px solid;transition:all 0.3s;
+}
+.service-tag.up{border-color:var(--green);color:var(--green);background:rgba(46,204,113,0.08)}
+.service-tag.down{border-color:var(--red);color:var(--red);background:rgba(231,76,60,0.08);animation:blink 0.8s infinite}
+@keyframes blink{50%{opacity:0.3}}
+/* ====== CENTER: TOPOLOGY ====== */
+.center-panel{
+  flex:1;display:flex;flex-direction:column;gap:12px;min-width:0;
+}
+.topo-section{
+  background:var(--bg-card);border-radius:12px;border:1px solid var(--border);
+  padding:16px;position:relative;
+}
+.topo-section .panel-title{font-size:14px}
+/* topology canvas */
+#topoCanvas{width:100%;height:220px;display:block}
+/* connection status animation */
+.conn-row{
+  display:flex;align-items:center;gap:12px;padding:8px 12px;
+  background:rgba(0,0,0,0.2);border-radius:8px;margin-bottom:6px;
+  font-size:12px;font-family:var(--font-mono);
+}
+.conn-arrow{color:var(--gold);font-size:18px;animation: arrowFlow 1s ease-in-out infinite}
+@keyframes arrowFlow{
+  0%,100%{opacity:0.3;transform:translateX(0)}
+  50%{opacity:1;transform:translateX(4px)}
+}
+.conn-badge{
+  padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;
+}
+.conn-badge.active{background:rgba(46,204,113,0.15);color:var(--green)}
+.conn-badge.blocked{background:rgba(231,76,60,0.15);color:var(--red);animation:blink 0.8s infinite}
+/* ====== RIGHT: KP NODE ====== */
+.kp-panel{flex:0 0 340px;display:flex;flex-direction:column;gap:12px}
+/* ====== BOTTOM LOG ====== */
+.log-section{flex:0 0 140px;margin-top:8px}
+.log-stream{
+  height:80px;overflow-y:auto;font-family:var(--font-mono);font-size:10px;
+  color:var(--text-dim);padding:8px;background:rgba(0,0,0,0.3);border-radius:8px;
+  border:1px solid var(--border);
+}
+.log-line{padding:1px 0;white-space:nowrap;opacity:0;animation:logFadeIn 0.4s forwards}
+@keyframes logFadeIn{to{opacity:1}}
+.log-line .ts{color:var(--gold-dark);margin-right:8px}
+.log-line .evt{color:var(--cyan)}
+.log-line .warn{color:var(--yellow)}
+.log-line .err{color:var(--red)}
+/* ====== PULSE RING ====== */
+.pulse-ring{
+  position:absolute;width:12px;height:12px;border-radius:50%;
+  border:2px solid var(--gold);animation:ringPulse 2s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes ringPulse{
+  0%{transform:scale(1);opacity:0.8}
+  100%{transform:scale(3);opacity:0}
+}
+/* ====== SCROLLBAR ====== */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-dark)}
+/* ====== RESPONSIVE ====== */
+@media(max-width:1100px){
+  .main{flex-direction:column}
+  .node-panel,.kp-panel{flex:0 0 auto;flex-direction:row;flex-wrap:wrap;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- 星空背景 -->
+<canvas id="starfield"></canvas>
+
+<!-- 头部 -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo-icon">🐉</div>
+    <div>
+      <div class="logo-text">龍魂运维大屏</div>
+      <div class="logo-sub">LONGHUN OPS DASHBOARD v2.0</div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="header-dna">#龍芯⚡️丙午·辛未·乙酉·小畜-DASHBOARD-v2.0</div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:2px">UID9622 · 诸葛鑫 · Mac↔鲲鹏·双向互通</div>
+  </div>
+  <div class="header-right">
+    <div><span class="status-dot green"></span>系统运行中</div>
+    <div><span id="clock" class="clock">--:--:--</span></div>
+  </div>
+</div>
+
+<!-- 主体 -->
+<div class="main">
+  <!-- 左: Mac节点 -->
+  <div class="node-panel">
+    <div class="node-card" id="mac-card">
+      <div class="node-name">🍎 Mac · 龍魂主机</div>
+      <div class="node-info" id="mac-uptime">--</div>
+      <div class="metric-row">
+        <span class="metric-label">CPU负载</span>
+        <span class="metric-value" id="mac-load">--</span>
+      </div>
+      <div class="cpu-bar"><div class="cpu-fill" id="mac-cpu-bar" style="width:0%"></div></div>
+      <div class="metric-row">
+        <span class="metric-label">磁盘</span>
+        <span class="metric-value" id="mac-disk">--</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">可用空间</span>
+        <span class="metric-value ok" id="mac-disk-avail">--</span>
+      </div>
+      <div class="service-grid" id="mac-services"></div>
+    </div>
+  </div>
+
+  <!-- 中: 拓扑 -->
+  <div class="center-panel">
+    <div class="topo-section" style="flex:1">
+      <div class="panel-title"><span class="icon">🌐</span>网络拓扑 · 实时链路</div>
+      <canvas id="topoCanvas"></canvas>
+    </div>
+    <!-- 连接状态 -->
+    <div class="topo-section">
+      <div class="panel-title"><span class="icon">🔗</span>连接状态</div>
+      <div id="conn-status"></div>
+    </div>
+    <!-- 日志流 -->
+    <div class="log-section topo-section">
+      <div class="panel-title"><span class="icon">📜</span>实时日志</div>
+      <div class="log-stream" id="log-stream"></div>
+    </div>
+  </div>
+
+  <!-- 右: 鲲鹏节点 -->
+  <div class="kp-panel">
+    <div class="node-card" id="kp-card">
+      <div class="node-name">☁️ 鲲鹏 · ecs-d428</div>
+      <div class="node-info" id="kp-uptime">--</div>
+      <div class="metric-row">
+        <span class="metric-label">CPU</span>
+        <span class="metric-value ok" id="kp-cpu">--</span>
+      </div>
+      <div class="cpu-bar"><div class="cpu-fill" id="kp-cpu-bar" style="width:0%"></div></div>
+      <div class="metric-row">
+        <span class="metric-label">内存</span>
+        <span class="metric-value" id="kp-mem">--</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">磁盘</span>
+        <span class="metric-value" id="kp-disk">--</span>
+      </div>
+      <div class="service-grid" id="kp-services"></div>
+    </div>
+    <!-- 模型卡片 -->
+    <div class="node-card" id="models-card">
+      <div class="node-name">🧠 AI模型 · Ollama</div>
+      <div id="kp-models" style="font-size:11px;color:var(--text-dim);margin-top:4px">加载中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SCRIPTS ====== -->
+<script>
+// ====== 星空粒子背景 ======
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+let stars = [], particles = [];
+const setSize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+window.addEventListener('resize', setSize);
+setSize();
+
+// 初始化星星
+for(let i=0;i<300;i++){
+  stars.push({
+    x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+    r:Math.random()*1.5+0.3, a:Math.random(), da:(Math.random()-0.5)*0.01,
+    color:Math.random()<0.1?'212,168,67':'255,255,255'
+  });
+}
+// 流动粒子
+class FlowParticle{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;
+    this.vx=(Math.random()-0.5)*0.4;this.vy=(Math.random()-0.5)*0.3-0.2;
+    this.life=1;this.decay=0.002+Math.random()*0.004;this.r=Math.random()*1.2+0.5;
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;this.life-=this.decay;
+    if(this.life<=0)this.reset();
+  }
+  draw(ctx){
+    ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(212,168,67,${this.life*0.5})`;ctx.fill();
+  }
+}
+for(let i=0;i<60;i++)particles.push(new FlowParticle());
+
+function drawStarfield(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // stars
+  stars.forEach(s=>{
+    s.a+=s.da;if(s.a>1||s.a<0)s.da*=-1;
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${s.color},${s.a*0.7+0.2})`;ctx.fill();
+  });
+  // particles
+  particles.forEach(p=>{p.update();p.draw(ctx)});
+  requestAnimationFrame(drawStarfield);
+}
+drawStarfield();
+
+// ====== 拓扑动画画布 ======
+const topoCanvas = document.getElementById('topoCanvas');
+const topoCtx = topoCanvas.getContext('2d');
+let topoAnim = 0;
+const TOPO_W = () => topoCanvas.clientWidth;
+const TOPO_H = () => topoCanvas.clientHeight;
+
+function resizeTopo(){
+  topoCanvas.width = TOPO_W() * (window.devicePixelRatio||1);
+  topoCanvas.height = TOPO_H() * (window.devicePixelRatio||1);
+  topoCtx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+}
+window.addEventListener('resize', resizeTopo);
+resizeTopo();
+
+function drawTopo(frpOk, sshOk, anim){
+  const W = TOPO_W(), H = TOPO_H();
+  topoCtx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);
+  topoCtx.clearRect(0,0,W,H);
+
+  const leftX=90, rightX=W-90, leftY=H/2, rightY=H/2;
+
+  // 节点光环
+  function drawNode(x,y,label,color,size=20){
+    // 外环
+    const pulseR = size+4+Math.sin(anim*0.05)*3;
+    topoCtx.beginPath();topoCtx.arc(x,y,pulseR,0,Math.PI*2);
+    topoCtx.strokeStyle=`rgba(${color},0.3)`;topoCtx.lineWidth=2;topoCtx.stroke();
+    // 内圆
+    const g=topoCtx.createRadialGradient(x-3,y-3,0,x,y,size);
+    g.addColorStop(0,`rgba(${color},0.9)`);g.addColorStop(1,`rgba(${color},0.3)`);
+    topoCtx.beginPath();topoCtx.arc(x,y,size,0,Math.PI*2);
+    topoCtx.fillStyle=g;topoCtx.fill();
+    // 中心亮点
+    topoCtx.beginPath();topoCtx.arc(x,y,3,0,Math.PI*2);
+    topoCtx.fillStyle=`rgba(255,255,255,0.9)`;topoCtx.fill();
+    // 标签
+    topoCtx.fillStyle='#E8E8F0';topoCtx.font='12px "PingFang SC","Microsoft YaHei",sans-serif';
+    topoCtx.textAlign='center';topoCtx.fillText(label,x,y+size+16);
+  }
+
+  // Mac节点
+  drawNode(leftX,leftY,'Mac 龍魂主机','46,204,113',22);
+  // 鲲鹏节点
+  drawNode(rightX-20,rightY,'鲲鹏 ecs-d428','52,152,219',22);
+
+  // 数据流粒子
+  function dataParticles(x1,y1,x2,y2,color,count,speed,alive){
+    for(let i=0;i<count;i++){
+      const t=((anim*speed+i*0.3)%1);
+      if(!alive)continue;
+      const px=x1+(x2-x1)*t;
+      const py=y1+(y2-y1)*t+Math.sin(t*6+anim*0.02)*4;
+      topoCtx.beginPath();topoCtx.arc(px,py,1.8,0,Math.PI*2);
+      topoCtx.fillStyle=`rgba(${color},${1-t*0.5})`;topoCtx.fill();
+    }
+  }
+
+  // SSH隧道：Mac→鲲鹏 :19623→9623
+  if(sshOk){
+    topoCtx.beginPath();topoCtx.moveTo(leftX+22,leftY-25);
+    topoCtx.lineTo(rightX-42,rightY-20);
+    topoCtx.strokeStyle=`rgba(46,204,113,0.4)`;topoCtx.lineWidth=2;
+    topoCtx.setLineDash([8,4]);topoCtx.stroke();topoCtx.setLineDash([]);
+    dataParticles(leftX+22,leftY-25,rightX-42,rightY-20,'46,204,113',8,0.008,true);
+    // 隧道标签
+    const mx1=(leftX+rightX)/2-40,my1=leftY-40;
+    topoCtx.fillStyle='rgba(46,204,113,0.8)';topoCtx.font='9px monospace';
+    topoCtx.textAlign='center';topoCtx.fillText('SSH隧道 :19623→:9623 ✅',mx1,my1);
+  }
+
+  // FRP：Mac↔鲲鹏 :7000
+  if(frpOk){
+    topoCtx.beginPath();topoCtx.moveTo(leftX+22,leftY+25);
+    topoCtx.lineTo(rightX-42,rightY+20);
+    topoCtx.strokeStyle=`rgba(52,152,219,0.5)`;topoCtx.lineWidth=3;
+    topoCtx.setLineDash([]);topoCtx.stroke();
+    dataParticles(leftX+22,leftY+25,rightX-42,rightY+20,'52,152,219',12,0.01,true);
+    const mx2=(leftX+rightX)/2-40,my2=leftY+40;
+    topoCtx.fillStyle='rgba(52,152,219,0.8)';
+    topoCtx.fillText('FRP直连 :7000 ✅',mx2,my2);
+  }else{
+    // 断开的FRP线 - 虚线红色
+    topoCtx.beginPath();topoCtx.moveTo(leftX+22,leftY+25);
+    topoCtx.lineTo(rightX-42,rightY+20);
+    topoCtx.strokeStyle=`rgba(231,76,60,0.3)`;topoCtx.lineWidth=2;
+    topoCtx.setLineDash([4,6]);topoCtx.stroke();topoCtx.setLineDash([]);
+    const mx2=(leftX+rightX)/2-50,my2=leftY+40;
+    topoCtx.fillStyle='rgba(231,76,60,0.9)';
+    topoCtx.fillText('FRP断开 :7000 ❌(等安全组)',mx2,my2);
+    // 断开闪烁
+    topoCtx.beginPath();topoCtx.arc((leftX+rightX)/2,leftY+25,4,0,Math.PI*2);
+    topoCtx.fillStyle=`rgba(231,76,60,${0.4+Math.sin(anim*0.1)*0.3})`;topoCtx.fill();
+  }
+}
+
+// ====== 数据获取与渲染 ======
+const MAC_SERVICES=['dashboard','registry','autoflow','ollama_proxy','tunnel_guard'];
+const KP_SERVICES=['frps','ollama','dashboard','registry','tunnel_in'];
+
+function updateStatus(data){
+  if(!data.mac||!data.kp)return;
+
+  // --- Mac节点 ---
+  document.getElementById('mac-uptime').textContent = data.mac.uptime||'--';
+  const ml=data.mac.load||{};
+  document.getElementById('mac-load').textContent = `${ml['1min']||0} / ${ml['5min']||0} / ${ml['15min']||0}`;
+  const macLoadPct=Math.min((ml['1min']||0)*100/8,100);
+  document.getElementById('mac-cpu-bar').style.width=macLoadPct+'%';
+  // 颜色
+  const macBar=document.getElementById('mac-cpu-bar');
+  if(macLoadPct>70)macBar.style.background='linear-gradient(90deg,#E74C3C,#F39C12)';
+  else macBar.style.background='linear-gradient(90deg,var(--gold-dark),var(--gold-light))';
+
+  if(data.mac.disk){
+    document.getElementById('mac-disk').textContent=data.mac.disk.pct;
+    document.getElementById('mac-disk-avail').textContent=data.mac.disk.avail+' 可用';
+    if(parseFloat(data.mac.disk.pct)>85){
+      document.getElementById('mac-disk-avail').className='metric-value warn';
+    }
+  }
+
+  // Mac服务
+  const ms=document.getElementById('mac-services');
+  ms.innerHTML='';
+  MAC_SERVICES.forEach(s=>{
+    const st=data.mac.services[s]||'down';
+    ms.innerHTML+=`<span class="service-tag ${st}">${s} ${st==='up'?'🟢':'🔴'}</span>`;
+  });
+  // 加上frp_port_script
+  const fps=data.mac.frp_port_script||'unknown';
+  ms.innerHTML+=`<span class="service-tag ${fps==='done'?'up':fps.startsWith('trying')?'down':'down'}">frp_unlock ${fps==='done'?'✅':fps==='idle'?'⏳':'🔴'}</span>`;
+
+  // --- 鲲鹏节点 ---
+  document.getElementById('kp-uptime').textContent = data.kp.uptime||'--';
+  const kl=data.kp.load||{};
+  const kpCpuUsed=100-parseFloat(data.kp.cpu_idle||100);
+  document.getElementById('kp-cpu').textContent = `${kpCpuUsed.toFixed(1)}% 使用`;
+  document.getElementById('kp-cpu-bar').style.width=kpCpuUsed+'%';
+  document.getElementById('kp-mem').textContent = data.kp.mem||'--';
+  if(data.kp.disk){
+    document.getElementById('kp-disk').textContent = `${data.kp.disk.pct} (${data.kp.disk.avail}可用)`;
+  }
+
+  // 鲲鹏服务
+  const ks=document.getElementById('kp-services');
+  ks.innerHTML='';
+  KP_SERVICES.forEach(s=>{
+    const st=data.kp.services[s]||'down';
+    ks.innerHTML+=`<span class="service-tag ${st}">${s} ${st==='up'?'🟢':'🔴'}</span>`;
+  });
+
+  // 模型
+  const models=data.kp.models||[];
+  document.getElementById('kp-models').innerHTML = models.length
+    ? models.map(m=>`<span style="color:var(--cyan);margin-right:12px">🔮 ${m}</span>`).join('')
+    : '<span style="color:var(--red)">无模型</span>';
+
+  // Docker容器
+  if(data.kp.containers&&data.kp.containers.length&&data.kp.containers[0]){
+    const cnames=data.kp.containers.filter(c=>c).map(c=>c.split(' ')[0]).join(', ');
+    document.getElementById('kp-models').innerHTML+=`<br><span style="font-size:10px;color:var(--text-dim)">🐳 ${cnames||'无容器'}</span>`;
+  }
+
+  // --- 连接状态 ---
+  const cs=document.getElementById('conn-status');
+  const frpOk=data.frp_status.mac_to_kp_7000;
+  const sshOk=true; // SSH一直连着
+  cs.innerHTML=`
+    <div class="conn-row">
+      <span><span class="status-dot green"></span>SSH隧道</span>
+      <span class="conn-arrow">→</span>
+      <span>Mac:19623↔鲲鹏:9623</span>
+      <span class="conn-badge active">活跃</span>
+    </div>
+    <div class="conn-row">
+      <span><span class="status-dot ${frpOk?'green':'red'}"></span>FRP直连</span>
+      <span class="conn-arrow">→</span>
+      <span>Mac↔鲲鹏:7000</span>
+      <span class="conn-badge ${frpOk?'active':'blocked'}">${frpOk?'✅通畅':'❌端口不通'}</span>
+      ${!frpOk?`<span style="font-size:10px;color:var(--yellow)">[后台脚本: ${data.mac.frp_port_script||'未知'}]</span>`:''}
+    </div>
+  `;
+
+  // --- 日志 ---
+  const logEl=document.getElementById('log-stream');
+  const now=new Date().toLocaleTimeString('zh-CN',{hour12:false});
+  const lines=[];
+  lines.push({ts:now,cls:'evt',msg:`数据刷新 · Mac负载${ml['1min']||0} · 鲲鹏CPU${kpCpuUsed.toFixed(0)}% · FRP${frpOk?'通':'断'}`});
+  // 追加到日志
+  const logLine=document.createElement('div');
+  logLine.className='log-line';
+  logLine.innerHTML=`<span class="ts">${now}</span> <span class="${lines[0].cls}">${lines[0].msg}</span>`;
+  logEl.appendChild(logLine);
+  if(logEl.children.length>50)logEl.removeChild(logEl.firstChild);
+  logEl.scrollTop=logEl.scrollHeight;
+
+  // --- 拓扑 ---
+  drawTopo(frpOk, sshOk, topoAnim);
+}
+
+// ====== 数据获取循环 ======
+async function fetchData(){
+  try{
+    const resp=await fetch('http://localhost:19628/api/status');
+    const data=await resp.json();
+    updateStatus(data);
+  }catch(e){
+    console.error('API错误:',e);
+    // 降级 - 显示连接错误
+    const logEl=document.getElementById('log-stream');
+    const div=document.createElement('div');
+    div.className='log-line';
+    const ts=new Date().toLocaleTimeString('zh-CN',{hour12:false});
+    div.innerHTML=`<span class="ts">${ts}</span> <span class="err">API连接失败，请确认 lh_dashboard_api.py 已启动 :19628</span>`;
+    logEl.appendChild(div);
+    if(logEl.children.length>50)logEl.removeChild(logEl.firstChild);
+    logEl.scrollTop=logEl.scrollHeight;
+  }
+}
+
+// ====== 时钟 ======
+function updateClock(){
+  const now=new Date();
+  const t=now.toLocaleTimeString('zh-CN',{hour12:false});
+  document.getElementById('clock').textContent=t;
+}
+
+// ====== 主循环 ======
+setInterval(updateClock,1000);
+setInterval(fetchData,2000);
+function animateLoop(){
+  topoAnim++;
+  // 重绘拓扑
+  fetchData().then(()=>{
+    // drawTopo在updateStatus里调用了
+  });
+  requestAnimationFrame(()=>setTimeout(animateLoop,1000/30));
+}
+
+updateClock();
+fetchData().then(()=>{
+  console.log('🚀 龍魂·运维大屏已启动');
+});
+animateLoop();
+</script>
+</body>
+</html>

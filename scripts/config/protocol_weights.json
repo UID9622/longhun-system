@@ -1,0 +1,10 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PROTOCOL_WEIGHTS-v1.0",
+
+  "L0": 1.0,
+  "L1": 0.95,
+  "L2": 0.9,
+  "L3": 0.85,
+  "L4": 0.8,
+  "description": "五层协议权重映射 - L0绝对优先，L4最低优先",
+  "_dna": "2026-06-21-SCRIPT-PROTOCOL_WEIGHTS-v1.0"
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+  龍魂万年历 · LongHun Perpetual Calendar
+  DNA: #龍芯⚡️2026-06-27-LONGHUN-PERPETUAL-CALENDAR-v1.0
+  原则：自主渲染、自主字体、自主主权，不按苹果/谷歌/华为的标准走。
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>龍魂万年历 · UID9622</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">龍</span>
+        <div>
+          <div class="title">龍魂万年历</div>
+          <div class="subtitle">农历 · 节气 · 干支 · 卦象 · 三才</div>
+        </div>
+      </div>
+      <div class="sovereignty">
+        <div id="current-dna" class="dna"></div>
+        <div id="integrity-badge" class="badge">🔒 完整性校验中</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <div class="solar-date">
+          <div id="solar-year" class="year"></div>
+          <div id="solar-month-day" class="month-day"></div>
+          <div id="solar-weekday" class="weekday"></div>
+        </div>
+        <div class="lunar-hero">
+          <div id="lunar-year-ganzhi" class="lunar-line"></div>
+          <div id="lunar-month-day" class="lunar-big"></div>
+          <div id="lunar-shengxiao" class="lunar-line"></div>
+        </div>
+        <div class="yi-info">
+          <div id="today-term" class="term"></div>
+          <div id="today-gua" class="gua"></div>
+          <div id="today-tricolor" class="tricolor"></div>
+        </div>
+      </section>
+
+      <section class="calendar-card">
+        <div class="month-nav">
+          <button id="prev-month" class="nav-btn">◀</button>
+          <div id="calendar-title" class="calendar-title"></div>
+          <button id="next-month" class="nav-btn">▶</button>
+        </div>
+        <div class="weekdays">
+          <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+        </div>
+        <div id="calendar-grid" class="calendar-grid"></div>
+      </section>
+
+      <section class="detail-card" id="detail-card">
+        <div class="detail-title">选中日期详情</div>
+        <div id="detail-content" class="detail-content">点击日期查看龍魂痕迹</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>UID9622 · 龍芯北辰 · 主权时钟</div>
+      <div id="chain-hash">链哈希: 初始化中</div>
+    </footer>
+  </div>
+
+  <script src="calendar.js"></script>
+  <script src="sovereignty.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      LonghunCalendar.init();
+      LonghunSovereignty.init();
+    });
+  </script>
+</body>
+</html>

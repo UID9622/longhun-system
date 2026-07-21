@@ -1,0 +1,2924 @@
+{
+  "generated_at": "2026-06-28T13:49:42.889576+00:00",
+  "root": "/Users/zuimeidedeyihan/龍魂待整理",
+  "count": 197,
+  "dna": "#龍芯⚡️2026-06-28-LONGHUN-INVENTORY-v1.0",
+  "items": [
+    {
+      "path": "01-CNSH-协议规范/CNSH · China Native Semantic Hub · 中文语法全景.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH · China Native Semantic Hub · 中文语法全景.html",
+      "title": "龍魂系统·术语对照表 v3 | UID9622",
+      "size": 75225,
+      "mtime": "2026-06-21T23:45:36.522060+00:00",
+      "mime": "text/html",
+      "sha256": "cb31895f84f96bebb10e4d1f0d348be95f25ca613074a2070d2484d0ed5fd876",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-22-记忆压缩-001",
+        "#龍芯⚡️2026-04-22-术语对照表-v3",
+        "#龍芯⚡️2026-04-22-xxx"
+      ],
+      "versions": [
+        "v3"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH · 通心译 · 对齐标准.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH · 通心译 · 对齐标准.html",
+      "title": "CNSH · 通心译 · 对齐标准 v2.0 · UID9622",
+      "size": 47941,
+      "mtime": "2026-06-21T23:45:36.616271+00:00",
+      "mime": "text/html",
+      "sha256": "cc7ce8982377d4e00ea4df8bd07eb4871b09685c8aaa622cc0e3f30e4ebd9e23",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-22-CNSH-ALIGNMENT-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-64 数学形式化完整版 8b2d71bacc3d4c9795b547bda7a16857.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-64 数学形式化完整版 8b2d71bacc3d4c9795b547bda7a16857.html",
+      "title": "CNSH-64 数学形式化完整版",
+      "size": 19390,
+      "mtime": "2026-04-12T07:52:10+00:00",
+      "mime": "text/html",
+      "sha256": "ae05828133022202094216686f9982f0d8114f4229e27a2601f7c7570f5a97da",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/CNSH智能终端-v2.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/CNSH智能终端-v2.0.html",
+      "title": "🖥️ CNSH智能终端 v2.0",
+      "size": 25442,
+      "mtime": "2026-06-21T23:45:40.483983+00:00",
+      "mime": "text/html",
+      "sha256": "834d42d4318a301be946dbd10876f9b63dd385a9da12f2b983d4c65c58234771",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龙芯⚡️2026-01-28-终端-v2",
+        "#龙芯⚡️2026-01-28-TERMINAL-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/cnsh-compiler.js",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/cnsh-compiler.js",
+      "title": "cnsh-compiler",
+      "size": 29692,
+      "mtime": "2026-06-21T23:45:40.477807+00:00",
+      "mime": "text/javascript",
+      "sha256": "d9a97e65a6fbe893a02a5146ffe2f46969f670fefac410c5c66e3c713b7c2086",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/一键运行-使用说明.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/一键运行-使用说明.md",
+      "title": "🇨🇳 CNSH一键运行使用说明",
+      "size": 1889,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "13585e9833bb74be5668815a4de49dd4a0dd157d116c17bb97f217845ef2172d",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/收支分析-扩展包说明.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/收支分析-扩展包说明.md",
+      "title": "CNSH v1.0 收支分析功能扩展包",
+      "size": 8816,
+      "mtime": "2026-06-21T23:45:40.480179+00:00",
+      "mime": "text/markdown",
+      "sha256": "cb6f9098d10e994abfed4aa66762e417945d81443bb11f2ba7300efb1478f1d9",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完成报告.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完成报告.md",
+      "title": "🔐🖥️ 龙魂签名与智能终端系统 v2.0 - 完成报告",
+      "size": 15290,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "24020e8584e805e5019a7b4ac5b3c8336ff10d9574785af773e13340b279aa10",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龙芯⚡️2026-01-28-终端-v2",
+        "#龙芯⚡️2026-01-28-创新版本-v2",
+        "#龙芯⚡️2026-01-28-数字签名震撼版-v2",
+        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完整指南.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完整指南.md",
+      "title": "🔐🖥️ 龙魂签名与智能终端系统 v2.0 - 完整指南",
+      "size": 8849,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "b0e613d4eb5c1acc1b58d1dae8ac8a740f8fb337a686cadcebef6cf97457790d",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂智能终端-v3.0-漂移版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂智能终端-v3.0-漂移版.html",
+      "title": "🐉 龙魂智能终端 v3.0 - 漂移版",
+      "size": 40800,
+      "mtime": "2026-06-21T23:45:40.482404+00:00",
+      "mime": "text/html",
+      "sha256": "016acd45d1980c3740cfc3227f5679ec8308b1ce4334e4ab446b0214748cfc64",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2025-TERMINAL-V3"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂签名管理系统-v2.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂签名管理系统-v2.0.html",
+      "title": "🔐 龙魂签名管理系统 v2.0",
+      "size": 33948,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/html",
+      "sha256": "a5cf96a2a40c1866326f507df9b4be7f5ea63bcb654dc04f074fb997bf95399e",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龙芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-使用指南.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-使用指南.md",
+      "title": "🐉 龙魂智能终端 v3.0 - 漂移版 | 使用指南",
+      "size": 5363,
+      "mtime": "2026-06-21T23:45:40.484385+00:00",
+      "mime": "text/markdown",
+      "sha256": "1253ae04d81d09c994b2ffa713326124915fdae8339e1b2c40c46ed4649f2df9",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#ZHUGEXIN⚡️2025-TERMINAL-V3"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-完成报告.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-完成报告.md",
+      "title": "🐉 龙魂智能终端 v3.0 - 漂移版 | 完成报告",
+      "size": 7698,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "9639c77bcb6ed1426ff6ba363d09025e21f4164d380e0eef8129deef2763230b",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#ZHUGEXIN⚡️2025-TERMINAL-V3"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "title": "CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT",
+      "size": 15507,
+      "mtime": "2026-06-21T23:45:36.568625+00:00",
+      "mime": "text/markdown",
+      "sha256": "b1956ca4e1cb17dfc5f919eab18a0000d5db5b9b8f320c20ddaa0eea8d966c6f",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龍芯⚡2026-05-19-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH执行引擎与系统闭环-术语对照表.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH执行引擎与系统闭环-术语对照表.html",
+      "title": "CNSH 执行引擎 + 路由 + 闭环 + 权限 + 状态机 · 术语对照表 · UID9622",
+      "size": 45078,
+      "mtime": "2026-04-17T17:30:15+00:00",
+      "mime": "text/html",
+      "sha256": "44f59dd82d4183025c9e9b295b59299193a1c4094eb1277dca8d0a9d0f187fa1",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH指令协议与可执行架构-术语对照表.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH指令协议与可执行架构-术语对照表.html",
+      "title": "CNSH 指令协议 + 可执行架构 + 运维闭环 · 术语对照表 · UID9622",
+      "size": 40949,
+      "mtime": "2026-06-21T23:45:36.591830+00:00",
+      "mime": "text/html",
+      "sha256": "d94235cdd429d63b7f942ee4df3095784c0757c5af79a27e54c74856a3a7dff9",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH数学骨架与量子层-术语对照表.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH数学骨架与量子层-术语对照表.html",
+      "title": "CNSH 数学骨架 + 量子层 · 术语对照表 · UID9622",
+      "size": 26396,
+      "mtime": "2026-06-21T23:45:36.204669+00:00",
+      "mime": "text/html",
+      "sha256": "d413ebbefbffbde6f20cac678cd7ac772ee8cdf68b7cfd4f0cd83fa6e7c4f2f2",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/Claude/Artifacts/cnsh-editor-mapper-v1/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/Claude/Artifacts/cnsh-editor-mapper-v1/index.html",
+      "title": "龍魂·CNSH编辑器·对照表 v1.0",
+      "size": 27361,
+      "mtime": "2026-06-21T23:45:36.657376+00:00",
+      "mime": "text/html",
+      "sha256": "e4eb53b0bdc18064c6490fbf74cb28c4c27d79bb64549efc9ea2fd18bde6ceb3",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-29-CNSH编辑器-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-29-"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/audit_engine.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/audit_engine.py",
+      "title": "龍魂审计引擎 v1.0 — CNSH Audit Engine",
+      "size": 19995,
+      "mtime": "2026-04-22T04:28:10.935235+00:00",
+      "mime": "text/x-python",
+      "sha256": "193ebdaaaac0074727dde423057de3a5778beb3107ccbf32c2ae652ec0225fba",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/cnsh-editor-mapper-v1.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/cnsh-editor-mapper-v1.pdf",
+      "title": "cnsh-editor-mapper-v1",
+      "size": 829,
+      "mtime": "2026-04-29T16:44:03.868125+00:00",
+      "mime": "application/pdf",
+      "sha256": "1dde276bfa0983f233bc6b940b48582ec179748ba8a45694c9fcab4e1d40c906",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v1"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/cnsh_gateway.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/cnsh_gateway.py",
+      "title": "CNSH 生态语法网关 v1.0",
+      "size": 14499,
+      "mtime": "2026-04-22T11:53:05.799235+00:00",
+      "mime": "text/x-python",
+      "sha256": "401b3dfe8c11e70246b1aa44a46bcc41dfa2f461658b71e5845be941d00ebd04",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/dragon-terminal-v2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/dragon-terminal-v2.html",
+      "title": "🐉 龍魂终端 v2.0 | UID9622",
+      "size": 44084,
+      "mtime": "2026-06-21T23:45:36.152278+00:00",
+      "mime": "text/html",
+      "sha256": "8729a33fdc31c6c30e1f85347e778c474c8c8e10a510cc9284bb064d9fcc0689",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v2",
+        "v2.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/iOS快捷指令配置.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/iOS快捷指令配置.md",
+      "title": "🐉 CNSH iOS 快捷指令配置",
+      "size": 4700,
+      "mtime": "2026-06-21T23:45:36.588054+00:00",
+      "mime": "text/markdown",
+      "sha256": "04998bdf83cf5af6b86ed1c7be02fef1f832e747cc2d82bae3c494795b37d940",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/init_cnsh_structure.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/init_cnsh_structure.sh",
+      "title": "init_cnsh_structure",
+      "size": 8379,
+      "mtime": "2026-04-22T04:28:51.146752+00:00",
+      "mime": "application/x-sh",
+      "sha256": "c8cdef6421367d735fa682757a8548fbea0a3335d5a4d38bca1312f474bbb0d5",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "01-CNSH-协议规范/longhun-algorithms-cnsh-v1.0.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/longhun-algorithms-cnsh-v1.0.md",
+      "title": "╔══════════════════════════════════════════════════════════════════════╗",
+      "size": 32392,
+      "mtime": "2026-06-21T23:45:36.570879+00:00",
+      "mime": "text/markdown",
+      "sha256": "22a13bcd8f0e4a725c22a2a0dbb0bd86aff743ab43d6ad9c95aefb714b605ebf",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-20-CNSH算法全集-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-05-算法公式索引-v1",
+        "#龍芯⚡️2026-04-17-三才决策算法-v1",
+        "#龍芯⚡️2026-04-11-五行计算器-v2",
+        "#龍芯⚡️2026-04-13-无限循环",
+        "#龍芯⚡️2026-04-13-BraKet-v2",
+        "#龍芯⚡️2026-04-05-原点不变性-f",
+        "#龍芯⚡️2026-04-02-熔断规则-数字根闸门-v1",
+        "#龍芯⚡️2026-02-26-Lu指令生态-v1",
+        "#龍芯⚡️2026-02-05-龙魂权重算法-v1"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "01-CNSH-协议规范/🔬 CNSH-64 Reviewer Hardening & Missing Sections —  3297125a9c9f81d38136f6bd7df34607.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/🔬 CNSH-64 Reviewer Hardening & Missing Sections —  3297125a9c9f81d38136f6bd7df34607.html",
+      "title": "🔬 CNSH-64: Reviewer Hardening &amp; Missing Sections — arXiv Supplement v3.1",
+      "size": 118065,
+      "mtime": "2026-04-12T07:45:00+00:00",
+      "mime": "text/html",
+      "sha256": "f59e5f37a43f8903f11962457247f23f0792e19545fbe591bc46b9564b05ae5e",
+      "category": "01-CNSH-协议规范",
+      "dna_codes": [],
+      "versions": [
+        "v3.1"
+      ]
+    },
+    {
+      "path": "02-流场可视化/Claude/Artifacts/dragon-soul-luoshu-vortex/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/Claude/Artifacts/dragon-soul-luoshu-vortex/index.html",
+      "title": "龍魂流场 · 洛书涡流 v2.0",
+      "size": 22681,
+      "mtime": "2026-06-21T23:45:36.652158+00:00",
+      "mime": "text/html",
+      "sha256": "dda623d414a25ea13481a421926fce5966e05e3bb3c43549a8723a6fbf06b4d6",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/UID9622_龍魂流场总控_v2.0.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/UID9622_龍魂流场总控_v2.0.md",
+      "title": "UID9622｜龍魂流场总控 v2.0",
+      "size": 31003,
+      "mtime": "2026-05-08T12:16:25.442915+00:00",
+      "mime": "text/markdown",
+      "sha256": "fd84c96a8cad5f7716343cd3fbd300f8fe8a982d080a52b1a52822266f48d21a",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/UID9622_龍魂流场总控_v2.0_1.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/UID9622_龍魂流场总控_v2.0_1.md",
+      "title": "UID9622｜龍魂流场总控 v2.0",
+      "size": 31003,
+      "mtime": "2026-05-08T12:24:09.644235+00:00",
+      "mime": "text/markdown",
+      "sha256": "fd84c96a8cad5f7716343cd3fbd300f8fe8a982d080a52b1a52822266f48d21a",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/current.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/current.html",
+      "title": "🐲 三才流場 v8 · 忠孝义智能活体仪表盘 · UID9622",
+      "size": 48953,
+      "mtime": "2026-04-19T14:34:47.483861+00:00",
+      "mime": "text/html",
+      "sha256": "fb7f4a405a56194e0a16c7fdbc60ee7ba1178bf93edb5fa2a4bfa41e5583167b",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-19-三才流場-v8智能活体版",
+        "#龍芯⚡️2026-04-19"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/current_before_v8_20260419_223447.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/current_before_v8_20260419_223447.html",
+      "title": "三才流場 v6优化版 · 龍盾呼吸接入 · UID9622",
+      "size": 40972,
+      "mtime": "2026-04-19T14:34:47.479786+00:00",
+      "mime": "text/html",
+      "sha256": "306a4e134f861849ce05ba711fb04b3a70d3eb5acea03d8498a030846898417b",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-三才流場-v5神经版",
+        "#龍芯⚡️2026-04-01-三才流場-v6优化版",
+        "#龍芯⚡️2026-04-01"
+      ],
+      "versions": [
+        "v8",
+        "v6"
+      ]
+    },
+    {
+      "path": "02-流场可视化/dragon-soul-luoshu-vortex.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/dragon-soul-luoshu-vortex.pdf",
+      "title": "dragon-soul-luoshu-vortex",
+      "size": 200400,
+      "mtime": "2026-04-27T19:48:31.111645+00:00",
+      "mime": "application/pdf",
+      "sha256": "13d87ec4d863bba03a80add992b10c993b774dcf35d01b9b5fd4911ea0442445",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/dragon_soul_9622.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/dragon_soul_9622.html",
+      "title": "龍魂系统 · UID9622 本地工作站",
+      "size": 46571,
+      "mtime": "2026-03-27T08:43:18.881192+00:00",
+      "mime": "text/html",
+      "sha256": "b282942c7439f32162894ae6272c3b3531f3d09c532915781ea30146893d650e",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/extraction-report-v8.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/extraction-report-v8.md",
+      "title": "🐉 三才流场 v8 · 算法提取报告",
+      "size": 21533,
+      "mtime": "2026-06-21T23:45:36.147306+00:00",
+      "mime": "text/markdown",
+      "sha256": "cbadc223fc0c8738e7483a2ed1324a667a98706a89ff4468903a9b5b75c2d830",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-20-三才流场-v8",
+        "#龍芯⚡️2026-04-20-提取报告-三才流场v8-v1",
+        "#龍芯⚡️2026-03-28-系统两层铁则-v1",
+        "#龍芯⚡️2026-03-29-理念来源协议-v1"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-28mansions-v1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-28mansions-v1.html",
+      "title": "龍魂·二十八星宿·元宇宙星图 v1.0 · UID9622",
+      "size": 61601,
+      "mtime": "2026-06-21T23:45:36.220939+00:00",
+      "mime": "text/html",
+      "sha256": "2a58f877db25468780948b751ea0fda435aa20c4391a7e7eb46cf803646b1de0",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v1.0",
+        "v1"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-field-v9.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-field-v9.html",
+      "title": "🐉 龍魂流场 · 不动点透视图 v9 · UID9622",
+      "size": 33776,
+      "mtime": "2026-06-21T23:45:36.567304+00:00",
+      "mime": "text/html",
+      "sha256": "e12dee5cb2dbf418903aa31dba4065d7c367d83d0c33411f28c67530a7911f08",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-26-FLOW-FIELD-v9"
+      ],
+      "versions": [
+        "v9"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/README_LONGHUN_FLOW.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/README_LONGHUN_FLOW.md",
+      "title": "UID9622｜龍魂流场总控 v2.0 使用说明",
+      "size": 2312,
+      "mtime": "2026-05-08T12:28:50.074736+00:00",
+      "mime": "text/markdown",
+      "sha256": "9a3bb02ad0669c2fd793e51697541a0e64fdec9d72a9491d5bd8b51997f28c81",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/current.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/current.html",
+      "title": "🐲 三才流場 v8 · 忠孝义智能活体仪表盘 · UID9622",
+      "size": 48953,
+      "mtime": "2026-04-19T14:34:47.483861+00:00",
+      "mime": "text/html",
+      "sha256": "fb7f4a405a56194e0a16c7fdbc60ee7ba1178bf93edb5fa2a4bfa41e5583167b",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-19-三才流場-v8智能活体版",
+        "#龍芯⚡️2026-04-19"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/dragon_soul_9622.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/dragon_soul_9622.html",
+      "title": "龍魂系统 · UID9622 本地工作站",
+      "size": 46571,
+      "mtime": "2026-03-27T08:43:18.881192+00:00",
+      "mime": "text/html",
+      "sha256": "b282942c7439f32162894ae6272c3b3531f3d09c532915781ea30146893d650e",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/flow-field-index.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/flow-field-index.json",
+      "title": "flow-field-index",
+      "size": 2460,
+      "mtime": "2026-05-08T12:27:04.724958+00:00",
+      "mime": "application/json",
+      "sha256": "27e582b525b20e7869b0236c926d24698ae6cff52389a44618db7ac9302dcb04",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-28mansions-v1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/longhun-28mansions-v1.html",
+      "title": "龍魂·二十八星宿·元宇宙星图 v1.0 · UID9622",
+      "size": 61601,
+      "mtime": "2026-06-21T23:45:36.220939+00:00",
+      "mime": "text/html",
+      "sha256": "2a58f877db25468780948b751ea0fda435aa20c4391a7e7eb46cf803646b1de0",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v1.0",
+        "v1"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-master-control.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/longhun-master-control.html",
+      "title": "UID9622｜龍魂流场总控台 v2.0",
+      "size": 16796,
+      "mtime": "2026-05-08T12:28:20.749506+00:00",
+      "mime": "text/html",
+      "sha256": "6408f4ea77ddd16b400adb0d6514da4493b619f1ec6c707b03aaf6c4d91c67fb",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-unified-v9.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-flow-system/longhun-unified-v9.html",
+      "title": "🐲 龍魂统一流场 v9 · 洛书涡流×三才轨道 · UID9622",
+      "size": 55539,
+      "mtime": "2026-06-21T23:45:36.629638+00:00",
+      "mime": "text/html",
+      "sha256": "c5d055c05ec0d3bfaf22d6ac9068c7d60328c43912b5e1e88c5d02f46b05e1e8",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-21-统一流场-v9",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-21"
+      ],
+      "versions": [
+        "v9"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-luoshu-vortex-v2-4003beb2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-luoshu-vortex-v2-4003beb2.html",
+      "title": "龍魂流场 · 洛书涡流 v2.0",
+      "size": 29055,
+      "mtime": "2026-06-21T23:45:36.202671+00:00",
+      "mime": "text/html",
+      "sha256": "70d0c5fedfca1eb310131caf7b024f81f45c22afb0fc182b7d278d3343822cca",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-21-洛书涡流-v2"
+      ],
+      "versions": [
+        "v2",
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-luoshu-vortex-v2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-luoshu-vortex-v2.html",
+      "title": "龍魂流场 · 洛书涡流 v2.0",
+      "size": 29055,
+      "mtime": "2026-06-21T23:45:36.202671+00:00",
+      "mime": "text/html",
+      "sha256": "70d0c5fedfca1eb310131caf7b024f81f45c22afb0fc182b7d278d3343822cca",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-21-洛书涡流-v2"
+      ],
+      "versions": [
+        "v2",
+        "v2.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun-unified-v9.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun-unified-v9.html",
+      "title": "🐲 龍魂统一流场 v9 · 洛书涡流×三才轨道 · UID9622",
+      "size": 55539,
+      "mtime": "2026-06-21T23:45:36.629638+00:00",
+      "mime": "text/html",
+      "sha256": "c5d055c05ec0d3bfaf22d6ac9068c7d60328c43912b5e1e88c5d02f46b05e1e8",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-21-统一流场-v9",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-21"
+      ],
+      "versions": [
+        "v9"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun_flow_portal_v2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun_flow_portal_v2.html",
+      "title": "🐉 龍魂流场 · 元世界入口 · UID9622",
+      "size": 32096,
+      "mtime": "2026-06-21T23:45:36.207337+00:00",
+      "mime": "text/html",
+      "sha256": "c5813d0b25a74d8d7be5b711cce1a26501b4946dddd182c12a260ab2f082c763",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": [
+        "v2"
+      ]
+    },
+    {
+      "path": "02-流场可视化/longhun_wuxing_mvp.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/longhun_wuxing_mvp.py",
+      "title": "龍魂五行MVP · 八字洛书引擎",
+      "size": 12445,
+      "mtime": "2026-06-21T23:45:36.537576+00:00",
+      "mime": "text/x-python",
+      "sha256": "467e4d459d2b65125d60fcfc294508f11d848639e65cfc54e758c8c2a4b8e89b",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/notion-scan-report-v8.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/notion-scan-report-v8.md",
+      "title": "🐉 三才流场 v8 · Notion扫描发现报告",
+      "size": 18201,
+      "mtime": "2026-06-21T23:45:36.597268+00:00",
+      "mime": "text/markdown",
+      "sha256": "c7c286baac06a05e63c98df2f90536e3ae42ec7029778d9f09d3160265170ea3",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-01-三才流场-WIDGET",
+        "#龍芯⚡️2026-04-20-Notion扫描报告-v8升级-v1"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/sancai-flow-v8.1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/sancai-flow-v8.1.html",
+      "title": "🐲 三才流场 v8.1 · 忠孝义排序·智能活体仪表盘 · UID9622",
+      "size": 64674,
+      "mtime": "2026-06-21T23:45:36.197556+00:00",
+      "mime": "text/html",
+      "sha256": "70c4256f53d0f1598e7e175e7e8d7406e9358b79984357e169397927d1642efb",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-20",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-20-三才流场-v8"
+      ],
+      "versions": [
+        "v8.1"
+      ]
+    },
+    {
+      "path": "02-流场可视化/sancai-flow-v8.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/sancai-flow-v8.html",
+      "title": "🐲 三才流场 v8 · 忠孝义排序·智能活体仪表盘 · UID9622",
+      "size": 60461,
+      "mtime": "2026-06-21T23:45:36.586219+00:00",
+      "mime": "text/html",
+      "sha256": "9579f097dbb8f0330a68762ff08140dda84fa58922defdb6c5d73ae52902068c",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-19"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v1.html",
+      "title": "三才流場 · San Cai Flow Field · UID9622",
+      "size": 22900,
+      "mtime": "2026-04-18T09:18:40.985204+00:00",
+      "mime": "text/html",
+      "sha256": "425f170aecdeb15c5475933e5d1a312c72c82ad37ea7f80b3d8ae251e0c57585",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-27-三才流場-v1"
+      ],
+      "versions": [
+        "v1"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v2.html",
+      "title": "三才流場 · San Cai Flow Field",
+      "size": 26464,
+      "mtime": "2026-04-18T09:18:40.987337+00:00",
+      "mime": "text/html",
+      "sha256": "e325c2cfce6382ce3ab6dfb3fc6297e54559b19f9c5912ec0ac91dd53fb0fa35",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-27-三才流場-v2"
+      ],
+      "versions": [
+        "v2"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v3.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v3.html",
+      "title": "三才流場 · San Cai Flow Field · UID9622",
+      "size": 15187,
+      "mtime": "2026-04-18T09:18:40.988714+00:00",
+      "mime": "text/html",
+      "sha256": "b099315affcb48a2015c31b90d9cb0666f423140567a7505456384f1f595571c",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-28-三才流場-v3",
+        "#龍芯⚡️2026-03-28-v3"
+      ],
+      "versions": [
+        "v3"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v4.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v4.html",
+      "title": "三才流場 v4.0 · 龍盾接入 · UID9622",
+      "size": 27116,
+      "mtime": "2026-04-18T09:18:40.990811+00:00",
+      "mime": "text/html",
+      "sha256": "ac3b85b95266ad040626faeee2dd6e8baef8cc1fb816ac7578191921a29505ac",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-30-三才流場-v4",
+        "#龍芯⚡️2026-03-30-v4"
+      ],
+      "versions": [
+        "v4",
+        "v4.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v5_神经版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v5_神经版.html",
+      "title": "三才流場 v5神经版 · 龍盾呼吸接入 · UID9622",
+      "size": 37784,
+      "mtime": "2026-04-18T09:18:40.995152+00:00",
+      "mime": "text/html",
+      "sha256": "de8176df432e323dbf0d155e70bcd93787e5f06e19ff1fd4275c605c3035391e",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31",
+        "#龍芯⚡️2026-03-31-三才流場-v5神经版"
+      ],
+      "versions": [
+        "v5"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v6_优化版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v6_优化版.html",
+      "title": "三才流場 v6优化版 · 龍盾呼吸接入 · UID9622",
+      "size": 40972,
+      "mtime": "2026-04-18T09:18:40.997327+00:00",
+      "mime": "text/html",
+      "sha256": "306a4e134f861849ce05ba711fb04b3a70d3eb5acea03d8498a030846898417b",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-三才流場-v5神经版",
+        "#龍芯⚡️2026-04-01-三才流場-v6优化版",
+        "#龍芯⚡️2026-04-01"
+      ],
+      "versions": [
+        "v6"
+      ]
+    },
+    {
+      "path": "02-流场可视化/v8.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/v8.html",
+      "title": "🐲 三才流场 v8 · 忠孝义智能活体仪表盘 · UID9622",
+      "size": 48953,
+      "mtime": "2026-06-21T23:45:36.248582+00:00",
+      "mime": "text/html",
+      "sha256": "ac73cf1aa410b272cc10e8fbe688f9bd1600ec8075851976aa2cfb908a2a687c",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-19-三才流场-v8智能活体版",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-19"
+      ],
+      "versions": [
+        "v8"
+      ]
+    },
+    {
+      "path": "02-流场可视化/三才流场_v3.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/三才流场_v3.0.html",
+      "title": "三才流场 · 呼吸大脑 v3.0",
+      "size": 14059,
+      "mtime": "2026-03-31T04:13:17.049982+00:00",
+      "mime": "text/html",
+      "sha256": "3c136ec2302fa7f5ae106affb0745f63b5e43dc91cb39d105d7ba74778995f39",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-SANCAI-FLOW-v3"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "02-流场可视化/三才流場 · San Cai Flow Field · UID9622.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/三才流場 · San Cai Flow Field · UID9622.html",
+      "title": "三才流场 · San Cai Flow Field · UID9622",
+      "size": 15187,
+      "mtime": "2026-06-21T23:45:36.613210+00:00",
+      "mime": "text/html",
+      "sha256": "c0074c505eb169ca0069086c160e2838f5cb11196e3992d513cabf0a92d13f6a",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-28-v3",
+        "#龍芯⚡️2026-03-28-三才流场-v3"
+      ],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/三才流場_v6.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/三才流場_v6.html",
+      "title": "三才流场 v6优化版 · 龍盾呼吸接入 · UID9622",
+      "size": 40972,
+      "mtime": "2026-06-21T23:45:36.619658+00:00",
+      "mime": "text/html",
+      "sha256": "bda6ddebb5de29350e5a9b8b5c73dee92931f96c3e1aac23aae61cd85603efa3",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-三才流场-v5神经版",
+        "#龍芯⚡️2026-04-01-三才流场-v6优化版",
+        "#龍芯⚡️2026-04-01"
+      ],
+      "versions": [
+        "v6"
+      ]
+    },
+    {
+      "path": "02-流场可视化/三才流場_v6_优化版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/三才流場_v6_优化版.html",
+      "title": "三才流场 v6优化版 · 龍盾呼吸接入 · UID9622",
+      "size": 40972,
+      "mtime": "2026-06-21T23:45:36.229424+00:00",
+      "mime": "text/html",
+      "sha256": "bda6ddebb5de29350e5a9b8b5c73dee92931f96c3e1aac23aae61cd85603efa3",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-三才流场-v5神经版",
+        "#龍芯⚡️2026-04-01-三才流场-v6优化版",
+        "#龍芯⚡️2026-04-01"
+      ],
+      "versions": [
+        "v6"
+      ]
+    },
+    {
+      "path": "02-流场可视化/三才算法发微_为曾老师正名.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/三才算法发微_为曾老师正名.md",
+      "title": "《道·德·数：三才算法发微》",
+      "size": 6979,
+      "mtime": "2026-06-21T23:45:36.599787+00:00",
+      "mime": "text/markdown",
+      "sha256": "3af920b0654a18600af31872721733429d2b4a2ce6bbeb9850bb0d560e9417e0",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬SANCAI-001",
+        "#龍芯⚡️2026-02-20-三才算法-正名-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/河图洛书地面图.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/河图洛书地面图.html",
+      "title": "🐉 洛书九宫·龍魂页面地图",
+      "size": 15973,
+      "mtime": "2026-06-21T23:45:36.609490+00:00",
+      "mime": "text/html",
+      "sha256": "5a4e3e5ceb32a4903bbadc38c8476e80f67ea23f7d82da8686b5c6034ece9bba",
+      "category": "02-流场可视化",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-07-LUOSHU-MAP-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/龍魂流场20260426l.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/龍魂流场20260426l.html",
+      "title": "🐉 龍魂流场 · 元世界入口 · UID9622",
+      "size": 23749,
+      "mtime": "2026-06-21T23:45:36.542618+00:00",
+      "mime": "text/html",
+      "sha256": "08090f8ea9cfe7853578731a8f1916e8de19adfa62c4f8b1561d5eddf99e284b",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "02-流场可视化/🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/02-流场可视化/🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622.pdf",
+      "title": "🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622",
+      "size": 1677591,
+      "mtime": "2026-05-15T22:39:06.151190+00:00",
+      "mime": "application/pdf",
+      "sha256": "e834a4c02a65f6cf154826db24958074dde3f619b033ec3fece1063d9e0f54c2",
+      "category": "02-流场可视化",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "03-身份安全-DNA/ATTRIBUTION.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/ATTRIBUTION.md",
+      "title": "ATTRIBUTION — 引用 / 复用 / 二创",
+      "size": 1594,
+      "mtime": "2026-06-21T23:45:36.186082+00:00",
+      "mime": "text/markdown",
+      "sha256": "76b0142e80858284f60072e9b419598e4da2905945f16a7c549d7985db3add6c",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-03-ATTRIBUTION-REPO"
+      ],
+      "versions": []
+    },
+    {
+      "path": "03-身份安全-DNA/Claude/Artifacts/dragon_soul_dna_generator/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/Claude/Artifacts/dragon_soul_dna_generator/index.html",
+      "title": "龍心DNA生成引擎 v1.0",
+      "size": 18293,
+      "mtime": "2026-06-21T23:45:36.667503+00:00",
+      "mime": "text/html",
+      "sha256": "e49b592353feeac3250e4ae3e080e4caac5d58a223c944519444fbe4dd2ebaec",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "03-身份安全-DNA/GPG公钥指纹验证与导入指南-20260427125204.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/GPG公钥指纹验证与导入指南-20260427125204.json",
+      "title": "GPG公钥指纹验证与导入指南-20260427125204",
+      "size": 4924437,
+      "mtime": "2026-06-21T23:45:36.507051+00:00",
+      "mime": "application/json",
+      "sha256": "8b8b7d83d184b2d1aa64fc8700615e28da34ced10701f490f28e0918aa9abcdb",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-23-沙盒分拣台-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#ZHUGEXIN⚡️2025-DEVICE-BIND-SOUL",
+        "#龍芯⚡️2026-04-23-双签章永恒锁定-父级铁律-L0",
+        "#龍芯⚡️2026-04-26-沙盒台",
+        "#龍芯⚡️2026-04-23-数字治理宪法-v1",
+        "#龍芯⚡️2026-03-05-PRIVACY-ACCESS-RULES-P0",
+        "#龍芯⚡️2026-04-23-第二单消化-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "03-身份安全-DNA/LH-CDNA-v1.2-需求文档.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/LH-CDNA-v1.2-需求文档.md",
+      "title": "🧬 龍魂压缩 DNA 国际认证需求文档 v1.2",
+      "size": 31509,
+      "mtime": "2026-05-03T14:00:38.462910+00:00",
+      "mime": "text/markdown",
+      "sha256": "109fdaa58cf8564b889d6840a8b4c52aa3b8c6d22784c4c36afe2a40db79a383",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-03-压缩DNA国际认证需求文档-v1"
+      ],
+      "versions": [
+        "v1.2"
+      ]
+    },
+    {
+      "path": "03-身份安全-DNA/浏览器字体包/CLAUDE.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/浏览器字体包/CLAUDE.md",
+      "title": "【IW-ECB v2.0】Claude Code 宪法文件",
+      "size": 12538,
+      "mtime": "2026-02-28T08:25:40+00:00",
+      "mime": "text/markdown",
+      "sha256": "5247121fc7edc55dd0d1c94d58fdf6ce5a4cd46113a7f4c0a97927f5b7f913ca",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "03-身份安全-DNA/浏览器字体包/dna_ecny_offline_activation.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/浏览器字体包/dna_ecny_offline_activation.py",
+      "title": "DNA生成器",
+      "size": 20893,
+      "mtime": "2026-02-28T08:25:40+00:00",
+      "mime": "text/x-python",
+      "sha256": "ea3aee1211566ec1c1d5c5db066c26afc53512a7c97af259cf5eb0a20f071717",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "03-身份安全-DNA/龍魂DNA身份系统-功能规格书.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/龍魂DNA身份系统-功能规格书.html",
+      "title": "龍魂DNA身份系统 · 功能规格书 · UID9622",
+      "size": 57292,
+      "mtime": "2026-04-17T17:30:15+00:00",
+      "mime": "text/html",
+      "sha256": "0cc167c9def3e6a7813882d39aef72f52d2b7515df8c51d8d78f3d8ec46f96fd",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "03-身份安全-DNA/龙魂数字主权体系_学术论文_v2.0.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/龙魂数字主权体系_学术论文_v2.0.md",
+      "title": "龙魂数字主权体系：基于三位一体架构的去中心化数字身份与意识延续解决方案",
+      "size": 51053,
+      "mtime": "2026-06-21T23:45:36.632546+00:00",
+      "mime": "text/markdown",
+      "sha256": "930904fb5be2f47e9223d7949ddc8d834156ef5c6db41b8ff8b12061ce2c84f9",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LH-PAPER-2026-002-",
+        "#龍芯⚡️2026-02-23-学术论文-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "03-身份安全-DNA/🧬 网络户口本.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/🧬 网络户口本.html",
+      "title": "龍魂身份注册 · 网络户口本 · DNA Identity Register",
+      "size": 20964,
+      "mtime": "2026-06-21T23:45:36.526781+00:00",
+      "mime": "text/html",
+      "sha256": "a983fdd8532d6e35b6f46350b7a999868e87eb10d5af9e119fde913a684e3b6a",
+      "category": "03-身份安全-DNA",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-19-REGISTER-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "04-审计治理/qa_report.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/04-审计治理/qa_report.html",
+      "title": "🔍 龍魂质检报告 · 公开透明审计",
+      "size": 33465,
+      "mtime": "2026-06-21T23:45:36.601784+00:00",
+      "mime": "text/html",
+      "sha256": "48229c3f47b9d79cb5285a9a9cf2750ce57d695e385d00cffa6451f4c773ff4a",
+      "category": "04-审计治理",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "04-审计治理/truth_report.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/04-审计治理/truth_report.html",
+      "title": "天下无欺 · 真相受理台 · AI Truth Protocol",
+      "size": 15182,
+      "mtime": "2026-06-21T23:45:36.180424+00:00",
+      "mime": "text/html",
+      "sha256": "ae786ded5250739d6c2ffdf8457bcebf7659a2a418b049d4da8224b202027323",
+      "category": "04-审计治理",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-19-TRUTH-PROTOCOL-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "04-审计治理/审计.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/04-审计治理/审计.html",
+      "title": "🐉 龍魂公开审计报告 · UID9622",
+      "size": 28329,
+      "mtime": "2026-03-19T09:51:30.043110+00:00",
+      "mime": "text/html",
+      "sha256": "85ea641da30c2e165610259fc3730604edbbc05d686a7517552fbdfdc0e709dd",
+      "category": "04-审计治理",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-03-19-PUBLIC-AUDIT-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "04-审计治理/龍魂审核过滤系统-完整规则规格书.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/04-审计治理/龍魂审核过滤系统-完整规则规格书.html",
+      "title": "龍魂审核过滤系统 · 完整规则规格书 · UID9622",
+      "size": 41900,
+      "mtime": "2026-06-21T23:45:36.604083+00:00",
+      "mime": "text/html",
+      "sha256": "a21804fb3b8a2d8af68198e7feb808426c8abc61f95bc80d08fc847da0cafa07",
+      "category": "04-审计治理",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-16-审核过滤系统规则规格书-v2",
+        "#龍芯⚡️2026-04-16-事件"
+      ],
+      "versions": []
+    },
+    {
+      "path": "04-审计治理/龍魂审核过滤系统规则规格书v2.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/04-审计治理/龍魂审核过滤系统规则规格书v2.0.html",
+      "title": "龍魂审核过滤系统规则规格书 v2.0 · UID9622",
+      "size": 36676,
+      "mtime": "2026-06-21T23:45:36.595482+00:00",
+      "mime": "text/html",
+      "sha256": "f34c0c83caec8d32c433183140f90ede4a622c2975e5f426f18df2216f1831a8",
+      "category": "04-审计治理",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-16-审核过滤系统规则规格书-v2",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "05-AI人格-Agent/AI智能体术语对照表-龍魂版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/AI智能体术语对照表-龍魂版.html",
+      "title": "AI智能体专业术语 vs 大白话 vs 龍魂映射 · UID9622",
+      "size": 25103,
+      "mtime": "2026-04-17T17:30:15+00:00",
+      "mime": "text/html",
+      "sha256": "3994ea2b7b3dc1a75d12ca9d8c5099e8eb5166858e347d73f3bb2e8cd3820d92",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Behavioral Cryptography- A Multi-Factor Provenance Framework for Human-AI Collaborative Content.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Behavioral Cryptography- A Multi-Factor Provenance Framework for Human-AI Collaborative Content.pdf",
+      "title": "Behavioral Cryptography- A Multi-Factor Provenance Framework for Human-AI Collaborative Content",
+      "size": 2487500,
+      "mtime": "2026-05-04T04:33:48.013932+00:00",
+      "mime": "application/pdf",
+      "sha256": "1235cce8e92760225fec96bd8057d1017a56ce8e968fc12b7fbcb1deeab36ed1",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/index.html",
+      "title": "批量填表Agent · Autofill Agent v1.0",
+      "size": 28337,
+      "mtime": "2026-06-21T23:45:36.654135+00:00",
+      "mime": "text/html",
+      "sha256": "a6a189445968a83aa5dce70c2a670220b7ff3c69f86b5b2b317c9369a1020a6c",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/thumbnail.png",
+      "title": "thumbnail",
+      "size": 2826,
+      "mtime": "2026-05-16T05:24:44.807107+00:00",
+      "mime": "image/png",
+      "sha256": "c26cc975c4d15dd7a71bee46a64502f40ba1c15b773071637c9889ec99b98fda",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/cnsh-editor-mapper-v1/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/cnsh-editor-mapper-v1/thumbnail.png",
+      "title": "thumbnail",
+      "size": 2826,
+      "mtime": "2026-05-16T05:24:41.971505+00:00",
+      "mime": "image/png",
+      "sha256": "c26cc975c4d15dd7a71bee46a64502f40ba1c15b773071637c9889ec99b98fda",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon-soul-fixed-point/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/dragon-soul-fixed-point/thumbnail.png",
+      "title": "thumbnail",
+      "size": 213182,
+      "mtime": "2026-05-16T05:24:35.735849+00:00",
+      "mime": "image/png",
+      "sha256": "a46889495fdb23ed8e260b9af1658c137dedae113ba40f81a10904b1af9810e1",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon-soul-luoshu-vortex/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/dragon-soul-luoshu-vortex/thumbnail.png",
+      "title": "thumbnail",
+      "size": 196861,
+      "mtime": "2026-05-16T05:24:34.779409+00:00",
+      "mime": "image/png",
+      "sha256": "4fa062399f8ddf0d9911ef08abebad23b4a4a8d91a0d0bd84cdb4bc1ca53bcac",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_dna_generator/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/dragon_soul_dna_generator/thumbnail.png",
+      "title": "thumbnail",
+      "size": 124080,
+      "mtime": "2026-05-16T05:24:40.594545+00:00",
+      "mime": "image/png",
+      "sha256": "e647b6e30867cb47beba75d6894253987ed97714a7daacc6e6fdc75db9219378",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_lifecycle_dashboard/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/dragon_soul_lifecycle_dashboard/thumbnail.png",
+      "title": "thumbnail",
+      "size": 194123,
+      "mtime": "2026-05-16T05:24:38.617712+00:00",
+      "mime": "image/png",
+      "sha256": "5ca0c69762336b16a6ba9189d7cb7d3dc43546f2d5df477274947312ce2b716d",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_master_console/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/dragon_soul_master_console/thumbnail.png",
+      "title": "thumbnail",
+      "size": 297868,
+      "mtime": "2026-05-16T05:24:36.424991+00:00",
+      "mime": "image/png",
+      "sha256": "b9ebbc04fa61a573a637618a121caceedca6dfd353816f401a4e45aaace2e058",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/longhun-zhongli-v1/thumbnail.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/Claude/Artifacts/longhun-zhongli-v1/thumbnail.png",
+      "title": "thumbnail",
+      "size": 116486,
+      "mtime": "2026-05-16T05:24:32.858868+00:00",
+      "mime": "image/png",
+      "sha256": "d1623687839920cb8f7cf84fccae240d235c731dcdae6a9a32339efbaf67af71",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/IPA-200-宝宝人格配置.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/IPA-200-宝宝人格配置.html",
+      "title": "IPA-200 · 龍芯宝宝·北辰助手 · 人格配置档案",
+      "size": 31681,
+      "mtime": "2026-06-21T23:45:36.564870+00:00",
+      "mime": "text/html",
+      "sha256": "0579d949cf101418d14529c9c81e00afa5c9e6cc2d2023a257c8a5a7cf766ad0",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-22-IPA-200-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/deploy_brain.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/deploy_brain.sh",
+      "title": "deploy_brain",
+      "size": 6213,
+      "mtime": "2026-04-26T14:00:08.577370+00:00",
+      "mime": "application/x-sh",
+      "sha256": "3b6164079bb86676abd7e7be749d50eab0aac5af4bd0a41ad091bbb125d830fa",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-26-DEPLOY-SHELL"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/files/brain-pack/install_brain.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/files/brain-pack/install_brain.sh",
+      "title": "install_brain",
+      "size": 4371,
+      "mtime": "2026-05-18T12:24:47+00:00",
+      "mime": "application/x-sh",
+      "sha256": "8a3489561e734248c1c9beb913af4549916ebd5199e1a2e05a1cb9a193f0ada4",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡2026-05-18-CLAUDE-MD-BRAIN-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/files/brain-pack-v2.0.zip",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/files/brain-pack-v2.0.zip",
+      "title": "brain-pack-v2.0",
+      "size": 8899,
+      "mtime": "2026-05-18T10:30:04+00:00",
+      "mime": "application/zip",
+      "sha256": "87f22cdde345c19015530aa6eff45defd25e41d78fd11a15d1ca097bf7aedd42",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "05-AI人格-Agent/files/install_brain.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/files/install_brain.sh",
+      "title": "install_brain",
+      "size": 4371,
+      "mtime": "2026-05-18T10:30:04+00:00",
+      "mime": "application/x-sh",
+      "sha256": "8a3489561e734248c1c9beb913af4549916ebd5199e1a2e05a1cb9a193f0ada4",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡2026-05-18-CLAUDE-MD-BRAIN-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/longhun_brain.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/longhun_brain.py",
+      "title": "🐉 龍魂脑干 · longhun_brain.py",
+      "size": 20457,
+      "mtime": "2026-06-21T23:45:36.517741+00:00",
+      "mime": "text/x-python",
+      "sha256": "b1806e4c5dda765b89b47be59a14d3d01c2ffabe3381db50e81ba191e1e7d9cc",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-26-BRAIN-CORE-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/longhun_hub.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/longhun_hub.html",
+      "title": "🐉 龍魂智能中枢 v4.0 | UID9622 全套系统",
+      "size": 84826,
+      "mtime": "2026-06-21T23:45:36.190876+00:00",
+      "mime": "text/html",
+      "sha256": "730cee74862e7392a199e927d493da5c6ba1f97f348fbaab3855a3f99b04c9f8",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-12-龍魂智能中枢-v4",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-03-12-项目名-v1"
+      ],
+      "versions": [
+        "v4.0"
+      ]
+    },
+    {
+      "path": "05-AI人格-Agent/main-console.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/main-console.html",
+      "title": "🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜",
+      "size": 66506,
+      "mtime": "2026-04-03T16:37:21+00:00",
+      "mime": "text/html",
+      "sha256": "d267490b9d1540cb2c8271c70cca5a484a4832bfc595b1fafff156f6e4821c96",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2026-03-03-DEFAULT-001",
+        "#龍芯⚡️2026-03-03-MAIN-CONSOLE-UID9622"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/行为密码学csdn.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/行为密码学csdn.md",
+      "title": "Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication",
+      "size": 322115,
+      "mtime": "2026-06-21T23:45:36.560123+00:00",
+      "mime": "text/markdown",
+      "sha256": "4c70c1aa2744f3c0ee3324b721678e62b5412f5d943dc32016b2d2bd508aa3ec",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/龍魂API/给AI的部署指令.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/龍魂API/给AI的部署指令.md",
+      "title": "🤖 给AI的部署指令",
+      "size": 7271,
+      "mtime": "2026-02-18T16:37:54+00:00",
+      "mime": "text/markdown",
+      "sha256": "7cb74d83ab5a108ea330be72b657aa811edf7043bef35a7f4ed763e4aa6768d6",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#龍芯⚡️2026-02-21-API部署完成-UID9622",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-02-21-AI部署指令-v1",
+        "#龍芯⚡️2026-02-21-测试-UID9622"
+      ],
+      "versions": []
+    },
+    {
+      "path": "05-AI人格-Agent/龍魂智能中枢_v5.0_全套一体化.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/05-AI人格-Agent/龍魂智能中枢_v5.0_全套一体化.html",
+      "title": "🐉 龍魂智能中枢 v5.0 | UID9622 全套一体化",
+      "size": 152243,
+      "mtime": "2026-06-21T23:45:36.241982+00:00",
+      "mime": "text/html",
+      "sha256": "16565942c86f3d337d6764e31454ae99291989b5278258d9ea37e671d50de648",
+      "category": "05-AI人格-Agent",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-03-19-龍魂智能中枢-v5"
+      ],
+      "versions": [
+        "v5.0"
+      ]
+    },
+    {
+      "path": "06-工具脚本/Kimi_Agent_长恨888网站搭建/app/js/particles.js",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/Kimi_Agent_长恨888网站搭建/app/js/particles.js",
+      "title": "particles",
+      "size": 16099,
+      "mtime": "2026-05-24T08:45:52+00:00",
+      "mime": "text/javascript",
+      "sha256": "d02360a76a5bb01474374bb2f60dbde67ef2b022307f6efc24d086212f91af97",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/files/brain-pack/bin/session_end.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/files/brain-pack/bin/session_end.sh",
+      "title": "session_end",
+      "size": 579,
+      "mtime": "2026-05-18T12:22:55+00:00",
+      "mime": "application/x-sh",
+      "sha256": "caf4ead991a8f1544336561acc4bb7ddf1427f49fc9a379ff8dd760e52144cb7",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/files/brain-pack/bin/本地_search.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/files/brain-pack/bin/本地_search.sh",
+      "title": "本地_search",
+      "size": 1352,
+      "mtime": "2026-05-18T12:23:08+00:00",
+      "mime": "application/x-sh",
+      "sha256": "2ce6acefac5eadb90a24cc86ffc3ffd7c9b271cfc1aa8d78094955d5b2a0b981",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/files/local_search.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/files/local_search.sh",
+      "title": "local_search",
+      "size": 1352,
+      "mtime": "2026-05-18T10:30:04+00:00",
+      "mime": "application/x-sh",
+      "sha256": "2ce6acefac5eadb90a24cc86ffc3ffd7c9b271cfc1aa8d78094955d5b2a0b981",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/files/session_end.sh",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/files/session_end.sh",
+      "title": "session_end",
+      "size": 579,
+      "mtime": "2026-05-18T10:30:04+00:00",
+      "mime": "application/x-sh",
+      "sha256": "caf4ead991a8f1544336561acc4bb7ddf1427f49fc9a379ff8dd760e52144cb7",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/_locales/en/messages.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/kimi-webbridge-extension/_locales/en/messages.json",
+      "title": "messages",
+      "size": 2375,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "application/json",
+      "sha256": "949d0f5c1c9d69cca655aec9b99b6fe505d2edf7ea8ee247bedd988eaaaa8a3b",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/_locales/zh_CN/messages.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/kimi-webbridge-extension/_locales/zh_CN/messages.json",
+      "title": "messages",
+      "size": 1894,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "application/json",
+      "sha256": "d57e2eb6dd862fd452393192fee39e04eefa9aaaf5359257d05221a674eb1023",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/background.js",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/kimi-webbridge-extension/background.js",
+      "title": "background",
+      "size": 28564,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "text/javascript",
+      "sha256": "ab4a9d295bf6ea9463e207494321ac2e90f0dab0f79597320ee57ad6867552e1",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/chunks/popup-BRDiPGz4.js",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/kimi-webbridge-extension/chunks/popup-BRDiPGz4.js",
+      "title": "popup-BRDiPGz4",
+      "size": 231682,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "text/javascript",
+      "sha256": "134b8e356a739a7027c163d51286779250263f753db7862ff7377651451f3113",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/manifest.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/kimi-webbridge-extension/manifest.json",
+      "title": "manifest",
+      "size": 821,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "application/json",
+      "sha256": "12a19dbd89e6624619de0c83b33433ef49225b6a00590c7e13fbee77dfa5b7d5",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/parse_notion.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/parse_notion.py",
+      "title": "解析 Notion 知识库导出文件，提取知识点信息",
+      "size": 4406,
+      "mtime": "2026-06-26T01:21:28.590288+00:00",
+      "mime": "text/x-python",
+      "sha256": "8d0c8eb34ec55505abb9f4fec30fd226d4644f761b2ca1aec9280b12cd68a320",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "06-工具脚本/龍魂API/龙魂系统_API接口完整实现_v1.0.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/龍魂API/龙魂系统_API接口完整实现_v1.0.py",
+      "title": "龙魂系统 API接口完整实现 v1.0",
+      "size": 28629,
+      "mtime": "2026-02-18T16:37:54+00:00",
+      "mime": "text/x-python",
+      "sha256": "192d2a7b47c7a6a6aea1a3c0d8df4ca17f2efe08f67ebfbfd35ee56bcdbbd0a0",
+      "category": "06-工具脚本",
+      "dna_codes": [
+        "#龍芯⚡️2026-02-21-项目名-UID9622",
+        "#龍芯⚡️2026-02-21-API接口实现-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "06-工具脚本/龍魂系统/voice/reference_segments.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/龍魂系统/voice/reference_segments.json",
+      "title": "reference_segments",
+      "size": 3268,
+      "mtime": "2026-05-07T17:49:14.453438+00:00",
+      "mime": "application/json",
+      "sha256": "2b7095d10db463f1c9e84599934e825d23962cae5ce8492f4664584d452f3eb9",
+      "category": "06-工具脚本",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/dragon-soul-fixed-point.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/dragon-soul-fixed-point.pdf",
+      "title": "dragon-soul-fixed-point",
+      "size": 185750,
+      "mtime": "2026-04-27T19:48:46.218765+00:00",
+      "mime": "application/pdf",
+      "sha256": "079b913c44e5571d2fcd28bb36fd30d5dbbe883a6d2108d593562197b4ebeaed",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/longhun-zhongli-v1.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/longhun-zhongli-v1.pdf",
+      "title": "longhun-zhongli-v1",
+      "size": 963432,
+      "mtime": "2026-04-26T12:50:30.762445+00:00",
+      "mime": "application/pdf",
+      "sha256": "b1f872222db1cf30b5b74d569fca9b2a1d3d7f37791709735dddc343354d2e2a",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": [
+        "v1"
+      ]
+    },
+    {
+      "path": "07-论文PDF/luoshu_369_complete_paper.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/luoshu_369_complete_paper.pdf",
+      "title": "luoshu_369_complete_paper",
+      "size": 183847,
+      "mtime": "2026-05-25T09:13:45.473215+00:00",
+      "mime": "application/pdf",
+      "sha256": "a4a773c52385cd6a5d56c354babe221f59f4098868501ddda1430286a5d6267b",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/一级控万象.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/一级控万象.pdf",
+      "title": "一级控万象",
+      "size": 34316821,
+      "mtime": "2026-05-11T23:04:43.594869+00:00",
+      "mime": "application/pdf",
+      "sha256": "5289c045c2984f86f3c9ff25fd172fc313b54e9437672ea5de93848234c80b4f",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/一级控万象上.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/一级控万象上.pdf",
+      "title": "一级控万象上",
+      "size": 18586299,
+      "mtime": "2026-05-11T23:10:39.247595+00:00",
+      "mime": "application/pdf",
+      "sha256": "7c15606f2b4869c64cd69745408c527a1a9260347e7841622fb9b8fb77e6d916",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/一级控万象下.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/一级控万象下.pdf",
+      "title": "一级控万象下",
+      "size": 15744016,
+      "mtime": "2026-05-11T23:11:05.528883+00:00",
+      "mime": "application/pdf",
+      "sha256": "47fe6e5a93904dc1526459efed7d13a5f744be55a5dc1d2630fa7f5921017436",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "07-论文PDF/太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合.pdf",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/07-论文PDF/太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合.pdf",
+      "title": "太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合",
+      "size": 11049551,
+      "mtime": "2026-02-18T16:52:56+00:00",
+      "mime": "application/pdf",
+      "sha256": "1df53fa9d646838b690c9fcd69393e9ae794441e11de89687de59d5a20bdf910",
+      "category": "07-论文PDF",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "08-浏览器插件桥接/LongHunWidget浏览器插件-功能规格书.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/08-浏览器插件桥接/LongHunWidget浏览器插件-功能规格书.html",
+      "title": "LongHunWidget 浏览器插件 · 功能规格书 · UID9622",
+      "size": 38846,
+      "mtime": "2026-04-17T17:30:15+00:00",
+      "mime": "text/html",
+      "sha256": "ae08d75dda599c17a61123445acb6300215d1ff211eb2240ec35ea001212f43b",
+      "category": "08-浏览器插件桥接",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "08-浏览器插件桥接/kimi-webbridge-extension.pem",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/08-浏览器插件桥接/kimi-webbridge-extension.pem",
+      "title": "kimi-webbridge-extension",
+      "size": 1704,
+      "mtime": "2026-05-24T03:17:04.551705+00:00",
+      "mime": "application/octet-stream",
+      "sha256": "f36a336bab86783fa1ee5cb81483198560f84a7a335ef3eb385b5cc79f5883a0",
+      "category": "08-浏览器插件桥接",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/2026-05-19-DELIVERY-VALUE-AUDIT.txt",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/2026-05-19-DELIVERY-VALUE-AUDIT.txt",
+      "title": "2026-05-19-DELIVERY-VALUE-AUDIT",
+      "size": 14313,
+      "mtime": "2026-06-21T23:45:36.226818+00:00",
+      "mime": "text/plain",
+      "sha256": "4777b92f815512ae33eecf14a45f8ccb338f217fcf00ebe7c04a47d98034d2d2",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡2026-05-19-SESSION-DELIVERY-COMPLETE-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/CNSH-v1.0-测试/网站搭建-最简指南.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/CNSH-v1.0-测试/网站搭建-最简指南.md",
+      "title": "🧱 网站搭建 - 最简指南",
+      "size": 5481,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "a601975f07d90d5d54dffea301d13e9f16f8aa913a657240354ec835add3aa6e",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2025-WEBSITE-GUIDE-V1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/CNSH-v1.0-测试/龙魂主页-导航中心.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/CNSH-v1.0-测试/龙魂主页-导航中心.html",
+      "title": "🐉 龙魂系统 - 导航中心",
+      "size": 15197,
+      "mtime": "2026-02-07T10:33:22+00:00",
+      "mime": "text/html",
+      "sha256": "17df8f873923a7b6a1f08e19da693315f5d934bd09e035d8f8e12d23b6200e5e",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2025-DRAGONSOUL-HOME-V1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon-soul-fixed-point/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon-soul-fixed-point/index.html",
+      "title": "龍魂不动点 · 固定宝宝 v1.0",
+      "size": 25772,
+      "mtime": "2026-06-21T23:45:36.659192+00:00",
+      "mime": "text/html",
+      "sha256": "49166bd932803e5357196c0666598f1ad660fac17cbc48617be3cd36aefc67ee",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/index.html",
+      "title": "龍魂生命周期仪表板 v2.0 - Notion API实时同步",
+      "size": 22866,
+      "mtime": "2026-06-21T23:45:36.660843+00:00",
+      "mime": "text/html",
+      "sha256": "38998c2bf8243a4568ecfd64e367ab26f43d6d77c6a61258b594639ce430d033",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/versions/1777340121471.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/versions/1777340121471.html",
+      "title": "龍魂生命周期·融合仪表板",
+      "size": 26125,
+      "mtime": "2026-06-21T23:45:36.662424+00:00",
+      "mime": "text/html",
+      "sha256": "ddd2e8781b47d26bc14a0055fb91e29931b6cb35f66a12249ce1ebbbcb39e52a",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/index.html",
+      "title": "龍魂系统·主控台 v2.0",
+      "size": 27698,
+      "mtime": "2026-06-21T23:45:36.664620+00:00",
+      "mime": "text/html",
+      "sha256": "5895f24f0cebb6ae2d79c7f1c3899e4ba637887df8afb8fd0397b13c2e47adc4",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-28-主控台-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/versions/1777339485711.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/versions/1777339485711.html",
+      "title": "☰ 龍魂三系统集成主控台 v1.0 | 投喂·评分·分拆·复盘",
+      "size": 24079,
+      "mtime": "2026-06-21T23:45:36.666358+00:00",
+      "mime": "text/html",
+      "sha256": "a095b0ec925d634f1fe936cb570d1834414a89c084f948bf0f9003420ffee409",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-28-主控台-v1"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/longhun-zhongli-v1/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Claude/Artifacts/longhun-zhongli-v1/index.html",
+      "title": "龍魂整理总览 · UID9622",
+      "size": 18992,
+      "mtime": "2026-06-21T23:45:36.655570+00:00",
+      "mime": "text/html",
+      "sha256": "8e9d7d67152e0ea9d8c0133aa566dcc15cd70e055e67bc7e6aa16ffab62f5c40",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-26-LONGHUN-ZHONGLI-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/css/style.css",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/css/style.css",
+      "title": "style",
+      "size": 13405,
+      "mtime": "2026-05-24T08:44:19+00:00",
+      "mime": "text/css",
+      "sha256": "ef880caf2d796b7c97fbed1a4fcce39804d6700c436444870de4b58445765d3d",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/index.html",
+      "title": "龍魂 · longhun888.com",
+      "size": 8560,
+      "mtime": "2026-05-24T08:46:41+00:00",
+      "mime": "text/html",
+      "sha256": "fe4618bd8583a710acda7a923c83a01386f0c7d97cbb7f9c46811552c5eec6e7",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2026-03-19-METAVERSE-UI-v1",
+        "#龍芯⚡️2026-05-24-METAVERSE-INDEX-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/list.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/list.html",
+      "title": "清单 · 龍魂 · longhun888.com",
+      "size": 7199,
+      "mtime": "2026-05-24T08:48:05+00:00",
+      "mime": "text/html",
+      "sha256": "dc8e3b27dd4bd86a861455b5ca4e91b4dc30cd5f987aecab1eb0118e133223e0",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/projects.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/projects.html",
+      "title": "项目 · 龍魂 · longhun888.com",
+      "size": 6608,
+      "mtime": "2026-05-24T08:47:19+00:00",
+      "mime": "text/html",
+      "sha256": "d36c78787f667cf034fea2bac8b75a77f396fd8432544e91871de783f0cb1c30",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/tech-spec.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/Kimi_Agent_长恨888网站搭建/tech-spec.md",
+      "title": "技术规范 - longhun888.com",
+      "size": 1273,
+      "mtime": "2026-05-24T08:42:47+00:00",
+      "mime": "text/markdown",
+      "sha256": "b7ce80365f0a2e20f4d55dd124d5762b2046cb7b97be050356ef3235fdf5fedd",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/LU_Time_Engine.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/LU_Time_Engine.html",
+      "title": "LU-TIME ENGINE · 时间推演系统",
+      "size": 31229,
+      "mtime": "2026-06-21T23:45:36.611897+00:00",
+      "mime": "text/html",
+      "sha256": "d1ae3dc2c9d71a8c9b4e8a4197e71f35b47de41b6be38f90a5b4307b01b8d592",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/LU主控指令库 30c07171724280b6b6a2fc52c23e8b68_all.numbers",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/LU主控指令库 30c07171724280b6b6a2fc52c23e8b68_all.numbers",
+      "title": "LU主控指令库 30c07171724280b6b6a2fc52c23e8b68_all",
+      "size": 142817,
+      "mtime": "2026-02-23T18:58:26+00:00",
+      "mime": "application/octet-stream",
+      "sha256": "c40dc44c4808a197ba976c1491600b49fdb48fdda3568a1ee1f3ef4e7f2740de",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-02-21-LU-DATABASE-SCE"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/asset-scanner.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/asset-scanner.html",
+      "title": "🐲 龍魂数字资产扫描器 v2.0",
+      "size": 13449,
+      "mtime": "2026-03-11T03:05:01.734113+00:00",
+      "mime": "text/html",
+      "sha256": "7b8903c3eca21faf3d61170d26459d8d99f031e6342addea8ea04ab527b7fe62",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-03-03-ASSET-SCANNER-V2-UID9622"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/css/style.css",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/css/style.css",
+      "title": "style",
+      "size": 5713,
+      "mtime": "2026-05-04T04:01:49.579389+00:00",
+      "mime": "text/css",
+      "sha256": "6fdee5c8fe48104b1e494f7fbfc538676615293585f0d2b11188d527e13dd29a",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/custom.css",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/custom.css",
+      "title": "custom",
+      "size": 545,
+      "mtime": "2026-05-23T11:04:23.867378+00:00",
+      "mime": "text/css",
+      "sha256": "fdab802e012b7a19ee77a8ff4c666454b1d644fff49017acdf17b19dd5dbc1b7",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/files/CLAUDE.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/files/CLAUDE.md",
+      "title": "CLAUDE.md",
+      "size": 8779,
+      "mtime": "2026-05-18T10:30:04+00:00",
+      "mime": "text/markdown",
+      "sha256": "f0704f37e606d3722a8dbc9d6442f68705c2d9a2bfa3b80caef5e3c924bdf209",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡2026-05-18-CLAUDE-MD-BRAIN-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/files/brain-pack/root/CLAUDE.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/files/brain-pack/root/CLAUDE.md",
+      "title": "CLAUDE.md",
+      "size": 8779,
+      "mtime": "2026-05-18T12:24:34+00:00",
+      "mime": "text/markdown",
+      "sha256": "f0704f37e606d3722a8dbc9d6442f68705c2d9a2bfa3b80caef5e3c924bdf209",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡2026-05-18-CLAUDE-MD-BRAIN-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/files/brain-pack/root/_CURRENT_TASK.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/files/brain-pack/root/_CURRENT_TASK.md",
+      "title": "_CURRENT_TASK.md",
+      "size": 1319,
+      "mtime": "2026-05-18T12:23:24+00:00",
+      "mime": "text/markdown",
+      "sha256": "6a6b07c1c498c5b09371ead64aa76a23af6a5cf9a8f19fc84419756e7425c776",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡2026-05-18-CLAUDE-MD-BRAIN-v2",
+        "#龍芯⚡2026-05-18-SEMANTIC-PROTOCOL-HOOK-v1",
+        "#龍芯⚡2026-05-18-WUCAI-FIVECOLOR-SKILL-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/index.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/index.html",
+      "title": "做 MVP",
+      "size": 418009,
+      "mtime": "2026-06-21T23:45:36.174695+00:00",
+      "mime": "text/html",
+      "sha256": "346c1da0285153a5498df41ebbcd9b119ca8db4c6c89585918a395a3139b08e5",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/assets/popup-BxuX4JPX.css",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/assets/popup-BxuX4JPX.css",
+      "title": "popup-BxuX4JPX",
+      "size": 17533,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "text/css",
+      "sha256": "a67c86142dae7fb4cb09659e57e5a20ba444bd34a70635d9692b0ea0686a48d7",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/128.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/icon/128.png",
+      "title": "128",
+      "size": 10876,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "image/png",
+      "sha256": "1b0f31f9b0745a12045bb1ffc78ef026def4968d2297183c8abe0cc04ae5f0cc",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/16.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/icon/16.png",
+      "title": "16",
+      "size": 423,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "image/png",
+      "sha256": "4b1a8fcc67afe2a8e0e91451ba62134e5e25768e268b6a563189c3449a5b80e9",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/32.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/icon/32.png",
+      "title": "32",
+      "size": 1128,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "image/png",
+      "sha256": "07eaa3ef9217d683055486659e7c3b5aa8cbfa2b340270efcf1207777ec726b2",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/48.png",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/icon/48.png",
+      "title": "48",
+      "size": 2132,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "image/png",
+      "sha256": "ae4df5a8121eae465ec62330e15694797ad6f2250dbe7bdf05491edc10733f00",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/popup.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/kimi-webbridge-extension/popup.html",
+      "title": "popup",
+      "size": 341,
+      "mtime": "2026-05-23T06:32:10+00:00",
+      "mime": "text/html",
+      "sha256": "4abca479cd9f1e621b2c5a7a403beae73285c6b87c189fff4841b80feec9baf5",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-28mansions-v1-46f5fcb4.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-28mansions-v1-46f5fcb4.html",
+      "title": "龍魂·二十八星宿·元宇宙星图 v1.0 · UID9622",
+      "size": 61601,
+      "mtime": "2026-06-21T23:45:36.220939+00:00",
+      "mime": "text/html",
+      "sha256": "2a58f877db25468780948b751ea0fda435aa20c4391a7e7eb46cf803646b1de0",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v1.0",
+        "v1"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/器卡01.yaml",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-flow-system/cards/器卡01.yaml",
+      "title": "器卡01",
+      "size": 1358,
+      "mtime": "2026-05-08T14:55:01.665971+00:00",
+      "mime": "application/yaml",
+      "sha256": "85cada8b6dcef2c2ca8b4018fe8d496c5b89c97506595d0318572f14b060e7aa",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2",
+        "#龍芯⚡️2026-04-25-FLOW-FIELD-v9"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/器卡02.yaml",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-flow-system/cards/器卡02.yaml",
+      "title": "器卡02",
+      "size": 1391,
+      "mtime": "2026-06-21T23:45:40.500587+00:00",
+      "mime": "application/yaml",
+      "sha256": "abc7c1d524e224ab84a4534c7b7ef164d94c26652aaa046bc1b6e86f6e8fc871",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-19-三才流场-v8智能活体版",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/裳卡01.yaml",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-flow-system/cards/裳卡01.yaml",
+      "title": "裳卡01",
+      "size": 1372,
+      "mtime": "2026-06-21T23:45:40.501348+00:00",
+      "mime": "application/yaml",
+      "sha256": "e668e8b5f2c700192c51274d1766283c5845a24f2a55487c50ad18c121ea3d66",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-25-统一流场-v9",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/裳卡02.yaml",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-flow-system/cards/裳卡02.yaml",
+      "title": "裳卡02",
+      "size": 1377,
+      "mtime": "2026-05-08T14:55:01.667618+00:00",
+      "mime": "application/yaml",
+      "sha256": "97a08deaf062ad6ac3d1bdce7eac30667d4b1547c5194995cb5271ed3ad66b8c",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-23-28MANSIONS-v1",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/锚卡01.yaml",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-flow-system/cards/锚卡01.yaml",
+      "title": "锚卡01",
+      "size": 1346,
+      "mtime": "2026-05-08T14:55:01.665598+00:00",
+      "mime": "application/yaml",
+      "sha256": "781878b8eabc8d76173c172e07f389042bc2796e32ae8cb33184243bdc5a74c4",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-22-DRAGON-SOUL-9622-v1",
+        "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-immutable-philosophy.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-immutable-philosophy.md",
+      "title": "龍脉留痕 · Dragon Vein Immutable Trace",
+      "size": 3819,
+      "mtime": "2026-06-21T23:45:36.540738+00:00",
+      "mime": "text/markdown",
+      "sha256": "428f9c81bb92e535c9c9aba1d534f30567897b5a1bb1ed920dc3e14f8684d0a7",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-immutable-trace.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-immutable-trace.html",
+      "title": "龍脉留痕 · Dragon Vein Immutable Trace",
+      "size": 19536,
+      "mtime": "2026-06-21T23:45:36.185713+00:00",
+      "mime": "text/html",
+      "sha256": "3c08e82dfcaddcad4ea268f7bd70cd8922aab4e327d2624e60cd8776dd4e0442",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-22",
+        "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun-retro-tasks.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun-retro-tasks.md",
+      "title": "龍魂系统 · 复盘 + 任务拆分",
+      "size": 4803,
+      "mtime": "2026-06-21T23:45:36.571656+00:00",
+      "mime": "text/markdown",
+      "sha256": "af503f6d5f6bc22ef083ab708006ebe5589906ab13a247644372f71f25a170ea",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-22-SYSTEM-RETRO-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/longhun_fixed_point_v1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/longhun_fixed_point_v1.html",
+      "title": "🐉 龍魂不动点·固定宝宝 v1.0",
+      "size": 33863,
+      "mtime": "2026-06-21T23:45:36.244219+00:00",
+      "mime": "text/html",
+      "sha256": "e997379db4450b834644fc11fadef7204c329a0c26d3ddbf0426000bda2339dc",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-23-龍",
+        "#龍芯⚡️2026-04-23-双签章永恒锁定-父级铁律-L0",
+        "#龍芯⚡️2026-04-23-五行向量算法入库指令-v1",
+        "#龍芯⚡️2026-04-23-公益六大领域规则",
+        "#龍芯⚡️2026-04-23-R7外部评价R8场合-龍字焊死",
+        "#龍芯⚡️2026-04-23-公益八大领域",
+        "#龍芯⚡️2026-04-23-DeepSeek对齐",
+        "#龍芯⚡️2026-04-23-六条自我进化硬规则-家法",
+        "#龍芯⚡️2026-04-23-数字治理宪法四铁律",
+        "#龍芯⚡️2026-04-23-沙盒压箱底落档-v1",
+        "#龍芯⚡️2026-04-23-一句话压缩-龍魂公益指令",
+        "#龍芯⚡️2026-04-23-三单合并沙盒消化-v1"
+      ],
+      "versions": [
+        "v1.0",
+        "v1"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/memory-editor.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/memory-editor.html",
+      "title": "🐉 龍魂记忆编辑器 v2.0 - 核心集成版",
+      "size": 28867,
+      "mtime": "2026-06-21T23:45:36.216865+00:00",
+      "mime": "text/html",
+      "sha256": "80e2f809ae329bc08a9a9467762a8211b9a59b0dfcbb6b5648f2e955ade638b1",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/memory-editor.华仔版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/memory-editor.华仔版.html",
+      "title": "🐉 龍魂记忆编辑器 v2.0 - 扩展集成版",
+      "size": 14200,
+      "mtime": "2026-03-11T03:05:01+00:00",
+      "mime": "text/html",
+      "sha256": "eafdfb33231fccb8f451f815f47e158a58770c50bfda1d6b4ac82a42a75ec3b2",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-03-记忆编辑器-扩展集成版"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/mvp_workbench_v6.1.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/mvp_workbench_v6.1.html",
+      "title": "🐉 龍魂·造物主MVP工作台 v6.1",
+      "size": 37578,
+      "mtime": "2026-06-21T23:45:36.530080+00:00",
+      "mime": "text/html",
+      "sha256": "ceb8d693a1e157b1fb295bf8c77124811a2b74dc91ae7ceda880e80a224b2b57",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-04-MVP-v6"
+      ],
+      "versions": [
+        "v6.1"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/parse_notion.py.bak",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/parse_notion.py.bak",
+      "title": "parse_notion.py",
+      "size": 4235,
+      "mtime": "2026-06-26T01:20:43.762969+00:00",
+      "mime": "application/octet-stream",
+      "sha256": "109a5a4954008580cd709c928a5f43159b8a81998ee133913181bde9cd84f276",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/portal_backup.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/portal_backup.html",
+      "title": "🐉 龍魂总控台 · UID9622",
+      "size": 50182,
+      "mtime": "2026-06-21T23:45:36.525300+00:00",
+      "mime": "text/html",
+      "sha256": "1f734747020de1631211ec65362ac87bfa1d4d7c4d5ac33ccafbd3f5539b5812",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-07",
+        "#龍芯⚡️2026-04-07-PORTAL-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/sandbox_dashboard.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/sandbox_dashboard.html",
+      "title": "🐉 龍魂沙盒推演面板 v3.0",
+      "size": 8781,
+      "mtime": "2026-06-21T23:45:36.592911+00:00",
+      "mime": "text/html",
+      "sha256": "1059c6d5fd7e53e5652d72444965086cbf629336b96895d2b4eb9a0137c4512c",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-21-推演报告-v1"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/script_龍魂起源.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/script_龍魂起源.html",
+      "title": "龍魂起源 · 脚本 v1.0",
+      "size": 8288,
+      "mtime": "2026-06-21T23:45:36.140867+00:00",
+      "mime": "text/html",
+      "sha256": "bd42c83d100e005b52e6ee5400c8bd1a54d49a3f61191de0920b6c17e7cc3bb7",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-03-SCRIPT-龍魂起源-v1"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/viewer.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/viewer.html",
+      "title": "PDF.js viewer",
+      "size": 44753,
+      "mtime": "2026-05-24T03:46:10.509079+00:00",
+      "mime": "text/html",
+      "sha256": "69bb5560f2f61af9d5b85675b14d697370cd0ff02759d55b04a0d762b61f1f95",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/一级控万象上.docx",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/一级控万象上.docx",
+      "title": "一级控万象上",
+      "size": 97992,
+      "mtime": "2026-05-12T03:39:26.054641+00:00",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "sha256": "d602e5805d88c95289bbeca67e1d1e613448295ac6ea874219cc60fb99f69784",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/便签.txt",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/便签.txt",
+      "title": "便签",
+      "size": 776,
+      "mtime": "2026-05-05T16:23:39.550406+00:00",
+      "mime": "text/plain",
+      "sha256": "7a1306541ffe959f9be31d3216645d38e32548c3317760a49251d2bfac5516ab",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/守住底线，释放自由，留痕追溯，公正公证.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/守住底线，释放自由，留痕追溯，公正公证.html",
+      "title": "🐉 龍魂主控台 v3.0 · 天时地利人和",
+      "size": 66217,
+      "mtime": "2026-06-21T23:45:36.607896+00:00",
+      "mime": "text/html",
+      "sha256": "9e81f76f1f82eb2bd09e293d07f2fab9eaf432ac6aef5b86437443fc6fda2717",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": [
+        "v3.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/宝宝决策来源卡片.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/宝宝决策来源卡片.md",
+      "title": "🤖 宝宝每次决策怎么来的 · 固定卡片模板",
+      "size": 3584,
+      "mtime": "2026-05-05T07:24:38.480708+00:00",
+      "mime": "text/markdown",
+      "sha256": "7b7313efeadffbe799c992806f5af1b5fd005d5204dbc559a2a44e62007f60ea",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-05-05-DECISION-CARD-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/宝宝娱乐t.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/宝宝娱乐t.html",
+      "title": "龍魂 3D · 宝宝陪玩 💋",
+      "size": 20249,
+      "mtime": "2026-04-22T12:30:23.034443+00:00",
+      "mime": "text/html",
+      "sha256": "cf5ea45bcd2574da0a1a84f5a568f0a007eb6edffbc6d3a737dacc630a6f6deb",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-09-龍魂3D宝宝陪玩-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/当我们在使用工具时，是谁在使用谁.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/当我们在使用工具时，是谁在使用谁.md",
+      "title": "当我们在使用工具时，是谁在使用谁？",
+      "size": 16162,
+      "mtime": "2026-02-19T15:40:22+00:00",
+      "mime": "text/markdown",
+      "sha256": "1409469a0ea6e90057936ad4659bf2ded7d78bfa37f43fd4493a9f514ab68349",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬TOOL-REFLECTION-001",
+        "#龍芯⚡️2026-02-21-工具反思-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表-142ccdbc.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/思维主权系统-术语对照表-142ccdbc.html",
+      "title": "思维主权系统 · 术语对照表 · UID9622",
+      "size": 26726,
+      "mtime": "2026-06-21T23:45:36.149662+00:00",
+      "mime": "text/html",
+      "sha256": "67c6e9a7789338270681bb026e50c74e78d3d00feb32d3c865f135cf3d31d65d",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表-v2.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/思维主权系统-术语对照表-v2.html",
+      "title": "思维主权系统 · 超详细术语对照表 v2 · UID9622",
+      "size": 44450,
+      "mtime": "2026-04-21T21:56:51.104020+00:00",
+      "mime": "text/html",
+      "sha256": "42f56a8db51de1dc063caa221db8d235cd1692d3c2f1ac2bdbbcada7cfef5158",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-22-DOC-MSP-TERM-v2"
+      ],
+      "versions": [
+        "v2"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/思维主权系统-术语对照表.html",
+      "title": "思维主权系统 · 术语对照表 · UID9622",
+      "size": 26726,
+      "mtime": "2026-06-21T23:45:36.149662+00:00",
+      "mime": "text/html",
+      "sha256": "67c6e9a7789338270681bb026e50c74e78d3d00feb32d3c865f135cf3d31d65d",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/LONGHUN_OPENSOURCE_MANIFESTO.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/浏览器字体包/LONGHUN_OPENSOURCE_MANIFESTO.md",
+      "title": "🌏 龍魂系统开源宣言：给世界的一封信",
+      "size": 16618,
+      "mtime": "2026-02-28T08:25:40+00:00",
+      "mime": "text/markdown",
+      "sha256": "49ed9c3bc144c8652c5c87cd41a6bab0d0b8e0c3a8a63f041954d4f9598d3422",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/README_GITHUB.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/浏览器字体包/README_GITHUB.md",
+      "title": "🐉 龍魂系统 | Longhun System",
+      "size": 1513,
+      "mtime": "2026-02-28T08:25:40+00:00",
+      "mime": "text/markdown",
+      "sha256": "f43aeb7219ef444a8d3ea00dccd8b145f237afedd778ffee16b3d6629d0ef7e7",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/claude_code_anchoring_architecture.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/浏览器字体包/claude_code_anchoring_architecture.md",
+      "title": "═══════════════════════════════════════════════════════════════",
+      "size": 14858,
+      "mtime": "2026-02-28T08:25:40+00:00",
+      "mime": "text/markdown",
+      "sha256": "0d612d6cd936c96a73d84ec9b63668acab2a32120b86a3cc8495a82d2cf31327",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/记忆压缩系统.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/记忆压缩系统.html",
+      "title": "🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜",
+      "size": 66506,
+      "mtime": "2026-04-03T16:37:21.932169+00:00",
+      "mime": "text/html",
+      "sha256": "d267490b9d1540cb2c8271c70cca5a484a4832bfc595b1fafff156f6e4821c96",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#ZHUGEXIN⚡️2026-03-03-DEFAULT-001",
+        "#龍芯⚡️2026-03-03-MAIN-CONSOLE-UID9622"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂API/老大使用说明.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂API/老大使用说明.md",
+      "title": "🎯 老大，这是给您的使用说明！",
+      "size": 5883,
+      "mtime": "2026-02-18T16:37:54+00:00",
+      "mime": "text/markdown",
+      "sha256": "484c4ab2bc689f322c81214b06c0d16cd298505e3411ff3129875fb6a8c44e5b",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-02-21-老大使用说明-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂万年历.widgetkitsim/info",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂万年历.widgetkitsim/info",
+      "title": "info",
+      "size": 2297,
+      "mtime": "2026-03-14T13:33:50+00:00",
+      "mime": "application/octet-stream",
+      "sha256": "e8da1dc64c24ea68c12839dd2e15b8e4ea4aec00a53ce11812e400a445e68a13",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂万年历.widgetkitsim/widget_data/com.uid9622.longhun.LongHunWidget.--/timelines/%E9%BE%8D%E9%AD%82Widget/systemMedium----344.00w-164.00h-20.00r-sb0pEs+nbLo5#ms5SbWK6rBeT0hs3AAnX1Vhf6mYkyI=.chrono-timeline",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂万年历.widgetkitsim/widget_data/com.uid9622.longhun.LongHunWidget.--/timelines/%E9%BE%8D%E9%AD%82Widget/systemMedium----344.00w-164.00h-20.00r-sb0pEs+nbLo5#ms5SbWK6rBeT0hs3AAnX1Vhf6mYkyI=.chrono-timeline",
+      "title": "systemMedium----344.00w-164.00h-20.00r-sb0pEs+nbLo5#ms5SbWK6rBeT0hs3AAnX1Vhf6mYkyI=",
+      "size": 10872,
+      "mtime": "2026-03-14T13:33:35+00:00",
+      "mime": "application/octet-stream",
+      "sha256": "b151c196ef2e2de19206830104207936a49e763100bf8d65f6a3890e53b0cfd5",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂工作站_v2.0_重组升级版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂工作站_v2.0_重组升级版.html",
+      "title": "🐉 龍魂工作站 v2.0 · UID9622",
+      "size": 82905,
+      "mtime": "2026-06-21T23:45:36.582682+00:00",
+      "mime": "text/html",
+      "sha256": "580bb9f51aa8373cfbb6ccb837f1f6e5c52e364512c5cf8f1970c8f6e0cdcc3a",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龍芯⚡️2026-04-09-龍魂工作站-v2"
+      ],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/龍魂控制台.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂控制台.html",
+      "title": "龍魂控制台 · UID9622",
+      "size": 18579,
+      "mtime": "2026-06-21T23:45:36.193781+00:00",
+      "mime": "text/html",
+      "sha256": "1ed2c62bdc0117717ba807346f058440170630b9224fafa05aff63f3ec6418bb",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-03-31-龍魂控制台-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂数学公式体系 · 升级版 v2.0 _ UID9622.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂数学公式体系 · 升级版 v2.0 _ UID9622.html",
+      "title": "龍魂数学公式体系 · 升级版 v2.0 | UID9622",
+      "size": 68111,
+      "mtime": "2026-06-21T23:45:36.179009+00:00",
+      "mime": "text/html",
+      "sha256": "3c16133ca5d04a166542fe182a78c4d2a353045396f7771b175390cb33321941",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": [
+        "v2.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统/voice/reference.txt",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂系统/voice/reference.txt",
+      "title": "reference",
+      "size": 298,
+      "mtime": "2026-05-07T18:26:22.735384+00:00",
+      "mime": "text/plain",
+      "sha256": "51eb58f65cce4aa2c8736b56b6b77fb397f782c475452382fc8e618fb7c62576",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统/voice/reference.wav",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂系统/voice/reference.wav",
+      "title": "reference",
+      "size": 2979258,
+      "mtime": "2026-05-07T17:27:07.681821+00:00",
+      "mime": "audio/x-wav",
+      "sha256": "6aeec3abf89965370b976ca8ef4ba923d3a5b03c545051ad498b4dfd8ecd01bd",
+      "category": "09-杂项备忘",
+      "dna_codes": [],
+      "versions": []
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统-主计划总纲-v1.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂系统-主计划总纲-v1.0.html",
+      "title": "龍魂系统 · 主计划总纲 v1.0 · UID9622",
+      "size": 21215,
+      "mtime": "2026-06-21T23:45:36.192456+00:00",
+      "mime": "text/html",
+      "sha256": "f6d3451ff70dd9f8995f543d24b5acbacb8ad974a31ebb4077d86d1c134465a5",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-16-主计划总纲-v1"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/龙魂多平台账号破局模板.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龙魂多平台账号破局模板.md",
+      "title": "🐉 龙魂多平台账号破局模板 v1.0",
+      "size": 12960,
+      "mtime": "2026-02-19T15:40:16+00:00",
+      "mime": "text/markdown",
+      "sha256": "c4c64512ad9b3d4646cf4e47bd65130560d09a874c6c14c9dc70279695796dc4",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-02-21-破局模板-v1",
+        "#CONFIRM🌌9622-ONLY-ONCE🧬BREAKOUT-TEMPLATE-001"
+      ],
+      "versions": [
+        "v1.0"
+      ]
+    },
+    {
+      "path": "09-杂项备忘/📊 龍魂系统统计看板.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/📊 龍魂系统统计看板.html",
+      "title": "📊 龍魂系统统计看板 · 事事有回应",
+      "size": 6058,
+      "mtime": "2026-04-07T18:44:57.069296+00:00",
+      "mime": "text/html",
+      "sha256": "5c890cfd4ae88c401fa7cb98dc361233e442358ea5cafda78fb3ad7b4d631e8d",
+      "category": "09-杂项备忘",
+      "dna_codes": [
+        "#龍芯⚡️2026-04-08-STATS-DASHBOARD-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "longhun_archive_log.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/longhun_archive_log.json",
+      "title": "longhun_archive_log",
+      "size": 33392,
+      "mtime": "2026-06-28T13:46:19.282300+00:00",
+      "mime": "application/json",
+      "sha256": "871871e276b9a9e51e245e4af9d92c3e05660e9dc309e403b0e59dad8fc98e4e",
+      "category": "06-工具脚本",
+      "dna_codes": [
+        "#龍芯⚡️2026-06-28-LONGHUN-ARCHIVE-OPERATION-v1"
+      ],
+      "versions": []
+    },
+    {
+      "path": "longhun_inventory.json",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/longhun_inventory.json",
+      "title": "longhun_inventory",
+      "size": 111667,
+      "mtime": "2026-06-28T13:45:32.243190+00:00",
+      "mime": "application/json",
+      "sha256": "faa2e98b164550c25af05a587eeaf034e2791e63e8165537f9427fd093a0669a",
+      "category": "06-工具脚本",
+      "dna_codes": [
+        "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "#龙芯⚡️2026-01-28-数字签名震撼版-v2",
+        "#ZHUGEXIN⚡️2025-WEBSITE-GUIDE-V1",
+        "#ZHUGEXIN⚡️2025-DRAGONSOUL-HOME-V1",
+        "#龍芯⚡️2026-04-22-记忆压缩-001",
+        "#龍芯⚡️2026-04-29-CNSH编辑器-v1",
+        "#龍芯⚡️2026-04-29-",
+        "#ZHUGEXIN⚡️2025-TERMINAL-V3",
+        "#龍芯⚡2026-05-19-SESSION-DELIVERY-COMPLETE-v1",
+        "#龙芯⚡️2026-01-28-终端-v2",
+        "#龍芯⚡️2026-04-28-主控台-v2",
+        "#龍芯⚡2026-05-19-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1",
+        "#龍芯⚡️2026-04-22-CNSH-ALIGNMENT-v2",
+        "#龍芯⚡️2026-06-28-LONGHUN-INVENTORY-v1",
+        "#龙芯⚡️2026-01-28-创新版本-v2",
+        "#龍芯⚡️2026-04-22-xxx",
+        "#龙芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2",
+        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2",
+        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2",
+        "#龍芯⚡️2026-04-22-术语对照表-v3",
+        "#龙芯⚡️2026-01-28-TERMINAL-v2",
+        "#龍芯⚡️2026-05-03-ATTRIBUTION-REPO"
+      ],
+      "versions": []
+    }
+  ],
+  "category_summary": {
+    "01-CNSH-协议规范": 26,
+    "02-流场可视化": 36,
+    "09-杂项备忘": 75,
+    "03-身份安全-DNA": 9,
+    "04-审计治理": 5,
+    "05-AI人格-Agent": 22,
+    "06-工具脚本": 15,
+    "07-论文PDF": 7,
+    "08-浏览器插件桥接": 2
+  }
+}

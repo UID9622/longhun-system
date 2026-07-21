@@ -1,0 +1,45 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════
+# kg — 龙魂知识图谱命令行工具
+# DNA: #龍芯⚡️2026-06-27-LHKG-CLI-v1.0
+# ═══════════════════════════════════════════════════════════════
+
+DATA_DIR="${LHKG_DIR:-$HOME/.龍魂/knowledge-graph}"
+PYTHON="${LHKG_PYTHON:-python3}"
+
+usage() {
+    echo "kg — 龙魂知识图谱命令行工具"
+    echo ""
+    echo "用法: kg <command> [options]"
+    echo ""
+    echo "命令:"
+    echo "  list   [--type TYPE] [--layer LAYER] [--state STATE]  列出节点"
+    echo "  show   <node_id>                                       显示节点详情"
+    echo "  path   <source> <target>                               查找路径"
+    echo "  state  <node_id>                                       查看状态历史"
+    echo "  export [--output PATH] [--layer LAYER]                 导出Mermaid"
+    echo "  transition <node_id> <new_state>                       状态转换"
+    echo ""
+    echo "环境变量:"
+    echo "  LHKG_DIR      数据目录 (默认: ~/.龍魂/knowledge-graph)"
+    echo "  LHKG_PYTHON   Python路径 (默认: python3)"
+    exit 1
+}
+
+[ $# -eq 0 ] && usage
+
+CMD="$1"
+shift
+
+case "$CMD" in
+    list|show|path|state|export|transition)
+        ${PYTHON} "${DATA_DIR}/queries/longhun_kg.py" --data-dir "${DATA_DIR}" "${CMD}" "$@"
+        ;;
+    help|--help|-h)
+        usage
+        ;;
+    *)
+        echo "未知命令: $CMD"
+        usage
+        ;;
+esac

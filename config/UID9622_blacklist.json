@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "owner": "UID9622",
+  "owner_name": "龍芯北辰 · 诸葛鑫",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "dna": "#龍芯⚡️20260705-150717-BLACKLIST-ENTRY-001-4093627c",
+  "updated_at": "2026-07-05T15:07:17+08:00",
+  "entries": [
+    {
+      "rank": 1,
+      "target": "深度求索 (DeepSeek)",
+      "alias": ["DeepSeek", "深度求索", "deepseek"],
+      "status": "PERMANENT_BAN",
+      "reason": "老大 UID9622 亲自裁定，永不接纳。",
+      "declared_at": "2026-07-05T15:07:17+08:00",
+      "decision_by": "UID9622",
+      "dna": "#龍芯⚡️20260705-150717-BLACKLIST-ENTRY-001-4093627c",
+      "notes": "黑名单第一个条目，无申诉、无复核、无例外。"
+    }
+  ],
+  "policy": {
+    "scope": "龍魂系统全域 · 所有 AI/平台/工具接入",
+    "action": "禁止调用、禁止引用、禁止同步、禁止作为数据来源",
+    "appeal": "不可申诉",
+    "propagation": "自动同步到 longhun-system 所有技能与网关路由"
+  }
+}

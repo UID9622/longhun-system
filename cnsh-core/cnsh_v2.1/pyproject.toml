@@ -1,0 +1,47 @@
+# #龍芯⚡️2026-07-03-CORE-PYPROJECT-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cnsh"
+version = "2.1.0"
+description = "CNSH v2.1 中文原生脚本语言运行时与工具链"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "CC BY-NC-SA 4.0"}
+authors = [
+    {name = "UID9622", email = "uid9622@longhun.system"}
+]
+keywords = ["CNSH", "中文编程", "LongHun", "龍魂", "sovereignty"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Compilers",
+]
+dependencies = [
+    # 核心运行时无外部依赖；可选 FastAPI 仅用于 Web 技术站
+]
+
+[project.optional-dependencies]
+web = ["fastapi", "uvicorn"]
+
+[project.scripts]
+cnsh = "cnsh_v21.toolchain:main"
+
+[project.urls]
+Homepage = "https://github.com/uid9622/cnsh"
+Repository = "https://github.com/uid9622/cnsh"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cnsh_v21*"]

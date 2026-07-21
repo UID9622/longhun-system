@@ -1,0 +1,56 @@
+{
+  "//": "龍魂中文编辑开发环境 - DevEco Studio配置",
+  "// DNA": "#龍芯⚡️2026-06-26-DEVENV-DEVECO-v1.0",
+
+  "general": {
+    "theme": "Darcula",
+    "fontSize": 14,
+    "fontFamily": "JetBrains Mono, Noto Sans SC",
+    "lineHeight": 1.5,
+    "encoding": "UTF-8"
+  },
+
+  "editor": {
+    "tabSize": 4,
+    "insertSpaces": true,
+    "autoImport": true,
+    "codeCompletion": true,
+    "parameterHints": true,
+    "autoFormat": true,
+    "trimTrailingWhitespace": true,
+    "ensureNewlineAtEOF": true
+  },
+
+  "build": {
+    "compileSdkVersion": 11,
+    "compatibleSdkVersion": 11,
+    "modelVersion": "5.0.0",
+    "buildToolVersion": "5.0.3.910"
+  },
+
+  "sdk": {
+    "apiVersion": 11,
+    "language": "ArkTS",
+    "minTargetApi": 9
+  },
+
+  "preview": {
+    "deviceType": "phone",
+    "orientation": "portrait",
+    "resolution": "1080x2340"
+  },
+
+  "debug": {
+    "hilogEnabled": true,
+    "breakOnException": true,
+    "showLineNumbers": true
+  },
+
+  "cnsh": {
+    "enabled": true,
+    "namingConvention": "chinese_first",
+    "dnaTrace": true,
+    "auditEnabled": true,
+    "sovereigntyCheck": true
+  }
+}

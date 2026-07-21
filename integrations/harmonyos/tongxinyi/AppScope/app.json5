@@ -1,0 +1,23 @@
+{
+  // ==========================================================================
+  // 通心译 (Tongxin Translation) — 鸿蒙端应用全局配置
+  // DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-HARMONYOS-v1.0
+  // CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  // ==========================================================================
+  "app": {
+    "bundleName": "com.longhun.tongxinyi",
+    "vendor": "UID9622·龍芯北辰",
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "icon": "$media:app_icon",
+    "label": "$string:app_name",
+    "description": "$string:app_desc",
+    "targetAPIVersion": 12,
+    "minAPIVersion": 12,
+    "apiReleaseType": "Release",
+    "debug": false,
+    "car": {
+      "minAPIVersion": 12
+    }
+  }
+}

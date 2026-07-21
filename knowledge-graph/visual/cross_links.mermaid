@@ -1,0 +1,45 @@
+graph TD
+    subgraph A[图谱A·主权层]
+        style A fill:#DC2626,stroke:#991B1B,color:#fff
+        audit_003[🔴三色审计关闭]:::sovereignty
+        mechanism_002[触发熔断]:::sovereignty
+        claim_004[不归属商业]:::sovereignty
+        behavior_003[用户收割]:::sovereignty
+    end
+
+    subgraph B[图谱B·治理/机制层]
+        style B fill:#2563EB,stroke:#1E40AF,color:#fff
+        fuse_b001[道德绑架熔断]:::governanceB
+        reward_001[回馈机制]:::governanceB
+        reward_002[回馈来源]:::governanceB
+        principle_002[贡献即存档]:::governanceB
+        audit_002[🟡警告]:::governanceB
+    end
+
+    subgraph C[图谱B·基础层]
+        style C fill:#7C3AED,stroke:#5B21B6,color:#fff
+        inherit_004[DNA追溯链]:::mechanismB
+    end
+
+    subgraph D[图谱A·机制层]
+        style D fill:#16A34A,stroke:#166534,color:#fff
+        mechanism_003[生成DNA记录]:::mechanismA
+        audit_003b[🔴关闭]:::mechanismA
+    end
+
+    audit_003 ==>|triggers| fuse_b001
+    mechanism_002 ==>|suspends| reward_001
+    claim_004 ==>|constrains| reward_002
+    behavior_003 ==>|triggers| fuse_b001
+    principle_002 ==>|produces| mechanism_003
+    fuse_b001 ==>|audits| audit_003b
+    inherit_004 ==>|extends| mechanism_003
+    audit_002 ==>|notifies| reward_001
+    fuse_b001 ==>|feeds| audit_002
+
+    classDef sovereignty fill:#DC2626,stroke:#991B1B,color:#fff
+    classDef governanceB fill:#2563EB,stroke:#1E40AF,color:#fff
+    classDef mechanismB fill:#7C3AED,stroke:#5B21B6,color:#fff
+    classDef mechanismA fill:#16A34A,stroke:#166534,color:#fff
+
+    linkStyle default stroke:#F59E0B,stroke-width:3px,stroke-dasharray: 8 4

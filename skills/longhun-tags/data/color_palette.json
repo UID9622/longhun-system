@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "schema_version": "longhun-color-palette-v1.0",
+    "description": "龍魂标签体系标准五行色板，用于统一五行、八卦、星宿配色",
+    "dna": "#龍芯⚡️2026-07-01-LONGHUN-COLOR-PALETTE-v1.0",
+    "last_updated": "2026-07-01T01:19:08Z",
+    "source": "scripts/longhun_tags.py"
+  },
+  "palette": {
+    "金": {
+      "base": "#FFD700",
+      "light": "#FFF8DC",
+      "dark": "#B8860B",
+      "peak": "#FFD700",
+      "rest": "#C0C0C0",
+      "trap": "#808080"
+    },
+    "木": {
+      "base": "#228B22",
+      "light": "#90EE90",
+      "dark": "#006400",
+      "peak": "#006400",
+      "rest": "#8FBC8F",
+      "trap": "#556B2F"
+    },
+    "水": {
+      "base": "#1E90FF",
+      "light": "#87CEEB",
+      "dark": "#00008B",
+      "peak": "#00008B",
+      "rest": "#4682B4",
+      "trap": "#191970"
+    },
+    "火": {
+      "base": "#DC143C",
+      "light": "#FF6347",
+      "dark": "#8B0000",
+      "peak": "#8B0000",
+      "rest": "#CD5C5C",
+      "trap": "#800000"
+    },
+    "土": {
+      "base": "#8B4513",
+      "light": "#D2B48C",
+      "dark": "#654321",
+      "peak": "#8B4513",
+      "rest": "#A0522D",
+      "trap": "#654321"
+    }
+  }
+}

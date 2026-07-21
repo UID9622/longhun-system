@@ -1,0 +1,41 @@
+{
+  "_dna": "2026-06-21-CONFIG-DESKTOP-MENU-v1.0-12",
+  "items": [
+    {
+      "id": "project-memory-seed",
+      "label": "🐉 龍魂编年史：初始化里程碑",
+      "type": "shell",
+      "command": "cd {root}/project-memory && python3 龍魂编年史.py seed",
+      "description": "从 Claude 记忆档提取关键里程碑，转为系统自有资产",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "project-memory-generate",
+      "label": "📜 生成龍魂编年史页面",
+      "type": "shell",
+      "command": "cd {root}/project-memory && python3 龍魂编年史.py generate && open {root}/project-memory/index.md",
+      "description": "根据里程碑与规范索引自动生成 index.md 并打开",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "project-memory-specs",
+      "label": "📚 查看 cnsh-core 规范索引",
+      "type": "shell",
+      "command": "cd {root}/project-memory && python3 龍魂编年史.py specs",
+      "description": "列出 cnsh-core/规范 目录下所有规范文件",
+      "mode": "oneshot",
+      "confirm": false
+    },
+    {
+      "id": "project-memory-readme",
+      "label": "📘 查看编年史说明",
+      "type": "shell",
+      "command": "open {root}/project-memory/README.md",
+      "description": "打开龍魂编年史使用说明",
+      "mode": "viewer",
+      "confirm": false
+    }
+  ]
+}

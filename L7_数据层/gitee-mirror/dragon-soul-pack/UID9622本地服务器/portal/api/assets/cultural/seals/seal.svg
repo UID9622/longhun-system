@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#f7f3e8"/>
+  <rect x="50" y="50" width="200" height="200" rx="20" fill="#8b0000" opacity="0.9"/>
+  <text x="150" y="175" text-anchor="middle" font-family="serif" font-size="110" fill="#f7f3e8" font-weight="bold">龍魂</text>
+  <text x="150" y="270" text-anchor="middle" font-family="serif" font-size="14" fill="#555">印章占位 · 待替换为真实印蜕</text>
+</svg>

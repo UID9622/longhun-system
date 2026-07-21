@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "DNA": "#龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-MAP-v1.0",
+    "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "description": "CNSH神经网络翻译引擎·8大脑区→龙魂P人格映射表",
+    "version": "v1.0",
+    "created": "2026-07-11",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+  },
+  "brains": {
+    "B1": {
+      "name": "多语言解析脑区",
+      "name_en": "Multi-Language Parser",
+      "persona": "P07",
+      "persona_name": "开源守门",
+      "doc_name": "开源大师🔓",
+      "role": "parser_ast",
+      "skill_check": ["语言识别", "AST解析", "语法特征提取"],
+      "triggers": ["parse", "AST", "解析", "语法树", "词法", "lexer"],
+      "supported_languages": ["python", "javascript", "java", "cpp", "go", "rust", "typescript"],
+      "activation": "routing",
+      "neural_connections": ["B2", "B4", "B8"],
+      "auto_activate": ["B2"],
+      "auto_activate_on": "伪代码嫌疑",
+      "executor_script": "bin/cnsh_brain_regions/brain_parser.py",
+      "status": "🟡 骨架就绪·待开发解析器"
+    },
+    "B2": {
+      "name": "AI鉴定脑区",
+      "name_en": "AI Code Detector",
+      "persona": "P03",
+      "persona_name": "墨子/雯雯",
+      "doc_name": "鉴定大师⚖️",
+      "role": "ai_identifier",
+      "skill_check": ["AI生成检测", "伪代码识别", "幻觉检测", "综合评分"],
+      "triggers": ["AI鉴定", "鉴定", "伪代码", "幻觉", "AI生成", "detect_ai"],
+      "activation": "routing+passive",
+      "neural_connections": ["B1", "B3", "B7"],
+      "auto_activate": ["B3"],
+      "auto_activate_on": "AI概率>60%",
+      "executor_script": "bin/cnsh_brain_regions/brain_ai_detector.py",
+      "status": "🟡 骨架就绪·待开发鉴定引擎",
+      "features_library": {
+        "pseudo_code": ["不完整函数实现", "TODO占位", "变量名过于通用", "语法错误但有逻辑"],
+        "hallucination": ["调用不存在的库", "虚构API参数", "逻辑矛盾", "类型不匹配"],
+        "naming_patterns": ["var1/var2/temp", "xxx", "placeholder"]
+      }
+    },
+    "B3": {
+      "name": "来源追溯脑区",
+      "name_en": "Source Tracer",
+      "persona": "P18",
+      "persona_name": "凤凰",
+      "doc_name": "代码侦探🔍",
+      "role": "source_tracer",
+      "skill_check": ["指纹提取", "来源匹配", "追溯链构建", "来源报告"],
+      "triggers": ["追溯", "来源", "trace", "来源追溯", "代码指纹", "出产地"],
+      "activation": "routing+passive",
+      "neural_connections": ["B1", "B2", "B6", "B8"],
+      "auto_activate": ["B6"],
+      "auto_activate_on": "高相似度来源发现",
+      "executor_script": "bin/cnsh_brain_regions/brain_source_tracer.py",
+      "status": "🟡 骨架就绪·待开发追溯引擎",
+      "fingerprint_types": {
+        "syntax": "缩进风格+命名风格+括号风格+注释风格",
+        "algorithm": "控制流模式+算法复杂度+特征序列",
+        "dna": "#ZHUGEXIN⚡️ 和 #龙芯⚡️ 前缀识别",
+        "semantic_hash": "内容结构哈希"
+      }
+    },
+    "B4": {
+      "name": "CNSH翻译脑区",
+      "name_en": "CNSH Translator",
+      "persona": "P04",
+      "persona_name": "鲁班",
+      "doc_name": "鲁班🏗️",
+      "role": "cnsh_translator",
+      "skill_check": ["IR转换", "CNSH代码生成", "类型映射", "语法优化"],
+      "triggers": ["翻译", "CNSH", "translate", "转换", "转CNSH"],
+      "activation": "routing",
+      "neural_connections": ["B1", "B5", "B6", "B7", "B8"],
+      "auto_activate": ["B7"],
+      "auto_activate_on": "翻译完成",
+      "executor_script": "bin/cnsh_brain_regions/brain_cnsh_translator.py",
+      "status": "🟡 骨架就绪·对接已有cnsh_translator_engine",
+      "existing_engine": "cnsh-editor/cnsh_translator_engine_v2.0.py"
+    },
+    "B5": {
+      "name": "数学验证脑区",
+      "name_en": "Math Verifier",
+      "persona": "P06",
+      "persona_name": "数学大师",
+      "doc_name": "数学大师🧮",
+      "role": "math_verifier",
+      "skill_check": ["复杂度分析", "公式验证", "数值校验", "优化建议"],
+      "triggers": ["复杂度", "时间复杂度", "空间复杂度", "O(", "公式", "数学验证"],
+      "activation": "routing+collaboration",
+      "neural_connections": ["B4", "B6", "B7"],
+      "auto_activate": ["B6"],
+      "auto_activate_on": "O(n^3)或更差复杂度",
+      "executor_script": "bin/cnsh_brain_regions/brain_math_verifier.py",
+      "status": "🟢 活跃 v1.1·圈复杂度+算法模式+数值稳定性+优化建议",
+      "complexity_thresholds": {
+        "excellent": ["O(1)", "O(log n)"],
+        "good": ["O(n)", "O(n log n)"],
+        "fair": ["O(n^2)"],
+        "poor": ["O(n^3)", "O(2^n)", "O(n!)"]
+      }
+    },
+    "B6": {
+      "name": "代码优化脑区",
+      "name_en": "Code Optimizer",
+      "persona": "P02",
+      "persona_name": "龙芯修复师",
+      "doc_name": "修复师🔧",
+      "role": "code_optimizer",
+      "skill_check": ["算法优化", "结构优化", "性能优化", "可读性改进"],
+      "triggers": ["优化", "优化建议", "性能", "optimize", "重构"],
+      "activation": "collaboration",
+      "neural_connections": ["B3", "B4", "B5", "B7"],
+      "auto_activate": [],
+      "auto_activate_on": "",
+      "executor_script": "bin/cnsh_brain_regions/brain_code_optimizer.py",
+      "status": "🟡 骨架就绪·待开发优化引擎"
+    },
+    "B7": {
+      "name": "质量检查脑区",
+      "name_en": "Quality Auditor",
+      "persona": "P05",
+      "persona_name": "上帝之眼",
+      "doc_name": "上帝之眼👁️",
+      "role": "quality_auditor",
+      "skill_check": ["三色审计", "规范检查", "安全扫描", "合规验证"],
+      "triggers": ["审计", "检查", "三色", "audit", "质量", "合规"],
+      "activation": "passive",
+      "neural_connections": ["B1", "B2", "B3", "B4", "B5", "B6", "B8"],
+      "auto_activate": ["B4→反馈"],
+      "auto_activate_on": "翻译完成",
+      "executor_script": "bin/cnsh_brain_regions/brain_quality_auditor.py",
+      "status": "🟢 活跃·对接已有三色审计体系",
+      "existing_engine": "bin/cnsh_code_audit.py",
+      "audit_levels": {
+        "red": "恶意代码/隐私泄露/系统破坏 → 立即熔断",
+        "yellow": "性能问题/不安全API/未处理异常 → 警告修复",
+        "green": "代码规范良好/类型安全/无明显问题 → 通过"
+      }
+    },
+    "B8": {
+      "name": "DNA追溯脑区",
+      "name_en": "DNA Tracer",
+      "persona": "P01",
+      "persona_name": "诸葛亮",
+      "doc_name": "诸葛亮🎯",
+      "role": "dna_tracer",
+      "skill_check": ["DNA检测", "DNA生成", "签名验证", "追溯码注入"],
+      "triggers": ["DNA", "追溯码", "签名", "GPG", "验证"],
+      "activation": "routing",
+      "neural_connections": ["B1", "B3", "B4", "B7"],
+      "auto_activate": [],
+      "auto_activate_on": "",
+      "executor_script": "bin/cnsh_brain_regions/brain_dna_tracer.py",
+      "status": "🟢 活跃·对接已有DNA生成系统",
+      "existing_engine": "bin/hetu_luoshu_dna.py"
+    }
+  },
+  "routing_paths": {
+    "PATH_FAST": {
+      "name": "极速通道",
+      "condition": "有DNA追溯码 且 质量≥80",
+      "brains": ["B8→DNA验证", "B4→极速翻译", "B7→后台并行检查"],
+      "expected_time": "<1s",
+      "priority": 0
+    },
+    "PATH_STANDARD": {
+      "name": "标准代码路径",
+      "condition": "质量中等(40-79) 且 可疑度<60",
+      "brains": ["B1→语言解析", "B4→CNSH翻译", "B7→质量检查"],
+      "expected_time": "2-5s",
+      "priority": 1
+    },
+    "PATH_DEEP": {
+      "name": "深度分析路径",
+      "condition": "可疑度≥60 或 复杂度≥80",
+      "brains": ["B1→语言解析", "B2→AI鉴定", "B3→来源追溯", "B4→CNSH翻译", "B5→数学验证", "B7→质量检查"],
+      "expected_time": "10-30s",
+      "priority": 2
+    },
+    "PATH_OPTIMIZE": {
+      "name": "优化增强路径",
+      "condition": "质量<40",
+      "brains": ["B1→语言解析", "B6→代码优化", "B4→CNSH翻译", "B7→质量检查"],
+      "expected_time": "5-10s",
+      "priority": 3
+    },
+    "PATH_NATURAL_LANG": {
+      "name": "自然语言翻译",
+      "condition": "输入类型=自然语言",
+      "brains": ["B4→通心译直达"],
+      "expected_time": "1-3s",
+      "priority": 1
+    }
+  },
+  "persona_brain_coverage": {
+    "P01": {"brains": ["B8"], "roles": ["DNA追溯"], "status": "active"},
+    "P02": {"brains": ["B6"], "roles": ["代码优化"], "status": "active"},
+    "P03": {"brains": ["B2"], "roles": ["AI鉴定"], "status": "active"},
+    "P04": {"brains": ["B4"], "roles": ["CNSH翻译"], "status": "active"},
+    "P05": {"brains": ["B7"], "roles": ["质量检查"], "status": "active"},
+    "P06": {"brains": ["B5"], "roles": ["数学验证"], "status": "active"},
+    "P07": {"brains": ["B1"], "roles": ["多语言解析"], "status": "active"},
+    "P18": {"brains": ["B3"], "roles": ["来源追溯"], "status": "active"}
+  }
+}

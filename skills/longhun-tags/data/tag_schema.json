@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "_meta": {
+    "schema_version": "longhun-tag-schema-v1.0",
+    "description": "龍魂标签体系扩展条目 JSON Schema，用于动态扩展注册表校验",
+    "dna": "#龍芯⚡️2026-07-01-LONGHUN-TAG-SCHEMA-v1.0",
+    "last_updated": "2026-07-01T01:19:08Z"
+  },
+  "title": "LongHunTagEntry",
+  "type": "object",
+  "required": ["category", "code", "label"],
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": ["五行", "八卦", "甲骨文", "星宿", "custom"],
+      "description": "标签所属体系分类"
+    },
+    "code": {
+      "type": "string",
+      "description": "标签唯一代码，如 METAL_PEAK、CUSTOM_001"
+    },
+    "label": {
+      "type": "string",
+      "description": "标签展示文本"
+    },
+    "element": {
+      "type": "string",
+      "enum": ["金", "木", "水", "火", "土"],
+      "description": "五行或八卦所属元素"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["生", "旺", "休", "囚"],
+      "description": "五行状态"
+    },
+    "gua": {
+      "type": "string",
+      "enum": ["乾", "坤", "震", "巽", "坎", "离", "艮", "兑"],
+      "description": "八卦名称"
+    },
+    "variant": {
+      "type": "string",
+      "enum": ["正", "反", "动"],
+      "description": "八卦变体"
+    },
+    "char": {
+      "type": "string",
+      "minLength": 1,
+      "description": "甲骨文字符"
+    },
+    "star": {
+      "type": "string",
+      "minLength": 1,
+      "description": "星宿名称"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "标签符号"
+    },
+    "desc": {
+      "type": "string",
+      "description": "状态描述"
+    },
+    "usage": {
+      "type": "string",
+      "description": "使用场景"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "description": "标签颜色（hex）"
+    },
+    "hex": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "description": "状态颜色（hex）"
+    },
+    "modern": {
+      "type": "string",
+      "description": "现代语义映射"
+    },
+    "modern_map": {
+      "type": "string",
+      "description": "八卦现代映射"
+    },
+    "tag": {
+      "type": "string",
+      "description": "编程语义标签"
+    },
+    "pinyin": {
+      "type": "string",
+      "description": "拼音"
+    },
+    "cultural_note": {
+      "type": "string",
+      "description": "文化解释"
+    },
+    "oracle_context": {
+      "type": "string",
+      "description": "甲骨文字源解释"
+    },
+    "yi_jing_context": {
+      "type": "object",
+      "properties": {
+        "name_meaning": { "type": "string" },
+        "natural_image": { "type": "string" },
+        "virtue": { "type": "string" }
+      },
+      "required": ["name_meaning", "natural_image", "virtue"]
+    },
+    "constellation_myth": {
+      "type": "string",
+      "description": "星宿神话背景"
+    }
+  },
+  "additionalProperties": true
+}

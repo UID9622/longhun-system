@@ -1,0 +1,61 @@
+# ═══════════════════════════════════════════════════════════════
+# 龍魂·内网互联节点 — 默认配置
+# DNA: #龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-CONFIG-v1.0
+# ═══════════════════════════════════════════════════════════════
+
+gateway:
+  host: auto           # auto=自动发现, 或手动指定IP
+  port: 9622
+  websocket_port: 9623
+
+security:
+  # L0: DNA签名验证
+  dna_verify: true
+  confirm_code: "#CONFIRM🌌9622-ONLY-ONCE🧬NET1-001A"
+
+  # L1: 三色审计
+  audit:
+    enabled: true
+    log_dir: "/opt/longhun/logs"
+    buffer_size: 1000
+
+  # L2: 熔断控制
+  fuse:
+    enabled: true
+    warn_threshold: 5       # 连续违规5次 → 警告
+    execute_threshold: 10   # 连续违规10次 → 硬阻断
+    window_seconds: 300     # 5分钟时间窗口
+
+  # L3: 输入过滤
+  input_filter:
+    enabled: true
+    max_payload_size: 10000  # 最大载荷(excluding file)
+    red_words: true
+    yellow_words: true
+
+  # L4: 防投毒隔离
+  anti_poison:
+    enabled: true
+    sanitize_input: true     # 自动净化可疑标记
+
+  # L5: 芯片门禁
+  chip_gate:
+    enabled: true
+    block_backdoor: true     # 含后门芯片直接熔断
+    warn_restricted: true    # 受限芯片告警
+
+device:
+  name: auto                # auto=hostname
+  type: auto                # auto=自动检测
+  heartbeat_interval: 60    # 秒
+  message_poll_interval: 2  # 秒
+
+file_cache:
+  dir: "/opt/longhun/cache"
+  ttl: 86400               # 24小时
+  max_file_size: 524288000  # 500MB
+
+logging:
+  level: info               # debug/info/warning/error
+  format: "%(asctime)s [%(levelname)s] %(message)s"
+  max_log_files: 7

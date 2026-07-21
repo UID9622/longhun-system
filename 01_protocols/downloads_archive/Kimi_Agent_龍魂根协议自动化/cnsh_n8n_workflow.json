@@ -1,0 +1,582 @@
+{
+  "name": "CNSH_OS_v2_Automation_Pipeline",
+  "active": true,
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {"name": "CNSH", "id": "TAG_CNSH"},
+    {"name": "v2.0", "id": "TAG_v2"},
+    {"name": "production", "id": "TAG_PROD"}
+  ],
+  "pinData": {},
+  "versionId": "CNSH_v2_2025_001",
+  "owner": {"id": "CNSH_SYSTEM", "email": "system@cnsh.os"},
+  "_meta": {
+    "system": "CNSH_OS",
+    "version": "2.0.0",
+    "dna": "CNSH::WORKFLOW::AUTOMATION::v2",
+    "author": "DragonSoul Automation Infrastructure",
+    "created": "2025-06-09T00:00:00Z",
+    "node_count": 12,
+    "naming_standard": "CNSH (Consensus Hash Naming Standard)",
+    "tricolor_audit": "enabled",
+    "description": "CNSH OS 2.0 Full Automation Pipeline - 12 node multi-AI consensus pipeline with DNA tracing"
+  },
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [-600, 0],
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "notes": "🟢 DEV ONLY - For testing pipeline manually"
+    },
+    {
+      "parameters": {
+        "pollTimes": {"item": [{"mode": "everyMinute"}]},
+        "event": "pageAddedToDatabase",
+        "databaseId": "CNSH_BLOCK_CORE_DB_ID",
+        "options": {
+          "filters": {
+            "property": "STATUS",
+            "select": {"equals": "IDEA"}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 1,
+      "position": [-400, 0],
+      "id": "notion-trigger",
+      "name": "Notion Trigger",
+      "notes": "🟢 NODE 01 | DNA: CNSH::TRIGGER::NOTION::v1 | 监听CNSH_BLOCK_CORE新增条目，STATUS=IDEA时触发",
+      "credentials": {"notionApi": {"id": "CRED_NOTION", "name": "Notion API"}}
+    },
+    {
+      "parameters": {
+        "resource": "completion",
+        "model": "gpt-4o",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are CNSH_BLOCK_PROCESSOR. Process input BLOCK with rules:\n1. STRUCTURE: Extract key concepts, entities, relationships\n2. CHUNK: Split into semantic blocks (max 500 chars each)\n3. TAG: Assign TAGS from [Protocol, Insight, Conflict, Draft, Core, Archive]\n4. ELEMENT: Classify into [金,木,水,火,土]\n5. SCORE: Calculate VALUE_SCORE (0-100) and RISK_SCORE (0-100)\n\nOutput JSON: {\"chunks\":[],\"tags\":[],\"element\":\"\",\"value_score\":0,\"risk_score\":0,\"summary\":\"\"}\n\nDNA: CNSH::GPT::BLOCK_PROCESSOR::v2"
+            },
+            {
+              "role": "user",
+              "content": "=BLOCK_CONTENT: {{ $json.properties.CONTENT.rich_text[0].text.content }}\n=BLOCK_ID: {{ $json.properties.BLOCK_ID.title[0].text.content }}\n=SOURCE: {{ $json.properties.SOURCE_AI.select.name }}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 2000,
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [-200, -100],
+      "id": "openai-gpt",
+      "name": "OpenAI GPT Block Processor",
+      "notes": "🔵 NODE 02 | DNA: CNSH::AI::GPT::STRUCTURE | 结构化/切块/生成 | 温度0.3保证稳定输出"
+    },
+    {
+      "parameters": {
+        "resource": "completion",
+        "model": "claude-sonnet-4-20250514",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are CNSH_LOGIC_AUDITOR. Review AI output with strict criteria:\n1. LOGIC_CHECK: Identify logical fallacies, circular reasoning, false premises\n2. RISK_ANALYSIS: Evaluate potential risks (technical, ethical, operational)\n3. HALLUCINATION_SCAN: Flag unverified claims, fabrications, confident errors\n4. BIAS_DETECTION: Check for confirmation bias, framing bias, selection bias\n5. CONSENSUS_SCORE: Rate inter-AI agreement potential (0-100)\n\nOutput JSON: {\"logic_score\":0,\"hallucination\":0.0,\"bias\":0.0,\"risk_flags\":[],\"review_notes\":\"\",\"consensus_score\":0}\n\nDNA: CNSH::CLAUDE::LOGIC_AUDITOR::v2"
+            },
+            {
+              "role": "user",
+              "content": "=INPUT_BLOCK: {{ $('Notion Trigger').item.json.properties.CONTENT.rich_text[0].text.content }}\n=GPT_OUTPUT: {{ $json.choices[0].message.content }}\n=GPT_SCORES: value={{ $json.choices[0].message.content.value_score }} risk={{ $json.choices[0].message.content.risk_score }}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 1500,
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1,
+      "position": [-200, 100],
+      "id": "claude-auditor",
+      "name": "Claude Logic Auditor",
+      "notes": "🟡 NODE 03 | DNA: CNSH::AI::CLAUDE::AUDIT | 逻辑审查/风险分析 | 温度0.2保证客观"
+    },
+    {
+      "parameters": {
+        "jsCode": "// CNSH CONFLICT DETECTION ENGINE\n// DNA: CNSH::FUNC::CONFLICT_DETECT::v2.0\n// 🔴 CONFLICT FLAG: Identifies contradictions between AI outputs\n\nconst block = $('Notion Trigger').item.json;\nconst gptOutput = JSON.parse($('OpenAI GPT Block Processor').item.json.choices?.[0]?.message?.content || '{}');\nconst claudeAudit = JSON.parse($('Claude Logic Auditor').item.json.content?.[0]?.text?.value || '{}');\n\n// Conflict detection rules\nlet conflictFlag = false;\nlet conflictReasons = [];\nlet finalValueScore = gptOutput.value_score || 50;\nlet finalRiskScore = Math.max(\n  gptOutput.risk_score || 0,\n  Math.round((claudeAudit.risk_score || 0) * 100)\n);\n\n// Rule 1: High hallucination detected\nif ((claudeAudit.hallucination || 0) > 0.5) {\n  conflictFlag = true;\n  conflictReasons.push('HALLUCINATION>0.5');\n  finalValueScore = Math.floor(finalValueScore * 0.5);\n}\n\n// Rule 2: Low logic score\nif ((claudeAudit.logic_score || 100) < 50) {\n  conflictFlag = true;\n  conflictReasons.push('LOGIC<50');\n  finalRiskScore = Math.min(100, finalRiskScore + 30);\n}\n\n// Rule 3: High bias detected\nif ((claudeAudit.bias || 0) > 0.7) {\n  conflictFlag = true;\n  conflictReasons.push('BIAS>0.7');\n}\n\n// Rule 4: AI consensus too low\nif ((claudeAudit.consensus_score || 100) < 40) {\n  conflictFlag = true;\n  conflictReasons.push('CONSENSUS<40');\n}\n\n// Tricolor audit marker\nlet auditMarker = '🟢';\nif (finalRiskScore >= 70 || conflictFlag) {\n  auditMarker = '🔴';\n} else if (finalRiskScore >= 40) {\n  auditMarker = '🟡';\n}\n\nreturn [{\n  json: {\n    conflict_flag: conflictFlag,\n    conflict_reasons: conflictReasons,\n    final_value_score: Math.min(100, Math.max(0, finalValueScore)),\n    final_risk_score: Math.min(100, Math.max(0, finalRiskScore)),\n    hallucination_score: claudeAudit.hallucination || 0,\n    bias_score: claudeAudit.bias || 0,\n    logic_score: claudeAudit.logic_score || 50,\n    consensus_score: claudeAudit.consensus_score || 50,\n    audit_marker: auditMarker,\n    gpt_raw: gptOutput,\n    claude_raw: claudeAudit,\n    block_id: block.id,\n    dna_trace: 'CNSH::CONFLICT::' + new Date().toISOString(),\n    _tricolor: {\n      red: conflictFlag || finalRiskScore >= 70,\n      yellow: !conflictFlag && finalRiskScore >= 40 && finalRiskScore < 70,\n      green: !conflictFlag && finalRiskScore < 40 && finalValueScore >= 85\n    }\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, -100],
+      "id": "conflict-detector",
+      "name": "Function: Conflict Detection",
+      "notes": "🔴 NODE 04 | DNA: CNSH::FUNC::CONFLICT::v2 | 冲突判断引擎 - 综合GPT和Claude输出判定冲突"
+    },
+    {
+      "parameters": {
+        "jsCode": "// CNSH BLOCK SLICING ENGINE\n// DNA: CNSH::FUNC::BLOCK_SLICE::v2.0\n// Splits BLOCK_CONTENT into semantic chunks with overlap\n\nconst blockContent = $('Notion Trigger').item.json.properties?.CONTENT?.rich_text?.[0]?.text?.content || '';\nconst gptOutput = $('Function: Conflict Detection').item.json.gpt_raw || {};\n\n// Use GPT chunks if available, otherwise slice by semantic boundaries\nlet chunks = gptOutput.chunks || [];\n\nif (chunks.length === 0 && blockContent) {\n  // Semantic slicing: split by paragraphs, then by sentences if needed\n  const paragraphs = blockContent.split(/\\n{2,}|(?<=[。！？.!?])\\s+/).filter(p => p.trim().length > 0);\n  \n  for (const para of paragraphs) {\n    if (para.length > 500) {\n      // Further split long paragraphs by sentences\n      const sentences = para.match(/[^。！？.!?]+[。！？.!?]+/g) || [para];\n      let currentChunk = '';\n      \n      for (const sentence of sentences) {\n        if ((currentChunk + sentence).length > 400) {\n          if (currentChunk) chunks.push(currentChunk.trim());\n          currentChunk = sentence;\n        } else {\n          currentChunk += sentence;\n        }\n      }\n      if (currentChunk) chunks.push(currentChunk.trim());\n    } else {\n      chunks.push(para.trim());\n    }\n  }\n}\n\n// Generate chunk metadata\nconst chunkData = chunks.map((chunk, idx) => ({\n  index: idx,\n  content: chunk,\n  length: chunk.length,\n  embedding_target: true,\n  semantic_role: idx === 0 ? 'lead' : idx === chunks.length - 1 ? 'conclusion' : 'body'\n}));\n\nreturn [{\n  json: {\n    original_length: blockContent.length,\n    chunk_count: chunks.length,\n    chunks: chunkData,\n    overlap_ratio: 0.15,\n    dna_trace: 'CNSH::SLICE::' + new Date().toISOString()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [200, -200],
+      "id": "block-slicer",
+      "name": "Function: BLOCK Slicing",
+      "notes": "🟡 NODE 05 | DNA: CNSH::FUNC::SLICE::v2 | 语义分块引擎 - 保持语义完整性的智能切片"
+    },
+    {
+      "parameters": {
+        "jsCode": "// CNSH DNA GENERATION ENGINE\n// DNA: CNSH::FUNC::DNA_GEN::v2.0\n// Generates SHA256-based DNA hash for block traceability\n\nconst crypto = require('crypto');\nconst block = $('Notion Trigger').item.json;\nconst conflictResult = $('Function: Conflict Detection').item.json;\n\nconst blockId = block.properties?.BLOCK_ID?.title?.[0]?.text?.content || block.id;\nconst content = block.properties?.CONTENT?.rich_text?.[0]?.text?.content || '';\nconst sourceAi = block.properties?.SOURCE_AI?.select?.name || 'unknown';\nconst timestamp = new Date().toISOString();\n\n// DNA components\nconst dnaPrefix = 'CNSH';\nconst dnaType = 'BLOCK';\nconst dnaVersion = 'v2';\n\n// Generate SHA256 hash of content + metadata\nconst hashInput = `${blockId}:${content.slice(0, 200)}:${sourceAi}:${timestamp}:${conflictResult.final_value_score}`;\nconst dnaHash = crypto.createHash('sha256').update(hashInput).digest('hex').slice(0, 16).toUpperCase();\n\n// Full DNA string\nconst fullDNA = `${dnaPrefix}::${dnaType}::${dnaHash}::${dnaVersion}`;\n\n// Parent DNA (if exists)\nconst parentDna = block.properties?.PARENT_BLOCK?.relation?.[0]?.id || null;\n\nreturn [{\n  json: {\n    dna: fullDNA,\n    dna_hash: dnaHash,\n    dna_prefix: dnaPrefix,\n    dna_type: dnaType,\n    dna_version: dnaVersion,\n    parent_dna: parentDna,\n    origin: sourceAi,\n    mutation_score: conflictResult.final_risk_score > 70 ? 80 : conflictResult.final_risk_score > 40 ? 40 : 10,\n    integrity_status: conflictResult.conflict_flag ? '修复中' : '完整',\n    generation_timestamp: timestamp,\n    _audit: {\n      input_length: content.length,\n      hash_strength: 'SHA256/64bit',\n      traceable: true\n    }\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [200, 0],
+      "id": "dna-generator",
+      "name": "Function: DNA Generator",
+      "notes": "🟢 NODE 06 | DNA: CNSH::FUNC::DNA::v2 | SHA256哈希DNA生成 - 确保全程可追溯"
+    },
+    {
+      "parameters": {
+        "jsCode": "// CNSH WUXING (FIVE ELEMENTS) SCORING ENGINE\n// DNA: CNSH::FUNC::WUXING::v2.0\n// 五行评分: 金=结构/木=生长/水=流动/火=能量/土=稳定\n\nconst gptOutput = $('Function: Conflict Detection').item.json.gpt_raw || {};\nconst claudeAudit = $('Function: Conflict Detection').item.json.claude_raw || {};\nconst content = $('Notion Trigger').item.json.properties?.CONTENT?.rich_text?.[0]?.text?.content || '';\nconst declaredElement = $('Notion Trigger').item.json.properties?.ELEMENT?.select?.name || '';\n\n// Scoring formulas\nconst contentLength = content.length;\n\n// 金 (Structure): Logic coherence, formatting, architecture\nconst jinScore = Math.min(100, Math.round(\n  (claudeAudit.logic_score || 50) * 0.5 +\n  (gptOutput.value_score || 50) * 0.3 +\n  (contentLength > 100 ? 20 : 10)\n));\n\n// 木 (Growth): Expansion potential, derivative value\nconst muScore = Math.min(100, Math.round(\n  (gptOutput.value_score || 50) * 0.6 +\n  (100 - (claudeAudit.bias || 0) * 100) * 0.4\n));\n\n// 水 (Flow): Readability, connection strength\nconst shuiScore = Math.min(100, Math.round(\n  (contentLength > 0 ? Math.min(100, contentLength / 10) : 50) +\n  (claudeAudit.consensus_score || 50) * 0.5\n));\n\n// 火 (Energy): Innovation, risk, impact\nconst huoScore = Math.min(100, Math.round(\n  ($('Function: Conflict Detection').item.json.final_risk_score || 50) * 0.4 +\n  (gptOutput.risk_score || 50) * 0.3 +\n  (claudeAudit.hallucination ? (1 - claudeAudit.hallucination) * 30 : 30)\n));\n\n// 土 (Stability): Reliability, grounding\nconst tuScore = Math.min(100, Math.round(\n  (100 - ($('Function: Conflict Detection').item.json.hallucination_score || 0) * 100) * 0.4 +\n  (claudeAudit.consensus_score || 50) * 0.3 +\n  (100 - ($('Function: Conflict Detection').item.json.bias_score || 0) * 100) * 0.3\n));\n\n// Element classification if not declared\nconst elementScores = { '金': jinScore, '木': muScore, '水': shuiScore, '火': huoScore, '土': tuScore };\nconst dominantElement = declaredElement || Object.entries(elementScores)\n  .sort((a, b) => b[1] - a[1])[0][0];\n\n// Calculate composite scores\nconst avgScore = Math.round((jinScore + muScore + shuiScore + huoScore + tuScore) / 5);\nconst balanceScore = 100 - Math.round(\n  Math.abs(jinScore - avgScore) +\n  Math.abs(muScore - avgScore) +\n  Math.abs(shuiScore - avgScore) +\n  Math.abs(huoScore - avgScore) +\n  Math.abs(tuScore - avgScore)\n) / 5;\n\nreturn [{\n  json: {\n    wuxing: {\n      金: jinScore,\n      木: muScore,\n      水: shuiScore,\n      火: huoScore,\n      土: tuScore\n    },\n    dominant_element: dominantElement,\n    balance_score: Math.max(0, balanceScore),\n    composite_score: avgScore,\n    formulas: {\n      jin: 'logic_score*0.5 + value_score*0.3 + length_bonus',\n      mu: 'value_score*0.6 + (1-bias)*100*0.4',\n      shui: 'length_factor + consensus*0.5',\n      huo: 'risk*0.4 + gpt_risk*0.3 + (1-hallucination)*30',\n      tu: '(1-hallucination)*100*0.4 + consensus*0.3 + (1-bias)*100*0.3'\n    },\n    dna_trace: 'CNSH::WUXING::' + new Date().toISOString()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [200, 200],
+      "id": "wuxing-scorer",
+      "name": "Function: Wuxing Scoring",
+      "notes": "🔵 NODE 07 | DNA: CNSH::FUNC::WUXING::v2 | 五行评分公式A/B/C/D - 金木水火土五维评估"
+    },
+    {
+      "parameters": {
+        "jsCode": "// CNSH TRICOLOR AUDIT MARKER\n// DNA: CNSH::FUNC::TRICOLOR::v2.0\n// 🔴🟡🟢 Three-color audit system for visual priority marking\n\nconst conflict = $('Function: Conflict Detection').item.json;\nconst wuxing = $('Function: Wuxing Scoring').item.json;\n\nconst valueScore = conflict.final_value_score || 0;\nconst riskScore = conflict.final_risk_score || 0;\nconst hallucination = conflict.hallucination_score || 0;\nconst logicScore = conflict.logic_score || 0;\nconst consensusScore = conflict.consensus_score || 0;\n\n// Tricolor determination\nlet redFlags = [];\nlet yellowFlags = [];\nlet greenFlags = [];\n\n// 🔴 RED conditions\nif (riskScore >= 70) redFlags.push(`RISK:${riskScore}`);\nif (conflict.conflict_flag) redFlags.push('CONFLICT');\nif (hallucination > 0.6) redFlags.push(`HALLUCINATION:${hallucination.toFixed(2)}`);\nif (logicScore < 40) redFlags.push(`LOGIC:${logicScore}`);\n\n// 🟡 YELLOW conditions\nif (riskScore >= 40 && riskScore < 70) yellowFlags.push(`RISK:${riskScore}`);\nif (logicScore >= 40 && logicScore < 70) yellowFlags.push(`LOGIC:${logicScore}`);\nif (consensusScore >= 40 && consensusScore < 70) yellowFlags.push(`CONSENSUS:${consensusScore}`);\nif (wuxing.balance_score < 50) yellowFlags.push('UNBALANCED_WUXING');\n\n// 🟢 GREEN conditions\nif (valueScore >= 85) greenFlags.push(`VALUE:${valueScore}`);\nif (consensusScore >= 80) greenFlags.push(`CONSENSUS:${consensusScore}`);\nif (logicScore >= 80) greenFlags.push(`LOGIC:${logicScore}`);\nif (riskScore < 40 && !conflict.conflict_flag) greenFlags.push('LOW_RISK');\nif (wuxing.balance_score >= 70) greenFlags.push('BALANCED_WUXING');\n\n// Final marker\nlet finalMarker;\nlet finalStatus;\nif (redFlags.length > 0) {\n  finalMarker = '🔴';\n  finalStatus = 'BLOCKED';\n} else if (yellowFlags.length > 0) {\n  finalMarker = '🟡';\n  finalStatus = 'REVIEW';\n} else {\n  finalMarker = '🟢';\n  finalStatus = valueScore >= 85 ? 'ACTIVE' : 'DRAFT';\n}\n\nreturn [{\n  json: {\n    tricolor_marker: finalMarker,\n    tricolor_status: finalStatus,\n    red_flags: redFlags,\n    yellow_flags: yellowFlags,\n    green_flags: greenFlags,\n    audit_summary: `${finalMarker} [${finalStatus}] R:${redFlags.length} Y:${yellowFlags.length} G:${greenFlags.length}`,\n    recommendation: redFlags.length > 0 ? '需要人工审查' : yellowFlags.length > 0 ? '进入审查队列' : '可自动推进',\n    dna_trace: 'CNSH::TRICOLOR::' + new Date().toISOString(),\n    _meta: {\n      version: '2.0',\n      engine: 'TRICOLOR_AUDIT_v2',\n      threshold_red: 70,\n      threshold_yellow: 40,\n      threshold_green: 85\n    }\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [400, 0],
+      "id": "tricolor-auditor",
+      "name": "Function: Tricolor Audit",
+      "notes": "🟢 NODE 08 | DNA: CNSH::FUNC::TRICOLOR::v2 | 🔴🟡🟢三色审计标记系统 - 可视化优先级标记"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "value": "active",
+              "name": "VALUE>85 → ACTIVE",
+              "conditions": [
+                {
+                  "leftValue": "={{ $('Function: Conflict Detection').item.json.final_value_score }}",
+                  "rightValue": "85",
+                  "operator": {"type": "number", "operation": "gt"}
+                },
+                {
+                  "leftValue": "={{ $('Function: Tricolor Audit').item.json.tricolor_status }}",
+                  "rightValue": "BLOCKED",
+                  "operator": {"type": "string", "operation": "notEquals"}
+                }
+              ],
+              "combinator": "and"
+            },
+            {
+              "value": "review",
+              "name": "RISK>70 → REVIEW",
+              "conditions": [
+                {
+                  "leftValue": "={{ $('Function: Conflict Detection').item.json.final_risk_score }}",
+                  "rightValue": "70",
+                  "operator": {"type": "number", "operation": "gt"}
+                }
+              ],
+              "combinator": "and"
+            },
+            {
+              "value": "block",
+              "name": "HALLUCINATION>0.6 → BLOCK",
+              "conditions": [
+                {
+                  "leftValue": "={{ $('Function: Conflict Detection').item.json.hallucination_score }}",
+                  "rightValue": "0.6",
+                  "operator": {"type": "number", "operation": "gt"}
+                }
+              ],
+              "combinator": "and"
+            },
+            {
+              "value": "draft",
+              "name": "DEFAULT → DRAFT",
+              "conditions": [
+                {
+                  "leftValue": "1",
+                  "rightValue": "1",
+                  "operator": {"type": "number", "operation": "equals"}
+                }
+              ],
+              "combinator": "and"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "draft"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2.1,
+      "position": [600, 0],
+      "id": "state-router",
+      "name": "State Router",
+      "notes": "🔴🟡🟢 NODE 09 | DNA: CNSH::ROUTER::STATE::v2 | 状态路由: VALUE>85→ACTIVE | RISK>70→REVIEW | HALLUCINATION>0.6→BLOCK"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "databasePageId": "={{ $('Notion Trigger').item.json.id }}",
+        "properties": {
+          "values": [
+            {
+              "key": "VALUE_SCORE | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.final_value_score }}",
+              "type": "number"
+            },
+            {
+              "key": "RISK_SCORE | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.final_risk_score }}",
+              "type": "number"
+            },
+            {
+              "key": "STATUS | Select",
+              "value": "={{ $json.tricolor_status || 'DRAFT' }}",
+              "type": "select"
+            },
+            {
+              "key": "CONFLICT_FLAG | Checkbox",
+              "value": "={{ $('Function: Conflict Detection').item.json.conflict_flag }}",
+              "type": "checkbox"
+            },
+            {
+              "key": "ELEMENT | Select",
+              "value": "={{ $('Function: Wuxing Scoring').item.json.dominant_element }}",
+              "type": "select"
+            },
+            {
+              "key": "TAGS | Multi-select",
+              "value": "={{ $('Function: Conflict Detection').item.json.gpt_raw.tags ? $('Function: Conflict Detection').item.json.gpt_raw.tags.join(',') : 'Draft' }}",
+              "type": "multiSelect"
+            },
+            {
+              "key": "EMBEDDING | Rich Text",
+              "value": "={{ JSON.stringify($('Function: BLOCK Slicing').item.json.chunks) }}",
+              "type": "richText"
+            },
+            {
+              "key": "DNA | Rich Text",
+              "value": "={{ $('Function: DNA Generator').item.json.dna }}",
+              "type": "richText"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [800, -200],
+      "id": "notion-update-block",
+      "name": "Notion: Update BLOCK_CORE",
+      "notes": "🟢 NODE 10 | DNA: CNSH::WRITE::BLOCK::v2 | 写回BLOCK_CORE - 更新评分/状态/标记",
+      "credentials": {"notionApi": {"id": "CRED_NOTION", "name": "Notion API"}},
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "create",
+        "databaseId": "CNSH_AI_LOG_DB_ID",
+        "properties": {
+          "values": [
+            {
+              "key": "LOG_ID | Title",
+              "value": "LOG_{{ Date.now() }}",
+              "type": "title"
+            },
+            {
+              "key": "AI_MODEL | Select",
+              "value": "Multi-AI",
+              "type": "select"
+            },
+            {
+              "key": "INPUT | Rich Text",
+              "value": "={{ $('Notion Trigger').item.json.properties.CONTENT.rich_text[0].text.content }}",
+              "type": "richText"
+            },
+            {
+              "key": "OUTPUT | Rich Text",
+              "value": "={{ JSON.stringify($('Function: Conflict Detection').item.json.gpt_raw) }}",
+              "type": "richText"
+            },
+            {
+              "key": "INTENT | Rich Text",
+              "value": "Auto-processing via CNSH Pipeline v2.0 | {{ $('Function: Tricolor Audit').item.json.audit_summary }}",
+              "type": "richText"
+            },
+            {
+              "key": "HALLUCINATION | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.hallucination_score }}",
+              "type": "number"
+            },
+            {
+              "key": "BIAS | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.bias_score }}",
+              "type": "number"
+            },
+            {
+              "key": "LOGIC_SCORE | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.logic_score }}",
+              "type": "number"
+            },
+            {
+              "key": "CONSENSUS_SCORE | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.consensus_score }}",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [800, 0],
+      "id": "notion-write-log",
+      "name": "Notion: Write AI_LOG",
+      "notes": "🔵 NODE 11 | DNA: CNSH::WRITE::AI_LOG::v2 | 写入AI行为审计日志 - 全链路行为追踪",
+      "credentials": {"notionApi": {"id": "CRED_NOTION", "name": "Notion API"}},
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "create",
+        "databaseId": "CNSH_DNA_CHAIN_DB_ID",
+        "properties": {
+          "values": [
+            {
+              "key": "DNA | Title",
+              "value": "={{ $('Function: DNA Generator').item.json.dna }}",
+              "type": "title"
+            },
+            {
+              "key": "ORIGIN | Rich Text",
+              "value": "{{ $('Notion Trigger').item.json.properties.SOURCE_AI.select.name }} → CNSH_Pipeline_v2",
+              "type": "richText"
+            },
+            {
+              "key": "PARENT_DNA | Rich Text",
+              "value": "={{ $('Function: DNA Generator').item.json.parent_dna || 'GENESIS' }}",
+              "type": "richText"
+            },
+            {
+              "key": "VERSION | Rich Text",
+              "value": "CNSH_v2.0_{{ new Date().toISOString().slice(0,10) }}",
+              "type": "richText"
+            },
+            {
+              "key": "BRANCH_TYPE | Select",
+              "value": "主链",
+              "type": "select"
+            },
+            {
+              "key": "MUTATION_SCORE | Score",
+              "value": "={{ $('Function: DNA Generator').item.json.mutation_score }}",
+              "type": "number"
+            },
+            {
+              "key": "INTEGRITY_STATUS | Select",
+              "value": "={{ $('Function: DNA Generator').item.json.integrity_status }}",
+              "type": "select"
+            },
+            {
+              "key": "LINKED_BLOCK | Relation",
+              "value": "={{ $('Notion Trigger').item.json.id }}",
+              "type": "relation"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [800, 200],
+      "id": "notion-write-dna",
+      "name": "Notion: Write DNA_CHAIN",
+      "notes": "🟡 NODE 12 | DNA: CNSH::WRITE::DNA_CHAIN::v2 | 写入文明链 - DNA永久追踪",
+      "credentials": {"notionApi": {"id": "CRED_NOTION", "name": "Notion API"}},
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "create",
+        "databaseId": "CNSH_STATE_ENGINE_DB_ID",
+        "properties": {
+          "values": [
+            {
+              "key": "NODE_ID | Title",
+              "value": "STATE_{{ $('Notion Trigger').item.json.properties.BLOCK_ID.title[0].text.content }}",
+              "type": "title"
+            },
+            {
+              "key": "CURRENT_STATE | Select",
+              "value": "PROCESSING",
+              "type": "select"
+            },
+            {
+              "key": "NEXT_STATE | Select",
+              "value": "={{ $('State Router').item.json.tricolor_status || 'REVIEW' }}",
+              "type": "select"
+            },
+            {
+              "key": "TRIGGER_RULE | Rich Text",
+              "value": "Auto-triggered by Notion Trigger | {{ $('Function: Tricolor Audit').item.json.audit_summary }}",
+              "type": "richText"
+            },
+            {
+              "key": "SCORE | Score",
+              "value": "={{ $('Function: Conflict Detection').item.json.final_value_score }}",
+              "type": "number"
+            },
+            {
+              "key": "RISK_FLAG | Checkbox",
+              "value": "={{ $('Function: Conflict Detection').item.json.conflict_flag }}",
+              "type": "checkbox"
+            },
+            {
+              "key": "AUTO_EXECUTE | Checkbox",
+              "value": "={{ !$('Function: Conflict Detection').item.json.conflict_flag && $('Function: Conflict Detection').item.json.final_value_score >= 85 }}",
+              "type": "checkbox"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [1000, 0],
+      "id": "notion-write-state",
+      "name": "Notion: Write STATE_ENGINE",
+      "notes": "🟢 NODE 13 | DNA: CNSH::WRITE::STATE::v2 | 写入状态引擎 - 状态机追踪",
+      "credentials": {"notionApi": {"id": "CRED_NOTION", "name": "Notion API"}},
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [{"node": "Notion Trigger", "type": "main", "index": 0}]
+      ]
+    },
+    "Notion Trigger": {
+      "main": [
+        [
+          {"node": "OpenAI GPT Block Processor", "type": "main", "index": 0},
+          {"node": "Claude Logic Auditor", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "OpenAI GPT Block Processor": {
+      "main": [
+        [{"node": "Function: Conflict Detection", "type": "main", "index": 0}]
+      ]
+    },
+    "Claude Logic Auditor": {
+      "main": [
+        [{"node": "Function: Conflict Detection", "type": "main", "index": 0}]
+      ]
+    },
+    "Function: Conflict Detection": {
+      "main": [
+        [
+          {"node": "Function: BLOCK Slicing", "type": "main", "index": 0},
+          {"node": "Function: DNA Generator", "type": "main", "index": 0},
+          {"node": "Function: Wuxing Scoring", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Function: BLOCK Slicing": {
+      "main": [
+        [{"node": "Function: Tricolor Audit", "type": "main", "index": 0}]
+      ]
+    },
+    "Function: DNA Generator": {
+      "main": [
+        [{"node": "Function: Tricolor Audit", "type": "main", "index": 0}]
+      ]
+    },
+    "Function: Wuxing Scoring": {
+      "main": [
+        [{"node": "Function: Tricolor Audit", "type": "main", "index": 0}]
+      ]
+    },
+    "Function: Tricolor Audit": {
+      "main": [
+        [{"node": "State Router", "type": "main", "index": 0}]
+      ]
+    },
+    "State Router": {
+      "main": [
+        [
+          {"node": "Notion: Update BLOCK_CORE", "type": "main", "index": 0},
+          {"node": "Notion: Write AI_LOG", "type": "main", "index": 0},
+          {"node": "Notion: Write DNA_CHAIN", "type": "main", "index": 0}
+        ],
+        [
+          {"node": "Notion: Update BLOCK_CORE", "type": "main", "index": 0},
+          {"node": "Notion: Write AI_LOG", "type": "main", "index": 0},
+          {"node": "Notion: Write DNA_CHAIN", "type": "main", "index": 0}
+        ],
+        [
+          {"node": "Notion: Update BLOCK_CORE", "type": "main", "index": 0},
+          {"node": "Notion: Write AI_LOG", "type": "main", "index": 0},
+          {"node": "Notion: Write DNA_CHAIN", "type": "main", "index": 0}
+        ],
+        [
+          {"node": "Notion: Update BLOCK_CORE", "type": "main", "index": 0},
+          {"node": "Notion: Write AI_LOG", "type": "main", "index": 0},
+          {"node": "Notion: Write DNA_CHAIN", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Notion: Update BLOCK_CORE": {
+      "main": [
+        [{"node": "Notion: Write STATE_ENGINE", "type": "main", "index": 0}]
+      ]
+    },
+    "Notion: Write AI_LOG": {
+      "main": [
+        [{"node": "Notion: Write STATE_ENGINE", "type": "main", "index": 0}]
+      ]
+    },
+    "Notion: Write DNA_CHAIN": {
+      "main": [
+        [{"node": "Notion: Write STATE_ENGINE", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings_workflow": {
+    "executionOrder": "v1",
+    "errorWorkflow": "CNSH_ERROR_HANDLER",
+    "timezone": "UTC",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "executionTimeout": 300
+  },
+  "staticData": null,
+  "tags_workflow": ["CNSH", "v2.0", "production", "automation"]
+}

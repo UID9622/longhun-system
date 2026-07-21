@@ -1,0 +1,215 @@
+# 🐉 龍魂统一知识中枢升级报告
+
+**DNA**: `#龍芯⚡️2026-06-22-UNIFIED-KG-FILE1-v1.0`  
+**升级时间**: 2026-06-24  
+**执行者**: Kimi Code CLI · 龍魂主控
+
+---
+
+## 一、升级前诊断
+
+老大问："我们的知识图谱、向量和数据库的联动怎么样？"  
+诊断结论：**有骨架、无神经、多孤岛。**
+
+| 层级 | 升级前状态 | 核心问题 |
+|---|---|---|
+| **知识图谱** | 两套并行：文件型 `graph_data.json` + Notion DB 型 `entities/relations` | 没有统一 ID、没有同步、没有联邦查询 |
+| **向量/语义** | 几乎为零 | 检索停留在关键词时代，无 embedding、无向量索引 |
+| **数据库** | 4+ 个 SQLite 各管一段 | `brain/memories.db` 已损坏，无跨库联合查询 |
+| **API** | 只读、内存重建、覆盖不全 | 没有统一检索入口，无向量接口 |
+
+---
+
+## 二、升级目标
+
+把多源异构数据（图谱、页面、代码、记忆）汇入一个**统一的本地知识中枢**，并叠加**向量语义检索**，对外暴露统一 API。
+
+核心要求：
+- 中国自主可控：本地优先，不依赖外网模型
+- 正规无瑕疵：统一 schema、持久化、DNA 追溯
+- 可扩展：TF-IDF 基线，接口兼容后续 sentence-transformers / FAISS 升级
+
+---
+
+## 三、关键交付物
+
+### 1. 核心引擎
+- **文件**: `scripts/kg_unified.py`
+- **功能**:
+  - 统一 SQLite 数据库：`brain/unified_kg.db`
+  - 向量缓存：`brain/unified_kg_vectors.npz` + `brain/unified_kg_vectorizer.pkl`
+  - 同步 4 个数据源
+  - 本地 TF-IDF 向量索引
+  - CLI：同步、检索、图谱扩展、统计
+
+### 2. API 扩展
+- **文件**: `sovereignty/portal/knowledge_api.py`
+- **新增接口**:
+  - `GET /api/unified/search?q=...&top_k=...` — 全文 + 向量统一检索
+  - `POST /api/unified/search` — JSON 版
+  - `GET /api/unified/graph?node_id=...&depth=...` — 统一图谱扩展
+  - `POST /api/unified/graph` — JSON 版
+  - `GET /api/unified/vector?q=...&top_k=...` — 纯向量检索
+  - `GET /api/unified/stats` — 中枢统计
+  - `GET /api/unified/sources` — 数据来源列表
+
+### 3. 修复
+- 重建损坏的 `brain/memories.db`
+- 原损坏文件已备份为 `brain/memories.db.corrupted.<timestamp>`
+
+---
+
+## 四、统一 Schema
+
+### `sources` 来源注册表
+```sql
+CREATE TABLE sources (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    record_count INTEGER DEFAULT 0,
+    last_synced_at TEXT
+);
+```
+
+### `nodes` 统一节点表
+```sql
+CREATE TABLE nodes (
+    id TEXT PRIMARY KEY,          -- 全局唯一：{source}:{local_id}
+    source TEXT NOT NULL,         -- graph_data | notion_pages | dragon_knowledge | brain_memories
+    source_id TEXT NOT NULL,      -- 原始 ID
+    label TEXT NOT NULL,
+    node_type TEXT NOT NULL,
+    content TEXT,                 -- 文本内容/摘要
+    metadata TEXT,                -- JSON
+    dna TEXT,
+    created_at TEXT,
+    updated_at TEXT
+);
+```
+
+### `edges` 统一边表
+```sql
+CREATE TABLE edges (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source_node TEXT NOT NULL,
+    target_node TEXT NOT NULL,
+    relation TEXT NOT NULL,
+    weight REAL DEFAULT 1.0,
+    metadata TEXT,
+    dna TEXT
+);
+```
+
+### `node_vectors` 向量表
+```sql
+CREATE TABLE node_vectors (
+    node_id TEXT PRIMARY KEY,
+    vector BLOB,                  -- numpy float32 bytes
+    vector_type TEXT DEFAULT 'tfidf',
+    generated_at TEXT
+);
+```
+
+---
+
+## 五、数据同步范围
+
+| 数据源 | 同步内容 | 节点数 |
+|---|---|---|
+| `03_知識圖譜/graph_data.json` | 项目文件、技能、模块、媒体等节点及关系 | 161 |
+| `~/.longhun/notion_pages/notion_pages.db` | pages + entities + relations + occurrences | 3443 |
+| `~/_work/dragon_knowledge.db` | harvested_code 代码记录 + 作者/语言节点 | 3 |
+| `brain/memories.db` | 记忆链 | 0（当前为空） |
+
+> dragon_knowledge.db 当前仅 3 条记录，是因为代码收割流程尚未大规模运行；接口已就绪，后续数据会自动汇入。
+
+---
+
+## 六、向量层设计
+
+### 当前实现：本地 TF-IDF 基线
+- 使用 `sklearn.feature_extraction.text.TfidfVectorizer`
+- 字符级 n-gram：`char_wb`，n=(2,4)
+- 最大维度：4096
+- 相似度：cosine similarity
+
+### 为什么先选 TF-IDF
+1. **零额外依赖**：系统已有 numpy + sklearn
+2. **本地可控**：不下载外网模型
+3. **中文友好**：字符 n-gram 对中文效果好
+4. **接口兼容**：后续可无缝替换为 sentence-transformers / FAISS
+
+### 后续升级路径
+- 安装 `sentence-transformers` + 中文模型（如 BAAI/bge-small-zh）
+- 将 `vector_type` 从 `tfidf` 升级为 `embedding`
+- 大规模数据后切换 FAISS / sqlite-vec
+
+---
+
+## 七、运行方式
+
+### 1. 手动同步全量数据
+```bash
+cd ~/longhun-system
+python3 scripts/kg_unified.py --sync
+```
+
+### 2. 统一检索
+```bash
+python3 scripts/kg_unified.py --search "CNSH" --top-k 5
+```
+
+### 3. 图谱扩展
+```bash
+python3 scripts/kg_unified.py --expand "graph_data:l0-core" --depth 1
+```
+
+### 4. 启动 API 服务
+```bash
+cd ~/longhun-system/sovereignty/portal
+python3 api_server.py
+```
+
+### 5. 调用 API
+```bash
+curl "http://localhost:8444/api/unified/search?q=龍魂系统&top_k=5"
+curl "http://localhost:8444/api/unified/graph?node_id=graph_data:l0-core&depth=1"
+curl "http://localhost:8444/api/unified/stats"
+```
+
+---
+
+## 八、验证结果
+
+使用 FastAPI TestClient 端到端验证：
+
+| 接口 | 状态 | 结果 |
+|---|---|---|
+| `GET /api/unified/stats` | ✅ 200 | 3611 nodes / 378722 edges / 3606 vectors |
+| `GET /api/unified/search?q=龍魂系统` | ✅ 200 | 返回全文+向量融合结果 |
+| `GET /api/unified/graph?node_id=graph_data:l0-core` | ✅ 200 | 扩展 54 个节点 |
+| `GET /api/unified/vector?q=通心译` | ✅ 200 | 返回语义相似结果 |
+
+---
+
+## 九、后续建议
+
+1. **定时同步**：建议通过 cron 每日运行 `kg_unified.py --sync`，保持中枢最新
+2. **补充 brain 记忆**：恢复 iOS / Cursor / Claude 等来源向 `brain/memories.db` 写入记忆
+3. **收割更多代码**：运行代码收割流程，把 `dragon_knowledge.db` 记录从 3 条提升到全量
+4. **升级 embedding**：后续替换为本地中文 embedding 模型，提升语义质量
+
+---
+
+## 十、DNA 追溯
+
+- 本次升级 DNA: `#龍芯⚡️2026-06-22-UNIFIED-KG-v1.0`
+- 核心脚本 DNA: `#龍芯⚡️2026-06-22-UNIFIED-KG-v1.0`
+- API 升级 DNA: `#龍芯⚡️2026-06-19-LONGHUN-KNOWLEDGE-GRAPH-v1.0` → 扩展统一接口
+- 脑干修复 DNA: `#龍芯⚡️2026-06-22-BRAIN-DB-RECOVER-v1.0`
+
+---
+
+> **中国人的脸，靠的是自主可控、来源可查、去向可追。**  
+> 统一知识中枢已立住，下一步就是把更多记忆和代码喂进去。

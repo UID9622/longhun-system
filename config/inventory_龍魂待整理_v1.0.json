@@ -1,0 +1,1201 @@
+{
+  "total_files": 197,
+  "total_size": 99873521,
+  "by_category": {
+    "01-CNSH-协议规范": 26,
+    "02-流场可视化": 40,
+    "03-身份安全-DNA": 9,
+    "04-审计治理": 5,
+    "05-AI人格-Agent": 22,
+    "06-工具脚本": 13,
+    "07-论文PDF": 7,
+    "08-浏览器插件桥接": 2,
+    "09-杂项备忘": 71,
+    "longhun_archive_log.json": 1,
+    "longhun_inventory.json": 1
+  },
+  "files": [
+    {
+      "path": "01-CNSH-协议规范/CNSH · China Native Semantic Hub · 中文语法全景.html",
+      "size": 75225,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH · 通心译 · 对齐标准.html",
+      "size": 47941,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-64 数学形式化完整版 8b2d71bacc3d4c9795b547bda7a16857.html",
+      "size": 19390,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/CNSH智能终端-v2.0.html",
+      "size": 25442,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/cnsh-compiler.js",
+      "size": 29692,
+      "ext": ".js",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/一键运行-使用说明.md",
+      "size": 1889,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/收支分析-扩展包说明.md",
+      "size": 8816,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完成报告.md",
+      "size": 15290,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完整指南.md",
+      "size": 8849,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂智能终端-v3.0-漂移版.html",
+      "size": 40800,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂签名管理系统-v2.0.html",
+      "size": 33948,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-使用指南.md",
+      "size": 5363,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-完成报告.md",
+      "size": 7698,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "size": 15507,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH执行引擎与系统闭环-术语对照表.html",
+      "size": 45078,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH指令协议与可执行架构-术语对照表.html",
+      "size": 40949,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/CNSH数学骨架与量子层-术语对照表.html",
+      "size": 26396,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/Claude/Artifacts/cnsh-editor-mapper-v1/index.html",
+      "size": 27361,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/audit_engine.py",
+      "size": 19995,
+      "ext": ".py",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/cnsh-editor-mapper-v1.pdf",
+      "size": 829,
+      "ext": ".pdf",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/cnsh_gateway.py",
+      "size": 14499,
+      "ext": ".py",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/dragon-terminal-v2.html",
+      "size": 44084,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/iOS快捷指令配置.md",
+      "size": 4700,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/init_cnsh_structure.sh",
+      "size": 8379,
+      "ext": ".sh",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/longhun-algorithms-cnsh-v1.0.md",
+      "size": 32392,
+      "ext": ".md",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "01-CNSH-协议规范/🔬 CNSH-64 Reviewer Hardening & Missing Sections —  3297125a9c9f81d38136f6bd7df34607.html",
+      "size": 118065,
+      "ext": ".html",
+      "category": "01-CNSH-协议规范"
+    },
+    {
+      "path": "02-流场可视化/Claude/Artifacts/dragon-soul-luoshu-vortex/index.html",
+      "size": 22681,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/UID9622_龍魂流场总控_v2.0.md",
+      "size": 31003,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/UID9622_龍魂流场总控_v2.0_1.md",
+      "size": 31003,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/current.html",
+      "size": 48953,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/current_before_v8_20260419_223447.html",
+      "size": 40972,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/dragon-soul-luoshu-vortex.pdf",
+      "size": 200400,
+      "ext": ".pdf",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/dragon_soul_9622.html",
+      "size": 46571,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/extraction-report-v8.md",
+      "size": 21533,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-28mansions-v1.html",
+      "size": 61601,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-field-v9.html",
+      "size": 33776,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/README_LONGHUN_FLOW.md",
+      "size": 2312,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/current.html",
+      "size": 48953,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/dragon_soul_9622.html",
+      "size": 46571,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/flow-field-index.json",
+      "size": 2460,
+      "ext": ".json",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-28mansions-v1.html",
+      "size": 61601,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-master-control.html",
+      "size": 16796,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-flow-system/longhun-unified-v9.html",
+      "size": 55539,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-luoshu-vortex-v2-4003beb2.html",
+      "size": 29055,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-luoshu-vortex-v2.html",
+      "size": 29055,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun-unified-v9.html",
+      "size": 55539,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun_flow_portal_v2.html",
+      "size": 32096,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/longhun_wuxing_mvp.py",
+      "size": 12445,
+      "ext": ".py",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/notion-scan-report-v8.md",
+      "size": 18201,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/sancai-flow-v8.1.html",
+      "size": 64674,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/sancai-flow-v8.html",
+      "size": 60461,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v1.html",
+      "size": 22900,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v2.html",
+      "size": 26464,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v3.html",
+      "size": 15187,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v4.html",
+      "size": 27116,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v5_神经版.html",
+      "size": 37784,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v6_优化版.html",
+      "size": 40972,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/v8.html",
+      "size": 48953,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/三才流场_v3.0.html",
+      "size": 14059,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/三才流場 · San Cai Flow Field · UID9622.html",
+      "size": 15187,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/三才流場_v6.html",
+      "size": 40972,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/三才流場_v6_优化版.html",
+      "size": 40972,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/三才算法发微_为曾老师正名.md",
+      "size": 6979,
+      "ext": ".md",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/河图洛书地面图.html",
+      "size": 15973,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/龍魂流场20260426l.html",
+      "size": 23749,
+      "ext": ".html",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "02-流场可视化/🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622.pdf",
+      "size": 1677591,
+      "ext": ".pdf",
+      "category": "02-流场可视化"
+    },
+    {
+      "path": "03-身份安全-DNA/ATTRIBUTION.md",
+      "size": 1594,
+      "ext": ".md",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/Claude/Artifacts/dragon_soul_dna_generator/index.html",
+      "size": 18293,
+      "ext": ".html",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/GPG公钥指纹验证与导入指南-20260427125204.json",
+      "size": 4924437,
+      "ext": ".json",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/LH-CDNA-v1.2-需求文档.md",
+      "size": 31509,
+      "ext": ".md",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/浏览器字体包/CLAUDE.md",
+      "size": 12538,
+      "ext": ".md",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/浏览器字体包/dna_ecny_offline_activation.py",
+      "size": 20893,
+      "ext": ".py",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/龍魂DNA身份系统-功能规格书.html",
+      "size": 57292,
+      "ext": ".html",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/龙魂数字主权体系_学术论文_v2.0.md",
+      "size": 51053,
+      "ext": ".md",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "03-身份安全-DNA/🧬 网络户口本.html",
+      "size": 20964,
+      "ext": ".html",
+      "category": "03-身份安全-DNA"
+    },
+    {
+      "path": "04-审计治理/qa_report.html",
+      "size": 33465,
+      "ext": ".html",
+      "category": "04-审计治理"
+    },
+    {
+      "path": "04-审计治理/truth_report.html",
+      "size": 15182,
+      "ext": ".html",
+      "category": "04-审计治理"
+    },
+    {
+      "path": "04-审计治理/审计.html",
+      "size": 28329,
+      "ext": ".html",
+      "category": "04-审计治理"
+    },
+    {
+      "path": "04-审计治理/龍魂审核过滤系统-完整规则规格书.html",
+      "size": 41900,
+      "ext": ".html",
+      "category": "04-审计治理"
+    },
+    {
+      "path": "04-审计治理/龍魂审核过滤系统规则规格书v2.0.html",
+      "size": 36676,
+      "ext": ".html",
+      "category": "04-审计治理"
+    },
+    {
+      "path": "05-AI人格-Agent/AI智能体术语对照表-龍魂版.html",
+      "size": 25103,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Behavioral Cryptography- A Multi-Factor Provenance Framework for Human-AI Collaborative Content.pdf",
+      "size": 2487500,
+      "ext": ".pdf",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/index.html",
+      "size": 28337,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/thumbnail.png",
+      "size": 2826,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/cnsh-editor-mapper-v1/thumbnail.png",
+      "size": 2826,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon-soul-fixed-point/thumbnail.png",
+      "size": 213182,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon-soul-luoshu-vortex/thumbnail.png",
+      "size": 196861,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_dna_generator/thumbnail.png",
+      "size": 124080,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_lifecycle_dashboard/thumbnail.png",
+      "size": 194123,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/dragon_soul_master_console/thumbnail.png",
+      "size": 297868,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/Claude/Artifacts/longhun-zhongli-v1/thumbnail.png",
+      "size": 116486,
+      "ext": ".png",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/IPA-200-宝宝人格配置.html",
+      "size": 31681,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/deploy_brain.sh",
+      "size": 6213,
+      "ext": ".sh",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/files/brain-pack/install_brain.sh",
+      "size": 4371,
+      "ext": ".sh",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/files/brain-pack-v2.0.zip",
+      "size": 8899,
+      "ext": ".zip",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/files/install_brain.sh",
+      "size": 4371,
+      "ext": ".sh",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/longhun_brain.py",
+      "size": 20457,
+      "ext": ".py",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/longhun_hub.html",
+      "size": 84826,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/main-console.html",
+      "size": 66506,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/行为密码学csdn.md",
+      "size": 322115,
+      "ext": ".md",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/龍魂API/给AI的部署指令.md",
+      "size": 7271,
+      "ext": ".md",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "05-AI人格-Agent/龍魂智能中枢_v5.0_全套一体化.html",
+      "size": 152243,
+      "ext": ".html",
+      "category": "05-AI人格-Agent"
+    },
+    {
+      "path": "06-工具脚本/Kimi_Agent_长恨888网站搭建/app/js/particles.js",
+      "size": 16099,
+      "ext": ".js",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/files/brain-pack/bin/session_end.sh",
+      "size": 579,
+      "ext": ".sh",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/files/brain-pack/bin/本地_search.sh",
+      "size": 1352,
+      "ext": ".sh",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/files/local_search.sh",
+      "size": 1352,
+      "ext": ".sh",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/files/session_end.sh",
+      "size": 579,
+      "ext": ".sh",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/_locales/en/messages.json",
+      "size": 2375,
+      "ext": ".json",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/_locales/zh_CN/messages.json",
+      "size": 1894,
+      "ext": ".json",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/background.js",
+      "size": 28564,
+      "ext": ".js",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/chunks/popup-BRDiPGz4.js",
+      "size": 231682,
+      "ext": ".js",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/kimi-webbridge-extension/manifest.json",
+      "size": 821,
+      "ext": ".json",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/parse_notion.py",
+      "size": 4406,
+      "ext": ".py",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/龍魂API/龙魂系统_API接口完整实现_v1.0.py",
+      "size": 28629,
+      "ext": ".py",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "06-工具脚本/龍魂系统/voice/reference_segments.json",
+      "size": 3268,
+      "ext": ".json",
+      "category": "06-工具脚本"
+    },
+    {
+      "path": "07-论文PDF/dragon-soul-fixed-point.pdf",
+      "size": 185750,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/longhun-zhongli-v1.pdf",
+      "size": 963432,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/luoshu_369_complete_paper.pdf",
+      "size": 183847,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/一级控万象.pdf",
+      "size": 34316821,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/一级控万象上.pdf",
+      "size": 18586299,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/一级控万象下.pdf",
+      "size": 15744016,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "07-论文PDF/太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合.pdf",
+      "size": 11049551,
+      "ext": ".pdf",
+      "category": "07-论文PDF"
+    },
+    {
+      "path": "08-浏览器插件桥接/LongHunWidget浏览器插件-功能规格书.html",
+      "size": 38846,
+      "ext": ".html",
+      "category": "08-浏览器插件桥接"
+    },
+    {
+      "path": "08-浏览器插件桥接/kimi-webbridge-extension.pem",
+      "size": 1704,
+      "ext": ".pem",
+      "category": "08-浏览器插件桥接"
+    },
+    {
+      "path": "09-杂项备忘/2026-05-19-DELIVERY-VALUE-AUDIT.txt",
+      "size": 14313,
+      "ext": ".txt",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/CNSH-v1.0-测试/网站搭建-最简指南.md",
+      "size": 5481,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/CNSH-v1.0-测试/龙魂主页-导航中心.html",
+      "size": 15197,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon-soul-fixed-point/index.html",
+      "size": 25772,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/index.html",
+      "size": 22866,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_lifecycle_dashboard/versions/1777340121471.html",
+      "size": 26125,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/index.html",
+      "size": 27698,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/versions/1777339485711.html",
+      "size": 24079,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Claude/Artifacts/longhun-zhongli-v1/index.html",
+      "size": 18992,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/css/style.css",
+      "size": 13405,
+      "ext": ".css",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/index.html",
+      "size": 8560,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/list.html",
+      "size": 7199,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/app/projects.html",
+      "size": 6608,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/Kimi_Agent_长恨888网站搭建/tech-spec.md",
+      "size": 1273,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/LU_Time_Engine.html",
+      "size": 31229,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/LU主控指令库 30c07171724280b6b6a2fc52c23e8b68_all.numbers",
+      "size": 142817,
+      "ext": ".numbers",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/asset-scanner.html",
+      "size": 13449,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/css/style.css",
+      "size": 5713,
+      "ext": ".css",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/custom.css",
+      "size": 545,
+      "ext": ".css",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/files/CLAUDE.md",
+      "size": 8779,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/files/brain-pack/root/CLAUDE.md",
+      "size": 8779,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/files/brain-pack/root/_CURRENT_TASK.md",
+      "size": 1319,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/index.html",
+      "size": 418009,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/assets/popup-BxuX4JPX.css",
+      "size": 17533,
+      "ext": ".css",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/128.png",
+      "size": 10876,
+      "ext": ".png",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/16.png",
+      "size": 423,
+      "ext": ".png",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/32.png",
+      "size": 1128,
+      "ext": ".png",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/icon/48.png",
+      "size": 2132,
+      "ext": ".png",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/kimi-webbridge-extension/popup.html",
+      "size": 341,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-28mansions-v1-46f5fcb4.html",
+      "size": 61601,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/器卡01.yaml",
+      "size": 1358,
+      "ext": ".yaml",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/器卡02.yaml",
+      "size": 1391,
+      "ext": ".yaml",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/裳卡01.yaml",
+      "size": 1372,
+      "ext": ".yaml",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/裳卡02.yaml",
+      "size": 1377,
+      "ext": ".yaml",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-flow-system/cards/锚卡01.yaml",
+      "size": 1346,
+      "ext": ".yaml",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-immutable-philosophy.md",
+      "size": 3819,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-immutable-trace.html",
+      "size": 19536,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun-retro-tasks.md",
+      "size": 4803,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/longhun_fixed_point_v1.html",
+      "size": 33863,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/memory-editor.html",
+      "size": 28867,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/memory-editor.华仔版.html",
+      "size": 14200,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/mvp_workbench_v6.1.html",
+      "size": 37578,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/parse_notion.py.bak",
+      "size": 4235,
+      "ext": ".bak",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/portal_backup.html",
+      "size": 50182,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/sandbox_dashboard.html",
+      "size": 8781,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/script_龍魂起源.html",
+      "size": 8288,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/viewer.html",
+      "size": 44753,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/一级控万象上.docx",
+      "size": 97992,
+      "ext": ".docx",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/便签.txt",
+      "size": 776,
+      "ext": ".txt",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/守住底线，释放自由，留痕追溯，公正公证.html",
+      "size": 66217,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/宝宝决策来源卡片.md",
+      "size": 3584,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/宝宝娱乐t.html",
+      "size": 20249,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/当我们在使用工具时，是谁在使用谁.md",
+      "size": 16162,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表-142ccdbc.html",
+      "size": 26726,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表-v2.html",
+      "size": 44450,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/思维主权系统-术语对照表.html",
+      "size": 26726,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/LONGHUN_OPENSOURCE_MANIFESTO.md",
+      "size": 16618,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/README_GITHUB.md",
+      "size": 1513,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/浏览器字体包/claude_code_anchoring_architecture.md",
+      "size": 14858,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/记忆压缩系统.html",
+      "size": 66506,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂API/老大使用说明.md",
+      "size": 5883,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂万年历.widgetkitsim/info",
+      "size": 2297,
+      "ext": "",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂万年历.widgetkitsim/widget_data/com.uid9622.longhun.LongHunWidget.--/timelines/%E9%BE%8D%E9%AD%82Widget/systemMedium----344.00w-164.00h-20.00r-sb0pEs+nbLo5#ms5SbWK6rBeT0hs3AAnX1Vhf6mYkyI=.chrono-timeline",
+      "size": 10872,
+      "ext": ".chrono-timeline",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂工作站_v2.0_重组升级版.html",
+      "size": 82905,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂控制台.html",
+      "size": 18579,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂数学公式体系 · 升级版 v2.0 _ UID9622.html",
+      "size": 68111,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统/voice/reference.txt",
+      "size": 298,
+      "ext": ".txt",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统/voice/reference.wav",
+      "size": 2979258,
+      "ext": ".wav",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龍魂系统-主计划总纲-v1.0.html",
+      "size": 21215,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/龙魂多平台账号破局模板.md",
+      "size": 12960,
+      "ext": ".md",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "09-杂项备忘/📊 龍魂系统统计看板.html",
+      "size": 6058,
+      "ext": ".html",
+      "category": "09-杂项备忘"
+    },
+    {
+      "path": "longhun_archive_log.json",
+      "size": 2816,
+      "ext": ".json",
+      "category": "longhun_archive_log.json"
+    },
+    {
+      "path": "longhun_inventory.json",
+      "size": 120080,
+      "ext": ".json",
+      "category": "longhun_inventory.json"
+    }
+  ]
+}

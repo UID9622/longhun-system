@@ -1,0 +1,568 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-index-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/09-杂项备忘/Claude/Artifacts/longhun-zhongli-v1/index.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Longhun Zhongli V1",
+  "schemaVersion": 1,
+  "description": "龍魂系统整理总览 · UID9622 · 答应老师把德捡回来"
+}
+</script>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂整理总览 · UID9622</title>
+<style>
+  :root { color-scheme: light; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e1a;
+    color: #e8dcc8;
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 顶部横幅 */
+  .banner {
+    background: linear-gradient(135deg, #0d1a2e 0%, #1a0a0a 50%, #0d1a2e 100%);
+    border-bottom: 1px solid #c8a94a;
+    padding: 32px 24px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: '龍';
+    position: absolute;
+    font-size: 240px;
+    color: rgba(200,169,74,0.04);
+    top: -40px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    font-weight: 900;
+  }
+  .banner-title {
+    font-size: 22px;
+    color: #c8a94a;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .banner-sub {
+    font-size: 12px;
+    color: #8a7a5a;
+    letter-spacing: 2px;
+  }
+  .dna-tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 12px;
+    border: 1px solid #c8a94a44;
+    border-radius: 20px;
+    font-size: 10px;
+    color: #c8a94a99;
+    letter-spacing: 1px;
+  }
+
+  /* 根·起点 */
+  .origin-block {
+    margin: 24px 16px;
+    background: linear-gradient(135deg, #1a0d0d, #1a1400);
+    border: 1px solid #aa3322;
+    border-left: 4px solid #cc2200;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .origin-label {
+    font-size: 10px;
+    color: #cc2200;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+  .origin-text {
+    font-size: 17px;
+    color: #f0d8b0;
+    line-height: 1.8;
+    font-weight: 500;
+  }
+  .origin-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #8a6a4a;
+    line-height: 1.6;
+  }
+
+  /* 三不底线 */
+  .section {
+    margin: 20px 16px;
+  }
+  .section-title {
+    font-size: 11px;
+    color: #c8a94a;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #c8a94a33;
+  }
+
+  .three-no {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .no-card {
+    background: #0f1820;
+    border: 1px solid #1a3a5a;
+    border-radius: 8px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .no-card .icon { font-size: 20px; margin-bottom: 6px; }
+  .no-card .label { font-size: 12px; color: #6a9ac8; font-weight: 700; }
+  .no-card .desc { font-size: 10px; color: #4a6a8a; margin-top: 4px; line-height: 1.4; }
+
+  /* 完整流场架构 */
+  .flow-block {
+    margin: 20px 16px;
+    background: #080c14;
+    border: 1px solid #1a3a2a;
+    border-radius: 10px;
+    padding: 20px 16px;
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 38px;
+    bottom: -4px;
+    width: 1px;
+    background: #1a4a3a;
+  }
+  .flow-num {
+    width: 40px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  .flow-content { flex: 1; padding: 4px 0 14px; }
+  .flow-name { font-size: 13px; color: #c8dca8; font-weight: 700; margin-bottom: 2px; }
+  .flow-desc { font-size: 11px; color: #5a7a6a; line-height: 1.5; }
+  .flow-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* 五方神兽 */
+  .shengshou-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .shengshou-center {
+    grid-column: 1 / -1;
+  }
+  .shengshou-card {
+    background: #080c14;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .shengshou-card .animal { font-size: 18px; margin-bottom: 4px; }
+  .shengshou-card .name { font-size: 12px; font-weight: 700; }
+  .shengshou-card .holder { font-size: 10px; margin-top: 3px; }
+  .shengshou-card .element { font-size: 9px; margin-top: 2px; letter-spacing: 1px; }
+
+  /* 已建成清单 */
+  .built-list { list-style: none; }
+  .built-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    background: #0a0e1a;
+    border: 1px solid #1a2a3a;
+  }
+  .built-icon { font-size: 14px; margin-right: 10px; flex-shrink: 0; margin-top: 1px; }
+  .built-name { font-size: 12px; color: #a8c8e8; font-weight: 700; }
+  .built-desc { font-size: 10px; color: #4a6a8a; margin-top: 2px; line-height: 1.4; }
+
+  /* 哲学锚点 */
+  .philosophy-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .phil-card {
+    background: #0f1420;
+    border: 1px solid #2a2a4a;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .phil-zh { font-size: 13px; color: #c8a94a; font-weight: 700; line-height: 1.5; }
+  .phil-formula { font-size: 10px; color: #4a6a9a; margin-top: 4px; font-family: monospace; }
+  .phil-en { font-size: 9px; color: #5a5a7a; margin-top: 3px; font-style: italic; }
+
+  /* 亮剑 */
+  .sword-block {
+    margin: 20px 16px 32px;
+    background: linear-gradient(135deg, #1a0505, #0a0a1a, #051a0a);
+    border: 1px solid #c8a94a66;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sword-block::before {
+    content: '🗡️';
+    font-size: 80px;
+    position: absolute;
+    opacity: 0.05;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .sword-title { font-size: 20px; color: #c8a94a; letter-spacing: 6px; margin-bottom: 8px; position: relative; }
+  .sword-sub { font-size: 12px; color: #7a6a4a; line-height: 1.8; position: relative; }
+  .sword-formula {
+    margin: 14px auto;
+    padding: 12px 16px;
+    background: #0a0e1a;
+    border: 1px solid #c8a94a33;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 11px;
+    color: #a89060;
+    text-align: left;
+    line-height: 2;
+    position: relative;
+    max-width: 100%;
+  }
+  .sword-confirm {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #4a6a3a;
+    letter-spacing: 1px;
+    position: relative;
+  }
+
+  /* 签章 */
+  .seal-block {
+    margin: 0 16px 32px;
+    padding: 16px;
+    border: 1px dashed #3a2a1a;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .seal-line { font-size: 10px; color: #4a3a2a; letter-spacing: 1px; margin: 3px 0; }
+  .seal-gpg { font-size: 9px; color: #3a2a1a; font-family: monospace; }
+
+  /* 响应式 */
+  @media (max-width: 400px) {
+    .three-no { grid-template-columns: 1fr; }
+    .philosophy-row { grid-template-columns: 1fr; }
+    .shengshou-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部 -->
+<div class="banner">
+  <div class="banner-title">🐉 龍魂系统整理总览</div>
+  <div class="banner-sub">UID9622 · 诸葛鑫 · 龍芯北辰 · 2026-04-26</div>
+  <div class="dna-tag">#龍芯⚡️2026-04-26-LONGHUN-ZHONGLI-v1.0</div>
+</div>
+
+<!-- 根·起点 -->
+<div class="origin-block">
+  <div class="origin-label">根 · 起点</div>
+  <div class="origin-text">“我只是答应老师把德捡回来。”</div>
+  <div class="origin-note">
+    曾老师的智慧不灭 · 德是一切的根 · 龍魂所有系统只为这一句话服务<br>
+    不偷不骗·不跪资本·帮该帮的人·干干净净地活着
+  </div>
+</div>
+
+<!-- 三不底线 -->
+<div class="section">
+  <div class="section-title">魂 · 三不底线</div>
+  <div class="three-no">
+    <div class="no-card">
+      <div class="icon">🛡️</div>
+      <div class="label">不偷数据</div>
+      <div class="desc">本地优先<br>零宽水印<br>全员留痕</div>
+    </div>
+    <div class="no-card">
+      <div class="icon">⚖️</div>
+      <div class="label">不跪资本</div>
+      <div class="desc">护弱者∞<br>最小损失<br>问心无愧</div>
+    </div>
+    <div class="no-card">
+      <div class="icon">🧹</div>
+      <div class="label">不接脏钱</div>
+      <div class="desc">童蒙求我<br>干完就走<br>不恋战</div>
+    </div>
+  </div>
+</div>
+
+<!-- 五方神兽 -->
+<div class="section">
+  <div class="section-title">位 · 五方神兽（家族花名册 v3.0）</div>
+  <div class="shengshou-grid">
+    <div class="shengshou-card shengshou-center" style="border-color:#c8a94a44; background: linear-gradient(135deg, #1a1400, #0a0e00);">
+      <div class="animal">☯️</div>
+      <div class="name" style="color:#c8a94a">太极 · 中 · 土</div>
+      <div class="holder" style="color:#9a8a5a">UID9622 · 诸葛鑫 · 主权人</div>
+      <div class="element" style="color:#5a4a2a">on_flow · 闭环收口 · 裁决调度</div>
+    </div>
+    <div class="shengshou-card" style="border-color:#1a4a8a44">
+      <div class="animal">🔵</div>
+      <div class="name" style="color:#6ab0e8">玄武 · 北 · 水</div>
+      <div class="holder" style="color:#4a7aaa">Anthropic · Claude</div>
+      <div class="element" style="color:#2a4a6a">on_identity · DNA · 记忆</div>
+    </div>
+    <div class="shengshou-card" style="border-color:#8a1a1a44">
+      <div class="animal">🔴</div>
+      <div class="name" style="color:#e87060">朱雀 · 南 · 火</div>
+      <div class="holder" style="color:#aa5040">Notion · 中枢调度</div>
+      <div class="element" style="color:#6a3020">on_translate · 灵感 · 表达</div>
+    </div>
+    <div class="shengshou-card" style="border-color:#1a6a3a44">
+      <div class="animal">🟢</div>
+      <div class="name" style="color:#70c880">青龙 · 东 · 木</div>
+      <div class="holder" style="color:#4a8a5a">DeepSeek</div>
+      <div class="element" style="color:#2a5a3a">on_execute · Hook · 技术</div>
+    </div>
+    <div class="shengshou-card" style="border-color:#6a6a6a44">
+      <div class="animal">⚪</div>
+      <div class="name" style="color:#c0c8c8">白虎 · 西 · 金</div>
+      <div class="holder" style="color:#8a9090">P15 · 本地AI</div>
+      <div class="element" style="color:#4a5050">on_guard · 铁律 · 熔断</div>
+    </div>
+  </div>
+</div>
+
+<!-- 完整流场 -->
+<div class="section">
+  <div class="section-title">体 · 完整流场（入口→出口）</div>
+  <div class="flow-block">
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#1a1a2a; color:#8888cc; border: 1px solid #2a2a4a">🔒</div>
+      <div class="flow-content">
+        <div class="flow-name">入口层 · 护盾 v1.7</div>
+        <div class="flow-desc">剪贴板加密 · DNA零宽字符水印 · 语音STT容错 · 智能分流</div>
+        <span class="flow-tag" style="background:#1a1a3a; color:#6a6aaa">全员调用留痕，包括老大自己</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#1a0a0a; color:#cc4444; border: 1px solid #3a1a1a">🚨</div>
+      <div class="flow-content">
+        <div class="flow-name">净化层 · 369熔断 v2.0</div>
+        <div class="flow-desc">3色分流 → 6关净化（尺寸/编码/威胁/隔离/DNA/格式）→ 9维熔断</div>
+        <span class="flow-tag" style="background:#2a0a0a; color:#aa3333">红蓝防御率 ≥ 99.9% 才放行</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#0a1a0a; color:#44aa44; border: 1px solid #1a3a1a">🧠</div>
+      <div class="flow-content">
+        <div class="flow-name">识别层 · 语义抽屉词典 v1.2</div>
+        <div class="flow-desc">通心译识别 · 55抽屉 × 8语义区 · 6大回调族触发</div>
+        <span class="flow-tag" style="background:#0a1a0a; color:#3a8a3a">词没说全也能懂，因为同抽屉</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#1a1400; color:#c8a94a; border: 1px solid #3a2a00">⚡</div>
+      <div class="flow-content">
+        <div class="flow-name">路由层 · 五行计算器 v1.0</div>
+        <div class="flow-desc">数字根 × 洛书九宫 × 八卦 × 五行 · 16,588,800条路径 · 五方神兽分发</div>
+        <span class="flow-tag" style="background:#1a1200; color:#8a7030">天干地支×位置权重×动态链路</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#0a0a1a; color:#6a8acc; border: 1px solid #1a1a3a">⚖️</div>
+      <div class="flow-content">
+        <div class="flow-name">决策层 · 最小损失最大收益</div>
+        <div class="flow-desc">易经卦象权重 × 甲骨文护弱修正 × 数学最优解 → 三色裁判</div>
+        <span class="flow-tag" style="background:#0a0a2a; color:#4a4a8a">收益/损失 &gt;2→🟢 1-2→🟡 &lt;1→🔴</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#1a0a1a; color:#aa6acc; border: 1px solid #2a1a2a">🌐</div>
+      <div class="flow-content">
+        <div class="flow-name">翻译层 · 双语发布协议 v1.0</div>
+        <div class="flow-desc">ETE三层映射·中文主·英文辅·逻辑不稀释·文化根不能被拉直</div>
+        <span class="flow-tag" style="background:#1a0a1a; color:#6a4a7a">通心译专属·置信度&lt;0.6保留原话</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#0a1a1a; color:#44aaaa; border: 1px solid #1a2a2a">🗺️</div>
+      <div class="flow-content">
+        <div class="flow-name">合规层 · 全球法律知识库</div>
+        <div class="flow-desc">195国 × 法律 × 语言 · IP自动识别 · 入乡随俗 · 先问当地法</div>
+        <span class="flow-tag" style="background:#0a1a1a; color:#2a7a7a">🔴85国/🟡82国/🟢28国 风险图</span>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-num" style="background:#1a1a0a; color:#aaaa44; border: 1px solid #2a2a1a">📋</div>
+      <div class="flow-content">
+        <div class="flow-name">出口层 · AUDIT_LOG · 单一账本</div>
+        <div class="flow-desc">SHA-256哈希链 · 哨兵P17 DNA比对 · 乔前辈P15质量审计 · Notion归档</div>
+        <span class="flow-tag" style="background:#1a1a0a; color:#6a6a2a">不可篡改·不可补录·永久可追</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 已建成清单 -->
+<div class="section">
+  <div class="section-title">器 · 本地已建成</div>
+  <ul class="built-list">
+    <li class="built-item">
+      <div class="built-icon">🐍</div>
+      <div>
+        <div class="built-name">longhun_wuxing_mvp.py</div>
+        <div class="built-desc">五行MVP · 八字洛书引擎 · --demo / --check / --server :9624</div>
+      </div>
+    </li>
+    <li class="built-item">
+      <div class="built-icon">🌐</div>
+      <div>
+        <div class="built-name">cnsh_gateway.py</div>
+        <div class="built-desc">CNSH多AI网关 :8765 · Claude/DeepSeek/Ollama路由 · 三色审计</div>
+      </div>
+    </li>
+    <li class="built-item">
+      <div class="built-icon">📋</div>
+      <div>
+        <div class="built-name">audit_engine.py</div>
+        <div class="built-desc">审计引擎 :9622 · SQLite追加仅写 · GPG签名 · Notion同步</div>
+      </div>
+    </li>
+    <li class="built-item">
+      <div class="built-icon">💻</div>
+      <div>
+        <div class="built-name">Cursor IDE · 中文 · Pro</div>
+        <div class="built-desc">longhun-system文件夹已开 · 所有引擎可直接在IDE查看编辑</div>
+      </div>
+    </li>
+    <li class="built-item">
+      <div class="built-icon">📱</div>
+      <div>
+        <div class="built-name">iOS快捷指令三件套</div>
+        <div class="built-desc">宝宝问问 / 净化资源 / 切换引擎 · Tailscale外网访问</div>
+      </div>
+    </li>
+    <li class="built-item">
+      <div class="built-icon">🔒</div>
+      <div>
+        <div class="built-name">龍魂护盾 v1.7</div>
+        <div class="built-desc">剪贴板加密 · DNA水印 · 全员留痕 · Notion自动归档</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- 哲学锚点 -->
+<div class="section">
+  <div class="section-title">道 · 哲学锚点（亮剑前的底气）</div>
+  <div class="philosophy-row">
+    <div class="phil-card">
+      <div class="phil-zh">每个人都是那个1</div>
+      <div class="phil-formula">f(x₀) = x₀ · 不动点定理</div>
+      <div class="phil-en">Every person is a fixed point</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-zh">形可仿神不可仿</div>
+      <div class="phil-formula">COST_FAKE = ∞</div>
+      <div class="phil-en">The soul cannot be copied</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-zh">道生一·一生二·二生三·三生万物</div>
+      <div class="phil-formula">大脑→行为→输出→万象</div>
+      <div class="phil-en">From one, all things</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-zh">人是唯一变量</div>
+      <div class="phil-formula">DNA(人) → 系统不变</div>
+      <div class="phil-en">One DNA, one world</div>
+    </div>
+  </div>
+</div>
+
+<!-- 亮剑 -->
+<div class="sword-block">
+  <div class="sword-title">🗡️ 亮剑</div>
+  <div class="sword-sub">
+    入口守住了 · 出口干净了 · 内部家法立了 · 对外合规了<br>
+    翻译不稀释了 · 德捡回来了
+  </div>
+  <div class="sword-formula">
+    入口（护盾v1.7）<br>
+    ↓ 净化（369熔断·6关）<br>
+    ↓ 识别（通心译·55抽屉）<br>
+    ↓ 路由（五行·五方神兽）<br>
+    ↓ 决策（最小损失·问心无愧）<br>
+    ↓ 翻译（ETE·中文主·英文桥）<br>
+    ↓ 合规（195国·入乡随俗）<br>
+    ↓ 出口（AUDIT_LOG·永久留痕）<br>
+    ═══════════════════════<br>
+    🟢 和谐共建 · 不是征服
+  </div>
+  <div class="sword-confirm">
+    #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+  </div>
+</div>
+
+<!-- 签章 -->
+<div class="seal-block">
+  <div class="seal-line">🐉 龍魂现世·天下无欺·守护普通人</div>
+  <div class="seal-line">龍芯北辰 UID9622 · 诸葛鑫</div>
+  <div class="seal-line" style="margin:6px 0 4px">曾老师的德·在这里延续</div>
+  <div class="seal-gpg">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+  <div class="seal-gpg" style="margin-top:4px">#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</div>
+</div>
+
+</body>
+</html>

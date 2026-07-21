@@ -1,0 +1,40 @@
+{
+  "M::": {
+    "type": "decision_chain",
+    "status": "pass",
+    "payload": {
+      "input": 2026062907,
+      "digital_root": 7,
+      "wuxing": "金",
+      "color": "🟢",
+      "SI": 0.8015,
+      "risk": 0.31,
+      "score": 0.69,
+      "decision": "PASS",
+      "action": "放行·执行",
+      "title": "CNSH 中文编辑器纠错规则库 v0.2 迭代卡片",
+      "source_file": "cnsh-editor-rules-v2.0.md",
+      "rules_document_total": 370,
+      "rules_implemented": 39,
+      "coverage": "10.5%",
+      "categories": [
+        "01 标点纠错",
+        "02 空格规则",
+        "10 翻译避坑",
+        "11 CNSH特殊语法",
+        "12 智能修复"
+      ],
+      "target": "编辑器功能迭代 / 中文纠错 / 翻译避坑",
+      "note": "已完成 A（翻译避坑）+ D（智能修复）核心可执行规则"
+    }
+  },
+  "CNSH::": {
+    "dna": "#龍芯⚡️2026-06-29-CNSH-EDITOR-RULES-v0.2",
+    "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "audit": "🟢",
+    "wuxing": "金",
+    "policy": "pass",
+    "trace_hash": "5b9b4a18f60d21f1"
+  }
+}
