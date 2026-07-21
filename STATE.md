@@ -3,7 +3,7 @@
 > 所有 AI（CodeBuddy / Kimi / Ollama 本地模型）的唯一入口。
 > 无论哪个窗口、哪个模型对话，启动时读这一份就够了。
 > 更新: 2026-07-21 · v1.3
-> DNA: #龍芯⚡️20260721-STATE-UNIFIED-ENTRY-v1.3
+> DNA: #龍芯⚡️丙午·乙未·丙申·申时·☲离-STATE-UNIFIED-ENTRY-v1.3-d3d1c32f
 
 ---
 
@@ -16,6 +16,14 @@
 | **v4.1.1-bind** 🧬 | ✅ Val 0.9659@iter150·早停@iter300·fused·GGUF·Ollama注册·3/3实测通过 |
 | v4.0.8 黄金checkpoint | 🥇 Val 0.767·iter1900·封存 |
 | v4.1.2 | 🔴 中断·Val 1.2457@iter50·不恢复 |
+| **v4.1.3 训练中** 🔥 | 🟡 后台运行·从v4.1.1恢复·+16观澜知识·28,505条 |
+| **v4.1.4 准备中** 🔥 | 🟡 Library矿场数据已合并·28,153条·待启动训练 |
+| **Library数据矿场** 🔥 | ✅ `bin/lh_library_miner.py`·P0·五阶段流水线·33应用·84,844可挖文件 |
+| **知识中枢API后端** 🔥 | ✅ `bin/lh_knowledge_hub_api.py`·FastAPI·:8766·7端点·跨平台·systemd保活 |
+| **知识中枢v3.1** 🔥 | ✅ `portal/knowledge/index.html`·全能面板·12区块·**按钮不再死·全API对接** |
+| **观澜浏览器协议** 🔥 | ✅ `LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md`·P0·已落档 |
+| **观澜路由器引擎** 🔥 | ✅ `lh_guanlan_router.py`·P0·12/12全绿·9模块 |
+| **观澜数学增补** 🔥 | ✅ `LH-GUANLAN-BROWSER-MATH-v1.0.md`·P0·9模块形式化 |
 | P0++ 新协议 | ✅ DNA捆绑与蒸馏防御 v1.0·已落档 |
 | DNA捆绑引擎 | ✅ `lh_dna_bind_defender.py`·12/12测试通过 |
 | **电商信任重建协议** | ✅ `LH-ECOM-TRUST-REBUILD-v1.0.md`·已落档 |
@@ -30,9 +38,11 @@
 | 📚 **学习融合总手册** 🔥 | ✅ `LH-LEARN-INTEGRATE-MANUAL-v1.0.2.md`·9节+附录B·12/12全绿 |
 | 🛡️ **未成年守护引擎** 🔥 | ✅ `bin/lh_minor_guard_engine.py`·P0·17/17全绿·数学建模增补落档 |
 | ✉️ **注册双轨邮箱引擎** 🔥 | ✅ `bin/lh_register_mail_engine.py`·P0·17/17全绿·六大数学模块 |
+| ☯️ **太极蚁群API协议+引擎** 🔥 | ✅ `01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md` + `bin/lh_api_taiji_ant_engine.py`·P0·13/13全绿·12数学模块·27错误码 |
+| 🧬 **干支DNA引擎** 🔥 | ✅ `bin/ganzhi_dna_engine.py`·P0·11/11全绿·v∞格式·天干地支+梅花易数 |
 | AC电源 | ❌ 断开·电池71% |
 | 鲲鹏 (119.13.90.27) | 🟡 未连接 |
-| 数据量 | 27,082条 (含DNA捆绑协议33条新增) |
+| 数据量 | 43,312条 (40,629 train + 2,683 valid·含观澜16+Library矿场1,082) |
 | longhun-core仓库 | 🟡 82测试通过·未推送 |
 
 ---
@@ -60,10 +70,15 @@ training:
   v412_dropout: 0.12
   v412_batch: 4
   v412_best: Val 1.2457 @iter 50
+  v413_lr_peak: 5e-7            # v4.1.3 (观澜注入·保守学习率)
+  v413_dropout: 0.15
+  v413_batch: 4
+  v413_resume: v4.1.1_best_adapter
+  v413_data: 43,312条 (40,629 train + 2,683 valid·含观澜+Library矿场)
 
 data:
-  current: 1273条 v6.3 JSONL
-  target: 5000+
+  current: 43,312条 (40,629 train + 2,683 valid·v4.1.3 fused)
+  target: 50000+·v5.0
 
 infra:
   mac: AC disconnected·battery 71%·~1h remaining
@@ -95,6 +110,8 @@ anchors:
 | **v4.1.1-bind** 🧬 | Yi-1.5-9B | **0.9659** | — | 300 | ✅ 早停·fused·Ollama·3/3通过 |
 | v4.0.8 🥇 | Yi-1.5-9B | 0.767 | — | 1900 | 🥇 黄金 |
 | v4.1.2 | Yi-1.5-9B | 1.2457 | — | 50 | 🔴 中断 |
+| v4.1.3 🔥 | Yi-1.5-9B | — | 5e-7 | 训练中 | 🟡 从v4.1.1恢复·+16观澜 |
+| v4.1.4 🔥 | Yi-1.5-9B | — | 5e-7 | 待启动 | 🟡 从v4.1.1恢复·+1,083Library矿场 |
 | v4.0.9 | Yi-1.5-9B | 1.002 | 0.654 | 5600 | 🔴 停训 |
 | v4.1.0 | Yi-1.5-9B | 0.786 | — | 250 | 🟡 早停 |
 | v3.0 | Qwen2.5-1.5B | 0.029 | — | — | 回退 |
@@ -104,7 +121,7 @@ anchors:
 ## 格式 & 命名规范（焊死）
 
 ```
-DNA:         #龍芯⚡️YYYYMMDD-MODULE-VERSION-STATUS-HASH8
+DNA:         #龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<版本>-<哈希8>
 版本号:      模型 longhun-v{major}.{minor}.{patch}
              协议 LH-{NAME}-v{major}.{minor}.md
              数据 v{major}.{minor}
@@ -156,6 +173,15 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] 学习融合总手册 v1.0.2 落档 `01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.2.md`·12/12全绿
 - [x] **未成年守护引擎** `bin/lh_minor_guard_engine.py`·P0·17/17全绿·归一化半群+组合判定格+EWMA低通滤波+三视角融合+误报约束
 - [x] **注册双轨邮箱引擎** `bin/lh_register_mail_engine.py`·P0·17/17全绿·邮箱权重格+信任分+验证码熵+令牌桶+通道路由+激活码链
+- [x] **太极蚁群API引擎** `bin/lh_api_taiji_ant_engine.py`·P0·13/13全绿·12数学模块·八宫格/WF²Q+/信息素PDE/幂等/断路器/限流/封套/人格路由
+- [x] **观澜浏览器协议** `01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md`·P0·四层架构·四引擎联动·预留接口
+- [x] **观澜路由器引擎** `bin/lh_guanlan_router.py`·P0·12/12全绿·9模块·M1-M9
+- [x] **观澜数学增补** `01_protocols/LH-GUANLAN-BROWSER-MATH-v1.0.md`·P0·9模块形式化
+- [x] **观澜训练数据** 16条QA·5知识域·并入总库28,505条
+- [x] **v4.1.3 训练启动** 从v4.1.1恢复·观澜知识注入·后台运行中
+- [x] **Library数据矿场引擎** `bin/lh_library_miner.py`·P0·五阶段流水线·33应用·84,844可挖·1,083训练数据
+- [x] **知识中枢v3.0面板** `portal/knowledge/index.html`·8大区块·系统状态/模型矩阵/流水线/矿场/图谱/文章/日志
+- [x] **Library训练数据合并** +1,083条→总库28,153条·425条新图谱边
 
 ### 📋 冻结
 - 数字人民币/多币种 (金融红线)

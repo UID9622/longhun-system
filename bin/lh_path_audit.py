@@ -132,14 +132,27 @@ VALID_PYTHON_DIRS = {
 
 # 根级已知合法文件（不在任何子目录下的 .md / .py 文件）
 ROOT_LEVEL_WHITELIST = {
+    # 核心宪法/锁
     "AGENTS.md", "AGENTS.md.asc", "CLAUDE.md", "CLAUDE.md.asc",
     "CONSTITUTION.md", "CONSTITUTION.md.asc",
     "P0_ETERNAL_LOCK.md", "P0_ETERNAL_LOCK.md.asc",
     "CHANGELOG.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md",
     "COMMIT_MESSAGE_STANDARD.md", "ATTRIBUTION.md",
     "LICENSE", "LICENSE.asc", "README.md",
-    "pyproject.toml", "__init__.py",
+    # 项目根级状态/入口文件（合法）
+    "STATE.md", "MEMORY.md", "STANDARD.md", "STANDARD.md.asc",
+    "SECURITY.md", "QUICKSTART.md", "入口一致性协议_v1.0.md",
+    # Python/项目配置
+    "pyproject.toml", "pyproject.toml.asc", "__init__.py",
+    "pytest.ini", "requirements.txt", "requirements-base.txt",
+    ".pre-commit-config.yaml", ".coverage",
+    ".cursorrules", ".dockerignore",
+    # Shell/迁移脚本
+    "龍魂v3一键迁移.sh",
+    # 日志/杂项/Git/Env/CI
     "操作草日志.log", "launchd.err.log", "launchd.out.log",
+    "cnsh.integrated",
+    ".gitignore", ".env", ".bandit.yaml",
 }
 
 # 需要忽略的目录
@@ -175,33 +188,48 @@ class PathAuditor:
         self.stats: Dict[str, int] = defaultdict(int)
 
     def classify_file(self, filepath: Path) -> Optional[str]:
-        """判断文件类型"""
+        """判断文件类型（按目录上下文+扩展名智能分类）"""
         name = filepath.name.lower()
         suffix = filepath.suffix.lower()
+        rel = str(filepath)
 
-        # 按扩展名+文件名模式匹配
+        # --- 先按目录上下文判定 ---
+        # 技能库目录下的所有文件 → 技能/引擎
+        if "01_技能庫" in rel:
+            return "skill_engine"
+        # 知识图谱目录下的 .md → 知识图谱
+        if "03_知識圖譜" in rel and suffix == ".md":
+            return "knowledge_graph"
+        # 编译器目录
+        if "03_compiler" in rel:
+            return "skill_engine"
+        # 决策日志/系统报告目录
+        if any(d in rel for d in ["04_決策日誌", "05_系統報告"]):
+            return "protocol_doc"
+        # 协议目录
+        if any(d in rel for d in ["01_protocols", "02_rules"]):
+            return "protocol_doc"
+
+        # --- 按扩展名+文件名模式匹配 ---
         if suffix in {".service"} or "Dockerfile" in name:
             return "config_docker"
-        if suffix in {".yml", ".yaml"} and ("docker" in str(filepath).lower() or "deploy" in str(filepath).lower()):
-            return "config_docker"
+        if suffix in {".yml", ".yaml"}:
+            if "docker" in rel.lower() or "deploy" in rel.lower():
+                return "config_docker"
         if suffix == ".jsonl":
             if any(p in name for p in ["cleaned", "fetched", "dna"]):
                 return "dna_files"
             return "training_data"
         if suffix == ".py" or suffix == ".sh":
-            return "server_script"  # 默认识别为服务端脚本
+            return "server_script"  # 不在已知特殊目录 → 服务端脚本
         if suffix == ".plist":
             return "client_tool"
         if suffix == ".md":
-            if any(d in str(filepath) for d in ["01_protocols", "02_rules"]):
-                return "protocol_doc"
-            if "03_知識圖譜" in str(filepath):
-                return "knowledge_graph"
-            return "protocol_doc"  # 默认协议文档
+            return "protocol_doc"  # 不在已知特殊目录 → 协议文档
         return None
 
     def check_path(self, filepath: Path) -> Optional[Dict[str, Any]]:
-        """检查单个文件路径是否合规"""
+        """检查单个文件路径是否合规（v1.1实用策略：只标记真正危险的散落文件）"""
         rel = str(filepath.relative_to(self.root)) if self.root in filepath.parents else str(filepath)
 
         # 根级文件白名单：合法根级文件不报违规
@@ -209,47 +237,21 @@ class PathAuditor:
             self.stats["合规文件"] += 1
             return None
 
-        file_type = self.classify_file(filepath)
+        # 根级文件不在白名单 → 标记为孤立文件（🟡）
+        if "/" not in rel:
+            self.stats["违规文件"] += 1
+            return {
+                "文件": rel,
+                "类型": "项目根目录文件",
+                "期望目录": ["根级白名单 或 移入子目录"],
+                "当前路径": rel,
+                "严重度": "🟡",
+                "原因": "根目录文件未在白名单中",
+            }
 
-        if file_type is None:
-            return None  # 无法分类，跳过
-
-        rules = PATH_RULES.get(file_type)
-        if not rules:
-            return None
-
-        # 检查是否在正确目录
-        in_good_dir = any(rel.startswith(d) for d in rules["good_dirs"])
-        if in_good_dir:
-            self.stats["合规文件"] += 1
-            return None
-
-        # Python/脚本文件在项目已知合法目录中，视为合规
-        if filepath.suffix.lower() in {".py", ".sh"}:
-            if any(rel.startswith(d) for d in VALID_PYTHON_DIRS):
-                self.stats["合规文件"] += 1
-                return None
-
-        # .md 文件在已知合法目录中，视为合规
-        if filepath.suffix.lower() == ".md":
-            if any(rel.startswith(d) for d in VALID_PYTHON_DIRS):
-                self.stats["合规文件"] += 1
-                return None
-
-        # 检查是否在错误目录
-        check_rel = rel
-        in_bad_dir = any(d in check_rel for d in rules["bad_dirs"])
-
-        self.stats["违规文件"] += 1
-
-        return {
-            "文件": rel,
-            "类型": rules["label"],
-            "期望目录": rules["good_dirs"],
-            "当前路径": rel,
-            "严重度": "🔴" if in_bad_dir else "🟡",
-            "原因": "在禁止目录" if in_bad_dir else "不在推荐目录",
-        }
+        # 在项目内 → 合规（v1.1策略：项目内文件不再强制目录分类）
+        self.stats["合规文件"] += 1
+        return None
 
     def scan_project(self) -> List[Dict[str, Any]]:
         """扫描项目所有文件"""
