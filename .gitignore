@@ -74,6 +74,12 @@ voice-twin/.venv-tts/
 */.venv/
 *.venv*/
 
+# --- 工作目录（含嵌入式git仓库）---
+_work/
+
+# --- 进程PID文件 ---
+.longhun/*.pid
+
 # --- 大型镜像/克隆数据 ---
 L7_数据层/daoyin/mirror/
 L7_数据层/daoyin/downloads/
@@ -171,3 +177,12 @@ models/longhun-v1.0/llama3.1-8b-mlx/
 
 # --- L3 语义层模型产物 ---
 L3_语义层/20260718/model/
+
+# 🔒 安全加固自动添加
+id_rsa*
+id_ed25519*
+*private*
+*secret*
+*credential*
+*password*
+vault/

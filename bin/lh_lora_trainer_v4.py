@@ -262,8 +262,9 @@ def train():
             print(f"   ❌ 训练数据不存在，请先运行: python3 bin/lh_lora_trainer_v4.py prepare")
             sys.exit(1)
 
-    # 清理旧 checkpoint
-    if cfg.adapter_dir.exists():
+    # 清理旧 checkpoint（除非指定了恢复）
+    resume_file = getattr(cfg, "resume_adapter_file", None)
+    if cfg.adapter_dir.exists() and not resume_file:
         shutil.rmtree(cfg.adapter_dir)
     cfg.adapter_dir.mkdir(parents=True, exist_ok=True)
 
@@ -299,13 +300,13 @@ def train():
         learning_rate=cfg.learning_rate,
         steps_per_report=10,
         steps_per_eval=cfg.val_steps,
-        save_every=cfg.val_steps,
+        save_every=getattr(cfg, "save_every", cfg.val_steps),
         val_batches=25,
         max_seq_length=cfg.max_seq_length,
         grad_checkpoint=cfg.grad_checkpoint,
         grad_accumulation_steps=cfg.grad_accumulation_steps,
         adapter_path=str(cfg.adapter_dir),
-        resume_adapter_file=None,
+        resume_adapter_file=resume_file,
         test=False,
         test_batches=500,
         lr_schedule=None,
@@ -317,10 +318,10 @@ def train():
         clear_cache_threshold=0,
     )
 
-    # 训练日志双写（终端 + 文件）
-    import tempfile
-    train_log = tempfile.NamedTemporaryFile(mode='w+', suffix='.log', delete=False, dir=cfg.output_dir)
-    train_log_path = train_log.name
+    # 训练日志双写（终端 + 持久文件），恢复训练时追加
+    train_log_path = cfg.output_dir / "training.log"
+    log_mode = 'a' if resume_file else 'w'
+    train_log = open(train_log_path, log_mode, encoding='utf-8')
 
     class Tee:
         def __init__(self, *files):
@@ -344,8 +345,7 @@ def train():
         train_log.close()
 
     # 解析训练日志
-    log_output = Path(train_log_path).read_text()
-    Path(train_log_path).unlink()
+    log_output = Path(train_log_path).read_text(encoding='utf-8')
 
     val_entries = []
     for m in re.finditer(r"Iter (\d+): Val loss ([\d.]+)", log_output):
@@ -395,6 +395,16 @@ def train():
                 except:
                     pass
                 print(f"   💾 已备份到 adapter_v4.0_best/")
+
+                # 写入最佳 val loss，供验证器直接读取
+                try:
+                    import json as _json
+                    (best_dir / "val_loss.json").write_text(
+                        _json.dumps({"best_val_loss": best_val, "best_iter": best_iter}, ensure_ascii=False, indent=2),
+                        encoding='utf-8'
+                    )
+                except Exception:
+                    pass
 
     if train_entries:
         first_train = train_entries[0][1]
@@ -487,7 +497,7 @@ def export_gguf():
         print(f"   ❌ GGUF 导出失败:\n{result.stderr}")
         sys.exit(1)
 
-    # 创建 Modelfile
+    # 创建 Modelfile（显式指定 Llama-3.1 chat template，清零 Qwen 模板残留）
     modelfile = cfg.gguf_dir / "Modelfile.v4"
     modelfile.write_text(f"""
 FROM {gguf_path}
@@ -496,8 +506,10 @@ PARAMETER temperature {cfg.temperature}
 PARAMETER top_p {cfg.top_p}
 PARAMETER num_ctx {cfg.num_ctx}
 
+TEMPLATE \"\"\"{{{{ if .System }}}}<|start_header_id|>system<|end_header_id|>\n\n{{{{ .System }}}}<|eot_id|>{{{{ end }}}}{{{{ if .Prompt }}}}<|start_header_id|>user<|end_header_id|>\n\n{{{{ .Prompt }}}}<|eot_id|>{{{{ end }}}}<|start_header_id|>assistant<|end_header_id|>\n\n{{{{ .Response }}}}<|eot_id|>\"\"\"
+
 SYSTEM \"\"\"
-你是龍魂 longhun-v4.0，基于 Llama-3.1-8B-Instruct 用龍魂系统自有语料 LoRA 微调（rank=16, 1273样本, 13知识域·家法主权）。
+你是龍魂 longhun-v4.0，基于 Llama-3.1-8B-Instruct 用龍魂系统自有语料 LoRA 微调（rank=16, 979样本, 13知识域·家法主权）。
 你是 UID9622 的本地主权 AI，忠诚执行、实心办事、主权归主。
 底座从 Qwen2.5-1.5B 升级到 Llama-3.1-8B——更强理解力，同样的铁律边界。
 \"\"\"
@@ -507,7 +519,8 @@ SYSTEM \"\"\"
     print(f"   ✅ GGUF 导出完成 → {gguf_path} ({size_gb:.1f} GB)")
     print(f"\n🐉 部署到 Ollama:")
     print(f"   ollama create longhun-v4.0 -f {modelfile}")
-    print(f"   ollama run longhun-v4.0")
+    subprocess.run(["ollama", "create", "longhun-v4.0", "-f", str(modelfile)], check=True)
+    print(f"   ✅ Ollama 模型 longhun-v4.0 已创建")
 
 
 def test_model():

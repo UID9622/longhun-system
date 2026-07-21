@@ -667,10 +667,9 @@ class ActiveObservationEngine:
             return
         self._log(f"  → 执行: {rule.action_script}")
         try:
-            result = subprocess.run(
-                f"cd {PROJECT_ROOT} && python3 {rule.action_script}" if rule.action_script.endswith(".py")
-                else f"cd {PROJECT_ROOT} && {rule.action_script}",
-                shell=True, capture_output=True, text=True, timeout=120,
+            from lh_secure_subprocess import safe_shell_cmd
+            result = safe_shell_cmd(
+                rule.action_script, caller='lh_observer', timeout=120
             )
             if result.returncode != 0:
                 self._log(f"  ❌ 执行失败 (code={result.returncode}): {result.stderr[:200]}")

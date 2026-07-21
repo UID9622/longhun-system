@@ -323,7 +323,11 @@ def cmd_serve(args):
     # 尝试打开浏览器（macOS/Linux 桌面环境）
     if not quiet:
         try:
-            os.system(f"open {url} 2>/dev/null || xdg-open {url} 2>/dev/null || true")
+            import platform, subprocess
+            if platform.system() == 'Darwin':
+                _ = subprocess.run(['open', url], capture_output=True, timeout=5)
+            else:
+                _ = subprocess.run(['xdg-open', url], capture_output=True, timeout=5)
         except Exception:
             pass
 

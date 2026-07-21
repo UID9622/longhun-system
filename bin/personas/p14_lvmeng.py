@@ -90,18 +90,19 @@ class P14Lvmeng:
 
         # 磁盘检查
         try:
-            usage = os.popen("df -h / 2>/dev/null | tail -1").read().strip()
-            if usage:
-                parts = usage.split()
-                if len(parts) >= 5:
-                    checks["disk_usage"] = {
-                        "total": parts[1],
-                        "used": parts[2],
-                        "available": parts[3],
-                        "percent": parts[4],
-                    }
-                    pct = int(parts[4].replace("%", ""))
-                    checks["disk_warning"] = pct > 90
+            import shutil
+            disk = shutil.disk_usage('/')
+            total_gb = round(disk.total / (1024**3), 1)
+            used_gb = round(disk.used / (1024**3), 1)
+            free_gb = round(disk.free / (1024**3), 1)
+            used_pct = round((1 - disk.free / disk.total) * 100)
+            checks["disk_usage"] = {
+                "total": f"{total_gb}G",
+                "used": f"{used_gb}G",
+                "available": f"{free_gb}G",
+                "percent": f"{used_pct}%",
+            }
+            checks["disk_warning"] = used_pct > 90
         except Exception:
             pass
 

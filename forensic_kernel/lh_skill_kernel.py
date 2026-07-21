@@ -265,8 +265,11 @@ class 龍魂技能内核:
         start = time.time()
         if 入口:
             try:
+                import sys as _sys
+                _sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'bin'))
+                from lh_secure_subprocess import safe_shell_cmd
                 cmd = f"{入口} {参数}".strip()
-                result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60)
+                result = safe_shell_cmd(cmd, caller='skill_kernel', timeout=60)
                 success = result.returncode == 0
                 output = result.stdout if success else result.stderr
             except Exception as e:

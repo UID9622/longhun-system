@@ -211,16 +211,16 @@ class P09Sunsi:
 
         # 磁盘
         try:
-            usage = os.popen("df -h / 2>/dev/null | tail -1").read().strip()
-            if usage:
-                parts = usage.split()
-                if len(parts) >= 5:
-                    pct = int(parts[4].replace("%", ""))
-                    resources["disk_usage"] = {"total": parts[1], "used": parts[2], "available": parts[3], "percent": parts[4]}
-                    if pct > 90:
-                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {pct}%", "severity": "🔴"})
-                    elif pct > 75:
-                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {pct}%", "severity": "🟡"})
+            import shutil
+            disk = shutil.disk_usage('/')
+            total_gb = round(disk.total / (1024**3), 1)
+            free_gb = round(disk.free / (1024**3), 1)
+            used_pct = round((1 - disk.free / disk.total) * 100)
+            resources["disk_usage"] = {"total": f"{total_gb}G", "free": f"{free_gb}G", "percent": f"{used_pct}%"}
+            if used_pct > 90:
+                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🔴"})
+                    elif used_pct > 75:
+                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🟡"})
         except Exception:
             pass
 

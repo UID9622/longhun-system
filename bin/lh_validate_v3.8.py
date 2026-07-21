@@ -287,7 +287,7 @@ def generate_report(recall, failed, drift_score, history, loss_audit, total_samp
 | Val Loss | {loss_audit['color']} |
 | 家法召回 | {recall_color} ({recall:.1%}) |
 | 多轮漂移 | {drift_color} ({drift_score:.1%}) |
-| 部署状态 | ✅ Ollama `longhun-v3.8` 可运行 |
+| 部署状态 | ✅ Ollama `{MODEL}` 可运行 |
 
 **结论**: v3.8 在新增隐私接入规则 v2.0 知识域后，Val Loss 压到 {V38_BEST}，{loss_audit['color'].split()[1]}于 v3.7 基线。家法召回和多轮漂移需结合上表判定。
 """
@@ -301,7 +301,8 @@ def main():
     print("=" * 60)
     print(f"🐉 龍魂 v3.8 部署验证")
     print(f"   模型: {MODEL}")
-    print(f"   Ollama: {OLLAMA_URL}")
+    print(f"   Ollama generate: {OLLAMA_GENERATE_URL}")
+    print(f"   Ollama chat: {OLLAMA_CHAT_URL}")
     print("=" * 60)
     
     # 1. Val Loss 审计

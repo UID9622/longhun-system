@@ -16,6 +16,7 @@ DNA: #龍芯⚡️丙午·辛未·KEY-CHECKER-v1.0
 import os
 import sys
 import json
+from datetime import datetime, timezone
 from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass, field
 
@@ -257,7 +258,7 @@ def render_json(entries, grouped, stats):
     """JSON输出"""
     output = {
         'dna': '#龍芯⚡️丙午·辛未·KEY-CHECK-v1.0',
-        'scan_time': os.popen('date -u +"%Y-%m-%dT%H:%M:%SZ"').read().strip(),
+        'scan_time': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'stats': stats,
         'providers': {},
     }

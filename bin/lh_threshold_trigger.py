@@ -270,8 +270,9 @@ class AutoRepair:
         results = []
         for script in scripts:
             try:
-                result = subprocess.run(
-                    script, shell=True, capture_output=True, text=True, timeout=60
+                from lh_secure_subprocess import safe_run
+                result = safe_run(
+                    script, caller='lh_threshold_trigger', timeout=60
                 )
                 results.append({
                     "script": script,

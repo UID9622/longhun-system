@@ -72,12 +72,14 @@ REPOS = [
 
 def run(cmd, cwd=None, timeout=300):
     """运行命令，返回 (success, stdout, stderr)"""
+    from lh_secure_subprocess import safe_run
+    from pathlib import Path
     env = os.environ.copy()
     env["GIT_SSH_COMMAND"] = SSH_CMD
     try:
-        result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True,
-            timeout=timeout, cwd=cwd, env=env
+        result = safe_run(
+            cmd, caller='lh_daoyin', timeout=timeout,
+            cwd=Path(cwd) if cwd else None, env=env
         )
         return result.returncode == 0, result.stdout.strip(), result.stderr.strip()
     except subprocess.TimeoutExpired:
