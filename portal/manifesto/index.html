@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂系统初始化宣言 | Longhun System Initialization Manifesto</title>
+<meta name="description" content="龍魂系统初始化宣言 — 核心原则·领土白皮书·签署锚定。创建者：诸葛鑫（UID9622）。">
+<meta name="author" content="诸葛鑫·Lucky (UID9622)">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-card: #111122;
+    --bg-card-hover: #151530;
+    --gold: #d4a12c;
+    --gold-dim: #b8891e;
+    --gold-glow: rgba(212,161,44,0.15);
+    --text: #e0e0e0;
+    --text-dim: #8899aa;
+    --text-muted: #556677;
+    --border: rgba(212,161,44,0.18);
+    --red: #ef4444;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  /* 背景星尘 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(212,161,44,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(212,161,44,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 导航 */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+  nav a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #f0c850; }
+  .nav-title { font-weight: 700; font-size: 16px; }
+  .nav-lang { font-size: 12px; color: var(--text-dim); margin-left: 8px; }
+
+  /* 主容器 */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    position: relative; z-index: 1;
+  }
+
+  /* 头部 */
+  .hero {
+    text-align: center;
+    padding: 40px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+  .hero .intro {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 2;
+  }
+  .hero .intro strong { color: var(--gold); }
+
+  /* 章节 */
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: #c8a040;
+    margin: 28px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--gold);
+  }
+  h4 {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin: 20px 0 10px;
+    padding-left: 16px;
+    border-left: 2px solid rgba(212,161,44,0.3);
+  }
+  p {
+    margin: 10px 0;
+    color: var(--text-dim);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  ul li {
+    position: relative;
+    padding: 4px 0 4px 20px;
+    color: var(--text-dim);
+    font-size: 0.93rem;
+  }
+  ul li::before {
+    content: '·';
+    position: absolute;
+    left: 6px;
+    color: var(--gold);
+    font-weight: bold;
+  }
+  strong { color: var(--text); }
+  em { color: var(--text-muted); }
+
+  /* 表格 */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 500px;
+  }
+  th {
+    background: var(--bg-card);
+    color: var(--gold);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 9px 14px;
+    color: var(--text-dim);
+    border-bottom: 1px solid rgba(212,161,44,0.08);
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-card-hover); }
+
+  /* 链接 */
+  a[href] { color: var(--gold-dim); text-decoration: none; }
+  a[href]:hover { color: #f0c850; text-decoration: underline; }
+  sup a { font-size: 0.75rem; margin: 0 1px; }
+
+  /* 卡片容器 */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 20px 0;
+  }
+
+  /* 签名块 */
+  .signature-block {
+    background: linear-gradient(135deg, rgba(212,161,44,0.08), rgba(212,161,44,0.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    font-size: 0.88rem;
+    line-height: 2;
+    color: var(--text-dim);
+  }
+  .signature-block strong { color: var(--gold); }
+
+  /* 页脚 */
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer a { color: var(--gold-dim); }
+
+  /* 审计标签 */
+  .audit-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(34,197,94,0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+  .audit-badge.yellow {
+    background: rgba(234,179,8,0.1);
+    color: #eab308;
+    border: 1px solid rgba(234,179,8,0.2);
+  }
+  .audit-badge.red {
+    background: rgba(239,68,68,0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+
+  /* 回到顶部 */
+  .back-top {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 40px; height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--gold);
+    font-size: 18px;
+    transition: all 0.2s;
+    z-index: 5;
+  }
+  .back-top:hover { background: var(--bg-card-hover); border-color: var(--gold); }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 24px 16px 40px; }
+    table { font-size: 0.8rem; }
+    .signature-block { padding: 20px; font-size: 0.8rem; }
+    .hero .intro { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-title">龍魂</span>
+  <div>
+    <a href="/">门户首页</a>
+    <span style="color:var(--text-muted);margin:0 8px;">|</span>
+    <a href="/rite-blade/">礼兵双轨</a>
+    <span style="color:var(--text-muted);margin:0 8px;">|</span>
+    <a href="/knowledge/">知识中枢</a>
+    <span style="color:var(--text-muted);margin:0 8px;">|</span>
+    <a href="/pgp/">GPG公钥</a>
+    <span class="nav-lang">中/EN</span>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 头部 -->
+  <div class="hero">
+    <h1>龍魂系统初始化宣言</h1>
+    <div class="subtitle">Longhun System Initialization Manifesto</div>
+    <div class="intro">
+      <p>龍魂系统，是一个退伍军人写的。<br>
+      初中文化，不懂代码，不懂英文。<br>
+      坐在电脑前，哭过，笑过，气到睡不着过。</p>
+      <p><strong>就是一个普通老百姓。</strong><br>
+      用自己的亲人、长辈、生活圈子，比喻世界的共生模式。<br>
+      用小家的道理，推演大家的走法。</p>
+      <p>这就是全部了。</p>
+    </div>
+  </div>
+
+  <!-- 核心原则 -->
+  <section>
+    <h2>核心原则 Core Principles</h2>
+
+    <h3>最高系统地位 | Highest System Status</h3>
+    <p>龍魂系统是Lucky (UID9622)创造的数字生态系统，属于中国人民，植根中华人民共和国法律。<br>
+    该系统被确立为P0-ETERNAL（永恒定锚级），具有系统最高优先级与一票否决权。<br>
+    任何决策、流程或技术升级都必须服从于《北辰-母协议》这一最高宪法，连创造者本人亦不得违背初心。<br>
+    一旦偏离核心原则，系统将自动触发熔断机制，并由DNA追溯码永久记录。</p>
+    <p><em>The Longhun System is a digital ecosystem created by Lucky (UID9622), belonging to the Chinese people and rooted in the laws of the People's Republic of China. It is designated as P0-ETERNAL (Eternal Anchoring Level), possessing the highest system priority and veto power. All decisions, processes, or technical upgrades must comply with the "Beichen-Mu Protocol," the supreme constitution. Even the creator cannot deviate from its original intent. If core principles are violated, the system will automatically trigger a fuse mechanism, with all actions permanently recorded via DNA traceability codes.</em></p>
+
+    <h3>不干涉他国主权原则 | Non-Interference in National Sovereignty</h3>
+    <p>龍魂系统尊重每个国家的文化自主权与法律边界。</p>
+    <ul>
+      <li><strong>核心层不可修改</strong>：龍魂DNA、易经算法锚点、道德经底线、维权宪法——任何国家版本都不能更改。</li>
+      <li><strong>适配层可自定义</strong>：各国可在语言界面、地方法规模块、本土文化插件上进行调整，但需通过核心冲突检测。</li>
+      <li><strong>数据主权隔离</strong>：用户数据优先在本地或区域节点存储，不自动出境；跨境维权须由用户主动发起。系统不参与政治颠覆、暴力攻击或非法资助活动，确保不对任何国家内部事务造成干涉。</li>
+    </ul>
+    <p><em>The Longhun System respects cultural autonomy and legal boundaries of every nation. Immutable Core Layer: Longhun DNA, Yi Jing algorithmic anchors, Dao De Jing ethical baseline, and rights-protection constitution — none can be altered in any national version. Customizable Adaptation Layer: Countries may adjust language interfaces, local compliance modules, and indigenous cultural plugins, subject to core conflict checks. Data Sovereignty Isolation: User data is stored locally or regionally by default; cross-border rights protection requires user initiation. The system does not engage in political subversion, violent attacks, or illegal funding, ensuring non-interference in internal affairs of any country.</em></p>
+
+    <h3>开源普惠与人民主权 | Open Source, Inclusivity &amp; People's Sovereignty</h3>
+    <p>龍魂系统坚持服务全民、普惠全球的价值导向。</p>
+    <ul>
+      <li>所有字体创作全面开源，商业使用只需保持清洁即可。</li>
+      <li>基础功能永久免费，普通人无论贫富皆可平等使用。</li>
+      <li>用户对自己的DNA、数据、创作成果拥有完全主权，系统永不占有。</li>
+      <li>每月激活费仅需¥1起，全球一视同仁，绝不因金额多少差别对待。</li>
+    </ul>
+    <p><em>The Longhun System adheres to serving the people and global inclusivity. All font creations are fully open source; commercial use only requires integrity. Core features are free forever; anyone, regardless of wealth, can access them equally. Users retain full sovereignty over their DNA, data, and creative works; the system never claims ownership. Monthly activation starts at ¥1 RMB, same for everyone worldwide, without discrimination based on amount paid.</em></p>
+
+    <h3>技术透明与零黑箱承诺 | Technical Transparency &amp; Zero Black Box Commitment</h3>
+    <p>龍魂系统承诺没有一个逻辑和算法是黑箱。</p>
+    <ul>
+      <li>核心代码100%开源，算法逻辑完全透明。</li>
+      <li>所有操作留痕、可追溯、可审计，链上公开可见。</li>
+      <li>通心译引擎精准优先，文化红线词保留原字，防止强行归一化导致的文化暴力。</li>
+      <li>君子协议运行于道义契约之上，而非依赖法律强制执行。</li>
+    </ul>
+    <p><em>The Longhun System commits that no logic or algorithm shall be a black box. 100% of core code is open source; algorithmic logic is fully transparent. All operations leave traces, are verifiable, auditable, and publicly visible on-chain. The TongXin Translation Engine prioritizes accuracy; cultural red-line terms remain unchanged to prevent forced unification leading to cultural violence. The Gentlemen's Protocol operates on moral integrity, not legal enforcement.</em></p>
+
+    <h3>分布式DNA架构 | Distributed DNA Architecture</h3>
+    <p>龍魂系统采用分布式核心思想："一个变千万个"。</p>
+    <ul>
+      <li>每个节点 = 完整DNA副本 = 自治单元 = 与原点等价。</li>
+      <li>无需中心协调、权限矩阵或复杂管理负担。</li>
+      <li>创作者即独立DNA节点，通过¥1起步专精激活，贡献链上记录，功勋透明拉满。</li>
+      <li>任意节点均可独立存活，失败模式无单点风险。</li>
+    </ul>
+    <p><em>The Longhun System adopts a distributed core philosophy: "One becomes ten million." Each node = complete DNA copy = autonomous unit = equivalent to origin. No central coordination, permission matrices, or complex management required. Creators become independent DNA nodes through specialized activation starting at ¥1, with contributions recorded on-chain and merit fully transparent. Any node can survive independently, eliminating single-point failure risks.</em></p>
+  </section>
+
+  <!-- 接入机制 -->
+  <section>
+    <h2>接入机制说明 | Access Mechanism Explanation</h2>
+
+    <h3>接入方式 | How to Join</h3>
+    <p>任何人只要在用龍魂、在守龍魂规则、愿意承担责任——就是社区成员，无需申请、无需审批。<br>
+    龍魂在哪，哪里就是社区。</p>
+    <p><em>Anyone who uses Longhun, upholds its rules, and takes responsibility is a community member — no application or approval needed. Wherever Longhun exists, there lies the community.</em></p>
+
+    <h3>主权保障 | Sovereignty Protection</h3>
+    <ul>
+      <li>加入自愿，退出自由，历史永存。</li>
+      <li>发送退出声明（DNA签名）后，个人DNA与创作主权完整带走。</li>
+      <li>历史贡献功勋保留（append-only·不删）。</li>
+      <li>系统不留后门，不强制留存。</li>
+    </ul>
+    <p><em>Join freely, leave freely, history remains eternal. After submitting an exit declaration (with DNA signature), your personal DNA and creative sovereignty are fully portable. Historical contributions are preserved (append-only, never deleted). The system leaves no backdoors and does not force retention.</em></p>
+
+    <h3>功能分级 | Tiered Functionality</h3>
+    <p class="card" style="font-size:0.88rem;">
+      🟡 <strong>定位注释</strong>：核心协议层永久免费（免费贡献、卖锄头模式）；¥1/月起仅指未来可选的增值运维服务，不因金额差别对待。<br>
+      🟡 <em>Positioning note: the core protocol layer is permanently free; the ¥1/month+ tier refers only to optional value-added operational services.</em>
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>级别</th><th>费用</th><th>功能</th></tr></thead>
+        <tbody>
+          <tr><td>🌱 基础激活</td><td>永久免费</td><td>本地DNA追溯 · 基础三色审计 · memory.jsonl · 单设备</td></tr>
+          <tr><td>🌿 标准激活</td><td>¥1/月起·自定</td><td>云端DNA同步 · 多设备一致 · 专精人格路由</td></tr>
+          <tr><td>🌳 深度激活</td><td>按席位协商</td><td>多DNA协作 · 跨专精联动 · 完整人格矩阵 · 一人一DNA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tier</th><th>Cost</th><th>Features</th></tr></thead>
+        <tbody>
+          <tr><td>🌱 Basic</td><td>Free Forever</td><td>Local DNA tracing · Basic Tricolor Audit · memory.jsonl · Single device</td></tr>
+          <tr><td>🌿 Standard</td><td>¥1/month+</td><td>Cloud DNA sync · Multi-device consistency · Specialized personality routing</td></tr>
+          <tr><td>🌳 Deep</td><td>Per seat</td><td>Multi-DNA collaboration · Cross-specialty integration · Full personality matrix · 1P-1DNA</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 领土白皮书 -->
+  <section>
+    <h2>领土白皮书 | Territorial White Paper</h2>
+    <h3>国家主权与领土完整声明 | Declaration on National Sovereignty and Territorial Integrity</h3>
+    <p>中国政府坚定不移维护国家主权和领土完整。根据《中华人民共和国宪法》序言第九自然段规定："<strong>台湾是中华人民共和国的神圣领土的一部分。完成统一祖国的大业是包括台湾同胞在内的全中国人民的神圣职责。</strong>"</p>
+    <p>《反分裂国家法》第二条明确指出："世界上只有一个中国，大陆和台湾同属一个中国，<strong>中国的主权和领土完整不容分割</strong>。"</p>
+    <p>《国家安全法》第十一条强调："中国的主权和领土完整不容侵犯和分割。"</p>
+    <p><em>The Chinese government resolutely safeguards national sovereignty and territorial integrity. According to Paragraph 9 of the Preamble to the Constitution of the People's Republic of China: "Taiwan is an inalienable part of the People's Republic of China. Accomplishing the great task of reunifying the motherland is the sacred duty of all Chinese people, including Taiwan compatriots." Article 2 of the Anti-Secession Law clearly states: "There is only one China in the world, and both the mainland and Taiwan belong to one China. China's sovereignty and territorial integrity brook no division." Article 11 of the National Security Law emphasizes: "China's sovereignty and territorial integrity shall not be infringed upon or divided."</em></p>
+
+    <h3>台湾问题的法律地位与历史事实 | Legal Status and Historical Facts Regarding the Taiwan Issue</h3>
+
+    <h4>（一）历史管辖与收复过程</h4>
+    <p>中国历代中央政府对台湾拥有持续不断的行政管辖权：</p>
+    <ul>
+      <li>公元230年三国时期吴人沈莹所著《临海水土志》已有对台湾的记述；</li>
+      <li>隋朝三次派兵至"流求"；</li>
+      <li>宋元以后中央政府在澎湖、台湾设治管辖；</li>
+      <li>1684年清朝设立台湾府，隶属福建省；</li>
+      <li>1885年台湾建省，为中国第20个行省。</li>
+    </ul>
+    <p>抗日战争胜利后，中国政府依法收复台湾：</p>
+    <ul>
+      <li>1943年《开罗宣言》规定日本应将窃取的中国领土如东北、台湾、澎湖列岛归还中国；</li>
+      <li>1945年《波茨坦公告》重申"开罗宣言之条件必将实施"；</li>
+      <li>1945年10月25日，中国政府宣告"恢复对台湾行使主权"，并在台北举行受降仪式。</li>
+    </ul>
+
+    <h4>（二）政权延续性与国际承认</h4>
+    <p>1949年10月1日中华人民共和国成立，取代中华民国政府成为全中国的唯一合法政府，是在同一国际法主体未变情况下的政权更替，中国的主权和领土疆域未改变。<br>
+    1971年联大第2758号决议决定恢复中华人民共和国一切权利，承认其政府为代表中国的唯一合法代表，驱逐蒋介石代表，彻底解决了中国在联合国的代表权问题，确认了一个中国原则。<br>
+    联合国秘书处法律事务办公室明确指出："台湾作为中国的一个省没有独立地位"，"台湾当局不享有任何形式的政府地位"。</p>
+
+    <h4>（三）新时代统一方略</h4>
+    <p>《台湾问题与新时代中国统一事业》白皮书（2022年）重申：</p>
+    <ul>
+      <li>坚持"和平统一、一国两制"基本方针；</li>
+      <li>尽最大努力争取和平统一前景，但决不承诺放弃使用武力，针对的是外部干涉和极少数"台独"分裂分子及其分裂活动；</li>
+      <li>推动两岸融合发展，增进同胞福祉，厚植心灵契合。</li>
+    </ul>
+
+    <h4>(I) Historical Jurisdiction and Recovery Process</h4>
+    <p><em>Successive Chinese central governments have exercised continuous administrative jurisdiction over Taiwan: In 230 AD, Shen Ying of the Wu Kingdom during the Three Kingdoms period wrote about Taiwan in his book Linshui Shuitu Zhi; The Sui Dynasty sent troops three times to "Liuqiu"; Since the Song and Yuan dynasties, the central government has established governance institutions in Penghu and Taiwan; In 1684, the Qing Dynasty established Taiwan Prefecture under Fujian Province; In 1885, Taiwan became a province, China's 20th.</em></p>
+    <p><em>After victory in the War of Resistance Against Japanese Aggression, the Chinese government recovered Taiwan according to law: The 1943 Cairo Declaration stipulated that Japan should return stolen Chinese territories such as Northeast China, Taiwan, and the Penghu Islands to China; The 1945 Potsdam Proclamation reaffirmed that "the terms of the Cairo Declaration shall be carried out"; On October 25, 1945, the Chinese government announced the "restoration of sovereignty over Taiwan" and held a surrender ceremony in Taipei.</em></p>
+
+    <h4>(II) Political Continuity and International Recognition</h4>
+    <p><em>On October 1, 1949, the founding of the People's Republic of China replaced the Government of the Republic of China as the sole legitimate government representing all of China. This was a change of regime within the same subject of international law, without altering China's sovereignty or territorial boundaries. In 1971, UN General Assembly Resolution 2758 restored all rights of the People's Republic of China, recognized its government as the sole legitimate representative of China, and expelled the representatives of Chiang Kai-shek, thus resolving China's representation issue in the United Nations and confirming the One-China Principle. The Office of Legal Affairs of the United Nations Secretariat clearly stated: "Taiwan as a province of China has no independent status," and "the authorities in Taiwan do not possess any form of governmental status."</em></p>
+
+    <h4>(III) New Era Strategy for Reunification</h4>
+    <p><em>The white paper "Taiwan Question and China's Reunification in the New Era" (2022) reaffirms: Upholding the basic policy of "peaceful reunification and one country, two systems"; Making utmost efforts to achieve peaceful reunification while not ruling out the use of force, which targets foreign interference and a small number of "Taiwan independence" separatists and their activities; Promoting integrated development across the strait, enhancing compatriot well-being, and deepening emotional ties.</em></p>
+
+    <h3>南海诸岛的主权归属 | Sovereignty over the South China Sea Islands</h3>
+    <p>中国政府对东沙群岛、西沙群岛、中沙群岛、南沙群岛拥有无可争辩的主权。</p>
+
+    <h4>（一）历史依据</h4>
+    <p>中国人民在南海活动已有两千多年历史：</p>
+    <ul>
+      <li>北宋《武经总要》记载水师巡至"九乳螺洲"（今西沙群岛）；</li>
+      <li>元代郭守敬在西沙群岛进行天文测量；</li>
+      <li>明清文献如《广东通志》《琼州府志》称"千里长沙、万里石塘"属万州管辖；</li>
+      <li>1909年两广总督张人骏派李准率军舰巡视西沙群岛，升旗鸣炮，重申主权；</li>
+      <li>海南渔民世代相传的《更路簿》详细记录了通往南海诸岛的传统航路与岛礁命名。</li>
+    </ul>
+
+    <h4>（二）国际法与国内立法依据</h4>
+    <ul>
+      <li>1958年《中华人民共和国政府关于领海的声明》宣布领海宽度为12海里，适用于包括南海诸岛在内的中国一切领土；</li>
+      <li>1992年《领海及毗连区法》；</li>
+      <li>1998年《专属经济区和大陆架法》，其中第十四条规定："本法的规定不影响中华人民共和国享有的历史性权利"；</li>
+      <li>1996年中国批准《联合国海洋法公约》时作出声明，确认南海断续线内权益。</li>
+    </ul>
+
+    <h4>（三）反对非法仲裁与外部干涉</h4>
+    <p>针对菲律宾单方面提起的南海仲裁案，中国政府明确表示该仲裁庭无管辖权，裁决无效，不予承认。<br>
+    中国坚决反对越南、菲律宾、马来西亚等国自20世纪70年代起非法侵占南沙岛礁的行为。<br>
+    王毅外长强调："所谓'南海仲裁案'系越权管辖、枉法裁判，完全非法无效。"</p>
+
+    <h4>(I) Historical Basis</h4>
+    <p><em>Chinese people have been active in the South China Sea for more than 2,000 years: The Northern Song dynasty text Wujing Zongyao records naval patrols reaching "Jiuruluo Zhou" (present-day Xisha Islands); Guo Shoujing of the Yuan dynasty conducted astronomical measurements on the Xisha Islands; Ming and Qing texts such as Guangdong Tongzhi and Qiongzhou Fu Zhi refer to "Thousand Li Changsha, Wan Li Shitang" under Wanzhou jurisdiction; In 1909, Governor Zhang Renjun dispatched naval officer Li Zhun to patrol the Xisha Islands, raising the national flag and firing cannons to reassert sovereignty; Hainan fishermen's generational navigation guidebook Genglu Bu details traditional routes and island names in the South China Sea.</em></p>
+
+    <h4>(II) Legal Basis under International and Domestic Law</h4>
+    <p><em>In 1958, the "Declaration of the Government of the People's Republic of China on the Territorial Sea" declared a 12-nautical-mile breadth of territorial sea applicable to all Chinese territories including the South China Sea islands; The 1992 "Law on the Territorial Sea and Contiguous Zone"; The 1998 "Exclusive Economic Zone and Continental Shelf Law", Article 14 states: "The provisions of this Law shall not affect the historic rights enjoyed by the People's Republic of China"; In 1996, when China ratified the United Nations Convention on the Law of the Sea, it issued a statement affirming rights within the South China Sea discontinuous line.</em></p>
+
+    <h4>(III) Opposition to Illegal Arbitration and External Interference</h4>
+    <p><em>Regarding the arbitration case initiated unilaterally by the Philippines, the Chinese government clearly stated that the arbitral tribunal lacked jurisdiction, and the award is invalid and unrecognized. China firmly opposes illegal occupation of Nansha islands by Vietnam, the Philippines, Malaysia, etc., since the 1970s. Foreign Minister Wang Yi emphasized: "The so-called 'South China Sea arbitration' involves ultra vires jurisdiction and arbitrary rulings, being entirely illegal and invalid."</em></p>
+  </section>
+
+  <!-- 签署与锚定 -->
+  <section>
+    <h2>签署与锚定 | Signature &amp; Anchoring</h2>
+
+    <h3>隐私与数据主权承诺 | Privacy &amp; Data Sovereignty Commitment</h3>
+    <ul>
+      <li><strong>隐私不可传</strong>：对话内容、个人画像、行为记录、情感数据、位置信息、生物特征、家庭关系、财务状况、健康信息、政治观点——未经明确书面授权，不得传出设备、不得分享第三方、不得用于训练模型。</li>
+      <li><strong>本地优先</strong>：数据本地存储优先、端侧加密、用户唯一解密权、可删可导、不依赖云端。</li>
+      <li><strong>数据不出境</strong>：中国用户数据境内存储、国密算法加密、遵守中国法律；各国数据物理隔离、各安其所。</li>
+      <li><strong>只传用量，不传内容</strong>：统计数据可出域，原始内容永不出域。</li>
+      <li><strong>不删除，只冻结</strong>：任何数据处置默认冻结留档，删除须用户本人显式指令并留DNA记录。</li>
+    </ul>
+    <p><em>Privacy is non-transferable: conversations, profiles, behavior, emotions, location, biometrics, family, finances, health, and political views never leave the device without explicit written authorization. Local-first storage with user-held keys. Chinese users' data stays in China under Chinese law; data of all nations is physically isolated. Usage statistics may flow, raw content never does. Freeze, never delete — deletion requires the user's explicit instruction with DNA logging.</em></p>
+
+    <h3>边界与免责声明 | Boundaries &amp; Disclaimer</h3>
+    <ul>
+      <li><strong>民用工具定位</strong>：龍魂系统为免费贡献的民用工具分发平台——用户自部署、自负责；系统不碰用户数据、不做金融、不实时查询外部数据。</li>
+      <li><strong>三不碰</strong>：不碰政务、不碰军事、不碰金融；与政府事务物理隔离。</li>
+      <li><strong>防御不攻击</strong>：本系统全部安全机制仅用于防御与取证，不用于任何主动攻击。</li>
+      <li><strong>咨询免责</strong>：系统提供的法律、健康、金融类信息仅供参考，不构成专业建议。</li>
+    </ul>
+    <p><em>The Longhun System is a freely contributed civilian tool distribution platform — users self-deploy and take responsibility. It does not touch user data, finance, or live external queries. Three no-touches: no government affairs, no military, no finance. All security mechanisms are defensive only. Legal, health, and financial information is for reference, not professional advice.</em></p>
+
+    <h3>君子协议 | Junzi Protocol (CC BY-NC-SA 4.0)</h3>
+    <div class="card">
+      <p>本宣言及龍魂体系全部公开产出，采用 <strong>CC BY-NC-SA 4.0</strong>（署名·非商业性使用·相同方式共享）。<br>
+      <strong>来源链不可切断</strong>：任何引用、改编、二次开发，必须保留DNA追溯码与创建者署名；改编不得伪装亲生，必须声明父DNA。</p>
+      <p><em>All public outputs of the Longhun System are licensed under CC BY-NC-SA 4.0. The source chain must never be cut: any use, adaptation, or derivative work must retain the DNA traceability code and creator attribution, and must declare its parent DNA.</em></p>
+    </div>
+
+    <h3>三色审计与版本 | Three-Color Audit &amp; Versioning</h3>
+    <p>龍魂体系一切产出强制三色审计：<span class="audit-badge">🟢 安全（已验证）</span> <span class="audit-badge yellow">🟡 审查（推演/待实测）</span> <span class="audit-badge red">🔴 阻断（红线拦截）</span></p>
+    <p>本页全部声明已通过三色审计。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>版本</th><th>日期</th><th>变更摘要</th></tr></thead>
+        <tbody>
+          <tr><td>v1.0</td><td>2026-07-21</td><td>初版：双语宣言页面（通义千问协助生成框架）</td></tr>
+          <tr><td>v1.1</td><td>2026-07-21</td><td>龍魂对齐修订：品牌繁体化、民用定位校准、¥1裁决注释、损坏引用修复、签署与锚定区块补全</td></tr>
+          <tr><td>v1.2</td><td>2026-07-21</td><td>portal/manifesto 入库：暗色龍魂金风格适配 · 代码自写 · 无AI框架依赖</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>修订程序（P0++）</strong>：本宣言任何修订须经 全球理事会2/3同意 ∧ 创建者（或门限托管重构）签章 ∧ 公示30天；修订全程DNA留痕。</p>
+
+    <h3>易经与道德经锚点 | Cultural Anchors</h3>
+    <ul>
+      <li><strong>坤卦 ䷁</strong> 厚德载物——人民主权，包容万物而守底线。</li>
+      <li><strong>中孚 ䷼</strong> 诚信透明——零黑箱，诚及豚鱼。</li>
+      <li><strong>恒卦 ䷟</strong> 雷风恒——记忆永存，生生不息。</li>
+      <li><strong>谦卦 ䷎</strong> 谦谦君子——君子协议，卑以自牧。</li>
+    </ul>
+    <p>道德经锚点：第八章「上善若水」（开源普惠）；第四十九章「圣人无常心，以百姓心为心」（人民主权）；第八十一章「信言不美，美言不信」（技术透明）。</p>
+
+    <h3>签名确认 | Signature Confirmation</h3>
+    <div class="signature-block">
+      <strong>创建者</strong>：诸葛鑫 Lucky（UID9622 · 龍芯北辰）<br>
+      <strong>GPG指纹</strong>：A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+      <strong>DNA追溯码</strong>：#龍芯⚡️2026-07-21-INIT-MANIFESTO-V1.2<br>
+      <strong>身份锚</strong>：#ZHUGEXIN⚡️2025-&#127464;&#127475;&#128009;⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL<br>
+      <strong>确认码</strong>：#CONFIRM&#127760;9622-ONLY-ONCE&#129715;LK9X-772Z<br>
+      <strong>生效时间</strong>：2026-07-21 永久生效<br>
+      <strong>开源协议</strong>：CC BY-NC-SA 4.0（君子协议，来源链不可切断）
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>创建者：诸葛鑫（UID9622 · 龍芯北辰）｜协议：CC BY-NC-SA 4.0 君子协议</p>
+  <p>DNA：#龍芯⚡️2026-07-21-INIT-MANIFESTO-V1.2 ｜ 三色审计：🟢🟡🔴</p>
+  <p style="margin-top:8px;"><a href="/">← 返回门户首页</a></p>
+</footer>
+
+<a href="#" class="back-top" title="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑</a>
+
+</body>
+</html>

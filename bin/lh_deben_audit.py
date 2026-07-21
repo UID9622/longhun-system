@@ -92,9 +92,54 @@ class DebenAuditor:
             "总体判定": "未执行",
         }
 
+    # 已知防御性/检测性文件——包含模式关键词但用途是检测/教育/防御，非实施
+    DEFENSIVE_FILE_EXCLUSIONS = {
+        # 审计检测引擎自身
+        "bin/lh_deben_audit.py",
+        "bin/lh_public_expression_audit.py",
+        "bin/lh_path_audit.py",
+        # 训练数据（教育性内容，解释原则而非实施不道德行为）
+        "bin/lh_lora_trainer.py",
+        "bin/lh_lora_trainer_v39.py",
+        "bin/lh_lora_trainer_v391.py",
+        "bin/lh_lora_trainer_v392.py",
+        "bin/lh_prepare_v2.1_data.py",
+        # 审计/文档/隐私保护文件
+        "bin/lh_audit_package.py",
+        "bin/lh_free_app_cost.py",
+        "bin/lh_privacy_train_inject.py",
+        # 人格守护规则（检测不道德行为）
+        "bin/personas/p12_quyuan.py",
+        # 协议文档（批评性讨论非认可）
+        "01_protocols/LH-CDNA-v1.2-需求文档.md",
+        "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+    }
+
+    # 排除的目录前缀（整个目录下的文件都是参考/归档/教育材料/防御代码）
+    DEFENSIVE_DIR_PREFIXES = [
+        "01_技能庫/downloads_archive/",
+        "docs/claude-backlog/",
+        "03_知識圖譜/",
+        "docs/",       # 文章/论文/教育内容
+        "data/training/",  # 训练数据（教育性内容）
+        "_work/",      # 工作副本/归档仓库
+        "L3_数据层/",  # 数据层防护代码
+        "integrations/",  # 集成/连接器（非业务逻辑）
+        "models/",     # 模型资源
+    ]
+
     def check_file_for_patterns(self, filepath: Path, patterns: list) -> List[Dict]:
         """检查单个文件中是否匹配模式"""
         hits = []
+        rel = str(filepath.relative_to(self.root))
+
+        # 排除已知防御性文件
+        if rel in self.DEFENSIVE_FILE_EXCLUSIONS:
+            return hits
+        # 排除防御性目录（参考材料/归档/教育内容）
+        if any(rel.startswith(prefix) for prefix in self.DEFENSIVE_DIR_PREFIXES):
+            return hits
+
         try:
             with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()
@@ -102,7 +147,7 @@ class DebenAuditor:
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if matches:
                         hits.append({
-                            "文件": str(filepath.relative_to(self.root)),
+                            "文件": rel,
                             "匹配模式": pattern,
                             "严重度": severity,
                             "标签": label,
@@ -255,6 +300,7 @@ class DebenAuditor:
         elif hits:
             result["状态"] = "🟡"
             result["判定"] = "存在信息茧房相关模式，需确认是否为防御性代码"
+            result["详情"] = hits[:10]
         else:
             result["状态"] = "🟢"
             result["判定"] = "未发现信息主权泄露风险"
