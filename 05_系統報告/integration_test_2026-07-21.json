@@ -1,0 +1,161 @@
+{
+  "time": "2026-07-21T15:55:10.659794",
+  "dna": "#龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0",
+  "total": 30,
+  "passed": 30,
+  "green": 30,
+  "yellow": 0,
+  "red": 0,
+  "results": [
+    {
+      "name": "已有·电商信任引擎",
+      "status": "🟢",
+      "detail": "文件存在 26185 bytes"
+    },
+    {
+      "name": "已有·DNA捆绑防御",
+      "status": "🟢",
+      "detail": "文件存在 26446 bytes"
+    },
+    {
+      "name": "已有·技术主权守门",
+      "status": "🟢",
+      "detail": "文件存在 35484 bytes"
+    },
+    {
+      "name": "已有·水军检测",
+      "status": "🟢",
+      "detail": "文件存在 39583 bytes"
+    },
+    {
+      "name": "已有·道德经锚定",
+      "status": "🟢",
+      "detail": "文件存在 9817 bytes"
+    },
+    {
+      "name": "Validator·CNSH翻译",
+      "status": "🟢",
+      "detail": "文件存在 6625 bytes"
+    },
+    {
+      "name": "Validator·DNA可逆编码",
+      "status": "🟢",
+      "detail": "文件存在 9826 bytes"
+    },
+    {
+      "name": "Validator·封闭空间",
+      "status": "🟢",
+      "detail": "文件存在 6012 bytes"
+    },
+    {
+      "name": "Validator·算法审计",
+      "status": "🟢",
+      "detail": "文件存在 10895 bytes"
+    },
+    {
+      "name": "新增·黎曼三视角引擎",
+      "status": "🟢",
+      "detail": "导入+实例化成功"
+    },
+    {
+      "name": "新增·责任塌缩引擎",
+      "status": "🟢",
+      "detail": "导入+实例化成功"
+    },
+    {
+      "name": "新增·易经世界模型引擎",
+      "status": "🟢",
+      "detail": "导入+实例化成功"
+    },
+    {
+      "name": "新增·跨模块路由总线",
+      "status": "🟢",
+      "detail": "导入+实例化成功"
+    },
+    {
+      "name": "回调·电商→水军检测",
+      "status": "🟢",
+      "detail": "2个下游回调"
+    },
+    {
+      "name": "回调·审计→主权",
+      "status": "🟢",
+      "detail": "results=1"
+    },
+    {
+      "name": "回调·黎曼→数学",
+      "status": "🟢",
+      "detail": "路由已定义"
+    },
+    {
+      "name": "回调·责任塌缩→伦理",
+      "status": "🟢",
+      "detail": "路由已定义"
+    },
+    {
+      "name": "回调·易经→文化DNA",
+      "status": "🟢",
+      "detail": "路由已定义"
+    },
+    {
+      "name": "📡 回调路由总量",
+      "status": "🟢",
+      "detail": "共10条·10条就绪"
+    },
+    {
+      "name": "引用链·论文→引擎",
+      "status": "🟢",
+      "detail": "🟢21/🟡6/🔴1"
+    },
+    {
+      "name": "引用·lh_riemann_zeta_engine",
+      "status": "🟢",
+      "detail": "论文3·协议1"
+    },
+    {
+      "name": "引用·lh_responsibility_collapse_engine",
+      "status": "🟢",
+      "detail": "论文1·协议1"
+    },
+    {
+      "name": "引用·lh_yijing_world_engine",
+      "status": "🟢",
+      "detail": "论文2·协议1"
+    },
+    {
+      "name": "引用·lh_cross_module_router",
+      "status": "🟢",
+      "detail": "论文0·协议1"
+    },
+    {
+      "name": "黎曼·综合评估",
+      "status": "🟢",
+      "detail": "σ=0.5,t=14.13 → 综合=0.9545 🟢 "
+    },
+    {
+      "name": "黎曼·零点验证",
+      "status": "🟢",
+      "detail": "5个已知零点→5/5超阈值"
+    },
+    {
+      "name": "责任·完整评估",
+      "status": "🟢",
+      "detail": "adjP=0.0016 🔴"
+    },
+    {
+      "name": "责任·塌缩验证",
+      "status": "🟢",
+      "detail": "reward0.3/risk2.0/x2.5 → P=0.0052"
+    },
+    {
+      "name": "易经·乾坤演化",
+      "status": "🟢",
+      "detail": "坤→乾 6爻变·7步"
+    },
+    {
+      "name": "易经·能级分析",
+      "status": "🟢",
+      "detail": "乾卦E=1.0000 🟢 高潮期"
+    }
+  ]
+}
