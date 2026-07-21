@@ -1,0 +1,213 @@
+:root {
+    --bg: #0a0a0f;
+    --bg-card: #12121a;
+    --gold: #d4af37;
+    --gold-light: #f5dc96;
+    --red: #b82a1e;
+    --gray: #a0a0a0;
+    --text: #e0e0e0;
+    --border: #2a2a35;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,15,0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--gray);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+nav a:hover { color: var(--gold-light); }
+
+.hero {
+    text-align: center;
+    padding: 6rem 5% 4rem;
+    background: radial-gradient(circle at 50% 30%, #1a1510 0%, var(--bg) 60%);
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin: 0.5rem 0;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+}
+
+.hero h2 {
+    font-size: 1.6rem;
+    color: var(--red);
+    margin: 0 0 2rem;
+    font-weight: normal;
+}
+
+.hero p {
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.dna-strip {
+    font-family: "SF Mono", monospace;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2rem;
+}
+
+.cta {
+    margin-top: 2rem;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin: 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-primary {
+    background: var(--gold);
+    color: #0a0a0f;
+}
+
+.cta-secondary {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+section {
+    padding: 4rem 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h3 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    border-left: 4px solid var(--red);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.feature-card h4 {
+    color: var(--gold-light);
+    margin-top: 0;
+}
+
+.feature-card p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.cnsh-demo {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.cnsh-demo pre {
+    background: #07070a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    color: var(--gold-light);
+    font-size: 0.95rem;
+}
+
+.cnsh-demo button {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.cnsh-demo button:hover { background: #d03020; }
+
+.output-box {
+    background: #07070a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    min-height: 60px;
+    color: var(--gray);
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    border-top: 1px solid var(--border);
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.slogan {
+    color: var(--red);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    nav a { margin-left: 0.8rem; font-size: 0.85rem; }
+}

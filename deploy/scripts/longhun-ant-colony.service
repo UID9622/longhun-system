@@ -1,0 +1,34 @@
+[Unit]
+Description=龙魂蚁群守护进程 · Ant Colony Runtime
+Documentation=https://github.com/UID9622/longhun-system
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=longhun
+Group=longhun
+WorkingDirectory=/opt/longhun-system
+Environment="PYTHONPATH=/opt/longhun-system"
+Environment="PATH=/opt/longhun-system/venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/opt/longhun-system/venv/bin/python3 /opt/longhun-system/bin/lh_ant_colony_daemon.py serve --port 9677
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+StartLimitInterval=300
+StartLimitBurst=5
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=no
+ReadWritePaths=/opt/longhun-system/data /opt/longhun-system/var /opt/longhun-system/logs
+ReadOnlyPaths=/opt/longhun-system/engine/ant_colony /opt/longhun-system/bin/lh_ant_colony_daemon.py
+
+# 日志
+StandardOutput=append:/opt/longhun-system/logs/ant_colony_daemon.log
+StandardError=append:/opt/longhun-system/logs/ant_colony_daemon_error.log
+
+[Install]
+WantedBy=multi-user.target

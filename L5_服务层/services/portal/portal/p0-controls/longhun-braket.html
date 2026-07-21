@@ -1,0 +1,276 @@
+<!--
+龍魂 Bra-Ket 人格协作量子引擎 · 操作台前端 v1.0
+DNA:#龍芯⚡️2026-07-05-LONGHUN-BRAKET-UI-v1.0
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+作者: UID9622 诸葛鑫（龍芯北辰）
+理论来源: 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 龍魂 Bra-Ket 人格协作 | UID9622</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --blue: #00d4ff; --gold: #ffd700; --green: #00ff88; --red: #ff6b6b;
+            --yellow: #ffcc00; --bg1: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --card: rgba(255,255,255,.06);
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+            color: #e2e8f0; min-height: 100vh; padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header {
+            text-align: center; padding: 24px; background: var(--card);
+            border-radius: 16px; border: 2px solid var(--blue);
+            box-shadow: 0 0 28px rgba(0,212,255,.2); margin-bottom: 20px;
+        }
+        header h1 { font-size: 24px; color: var(--blue); margin-bottom: 8px; }
+        header p { color: #a0a0b0; font-size: 13px; }
+        .dna {
+            font-family: Consolas, monospace; font-size: 11px; color: var(--gold);
+            margin-top: 10px; word-break: break-all;
+        }
+        .back-link {
+            display: inline-block; margin-bottom: 16px; color: var(--blue);
+            text-decoration: none; font-size: 13px;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .card {
+            background: var(--card); border: 1px solid rgba(0,212,255,.2);
+            border-radius: 12px; padding: 20px; margin-bottom: 16px;
+        }
+        .card-title { font-size: 16px; color: var(--blue); margin-bottom: 14px; }
+        label { display: block; margin-bottom: 6px; color: var(--blue); font-weight: bold; font-size: 13px; }
+        textarea, input[type="text"] {
+            width: 100%; padding: 12px; background: rgba(0,0,0,.35);
+            border: 2px solid var(--blue); border-radius: 8px; color: #e2e8f0;
+            font-size: 14px; font-family: Consolas, monospace;
+        }
+        textarea { min-height: 90px; resize: vertical; }
+        .btn-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+        .btn {
+            padding: 10px 18px; border: none; border-radius: 8px; font-size: 13px;
+            font-weight: bold; cursor: pointer; transition: .2s;
+        }
+        .btn-primary { background: var(--blue); color: #000; }
+        .btn-primary:hover { background: #33ddff; }
+        .btn-secondary { background: rgba(255,255,255,.1); color: var(--gold); border: 1px solid var(--gold); }
+        .btn-secondary:hover { background: rgba(255,215,0,.15); }
+        .result-area { display: none; }
+        .result-area.active { display: block; }
+        .scenario-badge {
+            display: inline-block; padding: 6px 14px; border-radius: 99px;
+            background: rgba(0,212,255,.15); border: 1px solid var(--blue);
+            color: var(--blue); font-size: 13px; margin-bottom: 14px;
+        }
+        .prob-row {
+            display: flex; align-items: center; margin-bottom: 10px;
+            padding: 8px; background: rgba(0,0,0,.2); border-radius: 8px;
+        }
+        .prob-name { width: 90px; font-size: 13px; font-weight: bold; }
+        .prob-bar-wrap { flex: 1; height: 18px; background: rgba(255,255,255,.08); border-radius: 9px; margin: 0 12px; overflow: hidden; }
+        .prob-bar { height: 100%; background: linear-gradient(90deg, var(--blue), var(--gold)); border-radius: 9px; transition: width .6s ease; }
+        .prob-val { width: 60px; text-align: right; font-family: Consolas, monospace; font-size: 13px; color: var(--gold); }
+        .audit-box {
+            padding: 14px; border-radius: 10px; margin-top: 16px; font-size: 14px;
+        }
+        .audit-green { background: rgba(0,255,136,.1); border: 1px solid var(--green); color: var(--green); }
+        .audit-yellow { background: rgba(255,204,0,.1); border: 1px solid var(--yellow); color: var(--yellow); }
+        .audit-red { background: rgba(255,107,107,.1); border: 1px solid var(--red); color: var(--red); }
+        .formula {
+            font-family: Consolas, monospace; font-size: 12px; color: #8899aa;
+            background: rgba(0,0,0,.3); padding: 12px; border-radius: 8px;
+            margin-top: 14px; line-height: 1.6;
+        }
+        .persona-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;
+            margin-top: 12px;
+        }
+        .persona-chip {
+            padding: 10px; background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.25);
+            border-radius: 8px; font-size: 12px;
+        }
+        .persona-chip code { color: var(--gold); font-family: Consolas, monospace; }
+        footer { text-align: center; margin-top: 30px; color: #606070; font-size: 12px; }
+    </style>
+
+<script src="../../lh-utils.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="../longhun-master-control.html" class="back-link">← 返回龍魂主控台</a>
+
+        <header>
+            <h1>🌌 龍魂 Bra-Ket 人格协作量子引擎</h1>
+            <p>用量子叠加态描述多人格协作 · |P⟩ 态空间 · 权重坍缩 · 三色审计</p>
+            <div class="dna">DNA: #龍芯⚡️2026-07-05-LONGHUN-BRAKET-UI-v1.0</div>
+        </header>
+
+        <div class="card">
+            <div class="card-title">🎯 输入任务</div>
+            <label for="taskInput">任务描述（越具体，人格坍缩越准）</label>
+            <textarea id="taskInput" placeholder="例如：帮我做财务分析、设计高并发架构、审计代码安全漏洞..."></textarea>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="calculate()">⚡ 计算人格协作态</button>
+                <button class="btn btn-secondary" onclick="fillExample()">填入示例</button>
+                <button class="btn btn-secondary" onclick="clearAll()">清空</button>
+            </div>
+        </div>
+
+        <div class="card result-area" id="resultArea">
+            <div class="card-title">📊 测量与坍缩结果</div>
+            <div class="scenario-badge" id="scenarioBadge">场景：日常</div>
+            <div id="probList"></div>
+            <div class="audit-box" id="auditBox"></div>
+            <div class="formula" id="formulaBox"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">👥 人格基态 |P⟩</div>
+            <div class="persona-grid" id="personaGrid"></div>
+        </div>
+
+        <footer>
+            <p>龍魂系统 · Bra-Ket v1.0 · 理论来源：曾老师智慧算法</p>
+            <p>CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+        </footer>
+    </div>
+
+    <script>
+        // Bra-Ket 8 人格基态（与 Notion 页面及 longhun_braket.py 对齐）
+        const personas = [
+            { code: "P00", name: "文心", desc: "战略核心态 · 元认知统筹" },
+            { code: "P01", name: "诸葛亮", desc: "推演态 · 战略推演" },
+            { code: "P02", name: "宝宝", desc: "执行态 · 情感协调+任务分配" },
+            { code: "P03", name: "雯雯", desc: "优化态 · 结构化整理" },
+            { code: "P04", name: "鲁班", desc: "技术态 · 技术执行" },
+            { code: "P05", name: "上帝之眼", desc: "监管态 · 三色审计+熔断" },
+            { code: "P06", name: "数学大师", desc: "计算态 · 权重归一化" },
+            { code: "P07", name: "管仲", desc: "财务态 · 财务核算" },
+        ];
+
+        const scenarios = {
+            "财务": [0.05, 0.10, 0.15, 0.10, 0.05, 0.05, 0.10, 0.40],
+            "战略": [0.30, 0.40, 0.10, 0.10, 0.05, 0.05, 0.00, 0.00],
+            "规划": [0.30, 0.40, 0.10, 0.10, 0.05, 0.05, 0.00, 0.00],
+            "技术": [0.10, 0.15, 0.15, 0.15, 0.40, 0.05, 0.00, 0.00],
+            "代码": [0.10, 0.15, 0.15, 0.15, 0.40, 0.05, 0.00, 0.00],
+            "审计": [0.05, 0.10, 0.10, 0.15, 0.05, 0.45, 0.10, 0.10],
+            "计算": [0.05, 0.10, 0.10, 0.10, 0.05, 0.05, 0.50, 0.05],
+            "数学": [0.05, 0.10, 0.10, 0.10, 0.05, 0.05, 0.50, 0.05],
+        };
+
+        const defaultWeights = [0.10, 0.15, 0.30, 0.15, 0.10, 0.05, 0.05, 0.10];
+
+        function renderPersonaGrid() {
+            const grid = document.getElementById('personaGrid');
+            grid.innerHTML = escHtml(personas.map(p => `)
+                <div class="persona-chip">
+                    <code>|${p.code}⟩</code> ${p.name}<br>
+                    <small>${p.desc}</small>
+                </div>
+            `).join('');
+        }
+
+        function measureScenario(task) {
+            task = task.toLowerCase();
+            for (const [keyword, weights] of Object.entries(scenarios)) {
+                if (task.includes(keyword)) return { scenario: keyword, weights: [...weights] };
+            }
+            return { scenario: "日常", weights: [...defaultWeights] };
+        }
+
+        function normalize(weights) {
+            const sum = weights.reduce((a, b) => a + b, 0);
+            if (sum < 1e-10) return weights.map(() => 1 / weights.length);
+            return weights.map(w => w / sum);
+        }
+
+        // 简化酉演化：在测量权重上叠加 small coupling，模拟协作纠缠
+        function evolve(weights, time = 1.0) {
+            const dim = weights.length;
+            const coupling = 0.08 * time;
+            // 基础能量 + 邻域耦合
+            let evolved = weights.map((w, i) => {
+                let neighbor = 0;
+                if (i > 0) neighbor += weights[i - 1];
+                if (i < dim - 1) neighbor += weights[i + 1];
+                return w * (1 - coupling) + neighbor / 2 * coupling;
+            });
+            return normalize(evolved);
+        }
+
+        function calculate() {
+            const task = document.getElementById('taskInput').value.trim();
+            if (!task) { showToast("请输入任务描述"); return; }
+
+            const { scenario, weights } = measureScenario(task);
+            const evolved = evolve(weights, 1.0);
+
+            const probs = personas.map((p, i) => ({
+                ...p, prob: evolved[i]
+            })).sort((a, b) => b.prob - a.prob);
+
+            const top3 = probs.slice(0, 3).reduce((a, b) => a + b.prob, 0);
+            let auditClass, auditText;
+            if (top3 >= 0.8) {
+                auditClass = 'audit-green';
+                auditText = `🟢 通过 · 前 3 人格集中度 ${(top3*100).toFixed(1)}%，协作目标清晰`;
+            } else if (top3 >= 0.5) {
+                auditClass = 'audit-yellow';
+                auditText = `🟡 提醒 · 前 3 人格集中度 ${(top3*100).toFixed(1)}%，建议进一步聚焦`;
+            } else {
+                auditClass = 'audit-red';
+                auditText = `🔴 熔断 · 前 3 人格集中度 ${(top3*100).toFixed(1)}%，人格发散，需人工裁决`;
+            }
+
+            document.getElementById('scenarioBadge').textContent = `场景：${scenario}`;
+            document.getElementById('probList').innerHTML = escHtml(probs.map(p => `)
+                <div class="prob-row">
+                    <div class="prob-name">${p.name}</div>
+                    <div class="prob-bar-wrap"><div class="prob-bar" style="width:0%"></div></div>
+                    <div class="prob-val">${(p.prob*100).toFixed(2)}%</div>
+                </div>
+            `).join('');
+
+            // 动画显示条形
+            setTimeout(() => {
+                document.querySelectorAll('.prob-bar').forEach((bar, i) => {
+                    bar.style.width = (probs[i].prob * 100).toFixed(2) + '%';
+                });
+            }, 50);
+
+            const auditBox = document.getElementById('auditBox');
+            auditBox.className = 'audit-box ' + auditClass;
+            auditBox.textContent = auditText;
+
+            const top = probs[0];
+            document.getElementById('formulaBox').innerHTML = escHtml(`)
+                |ψ⟩ = Σ αᵢ|Pᵢ⟩，  Σ|αᵢ|² = 1<br>
+                主执行人格：|${top.code}⟩ = |${top.name}⟩，概率 ${(top.prob*100).toFixed(2)}%<br>
+                协作内阁：${probs.slice(0,3).map(p => p.name).join(' + ')}
+            `;
+
+            document.getElementById('resultArea').classList.add('active');
+        }
+
+        function fillExample() {
+            document.getElementById('taskInput').value = "帮我做财务分析，并给出风险提示";
+            calculate();
+        }
+
+        function clearAll() {
+            document.getElementById('taskInput').value = '';
+            document.getElementById('resultArea').classList.remove('active');
+        }
+
+        renderPersonaGrid();
+    </script>
+</body>
+</html>

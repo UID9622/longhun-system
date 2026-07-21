@@ -1,0 +1,55 @@
+#!/bin/bash
+# 龍魂·Pre-Commit 密钥审计钩子 v1.0
+# 自动拦截包含真实密钥/Token的提交
+# DNA: #龍芯⚡️丙午·辛未·乙酉·亥-SECRET-GATE-v1.0
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+SECRET_PATTERNS=(
+  'ntn_[0-9a-zA-Z]{20,}'
+  'sk-[A-Za-z0-9]{30,}'
+  'ghp_[A-Za-z0-9]{30,}'
+  'gho_[A-Za-z0-9]{30,}'
+  'AKIA[A-Za-z0-9]{16,}'
+  'AIza[A-Za-z0-9_-]{30,}'
+  'ya29\.[A-Za-z0-9_-]{50,}'
+)
+
+BLOCKED=0
+
+for pattern in "${SECRET_PATTERNS[@]}"; do
+  # 只检查即将提交的文件
+  FILES=$(git diff --cached --name-only 2>/dev/null || true)
+  if [ -z "$FILES" ]; then
+    exit 0
+  fi
+
+  HITS=$(echo "$FILES" | xargs grep -lE "$pattern" 2>/dev/null || true)
+  if [ -n "$HITS" ]; then
+    while IFS= read -r f; do
+      # 过滤占位符和示例
+      REAL_LEAKS=$(grep -nE "$pattern" "$f" 2>/dev/null | grep -vE "ntn_xxxxxxxx|ntn_\.\.\.|ntn_test|ntn_.*example|placeholder|redacted|示例|占位|\[REDACTED\]|xxxxx" || true)
+      if [ -n "$REAL_LEAKS" ]; then
+        echo -e "${RED}══════════════════════════════════════════════${NC}"
+        echo -e "${RED}  🔴 密钥泄露拦截！${NC}"
+        echo -e "${RED}  文件: $f${NC}"
+        echo -e "$REAL_LEAKS" | while read line; do
+          echo -e "  ${RED}$(echo "$line" | sed 's/ntn_[0-9a-zA-Z]\{8,\}/[SECRET-REDACTED]/g')${NC}"
+        done
+        echo -e "${RED}══════════════════════════════════════════════${NC}"
+        BLOCKED=1
+      fi
+    done <<< "$HITS"
+  fi
+done
+
+if [ "$BLOCKED" -eq 1 ]; then
+  echo -e "${RED}[x] 提交被拦截。请用占位符替换真实密钥后重试。${NC}"
+  echo -e "    如: ntn_xxxxxxxx 或 sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  exit 1
+fi
+
+echo -e "${GREEN}[✓] 密钥审计通过${NC}"
+exit 0

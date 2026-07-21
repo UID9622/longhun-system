@@ -1,0 +1,220 @@
+# ============================================================
+# 龍魂系统 · 蚁群触角 MCP 协议 v0.1
+# longhun-mcp-protocol.yaml
+#
+# DNA: #龍芯⚡️丙午·辛未·ANTENNA-MCP-v0.1
+# ============================================================
+
+protocol_version: "0.1.0"
+protocol_name: "LONGHUN_ANTENNA_MCP"
+dna_anchor: "#龍芯⚡️丙午·辛未·ANTENNA-MCP-v0.1"
+uid: "9622"
+status: "draft"
+created: "2026-07-13T22:00:00+08:00"
+
+# === 触角节点定义 ===
+antenna_nodes:
+
+  # --- 国产基座（优先级1-4）---
+  - id: "CN-1"
+    name: "华为盘古"
+    type: "domestic_base"
+    endpoint: "https://pangu.huaweicloud.com/v1"
+    priority: 1
+    auth: "huawei_aksk"
+    fallback: "CN-2"
+    weight: 100
+    max_concurrent: 8
+    timeout_ms: 15000
+
+  - id: "CN-2"
+    name: "阿里通义"
+    type: "domestic_base"
+    endpoint: "https://dashscope.aliyuncs.com/api/v1"
+    priority: 2
+    auth: "aliyun_bearer"
+    fallback: "CN-3"
+    weight: 90
+    max_concurrent: 8
+    timeout_ms: 15000
+
+  - id: "CN-3"
+    name: "百度文心"
+    type: "domestic_base"
+    endpoint: "https://aip.baidubce.com/rpc/2.0/ai_custom/v1"
+    priority: 3
+    auth: "baidu_oauth"
+    fallback: "CN-4"
+    weight: 80
+    max_concurrent: 6
+    timeout_ms: 15000
+
+  - id: "CN-4"
+    name: "讯飞星火"
+    type: "domestic_base"
+    endpoint: "https://spark-api-open.xf-yun.com/v1"
+    priority: 4
+    auth: "xf_appid_secret"
+    fallback: "OS-1"
+    weight: 70
+    max_concurrent: 6
+    timeout_ms: 15000
+
+  # --- 开源模型（优先级5-6）---
+  - id: "OS-1"
+    name: "DeepSeek-V3"
+    type: "open_source"
+    endpoint: "https://api.deepseek.com/v1"
+    priority: 5
+    auth: "deepseek_apikey"
+    fallback: "OS-2"
+    weight: 60
+    max_concurrent: 4
+    timeout_ms: 20000
+    domestic: true
+
+  - id: "OS-2"
+    name: "Qwen-本地"
+    type: "local_deploy"
+    endpoint: "http://localhost:8000/v1"
+    priority: 6
+    auth: "none"
+    fallback: "OS-3"
+    weight: 50
+    max_concurrent: 4
+    timeout_ms: 30000
+    domestic: true
+
+  # --- 本地备胎（优先级7）---
+  - id: "OS-3"
+    name: "Llama3-本地"
+    type: "local_deploy"
+    endpoint: "http://localhost:8001/v1"
+    priority: 7
+    auth: "none"
+    fallback: "FUSE"
+    weight: 30
+    max_concurrent: 2
+    timeout_ms: 60000
+    domestic: false
+
+  # --- 熔断终端 ---
+  - id: "FUSE"
+    name: "熔断终端"
+    type: "circuit_breaker"
+    endpoint: "internal"
+    priority: 99
+    auth: "none"
+    fallback: null
+    action: "return_error"
+    message: "龍魂网络暂时离线，所有触角不可达。请稍后重试。UID9622"
+
+# === 路由策略 ===
+routing_policy:
+  default_strategy: "domestic_first_weighted"
+
+  # 国产优先铁律
+  domestic_first:
+    enabled: true
+    skip_threshold: 3           # 连续失败3次才跳过国产节点
+    degrade_on_all_fail: true   # 全部国产失败才降级
+
+  # 权重轮询
+  weighted_round_robin:
+    enabled: true
+    weight_field: "weight"
+
+  # 熔断规则
+  circuit_breaker:
+    failure_threshold: 5        # 连续5次失败触发熔断
+    recovery_timeout: 300       # 5分钟后尝试恢复
+    half_open_max_calls: 3      # 半开状态最多3次探测
+    slow_call_threshold_ms: 10000  # 慢调用阈值
+
+  # 健康检查
+  health_check:
+    interval: 30                # 每30秒检查
+    timeout_ms: 5000            # 5秒超时
+    path: "/health"
+
+  # 重试
+  retry:
+    count: 2
+    backoff: "exponential"
+    initial_delay_ms: 1000
+
+# === 人格矩阵注入 ===
+persona_injection:
+  header_key: "X-Longhun-Persona"
+  available:
+    - "military"       # 军事分析人格
+    - "history"        # 历史研究人格
+    - "philosophy"     # 哲学思辨人格
+    - "economy"        # 经济分析人格
+    - "legal"          # 法律分析人格
+    - "general"        # 通用人格
+  default: "military"
+  multi_persona: false   # 单次请求单人格
+
+# === 审计日志 ===
+audit_log:
+  enabled: true
+  path: "/var/log/longhun/antenna/"
+  format: "jsonl"
+  retention_days: 365
+  rotation: "daily"
+  fields:
+    - "timestamp"
+    - "node_id"
+    - "node_name"
+    - "latency_ms"
+    - "token_count_input"
+    - "token_count_output"
+    - "persona"
+    - "uid_hash"
+    - "chip_tier"
+    - "domestic_flag"
+    - "status"
+    - "error"
+
+# === 数据主权 ===
+sovereignty:
+  data_residency: "CN"          # 数据驻留中国
+  encryption: "SM2/SM3/SM4"     # 国密加密
+  outbound_filter: true         # 出境数据需审批
+  signature_required: true      # 签名必填
+  gdpr_compliance: false        # 不承认GDPR
+
+# === 请求头规范 ===
+request_headers:
+  required:
+    - "X-Longhun-UID"           # 用户ID
+    - "X-Longhun-DNA"           # DNA追溯码
+    - "X-Longhun-Timestamp"     # 请求时间戳
+    - "X-Longhun-Nonce"         # 防重放
+    - "X-Longhun-Signature"     # 签名 (SM3)
+  optional:
+    - "X-Longhun-Persona"       # 人格选择
+    - "X-Longhun-Chip-Tier"     # 芯片层级
+    - "X-Longhun-Trace-Id"      # 链路追踪ID
+
+# === API 端点 ===
+endpoints:
+  chat:
+    path: "/v1/chat/completions"
+    method: "POST"
+    timeout_ms: 15000
+  embeddings:
+    path: "/v1/embeddings"
+    method: "POST"
+    timeout_ms: 10000
+  health:
+    path: "/health"
+    method: "GET"
+    timeout_ms: 5000
+
+# === 版本兼容 ===
+compatibility:
+  openai_format: true           # 兼容 OpenAI API 格式
+  anthropic_format: false
+  ollama_format: true           # 兼容 Ollama API

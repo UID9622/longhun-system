@@ -1,0 +1,37 @@
+{
+  "dna": "#龍芯⚡️20260718231330771-MODEL-ARCHIVE-8F181D00A8649A03",
+  "archived_at": "2026-07-18T23:13:30.772312Z",
+  "reason": "模型版本链瘦身：保留 v3.6/v3.7/v4.0 及最佳回退，归档中间实验版本",
+  "retention_policy": {
+    "keep": [
+      "models/longhun-v1.0/lora_output/adapter_v3.6",
+      "models/longhun-v1.0/lora_output/adapter_v3.7",
+      "models/longhun-v1.0/lora_output/adapter_best",
+      "models/longhun-v1.0/lora_output/adapter_best_v3.3",
+      "models/longhun-v1.0/lora_output/merged_v3.6",
+      "models/longhun-v1.0/lora_output/merged_v3.7",
+      "models/longhun-v1.0/lora_output/gguf_v3.6",
+      "models/longhun-v1.0/lora_output/gguf_v3.7",
+      "models/longhun-v1.0/lora_output_v4/adapter_v4.0",
+      "models/longhun-v1.0/lora_output_v4/merged_v4.0",
+      "models/longhun-v1.0/lora_output_v4/gguf_v4.0",
+      "models/longhun-v1.0/base_model"
+    ],
+    "archived": [
+      "_archive/models/v3_intermediate/adapter_v3.0",
+      "_archive/models/v3_intermediate/adapter_v3.1",
+      "_archive/models/v3_intermediate/adapter_v3.2",
+      "_archive/models/v3_intermediate/adapter_v3.3",
+      "_archive/models/v3_intermediate/adapter_v3.4",
+      "_archive/models/v3_intermediate/adapter_v3.5",
+      "_archive/models/v3_intermediate/gguf_v3.0",
+      "_archive/models/v3_intermediate/gguf_v3.5",
+      "_archive/models/v3_intermediate/merged_v3.0",
+      "_archive/models/v3_intermediate/merged_v3.2",
+      "_archive/models/v3_intermediate/merged_v3.3",
+      "_archive/models/v3_intermediate/merged_v3.5",
+      "_archive/models/v4_hf_cache/hf_cache",
+      "_archive/models/base_model_old/base_model_old"
+    ]
+  }
+}

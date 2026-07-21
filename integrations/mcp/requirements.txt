@@ -1,0 +1,26 @@
+# 龍魂 MCP Server 套件依赖
+# DNA: #龍芯⚡️2026-07-13-LONGHUN-MCP-SUITES-v2.0
+
+# 核心 MCP SDK
+mcp>=1.0.0
+
+# HTTP 客户端（API 代理模式）
+httpx>=0.24.0
+
+# FastMCP（v4 Server 可选）
+# mcp[cli]>=1.8.0
+
+# 图像处理（视觉解析可选）
+# Pillow>=9.0
+# pytesseract>=0.3
+
+# 音频处理（音频解析可选）
+# speechrecognition>=3.10
+# openai-whisper>=20231117
+
+# 金融数据（变量沙箱可选）
+requests>=2.28.0
+
+# 开发依赖
+# pytest>=7.0
+# black>=23.0

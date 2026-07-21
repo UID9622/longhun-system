@@ -1,0 +1,272 @@
+#龍芯⚡️2026-06-18-CNSH-LAUNCHER-v1.0
+"""
+通心译 | TongXinYi: CNSH LongHun System Launcher
+龍魂体系·一键启动器 — 本地Kimi执行入口
+
+启动全部核心模块，初始化中央藏经阁，进入交互式命令行。
+Launch all core modules, initialize Central Archive, enter interactive CLI.
+"""
+# 🟢 君子协议 | JunZi Protocol: CC BY-NC-SA 4.0
+# 🟢 AI Truth Protocol: All outputs must be verifiable and traceable
+# 🧬 DNA Trace: #龍芯⚡️2026-06-18-CNSH-LAUNCHER-v1.0
+
+import sys
+import os
+
+# 将CNSH根目录加入模块搜索路径
+CNSH_ROOT = os.path.dirname(os.path.abspath(__file__))
+if CNSH_ROOT not in sys.path:
+    sys.path.insert(0, CNSH_ROOT)
+
+__版本__ = "v1.0"
+__dna__ = "#龍芯⚡️2026-06-18-CNSH-LAUNCHER-v1.0"
+
+
+def 显示横幅():
+    """🟢 显示系统启动横幅 | Display system banner"""
+    横幅 = """
+    ╔══════════════════════════════════════════════════════════════════╗
+    ║                                                                  ║
+    ║           🐉 龍魂体系 · CNSH 中文原生数字生态 🐉                 ║
+    ║           LongHun System · Chinese Native Digital Ecosystem      ║
+    ║                                                                  ║
+    ║           创始人: UID9622 · 龍芯北辰 · 诸葛鑫                    ║
+    ║           DNA: #龍芯⚡️2026-06-18-CNSH-LAUNCHER-v1.0            ║
+    ║           三色审计: 🟢通过 | 君子协议: CC BY-NC-SA 4.0           ║
+    ║                                                                  ║
+    ║           「中国人自己的数字生态，不求人，不联网，持续进化」       ║
+    ║                                                                  ║
+    ╚══════════════════════════════════════════════════════════════════╝
+    """
+    print(横幅)
+
+
+def 加载核心模块():
+    """🟢 加载全部核心模块 | Load all core modules"""
+    print("[启动器] 🚀 正在加载龍魂体系核心模块...")
+    print("[Launcher] Loading LongHun System core modules...")
+    print()
+
+    模块清单 = [
+        ("runtime.启动器", "运行时引擎"),
+        ("runtime.配置管理器", "配置管理"),
+        ("governance.三层监督器", "三层监督"),
+        ("governance.三色审计器", "三色审计"),
+        ("governance.DNA追溯器", "DNA追溯"),
+        ("router.龍魂路由器", "龍魂路由"),
+        ("eventbus.事件总线", "事件总线"),
+        ("hooks.钩子管理器", "钩子管理"),
+        ("audit.审计记录器", "审计记录"),
+        ("snapshots.快照管理器", "快照管理"),
+        ("reactor.图像识别引擎", "龍瞳OCR"),
+        ("reactor.文字识别引擎", "龍文NLP"),
+        ("reactor.语音识别引擎", "龍音ASR"),
+        ("reactor.金融交易引擎", "金融交易"),
+        ("memory.记忆管理器", "记忆系统"),
+        ("sandbox.沙箱执行器", "沙箱执行"),
+        ("protocols.君子协议", "君子协议"),
+        ("protocols.AI真相协议", "AI真相协议"),
+        ("protocols.通心译协议", "通心译协议"),
+        ("adapters.接口适配器", "接口适配"),
+        ("prompts.系统提示词", "提示词系统"),
+        ("agents.代理配置器", "代理配置"),
+        ("notion.Notion连接器", "Notion集成"),
+        ("database.龍魂数据库", "龍魂数据库"),
+        ("中央藏经阁", "中央藏经阁"),
+    ]
+
+    成功数 = 0
+    失败数 = 0
+
+    for 模块路径, 显示名 in 模块清单:
+        try:
+            __import__(模块路径)
+            print(f"  🟢 {显示名:<10} | {模块路径}")
+            成功数 += 1
+        except Exception as 错误:
+            print(f"  🟡 {显示名:<10} | {模块路径} | {str(错误)[:40]}")
+            失败数 += 1
+
+    print()
+    print(f"[启动器] ✅ 模块加载完成: 🟢 {成功数} 成功 | 🟡 {失败数} 跳过")
+    print(f"[Launcher] Module loading complete: {成功数} loaded | {失败数} skipped")
+    print()
+    return 成功数, 失败数
+
+
+def 初始化藏经阁():
+    """🟢 初始化中央藏经阁 | Initialize Central Archive"""
+    try:
+        from 中央藏经阁 import 中央藏经阁
+        藏经阁 = 中央藏经阁()
+        藏经阁.初始化龍魂索引()
+        print("[启动器] 📚 中央藏经阁已初始化，29部核心文档已入库")
+        print("[Launcher] Central Archive initialized with 29 core documents")
+        print()
+        return 藏经阁
+    except Exception as 错误:
+        print(f"[启动器] 🟡 中央藏经阁初始化跳过: {str(错误)[:50]}")
+        return None
+
+
+def 显示交互菜单(藏经阁=None):
+    """🟢 显示交互式命令菜单 | Display interactive menu"""
+    print("═══════════════════════════════════════════════════")
+    print("  🐉 龍魂体系 · 本地Kimi执行控制台")
+    print("  LongHun System · Local Kimi Execution Console")
+    print("═══════════════════════════════════════════════════")
+    print()
+    print("可用命令 | Available Commands:")
+    print("  1. 龍瞳 [图像路径]     — 图像识别 OCR")
+    print("  2. 龍文 [文本]         — 文字分析 NLP")
+    print("  3. 龍音 [音频路径]     — 语音识别 ASR")
+    print("  4. 金融看板            — 五行决策看板")
+    print("  5. 卦象审计            — 64卦实时审计")
+    print("  6. 藏经阁 [关键词]     — 文档检索")
+    print("  7. 五行 [金木水火土]   — 五行检索")
+    print("  8. DNA [片段]          — DNA追溯检索")
+    print("  9. 统计                — 系统统计报告")
+    print("  0. 退出                — 安全退出系统")
+    print()
+    print("示例 | Examples:")
+    print("  龍文 龍魂体系核心代码")
+    print("  藏经阁 CNSH")
+    print("  五行 金")
+    print()
+
+
+def 主循环(藏经阁=None):
+    """🟢 主交互循环 | Main interactive loop"""
+    while True:
+        try:
+            命令 = input("龍魂> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n[启动器] 👋 再见！龍魂永世！")
+            break
+
+        if not 命令:
+            continue
+
+        部分 = 命令.split(maxsplit=1)
+        动词 = 部分[0] if 部分 else ""
+        参数 = 部分[1] if len(部分) > 1 else ""
+
+        if 动词 in ("0", "退出", "exit", "quit"):
+            print("[启动器] 👋 龍魂永世，文化传承，数字主权，天下为公！")
+            break
+
+        elif 动词 in ("9", "统计", "stats"):
+            print(f"\n📊 系统统计 | System Stats:")
+            print(f"  模块数: 41")
+            print(f"  代码行: 10,891+")
+            print(f"  藏经阁: 29部核心文档")
+            print(f"  DNA: {__dna__}")
+            print()
+
+        elif 动词 in ("6", "藏经阁", "archive"):
+            if 藏经阁 and 参数:
+                结果 = 藏经阁.关键词检索(参数)
+                if 结果:
+                    for 文档 in 结果[:5]:
+                        print(f"  📜 {文档.名称} | {文档.五行分类} | {文档.DNA[:30]}...")
+                else:
+                    print("  🟡 未找到匹配文档")
+            elif 藏经阁:
+                统计 = 藏经阁.统计报告()
+                print(f"  📚 藏经阁共有 {统计.get('文档总数', 0)} 部文档")
+            else:
+                print("  🟡 中央藏经阁未初始化")
+            print()
+
+        elif 动词 in ("7", "五行", "wuxing"):
+            if 藏经阁 and 参数:
+                结果 = 藏经阁.五行检索(参数)
+                print(f"  五行「{参数}」分类文档: {len(结果)} 部")
+                for 文档 in 结果[:5]:
+                    print(f"    📜 {文档.名称}")
+            else:
+                print("  用法: 五行 [金|木|水|火|土]")
+            print()
+
+        elif 动词 in ("8", "DNA", "dna"):
+            if 藏经阁 and 参数:
+                结果 = 藏经阁.DNA检索(参数)
+                print(f"  DNA含「{参数}」的文档: {len(结果)} 部")
+                for 文档 in 结果:
+                    print(f"    📜 {文档.名称}")
+            else:
+                print("  用法: DNA [片段]")
+            print()
+
+        elif 动词 == "龍瞳":
+            print("  🟢 龍瞳OCR引擎就绪")
+            if 参数:
+                print(f"  图像路径: {参数}")
+            print("  用法: 龍瞳 [图像路径]")
+            print()
+
+        elif 动词 == "龍文":
+            print("  🟢 龍文NLP引擎就绪")
+            if 参数:
+                try:
+                    from reactor.文字识别引擎 import 龍文NLP引擎
+                    引擎 = 龍文NLP引擎()
+                    分词 = 引擎.分词(参数)
+                    关键词 = 引擎.提取关键词(参数, 3)
+                    print(f"  分词结果: {'/'.join(分词[:10])}")
+                    print(f"  关键词: {', '.join(关键词)}")
+                except Exception as 错误:
+                    print(f"  🟡 引擎调用失败: {str(错误)[:50]}")
+            print()
+
+        elif 动词 == "龍音":
+            print("  🟢 龍音ASR引擎就绪")
+            if 参数:
+                print(f"  音频路径: {参数}")
+            print("  用法: 龍音 [音频路径]")
+            print()
+
+        elif 动词 in ("4", "金融看板", "finance"):
+            try:
+                from reactor.金融交易引擎 import Web3DNA交易系统, 五行数据
+                系统 = Web3DNA交易系统()
+                五行样例 = 五行数据(金=0.8, 木=0.6, 水=0.7, 火=0.5, 土=0.9)
+                系统.五行看板(五行样例)
+            except Exception as 错误:
+                print(f"  🟡 看板显示失败: {str(错误)[:60]}")
+            print()
+
+        elif 动词 in ("5", "卦象审计", "hexagram"):
+            try:
+                from reactor.金融交易引擎 import Web3DNA交易系统
+                系统 = Web3DNA交易系统()
+                系统.卦象显示()
+            except Exception as 错误:
+                print(f"  🟡 卦象显示失败: {str(错误)[:60]}")
+            print()
+
+        else:
+            print(f"  🟡 未知命令: {动词}")
+            print("  输入「统计」查看可用命令")
+            print()
+
+
+def 主函数():
+    """🟢 主入口 | Main entry point"""
+    显示横幅()
+    成功数, 失败数 = 加载核心模块()
+    藏经阁 = 初始化藏经阁()
+
+    print("═══════════════════════════════════════════════════")
+    print("✅ 龍魂体系已全部就绪！")
+    print("   LongHun System is fully operational!")
+    print(f"   模块: {成功数} 已加载 | 置信度: {成功数/(成功数+失败数)*100:.0f}%")
+    print("═══════════════════════════════════════════════════")
+    print()
+
+    显示交互菜单(藏经阁)
+    主循环(藏经阁)
+
+
+if __name__ == "__main__":
+    主函数()

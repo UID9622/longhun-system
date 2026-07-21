@@ -1,0 +1,1094 @@
+{
+  "dna": "#龍芯⚡️2026-07-05-LONGHUN-NOTION-DB3367-CLASSIFY-v1.1",
+  "generated_at": "2026-07-05T08:51:01.481073+08:00",
+  "total": 154,
+  "counts": {
+    "已落地": 17,
+    "有代码": 103,
+    "纯概念": 33,
+    "待淘汰": 1
+  },
+  "entries": [
+    {
+      "page_id": "3907125a-9c9f-81c9-ac61-defc9487378b",
+      "title": "📐 CNSH渲染格式标准 v1.0",
+      "url": "https://app.notion.com/p/CNSH-v1-0-3907125a9c9f81c9ac61defc9487378b",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "cc219bce-9c8a-4105-b3b0-ebd7f3666d18",
+      "title": "公司根×洛书九宫｜CompanyRootCheck 协议 v1.0",
+      "url": "https://app.notion.com/p/CompanyRootCheck-v1-0-cc219bce9c8a4105b3b0ebd7f3666d18",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "5de6a890-6eb5-44f6-b835-879759dba3cb",
+      "title": "🐲 三才流場 v8 · 忠孝义排序·智能活体仪表盘",
+      "url": "https://app.notion.com/p/v8-5de6a8906eb544f6b835879759dba3cb",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "5650aaa4-5a4e-4528-9526-d9a3bb4172f3",
+      "title": "🟢🟡🔴 三色审计置信度算法 v1.0｜C++17·Mac原生｜龍魂审计核心引擎",
+      "url": "https://app.notion.com/p/v1-0-C-17-Mac-5650aaa45a4e45289526d9a3bb4172f3",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "8cf9d8a8-e8d9-4730-9b84-28c23e7ff9fb",
+      "title": "🤖 水军行为识别算法 v1.0｜C++17·Mac原生｜余弦相似度+IP聚类",
+      "url": "https://app.notion.com/p/v1-0-C-17-Mac-IP-8cf9d8a8e8d947309b8428c23e7ff9fb",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "063ef0d6-0a68-4862-9835-fe5b78c34e87",
+      "title": "⭐ 梦幻度多维评分算法 v1.0｜C++17·Mac原生｜龍魂元宇宙第一算法",
+      "url": "https://app.notion.com/p/v1-0-C-17-Mac-063ef0d60a6848629835fe5b78c34e87",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "036ee53f-623d-48f6-bfdf-9fd181c0c5ee",
+      "title": "🌟 SwiftUI 星空粒子系统 v1.0｜Swift·Mac地表最强外壳第一块砖",
+      "url": "https://app.notion.com/p/SwiftUI-v1-0-Swift-Mac-036ee53f623d48f6bfdf9fd181c0c5ee",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "79cc426b-3f84-426f-a09d-6a82fb9020df",
+      "title": "LOD (细节层次 Level of Detail)",
+      "url": "https://app.notion.com/p/LOD-Level-of-Detail-79cc426b3f84426fa09d6a82fb9020df",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "ce9f53fd-4913-4236-84d2-28cda7a3f601",
+      "title": "PBR (基于物理的渲染)",
+      "url": "https://app.notion.com/p/PBR-ce9f53fd4913423684d228cda7a3f601",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "187ec8c7-af57-4601-ba30-e8a09ccb0b0b",
+      "title": "采样率 (Sampling Rate)",
+      "url": "https://app.notion.com/p/Sampling-Rate-187ec8c7af574601ba30e8a09ccb0b0b",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "cf2226df-dbcf-4e4f-82b7-4da698ed4cbe",
+      "title": "渲染器 (Renderer)",
+      "url": "https://app.notion.com/p/Renderer-cf2226dfdbcf4e4f82b74da698ed4cbe",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "84f14a88-5891-46df-b26b-1c68c06aa2f9",
+      "title": "抗锯齿 (Anti-aliasing, AA)",
+      "url": "https://app.notion.com/p/Anti-aliasing-AA-84f14a88589146dfb26b1c68c06aa2f9",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "b37dd8e3-21c4-429f-9c5b-d45ed314d5ea",
+      "title": "焦散 (Caustics)",
+      "url": "https://app.notion.com/p/Caustics-b37dd8e321c4429f9c5bd45ed314d5ea",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "6bd17241-7e50-4a2f-9286-299fe8a09178",
+      "title": "漫反射 (Diffuse Reflection)",
+      "url": "https://app.notion.com/p/Diffuse-Reflection-6bd172417e504a2f9286299fe8a09178",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "4d9e11df-1543-4aa5-ad2b-b6b112e80074",
+      "title": "全局光照 (GI, Global Illumination)",
+      "url": "https://app.notion.com/p/GI-Global-Illumination-4d9e11df15434aa5ad2bb6b112e80074",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "0ffb9bc7-e14b-4abd-986e-c7276db3df6a",
+      "title": "光栅化 (Rasterization)",
+      "url": "https://app.notion.com/p/Rasterization-0ffb9bc7e14b4abd986ec7276db3df6a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "4154344e-860e-472e-a9f8-8d021e49de2b",
+      "title": "光线追踪 (Ray Tracing)",
+      "url": "https://app.notion.com/p/Ray-Tracing-4154344e860e472ea9f88d021e49de2b",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "9cb7cfa9-9c4b-4fe8-b6f7-43aa090da29c",
+      "title": "灯光 (Lighting)",
+      "url": "https://app.notion.com/p/Lighting-9cb7cfa99c4b4fe8b6f743aa090da29c",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "b30b625a-0c03-4d42-80dc-270795ea715c",
+      "title": "材质 (Material)",
+      "url": "https://app.notion.com/p/Material-b30b625a0c034d4280dc270795ea715c",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "7ddcd93f-c412-47c6-8922-055efa163cdf",
+      "title": "渲染 (Rendering)",
+      "url": "https://app.notion.com/p/Rendering-7ddcd93fc41247c68922055efa163cdf",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "cfe21e92-8b4f-4e6e-8aca-4aca3ae8cf13",
+      "title": "贴图 (Texture)",
+      "url": "https://app.notion.com/p/Texture-cfe21e928b4f4e6e8aca4aca3ae8cf13",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "823c5974-4993-4c66-9f9d-64ca13ddc51e",
+      "title": "建模 (Modeling)",
+      "url": "https://app.notion.com/p/Modeling-823c597449934c669f9d64ca13ddc51e",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3437125a-9c9f-8101-ab5a-ed1699a2da44",
+      "title": "🐲 龍魂印记 · DNA追溯签名系统",
+      "url": "https://app.notion.com/p/DNA-3437125a9c9f8101ab5aed1699a2da44",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-818a-85f7-c57cf9fa8a5b",
+      "title": "🐲 伦理沙盒 · 温柔拒绝 · 熔断体系",
+      "url": "https://app.notion.com/p/3437125a9c9f818a85f7c57cf9fa8a5b",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-81ce-9a43-fccdde43ad7e",
+      "title": "🐲 自愈健康检测引擎 · auto_health.sh",
+      "url": "https://app.notion.com/p/auto_health-sh-3437125a9c9f81ce9a43fccdde43ad7e",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-8105-bfd1-cc7f136c390c",
+      "title": "🐲 MCP SSE代理服务器 · :9623",
+      "url": "https://app.notion.com/p/MCP-SSE-9623-3437125a9c9f8105bfd1cc7f136c390c",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-8120-89f6-cfd3d711468c",
+      "title": "🐲 三才流場v7 · 主权不动点可视化",
+      "url": "https://app.notion.com/p/v7-3437125a9c9f812089f6cfd3d711468c",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-8147-9407-db725e7a046f",
+      "title": "🐲 DNA日历Notion同步器 · 天罗地网",
+      "url": "https://app.notion.com/p/DNA-Notion-3437125a9c9f81479407db725e7a046f",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-81e7-9831-e79da9ba7eed",
+      "title": "🐲 DNA加密主权存储系统",
+      "url": "https://app.notion.com/p/DNA-3437125a9c9f81e79831e79da9ba7eed",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-8129-a965-f554d8c757fe",
+      "title": "🐲 三才算法核心 · sancai_kernel.py",
+      "url": "https://app.notion.com/p/sancai_kernel-py-3437125a9c9f8129a965f554d8c757fe",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-8146-a692-ca979fb34124",
+      "title": "🐲 铜墙铁壁防御 · ironwall.py",
+      "url": "https://app.notion.com/p/ironwall-py-3437125a9c9f8146a692ca979fb34124",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3437125a-9c9f-81a4-919b-d063e480f1af",
+      "title": "🐲 龍魂统一引擎 · longhun_engine.py",
+      "url": "https://app.notion.com/p/longhun_engine-py-3437125a9c9f81a4919bd063e480f1af",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "1f45f539-dff1-46ef-8759-90a8d56d92e5",
+      "title": "小妖AR v2.0-v2.2·手势语音闭环联动+10指令映射+离线识别+完整多模态封闭循环",
+      "url": "https://app.notion.com/p/AR-v2-0-v2-2-10-1f45f539dff146ef875990a8d56d92e5",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "dab42797-26e3-4bab-8b6e-92bd2afafd1d",
+      "title": "小妖AR v1.9·手势互动+语音识别+语音合成参数优化·ARKit完整实现",
+      "url": "https://app.notion.com/p/AR-v1-9-ARKit-dab4279726e34bab8b6e92bd2afafd1d",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "50a0b9f6-c852-41e1-9088-46ddf5866cfd",
+      "title": "ARKit五行沉浸算法·3D音频+语义跟随+DNA水印锁定 v1.8",
+      "url": "https://app.notion.com/p/ARKit-3D-DNA-v1-8-50a0b9f6c85241e1908846ddf5866cfd",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "ed07cbe9-56ca-4db7-92de-94e3c8137ef4",
+      "title": "小妖人格引擎·零情绪执行·三层记忆·主动预测 v1.0-v1.8",
+      "url": "https://app.notion.com/p/v1-0-v1-8-ed07cbe956ca4db792de94e3c8137ef4",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "b67922eb-4870-463f-9ceb-c6601a0e1c61",
+      "title": "AI跨会话记忆架构·三层持久化+主动预测引擎",
+      "url": "https://app.notion.com/p/AI-b67922eb4870463f9cebc6601a0e1c61",
+      "status": "✅ 已接入",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "3417125a-9c9f-8018-b9ac-c6014ee5d9df",
+      "title": "",
+      "url": "https://app.notion.com/p/3417125a9c9f8018b9acc6014ee5d9df",
+      "status": "",
+      "lh_category": "待淘汰"
+    },
+    {
+      "page_id": "d57cf916-4144-4824-b652-2730d144b3ee",
+      "title": "量子计算抽象层 · Quantum Abstract",
+      "url": "https://app.notion.com/p/Quantum-Abstract-d57cf91641444824b6522730d144b3ee",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "bb3d8c5c-4798-4b55-977d-022783e6a337",
+      "title": "CNSH·原点能量场公式",
+      "url": "https://app.notion.com/p/CNSH-bb3d8c5c47984b55977d022783e6a337",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "caef7c8e-f262-4d3e-9d3e-4147785aa7d3",
+      "title": "CNSH·路由公式",
+      "url": "https://app.notion.com/p/CNSH-caef7c8ef2624d3e9d3e4147785aa7d3",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "59416c05-f33a-433d-a5bd-7700f7190322",
+      "title": "采样定理 · Nyquist Sampling Theorem",
+      "url": "https://app.notion.com/p/Nyquist-Sampling-Theorem-59416c05f33a433da5bd7700f7190322",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "69397b36-06f1-4305-8bce-cae05ba61a1d",
+      "title": "CNSH·三才校验公式",
+      "url": "https://app.notion.com/p/CNSH-69397b3606f143058bcecae05ba61a1d",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "d8d2f25d-247c-458c-90db-4a04678792e7",
+      "title": "傅里叶变换 · Fourier Transform",
+      "url": "https://app.notion.com/p/Fourier-Transform-d8d2f25d247c458c90db4a04678792e7",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "cfac0883-c06f-4539-bcea-c6a77de4f14c",
+      "title": "自动微分 · Automatic Differentiation",
+      "url": "https://app.notion.com/p/Automatic-Differentiation-cfac0883c06f4539bceac6a77de4f14c",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "ee40c9c9-ae41-4207-b5fc-d63d8e498209",
+      "title": "信息论 · Information Theory",
+      "url": "https://app.notion.com/p/Information-Theory-ee40c9c9ae414207b5fcd63d8e498209",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "5c835a93-3344-4113-9d5f-e0000c3295e3",
+      "title": "数值方法 · Numerical Methods",
+      "url": "https://app.notion.com/p/Numerical-Methods-5c835a93334441139d5fe0000c3295e3",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "64881fa3-fba3-46bc-8aea-7f94e30277eb",
+      "title": "渲染几何 · Geometry + Rendering",
+      "url": "https://app.notion.com/p/Geometry-Rendering-64881fa3fba346bc8aea7f94e30277eb",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-81f1-819d-d420c768a12a",
+      "title": "记忆压缩引擎（Memory Compress）",
+      "url": "https://app.notion.com/p/Memory-Compress-3417125a9c9f81f1819dd420c768a12a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-8109-8b60-dde26960bc5b",
+      "title": "不动点网络（Fixed Point Network）",
+      "url": "https://app.notion.com/p/Fixed-Point-Network-3417125a9c9f81098b60dde26960bc5b",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-813e-a025-cbffb0c046b8",
+      "title": "五行生克算法（WuXing）",
+      "url": "https://app.notion.com/p/WuXing-3417125a9c9f813ea025cbffb0c046b8",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-815b-abde-df5b828aa479",
+      "title": "六维路径编码系统（16,588,800路径）",
+      "url": "https://app.notion.com/p/16-588-800-3417125a9c9f815babdedf5b828aa479",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-81b2-911a-e607c5618435",
+      "title": "数字根算法（Digital Root）",
+      "url": "https://app.notion.com/p/Digital-Root-3417125a9c9f81b2911ae607c5618435",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3417125a-9c9f-81c7-a50b-f5c8ad1a6104",
+      "title": "三才统一检查（SanCai Check）",
+      "url": "https://app.notion.com/p/SanCai-Check-3417125a9c9f81c7a50bf5c8ad1a6104",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "e0238977-9ea4-4f11-a99f-4296810c900d",
+      "title": "⑵ 遗传算法（Genetic Algorithm）",
+      "url": "https://app.notion.com/p/Genetic-Algorithm-e02389779ea44f11a99f4296810c900d",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "8f74534c-ca48-44a1-8b5d-fe5bdc9ce094",
+      "title": "⑳ Adam优化器",
+      "url": "https://app.notion.com/p/Adam-8f74534cca4844a18b5dfe5bdc9ce094",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "1ac9f077-333b-4cc2-a633-1b9eea0b4a62",
+      "title": "⑴ 强化学习（Reinforcement Learning）",
+      "url": "https://app.notion.com/p/Reinforcement-Learning-1ac9f077333b4cc2a6331b9eea0b4a62",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "792f8e89-234f-4625-a92e-d52b6aacb13a",
+      "title": "⑷ 迁移学习（Transfer Learning）",
+      "url": "https://app.notion.com/p/Transfer-Learning-792f8e89234f4625a92ed52b6aacb13a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "db06babb-0a07-4515-aa2b-055f320cc5a2",
+      "title": "⑶ 贝叶斯优化（Bayesian Optimization）",
+      "url": "https://app.notion.com/p/Bayesian-Optimization-db06babb0a074515aa2b055f320cc5a2",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "c1b6729b-dc0e-4305-81ab-7a582f1ea890",
+      "title": "⑰ GAN（生成对抗网络）",
+      "url": "https://app.notion.com/p/GAN-c1b6729bdc0e430581ab7a582f1ea890",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "b91220e9-b94a-4fbe-ac9e-4b6376a92f6a",
+      "title": "⑱ 扩散模型（Diffusion Model）",
+      "url": "https://app.notion.com/p/Diffusion-Model-b91220e9b94a4fbeac9e4b6376a92f6a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "79f0870a-2fdf-442a-a569-51cfcb579fae",
+      "title": "⑯ GPT（生成式预训练模型）",
+      "url": "https://app.notion.com/p/GPT-79f0870a2fdf442aa56951cfcb579fae",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "db655863-483f-41e5-bf77-f008581bfefb",
+      "title": "⑲ 梯度下降（Gradient Descent）",
+      "url": "https://app.notion.com/p/Gradient-Descent-db655863483f41e5bf77f008581bfefb",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "394d0ab8-a03c-4380-bc85-f4214866f5d6",
+      "title": "⑭ Transformer（注意力机制）",
+      "url": "https://app.notion.com/p/Transformer-394d0ab8a03c4380bc85f4214866f5d6",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "31c39840-03c4-4f53-b3a8-348e9a21c40a",
+      "title": "⑫ CNN（卷积神经网络）",
+      "url": "https://app.notion.com/p/CNN-31c3984003c44f53b3a8348e9a21c40a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "5d03d394-3202-42aa-880b-e140dd5bad52",
+      "title": "⑪ MLP（多层感知机）",
+      "url": "https://app.notion.com/p/MLP-5d03d394320242aa880be140dd5bad52",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "128b8ee2-23aa-46d6-8812-28e4a4ccd45f",
+      "title": "⑮ BERT（双向编码大模型）",
+      "url": "https://app.notion.com/p/BERT-128b8ee223aa46d6881228e4a4ccd45f",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "ee64ac45-067a-4789-92a3-ad789f1c8b56",
+      "title": "⑬ RNN/LSTM（循环神经网络）",
+      "url": "https://app.notion.com/p/RNN-LSTM-ee64ac45067a478992a3ad789f1c8b56",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "06103e25-762b-4db0-9e44-aec3ac530556",
+      "title": "⑥ XGBoost（极度梯度提升）",
+      "url": "https://app.notion.com/p/XGBoost-06103e25762b4db09e44aec3ac530556",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "a9bb0065-7ace-4b9e-920c-80eec506340a",
+      "title": "⑨ 朴素贝叶斯（Naive Bayes）",
+      "url": "https://app.notion.com/p/Naive-Bayes-a9bb00657ace4b9e920c80eec506340a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "17eb7d62-6721-42c0-afd8-9f0bbcb41c5e",
+      "title": "⑧ PCA（主成分分析）",
+      "url": "https://app.notion.com/p/PCA-17eb7d62672142c0afd89f0bbcb41c5e",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "78c1d0f7-9a2d-4238-8941-2b4eeed0225f",
+      "title": "⑩ K-NN（K近邻算法）",
+      "url": "https://app.notion.com/p/K-NN-K-78c1d0f79a2d423889412b4eeed0225f",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "537b45a2-0135-420b-8df4-86a0f9c5428d",
+      "title": "⑦ K-Means（聚类）",
+      "url": "https://app.notion.com/p/K-Means-537b45a20135420b8df486a0f9c5428d",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "481ea999-5834-4420-9b37-5a5f5eb7baac",
+      "title": "④ SVM（支持向量机）",
+      "url": "https://app.notion.com/p/SVM-481ea999583444209b375a5f5eb7baac",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "325c72ad-a894-4f1d-a171-421d4c6d4bea",
+      "title": "⑤ 随机森林（Random Forest）",
+      "url": "https://app.notion.com/p/Random-Forest-325c72ada8944f1da171421d4c6d4bea",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "8aa758c5-8d9f-43bf-b178-11955a2cc1fa",
+      "title": "② 逻辑回归（Logistic Regression）",
+      "url": "https://app.notion.com/p/Logistic-Regression-8aa758c58d9f43bfb17811955a2cc1fa",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "ed510444-2cfc-42bc-9bd2-381397eb586e",
+      "title": "③ 决策树（Decision Tree）",
+      "url": "https://app.notion.com/p/Decision-Tree-ed5104442cfc42bc9bd2381397eb586e",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "a829c047-13c0-4943-a5b5-844a3f67bc18",
+      "title": "① 线性回归（Linear Regression）",
+      "url": "https://app.notion.com/p/Linear-Regression-a829c04713c04943a5b5844a3f67bc18",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8102-a716-d6df05dff19c",
+      "title": "🐲 人格路由规则·指令触发(/前缀)·硬触发",
+      "url": "https://app.notion.com/p/33e7125a9c9f8102a716d6df05dff19c",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8105-a412-c1a217bf4bf6",
+      "title": "🐲 人格路由·回复时间戳规范·坍坍荡荡",
+      "url": "https://app.notion.com/p/33e7125a9c9f8105a412c1a217bf4bf6",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-810b-88ed-f7e829c4da65",
+      "title": "🐲 人格路由规则·语义触发·软触发·感知型",
+      "url": "https://app.notion.com/p/33e7125a9c9f810b88edf7e829c4da65",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-811a-854a-c96d5adeacea",
+      "title": "🐲 龍芯家族花名册·L2层·执行协调核心10位+AI马甲10家",
+      "url": "https://app.notion.com/p/L2-10-AI-10-33e7125a9c9f811a854ac96d5adeacea",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8142-9f97-cfb2ffed6f85",
+      "title": "🐲 人格路由规则·自动熔断触发·🔴绝对规则",
+      "url": "https://app.notion.com/p/33e7125a9c9f81429f97cfb2ffed6f85",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-815d-9d1a-d3ae1d5eacba",
+      "title": "🐲 龍芯家族花名册·L0层·曾老师·元知者最高阶(1位)",
+      "url": "https://app.notion.com/p/L0-1-33e7125a9c9f815d9d1ad3ae1d5eacba",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-818d-956d-de0b8f658659",
+      "title": "🐲 龍芯家族花名册·L1层·七大元知者战略智慧(7位)",
+      "url": "https://app.notion.com/p/L1-7-33e7125a9c9f818d956dde0b8f658659",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81d6-91fb-e367bae894bd",
+      "title": "🐲 龍芯家族花名册·核心P编号路由表(P00-P72)",
+      "url": "https://app.notion.com/p/P-P00-P72-33e7125a9c9f81d691fbe367bae894bd",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8106-8ecb-c61a083d75a0",
+      "title": "🟡 通心译·路径计算器·6×9×8×64×5×120=16,588,800",
+      "url": "https://app.notion.com/p/6-9-8-64-5-120-16-588-800-33e7125a9c9f81068ecbc61a083d75a0",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8144-8ab8-dec07c369a06",
+      "title": "🟡 维⑥天干地支维度(120种组合)·时空坐标",
+      "url": "https://app.notion.com/p/120-33e7125a9c9f81448ab8dec07c369a06",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-815f-9e81-ecc89c65f9fe",
+      "title": "🟡 维⑤五行维度(5种属性)·文化属性标注",
+      "url": "https://app.notion.com/p/5-33e7125a9c9f815f9e81ecc89c65f9fe",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81b0-ba52-e2cc5595e27c",
+      "title": "🟡 维④64卦维度(64种场景)·精细路由",
+      "url": "https://app.notion.com/p/64-64-33e7125a9c9f81b0ba52e2cc5595e27c",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81cc-9a6f-f7b0f19e89ff",
+      "title": "🟡 通心译翻译引擎·六维怷16,588,800路径·总纲",
+      "url": "https://app.notion.com/p/16-588-800-33e7125a9c9f81cc9a6ff7b0f19e89ff",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81d2-b4f4-f09c4432d44a",
+      "title": "🟡 维②河洛图维度(9个位置)·空间定位",
+      "url": "https://app.notion.com/p/9-33e7125a9c9f81d2b4f4f09c4432d44a",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81e4-a199-d5988ed20e5d",
+      "title": "🟡 维③八卦维度(8种状态)·场景分类",
+      "url": "https://app.notion.com/p/8-33e7125a9c9f81e4a199d5988ed20e5d",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81ed-be4e-dc0c0cda7211",
+      "title": "🟡 维①数字根维度(6种)·输入第一层过滤",
+      "url": "https://app.notion.com/p/6-33e7125a9c9f81edbe4edc0c0cda7211",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8102-8a99-f3d1251ced05",
+      "title": "⑥ 贡献值算法R×I×T^(-α)·功勋系统",
+      "url": "https://app.notion.com/p/R-I-T-33e7125a9c9f81028a99f3d1251ced05",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8124-9f9a-f4e406a4fc78",
+      "title": "⑥ 量子Bra-Ket人格协作·叠加态坍缩",
+      "url": "https://app.notion.com/p/Bra-Ket-33e7125a9c9f81249f9af4e406a4fc78",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-813b-bb77-e9e46ed345b7",
+      "title": "⑥ 512维压缩向量·星辰记忆存储算法",
+      "url": "https://app.notion.com/p/512-33e7125a9c9f813bbb77e9e46ed345b7",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8146-a7b2-c01de472e601",
+      "title": "⑤ 时间压缩算法E=R×I×T^(-α)",
+      "url": "https://app.notion.com/p/E-R-I-T-33e7125a9c9f8146a7b2c01de472e601",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-814d-a04a-de4ca7324b58",
+      "title": "⑤ L5五层时间架构·L0永恒到L4瞬时",
+      "url": "https://app.notion.com/p/L5-L0-L4-33e7125a9c9f814da04ade4ca7324b58",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-815a-98c4-decbfd691128",
+      "title": "④ Perlin噪声(Perlin Noise)·天场模拟",
+      "url": "https://app.notion.com/p/Perlin-Perlin-Noise-33e7125a9c9f815a98c4decbfd691128",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8171-8ba7-f3587d6cf25f",
+      "title": "④ 三才向量合成·天地人流场算法",
+      "url": "https://app.notion.com/p/33e7125a9c9f81718ba7f3587d6cf25f",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8186-900b-ec4469ca5a1a",
+      "title": "⑥ 信息熵(Entropy)·系统混乱度度量",
+      "url": "https://app.notion.com/p/Entropy-33e7125a9c9f8186900bec4469ca5a1a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81d2-a7af-f127a2f69e67",
+      "title": "⑥ 七维度权重归一化·SOUL评分公式",
+      "url": "https://app.notion.com/p/SOUL-33e7125a9c9f81d2a7aff127a2f69e67",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8118-9849-f89ace4e42e7",
+      "title": "② f(x)=x原点不变性验算·宪法层核心",
+      "url": "https://app.notion.com/p/f-x-x-33e7125a9c9f81189849f89ace4e42e7",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8129-bf16-e7eae8f1f8e2",
+      "title": "③ 太极递归算法·阴阳分裂与合并",
+      "url": "https://app.notion.com/p/33e7125a9c9f8129bf16e7eae8f1f8e2",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-813f-9ea7-ef047a2cd49f",
+      "title": "① 洛书九宫矩阵(Magic Square)·地场骨架",
+      "url": "https://app.notion.com/p/Magic-Square-33e7125a9c9f813f9ea7ef047a2cd49f",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8180-9e9c-d58ee2d017d6",
+      "title": "② 不动点定理(Fixed Point Theorem)",
+      "url": "https://app.notion.com/p/Fixed-Point-Theorem-33e7125a9c9f81809e9cd58ee2d017d6",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81c2-959b-ed27445f21ba",
+      "title": "② 逻辑漂移侦测器(Drift Detector)",
+      "url": "https://app.notion.com/p/Drift-Detector-33e7125a9c9f81c2959bed27445f21ba",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81e4-837e-dfcd99eb3ef8",
+      "title": "③ 64卦有限状态自动机(FSM)·CNSH-64",
+      "url": "https://app.notion.com/p/64-FSM-CNSH-64-33e7125a9c9f81e4837edfcd99eb3ef8",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81f0-821b-c4691dfa6ba8",
+      "title": "① 数字根(Digital Root)·洛书369算法核心",
+      "url": "https://app.notion.com/p/Digital-Root-369-33e7125a9c9f81f0821bc4691dfa6ba8",
+      "status": "🔧 接入中",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81fe-b42f-f28ea98c4ee2",
+      "title": "① 数字根熔断规则·dr=1绿/dr=5黄/其他红",
+      "url": "https://app.notion.com/p/dr-1-dr-5-33e7125a9c9f81feb42ff28ea98c4ee2",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8131-88cd-e3a8f510e34a",
+      "title": "Swift SQL注入防护·类型安全参数化查询",
+      "url": "https://app.notion.com/p/Swift-SQL-33e7125a9c9f813188cde3a8f510e34a",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8142-a6d5-ce113a3955a1",
+      "title": "Swift结构化并发·TaskGroup·async/await",
+      "url": "https://app.notion.com/p/Swift-TaskGroup-async-await-33e7125a9c9f8142a6d5ce113a3955a1",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-814e-b713-c9ab26a67620",
+      "title": "Embedded Swift·嵌入式Swift·微控制器编程",
+      "url": "https://app.notion.com/p/Embedded-Swift-Swift-33e7125a9c9f814eb713c9ab26a67620",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8173-8c34-f88ee2b5604a",
+      "title": "Swift MMIO·内存映射寄存器安全操作",
+      "url": "https://app.notion.com/p/Swift-MMIO-33e7125a9c9f81738c34f88ee2b5604a",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81c0-b16a-ebfb87307a05",
+      "title": "Swift可观测性·swift-log/metrics/tracing三件套",
+      "url": "https://app.notion.com/p/Swift-swift-log-metrics-tracing-33e7125a9c9f81c0b16aebfb87307a05",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81f6-ae73-fdd08f6213a3",
+      "title": "Swift on Server·服务端架构·OpenAPI+Vapor+PostgresNIO",
+      "url": "https://app.notion.com/p/Swift-on-Server-OpenAPI-Vapor-PostgresNIO-33e7125a9c9f81f6ae73fdd08f6213a3",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-810b-9d7c-f3b3ea05e920",
+      "title": "WWDC2024·Swift新特性与最佳实践",
+      "url": "https://app.notion.com/p/WWDC2024-Swift-33e7125a9c9f810b9d7cf3b3ea05e920",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-8137-a091-d2af893eccad",
+      "title": "Swift struct/extension/Codable·类型系统实战",
+      "url": "https://app.notion.com/p/Swift-struct-extension-Codable-33e7125a9c9f8137a091d2af893eccad",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33e7125a-9c9f-817a-8733-d5713bc3795d",
+      "title": "Swift语言基础·类型/安全/表达力",
+      "url": "https://app.notion.com/p/Swift-33e7125a9c9f817a8733d5713bc3795d",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81a8-a99c-ccc500403509",
+      "title": "Swift可选值与安全处理·if let/guard let/??",
+      "url": "https://app.notion.com/p/Swift-if-let-guard-let-33e7125a9c9f81a8a99cccc500403509",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81bb-af80-e1c5a39e84b6",
+      "title": "Swift性能优化·LLVM编译·值类型·内存安全",
+      "url": "https://app.notion.com/p/Swift-LLVM-33e7125a9c9f81bbaf80e1c5a39e84b6",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33e7125a-9c9f-81de-94f7-c685c30f8f04",
+      "title": "Swift与C/C++/Objective-C混编互操作",
+      "url": "https://app.notion.com/p/Swift-C-C-Objective-C-33e7125a9c9f81de94f7c685c30f8f04",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "6bed453a-2e72-48a9-9c8b-a35b6bd821c6",
+      "title": "龍魂·五行计算器 v1.0｜CNSH中文编程·天干地支·五行相生相克·曾老师理论指导",
+      "url": "https://app.notion.com/p/v1-0-CNSH-6bed453a2e7248a99c8ba35b6bd821c6",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8154-875c-eb344bb3ff75",
+      "title": "规则库上下文加载器 (rules_loader)",
+      "url": "https://app.notion.com/p/rules_loader-33d7125a9c9f8154875ceb344bb3ff75",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-816c-a0e6-d5f8d2e6ec35",
+      "title": "CNSH网关 :9622 (cnsh_gateway)",
+      "url": "https://app.notion.com/p/CNSH-9622-cnsh_gateway-33d7125a9c9f816ca0e6d5f8d2e6ec35",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8193-86c0-fa0e205c9641",
+      "title": "AI-DNA思考引擎 (ai_dna_engine)",
+      "url": "https://app.notion.com/p/AI-DNA-ai_dna_engine-33d7125a9c9f819386c0fa0e205c9641",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81a9-ba92-dda9c0bc166f",
+      "title": "星辰记忆系统 v2.1 (star_memory)",
+      "url": "https://app.notion.com/p/v2-1-star_memory-33d7125a9c9f81a9ba92dda9c0bc166f",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81de-ac69-cbb88a4d9171",
+      "title": "CNSH中文编程解释器 (cnsh.py)",
+      "url": "https://app.notion.com/p/CNSH-cnsh-py-33d7125a9c9f81deac69cbb88a4d9171",
+      "status": "",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81ed-aa11-c1ee338eea8b",
+      "title": "三路只读对接桥 (sync_bridge)",
+      "url": "https://app.notion.com/p/sync_bridge-33d7125a9c9f81edaa11c1ee338eea8b",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81fe-9aa7-d8f92d446b06",
+      "title": "双脑同步引擎 v1.1 (brain_sync)",
+      "url": "https://app.notion.com/p/v1-1-brain_sync-33d7125a9c9f81fe9aa7d8f92d446b06",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8107-b4a8-fdc5a0745ad5",
+      "title": "龍魂龍醒引擎 v1.0",
+      "url": "https://app.notion.com/p/v1-0-33d7125a9c9f8107b4a8fdc5a0745ad5",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-816e-8381-e251d7147e9e",
+      "title": "龍魂本地引擎 v2.0 (app.py)",
+      "url": "https://app.notion.com/p/v2-0-app-py-33d7125a9c9f816e8381e251d7147e9e",
+      "status": "",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8177-9dc1-c82e64736cdc",
+      "title": "龍魂指挥塔 (commander)",
+      "url": "https://app.notion.com/p/commander-33d7125a9c9f81779dc1c82e64736cdc",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8182-a9a7-de81004ee235",
+      "title": "龍魂沙盒推演引擎 v3.0",
+      "url": "https://app.notion.com/p/v3-0-33d7125a9c9f8182a9a7de81004ee235",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-8193-b33f-dd1f674b3dda",
+      "title": "三色审计引擎 (auditor.py)",
+      "url": "https://app.notion.com/p/auditor-py-33d7125a9c9f8193b33fdd1f674b3dda",
+      "status": "",
+      "lh_category": "已落地"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81f4-a3ba-ed40093b1196",
+      "title": "龍魂质检机器人 (qa_bot)",
+      "url": "https://app.notion.com/p/qa_bot-33d7125a9c9f81f4a3baed40093b1196",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "33d7125a-9c9f-81f5-863e-e700f47f852e",
+      "title": "龍魂本地服务 :8765",
+      "url": "https://app.notion.com/p/8765-33d7125a9c9f81f5863ee700f47f852e",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "5eff197e-57ee-47d8-b821-611a3c7cd3b0",
+      "title": "龍魂暗语加密系统·三层中文加密架构｜字典注释为骨·错别字近音为辅·骚话为行为参数",
+      "url": "https://app.notion.com/p/5eff197e57ee47d8b821611a3c7cd3b0",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-811a-97a1-e05961925212",
+      "title": "数据库：事务ACID + 隔离级别",
+      "url": "https://app.notion.com/p/ACID-3367125a9c9f811a97a1e05961925212",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-8136-9e59-feafed1951a5",
+      "title": "计算机网络：TCP三次握手 / 四次挥手",
+      "url": "https://app.notion.com/p/TCP-3367125a9c9f81369e59feafed1951a5",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-813e-8201-eb034cd6d2c8",
+      "title": "操作系统：进程 / 线程 / 协程",
+      "url": "https://app.notion.com/p/3367125a9c9f813e8201eb034cd6d2c8",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-81c7-93af-e8a5d9543aa8",
+      "title": "内存模型：堆 / 栈 / 指针引用",
+      "url": "https://app.notion.com/p/3367125a9c9f81c793afe8a5d9543aa8",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-81ff-8a6a-f96c931cf006",
+      "title": "算法复杂度：大O表示法",
+      "url": "https://app.notion.com/p/O-3367125a9c9f81ff8a6af96c931cf006",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-8091-9419-c7511d88a47b",
+      "title": "Python编程",
+      "url": "https://app.notion.com/p/Python-3367125a9c9f80919419c7511d88a47b",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-8048-b16e-d0aae26da5ea",
+      "title": "数论基础",
+      "url": "https://app.notion.com/p/3367125a9c9f8048b16ed0aae26da5ea",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-80a6-9ec0-e4b52e25f45b",
+      "title": "概率统计",
+      "url": "https://app.notion.com/p/3367125a9c9f80a69ec0e4b52e25f45b",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-80d1-9392-c59e1f276a8f",
+      "title": "线性代数",
+      "url": "https://app.notion.com/p/3367125a9c9f80d19392c59e1f276a8f",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-8025-99a4-ce7b716dd7a4",
+      "title": "离散数学",
+      "url": "https://app.notion.com/p/3367125a9c9f802599a4ce7b716dd7a4",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-8012-85f6-fd60ec63d1a7",
+      "title": "数据库理论",
+      "url": "https://app.notion.com/p/3367125a9c9f801285f6fd60ec63d1a7",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-80ad-87df-c813803bcd1f",
+      "title": "计算机网络基础",
+      "url": "https://app.notion.com/p/3367125a9c9f80ad87dfc813803bcd1f",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-804a-8fc1-efd5b7cf1cd2",
+      "title": "操作系统原理",
+      "url": "https://app.notion.com/p/3367125a9c9f804a8fc1efd5b7cf1cd2",
+      "status": "",
+      "lh_category": "有代码"
+    },
+    {
+      "page_id": "3367125a-9c9f-80e6-bc45-e81fdff796d0",
+      "title": "计算理论",
+      "url": "https://app.notion.com/p/3367125a9c9f80e6bc45e81fdff796d0",
+      "status": "",
+      "lh_category": "纯概念"
+    },
+    {
+      "page_id": "3367125a-9c9f-80b6-b9a3-c7769fd69238",
+      "title": "数据结构与算法",
+      "url": "https://app.notion.com/p/3367125a9c9f80b6b9a3c7769fd69238",
+      "status": "",
+      "lh_category": "有代码"
+    }
+  ]
+}
+
+// CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·丙申·甲寅·申时·晋-CONFIRM-SEAL-db_3367_classificati-ABB17300

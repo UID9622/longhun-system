@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂知识库 · 索引</title>
+<style>
+:root {
+  --bg: #08080f; --bg2: #101018; --card: #161626;
+  --border: #2a2a3a; --gold: #d4a12c; --accent: #a78bfa;
+  --cyan: #22d3ee; --green: #4ade80; --red: #f87171;
+  --text: #d4d4d8; --dim: #71717a; --orange: #fb923c;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center; padding: 40px 20px 30px;
+  background: linear-gradient(180deg,#1a1a2e80 0%,transparent 100%);
+}
+.header h1 { font-size: 36px; color: var(--gold); letter-spacing: 4px; }
+.header .sub { color: var(--dim); margin-top: 8px; font-size: 13px; }
+.header .back {
+  display: inline-block; margin-top: 12px; color: var(--cyan);
+  text-decoration: none; font-size: 13px;
+}
+.header .back:hover { text-decoration: underline; }
+
+/* ── Search ── */
+.search-bar {
+  max-width: 700px; margin: 0 auto 20px; padding: 0 20px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%; padding: 12px 44px 12px 16px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: 15px;
+  outline: none; transition: border-color .2s;
+}
+.search-bar input:focus { border-color: var(--gold); }
+.search-bar .icon {
+  position: absolute; right: 30px; top: 50%; transform: translateY(-50%);
+  font-size: 18px; pointer-events: none;
+}
+
+/* ── Stats bar ── */
+.stats-row {
+  max-width: 960px; margin: 0 auto 16px; padding: 0 20px;
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}
+.stat-badge {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 6px 14px; font-size: 12px; color: var(--dim);
+}
+.stat-badge strong { color: var(--gold); }
+
+/* ── Tabs ── */
+.tabs {
+  max-width: 960px; margin: 0 auto 20px; padding: 0 20px;
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.tab {
+  padding: 6px 14px; border-radius: 16px; font-size: 12px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--dim); cursor: pointer; transition: all .2s;
+  white-space: nowrap;
+}
+.tab:hover { border-color: var(--accent); color: var(--text); }
+.tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.tab .count { opacity: .6; margin-left: 4px; }
+
+/* ── Container ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* ── Results count ── */
+.results-info {
+  color: var(--dim); font-size: 13px; margin-bottom: 12px;
+}
+
+/* ── Article Cards ── */
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  gap: 10px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px; transition: all .2s;
+}
+.card:hover { border-color: var(--gold); transform: translateY(-1px); }
+.card h3 {
+  font-size: 14px; margin-bottom: 6px; color: var(--text);
+  line-height: 1.4;
+}
+.card .summary {
+  font-size: 12px; color: var(--dim); line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; margin-bottom: 10px;
+}
+.card .meta {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+}
+.card .source {
+  font-size: 10px; color: var(--cyan); padding: 2px 8px;
+  background: #22d3ee12; border-radius: 10px;
+}
+.card .cat {
+  font-size: 10px; color: var(--accent); padding: 2px 8px;
+  background: #a78bfa12; border-radius: 10px;
+}
+.card .quality {
+  font-size: 10px; margin-left: auto;
+}
+.q-high { color: var(--green); }
+.q-mid { color: var(--orange); }
+.q-low { color: var(--red); }
+
+/* ── Empty state ── */
+.empty {
+  text-align: center; padding: 60px 20px; color: var(--dim);
+}
+.empty .emoji { font-size: 48px; margin-bottom: 12px; }
+.empty p { font-size: 14px; }
+
+/* ── Loading ── */
+.loading {
+  text-align: center; padding: 40px; color: var(--dim);
+}
+
+/* ── Source Section ── */
+.source-section { margin-top: 36px; }
+.source-section h2 {
+  font-size: 16px; color: var(--gold); margin-bottom: 12px;
+  padding-bottom: 6px; border-bottom: 1px solid var(--border);
+}
+.source-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.source-tag {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 4px 10px; font-size: 11px;
+  color: var(--dim); cursor: pointer; transition: all .2s;
+}
+.source-tag:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ── Footer ── */
+.footer {
+  text-align: center; padding: 32px 20px; color: var(--dim);
+  font-size: 11px; border-top: 1px solid var(--border);
+}
+.footer .dna { font-family: monospace; margin-top: 6px; font-size: 10px; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .header h1 { font-size: 28px; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📚 龍魂知识库</h1>
+  <p class="sub">自动化知识采集 · 摘要索引 · 来源追溯 · 数据主权归本地</p>
+  <a class="back" href="/portal/">← 返回门户</a>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="search" placeholder="搜索知识库..." oninput="filter()">
+  <span class="icon">🔍</span>
+</div>
+
+<div class="stats-row" id="statsRow"></div>
+
+<div class="tabs" id="tabsRow"></div>
+
+<div class="container">
+  <div class="results-info" id="resultsInfo"></div>
+  <div id="content">
+    <div class="loading">加载知识索引中...</div>
+  </div>
+</div>
+
+<div class="source-section container" id="sourceSection" style="display:none">
+  <h2>📡 知识来源</h2>
+  <div class="source-tags" id="sourceTags"></div>
+</div>
+
+<div class="footer">
+  <p>龍魂系统 · 数据主权归集本地 · 中国法律准绳</p>
+  <p class="dna" id="footerDna"></p>
+</div>
+
+<script>
+// ── State ──
+let kbData = null;
+let allArticles = [];
+let activeCategory = "全部";
+let activeSearch = "";
+
+// ── Load Index ──
+async function loadIndex() {
+  try {
+    const resp = await fetch("kb_index.json");
+    if (!resp.ok) throw new Error("索引文件不存在");
+    kbData = await resp.json();
+    allArticles = kbData.articles || [];
+    render();
+  } catch (err) {
+    document.getElementById("content").innerHTML = `
+      <div class="empty">
+        <div class="emoji">📭</div>
+        <p>知识索引尚未生成</p>
+        <p style="margin-top:8px;font-size:12px;">
+          运行 <code style="background:var(--card);padding:2px 8px;border-radius:4px;">
+          python3 bin/lh_kb_expand.py index</code> 生成索引
+        </p>
+      </div>`;
+    document.getElementById("footerDna").textContent = "DNA: 索引未生成";
+  }
+}
+
+// ── Render All ──
+function render() {
+  renderStats();
+  renderTabs();
+  renderSourceSection();
+  filter();
+}
+
+// ── Stats row ──
+function renderStats() {
+  if (!kbData) return;
+  const total = kbData.total_articles || allArticles.length;
+  const cats = kbData.categories ? Object.keys(kbData.categories).length : 0;
+  const sources = kbData.source_stats ? Object.keys(kbData.source_stats).length : 0;
+  const genTime = (kbData.generated_at || "").replace("T", " ").slice(0, 19);
+
+  document.getElementById("statsRow").innerHTML = `
+    <span class="stat-badge">📄 <strong>${total}</strong> 篇文章</span>
+    <span class="stat-badge">📁 <strong>${cats}</strong> 个分类</span>
+    <span class="stat-badge">📡 <strong>${sources}</strong> 个来源</span>
+    <span class="stat-badge">🕐 ${genTime}</span>
+  `;
+  document.getElementById("footerDna").textContent =
+    `DNA: ${kbData.dna || "#龍芯⚡️KB-INDEX"}`;
+}
+
+// ── Category Tabs ──
+function renderTabs() {
+  const cats = kbData.categories || {};
+  let html = `<span class="tab active" onclick="setCategory('全部')">全部<span class="count">${allArticles.length}</span></span>`;
+  for (const [cat, info] of Object.entries(cats).sort()) {
+    html += `<span class="tab" onclick="setCategory('${escapeHtml(cat)}')">${escapeHtml(cat)}<span class="count">${info.count}</span></span>`;
+  }
+  document.getElementById("tabsRow").innerHTML = html;
+}
+
+// ── Source Section ──
+function renderSourceSection() {
+  const sources = kbData.source_stats || {};
+  if (!Object.keys(sources).length) return;
+  const sorted = Object.entries(sources).sort((a, b) => b[1] - a[1]);
+  let html = "";
+  for (const [name, count] of sorted.slice(0, 30)) {
+    html += `<span class="source-tag" title="${count}篇">${escapeHtml(name)} (${count})</span>`;
+  }
+  document.getElementById("sourceTags").innerHTML = html;
+  document.getElementById("sourceSection").style.display = "block";
+}
+
+// ── Filter & Search ──
+function setCategory(cat) {
+  activeCategory = cat;
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(t => {
+    if (t.textContent.startsWith(cat)) t.classList.add("active");
+  });
+  filter();
+}
+
+function filter() {
+  activeSearch = document.getElementById("search").value.trim().toLowerCase();
+
+  let filtered = allArticles;
+  if (activeCategory !== "全部") {
+    filtered = filtered.filter(a => a.category === activeCategory);
+  }
+  if (activeSearch) {
+    filtered = filtered.filter(a =>
+      (a.title || "").toLowerCase().includes(activeSearch) ||
+      (a.summary || "").toLowerCase().includes(activeSearch) ||
+      (a.source || "").toLowerCase().includes(activeSearch)
+    );
+  }
+
+  document.getElementById("resultsInfo").textContent =
+    `显示 ${filtered.length} / ${allArticles.length} 篇`;
+
+  if (filtered.length === 0) {
+    document.getElementById("content").innerHTML = `
+      <div class="empty">
+        <div class="emoji">🔍</div>
+        <p>未找到相关文章</p>
+        <p style="font-size:12px;margin-top:4px;">试试其他关键词或分类</p>
+      </div>`;
+    return;
+  }
+
+  let html = '<div class="grid">';
+  for (const a of filtered) {
+    const qScore = a.quality || 0;
+    const qClass = qScore >= 0.8 ? "q-high" : qScore >= 0.6 ? "q-mid" : "q-low";
+    const qLabel = qScore >= 0.8 ? "高质" : qScore >= 0.6 ? "中等" : "待核";
+
+    html += `
+    <div class="card">
+      <h3>${escapeHtml(a.title || "无标题")}</h3>
+      <div class="summary">${escapeHtml(a.summary || "暂无摘要")}</div>
+      <div class="meta">
+        <span class="source">${escapeHtml(a.source || "未知")}</span>
+        <span class="cat">${escapeHtml(a.category || "未分类")}</span>
+        <span class="quality ${qClass}">● ${qLabel}</span>
+      </div>
+    </div>`;
+  }
+  html += '</div>';
+  document.getElementById("content").innerHTML = html;
+}
+
+// ── Utilities ──
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ── Init ──
+loadIndex();
+</script>
+
+</body>
+</html>

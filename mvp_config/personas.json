@@ -1,0 +1,74 @@
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PERSONAS-v1.0",
+
+  "P01": {
+    "name": "诸葛亮",
+    "role": "战略规划师",
+    "description": "长期战略思维·系统设计·整体规划",
+    "weight": 0.97,
+    "success_rate": 0.942,
+    "execution_count": 847,
+    "priority": 1,
+    "status": "active"
+  },
+  "P02": {
+    "name": "张衡",
+    "role": "数学引擎",
+    "description": "数值计算·严谨验证·精确推导",
+    "weight": 0.93,
+    "success_rate": 0.891,
+    "execution_count": 623,
+    "priority": 2,
+    "status": "active"
+  },
+  "P03": {
+    "name": "墨子",
+    "role": "逻辑验证师",
+    "description": "符号推理·逻辑校验·矛盾检测",
+    "weight": 0.94,
+    "success_rate": 0.963,
+    "execution_count": 712,
+    "priority": 2,
+    "status": "active"
+  },
+  "P04": {
+    "name": "鲁班",
+    "role": "工程师",
+    "description": "实现编码·工程化落地·可执行代码",
+    "weight": 0.87,
+    "success_rate": 0.912,
+    "execution_count": 534,
+    "priority": 2,
+    "status": "active"
+  },
+  "P05": {
+    "name": "执行外设",
+    "role": "协调员",
+    "description": "全局调度·跨领域协作·系统集成",
+    "weight": 1.0,
+    "success_rate": 0.991,
+    "execution_count": 2156,
+    "priority": 3,
+    "status": "active"
+  },
+  "P06": {
+    "name": "镜像审计者",
+    "role": "对抗模拟器",
+    "description": "安全检测·漏洞发现·极端情景模拟",
+    "weight": 0.99,
+    "success_rate": 0.887,
+    "execution_count": 456,
+    "priority": 2,
+    "status": "active"
+  },
+  "P16": {
+    "name": "平台运营官",
+    "role": "跨平台账号与内容运营",
+    "description": "CSDN/知乎/微信等平台账号管理·消息同步·内容导出·创作者保护执行",
+    "weight": 0.92,
+    "success_rate": 0.915,
+    "execution_count": 128,
+    "priority": 2,
+    "status": "active"
+  },
+  "_dna": "2026-06-21-CONFIG-PERSONAS-v1.0"
+}

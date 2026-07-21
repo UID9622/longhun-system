@@ -1,0 +1,9 @@
+{
+  "username": "admin",
+  "password_hash": "24d9c129593a4da8cedba0f0d2701c6504f8ce0de5680d735349636cba7fda50",
+  "salt": "6f2a18f239bfe80c7666ffa72ebacbdf",
+  "created_at": 1783772342,
+  "last_login": 1783772369,
+  "login_count": 3,
+  "must_change_password": true
+}

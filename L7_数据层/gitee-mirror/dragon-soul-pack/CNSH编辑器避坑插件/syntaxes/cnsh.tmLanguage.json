@@ -1,0 +1,49 @@
+{
+  "scopeName": "source.cnsh",
+  "name": "CNSH",
+  "fileTypes": ["cnsh"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#keyword" },
+    { "include": "#builtin" },
+    { "include": "#string" },
+    { "include": "#number" },
+    { "include": "#dna" },
+    { "include": "#confirm" }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        { "name": "comment.line.double-slash.cnsh", "match": "//.*$" },
+        { "name": "comment.block.cnsh", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "keyword": {
+      "name": "keyword.control.cnsh",
+      "match": "\\b(定义|函数|返回|如果|否则|循环|遍历|中断|继续|打印|输入|真|假|空|并且|或者|非|导入|导出)\\b"
+    },
+    "builtin": {
+      "name": "support.function.cnsh",
+      "match": "\\b(DNA检测|伦理审计|熔断检查|日志记录|哈希|签名|验证)\\b"
+    },
+    "string": {
+      "name": "string.quoted.double.cnsh",
+      "begin": "\"", "end": "\"",
+      "patterns": [
+        { "name": "constant.character.escape.cnsh", "match": "\\\\." }
+      ]
+    },
+    "number": {
+      "name": "constant.numeric.cnsh",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "dna": {
+      "name": "comment.line.dna.cnsh",
+      "match": "#龍芯⚡️[^\\s]+"
+    },
+    "confirm": {
+      "name": "comment.line.confirm.cnsh",
+      "match": "#CONFIRM🌌[A-Z0-9\\-]+"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs><linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f7f3e8"/><stop offset="100%" stop-color="#e8e0d0"/></linearGradient></defs>
+  <rect width="400" height="500" fill="url(#paper)"/>
+  <g opacity="0.9">
+    <ellipse cx="200" cy="140" rx="55" ry="65" fill="#3a2e24"/>
+    <path d="M140 210 Q200 180 260 210 L280 420 Q200 450 120 420 Z" fill="#5c4a3a"/>
+    <path d="M120 420 Q200 450 280 420" stroke="#2a2018" stroke-width="3" fill="none"/>
+    <path d="M160 240 Q200 260 240 240" stroke="#d4c4a8" stroke-width="2" fill="none"/>
+  </g>
+  <text x="200" y="470" text-anchor="middle" font-family="serif" font-size="20" fill="#4a0000">老子 · 先秦思想家</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="14" fill="#555">占位图 · 待替换为真实公开版权画像</text>
+</svg>

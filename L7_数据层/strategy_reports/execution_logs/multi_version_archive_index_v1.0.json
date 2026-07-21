@@ -1,0 +1,1178 @@
+{
+  "generated_at": "2026-07-09T16:23:44.859242",
+  "total_version_groups": 168,
+  "total_versioned_files": 835,
+  "versions": {
+    "README": [
+      "README-v4.0.md",
+      "_archive/reports-legacy/README-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/README-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-70223ec10961513b/README-v4.0.md"
+    ],
+    "PERSONA_TRAINING_SYSTEM": [
+      "PERSONA_TRAINING_SYSTEM_v1.0.md",
+      "agents/PERSONA_TRAINING_SYSTEM_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/PERSONA_TRAINING_SYSTEM_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-635b222a8e7a8e28/PERSONA_TRAINING_SYSTEM_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d99551389098dbc7/PERSONA_TRAINING_SYSTEM_v1.0.md"
+    ],
+    "DEPLOYMENT_GUIDE": [
+      "DEPLOYMENT_GUIDE_v1.0.md",
+      "_archive/reports-legacy/DEPLOYMENT_GUIDE_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/DEPLOYMENT_GUIDE_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/DEPLOYMENT_GUIDE_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/DEPLOYMENT_GUIDE_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/DEPLOYMENT_GUIDE_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/DEPLOYMENT_GUIDE_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/DEPLOYMENT_GUIDE_v1.0.v2.md"
+    ],
+    "龍魂視角黎曼猜想_Phase1": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/research/龍魂視角黎曼猜想_Phase1_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/research/龍魂視角黎曼猜想_Phase1_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/research/龍魂視角黎曼猜想_Phase1_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-ff87a8b9f48276a6/research/龍魂視角黎曼猜想_Phase1_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-ff87a8b9f48276a6/research/龍魂視角黎曼猜想_Phase1_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-ff87a8b9f48276a6/research/龍魂視角黎曼猜想_Phase1_v1.0.v2.md",
+      "papers/龍魂視角黎曼猜想_Phase1_v1.0.md",
+      "research/龍魂視角黎曼猜想_Phase1_v1.0.md",
+      "train/data/processed/auto_corpus/龍魂視角黎曼猜想_Phase1_v1.0.md"
+    ],
+    "LONGHUN-5SKILL-COMPLETE-STANDARD": [
+      "L2_技能层/skills/standards/skill-standards.integrated/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
+      "_archive/deprecated/01_技能库/downloads-imports/龍魂 10 Skill 標準化完成/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
+      "integrated-modules/skills.integrated/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
+      "skill-standards.integrated/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md"
+    ],
+    "LONGHUN-10SKILL-UNIFIED-STANDARD": [
+      "L2_技能层/skills/standards/skill-standards.integrated/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
+      "_archive/deprecated/01_技能库/downloads-imports/龍魂 10 Skill 標準化完成/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
+      "integrated-modules/skills.integrated/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
+      "skill-standards.integrated/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md"
+    ],
+    "longhun_file_audit_foundation": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_file_audit_foundation_v2.0.py",
+      "_archive/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "audit/longhun_file_audit_foundation_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_file_audit_foundation_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "executors/kimi-agent-v2/longhun_file_audit_foundation_v2.0.py",
+      "imports/v7/longhun_file_audit_foundation_v2.0.py",
+      "longhun_mvp_reviewed/longhun_file_audit_foundation_v1.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_file_audit_foundation_v2.0.py"
+    ],
+    "cnsh_aligner": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/cnsh_aligner_v2.0.py",
+      "_archive/longhun_mvp_reviewed/cnsh_aligner_v1.0.py",
+      "cnsh-editor/cnsh_aligner_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/cnsh_aligner_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/cnsh_aligner_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/cnsh_aligner_v1.0.py",
+      "executors/kimi-agent-v2/cnsh_aligner_v2.0.py",
+      "imports/v7/cnsh_aligner_v2.0.py",
+      "longhun_mvp_reviewed/cnsh_aligner_v1.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/cnsh_aligner_v2.0.py"
+    ],
+    "content_sovereignty_protocol": [
+      "_archive/longhun_mvp_reviewed/content_sovereignty_protocol_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/content_sovereignty_protocol_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/content_sovereignty_protocol_v2.0.py",
+      "longhun_mvp_reviewed/content_sovereignty_protocol_v2.0.py"
+    ],
+    "baobao_workflow": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/baobao_workflow_v2.0.py",
+      "_archive/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "bin/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "executors/kimi-agent-v2/baobao_workflow_v2.0.py",
+      "imports/v7/baobao_workflow_v2.0.py",
+      "longhun_mvp_reviewed/baobao_workflow_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/baobao_workflow_v2.0.py"
+    ],
+    "longhun_foundation_launcher": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_foundation_launcher_v2.0.py",
+      "_archive/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "bin/longhun_foundation_launcher_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_foundation_launcher_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "executors/kimi-agent-v2/longhun_foundation_launcher_v2.0.py",
+      "imports/v7/longhun_foundation_launcher_v2.0.py",
+      "longhun_mvp_reviewed/longhun_foundation_launcher_v1.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_foundation_launcher_v2.0.py"
+    ],
+    "longhun_mvp_launcher": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_mvp_launcher_v2.0.py",
+      "_archive/longhun_mvp_reviewed/longhun_mvp_launcher_v2.0.py",
+      "bin/longhun_mvp_launcher_v2.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_launcher_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_launcher_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_launcher_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_launcher_v1.0.v3.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_launcher_v1.0.v4.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v3.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v4.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v5.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_launcher_v1.0.v6.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_launcher_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_launcher_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_launcher_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_launcher_v1.0.v3.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_launcher_v1.0.v4.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_mvp_launcher_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_mvp_launcher_v2.0.py",
+      "executors/kimi-agent-v2/longhun_mvp_launcher_v2.0.py",
+      "executors/mvp/longhun_mvp_launcher_v1.0.py",
+      "imports/v7/longhun_mvp_launcher_v2.0.py",
+      "longhun_mvp_reviewed/longhun_mvp_launcher_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_mvp_launcher_v2.0.py"
+    ],
+    "longhun_mvp_execution_engine": [
+      "_archive/longhun_mvp_reviewed/longhun_mvp_execution_engine_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_mvp_execution_engine_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_mvp_execution_engine_v2.0.py",
+      "longhun_mvp_reviewed/longhun_mvp_execution_engine_v2.0.py"
+    ],
+    "longhun_mvp_notion_integration": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_mvp_notion_integration_v2.0.py",
+      "_archive/longhun_mvp_reviewed/longhun_mvp_notion_integration_v2.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_notion_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_notion_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_notion_integration_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_notion_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_notion_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_notion_integration_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_notion_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_notion_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_notion_integration_v1.0.v2.py",
+      "brain/longhun_mvp_notion_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_mvp_notion_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_mvp_notion_integration_v2.0.py",
+      "executors/kimi-agent-v2/longhun_mvp_notion_integration_v2.0.py",
+      "imports/v7/longhun_mvp_notion_integration_v2.0.py",
+      "integrations/notion/longhun_mvp_notion_integration_v1.0.py",
+      "longhun_mvp_reviewed/longhun_mvp_notion_integration_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_mvp_notion_integration_v2.0.py"
+    ],
+    "lineage_verification_engine": [
+      "_archive/longhun_mvp_reviewed/lineage_verification_engine_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/lineage_verification_engine_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/lineage_verification_engine_v1.0.py",
+      "longhun_mvp_reviewed/lineage_verification_engine_v1.0.py"
+    ],
+    "longhun_mvp_setup_integration": [
+      "L9_子系统/subsystems/longhun_mvp_setup_integration_v1.0.py",
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_mvp_setup_integration_v2.0.py",
+      "_archive/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "_archive/reports-legacy/longhun_mvp_setup_integration_v1.0.py",
+      "bin/longhun_mvp_setup_integration_v2.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_setup_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_setup_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_mvp_setup_integration_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_setup_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_setup_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_mvp_setup_integration_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_setup_integration_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_setup_integration_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_mvp_setup_integration_v1.0.v2.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5/longhun_mvp_setup_integration_v2.0.py",
+      "executors/kimi-agent-v2/longhun_mvp_setup_integration_v2.0.py",
+      "imports/v7/longhun_mvp_setup_integration_v2.0.py",
+      "longhun_mvp_reviewed/longhun_mvp_setup_integration_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_mvp_setup_integration_v2.0.py"
+    ],
+    "script_manager": [
+      "_archive/longhun_mvp_reviewed/script_manager_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/longhun_mvp_reviewed/script_manager_v1.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_mvp_reviewed/script_manager_v1.0.py",
+      "longhun_mvp_reviewed/script_manager_v1.0.py"
+    ],
+    "龍魂系统_知识矩阵总纲": [
+      "03_知識圖譜/龍魂系统_知识矩阵总纲_v2.0.md",
+      "_archive/downloads-inbox/misc/龍魂系统_知识矩阵总纲_v2.0.md"
+    ],
+    "龙魂数字主权体系_学术论文": [
+      "03_知識圖譜/龙魂数字主权体系_学术论文_v2.0.md",
+      "articles/龙魂数字主权体系_学术论文_v2.0.md"
+    ],
+    "longhun_mvp_executor": [
+      "L9_子系统/subsystems/longhun_mvp_executor_v1.0.py",
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_mvp_executor_v2.0.py",
+      "_archive/reports-legacy/longhun_mvp_executor_v1.0.py",
+      "bin/longhun_mvp_executor_v2.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/longhun_mvp_executor_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/longhun_mvp_executor_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/longhun_mvp_executor_v1.0.v2.py",
+      "executors/kimi-agent-v2/longhun_mvp_executor_v2.0.py",
+      "imports/v7/longhun_mvp_executor_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_mvp_executor_v2.0.py"
+    ],
+    "longhun_script_manager": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_script_manager_v2.0.py",
+      "bin/longhun_script_manager_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/longhun_script_manager_v2.0.py",
+      "executors/kimi-agent-v2/longhun_script_manager_v2.0.py",
+      "imports/v7/longhun_script_manager_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_script_manager_v2.0.py"
+    ],
+    "龍魂操作台v2.0.html": [
+      "L5_服务层/services/dashboard/web/龍魂操作台v2.0.html",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/龍魂操作台v2.0.html",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/龍魂操作台v2.0.html",
+      "web/龍魂操作台v2.0.html"
+    ],
+    "CNSH_龍魂操作台v4.0.html": [
+      "L5_服务层/services/dashboard/web/CNSH_龍魂操作台v4.0.html",
+      "web/CNSH_龍魂操作台v4.0.html"
+    ],
+    "龍魂智能中枢": [
+      "L5_服务层/services/dashboard/web/龍魂智能中枢_v5.0_全套一体化.html",
+      "docs/references/龍魂智能中枢_v5.0_全套一体化.html",
+      "web/龍魂智能中枢_v5.0_全套一体化.html"
+    ],
+    "龍魂操作台v3.0.html": [
+      "L5_服务层/services/dashboard/web/龍魂操作台v3.0.html",
+      "web/龍魂操作台v3.0.html"
+    ],
+    "2026-07-04-伦理量子·中式价值对齐方案": [
+      "L5_服务层/services/portal/portal/articles/2026-07-04-伦理量子·中式价值对齐方案-v1.0.md",
+      "articles/2026-07-04-伦理量子·中式价值对齐方案-v1.0.md"
+    ],
+    "2026-07-04-龍魂隐私白皮书": [
+      "L5_服务层/services/portal/portal/articles/2026-07-04-龍魂隐私白皮书_v2.0.md",
+      "articles/2026-07-04-龍魂隐私白皮书_v2.0.md"
+    ],
+    "2026-07-04-龍魂算法公司护城河规范": [
+      "L5_服务层/services/portal/portal/articles/2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md",
+      "articles/2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md"
+    ],
+    "UID9622_龍魂流场总控": [
+      "L8_治理层/governance/reports/UID9622_龍魂流场总控_v2.0.md",
+      "_archive/reports-legacy/UID9622_龍魂流场总控_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/UID9622_龍魂流场总控_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/UID9622_龍魂流场总控_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/UID9622_龍魂流场总控_v2.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-40735327a15f1e81/UID9622_龍魂流场总控_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-40735327a15f1e81/UID9622_龍魂流场总控_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-40735327a15f1e81/UID9622_龍魂流场总控_v2.0.v2.md",
+      "docs/UID9622_龍魂流场总控_v2.0.md",
+      "docs/UID9622_龍魂流场总控_v2.0_1.md"
+    ],
+    "龍魂倫理錨定層": [
+      "docs/daodejing/龍魂倫理錨定層_v1.0.md",
+      "docs/龍魂倫理錨定層_v1.0.md"
+    ],
+    "Three-Powers-San-Algorithm": [
+      "cnsh-repo-push/longhun-system/🔧 AI技术架构分析中心/Three-Powers-San-Algorithm-v2.0.tex",
+      "docs/Three-Powers-San-Algorithm-v2.0.tex"
+    ],
+    "CNSH_命令与变量命名规范": [
+      "docs/CNSH_命令与变量命名规范-v1.0.md",
+      "docs/CNSH_命令与变量命名规范-v2.0.md"
+    ],
+    "道德经81章_龍魂系统大白话解读_完整版": [
+      "docs/道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+      "docs/道德经81章_龍魂系统大白话解读_完整版_v5.0.notion_sync_report.json",
+      "docs/道德经81章_龍魂系统大白话解读_完整版_v5.0.report.json"
+    ],
+    "LONGHUN-CREATOR-PROTECTION": [
+      ".longhun/nodes/node-alpha/protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.anchoring.json",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.chain.jsonl",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.confirmation.json",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.layer2.json",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md.asc",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.sha256",
+      "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.sha256.json",
+      "train/data/processed/auto_corpus/LONGHUN-CREATOR-PROTECTION-v1.0.md"
+    ],
+    "龍魂系統輸入過濾與預處理協議": [
+      "01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md",
+      "train/data/processed/auto_corpus/龍魂系統輸入過濾與預處理協議_v3.0.md"
+    ],
+    "LH-GOV-DATA-SOVEREIGNTY": [
+      "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+      "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md.sha256"
+    ],
+    "LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL": [
+      "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md",
+      "train/data/processed/auto_corpus/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md"
+    ],
+    "UID9622_人机协作协议": [
+      "01_protocols/UID9622_人机协作协议_v2.0.md",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8/UID9622_人机协作协议_v2.0.md",
+      "train/data/processed/auto_corpus/UID9622_人机协作协议_v2.0.md"
+    ],
+    "CNSH_FIRST_PRINCIPLES": [
+      "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md"
+    ],
+    "LH-GOV-GRASSROOTS-REALITY-PROTOCOL": [
+      "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md",
+      "train/data/processed/auto_corpus/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md"
+    ],
+    "owner_semantic_drawers": [
+      "01_技能庫/owner_semantic_drawers_v2.0.json",
+      "01_技能庫/owner_semantic_drawers_v2.0.md"
+    ],
+    "longhun_lineage_verification": [
+      "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_lineage_verification_v2.0.py",
+      "audit/longhun_lineage_verification_v2.0.py",
+      "executors/kimi-agent-v2/longhun_lineage_verification_v2.0.py",
+      "imports/v7/longhun_lineage_verification_v2.0.py",
+      "releases/v5.1/staging/executors/kimi-agent-v2/longhun_lineage_verification_v2.0.py"
+    ],
+    "FEARLESS_STEVE_PROTOCOL": [
+      "_archive/legacy/cnsh-core.backup/FEARLESS_STEVE_PROTOCOL_v2.0_IMPLEMENTATION.cpp",
+      "_archive/legacy/cnsh-core.backup/FEARLESS_STEVE_PROTOCOL_v2.0_MULTI_PERSONA_ENGINE.cpp",
+      "_archive/legacy/cnsh-core.backup/FEARLESS_STEVE_PROTOCOL_v2.0_USAGE_GUIDE.md",
+      "cnsh-core/FEARLESS_STEVE_PROTOCOL_v2.0_IMPLEMENTATION.cpp",
+      "cnsh-core/FEARLESS_STEVE_PROTOCOL_v2.0_MULTI_PERSONA_ENGINE.cpp",
+      "cnsh-core/FEARLESS_STEVE_PROTOCOL_v2.0_USAGE_GUIDE.md"
+    ],
+    "longhun-algorithms-cnsh": [
+      "L1_内核层/kernel/algorithms/longhun-algorithms-cnsh-v1.0.md",
+      "L2_技能层/longhun-algorithms-cnsh-v1.0.md"
+    ],
+    "龙魂系统_API接口完整实现": [
+      "L6_集成层/龙魂系统_API接口完整实现_v1.0.py",
+      "cnsh-core/api/longhun-api/龙魂系统_API接口完整实现_v1.0.py"
+    ],
+    "CNSH": [
+      "L8_治理层/governance/tech-docs/CNSH_v1.0_FULL_ARCHITECTURE.md",
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/CNSH_v3.0中文编程规范_激活文档.md",
+      "_archive/papers/论文 1/CNSH-v3.0-Chinese-Technical-Report.md",
+      "_archive/papers/论文 1/CNSH-v3.0-Main-Paper.tex",
+      "_archive/papers/论文/CNSH-v3.0-Chinese-Technical-Report.md",
+      "_archive/papers/论文/CNSH-v3.0-Main-Paper.tex",
+      "_archive/papers/论文/CNSH-v3.0-Methodology-Enhanced.md",
+      "_archive/papers/论文/CNSH-v3.0-Paper-v2.0-Optimized.md",
+      "_archive/reports-legacy/CNSH_v1.0_DEPLOYMENT_VERIFICATION.md",
+      "_archive/reports-legacy/CNSH_v1.0_FULL_ARCHITECTURE.md",
+      "_archive/reports-legacy/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.v2.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v2.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v3.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v4.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v5.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v6.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v7.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL.v8.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v2.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v3.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v4.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v5.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v3.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v4.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-13eb24ac48883ecf/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v5.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/CNSH_v3.0_UPGRADE_COMPLETE_REPORT.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v3.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v4.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v5.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v6.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v7.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-353d4ca1b92ef97c/protocols/CNSH_v2.0_ROOT_PROTOCOL.v8.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_DEPLOYMENT_VERIFICATION.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_DEPLOYMENT_VERIFICATION.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_DEPLOYMENT_VERIFICATION.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_FULL_ARCHITECTURE.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_FULL_ARCHITECTURE.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/CNSH_v1.0_FULL_ARCHITECTURE.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v3.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v4.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-d7dc16429a421ab6/protocols/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.v5.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_DEPLOYMENT_VERIFICATION.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_DEPLOYMENT_VERIFICATION.v1.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_DEPLOYMENT_VERIFICATION.v2.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_FULL_ARCHITECTURE.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_FULL_ARCHITECTURE.v1.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/CNSH_v1.0_FULL_ARCHITECTURE.v2.md",
+      "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單/CNSH_v3.0_COMPLETE_BILINGUAL_CHARTER.md",
+      "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單/CNSH_v3.0_DELIVERY_SUMMARY.md",
+      "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單/CNSH_v3.0_DEPLOYMENT_CHECKLIST.md",
+      "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單/CNSH_v3.0_L2-L6_COMPLETE.md",
+      "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單/CNSH_v3.0_L7_COMPLETE_CONTENT_SOVEREIGNTY.md",
+      "docs/v3/CNSH_v3.0中文编程规范_激活文档.md",
+      "protocols/CNSH_v3.0_COMPLETE_CHARTER.docx",
+      "protocols/CNSH_v3.0_COMPLETE_CHARTER.epub",
+      "protocols/CNSH_v3.0_COMPLETE_CHARTER.html",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_BILINGUAL_CHARTER.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_FULL.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_FULL_no_emoji.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_DELIVERY_SUMMARY.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_DEPLOYMENT_CHECKLIST.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_L2-L6_COMPLETE.md",
+      "protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_L7_COMPLETE_CONTENT_SOVEREIGNTY.md",
+      "protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "releases/v5.1/staging/protocols/CNSH_v3.0_COMPLETE_CHARTER.docx",
+      "releases/v5.1/staging/protocols/CNSH_v3.0_COMPLETE_CHARTER.epub",
+      "releases/v5.1/staging/protocols/CNSH_v3.0_COMPLETE_CHARTER.html",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_BILINGUAL_CHARTER.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_FULL.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_COMPLETE_FULL_no_emoji.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_DELIVERY_SUMMARY.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_DEPLOYMENT_CHECKLIST.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_L2-L6_COMPLETE.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_CNSH_v2.0_v3.0_2026-06-08/CNSH_v3.0_L7_COMPLETE_CONTENT_SOVEREIGNTY.md",
+      "releases/v5.1/staging/protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL.md",
+      "releases/v5.1/staging/protocols/_archive/v2.0_2026-06-07/CNSH_v2.0_ROOT_PROTOCOL_BILINGUAL.md",
+      "tools/gpg-sign-manager/CNSH_v2.0_FULL_PROTOCOL_SIGNATURE.md",
+      "tools/gpg-sign-manager/CNSH_v2.0_SIGNATURE.md",
+      "tools/gpg-sign-manager/CNSH_v2.0_SIGN_README.md"
+    ],
+    "cnsh_editor_engine": [
+      "cnsh-editor/cnsh_editor_engine_v2.0.py",
+      "cnsh-editor/core/cnsh_editor_engine_v2.0.py",
+      "cnsh-terminal/engines/cnsh_editor_engine_v2.0.py",
+      "imports/v7/cnsh_editor_engine_v2.0.py",
+      "releases/v5.1/staging/cnsh-terminal/engines/cnsh_editor_engine_v2.0.py"
+    ],
+    "cnsh_translator_engine": [
+      "cnsh-editor/cnsh_translator_engine_v2.0.py",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/cnsh_translator_engine_v2.0.py",
+      "cnsh-terminal/engines/cnsh_translator_engine_v2.0.py",
+      "imports/v7/cnsh_translator_engine_v2.0.py",
+      "releases/v5.1/staging/cnsh-terminal/engines/cnsh_translator_engine_v2.0.py"
+    ],
+    "LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED": [
+      "L5_服务层/services/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+      "baobao-guardian/downloads-imports/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+      "docs/monitoring/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+      "integrated-modules/monitoring/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md"
+    ],
+    "longhun_self_check": [
+      "L9_子系统/subsystems/longhun_self_check_v1.0.py",
+      "_archive/reports-legacy/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0aa6d556e6062161/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0aa6d556e6062161/longhun_self_check_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_self_check_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_self_check_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_self_check_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_self_check_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9d337e181ed74f3c/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_self_check_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_self_check_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_self_check_v1.0.v2.py"
+    ],
+    "kfpp_executor": [
+      "releases/v5.1/staging/systems/kfpp/kfpp_executor_v1.0.py",
+      "systems/kfpp/kfpp_executor_v1.0.py"
+    ],
+    "UID9622_GENERATIONAL_COVENANT": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_GENERATIONAL_COVENANT_v1.0.v2.md",
+      "protocols/_DEPRECATED_v1.0_2026-06-08/UID9622_GENERATIONAL_COVENANT_v1.0.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_v1.0_2026-06-08/UID9622_GENERATIONAL_COVENANT_v1.0.md"
+    ],
+    "UID9622_EXCLUSIVE_PROTOCOL": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v3.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v4.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v5.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v3.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v4.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-95cc509f27d12ef7/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v5.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v3.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v4.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-9f71a8c4d863c50d/protocols/UID9622_EXCLUSIVE_PROTOCOL_v1.0.v5.md",
+      "protocols/_DEPRECATED_v1.0_2026-06-08/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_v1.0_2026-06-08/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md"
+    ],
+    "THREE_COLOR_AUDIT_PROTOCOL": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/THREE_COLOR_AUDIT_PROTOCOL_v1.0.v2.md",
+      "protocols/_DEPRECATED_v1.0_2026-06-08/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_v1.0_2026-06-08/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md"
+    ],
+    "AUDIT_INTEGRATION_GUIDE": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-30b629c5365edbf0/protocols/AUDIT_INTEGRATION_GUIDE_v1.0.v2.md",
+      "protocols/_DEPRECATED_v1.0_2026-06-08/AUDIT_INTEGRATION_GUIDE_v1.0.md",
+      "releases/v5.1/staging/protocols/_DEPRECATED_v1.0_2026-06-08/AUDIT_INTEGRATION_GUIDE_v1.0.md"
+    ],
+    "龍智守_本地控制接口": [
+      "dist/龍智守_v2.0_20260630_062447/龍智守_本地控制接口_v2.0.py",
+      "dist/龍智守_v2.0_20260630_142007/龍智守_本地控制接口_v2.0.py"
+    ],
+    "COMPLETE-API-DOCUMENTATION": [
+      "L8_治理层/governance/COMPLETE-API-DOCUMENTATION-v4.0.md",
+      "_archive/reports-legacy/COMPLETE-API-DOCUMENTATION-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/COMPLETE-API-DOCUMENTATION-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-70223ec10961513b/COMPLETE-API-DOCUMENTATION-v4.0.md"
+    ],
+    "龍魂审核过滤系统规则规格书v2.0.html": [
+      "L8_治理层/governance/龍魂审核过滤系统规则规格书v2.0.html",
+      "docs/references/龍魂审核过滤系统规则规格书v2.0.html"
+    ],
+    "LONGHUN-3CORE-OPTIMIZATION-UPGRADE": [
+      "L8_治理层/governance/LONGHUN-3CORE-OPTIMIZATION-UPGRADE-v1.0.md",
+      "_archive/downloads-inbox/misc/完整的龍魂系統標準化 + 3 核心系統優化升級/LONGHUN-3CORE-OPTIMIZATION-UPGRADE-v1.0.md",
+      "_archive/reports-legacy/LONGHUN-3CORE-OPTIMIZATION-UPGRADE-v1.0.md"
+    ],
+    "M262_本地宝宝能力清单": [
+      "L8_治理层/governance/reports/M262_本地宝宝能力清单_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/M262_本地宝宝能力清单_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/M262_本地宝宝能力清单_v1.0.v1.md"
+    ],
+    "龍魂·AI行为约束耻辱柱_完整工程化方案": [
+      "L8_治理层/governance/reports/龍魂·AI行为约束耻辱柱_完整工程化方案_v3.0.md",
+      "docs/private-shared-imports/security-audit/龍魂·AI行为约束耻辱柱_完整工程化方案_v3.0.md"
+    ],
+    "签名与终端系统": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/签名与终端系统-v2.0-完成报告.md",
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/签名与终端系统-v2.0-完整指南.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/签名与终端系统-v2.0-完成报告.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/签名与终端系统-v2.0-完整指南.md",
+      "tests/cnsh-v1.0/签名与终端系统-v2.0-完成报告.md",
+      "tests/cnsh-v1.0/签名与终端系统-v2.0-完整指南.md"
+    ],
+    "龙魂终端v3.0-完成报告.md": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂终端v3.0-完成报告.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂终端v3.0-完成报告.md",
+      "tests/cnsh-v1.0/龙魂终端v3.0-完成报告.md"
+    ],
+    "龙魂签名管理系统": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂签名管理系统-v2.0.html",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂签名管理系统-v2.0.html",
+      "tests/cnsh-v1.0/龙魂签名管理系统-v2.0.html"
+    ],
+    "龙魂智能终端": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂智能终端-v3.0-漂移版.html",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂智能终端-v3.0-漂移版.html",
+      "tests/cnsh-v1.0/龙魂智能终端-v3.0-漂移版.html"
+    ],
+    "CNSH智能终端": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH智能终端-v2.0.html",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/CNSH智能终端-v2.0.html",
+      "tests/cnsh-v1.0/CNSH智能终端-v2.0.html"
+    ],
+    "龙魂终端v3.0-使用指南.md": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂终端v3.0-使用指南.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂终端v3.0-使用指南.md",
+      "tests/cnsh-v1.0/龙魂终端v3.0-使用指南.md"
+    ],
+    "LongHun_Ecosystem_Complete_Implementation": [
+      "agents/downloads-imports/龍魂网关/LongHun_Complete_Ecosystem_v1.0 2/LongHun_Ecosystem_Complete_Implementation_v1.0.py",
+      "agents/downloads-imports/龍魂网关/LongHun_Complete_Ecosystem_v1.0/LongHun_Ecosystem_Complete_Implementation_v1.0.py"
+    ],
+    "知识矩阵总纲": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/知识矩阵总纲_v3.0.md",
+      "docs/v3/知识矩阵总纲_v3.0.md",
+      "docs/契约矩阵/知识矩阵总纲_v1.0.md",
+      "docs/契约矩阵/知识矩阵总纲_v2.0.md",
+      "docs/契约矩阵/知识矩阵总纲_v2.0（用户完整版）.md"
+    ],
+    "龍魂系统-主计划总纲": [
+      "L7_数据层/claude_extracted/raw/html/a89d76ba-6216-42b3-ba33-e18194ebb230/b84aa772-13a2-4c76-ae42-f31f0ff2ce57/local_f0249731-1e29-42b7-85c5-4b8a35ae21b0/uploads/龍魂系统-主计划总纲-v1.0.html",
+      "docs/references/龍魂系统-主计划总纲-v1.0.html"
+    ],
+    "page_CNSH_语义接入规范": [
+      "docs/notion_mirror/page_CNSH_语义接入规范_v2.0.txt",
+      "docs/notion_mirror/page_CNSH_语义接入规范_v2.0_dedup.txt",
+      "docs/notion_mirror/page_CNSH_语义接入规范_v2.0_fmt.txt"
+    ],
+    "太极易经·七维人性推演引擎": [
+      "docs/dragon-soul-open-hub/academic/太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合.pdf",
+      "docs/manuals/太极易经·七维人性推演引擎 v1.0 | 人性洞察×H武器×64卦融合.pdf"
+    ],
+    "🧬 龍魂DNA時間軸L5分層架構": [
+      "docs/dragon-soul-open-hub/academic/🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622.pdf",
+      "docs/manuals/🧬 龍魂DNA時間軸L5分層架構 v1.0｜天地人三才×原點能量場·納秒到光年｜UID9622.pdf"
+    ],
+    "反馈域接口契约矩阵": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/反馈域接口契约矩阵_v3.0.md",
+      "docs/v3/反馈域接口契约矩阵_v3.0.md"
+    ],
+    "通心译双语引擎": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/通心译双语引擎_v3.0_激活文档.md",
+      "docs/v3/通心译双语引擎_v3.0_激活文档.md"
+    ],
+    "知识域接口契约矩阵": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/知识域接口契约矩阵_v3.0.md",
+      "docs/v3/知识域接口契约矩阵_v3.0.md"
+    ],
+    "龍魂系统全模块激活状态报告": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/龍魂系统全模块激活状态报告_v3.0.md",
+      "docs/v3/龍魂系统全模块激活状态报告_v3.0.md"
+    ],
+    "执行域接口契约矩阵": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/执行域接口契约矩阵_v3.0.md",
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_龍魂体系技能检查/执行域接口契约矩阵_v3.0.md",
+      "docs/v3/执行域接口契约矩阵_v3.0.md"
+    ],
+    "20260708_2026-07-05-CSDN资料与模板设计": [
+      "L7_数据层/desktop_archive/articles/20260708_2026-07-05-CSDN资料与模板设计_v1.0.md",
+      "docs/articles_desktop/20260708_2026-07-05-CSDN资料与模板设计_v1.0.md"
+    ],
+    "20260621_📜_洛书369与AI决策不变量·统一版": [
+      "L7_数据层/desktop_archive/articles/20260621_📜_洛书369与AI决策不变量·统一版_v3.0.md",
+      "docs/articles_desktop/20260621_📜_洛书369与AI决策不变量·统一版_v3.0.md"
+    ],
+    "20260621_cnsh_FORMAT_SPECIFICATION": [
+      "L7_数据层/desktop_archive/articles/20260621_cnsh_FORMAT_SPECIFICATION_v1.0.md",
+      "docs/articles_desktop/20260621_cnsh_FORMAT_SPECIFICATION_v1.0.md"
+    ],
+    "20260704_2026-07-04-龍魂多平台调度中枢": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂多平台调度中枢_v1.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂多平台调度中枢_v1.0.md"
+    ],
+    "20260703_2026-07-04-龍魂算法公司护城河规范": [
+      "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md",
+      "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版_1.md",
+      "docs/articles_desktop/20260703_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md"
+    ],
+    "20260704_2026-07-04-龍魂对话中枢结构规范": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂对话中枢结构规范_v1.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂对话中枢结构规范_v1.0.md"
+    ],
+    "20260705_2026-07-05-河图洛书_易经_七因子_生态整合协议": [
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-05-河图洛书_易经_七因子_生态整合协议_v1.0.md",
+      "docs/articles_desktop/20260705_2026-07-05-河图洛书_易经_七因子_生态整合协议_v1.0.md"
+    ],
+    "20260708_CNSH_2026-07-08_XSY_文章分类归档报告": [
+      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-08_XSY_文章分类归档报告_v1.0.md",
+      "docs/articles_desktop/20260708_CNSH_2026-07-08_XSY_文章分类归档报告_v1.0.md"
+    ],
+    "20260704_2026-07-04-龍魂系统入口一致性协议": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂系统入口一致性协议_v1.0-微信公众号版.md"
+    ],
+    "20260703_2026-07-04-伦理量子·中式价值对齐方案": [
+      "L7_数据层/desktop_archive/articles/20260703_2026-07-04-伦理量子·中式价值对齐方案-v1.0.md",
+      "L7_数据层/desktop_archive/articles/20260703_2026-07-04-伦理量子·中式价值对齐方案-v1.0_1.md",
+      "docs/articles_desktop/20260703_2026-07-04-伦理量子·中式价值对齐方案-v1.0.md"
+    ],
+    "20260621_🔍_龍魂黎曼猜想观察框架·数字验证报告": [
+      "L7_数据层/desktop_archive/articles/20260621_🔍_龍魂黎曼猜想观察框架·数字验证报告_v1.0.md",
+      "L7_数据层/desktop_archive/articles/20260621_🔍_龍魂黎曼猜想观察框架·数字验证报告_v1.0_1.md",
+      "docs/articles_desktop/20260621_🔍_龍魂黎曼猜想观察框架·数字验证报告_v1.0.md"
+    ],
+    "20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案-v3.0-CSDN发布版.md",
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案-v3.0-微信公众号版.md",
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案-v3.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案-v3.0-CSDN发布版.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂AI行为约束耻辱柱完整工程化方案-v3.0-微信公众号版.md"
+    ],
+    "20260704_2026-07-04-龍魂压缩版格式规范": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂压缩版格式规范_v1.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂压缩版格式规范_v1.0.md"
+    ],
+    "20260704_2026-07-04-华为eNSP安装完全指南_人民标准版": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-华为eNSP安装完全指南_人民标准版_v3.0-CSDN发布版.md",
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-华为eNSP安装完全指南_人民标准版_v3.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-华为eNSP安装完全指南_人民标准版_v3.0.md"
+    ],
+    "20260705_2026-07-05-龍魂系统_第一轮迭代_需求技术文档": [
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-05-龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md",
+      "docs/articles_desktop/20260705_2026-07-05-龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md"
+    ],
+    "20260704_2026-07-04-伦理量子·中式价值对齐方案": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-伦理量子·中式价值对齐方案-v1.0-微信公众号版.md",
+      "docs/articles_desktop/20260704_2026-07-04-伦理量子·中式价值对齐方案-v1.0-微信公众号版.md"
+    ],
+    "20260708_CNSH_2026-07-07_XSY_80后最累_系列总索引": [
+      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-07_XSY_80后最累_系列总索引_v1.0.md",
+      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-07_XSY_80后最累_系列总索引_v1.0_1.md",
+      "docs/articles_desktop/20260708_CNSH_2026-07-07_XSY_80后最累_系列总索引_v1.0.md"
+    ],
+    "20260705_2026-07-05-中国哲学的可计算性_河图洛书_道德经_易经_AI治理": [
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-05-中国哲学的可计算性_河图洛书_道德经_易经_AI治理_v1.0.md",
+      "docs/articles_desktop/20260705_2026-07-05-中国哲学的可计算性_河图洛书_道德经_易经_AI治理_v1.0.md"
+    ],
+    "20260704_2026-07-04-龍魂算法公司护城河规范": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版-微信公众号版.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂算法公司护城河规范-v1.0-优化版-微信公众号版.md"
+    ],
+    "20260703_2026-07-04-龍魂系统入口一致性协议": [
+      "L7_数据层/desktop_archive/articles/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md",
+      "docs/articles_desktop/20260703_2026-07-04-龍魂系统入口一致性协议_v1.0.md"
+    ],
+    "20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版": [
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0-CSDN发布版.md",
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+      "L7_数据层/desktop_archive/articles/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0_已修复.md",
+      "docs/articles_desktop/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0-CSDN发布版.md",
+      "docs/articles_desktop/20260705_2026-07-04-道德经81章_龍魂系统大白话解读_完整版_v5.0.md"
+    ],
+    "20260704_2026-07-04-龍魂隐私白皮书": [
+      "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂隐私白皮书_v2.0.md",
+      "docs/articles_desktop/20260704_2026-07-04-龍魂隐私白皮书_v2.0.md"
+    ],
+    "20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文": [
+      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文_v2.0.md",
+      "docs/articles_desktop/20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文_v2.0.md"
+    ],
+    "CNSH_本地人格配置": [
+      "_archive/legacy/cnsh-core.backup/language/CNSH_本地人格配置_v1.0.md",
+      "cnsh-core/language/CNSH_本地人格配置_v1.0.md",
+      "docs/claude-backlog/02_CNSH语言/CNSH_本地人格配置_v1.0.md"
+    ],
+    "CNSH_龙魂底线协议_双轨治理": [
+      "_archive/legacy/cnsh-core.backup/language/CNSH_龙魂底线协议_双轨治理_v1.0.md",
+      "cnsh-core/language/CNSH_龙魂底线协议_双轨治理_v1.0.md",
+      "docs/claude-backlog/02_CNSH语言/CNSH_龙魂底线协议_双轨治理_v1.0.md"
+    ],
+    "隐私照片防传播-技术规范": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/隐私照片防传播-技术规范-v1.0.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/隐私照片防传播-技术规范-v1.0.md",
+      "docs/claude-backlog/08_报告归档/隐私照片防传播-技术规范-v1.0.md"
+    ],
+    "LONGHUN_CNSH": [
+      "cnsh-core/downloads-imports/ 龍魂系統 · CNSH 語義接入規範 v2.0/LONGHUN_CNSH_v2.0_PROTOCOL_COMPLETE.md",
+      "integrated-modules/protocols/LONGHUN_CNSH_v2.0_PROTOCOL_COMPLETE.md"
+    ],
+    "审查报告": [
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3/审查报告_v1.0.md",
+      "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6/审查报告_v1.0.md"
+    ],
+    "longhun_kfpp_executor": [
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_kfpp_executor_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_kfpp_executor_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-344f31f15aafa69f/longhun_kfpp_executor_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_kfpp_executor_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_kfpp_executor_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-38bb746f2364b831/longhun_kfpp_executor_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_kfpp_executor_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_kfpp_executor_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_kfpp_executor_v1.0.v2.py",
+      "executors/kfpp/longhun_kfpp_executor_v1.0.py"
+    ],
+    "longhun_foundation_runtime": [
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v10.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v3.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v4.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v5.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v6.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v7.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v8.py",
+      "brain/claude_archive/extracted/project_files/agent-acompact-a97c2f67e2c114e7/longhun_foundation_runtime_v1.0.v9.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v1.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v2.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v3.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v4.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v5.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v6.py",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/longhun_foundation_runtime_v1.0.v7.py",
+      "executors/runtime/longhun_foundation_runtime_v1.0.py"
+    ],
+    "契约矩阵__知识矩阵总纲": [
+      "train/data/processed/auto_corpus/契约矩阵__知识矩阵总纲_v1.0.md",
+      "train/data/processed/auto_corpus/契约矩阵__知识矩阵总纲_v2.0.md",
+      "train/data/processed/auto_corpus/契约矩阵__知识矩阵总纲_v2.0（用户完整版）.md"
+    ],
+    "ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__AUDIT-REPORT-20260430": [
+      "brain/editor_memory_archive/cursor/cursor_disk_kv/other/ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__AUDIT-REPORT-20260430-v1.0.bin",
+      "brain/editor_memory_archive/cursor/cursor_disk_kv/other/ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__AUDIT-REPORT-20260430-v1.0.summary.json"
+    ],
+    "ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__dist__fulltext-compress__AUDIT-REPORT-20260430": [
+      "brain/editor_memory_archive/cursor/cursor_disk_kv/other/ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__dist__fulltext-compress__AUDIT-REPORT-20260430-v1.0.timecapsule.bin",
+      "brain/editor_memory_archive/cursor/cursor_disk_kv/other/ofsContent_089fadca-0cd9-47f9-b29d-1bd4ee839f5c_file_______Users__zuimeidedeyihan__longhun-system__steel-shield__dist__fulltext-compress__AUDIT-REPORT-20260430-v1.0.timecapsule.summary.json"
+    ],
+    "DAY23-COMPLETION-REPORT": [
+      "_archive/reports-legacy/DAY23-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/DAY23-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-70223ec10961513b/DAY23-COMPLETION-REPORT-v4.0.md"
+    ],
+    "DAY67-FINAL-COMPLETION-REPORT": [
+      "_archive/reports-legacy/DAY67-FINAL-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/DAY67-FINAL-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-70223ec10961513b/DAY67-FINAL-COMPLETION-REPORT-v4.0.md"
+    ],
+    "DAY45-COMPLETION-REPORT": [
+      "_archive/reports-legacy/DAY45-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/DAY45-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-70223ec10961513b/DAY45-COMPLETION-REPORT-v4.0.md"
+    ],
+    "FORMULA_CHAIN_OPTIMIZATION_COMPLETE": [
+      "_archive/reports-legacy/FORMULA_CHAIN_OPTIMIZATION_COMPLETE_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/FORMULA_CHAIN_OPTIMIZATION_COMPLETE_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/FORMULA_CHAIN_OPTIMIZATION_COMPLETE_v2.0.md"
+    ],
+    "PRK": [
+      "_archive/reports-legacy/PRK_v3.0_NOTION_DEPLOYMENT.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/PRK_v3.0_NOTION_DEPLOYMENT.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/PRK_v3.0_NOTION_DEPLOYMENT.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-3c1a894db938ef57/PRK_v3.0_NOTION_DEPLOYMENT.v2.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/PRK_v3.0_NOTION_DEPLOYMENT.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/PRK_v3.0_NOTION_DEPLOYMENT.v1.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/PRK_v3.0_NOTION_DEPLOYMENT.v2.md"
+    ],
+    "M262_阶段总结": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/M262_阶段总结_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/M262_阶段总结_v1.0.v1.md"
+    ],
+    "龍魂": [
+      "brain/claude_archive/extracted/project_files/8de7119d-c2b1-4d83-a4b2-ce59418fbcc6/龍魂-v3.0-集成完成报告.md",
+      "brain/claude_archive/extracted/project_files/8de7119d-c2b1-4d83-a4b2-ce59418fbcc6/龍魂-v3.0-集成完成报告.v1.md"
+    ],
+    "FINAL-PROJECT-COMPLETION-REPORT": [
+      "_archive/reports-legacy/FINAL-PROJECT-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/FINAL-PROJECT-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/FINAL-PROJECT-COMPLETION-REPORT-v4.0.v1.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/FINAL-PROJECT-COMPLETION-REPORT-v4.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/FINAL-PROJECT-COMPLETION-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/FINAL-PROJECT-COMPLETION-REPORT-v4.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/FINAL-PROJECT-COMPLETION-REPORT-v4.0.v2.md"
+    ],
+    "MOBILE-MONITORING-DEPLOYMENT-REPORT": [
+      "_archive/reports-legacy/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.v1.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/MOBILE-MONITORING-DEPLOYMENT-REPORT-v4.0.v2.md"
+    ],
+    "RELEASE": [
+      "_archive/reports-legacy/RELEASE-v4.0-MOBILE-MONITORING.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/RELEASE-v4.0-MOBILE-MONITORING.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/RELEASE-v4.0-MOBILE-MONITORING.v1.md",
+      "brain/claude_archive/extracted/project_files/1616ada9-c0cc-4598-97f7-ef63852abd05/RELEASE-v4.0-MOBILE-MONITORING.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/RELEASE-v4.0-MOBILE-MONITORING.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/RELEASE-v4.0-MOBILE-MONITORING.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-f233a8a9cce77c1f/RELEASE-v4.0-MOBILE-MONITORING.v2.md"
+    ],
+    "OPTIMIZATION_REPORT": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_REPORT_v2.0.v2.md",
+      "cnsh-core/downloads-imports/formula/计算公式/OPTIMIZATION_REPORT_v2.0.md"
+    ],
+    "OPTIMIZATION_DELIVERY": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/OPTIMIZATION_DELIVERY_v2.0.v2.md",
+      "cnsh-core/downloads-imports/formula/计算公式/OPTIMIZATION_DELIVERY_v2.0.md"
+    ],
+    "FORMULA_CHAIN_OPTIMIZATION": [
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/9517defb-e00c-45bf-adba-9ae8a55e5cb7/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.v2.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-0e365dea5df4663e/home/Downloads/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.v2.md",
+      "cnsh-core/downloads-imports/formula/计算公式/FORMULA_CHAIN_OPTIMIZATION_v2.0.md"
+    ],
+    "花名册占位符重构提案": [
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/花名册占位符重构提案_v1.0.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/花名册占位符重构提案_v1.0.v1.md"
+    ],
+    "龍魂数字人公共契约": [
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v1.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v10.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v11.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v2.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v3.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v4.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v5.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v6.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v7.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v8.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂数字人公共契约_v1.0.v9.md"
+    ],
+    "龍魂元理论_原点五彩石补天": [
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂元理论_原点五彩石补天_v1.0.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/龍魂元理论_原点五彩石补天_v1.0.v1.md"
+    ],
+    "算法公式IPA对齐总表": [
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/算法公式IPA对齐总表_v1.0.md",
+      "brain/claude_archive/extracted/project_files/5833db31-e596-487a-b775-41527f0a9591/cnsh-core/规范/算法公式IPA对齐总表_v1.0.v1.md"
+    ],
+    "《龍魂系统战略发布与防御体系分析报告》": [
+      "_archive/legacy/cnsh-core.backup/规范/《龍魂系统战略发布与防御体系分析报告》_v1.0.md",
+      "brain/claude_archive/extracted/project_files/e0e69686-e898-42ed-8d2f-c28796807df7/cnsh-core/规范/《龍魂系统战略发布与防御体系分析报告》_v1.0.md",
+      "brain/claude_archive/extracted/project_files/e0e69686-e898-42ed-8d2f-c28796807df7/cnsh-core/规范/《龍魂系统战略发布与防御体系分析报告》_v1.0.v1.md",
+      "cnsh-core/规范/《龍魂系统战略发布与防御体系分析报告》_v1.0.md"
+    ],
+    "PROTOCOL_OPTIMIZATION": [
+      "brain/claude_archive/extracted/project_files/agent-acompact-6b726784cc4ab19c/home/.龍魂/PROTOCOL_OPTIMIZATION_v2.0.md",
+      "brain/claude_archive/extracted/project_files/agent-acompact-8fcac922042600ba/home/.龍魂/PROTOCOL_OPTIMIZATION_v2.0.md",
+      "brain/claude_archive/extracted/project_files/fdf21f5c-746b-4268-b0ee-26662861e6e5/home/.龍魂/PROTOCOL_OPTIMIZATION_v2.0.md"
+    ],
+    "CNSH-基准测试系统": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/docs/CNSH-基准测试系统-v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/docs/CNSH-基准测试系统-v1.0.v1.md"
+    ],
+    "CODE-OPTIMIZATION-PLAN": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/docs/CODE-OPTIMIZATION-PLAN-v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/docs/CODE-OPTIMIZATION-PLAN-v1.0.v1.md"
+    ],
+    "IPA_EXPANSION": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/01_protocols/IPA_EXPANSION_v2.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/01_protocols/IPA_EXPANSION_v2.0.v1.md"
+    ],
+    "CONTAINER": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/container/CONTAINER_v1.0_PROTOCOL.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/container/CONTAINER_v1.0_PROTOCOL.v1.md"
+    ],
+    "cnsh_rules": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh/cnsh_rules_v3.0.json",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh/cnsh_rules_v3.0.v1.json"
+    ],
+    "微調系統": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/home/龍魂系統/微調系統_v2.0_使用指南.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/home/龍魂系統/微調系統_v2.0_使用指南.v1.md"
+    ],
+    "ADAPTIVE_ITERATION": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/experiments/euv-sweep/ADAPTIVE_ITERATION_v2.0_FINAL_REPORT.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/experiments/euv-sweep/ADAPTIVE_ITERATION_v2.0_FINAL_REPORT.v1.md"
+    ],
+    "小快乐完整索引与启动指南": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/_private/小快乐/小快乐完整索引与启动指南_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/_private/小快乐/小快乐完整索引与启动指南_v1.0.v1.md"
+    ],
+    "治理规则_签名验证": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_签名验证_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_签名验证_v1.0.v1.md"
+    ],
+    "README_治理规则": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/README_治理规则_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/README_治理规则_v1.0.v1.md"
+    ],
+    "铁律_IPA-004-QC系列": [
+      "_archive/legacy/cnsh-core.backup/规范/铁律_IPA-004-QC系列_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/铁律_IPA-004-QC系列_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/铁律_IPA-004-QC系列_v1.0.v1.md",
+      "cnsh-core/规范/铁律_IPA-004-QC系列_v1.0.md"
+    ],
+    "治理规则_一页纸快速参考": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_一页纸快速参考_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_一页纸快速参考_v1.0.v1.md"
+    ],
+    "操作日記系統_本地DNA引擎": [
+      "_archive/legacy/cnsh-core.backup/规范/操作日記系統_本地DNA引擎_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/操作日記系統_本地DNA引擎_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/操作日記系統_本地DNA引擎_v1.0.v1.md",
+      "cnsh-core/规范/操作日記系統_本地DNA引擎_v1.0.md"
+    ],
+    "治理规则_发布与集成": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_发布与集成_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_发布与集成_v1.0.v1.md"
+    ],
+    "治理_AI_时代的规则_P0": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理_AI_时代的规则_P0_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理_AI_时代的规则_P0_v1.0.v1.md"
+    ],
+    "治理规则_导航与索引": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_导航与索引_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/治理规则_导航与索引_v1.0.v1.md"
+    ],
+    "龍魂DNA登記協議": [
+      "_archive/legacy/cnsh-core.backup/规范/龍魂DNA登記協議_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/龍魂DNA登記協議_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/规范/龍魂DNA登記協議_v1.0.v1.md",
+      "cnsh-core/规范/龍魂DNA登記協議_v1.0.md"
+    ],
+    "operations_compressed": [
+      "_archive/legacy/cnsh-core.backup/功能模块/operations_compressed_v2.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/operations_compressed_v2.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/operations_compressed_v2.0.v1.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/operations_compressed_v2.0.v2.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/operations_compressed_v2.0.v3.md",
+      "cnsh-core/功能模块/operations_compressed_v2.0.md"
+    ],
+    "L5_认知压缩OS": [
+      "_archive/legacy/cnsh-core.backup/功能模块/L5_认知压缩OS_v2.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/L5_认知压缩OS_v2.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/L5_认知压缩OS_v2.0.v1.md",
+      "cnsh-core/功能模块/L5_认知压缩OS_v2.0.md"
+    ],
+    "L4_主权加签系统_多签门": [
+      "_archive/legacy/cnsh-core.backup/功能模块/L4_主权加签系统_多签门_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/L4_主权加签系统_多签门_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/功能模块/L4_主权加签系统_多签门_v1.0.v1.md",
+      "cnsh-core/功能模块/L4_主权加签系统_多签门_v1.0.md"
+    ],
+    "LOCAL_DEPLOYMENT_REPORT": [
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/ai-tools/operation_log_engine/LOCAL_DEPLOYMENT_REPORT_v1.0.md",
+      "brain/claude_archive/extracted/project_files/8f61e9fa-2c92-40cb-b91d-6846328a9107/cnsh-core/ai-tools/operation_log_engine/LOCAL_DEPLOYMENT_REPORT_v1.0.v1.md"
+    ],
+    "WENWEN": [
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v1.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v11.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v2.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v3.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v4.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v5.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v6.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/_private/WENWEN-Book/framework/WENWEN-v1.0-FRAMEWORK.v7.md"
+    ],
+    "人性行为密码学": [
+      "_archive/legacy/cnsh-core.backup/人性密码学/人性行为密码学-v1.0.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/cnsh-core/人性密码学/人性行为密码学-v1.0.md",
+      "brain/claude_archive/extracted/project_files/85e86aa1-1c26-49e3-af25-fbd59e5c1eae/cnsh-core/人性密码学/人性行为密码学-v1.0.v1.md",
+      "cnsh-core/人性密码学/人性行为密码学-v1.0.md"
+    ],
+    "North-Star-B-Protocol": [
+      "_archive/cnsh-history/CNSH-整理版/docs/North-Star-B-Protocol-v1.0.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/本地备份/历史项目/cnsh-deployment/docs/North-Star-B-Protocol-v1.0.md"
+    ],
+    "Mulan-Protocol": [
+      "_archive/cnsh-history/CNSH_备份_20260211/本地备份/历史项目/CodeBuddy/20251130195117/木兰协议/📖协议文档/正式版/Mulan-Protocol-v1.0.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/本地备份/历史项目/CodeBuddy/20251130195117/木兰协议/📖协议文档/正式版/Mulan-Protocol-v1.0.md.sig"
+    ],
+    "木兰协议": [
+      "_archive/cnsh-history/CNSH_备份_20260211/本地备份/历史项目/CodeBuddy/20251130195117/木兰协议/📖协议文档/正式版/木兰协议-v1.0.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/本地备份/历史项目/CodeBuddy/20251130195117/木兰协议/📖协议文档/正式版/木兰协议-v1.0.md.sig"
+    ],
+    "CNSH_Runtime_Governance_Mathematics_完整版": [
+      "_archive/legacy/cnsh-core.backup/runtime-governance/CNSH_Runtime_Governance_Mathematics_完整版_v3.0.md",
+      "cnsh-core/downloads-imports/CNSH Runtime Governance Mathematics - 完整版 v3.0/CNSH_Runtime_Governance_Mathematics_完整版_v3.0.md",
+      "cnsh-core/runtime-governance/CNSH_Runtime_Governance_Mathematics_完整版_v3.0.md"
+    ],
+    "龍魂系统·主干边界宪法": [
+      "_archive/legacy/cnsh-core.backup/规范/龍魂系统·主干边界宪法_v1.0.md",
+      "cnsh-core/规范/龍魂系统·主干边界宪法_v1.0.md"
+    ],
+    "龍魂系統完整規範": [
+      "_archive/legacy/cnsh-core.backup/规范/龍魂系統完整規範_v2.0_終端輸出合併版.md",
+      "_archive/legacy/cnsh-core.backup/规范/龍魂系統完整規範_v3.0_Notion合併升級版.md",
+      "cnsh-core/规范/龍魂系統完整規範_v2.0_終端輸出合併版.md",
+      "cnsh-core/规范/龍魂系統完整規範_v3.0_Notion合併升級版.md"
+    ],
+    "龍魂老大主权令_UID9622终端规则": [
+      "_archive/legacy/cnsh-core.backup/规范/龍魂老大主权令_UID9622终端规则_v1.0.md",
+      "cnsh-core/规范/龍魂老大主权令_UID9622终端规则_v1.0.md"
+    ],
+    "龍魂全球AI终端强制执行令": [
+      "_archive/legacy/cnsh-core.backup/规范/龍魂全球AI终端强制执行令_v1.0.md",
+      "cnsh-core/规范/龍魂全球AI终端强制执行令_v1.0.md"
+    ],
+    "安全域审计协议": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/安全域审计协议_v3.0.py",
+      "systems/v3/安全域审计协议_v3.0.py"
+    ],
+    "DNA追溯链系统": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/DNA追溯链系统_v3.0.py",
+      "systems/v3/DNA追溯链系统_v3.0.py"
+    ],
+    "三色审计与10道闸系统": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/三色审计与10道闸系统_v3.0.py",
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_龍魂体系技能检查/三色审计与10道闸系统_v3.0.py",
+      "systems/v3/三色审计与10道闸系统_v3.0.py"
+    ],
+    "人格矩阵路由系统": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/人格矩阵路由系统_v3.0.py",
+      "systems/v3/人格矩阵路由系统_v3.0.py"
+    ],
+    "五行融合决策引擎": [
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/五行融合决策引擎_v3.0.py",
+      "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_龍魂体系技能检查/五行融合决策引擎_v3.0.py",
+      "systems/v3/五行融合决策引擎_v3.0.py"
+    ],
+    "三才算法统一协议_天地人": [
+      "cnsh-core/constitution/三才算法统一协议_天地人_v1.0.md",
+      "cnsh-core/constitution/三才算法统一协议_天地人_v1.0.md.sha256"
+    ],
+    "龍魂知识导航页": [
+      "L7_数据层/claude_extracted/raw/html/a89d76ba-6216-42b3-ba33-e18194ebb230/b84aa772-13a2-4c76-ae42-f31f0ff2ce57/local_704eda2d-a6da-46a9-84cc-1e4842c7c787/outputs/龍魂知识导航页_v2.0-1.html",
+      "L7_数据层/claude_extracted/raw/html/a89d76ba-6216-42b3-ba33-e18194ebb230/b84aa772-13a2-4c76-ae42-f31f0ff2ce57/local_704eda2d-a6da-46a9-84cc-1e4842c7c787/outputs/龍魂知识导航页_v2.0.html"
+    ]
+  }
+}

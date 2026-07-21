@@ -1,0 +1,31 @@
+/* DNA: #龍芯⚡️2026-07-21-迁移-custom-v1.0 */
+/* 来源: 龍魂待整理/09-杂项备忘/custom.css · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F */
+/* 三色: 🟢 */
+
+/* custom.css - 让代码文字带蓝色呼吸光晕效果 */
+
+.mtk1, .mtk3, .mtk5, .mtk7 {
+  color: #ffffff !important; /* 保证文字颜色是白色 */
+  text-shadow:
+    0 0 5px #00eaff,
+    0 0 10px #00eaff,
+    0 0 20px #00eaff,
+    0 0 40px #00eaff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #00eaff,
+      0 0 10px #00eaff,
+      0 0 15px #00eaff;
+  }
+  to {
+    text-shadow:
+      0 0 10px #00eaff,
+      0 0 20px #00eaff,
+      0 0 30px #00eaff,
+      0 0 40px #00eaff;
+  }
+}

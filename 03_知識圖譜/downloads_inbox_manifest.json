@@ -1,0 +1,2306 @@
+{
+  "stats": {
+    "total_items": 65,
+    "dir_items": 40,
+    "file_items": 25,
+    "unregistered": 65,
+    "maybe_exists": 0,
+    "total_size": 373254598,
+    "categories": {
+      "skill": 4,
+      "cnsh": 3,
+      "inbox": 12,
+      "terminal": 10,
+      "agent_session": 1,
+      "protocol": 6,
+      "audit": 1,
+      "notion_export": 2,
+      "formula": 2,
+      "paper": 2,
+      "evidence": 1,
+      "monitoring": 3,
+      "gateway": 1,
+      "launcher": 1,
+      "media": 16
+    },
+    "migrated": 54,
+    "skipped": 11,
+    "errors": 0,
+    "migrated_at": "2026-06-22T12:52:15.304489"
+  },
+  "items": [
+    {
+      "node_id": "downloads/10-个-skill",
+      "label": "10 个 skill",
+      "type": "skill",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 10 个 skill ",
+          "size": 448
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 10 个 skill .zip",
+          "size": 35585
+        }
+      ],
+      "total_size": 36033,
+      "human_size": "35.19 KB",
+      "is_dir": true,
+      "child_count": 12,
+      "category": "skill",
+      "target": "01_技能库/ 或 ~/.kimi-code/skills/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#skill",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-10-个-SKILL-v1.0",
+      "migrated_to": [
+        "01_技能库/downloads-imports/ 10 个 skill ",
+        "01_技能库/downloads-imports/ 10 个 skill .zip"
+      ],
+      "files_copied": 13
+    },
+    {
+      "node_id": "downloads/cnsh-v3-0-完整交付清單",
+      "label": "CNSH v3.0 · 完整交付清單",
+      "type": "cnsh",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/ CNSH v3.0 · 完整交付清單",
+          "size": 224
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/ CNSH v3.0 · 完整交付清單.zip",
+          "size": 37958
+        }
+      ],
+      "total_size": 38182,
+      "human_size": "37.29 KB",
+      "is_dir": true,
+      "child_count": 5,
+      "category": "cnsh",
+      "target": "cnsh-core/ 或 cnsh/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#cnsh",
+        "#downloads",
+        "#待录入",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-CNSH-V3-0-完整交付清單-v1.0",
+      "migrated_to": [
+        "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單",
+        "cnsh-core/downloads-imports/ CNSH v3.0 · 完整交付清單.zip"
+      ],
+      "files_copied": 6
+    },
+    {
+      "node_id": "downloads/龍魂系統-phase-3-完整交付-立即可用",
+      "label": "龍魂系統 Phase 3 · 完整交付 · 立即可用",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 龍魂系統 Phase 3 · 完整交付 · 立即可用   ",
+          "size": 320
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 龍魂系統 Phase 3 · 完整交付 · 立即可用   .zip",
+          "size": 31168
+        }
+      ],
+      "total_size": 31488,
+      "human_size": "30.75 KB",
+      "is_dir": true,
+      "child_count": 8,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系統-PHASE-3-完整交付-立即-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/ 龍魂系統 Phase 3 · 完整交付 · 立即可用   ",
+        "_archive/downloads-inbox/misc/ 龍魂系統 Phase 3 · 完整交付 · 立即可用   .zip"
+      ],
+      "files_copied": 9
+    },
+    {
+      "node_id": "downloads/龍魂系統-cnsh-語義接入規範-v2-0",
+      "label": "龍魂系統 · CNSH 語義接入規範 v2.0",
+      "type": "cnsh",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 龍魂系統 · CNSH 語義接入規範 v2.0",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/ 龍魂系統 · CNSH 語義接入規範 v2.0.zip",
+          "size": 30127
+        }
+      ],
+      "total_size": 30319,
+      "human_size": "29.61 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "cnsh",
+      "target": "cnsh-core/ 或 cnsh/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#cnsh",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系統-CNSH-語義接入規範-V2--v1.0",
+      "migrated_to": [
+        "cnsh-core/downloads-imports/ 龍魂系統 · CNSH 語義接入規範 v2.0",
+        "cnsh-core/downloads-imports/ 龍魂系統 · CNSH 語義接入規範 v2.0.zip"
+      ],
+      "files_copied": 5
+    },
+    {
+      "node_id": "downloads/cnsh-runtime-governance-mathematics-完整版-v3-0",
+      "label": "CNSH Runtime Governance Mathematics - 完整版 v3.0",
+      "type": "cnsh",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/CNSH Runtime Governance Mathematics - 完整版 v3.0",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/CNSH Runtime Governance Mathematics - 完整版 v3.0.zip",
+          "size": 27132
+        }
+      ],
+      "total_size": 27324,
+      "human_size": "26.68 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "cnsh",
+      "target": "cnsh-core/ 或 cnsh/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#cnsh",
+        "#downloads",
+        "#待录入",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-CNSH-RUNTIME-GOVERNA-v1.0",
+      "migrated_to": [
+        "cnsh-core/downloads-imports/CNSH Runtime Governance Mathematics - 完整版 v3.0",
+        "cnsh-core/downloads-imports/CNSH Runtime Governance Mathematics - 完整版 v3.0.zip"
+      ],
+      "files_copied": 5
+    },
+    {
+      "node_id": "downloads/kimi_agent_启动全部技能",
+      "label": "Kimi_Agent_启动全部技能",
+      "type": "skill",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_启动全部技能",
+          "size": 1216
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_启动全部技能.zip",
+          "size": 13535069
+        }
+      ],
+      "total_size": 13536285,
+      "human_size": "12.91 MB",
+      "is_dir": true,
+      "child_count": 33,
+      "category": "skill",
+      "target": "01_技能库/ 或 ~/.kimi-code/skills/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#skill",
+        "#downloads",
+        "#待录入",
+        "#大文件",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_启动全部技能-v1.0",
+      "migrated_to": [
+        "01_技能库/downloads-imports/Kimi_Agent_启动全部技能",
+        "01_技能库/downloads-imports/Kimi_Agent_启动全部技能.zip"
+      ],
+      "files_copied": 29
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级",
+      "label": "Kimi_Agent_终端升级",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级",
+          "size": 1088
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级.zip",
+          "size": 1724662
+        }
+      ],
+      "total_size": 1725750,
+      "human_size": "1.65 MB",
+      "is_dir": true,
+      "child_count": 29,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级.zip"
+      ],
+      "files_copied": 99
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优-化-3",
+      "label": "Kimi_Agent_终端升级与结构优 化 3",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优 化 3",
+          "size": 1024
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优 化 3.zip",
+          "size": 2158530
+        }
+      ],
+      "total_size": 2159554,
+      "human_size": "2.06 MB",
+      "is_dir": true,
+      "child_count": 27,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优--v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优 化 3.zip"
+      ],
+      "files_copied": 142
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化",
+      "label": "Kimi_Agent_终端升级与结构优化",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化",
+          "size": 928
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化.zip",
+          "size": 4333340
+        }
+      ],
+      "total_size": 4334268,
+      "human_size": "4.13 MB",
+      "is_dir": true,
+      "child_count": 24,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化.zip"
+      ],
+      "files_copied": 52
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-2",
+      "label": "Kimi_Agent_终端升级与结构优化 2",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 2",
+          "size": 960
+        }
+      ],
+      "total_size": 960,
+      "human_size": "960 B",
+      "is_dir": true,
+      "child_count": 24,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 2"
+      ],
+      "files_copied": 56
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-3",
+      "label": "Kimi_Agent_终端升级与结构优化 3",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 3",
+          "size": 2592
+        }
+      ],
+      "total_size": 2592,
+      "human_size": "2.53 KB",
+      "is_dir": true,
+      "child_count": 75,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 3"
+      ],
+      "files_copied": 366
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-6",
+      "label": "Kimi_Agent_终端升级与结构优化 6",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 6",
+          "size": 1376
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 6.zip",
+          "size": 4273343
+        }
+      ],
+      "total_size": 4274719,
+      "human_size": "4.08 MB",
+      "is_dir": true,
+      "child_count": 39,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 6.zip"
+      ],
+      "files_copied": 489
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-7",
+      "label": "Kimi_Agent_终端升级与结构优化 7",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 7",
+          "size": 2400
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 7.zip",
+          "size": 4288992
+        }
+      ],
+      "total_size": 4291392,
+      "human_size": "4.09 MB",
+      "is_dir": true,
+      "child_count": 71,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 7.zip"
+      ],
+      "files_copied": 518
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化-8",
+      "label": "Kimi_Agent_终端升级与结构优化 8",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 8",
+          "size": 2464
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 8.zip",
+          "size": 4297080
+        }
+      ],
+      "total_size": 4299544,
+      "human_size": "4.10 MB",
+      "is_dir": true,
+      "child_count": 72,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化 8.zip"
+      ],
+      "files_copied": 354
+    },
+    {
+      "node_id": "downloads/kimi_agent_终端升级与结构优化5",
+      "label": "Kimi_Agent_终端升级与结构优化5",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化5",
+          "size": 2240
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化5.zip",
+          "size": 4029414
+        }
+      ],
+      "total_size": 4031654,
+      "human_size": "3.84 MB",
+      "is_dir": true,
+      "child_count": 65,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_终端升级与结构优化-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5",
+        "cnsh-terminal/downloads-imports/Kimi_Agent_终端升级与结构优化5.zip"
+      ],
+      "files_copied": 342
+    },
+    {
+      "node_id": "downloads/kimi_agent_脚本升级请求",
+      "label": "Kimi_Agent_脚本升级请求",
+      "type": "agent_session",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_脚本升级请求",
+          "size": 704
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_脚本升级请求.zip",
+          "size": 391322
+        }
+      ],
+      "total_size": 392026,
+      "human_size": "382.84 KB",
+      "is_dir": true,
+      "child_count": 17,
+      "category": "agent_session",
+      "target": "_archive/agent-sessions/ 或对应模块",
+      "status": "已迁移至主干",
+      "tags": [
+        "#agent_session",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "/kimi-webbridge"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_脚本升级请求-v1.0",
+      "migrated_to": [
+        "_archive/agent-sessions/Kimi_Agent_脚本升级请求",
+        "_archive/agent-sessions/Kimi_Agent_脚本升级请求.zip"
+      ],
+      "files_copied": 18
+    },
+    {
+      "node_id": "downloads/kimi_agent_龍魂体系技能检查",
+      "label": "Kimi_Agent_龍魂体系技能检查",
+      "type": "skill",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂体系技能检查",
+          "size": 1280
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂体系技能检查.zip",
+          "size": 13585521
+        }
+      ],
+      "total_size": 13586801,
+      "human_size": "12.96 MB",
+      "is_dir": true,
+      "child_count": 34,
+      "category": "skill",
+      "target": "01_技能库/ 或 ~/.kimi-code/skills/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#skill",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#大文件",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂体系技能检查-v1.0",
+      "migrated_to": [
+        "01_技能库/downloads-imports/Kimi_Agent_龍魂体系技能检查",
+        "01_技能库/downloads-imports/Kimi_Agent_龍魂体系技能检查.zip"
+      ],
+      "files_copied": 38
+    },
+    {
+      "node_id": "downloads/kimi_agent_龍魂協議自動化完成",
+      "label": "Kimi_Agent_龍魂協議自動化完成",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂協議自動化完成",
+          "size": 768
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂協議自動化完成.zip",
+          "size": 581713
+        }
+      ],
+      "total_size": 582481,
+      "human_size": "568.83 KB",
+      "is_dir": true,
+      "child_count": 21,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂協議自動化完成-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/Kimi_Agent_龍魂協議自動化完成",
+        "01_protocols/downloads-imports/Kimi_Agent_龍魂協議自動化完成.zip"
+      ],
+      "files_copied": 22
+    },
+    {
+      "node_id": "downloads/kimi_agent_龍魂审计改进",
+      "label": "Kimi_Agent_龍魂审计改进",
+      "type": "audit",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂审计改进",
+          "size": 288
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂审计改进.zip",
+          "size": 108073
+        }
+      ],
+      "total_size": 108361,
+      "human_size": "105.82 KB",
+      "is_dir": true,
+      "child_count": 6,
+      "category": "audit",
+      "target": "audit/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#audit",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "/code-audit"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂审计改进-v1.0",
+      "migrated_to": [
+        "audit/downloads-imports/Kimi_Agent_龍魂审计改进",
+        "audit/downloads-imports/Kimi_Agent_龍魂审计改进.zip"
+      ],
+      "files_copied": 17
+    },
+    {
+      "node_id": "downloads/kimi_agent_龍魂根协议自动化",
+      "label": "Kimi_Agent_龍魂根协议自动化",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂根协议自动化",
+          "size": 480
+        }
+      ],
+      "total_size": 480,
+      "human_size": "480 B",
+      "is_dir": true,
+      "child_count": 11,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_AGENT_龍魂根协议自动化-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/Kimi_Agent_龍魂根协议自动化"
+      ],
+      "files_copied": 10
+    },
+    {
+      "node_id": "downloads/notion-导出",
+      "label": "Notion 导出",
+      "type": "notion_export",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/Notion 导出",
+          "size": 352
+        }
+      ],
+      "total_size": 352,
+      "human_size": "352 B",
+      "is_dir": true,
+      "child_count": 8,
+      "category": "notion_export",
+      "target": "_archive/notion-exports/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#notion_export",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-NOTION-导出-v1.0",
+      "migrated_to": [
+        "_archive/notion-exports/Notion 导出"
+      ],
+      "files_copied": 8
+    },
+    {
+      "node_id": "downloads/longhun-forensic-toolkit-v1-0",
+      "label": "longhun-forensic-toolkit-v1.0",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/longhun-forensic-toolkit-v1.0",
+          "size": 224
+        }
+      ],
+      "total_size": 224,
+      "human_size": "224 B",
+      "is_dir": true,
+      "child_count": 5,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-FORENSIC-TOO-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/longhun-forensic-toolkit-v1.0"
+      ],
+      "files_copied": 6
+    },
+    {
+      "node_id": "downloads/z-s",
+      "label": "z s",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/z s",
+          "size": 6112
+        }
+      ],
+      "total_size": 6112,
+      "human_size": "5.97 KB",
+      "is_dir": true,
+      "child_count": 189,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-Z-S-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/z s"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/z-s-2",
+      "label": "z s 2",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/z s 2",
+          "size": 12832
+        }
+      ],
+      "total_size": 12832,
+      "human_size": "12.53 KB",
+      "is_dir": true,
+      "child_count": 399,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-Z-S-2-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/z s 2"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/升級-brain_notion_sync-py-phase-1-完整實現",
+      "label": "升級 brain_notion_sync.py · Phase 1 完整實現",
+      "type": "notion_export",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/升級 brain_notion_sync.py · Phase 1 完整實現",
+          "size": 224
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/升級 brain_notion_sync.py · Phase 1 完整實現.zip",
+          "size": 19435
+        }
+      ],
+      "total_size": 19659,
+      "human_size": "19.20 KB",
+      "is_dir": true,
+      "child_count": 5,
+      "category": "notion_export",
+      "target": "_archive/notion-exports/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#notion_export",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-升級-BRAIN_NOTION_SYNC-v1.0",
+      "migrated_to": [
+        "_archive/notion-exports/升級 brain_notion_sync.py · Phase 1 完整實現",
+        "_archive/notion-exports/升級 brain_notion_sync.py · Phase 1 完整實現.zip"
+      ],
+      "files_copied": 6
+    },
+    {
+      "node_id": "downloads/发布协议和申请条件",
+      "label": "发布协议和申请条件",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/发布协议和申请条件",
+          "size": 160
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/发布协议和申请条件.zip",
+          "size": 10925
+        }
+      ],
+      "total_size": 11085,
+      "human_size": "10.83 KB",
+      "is_dir": true,
+      "child_count": 3,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-发布协议和申请条件-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/发布协议和申请条件",
+        "01_protocols/downloads-imports/发布协议和申请条件.zip"
+      ],
+      "files_copied": 4
+    },
+    {
+      "node_id": "downloads/完整的龍魂系統標準化-3-核心系統優化升級",
+      "label": "完整的龍魂系統標準化 + 3 核心系統優化升級",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/完整的龍魂系統標準化 + 3 核心系統優化升級",
+          "size": 128
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/完整的龍魂系統標準化 + 3 核心系統優化升級.zip",
+          "size": 13885
+        }
+      ],
+      "total_size": 14013,
+      "human_size": "13.68 KB",
+      "is_dir": true,
+      "child_count": 2,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-完整的龍魂系統標準化-3-核心系統優化升-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/完整的龍魂系統標準化 + 3 核心系統優化升級",
+        "_archive/downloads-inbox/misc/完整的龍魂系統標準化 + 3 核心系統優化升級.zip"
+      ],
+      "files_copied": 3
+    },
+    {
+      "node_id": "downloads/开机自动化",
+      "label": "开机自动化",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/开机自动化",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/开机自动化.zip",
+          "size": 10390
+        }
+      ],
+      "total_size": 10582,
+      "human_size": "10.33 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-开机自动化-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/开机自动化",
+        "_archive/downloads-inbox/misc/开机自动化.zip"
+      ],
+      "files_copied": 5
+    },
+    {
+      "node_id": "downloads/新视觉计算公式",
+      "label": "新视觉计算公式",
+      "type": "formula",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/新视觉计算公式",
+          "size": 96
+        }
+      ],
+      "total_size": 96,
+      "human_size": "96 B",
+      "is_dir": true,
+      "child_count": 1,
+      "category": "formula",
+      "target": "cnsh-core/龍魂-决策流场-自动化优化/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#formula",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-新视觉计算公式-v1.0",
+      "migrated_to": [
+        "cnsh-core/downloads-imports/formula/新视觉计算公式"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/日志-版本-追溯系统-完整交付",
+      "label": "日志·版本·追溯系统 完整交付",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/日志·版本·追溯系统 完整交付",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/日志·版本·追溯系统 完整交付.zip",
+          "size": 17832
+        }
+      ],
+      "total_size": 18024,
+      "human_size": "17.60 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-日志-版本-追溯系统-完整交付-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/日志·版本·追溯系统 完整交付",
+        "_archive/downloads-inbox/misc/日志·版本·追溯系统 完整交付.zip"
+      ],
+      "files_copied": 5
+    },
+    {
+      "node_id": "downloads/计算公式",
+      "label": "计算公式",
+      "type": "formula",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/计算公式",
+          "size": 832
+        }
+      ],
+      "total_size": 832,
+      "human_size": "832 B",
+      "is_dir": true,
+      "child_count": 23,
+      "category": "formula",
+      "target": "cnsh-core/龍魂-决策流场-自动化优化/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#formula",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-计算公式-v1.0",
+      "migrated_to": [
+        "cnsh-core/downloads-imports/formula/计算公式"
+      ],
+      "files_copied": 23
+    },
+    {
+      "node_id": "downloads/论文",
+      "label": "论文",
+      "type": "paper",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/论文",
+          "size": 256
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/论文.zip",
+          "size": 43217
+        }
+      ],
+      "total_size": 43473,
+      "human_size": "42.45 KB",
+      "is_dir": true,
+      "child_count": 6,
+      "category": "paper",
+      "target": "_archive/papers/ 或 03_知識圖譜/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#paper",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-v1.0",
+      "migrated_to": [
+        "_archive/papers/论文",
+        "_archive/papers/论文.zip"
+      ],
+      "files_copied": 7
+    },
+    {
+      "node_id": "downloads/论文-1",
+      "label": "论文 1",
+      "type": "paper",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/论文 1",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/论文 1.zip",
+          "size": 30673
+        }
+      ],
+      "total_size": 30865,
+      "human_size": "30.14 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "paper",
+      "target": "_archive/papers/ 或 03_知識圖譜/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#paper",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-1-v1.0",
+      "migrated_to": [
+        "_archive/papers/论文 1",
+        "_archive/papers/论文 1.zip"
+      ],
+      "files_copied": 5
+    },
+    {
+      "node_id": "downloads/证据",
+      "label": "证据",
+      "type": "evidence",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/证据",
+          "size": 6624
+        }
+      ],
+      "total_size": 6624,
+      "human_size": "6.47 KB",
+      "is_dir": true,
+      "child_count": 204,
+      "category": "evidence",
+      "target": "_archive/evidence/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#evidence",
+        "#downloads",
+        "#待录入",
+        "#多文件包"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-证据-v1.0",
+      "migrated_to": [
+        "_archive/evidence/证据"
+      ],
+      "files_copied": 7
+    },
+    {
+      "node_id": "downloads/龍魂-10-skill-標準化完成",
+      "label": "龍魂 10 Skill 標準化完成",
+      "type": "skill",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂 10 Skill 標準化完成",
+          "size": 224
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂 10 Skill 標準化完成.zip",
+          "size": 29296
+        }
+      ],
+      "total_size": 29520,
+      "human_size": "28.83 KB",
+      "is_dir": true,
+      "child_count": 5,
+      "category": "skill",
+      "target": "01_技能库/ 或 ~/.kimi-code/skills/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#skill",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂-10-SKILL-標準化完成-v1.0",
+      "migrated_to": [
+        "01_技能库/downloads-imports/龍魂 10 Skill 標準化完成",
+        "01_技能库/downloads-imports/龍魂 10 Skill 標準化完成.zip"
+      ],
+      "files_copied": 6
+    },
+    {
+      "node_id": "downloads/龍魂协议双语版",
+      "label": "龍魂协议双语版",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂协议双语版",
+          "size": 224
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂协议双语版.zip",
+          "size": 28732
+        }
+      ],
+      "total_size": 28956,
+      "human_size": "28.28 KB",
+      "is_dir": true,
+      "child_count": 4,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂协议双语版-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/龍魂协议双语版",
+        "01_protocols/downloads-imports/龍魂协议双语版.zip"
+      ],
+      "files_copied": 12
+    },
+    {
+      "node_id": "downloads/龍魂協議焊死-立即行動方案",
+      "label": "龍魂協議焊死·立即行動方案",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂協議焊死·立即行動方案",
+          "size": 160
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂協議焊死·立即行動方案.zip",
+          "size": 15490
+        }
+      ],
+      "total_size": 15650,
+      "human_size": "15.28 KB",
+      "is_dir": true,
+      "child_count": 3,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂協議焊死-立即行動方案-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/龍魂協議焊死·立即行動方案",
+        "01_protocols/downloads-imports/龍魂協議焊死·立即行動方案.zip"
+      ],
+      "files_copied": 4
+    },
+    {
+      "node_id": "downloads/龍魂移動端監控自動化-部署-quick-start",
+      "label": "龍魂移動端監控自動化 · 部署 Quick Start",
+      "type": "monitoring",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂移動端監控自動化 · 部署 Quick Start",
+          "size": 192
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂移動端監控自動化 · 部署 Quick Start.zip",
+          "size": 21162
+        }
+      ],
+      "total_size": 21354,
+      "human_size": "20.85 KB",
+      "is_dir": true,
+      "child_count": 3,
+      "category": "monitoring",
+      "target": "longhun-monitoring skill / baobao-guardian/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#monitoring",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l5-monitor"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂移動端監控自動化-部署-QUICK--v1.0",
+      "migrated_to": [
+        "baobao-guardian/downloads-imports/龍魂移動端監控自動化 · 部署 Quick Start",
+        "baobao-guardian/downloads-imports/龍魂移動端監控自動化 · 部署 Quick Start.zip"
+      ],
+      "files_copied": 4
+    },
+    {
+      "node_id": "downloads/龍魂网关",
+      "label": "龍魂网关",
+      "type": "gateway",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂网关",
+          "size": 320
+        }
+      ],
+      "total_size": 320,
+      "human_size": "320 B",
+      "is_dir": true,
+      "child_count": 7,
+      "category": "gateway",
+      "target": "cnsh-core/api/ 或 agents/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#gateway",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂网关-v1.0",
+      "migrated_to": [
+        "agents/downloads-imports/龍魂网关"
+      ],
+      "files_copied": 36
+    },
+    {
+      "node_id": "downloads/龍魂自动化启动",
+      "label": "龍魂自动化启动",
+      "type": "launcher",
+      "paths": [
+        {
+          "type": "dir",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂自动化启动",
+          "size": 160
+        },
+        {
+          "type": "zip",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂自动化启动.zip",
+          "size": 4490
+        }
+      ],
+      "total_size": 4650,
+      "human_size": "4.54 KB",
+      "is_dir": true,
+      "child_count": 3,
+      "category": "launcher",
+      "target": "agents/ 或 bin/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#launcher",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "IPA-L1-004"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂自动化启动-v1.0",
+      "migrated_to": [
+        "agents/downloads-imports/龍魂自动化启动",
+        "agents/downloads-imports/龍魂自动化启动.zip"
+      ],
+      "files_copied": 4
+    },
+    {
+      "node_id": "downloads/migration_log_2026-06-01-md",
+      "label": ".MIGRATION_LOG_2026-06-01.md",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/.MIGRATION_LOG_2026-06-01.md",
+          "size": 2381
+        }
+      ],
+      "total_size": 2381,
+      "human_size": "2.33 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已跳过（图片/DMG/无有效文件）",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-MIGRATION_LOG_2026-0-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/529-1-txt",
+      "label": "529-1.txt",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/529-1.txt",
+          "size": 1999289
+        }
+      ],
+      "total_size": 1999289,
+      "human_size": "1.91 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-529-1-TXT-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/529-1.txt"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/img_1260-png",
+      "label": "IMG_1260.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1260.PNG",
+          "size": 815507
+        }
+      ],
+      "total_size": 815507,
+      "human_size": "796.39 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1260-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1263-png",
+      "label": "IMG_1263.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1263.PNG",
+          "size": 1267383
+        }
+      ],
+      "total_size": 1267383,
+      "human_size": "1.21 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1263-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1264-png",
+      "label": "IMG_1264.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1264.PNG",
+          "size": 1467058
+        }
+      ],
+      "total_size": 1467058,
+      "human_size": "1.40 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1264-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1265-png",
+      "label": "IMG_1265.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1265.PNG",
+          "size": 2022092
+        }
+      ],
+      "total_size": 2022092,
+      "human_size": "1.93 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1265-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1266-png",
+      "label": "IMG_1266.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1266.PNG",
+          "size": 1865707
+        }
+      ],
+      "total_size": 1865707,
+      "human_size": "1.78 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1266-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1267-png",
+      "label": "IMG_1267.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1267.PNG",
+          "size": 1952950
+        }
+      ],
+      "total_size": 1952950,
+      "human_size": "1.86 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1267-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1268-png",
+      "label": "IMG_1268.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1268.PNG",
+          "size": 2146634
+        }
+      ],
+      "total_size": 2146634,
+      "human_size": "2.05 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1268-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1269-png",
+      "label": "IMG_1269.PNG",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1269.PNG",
+          "size": 1332219
+        }
+      ],
+      "total_size": 1332219,
+      "human_size": "1.27 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1269-PNG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/img_1302-heic",
+      "label": "IMG_1302.HEIC",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/IMG_1302.HEIC",
+          "size": 2377897
+        }
+      ],
+      "total_size": 2377897,
+      "human_size": "2.27 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-IMG_1302-HEIC-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/longhun-mobile-monitoring-automation-complete-md",
+      "label": "LONGHUN-MOBILE-MONITORING-AUTOMATION-COMPLETE.md",
+      "type": "monitoring",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/LONGHUN-MOBILE-MONITORING-AUTOMATION-COMPLETE.md",
+          "size": 36491
+        }
+      ],
+      "total_size": 36491,
+      "human_size": "35.64 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "monitoring",
+      "target": "longhun-monitoring skill / baobao-guardian/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#monitoring",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l5-monitor"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-MOBILE-MONIT-v1.0",
+      "migrated_to": [
+        "baobao-guardian/downloads-imports/LONGHUN-MOBILE-MONITORING-AUTOMATION-COMPLETE.md"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/longhun-mobile-monitoring-complete-enhanced-v1-0-md",
+      "label": "LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+      "type": "monitoring",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md",
+          "size": 29696
+        }
+      ],
+      "total_size": 29696,
+      "human_size": "29.00 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "monitoring",
+      "target": "longhun-monitoring skill / baobao-guardian/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#monitoring",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "l5-monitor"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-MOBILE-MONIT-v1.0",
+      "migrated_to": [
+        "baobao-guardian/downloads-imports/LONGHUN-MOBILE-MONITORING-COMPLETE-ENHANCED-v1.0.md"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/kimi_3-0-3-dmg",
+      "label": "kimi_3.0.3.dmg",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/kimi_3.0.3.dmg",
+          "size": 270742521
+        }
+      ],
+      "total_size": 270742521,
+      "human_size": "258.20 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已跳过（图片/DMG，暂不处理）",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入",
+        "#大文件"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-KIMI_3-0-3-DMG-v1.0",
+      "migrated_to": null
+    },
+    {
+      "node_id": "downloads/longhun-forensic-toolkit-v1-0-tar-gz",
+      "label": "longhun-forensic-toolkit-v1.0.tar.gz",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/longhun-forensic-toolkit-v1.0.tar.gz",
+          "size": 5864
+        }
+      ],
+      "total_size": 5864,
+      "human_size": "5.73 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-LONGHUN-FORENSIC-TOO-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/longhun-forensic-toolkit-v1.0.tar.gz"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/天窗-mp3",
+      "label": "天窗.mp3",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/天窗.mp3",
+          "size": 8039971
+        }
+      ],
+      "total_size": 8039971,
+      "human_size": "7.67 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-天窗-MP3-v1.0",
+      "migrated_to": [
+        "_archive/media/天窗.mp3"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/查看uid9622仓库-docx",
+      "label": "查看UID9622仓库.docx",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/查看UID9622仓库.docx",
+          "size": 44991
+        }
+      ],
+      "total_size": 44991,
+      "human_size": "43.94 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-查看UID9622仓库-DOCX-v1.0",
+      "migrated_to": [
+        "_archive/media/查看UID9622仓库.docx"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/灵魂传承-pdf",
+      "label": "灵魂传承.pdf",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/灵魂传承.pdf",
+          "size": 5680593
+        }
+      ],
+      "total_size": 5680593,
+      "human_size": "5.42 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-灵魂传承-PDF-v1.0",
+      "migrated_to": [
+        "_archive/media/灵魂传承.pdf"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/算力税-mp3",
+      "label": "算力税.mp3",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/算力税.mp3",
+          "size": 6022273
+        }
+      ],
+      "total_size": 6022273,
+      "human_size": "5.74 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-算力税-MP3-v1.0",
+      "migrated_to": [
+        "_archive/media/算力税.mp3"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/终端保存的输出-5282-txt",
+      "label": "终端保存的输出 528——2.txt",
+      "type": "terminal",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/终端保存的输出 528——2.txt",
+          "size": 14817
+        }
+      ],
+      "total_size": 14817,
+      "human_size": "14.47 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "terminal",
+      "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#terminal",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "IPA-L0-008"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-终端保存的输出-5282-TXT-v1.0",
+      "migrated_to": [
+        "cnsh-terminal/downloads-imports/终端保存的输出 528——2.txt"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/钢印-mp3",
+      "label": "钢印.mp3",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/钢印.mp3",
+          "size": 5656558
+        }
+      ],
+      "total_size": 5656558,
+      "human_size": "5.39 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-钢印-MP3-v1.0",
+      "migrated_to": [
+        "_archive/media/钢印.mp3"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/龍魂根协议自动化-zip",
+      "label": "龍魂根协议自动化.zip",
+      "type": "protocol",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂根协议自动化.zip",
+          "size": 256741
+        }
+      ],
+      "total_size": 256741,
+      "human_size": "250.72 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "protocol",
+      "target": "01_protocols/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#protocol",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂根协议自动化-ZIP-v1.0",
+      "migrated_to": [
+        "01_protocols/downloads-imports/龍魂根协议自动化.zip"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/龍魂流水线使用说明-md",
+      "label": "龍魂流水线使用说明.md",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂流水线使用说明.md",
+          "size": 3646
+        }
+      ],
+      "total_size": 3646,
+      "human_size": "3.56 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂流水线使用说明-MD-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/龍魂流水线使用说明.md"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/龍魂系统_知识矩阵总纲_v2-0-md",
+      "label": "龍魂系统_知识矩阵总纲_v2.0.md",
+      "type": "inbox",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍魂系统_知识矩阵总纲_v2.0.md",
+          "size": 21112
+        }
+      ],
+      "total_size": 21112,
+      "human_size": "20.62 KB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "inbox",
+      "target": "待分类 / _archive/inbox/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#inbox",
+        "#downloads",
+        "#待录入",
+        "#龍魂",
+        "#版本交付"
+      ],
+      "related_nodes": [
+        "l0-core"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍魂系统_知识矩阵总纲_V2-0-MD-v1.0",
+      "migrated_to": [
+        "_archive/downloads-inbox/misc/龍魂系统_知识矩阵总纲_v2.0.md"
+      ],
+      "files_copied": 1
+    },
+    {
+      "node_id": "downloads/龍脊-mp3",
+      "label": "龍脊.mp3",
+      "type": "media",
+      "paths": [
+        {
+          "type": "file",
+          "path": "/Users/zuimeidedeyihan/Downloads/龍脊.mp3",
+          "size": 5684771
+        }
+      ],
+      "total_size": 5684771,
+      "human_size": "5.42 MB",
+      "is_dir": false,
+      "child_count": 0,
+      "category": "media",
+      "target": "_archive/media/ 或 _archive/deliverables/",
+      "status": "已迁移至主干",
+      "tags": [
+        "#media",
+        "#downloads",
+        "#待录入"
+      ],
+      "related_nodes": [
+        "l1-storage"
+      ],
+      "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-龍脊-MP3-v1.0",
+      "migrated_to": [
+        "_archive/media/龍脊.mp3"
+      ],
+      "files_copied": 1
+    }
+  ]
+}
+
+// CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·丙申·甲寅·申时·损-CONFIRM-SEAL-downloads_inbox_mani-3F0A1818

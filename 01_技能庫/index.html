@@ -1,0 +1,655 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-index-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/05-AI人格-Agent/Claude/Artifacts/autofill-agent-v1/index.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Autofill Agent V1",
+  "schemaVersion": 1,
+  "description": "龍魂系统 Autofill Agent - 批量评估与填表自动化平台，采用四闸门架构（Scan→Parse→Diff→Apply）进行知识点的三色审计、系统接入状态、人格路由、去向建议、核心公式与常见误区的自动填充与更新。",
+  "mcpTools": [
+    "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-fetch",
+    "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-query-database-view",
+    "mcp__00859313-fdd8-429a-8b00-23d2e76758e4__notion-update-page"
+  ],
+  "mcpServerNames": [
+    "Notion",
+    "Notion",
+    "Notion"
+  ]
+}
+</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量填表Agent · Autofill Agent v1.0</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fc 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .gates-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .gate {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .gate.active {
+            border-left-color: #667eea;
+            background: #f8f9fc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .gate h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .gate p {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .gate-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .content-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            background: #f8f9fc;
+            padding: 16px;
+            border-bottom: 1px solid #e8eef7;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .panel-content {
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .entry-item {
+            padding: 16px;
+            border: 1px solid #e8eef7;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .entry-item:hover {
+            border-color: #667eea;
+            background: #f8f9fc;
+        }
+        
+        .entry-item.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+        }
+        
+        .entry-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+        
+        .entry-meta {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        .form-group select,
+        .form-group textarea,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e8eef7;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 4px;
+        }
+        
+        .status-green { background: #d4edda; color: #155724; }
+        .status-yellow { background: #fff3cd; color: #856404; }
+        .status-red { background: #f8d7da; color: #721c24; }
+        
+        .preview-item {
+            padding: 12px;
+            background: #f8f9fc;
+            border-left: 3px solid #667eea;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .preview-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        
+        .preview-value {
+            color: #2c3e50;
+            padding-left: 10px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e8eef7;
+            color: #667eea;
+            flex: 1;
+        }
+        
+        .btn-secondary:hover {
+            background: #d0dced;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+            background: #e8eef7;
+            color: #667eea;
+        }
+        
+        .btn-small:hover {
+            background: #d0dced;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+        }
+        
+        .empty-state p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+        
+        @media (max-width: 1200px) {
+            .content-area {
+                grid-template-columns: 1fr;
+            }
+            .gates-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .dna-trace {
+            font-size: 11px;
+            color: #b0c4de;
+            margin-top: 4px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        function AutofillAgent() {
+            const [currentGate, setCurrentGate] = useState(1);
+            const [entries, setEntries] = useState([]);
+            const [selectedEntry, setSelectedEntry] = useState(null);
+            const [formData, setFormData] = useState({});
+            const [loading, setLoading] = useState(false);
+            const [previewMode, setPreviewMode] = useState(false);
+            
+            // Mock entries - in production these would come from Notion API
+            useEffect(() => {
+                const mockEntries = [
+                    { id: '1', title: 'React Hooks 深度解析', category: '编程与开发', status: '待评估' },
+                    { id: '2', title: 'TypeScript 类型系统', category: '编程与开发', status: '待评估' },
+                    { id: '3', title: '三色审计架构原理', category: '基础理论', status: '待评估' },
+                    { id: '4', title: '龍魂DNA追溯系统', category: '系统架构', status: '待评估' },
+                    { id: '5', title: 'CNSH 中文编程语言', category: '编程与开发', status: '待评估' },
+                ];
+                setEntries(mockEntries);
+                if (mockEntries.length > 0) {
+                    setSelectedEntry(mockEntries[0].id);
+                }
+            }, []);
+            
+            const handleSelectEntry = (id) => {
+                setSelectedEntry(id);
+                setFormData({});
+            };
+            
+            const handleFormChange = (field, value) => {
+                setFormData(prev => ({ ...prev, [field]: value }));
+            };
+            
+            const gateSteps = [
+                { num: 1, name: '扫描(Scan)', desc: '读取知识点入口' },
+                { num: 2, name: '解析(Parse)', desc: '提取关键信息' },
+                { num: 3, name: '差异(Diff)', desc: '对比预期值' },
+                { num: 4, name: '应用(Apply)', desc: '更新到数据库' }
+            ];
+            
+            const auditOptions = ['🟢通过', '🟡待确认', '🔴不可用'];
+            const systemOptions = ['✅已接入', '🔧接入中', '❌未接入'];
+            const routeOptions = ['P72龍盾', 'P01诸葛亮', 'P03雯雯', 'P04鲁班', 'P05上帝之眼'];
+            
+            const currentEntryData = entries.find(e => e.id === selectedEntry);
+            
+            return (
+                <div className="container">
+                    <div className="header">
+                        <h1>批量填表 Agent · Autofill Agent v1.0</h1>
+                        <p>龍魂系统 · 自动化知识审核与路由系统 | DNA Traceability: #龍芯⚡️20260430-AGENT-A1F8C9K2</p>
+                    </div>
+                    
+                    <div className="stats">
+                        <div className="stat-card">
+                            <div className="stat-number">{entries.length}</div>
+                            <div className="stat-label">待评估条目</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">{Object.keys(formData).length}</div>
+                            <div className="stat-label">已填字段</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">{currentGate}</div>
+                            <div className="stat-label">当前闸门</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">5</div>
+                            <div className="stat-label">目标字段</div>
+                        </div>
+                    </div>
+                    
+                    <div className="gates-container">
+                        {gateSteps.map(step => (
+                            <div key={step.num} className={`gate ${currentGate >= step.num ? 'active' : ''}`}>
+                                <div>
+                                    <span className="gate-number">{step.num}</span>
+                                    <h3>{step.name}</h3>
+                                </div>
+                                <p>{step.desc}</p>
+                                <div className="dna-trace">#龍芯⚡️GATE-{step.num}</div>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <div className="content-area">
+                        {/* Left Panel: Entry List */}
+                        <div className="panel">
+                            <div className="panel-header">
+                                📋 知识点条目 ({entries.length})
+                            </div>
+                            <div className="panel-content">
+                                {entries.length === 0 ? (
+                                    <div className="empty-state">
+                                        <p>正在连接数据库...</p>
+                                    </div>
+                                ) : (
+                                    entries.map(entry => (
+                                        <div
+                                            key={entry.id}
+                                            className={`entry-item ${selectedEntry === entry.id ? 'selected' : ''}`}
+                                            onClick={() => handleSelectEntry(entry.id)}
+                                        >
+                                            <div className="entry-title">{entry.title}</div>
+                                            <div className="entry-meta">
+                                                分类: {entry.category}
+                                                <br/>
+                                                状态: {entry.status}
+                                            </div>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </div>
+                        
+                        {/* Right Panel: Evaluation Form or Preview */}
+                        <div className="panel">
+                            {previewMode ? (
+                                <>
+                                    <div className="panel-header">
+                                        ✓ 变更预览 (应用前确认)
+                                    </div>
+                                    <div className="panel-content">
+                                        {currentEntryData && (
+                                            <>
+                                                <div className="preview-item">
+                                                    <div className="preview-label">知识点</div>
+                                                    <div className="preview-value">{currentEntryData.title}</div>
+                                                </div>
+                                                
+                                                {formData.audit && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">三色审计（知识点）</div>
+                                                        <div className="preview-value"><span className="status-badge status-yellow">{formData.audit}</span></div>
+                                                    </div>
+                                                )}
+                                                
+                                                {formData.system && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">是否进入系统</div>
+                                                        <div className="preview-value"><span className="status-badge status-green">{formData.system}</span></div>
+                                                    </div>
+                                                )}
+                                                
+                                                {formData.route && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">人格路由</div>
+                                                        <div className="preview-value">{formData.route}</div>
+                                                    </div>
+                                                )}
+                                                
+                                                {formData.direction && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">去向建议</div>
+                                                        <div className="preview-value">{formData.direction}</div>
+                                                    </div>
+                                                )}
+                                                
+                                                {formData.formula && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">核心公式</div>
+                                                        <div className="preview-value">{formData.formula}</div>
+                                                    </div>
+                                                )}
+                                                
+                                                {formData.pitfall && (
+                                                    <div className="preview-item">
+                                                        <div className="preview-label">常见误区</div>
+                                                        <div className="preview-value">{formData.pitfall}</div>
+                                                    </div>
+                                                )}
+                                                
+                                                <div className="button-group">
+                                                    <button className="btn-secondary" onClick={() => setPreviewMode(false)}>
+                                                        ← 返回编辑
+                                                    </button>
+                                                    <button className="btn-primary" onClick={() => {
+                                                        setCurrentGate(4);
+                                                        setLoading(true);
+                                                        setTimeout(() => {
+                                                            alert('✓ 已应用到数据库！\n条目已更新。');
+                                                            setLoading(false);
+                                                            setPreviewMode(false);
+                                                            setFormData({});
+                                                        }, 1000);
+                                                    }}>
+                                                        ✓ 确认应用 (Gate 4)
+                                                    </button>
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="panel-header">
+                                        📝 批量填表评估 (Gate {Math.min(currentGate, 3)})
+                                    </div>
+                                    <div className="panel-content">
+                                        {!selectedEntry ? (
+                                            <div className="empty-state">
+                                                <p>请选择一个知识点开始评估</p>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <div className="form-group">
+                                                    <label>📌 当前知识点</label>
+                                                    <input type="text" value={currentEntryData?.title || ''} disabled style={{ background: '#f8f9fc' }} />
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>🟡 三色审计（知识点）</label>
+                                                    <select value={formData.audit || ''} onChange={(e) => handleFormChange('audit', e.target.value)}>
+                                                        <option value="">-- 选择 --</option>
+                                                        {auditOptions.map(opt => (
+                                                            <option key={opt} value={opt}>{opt}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>✅ 是否进入系统</label>
+                                                    <select value={formData.system || ''} onChange={(e) => handleFormChange('system', e.target.value)}>
+                                                        <option value="">-- 选择 --</option>
+                                                        {systemOptions.map(opt => (
+                                                            <option key={opt} value={opt}>{opt}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>🎭 人格路由</label>
+                                                    <select value={formData.route || ''} onChange={(e) => handleFormChange('route', e.target.value)}>
+                                                        <option value="">-- 选择 --</option>
+                                                        {routeOptions.map(opt => (
+                                                            <option key={opt} value={opt}>{opt}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>🎯 去向建议</label>
+                                                    <textarea value={formData.direction || ''} onChange={(e) => handleFormChange('direction', e.target.value)} placeholder="例如：推荐进入基础理论 → 进阶系统架构" />
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>🧬 核心公式</label>
+                                                    <input type="text" value={formData.formula || ''} onChange={(e) => handleFormChange('formula', e.target.value)} placeholder="例如：DNA = 知识点 + 追溯码 + 应用场景" />
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label>⚠️ 常见误区</label>
+                                                    <textarea value={formData.pitfall || ''} onChange={(e) => handleFormChange('pitfall', e.target.value)} placeholder="例如：混淆三色审计的判断标准" />
+                                                </div>
+                                                
+                                                <div className="button-group">
+                                                    <button className="btn-secondary" onClick={() => {
+                                                        setSelectedEntry(null);
+                                                        setFormData({});
+                                                    }}>
+                                                        清除表单
+                                                    </button>
+                                                    <button className="btn-primary" onClick={() => {
+                                                        if (Object.keys(formData).length < 3) {
+                                                            alert('请至少填写 3 个字段');
+                                                            return;
+                                                        }
+                                                        setCurrentGate(3);
+                                                        setPreviewMode(true);
+                                                    }}>
+                                                        预览变更 → (Gate 3)
+                                                    </button>
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<AutofillAgent />, document.getElementById('root'));
+    </script>
+</body>
+</html>

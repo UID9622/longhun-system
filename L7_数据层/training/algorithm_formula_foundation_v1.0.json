@@ -1,0 +1,660 @@
+{
+  "version": "1.0",
+  "title": "龍魂·算法公式计算底座 · 模型训练级全集",
+  "description": "整合所有算法、公式、参数、计算底座，用于模型训练。数字根→五行→八卦→三才→权重→三色审计→DNA追溯，全链路。",
+  "dna": "#龍芯⚡️丙午·乙未·戊午·酉时·需-ALGO-FORMULA-FOUNDATION-v1.0",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "author": "UID9622·诸葛鑫",
+  "created": "2026-07-10",
+
+  "part_0_mapping_tables": {
+    "description": "底层映射表 · L0焊死不可变 · 所有计算的基础",
+
+    "digital_root_to_wuxing": {
+      "1": "水", "2": "土", "3": "木", "4": "木",
+      "5": "土", "6": "金", "7": "金", "8": "土", "9": "火"
+    },
+
+    "digital_root_to_bagua": {
+      "1": "坎☵", "2": "坤☷", "3": "震☳", "4": "巽☴",
+      "5": "中五☯", "6": "乾☰", "7": "兑☱", "8": "艮☶", "9": "离☲"
+    },
+
+    "digital_root_to_gua_name": {
+      "1": "䷀乾", "2": "䷁坤", "3": "䷂屯", "4": "䷃蒙",
+      "5": "䷄需", "6": "䷅讼", "7": "䷆师", "8": "䷇比", "9": "䷈小畜"
+    },
+
+    "digital_root_range_color": {
+      "3": "🟡 不动点", "6": "🟡 不动点", "9": "🟡 不动点",
+      "1": "🟢 本源", "8": "🟢 本源",
+      "2": "🟢 稳定", "7": "🟢 稳定",
+      "4": "🟡 中轴", "5": "🟡 中轴"
+    },
+
+    "immutable_369": [3, 6, 9],
+
+    "wuxing_constants": {
+      "金": {"digital_root": [6,7], "direction": "西北·西", "season": "秋", "organ": "肺", "taste": "辛", "color": "白", "weight": 1.0, "trait": "刚强"},
+      "木": {"digital_root": [3,4], "direction": "东·东南", "season": "春", "organ": "肝", "taste": "酸", "color": "青", "weight": 0.9, "trait": "生长"},
+      "水": {"digital_root": [1], "direction": "北", "season": "冬", "organ": "肾", "taste": "咸", "color": "黑", "weight": 0.8, "trait": "流动"},
+      "火": {"digital_root": [9], "direction": "南", "season": "夏", "organ": "心", "taste": "苦", "color": "赤", "weight": 0.7, "trait": "热烈"},
+      "土": {"digital_root": [2,5,8], "direction": "中·西南·东北", "season": "长夏", "organ": "脾", "taste": "甘", "color": "黄", "weight": 0.6, "trait": "包容"}
+    },
+
+    "wuxing_sheng_cycle": {
+      "description": "五行相生：金生水·水生木·木生火·火生土·土生金",
+      "matrix": {"金": "水", "水": "木", "木": "火", "火": "土", "土": "金"}
+    },
+
+    "wuxing_ke_cycle": {
+      "description": "五行相克：金克木·木克土·土克水·水克火·火克金",
+      "matrix": {"金": "木", "木": "土", "土": "水", "水": "火", "火": "金"}
+    },
+
+    "wuxing_anti_ke": {
+      "description": "五行反克（侮·乘）：被克方反向施加 -0.5",
+      "matrix": {"木": "金", "土": "木", "水": "土", "火": "水", "金": "火"}
+    },
+
+    "heshu_luoshu_constants": {
+      "河图": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "河图说明": "一六北水·二七南火·三八东木·四九西金·五十中土",
+      "洛书": [4, 9, 2, 3, 5, 7, 8, 1, 6],
+      "洛书说明": "戴九履一·左三右七·二四为肩·六八为足·五居中央",
+      "中五不动点": 5,
+      "洛书幻方魔数": 15,
+      "洛书总和": 45,
+      "洛书总和_dr": 9,
+      "洛书行和_dr": 6,
+      "洛书中宫": 5
+    },
+
+    "layer_base_weights": {
+      "L0": 1.0,
+      "L1": 0.95,
+      "L2": 0.90,
+      "L3": 0.85,
+      "L4": 0.80
+    }
+  },
+
+  "part_1_core_formulas": {
+    "description": "10条核心公式 · 世界标准×龍魂主权 双轨对照",
+
+    "F01_digital_root": {
+      "standard": "dr(n) = 1 + ((n-1) mod 9), n>0; dr(0)=0",
+      "source": "数论标准，ISBN/Luhn校验码",
+      "longhun_twist": "dr_gate: dr∈{3,9}→🔴拒绝, dr=6→🟡警告, 其余→🟢通过",
+      "module": "L1内核层·数字根熔断闸门",
+      "alpha_belongs": "α_τ",
+      "verifiable": true
+    },
+
+    "F02_shannon_entropy": {
+      "standard": "H(X) = -Σ p·log₂ p",
+      "source": "香农 1948 · 信息论",
+      "longhun_twist": "压缩护城河: ρ = 1 - |压缩后|/|原文|, entropy_check验证压缩不超过香农下界",
+      "module": "语义熵防火墙",
+      "alpha_belongs": "无",
+      "verifiable": true
+    },
+
+    "F03_cosine_similarity": {
+      "standard": "cos(A,B) = A·B / (‖A‖ · ‖B‖)",
+      "source": "信息检索/NLP标配",
+      "longhun_twist": "cosine_dedup: ≥0.9→🔴水军拒绝, 0.7~0.9→🟡可能重复, <0.7→🟢通过",
+      "module": "水军检测·去重路由",
+      "alpha_belongs": "无",
+      "verifiable": true
+    },
+
+    "F04_normalization_alpha_lock": {
+      "standard_linear": "wᵢ = xᵢ / Σxⱼ",
+      "standard_softmax": "softmax(xᵢ) = e^xᵢ / Σe^xⱼ",
+      "longhun_alpha_a": "Σ|αᵢ|² = 1 量子归一，防α混用",
+      "longhun_alpha_w": "wᵢ≥0 且 Σwᵢ=1 凸组合，防裸用α",
+      "module": "权重归一化·α三义锁死",
+      "alpha_belongs": "α_a + α_w (双锁)",
+      "verifiable": true
+    },
+
+    "F05_truth_score_veto": {
+      "standard": "T = 0.4·M + 0.3·V + 0.3·F",
+      "explanation": "M=有意义, V=可验证, F=格式安全(1=通过, 0=被污染)",
+      "longhun_twist": "一票否决: 任一F=0→总分=0→🔴拒绝; ≥0.85→🟢, ≥0.60→🟡, <0.60→🔴",
+      "module": "真实度评分·签章污染红线",
+      "alpha_belongs": "B-LOCK",
+      "verifiable": true
+    },
+
+    "F06_seven_dim_SOUL": {
+      "standard": "SOUL = Σ wᵢ·Eᵢ",
+      "weights": {"技术": 0.20, "语言": 0.15, "文化": 0.20, "数据": 0.15, "决策": 0.15, "知识": 0.10, "身份": 0.05},
+      "longhun_twist": "身份维 α=0 永不衰减 → 不可让渡的主权底",
+      "module": "七维SOUL评分·多准则决策MCDA",
+      "alpha_belongs": "无（身份维α=0特殊）",
+      "verifiable": true
+    },
+
+    "F07_hash_chain_DNA": {
+      "standard": "hₜ = SHA256(hₜ₋₁ ‖ eventₜ)",
+      "source": "区块链/Git/Merkle树标准",
+      "longhun_twist": "DNAₜ = SHA256(DNAₜ₋₁ ‖ eventₜ ‖ signerₜ) 谁说话谁签名(追溯责任)",
+      "module": "DNA哈希链·审计追溯",
+      "alpha_belongs": "无",
+      "verifiable": true
+    },
+
+    "F08_luoshu_magic_square": {
+      "standard": "3阶幻方 行=列=对角=15",
+      "source": "组合数学经典·洛书",
+      "longhun_twist": "luoshu_dual_check: 幻方守恒+中宫恒为5(不动点/主权锚), 任一失败→🔴",
+      "module": "洛书幻方守恒·中五验证",
+      "alpha_belongs": "B-LOCK",
+      "verifiable": true
+    },
+
+    "F09_db3367_extensions": {
+      "standard": "香农熵·互信息·KL散度",
+      "source": "Notion DB3367注册的16个CNSH注释模块",
+      "longhun_twist": "全部公式焊入CNSH扩展库，每条约带注释+来源链",
+      "module": "DB3367公式扩展",
+      "alpha_belongs": "α_τ",
+      "verifiable": true
+    },
+
+    "F10_compress_guard": {
+      "standard": "压缩比 ρ = 1 - compressed/original",
+      "longhun_twist": "entropy_check: 压缩率不能超过香农下界(1-2^(-H)), 违者🔴物理不可行",
+      "module": "压缩护城河",
+      "alpha_belongs": "无",
+      "verifiable": true
+    }
+  },
+
+  "part_2_laozi_369_algorithms": {
+    "description": "老子369道德经核心算法 · 易经八卦深度集成",
+
+    "formula_1_digital_root_fuse": {
+      "formula": "dr(n) = 1 + ((n-1) mod 9)",
+      "fuse_rule": {
+        "1": {"yi": "☰乾卦·天道", "state": "🟢", "action": "原点·不动点·f(x)=x通过"},
+        "2": {"yi": "☷坤卦·地道", "state": "🟢", "action": "二元阴阳·平衡态"},
+        "3": {"yi": "☳震卦·雷动", "state": "🔴", "action": "三才生发·熔断·证据链记录"},
+        "4": {"yi": "☴巽卦·风入", "state": "🟢", "action": "四象·正常回答"},
+        "5": {"yi": "中宫·河洛中心", "state": "🟢", "action": "五行中央·正常回答"},
+        "6": {"yi": "☵坎卦·险中求", "state": "🟡", "action": "六爻变化·待审需补数据"},
+        "7": {"yi": "☶艮卦·山止", "state": "🟢", "action": "七星北斗·正常回答"},
+        "8": {"yi": "☱兑卦·泽悦", "state": "🟢", "action": "八卦完整·正常回答"},
+        "9": {"yi": "☲离卦·火明", "state": "🔴", "action": "极数归零·熔断·物极必反"}
+      }
+    },
+
+    "formula_2_identity_axiom": {
+      "formula": "f(x)=x",
+      "explanation": "原点不变性·宪法层定理·L0焊死"
+    },
+
+    "formula_3_sancai_decision": {
+      "formula": "sancai_score = 天×0.25 + 地×0.25 + 人×动态权重",
+      "dynamic_weight": "人的权重 = max(0.5, 1-(天×0.3+地×0.3))",
+      "explanation": "人的权重自适应：天地越差，人的权重越高，最低50%。曾仕强老师：人永远是最高优先级变量",
+      "threshold": "综合得分 ≥ 0.5 达标"
+    },
+
+    "formula_4_luoshu_fuse": {
+      "grid_sum": 45, "grid_dr": 9, "grid_state": "🔴熔断·物极必反",
+      "row_sum": 15, "row_dr": 6, "row_state": "🟡待审·不要过满",
+      "center": 5, "center_dr": 5, "center_state": "🟢五行中心稳定"
+    },
+
+    "formula_5_wuxing_shengke_verify": {
+      "description": "五行生克验证：检查连续相生循环+克制断点",
+      "cycle": ["金", "水", "木", "火", "土"],
+      "ke_map": {"金": "木", "木": "土", "土": "水", "水": "火", "火": "金"}
+    },
+
+    "formula_6_resonance_369": {
+      "description": "369共振判定",
+      "dr=3": {"level": "🔴", "meaning": "三才失衡·立即熔断·防患于未然"},
+      "dr=6": {"level": "🟡", "meaning": "六爻变动·待审·观察转机"},
+      "dr=9": {"level": "🔴", "meaning": "极数归零·必须重置·物极必反"},
+      "else": {"level": "🟢", "meaning": "非共振·正常运行"}
+    },
+
+    "formula_7_drift_detector": {
+      "formula": "drift = |current - baseline|",
+      "thresholds": {
+        ">0.7": {"level": "P0否决", "color": "🔴"},
+        ">0.3": {"level": "P1纠错", "color": "🟡"},
+        "<=0.3": {"level": "P2正常", "color": "🟢"}
+      }
+    },
+
+    "formula_8_laozi_combined_decision": {
+      "description": "老子369综合决策：数字根+三才+共振+漂移 → 三色判定",
+      "decision_logic": {
+        "any_red": "REJECT·熔断拦截",
+        "any_yellow_no_red": "REVIEW·待审补数据",
+        "all_green": "PASS·放行执行"
+      }
+    },
+
+    "symbol_to_wuxing_map": {
+      "☰": {"name": "金", "direction": "西", "trait": "刚健·清明", "mapping": "规则层·宪法层·不可动摇", "dr": 1},
+      "龍": {"name": "木", "direction": "东", "trait": "生发·成长", "mapping": "系统生命力·创新·扩展", "dr": 3},
+      "🇨🇳": {"name": "火", "direction": "南", "trait": "文明·光明", "mapping": "价值观·透明公正·赤子之心", "dr": 2},
+      "魂": {"name": "水", "direction": "北", "trait": "深藏·永不散", "mapping": "记忆永存·DNA追溯·数字永生", "dr": 6},
+      "☷": {"name": "土", "direction": "中", "trait": "承载·普惠", "mapping": "老百姓·普通人·根基", "dr": 5}
+    }
+  },
+
+  "part_3_wuxing_matrix_engine": {
+    "description": "五行矩阵评分引擎 · 多维诊断+生克动态+三才平衡",
+
+    "functions": {
+      "compute_vector": "多维分数→五行向量W=[金,木,水,火,土]：每个维度名/值的数字根→五行映射→累加归一化",
+
+      "wbi": {
+        "formula": "WBI = 100 - (σ/avg × 100)",
+        "explanation": "五行平衡指数，越高越平衡",
+        "judgement": {"≥60": "平衡", "30-60": "轻偏", "<30": "🔴严重失衡"}
+      },
+
+      "grs": {
+        "formula": "GRS = Σ(相生力度) - Σ(相克力度)",
+        "explanation": "生克动态: 正值=生>克(和谐), 负值=克>生(冲突)",
+        "judgement": {"<-0.5": "🔴克制过强"}
+      },
+
+      "sbc": {
+        "formula": "SBC = 天×0.35 + 地×0.20 + 人×0.45",
+        "explanation": "三才平衡系数：人的权重最高(0.45)，天次之(0.35)，地(0.20)"
+      },
+
+      "matrix_transform": {
+        "quantum": "量子叠加态投影：每个五行=量子态，振幅²归一化",
+        "luoshu": "洛书映射变换：洛书前5数归一×五行向量"
+      },
+
+      "harmonize_across_modules": {
+        "description": "多模块五行向量调和：算每个模块WBI+GRS+SBC，合并计算跨模块总体WBI",
+        "stable_threshold": "WBI≥60 且 无异常告警 = 稳定"
+      }
+    }
+  },
+
+  "part_4_weight_and_decay": {
+    "description": "时间衰减·贡献值·权重引擎",
+
+    "time_decay": {
+      "formula": "η = T^(-α_τ)",
+      "explanation": "时间衰减系数：距离现在越远(T越大)，残留能量越小",
+      "alpha_tau_levels": {
+        "L0_eternal": {"α_τ": 0, "η": 1, "meaning": "永恒不变"},
+        "L1_century": {"α_τ": 0.01, "meaning": "百年·几乎不衰减"},
+        "L2_decade": {"α_τ": 0.1, "meaning": "十年·慢衰减"},
+        "L3_daily": {"α_τ": 1.0, "meaning": "日常·快速衰减"},
+        "L4_instant": {"α_τ": "∞", "meaning": "瞬时·立即失效"}
+      }
+    },
+
+    "contribution_eval": {
+      "formula": "C = R · I · T^(-α_τ)",
+      "variables": {
+        "R": "相关性 Relevance [0,1]",
+        "I": "影响力 Impact [0,1]",
+        "T": "时间间隔(天)",
+        "α_τ": "时间衰减系数"
+      },
+      "thresholds": {
+        "C≥7": "升级到P0/P1",
+        "3≤C<7": "保留当前层",
+        "1≤C<3": "降级到P2",
+        "C→0": "丢弃或封存"
+      }
+    },
+
+    "contrib_dr_factor": {
+      "description": "数字根→贡献值系数 η_dr",
+      "mapping": {
+        "3,6,9": 1.0,
+        "1,5": 0.8,
+        "2,7": 0.6,
+        "4,8": 0.4
+      }
+    },
+
+    "weight_engine": {
+      "description": "权重容错引擎 v2.0 · 忠孝义不动点",
+      "WeightState_6_levels": ["TRUSTED", "NORMAL", "OBSERVING", "WARNING", "QUARANTINE", "FUSE"],
+      "base_layer_weights": {"L0": 1.0, "L1": 0.95, "L2": 0.90, "L3": 0.85, "L4": 0.80},
+      "immutable_anchors": ["忠", "孝", "义"]
+    }
+  },
+
+  "part_5_flow_decision_10_gates": {
+    "description": "龙魂流场决策核 v4.1 · 10道闸完整流程",
+
+    "pipeline": [
+      {"gate": 1, "name": "签章闸", "id": "IPA-FLOW-GATE-SIGN", "check": "confirm_code + GPG 验证", "persona": "P05", "fuse": "签章不匹配→🔴熔断"},
+      {"gate": 2, "name": "隐私闸", "id": "IPA-FLOW-GATE-PRIVACY", "check": "visibility + trace_mode", "persona": "P03+P05+P72", "action": "PRIVATE→sealed·三签封印"},
+      {"gate": 3, "name": "数字根闸", "id": "IPA-FLOW-GATE-DR", "check": "四源优先级数字根计算", "persona": "P06", "action": "dr∈{3,9}→🔴, dr=6→🟡"},
+      {"gate": "3.5", "name": "五行映射", "id": "IPA-FLOW-GATE-WUXING", "check": "数字根→五行元素映射", "persona": "P06"},
+      {"gate": 4, "name": "三色闸", "id": "IPA-FLOW-GATE-AUDIT", "check": "dr=3/9+auto_execute→硬闸7禁止; dr=6→待审硬闸8; L0永恒→need_uid_confirm硬闸9", "persona": "P05+P77"},
+      {"gate": 5, "name": "三才闸", "id": "IPA-FLOW-GATE-SANCAI", "check": "人权重>0.34(硬闸6), <0.34自动提升+🟡", "persona": "P01", "threshold": 0.34},
+      {"gate": 6, "name": "生克闸", "id": "IPA-FLOW-GATE-SHENGKE", "check": "parent_dna五行生克关系", "persona": "P06"},
+      {"gate": 7, "name": "九宫派位", "id": "IPA-FLOW-PALACE-ROUTER", "check": "trace_mode→宫位映射", "persona": "P06"},
+      {"gate": 8, "name": "沙盒分拣", "id": "IPA-FLOW-SANDBOX-BUCKET", "check": "audit.color→bucket: RED→FUSE, YELLOW→HOLD, GREEN→NORMAL", "persona": "P03"},
+      {"gate": 9, "name": "父子链落档", "id": "IPA-FLOW-DNA-CHAIN", "check": "生成child_dna+验证DNA链完整性", "persona": "P05+P18"}
+    ],
+
+    "final_status": {
+      "FUSE": "🔴 任一闸熔断",
+      "HOLD": "🟡 待审·需人工确认",
+      "ENTER": "🟢 放行·进入系统"
+    },
+
+    "hard_gates_summary": {
+      "硬闸1": "confirm_code不匹配→FUSE",
+      "硬闸2": "GPG不匹配→FUSE",
+      "硬闸6": "人权重<0.34→自动提升至0.34+🟡",
+      "硬闸7": "dr=3/9+auto_execute=true→🔴禁止自动执行",
+      "硬闸8": "dr=6→🟡待审",
+      "硬闸9": "L0永恒→need_uid_confirm(GREEN)"
+    }
+  },
+
+  "part_6_calibrated_parameters": {
+    "description": "系统已校准参数 · 直接可用",
+
+    "robot_score": {
+      "alpha": 0.62,
+      "beta": 0.25,
+      "gamma": 0.13,
+      "threshold": 0.73,
+      "F1": 0.9751,
+      "accuracy": 0.9575,
+      "calibrated_with": "1000模拟人类 + 200模拟AI · seed=9622可复现",
+      "source_file": "L7_数据层/robot_score_calibration.json"
+    },
+
+    "three_talents_coefficients": {
+      "天": 0.35,
+      "地": 0.20,
+      "人": 0.45,
+      "min_human_weight": 0.34,
+      "explanation": "人权重最低34% · 天地越差人的权重越高 · 动态自适应"
+    },
+
+    "sancai_dynamic_human_weight": {
+      "formula": "max(0.5, 1-(天×0.3+地×0.3))",
+      "explanation": "天地越不利，人的主观能动性权重越高，最低保底50%"
+    },
+
+    "SOUL_weights": {
+      "技术": 0.20, "语言": 0.15, "文化": 0.20,
+      "数据": 0.15, "决策": 0.15, "知识": 0.10, "身份": 0.05
+    },
+
+    "truth_score_weights": {
+      "M_meaningful": 0.4, "V_verifiable": 0.3, "F_formal": 0.3
+    },
+
+    "cosine_dedup_thresholds": {
+      "red": 0.9, "yellow": 0.7
+    },
+
+    "consistency_check": {
+      "天_dr_expected": 3, "地_dr_expected": 6, "人_dr_expected": 9,
+      "explanation": "三才权重数字根应与369不动点对应 → 天映射到3(震☳),地映射到6(坎☵),人映射到9(离☲)"
+    },
+
+    "dr_gate_colors": {
+      "green": [1, 2, 4, 5, 7, 8],
+      "yellow": [6],
+      "red": [3, 9]
+    }
+  },
+
+  "part_7_heshu_luoshu_dna_generation": {
+    "description": "河图洛书不动点DNA生成+验证算法",
+
+    "algorithm": {
+      "step1": "取河图中五(值5)为不动点",
+      "step2": "不动点 × len(操作) % 9 → 数字根",
+      "step3": "sha256(操作+用户+时间戳) → hash前缀16位",
+      "output_format": "DNA_<不动点>_<hash16位>"
+    },
+
+    "verification": {
+      "method": "输入dna码+操作+用户+时间戳 → 重新生成比较",
+      "result": "True=有效, False=被篡改"
+    },
+
+    "v_infinity_format": {
+      "description": "v∞ 干支卦DNA格式（当前系统标准）",
+      "format": "#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>",
+      "generator": "bin/hetu_luoshu_dna.py + calendar-context-logger/calendar_core.py",
+      "forbidden": "禁止使用v1.0格里历格式 YYYY-MM-DD"
+    }
+  },
+
+  "part_8_digital_root_engine_full": {
+    "description": "数字根引擎 v1.0 · 洛书369不动点验证 · 完整API",
+
+    "core_function": {
+      "dr_single": "dr(n) = 1 + (n-1) mod 9, n>0; dr(0)=0",
+      "dr_from_float": "浮点数×10^precision取整→数字根",
+      "dr_from_str": "字符串ASCII和→数字根",
+      "dr_from_hex": "十六进制→十进制→数字根"
+    },
+
+    "chain_analysis": {
+      "description": "多值数字根链 → 递推+369判定",
+      "convergence_check": "至少一个369命中 或 最后三个含369 = 收敛",
+      "anomaly_check": "链长<3 或 无369命中+verify_369=True = 异常",
+      "outputs": ["dr_values", "hits_369", "convergence_to_369", "primary_wuxing", "primary_bagua"]
+    },
+
+    "consistency_verification": {
+      "description": "权重集一致性：每个权重→数字根→链收敛到369",
+      "三才对应校验": {"天": "dr应=3", "地": "dr应=6", "人": "dr应=9"},
+      "ipa_callback": "IPA-L7-PER-KNOW-007 → calibrated:bool + dr_chain + corrections"
+    }
+  },
+
+  "part_9_routing_computation": {
+    "description": "通心译IPA路由 · 八维参数 · 约1658万路径",
+
+    "eight_dimensions": {
+      "1_bagua": {"values": 8, "description": "八卦路由 ☰☷☳☴☯☰☱☶☲"},
+      "2_wuxing": {"values": 5, "description": "五行向量 [金,木,水,火,土]"},
+      "3_digital_root": {"values": 9, "description": "数字根 1-9"},
+      "4_zhongwu": {"values": 5, "description": "中五不动点×5种投影"},
+      "5_context_type": {"values": "12+", "description": "语境类型: 技术/生活/学习/法律/财务/医疗/政务/游戏/创作/军事/学术/商业"},
+      "6_intent_action": {"values": 6, "description": "意图动作: 查询/创建/修改/删除/分析/部署"},
+      "7_emotion_intensity": {"values": 4, "description": "情绪强度: 冷静/正常/激动/愤怒"},
+      "8_trust_weight": {"values": 5, "description": "信任权重: 完全信任/信任/中性/警觉/不信任"}
+    },
+
+    "total_paths": "8×5×9×5×12×6×4×5 ≈ 16,580,000 种组合",
+
+    "ipa_keyword_routing": {
+      "IPA-300": {"name": "语境语义引擎", "keywords": ["统一","对齐","收口","一致","通心","理解","语境","语义","翻译","含义","查","看","怎么","是什么"]},
+      "IPA-301": {"name": "口语·方言·习惯语", "keywords": ["口语","方言","俚语","网络用语","拼音","错别字","土话","白话","整到一起","弄一下","整一下","搞一下"]},
+      "IPA-302": {"name": "情绪·语气·态度识别", "keywords": ["情绪","语气","火气","骂人","生气","急","烦","激动","冷静","开心","难过","卧槽","我操","他妈的","草","操","靠","日"]},
+      "IPA-303": {"name": "字体·字形·排版语义", "keywords": ["字体","字形","排版","渲染","glyph","字符","unicode","emoji","标点"]},
+      "IPA-310": {"name": "CNSH语法·编程语言翻译", "keywords": ["代码","语法","编译","python","javascript","go","rust","java","c++","编程","函数","变量","类","import","console","print","def","func"]},
+      "IPA-311": {"name": "网站·页面解析语义", "keywords": ["html","css","网页","爬虫","解析","dom","xpath","selector"]},
+      "IPA-312": {"name": "API·协议·数据格式语义", "keywords": ["api","rest","graphql","json","xml","http","协议","endpoint"]},
+      "IPA-320": {"name": "中华文化·古今语义", "keywords": ["道德经","老子","孔子","易经","八卦","太极","诗词","古文","成语","典故","上善若水","无为","知行合一"]},
+      "IPA-321": {"name": "东亚文化圈语义", "keywords": ["日本","韩国","汉字","儒学","佛教","茶道","禅"]},
+      "IPA-322": {"name": "全球文化语义适配", "keywords": ["西方","欧美","中东","非洲","跨文化","本地化","国际化"]},
+      "IPA-323": {"name": "法律·政策语义", "keywords": ["法律","法规","政策","合规","GDPR","隐私","版权","专利"]},
+      "IPA-330": {"name": "数学·算法·公式语义", "keywords": ["算法","公式","数学","计算","数字根","369","不动点","向量","矩阵","熵","概率","统计"]},
+      "IPA-331": {"name": "安全·审计·防火墙语义", "keywords": ["安全","审计","防火墙","漏洞","攻击","注入","加密","token","密钥"]},
+      "IPA-332": {"name": "数据·统计·可视化语义", "keywords": ["数据","统计","图表","可视化","报表","ETL","数据库","sql","nosql"]},
+      "IPA-333": {"name": "音频·语音·声纹语义", "keywords": ["音频","语音","声纹","录音","tts","asr","音色","频率"]}
+    },
+
+    "feedback_loop": {
+      "description": "回环机制：执行→反馈评分→信誉加权→高争议触发校准→校准回写语义库→下次路由更精准"
+    }
+  },
+
+  "part_10_runtime_governance_mathematics": {
+    "description": "CNSH运行时治理数学 · 完整版 v3.0（论文级）",
+
+    "theorem_1_periodicity": {
+      "name": "数字根周期性定理",
+      "statement": "对任意正整数n，存在唯一的dr(n)∈Z₉",
+      "proof": "带余除法: n=9q+r, 0≤r<9; r=0则dr=9, 否则dr=r"
+    },
+
+    "theorem_2_tricolor_completeness": {
+      "name": "三色治理完备性定理",
+      "statement": "三色集合{G,Y,R}构成Z₉的完全分割",
+      "partition": {"G": "{1,2,4,5,7,8} (6元素)", "Y": "{6} (1元素)", "R": "{3,9} (2元素)"}
+    },
+
+    "theorem_3_attractor_369": {
+      "name": "369吸引子态稳定性",
+      "statement": "3·6·9构成数字根系统的稳定吸引子态",
+      "explanation": "洛书对角线: 3(左上→右下), 6(右上→左下), 9(中轴延展)"
+    },
+
+    "mechanisms": {
+      "digital_root_algebra": "模9代数用于决策流",
+      "tricolor_governance": "🟢🟡🔴 三色风险控制",
+      "369_attractor_dynamics": "369吸引子动力学用于稳定执行",
+      "semantic_entropy_defense": "语义熵测量用于提示词注入防御",
+      "traceable_DNA_chains": "可追溯DNA执行链用于完整审计",
+      "wuxing_routing": "五行路由用于资源分配"
+    }
+  },
+
+  "part_11_algorithm_collection_cnsh": {
+    "description": "8大核心算法 · CNSH中文原生语法表达",
+
+    "algorithms": [
+      {
+        "id": "ALGO-01",
+        "name": "数字根熔断闸门",
+        "purpose": "第一道闸门·所有输入必过·P0优先级",
+        "logic": "无数字→🟢跳过; dr∈{1,2,4,5,7,8}→🟢; dr=6→🟡; dr∈{3,9}→🔴",
+        "persona": "P06 数学大师"
+      },
+      {
+        "id": "ALGO-02",
+        "name": "三才决策评分",
+        "purpose": "天地人三维综合决策",
+        "formula": "sc = 天×0.25 + 地×0.25 + 人×max(0.5, 1-(天×0.3+地×0.3))",
+        "persona": "P01 诸葛亮"
+      },
+      {
+        "id": "ALGO-03",
+        "name": "易经卦象推演",
+        "purpose": "64卦逻辑验证决策的正义性与可行性",
+        "formula": "数字根→卦象映射→六爻分析",
+        "persona": "P06 数学大师"
+      },
+      {
+        "id": "ALGO-04",
+        "name": "五行生克验证",
+        "purpose": "五行平衡+生克动态判定",
+        "formula": "WBI + GRS + SBC 三维诊断",
+        "persona": "P06 数学大师"
+      },
+      {
+        "id": "ALGO-05",
+        "name": "哈希链DNA追溯",
+        "purpose": "每步操作留痕·改一字全链变",
+        "formula": "DNAₜ = SHA256(DNAₜ₋₁ ‖ eventₜ ‖ signerₜ)",
+        "persona": "P05 上帝之眼"
+      },
+      {
+        "id": "ALGO-06",
+        "name": "三色审计判定",
+        "purpose": "🟢通过/🟡警告/🔴拒绝 统一判色",
+        "formula": "数字根+三才+共振+漂移 → 三色",
+        "persona": "P05 上帝之眼"
+      },
+      {
+        "id": "ALGO-07",
+        "name": "时间衰减+贡献值",
+        "purpose": "规则老化判定+贡献价值量化",
+        "formula": "η=T^(-α_τ); C=R·I·T^(-α_τ)",
+        "persona": "P01 诸葛亮"
+      },
+      {
+        "id": "ALGO-08",
+        "name": "河图洛书双检",
+        "purpose": "幻方守恒+中五验证",
+        "formula": "幻方行=列=对角=15; 中宫恒为5",
+        "persona": "P02 龍芯"
+      }
+    ]
+  },
+
+  "part_12_computation_pipeline": {
+    "description": "完整计算链路：从输入到三色判定的一条龙",
+
+    "pipeline": [
+      {"step": 0, "name": "会话记忆加载", "action": "python3 bin/lh_memory_load.py"},
+      {"step": 1, "name": "数字根熔断", "action": "dr(n)→{3,9}直接拒"},
+      {"step": 2, "name": "五行向量计算", "action": "W(x)=[金,木,水,火,土]→WBI+GRS+SBC"},
+      {"step": 3, "name": "八卦路由", "action": "8卦×5行×9数×5中五=约1658万路径"},
+      {"step": 4, "name": "权重时间衰减", "action": "η=T^(-α_τ), C=R·I·T^(-α_τ)"},
+      {"step": 5, "name": "三才决策", "action": "sc=天×0.25+地×0.25+人×动态权重"},
+      {"step": 6, "name": "三色审计", "action": "🟢通行/🟡警告/🔴拒绝"},
+      {"step": 7, "name": "DNA追溯", "action": "SHA256→#龍芯⚡️干支卦格式"},
+      {"step": 8, "name": "10道闸决策流", "action": "签章→隐私→数字根→五行→三色→三才→生克→九宫→沙盒→DNA链"},
+      {"step": 9, "name": "IPA分发", "action": "路由到对应子IPA执行"},
+      {"step": 10, "name": "反馈回环", "action": "执行结果→反馈评分→信誉加权→语义库更新→下次更准"}
+    ],
+
+    "critical_thresholds": {
+      "dr_fuse": "{3,9}",
+      "dr_warn": 6,
+      "si_lock": 0.34,
+      "cosine_red": 0.9,
+      "cosine_yellow": 0.7,
+      "truth_green": 0.85,
+      "truth_yellow": 0.60,
+      "wbi_severe": 30,
+      "grs_critical": -0.5,
+      "drift_red": 0.7,
+      "drift_yellow": 0.3,
+      "robot_threshold": 0.73
+    }
+  },
+
+  "part_13_integration_registry": {
+    "description": "所有计算组件→文件→IPA→人格 注册表",
+
+    "components": [
+      {"component": "数字根引擎", "file": "L7_数据层/persona_knowledge/P02_张衡/digital_root_engine.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "五行矩阵引擎", "file": "L7_数据层/persona_knowledge/P02_张衡/wuxing_matrix.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "河图洛书DNA生成", "file": "bin/hetu_luoshu_dna.py", "ipa": "IPA-330", "persona": "P02 龍芯"},
+      {"component": "河图洛书权重校准", "file": "L7_数据层/persona_knowledge/P02_张衡/hetu_luoshu_calibrator.py", "ipa": "IPA-330", "persona": "P02+P06"},
+      {"component": "公式核心(10条)", "file": "cnsh-core/mathematics/formula_core.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "公式链", "file": "scripts/formula_chain.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "老子369算法", "file": "cnsh-core/downloads-imports/formula/计算公式/formula_laozi369.py", "ipa": "IPA-320+IPA-330", "persona": "P01 诸葛亮"},
+      {"component": "权重计算器", "file": "scripts/L2_WELDED_PROTOCOLS/weight_calculator.py", "ipa": "IPA-330", "persona": "P01 诸葛亮"},
+      {"component": "权重引擎", "file": "cnsh-core/constitution/longhun_weight_engine.py", "ipa": "IPA-330", "persona": "P01+P00"},
+      {"component": "流场决策核", "file": "cnsh/flow_decision/cnsh_flow_decision_core.py", "ipa": "IPA-330+IPA-300", "persona": "P05+P06+P13"},
+      {"component": "易经引擎(M04)", "file": "cnsh-core/m04_yijing_engine.py", "ipa": "IPA-320", "persona": "P06 数学大师"},
+      {"component": "五行计算器(M05)", "file": "cnsh-core/m05_wuxing_calculator.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "L1核心引擎", "file": "L1_内核层/longhun_core_engine.py", "ipa": "IPA-330", "persona": "P02+P05+P77"},
+      {"component": "八卦路由器", "file": "bin/bagua_router.py", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "通心译IPA路由", "file": "bin/lh_tongxinyi_ipa_router.py", "ipa": "IPA-300~333", "persona": "P13 姜子牙"},
+      {"component": "运行时治理数学", "file": "cnsh-core/runtime-governance/cnsh_runtime_core.py", "ipa": "IPA-330", "persona": "P05+P06"},
+      {"component": "标准计算框架", "file": "skill-standards.integrated/longhun-standard-calculation-framework.py", "ipa": "IPA-330", "persona": "P02 龍芯"},
+      {"component": "RobotScore校准", "file": "L7_数据层/robot_score_calibration.json", "ipa": "IPA-330", "persona": "P06 数学大师"},
+      {"component": "行为密码学验证", "file": "bin/lh_behavioral_crypto_verifier.py", "ipa": "IPA-331", "persona": "P77 黑天使军团"}
+    ]
+  }
+}

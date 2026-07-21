@@ -1,0 +1,760 @@
+{
+  "dna": "#龍芯⚡️20260708075633721-GOV-STATUS-3FA798CA",
+  "timestamp": "2026-07-08T07:56:33.721366+00:00",
+  "engine_dna": "#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0",
+  "layers": {
+    "L0": {
+      "name": "宪法层/永恒层",
+      "tricolor": "🟢",
+      "score": 0.9748,
+      "worst_component": "LayerLevel.L0:file:__init__.py",
+      "worst_status": "ok",
+      "checks_count": 7,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L1": {
+      "name": "基础协议层",
+      "tricolor": "🟢",
+      "score": 0.9949,
+      "worst_component": "LayerLevel.L1:f1f7:chain_hash.jsonl",
+      "worst_status": "ok",
+      "checks_count": 6,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L2": {
+      "name": "治理与人治层",
+      "tricolor": "🟢",
+      "score": 0.9833,
+      "worst_component": "LayerLevel.L2:file:f1_through_f7_verifier.py",
+      "worst_status": "ok",
+      "checks_count": 3,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L3": {
+      "name": "经济与激励层",
+      "tricolor": "🟢",
+      "score": 0.9875,
+      "worst_component": "LayerLevel.L3:file:README.md",
+      "worst_status": "ok",
+      "checks_count": 6,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L4": {
+      "name": "文化与开源层",
+      "tricolor": "🟢",
+      "score": 0.9778,
+      "worst_component": "LayerLevel.L4:file:通心译翻译引擎_总纲.md",
+      "worst_status": "ok",
+      "checks_count": 9,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L5": {
+      "name": "技术与分布式层",
+      "tricolor": "🟢",
+      "score": 0.9812,
+      "worst_component": "LayerLevel.L5:file:longhun_compression_engine.py",
+      "worst_status": "ok",
+      "checks_count": 4,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L6": {
+      "name": "人权与退出层",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "worst_component": "LayerLevel.L6:process:identity-portal",
+      "worst_status": "ok",
+      "checks_count": 2,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L7": {
+      "name": "内容主权层",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "worst_component": "LayerLevel.L7:si:ren",
+      "worst_status": "ok",
+      "checks_count": 1,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  },
+  "checks": [
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:AGENTS.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): AGENTS.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/AGENTS.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:__init__.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): __init__.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/constitution/__init__.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:__init__.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): __init__.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/permissions/__init__.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:AGENTS.md",
+      "component_type": "f1f7",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.9838604468363245,
+      "message": "F1-F7 置信度 0.9839: 🟢_高信任",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/AGENTS.md",
+        "confidence": 0.9838604468363245,
+        "passed": true,
+        "factors": {
+          "F1_identity_dna": 1.0,
+          "F2_temporal_anchor": 0.9999999999999999,
+          "F3_rule_trace": 1.0,
+          "F4_persona_routing": 0.9999999999999999,
+          "F5_protected_vocabulary": 1.0,
+          "F6_style_vector": 0.8624999999999999,
+          "F7_mistake_ledger": 1.0
+        }
+      },
+      "auto_fixable": false,
+      "fix_action": "alarm_only"
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:__init__.py",
+      "component_type": "f1f7",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.9822817648076159,
+      "message": "F1-F7 置信度 0.9823: 🟢_高信任",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/constitution/__init__.py",
+        "confidence": 0.9822817648076159,
+        "passed": true,
+        "factors": {
+          "F1_identity_dna": 1.0,
+          "F2_temporal_anchor": 0.9999999999999999,
+          "F3_rule_trace": 1.0,
+          "F4_persona_routing": 0.9999999999999999,
+          "F5_protected_vocabulary": 1.0,
+          "F6_style_vector": 0.85,
+          "F7_mistake_ledger": 1.0
+        }
+      },
+      "auto_fixable": false,
+      "fix_action": "alarm_only"
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:__init__.py",
+      "component_type": "f1f7",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.9822817648076159,
+      "message": "F1-F7 置信度 0.9823: 🟢_高信任",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/permissions/__init__.py",
+        "confidence": 0.9822817648076159,
+        "passed": true,
+        "factors": {
+          "F1_identity_dna": 1.0,
+          "F2_temporal_anchor": 0.9999999999999999,
+          "F3_rule_trace": 1.0,
+          "F4_persona_routing": 0.9999999999999999,
+          "F5_protected_vocabulary": 1.0,
+          "F6_style_vector": 0.85,
+          "F7_mistake_ledger": 1.0
+        }
+      },
+      "auto_fixable": false,
+      "fix_action": "alarm_only"
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:si:ren",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "ren 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "ren",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:file:chain_hash.jsonl",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): chain_hash.jsonl",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/chain_hash.jsonl",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:file:dragon_knowledge.db",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): dragon_knowledge.db",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/_work/dragon_knowledge.db",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:process:longhun-brain",
+      "component_type": "process",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "进程运行中: longhun-brain",
+      "evidence": {
+        "proc_id": "longhun-brain",
+        "port": 9625,
+        "pid": 70279
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:f1f7:chain_hash.jsonl",
+      "component_type": "f1f7",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.9838604468363245,
+      "message": "F1-F7 置信度 0.9839: 🟢_高信任",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/chain_hash.jsonl",
+        "confidence": 0.9838604468363245,
+        "passed": true,
+        "factors": {
+          "F1_identity_dna": 1.0,
+          "F2_temporal_anchor": 0.9999999999999999,
+          "F3_rule_trace": 1.0,
+          "F4_persona_routing": 0.9999999999999999,
+          "F5_protected_vocabulary": 1.0,
+          "F6_style_vector": 0.8624999999999999,
+          "F7_mistake_ledger": 1.0
+        }
+      },
+      "auto_fixable": false,
+      "fix_action": "alarm_only"
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:f1f7:dragon_knowledge.db",
+      "component_type": "f1f7",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.985418895899767,
+      "message": "F1-F7 置信度 0.9854: 🟢_高信任",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/_work/dragon_knowledge.db",
+        "confidence": 0.985418895899767,
+        "passed": true,
+        "factors": {
+          "F1_identity_dna": 1.0,
+          "F2_temporal_anchor": 0.9999999999999999,
+          "F3_rule_trace": 1.0,
+          "F4_persona_routing": 0.9999999999999999,
+          "F5_protected_vocabulary": 1.0,
+          "F6_style_vector": 0.8750000000000001,
+          "F7_mistake_ledger": 1.0
+        }
+      },
+      "auto_fixable": false,
+      "fix_action": "alarm_only"
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:si:tian",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "tian 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "tian",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L2",
+      "component_id": "LayerLevel.L2:file:f1_through_f7_verifier.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '曾仕强老师']): f1_through_f7_verifier.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/governance/f1_through_f7_verifier.py",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L2",
+      "component_id": "LayerLevel.L2:file:sovereignty_index.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '曾仕强老师']): sovereignty_index.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh-core/governance/sovereignty_index.py",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L2",
+      "component_id": "LayerLevel.L2:si:tian",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "tian 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "tian",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:README.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): README.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/xpay/README.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:LICENSE",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): LICENSE",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/xpay/LICENSE",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:CONTRIBUTING.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '曾仕强老师']): CONTRIBUTING.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/xpay/CONTRIBUTING.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:CODE_OF_CONDUCT.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): CODE_OF_CONDUCT.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/xpay/CODE_OF_CONDUCT.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:INCENTIVE_MODEL.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (保留 6/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '通心译', '曾仕强老师']): INCENTIVE_MODEL.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/xpay/INCENTIVE_MODEL.md",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:si:di",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "di 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "di",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:README.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): README.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/README.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:LICENSE",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): LICENSE",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/LICENSE",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:CONTRIBUTING.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): CONTRIBUTING.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/CONTRIBUTING.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:CODE_OF_CONDUCT.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '曾仕强老师']): CODE_OF_CONDUCT.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/CODE_OF_CONDUCT.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:字体主权执行报告.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622']): 字体主权执行报告.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/longhun-font/字体主权执行报告.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:通心译双语引擎_v3.0_激活文档.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '通心译']): 通心译双语引擎_v3.0_激活文档.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/docs/v3/通心译双语引擎_v3.0_激活文档.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:通心译风格指南.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 5/6 个主权词: ['龍', '龍魂', '龍芯', 'UID9622', '通心译']): 通心译风格指南.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/docs/v3/通心译风格指南.md",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:通心译翻译引擎_总纲.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): 通心译翻译引擎_总纲.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/docs/notion_mirror/pages/通心译翻译引擎_总纲.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:si:ren",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "ren 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "ren",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:file:longhun_compression_engine.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): longhun_compression_engine.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/scripts/longhun_compression_engine.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:file:kg_unified.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.975,
+      "message": "文件正常 (保留 4/6 个主权词: ['龍', '龍魂', '龍芯', '通心译']): kg_unified.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/scripts/kg_unified.py",
+        "has_dna": true,
+        "cultural_score": 0.95
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:process:compression-engine",
+      "component_type": "process",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "进程运行中: compression-engine",
+      "evidence": {
+        "proc_id": "compression-engine",
+        "port": null,
+        "pid": null
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:si:di",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "di 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "di",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L6",
+      "component_id": "LayerLevel.L6:process:identity-portal",
+      "component_type": "process",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "进程运行中: identity-portal",
+      "evidence": {
+        "proc_id": "identity-portal",
+        "port": 8444,
+        "pid": 70282
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L6",
+      "component_id": "LayerLevel.L6:si:ren",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "ren 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "ren",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L7",
+      "component_id": "LayerLevel.L7:si:ren",
+      "component_type": "sovereignty",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "ren 维度健康 (1.0000)",
+      "evidence": {
+        "dimension": "ren",
+        "dim_score": 1.0,
+        "si": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    }
+  ],
+  "si_report": {
+    "available": true,
+    "si": 1.0,
+    "level": "🟢_完全主权",
+    "tian": 1.0,
+    "di": 1.0,
+    "ren": 1.0,
+    "can_decide": true
+  },
+  "summary": {
+    "total_checks": 38,
+    "ok": 38,
+    "warning": 0,
+    "error": 0,
+    "frozen": 0,
+    "overall_tricolor": "🟢",
+    "overall_score": 0.984
+  }
+}

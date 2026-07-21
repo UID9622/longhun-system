@@ -1,0 +1,222 @@
+# ═══════════════════════════════════════════════════════════
+# 龍魂 · Git 忽略规则 v1.0
+# P2 系统规则 · 可调整
+# ═══════════════════════════════════════════════════════════
+
+# --- 系统文件 ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python 虚拟环境
+venv/
+.venv/
+env/
+.env
+.env.*
+*.env
+
+# --- Node.js ---
+node_modules/
+.npm/
+.yarn/
+
+# --- 容器生成数据 ---
+container_data/
+
+# --- 日志 ---
+logs/
+logging_backup/
+*.log
+
+# --- 备份 ---
+backups/
+*.backup
+
+# --- 私有文件 ---
+_private/
+_archive/
+!bin/_archive/
+_archived_reports/
+tmp/
+temp/
+
+# --- 旧 git ---
+.git_dispose/
+
+# --- 外部克隆副本（含嵌套.git）---
+.daoyin_workspace/
+cnsh-repo-push/
+gitee-export/
+longhun_mvp_reviewed/
+longhun-system/
+sdk/harmonyos-behavioral-audit/
+longhun-font/packages/wuwu-renderer/
+
+# --- 虚拟环境（非标准路径）---
+.venv_longhun_math/
+voice-twin/.venv-tts/
+*/venv/
+*/.venv/
+*.venv*/
+
+# --- 工作目录（含嵌入式git仓库）---
+_work/
+
+# --- 进程PID文件 ---
+.longhun/*.pid
+
+# --- 大型镜像/克隆数据 ---
+L7_数据层/daoyin/mirror/
+L7_数据层/daoyin/downloads/
+L7_数据层/daoyin/cache/
+
+# --- 神经网络训练数据（大文件）---
+brain/
+
+# --- 编译产物/发行版 ---
+releases/
+
+# --- Git 工具残留 ---
+.git-rewrite/
+.git.bak*/
+
+# --- 音频/语音原始数据 ---
+voice-twin/raw/
+voice-twin/voice_dataset/
+
+# --- 大型数据库文件 ---
+data/usb_index/
+*.db
+
+# --- 境外编辑器暗桩（耻辱柱记录在案）---
+.claude/
+.cursor/
+.cursorrules
+CLAUDE.md
+CLAUDE.md.asc
+
+# --- IDE ---
+.idea/
+.vscode/
+*.sublime-workspace
+
+# --- 二进制/编译 ---
+*.so
+*.dylib
+*.dll
+*.exe
+
+# --- 大文件 ---
+*.tar.gz
+*.zip
+*.7z
+*.dmg
+*.pkg
+
+# --- 证书/密钥 ---
+*.pem
+*.key
+*.p12
+*.pfx
+!example*.pem
+
+# --- 字体源文件 ---
+字体/*.ttf
+字体/*.otf
+字体/*.woff2
+
+# --- 运行时状态（不入版本库）---
+state/
+.longhun/
+.龍魂/
+.龍魂_config/
+.archive/
+.coverage
+
+# --- 编辑器工作区 ---
+.obsidian/
+.codebuddy/
+.codebuddy-plugin/
+.vscode.bak/
+.playwright-mcp/
+.snapshots/
+
+# --- 运行时生成数据（训练/采集/审计）---
+data/sources/fetched/
+data/sources/cleaned/
+data/sources/logs/
+data/sources/intl/
+data/sources/registry/*.json
+data/sources/*.json
+data/sources/index-for-codebuddy.md
+data/sources/clean_stats.json
+
+# --- 训练数据产物（大文件·不入git）---
+models/longhun-v1.0/memory_ingested_data_v1.0/
+models/longhun-v1.0/unified_sources_ingested/
+models/longhun-v1.0/yi1.5-9b-chat-mlx/
+deploy/longhun-node/audit/
+deploy/evidence/
+deploy/auto_sync/*.log
+data/collector/
+data/training/home_absorb/
+data/training/media/
+data/training/evidence_v2/
+data/training/reports/
+data/training/v3.2/
+data/training/raw/
+data/training/annotated/
+data/self_improvement_log.json
+data/euv_history.json
+data/ant_colony_state.db
+models/longhun-v1.0/base_model_old/
+models/longhun-v1.0/llama3.1-8b-mlx/
+*.mov
+*.mp4
+*.avi
+
+# --- L3 语义层模型产物 ---
+L3_语义层/20260718/model/
+
+# --- 神经网络模型权重（大文件·永不入git）---
+models/base_models_v4.0/
+models/longhun-v1.0/base_model/
+models/longhun-v1.0/base_model_old/
+models/longhun-v1.0/checkpoint_archive/
+models/longhun-v1.0/deepseek-r1-distill-llama-8b-mlx/
+models/longhun-v1.0/llama3.1-8b-mlx/
+models/longhun-v1.0/lora_output/
+models/longhun-v1.0/lora_output_*/
+models/*.safetensors
+models/**/*.safetensors
+models/**/*.bin
+models/**/*.gguf
+
+# 🔒 安全加固自动添加
+id_rsa*
+id_ed25519*
+*private*
+*secret*
+*credential*
+*password*
+vault/
+v409_use_v408_golden
+models/longhun-v1.0/training_corpus_v3.0.md
+archive/brain_old/
+data/
+models/longhun-v1.0/

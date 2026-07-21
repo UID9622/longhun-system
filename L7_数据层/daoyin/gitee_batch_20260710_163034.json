@@ -1,0 +1,21 @@
+{
+  "batch_type": "gitee_clone_bridge",
+  "total": 1,
+  "success_count": 0,
+  "failed_count": 1,
+  "elapsed_seconds": 0.9396500587463379,
+  "dry_run": true,
+  "results": [
+    {
+      "source": "https://gitee.com/gmssl/GmSSL",
+      "owner_repo": "gmssl/GmSSL",
+      "success": false,
+      "clone_ok": false,
+      "absorb_ok": false,
+      "dna": "",
+      "error": "clone: clone 失败: 正克隆到 '/var/folders/t7/xnm3vs951n9bj0g4dpksnznm0000gn/T/daoyin_gitee_r33ej1vn/GmSSL'...\n[session-2447c2bb] Auth error: 404 not found!\n致命错误：无法读取远程仓库。\n\n请确认您有正确的访问权限并且仓库存在。",
+      "elapsed_total": 0,
+      "elapsed_clone": 0.9097900390625
+    }
+  ]
+}

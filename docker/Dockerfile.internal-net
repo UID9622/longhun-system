@@ -1,0 +1,86 @@
+# ═══════════════════════════════════════════════════════════════
+# 龍魂·内网互联节点 Docker 镜像
+# DNA: #龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-DOCKER-v1.0
+# #CONFIRM🌌9622-ONLY-ONCE🧬DKR1-001A
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# ═══════════════════════════════════════════════════════════════
+# 兼容: x86_64 / aarch64 / armv7 (鲲鹏/龙芯/树莓派通用)
+# 镜像大小目标: <200MB
+
+FROM python:3.11-slim AS builder
+
+# 构建阶段：安装依赖到虚拟环境
+RUN pip install --no-cache-dir --target=/install fastapi uvicorn requests python-multipart pyyaml
+
+# ── 运行阶段 ──
+FROM python:3.11-slim
+
+LABEL maintainer="UID9622"
+LABEL description="龍魂内网互联节点 - 即插即用P2P节点"
+LABEL version="1.0"
+LABEL dna="#龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-DOCKER-v1.0"
+LABEL org.opencontainers.image.vendor="龍魂系统"
+LABEL org.opencontainers.image.authors="UID9622 诸葛鑫·Lucky"
+
+# 安装系统工具
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    iproute2 \
+    net-tools \
+    iputils-ping \
+    procps \
+    && rm -rf /var/lib/apt/lists/*
+
+# 创建应用目录
+WORKDIR /opt/longhun
+RUN mkdir -p /opt/longhun/{scripts,config,logs,data,cache} \
+    && useradd -m -s /bin/bash longhun || true
+
+# 复制依赖
+COPY --from=builder /install /usr/local/lib/python3.11/site-packages/
+
+# 复制龍魂脚本
+COPY deploy/scripts/longhun-internal-net/longhun-api-gateway.py /opt/longhun/scripts/
+COPY deploy/scripts/longhun-internal-net/longhun-peer-client.py /opt/longhun/scripts/
+COPY deploy/scripts/longhun-internal-net/config/default.yaml /opt/longhun/config/
+COPY deploy/scripts/longhun-internal-net/entrypoint.sh /opt/longhun/
+
+# 权限
+RUN chmod +x /opt/longhun/entrypoint.sh \
+    /opt/longhun/scripts/*.py \
+    && chown -R longhun:longhun /opt/longhun
+
+# 环境变量（可在运行时覆盖）
+ENV LONGHUN_ROLE=peer \
+    LONGHUN_GATEWAY=auto \
+    LONGHUN_DEVICE_NAME=longhun-node \
+    LONGHUN_DEVICE_TYPE=auto \
+    LONGHUN_GATEWAY_PORT=9622 \
+    LONGHUN_DNA="#龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-DOCKER-v1.0" \
+    LONGHUN_CONFIRM="#CONFIRM🌌9622-ONLY-ONCE🧬DKR1-001A" \
+    PYTHONUNBUFFERED=1 \
+    TZ=Asia/Shanghai
+
+# 暴露端口
+# 9622: API网关
+# 9623: WebSocket
+# 9624: 文件同步
+# 9625: 监控
+# 9626: 预留
+EXPOSE 9622 9623 9624 9625 9626
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:9622/health 2>/dev/null || \
+        pgrep -f longhun-peer-client.py > /dev/null || exit 1
+
+# 非特权用户
+USER longhun
+
+# 数据卷
+VOLUME ["/opt/longhun/data", "/opt/longhun/logs", "/opt/longhun/cache"]
+
+# 启动
+ENTRYPOINT ["/opt/longhun/entrypoint.sh"]
+CMD ["peer"]
