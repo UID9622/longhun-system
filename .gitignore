@@ -155,6 +155,12 @@ data/sources/intl/
 data/sources/registry/*.json
 data/sources/*.json
 data/sources/index-for-codebuddy.md
+data/sources/clean_stats.json
+
+# --- 训练数据产物（大文件·不入git）---
+models/longhun-v1.0/memory_ingested_data_v1.0/
+models/longhun-v1.0/unified_sources_ingested/
+models/longhun-v1.0/yi1.5-9b-chat-mlx/
 deploy/longhun-node/audit/
 deploy/evidence/
 deploy/auto_sync/*.log
@@ -178,6 +184,20 @@ models/longhun-v1.0/llama3.1-8b-mlx/
 # --- L3 语义层模型产物 ---
 L3_语义层/20260718/model/
 
+# --- 神经网络模型权重（大文件·永不入git）---
+models/base_models_v4.0/
+models/longhun-v1.0/base_model/
+models/longhun-v1.0/base_model_old/
+models/longhun-v1.0/checkpoint_archive/
+models/longhun-v1.0/deepseek-r1-distill-llama-8b-mlx/
+models/longhun-v1.0/llama3.1-8b-mlx/
+models/longhun-v1.0/lora_output/
+models/longhun-v1.0/lora_output_*/
+models/*.safetensors
+models/**/*.safetensors
+models/**/*.bin
+models/**/*.gguf
+
 # 🔒 安全加固自动添加
 id_rsa*
 id_ed25519*
@@ -186,3 +206,5 @@ id_ed25519*
 *credential*
 *password*
 vault/
+v409_use_v408_golden
+models/longhun-v1.0/training_corpus_v3.0.md

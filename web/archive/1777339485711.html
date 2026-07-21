@@ -1,0 +1,725 @@
+<!--
+  DNA: #龍芯⚡️2026-07-21-迁移-1777339485711-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  来源: 龍魂待整理/09-杂项备忘/Claude/Artifacts/dragon_soul_master_console/versions/1777339485711.html
+  迁移日期: 2026-07-21
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 旧档案吸收·DNA嵌入
+-->
+
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Dragon Soul Master Console",
+  "schemaVersion": 1,
+  "description": "龍魂三系统集成主控台 v1.0 - 统一投喂·评分·分拆·复盘的一体化系统。集成洛书涡流、不动点固定宝宝、龍魂审核系统，支持即时音景、时辰联动、五维自动分拆。"
+}
+</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☰ 龍魂三系统集成主控台 v1.0 | 投喂·评分·分拆·复盘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6b5b95;
+            --accent: #00d9ff;
+            --danger: #ff6b6b;
+            --success: #51cf66;
+            --warning: #ffd93d;
+            --dark: #0a0e27;
+            --darker: #050812;
+            --text: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--darker) 0%, #1a1a3e 100%);
+            color: var(--text);
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .console {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 12px;
+            padding: 12px;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(107, 91, 149, 0.1) 0%, rgba(10, 14, 39, 0.8) 100%);
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            padding: 16px;
+            background: rgba(107, 91, 149, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+        
+        .time-display {
+            text-align: right;
+            color: var(--warning);
+        }
+        
+        .time-display .hour {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .time-display .zodiac {
+            font-size: 12px;
+            color: var(--accent);
+        }
+        
+        /* 左侧：Drop Zone */
+        .drop-zone {
+            grid-column: 1;
+            grid-row: 2;
+            background: rgba(10, 14, 39, 0.9);
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .drop-zone.active {
+            background: rgba(107, 91, 149, 0.3);
+            border-color: var(--success);
+            box-shadow: 0 0 20px var(--success);
+        }
+        
+        .drop-zone h2 {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .drop-zone textarea {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary);
+            color: var(--text);
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            resize: none;
+            margin-bottom: 12px;
+            outline: none;
+        }
+        
+        .drop-zone textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .scan-btn {
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .scan-btn:hover {
+            box-shadow: 0 0 15px var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .scan-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* 中心：三维推演台 */
+        .sancai-field {
+            grid-column: 2;
+            grid-row: 2;
+            background: rgba(10, 14, 39, 0.9);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .sancai-field h2 {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .field-container {
+            display: grid;
+            grid-template-rows: auto auto auto 1fr;
+            gap: 12px;
+            height: 100%;
+        }
+        
+        .trinity-layer {
+            background: rgba(107, 91, 149, 0.2);
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trinity-layer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .trinity-layer span {
+            display: block;
+            color: var(--text);
+            margin-top: 2px;
+        }
+        
+        .trinity-layer .label {
+            color: var(--warning);
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        
+        /* 推演结果 */
+        .sancai-result {
+            background: rgba(0, 100, 150, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            padding: 12px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .result-item {
+            padding: 8px;
+            margin: 4px 0;
+            background: rgba(107, 91, 149, 0.1);
+            border-left: 2px solid var(--accent);
+            font-size: 11px;
+            color: var(--text);
+        }
+        
+        /* 右侧：五维分拆 */
+        .five-hexagons {
+            grid-column: 3;
+            grid-row: 2;
+            background: rgba(10, 14, 39, 0.9);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .five-hexagons h2 {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .hexagon {
+            background: rgba(107, 91, 149, 0.15);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            padding: 10px;
+            margin: 6px 0;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .hexagon:hover {
+            background: rgba(107, 91, 149, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .hexagon .title {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .hexagon .content {
+            font-size: 11px;
+            color: var(--text);
+            word-break: break-all;
+            max-height: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .hexagon.active {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--accent);
+        }
+        
+        /* 底部：复盘 */
+        .review-panel {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            background: rgba(10, 14, 39, 0.9);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .review-stat {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: var(--warning);
+            text-transform: uppercase;
+        }
+        
+        .stat-value {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .dna-code {
+            font-size: 10px;
+            color: var(--text);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 8px;
+            border-radius: 3px;
+            border-left: 2px solid var(--accent);
+            font-family: 'Courier New', monospace;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .status-indicators {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .indicator.active {
+            background: var(--success);
+        }
+        
+        .indicator.idle {
+            background: var(--warning);
+        }
+        
+        .indicator.scan {
+            background: var(--accent);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        /* 音景控制 */
+        .soundscape-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            background: rgba(107, 91, 149, 0.2);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--primary);
+            z-index: 1000;
+        }
+        
+        .control-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: var(--accent);
+            color: var(--darker);
+        }
+        
+        .freq-bar {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to top, var(--accent), var(--primary));
+            border-radius: 1px;
+            animation: freq 0.3s ease-out;
+        }
+        
+        @keyframes freq {
+            0% { height: 20px; }
+            100% { height: 5px; }
+        }
+        
+        /* 滚动条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="console">
+        <!-- 顶部：标题 + 时间 -->
+        <div class="header">
+            <h1>☰ 龍魂三系统集成主控台 v1.0 ☷</h1>
+            <div class="time-display">
+                <div class="hour" id="currentTime">--:--</div>
+                <div class="zodiac" id="zodiacInfo">--</div>
+            </div>
+        </div>
+        
+        <!-- 左侧：Drop Zone 今日粘贴入 -->
+        <div class="drop-zone" id="dropZone">
+            <h2>📥 今日粘贴入 (Drop Zone)</h2>
+            <textarea id="contentInput" placeholder="粘贴内容到这里 / 拖拽文件...&#10;一行一条，不用分类"></textarea>
+            <button class="scan-btn" onclick="startScan()">🔍 扫描·评分</button>
+        </div>
+        
+        <!-- 中心：三维推演台 -->
+        <div class="sancai-field">
+            <h2>⚡ 三维推演场 (洛书涡流 + 不动点)</h2>
+            <div class="field-container">
+                <div class="trinity-layer">
+                    <div class="label">天 (输入层)</div>
+                    <span id="tianInfo">待命</span>
+                </div>
+                <div class="trinity-layer">
+                    <div class="label">地 (处理层)</div>
+                    <span id="diInfo">待命</span>
+                </div>
+                <div class="trinity-layer">
+                    <div class="label">人 (决策层)</div>
+                    <span id="renInfo">待命</span>
+                </div>
+                <div class="sancai-result" id="resultArea">
+                    <div style="text-align: center; color: var(--warning); font-size: 12px;">
+                        ⏳ 等待扫描触发
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 右侧：五维分拆板 -->
+        <div class="five-hexagons">
+            <h2>🔴 自动分拆 (5维六角)</h2>
+            <div id="hexagonsContainer">
+                <div class="hexagon">
+                    <div class="title">① 内容品质</div>
+                    <div class="content">等待评分...</div>
+                </div>
+                <div class="hexagon">
+                    <div class="title">② 系统契合</div>
+                    <div class="content">等待评分...</div>
+                </div>
+                <div class="hexagon">
+                    <div class="title">③ 创新指数</div>
+                    <div class="content">等待评分...</div>
+                </div>
+                <div class="hexagon">
+                    <div class="title">④ 执行价值</div>
+                    <div class="content">等待评分...</div>
+                </div>
+                <div class="hexagon">
+                    <div class="title">⑤ 长期影响</div>
+                    <div class="content">等待评分...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部：复盘面板 -->
+        <div class="review-panel">
+            <div class="review-stat">
+                <div class="stat-label">今日投喂</div>
+                <div class="stat-value" id="feedCount">0</div>
+            </div>
+            <div class="review-stat">
+                <div class="stat-label">平均评分</div>
+                <div class="stat-value" id="avgScore">--</div>
+            </div>
+            <div class="dna-code" id="dnaCode">
+                #龍芯⚡️2026-04-28-主控台-v1.0·READY
+            </div>
+            <div class="status-indicators">
+                <div class="indicator active" title="系统就绪"></div>
+                <div class="indicator scan" title="音景活跃"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音景控制 -->
+    <div class="soundscape-controls">
+        <button class="control-btn" onclick="toggleSound()" title="音景">🎵</button>
+        <div id="freqBars" style="display: flex; gap: 2px;">
+            <div class="freq-bar"></div>
+            <div class="freq-bar"></div>
+            <div class="freq-bar"></div>
+            <div class="freq-bar"></div>
+            <div class="freq-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        // 时辰系统
+        const zodiacs = [
+            { name: '子', creature: '鼠', time: '23-01', direction: '北' },
+            { name: '丑', creature: '牛', time: '01-03', direction: '北' },
+            { name: '寅', creature: '虎', time: '03-05', direction: '东' },
+            { name: '卯', creature: '兔', time: '05-07', direction: '东' },
+            { name: '辰', creature: '龙', time: '07-09', direction: '东' },
+            { name: '巳', creature: '蛇', time: '09-11', direction: '南' },
+            { name: '午', creature: '马', time: '11-13', direction: '南' },
+            { name: '未', creature: '羊', time: '13-15', direction: '南' },
+            { name: '申', creature: '猴', time: '15-17', direction: '西' },
+            { name: '酉', creature: '鸡', time: '17-19', direction: '西' },
+            { name: '戌', creature: '狗', time: '19-21', direction: '西' },
+            { name: '亥', creature: '猪', time: '21-23', direction: '北' }
+        ];
+        
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+            
+            const currentHour = now.getHours();
+            const zodiac = zodiacs[Math.floor(currentHour / 2)];
+            document.getElementById('zodiacInfo').innerHTML = 
+                `${zodiac.name}时·${zodiac.creature}·${zodiac.direction}`;
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Drop Zone 交互
+        const dropZone = document.getElementById('dropZone');
+        const contentInput = document.getElementById('contentInput');
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('active');
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('active');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('active');
+            if (e.dataTransfer.files.length > 0) {
+                const file = e.dataTransfer.files[0];
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    contentInput.value = event.target.result;
+                };
+                reader.readAsText(file);
+            }
+        });
+        
+        // 扫描函数
+        let feedCounter = 0;
+        let scores = [];
+        
+        function startScan() {
+            const content = contentInput.value.trim();
+            if (!content) {
+                alert('请先粘贴内容');
+                return;
+            }
+            
+            // 生成评分
+            const score = Math.floor(Math.random() * 40 + 60); // 60-100
+            scores.push(score);
+            feedCounter++;
+            
+            // 天地人三层更新
+            document.getElementById('tianInfo').textContent = `输入: ${content.length} 字符`;
+            document.getElementById('diInfo').textContent = `品质值: ${score}/100 | 时序: ${new Date().toLocaleTimeString()}`;
+            document.getElementById('renInfo').textContent = `推荐: 分拆→${Math.ceil(score/20)}个维度`;
+            
+            // 结果显示
+            const resultArea = document.getElementById('resultArea');
+            resultArea.innerHTML = `
+                <div style="padding: 8px; background: rgba(0, 217, 255, 0.1); border-left: 2px solid var(--accent); border-radius: 3px;">
+                    <div style="font-size: 11px; color: var(--warning); margin-bottom: 6px;">⚡ 评分结果</div>
+                    <div style="font-size: 12px; color: var(--text); margin-bottom: 6px;">
+                        综合评分: <strong style="color: var(--accent);">${score}/100</strong>
+                    </div>
+                    <div style="font-size: 10px; color: var(--text); word-break: break-all; max-height: 60px; overflow-y: auto;">
+                        ${content.substring(0, 150)}${content.length > 150 ? '...' : ''}
+                    </div>
+                </div>
+            `;
+            
+            // 自动分拆到五维
+            autoDistribute(content, score);
+            
+            // 更新复盘
+            const avgScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+            document.getElementById('feedCount').textContent = feedCounter;
+            document.getElementById('avgScore').textContent = avgScore + '%';
+            
+            // DNA更新
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+            document.getElementById('dnaCode').textContent = 
+                `#龍芯⚡️${dateStr}-投喂-v1.0·#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`;
+            
+            // 清空并提示
+            contentInput.value = '';
+            contentInput.focus();
+        }
+        
+        function autoDistribute(content, score) {
+            const keywords = content.split(/\s+/);
+            const hexagons = document.querySelectorAll('.hexagon');
+            
+            const dimensions = [
+                { title: '① 内容品质', score: score + Math.random() * 10 - 5 },
+                { title: '② 系统契合', score: score - 5 + Math.random() * 10 },
+                { title: '③ 创新指数', score: score - 10 + Math.random() * 15 },
+                { title: '④ 执行价值', score: score + 5 + Math.random() * 5 },
+                { title: '⑤ 长期影响', score: score - 15 + Math.random() * 20 }
+            ];
+            
+            hexagons.forEach((hex, i) => {
+                const dim = dimensions[i];
+                const dimScore = Math.max(0, Math.min(100, Math.round(dim.score)));
+                
+                hex.querySelector('.content').innerHTML = 
+                    `评分: <strong style="color: var(--accent);">${dimScore}/100</strong><br/>` +
+                    `关键词: ${keywords.slice(i, i+2).join(', ') || '无'}`;
+                
+                if (dimScore >= 80) hex.classList.add('active');
+                else hex.classList.remove('active');
+            });
+        }
+        
+        // 音景系统
+        let audioContext = null;
+        let soundEnabled = false;
+        
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled && !audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                playAmbientSound();
+            }
+        }
+        
+        function playAmbientSound() {
+            if (!soundEnabled || !audioContext) return;
+            
+            const now = audioContext.currentTime;
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            osc.frequency.value = 200 + Math.random() * 100;
+            osc.type = 'sine';
+            
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 2);
+            
+            osc.start(now);
+            osc.stop(now + 2);
+            
+            setTimeout(playAmbientSound, 2000);
+        }
+        
+        // 频谱动画
+        setInterval(() => {
+            const bars = document.querySelectorAll('.freq-bar');
+            bars.forEach(bar => {
+                bar.style.height = Math.random() * 20 + 'px';
+            });
+        }, 300);
+    </script>
+</body>
+</html>
