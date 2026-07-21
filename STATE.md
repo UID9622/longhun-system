@@ -18,6 +18,8 @@
 | v4.1.2 | 🔴 中断·Val 1.2457@iter50·不恢复 |
 | P0++ 新协议 | ✅ DNA捆绑与蒸馏防御 v1.0·已落档 |
 | DNA捆绑引擎 | ✅ `lh_dna_bind_defender.py`·12/12测试通过 |
+| **电商信任重建协议** | ✅ `LH-ECOM-TRUST-REBUILD-v1.0.md`·已落档 |
+| **电商信任数学引擎** | ✅ `lh_ecom_trust_engine.py`·12/12全绿 |
 | 🔐 **GPG 数字指纹** | ✅ **已公开发布**·`portal/pgp/`·RSA-4096·2025-12-17 |
 | 🔒 **安全加固 v1.0** | ✅ **7补丁焊死·6/6验证·0高危** |
 | AC电源 | ❌ 断开·电池71% |
@@ -137,6 +139,9 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] lh_dna_bind_defender.py 防御引擎 12/12测试通过
 - [x] DNA捆绑协议训练数据33条生成+并入总库
 - [x] lh_lora_trainer_v411_bind.py 训练脚本就绪
+- [x] 电商信任重建协议 v1.0 落档 `01_protocols/LH-ECOM-TRUST-REBUILD-v1.0.md`
+- [x] 电商信任数学建模引擎 `bin/lh_ecom_trust_engine.py` 12/12全绿
+- [x] 电商信任数学论文 `papers/LH-ECOM-TRUST-MATH-MODEL-v1.0.1.md` 4定理证明
 
 ### 📋 冻结
 - 数字人民币/多币种 (金融红线)
