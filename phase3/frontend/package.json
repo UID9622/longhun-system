@@ -5,7 +5,7 @@
   "description": "龍魂系统 Phase 3 React 前端",
   "private": true,
   "dependencies": {
-    "axios": "^1.17.0",
+    "axios": "^1.18.1",
     "chart.js": "^4.4.1",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
