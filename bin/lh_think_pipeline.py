@@ -60,7 +60,7 @@ from typing import Any, Dict, List, Optional, Tuple
 SYSTEM_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(SYSTEM_ROOT))
 sys.path.insert(0, str(SYSTEM_ROOT / "bin"))
-sys.path.insert(0, str(SYSTEM_ROOT / "cnsh-core"))
+sys.path.insert(0, str(SYSTEM_ROOT / "cnsh" / "core"))
 sys.path.insert(0, str(SYSTEM_ROOT / "cnsh"))
 
 TZ = timezone(timedelta(hours=8))
@@ -909,7 +909,7 @@ def create_app(pipeline: ThinkPipeline):
     # 必须在sys.path修改前导入Flask，或临时移除遮蔽路径
     _saved_path = list(sys.path)
     # 移除可能遮蔽标准库的项目路径
-    sys.path = [p for p in sys.path if not p.endswith('/cnsh-core') and p != str(SYSTEM_ROOT)]
+    sys.path = [p for p in sys.path if not p.endswith('/cnsh/core') and p != str(SYSTEM_ROOT)]
     try:
         from flask import Flask, request, jsonify
     except ImportError:
@@ -1004,7 +1004,7 @@ def main():
     if args.serve:
         # 清理sys.path避免logging包遮蔽
         _saved = list(sys.path)
-        sys.path = [p for p in sys.path if p != str(SYSTEM_ROOT) and p != str(SYSTEM_ROOT / 'cnsh-core')]
+        sys.path = [p for p in sys.path if p != str(SYSTEM_ROOT) and p != str(SYSTEM_ROOT / 'cnsh' / 'core')]
         try:
             from flask import Flask
         except ImportError:

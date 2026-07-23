@@ -16,10 +16,10 @@ MODULES = {
     "skills": {"path": "skills", "type": "Skill 库", "deps": ["control-panel", "baobao-guardian"]},
     "baobao-guardian": {"path": "baobao-guardian", "type": "守护应用", "deps": ["skills", "docs"]},
     "extensions": {"path": "extensions", "type": "浏览器扩展", "deps": ["control-panel", "skills"]},
-    "cnsh-core": {"path": "cnsh-core", "type": "CNSH 核心", "deps": ["docs", "integrated-modules"]},
-    "docs": {"path": "docs", "type": "知识库", "deps": ["control-panel", "cnsh-core"]},
+    "cnsh/core": {"path": "cnsh/core", "type": "CNSH 核心", "deps": ["docs", "integrated_modules"]},
+    "docs": {"path": "docs", "type": "知识库", "deps": ["control-panel", "cnsh/core"]},
     "bin": {"path": "bin", "type": "工具脚本", "deps": ["skills", "docs"]},
-    "integrated-modules": {"path": "integrated-modules", "type": "集成模块", "deps": ["cnsh-core", "bin"]},
+    "integrated_modules": {"path": "integrated_modules", "type": "集成模块", "deps": ["cnsh/core", "bin"]},
 }
 
 

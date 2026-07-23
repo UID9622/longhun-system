@@ -255,7 +255,7 @@ class HumHaKuSync:
         print(f"  🎙️ 开始转写: {audio_path.name} ...")
         try:
             # 优先使用龍魂语音识别器
-            sys.path.insert(0, str(ROOT / "cnsh-terminal" / "modules" / "multimodal"))
+            sys.path.insert(0, str(ROOT / "cnsh" / "terminal" / "modules" / "multimodal"))
             from 龍魂语音识别器 import 龍魂语音识别器
 
             recognizer = 龍魂语音识别器(模型名称="base", 设备="cpu", 启用审计=False)

@@ -1,7 +1,72 @@
-# 
+# 傅里叶变换
 
-<!-- Notion page_id: d8d2f25d-247c-458c-90db-4a04678792e7 -->
-<!-- pulled_at: 2026-07-05T07:33:54.984128+08:00 -->
+> 创建者: 诸葛鑫（UID9622）
+> DNA: #龍芯⚡️2026-07-23-TOPIC-傅里叶变换-v1.0-6e1a5f73
+> 协议: CC BY-NC-SA 4.0
+> 分类: 哲学与数学基础·L2知识层
 
-<!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
-<!-- DNA: #龍芯⚡️丙午·丙申·甲寅·申时·大过-CONFIRM-SEAL-傅里叶变换_Fourier-5B8629FF -->
+---
+
+## 1. 定义
+
+$$
+\mathcal{F}\{f(t)\} = \hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i\omega t} dt
+$$
+
+将时域信号变换为频域表示。
+
+## 2. 深度学习中的核心应用
+
+| 应用 | 说明 | 龍魂落点 |
+|:---|:---|:---|
+| **FFT加速卷积** | 卷积→频域乘法·O(N²)→O(N log N) | CNSH音频处理 |
+| **位置编码** | sin/cos编码即傅里叶基 | Transformer位置编码 |
+| **频谱分析** | 理解模型频率响应 | 模型权重频谱审计 |
+| **信号去噪** | 频域滤波 | 通心译音频处理 |
+| **特征提取** | 频谱作为输入特征 | 声纹·情感识别 |
+
+## 3. 傅里叶位置编码
+
+标准Transformer位置编码基于傅里叶基：
+$$
+PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d}}\right)
+$$
+$$
+PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d}}\right)
+$$
+
+在龍魂中，将10000替换为60（60甲子周期）：
+$$
+PE_{(pos, 2i)} = \sin\left(\frac{pos}{60^{2i/d}}\right)
+$$
+
+## 4. 模型权重的频谱分析
+
+训练过程中监控权重矩阵的频谱变化：
+```python
+def weight_spectrum(weight_matrix):
+    """分析权重矩阵的频谱特征"""
+    fft_2d = np.fft.fft2(weight_matrix)
+    magnitude = np.abs(fft_2d)
+    # 检测异常频率尖峰→可能过拟合
+    return magnitude
+```
+
+- 频谱平滑: 🟢 泛化好
+- 频谱尖峰: 🟡 可能过拟合特定模式
+- 频谱噪声: 🔴 训练不稳定
+
+## 5. 与五行周期的关系
+
+傅里叶分解揭示任何周期信号可表为正弦波叠加。
+五行周期可视为5个基频的叠加：
+$$
+f_{wuxing}(t) = \sum_{k=1}^{5} A_k \sin(2\pi f_k t + \phi_k)
+$$
+
+5个频率对应金木水火土的自然周期。
+
+---
+
+> 傅里叶·频谱·位置编码·周期分解
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

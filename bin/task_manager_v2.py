@@ -4,7 +4,7 @@
 🐉 龍魂系统 · 任务管理引擎 v2.0
 Task Manager v2.0 · 支持跳跃式操作 + 自动去重
 
-#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-task_manager_v2-INTEGRATION-SYSTEM
+DNA: #龍芯⚡️2026-06-05-TASK-MANAGER-v2.0
 """
 
 import json
@@ -44,7 +44,7 @@ class TaskManager:
                         tasks.append(json.loads(line))
         return tasks
 
-    def load_dedup_registry(self) -> Dict[str, Any]:
+    def load_dedup_registry(self) -> Dict:
         """加载去重登记簿"""
         if DEDUP_REGISTRY.exists():
             with open(DEDUP_REGISTRY, 'r', encoding='utf-8') as f:
@@ -121,7 +121,7 @@ class TaskManager:
         pending.sort(key=lambda x: x['current_priority'], reverse=True)
         return pending
 
-    def calculate_priority_decay(self, task: Dict[str, Any]) -> float:
+    def calculate_priority_decay(self, task: Dict) -> float:
         """计算考虑衰减的优先级"""
         created = datetime.fromisoformat(task['created_at'])
         age_days = (datetime.now() - created).days
@@ -140,7 +140,7 @@ class TaskManager:
 
         return task['priority'] * decay
 
-    def auto_deduplicate(self) -> Dict[str, Any]:
+    def auto_deduplicate(self) -> Dict:
         """自动去重"""
         duplicates = []
 

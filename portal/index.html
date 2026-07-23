@@ -1,255 +1,243 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>龍魂 · longhun888.com</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>龍魂系统 · 门户导航</title>
+<!-- DNA: #龍芯⚡️丙午·乙未·庚戌·未时·坤-PORTAL-HUB-v1.0-9a2f4c1d -->
+<!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
 <style>
-:root{--bg:#08080f;--bg2:#101018;--card:#161626;--border:#2a2a3a;--gold:#d4a12c;--accent:#a78bfa;--cyan:#22d3ee;--green:#4ade80;--red:#f87171;--text:#d4d4d8;--dim:#71717a}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh}
-.header{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,#1a1a2e80 0%,transparent 100%)}
-.header h1{font-size:48px;color:var(--gold);letter-spacing:4px;text-shadow:0 0 40px #d4a12c40}
-.header .sub{color:var(--dim);margin-top:10px;font-size:14px}
-.status-bar{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0}
-.status-dot{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--dim)}
+:root {
+  --bg:#08080f; --bg2:#0c0c1a; --card:#12122a; --card-hover:#181836;
+  --border:#2a2a4a; --gold:#c9a84c; --gold-dim:rgba(201,168,76,0.12);
+  --gold-border:rgba(201,168,76,0.25); --accent:#a78bfa; --cyan:#22d3ee;
+  --green:#4ade80; --green-bg:rgba(74,222,128,0.1);
+  --orange:#fb923c; --orange-bg:rgba(251,146,60,0.1);
+  --red:#f87171; --red-bg:rgba(248,113,113,0.1);
+  --text:#d4d4d8; --dim:#71717a; --bright:#f0f0f0;
+  --radius:12px; --radius-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan);text-decoration:none}
+::selection{background:var(--gold-dim);color:#fff}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ═══════════ LAYOUT ═══════════ */
+.container{max-width:780px;margin:0 auto;padding:20px 16px 40px}
+
+/* header */
+.header{text-align:center;padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.header .logo{font-size:2rem;font-weight:900;letter-spacing:0.04em;color:var(--gold);margin-bottom:6px}
+.header .sub{font-size:0.85rem;color:var(--dim)}
+.header .dna{font-size:0.7rem;color:var(--dim);font-family:"SF Mono","Fira Code",monospace;margin-top:8px;word-break:break-all}
+
+/* status bar */
+.status-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.status-dot{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:0.78rem;background:var(--card);border:1px solid var(--border)}
 .status-dot .dot{width:8px;height:8px;border-radius:50%}
-.dot-green{background:var(--green);box-shadow:0 0 8px var(--green)}
-.dot-red{background:var(--red);box-shadow:0 0 8px var(--red)}
-.container{max-width:960px;margin:0 auto;padding:0 20px 60px}
-h2{color:var(--gold);font-size:18px;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;transition:all .2s;text-decoration:none;color:var(--text);display:block}
-.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 20px #d4a12c15}
-.card h3{font-size:15px;margin-bottom:6px}
-.card p{font-size:12px;color:var(--dim);line-height:1.5}
-.card .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-top:8px}
-.tag-p0{background:#ef444420;color:var(--red)}
-.tag-l5{background:#a78bfa20;color:var(--accent)}
-.tag-doc{background:#22d3ee15;color:var(--cyan)}
-.api-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.api-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;text-decoration:none;color:var(--text);transition:all .2s}
-.api-card:hover{border-color:var(--cyan);box-shadow:0 4px 20px #22d3ee15}
-.api-card .port{font-size:28px;font-weight:700;color:var(--cyan)}
-.api-card .name{font-size:13px;margin-top:4px}
-.api-card .desc{font-size:11px;color:var(--dim);margin-top:4px}
-.footer{text-align:center;padding:40px 20px;color:var(--dim);font-size:12px;border-top:1px solid var(--border)}
-.footer .dna{font-family:monospace;margin-top:8px}
+.dot-on{background:var(--green);box-shadow:0 0 8px var(--green)}
+.dot-off{background:var(--dim)}
+.dot-unknown{background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* section */
+.section{margin-bottom:28px}
+.section h2{display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.section h2::before{content:'';width:3px;height:16px;background:var(--gold);border-radius:2px;display:inline-block}
+
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--text);display:block}
+.card:hover{background:var(--card-hover);border-color:var(--gold-border);transform:translateY(-2px)}
+.card .icon{font-size:1.5rem;margin-bottom:10px}
+.card .title{font-size:0.95rem;font-weight:700;color:var(--bright);margin-bottom:4px}
+.card .desc{font-size:0.78rem;color:var(--dim);line-height:1.4}
+.card .tag{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:600;letter-spacing:0.04em}
+.tag-green{background:var(--green-bg);color:var(--green)}
+.tag-orange{background:var(--orange-bg);color:var(--orange)}
+.tag-red{background:var(--red-bg);color:var(--red)}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+
+/* footer */
+.footer{text-align:center;padding:28px 0 12px;border-top:1px solid var(--border);margin-top:8px}
+.footer p{font-size:0.72rem;color:var(--dim)}
+.footer .pgp{font-family:"SF Mono","Fira Code",monospace;font-size:0.62rem;word-break:break-all;margin-top:4px}
+
+/* mobile */
+@media(max-width:480px){
+  .header .logo{font-size:1.5rem}
+  .cards{grid-template-columns:1fr}
+  .status-bar{gap:6px}
+}
+
+/* refresh badge */
+.refresh-badge{position:fixed;bottom:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:0.7rem;color:var(--dim);cursor:pointer;z-index:100}
+.refresh-badge:hover{border-color:var(--gold-border);color:var(--gold)}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>🐉 龍魂</h1>
-  <p class="sub">longhun888.com · UID9622 · 数据主权归集本地</p>
-  <div class="status-bar">
-    <span class="status-dot"><span class="dot dot-green"></span>门户 :8777</span>
-    <span class="status-dot"><span class="dot dot-green"></span>API v10.0 :18100</span>
-    <span class="status-dot"><span class="dot dot-green"></span>對話 L0 :9635</span>
-    <span class="status-dot"><span class="dot dot-green"></span>Editor :18000</span>
-    <span class="status-dot"><span class="dot dot-green"></span>CF Tunnel</span>
-  </div>
-</div>
-
 <div class="container">
 
-<h2>⚔️ 憲章</h2>
-<div class="grid">
-  <a href="/rite-blade/" class="card" style="border-left:3px solid var(--gold);">
-    <h3>禮兵雙軌宣言</h3>
-    <p>一頁憲章 · 先禮後兵永不倒掛 · 犯我中華者雖遠必誅</p>
-    <span class="tag tag-p0">P0 憲章</span>
-  </a>
-  <a href="/pgp/" class="card" style="border-left:3px solid var(--accent);">
-    <h3>🔐 GPG 数字指纹</h3>
-    <p>UID9622 数字身份锚 · RSA-4096 · 签名验证</p>
-    <span class="tag tag-p0">P0 身份</span>
-  </a>
-  <a href="/manifesto/" class="card" style="border-left:3px solid #ef4444;">
-    <h3>📜 初始化宣言</h3>
-    <p>核心原则 · 领土白皮书 · 隐私主权 · 君子协议 · 签名锚定</p>
-    <span class="tag tag-p0">P0 宣言</span>
-  </a>
-  <a href="/longhun-font.html" class="card" style="border-left:3px solid var(--gold);">
-    <h3>🖋️ 龍魂字体 · LonghunFont</h3>
-    <p>21,155字符 · CJK统一汉字 · 中国自主书法字体 · OFL开源</p>
-    <span class="tag tag-p0">P0 字体</span>
-  </a>
-</div>
+  <!-- ═══════════ HEADER ═══════════ -->
+  <div class="header">
+    <div class="logo">龍魂系统</div>
+    <div class="sub">中国自主 · 数据主权归集本地 · 为人民服务</div>
+    <div class="dna">DNA: #龍芯⚡️丙午·乙未·未时·☷坤-PORTAL-HUB-v1.0</div>
+  </div>
 
-<h2>🎛️ P0 核心控制台</h2>
-<div class="grid">
-  <a href="/web/CNSH_龍魂操作台v4.0.html" class="card">
-    <h3>龍魂操作台 v4.0</h3>
-    <p>统一主控面板 · 所有子系统入口</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/longhun-master-control.html" class="card">
-    <h3>龍魂主控台</h3>
-    <p>Master Control · 母舰级总控</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/main-console.html" class="card">
-    <h3>主控制台</h3>
-    <p>Main Console · 核心操作入口</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/longhun_hub.html" class="card">
-    <h3>龍魂 Hub</h3>
-    <p>集中路由 · 所有面板跳转</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/longhun-braket.html" class="card">
-    <h3>龍魂 Braket</h3>
-    <p>量子态纠缠面板</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/sandbox_dashboard.html" class="card">
-    <h3>沙盒面板</h3>
-    <p>Sandbox · 隔离实验环境</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/knowledge/" class="card">
-    <h3>📚 知识库索引</h3>
-    <p>自动化知识采集 · 搜索 · 来源追溯</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-</div>
+  <!-- ═══════════ 系统状态 ═══════════ -->
+  <div class="status-bar" id="statusBar">
+    <span class="status-dot"><span class="dot dot-unknown" id="s8766"></span>知识中枢</span>
+    <span class="status-dot"><span class="dot dot-unknown" id="s8767"></span>胖东来审计</span>
+    <span class="status-dot"><span class="dot dot-unknown" id="s8768"></span>站点托管</span>
+  </div>
 
-<h2>🌊 流场 · 三才 · 河洛</h2>
-<div class="grid">
-  <a href="/web/longhun-flow-field-v9.html" class="card">
-    <h3>龍魂流场 v9</h3>
-    <p>三才流场实时可视化</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/sancai-flow-v8.1.html" class="card">
-    <h3>三才流场 v8.1</h3>
-    <p>天地人三才动态流场</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/longhun-luoshu-vortex-v2.html" class="card">
-    <h3>洛书涡流 v2</h3>
-    <p>河图洛书旋涡可视化</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/河图洛书地面图.html" class="card">
-    <h3>河图洛书地面图</h3>
-    <p>河洛布局·地面投影</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/龍魂-hetu-luoshu.html" class="card">
-    <h3>河图洛书交互</h3>
-    <p>Hetu Luoshu 动态推演</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/longhun-neural-network-3d-v2.html" class="card">
-    <h3>神经网络 3D v2</h3>
-    <p>知识图谱三维可视化</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-</div>
+  <!-- ═══════════ 公开面板 ═══════════ -->
+  <div class="section">
+    <h2>公开面板</h2>
+    <div class="cards">
+      <a class="card" href="/knowledge/">
+        <div class="icon">🧠</div>
+        <div class="title">知识中枢</div>
+        <div class="desc">龍魂知识图谱·语义检索·分类浏览·273张知识卡片</div>
+        <span class="tag tag-green">运行中</span>
+      </a>
+      <a class="card" href="/pangdonglai/">
+        <div class="icon">⚖️</div>
+        <div class="title">胖东来分成审计</div>
+        <div class="desc">企业利润分成公开审计·焊死不等式·7维检测</div>
+        <span class="tag tag-green">运行中</span>
+      </a>
+    </div>
+  </div>
 
-<h2>📜 道德经 · 星宿 · 人格</h2>
-<div class="grid">
-  <a href="/web/龍魂-daodejing-v4.1.html" class="card">
-    <h3>道德经 v4.1</h3>
-    <p>81章锚点·原句+转译</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/CNSH_龍魂星宿知识图.html" class="card">
-    <h3>28星宿知识图</h3>
-    <p>星宿锚点·知识图谱</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/IPA-200-宝宝人格配置.html" class="card">
-    <h3>IPA-200 宝宝人格</h3>
-    <p>人格配置面板</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/龍魂-chanzong.html" class="card">
-    <h3>龍魂禅宗</h3>
-    <p>禅宗公案·对话交互</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/龍魂-chachan.html" class="card">
-    <h3>龍魂茶禅</h3>
-    <p>茶禅一味·文化锚点</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/memory-editor.html" class="card">
-    <h3>记忆编辑器</h3>
-    <p>AI记忆可视化编辑</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-</div>
+  <!-- ═══════════ 协议与签名 ═══════════ -->
+  <div class="section">
+    <h2>协议与签名</h2>
+    <div class="cards">
+      <a class="card" href="/pgp/">
+        <div class="icon">🔐</div>
+        <div class="title">PGP公钥</div>
+        <div class="desc">GPG签名验证·RSA-4096·A2D0092CEE2E5BA8</div>
+        <span class="tag tag-gold">身份锚</span>
+      </a>
+      <a class="card" href="/manifesto/">
+        <div class="icon">📜</div>
+        <div class="title">初始化宣言</div>
+        <div class="desc">龍魂体系诞生宣言·底座锚点·不可变天条</div>
+        <span class="tag tag-red">∞永恒</span>
+      </a>
+      <a class="card" href="/rite-blade/">
+        <div class="icon">🗡️</div>
+        <div class="title">礼刃</div>
+        <div class="desc">仪式感工具·龍魂字体·干支生成·数字签名</div>
+        <span class="tag tag-orange">工具</span>
+      </a>
+      <a class="card" href="/longhun-font.html">
+        <div class="icon">🖋️</div>
+        <div class="title">龍魂字体</div>
+        <div class="desc">中国自主可控CJK统一汉字数字字体·书法风</div>
+        <span class="tag tag-gold">文化</span>
+      </a>
+    </div>
+  </div>
 
-<h2>🔌 API 服务 · 外部入口</h2>
-<div class="api-grid">
-  <a href="http://127.0.0.1:18100/docs" class="api-card">
-    <div class="port">:18100</div>
-    <div class="name">龍魂 v10.0 API</div>
-    <div class="desc">Swagger 交互文档</div>
-  </a>
-  <a href="http://127.0.0.1:9635" class="api-card">
-    <div class="port">:9635</div>
-    <div class="name">龍魂對話 L0</div>
-    <div class="desc">伦理锚定对话系统</div>
-  </a>
-  <a href="/docs" class="api-card">
-    <div class="port">:18000</div>
-    <div class="name">CNSH Editor</div>
-    <div class="desc">编辑器 API · SW</div>
-  </a>
-  <a href="http://127.0.0.1:9630" class="api-card">
-    <div class="port">:9630</div>
-    <div class="name">内部服务</div>
-    <div class="desc">后端辅助</div>
-  </a>
-</div>
+  <!-- ═══════════ API 接口 ═══════════ -->
+  <div class="section">
+    <h2>API 接口</h2>
+    <div class="cards">
+      <a class="card" href="http://localhost:8766/docs" target="_blank">
+        <div class="icon">📡</div>
+        <div class="title">知识中枢 API</div>
+        <div class="desc">FastAPI :8766 · 语义搜索·知识图谱·AI对话</div>
+        <span class="tag tag-green">Swagger</span>
+      </a>
+      <a class="card" href="http://localhost:8767/docs" target="_blank">
+        <div class="icon">📡</div>
+        <div class="title">胖东来审计 API</div>
+        <div class="desc">FastAPI :8767 · 企业审计·契约·公式·德本</div>
+        <span class="tag tag-green">Swagger</span>
+      </a>
+    </div>
+  </div>
 
-<h2>📄 文档 · 论文</h2>
-<div class="grid">
-  <a href="https://longhun888.com/attribution-policy.md" class="card" target="_blank">
-    <h3>归属政策</h3>
-    <p>Attribution Policy · 署名追溯规则</p>
-    <span class="tag tag-doc">文档</span>
-  </a>
-  <a href="https://longhun888.com/uid9622/" class="card" target="_blank">
-    <h3>UID9622 主页</h3>
-    <p>诸葛鑫·Lucky · 唯一决策者</p>
-    <span class="tag tag-doc">文档</span>
-  </a>
-  <a href="/web/notion_alignment_dashboard.html" class="card">
-    <h3>Notion 对齐面板</h3>
-    <p>本地↔云端差异对比</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/p0_feed_dashboard.html" class="card">
-    <h3>P0 Feed 面板</h3>
-    <p>实时事件流</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-  <a href="/web/cnsh_semantic_dashboard.html" class="card">
-    <h3>CNSH 语义面板</h3>
-    <p>语义路由·命令解析</p>
-    <span class="tag tag-l5">L5</span>
-  </a>
-  <a href="/web/uid9622_ip_dashboard.html" class="card">
-    <h3>IP 归属面板</h3>
-    <p>UID9622 知识产权总览</p>
-    <span class="tag tag-p0">P0</span>
-  </a>
-</div>
+  <!-- ═══════════ CNSH标准词典 ═══════════ -->
+  <div class="section">
+    <h2>CNSH标准词典</h2>
+    <div class="cards">
+      <a class="card" href="/cnsh-dictionary/">
+        <div class="icon">📖</div>
+        <div class="title">CNSH词典</div>
+        <div class="desc">深度学习生态对照表·中国古人智慧命名·179条目·10领域</div>
+        <span class="tag tag-gold">语言</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ 数字存在证明 ═══════════ -->
+  <div class="section">
+    <h2>数字存在证明</h2>
+    <div class="cards">
+      <a class="card" href="/digital-legacy/">
+        <div class="icon">⚡️</div>
+        <div class="title">数字永恒</div>
+        <div class="desc">每个人都在宇宙中留下痕迹·DNA锚定时空中不可抹除</div>
+        <span class="tag tag-gold">存在</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ 部署与工具 ═══════════ -->
+  <div class="section">
+    <h2>部署与工具</h2>
+    <div class="cards">
+      <a class="card" href="https://uid9622.cn" target="_blank">
+        <div class="icon">☁️</div>
+        <div class="title">uid9622.cn</div>
+        <div class="desc">鲲鹏服务器·官方域名·SSL加密</div>
+        <span class="tag tag-gold">生产</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <div class="footer">
+    <p>创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0</p>
+    <p class="pgp">GPG: A2D0 092C EE2E 5BA8 7035 6009 24C3 704A 8CC2 6D5F</p>
+    <p style="margin-top:6px">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+  </div>
 
 </div>
 
-<div class="footer">
-  <p>龍魂系统 · longhun888.com · 人民数据主权归集本地</p>
-  <p>UID9622 诸葛鑫·Lucky · 中国自主可控</p>
-  <p class="dna">#龍芯⚡️2026-07-06-PORTAL-HOMEPAGE-v1.0</p>
-</div>
+<div class="refresh-badge" onclick="location.reload()" title="刷新状态">🔄 刷新</div>
 
-<script src="/portal/chat-widget.js"></script>
+<script>
+/* ═══════════ 系统状态检测 ═══════════ */
+async function checkStatus() {
+  const ports = [
+    {el:'s8766',url:'http://localhost:8766/health'},
+    {el:'s8767',url:'http://localhost:8767/v1/pangdonglai/health'},
+    {el:'s8768',url:'http://localhost:8768/'},
+  ];
+  for (const p of ports) {
+    try {
+      const r = await fetch(p.url,{signal:AbortSignal.timeout(3000)});
+      const dot = document.getElementById(p.el);
+      if (r.ok) { dot.className = 'dot dot-on'; }
+      else { dot.className = 'dot dot-unknown'; }
+    } catch(e) {
+      const dot = document.getElementById(p.el);
+      dot.className = 'dot dot-off';
+    }
+  }
+}
+checkStatus();
+setInterval(checkStatus,30000);
+</script>
+
 </body>
 </html>

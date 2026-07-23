@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "cnsh-core"))
+sys.path.insert(0, str(ROOT / "cnsh" / "core"))
 
 from governance.layered_governance_engine import main
 
