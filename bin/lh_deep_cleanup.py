@@ -64,7 +64,7 @@ empty_dirs = [
     "persona-chain", "longhun_file_cache", "02_執行記錄",
     "03_compiler", "06_技術文檔", "法律引擎", "统一入口",
     "02_rules", "04_決策日誌", "backend", "bridges",
-    "calendar-context-logger", "cnsh_data", "core-services",
+    "calendar-context-logger", "cnsh/data", "core-services",
     "compute_kernels", "container_data", "core", "crypto-stack",
     "data-hub", "desktop", "editor", "engines", "experimental",
     "experiments", "forensic_kernel", "kg-api", "launchd",

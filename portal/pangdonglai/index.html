@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>龍魂·胖东来分成审计公示 | 公开透明·焊死不等式</title>
+<!-- DNA: #龍芯⚡️丙午·乙未·丁酉·☷坤-PANGDONGLAI-PORTAL-v2.0-8d3f6a1b -->
+<!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-dim: rgba(201,168,76,0.15);
+  --gold-border: rgba(201,168,76,0.3);
+  --bg: #0d0d0d;
+  --bg-card: #141414;
+  --bg-card-hover: #1a1a1a;
+  --border: rgba(255,255,255,0.06);
+  --text: #ccc;
+  --text-dim: #888;
+  --text-bright: #f0f0f0;
+  --red: #c41e3a;
+  --red-bg: rgba(196,30,58,0.12);
+  --green: #2ea043;
+  --green-bg: rgba(46,160,67,0.12);
+  --yellow: #d29922;
+  --yellow-bg: rgba(210,153,34,0.12);
+  --orange: #d97706;
+  --orange-bg: rgba(217,119,6,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+::selection{background:var(--gold-dim);color:var(--text-bright)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+
+/* ── Header ── */
+.header{background:linear-gradient(180deg,var(--bg-card) 0%,var(--bg) 100%);border-bottom:1px solid var(--gold-border);padding:32px 0 24px;text-align:center}
+.header .brand{font-size:2rem;font-weight:800;color:var(--gold);letter-spacing:2px;margin-bottom:4px}
+.header .sub{font-size:.85rem;color:var(--text-dim);letter-spacing:1px}
+.header .dna{font-size:.65rem;font-family:"SF Mono","Fira Code",monospace;color:var(--text-dim);margin-top:8px;opacity:.6}
+.header .status-bar{display:flex;justify-content:center;gap:24px;margin-top:16px;flex-wrap:wrap}
+.header .status-pill{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:4px 14px}
+.header .status-pill .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot-live{background:var(--green);box-shadow:0 0 8px var(--green)}.dot-warn{background:var(--yellow)}.dot-off{background:var(--red)}
+
+/* ── Container ── */
+.container{max-width:1280px;margin:0 auto;padding:0 20px}
+
+/* ── Nav Tabs ── */
+.nav{display:flex;gap:2px;margin:24px 0 0;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:10px 20px;background:transparent;border:1px solid transparent;border-bottom:none;color:var(--text-dim);font-size:.85rem;cursor:pointer;border-radius:8px 8px 0 0;transition:all .2s;white-space:nowrap}
+.nav-btn:hover{color:var(--text-bright);background:var(--bg-card)}
+.nav-btn.active{color:var(--gold);background:var(--bg-card);border-color:var(--gold-border);border-bottom:2px solid var(--gold)}
+
+/* ── Panel ── */
+.panel{display:none;animation:fadeIn .3s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Cards Grid ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .2s}
+.card:hover{background:var(--bg-card-hover);border-color:var(--gold-border)}
+.card .card-value{font-size:2rem;font-weight:700;color:var(--gold);line-height:1.2}
+.card .card-label{font-size:.78rem;color:var(--text-dim);margin-top:4px}
+.card .card-sub{font-size:.7rem;color:var(--text-dim);margin-top:2px}
+
+/* ── Verdict Badges ── */
+.verdict{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.verdict-green{background:var(--green-bg);color:var(--green)}
+.verdict-yellow{background:var(--yellow-bg);color:var(--yellow)}
+.verdict-orange{background:var(--orange-bg);color:var(--orange)}
+.verdict-red{background:var(--red-bg);color:var(--red)}
+.verdict-black{background:rgba(0,0,0,.4);color:#fff;border:1px solid #555}
+
+/* ── Table ── */
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:rgba(201,168,76,0.08);color:var(--gold);font-weight:600;text-align:left;padding:12px 14px;border-bottom:1px solid var(--gold-border);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.empty-row td{text-align:center;color:var(--text-dim);padding:32px}
+
+/* ── Formula Box ── */
+.formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:16px 0}
+.formula-card{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:14px 16px}
+.formula-card .f-rule{font-family:"SF Mono","Fira Code",monospace;font-size:.9rem;color:var(--text-bright);font-weight:600}
+.formula-card .f-meaning{font-size:.78rem;color:var(--text-dim);margin-top:4px}
+.formula-card .f-priority{font-size:.65rem;color:var(--gold);margin-top:2px}
+
+/* ── Timeline ── */
+.timeline{position:relative;padding-left:24px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:16px;padding-left:12px}
+.tl-item::before{content:'';position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.tl-time{font-size:.7rem;color:var(--text-dim)}
+.tl-name{font-size:.85rem;color:var(--text-bright)}
+.tl-verdict{margin-left:8px}
+
+/* ── Radar Chart ── */
+.radar-wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin:16px 0}
+.radar-chart{flex:0 0 300px;position:relative}
+.radar-chart svg{width:100%;height:auto}
+.radar-legend{flex:1;min-width:200px}
+.radar-legend .legend-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:.8rem}
+.legend-color{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+/* ── Deben Checklist ── */
+.deben-list{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.deben-item{display:flex;align-items:flex-start;gap:12px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.deben-item .deben-mark{font-size:1.2rem;flex-shrink:0}
+.deben-item .deben-body{flex:1}
+.deben-item .deben-title{font-size:.85rem;color:var(--text-bright);font-weight:600}
+.deben-item .deben-desc{font-size:.75rem;color:var(--text-dim);margin-top:2px}
+
+/* ── Progress Bars ── */
+.bar-wrap{display:flex;align-items:center;gap:10px;margin:8px 0}
+.bar-label{width:90px;font-size:.78rem;color:var(--text-dim);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.bar-val{width:44px;font-size:.75rem;color:var(--text-dim);flex-shrink:0}
+
+/* ── Scheduler ── */
+.sched-card{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.sched-item{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.sched-item .s-icon{font-size:1.5rem;margin-bottom:6px}
+.sched-item .s-value{font-size:1.2rem;font-weight:700;color:var(--gold)}
+.sched-item .s-label{font-size:.7rem;color:var(--text-dim);margin-top:4px}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:24px;right:24px;padding:12px 20px;background:var(--bg-card);border:1px solid var(--gold-border);border-radius:8px;color:var(--text-bright);font-size:.8rem;z-index:999;animation:slideUp .3s ease;display:none}
+.toast.show{display:block}
+.toast.error{border-color:var(--red);color:var(--red)}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Footer ── */
+.footer{margin-top:48px;padding:24px 0;border-top:1px solid var(--border);text-align:center;font-size:.7rem;color:var(--text-dim)}
+.footer a{color:var(--gold)}
+
+/* ── Loading Spinner ── */
+.spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .header .brand{font-size:1.5rem}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .formula-grid{grid-template-columns:1fr}
+  .radar-wrap{flex-direction:column}
+  .radar-chart{flex:0 0 auto;max-width:260px;margin:0 auto}
+  .nav-btn{padding:8px 14px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="header">
+  <div class="brand">龍魂·胖东来分成审计</div>
+  <div class="sub">公开透明 · 焊死不等式 · 数据主权归企业 · 审计链仅存哈希</div>
+  <div class="dna">DNA: #龍芯⚡️丙午·乙未·丁酉·☷坤-PANGDONGLAI-PORTAL-v2.0</div>
+  <div class="status-bar" id="status-bar">
+    <span class="status-pill"><span class="dot" id="dot-api"></span><span id="txt-api">API 检测中...</span></span>
+    <span class="status-pill"><span class="dot" id="dot-sched"></span><span id="txt-sched">调度器检测中...</span></span>
+    <span class="status-pill"><span class="dot" id="dot-deben"></span><span id="txt-deben">德本审计检测中...</span></span>
+    <span class="status-pill"><span id="txt-time">--</span></span>
+  </div>
+  <nav class="nav container" id="tab-nav">
+    <button class="nav-btn active" data-tab="overview">📊 总览</button>
+    <button class="nav-btn" data-tab="enterprises">🏢 签约企业</button>
+    <button class="nav-btn" data-tab="reports">📋 审计报告</button>
+    <button class="nav-btn" data-tab="formula">📐 分润公式</button>
+    <button class="nav-btn" data-tab="scheduler">⚙️ 调度状态</button>
+    <button class="nav-btn" data-tab="deben">🛡️ 德本审计</button>
+    <button class="nav-btn" data-tab="contract">✍️ 企业签约</button>
+  </nav>
+</header>
+
+<main class="container">
+<!-- ═══════════════ TAB 1: 总览 ═══════════════ -->
+<div class="panel active" id="panel-overview">
+  <div class="cards-grid" id="overview-cards">
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">签约企业数</div></div>
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">已审计企业</div></div>
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">审计覆盖率</div></div>
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">🟢 全通过</div></div>
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">⚠️ 违规企业</div></div>
+    <div class="card"><div class="card-value"><span class="spinner"></span></div><div class="card-label">德本五问</div></div>
+  </div>
+  <h3 style="color:var(--gold);margin-top:24px;font-size:.95rem">五维审计合规率</h3>
+  <div id="overview-bars" style="margin:12px 0">加载中...</div>
+  <h3 style="color:var(--gold);margin-top:24px;font-size:.95rem">最近审计事件</h3>
+  <div class="timeline" id="overview-timeline">加载中...</div>
+</div>
+
+<!-- ═══════════════ TAB 2: 签约企业 ═══════════════ -->
+<div class="panel" id="panel-enterprises">
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>企业代码</th><th>企业名称</th><th>签约日期</th><th>签约模块</th><th>最近审计</th><th>审计结论</th><th>审计次数</th><th>状态</th></tr></thead>
+      <tbody id="enterprise-tbody"><tr class="empty-row"><td colspan="8">加载中...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 3: 审计报告 ═══════════════ -->
+<div class="panel" id="panel-reports">
+  <div style="display:flex;gap:12px;align-items:center;margin:16px 0;flex-wrap:wrap">
+    <input type="text" id="report-search" placeholder="搜索企业名称或审计ID..." style="flex:1;min-width:200px;padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.85rem">
+    <select id="report-filter" style="padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.85rem">
+      <option value="">全部结论</option><option value="🟢">🟢 通过</option><option value="🟡">🟡 警告</option><option value="🟠">🟠 中度</option><option value="🔴">🔴 重度</option><option value="⚫">⚫ 恶意</option>
+    </select>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>审计ID</th><th>企业</th><th>时间</th><th>检查项(通过/总数)</th><th>违规数</th><th>结论</th><th>操作</th></tr></thead>
+      <tbody id="report-tbody"><tr class="empty-row"><td colspan="7">加载中...</td></tr></tbody>
+    </table>
+  </div>
+  <!-- 报告详情弹层 -->
+  <div id="report-detail" style="display:none;background:var(--bg-card);border:1px solid var(--gold-border);border-radius:12px;padding:20px;margin-top:16px"></div>
+</div>
+
+<!-- ═══════════════ TAB 4: 分润公式 ═══════════════ -->
+<div class="panel" id="panel-formula">
+  <div class="formula-grid" id="formula-grid">加载中...</div>
+  <h3 style="color:var(--gold);margin-top:24px;font-size:.95rem">边缘案例调整</h3>
+  <div id="edge-cases" style="margin:12px 0">加载中...</div>
+  <h3 style="color:var(--gold);margin-top:24px;font-size:.95rem">违约分级</h3>
+  <div id="violation-levels" style="margin:12px 0">加载中...</div>
+</div>
+
+<!-- ═══════════════ TAB 5: 调度状态 ═══════════════ -->
+<div class="panel" id="panel-scheduler">
+  <div class="sched-card" id="sched-cards">加载中...</div>
+  <div id="sched-detail" style="margin:16px 0">加载中...</div>
+</div>
+
+<!-- ═══════════════ TAB 6: 德本审计 ═══════════════ -->
+<div class="panel" id="panel-deben">
+  <div class="deben-list" id="deben-list">加载中...</div>
+  <p style="font-size:.75rem;color:var(--text-dim);margin-top:16px;font-style:italic">
+    离火运五条底线·焊死不可绕过。技术无德=祸害·德在技术前·每一行代码先问"在帮人还是在收割人"。
+  </p>
+</div>
+
+<!-- ═══════════════ TAB 7: 企业签约 ═══════════════ -->
+<div class="panel" id="panel-contract">
+  <div style="max-width:520px;margin:16px auto">
+    <div style="margin-bottom:12px">
+      <label style="font-size:.8rem;color:var(--text-dim)">企业全称 *</label>
+      <input type="text" id="ct-name" placeholder="如：北京良心科技有限公司" style="width:100%;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;margin-top:4px">
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:.8rem;color:var(--text-dim)">统一社会信用代码</label>
+      <input type="text" id="ct-uscc" placeholder="如：91110108MA01XXXXX" style="width:100%;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;margin-top:4px">
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:.8rem;color:var(--text-dim)">法定代表人</label>
+      <input type="text" id="ct-legal" placeholder="如：张三" style="width:100%;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;margin-top:4px">
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:.8rem;color:var(--text-dim)">注册地址</label>
+      <input type="text" id="ct-addr" placeholder="如：北京市海淀区中关村大街1号" style="width:100%;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;margin-top:4px">
+    </div>
+    <div style="margin-bottom:16px">
+      <label style="font-size:.8rem;color:var(--text-dim)">签约模块（多选）</label>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px" id="ct-modules">
+        <label style="display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--text);cursor:pointer"><input type="checkbox" value="R_e" checked> 员工分配</label>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--text);cursor:pointer"><input type="checkbox" value="R_f" checked> 创始人提取</label>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--text);cursor:pointer"><input type="checkbox" value="R_i" checked> 再投资</label>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--text);cursor:pointer"><input type="checkbox" value="R_p" checked> 公益</label>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--text);cursor:pointer"><input type="checkbox" value="R_b" checked> 风险缓冲</label>
+      </div>
+    </div>
+    <button id="ct-submit" style="width:100%;padding:12px;background:var(--gold);color:var(--bg);border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .2s">✍️ 签署胖东来分成契约</button>
+    <div id="ct-result" style="margin-top:12px;font-size:.8rem"></div>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  龍魂·胖东来分成审计公示面板 v2.0<br>
+  创建者: 诸葛鑫（UID9622） | 协议: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a><br>
+  数据主权归企业·审计链仅存哈希·公开页不暴露金额 | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════ 配置 ═══════════════
+const API = 'http://localhost:8767/v1/pangdonglai';
+const REFRESH_INTERVAL = 30000; // 30秒自动刷新
+
+// ═══════════════ 工具函数 ═══════════════
+function $id(id){return document.getElementById(id)}
+function $$(sel,ctx){return(ctx||document).querySelectorAll(sel)}
+function toast(msg,isError){const t=$id('toast');t.textContent=msg;t.className='toast show'+(isError?' error':'');setTimeout(()=>t.classList.remove('show'),3000)}
+function formatTime(iso){if(!iso)return'--';try{const d=new Date(iso);return d.toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}catch(e){return iso.slice(0,16)}}
+function verdictClass(v){const m={'🟢':'green','🟡':'yellow','🟠':'orange','🔴':'red','⚫':'black'};return m[v]||''}
+function verdictBadge(v){return v?`<span class="verdict verdict-${verdictClass(v)}">${v}</span>`:'<span style="color:var(--text-dim)">--</span>'}
+
+// ═══════════════ 缓存 ═══════════════
+let cache = {};
+
+async function fetchJSON(url){
+  try{
+    const res = await fetch(url);
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  }catch(e){throw e}
+}
+
+// ═══════════════ Tab 切换 ═══════════════
+function switchTab(tabName){
+  $$('.nav-btn').forEach(b=>b.classList.remove('active'));
+  $$('.panel').forEach(p=>p.classList.remove('active'));
+  const btn = document.querySelector(`[data-tab="${tabName}"]`);
+  if(btn)btn.classList.add('active');
+  const panel = $id(`panel-${tabName}`);
+  if(panel)panel.classList.add('active');
+  // 懒加载
+  if(tabName==='enterprises')loadEnterprises();
+  else if(tabName==='reports')loadReports();
+  else if(tabName==='formula')loadFormula();
+  else if(tabName==='scheduler')loadScheduler();
+  else if(tabName==='deben')loadDeben();
+  else if(tabName==='overview')loadOverview();
+}
+
+$id('tab-nav').addEventListener('click',e=>{
+  const btn=e.target.closest('.nav-btn');
+  if(btn)switchTab(btn.dataset.tab);
+});
+
+// ═══════════════ 总览 ═══════════════
+async function loadOverview(){
+  try{
+    const [stats,reports,deben] = await Promise.all([
+      fetchJSON(`${API}/stats`),
+      fetchJSON(`${API}/reports?limit=5`),
+      fetchJSON(`${API}/deben`)
+    ]);
+    cache.stats = stats; cache.deben = deben;
+    renderOverviewCards(stats,deben);
+    renderOverviewBars(stats);
+    renderOverviewTimeline(reports.reports||[]);
+  }catch(e){console.error('总览加载失败',e)}
+}
+
+function renderOverviewCards(stats,deben){
+  const total = stats.total_enterprises||0;
+  const audited = stats.audited_enterprises||0;
+  const v = stats.verdicts||{};
+  const violations = (v['🟡']||0)+(v['🟠']||0)+(v['🔴']||0)+(v['⚫']||0);
+  const debenOk = deben?.overall==='🟢'?'🟢 全通过':'⚠️ 待核';
+  const html = [
+    `<div class="card"><div class="card-value">${total}</div><div class="card-label">签约企业数</div></div>`,
+    `<div class="card"><div class="card-value">${audited}</div><div class="card-label">已审计企业</div><div class="card-sub">覆盖率 ${stats.audit_rate||'N/A'}</div></div>`,
+    `<div class="card"><div class="card-value">${stats.audit_rate||'N/A'}</div><div class="card-label">审计覆盖率</div></div>`,
+    `<div class="card"><div class="card-value" style="color:var(--green)">${v['🟢']||0}</div><div class="card-label">🟢 全通过</div></div>`,
+    `<div class="card"><div class="card-value" style="color:var(--red)">${violations}</div><div class="card-label">⚠️ 违规企业</div></div>`,
+    `<div class="card"><div class="card-value" style="color:var(--green)">${debenOk}</div><div class="card-label">德本五问</div></div>`,
+  ].join('');
+  $id('overview-cards').innerHTML = html;
+}
+
+function renderOverviewBars(stats){
+  const t = stats.thresholds||{};
+  const items = [
+    {label:'员工分配≥50%',val:parseFloat(t.R_e_min)||50,color:'#2ea043'},
+    {label:'创始人提取≤10%',val:parseFloat(t.R_f_max)||10,color:'#d29922',inverse:true},
+    {label:'再投资≥30%',val:parseFloat(t.R_i_min)||30,color:'#58a6ff'},
+    {label:'公益≥5%',val:parseFloat(t.R_p_min)||5,color:'#c9a84c'},
+    {label:'风险缓冲≤5%',val:parseFloat(t.R_b_max)||5,color:'#d97706',inverse:true},
+  ];
+  $id('overview-bars').innerHTML = items.map(i=>{
+    const pct = i.inverse ? (100-i.val) : i.val;
+    return `<div class="bar-wrap">
+      <span class="bar-label">${i.label}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${i.color}"></div></div>
+      <span class="bar-val">${i.val}%</span>
+    </div>`;
+  }).join('');
+}
+
+function renderOverviewTimeline(reports){
+  if(!reports.length){$id('overview-timeline').innerHTML='<p style="color:var(--text-dim);font-size:.8rem">暂无审计记录</p>';return}
+  $id('overview-timeline').innerHTML = reports.slice(0,5).map(r=>`
+    <div class="tl-item">
+      <div class="tl-time">${formatTime(r.timestamp)}</div>
+      <div class="tl-name">${escHtml(r.enterprise)} <span class="tl-verdict">${verdictBadge(r.overall)}</span></div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════ 签约企业 ═══════════════
+async function loadEnterprises(){
+  try{
+    const data = await fetchJSON(`${API}/enterprises`);
+    const ents = data.enterprises||[];
+    if(!ents.length){$id('enterprise-tbody').innerHTML='<tr class="empty-row"><td colspan="8">暂无签约企业</td></tr>';return}
+    $id('enterprise-tbody').innerHTML = ents.map(e=>`
+      <tr>
+        <td style="font-family:monospace;font-size:.75rem">${e.enterprise_code||'--'}</td>
+        <td>${escHtml(e.enterprise_name)}</td>
+        <td>${formatTime(e.signed_at)}</td>
+        <td>${(e.modules||[]).map(m=>`<span style="font-size:.7rem;background:var(--gold-dim);color:var(--gold);padding:1px 6px;border-radius:3px;margin:1px">${m}</span>`).join(' ')}</td>
+        <td>${formatTime(e.last_audit_at)}</td>
+        <td>${verdictBadge(e.last_audit_verdict)}</td>
+        <td>${e.audit_count||0}</td>
+        <td>${e.status==='active'?'<span style="color:var(--green)">🟢 活跃</span>':'<span style="color:var(--text-dim)">⏸️ 暂停</span>'}</td>
+      </tr>
+    `).join('');
+  }catch(e){$id('enterprise-tbody').innerHTML='<tr class="empty-row"><td colspan="8">加载失败</td></tr>'}
+}
+
+// ═══════════════ 审计报告 ═══════════════
+let allReports = [];
+async function loadReports(){
+  try{
+    const data = await fetchJSON(`${API}/reports?limit=50`);
+    allReports = data.reports||[];
+    renderReportTable(allReports);
+  }catch(e){$id('report-tbody').innerHTML='<tr class="empty-row"><td colspan="7">加载失败</td></tr>'}
+}
+function renderReportTable(reports){
+  if(!reports.length){$id('report-tbody').innerHTML='<tr class="empty-row"><td colspan="7">暂无审计报告</td></tr>';return}
+  $id('report-tbody').innerHTML = reports.map(r=>`
+    <tr>
+      <td style="font-family:monospace;font-size:.7rem">${r.audit_id||'--'}</td>
+      <td>${escHtml(r.enterprise)}</td>
+      <td>${formatTime(r.timestamp)}</td>
+      <td>${r.checks_passed||0}/${r.checks_total||0}</td>
+      <td>${r.violations_count||0}</td>
+      <td>${verdictBadge(r.overall)}</td>
+      <td><button onclick="viewReport('${r.audit_id}')" style="background:transparent;border:1px solid var(--gold-border);color:var(--gold);border-radius:6px;padding:3px 10px;font-size:.75rem;cursor:pointer">详情</button></td>
+    </tr>
+  `).join('');
+}
+$id('report-search').addEventListener('input',filterReports);
+$id('report-filter').addEventListener('change',filterReports);
+function filterReports(){
+  const q = $id('report-search').value.toLowerCase();
+  const f = $id('report-filter').value;
+  let filtered = allReports;
+  if(q) filtered = filtered.filter(r=>(r.audit_id||'').toLowerCase().includes(q)||(r.enterprise||'').toLowerCase().includes(q));
+  if(f) filtered = filtered.filter(r=>r.overall===f);
+  renderReportTable(filtered);
+}
+async function viewReport(auditId){
+  try{
+    const r = await fetchJSON(`${API}/report/${auditId}`);
+    $id('report-detail').style.display='block';
+    $id('report-detail').innerHTML = renderReportDetail(r);
+    $id('report-detail').scrollIntoView({behavior:'smooth'});
+  }catch(e){toast('报告加载失败',true)}
+}
+function renderReportDetail(r){
+  const fin = r.financials||{};
+  const N = fin.N||1;
+  const pct = v=>N?(v/N*100).toFixed(1)+'%':'0%';
+  const checksHtml = (r.checks||[]).map(c=>`
+    <tr style="background:${c.pass?'rgba(46,160,67,0.05)':'rgba(196,30,58,0.08)'}">
+      <td>${c.mark||''}</td><td>${c.rule||''}</td>
+      <td>${(c.expected||0).toLocaleString()}</td><td>${(c.actual||0).toLocaleString()}</td>
+      <td>${pct(c.actual||0)}</td><td>${c.pass?'✅':'❌'} ${c.detail||''}</td>
+    </tr>
+  `).join('');
+  const edgeHtml = (r.edge_cases||[]).length ? (r.edge_cases||[]).map(e=>`<li style="font-size:.8rem;color:var(--text-dim)">${e}</li>`).join('') : '<li style="font-size:.8rem;color:var(--text-dim)">无</li>';
+  const vHtml = (r.violations||[]).length ? (r.violations||[]).map(v=>`<li style="font-size:.8rem;color:var(--red)">${v.mark} ${v.rule}</li>`).join('') : '<li style="font-size:.8rem;color:var(--text-dim)">无</li>';
+  return `
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div><strong style="color:var(--gold)">审计报告:</strong> <span style="font-family:monospace;font-size:.75rem">${r.audit_id}</span></div>
+      <div style="font-size:2rem">${r.overall}</div>
+    </div>
+    <div style="font-family:monospace;font-size:.65rem;color:var(--text-dim);margin:8px 0">${r.dna||''}</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:12px 0">
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">净利润 N</span><br><strong>${N.toLocaleString()}元</strong></div>
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">员工 R_e</span><br><strong>${(fin.R_e||0).toLocaleString()}元 (${pct(fin.R_e)})</strong></div>
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">创始人 R_f</span><br><strong>${(fin.R_f||0).toLocaleString()}元 (${pct(fin.R_f)})</strong></div>
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">再投资 R_i</span><br><strong>${(fin.R_i||0).toLocaleString()}元 (${pct(fin.R_i)})</strong></div>
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">公益 R_p</span><br><strong>${(fin.R_p||0).toLocaleString()}元 (${pct(fin.R_p)})</strong></div>
+      <div style="background:var(--bg);padding:8px 12px;border-radius:6px"><span style="color:var(--text-dim);font-size:.7rem">风险 R_b</span><br><strong>${(fin.R_b||0).toLocaleString()}元 (${pct(fin.R_b)})</strong></div>
+    </div>
+    <h4 style="color:var(--gold);margin-top:16px;font-size:.85rem">逐项审计</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>标记</th><th>不等式</th><th>期望值</th><th>实际值</th><th>比例</th><th>结果</th></tr></thead>
+      <tbody>${checksHtml}</tbody>
+    </table></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+      <div><h4 style="color:var(--gold);font-size:.85rem">边缘案例</h4><ul>${edgeHtml}</ul></div>
+      <div><h4 style="color:var(--gold);font-size:.85rem">违规项</h4><ul>${vHtml}</ul></div>
+    </div>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:16px;text-align:right">审计时间: ${r.timestamp||''} | ${r.auditor_dna||''}</div>
+  `;
+}
+
+// ═══════════════ 分润公式 ═══════════════
+async function loadFormula(){
+  try{
+    const data = await fetchJSON(`${API}/formula`);
+    $id('formula-grid').innerHTML = (data.formulas||[]).map(f=>`
+      <div class="formula-card">
+        <div class="f-rule">${f.rule}</div>
+        <div class="f-meaning">${f.meaning}</div>
+        <div class="f-priority">优先级: ${f.priority}</div>
+      </div>
+    `).join('');
+    $id('edge-cases').innerHTML = (data.edge_cases||[]).map(e=>`
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:6px;font-size:.82rem">
+        <strong style="color:var(--gold)">${e.case}</strong>
+        <span style="color:var(--text-dim);margin-left:8px">→ ${e.adjustment}</span>
+      </div>
+    `).join('');
+    const vl = data.violation_levels||{};
+    $id('violation-levels').innerHTML = Object.entries(vl).map(([k,v])=>`
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.82rem">
+        <span style="font-size:1.2rem">${k}</span><span style="color:var(--text)">${v}</span>
+      </div>
+    `).join('');
+  }catch(e){console.error('公式加载失败',e)}
+}
+
+// ═══════════════ 调度状态 ═══════════════
+async function loadScheduler(){
+  try{
+    const data = await fetchJSON(`${API}/scheduler`);
+    $id('sched-cards').innerHTML = [
+      {icon:'🔄',value:data.running?'运行中':'已停止',label:'守护进程',cls:data.running?'color:var(--green)':'color:var(--red)'},
+      {icon:'📋',value:data.auto_audit_count||0,label:'自动审计次数'},
+      {icon:'👁️',value:data.watched_enterprises||0,label:'守护企业数'},
+      {icon:'⏰',value:data.last_run?formatTime(data.last_run):'--',label:'上次执行'},
+      {icon:'📅',value:data.next_quarterly||'--',label:'下次季度审计'},
+    ].map(s=>`<div class="sched-item"><div class="s-icon">${s.icon}</div><div class="s-value" style="${s.cls||''}">${s.value}</div><div class="s-label">${s.label}</div></div>`).join('');
+    $id('sched-detail').innerHTML = data.running
+      ? '<p style="color:var(--green);font-size:.85rem">✅ 调度器守护进程运行中·每48小时自动审计新签约企业·每季度末15日后全量审计</p>'
+      : '<p style="color:var(--red);font-size:.85rem">⚠️ 调度器未运行·请启动: python3 bin/lh_pangdonglai_scheduler.py daemon</p>';
+  }catch(e){$id('sched-cards').innerHTML='<p style="color:var(--text-dim)">加载失败</p>'}
+}
+
+// ═══════════════ 德本审计 ═══════════════
+async function loadDeben(){
+  try{
+    const data = await fetchJSON(`${API}/deben`);
+    $id('deben-list').innerHTML = (data.checks||[]).map(c=>`
+      <div class="deben-item" style="border-left:3px solid ${c.status==='🟢'?'var(--green)':'var(--yellow)'}">
+        <div class="deben-mark">${c.status}</div>
+        <div class="deben-body">
+          <div class="deben-title">${c.id}. ${c.question}</div>
+          <div class="deben-desc">${c.detail}</div>
+          <div style="font-size:.72rem;color:var(--text-dim);margin-top:4px;font-style:italic">${c.note}</div>
+        </div>
+      </div>
+    `).join('');
+    // 更新顶部状态条
+    const dot = $id('dot-deben');
+    const txt = $id('txt-deben');
+    if(dot&&txt){
+      const ok = data.overall==='🟢';
+      dot.className = 'dot '+(ok?'dot-live':'dot-warn');
+      txt.textContent = ok?'德本五问·全通过':'德本五问·待核';
+    }
+  }catch(e){console.error('德本加载失败',e)}
+}
+
+// ═══════════════ 企业签约 ═══════════════
+$id('ct-submit').addEventListener('click',async()=>{
+  const name = $id('ct-name').value.trim();
+  if(!name){toast('企业名称不可为空',true);return}
+  const modules = [...$$('#ct-modules input:checked')].map(cb=>cb.value);
+  const btn = $id('ct-submit');
+  btn.disabled = true; btn.textContent = '签约中...';
+  try{
+    const res = await fetch(`${API}/contract`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        enterprise_name:name,
+        uscc:$id('ct-uscc').value.trim(),
+        legal_person:$id('ct-legal').value.trim(),
+        registered_address:$id('ct-addr').value.trim(),
+        modules
+      })
+    });
+    const data = await res.json();
+    if(data.ok){
+      $id('ct-result').innerHTML = `<div style="color:var(--green);padding:12px;background:var(--green-bg);border-radius:8px">
+        ✅ 签约成功!<br>
+        企业代码: <strong>${data.enterprise_code}</strong><br>
+        DNA: <span style="font-family:monospace;font-size:.7rem">${data.dna}</span><br>
+        <span style="font-size:.7rem;color:var(--text-dim)">${data.message}</span>
+      </div>`;
+      // 清空表单
+      ['ct-name','ct-uscc','ct-legal','ct-addr'].forEach(id=>$id(id).value='');
+      // 刷新企业列表
+      setTimeout(()=>{loadEnterprises();loadOverview()},1000);
+    }
+  }catch(e){toast('签约失败: '+e.message,true)}
+  btn.disabled = false; btn.textContent = '✍️ 签署胖东来分成契约';
+});
+
+// ═══════════════ 状态条 ═══════════════
+async function updateStatusBar(){
+  // 时间
+  $id('txt-time').textContent = new Date().toLocaleString('zh-CN');
+  // API健康
+  try{
+    const h = await fetchJSON(`${API}/health`);
+    $id('dot-api').className = 'dot dot-live';
+    $id('txt-api').textContent = 'API '+h.version+'·在线';
+  }catch(e){
+    $id('dot-api').className = 'dot dot-off';
+    $id('txt-api').textContent = 'API 离线';
+  }
+  // 调度器
+  try{
+    const s = await fetchJSON(`${API}/scheduler`);
+    $id('dot-sched').className = 'dot '+(s.running?'dot-live':'dot-warn');
+    $id('txt-sched').textContent = s.running?'调度器·运行中':'调度器·已停止';
+  }catch(e){
+    $id('dot-sched').className = 'dot dot-off';
+    $id('txt-sched').textContent = '调度器·未知';
+  }
+}
+
+// ═══════════════ HTML 转义 ═══════════════
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+// ═══════════════ 初始化 ═══════════════
+async function init(){
+  updateStatusBar();
+  await loadOverview();
+  // 后续tab懒加载
+  setInterval(updateStatusBar, REFRESH_INTERVAL);
+  setInterval(loadOverview, REFRESH_INTERVAL);
+}
+
+init();
+</script>
+</body>
+</html>

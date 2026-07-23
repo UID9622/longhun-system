@@ -196,7 +196,7 @@ IPA注册表: Dict[str, Dict[str, Any]] = {
         "wuxing": "水",
         "priority": 4,
         "status": "planned",
-        "engine": "cnsh-core/legal/",
+        "engine": "cnsh/core/legal/",
     },
     "IPA-330": {
         "name": "数学·算法·公式语义",

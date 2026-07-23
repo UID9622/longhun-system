@@ -42,7 +42,6 @@ WATCH_DIRS = {
     "skills/":    {"weight": 1.2, "glob": "*.md",   "cat": "SKILL"},
     "skills.backup/": {"weight": 0.8, "glob": "*.md", "cat": "SKILL"},
     "01_protocols/": {"weight": 1.3, "glob": "*.md","cat": "PROTOCOL"},
-    "protocols/": {"weight": 1.3, "glob": "*.md",   "cat": "PROTOCOL"},
     "02_rules/":  {"weight": 1.2, "glob": "*.md",   "cat": "GOVERNANCE"},
     "personas/":  {"weight": 1.2, "glob": "*.md",   "cat": "PERSONA"},
     "docs/":      {"weight": 0.7, "glob": "*.md",   "cat": "DOMAIN"},

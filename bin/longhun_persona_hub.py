@@ -13,9 +13,9 @@
 龍魂人格中枢 · LongHun Persona Hub v1.0
 
 本地可执行的人格路由中枢：
-- 读取 persona/persona_registry.json 人格注册表
-- 读取 persona/relation_graph.json 关系图谱
-- 读取 persona/yijing_hexagrams.json 易经六十四卦
+- 读取 personas/runtime/persona_registry.json 人格注册表
+- 读取 personas/runtime/relation_graph.json 关系图谱
+- 读取 personas/runtime/yijing_hexagrams.json 易经六十四卦
 - 根据任务类型自动路由人格
 - 根据关系亲密度调整响应策略
 - 根据数字根/时间计算当前卦象

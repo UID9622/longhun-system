@@ -430,7 +430,7 @@ CN_SEMANTIC_DRAWERS = [
     # v2.1 (2026-07-07) 主控体系统一规范：
     #   主控台 → longhun-master-control.html（路由矩阵·唯一入口）
     #   操作台 → main-console.html（实际操作面板·记忆压缩·DNA存证）
-    #   流场总控 → cnsh-core 流场专用仪表盘
+    #   流场总控 → cnsh/core 流场专用仪表盘
     #   三者不再是别名关系
     {
         "name": "主控台",

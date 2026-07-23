@@ -9,7 +9,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LONGHUN_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-RUNNER="$LONGHUN_DIR/cnsh-core/cnsh-runtime/cnsh_runner.py"
+RUNNER="$LONGHUN_DIR/cnsh/core/cnsh-runtime/cnsh_runner.py"
 
 usage() {
     cat << EOF
@@ -25,8 +25,8 @@ usage() {
   -h, --help     显示此帮助
 
 示例:
-  $(basename "$0") cnsh-core/cnsh-runtime/examples/hello.cnsh
-  $(basename "$0") cnsh-core/cnsh-runtime/examples/longhun_audit.cnsh --explain --show-code
+  $(basename "$0") cnsh/core/cnsh-runtime/examples/hello.cnsh
+  $(basename "$0") cnsh/core/cnsh-runtime/examples/longhun_audit.cnsh --explain --show-code
   $(basename "$0") --repl
 EOF
 }

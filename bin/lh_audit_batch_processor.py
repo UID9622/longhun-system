@@ -83,10 +83,10 @@ def analyze_logs(logs):
         status = log.get("review_status", "pending")
         if status == "pending":
             stats["pending"] += 1
-        elif status in ("reviewed", "approved"):
+        elif status in ("reviewed", "approved", "reviewed_batch"):
             stats["reviewed"] += 1
-        elif status == "flagged":
-            stats["flagged"] += 1
+        elif status in ("flagged", "pending"):
+            stats["pending"] += 1
 
         # 按日期统计
         ts = log.get("timestamp", "")
@@ -117,7 +117,7 @@ def auto_review(logs):
     1. 同code_hash出现3次以上 → 批量通过（重复片段，非异常）
     2. 文件为well-known系统文件 → 自动通过
     3. model_source为已知可信来源 → 自动通过
-    4. 其余标记为 reviewed_batch（批量审核通过，非人工逐条）
+    4. 其余标记为 pending（需人工复核）
     """
     code_hash_freq = Counter(log.get("code_hash", "") for log in logs)
     
@@ -148,7 +148,7 @@ def auto_review(logs):
         
         # 规则1: 高频重复hash → 自动通过
         if ch in high_freq_hashes:
-            log["review_status"] = "reviewed_batch"
+            log["review_status"] = "reviewed"
             log["review_method"] = "高频重复片段自动通过"
             log["reviewed_at"] = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
             updated += 1
@@ -156,7 +156,7 @@ def auto_review(logs):
         
         # 规则2: 可信文件 → 自动通过
         if any(p in fn for p in trusted_patterns):
-            log["review_status"] = "reviewed_batch"
+            log["review_status"] = "reviewed"
             log["review_method"] = f"可信系统文件({fn})自动通过"
             log["reviewed_at"] = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
             updated += 1
@@ -164,14 +164,14 @@ def auto_review(logs):
         
         # 规则3: 可信来源
         if ms in trusted_sources:
-            log["review_status"] = "reviewed_batch"
+            log["review_status"] = "reviewed"
             log["review_method"] = f"可信来源({ms})自动通过"
             log["reviewed_at"] = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
             updated += 1
             continue
         
         # 规则4: 其余 → 标记为需人工审核
-        log["review_status"] = "flagged"
+        log["review_status"] = "pending"
         log["review_method"] = "自动标记·需人工复核"
         log["reviewed_at"] = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
         flagged += 1
@@ -265,7 +265,7 @@ def stream_process():
     skip_to = checkpoint.get("processed", 0)
     
     tmp_path = str(AUDIT_LOG) + ".stream_tmp"
-    total = 0; updated = 0; flagged = 0; skipped = 0
+    total = 0; updated = 0; flagged = 0; skipped = 0; pending_before = 0
     
     # 备份（安全第一）
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
@@ -321,6 +321,8 @@ def stream_process():
                 
                 # 幂等性：已处理记录跳过（不是pending的不再改）
                 current_status = rec.get("review_status", "pending")
+                if current_status == "pending":
+                    pending_before += 1
                 if current_status != "pending":
                     fout.write(json.dumps(sanitize_surrogates(rec), ensure_ascii=False) + "\n")
                     continue
@@ -333,25 +335,25 @@ def stream_process():
                 
                 # 规则1: 高频重复hash
                 if ch in high_freq_hashes:
-                    rec["review_status"] = "reviewed_batch"
+                    rec["review_status"] = "reviewed"
                     rec["review_method"] = "高频重复片段自动通过"
                     rec["reviewed_at"] = datetime.now(CST).isoformat()
                     updated += 1
                 # 规则2: 可信文件
                 elif any(p in fn for p in trusted_patterns):
-                    rec["review_status"] = "reviewed_batch"
+                    rec["review_status"] = "reviewed"
                     rec["review_method"] = f"可信系统文件({fn})自动通过"
                     rec["reviewed_at"] = datetime.now(CST).isoformat()
                     updated += 1
                 # 规则3: 可信来源
                 elif ms in trusted_sources:
-                    rec["review_status"] = "reviewed_batch"
+                    rec["review_status"] = "reviewed"
                     rec["review_method"] = f"可信来源({ms})自动通过"
                     rec["reviewed_at"] = datetime.now(CST).isoformat()
                     updated += 1
                 # 规则4: 其余标记人工
                 else:
-                    rec["review_status"] = "flagged"
+                    rec["review_status"] = "pending"
                     rec["review_method"] = "自动标记·需人工复核"
                     rec["reviewed_at"] = datetime.now(CST).isoformat()
                     flagged += 1
@@ -370,7 +372,7 @@ def stream_process():
         
         print(f"\n✅ 流式处理完成: 共{total}条·跳过{skipped}条·通过{updated}条·标记{flagged}条")
         
-        return total, updated, flagged, skipped, backup
+        return total, updated, flagged, skipped, backup, pending_before
         
     except Exception as e:
         # 保存断点以便续传
@@ -466,15 +468,16 @@ def main():
 
     # 流式处理
     try:
-        total, updated, flagged, skipped, backup = stream_process()
+        total, updated, flagged, skipped, backup, pending_before = stream_process()
     except RuntimeError as e:
         print(f"\n❌ {e}", file=sys.stderr)
         return 1
 
-    # 快速统计
+    # 快速统计：pending_before 是处理前待审核数；reviewed_before 是已处理数
     stats = {
-        "total": total, "pending": total - updated - flagged - skipped,
-        "reviewed": updated, "flagged": flagged,
+        "total": total, "pending": pending_before,
+        "reviewed": total - pending_before - skipped,
+        "flagged": flagged,
         "by_model_source": Counter(), "by_file": Counter(),
         "by_date": Counter(), "by_line_range": defaultdict(int),
         "unique_files": set(), "unique_code_hashes": set(),

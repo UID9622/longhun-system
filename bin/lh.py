@@ -113,7 +113,7 @@ MODULES = {
             {"id": "2", "label": "自助修复", "cmd": "python3 bin/lh_self-heal.py", "desc": "自动检测并修复常见问题"},
             {"id": "3", "label": "定时任务管理", "cmd": "python3 bin/lh_auto_shouheng.py --cron", "desc": "查看/管理定时任务"},
             {"id": "4", "label": "守护进程(v2)", "cmd": "python3 bin/lh_guardian_v2.py", "desc": "系统守护进程管理"},
-            {"id": "5", "label": "桌面菜单", "cmd": "cat cnsh-terminal/desktop-menu.json | python3 -m json.tool", "desc": "查看macOS右键菜单配置"},
+            {"id": "5", "label": "桌面菜单", "cmd": "cat cnsh/terminal/desktop-menu.json | python3 -m json.tool", "desc": "查看macOS右键菜单配置"},
         ]
     },
     "🌐 外部 & 网络": {

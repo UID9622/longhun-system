@@ -128,7 +128,7 @@ def find_checkable_files() -> list[Path]:
     """找到所有可检查文件"""
     ignore = {".git", "__pycache__", ".venv", "node_modules", "brain", ".obsidian",
               "models", "releases", "L7_数据层/desktop_archive", "L7_数据层/desktop_media",
-              ".codebuddy/memory", "cnsh-terminal/downloads-imports"}
+              ".codebuddy/memory", "cnsh/terminal/downloads-imports"}
     files = []
     for p in ROOT.rglob("*"):
         if p.is_file() and p.stat().st_size < 2 * 1024 * 1024:

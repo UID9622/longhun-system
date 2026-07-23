@@ -14,7 +14,7 @@ LOG_DIR="$ROOT/logs"
 mkdir -p "$LOG_DIR"
 
 LOG_FILE="$LOG_DIR/autostart.log"
-GUARD="python3 $ROOT/persona/anti_blowout_guard.py --json"
+GUARD="python3 $ROOT/personas/runtime/anti_blowout_guard.py --json"
 
 echo "🐉 龍魂系统开机自启动 · $(date)" >> "$LOG_FILE"
 

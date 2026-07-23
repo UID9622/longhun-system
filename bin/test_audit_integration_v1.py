@@ -30,8 +30,8 @@ import os
 import json
 from pathlib import Path
 
-# Add cnsh-core to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'cnsh-core'))
+# Add cnsh/core to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'cnsh', 'core'))
 
 from audit_3color_v1 import (
     ThreeColorAuditEngine,

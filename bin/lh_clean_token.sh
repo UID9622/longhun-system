@@ -43,7 +43,7 @@ echo ""
 DIRTY=$(git status --porcelain)
 if [ -n "$DIRTY" ]; then
     # 只允许特定文件的未提交改动
-    ALLOWED_PATTERNS=".codebuddy/memory/ docs/ bin/lh_clean_token.sh cnsh-core/ai-tools/longhu_sentinel_bot/README.md"
+    ALLOWED_PATTERNS=".codebuddy/memory/ docs/ bin/lh_clean_token.sh cnsh/core/ai_tools/longhu_sentinel_bot/README.md"
     DISALLOWED=$(echo "$DIRTY" | grep -vE "$(echo "$ALLOWED_PATTERNS" | sed 's/ /|/g')" || true)
     if [ -n "$DISALLOWED" ]; then
         echo "❌ 检测到不允许的未提交改动（stash 或先提交它们）："
@@ -56,7 +56,7 @@ if [ -n "$DIRTY" ]; then
         exit 1
     fi
     echo "⚠️  检测到允许的未提交改动，先提交..."
-    git add .codebuddy/memory/ docs/ bin/lh_clean_token.sh cnsh-core/ai-tools/longhu_sentinel_bot/README.md 2>/dev/null || true
+    git add .codebuddy/memory/ docs/ bin/lh_clean_token.sh cnsh/core/ai_tools/longhu_sentinel_bot/README.md 2>/dev/null || true
     git commit -m "pre-clean: token scrub snapshot" || true
     echo ""
 fi
@@ -84,9 +84,9 @@ BEFORE=$(git rev-parse HEAD)
 
 git filter-branch --force --index-filter '
     # 对指定目录下的文件做token替换
-    for f in cnsh-core/ai-tools/longhu_sentinel_bot/sentinel_bot.py \
-             cnsh-core/ai-tools/longhu_sentinel_bot/telegram_handler.py \
-             cnsh-core/ai-tools/longhu_sentinel_bot/token_manager.py; do
+    for f in cnsh/core/ai_tools/longhu_sentinel_bot/sentinel_bot.py \
+             cnsh/core/ai_tools/longhu_sentinel_bot/telegram_handler.py \
+             cnsh/core/ai_tools/longhu_sentinel_bot/token_manager.py; do
         old_hash=$(git ls-files -s "$f" 2>/dev/null | awk "{print \$2}")
         if [ -n "$old_hash" ]; then
             new_hash=$(git cat-file -p "$old_hash" | sed "s|8643060944:AAFa-bQT1GyP4Ry32iYJc7Cnrkg0hMPA1l4|REDACTED_USE_ENV_VAR_TELEGRAM_BOT_TOKEN|g" | git hash-object -w --stdin)

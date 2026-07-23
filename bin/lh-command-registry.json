@@ -654,7 +654,7 @@
       "category": "cnsh",
       "desc": "CNSH 交互终端 v5",
       "type": "script",
-      "script": "cnsh-terminal/cnsh_terminal_v5.py"
+      "script": "cnsh/terminal/cnsh_terminal_v5.py"
     },
     "cnsh编辑器": {
       "aliases": [
@@ -808,7 +808,7 @@
       "category": "维护",
       "desc": "超强压缩测试（需跟文件路径）",
       "type": "script",
-      "script": "persona/compression_engine.py",
+      "script": "personas/runtime/compression_engine.py",
       "args": [
         "benchmark"
       ],
@@ -822,7 +822,7 @@
       "category": "维护",
       "desc": "DNA 模块溯源（需跟模块名）",
       "type": "script",
-      "script": "persona/dna_tracer.py",
+      "script": "personas/runtime/dna_tracer.py",
       "args": [
         "--module"
       ],
@@ -920,7 +920,7 @@
       "category": "反熔断",
       "desc": "检查系统过载状态（五级 SOP）",
       "type": "script",
-      "script": "persona/overload_guard.py",
+      "script": "personas/runtime/overload_guard.py",
       "args": [
         "status"
       ]
@@ -932,7 +932,7 @@
       "category": "反熔断",
       "desc": "查看最近 10 条反熔断审计日志",
       "type": "script",
-      "script": "persona/audit_logger.py",
+      "script": "personas/runtime/audit_logger.py",
       "args": [
         "tail",
         "10"
@@ -945,7 +945,7 @@
       "category": "反熔断",
       "desc": "记录一条审计日志（示例）",
       "type": "script",
-      "script": "persona/audit_logger.py",
+      "script": "personas/runtime/audit_logger.py",
       "args": [
         "log",
         "--op",
@@ -965,7 +965,7 @@
       "category": "反熔断",
       "desc": "演示输出契约校验（失败拦截）",
       "type": "script",
-      "script": "persona/output_contract.py",
+      "script": "personas/runtime/output_contract.py",
       "args": [
         "demo-fail"
       ]
@@ -1018,7 +1018,7 @@
       "category": "其他",
       "desc": "检查文件/命令是否触碰 P0 永恒锁",
       "type": "script",
-      "script": "persona/eternal_guard.py",
+      "script": "personas/runtime/eternal_guard.py",
       "args": [
         "--verify-command"
       ],
@@ -1032,7 +1032,7 @@
       "category": "其他",
       "desc": "列出所有 P0 永恒锁定的文件、目录、口令、红线",
       "type": "script",
-      "script": "persona/eternal_guard.py",
+      "script": "personas/runtime/eternal_guard.py",
       "args": [
         "--list"
       ]
@@ -1068,7 +1068,7 @@
       "category": "其他",
       "desc": "自然语言提问，协议图书馆员用人话回答并指出依据文件",
       "type": "script",
-      "script": "persona/protocol_librarian.py",
+      "script": "personas/runtime/protocol_librarian.py",
       "need_arg": true
     },
     "协议摘要": {
@@ -1079,7 +1079,7 @@
       "category": "其他",
       "desc": "显示某份协议的一句话摘要（需指定文件路径或关键词）",
       "type": "script",
-      "script": "persona/protocol_librarian.py",
+      "script": "personas/runtime/protocol_librarian.py",
       "need_arg": true
     },
     "技能主控": {
@@ -1866,7 +1866,7 @@
       "category": "启动",
       "desc": "启动 CNSH 中文代码编辑器（已注入龍_/引擎_/数据_/模块_ CNSH 变量）",
       "type": "script",
-      "script": "cnsh-editor/cnsh_editor_engine_v2.0.py"
+      "script": "cnsh/editor/cnsh_editor_engine_v2.0.py"
     },
     "变量审计": {
       "aliases": [
@@ -1877,7 +1877,7 @@
       "category": "审计",
       "desc": "运行 CNSH 编辑变量·左右互搏审计（左脑挑错+右脑补充+共识收敛）",
       "type": "script",
-      "script": "cnsh-editor/core/cnsh_editor_var_auditor.py"
+      "script": "cnsh/editor/core/cnsh_editor_var_auditor.py"
     },
     "plist校验": {
       "aliases": [
