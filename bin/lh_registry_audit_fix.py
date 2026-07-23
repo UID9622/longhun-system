@@ -3,7 +3,7 @@
 import json
 from datetime import datetime, timezone
 
-with open('persona/persona_registry.json') as f:
+with open('personas/runtime/persona_registry.json') as f:
     d = json.load(f)
 
 personas = d['personas']
@@ -251,7 +251,7 @@ d['_meta']['audit'] = {
     'dna': '#龍芯⚡️丙午·丙申·丙辰·午时·需-REGISTRY-AUDIT-FIX'
 }
 
-with open('persona/persona_registry.json', 'w') as f:
+with open('personas/runtime/persona_registry.json', 'w') as f:
     json.dump(d, f, indent=2, ensure_ascii=False)
 
 print('✅ 注册表修复完成')

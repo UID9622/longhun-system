@@ -15,7 +15,7 @@ OUT_JSON = ROOT / "docs" / "module-inventory.json"
 IGNORE_DIRS = {
     ".git", "__pycache__", ".pytest_cache", "node_modules", ".venv", "venv",
     ".backups", "logs", "_archive", ".claude", ".obsidian", ".github",
-    "cnsh-core.backup", "monitoring.backup", "logging_backup",
+    "cnsh.core.backup", "monitoring.backup", "logging_backup",
 }
 
 # 判断是否为活跃模块：包含代码或脚本文件

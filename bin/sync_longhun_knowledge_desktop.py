@@ -115,7 +115,7 @@ CATEGORIES = [
         'api' in n or '核心链路' in n or 'architecture' in n or
         'cnsh_v' in n or '接口契约' in n or '知识域' in n or
         '执行域' in n or '反馈域' in n or 'complete-api' in n or
-        'compiler' in p or '03_compiler' in p or 'cnsh-core' in p),
+        'compiler' in p or '03_compiler' in p or 'cnsh/core' in p),
 
     ('10_安全域', lambda p, n:
         '安全域' in n or '数据安全' in n or '个人信息保护' in n or

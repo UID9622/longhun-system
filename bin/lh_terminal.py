@@ -158,9 +158,9 @@ class 龍魂终端:
                     print(f"{C['yellow']}⚠️{C['nc']} 无法读取 Git HEAD")
             core_files = [
                 "longhun_persona_hub.py",
-                "persona/system_status_panel.py",
-                "persona/compression_engine.py",
-                "persona/dna_tracer.py",
+                "personas/runtime/system_status_panel.py",
+                "personas/runtime/compression_engine.py",
+                "personas/runtime/dna_tracer.py",
                 "bin/longhun-command-registry.json",
             ]
             missing = [f for f in core_files if not (self.root / f).exists()]
@@ -182,7 +182,7 @@ class 龍魂终端:
         print(f"{C['cyan']}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{C['nc']}")
 
     def 状态面板(self):
-        return self._run_py("persona/system_status_panel.py")
+        return self._run_py("personas/runtime/system_status_panel.py")
 
     def 人格内阁(self):
         return self._run_py("longhun_persona_hub.py", "--list")
@@ -194,10 +194,10 @@ class 龍魂终端:
         target = Path(file_path)
         if not target.is_absolute():
             target = Path(os.getcwd()) / file_path
-        return self._run_py("persona/compression_engine.py", "benchmark", str(target))
+        return self._run_py("personas/runtime/compression_engine.py", "benchmark", str(target))
 
     def DNA溯源(self, module: str):
-        return self._run_py("persona/dna_tracer.py", "--module", module)
+        return self._run_py("personas/runtime/dna_tracer.py", "--module", module)
 
     def 操作台入口(self):
         print("🐉 龍魂操作台入口")

@@ -7,7 +7,7 @@
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  DNA: #龍芯⚡️2026-07-11-CS-LEARNING-ENGINE-v1.0                          ║
 ║  源矿: backups/cs-kb-enhanced-20260701/cs_kb.db (306条知识卡片)           ║
-║  引擎: cnsh-core/longhun_cs_kb.py (FTS5全文搜索·分类查询·公式路由)          ║
+║  引擎: cnsh/core/longhun_cs_kb.py (FTS5全文搜索·分类查询·公式路由)          ║
 ║  铁律: 本地数据·不联网·学习路径基于龙魂算法                                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  用法:                                                                   ║
@@ -29,10 +29,10 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 from dataclasses import dataclass, field
 
-# 确保能 import cnsh-core 模块
+# 确保能 import cnsh/core 模块
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "cnsh-core"))
+sys.path.insert(0, str(ROOT / "cnsh" / "core"))
 
 try:
     from cnsh_core.longhun_cs_kb import load_db, search, query_by_category, query_by_id, embed_summary

@@ -1,0 +1,35 @@
+# 龍芯本地异常检测报告
+# 时间: 2026-05-07T22:49:31.399655
+# DNA: #龍芯⚡️2026-05-07-本地异常检测器-v1.0
+# 总结: {"🔴": 1, "🟠": 1, "🟡": 0, "🟢": 8}
+
+
+[🟢] [M1] 未发现任何描述文件
+
+[🟢] [M2] 读取到 23 张证书·开始拆姓名
+
+[🔴] [M2] 命中 2 张可疑证书
+详情:
+TrustCor RootCert CA-1
+TrustCor ECA-1
+
+[🟢] [M2] 用户钥匙串无 huawei/mediarouter 关键词
+
+[🟢] [M3-DNS] DNS 全部白名单 (1 个)
+
+[🟢] [M3-Proxy] 无系统代理
+
+[🟢] [M3-Hosts] hosts 文件无自定义
+
+[🟢] [M3-Conn] 活跃连接 30 条·无命中可疑词
+
+[🟠] [M4] 扫描 907 个启动项·1 个命中可疑
+详情:
+/Users/zuimeidedeyihan/Library/LaunchAgents/com.longhun.monitor.plist.disabled
+
+[🟢] [M5] 扫描 0 个进程·无可疑
+
+=== M6·清理建议 ===
+# 证书: 打开 钥匙串访问 → 找可疑证书 → 删除 / 设置为不信任
+# 命令行: security delete-certificate -c '<证书名>'
+# 启动项: launchctl bootout gui/$(id -u)/<label>; rm <plist路径>

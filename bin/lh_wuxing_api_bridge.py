@@ -10,7 +10,7 @@
 ║  功能: ① 习惯指纹→五行属性（数字根映射）                                        ║
 ║        ② RobotScore→五行流场健康度判定                                         ║
 ║        ③ 五行平衡度→人物画像（偏科/平衡型）                                     ║
-║        ④ 与 cnsh-core/api_wuxing.py HTTP API 对接                             ║
+║        ④ 与 cnsh/core/api_wuxing.py HTTP API 对接                             ║
 ║  铁律: 本地计算优先·密文不出设备·API仅为内部微服务                                ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
@@ -78,7 +78,7 @@ class 五行桥接器:
 
     候补清单④: 与五行计算器页正式 API 对接
     - 本地模式: 直接调用 bin/lh_habit_fingerprint.py 的五行映射
-    - API模式: 调用 cnsh-core/api_wuxing.py HTTP端点（需服务在线）
+    - API模式: 调用 cnsh/core/api_wuxing.py HTTP端点（需服务在线）
     """
 
     def __init__(self, API地址: str = "http://127.0.0.1:8001"):

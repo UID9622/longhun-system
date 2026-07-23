@@ -1,0 +1,466 @@
+openapi: "3.1.0"
+info:
+  title: "龍魂系统 API"
+  version: "v1.0"
+  description: |
+    龍魂系统统一API规范 · 中国自主知识主权AI底座
+    
+    DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-OPENAPI-SPEC-v1.0-a1b2c3d4
+    
+    ## 身份
+    - 创建者: 诸葛鑫（UID9622）
+    - GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+    - 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    
+    ## 服务端口
+    - :8766 知识中枢API
+    - :8767 胖东来审计API
+    - :8799 小艺桥接
+    - :9622 主调度器
+    - :9623 数字主权网关
+    - :9627 共生体知识矩阵
+    
+    ## 认证
+    所有管理端点需要 Bearer Token 或 GPG 签章
+    
+    ## 协议
+    CC BY-NC-SA 4.0 · 中国法律为准绳
+  contact:
+    name: "诸葛鑫（UID9622）"
+  license:
+    name: "CC BY-NC-SA 4.0"
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+servers:
+  - url: "http://localhost:8766"
+    description: "本地知识中枢API"
+  - url: "https://uid9622.cn/api"
+    description: "鲲鹏生产环境"
+
+tags:
+  - name: Knowledge
+    description: 知识检索·图谱·语义搜索
+  - name: AI
+    description: 模型推理·对话·生成
+  - name: Audit
+    description: 审计·安全·合规
+  - name: Identity
+    description: DNA·认证·数字身份
+  - name: System
+    description: 健康检查·状态·管理
+
+paths:
+  # ═══ 知识检索 ═══
+  /v1/knowledge/search:
+    get:
+      tags: [Knowledge]
+      summary: 语义知识搜索
+      description: 使用Chroma向量库进行语义相似度搜索
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema: {type: string}
+          description: 搜索查询
+        - name: top_k
+          in: query
+          schema: {type: integer, default: 5, minimum: 1, maximum: 20}
+        - name: mode
+          in: query
+          schema: {type: string, enum: [semantic, exact, hybrid, graph], default: hybrid}
+        - name: category
+          in: query
+          schema: {type: string}
+          description: 限定知识域(cnsh/philosophy/math/security/...)
+      responses:
+        "200":
+          description: 搜索结果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/KnowledgeResult"
+                  meta:
+                    $ref: "#/components/schemas/SearchMeta"
+
+  /v1/knowledge/lookup:
+    get:
+      tags: [Knowledge]
+      summary: 精确术语查询
+      parameters:
+        - name: term
+          in: query
+          required: true
+          schema: {type: string}
+      responses:
+        "200":
+          description: 术语详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TermDetail"
+
+  /v1/knowledge/category:
+    get:
+      tags: [Knowledge]
+      summary: 按分类查询知识
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema: {type: string}
+      responses:
+        "200":
+          description: 分类下的术语列表
+
+  /v1/knowledge/related:
+    get:
+      tags: [Knowledge]
+      summary: 术语关联图谱
+      parameters:
+        - name: term
+          in: query
+          required: true
+          schema: {type: string}
+        - name: depth
+          in: query
+          schema: {type: integer, default: 2, minimum: 1, maximum: 4}
+      responses:
+        "200":
+          description: 术语关联子图
+
+  # ═══ AI 推理 ═══
+  /v1/ai/chat:
+    post:
+      tags: [AI]
+      summary: 小艺对话
+      description: 龍魂人格路由·多模型调度·DNA追溯
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message:
+                  type: string
+                  description: 用户消息
+                persona:
+                  type: string
+                  description: 指定人格(P00-P72)
+                model:
+                  type: string
+                  description: 指定模型(默认自动路由)
+                stream:
+                  type: boolean
+                  default: false
+                context:
+                  type: object
+                  description: 附加上下文
+      responses:
+        "200":
+          description: AI回复
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response: {type: string}
+                  persona_used: {type: string}
+                  model_used: {type: string}
+                  dna: {type: string}
+                  audit: {type: string, enum: ["🟢","🟡","🔴"]}
+
+  /v1/ai/models:
+    get:
+      tags: [AI]
+      summary: 可用模型列表
+      responses:
+        "200":
+          description: 模型列表及状态
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  models:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ModelInfo"
+
+  /v1/ai/embed:
+    post:
+      tags: [AI]
+      summary: 文本向量嵌入
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text: {type: string}
+                model: {type: string, default: "nomic-embed-text"}
+      responses:
+        "200":
+          description: 嵌入向量
+
+  # ═══ 审计 ═══
+  /v1/audit/scan:
+    post:
+      tags: [Audit]
+      summary: 安全审计扫描
+      description: P05上帝之眼·三色审计·十闸门
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scope: {type: string, enum: [full, code, api, config]}
+                target: {type: string}
+      responses:
+        "200":
+          description: 审计报告
+
+  /v1/audit/deben:
+    get:
+      tags: [Audit]
+      summary: 德本审计
+      description: 离火运五条底线检查
+      responses:
+        "200":
+          description: 德本审计结果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name: {type: string}
+                        status: {type: string, enum: ["🟢","🟡","🔴"]}
+                        detail: {type: string}
+
+  /v1/audit/gate:
+    post:
+      tags: [Audit]
+      summary: 十闸门审计
+      description: GATE-01到GATE-10逐道检查
+      responses:
+        "200":
+          description: 闸门审计报告
+
+  # ═══ 身份 ═══
+  /v1/identity/dna/generate:
+    post:
+      tags: [Identity]
+      summary: 生成DNA追溯码
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                module: {type: string}
+                action: {type: string}
+                version: {type: string}
+      responses:
+        "200":
+          description: DNA码
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dna: {type: string}
+                  ganzhi: {type: string}
+                  gua: {type: string}
+                  hash: {type: string}
+
+  /v1/identity/dna/verify:
+    post:
+      tags: [Identity]
+      summary: 验证DNA签名
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dna: {type: string}
+                file_path: {type: string}
+      responses:
+        "200":
+          description: 验证结果
+
+  # ═══ 胖东来审计 ═══
+  /v1/pangdonglai/contract:
+    post:
+      tags: [Audit]
+      summary: 生成胖东来分成契约
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [seller_id, revenue]
+              properties:
+                seller_id: {type: string}
+                revenue: {type: number}
+                category: {type: string}
+      responses:
+        "200":
+          description: 契约详情
+
+  /v1/pangdonglai/audit:
+    get:
+      tags: [Audit]
+      summary: 胖东来审计报告
+      parameters:
+        - name: period
+          in: query
+          schema: {type: string, enum: [daily, weekly, monthly, quarterly]}
+      responses:
+        "200":
+          description: 审计报告
+
+  # ═══ 系统 ═══
+  /health:
+    get:
+      tags: [System]
+      summary: 健康检查
+      responses:
+        "200":
+          description: 健康状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /v1/system/status:
+    get:
+      tags: [System]
+      summary: 系统全面状态
+      responses:
+        "200":
+          description: 系统状态详情
+
+  /v1/system/stats:
+    get:
+      tags: [System]
+      summary: 系统统计
+      responses:
+        "200":
+          description: 运行统计
+
+  # ═══ 数字存在 ═══
+  /v1/existence/proof:
+    post:
+      tags: [Identity]
+      summary: 生成数字存在证明
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content: {type: string}
+                type: {type: string}
+      responses:
+        "200":
+          description: 存在证明
+
+  /v1/existence/timeline:
+    get:
+      tags: [Identity]
+      summary: 存在证明时间轴
+      responses:
+        "200":
+          description: 时间轴
+
+# ═══ 数据模型 ═══
+components:
+  schemas:
+    KnowledgeResult:
+      type: object
+      properties:
+        term: {type: string}
+        definition: {type: string}
+        category: {type: string}
+        relevance: {type: number, minimum: 0, maximum: 1}
+        source: {type: string}
+        related: {type: array, items: {type: string}}
+        dna: {type: string}
+
+    SearchMeta:
+      type: object
+      properties:
+        mode: {type: string}
+        total: {type: integer}
+        took_ms: {type: number}
+        cache_hit: {type: boolean}
+
+    TermDetail:
+      type: object
+      properties:
+        term: {type: string}
+        cnsh_alias: {type: string}
+        definition: {type: string}
+        category: {type: string}
+        cultural_source: {type: string}
+        related_terms: {type: array, items: {type: string}}
+        protocols: {type: array, items: {type: string}}
+        engines: {type: array, items: {type: string}}
+        dna: {type: string}
+
+    ModelInfo:
+      type: object
+      properties:
+        name: {type: string}
+        type: {type: string}
+        status: {type: string}
+        val_loss: {type: number}
+        dna: {type: string}
+
+    HealthStatus:
+      type: object
+      properties:
+        status: {type: string, enum: ["healthy","degraded","down"]}
+        services:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              status: {type: string}
+              port: {type: integer}
+        resources:
+          type: object
+          properties:
+            cpu: {type: number}
+            memory: {type: string}
+            disk: {type: string}
+        dna: {type: string}
+        timestamp: {type: string}
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: "EXECUTOR_TOKEN 环境变量配置"
+    GPGAuth:
+      type: apiKey
+      in: header
+      name: X-GPG-Signature
+      description: "GPG签名认证（关键操作）"
+
+security:
+  - BearerAuth: []

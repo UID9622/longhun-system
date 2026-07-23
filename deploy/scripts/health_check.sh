@@ -358,6 +358,33 @@ check_cnsh_search_modules() {
 }
 
 # ────────────────────────────────────────────────────────────────
+# 7. SSL证书过期检查（新增 v1.3）
+# ────────────────────────────────────────────────────────────────
+check_ssl_certs() {
+    local cert_dirs=("/etc/letsencrypt/live/uid9622.cn" "/etc/letsencrypt/live/longhun888.com")
+    for cert_dir in "${cert_dirs[@]}"; do
+        local cert_file="${cert_dir}/cert.pem"
+        if [ ! -f "${cert_file}" ]; then
+            add_alarm "warn" "SSL证书缺失: ${cert_dir##*/}"
+            continue
+        fi
+        local end_date=$(openssl x509 -enddate -noout -in "${cert_file}" 2>/dev/null | cut -d= -f2)
+        local end_sec=$(date -d "${end_date}" +%s 2>/dev/null)
+        local now_sec=$(date +%s)
+        local days_left=$(( (end_sec - now_sec) / 86400 ))
+        local domain="${cert_dir##*/}"
+        echo "  📅 SSL ${domain}: ${days_left}天 (${end_date})" >> "${HEALTH_LOG}"
+        if [ "${days_left}" -le 7 ]; then
+            add_alarm "critical" "SSL ${domain} 仅剩${days_left}天！立即续期"
+        elif [ "${days_left}" -le 21 ]; then
+            add_alarm "warn" "SSL ${domain} 剩余${days_left}天（建议续期）"
+        elif [ "${days_left}" -le 30 ]; then
+            add_alarm "info" "SSL ${domain} 剩余${days_left}天（即将进入续期窗口）"
+        fi
+    done
+}
+
+# ────────────────────────────────────────────────────────────────
 # 主流程
 # ────────────────────────────────────────────────────────────────
 main() {
@@ -372,6 +399,7 @@ main() {
     check_ports
     check_resources
     check_mount
+    check_ssl_certs
     check_longhun_engine
     check_cnsh_search_modules
 

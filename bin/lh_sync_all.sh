@@ -169,7 +169,7 @@ fi
 # ═══════════════════════════════════════════
 if ! $QUICK_MODE; then
     step "5️⃣  Notion 知识库同步"
-    NOTION_SYNC="$ROOT/cnsh-core/notion/cnsh_notion_bridge.py"
+    NOTION_SYNC="$ROOT/cnsh/core/notion/cnsh_notion_bridge.py"
     if [[ -f "$NOTION_SYNC" ]]; then
         if $DRY_RUN; then
             skip "预览模式 — 跳过同步"

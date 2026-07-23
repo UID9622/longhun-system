@@ -37,13 +37,13 @@ def main():
     # 检查核心文件
     core_files = [
         "longhun_persona_hub.py",
-        "persona/system_status_panel.py",
-        "persona/compression_engine.py",
-        "persona/dna_tracer.py",
-        "persona/audit_logger.py",
-        "persona/output_contract.py",
-        "persona/overload_guard.py",
-        "persona/anti_blowout_guard.py",
+        "personas/runtime/system_status_panel.py",
+        "personas/runtime/compression_engine.py",
+        "personas/runtime/dna_tracer.py",
+        "personas/runtime/audit_logger.py",
+        "personas/runtime/output_contract.py",
+        "personas/runtime/overload_guard.py",
+        "personas/runtime/anti_blowout_guard.py",
     ]
     missing = [f for f in core_files if not (ROOT / f).exists()]
     file_check_ok = len(missing) == 0
