@@ -1,101 +1,28 @@
-# 📂 龍魂系统 · 目录结构导航
+<!--#龍芯⚡️2026-07-05-DOC-DIRECTORY-INDEX-v1.0 -->
 
-> DNA: #龍芯⚡️2026-07-06-LONGHUN-DIRECTORY-INDEX-v2.0
-> 创建者: UID9622
-> 更新: CodeBuddy 收口
-> 三色审计: 🟢 通过
+# 📂 龍魂系统 · 目录导航
 
----
-## 🗺️ 快速导航：我该看哪个目录？
+> 快速找到你要的东西。
 
-| 我想... | 去看这个目录 |
-|---------|-------------|
-| 了解系统是什么、怎么启动 | `README.md` |
-| 了解系统宪法和根本规则 | `CONSTITUTION.md` |
-| 了解 CNSH 中文编程语言 | `CNSH-PROTOCOL.md` |
-| 了解 AI 要怎么用这个仓库 | `AGENTS.md` |
-| **查所有子系统/技能/引擎完整清单** | **`MASTER_REGISTRY.md`** ⭐ |
-| 修改系统协议 | `01_protocols/` |
-| 查看技能定义 | `01_技能庫/` |
-| 查看执行记录 | `02_執行記錄/` |
-| 查看知识图谱 | `03_知識圖譜/` |
-| 查看决策日志 | `04_決策日誌/` |
-| 查看系统健康报告 | `05_系統報告/` |
-| 查看技术架构文档 | `06_技術文檔/` |
-| 运行系统脚本 | `bin/` 或 `scripts/` |
-| 理解 CNSH 编译器 | `cnsh-core/` |
-| 看审计工具 | `audit/` |
-| 看治理工具 | `governance/` |
-| 看神经网络总控 | `http://127.0.0.1:9627/` |
+## 📚 核心文档
 
----
-## 📊 目录说明
+| 文件 | 内容 |
+|------|------|
+| [README.md](../README.md) | 系统介绍 |
+| [QUICKSTART.md](../QUICKSTART.md) | 5分钟上手 |
+| [CONTRIBUTING.md](../CONTRIBUTING.md) | 贡献指南 |
+| [CONSTITUTION.md](../CONSTITUTION.md) | 系统宪法 |
+| [AGENTS.md](../AGENTS.md) | AI 操作手册 |
+| [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | 行为准则 |
 
-### L0 宪法层（不可修改）
-```
-CONSTITUTION.md          # 系统宪法（法律依据、核心原则）
-AGENTS.md                # AI Agent 宪法层（由治理引擎自动生成）
-入口一致性协议_v1.0.md    # 入口一致性保证
-```
+## 🔧 快速入口
 
-### L1 协议层
-```
-01_protocols/            # 74 个协议文件（创作者保护、调度、认知管理...）
-01_技能库/                # 技能定义（简体）
-01_技能庫/                # 技能定义（繁体）
-02_rules/                # 执行规则
-```
+| 目录 | 说明 |
+|------|------|
+| [bin/](../bin/) | 可执行脚本 |
+| [engines/](../engines/) | 核心引擎 |
+| [portal/](../portal/) | Web 门户 |
+| [services/](../services/) | 后台服务 |
+| [tests/](../tests/) | 测试 |
 
-### L2 运行时层
-```
-cnsh-core/               # CNSH 编译/运行核心（v2.1 编译器 + 统一 API）
-cnsh/                    # CNSH 转译器 + 红线引擎
-cnsh-editor/             # CNSH 编辑器
-cnsh-terminal/           # CNSH 终端
-cnsh-runtime-v1/         # 运行时 v1
-```
-
-### L3 工具层
-```
-bin/                     # 66 个可执行脚本
-scripts/                 # 141 个工具脚本
-audit/                   # 审计工具（三色审计、行为加密...）
-governance/              # 治理模块
-integrations/            # 集成（MCP、微信...）
-systems/                 # v3 核心系统
-```
-
-### L4 数据层
-```
-02_執行記錄/              # 执行日志
-03_知識圖譜/              # 结构化知识
-04_決策日誌/              # 决策审计追踪
-05_系統報告/              # 系统健康报告
-backups/                 # 备份
-vault/                   # 知识库
-brain/                   # 大脑数据
-```
-
-### L5 辅助层
-```
-docs/                    # 文档
-articles/                # 文章
-experiments/             # 实验
-research/                # 研究
-training/                # 训练数据
-templates/               # 模板
-```
-
----
-## ⚠️ 重要规则
-
-1. **「龍」必须繁体** — 文件名和内容都不允许简体的 `龍`
-2. **DNA 必须带** — 每个操作都要有 `#龍芯⚡️...` 追溯码
-3. **只冻结不删除** — 任何数据都不能物理删除
-4. **三色审计必过** — 所有操作过 🟢🟡🔴 判定
-
----
-## 📋 根目录报告文件索引
-
-根目录的 `*_REPORT.md`、`*_SUMMARY.md`、`*_COMPLETE.md` 等文件是历史完成报告，
-正在逐步归档到 `05_系統報告/`。当前约 66 个待归档。
+*(本文件由 release-prep 自动生成并追加真实目录扫描)*

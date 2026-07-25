@@ -74,6 +74,22 @@
 | **v4.0** | 📱 移动端监控 — 15层体系，AES-256-GCM加密 |
 | **v3.1** | ⚡ 第三阶段 — 10项技能完整集成，API < 100ms |
 
+### 📥 下载最新开源包
+
+| 文件 | 说明 |
+|------|------|
+| [longhun-system-v5.0.0-opensource.zip](https://uid9622.cn/download/longhun-system-v5.0.0-opensource.zip) | 完整开源包（约 82.5 MB） |
+| [longhun-system-v5.0.0-opensource.zip.asc](https://uid9622.cn/download/longhun-system-v5.0.0-opensource.zip.asc) | GPG 签名 |
+| [longhun-system-v5.0.0-opensource.sha256](https://uid9622.cn/download/longhun-system-v5.0.0-opensource.sha256) | SHA256 校验 |
+
+```bash
+# 下载后校验
+shasum -a 256 -c longhun-system-v5.0.0-opensource.sha256
+
+# 验证 GPG 签名
+gpg --verify longhun-system-v5.0.0-opensource.zip.asc longhun-system-v5.0.0-opensource.zip
+```
+
 ### 快速启动
 
 ```bash
@@ -83,11 +99,12 @@ bash install.sh
 # 第二步：启动系统
 python3 bin/龍魂体系v5-一键启动.py
 
-# 常用命令
+# 常用命令（已部署完整看板后支持 lh start/stop）
 lh status         # 查看状态
-lh start          # 启动服务
-lh stop           # 停止服务
 lh health         # 健康检查
+lh audit          # 三色审计
+lh memory         # 加载记忆
+lh help           # 查看帮助
 ```
 
 > 📖 详细步骤见 [QUICKSTART.md](./QUICKSTART.md)
@@ -179,3 +196,26 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 *一个人建造。逻辑驱动。AI执行。社区一起看。*
 *Built by one person. Powered by logic. Executed by AI. Watched by community.*
+
+---
+
+## 🍜 此路同行 · 支持龍魂
+
+> **不是乞讨，是在茫茫数字荒原上，立下一塊路碑。**
+> **同行者，自會相認。**
+
+龍魂系统从一人一笔一键盘开始，所有核心代码、协议、训练数据均自主可控。
+如果你认同「技术服务于人民，主权不可交易」，欢迎用一杯咖啡支持我们继续走下去。
+
+| 微信支付 | 支付宝 | 数字人民币 |
+|:---:|:---:|:---:|
+| ![微信收款码](./portal/browser-historian/support-wechat.jpg) | ![支付宝收款码](./portal/browser-historian/support-alipay-ecny.jpg) | ![数字人民币收款码](./portal/browser-historian/support-ecny.jpg) |
+
+**每一笔支持都会进入龍魂公共账本，全部用于：**
+- 服务器与带宽（鲲鹏 / 华为云）
+- CNSH 中文编程语言持续迭代
+- 老百姓数字主权教育内容生产
+
+**主权不灭，此路同行。**
+
+*Technology serves the people. Sovereignty is not for sale.*

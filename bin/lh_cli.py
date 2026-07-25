@@ -59,17 +59,32 @@ def cmd_status() -> None:
         run_script("lh_status.py")
     else:
         # 快速状态摘要
-        print("龍魂系统 v2.5.0")
+        print("🐉 龍魂系统状态")
         print(f"  项目路径: {ROOT}")
         bin_count = sum(1 for _ in (ROOT / "bin").glob("*.py") if _.is_file())
+        engine_count = sum(1 for _ in (ROOT / "engines").glob("*.py") if _.is_file())
         print(f"  CLI工具数: {bin_count}")
-        print(f"  知識图谱: {ROOT / '03_知識圖譜'}")
-        print(f"  执行日志: {ROOT / '02_執行記錄'}")
+        print(f"  核心引擎数: {engine_count}")
+        print(f"  协议文档: {ROOT / '01_protocols'}")
+        print(f"  门户页面: {ROOT / 'portal'}")
+        print("\n  可用命令: lh status | lh health | lh audit | lh memory | lh help")
 
 
 def cmd_health() -> None:
     """健康检查"""
-    run_script("lh_self-heal.py")
+    heal_script = ROOT / "bin" / "lh_self-heal.py"
+    if heal_script.exists():
+        run_script("lh_self-heal.py")
+    else:
+        # 回退：检查核心引擎能否导入
+        print("🐉 龍魂系统健康检查")
+        print(f"  项目路径: {ROOT}")
+        check_scripts = ["lh_release_prep.py", "lh_delivery_validator.py", "lh_memory_load.py"]
+        for s in check_scripts:
+            path = ROOT / "bin" / s
+            ok = path.exists()
+            print(f"  {'✅' if ok else '❌'} {s}")
+        print("\n提示: 完整健康检查需要部署 lh_self-heal.py")
 
 
 def cmd_patrol() -> None:
@@ -79,10 +94,11 @@ def cmd_patrol() -> None:
 
 def cmd_audit() -> None:
     """三色审计"""
-    # 快速审计
-    from L1_内核层.kernel.engines.cnsh_editor_engine import CNShEditorEngine
-    engine = CNShEditorEngine()
-    print("三色审计: 🟢 内核正常")
+    audit_script = ROOT / "bin" / "lh_delivery_validator.py"
+    if audit_script.exists():
+        run_script("lh_delivery_validator.py", "--self-test")
+    else:
+        print("⚠️  审计脚本未找到")
 
 
 def cmd_sync() -> None:
@@ -91,7 +107,7 @@ def cmd_sync() -> None:
     if sync_script.exists():
         subprocess.run(["bash", str(sync_script)])
     else:
-        print("同步脚本未找到")
+        print("⚠️  同步脚本未找到: bin/lh_sync_all.sh")
 
 
 def cmd_finance(args: list[str]) -> None:

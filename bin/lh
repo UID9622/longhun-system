@@ -1,7 +1,23 @@
+#!/bin/bash
 # #龍芯⚡️2026-07-03-MODULE-LONGHUN-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
-
-#!/bin/bash
 # 🐉 龍魂统一交互入口 · LH 看板（系统级 longhun 代理）
 # DNA: #龍芯⚡️20260629-LONGHUN-LONGHUN-PROXY-v2.0
-exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"
+
+# 优先使用本地完整看板（已部署环境）
+LOCAL_DASHBOARD="$HOME/.longhun/bin/lh_dashboard.py"
+
+# 开源包内看板（随仓库分发）
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DASHBOARD="$SCRIPT_DIR/lh_cli.py"
+
+if [ -f "$LOCAL_DASHBOARD" ]; then
+    exec python3 "$LOCAL_DASHBOARD" "$@"
+elif [ -f "$REPO_DASHBOARD" ]; then
+    exec python3 "$REPO_DASHBOARD" "$@"
+else
+    echo "❌ 龍魂 Dashboard 未找到"
+    echo "   本地看板: $LOCAL_DASHBOARD"
+    echo "   仓库看板: $REPO_DASHBOARD"
+    exit 1
+fi
