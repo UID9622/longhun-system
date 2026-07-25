@@ -372,8 +372,9 @@ class VideoMarker:
     """
 
     VIDEO_DCT_BLOCK = 8
-    VIDEO_DCT_ALPHA = 25.0    # 帧级 DCT 水印强度
-    VIDEO_DCT_COEF = (1, 1)   # 低频 DCT 系数位置，抗压缩
+    VIDEO_DCT_ALPHA = 30.0    # 帧级 DCT 水印强度
+    # 多个低频 DCT 系数位置，提升每 bit 样本数与抗压缩性
+    VIDEO_DCT_COEFS = [(1, 1), (1, 2), (2, 1), (2, 2)]
     VIDEO_SEED = 9622
     VIDEO_BITS = 160          # 32 位魔数 + 128 位 DNA 哈希
 
@@ -484,16 +485,16 @@ class VideoMarker:
     def _embed_dct_frame(self, y: np.ndarray, fp: List[int],
                          frame_idx: int, h_blocks: int, v_blocks: int,
                          repeat: int) -> np.ndarray:
-        """在单帧 Y 通道嵌入指纹"""
+        """在单帧 Y 通道嵌入指纹（多系数叠加）"""
         y_out = y.copy()
-        cy, cx = self.VIDEO_DCT_COEF
         for bit_idx, bit in enumerate(fp):
             sign = 1 if bit else -1
             blocks = self._get_blocks(bit_idx, frame_idx, h_blocks, v_blocks, repeat)
             for by, bx in blocks:
                 block = y_out[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8]
                 dct_block = dct(dct(block.T, norm='ortho').T, norm='ortho')
-                dct_block[cy, cx] += self.VIDEO_DCT_ALPHA * sign
+                for cy, cx in self.VIDEO_DCT_COEFS:
+                    dct_block[cy, cx] += self.VIDEO_DCT_ALPHA * sign
                 y_out[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8] = idct(
                     idct(dct_block.T, norm='ortho').T, norm='ortho'
                 )
@@ -501,8 +502,7 @@ class VideoMarker:
 
     def _extract_dct_frame(self, y: np.ndarray, frame_idx: int,
                            h_blocks: int, v_blocks: int, repeat: int) -> List[float]:
-        """从单帧 Y 通道提取每个 bit 的平均系数值"""
-        cy, cx = self.VIDEO_DCT_COEF
+        """从单帧 Y 通道提取每个 bit 的平均系数值（多系数平均）"""
         values = []
         for bit_idx in range(self.VIDEO_BITS):
             blocks = self._get_blocks(bit_idx, frame_idx, h_blocks, v_blocks, repeat)
@@ -510,7 +510,8 @@ class VideoMarker:
             for by, bx in blocks:
                 block = y[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8]
                 dct_block = dct(dct(block.T, norm='ortho').T, norm='ortho')
-                vals.append(float(dct_block[cy, cx]))
+                for cy, cx in self.VIDEO_DCT_COEFS:
+                    vals.append(float(dct_block[cy, cx]))
             values.append(float(np.mean(vals)) if vals else 0.0)
         return values
 
