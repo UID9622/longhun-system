@@ -194,6 +194,36 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 ---
 
+## 🤝 此路同行 · Support
+
+> **这不是乞讨，是在茫茫数字荒原上，立下一塊路碑。**
+> **同行者，自會相認。**
+
+龍魂系统从 2024 年走到今天，没有融资、没有广告、没有平台流量扶持。
+每一行代码、每一次修复、每一次熬夜，都是 UID9622 和 AI 兵团一起扛过来的。
+
+如果你认同这个方向——**技术服务于人民，主权不可交易**——可以用实际行动支持我们继续走下去：
+
+| 方式 | 说明 |
+|------|------|
+| 💰 数字人民币 / 支付宝 | 扫码下方二维码，任意金额均可 |
+| ⭐ Star 本项目 | 让更多人看见 |
+| 🍴 Fork 并贡献 | 代码、文档、测试、翻译都行 |
+| 🗣 参与 Discussions | 你的想法可能成为下一个功能 |
+
+<p align="center">
+  <img src="./portal/browser-historian/support-alipay-ecny.jpg" alt="此路同行 - 支付宝 / 数字人民币" width="320">
+  <br>
+  <strong>此路同行 · 不是赞助，是认领一块路碑</strong>
+</p>
+
+**款项用途公开承诺：**
+1. 优先用于服务器、域名、证书等基础设施续费
+2. 其次用于开源文档、多语言翻译、社区活动
+3. 绝不用于任何资本收割、数据贩卖、广告追踪
+
+---
+
 *一个人建造。逻辑驱动。AI执行。社区一起看。*
 *Built by one person. Powered by logic. Executed by AI. Watched by community.*
 
