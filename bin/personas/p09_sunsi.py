@@ -218,9 +218,9 @@ class P09Sunsi:
             used_pct = round((1 - disk.free / disk.total) * 100)
             resources["disk_usage"] = {"total": f"{total_gb}G", "free": f"{free_gb}G", "percent": f"{used_pct}%"}
             if used_pct > 90:
-                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🔴"})
-                    elif used_pct > 75:
-                        findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🟡"})
+                findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🔴"})
+            elif used_pct > 75:
+                findings.append({"resource": "disk", "issue": f"磁盘使用率 {used_pct}%", "severity": "🟡"})
         except Exception:
             pass
 
