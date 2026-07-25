@@ -8,18 +8,20 @@
 
 ## 最新交付（2026-07-26）
 
-### 龍魂字体优化 + 媒体主权标记引擎 v1.0
+### 龍魂字体优化 + 媒体主权标记引擎 v3.0
 
-**背景**：字体源字元库（`glyphs/*.json`）因 Git LFS 对象缺失无法重新训练字形，改为基于现有 OTF 优化 + 建立跨媒体统一 DNA 标记体系。
+**背景**：字体源字元库（`glyphs/*.json`）因 Git LFS 对象缺失无法重新训练字形，改为基于现有 OTF 优化 + 建立跨媒体统一 DNA 标记体系。视频水印从 v1.0 关键帧图像水印升级到 v3.0 帧级 DCT 扩频指纹，并接入生产线。
 
-**三件产物：**
+**产物：**
 
 | # | 文件 | 说明 |
 |---|------|------|
 | 1 | `_work/repos/LonghunFont/output/龙魂字体-Regular.{otf,woff2}` | 字体显示名改为「龙魂字体」，WOFF2 压缩 90.2% |
 | 2 | `engines/lh_media_sovereignty_marker.py` | 字体/图像/视频/音频统一 DNA 标记引擎 |
-| 3 | `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md` | P0 协议文档 |
-| 4 | `bin/lh_media_mark.py` | CLI 入口 |
+| 3 | `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md` | P0 协议文档（已更新 v3.0 视频水印） |
+| 4 | `bin/lh_media_sovereignty_marker.py` | CLI 入口 |
+| 5 | `bin/lh_video_pipeline.py` | 新增 `mark` 子命令，一键给成品视频注入 DNA |
+| 6 | `bin/lh_media_verify_api.py` | 官网验证 API，视频上传返回 `fingerprint` |
 
 **技术实现：**
 
@@ -27,22 +29,35 @@
 |:---|:---|:---:|
 | 字体 | U+E200 龙纹缩微水印 + name 表 DNA | ✅ 原生水印存在，DNA 可读写 |
 | 图像 | LSB + DCT 双频隐写 | ✅ 闭环提取 |
-| 音频 | 时域 LSB + 3 重复码 | ✅ 闭环提取 |
-| 视频 | 关键帧图像水印 | ⚠️ v1.0 部分支持 |
+| 音频 | 时域 LSB + 3 重复码（普通）/ 频域 DSSS + 三频带副本（鲁棒） | ✅ 闭环提取 |
+| 视频 | **帧级 DCT 扩频指纹（主）+ 音频轨 Patchwork 指纹（副）** | ✅ 抗 H.264/H.265 重编码与录屏 |
 
 **关键修复：**
-- 图像提取从严格前缀匹配改为 `_looks_like_dna()`，支持自定义 DNA。
-- 音频从有偏 FFT 扩频改为时域 LSB + 3 重复码，解决负样本溢出与原始 LSB 混叠问题。
+- 重写 `VideoMarker`：帧级 DCT 扩频指纹，自适应重复次数，跨帧投票；音频作为第二重保险。
+- 重写 `AudioMarkerRobust`：频域 DSSS + 三频带副本 + 相关检测，替代不可靠的能量比较。
+- 修复 `lh_media_sovereignty_marker.py` 中重复 `if __name__ == '__main__'` 导致 `AudioMarkerRobust` 未定义的 bug。
+- `bin/lh_video_pipeline.py` 新增 `qian_ru_dna_shui_yin()` 与 `mark <视频文件> [--dna ...]` 子命令。
+- `bin/lh_media_verify_api.py` 视频验证返回 `fingerprint` 字段（`LHAF-<hash>` 短指纹）。
 
 **CLI 示例：**
 
 ```bash
-python3 bin/lh_media_mark.py verify /Users/zuimeidedeyihan/longhun-system/_work/repos/LonghunFont/output/龙魂字体-Regular.otf
-python3 bin/lh_media_mark.py mark input.png --type image --dna "龍魂DNA#UID9622#IMAGE-001" --output output.png
-python3 bin/lh_media_mark.py mark input.wav --type audio --dna "龍魂DNA#UID9622#AUDIO-001" --output output.wav
+# 直接标记媒体
+python3 engines/lh_media_sovereignty_marker.py mark input.mp4 \
+  --type video --dna "龍魂DNA#UID9622#VIDEO-001" --output output.mp4
+python3 engines/lh_media_sovereignty_marker.py verify output.mp4
+
+# 通过视频生产线注入 DNA
+python3 bin/lh_video_pipeline.py mark final_video.mp4 \
+  --dna "#龍芯⚡️...VIDEO-001-UID9622"
 ```
 
+**线上验证：**
+- https://uid9622.cn/media-verify/ 已支持视频上传，返回 `fingerprint`。
+- 鲲鹏服务 `longhun-media-verify` 已重启并验证通过。
+
 **已知限制：**
+- 视频返回的是 `LHAF-<hash>` 短指纹，不是完整 DNA。完整 DNA 需通过短指纹在记录/数据库中反查。
 - Git LFS 源字元库缺失，无法新增/修改字形，只能改名、压缩、优化元数据。
 - Gitee 免费版不支持 LFS，已拒绝用户打开充值页面的请求。
 
