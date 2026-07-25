@@ -1,0 +1,15 @@
+[Unit]
+Description=龍魂人格路由 API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_persona_api.py --host 127.0.0.1 --port 8779
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/opt/longhun-system
+
+[Install]
+WantedBy=multi-user.target
