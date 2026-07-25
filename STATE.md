@@ -58,6 +58,9 @@
 | 📝 Topic页面充实 | ✅ 18个GitCode Topic页面全部填充·1,526行内容·哲学+数学+工程全覆盖
 | 🧪 SCT数学建模论文 🔥 | ✅ `papers/反奶头乐共生理论_数学建模_v1.0.md`·9章·8模型·28公式·10章Python代码 |
 | ⚙️ SCT仿真引擎 🔥 | ✅ `engines/lh_symbiotic_cognition_engine.py`·7组仿真全绿·共生成长vs顺从退化·DNA链验证 |
+| 🐉 **龍魂字体** 🔥 | ✅ 显示名改为「龙魂字体」·WOFF2 2.46MB（压缩90.2%）·U+E200 龙纹水印·GitHub Release v1.001 |
+| 🧬 **媒体主权标记引擎** 🔥 | ✅ `engines/lh_media_sovereignty_marker.py`·字体/图像/音频闭环验证通过·视频v1.0部分支持 |
+| 📜 **媒体主权标记协议** 🔥 | ✅ `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md`·P0·六层来源链 |
 🗄️ 龍魂待整理迁移 | ✅ 196文件·96MB·9大类·全量审计·P0(7)已迁移·P1(7)·P2(14)·P3待定 |
 
 ---
