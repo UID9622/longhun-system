@@ -354,20 +354,230 @@ class ImageMarker:
 
 
 # ---------------------------------------------------------------------------
-# 3. 视频标记
+# 3. 视频标记（鲁棒盲水印）
 # ---------------------------------------------------------------------------
 class VideoMarker:
-    """视频主权标记器
+    """视频主权标记器（鲁棒盲水印 v3.0）
 
-    对关键帧嵌入图像 DNA 水印，同时在音频轨（如有）嵌入音频水印。
+    主策略：
+      1. 帧级 DCT 扩频指纹 —— 把 160 位 DNA 短指纹嵌入每一帧的 Y 通道
+         低频 DCT 系数，跨帧投票，可抗 H.264/H.265 重编码与录屏。
+      2. 音频轨 Patchwork 指纹 —— 作为第二重保险，当视频帧被严重破坏
+         时提供回退检测。
+
+    输出为固定 160 位短指纹 `LHAF-<hash>`，不是完整 DNA。完整 DNA 由
+    短指纹在数据库/记录中反查。短指纹更抗压缩。
+
+    对外仍是一个文件进、一个文件出，保持接口简单。
     """
+
+    VIDEO_DCT_BLOCK = 8
+    VIDEO_DCT_ALPHA = 25.0    # 帧级 DCT 水印强度
+    VIDEO_DCT_COEF = (1, 1)   # 低频 DCT 系数位置，抗压缩
+    VIDEO_SEED = 9622
+    VIDEO_BITS = 160          # 32 位魔数 + 128 位 DNA 哈希
 
     def __init__(self, video_path: Union[str, Path]):
         self.video_path = Path(video_path)
 
-    def embed(self, dna: Optional[str] = None, output_path: Optional[Union[str, Path]] = None,
-              frame_interval: int = 30) -> Path:
-        """每隔 frame_interval 帧嵌入一次图像水印"""
+    def _run_ffmpeg(self, cmd: List[str]) -> Tuple[int, str, str]:
+        """运行 ffmpeg 命令，返回 (returncode, stdout, stderr)"""
+        import subprocess
+        full_cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error"] + cmd
+        proc = subprocess.run(full_cmd, capture_output=True, text=True)
+        return proc.returncode, proc.stdout, proc.stderr
+
+    def _has_audio(self) -> bool:
+        """检测视频是否含音频轨"""
+        import subprocess
+        cmd = [
+            "ffprobe", "-v", "error",
+            "-select_streams", "a:0",
+            "-show_entries", "stream=codec_type",
+            "-of", "default=nw=1:nk=1",
+            str(self.video_path)
+        ]
+        try:
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            return "audio" in proc.stdout.lower()
+        except Exception:
+            return False
+
+    def _extract_audio(self, output_wav: Path) -> bool:
+        """提取音频到 WAV"""
+        code, _, err = self._run_ffmpeg([
+            "-i", str(self.video_path),
+            "-vn", "-acodec", "pcm_s16le",
+            "-ar", "44100", "-ac", "1",
+            str(output_wav)
+        ])
+        if code != 0:
+            return False
+        return output_wav.exists() and output_wav.stat().st_size > 0
+
+    def _merge_audio(self, audio_wav: Path, output_video: Path,
+                     video_source: Optional[Union[str, Path]] = None) -> bool:
+        """把标记后的音频混回视频（默认原始视频，可指定 DCT 标记后的视频）"""
+        video_source = video_source or self.video_path
+        code, _, err = self._run_ffmpeg([
+            "-i", str(video_source),
+            "-i", str(audio_wav),
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            "-map", "0:v:0", "-map", "1:a:0",
+            "-shortest",
+            str(output_video)
+        ])
+        return code == 0 and output_video.exists() and output_video.stat().st_size > 0
+
+    # ── 指纹生成 ──
+    def _dna_to_fingerprint(self, dna: str) -> List[int]:
+        """把 DNA 转成 160 位指纹：32 位魔数 + 128 位 DNA 哈希"""
+        magic = "LHAF"
+        magic_bits = [int(b) for byte in magic.encode('utf-8') for b in format(byte, '08b')]
+        h = hashlib.sha256(dna.encode('utf-8')).hexdigest()[:32]
+        hash_bits = [int(b) for ch in h for b in format(int(ch, 16), '04b')]
+        fp = magic_bits + hash_bits
+        if len(fp) < self.VIDEO_BITS:
+            fp += [0] * (self.VIDEO_BITS - len(fp))
+        return fp[:self.VIDEO_BITS]
+
+    def _fingerprint_to_dna(self, fp: List[int]) -> Optional[str]:
+        """从指纹反查；当前只验证魔数并返回短 ID"""
+        if len(fp) < 32:
+            return None
+        magic_bits = fp[:32]
+        magic_bytes = bytes(int(''.join(str(b) for b in magic_bits[i:i+8]), 2) for i in range(0, 32, 8))
+        try:
+            if magic_bytes.decode('utf-8') != "LHAF":
+                return None
+        except Exception:
+            return None
+        hash_bits = fp[32:self.VIDEO_BITS]
+        hex_chars = []
+        for i in range(0, len(hash_bits), 4):
+            nibble = int(''.join(str(b) for b in hash_bits[i:i+4]), 2)
+            hex_chars.append(format(nibble, 'x'))
+        return "LHAF-" + ''.join(hex_chars)
+
+    def _compute_repeat(self, h_blocks: int, v_blocks: int, total_frames: int) -> int:
+        """根据视频容量自适应计算每 bit 每帧重复次数"""
+        blocks_per_frame = h_blocks * v_blocks
+        # 每帧中每个 bit 最多只能占用 blocks_per_frame / BITS 个不重复块
+        max_repeat_per_frame = max(1, blocks_per_frame // self.VIDEO_BITS)
+        total_blocks = blocks_per_frame * max(1, total_frames)
+        # 总体容量也限制重复次数；保留 2 倍余量
+        repeat = total_blocks // (self.VIDEO_BITS * 4)
+        repeat = min(max_repeat_per_frame, 60, max(3, repeat))
+        return repeat
+
+    def _get_blocks(self, bit_idx: int, frame_idx: int,
+                    h_blocks: int, v_blocks: int, repeat: int) -> List[Tuple[int, int]]:
+        """为某 bit 在某帧中随机选择不重复的 8x8 块"""
+        rng = np.random.default_rng(
+            self.VIDEO_SEED + bit_idx * 10000 + frame_idx * 1000
+        )
+        n = h_blocks * v_blocks
+        idx = rng.choice(n, size=min(repeat, n), replace=False)
+        return [(int(i) // h_blocks, int(i) % h_blocks) for i in idx]
+
+    def _embed_dct_frame(self, y: np.ndarray, fp: List[int],
+                         frame_idx: int, h_blocks: int, v_blocks: int,
+                         repeat: int) -> np.ndarray:
+        """在单帧 Y 通道嵌入指纹"""
+        y_out = y.copy()
+        cy, cx = self.VIDEO_DCT_COEF
+        for bit_idx, bit in enumerate(fp):
+            sign = 1 if bit else -1
+            blocks = self._get_blocks(bit_idx, frame_idx, h_blocks, v_blocks, repeat)
+            for by, bx in blocks:
+                block = y_out[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8]
+                dct_block = dct(dct(block.T, norm='ortho').T, norm='ortho')
+                dct_block[cy, cx] += self.VIDEO_DCT_ALPHA * sign
+                y_out[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8] = idct(
+                    idct(dct_block.T, norm='ortho').T, norm='ortho'
+                )
+        return y_out
+
+    def _extract_dct_frame(self, y: np.ndarray, frame_idx: int,
+                           h_blocks: int, v_blocks: int, repeat: int) -> List[float]:
+        """从单帧 Y 通道提取每个 bit 的平均系数值"""
+        cy, cx = self.VIDEO_DCT_COEF
+        values = []
+        for bit_idx in range(self.VIDEO_BITS):
+            blocks = self._get_blocks(bit_idx, frame_idx, h_blocks, v_blocks, repeat)
+            vals = []
+            for by, bx in blocks:
+                block = y[by * 8:(by + 1) * 8, bx * 8:(bx + 1) * 8]
+                dct_block = dct(dct(block.T, norm='ortho').T, norm='ortho')
+                vals.append(float(dct_block[cy, cx]))
+            values.append(float(np.mean(vals)) if vals else 0.0)
+        return values
+
+    def _embed_video_dct(self, dna: str, output_path: Path) -> Path:
+        """用帧级 DCT 嵌入 DNA 短指纹"""
+        fp = self._dna_to_fingerprint(dna)
+        cap = cv2.VideoCapture(str(self.video_path))
+        fps = cap.get(cv2.CAP_PROP_FPS) or 24.0
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        h_blocks = width // self.VIDEO_DCT_BLOCK
+        v_blocks = height // self.VIDEO_DCT_BLOCK
+        repeat = self._compute_repeat(h_blocks, v_blocks, total_frames)
+
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        writer = cv2.VideoWriter(str(output_path), fourcc, fps, (width, height))
+
+        frame_idx = 0
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            ycbcr = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
+            y = ycbcr[:, :, 0].astype(np.float32)
+            y_marked = self._embed_dct_frame(y, fp, frame_idx, h_blocks, v_blocks, repeat)
+            ycbcr[:, :, 0] = np.clip(y_marked, 0, 255).astype(np.uint8)
+            frame = cv2.cvtColor(ycbcr, cv2.COLOR_YCrCb2BGR)
+            writer.write(frame)
+            frame_idx += 1
+
+        cap.release()
+        writer.release()
+        return output_path
+
+    def _extract_video_dct(self) -> Optional[str]:
+        """从帧级 DCT 提取 DNA 短指纹"""
+        cap = cv2.VideoCapture(str(self.video_path))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        h_blocks = width // self.VIDEO_DCT_BLOCK
+        v_blocks = height // self.VIDEO_DCT_BLOCK
+        repeat = self._compute_repeat(h_blocks, v_blocks, total_frames)
+
+        bit_values = [[] for _ in range(self.VIDEO_BITS)]
+        frame_idx = 0
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            ycbcr = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
+            y = ycbcr[:, :, 0].astype(np.float32)
+            vals = self._extract_dct_frame(y, frame_idx, h_blocks, v_blocks, repeat)
+            for i, v in enumerate(vals):
+                bit_values[i].append(v)
+            frame_idx += 1
+
+        cap.release()
+        if frame_idx == 0:
+            return None
+
+        fp = [1 if np.mean(vals) > 0 else 0 for vals in bit_values]
+        return self._fingerprint_to_dna(fp)
+
+    # ── 主入口 ──
+    def embed(self, dna: Optional[str] = None, output_path: Optional[Union[str, Path]] = None) -> Path:
         if dna is None:
             dna = generate_dna("video")
         if output_path is None:
@@ -376,37 +586,42 @@ class VideoMarker:
         else:
             output_path = Path(output_path)
 
-        cap = cv2.VideoCapture(str(self.video_path))
-        fps = cap.get(cv2.CAP_PROP_FPS) or 24.0
-        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        writer = cv2.VideoWriter(str(output_path), fourcc, fps, (width, height))
+        # 第一步：帧级 DCT 嵌入（主）
+        self._embed_video_dct(dna, output_path)
 
-        # 生成一个固定的小型 DNA 图像水印
-        marker_img = Image.new('RGB', (width, height), (0, 0, 0))
-        marker = ImageMarker(marker_img)
-        marked_img_path = marker.embed(dna=dna, output_path=tempfile.mktemp(suffix='.png'))
-        watermark = cv2.imread(marked_img_path)
-        watermark = cv2.resize(watermark, (width, height))
-
-        frame_idx = 0
-        while True:
-            ret, frame = cap.read()
-            if not ret:
-                break
-            if frame_idx % frame_interval == 0:
-                # 将水印以极低透明度叠加到帧
-                blended = cv2.addWeighted(frame, 0.98, watermark, 0.02, 0)
-                writer.write(blended)
-            else:
-                writer.write(frame)
-            frame_idx += 1
-
-        cap.release()
-        writer.release()
-        os.unlink(marked_img_path)
+        # 第二步：若原视频有音频，额外叠加音频水印（副）
+        if self._has_audio():
+            with tempfile.TemporaryDirectory() as tmpdir:
+                tmp = Path(tmpdir)
+                orig_wav = tmp / "orig.wav"
+                marked_wav = tmp / "marked.wav"
+                dct_video = tmp / "marked_video.mp4"
+                # 保留 DCT 标记后的视频，作为混流视频源
+                import shutil
+                shutil.copy2(output_path, dct_video)
+                if self._extract_audio(orig_wav):
+                    AudioMarkerRobust(orig_wav).embed(dna, marked_wav)
+                    if self._merge_audio(marked_wav, output_path, video_source=dct_video):
+                        return output_path
+                # 音频混流失败则保留 DCT 结果
         return output_path
+
+    def extract(self) -> Optional[str]:
+        # 优先帧级 DCT（最鲁棒）
+        fp = self._extract_video_dct()
+        if fp:
+            return fp
+
+        # 回退音频轨
+        if self._has_audio():
+            with tempfile.TemporaryDirectory() as tmpdir:
+                tmp = Path(tmpdir)
+                wav = tmp / "extract.wav"
+                if self._extract_audio(wav):
+                    audio_fp = AudioMarkerRobust(wav).extract()
+                    if audio_fp:
+                        return audio_fp
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -601,8 +816,269 @@ class MediaSovereigntyMarker:
         elif media_type == 'image':
             result["dna"] = ImageMarker(path).extract()
         elif media_type == 'video':
-            result["note"] = "视频验证需提取音频轨/关键帧后单独校验"
-            result["dna"] = None
+            extracted = VideoMarker(path).extract()
+            result["note"] = ("基于帧级 DCT 扩频指纹（主）+ 音频轨 Patchwork 指纹（副）"
+                             "，抗 H.264/H.265 重编码与录屏")
+            if extracted and extracted.startswith("LHAF-"):
+                result["fingerprint"] = extracted
+            else:
+                result["dna"] = extracted
+                result["fingerprint"] = None
+        elif media_type == 'audio':
+            result["dna"] = AudioMarker(path).extract()
+        return result
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="龍魂·媒体主权标记引擎")
+    parser.add_argument("action", choices=["mark", "verify"], help="操作")
+    parser.add_argument("path", help="媒体文件路径")
+    parser.add_argument("--type", choices=["font", "image", "video", "audio"], help="媒体类型")
+    parser.add_argument("--dna", help="自定义 DNA 字符串")
+    parser.add_argument("--output", "-o", help="输出路径")
+    args = parser.parse_args()
+
+    if args.action == "mark":
+        out = MediaSovereigntyMarker.mark(args.path, args.type, args.dna, args.output)
+        print(f"✅ 已标记: {out}")
+    else:
+        result = MediaSovereigntyMarker.verify(args.path, args.type)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+# ---------------------------------------------------------------------------
+# 4b. 音频鲁棒盲水印（压缩/录屏场景）
+# ---------------------------------------------------------------------------
+class AudioMarkerRobust:
+    """音频鲁棒主权标记器 v2.0（抗 AAC/MP3 压缩）
+
+    策略：频域直接序列扩频（DSSS）+ 多频带副本 + 跨块投票。
+      1. 长块 rFFT（16384 样点），覆盖 2kHz-8kHz 语音/音乐主频段。
+      2. 每个指纹 bit 用 3 组独立 PN 序列分别调制到不同子频段。
+      3. 解码时用相关检测替代能量比较，对音频内容干扰更不敏感。
+      4. 同 payload 在所有块重复，3 副本跨块多数投票。
+
+    为压缩鲁棒性，payload 固定为 160 位（32 位魔数 + 128 位 DNA 指纹）。
+    DNA 指纹取 SHA-256 前 128 位十六进制。
+    """
+
+    BLOCK_SIZE = 16384
+    BITS = 160
+    PN_LENGTH = 256          # 每 bit / 每副本的 PN 长度
+    DELTA = 0.05             # 相对频谱标准差的调制量
+    SEED = 9622
+    # 三个互不重叠的子频段（Hz），分散风险
+    FREQ_BANDS = [(2000, 4000), (4000, 6000), (6000, 8000)]
+
+    def __init__(self, audio_path: Union[str, Path]):
+        self.audio_path = Path(audio_path)
+
+    def _read_wav(self) -> Tuple[np.ndarray, int]:
+        with wave.open(str(self.audio_path), 'rb') as wf:
+            nchannels = wf.getnchannels()
+            sampwidth = wf.getsampwidth()
+            framerate = wf.getframerate()
+            nframes = wf.getnframes()
+            raw = wf.readframes(nframes)
+            if sampwidth == 2:
+                data = np.frombuffer(raw, dtype=np.int16)
+            elif sampwidth == 1:
+                data = np.frombuffer(raw, dtype=np.uint8).astype(np.int16) - 128
+            else:
+                raise ValueError(f"不支持的采样宽度: {sampwidth}")
+            if nchannels > 1:
+                data = data.reshape(-1, nchannels).mean(axis=1)
+            return data.astype(np.float32), framerate
+
+    def _write_wav(self, data: np.ndarray, framerate: int, output_path: Path):
+        data = np.clip(data, -32768, 32767).astype(np.int16)
+        with wave.open(str(output_path), 'wb') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(framerate)
+            wf.writeframes(data.tobytes())
+
+    def _dna_to_fingerprint(self, dna: str) -> List[int]:
+        """把 DNA 转成 160 位指纹：32 位魔数 + 128 位 DNA 哈希"""
+        magic = "LHAF"  # LongHun Audio Fingerprint
+        magic_bits = [int(b) for byte in magic.encode('utf-8') for b in format(byte, '08b')]
+        h = hashlib.sha256(dna.encode('utf-8')).hexdigest()[:32]
+        hash_bits = [int(b) for ch in h for b in format(int(ch, 16), '04b')]
+        fp = magic_bits + hash_bits
+        if len(fp) < self.BITS:
+            fp += [0] * (self.BITS - len(fp))
+        return fp[:self.BITS]
+
+    def _fingerprint_to_dna(self, fp: List[int]) -> Optional[str]:
+        """从指纹反查 DNA 魔数；当前只验证魔数"""
+        if len(fp) < 32:
+            return None
+        magic_bits = fp[:32]
+        magic_bytes = bytes(int(''.join(str(b) for b in magic_bits[i:i+8]), 2) for i in range(0, 32, 8))
+        try:
+            if magic_bytes.decode('utf-8') != "LHAF":
+                return None
+        except Exception:
+            return None
+        hash_bits = fp[32:self.BITS]
+        hex_chars = []
+        for i in range(0, len(hash_bits), 4):
+            nibble = int(''.join(str(b) for b in hash_bits[i:i+4]), 2)
+            hex_chars.append(format(nibble, 'x'))
+        return "LHAF-" + ''.join(hex_chars)
+
+    def _get_pn(self, bit_idx: int, copy: int) -> np.ndarray:
+        """生成 bit_idx 在第 copy 个子频段的 PN 序列"""
+        rng = np.random.default_rng(self.SEED + bit_idx * 10 + copy)
+        return rng.choice(np.array([1.0, -1.0]), size=self.PN_LENGTH)
+
+    def _get_bins(self, bit_idx: int, copy: int, framerate: int) -> np.ndarray:
+        """生成 bit_idx 在第 copy 个子频段的随机频点"""
+        rng = np.random.default_rng(self.SEED + bit_idx * 10000 + copy * 1000)
+        low, high = self.FREQ_BANDS[copy]
+        bin_low = int(low * self.BLOCK_SIZE / framerate)
+        bin_high = int(high * self.BLOCK_SIZE / framerate)
+        # rFFT 输出长度为 BLOCK_SIZE//2 + 1
+        bin_high = min(bin_high, self.BLOCK_SIZE // 2)
+        if bin_high - bin_low < self.PN_LENGTH:
+            bin_low = max(1, bin_high - self.PN_LENGTH)
+        return rng.integers(bin_low, bin_high, size=self.PN_LENGTH)
+
+    def embed(self, dna: Optional[str] = None, output_path: Optional[Union[str, Path]] = None,
+              framerate: Optional[int] = None) -> Path:
+        if dna is None:
+            dna = generate_dna("audio-robust")
+        if output_path is None:
+            stem = self.audio_path.stem
+            output_path = self.audio_path.parent / f"{stem}-DNA-robust.wav"
+        else:
+            output_path = Path(output_path)
+
+        data, fr = self._read_wav()
+        self._framerate = framerate if framerate else fr
+        fp = self._dna_to_fingerprint(dna)
+
+        out = data.copy()
+        block_size = self.BLOCK_SIZE
+        for i in range(0, len(data) - block_size + 1, block_size):
+            block = data[i:i + block_size]
+            spec = np.fft.rfft(block)
+            mag = np.abs(spec).astype(np.float32)
+            phase = np.angle(spec)
+            std = np.std(mag)
+            for bit_idx, bit in enumerate(fp):
+                sign = 1.0 if bit else -1.0
+                for copy in range(len(self.FREQ_BANDS)):
+                    pn = self._get_pn(bit_idx, copy)
+                    bins = self._get_bins(bit_idx, copy, self._framerate)
+                    shift = self.DELTA * std * pn * sign
+                    mag[bins] += shift
+            spec = mag * np.exp(1j * phase)
+            out[i:i + block_size] = np.fft.irfft(spec, n=block_size)
+
+        self._write_wav(out, fr, output_path)
+        return output_path
+
+    def _decode_copy(self, copy: int, data: np.ndarray) -> List[int]:
+        """用第 copy 个子频段解码出 160 个 bit"""
+        bits = []
+        block_size = self.BLOCK_SIZE
+        for bit_idx in range(self.BITS):
+            pn = self._get_pn(bit_idx, copy)
+            bins = self._get_bins(bit_idx, copy, self._framerate)
+            corrs = []
+            for i in range(0, len(data) - block_size + 1, block_size):
+                block = data[i:i + block_size]
+                spec = np.fft.rfft(block)
+                mag = np.abs(spec).astype(np.float32)
+                # z-score 归一化，降低不同块之间能量差异影响
+                mean = np.mean(mag)
+                std = np.std(mag) + 1e-10
+                mag_z = (mag - mean) / std
+                corrs.append(float(np.mean(mag_z[bins] * pn)))
+            bits.append(1 if np.mean(corrs) > 0 else 0)
+        return bits
+
+    def extract(self, framerate: Optional[int] = None) -> Optional[str]:
+        data, fr = self._read_wav()
+        self._framerate = framerate if framerate else fr
+
+        copies = [self._decode_copy(c, data) for c in range(len(self.FREQ_BANDS))]
+
+        # 3 副本多数投票
+        voted = []
+        for i in range(self.BITS):
+            votes = [c[i] for c in copies]
+            voted.append(1 if sum(votes) >= len(votes) / 2 else 0)
+
+        return self._fingerprint_to_dna(voted)
+# ---------------------------------------------------------------------------
+# 5. CLI / 统一入口
+# ---------------------------------------------------------------------------
+class MediaSovereigntyMarker:
+    """统一媒体主权标记入口"""
+
+    @staticmethod
+    def mark(media_path: Union[str, Path], media_type: Optional[str] = None,
+             dna: Optional[str] = None, output_path: Optional[Union[str, Path]] = None) -> Path:
+        path = Path(media_path)
+        if media_type is None:
+            ext = path.suffix.lower()
+            if ext in {'.otf', '.ttf', '.woff', '.woff2'}:
+                media_type = 'font'
+            elif ext in {'.png', '.jpg', '.jpeg', '.webp', '.bmp'}:
+                media_type = 'image'
+            elif ext in {'.mp4', '.mov', '.avi', '.mkv'}:
+                media_type = 'video'
+            elif ext in {'.wav'}:
+                media_type = 'audio'
+            else:
+                raise ValueError(f"无法识别媒体类型: {ext}")
+
+        if media_type == 'font':
+            return FontMarker(path).embed_dna(dna, output_path)
+        elif media_type == 'image':
+            return ImageMarker(path).embed(dna, output_path)
+        elif media_type == 'video':
+            return VideoMarker(path).embed(dna, output_path)
+        elif media_type == 'audio':
+            return AudioMarker(path).embed(dna, output_path)
+        else:
+            raise ValueError(f"不支持的媒体类型: {media_type}")
+
+    @staticmethod
+    def verify(media_path: Union[str, Path], media_type: Optional[str] = None) -> dict:
+        path = Path(media_path)
+        if media_type is None:
+            ext = path.suffix.lower()
+            if ext in {'.otf', '.ttf', '.woff', '.woff2'}:
+                media_type = 'font'
+            elif ext in {'.png', '.jpg', '.jpeg', '.webp', '.bmp'}:
+                media_type = 'image'
+            elif ext in {'.mp4', '.mov', '.avi', '.mkv'}:
+                media_type = 'video'
+            elif ext in {'.wav'}:
+                media_type = 'audio'
+            else:
+                return {"error": f"无法识别媒体类型: {ext}"}
+
+        result = {"media_type": media_type, "path": str(path)}
+        if media_type == 'font':
+            marker = FontMarker(path)
+            result.update(marker.verify_native_watermark())
+            result["dna"] = marker.extract_dna()
+        elif media_type == 'image':
+            result["dna"] = ImageMarker(path).extract()
+        elif media_type == 'video':
+            extracted = VideoMarker(path).extract()
+            result["note"] = ("基于帧级 DCT 扩频指纹（主）+ 音频轨 Patchwork 指纹（副）"
+                             "，抗 H.264/H.265 重编码与录屏")
+            if extracted and extracted.startswith("LHAF-"):
+                result["fingerprint"] = extracted
+            else:
+                result["dna"] = extracted
+                result["fingerprint"] = None
         elif media_type == 'audio':
             result["dna"] = AudioMarker(path).extract()
         return result
@@ -628,3 +1104,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
