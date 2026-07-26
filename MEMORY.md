@@ -8,6 +8,52 @@
 
 ## 最新交付（2026-07-26）
 
+### 龍魂·韬定律芯片调度 v1.0
+
+**背景**：对标华为鲲鹏/昇腾芯片架构，实现算力分层隐藏→按需释放→瞬时爆发→快速收敛。平时藏锋，用时穿云。
+
+**产物：**
+
+| # | 文件 | 说明 |
+|---|------|------|
+| 1 | `engines/lh_tao_chip.py` | 韬定律芯片调度引擎（1157行） |
+| 2 | `01_protocols/LH-TAO-CHIP-v1.0.md` | P0 级协议文档 |
+| 3 | `bin/lh_tao_chip_deploy.sh` | 一键部署脚本 |
+
+**三层算力：**
+
+| 层级 | 名称 | 功耗 | 触发条件 | 状态 |
+|:---|:---|:---:|:---|:---:|
+| L1 | 常显层 | 15W | 守护/心跳/低功耗推理 | 永不中断 |
+| L2 | 蓄力层 | 45W | 队列堆积 / 延迟超标 / 主动弹性 | 30秒后自动收敛 |
+| L3 | 暗涌层 | 150W | 安全审计 / 紧急计算 / P0<1s | 限时5分钟，超时强制断电 |
+
+**关键修复：**
+- 修复 `TaoL2ElasticLayer` / `TaoL3DarkLayer` 同线程重入导致的死锁（`threading.Lock` → `threading.RLock`）。
+- 支持华为鲲鹏/昇腾、Apple Silicon、通用 ARM/x86 平台自适应。
+
+**CLI 示例：**
+
+```bash
+# 查看状态
+python3 engines/lh_tao_chip.py status
+
+# 一键部署
+bash bin/lh_tao_chip_deploy.sh
+
+# 提交任务
+python3 engines/lh_tao_chip.py task --type security_audit --priority P0 --deadline 0.5
+```
+
+**验证结果：**
+- L1/L2/L3 三层调度测试全部通过。
+- Mac 本机守护进程已启动（PID 见 `logs/tao-chip.log`）。
+- 已提交并 push 到 GitHub / GitCode / Gitee 三端。
+
+---
+
+## 历史交付（2026-07-26）
+
 ### 龍魂字体优化 + 媒体主权标记引擎 v3.0
 
 **背景**：字体源字元库（`glyphs/*.json`）因 Git LFS 对象缺失无法重新训练字形，改为基于现有 OTF 优化 + 建立跨媒体统一 DNA 标记体系。视频水印从 v1.0 关键帧图像水印升级到 v3.0 帧级 DCT 扩频指纹，并接入生产线。
