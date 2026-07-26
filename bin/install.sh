@@ -84,6 +84,10 @@ if [ -f "requirements.txt" ]; then
     echo -e "${GREEN}✓${NC} requirements.txt 安装完成"
 fi
 
+# 安装 install.sh 自检必需的模块（即使 requirements.txt 中未列出）
+python3 -m pip install numpy pyyaml -q
+echo -e "${GREEN}✓${NC} 核心自检模块 numpy / pyyaml 安装完成"
+
 # 安装开发依赖（可选）
 if [ "${INSTALL_DEV:-0}" = "1" ] && [ -f "requirements-dev.txt" ]; then
     python3 -m pip install -r requirements-dev.txt -q
