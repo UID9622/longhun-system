@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# #龍芯⚡️2026-07-26-LONGHUN-ZHIHUI-ENTRY-v1.0
+# 龍魂·指挥官模式入口
+# 用法：指挥 "查下芯片状态"
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_ROOT"
+
+exec python3 "$PROJECT_ROOT/bin/lh_commander.py" "$@"

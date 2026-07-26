@@ -1,0 +1,145 @@
+{
+  "commands": [
+    {
+      "name": "芯片状态",
+      "patterns": [
+        "查[一]?下芯片状态",
+        "芯片状态",
+        "韬定律状态",
+        "tao[\\s\\-]?chip[\\s\\-]?status"
+      ],
+      "command": "python3 engines/lh_tao_chip.py status",
+      "description": "查看韬定律芯片调度器当前状态",
+      "needs_path": false
+    },
+    {
+      "name": "部署芯片",
+      "patterns": [
+        "部署芯片",
+        "部署韬定律",
+        "启动韬定律",
+        "启动芯片调度"
+      ],
+      "command": "bash bin/lh_tao_chip_deploy.sh",
+      "description": "一键部署并启动韬定律芯片调度器",
+      "needs_path": false
+    },
+    {
+      "name": "停止芯片调度",
+      "patterns": [
+        "停止芯片调度",
+        "关掉韬定律",
+        "停止韬定律"
+      ],
+      "command": "pkill -f 'engines/lh_tao_chip.py daemon' || true",
+      "description": "停止韬定律守护进程",
+      "needs_path": false
+    },
+    {
+      "name": "验证媒体DNA",
+      "patterns": [
+        "验证这[个张幅]?(.+?)的DNA",
+        "验证DNA(.+)",
+        "验证媒体(.+)",
+        "检查水印(.+)"
+      ],
+      "command": "python3 bin/lh_media_mark.py verify {path}",
+      "description": "验证图片/视频/音频的龍魂DNA水印",
+      "needs_path": true
+    },
+    {
+      "name": "标记媒体DNA",
+      "patterns": [
+        "给(.+?)加DNA",
+        "给(.+?)加水印",
+        "标记(.+?)的DNA"
+      ],
+      "command": "python3 bin/lh_media_mark.py mark {path}",
+      "description": "给媒体文件注入龍魂DNA水印",
+      "needs_path": true
+    },
+    {
+      "name": "记忆加载",
+      "patterns": [
+        "加载记忆",
+        "读取记忆",
+        "启动记忆",
+        "memory load"
+      ],
+      "command": "python3 bin/lh_memory_load.py",
+      "description": "加载龍魂焊死记忆",
+      "needs_path": false
+    },
+    {
+      "name": "系统健康检查",
+      "patterns": [
+        "健康检查",
+        "系统状态",
+        "检查身体",
+        "体检",
+        "health check"
+      ],
+      "command": "python3 bin/longhun-self-heal.py --quick || python3 engines/lh_tao_chip.py status",
+      "description": "运行系统健康检查",
+      "needs_path": false
+    },
+    {
+      "name": "备份数据",
+      "patterns": [
+        "备份数据",
+        "数据备份",
+        "备份"
+      ],
+      "command": "bash deploy/scripts/backup_data.sh || echo '备份脚本不存在，请检查 deploy/scripts/'",
+      "description": "执行全量数据备份",
+      "needs_path": false
+    },
+    {
+      "name": "同步鲲鹏",
+      "patterns": [
+        "同步鲲鹏",
+        "同步到鲲鹏",
+        "推送到鲲鹏",
+        "kunpeng sync"
+      ],
+      "command": "bash deploy/scripts/sync_to_kunpeng.sh || echo '同步脚本不存在'",
+      "description": "同步本地代码到鲲鹏服务器",
+      "needs_path": false
+    },
+    {
+      "name": "提交代码",
+      "patterns": [
+        "提交代码",
+        "提交并推送",
+        "git push",
+        "push 代码"
+      ],
+      "command": "git add -A && git commit -m 'chore: 自动提交' && git push gh-ssh orphan_main && git push gitcode orphan_main && git push gitee orphan_main",
+      "description": "自动提交并推送到三端仓库",
+      "needs_path": false
+    }
+  ],
+  "groups": {
+    "日常巡检组": {
+      "description": "每日系统巡检：记忆加载 + 健康检查 + 芯片状态",
+      "commands": [
+        "python3 bin/lh_memory_load.py",
+        "python3 engines/lh_tao_chip.py status"
+      ]
+    },
+    "视频生产组": {
+      "description": "启动视频生产线相关服务",
+      "commands": [
+        "python3 engines/lh_tao_chip.py status",
+        "python3 bin/lh_video_pipeline.py --help | head -5"
+      ]
+    },
+    "安全加固组": {
+      "description": "安全相关检查：芯片状态 + 媒体DNA验证入口",
+      "commands": [
+        "python3 engines/lh_tao_chip.py status",
+        "python3 bin/lh_media_mark.py --help | head -5"
+      ]
+    }
+  }
+}
