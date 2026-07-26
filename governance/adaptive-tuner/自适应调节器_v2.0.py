@@ -22,6 +22,11 @@ v2.0 升级要点（相对 v1.0）：
   ⑨ 配置版本链 —— 每代参数有 parent_hash，形成可追溯链
   ⑩ 铁律接口 —— 与 IRON-* 铁律解耦但通过 hook 注入
 
+联动（2026-07-27 接入·bridge/）：
+  微调/熔断/回滚/审计四处发射事件 → 联动桥分发四引擎适配器
+  （规则引擎快照+熔断LOCK / 三色审计交叉验证 / 草日志入册 / DNA§14登记）
+  --link-status 查看注册表 + 四适配器自检表
+
 用法:
   python3 自适应调节器.py --status           # 查看当前参数 + 哈希链
   python3 自适应调节器.py --analyze          # 仅看数据分析+趋势
@@ -33,6 +38,7 @@ v2.0 升级要点（相对 v1.0）：
   python3 自适应调节器.py --demo-data [N]    # 生成 N 个合成事件写入账本（默认 60·追加不覆盖）
   python3 自适应调节器.py --seed 9622        # 配合 --demo-data 复现随机序列
   python3 自适应调节器.py --demo             # 完整演示
+  python3 自适应调节器.py --link-status      # 联动注册表 + 四适配器自检
   python3 自适应调节器.py                    # 无参数 → 默认模拟（安全模式）
 """
 
@@ -198,6 +204,29 @@ def _过滤已知字段(data: dict) -> dict:
     """
     已知键 = {f.name for f in fields(微调参数)}
     return {k: v for k, v in data.items() if k in 已知键}
+
+# ═══════════════════════════════════════════════════════════════
+# 三点六、联动桥钩子（v2.0 追加·SPEC §六·fail-isolated 零影响主流程）
+# ═══════════════════════════════════════════════════════════════
+
+def _发射联动(事件类型: str, 载荷: dict):
+    """可选联动·桥缺席或异常零影响"""
+    try:
+        from pathlib import Path as _P
+        import importlib.util as _iu
+        桥文件 = _P(__file__).resolve().parent / "bridge" / "lh_tuner_bridge.py"
+        if not 桥文件.is_file():
+            return
+        spec = _iu.spec_from_file_location("lh_tuner_bridge", 桥文件)
+        mod = _iu.module_from_spec(spec); spec.loader.exec_module(mod)
+        mod.取桥().emit(事件类型, 载荷)
+    except Exception:
+        pass
+
+def _联动数据摘要(数据: dict) -> dict:
+    """从分析数据取六率组装载荷数据摘要（缺失键补默认 0.0）"""
+    return {k: 数据.get(k, 0.0) for k in
+            ("甩锅率", "自扛率", "没立正率", "威胁率", "补救率", "惯犯率")}
 
 # ═══════════════════════════════════════════════════════════════
 # 四、调节器主类
@@ -414,6 +443,17 @@ class 自适应调节器:
 
         # 🔴 dr ∈ {3,9} 熔断 — 拒绝任何参数修改
         if 色 == "🔴":
+            # ── 联动桥发射点①：TUNE_MELTDOWN（追加·fail-isolated） ──
+            _发射联动("TUNE_MELTDOWN", {
+                "状态": "🔴 熔断·拒绝微调",
+                "三色": 色, "dr": dr,
+                "参数哈希": self.参数.参数哈希,
+                "父哈希": self.参数.父哈希,
+                "调整数": 0, "调整记录": [],
+                "数据摘要": _联动数据摘要(数据),
+                "趋势": 数据.get("趋势", {}),
+                "原因": "数据触发红线·人工介入排查",
+            })
             return {
                 "状态": f"🔴 熔断·拒绝微调",
                 "三色": 色, "dr": dr, "dr说明": dr说明,
@@ -507,6 +547,27 @@ class 自适应调节器:
             self._保存参数()
             log.info(f"参数已落盘·新哈希 {self.参数.参数哈希}·父哈希 {self.参数.父哈希}")
 
+        # ── 联动桥发射点②：TUNE_APPLIED（非模拟且有落盘）/ TUNE_SIMULATED（模拟） ──
+        # 落盘判定复刻上方落盘条件（追加计算·不改旧逻辑）
+        _已落盘 = (not 模拟) and (bool(调整记录) or not 原参数.参数哈希)
+        if _已落盘:
+            _事件类型 = "TUNE_APPLIED"
+        elif 模拟:
+            _事件类型 = "TUNE_SIMULATED"
+        else:
+            _事件类型 = ""   # 落盘态但无需调整且无状态变化·不发射
+        if _事件类型:
+            _发射联动(_事件类型, {
+                "状态": "🟢 微调完成" if _已落盘 else "🟡 模拟态·未落盘",
+                "三色": 色, "dr": dr,
+                "参数哈希": self.参数.参数哈希,
+                "父哈希": self.参数.父哈希,
+                "调整数": len(调整记录),
+                "调整记录": list(调整记录),
+                "数据摘要": _联动数据摘要(数据),
+                "趋势": 数据.get("趋势", {}),
+            })
+
         return {
             "状态": "🟢 微调完成" if (调整记录 and not 模拟) else
                    "🟡 模拟态·未落盘" if (调整记录 and 模拟) else
@@ -555,6 +616,15 @@ class 自适应调节器:
             self.参数 = 微调参数(**_过滤已知字段(旧))
         self._保存参数()
         log.info(f"已回滚到父代 {self.参数.父哈希}·新哈希 {self.参数.参数哈希}")
+        # ── 联动桥发射点③：TUNE_ROLLBACK（追加·fail-isolated） ──
+        _发射联动("TUNE_ROLLBACK", {
+            "状态": "🟢 回滚完成",
+            "三色": "🟢", "dr": 7,
+            "参数哈希": self.参数.参数哈希,
+            "父哈希": self.参数.父哈希,
+            "调整数": 0, "调整记录": [],
+            "原因": "回滚完成·解除从严模式",
+        })
         return {
             "状态": "🟢 回滚完成",
             "回滚到": str(最新.name),
@@ -685,6 +755,17 @@ class 自适应调节器:
 
         路径.write_text("\n".join(md), encoding="utf-8")
         log.info(f"审计报告已落: {路径}")
+        # ── 联动桥发射点④：TUNE_AUDIT（追加·fail-isolated·调整记录可传空list） ──
+        _发射联动("TUNE_AUDIT", {
+            "状态": 微调结果.get("状态", ""),
+            "三色": 色, "dr": dr,
+            "参数哈希": 微调结果.get("参数哈希", ""),
+            "父哈希": 微调结果.get("父哈希", ""),
+            "调整数": 微调结果.get("调整数", 0),
+            "调整记录": [],
+            "数据摘要": _联动数据摘要(数据),
+            "趋势": 趋势,
+        })
         return 路径
 
 # ═══════════════════════════════════════════════════════════════
@@ -706,9 +787,32 @@ def main():
                         help="生成 N 个合成事件写入账本（默认 60·追加不覆盖）")
     parser.add_argument("--seed",     type=int, default=None, help="配合 --demo-data 复现随机序列")
     parser.add_argument("--demo",     action="store_true", help="完整演示")
+    parser.add_argument("--link-status", action="store_true", help="打印联动注册表 + 四适配器自检结果表")
     args = parser.parse_args()
 
     调节器 = 自适应调节器()
+
+    # ── link-status（联动桥自检·追加分支·不改旧分支） ──
+    if args.link_status:
+        try:
+            from pathlib import Path as _P
+            import importlib.util as _iu
+            桥文件 = _P(__file__).resolve().parent / "bridge" / "lh_tuner_bridge.py"
+            if not 桥文件.is_file():
+                print("\n🟡 联动桥未安装：未找到 bridge/lh_tuner_bridge.py"
+                      "·调节器独立运行不受影响")
+                return
+            spec = _iu.spec_from_file_location("lh_tuner_bridge", 桥文件)
+            mod = _iu.module_from_spec(spec); spec.loader.exec_module(mod)
+            桥 = mod.取桥()
+            print(f"\n🔗 联动注册表: {桥.注册表路径}")
+            print(json.dumps(桥.注册表, ensure_ascii=False, indent=2))
+            print("\n🧪 四适配器自检（TUNE_AUDIT 测试事件）:")
+            for r in 桥.自检():
+                print(f"   {r['状态']} {r['适配器']}: {r['说明']}")
+        except Exception as e:
+            print(f"\n🟡 联动桥自检失败（不影响调节器本体）: {e}")
+        return
 
     # ── demo-data（加固⑦） ──
     if args.demo_data is not None:

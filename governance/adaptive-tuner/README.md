@@ -13,7 +13,10 @@ mkdir -p ~/.龍魂/bin
 cp 自适应调节器_v2.0.py ~/.龍魂/自适应调节器.py
 # ② DNA 生成器（仓库已有·软链或拷贝）
 cp bin/lh_dna_generator.py ~/.龍魂/bin/
-# ③ 自检（开箱三连）
+# ③ 联动桥（可选·装上即接四引擎）
+mkdir -p ~/.龍魂/bridge
+cp bridge/lh_tuner_bridge.py ~/.龍魂/bridge/
+# ④ 自检（开箱三连）
 python3 ~/.龍魂/自适应调节器.py --demo-data 60 --seed 9622
 python3 ~/.龍魂/自适应调节器.py --analyze
 python3 ~/.龍魂/自适应调节器.py --simulate
@@ -32,6 +35,7 @@ python3 ~/.龍魂/自适应调节器.py --simulate
 | `--verify` | 哈希链完整性校验·受损退出码=1 | 否 |
 | `--demo-data N --seed S` | 生成 N 条合成账本事件·开箱可测 | 是 |
 | `--demo` | 完整演示 | 仅报告 |
+| `--link-status` | 联动注册表 + 四适配器自检表 | 否 |
 
 ## 三、三色 dr 铁律（M248 不变逻辑链）
 
@@ -60,6 +64,8 @@ python3 ~/.龍魂/自适应调节器.py --simulate
 | 8 | 回滚精确回父代（逃避扣分 12.1→11.0） | 🟢 |
 | 9 | 冷却期回滚拦截（剩余 14 天） | 🟢 |
 | 10 | DNA 生成器实链：占位→真 DNA·自校验合法 | 🟢 |
+| 11 | 联动四路：快照/草日誌/§14登记/熔断LOCK/回滚解锁 | 🟢 |
+| 12 | 故障隔离：适配器弄坏 → 主流程 exit 0 | 🟢 |
 
 ## 六、文件结构
 
@@ -69,12 +75,38 @@ python3 ~/.龍魂/自适应调节器.py --simulate
 ├── 微調參數.json                        # 当前参数 + 哈希链
 ├── 微調歷史/{父哈希}_YYYYMMDD_HHMMSS.json  # 每代备份
 ├── 微調審計/YYYY-MM-DD_HHMMSS.md          # Markdown 审计
+├── 聯動註冊表.json                      # 联动注册表（缺席自动写默认）
+├── 引擎態/                              # 联动产物
+│   ├── rules_engine_params.json        # 规则引擎参数快照
+│   ├── rules_engine.LOCK.json          # 熔断从严锁定/回滚解除
+│   └── audit_crosscheck.json           # 审计交叉验证
+├── 草日誌/YYYY-MM-DD.log                # 草日志（对齐 LocalLogger）
+├── DNA登記冊.jsonl                      # §14 登记·链式存根可复算
+├── bridge/lh_tuner_bridge.py           # 联动桥
 └── bin/lh_dna_generator.py             # DNA 唯一生成源
 ```
 
 ## 七、焊死字段（永不微调）
 
 `熔断_dr` · `待审_dr` · `分数上限=100` · `分数下限=0` · `威胁归零开关`
+
+## 八、引擎联动（bridge/·2026-07-27 接入）
+
+调节器只发事件、不直接 import 引擎（解耦）；桥与适配器全部 fail-isolated。
+
+```bash
+# 联动自检（打印注册表 + 四适配器自检表）
+python3 ~/.龍魂/自适应调节器.py --link-status
+```
+
+| 适配器 | 联动动作 |
+|---|---|
+| rules_engine | apply→参数快照 `引擎態/rules_engine_params.json`；熔断→`rules_engine.LOCK.json` 从严锁定；回滚→解锁 |
+| audit | 三色审计交叉验证 dr↔color → `引擎態/audit_crosscheck.json`（需配置仓库根） |
+| caolog | 全部事件 → `草日誌/YYYY-MM-DD.log`（对齐 LocalLogger 格式） |
+| dna_registry | apply/回滚/熔断 → `DNA登記冊.jsonl` §14 条款·链式存根可复算 |
+
+注册表：`~/.龍魂/聯動註冊表.json`（缺席自动写默认·开关/超时/路径均可调）
 
 ---
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
