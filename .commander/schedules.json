@@ -1,0 +1,10 @@
+[
+  {
+    "name": "auto_1785032180",
+    "cron": "9 9 * * *",
+    "command": "python3 bin/longhun-self-heal.py --quick || python3 engines/lh_tao_chip.py status",
+    "reminder": "我检查系统状态",
+    "created_at": "2026-07-26T02:16:20.541792+00:00",
+    "dna": "#龍芯⚡️2026-07-26-LONGHUN-COMMANDER-v1.0"
+  }
+]
