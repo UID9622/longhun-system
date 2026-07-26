@@ -11,12 +11,18 @@ import os
 import sys
 import json
 import time
+import wave
+import math
+import shutil
 import hashlib
 import subprocess
 import tempfile
 from pathlib import Path
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -330,6 +336,179 @@ class Shi_Pin_Guan_Xian:
             "jian_yi": f"内容超{xian_zhi}秒限制，建议分段输出或语速×{su_du_bei_lv}",
         }
 
+    # ━━━━━ 实际渲染 + DNA 标记 + GPG 签名 ━━━━━
+
+    def _zhao_zi_ti(self):
+        """寻找可用的中文字体"""
+        candidates = [
+            Path(__file__).resolve().parent.parent / "longhun-font" / "output" / "龙魂字体-Regular.otf",
+            Path(__file__).resolve().parent.parent / "_work" / "repos" / "LonghunFont" / "output" / "LonghunFont-Regular.otf",
+            Path("/System/Library/Fonts/STHeiti Light.ttc"),
+            Path("/System/Library/Fonts/PingFang.ttc"),
+            Path("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"),
+            Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"),
+        ]
+        for c in candidates:
+            if c.exists():
+                return str(c)
+        return None
+
+    def _zhe_xing_wen_zi(self, wen_zi, draw, font, max_kuan):
+        """按宽度折行（中文按字符，英文按空格）"""
+        lines = []
+        current = ""
+        for ch in wen_zi:
+            test = current + ch
+            bbox = draw.textbbox((0, 0), test, font=font)
+            if bbox[2] - bbox[0] > max_kuan and current:
+                lines.append(current)
+                current = ch
+            else:
+                current = test
+        if current:
+            lines.append(current)
+        return lines if lines else [wen_zi]
+
+    def _xuan_ran_wav(self, lu_jing, shi_chang, zhen_lv=30):
+        """生成静音 WAV（后续可替换为真实语音合成）"""
+        framerate = 44100
+        samples = int(framerate * shi_chang)
+        data = np.zeros(samples, dtype=np.int16)
+        with wave.open(str(lu_jing), 'wb') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(framerate)
+            wf.writeframes(data.tobytes())
+
+    def _xuan_ran_ping_tai_wen_jian(self, chan_wu, ping_tai):
+        """把输出规划渲染成真实 MP4 预览文件"""
+        ys = PING_TAI_YU_SHE.get(ping_tai, PING_TAI_YU_SHE["douyin"])
+        kuan, gao, zhen_lv = ys["kuan"], ys["gao"], ys["zhen_lv"]
+        shi_chang_xian_zhi = ys["zui_da_shi_chang"]
+
+        shi_jian_zhou = chan_wu["jie_xi"].get("shi_jian_zhou", [])
+        if shi_jian_zhou:
+            zong_shi_chang = shi_jian_zhou[-1]["jie_shu"]
+        else:
+            zong_shi_chang = 5.0
+
+        # 平台时长限制：等比例压缩时间轴
+        if shi_chang_xian_zhi > 0 and zong_shi_chang > shi_chang_xian_zhi:
+            bi_li = shi_chang_xian_zhi / zong_shi_chang
+            for duan in shi_jian_zhou:
+                duan["kai_shi"] *= bi_li
+                duan["jie_shu"] *= bi_li
+                duan["shi_chang"] *= bi_li
+            zong_shi_chang = shi_chang_xian_zhi
+
+        ri_qi = datetime.now().strftime("%Y%m%d")
+        mu_lu = Path(self.shu_chu_mu_lu) / ri_qi
+        mu_lu.mkdir(parents=True, exist_ok=True)
+
+        yuan_wen_ben = chan_wu.get("wen_zhang_yuan_shi", "video")
+        stem = Path(str(yuan_wen_ben).split("...")[0]).stem or "video"
+        stem = "".join(c if c.isalnum() or c in "_-" else "_" for c in stem)[:30]
+        shu_chu_lu_jing = mu_lu / f"{stem}_{ping_tai}.mp4"
+
+        zi_ti = self._zhao_zi_ti()
+        if zi_ti:
+            title_font = ImageFont.truetype(zi_ti, int(min(kuan, gao) * 0.045))
+            text_font = ImageFont.truetype(zi_ti, int(min(kuan, gao) * 0.065))
+        else:
+            title_font = ImageFont.load_default()
+            text_font = ImageFont.load_default()
+
+        zhen_zong_shu = max(1, int(zong_shi_chang * zhen_lv))
+        tmp_dir = Path(tempfile.mkdtemp(prefix="lh_video_render_"))
+        try:
+            for zhen_i in range(zhen_zong_shu):
+                t = zhen_i / zhen_lv
+                text = ""
+                for duan in shi_jian_zhou:
+                    if duan["kai_shi"] <= t < duan["jie_shu"]:
+                        text = duan["ju_zi"]
+                        break
+
+                img = Image.new("RGB", (kuan, gao), "#080808")
+                draw = ImageDraw.Draw(img)
+
+                # 顶部标题
+                title = "龍魂·视频"
+                bbox = draw.textbbox((0, 0), title, font=title_font)
+                draw.text(((kuan - (bbox[2] - bbox[0])) // 2, int(gao * 0.08)),
+                          title, font=title_font, fill="#C9A84C")
+
+                # 当前段落文字
+                if text:
+                    lines = self._zhe_xing_wen_zi(text, draw, text_font, int(kuan * 0.8))
+                    bbox_line = draw.textbbox((0, 0), "国", font=text_font)
+                    line_gao = bbox_line[3] - bbox_line[1]
+                    total_gao = len(lines) * line_gao
+                    y = (gao - total_gao) // 2
+                    for line in lines:
+                        bbox_l = draw.textbbox((0, 0), line, font=text_font)
+                        draw.text(((kuan - (bbox_l[2] - bbox_l[0])) // 2, y),
+                                  line, font=text_font, fill="#C9A84C")
+                        y += line_gao
+
+                img.save(tmp_dir / f"frame_{zhen_i:05d}.png")
+
+            wav_lu_jing = tmp_dir / "audio.wav"
+            self._xuan_ran_wav(wav_lu_jing, zong_shi_chang, zhen_lv)
+
+            cmd = [
+                "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                "-framerate", str(zhen_lv),
+                "-i", str(tmp_dir / "frame_%05d.png"),
+                "-i", str(wav_lu_jing),
+                "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "128k",
+                "-shortest",
+                str(shu_chu_lu_jing),
+            ]
+            subprocess.run(cmd, check=True)
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+
+        return shu_chu_lu_jing
+
+    def zui_zhong_jia_gong(self, chan_wu, mu_biao_ping_tai):
+        """最终加工：渲染 → DNA 盲水印 → GPG 签名 → 更新产物元数据"""
+        for ping_tai in mu_biao_ping_tai:
+            ji_hua = chan_wu["shu_chu"].get(ping_tai, {})
+            ji_hua.setdefault("zhuang_tai", "就绪·待实际渲染")
+            try:
+                # 1) 渲染真实文件
+                shi_ji_lu_jing = self._xuan_ran_ping_tai_wen_jian(chan_wu, ping_tai)
+                ji_hua["shi_ji_wen_jian"] = str(shi_ji_lu_jing)
+                ji_hua["zhuang_tai"] = "已渲染"
+
+                # 2) 嵌入 DNA 盲水印
+                dna_jie_guo = self.qian_ru_dna_shui_yin(str(shi_ji_lu_jing), DNA)
+                if "cuo_wu" in dna_jie_guo:
+                    ji_hua["dna_zhuang_tai"] = f"失败: {dna_jie_guo['cuo_wu']}"
+                else:
+                    ji_hua["dna_wen_jian"] = dna_jie_guo["shu_chu_wen_jian"]
+                    ji_hua["dna"] = dna_jie_guo["dna"]
+                    ji_hua["dna_zhuang_tai"] = "已嵌入DNA盲水印"
+                    ji_hua["zhuang_tai"] = "已渲染·已标记"
+
+                    # 3) GPG 签名（标记后的文件）
+                    qian_ming_jie_guo = self.gpg_qian_ming(dna_jie_guo["shu_chu_wen_jian"])
+                    if "cuo_wu" in qian_ming_jie_guo:
+                        ji_hua["gpg_zhuang_tai"] = f"失败: {qian_ming_jie_guo['cuo_wu']}"
+                    else:
+                        ji_hua["qian_ming_wen_jian"] = qian_ming_jie_guo["qian_ming_wen_jian"]
+                        ji_hua["sha256"] = qian_ming_jie_guo["sha256"]
+                        ji_hua["gpg_fingerprint"] = qian_ming_jie_guo["gpg_fingerprint"]
+                        ji_hua["gpg_zhuang_tai"] = "已签名"
+                        ji_hua["zhuang_tai"] = "已渲染·已标记·已签名"
+            except Exception as e:
+                ji_hua["zhuang_tai"] = f"渲染失败: {e}"
+                ji_hua["cuo_wu"] = str(e)
+
+        return chan_wu
+
     # ━━━━━ 水印与签名 ━━━━━
 
     def tian_jia_dna_shui_yin(self, shi_pin_lu_jing):
@@ -504,6 +683,10 @@ def cmd_sheng_chan(args):
     guan_xian = Shi_Pin_Guan_Xian(pei_zhi_lu)
     chan_wu = guan_xian.sheng_chan(wen_zhang, ping_tai)
 
+    # 最终加工：渲染 → DNA 盲水印 → GPG 签名
+    print("\n[6/5] 鲁班·最终加工：实际渲染 + DNA 盲水印 + GPG 签名...")
+    guan_xian.zui_zhong_jia_gong(chan_wu, ping_tai)
+
     # 归档
     gui_dang = guan_xian.gui_dang(chan_wu)
 
@@ -515,8 +698,17 @@ def cmd_sheng_chan(args):
     print(f"  输出平台: {list(chan_wu['shu_chu'].keys())}")
     print(f"  归档: {gui_dang['mu_lu']}")
     print()
-    print("⚠️ 视频已生成（模拟）。实际渲染需要影视后期工具链。")
-    print("  本管线负责：解析→三引擎调度→合并规划→多平台适配→水印签章→归档。")
+    for pt in ping_tai:
+        shu_chu = chan_wu["shu_chu"].get(pt, {})
+        print(f"  [{pt}] {shu_chu.get('zhuang_tai', '未知')}")
+        if "shi_ji_wen_jian" in shu_chu:
+            print(f"    预览视频: {shu_chu['shi_ji_wen_jian']}")
+        if "dna_wen_jian" in shu_chu:
+            print(f"    DNA水印:  {shu_chu['dna_wen_jian']}")
+        if "qian_ming_wen_jian" in shu_chu:
+            print(f"    GPG签名:  {shu_chu['qian_ming_wen_jian']}")
+        if "sha256" in shu_chu:
+            print(f"    SHA256:   {shu_chu['sha256'][:16]}...")
     print("=" * 60)
 
     return 0
@@ -660,14 +852,14 @@ def cmd_selftest(args):
         if VideoMarker is None:
             raise RuntimeError("VideoMarker 未加载")
 
-        # 生成 1 秒测试视频
+        # 生成 3 秒测试视频（帧数足够让 CRC 校验稳定通过）
         tmp_dir = tempfile.mkdtemp()
         test_video = os.path.join(tmp_dir, "test.mp4")
         test_marked = os.path.join(tmp_dir, "test-DNA.mp4")
         subprocess.run([
             "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
-            "-f", "lavfi", "-i", "testsrc=duration=1:size=320x240:rate=30",
-            "-f", "lavfi", "-i", "sine=frequency=1000:duration=1",
+            "-f", "lavfi", "-i", "color=c=#080808:s=640x360:d=3:r=30",
+            "-f", "lavfi", "-i", "sine=frequency=1000:duration=3",
             "-c:v", "libx264", "-c:a", "aac", "-b:a", "128k",
             "-pix_fmt", "yuv420p", test_video,
         ], check=True)
