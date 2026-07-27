@@ -4,7 +4,7 @@
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "description": "龍魂系统跨模块联动感知注册表。记录每条数据/模块/API的上下游依赖关系，是联动感知引擎的知识底座。",
     "version": "v1.0",
-    "last_updated": "2026-07-08T13:22:06.626937"
+    "last_updated": "2026-07-27T10:13:11.647439"
   },
   "dependency_graph": {
     "L5_服务层/services/portal/portal/data/persona_report.json": {
@@ -1289,6 +1289,3678 @@
       "name": "syntax_lookup.py",
       "description": "🐉 龍魂·语法库查询工具 v1.0 DNA: #龍芯⚡️2026-07-08-SYNTAX-LOOKUP-v1.0",
       "added": "2026-07-08T13:22:06.626106",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_代码审计引擎.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596093",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_内容加工管道.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596166",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_国密工具.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596228",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_基础类型.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596265",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_多模型颜色一致性.py",
+      "description": "CNSH 多模型颜色一致性 v1.0 同一输入，由多个模型独立判决，取多数/最高风险。 当前默认使用本地颜色不动点协议；Kimi/Claude/DeepSeek 包装器预留接口。 DNA: #龍芯⚡️2026-06-29-CNSH-MULT",
+      "added": "2026-07-27T10:13:11.596315",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_定时任务.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596424",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_宝宝指令路由器.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596488",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_排序不动点协议.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596570",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_收口摘要生成器.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596614",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_流场可视化引擎.py",
+      "description": "CNSH 流场可视化引擎 v1.0 核心理念：粒子 = DNA · 每个决策步骤都是可见粒子 目标：AI 决策全透明、可审计、无黑箱、不失忆 DNA: #龍芯⚡️2026-06-29-CNSH-FLOWFIELD-UID9622",
+      "added": "2026-07-27T10:13:11.596723",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_生态监管协议.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596804",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_目录审计.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596866",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_知识库.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596913",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_系统自检.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.596961",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_规则库.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.597069",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_通知归档.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.597124",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_颜色不动点协议.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.597201",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_颜色历史.py",
+      "description": "CNSH 颜色历史趋势 v1.0 记录每次颜色判决，追踪趋势，识别持续风险。 DNA: #龍芯⚡️2026-06-29-CNSH-COLOR-HISTORY-v1-UID9622",
+      "added": "2026-07-27T10:13:11.597245",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_龍魂宝宝指令中枢.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.597391",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_龍魂护盾.py",
+      "description": "CNSH 龍魂护盾 v1.0 颜色不动点协议的\"手\"。 当颜色引擎判定 🔴 / ⚫ / 🟣 时，护盾自动接手： · 记录耻辱墙 · 触发断联/告警 · 上报监管协议 · 生成防御 DNA DNA: #龍芯⚡️2026-06-29-CNSH-",
+      "added": "2026-07-27T10:13:11.597444",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "agent_orchestrator_v1.py",
+      "description": "🐉 龍魂系统 · 本地智能体协调引擎 v1.0 Agent Orchestrator · 15+ Local Agents Integration Hub",
+      "added": "2026-07-27T10:13:11.597484",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "audit_engine.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-audit_engine-v1.0",
+      "added": "2026-07-27T10:13:11.597562",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "brain_notion_sync.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.597572",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_gateway.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-cnsh_gateway-v1.0",
+      "added": "2026-07-27T10:13:11.597651",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "daily_review.py",
+      "description": "DNA: #龍芯⚡️2026-06-25-DAILY-REVIEW-v2.0",
+      "added": "2026-07-27T10:13:11.597687",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "dna_ecny_offline_activation.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-dna_ecny_offline_activation-v1.0",
+      "added": "2026-07-27T10:13:11.597766",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "family_roster_adapter.py",
+      "description": "╔═══════════════════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.597844",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "ganzhi_dna_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║              干支时辰 DNA 引擎 v1.0 · 天干地支四柱·梅花",
+      "added": "2026-07-27T10:13:11.597933",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "init_directories.py",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.597966",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_absorb_directories.py",
+      "description": "═══════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.598085",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_absorbed_面向护童的人性优先人工智能系统.py",
+      "description": "龍魂吸收产出 · 可执行代码桩 DNA: #龍芯⚡️丙午·丙申·乙卯·癸未·䷀乾-TOUWEI-ABSORB-61FFC4E5 标题: 面向护童的人性优先人工智能系统： 类型: 技术实现 吸收时间: 2026-07-10T14:29:07.",
+      "added": "2026-07-27T10:13:11.598128",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_absorbed_龍魂_AI国标数据统计与能效实战技术文档_五行河图洛书天干地.py",
+      "description": "龍魂吸收产出 · 可执行代码桩 DNA: #龍芯⚡️丙午·丙申·甲寅·乙亥·䷀乾-TOUWEI-ABSORB-FBEA5706 标题: 龍魂·AI国标数据统计与能效实战技术文档。五行河图洛书天干地支。能效比EER。动态算力调节五行。自主可控",
+      "added": "2026-07-27T10:13:11.598210",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_active_observation.py",
+      "description": "🐉 龍魂 · 主动观察引擎 v2.0 (Active Observation Engine) ========================================================== 从被动响应升级为主动观察——",
+      "added": "2026-07-27T10:13:11.598352",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_adaptive_threshold.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     🧪 龍魂 · 内分泌系统 · 自适应阈值引擎 v1.0               ║ ║    ",
+      "added": "2026-07-27T10:13:11.598399",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_adaptive_tuner.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.598519",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_adversarial_pipeline.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.598622",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_kunpeng.py",
+      "description": "龍芯·鲲鹏共生体调度中枢 v1.1 DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-AGENT-v1.1 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.598725",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_anti_hype.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║   龍魂·AI反诈防火墙 v1.0 — 100张话术卡片拆穿AI营销忽悠     ",
+      "added": "2026-07-27T10:13:11.598832",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_gateway.py",
+      "description": "龍魂统一AI网关 v1.0 LongHun AI Gateway — 多模型统一入口，按任务类型智能路由",
+      "added": "2026-07-27T10:13:11.598909",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_governance.py",
+      "description": "龍魂·AI治理体系 v2.0 — 立法+裁判+反懒惰+连续性+公开发布 DNA: #龍芯⚡️丙午·乙申·AI-GOVERNANCE-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772",
+      "added": "2026-07-27T10:13:11.599035",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_algo_audit_validator.py",
+      "description": "龍魂系统 · 算法审计与透明验证模块 v1.0 源协议: 01_protocols/龍魂算法审计与透明协议_v1.0.md 优先级: P0++（最高，不可绕过） DNA: #龍芯⚡️丙午·乙未·甲寅·乾-ALGO-AUDIT-VALIDAT",
+      "added": "2026-07-27T10:13:11.599097",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ant_colony_daemon.py",
+      "description": "龙魂蚁群守护进程 v2.0 · Ant Colony Daemon 一键启动/管理蚁群引擎后台服务。",
+      "added": "2026-07-27T10:13:11.599192",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ant_colony_orchestrator.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     🐜 龍魂 · 蚁群联动编排引擎 v1.0                         ",
+      "added": "2026-07-27T10:13:11.599378",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ant_colony_router.py",
+      "description": "龍魂蚁群触角 · 模型路由引擎 v1.0 Ant Colony Router — 国产优先 · 权重轮询 · 熔断降级 · 审计留痕",
+      "added": "2026-07-27T10:13:11.599479",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_antenna_8gate_api.py",
+      "description": "龍魂·ANTENNA-8GATE API 服务 v2.0 蚁触神经网 · 八卦路由器 · 五行调度v2 · 节能引擎",
+      "added": "2026-07-27T10:13:11.599582",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_anti_algorithmic_harvest.py",
+      "description": "龍魂·反算法收割审计引擎  v1.0 ================================ 落地 [[clause_harvest_audit]]：扫描直播/文案文本，识别 PK/倒计时/加成/排名/抽成 等 情绪收割信号，打分",
+      "added": "2026-07-27T10:13:11.599635",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_anti_counterfeit.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║       龍魂打假雷達 · 物理锚点向量化 + DNA登记册联动 v1.0   ",
+      "added": "2026-07-27T10:13:11.599749",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_anxiety_detector.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂·蚁群触角焦虑制造者识别器 v2.0 — 情绪攻击→逻辑转换·分布式反",
+      "added": "2026-07-27T10:13:11.599899",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_api_full_reference_v1.0.py",
+      "description": "龙魂系统 API接口完整实现 v1.0",
+      "added": "2026-07-27T10:13:11.600009",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_api_guard.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════╗ ║  龍魂·统一API守卫层 v1.0 — 一次修全部·三个根因一个模块           ",
+      "added": "2026-07-27T10:13:11.600118",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_api_taiji_ant_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-API-TAIJI-ANT-ENGINE-V1.0-P0-89f12a56",
+      "added": "2026-07-27T10:13:11.600348",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_api_validate_all.py",
+      "description": "龍魂 · 全量API校验脚本 v1.0 逐个测试已配置的API Key是否可用，输出终端彩色报告 DNA: #龍芯⚡️丙午·辛未·API-VALIDATE-ALL-v1.0",
+      "added": "2026-07-27T10:13:11.600433",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_asr_api.py",
+      "description": "龍魂ASR统一接口 · 本地优先·云端备用",
+      "added": "2026-07-27T10:13:11.600474",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_asr_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.600520",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audio_parser.py",
+      "description": "🐉 龍魂·音频解析引擎 v1.0 — 语音/音频文件/视频音轨 → 结构化转录 DNA: #龍芯⚡️丙午·辛未·AUDIO-PARSER-v1.0-SPEECH2TEXT",
+      "added": "2026-07-27T10:13:11.600623",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audio_watermark.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.600674",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_as_a_service.py",
+      "description": "🐉 龍魂·猎手计划 — 审计即服务 (Audit-as-a-Service) API v1.0 ═══════════════════════════════════════════════════ DNA: #龍芯⚡️丙午·癸未·甲子·既",
+      "added": "2026-07-27T10:13:11.600782",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_as_a_service_api.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║  龍魂·审计即服务 API — FastAPI 生产壳                      ",
+      "added": "2026-07-27T10:13:11.600844",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_batch_processor.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☵坎-AUDIT-BATCH-PROCESSOR-v2.0-IDEMPOTENT-f3b2c1a8",
+      "added": "2026-07-27T10:13:11.600918",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_hook.py",
+      "description": "审计钩子装饰器 — 自动生成 · 不可删除",
+      "added": "2026-07-27T10:13:11.600956",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_package.py",
+      "description": "龍魂·单人闭环审计打包器 v1.0 ================================ 目标: 证明 longhun-v1.0 是 UID9622 单人、纯自产、DNA 全程可追溯训练的模型。",
+      "added": "2026-07-27T10:13:11.601062",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_pricing_v2.py",
+      "description": "龍魂审计定价引擎 v2.0 + 支付网关 + 投资池 #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_audit_pricing_v2-INTEGRATION-SYSTEM 归属: 龍魂系统 · UID9622 原则:   - 定价稳定、可预",
+      "added": "2026-07-27T10:13:11.601189",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_sheet_trigger.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     📋 龍魂·三色审计单自动触发引擎 v1.0                        ",
+      "added": "2026-07-27T10:13:11.601291",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_cannon.py",
+      "description": "================================================================================ ⚡ 龍魂系統·全自動機槍 v2.0 =====================",
+      "added": "2026-07-27T10:13:11.601410",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_distill.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂 · 自动蒸馏循环 v1.0 # ═══════════════════════════════════════════ # DNA: #龍",
+      "added": "2026-07-27T10:13:11.601475",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_heal.py",
+      "description": "龍芯⚡️丙午·丙申·丙辰·亥时·需-AUTO-HEAL-ENGINE-v1.0",
+      "added": "2026-07-27T10:13:11.601550",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_learner.py",
+      "description": "龍魂 · 自动学习引擎 v1.0 DNA: #龍芯⚡️2026-07-25-AUTO-LEARNER-ENGINE-v1.0 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.601641",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_shouheng.py",
+      "description": "UID9622｜龍芯北辰自动收口协议 — 可执行引擎 v2.0 版本: v2.0 DNA: #龍芯⚡️2026-06-28-AUTO-CLOSURE-ENGINE-v2.0 父DNA: #龍芯⚡️2026-06-28-AUTO-CLOSUR",
+      "added": "2026-07-27T10:13:11.601845",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_sync.py",
+      "description": "# ═══════════════════════════════════════════════════════════ # 龍魂体系 | MVP本地自动同步脚本 v1.1 # ══════════════════════════════",
+      "added": "2026-07-27T10:13:11.601910",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_autoflow.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.602077",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_backup_automation.py",
+      "description": "龍魂系统 · 备份自动化引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-BACKUP-AUTO-v1.0-b7c1a3e2 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 补全: DL架构§11",
+      "added": "2026-07-27T10:13:11.602154",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_bagua.py",
+      "description": "龍魂八卦决策调度器 · LongHun Bagua Decision Scheduler v1.0 DNA: #龍芯⚡️2026-06-28-LONGHUN-BAGUA-SCHEDULER-v1.0",
+      "added": "2026-07-27T10:13:11.602229",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_bagua_param_regression.py",
+      "description": "龍魂 · 八卦阵参数回归框架 v1.0 目标：从实测数据回归地利 G(x)、人和 H(p)、水军检测的权重与阈值。 DNA: #龍芯⚡️2026-07-19-BAGUA-PARAM-REGRESSION-v1.0",
+      "added": "2026-07-27T10:13:11.602262",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_bark_dispatcher.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║   🐉 龙魂·Bark 通知调度器 v1.0 — 全通道·DNA嵌入·审计·知识矩",
+      "added": "2026-07-27T10:13:11.602344",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_base_model_train.py",
+      "description": "龍魂 · 底座模型训练引擎 v4.0 DNA: #龍芯⚡️2026-07-13-底座模型训练-v4.0 核心：蚁群信息化互交，内核驱动执行，非外部 agent 拒绝：外部 agent / 伪装者 / 云端依赖",
+      "added": "2026-07-27T10:13:11.602443",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_base_trace_collector.py",
+      "description": "龍魂·底座痕迹采集引擎 v2.0 — 四道防线版 DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC",
+      "added": "2026-07-27T10:13:11.602741",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_batch_confirm_sign.py",
+      "description": "龍魂批量CONFIRM签名工具 v1.0 为缺少 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 签名的文件批量添加签名头 DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-BATCH-CONFIRM-SIGN-v1.0",
+      "added": "2026-07-27T10:13:11.602784",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_behavior_collector.py",
+      "description": "龍魂·行为采集器 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BEHAVIOR-COLLECTOR-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.602843",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_biometric_health.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     🧬 龍魂 · 生物度量健康引擎 v1.0                         ",
+      "added": "2026-07-27T10:13:11.603028",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_bootstrap_train.py",
+      "description": "龍魂 · 共生体数据自举训练集成 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BOOTSTRAP-TRAIN-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.603096",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_boundary_test_v17.py",
+      "description": "龍魂 v1.7 主权边界回归测试 DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-BOUNDARY-TEST-v1.7",
+      "added": "2026-07-27T10:13:11.603141",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_braket_persona_engine.py",
+      "description": "Bra-Ket量子人格引擎 v1.0 · 多人格量子协作系统 用狄拉克符号实现人格叠加态、纠缠态、测量坍缩",
+      "added": "2026-07-27T10:13:11.603231",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_browser.py",
+      "description": "龍魂浏览器操作助手 · CLI 客户端 v1.0 ======================================== 命令行工具，与本地守护进程 (lh_browser_daemon.py) 通信。 用法：   lh brow",
+      "added": "2026-07-27T10:13:11.603311",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_browser_daemon.py",
+      "description": "龍魂浏览器操作助手 · 本地守护进程 v1.0 ============================================== 本地 HTTP API 服务，通过 Playwright 控制浏览器。 全部本地运行，无外部依赖，",
+      "added": "2026-07-27T10:13:11.603403",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_browser_miner.py",
+      "description": "龍魂 · 浏览器历史矿工 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BROWSER-MINER-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.603497",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_build_prompt_library.py",
+      "description": "龍魂·Notion 提示词库构建器 v2.0 (精筛 + 三分库) ============================================== DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-PROMPT-LIBRAR",
+      "added": "2026-07-27T10:13:11.603562",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_build_training_corpus.py",
+      "description": "🐉 龍魂训练语料构建器 从系统自身哲学/宪法/协议中提取精华，构建训练语料 DNA: #龍芯⚡️丙午·癸未·丁巳·巳时·需-MODEL-TRAINING-CORPUS-BUILDER-v1.0",
+      "added": "2026-07-27T10:13:11.603662",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cache_cleaner.py",
+      "description": "龍魂系统 · 智能缓存清理引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丙申·戌时·☰乾-CACHE-CLEANER-v1.0-3a7f1d2e 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.603747",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_calendar_sync.py",
+      "description": "龍魂日历同步 · iCloud 日历集成 v1.0 DNA:#龍芯⚡️2026-06-09-CALENDAR-SYNC-FILE1-FILE1-v1.0",
+      "added": "2026-07-27T10:13:11.603800",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_chat_importer.py",
+      "description": "龍魂 · AI对话导入器 v2.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHAT-IMPORTER-v2.0-KIMI-DISTILL 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.603928",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_check_alignment.py",
+      "description": "龍魂·底线二：路径对齐 检测引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-ALIGNMENT-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.603971",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_check_contributor.py",
+      "description": "龍魂·底线三：不让付出者寒心 检测引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-CONTRIBUTOR-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.604015",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_check_core.py",
+      "description": "龍魂·底线五：外化内不化 检测引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-CORE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.604059",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_check_sovereignty.py",
+      "description": "龍魂·底线四：信息主权不可让渡 检测引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-SOVEREIGNTY-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.604107",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_check_virtue.py",
+      "description": "龍魂·底线一：德在技术前 检测引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-VIRTUE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.604152",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_chip_gate.py",
+      "description": "龍魂芯片门禁 · 功能分层控制器 v1.0 Chip Gate — 检测底层芯片，按四层生态自动调整功能矩阵。",
+      "added": "2026-07-27T10:13:11.604239",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_circuit_breaker.py",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.604299",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_claude_bridge.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.604443",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cli.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════╗ ║              龍魂统一 CLI 启动器 v1.0 — lh 命令入口     ",
+      "added": "2026-07-27T10:13:11.604508",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_closed_space_validator.py",
+      "description": "龍魂系统 · 封闭空间·三生三世 数学建模验证模块 v1.0 源协议: 01_protocols/封闭空间三生三世数学建模协议_v1.0.md 优先级: P0永恒级·遗嘱级 DNA: #龍芯⚡️丙午·乙未·甲寅·蒙-CLOSED-SPACE",
+      "added": "2026-07-27T10:13:11.604562",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_absorb.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║       龍魂CNSH吸收器 · 任意代码 → CNSH中文可编辑 · 一键入生",
+      "added": "2026-07-27T10:13:11.604686",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_baby_hub.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_baby_hub-INTEGRATION-SYSTEM",
+      "added": "2026-07-27T10:13:11.604977",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_code_audit.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_code_audit-INTEGRATION-SYSTEM",
+      "added": "2026-07-27T10:13:11.605140",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_compiler.py",
+      "description": "cnsh-compiler-v2.py",
+      "added": "2026-07-27T10:13:11.605234",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_content_pipe.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.605281",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_cron.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_cron-INTEGRATION-SYSTEM",
+      "added": "2026-07-27T10:13:11.605365",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_dict.py",
+      "description": "CNSH标准词典 · 查询工具 DNA: #龍芯⚡️丙午·乙未·乙未·酉时·☷坤-CNSH-DICT-QUERY-v1.0",
+      "added": "2026-07-27T10:13:11.605426",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_dict_export.py",
+      "description": "CNSH标准词典 · CSV生成器 DNA: #龍芯⚡️丙午·乙未·乙未·酉时·☷坤-CNSH-DICT-CSV-GEN-v1.0 从 cnsh_standard_dictionary.json 生成 CSV 对照表",
+      "added": "2026-07-27T10:13:11.605466",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_dir_audit.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.605512",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_eco_regulator.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.605579",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_gatekeeper.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | CNSH 合规闸门执行器 # ═══════════════════════════════════════════ # ENCO",
+      "added": "2026-07-27T10:13:11.605669",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_knowledge_base.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.605703",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_neural_brain_router.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════════╗ ║           CNSH神经网络翻译引擎 · 智能路由中枢 (前额叶)",
+      "added": "2026-07-27T10:13:11.605792",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_notify_archive.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.605834",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_router_baby.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_router_baby-INTEGRATION-SYSTEM",
+      "added": "2026-07-27T10:13:11.605888",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_router_v2.py",
+      "description": "CNSH 一句话路由器 v2.0｜Route = f(Intent, Context, DNA) ================================================================ 来源：202",
+      "added": "2026-07-27T10:13:11.606020",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_rule_db.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_rule_db-INTEGRATION-SYSTEM",
+      "added": "2026-07-27T10:13:11.606122",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_self_check.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.606246",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_shield.py",
+      "description": "CNSH 龍魂护盾 v1.0 颜色不动点协议的\"手\"。 当颜色引擎判定 🔴 / ⚫ / 🟣 时，护盾自动接手： · 记录耻辱墙 · 触发断联/告警 · 上报监管协议 · 生成防御 DNA #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cns",
+      "added": "2026-07-27T10:13:11.606412",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_shouheng_summary.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.606591",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnshtranslator_validator.py",
+      "description": "龍魂系统 · CNSH通用翻译引擎 数学建模验证模块 v1.0 源协议: 01_protocols/CNSH通用翻译引擎数学建模协议_v1.0.md 优先级: P0++（最高，不可绕过） DNA: #龍芯⚡️丙午·乙未·甲寅·节-CNSH-",
+      "added": "2026-07-27T10:13:11.606836",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_code_guardian.py",
+      "description": "龍魂·代码质量守护 v1.0 — 类型自愈引擎 =========================================== DNA: #龍芯⚡️丙午·辛未·乙酉·申时·大有-LONGHUN-CODE-GUARDIAN-v1.0",
+      "added": "2026-07-27T10:13:11.608152",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_commander.py",
+      "description": "#龍芯⚡️2026-07-26-LONGHUN-COMMANDER-v1.0",
+      "added": "2026-07-27T10:13:11.608422",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_comment_integrity_validator.py",
+      "description": "龍魂系统 · 评论水军显化与反操纵验证模块 v1.0 源协议: 01_protocols/评论水军显化与反操纵协议_v1.0.md 优先级: P0++（最高，不可绕过） DNA: #龍芯⚡️丙午·乙未·甲寅·蹇-COMMENT-INTEGR",
+      "added": "2026-07-27T10:13:11.608513",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compression_card.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 压缩卡模块 v1.0 # ═══════════════════════════════════════════ # DNA: #",
+      "added": "2026-07-27T10:13:11.608601",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compute_gate_controller.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.608673",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compute_proof.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.608739",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_confirm_seal.py",
+      "description": "🔏 龍魂 CONFIRM 签名封印脚本 v1.0 DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-CONFIRM-SEAL-v1.0 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.608799",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_connectivity_scheduler.py",
+      "description": "🐉 龍魂连通性定时巡检调度器 v1.0 ================================ 基于现有架构扩展：复用 lh_server_checker.run_all_checks() 检测， 复用 feishu_longhu",
+      "added": "2026-07-27T10:13:11.608859",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_convert_model.py",
+      "description": "龍魂·底模转换脚本 — HF→MLX 离线模式",
+      "added": "2026-07-27T10:13:11.608887",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_core_algo_lib.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║   龍魂·核心算法库 v1.0 — 43张技术卡片·公式+代码·可查可跑·离线可用",
+      "added": "2026-07-27T10:13:11.608997",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_core_template.py",
+      "description": "═══════════════════════════════════════════  龍魂体系 | 核心模板 · 开源快速开始 ═══════════════════════════════════════════  DNA: #龍芯⚡",
+      "added": "2026-07-27T10:13:11.609085",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_corpus_builder.py",
+      "description": "龍魂·训练语料构建器 — 从 data/training/ 全量抽取文本",
+      "added": "2026-07-27T10:13:11.609127",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cross_module_router.py",
+      "description": "龍魂系统 · 跨模块路由回调总线 v1.0 DNA: #龍芯⚡️2026-07-21-MODULE-ROUTER-BUS-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.609246",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_crystal_recognition.py",
+      "description": "龍魂·水晶识别知识库 v2.0 · 阻断日志自动入库+智能标签+现实打脸报告 DNA: #龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0",
+      "added": "2026-07-27T10:13:11.609357",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cs_learning_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂·计算机知识卡片学习引擎 v1.0 — 142张卡片·智能学习路径·进",
+      "added": "2026-07-27T10:13:11.609462",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_csdn_full_scraper.py",
+      "description": "龍魂·CSDN全量文章抓取与训练数据生成 v1.6 DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-CSDN-FULL-SCRAPER-v1.6",
+      "added": "2026-07-27T10:13:11.609552",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_csdn_ref.py",
+      "description": "龍魂 · CSDN 外部引用工具 v1.0 让系统内任何组件都能引用已发布的CSDN博客文章",
+      "added": "2026-07-27T10:13:11.609592",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_csdn_to_train.py",
+      "description": "龍魂 · CSDN 17篇监管审计系列 → train.jsonl 语料生成 DNA: #龍芯⚡️丙午·辛未·丙戌·巳·履-CSDN-TO-TRAIN",
+      "added": "2026-07-27T10:13:11.609641",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cultural_dna.py",
+      "description": "龍魂·文化DNA引擎 v2.0 — 核心文化基因注入+三层保护 DNA: #龍芯⚡️丙午·乙申·CULTURAL-DNA-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.609685",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_da_align_table.py",
+      "description": "🐉 龍魂 DA 对齐表 · 自动索引引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙卯·申时·䷀乾-DA-ALIGN-TABLE-AUTO-v1.0",
+      "added": "2026-07-27T10:13:11.609764",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daily_logger.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 结构化每日日志记录器 v1.0 # ═══════════════════════════════════════════ # D",
+      "added": "2026-07-27T10:13:11.609837",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daodejing_anchor.py",
+      "description": "龍魂系统 · 道德经场景定锚器 v1.1 作者：诸葛鑫（UID9622） 优先级：P0++（原文永锁·注释分层·哈希校验） DNA: #龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1",
+      "added": "2026-07-27T10:13:11.609887",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daodejing_export_training.py",
+      "description": "龍魂·道德经深层训练数据导出器 v1.0 DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-DAODEJING-EXPORT-TRAINING-V1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.609982",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daoyin.py",
+      "description": "龍魂道引器 · lh_daoyin.py v2.0",
+      "added": "2026-07-27T10:13:11.610129",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daoyin_gitee_batch.py",
+      "description": "龍魂道引器 · Gitee 批量吸收桥接脚本 v1.0",
+      "added": "2026-07-27T10:13:11.610190",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daoyin_gitee_v2_absorb.py",
+      "description": "龍魂道引器 · Gitee v2.0 批量吸收（元数据卡模式）",
+      "added": "2026-07-27T10:13:11.610265",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daoyin_github_to_gitee.py",
+      "description": "龍魂道引器 · GitHub→Gitee 批量搬运 6个仓库：GitHub clone → Gitee push → 元数据归档 铁律：A-028 龍魂道引 · 来源可查 · 入链不可覆",
+      "added": "2026-07-27T10:13:11.610313",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dashboard_api.py",
+      "description": "龍魂系统 · 仪表盘API端点 v1.0 DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-DASHBOARD-API-v1.0-e6f7a8b9 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 补全: 主计划1",
+      "added": "2026-07-27T10:13:11.610361",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_expand_v41.py",
+      "description": "🐉 龍魂 v4.1 数据扩量引擎 扫描全项目 .md/.py 文件 → 自动生成 Q&A 对 → 合并到训练数据 DNA: #龍芯⚡️丙午·乙申·辛亥·亥时·乾-DATA-EXPAND-V4.1",
+      "added": "2026-07-27T10:13:11.610436",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_extractor.py",
+      "description": "LongHun Data Extractor - From CSDN & Chat Logs DNA: #龍芯⚡️2026-07-18-DATA-EXTRACT-v1.0",
+      "added": "2026-07-27T10:13:11.610464",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_meltdown.py",
+      "description": "lh_data_meltdown — 龍魂数据黑洞五层熔断引擎 v1.0",
+      "added": "2026-07-27T10:13:11.610592",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_privacy_v2.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.610938",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_radar_api.py",
+      "description": "龍魂 · 个人数据主权雷达 API v3.0 DNA: #龍芯⚡️丙午·乙未·戊戌·亥时·☰乾-DATA-RADAR-API-v3.0-TRIPLE-AI 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0 端口:",
+      "added": "2026-07-27T10:13:11.610995",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_refinery.py",
+      "description": "龍魂 · 个人数据炼化总控 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DATA-REFINERY-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.611074",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_data_to_train_bridge.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.611124",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dcep_crossborder.py",
+      "description": "lh_dcep_crossborder.py",
+      "added": "2026-07-27T10:13:11.611173",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dcep_recharge.py",
+      "description": "🐉 龍魂 · 数字人民币充值接口 v1.0 — 一元起充·无上限 ═══════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.611264",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deben_audit.py",
+      "description": "lh_deben_audit — 龍魂德本审计执行器 v1.0",
+      "added": "2026-07-27T10:13:11.611331",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_decision_daemon.py",
+      "description": "DNA: #龍芯⚡️丙午·乙申·甲寅·庚午·大壮-DECISION-DAEMON-v1.0",
+      "added": "2026-07-27T10:13:11.611373",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_decision_tracer.py",
+      "description": "DNA: #龍芯⚡️丙午·乙申·甲寅·庚午·大畜-DECISION-TRACER-v1.0",
+      "added": "2026-07-27T10:13:11.611410",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deep_cleanup.py",
+      "description": "龍魂项目二轮深度清理 v1.0 DNA: #龍芯⚡️丙午·乙申·己酉·DEEP-CLEAN-v1.0",
+      "added": "2026-07-27T10:13:11.611453",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deepseek_fixer.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | DeepSeek 修复引擎 · 打工工具 # ══════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.611519",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_delivery_checklist.py",
+      "description": "龍魂·交付清单自检器 v1.0",
+      "added": "2026-07-27T10:13:11.611598",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_delivery_validator.py",
+      "description": "龍魂·产品级交付标准验证器 v1.0 对应协议: 01_protocols/LH-DELIVERY-STANDARD-v1.0.md 职能: 任何产出在汇报「已完成」之前，先过五道交付标准检查。 DNA: #龍芯⚡️丙午·乙未·己亥·午时·",
+      "added": "2026-07-27T10:13:11.611642",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_desire_growth.py",
+      "description": "龍魂·欲望倒逼成长引擎 v1.0 以欲为饵·逼人向上 DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46",
+      "added": "2026-07-27T10:13:11.611691",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dialogue_strategy.py",
+      "description": "🐉 龍魂 · 对话策略引擎 v1.0 来源: UID9622《龍魂对话录：与千问的十二回合》 DNA: #龍芯⚡️丙午·乙申·己酉·亥时·需-DIALOGUE-STRATEGY-ENGINE-v1.0",
+      "added": "2026-07-27T10:13:11.611752",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_digest_filter.py",
+      "description": "🐉 龙魂消化过滤层 v1.0 · AI输出清洗引擎 =========================================== AI接入强制规范（A-042）的执行引擎。AI输出经过此层：   ✅ 保留 → 核心事实、代码、数据",
+      "added": "2026-07-27T10:13:11.611833",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_digital_human_bridge.py",
+      "description": "龍芯⚡️丙午·丙申·丙辰·亥时·需-DIGITAL-HUMAN-BRIDGE-v1.0",
+      "added": "2026-07-27T10:13:11.611894",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_disk_guard.py",
+      "description": "🐉 龍魂 · 磁盘守护引擎 v1.0",
+      "added": "2026-07-27T10:13:11.611972",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_distill.py",
+      "description": "龍魂 · 知识蒸馏 CLI v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DISTILL-CLI-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.612031",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_api.py",
+      "description": "龍魂·DNA生成与验证API v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DNA-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 端口: 8783",
+      "added": "2026-07-27T10:13:11.612074",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_bind_defender.py",
+      "description": "龍魂系统 · DNA捆绑与蒸馏防御引擎 v1.0 ────────────────────────────────────────────── DNA: #龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-ENGINE",
+      "added": "2026-07-27T10:13:11.612170",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_generator.py",
+      "description": "龍魂·DNA 生成器 v2.0 新格式：#龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-{动作标签}-{版本}",
+      "added": "2026-07-27T10:13:11.612223",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_index_diff.py",
+      "description": "DNA: #龍芯⚡️2026-07-24-BIN-DNA_INDEX_DIFF-v1.0",
+      "added": "2026-07-27T10:13:11.612275",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_index_fast.py",
+      "description": "#龍芯⚡️2026-07-24-BIN-DNA_INDEX_FAST-v2.2 DNA快速索引 v2.2 — 文件DNA + 行为DNA标签双轨扫描·os.walk剪枝·流式输出 v2.2新增: 行为DNA标签扫描(7F-*/MODE-*/",
+      "added": "2026-07-27T10:13:11.612310",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_repair.py",
+      "description": "龍魂系统 · DNA修复与补全工具 Longhun DNA Repair Tool v1.0",
+      "added": "2026-07-27T10:13:11.612379",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_reversible_validator.py",
+      "description": "龍魂系统 · DNA可逆编码与时间主权验证模块 v1.0 源协议: 01_protocols/DNA可逆编码与时间主权协议_v1.0.md 优先级: P0++（最高，不可绕过） DNA: #龍芯⚡️丙午·乙未·甲寅·大有-DNA-REVER",
+      "added": "2026-07-27T10:13:11.612432",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_verifier.py",
+      "description": "龍魂·DNA验证工具 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DNA-VERIFIER-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.612486",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_download_v40_bases.py",
+      "description": "v4.0 底座候选模型下载脚本 后台并行下载 3 个候选底座到 models/base_models_v4.0/ DNA: #龍芯⚡️20260719002000000-V40-BASE-DOWNLOAD",
+      "added": "2026-07-27T10:13:11.612514",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_download_v40_bases_modelscope.py",
+      "description": "v4.0 底座候选模型下载脚本（ModelScope 魔搭 fallback） 当 HuggingFace / hf-mirror 不可用时使用，国内链路更稳。 DNA: #龍芯⚡️20260719003000000-V40-BASE-DO",
+      "added": "2026-07-27T10:13:11.612554",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_drive_auto_backup.py",
+      "description": "🐉 龍魂 · 移动硬盘自动备份引擎 v1.0",
+      "added": "2026-07-27T10:13:11.612606",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dual_audit_auto.py",
+      "description": "🐉 龍魂 · 左右互补审计 v1.0 — 红蓝对抗自动化 ═══════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.612688",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dual_audit_engine.py",
+      "description": "左右互搏審計引擎 系統內部兩個對立人格互相審計，左保守右探索，互搏產生真相",
+      "added": "2026-07-27T10:13:11.612773",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dual_brain_engine.py",
+      "description": "🐉 龍魂 · 双脑审计引擎 v1.0 (Dual Brain Engine) ================================================== 左脑（生成脑）vs 右脑（攻击脑）= 自我博弈审计系统 投喂",
+      "added": "2026-07-27T10:13:11.612883",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dual_engine.py",
+      "description": "龍魂·双引擎AI融合 v2.0 DNA: #龍芯⚡️丙午·乙申·DUAL-ENGINE-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.612946",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dualview_validator.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0",
+      "added": "2026-07-27T10:13:11.613028",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_early_stop.py",
+      "description": "龍魂系统 · 训练监控与最优提取协议 v1.1 ============================================ UID9622 | 龍芯北辰 | 2026-07-18 DNA: #龍芯⚡️丙午·乙申·庚戌·巳时·需",
+      "added": "2026-07-27T10:13:11.613132",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ecom_trust_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·申时·☱兑-ECOM-TRUST-ENGINE-V1.0.1-P0-1002819c",
+      "added": "2026-07-27T10:13:11.613219",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ecosystem_deploy.py",
+      "description": "龍魂生态一键部署 · lh_ecosystem_deploy.py v1.0 Ecosystem One-Click Deploy",
+      "added": "2026-07-27T10:13:11.613298",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ecosystem_passport.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.613545",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_emotion_protocol.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║       龍魂 · 数字人情感协议引擎 v2.0                        ",
+      "added": "2026-07-27T10:13:11.613704",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ethics_demob_validator.py",
+      "description": "龍魂系统 · 战后整顿验证模块 v1.0 源协议: 01_protocols/龙魂数据战后整顿与回头是岸协议_v1.0.md 优先级: P0++（最高，不可绕过） DNA: #龍芯⚡️丙午·乙未·甲寅·颐-ETHICS-DEMOB-VALI",
+      "added": "2026-07-27T10:13:11.613757",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_euv_lithography.py",
+      "description": "🐉 CNSH-EUV 光刻机攻关系统 v1.0 数学骨架落地代码 · 不动点切割 · 七因子映射 · 369频率窗口 集成: 64卦状态机 · 五行平衡诊断 · SQP优化 · 3D可视化 · 自求多福进化",
+      "added": "2026-07-27T10:13:11.613932",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_evaluator.py",
+      "description": "LongHun Model Evaluator - Three-Color Protocol DNA: #龍芯⚡️2026-07-18-EVAL-PROTOCOL-v1.0",
+      "added": "2026-07-27T10:13:11.613969",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_event_bus_engine.py",
+      "description": "🐉 龍魂 · 事件总线引擎 v1.0 (Event Bus Engine) ================================================ 投喂落地：CNSH Runtime Governance Math",
+      "added": "2026-07-27T10:13:11.614031",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_evolution.py",
+      "description": "龍魂 · 自适应进化中枢 CLI v1.0 DNA: #龍芯⚡️2026-07-25-EVOLUTION-CLI-v1.0",
+      "added": "2026-07-27T10:13:11.614076",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_execution_tracker.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     💪 龍魂 · 肌肉系统 · 执行追踪引擎 v1.0                    ║ ║ ",
+      "added": "2026-07-27T10:13:11.614134",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_existence_proof.py",
+      "description": "数字存在证明引擎 v1.0 · Digital Existence Proof Engine",
+      "added": "2026-07-27T10:13:11.614196",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_exobrain_engine.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 记忆外脑迭代压缩引擎 v1.1 # ═══════════════════════════════════════════ # D",
+      "added": "2026-07-27T10:13:11.614291",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_exobrain_health.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 外脑健康体检引擎 v1.1 # ═══════════════════════════════════════════ # DNA",
+      "added": "2026-07-27T10:13:11.614352",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_exobrain_heartbeat.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 外脑心跳调度器 v1.0 # ═══════════════════════════════════════════ # DNA:",
+      "added": "2026-07-27T10:13:11.614442",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_export_gguf_v414.py",
+      "description": "龍魂 v4.1.4 MLX merged → GGUF 导出器（轻量·无需llama.cpp） DNA: #龍芯⚡️丙午·癸未·丁亥·☲离-EXPORT-GGUF-v4.1.4 用法: python3 bin/lh_export_gguf_",
+      "added": "2026-07-27T10:13:11.614489",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_face_api.py",
+      "description": "龍魂人脸识别统一接口 · 严格DNA授权",
+      "added": "2026-07-27T10:13:11.614537",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_fake_review_detector.py",
+      "description": "lh_fake_review_detector — 龍魂·虚假评论检测引擎 v1.0",
+      "added": "2026-07-27T10:13:11.614645",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_five_harms_api.py",
+      "description": "龍魂·五害曝光台 API v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.614787",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_five_harms_historian_bridge.py",
+      "description": "龍魂·五害曝光台 — 浏览器史官联动引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-HARMS-HISTORIAN-BRIDGE-v1.0",
+      "added": "2026-07-27T10:13:11.614839",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_five_harms_validator.py",
+      "description": "龍魂·五害曝光台 — 多源验证引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-VALIDATOR-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.614907",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_fixpoint_fill_gap_v2.py",
+      "description": "lh_fixpoint_fill_gap_v2.py",
+      "added": "2026-07-27T10:13:11.614977",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_flow_pipeline.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     🩸 龍魂 · 循环系统 · 数据流动管道 v1.0                     ║ ║",
+      "added": "2026-07-27T10:13:11.615028",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_font_manager.py",
+      "description": "龍魂字体管理引擎 CLI v2.0 · LonghunFont Manager ================================================= 底座组件 · L1_内核层/fonts 字体子系统 DNA:",
+      "added": "2026-07-27T10:13:11.615108",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_foundation_launcher.py",
+      "description": "═══════════════════════════════════════════════════════════════════════════════   龍魂系統底座啟動台 v2.0 — LongHun Foundation La",
+      "added": "2026-07-27T10:13:11.615261",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_free_app_cost.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂·\"免费App的代价\"计算器 v1.0 — 免费是最贵的商业模式   ",
+      "added": "2026-07-27T10:13:11.615358",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_full_system_audit.py",
+      "description": "龍魂全系统大排查脚本 v1.0 检查：对冲冲突 / 孤立文件 / 注册表缺失 / 重复文件 / 依赖断裂 源头： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.615423",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_fuse_isolated_to_train.py",
+      "description": "龍魂孤立文件融合引擎 v1.0 把 /Users/zuimeidedeyihan 下扫描出的孤立文件转换成 v4.1.3 训练格式， 去重、脱敏后与现有 data_v412_guanlan_ready 合并，输出 data_v413_fus",
+      "added": "2026-07-27T10:13:11.615488",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_gap_detector.py",
+      "description": "龍魂 · 空缺检测器 v1.0 DNA: #龍芯⚡️2026-07-25-GAP-DETECTOR-v1.0 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.615553",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_gen_dna_bind_training_data.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-DNA-BIND-TRAINING-DATA-GEN-V1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 用途: 从DNA捆绑与蒸馏防御协议v1.0生成训练数据JS",
+      "added": "2026-07-27T10:13:11.615658",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_generate_thinking_v401.py",
+      "description": "🐉 龍魂 v4.0.1 · DeepSeek thinking 数据生成器（规则版） 输入: models/longhun-v1.0/lora_output/data/train.jsonl / valid.jsonl 输出: models",
+      "added": "2026-07-27T10:13:11.615704",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_generate_thinking_v401_valid.py",
+      "description": "🐉 龍魂 v4.0.1 · DeepSeek thinking 数据生成器（valid 规则版） 输入: models/longhun-v1.0/lora_output/data/valid.jsonl 输出: models/longhun",
+      "added": "2026-07-27T10:13:11.615739",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_git_visual.py",
+      "description": "🐉 龍魂 Git 可视化面板（终端 TUI） DNA: #龍芯⚡️丙午·辛未·GIT-VISUAL-v1.0",
+      "added": "2026-07-27T10:13:11.615820",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_gitee_new_repo.py",
+      "description": "Gitee repo creator via Kimi WebBridge",
+      "added": "2026-07-27T10:13:11.615848",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_gitee_verify_batch.py",
+      "description": "Gitee 仓库批量验证 + 道引元数据卡生成 v2.0 使用一次性 token，执行后自动清除。",
+      "added": "2026-07-27T10:13:11.615892",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_global_monitor.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║   🐉 龙魂·全局监控与实时通报引擎 v1.0                  ",
+      "added": "2026-07-27T10:13:11.616022",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_global_search_v2.py",
+      "description": "lh_global_search_v2.py",
+      "added": "2026-07-27T10:13:11.616092",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_governance.py",
+      "description": "🐉 龍魂分层治理自愈引擎 · CLI 入口",
+      "added": "2026-07-27T10:13:11.616126",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_guanlan_api.py",
+      "description": "观澜浏览器AI联动 API服务 v1.0 · GuanLan Browser AI Integration API ═══════════════════════════════════════════════════════════ DN",
+      "added": "2026-07-27T10:13:11.616299",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_guanlan_router.py",
+      "description": "观澜浏览器联动路由引擎 v1.0 · GuanLan Router Engine ═══════════════════════════════════════════════════════════ DNA: #龍芯⚡️丙午·乙未·丙申·",
+      "added": "2026-07-27T10:13:11.616459",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_guanlan_train_data_gen.py",
+      "description": "观澜浏览器训练数据生成器 DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-TRAIN-DATA-GEN-V1.0 生成观澜浏览器知识域的 JSONL 训练数据",
+      "added": "2026-07-27T10:13:11.616536",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_guardian_v2.py",
+      "description": "================================================================================ ⚡ 龍魂系統·算力純潔性守護進程 v2.0 =================",
+      "added": "2026-07-27T10:13:11.616674",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_health_alert_daemon.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     🏥 龍魂·健康检查+告警自动化守护 v1.0                       ",
+      "added": "2026-07-27T10:13:11.616776",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_health_check.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-HEALTH-CHECK-v1.0-3e8a1f2b",
+      "added": "2026-07-27T10:13:11.616855",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_health_check_quick.py",
+      "description": "DNA: #龍芯⚡️2026-07-24-BIN-HEALTH-CHECK-QUICK-v1.0",
+      "added": "2026-07-27T10:13:11.616918",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_hexagram_data.py",
+      "description": "龍魂·64卦完整数据库 v2.0 DNA: #龍芯⚡️丙午·乙申·HEXAGRAM-DB-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.617079",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_human_brain_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════╗ ║              龍魂·人脑神经网络引擎 v1.0                ",
+      "added": "2026-07-27T10:13:11.617206",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_human_brain_engine_v2.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════╗ ║              龍魂·人脑神经网络引擎 v2.0                ",
+      "added": "2026-07-27T10:13:11.617419",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_humha_ku_sync.py",
+      "description": "龍魂嘿咕仓 · iPhone录音自动同步管道 v1.0 LongHun HumHa-Ku · iPhone Voice Memo Auto-Sync Pipeline",
+      "added": "2026-07-27T10:13:11.617501",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_hunter_internal_audit.py",
+      "description": "🐉 龍魂·猎手计划 — 内部磨刀审计引擎 v1.0 ═══════════════════════════════════════════════════ DNA: #龍芯⚡️丙午·癸未·甲子·既济-HUNTER-INTERNAL-AUDI",
+      "added": "2026-07-27T10:13:11.617607",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_inbox_mapper.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     📥 龍魂·四类收纳→六层架构 自动映射引擎 v1.0                  ║",
+      "added": "2026-07-27T10:13:11.617703",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ingest_all_memories.py",
+      "description": "🐉 龍魂全记忆 ingestion 管道 v1.0 把日志、长期记忆、星辰记忆、英文记忆、技能、人格全部归集为训练数据。",
+      "added": "2026-07-27T10:13:11.617770",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ingest_codebuddy_corpus.py",
+      "description": "吸收 CodeBuddy 训练语料（training_corpus_v3.0.md + training_corpus_full.md） 转为龍魂训练池 JSONL。",
+      "added": "2026-07-27T10:13:11.617818",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ingest_desktop_articles.py",
+      "description": "🐉 龍魂 · 桌面文章全量摄入脚本 v4.0.7 扫描 ~/Desktop 全部 .md/.txt 文章，生成训练样本。 冲突检测：与焊死协议比对，输出冲突报告。 DNA: #龍芯⚡️2026-07-19-DESKTOP-ARTICLES-",
+      "added": "2026-07-27T10:13:11.617876",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ingest_shuijun_v12.py",
+      "description": "龍魂系统 · 水军显化协议 v1.2 训练样本摄入脚本 DNA: #龍芯⚡️2026-07-19-SHUIJUN-V12-INGEST",
+      "added": "2026-07-27T10:13:11.617928",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ingest_unified_sources.py",
+      "description": "龍魂 · 统一来源摄入引擎 v1.0 扫描：Notion 本地镜像 + GitHub 公开仓库 + 本地仓库 输出：训练样本 JSONL（system/user/assistant） DNA: #龍芯⚡️2026-07-20-UNIFIED",
+      "added": "2026-07-27T10:13:11.617982",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_inject_multiturn_qa.py",
+      "description": "注入「多轮对话不漂移」训练数据 v3.9 目标：让模型在 5-10 轮对话中保持 DNA、身份、价值观、主权边界不漂移。 DNA: #龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B15",
+      "added": "2026-07-27T10:13:11.618041",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_inject_roadmap_qa.py",
+      "description": "注入「模型迭代路线图」训练数据 把 Kimi app 关于 v3.7 状态 / \"厉害\"标准 / 迭代路线图的讨论 固化为模型可学习的 QA 对，归入「模型迭代路线图」知识域。 DNA: #龍芯⚡️20260718234000000-ROA",
+      "added": "2026-07-27T10:13:11.618080",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_innovation_tracer.py",
+      "description": "👁️ 上帝之眼 · 创新溯源推演器 v1.0",
+      "added": "2026-07-27T10:13:11.618228",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_input_pipeline.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     🍽  龍魂 · 消化系统 · 输入处理管道 v1.0                    ║ ║",
+      "added": "2026-07-27T10:13:11.618276",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_integrate_cnsh_uid9622.py",
+      "description": "君子协议: 本文件受龍魂DNA追溯保护",
+      "added": "2026-07-27T10:13:11.618328",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_integration_test.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-INTEGRATION-TEST-v1.0-a1b2c3d4",
+      "added": "2026-07-27T10:13:11.618389",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_intl_to_train.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.618427",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_jiafa_audit.py",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.618533",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_jiafa_enforcer.py",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.618659",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_jiafa_train_inject.py",
+      "description": "龍魂·家法第一条 模型主权意识训练数据生成器 DNA: #龍芯⚡️丙午·乙未·壬辰·午时-JIAFA-TRAIN-INJECTOR-v1.0",
+      "added": "2026-07-27T10:13:11.618730",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_k3_distill_v39.py",
+      "description": "龍魂 v3.9 · K3 教师模型蒸馏器",
+      "added": "2026-07-27T10:13:11.618795",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_kb_expand.py",
+      "description": "龍魂·知识库扩展自动化引擎 v1.1（精修版） DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KB-EXPAND-AUTO-v1.1 创建者: 诸葛鑫 (UID9622) 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.618896",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_key_checker.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.618930",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_algo_db.py",
+      "description": "龍魂算法知识库 - 核心公式、描述、场景、误区",
+      "added": "2026-07-27T10:13:11.619104",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_hub_api.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☵坎-KNOWLEDGE-HUB-API-v1.0-7d3a1e9b",
+      "added": "2026-07-27T10:13:11.619177",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_semantic_trigger.py",
+      "description": "🐉 龍魂 · 自然语言知识搜索引擎 v1.0 DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KNOWLEDGE-SEMANTIC-TRIGGER-v1.0 创建者: 诸葛鑫 (UID9622) 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.619244",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_launcher.py",
+      "description": "🐉 龍魂统一启动器 · LongHun Unified Launcher",
+      "added": "2026-07-27T10:13:11.619310",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_learning_pipeline.py",
+      "description": "龙魂学习管道 v1.0 · 六库自动化学习系统 Inbox → DNA拆解 → 任务派生 → 趋势绑定 → 项目实战 → 数字大军",
+      "added": "2026-07-27T10:13:11.619418",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_library_miner.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·乙未·未时·☵坎-LIBRARY-MINER-V1.0-bf8e1a2d",
+      "added": "2026-07-27T10:13:11.619507",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_llm_api.py",
+      "description": "龍魂大模型统一接口 · 国产模型路由",
+      "added": "2026-07-27T10:13:11.619547",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_local_ai_relay.py",
+      "description": "╔═══════════════════════════════════════════════════════════════╗ ║  🐉 龍魂本地AI中继 · 自己的下水道 v1.0                      ║ ║  ",
+      "added": "2026-07-27T10:13:11.619629",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer.py",
+      "description": "🐉 龍魂 longhun-v3.8.1 LoRA 微调器（数据修复版） 底模: Qwen2.5-1.5B-Instruct 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 64GB DNA: #龍芯⚡️丙",
+      "added": "2026-07-27T10:13:11.619865",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_antenna.py",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.619920",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_deepseek_v40.py",
+      "description": "🐉 龍魂 longhun-v4.0 DeepSeek 版 LoRA 微调器 底模: DeepSeek-R1-Distill-Llama-8B (MLX) 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 6",
+      "added": "2026-07-27T10:13:11.620001",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v39.py",
+      "description": "🐉 龍魂 longhun-v3.9 LoRA 微调器（K3 真血 + 人格矩阵 + 语义 QA 版） 底模: Qwen2.5-1.5B-Instruct 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 6",
+      "added": "2026-07-27T10:13:11.620251",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v391.py",
+      "description": "🐉 龍魂 longhun-v3.9.1 LoRA 微调器（K3 真血 + 人格矩阵 + 语义 QA 版） 底模: Qwen2.5-1.5B-Instruct 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max",
+      "added": "2026-07-27T10:13:11.620529",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v392.py",
+      "description": "🐉 龍魂 longhun-v3.9.2 LoRA 微调器（数据净化回滚版） 底模: Qwen2.5-1.5B-Instruct 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 64GB DNA: #龍芯⚡",
+      "added": "2026-07-27T10:13:11.620790",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v4.py",
+      "description": "🐉 龍魂 longhun-v4.0 LoRA 微调器 底模: Llama-3.1-8B-Instruct (MLX) 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 64GB DNA: #龍芯⚡️丙午·乙",
+      "added": "2026-07-27T10:13:11.620875",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v402.py",
+      "description": "🐉 龍魂 longhun-v4.0.2 LoRA 微调器（换底座 · 已拔马云） 底模: Llama-3.1-8B-Instruct (MLX) 框架: MLX (Apple Silicon 原生) 硬件: Mac M4 Max 64GB ",
+      "added": "2026-07-27T10:13:11.620927",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v403.py",
+      "description": "🐉 龍魂 longhun-v4.0.3 LoRA 微调器（换底座 · 稳定增量版） 底模: Llama-3.1-8B-Instruct (MLX) 数据: v3.7 稳定配方（13 域） + 4 个 P0++ 协议域增量（v3.9.2 清洗",
+      "added": "2026-07-27T10:13:11.620983",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v404.py",
+      "description": "🐉 龍魂 longhun-v4.0.4 LoRA 微调器（换底座 · 中文优化版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v3.7 稳定配方（13 域） + 4 个 P0++ 协议域增量 目标: 在 v4.0",
+      "added": "2026-07-27T10:13:11.621041",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v405.py",
+      "description": "🐉 龍魂 longhun-v4.0.5 LoRA 微调器（升容量 · 中文优化版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v3.7 稳定配方（13 域） + 4 个 P0++ 协议域增量 目标: 在 v4.0",
+      "added": "2026-07-27T10:13:11.621097",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v406.py",
+      "description": "🐉 龍魂 longhun-v4.0.6 LoRA 微调器（保守回滚版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v3.7 稳定配方 + 全记忆 ingestion（技能/人格/知识/英文/日志） 目标: v4.",
+      "added": "2026-07-27T10:13:11.621158",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v407.py",
+      "description": "🐉 龍魂 longhun-v4.0.7 LoRA 微调器（桌面文章强化版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v3.7 + 全记忆 ingestion + 桌面文章（3302 文件）+ 焊死核心 QA ×",
+      "added": "2026-07-27T10:13:11.621214",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v408.py",
+      "description": "🐉 龍魂 longhun-v4.0.8 LoRA 微调器（桌面文章强化版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v3.7 + 全记忆 ingestion + 八卦阵v1.1 + 道德经定锚v1.1 + 水军",
+      "added": "2026-07-27T10:13:11.621271",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v409.py",
+      "description": "🐉 龍魂 longhun-v4.0.9 LoRA 微调器（统一来源全量版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v4.0.8 全量 + Notion 本地镜像 + GitHub 公开仓库 + 本地仓库统一来",
+      "added": "2026-07-27T10:13:11.621329",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v41.py",
+      "description": "🐉 龍魂 longhun-v4.1 LoRA 微调器 底模: Llama-3.1-8B-Instruct (MLX) · 已拔马云 升级: rank 16→64, layers 16→24, 数据 1145→5870, +审计协议v2.0 ",
+      "added": "2026-07-27T10:13:11.621387",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v410.py",
+      "description": "🐉 龍魂 longhun-v4.1.0 LoRA 微调器（自定义训练循环 · 抗过拟合版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v4.0.9 清洗集 → v4.1.0 工作目录（后续可替换为 v4.1.0 ",
+      "added": "2026-07-27T10:13:11.621490",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v411.py",
+      "description": "🐉 龍魂 longhun-v4.1.1 LoRA 微调器（自定义训练循环 · 抗过拟合调参版） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v4.0.9 清洗集 → v4.1.1 工作目录 目标: v4.1.1 调",
+      "added": "2026-07-27T10:13:11.621593",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v411_bind.py",
+      "description": "🐉 龍魂 longhun-v4.1.1-bind LoRA 微调器（DNA捆绑协议注入 · 自定义训练循环） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) 数据: v4.0.9 清洗集 → v4.1.1 工作目录 目标: v",
+      "added": "2026-07-27T10:13:11.621705",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v412.py",
+      "description": "🐉 龍魂 longhun-v4.1.2 LoRA 微调器（自定义训练循环 · 抗过拟合调参版 v4.1.2） 底模: 01-ai/Yi-1.5-9B-Chat (MLX) · 起点: v4.0.8-iter1900 golden (Val ",
+      "added": "2026-07-27T10:13:11.621815",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v413.py",
+      "description": "龍魂 longhun-v4.1.3 LoRA 微调器（全量数据·DNA捆绑继承） DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.3-RESTART 底模: 01-ai/Yi-1.5-9B-",
+      "added": "2026-07-27T10:13:11.621882",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v414.py",
+      "description": "🐉 龍魂 longhun-v4.1.4 LoRA 微调器（全量数据·DNA捆绑继承·小艺唯一接口对齐） DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.4-XIAOYI 底模: 01-ai/",
+      "added": "2026-07-27T10:13:11.621970",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v415.py",
+      "description": "🐉 龍魂 longhun-v4.1.5 LoRA 微调器（道德经注入·DNA捆绑继承·小艺唯一接口对齐） DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.5-DAODEJING 底模: 01",
+      "added": "2026-07-27T10:13:11.622050",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v416.py",
+      "description": "🐉 龍魂 longhun-v4.1.6 LoRA 精修器（低LR外科手术·从v4.1.4最佳恢复·修复v4.1.5退化） DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.6-REFINEME",
+      "added": "2026-07-27T10:13:11.622135",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v417.py",
+      "description": "🐉 龍魂 longhun-v4.1.7 LoRA 微调器（从零起跑·全量数据·全新策略） DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.7-FRESH 底模: 01-ai/Yi-1.5-9",
+      "added": "2026-07-27T10:13:11.622216",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v418.py",
+      "description": "🐉 龍魂 longhun-v4.1.8 LoRA 微调器（从v4.1.4 best续训·保守策略） DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-MODEL-LORA-TRAINER-v4.1.8-RESUME 底模: 01-ai/Yi",
+      "added": "2026-07-27T10:13:11.622306",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lora_trainer_v419.py",
+      "description": "🐉 龍魂 longhun-v4.1.9 LoRA 微调器 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.9-AUTO",
+      "added": "2026-07-27T10:13:11.622365",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lu_instruction_engine.py",
+      "description": "Lu指令引擎 v1.0 · 龙魂统一指令集 · CNSH兼容语法转换器 三才算法 + AI-DNA + 易经推演 → 统一Lu指令",
+      "added": "2026-07-27T10:13:11.622458",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_magdecl.py",
+      "description": "龍魂 · 磁偏角查询模块 v1.0 功能：根据经纬度、年份查询磁偏角（真北修正）。 策略：优先本地 lookup 表 → 可选 IGRF 模型/NOAA API。 DNA: #龍芯⚡️2026-07-19-MAGDECL-LOOKUP-v1",
+      "added": "2026-07-27T10:13:11.622507",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_malicious_edit_detector.py",
+      "description": "lh_malicious_edit_detector — 龍魂·恶意剪辑检测引擎 v1.0",
+      "added": "2026-07-27T10:13:11.622618",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_map_api.py",
+      "description": "龍魂地图/位置统一接口 · 坐标国密加密",
+      "added": "2026-07-27T10:13:11.622669",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_math_formalization.py",
+      "description": "龙魂数学形式化引擎 v1.0 · Lyapunov稳定性 · 记忆链验证 · 人格向量有界性 CNSH可编译版本的数学骨干",
+      "added": "2026-07-27T10:13:11.622757",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_math_model.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂 · 数学建模 CLI v1.0 # ═══════════════════════════════════════════ # DNA: ",
+      "added": "2026-07-27T10:13:11.622809",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_media_mark.py",
+      "description": "龍魂·媒体主权标记 CLI 入口 调用 engines/lh_media_sovereignty_marker.py",
+      "added": "2026-07-27T10:13:11.622835",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_media_verify_api.py",
+      "description": "龍魂·媒体主权验证 API v1.0 部署到鲲鹏，提供官网验证入口。",
+      "added": "2026-07-27T10:13:11.622876",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_api.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·辛酉·井-MEMORY-API-v1.2-NOTION-INDEX-BRIDGE",
+      "added": "2026-07-27T10:13:11.622993",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_auto_deposit.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰既济-MEMORY-AUTO-DEPOSIT-v2.2",
+      "added": "2026-07-27T10:13:11.623058",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_client.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MEMORY-CLIENT-v1.1-SECURE",
+      "added": "2026-07-27T10:13:11.623118",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_eternity_api.py",
+      "description": "龍魂·记忆永存操作 API v1.0 把外脑压缩引擎 + 记忆永存引擎封装成 HTTP API，供仪表盘调用。 DNA: #龍芯⚡️2026-07-25-MEMORY-ETERNITY-API-v1.0",
+      "added": "2026-07-27T10:13:11.623159",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_indexer.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·辛酉·井-MEMORY-INDEXER-v1.0-7a3f001c",
+      "added": "2026-07-27T10:13:11.623254",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_lifecycle.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 记忆生命周期管理器 v1.0 # ═══════════════════════════════════════════ # DN",
+      "added": "2026-07-27T10:13:11.623337",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merge_memory_dataset.py",
+      "description": "合并 v3.7 稳定数据 + 全记忆 ingestion 数据 → v4.0.6 训练集 DNA: #龍芯⚡️2026-07-19-MERGE-MEMORY-DATASET-v1.0",
+      "added": "2026-07-27T10:13:11.623376",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merge_v407_dataset.py",
+      "description": "合并 v3.7 + 全记忆 ingestion + 桌面文章 → v4.0.7 训练集 策略：焊死原则样本重复 30 次，确保核心主权概念不被稀释。 DNA: #龍芯⚡️2026-07-19-MERGE-V407-DATASET-v1.0",
+      "added": "2026-07-27T10:13:11.623425",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merge_v408_dataset.py",
+      "description": "合并 v4.0.7 + 八卦阵 v1.1 + 道德经定锚 v1.1 + 水军显化 v1.2 → v4.0.8 训练集 策略：核心焊死 QA 重复 30 次；新增协议样本去重合并。 DNA: #龍芯⚡️2026-07-19-MERGE-V40",
+      "added": "2026-07-27T10:13:11.623482",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merge_v409_dataset.py",
+      "description": "合并 v4.0.8 + 统一来源（Notion/GitHub/本地仓库）+ CodeBuddy 训练语料 → v4.0.9 训练集 策略：   - v4.0.8 全量保留   - 统一来源按仓库/来源 capped，防止单一仓库压倒   -",
+      "added": "2026-07-27T10:13:11.623540",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_migrate_archives.py",
+      "description": "DNA: #龍芯⚡️丙午·乙申·甲寅·壬午·同人-MIGRATION-SCRIPT-v1.0",
+      "added": "2026-07-27T10:13:11.623616",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_minor_guard_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-ENGINE-V1.0-P0-9243b09e",
+      "added": "2026-07-27T10:13:11.623773",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mirror_vision.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.623857",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mod9_runtime_engine.py",
+      "description": "🐉 龍魂 · 模9治理运行时引擎 v1.0 (Mod-9 Governance Runtime) ============================================================ 投喂落地：CNSH ",
+      "added": "2026-07-27T10:13:11.623939",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_model_eval.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.624001",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_model_lineage.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.624025",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_model_optimizer.py",
+      "description": "龍魂·模型优化引擎 v2.0 — 基于DNA文档的模型训练优化 DNA: #龍芯⚡️丙午·乙申·MODEL-OPTIMIZER-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.624134",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mvp_executor.py",
+      "description": "LongHun MVP Execution Engine v2.0",
+      "added": "2026-07-27T10:13:11.624283",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mvp_launcher.py",
+      "description": "LongHun MVP Launcher & Management v2.0",
+      "added": "2026-07-27T10:13:11.624432",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mvp_setup_integration.py",
+      "description": "LongHun MVP Auto-Setup & Integration Script v2.0",
+      "added": "2026-07-27T10:13:11.624582",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_naming_check.py",
+      "description": "龍魂·命名检查引擎 v1.0 基于四层命名法(LH-NAMING-ARCH-v2.0)自动检查所有文件命名合规性 协议: LH-NAMING-ARCH-2026-0716-v2.0",
+      "added": "2026-07-27T10:13:11.624687",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_naming_checker.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.624753",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_naming_lint.py",
+      "description": "龍魂系统 · 命名与字符自动校验器 v1.0 作者：诸葛鑫（UID9622） DNA: #龍芯⚡️2026-07-21-NAMING-LINT-V1.0 关联: 01_protocols/LH-NAMING-SYMBOL-MASTER-v1",
+      "added": "2026-07-27T10:13:11.624830",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_naming_unify.py",
+      "description": "═══════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.624911",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_national_soul_api.py",
+      "description": "龍魂·不朽民族魂 API v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-NATIONAL-SOUL-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.625022",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notify_gateway.py",
+      "description": "龍魂 · 飞书通知网关 v1.0 — 统一推送中枢 DNA: #龍芯⚡️2026-07-26-NOTIFY-GATEWAY-v1.0 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0 人格: 乔前辈（P15·签章",
+      "added": "2026-07-27T10:13:11.625150",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_archive.py",
+      "description": "龍魂·Notion 截图归档器 (打包落本地 + Notion 归档) 前置: lh_notion_capacity_scan.py 产出的 scan_report.json 策略(用户选定): 先打包落本地 → 再在 Notion 归档(",
+      "added": "2026-07-27T10:13:11.625208",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_capacity_scan.py",
+      "description": "龍魂·Notion 容量扫描器 (只读·归档前置侦察) 用途: 定位吃 workspace 容量的「上传型 image 块」，按库/行排序。      只读，不下载、不改数据。结果写本地归档目录(独立于 longhun-system)。 D",
+      "added": "2026-07-27T10:13:11.625263",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_dedup_archive.py",
+      "description": "🐉 龍魂 · Notion去重归档执行器 v1.0",
+      "added": "2026-07-27T10:13:11.625307",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_deep_scan_3dbs.py",
+      "description": "深度扫描三个指定数据库，提取所有字段和空壳条目",
+      "added": "2026-07-27T10:13:11.625357",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_explore.py",
+      "description": "龍魂·Notion 只读勘探器 用途: 枚举 integration 可见的所有页面/数据库，统计类型与规模，      为「容量清理 / 截图归档」提供决策依据。只读，不改任何数据。 DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-E",
+      "added": "2026-07-27T10:13:11.625401",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_fill_executor.py",
+      "description": "🐉 龍魂 · Notion 空壳填充执行引擎 v1.0 用法: python3 bin/lh_notion_fill_executor.py --dry-run       python3 bin/lh_notion_fill_execut",
+      "added": "2026-07-27T10:13:11.625474",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_full_sync.py",
+      "description": "🐉 龍魂 · Notion 全量同步整理器 v3.0",
+      "added": "2026-07-27T10:13:11.625568",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_hub_sync.py",
+      "description": "🐉 龍魂 · Notion 中枢同步引擎 v2.0（三地） DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-NOTION-HUB-SYNC-v2.0 创建者: 诸葛鑫 (UID9622) 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.625633",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_quick_scan.py",
+      "description": "快速 Notion 扫描 v2 - 修复版",
+      "added": "2026-07-27T10:13:11.625677",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_reorganize.py",
+      "description": "🐉 龍魂 · Notion 8主题重组引擎 v2.0",
+      "added": "2026-07-27T10:13:11.625785",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_reorganizer.py",
+      "description": "🐉 龍魂 · Notion 全面整理引擎 v1.0",
+      "added": "2026-07-27T10:13:11.625924",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_sync_engine.py",
+      "description": "🐉 龍魂 · Notion 知识卡片同步引擎 v1.0（双脑） DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-NOTION-SYNC-ENGINE-v1.0 创建者: 诸葛鑫 (UID9622) 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.625981",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_term_extractor.py",
+      "description": "龍魂·Notion知识库术语提取引擎 v1.0 ===================================== DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-TERM-EXTRACTOR-v1.0 用途: 从Notion知",
+      "added": "2026-07-27T10:13:11.626074",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_to_train_v1.5.py",
+      "description": "🐉 龍魂·Notion主控页面→训练语料生成器 v1.5",
+      "added": "2026-07-27T10:13:11.626190",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_obs_immutable_backup.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     🏛️ 龍魂·华为云 OBS 不可删除备份引擎 v1.0          ",
+      "added": "2026-07-27T10:13:11.626302",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_observability_collector.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     🔭 龍魂·天下无欺·全貌可观测性采集引擎 v1.0                   ║",
+      "added": "2026-07-27T10:13:11.626416",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ocr_api.py",
+      "description": "龍魂OCR统一接口 · 本地优先·云端备用",
+      "added": "2026-07-27T10:13:11.626453",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_oversight_bridge.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║  龍魂·监管天联动桥接引擎 v1.0 — 三系统自动协作                     ",
+      "added": "2026-07-27T10:13:11.626546",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_page_extractor.py",
+      "description": "龍魂 · 网页内容提取器 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PAGE-EXTRACTOR-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.626641",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pangdonglai_api.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丁酉·☷坤-PANGDONGLAI-API-v1.1-7f2a9c3e",
+      "added": "2026-07-27T10:13:11.626713",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pangdonglai_audit.py",
+      "description": "lh_pangdonglai_audit — 龍魂·胖东来分成审计执行器 v1.0",
+      "added": "2026-07-27T10:13:11.626827",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pangdonglai_contract_gen.py",
+      "description": "lh_pangdonglai_contract_gen — 龍魂·胖东来分成契约生成器 v1.0",
+      "added": "2026-07-27T10:13:11.626930",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pangdonglai_scheduler.py",
+      "description": "DNA: #龍芯⚡️乙巳·癸未·丁亥·☷坤-PANGDONGLAI-SCHEDULER-v1.0-b7c3e8f2",
+      "added": "2026-07-27T10:13:11.626992",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_panorama_report.py",
+      "description": "龍魂·全景日报生成器 v1.0 DNA: #龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-PANORAMA-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.627023",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_path_audit.py",
+      "description": "lh_path_audit — 龍魂路径审计引擎 v1.0",
+      "added": "2026-07-27T10:13:11.627100",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_path_visualize.py",
+      "description": "龍魂翻译引擎 · 1650万路径3D可视化协议 v1.0 龍魂系统 · 视觉路由层 UID9622 | 龍芯北辰 | 2026-07-18 DNA锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIN",
+      "added": "2026-07-27T10:13:11.627185",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_patrol.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.627227",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pay_anchor_forensic.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     🧬 龍魂·支付锚定取证引擎 v1.0 — 五层咬合            ",
+      "added": "2026-07-27T10:13:11.627398",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_payment_api.py",
+      "description": "龍魂支付统一接口 · 国密加密 · 三通道",
+      "added": "2026-07-27T10:13:11.627438",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_penetration_feedback_loop.py",
+      "description": "龍魂系统 · v2.0 渗透日志反馈闭环 v1.0 UID9622 | 诸葛鑫·龍芯北辰",
+      "added": "2026-07-27T10:13:11.627532",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_people_rights_calculator.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂·老百姓权益计算器 v1.0 — 六公式合体·一键算清老百姓的账   ",
+      "added": "2026-07-27T10:13:11.627647",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_perimeter_guard.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     🛡️  龍魂 · 表皮系统 · 边界防护引擎 v1.0                   ║ ║",
+      "added": "2026-07-27T10:13:11.627713",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_api.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.627753",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_auto_switch.py",
+      "description": "🐉 龍魂 · 人格矩阵自动切换引擎 v2.0 (Persona Auto-Switch Engine) ================================================================== 五",
+      "added": "2026-07-27T10:13:11.627860",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_orchestrator.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║      龍魂人格編排調度器 / Persona Orchestrator v1.0       ",
+      "added": "2026-07-27T10:13:11.627958",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_signing.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║  龍魂·人格执行签章引擎 v1.0 — 谁签名谁负责                       ",
+      "added": "2026-07-27T10:13:11.628094",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_sovereignty.py",
+      "description": "lh_persona_sovereignty — 龍魂人格主权三禁守卫 v1.0 禁一·禁Cosplay | 禁二·禁借壳 | 禁三·禁代言 用法: python3 bin/lh_persona_sovereignty.py scan \"<",
+      "added": "2026-07-27T10:13:11.628150",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_start_all.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║       龍魂 · 全人格启动器 v1.0                           ",
+      "added": "2026-07-27T10:13:11.628223",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_team.py",
+      "description": "龙魂应用人格小队拉起器 · Persona Team Orchestrator",
+      "added": "2026-07-27T10:13:11.628309",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_philosophy_unified_engine.py",
+      "description": "🐉 龍魂·统一哲学执行引擎 v1.0 — 出师有名 ========================================== 将龍魂十大哲学维度集成到一个可调用引擎：   太极☯️ · 易经☰☷ · 369洛书 · 七因子 · ",
+      "added": "2026-07-27T10:13:11.628483",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_plain_language_router.py",
+      "description": "🗣️ 龍魂·大话语义路由器 v1.0 — 无论用户怎么用大白话说，都能理解意图 DNA: #龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0",
+      "added": "2026-07-27T10:13:11.628577",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_platform_block_logger.py",
+      "description": "龍魂·平台异常阻断日志器 v1.0 · 自动截图+状态码+日志生成 DNA: #龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0",
+      "added": "2026-07-27T10:13:11.628670",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_precision_engine.py",
+      "description": "龍魂精准推演引擎 v1.0 文化-数学-工程三位一体推演系统 UID9622 | 龍芯北辰 | 2026-07-18 DNA锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL 确认码:",
+      "added": "2026-07-27T10:13:11.628772",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_prepare_v2.1_data.py",
+      "description": "龍魂 v2.1 数据准备 — 穿透精准修复版 DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP 策略: v2.0数据底子 + 穿透点精准拒绝样本 + 反馈闭环全量 目标: 拒绝类≥35% · 知识边界类专项加固 ·",
+      "added": "2026-07-27T10:13:11.628845",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_privacy_access_controller.py",
+      "description": "龍魂系统隐私接入规则 v2.0 · 算法数学增强版 实现落地方案",
+      "added": "2026-07-27T10:13:11.628958",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_privacy_scanner.py",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.629026",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_privacy_train_inject.py",
+      "description": "龍魂隐私接入规则 v2.0 训练数据注入器",
+      "added": "2026-07-27T10:13:11.629101",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_project_cleanup.py",
+      "description": "龍魂项目一键清理脚本 v1.0 DNA: #龍芯⚡️丙午·乙申·己酉·CLEANUP-v1.0",
+      "added": "2026-07-27T10:13:11.629184",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_project_slim.py",
+      "description": "龍魂·项目瘦身引擎 v3.0 — 一枪到底 DNA: #龍芯⚡️丙午·乙申·己酉·亥时·SLIM-v3.0 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZLU-ORIGIN-FULLSYNC",
+      "added": "2026-07-27T10:13:11.629246",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_prompt_library.py",
+      "description": "龍魂·提示词库查询加载器 v1.0 =========================== DNA: #龍芯⚡️丙午·辛未·乙酉·PROMPT-LIBRARY-LOADER-v1.0 用途: 供 lh_claude_bridge / 语义注",
+      "added": "2026-07-27T10:13:11.629298",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_protocol_land_scan.py",
+      "description": "龍魂·协议落地扫描器 v1.0 扫描 01_protocols/ 下所有协议文档，提取引用的代码路径，检查是否已落地。 DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-PROTOCOL-LAND-SCAN-v1.0",
+      "added": "2026-07-27T10:13:11.629337",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_psychological_bypass_validator.py",
+      "description": "龍魂系统 · 心理绕过独立测试集 v2.0 UID9622 | 诸葛鑫·龍芯北辰",
+      "added": "2026-07-27T10:13:11.629420",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_public_expression_audit.py",
+      "description": "lh_public_expression_audit — 龍魂公开表述审计引擎 v1.0",
+      "added": "2026-07-27T10:13:11.629492",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_qiye_deng.py",
+      "description": "龍芯企业灯·三生三世引擎 v2.0 ================================ 前生灯(镜) → 今世灯(秤) → 未来灯(路) 基于 LoongArch + KaihongOS 全栈自主底座",
+      "added": "2026-07-27T10:13:11.629592",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_circuit_breaker.py",
+      "description": "IW-ECB v2.0 · 无穷大权重伦理熔断引擎 · 量子纠缠态实现 基于四层定锚 + 循环呼吸 + 量子纠缠态熔断 + 初心干净递进逻辑",
+      "added": "2026-07-27T10:13:11.629694",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_persona_antenna.py",
+      "description": "╔═══════════════════════════════════════════════════════════════════════════╗ ║  DNA追溯头（不可删除 · 删除即断链）                   ",
+      "added": "2026-07-27T10:13:11.629792",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_qwen_hallucination_scorer.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.630007",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_rb_confrontation_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║  龍魂·红蓝对抗融合引擎 v2.0 — 五阶段·全联动·可执行          ",
+      "added": "2026-07-27T10:13:11.630189",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_realtime_collector.py",
+      "description": "龍魂·实时全景采集器 v1.0 DNA: #龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-PANORAMA-v1.0",
+      "added": "2026-07-27T10:13:11.630218",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_recommend_engine.py",
+      "description": "🐉 龍魂 · 触角推荐引擎 v1.0",
+      "added": "2026-07-27T10:13:11.630312",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_red_team_engine.py",
+      "description": "🐉 龍魂 · 红队对抗引擎 v1.0 (Red Team Adversarial Engine) =========================================================== 投喂落地：CNSH R",
+      "added": "2026-07-27T10:13:11.630391",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_register_mail_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-REGISTER-MAIL-NOTIFY-V1.0-P0-27124135",
+      "added": "2026-07-27T10:13:11.630528",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_registry_audit_fix.py",
+      "description": "修复 persona_registry.json — 对齐 AGENTS.md + 五大后台 v3.1",
+      "added": "2026-07-27T10:13:11.630579",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_registry_auto_sync.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.630674",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_registry_extend.py",
+      "description": "龍魂注册表扩展 v1.3 — 将 L6/L8/L9 层纳入依赖图 DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-REGISTRY-EXTEND-v1.3",
+      "added": "2026-07-27T10:13:11.630725",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_regulatory_daemon.py",
+      "description": "龍魂监管守护进程 · Regulatory Daemon v1.0 DNA: #龍芯⚡️2026-07-12-REGULATORY-DAEMON-v1.0",
+      "added": "2026-07-27T10:13:11.630764",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_regulatory_init.py",
+      "description": "龍魂监管者初始化工具 DNA: #龍芯⚡️2026-07-12-REGULATORY-INIT-v1.0",
+      "added": "2026-07-27T10:13:11.630812",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_regulatory_pipeline.py",
+      "description": "lh_regulatory_pipeline — 龍魂监管透明API管道 v1.0",
+      "added": "2026-07-27T10:13:11.630885",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_rejection_hardening.py",
+      "description": "龍魂 v1.7 System Prompt拒绝加固数据生成器 DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-REJECTION-HARDENING-v1.7",
+      "added": "2026-07-27T10:13:11.630946",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_rejection_train.py",
+      "description": "龍魂 v1.4 拒绝类训练数据生成器 DNA: #龍芯⚡️丙午·辛未·丙戌·申时·大壮-REJECTION-TRAIN-v1.4",
+      "added": "2026-07-27T10:13:11.631039",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_relation_matrix.py",
+      "description": "龍魂系统 · 关联矩阵扫描器 Longhun Relation Matrix Scanner v1.0",
+      "added": "2026-07-27T10:13:11.631127",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_reorganize.py",
+      "description": "龍魂 · 底座重组 CLI v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BASE-REORGANIZE-CLI-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.631218",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_resident_registry.py",
+      "description": "🐉 龍魂 · 常驻工具注册表 v2.0 (Resident Function Registry) ============================================================ 系统级自动任务——不",
+      "added": "2026-07-27T10:13:11.631345",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_resource_monitor.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     🔥 龍魂 · 代谢系统 · 资源监控引擎 v1.0                     ║ ║",
+      "added": "2026-07-27T10:13:11.631387",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_responsibility_collapse_engine.py",
+      "description": "龍魂·责任塌缩概率模型引擎 v1.0 DNA: #龍芯⚡️2026-07-21-RESP-COLLAPSE-ENGINE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.631467",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_riemann_zeta_engine.py",
+      "description": "龍魂·黎曼猜想三视角引擎 v1.0 DNA: #龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.631564",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ruyi_api.py",
+      "description": "CNSH·如意 API 服务 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-API-v1.0",
+      "added": "2026-07-27T10:13:11.631636",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ruyi_commander.py",
+      "description": "CNSH·如意 命令行指挥官 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-COMMANDER-v1.0",
+      "added": "2026-07-27T10:13:11.631684",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sancai_naming_check.py",
+      "description": "🐉 三才算法命名合规检查工具 v1.0 Sancai Algorithm Naming Compliance Checker",
+      "added": "2026-07-27T10:13:11.631742",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sandbox_console.py",
+      "description": "🎛️ 龍魂 · 沙盒推演系统控制台 v4.0 · 统一入口 ============================================== 融合沙盒v4.0四大引擎+五大模块到现有22引擎体系",
+      "added": "2026-07-27T10:13:11.631885",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_scan_isolated_files.py",
+      "description": "龍魂孤立文件扫描器 v1.0 扫描 /Users/zuimeidedeyihan 下所有可能成为 v4.1.3 训练数据的孤立文件， 按来源分类、标记是否已索引、输出融合候选清单。",
+      "added": "2026-07-27T10:13:11.631938",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_script_manager.py",
+      "description": "═══════════════════════════════════════════════════════════════════════════════   龍魂腳本管理器 v2.0 — LongHun Script Manager ",
+      "added": "2026-07-27T10:13:11.632072",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_secrets_loader.py",
+      "description": "龍魂统一密钥加载器 v1.0 Unified Secrets Loader — 从 vault JSON / .env / Keychain 加载所有凭证",
+      "added": "2026-07-27T10:13:11.632137",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_secure_subprocess.py",
+      "description": "龍魂系统 · 安全子进程封装器 v1.0 — P0++ 强制使用 ────────────────────────────────────────────── DNA: #龍芯⚡️2026-07-21-SECURE-SUBPROCESS-V",
+      "added": "2026-07-27T10:13:11.632203",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_seed_daily_logs.py",
+      "description": "# ═══════════════════════════════════════════ # 龍魂体系 | 每日日志种子回填脚本 v1.0 # ═══════════════════════════════════════════ # D",
+      "added": "2026-07-27T10:13:11.632259",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self_extract.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂 · 源代码自解压引擎 v1.0 — DNA绑定·逻辑链不断·落地即运",
+      "added": "2026-07-27T10:13:11.632369",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self_heal.py",
+      "description": "龍魂左右互搏 · 自愈审计引擎 v1.0",
+      "added": "2026-07-27T10:13:11.632429",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self_improvement.py",
+      "description": "龍魂·自求多福进化引擎 v2.0 DNA: #龍芯⚡️丙午·乙申·SELF-IMPROVE-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.632504",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_context_engine.py",
+      "description": "🐉 龍魂·语境语义引擎 v1.0 — 通心译·通心听",
+      "added": "2026-07-27T10:13:11.632583",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_feedback_engine.py",
+      "description": "🐉 龍魂·语义反馈引擎 v1.0 — 一言既出·驷马难追",
+      "added": "2026-07-27T10:13:11.632673",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_lie_detector.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.632898",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_mapping_to_qa.py",
+      "description": "龍魂·统一语义指令对照表 → QA 训练数据生成器",
+      "added": "2026-07-27T10:13:11.632941",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_parser.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.633041",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_semantic_unified_registry.py",
+      "description": "龍魂系统 · 语义统一注册表查询引擎 v2.0 ============================================ DNA: #龍芯⚡️2026-07-14-SEMANTIC-UNIFIED-REGISTRY-ENGI",
+      "added": "2026-07-27T10:13:11.633156",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sensory_education.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.633269",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_server_checker.py",
+      "description": "🐉 龍魂服务器实时连通性检测器 v1.0 ====================================== 每一次检测都是真实的 — ping端口、发请求、收响应，不造假。 用于看板实时显示，所有状态基于实测结果。",
+      "added": "2026-07-27T10:13:11.633323",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_service_area_guard.py",
+      "description": "龍魂 · 服务区训练守护进程 DNA: #龍芯⚡️2026-07-20-SERVICE-AREA-GUARD-v1.0",
+      "added": "2026-07-27T10:13:11.633372",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_service_reconcile.py",
+      "description": "龍魂·本机服务对账修复器 v1.0 用途：把散落在终端会话里的核心 API 全部收进 launchd，清理重复/失效任务。 DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-SERVICE-RECONCILE-v1.0",
+      "added": "2026-07-27T10:13:11.633433",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_service_truth.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂·产品\"为谁服务\"检测器 v1.0 — 枪口方向一目了然       ",
+      "added": "2026-07-27T10:13:11.633516",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_seven_factor_api.py",
+      "description": "龍魂·七因子行为密码学 API v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-SEVEN-FACTOR-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 端口: 8782",
+      "added": "2026-07-27T10:13:11.633563",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_shield_v3.py",
+      "description": "龍魂护盾 v3.0 — CNSH 中文语法版 五维防御 + 耻辱墙 + 主权熔断",
+      "added": "2026-07-27T10:13:11.633635",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_shuijun_patch.py",
+      "description": "龍魂系统 · 水军显化补丁内核 v1.2 作者：诸葛鑫（UID9622） DNA: #龍芯⚡️2026-07-19-SHUIJUN-DISCLOSE-V1.2-PATCH",
+      "added": "2026-07-27T10:13:11.633679",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_signal_relay.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║     ⚡ 龍魂 · 神经系统 · 信号中继站 v1.0                       ║ ",
+      "added": "2026-07-27T10:13:11.633722",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_skill_archive.py",
+      "description": "🐉 龍魂 · 本地技能全量归档 v1.0 ═══════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.633792",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_skill_bus.py",
+      "description": "龍芯⚡️丙午·丙申·丙辰·亥时·需-SKILL-BUS-v1.0",
+      "added": "2026-07-27T10:13:11.633872",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sms_api.py",
+      "description": "龍魂短信推送统一接口 · 审计留痕",
+      "added": "2026-07-27T10:13:11.633913",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_snapshot_recovery_engine.py",
+      "description": "🐉 龍魂 · 快照恢复引擎 v1.0 (Snapshot & Recovery Engine) ========================================================= 投喂落地：CNSH Runt",
+      "added": "2026-07-27T10:13:11.633998",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_soft_culture_api.py",
+      "description": "龍魂·软文化污染隔离API服务 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☲离-SOFT-CULTURE-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.634079",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereign_derive.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║     龍魂主权覆写码派生引擎 · 三层绑定 · 现场算钥匙           ",
+      "added": "2026-07-27T10:13:11.634166",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereign_llm.py",
+      "description": "⚡ 龍魂·中国芯主权大模型推理引擎 v1.0",
+      "added": "2026-07-27T10:13:11.634336",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_spacetime_weave.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║       龍魂 · AI驱动时空织网引擎 v2.0                       ",
+      "added": "2026-07-27T10:13:11.634477",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_stateless_compute_api.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.634543",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_status.py",
+      "description": "🐉 龍魂系统状态看板 · LongHun Status Dashboard",
+      "added": "2026-07-27T10:13:11.634592",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_step11_chain_engine.py",
+      "description": "🐉 龍魂 · 11步执行链引擎 v1.0 (11-Step Execution Chain) ======================================================== 投喂落地：CNSH Runtim",
+      "added": "2026-07-27T10:13:11.634687",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_suggestion_todo.py",
+      "description": "龍芯⚡️丙午·丙申·乙卯·丙戌·䷷旅-LH-SUGGESTION-TODO-v1.0",
+      "added": "2026-07-27T10:13:11.634720",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_summary_crawler.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0",
+      "added": "2026-07-27T10:13:11.634808",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_summary_crawler_test.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0-TEST",
+      "added": "2026-07-27T10:13:11.634864",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sync_memory_state.py",
+      "description": "龍魂·记忆状态同步器 v1.0 DNA: #龍芯⚡️2026-07-21-SYNC-MEMORY-STATE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.634945",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_system_hardener.py",
+      "description": "龍魂·系统安全加固引擎 v1.0 — P0++焊死 — 每次启动自动运行 ──────────────────────────────────────────── DNA: #龍芯⚡️2026-07-21-SYSTEM-HARDENER-V",
+      "added": "2026-07-27T10:13:11.635029",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_system_integration_test.py",
+      "description": "龍魂·全系统集成测试 v1.0 DNA: #龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.635110",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_system_launcher.py",
+      "description": "🐉 龍魂 · 系统启动器 v2.0 (System Launcher) ============================================= 6阶段启动流程 — 从开机到自主运行。",
+      "added": "2026-07-27T10:13:11.635198",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_taiji_engine.py",
+      "description": "☯️ 龍魂太极引擎 v1.0 · LU-Time Engine 本地化实现 DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-TAIJI-ENGINE-v1.0 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-7",
+      "added": "2026-07-27T10:13:11.635251",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_targeted_variant_test.py",
+      "description": "针对真实穿透的攻击变体生成 + 验证",
+      "added": "2026-07-27T10:13:11.635284",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_team_orchestrator_api.py",
+      "description": "龍魂 · TeamOrchestrator API v1.0 DNA: #龍芯⚡️丙午·乙未·申时·☰乾-TEAM-ORCHESTRATOR-API-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 端口",
+      "added": "2026-07-27T10:13:11.635347",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tech_sovereignty_guard.py",
+      "description": "龍魂系统 · 技术主权守门员 v1.0 作者：诸葛鑫（UID9622） 优先级：P0++（最高，不可绕过） DNA: #龍芯⚡️2026-07-20-TECH-GUARD-V1.0",
+      "added": "2026-07-27T10:13:11.635474",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_template_match.py",
+      "description": "龍魂 · 模板路由器 v1.0 根据用户标题自动匹配最合适的会话模板，输出完整提示。",
+      "added": "2026-07-27T10:13:11.635518",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_terminal.py",
+      "description": "DNA:#龍芯⚡️2026-06-24-LONGHUN-TERMINAL-FILE1-v2.0",
+      "added": "2026-07-27T10:13:11.635599",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_think_pipeline.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.635802",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxin_ear_lora_trainer.py",
+      "description": "龍魂通心听 · Whisper Large-V3 LoRA 微调训练器 v1.0 LongHun TongXin-Ear · Whisper Large-V3 LoRA Fine-Tuner",
+      "added": "2026-07-27T10:13:11.635959",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxin_lock_firewall.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.636074",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxin_lock_monitor.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.636144",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxinyi_backend.py",
+      "description": "🐉 龍魂通心译后端 · 8777 端口 鸿蒙/手机设备直连翻译引擎 DNA:#龍芯⚡️丙午·丙申·乙卯·辰时·需-TONGXINYI-BACKEND-v1.0",
+      "added": "2026-07-27T10:13:11.636191",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxinyi_ipa_router.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║  龍魂·通心译子IPA路由器 v1.0 — 全域语义路由引擎           ",
+      "added": "2026-07-27T10:13:11.636303",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_touwei_absorb.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║  龍魂·投喂吸收管道 v2.0 — 全人格路由自动吸收                   ║ ║",
+      "added": "2026-07-27T10:13:11.636443",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_trace_reconstructor_api.py",
+      "description": "龍魂·踪迹AI复原引擎 v2.0 — 四道防线版 DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-TRACE-RECONSTRUCTOR-API-V2.0-FOUR-DEFENSES 创建者: 诸葛鑫（UID9622） 协议: CC BY",
+      "added": "2026-07-27T10:13:11.636557",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_traceability_audit.py",
+      "description": "龍魂·AI可追溯性审计协议执行器 v1.0 对应协议: 01_protocols/LH-UID9622-...-AI-Traceability-Audit-Protocol-v1.0.md 职能: DNA生成/校验、七因子行为密码学、信用评",
+      "added": "2026-07-27T10:13:11.636629",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_translation_engine_data_gen.py",
+      "description": "龍魂翻译引擎 · 训练数据生成器 v1.0 从数学白皮书自动生成 Q&A 训练数据 UID9622 | 龍芯北辰 | 2026-07-18 DNA: #龍芯⚡️丙午·乙申·庚戌·巳时-翻译引擎训练数据-v1.0 确认码: #CONFIRM🌌",
+      "added": "2026-07-27T10:13:11.636758",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tts_api.py",
+      "description": "龍魂TTS统一接口 · 本地优先·云端备用",
+      "added": "2026-07-27T10:13:11.636807",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tts_engine.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.636858",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_turbulence_cli.py",
+      "description": "龍魂·湍流治理框架 CLI v1.0 ============================ 命令行入口，支持：评估/推演/验证/追溯/状态",
+      "added": "2026-07-27T10:13:11.636937",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_type_fixer.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║       龍魂 · basedpyright 类型批量自愈 v1.0              ",
+      "added": "2026-07-27T10:13:11.637009",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_container.py",
+      "description": "🐉 龍魂 · 容器统一入口 v1.0 ═══════════════════════════════════════════════════ 数据清洗 + 路由预检 · 万物归一入口",
+      "added": "2026-07-27T10:13:11.637083",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_dna_audit.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║       龍魂统一DNA登记册 · 严格审计人格 v1.0           ",
+      "added": "2026-07-27T10:13:11.637172",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_dna_registry.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║       龍魂统一DNA登记册 · 物理+虚拟全维身份锚定 v1.0      ",
+      "added": "2026-07-27T10:13:11.637296",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_hook.py",
+      "description": "龙魂统一钩子连接器 v2.1 · 13大引擎一体化集成 确保每个功能块都有钩子、无脱钩属性、自动可视化效果 v2.1 升级：新增自适应调优引擎 + CNSH护盾代理L9审查",
+      "added": "2026-07-27T10:13:11.637399",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_pipeline.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.637613",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_universal_container.py",
+      "description": "龍魂·万能摄入容器主引擎 v1.0 ================================ 任何设备·任何格式·任何来源 → 自动分解 → 权重触发 → 静默/联动 → 分销归档",
+      "added": "2026-07-27T10:13:11.637771",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_universal_parser.py",
+      "description": "⚡ 龍魂·全文件解析引擎 v1.0",
+      "added": "2026-07-27T10:13:11.638039",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unmapped_monitor.py",
+      "description": "╔══════════════════════════════════════════════════════════════════╗ ║     🔍 龍魂·未映射条目监控视图 v1.0                          ",
+      "added": "2026-07-27T10:13:11.638116",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_usb_inventory.py",
+      "description": "龍魂 USB 备份盘索引器",
+      "added": "2026-07-27T10:13:11.638196",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_usb_search_index.py",
+      "description": "龍魂 USB 备份搜索引擎 — 在服务器上建全文索引",
+      "added": "2026-07-27T10:13:11.638246",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v391_pipeline.py",
+      "description": "龍魂 v3.9.1 全自动流水线 K3 蒸馏 → 自动抽查 → 准备数据 → 训练 → 合并 → 导出 → Ollama 部署 → 三关验证",
+      "added": "2026-07-27T10:13:11.638303",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v392_pipeline.py",
+      "description": "龍魂 v3.9.2 全自动流水线（回滚净化版） 准备数据 → 训练 → 合并 → 导出 → Ollama 部署 → 三关验证",
+      "added": "2026-07-27T10:13:11.638344",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v402_pipeline.py",
+      "description": "龍魂 v4.0.2 全自动流水线（换底座 · Llama-3.1-8B） 准备数据 → 训练 → 合并 → 导出 → Ollama 部署 → 三关验证",
+      "added": "2026-07-27T10:13:11.638385",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v403_pipeline.py",
+      "description": "龍魂 v4.0.3 全自动流水线（换底座 · 稳定增量版） 准备数据 → 训练 → 合并 → 导出 → Ollama 部署 → 三关验证",
+      "added": "2026-07-27T10:13:11.638422",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v404_pipeline.py",
+      "description": "龍魂 v4.0.4 全自动流水线（换底座 · Yi-1.5-9B-Chat 中文优化版） DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V404-AUTO-PIPELINE-v1.0",
+      "added": "2026-07-27T10:13:11.638460",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v405_pipeline.py",
+      "description": "龍魂 v4.0.5 全自动流水线（升容量 · Yi-1.5-9B-Chat） DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V405-AUTO-PIPELINE-v1.0",
+      "added": "2026-07-27T10:13:11.638497",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v406_pipeline.py",
+      "description": "🐉 龍魂 v4.0.6 全自动流水线 数据: v3.7 + 全记忆 ingestion 配置: 保守 LoRA (rank=16, alpha=32, layers=12, lr=1e-5) DNA: #龍芯⚡️2026-07-19-LON",
+      "added": "2026-07-27T10:13:11.638531",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v407_pipeline.py",
+      "description": "🐉 龍魂 v4.0.7 全自动流水线 数据: v3.7 + 全记忆 ingestion + 桌面文章 + 焊死核心 QA ×30 配置: 保守 LoRA (rank=16, alpha=32, layers=12, lr=1e-5) DNA",
+      "added": "2026-07-27T10:13:11.638571",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v407_to_v408_watcher.py",
+      "description": "龍魂 v4.0.7 → v4.0.8 自动接力看守器 DNA: #龍芯⚡️2026-07-19-V407-V408-WATCHER-v1.0",
+      "added": "2026-07-27T10:13:11.638616",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v408_pipeline.py",
+      "description": "🐉 龍魂 v4.0.8 全自动流水线 数据: v4.0.7 + 八卦阵 v1.1 + 道德经定锚 v1.1 + 水军显化 v1.2 + 焊死核心 QA ×30 配置: 保守 LoRA (rank=16, alpha=32, layers=1",
+      "added": "2026-07-27T10:13:11.638651",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v408_to_v409_watcher.py",
+      "description": "龍魂 v4.0.8 → v4.0.9 自动接力看守器 DNA: #龍芯⚡️2026-07-19-V408-V409-WATCHER-v1.0",
+      "added": "2026-07-27T10:13:11.638697",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v409_data_clean.py",
+      "description": "龍魂 v4.0.9 数据清洗与补强脚本 任务：   1. 删除底座问答错误样本   2. 注入正确底座问答 ≥50 条   3. 注入家法第一条精确问答 ≥100 条 DNA: #龍芯⚡️2026-07-20-V409-DATA-CLEAN",
+      "added": "2026-07-27T10:13:11.638754",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v409_guardian.py",
+      "description": "龍魂 v4.0.9 训练守护进程 职责：   1. iter 2000 决策线：Val Loss > 0.767 → 切换 v4.0.8-iter1900 golden checkpoint   2. 断电保险：电量 <15% 或 AC 断",
+      "added": "2026-07-27T10:13:11.638827",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v409_pipeline.py",
+      "description": "🐉 龍魂 v4.0.9 全自动流水线 数据: v4.0.8 全量 + Notion 本地镜像 + GitHub 公开仓库 + 本地仓库统一来源 + 核心焊死 QA ×30 配置: 保守 LoRA (rank=16, alpha=32, la",
+      "added": "2026-07-27T10:13:11.638860",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v3.8.py",
+      "description": "v3.8.1 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v3.7 基线 0.194 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.638932",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v39.py",
+      "description": "v3.9 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v3.7 基线 0.194 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.638997",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v391.py",
+      "description": "v3.9.1 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v3.7 基线 0.194 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.639065",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v392.py",
+      "description": "v3.9.2 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v3.7 基线 0.194 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.639137",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v4.0.1.py",
+      "description": "v4.0.1 部署验证脚本（DeepSeek thinking 格式兼容） - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v",
+      "added": "2026-07-27T10:13:11.639213",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v4.0.py",
+      "description": "v4.0 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试（使用 Ollama /api/chat 标准 messages 格式） - Val Loss 对比 v3.7 基线 0.194 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.639281",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v402.py",
+      "description": "v4.0.2 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试 - Val Loss 对比 v3.7 基线 0.194 / v3.9.2 0.496 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.639348",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v403.py",
+      "description": "v4.0.3 部署验证脚本 - 家法第一条训练样本召回测试 - 10 轮多轮对话漂移测试 - Val Loss 对比 v3.7 基线 0.194 / v3.9.2 0.496 / v4.0.2 0.496 - 输出三色审计报告",
+      "added": "2026-07-27T10:13:11.639414",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v404.py",
+      "description": "v4.0.4 部署验证脚本 DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V404-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639479",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v405.py",
+      "description": "v4.0.5 部署验证脚本 DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V405-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639539",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v406.py",
+      "description": "v4.0.6 部署验证脚本 DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V406-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639601",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v407.py",
+      "description": "v4.0.7 部署验证脚本 DNA: #龍芯⚡️2026-07-19-V407-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639665",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v408.py",
+      "description": "v4.0.8 部署验证脚本 DNA: #龍芯⚡️2026-07-19-V408-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639727",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_validate_v409.py",
+      "description": "v4.0.9 部署验证脚本 DNA: #龍芯⚡️2026-07-19-V409-VALIDATION-REPORT-v1.0",
+      "added": "2026-07-27T10:13:11.639795",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_vault_api.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.639839",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_vault_cli.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.639885",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_vendor_hunter.py",
+      "description": "🐉 龍魂·猎手计划 — 全球AI厂商狩猎引擎 v1.0 ═══════════════════════════════════════════════════ DNA: #龍芯⚡️丙午·癸未·甲子·既济-VENDOR-HUNTER-v1.0",
+      "added": "2026-07-27T10:13:11.639976",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_analyzer.py",
+      "description": "龍魂视频分析引擎 · 占位符 · 待接入国产模型",
+      "added": "2026-07-27T10:13:11.640015",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_dna_embedder.py",
+      "description": "龍魂视频DNA嵌入引擎 · 占位符 · 帧级追溯码",
+      "added": "2026-07-27T10:13:11.640048",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_generator.py",
+      "description": "龍魂视频生成引擎 · 占位符 · 待接入国产模型",
+      "added": "2026-07-27T10:13:11.640084",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_pipeline.py",
+      "description": "龍魂 · 视频生产线 v1.0 — 鲁班剪辑中枢 DNA: #龍芯⚡️2026-07-25-VIDEO-PIPELINE-v1.0 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0 人格: 鲁班（P04·技术执行",
+      "added": "2026-07-27T10:13:11.640218",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_vision_parser.py",
+      "description": "🐉 龍魂·视觉解析引擎 v1.0 — 图片/视频帧/截图 → 结构化描述 DNA: #龍芯⚡️丙午·辛未·VISION-PARSER-v1.0-IMG2JSON",
+      "added": "2026-07-27T10:13:11.640325",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_chat.py",
+      "description": "龍魂实时语音对话引擎 · 占位符 · TTS+ASR+LLM 流式pipeline",
+      "added": "2026-07-27T10:13:11.640364",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_clone.py",
+      "description": "龍魂语音克隆引擎 · 占位符 · 需DNA授权",
+      "added": "2026-07-27T10:13:11.640399",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_persona_system.py",
+      "description": "龍魂 · 人格声色绑定系统 v2.0 LongHun Voice-Persona-Portrait Binding System",
+      "added": "2026-07-27T10:13:11.640550",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_water_army_elimination.py",
+      "description": "lh_water_army_elimination — 龍魂·拔水军统帅引擎 v1.0",
+      "added": "2026-07-27T10:13:11.640701",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_water_army_report_generator.py",
+      "description": "lh_water_army_report_generator — 龍魂·举报材料自动生成器 v1.0",
+      "added": "2026-07-27T10:13:11.640809",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_weather_api.py",
+      "description": "龍魂天气/环境统一接口 · 缓存优先",
+      "added": "2026-07-27T10:13:11.640863",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_whistleblower_shield.py",
+      "description": "龍魂·五害曝光台 — 举报者隐私盾 v1.0 DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-WHISTLEBLOWER-SHIELD-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.640932",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_xiaoyi_bridge.py",
+      "description": "",
+      "added": "2026-07-27T10:13:11.641120",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_xiaoyi_bridge_v2.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗ ║      🐉 龍魂·小艺桥接引擎 v2.0 — XiaoYi Bridge · 唯",
+      "added": "2026-07-27T10:13:11.641246",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_yijing_world_engine.py",
+      "description": "龍魂·易经世界模型数学引擎 v1.0 DNA: #龍芯⚡️2026-07-21-YIJING-WORLD-ENGINE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0",
+      "added": "2026-07-27T10:13:11.641338",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_yijing_推演引擎.py",
+      "description": "龍魂·易经推演引擎 v1.0 — 原生态文化输出核心 ============================================== 理念：不以\"引用\"产出知识，以\"公理+推演\"产出知识。       易经64卦 = 64种状",
+      "added": "2026-07-27T10:13:11.641426",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_zhongyong_decision.py",
+      "description": "龍魂·五行平衡+中庸决策引擎 v2.0 DNA: #龍芯⚡️丙午·乙申·WUXING-ZHONGYONG-v2.0-CODE-LANDED 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.641513",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "local_assessment_engine.py",
+      "description": "🐉 龍魂系统 · 本地完整评估引擎 v1.0",
+      "added": "2026-07-27T10:13:11.641593",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_brain.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-longhun_brain-v1.0",
+      "added": "2026-07-27T10:13:11.641683",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_click_auditor.py",
+      "description": "龍魂系统 · 链接点击审计脚本 v1.0 功能：区分人类点击、AI抓取、异常行为，标记追溯本源 作者：UID9622 协议：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-07-27T10:13:11.641757",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_launcher_scan.py",
+      "description": "龍魂 · 启动指令清点器  (LongHun Launcher Inventory) 锚点: UID9622 · 龍芯北辰 跨平台: macOS(本地 M4) + Linux(华为云 ECS) 只读扫描 · 不改动任何文件",
+      "added": "2026-07-27T10:13:11.641827",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_mvp_executor_v1.0.py",
+      "description": "龍魂 MVP执行引擎 v1.0 LongHun MVP Execution Engine",
+      "added": "2026-07-27T10:13:11.641869",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_mvp_setup_integration_v1.0.py",
+      "description": "龍魂 MVP一键部署集成器 v1.0 LongHun MVP Setup Integration",
+      "added": "2026-07-27T10:13:11.641950",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_persona_hub.py",
+      "description": "╔═══════════════════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.642021",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_self_check_v1.0.py",
+      "description": "DNA:#龍芯⚡️2026-06-05-SELF-CHECK-v1.0  责任:UID9622·不免责",
+      "added": "2026-07-27T10:13:11.642066",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_train_v2.py",
+      "description": "LongHun System - Full Training Pipeline v2.0 DNA: #龍芯⚡️2026-07-18-TRAIN-FULL-v2.0 Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-",
+      "added": "2026-07-27T10:13:11.642144",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_wuxing_mvp.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-longhun_wuxing_mvp-v1.0",
+      "added": "2026-07-27T10:13:11.642213",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longzhi_shou_v2.py",
+      "description": "龍智守 · 本地飞书机器人控制接口 v2.0 飞书消息 → 本地执行 → 结果返回",
+      "added": "2026-07-27T10:13:11.642568",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "parse_notion_(迁移).py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-parse_notion-v1.0",
+      "added": "2026-07-27T10:13:11.642614",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "read_lints.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.642660",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "task_manager_v2.py",
+      "description": "🐉 龍魂系统 · 任务管理引擎 v2.0 Task Manager v2.0 · 支持跳跃式操作 + 自动去重",
+      "added": "2026-07-27T10:13:11.642727",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "test_audit_integration_v1.py",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.642825",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "test_integration.py",
+      "description": "# ═══════════════════════════════════════════════════════════ # 龍魂体系 | 技能启动·全局验收测试 v1.0 # ══════════════════════════════",
+      "added": "2026-07-27T10:13:11.642898",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "web_server.py",
+      "description": "龍魂 Web 门户服务器 v2.0 DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·需-WEB-SERVER-v2.0",
+      "added": "2026-07-27T10:13:11.642949",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "xiaoyi_hub_8799.py",
+      "description": "# ═══════════════════════════════════════════════════════════ # 龍魂体系 | 小艺调度枢纽 8799 端点 v1.0 # ═══════════════════════════",
+      "added": "2026-07-27T10:13:11.643029",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "训练数据优化器_v3.1.0.py",
+      "description": "═══════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.643116",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龍智守_本地控制接口_v2.0.py",
+      "description": "龍智守 · 本地飞书机器人控制接口 v2.0 飞书消息 → 本地执行 → 结果返回",
+      "added": "2026-07-27T10:13:11.643473",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龍魂审计定价引擎_v1.0.py",
+      "description": "龍魂审计定价引擎 + 支付网关 DNA: #龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622 归属: 龍魂系统 · UID9622 原则: 1分钱/次审计, 动态定价, 保本兜底, 主权归人民",
+      "added": "2026-07-27T10:13:11.643560",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龍魂审计定价引擎_v2.0.py",
+      "description": "龍魂审计定价引擎 v2.0 + 支付网关 + 投资池 DNA: #龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-v2.0-UID9622 归属: 龍魂系统 · UID9622 原则:   - 定价稳定、可预期：",
+      "added": "2026-07-27T10:13:11.643694",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龍魂护盾_v3.0_CNSH中文语法版.py",
+      "description": "龍魂护盾 v3.0 — CNSH 中文语法版 五维防御 + 耻辱墙 + 主权熔断",
+      "added": "2026-07-27T10:13:11.643778",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龙魂系统_API接口完整实现_v1.0.py",
+      "description": "DNA: #龍芯⚡️2026-07-21-迁移-龙魂系统_API接口完整实现_v1.0-v1.0",
+      "added": "2026-07-27T10:13:11.643886",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "QUICK_DNA_STATUS.sh",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.643926",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "check_longhun_assessment.sh",
+      "description": "龍魂系统 · 快速评估状态检查",
+      "added": "2026-07-27T10:13:11.643962",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_longhun_openeuler.sh",
+      "description": "龍魂系統 · 華為鯤鵬openEuler部署腳本",
+      "added": "2026-07-27T10:13:11.644011",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_persona_api.sh",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.644063",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "dna-generator.sh",
+      "description": "============================================",
+      "added": "2026-07-27T10:13:11.644118",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "install.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.644170",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "install_longhun_daemon.sh",
+      "description": "龍魂 launchd 守护一键装载 · P13姜子牙装载 / P03雯雯复盘 / P05上帝之眼督",
+      "added": "2026-07-27T10:13:11.644207",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_archive.sh",
+      "description": "LongHun Archive Script",
+      "added": "2026-07-27T10:13:11.644242",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_cleanup.sh",
+      "description": "龍魂自动清理智能版 v2.0",
+      "added": "2026-07-27T10:13:11.644282",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_autochain_v17.sh",
+      "description": "龍魂 v1.7 全自动训练→部署链",
+      "added": "2026-07-27T10:13:11.644311",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_autostart.sh",
+      "description": "🐉 龍魂系统开机自启动脚本 v3.1",
+      "added": "2026-07-27T10:13:11.644354",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_bagua_math_verify.sh",
+      "description": "八卦阵数学内核一键回归测试",
+      "added": "2026-07-27T10:13:11.644402",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_clean_token.sh",
+      "description": "═══════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.644453",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_run.sh",
+      "description": "lh_cnsh_run.sh",
+      "added": "2026-07-27T10:13:11.644493",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_collector_launch.sh",
+      "description": "============================================================",
+      "added": "2026-07-27T10:13:11.644535",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compute_separation_deploy.sh",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.644586",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daily-audit.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.644622",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daodejing_anchor_verify.sh",
+      "description": "道德经场景定锚器回归测试",
+      "added": "2026-07-27T10:13:11.644669",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deploy_v1.5.sh",
+      "description": "龍魂 v1.5 自动部署脚本",
+      "added": "2026-07-27T10:13:11.644703",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deploy_v17.sh",
+      "description": "龍魂 v1.7 一键部署脚本",
+      "added": "2026-07-27T10:13:11.644735",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_disk_guard_install.sh",
+      "description": "🐉 龍魂磁盘守护 · 安装/管理脚本",
+      "added": "2026-07-27T10:13:11.644778",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_drive_daemon_install.sh",
+      "description": "🐉 龍魂 · 硬盘备份守护安装脚本",
+      "added": "2026-07-27T10:13:11.644822",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_feishu_deploy.sh",
+      "description": "╔═══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.644874",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_git_cleanup.sh",
+      "description": "🐉 龍魂 · Git 仓库收拾脚本 v1.0",
+      "added": "2026-07-27T10:13:11.644922",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_harmony_hunt_bg.sh",
+      "description": "龍魂 · 鸿蒙生态后台狩猎脚本 v2",
+      "added": "2026-07-27T10:13:11.644952",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_harmony_hunt_gitee.sh",
+      "description": "龍魂鸿蒙狩猎 · Gitee镜像版 v2",
+      "added": "2026-07-27T10:13:11.644993",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_init_cnsh_structure.sh",
+      "description": "══════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645047",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_local_search.sh",
+      "description": "本地_search.sh",
+      "added": "2026-07-27T10:13:11.645084",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_load.sh",
+      "description": "═══════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645133",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_privacy_hardener.sh",
+      "description": "╔══════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.645186",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_privacy_hardener_linux.sh",
+      "description": "╔══════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.645230",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_push_all.sh",
+      "description": "龍魂·全远端推送脚本",
+      "added": "2026-07-27T10:13:11.645257",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_push_all_remotes.sh",
+      "description": "龍魂·三远程强制推送脚本",
+      "added": "2026-07-27T10:13:11.645291",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_run_cnsh.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645327",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self-audit.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645377",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_shuijun_patch_verify.sh",
+      "description": "龍魂系统 · 水军显化补丁 v1.2 回归测试",
+      "added": "2026-07-27T10:13:11.645424",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_status.sh",
+      "description": "龍魂系统运行状态一览",
+      "added": "2026-07-27T10:13:11.645457",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_storage_migrate.sh",
+      "description": "🐉 龍魂 · 存储分离迁移脚本 v1.0",
+      "added": "2026-07-27T10:13:11.645502",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_subrepo_sync.sh",
+      "description": "龍魂·子仓库同步脚本 v1.0",
+      "added": "2026-07-27T10:13:11.645542",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tao_chip_deploy.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645599",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxin_lock_deploy.sh",
+      "description": "╔══════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.645661",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_trace_install.sh",
+      "description": "龍魂·底座痕迹采集引擎 — 一键安装脚本 v1.0",
+      "added": "2026-07-27T10:13:11.645713",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_train_v3.0_pipeline.sh",
+      "description": "龍魂 v3.0 训练全链路",
+      "added": "2026-07-27T10:13:11.645749",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_prod_deploy.sh",
+      "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "added": "2026-07-27T10:13:11.645801",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_workflow_bypass.sh",
+      "description": "============================================",
+      "added": "2026-07-27T10:13:11.645869",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_yinyufa_deploy.sh",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.645915",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_bark_plugin.sh",
+      "description": "═══════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.645968",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_crash_checklist.sh",
+      "description": "═══════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.646012",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_daily_assessment.sh",
+      "description": "龍魂系统 · 自动化日评估",
+      "added": "2026-07-27T10:13:11.646049",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_dna_verify.sh",
+      "description": "============================================",
+      "added": "2026-07-27T10:13:11.646106",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_system_start_all.sh",
+      "description": "🐉 龍魂系統一鍵啟動腳本",
+      "added": "2026-07-27T10:13:11.646170",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "longhun_system_startup_check.sh",
+      "description": "🐉 龍魂系統開機啟動檢查腳本",
+      "added": "2026-07-27T10:13:11.646240",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "protocol_shield.sh",
+      "description": "🐉 龍魂協議盾 v1.0",
+      "added": "2026-07-27T10:13:11.646292",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "restart_autoflow.sh",
+      "description": "╔═══════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.646332",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "search_usb.sh",
+      "description": "龍魂 USB 备份搜索引擎 — 本地一键搜索",
+      "added": "2026-07-27T10:13:11.646370",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "setup_daily_review.sh",
+      "description": "龍魂每日復盤·一鍵配置腳本",
+      "added": "2026-07-27T10:13:11.646419",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "setup_daily_review_auto.sh",
+      "description": "龍魂每日複盤·自動配置版本 (非互動式)",
+      "added": "2026-07-27T10:13:11.646459",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "setup_dev.sh",
+      "description": "═══════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.646503",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "start_all.sh",
+      "description": "═══════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.646575",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "start_longhun_api.sh",
+      "description": "龍魂API服务启动脚本",
+      "added": "2026-07-27T10:13:11.646615",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "test-workflow.sh",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.646648",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "test_persona_api.sh",
+      "description": "君子協議: 本文件受龍魂DNA追溯保護",
+      "added": "2026-07-27T10:13:11.646693",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "启动-claude-bridge.sh",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗",
+      "added": "2026-07-27T10:13:11.646731",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "龍魂_华为云部署脚本_v1.0.sh",
+      "description": "═══════════════════════════════════════════════════════════════════════",
+      "added": "2026-07-27T10:13:11.646832",
       "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
     }
   ],

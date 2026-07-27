@@ -1,0 +1,10 @@
+// DNA: #龍芯⚡️丙午·癸未·甲子·既济-编辑器落地-v1.0
+// 创建者: 诸葛鑫（UID9622）
+// 协议: CC BY-NC-SA 4.0
+{
+  "apiType": "stageMode",
+  "buildOption": {},
+  "targets": [
+    { "name": "default", "runtimeOS": "HarmonyOS" }
+  ]
+}

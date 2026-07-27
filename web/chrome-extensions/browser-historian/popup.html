@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=680">
+  <title>龍魂 · 浏览器史官</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>⚡ 龍魂 · 浏览器史官</h1>
+    <span class="version">v2.0 · 本地运行 + 底座痕迹</span>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <select id="scan-days">
+      <option value="0">📅 全部历史</option>
+      <option value="7">最近 7 天</option>
+      <option value="30">最近 30 天</option>
+      <option value="90">最近 90 天</option>
+      <option value="180">最近 180 天</option>
+      <option value="365">最近 1 年</option>
+    </select>
+    <button id="btn-scan" class="btn btn-primary">🔍 开始扫描</button>
+    <button id="btn-export" class="btn btn-export" style="display:none">📥 导出JSON</button>
+  </div>
+
+  <!-- Scanning Progress -->
+  <div id="scanning-section">
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="progress-text">正在扫描中...</div>
+  </div>
+
+  <!-- Empty State -->
+  <div id="empty-state" class="empty-state">
+    <div class="icon">🏛️</div>
+    <p>数据主权归你，一切在本地。</p>
+    <p class="hint">点击「开始扫描」，读取并分类你的浏览器历史。<br>不传云端，不留后门。</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard">
+    <div id="scan-time">上次扫描: —</div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-label">去重后网址数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-raw">—</div>
+        <div class="stat-label">原始记录数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-cats">—</div>
+        <div class="stat-label">分类数</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="overview">📊 分类概览</button>
+      <button class="tab-btn" data-tab="detail">📋 详细列表</button>
+      <button class="tab-btn" data-tab="trace">🖥️ 底座痕迹</button>
+      <button class="tab-btn" data-tab="defense">🛡️ 防御状态</button>
+    </div>
+
+    <!-- Overview Tab -->
+    <div id="tab-overview" class="tab-content">
+      <div class="overview-content">
+        <div class="pie-section">
+          <canvas id="pie-chart" width="220" height="220"></canvas>
+        </div>
+        <div class="cats-section" id="category-cards">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Tab -->
+    <div id="tab-detail" class="tab-content" style="display:none">
+      <div class="filter-row">
+        <input type="text" id="filter-input" placeholder="搜索网址或标题...">
+        <select id="filter-cat">
+          <option value="">全部类别</option>
+          <option value="ai-tech">🤖 AI/技术</option>
+          <option value="adult">🔞 成人内容</option>
+          <option value="social">📱 社交媒体</option>
+          <option value="news">📰 新闻资讯</option>
+          <option value="shopping">🛒 购物消费</option>
+          <option value="video">🎬 视频娱乐</option>
+          <option value="search">🔍 搜索引擎</option>
+          <option value="finance">💰 金融财经</option>
+          <option value="other">📌 其他</option>
+        </select>
+      </div>
+      <div class="items-container" id="items-list">
+        <!-- dynamically filled -->
+      </div>
+      <div class="pagination">
+        <button class="btn" id="btn-prev">← 上一页</button>
+        <span id="page-info">—</span>
+        <button class="btn" id="btn-next">下一页 →</button>
+      </div>
+    </div>
+
+    <!-- Trace Tab: 底座痕迹 -->
+    <div id="tab-trace" class="tab-content" style="display:none">
+      <!-- Collector Status -->
+      <div id="trace-status-bar" class="trace-status-bar">
+        <span id="trace-status-dot" class="status-dot offline"></span>
+        <span id="trace-status-text">采集引擎状态未知</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="trace-controls">
+        <button id="btn-trace-fetch" class="btn btn-primary">🔍 拉取底座痕迹</button>
+        <select id="trace-time-range" class="trace-select">
+          <option value="300">最近 5 分钟</option>
+          <option value="900">最近 15 分钟</option>
+          <option value="1800" selected>最近 30 分钟</option>
+          <option value="3600">最近 1 小时</option>
+          <option value="7200">最近 2 小时</option>
+        </select>
+        <label class="trace-option-label" title="发送脱敏特征向量到鲲鹏AI复原引擎，生成人类可读的行为时间线">
+          <input type="checkbox" id="trace-use-ai" checked>
+          <span>AI复原</span>
+        </label>
+      </div>
+
+      <!-- Loading -->
+      <div id="trace-loading" class="trace-loading" style="display:none">
+        <div class="trace-spinner"></div>
+        <span id="trace-loading-text">正在采集底座痕迹...</span>
+      </div>
+
+      <!-- Timeline -->
+      <div id="trace-timeline-container" class="trace-timeline-container">
+        <div id="trace-empty" class="trace-empty">
+          <div class="icon">🖥️</div>
+          <p>底座痕迹记录你的操作系统级数字足迹</p>
+          <p class="hint">进程启动/销毁 · 文件创建/编辑 · 网络连接<br>
+          需先启动采集引擎: <code>python3 bin/lh_base_trace_collector.py start</code></p>
+        </div>
+        <div id="trace-timeline" class="trace-timeline" style="display:none">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+
+      <!-- Session Summary -->
+      <div id="trace-summary" class="trace-summary" style="display:none">
+        <!-- dynamically filled -->
+      </div>
+    </div>
+
+    <!-- Defense Tab: 四道防线仪表盘 -->
+    <div id="tab-defense" class="tab-content" style="display:none">
+      <!-- Overall Status -->
+      <div id="defense-overall" class="defense-overall">
+        <div class="defense-overall-icon" id="defense-overall-icon">🛡️</div>
+        <div class="defense-overall-text">
+          <span id="defense-overall-status">正在检查...</span>
+          <span id="defense-overall-time" class="defense-overall-time"></span>
+        </div>
+        <button id="btn-defense-refresh" class="btn btn-small">🔄 刷新</button>
+      </div>
+
+      <!-- 四墙卡片 -->
+      <div class="defense-walls" id="defense-walls">
+        <!-- 防线一：网络守卫 -->
+        <div class="defense-card" id="wall-card-1">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🌐</span>
+            <span class="defense-card-title">防线一 · 网络强制执行防火墙</span>
+            <span class="defense-card-status" id="wall-1-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-1-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">防火墙阻断</span>
+              <span class="defense-stat-value" id="wall-1-blocks">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">告警累计</span>
+              <span class="defense-stat-value" id="wall-1-alerts">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">待处理</span>
+              <span class="defense-stat-value" id="wall-1-pending">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">防火墙状态</span>
+              <span class="defense-stat-value" id="wall-1-firewall">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">白名单进程</span>
+              <span class="defense-stat-value" id="wall-1-whitelist">—</span>
+            </div>
+          </div>
+          <div class="defense-card-log" id="wall-1-log" style="display:none">
+            <!-- 最近告警列表 -->
+          </div>
+        </div>
+
+        <!-- 防线二：恶意代码过滤 -->
+        <div class="defense-card" id="wall-card-2">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🦠</span>
+            <span class="defense-card-title">防线二 · 恶意代码过滤</span>
+            <span class="defense-card-status" id="wall-2-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-2-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">命中次数</span>
+              <span class="defense-stat-value" id="wall-2-hits">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">威胁情报哈希</span>
+              <span class="defense-stat-value" id="wall-2-intel-hashes">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">情报状态</span>
+              <span class="defense-stat-value" id="wall-2-intel-fresh">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">特征库版本</span>
+              <span class="defense-stat-value" id="wall-2-version">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 防线三：设备绑定加密 -->
+        <div class="defense-card" id="wall-card-3">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🔐</span>
+            <span class="defense-card-title">防线三 · 设备绑定加密</span>
+            <span class="defense-card-status" id="wall-3-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-3-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">加密算法</span>
+              <span class="defense-stat-value" id="wall-3-enc">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">设备指纹</span>
+              <span class="defense-stat-value mono" id="wall-3-fp">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 防线四：导出绑定 -->
+        <div class="defense-card" id="wall-card-4">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🔏</span>
+            <span class="defense-card-title">防线四 · 导出设备+生物绑定</span>
+            <span class="defense-card-status" id="wall-4-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-4-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">签名服务器</span>
+              <span class="defense-stat-value" id="wall-4-server">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">协议版本</span>
+              <span class="defense-stat-value" id="wall-4-protocol">LH-EXPORT-BIND-v1.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 网络告警详情 -->
+      <div id="defense-alerts-section" class="defense-alerts-section" style="display:none">
+        <div class="defense-alerts-header">
+          <span>⚠️ 最近网络拦截告警</span>
+          <button id="btn-alerts-dismiss" class="btn btn-tiny">清除告警</button>
+        </div>
+        <div id="defense-alerts-list" class="defense-alerts-list">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="dot">●</span>
+    <span>数据<span class="local">本地</span>处理 · 不传云端</span>
+    <span>|</span>
+    <span>創建者: 诸葛鑫 (UID9622)</span>
+    <span>|</span>
+    <span>龍魂 v2.0</span>
+  </div>
+
+  <!-- Export Modal -->
+  <div id="export-modal" class="modal" style="display:none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📥 导出选项</h3>
+        <p class="modal-sub">数据永远在你本地，导出位置由你决定。</p>
+      </div>
+      <div class="modal-body">
+        <label class="option-row" for="export-training">
+          <input type="checkbox" id="export-training">
+          <span class="option-text">
+            标记为<strong>本地模型训练原料</strong>
+            <small>仅在自己设备上用于训练本地模型；不会自动上传，别人看不到。</small>
+          </span>
+        </label>
+        <label class="option-row" for="export-include-meta">
+          <input type="checkbox" id="export-include-meta" checked>
+          <span class="option-text">
+            包含分类元数据
+            <small>导出每个网址的分类、匹配规则、访问次数等。</small>
+          </span>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-export-cancel" class="btn">取消</button>
+        <button id="btn-export-confirm" class="btn btn-primary">选择保存位置…</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

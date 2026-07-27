@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-GUANLAN-POPUP-v1.0-pp3a8f21
+创建者: 诸葛鑫 (UID9622)
+协议: CC BY-NC-SA 4.0
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂 · 观澜主权网关</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="popup-container">
+  <!-- 头部 -->
+  <header class="header">
+    <div class="logo-row">
+      <span class="logo-icon">🌊</span>
+      <h1>观澜·主权网关</h1>
+      <span class="version">v1.0</span>
+    </div>
+    <div class="status-bar">
+      <div class="status-indicator" id="statusIndicator"></div>
+      <span id="statusText">加载中...</span>
+      <button class="toggle-btn" id="toggleBtn">■</button>
+    </div>
+  </header>
+
+  <!-- 隐私评分 -->
+  <section class="score-section">
+    <div class="score-circle" id="scoreCircle">
+      <span class="score-value" id="scoreValue">--</span>
+      <span class="score-label">隐私风险</span>
+    </div>
+    <div class="score-details">
+      <div class="score-item">
+        <span class="score-item-label">AI脚本</span>
+        <span class="score-item-value" id="aiCount">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-item-label">追踪器</span>
+        <span class="score-item-value" id="trackerCount">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-item-label">指纹</span>
+        <span class="score-item-value" id="fingerprintDetected">否</span>
+      </div>
+      <div class="score-item">
+        <span class="score-item-label">WebRTC</span>
+        <span class="score-item-value" id="webrtcDetected">否</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 切换 -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="ai">🤖 AI监控</button>
+    <button class="tab" data-tab="privacy">🔍 隐私</button>
+    <button class="tab" data-tab="breaker">🚨 断路器</button>
+  </nav>
+
+  <!-- AI监控面板 -->
+  <section class="panel active" id="panel-ai">
+    <div class="section-title">活跃AI连接</div>
+    <div class="ai-list" id="aiList">
+      <div class="empty-state">暂无检测到的AI连接</div>
+    </div>
+    <button class="kill-all-btn" id="killAllBtn">⚡ 一键切断所有AI连接</button>
+  </section>
+
+  <!-- 隐私面板 -->
+  <section class="panel" id="panel-privacy">
+    <div class="section-title">检测到的威胁</div>
+    <div class="threat-list" id="threatList">
+      <div class="empty-state">未检测到隐私威胁</div>
+    </div>
+  </section>
+
+  <!-- 断路器面板 -->
+  <section class="panel" id="panel-breaker">
+    <div class="breaker-header" id="breakerHeader">
+      <div class="breaker-status" id="breakerStatus"></div>
+    </div>
+    <div class="breaker-controls">
+      <button class="breaker-btn lock" id="breakerLockBtn">🔒 手动熔断</button>
+      <button class="breaker-btn unlock" id="breakerUnlockBtn">🔓 解除熔断</button>
+    </div>
+    <div class="breaker-info" id="breakerInfo"></div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <button class="footer-btn" id="dashboardBtn">📊 打开仪表盘</button>
+    <span class="footer-dna">#龍芯·观澜·主权网关</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

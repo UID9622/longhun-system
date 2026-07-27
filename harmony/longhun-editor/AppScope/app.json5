@@ -1,0 +1,13 @@
+// DNA: #龍芯⚡️丙午·癸未·甲子·既济-编辑器落地-v1.0
+// 创建者: 诸葛鑫（UID9622）
+// 协议: CC BY-NC-SA 4.0
+{
+  "app": {
+    "bundleName": "com.longhun.editor",
+    "vendor": "longhun",
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "icon": "$media:app_icon",
+    "label": "$string:app_name"
+  }
+}

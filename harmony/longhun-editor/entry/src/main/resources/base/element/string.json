@@ -1,0 +1,19 @@
+{
+  "string": [
+    { "name": "app_name", "value": "龍魂·编辑器" },
+    { "name": "module_desc", "value": "龍魂AI军团协同写作·鸿蒙端侧原型" },
+    { "name": "internet_reason", "value": "连接鲲鹏服务器进行AI协同推理" },
+    { "name": "network_reason", "value": "检测网络状态以优化连接" },
+    { "name": "microphone_reason", "value": "语音输入内容到编辑器" },
+    { "name": "btn_code", "value": "代码" },
+    { "name": "btn_copywriting", "value": "文案" },
+    { "name": "btn_audit", "value": "审查" },
+    { "name": "btn_route", "value": "路由" },
+    { "name": "input_hint", "value": "输入你要写的内容..." },
+    { "name": "output_placeholder", "value": "AI军团回复将在此展示" },
+    { "name": "process_log_title", "value": "协同过程" },
+    { "name": "dna_label", "value": "DNA追溯" },
+    { "name": "audit_label", "value": "审计等级" },
+    { "name": "version", "value": "版本 1.0.0" }
+  ]
+}

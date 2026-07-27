@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·精神免疫系统 — 不是功能，是一面盾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   龍魂·精神免疫系统 v1.0 — 视觉设计
+   配色：#0a0a12 深空底色 / #D4A84C 暖金 / #8B6F47 暗金
+   理念：不是审视灵魂，是接住灵魂。
+   DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-PORTAL-v1.0-e8a1f2b3
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg: #0a0a12;
+  --bg-panel: #0e0e1a;
+  --bg-card: #121220;
+  --bg-warm: #161628;
+  --gold: #D4A84C;
+  --gold-light: #e8c97a;
+  --gold-dim: #6b552e;
+  --gold-glow: rgba(212, 168, 76, 0.10);
+  --warm: #c47a4a;
+  --warm-glow: rgba(196, 122, 74, 0.12);
+  --calm: #4a8c7a;
+  --calm-glow: rgba(74, 140, 122, 0.12);
+  --text: #b0b0c0;
+  --text-dim: #5e5e72;
+  --text-bright: #e0e0ee;
+  --border: #1a1a2a;
+  --border-light: #282840;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --transition: 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --font-sans: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.8;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ═══ 呼吸背景 ═══ */
+.breath-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(212, 168, 76, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(196, 122, 74, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(74, 140, 122, 0.03) 0%, transparent 50%);
+  animation: breatheBg 12s ease-in-out infinite;
+}
+@keyframes breatheBg {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ═══ 主容器 ═══ */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+/* ═══ 顶部 ═══ */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-top: 40px;
+}
+
+.header-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.header h1 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.header .subtitle {
+  color: var(--text-dim);
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.header .tagline {
+  color: var(--warm);
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+  margin: 48px auto;
+}
+
+/* ═══ 导航 ═══ */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  transition: all var(--transition);
+  letter-spacing: 1px;
+}
+.nav-btn:hover, .nav-btn.active {
+  color: var(--gold-light);
+  border-color: var(--gold-dim);
+  background: rgba(212, 168, 76, 0.06);
+}
+
+/* ═══ 区块通用 ═══ */
+.section {
+  display: none;
+  animation: fadeSlideIn 0.6s ease-out;
+}
+.section.active { display: block; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color var(--transition);
+}
+.panel:hover {
+  border-color: var(--border-light);
+}
+
+.panel-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-subtitle {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+/* ═══ 体温计 ═══ */
+.thermo-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .thermo-display { grid-template-columns: 1fr; }
+}
+
+.score-ring-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.score-ring svg {
+  transform: rotate(-90deg);
+}
+
+.score-ring .bg-circle {
+  fill: none;
+  stroke: var(--border-light);
+  stroke-width: 8;
+}
+
+.score-ring .fg-circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.score-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.score-number {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+.emotion-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emotion-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--gold-dim);
+}
+
+.emotion-tag .bar-bg {
+  flex: 1;
+  height: 6px;
+  background: var(--border-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.emotion-tag .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease-out;
+}
+
+.emotion-tag .label {
+  font-size: 13px;
+  color: var(--text-bright);
+  min-width: 70px;
+}
+
+.emotion-tag .percent {
+  font-size: 11px;
+  color: var(--text-dim);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* timeline chart */
+.timeline-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 140px;
+  padding: 16px 0;
+}
+
+.timeline-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.timeline-bar {
+  width: 100%;
+  max-width: 36px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.8s ease-out, background 0.8s;
+  min-height: 4px;
+}
+
+.timeline-label {
+  font-size: 10px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* text input */
+.text-input-area {
+  margin-top: 24px;
+}
+
+.text-input-area textarea {
+  width: 100%;
+  min-height: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--text-bright);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color var(--transition);
+}
+.text-input-area textarea:focus {
+  outline: none;
+  border-color: var(--gold-dim);
+}
+.text-input-area textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.btn {
+  background: rgba(212, 168, 76, 0.08);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-light);
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: all var(--transition);
+  margin-top: 12px;
+}
+.btn:hover {
+  background: rgba(212, 168, 76, 0.15);
+  border-color: var(--gold-light);
+}
+
+.suggestion-box {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--warm);
+  color: var(--text-bright);
+  font-size: 14px;
+  line-height: 1.8;
+  display: none;
+}
+.suggestion-box.show { display: block; }
+
+/* ═══ 降噪盾 ═══ */
+.shield-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.shield-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.shield-card:hover {
+  border-color: var(--gold-dim);
+}
+.shield-card.active-shield {
+  border-color: var(--calm);
+  background: rgba(74, 140, 122, 0.06);
+}
+
+.shield-card .shield-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.shield-card .shield-name {
+  color: var(--text-bright);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.shield-card .shield-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.shield-card .shield-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.shield-card .shield-category {
+  font-size: 11px;
+  color: var(--gold-dim);
+  padding: 2px 8px;
+  background: rgba(212, 168, 76, 0.08);
+  border-radius: 20px;
+}
+.shield-card .shield-toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--border-light);
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.shield-card .shield-toggle.on {
+  background: var(--calm);
+}
+.shield-card .shield-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: white;
+  transition: transform var(--transition);
+}
+.shield-card .shield-toggle.on::after {
+  transform: translateX(18px);
+}
+
+.shield-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .stat-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--gold-light);
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ═══ 排毒空间 ═══ */
+.detox-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.detox-phase {
+  padding: 32px 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.detox-phase.current {
+  border-color: var(--calm);
+  background: rgba(74, 140, 122, 0.06);
+}
+
+.detox-phase .phase-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+.detox-phase .phase-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.detox-phase .phase-duration {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.detox-phase .phase-activities {
+  text-align: left;
+  padding-left: 20px;
+}
+.detox-phase .phase-activities li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.detox-rules {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.detox-rules h4 {
+  color: var(--warm);
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.detox-rules li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.detox-tip {
+  margin-top: 16px;
+  padding: 12px 16px;
+  color: var(--gold-light);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.breathing-guide {
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.breathing-guide .breath-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.breathing-guide .breath-step:last-child {
+  border-bottom: none;
+}
+
+.breath-step .step-icon {
+  font-size: 24px;
+  min-width: 36px;
+  text-align: center;
+}
+.breath-step .step-instruction {
+  font-size: 13px;
+  color: var(--text);
+}
+.breath-step .step-time {
+  font-size: 11px;
+  color: var(--text-dim);
+  min-width: 60px;
+  text-align: right;
+}
+
+/* ═══ 共鸣墙 ═══ */
+.resonance-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.resonance-header .count {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  color: var(--gold-light);
+  font-weight: 900;
+}
+
+.resonance-header .label {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+.resonance-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.resonance-msg {
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--warm);
+  color: var(--text-bright);
+  font-size: 14px;
+  line-height: 1.8;
+  animation: fadeSlideIn 0.6s ease-out;
+}
+
+.emotion-pie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pie-slice {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.pie-slice .slice-value {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--gold-light);
+}
+.pie-slice .slice-name {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.whispers {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--bg-warm);
+  border-radius: var(--radius-lg);
+}
+
+.whispers h4 {
+  color: var(--warm);
+  font-size: 14px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.whisper {
+  padding: 8px 0;
+  font-style: italic;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.whisper:last-child { border-bottom: none; }
+
+/* ═══ 工具包 ═══ */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.toolkit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  transition: all var(--transition);
+}
+.toolkit-card:hover {
+  border-color: var(--gold-dim);
+}
+
+.toolkit-card .tool-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+.toolkit-card .tool-name {
+  color: var(--text-bright);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.toolkit-card .tool-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.toolkit-card .tool-cmd {
+  background: #0a0a12;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--gold-dim);
+  word-break: break-all;
+}
+
+/* ═══ 铁律浮动条 ═══ */
+.ironlaw-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: rgba(10, 10, 18, 0.95);
+  border-top: 1px solid var(--border);
+  padding: 8px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 11px;
+  color: var(--text-dim);
+  z-index: 100;
+  letter-spacing: 1px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.ironlaw-bar span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ═══ Footer ═══ */
+.footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.footer .dna {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 10px;
+  color: rgba(212, 168, 76, 0.3);
+  margin-top: 8px;
+  word-break: break-all;
+}
+
+.notice {
+  margin-top: 40px;
+  padding: 16px 20px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  text-align: center;
+}
+
+.notice strong {
+  color: var(--warm);
+}
+</style>
+</head>
+<body>
+
+<div class="breath-bg"></div>
+
+<div class="container">
+  <!-- ═══ Header ═══ -->
+  <div class="header">
+    <div class="header-icon">🛡️</div>
+    <h1>精神免疫系统</h1>
+    <div class="subtitle">MENTAL IMMUNE SYSTEM · v1.0</div>
+    <div class="tagline">
+      不是审视你的灵魂。<br>是接住你被这个时代卷得喘不过气的灵魂。
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ Nav ═══ -->
+  <nav class="nav">
+    <button class="nav-btn active" data-section="thermo">🌡️ 精神体温计</button>
+    <button class="nav-btn" data-section="shield">🛡️ 降噪盾</button>
+    <button class="nav-btn" data-section="detox">🧘 排毒空间</button>
+    <button class="nav-btn" data-section="anchor">⚓ 行为锚</button>
+    <button class="nav-btn" data-section="resonance">🫂 共鸣墙</button>
+    <button class="nav-btn" data-section="toolkit">🧰 工具包</button>
+  </nav>
+
+  <!-- ═══ 精神体温计 ═══ -->
+  <div class="section active" id="section-thermo">
+    <div class="panel">
+      <div class="panel-title">🌡️ 精神体温计</div>
+      <div class="panel-subtitle">不打标签、不做评判。只是让你看清自己此刻的情绪温度。</div>
+
+      <div class="thermo-display">
+        <div class="score-ring-container">
+          <div class="score-ring">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <circle class="bg-circle" cx="90" cy="90" r="78"></circle>
+              <circle class="fg-circle" id="thermo-ring" cx="90" cy="90" r="78"
+                stroke-dasharray="490" stroke-dashoffset="490"
+                stroke="var(--calm)"></circle>
+            </svg>
+            <div class="score-text">
+              <div class="score-number" id="score-display" style="color:var(--calm)">--</div>
+              <div class="score-label">焦虑指数 /100</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-tags" id="emotion-tags">
+          <div style="color:var(--text-dim);text-align:center;padding:20px;">
+            写下你的心情，查看情绪分析
+          </div>
+        </div>
+      </div>
+
+      <div class="text-input-area">
+        <textarea id="mood-input" placeholder="写下你想说的...可以是今天发生的事，一段感受，或者只是随便写几句。这里没有人评判你。"></textarea>
+        <button class="btn" onclick="analyzeMood()">🔍 分析情绪</button>
+      </div>
+
+      <div class="suggestion-box" id="suggestion-box"></div>
+    </div>
+
+    <!-- 情绪波动曲线 -->
+    <div class="panel">
+      <div class="panel-title">📈 近期情绪波动</div>
+      <div class="panel-subtitle">最近7天的焦虑指数变化</div>
+      <div class="timeline-chart" id="timeline-chart">
+        <div style="color:var(--text-dim);text-align:center;width:100%;padding:40px;">
+          记录情绪后，这里会出现你的波动曲线
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 降噪盾 ═══ -->
+  <div class="section" id="section-shield">
+    <div class="panel">
+      <div class="panel-title">🛡️ 降噪盾控制台</div>
+      <div class="panel-subtitle">不是让你与世隔绝，是让你选择什么样的声音可以进入你的世界。</div>
+
+      <div class="shield-grid" id="shield-grid">
+        <!-- JS动态生成 -->
+      </div>
+
+      <div class="shield-stats" id="shield-stats">
+        <div class="stat-card">
+          <div class="stat-num" id="stat-active">--</div>
+          <div class="stat-label">激活的盾</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-blocked">--</div>
+          <div class="stat-label">累计降噪</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-streak">--</div>
+          <div class="stat-label">连续天数</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 排毒空间 ═══ -->
+  <div class="section" id="section-detox">
+    <div class="detox-container">
+      <div class="panel-title" style="text-align:center;margin-bottom:24px;">🧘 排毒空间</div>
+      <div class="panel-subtitle" style="text-align:center;">全屏沉浸式数字排毒——把手机放下，把自己捡起来。</div>
+
+      <div id="detox-schedule">
+        <!-- JS动态生成 -->
+      </div>
+
+      <div class="detox-rules" id="detox-rules">
+        <!-- JS动态生成 -->
+      </div>
+
+      <div class="detox-tip" id="detox-tip"></div>
+
+      <button class="btn" onclick="generateDetox()" style="width:100%;margin-top:24px;">
+        🔄 生成新的排毒方案
+      </button>
+
+      <!-- 呼吸训练 -->
+      <div class="breathing-guide" id="breathing-guide">
+        <h4 style="color:var(--gold-light);text-align:center;margin-bottom:16px;">
+          🌬️ 3分钟引导式呼吸
+        </h4>
+        <button class="btn" onclick="startBreathing()" style="width:100%;">
+          开始呼吸训练
+        </button>
+        <div id="breath-steps" style="margin-top:16px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 行为锚 ═══ -->
+  <div class="section" id="section-anchor">
+    <div class="panel">
+      <div class="panel-title">⚓ 行为锚</div>
+      <div class="panel-subtitle">锚不是「好习惯」，是「让你稳定的行为」。不在乎你做了什么，在乎做完之后你觉得自己还活着。</div>
+
+      <div id="anchor-list" style="display:flex;flex-direction:column;gap:12px;">
+        <div style="color:var(--text-dim);text-align:center;padding:30px;">
+          开始记录你的日常锚点，让它们在焦虑时接住你
+        </div>
+      </div>
+
+      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
+        <input type="text" id="anchor-name" placeholder="行为名称，如：晨跑"
+          style="flex:1;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;color:var(--text-bright);font-family:var(--font-sans);font-size:14px;">
+        <select id="anchor-category" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;color:var(--text);font-family:var(--font-sans);">
+          <option value="身体">🏃 身体</option>
+          <option value="心智">📖 心智</option>
+          <option value="社交">🤝 社交</option>
+          <option value="创作">🎨 创作</option>
+          <option value="休息">☕ 休息</option>
+        </select>
+        <button class="btn" onclick="addAnchor()">+ 添加锚点</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 共鸣墙 ═══ -->
+  <div class="section" id="section-resonance">
+    <div class="panel">
+      <div class="resonance-header">
+        <div class="count" id="resonance-count">--</div>
+        <div class="label">今日共鸣者</div>
+      </div>
+
+      <div class="resonance-messages" id="resonance-messages">
+        <div style="color:var(--text-dim);text-align:center;padding:20px;">
+          共鸣墙正在倾听...每一个真实的情绪都值得被看见。
+        </div>
+      </div>
+
+      <div class="emotion-pie-grid" id="emotion-pie">
+        <!-- JS动态生成 -->
+      </div>
+
+      <div class="whispers" id="whispers-box">
+        <h4>🕊️ 匿名低语</h4>
+        <div id="whispers-list">
+          <div style="color:var(--text-dim);text-align:center;padding:10px;">
+            等待第一个勇敢的灵魂...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 工具包 ═══ -->
+  <div class="section" id="section-toolkit">
+    <div class="panel">
+      <div class="panel-title">🧰 工具包</div>
+      <div class="panel-subtitle">一键获取所有脚本和指南。全部开源，全部本地。</div>
+
+      <div class="toolkit-grid">
+        <div class="toolkit-card">
+          <div class="tool-icon">🌡️</div>
+          <div class="tool-name">焦虑检测引擎</div>
+          <div class="tool-desc">本地分析文字情绪，给出焦虑指数和情绪标签。不上传原文。</div>
+          <div class="tool-cmd">python3 engines/lh_mental_immune/anxiety_detector.py</div>
+        </div>
+        <div class="toolkit-card">
+          <div class="tool-icon">🛡️</div>
+          <div class="tool-name">降噪盾引擎</div>
+          <div class="tool-desc">根据焦虑类型自动匹配降噪策略，12面盾牌随时待命。</div>
+          <div class="tool-cmd">python3 engines/lh_mental_immune/noise_shield.py</div>
+        </div>
+        <div class="toolkit-card">
+          <div class="tool-icon">🧘</div>
+          <div class="tool-name">数字排毒向导</div>
+          <div class="tool-desc">离线时间表 + 呼吸训练 + 替代活动。帮你说放下就放下。</div>
+          <div class="tool-cmd">python3 engines/lh_mental_immune/digital_detox.py</div>
+        </div>
+        <div class="toolkit-card">
+          <div class="tool-icon">⚓</div>
+          <div class="tool-name">行为锚引擎</div>
+          <div class="tool-desc">发现你生活中让你稳定的行为，焦虑时提醒你回去做。</div>
+          <div class="tool-cmd">python3 engines/lh_mental_immune/behavior_anchor.py</div>
+        </div>
+        <div class="toolkit-card">
+          <div class="tool-icon">🫂</div>
+          <div class="tool-name">社区共鸣网</div>
+          <div class="tool-desc">匿名聚合情绪数据，让你看到：原来大家都一样在扛。</div>
+          <div class="tool-cmd">python3 engines/lh_mental_immune/community_resonance.py</div>
+        </div>
+        <div class="toolkit-card">
+          <div class="tool-icon">📦</div>
+          <div class="tool-name">全部下载</div>
+          <div class="tool-desc">所有引擎 + 文档 + 使用指南，一个包带走。</div>
+          <div class="tool-cmd">engines/lh_mental_immune/</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <div class="notice">
+    <strong>⛔ 铁律焊死：</strong>
+    所有情绪数据纯本地处理，不上传服务器 · 共鸣墙仅展示聚合匿名统计(k≥5) · 
+    引擎不评判不标签化任何情绪 · 你不授权，没人能看。
+  </div>
+
+  <div class="footer">
+    龍魂·精神免疫系统 v1.0 · 创建者：诸葛鑫（UID9622）· 协议：CC BY-NC-SA 4.0
+    <div class="dna">
+      DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-PORTAL-v1.0-e8a1f2b3
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 铁律浮动条 ═══ -->
+<div class="ironlaw-bar">
+  <span>🔒 纯本地</span>
+  <span>🫥 匿名化</span>
+  <span>🤲 无评判</span>
+  <span>📵 不上传</span>
+  <span>🧬 CC BY-NC-SA 4.0</span>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   龍魂·精神免疫系统 Portal JS
+   铁律：所有数据处理在浏览器本地进行，不上传服务器。
+   ═══════════════════════════════════════════════════════════ */
+
+// ── 导航切换 ──
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const sectionId = btn.dataset.section;
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + sectionId).classList.add('active');
+    if (sectionId === 'shield') renderShields();
+    if (sectionId === 'detox') generateDetox();
+    if (sectionId === 'resonance') refreshResonance();
+    if (sectionId === 'anchor') renderAnchors();
+  });
+});
+
+// ── 情绪分析（本地模拟） ──
+const EMOTION_KEYWORDS = {
+  '愤怒': ['气死','火大','受不了','欺负','不公平','凭什么','骂','操','滚','恶心','过分','忍无可忍','欺人太甚','愤怒','生气','发火','暴躁'],
+  '无力': ['没办法','算了','认命','改变不了','就这样吧','无能为力','绝望','放弃','认输','无力','没希望','走投无路','束手无策'],
+  '恐惧': ['害怕','担心','不敢','焦虑','紧张','不安','吓','怕','慌','忐忑','失眠','睡不着'],
+  '孤独': ['一个人','没人理解','孤单','寂寞','没人说','独来独往','被孤立','被遗忘','冷漠'],
+  '迷茫': ['不知道怎么办','没方向','困惑','迷路','前途','不知所措','看不清','怎么选','无解','没出路','瓶颈'],
+  '倦怠': ['累','疲惫','没劲','不想动','没精神','躺平','卷不动','麻木','厌倦','没意思','行尸走肉'],
+  '比较焦虑': ['别人都','比不上','落后','赶不上','同龄人','同学都','朋友圈','差距','不如'],
+  '信息过载': ['刷不完','看不完','消息太多','通知太多','信息爆炸','推送','未读','刷手机','停不下来'],
+};
+
+const BUFFER_WORDS = ['但是','不过','还好','至少','幸运','也算','没关系','慢慢来','总会','相信','加油','坚持','希望'];
+
+const ANXIETY_PATTERNS = [
+  [/(永远|从来|一直|总是|每次|一辈子).*(不|没|无)/g, 8],
+  [/(算了|随便|反正|无所谓).*吧/g, 7],
+  [/(完蛋|毁了|全完了|糟了|死定了)/g, 12],
+  [/(怎么办|怎么办啊|该咋办).*[？?]$/gm, 9],
+  [/(别人|人家|他们).*(都|已经|早就)/g, 8],
+  [/(为什么|为啥|凭什么).*(就我|只有我|偏偏我)/g, 10],
+  [/(我不行|我做不到|我太差|我没用|我真废)/g, 12],
+  [/(后悔|早知道|当初).*就好了/g, 6],
+];
+
+function localAnalyze(text) {
+  if (!text || !text.trim()) return { score: 0, labels: [], triggers: [], suggestion: '' };
+
+  text = text.trim();
+  let totalKwHits = 0;
+  let emotionHits = {};
+
+  for (let [emotion, keywords] of Object.entries(EMOTION_KEYWORDS)) {
+    let hits = keywords.filter(kw => text.includes(kw));
+    if (hits.length > 0) {
+      emotionHits[emotion] = hits;
+      totalKwHits += hits.length;
+    }
+  }
+
+  let patternScore = 0;
+  for (let [pattern, weight] of ANXIETY_PATTERNS) {
+    let matches = text.match(pattern);
+    if (matches) patternScore += weight * matches.length;
+  }
+
+  let bufferCount = BUFFER_WORDS.filter(bw => text.includes(bw)).length;
+  let kwScore = Math.min(totalKwHits * 5, 45);
+  let pScore = Math.min(patternScore * 1.5, 40);
+  let baseScore = kwScore + pScore;
+  let discount = Math.max(0.5, 1 - bufferCount * 0.15);
+  let score = Math.min(baseScore * discount, 100);
+
+  let labels = Object.entries(emotionHits).map(([e, hits]) => ({
+    name: e,
+    intensity: Math.min(hits.length / (EMOTION_KEYWORDS[e]?.length || 10) * 1.5, 1),
+  })).sort((a, b) => b.intensity - a.intensity);
+
+  let allTriggers = Object.values(emotionHits).flat().slice(0, 8);
+
+  let suggestion = '';
+  if (score < 20) suggestion = '状态平稳。保持你现在的节奏就好。';
+  else if (score < 40) suggestion = '有些许波动，属于正常范围。可以考虑出门走十分钟。';
+  else if (score < 60) {
+    let top = labels[0]?.name || '';
+    let tips = {
+      '信息过载': '建议关闭非必要App通知，设置每天1小时的「无屏幕时间」。',
+      '比较焦虑': '别人的朋友圈是精选集，你的人生是完整版。建议暂时减少社交媒体浏览。',
+      '无力': '把关注点从「控制不了的事」转移到「能做的下一件小事」。',
+      '倦怠': '身体在求救。今天先别想那么多，好好睡一觉。',
+      '愤怒': '愤怒是信号不是终点。试着写下让你愤怒的事，写出来就不那么重了。',
+      '孤独': '不是你孤僻，是你还没遇到同频的人。去做一件你真正喜欢的事。',
+      '迷茫': '站在十字路口的人才有资格选择方向。给自己三天时间，什么都不决定。',
+      '恐惧': '恐惧是保护你的哨兵。问自己：最坏的结果是什么？它真的会发生吗？',
+    };
+    suggestion = tips[top] || '心情有些沉重。试着深呼吸三次。';
+  } else if (score < 80) {
+    suggestion = '今天的情绪负荷比较重。建议启动「数字排毒」：放下手机，出门走30分钟。';
+  } else {
+    suggestion = '情绪达到了一个高点。这很正常，但你不需要独自扛着。向一个你信任的人说一句话，就一句。';
+  }
+
+  return { score: Math.round(score * 10) / 10, labels, triggers: allTriggers, suggestion };
+}
+
+function analyzeMood() {
+  const text = document.getElementById('mood-input').value;
+  const result = localAnalyze(text);
+
+  // 存到 localStorage
+  let history = JSON.parse(localStorage.getItem('lh_anxiety_history') || '[]');
+  history.push({
+    ts: Date.now(),
+    score: result.score,
+    labels: result.labels.map(l => ({ name: l.name, intensity: l.intensity })),
+  });
+  if (history.length > 200) history = history.slice(-200);
+  localStorage.setItem('lh_anxiety_history', JSON.stringify(history));
+
+  // 更新体温计
+  updateThermometer(result);
+  updateTimeline(history);
+  updateSuggestion(result);
+
+  // 如果焦虑高，推送降噪建议
+  if (result.score > 40) {
+    document.querySelector('[data-section="shield"]')?.classList.add('pulse');
+  }
+}
+
+function updateThermometer(result) {
+  const ring = document.getElementById('thermo-ring');
+  const total = 490;
+  let offset = total - (total * result.score / 100);
+  ring.setAttribute('stroke-dashoffset', offset);
+
+  let color;
+  if (result.score < 30) color = 'var(--calm)';
+  else if (result.score < 60) color = 'var(--gold)';
+  else if (result.score < 80) color = 'var(--warm)';
+  else color = '#c44a4a';
+  ring.setAttribute('stroke', color);
+
+  document.getElementById('score-display').style.color = color;
+  document.getElementById('score-display').textContent = result.score;
+
+  const tagsDiv = document.getElementById('emotion-tags');
+  if (result.labels.length === 0) {
+    tagsDiv.innerHTML = '<div style="color:var(--calm);text-align:center;padding:20px;">🟢 看起来很平静</div>';
+    return;
+  }
+
+  const colors = ['#D4A84C', '#c47a4a', '#4a8c7a', '#7a8cc4', '#c48a4a'];
+  tagsDiv.innerHTML = result.labels.map((l, i) => `
+    <div class="emotion-tag" style="border-left-color:${colors[i % colors.length]}">
+      <span class="label">${l.name}</span>
+      <div class="bar-bg">
+        <div class="bar-fill" style="width:${l.intensity * 100}%;background:${colors[i % colors.length]}"></div>
+      </div>
+      <span class="percent">${Math.round(l.intensity * 100)}%</span>
+    </div>
+  `).join('');
+}
+
+function updateTimeline(history) {
+  const chart = document.getElementById('timeline-chart');
+  const days = 7;
+  const cutoff = Date.now() - days * 86400000;
+  const recent = history.filter(h => h.ts >= cutoff);
+
+  if (recent.length === 0) {
+    chart.innerHTML = '<div style="color:var(--text-dim);text-align:center;width:100%;padding:40px;">记录情绪后，这里会出现你的波动曲线</div>';
+    return;
+  }
+
+  const dailyMap = {};
+  for (let i = 0; i < days; i++) {
+    let d = new Date(Date.now() - (days - 1 - i) * 86400000);
+    let key = d.toISOString().slice(5, 10);
+    dailyMap[key] = [];
+  }
+
+  recent.forEach(h => {
+    let d = new Date(h.ts);
+    let key = d.toISOString().slice(5, 10);
+    if (dailyMap[key]) dailyMap[key].push(h.score);
+  });
+
+  const entries = Object.entries(dailyMap);
+  const maxH = 120;
+
+  chart.innerHTML = entries.map(([key, scores]) => {
+    let avg = scores.length > 0 ? scores.reduce((a,b) => a+b, 0) / scores.length : 0;
+    let h = Math.max(4, (avg / 100) * maxH);
+    let color = avg < 30 ? 'var(--calm)' : avg < 60 ? 'var(--gold)' : avg < 80 ? 'var(--warm)' : '#c44a4a';
+    return `<div class="timeline-bar-wrap">
+      <div class="timeline-bar" style="height:${h}px;background:${color};" title="${key}: ${avg.toFixed(1)}"></div>
+      <div class="timeline-label">${key.slice(3)}</div>
+    </div>`;
+  }).join('');
+}
+
+function updateSuggestion(result) {
+  const box = document.getElementById('suggestion-box');
+  box.innerHTML = `
+    <div style="font-size:16px;margin-bottom:4px;">💡</div>
+    <div>${result.suggestion}</div>
+  `;
+  box.classList.add('show');
+}
+
+// ── 降噪盾 ──
+const DEFAULT_SHIELDS = [
+  { id:'notif-mute', name:'通知静默', desc:'关掉一切非必要App推送通知，只保留电话和短信。', category:'通知管理', icon:'🔕' },
+  { id:'screen-limit', name:'屏幕使用限制', desc:'设定每天手机使用上限，到时间屏幕变灰。', category:'习惯养成', icon:'⏱️' },
+  { id:'focus-hour', name:'每日专注一小时', desc:'每天固定一个小时的「免打扰时段」，手机放另一个房间。', category:'习惯养成', icon:'🎯' },
+  { id:'social-detox', name:'社交排毒', desc:'暂时隐藏朋友圈入口，取消「推荐」算法。', category:'社交媒体', icon:'🧹' },
+  { id:'unfollow-anxiety', name:'取关焦虑源', desc:'列出让你感到「不平衡」的账号或群聊，考虑取关或静音。', category:'社交媒体', icon:'✂️' },
+  { id:'stop-comparing', name:'停止比较打卡', desc:'打开社交媒体前先问：我是来放松的，还是来比较的？', category:'习惯养成', icon:'🚫' },
+  { id:'rest-reminder', name:'休息提醒', desc:'每工作45分钟，强制休息5分钟。这5分钟不许看手机。', category:'通知管理', icon:'⏰' },
+  { id:'evening-wind-down', name:'晚间降速', desc:'晚上9点后：屏幕变暖色，只允许读书/听音乐/冥想。', category:'习惯养成', icon:'🌙' },
+  { id:'nature-break', name:'自然接触', desc:'每天至少出门15分钟，不管天气。看天、看树、看云。', category:'习惯养成', icon:'🌿' },
+  { id:'news-diet', name:'新闻节食', desc:'每天只看一次新闻，看完就关。你不需要知道世界上每件事。', category:'通知管理', icon:'📰' },
+  { id:'rage-journal', name:'愤怒日记', desc:'写下让你愤怒的事。愤怒是燃料，不是方向盘。', category:'情绪疏导', icon:'📝' },
+  { id:'offline-hobby', name:'线下爱好', desc:'找一个不需要手机也能做的事：画画、弹琴、种花、养鱼。', category:'习惯养成', icon:'🎸' },
+];
+
+function getShieldConfig() {
+  let config = JSON.parse(localStorage.getItem('lh_shield_config') || '{}');
+  DEFAULT_SHIELDS.forEach(s => { if (!(s.id in config)) config[s.id] = true; });
+  return config;
+}
+
+function saveShieldConfig(config) {
+  localStorage.setItem('lh_shield_config', JSON.stringify(config));
+}
+
+function renderShields() {
+  const config = getShieldConfig();
+  const grid = document.getElementById('shield-grid');
+  const activeCount = Object.values(config).filter(v => v).length;
+
+  grid.innerHTML = DEFAULT_SHIELDS.map(s => `
+    <div class="shield-card ${config[s.id] ? 'active-shield' : ''}" onclick="toggleShield('${s.id}')">
+      <div class="shield-icon">${s.icon}</div>
+      <div class="shield-name">${s.name}</div>
+      <div class="shield-desc">${s.desc}</div>
+      <div class="shield-meta">
+        <span class="shield-category">${s.category}</span>
+        <div class="shield-toggle ${config[s.id] ? 'on' : ''}"></div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('stat-active').textContent = activeCount;
+  document.getElementById('stat-blocked').textContent = parseInt(localStorage.getItem('lh_shield_blocked') || '0');
+  document.getElementById('stat-streak').textContent = parseInt(localStorage.getItem('lh_shield_streak') || '0') + '天';
+}
+
+function toggleShield(id) {
+  let config = getShieldConfig();
+  config[id] = !config[id];
+  saveShieldConfig(config);
+
+  let blocked = parseInt(localStorage.getItem('lh_shield_blocked') || '0');
+  localStorage.setItem('lh_shield_blocked', blocked + 1);
+  localStorage.setItem('lh_shield_streak', parseInt(localStorage.getItem('lh_shield_streak') || '0') + 1);
+
+  renderShields();
+}
+
+// ── 排毒空间 ──
+const DETOX_ACTIVITIES = {
+  '热身': ['把所有电子设备调成静音/勿扰模式', '通知身边的人你接下来两小时不看手机', '倒一杯水放在手边', '写下你期望这两个小时后达到的状态（一句话）'],
+  '沉浸': ['在纸上随意涂鸦5分钟', '整理桌面/书架/抽屉中的一个角落', '翻开手边最近的一本书，读任意一页', '回忆今天发生的三件小事'],
+  '深潜': ['闭上眼睛，数自己的呼吸，数到20', '手写一封信或一段话（不发送也可以）', '给一个很久没联系的朋友发一条问候（不许是工作相关的）', '和家人一起吃一顿不看手机的饭'],
+};
+
+function generateDetox() {
+  const blocks = [
+    { icon:'🟡', phase:'热身', min:10, activities: DETOX_ACTIVITIES['热身'] },
+    { icon:'🟢', phase:'沉浸', min:70, activities: DETOX_ACTIVITIES['沉浸'] },
+    { icon:'🔵', phase:'深潜', min:40, activities: DETOX_ACTIVITIES['深潜'] },
+  ];
+
+  document.getElementById('detox-schedule').innerHTML = blocks.map((b, i) => `
+    <div class="detox-phase ${i === 0 ? 'current' : ''}">
+      <div class="phase-icon">${b.icon}</div>
+      <div class="phase-name">${b.phase}</div>
+      <div class="phase-duration">${b.min} 分钟</div>
+      <ul class="phase-activities">
+        ${b.activities.map(a => `<li>${a}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  document.getElementById('detox-rules').innerHTML = `
+    <h4>📏 排毒规则</h4>
+    <ul>
+      <li>⛔ 手机放另一个房间，或至少伸手够不到的地方</li>
+      <li>⛔ 屏幕亮度调至最低/暖色模式</li>
+      <li>⛔ 如果有人找你——两小时后再说</li>
+      <li>✅ 可以做任何不动屏幕的事</li>
+      <li>✅ 可以发呆——发呆不是浪费时间</li>
+    </ul>
+  `;
+
+  document.getElementById('detox-tip').textContent =
+    '💡 两小时后回来，你会发现：天没塌，消息没丢，你没被世界抛弃。';
+}
+
+function startBreathing() {
+  const steps = [
+    { icon:'🧘', text:'找一个舒服的姿势坐好或躺好。闭上眼睛。', sec:15 },
+    { icon:'🌬️', text:'慢慢吸气……感受空气进入鼻腔……1……2……3……4', sec:4 },
+    { icon:'🤲', text:'轻轻地屏住呼吸……1……2……3……4', sec:4 },
+    { icon:'💨', text:'缓缓呼出……让所有的紧张随这口气离开……1……2……3……4……5……6', sec:6 },
+    { icon:'☁️', text:'感受呼出后的那片刻空白……', sec:2 },
+    { icon:'🌅', text:'很好。重复这个循环6次。你可以的。', sec:0 },
+  ];
+
+  document.getElementById('breath-steps').innerHTML = steps.map(s => `
+    <div class="breath-step">
+      <span class="step-icon">${s.icon}</span>
+      <span class="step-instruction">${s.text}</span>
+      <span class="step-time">${s.sec > 0 ? s.sec + '秒' : ''}</span>
+    </div>
+  `).join('');
+}
+
+// ── 行为锚 ──
+function getAnchors() {
+  return JSON.parse(localStorage.getItem('lh_anchors') || '[]');
+}
+
+function saveAnchors(anchors) {
+  localStorage.setItem('lh_anchors', JSON.stringify(anchors));
+}
+
+function addAnchor() {
+  const name = document.getElementById('anchor-name').value.trim();
+  const category = document.getElementById('anchor-category').value;
+  if (!name) return;
+
+  let anchors = getAnchors();
+  anchors.push({ name, category, ts: Date.now(), count: 1 });
+  saveAnchors(anchors);
+  document.getElementById('anchor-name').value = '';
+  renderAnchors();
+}
+
+function logAnchor(index) {
+  let anchors = getAnchors();
+  if (index >= 0 && index < anchors.length) {
+    anchors[index].count = (anchors[index].count || 0) + 1;
+    anchors[index].ts = Date.now();
+    saveAnchors(anchors);
+    renderAnchors();
+  }
+}
+
+function renderAnchors() {
+  const anchors = getAnchors();
+  const list = document.getElementById('anchor-list');
+  const icons = { '身体':'🏃', '心智':'📖', '社交':'🤝', '创作':'🎨', '休息':'☕' };
+
+  if (anchors.length === 0) {
+    list.innerHTML = '<div style="color:var(--text-dim);text-align:center;padding:30px;">开始记录你的日常锚点，让它们在焦虑时接住你</div>';
+    return;
+  }
+
+  list.innerHTML = anchors.map((a, i) => {
+    let stability = Math.min((a.count || 1) / 10, 1);
+    return `
+    <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);">
+      <span style="font-size:24px;">${icons[a.category] || '📍'}</span>
+      <div style="flex:1;">
+        <div style="color:var(--text-bright);font-size:14px;">${a.name}</div>
+        <div style="font-size:11px;color:var(--text-dim);">${a.category} · 已发生${a.count}次 · 稳定性${Math.round(stability*100)}%</div>
+      </div>
+      <button class="btn" style="padding:6px 14px;font-size:12px;margin-top:0;" onclick="logAnchor(${i})">签到</button>
+    </div>`;
+  }).join('');
+}
+
+// ── 共鸣墙（本地模拟） ──
+function refreshResonance() {
+  let history = JSON.parse(localStorage.getItem('lh_anxiety_history') || '[]');
+  const cutoff = Date.now() - 86400000;
+  const recent = history.filter(h => h.ts >= cutoff);
+
+  if (recent.length === 0) {
+    document.getElementById('resonance-count').textContent = '--';
+    document.getElementById('resonance-messages').innerHTML =
+      '<div style="color:var(--text-dim);text-align:center;padding:20px;">共鸣墙正在倾听...先检测一次情绪吧。🌡️</div>';
+    return;
+  }
+
+  // 模拟统计（实际部署时从 aggregated data 读取）
+  let count = Math.max(recent.length, 47);
+  document.getElementById('resonance-count').textContent = count;
+
+  let emotions = {};
+  recent.forEach(h => {
+    h.labels?.forEach(l => {
+      emotions[l.name] = (emotions[l.name] || 0) + 1;
+    });
+  });
+
+  let emoEntries = Object.entries(emotions).sort((a,b) => b[1]-a[1]);
+  let topEmotion = emoEntries[0]?.[0] || '焦虑';
+
+  document.getElementById('resonance-messages').innerHTML = `
+    <div class="resonance-msg">今天，有 <strong>${count}</strong> 人和你一样在关注自己的情绪。你从来不是一个人。</div>
+    <div class="resonance-msg">「${topEmotion}」是今天最常被标记的情绪。${Math.round(Math.random()*80+40)} 人选择了出门散步来应对。</div>
+    <div class="resonance-msg">此刻，有 <strong>${Math.round(count*0.7)}</strong> 人在看同一片天空。</div>
+  `;
+
+  document.getElementById('emotion-pie').innerHTML = emoEntries.slice(0, 4).map(([name, c], i) => {
+    let pct = Math.round(c / emoEntries.reduce((s, [_,v]) => s+v, 0) * 100);
+    return `<div class="pie-slice">
+      <div class="slice-value" style="color:${['#D4A84C','#c47a4a','#4a8c7a','#7a8cc4'][i]}">${pct}%</div>
+      <div class="slice-name">${name}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('whispers-list').innerHTML = [
+    '「今天好多了。谢谢有这个地方。」',
+    '「还是会反复。但至少我学会了先停下来。」',
+    '「刚排毒完。感觉像洗了一次灵魂的澡。」',
+    '「明天会更好。这句话我今天信了。」',
+  ].map(w => `<div class="whisper">${w}</div>`).join('');
+}
+
+// ── 页面初始化 ──
+window.addEventListener('DOMContentLoaded', () => {
+  // 如果 localStorage 有历史，加载体温计
+  let history = JSON.parse(localStorage.getItem('lh_anxiety_history') || '[]');
+  if (history.length > 0) {
+    updateTimeline(history);
+    let latest = history[history.length - 1];
+    updateThermometer({ score: latest.score, labels: latest.labels || [], triggers: [] });
+  }
+
+  renderShields();
+  generateDetox();
+  renderAnchors();
+  refreshResonance();
+});
+</script>
+
+</body>
+</html>

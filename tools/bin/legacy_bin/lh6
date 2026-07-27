@@ -1,0 +1,774 @@
+#!/bin/bash
+# 🐉 龍魂 v6 统一入口
+# DNA: #龍芯⚡️2026-06-21-LH6-v1.0
+
+LH_ROOT="${LONGHUN_ROOT:-$HOME/longhun-system}"
+CNSH_TERMINAL="$LH_ROOT/cnsh-terminal/cnsh_terminal_v5.py"
+CNSH_EDITOR="$LH_ROOT/cnsh-editor/cnsh_editor_engine_v2.0.py"
+CNSH_AUDITOR="$LH_ROOT/cnsh-editor/core/cnsh_editor_var_auditor.py"
+CLAP_ENGINE="$LH_ROOT/audit/capital_love_audit.py"
+PLIST_VALIDATOR="$LH_ROOT/bin/plist_validator.py"
+FUSE_CONTROL="$LH_ROOT/bin/fuse_control.py"
+SEMANTIC_PARSER="$LH_ROOT/bin/semantic_parser.py"
+PRIVACY_ENGINE="$LH_ROOT/bin/sovereign_privacy.py"
+ERROR_TRANSLATOR="$LH_ROOT/bin/error_translator.py"
+AUDIT_PLUGIN="$LH_ROOT/bin/audit_plugin_base.py"
+HETU_DNA="$LH_ROOT/bin/hetu_luoshu_dna.py"
+BAGUA_ROUTER="$LH_ROOT/bin/bagua_router.py"
+WUXING_GUARD="$LH_ROOT/bin/wuxing_guard.py"
+SKILL_EXTENSION="$LH_ROOT/bin/skill_extension.py"
+START_SYMBIOTE="$LH_ROOT/bin/start_symbiote.sh"
+OPS_CONSOLE="$LH_ROOT/ops-console/index.html"
+PORTAL_URL="https://longhun888.com/"
+MEMORY_BOOTSTRAP="$HOME/.longhun/scripts/longhun_memory_bootstrap.py"
+KIMI_BIN="$HOME/.kimi-code/bin/kimi"
+
+cmd="${1:-help}"
+
+case "$cmd" in
+  status)
+    cd "$LH_ROOT" 2>/dev/null || true
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "未知")
+    last_commit=$(git log -1 --format='%h %s (%ci)' 2>/dev/null || echo "未知")
+    git_status=$(git diff --quiet 2>/dev/null && git diff --staged --quiet 2>/dev/null && echo "✅ 干净" || echo "📝 有未提交改动")
+
+    cat <<EOF
+🐉 龍魂 v6 · 完整状态面板
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📁 项目根目录: $LH_ROOT
+🌿 Git 分支:  $branch
+🕐 最近提交:  $last_commit
+📊 Git 状态:  $git_status
+
+🔧 核心组件状态
+EOF
+    [ -f "$OPS_CONSOLE" ]    && echo "   ✅ OPS 操作台    ($OPS_CONSOLE)"    || echo "   ❌ OPS 操作台"
+    [ -f "$CNSH_TERMINAL" ]  && echo "   ✅ CNSH 终端     ($CNSH_TERMINAL)"  || echo "   ❌ CNSH 终端"
+    [ -f "$MEMORY_BOOTSTRAP" ] && echo "   ✅ 记忆启动器    ($MEMORY_BOOTSTRAP)" || echo "   ❌ 记忆启动器"
+    [ -f "$KIMI_BIN" ]       && echo "   ✅ Kimi CLI      ($KIMI_BIN)"        || echo "   ❌ Kimi CLI"
+    SYMBIOTE="$LH_ROOT/tools/longhun_symbiote_server.py"
+    [ -f "$SYMBIOTE" ]       && echo "   ✅ 共生体服务器   ($SYMBIOTE)"        || echo "   ❌ 共生体服务器"
+
+    # DNA / 权重 / 层级 注册表摘要
+    REGISTRY="$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    if [ -f "$REGISTRY" ]; then
+      echo ""
+      python3 - "$REGISTRY" <<'PY'
+import json, sys
+from pathlib import Path
+with open(sys.argv[1], encoding='utf-8') as f:
+    r = json.load(f)
+print("🧬 DNA·权重·层级 全局注册表")
+print(f"   扫描文件: {r['total_files']}  已注册: {r['registered_files']}  对齐率: {r['alignment_rate']}%")
+print(f"   有效 DNA: {r['valid_dna']}  无效: {r['invalid_dna']}  缺失: {r['no_dna']}")
+print("   层级分布:")
+for layer in ['L0_ETERNAL', 'L1_SEASONAL', 'L2_DECISION', 'L3_GENERATIONAL', 'L4_INSTANT']:
+    n = r['by_layer'].get(layer, 0)
+    if n:
+        bar = '█' * int(n / max(r['by_layer'].values()) * 20)
+        print(f"      {layer:<18} {n:>5} {bar}")
+print("   状态分布:")
+for status in ['🟢', '🟡', '🔴']:
+    n = r['by_status'].get(status, 0)
+    if n:
+        print(f"      {status} {n:>5}")
+print(f"   注册表文件: {sys.argv[1]}")
+PY
+    else
+      echo ""
+      echo "⚠️  DNA 注册表尚未生成，运行: lh6 registry"
+    fi
+
+    cat <<EOF
+
+🔗 快速链接
+   • OPS 操作台: file://$OPS_CONSOLE
+   • 开发者门户: file://$LH_ROOT/sovereignty/portal/static/developer.html
+   • 线上门户:   $PORTAL_URL
+
+📝 最近 5 条提交
+EOF
+    git log --oneline -5 2>/dev/null || echo "   (无法读取 git 日志)"
+    ;;
+
+  registry)
+    REGISTRY_BUILDER="$LH_ROOT/tools/dna_registry_builder.py"
+    if [ -f "$REGISTRY_BUILDER" ]; then
+      echo "🧬 正在重建 DNA·权重·层级 全局注册表..."
+      python3 "$REGISTRY_BUILDER" "$LH_ROOT" -o "$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    else
+      echo "❌ 注册表生成器未找到: $REGISTRY_BUILDER"
+      exit 1
+    fi
+    ;;
+
+  weight)
+    shift
+    if [ $# -eq 0 ]; then
+      echo "用法: lh6 weight <文件路径>"
+      echo "示例: lh6 weight cnsh-terminal/cnsh_terminal_v5.py"
+      exit 1
+    fi
+    target="$1"
+    REGISTRY="$LH_ROOT/.longhun/dna-audit/dna_registry.json"
+    if [ ! -f "$REGISTRY" ]; then
+      echo "❌ DNA 注册表不存在，请先运行: lh6 registry"
+      exit 1
+    fi
+    python3 - "$REGISTRY" "$target" "$LH_ROOT" <<'PY'
+import json, sys, os
+from pathlib import Path
+reg_path, target, root = sys.argv[1:4]
+with open(reg_path, encoding='utf-8') as f:
+    reg = json.load(f)
+# 尝试多种匹配方式
+for rel in [target, target.lstrip('./'), str(Path(target).relative_to(root)) if Path(target).is_absolute() else target]:
+    for e in reg['entries']:
+        if e['file'] == rel or e['file'].endswith('/' + rel) or rel.endswith(e['file']):
+            print(f"🧬 文件权重识别结果")
+            print(f"   文件: {e['file']}")
+            print(f"   DNA:  {e['dna']}")
+            print(f"   层级: {e['layer']}")
+            print(f"   状态: {e['status']}")
+            print(f"   优先级: {e['priority']}")
+            print(f"   权重: {e['weight']}")
+            print(f"   有效: {'✅' if e['valid'] else '❌'}")
+            sys.exit(0)
+print(f"⚠️  未在注册表中找到: {target}")
+print("   提示: 运行 lh6 registry 重建注册表，或确认文件带有 DNA 标记")
+PY
+    ;;
+
+  ops)
+    if [ -f "$OPS_CONSOLE" ]; then
+      echo "🖥️  正在打开本地 OPS 操作台..."
+      echo "   file://$OPS_CONSOLE"
+      open "$OPS_CONSOLE" 2>/dev/null || xdg-open "$OPS_CONSOLE" 2>/dev/null || echo "   ⚠️  请手动在浏览器中打开上述链接"
+    else
+      echo "❌ OPS 操作台未找到: $OPS_CONSOLE"
+      exit 1
+    fi
+    ;;
+
+  portal)
+    echo "🌐 正在打开龍魂门户..."
+    echo "   $PORTAL_URL"
+    open "$PORTAL_URL" 2>/dev/null || xdg-open "$PORTAL_URL" 2>/dev/null || echo "   ⚠️  请手动在浏览器中打开上述链接"
+    ;;
+
+  cnsh)
+    if [ -f "$CNSH_TERMINAL" ]; then
+      shift
+      echo "🀄 正在启动 CNSH 终端..."
+      python3 "$CNSH_TERMINAL" "$@"
+    else
+      echo "❌ CNSH 终端未找到: $CNSH_TERMINAL"
+      exit 1
+    fi
+    ;;
+
+  memory)
+    if [ -f "$MEMORY_BOOTSTRAP" ]; then
+      echo "🧠 正在运行记忆启动器..."
+      python3 "$MEMORY_BOOTSTRAP"
+    else
+      echo "❌ 记忆启动器未找到: $MEMORY_BOOTSTRAP"
+      exit 1
+    fi
+    ;;
+
+  gate)
+    TEST_SCRIPT="$LH_ROOT/cnsh-core/tests/test_dna_sovereignty_integration.py"
+    if [ -f "$TEST_SCRIPT" ]; then
+      python3 "$TEST_SCRIPT"
+    else
+      echo "❌ DNA 主权联动测试脚本未找到: $TEST_SCRIPT"
+      exit 1
+    fi
+    ;;
+
+  going)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tools/founder_trip.py" --list
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/founder_trip.py" "$@"
+    fi
+    ;;
+
+  rights)
+    TEST_SCRIPT="$LH_ROOT/cnsh-core/tests/test_people_rights_integration.py"
+    if [ -f "$TEST_SCRIPT" ]; then
+      python3 "$TEST_SCRIPT"
+    else
+      echo "❌ 人民权益测试脚本未找到: $TEST_SCRIPT"
+      exit 1
+    fi
+    ;;
+
+  export)
+    shift
+    user_id="${1:-UID9622}"
+    python3 "$LH_ROOT/cnsh-core/tools/export_user_data.py" "$user_id"
+    ;;
+
+  behavior)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tools/behavior_cli.py" --demo
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/behavior_cli.py" "$@"
+    fi
+    ;;
+
+  scope)
+    shift
+    if [ $# -eq 0 ]; then
+      python3 "$LH_ROOT/cnsh-core/tests/test_skill_scope_integration.py"
+    else
+      python3 "$LH_ROOT/cnsh-core/tools/skill_scope_cli.py" "$@"
+    fi
+    ;;
+
+  kimi)
+    shift
+    if [ $# -eq 0 ]; then
+      echo "🌙 Kimi 集成测试与健康检查"
+      cd "$LH_ROOT/kimi" && python3 kimi_gateway.py
+    else
+      subcmd="$1"
+      shift
+      case "$subcmd" in
+        health)
+          cd "$LH_ROOT/kimi" && python3 - <<'PY'
+from kimi_gateway import KimiGatewayLite
+print(KimiGatewayLite().handle_request("/health", "GET", {}))
+PY
+          ;;
+        chat)
+          prompt="${*:-你好，龍魂系统}"
+          cd "$LH_ROOT/kimi" && python3 - "$prompt" <<'PY'
+import sys
+from kimi_gateway import KimiGatewayLite
+result = KimiGatewayLite().handle_request("/kimi/backup-inference", "POST", {"prompt": sys.argv[1]})
+print(result)
+PY
+          ;;
+        skill)
+          skill_id="${1:-skill-3-canvas-design}"
+          shift || true
+          cd "$LH_ROOT/kimi" && python3 - "$skill_id" "$*" <<'PY'
+import sys
+from kimi_gateway import KimiGatewayLite
+result = KimiGatewayLite().handle_request("/kimi/skill", "POST", {"skill_id": sys.argv[1], "input": {"description": sys.argv[2]}})
+print(result)
+PY
+          ;;
+        *)
+          echo "用法: lh6 kimi [health|chat <提示词>|skill <skill_id>]"
+          ;;
+      esac
+    fi
+    ;;
+
+  editor|edit)
+    shift
+    if [ -f "$CNSH_EDITOR" ]; then
+      if [ $# -eq 0 ]; then
+        echo "🀄 正在启动 CNSH 中文编辑器..."
+        python3 "$CNSH_EDITOR"
+      else
+        echo "🀄 正在启动 CNSH 中文编辑器（打开文件: $1）..."
+        python3 "$CNSH_EDITOR" "$@"
+      fi
+    else
+      echo "❌ CNSH 编辑器未找到: $CNSH_EDITOR"
+      exit 1
+    fi
+    ;;
+
+  audit-vars|av)
+    if [ -f "$CNSH_AUDITOR" ]; then
+      shift
+      echo "🐉 CNSH 编辑变量·左右互搏审计"
+      python3 "$CNSH_AUDITOR" "$@"
+    else
+      echo "❌ 变量审计器未找到: $CNSH_AUDITOR"
+      exit 1
+    fi
+    ;;
+
+  # ── 需求 3.1: 部署层优化 ──
+  validate)
+    shift
+    subcmd="${1:-help}"
+    case "$subcmd" in
+      plist)
+        if [ -f "$PLIST_VALIDATOR" ]; then
+          shift
+          if [ $# -eq 0 ]; then
+            python3 "$PLIST_VALIDATOR" "$LH_ROOT/launchd/com.longhun.symbiote.plist"
+          else
+            python3 "$PLIST_VALIDATOR" "$@"
+          fi
+        else
+          echo "❌ plist校验工具未找到: $PLIST_VALIDATOR"
+          echo "   系统错误：python3 bin/plist_validator.py 不可用"
+          exit 1
+        fi
+        ;;
+      *)
+        echo "用法: lh6 validate plist [plist文件路径]"
+        echo "      lh6 validate plist --auto  # 自动检查所有"
+        ;;
+    esac
+    ;;
+
+  symbiote)
+    shift
+    if [ -f "$START_SYMBIOTE" ]; then
+      case "${1:-status}" in
+        start)
+          bash "$START_SYMBIOTE" manual
+          ;;
+        stop)
+          echo "🧹 停止共生体服务..."
+          /usr/sbin/lsof -ti:9627 2>/dev/null | xargs kill -9 2>/dev/null && echo "🟢 已停止" || echo "⚠️ 服务未在运行"
+          ;;
+        restart)
+          /usr/sbin/lsof -ti:9627 2>/dev/null | xargs kill -9 2>/dev/null || true
+          sleep 1
+          bash "$START_SYMBIOTE" restart
+          ;;
+        status|*)
+          echo "🧬 共生体服务状态"
+          PID=$(/usr/sbin/lsof -ti:9627 2>/dev/null || echo "")
+          if [ -n "$PID" ]; then
+            echo "   🟢 运行中 · PID: $PID"
+            echo "   📊 端口: 9627"
+            echo "   🌐 仪表盘: http://127.0.0.1:9627/symbiote"
+            # 内存使用
+            MEM=$(ps -o rss= -p "$PID" 2>/dev/null || echo "N/A")
+            [ "$MEM" != "N/A" ] && echo "   💾 内存: $((MEM/1024))MB"
+            # CPU 使用
+            CPU=$(ps -o %cpu= -p "$PID" 2>/dev/null || echo "N/A")
+            [ "$CPU" != "N/A" ] && echo "   ⚡ CPU: ${CPU}%"
+            # 健康检查
+            if curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:9627/api/health" 2>/dev/null | grep -q 200; then
+              echo "   ✅ API 健康检查通过"
+            else
+              echo "   🟡 API 端口可达但健康检查失败"
+            fi
+          else
+            echo "   🔴 未运行"
+            echo "   提示: lh6 symbiote start 启动服务"
+          fi
+          ;;
+      esac
+    else
+      echo "❌ 启动脚本未找到: $START_SYMBIOTE"
+      exit 1
+    fi
+    ;;
+
+  # ── 需求 3.2: 熔断引擎优化 ──
+  fuse)
+    shift
+    if [ -f "$FUSE_CONTROL" ]; then
+      python3 "$FUSE_CONTROL" "$@"
+    else
+      echo "❌ 熔断控制器未找到: $FUSE_CONTROL"
+      exit 1
+    fi
+    ;;
+
+  token)
+    shift
+    if [ -f "$FUSE_CONTROL" ]; then
+      python3 "$FUSE_CONTROL" token "$@"
+    else
+      echo "❌ 熔断控制器未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── 需求 3.3: 语义触发优化 ──
+  semantic|parse)
+    shift
+    if [ -f "$SEMANTIC_PARSER" ]; then
+      if [ $# -eq 0 ]; then
+        echo "🧠 语义解析·将自然语言转译为 lh6 命令"
+        echo "用法: lh6 semantic \"你的自然语言描述\""
+        echo "示例: lh6 semantic \"检查共生体服务状态\""
+      else
+        python3 "$SEMANTIC_PARSER" "$@"
+      fi
+    else
+      echo "❌ 语义解析器未找到，使用本地匹配"
+      python3 -c "
+import sys
+text = ' '.join(sys.argv[1:])
+# 简单关键词匹配
+if '状态' in text or 'status' in text:
+    if '共生体' in text or 'symbiote' in text:
+        print('语义解析 → lh6 symbiote status')
+    else:
+        print('语义解析 → lh6 status')
+elif '熔断' in text or 'fuse' in text:
+    print('语义解析 → lh6 fuse status')
+elif '令牌' in text or 'token' in text:
+    print('语义解析 → lh6 token status')
+elif '编辑器' in text or 'editor' in text:
+    print('语义解析 → lh6 editor')
+else:
+    print('无法解析 · 请使用 lh6 help 查看可用命令')
+" "$@"
+    fi
+    ;;
+
+  # ── 需求 3.4: 安全与隐私 ──
+  auth)
+    shift
+    if [ -f "$PRIVACY_ENGINE" ]; then
+      case "${1:-help}" in
+        verify)
+          shift
+          hash_val="${1:-}"
+          if [ -z "$hash_val" ]; then
+            echo "主权人身份验证"
+            echo "用法: lh6 auth verify <0x哈希值>"
+          else
+            python3 "$PRIVACY_ENGINE" verify "$hash_val"
+          fi
+          ;;
+        hash)
+          shift
+          text="${*:-UID9622}"
+          python3 "$PRIVACY_ENGINE" hash "$text"
+          ;;
+        keycheck)
+          python3 "$PRIVACY_ENGINE" keycheck
+          ;;
+        keygen)
+          python3 "$PRIVACY_ENGINE" keygen
+          ;;
+        *)
+          echo "🔐 龍魂主权身份管理"
+          echo "  lh6 auth verify <哈希值>  验证身份脱敏映射"
+          echo "  lh6 auth hash <明文>      生成身份哈希"
+          echo "  lh6 auth keycheck         检查密钥状态"
+          echo "  lh6 auth keygen           生成AES密钥"
+          ;;
+      esac
+    else
+      echo "主权人: 0x$(echo -n '💎 龍芯北辰·诸葛鑫·Lucky@UID9622@LONGHUN' | shasum -a 256 | cut -c1-12)"
+    fi
+    ;;
+
+  privacy)
+    shift
+    if [ -f "$PRIVACY_ENGINE" ]; then
+      case "${1:-help}" in
+        encrypt)
+          shift
+          python3 "$PRIVACY_ENGINE" encrypt "$@"
+          ;;
+        decrypt)
+          shift
+          python3 "$PRIVACY_ENGINE" decrypt "$@"
+          ;;
+        *)
+          echo "🔐 审计日志加密"
+          echo "  lh6 privacy encrypt <文件>  加密日志"
+          echo "  lh6 privacy decrypt <文件>  解密日志"
+          ;;
+      esac
+    else
+      echo "❌ 隐私引擎未找到"
+    fi
+    ;;
+
+  # ── B4审计层：可插拔审计插件 ──
+  audit-plugin|ap)
+    shift
+    if [ -f "$AUDIT_PLUGIN" ]; then
+      python3 "$AUDIT_PLUGIN" "$@"
+    else
+      echo "❌ 审计插件系统未找到: $AUDIT_PLUGIN"
+      exit 1
+    fi
+    ;;
+
+  # ═══════════════════════════════════════════════════════
+  # 🐉 六十四卦路由层 · 八卦命令入口
+  # ═══════════════════════════════════════════════════════
+
+  # ── ☰ 乾（天·金）启动层 ──
+  乾)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 乾
+    else
+      echo "❌ 六十四卦路由引擎未找到: $BAGUA_ROUTER"
+      exit 1
+    fi
+    ;;
+
+  # ── ☷ 坤（地·土）状态层 ──
+  坤)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 坤
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── ☳ 震（雷·木）审计层 ──
+  震)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 震
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── ☴ 巽（风·木）安全层 ──
+  巽)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 巽
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── ☵ 坎（水·水）主权层 ──
+  坎)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 坎
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── ☲ 离（火·火）技能层 ──
+  离)
+    shift
+    if [ -f "$SKILL_EXTENSION" ]; then
+      python3 "$SKILL_EXTENSION" "$@"
+    else
+      echo "❌ 技能扩展引擎未找到: $SKILL_EXTENSION"
+      exit 1
+    fi
+    ;;
+
+  # ── ☶ 艮（山·土）同步层 ──
+  艮)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 艮
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── ☱ 兑（泽·金）部署层 ──
+  兑)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" show 兑
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ═══════════════════════════════════════════════════════
+  # 🐉 三大引擎直连命令
+  # ═══════════════════════════════════════════════════════
+
+  # ── 河图洛书DNA引擎 ──
+  dna-gen|河图DNA|hetu|dna-engine)
+    shift
+    if [ -f "$HETU_DNA" ]; then
+      python3 "$HETU_DNA" "$@"
+    else
+      echo "❌ 河图洛书DNA引擎未找到: $HETU_DNA"
+      exit 1
+    fi
+    ;;
+
+  # ── 六十四卦路由查询 ──
+  bagua|八卦|gua|hexagram)
+    shift
+    if [ -f "$BAGUA_ROUTER" ]; then
+      python3 "$BAGUA_ROUTER" "$@"
+    else
+      echo "❌ 六十四卦路由引擎未找到"
+      exit 1
+    fi
+    ;;
+
+  # ── 五行权限校验 ──
+  wuxing|五行|wu-xing|5xing)
+    shift
+    if [ -f "$WUXING_GUARD" ]; then
+      python3 "$WUXING_GUARD" "$@"
+    else
+      echo "❌ 五行权限校验引擎未找到: $WUXING_GUARD"
+      exit 1
+    fi
+    ;;
+
+  # ── 需求 3.5: 错误翻译 ──
+  error|err)
+    shift
+    if [ -f "$ERROR_TRANSLATOR" ]; then
+      if [ $# -eq 0 ]; then
+        echo "🌐 错误翻译器"
+        echo "用法: lh6 error \"错误信息\""
+        echo "      lh6 error --code 5  # launchctl错误码"
+      else
+        python3 "$ERROR_TRANSLATOR" "$@"
+      fi
+    else
+      # 内置降级
+      case "$*" in
+        *5*) echo "系统级服务加载失败（错误码5）：I/O 错误，请运行 lh6 validate plist 检查" ;;
+        *"permission"*|*"denied"*) echo "权限不足：请检查文件权限或使用 sudo" ;;
+        *"timeout"*) echo "连接超时：请检查网络连接" ;;
+        *) echo "错误: $*" ;;
+      esac
+    fi
+    ;;
+
+  # ── 🛡️ CLAP 资本愛之审计 ──
+  clap|资本审计|愛之审计|资本隔离)
+    shift
+    if [ -f "$CLAP_ENGINE" ]; then
+      case "${1:-status}" in
+        audit|审计)
+          shift
+          if [ $# -eq 0 ]; then
+            echo "🛡️ CLAP 资本愛之审计"
+            echo "用法: lh6 clap audit <实体JSON文件>"
+            echo "示例: lh6 clap audit audit/sample_entity_good.json"
+            echo ""
+            echo "实体JSON格式见: audit/sample_entity_good.json"
+          else
+            python3 "$CLAP_ENGINE" --audit "$@"
+          fi
+          ;;
+        report|报告)
+          python3 "$CLAP_ENGINE" --report
+          ;;
+        banned|禁入|黑名单)
+          python3 "$CLAP_ENGINE" --list-banned
+          ;;
+        verify|status|状态)
+          python3 "$CLAP_ENGINE" --verify
+          ;;
+        *)
+          echo "🛡️ CLAP 资本愛之审计 v1.0"
+          echo "  得罪少数人 · 造福14亿人"
+          echo ""
+          echo "用法:"
+          echo "  lh6 clap audit <entity.json>   审计资本实体"
+          echo "  lh6 clap report                生成本季度报告"
+          echo "  lh6 clap banned                查看禁入黑名单"
+          echo "  lh6 clap status                引擎状态自检"
+          ;;
+      esac
+    else
+      echo "❌ CLAP 资本愛之审计引擎未找到: $CLAP_ENGINE"
+      exit 1
+    fi
+    ;;
+
+  help|--help|-h|""|*)
+    cat <<EOF
+🐉 龍魂 v6 统一入口 · 河图洛书不动点
+
+用法: lh6 <子命令>
+
+═══ 六十四卦路由层（八卦命令） ═══
+   lh6 乾 <动作>    ☰ 启动层: start/init/boot/stop/restart
+   lh6 坤 <动作>    ☷ 状态层: status/health/info/list
+   lh6 震 <动作>    ☳ 审计层: audit/dna/verify/history
+   lh6 巽 <动作>    ☴ 安全层: secure/cert/encrypt/decrypt
+   lh6 坎 <动作>    ☵ 主权层: domain/ns/register/verify
+   lh6 离 <动作>    ☲ 技能层: skill/algo/run/list
+   lh6 艮 <动作>    ☶ 同步层: sync/push/pull/commit
+   lh6 兑 <动作>    ☱ 部署层: deploy/rollback/release/validate
+
+═══ 三大引擎 ═══
+   dna-gen   河图洛书不动点DNA生成/验证（别名: 河图DNA）
+   bagua     六十四卦路由查询（别名: 八卦/gua）
+   wuxing    五行权限校验（别名: 五行/5xing）
+
+═══ 传统命令（向后兼容） ═══
+   status    完整状态面板（含 DNA·权重·层级）
+   registry  重建 DNA→权重/层级/状态全局注册表
+   weight    查询指定文件的权重/层级/状态
+   gate      运行人民主权联动测试
+   rights    运行人民权益守门人测试（反收割·焊死）
+   export    一键导出用户数据（默认 UID9622）
+   behavior  人民行为引擎：一人一策，专练一项
+   scope     人民技能边界：赋能不是取代，越界审计
+   kimi      Kimi 集成：健康检查 / 对话 / Skill 引擎
+   editor    启动 CNSH 中文编辑器（别名: edit）
+   audit-vars  CNSH 编辑变量·左右互搏审计（别名: av）
+   validate  校验 plist 文件格式（别名: check-plist）
+   symbiote  共生体服务管理（start/stop/restart/status）
+   fuse      熔断控制（block/unblock/override/token/audit）
+   token     主权令牌状态查看与续期
+   semantic  自然语言→命令语义解析（别名: parse）
+   auth      主权人身份验证与脱敏映射
+   privacy   审计日志 AES-256 加密/解密
+   error     系统错误中文翻译（别名: err）
+   audit-plugin  B4可插拔审计插件系统（别名: ap）
+   going     创始人报备行程（你说去哪，系统随行）
+   clap      资本愛之审计：七维评分，四级准入（别名: 资本审计/愛之审计）
+   ops       打开本地 OPS 操作台
+   portal    打开 https://longhun888.com/
+   cnsh      启动 CNSH 终端
+   memory    运行记忆启动器
+   help      显示本帮助
+
+提示: lh 是 lh6 的快捷别名，支持中文命令（lh 编辑器 / lh 熔断）
+
+示例:
+   lh6 status
+   lh6 gate
+   lh6 rights
+   lh6 editor
+   lh6 validate plist
+   lh6 symbiote status
+   lh6 symbiote start
+   lh6 symbiote restart
+   lh6 fuse status
+   lh6 fuse block bad-site.com --level SOFT
+   lh6 fuse override github.com --duration 1h
+   lh6 token status
+   lh6 token renew
+   lh6 semantic "检查共生体服务状态"
+   lh6 auth verify 0x7d3a1b2c3e4f
+   lh6 audit-vars --detail
+   lh6 audit-plugin list
+   lh6 audit-plugin audit <文件>
+   lh6 export
+   lh6 behavior
+   lh6 scope check 医生 医疗建议
+   lh6 kimi chat 龍魂系统的核心是什么
+   lh6 going 北京
+EOF
+    ;;
+esac

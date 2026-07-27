@@ -1,0 +1,15 @@
+[Unit]
+Description=龍魂·记忆永存操作 API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_memory_eternity_api.py --host 127.0.0.1 --port 8781
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

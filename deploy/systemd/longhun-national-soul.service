@@ -1,0 +1,19 @@
+[Unit]
+Description=龍魂·不朽民族魂 API (port 8778)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=PORT=8780
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_national_soul_api.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=national-soul
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uid9622.cn/schemas/dna-v1.0.json",
+  "title": "LongHun DNA Traceability Code",
+  "description": "Schema for validating LongHun v∞ DNA traceability codes. Open standard under CC-BY-NC-SA 4.0.",
+  "type": "object",
+  "required": ["dna", "format", "uid", "timestamp"],
+  "properties": {
+    "dna": {
+      "type": "string",
+      "description": "Full v∞ DNA traceability code",
+      "pattern": "^#LongHun⚡️[A-Z][a-zA-Z]+·[A-Z][a-zA-Z]+·[A-Z][a-zA-Z]+·[A-Z][a-zA-Z]+·[䷀-䷿][A-Za-z]+-.+-[a-f0-9]{8}$"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["v1.0", "v2.0", "v∞", "compact"],
+      "default": "v∞"
+    },
+    "uid": {
+      "type": "string",
+      "pattern": "^UID\\d+$"
+    },
+    "device": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "year_stem_branch": {
+      "type": "string",
+      "pattern": "^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]$"
+    },
+    "month_stem_branch": {
+      "type": "string",
+      "pattern": "^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]$"
+    },
+    "day_stem_branch": {
+      "type": "string",
+      "pattern": "^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]$"
+    },
+    "shichen": {
+      "type": "string",
+      "pattern": "^[A-Z][a-z]*(Shi)[A-Za-z]*$"
+    },
+    "hexagram": {
+      "type": "string",
+      "pattern": "^[䷀-䷿][A-Za-z]+$"
+    },
+    "module": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9-]+$"
+    },
+    "action": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9-]+$"
+    }
+  }
+}
