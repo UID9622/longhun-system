@@ -1,0 +1,24 @@
+{
+  "string": [
+    { "name": "app_name", "value": "龍魂·指尖" },
+    { "name": "module_desc", "value": "龍魂鸿蒙共生体·掌心21人格对话" },
+    { "name": "internet_reason", "value": "连接鲲鹏服务器进行AI对话" },
+    { "name": "network_reason", "value": "检测网络状态以优化连接" },
+    { "name": "tab_chat", "value": "对话" },
+    { "name": "tab_status", "value": "状态" },
+    { "name": "tab_dna", "value": "DNA" },
+    { "name": "tab_settings", "value": "设置" },
+    { "name": "btn_send", "value": "发送" },
+    { "name": "btn_retry", "value": "重试" },
+    { "name": "server_label", "value": "鲲鹏服务器" },
+    { "name": "server_hint", "value": "输入鲲鹏IP或域名" },
+    { "name": "confirm_label", "value": "确认码" },
+    { "name": "confirm_hint", "value": "CONFIRM码" },
+    { "name": "offline_mode", "value": "离线模式" },
+    { "name": "cache_count", "value": "离线缓存" },
+    { "name": "clear_cache", "value": "清空缓存" },
+    { "name": "about_title", "value": "关于龍魂·指尖" },
+    { "name": "about_desc", "value": "龍魂帝国鸿蒙入口\n三步走第一步：掌心对话\n创作者：龍芯北辰 UID9622" },
+    { "name": "version", "value": "版本 1.0.0" }
+  ]
+}

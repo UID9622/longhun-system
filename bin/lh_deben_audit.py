@@ -113,6 +113,13 @@ class DebenAuditor:
         # 协议文档（批评性讨论非认可）
         "01_protocols/LH-CDNA-v1.2-需求文档.md",
         "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+        # v2.1 新增：检测/防御性引擎（关键词命中但用途是检测恶行，非实施）
+        "bin/lh_five_harms_historian_bridge.py",   # 五害史官桥接·检测大数据杀熟
+        "bin/lh_five_harms_api.py",                # 五害曝光API·检测大数据杀熟/价格歧视/第三方数据
+        "bin/lh_check_virtue.py",                  # 德行检测·检测价格歧视
+        "bin/lh_check_contributor.py",             # 贡献者检测·检测寒心叙事(好人=穷等)
+        "bin/lh_gap_detector.py",                  # 缺口检测·检测行为追踪
+        "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",  # 审计修复文档·引述问题描述
     }
 
     # 排除的目录前缀（整个目录下的文件都是参考/归档/教育材料/防御代码）

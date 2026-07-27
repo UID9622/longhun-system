@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·软文化污染隔离面板</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #12121a;
+    --border: #1e1e2e;
+    --text: #c8c8d4;
+    --text-dim: #6b6b7b;
+    --gold: #c9a84c;
+    --gold-glow: rgba(201,168,76,0.15);
+    --red: #e5534b;
+    --orange: #d97823;
+    --yellow: #c4a000;
+    --green: #3fb950;
+    --black: #1a1a2e;
+    --radius: 8px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+  
+  /* Header */
+  .header {
+    text-align: center; padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 28px; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold), #e8c84c, var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .subtitle { color: var(--text-dim); font-size: 13px; margin-top: 6px; }
+  .header .dna { font-family: monospace; font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+  
+  /* Grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .card.full { grid-column: 1 / -1; }
+  .card h3 {
+    font-size: 15px; font-weight: 600; color: var(--gold);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .card h3 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  
+  /* Input */
+  textarea {
+    width: 100%; min-height: 80px; padding: 12px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); font-size: 14px;
+    resize: vertical; font-family: inherit;
+  }
+  textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-glow); }
+  
+  select, button {
+    padding: 8px 14px; border-radius: 6px; font-size: 13px;
+    border: 1px solid var(--border); cursor: pointer; font-family: inherit;
+  }
+  select { background: var(--bg); color: var(--text); }
+  select:focus { outline: none; border-color: var(--gold); }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #b8932e);
+    color: #000; border: none; font-weight: 600;
+    padding: 10px 24px; transition: all 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px var(--gold-glow); }
+  .btn-secondary { background: var(--card); color: var(--text); }
+  .btn-secondary:hover { border-color: var(--gold); }
+  
+  .input-row { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; }
+  .input-row > * { flex: 1; min-width: 120px; }
+  .input-row > button { flex: 0 0 auto; }
+  
+  /* Result */
+  .result { margin-top: 16px; }
+  .result-hidden { display: none; }
+  
+  .grade-badge {
+    display: inline-block; padding: 6px 16px; border-radius: 20px;
+    font-weight: 700; font-size: 15px; margin-bottom: 12px;
+  }
+  .grade-clean { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+  .grade-watch { background: rgba(196,160,0,0.15); color: var(--yellow); border: 1px solid rgba(196,160,0,0.3); }
+  .grade-mild { background: rgba(217,120,35,0.15); color: var(--orange); border: 1px solid rgba(217,120,35,0.3); }
+  .grade-moderate { background: rgba(229,83,75,0.15); color: var(--red); border: 1px solid rgba(229,83,75,0.3); }
+  .grade-severe { background: rgba(26,26,46,0.9); color: #666; border: 1px solid #333; }
+  
+  .pci-gauge {
+    height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--green), var(--yellow), var(--orange), var(--red), #333);
+    margin: 10px 0; position: relative;
+  }
+  .pci-indicator {
+    position: absolute; top: -4px; width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--gold);
+    transform: translateX(-50%); transition: left 0.5s ease;
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+  .metric {
+    text-align: center; padding: 10px; background: var(--bg);
+    border-radius: 6px; border: 1px solid var(--border);
+  }
+  .metric .val { font-size: 20px; font-weight: 700; color: var(--gold); }
+  .metric .lbl { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  
+  .detail-row { font-size: 13px; color: var(--text-dim); margin-top: 8px; line-height: 1.8; }
+  .detail-row strong { color: var(--text); }
+  .template-tag {
+    display: inline-block; padding: 2px 8px; margin: 2px 4px 2px 0;
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px; font-size: 11px; color: var(--gold);
+    font-family: monospace;
+  }
+  
+  /* Template Browser */
+  .template-list { max-height: 500px; overflow-y: auto; }
+  .tpl-group { margin-bottom: 16px; }
+  .tpl-group-title {
+    font-size: 13px; font-weight: 600; color: var(--gold);
+    margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
+  }
+  .tpl-item {
+    padding: 6px 10px; margin: 3px 0; border-radius: 4px;
+    background: var(--bg); border: 1px solid transparent;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; transition: all 0.15s;
+  }
+  .tpl-item:hover { border-color: var(--border); }
+  .tpl-id { font-family: monospace; color: var(--gold); font-size: 11px; min-width: 36px; }
+  .tpl-kw { color: var(--text-dim); font-size: 11px; }
+  .tpl-weight {
+    font-family: monospace; font-size: 11px; padding: 1px 6px;
+    border-radius: 3px; background: rgba(201,168,76,0.1); color: var(--gold);
+  }
+  
+  /* Batch */
+  .batch-area { max-height: 200px; }
+  .batch-summary { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+  .batch-stat {
+    padding: 10px 16px; border-radius: 6px; text-align: center;
+    background: var(--bg); border: 1px solid var(--border);
+  }
+  .batch-stat .count { font-size: 22px; font-weight: 700; }
+  .batch-stat .label { font-size: 11px; color: var(--text-dim); }
+  
+  /* Footer */
+  .footer {
+    text-align: center; padding: 32px 0; color: var(--text-dim);
+    font-size: 12px; border-top: 1px solid var(--border); margin-top: 32px;
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  
+  /* Loading */
+  .spinner {
+    display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border);
+    border-top-color: var(--gold); border-radius: 50%; animation: spin 0.6s linear infinite;
+    margin-right: 6px; vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  /* Responsive */
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .input-row { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <h1>龍魂·软文化污染隔离面板</h1>
+    <p class="subtitle">三层过滤 · 47组话术模板 · PCI综合指数 · 不删只隔离</p>
+    <p class="dna">#龍芯⚡️丙午·乙未·丁酉·☲离-SOFT-CULTURE-ISOLATION-v1.0</p>
+  </header>
+
+  <!-- Main Grid -->
+  <div class="grid">
+    
+    <!-- 检测面板 -->
+    <div class="card">
+      <h3><span class="dot"></span> 实时检测</h3>
+      <div class="input-row">
+        <select id="sourceType">
+          <option value="self_media">自媒体文章</option>
+          <option value="personal_chat">个人聊天</option>
+          <option value="social_post">社交动态</option>
+          <option value="short_video">短视频标题</option>
+          <option value="product_copy">商品文案/带货</option>
+          <option value="comment_spam">评论区水军</option>
+          <option value="academic">学术讨论</option>
+          <option value="news_body">新闻正文</option>
+          <option value="gov_doc">政府公文</option>
+        </select>
+        <button class="btn-primary" onclick="analyze()" id="analyzeBtn">检测</button>
+      </div>
+      <textarea id="textInput" placeholder="输入待检测文本..."></textarea>
+      
+      <div id="result" class="result result-hidden"></div>
+    </div>
+
+    <!-- 模板浏览器 -->
+    <div class="card">
+      <h3><span class="dot"></span> 话术模板库 <span style="font-weight:400;font-size:12px;color:var(--text-dim)">47组·5类</span></h3>
+      <div class="template-list" id="templateList">加载中...</div>
+    </div>
+
+    <!-- 批量检测 -->
+    <div class="card full">
+      <h3><span class="dot"></span> 批量检测</h3>
+      <textarea class="batch-area" id="batchInput" placeholder="每行一条待检测文本..."></textarea>
+      <div style="margin-top:12px;display:flex;gap:10px;align-items:center;">
+        <select id="batchSource">
+          <option value="self_media">自媒体文章</option>
+          <option value="personal_chat">个人聊天</option>
+          <option value="social_post">社交动态</option>
+          <option value="short_video">短视频标题</option>
+          <option value="product_copy">商品文案/带货</option>
+          <option value="comment_spam">评论区水军</option>
+        </select>
+        <button class="btn-primary" onclick="batchAnalyze()" id="batchBtn">批量检测</button>
+      </div>
+      <div id="batchResult" class="result-hidden"></div>
+    </div>
+
+    <!-- Quick Tests -->
+    <div class="card full">
+      <h3><span class="dot"></span> 快速测试样例</h3>
+      <div id="quickTests" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>龍魂·软文化污染隔离协议 v1.0 · 创建者: 诸葛鑫（UID9622） · <a href="https://uid9622-01.blog.csdn.net/article/details/163131519" target="_blank">CSDN原文</a></p>
+    <p>CC BY-NC-SA 4.0 · 不删除·只降权/折叠/归档 · API: <code style="color:var(--gold)">:8768/v1/analyze</code></p>
+  </footer>
+</div>
+
+<script>
+const API_BASE = 'http://localhost:8768';
+
+// ── 快速测试样例 ──
+const quickTests = [
+  { label: '🟢 正常聊天', text: '今天天气真好，出去走走散散心。', source: 'personal_chat', expect: '清洁' },
+  { label: '🔴 组合话术', text: '历史真相一直被掩盖，你必须觉醒，学会独立思考，追求真正的自由。', source: 'self_media', expect: '话术' },
+  { label: '🟠 震惊体', text: '震惊！内幕终于曝光了！全网疯传速看速删！', source: 'short_video', expect: '软内容' },
+  { label: '🟡 消费主义', text: '做自己最重要，你值得拥有一切，投资自己才是最好的成长，点击链接蜕变吧！', source: 'product_copy', expect: '消费主义' },
+  { label: '🟡 焦虑制造', text: '你都30岁了还不结婚？再不找就来不及了，别人家孩子都会打酱油了。', source: 'social_post', expect: '焦虑' },
+  { label: '🟢 学术豁免', text: '本文探讨历史虚无主义的三种表现形式及其对文化认同的影响。', source: 'academic', expect: '豁免' },
+  { label: '🟢 公文豁免', text: '坚持对外开放，推动经济高质量发展，保障人民合法权益。', source: 'gov_doc', expect: '豁免' },
+];
+
+function renderQuickTests() {
+  const el = document.getElementById('quickTests');
+  el.innerHTML = quickTests.map((t,i) => `
+    <button class="btn-secondary" style="font-size:12px;" onclick="quickTest(${i})" title="${t.expect}">${t.label}</button>
+  `).join('');
+}
+
+function quickTest(i) {
+  const t = quickTests[i];
+  document.getElementById('textInput').value = t.text;
+  document.getElementById('sourceType').value = t.source;
+  analyze();
+}
+
+// ── 模板浏览器 ──
+const tplCategories = [
+  { id: 'A', name: 'A类·政治包装话术', count: 12, color: '#e5534b' },
+  { id: 'B', name: 'B类·宗教隐喻夹带', count: 8, color: '#d97823' },
+  { id: 'C', name: 'C类·消费主义包装', count: 7, color: '#c4a000' },
+  { id: 'D', name: 'D类·软内容算法包装', count: 8, color: '#3fb950' },
+  { id: 'E', name: 'E类·焦虑制造话术', count: 12, color: '#6b6bff' },
+];
+
+async function loadTemplates() {
+  try {
+    const r = await fetch(`${API_BASE}/v1/templates`);
+    const data = await r.json();
+    renderTemplates(data.templates);
+  } catch(e) {
+    document.getElementById('templateList').innerHTML = 
+      '<div style="padding:20px;text-align:center;color:var(--text-dim)">API未连接·启动 <code>python3 bin/lh_soft_culture_api.py</code></div>';
+  }
+}
+
+function renderTemplates(templates) {
+  let html = '';
+  for (const cat of tplCategories) {
+    const items = templates.filter(t => t.id.startsWith(cat.id));
+    html += `<div class="tpl-group">`;
+    html += `<div class="tpl-group-title" style="color:${cat.color}">${cat.name} (${items.length}组)</div>`;
+    for (const t of items) {
+      html += `<div class="tpl-item">`;
+      html += `<span class="tpl-id">${t.id}</span>`;
+      html += `<span class="tpl-kw">${t.keywords.join(' · ')}</span>`;
+      html += `<span class="tpl-weight">w:${t.weight.toFixed(2)}</span>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  }
+  document.getElementById('templateList').innerHTML = html;
+}
+
+// ── 单条检测 ──
+async function analyze() {
+  const text = document.getElementById('textInput').value.trim();
+  if (!text) return;
+  
+  const source = document.getElementById('sourceType').value;
+  const btn = document.getElementById('analyzeBtn');
+  const resultEl = document.getElementById('result');
+  
+  btn.innerHTML = '<span class="spinner"></span>检测中';
+  btn.disabled = true;
+  resultEl.classList.add('result-hidden');
+  
+  try {
+    const r = await fetch(`${API_BASE}/v1/analyze`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text, source_type: source}),
+    });
+    const d = await r.json();
+    renderResult(d);
+  } catch(e) {
+    resultEl.innerHTML = `<p style="color:var(--red);margin-top:12px;">❌ API连接失败: ${e.message}<br><small>请确保已启动: python3 bin/lh_soft_culture_api.py</small></p>`;
+    resultEl.classList.remove('result-hidden');
+  } finally {
+    btn.innerHTML = '检测';
+    btn.disabled = false;
+  }
+}
+
+function renderResult(d) {
+  const gradeClassMap = {
+    '🟢 清洁': 'grade-clean',
+    '🟡 观察': 'grade-watch',
+    '🟠 轻度污染': 'grade-mild',
+    '🔴 中度污染': 'grade-moderate',
+    '⚫ 重度污染': 'grade-severe',
+  };
+  const gradeClass = gradeClassMap[d.pollution_grade] || 'grade-clean';
+  const pciPct = Math.min(100, Math.max(0, d.pci * 100));
+  
+  let html = `
+    <div class="result">
+      <span class="grade-badge ${gradeClass}">${d.pollution_grade}</span>
+      <span style="font-size:13px;color:var(--text-dim);margin-left:8px;">${d.action}</span>
+      
+      <div class="pci-gauge">
+        <div class="pci-indicator" style="left:${pciPct}%"></div>
+      </div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">${d.layer1_score.toFixed(3)}</div><div class="lbl">L1 组合特征</div></div>
+        <div class="metric"><div class="val">${d.layer2_score.toFixed(3)}</div><div class="lbl">L2 传播路径</div></div>
+        <div class="metric"><div class="val">${d.layer3_score.toFixed(3)}</div><div class="lbl">L3 语境分析</div></div>
+      </div>
+      
+      <div style="font-size:14px;font-weight:600;color:var(--gold);margin-top:8px;">
+        PCI = ${d.pci.toFixed(4)}
+      </div>
+      
+      <div class="detail-row">
+        <strong>文本:</strong> ${d.text_snippet}<br>
+        <strong>理由:</strong> ${d.reason}<br>
+        <strong>可见性:</strong> ${d.visible}<br>
+        <strong>审计:</strong> ${d.audit_mark}
+      </div>
+      <div style="margin-top:8px;">
+        ${(d.matched_templates||[]).map(t => `<span class="template-tag">${t}</span>`).join('') || '<span style="color:var(--text-dim);font-size:12px;">无匹配模板</span>'}
+      </div>
+    </div>
+  `;
+  
+  const resultEl = document.getElementById('result');
+  resultEl.innerHTML = html;
+  resultEl.classList.remove('result-hidden');
+}
+
+// ── 批量检测 ──
+async function batchAnalyze() {
+  const text = document.getElementById('batchInput').value.trim();
+  if (!text) return;
+  
+  const lines = text.split('\n').filter(l => l.trim());
+  if (lines.length === 0) return;
+  if (lines.length > 500) { alert('最多500条'); return; }
+  
+  const source = document.getElementById('batchSource').value;
+  const btn = document.getElementById('batchBtn');
+  const resultEl = document.getElementById('batchResult');
+  
+  btn.innerHTML = '<span class="spinner"></span>批量检测中...';
+  btn.disabled = true;
+  
+  try {
+    const items = lines.map(text => ({text, source_type: source}));
+    const r = await fetch(`${API_BASE}/v1/batch`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({items}),
+    });
+    const d = await r.json();
+    
+    let html = `<div style="margin-top:12px;">`;
+    html += `<div class="batch-summary">`;
+    for (const [k, v] of Object.entries(d.summary)) {
+      const colors = {
+        '🟢清洁': 'var(--green)', '🟡观察': 'var(--yellow)',
+        '🟠轻度': 'var(--orange)', '🔴中度': 'var(--red)', '⚫重度': '#666',
+      };
+      html += `<div class="batch-stat"><div class="count" style="color:${colors[k]||'#fff'}">${v}</div><div class="label">${k}</div></div>`;
+    }
+    html += `</div>`;
+    
+    html += `<div style="margin-top:12px;max-height:300px;overflow-y:auto;font-size:12px;">`;
+    for (let i = 0; i < d.results.length; i++) {
+      const r = d.results[i];
+      html += `<div style="padding:4px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;">`;
+      html += `<span style="color:var(--text-dim)">#${i+1}</span>`;
+      html += `<span style="flex:1;margin:0 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.text_snippet}</span>`;
+      html += `<span>${r.pollution_grade}</span>`;
+      html += `<span style="margin-left:8px;font-family:monospace;">PCI=${r.pci.toFixed(3)}</span>`;
+      html += `</div>`;
+    }
+    html += `</div></div>`;
+    
+    resultEl.innerHTML = html;
+    resultEl.classList.remove('result-hidden');
+  } catch(e) {
+    resultEl.innerHTML = `<p style="color:var(--red);margin-top:12px;">❌ ${e.message}</p>`;
+    resultEl.classList.remove('result-hidden');
+  } finally {
+    btn.innerHTML = '批量检测';
+    btn.disabled = false;
+  }
+}
+
+// ── 支持回车键检测 ──
+document.getElementById('textInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) analyze();
+});
+
+// ── 启动 ──
+renderQuickTests();
+loadTemplates();
+</script>
+</body>
+</html>

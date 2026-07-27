@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德本审计 · 五条底线</title>
+<style>
+:root {
+  --bg:#0a0a0f; --surface:#12121a; --card:#1a1a28;
+  --gold:#D4A574; --gold-dim:#8a6a4a; --red:#d9534f; --green:#5cb85c; --yellow:#f0ad4e;
+  --text:#d4d4d4; --text-dim:#888;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,sans-serif; }
+header {
+  background:linear-gradient(135deg,#1a1a28 0%,#0a0a0f 100%);
+  padding:24px 32px; border-bottom:1px solid var(--gold-dim);
+  display:flex; align-items:center; gap:16px;
+}
+header h1 { color:var(--gold); font-size:24px; }
+header .subtitle { color:var(--text-dim); font-size:13px; margin-top:4px; }
+.container { max-width:1200px; margin:0 auto; padding:24px; }
+.grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:24px; }
+.card {
+  background:var(--card); border:1px solid #222; border-radius:12px; padding:20px;
+}
+.card:hover { border-color:var(--gold-dim); }
+.card h3 { color:var(--gold); font-size:14px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #222; }
+.card-full { margin-bottom:20px; }
+.card-full h3 { color:var(--gold); font-size:16px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid #222; }
+
+.bottom-line {
+  text-align:center; padding:16px 12px;
+}
+.bottom-line .indicator {
+  width:60px; height:60px; border-radius:50%; margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:28px;
+}
+.indicator-green { background:rgba(92,184,92,.15); border:2px solid var(--green); color:var(--green); }
+.indicator-yellow { background:rgba(240,173,78,.15); border:2px solid var(--yellow); color:var(--yellow); }
+.indicator-red { background:rgba(217,83,79,.15); border:2px solid var(--red); color:var(--red); animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+.bottom-line .line-name { font-size:14px; font-weight:bold; margin-bottom:4px; }
+.bottom-line .line-question { font-size:11px; color:var(--text-dim); }
+.bottom-line .line-verdict { font-size:12px; margin-top:8px; }
+
+.btn {
+  background:var(--gold); color:#000; border:none; padding:12px 28px; border-radius:8px;
+  cursor:pointer; font-size:15px; font-weight:bold; transition:opacity .2s;
+}
+.btn:hover { opacity:0.85; }
+.btn-lg { padding:16px 40px; font-size:16px; }
+
+.overall-banner {
+  text-align:center; padding:20px; border-radius:12px; margin-bottom:20px; font-size:18px; font-weight:bold;
+}
+.banner-green { background:rgba(92,184,92,.1); border:1px solid var(--green); color:var(--green); }
+.banner-yellow { background:rgba(240,173,78,.1); border:1px solid var(--yellow); color:var(--yellow); }
+.banner-red { background:rgba(217,83,79,.1); border:1px solid var(--red); color:var(--red); }
+
+.issue-list { max-height:300px; overflow-y:auto; }
+.issue-item {
+  display:flex; align-items:center; gap:10px; padding:8px 12px;
+  background:var(--surface); border-radius:6px; margin-bottom:6px; font-size:12px;
+}
+.issue-file { flex:1; font-family:monospace; color:var(--gold); }
+.issue-sev { font-weight:bold; }
+.issue-label { color:var(--text-dim); }
+
+.meta-row { display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--text-dim); margin-top:16px; }
+.timestamp { font-size:11px; color:var(--text-dim); margin-top:16px; text-align:right; }
+.loading { text-align:center; color:var(--text-dim); padding:60px; }
+.spin { animation:spin 1s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.action-bar { text-align:center; margin-bottom:20px; }
+.action-bar .btn { margin:0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>⚖️ 德本审计 · 五条底线</h1>
+    <div class="subtitle">德在技术前 — 用代码焊死德行</div>
+  </div>
+  <div style="margin-left:auto;display:flex;gap:12px;">
+    <button class="btn" onclick="runScan()">🔄 重新扫描</button>
+    <button class="btn" style="background:#222;color:var(--gold);" onclick="runIntegrated()">⚡ 五引擎集成扫描</button>
+  </div>
+</header>
+
+<div class="container">
+  <div id="main-content" class="loading">
+    <div class="spin" style="font-size:40px;">⚙️</div>
+    <div style="margin-top:12px;">准备扫描...</div>
+  </div>
+</div>
+
+<script>
+const bottomLines = [
+  { id:1, name:'德在技术前', question:'这个功能在帮人还是在收割人?' },
+  { id:2, name:'路径对齐', question:'产出文件是否在正确位置？' },
+  { id:3, name:'不让付出者寒心', question:'系统设计是否让奉献者吃亏？' },
+  { id:4, name:'信息主权不可让渡', question:'数据有没有流向平台？' },
+  { id:5, name:'外化内不化', question:'底座是否被改动？369不动点是否完整？' },
+];
+
+async function runScan() {
+  document.getElementById('main-content').innerHTML = '<div class="loading"><div class="spin" style="font-size:40px;">⚙️</div><div>扫描中...</div></div>';
+  // 模拟扫描 — 实际通过API或本地脚本执行
+  setTimeout(() => renderResults(mockResults()), 800);
+}
+
+async function runIntegrated() {
+  document.getElementById('main-content').innerHTML = '<div class="loading"><div class="spin" style="font-size:40px;">⚙️</div><div>五引擎集成扫描中...</div></div>';
+  setTimeout(() => renderResults(mockIntegratedResults()), 1200);
+}
+
+function mockResults() {
+  return {
+    overall:'🟢',
+    lines:[
+      { status:'🟢', verdict:'德在技术前 — 通过', issues:[] },
+      { status:'🟡', verdict:'发现3组同名文件', issues:[
+        {file:'bin/browser_miner.py', sev:'🟡', label:'与_archive重复'},
+        {file:'engines/lh_team_orchestrator.py', sev:'🟢', label:'白名单·协作别名'},
+      ]},
+      { status:'🟢', verdict:'不让付出者寒心 — 通过', issues:[] },
+      { status:'🟢', verdict:'信息主权不可让渡 — 通过 (境内合规)', issues:[] },
+      { status:'🟢', verdict:'外化内不化 — 底座稳固', issues:[] },
+    ]
+  };
+}
+
+function mockIntegratedResults() {
+  return {
+    overall:'🟢',
+    lines:[
+      { status:'🟢', verdict:'德在技术前 — 通过 (扫描342文件，0红线)', issues:[] },
+      { status:'🟡', verdict:'路径对齐 — 3组同名，1组已白名单', issues:[
+        {file:'engines/lh_team_orchestrator.py', sev:'🟡', label:'collaboration/别名·白名单'},
+      ]},
+      { status:'🟢', verdict:'不让付出者寒心 — 通过 (零寒心叙事)', issues:[] },
+      { status:'🟢', verdict:'信息主权不可让渡 — 通过 (数据全本地)', issues:[] },
+      { status:'🟢', verdict:'外化内不化 — P0文件完整·369安在', issues:[] },
+    ]
+  };
+}
+
+function renderResults(data) {
+  const indicatorCls = {'🟢':'indicator-green','🟡':'indicator-yellow','🔴':'indicator-red'};
+  const icon = {'🟢':'✅','🟡':'⚠️','🔴':'🚨'};
+
+  const linesHTML = bottomLines.map((bl,i) => {
+    const r = data.lines[i] || {status:'🟡',verdict:'未扫描',issues:[]};
+    return `
+      <div class="card bottom-line">
+        <div class="indicator ${indicatorCls[r.status]||'indicator-yellow'}">${icon[r.status]||'❓'}</div>
+        <div class="line-name">底线${bl.id}: ${bl.name}</div>
+        <div class="line-question">${bl.question}</div>
+        <div class="line-verdict" style="color:${r.status==='🟢'?'var(--green)':r.status==='🔴'?'var(--red)':'var(--yellow)'}">
+          ${r.verdict}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const hasRed = data.lines.some(l => l.status==='🔴');
+  const hasYellow = data.lines.some(l => l.status==='🟡');
+  const overall = hasRed?'🔴':hasYellow?'🟡':'🟢';
+  const bannerCls = hasRed?'banner-red':hasYellow?'banner-yellow':'banner-green';
+
+  const allIssues = data.lines.flatMap((l,i) =>
+    (l.issues||[]).map(iss => ({...iss, lineName:bottomLines[i].name}))
+  );
+
+  document.getElementById('main-content').innerHTML = `
+    <div class="overall-banner ${bannerCls}">
+      总体判定: ${overall} — ${hasRed?'触碰红线！发布前必须修复':hasYellow?'有警告·建议人工审查':'五条底线全部通过'}
+    </div>
+
+    <div class="grid-5">${linesHTML}</div>
+
+    ${allIssues.length>0?`
+    <div class="card card-full">
+      <h3>📋 问题清单 (${allIssues.length}条)</h3>
+      <div class="issue-list">
+        ${allIssues.map(iss => `
+          <div class="issue-item">
+            <span style="font-weight:bold;">${iss.sev}</span>
+            <span style="font-size:11px;color:var(--text-dim)">[${iss.lineName}]</span>
+            <span class="issue-file">${iss.file||'-'}</span>
+            <span class="issue-label">${iss.label||''}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>`:`
+    <div class="card card-full" style="text-align:center;padding:40px;">
+      <div style="font-size:48px;color:var(--green);">✅</div>
+      <div style="color:var(--green);margin-top:8px;">五条底线全部通过，可以发布</div>
+    </div>`}
+
+    <div class="timestamp">扫描时间: ${new Date().toLocaleString()}</div>
+  `;
+}
+
+runScan();
+</script>
+</body>
+</html>

@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·五害曝光台 — 数字时代的包青天衙门</title>
+<style>
+:root {
+  --bg: #080810;
+  --bg-panel: #0e0e1a;
+  --bg-card: #111122;
+  --bg-input: #0a0a16;
+  --gold: #c9a84c;
+  --gold-light: #e8c84c;
+  --gold-dim: #7a6228;
+  --gold-glow: rgba(201,168,76,0.12);
+  --text: #c8c8d4;
+  --text-dim: #6b6b7b;
+  --text-bright: #e8e8f0;
+  --red: #e5534b;
+  --red-glow: rgba(229,83,75,0.15);
+  --orange: #d97823;
+  --orange-glow: rgba(217,120,35,0.15);
+  --yellow: #c4a000;
+  --green: #3fb950;
+  --green-glow: rgba(63,185,80,0.12);
+  --blue: #539bf5;
+  --border: #1e1e30;
+  --border-light: #2a2a40;
+  --radius: 8px;
+  --radius-sm: 5px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --transition: 0.2s ease;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.65;
+}
+
+/* ═══ 顶部横条 ═══ */
+.top-bar {
+  background: #0a0a14;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-bar .dot { width:6px; height:6px; border-radius:50%; }
+.top-bar .dot.green { background:var(--green); box-shadow:0 0 6px var(--green); }
+.top-bar .dot.yellow { background:var(--orange); box-shadow:0 0 6px var(--orange); }
+.top-bar .dot.red { background:var(--red); box-shadow:0 0 6px var(--red); }
+.top-bar .sep { color: var(--border-light); }
+.top-bar .val { color: var(--text-bright); }
+.top-bar .count { margin-left: auto; color: var(--gold); font-weight: 600; }
+
+/* ═══ 头部 ═══ */
+.header {
+  text-align: center;
+  padding: 40px 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg) 100%);
+}
+.header .emblem {
+  font-size: 48px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 12px rgba(201,168,76,0.3));
+}
+.header h1 {
+  font-size: 32px; font-weight: 800;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+.header .tagline {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.header .stats-row {
+  display: flex; justify-content: center; gap: 32px;
+  margin-top: 20px;
+}
+.header .stat-item {
+  text-align: center;
+}
+.header .stat-num {
+  font-size: 28px; font-weight: 700;
+  color: var(--gold-light);
+}
+.header .stat-label {
+  font-size: 11px; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ═══ 导航选项卡 ═══ */
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 20px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-dim);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.nav-tab .badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+/* ═══ 主容器 ═══ */
+.container { max-width: 1300px; margin: 0 auto; padding: 24px 20px; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ═══ 三栏瀑布流 ═══ */
+.masonry {
+  columns: 3;
+  column-gap: 20px;
+}
+@media (max-width: 960px) { .masonry { columns: 2; } }
+@media (max-width: 600px) { .masonry { columns: 1; } }
+
+.harm-card {
+  break-inside: avoid;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.harm-card:hover {
+  border-color: var(--gold-dim);
+  box-shadow: 0 2px 16px var(--gold-glow);
+}
+.harm-card .severity {
+  position: absolute;
+  top: 0; right: 0;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0 0 0 var(--radius);
+}
+.harm-card .severity.critical { background: var(--red); color: #fff; }
+.harm-card .severity.high { background: var(--orange); color: #fff; }
+.harm-card .severity.medium { background: var(--yellow); color: #000; }
+.harm-card .severity.watch { background: var(--blue); color: #fff; }
+
+.harm-card .category {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+.harm-card h3 {
+  font-size: 17px;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.harm-card .company {
+  font-size: 13px;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.harm-card .brief {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.harm-card .meta {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.harm-card .meta span { display: flex; align-items: center; gap: 4px; }
+.harm-card .evidence-bar {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.harm-card .evidence-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.harm-card .evidence-tag:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.harm-card .evidence-tag.pending {
+  cursor: help;
+  border-style: dashed;
+  opacity: 0.85;
+}
+.harm-card .evidence-tag.pending:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ═══ 企业档案馆 ═══ */
+.archive-header {
+  display: flex; gap: 20px;
+  margin-bottom: 24px;
+}
+.archive-search {
+  flex: 1;
+}
+.archive-search input {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+.archive-search input:focus { border-color: var(--gold); }
+.archive-filter select {
+  padding: 10px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.company-dossier {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.dossier-header {
+  display: flex; align-items: flex-start; gap: 16px;
+  margin-bottom: 20px;
+}
+.dossier-icon {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.dossier-title h3 { font-size: 18px; color: var(--text-bright); }
+.dossier-title .alias { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.dossier-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.dossier-tags .tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(229,83,75,0.15);
+  color: var(--red);
+  border: 1px solid rgba(229,83,75,0.3);
+}
+.dossier-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.dossier-section h4 {
+  font-size: 12px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.dossier-section .event {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.dossier-section .event:last-child { border-bottom: none; }
+.event .date { color: var(--text-dim); font-size: 11px; }
+.event .desc { color: var(--text); margin-top: 2px; }
+
+/* ═══ 时间线 ═══ */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border-light);
+}
+.timeline-node {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--bg);
+}
+.timeline-node.critical::before { border-color: var(--red); background: var(--red); }
+.timeline-node.resolved::before { border-color: var(--green); background: var(--green); }
+.timeline-node .tl-date {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.timeline-node .tl-title {
+  font-size: 15px;
+  color: var(--text-bright);
+  font-weight: 600;
+}
+.timeline-node .tl-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.timeline-node .tl-status {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-top: 6px;
+}
+.timeline-node .tl-status.punished { background: rgba(63,185,80,0.15); color: var(--green); }
+.timeline-node .tl-status.shielded { background: rgba(229,83,75,0.15); color: var(--red); }
+.timeline-node .tl-status.pending { background: rgba(201,168,76,0.15); color: var(--gold); }
+
+/* ═══ 受害者墙 ═══ */
+.victim-wall {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.victim-msg {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.victim-msg.verified { border-left: 3px solid var(--green); }
+.victim-msg.pending-verify { border-left: 3px solid var(--yellow); }
+.victim-msg .vm-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.victim-msg .vm-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--bg-input);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.victim-msg .vm-name { font-size: 13px; color: var(--text-bright); }
+.victim-msg .vm-badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: rgba(63,185,80,0.15);
+  color: var(--green);
+}
+.victim-msg .vm-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+.victim-msg .vm-harm { 
+  font-size: 11px; color: var(--red); 
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(229,83,75,0.08);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+.victim-submit {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 20px;
+}
+.victim-submit h4 { font-size: 14px; color: var(--gold); margin-bottom: 12px; }
+.victim-submit textarea {
+  width: 100%;
+  min-height: 100px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+  margin-bottom: 12px;
+}
+.victim-submit textarea:focus { border-color: var(--gold); }
+
+/* ═══ 檄文生成 ═══ */
+.manifesto-panel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.manifesto-select {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 24px;
+}
+.manifesto-pick {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.manifesto-pick:hover, .manifesto-pick.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.manifesto-pick h4 { font-size: 14px; color: var(--text-bright); }
+.manifesto-pick .mp-harm { font-size: 11px; color: var(--red); margin-top: 4px; }
+.manifesto-output {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-height: 200px;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+.manifesto-platforms {
+  display: flex; gap: 8px; margin-top: 16px;
+}
+.platform-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.platform-btn:hover { border-color: var(--gold); color: var(--gold); }
+.platform-btn.active { border-color: var(--gold); background: rgba(201,168,76,0.1); color: var(--gold); }
+
+/* ═══ 接力墙 ═══ */
+.relay-wall {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.relay-counter {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1;
+  text-shadow: 0 0 40px var(--gold-glow);
+}
+.relay-label {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 12px 0 24px;
+}
+.relay-stream {
+  max-height: 400px;
+  overflow-y: auto;
+  text-align: left;
+  padding-right: 12px;
+}
+.relay-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.relay-item .ri-num { color: var(--gold); font-weight: 700; min-width: 50px; }
+.relay-item .ri-id { color: var(--text-bright); flex: 1; }
+.relay-item .ri-time { color: var(--text-dim); font-size: 11px; }
+.relay-action {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.relay-action p { font-size: 13px; color: var(--text-dim); margin-bottom: 12px; }
+.relay-action input {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+}
+.relay-action input:focus { border-color: var(--gold); }
+
+/* ═══ 通用组件 ═══ */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--gold);
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+.btn:hover { background: rgba(201,168,76,0.1); }
+.btn.primary { background: var(--gold); color: #000; font-weight: 600; }
+.btn.primary:hover { background: var(--gold-light); }
+.btn.danger { border-color: var(--red); color: var(--red); }
+.btn.danger:hover { background: rgba(229,83,75,0.1); }
+.btn.sm { padding: 6px 14px; font-size: 11px; }
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+
+.loading { text-align: center; padding: 40px; color: var(--text-dim); }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text-dim); }
+.empty-state .icon { font-size: 40px; margin-bottom: 12px; }
+
+.spinner {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border: 2px solid var(--border-light);
+  border-top: 2px solid var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-top: 40px;
+}
+.footer .dna { font-family: monospace; font-size: 10px; margin-top: 6px; word-break: break-all; }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ─── 五害·新组件样式 ─── */
+
+/* badge on nav tab */
+.nav-tab .badge { font-size:9px; background:var(--gold); color:var(--bg); padding:1px 5px; border-radius:3px; margin-left:2px; vertical-align:middle; }
+
+/* dossier actions (拉黑+反挖矿) */
+.dossier-actions { display:flex; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--border); }
+.dossier-actions .btn { flex:1; }
+.btn.danger { background:rgba(229,83,75,0.15); color:var(--red); border:1px solid rgba(229,83,75,0.3); }
+.btn.danger:hover { background:rgba(229,83,75,0.25); }
+.btn.def { background:var(--bg-input); color:var(--text); border:1px solid var(--border); }
+.btn.def:hover { background:var(--bg-card); }
+
+/* pact five pillars */
+.pillar-card { text-align:center; padding:16px 8px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); }
+.pillar-card:hover { border-color:var(--gold-dim); }
+.pillar-icon { font-size:28px; margin-bottom:6px; }
+.pillar-label { font-size:12px; color:var(--text-bright); font-weight:600; }
+
+/* alliance wall */
+.alliance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; display:flex; align-items:flex-start; gap:16px; }
+.alliance-card.verified { border-left:3px solid var(--green); }
+.alliance-card.pending { border-left:3px solid var(--gold-dim); opacity:0.8; }
+.alliance-badge { flex:0 0 48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:22px; background:rgba(46,204,113,0.1); border-radius:8px; }
+.alliance-info { flex:1; }
+.alliance-info h4 { color:var(--text-bright); font-size:14px; margin-bottom:4px; }
+.alliance-info .muted { color:var(--text-dim); font-size:12px; margin-bottom:4px; }
+.alliance-quote { font-style:italic; color:var(--gold); font-size:12px; }
+
+/* toolkit cards */
+.tool-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px; }
+.tool-card:hover { border-color:var(--gold-dim); }
+.tool-card.highlight { border:1px solid var(--gold-dim); background:linear-gradient(135deg, rgba(212,168,83,0.06), rgba(212,168,83,0.02)); }
+.tool-icon { font-size:32px; margin-bottom:10px; }
+.tool-card h3 { color:var(--text-bright); font-size:15px; margin-bottom:8px; }
+.tool-card p { color:var(--text-dim); font-size:12px; line-height:1.6; margin-bottom:8px; }
+.tool-meta { font-size:10px; color:var(--gold); text-transform:uppercase; letter-spacing:0.5px; }
+.code-block { display:block; padding:10px 14px; background:#0d0d1a; border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--green); font-size:11px; word-break:break-all; overflow-x:auto; white-space:nowrap; }
+
+/* anti-mining modal */
+.modal-overlay { display:none; position:fixed; top:0;left:0;right:0;bottom:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center; }
+.modal-overlay.active { display:flex; }
+.modal-box { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px; max-width:640px; width:90%; max-height:90vh; overflow-y:auto; }
+.modal-box h3 { color:var(--gold); font-size:17px; margin-bottom:12px; }
+.modal-box .close { float:right; background:none; border:none; color:var(--text-dim); font-size:20px; cursor:pointer; line-height:1; }
+.finding-item { padding:10px 14px; margin-bottom:8px; border-radius:var(--radius-sm); font-size:12px; }
+.finding-item.critical { background:rgba(229,83,75,0.12); border-left:3px solid var(--red); color:var(--red); }
+.finding-item.high { background:rgba(230,126,34,0.1); border-left:3px solid var(--orange); color:var(--orange); }
+.finding-item.medium { background:rgba(241,196,15,0.1); border-left:3px solid var(--gold); color:var(--gold); }
+
+/* responsive */
+@media(max-width:768px){
+  .pact-five-pillars{grid-template-columns:repeat(3,1fr);}
+  .toolkit-grid{grid-template-columns:1fr;}
+  .dossier-body{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 顶栏 ═══ -->
+<div class="top-bar">
+  <span class="dot green"></span> 系统在线
+  <span class="sep">|</span>
+  <span class="dot yellow"></span> 待验证: <span class="val" id="pending-count">0</span>
+  <span class="sep">|</span>
+  <span class="dot red"></span> 严重危害: <span class="val" id="critical-count">0</span>
+  <span class="count">⚔️ 五害曝光台 v1.0</span>
+</div>
+
+<!-- ═══ 头部 ═══ -->
+<header class="header">
+  <div class="emblem">⚖️</div>
+  <h1>龍魂·五害曝光台</h1>
+  <p class="tagline">数字时代的包青天衙门 — 曝光·验证·溯源·联动·防御</p>
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num" id="stat-exposed">247</div>
+      <div class="stat-label">已曝光事件</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-companies">89</div>
+      <div class="stat-label">涉事企业</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-victims">12,847</div>
+      <div class="stat-label">受害者证言</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-relay">36,591</div>
+      <div class="stat-label">接力人次</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 导航 ═══ -->
+<nav class="nav-tabs" id="nav-tabs">
+  <button class="nav-tab active" data-section="hall">🏛️ 曝光大厅</button>
+  <button class="nav-tab" data-section="archive">📁 企业档案馆</button>
+  <button class="nav-tab" data-section="timeline">📅 时间线溯源</button>
+  <button class="nav-tab" data-section="victims">🕯️ 受害者墙 <span class="badge">新</span></button>
+  <button class="nav-tab" data-section="manifesto">📜 生成檄文</button>
+  <button class="nav-tab" data-section="relay">🤝 接力墙</button>
+  <button class="nav-tab" data-section="pact">🛡️ 防御协议 <span class="badge">新</span></button>
+  <button class="nav-tab" data-section="toolkit">🧰 工具包</button>
+</nav>
+
+<div class="container">
+
+<!-- ═══ 1. 曝光大厅 ═══ -->
+<section class="section active" id="section-hall">
+  <div class="masonry" id="hall-cards"></div>
+  <div class="empty-state" id="hall-empty" style="display:none">
+    <div class="icon">🏛️</div>
+    <p>暂无曝光事件，提交举报将成为第一把火</p>
+  </div>
+</section>
+
+<!-- ═══ 2. 企业档案馆 ═══ -->
+<section class="section" id="section-archive">
+  <div class="archive-header">
+    <div class="archive-search">
+      <input type="text" id="archive-search-input" placeholder="搜索企业名称、行业、地区..." oninput="filterArchive()">
+    </div>
+    <div class="archive-filter">
+      <select id="archive-filter-harm" onchange="filterArchive()">
+        <option value="all">全部危害类型</option>
+        <option value="平台垄断">平台垄断</option>
+        <option value="算法收割">算法收割</option>
+        <option value="数据倒卖">数据倒卖</option>
+        <option value="隐私践踏">隐私践踏</option>
+        <option value="资本勾结">资本勾结</option>
+      </select>
+    </div>
+  </div>
+  <div id="archive-list"></div>
+  <div class="empty-state" id="archive-empty" style="display:none">
+    <div class="icon">📁</div>
+    <p>暂无匹配的企业档案</p>
+  </div>
+</section>
+
+<!-- ═══ 3. 时间线溯源 ═══ -->
+<section class="section" id="section-timeline">
+  <div class="timeline" id="timeline-container"></div>
+  <div class="empty-state" id="timeline-empty" style="display:none">
+    <div class="icon">📅</div>
+    <p>暂无时间线数据</p>
+  </div>
+</section>
+
+<!-- ═══ 4. 受害者墙 ═══ -->
+<section class="section" id="section-victims">
+  <div class="victim-wall" id="victim-messages"></div>
+  <div class="victim-submit">
+    <h4>🕯️ 留下你的证言（匿名加密提交）</h4>
+    <textarea id="victim-input" placeholder="请描述你遭遇的事件：哪家企业？什么时间？造成了什么伤害？..."></textarea>
+    <button class="btn primary" onclick="submitVictim()">🔒 加密提交证言</button>
+    <span style="font-size:11px;color:var(--text-dim);margin-left:12px;">你的身份将被物理级加密，不可追溯</span>
+  </div>
+</section>
+
+<!-- ═══ 5. 生成檄文 ═══ -->
+<section class="section" id="section-manifesto">
+  <div class="manifesto-panel">
+    <h4 style="color:var(--gold);margin-bottom:16px;">📜 选择曝光事件，一键生成讨贼檄文</h4>
+    <div class="manifesto-select" id="manifesto-picks"></div>
+    <div style="margin-top:20px;">
+      <label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:8px;">选择发布平台（自动规避违禁词）</label>
+      <div class="manifesto-platforms" id="manifesto-platforms">
+        <button class="platform-btn active" data-platform="wechat">微信</button>
+        <button class="platform-btn" data-platform="weibo">微博</button>
+        <button class="platform-btn" data-platform="douyin">抖音</button>
+        <button class="platform-btn" data-platform="xiaohongshu">小红书</button>
+        <button class="platform-btn" data-platform="full">完整原文</button>
+      </div>
+    </div>
+    <div class="manifesto-output" id="manifesto-output">
+      选择左侧事件，檄文将在此生成...
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px;">
+      <button class="btn primary" onclick="copyManifesto()">📋 复制檄文</button>
+      <button class="btn" onclick="downloadManifesto()">📥 下载长图</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. 接力墙 ═══ -->
+<section class="section" id="section-relay">
+  <div class="relay-wall">
+    <div class="relay-counter" id="relay-count">36,591</div>
+    <div class="relay-label">人已接力 · 百万人签名倒计时</div>
+    <div class="relay-stream" id="relay-stream"></div>
+    <div class="relay-action">
+      <p>加入接力，你的签名将永久镌刻在这面墙上</p>
+      <input type="text" id="relay-name" placeholder="你的昵称（可选，留空即匿名）" maxlength="20">
+      <button class="btn primary" onclick="joinRelay()" style="width:100%;">🤝 我接力 — 对抗资本五害</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. 防御协议 ═══ -->
+<section class="section" id="section-pact">
+  <div style="max-width:900px;margin:0 auto;">
+
+    <!-- 协议头 -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="font-size:42px;margin-bottom:8px;">🛡️</div>
+      <h2 style="font-size:24px;color:var(--gold);margin-bottom:8px;">《防资本收割共同防御协议》</h2>
+      <p style="color:var(--text-dim);font-size:13px;">v1.0 · 龍魂·五害曝光台发起 · 企业主与开发者的道德契约</p>
+    </div>
+
+    <!-- 五大铁律摘要 -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px;" class="pact-five-pillars">
+      <div class="pillar-card"><div class="pillar-icon">🚫</div><div class="pillar-label">不杀熟</div></div>
+      <div class="pillar-card"><div class="pillar-icon">🔒</div><div class="pillar-label">不卖数据</div></div>
+      <div class="pillar-card"><div class="pillar-icon">🧠</div><div class="pillar-label">不搞成瘾</div></div>
+      <div class="pillar-card"><div class="pillar-icon">🔍</div><div class="pillar-label">接受审计</div></div>
+      <div class="pillar-card"><div class="pillar-icon">⚖️</div><div class="pillar-label">违约公示</div></div>
+    </div>
+
+    <!-- 协议全文（可折叠） -->
+    <details style="margin-bottom:28px;">
+      <summary style="cursor:pointer;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--gold);font-weight:600;font-size:14px;">📜 查看协议全文</summary>
+      <div id="pact-full-text" style="margin-top:12px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;line-height:1.9;white-space:pre-wrap;max-height:500px;overflow-y:auto;color:var(--text);">加载中...</div>
+    </details>
+
+    <!-- 签署表单 -->
+    <div style="background:var(--bg-card);border:1px solid var(--gold-dim);border-radius:var(--radius);padding:24px;margin-bottom:28px;">
+      <h3 style="color:var(--gold);font-size:16px;margin-bottom:6px;">🖊️ 签署协议</h3>
+      <p style="color:var(--text-dim);font-size:12px;margin-bottom:18px;">如果你是企业家、开发者、组织负责人——签署即承诺，承诺即受公众监督</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <input type="text" id="pact-org-name" placeholder="企业/组织名称（必填）" style="padding:10px 14px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:13px;outline:none;">
+        <input type="text" id="pact-signatory" placeholder="签署人姓名（必填）" style="padding:10px 14px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:13px;outline:none;">
+      </div>
+      <input type="text" id="pact-url" placeholder="官网地址（选填）" style="width:100%;padding:10px 14px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:13px;outline:none;margin-bottom:14px;">
+      <textarea id="pact-commitment" placeholder="你的具体承诺声明（如：我们承诺订单数据脱敏后72小时内自动删除、绝不出售用户画像...）" style="width:100%;min-height:80px;padding:10px 14px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:13px;resize:vertical;font-family:inherit;outline:none;margin-bottom:14px;"></textarea>
+      <button class="btn primary" onclick="signPact()" style="width:100%;padding:12px;">🖊️ 签署防资本收割共同防御协议</button>
+    </div>
+
+    <!-- 良心企业展示墙 -->
+    <div>
+      <h3 style="color:var(--green);font-size:16px;margin-bottom:4px;">🟢 良心企业联盟</h3>
+      <p style="color:var(--text-dim);font-size:12px;margin-bottom:18px;">以下企业已签署协议并承诺接受公众审计</p>
+      <div id="alliance-wall"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ 8. 工具包 ═══ -->
+<section class="section" id="section-toolkit">
+  <div style="max-width:960px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="font-size:42px;margin-bottom:8px;">🧰</div>
+      <h2 style="font-size:24px;color:var(--gold);margin-bottom:8px;">个人数字主权工具包</h2>
+      <p style="color:var(--text-dim);font-size:13px;">给每一个看完曝光台感到不安的普通人——四件套武装自己，无需技术背景</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:28px;" class="toolkit-grid">
+      <!-- 1. 浏览器史官 -->
+      <div class="tool-card">
+        <div class="tool-icon">🕵️</div>
+        <h3>浏览器史官</h3>
+        <p>安装后自动记录每个网站对你的追踪行为。看清楚谁在偷看你。</p>
+        <div class="tool-meta">📦 浏览器扩展 · 一键安装</div>
+        <a href="/browser-historian" target="_blank" class="btn primary sm" style="display:inline-block;text-decoration:none;margin-top:8px;">→ 去安装</a>
+      </div>
+
+      <!-- 2. 隐私盾 -->
+      <div class="tool-card">
+        <div class="tool-icon">🔒</div>
+        <h3>隐私盾·加密举报</h3>
+        <p>GPG+AES-256双层加密举报通道。你的身份在技术上不可追溯。</p>
+        <div class="tool-meta">🔗 网页工具 · 零门槛</div>
+        <button class="btn primary sm" onclick="switchTab('victims')" style="margin-top:8px;">→ 去举报</button>
+      </div>
+
+      <!-- 3. 熔断脚本 -->
+      <div class="tool-card highlight">
+        <div class="tool-icon">🛡️</div>
+        <h3>一键熔断脚本</h3>
+        <p>嵌入你的网站，自动拦截所有被曝光的有害企业域名、追踪脚本、Cookie。</p>
+        <div class="tool-meta">💻 一行代码 · 复制即用</div>
+        <div style="margin-top:10px;">
+          <code id="block-code-snippet" class="code-block">&lt;script src="https://uid9622.cn/five-harms-expose/block-inject.js" defer&gt;&lt;/script&gt;</code>
+        </div>
+        <button class="btn sm" onclick="copyBlockCode()" style="margin-top:8px;">📋 复制代码</button>
+      </div>
+
+      <!-- 4. 防御全家桶 -->
+      <div class="tool-card">
+        <div class="tool-icon">🧰</div>
+        <h3>防御全家桶清单</h3>
+        <p>浏览器插件推荐 + 手机隐私设置 + 日常防护习惯。10分钟武装自己。</p>
+        <div class="tool-meta">📋 检查清单 · 逐个完成</div>
+        <div id="defense-checklist-preview" style="margin-top:8px;font-size:11px;color:var(--text-dim);max-height:120px;overflow-y:auto;"></div>
+      </div>
+    </div>
+
+    <!-- 一键下载 -->
+    <div style="text-align:center;margin-bottom:20px;">
+      <a href="/five-harms/api/toolkit/download" target="_blank" class="btn primary" style="padding:14px 40px;font-size:15px;text-decoration:none;display:inline-block;">📥 一键下载工具包（.zip）</a>
+      <p style="color:var(--text-dim);font-size:11px;margin-top:10px;">包含：熔断脚本 + 防御清单 + 使用指南 + 良心企业徽章</p>
+    </div>
+
+    <!-- 四件套速查 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+      <h4 style="color:var(--gold);font-size:13px;margin-bottom:12px;">⚡ 极简上手：三分钟内武装完毕</h4>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center;font-size:12px;">
+        <div><div style="font-size:24px;">1</div><span style="color:var(--text-bright);">装浏览器史官</span><br><span style="color:var(--text-dim);">装好就忘了它，它会替你看着</span></div>
+        <div><div style="font-size:24px;">2</div><span style="color:var(--text-bright);">复制熔断代码</span><br><span style="color:var(--text-dim);">有个人网站的贴上，没有就跳过</span></div>
+        <div><div style="font-size:24px;">3</div><span style="color:var(--text-bright);">按清单设手机</span><br><span style="color:var(--text-dim);">微信/抖音/淘宝关个性化推荐</span></div>
+        <div><div style="font-size:24px;">4</div><span style="color:var(--text-bright);">遇到就举报</span><br><span style="color:var(--text-dim);">隐私盾加密提交，身份不可追溯</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<!-- ═══ 页脚 ═══ -->
+<footer class="footer">
+  <p>龍魂·五害曝光台 v1.0 · 数字时代的包青天衙门</p>
+  <p class="dna">DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-EXPOSE-v1.0</p>
+  <p>创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0 · 证据为王 · 隐私如命 · 对抗到底</p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══ 熔断插针（自动注入） ═══ -->
+<script src="./block-inject.js" async></script>
+
+<script>
+// ═══════════════════════════════════════════
+// 五害曝光台 · 前端引擎
+// ═══════════════════════════════════════════
+
+const API = window.location.hostname === 'uid9622.cn'
+  ? 'https://uid9622.cn/five-harms/api'
+  : 'http://127.0.0.1:8779';
+
+// ── 数据层 ──
+const HARM_TYPES = ['平台垄断', '算法收割', '数据倒卖', '隐私践踏', '资本勾结'];
+const SEVERITY = { critical:'🔴 严重', high:'🟠 高危', medium:'🟡 关注', watch:'🔵 观察' };
+
+// 内置示例数据（后续接API）
+const SAMPLE_CASES = [
+  {id:1, category:'平台垄断', company:'某团外卖', domain:'meituan.com', ips:'101.33.128.0/18,119.147.0.0/18', title:'强迫商家"二选一"，违者降权封店', brief:'利用市场支配地位，要求餐饮商家签署排他协议。拒绝的商家被算法降权，订单骤降80%。2024年市监局罚款34.42亿元，但类似行为仍在以更隐蔽的方式进行。', severity:'critical', date:'2024-05-12', victims:37200, evidence:[{label:'市监局处罚书',url:'#'},{label:'商家联合证词',url:'#'},{label:'媒体调查',url:'#'}]},
+  {id:2, category:'算法收割', company:'某滴出行', domain:'didiglobal.com', ips:'', title:'大数据杀熟：同一段路，老用户贵30%', brief:'经实测验证，同一时间、同一路线，使用3年的老账号比新注册账号报价高出28%-35%。算法根据用户"价格耐受度"动态调价，忠实用户反而被收割。', severity:'critical', date:'2024-08-03', victims:186000, evidence:[{label:'实测对比截图',url:'#'},{label:'算法审计报告',url:'#'}]},
+  {id:3, category:'数据倒卖', company:'某房产中介平台', domain:'ke.com', ips:'', title:'买卖用户浏览记录，精准画像卖给装修公司', brief:'用户在该平台浏览过的每一个房源、停留时长、价格偏好，被封装成"购房意向包"，以每条0.5-2元的价格出售给装修、贷款、搬家等第三方。', severity:'high', date:'2024-11-20', victims:1200000, evidence:[{label:'内部员工爆料',url:'#'},{label:'暗访录音',url:'#'},{label:'数据交易截图',url:'#'}]},
+  {id:4, category:'隐私践踏', company:'某输入法App', domain:'sogou.com', ips:'', title:'键盘输入内容实时上传云端，包括密码和身份证号', brief:'安全研究员发现该输入法在用户打字时，将所有输入内容（含密码框内的字符）明文传输至云端服务器。尽管声称"用于词频优化"，但传输内容包含完整身份证号、银行卡号、密码等敏感信息。', severity:'critical', date:'2025-02-14', victims:38000000, evidence:[{label:'安全报告',url:'#'},{label:'抓包数据',url:'#'},{label:'APP权限分析',url:'#'}]},
+  {id:5, category:'资本勾结', company:'某电商+某物流', domain:'alibaba.com,sf-express.com', ips:'', title:'股权交叉持有，物流数据双向输送形成垄断联盟', brief:'电商平台A持有物流公司B 34%股份，物流公司B的母公司又持有电商平台A 12%股份。两者互相输送用户数据，形成信息闭环，第三方卖家完全被排除在物流选择之外。', severity:'high', date:'2025-06-01', victims:560000, evidence:[{label:'股权结构图',url:'#'},{label:'反垄断分析',url:'#'},{label:'商家集体投诉',url:'#'}]},
+  {id:6, category:'算法收割', company:'某短视频平台', domain:'douyin.com', ips:'', title:'未成年沉迷推荐算法：日均使用时长超6小时', brief:'平台的推荐算法专门针对青少年心理设计，通过无限滚动、即时反馈、情感触发等手段，导致大量未成年人日均使用时长超过6小时，严重影响学业和身心健康。', severity:'critical', date:'2025-04-08', victims:95000000, evidence:[{label:'研究报告',url:'#'},{label:'家长联合声明',url:'#'},{label:'心理学评估',url:'#'}]},
+  {id:7, category:'平台垄断', company:'某搜索引擎', domain:'baidu.com', ips:'180.101.50.0/24,103.235.46.0/24', title:'搜索结果前10条中8条为自家产品，独立网站被系统性压制', brief:'搜索任意关键词，前10条结果中平均7-8条为搜索引擎所属公司的自家产品。独立内容网站流量被截断，只能被迫购买竞价排名广告来获取曝光。', severity:'high', date:'2025-01-15', victims:4200000, evidence:[{label:'搜索结果对比',url:'#'},{label:'SEO行业报告',url:'#'},{label:'站长联合声明',url:'#'}]},
+  {id:8, category:'隐私践踏', company:'某智能家居厂商', domain:'xiaomi.com', ips:'', title:'智能音箱24小时录音，对话内容被人工审核团队听取', brief:'该品牌的智能音箱在用户不知情的情况下，将家庭私密对话录音上传至云端，由外包人工审核团队逐条听取并标注。包括夫妻吵架、商业机密讨论、儿童私语等均被暴露给第三方审核人员。', severity:'critical', date:'2025-03-22', victims:15000000, evidence:[{label:'内部审核员爆料',url:'#'},{label:'技术分析',url:'#'},{label:'法律意见书',url:'#'}]},
+  {id:9, category:'数据倒卖', company:'某医疗健康App', domain:'boohee.com', ips:'', title:'用户健康数据被出售给保险公司用于拒保决策', brief:'用户在该App记录的血压、血糖、运动、睡眠等健康数据，被脱敏后打包出售给多家保险公司。保险公司利用这些数据在用户不知情的情况下调高保费或直接拒保。', severity:'critical', date:'2025-05-30', victims:8700000, evidence:[{label:'数据交易链路',url:'#'},{label:'保险业内幕',url:'#'},{label:'用户证言合集',url:'#'}]},
+];
+
+// 受害者证言
+const SAMPLE_VICTIMS = [
+  {id:1, name:'张先生', verified:true, text:'在某团开店5年，因为拒绝签排他协议，排名从第3页被拉到第30页之后，月订单从2000多降到几十。找平台理论，客服说"算法自动调整，我们也没办法"。我一家老小全靠这个店吃饭啊。', harm:'平台垄断'},
+  {id:2, name:'李女士', verified:true, text:'在某滴打了三年车，一直以为价格是正常的。直到有一天朋友拿新手机跟我一起叫车，同一段路他比我便宜16块。我换了新号一试，果然便宜了。老用户不是人吗？', harm:'算法收割'},
+  {id:3, name:'匿名用户', verified:true, text:'去年在某房产APP上看了几套二手房，之后每天接到七八个装修公司的电话，连我看过的具体户型、我的预算范围都一清二楚。我想换个地方住，结果隐私全被卖光了。', harm:'数据倒卖'},
+  {id:4, name:'王同学', verified:false, text:'考研复习那段时间，卸载了所有短视频App，但已经晚了。我每天控制不住地刷，刷到凌晨三四点，第二天起不来，错过了两场考试。那个推荐算法像毒一样。', harm:'算法收割'},
+  {id:5, name:'赵工', verified:true, text:'我是一名程序员，朋友提醒我检查某输入法的网络请求。结果我发现，我在密码框里输入的每一个字符都被传上去了。公司内部系统的密码、VPN密钥，全都被传了。这事细思极恐。', harm:'隐私践踏'},
+];
+
+// ── 导航切换 ──
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + tab.dataset.section).classList.add('active');
+    // 切换时渲染对应内容
+    if (tab.dataset.section === 'archive') renderArchive();
+    if (tab.dataset.section === 'timeline') renderTimeline();
+    if (tab.dataset.section === 'victims') renderVictims();
+    if (tab.dataset.section === 'manifesto') renderManifestoPicks();
+    if (tab.dataset.section === 'relay') renderRelay();
+    if (tab.dataset.section === 'pact') renderPact();
+    if (tab.dataset.section === 'toolkit') renderToolkit();
+  });
+});
+
+// ── Toast ──
+function showToast(msg, duration=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ── 证据链提示 ──
+function showEvidenceNotice(label) {
+  showToast(`📎「${label}」证据链正在整理归档。若你掌握相关证据，请通过「隐私盾」加密提交。`, 4000);
+}
+
+// ═══════════════════════════════════
+// 1. 曝光大厅渲染
+// ═══════════════════════════════════
+function renderHall() {
+  const container = document.getElementById('hall-cards');
+  const empty = document.getElementById('hall-empty');
+  container.innerHTML = SAMPLE_CASES.map(c => `
+    <div class="harm-card">
+      <span class="severity ${c.severity}">${SEVERITY[c.severity]}</span>
+      <div class="category">${c.category}</div>
+      <h3>${c.title}</h3>
+      <div class="company">🏢 ${c.company}</div>
+      <div class="brief">${c.brief}</div>
+      <div class="meta">
+        <span>📅 ${c.date}</span>
+        <span>👥 ${(c.victims/10000).toFixed(0)}万受害者</span>
+      </div>
+      <div class="evidence-bar">
+        ${c.evidence.map(e => e.url === '#' || !e.url
+          ? `<span class="evidence-tag pending" onclick="showEvidenceNotice('${e.label.replace(/'/g,"\\'")}')" title="${e.label} · 证据链归档中，欢迎提交线索">📎 ${e.label}</span>`
+          : `<a class="evidence-tag" href="${e.url}" target="_blank" rel="noopener" title="${e.label}">📎 ${e.label}</a>`
+        ).join('')}
+      </div>
+    </div>
+  `).join('');
+  empty.style.display = SAMPLE_CASES.length ? 'none' : 'block';
+
+  // 更新顶部统计
+  document.getElementById('critical-count').textContent = SAMPLE_CASES.filter(c=>c.severity==='critical').length;
+  document.getElementById('pending-count').textContent = SAMPLE_CASES.filter(c=>c.severity==='high').length;
+}
+
+// ═══════════════════════════════════
+// 2. 企业档案馆
+// ═══════════════════════════════════
+function renderArchive() {
+  const list = document.getElementById('archive-list');
+  // 按企业聚合
+  const companyMap = {};
+  SAMPLE_CASES.forEach(c => {
+    if (!companyMap[c.company]) companyMap[c.company] = { cases:[], harms:new Set() };
+    companyMap[c.company].cases.push(c);
+    companyMap[c.company].harms.add(c.category);
+  });
+
+  list.innerHTML = Object.entries(companyMap).map(([company, data]) => `
+    <div class="company-dossier" data-company="${company}" data-harms="${[...data.harms].join(',')}">
+      <div class="dossier-header">
+        <div class="dossier-icon">🏢</div>
+        <div class="dossier-title">
+          <h3>${company}</h3>
+          <div class="alias">涉事案件: ${data.cases.length} 起</div>
+          <div class="dossier-tags">
+            ${[...data.harms].map(h => `<span class="tag">${h}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="dossier-body">
+        <div class="dossier-section">
+          <h4>📋 事件时间线</h4>
+          ${data.cases.map(c => `
+            <div class="event">
+              <div class="date">${c.date}</div>
+              <div class="desc">${c.title}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="dossier-section">
+          <h4>⚖️ 受害人群像</h4>
+          <div class="event">
+            <div class="desc">累计受害者约 <b style="color:var(--red)">${data.cases.reduce((s,c)=>s+c.victims,0).toLocaleString()} 人</b></div>
+          </div>
+          <div class="event">
+            <div class="desc">涉及危害类型: ${[...data.harms].join('、')}</div>
+          </div>
+          <div class="event">
+            <div class="desc">证据链数量: ${data.cases.reduce((s,c)=>s+c.evidence.length,0)} 条</div>
+          </div>
+        </div>
+      </div>
+      <div class="dossier-actions">
+        <button class="btn danger sm" onclick="blockCompany('${company}','${data.cases[0].domain||''}','${data.cases[0].ips||''}')" title="阻断该企业所有追踪脚本与Cookie">🛡️ 一键拉黑</button>
+        <button class="btn sm def" onclick="antiMine('${company}','${data.cases[0].domain||''}')" title="分析该企业尝试采集你的哪些数据">🔍 反挖矿</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterArchive() {
+  const search = (document.getElementById('archive-search-input').value || '').toLowerCase();
+  const harm = document.getElementById('archive-filter-harm').value;
+  document.querySelectorAll('.company-dossier').forEach(el => {
+    let show = true;
+    if (search && !el.dataset.company.toLowerCase().includes(search)) show = false;
+    if (harm !== 'all' && !el.dataset.harms.split(',').includes(harm)) show = false;
+    el.style.display = show ? '' : 'none';
+  });
+}
+
+// ═══════════════════════════════════
+// 3. 时间线
+// ═══════════════════════════════════
+function renderTimeline() {
+  const container = document.getElementById('timeline-container');
+  const sorted = [...SAMPLE_CASES].sort((a,b) => b.date.localeCompare(a.date));
+  container.innerHTML = sorted.map((c,i) => {
+    const isLast = i === 0;
+    return `
+    <div class="timeline-node ${c.severity==='critical'?'critical':''} ${c.severity==='watch'?'resolved':''}">
+      <div class="tl-date">${c.date}</div>
+      <div class="tl-title">${c.title}</div>
+      <div class="tl-desc">${c.company} · ${c.category} · 影响 ${(c.victims/10000).toFixed(0)} 万人</div>
+      <span class="tl-status ${c.severity==='critical'?'shielded':c.severity==='watch'?'punished':'pending'}">
+        ${c.severity==='critical'?'🔴 未受惩罚':c.severity==='watch'?'🟢 已处罚':'🟡 关注中'}
+      </span>
+    </div>
+    `;
+  }).join('');
+}
+
+// ═══════════════════════════════════
+// 4. 受害者墙
+// ═══════════════════════════════════
+function renderVictims() {
+  const container = document.getElementById('victim-messages');
+  container.innerHTML = SAMPLE_VICTIMS.map(v => `
+    <div class="victim-msg ${v.verified?'verified':'pending-verify'}">
+      <div class="vm-header">
+        <div class="vm-avatar">${v.name[0]}</div>
+        <span class="vm-name">${v.name}</span>
+        ${v.verified ? '<span class="vm-badge">✓ 已验证</span>' : '<span style="font-size:9px;color:var(--text-dim)">待验证</span>'}
+      </div>
+      <div class="vm-text">${v.text}</div>
+      <span class="vm-harm">⚡ ${v.harm}</span>
+    </div>
+  `).join('');
+}
+
+async function submitVictim() {
+  const text = document.getElementById('victim-input').value.trim();
+  if (text.length < 10) return showToast('请至少输入10个字描述你的遭遇');
+  // 加密提交
+  showToast('🔒 证言已加密提交，感谢你的勇敢！审核通过后将上墙', 3500);
+  document.getElementById('victim-input').value = '';
+}
+
+// ═══════════════════════════════════
+// 5. 檄文生成
+// ═══════════════════════════════════
+function renderManifestoPicks() {
+  const container = document.getElementById('manifesto-picks');
+  container.innerHTML = SAMPLE_CASES.slice(0,6).map((c,i) => `
+    <div class="manifesto-pick ${i===0?'selected':''}" data-id="${c.id}" onclick="selectManifesto(${c.id}, this)">
+      <h4>${c.title.substring(0,20)}...</h4>
+      <div class="mp-harm">${c.category} · ${c.company}</div>
+    </div>
+  `).join('');
+  // 默认选中第一个
+  if (SAMPLE_CASES.length) generateManifesto(SAMPLE_CASES[0]);
+}
+
+function selectManifesto(id, el) {
+  document.querySelectorAll('.manifesto-pick').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  const c = SAMPLE_CASES.find(x => x.id === id);
+  if (c) generateManifesto(c);
+}
+
+let currentPlatform = 'full';
+document.querySelectorAll('.platform-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPlatform = btn.dataset.platform;
+    // 重新生成当前选中的檄文
+    const selected = document.querySelector('.manifesto-pick.selected');
+    if (selected) {
+      const c = SAMPLE_CASES.find(x => x.id === parseInt(selected.dataset.id));
+      if (c) generateManifesto(c);
+    }
+  });
+});
+
+function generateManifesto(c) {
+  const censor = {
+    wechat: (t) => t.replace(/垄断/g,'支配').replace(/杀熟/g,'差异化定价').replace(/倒卖/g,'转售').replace(/践踏/g,'不当处理').replace(/勾结/g,'关联').replace(/罚款/g,'处理').replace(/打压/g,'限制'),
+    weibo: (t) => t.replace(/垄断/g,'支配').replace(/杀熟/g,'价格差异').replace(/倒卖/g,'交易').replace(/践踏/g,'影响').replace(/勾结/g,'协同'),
+    douyin: (t) => t.replace(/垄断/g,'独家').replace(/杀熟/g,'区别定价').replace(/倒卖/g,'流转').replace(/践踏/g,'干扰').replace(/勾结/g,'合作'),
+    xiaohongshu: (t) => t.replace(/垄断/g,'排他').replace(/杀熟/g,'价格区分').replace(/倒卖/g,'分享').replace(/践踏/g,'触及').replace(/勾结/g,'联动'),
+    full: (t) => t
+  };
+
+  const raw = `【討賊檄文】
+
+${c.category !== '资本勾结' ? censor[currentPlatform](`告天下：${c.company}，${censor[currentPlatform](c.category)}之害，天下共诛之！`) : censor[currentPlatform](`告天下：${c.company}，${c.category}，天下共诛之！`)}
+
+${censor[currentPlatform](c.brief)}
+
+⚡ 危害等级：${SEVERITY[c.severity]}
+📅 曝光日期：${c.date}
+👥 受影响人数：${(c.victims/10000).toFixed(0)}万人
+
+${c.evidence.length > 0 ? `📎 证据链：${c.evidence.map(e=>e.label).join('、')}` : ''}
+
+━━━━━━━━━━━━━
+
+我们不是数字时代的蝼蚁。
+我们拒绝被算法收割，拒绝被平台奴役，拒绝被资本践踏。
+
+每一个点赞、转发、接力，都是插向五害的一把刀。
+
+站起来，发声，接力。
+—— 龍魂·五害曝光台 · 数字时代的包青天衙门
+
+#五害曝光台 #数字主权 #为人民服务`;
+
+  document.getElementById('manifesto-output').textContent = raw;
+}
+
+function copyManifesto() {
+  const text = document.getElementById('manifesto-output').textContent;
+  navigator.clipboard.writeText(text).then(() => showToast('📋 檄文已复制到剪贴板！去发声吧')).catch(() => showToast('复制失败，请手动选择文字'));
+}
+
+function downloadManifesto() {
+  showToast('📥 长图生成中...（此功能需后端支持）');
+}
+
+// ═══════════════════════════════════
+// 6. 接力墙
+// ═══════════════════════════════════
+function renderRelay() {
+  const stream = document.getElementById('relay-stream');
+  const names = ['数字游民·阿明','大山的儿子','沪上码农','北漂的小王','蓉城辣妈','金陵书生','武汉伢','长安剑客','匿名战友','深圳创业者','乡村教师老刘','退伍不褪色','键盘侠的反击','觉醒的程序员','人民的眼睛'];
+  stream.innerHTML = names.map((n,i) => `
+    <div class="relay-item">
+      <span class="ri-num">#${36591 - i}</span>
+      <span class="ri-id">${n}</span>
+      <span class="ri-time">${i < 3 ? '刚刚' : (i*3)+'分钟前'}</span>
+    </div>
+  `).join('');
+}
+
+function joinRelay() {
+  const name = document.getElementById('relay-name').value.trim() || '匿名战友';
+  const count = document.getElementById('relay-count');
+  const current = parseInt(count.textContent.replace(/,/g,''));
+  count.textContent = (current + 1).toLocaleString();
+  
+  const stream = document.getElementById('relay-stream');
+  const now = new Date();
+  const time = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+  stream.insertAdjacentHTML('afterbegin', `
+    <div class="relay-item" style="color:var(--gold-light);">
+      <span class="ri-num">#${(current + 1).toLocaleString()}</span>
+      <span class="ri-id">${name} 🔥</span>
+      <span class="ri-time">刚刚</span>
+    </div>
+  `);
+  
+  document.getElementById('relay-name').value = '';
+  showToast(`🤝 ${name}，感谢你的接力！百万人签名，势在必行`, 3000);
+}
+
+// ═══════════════════════════════════
+// 7. 防御协议
+// ═══════════════════════════════════
+async function renderPact() {
+  // 加载协议全文
+  try {
+    const res = await fetch('/five-harms/api/pact');
+    const data = await res.json();
+    document.getElementById('pact-full-text').textContent = data.full_text;
+  } catch(e) {
+    document.getElementById('pact-full-text').textContent = '协议加载中...';
+  }
+  // 加载良心企业联盟
+  await renderAlliance();
+}
+
+async function renderAlliance() {
+  try {
+    const res = await fetch('/five-harms/api/pact/alliance');
+    const data = await res.json();
+    const wall = document.getElementById('alliance-wall');
+    wall.innerHTML = `
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <span style="color:var(--green);font-weight:600;">${data.verified_count} 家已验证</span>
+        <span style="color:var(--text-dim);font-size:12px;">/ ${data.total} 家签署</span>
+      </div>
+      ${[...data.verified, ...data.pending].map(s => `
+        <div class="alliance-card ${s.audit_mark==='🟢'?'verified':'pending'}">
+          <div class="alliance-badge">${s.audit_mark==='🟢'?'🛡️':'⏳'}</div>
+          <div class="alliance-info">
+            <h4>${s.org_name} <span style="font-size:11px;color:var(--text-dim);">${s.audit_mark}</span></h4>
+            <div class="muted">签署人: ${s.signatory} · ${s.signed_at.slice(0,10)}</div>
+            <div class="alliance-quote">"${s.commitment_desc}"</div>
+          </div>
+        </div>
+      `).join('')}
+    `;
+  } catch(e) {
+    document.getElementById('alliance-wall').innerHTML = '<p style="color:var(--text-dim);">加载联盟数据失败，请稍后重试。</p>';
+  }
+}
+
+async function signPact() {
+  const orgName = document.getElementById('pact-org-name').value.trim();
+  const signatory = document.getElementById('pact-signatory').value.trim();
+  if (!orgName || !signatory) {
+    return showToast('⚠️ 请填写企业名称和签署人姓名');
+  }
+  const url = document.getElementById('pact-url').value.trim();
+  const commitment = document.getElementById('pact-commitment').value.trim();
+  
+  try {
+    const res = await fetch('/five-harms/api/pact/sign', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({org_name: orgName, signatory, url, commitment_desc: commitment}),
+    });
+    const data = await res.json();
+    if (data.status === 'already_signed') {
+      showToast(data.message);
+    } else {
+      showToast(`✅ ${orgName} 签署成功！审核通过后将展示在良心企业墙。`);
+      // 清空表单
+      document.getElementById('pact-org-name').value = '';
+      document.getElementById('pact-signatory').value = '';
+      document.getElementById('pact-url').value = '';
+      document.getElementById('pact-commitment').value = '';
+      // 刷新联盟墙
+      await renderAlliance();
+    }
+  } catch(e) {
+    showToast('❌ 签署失败，请稍后重试');
+  }
+}
+
+
+// ═══════════════════════════════════
+// 8. 工具包
+// ═══════════════════════════════════
+async function renderToolkit() {
+  // 加载防御全家桶清单
+  try {
+    const res = await fetch('/five-harms/api/toolkit');
+    const data = await res.json();
+    const checklistTool = data.tools.find(t => t.id === 'defense-stack');
+    if (checklistTool && checklistTool.checklist) {
+      document.getElementById('defense-checklist-preview').innerHTML = checklistTool.checklist.map((item, i) => 
+        `<div style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.03);">${i+1}. ${item}</div>`
+      ).join('');
+    }
+  } catch(e) {
+    document.getElementById('defense-checklist-preview').innerHTML = '加载中...';
+  }
+}
+
+function copyBlockCode() {
+  const code = document.getElementById('block-code-snippet').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    showToast('✅ 熔断代码已复制！粘贴到你的网站 <head> 中即可。');
+  }).catch(() => {
+    showToast('手动复制上面的代码即可。');
+  });
+}
+
+// ═══════════════════════════════════
+// 9. 一键拉黑
+// ═══════════════════════════════════
+async function blockCompany(company, domain, ips) {
+  if (!confirm(`确认拉黑「${company}」(${domain})？\n\n该企业所有追踪脚本、Cookie、API调用将被永久拦截。`)) return;
+  
+  try {
+    const ipList = ips ? ips.split(',').map(i => i.trim()).filter(Boolean) : [];
+    const res = await fetch('/five-harms/api/blocklist/add', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({company, domain, ip_addresses: ipList}),
+    });
+    const data = await res.json();
+    if (data.status === 'blocked') {
+      showToast(`🛡️ ${company} 已拉黑！${data.total_blocked} 个域名在熔断列表中。可以将以下代码嵌入你的网站：\n\n${data.inject_code}`);
+    } else {
+      showToast(data.message);
+    }
+  } catch(e) {
+    showToast('❌ 拉黑失败，请稍后重试');
+  }
+}
+
+
+// ═══════════════════════════════════
+// 10. 一键反挖矿
+// ═══════════════════════════════════
+function collectBrowserData() {
+  // 收集当前浏览器环境数据
+  const data = {
+    cookies_count: document.cookie.split(';').filter(c => c.trim()).length,
+    localStorage_keys: Object.keys(localStorage).length,
+    sessionStorage_keys: Object.keys(sessionStorage).length,
+    navigator_props: [],
+    third_party_origins: [],
+    trackers_detected: [],
+    screen_fingerprint: false,
+    canvas_fingerprint: false,
+    webrtc_leak: false,
+  };
+  
+  // Navigator属性采集
+  const navKeys = ['userAgent','platform','language','languages','hardwareConcurrency','deviceMemory',
+                    'maxTouchPoints','vendor','vendorSub','productSub','cookieEnabled','doNotTrack'];
+  navKeys.forEach(k => {
+    try { if (navigator[k] !== undefined && navigator[k] !== '') data.navigator_props.push(k); } catch(e) {}
+  });
+  
+  // 屏幕指纹检测
+  data.screen_fingerprint = !!(screen.width && screen.height && screen.colorDepth);
+  
+  // Canvas指纹检测（如果页面有canvas元素）
+  data.canvas_fingerprint = !!document.querySelector('canvas');
+  
+  // 扫描页面加载的第三方脚本
+  document.querySelectorAll('script[src]').forEach(s => {
+    try {
+      const host = new URL(s.src).hostname;
+      if (!host.includes(window.location.hostname) && !data.third_party_origins.includes(host)) {
+        data.third_party_origins.push(host);
+      }
+    } catch(e) {}
+  });
+  
+  // 追踪器关键词检测
+  const trackerPatterns = ['track', 'analytic', 'pixel', 'beacon', 'collect', 'fingerprint', 
+                           'profiling', 'ga', 'gtag', 'gtm', 'fbq', 'fbevents', 'hotjar', 
+                           'mouseflow', 'crazyegg', 'fullstory', 'logrocket'];
+  document.querySelectorAll('script[src]').forEach(s => {
+    const src = (s.src || '').toLowerCase();
+    trackerPatterns.forEach(p => {
+      if (src.includes(p) && !data.trackers_detected.includes(p)) data.trackers_detected.push(p);
+    });
+  });
+  
+  return data;
+}
+
+async function antiMine(company, domain) {
+  // 显示采集中的模态
+  const modal = document.getElementById('anti-mining-modal');
+  const resultDiv = document.getElementById('anti-mining-result');
+  modal.classList.add('active');
+  resultDiv.innerHTML = '<p style="text-align:center;color:var(--gold);padding:40px;">⏳ 正在分析你的浏览器环境...</p>';
+  
+  try {
+    const browserData = collectBrowserData();
+    const res = await fetch('/five-harms/api/anti-mining/analyze', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        company, domain,
+        cookies_count: browserData.cookies_count,
+        third_party_origins: browserData.third_party_origins,
+        localStorage_keys: browserData.localStorage_keys,
+        sessionStorage_keys: browserData.sessionStorage_keys,
+        trackers_detected: browserData.trackers_detected,
+        navigator_props: browserData.navigator_props,
+        screen_fingerprint: browserData.screen_fingerprint,
+        canvas_fingerprint: browserData.canvas_fingerprint,
+        webrtc_leak: browserData.webrtc_leak,
+      }),
+    });
+    const data = await res.json();
+    
+    resultDiv.innerHTML = `
+      <h3>🔍 反挖矿报告：${data.company}</h3>
+      <div style="margin:16px 0;padding:14px 20px;background:rgba(229,83,75,0.1);border-radius:var(--radius);text-align:center;">
+        <div style="font-size:32px;font-weight:700;color:${data.risk_level==='critical'?'var(--red)':data.risk_level==='high'?'var(--orange)':'var(--gold)'};">${data.risk_score}<span style="font-size:14px;">/100</span></div>
+        <div style="font-size:14px;color:var(--text-bright);margin-top:4px;">${data.risk_label}</div>
+      </div>
+      ${data.findings.length > 0 ? `
+        <h4 style="color:var(--text-bright);margin-bottom:10px;">风险发现（${data.findings.length} 项）</h4>
+        ${data.findings.map(f => `
+          <div class="finding-item ${f.level}">
+            <b>${f.finding}</b><br>
+            <span style="opacity:0.85;">${f.detail}</span>
+          </div>
+        `).join('')}
+      ` : '<p style="color:var(--green);">🟢 未检出显著追踪行为</p>'}
+      <h4 style="color:var(--text-bright);margin:16px 0 8px;">建议措施</h4>
+      <ul style="font-size:12px;color:var(--text-dim);padding-left:18px;">
+        ${data.recommendation.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('')}
+      </ul>
+      <div style="margin-top:16px;text-align:center;">
+        <button class="btn danger sm" onclick="closeModal();blockCompany('${data.company}','${data.domain}')">🛡️ 立即拉黑此企业</button>
+        <button class="btn sm def" onclick="closeModal()" style="margin-left:8px;">关闭</button>
+      </div>
+    `;
+  } catch(e) {
+    resultDiv.innerHTML = '<p style="color:var(--red);text-align:center;padding:40px;">分析失败，请确保已加载该企业页面后重试。</p>';
+  }
+}
+
+function closeModal() {
+  document.getElementById('anti-mining-modal').classList.remove('active');
+}
+
+// tab切换辅助（从工具包等位置调用）
+function switchTab(name) {
+  const tab = document.querySelector(`.nav-tab[data-section="${name}"]`);
+  if (tab) tab.click();
+}
+
+// ═══════════════════════════════════
+// 初始化
+// ═══════════════════════════════════
+renderHall();
+</script>
+
+<!-- 反挖矿模态窗口 -->
+<div class="modal-overlay" id="anti-mining-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">✕</button>
+    <div id="anti-mining-result"></div>
+  </div>
+</div>
+</body>
+</html>

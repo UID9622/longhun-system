@@ -1,0 +1,64 @@
+# ═══════════════════════════════════════════════════════════
+# 龍魂体系 | FRP 客户端配置 (Mac本地)
+# ═══════════════════════════════════════════════════════════
+# DNA: #龍芯⚡️丙午·乙未·壬戌·兌-FRP-CLIENT-CONFIG-v1.0
+# 部署: ~/frp/frpc.toml (Mac本地)
+# 启动: launchctl load ~/Library/LaunchAgents/com.uid9622.frpc.plist
+# ═══════════════════════════════════════════════════════════
+
+serverAddr = "119.13.90.27"
+serverPort = 7000
+
+auth.method = "token"
+auth.token = "YOUR_FRP_AUTH_TOKEN_HERE"
+
+transport.protocol = "kcp"
+transport.tls.enable = true
+
+log.to = "/Users/zuimeidedeyihan/longhun-system/logs/frpc.log"
+log.level = "warn"
+log.maxDays = 3
+
+# ═══════════════════════════════════════════════════════════
+# 端口转发规则
+# ═══════════════════════════════════════════════════════════
+
+# 8799 枢纽 → 鲲鹏 18799
+[[proxies]]
+name = "xiaoyi-hub"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8799
+remotePort = 18799
+
+# 8770 观澜M1 → 鲲鹏 18770
+[[proxies]]
+name = "guanlan-m1"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8770
+remotePort = 18770
+
+# 8765 CNSH网关 → 鲲鹏 18765
+[[proxies]]
+name = "cnsh-gateway"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8765
+remotePort = 18765
+
+# 8766 知识中枢 → 鲲鹏 18766
+[[proxies]]
+name = "knowledge-hub"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8766
+remotePort = 18766
+
+# 9622 操作台 → 鲲鹏 19622
+[[proxies]]
+name = "operator-panel"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 9622
+remotePort = 19622

@@ -1,0 +1,310 @@
+# ═══════════════════════════════════════════════════════════════
+# 龍魂·内网互联节点 — Docker Compose 多节点编排
+# DNA: #龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-COMPOSE-v1.0
+# #CONFIRM🌌9622-ONLY-ONCE🧬CMP1-001A
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+#
+# 用法:
+#   一键启动全部: docker compose -f docker-compose.internal-net.yml up -d
+#   仅启动网关:   docker compose -f docker-compose.internal-net.yml up -d longhun-gateway
+#   停止全部:     docker compose -f docker-compose.internal-net.yml down
+#
+# 核心: 一台鲲鹏当中心，所有设备内网直连，不经过云
+# 安全: L0·DNA | L1·三色审计 | L2·熔断 | L3·输入过滤 | L4·防投毒 | L5·芯片门禁
+# ═══════════════════════════════════════════════════════════════
+
+version: '3.8'
+
+# ── 共用配置 ──
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-gateway-env: &gateway-env
+  TZ: Asia/Shanghai
+  PYTHONUNBUFFERED: "1"
+
+services:
+  # ═══════════════════════════════════════════════════════
+  # 🏛️ 中心网关 — 鲲鹏服务器（必须最先启动）
+  # ═══════════════════════════════════════════════════════
+  longhun-gateway:
+    image: longhun/internal-net:latest
+    build:
+      context: ../..
+      dockerfile: docker/Dockerfile.internal-net
+    container_name: longhun-gateway
+    restart: unless-stopped
+    network_mode: host  # 使用宿主机网络，获取真实局域网IP
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: gateway
+      LONGHUN_DEVICE_NAME: "鲲鹏中心"
+      LONGHUN_DEVICE_TYPE: kunpeng
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-gateway-data:/opt/longhun/data
+      - longhun-gateway-logs:/opt/longhun/logs
+      - longhun-gateway-cache:/opt/longhun/cache
+    command: gateway
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9622/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    labels:
+      - "longhun.role=gateway"
+      - "longhun.dna=#龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-v1.0"
+
+  # ═══════════════════════════════════════════════════════
+  # 💻 Mac 开发机节点
+  # ═══════════════════════════════════════════════════════
+  longhun-mac:
+    image: longhun/internal-net:latest
+    container_name: longhun-mac
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "Mac工作室"
+      LONGHUN_DEVICE_TYPE: mac
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-mac-data:/opt/longhun/data
+      - longhun-mac-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - mac
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=mac"
+
+  # ═══════════════════════════════════════════════════════
+  # 🪟 Windows 办公机节点
+  # ═══════════════════════════════════════════════════════
+  longhun-win:
+    image: longhun/internal-net:latest
+    container_name: longhun-win
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "Win办公机"
+      LONGHUN_DEVICE_TYPE: win
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-win-data:/opt/longhun/data
+      - longhun-win-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - win
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=win"
+
+  # ═══════════════════════════════════════════════════════
+  # 🐧 Linux 服务器节点
+  # ═══════════════════════════════════════════════════════
+  longhun-linux:
+    image: longhun/internal-net:latest
+    container_name: longhun-linux
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "Linux服务器"
+      LONGHUN_DEVICE_TYPE: linux
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-linux-data:/opt/longhun/data
+      - longhun-linux-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - linux
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=linux"
+
+  # ═══════════════════════════════════════════════════════
+  # 📱 手机/移动设备节点 (通过WiFi接入)
+  # ═══════════════════════════════════════════════════════
+  longhun-phone:
+    image: longhun/internal-net:latest
+    container_name: longhun-phone
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "手机"
+      LONGHUN_DEVICE_TYPE: phone
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-phone-data:/opt/longhun/data
+      - longhun-phone-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - phone
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=phone"
+
+  # ═══════════════════════════════════════════════════════
+  # 🫐 树莓派 / IoT 节点
+  # ═══════════════════════════════════════════════════════
+  longhun-raspberry:
+    image: longhun/internal-net:latest
+    container_name: longhun-raspberry
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "树莓派"
+      LONGHUN_DEVICE_TYPE: raspberry
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-raspberry-data:/opt/longhun/data
+      - longhun-raspberry-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - iot
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=iot"
+
+  # ═══════════════════════════════════════════════════════
+  # 🏠 家中设备节点（通用模板，可复制多份）
+  # ═══════════════════════════════════════════════════════
+  longhun-home-pc:
+    image: longhun/internal-net:latest
+    container_name: longhun-home-pc
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "家里电脑"
+      LONGHUN_DEVICE_TYPE: linux
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-home-data:/opt/longhun/data
+      - longhun-home-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - home
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=home"
+
+  # ═══════════════════════════════════════════════════════
+  # 🏢 公司设备节点
+  # ═══════════════════════════════════════════════════════
+  longhun-office-pc:
+    image: longhun/internal-net:latest
+    container_name: longhun-office-pc
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      <<: *gateway-env
+      LONGHUN_ROLE: peer
+      LONGHUN_DEVICE_NAME: "公司电脑"
+      LONGHUN_DEVICE_TYPE: linux
+      LONGHUN_GATEWAY: auto
+      LONGHUN_GATEWAY_PORT: "9622"
+    volumes:
+      - longhun-office-data:/opt/longhun/data
+      - longhun-office-logs:/opt/longhun/logs
+    command: peer
+    logging: *default-logging
+    depends_on:
+      longhun-gateway:
+        condition: service_healthy
+    profiles:
+      - office
+      - all
+    labels:
+      - "longhun.role=peer"
+      - "longhun.device=office"
+
+# ═══════════════════════════════════════════════════════
+# 数据卷 — 持久化存储
+# ═══════════════════════════════════════════════════════
+volumes:
+  longhun-gateway-data:
+    name: longhun-gateway-data
+  longhun-gateway-logs:
+    name: longhun-gateway-logs
+  longhun-gateway-cache:
+    name: longhun-gateway-cache
+  longhun-mac-data:
+    name: longhun-mac-data
+  longhun-mac-logs:
+    name: longhun-mac-logs
+  longhun-win-data:
+    name: longhun-win-data
+  longhun-win-logs:
+    name: longhun-win-logs
+  longhun-linux-data:
+    name: longhun-linux-data
+  longhun-linux-logs:
+    name: longhun-linux-logs
+  longhun-phone-data:
+    name: longhun-phone-data
+  longhun-phone-logs:
+    name: longhun-phone-logs
+  longhun-raspberry-data:
+    name: longhun-raspberry-data
+  longhun-raspberry-logs:
+    name: longhun-raspberry-logs
+  longhun-home-data:
+    name: longhun-home-data
+  longhun-home-logs:
+    name: longhun-home-logs
+  longhun-office-data:
+    name: longhun-office-data
+  longhun-office-logs:
+    name: longhun-office-logs

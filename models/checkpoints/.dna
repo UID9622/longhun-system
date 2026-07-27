@@ -1,0 +1,11 @@
+{
+  "path": "models/checkpoints",
+  "dna": "#龍芯⚡️丙午·乙未·丁酉·模型权重-CREATE-202bd9b7",
+  "created": "2026-07-24",
+  "last_modified": "2026-07-24",
+  "owner": "UID9622",
+  "parent_dna": "#龍芯⚡️丙午·乙未·丁酉·models-CREATE",
+  "contents_summary": "架构重组v2.1·模型权重",
+  "audit_mark": "🟢",
+  "gpg_signature": ""
+}
