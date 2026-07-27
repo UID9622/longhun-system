@@ -1,0 +1,16 @@
+# 龍魂·指尖 — Git忽略规则
+# 构建产物
+entry/build/
+entry/oh_modules/
+.cxx/
+*.hvigor/
+*.idx
+
+# IDE
+.idea/
+*.iml
+.gradle/
+local.properties
+
+# 日志
+*.log

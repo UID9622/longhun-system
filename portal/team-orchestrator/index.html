@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="generator" content="AI生成·龍魂军团指挥中枢；AI内容双标识：显式水印+隐式元数据">
+<title>龍魂 · 军团指挥中枢 v2.0</title>
+<style>
+:root {
+  --bg: #0a0e14;
+  --card: #101520;
+  --border: #1e2a3a;
+  --text: #e5e7eb;
+  --text-dim: #6b7280;
+  --gold: #c9a84c;
+  --gold-dim: #3a3020;
+  --green: #22c55e;
+  --green-dim: #22c55e22;
+  --red: #ef4444;
+  --red-dim: #ef444422;
+  --yellow: #eab308;
+  --blue: #3b82f6;
+  --blue-dim: #3b82f622;
+  --purple: #a855f7;
+  --radius: 8px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  min-height: 100vh;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px; margin-bottom: 20px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.header h1 { font-size: 1.4rem; color: var(--gold); display:flex; align-items:center; gap:8px; }
+.header h1 .dna { font-size:0.55rem; color:var(--text-dim); font-family:monospace; }
+.header-right { display:flex; align-items:center; gap:12px; }
+.badge { font-size:0.7rem; padding:3px 10px; border-radius:20px; font-weight:600; }
+.badge-green { background:var(--green-dim); color:var(--green); }
+.badge-red { background:var(--red-dim); color:var(--red); }
+.badge-gold { background:var(--gold-dim); color:var(--gold); }
+.badge-blue { background:var(--blue-dim); color:var(--blue); }
+
+/* Stats row */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px; text-align: center;
+}
+.stat-value { font-size: 1.8rem; font-weight: 700; color: var(--gold); }
+.stat-label { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+
+/* Panel grid */
+.panels {
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 20px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px;
+}
+.card-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.card-header h3 { font-size:0.92rem; color:var(--gold); display:flex; align-items:center; gap:6px; }
+.full-width { grid-column: 1 / -1; }
+
+/* Table */
+table { width: 100%; border-collapse:collapse; font-size:0.8rem; }
+th { text-align:left; padding:8px 6px; color:var(--text-dim); font-weight:500; border-bottom:1px solid var(--border); }
+td { padding:7px 6px; border-bottom:1px solid #151d2a; }
+.healthy { color: var(--green); }
+.melted { color: var(--red); }
+.warning { color: var(--yellow); }
+
+/* Buttons */
+.btn {
+  padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border);
+  background: transparent; color: var(--text); cursor: pointer;
+  font-size: 0.78rem; transition: all .2s;
+}
+.btn:hover { border-color: var(--gold); }
+.btn-gold { background: var(--gold); color: #000; border-color: var(--gold); font-weight:600; }
+.btn-gold:hover { opacity: 0.85; }
+.btn-sm { padding: 4px 10px; font-size: 0.7rem; }
+.btn-outline { border:1px solid var(--border); }
+.btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+
+/* Formation cards */
+.formation-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 10px; margin-bottom: 16px;
+}
+.formation-card {
+  background: #0d1520; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px; cursor: pointer;
+  transition: all .2s;
+}
+.formation-card:hover { border-color: var(--gold); }
+.formation-card.active { border-color: var(--gold); box-shadow: 0 0 8px var(--gold-dim); }
+.formation-name { font-size: 0.9rem; font-weight: 700; }
+.formation-desc { font-size: 0.68rem; color: var(--text-dim); margin-top: 4px; }
+.formation-personas { font-size:0.65rem; color: var(--text-dim); margin-top: 6px; }
+
+/* Task queue */
+.task-item {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 8px 0; border-bottom: 1px solid #151d2a;
+  font-size:0.78rem;
+}
+.task-id { font-family: monospace; font-size:0.68rem; color:var(--text-dim); }
+
+/* Canvas flow */
+#flowCanvas { max-width: 100%; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  padding: 10px 18px; border-radius: 8px; font-size: 0.82rem;
+  font-weight: 600; opacity: 0; transform: translateY(10px);
+  transition: all .3s; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast-ok { background: #22c55e22; color: var(--green); border: 1px solid var(--green); }
+.toast-err { background: #ef444422; color: var(--red); border: 1px solid var(--red); }
+
+/* Loading animation */
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.loading { animation: pulse 1.5s infinite; }
+
+/* Conflict record */
+.conflict-item {
+  background: #0d1520; border-radius: 6px; padding: 10px; margin-bottom: 8px;
+  border-left: 3px solid var(--red);
+}
+.conflict-item.resolved { border-left-color: var(--green); }
+.conflict-between { font-size:0.7rem; color:var(--text-dim); }
+.conflict-adjudication { font-size:0.75rem; margin-top: 4px; color:var(--yellow); }
+
+/* Input area */
+.input-row { display:flex; gap:8px; margin-bottom:12px; }
+.input-row input {
+  flex:1; padding:10px 12px; border-radius:var(--radius);
+  border:1px solid var(--border); background:#0d1520;
+  color:var(--text); font-size:0.85rem;
+}
+.input-row input:focus { outline:none; border-color:var(--gold); }
+.input-row select {
+  padding:10px; border-radius:var(--radius); border:1px solid var(--border);
+  background:#0d1520; color:var(--text); font-size:0.85rem;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .panels { grid-template-columns: 1fr; }
+  .formation-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>
+      ⚔️ 军团指挥中枢
+      <span class="dna">v2.0 · #龍芯⚡️軍陣</span>
+    </h1>
+    <div class="header-right">
+      <span>API:</span>
+      <span id="apiStatus" class="badge badge-red">离线</span>
+      <span>自举:</span>
+      <span id="bsStatus" class="badge badge-green">开启</span>
+      <span style="font-size:0.68rem;color:var(--text-dim);" id="uptime">--</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="statAgents">21</div>
+      <div class="stat-label">活跃人格</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statFormations">5</div>
+      <div class="stat-label">军阵模式</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statActive">0</div>
+      <div class="stat-label">执行中</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statHistory">0</div>
+      <div class="stat-label">历史战役</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statBB">0</div>
+      <div class="stat-label">黑板条目</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statBS">0</div>
+      <div class="stat-label">自举池</div>
+    </div>
+  </div>
+
+  <!-- Command Input -->
+  <div class="card full-width" style="margin-bottom:20px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+      <span style="font-size:1.2rem;">⚡</span>
+      <span style="font-weight:700;">下达作战指令</span>
+    </div>
+    <div class="input-row">
+      <input type="text" id="taskInput" 
+             placeholder="输入任务... 如 '围猎审查新协议的安全性' 或 '闪电战修复登录Bug'"
+             onkeydown="if(event.key==='Enter')executeFormation()">
+      <select id="formationSelect">
+        <option value="encirclement">🎯 围猎</option>
+        <option value="blitzkrieg">⚡ 闪电战</option>
+        <option value="fortification">🏰 筑城</option>
+        <option value="minesweeping">💣 排雷</option>
+        <option value="lecture">📚 讲武</option>
+      </select>
+      <button class="btn btn-gold" onclick="executeFormation()">出击</button>
+      <button class="btn btn-outline" onclick="decomposePreview()">仅预览拆解</button>
+    </div>
+    <div id="execResult" style="margin-top:8px;font-size:0.75rem;"></div>
+  </div>
+
+  <div class="panels">
+    <!-- 左：军阵模式面板 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🏰 军阵模式</h3>
+        <span class="badge badge-gold" id="formationCount">5种</span>
+      </div>
+      <div class="formation-grid" id="formationCards"></div>
+    </div>
+
+    <!-- 右：任务拆解预览 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>📋 任务拆解</h3>
+        <span class="badge badge-blue" id="decomposeBadge">就绪</span>
+      </div>
+      <div id="decomposeResult" style="font-size:0.78rem;min-height:120px;">
+        <div style="color:var(--text-dim);text-align:center;padding:20px;">
+          输入指令后点击"仅预览拆解"查看任务拆分结果
+        </div>
+      </div>
+    </div>
+
+    <!-- 左：实时协作视图 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🤖 实时协作视图</h3>
+        <span class="badge badge-blue" id="activityBadge">监控中</span>
+      </div>
+      <div id="activityList" style="font-size:0.78rem;min-height:140px;">
+        <div style="color:var(--text-dim);text-align:center;padding:20px;">
+          无活跃协作 · 等待指令
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：冲突裁决记录 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>⚖️ 冲突裁决</h3>
+        <span class="badge" id="conflictBadge" style="background:var(--green-dim);color:var(--green);">无冲突</span>
+      </div>
+      <div id="conflictList" style="font-size:0.78rem;max-height:200px;overflow-y:auto;">
+        <div style="color:var(--text-dim);text-align:center;padding:20px;">
+          暂无冲突记录
+        </div>
+      </div>
+    </div>
+
+    <!-- 左：历史战役 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>📜 历史战役</h3>
+        <span class="badge badge-gold" id="historyCount">0</span>
+      </div>
+      <div style="max-height:280px;overflow-y:auto;">
+        <table>
+          <thead><tr><th>任务ID</th><th>模式</th><th>审计</th><th>时间</th><th>复盘</th></tr></thead>
+          <tbody id="historyRows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 右：自举池 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🧬 数据自举</h3>
+        <span class="badge badge-green" id="bsToggleBadge">造血中</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div style="text-align:center;padding:12px;background:#0d1520;border-radius:6px;">
+          <div style="font-size:1.5rem;font-weight:700;" id="bsPending">0</div>
+          <div style="font-size:0.65rem;color:var(--text-dim);">待转换</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:#0d1520;border-radius:6px;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--gold);" id="bsPoolSize">0</div>
+          <div style="font-size:0.65rem;color:var(--text-dim);">自举池</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-sm btn-outline" onclick="toggleBootstrap()" id="bsBtn">⏸️ 暂停自举</button>
+        <button class="btn btn-sm btn-outline" onclick="bootstrapStatus()">🔄 刷新</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部：协作流程图 -->
+  <div class="card full-width">
+    <div class="card-header">
+      <h3>🌐 军团协作数据流</h3>
+      <span class="badge badge-blue">实时</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;min-height:140px;">
+      <canvas id="flowCanvas" width="800" height="140" style="max-width:100%;"></canvas>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:20px;font-size:0.65rem;color:var(--text-dim);">
+    龍魂 · 军团指挥中枢 v2.0 · 21人格协同 · 五军阵 · 战后复盘 · 数据自举
+    <br>DNA: #龍芯⚡️丙午·乙未·TEAMORCH-v2.0
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = 'http://127.0.0.1:8781';
+
+async function api(method, path, body) {
+  const opts = { method, headers: {'Content-Type':'application/json'} };
+  if (body) opts.body = JSON.stringify(body);
+  const r = await fetch(API + path, opts);
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+function toast(msg, ok=true) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (ok ? 'toast-ok' : 'toast-err');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── 军阵卡片 ──
+
+async function loadFormations() {
+  try {
+    const r = await api('GET', '/orchestrator/formations');
+    const cards = document.getElementById('formationCards');
+    const formations = r.formations;
+    cards.innerHTML = Object.entries(formations).map(([key, fm]) => `
+      <div class="formation-card" onclick="selectFormation('${key}')" id="fm-${key}">
+        <div class="formation-name">${fm.icon} ${fm.name}</div>
+        <div class="formation-desc">${fm.desc}</div>
+        <div class="formation-personas">${Object.keys(fm.personas).join(' · ')}</div>
+        <div style="font-size:0.6rem;color:var(--text-dim);margin-top:4px;">
+          ${fm.mode === 'chain' ? '🔗 串行' : '⚡ 并行'} · ${fm.strategy.substring(0, 20)}...
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('formationCount').textContent = Object.keys(formations).length + '种';
+  } catch(e) {}
+}
+
+function selectFormation(key) {
+  document.querySelectorAll('.formation-card').forEach(c => c.classList.remove('active'));
+  const card = document.getElementById('fm-' + key);
+  if (card) card.classList.add('active');
+  document.getElementById('formationSelect').value = key;
+}
+
+// ── 执行作战 ──
+
+async function executeFormation() {
+  const task = document.getElementById('taskInput').value.trim();
+  if (!task) { toast('请输入任务指令', false); return; }
+  const formation = document.getElementById('formationSelect').value;
+
+  const el = document.getElementById('execResult');
+  el.innerHTML = '<span class="loading">⚔️ 军团出击中...</span>';
+
+  try {
+    const r = await api('POST', '/orchestrator/execute', { task, formation, auto_decompose: true });
+    el.innerHTML = `
+      <div style="background:#0d1520;padding:10px;border-radius:6px;">
+        <div>🪖 任务ID: <code>${r.task_id}</code></div>
+        <div>📊 审计: <span style="color:${r.audit?.status==='🟢'?'var(--green)':'var(--red)'}">${r.audit?.status||'?'}</span> | ${r.audit?.ok||0}/${r.audit?.total||0} ok | ${r.audit?.duration_ms||0}ms</div>
+        ${r.after_action ? `<div>🧬 复盘DNA: <code>${r.after_action}</code></div>` : ''}
+      </div>`;
+    toast('✅ 军团出击完成');
+    loadHistory();
+    loadActivity();
+  } catch(e) { el.textContent = '❌ ' + e.message; toast('执行失败: '+e.message, false); }
+}
+
+// ── 拆解预览 ──
+
+async function decomposePreview() {
+  const task = document.getElementById('taskInput').value.trim();
+  if (!task) { toast('请输入任务指令', false); return; }
+  const formation = document.getElementById('formationSelect').value;
+
+  try {
+    const r = await api('POST', '/orchestrator/decompose', { task, formation });
+    const el = document.getElementById('decomposeResult');
+    document.getElementById('decomposeBadge').textContent = r.subtask_count + '个子任务';
+    el.innerHTML = r.subtasks.map(s => `
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #151d2a;">
+        <span style="background:var(--gold-dim);color:var(--gold);padding:1px 6px;border-radius:3px;font-size:0.65rem;">P${s.priority}</span>
+        <span style="font-weight:600;font-size:0.8rem;min-width:40px;">${s.persona}</span>
+        <span style="font-size:0.7rem;color:var(--text-dim);">[${s.tier||'?'}]</span>
+        <span style="flex:1;font-size:0.72rem;">${s.objective}</span>
+      </div>
+    `).join('');
+  } catch(e) { toast('拆解失败: '+e.message, false); }
+}
+
+// ── 历史战役 ──
+
+async function loadHistory() {
+  try {
+    const r = await api('GET', '/orchestrator/history?limit=20');
+    const rows = document.getElementById('historyRows');
+    document.getElementById('statHistory').textContent = r.length;
+    document.getElementById('historyCount').textContent = r.length;
+    if (r.length === 0) {
+      rows.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:20px;">暂无历史战役</td></tr>';
+      return;
+    }
+    rows.innerHTML = r.map(h => `
+      <tr>
+        <td class="task-id">${h.run_id?.substring(0,8)||'?'}</td>
+        <td>${h.formation||h.team||'?'}</td>
+        <td class="${h.audit?.status==='🟢'?'healthy':'warning'}">${h.audit?.status||'?'}</td>
+        <td style="font-size:0.65rem;">${(h.start_time||'').substring(11,19)}</td>
+        <td>
+          ${h.after_action_dna ? 
+            `<button class="btn btn-sm btn-outline" onclick="viewAfterAction('${h.run_id}')">📊 查看</button>` 
+            : '<span style="font-size:0.65rem;color:var(--text-dim);">--</span>'}
+        </td>
+      </tr>
+    `).join('');
+  } catch(e) {}
+}
+
+// ── 战后复盘查看 ──
+
+async function viewAfterAction(taskId) {
+  try {
+    const r = await api('GET', '/orchestrator/after-action/' + taskId);
+    const details = [
+      `🎯 任务: ${r.task}`,
+      `🏰 阵型: ${r.formation}`,
+      `👥 参与人格: ${r.persona_count}`,
+      `⏱️ 耗时: ${r.total_duration_ms}ms`,
+      `🟢 审计色: ${r.audit_color}`,
+      '',
+      '📊 贡献评分:',
+      ...r.contributions.map(c => `  ${c.persona}: ${c.score}分`),
+    ];
+    if (r.conflicts && r.conflicts.length > 0) {
+      details.push('', '⚖️ 冲突记录:');
+      r.conflicts.forEach(c => {
+        details.push(`  冲突: ${c.between?.join(' vs ')}`);
+        details.push(`  裁决: ${c.adjudication}`);
+      });
+    }
+    details.push('', `📝 最终结论: ${r.final_verdict}`);
+    alert(details.join('\n'));
+  } catch(e) { toast('获取复盘失败', false); }
+}
+
+// ── 实时活动 ──
+
+async function loadActivity() {
+  try {
+    const r = await api('GET', '/orchestrator/status');
+    document.getElementById('statAgents').textContent = r.agents;
+    document.getElementById('statFormations').textContent = r.formation_count;
+    document.getElementById('statActive').textContent = r.active;
+    document.getElementById('statBB').textContent = r.bb_entries;
+    document.getElementById('statBS').textContent = '...';
+    document.getElementById('uptime').textContent = r.uptime ? r.uptime + 's' : '--';
+
+    // 活动列表
+    const actEl = document.getElementById('activityList');
+    if (r.active === 0) {
+      actEl.innerHTML = '<div style="color:var(--text-dim);text-align:center;padding:20px;">无活跃协作 · 等待指令</div>';
+    } else {
+      actEl.innerHTML = `<div style="color:var(--gold);">${r.active} 个协作进行中...</div>`;
+    }
+
+    // 自举池
+    try {
+      const bs = await api('GET', '/bootstrap/status');
+      document.getElementById('statBS').textContent = bs.pool_size || 0;
+      document.getElementById('bsPending').textContent = bs.pending_count || 0;
+      document.getElementById('bsPoolSize').textContent = bs.pool_size || 0;
+      document.getElementById('bsToggleBadge').textContent = bs.active ? '造血中' : '暂停';
+      document.getElementById('bsToggleBadge').className = bs.active ? 'badge badge-green' : 'badge badge-red';
+      document.getElementById('bsBtn').textContent = bs.active ? '⏸️ 暂停自举' : '▶️ 开启自举';
+    } catch(e) {}
+  } catch(e) {}
+}
+
+// ── 自举控制 ──
+
+async function toggleBootstrap() {
+  const btn = document.getElementById('bsBtn');
+  const isActive = btn.textContent.includes('暂停');
+  try {
+    await api('POST', '/bootstrap/toggle', { enabled: !isActive });
+    toast(isActive ? '⏸️ 自举已暂停' : '▶️ 自举已开启');
+    loadActivity();
+  } catch(e) { toast('操作失败', false); }
+}
+
+async function bootstrapStatus() {
+  loadActivity();
+  toast('自举状态已刷新');
+}
+
+// ── 冲突记录轮询 ──
+
+async function loadConflicts() {
+  try {
+    const r = await api('GET', '/orchestrator/history?limit=5');
+    const conflicts = [];
+    for (const h of r) {
+      if (!h.after_action_dna) continue;
+      try {
+        const aa = await api('GET', '/orchestrator/after-action/' + h.run_id);
+        if (aa.conflicts && aa.conflicts.length > 0) {
+          conflicts.push(...aa.conflicts.map(c => ({...c, task_id: h.run_id})));
+        }
+      } catch(e) {}
+    }
+    const el = document.getElementById('conflictList');
+    const badge = document.getElementById('conflictBadge');
+    if (conflicts.length === 0) {
+      el.innerHTML = '<div style="color:var(--text-dim);text-align:center;padding:20px;">暂无冲突记录 · 军团一致</div>';
+      badge.textContent = '无冲突';
+      badge.style.cssText = 'background:var(--green-dim);color:var(--green);';
+    } else {
+      badge.textContent = conflicts.length + '项冲突';
+      badge.style.cssText = 'background:var(--red-dim);color:var(--red);';
+      el.innerHTML = conflicts.map(c => `
+        <div class="conflict-item ${c.adjudication ? 'resolved' : ''}">
+          <div class="conflict-between">${c.between?.join(' ⚔️ ')||'?'} · 任务: ${c.task_id?.substring(0,8)}</div>
+          <div class="conflict-adjudication">${c.adjudication || '待裁决'}</div>
+        </div>
+      `).join('');
+    }
+  } catch(e) {}
+}
+
+// ── Canvas 数据流图 ──
+
+function drawFlow() {
+  const canvas = document.getElementById('flowCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const tiers = [
+    { name: '安全层', personas: ['P72','P77','P05'], x: 680, color: '#ef4444' },
+    { name: '守护层', personas: ['P05','P06','P13','P15'], x: 530, color: '#f59e0b' },
+    { name: '战略层', personas: ['P00','P01'], x: 380, color: '#c9a84c' },
+    { name: '执行层', personas: ['P02','P03','P04','P07','P14'], x: 220, color: '#3b82f6' },
+    { name: '文化层', personas: ['P08','P09','P10','P11','P12'], x: 70, color: '#a855f7' },
+  ];
+
+  const cy = 70;
+
+  // 总线（水平线）
+  ctx.strokeStyle = '#c9a84c44';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath(); ctx.moveTo(20, cy); ctx.lineTo(760, cy); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#c9a84c';
+  ctx.font = '9px monospace';
+  ctx.fillText('协作总线', 350, cy - 8);
+
+  // 总司令
+  ctx.fillStyle = '#c9a84c';
+  ctx.beginPath(); ctx.arc(400, 20, 10, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#e5e7eb';
+  ctx.font = '9px sans-serif';
+  ctx.fillText('总司令(老大)', 385, 44);
+
+  // 各层节点
+  tiers.forEach(tier => {
+    ctx.fillStyle = tier.color;
+    tier.personas.forEach((p, i) => {
+      const x = tier.x, y = 90 + i * 14;
+      ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI*2); ctx.fill();
+      // 连到总线
+      ctx.strokeStyle = tier.color + '44';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, y - 5); ctx.lineTo(x, cy + 2); ctx.stroke();
+    });
+    // 层级名
+    ctx.fillStyle = tier.color;
+    ctx.font = '8px sans-serif';
+    ctx.fillText(tier.name, tier.x - 12, 110 + tier.personas.length * 14);
+  });
+}
+
+// ── 初始化 ──
+
+async function init() {
+  try {
+    await api('GET', '/health');
+    document.getElementById('apiStatus').textContent = 'API 就绪';
+    document.getElementById('apiStatus').className = 'badge badge-green';
+  } catch(e) {
+    document.getElementById('apiStatus').textContent = 'API 离线';
+    document.getElementById('apiStatus').className = 'badge badge-red';
+    toast('API未启动: python3 bin/lh_team_orchestrator_api.py', false);
+  }
+  await loadFormations();
+  await loadHistory();
+  await loadActivity();
+  await loadConflicts();
+  drawFlow();
+}
+
+init();
+setInterval(loadActivity, 8000);
+setInterval(loadHistory, 15000);
+setInterval(loadConflicts, 20000);
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+# 🐉 龍魂 · 飞书通知网关配置 v1.0
+# DNA: #龍芯⚡️2026-07-26-FEISHU-BOT-CONFIG-v1.0
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+
+bot:
+  name: "龍魂通知"
+  version: "1.0.0"
+  webhook: "https://open.feishu.cn/open-apis/bot/v2/hook/b455948e-0fbe-4b39-8120-14b4cf5d22f3"       # 飞书群机器人Webhook地址
+  secret: "J79q43DOAEeYIByh3EApsf"     # 签名校验密钥
+  app_id: "${FEISHU_APP_ID}"             # 飞书应用ID（可选·事件订阅）
+  app_secret: "${FEISHU_APP_SECRET}"     # 飞书应用密钥（可选·事件订阅）
+
+  # IP白名单（只允许鲲鹏+本地调用Webhook）
+  ip_whitelist:
+    - "119.13.90.27"   # 鲲鹏
+    - "127.0.0.1"      # 本地
+    - "::1"            # 本地IPv6
+
+# ─── 通知规则矩阵 ───
+# priority: P0(三通道立即) | P1(单通道立即) | P2(定期摘要) | P3(仅日志)
+# channels: [feishu, bark, terminal] 按优先级排列，失败自动切换下一个
+notify_rules:
+  # ── P0级：生命线告警 ──
+  tongxin_lock_alert:
+    priority: P0
+    immediate: true
+    channels: [feishu, bark, terminal]
+    card_template: red
+    description: "同心锁检测到未授权外连"
+
+  privacy_audit_failed:
+    priority: P0
+    immediate: true
+    channels: [feishu, bark, terminal]
+    card_template: red
+    description: "隐私审计发现违规项"
+
+  data_leak_detected:
+    priority: P0
+    immediate: true
+    channels: [feishu, bark, terminal]
+    card_template: red
+    description: "数据泄露检测告警"
+
+  founder_betrayal:
+    priority: P0
+    immediate: true
+    channels: [feishu, bark, terminal]
+    card_template: red
+    description: "创始人背叛检测（P0焊死规则触发）"
+
+  system_intrusion:
+    priority: P0
+    immediate: true
+    channels: [feishu, bark, terminal]
+    card_template: red
+    description: "系统入侵检测"
+
+  # ── P1级：重要事件 ──
+  video_generated:
+    priority: P1
+    immediate: true
+    channels: [feishu]
+    card_template: green
+    description: "视频自动生成完成"
+
+  system_upgraded:
+    priority: P1
+    immediate: true
+    channels: [feishu]
+    card_template: blue
+    description: "系统升级完成"
+
+  threshold_triggered:
+    priority: P1
+    immediate: true
+    channels: [feishu]
+    card_template: blue
+    description: "监控阈值触发"
+
+  deploy_completed:
+    priority: P1
+    immediate: true
+    channels: [feishu]
+    card_template: green
+    description: "部署完成"
+
+  model_trained:
+    priority: P1
+    immediate: true
+    channels: [feishu]
+    card_template: green
+    description: "模型训练完成"
+
+  # ── P2级：定期摘要 ──
+  auto_learned:
+    priority: P2
+    immediate: false
+    channels: [feishu]
+    digest: hourly
+    card_template: blue
+    description: "自动学习完成"
+
+  gap_detected:
+    priority: P2
+    immediate: false
+    channels: [feishu]
+    digest: hourly
+    card_template: blue
+    description: "知识空缺检测"
+
+  daily_health_report:
+    priority: P2
+    immediate: false
+    channels: [feishu]
+    digest: daily
+    card_template: blue
+    description: "每日健康报告"
+
+  persona_rankings:
+    priority: P2
+    immediate: false
+    channels: [feishu]
+    digest: daily
+    card_template: blue
+    description: "人格内阁排名日报"
+
+  # ── P3级：仅日志 ──
+  routine_check:
+    priority: P3
+    immediate: false
+    channels: [log]
+    description: "例行巡检"
+
+# ─── 加密配置 ───
+encryption:
+  enabled: true
+  algorithm: AES-256-GCM
+  p0_force: true                    # P0级事件强制加密
+  key_derivation: HKDF-SHA256      # 七因子 → 32字节密钥
+  nonce_bytes: 12                   # 每条独立随机nonce
+  associated_data: true             # 附带事件上下文用于完整性验证
+  factors:
+    - device_fingerprint
+    - user_passphrase
+    - biometric_salt
+    - timestamp
+    - event_type
+    - source_node
+    - sequence_number
+
+# ─── DNA追溯 ───
+dna:
+  enabled: true
+  format: "#龍芯⚡️{ganzhi_year}·{ganzhi_month}·{ganzhi_day}·{ganzhi_hour}·{gua}-NOTIFY-{action}-{hash8}"
+  gpg_sign: false                   # 可选GPG签名（P0事件可开启）
+
+# ─── Bark备用通道 ───
+bark:
+  enabled: true
+  server: "${BARK_SERVER}"           # 自建Bark服务器（优先）
+  key: "${BARK_KEY}"                 # Bark设备Key
+  fallback_url: "https://api.day.app/${BARK_KEY}"  # 官方回落
+  urgent_sound: "timeSensitive"      # P0级紧急推送声音
+
+# ─── 终端通知 ───
+terminal:
+  enabled: true
+  mac_method: "osascript"            # macOS: display notification
+  linux_method: "notify-send"        # Linux: notify-send
+
+# ─── 归档 ───
+archive:
+  enabled: true
+  log_dir: "logs/notify"
+  format: "jsonl"                    # 追加写入·不可删除
+  rotate: "daily"                    # 按日切分
+  retention_days: 90                 # 保留90天
+
+# ─── 限流 ───
+rate_limit:
+  enabled: true
+  max_per_minute: 10                 # 每分钟最多10条（防轰炸）
+  max_p0_per_minute: 5              # P0级每分钟最多5条
+  cooldown_seconds: 60               # 同一事件冷却60秒
+
+# DNA: #龍芯⚡️2026-07-26-FEISHU-BOT-CONFIG-v1.0

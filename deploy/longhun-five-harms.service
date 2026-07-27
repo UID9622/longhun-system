@@ -1,0 +1,20 @@
+[Unit]
+Description=龍魂·五害曝光台 API — 数字时代的包青天衙门
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=PYTHONPATH=/opt/longhun-system/bin:/opt/longhun-system/engines
+Environment=FIVE_HARMS_PORT=8779
+Environment=FIVE_HARMS_HOST=127.0.0.1
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_five_harms_api.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

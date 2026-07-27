@@ -1,0 +1,7 @@
+# lh_standard_adapter — zero external dependencies
+# Uses Python standard library only:
+#   - hashlib (SHA256)
+#   - json (JSON schema)
+#   - re (regex validation)
+#   - datetime (timestamp generation)
+#   - os (file path operations)

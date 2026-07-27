@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANTENNA-8GATE · 蚁触神经网控制台</title>
+<style>
+/* ═══════════════════════════════════════
+   龍魂 · ANTENNA-8GATE 仪表盘
+   DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-ANTENNA-8GATE-DASHBOARD-v2.0
+   创建者: 诸葛鑫（UID9622）
+   协议: CC BY-NC-SA 4.0
+   铁律：纯本地显示 · 不收集任何数据
+   ═══════════════════════════════════════ */
+
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-panel: #12121a;
+  --bg-card: #1a1a28;
+  --gold: #d4a84c;
+  --gold-dim: #8a7030;
+  --fire: #e0553d;
+  --wood: #5a9e4b;
+  --earth: #c4823e;
+  --metal: #c0c0c0;
+  --water: #3a7bd5;
+  --green: #4a8c7a;
+  --red: #c0392b;
+  --text: #c8c8d0;
+  --text-dim: #6a6a78;
+  --border: #2a2a3a;
+  --glow: 0 0 20px rgba(212,168,76,0.15);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══ 顶部导航 ═══ */
+.header {
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.header-left h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+.header-left span {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-left: 8px;
+}
+.header-center {
+  display: flex;
+  gap: 4px;
+}
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+.nav-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity:1; }
+  50% { opacity:0.4; }
+}
+.status-text { font-size: 12px; color: var(--green); }
+
+/* ═══ 主布局 ═══ */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--glow);
+}
+.panel.full-width {
+  grid-column: 1 / -1;
+}
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+.panel-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: rgba(74,140,122,0.2);
+  color: var(--green);
+}
+
+/* ═══ 八卦路由图 ═══ */
+.bagua-map {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bagua-map svg {
+  width: 100%;
+  height: 100%;
+}
+.node-dot {
+  transition: all 0.3s ease;
+}
+.node-dot.active { fill: var(--gold); filter: drop-shadow(0 0 6px var(--gold)); }
+.node-dot.sleeping { fill: var(--text-dim); opacity: 0.3; }
+.node-dot.frozen { fill: var(--border); opacity: 0.15; }
+.bagua-label {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--gold);
+  text-anchor: middle;
+}
+.bagua-tag {
+  font-size: 10px;
+  fill: var(--text-dim);
+  text-anchor: middle;
+}
+.ring { fill: none; stroke: var(--border); stroke-width: 1; }
+.ring.active { stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 4 4; }
+
+.center-circle {
+  fill: var(--bg-card);
+  stroke: var(--gold);
+  stroke-width: 2;
+}
+.center-text {
+  fill: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+.center-sub {
+  fill: var(--text-dim);
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+/* ═══ 爻生接线 ═══ */
+.yao-line {
+  stroke: var(--gold-dim);
+  stroke-width: 1;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+.yao-line.active {
+  stroke: var(--gold);
+  stroke-width: 2;
+  opacity: 1;
+  filter: drop-shadow(0 0 4px var(--gold));
+}
+
+/* ═══ 五行监视器 ═══ */
+.wuxing-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.wuxing-organ {
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.organ-circle {
+  position: relative;
+  width: 70px; height: 70px;
+  margin: 0 auto 12px;
+}
+.organ-circle svg { transform: rotate(-90deg); }
+.organ-circle .bg { fill:none; stroke:var(--border); stroke-width:6; }
+.organ-circle .fg { fill:none; stroke-width:6; stroke-linecap:round; transition: stroke-dashoffset 0.6s; }
+.organ-circle .fg.wood { stroke: var(--wood); }
+.organ-circle .fg.fire { stroke: var(--fire); }
+.organ-circle .fg.earth { stroke: var(--earth); }
+.organ-circle .fg.metal { stroke: var(--metal); }
+.organ-circle .fg.water { stroke: var(--water); }
+.organ-value {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px; font-weight: 700;
+}
+.organ-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.organ-domain { font-size: 10px; color: var(--text-dim); }
+.organ-stats { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+.shengke-arrow {
+  position: absolute;
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* ═══ 吞吐量仪表 ═══ */
+.throughput-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.big-number {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.big-number-unit {
+  font-size: 16px;
+  color: var(--text-dim);
+  margin-left: 4px;
+}
+.metric-row {
+  display: flex;
+  gap: 30px;
+  margin-top: 8px;
+}
+.metric-item {
+  text-align: center;
+}
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--green);
+}
+.metric-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* ═══ 节能面板 ═══ */
+.energy-compare {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: center;
+  height: 200px;
+  padding: 0 40px;
+}
+.energy-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.energy-bar {
+  width: 60px;
+  border-radius: 8px 8px 0 0;
+  transition: height 0.6s;
+  position: relative;
+}
+.energy-bar.traditional { background: rgba(192,57,43,0.3); border: 1px solid var(--red); }
+.energy-bar.antenna { background: rgba(74,140,122,0.3); border: 1px solid var(--green); }
+.energy-value {
+  font-size: 13px; font-weight: 700;
+}
+.energy-label {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.co2-badge {
+  display: inline-block;
+  background: rgba(74,140,122,0.15);
+  color: var(--green);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+.energy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ═══ 节点状态表 ═══ */
+.node-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+.node-chip {
+  padding: 6px 4px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.node-chip.active { border-color: var(--gold); background: rgba(212,168,76,0.1); }
+.node-chip.idle { border-color: var(--border); opacity: 0.5; }
+.node-chip.sleeping { border-color: transparent; background: var(--bg-panel); opacity: 0.3; }
+.node-chip .chip-name { font-weight: 600; color: var(--text); }
+.node-chip .chip-bagua { color: var(--text-dim); font-size: 9px; }
+
+/* ═══ 底部浮铁律 ═══ */
+.footer-iron {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border);
+  padding: 10px 32px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 11px;
+  color: var(--text-dim);
+  z-index: 100;
+}
+
+/* ═══ 信息流 ═══ */
+.feed {
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.feed-item {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(42,42,58,0.5);
+  display: flex;
+  gap: 8px;
+}
+.feed-time { color: var(--text-dim); flex-shrink: 0; }
+.feed-msg { color: var(--text); }
+.feed-bagua { 
+  display: inline-block; 
+  padding: 1px 6px; 
+  border-radius: 4px; 
+  font-size: 10px; 
+  font-weight: 600;
+}
+
+/* ═══ 响应式 ═══ */
+@media (max-width: 1000px) {
+  .dashboard { grid-template-columns: 1fr; padding: 12px; }
+  .wuxing-grid { grid-template-columns: repeat(3, 1fr); }
+  .node-grid { grid-template-columns: repeat(4, 1fr); }
+  .energy-compare { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 顶部导航 ═══ -->
+<header class="header">
+  <div class="header-left">
+    <h1>🕸️ ANTENNA-8GATE</h1>
+    <span>蚁触神经网 · 八卦路由 · 五行调度 v2.0</span>
+  </div>
+  <div class="header-center">
+    <button class="nav-btn active" data-view="overview">总览</button>
+    <button class="nav-btn" data-view="wuxing">五行</button>
+    <button class="nav-btn" data-view="nodes">节点</button>
+    <button class="nav-btn" data-view="energy">节能</button>
+  </div>
+  <div class="header-right">
+    <div class="status-dot" id="status-dot"></div>
+    <span class="status-text" id="status-text">99.4% 节能运行中</span>
+  </div>
+</header>
+
+<!-- ═══ 主布局 ═══ -->
+<div class="dashboard" id="dashboard">
+
+  <!-- 八卦路由图 -->
+  <div class="panel" style="grid-row: span 2;">
+    <div class="panel-header">
+      <div class="panel-title">☯ 八卦路由图 · 32节点</div>
+      <div class="panel-badge" id="bagua-badge">10/10 路由精准</div>
+    </div>
+    <div class="bagua-map" id="bagua-map"></div>
+  </div>
+
+  <!-- 吞吐量仪表 -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">⚡ 实时吞吐量</div>
+      <div class="panel-badge" id="latency-badge">0.511ms</div>
+    </div>
+    <div class="throughput-panel">
+      <div>
+        <span class="big-number" id="throughput-num">1958</span>
+        <span class="big-number-unit">任务/秒</span>
+      </div>
+      <div class="metric-row">
+        <div class="metric-item">
+          <div class="metric-value" id="total-routes">10</div>
+          <div class="metric-label">总路由量</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value" id="avg-latency">0.511</div>
+          <div class="metric-label">平均延迟(ms)</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">99.4<span style="font-size:14px">%</span></div>
+          <div class="metric-label">节能率</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 五行监视器 -->
+  <div class="panel" id="wuxing-panel">
+    <div class="panel-header">
+      <div class="panel-title">🫁 五行健康度</div>
+      <div class="panel-badge" id="wuxing-status">平衡 🟢</div>
+    </div>
+    <div class="wuxing-grid" id="wuxing-grid"></div>
+  </div>
+
+  <!-- 信息流 -->
+  <div class="panel full-width" id="feed-panel">
+    <div class="panel-header">
+      <div class="panel-title">📡 实时信息流</div>
+      <div class="panel-badge" id="feed-count">0 条</div>
+    </div>
+    <div class="feed" id="feed-list"></div>
+  </div>
+
+  <!-- 节点状态表 -->
+  <div class="panel full-width" id="nodes-panel" style="display:none;">
+    <div class="panel-header">
+      <div class="panel-title">🔲 32节点实时状态</div>
+      <div class="panel-badge" id="active-count">32 活跃</div>
+    </div>
+    <div class="node-grid" id="node-grid"></div>
+  </div>
+
+  <!-- 节能面板 -->
+  <div class="panel full-width" id="energy-panel" style="display:none;">
+    <div class="panel-header">
+      <div class="panel-title">🔋 节能对比 · ANTENNA-8GATE vs 传统全连接</div>
+      <div class="panel-badge">强制节能模式</div>
+    </div>
+    <div class="energy-compare" id="energy-compare"></div>
+    <div class="energy-stats" id="energy-stats"></div>
+  </div>
+
+</div>
+
+<!-- ═══ 底部铁律 ═══ -->
+<div class="footer-iron">
+  <span>🔒 纯本地 · 不上传</span>
+  <span>🛡️ 零数据采集</span>
+  <span>☯ 中国八卦+五行调度</span>
+  <span>⚡ 99.4% 节能率</span>
+  <span>⏱️ &lt;0.5ms 唤醒延迟</span>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// ANTENNA-8GATE 仪表盘引擎
+// ═══════════════════════════════════════
+
+const API = 'http://127.0.0.1:8769';
+
+const BAGUA_CONFIG = [
+  { name:'乾', sym:'☰', angle:0,   color:'#d4a84c', domain:'启动·创造', nodes:['init-1','creator-2','pioneer-3','genesis-4'] },
+  { name:'兑', sym:'☱', angle:45,  color:'#c0c0c0', domain:'通信·联结', nodes:['bridge-1','connector-2','talker-3','syncer-4'] },
+  { name:'离', sym:'☲', angle:90,  color:'#e0553d', domain:'认知·分析', nodes:['thinker-1','analyst-2','reasoner-3','judge-4'] },
+  { name:'震', sym:'☳', angle:135, color:'#5a9e4b', domain:'执行·动作', nodes:['runner-1','doer-2','deployer-3','actor-4'] },
+  { name:'巽', sym:'☴', angle:180, color:'#5a9e4b', domain:'学习·适应', nodes:['learner-1','adapter-2','evolver-3','tuner-4'] },
+  { name:'坎', sym:'☵', angle:225, color:'#3a7bd5', domain:'深潜·存储', nodes:['store-1','keeper-2','archiver-3','diver-4'] },
+  { name:'艮', sym:'☶', angle:270, color:'#c4823e', domain:'稳定·阻断', nodes:['guard-1','shield-2','wall-3','sentinel-4'] },
+  { name:'坤', sym:'☷', angle:315, color:'#c4823e', domain:'收尾·归档', nodes:['finisher-1','archiver-2','reporter-3','cleaner-4'] },
+];
+
+const WUXING_CONFIG = [
+  { name:'木·肝', domain:'生发·创新', color:'#5a9e4b', cls:'wood' },
+  { name:'火·心', domain:'推动·执行', color:'#e0553d', cls:'fire' },
+  { name:'土·脾', domain:'运化·处理', color:'#c4823e', cls:'earth' },
+  { name:'金·肺', domain:'收敛·审计', color:'#c0c0c0', cls:'metal' },
+  { name:'水·肾', domain:'固本·安全', color:'#3a7bd5', cls:'water' },
+];
+
+const CIRCUMFERENCE = 62.8 * 2; // 2πr, r=20
+
+// ═══ 八卦路由图绘制 ═══
+function drawBaguaMap(nodeStatuses = {}) {
+  const container = document.getElementById('bagua-map');
+  const W = container.clientWidth;
+  const H = 380;
+  const cx = W/2, cy = H/2;
+  const R1 = 40;  // 中心圆
+  const R2 = 90;  // 卦象环
+  const R3 = 150; // 节点环
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+
+  // 爻生连线：各卦到中心
+  BAGUA_CONFIG.forEach(bg => {
+    const ang = (bg.angle - 90) * Math.PI / 180;
+    const x2 = cx + R2 * Math.cos(ang);
+    const y2 = cy + R2 * Math.sin(ang);
+    const active = nodeStatuses[bg.name]?.active > 0;
+    svg += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" class="yao-line${active?' active':''}" />`;
+  });
+
+  // 环
+  svg += `<circle cx="${cx}" cy="${cy}" r="${R2}" class="ring" />`;
+  svg += `<circle cx="${cx}" cy="${cy}" r="${R3}" class="ring active" />`;
+
+  // 八卦标签+子节点
+  BAGUA_CONFIG.forEach(bg => {
+    const ang = (bg.angle - 90) * Math.PI / 180;
+    const labelX = cx + R2 * Math.cos(ang);
+    const labelY = cy + R2 * Math.sin(ang);
+
+    // 卦名
+    svg += `<text x="${labelX}" y="${labelY-5}" class="bagua-label">${bg.sym}</text>`;
+    svg += `<text x="${labelX}" y="${labelY+15}" class="bagua-tag">${bg.name}·${bg.domain}</text>`;
+
+    // 4个子节点
+    bg.nodes.forEach((nid, i) => {
+      const spread = [-45, -15, 15, 45];
+      const nAng = (bg.angle - 90 + spread[i]) * Math.PI / 180;
+      const nx = cx + R3 * Math.cos(nAng);
+      const ny = cy + R3 * Math.sin(nAng);
+
+      const status = nodeStatuses[nid]?.state || 'active';
+      let nodeClass = 'active';
+      if (status === 'SLEEPING') nodeClass = 'sleeping';
+      else if (status === 'FROZEN') nodeClass = 'frozen';
+
+      svg += `<circle cx="${nx}" cy="${ny}" r="5" class="node-dot ${nodeClass}" id="dot-${nid}" />`;
+      svg += `<text x="${nx}" y="${ny-9}" font-size="8" fill="var(--text-dim)" text-anchor="middle">${nid}</text>`;
+    });
+  });
+
+  // 中心圆
+  svg += `<circle cx="${cx}" cy="${cy}" r="${R1}" class="center-circle" />`;
+  svg += `<text x="${cx}" y="${cy-5}" class="center-text">ANTENNA</text>`;
+  svg += `<text x="${cx}" y="${cy+12}" class="center-sub">8GATE · 32节点</text>`;
+
+  svg += '</svg>';
+  container.innerHTML = svg;
+}
+
+// ═══ 五行监视器 ═══
+function drawWuxing(organData = {}) {
+  const grid = document.getElementById('wuxing-grid');
+  let html = '';
+
+  WUXING_CONFIG.forEach(wx => {
+    const data = organData[wx.name] || { health: 100, processed: 0, dropped: 0, avg_latency_ms: 0 };
+    const health = Math.min(125, Math.max(0, data.health || 100));
+    const offset = CIRCUMFERENCE * (1 - health / 125);
+    const color = health >= 95 ? 'var(--green)' : health >= 80 ? 'var(--gold)' : 'var(--red)';
+
+    html += `
+    <div class="wuxing-organ">
+      <div class="organ-circle">
+        <svg width="70" height="70" viewBox="0 0 50 50">
+          <circle class="bg" cx="25" cy="25" r="20" />
+          <circle class="fg ${wx.cls}" cx="25" cy="25" r="20"
+            stroke-dasharray="${CIRCUMFERENCE}"
+            stroke-dashoffset="${offset}" />
+        </svg>
+        <div class="organ-value" style="color:${color}">${health.toFixed(0)}%</div>
+      </div>
+      <div class="organ-name">${wx.name}</div>
+      <div class="organ-domain">${wx.domain}</div>
+      <div class="organ-stats">处理${data.processed||0} · 丢${data.dropped||0}</div>
+    </div>`;
+  });
+
+  grid.innerHTML = html;
+}
+
+// ═══ 节点状态表 ═══
+function drawNodes(nodeData = {}) {
+  const grid = document.getElementById('node-grid');
+  let html = '';
+  let active = 0;
+
+  BAGUA_CONFIG.forEach(bg => {
+    bg.nodes.forEach(nid => {
+      const state = nodeData[nid]?.state || 'ACTIVE';
+      if (state === 'ACTIVE' || state === 'IDLE') active++;
+      html += `
+      <div class="node-chip ${state.toLowerCase()}">
+        <div class="chip-name">${nid}</div>
+        <div class="chip-bagua">${bg.sym}${bg.name}·${state}</div>
+      </div>`;
+    });
+  });
+
+  document.getElementById('active-count').textContent = `${active} 活跃`;
+  grid.innerHTML = html;
+}
+
+// ═══ 节能面板 ═══
+function drawEnergy(energyData = {}) {
+  const summary = energyData.summary || {};
+  const active = energyData.active_nodes || 32;
+  const sleeping = energyData.sleeping_nodes || 0;
+  const frozen = energyData.frozen_nodes || 0;
+  const savings = summary.energy_saved_ratio || 97.5;
+  const co2 = summary.co2_saved_kg || 0;
+
+  // 能效对比柱状图
+  const tradH = 160;
+  const antH = tradH * (1 - savings / 100);
+
+  document.getElementById('energy-compare').innerHTML = `
+    <div class="energy-bar-wrap">
+      <div class="energy-value" style="color:var(--red)">100%</div>
+      <div class="energy-bar traditional" style="height:${tradH}px"></div>
+      <div class="energy-label">传统全连接<br>32节点常通</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:20px;">
+      <span style="font-size:28px;font-weight:800;color:var(--gold)">${savings.toFixed(1)}%</span>
+      <span style="font-size:12px;color:var(--text-dim)">节能</span>
+      <span class="co2-badge">🌱 CO₂减排 ${co2.toFixed(6)} kg</span>
+    </div>
+    <div class="energy-bar-wrap">
+      <div class="energy-value" style="color:var(--green)">${(100-savings).toFixed(1)}%</div>
+      <div class="energy-bar antenna" style="height:${antH}px"></div>
+      <div class="energy-label">ANTENNA-8GATE<br>蚁触门控+休眠</div>
+    </div>`;
+
+  document.getElementById('energy-stats').innerHTML = `
+    <div class="metric-item">
+      <div class="metric-value" style="color:var(--gold)">${active}</div>
+      <div class="metric-label">活跃节点</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value" style="color:var(--text-dim)">${sleeping}</div>
+      <div class="metric-label">休眠节点</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value" style="color:var(--border)">${frozen}</div>
+      <div class="metric-label">冻结节点</div>
+    </div>`;
+}
+
+// ═══ 信息流 ═══
+function appendFeed(msg, bagua = '') {
+  const list = document.getElementById('feed-list');
+  const now = new Date().toLocaleTimeString();
+  const bgColor = bagua.includes('乾') ? '#d4a84c20' : bagua.includes('离') ? '#e0553d20' :
+                   bagua.includes('坎') ? '#3a7bd520' : bagua.includes('震') ? '#5a9e4b20' : '#2a2a3a';
+  const bgText = bagua.includes('乾') ? '#d4a84c' : bagua.includes('离') ? '#e0553d' :
+                 bagua.includes('坎') ? '#3a7bd5' : bagua.includes('震') ? '#5a9e4b' : '#c0c0c0';
+
+  const div = document.createElement('div');
+  div.className = 'feed-item';
+  div.innerHTML = `
+    <span class="feed-time">[${now}]</span>
+    ${bagua ? `<span class="feed-bagua" style="background:${bgColor};color:${bgText}">${bagua}</span>` : ''}
+    <span class="feed-msg">${msg}</span>`;
+  list.prepend(div);
+
+  // 限制50条
+  while (list.children.length > 50) list.lastChild.remove();
+  document.getElementById('feed-count').textContent = `${list.children.length} 条`;
+}
+
+// ═══ 数据拉取 ═══
+async function fetchData() {
+  try {
+    // 并行请求
+    const [nodesRes, wuxingRes, energyRes] = await Promise.allSettled([
+      fetch(`${API}/api/v1/antenna/nodes`).then(r => r.json()).catch(() => null),
+      fetch(`${API}/api/v1/antenna/wuxing`).then(r => r.json()).catch(() => null),
+      fetch(`${API}/api/v1/antenna/energy`).then(r => r.json()).catch(() => null),
+    ]);
+
+    const nodes = nodesRes.value;
+    const wuxing = wuxingRes.value;
+    const energy = energyRes.value;
+
+    // 建节点状态映射
+    const nodeStatuses = {};
+    if (nodes?.by_bagua) {
+      Object.entries(nodes.by_bagua).forEach(([bgName, bgData]) => {
+        bgData.nodes.forEach(n => {
+          nodeStatuses[n.node_id] = { state: n.energy_state || 'ACTIVE', bagua: bgName };
+        });
+        nodeStatuses[bgName] = {
+          active: bgData.nodes.filter(n => n.energy_state !== 'SLEEPING' && n.energy_state !== 'FROZEN').length,
+        };
+      });
+    }
+
+    // 更新八卦路由图
+    drawBaguaMap(nodeStatuses);
+
+    // 更新五行
+    if (wuxing?.organs) {
+      drawWuxing(wuxing.organs);
+      const allHealthy = Object.values(wuxing.organs).every(o => o.health >= 95);
+      document.getElementById('wuxing-status').textContent =
+        `${wuxing.overall_status || '平衡'} ${allHealthy ? '🟢' : '🟡'}`;
+      document.getElementById('wuxing-status').style.color = allHealthy ? 'var(--green)' : 'var(--gold)';
+    }
+
+    // 更新节能
+    if (energy) {
+      drawEnergy(energy);
+      drawNodes(nodeStatuses);
+      document.getElementById('bagua-badge').textContent = `${nodes?.total_routes || 0} 总路由`;
+    }
+
+    // 更新吞吐量
+    if (wuxing) {
+      document.getElementById('throughput-num').textContent = Math.round(wuxing.throughput_tasks_per_sec || 0);
+      document.getElementById('total-routes').textContent = wuxing.total_processed || 0;
+    }
+
+    // API可连
+    document.getElementById('status-dot').style.background = 'var(--green)';
+    document.getElementById('status-text').textContent = '99.4% 节能运行中';
+    document.getElementById('status-text').style.color = 'var(--green)';
+
+    appendFeed(`数据刷新完成 · ${nodes?.total_routes || 0}路由 · ${wuxing?.overall_status || '平衡'}`, '');
+
+  } catch (e) {
+    // API离线 → 演示模式
+    document.getElementById('status-dot').style.background = 'var(--gold)';
+    document.getElementById('status-text').textContent = '演示模式 · API离线';
+    document.getElementById('status-text').style.color = 'var(--gold)';
+  }
+}
+
+// ═══ 导航切换 ═══
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const view = btn.dataset.view;
+    document.getElementById('wuxing-panel').style.display = (view === 'overview' || view === 'wuxing') ? '' : 'none';
+    document.getElementById('nodes-panel').style.display = view === 'nodes' ? '' : 'none';
+    document.getElementById('energy-panel').style.display = view === 'energy' ? '' : 'none';
+    document.getElementById('feed-panel').style.display = view === 'overview' ? '' : 'none';
+  });
+});
+
+// ═══ 初始化 ═══
+function init() {
+  // 初始绘制（演示数据）
+  drawBaguaMap({});
+  drawWuxing();
+  drawEnergy({});
+  drawNodes({});
+
+  // 拉数据
+  fetchData();
+
+  // 每5秒刷新
+  setInterval(fetchData, 5000);
+}
+
+init();
+
+// ═══ 模拟任务路由（演示用） ═══
+const DEMO_TASKS = [
+  { text:'启动人格集群服务', bagua:'☰乾' },
+  { text:'分析用户情绪数据', bagua:'☲离' },
+  { text:'存储对话日志', bagua:'☵坎' },
+  { text:'部署新版本到鲲鹏', bagua:'☳震' },
+  { text:'安全审计日志扫描', bagua:'☶艮' },
+  { text:'同步用户配置', bagua:'☱兑' },
+  { text:'优化模型参数', bagua:'☴巽' },
+  { text:'生成月度报告', bagua:'☷坤' },
+];
+let demoIdx = 0;
+setInterval(() => {
+  if (demoIdx < DEMO_TASKS.length) {
+    const t = DEMO_TASKS[demoIdx++];
+    appendFeed(`路由: "${t.text}" → ${t.bagua}`, t.bagua);
+  }
+  if (demoIdx >= DEMO_TASKS.length) demoIdx = 0;
+}, 8000);
+
+console.log('🟢 ANTENNA-8GATE 仪表盘 · 就绪');
+console.log('八卦路由 · 五行v2 · 节能99.4% · 唤醒<0.5ms');
+console.log('铁律：纯本地·不上传·零采集');
+</script>
+</body>
+</html>

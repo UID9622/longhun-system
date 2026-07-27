@@ -37,7 +37,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 # 常量
 # ═══════════════════════════════════════════════════════════════════════
 
-DNA: str = "#龍芯⚡️2026-07-26-LONGHUN-COMMANDER-v1.0"
+DNA: str = "#龍芯⚡️2026-07-27-LONGHUN-COMMANDER-v1.2"
 CREATOR: str = "诸葛鑫（UID9622）"
 SYSTEM_ROOT: Path = Path(__file__).resolve().parent.parent
 CONFIG_DIR: Path = SYSTEM_ROOT / ".commander"
@@ -104,9 +104,9 @@ DEFAULT_REGISTRY: List[Dict[str, Any]] = [
     },
     {
         "name": "备份数据",
-        "patterns": [r"备份数据", r"数据备份", r"备份"],
+        "patterns": [r"备份数据", r"数据备份"],
         "command": "bash deploy/scripts/backup_data.sh || echo '备份脚本不存在，请检查 deploy/scripts/'",
-        "description": "执行全量数据备份",
+        "description": "执行全量数据备份（不含Notion同步）",
         "needs_path": False,
     },
     {
@@ -121,6 +121,41 @@ DEFAULT_REGISTRY: List[Dict[str, Any]] = [
         "patterns": [r"提交代码", r"提交并推送", r"git push", r"push 代码"],
         "command": "git add -A && git commit -m 'chore: 自动提交' && git push gh-ssh orphan_main && git push gitcode orphan_main && git push gitee orphan_main",
         "description": "自动提交并推送到三端仓库",
+        "needs_path": False,
+    },
+    {
+        "name": "同步记忆到Notion",
+        "patterns": [r"同步记忆", r"增量同步", r"同步到notion", r"notion同步"],
+        "command": "python3 ~/.longhun/scripts/sync_all_memory_to_notion.py",
+        "description": "增量同步龍魂记忆到Notion数据库，自动去重，只新增不覆盖",
+        "needs_path": False,
+    },
+    {
+        "name": "全量备份到Notion",
+        "patterns": [r"全量备份", r"全量同步notion", r"强制同步", r"全量同步到notion"],
+        "command": "python3 ~/.longhun/scripts/sync_all_memory_to_notion.py --force",
+        "description": "强制全量同步MEMORY.md+全部日志到Notion，覆盖已有条目，完成后SHA256校验+GPG签名",
+        "needs_path": False,
+    },
+    {
+        "name": "检查Notion数据库",
+        "patterns": [r"检查数据", r"检查notion", r"notion巡检", r"notion check", r"数据巡检"],
+        "command": "python3 ~/.longhun/scripts/inspect_notion_db.py --fix",
+        "description": "扫描Notion数据库：清理重复、检测损坏区块、按类别统计、输出巡检报告",
+        "needs_path": False,
+    },
+    {
+        "name": "LU全量同步合并",
+        "patterns": [r"LU-ORIGIN-FULLSYNC.*LU-MEMORY-MERGE-ALL", r"lu全量同步", r"lu fullsync", r"lu记忆合并", r"LU全量合并"],
+        "command": "python3 ~/.longhun/scripts/sync_all_memory_to_notion.py --force && echo '---' && python3 ~/.longhun/scripts/inspect_notion_db.py --fix",
+        "description": "LU祖传指令：全量同步MEMORY+全部日志到Notion（强制覆盖+SHA256+GPG签名）+ 自动巡检清理重复/损坏区块",
+        "needs_path": False,
+    },
+    {
+        "name": "查找记忆",
+        "patterns": [r"查找记忆\s+(.+)", r"搜索记忆\s+(.+)", r"记忆搜索\s+(.+)", r"找一下\s?(.+?)的记忆", r"找记忆\s+(.+)", r"记忆查\s+(.+)"],
+        "command": "curl -s 'http://127.0.0.1:8771/v1/memory/search?q={query_url}' | python3 -c \"\nimport json,sys\nd=json.load(sys.stdin)\n# v1.2 级联格式优先\nresults = d.get('merged', d.get('results', []))\nif not results:\n    print('未找到相关记忆')\nelif 'layer' in results[0] if results else {}:\n    for r in results[:8]:\n        print(f\\\"——{r.get('layer','')} [{r.get('source','')}] {r.get('date','')} {r.get('title','')} [分{r.get('score',0)}]\\\")\n        p = r.get('preview', r.get('snippet',''))[:200]\n        print(p)\n        print()\nelse:\n    for r in results[:8]:\n        print(f\\\"——[{r.get('section','')}] {r.get('match_line','')[:80]}\\\")\n        print(r.get('snippet','')[:200])\n        print()\n\"",
+        "description": "三级级联搜索记忆：本地MEMORY.md → 日志索引 → Notion后备大脑，返回最相关结果摘要",
         "needs_path": False,
     },
 ]
@@ -228,11 +263,15 @@ class CommandRegistry:
                 m = re.search(pattern, text)
                 if m:
                     captures = m.groupdict()
-                    # 如果模式里没有命名捕获，取最后一个分组作为 path
-                    if cmd.get("needs_path") and not captures:
+                    # 如果模式里没有命名捕获，尝试从分组里取
+                    if not captures:
                         groups = m.groups()
                         if groups:
-                            captures["path"] = groups[-1].strip()
+                            if cmd.get("needs_path"):
+                                captures["path"] = groups[-1].strip()
+                            elif groups[-1].strip():
+                                # 通用：最后一个分组存入 captures
+                                captures["query"] = groups[-1].strip()
                     return cmd, captures
         return None, {}
 
@@ -242,6 +281,7 @@ class CommandRegistry:
 # ═══════════════════════════════════════════════════════════════════════
 
 def execute_command(command: str, dry_run: bool = False) -> int:
+    command = os.path.expanduser(command)
     print(f"[指挥官] 执行: {command}")
     log_event("EXEC", command)
     if dry_run:
@@ -484,6 +524,13 @@ def resolve_command(cmd: Dict[str, Any], captures: Dict[str, str]) -> str:
         if not path:
             raise ValueError(f"指令 [{cmd['name']}] 需要一个文件路径")
         command = command.replace("{path}", path)
+    # v1.2: 处理 {query_url} — URL 编码搜索词
+    if "{query_url}" in command:
+        import urllib.parse
+        query = captures.get("query", "")
+        if not query:
+            raise ValueError(f"指令 [{cmd['name']}] 需要一个搜索关键词")
+        command = command.replace("{query_url}", urllib.parse.quote(query.strip()))
     return command
 
 

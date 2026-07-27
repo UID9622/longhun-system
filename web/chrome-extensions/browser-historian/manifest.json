@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "龍魂 · 浏览器史官",
+  "version": "2.1.0",
+  "description": "浏览器历史记录智能分类 + 四道防线(网络阻断/恶意过滤/设备加密/导出签名) + AI复原。数据主权归你，不传云端。",
+  "author": "诸葛鑫 (UID9622)",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "history",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:18775/*"
+  ],
+  "optional_host_permissions": [
+    "https://uid9622.cn/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "龍魂 · 浏览器史官 v2.1",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

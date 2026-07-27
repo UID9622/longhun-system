@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂 · AI对话档案馆</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #14141f;
+  --border: #2a2a3a;
+  --text: #d4d4dc;
+  --text-dim: #6b6b7b;
+  --gold: #d4a843;
+  --gold-dim: #8a6d2b;
+  --kimi: #6c5ce7;
+  --deepseek: #00d4aa;
+  --notion: #e16259;
+  --claude: #d97706;
+  --chatgpt: #10a37f;
+  --qwen: #6366f1;
+  --red: #e74c3c;
+  --green: #27ae60;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang SC","Noto Sans SC",sans-serif; line-height:1.6; min-height:100vh; }
+.container { max-width:1100px; margin:0 auto; padding:2rem 1.5rem; }
+
+.hero { text-align:center; padding:3rem 0 2rem; border-bottom:1px solid var(--border); margin-bottom:2rem; }
+.hero h1 { font-size:2rem; color:var(--gold); letter-spacing:2px; margin-bottom:0.5rem; }
+.hero .subtitle { color:var(--text-dim); font-size:.9rem; }
+
+.stats-bar { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin:1.5rem 0; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:.8rem 1.5rem; text-align:center; min-width:100px; }
+.stat-value { font-size:1.6rem; font-weight:700; color:var(--gold); }
+.stat-label { font-size:.75rem; color:var(--text-dim); margin-top:2px; }
+
+.platform-cards { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:1.2rem; margin:2rem 0; }
+
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.5rem; transition:border-color .2s; }
+.card:hover { border-color:var(--gold-dim); }
+.card-header { display:flex; align-items:center; gap:.6rem; margin-bottom:1rem; }
+.card-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:700; color:#fff; }
+.card-icon.kimi { background:var(--kimi); }
+.card-icon.deepseek { background:var(--deepseek); color:#000; }
+.card-icon.notion { background:var(--notion); }
+.card-icon.claude { background:var(--claude); }
+.card-icon.chatgpt { background:var(--chatgpt); }
+.card-icon.qwen { background:var(--qwen); }
+.card-title { font-size:1.05rem; font-weight:600; }
+.card-status { font-size:.75rem; padding:2px 8px; border-radius:10px; margin-left:auto; }
+.card-status.done { background:rgba(39,174,96,.15); color:var(--green); }
+.card-status.partial { background:rgba(212,168,67,.15); color:var(--gold); }
+.card-status.todo { background:rgba(231,76,60,.15); color:var(--red); }
+.card-body { font-size:.85rem; color:var(--text-dim); line-height:1.7; }
+.card-body strong { color:var(--text); }
+.card-files { margin-top:.8rem; }
+.card-file { font-size:.78rem; color:var(--gold-dim); font-family:monospace; display:block; }
+.card-action { margin-top:1rem; padding:.5rem 0; border-top:1px solid var(--border); }
+.card-action a { color:var(--gold); text-decoration:none; font-size:.8rem; }
+.card-action a:hover { text-decoration:underline; }
+
+.export-guide { background:linear-gradient(135deg,rgba(212,168,67,.06),rgba(212,168,67,.02)); border:1px solid rgba(212,168,67,.2); border-radius:14px; padding:1.5rem; margin-top:2rem; }
+.export-guide h3 { color:var(--gold); font-size:1rem; margin-bottom:.8rem; }
+.export-guide ol { color:var(--text-dim); font-size:.85rem; padding-left:1.2rem; line-height:2; }
+.export-guide code { background:rgba(255,255,255,.05); padding:2px 6px; border-radius:4px; font-size:.8rem; }
+
+.footer { text-align:center; padding:2rem 0; color:var(--text-dim); font-size:.72rem; border-top:1px solid var(--border); margin-top:2rem; }
+
+@media (max-width:700px) {
+  .container { padding:1rem; }
+  .hero h1 { font-size:1.5rem; }
+  .platform-cards { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>🐉 AI 对话档案馆</h1>
+  <p class="subtitle">龍魂体系 · 全平台AI协作历史 · 统一索引</p>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-value">4/6</div><div class="stat-label">已归档平台</div></div>
+    <div class="stat"><div class="stat-value">~780</div><div class="stat-label">对话轮次</div></div>
+    <div class="stat"><div class="stat-value">14.5MB</div><div class="stat-label">归档数据量</div></div>
+  </div>
+</div>
+
+<div class="platform-cards">
+
+  <!-- Kimi -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon kimi">K</div>
+      <div class="card-title">Kimi</div>
+      <span class="card-status done">已归档</span>
+    </div>
+    <div class="card-body">
+      <strong>2个导出文件</strong> · 月之暗面<br>
+      导出#1：<strong>116个对话标题</strong> + 1篇完整内容<br>
+      导出#2：<strong>17K行</strong> · 龍魂字体/工具链/Kimi Code会话
+      <div class="card-files">
+        <span class="card-file">kimi-chats-1-conversations.json (583KB)</span>
+        <span class="card-file">kimi-chats-2-raw.txt (2.4MB)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DeepSeek -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon deepseek">D</div>
+      <div class="card-title">DeepSeek</div>
+      <span class="card-status done">已归档</span>
+    </div>
+    <div class="card-body">
+      <strong>651轮对话</strong> · 10.8MB原始导出<br>
+      话题：谷歌/OpenAI黑料、数字主权、AI伦理、中国立场<br>
+      另有529条训练池记录
+      <div class="card-files">
+        <span class="card-file">deepseek-chats-1-turns.json (2.3MB)</span>
+        <span class="card-file">deepseek_529_extracted_20260703.json</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 千问 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon qwen">Q</div>
+      <div class="card-title">通义千问</div>
+      <span class="card-status partial">部分归档</span>
+    </div>
+    <div class="card-body">
+      <strong>十二回合对话录</strong> · CSDN已发布<br>
+      内容：老兵底色 · 奇门遁甲 · 不败金身<br>
+      ⚠️ 账号已封禁，仅保留本地这份
+      <div class="card-files">
+        <span class="card-file">龙魂对话录_千问十二回合_CSDN版.md</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ChatGPT -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon chatgpt">C</div>
+      <div class="card-title">ChatGPT</div>
+      <span class="card-status todo">待导出</span>
+    </div>
+    <div class="card-body">
+      桌面应用存有 <strong>42个对话文件</strong>（加密二进制）<br>
+      无法直接读取，需从网页端导出
+      <div class="card-action">
+        <a href="https://chatgpt.com" target="_blank">→ 去导出：设置 → 数据控制 → 导出数据</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claude -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon claude">A</div>
+      <div class="card-title">Claude</div>
+      <span class="card-status todo">待导出</span>
+    </div>
+    <div class="card-body">
+      本地有 <strong>Code Agent 会话</strong>（插件/技能配置）<br>
+      Web对话数据在 IndexedDB（加密），需网页端导出
+      <div class="card-action">
+        <a href="https://claude.ai" target="_blank">→ 去导出：Settings → Export Data</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notion -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon notion">N</div>
+      <div class="card-title">Notion</div>
+      <span class="card-status todo">待同步</span>
+    </div>
+    <div class="card-body">
+      已有同步脚本（<code>Notion同步器.py</code>）<br>
+      导出索引显示 0 条目，需API重新拉取
+      <div class="card-action">
+        <a href="https://www.notion.so/settings" target="_blank">→ API集成: Settings → Connections</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="export-guide">
+  <h3>📋 手动导出指引（一次性操作）</h3>
+  <ol>
+    <li><strong>ChatGPT</strong> → <code>chatgpt.com</code> → 左下角头像 → 设置 → 数据控制 → 导出数据 → 等邮件</li>
+    <li><strong>Claude</strong> → <code>claude.ai</code> → 左下角头像 → Settings → Export Data → 下载 ZIP</li>
+    <li><strong>Notion</strong> → 已有API Token（<code>.kimi-code/skills/longhun-cloud-notion/</code>），运行同步脚本即可</li>
+    <li><strong>DeepSeek</strong> → 浏览器端 <code>chat.deepseek.com</code> → 设置 → 导出聊天记录（已有1份）</li>
+    <li><strong>Kimi</strong> → 侧边栏 → 设置 → 数据管理 → 导出对话（已有2份）</li>
+  </ol>
+  <p style="color:var(--text-dim);font-size:.8rem;margin-top:.8rem;">
+    导出后放到 <code>knowledge/ai-chats/{平台名}/</code> 下，我会自动解析并更新索引。
+  </p>
+</div>
+
+<div class="footer">
+  🐉 龍魂 · AI对话档案馆 v1.0 | 创建者: 诸葛鑫 (UID9622) | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F<br>
+  DNA: #龍芯⚡️丙午·乙未·丁酉·酉时·☰乾-AI-CHATS-ARCHIVE-v1.0 | CC BY-NC-SA 4.0
+</div>
+
+</div>
+</body>
+</html>

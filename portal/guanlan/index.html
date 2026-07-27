@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>观澜浏览器 · AI联动控制台</title>
+<style>
+:root {
+  --bg: #0a0e17;
+  --card: #111827;
+  --border: #1f2937;
+  --gold: #c9a84c;
+  --gold-dim: #8b7230;
+  --text: #e5e7eb;
+  --text-dim: #9ca3af;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --cyan: #06b6d4;
+  --radius: 10px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'SF Pro', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+.header {
+  background: linear-gradient(135deg, #111827 0%, #1a1a2e 50%, #111827 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.header h1 { font-size: 1.4rem; color: var(--gold); letter-spacing: 0.05em; }
+.header .meta { font-size: 0.75rem; color: var(--text-dim); }
+.header .status-dot { 
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--green); margin-right: 6px; animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.container { max-width: 1400px; margin: 0 auto; padding: 20px 24px; }
+.grid { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--gold-dim); }
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.card-header h3 { font-size: 0.95rem; color: var(--gold); }
+.card-header .badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; }
+.badge-green { background: #22c55e22; color: var(--green); }
+.badge-yellow { background: #eab30822; color: var(--yellow); }
+.badge-red { background: #ef444422; color: var(--red); }
+.badge-blue { background: #3b82f622; color: var(--blue); }
+
+/* 路由面板 */
+.route-input-area { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.route-input-area select, .route-input-area input {
+  background: #1a1f2e; border: 1px solid var(--border); color: var(--text);
+  padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; outline: none;
+}
+.route-input-area select:focus, .route-input-area input:focus { border-color: var(--gold); }
+.btn {
+  padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; cursor: pointer;
+  border: none; font-weight: 500; transition: all 0.2s;
+}
+.btn-gold { background: var(--gold); color: #000; }
+.btn-gold:hover { background: #d4a83a; }
+.btn-outline { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); }
+.btn-outline:hover { background: #c9a84c15; }
+.btn-sm { padding: 4px 12px; font-size: 0.75rem; }
+.route-result {
+  background: #0d1520; border-radius: 8px; padding: 14px;
+  border-left: 3px solid var(--gold);
+  font-family: 'SF Mono', 'JetBrains Mono', monospace; font-size: 0.82rem;
+}
+.route-result .engine { color: var(--cyan); font-weight: 600; font-size: 1.1rem; }
+.route-result .label { color: var(--gold); }
+.route-result .transfer { color: var(--yellow); font-size: 0.78rem; }
+
+/* 断路器 */
+.breaker-table { width: 100%; font-size: 0.8rem; }
+.breaker-table th { text-align: left; color: var(--text-dim); padding: 6px 8px; font-weight: 500; }
+.breaker-table td { padding: 6px 8px; border-top: 1px solid var(--border); }
+.breaker-table .melted { color: var(--red); }
+.breaker-table .healthy { color: var(--green); }
+
+/* 记账 */ 
+.ledger-bars { display: flex; gap: 16px; align-items: flex-end; margin: 10px 0; }
+.ledger-bar { flex: 1; text-align: center; }
+.ledger-bar .bar {
+  height: 80px; border-radius: 6px 6px 0 0; transition: height 0.5s;
+  min-width: 40px; margin: 0 auto; position: relative;
+}
+.ledger-bar .bar.human { background: linear-gradient(to top, #22c55e, #4ade80); }
+.ledger-bar .bar.crawler { background: linear-gradient(to top, #f59e0b, #fbbf24); }
+.ledger-bar .count { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+.ledger-bar .label { font-size: 0.75rem; color: var(--text-dim); }
+
+/* 隐私扫描 */
+.scan-result { margin-top: 10px; }
+.scan-hit { display: inline-block; background: #ef444422; color: var(--red); 
+  padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; margin: 2px; }
+.scan-desensitized { background: #0d1520; border-radius: 6px; padding: 12px; 
+  font-family: monospace; font-size: 0.8rem; margin-top: 8px; word-break: break-all; }
+
+/* 注册面板 */
+.reg-status { padding: 8px 12px; border-radius: 6px; font-size: 0.82rem; margin-top: 8px; }
+.reg-ok { background: #22c55e15; color: var(--green); }
+.reg-fail { background: #ef444415; color: var(--red); }
+
+/* 插件审计 */
+.perm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.perm-tag {
+  padding: 4px 12px; border-radius: 16px; font-size: 0.75rem; cursor: pointer;
+  background: #1a1f2e; border: 1px solid var(--border); transition: all 0.2s;
+  user-select: none;
+}
+.perm-tag.active { background: #ef444422; border-color: var(--red); color: var(--red); }
+.perm-tag.sensitive { border-color: #f59e0b44; }
+.perm-tag:hover { border-color: var(--gold-dim); }
+
+/* 引擎卡片 */
+.engine-cards { display: flex; gap: 10px; flex-wrap: wrap; }
+.engine-card {
+  padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border);
+  background: #0d1520; font-size: 0.8rem; min-width: 120px; text-align: center;
+}
+.engine-card .ename { font-weight: 600; color: var(--cyan); font-size: 0.9rem; }
+.engine-card .eloc { font-size: 0.7rem; color: var(--text-dim); }
+.engine-card .eloc.local { color: var(--green); }
+.engine-card .eloc.cloud { color: var(--yellow); }
+
+/* 统计数字 */
+.stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.stat-box {
+  flex: 1; min-width: 120px; text-align: center; padding: 16px;
+  border-radius: 8px; background: #0d1520; border: 1px solid var(--border);
+}
+.stat-box .value { font-size: 1.8rem; font-weight: 700; color: var(--gold); }
+.stat-box .label { font-size: 0.72rem; color: var(--text-dim); margin-top: 4px; }
+
+/* 对比结果 */
+.compare-output { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.compare-col { background: #0d1520; border-radius: 6px; padding: 12px; }
+.compare-col h4 { color: var(--cyan); font-size: 0.82rem; margin-bottom: 6px; }
+.compare-col .content { font-size: 0.78rem; color: var(--text); }
+.divergence { grid-column: 1/-1; background: #ef444410; border-left: 3px solid var(--red);
+  padding: 10px; border-radius: 6px; font-size: 0.78rem; margin-top: 6px; }
+.divergence .title { color: var(--red); font-weight: 600; }
+.consensus { grid-column: 1/-1; text-align: center; color: var(--green); font-weight: 600; 
+  font-size: 0.85rem; margin-top: 4px; }
+
+/* 快速演示 */
+.quick-demos { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.quick-demo {
+  padding: 4px 10px; border-radius: 14px; font-size: 0.72rem; cursor: pointer;
+  background: #1a1f2e; border: 1px solid var(--border); color: var(--text-dim);
+  transition: all 0.2s;
+}
+.quick-demo:hover { border-color: var(--gold); color: var(--gold); }
+
+/* 响应式 */
+@media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* toast */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  padding: 12px 20px; border-radius: 8px; font-size: 0.82rem;
+  animation: slideIn 0.3s ease; max-width: 380px;
+}
+.toast-ok { background: #22c55e22; border: 1px solid #22c55e44; color: var(--green); }
+.toast-err { background: #ef444422; border: 1px solid #ef444444; color: var(--red); }
+@keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1><span class="status-dot"></span>观澜浏览器 · AI联动控制台</h1>
+    <div class="meta">四层架构 · 九大模块 · 五条天条</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <span class="badge badge-green" id="apiStatus">API 就绪</span>
+    <span style="font-size:0.7rem;color:var(--text-dim);" id="clock">--</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 统计横条 -->
+  <div class="stats-row" style="margin-bottom:20px;">
+    <div class="stat-box"><div class="value" id="statRoutes">0</div><div class="label">路由次数</div></div>
+    <div class="stat-box"><div class="value" id="statBreakers">0</div><div class="label">断路器活跃</div></div>
+    <div class="stat-box"><div class="value" id="statEngines">4</div><div class="label">已注册引擎</div></div>
+    <div class="stat-box"><div class="value" id="statLedger">0</div><div class="label">账本总计</div></div>
+    <div class="stat-box"><div class="value" id="statScans">0</div><div class="label">隐私扫描</div></div>
+    <div class="stat-box" id="privacyScoreBox">
+      <div class="value" id="privacyScore">--</div>
+      <div class="label">当前隐私分</div>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <!-- M1 模型路由 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>⚡ M1 模型路由</h3>
+        <span class="badge badge-green">路由引擎</span>
+      </div>
+      <div class="quick-demos">
+        <span class="quick-demo" onclick="quickRoute('代码')">代码→CodeBuddy</span>
+        <span class="quick-demo" onclick="quickRoute('长文档')">长文档→Kimi</span>
+        <span class="quick-demo" onclick="quickRoute('隐私')">隐私→Ollama</span>
+        <span class="quick-demo" onclick="quickRoute('语音入口')">语音→小艺</span>
+        <span class="quick-demo" onclick="quickRoute('研究')">研究→Kimi</span>
+        <span class="quick-demo" onclick="quickRoute('通用')">通用→Ollama</span>
+      </div>
+      <div class="route-input-area">
+        <select id="routeTask" style="flex:1;min-width:140px;">
+          <option value="代码">代码</option><option value="长文档">长文档</option>
+          <option value="隐私">隐私</option><option value="通用">通用</option>
+          <option value="语音入口">语音入口</option>
+          <option value="研究">研究</option>
+          <option value="摘要">摘要</option>
+          <option value="审查">审查</option>
+        </select>
+        <select id="routePrefer" style="flex:1;min-width:120px;">
+          <option value="">自动选择</option><option value="Ollama">Ollama(本地)</option>
+          <option value="CodeBuddy">CodeBuddy</option><option value="Kimi">Kimi(云)</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:4px;font-size:0.78rem;cursor:pointer;">
+          <input type="checkbox" id="forceLocal"> 强制本地
+        </label>
+      </div>
+      <button class="btn btn-gold" onclick="doRoute()" style="width:100%;margin-bottom:8px;">执行路由</button>
+      <div class="route-result" id="routeResult" style="display:none;"></div>
+    </div>
+
+    <!-- M2 断路器控制台（升级版） -->
+    <div class="card" id="breakerConsoleCard">
+      <div class="card-header">
+        <h3>🚨 M2 断路器控制台</h3>
+        <span class="badge" id="breakerConsoleBadge" style="background:#22c55e22;color:var(--green);">正常运行</span>
+      </div>
+      <!-- 断路器主题状态 -->
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+        <div id="breakerMainStatus" style="flex:1;text-align:center;padding:16px;background:#0d1520;border-radius:8px;">
+          <div id="breakerIcon" style="font-size:2rem;">🟢</div>
+          <div id="breakerStateText" style="font-size:1.1rem;font-weight:700;color:var(--green);margin:6px 0;">全部健康</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:4px;">剩余锁定</div>
+          <div id="breakerCountdown" style="font-size:1.6rem;font-weight:700;color:var(--text-dim);">0秒</div>
+          <div style="font-size:0.65rem;color:var(--text-dim);margin-top:2px;">锁定至: <span id="breakerLockUntil">--</span></div>
+        </div>
+      </div>
+      <!-- 引擎断路器列表 -->
+      <table class="breaker-table">
+        <thead><tr><th>引擎</th><th>失败</th><th>越权</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody id="breakerRows"></tbody>
+      </table>
+      <!-- 控制按钮 -->
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-sm btn-gold" onclick="breakerManualTrip()">🔒 手动熔断</button>
+        <button class="btn btn-sm btn-outline" onclick="breakerManualUnlock()">🔓 解除熔断</button>
+        <span style="flex:1;"></span>
+        <button class="btn btn-sm btn-outline" onclick="breakerAction('fail','Ollama')">Ollama故障</button>
+        <button class="btn btn-sm btn-outline" onclick="breakerAction('fail','CodeBuddy')">CB故障</button>
+        <button class="btn btn-sm btn-outline" onclick="breakerAction('fail','Kimi')">Kimi故障</button>
+        <button class="btn btn-sm btn-outline" onclick="breakerAction('reset','all')">全部重置</button>
+      </div>
+      <!-- 熔断历史 -->
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border);">
+        <div style="font-size:0.75rem;color:var(--text-dim);margin-bottom:6px;">最近熔断记录</div>
+        <div id="breakerHistory" style="font-size:0.72rem;color:var(--text-dim);">暂无记录</div>
+      </div>
+    </div>
+
+    <!-- M6 人机两本账 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>📊 M6 人机两本账</h3>
+        <span class="badge badge-blue">实时</span>
+      </div>
+      <div class="ledger-bars">
+        <div class="ledger-bar">
+          <div class="count" style="color:var(--green);" id="ledgerHuman">0</div>
+          <div class="bar human" id="barHuman" style="height:40px;"></div>
+          <div class="label">人工账</div>
+        </div>
+        <div class="ledger-bar">
+          <div class="count" style="color:#f59e0b;" id="ledgerCrawler">0</div>
+          <div class="bar crawler" id="barCrawler" style="height:20px;"></div>
+          <div class="label">爬虫账</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px;">
+        <input id="ledgerUrl" placeholder="URL (可选)" style="flex:1;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px;font-size:0.8rem;">
+        <input id="ledgerCount" type="number" value="1" min="1" max="1000" style="width:60px;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px;border-radius:6px;font-size:0.8rem;text-align:center;">
+        <button class="btn btn-sm btn-gold" onclick="ledgerAction('人工')">+人工</button>
+        <button class="btn btn-sm btn-outline" onclick="ledgerAction('爬虫')">+爬虫</button>
+      </div>
+    </div>
+
+    <!-- M8 隐私出域闸门 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🛡️ M8 隐私出域闸门</h3>
+        <span class="badge badge-yellow">隐私守卫</span>
+      </div>
+      <textarea id="scanText" style="width:100%;height:70px;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:10px;border-radius:8px;font-size:0.82rem;resize:vertical;" placeholder="输入待扫描文本（含身份证/手机号/银行卡/邮箱/地址）"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn btn-sm btn-gold" onclick="scanPrivacy('脱敏')">脱敏扫描</button>
+        <button class="btn btn-sm btn-outline" onclick="scanPrivacy('拦截')">拦截扫描</button>
+        <button class="btn btn-sm btn-outline" onclick="document.getElementById('scanText').value='我的身份证110101199001011234，手机13800138000，邮箱test@example.com，银行卡6222021234567890'">快速测试</button>
+      </div>
+      <div id="scanResult"></div>
+    </div>
+
+    <!-- M4 引擎注册 + M5 插件审计 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🔗 M4 引擎槽 · M5 插件审计</h3>
+        <span class="badge badge-green">接口治理</span>
+      </div>
+      <div class="engine-cards" id="engineCards"></div>
+
+      <div style="margin-top:14px; padding-top:10px; border-top:1px solid var(--border);">
+        <div style="font-size:0.8rem;color:var(--text-dim);margin-bottom:8px;">插件权限审计 — 勾选插件申请的权限：</div>
+        <div class="perm-tags" id="permTags">
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="读历史">读历史</span>
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="改页面">改页面</span>
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="发网络">发网络</span>
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="读书签">读书签</span>
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="读Cookie">读Cookie</span>
+          <span class="perm-tag sensitive" onclick="togglePerm(this)" data-perm="注入脚本">注入脚本</span>
+          <span class="perm-tag" onclick="togglePerm(this)" data-perm="显示通知">显示通知</span>
+          <span class="perm-tag" onclick="togglePerm(this)" data-perm="存储本地">存储本地</span>
+        </div>
+        <button class="btn btn-sm btn-gold" onclick="auditPlugin()" style="margin-top:8px;">审计插件</button>
+        <div id="auditResult"></div>
+      </div>
+    </div>
+
+    <!-- M3 AI标注 + M9 多模型对比 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🏷️ M3 AI标注 · M9 多模型对比</h3>
+        <span class="badge badge-blue">AI Truth</span>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:10px;">
+        <select id="annotateEngine" style="flex:1;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px;border-radius:6px;font-size:0.8rem;">
+          <option>Ollama</option><option>CodeBuddy</option><option>Kimi</option><option>小艺</option>
+        </select>
+        <select id="annotateConf" style="width:80px;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px;border-radius:6px;font-size:0.8rem;">
+          <option value="0.95">0.95</option><option value="0.75">0.75</option><option value="0.55">0.55</option>
+          <option value="0.35">0.35</option>
+        </select>
+        <button class="btn btn-sm btn-gold" onclick="doAnnotate()">生成标注</button>
+      </div>
+      <div id="annotateResult"></div>
+
+      <div style="margin-top:14px; padding-top:10px; border-top:1px solid var(--border);">
+        <input id="compareQ" placeholder="输入对比问题..." style="width:100%;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:8px;border-radius:6px;font-size:0.8rem;">
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <select id="compareA" style="flex:1;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px;border-radius:6px;font-size:0.8rem;">
+            <option>Ollama</option><option>CodeBuddy</option><option>Kimi</option></select>
+          <span style="color:var(--text-dim);">vs</span>
+          <select id="compareB" style="flex:1;background:#1a1f2e;border:1px solid var(--border);color:var(--text);padding:6px;border-radius:6px;font-size:0.8rem;">
+            <option>Kimi</option><option>Ollama</option><option>CodeBuddy</option></select>
+          <button class="btn btn-sm btn-gold" onclick="doCompare()">对比</button>
+        </div>
+      </div>
+      <div id="compareResult"></div>
+    </div>
+
+  </div>
+
+  <!-- 🔥 新增: AI实时活动面板 -->
+  <div class="card" id="aiActivityCard" style="margin-top:20px;">
+    <div class="card-header">
+      <h3>🤖 AI实时活动 · 数据流向</h3>
+      <span class="badge badge-blue" id="aiActivityBadge">监控中</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <!-- 左：AI连接列表 -->
+      <div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-bottom:8px;">当前连接AI</div>
+        <div id="aiActivityList" style="background:#0d1520;border-radius:8px;padding:10px;min-height:120px;">
+          <div style="color:#555;text-align:center;padding:20px;">无活跃AI连接</div>
+        </div>
+      </div>
+      <!-- 右：数据流向 -->
+      <div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-bottom:8px;">数据流向量图</div>
+        <div id="dataFlowViz" style="background:#0d1520;border-radius:8px;padding:16px;min-height:120px;display:flex;align-items:center;justify-content:center;">
+          <canvas id="flowCanvas" width="280" height="120" style="max-width:100%;"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- 操作栏 -->
+    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+      <button class="btn btn-sm btn-gold" onclick="scanCurrentPage()">🔍 扫描当前页</button>
+      <button class="btn btn-sm btn-outline" onclick="toggleAIMonitor()" id="aiMonitorToggle">⏸️ 暂停监控</button>
+      <button class="btn btn-sm btn-outline" onclick="exportAuditReport()">📋 导出审计报告</button>
+      <span style="flex:1;"></span>
+      <span style="font-size:0.7rem;color:var(--text-dim);" id="aiMonitorUptime">已监控: 0分钟</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = 'http://127.0.0.1:8770';
+let routeCount = 0, scanCount = 0;
+
+async function api(method, path, body) {
+  const opts = { method, headers: {'Content-Type': 'application/json'} };
+  if (body) opts.body = JSON.stringify(body);
+  const resp = await fetch(`${API}${path}`, opts);
+  return resp.json();
+}
+
+function toast(msg, ok=true) {
+  const t = document.createElement('div');
+  t.className = `toast ${ok?'toast-ok':'toast-err'}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+// 更新时钟
+setInterval(() => {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toLocaleTimeString('zh-CN');
+}, 1000);
+document.getElementById('clock').textContent = new Date().toLocaleTimeString('zh-CN');
+
+// ── M1 路由 ──
+function quickRoute(task) {
+  document.getElementById('routeTask').value = task;
+  document.getElementById('routePrefer').value = '';
+  document.getElementById('forceLocal').checked = false;
+  doRoute();
+}
+async function doRoute() {
+  const task = document.getElementById('routeTask').value;
+  const preference = document.getElementById('routePrefer').value || null;
+  const forceLocal = document.getElementById('forceLocal').checked;
+  try {
+    const r = await api('POST', '/route', {task, preference, force_local: forceLocal});
+    const div = document.getElementById('routeResult');
+    div.style.display = 'block';
+    div.innerHTML = `
+      <div class="engine">引擎: ${r['路由']['引擎']}</div>
+      <div class="label">标注: ${r['路由字符串']}</div>
+      ${r['路由']['转移'] ? `<div class="transfer">转移: ${r['路由']['转移']}</div>` : ''}
+    `;
+    routeCount++;
+    document.getElementById('statRoutes').textContent = routeCount;
+  } catch(e) { toast('路由失败: '+e.message, false); }
+}
+
+// ── M2 断路器（升级版）──
+let breakerGlobalLocked = false, breakerGlobalLockUntil = 0;
+async function loadBreakers() {
+  try {
+    const r = await api('GET', '/circuit-breaker');
+    const b = r['断路器'] || {};
+    const rows = document.getElementById('breakerRows');
+    const engines = ['Ollama','CodeBuddy','Kimi','小艺'];
+    let active = 0;
+    rows.innerHTML = engines.map(e => {
+      const s = b[e] || {失败数:0, 越权数:0, 熔断中:false, 剩余冷却秒:0};
+      if (s.熔断中) active++;
+      return `<tr>
+        <td>${e}</td>
+        <td>${s.失败数||0}</td>
+        <td>${s.越权数||0}</td>
+        <td class="${s.熔断中?'melted':'healthy'}">${s.熔断中?'🔴熔断':'🟢正常'}</td>
+        <td><button class="btn btn-sm btn-outline" onclick="breakerAction('reset','${e}')">重置</button></td>
+      </tr>`;
+    }).join('');
+    document.getElementById('statBreakers').textContent = active;
+
+    // 更新全局断路器状态
+    breakerGlobalLocked = false;
+    breakerGlobalLockUntil = 0;
+    for (const e of engines) {
+      if (b[e] && b[e].熔断中) {
+        breakerGlobalLocked = true;
+        if (b[e].剩余冷却秒 > breakerGlobalLockUntil) {
+          breakerGlobalLockUntil = Date.now() + b[e].剩余冷却秒 * 1000;
+        }
+      }
+    }
+
+    updateBreakerConsole(active);
+  } catch(e) {}
+}
+
+function updateBreakerConsole(active) {
+  const badge = document.getElementById('breakerConsoleBadge');
+  const icon = document.getElementById('breakerIcon');
+  const stateText = document.getElementById('breakerStateText');
+  const countdown = document.getElementById('breakerCountdown');
+  const lockUntil = document.getElementById('breakerLockUntil');
+  const mainStatus = document.getElementById('breakerMainStatus');
+
+  if (active > 0 || breakerGlobalLocked) {
+    badge.textContent = `${active}熔断中`;
+    badge.style.cssText = 'background:#ef444422;color:var(--red);';
+    icon.textContent = '🔴';
+    stateText.textContent = '断路器已熔断';
+    stateText.style.color = 'var(--red)';
+    mainStatus.style.borderLeft = '3px solid var(--red)';
+
+    const remaining = Math.max(0, Math.ceil((breakerGlobalLockUntil - Date.now()) / 1000));
+    countdown.textContent = remaining + '秒';
+    countdown.style.color = 'var(--red)';
+    lockUntil.textContent = new Date(breakerGlobalLockUntil).toLocaleTimeString('zh-CN');
+  } else {
+    badge.textContent = '正常运行';
+    badge.style.cssText = 'background:#22c55e22;color:var(--green);';
+    icon.textContent = '🟢';
+    stateText.textContent = '全部健康';
+    stateText.style.color = 'var(--green)';
+    mainStatus.style.borderLeft = '3px solid var(--green)';
+    countdown.textContent = '0秒';
+    countdown.style.color = 'var(--text-dim)';
+    lockUntil.textContent = '--';
+  }
+}
+
+async function breakerManualTrip() {
+  try {
+    await api('POST', '/circuit-breaker/trip', {reason: '用户手动熔断', source: 'dashboard'});
+    toast('🔒 断路器已手动熔断，锁定600秒');
+    await loadBreakers();
+  } catch(e) { toast('熔断操作失败', false); }
+}
+
+async function breakerManualUnlock() {
+  try {
+    await api('POST', '/circuit-breaker/unlock', {});
+    toast('🔓 断路器已解除');
+    await loadBreakers();
+  } catch(e) { toast('解锁失败', false); }
+}
+async function breakerAction(action, engine) {
+  try {
+    if (action === 'fail') {
+      await api('POST', '/circuit-breaker/fail', {engine, reason:'手动触发'});
+    } else if (action === 'reset' && engine === 'all') {
+      for (const e of ['Ollama','CodeBuddy','Kimi','小艺'])
+        await api('POST', '/circuit-breaker/reset', {engine:e});
+    } else {
+      await api('POST', '/circuit-breaker/reset', {engine});
+    }
+    await loadBreakers();
+    toast(action==='fail'?`${engine} 故障记录`:'已重置');
+  } catch(e) { toast('操作失败', false); }
+}
+
+// ── M6 账本 ──
+async function loadLedger() {
+  try {
+    const r = await api('GET', '/ledger');
+    document.getElementById('ledgerHuman').textContent = r['人工']||0;
+    document.getElementById('ledgerCrawler').textContent = r['爬虫']||0;
+    document.getElementById('statLedger').textContent = r['总计']||0;
+    const maxH = 140;
+    const total = (r['总计']||1) || 1;
+    document.getElementById('barHuman').style.height = Math.max(4, ((r['人工']||0)/total)*maxH)+'px';
+    document.getElementById('barCrawler').style.height = Math.max(4, ((r['爬虫']||0)/total)*maxH)+'px';
+  } catch(e) {}
+}
+async function ledgerAction(side) {
+  const count = parseInt(document.getElementById('ledgerCount').value) || 1;
+  const url = document.getElementById('ledgerUrl').value;
+  try {
+    await api('POST', '/ledger/record', {side, count, url});
+    await loadLedger();
+    toast(`${side}账 +${count}`);
+  } catch(e) { toast('记账失败', false); }
+}
+
+// ── M8 隐私扫描 ──
+async function scanPrivacy(strategy) {
+  const text = document.getElementById('scanText').value.trim();
+  if (!text) { toast('请输入文本', false); return; }
+  try {
+    const r = await api('POST', '/privacy/scan', {text, strategy});
+    const div = document.getElementById('scanResult');
+    const hits = r['结果']['命中'] || [];
+    div.innerHTML = `
+      <div style="margin-top:8px;font-size:0.82rem;">
+        ${r['结果']['状态']}
+        ${hits.length>0 ? '<br>命中: '+hits.map(h=>`<span class="scan-hit">${h}</span>`).join(' ') : ''}
+      </div>
+      ${r['脱敏后'] ? `<div class="scan-desensitized">${r['脱敏后']}</div>` : ''}
+    `;
+    scanCount++;
+    document.getElementById('statScans').textContent = scanCount;
+  } catch(e) { toast('扫描失败', false); }
+}
+
+// ── M4 引擎卡片 ──
+async function loadEngines() {
+  try {
+    const r = await api('GET', '/engines');
+    document.getElementById('statEngines').textContent = r['引擎数']||0;
+    const engs = r['已注册引擎'] || [];
+    document.getElementById('engineCards').innerHTML = engs.map(e => `
+      <div class="engine-card">
+        <div class="ename">${e['名']}</div>
+        <div class="eloc ${e['名']==='Ollama'||e['名']==='CodeBuddy'?'local':'cloud'}">${e['DNA']?.startsWith('local')||e['DNA']==='cb'?'本地':'云'}</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);">${e['状态']||''}</div>
+      </div>
+    `).join('');
+  } catch(e) {}
+}
+
+// ── M5 插件审计 ──
+const activePerms = new Set();
+function togglePerm(el) {
+  const perm = el.dataset.perm;
+  if (activePerms.has(perm)) { activePerms.delete(perm); el.classList.remove('active'); }
+  else { activePerms.add(perm); el.classList.add('active'); }
+}
+async function auditPlugin() {
+  const perms = [...activePerms];
+  if (perms.length === 0) { toast('请勾选权限', false); return; }
+  try {
+    const r = await api('POST', '/plugin/audit', {permissions: perms});
+    const div = document.getElementById('auditResult');
+    div.innerHTML = `<div class="reg-status ${r['结果']['过']?'reg-ok':'reg-fail'}">${r['结果']['状态']}</div>`;
+  } catch(e) { toast('审计失败', false); }
+}
+
+// ── M3 AI标注 ──
+async function doAnnotate() {
+  const engine = document.getElementById('annotateEngine').value;
+  const confidence = parseFloat(document.getElementById('annotateConf').value);
+  try {
+    const r = await api('POST', '/annotate', {engine, confidence});
+    const div = document.getElementById('annotateResult');
+    div.innerHTML = `<div style="margin-top:8px;font-family:monospace;font-size:0.82rem;">
+      <div style="color:var(--gold);margin-bottom:4px;">${r['标注字符串']}</div>
+      <div style="color:${r['验证']['合规']?'var(--green)':'var(--yellow)'};">${r['验证']['消息']}</div>
+    </div>`;
+  } catch(e) { toast('标注失败', false); }
+}
+
+// ── M9 多模型对比 ──
+async function doCompare() {
+  const question = document.getElementById('compareQ').value.trim() || '什么是观澜浏览器？';
+  const engineA = document.getElementById('compareA').value;
+  const engineB = document.getElementById('compareB').value;
+  try {
+    const r = await api('POST', '/compare', {question, engine_a:engineA, engine_b:engineB});
+    const div = document.getElementById('compareResult');
+    const divergences = (r['分歧点']||[]).slice(0,3);
+    div.innerHTML = `
+      <div class="compare-output" style="margin-top:10px;">
+        <div class="compare-col"><h4>${engineA}</h4><div class="content">${r['回答A']['回答']}</div></div>
+        <div class="compare-col"><h4>${engineB}</h4><div class="content">${r['回答B']['回答']}</div></div>
+        ${divergences.length>0 ? `<div class="divergence"><span class="title">分歧点:</span><br>${divergences.map(d=>'· '+d).join('<br>')}</div>` : ''}
+        <div class="consensus">共识度: ${(r['共识度']*100).toFixed(0)}%</div>
+      </div>
+    `;
+  } catch(e) { toast('对比失败', false); }
+}
+
+// ── AI实时活动 ──
+let aiMonitorRunning = true, aiMonitorStart = Date.now();
+async function loadAIStatus() {
+  try {
+    const r = await api('GET', '/status');
+    const ais = r['活跃AI'] || [];
+    document.getElementById('aiActivityList').innerHTML = ais.length === 0
+      ? '<div style="color:#555;text-align:center;padding:20px;">无活跃AI连接</div>'
+      : ais.map(ai => `
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1530;">
+          <div>
+            <div style="font-weight:600;font-size:0.82rem;">${ai.name||'未知AI'}</div>
+            <div style="font-size:0.68rem;color:#666;">${ai.type||''} · ${ai.url?ai.url.substring(0,40):''}</div>
+          </div>
+          <span style="font-size:0.68rem;padding:2px 8px;border-radius:10px;${ai.status==='blocked'?'background:#ef444422;color:#ef4444':'background:#22c55e22;color:#22c55e'}';">${ai.status||'active'}</span>
+        </div>
+      `).join('');
+    drawDataFlow(ais.length);
+  } catch(e) {}
+
+  // 更新监控计时
+  const mins = Math.floor((Date.now() - aiMonitorStart) / 60000);
+  document.getElementById('aiMonitorUptime').textContent = `已监控: ${mins}分钟`;
+}
+
+function drawDataFlow(count) {
+  const canvas = document.getElementById('flowCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  // 用户节点
+  ctx.fillStyle = '#c9a84c';
+  ctx.beginPath(); ctx.arc(40, 60, 12, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#e5e7eb';
+  ctx.font = '10px sans-serif';
+  ctx.fillText('用户', 30, 90);
+
+  // 观澜网关
+  ctx.fillStyle = '#3b82f6';
+  ctx.beginPath(); ctx.arc(140, 60, 14, 0, Math.PI*2); ctx.fill();
+  ctx.fillText('观澜', 128, 90);
+
+  // AI节点
+  const aiCount = Math.min(count || 3, 6);
+  const colors = ['#a855f7', '#22c55e', '#eab308', '#ef4444', '#06b6d4', '#f59e0b'];
+  for (let i = 0; i < aiCount; i++) {
+    const x = 240, y = 30 + i * 20;
+    ctx.fillStyle = colors[i];
+    ctx.beginPath(); ctx.arc(x, y, 8, 0, Math.PI*2); ctx.fill();
+  }
+  if (aiCount > 0) {
+    ctx.fillStyle = '#e5e7eb';
+    ctx.fillText('AI集群', 225, 30 + aiCount * 20 + 15);
+  }
+
+  // 连接线
+  ctx.strokeStyle = '#3b82f644';
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(52, 60); ctx.lineTo(126, 60); ctx.stroke();
+
+  ctx.strokeStyle = '#c9a84c33';
+  ctx.lineWidth = 1.5;
+  for (let i = 0; i < aiCount; i++) {
+    ctx.beginPath(); ctx.moveTo(154, 60); ctx.lineTo(232, 30 + i * 20); ctx.stroke();
+  }
+
+  // 箭头标记
+  ctx.fillStyle = '#c9a84c44';
+  ctx.beginPath();
+  ctx.moveTo(126, 56); ctx.lineTo(132, 60); ctx.lineTo(126, 64);
+  ctx.fill();
+}
+
+// ── 隐私分轮询 ──
+async function loadPrivacyScore() {
+  try {
+    const r = await api('GET', '/privacy/score');
+    const score = r['分数'] ?? r['score'] ?? null;
+    const el = document.getElementById('privacyScore');
+    const box = document.getElementById('privacyScoreBox');
+    if (score !== null && score !== undefined) {
+      el.textContent = score;
+      el.style.color = score >= 70 ? 'var(--red)' : score >= 40 ? 'var(--yellow)' : 'var(--green)';
+      box.style.borderLeft = score >= 70 ? '3px solid var(--red)' : score >= 40 ? '3px solid var(--yellow)' : '3px solid var(--green)';
+    }
+  } catch(e) {}
+}
+
+// ── 操作按钮 ──
+async function scanCurrentPage() {
+  try {
+    const r = await api('POST', '/privacy/scan-page', {url: window.location.href});
+    toast(`扫描完成 · 隐私分: ${r['score']||'?'}/100`, r['score'] < 70);
+    await loadPrivacyScore();
+  } catch(e) { toast('扫描失败', false); }
+}
+
+function toggleAIMonitor() {
+  aiMonitorRunning = !aiMonitorRunning;
+  const btn = document.getElementById('aiMonitorToggle');
+  if (aiMonitorRunning) {
+    btn.textContent = '⏸️ 暂停监控';
+    aiMonitorStart = Date.now();
+  } else {
+    btn.textContent = '▶️ 恢复监控';
+  }
+}
+
+async function exportAuditReport() {
+  try {
+    const r = await api('GET', '/audit/report');
+    const blob = new Blob([JSON.stringify(r, null, 2)], {type: 'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `guanlan-audit-${Date.now()}.json`;
+    a.click();
+    toast('审计报告已导出');
+  } catch(e) { toast('导出失败', false); }
+}
+
+// ── 初始化 ──
+async function init() {
+  try {
+    await api('GET', '/health');
+    document.getElementById('apiStatus').textContent = 'API 就绪';
+    document.getElementById('apiStatus').className = 'badge badge-green';
+  } catch(e) {
+    document.getElementById('apiStatus').textContent = 'API 离线';
+    document.getElementById('apiStatus').className = 'badge badge-red';
+    toast('API服务未启动，请先运行: python3 bin/lh_guanlan_api.py', false);
+  }
+  await loadBreakers();
+  await loadLedger();
+  await loadEngines();
+  await loadAIStatus();
+  await loadPrivacyScore();
+  // 设置默认扫描文本
+  document.getElementById('scanText').value = '我的身份证110101199001011234，手机13800138000';
+}
+
+init();
+// 定时刷新
+setInterval(loadBreakers, 10000);
+setInterval(loadLedger, 10000);
+setInterval(() => { if (aiMonitorRunning) loadAIStatus(); }, 5000);
+setInterval(loadPrivacyScore, 15000);
+// 断路器倒计时更新
+setInterval(() => {
+  if (breakerGlobalLocked) {
+    const remaining = Math.max(0, Math.ceil((breakerGlobalLockUntil - Date.now()) / 1000));
+    const el = document.getElementById('breakerCountdown');
+    if (el) { el.textContent = remaining + '秒'; el.style.color = 'var(--red)'; }
+    if (remaining <= 0) { loadBreakers(); }
+  }
+}, 1000);
+</script>
+</body>
+</html>

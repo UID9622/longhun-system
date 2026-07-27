@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="generator" content="AI生成·龍魂自适应进化中枢；AI内容双标识：显式水印+隐式元数据">
+<title>龍魂 · 自适应进化中枢 v1.0</title>
+<style>
+:root {
+  --bg: #0a0e14; --card: #101520; --border: #1e2a3a;
+  --text: #e5e7eb; --text-dim: #6b7280;
+  --gold: #c9a84c; --gold-dim: #3a3020;
+  --green: #22c55e; --red: #ef4444; --yellow: #eab308;
+  --blue: #3b82f6; --purple: #a855f7;
+  --green-dim: #22c55e22; --red-dim: #ef444422;
+  --yellow-dim: #eab30822; --blue-dim: #3b82f622;
+  --purple-dim: #a855f722;
+  --radius: 8px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  min-height: 100vh;
+}
+.container { max-width: 1400px; margin:0 auto; padding:20px; }
+
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; margin-bottom:20px;
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+}
+.header h1 { font-size:1.4rem; color:var(--gold); display:flex; align-items:center; gap:8px; }
+.header h1 .dna { font-size:0.55rem; color:var(--text-dim); font-family:monospace; }
+.header-right { display:flex; gap:12px; align-items:center; }
+.badge { font-size:0.7rem; padding:3px 10px; border-radius:20px; font-weight:600; }
+.badge-green { background:var(--green-dim); color:var(--green); }
+.badge-red { background:var(--red-dim); color:var(--red); }
+.badge-yellow { background:var(--yellow-dim); color:var(--yellow); }
+
+/* Quad stats */
+.stats-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr));
+  gap:12px; margin-bottom:20px;
+}
+.stat-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px; text-align:center;
+  transition: all 0.2s;
+}
+.stat-card:hover { border-color: var(--gold); }
+.stat-value { font-size:2rem; font-weight:700; color:var(--gold); }
+.stat-label { font-size:0.72rem; color:var(--text-dim); margin-top:2px; }
+.stat-sub { font-size:0.6rem; color:var(--text-dim); }
+
+/* Panels */
+.panels { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+.card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px;
+}
+.card-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border);
+}
+.card-header h3 { font-size:0.92rem; color:var(--gold); display:flex; align-items:center; gap:6px; }
+.full-width { grid-column:1 / -1; }
+
+/* Threshold bars */
+.threshold-list { display:flex; flex-direction:column; gap:10px; }
+.threshold-item { display:flex; align-items:center; gap:10px; }
+.threshold-name { width:80px; font-size:0.8rem; color:var(--text-dim); text-align:right; }
+.threshold-bar-wrap { flex:1; height:20px; background:var(--border); border-radius:10px; overflow:hidden; position:relative; }
+.threshold-bar {
+  height:100%; border-radius:10px; transition:width 0.5s ease;
+  display:flex; align-items:center; justify-content:flex-end; padding-right:6px;
+  font-size:0.6rem; font-weight:700; min-width:30px;
+}
+.threshold-bar.green { background:var(--green); }
+.threshold-bar.yellow { background:var(--yellow); color:#000; }
+.threshold-bar.red { background:var(--red); }
+.threshold-tick {
+  position:absolute; top:0; height:100%; width:2px; background:var(--text); opacity:0.5;
+}
+.threshold-val { width:80px; font-size:0.75rem; text-align:left; }
+
+/* Thought graph */
+.thought-flow { min-height:200px; position:relative; }
+.thought-node {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:6px 14px; margin:4px;
+  font-size:0.78rem; cursor:pointer; transition:all 0.2s;
+}
+.thought-node:hover { border-color:var(--gold); }
+.thought-node .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.thought-node .dot.isolated { background:var(--text-dim); }
+.thought-node .dot.linked { background:var(--blue); }
+.thought-node .dot.assemblable { background:var(--purple); }
+.thought-node .dot.merged { background:var(--green); }
+.thought-edge {
+  display:inline-block; width:20px; height:2px; background:var(--border);
+  margin:0 2px; vertical-align:middle;
+}
+
+/* Clusters */
+.cluster-card {
+  background:var(--card); border:1px solid var(--purple-dim);
+  border-radius:var(--radius); padding:12px; margin-bottom:10px;
+}
+.cluster-card h4 { font-size:0.85rem; color:var(--purple); margin-bottom:6px; }
+.cluster-tags { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
+.cluster-tag {
+  font-size:0.65rem; padding:2px 8px; border-radius:12px;
+  background:var(--purple-dim); color:var(--purple);
+}
+.cluster-suggestion {
+  font-size:0.75rem; color:var(--yellow); margin-top:6px;
+  padding:8px; background:var(--yellow-dim); border-radius:4px;
+}
+
+/* Upgrade plan */
+.upgrade-steps { display:flex; flex-direction:column; gap:8px; }
+.upgrade-step {
+  display:flex; align-items:center; gap:10px;
+  padding:10px; background:var(--red-dim); border-radius:var(--radius);
+  border-left:3px solid var(--red);
+}
+.upgrade-step .step-num {
+  width:28px; height:28px; border-radius:50%; background:var(--red);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  font-size:0.75rem; font-weight:700; flex-shrink:0;
+}
+.upgrade-step .step-content { flex:1; font-size:0.78rem; }
+.upgrade-step .step-cmd {
+  font-size:0.65rem; color:var(--text-dim); font-family:monospace;
+  margin-top:2px;
+}
+
+/* History table */
+.evo-table { width:100%; border-collapse:collapse; font-size:0.78rem; }
+.evo-table th {
+  text-align:left; padding:8px 10px; color:var(--text-dim);
+  font-weight:600; border-bottom:1px solid var(--border); font-size:0.7rem;
+}
+.evo-table td { padding:8px 10px; border-bottom:1px solid var(--border); }
+.evo-table tr:hover { background:var(--border); }
+
+/* Refresh */
+.refresh-btn {
+  background:var(--gold-dim); color:var(--gold); border:1px solid var(--gold);
+  padding:6px 14px; border-radius:var(--radius); cursor:pointer;
+  font-size:0.75rem; transition:all 0.2s;
+}
+.refresh-btn:hover { background:var(--gold); color:#000; }
+
+/* Loading */
+.loading { text-align:center; padding:40px; color:var(--text-dim); font-size:0.9rem; }
+.loading::before { content:"⏳ "; animation:pulse 1s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+/* Responsive */
+@media (max-width:900px) {
+  .panels { grid-template-columns:1fr; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🧬 龍魂 · 自适应进化中枢 <span class="dna">#龍芯⚡️2026-07-25-EVOLUTION-v1.0</span></h1>
+    <div class="header-right">
+      <span class="badge" id="guard-badge">🛡️ 防剽窃守护中</span>
+      <button class="refresh-btn" onclick="refresh()">🔄 刷新</button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-card"><div class="stat-value" id="stat-engines">—</div><div class="stat-label">引擎数</div><div class="stat-sub" id="stat-engines-sub"></div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-scripts">—</div><div class="stat-label">脚本数</div><div class="stat-sub" id="stat-scripts-sub"></div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-protocols">—</div><div class="stat-label">协议数</div><div class="stat-sub" id="stat-protocols-sub"></div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-portals">—</div><div class="stat-label">门户数</div><div class="stat-sub" id="stat-portals-sub"></div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-fragments">—</div><div class="stat-label">思维碎片</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-repeats">—</div><div class="stat-label">重复检测</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-learned">—</div><div class="stat-label">今日发现</div><div class="stat-sub" style="color:var(--purple)">自动学习</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-gaps">—</div><div class="stat-label">空缺待补</div><div class="stat-sub" style="color:var(--yellow)">空缺检测</div></div>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <!-- 阈值触发 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>⚡ 阈值触发器</h3>
+        <span class="badge" id="trigger-badge">检查中...</span>
+      </div>
+      <div class="threshold-list" id="threshold-list">
+        <div class="loading">加载中...</div>
+      </div>
+    </div>
+
+    <!-- 自动升级计划 -->
+    <div class="card" id="upgrade-panel" style="display:none;">
+      <div class="card-header">
+        <h3>🔴 自动升级计划</h3>
+        <span class="badge badge-red">已触发</span>
+      </div>
+      <div class="upgrade-steps" id="upgrade-steps"></div>
+    </div>
+
+    <!-- 思维流 -->
+    <div class="card full-width">
+      <div class="card-header">
+        <h3>🧩 实时思维流</h3>
+        <span style="font-size:0.7rem;color:var(--text-dim);" id="fragment-count"></span>
+      </div>
+      <div class="thought-flow" id="thought-flow">
+        <div class="loading">加载中...</div>
+      </div>
+    </div>
+
+    <!-- 🥣 自动学习引擎 -->
+    <div class="card full-width" style="border-left:3px solid var(--purple);">
+      <div class="card-header">
+        <h3>🥣 自动学习引擎</h3>
+        <span style="font-size:0.7rem;color:var(--text-dim);">系统自己找吃的·自己消化·自己长大</span>
+      </div>
+      <div id="auto-learner-panel">
+        <div class="loading">学习引擎待启动...</div>
+      </div>
+    </div>
+
+    <!-- 合龙建议 -->
+    <div class="card full-width">
+      <div class="card-header">
+        <h3>💡 合龙建议</h3>
+        <span style="font-size:0.7rem;color:var(--text-dim);">等待老大拍板</span>
+      </div>
+      <div id="clusters-container">
+        <div class="loading">分析中...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = '/api/evolution/status';
+
+async function refresh() {
+  try {
+    const resp = await fetch(API);
+    const data = await resp.json();
+    render(data);
+  } catch (e) {
+    // 本地无 API → 用静态垫底数据
+    renderStatic();
+  }
+}
+
+function render(data) {
+  renderStats(data);
+ renderThresholds(data);
+ renderUpgradePlan(data);
+ renderThoughtFlow(data);
+ renderClusters(data);
+ renderGuard(data);
+ fetchAutoLearner();
+}
+
+function renderStats(data) {
+  const tc = data.thresholds?.counts || {};
+  const tt = data.thresholds?.thresholds || {};
+  const dims = [
+    {id:'engines',   label:'引擎',   cur:tc.engines||0,   thr:tt.engines||40},
+    {id:'scripts',   label:'脚本',   cur:tc.scripts||0,   thr:tt.scripts||640},
+    {id:'protocols', label:'协议',   cur:tc.protocols||0, thr:tt.protocols||75},
+    {id:'portals',   label:'门户',   cur:tc.portals||0,   thr:tt.portals||18},
+  ];
+  dims.forEach(d => {
+    const v = document.getElementById('stat-'+d.id);
+    if (v) {
+      v.textContent = d.cur;
+      v.style.color = d.cur >= d.thr ? 'var(--red)' :
+                      d.cur >= d.thr*0.8 ? 'var(--yellow)' : 'var(--gold)';
+    }
+    const s = document.getElementById('stat-'+d.id+'-sub');
+    if (s) s.textContent = `阈值: ${d.thr}`;
+  });
+  const fv = document.getElementById('stat-fragments');
+  if (fv) fv.textContent = data.puzzles?.total || 0;
+  const rv = document.getElementById('stat-repeats');
+  if (rv) rv.textContent = data.repeats?.total || 0;
+}
+
+function renderThresholds(data) {
+  const tc = data.thresholds?.counts || {};
+  const tt = data.thresholds?.thresholds || {};
+  const dims = [
+    {name:'引擎',   cur:tc.engines||0,   thr:tt.engines||40},
+    {name:'脚本',   cur:tc.scripts||0,   thr:tt.scripts||640},
+    {name:'协议',   cur:tc.protocols||0, thr:tt.protocols||75},
+    {name:'门户',   cur:tc.portals||0,   thr:tt.portals||18},
+  ];
+  let triggered = 0;
+  const html = dims.map(d => {
+    const pct = Math.min(d.cur / d.thr * 100, 150);
+    const cls = pct >= 100 ? 'red' : pct >= 80 ? 'yellow' : 'green';
+    const icon = pct >= 100 ? '🔴' : pct >= 80 ? '🟡' : '🟢';
+    if (pct >= 100) triggered++;
+    return `<div class="threshold-item">
+      <span class="threshold-name">${icon} ${d.name}</span>
+      <div class="threshold-bar-wrap">
+        <div class="threshold-tick" style="left:${Math.min(100/d.thr*100,100)}%"></div>
+        <div class="threshold-bar ${cls}" style="width:${pct}%">${Math.round(pct)}%</div>
+      </div>
+      <span class="threshold-val">${d.cur}/${d.thr}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('threshold-list').innerHTML = html;
+
+  const badge = document.getElementById('trigger-badge');
+  if (badge) {
+    badge.textContent = triggered > 0 ? `🔴 ${triggered}维度触发` : '🟢 正常';
+    badge.className = 'badge ' + (triggered > 0 ? 'badge-red' : 'badge-green');
+  }
+}
+
+function renderUpgradePlan(data) {
+  const panel = document.getElementById('upgrade-panel');
+  const steps = document.getElementById('upgrade-steps');
+  if (!panel || !steps) return;
+
+  const dims = data.thresholds?.dimensions || [];
+  const triggered = dims.filter(d => d.level === 'triggered');
+
+  if (triggered.length === 0) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  panel.style.display = 'block';
+  const planSteps = [
+    {step:1, action:'全量测试', cmd:'python3 -m pytest tests/ -q'},
+    {step:2, action:'三色审计', cmd:'python3 bin/lh_deben_audit.py scan'},
+    {step:3, action:'生成升级报告', cmd:'python3 bin/lh_evolution.py report'},
+    {step:4, action:'更新DNA索引', cmd:'python3 bin/lh_dna_index_fast.py'},
+    {step:5, action:'同步鲲鹏', cmd:'scp ... root@119.13.90.27:/root/longhun-system/'},
+  ];
+  steps.innerHTML = planSteps.map(s => `
+    <div class="upgrade-step">
+      <div class="step-num">${s.step}</div>
+      <div class="step-content">
+        <strong>${s.action}</strong>
+        <div class="step-cmd">${s.cmd}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderThoughtFlow(data) {
+  const container = document.getElementById('thought-flow');
+  const frags = data.puzzles?.clusters?.flatMap(c => c.fragments) || [];
+  const fc = document.getElementById('fragment-count');
+  if (fc) fc.textContent = `共 ${data.puzzles?.total || 0} 个碎片`;
+
+  if (frags.length === 0) {
+    container.innerHTML = '<div style="padding:20px;color:var(--text-dim);text-align:center;">等待老大跳跃... 系统会自动记录并拼图 🧩</div>';
+    return;
+  }
+
+  // Group by module
+  const byModule = {};
+  frags.forEach(f => {
+    const m = f.module || 'general';
+    if (!byModule[m]) byModule[m] = [];
+    byModule[m].push(f);
+  });
+
+  let html = '';
+  for (const [mod, fs] of Object.entries(byModule)) {
+    html += `<div style="margin-bottom:12px;">
+      <span style="font-size:0.7rem;color:var(--text-dim);">📂 ${mod}</span>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:4px;">`;
+    fs.forEach((f, i) => {
+      const status = f.status || 'isolated';
+      html += `<span class="thought-node" title="${f.content||''}">
+        <span class="dot ${status}"></span>
+        ${(f.content||'').substring(0,30)}
+      </span>`;
+      if (i < fs.length - 1) {
+        html += `<span class="thought-edge"></span>`;
+      }
+    });
+    html += `</div></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function renderClusters(data) {
+  const container = document.getElementById('clusters-container');
+  const clusters = data.puzzles?.clusters || [];
+
+  if (clusters.length === 0) {
+    container.innerHTML = '<div style="padding:20px;color:var(--text-dim);text-align:center;">暂无可合龙集群。继续跳跃，碎片会自动关联。</div>';
+    return;
+  }
+
+  container.innerHTML = clusters.map(c => `
+    <div class="cluster-card">
+      <h4>📦 ${c.id} — ${c.size}个碎片</h4>
+      <div style="font-size:0.75rem;color:var(--text-dim);margin-bottom:4px;">
+        模块: ${(c.modules||[]).join(' / ')}
+      </div>
+      <div class="cluster-tags">
+        ${(c.tags||[]).map(t => `<span class="cluster-tag">${t}</span>`).join('')}
+      </div>
+      <div class="cluster-suggestion">💡 ${c.suggestion||''}</div>
+    </div>
+  `).join('');
+}
+
+function renderGuard(data) {
+  const badge = document.getElementById('guard-badge');
+  if (!badge) return;
+  const melted = data.guard?.melted;
+  badge.textContent = melted ? '🔴 熔断中' : '🛡️ 防剽窃守护中';
+  badge.className = 'badge ' + (melted ? 'badge-red' : 'badge-green');
+}
+
+// ─── 自动学习引擎面板 ───
+let learnerState = null;
+
+function fetchAutoLearner() {
+  // Demo mode: generate static auto-learner data
+  learnerState = {
+    learned: 5,
+    filtered: { pass: 3, suspicious: 1, fail: 1 },
+    mappings: 4,
+    scenarios: 5,
+    gaps: [
+      { name: '多Agent协作框架', score: 0.94, priority: 'P0', source: 'GitHub', hours: 12 },
+      { name: 'GraphRAG知识图谱', score: 0.88, priority: 'P0', source: 'GitHub', hours: 20 },
+      { name: 'RAG检索增强管道', score: 0.79, priority: 'P1', source: 'Papers', hours: 16 },
+      { name: '隐私计算框架', score: 0.73, priority: 'P1', source: 'CSDN', hours: 32 },
+      { name: '模型监控与漂移', score: 0.67, priority: 'P2', source: 'GitHub', hours: 10 },
+      { name: 'Agent对话缓存', score: 0.65, priority: 'P2', source: 'GitHub', hours: 6 },
+      { name: '用户追踪SDK', score: 0.65, priority: 'P3', source: 'GitHub', hours: 4 },
+    ],
+    innovations: [
+      { topic: '多Agent协作', version: '带DNA追溯的暗色鎏金军团协作系统', risk: '🟢', action: true },
+      { topic: '底座模型升级', version: 'CNSH底座升级Qwen2.5·鲲鹏先行·Mac降级', risk: '🟡', action: false },
+      { topic: '工作流编排', version: '五阶管道可视化·易经六十四卦流转动效', risk: '🟢', action: true },
+      { topic: 'AI伦理底线', version: '焊死P0·永不撤销·多维价值审查', risk: '🟢', action: true },
+      { topic: '中文数据集', version: '三源蒸馏管道·九道质量闸门', risk: '🟢', action: true },
+    ]
+  };
+  document.getElementById('stat-learned').textContent = (learnerState.gaps||[]).length;
+  document.getElementById('stat-gaps').textContent = learnerState.gaps.filter(g=>['P0','P1'].includes(g.priority)).length;
+  renderLearner();
+}
+
+function renderLearner() {
+  const s = learnerState;
+  if (!s) return;
+  const container = document.getElementById('auto-learner-panel');
+  if (!container) return;
+
+  const gaps = s.gaps||[];
+  const p0 = gaps.filter(g=>g.priority==='P0');
+  const p1 = gaps.filter(g=>g.priority==='P1');
+  const innovations = s.innovations||[];
+
+  container.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:12px 0;">
+      <!-- 左列：学习流水 -->
+      <div class="section-card" style="padding:14px;background:rgba(0,0,0,0.3);border-radius:8px;">
+        <h4 style="margin:0 0 8px;font-size:0.85rem;">📊 今日学习流水</h4>
+        <div class="progress-row"><span>抓取</span><span>${s.learned||0}项</span></div>
+        <div class="progress-row"><span>通过</span><span style="color:var(--green)">🟢${s.filtered?.pass||0}</span></div>
+        <div class="progress-row"><span>可疑</span><span style="color:var(--yellow)">🟡${s.filtered?.suspicious||0}</span></div>
+        <div class="progress-row"><span>丢弃</span><span style="color:var(--red)">🔴${s.filtered?.fail||0}</span></div>
+        <div class="progress-row"><span>CNSH对齐</span><span>${s.mappings||0}条</span></div>
+        <div class="progress-row"><span>场景推演</span><span>${s.scenarios||0}项</span></div>
+        <div style="margin-top:10px;font-size:0.7rem;color:var(--text-dim);">下次抓取: 明日08:00</div>
+      </div>
+
+      <!-- 右列：创新推演 -->
+      <div class="section-card" style="padding:14px;background:rgba(0,0,0,0.3);border-radius:8px;">
+        <h4 style="margin:0 0 8px;font-size:0.85rem;">🧠 21人格创新推演</h4>
+        ${innovations.map(inv => `
+          <div style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.72rem;">
+            <span style="color:${inv.risk==='🟢'?'var(--green)':inv.risk==='🟡'?'var(--yellow)':'var(--red)'};font-weight:bold;">${inv.risk}</span>
+            <span style="color:var(--accent);">${inv.topic}</span>
+            ${inv.action ? '<span style="color:var(--green);margin-left:4px;">✅可落地</span>' : '<span style="color:var(--yellow);margin-left:4px;">⚠️待解决</span>'}
+            <div style="color:var(--text-dim);">→ ${inv.version}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 空缺补全建议 -->
+    <div style="padding:0;">
+      <h4 style="font-size:0.85rem;margin:8px 0;">🔍 空缺补全建议 <span style="font-size:0.7rem;color:var(--text-dim);">(${p0.length + p1.length}项P0/P1待拍板)</span></h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px,1fr));gap:8px;">
+        ${gaps.map(g => `
+          <div class="cluster-card" style="padding:10px;margin:0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-weight:bold;font-size:0.8rem;">[${g.score}] ${g.name}</span>
+              <span class="badge ${g.priority==='P0'?'badge-red':g.priority==='P1'?'badge-yellow':g.priority==='P2'?'badge-green':'badge-dim'}">${g.priority}</span>
+            </div>
+            <div style="font-size:0.7rem;color:var(--text-dim);margin-top:4px;">
+              ${g.source} · 预计${g.hours}h
+            </div>
+            <div style="font-size:0.7rem;color:var(--accent);margin-top:4px;">
+              ${g.score > 0.8 ? '⚡强契合·建议立即落地' : g.score > 0.7 ? '👍契合·建议近期规划' : '📋观察储备'}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderStatic() {
+  // Fallback when API not available
+  const data = {
+    thresholds: {
+      counts: {engines:106, scripts:617, protocols:12, portals:16},
+      thresholds: {engines:40, scripts:640, protocols:75, portals:18},
+      dimensions: [
+        {level:'triggered', current:106, threshold:40, ratio:2.65},
+        {level:'warning', current:617, threshold:640, ratio:0.96},
+        {level:'normal', current:12, threshold:75, ratio:0.16},
+        {level:'warning', current:16, threshold:18, ratio:0.89},
+      ],
+    },
+    puzzles: {total:0, clusters:[]},
+    repeats: {total:0},
+    guard: {melted: false},
+  };
+  render(data);
+}
+
+// Initial load
+refresh();
+// Auto-refresh every 30s
+setInterval(refresh, 30000);
+</script>
+</body>
+</html>

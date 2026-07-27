@@ -24,9 +24,11 @@ DNA: #龍芯⚡️20260422-CODE-GW01
 端口：:8765 (主网关)
 """
 
-import os, time, json, hashlib, requests
+import os, time, json, hashlib, logging, requests
 from datetime import datetime, timezone
 from flask import Flask, request, jsonify
+
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -35,11 +37,11 @@ app = Flask(__name__)
 # ═══════════════════════════════
 CLAUDE_API_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-OLLAMA_HOST      = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_HOST      = os.environ.get("OLLAMA_HOST", "http://localhost:11435")
 NOTION_TOKEN     = os.environ.get("NOTION_TOKEN", "")
 NOTION_LOG_DB    = os.environ.get("NOTION_AUDIT_DB_ID", "")
-DNA_TOKEN        = os.environ.get("DNA_TOKEN", "UID9622-CHANGE-THIS")
-LOG_DIR          = os.path.expanduser("~/cnsh/logs")
+DNA_TOKEN        = os.environ.get("DNA_TOKEN", "LONGHUN-XIAOYI-HUB-8799-v1.0")
+LOG_DIR          = os.environ.get("CNSH_LOG_DIR", os.path.expanduser("~/longhun-system/logs/cnsh_gateway"))
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # ═══════════════════════════════
@@ -187,11 +189,25 @@ def call_ollama(messages: list, model: str = "qwen2.5:7b") -> str:
     resp.raise_for_status()
     return resp.json()["message"]["content"]
 
+def call_guanlan(messages: list, model: str = "qwen2.5:1.5b") -> str:  # type: ignore[reportUnusedParameter]
+    """v2.0 — 走观澜 M1 透传端点 :8770"""
+    user_msg = messages[-1].get("content", "") if messages else ""
+    resp = requests.post(
+        "http://localhost:8770/chat",
+        json={"query": user_msg, "persona_code": "cnsh_gateway", "format": "v2"},
+        timeout=120
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    return data.get("answer", json.dumps(data, ensure_ascii=False))
+
+
 ROUTERS = {
     "claude":   call_claude,
     "deepseek": call_deepseek,
     "ollama":   call_ollama,
-    "local":    call_ollama,   # 别名
+    "local":    call_ollama,      # 别名
+    "guanlan":  call_guanlan,     # v2.0 观澜M1透传
 }
 
 # ═══════════════════════════════
@@ -213,6 +229,7 @@ def health():
     if CLAUDE_API_KEY:   available.append("claude")
     if DEEPSEEK_API_KEY: available.append("deepseek")
     available.append("ollama(本地)")
+    available.append("guanlan(观澜M1)")
     return jsonify({
         "status": "🟢",
         "service": "CNSH网关 v1.0",
@@ -220,6 +237,41 @@ def health():
         "available_routes": available,
         "dna": make_dna("SYS", "health")
     })
+
+@app.route("/api/xiaoyi/ask", methods=["POST"])
+def xiaoyi_ask():
+    """
+    小艺调度枢纽 8799 兼容入口
+    请求体: {"query": "...", "persona_code": "...", "route_id": "...", "format": "v2", "model_route": "..."}
+    内部降级: 8765GPT(ollama) → 本地Ollama
+    """
+    ok, err = security_check(request)
+    if not ok:
+        return jsonify({"error": err, "tricolor": "🔴"}), 403
+
+    data = request.json or {}
+    query = data.get("query", "").strip()
+    if not query:
+        return jsonify({"error": "query 不能为空", "tricolor": "🔴"}), 400
+
+    # 优先走鲲鹏 Ollama（经 SSH 隧道 11435）
+    for route in ("ollama", "local"):
+        try:
+            reply = call_ollama([{"role": "user", "content": query}], model="qwen2.5:1.5b")
+            dna = make_dna("ACT", query + reply[:100])
+            return jsonify({
+                "answer": reply,
+                "backend": "8765GPT→ollama(鲲鹏)",
+                "route": route,
+                "dna": dna,
+                "tricolor": "🟢"
+            })
+        except Exception as e:
+            logger.warning(f"/api/xiaoyi/ask {route} 失败: {e}")
+            continue
+
+    return jsonify({"error": "所有后端均不可用", "tricolor": "🔴"}), 503
+
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -375,7 +427,7 @@ if __name__ == "__main__":
 ║  POST /inject_notion — Notion内容注入AI      ║
 ║  GET  /health        — 健康检查              ║
 ╠══════════════════════════════════════════════╣
-║  路由: claude / deepseek / ollama            ║
+║  路由: claude / deepseek / ollama / guanlan   ║
 ║  默认: deepseek（省钱·快·中文强）           ║
 ╚══════════════════════════════════════════════╝
     """)

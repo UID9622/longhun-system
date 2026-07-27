@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="generator" content="AI生成·龍魂数据主权雷达；AI内容双标识：显式水印+隐式元数据">
+<title>龍魂 · 个人数据主权雷达 v1.0</title>
+<style>
+:root {
+  --bg: #0a0e14;
+  --card: #101520;
+  --border: #1e2a3a;
+  --text: #e5e7eb;
+  --text-dim: #6b7280;
+  --gold: #c9a84c;
+  --gold-dim: #c9a84c22;
+  --green: #22c55e;
+  --green-dim: #22c55e22;
+  --red: #ef4444;
+  --red-dim: #ef444422;
+  --yellow: #eab308;
+  --yellow-dim: #eab30822;
+  --blue: #3b82f6;
+  --blue-dim: #3b82f622;
+  --purple: #a855f7;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  min-height: 100vh; overflow-x: hidden;
+}
+.container { max-width: 1280px; margin:0 auto; padding:16px 20px 120px; }
+
+/* ═══ Header ═══ */
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px; margin-bottom:16px;
+  background: linear-gradient(135deg, #101520 0%, #151d30 100%);
+  border:1px solid var(--border); border-radius:var(--radius-lg);
+}
+.header h1 { font-size:1.3rem; color:var(--gold); display:flex; align-items:center; gap:8px; }
+.header h1 .subtitle { font-size:0.65rem; color:var(--text-dim); font-weight:400; }
+.header-badges { display:flex; gap:8px; }
+.badge { font-size:0.68rem; padding:4px 12px; border-radius:20px; font-weight:600; letter-spacing:0.3px; }
+.badge-green { background:var(--green-dim); color:var(--green); }
+.badge-red { background:var(--red-dim); color:var(--red); }
+.badge-gold { background:var(--gold-dim); color:var(--gold); }
+.badge-blue { background:var(--blue-dim); color:var(--blue); }
+.badge-pulse { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%,100% { opacity:1; } 50% { opacity:0.5; }
+}
+
+/* ═══ Tabs ═══ */
+.tabs {
+  display:flex; gap:4px; margin-bottom:16px;
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:4px; overflow-x:auto;
+}
+.tab {
+  flex:1; min-width:140px; padding:12px 16px; text-align:center;
+  cursor:pointer; border-radius:6px; font-size:0.88rem; font-weight:600;
+  color:var(--text-dim); transition:all 0.2s; white-space:nowrap;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  border:1px solid transparent; user-select:none;
+}
+.tab:hover { color:var(--text); background:var(--gold-dim); }
+.tab.active { color:var(--gold); background:var(--gold-dim); border-color:var(--gold); }
+.tab .icon { font-size:1.1rem; }
+
+/* ═══ Stats ═══ */
+.stats-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px; margin-bottom:16px;
+}
+.stat-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:12px; text-align:center;
+  transition:border-color 0.3s;
+}
+.stat-card:hover { border-color:var(--gold); }
+.stat-value { font-size:1.6rem; font-weight:700; color:var(--gold); }
+.stat-value.red { color:var(--red); }
+.stat-value.green { color:var(--green); }
+.stat-value.blue { color:var(--blue); }
+.stat-label { font-size:0.7rem; color:var(--text-dim); margin-top:2px; }
+
+/* ═══ Main Content ═══ */
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+.card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:18px; margin-bottom:14px;
+}
+.card-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:12px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.card-header h3 { font-size:1rem; color:var(--gold); }
+
+/* ═══ Radar Map ═══ */
+.radar-map {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:16px; min-height:400px;
+}
+@media(max-width:768px) { .radar-map { grid-template-columns:1fr; } }
+.radar-viz {
+  background:radial-gradient(ellipse at center, #1a2540 0%, var(--bg) 70%);
+  border-radius:var(--radius-lg); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  min-height:300px; position:relative; overflow:hidden;
+}
+.radar-circle {
+  width:240px; height:240px; border-radius:50%;
+  border:2px solid var(--border); position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.radar-dot {
+  position:absolute; width:10px; height:10px; border-radius:50%;
+  transform:translate(-50%,-50%); transition:all 0.5s;
+}
+.radar-dot.red { background:var(--red); box-shadow:0 0 12px var(--red); }
+.radar-dot.yellow { background:var(--yellow); box-shadow:0 0 8px var(--yellow); }
+.radar-dot.green { background:var(--green); box-shadow:0 0 8px var(--green); }
+.radar-center-text {
+  text-align:center; z-index:1;
+}
+.radar-center-text .count { font-size:2.4rem; font-weight:800; color:var(--red); }
+.radar-center-text .label { font-size:0.75rem; color:var(--text-dim); }
+.scan-beam {
+  position:absolute; width:100%; height:100%;
+  border-radius:50%;
+  background:conic-gradient(transparent 0deg, #22c55e11 30deg, transparent 60deg);
+  animation:spin 4s linear infinite;
+}
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* ═══ Threat List ═══ */
+.threat-list { max-height:400px; overflow-y:auto; }
+.threat-item {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; border-bottom:1px solid var(--border);
+  transition:background 0.2s;
+}
+.threat-item:hover { background:var(--gold-dim); }
+.threat-icon { font-size:1.3rem; flex-shrink:0; }
+.threat-info { flex:1; min-width:0; }
+.threat-name { font-weight:600; font-size:0.88rem; }
+.threat-detail { font-size:0.72rem; color:var(--text-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.threat-severity { font-size:0.72rem; font-weight:600; flex-shrink:0; }
+.threat-count { font-size:0.7rem; color:var(--text-dim); flex-shrink:0; }
+
+/* ═══ Breaker ═══ */
+.breaker-main {
+  display:flex; align-items:center; justify-content:center;
+  padding:30px; position:relative;
+}
+.breaker-btn {
+  width:160px; height:160px; border-radius:50%;
+  border:4px solid var(--red); background:var(--red-dim);
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  font-size:2.4rem; font-weight:800; color:var(--red);
+  transition:all 0.3s; user-select:none;
+  box-shadow:0 0 40px var(--red-dim);
+  position:relative;
+}
+.breaker-btn:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 60px #ef444444;
+}
+.breaker-btn.armed {
+  border-color:var(--green); background:var(--green-dim);
+  color:var(--green);
+  box-shadow:0 0 40px var(--green-dim);
+}
+.breaker-btn .small-label {
+  font-size:0.7rem; position:absolute; bottom:20px;
+  color:inherit; opacity:0.7;
+}
+.breaker-status-text {
+  text-align:center; margin-top:12px;
+  font-size:0.8rem; color:var(--text-dim);
+}
+.breaker-rules {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:8px; margin-top:14px;
+}
+.breaker-rule {
+  display:flex; align-items:center; gap:8px; padding:10px 12px;
+  border-radius:var(--radius); border:1px solid var(--border);
+  background:var(--bg); transition:all 0.2s;
+}
+.breaker-rule.armed { border-color:var(--green); background:var(--green-dim); }
+.breaker-rule .rule-icon { font-size:1.1rem; flex-shrink:0; }
+.breaker-rule .rule-name { font-size:0.82rem; font-weight:600; }
+.breaker-rule .rule-status { font-size:0.68rem; color:var(--text-dim); margin-left:auto; }
+.breaker-rule.armed .rule-status { color:var(--green); }
+
+/* ═══ Offline AI ═══ */
+.ai-mode-selector {
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;
+}
+@media(max-width:768px) { .ai-mode-selector { grid-template-columns:1fr; } }
+.ai-mode-card {
+  padding:20px; border-radius:var(--radius-lg); border:2px solid var(--border);
+  cursor:pointer; text-align:center; transition:all 0.3s;
+}
+.ai-mode-card:hover { border-color:var(--gold); }
+.ai-mode-card.active { border-color:var(--blue); background:var(--blue-dim); }
+.ai-mode-card .mode-icon { font-size:2rem; margin-bottom:8px; }
+.ai-mode-card .mode-name { font-size:1rem; font-weight:700; margin-bottom:4px; }
+.ai-mode-card .mode-desc { font-size:0.72rem; color:var(--text-dim); }
+.ai-mode-card .mode-badge {
+  display:inline-block; margin-top:8px; padding:2px 10px;
+  border-radius:20px; font-size:0.65rem; font-weight:600;
+}
+.ai-mode-card.recommended .mode-name::after {
+  content:" 推荐"; font-size:0.6rem; color:var(--green);
+  background:var(--green-dim); padding:2px 6px; border-radius:10px;
+}
+.ai-mode-card.danger .mode-badge { background:var(--red-dim); color:var(--red); }
+
+.ai-status-box {
+  background:var(--bg); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px; font-size:0.82rem;
+}
+.ai-status-line {
+  display:flex; align-items:center; gap:8px; padding:4px 0;
+  font-size:0.8rem;
+}
+.ai-status-line .check { color:var(--green); }
+.ai-status-line .warn { color:var(--red); }
+
+.ai-chat-box {
+  margin-top:14px; padding:14px;
+  background:var(--bg); border:1px solid var(--border);
+  border-radius:var(--radius); min-height:120px; max-height:300px;
+  overflow-y:auto; font-size:0.82rem;
+}
+.ai-chat-msg { margin-bottom:10px; }
+.ai-chat-msg .role { font-weight:600; font-size:0.7rem; margin-bottom:2px; }
+.ai-chat-msg .role.user { color:var(--blue); }
+.ai-chat-msg .role.ai { color:var(--gold); }
+.ai-chat-msg .content { font-size:0.82rem; }
+.ai-chat-input-row { display:flex; gap:8px; margin-top:8px; }
+.ai-chat-input-row input {
+  flex:1; padding:10px 14px;
+  background:var(--bg); border:1px solid var(--border); border-radius:var(--radius);
+  color:var(--text); font-size:0.85rem; outline:none;
+}
+.ai-chat-input-row input:focus { border-color:var(--gold); }
+.ai-chat-input-row button {
+  padding:10px 20px; background:var(--blue); color:#fff;
+  border:none; border-radius:var(--radius); cursor:pointer; font-weight:600;
+  font-size:0.85rem; transition:opacity 0.2s;
+}
+.ai-chat-input-row button:hover { opacity:0.85; }
+
+/* ═══ Status Bar ═══ */
+.status-bar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:linear-gradient(180deg, #0a0e14 0%, #101520 100%);
+  border-top:1px solid var(--border); padding:8px 20px;
+  z-index:100; font-size:0.7rem;
+}
+.status-bar-inner {
+  max-width:1280px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; flex-wrap:wrap;
+}
+.status-bar .section { display:flex; align-items:center; gap:8px; }
+.status-bar .dot { width:6px; height:6px; border-radius:50%; }
+.status-bar .dot.green { background:var(--green); }
+.status-bar .dot.red { background:var(--red); }
+.status-bar .dot.yellow { background:var(--yellow); }
+.status-bar .protocol-tag {
+  padding:2px 8px; border-radius:10px; font-size:0.62rem;
+  font-weight:600; font-family:monospace;
+}
+.status-bar .protocol-tag.ok { background:var(--green-dim); color:var(--green); }
+.status-bar .expand-btn {
+  color:var(--gold); cursor:pointer; font-size:0.65rem;
+  text-decoration:underline; user-select:none;
+}
+.protocol-panel {
+  display:none; position:fixed; bottom:40px; left:0; right:0;
+  background:var(--card); border:1px solid var(--border); border-bottom:none;
+  padding:16px 20px; max-height:300px; overflow-y:auto;
+  font-size:0.72rem; z-index:99;
+}
+.protocol-panel.open { display:block; }
+.protocol-panel .proto-item {
+  display:flex; align-items:center; gap:8px; padding:6px 0;
+  border-bottom:1px solid var(--border);
+}
+.protocol-panel .proto-item:last-child { border-bottom:none; }
+.protocol-panel .proto-check { color:var(--green); font-weight:700; }
+
+/* ═══ Buttons ═══ */
+.btn {
+  padding:8px 18px; border:none; border-radius:var(--radius);
+  font-weight:600; font-size:0.82rem; cursor:pointer;
+  transition:all 0.2s; display:inline-flex; align-items:center; gap:6px;
+}
+.btn-primary { background:var(--red); color:#fff; }
+.btn-primary:hover { opacity:0.9; }
+.btn-primary.safe { background:var(--green); }
+.btn-outline {
+  background:transparent; border:1px solid var(--border); color:var(--text);
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+.btn-block { display:block; width:100%; justify-content:center; }
+
+/* ═══ Loading ═══ */
+.loading {
+  display:flex; align-items:center; justify-content:center;
+  padding:40px; color:var(--text-dim);
+}
+.loading::after {
+  content:""; width:20px; height:20px; margin-left:10px;
+  border:2px solid var(--border); border-top-color:var(--gold);
+  border-radius:50%; animation:spin 0.8s linear infinite;
+}
+
+/* ═══ Footer ═══ */
+.footer-note {
+  text-align:center; padding:20px; font-size:0.7rem; color:var(--text-dim);
+  margin-top:20px;
+}
+
+/* ═══ Toast ═══ */
+.toast {
+  position:fixed; top:20px; right:20px; padding:12px 20px;
+  border-radius:var(--radius); font-size:0.85rem; font-weight:600;
+  z-index:200; animation:slideIn 0.3s ease-out;
+  max-width:380px;
+}
+.toast.success { background:var(--green-dim); color:var(--green); border:1px solid var(--green); }
+.toast.error { background:var(--red-dim); color:var(--red); border:1px solid var(--red); }
+.toast.info { background:var(--blue-dim); color:var(--blue); border:1px solid var(--blue); }
+@keyframes slideIn {
+  from { transform:translateX(100%); opacity:0; }
+  to { transform:translateX(0); opacity:1; }
+}
+
+/* Misc */
+.empty-state {
+  text-align:center; padding:40px; color:var(--text-dim);
+  font-size:0.85rem;
+}
+.text-red { color:var(--red); }
+.text-green { color:var(--green); }
+.text-gold { color:var(--gold); }
+.text-blue { color:var(--blue); }
+.mt-2 { margin-top:8px; }
+.mt-4 { margin-top:16px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ═══ Header ═══ -->
+<div class="header">
+  <h1>
+    🐉 数据主权雷达
+    <span class="subtitle">v1.0 · 百姓的主权驾照</span>
+  </h1>
+  <div class="header-badges">
+    <span class="badge badge-green" id="badgeRadar">扫描引擎 ✓</span>
+    <span class="badge badge-green" id="badgeBreaker">熔断器 ✓</span>
+    <span class="badge badge-blue" id="badgeAI">本地AI ✓</span>
+  </div>
+</div>
+
+<!-- ═══ Tabs ═══ -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('radar',event)">
+    <span class="icon">📡</span> 数据被谁卖了
+  </div>
+  <div class="tab" onclick="switchTab('breaker',event)">
+    <span class="icon">🛑</span> 隐私熔断开关
+  </div>
+  <div class="tab" onclick="switchTab('ai',event)">
+    <span class="icon">🤖</span> AI不经过云
+  </div>
+</div>
+
+<!-- ═══ Tab 1: 数据雷达 ═══ -->
+<div class="tab-content active" id="tab-radar">
+  <div class="stats-grid" id="radarStats"></div>
+
+  <div class="radar-map">
+    <div class="radar-viz" id="radarViz">
+      <div class="radar-circle">
+        <div class="scan-beam"></div>
+        <div id="radarDots"></div>
+        <div class="radar-center-text">
+          <div class="count" id="radarThreatCount">--</div>
+          <div class="label">数据泄露风险</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:0;">
+      <div class="card-header">
+        <h3>📋 威胁清单</h3>
+        <button class="btn btn-outline" onclick="scanNow()" id="btnScan">
+          🔄 立即扫描
+        </button>
+      </div>
+      <div class="threat-list" id="threatList">
+        <div class="empty-state">点击「立即扫描」检测数据泄露风险</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Tab 2: 隐私熔断 ═══ -->
+<div class="tab-content" id="tab-breaker">
+  <div class="card" style="text-align:center;">
+    <h3 style="color:var(--gold); margin-bottom:16px;">🔴 隐私熔断总开关</h3>
+    <div class="breaker-main">
+      <div class="breaker-btn armed" id="breakerBigBtn" onclick="toggleBreaker()">
+        <span id="breakerBtnText">熔断中</span>
+        <span class="small-label" id="breakerBtnSub">点击解除</span>
+      </div>
+    </div>
+    <div class="breaker-status-text" id="breakerStatusText">已激活 · 12条规则全部生效</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>⚙️ 熔断规则清单</h3>
+      <span style="font-size:0.7rem;color:var(--text-dim);" id="breakerRuleCount">12条规则</span>
+    </div>
+    <div class="breaker-rules" id="breakerRules"></div>
+  </div>
+</div>
+
+<!-- ═══ Tab 3: 离线AI ═══ -->
+<div class="tab-content" id="tab-ai">
+  <h3 style="color:var(--gold); margin-bottom:12px;">🤖 AI运行模式选择</h3>
+  <div class="ai-mode-selector" id="aiModeCards"></div>
+
+  <div class="card">
+    <div class="card-header"><h3>📊 当前状态</h3></div>
+    <div class="ai-status-box" id="aiStatusLines"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>💬 验证对话</h3></div>
+    <div class="ai-chat-box" id="aiChatBox">
+      <div class="empty-state">输入一句话，看看数据去了哪里</div>
+    </div>
+    <div class="ai-chat-input-row">
+      <input type="text" id="aiChatInput" placeholder="问点什么...比如'今天天气怎么样'"
+             onkeydown="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()">发送</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Footer ═══ -->
+<div class="footer-note">
+  你的数据，你自己说了算。不开引擎盖，也能在路上横冲直撞。
+</div>
+
+</div>
+
+<!-- ═══ Status Bar ═══ -->
+<div class="status-bar">
+  <div class="status-bar-inner">
+    <div class="section">
+      <span class="dot green" id="statusDot"></span>
+      <span style="font-family:monospace;font-size:0.65rem;">#龍芯⚡️丙午·乙未·戊戌·午时·☵坎-RADAR-v1.0</span>
+    </div>
+    <div class="section" id="protocolTags"></div>
+    <div class="section">
+      <span id="statusMode">本地模式</span>
+      <span style="margin-left:8px;" id="statusLeak">数据泄露: 0次</span>
+      <span class="expand-btn" onclick="toggleProtocolPanel()">展开协议 ▾</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Protocol Panel ═══ -->
+<div class="protocol-panel" id="protocolPanel">
+  <div id="protocolContent"></div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// State
+// ══════════════════════════════════════════════════════
+const API = 'http://127.0.0.1:8788';
+let currentTab = 'radar';
+let radarData = null;
+let breakerData = null;
+let aiData = null;
+let protocolExpanded = false;
+
+// ══════════════════════════════════════════════════════
+// Init
+// ══════════════════════════════════════════════════════
+async function init() {
+  await Promise.all([
+    loadRadarStatus(),
+    loadBreakerStatus(),
+    loadAIStatus(),
+    loadP0Protocols(),
+  ]);
+}
+
+// ══════════════════════════════════════════════════════
+// Tab switching
+// ══════════════════════════════════════════════════════
+function switchTab(tab, evt) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  evt.target.closest('.tab').classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+
+  if (tab === 'radar') loadRadarStatus();
+  else if (tab === 'breaker') loadBreakerStatus();
+  else if (tab === 'ai') loadAIStatus();
+}
+
+// ══════════════════════════════════════════════════════
+// Radar
+// ══════════════════════════════════════════════════════
+async function loadRadarStatus() {
+  try {
+    const r = await fetch(API + '/api/radar/status');
+    radarData = await r.json();
+    renderRadarStats();
+  } catch(e) {
+    document.getElementById('badgeRadar').className = 'badge badge-red';
+  }
+}
+
+function renderRadarStats() {
+  const s = radarData;
+  document.getElementById('radarStats').innerHTML = `
+    <div class="stat-card"><div class="stat-value red">${s.last_scan?.threats_found || 0}</div><div class="stat-label">上次发现威胁</div></div>
+    <div class="stat-card"><div class="stat-value">${s.known_db_size || 0}</div><div class="stat-label">已知行为库</div></div>
+    <div class="stat-card"><div class="stat-value">${s.p0_protocols_count || 12}</div><div class="stat-label">P0协议守护</div></div>
+    <div class="stat-card"><div class="stat-value green">${s.os || 'Darwin'}</div><div class="stat-label">运行平台</div></div>
+  `;
+  document.getElementById('badgeRadar').className = 'badge badge-green';
+}
+
+async function scanNow() {
+  const btn = document.getElementById('btnScan');
+  btn.disabled = true;
+  btn.textContent = '⏳ 扫描中...';
+  document.getElementById('threatList').innerHTML = '<div class="loading">正在扫描设备数据泄露风险</div>';
+  document.getElementById('radarThreatCount').textContent = '...';
+  document.getElementById('badgeRadar').className = 'badge badge-gold badge-pulse';
+
+  try {
+    const r = await fetch(API + '/api/radar/scan?mode=quick');
+    const report = await r.json();
+    radarData = report;
+    renderScanResult(report);
+    document.getElementById('badgeRadar').className = 'badge badge-green';
+  } catch(e) {
+    document.getElementById('threatList').innerHTML = '<div class="empty-state text-red">扫描失败，请检查API服务是否启动</div>';
+    document.getElementById('radarThreatCount').textContent = '!';
+    document.getElementById('badgeRadar').className = 'badge badge-red';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔄 立即扫描';
+  }
+}
+
+function renderScanResult(report) {
+  document.getElementById('radarThreatCount').textContent = report.total_threats;
+  document.getElementById('radarStats').innerHTML = `
+    <div class="stat-card"><div class="stat-value red">${report.high_risk}</div><div class="stat-label">🔴 高危</div></div>
+    <div class="stat-card"><div class="stat-value" style="color:var(--yellow)">${report.medium_risk}</div><div class="stat-label">🟡 中危</div></div>
+    <div class="stat-card"><div class="stat-value green">${report.low_risk}</div><div class="stat-label">🟢 低危</div></div>
+    <div class="stat-card"><div class="stat-value green">${report.blocked}</div><div class="stat-label">🟢 已拦截</div></div>
+    <div class="stat-card"><div class="stat-value">${report.duration_seconds}s</div><div class="stat-label">扫描耗时</div></div>
+  `;
+
+  // Radar dots
+  const dotsDiv = document.getElementById('radarDots');
+  const threats = report.threats || [];
+  let dotsHTML = '';
+  threats.forEach((t, i) => {
+    const angle = (i / Math.max(threats.length, 1)) * 360;
+    const radius = 30 + Math.random() * 45; // 30-75% from center
+    const rad = (angle - 90) * Math.PI / 180;
+    const x = 50 + radius * Math.cos(rad);
+    const y = 50 + radius * Math.sin(rad);
+    const colorClass = t.severity.includes('高危') ? 'red' : t.severity.includes('中危') ? 'yellow' : 'green';
+    dotsHTML += `<div class="radar-dot ${colorClass}" style="left:${x}%;top:${y}%;" title="${t.app_name}: ${t.human_explain}"></div>`;
+  });
+  if (threats.length === 0) {
+    dotsHTML = '<div class="empty-state" style="position:absolute;top:40%;">🟢 未发现威胁</div>';
+    document.getElementById('radarThreatCount').textContent = '0';
+  }
+  dotsDiv.innerHTML = dotsHTML;
+
+  // Threat list
+  const list = document.getElementById('threatList');
+  if (threats.length === 0) {
+    list.innerHTML = '<div class="empty-state">🟢 太棒了！未发现数据泄露风险</div>';
+  } else {
+    list.innerHTML = threats.map(t => {
+      const sevIcon = t.severity.includes('高危') ? '🔴' : t.severity.includes('中危') ? '🟡' : '🟢';
+      const appIcon = {'数据上传':'📤','位置追踪':'📍','通讯录窃取':'👥','相册扫描':'🖼️','麦克风监听':'🎤','后台同步':'🔄','剪贴板读取':'📋','跨应用追踪':'🔗'};
+      return `<div class="threat-item">
+        <span class="threat-icon">${appIcon[t.threat_type] || '⚠️'}</span>
+        <div class="threat-info">
+          <div class="threat-name">${t.app_name}</div>
+          <div class="threat-detail">${t.human_explain}</div>
+        </div>
+        <span class="threat-severity">${sevIcon} ${t.severity}</span>
+        ${t.frequency ? `<span class="threat-count">${t.frequency}次</span>` : ''}
+      </div>`;
+    }).join('');
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// Breaker
+// ══════════════════════════════════════════════════════
+async function loadBreakerStatus() {
+  try {
+    const r = await fetch(API + '/api/breaker/status');
+    breakerData = await r.json();
+    renderBreaker();
+    document.getElementById('badgeBreaker').className = 'badge badge-green';
+  } catch(e) {
+    document.getElementById('badgeBreaker').className = 'badge badge-red';
+  }
+}
+
+function renderBreaker() {
+  const b = breakerData;
+  const isArmed = b.status === 'armed';
+  const bigBtn = document.getElementById('breakerBigBtn');
+  const btnText = document.getElementById('breakerBtnText');
+  const btnSub = document.getElementById('breakerBtnSub');
+
+  if (isArmed) {
+    bigBtn.className = 'breaker-btn armed';
+    btnText.textContent = '熔断中';
+    btnSub.textContent = '点击解除';
+  } else {
+    bigBtn.className = 'breaker-btn';
+    btnText.textContent = '未熔断';
+    btnSub.textContent = '按下去，全部切断';
+  }
+  document.getElementById('breakerStatusText').textContent =
+    isArmed ? `已激活 · ${b.armed_count}条规则全部生效` : `未激活 · ${b.armed_count}/${b.total_rules}条生效`;
+  document.getElementById('breakerRuleCount').textContent = `${b.total_rules}条规则`;
+
+  // Rules
+  const rules = b.rules || [];
+  document.getElementById('breakerRules').innerHTML = rules.map(r => `
+    <div class="breaker-rule ${r.is_armed ? 'armed' : ''}" onclick="toggleBreakerRule('${r.target}')" title="点击切换">
+      <span class="rule-icon">${r.is_armed ? '🟢' : '⚪'}</span>
+      <span class="rule-name">${r.name}</span>
+      <span class="rule-status">${r.status_text}</span>
+    </div>
+  `).join('');
+}
+
+async function toggleBreaker() {
+  const b = breakerData;
+  const isArmed = b.status === 'armed';
+
+  if (isArmed) {
+    if (!confirm('⚠️ 即将解除隐私熔断，恢复所有数据收集通道。确认解除？')) return;
+  } else {
+    if (!confirm('⚠️ 即将物理级切断所有数据收集通道！包括：位置·通讯录·相册·麦克风·相机·后台·广告·蓝牙·分析。确认执行？')) return;
+  }
+
+  try {
+    const endpoint = isArmed ? '/api/breaker/disarm' : '/api/breaker/arm';
+    const r = await fetch(API + endpoint, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({biometric_verified: true}),
+    });
+    const result = await r.json();
+    if (result.all_success || result.rules_applied > 0) {
+      showToast(isArmed ? '熔断已解除' : '🛑 所有数据收集通道已物理切断！', 'success');
+      setTimeout(loadBreakerStatus, 500);
+    } else {
+      showToast(result.details?.[0]?.error || '操作失败', 'error');
+    }
+  } catch(e) {
+    showToast('API连接失败', 'error');
+  }
+}
+
+async function toggleBreakerRule(target) {
+  const rule = breakerData.rules.find(r => r.target === target);
+  if (!rule) return;
+  try {
+    const r = await fetch(API + '/api/breaker/toggle', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({target, armed: !rule.is_armed, biometric_verified: true}),
+    });
+    const result = await r.json();
+    if (result.success) {
+      showToast(`${result.name}: ${result.is_armed ? '已切断 ✅' : '已恢复 ⚠️'}`, 'info');
+      setTimeout(loadBreakerStatus, 300);
+    }
+  } catch(e) {
+    showToast('操作失败', 'error');
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// Offline AI
+// ══════════════════════════════════════════════════════
+async function loadAIStatus() {
+  try {
+    const r = await fetch(API + '/api/ai/status');
+    aiData = await r.json();
+    renderAI();
+    document.getElementById('badgeAI').className = 'badge badge-blue';
+  } catch(e) {
+    document.getElementById('badgeAI').className = 'badge badge-red';
+  }
+}
+
+function renderAI() {
+  const a = aiData;
+  const isLocal = a.mode === 'local';
+
+  // Mode cards
+  document.getElementById('aiModeCards').innerHTML = `
+    <div class="ai-mode-card active recommended" style="border-color:${isLocal ? 'var(--blue)' : 'var(--border)'};background:${isLocal ? 'var(--blue-dim)' : ''};" onclick="switchAIMode('local')">
+      <div class="mode-icon">🔵</div>
+      <div class="mode-name">本地模式</div>
+      <div class="mode-desc">AI在你自己的设备上跑，数据永不出门</div>
+    </div>
+    <div class="ai-mode-card danger" style="border-color:${!isLocal ? 'var(--red)' : 'var(--border)'};background:${!isLocal ? 'var(--red-dim)' : ''};" onclick="switchAIMode('cloud')">
+      <div class="mode-icon">⚪</div>
+      <div class="mode-name">云端模式</div>
+      <div class="mode-desc">AI在云端跑，数据离开你的设备</div>
+      <span class="mode-badge">⚠️ 数据将上传</span>
+    </div>
+  `;
+
+  // Status lines
+  document.getElementById('aiStatusLines').innerHTML = (a.status_lines || []).map(l =>
+    `<div class="ai-status-line">${l.includes('✅') || l.includes('🔒') || l.includes('⚡') ? '<span class="check">✅</span>' : '<span class="warn">⚠️</span>'}${l}</div>`
+  ).join('');
+
+  // Update status bar
+  document.getElementById('statusMode').textContent = a.mode === 'local' ? '本地模式' : '云端模式';
+}
+
+async function switchAIMode(mode) {
+  if (mode === 'cloud') {
+    if (!confirm('⚠️ 切换到云端模式后，你的对话内容将上传到云端服务器，可能被第三方看到。确认切换？')) return;
+  }
+  try {
+    const r = await fetch(API + '/api/ai/switch', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({mode, biometric_verified: true}),
+    });
+    const result = await r.json();
+    if (result.success) {
+      showToast(`已切换为 ${mode === 'local' ? '🔵 本地模式' : '⚪ 云端模式'}`, mode === 'local' ? 'success' : 'info');
+      document.getElementById('statusMode').textContent = mode === 'local' ? '本地模式' : '云端模式';
+      setTimeout(loadAIStatus, 300);
+    } else {
+      showToast(result.error || '切换失败', 'error');
+    }
+  } catch(e) {
+    showToast('API连接失败', 'error');
+  }
+}
+
+async function sendChat() {
+  const input = document.getElementById('aiChatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+
+  const chatBox = document.getElementById('aiChatBox');
+  chatBox.innerHTML += `<div class="ai-chat-msg"><div class="role user">🧑 你</div><div class="content">${escapeHtml(msg)}</div></div>`;
+
+  try {
+    const r = await fetch(API + '/api/ai/chat', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({message: msg}),
+    });
+    const result = await r.json();
+    const leaked = result.data_leaked;
+    chatBox.innerHTML += `
+      <div class="ai-chat-msg">
+        <div class="role ai">🐉 龍魂</div>
+        <div class="content">${escapeHtml(result.response)}</div>
+        <div style="font-size:0.65rem;color:var(--text-dim);margin-top:4px;">
+          ⏱ ${result.latency_ms}ms · 📍 ${result.data_destination} · ${leaked ? '⚠️ 数据已离开设备' : '✅ 数据未上传'}
+        </div>
+      </div>`;
+    if (leaked) {
+      document.getElementById('statusLeak').innerHTML = '数据泄露: <span style="color:var(--red)">⚠️ 已离开设备</span>';
+    } else {
+      document.getElementById('statusLeak').textContent = '数据泄露: 0次';
+    }
+    chatBox.scrollTop = chatBox.scrollHeight;
+  } catch(e) {
+    chatBox.innerHTML += `<div class="ai-chat-msg"><div class="content text-red">连接失败，请检查API服务</div></div>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// P0 Protocols
+// ══════════════════════════════════════════════════════
+async function loadP0Protocols() {
+  try {
+    const r = await fetch(API + '/api/radar/p0');
+    const data = await r.json();
+    const protocols = data.protocols || [];
+
+    // Status bar tags
+    document.getElementById('protocolTags').innerHTML = protocols.slice(0, 6).map(p =>
+      `<span class="protocol-tag ok">${p.id}✓</span>`
+    ).join('');
+
+    // Expandable panel
+    document.getElementById('protocolContent').innerHTML = protocols.map(p => `
+      <div class="proto-item">
+        <span class="proto-check">✓</span>
+        <span style="font-weight:600;min-width:55px;">${p.id}</span>
+        <span>${p.name}</span>
+        <span style="font-size:0.68rem;color:var(--text-dim);margin-left:auto;">${p.desc}</span>
+      </div>
+    `).join('');
+  } catch(e) {}
+}
+
+function toggleProtocolPanel() {
+  protocolExpanded = !protocolExpanded;
+  const panel = document.getElementById('protocolPanel');
+  panel.className = 'protocol-panel' + (protocolExpanded ? ' open' : '');
+}
+
+// ══════════════════════════════════════════════════════
+// Helpers
+// ══════════════════════════════════════════════════════
+function showToast(msg, type) {
+  const toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3500);
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ══════════════════════════════════════════════════════
+// Boot
+// ══════════════════════════════════════════════════════
+init();
+</script>
+</body>
+</html>

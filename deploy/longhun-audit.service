@@ -1,0 +1,37 @@
+# ────────────────────────────────────────────
+# 龍魂·审计即服务 · systemd unit
+# DNA: #龍芯⚡️丙午·癸未·甲子·既济-AUDIT-SYSTEMD-v1.0
+# 部署路径: /etc/systemd/system/longhun-audit.service
+# ────────────────────────────────────────────
+
+[Unit]
+Description=龍魂·审计即服务 API (端口 8771)
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/longhun-system
+Environment=PATH=/root/longhun-system/.venv/bin:/usr/local/bin:/usr/bin:/bin
+Environment=AUDIT_API_PORT=8771
+Environment=AUDIT_API_HOST=127.0.0.1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/root/longhun-system/.venv/bin/python3 /root/longhun-system/bin/lh_audit_as_a_service_api.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-audit
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/root/longhun-system/governance/audit/reports
+ReadOnlyPaths=/root/longhun-system/bin
+ReadOnlyPaths=/root/longhun-system/brand
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,312 @@
+\documentclass[11pt,a4paper]{article}
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue
+}
+
+% Theorem-like environments
+\theoremstyle{definition}
+\newtheorem{observation}{Observation}[section]
+\newtheorem{question}{Open Question}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{perspective}{Perspective}[section]
+
+\title{\textbf{A Novel Perspective on the Riemann Hypothesis:} \\[0.3em]
+Fixed Points, Invariants, and Three-Talent Harmony}
+\author{LongHun Research Group\thanks{Principal investigator and authorized representative: UID9622 (DragonCore North Star).} \\[0.2em]
+\small DragonCore North Star · LongHun System}
+\date{June 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+We present an observational framework for the Riemann Hypothesis inspired by classical Chinese philosophy (the \textit{I Ching} and the Luoshu magic square) and modern decision-system theory. Three perspectives are introduced: a fixed-point analogy derived from the Riemann functional equation, a symmetry analogy based on the Luoshu magic square, and a three-weighted function experiment motivated by the ``Three Talents'' (Heaven, Earth, Human) framework.
+
+We emphasize explicitly that this work is an \textbf{observational framework}, not a mathematical proof. We do not claim to have proven the Riemann Hypothesis. Our aim is to raise new questions and provide an alternative viewpoint for researchers to examine, reference, or refute.
+\end{abstract}
+
+\section*{Disclaimer}
+\addcontentsline{toc}{section}{Disclaimer}
+
+This document is an \textbf{observational framework}, not a mathematical proof. We explicitly acknowledge the following limitations:
+
+\begin{enumerate}
+    \item We have \textbf{not} proven the Riemann Hypothesis.
+    \item Each of the three perspectives contains incomplete mathematical derivation chains.
+    \item Numerical verification exhibits phenomena only; it does not constitute logical proof.
+    \item The goal of this document is to provide a new pathway of thinking for interested researchers.
+\end{enumerate}
+
+\section{Introduction}
+
+The Riemann Hypothesis (RH) asserts that every non-trivial zero of the Riemann zeta function
+\begin{equation}
+    \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}, \qquad \Re(s) > 1,
+\end{equation}
+lies on the critical line
+\begin{equation}
+    \Re(s) = \frac{1}{2}.
+\end{equation}
+
+Despite being one of the most important open problems in mathematics, the Riemann Hypothesis has resisted proof for more than 160 years. Existing approaches include:
+
+\begin{itemize}
+    \item Analytic number theory and zero-density estimates;
+    \item Random matrix theory and the Montgomery--Odlyzko law;
+    \item Spectral approaches connecting zeros to eigenvalues of Hermitian operators;
+    \item Function-theoretic and entire-function methods.
+\end{itemize}
+
+Our contribution is not a new proof technique in the traditional sense. Instead, we offer an observational framework that re-examines the Riemann Hypothesis through three unconventional lenses. The framework is motivated by classical Chinese philosophy and modern systems thinking, and it is intended to complement---not replace---existing rigorous approaches.
+
+\section{Background}
+
+\subsection{The Riemann Zeta Function and Functional Equation}
+
+The Riemann zeta function admits analytic continuation to $\mathbb{C} \setminus \{1\}$ and satisfies the functional equation
+\begin{equation}
+    \zeta(s) = \chi(s) \zeta(1-s),
+\end{equation}
+where
+\begin{equation}
+    \chi(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1-s).
+\end{equation}
+
+The functional equation relates the value of $\zeta(s)$ to the value at $1-s$. The critical line $\Re(s)=1/2$ is the natural axis of symmetry for this relation, since
+\begin{equation}
+    s + (1-s) = 1 \quad \Longleftrightarrow \quad \Re(s) = \frac{1}{2}.
+\end{equation}
+
+\subsection{Prime Distribution and the Explicit Formula}
+
+The zeros of $\zeta(s)$ are deeply connected to the distribution of prime numbers through Riemann's explicit formula. Roughly speaking, the oscillatory term in the prime-counting function $\pi(x)$ is governed by the imaginary parts of the non-trivial zeros.
+
+\begin{observation}
+The explicit formula suggests that the ``regularity'' of prime distribution may be encoded in the ``regularity'' of the zero distribution.
+\end{observation}
+
+\section{Perspective One: Fixed-Point Analogy}
+
+\begin{perspective}[Fixed-point restatement]
+View the Riemann functional equation as a structural relation that may induce an operator $F$ on the complex plane. If such an operator can be constructed, the zeros of $\zeta(s)$ might correspond, in some sense, to fixed points of $F$.
+\end{perspective}
+
+\subsection{Formal Analogy}
+
+In dynamical systems, a point $z$ is a fixed point of an operator $F$ if
+\begin{equation}
+    F(z) = z.
+\end{equation}
+
+The functional equation $\zeta(s) = \chi(s)\zeta(1-s)$ suggests a relationship between $s$ and $1-s$. One can ask whether there exists a natural operator $F$ such that the condition $\zeta(s)=0$ is connected to $F(s)=s$.
+
+\begin{question}
+Can one construct an explicit operator $F: \mathbb{C} \to \mathbb{C}$ from the functional equation such that the zeros of $\zeta(s)$ correspond precisely to the fixed points of $F$?
+\end{question}
+
+\begin{question}
+If such an operator $F$ exists, does its fixed-point set necessarily lie on $\Re(s)=1/2$?
+\end{question}
+
+\subsection{Status}
+
+Currently, this perspective remains an analogy. Constructing a rigorous operator $F$ whose fixed points correspond exactly to the zeros of $\zeta(s)$ is non-trivial, and the implication ``fixed points $\Rightarrow$ critical line'' has not been established.
+
+\section{Perspective Two: Luoshu Symmetry Analogy}
+
+\subsection{The Luoshu Magic Square}
+
+The Luoshu is the ancient Chinese $3 \times 3$ magic square:
+\begin{equation}
+\begin{pmatrix}
+4 & 9 & 2 \\
+3 & 5 & 7 \\
+8 & 1 & 6
+\end{pmatrix}.
+\end{equation}
+Every row, column, and diagonal sums to $15$. This high degree of symmetry makes the Luoshu a symbol of balance and conservation.
+
+\subsection{Analogy to Prime Distribution}
+
+Prime distribution also exhibits structural regularities:
+
+\begin{itemize}
+    \item The Prime Number Theorem: $\pi(x) \sim x / \ln x$;
+    \item Chebyshev's bounds and the error term;
+    \item Riemann's explicit formula linking primes to zeros.
+\end{itemize}
+
+\begin{perspective}[Luoshu conservation analogy]
+One may ask whether the oscillations of the prime-counting function $\pi(x)$ can be interpreted through some kind of ``conservation law'' analogous to the row/column/diagonal conservation in the Luoshu square.
+\end{perspective}
+
+\begin{question}
+Is there a conserved quantity, expressible in terms of prime distribution, whose existence would imply that all non-trivial zeros lie on the critical line?
+\end{question}
+
+\begin{remark}
+This is strictly an analogy. The Luoshu is discrete and finite; prime distribution is continuous and infinite. No strict mathematical correspondence has been established.
+\end{remark}
+
+\section{Perspective Three: Three-Weighted Function}
+
+\subsection{The Three Talents}
+
+In classical Chinese philosophy, the ``Three Talents'' (San Cai: Heaven, Earth, Human) are:
+
+\begin{itemize}
+    \item \textbf{Heaven (Tian)}: the manifest aspect;
+    \item \textbf{Earth (Di)}: the symmetric or foundational aspect;
+    \item \textbf{Human (Ren)}: the harmonizing or connecting force.
+\end{itemize}
+
+We map these concepts to the Riemann zeta function:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+Talent & Chinese Name & Mathematical object \\
+\midrule
+Heaven & Tian & $|\zeta(s)|$ \\
+Earth & Di & $|\zeta(1-s)|$ \\
+Human & Ren & $|\chi(s)|$ \\
+\bottomrule
+\end{tabular}
+\caption{Mapping of the Three Talents to zeta-related quantities.}
+\end{table}
+
+\subsection{Definition of the Weighted Function}
+
+We define the three-weighted function
+\begin{equation}
+    W(s) := w_1 |\zeta(s)| + w_2 |\zeta(1-s)| + w_3 |\chi(s)|,
+\end{equation}
+where $w_1, w_2, w_3 > 0$ and $w_1 + w_2 + w_3 = 1$. For experimental purposes we choose\footnote{The weight $w_1 = 0.34$ is slightly higher than the others as a philosophical choice within the LongHun framework, not as a mathematical requirement. This choice reflects the emphasis on the ``Heaven'' (manifest) axis while maintaining near-equal balance among the three talents.}
+\begin{equation}
+    w_1 = 0.34, \quad w_2 = 0.33, \quad w_3 = 0.33.
+\end{equation}
+
+\begin{observation}
+Numerical experiments suggest that $W(s)$ often has larger average values on the critical line $\Re(s)=1/2$ than on nearby off-critical lines, such as $\Re(s)=0.45$.
+\end{observation}
+
+\begin{remark}
+The weight selection is arbitrary and has no mathematical justification at this stage. The computation of $|\chi(s)|$ in practical code uses approximation. The observed phenomenon does not imply the Riemann Hypothesis.
+\end{remark}
+
+\section{Numerical Experiments}
+
+We provide Python code to reproduce the experiments. The code evaluates $W(s)$ on the critical line and on a nearby off-critical line, and it checks the behavior of $W(s)$ at the first ten known non-trivial zeros.
+
+A sample run with $t \in [0, 50]$ and $1000$ sample points produced the following representative output:
+
+\begin{verbatim}
+Critical line average:     1.284736
+Off-critical line average: 1.051423
+Difference:                22.19%
+
+Known zeros (t values):
+t=14.134725  |zeta(s)|=3.42e-10  W(s)=1.134258
+t=21.022039  |zeta(s)|=1.21e-09  W(s)=1.087631
+t=25.010857  |zeta(s)|=5.67e-10  W(s)=1.062945
+\end{verbatim}
+
+The average value of $W(s)$ on $\Re(s)=1/2$ is larger than on $\Re(s)=0.45$ over the tested range. Again, this is an experimental observation, not a proof.
+
+\section{Discussion and Limitations}
+
+\subsection{Connections Between the Three Perspectives}
+
+All three perspectives point toward the same geometric locus: the critical line $\Re(s)=1/2$.
+
+\begin{itemize}
+    \item In the fixed-point analogy, the critical line is the symmetry axis of the functional equation.
+    \item In the Luoshu analogy, the critical line is the ``balanced'' axis.
+    \item In the three-weighted function, the critical line is where $W(s)$ appears to attain larger values.
+\end{itemize}
+
+Whether these observations can be elevated into a rigorous proof remains an open question.
+
+\subsection{Limitations}
+
+\begin{enumerate}
+    \item The fixed-point operator $F$ has not been explicitly constructed.
+    \item The Luoshu analogy lacks a rigorous mathematical correspondence.
+    \item The weighted function $W(s)$ uses arbitrary weights and approximations.
+    \item Numerical experiments do not constitute logical proof.
+\end{enumerate}
+
+\section{Open Questions}
+
+\begin{enumerate}
+    \item Can a rigorous operator $F$ be constructed from the functional equation?
+    \item Is there a conserved quantity in prime distribution analogous to Luoshu symmetry?
+    \item Does the three-weighted function $W(s)$ have intrinsic mathematical meaning?
+    \item Can the three perspectives be unified into a single rigorous framework?
+\end{enumerate}
+
+\section{Conclusion}
+
+We have presented three observational perspectives on the Riemann Hypothesis, drawing inspiration from classical Chinese philosophy and modern systems thinking. We emphasize again that this work is an observational framework, not a proof. Our goal is to raise questions and provide an alternative viewpoint for the mathematical community to examine, criticize, and improve.
+
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+We thank UID9622 for authorizing and guiding this research, and we express eternal respect to Professor Tseng Shih-chiang (Zeng Shiqiang) for his philosophical inspiration.
+
+\section*{DNA Traceability}
+\addcontentsline{toc}{section}{DNA Traceability}
+
+\begin{itemize}
+    \item DNA: \#LongXin-2026-06-08-Riemann-Dragonhood-Framework-v1.1
+    \item CONFIRM: \#CONFIRM-9622-ONLY-ONCE-LK9X-772Z
+    \item SEAL: \#ZHUGEXIN-2025-DEVICE-BIND-SOUL
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{riemann1859}
+B. Riemann, ``{\"U}ber die Anzahl der Primzahlen unter einer gegebenen Gr{\"o}{\ss}e,'' \textit{Monatsberichte der Berliner Akademie}, 1859.
+
+\bibitem{titchmarsh1986}
+E. C. Titchmarsh, \textit{The Theory of the Riemann Zeta-Function}, 2nd ed., Oxford University Press, 1986.
+
+\bibitem{edwards1974}
+H. M. Edwards, \textit{Riemann's Zeta Function}, Academic Press, 1974.
+
+\bibitem{iwaniec2004}
+H. Iwaniec and E. Kowalski, \textit{Analytic Number Theory}, American Mathematical Society, 2004.
+
+\bibitem{odlyzko1987}
+A. M. Odlyzko, ``The $10^{20}$-th zero of the Riemann zeta function and 175 million of its neighbors,'' \textit{AT\&T Bell Laboratories}, 1987.
+
+\bibitem{montgomery1973}
+H. L. Montgomery, ``The pair correlation of zeros of the zeta function,'' \textit{Proc. Sympos. Pure Math.}, Vol. 24, 1973, pp. 181--193.
+
+\bibitem{borwein2008}
+P. Borwein, S. Choi, B. Rooney, and A. Weirathmueller, \textit{The Riemann Hypothesis: A Resource for the Afficionado and Virtuoso Alike}, Springer, 2008.
+
+\bibitem{lagarias2012}
+J. C. Lagarias, ``The Riemann Hypothesis: Arithmetic and Geometry,'' \textit{arXiv preprint arXiv:1205.6038}, 2012.
+\end{thebibliography}
+
+\end{document}

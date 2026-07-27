@@ -1,0 +1,820 @@
+{
+  "report_id": "HIA-E47CB01D2EDD",
+  "timestamp": "2026-07-24T08:35:39.480942+00:00",
+  "dna": "#龍芯⚡️丙午·癸未·甲子·既济-HUNTER-INTERNAL-AUDIT-HIA-E47C",
+  "overall_score": 0.896,
+  "overall_status": "🟡 存在待修复项",
+  "hash_chain": "4f0cb5768054c97d",
+  "components": [
+    {
+      "component": "鲲鹏API",
+      "score": 0.8302,
+      "status": "🟡 待修复",
+      "green": 10,
+      "yellow": 43,
+      "red": 0,
+      "items": [
+        {
+          "check": "输入验证 (insert_nginx.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "insert_nginx.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (insert_nginx.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "insert_nginx.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (insert_nginx.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "insert_nginx.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (fix_nginx.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "fix_nginx.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (fix_nginx.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "fix_nginx.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (fix_nginx.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "fix_nginx.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (huawei_cloud_setup.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "huawei_cloud_setup.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (huawei_cloud_setup.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "huawei_cloud_setup.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (huawei_cloud_setup.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "huawei_cloud_setup.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (huawei_open_frp_port.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "huawei_open_frp_port.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (huawei_open_frp_port.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "huawei_open_frp_port.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (huawei_open_frp_port.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "huawei_open_frp_port.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (registry_server.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "registry_server.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (registry_server.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "registry_server.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (registry_server.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "registry_server.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (privacy_api.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "privacy_api.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (privacy_api.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "privacy_api.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (privacy_api.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "privacy_api.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (longhun_privacy.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "longhun_privacy.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (longhun_privacy.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "longhun_privacy.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (longhun_privacy.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "longhun_privacy.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (evidence_api.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "evidence_api.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (evidence_api.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "evidence_api.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (longhun_evidence.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "longhun_evidence.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (longhun_evidence.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "longhun_evidence.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (DragonSoul_Guardian_v2.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "DragonSoul_Guardian_v2.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (DragonSoul_Guardian_v2.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "DragonSoul_Guardian_v2.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (DragonSoul_Guardian_v2.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "DragonSoul_Guardian_v2.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (lh_dashboard_api.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "lh_dashboard_api.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (lh_dashboard_api.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "lh_dashboard_api.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (longhun_dna_server.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "longhun_dna_server.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (longhun_dna_server.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "longhun_dna_server.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (node_heartbeat.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "node_heartbeat.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (node_heartbeat.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "node_heartbeat.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (node_heartbeat.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "node_heartbeat.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (node_audit.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "node_audit.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (node_audit.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "node_audit.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (node_audit.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "node_audit.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (longhun-api-gateway.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "longhun-api-gateway.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (longhun-api-gateway.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "longhun-api-gateway.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (longhun-peer-client.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "longhun-peer-client.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (longhun-peer-client.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "longhun-peer-client.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (demo_staging_deployment.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "demo_staging_deployment.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (demo_staging_deployment.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "demo_staging_deployment.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (demo_staging_deployment.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "demo_staging_deployment.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (production_deployment.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "production_deployment.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (production_deployment.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "TLS/SSL配置存在",
+          "evidence": "production_deployment.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (production_deployment.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "production_deployment.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (lh_agent_kunpeng.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "lh_agent_kunpeng.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (lh_agent_kunpeng.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟡",
+          "severity": 0.5,
+          "detail": "建议添加角色权限控制",
+          "evidence": "lh_agent_kunpeng.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        },
+        {
+          "check": "输入验证 (lh_persona_runner.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.4,
+          "detail": "未发现显式输入验证",
+          "evidence": "lh_persona_runner.py",
+          "recommendation": "添加输入验证层，防止注入攻击",
+          "fixed": false
+        },
+        {
+          "check": "传输加密 (lh_persona_runner.py)",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "检查TLS配置",
+          "evidence": "lh_persona_runner.py",
+          "recommendation": "所有公网API强制HTTPS",
+          "fixed": false
+        },
+        {
+          "check": "权限控制 (lh_persona_runner.py)",
+          "dimension": "zero_blackbox",
+          "result": "🟢",
+          "severity": 0.5,
+          "detail": "RBAC机制存在",
+          "evidence": "lh_persona_runner.py",
+          "recommendation": "实现细粒度角色权限",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "component": "CNSH编译器",
+      "score": 0.725,
+      "status": "🟡 待修复",
+      "green": 1,
+      "yellow": 4,
+      "red": 0,
+      "items": [
+        {
+          "check": "沙箱风险: 文件删除操作",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.8,
+          "detail": "在 lh_memory_pack_v3.py 发现 2 处 文件删除操作",
+          "evidence": "lh_memory_pack_v3.py:shutil.rmtree",
+          "recommendation": "确保编译器沙箱拦截此类操作",
+          "fixed": false
+        },
+        {
+          "check": "沙箱风险: 子进程调用",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.7,
+          "detail": "在 lh_instruction_executor.py 发现 1 处 子进程调用",
+          "evidence": "lh_instruction_executor.py:os.system",
+          "recommendation": "确保编译器沙箱拦截此类操作",
+          "fixed": false
+        },
+        {
+          "check": "沙箱风险: 动态代码执行",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.95,
+          "detail": "在 lh_instruction_executor.py 发现 4 处 动态代码执行",
+          "evidence": "lh_instruction_executor.py:exec",
+          "recommendation": "确保编译器沙箱拦截此类操作",
+          "fixed": false
+        },
+        {
+          "check": "沙箱风险: 无限循环风险",
+          "dimension": "data_sovereignty",
+          "result": "🟡",
+          "severity": 0.3,
+          "detail": "在 lh_neural_agent_bridge.py 发现 1 处 无限循环风险",
+          "evidence": "lh_neural_agent_bridge.py:while True",
+          "recommendation": "确保编译器沙箱拦截此类操作",
+          "fixed": false
+        },
+        {
+          "check": "资源限制",
+          "dimension": "zero_blackbox",
+          "result": "🟢",
+          "severity": 0.1,
+          "detail": "编译器应在受限Python环境中运行（resource.setrlimit）",
+          "evidence": "建议添加 resource.setrlimit(RLIMIT_CPU, 30)",
+          "recommendation": "添加CPU/内存硬限制",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "component": "21人格接口",
+      "score": 1.0,
+      "status": "🟢 全绿通关",
+      "green": 4,
+      "yellow": 0,
+      "red": 0,
+      "items": [
+        {
+          "check": "人格切换安全",
+          "dimension": "behavioral_audit",
+          "result": "🟢",
+          "severity": 0.2,
+          "detail": "存在切换锁机制",
+          "evidence": "人格互斥锁",
+          "recommendation": "确保同一时间只有一个活跃人格",
+          "fixed": false
+        },
+        {
+          "check": "记忆隔离",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.5,
+          "detail": "人格记忆隔离机制存在",
+          "evidence": "人格数据命名空间隔离",
+          "recommendation": "确保人格间不共享私密记忆",
+          "fixed": false
+        },
+        {
+          "check": "权限边界",
+          "dimension": "zero_blackbox",
+          "result": "🟢",
+          "severity": 0.6,
+          "detail": "五级权限系统存在",
+          "evidence": "L0-L3 熔断分级 + R1-R5 角色分级",
+          "recommendation": "维持五级权限+四级熔断体系",
+          "fixed": false
+        },
+        {
+          "check": "审计追踪",
+          "dimension": "behavioral_audit",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "审计日志机制存在",
+          "evidence": "P05 上帝之眼审计 + 三色审计",
+          "recommendation": "保持每个动作都有审计记录",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "component": "DNA生成器",
+      "score": 1.0,
+      "status": "🟢 全绿通关",
+      "green": 5,
+      "yellow": 0,
+      "red": 0,
+      "items": [
+        {
+          "check": "哈希算法强度",
+          "dimension": "traceability",
+          "result": "🟢",
+          "severity": 0.8,
+          "detail": "使用SHA-256",
+          "evidence": "SHA-256 哈希",
+          "recommendation": "维持SHA-256/SM3最低标准",
+          "fixed": false
+        },
+        {
+          "check": "碰撞抵抗",
+          "dimension": "traceability",
+          "result": "🟢",
+          "severity": 0.2,
+          "detail": "DNA格式含干支四柱+卦+哈希8位+时间戳，碰撞概率极低",
+          "evidence": "v∞干支卦格式: #龍芯⚡️{干支四柱}·{卦}-{模块}-{动作}-{哈希8}",
+          "recommendation": "如需额外安全，可增加哈希长度至16位",
+          "fixed": false
+        },
+        {
+          "check": "伪造检测",
+          "dimension": "behavioral_audit",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "DNA捆绑防御引擎 v2.0 已实现12/12检测",
+          "evidence": "lh_dna_bind_defender.py",
+          "recommendation": "维持DNA捆绑防御体系",
+          "fixed": false
+        },
+        {
+          "check": "时间戳可信度",
+          "dimension": "traceability",
+          "result": "🟢",
+          "severity": 0.2,
+          "detail": "DNA含干支四柱（年月日时），篡改后与干支不匹配即暴露",
+          "evidence": "干支四柱逆向验证",
+          "recommendation": "无需额外措施",
+          "fixed": false
+        },
+        {
+          "check": "熵源质量",
+          "dimension": "zero_blackbox",
+          "result": "🟢",
+          "severity": 0.2,
+          "detail": "使用 secrets.token_hex(4) + 时间戳纳秒",
+          "evidence": "Python secrets 模块（系统熵源）",
+          "recommendation": "维持 secrets 模块，避免 random 模块",
+          "fixed": false
+        }
+      ]
+    },
+    {
+      "component": "审计日志",
+      "score": 0.925,
+      "status": "🟡 待修复",
+      "green": 3,
+      "yellow": 1,
+      "red": 0,
+      "items": [
+        {
+          "check": "不可篡改性",
+          "dimension": "data_sovereignty",
+          "result": "🟢",
+          "severity": 0.9,
+          "detail": "SQLite触发器防删除/防修改 + append-only",
+          "evidence": "BEFORE DELETE/UPDATE TRIGGER ABORT",
+          "recommendation": "维持append-only + 触发器防护",
+          "fixed": false
+        },
+        {
+          "check": "完整性校验",
+          "dimension": "behavioral_audit",
+          "result": "🟡",
+          "severity": 0.6,
+          "detail": "建议添加哈希链",
+          "evidence": "hash_chain 追溯 + SHA-256 链式验证",
+          "recommendation": "每条记录哈希链接上一条",
+          "fixed": false
+        },
+        {
+          "check": "追溯链完整性",
+          "dimension": "traceability",
+          "result": "🟢",
+          "severity": 0.3,
+          "detail": "每条审计记录含: id, ts, event_type, source, target, dna_code, gpg_sig",
+          "evidence": "13字段STRICT表 + GPG签名",
+          "recommendation": "维持当前追溯粒度",
+          "fixed": false
+        },
+        {
+          "check": "GPG签名覆盖",
+          "dimension": "traceability",
+          "result": "🟢",
+          "severity": 0.2,
+          "detail": "关键记录自动GPG签名",
+          "evidence": "gpg_sign() 函数 + A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+          "recommendation": "维持GPG签名",
+          "fixed": false
+        }
+      ]
+    }
+  ],
+  "recommendations": [
+    "[鲲鹏API] 输入验证 (insert_nginx.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (insert_nginx.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (insert_nginx.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (fix_nginx.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (fix_nginx.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (fix_nginx.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (huawei_cloud_setup.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (huawei_cloud_setup.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (huawei_open_frp_port.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (huawei_open_frp_port.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (registry_server.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (registry_server.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (privacy_api.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (privacy_api.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (longhun_privacy.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (longhun_privacy.py): 实现细粒度角色权限",
+    "[鲲鹏API] 权限控制 (evidence_api.py): 实现细粒度角色权限",
+    "[鲲鹏API] 权限控制 (longhun_evidence.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (DragonSoul_Guardian_v2.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (DragonSoul_Guardian_v2.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (DragonSoul_Guardian_v2.py): 实现细粒度角色权限",
+    "[鲲鹏API] 传输加密 (lh_dashboard_api.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (lh_dashboard_api.py): 实现细粒度角色权限",
+    "[鲲鹏API] 传输加密 (longhun_dna_server.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (longhun_dna_server.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (node_heartbeat.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (node_heartbeat.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (node_heartbeat.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (node_audit.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (node_audit.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (node_audit.py): 实现细粒度角色权限",
+    "[鲲鹏API] 传输加密 (longhun-api-gateway.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (longhun-api-gateway.py): 实现细粒度角色权限",
+    "[鲲鹏API] 传输加密 (longhun-peer-client.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (longhun-peer-client.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (demo_staging_deployment.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (demo_staging_deployment.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (production_deployment.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 权限控制 (production_deployment.py): 实现细粒度角色权限",
+    "[鲲鹏API] 传输加密 (lh_agent_kunpeng.py): 所有公网API强制HTTPS",
+    "[鲲鹏API] 权限控制 (lh_agent_kunpeng.py): 实现细粒度角色权限",
+    "[鲲鹏API] 输入验证 (lh_persona_runner.py): 添加输入验证层，防止注入攻击",
+    "[鲲鹏API] 传输加密 (lh_persona_runner.py): 所有公网API强制HTTPS",
+    "[CNSH编译器] 沙箱风险: 文件删除操作: 确保编译器沙箱拦截此类操作",
+    "[CNSH编译器] 沙箱风险: 子进程调用: 确保编译器沙箱拦截此类操作",
+    "[CNSH编译器] 沙箱风险: 动态代码执行: 确保编译器沙箱拦截此类操作",
+    "[CNSH编译器] 沙箱风险: 无限循环风险: 确保编译器沙箱拦截此类操作",
+    "[审计日志] 完整性校验: 每条记录哈希链接上一条"
+  ]
+}

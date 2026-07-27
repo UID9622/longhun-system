@@ -27,7 +27,7 @@ bash install.sh
 
 安装方式：把 `.vsix` 文件拖进 CodeBuddy 侧边栏扩展视图，或按 `Cmd+Shift+P` →「从 VSIX 安装」。
 
-> ⚠️ 仅本地分发，不上传到任何扩展市场。
+> ⚠️ 仅本地分发，不上传到任何扩展市场。\n> 📥 在线下载: https://uid9622.cn/tools/cnsh-syntax-2.0.0.vsix\n> 安装方式：下载 `.vsix` → CodeBuddy 侧边栏扩展视图 → 拖入安装，或 `Cmd+Shift+P` →「从 VSIX 安装」
 
 ## 六个 MVP
 

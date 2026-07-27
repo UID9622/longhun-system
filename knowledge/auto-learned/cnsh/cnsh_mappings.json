@@ -1,0 +1,42 @@
+[
+  {
+    "mapping_id": "18bcabba",
+    "item_id": "35549dcf",
+    "original_concept": "协作",
+    "cnsh_syntax": "则 团队 用 协作模式 执行 任务",
+    "category": "template",
+    "dna": "#龍芯⚡️2026-07-25-cnsh-协作-99b7c560"
+  },
+  {
+    "mapping_id": "b71c5c57",
+    "item_id": "85bb06f9",
+    "original_concept": "底座",
+    "cnsh_syntax": "则 引擎 用 千问 训练 底座",
+    "category": "model",
+    "dna": "#龍芯⚡️2026-07-25-cnsh-底座-502f1a4c"
+  },
+  {
+    "mapping_id": "44f786c6",
+    "item_id": "7fa217a8",
+    "original_concept": "编排",
+    "cnsh_syntax": "则 系统 用 工作流 编排 任务",
+    "category": "template",
+    "dna": "#龍芯⚡️2026-07-25-cnsh-编排-b589936a"
+  },
+  {
+    "mapping_id": "eddaa959",
+    "item_id": "cd364d23",
+    "original_concept": "底座",
+    "cnsh_syntax": "则 引擎 用 智谱 推理 对话",
+    "category": "model",
+    "dna": "#龍芯⚡️2026-07-25-cnsh-底座-b1bbc0ec"
+  },
+  {
+    "mapping_id": "e552b45b",
+    "item_id": "b2d3e58b",
+    "original_concept": "底线",
+    "cnsh_syntax": "则 系统 遵守 AI伦理 底线",
+    "category": "protocol",
+    "dna": "#龍芯⚡️2026-07-25-cnsh-底线-63d9925b"
+  }
+]
