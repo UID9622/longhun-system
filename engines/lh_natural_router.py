@@ -329,14 +329,27 @@ def _extract_actions(routing: Dict[str, List[Dict]]) -> List[Dict]:
     return actions
 
 
+def _is_under_project(path: Path) -> bool:
+    """判断路径是否位于项目根目录下。"""
+    try:
+        path.resolve().relative_to(PROJECT_ROOT)
+        return True
+    except Exception:
+        return False
+
+
 def _resolve_cmd(engine_id: str, routing: Dict[str, List[Dict]]) -> Tuple[Optional[List[str]], Optional[str]]:
     """
     根据引擎ID解析要执行的命令。
     返回 (cmd_list, data_lookup_path):
       - cmd_list: 可执行命令（如果是脚本）
       - data_lookup_path: 数据文件路径（如果是 .json/.md，需要查数据而非执行）
+
+    安全约束：
+      - target_bin 必须位于项目根目录下的 bin/ 或 engines/ 中
+      - 拒绝绝对路径、~ 展开、.. 跳转、非 .py 可执行文件
     """
-    # 优先查扩展引擎表
+    # 优先查扩展引擎表（已限定在项目目录内）
     if engine_id in EXTRA_ENGINES:
         return list(EXTRA_ENGINES[engine_id]["cmd"]), None
 
@@ -346,20 +359,44 @@ def _resolve_cmd(engine_id: str, routing: Dict[str, List[Dict]]) -> Tuple[Option
         if fallback_id in EXTRA_ENGINES:
             return list(EXTRA_ENGINES[fallback_id]["cmd"]), None
 
+    allowed_dirs = (PROJECT_ROOT / "bin", PROJECT_ROOT / "engines")
+
     # 否则从 L4 drawer 的 target_bin 找
     for d in routing.get("L4", []):
         target = d.get("target_bin", "")
-        if Path(target).stem == engine_id:
-            target_path = Path(target).expanduser()
-            if not target_path.is_absolute():
-                target_path = PROJECT_ROOT / target
-            if not target_path.exists():
+        if not target or Path(target).stem != engine_id:
+            continue
+
+        # 拒绝明显危险的路径特征
+        if target.startswith("/") or target.startswith("~") or ".." in target:
+            return None, None
+
+        target_path = Path(target).expanduser()
+        if not target_path.is_absolute():
+            target_path = PROJECT_ROOT / target_path
+        target_path = target_path.resolve()
+
+        if not target_path.exists():
+            return None, None
+
+        if target_path.suffix == ".py":
+            # 可执行脚本必须位于 bin/ 或 engines/ 下
+            try:
+                in_allowed = any(target_path.relative_to(ad) for ad in allowed_dirs)
+            except Exception:
+                in_allowed = False
+            if not in_allowed:
                 return None, None
-            if target_path.suffix in (".json", ".md", ".txt", ".jsonl"):
-                return None, str(target_path)
-            if target_path.suffix == ".py":
-                return [PYTHON_CMD, str(target_path)], None
-            return [str(target_path)], None
+            return [PYTHON_CMD, str(target_path)], None
+
+        if target_path.suffix in (".json", ".md", ".txt", ".jsonl"):
+            # 数据文件只需位于项目目录内
+            if not _is_under_project(target_path):
+                return None, None
+            return None, str(target_path)
+
+        # 拒绝其他类型文件
+        return None, None
     return None, None
 
 
@@ -367,7 +404,15 @@ def _lookup_data(engine_id: str, data_path: str, query: str) -> Dict[str, Any]:
     """对数据文件（json/md）做查询，而不是执行脚本"""
     start = datetime.now(CST)
     try:
-        path = Path(data_path)
+        path = Path(data_path).resolve()
+        if not _is_under_project(path):
+            return {
+                "engine_id": engine_id,
+                "name": f"数据查询·{path.name}",
+                "status": "error",
+                "elapsed": 0,
+                "output": "(数据文件必须位于项目目录内)",
+            }
         content = path.read_text(encoding="utf-8", errors="ignore")
         query_lower = query.lower()
 
@@ -432,12 +477,22 @@ def _lookup_data(engine_id: str, data_path: str, query: str) -> Dict[str, Any]:
         }
 
 
+# 已知需要取值的标志；这些标志后面的查询直接作为参数值，不会被 argparse 误解析为选项
+_FLAG_VALUE_OPTIONS = {"--inspect", "--content", "--text"}
+
+
 def _execute_engine(engine_id: str, cmd: List[str], query: str) -> Dict[str, Any]:
-    """执行单个引擎，捕获输出"""
+    """执行单个引擎，捕获输出。用户查询前加 -- 分隔符，防止 argparse 选项注入。"""
     start = datetime.now(CST)
     try:
-        # 把自然语言查询作为最后一个参数传给引擎
-        full_cmd = cmd + [query]
+        # 把自然语言查询安全地传给引擎：
+        # - 若命令最后一个是需要取值的 flag，则查询作为该 flag 的值；
+        # - 否则在用户查询前插入 --，将后续参数全部视为位置参数。
+        full_cmd = list(cmd)
+        if full_cmd and full_cmd[-1] in _FLAG_VALUE_OPTIONS:
+            full_cmd.append(query)
+        else:
+            full_cmd.extend(["--", query])
         proc = subprocess.run(
             full_cmd,
             capture_output=True,

@@ -38,7 +38,7 @@ HEXAGRAM = "火雷噬嗑"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BIN_DIR = PROJECT_ROOT / "bin"
 
-JUDGE_API = "http://119.13.90.27/api/judge"
+JUDGE_API = "https://uid9622.cn/api/judge"
 
 DEFAULT_PIPELINE = ["safeai", "kfpp", "csdn", "judge"]
 
@@ -227,16 +227,27 @@ class SequenceExecutor:
         )
         try:
             with urllib.request.urlopen(req, timeout=120) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
+                raw = resp.read().decode("utf-8")
+                if resp.status != 200:
+                    return StageResult(
+                        "judge", "error", "N/A", 0,
+                        f"公正总裁返回非 200 状态码: {resp.status}"
+                    )
         except Exception as e:
             return StageResult("judge", "error", "N/A", 0, f"调用公正总裁失败: {e}")
-        output = data.get("output", "")
-        # 尝试从输出提取裁决级别
-        level = "PASS"
-        for lv in ["L4", "L3", "L2", "L1", "PASS"]:
-            if lv in output:
-                level = lv
-                break
+
+        # 优先按结构化 JSON 解析；失败则按字符串包含兜底
+        data = self._extract_json(raw) or {}
+        if not isinstance(data, dict):
+            data = {}
+        level = data.get("level")
+        output = data.get("output", raw)
+        if not level or not isinstance(level, str):
+            level = "PASS"
+            for lv in ["L4", "L3", "L2", "L1", "PASS"]:
+                if lv in output:
+                    level = lv
+                    break
         status = "block" if level == "L4" else ("warn" if level in ("L1", "L2", "L3") else "ok")
         return StageResult(
             stage="judge",
@@ -244,7 +255,7 @@ class SequenceExecutor:
             level=level,
             score=self._level_to_score(level),
             summary=output[:200],
-            details={"dna": data.get("dna", "")},
+            details={"dna": data.get("dna", ""), "raw_preview": raw[:500]},
         )
 
     def _stage_shell(self, text: str, script: str, name: str) -> StageResult:
@@ -267,14 +278,21 @@ class SequenceExecutor:
 
     @staticmethod
     def _extract_json(text: str) -> Optional[Dict[str, Any]]:
-        """从 stdout 中提取第一个 JSON 对象"""
-        import re
-        match = re.search(r"\{.*\}", text, re.DOTALL)
-        if match:
-            try:
-                return json.loads(match.group(0))
-            except Exception:
-                pass
+        """从 stdout 中提取第一个合法 JSON 对象（支持嵌套括号，避免贪婪匹配越界）。"""
+        for match in re.finditer(r"\{", text):
+            start = match.start()
+            depth = 0
+            for i in range(start, len(text)):
+                ch = text[i]
+                if ch == "{":
+                    depth += 1
+                elif ch == "}":
+                    depth -= 1
+                    if depth == 0:
+                        try:
+                            return json.loads(text[start:i + 1])
+                        except Exception:
+                            break
         return None
 
     @staticmethod

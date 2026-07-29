@@ -14,7 +14,7 @@ lh — 龍魂统一交互控制台
     lh --dashboard      # 直接显示人格仪表盘
 """
 
-import os, sys, time
+import json, os, sys, time, shlex, subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,15 +42,15 @@ MODULES = {
         "desc": "五色审计、防篡改、一票否决、熔断申诉",
         "items": [
             {"id": "1", "label": "全系统安全巡检", "cmd": "python3 bin/lh_full_system_audit.py", "desc": "一键触发全系统安全扫描"},
-            {"id": "2", "label": "三色代码审计", "cmd": "echo '输入要审计的文件路径:' && read fp && python3 -c \"from bin.code_audit import scan; scan('\\$fp')\"", "desc": "审计单个代码文件安全"},
-            {"id": "3", "label": "防篡改扫描", "cmd": "echo '输入文本:' && read txt && python3 bin/lh_anti_tamper.py scan \"\\$txt\"", "desc": "外部AI内容熔断检查"},
+            {"id": "2", "label": "三色代码审计", "cmd": "python3 bin/lh_code_audit_cli.py", "desc": "审计单个代码文件安全（交互式输入路径）"},
+            {"id": "3", "label": "防篡改扫描", "cmd": "python3 bin/lh_anti_tamper.py scan", "desc": "外部AI内容熔断检查（交互式输入文本）"},
             {"id": "4", "label": "一票否决查询", "cmd": "python3 bin/lh_fuse_response.py --list", "desc": "查看所有熔断规则"},
             {"id": "5", "label": "熔断申诉", "cmd": "python3 bin/lh_fuse_appeal.py --interactive", "desc": "对熔断判定提出申诉"},
             {"id": "6", "label": "算法审计", "cmd": "python3 bin/lh_algorithm_audit.py", "desc": "审计算法公平性和偏差"},
             {"id": "7", "label": "双重审计引擎", "cmd": "python3 bin/lh_dual_audit_engine.py", "desc": "并行审计提高覆盖"},
             {"id": "8", "label": "🛡️ 上下文安全引擎", "cmd": "python3 bin/lh_safeai.py --inspect \"什么是SQL注入？怎么防范？\"", "desc": "意图分类+七因子审计+P0-P4分层熔断（safe-ai v1.0）"},
             {"id": "9", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
-            {"id": "10", "label": "🔄 序列执行引擎", "cmd": "echo '输入待审计文本:' && read txt && python3 bin/lh_seq.py --text \"\\$txt\"", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计"},
+            {"id": "10", "label": "🔄 序列执行引擎", "cmd": "python3 bin/lh_seq.py", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计（交互式输入文本）"},
         ]
     },
     "🧠 人格 & AI": {
@@ -68,7 +68,7 @@ MODULES = {
     "🧬 DNA & 追溯": {
         "desc": "DNA生成、验证、注册、创新溯源",
         "items": [
-            {"id": "1", "label": "生成DNA追溯码", "cmd": "echo '输入内容:' && read txt && python3 bin/hetu_luoshu_dna.py \"\\$txt\"", "desc": "为文本/代码/决策生成DNA"},
+            {"id": "1", "label": "生成DNA追溯码", "cmd": "python3 bin/hetu_luoshu_dna.py dr", "desc": "为文本/代码/决策生成DNA（交互式输入文本）"},
             {"id": "2", "label": "统一DNA登记", "cmd": "python3 bin/lh_unified_dna_registry.py --menu", "desc": "物理+虚拟资产统一登记"},
             {"id": "3", "label": "DNA审计验证", "cmd": "python3 bin/lh_unified_dna_audit.py", "desc": "验证DNA登记册完整性"},
             {"id": "4", "label": "创新溯源查询", "cmd": "python3 bin/lh_innovation_tracer.py --menu", "desc": "查谁先自研的某项技术"},
@@ -84,7 +84,7 @@ MODULES = {
             {"id": "3", "label": "机器人评分", "cmd": "python3 bin/lh_robot_score.py", "desc": "判断内容是否AI生成(RobotScore)"},
             {"id": "4", "label": "行为基准测试", "cmd": "python3 bin/lh_behavioral_benchmark.py", "desc": "校准机器人检测模型"},
             {"id": "5", "label": "行为加密验证", "cmd": "python3 bin/lh_behavioral_crypto_verifier.py", "desc": "加密验证行为数据完整性"},
-            {"id": "6", "label": "情绪海绵", "cmd": "echo '输入文本:' && read txt && python3 -c \"from bin.emotion_absorber import detect; print(detect('\\$txt'))\"", "desc": "情绪温度检测+降温"},
+            {"id": "6", "label": "情绪海绵", "cmd": "python3 bin/lh_emotion_cli.py", "desc": "情绪温度检测+降温（交互式输入文本）"},
             {"id": "7", "label": "水军引擎(v2)", "cmd": "python3 bin/lh_behavioral_water_army_engine.py", "desc": "高级水军团伙检测引擎"},
         ]
     },
@@ -188,7 +188,7 @@ ENGINE_CAPS = [
 
 def clear_screen():
     try:
-        os.system('clear' if os.name == 'posix' else 'cls')
+        subprocess.run(['clear'] if os.name == 'posix' else ['cls'], check=False)
     except Exception:
         print("\n" * 3)
 
@@ -326,6 +326,86 @@ def print_help():
 """)
     input(f"  ⏎ 按回车返回主菜单...")
 
+def _run_fixed_cmd(cmd: str):
+    """执行固定命令（无用户输入），全部走 subprocess.run(shell=False)。"""
+    # 特殊处理：cat file | python3 -m json.tool 这类固定管道
+    if cmd.startswith("cat ") and "| python3 -m json.tool" in cmd:
+        file_part = cmd[4:].split("|", 1)[0].strip()
+        try:
+            path = ROOT / file_part
+            data = json.loads(path.read_text(encoding="utf-8"))
+            print(json.dumps(data, ensure_ascii=False, indent=2))
+        except Exception as e:
+            print(f"  ⚠️ 读取或解析 JSON 失败: {e}", file=sys.stderr)
+        return
+
+    try:
+        args = shlex.split(cmd)
+    except Exception:
+        args = cmd.split()
+    if not args:
+        return
+    subprocess.run(args, cwd=str(ROOT), check=False)
+
+
+def _run_interactive_item(item: dict):
+    """执行需要交互式用户输入的菜单项，杜绝 shell 拼接。"""
+    label = item["label"]
+
+    if label == "三色代码审计":
+        fp = input("  输入要审计的文件路径: ").strip()
+        if not fp:
+            print("  ⏭️ 已跳过")
+            return
+        subprocess.run([
+            "python3", str(ROOT / "bin" / "lh_code_audit_cli.py"), "--path", fp
+        ], cwd=str(ROOT), check=False)
+        return
+
+    if label == "情绪海绵":
+        txt = input("  输入文本: ").strip()
+        if not txt:
+            print("  ⏭️ 已跳过")
+            return
+        subprocess.run([
+            "python3", str(ROOT / "bin" / "lh_emotion_cli.py"), "--text", txt
+        ], cwd=str(ROOT), check=False)
+        return
+
+    if label == "🔄 序列执行引擎":
+        txt = input("  输入待审计文本: ").strip()
+        if not txt:
+            print("  ⏭️ 已跳过")
+            return
+        subprocess.run([
+            "python3", str(ROOT / "bin" / "lh_seq.py"), "--text", txt
+        ], cwd=str(ROOT), check=False)
+        return
+
+    if label == "防篡改扫描":
+        txt = input("  输入文本: ").strip()
+        if not txt:
+            print("  ⏭️ 已跳过")
+            return
+        subprocess.run([
+            "python3", str(ROOT / "bin" / "lh_anti_tamper.py"), "scan", "--", txt
+        ], cwd=str(ROOT), check=False)
+        return
+
+    if label == "生成DNA追溯码":
+        txt = input("  输入内容: ").strip()
+        if not txt:
+            print("  ⏭️ 已跳过")
+            return
+        subprocess.run([
+            "python3", str(ROOT / "bin" / "hetu_luoshu_dna.py"), "dr", "--", txt
+        ], cwd=str(ROOT), check=False)
+        return
+
+    # 其他未识别的交互项，按固定命令执行
+    _run_fixed_cmd(item["cmd"])
+
+
 def show_category(cat_name):
     """显示某个分类下的子菜单"""
     while True:
@@ -357,7 +437,7 @@ def show_category(cat_name):
                 yn = input("  确认执行? [Y/n] ").strip().lower()
                 if yn in ('', 'y', 'yes'):
                     print(f"\n  {'='*60}")
-                    os.system(f"cd {ROOT} && {item['cmd']}")
+                    _run_interactive_item(item)
                     print(f"\n  {'='*60}")
                     print(f"  ✅ 执行完毕")
                 else:
@@ -407,12 +487,12 @@ def main():
     if args.audit:
         print_header()
         print("\n  🛡️ 启动全系统安全审计...\n")
-        os.system(f"cd {ROOT} && python3 bin/lh_full_system_audit.py")
+        subprocess.run(["python3", str(ROOT / "bin" / "lh_full_system_audit.py")], cwd=str(ROOT), check=False)
         return
     if args.push:
         print_header()
         print("\n  🚀 一键推送全部远端仓库...\n")
-        os.system(f"cd {ROOT} && python3 bin/lh_auto_cannon.py")
+        subprocess.run(["python3", str(ROOT / "bin" / "lh_auto_cannon.py")], cwd=str(ROOT), check=False)
         return
     if args.xuanji is not None:
         print_header()
@@ -476,17 +556,16 @@ def main():
     if args.health:
         print_header()
         print("\n  💓 引擎健康检查...\n")
-        os.system(f"cd {ROOT} && python3 引擎/launcher.py --health")
+        subprocess.run(["python3", "引擎/launcher.py", "--health"], cwd=str(ROOT), check=False)
         return
     if args.console:
         print_header()
         print("\n  🖥️ 正在启动 Web 可视化操作台...")
         print("     浏览器打开: http://127.0.0.1:9622/static/index.html")
         try:
-            import subprocess
-            subprocess.Popen(['python3', f'{ROOT}/control-panel/main.py'],
-                cwd=f'{ROOT}/control-panel', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            import time; time.sleep(1.5)
+            subprocess.Popen(['python3', str(ROOT / 'control-panel' / 'main.py')],
+                cwd=str(ROOT / 'control-panel'), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            time.sleep(1.5)
             subprocess.Popen(['open', 'http://127.0.0.1:9622/static/index.html'])
             print("     ✅ 已打开浏览器\n")
         except Exception as e:
@@ -534,10 +613,9 @@ def main():
             print(f"     浏览器打开: http://127.0.0.1:9622/static/index.html")
             print(f"     快捷命令: lh-console")
             try:
-                import subprocess
-                subprocess.Popen(['python3', f'{ROOT}/control-panel/main.py'],
-                    cwd=f'{ROOT}/control-panel', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                import time; time.sleep(1)
+                subprocess.Popen(['python3', str(ROOT / 'control-panel' / 'main.py')],
+                    cwd=str(ROOT / 'control-panel'), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                time.sleep(1)
                 subprocess.Popen(['open', 'http://127.0.0.1:9622/static/index.html'])
                 print(f"     ✅ 已打开浏览器")
             except Exception as e:
