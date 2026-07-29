@@ -2,8 +2,10 @@
 
 > 所有 AI（CodeBuddy / Kimi / Ollama 本地模型）的唯一入口。
 > 无论哪个窗口、哪个模型对话，启动时读这一份就够了。
-> 更新: 2026-07-23 · v1.8
-> DNA: #龍芯⚡️丙午·乙未·丙申·申时·☲离-STATE-UNIFIED-ENTRY-v1.8-SCTMATH
+> 🔥 **新 AI 进门? → `https://uid9622.cn/api/onboarding/bootstrap`** (自动拉全量规则·不需要人工说)
+> 更新: 2026-07-28 · v2.0
+> DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☲离-STATE-UNIFIED-ENTRY-v2.0-ONBOARDING
+> 📋 **命令不会？→ 鲲鹏 https://uid9622.cn/api/cmd/**（毫秒级·所有AI统一入口）| 本地备份 → COMMAND_INDEX.md | 详情 → MEMORY.md §4
 
 ---
 
@@ -33,6 +35,8 @@
 | **电商信任重建协议** | ✅ `LH-ECOM-TRUST-REBUILD-v1.0.md`·已落档 |
 | **电商信任数学引擎** | ✅ `lh_ecom_trust_engine.py`·12/12全绿 |
 | 🔐 **GPG 数字指纹** | ✅ **已公开发布**·`portal/pgp/`·RSA-4096·2025-12-17 |
+| ✍️ **GPG自动签名** 🔥 | ✅ **v1.0**·`bin/lh_gpg_sign.py`·1574签名文件·GATE-11签名闸·发布即签 |
+| 📋 **命令索引** 🔥 | ✅ **MEMORY.md §4**·命令大全·端口·部署·训练·运维·一步到位 |
 | 🔒 **安全加固 v1.0** | ✅ **7补丁焊死·6/6验证·0高危** |
 | 🧬 **跨模块路由总线** 🔥 | ✅ `lh_cross_module_router.py`·10条回调链·12/12测试 |
 | 📐 **黎曼三视角引擎** 🔥 | ✅ `lh_riemann_zeta_engine.py`·15/15·论文→引擎落地 |
@@ -112,6 +116,35 @@ sct:
 data:
   current: 45,555条 (42,535 train + 3,020 valid·v4.1.5/v4.1.6共享)
   target: 50000+·v5.0
+
+artifacts_2026_07_29:
+  natural_language_router: engines/lh_natural_router.py
+  auto_intent_engine: engines/lh_auto_intent.py
+  clipboard_daemon: engines/lh_clipboard_daemon.py
+  file_organizer: scripts/organize_by_keywords.py
+  photo_organizer: scripts/organize_photos.py
+  mac_translator: bin/lh_mac_translator.py
+  kfpp_engine: bin/lh_kfpp_engine.py
+  safeai_engine: engines/lh_safeai_engine.py
+  safeai_cli: bin/lh_safeai.py
+  safeai_tests: tests/test_safeai_engine.py (24/24)
+  safeai_scope: 上下文意图分类+七因子审计+P0-P4分层熔断（危险请求/恶意操作/渐进逼近）
+  kfpp_scope: 七因子知识流动纯净度（资格化/垄断/强制/隐瞒）
+  safeai_kfpp_relation: 互补联动·统一入口lh safeai / lh kfpp / 自然语言自动路由
+  judge_model: longhun-judge:latest (基于qwen2.5:1.5b·鲲鹏Ollama)
+  judge_api: bin/lh_judge_api.py (FastAPI :9666·nginx /api/judge/)
+  judge_cli: bin/lh_judge.py
+  judge_training_corpus: training/judge/corpus_v1.0.jsonl (15条·审计/治理/公正裁决)
+  judge_persona: 公正总裁+首席审计员·独立/透明/可审计/DNA签章
+  sequence_executor: engines/lh_sequence_executor.py
+  seq_cli: bin/lh_seq.py
+  csdn_auditor: engines/lh_csdn_auditor.py
+  multimodal_roadmap: docs/LIVE_MULTIMODAL_ROADMAP.md
+  notion_push_script: bin/lh_notion_push_artifacts.py
+  artifact_sop: 01_protocols/LH-ARTIFACT-CREATION-SOP-v1.0.md
+  chip_litho_tau_knowledge: papers/芯片光刻韬定律知识工程_v1.1/INDEX.md
+  sop_aligned: true
+  gpg_signed: true
 
 infra:
   mac: AC charging
@@ -258,6 +291,8 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 | 德本审计五条底线 | `01_protocols/LH-DEBEN-AUDIT-v1.0.md` |
 | 深度学习架构总纲 | `01_protocols/LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md` |
 | Notion全页面索引 | `docs/notion_mirror/INDEX.md` |
+| M261前传契碑（全权授权令·L0） | `01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md` |
+| GPG自动签名引擎 v1.0 | `bin/lh_gpg_sign.py` · 1574签名·GATE-11签名闸 |
 | 龍魂待整理审计报告 | `01_protocols/LH-ARCHIVE-AUDIT-v1.0.md` |
 | 主计划总纲 | `01_protocols/LH-MASTER-PLAN-v1.0.md` |
 | 数学公式体系v2.0 | `01_protocols/LH-MATH-FOUNDATIONS-v2.0.md` |
