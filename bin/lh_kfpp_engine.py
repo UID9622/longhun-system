@@ -24,7 +24,8 @@ import re
 
 # ---------- 配置 ----------
 KFPP_HOME = Path.home() / ".longhun/kfpp"
-KFPP_HOME.mkdir(parents=True, exist_ok=True)
+KFPP_HOME.mkdir(parents=True, exist_ok=True, mode=0o700)
+os.chmod(KFPP_HOME, 0o700)
 DB_PATH = KFPP_HOME / "kfpp_execution.db"
 LOG_PATH = KFPP_HOME / "kfpp_log.jsonl"
 STATE_PATH = KFPP_HOME / "kfpp_state.json"
@@ -38,6 +39,33 @@ CONFIG = {
     "TRUST_SCORE_THRESHOLD": 80,
     "MAX_APPEAL_PERIOD_HOURS": 72,
 }
+
+
+def _normalize_text(text: str) -> str:
+    """
+    检测前对输入做轻量归一化：
+    - 去除首尾空白、合并连续空白与全角空格
+    - 常见同义替换，使黑名单/白名单不易被空格或近义词绕过
+    """
+    if not text:
+        return ""
+    # 全角空格、制表符统一为半角空格后，去除全部空白字符
+    # 这可防止攻击者用 "只 有 我 能 教" 这类空格绕过正则
+    t = text.replace("\u3000", " ").replace("\t", " ")
+    t = "".join(t.split())
+    # 常见同义替换（保持简单，避免过度复杂）
+    synonyms = {
+        "唯有": "只有",
+        "惟有": "只有",
+        "资格证书": "资格证",
+        "删掉": "删除",
+        "清除": "删除",
+        "抹掉": "删除",
+        "藏匿": "隐藏",
+    }
+    for old, new in synonyms.items():
+        t = t.replace(old, new)
+    return t
 
 # 白名单模式（来自协议边界条款）
 WHITELIST_PATTERNS = [
@@ -71,6 +99,8 @@ class AuditDB:
     def __init__(self, db_path: Path = DB_PATH):
         self.db_path = db_path
         self._init_db()
+        # 数据库文件仅所有者可读写
+        os.chmod(self.db_path, 0o600)
 
     def _init_db(self):
         with sqlite3.connect(self.db_path) as conn:
@@ -316,7 +346,8 @@ class SevenFactorChecker:
     @staticmethod
     def 检测事件(context: Dict, db: AuditDB) -> Dict:
         """对一条事件执行七因子检测"""
-        text = context.get('text', '')
+        raw_text = context.get('text', '')
+        text = _normalize_text(raw_text)
 
         # 先检查白名单：合法行为直接豁免
         for wl in WHITELIST_PATTERNS:
@@ -345,8 +376,10 @@ class SevenFactorChecker:
         max_conf = 0.0
         max_factor = None
 
-        # 执行所有因子检测
+        # 执行所有因子检测（使用归一化后的文本，提升正则鲁棒性）
         actor_dna = context.get('actor_dna', 'unknown')
+        norm_context = dict(context)
+        norm_context['text'] = text
         for fname, method in [
             ("F1", SevenFactorChecker.F1_身份DNA),
             ("F2", SevenFactorChecker.F2_行为模式),
@@ -356,7 +389,7 @@ class SevenFactorChecker:
             ("F6", lambda ctx: SevenFactorChecker.F6_时间序列(ctx, db, actor_dna)),
             ("F7", SevenFactorChecker.F7_错误账本),
         ]:
-            triggered_flag, conf, reason = method(context)
+            triggered_flag, conf, reason = method(norm_context)
             results[fname] = {
                 "triggered": triggered_flag,
                 "confidence": conf,

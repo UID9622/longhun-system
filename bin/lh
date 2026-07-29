@@ -20,7 +20,7 @@ fi
 # 自动意图入口
 if [ "$FIRST_ARG" = "analyze" ]; then
   shift
-  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" analyze "$*"
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" analyze "$@"
 fi
 if [ "$FIRST_ARG" = "chat" ]; then
   shift
@@ -32,7 +32,7 @@ if [ "$FIRST_ARG" = "auto" ]; then
 fi
 if [ "$FIRST_ARG" = "run" ]; then
   shift
-  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" run --execute "$*"
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" run --execute "$@"
 fi
 if [ "$FIRST_ARG" = "kfpp" ]; then
   shift
@@ -54,12 +54,12 @@ fi
 # 自然语言路由：显式 ask / --ask / --natural 优先
 if [ "$FIRST_ARG" = "--ask" ] || [ "$FIRST_ARG" = "--natural" ]; then
   shift
-  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
 fi
 for cmd in $NATURAL_CMDS; do
   if [ "$FIRST_ARG" = "$cmd" ]; then
     shift
-    exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+    exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
   fi
 done
 
@@ -78,7 +78,7 @@ done
 
 # 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询
 if [ -n "$FIRST_ARG" ] && [ "${FIRST_ARG#-}" = "$FIRST_ARG" ]; then
-  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
 fi
 
 exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"

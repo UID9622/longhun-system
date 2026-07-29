@@ -37,7 +37,7 @@
 | 🔐 **GPG 数字指纹** | ✅ **已公开发布**·`portal/pgp/`·RSA-4096·2025-12-17 |
 | ✍️ **GPG自动签名** 🔥 | ✅ **v1.0**·`bin/lh_gpg_sign.py`·1574签名文件·GATE-11签名闸·发布即签 |
 | 📋 **命令索引** 🔥 | ✅ **MEMORY.md §4**·命令大全·端口·部署·训练·运维·一步到位 |
-| 🔒 **安全加固 v1.0** | ✅ **7补丁焊死·6/6验证·0高危** |
+| 🔒 **安全加固 v1.1** | ✅ **shell=False全替换·自然路由白名单·KFPP目录700·24测试全过·8文件GPG重签** |
 | 🧬 **跨模块路由总线** 🔥 | ✅ `lh_cross_module_router.py`·10条回调链·12/12测试 |
 | 📐 **黎曼三视角引擎** 🔥 | ✅ `lh_riemann_zeta_engine.py`·15/15·论文→引擎落地 |
 | ⚖️ **责任塌缩引擎** 🔥 | ✅ `lh_responsibility_collapse_engine.py`·13/13·论文→引擎落地 |
@@ -270,6 +270,7 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] **Library数据矿场引擎** `bin/lh_library_miner.py`·P0·五阶段流水线·33应用·84,844可挖·1,083训练数据
 - [x] **知识中枢v3.0面板** `portal/knowledge/index.html`·8大区块·系统状态/模型矩阵/流水线/矿场/图谱/文章/日志
 - [x] **Library训练数据合并** +1,083条→总库28,153条·425条新图谱边
+- [x] **安全加固 v1.1** `bin/lh.py`/`bin/lh`/`engines/lh_natural_router.py`/`engines/lh_sequence_executor.py`/`bin/lh_kfpp_engine.py`/`bin/hetu_luoshu_dna.py` + 新增 `bin/lh_code_audit_cli.py`/`bin/lh_emotion_cli.py`：os.system→subprocess.run(shell=False)、自然语言路由target_bin白名单(bin/|engines/)、查询参数`--`分隔、KFPP_HOME 0o700、序列执行JSON解析加固、8文件GPG重签、24项测试OK
 
 ### 📋 冻结
 - 数字人民币/多币种 (金融红线)
