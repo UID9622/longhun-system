@@ -4,4 +4,81 @@
 #!/bin/bash
 # 🐉 龍魂统一交互入口 · LH 看板（系统级 longhun 代理）
 # DNA: #龍芯⚡️20260629-LONGHUN-LONGHUN-PROXY-v2.0
+# 新增：lh search / video / distill / audit / status / logs / web / schedule
+
+CTL_COMMANDS="search video distill audit status logs web schedule 3d memory"
+LH_PY_FLAGS="--xuanji --safeai --judge --seq --dashboard --engine --personas --audit --push --health --console --help --help-flag --quick"
+NATURAL_CMDS="ask 问 说一下 聊聊 查一下 帮我 给我 看看"
+FIRST_ARG="${1:-}"
+
+# 使用项目虚拟环境，确保 chromadb 等依赖可用
+VENV_PYTHON="$HOME/longhun-system/.venv/bin/python3"
+if [ ! -x "$VENV_PYTHON" ]; then
+  VENV_PYTHON="python3"
+fi
+
+# 自动意图入口
+if [ "$FIRST_ARG" = "analyze" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" analyze "$*"
+fi
+if [ "$FIRST_ARG" = "chat" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" auto --stdin "$@"
+fi
+if [ "$FIRST_ARG" = "auto" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_clipboard_daemon.py" "$@"
+fi
+if [ "$FIRST_ARG" = "run" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" run --execute "$*"
+fi
+if [ "$FIRST_ARG" = "kfpp" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_kfpp_engine.py" "$@"
+fi
+if [ "$FIRST_ARG" = "safeai" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_safeai.py" "$@"
+fi
+if [ "$FIRST_ARG" = "judge" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_judge.py" "$@"
+fi
+if [ "$FIRST_ARG" = "seq" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_seq.py" "$@"
+fi
+
+# 自然语言路由：显式 ask / --ask / --natural 优先
+if [ "$FIRST_ARG" = "--ask" ] || [ "$FIRST_ARG" = "--natural" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+fi
+for cmd in $NATURAL_CMDS; do
+  if [ "$FIRST_ARG" = "$cmd" ]; then
+    shift
+    exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+  fi
+done
+
+# lh.py 提供的现代化 flag 路由到 bin/lh.py
+for flag in $LH_PY_FLAGS; do
+  if [ "$FIRST_ARG" = "$flag" ]; then
+    exec python3 "$HOME/longhun-system/bin/lh.py" "$@"
+  fi
+done
+
+for cmd in $CTL_COMMANDS; do
+  if [ "$FIRST_ARG" = "$cmd" ]; then
+    exec python3 "$HOME/longhun-system/bin/lh_ctl.py" "$@"
+  fi
+done
+
+# 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询
+if [ -n "$FIRST_ARG" ] && [ "${FIRST_ARG#-}" = "$FIRST_ARG" ]; then
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$*"
+fi
+
 exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"

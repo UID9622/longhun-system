@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 #龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
@@ -45,6 +48,9 @@ MODULES = {
             {"id": "5", "label": "熔断申诉", "cmd": "python3 bin/lh_fuse_appeal.py --interactive", "desc": "对熔断判定提出申诉"},
             {"id": "6", "label": "算法审计", "cmd": "python3 bin/lh_algorithm_audit.py", "desc": "审计算法公平性和偏差"},
             {"id": "7", "label": "双重审计引擎", "cmd": "python3 bin/lh_dual_audit_engine.py", "desc": "并行审计提高覆盖"},
+            {"id": "8", "label": "🛡️ 上下文安全引擎", "cmd": "python3 bin/lh_safeai.py --inspect \"什么是SQL注入？怎么防范？\"", "desc": "意图分类+七因子审计+P0-P4分层熔断（safe-ai v1.0）"},
+            {"id": "9", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
+            {"id": "10", "label": "🔄 序列执行引擎", "cmd": "echo '输入待审计文本:' && read txt && python3 bin/lh_seq.py --text \"\\$txt\"", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计"},
         ]
     },
     "🧠 人格 & AI": {
@@ -138,6 +144,15 @@ MODULES = {
             {"id": "6", "label": "反假货检测", "cmd": "python3 bin/lh_anti_counterfeit.py", "desc": "检测仿冒/抄袭内容"},
         ]
     },
+    "🌌 璇玑·记忆推演": {
+        "desc": "四象闭环·七因子双轨·16人格推演·三六九验真·DNA烙印",
+        "items": [
+            {"id": "1", "label": "璇玑推演", "cmd": "python3 engines/lh_xuanji_engine.py", "desc": "互动推演·输入问题即可得到溯源+人格推演+验真+烙印"},
+            {"id": "2", "label": "深度推演", "cmd": "python3 engines/lh_xuanji_engine.py --deep", "desc": "深度推演·全16人格+更多记忆"},
+            {"id": "3", "label": "璇玑状态", "cmd": "python3 engines/lh_xuanji_engine.py --status", "desc": "查看引擎状态·索引·信任分"},
+            {"id": "4", "label": "重建索引", "cmd": "python3 engines/lh_xuanji_engine.py --rebuild-index", "desc": "强制重建向量索引"},
+        ]
+    },
 }
 
 # ===== 人格卡片 =====
@@ -167,6 +182,7 @@ ENGINE_CAPS = [
     ("流场协同", "P13", "看看协同场 / 怎么分工"),
     ("贡献值评估", "P01", "该留该删 / 还顶用吗"),
     ("熔断查询", "P05", "申诉 / 凭什么拒绝"),
+    ("璇玑推演", "P01+P06", "璇玑 / 推演 / 追溯"),
     ("帮助", "P02", "帮助 / 怎么用"),
 ]
 
@@ -278,8 +294,15 @@ def print_help():
     lh --push           → 一键推送全部远端仓库
     lh --health         → 引擎+通道健康检查
     lh --personas       → 人格列表+状态
+    lh "查一下语义抽屉"  → 自然语言路由，自动触发相关引擎
+    lh ask "人参的功效" → 同上（显式自然语言入口）
+    lh analyze "..."    → 自动意图分析（dry-run，只看不执行）
+    lh run "..."        → 自动意图分析 + 自动执行引擎/人格/动作
+    lh chat             → 对话模式，每句输入自动分析触发
+    lh auto             → 剪贴板守护，复制粘贴自动触发
 
   不用记命令：输入 lh 然后按数字就行。
+  也可以直接说人话：lh "去年318路上的事" 会自动调用璇玑推演。
   所有功能都有描述，看到啥选啥。
 
   💡 新功能：在 lh 主菜单按 [W] 一键打开可视化网页后台
@@ -356,6 +379,14 @@ def main():
     parser.add_argument('--push', action='store_true', help='一键推送全部远端')
     parser.add_argument('--health', action='store_true', help='引擎健康检查')
     parser.add_argument('--console', action='store_true', help='启动可视化Web操作台')
+    parser.add_argument('--xuanji', type=str, nargs='?', const='--status', 
+                        help='璇玑记忆推演 (带参数=查询 / 无参数=状态)')
+    parser.add_argument('--safeai', type=str, nargs='?', const='--status',
+                        help='上下文安全引擎 (带参数=检测文本 / 无参数=状态)')
+    parser.add_argument('--judge', type=str, nargs='?', const='--status',
+                        help='公正总裁/审计员 (带参数=裁决内容 / 无参数=健康检查)')
+    parser.add_argument('--seq', type=str, nargs='?', const='',
+                        help='序列执行引擎 (带参数=审计文本 / 无参数=帮助)')
     parser.add_argument('--quick', type=str, help='快速跳转到模块名')
 
     args = parser.parse_args()
@@ -382,6 +413,65 @@ def main():
         print_header()
         print("\n  🚀 一键推送全部远端仓库...\n")
         os.system(f"cd {ROOT} && python3 bin/lh_auto_cannon.py")
+        return
+    if args.xuanji is not None:
+        print_header()
+        import sys, subprocess
+        xuanji_path = ROOT / "engines" / "lh_xuanji_engine.py"
+        # 优先使用项目虚拟环境，确保 chromadb 等依赖可用
+        venv_python = ROOT / ".venv" / "bin" / "python3"
+        python_cmd = str(venv_python) if venv_python.exists() else "python3"
+        if args.xuanji == '--status':
+            print("\n  🌌 璇玑引擎状态\n")
+            sys.stdout.flush()
+            subprocess.run([python_cmd, str(xuanji_path), "--status"])
+        else:
+            query = args.xuanji
+            print(f"\n  🌌 璇玑推演: {query}\n")
+            sys.stdout.flush()
+            subprocess.run([python_cmd, str(xuanji_path), query])
+        return
+    if args.safeai is not None:
+        print_header()
+        import sys, subprocess
+        safeai_path = ROOT / "bin" / "lh_safeai.py"
+        if args.safeai == '--status':
+            print("\n  🛡️ 上下文安全引擎状态\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(safeai_path), "--status"])
+        else:
+            query = args.safeai
+            print(f"\n  🛡️ 上下文安全检测: {query}\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(safeai_path), "--inspect", query])
+        return
+    if args.judge is not None:
+        print_header()
+        import sys, subprocess
+        judge_path = ROOT / "bin" / "lh_judge.py"
+        if args.judge == '--status':
+            print("\n  ⚖️ 公正总裁/审计员 API 健康\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(judge_path), "--health"])
+        else:
+            query = args.judge
+            print(f"\n  ⚖️ 公正总裁裁决: {query}\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(judge_path), "--content", query])
+        return
+    if args.seq is not None:
+        print_header()
+        import sys, subprocess
+        seq_path = ROOT / "bin" / "lh_seq.py"
+        if args.seq == '':
+            print("\n  🔄 序列执行引擎\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(seq_path), "--help"])
+        else:
+            query = args.seq
+            print(f"\n  🔄 序列执行: {query}\n")
+            sys.stdout.flush()
+            subprocess.run(["python3", str(seq_path), "--text", query])
         return
     if args.health:
         print_header()
