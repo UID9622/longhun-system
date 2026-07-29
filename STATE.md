@@ -65,6 +65,8 @@
 | 🐉 **龍魂字体** 🔥 | ✅ 显示名改为「龙魂字体」·WOFF2 2.46MB（压缩90.2%）·U+E200 龙纹水印·GitHub Release v1.001 |
 | 🧬 **媒体主权标记引擎** 🔥 | ✅ `engines/lh_media_sovereignty_marker.py`·字体/图像/音频闭环验证通过·视频v1.0部分支持 |
 | 📜 **媒体主权标记协议** 🔥 | ✅ `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md`·P0·六层来源链 |
+| 🎬 **视频解说稿自动生成引擎** 🆕 | ✅ `bin/lh_video_commentary_engine.py`·v1.0·主题/脚本/文章→解说稿+配音+视频·dry-run·人格路由·DNA签章·全路径验证通过 |
+| 🌌 **璇玑引擎·多源记忆接入** 🆕 | ✅ `engines/lh_xuanji_engine.py`·local/notion/log 三源聚合·每条记忆带 source/timestamp·`--memory-source` 参数已可用 |
 🗄️ 龍魂待整理迁移 | ✅ 196文件·96MB·9大类·全量审计·P0(7)已迁移·P1(7)·P2(14)·P3待定 |
 
 ---
