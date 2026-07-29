@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-06-HETU-LUOSHU-DNA-v1.0-中五不动点
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
@@ -269,7 +272,11 @@ if __name__ == "__main__":
         print(f"{'✅' if valid else '❌'} {msg}")
 
     elif cmd == "dr" and len(sys.argv) >= 3:
-        文本 = " ".join(sys.argv[2:])
+        args = sys.argv[2:]
+        # 支持调用者用 -- 分隔符防止参数注入：dr -- "文本"
+        if args and args[0] == "--":
+            args = args[1:]
+        文本 = " ".join(args)
         dr = 河图洛书_数字根(文本)
         print(f"🔢 数字根: {dr}")
         print(f"   文本: {文本}")
