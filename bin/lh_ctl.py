@@ -151,6 +151,56 @@ def _read_job_history(cfg: Dict[str, Any], limit: int = 100, command: Optional[s
     return jobs[-limit:]
 
 
+def _is_port_in_use(port: int, host: str = "127.0.0.1") -> bool:
+    """检查指定端口是否已被占用。"""
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.settimeout(0.5)
+        return s.connect_ex((host, port)) == 0
+
+
+def _start_memory_api(cfg: Dict[str, Any], host: str = "127.0.0.1", port: int = 8771) -> int:
+    """在后台启动 lh_memory_api.py，返回进程 PID。"""
+    api_script = project_root(cfg) / "bin" / "lh_memory_api.py"
+    log_dir = logs_dir(cfg)
+    log_dir.mkdir(parents=True, exist_ok=True)
+    stdout_path = log_dir / f"lh_memory_api_{_today_file()}.log"
+    stderr_path = log_dir / f"lh_memory_api_{_today_file()}.err"
+
+    cmd = [sys.executable, str(api_script), "--port", str(port), "--host", host]
+    fh_out = open(stdout_path, "a", encoding="utf-8")
+    fh_err = open(stderr_path, "a", encoding="utf-8")
+    proc = subprocess.Popen(
+        cmd,
+        cwd=project_root(cfg),
+        stdout=fh_out,
+        stderr=fh_err,
+        start_new_session=True,
+    )
+    # 关闭文件句柄在 Popen 中不安全，保留引用避免 GC
+    proc._lh_stdout = fh_out  # type: ignore[attr-defined]
+    proc._lh_stderr = fh_err  # type: ignore[attr-defined]
+    return proc.pid
+
+
+def _check_memory_health(host: str = "127.0.0.1", port: int = 8771, timeout: int = 5) -> Optional[Dict[str, Any]]:
+    """curl 访问记忆 API 健康检查端点，返回 JSON 或 None。"""
+    url = f"http://{host}:{port}/v1/memory/health"
+    try:
+        proc = subprocess.run(
+            ["curl", "-s", "-m", str(timeout), url],
+            capture_output=True,
+            text=True,
+            timeout=timeout + 1,
+        )
+        if proc.returncode != 0 or not proc.stdout.strip():
+            return None
+        return json.loads(proc.stdout)
+    except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError):
+        return None
+
+
 def _build_args(name: str, kwargs: Dict[str, Any]) -> List[str]:
     """根据引擎类型构造命令行参数。"""
     args: List[str] = []
@@ -559,11 +609,137 @@ def web(host, port):
     subprocess.run([sys.executable, str(web_script), "--host", h, "--port", str(p)], cwd=project_root(cfg))
 
 
-@cli.command()
+@cli.group()
+def memory():
+    """龍魂记忆层 — 启动、状态、查看。"""
+    pass
+
+
+@memory.command("start")
+@click.option("--port", type=int, default=8771, help="记忆 API 端口")
+@click.option("--host", default="127.0.0.1", help="记忆 API 监听地址")
+def memory_start(port, host):
+    """启动龍魂记忆层全链路服务。"""
+    cfg = load_config()
+    _ensure_dirs(cfg)
+    state_file = state_dir(cfg) / "memory_services.json"
+    services: Dict[str, Any] = {
+        "started_at": _now(),
+        "host": host,
+        "port": port,
+        "steps": {},
+        "api": {"running": False, "pid": None, "health": None},
+    }
+
+    # 如果 API 端口已被占用，视为已运行
+    if _is_port_in_use(port, host):
+        console.print(f"[yellow]⚠️ 记忆 API 端口 {host}:{port} 已被占用，视为已运行。[/yellow]")
+        services["api"]["running"] = True
+        services["api"]["status"] = "already_running"
+    else:
+        steps = [
+            ("CNSH_国密工具", ["python3", "bin/CNSH_国密工具.py"]),
+            ("CNSH_透明语义治理内核", ["python3", "bin/CNSH_透明语义治理内核.py"]),
+            ("lh_memory_load", ["python3", "bin/lh_memory_load.py"]),
+            ("lh_memory_indexer", ["python3", "bin/lh_memory_indexer.py", "--force"]),
+            ("CNSH_知识库", ["python3", "bin/CNSH_知识库.py"]),
+            ("CNSH_颜色历史", ["python3", "bin/CNSH_颜色历史.py"]),
+            ("dna_memory_layer", ["python3", "bin/dna_memory_layer.py", "--offline", "summary"]),
+        ]
+
+        all_ok = True
+        for name, cmd in steps:
+            console.print(f"[dim]执行: {' '.join(cmd)}[/dim]")
+            proc = subprocess.run(cmd, cwd=project_root(cfg), capture_output=True, text=True)
+            services["steps"][name] = {
+                "cmd": " ".join(cmd),
+                "exit_code": proc.returncode,
+                "stdout_lines": len(proc.stdout.splitlines()) if proc.stdout else 0,
+                "stderr_lines": len(proc.stderr.splitlines()) if proc.stderr else 0,
+            }
+            if proc.returncode != 0:
+                console.print(f"[red]❌ {name} 启动失败 (exit {proc.returncode})[/red]")
+                if proc.stderr:
+                    console.print(proc.stderr, style="red")
+                all_ok = False
+                services["status"] = "failed"
+                break
+            console.print(f"[green]✅ {name} 完成[/green]")
+
+        if all_ok:
+            pid = _start_memory_api(cfg, host=host, port=port)
+            services["api"]["running"] = True
+            services["api"]["pid"] = pid
+            services["api"]["status"] = "started"
+
+    # 健康检查
+    health = _check_memory_health(host=host, port=port)
+    services["api"]["health"] = health
+    services["finished_at"] = _now()
+    services.setdefault("status", "ok")
+
+    state_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(state_file, "w", encoding="utf-8") as f:
+        json.dump(services, f, ensure_ascii=False, indent=2)
+
+    if health:
+        console.print(f"[green]✅ 记忆 API 健康检查通过: {health}[/green]")
+    else:
+        console.print(f"[yellow]⚠️ 记忆 API 健康检查未返回结果[/yellow]")
+    console.print(f"[dim]服务状态已写入: {state_file}[/dim]")
+
+
+@memory.command("status")
+def memory_status():
+    """查看记忆层服务状态。"""
+    cfg = load_config()
+    state_file = state_dir(cfg) / "memory_services.json"
+    if not state_file.exists():
+        console.print("[yellow]⚠️ 尚未生成 memory_services.json，请先运行 `lh memory start`[/yellow]")
+        return
+
+    with open(state_file, "r", encoding="utf-8") as f:
+        services = json.load(f)
+
+    table = Table(title="🐉 龍魂记忆层服务状态")
+    table.add_column("项目", style="cyan")
+    table.add_column("状态")
+
+    table.add_row("启动时间", services.get("started_at", "-"))
+    table.add_row("完成时间", services.get("finished_at", "-"))
+    table.add_row("总体状态", services.get("status", "-"))
+    table.add_row("API 监听", f"{services.get('host', '-')}:{services.get('port', '-')}")
+
+    api = services.get("api", {})
+    api_status = api.get("status", "-")
+    if api.get("running"):
+        api_status = f"[green]{api_status}[/green]"
+    table.add_row("API 进程", api_status)
+    table.add_row("API PID", str(api.get("pid", "-")))
+
+    health = api.get("health")
+    if health:
+        table.add_row("API 健康", f"[green]{health}[/green]")
+    else:
+        table.add_row("API 健康", "[yellow]未返回[/yellow]")
+
+    steps = services.get("steps", {})
+    if steps:
+        table.add_section()
+        table.add_row("步骤", "退出码")
+        for name, info in steps.items():
+            code = info.get("exit_code", "?")
+            code_str = f"[green]{code}[/green]" if code == 0 else f"[red]{code}[/red]"
+            table.add_row(name, code_str)
+
+    console.print(table)
+
+
+@memory.command("view")
 @click.option("--today", "show_today", is_flag=True, help="查看今日执行日志")
 @click.option("--tail", type=int, default=30, help="最近 N 天")
 @click.option("--summary", is_flag=True, help="仅显示摘要统计")
-def memory(show_today, tail, summary):
+def memory_view(show_today, tail, summary):
     """龍魂记忆层 — 查看/审计执行日志。"""
     cfg = load_config()
     mem_dir = _memory_dir(cfg)
@@ -619,6 +795,41 @@ def memory(show_today, tail, summary):
         console.print(f"  [cyan]{date_str}[/cyan]  {entries} 条  {size}B")
 
 
+@cli.group()
+def cnsh():
+    """CNSH 中文语法执行。"""
+    pass
+
+
+@cnsh.command("run")
+@click.argument("file", type=click.Path(exists=True))
+@click.option("--no-type-check", is_flag=True, help="禁用类型检查")
+def cnsh_run(file, no_type_check):
+    """执行 .cnsh 文件并写入审计链/记忆场/知识库。"""
+    cfg = load_config()
+    _ensure_dirs(cfg)
+    executor = project_root(cfg) / "bin" / "CNSH_执行器.py"
+    if not executor.exists():
+        console.print("[red]CNSH 执行器不存在: bin/CNSH_执行器.py[/red]")
+        sys.exit(1)
+
+    cmd = [sys.executable, str(executor), file]
+    if no_type_check:
+        cmd.append("--no-type-check")
+
+    console.print(f"[dim]执行: {' '.join(cmd)}[/dim]")
+    proc = subprocess.run(cmd, cwd=project_root(cfg), capture_output=True, text=True)
+
+    if proc.stdout:
+        console.print(proc.stdout)
+    if proc.stderr:
+        console.print(proc.stderr, style="red")
+
+    status = "[green]✅[/green]" if proc.returncode == 0 else "[red]❌[/red]"
+    console.print(f"{status} CNSH 执行完成 (exit {proc.returncode})")
+    sys.exit(proc.returncode)
+
+
 @cli.command(context_settings=dict(ignore_unknown_options=True, allow_extra_args=True), add_help_option=False)
 @click.pass_context
 def schedule(ctx):
@@ -633,8 +844,85 @@ def schedule(ctx):
     subprocess.run([sys.executable, str(scheduler)] + extra, cwd=project_root(cfg))
 
 
+# ═══════════════════════════════════════════════════════════
+# 底座铁律检查 — 任何引擎启动前先读 system_registry.json
+# 核心理念：人永远是1。缺铁律 = 拒绝启动。
+# ═══════════════════════════════════════════════════════════
+
+# 与主代码末尾冲突的重复导入已处理 —— 以下为模块级常量
+_SYS_REGISTRY_CHECKED = False
+_SYS_REGISTRY: Dict[str, Any] = {}
+
+
+def _registry_path(cfg: Optional[Dict[str, Any]] = None) -> Path:
+    """system_registry.json 路径。"""
+    try:
+        return project_root(cfg or {}) / "system_registry.json"
+    except Exception:
+        # 降级：当前文件所在目录的上级
+        return Path(__file__).resolve().parent.parent / "system_registry.json"
+
+
+def check_system_registry(exit_on_fail: bool = False) -> Dict[str, Any]:
+    """
+    确保底座铁律已被读取且有效。
+    在任何引擎启动前调用。缺铁律 → 拒绝启动或告警降级。
+    """
+    global _SYS_REGISTRY_CHECKED, _SYS_REGISTRY
+
+    if _SYS_REGISTRY_CHECKED:
+        return _SYS_REGISTRY
+
+    reg_path = _registry_path()
+    console.print(f"[dim]🔍 底座铁律检查: {reg_path}[/dim]")
+
+    if not reg_path.exists():
+        msg = "❌ 系统注册表不存在，龍魂底座未初始化"
+        console.print(f"[red]{msg}[/red]")
+        console.print("[dim]提示: 运行 `python3 bin/lh_source_vetting.py --source test --desc test --origin test` 生成注册表[/dim]")
+        if exit_on_fail:
+            sys.exit(1)
+        _SYS_REGISTRY_CHECKED = True
+        return {}
+
+    with open(reg_path, "r", encoding="utf-8") as f:
+        registry = json.load(f)
+
+    # 六条底座铁律（缺一不可）
+    required_laws = [
+        "人永远是1",
+        "不蒸馏原则",
+        "系统底座习惯",
+        "l0_manifesto",
+        "anti_plagiarism",
+        "append_only",
+    ]
+
+    missing = []
+    iron_laws = registry.get("iron_laws_summary", {})
+    for law in required_laws:
+        if law not in iron_laws:
+            missing.append(law)
+
+    if missing:
+        msg = f"❌ 缺少底座铁律: {missing}"
+        console.print(f"[red]{msg}[/red]")
+        console.print("[red]龙魂拒绝启动。请修复 system_registry.json。[/red]")
+        if exit_on_fail:
+            sys.exit(1)
+        _SYS_REGISTRY_CHECKED = True
+        _SYS_REGISTRY = registry
+        return registry
+
+    console.print(f"[green]✅ 龍魂底座铁律已加载 ({len(required_laws)}条) — 人永远是1[/green]")
+    _SYS_REGISTRY_CHECKED = True
+    _SYS_REGISTRY = registry
+    return registry
+
+
 def main():
     print(f"{DNA}\n{CONFIRM}\n")
+    _ = check_system_registry()  # 启动时自动检查，不存在的注册表仅告警不终止
     cli()
 
 

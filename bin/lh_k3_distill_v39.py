@@ -35,6 +35,7 @@ MOCK_MODE = os.getenv("K3_MOCK", "0") == "1"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lh_dna_generator import generate_dna
+from lh_source_vetting import check_before_distill
 
 PROJECT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT / "models" / "longhun-v1.0" / "lora_output" / "k3_distill_v39"
@@ -419,6 +420,15 @@ def main():
     parser.add_argument("--limit", type=int, default=None, help="每个域最多处理 N 个基础问题（用于快速测试）")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR, help="输出目录")
     args = parser.parse_args()
+
+    # 🧬 底座铁律：蒸馏前先过源头校验 — 人永远是1
+    if not check_before_distill(
+        source_name="K3-Distill-v3.9",
+        source_desc="用Kimi API（K3）为家法/主权边界/多轮对话生成标准答案+思考过程，作为训练数据的高质量来源",
+        source_origin="Kimi/DeepSeek模型API",
+    ):
+        print("❌ 蒸馏操作被源头校验拒绝。\n   如需跳过（仅测试），设置环境变量 LH_DISTILL_FORCE=1")
+        sys.exit(1)
 
     mock = args.mock or MOCK_MODE
     local = args.local
