@@ -1,6 +1,11 @@
 # Dependabot configuration for LongHun OS
-# Monitors only actively maintained code paths.
-# Archived/historical code under _archive/ is intentionally not monitored.
+# DNA: #龍芯⚡️2026-07-30-LONGHUN-DEPENDABOT-v1.1
+#
+# 设计原则：
+# 1. 只扫描 actively maintained 路径，历史归档路径不进入扫描范围。
+# 2. 对上游无补丁的传递依赖使用 ignore 规则降噪，而不是假装不存在。
+# 3. 安全更新优先，PR 数量设上限避免洪水。
+
 version: 2
 updates:
   - package-ecosystem: "pip"
@@ -10,19 +15,49 @@ updates:
       - "/mobile-monitoring.integrated"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
       - "security"
+    # 历史归档与第三方历史产物不主动修复
+    ignore:
+      - dependency-name: "torch"
+        versions: ["< 2.0.0"]
+      - dependency-name: "transformers"
+        versions: ["< 4.30.0"]
 
   - package-ecosystem: "npm"
     directories:
       - "/baobao-guardian/frontend"
       - "/mobile-monitoring.integrated"
       - "/phase3/frontend"
+      - "/integrations/wechat_public_account"
+      - "/web/longhun-guardian-dashboard"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 8
     labels:
       - "dependencies"
       - "security"
+    # babel-traverse@6 是 miniprogram-ci 的传递依赖，微信官方未提供 Babel 7 迁移版本，
+    # 在小程序 CI 场景下无法升级。此处显式忽略 6.x 告警，并在 SECURITY.md 中留痕。
+    ignore:
+      - dependency-name: "babel-traverse"
+        versions: ["< 7.0.0"]
+      - dependency-name: "@babel/traverse"
+        versions: ["< 7.23.2"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "ci"
