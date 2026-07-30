@@ -6,6 +6,8 @@
 
 # DNA:#龍芯⚡️2026-06-24-LONGHUN-COMPRESSION-ENGINE-FILE1-v1.0-1
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# STATUS: ⚠️ DEPRECATED · 功能已由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 历史字典实现参考，新压缩逻辑由 MemoryArchive.compress() 提供
 
 """
 龍魂超强压缩引擎 · LongHun Compression Engine v1.0

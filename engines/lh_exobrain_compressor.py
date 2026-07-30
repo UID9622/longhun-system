@@ -12,6 +12,8 @@
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# STATUS: ⚠️ DEPRECATED · 功能已由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 兼容旧调用与历史快照，新代码请使用 MemoryArchive.ingest()
 # ═══════════════════════════════════════════
 # 处理层: 记忆永生管道第二环
 # 当记忆库膨胀时自动压缩: 智能摘要·冗余去重·时间衰减·关联图谱

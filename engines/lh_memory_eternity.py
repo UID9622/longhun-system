@@ -12,6 +12,8 @@
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# STATUS: ⚠️ DEPRECATED · 功能已由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 兼容旧快照/恢复流程，新代码请使用 MemoryArchive 归档体系
 # ═══════════════════════════════════════════
 # 存储层: 记忆永生管道第三环
 # 多格式快照·跨平台同步·跨模型适配·时间锚定·恢复验证
