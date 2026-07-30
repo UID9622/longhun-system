@@ -68,6 +68,7 @@
 | 🎬 **视频解说稿自动生成引擎** 🆕 | ✅ `bin/lh_video_commentary_engine.py`·v1.0·主题/脚本/文章→解说稿+配音+视频·dry-run·人格路由·DNA签章·全路径验证通过 |
 | 🌌 **璇玑引擎·多源记忆接入** 🆕 | ✅ `engines/lh_xuanji_engine.py`·local/notion/log 三源聚合·每条记忆带 source/timestamp·`--memory-source` 参数已可用 |
 | 🗑️ **_archive/ 归档清理** 🆕 | ✅ 16GB 旧归档已备份至 `~/longhun-system-backup_archive_20260730.tar.gz`·本地 `_archive/` 已删除·释放空间·消除 Dependabot torch/transformers critical 告警源 |
+| 🎯 **不动点记忆归档引擎** 🆕 | ✅ `engines/lh_fixed_point_memory_archive.py`·v1.0·统一压缩/不动点/归档三条线·一次哈希复用·不到不动点不入库·轻量字典压缩·GOLD/GREEN归档·YELLOW缓冲·RED/BLACK隔离 |
 🗄️ 龍魂待整理迁移 | ✅ 196文件·96MB·9大类·全量审计·P0(7)已迁移·P1(7)·P2(14)·P3待定 |
 
 ---
