@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "three": "^0.161.0",
     "ws": "^8.17.0",
-    "zustand": "^4.4.7"
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
