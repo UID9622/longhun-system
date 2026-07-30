@@ -8,6 +8,7 @@
 将蚁群引擎接入龙魂实际运行链路
 
 DNA: #龍芯⚡️丙午·辛未·ANT-COLONY-RUNTIME-v2.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 职责:
   - 主循环: 定时 tick 信息素衰减/触角总线/涌现计算

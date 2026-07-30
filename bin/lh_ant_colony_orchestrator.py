@@ -53,7 +53,14 @@ from typing import Any, Dict, List, Optional, Tuple
 # ═══════════════════════════════════════════════
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 STATE_DIR = Path.home() / ".longhun" / "ant_colony"
+
+# 联动不动点记忆归档引擎
+try:
+    from engines.lh_fixed_point_memory_archive import archive_once
+except Exception:
+    archive_once = None
 STATE_DIR.mkdir(parents=True, exist_ok=True)
 
 DNA = "#龍芯⚡️丙午·辛未·ANT-COLONY-ORCHESTRATOR-v1.0"
@@ -963,6 +970,34 @@ class AntColonyOrchestrator:
         print(f"  脚本: {total} | 告警: {len(alerts)} | 对抗: {rb_count} | 签章: {rb_count > 0}")
         print(f"  信息素: {state['active_pheromones']}活跃 | 健康度: {state['colony_health']:.1%}")
         print(f"{'═'*60}\n")
+
+        # ── 不动点归档：把本次闭环总结写入记忆归档 ──
+        if archive_once is not None:
+            archive_text = f"""龍魂蚁群闭环完成。
+时间: {state['last_closed_loop']}
+脚本总数: {total}
+注册脚本: {state['registered_scripts']}
+孤儿脚本: {state['orphan_scripts']}
+告警数量: {len(alerts)}
+红蓝对抗: {rb_count}
+活跃信息素: {state['active_pheromones']}
+健康度: {state['colony_health']:.2%}
+DNA: {DNA}
+CONFIRM: {CONFIRM}
+"""
+            archive_result = archive_once(
+                archive_text,
+                source="ant_colony_orchestrator",
+                tags=["ant_colony", "closed_loop", "audit"],
+                context={"health": state["colony_health"], "alerts": len(alerts)},
+            )
+            results["archive"] = {
+                "status": archive_result.get("status"),
+                "state": archive_result.get("state"),
+                "score": archive_result.get("score"),
+                "dna": archive_result.get("dna"),
+            }
+            self._log(f"闭环总结已归档: {archive_result.get('status', 'unknown')}")
 
         results["health"] = state["colony_health"]
         return results

@@ -12,6 +12,7 @@ from __future__ import annotations
 基于 LACA v1.0 论文，深度整合龙魂不动点系统
 
 DNA: #龍芯⚡️丙午·辛未·ANTENNA-BUS-v2.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 v2.0 增强:
   - 16人格自动映射到五大蚁群种群

@@ -12,6 +12,8 @@ from __future__ import annotations
 投喂挑战 P0-A1 落地：工蚁+侦察蚁 + 招募素+足迹素 + L1-L3
 
 DNA: #龍芯⚡️丙午·辛未·MVP-COLONY-v1.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
+# 保留原因: 历史参考，新代码请使用 bin/lh_ant_colony_orchestrator.py --run
 
 设计原则（乔前辈·极简工程）:
   - 只做两群蚂蚁：工蚁(执行) + 侦察蚁(感知)

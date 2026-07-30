@@ -8,6 +8,7 @@
 投喂挑战 P0-A2 落地：信息素追溯链路 + 决策可审计性
 
 DNA: #龍芯⚡️丙午·辛未·AUDIT-ANT-v1.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 核心能力:
   1. 决策追溯 — 任意集体决策 → 完整信息素路径 + 模块响应链

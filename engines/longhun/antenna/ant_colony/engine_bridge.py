@@ -8,6 +8,7 @@
 将蚁群涌现指标注入龙魂现有引擎决策链路。
 
 DNA: #龍芯⚡️丙午·辛未·ANT-COLONY-ENGINE-BRIDGE-v1.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 桥接目标:
   1. 双脑互搏 (lh_dual_brain_engine.py)    → 蚁群投票加权

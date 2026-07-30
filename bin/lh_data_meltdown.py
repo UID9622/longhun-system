@@ -19,6 +19,8 @@ lh_data_meltdown — 龍魂数据黑洞五层熔断引擎 v1.0
   python3 bin/lh_data_meltdown.py check-field password "my_secret"
 
 DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-ENGINE-v1.0
+# STATUS: ⚠️ DEPRECATED · 敏感数据熔断层能力已整合进不动点归档引擎的 BLACK/RED 隔离机制
+# 保留原因: 历史敏感字段处理参考
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 """
 

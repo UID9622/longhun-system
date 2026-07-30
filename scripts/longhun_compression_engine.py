@@ -16,6 +16,8 @@
   - "一个技能压缩成一个编号"
 
 DNA: #龍芯⚡️2026-06-24-LONGHUN-COMPRESSION-ENGINE-v1.0
+# STATUS: ⚠️ DEPRECATED · 压缩能力已整合进 engines/lh_fixed_point_memory_archive.py
+# 保留原因: 历史压缩算法参考，新代码请使用 MemoryArchive.compress()
 """
 from __future__ import annotations
 

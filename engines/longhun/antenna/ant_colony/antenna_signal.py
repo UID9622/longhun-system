@@ -12,6 +12,7 @@ from __future__ import annotations
 基于 LACA v1.0 论文，深度整合龙魂系统
 
 DNA: #龍芯⚡️丙午·辛未·ANTENNA-SIGNAL-v2.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 v2.0 增强:
   - DNA 格式升级为 v∞ 干支卦格式

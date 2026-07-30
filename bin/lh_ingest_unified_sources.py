@@ -8,6 +8,8 @@
 扫描：Notion 本地镜像 + GitHub 公开仓库 + 本地仓库
 输出：训练样本 JSONL（system/user/assistant）
 DNA: #龍芯⚡️2026-07-20-UNIFIED-SOURCES-INGEST-v1.0
+# STATUS: ⚠️ DEPRECATED · 功能由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 历史多来源摄入参考，新代码请使用 MemoryArchive.ingest()
 """
 
 import json
