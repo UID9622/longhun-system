@@ -12,6 +12,7 @@ LLM→蚁群适配器 v1.0 · LLMAntennaAdapter
 投喂挑战 P1-A4 落地：将 LLM 调用包装为 AntennaSignal 标准协议
 
 DNA: #龍芯⚡️丙午·辛未·LLM-ADAPTER-v1.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 核心能力:
   1. LLM调用 → AntennaSignal 包装：任何 LLM 请求/响应转成蚁群信号

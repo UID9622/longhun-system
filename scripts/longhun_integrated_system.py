@@ -5,6 +5,8 @@
 LONGHUN INTEGRATED SYSTEM - Complete Ecosystem v1.0
 
 DNA:#龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0
+# STATUS: ⚠️ DEPRECATED · 功能已被 engines/lh_fixed_point_memory_archive.py / bin/lh_ant_colony_orchestrator.py 等模块化替代
+# 保留原因: 历史集成框架参考，新代码请使用各专用引擎
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

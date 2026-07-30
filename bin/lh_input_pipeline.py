@@ -11,6 +11,8 @@
 ║  五行归属：土                                                    ║
 ║                                                                  ║
 ║  DNA: #龍芯⚡️丙午·辛未·消化系统-INPUT-PIPELINE-v1.0             ║
+# STATUS: ⚠️ DEPRECATED · 功能由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 历史输入路由参考，新代码请使用 MemoryArchive.ingest()
 ╚══════════════════════════════════════════════════════════════╝
 
 用法:

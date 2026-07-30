@@ -8,6 +8,8 @@
 把日志、长期记忆、星辰记忆、英文记忆、技能、人格全部归集为训练数据。
 
 DNA: #龍芯⚡️2026-07-19-MEMORY-INGEST-ALL-v1.0
+# STATUS: ⚠️ DEPRECATED · 功能由 engines/lh_fixed_point_memory_archive.py 统一接管
+# 保留原因: 历史摄入管道参考，新代码请使用 MemoryArchive.ingest() 或 bin/lh_daily_logger.py
 """
 
 import json

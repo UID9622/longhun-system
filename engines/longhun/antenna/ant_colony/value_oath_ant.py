@@ -8,6 +8,7 @@
 投喂挑战 P1-A8 落地：六誓逐条对照蚁群架构 · 价值锚定不漂移
 
 DNA: #龍芯⚡️丙午·辛未·VALUE-OATH-v1.0
+# STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
 
 核心能力:
   1. 六誓定义 — 龙魂系统的六条核心价值观

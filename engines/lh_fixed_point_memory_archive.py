@@ -5,9 +5,9 @@
 # -*- coding: utf-8 -*-
 """
 # ═══════════════════════════════════════════════════════════
-# 龍魂 · 不动点记忆归档引擎 v1.0
+# 龍魂 · 不动点记忆归档引擎 v1.1
 # ═══════════════════════════════════════════════════════════
-# DNA: #龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.1
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 设计目标：把「压缩」「不动点」「记忆归档」合成一条流水线，
@@ -100,7 +100,7 @@ class FixedPointState(str, Enum):
 class MemoryArchive:
     """不动点记忆归档核心引擎"""
 
-    DNA = "#龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0"
+    DNA = "#龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.1"
 
     def __init__(self, archive_dir: Optional[Path] = None):
         self.archive_dir = Path(archive_dir) if archive_dir else ARCHIVE_DIR
@@ -433,6 +433,27 @@ class MemoryArchive:
                         yield json.loads(line)
                     except json.JSONDecodeError:
                         continue
+
+
+# ============================================================
+# 模块级便捷接口：所有引擎统一调用此入口
+# ============================================================
+def archive_once(text: str, source: str = "unknown", tags: Optional[List[str]] = None,
+                 context: Optional[Dict] = None) -> Dict[str, Any]:
+    """
+    一键归档入口。内部自动捕获异常，永不抛错。
+    返回结果始终包含 status 字段：archived / pending / quarantined / duplicate / error
+    """
+    try:
+        archive = MemoryArchive()
+        return archive.ingest(text, source=source, tags=tags or [], context=context or {})
+    except Exception as e:
+        return {
+            "status": "error",
+            "error": str(e),
+            "source": source,
+            "text_preview": text[:200] if text else "",
+        }
 
 
 # ============================================================
