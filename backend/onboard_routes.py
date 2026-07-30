@@ -1,6 +1,6 @@
 """
 龍魂·AI 入口引导 API — 鲲鹏统一入口
-DNA: #龍芯⚡️2026-07-28-ONBOARD-ROUTES-v1.0-7B2C4E1F
+DNA: #龍芯⚡️2026-07-30-ONBOARD-ROUTES-v1.1-ALIGN-8B3C5D2E
 
 所有 AI（CodeBuddy/Kimi/Ollama/任何国产AI）进入龍魂系统的统一入口。
 任何 AI 进门第一步：GET /api/onboarding/bootstrap
@@ -162,6 +162,7 @@ QUICK_COMMANDS = [
     {"action": "签名", "cmd": "python3 bin/lh_gpg_sign.py sign ."},
     {"action": "推远端", "cmd": "python3 bin/lh_auto_cannon.py"},
     {"action": "同步鲲鹏", "cmd": "bash deploy/sync-to-kunpeng.sh"},
+    {"action": "对齐复盘", "cmd": "python3 bin/lh_align_checker.py"},
     {"action": "SSH鲲鹏", "cmd": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27"},
 ]
 
@@ -213,7 +214,20 @@ SELF_CHECK_LIST = [
     "✅ 一票否决词已记住",
     "✅ 禁止场景已确认",
     "✅ 路径铁律已确认",
+    "✅ 对齐复盘已执行(python3 bin/lh_align_checker.py)",
 ]
+
+ALIGN_CHECKER = {
+    "description": "每次AI进门自动扫描全项目·检测重复函数·缺失DNA·缺失GPG签名·相似函数名",
+    "command": "python3 bin/lh_align_checker.py",
+    "modes": {
+        "quick": "python3 bin/lh_align_checker.py --quiet  # 仅退出码(0=ok/1=有问题)",
+        "full": "python3 bin/lh_align_checker.py  # 终端彩色报告",
+        "json": "python3 bin/lh_align_checker.py --json  # JSON格式·管道友好",
+        "report": "python3 bin/lh_align_checker.py --report output/align_report.json  # 落盘JSON",
+    },
+    "principle": "AI不能再说'我不知道之前写过什么'·进门先看项目全貌",
+}
 
 # ═══════════════════════════════════════════
 # API 端点
@@ -290,7 +304,10 @@ async def onboarding_bootstrap():
             "deben_audit_doc": "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
             "m261_covenant": "01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md",
             "onboarding_protocol": "01_protocols/LH-AI-ONBOARDING-v1.0.md",
+            "align_checker": "bin/lh_align_checker.py",
         },
+        # ── 对齐复盘（新增·v1.1） ──
+        "align_checker": ALIGN_CHECKER,
         # ── 降级策略 ──
         "degradation": {
             "principle": "有网先走鲲鹏，离线才降级本地",

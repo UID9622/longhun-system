@@ -1,10 +1,10 @@
-# 龍魂·AI 入口引导协议 v1.0
-# LH-AI-ONBOARDING-PROTOCOL-v1.0
+# 龍魂·AI 入口引导协议 v1.1
+# LH-AI-ONBOARDING-PROTOCOL-v1.1
 
-> **DNA**: `#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.0-3F7A1B9C`
+> **DNA**: `#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.1-ALIGN-8B3C5D2E`
 > **创建者**: 诸葛鑫（UID9622）
 > **协议**: CC BY-NC-SA 4.0
-> **生效**: 2026-07-28
+> **生效**: 2026-07-28（v1.1修订: 2026-07-30）
 > **上位文档**: CONSTITUTION.md · P0_ETERNAL_LOCK.md · M261前传契碑
 > **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
@@ -131,6 +131,7 @@
 [ ] GPG签名: 产出文件自动签名
 [ ] 三色审计: 🟢通过 🟡待核 🔴拒绝
 [ ] 命令入口: 知道去哪查命令 (https://uid9622.cn/api/cmd/)
+[ ] 🔥对齐复盘: 已执行 python3 bin/lh_align_checker.py · 检查重复·缺失·签名
 ```
 
 ---
