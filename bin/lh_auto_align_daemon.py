@@ -1,0 +1,1 @@
+__FROM_FILE__bin/lh_auto_align_daemon.py
