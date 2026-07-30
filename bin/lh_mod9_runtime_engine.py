@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-MOD9-RUNTIME-v1.0-E1F2G3H4
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · 模9治理运行时引擎 v1.0 (Mod-9 Governance Runtime)
 ============================================================

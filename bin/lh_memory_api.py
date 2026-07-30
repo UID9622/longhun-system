@@ -248,7 +248,7 @@ def require_auth(func):
                 if isinstance(arg, Request):
                     request = arg
                     break
-        if not verify_token(request):
+        if not request or not verify_token(request):
             raise HTTPException(status_code=403, detail="需要 API Token。本地访问无需认证。")
         return await func(*args, **kwargs)
     return wrapper
@@ -369,6 +369,7 @@ def load_index(force: bool = False) -> Optional[Dict[str, Any]]:
     try:
         _index_cache = json.loads(INDEX_FILE.read_text(encoding='utf-8'))
         _index_time = now
+        assert _index_cache is not None  # json.loads 永不为 None
         logger.info(f"[index] 加载成功: {_index_cache.get('total_files', 0)} 日志, "
                     f"{_index_cache.get('total_keywords', 0)} 关键词")
         return _index_cache

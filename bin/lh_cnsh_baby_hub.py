@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_baby_hub-INTEGRATION-SYSTEM
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_baby_hub-INTEGRATION-SYSTEM
 
+"""🐉 龍魂引擎：lh_cnsh_baby_hub
+路径：bin/lh_cnsh_baby_hub.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os as _os
 import sys as _sys
 _module_dir = _os.path.dirname(_os.path.abspath(__file__))

@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DCEP_CROSSBORDER-v1.0-cf889cc5
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # lh_dcep_crossborder.py
 # 龍魂 · 数字人民币跨境结算引擎
 # DNA: ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 # UID: 9622
 
+"""🐉 龍魂引擎：lh_dcep_crossborder
+路径：bin/lh_dcep_crossborder.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 
 import hashlib

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑时·兑-BRAKET-PERSONA-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 Bra-Ket量子人格引擎 v1.0 · 多人格量子协作系统
 用狄拉克符号实现人格叠加态、纠缠态、测量坍缩

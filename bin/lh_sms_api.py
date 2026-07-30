@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·SMS-API-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂短信推送统一接口 · 审计留痕
 # DNA: #龍芯⚡️丙午·辛未·SMS-API-v1.0
 
+"""🐉 龍魂引擎：lh_sms_api
+路径：bin/lh_sms_api.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os
 import sys
 import json

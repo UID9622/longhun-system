@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-audit-审计记录器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-audit-审计记录器-v1.0
 """
 通心译 | TongXinYi: Audit Logger
 龍魂体系·审计记录器 — 系统操作日志持久化与查询

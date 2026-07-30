@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-07-LU-PERSONA-RECALL-ALL-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🔄 LU-PERSONA-RECALL-ALL · 全人格召回
 

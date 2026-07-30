@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·乙未·甲寅·酉时·需-P03-MOZI-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P03 墨子/雯雯 · 邏輯驗證執行器

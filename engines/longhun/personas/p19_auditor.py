@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·丙申·丙辰·亥时·需-P19-AUDITOR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P19 极简审计官 · UI/登记册审计执行器

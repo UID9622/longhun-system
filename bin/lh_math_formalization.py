@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑时·离-MATH-FORMALIZATION-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龙魂数学形式化引擎 v1.0 · Lyapunov稳定性 · 记忆链验证 · 人格向量有界性
 CNSH可编译版本的数学骨干

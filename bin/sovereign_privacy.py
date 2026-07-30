@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-06-SOVEREIGN-PRIVACY-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🔐 龍魂·主权隐私引擎 — 身份脱敏 + AES-256审计链加密

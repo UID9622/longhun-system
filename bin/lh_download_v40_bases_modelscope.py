@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️20260719003000000-V40-BASE-DOWNLOAD-MODELSCOPE
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 v4.0 底座候选模型下载脚本（ModelScope 魔搭 fallback）

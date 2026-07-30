@@ -1,0 +1,6 @@
+# 价格透明度审计工具 · 依赖
+# DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·☰乾-PRICE-AUDIT-DEPS-v1.0
+
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0

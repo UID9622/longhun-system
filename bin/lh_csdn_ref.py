@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-12-CSDN-REF-TOOL-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂 · CSDN 外部引用工具 v1.0
 让系统内任何组件都能引用已发布的CSDN博客文章

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-19-MERGE-MEMORY-DATASET-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 合并 v3.7 稳定数据 + 全记忆 ingestion 数据 → v4.0.6 训练集

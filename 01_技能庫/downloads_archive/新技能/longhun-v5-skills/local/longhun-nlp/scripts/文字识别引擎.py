@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-reactor-文字识别引擎-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-reactor-文字识别引擎-v1.0
 """
 通心译 | TongXinYi: Text Recognition Engine (LongWen NLP)
 龍魂体系·龍文NLP引擎 — 自然语言处理与语义理解核心

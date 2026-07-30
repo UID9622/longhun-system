@@ -4,7 +4,7 @@
     "note": "user_dna_hash → trust_score"
   },
   "users": {
-    "uid9622_master_hash": 95.0,
+    "uid9622_master_hash": 100.0,
     "high_trust_contributor_a": 72.0,
     "mid_trust_user_b": 35.0,
     "new_user_c": 8.0,

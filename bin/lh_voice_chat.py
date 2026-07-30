@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·VOICE-CHAT-PLACEHOLDER
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂实时语音对话引擎 · 占位符 · TTS+ASR+LLM 流式pipeline
 # DNA: #龍芯⚡️丙午·辛未·VOICE-CHAT-PLACEHOLDER
 
+"""🐉 龍魂引擎：lh_voice_chat
+路径：bin/lh_voice_chat.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import sys
 import argparse
 from enum import Enum

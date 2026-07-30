@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-05-AGENT-ORCHESTRATOR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂系统 · 本地智能体协调引擎 v1.0
@@ -13,6 +16,10 @@ from datetime import datetime
 from pathlib import Path
 
 HOME = Path.home()
+BIN_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(BIN_DIR))
+import lh_sg_startup_guard
+lh_sg_startup_guard.enforce()
 
 # ═══════════════════════════════════════════════════════════════════════════
 # 15个本地智能体注册表

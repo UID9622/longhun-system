@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·VIDEO-DNA-EMBEDDER-PLACEHOLDER
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂视频DNA嵌入引擎 · 占位符 · 帧级追溯码
 # DNA: #龍芯⚡️丙午·辛未·VIDEO-DNA-EMBEDDER-PLACEHOLDER
 
+"""🐉 龍魂引擎：lh_video_dna_embedder
+路径：bin/lh_video_dna_embedder.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import sys
 import argparse
 import json

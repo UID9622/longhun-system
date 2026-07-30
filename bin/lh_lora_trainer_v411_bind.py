@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-20-MODEL-LORA-TRAINER-v4.1.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v4.1.1-bind LoRA 微调器（DNA捆绑协议注入 · 自定义训练循环）

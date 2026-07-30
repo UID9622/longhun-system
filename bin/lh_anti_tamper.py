@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡2026-07-06-ANTI-TAMPER-SCANNER-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh anti-tamper — 龍魂防篡改扫描器 v2.0
 

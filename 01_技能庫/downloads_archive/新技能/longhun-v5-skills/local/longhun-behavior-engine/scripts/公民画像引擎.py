@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-ENGINE-v1.0
 """
 龍魂公民画像引擎 — 真实行为·真诚评估·自主亮灯
 

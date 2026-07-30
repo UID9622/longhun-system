@@ -1,3 +1,6 @@
+#龍芯⚡️20260422-CODE-AUDIT01
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # ⚠️ DUPLICATE_COPY — 非权威源，仅供参考
 # 权威源: cnsh-core/engines/audit_engine.py
 # 标记时间: 2026-07-06 (CodeBuddy 收口)

@@ -1,0 +1,26 @@
+# ────────────────────────────────────────────
+# 龍魂·审计对抗中枢 · systemd unit
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-HUB-SYSTEMD-v1.0
+# 部署路径: /etc/systemd/system/longhun-audit-hub.service
+# ────────────────────────────────────────────
+
+[Unit]
+Description=龍魂审计对抗中枢 API v1.0 (左右互搏·红蓝对抗·数学建模)
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-activation
+Environment=PATH=/opt/longhun-activation/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/longhun-activation/venv/bin/python3 bin/lh_audit_battle_hub.py server --host 127.0.0.1 --port 9657
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/longhun/audit-hub/app.log
+StandardError=append:/var/log/longhun/audit-hub/app.log
+SyslogIdentifier=longhun-audit-hub
+
+[Install]
+WantedBy=multi-user.target

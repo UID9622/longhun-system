@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡2026-07-06-MEMORY-UNIFY-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh memory — 龍魂统一记忆入口
 

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-GENERATE_RELATIONSHIP_MATRIX-v1.0-18365eca
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 生成龍魂系统对接关系矩阵 Markdown。
 扫描关键目录与依赖文件，输出 docs/relationship-matrix.md。

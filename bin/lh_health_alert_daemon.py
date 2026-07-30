@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·亥时·HEALTH-ALERT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -75,7 +78,7 @@ HEALTH_MODULES = [
     {
         "id": "ant_colony",
         "name": "蚁群节点",
-        "weight": 0.20,
+        "weight": 0.15,
         "check_files": [
             "bin/lh_ant_colony_daemon.py",
             "bin/lh_ant_colony_router.py",
@@ -86,7 +89,7 @@ HEALTH_MODULES = [
     {
         "id": "persona_matrix",
         "name": "人格矩阵",
-        "weight": 0.20,
+        "weight": 0.15,
         "check_files": [
             "bin/lh_persona_start_all.py",
             "bin/lh_persona_signing.py",
@@ -97,7 +100,7 @@ HEALTH_MODULES = [
     {
         "id": "semantic_registry",
         "name": "语义注册表",
-        "weight": 0.15,
+        "weight": 0.12,
         "check_files": [
             "bin/lh_semantic_unified_registry.py",
             "bin/lh_registry_auto_sync.py",
@@ -107,11 +110,17 @@ HEALTH_MODULES = [
     {
         "id": "audit_system",
         "name": "审计系统",
-        "weight": 0.15,
+        "weight": 0.12,
         "check_files": [
             "bin/lh_dual_audit_engine.py",
             "bin/lh_oversight_bridge.py",
         ],
+    },
+    {
+        "id": "immutable_history",
+        "name": "不可篡改历史",
+        "weight": 0.15,
+        "check_engine": "bin/lh_immutable_history.py",
     },
     {
         "id": "deploy_readiness",
@@ -132,7 +141,7 @@ HEALTH_MODULES = [
     {
         "id": "inbox_mapping",
         "name": "Inbox映射",
-        "weight": 0.10,
+        "weight": 0.11,
         "check_state_file": True,
         "check_unmapped_threshold": 10,
     },
@@ -200,8 +209,15 @@ class HealthAlertDaemon:
 
     # ── 各模块检查 ──────────────────────────────────────
 
+    def _module_by_id(self, module_id: str) -> Dict[str, Any]:
+        """通过 module_id 查找模块配置，避免硬编码索引"""
+        for m in HEALTH_MODULES:
+            if m["id"] == module_id:
+                return m
+        raise KeyError(f"未知模块: {module_id}")
+
     def _check_ant_colony(self) -> ModuleHealth:
-        m = HEALTH_MODULES[0]
+        m = self._module_by_id("ant_colony")
         score = 100.0
         issues = []
 
@@ -219,7 +235,7 @@ class HealthAlertDaemon:
         )
 
     def _check_persona_matrix(self) -> ModuleHealth:
-        m = HEALTH_MODULES[1]
+        m = self._module_by_id("persona_matrix")
         score = 100.0
         issues = []
 
@@ -247,7 +263,7 @@ class HealthAlertDaemon:
         )
 
     def _check_semantic_registry(self) -> ModuleHealth:
-        m = HEALTH_MODULES[2]
+        m = self._module_by_id("semantic_registry")
         score = 100.0
         issues = []
 
@@ -264,7 +280,7 @@ class HealthAlertDaemon:
         )
 
     def _check_audit_system(self) -> ModuleHealth:
-        m = HEALTH_MODULES[3]
+        m = self._module_by_id("audit_system")
         score = 100.0
         issues = []
 
@@ -288,7 +304,7 @@ class HealthAlertDaemon:
         )
 
     def _check_deploy_readiness(self) -> ModuleHealth:
-        m = HEALTH_MODULES[4]
+        m = self._module_by_id("deploy_readiness")
         score = 100.0
         issues = []
 
@@ -306,7 +322,7 @@ class HealthAlertDaemon:
         )
 
     def _check_disk_storage(self) -> ModuleHealth:
-        m = HEALTH_MODULES[5]
+        m = self._module_by_id("disk_storage")
         try:
             import shutil
             usage = shutil.disk_usage(ROOT)
@@ -339,7 +355,7 @@ class HealthAlertDaemon:
             )
 
     def _check_inbox_mapping(self) -> ModuleHealth:
-        m = HEALTH_MODULES[6]
+        m = self._module_by_id("inbox_mapping")
         inbox_db = STATE_DIR.parent / "inbox" / "inbox_items.json"
 
         if not inbox_db.exists():
@@ -383,6 +399,57 @@ class HealthAlertDaemon:
                 issues=[str(e)], checked_at=datetime.now().isoformat(),
             )
 
+    def _check_immutable_history(self) -> ModuleHealth:
+        m = self._module_by_id("immutable_history")
+        engine_path = ROOT / m["check_engine"]
+
+        if not engine_path.exists():
+            return ModuleHealth(
+                module_id=m["id"], module_name=m["name"],
+                score=0, status="RED",
+                details="不可篡改历史引擎缺失",
+                issues=[f"未找到: {m['check_engine']}"],
+                checked_at=datetime.now().isoformat(),
+            )
+
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(engine_path), "--report"],
+                capture_output=True,
+                text=True,
+                timeout=60,
+            )
+            report = json.loads(proc.stdout)
+            is_valid = report.get("integrity_valid", False)
+            total = report.get("total_records", 0)
+            threat_summary = report.get("threat_actors", {})
+            actor_count = threat_summary.get("total_actors", 0)
+            incident_count = threat_summary.get("total_incidents", 0)
+
+            if is_valid:
+                details = f"账本完整: {total} 条 | 行为体: {actor_count} | 事件: {incident_count}"
+                return ModuleHealth(
+                    module_id=m["id"], module_name=m["name"],
+                    score=100, status="GREEN",
+                    details=details,
+                    issues=[], checked_at=datetime.now().isoformat(),
+                )
+            else:
+                return ModuleHealth(
+                    module_id=m["id"], module_name=m["name"],
+                    score=0, status="RED",
+                    details=f"账本异常: {total} 条 | 行为体: {actor_count}",
+                    issues=report.get("issues", []),
+                    checked_at=datetime.now().isoformat(),
+                )
+        except Exception as e:
+            return ModuleHealth(
+                module_id=m["id"], module_name=m["name"],
+                score=0, status="RED",
+                details=f"校验失败: {e}",
+                issues=[str(e)], checked_at=datetime.now().isoformat(),
+            )
+
     # ── 核心检查逻辑 ────────────────────────────────────
 
     def _score_to_status(self, score: float) -> str:
@@ -401,6 +468,7 @@ class HealthAlertDaemon:
             self._check_deploy_readiness,
             self._check_disk_storage,
             self._check_inbox_mapping,
+            self._check_immutable_history,
         ]
 
         modules = []

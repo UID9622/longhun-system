@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·申时·大有-LONGHUN-CODE-GUARDIAN-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·代码质量守护 v1.0 — 类型自愈引擎
 ===========================================

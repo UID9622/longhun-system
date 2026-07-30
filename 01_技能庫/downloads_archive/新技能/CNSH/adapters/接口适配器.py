@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-adapters-接口适配器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-adapters-接口适配器-v1.0
 """
 通心译 | TongXinYi: Interface Adapter
 龍魂体系·接口适配器 — 外部系统与龍魂核心的统一适配层

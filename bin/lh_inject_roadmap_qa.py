@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 注入「模型迭代路线图」训练数据

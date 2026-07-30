@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_USB_SEARCH_INDEX-v1.0-9f5408f9
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂 USB 备份搜索引擎 — 在服务器上建全文索引
 
 对已同步到服务器的 U 盘备份数据，构建：

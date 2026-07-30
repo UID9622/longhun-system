@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·需-LONGHUN-YIJING-ENGINE-v1.0-7A3F2B9C
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·易经推演引擎 v1.0 — 原生态文化输出核心
 ==============================================

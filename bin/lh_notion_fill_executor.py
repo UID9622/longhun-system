@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-14-NOTION-FILL-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · Notion 空壳填充执行引擎 v1.0
 用法: python3 bin/lh_notion_fill_executor.py --dry-run

@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+"""🐉 龍魂引擎：lh_sensory_education
+路径：bin/lh_sensory_education.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂·感官教育尊严引擎 v1.0

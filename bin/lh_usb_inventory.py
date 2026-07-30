@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_USB_INVENTORY-v1.0-cab54313
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂 USB 备份盘索引器
 
 扫描挂载的移动存储，建立 SQLite 索引 + 里程碑时间线 + 同步优先级清单。

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·DUAL-ENGINE-v2.0-CODE-LANDED
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·双引擎AI融合 v2.0
 DNA: #龍芯⚡️丙午·乙申·DUAL-ENGINE-v2.0-CODE-LANDED

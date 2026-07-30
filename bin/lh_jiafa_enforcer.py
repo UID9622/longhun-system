@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·壬辰·午时-JIAFA-ENFORCER-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # ============================================================
 # 龍魂·家法第一条执行引擎 v2.0
@@ -12,6 +15,9 @@
 #   IV.  防御性声明 — 仅针对恶意剽窃，不排斥平等互利的国际合作
 # ============================================================
 
+"""🐉 龍魂引擎：lh_jiafa_enforcer
+路径：bin/lh_jiafa_enforcer.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 
 import hashlib

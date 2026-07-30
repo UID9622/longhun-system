@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-05-LONGHUN-DAO-ETHICS-ENGINE-v1.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：dao_ethics_anchor
+路径：engines/dao_ethics_anchor.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂系統 · 道德經倫理錨定引擎 v1.1

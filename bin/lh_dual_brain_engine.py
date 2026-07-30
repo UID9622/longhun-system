@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-DUAL-BRAIN-ENGINE-v1.0-A1B2C3D4
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · 双脑审计引擎 v1.0 (Dual Brain Engine)
 ==================================================

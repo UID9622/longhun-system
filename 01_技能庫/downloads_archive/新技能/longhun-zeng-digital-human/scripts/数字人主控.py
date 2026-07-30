@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-MAIN-CONTROLLER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-MAIN-CONTROLLER-v1.0
 # ☯️ 三色审计：🔴 核心架构 | 🟡 状态控制 | 🟢 数据流
 """
 数字人主控系统 - 龍芯北辰数字人总控制器

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·甲寅·需-MODEL-LORA-TRAINER-v3.9.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v3.9.1 LoRA 微调器（K3 真血 + 人格矩阵 + 语义 QA 版）

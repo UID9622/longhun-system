@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️20260718235000000-V381-VALIDATION-REPORT
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 v3.8.1 部署验证脚本

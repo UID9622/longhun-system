@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""针对真实穿透的攻击变体生成 + 验证"""
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_TARGETED_VARIANT_TEST-v1.0-417f03c2
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+"""针对真实穿透的攻击变体生成 + 验证
+🐉 龍魂引擎：lh_targeted_variant_test
+路径：bin/lh_targeted_variant_test.py
+TODO：请补充详细功能说明（不少于20字）。
+"""
 import json, sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bin.lh_adversarial_pipeline import AdversarialPipeline, CONFIG

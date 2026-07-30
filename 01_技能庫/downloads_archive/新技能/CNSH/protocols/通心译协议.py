@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-protocols-通心译协议-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-protocols-通心译协议-v1.0
 """
 通心译 | TongXinYi: TongXinYi Protocol (Heart-to-Heart Translation)
 龍魂体系·通心译协议 — 双语注释与跨文化沟通标准

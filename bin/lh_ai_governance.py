@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·AI-GOVERNANCE-v2.0-CODE-LANDED
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·AI治理体系 v2.0 — 立法+裁判+反懒惰+连续性+公开发布
 DNA: #龍芯⚡️丙午·乙申·AI-GOVERNANCE-v2.0-CODE-LANDED

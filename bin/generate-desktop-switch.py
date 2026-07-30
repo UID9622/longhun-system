@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-18-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 从 desktop/menu-registry.json 与各模块的 desktop-menu.json 动态生成
 桌面主开关 AppleScript 源码。

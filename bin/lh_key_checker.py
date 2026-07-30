@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·KEY-CHECKER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+"""🐉 龍魂引擎：lh_key_checker
+路径：bin/lh_key_checker.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 🐉 龍魂 API 密钥检测器

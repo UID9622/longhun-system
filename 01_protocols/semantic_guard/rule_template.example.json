@@ -1,0 +1,102 @@
+> DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·临-SEMANTIC-GUARD-RULE-TEMPLATE-EXAMPLE-v∞-F1FB9BB4
+> CREATOR: UID9622
+> PROTOCOL: 龍魂君子协议 · CC BY-NC-SA 4.0 · L0 世界老百姓最高
+
+{
+  "$schema": "./rule_template_schema.json",
+  "dna": "#龍芯⚡️丙午·丙申·癸酉·乙卯·临-YOUR-PROJECT-GUARD-RULES-v∞-XXXXXXXX",
+  "version": "1.0.0",
+  "description": "新增规则库时请复制此文件，按字段填写后运行 bin/lh_sg_auditor.py 审核。",
+  "created_at": "2026-07-28T06:55:58+00:00",
+  "updated_at": "2026-07-28T06:55:58+00:00",
+  "author": "UID9622",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "location": "draft",
+  "categories": {
+    "anti_revisionism": {
+      "name": "反历史修正主义",
+      "description": "识别并拦截历史修正主义、历史虚无主义及领土主权否认等有害语义。",
+      "default_severity": "🟡",
+      "default_action": "external_feed_append_only",
+      "color": "#FFD700",
+      "tags": ["历史", "主权"]
+    },
+    "external_feed": {
+      "name": "外部投喂风险",
+      "description": "识别明确外部投喂资料及带有意识形态风险的外部信息引用。",
+      "default_severity": "🟡",
+      "default_action": "external_feed_append_only",
+      "color": "#FFA500",
+      "tags": ["外部", "投喂"]
+    }
+  },
+  "actions": {
+    "external_feed_append_only": {
+      "name": "external_feed_append_only",
+      "description": "将命中内容以追加模式记录到外部投喂审计链，禁止直接引用。",
+      "target_engine": "semantic_guard",
+      "payload_template": { "mode": "append_only", "audit": true }
+    },
+    "block_and_audit": {
+      "name": "block_and_audit",
+      "description": "立即拦截命中内容并生成审计日志。",
+      "target_engine": "semantic_guard",
+      "payload_template": { "mode": "block", "audit": true }
+    },
+    "flag_for_review": {
+      "name": "flag_for_review",
+      "description": "标记内容供人工复核，同时记录上下文。",
+      "target_engine": "semantic_guard",
+      "payload_template": { "mode": "flag", "audit": true }
+    }
+  },
+  "agent_chain": [
+    { "gate": "GATE-01", "name": "格式完整性闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "字段完整" },
+    { "gate": "GATE-02", "name": "DNA追溯闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "v∞格式" },
+    { "gate": "GATE-03", "name": "动作注册闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "动作已注册" },
+    { "gate": "GATE-04", "name": "正则合法闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "正则可编译" },
+    { "gate": "GATE-05", "name": "分类一致闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "分类引用正确" },
+    { "gate": "GATE-06", "name": "证据示例闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "证据示例齐全" },
+    { "gate": "GATE-07", "name": "确认码闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "L0确认码有效" },
+    { "gate": "GATE-08", "name": "审计链路闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "审计链完整" },
+    { "gate": "GATE-09", "name": "协议合规闸", "status": "approved", "reviewer": "UID9622", "reviewed_at": "2026-07-28T06:55:58+08:00", "comment": "符合君子协议" },
+    { "gate": "GATE-10", "name": "部署就绪闸", "status": "pending", "reviewer": "", "reviewed_at": "", "comment": "待实际部署前复核" }
+  ],
+  "rules": [
+    {
+      "id": "EXAMPLE_RULE_001",
+      "category": "external_feed",
+      "name": "示例风险规则",
+      "description": "这是一条按模板填写的示例规则，用于演示字段结构与审核流程。",
+      "patterns": [
+        "示例.*风险",
+        "模板.*规则"
+      ],
+      "negative_patterns": [],
+      "severity": "🟡",
+      "action": "external_feed_append_only",
+      "priority": 50,
+      "enabled": true,
+      "version": "1.0.0",
+      "created_at": "2026-07-28T06:55:58+00:00",
+      "updated_at": "2026-07-28T06:55:58+00:00",
+      "author": "UID9622",
+      "metadata": {
+        "source": "manual",
+        "evidence_examples": [
+          "示例：包含「示例风险」关键词的文本片段。"
+        ],
+        "counter_examples": [],
+        "references": [],
+        "tags": ["external_feed"],
+        "notes": ""
+      },
+      "audit": {
+        "status": "draft",
+        "reviewer": "",
+        "reviewed_at": "",
+        "comments": "示例规则，待复核。"
+      }
+    }
+  ]
+}

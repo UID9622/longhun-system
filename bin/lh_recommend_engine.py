@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·丙戌·未时·需-RECOMMEND-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # 🐉 龍魂 · 触角推荐引擎 v1.0
 # DNA: #龍芯⚡️丙午·辛未·丙戌·未时·需-RECOMMEND-ENGINE-v1.0
 """

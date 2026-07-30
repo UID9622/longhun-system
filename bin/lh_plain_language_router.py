@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🗣️ 龍魂·大话语义路由器 v1.0 — 无论用户怎么用大白话说，都能理解意图

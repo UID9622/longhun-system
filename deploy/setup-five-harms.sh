@@ -25,9 +25,12 @@ echo "════════════════════════"
 info "Step 1/4: 同步代码..."
 rsync -az --progress \
     -e "ssh ${SSH_OPTS}" \
+    --include='portal/' \
     --include='portal/five-harms-expose/***' \
     --include='portal/tools/***' \
+    --include='bin/' \
     --include='bin/lh_five_harms_api.py' \
+    --include='deploy/' \
     --include='deploy/longhun-five-harms.service' \
     --include='deploy/nginx-uid9622.cn.conf' \
     --exclude='*' \

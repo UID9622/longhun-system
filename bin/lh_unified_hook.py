@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-UNIFIED-HOOK-CONNECTOR-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龙魂统一钩子连接器 v2.1 · 13大引擎一体化集成
 确保每个功能块都有钩子、无脱钩属性、自动可视化效果

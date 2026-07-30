@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_KNOWLEDGE_ALGO_DB-v1.0-ee51a7da
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂算法知识库 - 核心公式、描述、场景、误区""" 
 
 LONGHUN_ALGORITHMS = {

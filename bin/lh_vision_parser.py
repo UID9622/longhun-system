@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·VISION-PARSER-v1.0-IMG2JSON
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·视觉解析引擎 v1.0 — 图片/视频帧/截图 → 结构化描述

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑时·乾-IW-ECB-QUANTUM-ENGINE-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 IW-ECB v2.0 · 无穷大权重伦理熔断引擎 · 量子纠缠态实现
 基于四层定锚 + 循环呼吸 + 量子纠缠态熔断 + 初心干净递进逻辑

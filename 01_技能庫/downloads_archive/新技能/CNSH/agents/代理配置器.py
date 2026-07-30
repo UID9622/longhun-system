@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-agents-代理配置器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-agents-代理配置器-v1.0
 """
 通心译 | TongXinYi: Agent Configurator
 龍魂体系·智能体代理配置器 — AI智能体角色与能力配置管理

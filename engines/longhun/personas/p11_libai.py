@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·丙申·丙辰·亥时·需-P11-LIBAI-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P11 李白 · 创意爆发执行器

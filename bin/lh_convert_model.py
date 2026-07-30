@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_CONVERT_MODEL-v1.0-9354b29d
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂·底模转换脚本 — HF→MLX 离线模式"""
 import os, sys, time
 os.environ["HF_HUB_OFFLINE"] = "1"  # 强制离线，不从网络下载

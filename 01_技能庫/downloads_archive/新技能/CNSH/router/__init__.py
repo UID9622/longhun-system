@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-router-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-router-v1.0
 """
 通心译 | TongXinYi: CNSH router Module Package
 龍魂体系·router模块包 — 标准初始化文件

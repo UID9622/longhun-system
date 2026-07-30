@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-PANORAMA-REPORT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂·全景日报生成器 v1.0
 DNA: #龍芯⚡️丙午·辛未·乙酉·申时·䷾既济-PANORAMA-REPORT-v1.0
 """

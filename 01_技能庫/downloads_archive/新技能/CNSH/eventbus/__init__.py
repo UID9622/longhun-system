@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-eventbus-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-eventbus-v1.0
 """
 通心译 | TongXinYi: CNSH eventbus Module Package
 龍魂体系·eventbus模块包 — 标准初始化文件

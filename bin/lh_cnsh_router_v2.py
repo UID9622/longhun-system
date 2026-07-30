@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-12-CNSH-Router-v2.0-c3fda6f3
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 CNSH 一句话路由器 v2.0｜Route = f(Intent, Context, DNA)
 ================================================================

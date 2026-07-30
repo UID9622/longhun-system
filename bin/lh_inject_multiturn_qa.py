@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 注入「多轮对话不漂移」训练数据 v3.9

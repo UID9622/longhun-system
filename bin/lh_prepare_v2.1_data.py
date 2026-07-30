@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂 v2.1 数据准备 — 穿透精准修复版
 DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP

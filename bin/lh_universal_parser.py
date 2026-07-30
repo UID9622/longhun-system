@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·需-UNIVERSAL-PARSER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # ⚡ 龍魂·全文件解析引擎 v1.0
 # DNA: #龍芯⚡️丙午·辛未·乙酉·需-UNIVERSAL-PARSER-v1.0

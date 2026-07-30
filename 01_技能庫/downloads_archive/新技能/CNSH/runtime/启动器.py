@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-runtime-启动器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-runtime-启动器-v1.0
 """
 通心译 | TongXinYi: CNSH Unified Launcher
 龍魂体系·运行时统一启动器 — 系统入口与生命周期管理

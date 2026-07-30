@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·己酉·CLEANUP-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂项目一键清理脚本 v1.0
 DNA: #龍芯⚡️丙午·乙申·己酉·CLEANUP-v1.0

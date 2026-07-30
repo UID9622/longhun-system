@@ -35,6 +35,10 @@ EXC_PATTERNS=(
     ".vscode/" ".idea/" ".DS_Store" "logs/" "*.log" "*.tmp" "*.swp"
     "*.dSYM/" "*.app/" "*.db" "*.sqlite" "*.sqlite3"
     "deploy/.kunpeng_config" "deploy/.kunpeng_auth" "backups/" "_archived_reports/"
+    "models/" "_archive/" "_work/" "data/" "voices/" "L7_数据层/"
+    "_private/" ".cnsh_credentials/" ".env" ".env.*"
+    "config/api_keys.env" "deploy/config/.cloud_credentials" "deploy/.cloud_credentials"
+    "*.pem" "*.key" "*.crt" "*_credentials*" "*secret*" "vault/" "keys/"
 )
 
 for p in "${EXC_PATTERNS[@]}"; do

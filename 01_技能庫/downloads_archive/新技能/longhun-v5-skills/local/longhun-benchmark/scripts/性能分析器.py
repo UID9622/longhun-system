@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂公式系統 - 性能分析器
 Performance Analyzer for Longhun Formula System

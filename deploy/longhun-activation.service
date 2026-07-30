@@ -1,0 +1,19 @@
+[Unit]
+Description=龍魂激活经济舱 API v1.0
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-activation
+ExecStart=/opt/longhun-activation/venv/bin/python3 bin/lh_activation_api.py --host 127.0.0.1 --port 9656
+Restart=always
+RestartSec=5
+Environment=PATH=/opt/longhun-activation/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONUNBUFFERED=1
+Environment=LONGHUN_ADMIN_TOKEN=#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+StandardOutput=append:/var/log/longhun/activation/app.log
+StandardError=append:/var/log/longhun/activation/app.log
+
+[Install]
+WantedBy=multi-user.target

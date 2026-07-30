@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-05-SELF-CHECK-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # DNA:#龍芯⚡️2026-06-05-SELF-CHECK-v1.0  责任:UID9622·不免责
+"""🐉 龍魂引擎：longhun_self_check_v1.0
+路径：bin/longhun_self_check_v1.0.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import subprocess, sqlite3, json, time, hashlib, sys
 from pathlib import Path
 from datetime import datetime

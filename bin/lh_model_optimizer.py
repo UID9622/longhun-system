@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·MODEL-OPTIMIZER-v2.0-CODE-LANDED
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·模型优化引擎 v2.0 — 基于DNA文档的模型训练优化
 DNA: #龍芯⚡️丙午·乙申·MODEL-OPTIMIZER-v2.0-CODE-LANDED

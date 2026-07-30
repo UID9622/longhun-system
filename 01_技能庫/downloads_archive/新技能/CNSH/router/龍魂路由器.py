@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-router-龍魂路由器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-router-龍魂路由器-v1.0
 """
 通心译 | TongXinYi: LongHun Router
 龍魂体系·龍魂路由器 — 智能模块路由与消息分发系统

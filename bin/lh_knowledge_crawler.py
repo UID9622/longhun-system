@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 #龍芯⚡️2026-07-08-KNOWLEDGE-CRAWLER-v1.0-7F3A2B1C
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWLER-v1.0-7F3A2B1C
 """
 龍魂知识爬虫 · 底座知识采集器 v1.0
 

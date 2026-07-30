@@ -23,6 +23,9 @@
 #   python3 bin/lh_minor_guard_engine.py session        # 交互式会话模拟
 # ============================================================
 
+"""🐉 龍魂引擎：lh_minor_guard_engine
+路径：bin/lh_minor_guard_engine.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import re
 import hashlib
 import json

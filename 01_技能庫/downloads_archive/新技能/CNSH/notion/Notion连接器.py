@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-notion-Notion连接器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-notion-Notion连接器-v1.0
 """
 通心译 | TongXinYi: Notion Connector
 龍魂体系·Notion连接器 — 与Notion工作空间的集成接口

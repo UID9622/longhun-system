@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·丙申·丙辰·亥时·需-P18-REGISTRAR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P18 基因登记官 · DNA资产注册执行器

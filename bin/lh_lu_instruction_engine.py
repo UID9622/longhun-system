@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑时·泰-LU-INSTRUCTION-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 Lu指令引擎 v1.0 · 龙魂统一指令集 · CNSH兼容语法转换器
 三才算法 + AI-DNA + 易经推演 → 统一Lu指令

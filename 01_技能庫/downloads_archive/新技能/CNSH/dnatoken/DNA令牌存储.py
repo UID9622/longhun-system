@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌存储-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌存储-v1.0
 """
 通心译 | TongXinYi: DNA Token Storage
 龍魂体系·DNA令牌存储管理器 — SQLite加密存储 + 令牌生命周期管理

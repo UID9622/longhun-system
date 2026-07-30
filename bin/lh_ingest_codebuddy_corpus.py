@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-20-CODEBUDDY-CORPUS-INGEST-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 吸收 CodeBuddy 训练语料（training_corpus_v3.0.md + training_corpus_full.md）

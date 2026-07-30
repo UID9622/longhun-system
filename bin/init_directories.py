@@ -1,3 +1,9 @@
+"""🐉 龍魂引擎：init_directories
+路径：bin/init_directories.py
+TODO：请补充详细功能说明（不少于20字）。"""
+#龍芯⚡️2026-06-21-ENGINE-INIT_DIRECTORIES-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-ENGINE-INIT_DIRECTORIES-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護

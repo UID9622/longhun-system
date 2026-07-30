@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·CULTURAL-DNA-v2.0-CODE-LANDED
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·文化DNA引擎 v2.0 — 核心文化基因注入+三层保护
 DNA: #龍芯⚡️丙午·乙申·CULTURAL-DNA-v2.0-CODE-LANDED

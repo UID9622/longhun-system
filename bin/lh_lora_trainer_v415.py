@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.5-DAODEJING
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v4.1.5 LoRA 微调器（道德经注入·DNA捆绑继承·小艺唯一接口对齐）

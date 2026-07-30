@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_GLOBAL_SEARCH_V2-v1.0-e41c5bf8
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # lh_global_search_v2.py
 # 龍魂 · 全球全量搜索 × 蚁群架构 × 人格联动
 # DNA: ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 # UID: 9622
 
+"""🐉 龍魂引擎：lh_global_search_v2
+路径：bin/lh_global_search_v2.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import hashlib
 import math
 import re

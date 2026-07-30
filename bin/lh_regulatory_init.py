@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-12-REGULATORY-INIT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂监管者初始化工具
 DNA: #龍芯⚡️2026-07-12-REGULATORY-INIT-v1.0

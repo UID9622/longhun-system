@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·VIDEO-ANALYZER-PLACEHOLDER
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂视频分析引擎 · 占位符 · 待接入国产模型
 # DNA: #龍芯⚡️丙午·辛未·VIDEO-ANALYZER-PLACEHOLDER
 
+"""🐉 龍魂引擎：lh_video_analyzer
+路径：bin/lh_video_analyzer.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import sys
 import argparse
 import subprocess

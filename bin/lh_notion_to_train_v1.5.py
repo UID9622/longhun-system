@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-TRAIN-v1.5
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # 🐉 龍魂·Notion主控页面→训练语料生成器 v1.5
 # DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-TRAIN-v1.5
 # 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

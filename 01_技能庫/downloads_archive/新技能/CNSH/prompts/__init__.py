@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-prompts-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-prompts-v1.0
 """
 通心译 | TongXinYi: CNSH prompts Module Package
 龍魂体系·prompts模块包 — 标准初始化文件

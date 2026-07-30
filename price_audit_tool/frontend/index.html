@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>价格透明度审计工具 - 算法审计平民化</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --bg-input: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-dim: #8b949e;
+  --gold: #d4a853;
+  --red: #f85149;
+  --green: #3fb950;
+  --yellow: #d2991d;
+  --blue: #58a6ff;
+  --accent: #d4a853;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header h1 {
+  font-size: 1.6em;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.header .subtitle {
+  font-size: 0.85em;
+  color: var(--text-dim);
+}
+
+.header .badge {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  color: var(--text-dim);
+}
+
+/* Layout */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .container { grid-template-columns: 1fr; padding: 16px; }
+  .header { padding: 16px; }
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card h2 {
+  font-size: 1.15em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85em;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 0.95em;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.form-group textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.form-group .hint {
+  font-size: 0.8em;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #0d1117;
+}
+
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.btn-secondary {
+  background: var(--bg-input);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover { border-color: var(--gold); }
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.8em;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Result */
+.result-placeholder {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+}
+
+.result-placeholder .icon {
+  font-size: 3em;
+  margin-bottom: 16px;
+}
+
+.result-content { animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.score-card {
+  text-align: center;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 2px solid;
+}
+
+.score-card.risk-high { border-color: var(--red); background: rgba(248,81,73,0.08); }
+.score-card.risk-mid { border-color: var(--yellow); background: rgba(210,153,29,0.08); }
+.score-card.risk-low { border-color: var(--green); background: rgba(63,185,80,0.05); }
+
+.score-value {
+  font-size: 3.5em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.risk-high .score-value { color: var(--red); }
+.risk-mid .score-value { color: var(--yellow); }
+.risk-low .score-value { color: var(--green); }
+
+.score-label {
+  font-size: 1.2em;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.score-advice {
+  margin-top: 8px;
+  color: var(--text-dim);
+  font-size: 0.9em;
+}
+
+.verdict-box {
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-weight: 600;
+}
+
+.verdict-box.suspicious {
+  background: rgba(248,81,73,0.12);
+  color: var(--red);
+  border-left: 3px solid var(--red);
+}
+
+.verdict-box.clean {
+  background: rgba(63,185,80,0.08);
+  color: var(--green);
+  border-left: 3px solid var(--green);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.stat-item {
+  background: var(--bg-input);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-label {
+  font-size: 0.75em;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.breakdown-item {
+  background: var(--bg-input);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.breakdown-value {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.breakdown-label {
+  font-size: 0.7em;
+  color: var(--text-dim);
+}
+
+/* Anomaly list */
+.anomaly-list {
+  margin-top: 16px;
+}
+
+.anomaly-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-input);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+}
+
+.anomaly-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot.high { background: var(--red); }
+.dot.medium { background: var(--yellow); }
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px;
+  color: var(--text-dim);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Error */
+.error-box {
+  background: rgba(248,81,73,0.1);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--red);
+  margin: 16px 0;
+}
+
+/* Full-width card */
+.card-full {
+  grid-column: 1 / -1;
+}
+
+/* Section header for result area */
+.section-title {
+  font-size: 0.95em;
+  color: var(--text-dim);
+  margin: 20px 0 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* History */
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  border: 1px solid transparent;
+}
+
+.history-item:hover { border-color: var(--gold); }
+
+.history-score {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* Info banner */
+.info-banner {
+  background: rgba(88,166,255,0.08);
+  border: 1px solid rgba(88,166,255,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--text-dim);
+  font-size: 0.8em;
+}
+
+.footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <h1>龍 价格透明度审计工具</h1>
+    <div class="subtitle">算法审计平民化 · 人人都是审计员 · v1.0</div>
+  </div>
+  <div class="badge">
+    数据本地存储 · 不上传云端
+  </div>
+</header>
+
+<div class="container">
+  <!-- 左侧：输入区 -->
+  <div class="card">
+    <h2>📊 数据输入</h2>
+
+    <div class="info-banner">
+      💡 <b>快速体验</b>：点击「加载示例数据」查看典型杀熟场景的检测结果
+    </div>
+
+    <div class="form-group">
+      <label>商品名称（可选）</label>
+      <input id="productName" type="text" placeholder="如：XX品牌手机">
+    </div>
+
+    <div class="form-group">
+      <label>平台（可选）</label>
+      <input id="platform" type="text" placeholder="如：某电商App">
+    </div>
+
+    <div class="form-group">
+      <label>所有价格 <span style="color:var(--red)">*必需</span></label>
+      <textarea id="allPrices" placeholder="逗号或换行分隔，如：9.9, 10.0, 12.0, 12.5, 9.8"></textarea>
+      <div class="hint">输入所有观察到的价格，用逗号或换行分隔</div>
+    </div>
+
+    <div class="form-group">
+      <label>按用户分组的价格（可选，强烈推荐用于杀熟检测）</label>
+      <textarea id="groupsInput" placeholder='{"新用户":[9.9,10.0,9.8],"老用户":[12.0,12.5,12.3]}'></textarea>
+      <div class="hint">JSON格式：不同用户类型（新用户/老用户/VIP等）看到的价格对比</div>
+    </div>
+
+    <div class="form-group">
+      <label>时间序列价格（可选）</label>
+      <textarea id="timeseriesInput" placeholder='[{"time":"7-20","price":9.9},{"time":"7-24","price":12.5}]'></textarea>
+      <div class="hint">JSON格式：带时间戳的价格记录，用于检测短期异常波动</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="runAudit()">🔍 开始审计</button>
+      <button class="btn btn-secondary" onclick="loadSample()">📥 加载示例数据</button>
+      <button class="btn btn-secondary btn-sm" onclick="clearForm()">清空</button>
+    </div>
+  </div>
+
+  <!-- 右侧：结果区 -->
+  <div class="card" id="resultCard">
+    <h2>📋 审计报告</h2>
+    <div class="result-placeholder" id="resultPlaceholder">
+      <div class="icon">🔍</div>
+      <div>输入数据后点击「开始审计」查看结果</div>
+      <div style="font-size:0.8em;margin-top:8px;color:var(--text-dim)">四层检测：IQR统计 → 用户分组 → 时间序列 → 综合评分</div>
+    </div>
+    <div class="result-content" id="resultContent" style="display:none"></div>
+    <div class="loading" id="loading" style="display:none">
+      <div class="spinner"></div>
+      <span>正在分析中...</span>
+    </div>
+  </div>
+
+  <!-- 历史报告 -->
+  <div class="card card-full">
+    <h2>📚 历史报告</h2>
+    <div id="historyList">
+      <div style="color:var(--text-dim);text-align:center;padding:20px;">暂无历史报告</div>
+    </div>
+    <div class="btn-row" style="margin-top:12px">
+      <button class="btn btn-secondary btn-sm" onclick="loadHistory()">刷新历史</button>
+      <button class="btn btn-secondary btn-sm" onclick="loadStats()">查看统计</button>
+    </div>
+    <div id="statsDisplay" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div>
+    创建者: 诸葛鑫 (UID9622) · 协议: CC BY-NC-SA 4.0 · <a href="/docs">API文档</a>
+  </div>
+  <div>
+    数据本地存储 · 不上传云端 · 你的数据你做主
+  </div>
+</footer>
+
+<script>
+const API_BASE = '';
+
+async function apiCall(method, path, body = null) {
+  const opts = {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+  };
+  if (body) opts.body = JSON.stringify(body);
+  const res = await fetch(`${API_BASE}${path}`, opts);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: res.statusText }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+function parsePrices(text) {
+  if (!text || !text.trim()) return [];
+  // 支持逗号和换行分隔
+  return text
+    .split(/[,\n]+/)
+    .map(s => s.trim())
+    .filter(s => s && !isNaN(parseFloat(s)))
+    .map(Number);
+}
+
+function parseJSON(text) {
+  if (!text || !text.trim()) return null;
+  try { return JSON.parse(text); } catch (e) { return null; }
+}
+
+async function runAudit() {
+  const pricesText = document.getElementById('allPrices').value;
+  const prices = parsePrices(pricesText);
+  
+  if (!prices.length) {
+    alert('请至少输入一个价格！');
+    return;
+  }
+  
+  const groups = parseJSON(document.getElementById('groupsInput').value);
+  const timeseries = parseJSON(document.getElementById('timeseriesInput').value);
+  
+  showLoading();
+  
+  try {
+    const result = await apiCall('POST', '/api/audit', {
+      prices,
+      groups,
+      timeseries,
+      product_name: document.getElementById('productName').value.trim(),
+      platform: document.getElementById('platform').value.trim(),
+    });
+    showResult(result);
+    loadHistory();
+  } catch (e) {
+    showError(e.message);
+  }
+}
+
+async function loadSample() {
+  showLoading();
+  try {
+    const sample = await apiCall('GET', '/api/sample');
+    document.getElementById('allPrices').value = sample.prices.join(', ');
+    document.getElementById('groupsInput').value = JSON.stringify(sample.groups);
+    document.getElementById('timeseriesInput').value = JSON.stringify(sample.timeseries);
+    document.getElementById('productName').value = '示例商品';
+    document.getElementById('platform').value = '示例平台';
+    
+    // 自动执行审计
+    const result = await apiCall('POST', '/api/audit', {
+      prices: sample.prices,
+      groups: sample.groups,
+      timeseries: sample.timeseries,
+      product_name: '示例商品',
+      platform: '示例平台',
+    });
+    showResult(result);
+    loadHistory();
+  } catch (e) {
+    showError(e.message);
+  }
+}
+
+function showLoading() {
+  document.getElementById('resultPlaceholder').style.display = 'none';
+  document.getElementById('resultContent').style.display = 'none';
+  document.getElementById('loading').style.display = 'flex';
+}
+
+function showError(msg) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('resultPlaceholder').style.display = 'none';
+  const content = document.getElementById('resultContent');
+  content.style.display = 'block';
+  content.innerHTML = `<div class="error-box">❌ ${msg}</div>`;
+}
+
+function showResult(data) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('resultPlaceholder').style.display = 'none';
+  
+  const comp = data.composite_assessment || {};
+  const summary = data.data_summary || {};
+  const iqr = data.iqr_analysis || {};
+  const grp = data.group_analysis || {};
+  const ts = data.timeseries_analysis || {};
+  
+  const score = comp.score || 0;
+  let riskClass = 'risk-low';
+  if (score >= 70) riskClass = 'risk-high';
+  else if (score >= 40) riskClass = 'risk-mid';
+  
+  // 判定框
+  const isSuspicious = data.suspicious;
+  const verdictClass = isSuspicious ? 'suspicious' : 'clean';
+  const verdictText = data.verdict || (isSuspicious ? '🔴 检测到异常定价行为' : '🟢 未检测到明显异常');
+  
+  let html = `
+    <div class="score-card ${riskClass}">
+      <div class="score-value">${score}</div>
+      <div class="score-label">${comp.emoji || ''} ${comp.level || '待评估'}</div>
+      <div class="score-advice">${comp.advice || ''}</div>
+    </div>
+    
+    <div class="verdict-box ${verdictClass}">${verdictText}</div>
+    
+    ${data.report_id ? `<div style="font-size:0.75em;color:var(--text-dim);margin-bottom:16px">报告ID: ${data.report_id}</div>` : ''}
+    
+    <div class="section-title">数据概览</div>
+    <div class="stat-grid">
+      <div class="stat-item"><div class="stat-value">${summary.total_records || 0}</div><div class="stat-label">总记录数</div></div>
+      <div class="stat-item"><div class="stat-value">${summary.mean || '-'}</div><div class="stat-label">均价</div></div>
+      <div class="stat-item"><div class="stat-value">${summary.median || '-'}</div><div class="stat-label">中位数</div></div>
+      <div class="stat-item"><div class="stat-value">${summary.min || '-'}</div><div class="stat-label">最低价</div></div>
+      <div class="stat-item"><div class="stat-value">${summary.max || '-'}</div><div class="stat-label">最高价</div></div>
+      <div class="stat-item"><div class="stat-value">${summary.variance != null ? summary.variance.toFixed(2) : '-'}</div><div class="stat-label">方差</div></div>
+    </div>
+    
+    <div class="section-title">评分分解</div>
+    <div class="breakdown">
+      <div class="breakdown-item"><div class="breakdown-value">${comp.breakdown?.iqr_score || 0}</div><div class="breakdown-label">IQR统计(25)</div></div>
+      <div class="breakdown-item"><div class="breakdown-value">${comp.breakdown?.group_diff_score || 0}</div><div class="breakdown-label">分组差异(35)</div></div>
+      <div class="breakdown-item"><div class="breakdown-value">${comp.breakdown?.time_score || 0}</div><div class="breakdown-label">时序波动(25)</div></div>
+      <div class="breakdown-item"><div class="breakdown-value">${comp.breakdown?.data_score || 0}</div><div class="breakdown-label">数据充分(15)</div></div>
+    </div>
+    
+    <div class="section-title">[L1] IQR统计检测</div>
+    <div style="font-size:0.9em;margin:4px 0">${iqr.verdict || 'N/A'} (方法: Tukey&#39;s Fences)</div>
+  `;
+  
+  // IQR异常项
+  const outliers = iqr.outliers || [];
+  if (outliers.length) {
+    html += '<div class="anomaly-list">';
+    for (const o of outliers) {
+      html += `
+        <div class="anomaly-item">
+          <span class="dot ${o.severity === 'high' ? 'high' : 'medium'}"></span>
+          <span>价格 <b>${o.price}</b> - ${o.type} (偏离均价 ${o.deviation})</span>
+        </div>
+      `;
+    }
+    html += '</div>';
+  }
+  
+  // 分组分析
+  html += `<div class="section-title">[L2] 用户分组差异</div>`;
+  html += `<div style="font-size:0.9em;margin:4px 0">${grp.verdict || 'N/A'}</div>`;
+  
+  if (grp.group_stats) {
+    html += '<div class="stat-grid" style="margin-top:8px">';
+    for (const [name, stat] of Object.entries(grp.group_stats)) {
+      html += `<div class="stat-item"><div class="stat-value">${stat.mean}</div><div class="stat-label">${name} 均价 (${stat.count}条)</div></div>`;
+    }
+    html += '</div>';
+    if (grp.max_diff_pct) {
+      html += `<div style="font-size:0.85em;color:var(--text-dim);margin-top:8px">最大组间差异: <b>${grp.max_diff_pct}%</b> (${grp.higher_group} > ${grp.lower_group})</div>`;
+    }
+  }
+  
+  // 时间序列
+  html += `<div class="section-title">[L3] 时间序列检测</div>`;
+  html += `<div style="font-size:0.9em;margin:4px 0">${ts.verdict || 'N/A'} (方法: SMA + Z-Score, window=5, threshold=2σ)</div>`;
+  
+  const tAnomalies = ts.anomalies || [];
+  if (tAnomalies.length) {
+    html += '<div class="anomaly-list">';
+    for (const a of tAnomalies) {
+      html += `
+        <div class="anomaly-item">
+          <span class="dot medium"></span>
+          <span>${a.time} 价格 <b>${a.price}</b> ${a.direction === 'up' ? '↑上涨' : '↓下跌'} (Z=${a.z_score})</span>
+        </div>
+      `;
+    }
+    html += '</div>';
+  }
+  
+  document.getElementById('resultContent').innerHTML = html;
+  document.getElementById('resultContent').style.display = 'block';
+}
+
+function clearForm() {
+  document.getElementById('productName').value = '';
+  document.getElementById('platform').value = '';
+  document.getElementById('allPrices').value = '';
+  document.getElementById('groupsInput').value = '';
+  document.getElementById('timeseriesInput').value = '';
+  document.getElementById('resultContent').style.display = 'none';
+  document.getElementById('resultPlaceholder').style.display = '';
+}
+
+async function loadHistory() {
+  try {
+    const data = await apiCall('GET', '/api/reports?limit=20');
+    const reports = data.reports || [];
+    const el = document.getElementById('historyList');
+    
+    if (!reports.length) {
+      el.innerHTML = '<div style="color:var(--text-dim);text-align:center;padding:20px;">暂无历史报告</div>';
+      return;
+    }
+    
+    let html = '';
+    for (const r of reports) {
+      const comp = r.composite_assessment || {};
+      const score = comp.score || 0;
+      let color = 'var(--green)';
+      if (score >= 70) color = 'var(--red)';
+      else if (score >= 40) color = 'var(--yellow)';
+      
+      const product = r.product_name || '未知商品';
+      const platform = r.platform || '未知平台';
+      const time = (r.audit_time || '').substring(0, 19);
+      
+      html += `
+        <div class="history-item" onclick="loadReport('${r.report_id}')">
+          <span>
+            <b>${product}</b>
+            <span style="color:var(--text-dim);margin-left:8px;font-size:0.85em">${platform} · ${time}</span>
+          </span>
+          <span class="history-score" style="color:${color}">${comp.emoji||''} ${score}/100 ${comp.level||''}</span>
+        </div>
+      `;
+    }
+    el.innerHTML = html;
+  } catch (e) {
+    console.error('加载历史失败:', e);
+  }
+}
+
+async function loadReport(id) {
+  showLoading();
+  try {
+    const report = await apiCall('GET', `/api/reports/${id}`);
+    showResult(report);
+  } catch (e) {
+    showError(e.message);
+  }
+}
+
+async function loadStats() {
+  try {
+    const stats = await apiCall('GET', '/api/stats');
+    document.getElementById('statsDisplay').innerHTML = `
+      <div class="stat-grid">
+        <div class="stat-item"><div class="stat-value">${stats.total_reports}</div><div class="stat-label">总审计次数</div></div>
+        <div class="stat-item"><div class="stat-value">${stats.suspicious_count}</div><div class="stat-label">可疑报告</div></div>
+        <div class="stat-item"><div class="stat-value">${stats.suspicious_rate}</div><div class="stat-label">可疑比例</div></div>
+        <div class="stat-item"><div class="stat-value">${stats.avg_score}</div><div class="stat-label">平均评分/100</div></div>
+      </div>
+    `;
+  } catch (e) {
+    console.error('加载统计失败:', e);
+  }
+}
+
+// 页面加载时获取历史
+loadHistory();
+</script>
+
+</body>
+</html>
