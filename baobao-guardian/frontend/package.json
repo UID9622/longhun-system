@@ -29,7 +29,7 @@
     "@types/three": "^0.184.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
-    "concurrently": "^8.2.2",
+    "concurrently": "^10.0.4",
     "electron": "^42.3.3",
     "electron-builder": "^26.15.0",
     "postcss": "^8.4.32",
