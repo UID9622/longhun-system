@@ -71,6 +71,12 @@ from pydantic import BaseModel
 # 常量·路径
 # ═══════════════════════════════════════════════
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+try:
+    from engines.lh_fixed_point_memory_archive import MemoryArchive
+except Exception:
+    MemoryArchive = None
 CST = timezone(timedelta(hours=8))
 MEMORY_FILE = PROJECT_ROOT / ".codebuddy" / "memory" / "MEMORY.md"
 DAILY_LOG_DIR = PROJECT_ROOT / ".codebuddy" / "memory"
@@ -135,6 +141,13 @@ app.add_middleware(
 
 class DailyLogEntry(BaseModel):
     content: str
+    token: Optional[str] = None
+
+
+class ArchiveIngestEntry(BaseModel):
+    text: str
+    source: str = "api"
+    tags: List[str] = []
     token: Optional[str] = None
 
 
@@ -967,6 +980,56 @@ async def get_daily_log(date_str: str, request: Request):
     }
 
 
+@app.get("/v1/memory/archive/status")
+async def get_archive_status(request: Request):
+    """不动点记忆归档状态"""
+    client_ip = request.client.host if request.client else "unknown"
+    log_api_access("GET /v1/memory/archive/status", client_ip, 200)
+
+    if MemoryArchive is None:
+        return {
+            "status": "unavailable",
+            "reason": "归档引擎未加载",
+        }
+
+    archive = MemoryArchive()
+    return archive.status()
+
+
+@app.post("/v1/memory/archive/ingest")
+async def archive_ingest(entry: ArchiveIngestEntry, request: Request):
+    """摄入一条记忆到不动点归档引擎（需认证）"""
+    client_host = request.client.host if request.client else ""
+    if client_host not in ("127.0.0.1", "::1", "localhost"):
+        if not verify_token(request, entry.token):
+            log_api_access("POST /v1/memory/archive/ingest", client_host, 403)
+            raise HTTPException(status_code=403, detail="认证失败。需要有效 Token。")
+
+    if not entry.text or len(entry.text.strip()) < 5:
+        raise HTTPException(status_code=400, detail="归档文本至少5个字符")
+
+    if MemoryArchive is None:
+        raise HTTPException(status_code=503, detail="归档引擎未加载")
+
+    archive = MemoryArchive()
+    result = archive.ingest(
+        entry.text,
+        source=entry.source,
+        tags=entry.tags,
+        context={"client_ip": client_host, "via": "memory_api"},
+    )
+
+    log_api_access("POST /v1/memory/archive/ingest", client_host, 200)
+    return {
+        "status": result.get("status"),
+        "state": result.get("state"),
+        "score": result.get("score"),
+        "dna": result.get("dna"),
+        "reasons": result.get("reasons", []),
+        "reference": result.get("reference"),
+    }
+
+
 @app.get("/v1/memory/token")
 async def get_token_info(request: Request):
     """获取 Token 信息（仅本地）"""
@@ -1047,14 +1110,16 @@ if __name__ == "__main__":
 ║  ☁️  Notion后备: {notion_status:<43} ║
 ╠══════════════════════════════════════════════╣
 ║  端点:                                        ║
-║  GET  /v1/memory         — 完整记忆JSON      ║
-║  GET  /v1/memory/raw     — 原始MEMORY.md全文  ║
-║  GET  /v1/memory/identity — 身份焊死块        ║
-║  GET  /v1/memory/search?q=xxx — 三级搜索🧠    ║
-║  GET  /v1/memory/index   — 索引状态📇         ║
-║  POST /v1/memory/reload  — 重载索引🔄         ║
-║  GET  /v1/memory/health  — 健康检查          ║
-║  POST /v1/memory/daily   — 追加日志(需认证)   ║
+║  GET  /v1/memory              — 完整记忆JSON      ║
+║  GET  /v1/memory/raw          — 原始MEMORY.md全文  ║
+║  GET  /v1/memory/identity     — 身份焊死块        ║
+║  GET  /v1/memory/search?q=xxx — 三级搜索🧠        ║
+║  GET  /v1/memory/index        — 索引状态📇         ║
+║  POST /v1/memory/reload       — 重载索引🔄         ║
+║  GET  /v1/memory/health       — 健康检查          ║
+║  POST /v1/memory/daily        — 追加日志(需认证)   ║
+║  GET  /v1/memory/archive/status  — 归档状态📦     ║
+║  POST /v1/memory/archive/ingest  — 记忆归档(需认证) ║
 ╠══════════════════════════════════════════════╣
 ║  搜索策略: 本地MEMORY.md → 日志索引 → Notion  ║
 ║  所有 AI（不论国家/模型）统一此入口。             ║

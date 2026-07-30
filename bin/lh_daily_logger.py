@@ -42,9 +42,16 @@ from typing import Any, Dict, List, Optional
 
 # ─── 项目路径 ───
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 MEMORY_DIR = PROJECT_ROOT / ".codebuddy" / "memory"
 DAILY_LOG_DB = MEMORY_DIR / "daily_log_structured.jsonl"
 MEMORY_DIR.mkdir(parents=True, exist_ok=True)
+
+# ─── 不动点记忆归档引擎（记忆永生管道升级）───
+try:
+    from engines.lh_fixed_point_memory_archive import MemoryArchive
+except Exception:
+    MemoryArchive = None
 
 # ─── 日志类型定义 ───
 LOG_TYPES = {
@@ -125,7 +132,7 @@ def log_entry(
 
 
 def append_daily(entry: Dict[str, Any]) -> None:
-    """追加日志到结构化JSONL + 人类可读MD"""
+    """追加日志到结构化JSONL + 人类可读MD，并联动不动点记忆归档"""
     # 写 JSONL
     with open(DAILY_LOG_DB, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -146,6 +153,38 @@ def append_daily(entry: Dict[str, Any]) -> None:
             md_block += f"- **{key}**: {val}\n"
 
     md_block += f"- **DNA**: `{entry['DNA']}`\n"
+
+    # ─── 联动不动点记忆归档引擎 ───
+    if MemoryArchive is not None:
+        try:
+            archive = MemoryArchive()
+            archive_result = archive.ingest(
+                entry["内容"],
+                source="daily_logger",
+                tags=[log_type],
+                context={"log_type": log_type, "daily_dna": entry["DNA"]},
+            )
+            md_block += f"- **归档状态**: `{archive_result.get('status', 'unknown')}`"
+            if archive_result.get("state"):
+                md_block += f" / 不动点 `{archive_result['state']}`"
+            md_block += "\n"
+            if archive_result.get("score") is not None:
+                md_block += f"- **不动点得分**: {archive_result['score']}\n"
+            if archive_result.get("dna"):
+                md_block += f"- **归档DNA**: `{archive_result['dna']}`\n"
+            if archive_result.get("reasons"):
+                reasons = "; ".join(archive_result["reasons"])
+                md_block += f"- **归档理由**: {reasons}\n"
+            # 将归档结果写回 entry 扩展，供下游使用
+            entry.setdefault("扩展", {}).update({
+                "归档状态": archive_result.get("status", "unknown"),
+                "不动点状态": archive_result.get("state"),
+                "不动点得分": archive_result.get("score"),
+                "归档DNA": archive_result.get("dna"),
+                "归档理由": archive_result.get("reasons", []),
+            })
+        except Exception as e:
+            md_block += f"- **归档联动**: 失败（{e}）\n"
 
     # 追加到MD文件
     if log_file.exists():
