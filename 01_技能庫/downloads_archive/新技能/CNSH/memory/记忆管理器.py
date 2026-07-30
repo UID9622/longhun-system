@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-memory-记忆管理器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-memory-记忆管理器-v1.0
 """
 通心译 | TongXinYi: Memory Manager
 龍魂体系·记忆管理器 — 短期记忆与长期记忆分层存储

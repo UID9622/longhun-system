@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-14-SEMANTIC-UNIFIED-REGISTRY-ENGINE-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 语义统一注册表查询引擎 v2.0

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-17-CNSH-ALIGNER-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 CNSH自动对齐矫正系统 v2.0 (CNSH Auto-Alignment Corrector v2.0)

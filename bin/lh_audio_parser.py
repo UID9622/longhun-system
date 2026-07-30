@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·AUDIO-PARSER-v1.0-SPEECH2TEXT
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·音频解析引擎 v1.0 — 语音/音频文件/视频音轨 → 结构化转录

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·LACA-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龙魂蚁群引擎 v2.0 · Ant Colony Engine

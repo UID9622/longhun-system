@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🌐 龍魂·错误翻译器 — 系统错误中文提示

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-_TYPE_FIXER-v1.0-3486bfcb
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """智能批量修复 basedpyright reportMissingTypeArgument — v2（跳过导入行）"""
 import re, os
 

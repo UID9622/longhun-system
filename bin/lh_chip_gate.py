@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·CHIP-GATE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂芯片门禁 · 功能分层控制器 v1.0

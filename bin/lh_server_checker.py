@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·戌时·需-SERVER-CHECKER-v1-00000000
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂服务器实时连通性检测器 v1.0
 ======================================

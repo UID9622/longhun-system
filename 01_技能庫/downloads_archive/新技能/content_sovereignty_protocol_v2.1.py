@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂 · CNSH 内容主权协议 v2.1

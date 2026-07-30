@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑·需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·欲望倒逼成长引擎 v1.0
 以欲为饵·逼人向上

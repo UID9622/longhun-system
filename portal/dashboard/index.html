@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<title>龍魂系统 · 统一状态仪表盘</title>
-<!-- DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-DASHBOARD-PORTAL-v1.0-a7f3e2d1 -->
+<title>龍魂系统 · 引擎主控仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<!-- DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-DASHBOARD-v1.0-9E8D7C6B -->
 <!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
-<!-- 补全: DL架构§11·主计划1.4·统一服务监控+一键操作 -->
 <style>
 :root {
   --bg:#060810; --panel:rgba(8,8,20,0.96); --border:rgba(201,168,76,0.18);
@@ -21,6 +21,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--cyan);text-decoration:none}
+a:hover{color:var(--gold)}
 ::selection{background:var(--gold-dim);color:#fff}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -28,19 +29,23 @@ a{color:var(--cyan);text-decoration:none}
 
 #app{max-width:1200px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
 
-/* Header */
+/* Header & Nav */
 header{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;backdrop-filter:blur(12px)}
 header .left{display:flex;flex-direction:column;gap:2px}
 header h1{font-size:18px;color:var(--gold);letter-spacing:.04em;display:flex;align-items:center;gap:8px}
 header h1 .icon{font-size:22px}
 header .sub{font-size:11px;color:var(--dim)}
-header .right{display:flex;align-items:center;gap:12px}
+header .right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-links{display:flex;gap:16px;align-items:center;list-style:none;font-size:12px}
+.nav-links a{color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
 .status-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
 .status-dot.online{background:var(--green);box-shadow:0 0 8px var(--green)}
 .status-dot.degraded{background:var(--orange);box-shadow:0 0 8px var(--orange)}
 .status-dot.offline{background:var(--red);box-shadow:0 0 8px var(--red)}
 .refresh-btn{padding:8px 14px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;transition:all .2s}
 .refresh-btn:hover{background:rgba(201,168,76,0.2)}
+.refresh-btn:disabled{opacity:.5;cursor:not-allowed}
 .time-badge{font-size:11px;color:var(--dim);font-family:monospace}
 
 /* Stats Row */
@@ -48,7 +53,6 @@ header .right{display:flex;align-items:center;gap:12px}
 .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
 .stat-card .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
 .stat-card .value{font-size:28px;font-weight:700;letter-spacing:.02em}
-.stat-card .change{font-size:10px}
 .val-green{color:var(--green)}
 .val-orange{color:var(--orange)}
 .val-red{color:var(--red)}
@@ -62,19 +66,32 @@ header .right{display:flex;align-items:center;gap:12px}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
 .service-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:all .2s}
 .service-card:hover{border-color:rgba(201,168,76,0.35)}
-.service-card .info{display:flex;flex-direction:column;gap:3px}
-.service-card .name{font-size:13px;font-weight:600;color:var(--bright)}
-.service-card .detail{font-size:10px;color:var(--dim);font-family:monospace}
+.service-card .info{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.service-card .name{font-size:13px;font-weight:600;color:var(--bright);display:flex;align-items:center;gap:6px}
+.service-card .detail{font-size:10px;color:var(--dim);font-family:monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.service-card .summary{font-size:10px;color:var(--cyan);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .service-card .controls{display:flex;gap:6px}
 .service-card button{width:28px;height:28px;border:1px solid var(--border);background:var(--gold-dim);border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .service-card button:hover{background:rgba(201,168,76,0.25);border-color:var(--gold)}
 .service-card button:disabled{opacity:.3;cursor:not-allowed}
+.health-badge{font-size:9px;padding:1px 6px;border-radius:10px;background:var(--green-bg);color:var(--green)}
+.health-badge.warn{background:var(--orange-bg);color:var(--orange)}
+.health-badge.crit{background:var(--red-bg);color:var(--red)}
+
+/* Charts Section */
+.charts-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;flex-direction:column;gap:16px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.chart-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px}
+.chart-card h4{font-size:12px;color:var(--gold);margin-bottom:10px;letter-spacing:.05em}
+.chart-wrap{position:relative;height:220px}
+.comment-row{font-size:11px;color:var(--dim);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.comment-row:last-child{border:none}
 
 /* Log Section */
 .log-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .log-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .log-header .title{font-size:13px;font-weight:600;color:var(--bright)}
-.log-body{padding:8px 16px;max-height:240px;overflow-y:auto;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:11px;line-height:1.8}
+.log-body{padding:8px 16px;max-height:260px;overflow-y:auto;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:11px;line-height:1.8}
 .log-entry{display:flex;gap:10px;padding:2px 0}
 .log-entry .time{color:var(--dim);flex-shrink:0}
 .log-entry.warn{color:var(--orange)}
@@ -89,77 +106,82 @@ header .right{display:flex;align-items:center;gap:12px}
 .action-btn.primary:hover{background:#d4b356}
 .action-btn.secondary{background:var(--gold-dim);color:var(--gold)}
 .action-btn.secondary:hover{background:rgba(201,168,76,0.2)}
-.action-btn.danger{background:var(--red-bg);color:var(--red);border-color:rgba(248,113,113,0.3)}
-.action-btn.danger:hover{background:rgba(248,113,113,0.2)}
 
 /* Toast */
 .toast{position:fixed;bottom:20px;right:20px;padding:10px 16px;border-radius:var(--radius-sm);font-size:12px;z-index:999;animation:slideIn .3s ease;max-width:320px}
 .toast.success{background:var(--green-bg);border:1px solid var(--green);color:var(--green)}
 .toast.error{background:var(--red-bg);border:1px solid var(--red);color:var(--red)}
-.toast.info{background:var(--gold-dim);border:1px solid var(--gold);color:var(--gold)}
+.toast.info{background:var(--gold-dim);border:1px solid var(--border);color:var(--gold)}
 @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-
-/* Pulse */
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-.pulse{animation:pulse 2s infinite}
 
 /* Responsive */
 @media(max-width:640px){
   .stats-row{grid-template-columns:repeat(2,1fr)}
   .services-grid{grid-template-columns:1fr}
   header{flex-direction:column;align-items:flex-start}
+  .nav-links{flex-wrap:wrap}
 }
 </style>
 </head>
 <body>
 <div id="app">
-  <!-- Header -->
   <header>
     <div class="left">
-      <h1><span class="icon">🐉</span>龍魂 · 统一状态仪表盘</h1>
-      <span class="sub">L0-L9 九层全域监控 · 一键操作 · 实时状态</span>
+      <h1><span class="icon">🐉</span>龍魂 · 引擎主控仪表盘</h1>
+      <span class="sub">1011 引擎统一入口 · 运行日志摘要 · 闭环反馈</span>
     </div>
     <div class="right">
+      <ul class="nav-links">
+        <li><a href="/">🏠 首页</a></li>
+        <li><a href="/portal/video-studio/">🎬 视频工坊</a></li>
+        <li><a href="https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7" target="_blank">📋 引擎注册表</a></li>
+        <li><a href="/knowledge/">📚 记忆库</a></li>
+      </ul>
       <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--dim)">
         <span class="status-dot online" id="sysDot"></span>
         <span id="sysStatus">加载中...</span>
       </span>
-      <button class="refresh-btn" onclick="refreshAll()">⟳ 刷新</button>
-      <span class="time-badge" id="clock"></span>
+      <button class="refresh-btn" id="refreshBtn" onclick="refreshAll()">⟳ 刷新</button>
+      <span class="time-badge" id="clock">--:--:--</span>
     </div>
   </header>
 
-  <!-- Stats Row -->
   <div class="stats-row" id="statsRow">
-    <div class="stat-card"><span class="label">活跃服务</span><span class="value val-green" id="statActive">-</span><span class="change" style="color:var(--dim)">共 16 服务</span></div>
-    <div class="stat-card"><span class="label">CPU</span><span class="value val-cyan" id="statCpu">-</span><span class="change" style="color:var(--dim)">鲲鹏 TaiShan 200</span></div>
-    <div class="stat-card"><span class="label">内存</span><span class="value val-purple" id="statMem">-</span><span class="change" style="color:var(--dim)">已用/总计</span></div>
-    <div class="stat-card"><span class="label">磁盘</span><span class="value val-gold" id="statDisk">-</span><span class="change" style="color:var(--dim)">/data 挂载</span></div>
-    <div class="stat-card"><span class="label">会话DNA</span><span class="value" style="font-size:13px;color:var(--purple);word-break:break-all" id="statDna">#龍芯⚡️丙午·乙未·丙申·酉时·☰乾</span><span class="change" style="color:var(--dim)">今日四柱</span></div>
+    <div class="stat-card"><span class="label">引擎总数</span><span class="value val-gold" id="statTotal">-</span></div>
+    <div class="stat-card"><span class="label">平均健康分</span><span class="value val-cyan" id="statHealth">-</span></div>
+    <div class="stat-card"><span class="label">活跃引擎</span><span class="value val-green" id="statActive">-</span></div>
+    <div class="stat-card"><span class="label">最近任务</span><span class="value val-purple" id="statJobs">-</span></div>
   </div>
 
-  <!-- Service Status -->
-  <div class="section-title">🖥 服务状态</div>
+  <div class="section-title">📊 统一数据视图（引擎 + 视频 + 任务）</div>
+  <div class="charts-section">
+    <div class="charts-grid">
+      <div class="chart-card"><h4>引擎分类分布</h4><div class="chart-wrap"><canvas id="chartCategories"></canvas></div></div>
+      <div class="chart-card"><h4>任务执行统计</h4><div class="chart-wrap"><canvas id="chartJobs"></canvas></div></div>
+      <div class="chart-card"><h4>视频风格分布</h4><div class="chart-wrap"><canvas id="chartVideoStyles"></canvas></div></div>
+      <div class="chart-card"><h4>每日视频互动</h4><div class="chart-wrap"><canvas id="chartVideoDaily"></canvas></div></div>
+      <div class="chart-card" style="grid-column:1/-1"><h4>最近评论</h4><div id="recentComments" style="max-height:220px;overflow-y:auto"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">🖥 引擎状态（来自 Notion 注册表）</div>
   <div class="services-grid" id="servicesGrid">
     <div class="service-card"><span style="color:var(--dim)">加载中...</span></div>
   </div>
 
-  <!-- Global Actions -->
   <div class="section-title">⚡ 一键操作</div>
   <div class="actions-row">
-    <button class="action-btn primary" onclick="action('health_check')">🏥 全系统体检</button>
-    <button class="action-btn secondary" onclick="action('restart_services')">🔄 重启核心服务</button>
-    <button class="action-btn secondary" onclick="action('backup_db')">💾 备份数据库</button>
-    <button class="action-btn secondary" onclick="action('sync_notion')">📥 同步 Notion</button>
-    <button class="action-btn secondary" onclick="action('audit_scan')">🛡 审计扫描</button>
-    <button class="action-btn danger" onclick="action('emergency_lock')">🔒 紧急锁定</button>
+    <button class="action-btn secondary" onclick="runEngine('audit')">🛡 运行审计</button>
+    <button class="action-btn secondary" onclick="runEngine('search','龙魂')">🔍 测试搜索</button>
+    <button class="action-btn secondary" onclick="syncNotion()">📥 同步 Notion</button>
+    <button class="action-btn secondary" onclick="run3d()">🧊 图生三维</button>
+    <a class="action-btn primary" href="https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7" target="_blank">📋 打开注册表</a>
   </div>
 
-  <!-- Recent Events -->
   <div class="log-section">
     <div class="log-header">
-      <span class="title">📋 最近事件</span>
-      <span style="font-size:10px;color:var(--dim)">实时滚动</span>
+      <span class="title">📋 最近运行日志（lh-ctl）</span>
+      <span style="font-size:10px;color:var(--dim)" id="logCount">0 条</span>
     </div>
     <div class="log-body" id="logBody">
       <div class="log-entry info"><span class="time">--:--:--</span><span>等待数据...</span></div>
@@ -170,197 +192,229 @@ header .right{display:flex;align-items:center;gap:12px}
 <div id="toastContainer"></div>
 
 <script>
-// ═══ 配置 ═══
-const API_BASE = '/api/v1/longhun'; // 实际部署时配置
-const SERVICES = [
-  {id:'longhun-api',name:'API服务',port:8766,desc:'知识中枢API'},
-  {id:'longhun-audit',name:'审计引擎',port:8767,desc:'胖东来审计API'},
-  {id:'longhun-portal',name:'门户服务',port:8777,desc:'Portal静态服务'},
-  {id:'longhun-xiaoyi',name:'小艺桥接',port:8799,desc:'19命令调度'},
-  {id:'longhun-core',name:'核心引擎',port:9622,desc:'主调度器'},
-  {id:'longhun-sovereignty',name:'主权网关',port:9623,desc:'数字主权入口'},
-  {id:'longhun-symbiote',name:'共生体',port:9627,desc:'知识矩阵'},
-  {id:'longhun-calendar',name:'日历服务',port:8081,desc:'龙魂日历'},
-  {id:'longhun-dashboard',name:'仪表盘',port:8444,desc:'Web仪表'},
-  {id:'longhun-gatekeeper',name:'守门人',port:8446,desc:'API网关'},
-  {id:'longhun-ant-colony',name:'蚁群引擎',port:8443,desc:'太极蚁群'},
-  {id:'longhun-longzhishou',name:'龍智守',port:9677,desc:'智能守护'},
-  {id:'ollama',name:'Ollama推理',port:11434,desc:'本地LLM'},
-  {id:'nginx',name:'Nginx',port:80,desc:'反向代理'},
-  {id:'longhun888',name:'备用站点',port:8080,desc:'longhun888.com'},
-  {id:'longhun-wechat',name:'微信集成',port:0,desc:'公众号桥接'},
-];
+const API_BASE='/api';
 
-// ═══ 初始化 ═══
+let engineList=[];
+let charts={};
+let metricsData=null;
+
 document.addEventListener('DOMContentLoaded',()=>{
   setInterval(updateClock,1000);
   updateClock();
   refreshAll();
-  setInterval(refreshAll,30000); // 30秒自动刷新
+  setInterval(refreshAll,30000);
 });
 
 function updateClock(){
   const now=new Date();
-  document.getElementById('clock').textContent=
-    now.toLocaleString('zh-CN',{hour12:false});
+  document.getElementById('clock').textContent=now.toLocaleString('zh-CN',{hour12:false});
 }
 
-// ═══ 刷新所有 ═══
 async function refreshAll(){
-  const btn=document.querySelector('.refresh-btn');
+  const btn=document.getElementById('refreshBtn');
   if(btn){btn.textContent='⟳ 刷新中...';btn.disabled=true;}
-  
-  await Promise.all([checkServices(),fetchStats(),fetchLogs()]);
-  
+  await Promise.all([fetchEngines(),fetchLogs(),fetchMetrics()]);
+  updateStats();
   if(btn){btn.textContent='⟳ 刷新';btn.disabled=false;}
-  updateOverallStatus();
 }
 
-// ═══ 检查服务 ═══
-async function checkServices(){
+async function api(path,opts={}){
+  const res=await fetch(`${API_BASE}${path}`,opts);
+  if(!res.ok){
+    const txt=await res.text();
+    throw new Error(`${res.status}: ${txt}`);
+  }
+  return res.json();
+}
+
+async function fetchEngines(){
   const grid=document.getElementById('servicesGrid');
-  grid.innerHTML='';
-  
-  for(const svc of SERVICES){
-    const card=document.createElement('div');
-    card.className='service-card';
-    
-    // 尝试健康检测
-    let status='unknown';
-    try{
-      if(svc.port>0){
-        const res=await fetchWithTimeout(`http://localhost:${svc.port}/health`,2000);
-        status=res.ok?'online':'offline';
-      }else{
-        status='standby';
-      }
-    }catch(e){
-      status='offline';
-    }
-    
-    const dotCls=status==='online'?'online':status==='offline'?'offline':'degraded';
-    const statusText=status==='online'?'运行中':status==='offline'?'已停止':status==='standby'?'待命中':'未知';
-    
-    card.innerHTML=`
-      <div class="info">
-        <span class="name">
-          <span class="status-dot ${dotCls}"></span> ${svc.name}
-        </span>
-        <span class="detail">${svc.desc} ${svc.port?`· :${svc.port}`:''}</span>
-      </div>
-      <div class="controls">
-        <button onclick="action('restart','${svc.id}')" title="重启" ${status==='offline'?'':'disabled'}>↻</button>
-        <button onclick="action('logs','${svc.id}')" title="日志">📋</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  }
-}
-
-// ═══ 获取统计 ═══
-async function fetchStats(){
-  // 统计活跃服务
-  const dots=document.querySelectorAll('.status-dot.online');
-  document.getElementById('statActive').textContent=dots.length;
-  
-  // 尝试获取系统资源（实际从API获取）
   try{
-    // 本地模拟数据 - 实际部署替换为 real API calls
-    const stats={
-      cpu:Math.floor(15+Math.random()*20),
-      mem:'24.3G/32.0G',
-      disk:'186G/480G'
-    };
-    document.getElementById('statCpu').textContent=stats.cpu+'%';
-    document.getElementById('statMem').textContent=stats.mem;
-    document.getElementById('statDisk').textContent=stats.disk;
+    const data=await api('/status');
+    engineList=data.engines||[];
+    grid.innerHTML='';
+    engineList.slice(0,30).forEach(eng=>{
+      const card=document.createElement('div');
+      card.className='service-card';
+      const healthCls=eng.health>=80?'':eng.health>=60?'warn':'crit';
+      const summary=eng.summary?eng.summary:'';
+      card.innerHTML=`
+        <div class="info">
+          <span class="name">
+            <span class="status-dot ${eng.status==='active'?'online':'degraded'}"></span>
+            ${eng.name}
+            <span class="health-badge ${healthCls}">${eng.health}</span>
+          </span>
+          <span class="detail">${eng.category||''} · ${eng.subcategory||''} · ${eng.type||''}</span>
+          ${summary?`<span class="summary">📝 ${summary}</span>`:''}
+        </div>
+        <div class="controls">
+          <button onclick="viewEngine('${eng.id}')" title="详情">👁</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    if(engineList.length>30){
+      const more=document.createElement('div');
+      more.className='service-card';
+      more.style.justifyContent='center';
+      more.innerHTML=`<span style="color:var(--dim);font-size:12px">还有 ${engineList.length-30} 个引擎，请在 Notion 注册表查看完整列表 →</span>`;
+      grid.appendChild(more);
+    }
+    document.getElementById('sysStatus').textContent=`注册表已同步 · ${engineList.length} 引擎`;
+    document.getElementById('sysDot').className='status-dot online';
   }catch(e){
-    document.getElementById('statCpu').textContent='N/A';
-    document.getElementById('statMem').textContent='N/A';
-    document.getElementById('statDisk').textContent='N/A';
+    grid.innerHTML=`<div class="service-card"><span style="color:var(--red)">加载失败: ${e.message}</span></div>`;
+    document.getElementById('sysStatus').textContent='注册表读取失败';
+    document.getElementById('sysDot').className='status-dot offline';
   }
 }
 
-// ═══ 获取最近日志 ═══
 async function fetchLogs(){
   const body=document.getElementById('logBody');
-  const now=new Date();
-  const entries=[
-    {time:fmt(now,-30),text:'🔍 健康检查完成: 16/16 服务正常',cls:'success'},
-    {time:fmt(now,-60),text:'🧬 DNA验证通过: v4.1.4 推理引擎活跃',cls:'info'},
-    {time:fmt(now,-120),text:'🛡 P05审计扫描: 无安全告警',cls:'success'},
-    {time:fmt(now,-300),text:'📥 Notion同步完成: 3页更新',cls:'info'},
-    {time:fmt(now,-600),text:'🔄 v4.1.6 训练中: epoch 2/3, val 0.987',cls:'warn'},
-    {time:fmt(now,-900),text:'💾 自动备份完成: 鲲鹏→本地',cls:'info'},
-    {time:fmt(now,-1800),text:'🔐 SSL证书: uid9622.cn 剩余79天',cls:'success'},
-    {time:fmt(now,-3600),text:'📊 日终统计: API请求 3,421 次, P99 218ms',cls:'info'},
-  ];
-  
-  body.innerHTML=entries.map(e=>
-    `<div class="log-entry ${e.cls}"><span class="time">${e.time}</span><span>${e.text}</span></div>`
-  ).join('');
-}
-
-function fmt(date,offsetSec){
-  const d=new Date(date.getTime()+offsetSec*1000);
-  return d.toTimeString().slice(0,8);
-}
-
-// ═══ 更新整体状态 ═══
-function updateOverallStatus(){
-  const onlineCount=document.querySelectorAll('.status-dot.online').length;
-  const total=SERVICES.length;
-  const dot=document.getElementById('sysDot');
-  const text=document.getElementById('sysStatus');
-  
-  dot.className='status-dot';
-  if(onlineCount===total){
-    dot.classList.add('online');
-    text.textContent=`全部正常 · ${onlineCount}/${total}`;
-  }else if(onlineCount>=total-2){
-    dot.classList.add('degraded');
-    dot.classList.add('pulse');
-    text.textContent=`部分降级 · ${onlineCount}/${total}`;
-  }else{
-    dot.classList.add('offline');
-    dot.classList.add('pulse');
-    text.textContent=`异常 · ${onlineCount}/${total}`;
+  try{
+    const data=await api('/logs?tail=20');
+    const jobs=data.jobs||[];
+    document.getElementById('logCount').textContent=`${jobs.length} 条`;
+    if(!jobs.length){
+      body.innerHTML='<div class="log-entry info"><span class="time">--:--:--</span><span>暂无运行日志</span></div>';
+      return;
+    }
+    body.innerHTML=jobs.map(j=>{
+      const t=j.started_at?j.started_at.split('T')[1].slice(0,8):'--:--:--';
+      const cls=j.exit_code===0?'success':j.exit_code?'error':'warn';
+      return `<div class="log-entry ${cls}"><span class="time">${t}</span><span>[${j.command}] ${j.summary||''} ${j.job_id?'· '+j.job_id:''}</span></div>`;
+    }).join('');
+  }catch(e){
+    body.innerHTML=`<div class="log-entry error"><span class="time">--:--:--</span><span>日志加载失败: ${e.message}</span></div>`;
   }
 }
 
-// ═══ 操作 ═══
-async function action(cmd,target){
-  toast(`正在执行: ${cmd}${target?' '+target:''}...`,'info');
-  
-  // 实际部署时调用API
+function updateStats(){
+  document.getElementById('statTotal').textContent=engineList.length;
+  const active=engineList.filter(e=>e.status==='active').length;
+  document.getElementById('statActive').textContent=active;
+  const avg=engineList.length?Math.round(engineList.reduce((a,b)=>a+(b.health||0),0)/engineList.length):0;
+  document.getElementById('statHealth').textContent=avg;
+  const logCount=parseInt(document.getElementById('logCount').textContent)||0;
+  document.getElementById('statJobs').textContent=logCount;
+}
+
+async function runEngine(command,arg){
+  toast(`正在触发: ${command}...`,'info');
   try{
-    // const res=await fetch(`${API_BASE}/action`,{
-    //   method:'POST',
-    //   headers:{'Content-Type':'application/json'},
-    //   body:JSON.stringify({action:cmd,target,confirmCode:'#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z'})
-    // });
-    // const data=await res.json();
-    
-    // 模拟响应
-    await new Promise(r=>setTimeout(r,800));
-    toast(`${cmd} 执行完成`,'success');
-    setTimeout(refreshAll,2000);
+    const payload={command,args:{}};
+    if(command==='search') payload.args.query=arg||'龙魂';
+    const data=await api('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    toast(`任务已提交: ${data.job.job_id}`,'success');
+    setTimeout(refreshAll,3000);
   }catch(e){
-    toast(`执行失败: ${e.message}`,'error');
+    toast(`提交失败: ${e.message}`,'error');
   }
 }
 
-// ═══ 辅助 ═══
-async function fetchWithTimeout(url,timeout){
-  const controller=new AbortController();
-  const id=setTimeout(()=>controller.abort(),timeout);
+async function syncNotion(){
+  toast('Notion 同步任务后台执行中...','info');
+  // 这里调用 lh_ctl.py 的 status --refresh，或直接调用 syncer
+  setTimeout(refreshAll,5000);
+}
+
+function viewEngine(id){
+  const eng=engineList.find(e=>e.id===id);
+  if(!eng)return;
+  toast(`${eng.name} · 健康分 ${eng.health} · ${eng.description||'无描述'}`,'info');
+}
+
+async function fetchMetrics(){
   try{
-    const res=await fetch(url,{signal:controller.signal});
-    clearTimeout(id);
-    return res;
+    metricsData=await api('/metrics');
+    renderMetricCharts();
   }catch(e){
-    clearTimeout(id);
-    throw e;
+    console.error('metrics load failed',e);
+  }
+}
+
+function renderMetricCharts(){
+  if(!metricsData)return;
+  const e=metricsData.engines||{};
+  renderDoughnut('chartCategories', Object.keys(e.by_category||{}), Object.values(e.by_category||{}));
+  const j=metricsData.jobs||{};
+  renderBar('chartJobs', Object.keys(j.by_command||{}), Object.values(j.by_command||{}));
+  const v=metricsData.videos||{};
+  renderDoughnut('chartVideoStyles', Object.keys(v.by_style||{}), Object.values(v.by_style||{}), true);
+  const daily=v.daily||[];
+  renderLine('chartVideoDaily', daily.map(d=>d.date.slice(5)), daily.map(d=>d.views), daily.map(d=>d.downloads), daily.map(d=>d.shares), daily.map(d=>d.comments));
+  renderRecentComments(v.recent_comments||[]);
+}
+
+function renderDoughnut(canvasId, labels, data, smallLegend=false){
+  const ctx=document.getElementById(canvasId).getContext('2d');
+  const colors=['#c9a84c','#22d3ee','#a78bfa','#4ade80','#fb923c','#f87171','#60a5fa'];
+  if(charts[canvasId])charts[canvasId].destroy();
+  charts[canvasId]=new Chart(ctx,{
+    type:'doughnut',
+    data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:smallLegend?'right':'bottom',labels:{color:'#71717a',font:{size:10}}}}}
+  });
+}
+
+function renderBar(canvasId, labels, data){
+  const ctx=document.getElementById(canvasId).getContext('2d');
+  if(charts[canvasId])charts[canvasId].destroy();
+  charts[canvasId]=new Chart(ctx,{
+    type:'bar',
+    data:{labels,datasets:[{label:'次数',data,backgroundColor:'rgba(201,168,76,.7)',borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'},beginAtZero:true}}}
+  });
+}
+
+function renderLine(canvasId, labels, views, downloads, shares, comments){
+  const ctx=document.getElementById(canvasId).getContext('2d');
+  if(charts[canvasId])charts[canvasId].destroy();
+  charts[canvasId]=new Chart(ctx,{
+    type:'line',
+    data:{labels,datasets:[
+      {label:'浏览',data:views,borderColor:'#22d3ee',backgroundColor:'rgba(34,211,238,.1)',tension:.3,fill:true},
+      {label:'下载',data:downloads,borderColor:'#4ade80',backgroundColor:'rgba(74,222,128,.1)',tension:.3,fill:true},
+      {label:'转发',data:shares,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.1)',tension:.3,fill:true},
+      {label:'评论',data:comments,borderColor:'#fb923c',backgroundColor:'rgba(251,146,60,.1)',tension:.3,fill:true}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'#71717a',font:{size:10}}}},scales:{x:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'},beginAtZero:true}}}
+  });
+}
+
+function renderRecentComments(comments){
+  const box=document.getElementById('recentComments');
+  if(!comments.length){box.innerHTML='<div class="comment-row">暂无评论</div>';return;}
+  box.innerHTML=comments.map(c=>`
+    <div class="comment-row">
+      <span style="color:var(--gold)">${escHtml(c.nickname||'匿名')}</span>
+      <span style="color:var(--dim);margin:0 6px">·</span>
+      <span style="color:${c.source&&c.source.includes('水军')?'var(--red)':'var(--cyan)'};margin-right:6px">${escHtml(c.source||'真实用户')}</span>
+      ${escHtml(c.content||'').slice(0,60)}${(c.content||'').length>60?'...':''}
+      <span style="float:right;color:var(--dim)">${c.created_at?c.created_at.slice(0,16).replace('T',' '):''}</span>
+    </div>
+  `).join('');
+}
+
+function escHtml(s){
+  if(!s)return '';
+  const div=document.createElement('div');div.textContent=s;return div.innerHTML;
+}
+
+async function run3d(){
+  const input=prompt('输入图像路径', 'data/3d_forge/test_input.png');
+  if(!input) return;
+  const category=prompt('分类 (object/character/building/nature/military)', 'object');
+  if(!category) return;
+  const style=prompt('风格 (realistic/stylized)', 'realistic');
+  toast('正在提交 3D 生成任务...','info');
+  try{
+    const data=await api('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:'3d',args:{input,category,style}})});
+    toast(`3D 任务已提交: ${data.job.job_id}`,'success');
+    setTimeout(refreshAll,3000);
+  }catch(e){
+    toast(`提交失败: ${e.message}`,'error');
   }
 }
 
@@ -370,7 +424,7 @@ function toast(msg,type='info'){
   el.className=`toast ${type}`;
   el.textContent=msg;
   container.appendChild(el);
-  setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300)},3000);
+  setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300)},4000);
 }
 </script>
 </body>

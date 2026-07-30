@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_REGISTRY_AUDIT_FIX-v1.0-97280324
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """修复 persona_registry.json — 对齐 AGENTS.md + 五大后台 v3.1"""
 import json
 from datetime import datetime, timezone

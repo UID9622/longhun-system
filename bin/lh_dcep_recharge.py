@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DCEP_RECHARGE-v1.0-661dc8f3
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 数字人民币充值接口 v1.0 — 一元起充·无上限

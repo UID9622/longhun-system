@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·壬辰·午时-JIAFA-AUDIT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # ============================================================
 # 龍魂·家法第一条审计引擎 v1.0
@@ -7,6 +10,9 @@
 # 联动: lh_jiafa_enforcer.py + shame_pillar_core.py + lh_dna_sovereignty_bridge.py
 # ============================================================
 
+"""🐉 龍魂引擎：lh_jiafa_audit
+路径：bin/lh_jiafa_audit.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 
 import hashlib

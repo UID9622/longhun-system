@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·ANTENNA-BUS-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：antenna_bus
+路径：engines/longhun/antenna/ant_colony/antenna_bus.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 触角总线 v2.0 · AntennaBus

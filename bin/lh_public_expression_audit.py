@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·庚戌·巳时·需-PUBLIC-EXPRESSION-AUDIT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 lh_public_expression_audit — 龍魂公开表述审计引擎 v1.0

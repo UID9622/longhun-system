@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·丙戌·申时·大有-SANDBOX-CONSOLE-v4.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🎛️ 龍魂 · 沙盒推演系统控制台 v4.0 · 统一入口

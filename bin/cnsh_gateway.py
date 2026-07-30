@@ -24,9 +24,17 @@ DNA: #龍芯⚡️20260422-CODE-GW01
 端口：:8765 (主网关)
 """
 
-import os, time, json, hashlib, logging, requests
+import os, time, json, hashlib, logging, requests, sys
 from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
 from flask import Flask, request, jsonify
+
+# 啟動守衛：語義安全閘審核不通過則立即終止
+_BIN_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(_BIN_DIR))
+import lh_sg_startup_guard
+lh_sg_startup_guard.enforce()
 
 logger = logging.getLogger(__name__)
 
@@ -107,12 +115,12 @@ def make_dna(type_code: str, content: str) -> str:
     date = datetime.now().strftime("%Y%m%d")
     return f"#龍芯⚡️{date}-{type_code}-{sha8(content)}"
 
-def log_local(entry: dict):
+def log_local(entry: dict[str, Any]):
     path = os.path.join(LOG_DIR, f"gateway_{datetime.now().strftime('%Y%m%d')}.jsonl")
     with open(path, "a") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-def log_notion(entry: dict):
+def log_notion(entry: dict[str, Any]):
     if not NOTION_TOKEN or not NOTION_LOG_DB:
         return
     try:
@@ -141,7 +149,7 @@ def log_notion(entry: dict):
 # ═══════════════════════════════
 # AI 路由器
 # ═══════════════════════════════
-def call_claude(messages: list, model: str = "claude-sonnet-4-6") -> str:
+def call_claude(messages: list[dict[str, Any]], model: str = "claude-sonnet-4-6") -> str:
     if not CLAUDE_API_KEY:
         return "[错误] ANTHROPIC_API_KEY 未配置"
     resp = requests.post(
@@ -161,7 +169,7 @@ def call_claude(messages: list, model: str = "claude-sonnet-4-6") -> str:
     resp.raise_for_status()
     return resp.json()["content"][0]["text"]
 
-def call_deepseek(messages: list, model: str = "deepseek-chat") -> str:
+def call_deepseek(messages: list[dict[str, Any]], model: str = "deepseek-chat") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
     # DeepSeek 兼容 OpenAI 格式
@@ -178,7 +186,7 @@ def call_deepseek(messages: list, model: str = "deepseek-chat") -> str:
     resp.raise_for_status()
     return resp.json()["choices"][0]["message"]["content"]
 
-def call_ollama(messages: list, model: str = "qwen2.5:7b") -> str:
+def call_ollama(messages: list[dict[str, Any]], model: str = "qwen2.5:7b") -> str:
     # 本地 Ollama — 完全私有，零泄漏
     full_messages = [{"role": "system", "content": CNSH_SYSTEM_PROMPT}] + messages
     resp = requests.post(

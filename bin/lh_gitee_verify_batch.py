@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_GITEE_VERIFY_BATCH-v1.0-34f9f79b
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """Gitee 仓库批量验证 + 道引元数据卡生成 v2.0
 使用一次性 token，执行后自动清除。
 """

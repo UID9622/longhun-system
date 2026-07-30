@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-snapshots-快照管理器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-snapshots-快照管理器-v1.0
 """
 通心译 | TongXinYi: Snapshot Manager
 龍魂体系·状态快照管理器 — 系统状态保存、恢复与对比

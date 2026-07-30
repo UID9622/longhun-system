@@ -15,6 +15,9 @@
 #   6. 通道路由决策树 —— 消息类×设备×通道活性 → 最优通道
 # ============================================================
 
+"""🐉 龍魂引擎：lh_register_mail_engine
+路径：bin/lh_register_mail_engine.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import re
 import hmac
 import hashlib

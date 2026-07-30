@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0
 """
 通心译 | TongXinYi: DNA Token Generator
 龍魂体系·DNA令牌生成器 — 核心令牌生成 + 驗證 + 撤銷

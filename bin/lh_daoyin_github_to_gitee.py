@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DAOYIN_GITHUB_TO_GITEE-v1.0-5e7e7351
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂道引器 · GitHub→Gitee 批量搬运
 6个仓库：GitHub clone → Gitee push → 元数据归档
 铁律：A-028 龍魂道引 · 来源可查 · 入链不可覆

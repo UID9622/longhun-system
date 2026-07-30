@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·FACE-API-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂人脸识别统一接口 · 严格DNA授权
 # DNA: #龍芯⚡️丙午·辛未·FACE-API-v1.0
 
+"""🐉 龍魂引擎：lh_face_api
+路径：bin/lh_face_api.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os
 import sys
 import json

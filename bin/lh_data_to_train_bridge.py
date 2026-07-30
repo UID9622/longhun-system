@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·卯时·讼-DATA-BRIDGE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+"""🐉 龍魂引擎：lh_data_to_train_bridge
+路径：bin/lh_data_to_train_bridge.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂·训练数据桥接引擎 v1.0 (融合版)

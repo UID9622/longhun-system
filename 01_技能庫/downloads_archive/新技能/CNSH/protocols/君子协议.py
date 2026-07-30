@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-protocols-君子协议-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-protocols-君子协议-v1.0
 """
 通心译 | TongXinYi: JunZi Protocol (Gentleman's Agreement)
 龍魂体系·君子协议 — 知识共享署名-非商业性使用-相同方式共享 4.0

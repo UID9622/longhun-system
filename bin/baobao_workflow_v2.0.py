@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-17-BAOBAO-WORKFLOW-TRANSPARENT-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ═══════════════════════════════════════════════════════════════════════════════
@@ -53,6 +56,12 @@ from datetime import datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+# 啟動守衛：語義安全閘審核不通過則立即終止
+_BIN_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(_BIN_DIR))
+import lh_sg_startup_guard
+lh_sg_startup_guard.enforce()
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # 全局常量 — 龍魂體系標識

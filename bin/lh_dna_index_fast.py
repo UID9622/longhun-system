@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-24-BIN-DNA_INDEX_FAST-v2.2
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 #龍芯⚡️2026-07-24-BIN-DNA_INDEX_FAST-v2.2
 DNA快速索引 v2.2 — 文件DNA + 行为DNA标签双轨扫描·os.walk剪枝·流式输出

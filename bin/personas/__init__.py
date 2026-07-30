@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·乙未·甲寅·酉时·需-PERSONA-EXEC-MODULE-INIT-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂人格执行器模块

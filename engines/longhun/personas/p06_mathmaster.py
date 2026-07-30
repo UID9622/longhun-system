@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·乙未·甲寅·酉时·需-P06-MATHMASTER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P06 數學大師/鏡像審計者 · 數學計算執行器

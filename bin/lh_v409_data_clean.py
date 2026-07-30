@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-20-V409-DATA-CLEAN-AUGMENT
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂 v4.0.9 数据清洗与补强脚本

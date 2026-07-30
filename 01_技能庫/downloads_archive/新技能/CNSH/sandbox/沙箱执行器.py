@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-sandbox-沙箱执行器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-sandbox-沙箱执行器-v1.0
 """
 通心译 | TongXinYi: Sandbox Executor
 龍魂体系·沙箱执行器 — 安全代码执行与隔离环境

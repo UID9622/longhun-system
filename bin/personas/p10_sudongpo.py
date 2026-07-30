@@ -1,3 +1,6 @@
+#龍芯⚡️丙午·丙申·丙辰·亥时·需-P10-SU-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 P10 苏东坡 · 豁达跨界执行器

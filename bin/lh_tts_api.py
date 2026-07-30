@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·TTS-API-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # 龍魂TTS统一接口 · 本地优先·云端备用
 # DNA: #龍芯⚡️丙午·辛未·TTS-API-v1.0
 
+"""🐉 龍魂引擎：lh_tts_api
+路径：bin/lh_tts_api.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os
 import sys
 import json

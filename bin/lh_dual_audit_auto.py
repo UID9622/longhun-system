@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·DUAL-AUDIT-AUTO-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 左右互补审计 v1.0 — 红蓝对抗自动化

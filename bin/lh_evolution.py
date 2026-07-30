@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-25-EVOLUTION-CLI-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂 · 自适应进化中枢 CLI v1.0
 DNA: #龍芯⚡️2026-07-25-EVOLUTION-CLI-v1.0

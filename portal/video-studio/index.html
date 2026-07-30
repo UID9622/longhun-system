@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="龍魂视频工坊 v3.0 — 文本一键转高清解说视频。AI配音+智能配图+实时数据，中国自主知识产权。">
+<meta name="keywords" content="龍魂,视频工坊,AI视频生成,文本转视频,实时数据,UID9622">
+<meta property="og:title" content="龍魂视频工坊 v3.0 · AI解说视频生成">
+<meta property="og:description" content="文本→配音+字幕+智能配图→高清视频，实时浏览/下载/转发/评论数据">
+<meta property="og:url" content="https://uid9622.cn/video-studio/">
+<title>龍魂视频工坊 v3.0 · AI解说视频生成</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0a14;
+  --bg2: #111121;
+  --gold: #d4a574;
+  --gold-light: #edd5b8;
+  --gold-dark: #b8854a;
+  --text: #e8dcc8;
+  --text-dim: #a09080;
+  --red: #c0392b;
+  --green: #27ae60;
+  --blue: #4a90d9;
+  --cyan: #22d3ee;
+  --purple: #a78bfa;
+  --orange: #fb923c;
+  --border: rgba(212,165,116,.12);
+  --card-bg: rgba(17,17,33,.7);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold-light)}
+
+/* ── Navbar ── */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  padding:0 24px;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,20,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.nav-logo span{font-size:11px;color:var(--text-dim);letter-spacing:1px;font-weight:400}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.nav-link{font-size:13px;color:var(--text-dim);display:flex;align-items:center;gap:4px}
+.nav-link:hover{color:var(--gold)}
+
+/* ── Hero ── */
+.hero{
+  position:relative;padding:100px 24px 60px;text-align:center;
+  background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(212,165,116,.05),transparent),
+             linear-gradient(180deg,var(--bg),var(--bg2));
+  border-bottom:1px solid var(--border);
+}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;
+  border:1px solid rgba(212,165,116,.2);background:rgba(212,165,116,.06);
+  font-size:12px;color:var(--gold);margin-bottom:20px;letter-spacing:1px}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.2;margin-bottom:12px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:15px;color:var(--text-dim);max-width:560px;margin:0 auto 32px}
+.hero-stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.stat-item{text-align:center;min-width:70px}
+.stat-num{font-size:28px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.stat-label{font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:1px}
+.stat-sep{width:1px;background:var(--border)}
+
+/* ── Generate Form ── */
+.generate-section{padding:32px 24px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.generate-inner{max-width:720px;margin:0 auto}
+.generate-inner h3{font-size:16px;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row input,.form-row select,.form-row textarea{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;color:var(--text);font-size:14px;
+  font-family:inherit;outline:none;transition:border-color .2s
+}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--gold)}
+.form-row textarea{flex:1;min-width:100%;min-height:90px;resize:vertical}
+.form-row input{flex:1;min-width:180px}
+.form-row select{min-width:110px;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23d4a574'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.form-row select option{background:var(--bg2);color:var(--text)}
+.btn-gen{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 32px;
+  border-radius:24px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--bg);font-size:15px;font-weight:600;cursor:pointer;
+  transition:all .3s;width:100%;justify-content:center
+}
+.btn-gen:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(212,165,116,.35)}
+.btn-gen:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ── Metrics / Charts ── */
+.metrics-section{padding:28px 24px;border-bottom:1px solid var(--border)}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;max-width:1200px;margin:0 auto 24px}
+.metric-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.metric-card .value{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
+.metric-card .label{font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:1px}
+.metric-views{color:var(--cyan)}
+.metric-downloads{color:var(--green)}
+.metric-shares{color:var(--purple)}
+.metric-comments{color:var(--orange)}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+.chart-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:16px}
+.chart-card h4{font-size:13px;color:var(--gold-light);margin-bottom:12px;letter-spacing:1px}
+.chart-wrap{position:relative;height:240px}
+
+/* ── Filter Bar ── */
+.filter-bar{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;flex-wrap:wrap;gap:12px}
+.filter-bar h3{font-size:16px;color:var(--gold-light)}
+.filter-pills{display:flex;gap:8px;flex-wrap:wrap}
+.filter-pill{padding:5px 14px;border-radius:16px;border:1px solid var(--border);
+  background:transparent;color:var(--text-dim);font-size:12px;cursor:pointer;
+  transition:all .2s;font-family:inherit}
+.filter-pill:hover{border-color:var(--gold);color:var(--gold)}
+.filter-pill.active{background:rgba(212,165,116,.12);border-color:var(--gold);color:var(--gold)}
+
+/* ── Video Grid ── */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+  gap:20px;
+  padding:0 24px 60px;
+  max-width:1400px;
+  margin:0 auto;
+}
+@media(max-width:400px){.video-grid{grid-template-columns:1fr}}
+
+/* ── Video Card ── */
+.video-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;transition:all .3s;
+  display:flex;flex-direction:column;
+}
+.video-card:hover{border-color:rgba(212,165,116,.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.card-thumb{position:relative;aspect-ratio:16/9;background:var(--bg);overflow:hidden;cursor:pointer}
+.card-thumb video{width:100%;height:100%;object-fit:cover}
+.card-thumb .play-overlay{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s
+}
+.card-thumb:hover .play-overlay{opacity:1}
+.play-btn{width:56px;height:56px;border-radius:50%;background:rgba(212,165,116,.85);
+  display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--bg)}
+.card-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.card-title{font-size:16px;font-weight:700;color:var(--gold-light);line-height:1.4;word-break:break-all}
+.card-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.card-meta-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text-dim)}
+.card-meta-item .dot{width:6px;height:6px;border-radius:50%}
+.dot-gold{background:var(--gold)}
+.dot-green{background:var(--green)}
+.dot-blue{background:var(--blue)}
+.card-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.card-metric{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--text-dim);background:rgba(255,255,255,.03);padding:3px 8px;border-radius:10px}
+.card-scenes{font-size:12px;color:var(--text-dim);line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-dna{font-family:"SF Mono","Fira Code",monospace;font-size:10px;color:rgba(255,255,255,.15);
+  word-break:break-all;margin-top:auto;padding-top:8px;border-top:1px solid rgba(255,255,255,.04)}
+.card-actions{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.card-actions button{padding:6px 14px;border-radius:14px;border:1px solid var(--border);
+  background:transparent;color:var(--text-dim);font-size:11px;cursor:pointer;
+  transition:all .2s;font-family:inherit}
+.card-actions button:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,165,116,.06)}
+.card-actions button.dl-btn{border-color:rgba(212,165,116,.2);color:var(--gold)}
+.card-actions button.share-btn{border-color:rgba(34,211,238,.2);color:var(--cyan)}
+
+/* ── Modal Player ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  padding:20px;overflow:auto;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-content{width:100%;max-width:1000px;position:relative;display:flex;flex-direction:column;gap:14px}
+.modal-close{
+  position:absolute;top:-40px;right:0;width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:none;color:var(--text);font-size:18px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;z-index:1
+}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal-video{width:100%;border-radius:12px;max-height:70vh;background:#000}
+.modal-info{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.modal-info h2{font-size:18px;color:var(--gold-light)}
+.modal-metrics{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text-dim)}
+.modal-metrics span{display:flex;align-items:center;gap:4px}
+
+/* ── Comments ── */
+.comments-box{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:16px}
+.comments-box h4{font-size:14px;color:var(--gold-light);margin-bottom:12px}
+.comment-list{display:flex;flex-direction:column;gap:10px;max-height:240px;overflow-y:auto;margin-bottom:14px}
+.comment-item{padding:10px;background:rgba(255,255,255,.03);border-radius:10px}
+.comment-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.comment-author{font-size:12px;font-weight:700;color:var(--gold-light)}
+.comment-time{font-size:10px;color:var(--text-dim)}
+.comment-source{font-size:10px;padding:1px 6px;border-radius:8px;background:rgba(39,174,96,.12);color:var(--green)}
+.comment-source.guest{background:rgba(74,144,217,.12);color:var(--blue)}
+.comment-source.system{background:rgba(167,139,250,.12);color:var(--purple)}
+.comment-source.test{background:rgba(160,144,128,.12);color:var(--text-dim)}
+.comment-source.bot{background:rgba(192,57,43,.12);color:var(--red)}
+.comment-text{font-size:13px;color:var(--text);line-height:1.5}
+.comment-form{display:flex;flex-direction:column;gap:10px}
+.comment-form-row{display:flex;gap:10px;flex-wrap:wrap}
+.comment-form input,.comment-form select,.comment-form textarea{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;
+  padding:8px 12px;color:var(--text);font-size:13px;font-family:inherit;outline:none
+}
+.comment-form input{flex:1;min-width:120px}
+.comment-form select{min-width:100px}
+.comment-form textarea{flex:1;min-width:100%;min-height:60px;resize:vertical}
+.comment-form button{align-self:flex-start;padding:8px 20px;border-radius:16px;border:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-weight:600;cursor:pointer}
+.comment-form button:disabled{opacity:.5}
+
+/* ── Empty State ── */
+.empty-state{text-align:center;padding:80px 24px}
+.empty-state .icon{font-size:48px;margin-bottom:16px}
+.empty-state h3{font-size:18px;color:var(--gold-light);margin-bottom:8px}
+.empty-state p{font-size:13px;color:var(--text-dim)}
+
+/* ── Loading ── */
+.loading{text-align:center;padding:60px}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--gold);
+  border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 24px;
+  border-radius:10px;background:var(--bg2);border:1px solid var(--border);
+  color:var(--text);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:all .3s}
+.toast.show{opacity:1}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border)}
+.footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:2}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/" class="nav-logo">龍魂<span>· 视频工坊</span></a>
+  <div class="nav-actions">
+    <a href="/portal/dashboard/" class="nav-link">📊 数据大屏</a>
+    <a href="/" class="nav-link">← 回主页</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">🎬 v3.0 · 文本→视频→实时数据</div>
+  <h1>龍魂视频工坊</h1>
+  <p>一键将文本解说稿转化为带AI配音、动态字幕、智能配图的高清视频。所有浏览、下载、转发、评论数据实时可查，不造假。</p>
+  <div class="hero-stats" id="heroStats">
+    <div class="stat-item"><div class="stat-num" id="statVideos">-</div><div class="stat-label">总视频</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="stat-num" id="statViews">-</div><div class="stat-label">浏览</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="stat-num" id="statDownloads">-</div><div class="stat-label">下载</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="stat-num" id="statShares">-</div><div class="stat-label">转发</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="stat-num" id="statComments">-</div><div class="stat-label">评论</div></div>
+  </div>
+</section>
+
+<!-- Generate Form -->
+<section class="generate-section" id="generate">
+  <div class="generate-inner">
+    <h3>⚡ 生成新视频</h3>
+    <div class="form-row">
+      <textarea id="genScript" placeholder="输入解说文本...（每段自动切分场景，用标点或换行分隔）"></textarea>
+    </div>
+    <div class="form-row">
+      <input id="genName" placeholder="视频标题" value="">
+      <select id="genStyle">
+        <option value="龍魂">龍魂 · 黑金</option>
+        <option value="科技">科技 · 深蓝</option>
+        <option value="历史">历史 · 古铜</option>
+        <option value="战争">战争 · 暗红</option>
+        <option value="自然">自然 · 翠绿</option>
+        <option value="默认">默认 · 中性</option>
+      </select>
+    </div>
+    <button class="btn-gen" id="btnGen" onclick="generateVideo()">
+      🎬 生成视频
+    </button>
+    <div id="genStatus" style="margin-top:12px;font-size:13px;color:var(--text-dim)"></div>
+  </div>
+</section>
+
+<!-- Metrics & Charts -->
+<section class="metrics-section">
+  <div class="metrics-grid" id="metricsGrid">
+    <div class="metric-card"><div class="metric-views value" id="mViews">-</div><div class="label">总浏览</div></div>
+    <div class="metric-card"><div class="metric-downloads value" id="mDownloads">-</div><div class="label">总下载</div></div>
+    <div class="metric-card"><div class="metric-shares value" id="mShares">-</div><div class="label">总转发</div></div>
+    <div class="metric-card"><div class="metric-comments value" id="mComments">-</div><div class="label">总评论</div></div>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card"><h4>风格分布</h4><div class="chart-wrap"><canvas id="chartStyles"></canvas></div></div>
+    <div class="chart-card"><h4>每日互动趋势</h4><div class="chart-wrap"><canvas id="chartDaily"></canvas></div></div>
+    <div class="chart-card"><h4>热门视频 TOP 10</h4><div class="chart-wrap"><canvas id="chartTop"></canvas></div></div>
+  </div>
+</section>
+
+<!-- Filter -->
+<div class="filter-bar">
+  <h3 id="filterTitle">🎞️ 视频画廊</h3>
+  <div class="filter-pills" id="filterPills"></div>
+</div>
+
+<!-- Video Grid -->
+<div class="video-grid" id="videoGrid">
+  <div class="loading"><div class="spinner"></div><p style="color:var(--text-dim);font-size:13px">加载视频...</p></div>
+</div>
+
+<!-- Modal Player -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <video class="modal-video" id="modalVideo" controls autoplay></video>
+    <div class="modal-info">
+      <h2 id="modalTitle"></h2>
+      <div class="modal-metrics" id="modalMetrics"></div>
+    </div>
+    <div class="comments-box">
+      <h4>💬 评论与反馈</h4>
+      <div class="comment-list" id="commentList"><div style="color:var(--text-dim);font-size:12px">加载中...</div></div>
+      <div class="comment-form">
+        <div class="comment-form-row">
+          <input id="cNickname" placeholder="昵称" value="">
+          <select id="cSource">
+            <option value="">自动识别</option>
+            <option value="真实用户">真实用户</option>
+            <option value="匿名游客">匿名游客</option>
+            <option value="系统">系统</option>
+            <option value="测试">测试</option>
+          </select>
+        </div>
+        <textarea id="cContent" placeholder="写下你的评论... 水军/重复/高频会被自动标注"></textarea>
+        <button id="btnComment" onclick="submitComment()">发表评论</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>龍魂视频工坊 v3.0 · 诸葛鑫 (UID9622) 创建 · 中国自主知识产权</p>
+  <p>CC BY-NC-SA 4.0 · 为人民服务，不为资本黑箱服务 · 实时数据本地存储，绝不造假</p>
+</footer>
+
+<script>
+// ============================================================
+// 龍魂视频工坊 · v3.0 画廊引擎（按钮操作 + 实时数据）
+// ============================================================
+
+const API_BASE = window.location.origin;
+let allVideos = [];
+let activeStyle = '全部';
+let metricsData = null;
+let currentVideoId = null;
+let charts = {};
+
+function getClientId() {
+  let id = localStorage.getItem('lh_client_id');
+  if (!id) {
+    id = 'user-' + Math.random().toString(36).slice(2, 10) + '-' + Date.now().toString(36);
+    localStorage.setItem('lh_client_id', id);
+  }
+  return id;
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  setInterval(loadAll, 5000);
+  document.getElementById('genScript').addEventListener('input', (e) => {
+    const nameInput = document.getElementById('genName');
+    if (!nameInput.value || nameInput.dataset.auto === '1') {
+      const text = e.target.value.trim();
+      if (text.length > 2) {
+        nameInput.value = text.replace(/[，,。！!？?；;：:、\s]/g, '').slice(0, 20);
+        nameInput.dataset.auto = '1';
+      }
+    }
+  });
+  document.getElementById('genName').addEventListener('input', function() {
+    this.dataset.auto = '0';
+  });
+  // URL hash 打开指定视频
+  if (location.hash.startsWith('#video=')) {
+    const vid = decodeURIComponent(location.hash.slice(7));
+    setTimeout(() => openPlayer(vid), 800);
+  }
+});
+
+async function api(path, opts = {}) {
+  opts.headers = opts.headers || {};
+  opts.headers['X-Client-Id'] = getClientId();
+  const res = await fetch(`${API_BASE}${path}`, opts);
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(`${res.status}: ${txt}`);
+  }
+  return res.json();
+}
+
+async function loadAll() {
+  await Promise.all([loadVideos(), loadMetrics()]);
+  updateHero();
+  renderCharts();
+}
+
+// ── Videos ──
+async function loadVideos() {
+  const data = await api('/api/videos');
+  allVideos = data.videos || [];
+  updateFilters();
+  renderVideos();
+  updateHeroFromVideos(data);
+}
+
+function updateHeroFromVideos(data) {
+  document.getElementById('statVideos').textContent = data.total_videos || 0;
+}
+
+function updateFilters() {
+  const styles = [...new Set(allVideos.map(v => v.style))];
+  const pills = document.getElementById('filterPills');
+  pills.innerHTML = `<button class="filter-pill ${activeStyle==='全部'?'active':''}" onclick="filterBy('全部')">全部</button>`;
+  styles.forEach(s => {
+    pills.innerHTML += `<button class="filter-pill ${activeStyle===s?'active':''}" onclick="filterBy('${s}')">${s}</button>`;
+  });
+}
+
+function filterBy(style) {
+  activeStyle = style;
+  updateFilters();
+  renderVideos();
+}
+
+function renderVideos() {
+  const grid = document.getElementById('videoGrid');
+  let videos = allVideos;
+  if (activeStyle !== '全部') videos = allVideos.filter(v => v.style === activeStyle);
+
+  if (videos.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="icon">🎬</div>
+        <h3>${activeStyle === '全部' ? '还没有视频' : `没有「${activeStyle}」风格的视频`}</h3>
+        <p>在上方输入解说稿，点击「生成视频」即可创建第一个作品</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = videos.map(v => {
+    const m = v.metrics || {};
+    return `
+    <div class="video-card">
+      <div class="card-thumb" onclick="openPlayer('${v.id}')">
+        <video src="${API_BASE}${v.video_path}" preload="metadata" muted></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-title">${escHtml(v.title)}</div>
+          <span class="style-badge style-${v.style}">${v.style}</span>
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-item"><span class="dot dot-gold"></span>${v.duration_str}</div>
+          <div class="card-meta-item"><span class="dot dot-green"></span>${v.total_scenes}场景</div>
+          <div class="card-meta-item"><span class="dot dot-blue"></span>${v.file_size_mb}MB</div>
+        </div>
+        <div class="card-metrics">
+          <span class="card-metric">👁 ${m.views||0}</span>
+          <span class="card-metric">⬇ ${m.downloads||0}</span>
+          <span class="card-metric">🔗 ${m.shares||0}</span>
+          <span class="card-metric">💬 ${m.comments_count||0}</span>
+        </div>
+        ${v.scenes && v.scenes.length > 0 ? `<div class="card-scenes">${escHtml(v.scenes[0].slice(0, 100))}${v.scenes[0].length > 100 ? '...' : ''}</div>` : ''}
+        <div class="card-dna">${escHtml(v.dna)}</div>
+        <div class="card-actions">
+          <button onclick="openPlayer('${v.id}')">▶ 播放</button>
+          <button class="dl-btn" onclick="downloadVideo('${v.id}')">⬇ 下载</button>
+          <button class="share-btn" onclick="shareVideo('${v.id}')">🔗 转发</button>
+        </div>
+      </div>
+    </div>
+  `}).join('');
+}
+
+// ── Player ──
+async function openPlayer(id) {
+  const video = allVideos.find(v => v.id === id);
+  if (!video) return;
+  currentVideoId = id;
+
+  document.getElementById('modalTitle').textContent = video.title;
+  const m = video.metrics || {};
+  document.getElementById('modalMetrics').innerHTML = `
+    <span>👁 浏览 ${m.views||0}</span>
+    <span>⬇ 下载 ${m.downloads||0}</span>
+    <span>🔗 转发 ${m.shares||0}</span>
+    <span>💬 评论 ${m.comments_count||0}</span>
+    <span>📅 ${video.generated_at ? video.generated_at.slice(0,10) : ''}</span>
+  `;
+
+  const player = document.getElementById('modalVideo');
+  player.innerHTML = `<source src="${API_BASE}${video.video_path}" type="video/mp4">`;
+  player.load();
+  player.play().catch(() => {});
+
+  document.getElementById('modal').classList.add('open');
+  history.replaceState(null, '', '#video=' + encodeURIComponent(id));
+
+  // 记录浏览
+  try { await api(`/api/videos/${id}/view`, {method:'POST'}); loadMetrics(); } catch(e){}
+  loadComments(id);
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal')) return;
+  document.getElementById('modal').classList.remove('open');
+  const player = document.getElementById('modalVideo');
+  player.pause();
+  player.innerHTML = '';
+  currentVideoId = null;
+  history.replaceState(null, '', location.pathname + location.search);
+}
+
+// ── Download / Share ──
+async function downloadVideo(id) {
+  const video = allVideos.find(v => v.id === id);
+  if (!video) return;
+  const a = document.createElement('a');
+  a.href = API_BASE + video.video_path;
+  a.download = video.file_name;
+  a.click();
+  showToast('开始下载: ' + video.title);
+  try { await api(`/api/videos/${id}/download`, {method:'POST'}); loadMetrics(); } catch(e){}
+}
+
+async function shareVideo(id) {
+  const url = location.origin + location.pathname + '#video=' + encodeURIComponent(id);
+  if (navigator.clipboard) {
+    await navigator.clipboard.writeText(url);
+  }
+  showToast('链接已复制，快去转发吧');
+  try { await api(`/api/videos/${id}/share`, {method:'POST'}); loadMetrics(); } catch(e){}
+}
+
+// ── Comments ──
+async function loadComments(id) {
+  const list = document.getElementById('commentList');
+  try {
+    const data = await api(`/api/videos/${id}/comments`);
+    const comments = data.comments || [];
+    if (!comments.length) {
+      list.innerHTML = '<div style="color:var(--text-dim);font-size:12px">暂无评论，来说两句吧</div>';
+      return;
+    }
+    list.innerHTML = comments.slice().reverse().map(c => `
+      <div class="comment-item">
+        <div class="comment-head">
+          <span class="comment-author">${escHtml(c.nickname)}</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span class="comment-source ${sourceClass(c.source)}">${escHtml(c.source)}</span>
+            <span class="comment-time">${c.created_at ? c.created_at.slice(0,16).replace('T',' ') : ''}</span>
+          </div>
+        </div>
+        <div class="comment-text">${escHtml(c.content)}</div>
+      </div>
+    `).join('');
+  } catch(e) {
+    list.innerHTML = '<div style="color:var(--red);font-size:12px">评论加载失败</div>';
+  }
+}
+
+function sourceClass(source) {
+  if (!source) return '';
+  if (source.includes('水军')) return 'bot';
+  if (source === '匿名游客') return 'guest';
+  if (source === '系统') return 'system';
+  if (source === '测试') return 'test';
+  return '';
+}
+
+async function submitComment() {
+  if (!currentVideoId) return;
+  const nickname = document.getElementById('cNickname').value.trim() || '匿名';
+  const source = document.getElementById('cSource').value;
+  const content = document.getElementById('cContent').value.trim();
+  if (!content) { showToast('评论内容不能为空'); return; }
+  const btn = document.getElementById('btnComment');
+  btn.disabled = true;
+  try {
+    await api(`/api/videos/${currentVideoId}/comments`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({nickname, source, content})
+    });
+    document.getElementById('cContent').value = '';
+    showToast('评论已提交');
+    loadComments(currentVideoId);
+    loadMetrics();
+  } catch(e) {
+    showToast('评论失败: ' + e.message);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ── Generate ──
+async function generateVideo() {
+  const script = document.getElementById('genScript').value.trim();
+  const name = document.getElementById('genName').value.trim() || '龍魂视频';
+  const style = document.getElementById('genStyle').value;
+
+  if (script.length < 10) {
+    showToast('解说文本至少10个字');
+    return;
+  }
+
+  const btn = document.getElementById('btnGen');
+  const status = document.getElementById('genStatus');
+  btn.disabled = true;
+  btn.textContent = '⏳ 生成中...';
+  status.innerHTML = '正在调用视频生成引擎，请稍候...<br><small>通常在30秒~2分钟内完成</small>';
+
+  try {
+    const resp = await fetch(`${API_BASE}/api/videos/generate`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-Client-Id':getClientId()},
+      body: JSON.stringify({script, name, style})
+    });
+    const data = await resp.json();
+
+    if (data.success) {
+      showToast('✅ 视频生成成功: ' + data.title);
+      status.innerHTML = `<span style="color:var(--green)">✅ 生成成功！</span> <a href="#video=${encodeURIComponent(data.id)}" onclick="openPlayer('${data.id}');return false;" style="color:var(--gold)">点击播放</a>`;
+      document.getElementById('genScript').value = '';
+      document.getElementById('genName').value = '';
+      loadAll();
+    } else {
+      status.innerHTML = `<span style="color:var(--red)">❌ ${data.error || '生成失败'}</span>`;
+      showToast('生成失败: ' + (data.error || '未知错误'));
+    }
+  } catch (err) {
+    status.innerHTML = `<span style="color:var(--red)">❌ 生成失败: ${err.message}</span><br><small>请确认视频工坊服务已启动</small>`;
+    showToast('生成失败: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🎬 生成视频';
+  }
+}
+
+// ── Metrics & Charts ──
+async function loadMetrics() {
+  metricsData = await api('/api/video-metrics');
+  updateHero();
+  renderCharts();
+}
+
+function updateHero() {
+  if (!metricsData) return;
+  const e = metricsData.engagement || {};
+  document.getElementById('statViews').textContent = fmt(e.views||0);
+  document.getElementById('statDownloads').textContent = fmt(e.downloads||0);
+  document.getElementById('statShares').textContent = fmt(e.shares||0);
+  document.getElementById('statComments').textContent = fmt(e.comments||0);
+  document.getElementById('mViews').textContent = fmt(e.views||0);
+  document.getElementById('mDownloads').textContent = fmt(e.downloads||0);
+  document.getElementById('mShares').textContent = fmt(e.shares||0);
+  document.getElementById('mComments').textContent = fmt(e.comments||0);
+}
+
+function fmt(n) {
+  return n >= 10000 ? (n/10000).toFixed(1) + 'w' : String(n);
+}
+
+function renderCharts() {
+  if (!metricsData) return;
+  const styles = metricsData.videos?.by_style || {};
+  renderDoughnut('chartStyles', Object.keys(styles), Object.values(styles), '视频数');
+
+  const daily = metricsData.daily || [];
+  renderLine('chartDaily',
+    daily.map(d => d.date.slice(5)),
+    daily.map(d => d.views),
+    daily.map(d => d.downloads),
+    daily.map(d => d.shares),
+    daily.map(d => d.comments)
+  );
+
+  const top = metricsData.top_videos || [];
+  renderBar('chartTop', top.map(v => v.title.slice(0,8)), top.map(v => v.views));
+}
+
+function renderDoughnut(canvasId, labels, data, label) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const colors = ['#d4a574','#4a90d9','#27ae60','#c0392b','#a78bfa','#fb923c','#22d3ee'];
+  if (charts[canvasId]) charts[canvasId].destroy();
+  charts[canvasId] = new Chart(ctx, {
+    type: 'doughnut',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 0 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'right', labels: { color: '#a09080', font: {size:11} } } }
+    }
+  });
+}
+
+function renderLine(canvasId, labels, views, downloads, shares, comments) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  if (charts[canvasId]) charts[canvasId].destroy();
+  charts[canvasId] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: '浏览', data: views, borderColor: '#22d3ee', backgroundColor: 'rgba(34,211,238,.1)', tension: .3, fill: true },
+        { label: '下载', data: downloads, borderColor: '#27ae60', backgroundColor: 'rgba(39,174,96,.1)', tension: .3, fill: true },
+        { label: '转发', data: shares, borderColor: '#a78bfa', backgroundColor: 'rgba(167,139,250,.1)', tension: .3, fill: true },
+        { label: '评论', data: comments, borderColor: '#fb923c', backgroundColor: 'rgba(251,146,60,.1)', tension: .3, fill: true },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: '#a09080', font: {size:11} } } },
+      scales: {
+        x: { ticks: { color: '#a09080' }, grid: { color: 'rgba(255,255,255,.05)' } },
+        y: { ticks: { color: '#a09080' }, grid: { color: 'rgba(255,255,255,.05)' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+function renderBar(canvasId, labels, data) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  if (charts[canvasId]) charts[canvasId].destroy();
+  charts[canvasId] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ label: '浏览量', data, backgroundColor: 'rgba(212,165,116,.7)', borderRadius: 4 }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#a09080' }, grid: { color: 'rgba(255,255,255,.05)' }, beginAtZero: true },
+        y: { ticks: { color: '#a09080' }, grid: { color: 'rgba(255,255,255,.05)' } }
+      }
+    }
+  });
+}
+
+// ── Keyboard ──
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── Utils ──
+function escHtml(s) {
+  if (!s) return '';
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>

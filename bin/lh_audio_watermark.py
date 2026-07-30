@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-AUDIO-WATERMARK-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·音频 DNA 水印工具 v1.0                                 ║
 # ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-AUDIO-WATERMARK-v1.0  ║

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_FAKE_REVIEW_DETECTOR-v1.0-4b6a829c
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh_fake_review_detector — 龍魂·虚假评论检测引擎 v1.0
 

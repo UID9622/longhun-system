@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-governance-DNA追溯器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-governance-DNA追溯器-v1.0
 """
 通心译 | TongXinYi: DNA Tracer
 龍魂体系·DNA追溯器 — 全程变更追溯与版本追踪系统

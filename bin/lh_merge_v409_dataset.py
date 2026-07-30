@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-20-MERGE-V409-DATASET-v1.1
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 合并 v4.0.8 + 统一来源（Notion/GitHub/本地仓库）+ CodeBuddy 训练语料 → v4.0.9 训练集

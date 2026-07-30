@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-SHARED-BLACKBOARD-v1.0"""
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """龍魂 SharedBlackboard v1.0 — 多智能体共享上下文黑板
 DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-SHARED-BLACKBOARD-v1.0"""

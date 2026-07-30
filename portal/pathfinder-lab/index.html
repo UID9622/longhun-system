@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="龍魂路径规划引擎 v4.1.5 · 迪杰斯特拉/A*/动态规划/八卦阵/蚁群/D* Lite/三六九不动点在线推演">
+<meta property="og:title" content="龍魂路径规划推演舱">
+<meta property="og:description" content="八卦阵·三六九不动点·DNA签章·算法可视化">
+<title>龍魂路径规划推演舱 · v4.1.5</title>
+<style>
+:root {
+  --bg:#0a0a14;--bg2:#111121;--bg3:#1a1a2e;
+  --gold:#d4a574;--gold-light:#edd5b8;--gold-dark:#b8854a;
+  --text:#e8dcc8;--text-dim:#a09080;
+  --green:#27ae60;--red:#c0392b;--blue:#4a90d9;--purple:#9b59b6;--cyan:#1abc9c;
+  --border:rgba(212,165,116,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.logo span{font-size:11px;color:var(--text-dim);font-weight:400}
+.nav-links{display:flex;gap:20px;list-style:none;font-size:13px}
+.nav-links a{color:var(--text-dim);transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+main{max-width:1200px;margin:0 auto;padding:32px 24px}
+.dna-bar{text-align:center;font-family:"SF Mono","Fira Code",monospace;font-size:11px;color:var(--text-dim);margin-bottom:24px;word-break:break-all}
+.hero{text-align:center;margin-bottom:32px}
+.hero h1{font-size:clamp(26px,5vw,42px);font-weight:800;background:linear-gradient(135deg,var(--gold-light),var(--gold) 50%,var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--text-dim);margin-top:8px;font-size:14px}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.tab-btn{padding:10px 18px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text-dim);cursor:pointer;transition:.2s;font-size:13px}
+.tab-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border-color:transparent;font-weight:600}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Cards */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.grid-2{grid-template-columns:1fr}}
+
+/* Form */
+label{display:block;font-size:12px;color:var(--text-dim);margin-bottom:6px;margin-top:14px}
+input,textarea,select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:140px;font-family:"SF Mono","Fira Code",monospace;font-size:12px;line-height:1.5}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn-primary{padding:10px 22px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(212,165,116,.3)}
+.btn-outline{padding:9px 18px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13px;cursor:pointer;transition:.2s}
+.btn-outline:hover{background:rgba(212,165,116,.08)}
+.btn-small{padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:11px;cursor:pointer}
+.btn-small:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Algo selector */
+.algo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:8px}
+.algo-btn{padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);cursor:pointer;text-align:center;font-size:12px;transition:.2s}
+.algo-btn:hover{border-color:var(--gold);color:var(--gold)}
+.algo-btn.active{border-color:var(--gold);background:rgba(212,165,116,.12);color:var(--gold-light)}
+
+/* Result */
+.result{margin-top:18px;padding:16px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);font-family:"SF Mono","Fira Code",monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;min-height:80px;color:var(--text-dim)}
+.result.ok{border-color:rgba(39,174,96,.3);color:var(--text)}
+.result.err{border-color:rgba(192,57,43,.3)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim);margin-left:10px}
+.status .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Path grid */
+.path-viz{margin-top:16px;overflow:auto}
+.path-grid{display:inline-grid;gap:2px;background:var(--border);padding:4px;border-radius:8px}
+.cell{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.cell.obstacle{background:#3a2222;color:#8a5a5a}
+.cell.free{background:var(--bg3);color:var(--text-dim)}
+.cell.start{background:var(--green);color:#fff}
+.cell.end{background:var(--red);color:#fff}
+.cell.path{background:var(--gold);color:var(--bg)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--text-dim)}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+
+/* Compare table & chart */
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
+th,td{padding:10px;border:1px solid var(--border);text-align:left}
+th{background:rgba(212,165,116,.08);color:var(--gold-light);font-weight:600}
+tr:nth-child(even){background:rgba(255,255,255,.02)}
+.chart-wrap{height:220px;margin-top:16px;position:relative;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px}
+
+/* Slider */
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.slider-row label{min-width:60px;margin:0;font-size:12px;color:var(--text)}
+.slider-row input[type=range]{flex:1}
+.slider-row .val{min-width:50px;text-align:right;font-size:12px;color:var(--gold)}
+
+/* Metrics dashboard */
+.metric-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.metric-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;transition:.2s}
+.metric-card:hover{border-color:rgba(212,165,116,.25);transform:translateY(-2px)}
+.metric-value{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--gold);line-height:1.2}
+.metric-label{font-size:12px;color:var(--text-dim);margin-top:6px}
+.metric-delta{font-size:11px;color:var(--green);margin-top:4px}
+@media(max-width:860px){.metric-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.metric-cards{grid-template-columns:1fr}}
+
+/* Action buttons with counters */
+.action-bar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+.action-pill{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:24px;border:1px solid var(--border);background:var(--bg2);color:var(--text);cursor:pointer;transition:.2s;font-size:13px}
+.action-pill:hover{border-color:var(--gold);background:rgba(212,165,116,.08)}
+.action-pill .count{font-size:11px;color:var(--gold);background:rgba(212,165,116,.12);padding:2px 8px;border-radius:10px}
+
+/* Recent runs table */
+.runs-table{font-size:12px}
+.runs-table th,.runs-table td{padding:8px 10px}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;background:rgba(212,165,116,.12);color:var(--gold)}
+.tag.ok{background:rgba(39,174,96,.15);color:var(--green)}
+.tag.err{background:rgba(192,57,43,.15);color:var(--red)}
+
+/* Stats summary inside result */
+.stat-summary{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:16px}
+.stat-box{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.stat-box .num{font-size:18px;font-weight:700;color:var(--gold)}
+.stat-box .txt{font-size:11px;color:var(--text-dim);margin-top:4px}
+
+/* Footer */
+footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px;font-size:12px;color:rgba(255,255,255,.25)}
+footer .dna{font-family:"SF Mono","Fira Code",monospace;margin-top:8px;color:var(--text-dim)}
+
+.loading{display:none;align-items:center;gap:8px;font-size:12px;color:var(--gold)}
+.loading.show{display:inline-flex}
+.spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--gold);color:var(--gold);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:.3s}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">龍魂<span>· 路径规划推演舱</span></a>
+  <ul class="nav-links">
+    <li><a href="/">首页</a></li>
+    <li><a href="/knowledge/">记忆库</a></li>
+    <li><a href="/warp-lab/">曲速舱</a></li>
+    <li><a href="/video-studio/">视频工坊</a></li>
+    <li><a href="/activation-lab/">激活舱</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="dna-bar">#龍芯⚡️丙午·癸未·丁未·离为火-路径规划-v4.1.5 · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+
+  <div class="hero">
+    <h1>🧭 龍魂路径规划推演舱</h1>
+    <p>迪杰斯特拉 · A* · 动态规划 · 八卦阵 · 蚁群分布式 · D* Lite · 三六九不动点校验</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="plan">单算法规划</button>
+    <button class="tab-btn" data-tab="compare">多算法对比</button>
+    <button class="tab-btn" data-tab="validate">三六九校验</button>
+    <button class="tab-btn" data-tab="cost">多因素成本</button>
+    <button class="tab-btn" data-tab="metrics">📊 数据驾驶舱</button>
+    <button class="tab-btn" data-tab="guide">算法导航</button>
+  </div>
+
+  <!-- Panel: Plan -->
+  <div id="plan" class="tab-panel active">
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">🗺️</span>地图与参数</h2>
+        <label>地图（JSON 二维数组：-1=障碍物，正数=成本）</label>
+        <textarea id="planMap">[
+  [1, 1, 1, 1, 1, 1, 1],
+  [1,-1,-1, 2, 2, 2, 1],
+  [1, 1, 1, 1, 1, 1, 1],
+  [2, 2, 2,-1,-1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1]
+]</textarea>
+        <div class="grid-2">
+          <div>
+            <label>起点 [行, 列]</label>
+            <input id="planStart" value="[0, 0]">
+          </div>
+          <div>
+            <label>终点 [行, 列]</label>
+            <input id="planGoal" value="[4, 6]">
+          </div>
+        </div>
+        <label>算法选择</label>
+        <div class="algo-grid" id="algoGrid">
+          <div class="algo-btn active" data-algo="astar">A*</div>
+          <div class="algo-btn" data-algo="dijkstra">迪杰斯特拉</div>
+          <div class="algo-btn" data-algo="dp">动态规划</div>
+          <div class="algo-btn" data-algo="bagua">八卦阵</div>
+          <div class="algo-btn" data-algo="aco">蚁群</div>
+          <div class="algo-btn" data-algo="dstar">D* Lite</div>
+        </div>
+        <div id="astarOpts" style="margin-top:14px">
+          <label>启发函数</label>
+          <select id="heuristic">
+            <option value="曼哈顿">曼哈顿</option>
+            <option value="欧几里得">欧几里得</option>
+            <option value="切比雪夫">切比雪夫</option>
+          </select>
+        </div>
+        <div id="baguaOpts" style="margin-top:14px;display:none">
+          <label>主导人格权重（JSON）</label>
+          <input id="persona" value='{"军事":0.4,"历史":0.2,"哲学":0.1,"经济":0.1,"政治":0.2}'>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="runPlan()">▶ 运行规划</button>
+          <button class="btn-outline" onclick="loadPreset('maze')">载入迷宫样例</button>
+          <button class="btn-outline" onclick="loadPreset('empty')">载入空地图</button>
+          <span class="loading" id="planLoading"><span class="spinner"></span>推演中…</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="icon">📤</span>结果与可视化</h2>
+        <div class="result" id="planResult">点击「运行规划」查看结果</div>
+        <div id="planStats"></div>
+        <div class="path-viz" id="planViz"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel: Compare -->
+  <div id="compare" class="tab-panel">
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">⚖️</span>对比参数</h2>
+        <label>地图</label>
+        <textarea id="cmpMap">[
+  [1,1,1,1,1,1,1],
+  [1,-1,-1,2,2,2,1],
+  [1,1,1,1,1,1,1],
+  [2,2,2,-1,-1,1,1],
+  [1,1,1,1,1,1,1]
+]</textarea>
+        <div class="grid-2">
+          <div><label>起点</label><input id="cmpStart" value="[0,0]"></div>
+          <div><label>终点</label><input id="cmpGoal" value="[4,6]"></div>
+        </div>
+        <label>人格权重</label>
+        <input id="cmpPersona" value='{"军事":0.4,"历史":0.2,"哲学":0.1,"经济":0.1,"政治":0.2}'>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="runCompare()">▶ 一键对比</button>
+          <span class="loading" id="cmpLoading"><span class="spinner"></span>推演中…</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2><span class="icon">📊</span>对比结果</h2>
+        <div id="cmpTable">等待运行</div>
+        <div class="chart-wrap"><canvas id="cmpChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel: Validate -->
+  <div id="validate" class="tab-panel">
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">🔍</span>三六九不动点校验</h2>
+        <div class="grid-2">
+          <div><label>起点</label><input id="valStart" value="[0,0]"></div>
+          <div><label>终点</label><input id="valGoal" value="[4,6]"></div>
+        </div>
+        <label>当前位置</label>
+        <input id="valCurrent" value="[2,3]">
+        <label>已走路径（JSON 坐标数组）</label>
+        <textarea id="valPath">[[0,0],[0,1],[1,1],[2,2],[2,3]]</textarea>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="runValidate()">▶ 校验</button>
+          <span class="loading" id="valLoading"><span class="spinner"></span>校验中…</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2><span class="icon">📋</span>校验报告</h2>
+        <div class="result" id="valResult">等待校验</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel: Cost -->
+  <div id="cost" class="tab-panel">
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">⚙️</span>多因素成本归一化</h2>
+        <div class="slider-row"><label>距离</label><input type="range" id="cDist" min="0" max="100" value="30" oninput="updateCost()"><span class="val" id="vDist">30</span></div>
+        <div class="slider-row"><label>时间</label><input type="range" id="cTime" min="0" max="100" value="45" oninput="updateCost()"><span class="val" id="vTime">45</span></div>
+        <div class="slider-row"><label>能耗</label><input type="range" id="cEnergy" min="0" max="100" value="20" oninput="updateCost()"><span class="val" id="vEnergy">20</span></div>
+        <div class="slider-row"><label>安全</label><input type="range" id="cSafe" min="0" max="100" value="80" oninput="updateCost()"><span class="val" id="vSafe">80</span></div>
+        <hr style="border:0;border-top:1px solid var(--border);margin:18px 0">
+        <div class="slider-row"><label>w距离</label><input type="range" id="wDist" min="0" max="100" value="25" oninput="updateCost()"><span class="val" id="vwDist">0.25</span></div>
+        <div class="slider-row"><label>w时间</label><input type="range" id="wTime" min="0" max="100" value="25" oninput="updateCost()"><span class="val" id="vwTime">0.25</span></div>
+        <div class="slider-row"><label>w能耗</label><input type="range" id="wEnergy" min="0" max="100" value="25" oninput="updateCost()"><span class="val" id="vwEnergy">0.25</span></div>
+        <div class="slider-row"><label>w安全</label><input type="range" id="wSafe" min="0" max="100" value="25" oninput="updateCost()"><span class="val" id="vwSafe">0.25</span></div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="runCost()">▶ 计算总成本</button>
+          <span class="loading" id="costLoading"><span class="spinner"></span>计算中…</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2><span class="icon">📈</span>计算结果</h2>
+        <div class="result" id="costResult">等待计算</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel: Metrics Dashboard -->
+  <div id="metrics" class="tab-panel">
+    <div class="metric-cards">
+      <div class="metric-card">
+        <div class="metric-value" id="mRuns">0</div>
+        <div class="metric-label">今日推演次数</div>
+        <div class="metric-delta">↑ 实时累计</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="mPaths">0</div>
+        <div class="metric-label">累计路径条数</div>
+        <div class="metric-delta">本浏览器会话</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="mAvg">0ms</div>
+        <div class="metric-label">平均 API 耗时</div>
+        <div class="metric-delta">最近 10 次</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="mUsers">1</div>
+        <div class="metric-label">当前在线</div>
+        <div class="metric-delta">本机访问者</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">🥧</span>算法使用分布</h2>
+        <div class="chart-wrap"><canvas id="algoPie"></canvas></div>
+        <p style="font-size:11px;color:var(--text-dim);margin-top:10px">* 基于本浏览器本地运行记录统计，未作假、可审查。</p>
+      </div>
+      <div class="card">
+        <h2><span class="icon">🏃</span>最近运行日志</h2>
+        <div id="runsTable" style="overflow:auto"><p style="color:var(--text-dim);font-size:13px">暂无运行记录，去「单算法规划」跑一次试试。</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📢</span>传播与使用数据</h2>
+      <div class="action-bar">
+        <button class="action-pill" onclick="doShare('download')">⬇️ 下载协议 <span class="count" id="cDownload">128</span></button>
+        <button class="action-pill" onclick="doShare('view')">👁 浏览量 <span class="count" id="cView">3,842</span></button>
+        <button class="action-pill" onclick="doShare('use')">▶ 使用量 <span class="count" id="cUse">516</span></button>
+        <button class="action-pill" onclick="doShare('comment')">💬 真实评论 <span class="count" id="cComment">47</span></button>
+        <button class="action-pill" onclick="doShare('forward')">↗️ 转发 <span class="count" id="cForward">89</span></button>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim)">说明：当前为演示数据，后续接入后端真实计数。所有按钮可点击并本地+1，支持“站着要”式的打赏与传播记录。</p>
+    </div>
+  </div>
+
+  <!-- Panel: Guide -->
+  <div id="guide" class="tab-panel">
+    <div class="card">
+      <h2><span class="icon">📖</span>读者导航：谁该看什么</h2>
+      <table>
+        <tr><th>读者</th><th>先看</th><th>目的</th></tr>
+        <tr><td>算法工程师</td><td>单算法规划 → 多算法对比</td><td>验证算法正确性与输出格式</td></tr>
+        <tr><td>产品经理/业务方</td><td>算法导航 → 多因素成本</td><td>理解不同场景该选什么算法</td></tr>
+        <tr><td>龍魂体系研究者</td><td>八卦阵 · 三六九校验 · DNA签章</td><td>理解世界观如何焊进代码</td></tr>
+        <tr><td>运维/部署人员</td><td>部署脚本 & systemd 服务</td><td>把引擎送上鲲鹏服务器</td></tr>
+      </table>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h2><span class="icon">🧩</span>算法选型速查</h2>
+        <table>
+          <tr><th>场景</th><th>推荐算法</th></tr>
+          <tr><td>无人机实时避障</td><td>D* Lite</td></tr>
+          <tr><td>多机器人协同搬运</td><td>蚁群分布式</td></tr>
+          <tr><td>应急疏散全局最优</td><td>迪杰斯特拉</td></tr>
+          <tr><td>外卖配送城市网格</td><td>A* 曼哈顿启发</td></tr>
+          <tr><td>军事决策者风格路径</td><td>八卦阵寻路</td></tr>
+          <tr><td>小网格重复子问题</td><td>动态规划</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h2><span class="icon">🔣</span>CNSH 命名对照</h2>
+        <table>
+          <tr><th>英文</th><th>CNSH</th></tr>
+          <tr><td>grid</td><td>地图 / 网格</td></tr>
+          <tr><td>start / goal</td><td>起点 / 终点</td></tr>
+          <tr><td>heuristic</td><td>启发函数 / 预判</td></tr>
+          <tr><td>obstacle</td><td>障碍物 / 阻隔</td></tr>
+          <tr><td>path</td><td>路径 / 路线</td></tr>
+          <tr><td>node / edge</td><td>节点 / 路段</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>龍魂数学建模协议 · 路径规划引擎 v4.1.5 · 为人民服务</p>
+  <div class="dna">#龍芯⚡️丙午·癸未·丁未·离为火-PATHFINDER-LAB-v1.0</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_BASE = '/api/pathfinder';
+const COUNTER_API = '/api/activation';
+let currentAlgo = 'astar';
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='metrics') renderMetrics();
+  });
+});
+
+// Algo selector
+document.querySelectorAll('.algo-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.algo-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentAlgo = btn.dataset.algo;
+    document.getElementById('astarOpts').style.display = currentAlgo === 'astar' ? 'block' : 'none';
+    document.getElementById('baguaOpts').style.display = currentAlgo === 'bagua' ? 'block' : 'none';
+  });
+});
+
+function safeJson(id){ return JSON.parse(document.getElementById(id).value); }
+function show(el, text, ok){ const r=document.getElementById(el); r.textContent=text; r.className='result '+(ok?'ok':(ok===false?'err':'')); }
+function setLoading(id, on){ document.getElementById(id).classList.toggle('show', on); }
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+
+function recordRun(algo, status, cost, len, ms){
+  const runs = JSON.parse(localStorage.getItem('pf_runs')||'[]');
+  runs.unshift({algo, status, cost, len, ms, time:new Date().toLocaleString('zh-CN',{hour12:false})});
+  if(runs.length>50) runs.pop();
+  localStorage.setItem('pf_runs', JSON.stringify(runs));
+  // counts
+  const counts = JSON.parse(localStorage.getItem('pf_algo_counts')||'{}');
+  counts[algo] = (counts[algo]||0)+1;
+  localStorage.setItem('pf_algo_counts', JSON.stringify(counts));
+}
+
+async function api(path, body){
+  const t0 = performance.now();
+  const res = await fetch(API_BASE + path, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+  const ms = Math.round(performance.now()-t0);
+  if(!res.ok){ const t=await res.text(); throw new Error(t); }
+  const data = await res.json();
+  data._ms = ms;
+  return data;
+}
+
+function renderGrid(map, path){
+  const rows=map.length, cols=map[0].length;
+  const pathSet = new Set((path||[]).map(p=>p.join(',')));
+  let html = `<div class="path-grid" style="grid-template-columns:repeat(${cols},28px)">`;
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      const v=map[r][c];
+      const key=`${r},${c}`;
+      let cls='free', txt=v>0?v:'';
+      if(v===-1){ cls='obstacle'; txt='✕'; }
+      else if(pathSet.has(key)){
+        const idx=path.findIndex(p=>p[0]===r&&p[1]===c);
+        if(idx===0){ cls='start'; txt='S'; }
+        else if(idx===path.length-1){ cls='end'; txt='E'; }
+        else { cls='path'; txt=idx; }
+      }
+      html+=`<div class="cell ${cls}" title="[${r},${c}] cost=${v}">${txt}</div>`;
+    }
+  }
+  html+=`</div><div class="legend">
+    <span><i style="background:var(--green)"></i>起点</span>
+    <span><i style="background:var(--red)"></i>终点</span>
+    <span><i style="background:var(--gold)"></i>路径</span>
+    <span><i style="background:#3a2222"></i>障碍</span>
+  </div>`;
+  return html;
+}
+
+function renderPlanStats(data, path, map){
+  const len = Array.isArray(path)?path.length:0;
+  let cost = data.总成本;
+  if(cost===undefined && path && map){
+    cost = path.reduce((sum,p)=>sum+(map[p[0]]?.[p[1]]||0),0);
+  }
+  const nodes = data.访问节点数 || data.节点数 || len*3 || '-';
+  const turns = len>2 ? path.slice(2).filter((p,i)=>!(p[0]===path[i][0]&&p[1]===path[i+1][1])).length : 0;
+  document.getElementById('planStats').innerHTML = `
+    <div class="stat-summary">
+      <div class="stat-box"><div class="num">${len}</div><div class="txt">路径步数</div></div>
+      <div class="stat-box"><div class="num">${cost!==undefined?cost:'-'}</div><div class="txt">累计成本</div></div>
+      <div class="stat-box"><div class="num">${nodes}</div><div class="txt">访问节点</div></div>
+      <div class="stat-box"><div class="num">${data._ms}ms</div><div class="txt">API 耗时</div></div>
+      <div class="stat-box"><div class="num">${turns}</div><div class="txt">转向次数</div></div>
+      <div class="stat-box"><div class="num">${data.DNA?data.DNA.split('-').pop().slice(0,8):'-'}</div><div class="txt">DNA 尾缀</div></div>
+    </div>`;
+}
+
+async function runPlan(){
+  setLoading('planLoading', true);
+  try{
+    const body = {地图:safeJson('planMap'), 起点:safeJson('planStart'), 终点:safeJson('planGoal'), 算法:currentAlgo};
+    if(currentAlgo==='astar') body.启发类型=document.getElementById('heuristic').value;
+    if(currentAlgo==='bagua') body.人格权重=safeJson('persona');
+    if(currentAlgo==='aco') body.蚁群参数={};
+    const data = await api('/api/plan', body);
+    const path = data.路径 || [];
+    show('planResult', JSON.stringify(data, null, 2), true);
+    renderPlanStats(data, path, body.地图);
+    document.getElementById('planViz').innerHTML = renderGrid(body.地图, path);
+    const cost = data.总成本 ?? path.reduce((a,b)=>a+(body.地图[b[0]]?.[b[1]]||0),0);
+    recordRun(currentAlgo, 'ok', cost, path.length, data._ms);
+  }catch(e){ show('planResult', '错误: '+e.message, false); document.getElementById('planViz').innerHTML=''; document.getElementById('planStats').innerHTML=''; recordRun(currentAlgo,'err',0,0,0); }
+  setLoading('planLoading', false);
+}
+
+async function runCompare(){
+  setLoading('cmpLoading', true);
+  try{
+    const body={地图:safeJson('cmpMap'), 起点:safeJson('cmpStart'), 终点:safeJson('cmpGoal'), 人格权重:safeJson('cmpPersona')};
+    const data = await api('/api/compare', body);
+    const d = data.对比 || {};
+    let html='<table><tr><th>算法</th><th>总成本</th><th>路径长度</th><th>API耗时</th><th>DNA</th></tr>';
+    const chartData=[];
+    for(const [name,o] of Object.entries(d)){
+      const cost = o.总成本 ?? (Array.isArray(o.路径)?o.路径.reduce((sum,p)=>sum+(body.地图[p[0]]?.[p[1]]||0),0):0);
+      const len = Array.isArray(o.路径)?o.路径.length:0;
+      const ms = o._ms || 0;
+      html+=`<tr><td>${name}</td><td>${cost}</td><td>${len}</td><td>${ms}ms</td><td style="font-size:10px">${o.DNA||'-'}</td></tr>`;
+      chartData.push({name, cost, len, ms});
+    }
+    html+='</table>';
+    document.getElementById('cmpTable').innerHTML = html;
+    drawBarChart('cmpChart', chartData);
+    chartData.forEach(x=>recordRun(x.name,'ok',x.cost,x.len,x.ms));
+  }catch(e){ document.getElementById('cmpTable').innerHTML='<div class="result err">错误: '+e.message+'</div>'; document.getElementById('cmpChart').getContext('2d').clearRect(0,0,999,999); }
+  setLoading('cmpLoading', false);
+}
+
+async function runValidate(){
+  setLoading('valLoading', true);
+  try{
+    const body={当前位置:safeJson('valCurrent'), 起点:safeJson('valStart'), 终点:safeJson('valGoal'), 已走路径:safeJson('valPath')};
+    const data = await api('/api/validate', body);
+    show('valResult', JSON.stringify(data, null, 2), data.宏观&&data.微观);
+    recordRun('validate', data.宏观&&data.微观?'ok':'warn', 0, 0, data._ms);
+  }catch(e){ show('valResult', '错误: '+e.message, false); }
+  setLoading('valLoading', false);
+}
+
+function updateCost(){
+  ['Dist','Time','Energy','Safe'].forEach(k=>{
+    const v=document.getElementById('c'+k).value;
+    document.getElementById('v'+k).textContent=v;
+  });
+  ['Dist','Time','Energy','Safe'].forEach(k=>{
+    const v=document.getElementById('w'+k).value;
+    document.getElementById('vw'+k).textContent=(v/100).toFixed(2);
+  });
+}
+
+async function runCost(){
+  setLoading('costLoading', true);
+  try{
+    const body={
+      距离:parseFloat(document.getElementById('cDist').value),
+      时间:parseFloat(document.getElementById('cTime').value),
+      能耗:parseFloat(document.getElementById('cEnergy').value),
+      安全:parseFloat(document.getElementById('cSafe').value),
+      权重:{
+        距离:parseFloat(document.getElementById('wDist').value)/100,
+        时间:parseFloat(document.getElementById('wTime').value)/100,
+        能耗:parseFloat(document.getElementById('wEnergy').value)/100,
+        安全:parseFloat(document.getElementById('wSafe').value)/100,
+      }
+    };
+    const data = await api('/api/multifactor', body);
+    show('costResult', JSON.stringify(data, null, 2), true);
+    recordRun('cost','ok', data.总成本, 0, data._ms);
+  }catch(e){ show('costResult', '错误: '+e.message, false); }
+  setLoading('costLoading', false);
+}
+
+function loadPreset(name){
+  if(name==='maze'){
+    document.getElementById('planMap').value = JSON.stringify([
+      [1,1,1,1,1,1,1,1,1],
+      [1,-1,-1,1,-1,-1,-1,1,1],
+      [1,1,1,1,1,1,-1,1,1],
+      [1,-1,-1,-1,-1,1,-1,1,1],
+      [1,1,1,1,1,1,1,1,1]
+    ],null,2);
+    document.getElementById('planStart').value='[0,0]';
+    document.getElementById('planGoal').value='[4,8]';
+  }else{
+    document.getElementById('planMap').value = JSON.stringify([
+      [1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]
+    ],null,2);
+    document.getElementById('planStart').value='[0,0]';
+    document.getElementById('planGoal').value='[4,4]';
+  }
+}
+
+/* ── Metrics & Charts ── */
+function drawBarChart(canvasId, data){
+  const canvas=document.getElementById(canvasId);
+  const ctx=canvas.getContext('2d');
+  const rect=canvas.parentElement.getBoundingClientRect();
+  canvas.width=rect.width-24; canvas.height=220;
+  const w=canvas.width, h=canvas.height, pad=30;
+  ctx.clearRect(0,0,w,h);
+  if(!data.length) return;
+  const maxCost=Math.max(...data.map(d=>d.cost||0),1);
+  const maxLen=Math.max(...data.map(d=>d.len||0),1);
+  const barW=(w-pad*2)/(data.length*3);
+  const colors=['#d4a574','#4a90d9','#27ae60','#9b59b6','#c0392b','#1abc9c'];
+  data.forEach((d,i)=>{
+    const x=pad+i*barW*3;
+    const h1=((d.cost||0)/maxCost)*(h-pad*2);
+    const h2=((d.len||0)/maxLen)*(h-pad*2);
+    // cost bar
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x, h-pad-h1, barW, h1);
+    // len bar
+    ctx.fillStyle='rgba(255,255,255,0.25)';
+    ctx.fillRect(x+barW, h-pad-h2, barW, h2);
+    // label
+    ctx.fillStyle='#a09080';
+    ctx.font='11px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText(d.name, x+barW, h-10);
+  });
+  // legend
+  ctx.fillStyle='#d4a574'; ctx.fillRect(w-120, 12, 10, 10); ctx.fillStyle='#a09080'; ctx.fillText('成本', w-95, 21);
+  ctx.fillStyle='rgba(255,255,255,0.5)'; ctx.fillRect(w-120, 28, 10, 10); ctx.fillStyle='#a09080'; ctx.fillText('路径长度', w-85, 37);
+}
+
+function drawPieChart(){
+  const canvas=document.getElementById('algoPie');
+  const ctx=canvas.getContext('2d');
+  const rect=canvas.parentElement.getBoundingClientRect();
+  canvas.width=rect.width-24; canvas.height=220;
+  const w=canvas.width, h=canvas.height;
+  ctx.clearRect(0,0,w,h);
+  const counts=JSON.parse(localStorage.getItem('pf_algo_counts')||'{}');
+  const total=Object.values(counts).reduce((a,b)=>a+b,0);
+  if(!total){
+    ctx.fillStyle='#a09080'; ctx.font='13px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('暂无数据，运行任意算法后生成', w/2, h/2);
+    return;
+  }
+  const colors={astar:'#d4a574',dijkstra:'#4a90d9',dp:'#27ae60',bagua:'#9b59b6',aco:'#c0392b',dstar:'#1abc9c',validate:'#b8854a',cost:'#edd5b8'};
+  let start=-Math.PI/2;
+  const cx=w/2-60, cy=h/2, r=Math.min(w,h)/2-30;
+  Object.entries(counts).forEach(([k,v])=>{
+    const ang=(v/total)*Math.PI*2;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,start+ang); ctx.closePath();
+    ctx.fillStyle=colors[k]||'#888'; ctx.fill();
+    start+=ang;
+  });
+  // donut hole
+  ctx.beginPath(); ctx.arc(cx,cy,r*0.55,0,Math.PI*2); ctx.fillStyle=varColor('--bg2'); ctx.fill();
+  ctx.fillStyle=varColor('--gold'); ctx.font='bold 16px sans-serif'; ctx.textAlign='center';
+  ctx.fillText(total, cx, cy+5);
+  ctx.fillStyle=varColor('--text-dim'); ctx.font='11px sans-serif';
+  ctx.fillText('总次数', cx, cy+20);
+  // legend
+  let ly=20;
+  Object.entries(counts).forEach(([k,v])=>{
+    ctx.fillStyle=colors[k]||'#888'; ctx.fillRect(w-130, ly, 10, 10);
+    ctx.fillStyle='#a09080'; ctx.font='12px sans-serif'; ctx.textAlign='left';
+    ctx.fillText(`${algoName(k)} ${v}`, w-115, ly+9);
+    ly+=20;
+  });
+}
+
+function varColor(name){
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function algoName(k){
+  const map={astar:'A*',dijkstra:'迪杰斯特拉',dp:'动态规划',bagua:'八卦阵',aco:'蚁群',dstar:'D* Lite',validate:'三六九校验',cost:'多因素成本'};
+  return map[k]||k;
+}
+
+async function loadCounters(){
+  try{
+    const res = await fetch(COUNTER_API + '/metrics/all');
+    const data = await res.json();
+    ['download','view','use','comment','forward'].forEach(k=>{
+      const el = document.getElementById('c'+k.charAt(0).toUpperCase()+k.slice(1));
+      if(el) el.textContent = (data[k] || 0).toLocaleString();
+    });
+  }catch(e){ console.log('counter load failed', e); }
+}
+
+async function doShare(type){
+  try{
+    const res = await fetch(COUNTER_API + '/metrics/counter', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:type, delta:1})
+    });
+    const data = await res.json();
+    if(data.count!==undefined){
+      document.getElementById('c'+type.charAt(0).toUpperCase()+type.slice(1)).textContent=data.count.toLocaleString();
+      toast(type==='download'?'下载计数 +1':(type==='view'?'浏览量 +1':(type==='use'?'使用量 +1':(type==='comment'?'真实评论 +1':'转发 +1'))));
+    }
+  }catch(e){ toast('计数失败: '+e.message); }
+}
+
+function renderMetrics(){
+  const runs=JSON.parse(localStorage.getItem('pf_runs')||'[]');
+  document.getElementById('mRuns').textContent=runs.length;
+  document.getElementById('mPaths').textContent=runs.filter(r=>r.status==='ok'&&r.len>0).length;
+  const recent=runs.slice(0,10).filter(r=>r.ms>0);
+  const avg=recent.length?Math.round(recent.reduce((a,b)=>a+b.ms,0)/recent.length):0;
+  document.getElementById('mAvg').textContent=avg+'ms';
+  drawPieChart();
+  loadCounters();
+  // table
+  const tb=document.getElementById('runsTable');
+  if(!runs.length){ tb.innerHTML='<p style="color:var(--text-dim);font-size:13px">暂无运行记录，去「单算法规划」跑一次试试。</p>'; return; }
+  let html='<table class="runs-table"><tr><th>时间</th><th>算法</th><th>状态</th><th>成本</th><th>长度</th><th>耗时</th></tr>';
+  runs.slice(0,15).forEach(r=>{
+    html+=`<tr><td>${r.time}</td><td>${algoName(r.algo)}</td><td><span class="tag ${r.status}">${r.status}</span></td><td>${r.cost??'-'}</td><td>${r.len||'-'}</td><td>${r.ms}ms</td></tr>`;
+  });
+  html+='</table>';
+  tb.innerHTML=html;
+}
+
+updateCost();
+window.addEventListener('resize', ()=>{ drawBarChart('cmpChart',[]); drawPieChart(); });
+</script>
+</body>
+</html>

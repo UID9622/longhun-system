@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-SNAPSHOT-RECOVERY-v1.0-Q5R6S7T8
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · 快照恢复引擎 v1.0 (Snapshot & Recovery Engine)
 =========================================================

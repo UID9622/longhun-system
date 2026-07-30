@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-29-CNSH-PIPELINE-UID9622
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 
+"""🐉 龍魂引擎：CNSH_内容加工管道
+路径：bin/CNSH_内容加工管道.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os as _os
 import sys as _sys
 _module_dir = _os.path.dirname(_os.path.abspath(__file__))

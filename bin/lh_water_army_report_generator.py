@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·REPORT-GENERATOR-v1.0-5D7C1A9E
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh_water_army_report_generator — 龍魂·举报材料自动生成器 v1.0
 

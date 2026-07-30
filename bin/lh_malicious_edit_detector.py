@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·MALICIOUS-EDIT-DETECTOR-v1.0-3F2A8D1B
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh_malicious_edit_detector — 龍魂·恶意剪辑检测引擎 v1.0
 

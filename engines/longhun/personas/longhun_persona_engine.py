@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-23-LONGHUN-PERSONA-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂情绪人格引擎 v1.0

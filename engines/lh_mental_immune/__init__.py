@@ -1,3 +1,6 @@
+"""🐉 龍魂引擎：__init__
+路径：engines/lh_mental_immune/__init__.py
+TODO：请补充详细功能说明（不少于20字）。"""
 # 龍魂·精神免疫系统 v1.0
 # DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-v1.0-a1b2c3d4
 # 创建者: 诸葛鑫（UID9622）

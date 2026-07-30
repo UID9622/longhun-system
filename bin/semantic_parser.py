@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-06-SEMANTIC-PARSER-v2.0-DUALTRACK
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：semantic_parser
+路径：bin/semantic_parser.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 🧠 龍魂·语义解析引擎 v2.0 — 中英双轨分离

@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-29-CNSH-BAOBAO-ROUTER-UID9622
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 
+"""🐉 龍魂引擎：CNSH_宝宝指令路由器
+路径：bin/CNSH_宝宝指令路由器.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os as _os
 import sys as _sys
 _module_dir = _os.path.dirname(_os.path.abspath(__file__))
 if _module_dir not in _sys.path:
     _sys.path.insert(0, _module_dir)
+import lh_sg_startup_guard
+lh_sg_startup_guard.enforce()
 """
 CNSH 宝宝指令路由器 v1.0
 触发词：「宝宝」

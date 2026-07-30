@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-{动作标签}-{版本}
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·DNA 生成器 v2.0

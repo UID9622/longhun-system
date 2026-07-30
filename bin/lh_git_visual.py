@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·GIT-VISUAL-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 Git 可视化面板（终端 TUI）
 DNA: #龍芯⚡️丙午·辛未·GIT-VISUAL-v1.0

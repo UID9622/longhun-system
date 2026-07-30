@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.6-REFINEMENT
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v4.1.6 LoRA 精修器（低LR外科手术·从v4.1.4最佳恢复·修复v4.1.5退化）

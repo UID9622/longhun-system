@@ -212,6 +212,18 @@ models/**/*.safetensors
 models/**/*.bin
 models/**/*.gguf
 
+# --- 运行时生成大文件（B/C 任务产物·不入git）---
+fused_model/
+rag_indexes/
+output/*.mp3
+output/*.mp4
+output/videos/
+videos/
+longhun-font/output/
+papers/*/md2docx_out/
+*.mp3
+*.wav
+
 # 🔒 安全加固自动添加
 id_rsa*
 id_ed25519*

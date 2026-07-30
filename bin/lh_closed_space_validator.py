@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·甲寅·蒙-CLOSED-SPACE-VALIDATOR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 封闭空间·三生三世 数学建模验证模块 v1.0

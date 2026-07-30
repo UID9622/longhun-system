@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-GENERATE_MODULE_READMES-v1.0-6ef59d57
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+"""🐉 龍魂引擎：generate_module_readmes
+路径：bin/generate_module_readmes.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 为缺失 README.md 的活跃模块生成透明化说明文件。

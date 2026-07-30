@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-RENDER-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-RENDER-ENGINE-v1.0
 # ☯️ 三色审计：🔴 核心架构 | 🟡 状态控制 | 🟢 数据流
 """
 网络渲染引擎 - 龍魂数字人输出与边界保护系统

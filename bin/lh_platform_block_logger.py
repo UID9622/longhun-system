@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·平台异常阻断日志器 v1.0 · 自动截图+状态码+日志生成
 DNA: #龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0

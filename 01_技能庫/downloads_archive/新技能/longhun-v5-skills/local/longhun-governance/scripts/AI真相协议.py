@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-protocols-AI真相协议-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-protocols-AI真相协议-v1.0
 """
 通心译 | TongXinYi: AI Truth Protocol
 龍魂体系·AI真相协议 — 确保AI输出的真实性、可验证性与可追溯性

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-19-MERGE-V408-DATASET-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 合并 v4.0.7 + 八卦阵 v1.1 + 道德经定锚 v1.1 + 水军显化 v1.2 → v4.0.8 训练集

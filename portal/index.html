@@ -94,6 +94,7 @@ a{color:var(--cyan);text-decoration:none}
     <span class="status-dot"><span class="dot dot-unknown" id="s8766"></span>知识中枢</span>
     <span class="status-dot"><span class="dot dot-unknown" id="s8767"></span>胖东来审计</span>
     <span class="status-dot"><span class="dot dot-unknown" id="s8768"></span>站点托管</span>
+    <span class="status-dot"><span class="dot dot-unknown" id="s9657"></span>审计对抗中枢</span>
   </div>
 
   <!-- ═══════════ 公开面板 ═══════════ -->
@@ -191,6 +192,25 @@ a{color:var(--cyan);text-decoration:none}
     </div>
   </div>
 
+  <!-- ═══════════ 审计与治理 ═══════════ -->
+  <div class="section">
+    <h2>审计与治理</h2>
+    <div class="cards">
+      <a class="card" href="/audit-battle-hub/">
+        <div class="icon">🛡️</div>
+        <div class="title">审计对抗中枢</div>
+        <div class="desc">左右互搏·红蓝对抗·数学建模·漏洞扫描·关键模块上线前免疫系统</div>
+        <span class="tag tag-red">核心</span>
+      </a>
+      <a class="card" href="/deben-audit/">
+        <div class="icon">⚖️</div>
+        <div class="title">德本审计</div>
+        <div class="desc">三色审计·DNA追溯·责任可究·君子协议</div>
+        <span class="tag tag-gold">治理</span>
+      </a>
+    </div>
+  </div>
+
   <!-- ═══════════ 部署与工具 ═══════════ -->
   <div class="section">
     <h2>部署与工具</h2>
@@ -222,6 +242,7 @@ async function checkStatus() {
     {el:'s8766',url:'http://localhost:8766/health'},
     {el:'s8767',url:'http://localhost:8767/v1/pangdonglai/health'},
     {el:'s8768',url:'http://localhost:8768/'},
+    {el:'s9657',url:'http://localhost:9657/health'},
   ];
   for (const p of ports) {
     try {

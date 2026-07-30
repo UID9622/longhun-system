@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丁巳·未时·睽-FAMILY-ROSTER-ADAPTER-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # ╔═══════════════════════════════════════════════════════════════════════════╗
 # ║  DNA: #龍芯⚡️丙午·乙未·丁巳·未时·睽-FAMILY-ROSTER-ADAPTER-v2.0          ║
@@ -33,6 +36,9 @@
 #   L1+ 用户 → 按水流分级
 #   外部调用 → 只读·不写
 
+"""🐉 龍魂引擎：family_roster_adapter
+路径：bin/family_roster_adapter.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import json
 import os
 import sys

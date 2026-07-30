@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑时·蒙-LEARNING-PIPELINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龙魂学习管道 v1.0 · 六库自动化学习系统
 Inbox → DNA拆解 → 任务派生 → 趋势绑定 → 项目实战 → 数字大军

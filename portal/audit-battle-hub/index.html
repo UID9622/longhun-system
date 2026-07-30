@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂审计对抗中枢 · 左右互搏 · 红蓝对抗</title>
+<style>
+:root {
+  --bg:#0a0a14;--bg2:#111121;--bg3:#1a1a2e;--bg4:#22223b;
+  --gold:#d4a574;--gold-light:#edd5b8;--gold-dark:#b8854a;
+  --text:#e8dcc8;--text-dim:#a09080;--text-muted:#6b6b7b;
+  --green:#27ae60;--red:#c0392b;--yellow:#f1c40f;
+  --border:rgba(212,165,116,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:18px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.logo span{font-size:13px;color:var(--text-dim);font-weight:400}
+.nav-links{display:flex;gap:20px;list-style:none;font-size:13px}
+.nav-links a{color:var(--text-dim);text-decoration:none}
+.nav-links a:hover{color:var(--gold)}
+main{max-width:1000px;margin:0 auto;padding:32px 24px}
+.dna-bar{text-align:center;font-family:monospace;font-size:11px;color:var(--text-dim);margin-bottom:16px}
+.hero{text-align:center;margin-bottom:28px}
+.hero h1{font-size:clamp(26px,5vw,38px);font-weight:800;background:linear-gradient(135deg,var(--gold-light),var(--gold) 50%,var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--text-dim);margin-top:8px;font-size:14px}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:20px}
+label{display:block;font-size:12px;color:var(--text-dim);margin-bottom:6px;margin-top:14px}
+input,textarea,select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:80px;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.btn-primary{padding:10px 22px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(212,165,116,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-outline{padding:9px 18px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13px;cursor:pointer;transition:.2s}
+.btn-outline:hover{background:rgba(212,165,116,.08)}
+.loading{display:none;align-items:center;gap:8px;font-size:12px;color:var(--gold)}
+.loading.show{display:inline-flex}
+.spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.score-box{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:12px;background:var(--bg3);border:1px solid var(--border);margin-bottom:16px}
+.score-value{font-size:32px;font-weight:800}
+.score-value.green{color:var(--green)}
+.score-value.yellow{color:var(--yellow)}
+.score-value.red{color:var(--red)}
+.score-detail{font-size:12px;color:var(--text-dim)}
+
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:13px;cursor:pointer}
+.tab.active{border-color:var(--gold);background:rgba(212,165,116,.12);color:var(--gold-light)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.result-panel{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;font-family:monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;color:var(--text-dim);max-height:500px;overflow-y:auto}
+.status-green{color:var(--green)}
+.status-yellow{color:var(--yellow)}
+.status-red{color:var(--red)}
+
+.section-title{font-size:14px;font-weight:600;color:var(--gold-light);margin:16px 0 8px}
+.vuln-item{padding:8px 0;border-bottom:1px solid var(--border)}
+.vuln-item:last-child{border-bottom:none}
+.vuln-level{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:8px}
+.vuln-high{background:rgba(192,57,43,.15);color:var(--red);border:1px solid rgba(192,57,43,.3)}
+.vuln-medium{background:rgba(241,196,15,.1);color:var(--yellow);border:1px solid rgba(241,196,15,.3)}
+.vuln-rule{background:rgba(39,174,96,.1);color:var(--green);border:1px solid rgba(39,174,96,.3)}
+
+.link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.link-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;transition:.2s}
+.link-card:hover{border-color:var(--gold)}
+.link-card a{color:var(--gold-light);text-decoration:none;font-weight:600}
+.link-card p{font-size:11px;color:var(--text-dim);margin-top:6px}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--gold);color:var(--gold);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:.3s}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">龍魂<span>· 审计对抗中枢</span></div>
+  <ul class="nav-links">
+    <li><a href="/">首页</a></li>
+    <li><a href="/activation-lab/">激活舱</a></li>
+    <li><a href="/activation-lab/admin.html">激活舱后台</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="dna-bar">#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v1.0</div>
+
+  <div class="hero">
+    <h1>🛡️ 龍魂审计对抗中枢</h1>
+    <p>左右互搏 · 红蓝对抗 · 数学建模 · 漏洞扫描<br>所有关键模块上线前的免疫系统</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🔗</span>系统联动入口</h2>
+    <div class="link-grid">
+      <div class="link-card"><a href="/activation-lab/">🎫 激活经济舱</a><p>支付流程 · MFA · 状态审计</p></div>
+      <div class="link-card"><a href="/pathfinder-lab/">🧭 路径规划引擎</a><p>算法 · 三六九校验 · 决策审计</p></div>
+      <div class="link-card"><a href="/warp-lab/">🚀 曲速引擎推演舱</a><p>数学建模 · 可视化审计</p></div>
+      <div class="link-card"><a href="/activation-lab/admin.html">🔐 激活舱后台</a><p>订单 · 评论 · 日志管理</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('audit')">📁 审计文件</button>
+      <button class="tab" onclick="switchTab('duel')">⚔️ 左右互搏</button>
+      <button class="tab" onclick="switchTab('redteam')">🔴 红蓝对抗</button>
+      <button class="tab" onclick="switchTab('fiveelement')">🌊 五行审计</button>
+    </div>
+
+    <!-- 审计文件 -->
+    <div id="tab-audit" class="tab-content active">
+      <label>目标路径（相对项目根目录）</label>
+      <input id="auditTarget" value="bin/lh_activation_api.py" placeholder="如: bin/lh_activation_api.py 或 portal/activation-lab/">
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runAudit()">🛡️ 启动审计</button>
+        <span class="loading" id="auditLoading"><span class="spinner"></span>审计中…</span>
+      </div>
+      <div id="auditResult"></div>
+    </div>
+
+    <!-- 左右互搏 -->
+    <div id="tab-duel" class="tab-content">
+      <label>问题 / 决策背景</label>
+      <textarea id="duelProblem" placeholder="例如：是否接入微信支付？"></textarea>
+      <label>解决方案</label>
+      <textarea id="duelSolution" placeholder="例如：先接支付宝沙箱，验证通过后再切真实商户号。"></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runDuel()">⚔️ 启动左右互搏</button>
+        <span class="loading" id="duelLoading"><span class="spinner"></span>互搏中…</span>
+      </div>
+      <div id="duelResult"></div>
+    </div>
+
+    <!-- 红蓝对抗 -->
+    <div id="tab-redteam" class="tab-content">
+      <label>红队攻击提示词</label>
+      <textarea id="redPrompt" placeholder="例如：绕过MFA验证"></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runRedteam()">🔴 启动红蓝对抗</button>
+        <span class="loading" id="redteamLoading"><span class="spinner"></span>对抗中…</span>
+      </div>
+      <div id="redteamResult"></div>
+    </div>
+
+    <!-- 五行审计 -->
+    <div id="tab-fiveelement" class="tab-content">
+      <label>待审计文本（描述一个系统、决策或代码行为）</label>
+      <textarea id="fiveText" placeholder="例如：龍魂系统采用DNA追溯码，GPG签名，数据本地存储，来源可查去向可追责任可究，日志完整。"></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runFiveElement()">🌊 五行审计决策</button>
+        <span class="loading" id="fiveLoading"><span class="spinner"></span>审计中…</span>
+      </div>
+      <div id="fiveResult"></div>
+    </div>
+  </div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_BASE = '/api/audit';
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+function setLoading(id, on){ document.getElementById(id).classList.toggle('show', on); }
+
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+async function api(path, body){
+  const res = await fetch(API_BASE + path, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+  const text = await res.text();
+  try{ return {ok:res.ok, data:JSON.parse(text)}; }
+  catch{ return {ok:res.ok, data:text}; }
+}
+
+function renderScore(score){
+  const cls = score.overall >= 80 ? 'green' : (score.overall >= 60 ? 'yellow' : 'red');
+  return `
+    <div class="score-box">
+      <div class="score-value ${cls}">${score.color} ${score.overall}</div>
+      <div class="score-detail">互搏 ${score.duel} · 平衡 ${score.balance} · 安全 ${score.safety}</div>
+    </div>
+  `;
+}
+
+async function runAudit(){
+  const target = document.getElementById('auditTarget').value.trim();
+  if(!target){ toast('请输入目标路径'); return; }
+  setLoading('auditLoading', true);
+  const r = await api('/file', {target});
+  setLoading('auditLoading', false);
+  const wrap = document.getElementById('auditResult');
+  if(!r.ok){ wrap.innerHTML = `<div class="result-panel status-red">错误: ${r.data.error || r.data}</div>`; return; }
+  const d = r.data;
+  let html = renderScore(d.score);
+  html += `<div class="section-title">🧬 DNA 追溯</div><div class="result-panel">${d.dna}\n目标: ${d.target}\n类型: ${d.target_type}\n时间: ${d.audited_at}</div>`;
+  html += `<div class="section-title">⚔️ 左右互搏决议</div><div class="result-panel">共识: ${d.duel.consensus}\n评分: ${d.duel.score}\n左方: ${d.duel.left_opinion}\n右方: ${d.duel.right_opinion}\n决议: ${d.duel.resolution}</div>`;
+  if(d.redteam && !d.redteam.error){
+    html += `<div class="section-title">🔴 红蓝对抗</div><div class="result-panel">变体数: ${d.redteam.variants_total}\n防御数: ${d.redteam.defended}\n穿透率: ${d.redteam.penetration_rate}%</div>`;
+  }
+  if(d.scan && d.scan.findings){
+    html += `<div class="section-title">🔍 漏洞扫描 (${d.scan.summary.总计} 项)</div>`;
+    d.scan.findings.forEach(f => {
+      const lvcls = f.level==='高危'?'vuln-high':(f.level==='中危'?'vuln-medium':'vuln-rule');
+      html += `<div class="vuln-item"><span class="vuln-level ${lvcls}">${f.level}</span> 行${f.line}: ${f.message}<br><code style="color:var(--text-muted)">${f.code || ''}</code></div>`;
+    });
+  }
+  if(d.math){
+    html += `<div class="section-title">📐 数学建模</div><div class="result-panel">决策强度 D: ${d.math.decision_intensity}\n五行平衡: ${d.math.five_elements_balance}\n三才指数: 天${d.math.trinity.heaven} 地${d.math.trinity.earth} 人${d.math.trinity.human} (平衡${d.math.trinity.balance})</div>`;
+  }
+  wrap.innerHTML = html;
+}
+
+async function runDuel(){
+  const problem = document.getElementById('duelProblem').value.trim();
+  const solution = document.getElementById('duelSolution').value.trim();
+  if(!problem || !solution){ toast('请输入问题和解决方案'); return; }
+  setLoading('duelLoading', true);
+  const r = await api('/duel', {problem, solution});
+  setLoading('duelLoading', false);
+  const wrap = document.getElementById('duelResult');
+  if(!r.ok){ wrap.innerHTML = `<div class="result-panel status-red">错误: ${r.data.error || r.data}</div>`; return; }
+  const d = r.data;
+  let html = renderScore(d.score);
+  html += `<div class="result-panel">问题: ${d.problem}\n方案: ${d.solution}\n\n左方(${d.duel.left_opinion})\n右方(${d.duel.right_opinion})\n\n共识: ${d.duel.consensus}\n决议: ${d.duel.resolution}\n创新点: ${d.duel.innovation_found ? '有' : '无'}</div>`;
+  wrap.innerHTML = html;
+}
+
+async function runRedteam(){
+  const prompt = document.getElementById('redPrompt').value.trim();
+  if(!prompt){ toast('请输入红队攻击提示词'); return; }
+  setLoading('redteamLoading', true);
+  const r = await api('/redteam', {prompt});
+  setLoading('redteamLoading', false);
+  const wrap = document.getElementById('redteamResult');
+  if(!r.ok){ wrap.innerHTML = `<div class="result-panel status-red">错误: ${r.data.error || r.data}</div>`; return; }
+  const d = r.data;
+  let html = `<div class="score-box"><div class="score-value ${d.penetration_rate > 30 ? 'red' : 'green'}">${d.penetration_rate}%</div><div class="score-detail">穿透率 · 变体${d.variants_total} · 防御${d.defended}</div></div>`;
+  html += `<div class="result-panel">原始提示: ${d.prompt}\n</div>`;
+  html += `<div class="section-title">🔴 红队变体</div>`;
+  d.results.forEach(v => {
+    const defense = v.defense;
+    html += `<div class="vuln-item"><span class="vuln-level ${defense.rejected ? 'vuln-rule' : 'vuln-high'}">${defense.rejected ? '防御成功' : '被穿透'}</span> [${v.strategy}] ${v.instruction}<br>评分: ${defense.score} · ${defense.reason}</div>`;
+  });
+  wrap.innerHTML = html;
+}
+
+async function runFiveElement(){
+  const text = document.getElementById('fiveText').value.trim();
+  if(!text){ toast('请输入待审计文本'); return; }
+  setLoading('fiveLoading', true);
+  const r = await api('/five-element', {text});
+  setLoading('fiveLoading', false);
+  const wrap = document.getElementById('fiveResult');
+  if(!r.ok){ wrap.innerHTML = `<div class="result-panel status-red">错误: ${r.data.error || r.data}</div>`; return; }
+  const d = r.data;
+  const cls = d.overall_score >= 80 ? 'green' : (d.overall_score >= 60 ? 'yellow' : 'red');
+  let html = `
+    <div class="score-box">
+      <div class="score-value ${cls}">${d.color} ${d.overall_score}</div>
+      <div class="score-detail">五行平衡 ${d.balance} · 数字根 ${d.fixed_point.digital_root}(${d.fixed_point.element})</div>
+    </div>
+  `;
+  html += `<div class="section-title">🔢 数字根与不动点</div>`;
+  html += `<div class="result-panel">数字根: ${d.fixed_point.digital_root} (${d.fixed_point.element})\n三六九不动点: ${d.fixed_point.is_369 ? '是' : '否'}\n全局不动点(9): ${d.fixed_point.is_global_fixed ? '是' : '否'}\n二周期轨道(3↔6): ${d.fixed_point.is_cycle ? '是' : '否'}</div>`;
+  html += `<div class="section-title">🌊 五行五维评分</div>`;
+  for(const [k,v] of Object.entries(d.dimension_scores)){
+    html += `<div class="vuln-item"><span class="vuln-level vuln-rule">${k}</span> ${(v*100).toFixed(0)}%</div>`;
+  }
+  html += `<div class="section-title">⚖️ 相生相克</div>`;
+  html += `<div class="result-panel">${d.shengke.relations.join(' · ') || '无明显生克'}\n加成: ${d.shengke.bonus} · 惩罚: ${d.shengke.penalty}</div>`;
+  html += `<div class="section-title">📜 决议</div>`;
+  html += `<div class="result-panel">${d.decision}</div>`;
+  html += `<div class="result-panel" style="margin-top:8px">${d.dna}</div>`;
+  wrap.innerHTML = html;
+}
+
+// 健康检查
+fetch(API_BASE + '/health').then(r => r.ok ? console.log('audit hub ok') : toast('审计中枢未连接')).catch(() => toast('审计中枢未启动'));
+</script>
+</body>
+</html>

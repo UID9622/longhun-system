@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·己丑·需-PERSONA-SOVEREIGNTY-GUARD-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 lh_persona_sovereignty — 龍魂人格主权三禁守卫 v1.0
 禁一·禁Cosplay | 禁二·禁借壳 | 禁三·禁代言

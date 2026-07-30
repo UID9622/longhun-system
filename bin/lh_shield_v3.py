@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_shield_v3-INTEGRATION-SYSTEM
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂护盾 v3.0 — CNSH 中文语法版

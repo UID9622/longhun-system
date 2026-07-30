@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-NAVIGATOR-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-NAVIGATOR-v1.0
 # ☯️ 三色审计：🔴 核心架构 | 🟡 状态控制 | 🟢 数据流
 """
 航标灯导航系统 - 龍魂数字人方向感与定位系统

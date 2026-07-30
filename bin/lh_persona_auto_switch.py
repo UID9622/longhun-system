@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_PERSONA_AUTO_SWITCH-v1.0-bfe0f438
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 人格矩阵自动切换引擎 v2.0 (Persona Auto-Switch Engine)

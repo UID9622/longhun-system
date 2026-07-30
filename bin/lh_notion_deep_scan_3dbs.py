@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_NOTION_DEEP_SCAN_3DBS-v1.0-5e4a5761
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """深度扫描三个指定数据库，提取所有字段和空壳条目"""
 import json, os, subprocess, sys, time
 from pathlib import Path

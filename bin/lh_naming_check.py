@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_NAMING_CHECK-v1.0-395bf5ae
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·命名检查引擎 v1.0
 基于四层命名法(LH-NAMING-ARCH-v2.0)自动检查所有文件命名合规性

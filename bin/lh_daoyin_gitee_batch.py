@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·丙辰·戊子·坎-DAOYIN-GITEE-BRIDGE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂道引器 · Gitee 批量吸收桥接脚本 v1.0

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丙申·戌时·☲离-ANTENNA-TRAINER-v1.0-a1b2c3d4
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 路由知识注入训练器
 # DNA：#龍芯⚡️丙午·乙未·丙申·戌时·☲离-ANTENNA-TRAINER-v1.0-a1b2c3d4
@@ -14,6 +17,9 @@
 #   python3 bin/lh_lora_trainer_antenna.py test    # 冒烟
 # ============================================================
 
+"""🐉 龍魂引擎：lh_lora_trainer_antenna
+路径：bin/lh_lora_trainer_antenna.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import argparse, json, os, sys, time, shutil
 from datetime import datetime
 from pathlib import Path

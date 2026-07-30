@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-28-AUTO-CLOSURE-ENGINE-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 UID9622｜龍芯北辰自动收口协议 — 可执行引擎 v2.0

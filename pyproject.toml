@@ -78,8 +78,8 @@ all = [
 # ═══════════════════════════════════════════════
 
 [project.scripts]
-lh = "bin.longhun_cli:main"
-longhun = "bin.longhun_cli:main"
+lh = "bin.lh_ctl:main"
+longhun = "bin.lh_ctl:main"
 
 [project.gui-scripts]
 longhun-dashboard = "bin.longhun_cli:dashboard"

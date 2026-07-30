@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-RED-TEAM-v1.0-U5V6W7X8
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · 红队对抗引擎 v1.0 (Red Team Adversarial Engine)
 ===========================================================

@@ -1,0 +1,82 @@
+{
+  "_comment": "本地文件分类规则：按路径关键字+扩展名匹配，按数组顺序优先命中。私密/成人内容只按路径隔离，不读取内容。",
+  "source_dirs": [
+    "~/Downloads",
+    "~/Desktop"
+  ],
+  "dest_dir": "~/Desktop/整理后",
+  "mode": "copy",
+  "dry_run": true,
+  "default_category": "其他",
+  "exclude_paths": [
+    ".*/\\..*",
+    ".*/整理后/.*"
+  ],
+  "rules": [
+    {
+      "name": "私人区隔离箱",
+      "keywords": ["私人区", "小快乐", "private", "personal", "me-time", "我的私密"],
+      "exts": []
+    },
+    {
+      "name": "证件与身份",
+      "keywords": ["身份证", "证件", "护照", "驾照", "id_card", "identity"],
+      "exts": []
+    },
+    {
+      "name": "龙魂系统",
+      "keywords": ["龙魂", "longhun", "龍魂", "LH-", "CNSH", "TAO-CHIP", "TONGXIN-LOCK", "VIDEO-PROD", "DATA-RADAR", "COMPUTE-SEPARATION", "YIN-YU-FA", "P0-CONSTITUTION"],
+      "exts": []
+    },
+    {
+      "name": "AI工具与Agent",
+      "keywords": ["Kimi_Agent", "Agent", "CodeBuddy", "ComfyUI", "StableDiffusion", "SD-WebUI", "Fooocus", "InvokeAI", "Ollama", "LMStudio", "GPT", "Claude", "AI绘图", "AI视频", "视频生成", "图片生成"],
+      "exts": []
+    },
+    {
+      "name": "截屏",
+      "keywords": ["截屏", "screenshot", "screen shot", "IMG_"],
+      "exts": [".png", ".jpg", ".jpeg", ".heic", ".webp"]
+    },
+    {
+      "name": "图片素材",
+      "keywords": [],
+      "exts": [".jpg", ".jpeg", ".png", ".heic", ".webp", ".gif", ".tiff", ".tif", ".bmp", ".raw", ".cr2", ".nef", ".svg", ".psd", ".ai", ".eps"]
+    },
+    {
+      "name": "视频素材",
+      "keywords": [],
+      "exts": [".mp4", ".mov", ".mkv", ".avi", ".wmv", ".flv", ".m4v", ".3gp", ".webm"]
+    },
+    {
+      "name": "音频",
+      "keywords": [],
+      "exts": [".mp3", ".aac", ".wav", ".flac", ".m4a", ".ogg", ".m4p"]
+    },
+    {
+      "name": "安装包与压缩包",
+      "keywords": [],
+      "exts": [".dmg", ".pkg", ".zip", ".tar", ".gz", ".tgz", ".bz2", ".7z", ".rar", ".iso"]
+    },
+    {
+      "name": "文档与论文",
+      "keywords": ["论文", "论文", "报告", "report", "白皮书", "协议", "说明书", "文档"],
+      "exts": [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".csv", ".txt", ".rtf"]
+    },
+    {
+      "name": "代码与配置",
+      "keywords": ["script", "config", "backup", "README", "CHANGELOG", "CONTRIBUTING", "SECURITY", "INDEX"],
+      "exts": [".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".yaml", ".yml", ".xml", ".conf", ".ini", ".sh", ".bash", ".zsh", ".html", ".css", ".scss", ".sql"]
+    },
+    {
+      "name": "对话记录",
+      "keywords": ["对话", "chat", "会话", "conversation", "terminal"],
+      "exts": [".md", ".txt", ".jsonl"]
+    },
+    {
+      "name": "其他",
+      "keywords": [],
+      "exts": []
+    }
+  ]
+}

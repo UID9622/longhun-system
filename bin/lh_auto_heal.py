@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_AUTO_HEAL-v1.0-11740bc6
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # 龍芯⚡️丙午·丙申·丙辰·亥时·需-AUTO-HEAL-ENGINE-v1.0
 """
 龍魂自动审计自愈引擎 v1.0

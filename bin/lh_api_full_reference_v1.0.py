@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-02-21-API接口实现-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龙魂系统 API接口完整实现 v1.0

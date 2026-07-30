@@ -1,3 +1,6 @@
+"""🐉 龍魂引擎：lh_existence_proof
+路径：bin/lh_existence_proof.py
+TODO：请补充详细功能说明（不少于20字）。"""
 # 数字存在证明引擎 v1.0 · Digital Existence Proof Engine
 # DNA: #龍芯⚡️丙午·乙未·乙未·子时·☰乾-EXISTENCE-PROOF-ENGINE-v1.0-9d1e2f3a
 # 创建者: 诸葛鑫（UID9622）

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-07-12-OBS-IMMUTABLE-BACKUP-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
@@ -100,6 +103,11 @@ BACKUP_TYPES = {
     "hardware-base": {
         "prefix": "hardware-base/",
         "description": "硬件底座快照",
+        "retention": 36525,  # 100年
+    },
+    "immutable-history": {
+        "prefix": "immutable-history/",
+        "description": "龍魂不可篡改历史账本锚定",
         "retention": 36525,  # 100年
     },
 }

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·SELF-IMPROVE-v2.0-CODE-LANDED
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·自求多福进化引擎 v2.0
 DNA: #龍芯⚡️丙午·乙申·SELF-IMPROVE-v2.0-CODE-LANDED

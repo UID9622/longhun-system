@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-18-CNSH-governance-三色审计器-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-18-CNSH-governance-三色审计器-v1.0
 """
 通心译 | TongXinYi: Tri-Color Auditor (🟢🟡🔴)
 龍魂体系·三色审计器 — 三级状态标记与审计追踪系统

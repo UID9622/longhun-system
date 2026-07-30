@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·MVP-COLONY-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：mvp_ant_colony
+路径：engines/ant_colony/mvp_ant_colony.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 极简MVP蚁群 v1.0 · MinimalViableColony

@@ -1,0 +1,16 @@
+[Unit]
+Description=龍魂纳米视觉引擎 API v4.1.5
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/longhun
+ExecStart=/usr/bin/python3 engines/lh_nano_vision_engine.py serve --port 9625
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/longhun-nano-vision.log
+StandardError=append:/var/log/longhun-nano-vision-error.log
+
+[Install]
+WantedBy=multi-user.target

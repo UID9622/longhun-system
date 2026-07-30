@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·水晶识别知识库 v2.0 · 阻断日志自动入库+智能标签+现实打脸报告
 DNA: #龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0

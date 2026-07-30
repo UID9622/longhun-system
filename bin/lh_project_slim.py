@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙申·己酉·亥时·SLIM-v3.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·项目瘦身引擎 v3.0 — 一枪到底
 DNA: #龍芯⚡️丙午·乙申·己酉·亥时·SLIM-v3.0

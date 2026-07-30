@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·申时·履-11STEP-CHAIN-v1.0-I1J2K3L4
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · 11步执行链引擎 v1.0 (11-Step Execution Chain)
 ========================================================

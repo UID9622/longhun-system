@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：lh_intl_to_train
+路径：bin/lh_intl_to_train.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂·国际数据→train.jsonl格式转换器 v1.0

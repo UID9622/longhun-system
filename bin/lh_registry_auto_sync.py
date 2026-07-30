@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·REGISTRY-AUTO-SYNC-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：lh_registry_auto_sync
+路径：bin/lh_registry_auto_sync.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂·注册表自动同步引擎 v1.0

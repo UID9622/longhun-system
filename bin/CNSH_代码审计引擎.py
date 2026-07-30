@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
+#龍芯⚡️2026-06-29-CNSH-AUDIT-ENGINE-v2-UID9622
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 
+"""🐉 龍魂引擎：CNSH_代码审计引擎
+路径：bin/CNSH_代码审计引擎.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import os as _os
 import sys as _sys
 _module_dir = _os.path.dirname(_os.path.abspath(__file__))

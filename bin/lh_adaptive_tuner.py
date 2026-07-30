@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：lh_adaptive_tuner
+路径：bin/lh_adaptive_tuner.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════╗

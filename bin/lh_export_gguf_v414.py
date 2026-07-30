@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·癸未·丁亥·☲离-EXPORT-GGUF-v4.1.4
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """龍魂 v4.1.4 MLX merged → GGUF 导出器（轻量·无需llama.cpp）
 DNA: #龍芯⚡️丙午·癸未·丁亥·☲离-EXPORT-GGUF-v4.1.4
 用法: python3 bin/lh_export_gguf_v414.py

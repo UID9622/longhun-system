@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_CNSH_COMPILER-v1.0-f5ab724e
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # cnsh-compiler-v2.py
 # 龍魂 · CNSH 全翻译编译器（骨架保留，表皮全换）
 # DNA: ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 # UID: 9622
 
+"""🐉 龍魂引擎：lh_cnsh_compiler
+路径：bin/lh_cnsh_compiler.py
+TODO：请补充详细功能说明（不少于20字）。"""
 import re
 import hashlib
 import time

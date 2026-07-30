@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-MODEL-LORA-TRAINER-v4.1.8-RESUME
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v4.1.8 LoRA 微调器（从v4.1.4 best续训·保守策略）

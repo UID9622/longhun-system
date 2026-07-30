@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-TAIJI-ENGINE-v1.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ☯️ 龍魂太极引擎 v1.0 · LU-Time Engine 本地化实现

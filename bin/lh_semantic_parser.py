@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·SEMANTIC-PARSER-v1.0-INTENT2ACTION
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
+"""🐉 龍魂引擎：lh_semantic_parser
+路径：bin/lh_semantic_parser.py
+TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 🐉 龍魂·语义解析引擎 v1.0 — 文本/OCR/语音转录 → 结构化语义

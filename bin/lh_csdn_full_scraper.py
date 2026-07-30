@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·丙戌·酉·大壮-CSDN-FULL-SCRAPER-v1.6
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·CSDN全量文章抓取与训练数据生成 v1.6
 DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-CSDN-FULL-SCRAPER-v1.6

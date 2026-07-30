@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#龍芯⚡️丙午·辛未·乙酉·辰时·讼-BOUNDARY-TEST-v1.7
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂 v1.7 主权边界回归测试
 DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-BOUNDARY-TEST-v1.7

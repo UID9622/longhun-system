@@ -1,4 +1,7 @@
 #龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.0
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+#龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.0
 """
 通心译 | TongXinYi: LongHun Skill Registry Center
 龍魂体系·技能注册中心 v5.0 — 统一管理14个技能（本地9+云端5）
