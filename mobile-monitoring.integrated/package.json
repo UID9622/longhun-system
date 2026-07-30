@@ -14,7 +14,7 @@
     "axios": "^1.17.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^7.0.2"
   },
   "keywords": [
     "monitoring",
