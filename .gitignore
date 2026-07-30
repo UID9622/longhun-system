@@ -103,6 +103,11 @@ voice-twin/voice_dataset/
 data/usb_index/
 *.db
 
+# --- 支付凭证（敏感信息，绝不入 Git）---
+config/payment_credentials.yaml
+.longhun/certs/*private*
+.longhun/certs/*apiclient*
+
 # --- 境外编辑器暗桩（耻辱柱记录在案）---
 .claude/
 .cursor/
